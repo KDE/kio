@@ -44,7 +44,7 @@ public:
     ~SearchProviderRegistry();
 
     SearchProviderRegistry(const SearchProviderRegistry &) = delete;
-    SearchProviderRegistry& operator=(const SearchProviderRegistry &) = delete;
+    SearchProviderRegistry &operator=(const SearchProviderRegistry &) = delete;
 
     QList<SearchProvider *> findAll();
 

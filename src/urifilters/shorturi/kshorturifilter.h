@@ -29,7 +29,6 @@
 
 #include <kurifilter.h>
 
-
 /**
 * This is short URL filter class.
 *
@@ -49,12 +48,14 @@ public:
      * @param parent the parent of this class.
      * @param name the internal name for this object.
      */
-    explicit KShortUriFilter( QObject *parent = nullptr, const QVariantList &args = QVariantList() );
+    explicit KShortUriFilter(QObject *parent = nullptr, const QVariantList &args = QVariantList());
 
     /**
      * Destructor
      */
-    virtual ~KShortUriFilter() {}
+    virtual ~KShortUriFilter()
+    {
+    }
 
     /**
      * Converts short URIs into fully qualified valid URIs
@@ -67,7 +68,7 @@ public:
      * @param data the data to be filtered
      * @return true if the url has been filtered
      */
-    bool filterUri( KUriFilterData &data ) const override;
+    bool filterUri(KUriFilterData &data) const override;
 
     /**
      * Returns the name of the config module for
@@ -83,7 +84,7 @@ public:
          *
          * @return the config module
          */
-    KCModule* configModule( QWidget*, const char* ) const override;
+    KCModule *configModule(QWidget *, const char *) const override;
 
 public Q_SLOTS:
     void configure();
@@ -92,10 +93,17 @@ private:
 
     struct URLHint
     {
-        URLHint() {}
-        URLHint( const QString &r, const QString &p,
-                 KUriFilterData::UriTypes t = KUriFilterData::NetProtocol )
-               : regexp(QRegExp(r)), prepend(p), type(t) {}
+        URLHint()
+        {
+        }
+
+        URLHint(const QString &r, const QString &p, KUriFilterData::UriTypes t = KUriFilterData::NetProtocol)
+            : regexp(QRegExp(r))
+            , prepend(p)
+            , type(t)
+        {
+        }
+
         QRegExp regexp; // if this matches, then...
         QString prepend; // ...prepend this to the url
         KUriFilterData::UriTypes type;

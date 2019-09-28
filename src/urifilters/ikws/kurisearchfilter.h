@@ -28,10 +28,10 @@ class KUriSearchFilter : public KUriFilterPlugin
 {
     Q_OBJECT
 public:
-    explicit KUriSearchFilter(QObject *parent = nullptr, const QVariantList &args = QVariantList() );
+    explicit KUriSearchFilter(QObject *parent = nullptr, const QVariantList &args = QVariantList());
     ~KUriSearchFilter();
 
-    bool filterUri( KUriFilterData& ) const override;
+    bool filterUri(KUriFilterData &) const override;
     KCModule *configModule(QWidget *parent = nullptr, const char *name = nullptr) const override;
     QString configName() const override;
 

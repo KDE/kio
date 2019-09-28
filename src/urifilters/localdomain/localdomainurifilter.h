@@ -36,14 +36,14 @@ class QEventLoop;
 */
 class LocalDomainUriFilter : public KUriFilterPlugin
 {
-  Q_OBJECT
+    Q_OBJECT
 
-  public:
-    LocalDomainUriFilter( QObject* parent, const QVariantList& args );
-    bool filterUri( KUriFilterData &data ) const override;
+public:
+    LocalDomainUriFilter(QObject *parent, const QVariantList &args);
+    bool filterUri(KUriFilterData &data) const override;
 
-  private:
-    bool exists(const QString&) const;
+private:
+    bool exists(const QString &) const;
 
     QRegExp m_hostPortPattern;
 };

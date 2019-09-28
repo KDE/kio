@@ -31,50 +31,47 @@
 #include "searchproviderregistry.h"
 
 #define DEFAULT_PREFERRED_SEARCH_PROVIDERS \
-QStringList() << QStringLiteral("google") << QStringLiteral("youtube") << QStringLiteral("yahoo") << QStringLiteral("wikipedia") << QStringLiteral("wikit")
+    QStringList() << QStringLiteral("google") << QStringLiteral("youtube") << QStringLiteral("yahoo") << QStringLiteral("wikipedia") << QStringLiteral("wikit")
 
 class SearchProvider;
 
 class KURISearchFilterEngine
 {
 public:
-  typedef QMap <QString, QString> SubstMap;
+    typedef QMap <QString, QString> SubstMap;
 
-  KURISearchFilterEngine();
-  ~KURISearchFilterEngine();
+    KURISearchFilterEngine();
+    ~KURISearchFilterEngine();
 
-  QByteArray name() const;
-  char keywordDelimiter() const;
-  QString defaultSearchEngine() const;
-  QStringList favoriteEngineList() const;
-  SearchProvider* webShortcutQuery (const QString& typedString, QString& searchTerm) const;
-  SearchProvider* autoWebSearchQuery (const QString& typedString, const QString& defaultShortcut = QString()) const;
-  QUrl formatResult (const QString& url, const QString& cset1, const QString& cset2,
-                        const QString& query, bool isMalformed) const;
+    QByteArray name() const;
+    char keywordDelimiter() const;
+    QString defaultSearchEngine() const;
+    QStringList favoriteEngineList() const;
+    SearchProvider *webShortcutQuery(const QString &typedString, QString &searchTerm) const;
+    SearchProvider *autoWebSearchQuery(const QString &typedString, const QString &defaultShortcut = QString()) const;
+    QUrl formatResult(const QString &url, const QString &cset1, const QString &cset2, const QString &query, bool isMalformed) const;
 
-  SearchProviderRegistry *registry();
+    SearchProviderRegistry *registry();
 
-  static KURISearchFilterEngine *self();
-  void loadConfig();
-  
+    static KURISearchFilterEngine *self();
+    void loadConfig();
+
 protected:
-  QUrl formatResult (const QString& url, const QString& cset1, const QString& cset2,
-                        const QString& query, bool isMalformed, SubstMap& map) const;
+    QUrl formatResult(const QString &url, const QString &cset1, const QString &cset2, const QString &query, bool isMalformed, SubstMap &map) const;
 
 private:
-  KURISearchFilterEngine(const KURISearchFilterEngine&) = delete;
-  KURISearchFilterEngine& operator= (const KURISearchFilterEngine&) = delete;
-  
-  QStringList modifySubstitutionMap (SubstMap& map, const QString& query) const;
-  QString substituteQuery (const QString& url, SubstMap &map,
-                           const QString& userquery, QTextCodec *codec) const;
+    KURISearchFilterEngine(const KURISearchFilterEngine &) = delete;
+    KURISearchFilterEngine &operator=(const KURISearchFilterEngine &) = delete;
 
-  SearchProviderRegistry m_registry;
-  QString m_defaultWebShortcut;
-  QStringList m_preferredWebShortcuts;
-  bool m_bWebShortcutsEnabled;
-  bool m_bUseOnlyPreferredWebShortcuts;
-  char m_cKeywordDelimiter;
+    QStringList modifySubstitutionMap(SubstMap &map, const QString &query) const;
+    QString substituteQuery(const QString &url, SubstMap &map, const QString &userquery, QTextCodec *codec) const;
+
+    SearchProviderRegistry m_registry;
+    QString m_defaultWebShortcut;
+    QStringList m_preferredWebShortcuts;
+    bool m_bWebShortcutsEnabled;
+    bool m_bUseOnlyPreferredWebShortcuts;
+    char m_cKeywordDelimiter;
 };
 
 #endif // KURIIKWSFILTERENG_H

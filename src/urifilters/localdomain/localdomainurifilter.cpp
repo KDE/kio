@@ -40,32 +40,32 @@ QLoggingCategory category("org.kde.kurifilter-localdomain", QtWarningMsg);
  * IMPORTANT: If you change anything here, make sure you run the kurifiltertest
  * regression test (this should be included as part of "make test").
  */
-LocalDomainUriFilter::LocalDomainUriFilter( QObject *parent, const QVariantList & /*args*/ )
-                     :KUriFilterPlugin( QStringLiteral("localdomainurifilter"), parent ),
-                      m_hostPortPattern(QL1S(HOSTPORT_PATTERN))
+LocalDomainUriFilter::LocalDomainUriFilter(QObject *parent, const QVariantList & /*args*/)
+    : KUriFilterPlugin(QStringLiteral("localdomainurifilter"), parent)
+    , m_hostPortPattern(QL1S(HOSTPORT_PATTERN))
 {
 }
 
-bool LocalDomainUriFilter::filterUri(KUriFilterData& data) const
+bool LocalDomainUriFilter::filterUri(KUriFilterData &data) const
 {
     const QUrl url = data.uri();
     const QString protocol = url.scheme();
 
     // When checking for local domain just validate it is indeed a local domain,
     // but do not modify the hostname! See bug#
-    if ((protocol.isEmpty() || !KProtocolInfo::isKnownProtocol(protocol))  &&
-        m_hostPortPattern.exactMatch(data.typedString())) {
-
-        QString host (data.typedString().left(data.typedString().indexOf(QL1C('/'))));
+    if ((protocol.isEmpty() || !KProtocolInfo::isKnownProtocol(protocol))
+        && m_hostPortPattern.exactMatch(data.typedString())) {
+        QString host(data.typedString().left(data.typedString().indexOf(QL1C('/'))));
         const int pos = host.indexOf(QL1C(':'));
-        if (pos > -1)
+        if (pos > -1) {
             host.truncate(pos); // Remove port number
-
+        }
         if (exists(host)) {
             qCDebug(category) << "QHostInfo found a host called" << host;
-            QString scheme (data.defaultUrlScheme());
-            if (scheme.isEmpty())
+            QString scheme(data.defaultUrlScheme());
+            if (scheme.isEmpty()) {
                 scheme = QStringLiteral("http://");
+            }
             setFilteredUri(data, QUrl(scheme + data.typedString()));
             setUriType(data, KUriFilterData::NetProtocol);
             return true;
@@ -75,13 +75,12 @@ bool LocalDomainUriFilter::filterUri(KUriFilterData& data) const
     return false;
 }
 
-bool LocalDomainUriFilter::exists(const QString& host) const
+bool LocalDomainUriFilter::exists(const QString &host) const
 {
     qCDebug(category) << "Checking if a host called" << host << "exists";
-    QHostInfo hostInfo = resolveName (host, 1500);
-    return (hostInfo.error() == QHostInfo::NoError);
+    QHostInfo hostInfo = resolveName(host, 1500);
+    return hostInfo.error() == QHostInfo::NoError;
 }
-
 
 K_PLUGIN_CLASS_WITH_JSON(LocalDomainUriFilter, "localdomainurifilter.json")
 

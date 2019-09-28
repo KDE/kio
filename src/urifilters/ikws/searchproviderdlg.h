@@ -16,7 +16,6 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-
 #ifndef SEARCHPROVIDERDLG_H
 #define SEARCHPROVIDERDLG_H
 
@@ -32,23 +31,26 @@ class SearchProviderDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit SearchProviderDialog(SearchProvider *provider, QList<SearchProvider*> &providers, QWidget *parent = nullptr);
+    explicit SearchProviderDialog(SearchProvider *provider, QList<SearchProvider *> &providers, QWidget *parent = nullptr);
 
-    SearchProvider *provider() { return m_provider; }
+    SearchProvider *provider()
+    {
+        return m_provider;
+    }
 
 public Q_SLOTS:
     void accept() override;
 
 protected Q_SLOTS:
     void slotChanged();
-    void shortcutsChanged(const QString& newShorthands);
+    void shortcutsChanged(const QString &newShorthands);
     void pastePlaceholder();
 
 private:
     SearchProvider *m_provider;
-    QList<SearchProvider*> m_providers; // The list of all search providers, used for checking for already assigned shortcuts.
+    QList<SearchProvider *> m_providers; // The list of all search providers, used for checking for already assigned shortcuts.
     Ui::SearchProviderDlgUI m_dlg;
-    QDialogButtonBox* m_buttons;
+    QDialogButtonBox *m_buttons;
 };
 
 #endif

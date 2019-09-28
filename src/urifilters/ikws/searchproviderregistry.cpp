@@ -38,8 +38,9 @@ SearchProviderRegistry::~SearchProviderRegistry()
 QStringList SearchProviderRegistry::directories() const
 {
     const QString testDir = QFile::decodeName(qgetenv("KIO_SEARCHPROVIDERS_DIR")); // for unittests
-    if (!testDir.isEmpty())
+    if (!testDir.isEmpty()) {
         return { testDir };
+    }
     return QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("kservices5/searchproviders/"), QStandardPaths::LocateDirectory);
 }
 
@@ -74,12 +75,12 @@ QList<SearchProvider *> SearchProviderRegistry::findAll()
     return m_searchProviders;
 }
 
-SearchProvider* SearchProviderRegistry::findByKey(const QString& key) const
+SearchProvider *SearchProviderRegistry::findByKey(const QString &key) const
 {
     return m_searchProvidersByKey.value(key);
 }
 
-SearchProvider* SearchProviderRegistry::findByDesktopName(const QString &name) const
+SearchProvider *SearchProviderRegistry::findByDesktopName(const QString &name) const
 {
     return m_searchProvidersByDesktopName.value(name + QLatin1String(".desktop"));
 }

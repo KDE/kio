@@ -37,20 +37,19 @@ class FilterOptions : public KCModule
     Q_OBJECT
 
 public:
-    explicit FilterOptions(const KAboutData* about, QWidget *parent = nullptr);
+    explicit FilterOptions(const KAboutData *about, QWidget *parent = nullptr);
 
     void load() override;
     void save() override;
     void defaults() override;
     QString quickHelp() const override;
 
-
 private Q_SLOTS:
     void updateSearchProviderEditingButons();
     void addSearchProvider();
     void changeSearchProvider();
     void deleteSearchProvider();
-    
+
 private:
     void setDelimiter(char);
     char delimiter();
@@ -60,7 +59,7 @@ private:
     // these are marked as deleted in the user's homedirectory
     // on save if a global service file exists for it.
     QStringList m_deletedProviders;
-    ProvidersModel* m_providersModel;
+    ProvidersModel *m_providersModel;
     SearchProviderRegistry m_registry;
 
     Ui::FilterOptionsUI m_dlg;

@@ -16,7 +16,6 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-
 #ifndef SEARCHPROVIDER_H
 #define SEARCHPROVIDER_H
 
@@ -25,18 +24,32 @@
 class SearchProvider : public KUriFilterSearchProvider
 {
 public:
-    SearchProvider() : m_dirty(false) {}
+    SearchProvider() : m_dirty(false)
+    {
+    }
+
     explicit SearchProvider(const QString &servicePath);
     ~SearchProvider();
 
-    const QString& charset() const { return m_charset; }
-    const QString& query() const { return m_query; }
-    bool isDirty() const { return m_dirty; }
+    const QString &charset() const
+    {
+        return m_charset;
+    }
 
-    void setName(const QString&);
-    void setQuery(const QString&);
-    void setKeys(const QStringList&);
-    void setCharset(const QString&);
+    const QString &query() const
+    {
+        return m_query;
+    }
+
+    bool isDirty() const
+    {
+        return m_dirty;
+    }
+
+    void setName(const QString &);
+    void setQuery(const QString &);
+    void setKeys(const QStringList &);
+    void setCharset(const QString &);
     void setDirty(bool dirty);
 
     QString iconName() const override;

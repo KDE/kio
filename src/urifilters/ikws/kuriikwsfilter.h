@@ -29,15 +29,15 @@ class KAutoWebSearch : public KUriFilterPlugin
 {
     Q_OBJECT
 public:
-    explicit KAutoWebSearch(QObject *parent = nullptr, const QVariantList &args = QVariantList() );
+    explicit KAutoWebSearch(QObject *parent = nullptr, const QVariantList &args = QVariantList());
     ~KAutoWebSearch();
-    bool filterUri( KUriFilterData& ) const override;
+    bool filterUri(KUriFilterData &) const override;
 
 public Q_SLOTS:
     void configure();
 
 private:
-    void populateProvidersList(QList<KUriFilterSearchProvider*>& searchProviders, const KUriFilterData&, bool allproviders = false) const;
+    void populateProvidersList(QList<KUriFilterSearchProvider *> &searchProviders, const KUriFilterData &, bool allproviders = false) const;
 };
 
 #endif

@@ -34,25 +34,25 @@
  */
 
 FixHostUriFilter::FixHostUriFilter(QObject *parent, const QVariantList & /*args*/)
-                 :KUriFilterPlugin(QStringLiteral("fixhosturifilter"), parent)
+    : KUriFilterPlugin(QStringLiteral("fixhosturifilter"), parent)
 {
 }
 
-static bool isHttpUrl(const QString& scheme)
+static bool isHttpUrl(const QString &scheme)
 {
-    return (scheme.compare(QL1S("http"), Qt::CaseInsensitive) == 0 ||
-            scheme.compare(QL1S("https"), Qt::CaseInsensitive) == 0 ||
-            scheme.compare(QL1S("webdav"), Qt::CaseInsensitive) == 0 ||
-            scheme.compare(QL1S("webdavs"), Qt::CaseInsensitive) == 0);
+    return scheme.compare(QL1S("http"), Qt::CaseInsensitive) == 0
+           || scheme.compare(QL1S("https"), Qt::CaseInsensitive) == 0
+           || scheme.compare(QL1S("webdav"), Qt::CaseInsensitive) == 0
+           || scheme.compare(QL1S("webdavs"), Qt::CaseInsensitive) == 0;
 }
 
-static bool hasCandidateHostName(const QString& host)
+static bool hasCandidateHostName(const QString &host)
 {
-    return (host.contains(QL1C('.')) &&
-            !host.startsWith(QL1S("www."), Qt::CaseInsensitive));
+    return host.contains(QL1C('.'))
+           && !host.startsWith(QL1S("www."), Qt::CaseInsensitive);
 }
 
-bool FixHostUriFilter::filterUri( KUriFilterData& data ) const
+bool FixHostUriFilter::filterUri(KUriFilterData &data) const
 {
     QUrl url = data.uri();
 
@@ -76,18 +76,18 @@ bool FixHostUriFilter::filterUri( KUriFilterData& data ) const
     return false;
 }
 
-bool FixHostUriFilter::isResolvable(const QString& host) const
+bool FixHostUriFilter::isResolvable(const QString &host) const
 {
     // Unlike exists, this function returns true if the lookup timeout out.
     QHostInfo info = resolveName(host, 1500);
-    return (info.error() == QHostInfo::NoError ||
-            info.error() == QHostInfo::UnknownError);
+    return info.error() == QHostInfo::NoError
+           || info.error() == QHostInfo::UnknownError;
 }
 
-bool FixHostUriFilter::exists(const QString& host) const
+bool FixHostUriFilter::exists(const QString &host) const
 {
     QHostInfo info = resolveName(host, 1500);
-    return (info.error() == QHostInfo::NoError);
+    return info.error() == QHostInfo::NoError;
 }
 
 K_PLUGIN_CLASS_WITH_JSON(FixHostUriFilter, "fixhosturifilter.json")

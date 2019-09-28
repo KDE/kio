@@ -34,12 +34,12 @@ class FixHostUriFilter : public KUriFilterPlugin
     Q_OBJECT
 
 public:
-    FixHostUriFilter(QObject* parent, const QVariantList& args);
+    FixHostUriFilter(QObject *parent, const QVariantList &args);
     bool filterUri(KUriFilterData &data) const override;
 
 private:
-    bool exists(const QString& host) const;
-    bool isResolvable(const QString& host) const;
+    bool exists(const QString &host) const;
+    bool isResolvable(const QString &host) const;
 };
 
 #endif

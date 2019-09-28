@@ -27,7 +27,7 @@
 #include <KConfigGroup>
 
 SearchProvider::SearchProvider(const QString &servicePath)
-               : m_dirty(false)
+    : m_dirty(false)
 {
     setDesktopEntryName(QFileInfo(servicePath).baseName());
     KDesktopFile parser(servicePath);
@@ -46,73 +46,77 @@ SearchProvider::~SearchProvider()
 
 void SearchProvider::setName(const QString &name)
 {
-    if (KUriFilterSearchProvider::name() == name)
+    if (KUriFilterSearchProvider::name() == name) {
         return;
+    }
 
     KUriFilterSearchProvider::setName(name);
 }
 
 void SearchProvider::setQuery(const QString &query)
 {
-    if (m_query == query)
+    if (m_query == query) {
         return;
+    }
 
     m_query = query;
 }
 
 void SearchProvider::setKeys(const QStringList &keys)
 {
-  if (KUriFilterSearchProvider::keys() == keys)
+    if (KUriFilterSearchProvider::keys() == keys) {
         return;
-
-  KUriFilterSearchProvider::setKeys(keys);
-
-  QString name = desktopEntryName();
-  if (!name.isEmpty())
-      return;
-
-  // New provider. Set the desktopEntryName.
-  // Take the longest search shortcut as filename,
-  // if such a file already exists, append a number and increase it
-  // until the name is unique
-  for (const QString& key : keys)
-  {
-    if (key.length() > name.length())
-      name = key.toLower();
-  }
-
-  const QString path = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/kservices5/searchproviders/");
-  bool firstRun = true;
-
-  while (true)
-  {
-    QString check(name);
-
-    if (!firstRun)
-      check += KRandom::randomString(4);
-
-    const QString located = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("kservices5/searchproviders/") + check + QLatin1String(".desktop"));
-    if (located.isEmpty())
-    {
-      name = check;
-      break;
     }
-    else if (located.startsWith(path))
-    {
-      // If it's a deleted (hidden) entry, overwrite it
-      if (KService(located).isDeleted())
-        break;
-    }
-    firstRun = false;
-  }
 
-  setDesktopEntryName(name);
+    KUriFilterSearchProvider::setKeys(keys);
+
+    QString name = desktopEntryName();
+    if (!name.isEmpty()) {
+        return;
+    }
+
+    // New provider. Set the desktopEntryName.
+    // Take the longest search shortcut as filename,
+    // if such a file already exists, append a number and increase it
+    // until the name is unique
+    for (const QString &key : keys) {
+        if (key.length() > name.length()) {
+            name = key.toLower();
+        }
+    }
+
+    const QString path = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/kservices5/searchproviders/");
+    bool firstRun = true;
+
+    while (true)
+    {
+        QString check(name);
+
+        if (!firstRun) {
+            check += KRandom::randomString(4);
+        }
+
+        const QString located = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("kservices5/searchproviders/") + check + QLatin1String(".desktop"));
+        if (located.isEmpty()) {
+            name = check;
+            break;
+        } else if (located.startsWith(path)) {
+            // If it's a deleted (hidden) entry, overwrite it
+            if (KService(located).isDeleted()) {
+                break;
+            }
+        }
+        firstRun = false;
+    }
+
+    setDesktopEntryName(name);
 }
 
 void SearchProvider::setCharset(const QString &charset)
 {
-    if (m_charset == charset)
+    if (m_charset == charset) {
         return;
+    }
 
     m_charset = charset;
 }

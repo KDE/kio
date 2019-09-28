@@ -35,419 +35,423 @@
 #include <QFile>
 #include <QSortFilterProxyModel>
 
-
-
 //BEGIN ProvidersModel
 
 ProvidersModel::~ProvidersModel()
 {
-
 }
 
-QVariant ProvidersModel::headerData(int section, Qt::Orientation orientation, int role ) const
+QVariant ProvidersModel::headerData(int section, Qt::Orientation orientation, int role) const
 {
-  Q_UNUSED(orientation);
-  if (role == Qt::DisplayRole)
-  {
-    switch (section) {
-    case Name:
-      return i18nc("@title:column Name label from web shortcuts column", "Name");
-    case Shortcuts:
-      return i18nc("@title:column", "Shortcuts");
-    case Preferred:
-      return i18nc("@title:column", "Preferred");
-    default:
-      break;
+    Q_UNUSED(orientation);
+    if (role == Qt::DisplayRole) {
+        switch (section) {
+        case Name:
+            return i18nc("@title:column Name label from web shortcuts column", "Name");
+        case Shortcuts:
+            return i18nc("@title:column", "Shortcuts");
+        case Preferred:
+            return i18nc("@title:column", "Preferred");
+        default:
+            break;
+        }
     }
-  }
-  return QVariant();
+    return QVariant();
 }
 
-Qt::ItemFlags ProvidersModel::flags(const QModelIndex& index) const
+Qt::ItemFlags ProvidersModel::flags(const QModelIndex &index) const
 {
-  if (!index.isValid())
-    return Qt::ItemIsEnabled;
-  if (index.column()==Preferred)
-    return Qt::ItemIsEnabled | Qt::ItemIsSelectable | Qt::ItemIsUserCheckable;
-  return Qt::ItemIsEnabled | Qt::ItemIsSelectable;
+    if (!index.isValid()) {
+        return Qt::ItemIsEnabled;
+    }
+    if (index.column() == Preferred) {
+        return Qt::ItemIsEnabled | Qt::ItemIsSelectable | Qt::ItemIsUserCheckable;
+    }
+    return Qt::ItemIsEnabled | Qt::ItemIsSelectable;
 }
 
-bool ProvidersModel::setData (const QModelIndex& index, const QVariant& value, int role)
+bool ProvidersModel::setData(const QModelIndex &index, const QVariant &value, int role)
 {
-  if (role==Qt::CheckStateRole)
-  {
-    if (value.toInt() == Qt::Checked)
-        m_favoriteEngines.insert(m_providers.at(index.row())->desktopEntryName());
-    else
-        m_favoriteEngines.remove(m_providers.at(index.row())->desktopEntryName());
+    if (role == Qt::CheckStateRole) {
+        if (value.toInt() == Qt::Checked) {
+            m_favoriteEngines.insert(m_providers.at(index.row())->desktopEntryName());
+        } else {
+            m_favoriteEngines.remove(m_providers.at(index.row())->desktopEntryName());
+        }
+        emit dataModified();
+        return true;
+    }
+    return false;
+}
+
+QVariant ProvidersModel::data(const QModelIndex &index, int role) const
+{
+    if (index.isValid()) {
+        if (role == Qt::CheckStateRole && index.column() == Preferred) {
+            return m_favoriteEngines.contains(m_providers.at(index.row())->desktopEntryName()) ? Qt::Checked : Qt::Unchecked;
+        }
+
+        if (role == Qt::DisplayRole) {
+            if (index.column() == Name) {
+                return m_providers.at(index.row())->name();
+            }
+            if (index.column() == Shortcuts) {
+                return m_providers.at(index.row())->keys().join(QLatin1Char(','));
+            }
+        }
+
+        if (role == Qt::ToolTipRole || role == Qt::WhatsThisRole) {
+            if (index.column() == Preferred) {
+                return xi18nc("@info:tooltip", "Check this box to select the highlighted web shortcut "
+                                               "as preferred.<nl/>Preferred web shortcuts are used in "
+                                               "places where only a few select shortcuts can be shown "
+                                               "at one time.");
+            }
+        }
+
+        if (role == Qt::UserRole) {
+            return index.row();//a nice way to bypass proxymodel
+        }
+    }
+
+    return QVariant();
+}
+
+void ProvidersModel::setProviders(const QList<SearchProvider *> &providers, const QStringList &favoriteEngines)
+{
+    m_providers = providers;
+    setFavoriteProviders(favoriteEngines);
+}
+
+void ProvidersModel::setFavoriteProviders(const QStringList &favoriteEngines)
+{
+    beginResetModel();
+    m_favoriteEngines = QSet<QString>::fromList(favoriteEngines);
+    endResetModel();
+}
+
+int ProvidersModel::rowCount(const QModelIndex &parent) const
+{
+    if (parent.isValid()) {
+        return 0;
+    }
+    return m_providers.size();
+}
+
+QAbstractListModel *ProvidersModel::createListModel()
+{
+    ProvidersListModel *pListModel = new ProvidersListModel(m_providers, this);
+    connect(this, &QAbstractItemModel::modelAboutToBeReset, pListModel, &QAbstractItemModel::modelAboutToBeReset);
+    connect(this, &QAbstractItemModel::modelReset, pListModel, &QAbstractItemModel::modelReset);
+    // TODO: next two are private signals, does this still work? and is this needed?
+    connect(this, SIGNAL(layoutAboutToBeChanged()), pListModel, SIGNAL(modelReset()));
+    connect(this, SIGNAL(layoutChanged()), pListModel, SIGNAL(modelReset()));
+    connect(this, &QAbstractItemModel::dataChanged, pListModel, &ProvidersListModel::emitDataChanged);
+    connect(this, &QAbstractItemModel::rowsAboutToBeInserted, pListModel, &ProvidersListModel::emitRowsAboutToBeInserted);
+    connect(this, &QAbstractItemModel::rowsAboutToBeRemoved, pListModel, &ProvidersListModel::emitRowsAboutToBeRemoved);
+    connect(this, &QAbstractItemModel::rowsInserted, pListModel, &ProvidersListModel::emitRowsInserted);
+    connect(this, &QAbstractItemModel::rowsRemoved, pListModel, &ProvidersListModel::emitRowsRemoved);
+
+    return pListModel;
+}
+
+void ProvidersModel::deleteProvider(SearchProvider *p)
+{
+    const int row = m_providers.indexOf(p);
+    beginRemoveRows(QModelIndex(), row, row);
+    m_favoriteEngines.remove(m_providers.takeAt(row)->desktopEntryName());
+    endRemoveRows();
+    delete p;
     emit dataModified();
-    return true;
-  }
-  return false;
 }
 
-QVariant ProvidersModel::data(const QModelIndex& index, int role) const
+void ProvidersModel::addProvider(SearchProvider *p)
 {
-  if (index.isValid())
-  {
-    if (role == Qt::CheckStateRole && index.column()==Preferred)
-      return (m_favoriteEngines.contains(m_providers.at(index.row())->desktopEntryName()) ? Qt::Checked : Qt::Unchecked);
-
-    if (role == Qt::DisplayRole)
-    {
-      if (index.column()==Name)
-        return m_providers.at(index.row())->name();
-      if (index.column()==Shortcuts)
-        return m_providers.at(index.row())->keys().join(QLatin1Char(','));
-    }
-
-    if (role == Qt::ToolTipRole || role == Qt::WhatsThisRole)
-    {
-      if (index.column() == Preferred)
-        return xi18nc("@info:tooltip", "Check this box to select the highlighted web shortcut "
-                    "as preferred.<nl/>Preferred web shortcuts are used in "
-                    "places where only a few select shortcuts can be shown "
-                    "at one time.");
-    }
-
-    if (role == Qt::UserRole)
-      return index.row();//a nice way to bypass proxymodel
-  }
-
-  return QVariant();
+    beginInsertRows(QModelIndex(), m_providers.size(), m_providers.size());
+    m_providers.append(p);
+    endInsertRows();
+    emit dataModified();
 }
 
-void ProvidersModel::setProviders(const QList<SearchProvider*>& providers, const QStringList& favoriteEngines)
+void ProvidersModel::changeProvider(SearchProvider *p)
 {
-  m_providers = providers;
-  setFavoriteProviders(favoriteEngines);
-}
-
-void ProvidersModel::setFavoriteProviders(const QStringList& favoriteEngines)
-{
-  beginResetModel();
-  m_favoriteEngines = QSet<QString>::fromList(favoriteEngines);
-  endResetModel();
-}
-
-int ProvidersModel::rowCount(const QModelIndex & parent) const
-{
-  if (parent.isValid())
-    return 0;
-  return m_providers.size();
-}
-
-QAbstractListModel* ProvidersModel::createListModel()
-{
-  ProvidersListModel* pListModel = new ProvidersListModel(m_providers, this);
-  connect(this, &QAbstractItemModel::modelAboutToBeReset,   pListModel, &QAbstractItemModel::modelAboutToBeReset);
-  connect(this, &QAbstractItemModel::modelReset,            pListModel, &QAbstractItemModel::modelReset);
-  // TODO: next two are private signals, does this still work? and is this needed?
-  connect(this, SIGNAL(layoutAboutToBeChanged()),     pListModel, SIGNAL(modelReset()));
-  connect(this, SIGNAL(layoutChanged()),              pListModel, SIGNAL(modelReset()));
-  connect(this, &QAbstractItemModel::dataChanged,           pListModel, &ProvidersListModel::emitDataChanged);
-  connect(this, &QAbstractItemModel::rowsAboutToBeInserted, pListModel, &ProvidersListModel::emitRowsAboutToBeInserted);
-  connect(this, &QAbstractItemModel::rowsAboutToBeRemoved,  pListModel, &ProvidersListModel::emitRowsAboutToBeRemoved);
-  connect(this, &QAbstractItemModel::rowsInserted,          pListModel, &ProvidersListModel::emitRowsInserted);
-  connect(this, &QAbstractItemModel::rowsRemoved,           pListModel, &ProvidersListModel::emitRowsRemoved);
-
-  return pListModel;
-}
-
-void ProvidersModel::deleteProvider(SearchProvider* p)
-{
-  const int row = m_providers.indexOf(p);
-  beginRemoveRows(QModelIndex(), row, row);
-  m_favoriteEngines.remove(m_providers.takeAt(row)->desktopEntryName());
-  endRemoveRows();
-  delete p;
-  emit dataModified();
-}
-
-void ProvidersModel::addProvider(SearchProvider* p)
-{
-  beginInsertRows(QModelIndex(), m_providers.size(), m_providers.size());
-  m_providers.append(p);
-  endInsertRows();
-  emit dataModified();
-}
-
-void ProvidersModel::changeProvider(SearchProvider* p)
-{
-  const int row = m_providers.indexOf(p);
-  emit dataChanged(index(row,0),index(row,ColumnCount-1));
-  emit dataModified();
+    const int row = m_providers.indexOf(p);
+    emit dataChanged(index(row, 0), index(row, ColumnCount-1));
+    emit dataModified();
 }
 
 QStringList ProvidersModel::favoriteEngines() const
 {
-  return m_favoriteEngines.toList();
+    return m_favoriteEngines.toList();
 }
+
 //END ProvidersModel
 
 //BEGIN ProvidersListModel
-ProvidersListModel::ProvidersListModel(QList<SearchProvider*>& providers,  QObject* parent)
+ProvidersListModel::ProvidersListModel(QList<SearchProvider *> &providers, QObject *parent)
     : QAbstractListModel(parent)
     , m_providers(providers)
-{}
-
-QVariant ProvidersListModel::data(const QModelIndex& index, int role) const
 {
-  if (index.isValid())
-  {
-    if (role==Qt::DisplayRole)
-    {
-      if (index.row() == m_providers.size())
-        return i18nc("@item:inlistbox No default web shortcut", "None");
-      return m_providers.at(index.row())->name();
-    }
-
-    if (role==ShortNameRole)
-    {
-      if (index.row() == m_providers.size())
-        return QString();
-      return m_providers.at(index.row())->desktopEntryName();
-    }
-  }
-  return QVariant();
 }
 
-int ProvidersListModel::rowCount (const QModelIndex& parent) const
+QVariant ProvidersListModel::data(const QModelIndex &index, int role) const
 {
-  if (parent.isValid())
-    return 0;
-  return m_providers.size() + 1;
+    if (index.isValid()) {
+        if (role == Qt::DisplayRole) {
+            if (index.row() == m_providers.size()) {
+                return i18nc("@item:inlistbox No default web shortcut", "None");
+            }
+            return m_providers.at(index.row())->name();
+        }
+
+        if (role == ShortNameRole) {
+            if (index.row() == m_providers.size()) {
+                return QString();
+            }
+            return m_providers.at(index.row())->desktopEntryName();
+        }
+    }
+    return QVariant();
 }
+
+int ProvidersListModel::rowCount(const QModelIndex &parent) const
+{
+    if (parent.isValid()) {
+        return 0;
+    }
+    return m_providers.size() + 1;
+}
+
 //END ProvidersListModel
 
-static QSortFilterProxyModel* wrapInProxyModel(QAbstractItemModel* model)
+static QSortFilterProxyModel *wrapInProxyModel(QAbstractItemModel *model)
 {
-  QSortFilterProxyModel* proxyModel = new QSortFilterProxyModel(model);
-  proxyModel->setSourceModel(model);
-  proxyModel->setDynamicSortFilter(true);
-  proxyModel->setSortCaseSensitivity(Qt::CaseInsensitive);
-  proxyModel->setFilterCaseSensitivity(Qt::CaseInsensitive);
-  proxyModel->setFilterKeyColumn(-1);
-  return proxyModel;
+    QSortFilterProxyModel *proxyModel = new QSortFilterProxyModel(model);
+    proxyModel->setSourceModel(model);
+    proxyModel->setDynamicSortFilter(true);
+    proxyModel->setSortCaseSensitivity(Qt::CaseInsensitive);
+    proxyModel->setFilterCaseSensitivity(Qt::CaseInsensitive);
+    proxyModel->setFilterKeyColumn(-1);
+    return proxyModel;
 }
 
-FilterOptions::FilterOptions(const KAboutData* about, QWidget *parent)
-              : KCModule(about, parent),
-                m_providersModel(new ProvidersModel(this))
+FilterOptions::FilterOptions(const KAboutData *about, QWidget *parent)
+    : KCModule(about, parent)
+    , m_providersModel(new ProvidersModel(this))
 {
-  m_dlg.setupUi(this);
+    m_dlg.setupUi(this);
 
-  QSortFilterProxyModel* searchProviderModel = wrapInProxyModel(m_providersModel);
-  m_dlg.lvSearchProviders->setModel(searchProviderModel);
-  m_dlg.cmbDefaultEngine->setModel(wrapInProxyModel(m_providersModel->createListModel()));
+    QSortFilterProxyModel *searchProviderModel = wrapInProxyModel(m_providersModel);
+    m_dlg.lvSearchProviders->setModel(searchProviderModel);
+    m_dlg.cmbDefaultEngine->setModel(wrapInProxyModel(m_providersModel->createListModel()));
 
-  // Connect all the signals/slots...
-  connect(m_dlg.cbEnableShortcuts,  &QAbstractButton::toggled, this, QOverload<>::of(&FilterOptions::changed));
-  connect(m_dlg.cbEnableShortcuts, &QAbstractButton::toggled, this, &FilterOptions::updateSearchProviderEditingButons);
-  connect(m_dlg.cbUseSelectedShortcutsOnly,  &QAbstractButton::toggled, this, QOverload<>::of(&FilterOptions::changed));
+    // Connect all the signals/slots...
+    connect(m_dlg.cbEnableShortcuts, &QAbstractButton::toggled, this, QOverload<>::of(&FilterOptions::changed));
+    connect(m_dlg.cbEnableShortcuts, &QAbstractButton::toggled, this, &FilterOptions::updateSearchProviderEditingButons);
+    connect(m_dlg.cbUseSelectedShortcutsOnly, &QAbstractButton::toggled, this, QOverload<>::of(&FilterOptions::changed));
 
-  connect(m_providersModel, &ProvidersModel::dataModified, this, QOverload<>::of(&FilterOptions::changed));
-  connect(m_dlg.cmbDefaultEngine, QOverload<int>::of(&QComboBox::currentIndexChanged), this, QOverload<>::of(&FilterOptions::changed));
-  connect(m_dlg.cmbDelimiter,     QOverload<int>::of(&QComboBox::currentIndexChanged), this, QOverload<>::of(&FilterOptions::changed));
+    connect(m_providersModel, &ProvidersModel::dataModified, this, QOverload<>::of(&FilterOptions::changed));
+    connect(m_dlg.cmbDefaultEngine, QOverload<int>::of(&QComboBox::currentIndexChanged), this, QOverload<>::of(&FilterOptions::changed));
+    connect(m_dlg.cmbDelimiter, QOverload<int>::of(&QComboBox::currentIndexChanged), this, QOverload<>::of(&FilterOptions::changed));
 
-  connect(m_dlg.pbNew,    &QAbstractButton::clicked, this, &FilterOptions::addSearchProvider);
-  connect(m_dlg.pbDelete, &QAbstractButton::clicked, this, &FilterOptions::deleteSearchProvider);
-  connect(m_dlg.pbChange, &QAbstractButton::clicked, this, &FilterOptions::changeSearchProvider);
-  connect(m_dlg.lvSearchProviders->selectionModel(), &QItemSelectionModel::currentChanged,
-           this, &FilterOptions::updateSearchProviderEditingButons);
-  connect(m_dlg.lvSearchProviders, &QAbstractItemView::doubleClicked,this, &FilterOptions::changeSearchProvider);
-  connect(m_dlg.searchLineEdit, &QLineEdit::textEdited, searchProviderModel, &QSortFilterProxyModel::setFilterFixedString);
+    connect(m_dlg.pbNew, &QAbstractButton::clicked, this, &FilterOptions::addSearchProvider);
+    connect(m_dlg.pbDelete, &QAbstractButton::clicked, this, &FilterOptions::deleteSearchProvider);
+    connect(m_dlg.pbChange, &QAbstractButton::clicked, this, &FilterOptions::changeSearchProvider);
+    connect(m_dlg.lvSearchProviders->selectionModel(), &QItemSelectionModel::currentChanged,
+            this, &FilterOptions::updateSearchProviderEditingButons);
+    connect(m_dlg.lvSearchProviders, &QAbstractItemView::doubleClicked, this, &FilterOptions::changeSearchProvider);
+    connect(m_dlg.searchLineEdit, &QLineEdit::textEdited, searchProviderModel, &QSortFilterProxyModel::setFilterFixedString);
 }
 
 QString FilterOptions::quickHelp() const
 {
-  return xi18nc("@info:whatsthis", "<para>In this module you can configure the web shortcuts feature. "
-              "Web shortcuts allow you to quickly search or lookup words on "
-              "the Internet. For example, to search for information about the "
-              "KDE project using the Google engine, you simply type <emphasis>gg:KDE</emphasis> "
-              "or <emphasis>google:KDE</emphasis>.</para>"
-              "<para>If you select a default search engine, then you can search for "
-              "normal words or phrases by simply typing them into the input widget "
-              "of applications that have built-in support for such a feature, e.g "
-              "Konqueror.</para>");
+    return xi18nc("@info:whatsthis", "<para>In this module you can configure the web shortcuts feature. "
+                                     "Web shortcuts allow you to quickly search or lookup words on "
+                                     "the Internet. For example, to search for information about the "
+                                     "KDE project using the Google engine, you simply type <emphasis>gg:KDE</emphasis> "
+                                     "or <emphasis>google:KDE</emphasis>.</para>"
+                                     "<para>If you select a default search engine, then you can search for "
+                                     "normal words or phrases by simply typing them into the input widget "
+                                     "of applications that have built-in support for such a feature, e.g "
+                                     "Konqueror.</para>");
 }
 
 void FilterOptions::setDefaultEngine(int index)
 {
-  QSortFilterProxyModel* proxy = qobject_cast<QSortFilterProxyModel*>(m_dlg.cmbDefaultEngine->model());
-  if (index == -1)
-    index = proxy->rowCount()-1;//"None" is the last
-
-  const QModelIndex modelIndex = proxy->mapFromSource(proxy->sourceModel()->index(index,0));
-  m_dlg.cmbDefaultEngine->setCurrentIndex(modelIndex.row());
-  m_dlg.cmbDefaultEngine->view()->setCurrentIndex(modelIndex);  //TODO: remove this when Qt bug is fixed
+    QSortFilterProxyModel *proxy = qobject_cast<QSortFilterProxyModel *>(m_dlg.cmbDefaultEngine->model());
+    if (index == -1) {
+        index = proxy->rowCount()-1;//"None" is the last
+    }
+    const QModelIndex modelIndex = proxy->mapFromSource(proxy->sourceModel()->index(index, 0));
+    m_dlg.cmbDefaultEngine->setCurrentIndex(modelIndex.row());
+    m_dlg.cmbDefaultEngine->view()->setCurrentIndex(modelIndex); //TODO: remove this when Qt bug is fixed
 }
 
 void FilterOptions::load()
 {
-  KConfig config(QString::fromUtf8(KURISearchFilterEngine::self()->name()) + QLatin1String("rc"), KConfig::NoGlobals);
-  KConfigGroup group = config.group("General");
+    KConfig config(QString::fromUtf8(KURISearchFilterEngine::self()->name()) + QLatin1String("rc"), KConfig::NoGlobals);
+    KConfigGroup group = config.group("General");
 
-  const QString defaultSearchEngine = group.readEntry("DefaultWebShortcut");
-  const QStringList favoriteEngines = group.readEntry("PreferredWebShortcuts", DEFAULT_PREFERRED_SEARCH_PROVIDERS);
+    const QString defaultSearchEngine = group.readEntry("DefaultWebShortcut");
+    const QStringList favoriteEngines = group.readEntry("PreferredWebShortcuts", DEFAULT_PREFERRED_SEARCH_PROVIDERS);
 
-  const QList<SearchProvider*> providers = m_registry.findAll();
-  int defaultProviderIndex = providers.size(); //default is "None", it is last in the list
+    const QList<SearchProvider *> providers = m_registry.findAll();
+    int defaultProviderIndex = providers.size(); //default is "None", it is last in the list
 
-  for (SearchProvider *provider : providers)
-  {
-    if (defaultSearchEngine == provider->desktopEntryName())
-      defaultProviderIndex = providers.size();
-  }
+    for (SearchProvider *provider : providers) {
+        if (defaultSearchEngine == provider->desktopEntryName()) {
+            defaultProviderIndex = providers.size();
+        }
+    }
 
-  m_providersModel->setProviders(providers, favoriteEngines);
-  m_dlg.lvSearchProviders->setColumnWidth(0,200);
-  m_dlg.lvSearchProviders->resizeColumnToContents(1);
-  m_dlg.lvSearchProviders->sortByColumn(0,Qt::AscendingOrder);
-  m_dlg.cmbDefaultEngine->model()->sort(0,Qt::AscendingOrder);
-  setDefaultEngine(defaultProviderIndex);
+    m_providersModel->setProviders(providers, favoriteEngines);
+    m_dlg.lvSearchProviders->setColumnWidth(0, 200);
+    m_dlg.lvSearchProviders->resizeColumnToContents(1);
+    m_dlg.lvSearchProviders->sortByColumn(0, Qt::AscendingOrder);
+    m_dlg.cmbDefaultEngine->model()->sort(0, Qt::AscendingOrder);
+    setDefaultEngine(defaultProviderIndex);
 
-  m_dlg.cbEnableShortcuts->setChecked(group.readEntry("EnableWebShortcuts", true));
-  m_dlg.cbUseSelectedShortcutsOnly->setChecked(group.readEntry("UsePreferredWebShortcutsOnly", false));
+    m_dlg.cbEnableShortcuts->setChecked(group.readEntry("EnableWebShortcuts", true));
+    m_dlg.cbUseSelectedShortcutsOnly->setChecked(group.readEntry("UsePreferredWebShortcutsOnly", false));
 
-  const QString delimiter = group.readEntry ("KeywordDelimiter", ":");
-  setDelimiter(delimiter.at(0).toLatin1());
+    const QString delimiter = group.readEntry("KeywordDelimiter", ":");
+    setDelimiter(delimiter.at(0).toLatin1());
 }
 
 char FilterOptions::delimiter()
 {
-  const char delimiters[]={':',' '};
-  return delimiters[m_dlg.cmbDelimiter->currentIndex()];
+    const char delimiters[] = {':', ' '};
+    return delimiters[m_dlg.cmbDelimiter->currentIndex()];
 }
 
-void FilterOptions::setDelimiter (char sep)
+void FilterOptions::setDelimiter(char sep)
 {
-  m_dlg.cmbDelimiter->setCurrentIndex(sep==' ');
+    m_dlg.cmbDelimiter->setCurrentIndex(sep == ' ');
 }
 
 void FilterOptions::save()
 {
-  KConfig config(QString::fromUtf8(KURISearchFilterEngine::self()->name()) + QLatin1String("rc"), KConfig::NoGlobals );
+    KConfig config(QString::fromUtf8(KURISearchFilterEngine::self()->name()) + QLatin1String("rc"), KConfig::NoGlobals);
 
-  KConfigGroup group = config.group("General");
-  group.writeEntry("EnableWebShortcuts", m_dlg.cbEnableShortcuts->isChecked());
-  group.writeEntry("KeywordDelimiter", QString(QLatin1Char(delimiter())));
-  group.writeEntry("DefaultWebShortcut", m_dlg.cmbDefaultEngine->view()->currentIndex().data(ProvidersListModel::ShortNameRole));
-  group.writeEntry("PreferredWebShortcuts", m_providersModel->favoriteEngines());
-  group.writeEntry("UsePreferredWebShortcutsOnly", m_dlg.cbUseSelectedShortcutsOnly->isChecked());
+    KConfigGroup group = config.group("General");
+    group.writeEntry("EnableWebShortcuts", m_dlg.cbEnableShortcuts->isChecked());
+    group.writeEntry("KeywordDelimiter", QString(QLatin1Char(delimiter())));
+    group.writeEntry("DefaultWebShortcut", m_dlg.cmbDefaultEngine->view()->currentIndex().data(ProvidersListModel::ShortNameRole));
+    group.writeEntry("PreferredWebShortcuts", m_providersModel->favoriteEngines());
+    group.writeEntry("UsePreferredWebShortcutsOnly", m_dlg.cbUseSelectedShortcutsOnly->isChecked());
 
-  int changedProviderCount = 0;
-  const QList<SearchProvider*> providers = m_providersModel->providers();
-  const QString path = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/kservices5/searchproviders/");
+    int changedProviderCount = 0;
+    const QList<SearchProvider *> providers = m_providersModel->providers();
+    const QString path = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/kservices5/searchproviders/");
 
-  for (SearchProvider* provider : providers)
-  {
-    if (!provider->isDirty())
-      continue;
+    for (SearchProvider *provider : providers) {
+        if (!provider->isDirty()) {
+            continue;
+        }
 
-    changedProviderCount++;
+        changedProviderCount++;
 
-    KConfig _service(path + provider->desktopEntryName() + QLatin1String(".desktop"), KConfig::SimpleConfig);
-    KConfigGroup service(&_service, "Desktop Entry");
-    service.writeEntry("Type", "Service");
-    service.writeEntry("X-KDE-ServiceTypes", "SearchProvider");
-    service.writeEntry("Name", provider->name());
-    service.writeEntry("Query", provider->query());
-    service.writeEntry("Keys", provider->keys());
-    service.writeEntry("Charset", provider->charset());
-    service.writeEntry("Hidden", false); // we might be overwriting a hidden entry
-  }
- 
- const QStringList servicesDirs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("kservices5/searchproviders/"), QStandardPaths::LocateDirectory);
-  Q_FOREACH(const QString& providerName, m_deletedProviders)
-  {
-    QStringList matches;
-    for (const QString& dir : servicesDirs) {
-      QString current = dir + QLatin1Char('/') + providerName + QLatin1String(".desktop");
-      if(QFile::exists(current))
-        matches += current;
+        KConfig _service(path + provider->desktopEntryName() + QLatin1String(".desktop"), KConfig::SimpleConfig);
+        KConfigGroup service(&_service, "Desktop Entry");
+        service.writeEntry("Type", "Service");
+        service.writeEntry("X-KDE-ServiceTypes", "SearchProvider");
+        service.writeEntry("Name", provider->name());
+        service.writeEntry("Query", provider->query());
+        service.writeEntry("Keys", provider->keys());
+        service.writeEntry("Charset", provider->charset());
+        service.writeEntry("Hidden", false); // we might be overwriting a hidden entry
     }
 
-    // Shouldn't happen
-    if (matches.isEmpty())
-      continue;
+    const QStringList servicesDirs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("kservices5/searchproviders/"), QStandardPaths::LocateDirectory);
+    Q_FOREACH (const QString &providerName, m_deletedProviders) {
+        QStringList matches;
+        for (const QString &dir : servicesDirs) {
+            QString current = dir + QLatin1Char('/') + providerName + QLatin1String(".desktop");
+            if (QFile::exists(current)) {
+                matches += current;
+            }
+        }
 
-    changedProviderCount++;
+        // Shouldn't happen
+        if (matches.isEmpty()) {
+            continue;
+        }
 
-    if (matches.size() == 1 && matches.first().startsWith(path))
-    {
-      // If only the local copy existed, unlink it
-      // TODO: error handling
-      QFile::remove(matches.first());
-      continue;
+        changedProviderCount++;
+
+        if (matches.size() == 1 && matches.first().startsWith(path)) {
+            // If only the local copy existed, unlink it
+            // TODO: error handling
+            QFile::remove(matches.first());
+            continue;
+        }
+
+        KConfig _service(path + providerName + QLatin1String(".desktop"), KConfig::SimpleConfig);
+        KConfigGroup service(&_service, "Desktop Entry");
+        service.writeEntry("Type", "Service");
+        service.writeEntry("X-KDE-ServiceTypes", "SearchProvider");
+        service.writeEntry("Hidden", true);
     }
 
-    KConfig _service(path + providerName + QLatin1String(".desktop"), KConfig::SimpleConfig);
-    KConfigGroup service(&_service,     "Desktop Entry");
-    service.writeEntry("Type",          "Service");
-    service.writeEntry("X-KDE-ServiceTypes",  "SearchProvider");
-    service.writeEntry("Hidden",        true);
-  }
+    config.sync();
 
-  config.sync();
+    emit changed(false);
 
-  emit changed(false);
+    // Update filters in running applications...
+    QDBusMessage msg = QDBusMessage::createSignal(QStringLiteral("/"), QStringLiteral("org.kde.KUriFilterPlugin"), QStringLiteral("configure"));
+    QDBusConnection::sessionBus().send(msg);
 
-  // Update filters in running applications...
-  QDBusMessage msg = QDBusMessage::createSignal(QStringLiteral("/"), QStringLiteral("org.kde.KUriFilterPlugin"), QStringLiteral("configure"));
-  QDBusConnection::sessionBus().send(msg);
-
-  // If the providers changed, tell sycoca to rebuild its database...
-  if (changedProviderCount)
-    KBuildSycocaProgressDialog::rebuildKSycoca(this);
+    // If the providers changed, tell sycoca to rebuild its database...
+    if (changedProviderCount) {
+        KBuildSycocaProgressDialog::rebuildKSycoca(this);
+    }
 }
 
 void FilterOptions::defaults()
 {
-  m_dlg.cbEnableShortcuts->setChecked(true);
-  m_dlg.cbUseSelectedShortcutsOnly->setChecked(false);
-  m_providersModel->setFavoriteProviders(DEFAULT_PREFERRED_SEARCH_PROVIDERS);
-  setDelimiter(':');
-  setDefaultEngine(-1);
+    m_dlg.cbEnableShortcuts->setChecked(true);
+    m_dlg.cbUseSelectedShortcutsOnly->setChecked(false);
+    m_providersModel->setFavoriteProviders(DEFAULT_PREFERRED_SEARCH_PROVIDERS);
+    setDelimiter(':');
+    setDefaultEngine(-1);
 }
 
 void FilterOptions::addSearchProvider()
 {
-  QList<SearchProvider*> providers = m_providersModel->providers();
-  QPointer<SearchProviderDialog> dlg = new SearchProviderDialog(nullptr, providers, this);
+    QList<SearchProvider *> providers = m_providersModel->providers();
+    QPointer<SearchProviderDialog> dlg = new SearchProviderDialog(nullptr, providers, this);
 
-  if (dlg->exec()) {
-    m_providersModel->addProvider(dlg->provider());
-    m_providersModel->changeProvider(dlg->provider());
-  }
-  delete dlg;
+    if (dlg->exec()) {
+        m_providersModel->addProvider(dlg->provider());
+        m_providersModel->changeProvider(dlg->provider());
+    }
+    delete dlg;
 }
 
 void FilterOptions::changeSearchProvider()
 {
-  QList<SearchProvider*> providers = m_providersModel->providers();
-  SearchProvider* provider = providers.at(m_dlg.lvSearchProviders->currentIndex().data(Qt::UserRole).toInt());
-  QPointer<SearchProviderDialog> dlg = new SearchProviderDialog(provider, providers, this);
+    QList<SearchProvider *> providers = m_providersModel->providers();
+    SearchProvider *provider = providers.at(m_dlg.lvSearchProviders->currentIndex().data(Qt::UserRole).toInt());
+    QPointer<SearchProviderDialog> dlg = new SearchProviderDialog(provider, providers, this);
 
-  if (dlg->exec())
-    m_providersModel->changeProvider(dlg->provider());
+    if (dlg->exec()) {
+        m_providersModel->changeProvider(dlg->provider());
+    }
 
-  delete dlg;
+    delete dlg;
 }
 
 void FilterOptions::deleteSearchProvider()
 {
-  SearchProvider* provider = m_providersModel->providers().at(m_dlg.lvSearchProviders->currentIndex().data(Qt::UserRole).toInt());
-  m_deletedProviders.append(provider->desktopEntryName());
-  m_providersModel->deleteProvider(provider);
+    SearchProvider *provider = m_providersModel->providers().at(m_dlg.lvSearchProviders->currentIndex().data(Qt::UserRole).toInt());
+    m_deletedProviders.append(provider->desktopEntryName());
+    m_providersModel->deleteProvider(provider);
 }
 
 void FilterOptions::updateSearchProviderEditingButons()
 {
-  const bool enable = (m_dlg.cbEnableShortcuts->isChecked() &&
-                       m_dlg.lvSearchProviders->currentIndex().isValid());
-  m_dlg.pbChange->setEnabled(enable);
-  m_dlg.pbDelete->setEnabled(enable);
+    const bool enable = (m_dlg.cbEnableShortcuts->isChecked()
+                         && m_dlg.lvSearchProviders->currentIndex().isValid());
+    m_dlg.pbChange->setEnabled(enable);
+    m_dlg.pbDelete->setEnabled(enable);
 }
-
-// kate: replace-tabs 1; indent-width 2;
