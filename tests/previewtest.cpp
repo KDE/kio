@@ -51,7 +51,8 @@ void PreviewTest::slotGenerate()
     items.append(KFileItem(QUrl::fromUserInput(m_url->text())));
 
     QStringList enabledPlugins;
-    for (auto plugin : m_plugins->text().split(";"))
+    const QStringList splittedText = m_plugins->text().split(';');
+    for (const QString &plugin : splittedText)
         enabledPlugins << plugin.trimmed();
 
     KIO::PreviewJob *job = KIO::filePreview(items, QSize(m_preview->width(), m_preview->height()), &enabledPlugins);

@@ -769,7 +769,7 @@ QStringList PreviewJob::defaultPlugins()
                             << QStringLiteral("textthumbnail");
 
     QStringList defaultPlugins = availablePlugins();
-    for (const QString plugin : blacklist) {
+    for (const QString &plugin : blacklist) {
         defaultPlugins.removeAll(plugin);
     }
 

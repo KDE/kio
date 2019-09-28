@@ -678,7 +678,7 @@ void KUriFilter::loadPlugins()
     QStringList pluginNames;
     pluginNames.reserve(plugins.count());
 
-    for (const KPluginMetaData &pluginMetaData : plugins) {
+    for (const KPluginMetaData &pluginMetaData : qAsConst(plugins)) {
         const QString fileName = pluginMetaData.fileName().section(QLatin1Char('/'), -1);
         if (!pluginNames.contains(fileName)) {
             pluginNames << fileName;

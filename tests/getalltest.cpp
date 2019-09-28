@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
     qDebug() << "All services";
     const KService::List services = KService::allServices();
     qDebug() << "got " << services.count() << " services";
-    for (const KService::Ptr s : services) {
+    for (const KService::Ptr &s : services) {
         qDebug() << s->name() << " " << s->entryPath();
     }
 //}
@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
     qDebug() << "All service types";
     const KServiceType::List list = KServiceType::allServiceTypes();
     qDebug() << "got " << list.count() << " service types";
-    for (const KServiceType::Ptr st : list) {
+    for (const KServiceType::Ptr &st : list) {
         qDebug() << st->name();
     }
 
