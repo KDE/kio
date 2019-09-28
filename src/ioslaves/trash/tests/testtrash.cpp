@@ -1245,8 +1245,7 @@ void TestTrash::listSubDir()
 
 void TestTrash::slotEntries(KIO::Job *, const KIO::UDSEntryList &lst)
 {
-    for (KIO::UDSEntryList::ConstIterator it = lst.begin(); it != lst.end(); ++it) {
-        const KIO::UDSEntry &entry(*it);
+    for (const KIO::UDSEntry &entry : lst) {
         QString name = entry.stringValue(KIO::UDSEntry::UDS_NAME);
         QString displayName = entry.stringValue(KIO::UDSEntry::UDS_DISPLAY_NAME);
         QUrl url(entry.stringValue(KIO::UDSEntry::UDS_URL));

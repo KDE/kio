@@ -381,9 +381,9 @@ QList<KSslCaCertificate> KSslCertificateManagerPrivate::allCertificates() const
 
     KConfig config(QStringLiteral("ksslcablacklist"), KConfig::SimpleConfig);
     KConfigGroup group = config.group("Blacklist of CA Certificates");
-    for (int i = 0; i < ret.size(); i++) {
-        if (group.hasKey(ret[i].certHash.constData())) {
-            ret[i].isBlacklisted = true;
+    for (KSslCaCertificate &cert : ret) {
+        if (group.hasKey(cert.certHash.constData())) {
+            cert.isBlacklisted = true;
             //qDebug() << "is blacklisted";
         }
     }

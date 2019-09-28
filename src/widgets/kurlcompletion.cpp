@@ -1545,11 +1545,13 @@ static bool expandTilde(QString &text)
 static QString unescape(const QString &text)
 {
     QString result;
+    result.reserve(text.size());
 
-    for (int pos = 0; pos < text.length(); pos++)
-        if (text.at(pos) != QLatin1Char('\\')) {
-            result.insert(result.length(), text.at(pos));
+    for (const QChar ch : text) {
+        if (ch != QLatin1Char('\\')) {
+            result.append(ch);
         }
+    }
 
     return result;
 }

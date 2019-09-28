@@ -517,9 +517,8 @@ void KCoreDirListerCache::forgetDirs(KCoreDirLister *lister)
     lister->d->lstDirs.clear();
 
     qCDebug(KIO_CORE_DIRLISTER) << "Iterating over dirs" << lstDirsCopy;
-    for (QList<QUrl>::const_iterator it = lstDirsCopy.begin();
-            it != lstDirsCopy.end(); ++it) {
-        forgetDirs(lister, *it, false);
+    for (const QUrl &dir : lstDirsCopy) {
+        forgetDirs(lister, dir, false);
     }
 }
 
@@ -844,8 +843,7 @@ void KCoreDirListerCache::slotFilesRemoved(const QList<QUrl> &fileList)
     QMap<QUrl, KFileItemList> removedItemsByDir;
     QList<QUrl> deletedSubdirs;
 
-    for (auto it = fileList.cbegin(), cend = fileList.end(); it != cend; ++it) {
-        QUrl url(*it);
+    for (const QUrl &url : fileList) {
         DirItem *dirItem = dirItemForUrl(url); // is it a listed directory?
         if (dirItem) {
             deletedSubdirs.append(url);
@@ -893,9 +891,8 @@ void KCoreDirListerCache::slotFilesChanged(const QStringList &fileList)   // fro
 {
     qCDebug(KIO_CORE_DIRLISTER) << fileList;
     QList<QUrl> dirsToUpdate;
-    QStringList::const_iterator it = fileList.begin();
-    for (; it != fileList.end(); ++it) {
-        QUrl url(*it);
+    for (const QString &fileUrl : fileList) {
+        const QUrl url(fileUrl);
         const KFileItem &fileitem = findByUrl(nullptr, url);
         if (fileitem.isNull()) {
             qCDebug(KIO_CORE_DIRLISTER) << "item not found for" << url;
@@ -914,9 +911,8 @@ void KCoreDirListerCache::slotFilesChanged(const QStringList &fileList)   // fro
         }
     }
 
-    QList<QUrl>::const_iterator itdir = dirsToUpdate.constBegin();
-    for (; itdir != dirsToUpdate.constEnd(); ++itdir) {
-        updateDirectory(*itdir);
+    for (const QUrl &dirUrl : qAsConst(dirsToUpdate)) {
+        updateDirectory(dirUrl);
     }
     // ## TODO problems with current jobs listing/updating that dir
     // ( see kde-2.2.2's kdirlister )
@@ -1574,8 +1570,8 @@ void KCoreDirListerCache::renameDir(const QUrl &oldUrl, const QUrl &newUrl)
             // Rename all items under that dir
             // If all items of the directory change the same part of their url, the order is not
             // changed, therefore just change it in the list.
-            for (auto kit = dir->lstItems.begin(), kend = dir->lstItems.end(); kit != kend; ++kit) {
-                const KFileItem oldItem = *kit;
+            for (KFileItem &item : dir->lstItems) {
+                const KFileItem oldItem = item;
                 KFileItem newItem = oldItem;
                 const QUrl &oldItemUrl = oldItem.url();
                 QUrl newItemUrl(oldItemUrl);
@@ -1585,7 +1581,7 @@ void KCoreDirListerCache::renameDir(const QUrl &oldUrl, const QUrl &newUrl)
 
                 listers |= emitRefreshItem(oldItem, newItem);
                 // Change the item
-                kit->setUrl(newItemUrl);
+                item.setUrl(newItemUrl);
             }
         }
     }
@@ -1751,8 +1747,8 @@ void KCoreDirListerCache::slotUpdateResult(KJob *j)
 
     // Fill the hash from the old list of items. We'll remove entries as we see them
     // in the new listing, and the resulting hash entries will be the deleted items.
-    for (auto kit = dir->lstItems.begin(), kend = dir->lstItems.end(); kit != kend; ++kit) {
-        fileItems.insert((*kit).name(), *kit);
+    for (const KFileItem &item : qAsConst(dir->lstItems)) {
+        fileItems.insert(item.name(), item);
     }
 
     QSet<QString> filesToHide;
@@ -2304,8 +2300,8 @@ void KCoreDirLister::setNameFilter(const QString &nameFilter)
     d->nameFilter = nameFilter;
     // Split on white space
     const QStringList list = nameFilter.split(QLatin1Char(' '), QString::SkipEmptyParts);
-    for (QStringList::const_iterator it = list.begin(); it != list.end(); ++it) {
-        d->settings.lstFilters.append(QRegExp(*it, Qt::CaseInsensitive, QRegExp::Wildcard));
+    for (const QString &filter : list) {
+        d->settings.lstFilters.append(QRegExp(filter, Qt::CaseInsensitive, QRegExp::Wildcard));
     }
 }
 
@@ -2394,10 +2390,11 @@ bool KCoreDirLister::matchesMimeFilter(const KFileItem &item) const
 
 bool KCoreDirLister::doNameFilter(const QString &name, const QList<QRegExp> &filters) const
 {
-    for (QList<QRegExp>::const_iterator it = filters.begin(); it != filters.end(); ++it)
-        if ((*it).exactMatch(name)) {
+    for (const QRegExp &filter : filters) {
+        if (filter.exactMatch(name)) {
             return true;
         }
+    }
 
     return false;
 }

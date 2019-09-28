@@ -167,8 +167,8 @@ int KRunMX2::expandEscapedMacro(const QString &str, int pos, QStringList &ret)
     case 'N':
     case 'D':
         option += 'a' - 'A';
-        for (QList<QUrl>::ConstIterator it = urls.begin(); it != urls.end(); ++it) {
-            subst(option, *it, ret);
+        for (const QUrl &url : urls) {
+            subst(option, url, ret);
         }
         break;
     case '%':
@@ -449,9 +449,9 @@ QString KIO::DesktopExecParser::executablePath(const QString &execLine)
 {
     // Remove parameters and/or trailing spaces.
     const QStringList args = KShell::splitArgs(execLine);
-    for (QStringList::ConstIterator it = args.begin(); it != args.end(); ++it) {
-        if (!(*it).contains(QLatin1Char('='))) {
-            return *it;
+    for (const QString &arg : args) {
+        if (!arg.contains(QLatin1Char('='))) {
+            return arg;
         }
     }
     return QString();

@@ -144,14 +144,12 @@ void KApplicationModelPrivate::fillNode(const QString &_entryPath, KDEPrivate::A
 
     const KServiceGroup::List list = root->entries();
 
-    for (KServiceGroup::List::ConstIterator it = list.begin();
-            it != list.end(); ++it) {
+    for (const KSycocaEntry::Ptr &p : list) {
         QString icon;
         QString text;
         QString entryPath;
         QString exec;
         bool isDir = false;
-        const KSycocaEntry::Ptr p = (*it);
         if (p->isType(KST_KService)) {
             const KService::Ptr service(static_cast<KService*>(p.data()));
 

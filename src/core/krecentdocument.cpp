@@ -63,14 +63,13 @@ QStringList KRecentDocument::recentDocuments()
     const QStringList list = d.entryList();
     QStringList fullList;
 
-    for (QStringList::ConstIterator it = list.begin(); it != list.end(); ++it) {
-        QString fileName = *it;
+    for (const QString &fileName : list) {
         QString pathDesktop;
         if (fileName.startsWith(QLatin1Char(':'))) {
             // See: https://bugreports.qt.io/browse/QTBUG-11223
-            pathDesktop = KRecentDocument::recentDocumentDirectory() + *it;
+            pathDesktop = KRecentDocument::recentDocumentDirectory() + fileName;
         } else {
-            pathDesktop = d.absoluteFilePath(*it);
+            pathDesktop = d.absoluteFilePath(fileName);
         }
         KDesktopFile tmpDesktopFile(pathDesktop);
         QUrl urlDesktopFile(tmpDesktopFile.desktopGroup().readPathEntry("URL", QString()));
@@ -168,8 +167,8 @@ void KRecentDocument::clear()
 {
     const QStringList list = recentDocuments();
     QDir dir;
-    for (QStringList::ConstIterator it = list.begin(); it != list.end(); ++it) {
-        dir.remove(*it);
+    for (const QString &desktopFilePath : list) {
+        dir.remove(desktopFilePath);
     }
 }
 

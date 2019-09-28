@@ -253,18 +253,18 @@ void ProxyScout::downloadResult(bool success)
     }
 
     if (success) {
-        for (RequestQueue::Iterator it = m_requestQueue.begin(), itEnd = m_requestQueue.end(); it != itEnd; ++it) {
-            if ((*it).sendAll) {
-                const QVariant result(handleRequest((*it).url));
-                QDBusConnection::sessionBus().send((*it).transaction.createReply(result));
+        for (const QueuedRequest &request : qAsConst(m_requestQueue)) {
+            if (request.sendAll) {
+                const QVariant result(handleRequest(request.url));
+                QDBusConnection::sessionBus().send(request.transaction.createReply(result));
             } else {
-                const QVariant result(handleRequest((*it).url).constFirst());
-                QDBusConnection::sessionBus().send((*it).transaction.createReply(result));
+                const QVariant result(handleRequest(request.url).constFirst());
+                QDBusConnection::sessionBus().send(request.transaction.createReply(result));
             }
         }
     } else {
-        for (RequestQueue::Iterator it = m_requestQueue.begin(), itEnd = m_requestQueue.end(); it != itEnd; ++it) {
-            QDBusConnection::sessionBus().send((*it).transaction.createReply(QLatin1String("DIRECT")));
+        for (const QueuedRequest &request : qAsConst(m_requestQueue)) {
+            QDBusConnection::sessionBus().send(request.transaction.createReply(QLatin1String("DIRECT")));
         }
     }
 

@@ -418,9 +418,7 @@ void TrashProtocol::listDir(const QUrl &url)
     const QStringList entryNames = impl.listDir(info.physicalPath);
     totalSize(entryNames.count());
     KIO::UDSEntry entry;
-    for (QStringList::const_iterator entryIt = entryNames.begin(), entryEnd = entryNames.end();
-            entryIt != entryEnd; ++entryIt) {
-        const QString fileName = *entryIt;
+    for (const QString &fileName : entryNames) {
         if (fileName == QLatin1String("..")) {
             continue;
         }
@@ -502,12 +500,12 @@ void TrashProtocol::listRoot()
     KIO::UDSEntry entry;
     createTopLevelDirEntry(entry);
     listEntry(entry);
-    for (TrashedFileInfoList::ConstIterator it = lst.begin(); it != lst.end(); ++it) {
-        const QUrl url = TrashImpl::makeURL((*it).trashId, (*it).fileId, QString());
+    for (const TrashedFileInfo &fileInfo : lst) {
+        const QUrl url = TrashImpl::makeURL(fileInfo.trashId, fileInfo.fileId, QString());
         entry.clear();
-        const QString fileDisplayName = (*it).fileId;
+        const QString fileDisplayName = fileInfo.fileId;
 
-        if (createUDSEntry((*it).physicalPath, fileDisplayName, url.fileName(), entry, *it)) {
+        if (createUDSEntry(fileInfo.physicalPath, fileDisplayName, url.fileName(), entry, fileInfo)) {
             listEntry(entry);
         }
     }

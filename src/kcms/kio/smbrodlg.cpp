@@ -144,9 +144,7 @@ void SMBRoOptions::save()
    //least better than storing the plain password
    QString password(m_passwordLe->text());
    QString scrambled;
-   for (int i=0; i<password.length(); i++)
-   {
-      QChar c = password[i];
+   for (const QChar c : qAsConst(password)) {
       unsigned int num = (c.unicode() ^ 173) + 17;
       unsigned int a1 = (num & 0xFC00) >> 10;
       unsigned int a2 = (num & 0x3E0) >> 5;

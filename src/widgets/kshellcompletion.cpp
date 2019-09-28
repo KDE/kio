@@ -79,8 +79,8 @@ QString KShellCompletion::makeCompletion(const QString &text)
     //
     bool is_exe_completion = true;
 
-    for (int i = 0; i < d->m_text_start.length(); i++) {
-        if (d->m_text_start[i] != d->m_word_break_char) {
+    for (const QChar ch : qAsConst(d->m_text_start)) {
+        if (ch != d->m_word_break_char) {
             is_exe_completion = false;
             break;
         }
@@ -124,16 +124,15 @@ void KShellCompletion::postProcessMatches(QStringList *matches) const
 {
     KUrlCompletion::postProcessMatches(matches);
 
-    for (QStringList::Iterator it = matches->begin();
-            it != matches->end(); ++it) {
-        if (!(*it).isNull()) {
-            if ((*it).endsWith(QLatin1Char('/'))) {
-                d->quoteText(&(*it), false, true);    // don't quote trailing '/'
+    for (QString &match : *matches) {
+        if (!match.isNull()) {
+            if (match.endsWith(QLatin1Char('/'))) {
+                d->quoteText(&match, false, true);    // don't quote trailing '/'
             } else {
-                d->quoteText(&(*it), false, false);    // quote the whole text
+                d->quoteText(&match, false, false);    // quote the whole text
             }
 
-            (*it).prepend(d->m_text_start);
+            match.prepend(d->m_text_start);
         }
     }
 }
@@ -142,16 +141,16 @@ void KShellCompletion::postProcessMatches(KCompletionMatches *matches) const
 {
     KUrlCompletion::postProcessMatches(matches);
 
-    for (KCompletionMatches::Iterator it = matches->begin();
-            it != matches->end(); ++it) {
-        if (!(*it).value().isNull()) {
-            if ((*it).value().endsWith(QLatin1Char('/'))) {
-                d->quoteText(&(*it).value(), false, true);    // don't quote trailing '/'
+    for (auto &match : *matches) {
+        QString& matchString = match.value();
+        if (!matchString.isNull()) {
+            if (matchString.endsWith(QLatin1Char('/'))) {
+                d->quoteText(&matchString, false, true);    // don't quote trailing '/'
             } else {
-                d->quoteText(&(*it).value(), false, false);    // quote the whole text
+                d->quoteText(&matchString, false, false);    // quote the whole text
             }
 
-            (*it).value().prepend(d->m_text_start);
+            matchString.prepend(d->m_text_start);
         }
     }
 }
@@ -291,24 +290,24 @@ QString KShellCompletionPrivate::unquote(const QString &text) const
     QChar p_last_quote_char;
     QString result;
 
-    for (int pos = 0; pos < text.length(); pos++) {
+    for (const QChar ch : text) {
 
         if (escaped) {
             escaped = false;
-            result.insert(result.length(), text[pos]);
-        } else if (in_quote && text[pos] == p_last_quote_char) {
+            result.insert(result.length(), ch);
+        } else if (in_quote && ch == p_last_quote_char) {
             in_quote = false;
-        } else if (!in_quote && text[pos] == m_quote_char1) {
+        } else if (!in_quote && ch == m_quote_char1) {
             p_last_quote_char = m_quote_char1;
             in_quote = true;
-        } else if (!in_quote && text[pos] == m_quote_char2) {
+        } else if (!in_quote && ch == m_quote_char2) {
             p_last_quote_char = m_quote_char2;
             in_quote = true;
-        } else if (text[pos] == m_escape_char) {
+        } else if (ch == m_escape_char) {
             escaped = true;
-            result.insert(result.length(), text[pos]);
+            result.insert(result.length(), ch);
         } else {
-            result.insert(result.length(), text[pos]);
+            result.insert(result.length(), ch);
         }
 
     }

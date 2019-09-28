@@ -586,11 +586,10 @@ static QList<QUrl> resolveURLs(const QList<QUrl> &_urls, const KService &_servic
 {
     // Check which protocols the application supports.
     // This can be a list of actual protocol names, or just KIO for KDE apps.
-    QStringList appSupportedProtocols = KIO::DesktopExecParser::supportedProtocols(_service);
+    const QStringList appSupportedProtocols = KIO::DesktopExecParser::supportedProtocols(_service);
     QList<QUrl> urls(_urls);
     if (!appSupportedProtocols.contains(QLatin1String("KIO"))) {
-        for (QList<QUrl>::Iterator it = urls.begin(); it != urls.end(); ++it) {
-            const QUrl url = *it;
+        for (QUrl &url : urls) {
             bool supported = KIO::DesktopExecParser::isProtocolInSupportedList(url, appSupportedProtocols);
             //qDebug() << "Looking at url=" << url << " supported=" << supported;
             if (!supported && KProtocolInfo::protocolClass(url.scheme()) == QLatin1String(":local")) {
@@ -599,7 +598,7 @@ static QList<QUrl> resolveURLs(const QList<QUrl> &_urls, const KService &_servic
                 if (job->exec()) { // ## nasty nested event loop!
                     const QUrl localURL = job->mostLocalUrl();
                     if (localURL != url) {
-                        *it = localURL;
+                        url = localURL;
                         //qDebug() << "Changed to" << localURL;
                     }
                 }

@@ -332,9 +332,7 @@ bool NetRC::lookup(const QUrl &url, AutoLogin &login, bool userealnetrc,
         return false;
     }
 
-    for (LoginList::ConstIterator it = l.begin(); it != l.end(); ++it) {
-        const AutoLogin &log = *it;
-
+    for (const AutoLogin &log : l) {
         if ((mode & defaultOnly) == defaultOnly &&
                 log.machine == QLatin1String("default") &&
                 (login.login.isEmpty() || login.login == log.login)) {

@@ -147,8 +147,7 @@ void KSslInfoDialog::setSslInfo(const QList<QSslCertificate> &certificateChain,
     d->certificateErrors = validationErrors;
 
     d->ui.certSelector->clear();
-    for (int i = 0; i < certificateChain.size(); i++) {
-        const QSslCertificate &cert = certificateChain[i];
+    for (const QSslCertificate &cert : certificateChain) {
         QString name;
         static const QSslCertificate::SubjectInfo si[] = {
             QSslCertificate::CommonName,

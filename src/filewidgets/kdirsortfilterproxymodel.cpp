@@ -116,19 +116,19 @@ int KDirSortFilterProxyModel::pointsForPermissions(const QFileInfo &info)
 {
     int points = 0;
 
-    QFile::Permission permissionsCheck[] = { QFile::ReadUser,
-                                             QFile::WriteUser,
-                                             QFile::ExeUser,
-                                             QFile::ReadGroup,
-                                             QFile::WriteGroup,
-                                             QFile::ExeGroup,
-                                             QFile::ReadOther,
-                                             QFile::WriteOther,
-                                             QFile::ExeOther
-                                           };
+    const QFile::Permission permissionsCheck[] = { QFile::ReadUser,
+                                                   QFile::WriteUser,
+                                                   QFile::ExeUser,
+                                                   QFile::ReadGroup,
+                                                   QFile::WriteGroup,
+                                                   QFile::ExeGroup,
+                                                   QFile::ReadOther,
+                                                   QFile::WriteOther,
+                                                   QFile::ExeOther
+                                                 };
 
-    for (int i = 0; i < 9; i++) {
-        points += info.permission(permissionsCheck[i]) ? 1 : 0;
+    for (QFile::Permission perm : permissionsCheck) {
+        points += info.permission(perm) ? 1 : 0;
     }
 
     return points;

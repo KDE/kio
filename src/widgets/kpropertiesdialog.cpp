@@ -3185,9 +3185,7 @@ KDevicePropsPlugin::KDevicePropsPlugin(KPropertiesDialog *_props) : KPropertiesD
     QStringList devices;
     const KMountPoint::List mountPoints = KMountPoint::possibleMountPoints();
 
-    for (KMountPoint::List::ConstIterator it = mountPoints.begin();
-            it != mountPoints.end(); ++it) {
-        const KMountPoint::Ptr mp = (*it);
+    for (const KMountPoint::Ptr &mp : mountPoints) {
         QString mountPoint = mp->mountPoint();
         QString device = mp->mountedFrom();
         // qDebug()<<"mountPoint :"<<mountPoint<<" device :"<<device<<" mp->mountType() :"<<mp->mountType();

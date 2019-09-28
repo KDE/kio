@@ -150,8 +150,8 @@ QList<uint> UDSEntryPrivate::listFields() const
 {
     QList<uint> res;
     res.reserve(storage.size());
-    for (auto it = storage.cbegin(), end = storage.cend(); it != end; ++it) {
-        res.append(it->m_index);
+    for (const Field &field : storage) {
+        res.append(field.m_index);
     }
     return res;
 }
@@ -161,8 +161,8 @@ QVector<uint> UDSEntryPrivate::fields() const
 {
     QVector<uint> res;
     res.reserve(storage.size());
-    for (auto it = storage.cbegin(), end = storage.cend(); it != end; ++it) {
-        res.append(it->m_index);
+    for (const Field &field : storage) {
+        res.append(field.m_index);
     }
     return res;
 }
@@ -183,15 +183,14 @@ void UDSEntryPrivate::save(QDataStream &s) const
 {
     s << static_cast<quint32>(storage.size());
 
-    for (auto it = storage.cbegin(), end = storage.cend(); it != end; ++it)
-    {
-        uint uds = it->m_index;
+    for (const Field &field : storage) {
+        uint uds = field.m_index;
         s << uds;
 
         if (uds & KIO::UDSEntry::UDS_STRING) {
-            s << it->m_str;
+            s << field.m_str;
         } else if (uds & KIO::UDSEntry::UDS_NUMBER) {
-            s << it->m_long;
+            s << field.m_long;
         } else {
             Q_ASSERT_X(false, "KIO::UDSEntry", "Found a field with an invalid type");
         }
@@ -312,12 +311,12 @@ void UDSEntryPrivate::debugUDSEntry(QDebug &stream) const
 {
     QDebugStateSaver saver(stream);
     stream.nospace() << "[";
-    for (auto it = storage.cbegin(), end = storage.cend(); it != end; ++it) {
-        stream << " " << nameOfUdsField(it->m_index) << "=";
-        if (it->m_index & KIO::UDSEntry::UDS_STRING) {
-            stream << it->m_str;
-        } else if (it->m_index & KIO::UDSEntry::UDS_NUMBER) {
-            stream << it->m_long;
+    for (const Field &field : storage) {
+        stream << " " << nameOfUdsField(field.m_index) << "=";
+        if (field.m_index & KIO::UDSEntry::UDS_STRING) {
+            stream << field.m_str;
+        } else if (field.m_index & KIO::UDSEntry::UDS_NUMBER) {
+            stream << field.m_long;
         } else {
             Q_ASSERT_X(false, "KIO::UDSEntry", "Found a field with an invalid type");
         }

@@ -221,9 +221,7 @@ void TrashImpl::migrateOldTrash()
 
     const QStringList entries = listDir(oldTrashDir);
     bool allOK = true;
-    for (QStringList::const_iterator entryIt = entries.begin(), entryEnd = entries.end();
-            entryIt != entryEnd; ++entryIt) {
-        QString srcPath = *entryIt;
+    for (QString srcPath : entries) {
         if (srcPath == QLatin1Char('.') || srcPath == QLatin1String("..") || srcPath == QLatin1String(".directory")) {
             continue;
         }
@@ -1093,8 +1091,8 @@ void TrashImpl::scanTrashDirectories() const
 #endif
 
     const QList<Solid::Device> lst = Solid::Device::listFromQuery(QStringLiteral("StorageAccess.accessible == true"));
-    for (QList<Solid::Device>::ConstIterator it = lst.begin(); it != lst.end(); ++it) {
-        QString topdir = (*it).as<Solid::StorageAccess>()->filePath();
+    for (const Solid::Device &device : lst) {
+        QString topdir = device.as<Solid::StorageAccess>()->filePath();
         QString trashDir = trashForMountPoint(topdir, false);
         if (!trashDir.isEmpty()) {
             // OK, trashDir is a valid trash directory. Ensure it's registered.
@@ -1104,7 +1102,7 @@ void TrashImpl::scanTrashDirectories() const
 #ifdef Q_OS_OSX
                 trashId = idForMountPoint(topdir);
 #else
-                trashId = idForDevice(*it);
+                trashId = idForDevice(device);
 #endif
                 if (trashId == -1) {
                     continue;

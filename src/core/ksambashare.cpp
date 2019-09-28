@@ -50,8 +50,6 @@ static const char *const DefaultSambaConfigFilePathList[] = {
     "/usr/lib/smb.conf",
     "/usr/local/lib/smb.conf"
 };
-static const int DefaultSambaConfigFilePathListSize = sizeof(DefaultSambaConfigFilePathList)
-        / sizeof(char *);
 
 KSambaSharePrivate::KSambaSharePrivate(KSambaShare *parent)
     : q_ptr(parent)
@@ -85,8 +83,8 @@ bool KSambaSharePrivate::isSambaInstalled()
 // in several well-known paths
 bool KSambaSharePrivate::findSmbConf()
 {
-    for (int i = 0; i < DefaultSambaConfigFilePathListSize; ++i) {
-        const QString filePath = QString::fromLatin1(DefaultSambaConfigFilePathList[i]);
+    for (const char *str : DefaultSambaConfigFilePathList) {
+        const QString filePath = QString::fromLatin1(str);
         if (QFile::exists(filePath)) {
             smbConf = filePath;
             return true;

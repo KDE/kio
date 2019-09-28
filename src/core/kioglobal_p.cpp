@@ -38,13 +38,12 @@ static QMap<QString, QString> standardLocationsMap()
             { QStandardPaths::DocumentsLocation, QStringLiteral("folder-documents") },
             { QStandardPaths::DesktopLocation, QStringLiteral("user-desktop") },
             { QStandardPaths::HomeLocation, QStringLiteral("user-home") } };
-    static const int count = sizeof mapping / sizeof *mapping;
 
     QMap<QString, QString> map;
-    for (int i = 0 ; i < count; ++i) {
-        const auto locations = QStandardPaths::standardLocations(mapping[i].location);
+    for (const auto &row : mapping) {
+        const QStringList locations = QStandardPaths::standardLocations(row.location);
         for (const QString &location : locations) {
-            map.insert(location, mapping[i].name);
+            map.insert(location, row.name);
         }
     }
     return map;

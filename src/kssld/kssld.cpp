@@ -61,11 +61,10 @@ public:
             {"HostNameMismatch", KSslError::HostNameMismatch}
         };
 
-        for (int i = 0; i < int(sizeof(strError) / sizeof(strErr)); i++) {
-            QString s = QString::fromLatin1(strError[i].str);
-            KSslError::Error e = strError[i].err;
-            stringToSslError.insert(s, e);
-            sslErrorToString.insert(e, s);
+        for (const strErr &row : strError) {
+            QString s = QString::fromLatin1(row.str);
+            stringToSslError.insert(s, row.err);
+            sslErrorToString.insert(row.err, s);
         }
     }
 

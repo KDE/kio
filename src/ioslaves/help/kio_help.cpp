@@ -56,18 +56,18 @@ QString HelpProtocol::langLookup(const QString &fname)
 
     // this is kind of compat hack as we install our docs in en/ but the
     // default language is en_US
-    for (QStringList::Iterator it = langs.begin(); it != langs.end(); ++it)
-        if (*it == QLatin1String("en_US")) {
-            *it = QStringLiteral("en");
+    for (QString &lang : langs) {
+        if (lang == QLatin1String("en_US")) {
+            lang = QStringLiteral("en");
         }
+    }
 
     // look up the different languages
     int ldCount = localDoc.count();
     search.reserve(ldCount * langs.size());
     for (int id = 0; id < ldCount; id++) {
-        QStringList::ConstIterator lang;
-        for (lang = langs.constBegin(); lang != langs.constEnd(); ++lang) {
-            search.append(QStringLiteral("%1/%2/%3").arg(localDoc[id], *lang, fname));
+        for (const QString &lang : qAsConst(langs)) {
+            search.append(QStringLiteral("%1/%2/%3").arg(localDoc[id], lang, fname));
         }
     }
 

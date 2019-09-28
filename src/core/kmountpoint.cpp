@@ -426,12 +426,12 @@ KMountPoint::Ptr KMountPoint::List::findByPath(const QString &path) const
 
     int max = 0;
     KMountPoint::Ptr result;
-    for (const_iterator it = begin(); it != end(); ++it) {
-        const QString mountpoint = (*it)->d->mountPoint;
+    for (const KMountPoint::Ptr &mp : *this) {
+        const QString mountpoint = mp->d->mountPoint;
         const int length = mountpoint.length();
         if (length > max && pathsAreParentAndChildOrEqual(mountpoint, realname)) {
             max = length;
-            result = *it;
+            result = mp;
             // keep iterating to check for a better match (bigger max)
         }
     }
@@ -444,10 +444,10 @@ KMountPoint::Ptr KMountPoint::List::findByDevice(const QString &device) const
     if (realDevice.isEmpty()) { // d->device can be empty in the loop below, don't match empty with it
         return Ptr();
     }
-    for (const_iterator it = begin(); it != end(); ++it) {
-        if (realDevice.compare((*it)->d->device, cs) == 0 ||
-                realDevice.compare((*it)->d->mountedFrom, cs) == 0) {
-            return *it;
+    for (const KMountPoint::Ptr &mountPoint : *this) {
+        if (realDevice.compare(mountPoint->d->device, cs) == 0 ||
+                realDevice.compare(mountPoint->d->mountedFrom, cs) == 0) {
+            return mountPoint;
         }
     }
     return Ptr();

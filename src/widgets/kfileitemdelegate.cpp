@@ -315,13 +315,7 @@ KFileItem KFileItemDelegate::Private::fileItem(const QModelIndex &index) const
 QString KFileItemDelegate::Private::replaceNewlines(const QString &text) const
 {
     QString string = text;
-    const QChar newline = QLatin1Char('\n');
-
-    for (int i = 0; i < string.length(); i++)
-        if (string[i] == newline) {
-            string[i] = QChar::LineSeparator;
-        }
-
+    string.replace(QLatin1Char('\n'), QChar::LineSeparator);
     return string;
 }
 

@@ -756,10 +756,12 @@ QStringList PreviewJob::availablePlugins()
 {
     QStringList result;
     const KService::List plugins = KServiceTypeTrader::self()->query(QStringLiteral("ThumbCreator"));
-    for (KService::List::ConstIterator it = plugins.begin(); it != plugins.end(); ++it)
-        if (!result.contains((*it)->desktopEntryName())) {
-            result.append((*it)->desktopEntryName());
+    for (const KService::Ptr &plugin : plugins) {
+        const QString desktopEntryName = plugin->desktopEntryName();
+        if (!result.contains(desktopEntryName)) {
+            result.append(desktopEntryName);
         }
+    }
     return result;
 }
 
@@ -780,8 +782,8 @@ QStringList PreviewJob::supportedMimeTypes()
 {
     QStringList result;
     const KService::List plugins = KServiceTypeTrader::self()->query(QStringLiteral("ThumbCreator"));
-    for (KService::List::ConstIterator it = plugins.begin(); it != plugins.end(); ++it) {
-        result += (*it)->mimeTypes();
+    for (const KService::Ptr &plugin : plugins) {
+        result += plugin->mimeTypes();
     }
     return result;
 }
@@ -801,9 +803,9 @@ PreviewJob *KIO::filePreview(const QList<QUrl> &items, int width, int height,
 {
     KFileItemList fileItems;
     fileItems.reserve(items.size());
-    for (QList<QUrl>::const_iterator it = items.begin(); it != items.end(); ++it) {
-        Q_ASSERT((*it).isValid());   // please call us with valid urls only
-        fileItems.append(KFileItem(*it));
+    for (const QUrl &url : items) {
+        Q_ASSERT(url.isValid());   // please call us with valid urls only
+        fileItems.append(KFileItem(url));
     }
     return new PreviewJob(fileItems, width, height, iconSize, iconAlpha,
                           scale, save, enabledPlugins);

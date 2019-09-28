@@ -166,17 +166,17 @@ static QString sanitizeCustomHTTPHeader(const QString &_header)
     QString sanitizedHeaders;
     const QStringList headers = _header.split(QRegExp(QStringLiteral("[\r\n]")));
 
-    for (QStringList::ConstIterator it = headers.begin(); it != headers.end(); ++it) {
+    for (const QString &header : headers) {
         // Do not allow Request line to be specified and ignore
         // the other HTTP headers.
-        if (!(*it).contains(QLatin1Char(':')) ||
-                (*it).startsWith(QLatin1String("host"), Qt::CaseInsensitive) ||
-                (*it).startsWith(QLatin1String("proxy-authorization"), Qt::CaseInsensitive) ||
-                (*it).startsWith(QLatin1String("via"), Qt::CaseInsensitive)) {
+        if (!header.contains(QLatin1Char(':')) ||
+                header.startsWith(QLatin1String("host"), Qt::CaseInsensitive) ||
+                header.startsWith(QLatin1String("proxy-authorization"), Qt::CaseInsensitive) ||
+                header.startsWith(QLatin1String("via"), Qt::CaseInsensitive)) {
             continue;
         }
 
-        sanitizedHeaders += (*it) + QLatin1String("\r\n");
+        sanitizedHeaders += header + QLatin1String("\r\n");
     }
     sanitizedHeaders.chop(2);
 

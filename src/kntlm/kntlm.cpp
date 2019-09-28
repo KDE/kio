@@ -130,14 +130,13 @@ static void convertKey(unsigned char *key_56, void *ks)
     key[6] = ((key_56[5] << 2) & 0xFF) | (key_56[6] >> 6);
     key[7] = (key_56[6] << 1) & 0xFF;
 
-    for (uint i = 0; i < 8; i++) {
-        unsigned char b = key[i];
-        bool needsParity = ((((b >> 7) ^ (b >> 6) ^ (b >> 5) ^ (b >> 4) ^ (b >> 3) ^ (b >> 2) ^ (b >> 1)) & 0x01) == 0);
+    for (unsigned char &b : key) {
+        const bool needsParity = ((((b >> 7) ^ (b >> 6) ^ (b >> 5) ^ (b >> 4) ^ (b >> 3) ^ (b >> 2) ^ (b >> 1)) & 0x01) == 0);
 
         if (needsParity) {
-            key[i] |= 0x01;
+            b |= 0x01;
         } else {
-            key[i] &= 0xfe;
+            b &= 0xfe;
         }
     }
 
@@ -156,8 +155,8 @@ static QByteArray createBlob(const QByteArray &targetinfo)
     now *= (quint64) 10000000;
     bl->timestamp = qToLittleEndian(now);
 
-    for (uint i = 0; i < 8; i++) {
-        bl->challenge[i] = KRandom::random() % 0xff;
+    for (unsigned char &b : bl->challenge) {
+        b = KRandom::random() % 0xff;
     }
 
     memcpy(blob.data() + NTLM_BLOB_SIZE, targetinfo.data(), targetinfo.size());

@@ -235,11 +235,11 @@ public:
     {
         QStringList qFilters = filters.split(QLatin1Char('\n'), QString::SkipEmptyParts);
 
-        for (QStringList::iterator it = qFilters.begin(); it != qFilters.end(); ++it) {
-            int sep = it->indexOf(QLatin1Char('|'));
-            const QStringRef globs = it->leftRef(sep);
-            const QStringRef desc  = it->midRef(sep + 1);
-            *it = desc + QLatin1String(" (") + globs + QLatin1Char(')');
+        for (QString &qFilter : qFilters) {
+            int sep = qFilter.indexOf(QLatin1Char('|'));
+            const QStringRef globs = qFilter.leftRef(sep);
+            const QStringRef desc  = qFilter.midRef(sep + 1);
+            qFilter = desc + QLatin1String(" (") + globs + QLatin1Char(')');
         }
 
         return qFilters;
