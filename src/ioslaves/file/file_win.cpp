@@ -198,7 +198,11 @@ void FileProtocol::listDir(const QUrl &url)
         return;
     }
 
-    const QString path = url.toLocalFile();
+    QString path = url.toLocalFile();
+    // C: means current directory, a concept which makes no sense in a GUI
+    // KCoreDireLister strips trailing slashes, let's put it back again here for C:/
+    if (path.length() == 2 && path.at(1) == QLatin1Char(':'))
+        path += QLatin1Char('/');
     const QFileInfo info(path);
     if (info.isFile()) {
         error(KIO::ERR_IS_FILE, path);
