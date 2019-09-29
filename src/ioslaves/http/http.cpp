@@ -1652,7 +1652,7 @@ QString HTTPProtocol::davError(int code /* = -1 */, const QString &_url)
 
         errorString += QLatin1String("<ul>");
 
-        Q_FOREACH (const QString &error, errors) {
+        for (const QString &error : qAsConst(errors)) {
             errorString += QLatin1String("<li>") + error + QLatin1String("</li>");
         }
 
@@ -1973,7 +1973,7 @@ void HTTPProtocol::multiGet(const QByteArray &data)
         //### for the moment we use a hack: instead of saving and restoring request-id
         //    we just count up like ParallelGetJobs does.
         int requestId = 0;
-        Q_FOREACH (const HTTPRequest &r, m_requestQueue) {
+        for (const HTTPRequest &r : qAsConst(m_requestQueue)) {
             m_request = r;
             qCDebug(KIO_HTTP) << "check two: isKeepAlive =" << m_request.isKeepAlive;
             setMetaData(QStringLiteral("request-id"), QString::number(requestId++));
@@ -2130,7 +2130,7 @@ bool HTTPProtocol::httpShouldCloseConnection()
     }
 
     if (!m_request.proxyUrls.isEmpty() && !isAutoSsl()) {
-        Q_FOREACH (const QString &url, m_request.proxyUrls) {
+        for (const QString &url : qAsConst(m_request.proxyUrls)) {
             if (url != QLatin1String("DIRECT")) {
                 if (isCompatibleNextUrl(m_server.proxyUrl, QUrl(url))) {
                     return false;
@@ -2169,7 +2169,7 @@ bool HTTPProtocol::httpOpenConnection()
         connectError = connectToHost(m_request.url.host(), m_request.url.port(defaultPort()), &errorString);
     } else {
         QList<QUrl> badProxyUrls;
-        Q_FOREACH (const QString &proxyUrl, m_request.proxyUrls) {
+        for (const QString &proxyUrl : qAsConst(m_request.proxyUrls)) {
             if (proxyUrl == QLatin1String("DIRECT")) {
                 QNetworkProxy::setApplicationProxy(QNetworkProxy::NoProxy);
                 connectError = connectToHost(m_request.url.host(), m_request.url.port(defaultPort()), &errorString);
@@ -2609,7 +2609,8 @@ bool HTTPProtocol::sendQuery()
     }
 
     qCDebug(KIO_HTTP) << "============ Sending Header:";
-    Q_FOREACH (const QString &s, header.split(QStringLiteral("\r\n"), QString::SkipEmptyParts)) {
+    const QStringList list = header.split(QStringLiteral("\r\n"), QString::SkipEmptyParts);
+    for (const QString &s : list) {
         qCDebug(KIO_HTTP) << s;
     }
 
@@ -2680,7 +2681,7 @@ bool HTTPProtocol::parseHeaderFromCache()
         return false;
     }
 
-    Q_FOREACH (const QString &str, m_responseHeaders) {
+    for (const QString &str : qAsConst(m_responseHeaders)) {
         const QString header = str.trimmed();
         if (header.startsWith(QLatin1String("content-type:"), Qt::CaseInsensitive)) {
             int pos = header.indexOf(QLatin1String("charset="), Qt::CaseInsensitive);
@@ -3190,7 +3191,7 @@ endParsing:
 
             // If we still have text, then it means we have a mime-type with a
             // parameter (eg: charset=iso-8851) ; so let's get that...
-            Q_FOREACH (const QByteArray &statement, l) {
+            for (const QByteArray &statement : qAsConst(l)) {
                 const int index = statement.indexOf('=');
                 if (index <= 0) {
                     mediaAttribute = toQString(statement.mid(0, index));
@@ -3367,7 +3368,7 @@ endParsing:
             QString offered = toQString(tIt.next());
             upgradeOffers = offered.split(QRegExp(QStringLiteral("[ \n,\r\t]")), QString::SkipEmptyParts);
         }
-        Q_FOREACH (const QString &opt, upgradeOffers) {
+        for (const QString &opt : qAsConst(upgradeOffers)) {
             if (opt == QLatin1String("TLS/1.0")) {
                 if (!startSsl() && upgradeRequired) {
                     error(ERR_UPGRADE_REQUIRED, opt);

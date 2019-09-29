@@ -142,7 +142,7 @@ bool KCookieServer::cookiesPending(const QString &url, KHttpCookieList *cookieLi
 
     QStringList domains;
     mCookieJar->extractDomains(fqdn, domains);
-    Q_FOREACH (const KHttpCookie &cookie, *mPendingCookies) {
+    for (const KHttpCookie &cookie : qAsConst(*mPendingCookies)) {
         if (cookie.match(fqdn, domains, path)) {
             if (!cookieList) {
                 return true;
@@ -389,7 +389,7 @@ QStringList
 KCookieServer::findDomains()
 {
     QStringList result;
-    Q_FOREACH (const QString &domain, mCookieJar->getDomainList()) {
+    for (const QString &domain : mCookieJar->getDomainList()) {
         // Ignore domains that have policy set for but contain
         // no cookies whatsoever...
         const KHttpCookieList *list =  mCookieJar->getCookieList(domain, QString());
@@ -418,7 +418,7 @@ KCookieServer::findCookies(const QList<int> &fields,
             if (!list) {
                 continue;
             }
-            Q_FOREACH (const KHttpCookie &cookie, *list) {
+            for (const KHttpCookie &cookie : *list) {
                 if (cookie.isExpired()) {
                     continue;
                 }
@@ -431,7 +431,7 @@ KCookieServer::findCookies(const QList<int> &fields,
             if (!list) {
                 continue;
             }
-            Q_FOREACH (const KHttpCookie &cookie, *list) {
+            for (const KHttpCookie &cookie : *list) {
                 if (cookie.isExpired()) {
                     continue;
                 }

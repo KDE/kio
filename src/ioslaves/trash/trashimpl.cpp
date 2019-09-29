@@ -714,7 +714,8 @@ bool TrashImpl::emptyTrash()
         //const int trashId = trit.key();
         QString filesDir = trit.value();
         filesDir += QLatin1String("/files");
-        Q_FOREACH (const QString &fileName, listDir(filesDir)) {
+        const QStringList list = listDir(filesDir);
+        for (const QString &fileName : list) {
             if (fileName == QLatin1Char('.') || fileName == QLatin1String("..")) {
                 continue;
             }

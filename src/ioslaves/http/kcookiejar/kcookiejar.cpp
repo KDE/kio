@@ -345,7 +345,7 @@ static void removeDuplicateFromList(KHttpCookieList *list, KHttpCookie &cookiePt
         if (cookiePtr.name() == cookie.name() &&
                 (nameMatchOnly || (domain1 == domain2 && cookiePtr.path() == cookie.path()))) {
             if (updateWindowId) {
-                Q_FOREACH (WId windowId, cookie.windowIds()) {
+                for (WId windowId : cookie.windowIds()) {
                     if (windowId && (!cookiePtr.windowIds().contains(windowId))) {
                         cookiePtr.windowIds().append(windowId);
                     }
@@ -1222,15 +1222,17 @@ void KCookieJar::eatSessionCookies(long windowId)
         return;
     }
 
-    Q_FOREACH (const QString &domain, m_domainList) {
+    for (const QString &domain : qAsConst(m_domainList)) {
         eatSessionCookies(domain, windowId, false);
     }
 }
 
 void KCookieJar::eatAllCookies()
 {
-    Q_FOREACH (const QString &domain, m_domainList) {
-        eatCookiesForDomain(domain);    // This might remove domain from m_domainList!
+    // we need a copy as eatCookiesForDomain() might remove domain from m_domainList
+    const QStringList list = m_domainList;
+    for (const QString &domain : list) {
+        eatCookiesForDomain(domain);
     }
 }
 
@@ -1408,8 +1410,8 @@ static QString extractHostAndPorts(const QString &str, QList<int> *ports = nullp
     const QString host = str.left(index);
     if (ports) {
         bool ok;
-        QStringList portList = str.mid(index + 1).split(QL1C(','));
-        Q_FOREACH (const QString &portStr, portList) {
+        const QStringList list = str.mid(index + 1).split(QL1C(','));
+        for (const QString &portStr : list) {
             const int portNum = portStr.toInt(&ok);
             if (ok) {
                 ports->append(portNum);
@@ -1577,7 +1579,9 @@ void KCookieJar::loadConfig(KConfig *_config, bool reparse)
     m_globalAdvice = strToAdvice(policyGroup.readEntry("CookieGlobalAdvice", QStringLiteral("Accept")));
 
     // Reset current domain settings first.
-    Q_FOREACH (const QString &domain, m_domainList) {
+    // We need a copy as setDomainAdvice() may modify m_domainList
+    const QStringList list = m_domainList;
+    for (const QString &domain : list) {
         setDomainAdvice(domain, KCookieDunno);
     }
 

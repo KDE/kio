@@ -545,7 +545,8 @@ void KHttpDigestAuthentication::generateResponse(const QString &user, const QStr
         info.algorithm = "MD5";
     }
 
-    Q_FOREACH (const QByteArray &path, valueForKey(m_challenge, "domain").split(' ')) {
+    const QList<QByteArray> list = valueForKey(m_challenge, "domain").split(' ');
+    for (const QByteArray &path : list) {
         QUrl u = m_resource.resolved(QUrl(QString::fromUtf8(path)));
         if (u.isValid()) {
             info.digestURIs.append(u);
@@ -596,7 +597,7 @@ void KHttpDigestAuthentication::generateResponse(const QString &user, const QStr
             requestPath = QLatin1Char('/');
         }
 
-        Q_FOREACH (const QUrl &u, info.digestURIs) {
+        for (const QUrl &u : qAsConst(info.digestURIs)) {
             send &= (m_resource.scheme().toLower() == u.scheme().toLower());
             send &= (m_resource.host().toLower() == u.host().toLower());
 

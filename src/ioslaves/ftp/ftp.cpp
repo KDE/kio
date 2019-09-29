@@ -425,7 +425,7 @@ bool Ftp::ftpOpenControlConnection()
     int errorCode = 0;
     QString errorMessage;
 
-    Q_FOREACH (const QString &proxyUrl, m_proxyUrls) {
+    for (const QString &proxyUrl : qAsConst(m_proxyUrls)) {
         const QUrl url(proxyUrl);
         const QString scheme(url.scheme());
 

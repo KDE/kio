@@ -128,7 +128,7 @@ struct CacheFileInfo : MiniCacheFileInfo {
         out << "\n encoded URL      " << url;
         out << "\n mimetype         " << mimeType;
         out << "\nResponse headers follow...\n";
-        Q_FOREACH (const QString &h, responseHeaders) {
+        for (const QString &h : qAsConst(responseHeaders)) {
             out << h << '\n';
         }
     }
