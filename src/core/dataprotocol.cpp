@@ -16,9 +16,6 @@
  *                                                                         *
  ***************************************************************************/
 
-// TODO: remove me
-#undef QT_NO_CAST_FROM_ASCII
-
 #include "dataprotocol_p.h"
 
 #include "global.h"
@@ -109,7 +106,7 @@ static inline QString extract(const QByteArray &buf, int &pos,
 {
     int oldpos = pos;
     pos = find(buf, oldpos, c1);
-    return buf.mid(oldpos, pos - oldpos);
+    return QString::fromLatin1(buf.mid(oldpos, pos - oldpos));
 }
 
 /** ignores all whitespaces
@@ -118,10 +115,10 @@ static inline QString extract(const QByteArray &buf, int &pos,
  *  Upon return @p pos will either point to the first non-whitespace
  *  character or to the end of the buffer.
  */
-static inline void ignoreWS(const QString &buf, int &pos)
+static inline void ignoreWS(const QByteArray &buf, int &pos)
 {
     int size = buf.length();
-    while (pos < size && buf[pos].isSpace()) {
+    while (pos < size && (buf[pos] == ' ' || buf[pos] == '\t')) {
         ++pos;
     }
 }
@@ -134,7 +131,7 @@ static inline void ignoreWS(const QString &buf, int &pos)
  * @return the extracted string. @p pos will be updated to point to the
  *  character following the trailing quote.
  */
-static QString parseQuotedString(const QString &buf, int &pos)
+static QString parseQuotedString(const QByteArray &buf, int &pos)
 {
     int size = buf.length();
     QString res;
@@ -143,7 +140,7 @@ static QString parseQuotedString(const QString &buf, int &pos)
     bool escaped = false; // if true means next character is literal
     bool parsing = true;  // true as long as end quote not found
     while (parsing && pos < size) {
-        const QChar ch = buf[pos++];
+        const QChar ch = QLatin1Char(buf[pos++]);
         if (escaped) {
             res += ch;
             escaped = false;
@@ -195,7 +192,7 @@ static DataHeader parseDataHeader(const QUrl &url, const bool mimeOnly)
         return header_info;
     }
     // jump over delimiter token and return if data reached
-    if (raw_url[header_info.data_offset++] == QLatin1Char(',')) {
+    if (raw_url[header_info.data_offset++] == ',') {
         return header_info;
     }
 
@@ -205,7 +202,7 @@ static DataHeader parseDataHeader(const QUrl &url, const bool mimeOnly)
         // read attribute
         const QString attribute = extract(raw_url, header_info.data_offset, '=').trimmed();
         if (header_info.data_offset >= raw_url_len
-                || raw_url[header_info.data_offset] != QLatin1Char('=')) {
+                || raw_url[header_info.data_offset] != '=') {
             // no assignment, must be base64 option
             if (attribute == QLatin1String("base64")) {
                 header_info.is_base64 = true;
@@ -220,7 +217,7 @@ static DataHeader parseDataHeader(const QUrl &url, const bool mimeOnly)
             }
 
             QString value;
-            if (raw_url[header_info.data_offset] == QLatin1Char('"')) {
+            if (raw_url[header_info.data_offset] == '"') {
                 value = parseQuotedString(raw_url, header_info.data_offset);
                 ignoreWS(raw_url, header_info.data_offset);
             } else {
@@ -232,7 +229,7 @@ static DataHeader parseDataHeader(const QUrl &url, const bool mimeOnly)
 
         }/*end if*/
         if (header_info.data_offset < raw_url_len
-                && raw_url[header_info.data_offset] == QLatin1Char(',')) {
+                && raw_url[header_info.data_offset] == ',') {
             data_begin_reached = true;
         }
         header_info.data_offset++; // jump over separator token
