@@ -120,7 +120,8 @@ void KFileCopyToMainMenu::slotAboutToShow()
     act = addMenu(subMenu);
     act->setObjectName(QStringLiteral("root"));
 #else
-    foreach (const QFileInfo &info, QDir::drives()) {
+    const QFileInfoList drives = QDir::drives();
+    for (const QFileInfo &info : drives) {
         QString driveIcon = QStringLiteral("drive-harddisk");
         const uint type = GetDriveTypeW((wchar_t *)info.absoluteFilePath().utf16());
         switch (type) {

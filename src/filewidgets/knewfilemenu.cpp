@@ -1219,9 +1219,7 @@ void KNewFileMenu::checkUpToDate()
         //qDebug() << "recreating actions";
         // We need to clean up the action collection
         // We look for our actions using the group
-        foreach (QAction *action, d->m_newMenuGroup->actions()) {
-            delete action;
-        }
+        qDeleteAll(d->m_newMenuGroup->actions());
 
         if (!s->templatesList) { // No templates list up to now
             s->templatesList = new KNewFileMenuSingleton::EntryList;

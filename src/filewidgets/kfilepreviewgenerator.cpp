@@ -545,7 +545,7 @@ void KFilePreviewGenerator::Private::updateIcons(const KFileItemList &items)
     orderItems(orderedItems);
 
     m_pendingItems.reserve(m_pendingItems.size() + orderedItems.size());
-    foreach (const KFileItem &item, orderedItems) {
+    for (const KFileItem &item : qAsConst(orderedItems)) {
         m_pendingItems.append(item);
     }
 
@@ -636,7 +636,8 @@ void KFilePreviewGenerator::Private::addToPreviewQueue(const KFileItem &item, co
 
     const QUrl itemParentDir = item.url().adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash);
 
-    foreach (const QUrl &dir, dirModel->dirLister()->directories()) {
+    const QList<QUrl> dirs = dirModel->dirLister()->directories();
+    for (const QUrl &dir : dirs) {
         if (dir == itemParentDir || dir.path().isEmpty()) {
             isOldPreview = false;
             break;
@@ -682,7 +683,7 @@ void KFilePreviewGenerator::Private::slotPreviewJobFinished(KJob *job)
     m_previewJobs.removeAt(index);
 
     if (m_previewJobs.isEmpty()) {
-        foreach (const KFileItem &item, m_pendingItems) {
+        for (const KFileItem &item : qAsConst(m_pendingItems)) {
             if (item.isMimeTypeKnown()) {
                 m_resolvedMimeTypes.append(item);
             }
@@ -729,8 +730,8 @@ void KFilePreviewGenerator::Private::clearCutItemsCache()
     KFileItemList previews;
     // Reset the icons of all items that are stored in the cache
     // to use their default MIME type icon.
-    foreach (const QUrl &url, m_cutItemsCache.keys()) {
-        const QModelIndex index = dirModel->indexForUrl(url);
+    for (auto it = m_cutItemsCache.cbegin(); it != m_cutItemsCache.cend(); ++it) {
+        const QModelIndex index = dirModel->indexForUrl(it.key());
         if (index.isValid()) {
             dirModel->setData(index, QIcon(), Qt::DecorationRole);
             if (m_previewShown) {
@@ -762,7 +763,7 @@ void KFilePreviewGenerator::Private::dispatchIconUpdateQueue()
 
         if (m_previewShown) {
             // dispatch preview queue
-            foreach (const ItemInfo &preview, m_previews) {
+            for (const ItemInfo &preview : qAsConst(m_previews)) {
                 const QModelIndex idx = dirModel->indexForUrl(preview.url);
                 if (idx.isValid() && (idx.column() == 0)) {
                     dirModel->setData(idx, QIcon(preview.pixmap), Qt::DecorationRole);
@@ -772,7 +773,7 @@ void KFilePreviewGenerator::Private::dispatchIconUpdateQueue()
         }
 
         // dispatch mime type queue
-        foreach (const KFileItem &item, m_resolvedMimeTypes) {
+        for (const KFileItem &item : qAsConst(m_resolvedMimeTypes)) {
             const QModelIndex idx = dirModel->indexForItem(item);
             dirModel->itemChanged(idx);
         }
@@ -795,7 +796,7 @@ void KFilePreviewGenerator::Private::dispatchIconUpdateQueue()
 void KFilePreviewGenerator::Private::pauseIconUpdates()
 {
     m_iconUpdatesPaused = true;
-    foreach (KJob *job, m_previewJobs) {
+    for (KJob *job : qAsConst(m_previewJobs)) {
         Q_ASSERT(job != nullptr);
         job->suspend();
     }
@@ -812,7 +813,7 @@ void KFilePreviewGenerator::Private::resumeIconUpdates()
     // queue is usually equal. So even when having a lot of elements the
     // nested loop is no performance bottle neck, as the inner loop is only
     // entered once in most cases.
-    foreach (const KFileItem &item, m_dispatchedItems) {
+    for (const KFileItem &item : qAsConst(m_dispatchedItems)) {
         KFileItemList::iterator begin = m_pendingItems.begin();
         KFileItemList::iterator end   = m_pendingItems.end();
         for (KFileItemList::iterator it = begin; it != end; ++it) {
@@ -1032,7 +1033,7 @@ void KFilePreviewGenerator::Private::createPreviews(const KFileItemList &items)
     KFileItemList imageItems;
     KFileItemList otherItems;
     QString mimeType;
-    foreach (const KFileItem &item, items) {
+    for (const KFileItem &item : items) {
         mimeType = item.mimetype();
         const int slashIndex = mimeType.indexOf(QLatin1Char('/'));
         const QStringRef mimeTypeGroup = mimeType.leftRef(slashIndex);
@@ -1075,7 +1076,7 @@ void KFilePreviewGenerator::Private::startPreviewJob(const KFileItemList &items,
 
 void KFilePreviewGenerator::Private::killPreviewJobs()
 {
-    foreach (KJob *job, m_previewJobs) {
+    for (KJob *job : qAsConst(m_previewJobs)) {
         Q_ASSERT(job != nullptr);
         job->kill();
     }

@@ -2124,7 +2124,8 @@ void KDirOperator::setupActions()
     connect(d->newFileMenu, SIGNAL(directoryCreated(QUrl)), this, SLOT(_k_slotDirectoryCreated(QUrl)));
 
     d->actionCollection->addAssociatedWidget(this);
-    foreach (QAction *action, d->actionCollection->actions()) {
+    const QList<QAction *> list = d->actionCollection->actions();
+    for (QAction *action : list) {
         action->setShortcutContext(Qt::WidgetWithChildrenShortcut);
     }
 }

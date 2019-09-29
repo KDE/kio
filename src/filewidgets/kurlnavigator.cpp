@@ -683,7 +683,7 @@ void KUrlNavigator::Private::updateButtonVisibility()
 
     // Check whether buttons must be hidden at all...
     int requiredButtonWidth = 0;
-    foreach (const KUrlNavigatorButton *button, m_navButtons) {
+    for (const KUrlNavigatorButton *button : qAsConst(m_navButtons)) {
         requiredButtonWidth += button->minimumWidth();
     }
 
@@ -721,7 +721,7 @@ void KUrlNavigator::Private::updateButtonVisibility()
 
     // All buttons have the correct activation state and
     // can be shown now
-    foreach (KUrlNavigatorButton *button, buttonsToShow) {
+    for (KUrlNavigatorButton *button : qAsConst(buttonsToShow)) {
         button->show();
     }
 
@@ -800,7 +800,7 @@ void KUrlNavigator::Private::switchToBreadcrumbMode()
 
 void KUrlNavigator::Private::deleteButtons()
 {
-    foreach (KUrlNavigatorButton *button, m_navButtons) {
+    for (KUrlNavigatorButton *button : qAsConst(m_navButtons)) {
         button->hide();
         button->deleteLater();
     }
@@ -992,7 +992,7 @@ void KUrlNavigator::setActive(bool active)
         d->m_active = active;
 
         d->m_dropDownButton->setActive(active);
-        foreach (KUrlNavigatorButton *button, d->m_navButtons) {
+        for (KUrlNavigatorButton *button : qAsConst(d->m_navButtons)) {
             button->setActive(active);
         }
 
@@ -1223,13 +1223,13 @@ bool KUrlNavigator::eventFilter(QObject *watched, QEvent *event)
             requestActivation();
             setFocus();
         }
-        foreach (KUrlNavigatorButton *button, d->m_navButtons) {
+        for (KUrlNavigatorButton *button : qAsConst(d->m_navButtons)) {
             button->setShowMnemonic(true);
         }
         break;
 
     case QEvent::FocusOut:
-        foreach (KUrlNavigatorButton *button, d->m_navButtons) {
+        for (KUrlNavigatorButton *button : qAsConst(d->m_navButtons)) {
             button->setShowMnemonic(false);
         }
         break;

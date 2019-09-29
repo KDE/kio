@@ -2497,7 +2497,8 @@ void KFileWidgetPrivate::updateFilter()
             if (!findMatchingFilter(filterWidget->currentFilter(), filename).isEmpty()) {
                 return;
             }
-            foreach (const QString &filter, filterWidget->filters()) {
+            const QStringList list = filterWidget->filters();
+            for (const QString &filter : list) {
                 QString match = findMatchingFilter(filter, filename);
                 if (!match.isEmpty()) {
                     if (match != QLatin1String("*")) {   // never match the catch-all filter
