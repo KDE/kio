@@ -277,6 +277,11 @@ QSslCertificate KSslError::certificate() const
     return d->error.certificate();
 }
 
+QSslError KSslError::sslError() const
+{
+    return d->error;
+}
+
 class KTcpSocketPrivate
 {
 public:

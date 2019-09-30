@@ -103,8 +103,7 @@ public:
         for (int i = 0; i < sslErrors.count(); i++) {
             if (sslErrors[i].certificate().isNull()) {
 				const QList<QSslCertificate> peerCertificateChain = socket.peerCertificateChain();
-                sslErrors[i] = KSslError(sslErrors[i].error(),
-                                         peerCertificateChain[0]);
+                sslErrors[i] = QSslError(sslErrors[i].sslError().error(), peerCertificateChain[0]);
             }
         }
 

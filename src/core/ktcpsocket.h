@@ -95,6 +95,7 @@ private:
 class KSslErrorPrivate;
 class KTcpSocket;
 
+/** To be replaced by QSslError. */
 class KIOCORE_EXPORT KSslError
 {
 public:
@@ -114,8 +115,9 @@ public:
         HostNameMismatch,
         PathLengthExceeded
     };
-    KSslError(KSslError::Error error = NoError, const QSslCertificate &cert = QSslCertificate());
-    KSslError(const QSslError &error);  //### explicit yes or no?
+    /** @deprecated since 5.63, use the QSslError ctor instead. */
+    KIOCORE_DEPRECATED KSslError(KSslError::Error error = NoError, const QSslCertificate &cert = QSslCertificate());
+    KSslError(const QSslError &error);
     KSslError(const KSslError &other);
     ~KSslError();
     KSslError &operator=(const KSslError &other);
@@ -123,6 +125,11 @@ public:
     Error error() const;
     QString errorString() const;
     QSslCertificate certificate() const;
+    /**
+     * Returns the QSslError wrapped by this KSslError.
+     * @since 5.63
+     */
+    QSslError sslError() const;
 private:
     KSslErrorPrivate *const d;
 };
