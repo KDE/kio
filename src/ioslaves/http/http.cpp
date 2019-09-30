@@ -2592,7 +2592,7 @@ bool HTTPProtocol::sendQuery()
         // we have cached credentials to avoid the extra roundtrip where possible.
         header += authenticationHeader();
 
-        if (m_protocol == "webdav" || m_protocol == "webdavs") {
+        if (hasDavData || m_protocol == "webdav" || m_protocol == "webdavs") {
             header += davProcessLocks();
 
             // add extra webdav headers, if supplied
