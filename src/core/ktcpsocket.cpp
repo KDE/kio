@@ -18,6 +18,7 @@
 */
 
 #include "ktcpsocket.h"
+#include "ksslerror_p.h"
 #include "kiocoredebug.h"
 
 #include <ksslcertificatemanager.h>
@@ -146,92 +147,86 @@ private:
     QHash<QString, QSslCipher> allCiphers;
 };
 
-class KSslErrorPrivate
+KSslError::Error KSslErrorPrivate::errorFromQSslError(QSslError::SslError e)
 {
-public:
-    static KSslError::Error errorFromQSslError(QSslError::SslError e)
-    {
-        switch (e) {
-        case QSslError::NoError:
-            return KSslError::NoError;
-        case QSslError::UnableToGetLocalIssuerCertificate:
-        case QSslError::InvalidCaCertificate:
-            return KSslError::InvalidCertificateAuthorityCertificate;
-        case QSslError::InvalidNotBeforeField:
-        case QSslError::InvalidNotAfterField:
-        case QSslError::CertificateNotYetValid:
-        case QSslError::CertificateExpired:
-            return KSslError::ExpiredCertificate;
-        case QSslError::UnableToDecodeIssuerPublicKey:
-        case QSslError::SubjectIssuerMismatch:
-        case QSslError::AuthorityIssuerSerialNumberMismatch:
-            return KSslError::InvalidCertificate;
-        case QSslError::SelfSignedCertificate:
-        case QSslError::SelfSignedCertificateInChain:
-            return KSslError::SelfSignedCertificate;
-        case QSslError::CertificateRevoked:
-            return KSslError::RevokedCertificate;
-        case QSslError::InvalidPurpose:
-            return KSslError::InvalidCertificatePurpose;
-        case QSslError::CertificateUntrusted:
-            return KSslError::UntrustedCertificate;
-        case QSslError::CertificateRejected:
-            return KSslError::RejectedCertificate;
-        case QSslError::NoPeerCertificate:
-            return KSslError::NoPeerCertificate;
-        case QSslError::HostNameMismatch:
-            return KSslError::HostNameMismatch;
-        case QSslError::UnableToVerifyFirstCertificate:
-        case QSslError::UnableToDecryptCertificateSignature:
-        case QSslError::UnableToGetIssuerCertificate:
-        case QSslError::CertificateSignatureFailed:
-            return KSslError::CertificateSignatureFailed;
-        case QSslError::PathLengthExceeded:
-            return KSslError::PathLengthExceeded;
-        case QSslError::UnspecifiedError:
-        case QSslError::NoSslSupport:
+    switch (e) {
+    case QSslError::NoError:
+        return KSslError::NoError;
+    case QSslError::UnableToGetLocalIssuerCertificate:
+    case QSslError::InvalidCaCertificate:
+        return KSslError::InvalidCertificateAuthorityCertificate;
+    case QSslError::InvalidNotBeforeField:
+    case QSslError::InvalidNotAfterField:
+    case QSslError::CertificateNotYetValid:
+    case QSslError::CertificateExpired:
+        return KSslError::ExpiredCertificate;
+    case QSslError::UnableToDecodeIssuerPublicKey:
+    case QSslError::SubjectIssuerMismatch:
+    case QSslError::AuthorityIssuerSerialNumberMismatch:
+        return KSslError::InvalidCertificate;
+    case QSslError::SelfSignedCertificate:
+    case QSslError::SelfSignedCertificateInChain:
+        return KSslError::SelfSignedCertificate;
+    case QSslError::CertificateRevoked:
+        return KSslError::RevokedCertificate;
+    case QSslError::InvalidPurpose:
+        return KSslError::InvalidCertificatePurpose;
+    case QSslError::CertificateUntrusted:
+        return KSslError::UntrustedCertificate;
+    case QSslError::CertificateRejected:
+        return KSslError::RejectedCertificate;
+    case QSslError::NoPeerCertificate:
+        return KSslError::NoPeerCertificate;
+    case QSslError::HostNameMismatch:
+        return KSslError::HostNameMismatch;
+    case QSslError::UnableToVerifyFirstCertificate:
+    case QSslError::UnableToDecryptCertificateSignature:
+    case QSslError::UnableToGetIssuerCertificate:
+    case QSslError::CertificateSignatureFailed:
+        return KSslError::CertificateSignatureFailed;
+    case QSslError::PathLengthExceeded:
+        return KSslError::PathLengthExceeded;
+    case QSslError::UnspecifiedError:
+    case QSslError::NoSslSupport:
+    default:
+        return KSslError::UnknownError;
+    }
+}
+
+QSslError::SslError KSslErrorPrivate::errorFromKSslError(KSslError::Error e)
+{
+    switch (e) {
+        case KSslError::NoError:
+            return QSslError::NoError;
+        case KSslError::InvalidCertificateAuthorityCertificate:
+            return QSslError::InvalidCaCertificate;
+        case KSslError::InvalidCertificate:
+            return QSslError::UnableToDecodeIssuerPublicKey;
+        case KSslError::CertificateSignatureFailed:
+            return QSslError::CertificateSignatureFailed;
+        case KSslError::SelfSignedCertificate:
+            return QSslError::SelfSignedCertificate;
+        case KSslError::ExpiredCertificate:
+            return QSslError::CertificateExpired;
+        case KSslError::RevokedCertificate:
+            return QSslError::CertificateRevoked;
+        case KSslError::InvalidCertificatePurpose:
+            return QSslError::InvalidPurpose;
+        case KSslError::RejectedCertificate:
+            return QSslError::CertificateRejected;
+        case KSslError::UntrustedCertificate:
+            return QSslError::CertificateUntrusted;
+        case KSslError::NoPeerCertificate:
+            return QSslError::NoPeerCertificate;
+        case KSslError::HostNameMismatch:
+            return QSslError::HostNameMismatch;
+        case KSslError::PathLengthExceeded:
+            return QSslError::PathLengthExceeded;
+        case KSslError::UnknownError:
         default:
-            return KSslError::UnknownError;
-        }
+            return QSslError::UnspecifiedError;
     }
-
-    static QSslError::SslError errorFromKSslError(KSslError::Error e)
-    {
-        switch (e) {
-            case KSslError::NoError:
-                return QSslError::NoError;
-            case KSslError::InvalidCertificateAuthorityCertificate:
-                return QSslError::InvalidCaCertificate;
-            case KSslError::InvalidCertificate:
-                return QSslError::UnableToDecodeIssuerPublicKey;
-            case KSslError::CertificateSignatureFailed:
-                return QSslError::CertificateSignatureFailed;
-            case KSslError::SelfSignedCertificate:
-                return QSslError::SelfSignedCertificate;
-            case KSslError::ExpiredCertificate:
-                return QSslError::CertificateExpired;
-            case KSslError::RevokedCertificate:
-                return QSslError::CertificateRevoked;
-            case KSslError::InvalidCertificatePurpose:
-                return QSslError::InvalidPurpose;
-            case KSslError::RejectedCertificate:
-                return QSslError::CertificateRejected;
-            case KSslError::UntrustedCertificate:
-                return QSslError::CertificateUntrusted;
-            case KSslError::NoPeerCertificate:
-                return QSslError::NoPeerCertificate;
-            case KSslError::HostNameMismatch:
-                return QSslError::HostNameMismatch;
-            case KSslError::PathLengthExceeded:
-                return QSslError::PathLengthExceeded;
-            case KSslError::UnknownError:
-            default:
-                return QSslError::UnspecifiedError;
-        }
-    }
-
-    QSslError error;
-};
+}
 
 KSslError::KSslError(Error errorCode, const QSslCertificate &certificate)
     : d(new KSslErrorPrivate())
