@@ -2406,6 +2406,7 @@ bool HTTPProtocol::sendQuery()
         case HTTP_OPTIONS:
             break;
         case DAV_PROPFIND:
+        case DAV_REPORT:
             hasDavData = true;
             davHeader = QStringLiteral("Depth: ");
             if (hasMetaData(QStringLiteral("davDepth"))) {
@@ -2455,7 +2456,6 @@ bool HTTPProtocol::sendQuery()
             davHeader = QLatin1String("Lock-token: ") + metaData(QStringLiteral("davLockToken")) + QLatin1String("\r\n");
             break;
         case DAV_SEARCH:
-        case DAV_REPORT:
             hasDavData = true;
         /* fall through */
         case DAV_SUBSCRIBE:
