@@ -78,6 +78,56 @@ static const QString socketPath()
     return QStringLiteral("%1/filehelper%2%3").arg(runtimeDir, KRandom::randomString(6)).arg(getpid());
 }
 
+static QString actionDetails(ActionType actionType, const QVariantList &args)
+{
+    QString action, detail;
+    switch (actionType) {
+    case CHMOD:
+        action = i18n("Change File Permissions");
+        detail = i18n("New Permissions: %1", args[1].toInt());
+        break;
+    case CHOWN:
+        action = i18n("Change File Owner");
+        detail = i18n("New Owner: UID=%1, GID=%2", args[1].toInt(), args[2].toInt());
+        break;
+    case DEL:
+        action = i18n("Remove File");
+        break;
+    case RMDIR:
+        action = i18n("Remove Directory");
+        break;
+    case MKDIR:
+        action = i18n("Create Directory");
+        detail = i18n("Directory Permissions: %1", args[1].toInt());
+        break;
+    case OPEN:
+        action = i18n("Open File");
+        break;
+    case OPENDIR:
+        action = i18n("Open Directory");
+        break;
+    case RENAME:
+        action = i18n("Rename");
+        detail = i18n("New Filename: %1", args[1].toString());
+        break;
+    case SYMLINK:
+        action = i18n("Create Symlink");
+        detail = i18n("Target: %1", args[1].toString());
+        break;
+    case UTIME:
+        action = i18n("Change Timestamp");
+        break;
+    default:
+        action = i18n("Unknown Action");
+        break;
+    }
+
+    const QString metadata = i18n("Action: %1\n"
+                                  "Source: %2\n"
+                                  "%3", action, args[0].toString(), detail);
+    return metadata;
+}
+
 bool FileProtocol::privilegeOperationUnitTestMode()
 {
     return (metaData(QStringLiteral("UnitTesting")) == QLatin1String("true"))
@@ -879,7 +929,8 @@ PrivilegeOperationReturnValue FileProtocol::execWithElevatedPrivilege(ActionType
         return PrivilegeOperationReturnValue::failure(errcode);
     }
 
-    KIO::PrivilegeOperationStatus opStatus = requestPrivilegeOperation();
+    const QString operationDetails = actionDetails(action, args);
+    KIO::PrivilegeOperationStatus opStatus = requestPrivilegeOperation(operationDetails);
     if (opStatus != KIO::OperationAllowed) {
         if (opStatus == KIO::OperationCanceled) {
             error(KIO::ERR_USER_CANCELED, QString());

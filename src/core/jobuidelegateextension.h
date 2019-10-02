@@ -219,7 +219,9 @@ public:
         WarningContinueCancel = 3,
         WarningYesNoCancel = 4,
         Information = 5,
-        SSLMessageBox = 6
+        SSLMessageBox = 6,
+        //In KMessageBox::DialogType; Sorry = 7, Error = 8, QuestionYesNoCancel = 9
+        WarningContinueCancelDetailed = 10,
     };
 
     /**

@@ -178,7 +178,7 @@ public:
                           const QString &iconYes = QString(),
                           const QString &iconNo = QString(),
                           const QString &dontAskAgainName = QString(),
-                          const KIO::MetaData &sslMetaData = KIO::MetaData()) override {
+                          const KIO::MetaData &metaData = KIO::MetaData()) override {
         Q_UNUSED(type);
         Q_UNUSED(text);
         Q_UNUSED(caption);
@@ -187,7 +187,7 @@ public:
         Q_UNUSED(iconYes);
         Q_UNUSED(iconNo);
         Q_UNUSED(dontAskAgainName);
-        Q_UNUSED(sslMetaData);
+        Q_UNUSED(metaData);
         ++m_messageBoxCalled;
         return m_messageBoxResult;
     }

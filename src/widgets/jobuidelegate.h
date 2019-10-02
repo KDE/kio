@@ -139,12 +139,13 @@ public:
     * @param iconYes the icon shown on the YES button.
     * @param iconNo the icon shown on the NO button.
     * @param dontAskAgainName the name used to store result from 'Do not ask again' checkbox.
-    * @param sslMetaData SSL information used by the SSLMessageBox.
+    * @param metaData SSL information used by the SSLMessageBox. Since 5.66 this is also used for privilege operation details.
     *
     * @since 4.11
     *
     * @internal
     */
+    // KF6 TODO Add a QString parameter for "details" and keep in sync with API in SlaveBase, SlaveInterface, and JobUiDelegateExtension.
     int requestMessageBox(MessageBoxType type, const QString &text,
                           const QString &caption,
                           const QString &buttonYes,
@@ -152,7 +153,7 @@ public:
                           const QString &iconYes = QString(),
                           const QString &iconNo = QString(),
                           const QString &dontAskAgainName = QString(),
-                          const KIO::MetaData &sslMetaData = KIO::MetaData()) override;
+                          const KIO::MetaData &metaData = KIO::MetaData()) override;
 
     /**
      * Creates a clipboard updater

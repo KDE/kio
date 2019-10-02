@@ -257,9 +257,18 @@ public:
     void infoMessage(const QString &msg);
 
     /**
-     * Type of message box. Should be kept in sync with KMessageBox::ButtonCode.
+     * Type of message box. Should be kept in sync with KMessageBox::DialogType.
      */
-    enum MessageBoxType { QuestionYesNo = 1, WarningYesNo = 2, WarningContinueCancel = 3, WarningYesNoCancel = 4, Information = 5, SSLMessageBox = 6 };
+    enum MessageBoxType {
+        QuestionYesNo = 1,
+        WarningYesNo = 2,
+        WarningContinueCancel = 3,
+        WarningYesNoCancel = 4,
+        Information = 5,
+        SSLMessageBox = 6,
+        //In KMessageBox::DialogType; Sorry = 7, Error = 8, QuestionYesNoCancel = 9
+        WarningContinueCancelDetailed = 10,
+    };
 
     /**
      * Button codes. Should be kept in sync with KMessageBox::ButtonCode
@@ -1000,9 +1009,9 @@ public:
      * Checks with job if privilege operation is allowed.
      * @return privilege operation status.
      * @see PrivilegeOperationStatus
-     * @since 5.43
+     * @since 5.66
      */
-    PrivilegeOperationStatus requestPrivilegeOperation();
+    PrivilegeOperationStatus requestPrivilegeOperation(const QString &operationDetails);
 
     /**
       * Adds @p action to the list of PolicyKit actions which the
@@ -1012,6 +1021,14 @@ public:
       * @since 5.45
       */
     void addTemporaryAuthorization(const QString &action);
+
+    /**
+     * @deprecated since 5.66, use requestPrivilegeOperation(QString)
+     */
+
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 66)
+    KIOCORE_DEPRECATED_VERSION(5, 66, "Pass QString action to requestPrivilegeOperation") PrivilegeOperationStatus requestPrivilegeOperation();
+#endif
 
 protected:
     /**

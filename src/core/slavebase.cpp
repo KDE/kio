@@ -141,19 +141,6 @@ public:
     QString m_warningMessage;
     int m_privilegeOperationStatus;
 
-    PrivilegeOperationStatus askConfirmation()
-    {
-        int status = q->messageBox(SlaveBase::WarningContinueCancel, m_warningMessage, m_warningCaption, QStringLiteral("Continue"), QStringLiteral("Cancel"));
-        switch (status) {
-        case SlaveBase::Continue:
-            return OperationAllowed;
-        case SlaveBase::Cancel:
-            return OperationCanceled;
-        default:
-            return OperationNotAllowed;
-        }
-    }
-
     void updateTempAuthStatus()
     {
 #ifdef Q_OS_UNIX
@@ -1535,8 +1522,9 @@ int SlaveBase::waitForHostInfo(QHostInfo &info)
     return result;
 }
 
-PrivilegeOperationStatus SlaveBase::requestPrivilegeOperation()
+PrivilegeOperationStatus SlaveBase::requestPrivilegeOperation(const QString &operationDetails)
 {
+
     if (d->m_privilegeOperationStatus == OperationNotAllowed) {
         QByteArray buffer;
         send(MSG_PRIVILEGE_EXEC);
@@ -1548,7 +1536,13 @@ PrivilegeOperationStatus SlaveBase::requestPrivilegeOperation()
     if (metaData(QStringLiteral("UnitTesting")) != QLatin1String("true") &&
             d->m_privilegeOperationStatus == OperationAllowed &&
             !d->m_confirmationAsked) {
-        d->m_privilegeOperationStatus = d->askConfirmation();
+        //KF6 TODO Remove. We don't want to pass details as meta-data. Pass it as a parameter in messageBox().
+        setMetaData(QStringLiteral("privilege_conf_details"), operationDetails);
+        sendMetaData();
+
+        int result = messageBox(d->m_warningMessage, WarningContinueCancelDetailed,
+                                d->m_warningCaption, QString(), QString(), QString());
+        d->m_privilegeOperationStatus = result == Continue ? OperationAllowed : OperationCanceled;
         d->m_confirmationAsked = true;
     }
 
@@ -1559,3 +1553,10 @@ void SlaveBase::addTemporaryAuthorization(const QString &action)
 {
     d->m_tempAuths.insert(action);
 }
+
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 66)
+PrivilegeOperationStatus SlaveBase::requestPrivilegeOperation()
+{
+        return KIO::OperationNotAllowed;
+}
+#endif

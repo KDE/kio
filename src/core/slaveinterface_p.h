@@ -52,6 +52,10 @@ public:
     // We need some metadata here for our SSL code in messageBox() and for sslMetaData().
     MetaData sslMetaData;
 
+    // Since 5.66 this is used for sending privilege operation details.
+    // KF6 TODO remove this hack.
+    MetaData privilegeConfMetaData;
+
     KIO::filesize_t sizes[max_nums];
     qint64 times[max_nums];
 

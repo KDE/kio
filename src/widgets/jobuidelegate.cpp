@@ -300,7 +300,7 @@ int KIO::JobUiDelegate::requestMessageBox(KIO::JobUiDelegate::MessageBoxType typ
         const QString &buttonYes, const QString &buttonNo,
         const QString &iconYes, const QString &iconNo,
         const QString &dontAskAgainName,
-        const KIO::MetaData &sslMetaData)
+        const KIO::MetaData &metaData)
 {
     int result = -1;
 
@@ -342,7 +342,7 @@ int KIO::JobUiDelegate::requestMessageBox(KIO::JobUiDelegate::MessageBoxType typ
     case SSLMessageBox: {
         QPointer<KSslInfoDialog> kid(new KSslInfoDialog(window()));
         //### this is boilerplate code and appears in khtml_part.cpp almost unchanged!
-        const QStringList sl = sslMetaData.value(QStringLiteral("ssl_peer_chain")).split(QLatin1Char('\x01'), QString::SkipEmptyParts);
+        const QStringList sl = metaData.value(QStringLiteral("ssl_peer_chain")).split(QLatin1Char('\x01'), QString::SkipEmptyParts);
         QList<QSslCertificate> certChain;
         bool decodedOk = true;
         for (const QString &s : sl) {
@@ -356,13 +356,13 @@ int KIO::JobUiDelegate::requestMessageBox(KIO::JobUiDelegate::MessageBoxType typ
         if (decodedOk) {
             result = 1; // whatever
             kid->setSslInfo(certChain,
-                            sslMetaData.value(QStringLiteral("ssl_peer_ip")),
+                            metaData.value(QStringLiteral("ssl_peer_ip")),
                             text, // the URL
-                            sslMetaData.value(QStringLiteral("ssl_protocol_version")),
-                            sslMetaData.value(QStringLiteral("ssl_cipher")),
-                            sslMetaData.value(QStringLiteral("ssl_cipher_used_bits")).toInt(),
-                            sslMetaData.value(QStringLiteral("ssl_cipher_bits")).toInt(),
-                            KSslInfoDialog::certificateErrorsFromString(sslMetaData.value(QStringLiteral("ssl_cert_errors"))));
+                            metaData.value(QStringLiteral("ssl_protocol_version")),
+                            metaData.value(QStringLiteral("ssl_cipher")),
+                            metaData.value(QStringLiteral("ssl_cipher_used_bits")).toInt(),
+                            metaData.value(QStringLiteral("ssl_cipher_bits")).toInt(),
+                            KSslInfoDialog::certificateErrorsFromString(metaData.value(QStringLiteral("ssl_cert_errors"))));
             kid->exec();
         } else {
             result = -1;
@@ -372,6 +372,13 @@ int KIO::JobUiDelegate::requestMessageBox(KIO::JobUiDelegate::MessageBoxType typ
         }
         // KSslInfoDialog deletes itself (Qt::WA_DeleteOnClose).
         delete kid;
+        break;
+    }
+    case WarningContinueCancelDetailed: {
+        const QString details = metaData.value(QStringLiteral("privilege_conf_details"));
+        result = KMessageBox::warningContinueCancelDetailed(
+                      window(), text, caption, KStandardGuiItem::cont(), KStandardGuiItem::cancel(),
+                      dontAskAgainName, options | KMessageBox::Dangerous, details);
         break;
     }
     default:
