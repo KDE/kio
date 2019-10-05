@@ -26,6 +26,7 @@
 #include <kfileplacesmodel.h>
 #include <kconfig.h>
 #include <kconfiggroup.h>
+#include <KProtocolInfo>
 
 #include <QTest>
 #include <QSignalSpy>
@@ -76,19 +77,24 @@ void KFilePlacesViewTest::testUrlChanged_data()
     QTest::addColumn<int>("row");
     QTest::addColumn<QString>("expectedUrl");
 
+    int idx = 3;
+    if (KProtocolInfo::isKnownProtocol(QStringLiteral("recentlyused"))) {
+        QTest::newRow("Recently Used") << idx++ << QStringLiteral("recentlyused:/files");
+        QTest::newRow("Recently Used") << idx++ << QStringLiteral("recentlyused:/locations");
+    }
     const QDate currentDate = QDate::currentDate();
     const QDate yesterdayDate = currentDate.addDays(-1);
-    QTest::newRow("Today") << 3 << QStringLiteral("timeline:/today");
-    QTest::newRow("Yesterday") << 4 << QString("timeline:/%1-%2/%1-%2-%3")
+    QTest::newRow("Today") << idx++ << QStringLiteral("timeline:/today");
+    QTest::newRow("Yesterday") << idx++ << QString("timeline:/%1-%2/%1-%2-%3")
                                   .arg(yesterdayDate.year())
                                   .arg(yesterdayDate.month(), 2, 10, QChar('0'))
                                   .arg(yesterdayDate.day(), 2, 10, QChar('0'));
 
     // search
-    QTest::newRow("Documents") << 5 << QStringLiteral("baloosearch:/documents");
-    QTest::newRow("Images") << 6 << QStringLiteral("baloosearch:/images");
-    QTest::newRow("Audio Files") << 7 << QStringLiteral("baloosearch:/audio");
-    QTest::newRow("Videos") << 8 << QStringLiteral("baloosearch:/videos");
+    QTest::newRow("Documents") << idx++ << QStringLiteral("baloosearch:/documents");
+    QTest::newRow("Images") << idx++ << QStringLiteral("baloosearch:/images");
+    QTest::newRow("Audio Files") << idx++ << QStringLiteral("baloosearch:/audio");
+    QTest::newRow("Videos") << idx++ << QStringLiteral("baloosearch:/videos");
 }
 
 void KFilePlacesViewTest::testUrlChanged()

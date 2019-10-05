@@ -130,6 +130,13 @@ public:
      * If the index is not valid, a default KBookmark instance is returned.
      */
     KBookmark bookmarkForIndex(const QModelIndex &index) const;
+    
+    /**
+     * @return The KBookmark instance of the place with url @p searchUrl.
+     * If the bookmark corresponding to searchUrl is not found, a default KBookmark instance is returned.
+     * @since 5.63
+     */
+    KBookmark bookmarkForUrl(const QUrl &searchUrl) const;
 
     /**
      * @return The group type of the place at index @p index.

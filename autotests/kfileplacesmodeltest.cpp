@@ -28,6 +28,7 @@
 #include <solid/device.h>
 #include <kconfig.h>
 #include <kconfiggroup.h>
+#include <KProtocolInfo>
 
 #include <QtTest>
 
@@ -96,6 +97,7 @@ private:
 
     QMap<QString, QDBusInterface *> m_interfacesMap;
     QTemporaryDir m_tmpHome;
+    bool m_hasRecentlyUsedKio;
 };
 
 static QString bookmarksFile()
@@ -128,6 +130,8 @@ void KFilePlacesModelTest::initTestCase()
     qputenv("SOLID_FAKEHW", QFile::encodeName(fakeHw));
     m_places = new KFilePlacesModel();
     m_places2 = new KFilePlacesModel();
+
+    m_hasRecentlyUsedKio = qEnvironmentVariableIsSet("KDE_FULL_SESSION") && KProtocolInfo::isKnownProtocol(QStringLiteral("recentlyused"));
 }
 
 void KFilePlacesModelTest::cleanupTestCase()
@@ -195,9 +199,10 @@ QDBusInterface *KFilePlacesModelTest::fakeDevice(const QString &udi)
 
 void KFilePlacesModelTest::testInitialState()
 {
-    QCOMPARE(m_places->rowCount(), 3); // when the xbel file is empty, KFilePlacesModel fills it with 3 default items
+    QCOMPARE(m_places->rowCount(), m_hasRecentlyUsedKio ? 5 : 3); // when the xbel file is empty, KFilePlacesModel fills it with 3 default items
+    // 4 when ioslave recentlyused:/ is installed
     QCoreApplication::processEvents(); // Devices have a delayed loading
-    QCOMPARE(m_places->rowCount(), 8);
+    QCOMPARE(m_places->rowCount(), m_hasRecentlyUsedKio ? 10 : 8);
 }
 
 static const QStringList initialListOfPlaces()
@@ -208,6 +213,16 @@ static const QStringList initialListOfPlaces()
 static const QStringList initialListOfShared()
 {
     return QStringList() << QStringLiteral("remote:/") << QStringLiteral("/media/nfs");
+}
+
+static const QStringList initialListOfRecent()
+{
+    auto list = QStringList();
+    if (qEnvironmentVariableIsSet("KDE_FULL_SESSION") && KProtocolInfo::isKnownProtocol(QStringLiteral("recentlyused"))) {
+        list << QStringLiteral("recentlyused:/files");
+        list << QStringLiteral("recentlyused:/locations");
+    }
+    return list;
 }
 
 static const QStringList initialListOfDevices()
@@ -224,6 +239,7 @@ static const QStringList initialListOfUrls()
 {
     return QStringList() << initialListOfPlaces()
                          << initialListOfShared()
+                         << initialListOfRecent()
                          << initialListOfDevices()
                          << initialListOfRemovableDevices();
 }
@@ -395,6 +411,7 @@ void KFilePlacesModelTest::testMove()
     QStringList urls;
     urls << QStringLiteral("trash:/") << QDir::homePath()
          << initialListOfShared()
+         << initialListOfRecent()
          << initialListOfDevices()
          << initialListOfRemovableDevices();
 
@@ -416,6 +433,7 @@ void KFilePlacesModelTest::testMove()
     urls.clear();
     urls << initialListOfPlaces()
          << initialListOfShared()
+         << initialListOfRecent()
          << initialListOfDevices()
          << initialListOfRemovableDevices();
     CHECK_PLACES_URLS(urls);
@@ -452,6 +470,7 @@ void KFilePlacesModelTest::testDragAndDrop()
     QStringList urls;
     urls << QStringLiteral("trash:/") << QDir::homePath()
          << initialListOfShared()
+         << initialListOfRecent()
          << initialListOfDevices()
          << initialListOfRemovableDevices();
     CHECK_PLACES_URLS(urls);
@@ -474,6 +493,7 @@ void KFilePlacesModelTest::testDragAndDrop()
     urls.clear();
     urls << QDir::homePath() << QStringLiteral("trash:/")
          << initialListOfShared()
+         << initialListOfRecent()
          << initialListOfDevices()
          << initialListOfRemovableDevices();
     CHECK_PLACES_URLS(urls);
@@ -510,6 +530,7 @@ void KFilePlacesModelTest::testPlacesLifecycle()
     QStringList urls;
     urls << initialListOfPlaces() <<  QStringLiteral("/home/foo")
          << initialListOfShared()
+         << initialListOfRecent()
          << initialListOfDevices()
          << initialListOfRemovableDevices();
     CHECK_PLACES_URLS(urls);
@@ -531,6 +552,7 @@ void KFilePlacesModelTest::testPlacesLifecycle()
     urls.clear();
     urls << QDir::homePath() << QStringLiteral("/home/foo") << QStringLiteral("trash:/")
          << initialListOfShared()
+         << initialListOfRecent()
          << initialListOfDevices()
          << initialListOfRemovableDevices();
     CHECK_PLACES_URLS(urls);
@@ -550,6 +572,7 @@ void KFilePlacesModelTest::testPlacesLifecycle()
     urls.clear();
     urls << QDir::homePath() << QStringLiteral("/mnt/foo") << QStringLiteral("trash:/")
          << initialListOfShared()
+         << initialListOfRecent()
          << initialListOfDevices()
          << initialListOfRemovableDevices();
     CHECK_PLACES_URLS(urls);
@@ -567,13 +590,14 @@ void KFilePlacesModelTest::testPlacesLifecycle()
     urls.clear();
     urls << QDir::homePath() << QStringLiteral("/mnt/foo") << QStringLiteral("trash:/")
          << initialListOfShared()
+         << initialListOfRecent()
          << initialListOfDevices()
          << initialListOfRemovableDevices();
 
     CHECK_PLACES_URLS(urls);
     QCOMPARE(spy_inserted.count(), 0);
     QCOMPARE(spy_removed.count(), 0);
-    QCOMPARE(spy_changed.count(), 9);
+    QCOMPARE(spy_changed.count(), m_hasRecentlyUsedKio ? 11 : 9);
     args = spy_changed[2];
     QCOMPARE(args.at(0).toModelIndex(), m_places->index(2, 0));
     QCOMPARE(args.at(1).toModelIndex(), m_places->index(2, 0));
@@ -584,6 +608,7 @@ void KFilePlacesModelTest::testPlacesLifecycle()
     urls.clear();
     urls << initialListOfPlaces()
          << initialListOfShared()
+         << initialListOfRecent()
          << initialListOfDevices()
          << initialListOfRemovableDevices();
     CHECK_PLACES_URLS(urls);
@@ -599,6 +624,7 @@ void KFilePlacesModelTest::testPlacesLifecycle()
     urls.clear();
     urls << QDir::homePath() << QStringLiteral("/home/foo") << QStringLiteral("trash:/")
          << initialListOfShared()
+         << initialListOfRecent()
          << initialListOfDevices()
          << initialListOfRemovableDevices();
     CHECK_PLACES_URLS(urls);
@@ -623,6 +649,7 @@ void KFilePlacesModelTest::testDevicePlugging()
     QStringList urls;
     urls << initialListOfPlaces()
          << initialListOfShared()
+         << initialListOfRecent()
          << initialListOfDevices()
          << QStringLiteral("/media/floppy0")  << QStringLiteral("/media/cdrom");
     CHECK_PLACES_URLS(urls);
@@ -630,22 +657,23 @@ void KFilePlacesModelTest::testDevicePlugging()
     QCOMPARE(spy_removed.count(), 1);
     args = spy_removed.takeFirst();
     QCOMPARE(args.at(0).toModelIndex(), QModelIndex());
-    QCOMPARE(args.at(1).toInt(), 6);
-    QCOMPARE(args.at(2).toInt(), 6);
+    QCOMPARE(args.at(1).toInt(), m_hasRecentlyUsedKio ? 8 : 6);
+    QCOMPARE(args.at(2).toInt(), m_hasRecentlyUsedKio ? 8 : 6);
 
     fakeManager()->call(QStringLiteral("plug"), "/org/kde/solid/fakehw/volume_part1_size_993284096");
 
     urls.clear();
     urls << initialListOfPlaces()
          << initialListOfShared()
+         << initialListOfRecent()
          << initialListOfDevices()
          << initialListOfRemovableDevices();
     CHECK_PLACES_URLS(urls);
     QCOMPARE(spy_inserted.count(), 1);
     args = spy_inserted.takeFirst();
     QCOMPARE(args.at(0).toModelIndex(), QModelIndex());
-    QCOMPARE(args.at(1).toInt(), 6);
-    QCOMPARE(args.at(2).toInt(), 6);
+    QCOMPARE(args.at(1).toInt(), m_hasRecentlyUsedKio ? 8 : 6);
+    QCOMPARE(args.at(2).toInt(), m_hasRecentlyUsedKio ? 8 : 6);
     QCOMPARE(spy_removed.count(), 0);
 
     // Move the device in the list, and check that it memorizes the position across plug/unplug
@@ -655,7 +683,8 @@ void KFilePlacesModelTest::testDevicePlugging()
     KBookmark before_floppy;
 
     KBookmark device = root.first(); // The device we'll move is the 6th bookmark
-    for (int i = 0; i < 5; i++) {
+    const int count = m_hasRecentlyUsedKio ? 7 : 5;
+    for (int i = 0; i < count; i++) {
         if (i == 2) {
             // store item before to be able to move it back to original position
             device = before_floppy = root.next(device);
@@ -670,25 +699,27 @@ void KFilePlacesModelTest::testDevicePlugging()
     urls.clear();
     urls << initialListOfPlaces()
          << initialListOfShared()
+         << initialListOfRecent()
          << initialListOfDevices()
          << QStringLiteral("/media/XO-Y4") << QStringLiteral("/media/floppy0") << QStringLiteral("/media/cdrom");
     CHECK_PLACES_URLS(urls);
     QCOMPARE(spy_inserted.count(), 1);
     args = spy_inserted.takeFirst();
     QCOMPARE(args.at(0).toModelIndex(), QModelIndex());
-    QCOMPARE(args.at(1).toInt(), 6);
-    QCOMPARE(args.at(2).toInt(), 6);
+    QCOMPARE(args.at(1).toInt(), m_hasRecentlyUsedKio ? 8 : 6);
+    QCOMPARE(args.at(2).toInt(), m_hasRecentlyUsedKio ? 8 : 6);
     QCOMPARE(spy_removed.count(), 1);
     args = spy_removed.takeFirst();
     QCOMPARE(args.at(0).toModelIndex(), QModelIndex());
-    QCOMPARE(args.at(1).toInt(), 5);
-    QCOMPARE(args.at(2).toInt(), 5);
+    QCOMPARE(args.at(1).toInt(), m_hasRecentlyUsedKio ? 7 : 5);
+    QCOMPARE(args.at(2).toInt(), m_hasRecentlyUsedKio ? 7 : 5);
 
     fakeManager()->call(QStringLiteral("unplug"), "/org/kde/solid/fakehw/volume_part1_size_993284096");
 
     urls.clear();
     urls << initialListOfPlaces()
          << initialListOfShared()
+         << initialListOfRecent()
          << initialListOfDevices()
          << QStringLiteral("/media/floppy0") << QStringLiteral("/media/cdrom");
     CHECK_PLACES_URLS(urls);
@@ -696,47 +727,49 @@ void KFilePlacesModelTest::testDevicePlugging()
     QCOMPARE(spy_removed.count(), 1);
     args = spy_removed.takeFirst();
     QCOMPARE(args.at(0).toModelIndex(), QModelIndex());
-    QCOMPARE(args.at(1).toInt(), 5);
-    QCOMPARE(args.at(2).toInt(), 5);
+    QCOMPARE(args.at(1).toInt(), m_hasRecentlyUsedKio ? 7 : 5);
+    QCOMPARE(args.at(2).toInt(), m_hasRecentlyUsedKio ? 7 : 5);
 
     fakeManager()->call(QStringLiteral("plug"), "/org/kde/solid/fakehw/volume_part1_size_993284096");
 
     urls.clear();
     urls << initialListOfPlaces()
          << initialListOfShared()
+         << initialListOfRecent()
          << initialListOfDevices() << QStringLiteral("/media/XO-Y4")
          << QStringLiteral("/media/floppy0") << QStringLiteral("/media/cdrom");
     CHECK_PLACES_URLS(urls);
     QCOMPARE(spy_inserted.count(), 1);
     args = spy_inserted.takeFirst();
     QCOMPARE(args.at(0).toModelIndex(), QModelIndex());
-    QCOMPARE(args.at(1).toInt(), 5);
-    QCOMPARE(args.at(2).toInt(), 5);
+    QCOMPARE(args.at(1).toInt(), m_hasRecentlyUsedKio ? 7 : 5);
+    QCOMPARE(args.at(2).toInt(), m_hasRecentlyUsedKio ? 7 : 5);
     QCOMPARE(spy_removed.count(), 0);
 
-    KBookmark sixth = root.first();
-    for (int i = 0; i < 5; i++) {
-        sixth = root.next(sixth);
+    KBookmark seventh = root.first();
+    for (int i = 0; i < count; i++) {
+        seventh = root.next(seventh);
     }
-    root.moveBookmark(device, sixth);
+    root.moveBookmark(device, seventh);
     bookmarkManager->emitChanged(root);
 
     urls.clear();
     urls << initialListOfPlaces()
          << initialListOfShared()
+         << initialListOfRecent()
          << initialListOfDevices()
          << initialListOfRemovableDevices();
     CHECK_PLACES_URLS(urls);
     QCOMPARE(spy_inserted.count(), 1);
     args = spy_inserted.takeFirst();
     QCOMPARE(args.at(0).toModelIndex(), QModelIndex());
-    QCOMPARE(args.at(1).toInt(), 6);
-    QCOMPARE(args.at(2).toInt(), 6);
+    QCOMPARE(args.at(1).toInt(), m_hasRecentlyUsedKio ? 8 : 6);
+    QCOMPARE(args.at(2).toInt(), m_hasRecentlyUsedKio ? 8 : 6);
     QCOMPARE(spy_removed.count(), 1);
     args = spy_removed.takeFirst();
     QCOMPARE(args.at(0).toModelIndex(), QModelIndex());
-    QCOMPARE(args.at(1).toInt(), 5);
-    QCOMPARE(args.at(2).toInt(), 5);
+    QCOMPARE(args.at(1).toInt(), m_hasRecentlyUsedKio ? 7 : 5);
+    QCOMPARE(args.at(2).toInt(), m_hasRecentlyUsedKio ? 7 : 5);
 }
 
 void KFilePlacesModelTest::testDeviceSetupTeardown()
@@ -748,15 +781,15 @@ void KFilePlacesModelTest::testDeviceSetupTeardown()
 
     QCOMPARE(spy_changed.count(), 1);
     args = spy_changed.takeFirst();
-    QCOMPARE(args.at(0).toModelIndex().row(), 6);
-    QCOMPARE(args.at(1).toModelIndex().row(), 6);
+    QCOMPARE(args.at(0).toModelIndex().row(), m_hasRecentlyUsedKio ? 8 : 6);
+    QCOMPARE(args.at(1).toModelIndex().row(), m_hasRecentlyUsedKio ? 8 : 6);
 
     fakeDevice(QStringLiteral("/org/kde/solid/fakehw/volume_part1_size_993284096/StorageAccess"))->call(QStringLiteral("setup"));
 
     QCOMPARE(spy_changed.count(), 1);
     args = spy_changed.takeFirst();
-    QCOMPARE(args.at(0).toModelIndex().row(), 6);
-    QCOMPARE(args.at(1).toModelIndex().row(), 6);
+    QCOMPARE(args.at(0).toModelIndex().row(), m_hasRecentlyUsedKio ? 8 : 6);
+    QCOMPARE(args.at(1).toModelIndex().row(), m_hasRecentlyUsedKio ? 8 : 6);
 }
 
 void KFilePlacesModelTest::testEnableBaloo()
@@ -811,7 +844,9 @@ void KFilePlacesModelTest::testRemoteUrls()
     QStringList urls;
     urls << QDir::homePath() << QStringLiteral("trash:/") // places
          << QStringLiteral("remote:/") << QStringLiteral("/media/nfs")
-         << url.toString() << QStringLiteral("/foreign")
+         << url.toString()
+         << initialListOfRecent()
+         << QStringLiteral("/foreign")
          << QStringLiteral("/media/floppy0")  << QStringLiteral("/media/XO-Y4") << QStringLiteral("/media/cdrom");
     CHECK_PLACES_URLS(urls);
 
@@ -929,19 +964,27 @@ void KFilePlacesModelTest::testIconRole_data()
     QTest::addColumn<QString>("expectedIconName");
 
     // places
-    QTest::newRow("Places - Home") << m_places->index(0, 0)
+    int index = 0;
+    QTest::newRow("Places - Home") << m_places->index(index++, 0)
                                    << QStringLiteral("user-home");
-    QTest::newRow("Places - Trash") << m_places->index(1, 0)
+    QTest::newRow("Places - Trash") << m_places->index(index++, 0)
                                    << QStringLiteral("user-trash");
-    QTest::newRow("Remote - Network") << m_places->index(2, 0)
+
+    QTest::newRow("Remote - Network") << m_places->index(index++, 0)
                                     << QStringLiteral("folder-network");
-    QTest::newRow("Devices - Nfs") << m_places->index(3, 0)
+    QTest::newRow("Devices - Nfs") << m_places->index(index++, 0)
                                     << QStringLiteral("hwinfo");
-    QTest::newRow("Devices - foreign") << m_places->index(4, 0)
+    if (m_hasRecentlyUsedKio) {
+        QTest::newRow("Recent Files") << m_places->index(index++, 0)
+                                        << QStringLiteral("document-open-recent");
+        QTest::newRow("Recent Locations") << m_places->index(index++, 0)
+                                        << QStringLiteral("folder-open-recent");
+    }
+    QTest::newRow("Devices - foreign") << m_places->index(index++, 0)
                                     << QStringLiteral("blockdevice");
-    QTest::newRow("Devices - Floppy") << m_places->index(5, 0)
+    QTest::newRow("Devices - Floppy") << m_places->index(index++, 0)
                                     << QStringLiteral("blockdevice");
-    QTest::newRow("Devices - cdrom") << m_places->index(6, 0)
+    QTest::newRow("Devices - cdrom") << m_places->index(index++, 0)
                                     << QStringLiteral("blockdevice");
 }
 
@@ -1004,24 +1047,24 @@ void KFilePlacesModelTest::testMoveFunction()
     QCOMPARE(placesUrls(), urls);
     rowsMoved.clear();
 
-    QVERIFY(m_places->movePlace(7, 5));
-    urls.move(7, 5);
+    QVERIFY(m_places->movePlace(m_hasRecentlyUsedKio ? 8: 7, m_hasRecentlyUsedKio ? 6 : 5));
+    urls.move(m_hasRecentlyUsedKio ? 8: 7, m_hasRecentlyUsedKio ? 6 : 5);
     QTRY_COMPARE(rowsMoved.count(), 1);
     args = rowsMoved.takeFirst();
-    QCOMPARE(args.at(1).toInt(), 7); // start
-    QCOMPARE(args.at(2).toInt(), 7); // end
-    QCOMPARE(args.at(4).toInt(), 5); // row (destination)
+    QCOMPARE(args.at(1).toInt(), m_hasRecentlyUsedKio ? 8: 7); // start
+    QCOMPARE(args.at(2).toInt(), m_hasRecentlyUsedKio ? 8: 7); // end
+    QCOMPARE(args.at(4).toInt(), m_hasRecentlyUsedKio ? 6: 4); // row (destination)
     QCOMPARE(placesUrls(), urls);
     rowsMoved.clear();
 
     // move it back
-    QVERIFY(m_places->movePlace(5, 8));
-    urls.move(5, 7);
+    QVERIFY(m_places->movePlace(m_hasRecentlyUsedKio ? 6 : 5, m_hasRecentlyUsedKio ? 9 : 8));
+    urls.move(m_hasRecentlyUsedKio ? 6 : 5, m_hasRecentlyUsedKio ? 8 : 7);
     QTRY_COMPARE(rowsMoved.count(), 1);
     args = rowsMoved.takeFirst();
-    QCOMPARE(args.at(1).toInt(), 5); // start
-    QCOMPARE(args.at(2).toInt(), 5); // end
-    QCOMPARE(args.at(4).toInt(), 8); // row (destination)
+    QCOMPARE(args.at(1).toInt(), m_hasRecentlyUsedKio ? 6 : 5); // start
+    QCOMPARE(args.at(2).toInt(), m_hasRecentlyUsedKio ? 6 : 5); // end
+    QCOMPARE(args.at(4).toInt(), m_hasRecentlyUsedKio ? 9 : 8); // row (destination)
     QCOMPARE(placesUrls(), urls);
     rowsMoved.clear();
 
@@ -1040,7 +1083,11 @@ void KFilePlacesModelTest::testPlaceGroupHidden()
     QCOMPARE(m_places->hiddenCount(), 0);
 
     QStringList urls;
-    urls << initialListOfPlaces() << initialListOfShared() << initialListOfDevices() << initialListOfRemovableDevices();
+    urls << initialListOfPlaces()
+         << initialListOfShared()
+         << initialListOfRecent()
+         << initialListOfDevices()
+         << initialListOfRemovableDevices();
     CHECK_PLACES_URLS(urls);
     QVector<QModelIndex> indexesHidden;
 
@@ -1107,7 +1154,11 @@ void KFilePlacesModelTest::testPlaceGroupHiddenAndShownWithHiddenChild()
     QCOMPARE(m_places->hiddenCount(), 0);
 
     QStringList urls;
-    urls << initialListOfPlaces() << initialListOfShared() << initialListOfDevices() << initialListOfRemovableDevices();
+    urls << initialListOfPlaces()
+         << initialListOfShared()
+         << initialListOfRecent()
+         << initialListOfDevices()
+         << initialListOfRemovableDevices();
     CHECK_PLACES_URLS(urls);
 
     QModelIndex firstIndexHidden = m_places->index(0,0);
@@ -1145,7 +1196,7 @@ void KFilePlacesModelTest::testPlaceGroupHiddenGroupIndexesIntegrity()
     QVERIFY(m_places->groupIndexes(KFilePlacesModel::UnknownType).isEmpty());
     QVERIFY(m_places->isGroupHidden(KFilePlacesModel::PlacesType));
     QCOMPARE(m_places->groupIndexes(KFilePlacesModel::PlacesType).count(), initialListOfPlaces().count());
-    QCOMPARE(m_places->groupIndexes(KFilePlacesModel::RecentlySavedType).count(), 0);
+    QCOMPARE(m_places->groupIndexes(KFilePlacesModel::RecentlySavedType).count(), m_hasRecentlyUsedKio ? 2 : 0);
     QCOMPARE(m_places->groupIndexes(KFilePlacesModel::SearchForType).count(), 0);
     QCOMPARE(m_places->groupIndexes(KFilePlacesModel::DevicesType).count(), initialListOfDevices().count());
     QCOMPARE(m_places->groupIndexes(KFilePlacesModel::RemovableDevicesType).count(), initialListOfRemovableDevices().count());
@@ -1157,7 +1208,7 @@ void KFilePlacesModelTest::testPlaceGroupHiddenGroupIndexesIntegrity()
     // Make sure that hidden place group doesn't change model
     QVERIFY(!m_places->isGroupHidden(KFilePlacesModel::PlacesType));
     QCOMPARE(m_places->groupIndexes(KFilePlacesModel::PlacesType).count(), initialListOfPlaces().count());
-    QCOMPARE(m_places->groupIndexes(KFilePlacesModel::RecentlySavedType).count(), 0);
+    QCOMPARE(m_places->groupIndexes(KFilePlacesModel::RecentlySavedType).count(), m_hasRecentlyUsedKio ? 2 : 0);
     QCOMPARE(m_places->groupIndexes(KFilePlacesModel::SearchForType).count(), 0);
     QCOMPARE(m_places->groupIndexes(KFilePlacesModel::DevicesType).count(), initialListOfDevices().count());
     QCOMPARE(m_places->groupIndexes(KFilePlacesModel::RemovableDevicesType).count(), initialListOfRemovableDevices().count());

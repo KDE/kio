@@ -248,6 +248,19 @@ private:
     bool isBalooUrl(const QUrl &url) const;
 };
 
+KBookmark KFilePlacesModel::bookmarkForUrl(const QUrl &searchUrl) const
+{
+    KBookmarkGroup root = d->bookmarkManager->root();
+    KBookmark current = root.first();
+    while (!current.isNull()) {
+        if (current.url() == searchUrl) {
+            return current;
+        }
+        current = root.next(current);
+    }
+    return KBookmark();
+}
+
 KFilePlacesModel::KFilePlacesModel(const QString &alternativeApplicationName, QObject *parent)
     : QAbstractItemModel(parent), d(new Private(this))
 {
@@ -317,16 +330,42 @@ KFilePlacesModel::KFilePlacesModel(const QString &alternativeApplicationName, QO
         d->bookmarkManager->saveAs(file);
     }
 
+    // Add a Recently Used entry if available (it comes from kio-extras)
+    if (qEnvironmentVariableIsSet("KDE_FULL_SESSION") && KProtocolInfo::isKnownProtocol(QStringLiteral("recentlyused")) &&
+             root.metaDataItem(QStringLiteral("withRecentlyUsed")) != QLatin1String("true")) {
+
+        root.setMetaDataItem(QStringLiteral("withRecentlyUsed"), QStringLiteral("true"));
+
+        KBookmark recentFilesBookmark = KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
+                                            QStringLiteral("Recent Files"), I18N_NOOP2("KFile System Bookmarks", "Recent Files"),
+                                            QUrl(QStringLiteral("recentlyused:/files")), QStringLiteral("document-open-recent"));
+
+        KBookmark recentDirectoriesBookmark = KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
+                                            QStringLiteral("Recent Locations"), I18N_NOOP2("KFile System Bookmarks", "Recent Locations"),
+                                            QUrl(QStringLiteral("recentlyused:/locations")), QStringLiteral("folder-open-recent"));
+
+        setDefaultMetadataItemForGroup(RecentlySavedType);
+
+        // Move The recently used bookmarks below the trash, making it the first element in the Recent group
+        KBookmark trashBookmark = bookmarkForUrl(QUrl("trash:/"));
+        if (!trashBookmark.isNull()) {
+            root.moveBookmark(recentFilesBookmark, trashBookmark);
+            root.moveBookmark(recentDirectoriesBookmark, recentFilesBookmark);
+        }
+
+        d->bookmarkManager->save();
+    }
+
     // if baloo is enabled, add new urls even if the bookmark file is not empty
     if (d->fileIndexingEnabled &&
         root.metaDataItem(QStringLiteral("withBaloo")) != QLatin1String("true")) {
 
         root.setMetaDataItem(QStringLiteral("withBaloo"), QStringLiteral("true"));
         KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
-                                              QStringLiteral("Today"), I18N_NOOP2("KFile System Bookmarks", "Today"),
+                                              QStringLiteral("Modified Today"), I18N_NOOP2("KFile System Bookmarks", "Today"),
                                               QUrl(QStringLiteral("timeline:/today")),  QStringLiteral("go-jump-today"));
         KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
-                                              QStringLiteral("Yesterday"), I18N_NOOP2("KFile System Bookmarks", "Yesterday"),
+                                              QStringLiteral("Modified Yesterday"), I18N_NOOP2("KFile System Bookmarks", "Yesterday"),
                                               QUrl(QStringLiteral("timeline:/yesterday")),  QStringLiteral("view-calendar-day"));
         KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
                                               QStringLiteral("Documents"), I18N_NOOP2("KFile System Bookmarks", "Documents"),

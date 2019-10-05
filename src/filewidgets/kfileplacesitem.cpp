@@ -110,7 +110,7 @@ void KFilePlacesItem::setBookmark(const KBookmark &bookmark)
         m_groupName = i18nc("@item", "Remote");
         break;
     case KFilePlacesModel::RecentlySavedType:
-        m_groupName = i18nc("@item", "Recently Saved");
+        m_groupName = i18nc("@item The place group section name for recent dynamic lists", "Recent");
         break;
     case KFilePlacesModel::SearchForType:
         m_groupName = i18nc("@item", "Search For");
@@ -151,7 +151,8 @@ KFilePlacesModel::GroupType KFilePlacesItem::groupType() const
 {
     if (!isDevice()) {
         const QString protocol = bookmark().url().scheme();
-        if (protocol == QLatin1String("timeline")) {
+        if (protocol == QLatin1String("timeline") ||
+            protocol == QLatin1String("recentlyused")) {
             return KFilePlacesModel::RecentlySavedType;
         }
 
