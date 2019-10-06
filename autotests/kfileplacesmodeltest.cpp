@@ -1053,7 +1053,7 @@ void KFilePlacesModelTest::testMoveFunction()
     args = rowsMoved.takeFirst();
     QCOMPARE(args.at(1).toInt(), m_hasRecentlyUsedKio ? 8: 7); // start
     QCOMPARE(args.at(2).toInt(), m_hasRecentlyUsedKio ? 8: 7); // end
-    QCOMPARE(args.at(4).toInt(), m_hasRecentlyUsedKio ? 6: 4); // row (destination)
+    QCOMPARE(args.at(4).toInt(), m_hasRecentlyUsedKio ? 6: 5); // row (destination)
     QCOMPARE(placesUrls(), urls);
     rowsMoved.clear();
 
