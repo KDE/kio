@@ -1,0 +1,64 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Serbian "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="http">
+<title
+>ХТТП и ХТТПС</title>
+<articleinfo>
+<authorgroup>
+<author
+><personname
+><firstname
+>Лори</firstname
+> <surname
+>Вотс</surname
+></personname
+> &Lauri.Watts.mail;</author>
+<othercredit role="translator"
+><firstname
+>Драган</firstname
+><surname
+>Пантелић</surname
+><affiliation
+><address
+><email
+>falcon-10@gmx.de</email
+></address
+></affiliation
+><contrib
+>превод</contrib
+></othercredit
+> 
+</authorgroup>
+</articleinfo>
+
+<para
+>ХТТП је протокол за пренос хипертекста.</para>
+
+<para
+>У/И захват ХТТП‑а користе сви КДЕ програми за обраду веза са ХТТП серверима, тј. веб серверима. Најчешћа употреба је за прегледање веб страница у веб прегледачу <application
+>К‑освајачу</application
+>.</para>
+
+<para
+>ХТТП У/И захват користите у <application
+>К‑освајачу</application
+> кад год унесете УРЛ веб странице: <userinput
+>http://<replaceable
+>www.kde.org</replaceable
+></userinput
+>.</para>
+
+<para
+>ХТТПС је ХТТП завијен у ССЛ/ТЛС ток.</para>
+<para
+>ССЛ је протокол „слоја безбедних сокета“, безбедносни протокол који пружа приватност комуникације преко Интернета. Омогућава програмима типа клијент-сервер да саобраћају на начин који спречава прислушкивање и фалсификовање порука. </para>
+<para
+>ТЛС је акроним за „безбедност транспортног слоја“.</para>
+
+</article>

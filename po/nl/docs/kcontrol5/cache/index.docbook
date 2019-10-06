@@ -1,0 +1,75 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Dutch "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="cache" lang="&language;">
+<title
+>Cache</title>
+<articleinfo>
+
+<authorgroup>
+<author
+><firstname
+>Lauri</firstname
+><surname
+>Watts</surname
+></author>
+
+&Otto.Bruggeman; 
+</authorgroup>
+
+<date
+>2016-11-10</date>
+<releaseinfo
+>Frameworks 5.29</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Systeeminstellingen</keyword>
+<keyword
+>Konqueror</keyword>
+<keyword
+>Cache</keyword>
+</keywordset>
+</articleinfo>
+
+<para
+>Deze module geeft u de mogelijkheid om de grootte van de lokale cache in te stellen zoals deze wordt gebruikt door &konqueror;. Merk op dat elke gebruiker zijn eigen cache-map heeft en dat deze map niet gedeeld wordt met andere browsers zoals &firefox;.</para>
+
+<para
+>Het opslaan van lokale kopieën van webpagina's die u hebt bezocht geeft &konqueror; de mogelijkheid om hun inhoud sneller te laden als u weer naar deze pagina surft. Het is alleen nodig om de pagina te herladen als de inhoud van de originele pagina is gewijzigd sinds uw laatste bezoek, of als u op de knop herladen drukt in &konqueror;.</para>
+
+<para
+>Als u echt niet wilt dat door u bezochte webpagina's worden opgeslagen op uw computer dan kunt u &konqueror;'s schijfcache uitschakelen door het selectievak <guilabel
+>Cache gebruiken</guilabel
+> te deselecteren.</para>
+
+<para
+>Hier kunt u instellen hoe agressief &konqueror; de cache bijgewerkt houdt. <guilabel
+>Cache synchroon houden</guilabel
+> betekent dat &konqueror; de cache voor alle objecten zal bekijken en ze zal downloaden als ze niet in de cache zitten en ze vervolgens uit de cache zal laden. <guilabel
+>Cache gebruiken indien mogelijk</guilabel
+> betekent dat &konqueror; de cache zal proberen en als het object niet wordt gevonden &konqueror; deze zal downloaden en direct zal tonen. <guilabel
+>Offline browsen modus</guilabel
+> betekent dat &konqueror; de cache zal proberen en als deze niet aanwezig is geen poging zal ondernemen om het van het internet te downloaden.</para>
+
+<para
+>U kunt de grootte van de cache bepalen door een waarde in te typen in het tekstveld met de naam <guilabel
+>Cachegrootte op schijf</guilabel
+> Dit is de gemiddelde hoeveelheid ruimte in kilobytes die de cachemap mag innemen. Wanneer de cache te groot wordt zal &konqueror; de oudste bestanden verwijderen om de grootte van de cache te verkleinen.</para>
+
+<para
+>Dit is echter alleen een gemiddelde en tijdens een internetsessie kan de cache behoorlijk wat groter worden.</para>
+
+<para
+>U kunt de knop <guibutton
+>Cache legen</guibutton
+> gebruiken om de cache op elk moment te legen.</para>
+
+</article>

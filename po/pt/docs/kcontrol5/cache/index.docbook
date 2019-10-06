@@ -1,0 +1,89 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Portuguese "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="cache" lang="&language;">
+<title
+>Cache</title>
+<articleinfo>
+
+<authorgroup>
+<author
+><firstname
+>Lauri</firstname
+><surname
+>Watts</surname
+></author>
+
+<othercredit role="translator"
+><firstname
+>José</firstname
+><surname
+>Pires</surname
+><affiliation
+><address
+><email
+>zepires@gmail.com</email
+></address
+></affiliation
+><contrib
+>Tradução</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>2016-11-10</date>
+<releaseinfo
+>Plataformas 5.29</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Systemsettings</keyword>
+<keyword
+>Konqueror</keyword>
+<keyword
+>Cache</keyword>
+</keywordset>
+</articleinfo>
+
+<para
+>Este módulo também lhe permite controlar o tamanho da pasta de 'cache' local usada pelo &konqueror;. Repare que cada conta do utilizador no seu computador tem uma pasta de 'cache' separada e esta pasta não é partilhada com os outros navegadores Web, como o &firefox;.</para>
+
+<para
+>Guardar cópias locais das páginas Web que tenha visitado permite ao &konqueror; carregar rapidamente o seu conteúdo nas visitas subsequentes. Só será necessário recarregar o conteúdo do local original se este foi alterado desde a sua última visita, ou se carregou no botão para recarregar no &konqueror;.</para>
+
+<para
+>Se não quiser de facto que nenhuma das páginas Web que visitou seja guardada no seu computador, poderá desligar a 'cache' de disco do &konqueror; desligando a opção <guilabel
+>Usar a 'Cache'</guilabel
+>.</para>
+
+<para
+>Pode configurar aqui com que agressividade o &konqueror; deve manter a 'cache' actualizada. O <guilabel
+>Manter a 'cache' actualizada</guilabel
+> significa que o &konqueror; irá procurar na 'cache' por todos os objectos, transferindo-os se não estiverem lá, e mostrar o item a partir da 'cache'. O <guilabel
+>Usar a 'cache' se possível</guilabel
+> significa que o &konqueror; irá tentar na 'cache', e se o objecto não estiver lá, irá obtê-lo directamente para o apresentar. O <guilabel
+>Modo de navegação 'offline'</guilabel
+> significa que o &konqueror; irá tentar obtê-lo na 'cache' e, se o objecto não existir lá, não o irá tentar obter da Internet.</para>
+
+<para
+>Pode controlar o tamanho da 'cache', indicando um número no campo de texto <guilabel
+>Tamanho da 'cache' no disco</guilabel
+>. Esta é a quantidade média de espaço em quilobytes que a pasta de 'cache' tem a possibilidade de usar. Se a 'cache' crescer demasiado, o &konqueror; irá tentar apagar os ficheiros mais antigos para reduzir o tamanho da pasta.</para>
+
+<para
+>Este é, contudo, apenas uma média e, durante uma sessão de navegação, a 'cache' pode tornar-se substancialmente maior.</para>
+
+<para
+>O utilizador poderá usar o botão <guibutton
+>Limpar a 'cache'</guibutton
+> para esvaziar a 'cache' em qualquer altura.</para>
+
+</article>
