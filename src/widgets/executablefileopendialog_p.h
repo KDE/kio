@@ -36,6 +36,19 @@ public:
         OpenFile = 42, ExecuteFile
     };
 
+
+    enum Mode {
+        // For executable scripts
+        OpenOrExecute,
+        // For native binary executables
+        OnlyExecute,
+        // For *.exe files, open with WINE is like execute the file
+        // In this case, openAsExecute is true, we hide "Open" button and connect
+        // "Execute" button to OpenFile action.
+        OpenAsExecute
+    };
+
+    explicit ExecutableFileOpenDialog(Mode mode, QWidget* parent = nullptr);
     explicit ExecutableFileOpenDialog(QWidget* parent = nullptr);
 
     bool isDontAskAgainChecked() const;

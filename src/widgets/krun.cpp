@@ -58,7 +58,6 @@
 #include "kopenwithdialog.h"
 #include "krecentdocument.h"
 #include "kdesktopfileactions.h"
-#include "executablefileopendialog_p.h"
 #include <kio/desktopexecparser.h>
 
 #include <kurlauthorized.h>
@@ -155,15 +154,13 @@ bool KRun::isExecutableFile(const QUrl &url, const QString &mimetype)
     QMimeDatabase db;
     QMimeType mimeType = db.mimeTypeForName(mimetype);
     if (!mimeType.inherits(QStringLiteral("application/x-executable"))
-#ifdef Q_OS_WIN
             && !mimeType.inherits(QStringLiteral("application/x-ms-dos-executable"))
-#endif
             && !mimeType.inherits(QStringLiteral("application/x-executable-script"))
             && !mimeType.inherits(QStringLiteral("application/x-sharedlib"))) {
         return false;
     }
 
-    if (!hasExecuteBit(url.toLocalFile())) {
+    if (!hasExecuteBit(url.toLocalFile()) && !mimeType.inherits(QStringLiteral("application/x-ms-dos-executable"))) {
         return false;
     }
 
@@ -357,7 +354,11 @@ bool KRun::runUrl(const QUrl &u, const QString &_mimetype, QWidget *window, RunF
     } else if (isExecutable(_mimetype)) {
         // Check whether file is executable script
         const QMimeType mime = db.mimeTypeForName(_mimetype);
-        bool isTextFile = mime.inherits(QStringLiteral("text/plain"));
+#ifdef Q_OS_WIN
+        bool isNativeBinary = !mime.inherits(QStringLiteral("text/plain"));
+#else
+        bool isNativeBinary = !mime.inherits(QStringLiteral("text/plain")) && !mime.inherits(QStringLiteral("application/x-ms-dos-executable"));
+#endif
         // Only run local files
         if (u.isLocalFile() && runExecutables) {
             if (KAuthorized::authorize(QStringLiteral("shell_access"))) {
@@ -365,21 +366,9 @@ bool KRun::runUrl(const QUrl &u, const QString &_mimetype, QWidget *window, RunF
                 bool canRun = true;
                 bool isFileExecutable = hasExecuteBit(u.toLocalFile());
 
-#ifdef Q_OS_WIN
-                // On Windows, run all executables normally
-                const bool supportsRunningExecutable = true;
-#else
-                // On non-Windows systems, this will prevent Windows executables
-                // from being run, so that programs like Wine can handle them instead.
-                const bool supportsRunningExecutable = !mime.inherits(QStringLiteral("application/x-ms-dos-executable"));
-#endif
-
-                if (!supportsRunningExecutable) {
-                    // Don't run Windows executables on non-Windows platform
-                    canRun = false;
-                } else if (!isFileExecutable && !isTextFile) {
-                    // For executables that aren't scripts and without execute bit,
-                    // show prompt asking user if he wants to run the program.
+                // For executables that aren't scripts and without execute bit,
+                // show prompt asking user if he wants to run the program.
+                if (!isFileExecutable && isNativeBinary) {
                     canRun = false;
                     int result = showUntrustedProgramWarning(u.fileName(), window);
                     if (result == QDialog::Accepted) {
@@ -394,8 +383,8 @@ bool KRun::runUrl(const QUrl &u, const QString &_mimetype, QWidget *window, RunF
                             canRun = true;
                         }
                     }
-                } else if (!isFileExecutable && isTextFile) {
-                    // Don't try to run scripts without execute bit, instead
+                } else if (!isFileExecutable && !isNativeBinary) {
+                    // Don't try to run scripts/exes without execute bit, instead
                     // open them with default application
                     canRun = false;
                 }
@@ -410,7 +399,7 @@ bool KRun::runUrl(const QUrl &u, const QString &_mimetype, QWidget *window, RunF
                 // Show no permission warning
                 noAuth = true;
             }
-        } else if (!isTextFile) {
+        } else if (isNativeBinary) {
             // Show warning for executables that aren't scripts
             noRun = true;
         }
@@ -1070,7 +1059,7 @@ bool KRun::KRunPrivate::runExecutable(const QString &_exec)
 
 void KRun::KRunPrivate::showPrompt()
 {
-    ExecutableFileOpenDialog *dialog = new ExecutableFileOpenDialog(q->window());
+    ExecutableFileOpenDialog *dialog = new ExecutableFileOpenDialog(promptMode(), q->window());
     dialog->setAttribute(Qt::WA_DeleteOnClose);
     connect(dialog, &ExecutableFileOpenDialog::finished, q, [this, dialog](int result){
         onDialogFinished(result, dialog->isDontAskAgainChecked());
@@ -1088,9 +1077,8 @@ bool KRun::KRunPrivate::isPromptNeeded()
 
     const bool isFileExecutable = (isExecutableFile(m_strURL, mime.name()) ||
                                    mime.inherits(QStringLiteral("application/x-desktop")));
-    const bool isTextFile = mime.inherits(QStringLiteral("text/plain"));
 
-    if (isFileExecutable && isTextFile) {
+    if (isFileExecutable) {
         KConfigGroup cfgGroup(KSharedConfig::openConfig(QStringLiteral("kiorc")), "Executable scripts");
         const QString value = cfgGroup.readEntry("behaviourOnLaunch", "alwaysAsk");
 
@@ -1102,6 +1090,22 @@ bool KRun::KRunPrivate::isPromptNeeded()
     }
 
     return false;
+}
+
+ExecutableFileOpenDialog::Mode KRun::KRunPrivate::promptMode()
+{
+    const QMimeDatabase db;
+    const QMimeType mime = db.mimeTypeForUrl(m_strURL);
+
+    if (mime.inherits(QStringLiteral("text/plain"))) {
+        return ExecutableFileOpenDialog::OpenOrExecute;
+    }
+#ifndef Q_OS_WIN
+    if (mime.inherits(QStringLiteral("application/x-ms-dos-executable"))) {
+        return ExecutableFileOpenDialog::OpenAsExecute;
+    }
+#endif
+    return ExecutableFileOpenDialog::OnlyExecute;
 }
 
 void KRun::KRunPrivate::onDialogFinished(int result, bool isDontAskAgainSet)

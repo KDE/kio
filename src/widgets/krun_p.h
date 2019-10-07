@@ -30,6 +30,7 @@
 #include <KService>
 class KProcess;
 
+#include "executablefileopendialog_p.h"
 #include "kstartupinfo.h"
 
 /**
@@ -129,6 +130,7 @@ public:
      * Check whether we need to show a prompt(before executing a script or desktop file)
      */
     bool isPromptNeeded();
+    ExecutableFileOpenDialog::Mode promptMode();
     void onDialogFinished(int result, bool isDontAskAgainSet);
 
     KRun * const q;
