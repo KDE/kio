@@ -40,7 +40,6 @@
 #include <QSpinBox>
 
 K_PLUGIN_FACTORY(KCMTrashConfigFactory, registerPlugin<TrashConfigModule>(QStringLiteral("trash"));)
-K_EXPORT_PLUGIN(KCMTrashConfigFactory("kcmtrash"))
 
 TrashConfigModule::TrashConfigModule(QWidget *parent, const QVariantList &)
     : KCModule( //KCMTrashConfigFactory::componentData(),
