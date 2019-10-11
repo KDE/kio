@@ -162,23 +162,8 @@ static void setProxyInformation(const QString& value,
     }
 
     if (spinBox) {
-        QString urlStr;
-        int portNum = -1;
-        int index = value.lastIndexOf(QL1C(' '));
-
-        if (index > 0) {
-            bool ok = false;
-            portNum = value.midRef(index+1).toInt(&ok);
-            if (!ok) {
-                portNum = -1;
-            }
-            urlStr = value.left(index).trimmed();
-        } else {
-            urlStr = value.trimmed();
-        }
-
         KUriFilterData data;
-        data.setData(urlStr);
+        data.setData(value);
         data.setCheckForExecutables(false);
         if (!defaultScheme.isEmpty()) {
             data.setDefaultUrlScheme(defaultScheme);
@@ -191,18 +176,14 @@ static void setProxyInformation(const QString& value,
             url.setPassword(QString());
             url.setPath(QString());
         } else {
-            url = QUrl(urlStr);
+            url = QUrl(value);
         }
 
-        if (portNum == -1 && url.port() > -1) {
-            portNum = url.port();
+        if (url.port() > -1) {
+            spinBox->setValue(url.port());
         }
         url.setPort(-1);
-
         manEdit->setText((KSaveIOConfig::proxyDisplayUrlFlags() & flag) ? url.host() : url.url());
-        if (spinBox && portNum > -1) {
-            spinBox->setValue(portNum);
-        }
         return;
     }
 
