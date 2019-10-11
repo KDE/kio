@@ -79,8 +79,8 @@ void KFilePlacesViewTest::testUrlChanged_data()
 
     int idx = 3;
     if (KProtocolInfo::isKnownProtocol(QStringLiteral("recentlyused"))) {
-        QTest::newRow("Recently Used") << idx++ << QStringLiteral("recentlyused:/files");
-        QTest::newRow("Recently Used") << idx++ << QStringLiteral("recentlyused:/locations");
+        QTest::newRow("Recent Files") << idx++ << QStringLiteral("recentlyused:/files");
+        QTest::newRow("Recent Locations") << idx++ << QStringLiteral("recentlyused:/locations");
     }
     const QDate currentDate = QDate::currentDate();
     const QDate yesterdayDate = currentDate.addDays(-1);
