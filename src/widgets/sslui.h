@@ -37,6 +37,20 @@ enum RulesStorage {
 
 bool KIOWIDGETS_EXPORT askIgnoreSslErrors(const KTcpSocket *socket,
         RulesStorage storedRules = RecallAndStoreRules);
+
+/**
+ * If there are errors while establishing an SSL encrypted connection to a peer, usually due to
+ * certificate issues, and since this poses a security issue, we need confirmation from the user about
+ * how they wish to proceed.
+ *
+ * This function provides a dialog asking the user if they wish to abort the connection or ignore
+ * the SSL errors that occurred and continue connecting. And in case of the latter whether to remember
+ * the decision in the future or ignore the error temporarily.
+ *
+ * @p uiData the KSslErrorUiData object constructed from the socket that is trying to establish the
+ *           encrypted connection
+ * @p storedRules see RulesStorage Enum
+ */
 bool KIOWIDGETS_EXPORT askIgnoreSslErrors(const KSslErrorUiData &uiData,
         RulesStorage storedRules = RecallAndStoreRules);
 }
