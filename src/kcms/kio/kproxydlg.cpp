@@ -184,27 +184,22 @@ static void setProxyInformation(const QString& value,
             data.setDefaultUrlScheme(defaultScheme);
         }
 
+        QUrl url;
         if (KUriFilter::self()->filterUri(data, QStringList() << QStringLiteral("kshorturifilter"))) {
-            QUrl url (data.uri());
-            if (portNum == -1 && url.port() > -1) {
-                portNum = url.port();
-            }
-
-            url.setPort(-1);
+            url = QUrl(data.uri());
             url.setUserName(QString());
             url.setPassword(QString());
             url.setPath(QString());
-
-            manEdit->setText(((KSaveIOConfig::proxyDisplayUrlFlags() & flag) ? url.host(): url.url()));
         } else {
-            QUrl url(urlStr);
-            if (portNum == -1 && url.port() > -1) {
-                portNum = url.port();
-            }
-            url.setPort(-1);
-            manEdit->setText((KSaveIOConfig::proxyDisplayUrlFlags() & flag) ? url.host() : url.url());
+            url = QUrl(urlStr);
         }
 
+        if (portNum == -1 && url.port() > -1) {
+            portNum = url.port();
+        }
+        url.setPort(-1);
+
+        manEdit->setText((KSaveIOConfig::proxyDisplayUrlFlags() & flag) ? url.host() : url.url());
         if (spinBox && portNum > -1) {
             spinBox->setValue(portNum);
         }
