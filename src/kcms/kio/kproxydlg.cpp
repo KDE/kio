@@ -202,7 +202,7 @@ static void setProxyInformation(const QString& value,
                 portNum = url.port();
             }
             url.setPort(-1);
-            manEdit->setText((KSaveIOConfig::proxyDisplayUrlFlags() & flag) ? url.host() : urlStr);
+            manEdit->setText((KSaveIOConfig::proxyDisplayUrlFlags() & flag) ? url.host() : url.url());
         }
 
         if (spinBox && portNum > -1) {
