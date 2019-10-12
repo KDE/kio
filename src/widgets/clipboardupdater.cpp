@@ -77,7 +77,8 @@ static void updateUrlsInClipboard(KJob *job)
     bool update = false;
 
     if (copyJob) {
-        Q_FOREACH (const QUrl &url, copyJob->srcUrls()) {
+        const QList<QUrl> urls = copyJob->srcUrls();
+        for (const QUrl &url : urls) {
             const int index = clipboardUrls.indexOf(url);
             if (index > -1) {
                 QUrl dUrl = copyJob->destUrl().adjusted(QUrl::StripTrailingSlash);
@@ -130,7 +131,7 @@ static void removeUrlsFromClipboard(KJob *job)
     QList<QUrl> clipboardUrls = KUrlMimeData::urlsFromMimeData(mimeData);
     quint32 removedCount = 0;
 
-    Q_FOREACH (const QUrl &url, deletedUrls) {
+    for (const QUrl &url : qAsConst(deletedUrls)) {
         removedCount += clipboardUrls.removeAll(url);
     }
 

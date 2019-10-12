@@ -313,7 +313,8 @@ bool KSslCertificateManagerPrivate::removeCertificate(const KSslCaCertificate &o
 
         bool removed = false;
         QDir dir(userCertDir);
-        foreach (const QString &certFilename, dir.entryList(QDir::Files)) {
+        const QStringList dirList = dir.entryList(QDir::Files);
+        for (const QString &certFilename : dirList) {
             const QString certPath = userCertDir + certFilename;
             QList<QSslCertificate> certs = QSslCertificate::fromPath(certPath);
 
@@ -399,12 +400,14 @@ QList<KSslCaCertificate> KSslCertificateManagerPrivate::allCertificates() const
 {
     //qDebug() << Q_FUNC_INFO;
     QList<KSslCaCertificate> ret;
-    foreach (const QSslCertificate &cert, deduplicate(QSslConfiguration::systemCaCertificates())) {
+    const QList<QSslCertificate> list = deduplicate(QSslConfiguration::systemCaCertificates());
+    for (const QSslCertificate &cert : list) {
         ret += KSslCaCertificate(cert, KSslCaCertificate::SystemStore, false);
     }
 
-    foreach (const QSslCertificate &cert, QSslCertificate::fromPath(userCertDir + QLatin1Char('*'),
-             QSsl::Pem, QRegExp::Wildcard)) {
+    const QList<QSslCertificate> userList = QSslCertificate::fromPath(userCertDir + QLatin1Char('*'), QSsl::Pem,
+                                                                   QRegExp::Wildcard);
+    for (const QSslCertificate &cert : userList) {
         ret += KSslCaCertificate(cert, KSslCaCertificate::UserStore, false);
     }
 

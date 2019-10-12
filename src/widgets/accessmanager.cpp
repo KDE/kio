@@ -420,7 +420,8 @@ void AccessManager::AccessManagerPrivate::setMetaDataForRequest(QNetworkRequest 
     request.setRawHeader("x-kdewebkit-ignore-disposition", QByteArray());
 
     QStringList customHeaders;
-    Q_FOREACH (const QByteArray &key, request.rawHeaderList()) {
+    const QList<QByteArray> list = request.rawHeaderList();
+    for (const QByteArray &key : list) {
         const QByteArray value = request.rawHeader(key);
         if (value.length()) {
             customHeaders << (QString::fromUtf8(key) + QLatin1String(": ") + QString::fromUtf8(value));

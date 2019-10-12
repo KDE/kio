@@ -435,7 +435,7 @@ bool KShortUriFilter::filterUri(KUriFilterData &data) const
         // Okay this is the code that allows users to supply custom matches for
         // specific URLs using Qt's regexp class. This is hard-coded for now.
         // TODO: Make configurable at some point...
-        Q_FOREACH (const URLHint &hint, m_urlHints) {
+        for (const URLHint &hint : qAsConst(m_urlHints)) {
             qCDebug(category) << "testing regexp for" << hint.prepend;
             if (hint.regexp.indexIn(cmd) == 0) {
                 const QString cmdStr = hint.prepend + cmd;

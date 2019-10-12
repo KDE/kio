@@ -230,7 +230,7 @@ QString KFileItemDelegate::Private::information(const QStyleOptionViewItem &opti
         return string;
     }
 
-    foreach (KFileItemDelegate::Information info, informationList) {
+    for (KFileItemDelegate::Information info : informationList) {
         if (info == KFileItemDelegate::NoInformation) {
             continue;
         }
@@ -299,7 +299,7 @@ QString KFileItemDelegate::Private::information(const QStyleOptionViewItem &opti
         default:
             break;
         } // switch (info)
-    } // foreach (info, list)
+    } // for (info, list)
 
     return string;
 }

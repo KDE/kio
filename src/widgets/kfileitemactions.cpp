@@ -487,7 +487,8 @@ int KFileItemActions::addPluginActionsTo(QMenu *mainMenu)
         }
 
         auto mimeType = db.mimeTypeForName(commonMimeType);
-        foreach (const auto& supportedMimeType, metaData.mimeTypes()) {
+        const QStringList list = metaData.mimeTypes();
+        for (const auto &supportedMimeType : list) {
             if (mimeType.inherits(supportedMimeType)) {
                 return true;
             }
@@ -496,7 +497,7 @@ int KFileItemActions::addPluginActionsTo(QMenu *mainMenu)
         return false;
     });
 
-    foreach (const auto& jsonMetadata, jsonPlugins) {
+    for (const auto &jsonMetadata : jsonPlugins) {
         // The plugin has been disabled
         if (!showGroup.readEntry(jsonMetadata.pluginId(), true)) {
             continue;

@@ -211,7 +211,7 @@ QList<Slave *> HostQueue::allSlaves() const
 {
     QList<Slave *> ret;
     ret.reserve(m_runningJobs.size());
-    Q_FOREACH (SimpleJob *job, m_runningJobs) {
+    for (SimpleJob *job : m_runningJobs) {
         Slave *slave = jobSlave(job);
         Q_ASSERT(slave);
         ret.append(slave);
@@ -296,7 +296,9 @@ bool ConnectedSlaveQueue::removeSlave(Slave *slave)
         return false;
     }
     PerSlaveQueue &jobs = it.value();
-    Q_FOREACH (SimpleJob *job, jobs.waitingList) {
+    // we need a copy as kill() ends up removing the job from waitingList
+    const QList <SimpleJob *> waitingJobs = jobs.waitingList;
+    for (SimpleJob *job : waitingJobs) {
         // ### for compatibility with the old scheduler we don't touch the running job, if any.
         // make sure that the job doesn't call back into Scheduler::cancelJob(); this would
         // a) crash and b) be unnecessary because we clean up just fine.
@@ -362,9 +364,10 @@ static void ensureNoDuplicates(QMap<int, HostQueue *> *queuesBySerial)
 #ifdef SCHEDULER_DEBUG
     // a host queue may *never* be in queuesBySerial twice.
     QSet<HostQueue *> seen;
-    Q_FOREACH (HostQueue *hq, *queuesBySerial) {
-        Q_ASSERT(!seen.contains(hq));
-        seen.insert(hq);
+    auto it = queuesBySerial->cbegin();
+    for (; it != queuesBySerial->cend(); ++it) {
+        Q_ASSERT(!seen.contains(it.value()));
+        seen.insert(it.value());
     }
 #endif
 }
@@ -375,15 +378,17 @@ static void verifyRunningJobsCount(QHash<QString, HostQueue> *queues, int runnin
     Q_UNUSED(runningJobsCount);
 #ifdef SCHEDULER_DEBUG
     int realRunningJobsCount = 0;
-    Q_FOREACH (const HostQueue &hq, *queues) {
-        realRunningJobsCount += hq.runningJobsCount();
+    auto it = queues->cbegin();
+    for (; it != queues->cend(); ++it) {
+        realRunningJobsCount += it.value().runningJobsCount();
     }
     Q_ASSERT(realRunningJobsCount == runningJobsCount);
 
     // ...and of course we may never run the same job twice!
     QSet<SimpleJob *> seenJobs;
-    Q_FOREACH (const HostQueue &hq, *queues) {
-        Q_FOREACH (SimpleJob *job, hq.runningJobs()) {
+    auto it2 = queues->cbegin();
+    for (; it2 != queues->cend(); ++it2) {
+        for (SimpleJob *job : it2.value().runningJobs()) {
             Q_ASSERT(!seenJobs.contains(job));
             seenJobs.insert(job);
         }
@@ -563,8 +568,9 @@ bool ProtoQueue::removeSlave(KIO::Slave *slave)
 QList<Slave *> ProtoQueue::allSlaves() const
 {
     QList<Slave *> ret(m_slaveKeeper.allSlaves());
-    Q_FOREACH (const HostQueue &hq, m_queuesByHostname) {
-        ret.append(hq.allSlaves());
+    auto it = m_queuesByHostname.cbegin();
+    for (; it != m_queuesByHostname.cend(); ++it) {
+        ret.append(it.value().allSlaves());
     }
     ret.append(m_connectedSlaveQueue.allSlaves());
     return ret;
@@ -578,8 +584,10 @@ void ProtoQueue::startAJob()
 
 #ifdef SCHEDULER_DEBUG
     //qDebug() << "m_runningJobsCount:" << m_runningJobsCount;
-    Q_FOREACH (const HostQueue &hq, m_queuesByHostname) {
-        Q_FOREACH (SimpleJob *job, hq.runningJobs()) {
+    auto it = m_queuesByHostname.cbegin();
+    for (; it != m_queuesByHostname.cend(); ++it) {
+        const QList<KIO::SimpleJob *> list = it.value().runningJobs();
+        for (SimpleJob *job : list) {
             //qDebug() << SimpleJobPrivate::get(job)->m_url;
         }
     }
@@ -667,8 +675,9 @@ public:
     {
         delete q;
         q = nullptr;
-        Q_FOREACH (ProtoQueue *p, m_protocols) {
-            Q_FOREACH (Slave *slave, p->allSlaves()) {
+        for (ProtoQueue *p : qAsConst(m_protocols)) {
+            const QList<KIO::Slave *> list = p->allSlaves();
+            for (Slave *slave : list) {
                 slave->kill();
             }
         }
@@ -924,7 +933,8 @@ void SchedulerPrivate::slotReparseSlaveConfiguration(const QString &proto, const
     QHash<QString, ProtoQueue *>::ConstIterator endIt = proto.isEmpty() ? m_protocols.constEnd() :
             it + 1;
     for (; it != endIt; ++it) {
-        Q_FOREACH (Slave *slave, (*it)->allSlaves()) {
+        const QList<KIO::Slave *> list = it.value()->allSlaves();
+        for (Slave *slave : list) {
             slave->send(CMD_REPARSECONFIGURATION);
             slave->resetHost();
         }

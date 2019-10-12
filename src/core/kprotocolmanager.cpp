@@ -237,7 +237,7 @@ bool KProtocolManagerPrivate::shouldIgnoreProxyFor(const QUrl &url)
         }
 
         if (!address.isNull()) {
-            Q_FOREACH (const SubnetPair &subnet, noProxySubnets) {
+            for (const SubnetPair &subnet : qAsConst(noProxySubnets)) {
                 if (address.isInSubnet(subnet)) {
                     isMatch = true;
                     break;
@@ -699,7 +699,7 @@ QString KProtocolManager::slaveProtocol(const QUrl &url, QStringList &proxyList)
             && !protocol.startsWith(QLatin1String("http"))
             && !protocol.startsWith(QLatin1String("webdav"))
             && KProtocolInfo::isKnownProtocol(protocol)) {
-        Q_FOREACH (const QString &proxy, proxyList) {
+        for (const QString &proxy : qAsConst(proxyList)) {
             QUrl u(proxy);
             if (u.isValid() && KProtocolInfo::isKnownProtocol(u.scheme())) {
                 protocol = u.scheme();

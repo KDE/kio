@@ -148,7 +148,7 @@ public:
     void collectAllChildUrls(QList<QUrl> &urls) const
     {
         urls.reserve(urls.size() + m_childNodes.size());
-        Q_FOREACH (KDirModelNode *node, m_childNodes) {
+        for (KDirModelNode *node : m_childNodes) {
             const KFileItem &item = node->item();
             urls.append(cleanupUrl(item.url()));
             if (item.isDir()) {
@@ -493,7 +493,7 @@ void KDirModelPrivate::_k_slotNewItems(const QUrl &directoryUrl, const KFileItem
 
         if (!urlsBeingFetched.isEmpty()) {
             const QUrl dirUrl(url);
-            foreach (const QUrl &urlFetched, urlsBeingFetched) {
+            for (const QUrl &urlFetched : qAsConst(urlsBeingFetched)) {
                 if (dirUrl.matches(urlFetched, QUrl::StripTrailingSlash) || dirUrl.isParentOf(urlFetched)) {
                     //qDebug() << "Listing found" << dirUrl.url() << "which is a parent of fetched url" << urlFetched;
                     const QModelIndex parentIndex = indexForNode(node, dirNode->m_childNodes.count() - 1);
@@ -512,7 +512,7 @@ void KDirModelPrivate::_k_slotNewItems(const QUrl &directoryUrl, const KFileItem
 
     // Emit expand signal after rowsInserted signal has been emitted,
     // so that any proxy model will have updated its mapping already
-    Q_FOREACH (const QModelIndex &idx, emitExpandFor) {
+    for (const QModelIndex &idx : qAsConst(emitExpandFor)) {
         emit q->expand(idx);
     }
 }

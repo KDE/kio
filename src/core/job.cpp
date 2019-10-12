@@ -178,8 +178,8 @@ void JobPrivate::emitUnmounting(KIO::Job *job, const QString &point)
 bool Job::doKill()
 {
     // kill all subjobs, without triggering their result slot
-    Q_FOREACH (KJob *it, subjobs()) {
-        it->kill(KJob::Quietly);
+    for (KJob *job : subjobs()) {
+        job->kill(KJob::Quietly);
     }
     clearSubjobs();
 
@@ -188,8 +188,8 @@ bool Job::doKill()
 
 bool Job::doSuspend()
 {
-    Q_FOREACH (KJob *it, subjobs()) {
-        if (!it->suspend()) {
+    for (KJob *job : subjobs()) {
+        if (!job->suspend()) {
             return false;
         }
     }
@@ -199,8 +199,8 @@ bool Job::doSuspend()
 
 bool Job::doResume()
 {
-    Q_FOREACH (KJob *it, subjobs()) {
-        if (!it->resume()) {
+    for (KJob *job : subjobs()) {
+        if (!job->resume()) {
             return false;
         }
     }

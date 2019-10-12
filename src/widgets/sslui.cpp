@@ -66,7 +66,7 @@ bool KIO::SslUi::askIgnoreSslErrors(const KSslErrorUiData &uiData, RulesStorage 
     //### We don't ask to permanently reject the certificate
 
     QString message = i18n("The server failed the authenticity check (%1).\n\n", ud->host);
-    foreach (const KSslError &err, ud->sslErrors) {
+    for (const KSslError &err : qAsConst(ud->sslErrors)) {
         message.append(err.errorString() + QLatin1Char('\n'));
     }
     message = message.trimmed();
@@ -82,9 +82,9 @@ bool KIO::SslUi::askIgnoreSslErrors(const KSslErrorUiData &uiData, RulesStorage 
             QList<QList<KSslError::Error> > meh;    // parallel list to cert list :/
 
             meh.reserve(ud->certificateChain.size());
-            foreach (const QSslCertificate &cert, ud->certificateChain) {
+            for (const QSslCertificate &cert : qAsConst(ud->certificateChain)) {
                 QList<KSslError::Error> errors;
-                foreach (const KSslError &error, ud->sslErrors) {
+                for (const KSslError &error : qAsConst(ud->sslErrors)) {
                     if (error.certificate() == cert) {
                         // we keep only the error code enum here
                         errors.append(error.error());

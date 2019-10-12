@@ -133,7 +133,8 @@ class CipherCc
 public:
     CipherCc()
     {
-        foreach (const QSslCipher &c, QSslConfiguration::supportedCiphers()) {
+        const QList<QSslCipher> list = QSslConfiguration::supportedCiphers();
+        for (const QSslCipher &c : list) {
             allCiphers.insert(c.name(), c);
         }
     }
@@ -725,7 +726,7 @@ void KTcpSocket::setCiphers(const QList<KSslCipher> &ciphers)
     d->ciphers = ciphers;
     QList<QSslCipher> cl;
     cl.reserve(d->ciphers.size());
-    foreach (const KSslCipher &c, d->ciphers) {
+    for (const KSslCipher &c : ciphers) {
         cl.append(d->ccc.converted(c));
     }
     QSslConfiguration configuration = d->sock.sslConfiguration();
@@ -824,7 +825,8 @@ void KTcpSocket::startClientEncryption()
 //debugging H4X
 void KTcpSocket::showSslErrors()
 {
-    foreach (const QSslError &e, d->sock.sslErrors()) {
+    const QList<QSslError> list = d->sock.sslErrors();
+    for (const QSslError &e : list) {
         qCDebug(KIO_CORE) << e.errorString();
     }
 }

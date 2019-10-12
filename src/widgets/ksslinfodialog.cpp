@@ -195,9 +195,10 @@ void KSslInfoDialog::displayFromChain(int i)
     const QSslCertificate &cert = d->certificateChain[i];
 
     QString trusted;
-    if (!d->certificateErrors[i].isEmpty()) {
+    const QList<KSslError::Error> errorsList = d->certificateErrors[i];
+    if (!errorsList.isEmpty()) {
         trusted = i18nc("The certificate is not trusted", "NO, there were errors:");
-        foreach (KSslError::Error e, d->certificateErrors[i]) {
+        for (KSslError::Error e : errorsList) {
             KSslError classError(e);
             trusted += QLatin1Char('\n') + classError.errorString();
         }

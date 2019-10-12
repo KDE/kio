@@ -293,7 +293,8 @@ QList<KServiceAction> KDesktopFileActions::userDefinedServices(const KService &s
 
     // Now, either keys is empty (all actions) or it's set to the actions we want
 
-    foreach (const KServiceAction &action, service.actions()) {
+    const QList<KServiceAction> list = service.actions();
+    for (const KServiceAction &action : list) {
         if (keys.isEmpty() || keys.contains(action.name())) {
             const QString exec = action.exec();
             if (bLocalFiles || exec.contains(QLatin1String("%U")) || exec.contains(QLatin1String("%u"))) {

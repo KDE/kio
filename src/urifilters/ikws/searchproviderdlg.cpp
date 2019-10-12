@@ -111,7 +111,7 @@ void SearchProviderDialog::shortcutsChanged(const QString &newShorthands)
     // once. Act like data inconsistencies regarding this don't exist (should
     // probably be handled on load).
     for (const QString &shorthand : shorthands) {
-        Q_FOREACH (const SearchProvider *provider, m_providers) {
+        for (const SearchProvider *provider : qAsConst(m_providers)) {
             if (provider != m_provider && provider->keys().contains(shorthand)) {
                 contenders.insert(shorthand, provider);
                 break;

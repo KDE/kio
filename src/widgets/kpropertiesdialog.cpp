@@ -440,7 +440,7 @@ void KPropertiesDialog::setFileSharingPage(QWidget *page)
 
 void KPropertiesDialog::setFileNameReadOnly(bool ro)
 {
-    foreach (KPropertiesDialogPlugin *it, d->m_pageList) {
+    for (KPropertiesDialogPlugin *it : qAsConst(d->m_pageList)) {
         if (auto *filePropsPlugin = qobject_cast<KFilePropsPlugin *>(it)) {
             filePropsPlugin->setFileNameReadOnly(ro);
         } else if (auto *urlPropsPlugin = qobject_cast<KUrlPropsPlugin *>(it)) {
@@ -648,7 +648,7 @@ void KPropertiesDialog::updateUrl(const QUrl &_newUrl)
     Q_ASSERT(!d->m_singleUrl.isEmpty());
     // If we have an Desktop page, set it dirty, so that a full file is saved locally
     // Same for a URL page (because of the Name= hack)
-    foreach (KPropertiesDialogPlugin *it, d->m_pageList) {
+    for (KPropertiesDialogPlugin *it : qAsConst(d->m_pageList)) {
         if (qobject_cast<KUrlPropsPlugin *>(it) ||
                 qobject_cast<KDesktopPropsPlugin *>(it)) {
             //qDebug() << "Setting page dirty";
@@ -1259,7 +1259,8 @@ void KFilePropsPlugin::nameFileChanged(const QString &text)
 static QString relativeAppsLocation(const QString &file)
 {
     const QString canonical = QFileInfo(file).canonicalFilePath();
-    Q_FOREACH (const QString &base, QStandardPaths::standardLocations(QStandardPaths::ApplicationsLocation)) {
+    const QStringList dirs = QStandardPaths::standardLocations(QStandardPaths::ApplicationsLocation);
+    for (const QString &base : dirs) {
         QDir base_dir = QDir(base);
         if (base_dir.exists() && canonical.startsWith(base_dir.canonicalPath())) {
             return canonical.mid(base.length() + 1);
@@ -3633,7 +3634,8 @@ void KDesktopPropsPlugin::slotAddFiletype()
                                d->m_frame);
 
     if (dlg.exec() == QDialog::Accepted) {
-        foreach (const QString &mimetype, dlg.chooser()->mimeTypes()) {
+        const QStringList list = dlg.chooser()->mimeTypes();
+        for (const QString &mimetype : list) {
             QMimeType p = db.mimeTypeForName(mimetype);
             if (!p.isValid()) {
                 continue;

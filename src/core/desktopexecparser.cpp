@@ -308,15 +308,16 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
     // Check if we need kioexec
     bool useKioexec = false;
     if (!mx1.hasUrls) {
-        Q_FOREACH (const QUrl &url, d->urls)
+        for (const QUrl &url : qAsConst(d->urls)) {
             if (!url.isLocalFile() && !hasSchemeHandler(url)) {
                 useKioexec = true;
                 //qCDebug(KIO_CORE) << "non-local files, application does not support urls, using kioexec";
                 break;
             }
+        }
     } else { // app claims to support %u/%U, check which protocols
         QStringList appSupportedProtocols = supportedProtocols(d->service);
-        Q_FOREACH (const QUrl &url, d->urls) {
+        for (const QUrl &url : qAsConst(d->urls)) {
             if (!isProtocolInSupportedList(url, appSupportedProtocols) && !hasSchemeHandler(url)) {
                 useKioexec = true;
                 //qCDebug(KIO_CORE) << "application does not support url, using kioexec:" << url;

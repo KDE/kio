@@ -280,12 +280,12 @@ void PreviewJobPrivate::startPreview()
         if (!p.isEmpty()) {
             protocols.append(p);
         }
-        foreach (const QString &protocol, protocols) {
+        for (const QString &protocol : qAsConst(protocols)) {
             // We cannot use mimeTypes() here, it doesn't support groups such as: text/*
             const QStringList mtypes = (*it)->serviceTypes();
             // Add supported mimetype for this protocol
             QStringList &_ms = m_remoteProtocolPlugins[protocol];
-            foreach (const QString &_m, mtypes) {
+            for (const QString &_m : mtypes) {
                 if (_m != QLatin1String("ThumbCreator")) {
                     protocolMap[protocol].insert(_m, *it);
                     if (!_ms.contains(_m)) {

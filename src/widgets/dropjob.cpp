@@ -267,7 +267,7 @@ int DropJobPrivate::determineDropAction()
 
     bool allItemsAreFromTrash = true;
     bool containsTrashRoot = false;
-    foreach (const QUrl &url, m_urls) {
+    for (const QUrl &url : m_urls) {
         const bool local = url.isLocalFile();
         if (!local /*optimization*/ && url.scheme() == QLatin1String("trash")) {
             if (url.path().isEmpty() || url.path() == QLatin1String("/")) {
@@ -326,7 +326,7 @@ void DropJobPrivate::fillPopupMenu(KIO::DropMenu *popup)
     // we would need to KIO::stat each URL in turn, asynchronously....
     KFileItemList fileItems;
     fileItems.reserve(m_urls.size());
-    foreach (const QUrl &url, m_urls) {
+    for (const QUrl &url : m_urls) {
         fileItems.append(KFileItem(url));
     }
     const KFileItemListProperties itemProps(fileItems);
@@ -358,7 +358,7 @@ void DropJobPrivate::fillPopupMenu(KIO::DropMenu *popup)
 
     if (sMoving || (sReading && sDeleting)) {
         bool equalDestination = true;
-        foreach (const QUrl &src, m_urls) {
+        for (const QUrl &src : m_urls) {
             if (!m_destUrl.matches(src.adjusted(QUrl::RemoveFilename), QUrl::StripTrailingSlash)) {
                 equalDestination = false;
                 break;
@@ -384,7 +384,7 @@ void DropJobPrivate::fillPopupMenu(KIO::DropMenu *popup)
 void DropJobPrivate::addPluginActions(KIO::DropMenu *popup, const KFileItemListProperties &itemProps)
 {
     const QVector<KPluginMetaData> plugin_offers = KPluginLoader::findPlugins(QStringLiteral("kf5/kio_dnd"));
-    foreach (const KPluginMetaData &service, plugin_offers) {
+    for (const KPluginMetaData &service : plugin_offers) {
         KPluginFactory *factory = KPluginLoader(service.fileName()).factory();
         if (factory) {
             KIO::DndPopupMenuPlugin *plugin = factory->create<KIO::DndPopupMenuPlugin>();

@@ -103,7 +103,8 @@ bool KProtocolInfoFactory::fillCache()
 
     // first: search for meta data protocol info, that might be bundled with applications
     // we search in all library paths inside kf5/kio
-    Q_FOREACH (const KPluginMetaData &md, KPluginLoader::findPlugins(QStringLiteral("kf5/kio"))) {
+    const QVector<KPluginMetaData> plugins = KPluginLoader::findPlugins(QStringLiteral("kf5/kio"));
+    for (const KPluginMetaData &md : plugins) {
         // get slave name & protocols it supports, if any
         const QString slavePath = md.fileName();
         const QJsonObject protocols(md.rawData().value(QStringLiteral("KDE-KIO-Protocols")).toObject());

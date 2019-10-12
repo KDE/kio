@@ -90,7 +90,7 @@ bool KRun::KRunPrivate::displayNativeOpenWithDialog(const QList<QUrl> &lst, QWid
     Q_UNUSED(asn);
 
     QStringList fnames;
-    foreach (const QUrl &url, lst) {
+    for (const QUrl &url : lst) {
         fnames += QDir::toNativeSeparators(url.path());
     }
     int result = runDll(window,

@@ -94,7 +94,7 @@ void KUriFilterSearchProviderActions::addWebShortcutsToMenu(QMenu *menu)
 
             QActionGroup *actionGroup = new QActionGroup(this);
             connect(actionGroup, &QActionGroup::triggered, this, &KUriFilterSearchProviderActions::slotHandleWebShortcutAction);
-            Q_FOREACH (const QString &searchProvider, searchProviders) {
+            for (const QString &searchProvider : searchProviders) {
                 QAction *action = new QAction(i18nc("@action:inmenu Search for <text> with", "%1", searchProvider), webShortcutsMenu);
                 action->setIcon(QIcon::fromTheme(filterData.iconNameForPreferredSearchProvider(searchProvider)));
                 action->setData(filterData.queryForPreferredSearchProvider(searchProvider));

@@ -59,7 +59,7 @@ public:
         // Check for extensions.
         QSet<QString> extensions;
         QMimeDatabase db;
-        foreach (const QUrl &url, m_srcList) {
+        for (const QUrl &url : qAsConst(m_srcList)) {
             const QString extension = db.suffixForFileName(url.toDisplayString().toLower());
             if (extensions.contains(extension)) {
                 m_allExtensionsDifferent = false;

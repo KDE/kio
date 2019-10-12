@@ -328,10 +328,10 @@ AnimationState *DelegateAnimationHandler::findAnimationState(const QAbstractItem
         const QModelIndex &index) const
 {
     // Try to find a list of animation states for the view
-    AnimationList *list = animationLists.value(view);
+    const AnimationList *list = animationLists.value(view);
 
     if (list) {
-        foreach (AnimationState *state, *list)
+        for (AnimationState *state : *list)
             if (state->index == index) {
                 return state;
             }

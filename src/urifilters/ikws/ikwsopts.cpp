@@ -363,7 +363,7 @@ void FilterOptions::save()
     }
 
     const QStringList servicesDirs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("kservices5/searchproviders/"), QStandardPaths::LocateDirectory);
-    Q_FOREACH (const QString &providerName, m_deletedProviders) {
+    for (const QString &providerName : qAsConst(m_deletedProviders)) {
         QStringList matches;
         for (const QString &dir : servicesDirs) {
             QString current = dir + QLatin1Char('/') + providerName + QLatin1String(".desktop");

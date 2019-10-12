@@ -98,19 +98,19 @@ public:
         sslMetaData.insert(QStringLiteral("ssl_cipher_bits"), QString::number(cipher.supportedBits()));
         sslMetaData.insert(QStringLiteral("ssl_peer_ip"), ip);
 
+        const QList<QSslCertificate> peerCertificateChain = socket.peerCertificateChain();
         // try to fill in the blanks, i.e. missing certificates, and just assume that
         // those belong to the peer (==website or similar) certificate.
         for (int i = 0; i < sslErrors.count(); i++) {
             if (sslErrors[i].certificate().isNull()) {
-				const QList<QSslCertificate> peerCertificateChain = socket.peerCertificateChain();
                 sslErrors[i] = QSslError(sslErrors[i].sslError().error(), peerCertificateChain[0]);
             }
         }
 
         QString errorStr;
         // encode the two-dimensional numeric error list using '\n' and '\t' as outer and inner separators
-        Q_FOREACH (const QSslCertificate &cert, socket.peerCertificateChain()) {
-            Q_FOREACH (const KSslError &error, sslErrors) {
+        for (const QSslCertificate &cert : peerCertificateChain ) {
+            for (const KSslError &error : qAsConst(sslErrors)) {
                 if (error.certificate() == cert) {
                     errorStr += QString::number(static_cast<int>(error.error())) + QLatin1Char('\t');
                 }
@@ -124,7 +124,7 @@ public:
         sslMetaData.insert(QStringLiteral("ssl_cert_errors"), errorStr);
 
         QString peerCertChain;
-        Q_FOREACH (const QSslCertificate &cert, socket.peerCertificateChain()) {
+        for (const QSslCertificate &cert : peerCertificateChain) {
             peerCertChain += QString::fromUtf8(cert.toPem()) + QLatin1Char('\x01');
         }
         peerCertChain.chop(1);
