@@ -64,7 +64,7 @@ public:
     QString hostName;
     bool isRejected;
     QDateTime expiryDateTime;
-    QList<KSslError::Error> ignoredErrors;
+    QList<QSslError::SslError> ignoredErrors;
 };
 
 KSslCertificateRule::KSslCertificateRule(const QSslCertificate &cert, const QString &hostName)
@@ -124,27 +124,24 @@ bool KSslCertificateRule::isRejected() const
 
 bool KSslCertificateRule::isErrorIgnored(KSslError::Error error) const
 {
-    foreach (KSslError::Error ignoredError, d->ignoredErrors)
-        if (error == ignoredError) {
-            return true;
-        }
-
-    return false;
+    return d->ignoredErrors.contains(KSslErrorPrivate::errorFromKSslError(error));
 }
 
 bool KSslCertificateRule::isErrorIgnored(QSslError::SslError error) const
 {
-    return d->ignoredErrors.contains(KSslErrorPrivate::errorFromQSslError(error));
+    return d->ignoredErrors.contains(error);
 }
 
 void KSslCertificateRule::setIgnoredErrors(const QList<KSslError::Error> &errors)
 {
     d->ignoredErrors.clear();
     //### Quadratic runtime, woohoo! Use a QSet if that should ever be an issue.
-    for (KSslError::Error e : errors)
-        if (!isErrorIgnored(e)) {
-            d->ignoredErrors.append(e);
+    for (KSslError::Error e : errors) {
+        QSslError::SslError error = KSslErrorPrivate::errorFromKSslError(e);
+        if (!isErrorIgnored(error)) {
+            d->ignoredErrors.append(error);
         }
+    }
 }
 
 void KSslCertificateRule::setIgnoredErrors(const QList<KSslError> &errors)
@@ -162,14 +159,19 @@ void KSslCertificateRule::setIgnoredErrors(const QList<QSslError> &errors)
     d->ignoredErrors.clear();
     for (const QSslError &error : errors) {
         if (!isErrorIgnored(error.error())) {
-            d->ignoredErrors.append(KSslErrorPrivate::errorFromQSslError(error.error()));
+            d->ignoredErrors.append(error.error());
         }
     }
 }
 
 QList<KSslError::Error> KSslCertificateRule::ignoredErrors() const
 {
-    return d->ignoredErrors;
+    // TODO KF6: return d->ignoredErrors
+    // return d->ignoredErrors;
+    QList<KSslError::Error> errors;
+    errors.reserve(d->ignoredErrors.size());
+    std::transform(d->ignoredErrors.cbegin(), d->ignoredErrors.cend(), std::back_inserter(errors), KSslErrorPrivate::errorFromQSslError);
+    return errors;
 }
 
 QList<KSslError::Error> KSslCertificateRule::filterErrors(const QList<KSslError::Error> &errors) const
