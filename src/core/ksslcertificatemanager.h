@@ -21,7 +21,7 @@
 #ifndef _INCLUDE_KSSLCERTIFICATEMANAGER_H
 #define _INCLUDE_KSSLCERTIFICATEMANAGER_H
 
-#include "ktcpsocket.h"
+#include "ktcpsocket.h" // TODO KF6 remove include
 
 #include <QSslCertificate>
 #include <QSslError>
@@ -34,6 +34,7 @@ class KSslCertificateRulePrivate;
 class KSslCertificateManagerPrivate;
 
 //### document this... :/
+/** Certificate rule. */
 class KIOCORE_EXPORT KSslCertificateRule
 {
 public:
@@ -49,12 +50,32 @@ public:
     QDateTime expiryDateTime() const;
     void setRejected(bool rejected);
     bool isRejected() const;
-    bool isErrorIgnored(KSslError::Error error) const;
-    void setIgnoredErrors(const QList<KSslError::Error> &errors);
-    void setIgnoredErrors(const QList<KSslError> &errors);
-    QList<KSslError::Error> ignoredErrors() const;
-    QList<KSslError::Error> filterErrors(const QList<KSslError::Error> &errors) const;
-    QList<KSslError> filterErrors(const QList<KSslError> &errors) const;
+    /** @deprecated since 5.64, use the QSslError variant. */
+    KIOCORE_DEPRECATED bool isErrorIgnored(KSslError::Error error) const;
+    /**
+     * Returns whether @p error is ignored for this certificate.
+     * @since 5.64
+     */
+    bool isErrorIgnored(QSslError::SslError error) const;
+    /** @deprecated since 5.64, use the QSslError variant. */
+    KIOCORE_DEPRECATED void setIgnoredErrors(const QList<KSslError::Error> &errors);
+    /** @deprecated since 5.64, use the QSslError variant. */
+    KIOCORE_DEPRECATED void setIgnoredErrors(const QList<KSslError> &errors);
+    /**
+     * Set the ignored errors for this certificate.
+     * @since 5.64
+     */
+    void setIgnoredErrors(const QList<QSslError> &errors);
+    QList<KSslError::Error> ignoredErrors() const; // TODO KF6 return QSslError::SslError list
+    /** @deprecated since 5.64, use the QSslError variant. */
+    KIOCORE_DEPRECATED QList<KSslError::Error> filterErrors(const QList<KSslError::Error> &errors) const;
+    /** @deprecated since 5.64, use the QSslError variant. */
+    KIOCORE_DEPRECATED QList<KSslError> filterErrors(const QList<KSslError> &errors) const;
+    /**
+     * Filter out errors that are already ignored.
+     * @since 5.64
+     */
+    QList<QSslError> filterErrors(const QList<QSslError> &errors) const;
 private:
     KSslCertificateRulePrivate *const d;
 };

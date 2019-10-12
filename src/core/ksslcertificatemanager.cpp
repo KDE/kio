@@ -20,6 +20,7 @@
 
 #include "ksslcertificatemanager.h"
 #include "ksslcertificatemanager_p.h"
+#include "ksslerror_p.h"
 
 #include "ktcpsocket.h"
 #include "ksslerroruidata_p.h"
@@ -131,6 +132,11 @@ bool KSslCertificateRule::isErrorIgnored(KSslError::Error error) const
     return false;
 }
 
+bool KSslCertificateRule::isErrorIgnored(QSslError::SslError error) const
+{
+    return d->ignoredErrors.contains(KSslErrorPrivate::errorFromQSslError(error));
+}
+
 void KSslCertificateRule::setIgnoredErrors(const QList<KSslError::Error> &errors)
 {
     d->ignoredErrors.clear();
@@ -149,6 +155,16 @@ void KSslCertificateRule::setIgnoredErrors(const QList<KSslError> &errors)
         el.append(e.error());
     }
     setIgnoredErrors(el);
+}
+
+void KSslCertificateRule::setIgnoredErrors(const QList<QSslError> &errors)
+{
+    d->ignoredErrors.clear();
+    for (const QSslError &error : errors) {
+        if (!isErrorIgnored(error.error())) {
+            d->ignoredErrors.append(KSslErrorPrivate::errorFromQSslError(error.error()));
+        }
+    }
 }
 
 QList<KSslError::Error> KSslCertificateRule::ignoredErrors() const
@@ -171,6 +187,17 @@ QList<KSslError> KSslCertificateRule::filterErrors(const QList<KSslError> &error
 {
     QList<KSslError> ret;
     for (const KSslError &error : errors) {
+        if (!isErrorIgnored(error.error())) {
+            ret.append(error);
+        }
+    }
+    return ret;
+}
+
+QList<QSslError> KSslCertificateRule::filterErrors(const QList<QSslError> &errors) const
+{
+    QList<QSslError> ret;
+    for (const QSslError &error : errors) {
         if (!isErrorIgnored(error.error())) {
             ret.append(error);
         }
