@@ -39,7 +39,7 @@ bool KIO::SslUi::askIgnoreSslErrors(const KSslErrorUiData &uiData, RulesStorage 
         return true;
     }
 
-    QList<KSslError> fatalErrors = KSslCertificateManager::nonIgnorableErrors(ud->sslErrors);
+    const QList<QSslError> fatalErrors = KSslCertificateManager::nonIgnorableErrors(ud->sslErrors);
     if (!fatalErrors.isEmpty()) {
         //TODO message "sorry, fatal error, you can't override it"
         return false;
@@ -56,7 +56,7 @@ bool KIO::SslUi::askIgnoreSslErrors(const KSslErrorUiData &uiData, RulesStorage 
     if (storedRules & RecallRules) {
         rule = cm->rule(ud->certificateChain.first(), ud->host);
         // remove previously seen and acknowledged errors
-        QList<KSslError> remainingErrors = rule.filterErrors(ud->sslErrors);
+        const QList<QSslError> remainingErrors = rule.filterErrors(ud->sslErrors);
         if (remainingErrors.isEmpty()) {
             //qDebug() << "Error list empty after removing errors to be ignored. Continuing.";
             return true;
@@ -66,7 +66,7 @@ bool KIO::SslUi::askIgnoreSslErrors(const KSslErrorUiData &uiData, RulesStorage 
     //### We don't ask to permanently reject the certificate
 
     QString message = i18n("The server failed the authenticity check (%1).\n\n", ud->host);
-    for (const KSslError &err : qAsConst(ud->sslErrors)) {
+    for (const QSslError &err : qAsConst(ud->sslErrors)) {
         message.append(err.errorString() + QLatin1Char('\n'));
     }
     message = message.trimmed();

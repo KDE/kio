@@ -36,7 +36,11 @@ KSslErrorUiData::KSslErrorUiData(const KTcpSocket *socket)
     : d(new Private())
 {
     d->certificateChain = socket->peerCertificateChain();
-    d->sslErrors = socket->sslErrors();
+    const auto ksslErrors = socket->sslErrors();
+    d->sslErrors.reserve(ksslErrors.size());
+    for (const auto &error : ksslErrors) {
+        d->sslErrors.push_back(error.sslError());
+    }
     d->ip = socket->peerAddress().toString();
     d->host = socket->peerName();
     d->sslProtocol = socket->negotiatedSslVersionName();
@@ -49,14 +53,7 @@ KSslErrorUiData::KSslErrorUiData(const QSslSocket *socket)
     : d(new Private())
 {
     d->certificateChain = socket->peerCertificateChain();
-
-    // See KTcpSocket::sslErrors()
-    const auto qsslErrors = socket->sslErrors();
-    d->sslErrors.reserve(qsslErrors.size());
-    for (const QSslError &e : qsslErrors) {
-        d->sslErrors.append(KSslError(e));
-    }
-
+    d->sslErrors = socket->sslErrors();
     d->ip = socket->peerAddress().toString();
     d->host = socket->peerName();
     if (socket->isEncrypted()) {
@@ -72,12 +69,7 @@ KSslErrorUiData::KSslErrorUiData(const QNetworkReply *reply, const QList<QSslErr
 {
     const auto sslConfig = reply->sslConfiguration();
     d->certificateChain = sslConfig.peerCertificateChain();
-
-    d->sslErrors.reserve(sslErrors.size());
-    for (const QSslError &e : sslErrors) {
-        d->sslErrors.append(KSslError(e));
-    }
-
+    d->sslErrors = sslErrors;
     d->host = reply->request().url().host();
     d->sslProtocol = sslConfig.sessionCipher().protocolString();
     d->cipher = sslConfig.sessionCipher().name();

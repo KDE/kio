@@ -129,7 +129,11 @@ bool KSslCertificateRule::isErrorIgnored(KSslError::Error error) const
 
 bool KSslCertificateRule::isErrorIgnored(QSslError::SslError error) const
 {
-    return d->ignoredErrors.contains(error);
+    // ### temporary porting scafolding, remove the KSslError conversion roundtrip once kssld is ported
+    // until then we need to do this here to avoid comparing QSslErrors that haven't been reduced to the
+    // lower KSslError level of detail with the values stored as KSslError
+    //return d->ignoredErrors.contains(error);
+    return d->ignoredErrors.contains(KSslErrorPrivate::errorFromKSslError(KSslErrorPrivate::errorFromQSslError(error)));
 }
 
 void KSslCertificateRule::setIgnoredErrors(const QList<KSslError::Error> &errors)

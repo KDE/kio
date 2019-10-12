@@ -21,9 +21,9 @@
 #define KSSLERRORUIDATA_P_H
 
 #include "ksslerroruidata.h"
-#include "ktcpsocket.h"
 
 #include <QString>
+#include <QSslError>
 #include <QSslCertificate>
 
 class Q_DECL_HIDDEN KSslErrorUiData::Private
@@ -35,7 +35,7 @@ public:
     }
 
     QList<QSslCertificate> certificateChain;
-    QList<KSslError> sslErrors;   // parallel list to certificateChain
+    QList<QSslError> sslErrors;   // parallel list to certificateChain
     QString ip;
     QString host;
     QString sslProtocol;
