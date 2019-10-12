@@ -485,6 +485,13 @@ QList<KSslError::Error> KSslCertificateManager::nonIgnorableErrors(const QList<K
     return ret;
 }
 
+QList<QSslError> KSslCertificateManager::nonIgnorableErrors(const QList<QSslError> &errors)
+{
+    Q_UNUSED(errors)
+    // ### add filtering here...
+    return {};
+}
+
 QList<KSslCaCertificate> _allKsslCaCertificates(KSslCertificateManager *cm)
 {
     return KSslCertificateManagerPrivate::get(cm)->allCertificates();

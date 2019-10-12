@@ -60,6 +60,7 @@ private:
 };
 
 //### document this too... :/
+/** Certificate manager. */
 class KIOCORE_EXPORT KSslCertificateManager
 {
 public:
@@ -79,8 +80,15 @@ public:
 
     QList<QSslCertificate> caCertificates() const;
 
-    static QList<KSslError> nonIgnorableErrors(const QList<KSslError> &);
-    static QList<KSslError::Error> nonIgnorableErrors(const QList<KSslError::Error> &);
+    /** @deprecated since 5.64, use the corresponding QSslError variant. */
+    static KIOCORE_DEPRECATED QList<KSslError> nonIgnorableErrors(const QList<KSslError> &);
+    /** @deprecated since 5.64, use the corresponding QSslError variant. */
+    static KIOCORE_DEPRECATED QList<KSslError::Error> nonIgnorableErrors(const QList<KSslError::Error> &);
+    /**
+     * Returns the subset of @p errors that cannot be ignored, ie. that is considered fatal.
+     * @since 5.64
+     */
+    static QList<QSslError> nonIgnorableErrors(const QList<QSslError> &errors);
 
 private:
     friend class KSslCertificateManagerContainer;
