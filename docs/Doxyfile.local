@@ -1,0 +1,2 @@
+# slaves are plugins and not part of the API
+EXCLUDE_PATTERNS += */ioslaves/*
