@@ -43,26 +43,20 @@ public:
     QUrl m_url = QUrl("ftp://localhost");
 
 private Q_SLOTS:
-    void initTestCase()
+    static void runDaemon(QProcess &proc, QUrl &url, const QTemporaryDir &remoteDir)
     {
-        // Force the ftp slave from our bindir as first choice. This specifically
-        // works around the fact that kioslave would load the slave from the system
-        // as first choice instead of the one from the build dir.
-        qputenv("QT_PLUGIN_PATH", QCoreApplication::applicationDirPath().toUtf8());
-
-        // Run ftpd to talk to.
-        QVERIFY(m_remoteDir.isValid());
-        m_daemonProc.setProgram(RubyExe_EXECUTABLE);
-        m_daemonProc.setArguments({ QFINDTESTDATA("ftpd"), QStringLiteral("0"), m_remoteDir.path() });
-        m_daemonProc.setProcessChannelMode(QProcess::ForwardedOutputChannel);
-        qDebug() << m_daemonProc.arguments();
-        m_daemonProc.start();
-        QVERIFY(m_daemonProc.waitForStarted());
-        QCOMPARE(m_daemonProc.state(), QProcess::Running);
+        QVERIFY(remoteDir.isValid());
+        proc.setProgram(RubyExe_EXECUTABLE);
+        proc.setArguments({ QFINDTESTDATA("ftpd"), QStringLiteral("0"), remoteDir.path() });
+        proc.setProcessChannelMode(QProcess::ForwardedOutputChannel);
+        qDebug() << proc.arguments();
+        proc.start();
+        QVERIFY(proc.waitForStarted());
+        QCOMPARE(proc.state(), QProcess::Running);
         // Wait for the daemon to print its port. That tells us both where it's listening
         // and also that it is ready to move ahead with testing.
         QVERIFY(QTest::qWaitFor([&]() -> bool {
-            const QString err = m_daemonProc.readAllStandardError();
+            const QString err = proc.readAllStandardError();
             if (!err.isEmpty()) {
                 qDebug() << "STDERR:" << err;
             }
@@ -71,9 +65,20 @@ private Q_SLOTS:
             }
             bool ok = false;
             const int port = err.split(" = ").at(1).toInt(&ok);
-            m_url.setPort(port);
+            url.setPort(port);
             return ok;
         }, 8000));
+    }
+
+    void initTestCase()
+    {
+        // Force the ftp slave from our bindir as first choice. This specifically
+        // works around the fact that kioslave would load the slave from the system
+        // as first choice instead of the one from the build dir.
+        qputenv("QT_PLUGIN_PATH", QCoreApplication::applicationDirPath().toUtf8());
+
+        // Run ftpd to talk to.
+        runDaemon(m_daemonProc, m_url, m_remoteDir);
         // Once it's started we can simply forward the output. Possibly should do the
         // same for stdout so it has a prefix.
         connect(&m_daemonProc, &QProcess::readyReadStandardError,
