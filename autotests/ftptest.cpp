@@ -226,8 +226,7 @@ private Q_SLOTS:
         // https://bugs.kde.org/show_bug.cgi?id=409954
         auto job = KIO::copy({ QUrl::fromLocalFile(QFINDTESTDATA("ftp/testOverwriteCopy2")) }, url, KIO::DefaultFlags);
         job->setUiDelegate(nullptr);
-        QEXPECT_FAIL("", "Overwrite without overwrite flag currently broken.", Abort);
-        QVERIFY2(job->exec(), qUtf8Printable(job->errorString()));
+        QVERIFY2(!job->exec(), qUtf8Printable(job->errorString()));
         QCOMPARE(job->error(), KIO::ERR_FILE_ALREADY_EXIST);
         QFile file(m_remoteDir.path() + path);
         QVERIFY(file.exists());
