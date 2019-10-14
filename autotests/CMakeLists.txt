@@ -48,7 +48,7 @@ ecm_add_test(
 )
 
 include(FindGem)
-find_gem(ftpd REQUIRED)
+find_gem(ftpd)
 set_package_properties(Gem_ftpd PROPERTIES
     DESCRIPTION "Ruby gem 'ftpd' required for testing the ftp slave.")
 
