@@ -35,12 +35,14 @@
 #include <process.h>
 #endif
 
+#include <QtGlobal>
 #include <QFile>
 #include <QList>
 #include <QDateTime>
 #include <QElapsedTimer>
 #include <QCoreApplication>
 #include <QDataStream>
+#include <QMap>
 
 #include <kconfig.h>
 #include <kconfiggroup.h>
@@ -121,6 +123,7 @@ public:
     MetaData configData;
     KConfig *config;
     KConfigGroup *configGroup;
+    QMap<QString, QVariant> mapConfig;
     QUrl onHoldUrl;
 
     QElapsedTimer lastTimeout;
@@ -177,19 +180,24 @@ public:
     // Reconstructs configGroup from configData and mIncomingMetaData
     void rebuildConfig()
     {
-        configGroup->deleteGroup(KConfigGroup::WriteConfigFlags());
+        mapConfig.clear();
 
         // mIncomingMetaData cascades over config, so we write config first,
         // to let it be overwritten
         MetaData::ConstIterator end = configData.constEnd();
         for (MetaData::ConstIterator it = configData.constBegin(); it != end; ++it) {
-            configGroup->writeEntry(it.key(), it->toUtf8(), KConfigGroup::WriteConfigFlags());
+            mapConfig.insert(it.key(), it->toUtf8());
         }
 
         end = q->mIncomingMetaData.constEnd();
         for (MetaData::ConstIterator it = q->mIncomingMetaData.constBegin(); it != end; ++it) {
-            configGroup->writeEntry(it.key(), it->toUtf8(), KConfigGroup::WriteConfigFlags());
+            mapConfig.insert(it.key(), it->toUtf8());
         }
+
+        delete configGroup;
+        configGroup = nullptr;
+        delete config;
+        config = nullptr;
     }
 
     bool finalState() const
@@ -294,9 +302,7 @@ SlaveBase::SlaveBase(const QByteArray &protocol,
     d->slaveid = QString::fromUtf8(protocol) + QString::number(getpid());
     d->resume = false;
     d->needSendCanResume = false;
-    d->config = new KConfig(QString(), KConfig::SimpleConfig);
-    // The KConfigGroup needs the KConfig to exist during its whole lifetime.
-    d->configGroup = new KConfigGroup(d->config, QString());
+    d->mapConfig = QMap<QString, QVariant>();
     d->onHold = false;
     d->wasKilled = false;
 //    d->processed_size = 0;
@@ -427,8 +433,25 @@ bool SlaveBase::hasMetaData(const QString &key) const
     return false;
 }
 
+QMap<QString, QVariant> SlaveBase::mapConfig() const
+{
+    return d->mapConfig;
+}
+
 KConfigGroup *SlaveBase::config()
 {
+    if (!d->config) {
+        d->config = new KConfig(QString(), KConfig::SimpleConfig);
+
+        d->configGroup = new KConfigGroup(d->config, QString());
+
+        auto end = d->mapConfig.cend();
+        for (auto it = d->mapConfig.cbegin(); it != end; ++it)
+        {
+            d->configGroup->writeEntry(it.key(), it->toString().toUtf8(), KConfigGroup::WriteConfigFlags());
+        }
+    }
+
     return d->configGroup;
 }
 

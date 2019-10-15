@@ -334,13 +334,25 @@ public:
     MetaData allMetaData() const;
 
     /**
+     * Returns a map to query config/meta-data information from.
+     *
+     * The application provides the slave with all configuration information
+     * relevant for the current protocol and host.
+     * @since 5.64
+     */
+    QMap<QString, QVariant> mapConfig() const;
+
+    /**
      * Returns a configuration object to query config/meta-data information
      * from.
      *
      * The application provides the slave with all configuration information
      * relevant for the current protocol and host.
+     *
+     * TODO KF6: remove
+     * @deprecated since 5.64 use mapConfig instead
      */
-    KConfigGroup *config();
+    KIOCORE_DEPRECATED KConfigGroup *config();
 
     /**
      * Returns an object that can translate remote filenames into proper
