@@ -18,6 +18,7 @@
 # Boston, MA 02110-1301, USA.
 
 require 'ftpd'
+require 'logger'
 require 'tmpdir'
 
 STDOUT.sync = true
@@ -86,7 +87,6 @@ end
 port = ARGV.fetch(0)
 temp_dir = ARGV.fetch(1)
 
-require 'logger/colors'
 driver = Driver.new(temp_dir)
 server = Ftpd::FtpServer.new(driver)
 server.port = port
