@@ -121,8 +121,8 @@ public:
     bool inOpenLoop: 1;
     bool exit_loop: 1;
     MetaData configData;
-    KConfig *config;
-    KConfigGroup *configGroup;
+    KConfig *config = nullptr;
+    KConfigGroup *configGroup = nullptr;
     QMap<QString, QVariant> mapConfig;
     QUrl onHoldUrl;
 
@@ -130,12 +130,12 @@ public:
     QElapsedTimer nextTimeout;
     qint64 nextTimeoutMsecs;
     KIO::filesize_t totalSize;
-    KRemoteEncoding *remotefile;
+    KRemoteEncoding *remotefile = nullptr;
     enum { Idle, InsideMethod, FinishedCalled, ErrorCalled } m_state;
     bool m_finalityCommand = true; // whether finished() or error() may/must be called
     QByteArray timeoutData;
 
-    KPasswdServerClient *m_passwdServerClient;
+    KPasswdServerClient *m_passwdServerClient = nullptr;
     bool m_rootEntryListed = false;
 
     bool m_confirmationAsked;
