@@ -22,6 +22,7 @@
 #include "ksslinfodialog.h"
 #include "ui_sslinfo.h"
 #include "ksslcertificatebox.h"
+#include "ksslerror_p.h"
 
 
 #include <QDialogButtonBox>
@@ -37,7 +38,7 @@ class Q_DECL_HIDDEN KSslInfoDialog::KSslInfoDialogPrivate
 {
 public:
     QList<QSslCertificate> certificateChain;
-    QList<QList<KSslError::Error> > certificateErrors;
+    QList<QList<QSslError::SslError>> certificateErrors;
 
     bool isMainPartEncrypted;
     bool auxPartsEncrypted;
@@ -142,6 +143,25 @@ void KSslInfoDialog::setSslInfo(const QList<QSslCertificate> &certificateChain,
                                 int usedBits, int bits,
                                 const QList<QList<KSslError::Error> > &validationErrors)
 {
+    QList<QList<QSslError::SslError>> qValidationErrors;
+    qValidationErrors.reserve(validationErrors.size());
+    for (const auto &l : validationErrors) {
+        QList<QSslError::SslError> qErrors;
+        qErrors.reserve(l.size());
+        for (const KSslError::Error e : l) {
+            qErrors.push_back(KSslErrorPrivate::errorFromKSslError(e));
+        }
+        qValidationErrors.push_back(qErrors);
+    }
+    setSslInfo(certificateChain, ip, host, sslProtocol, cipher, usedBits, bits, qValidationErrors);
+}
+
+void KSslInfoDialog::setSslInfo(const QList<QSslCertificate> &certificateChain,
+                                const QString &ip, const QString &host,
+                                const QString &sslProtocol, const QString &cipher,
+                                int usedBits, int bits,
+                                const QList<QList<QSslError::SslError>> &validationErrors)
+{
 
     d->certificateChain = certificateChain;
     d->certificateErrors = validationErrors;
@@ -195,11 +215,11 @@ void KSslInfoDialog::displayFromChain(int i)
     const QSslCertificate &cert = d->certificateChain[i];
 
     QString trusted;
-    const QList<KSslError::Error> errorsList = d->certificateErrors[i];
+    const QList<QSslError::SslError> errorsList = d->certificateErrors[i];
     if (!errorsList.isEmpty()) {
         trusted = i18nc("The certificate is not trusted", "NO, there were errors:");
-        for (KSslError::Error e : errorsList) {
-            KSslError classError(e);
+        for (QSslError::SslError e : errorsList) {
+            QSslError classError(e);
             trusted += QLatin1Char('\n') + classError.errorString();
         }
     } else {

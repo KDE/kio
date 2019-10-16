@@ -21,13 +21,14 @@
 #ifndef KSSLERROR_P_H
 #define KSSLERROR_P_H
 
+#include "kiocore_export.h"
 #include "ktcpsocket.h"
 
 class KSslErrorPrivate
 {
 public:
     static KSslError::Error errorFromQSslError(QSslError::SslError e);
-    static QSslError::SslError errorFromKSslError(KSslError::Error e);
+    KIOCORE_EXPORT static QSslError::SslError errorFromKSslError(KSslError::Error e);
 
     QSslError error;
 };
