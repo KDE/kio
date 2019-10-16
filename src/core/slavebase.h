@@ -338,9 +338,29 @@ public:
      *
      * The application provides the slave with all configuration information
      * relevant for the current protocol and host.
+     *
+     * Use configValue() as shorcut.
      * @since 5.64
      */
     QMap<QString, QVariant> mapConfig() const;
+
+    /**
+     * Returns a bool from the config/meta-data information.
+     * @since 5.64
+     */
+    bool configValue(QString key, bool defaultValue) const;
+
+    /**
+     * Returns an int from the config/meta-data information.
+     * @since 5.64
+     */
+    int configValue(QString key, int defaultValue) const;
+
+    /**
+     * Returns a QString from the config/meta-data information.
+     * @since 5.64
+     */
+    QString configValue(QString key, const QString &defaultValue=QString()) const;
 
     /**
      * Returns a configuration object to query config/meta-data information
@@ -349,7 +369,7 @@ public:
      * The application provides the slave with all configuration information
      * relevant for the current protocol and host.
      *
-     * TODO KF6: remove
+     * TODO KF6: remove, perhaps rename mapConfig() to config()
      * @deprecated since 5.64 use mapConfig instead
      */
     KIOCORE_DEPRECATED KConfigGroup *config();

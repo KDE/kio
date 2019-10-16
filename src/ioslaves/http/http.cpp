@@ -443,15 +443,15 @@ void HTTPProtocol::resetSessionSettings()
     m_request.keepAliveTimeout = 0;
 
     m_request.redirectUrl = QUrl();
-    m_request.useCookieJar = config()->readEntry("Cookies", false);
-    m_request.cacheTag.useCache = config()->readEntry("UseCache", true);
-    m_request.preferErrorPage = config()->readEntry("errorPage", true);
-    const bool noAuth = config()->readEntry("no-auth", false);
-    m_request.doNotWWWAuthenticate = config()->readEntry("no-www-auth", noAuth);
-    m_request.doNotProxyAuthenticate = config()->readEntry("no-proxy-auth", noAuth);
-    m_strCacheDir = config()->readPathEntry("CacheDir", QString());
-    m_maxCacheAge = config()->readEntry("MaxCacheAge", DEFAULT_MAX_CACHE_AGE);
-    m_request.windowId = config()->readEntry("window-id");
+    m_request.useCookieJar = configValue(QStringLiteral("Cookies"), false);
+    m_request.cacheTag.useCache = configValue(QStringLiteral("UseCache"), true);
+    m_request.preferErrorPage = configValue(QStringLiteral("errorPage"), true);
+    const bool noAuth = configValue(QStringLiteral("no-auth"), false);
+    m_request.doNotWWWAuthenticate = configValue(QStringLiteral("no-www-auth"), noAuth);
+    m_request.doNotProxyAuthenticate = configValue(QStringLiteral("no-proxy-auth"), noAuth);
+    m_strCacheDir = config()->readPathEntry(QStringLiteral("CacheDir"), QString());
+    m_maxCacheAge = configValue(QStringLiteral("MaxCacheAge"), DEFAULT_MAX_CACHE_AGE);
+    m_request.windowId = configValue(QStringLiteral("window-id"));
 
     m_request.methodStringOverride = metaData(QStringLiteral("CustomHTTPMethod"));
     m_request.sentMethodString.clear();
@@ -462,7 +462,7 @@ void HTTPProtocol::resetSessionSettings()
     m_request.referrer.clear();
     // RFC 2616: do not send the referrer if the referrer page was served using SSL and
     //           the current page does not use SSL.
-    if (config()->readEntry("SendReferrer", true) &&
+    if (configValue(QStringLiteral("SendReferrer"), true) &&
             (isEncryptedHttpVariety(m_protocol) || metaData(QStringLiteral("ssl_was_in_use")) != QLatin1String("TRUE"))) {
         QUrl refUrl(metaData(QStringLiteral("referrer")));
         if (refUrl.isValid()) {
@@ -479,12 +479,12 @@ void HTTPProtocol::resetSessionSettings()
         }
     }
 
-    if (config()->readEntry("SendLanguageSettings", true)) {
-        m_request.charsets = config()->readEntry("Charsets", DEFAULT_PARTIAL_CHARSET_HEADER);
+    if (configValue(QStringLiteral("SendLanguageSettings"), true)) {
+        m_request.charsets = configValue(QStringLiteral("Charsets"), QStringLiteral(DEFAULT_PARTIAL_CHARSET_HEADER));
         if (!m_request.charsets.contains(QLatin1String("*;"), Qt::CaseInsensitive)) {
             m_request.charsets += QLatin1String(",*;q=0.5");
         }
-        m_request.languages = config()->readEntry("Languages", DEFAULT_LANGUAGE_HEADER);
+        m_request.languages = configValue(QStringLiteral("Languages"), QStringLiteral(DEFAULT_LANGUAGE_HEADER));
     } else {
         m_request.charsets.clear();
         m_request.languages.clear();
@@ -511,12 +511,12 @@ void HTTPProtocol::resetSessionSettings()
         m_request.endoffset = 0;
     }
 
-    m_request.disablePassDialog = config()->readEntry("DisablePassDlg", false);
-    m_request.allowTransferCompression = config()->readEntry("AllowCompressedPage", true);
+    m_request.disablePassDialog = configValue(QStringLiteral("DisablePassDlg"), false);
+    m_request.allowTransferCompression = configValue(QStringLiteral("AllowCompressedPage"), true);
     m_request.id = metaData(QStringLiteral("request-id"));
 
     // Store user agent for this host.
-    if (config()->readEntry("SendUserAgent", true)) {
+    if (configValue(QStringLiteral("SendUserAgent"), true)) {
         m_request.userAgent = metaData(QStringLiteral("UserAgent"));
     } else {
         m_request.userAgent.clear();
@@ -2160,7 +2160,7 @@ bool HTTPProtocol::httpOpenConnection()
 
     // Get proxy information...
     if (m_request.proxyUrls.isEmpty()) {
-        m_request.proxyUrls = config()->readEntry("ProxyUrls", QStringList());
+        m_request.proxyUrls = mapConfig().value(QStringLiteral("ProxyUrls"), QStringList()).toStringList();
         qCDebug(KIO_HTTP) << "Proxy URLs:" << m_request.proxyUrls;
     }
 
@@ -2582,7 +2582,7 @@ bool HTTPProtocol::sendQuery()
         }
 
         // DoNotTrack feature...
-        if (config()->readEntry("DoNotTrack", false)) {
+        if (configValue(QStringLiteral("DoNotTrack"), false)) {
             header += QLatin1String("DNT: 1\r\n");
         }
 
@@ -2663,7 +2663,7 @@ bool HTTPProtocol::sendQuery()
 void HTTPProtocol::forwardHttpResponseHeader(bool forwardImmediately)
 {
     // Send the response header if it was requested...
-    if (!config()->readEntry("PropagateHttpHeader", false)) {
+    if (!configValue(QStringLiteral("PropagateHttpHeader"), false)) {
         return;
     }
 
@@ -3392,7 +3392,7 @@ endParsing:
         if (!cookieStr.isEmpty()) {
             if ((m_request.cookieMode == HTTPRequest::CookiesAuto) && m_request.useCookieJar) {
                 // Give cookies to the cookiejar.
-                const QString domain = config()->readEntry("cross-domain");
+                const QString domain = configValue(QStringLiteral("cross-domain"));
                 if (!domain.isEmpty() && isCrossDomainRequest(m_request.url.host(), domain)) {
                     cookieStr = "Cross-Domain\n" + cookieStr;
                 }
@@ -3512,7 +3512,7 @@ endParsing:
         return parseHeaderFromCache();
     }
 
-    if (config()->readEntry("PropagateHttpHeader", false) ||
+    if (configValue(QStringLiteral("PropagateHttpHeader"), false) ||
             m_request.cacheTag.ioMode == WriteToCache) {
         // store header lines if they will be used; note that the tokenizer removing
         // line continuation special cases is probably more good than bad.
@@ -3772,7 +3772,7 @@ void HTTPProtocol::cacheParseResponseHeader(const HeaderTokenizer &tokenizer)
         if (!cacheFileOpenWrite()) {
             qCDebug(KIO_HTTP) << "Error creating cache entry for" << m_request.url << "!";
         }
-        m_maxCacheSize = config()->readEntry("MaxCacheSize", DEFAULT_MAX_CACHE_SIZE);
+        m_maxCacheSize = configValue(QStringLiteral("MaxCacheSize"), DEFAULT_MAX_CACHE_SIZE);
     } else if (m_request.responseCode == 304 && m_request.cacheTag.file) {
         if (!mayCache) {
             qCDebug(KIO_HTTP) << "This webserver is confused about the cacheability of the data it sends.";
@@ -5119,17 +5119,17 @@ QString HTTPProtocol::authenticationHeader()
     // If the internal meta-data "cached-www-auth" is set, then check for cached
     // authentication data and preemptively send the authentication header if a
     // matching one is found.
-    if (!m_wwwAuth && config()->readEntry("cached-www-auth", false)) {
+    if (!m_wwwAuth && configValue(QStringLiteral("cached-www-auth"), false)) {
         KIO::AuthInfo authinfo;
         authinfo.url = m_request.url;
-        authinfo.realmValue = config()->readEntry("www-auth-realm", QString());
+        authinfo.realmValue = configValue(QStringLiteral("www-auth-realm"), QString());
         // If no realm metadata, then make sure path matching is turned on.
         authinfo.verifyPath = (authinfo.realmValue.isEmpty());
 
-        const bool useCachedAuth = (m_request.responseCode == 401 || !config()->readEntry("no-preemptive-auth-reuse", false));
+        const bool useCachedAuth = (m_request.responseCode == 401 || !configValue(QStringLiteral("no-preemptive-auth-reuse"), false));
 
         if (useCachedAuth && checkCachedAuthentication(authinfo)) {
-            const QByteArray cachedChallenge = config()->readEntry("www-auth-challenge", QByteArray());
+            const QByteArray cachedChallenge = mapConfig().value(QStringLiteral("www-auth-challenge"), QByteArray()).toByteArray();
             if (!cachedChallenge.isEmpty()) {
                 m_wwwAuth = KAbstractHttpAuthentication::newAuth(cachedChallenge, config());
                 if (m_wwwAuth) {
@@ -5144,15 +5144,15 @@ QString HTTPProtocol::authenticationHeader()
     // If the internal meta-data "cached-proxy-auth" is set, then check for cached
     // authentication data and preemptively send the authentication header if a
     // matching one is found.
-    if (!m_proxyAuth && config()->readEntry("cached-proxy-auth", false)) {
+    if (!m_proxyAuth && configValue(QStringLiteral("cached-proxy-auth"), false)) {
         KIO::AuthInfo authinfo;
         authinfo.url = m_request.proxyUrl;
-        authinfo.realmValue = config()->readEntry("proxy-auth-realm", QString());
+        authinfo.realmValue = configValue(QStringLiteral("proxy-auth-realm"), QString());
         // If no realm metadata, then make sure path matching is turned on.
         authinfo.verifyPath = (authinfo.realmValue.isEmpty());
 
         if (checkCachedAuthentication(authinfo)) {
-            const QByteArray cachedChallenge = config()->readEntry("proxy-auth-challenge", QByteArray());
+            const QByteArray cachedChallenge = mapConfig().value(QStringLiteral("proxy-auth-challenge"), QByteArray()).toByteArray();
             if (!cachedChallenge.isEmpty()) {
                 m_proxyAuth = KAbstractHttpAuthentication::newAuth(cachedChallenge, config());
                 if (m_proxyAuth) {
@@ -5283,11 +5283,11 @@ void HTTPProtocol::saveAuthenticationData()
     switch (m_request.prevResponseCode) {
     case 401:
         auth = m_wwwAuth;
-        alreadyCached = config()->readEntry("cached-www-auth", false);
+        alreadyCached = configValue(QStringLiteral("cached-www-auth"), false);
         break;
     case 407:
         auth = m_proxyAuth;
-        alreadyCached = config()->readEntry("cached-proxy-auth", false);
+        alreadyCached = configValue(QStringLiteral("cached-proxy-auth"), false);
         break;
     default:
         Q_ASSERT(false); // should never happen!

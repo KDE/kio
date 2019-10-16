@@ -339,7 +339,7 @@ void FileProtocol::mkdir(const QUrl &url, int permissions)
 void FileProtocol::redirect(const QUrl &url)
 {
     QUrl redir(url);
-    redir.setScheme(config()->readEntry("DefaultRemoteProtocol", "smb"));
+    redir.setScheme(configValue(QStringLiteral("DefaultRemoteProtocol"), QStringLiteral("smb")));
 
     // if we would redirect into the Windows world, let's also check for the
     // DavWWWRoot "token" which in the Windows world tells win explorer to access
@@ -595,7 +595,7 @@ void FileProtocol::put(const QUrl &url, int _mode, KIO::JobFlags _flags)
     QT_STATBUF buff_orig;
     const bool bOrigExists = (QT_LSTAT(QFile::encodeName(dest_orig).constData(), &buff_orig) != -1);
     bool bPartExists = false;
-    const bool bMarkPartial = config()->readEntry("MarkPartial", true);
+    const bool bMarkPartial = configValue(QStringLiteral("MarkPartial"), true);
 
     if (bMarkPartial) {
         QT_STATBUF buff_part;
@@ -726,7 +726,7 @@ void FileProtocol::put(const QUrl &url, int _mode, KIO::JobFlags _flags)
 
             QT_STATBUF buff;
             if (QT_STAT(QFile::encodeName(dest).constData(), &buff) == 0) {
-                int size = config()->readEntry("MinimumKeepSize", DEFAULT_MINIMUM_KEEP_SIZE);
+                int size = configValue(QStringLiteral("MinimumKeepSize"), DEFAULT_MINIMUM_KEEP_SIZE);
                 if (buff.st_size <  size) {
                     QFile::remove(dest);
                 }

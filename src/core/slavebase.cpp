@@ -438,6 +438,21 @@ QMap<QString, QVariant> SlaveBase::mapConfig() const
     return d->mapConfig;
 }
 
+bool SlaveBase::configValue(QString key, bool defaultValue) const
+{
+    return d->mapConfig.value(key, defaultValue).toBool();
+}
+
+int SlaveBase::configValue(QString key, int defaultValue) const
+{
+    return d->mapConfig.value(key, defaultValue).toInt();
+}
+
+QString SlaveBase::configValue(QString key, const QString &defaultValue) const
+{
+    return d->mapConfig.value(key, defaultValue).toString();
+}
+
 KConfigGroup *SlaveBase::config()
 {
     if (!d->config) {

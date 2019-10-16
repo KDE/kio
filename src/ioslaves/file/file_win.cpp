@@ -191,7 +191,7 @@ void FileProtocol::listDir(const QUrl &url)
 
     if (!url.isLocalFile()) {
         QUrl redir(url);
-        redir.setScheme(config()->readEntry("DefaultRemoteProtocol", "smb"));
+        redir.setScheme(configValue(QStringLiteral("DefaultRemoteProtocol"), QStringLiteral("smb")));
         redirection(redir);
         // qDebug() << "redirecting to " << redir;
         finished();
