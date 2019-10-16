@@ -119,14 +119,16 @@ public:
      */
     static void doJob(SimpleJob *job);
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(4, 5)
     /**
      * Schedules @p job scheduled for later execution.
      * This method is deprecated and just sets the job's priority to 1. It is
      * recommended to replace calls to scheduleJob(job) with setJobPriority(job, 1).
      * @param job the job to schedule
+     * @deprecated Since 4.5, use setJobPriority(SimpleJob *job, int priority)
      */
-#ifndef KIOCORE_NO_DEPRECATED
-    KIOCORE_DEPRECATED static void scheduleJob(SimpleJob *job);
+    KIOCORE_DEPRECATED_VERSION(4, 5, "Use Scheduler::setJobPriority(SimpleJob *, int )")
+    static void scheduleJob(SimpleJob *job);
 #endif
 
     /**

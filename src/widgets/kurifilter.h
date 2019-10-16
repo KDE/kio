@@ -644,15 +644,16 @@ class KIOWIDGETS_EXPORT KUriFilterPlugin : public QObject
     Q_OBJECT
 
 public:
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(4, 6)
     /**
      * List for holding the following search provider information:
      * ([search provider name], [search query, search query icon name])
      *
      * @since 4.5
-     * @deprecated Use @ref KUriFilterSearchProvider instead. See @ref setSearchProviders;
+     * @deprecated Since 4.6, use @ref KUriFilterSearchProvider instead. See @ref setSearchProviders;
      */
-#ifndef KIOWIDGETS_NO_DEPRECATED
-    KIOWIDGETS_DEPRECATED typedef QHash<QString, QPair<QString, QString> > ProviderInfoList;
+    KIOWIDGETS_DEPRECATED_VERSION(4, 6, "Use KUriFilterSearchProvider")
+    typedef QHash<QString, QPair<QString, QString> > ProviderInfoList;
 #endif
 
     /**
@@ -949,14 +950,15 @@ public:
      */
     QString filteredUri(const QString &uri, const QStringList &filters = QStringList());
 
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(4, 6)
     /**
      * See @ref filterSearchUri(KUriFilterData&, SearchFilterTypes)
      *
      * @since 4.5
-     * @deprecated Use filterSearchUri(KUriFilterData&, SearchFilterTypes) instead.
+     * @deprecated Since 4.6, use filterSearchUri(KUriFilterData&, SearchFilterTypes) instead.
      */
-#ifndef KIOWIDGETS_NO_DEPRECATED
-    KIOWIDGETS_DEPRECATED bool filterSearchUri(KUriFilterData &data);
+    KIOWIDGETS_DEPRECATED_VERSION(4, 6, "Use KUriFilter::filterSearchUri(KUriFilterData &, SearchFilterTypes)")
+    bool filterSearchUri(KUriFilterData &data);
 #endif
 
     /**

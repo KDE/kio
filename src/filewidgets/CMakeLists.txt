@@ -47,8 +47,16 @@ set(kiofilewidgets_SRCS
 qt5_add_resources(kiofilewidgets_SRCS ../new_file_templates/templates.qrc)
 
 add_library(KF5KIOFileWidgets ${kiofilewidgets_SRCS})
-generate_export_header(KF5KIOFileWidgets BASE_NAME KIOFileWidgets)
 add_library(KF5::KIOFileWidgets ALIAS KF5KIOFileWidgets)
+ecm_generate_export_header(KF5KIOFileWidgets
+    BASE_NAME KIOFileWidgets
+    # GROUP_BASE_NAME KF <- enable once all of KF modules use ecm_generate_export_header
+    VERSION ${KF5_VERSION}
+    DEPRECATED_BASE_VERSION 0
+    DEPRECATION_VERSIONS 4.3 4.5 5.0 5.33
+)
+# TODO: add support for EXCLUDE_DEPRECATED_BEFORE_AND_AT to all KIO libs
+# needs fixing of undeprecated API being still implemented using own deprecated API
 
 target_include_directories(KF5KIOFileWidgets INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF5}/KIOFileWidgets>")
 

@@ -111,6 +111,7 @@ public:
      */
     bool isExternalContentAllowed() const;
 
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 0)
     /**
      * Sets the cookiejar's window id to @p id.
      *
@@ -125,10 +126,10 @@ public:
      *
      * @see KIO::Integration::CookieJar::setWindowId.
      * @since 4.4
-     * @deprecated Use setWindow
+     * @deprecated Since 5.0, use KIO::Integration::CookieJar::setWindowId
      */
-#ifndef KIOWIDGETS_NO_DEPRECATED
-    KIOWIDGETS_DEPRECATED void setCookieJarWindowId(WId id);
+    KIOWIDGETS_DEPRECATED_VERSION(5, 0, "Use KIO::Integration::CookieJar::setWindowId(...)")
+    void setCookieJarWindowId(WId id);
 #endif
 
     /**
@@ -143,6 +144,7 @@ public:
      */
     void setWindow(QWidget *widget);
 
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 0)
     /**
      * Returns the cookiejar's window id.
      *
@@ -153,10 +155,10 @@ public:
      *
      * @see KIO::Integration::CookieJar::windowId.
      * @since 4.4
-     * @deprecated Use KIO::Integration::CookieJar::windowId
+     * @deprecated Since 5.0, use KIO::Integration::CookieJar::windowId
      */
-#ifndef KIOWIDGETS_NO_DEPRECATED
-    KIOWIDGETS_DEPRECATED WId cookieJarWindowid() const;
+    KIOWIDGETS_DEPRECATED_VERSION(5, 0, "Use KIO::Integration::CookieJar::windowId()")
+    WId cookieJarWindowid() const;
 #endif
 
     /**

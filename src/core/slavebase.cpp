@@ -762,7 +762,6 @@ void SlaveBase::infoMessage(const QString &_msg)
     send(INF_INFOMESSAGE, data);
 }
 
-#ifndef KIOCORE_NO_DEPRECATED
 bool SlaveBase::requestNetwork(const QString &host)
 {
     KIO_DATA << host << d->slaveid;
@@ -783,7 +782,6 @@ void SlaveBase::dropNetwork(const QString &host)
     KIO_DATA << host << d->slaveid;
     send(MSG_NET_DROP, data);
 }
-#endif
 
 void SlaveBase::statEntry(const UDSEntry &entry)
 {
@@ -791,7 +789,6 @@ void SlaveBase::statEntry(const UDSEntry &entry)
     send(MSG_STAT_ENTRY, data);
 }
 
-#ifndef KIOCORE_NO_DEPRECATED
 void SlaveBase::listEntry(const UDSEntry &entry, bool _ready)
 {
     if (_ready) {
@@ -806,7 +803,6 @@ void SlaveBase::listEntry(const UDSEntry &entry, bool _ready)
         listEntry(entry);
     }
 }
-#endif
 
 void SlaveBase::listEntry(const UDSEntry &entry)
 {

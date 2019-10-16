@@ -47,7 +47,7 @@ enum RenameDialog_Option {
 Q_DECLARE_FLAGS(RenameDialog_Options, RenameDialog_Option)
 
 // For compat
-#ifndef KIOCORE_NO_DEPRECATED
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 0)
 /**
  * @deprecated since 5.0, use the RenameDialog_Option enum values
  */
@@ -63,9 +63,8 @@ enum {
 /**
  * @deprecated since 5.0, use RenameDialog_Options
  */
-#ifndef KIOCORE_NO_DEPRECATED
-KIOCORE_DEPRECATED typedef RenameDialog_Options RenameDialog_Mode;
-#endif
+KIOCORE_DEPRECATED_VERSION(5, 0, "Use KIO::RenameDialog_Options")
+typedef RenameDialog_Options RenameDialog_Mode;
 #endif
 
 /**
@@ -94,6 +93,7 @@ enum RenameDialog_Result {
     Result_Retry = 9,
 
     // @deprecated since 5.0, use the RenameDialog_Option enum values
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 0)
     R_CANCEL = Result_Cancel,
     R_RENAME = Result_Rename,
     R_SKIP = Result_Skip,
@@ -109,6 +109,7 @@ enum RenameDialog_Result {
     S_SKIP = Result_Skip,
     S_AUTO_SKIP = Result_AutoSkip,
     S_RETRY = Result_Retry
+#endif
 };
 typedef RenameDialog_Result SkipDialog_Result;
 

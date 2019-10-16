@@ -198,6 +198,7 @@ public:
      */
     QWidget *window() const;
 
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 6)
     /**
      * Open a list of URLs with a certain service (application).
      *
@@ -214,8 +215,8 @@ public:
      * @deprecated since 5.6, use runApplication instead. No change needed on the application side,
      * the only difference is the return value (qint64 instead of bool).
      */
-#ifndef KIOWIDGETS_NO_DEPRECATED
-    static KIOWIDGETS_DEPRECATED bool run(const KService &service, const QList<QUrl> &urls, QWidget *window,
+    KIOWIDGETS_DEPRECATED_VERSION(5, 6, "Use KRun::runApplication(const KService &, const QList<QUrl> &, QWidget *,                                  RunFlags, const QString &, const QByteArray &")
+    static bool run(const KService &service, const QList<QUrl> &urls, QWidget *window,
                     bool tempFiles = false, const QString &suggestedFileName = QString(),
                     const QByteArray &asn = QByteArray());
 #endif
@@ -289,6 +290,7 @@ public:
                     const QString &icon = QString(),
                     const QByteArray &asn = QByteArray());
 
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 31)
     /**
      * Open the given URL.
      *
@@ -308,10 +310,10 @@ public:
      * @return @c true on success, @c false on error
      * @deprecated since 5.31, use runUrl() with RunFlags instead.
      */
-#ifndef KIOWIDGETS_NO_DEPRECATED
-    static bool KIOWIDGETS_DEPRECATED runUrl(const QUrl &url, const QString &mimetype, QWidget *window,
-                                             bool tempFile = false, bool runExecutables = true,
-                                             const QString &suggestedFileName = QString(), const QByteArray &asn = QByteArray());
+    KIOWIDGETS_DEPRECATED_VERSION(5, 31, "Use KRun::const QUrl &, const QString &, QWidget *, RunFlags, const QString &, const QByteArray &")
+    static bool runUrl(const QUrl &url, const QString &mimetype, QWidget *window,
+                       bool tempFile = false, bool runExecutables = true,
+                       const QString &suggestedFileName = QString(), const QByteArray &asn = QByteArray());
 #endif
 
     /**
@@ -391,20 +393,22 @@ public:
                                       bool tempFiles = false, const QString &suggestedFileName = QString(),
                                       const QByteArray &asn = QByteArray()); // TODO deprecate and provide RunFlags() overload
 
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(4, 0)
     /**
      * Quotes a string for the shell.
      * An empty string will @em not be quoted.
      *
-     * @deprecated Use KShell::quoteArg() instead. @em Note that this function
+     * @param str the string to quote. The quoted string will be written here
+     *
+     * @deprecated Since 4.0, use KShell::quoteArg() instead. @em Note that this function
      *  behaves differently for empty arguments and returns the result
      *  differently.
-     *
-     * @param str the string to quote. The quoted string will be written here
      */
-#ifndef KIOWIDGETS_NO_DEPRECATED
-    static KIOWIDGETS_DEPRECATED void shellQuote(QString &str);
+    KIOWIDGETS_DEPRECATED_VERSION(4, 0, "Use KShell::quoteArg(...)")
+    static void shellQuote(QString &str);
 #endif
 
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 0)
     /**
      * Processes a Exec= line as found in .desktop files.
      * @param _service the service to extract information from.
@@ -416,12 +420,13 @@ public:
      * @return a list of arguments suitable for QProcess.
      * @deprecated since 5.0, use KIO::DesktopExecParser
      */
-#ifndef KIOWIDGETS_NO_DEPRECATED
-    static KIOWIDGETS_DEPRECATED QStringList processDesktopExec(const KService &_service, const QList<QUrl> &_urls,
+    KIOWIDGETS_DEPRECATED_VERSION(5, 0, "Use KIO::DesktopExecParser")
+    static QStringList processDesktopExec(const KService &_service, const QList<QUrl> &_urls,
             bool tempFiles = false,
             const QString &suggestedFileName = QString());
 #endif
 
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 0)
     /**
      * Given a full command line (e.g. the Exec= line from a .desktop file),
      * extract the name of the binary being run.
@@ -431,7 +436,7 @@ public:
      * @deprecated since 5.0, use KIO::DesktopExecParser::executableName if removePath was true,
      * or KIO::DesktopExecParser::executablePath if removePath was false.
      */
-#ifndef KIOWIDGETS_NO_DEPRECATED
+    KIOWIDGETS_DEPRECATED_VERSION(5, 0, "See API docs")
     static QString binaryName(const QString &execLine, bool removePath);
 #endif
 
@@ -596,37 +601,41 @@ protected:
      */
     KIO::Job *job();
 
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(4, 4)
     /**
      * Returns the timer object.
-     * @deprecated setFinished(true) now takes care of the timer().start(0),
+     * @deprecated Since 4.4. setFinished(true) now takes care of the timer().start(0),
      * so this can be removed.
      */
-#ifndef KIOWIDGETS_NO_DEPRECATED
-    KIOWIDGETS_DEPRECATED QTimer &timer();
+    KIOWIDGETS_DEPRECATED_VERSION(4, 4, "See API docs")
+    QTimer &timer();
 #endif
 
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(4, 1)
     /**
      * Indicate that the next action is to scan the file.
-     * @deprecated not useful in public API
+     * @deprecated Since 4.1. Not useful in public API
      */
-#ifndef KIOWIDGETS_NO_DEPRECATED
-    KIOWIDGETS_DEPRECATED void setDoScanFile(bool scanFile);
+    KIOWIDGETS_DEPRECATED_VERSION(4, 1, "Do not use")
+    void setDoScanFile(bool scanFile);
 #endif
 
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(4, 1)
     /**
      * Returns whether the file shall be scanned.
-     * @deprecated not useful in public API
+     * @deprecated Since 4.1. Not useful in public API
      */
-#ifndef KIOWIDGETS_NO_DEPRECATED
-    KIOWIDGETS_DEPRECATED bool doScanFile() const;
+    KIOWIDGETS_DEPRECATED_VERSION(4, 1, "Do not use")
+    bool doScanFile() const;
 #endif
 
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(4, 1)
     /**
      * Sets whether it is a directory.
-     * @deprecated typo in the name, and not useful as a public method
+     * @deprecated Since 4.1. Typo in the name, and not useful as a public method
      */
-#ifndef KIOWIDGETS_NO_DEPRECATED
-    KIOWIDGETS_DEPRECATED void setIsDirecory(bool isDirectory);
+    KIOWIDGETS_DEPRECATED_VERSION(4, 1, "Do not use")
+    void setIsDirecory(bool isDirectory);
 #endif
 
     /**
@@ -634,18 +643,20 @@ protected:
      */
     bool isDirectory() const;
 
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(4, 1)
     /**
-     * @deprecated not useful in public API
+     * @deprecated Since 4.1. Not useful in public API
      */
-#ifndef KIOWIDGETS_NO_DEPRECATED
-    KIOWIDGETS_DEPRECATED void setInitializeNextAction(bool initialize);
+    KIOWIDGETS_DEPRECATED_VERSION(4, 1, "Do not use")
+    void setInitializeNextAction(bool initialize);
 #endif
 
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(4, 1)
     /**
-     * @deprecated not useful in public API
+     * @deprecated Since 4.1. Not useful in public API
      */
-#ifndef KIOWIDGETS_NO_DEPRECATED
-    KIOWIDGETS_DEPRECATED bool initializeNextAction() const;
+    KIOWIDGETS_DEPRECATED_VERSION(4, 1, "Do not use")
+    bool initializeNextAction() const;
 #endif
 
     /**

@@ -1239,7 +1239,6 @@ bool KFileItem::isFile() const
     return !isDir();
 }
 
-#ifndef KIOCORE_NO_DEPRECATED
 bool KFileItem::acceptsDrops() const
 {
     // A directory ?
@@ -1263,7 +1262,6 @@ bool KFileItem::acceptsDrops() const
 
     return false;
 }
-#endif
 
 QString KFileItem::getStatusBarInfo() const
 {
@@ -1371,7 +1369,6 @@ QString KFileItem::timeString(FileTimes which) const
     return d->time(which).toString();
 }
 
-#ifndef KIOCORE_NO_DEPRECATED
 QString KFileItem::timeString(unsigned int which) const
 {
     if (!d) {
@@ -1388,14 +1385,11 @@ QString KFileItem::timeString(unsigned int which) const
         return timeString(ModificationTime);
     }
 }
-#endif
 
-#ifndef KIOCORE_NO_DEPRECATED
 void KFileItem::assign(const KFileItem &item)
 {
     *this = item;
 }
-#endif
 
 QUrl KFileItem::mostLocalUrl(bool *local) const
 {

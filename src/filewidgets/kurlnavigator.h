@@ -289,13 +289,16 @@ public:
      */
     QWidget *dropWidget() const;
 
-#if !defined(KIOFILEWIDGETS_NO_DEPRECATED) && !defined(DOXYGEN_SHOULD_SKIP_THIS)
+#if KIOFILEWIDGETS_ENABLE_DEPRECATED_SINCE(4, 5)
     /**
      * @return     The current URL of the location.
-     * @deprecated Use KUrlNavigator::locationUrl() instead.
+     * @deprecated Since 4.5, use KUrlNavigator::locationUrl() instead.
      */
-    KIOFILEWIDGETS_DEPRECATED const QUrl &url() const;
+    KIOFILEWIDGETS_DEPRECATED_VERSION(4, 5, "Use KUrlNavigator::locationUrl(int)")
+    const QUrl &url() const;
+#endif
 
+#if KIOFILEWIDGETS_ENABLE_DEPRECATED_SINCE(4, 5)
     /**
      * @return The portion of the current URL up to the path part given
      * by \a index. Assuming that the current URL is /home/peter/Documents/Music,
@@ -304,33 +307,46 @@ public:
      * - index is 1: /home/peter
      * - index is 2: /home/peter/Documents
      * - index >= 3: /home/peter/Documents/Music
-     * @deprecated It should not be necessary for a client of KUrlNavigator to query this information.
+     * @deprecated Since 4.5. It should not be necessary for a client of KUrlNavigator to query this information.
      */
-    KIOFILEWIDGETS_DEPRECATED QUrl url(int index) const;
+    KIOFILEWIDGETS_DEPRECATED_VERSION(4, 5, "Do not use")
+    QUrl url(int index) const;
+#endif
 
+#if KIOFILEWIDGETS_ENABLE_DEPRECATED_SINCE(4, 5)
     /**
      * @return URL for the history element with the index \a historyIndex.
      *         The history index 0 represents the most recent URL.
      * @since 4.3
-     * @deprecated Use KUrlNavigator::locationUrl(historyIndex) instead.
+     * @deprecated Since 4.5, use KUrlNavigator::locationUrl(historyIndex) instead.
      */
-    KIOFILEWIDGETS_DEPRECATED QUrl historyUrl(int historyIndex) const;
+    KIOFILEWIDGETS_DEPRECATED_VERSION(4, 5, "Use KUrlNavigator::locationUrl(int)")
+    QUrl historyUrl(int historyIndex) const;
+#endif
 
+#if KIOFILEWIDGETS_ENABLE_DEPRECATED_SINCE(4, 5)
     /**
      * @return The saved root URL for the current URL (see KUrlNavigator::saveRootUrl()).
-     * @deprecated Use KUrlNavigator::locationState() instead.
+     * @deprecated Since 4.5, use KUrlNavigator::locationState() instead.
      */
-    KIOFILEWIDGETS_DEPRECATED const QUrl &savedRootUrl() const;
+    KIOFILEWIDGETS_DEPRECATED_VERSION(4, 5, "Use KUrlNavigator::locationState(int)")
+    const QUrl &savedRootUrl() const;
+#endif
 
+#if KIOFILEWIDGETS_ENABLE_DEPRECATED_SINCE(4, 5)
     /**
      * @return The saved contents position of the upper left corner
      *         for the current URL.
-     * @deprecated Use KUrlNavigator::locationState() instead.
+     * @deprecated Since 4.5, use KUrlNavigator::locationState() instead.
      */
-    KIOFILEWIDGETS_DEPRECATED QPoint savedPosition() const;
+    KIOFILEWIDGETS_DEPRECATED_VERSION(4, 5, "Use KUrlNavigator::locationState(int)")
+    QPoint savedPosition() const;
+#endif
 
-    /** @deprecated Use setHomeUrl(const QUrl& url) instead. */
-    KIOFILEWIDGETS_DEPRECATED void setHomeUrl(const QString &homeUrl);
+#if KIOFILEWIDGETS_ENABLE_DEPRECATED_SINCE(4, 5)
+    /** @deprecated Since 4.5, use setHomeUrl(const QUrl& url) instead. */
+    KIOFILEWIDGETS_DEPRECATED_VERSION(4, 5, "Use KUrlNavigator::setHomeUrl(const QUrl&)")
+    void setHomeUrl(const QString &homeUrl);
 #endif
 
 public Q_SLOTS:
@@ -355,24 +371,31 @@ public Q_SLOTS:
     void setFocus();
 #endif
 
-#if !defined(KIOFILEWIDGETS_NO_DEPRECATED) && !defined(DOXYGEN_SHOULD_SKIP_THIS)
+#if KIOFILEWIDGETS_ENABLE_DEPRECATED_SINCE(4, 5)
     /**
      * Sets the location to \a url.
-     * @deprecated Use KUrlNavigator::setLocationUrl(url).
+     * @deprecated Since 4.5, use KUrlNavigator::setLocationUrl(url).
      */
-    KIOFILEWIDGETS_DEPRECATED void setUrl(const QUrl &url);
+    KIOFILEWIDGETS_DEPRECATED_VERSION(4, 5, "Use KUrlNavigator::setLocationUrl(const QUrl&))")
+    void setUrl(const QUrl &url);
+#endif
 
+#if KIOFILEWIDGETS_ENABLE_DEPRECATED_SINCE(4, 5)
     /**
      * Saves the used root URL of the content for the current history element.
-     * @deprecated Use KUrlNavigator::saveLocationState() instead.
+     * @deprecated Since 4.5, use KUrlNavigator::saveLocationState() instead.
      */
-    KIOFILEWIDGETS_DEPRECATED void saveRootUrl(const QUrl &url);
+    KIOFILEWIDGETS_DEPRECATED_VERSION(4, 5, "Use KUrlNavigator::saveLocationState(const QByteArray &)")
+    void saveRootUrl(const QUrl &url);
+#endif
 
+#if KIOFILEWIDGETS_ENABLE_DEPRECATED_SINCE(4, 5)
     /**
      * Saves the coordinates of the contents for the current history element.
-     * @deprecated Use KUrlNavigator::saveLocationState() instead.
+     * @deprecated Since 4.5, use KUrlNavigator::saveLocationState() instead.
      */
-    KIOFILEWIDGETS_DEPRECATED void savePosition(int x, int y);
+    KIOFILEWIDGETS_DEPRECATED_VERSION(4, 5, "Use KUrlNavigator::saveLocationState(const QByteArray &)")
+    void savePosition(int x, int y);
 #endif
 
 Q_SIGNALS:

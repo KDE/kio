@@ -550,8 +550,10 @@ Q_SIGNALS:
     void speed(int bytes_per_second);
 
 protected:
-    /// @deprecated and unused, ignore this
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(4, 3)
+    /// @deprecated Since 4.3, and unused, ignore this
     enum Changes { NONE = 0, NAME_FILTER = 1, MIME_FILTER = 2, DOT_FILES = 4, DIR_ONLY_MODE = 8 };
+#endif
 
     /**
      * Called for every new item before emitting newItems().

@@ -92,6 +92,7 @@ public:
               bool delayedMimeTypes = false,
               bool urlIsDirectory = false);
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 0)
     /**
      * Creates an item representing a file, from all the necessary info for it.
      * @param mode the file mode (according to stat() (e.g. S_IFDIR...)
@@ -107,9 +108,9 @@ public:
      * @deprecated since 5.0. Most callers gave Unknown for mode and permissions,
      * so just port to KFileItem(url) and setDelayedMimeTypes(true) if necessary.
      */
-#ifndef KIOCORE_NO_DEPRECATED
-    KIOCORE_DEPRECATED KFileItem(mode_t mode, mode_t permissions, const QUrl &url,
-                                 bool delayedMimeTypes = false);
+    KIOCORE_DEPRECATED_VERSION(5, 0, "See API docs")
+    KFileItem(mode_t mode, mode_t permissions, const QUrl &url,
+              bool delayedMimeTypes = false);
 #endif
 
     /**
@@ -357,8 +358,10 @@ public:
      * @see time
      */
     QString timeString(FileTimes which = ModificationTime) const;
-#ifndef KIOCORE_NO_DEPRECATED
-    KIOCORE_DEPRECATED QString timeString(unsigned int which) const;
+
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(4, 0)
+    KIOCORE_DEPRECATED_VERSION(4, 0, "Use KFileItem::timeString(FileTimes)")
+    QString timeString(unsigned int which) const;
 #endif
 
     /**
@@ -457,18 +460,19 @@ public:
      */
     QString getStatusBarInfo() const;
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(4, 0)
     /**
      * Returns true if files can be dropped over this item.
      * Contrary to popular belief, not only dirs will return true :)
      * Executables, .desktop files, will do so as well.
      * @return true if you can drop files over the item
      *
-     * @deprecated This logic is application-dependent, the behavior described above
+     * @deprecated Since 4.0. This logic is application-dependent, the behavior described above
      * mostly makes sense for file managers only.
      * KDirModel has setDropsAllowed for similar (but configurable) logic.
      */
-#ifndef KIOCORE_NO_DEPRECATED
-    KIOCORE_DEPRECATED bool acceptsDrops() const;
+    KIOCORE_DEPRECATED_VERSION(4, 0, "See API docs")
+    bool acceptsDrops() const;
 #endif
 
     /**
@@ -523,11 +527,12 @@ public:
      */
     operator QVariant() const;
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(4, 0)
     /**
-     * @deprecated simply use '='
+     * @deprecated Since 4.0, simply use '='
      */
-#ifndef KIOCORE_NO_DEPRECATED
-    KIOCORE_DEPRECATED void assign(const KFileItem &item);
+    KIOCORE_DEPRECATED_VERSION(4, 0, "Use KFileItem::operator=(const KFileItem&)")
+    void assign(const KFileItem &item);
 #endif
 
     /**
@@ -537,10 +542,11 @@ public:
      */
     QUrl mostLocalUrl(bool *local = nullptr) const;
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 0)
     /**
      * @deprecated since 5.0 add '&' in front of your boolean argument
      */
-#ifndef KIOCORE_NO_DEPRECATED
+    KIOCORE_DEPRECATED_VERSION(5, 0, "Use KFileItem::mostLocalUrl(bool *)")
     QUrl mostLocalUrl(bool &local) const { return mostLocalUrl(&local); }
 #endif
 

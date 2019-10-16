@@ -94,17 +94,18 @@ KIOCORE_EXPORT unsigned int calculateRemainingSeconds(KIO::filesize_t totalSize,
  */
 KIOCORE_EXPORT QString convertSeconds(unsigned int seconds);
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(3, 4)
 /**
  * Calculates remaining time from total size, processed size and speed.
- * Warning: As QTime is limited to 23:59:59, use calculateRemainingSeconds() instead
  *
  * @param  totalSize      total size in bytes
  * @param  processedSize  processed size in bytes
  * @param  speed          speed in bytes per second
  * @return calculated remaining time
+ * @deprecated Since 3.4, use calculateRemainingSeconds() instead, as QTime is limited to 23:59:59
  */
-#ifndef KIOCORE_NO_DEPRECATED
-KIOCORE_DEPRECATED_EXPORT QTime calculateRemaining(KIO::filesize_t totalSize, KIO::filesize_t processedSize, KIO::filesize_t speed);
+KIOCORE_DEPRECATED_VERSION(3, 4, "Use KIO::calculateRemainingSeconds(KIO::filesize_t, KIO::filesize_t, KIO::filesize_t")
+KIOCORE_EXPORT QTime calculateRemaining(KIO::filesize_t totalSize, KIO::filesize_t processedSize, KIO::filesize_t speed);
 #endif
 
 /**
@@ -135,6 +136,7 @@ KIOCORE_EXPORT QString encodeFileName(const QString &str);
  */
 KIOCORE_EXPORT QString decodeFileName(const QString &str);
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 61)
 /**
  * Given a directory path and a filename (which usually exists already),
  * this function returns a suggested name for a file that doesn't exist
@@ -143,8 +145,8 @@ KIOCORE_EXPORT QString decodeFileName(const QString &str);
  * @since 5.0
  * @deprecated since 5.61, use KFileUtils::suggestName() from KCoreAddons
  */
-#ifndef KIOCORE_NO_DEPRECATED
-KIOCORE_DEPRECATED_EXPORT QString suggestName(const QUrl &baseURL, const QString &oldName);
+KIOCORE_DEPRECATED_VERSION(5, 61, "Use KFileUtils::suggestName(const QUrl &, const QString &) from KCoreAddons")
+KIOCORE_EXPORT QString suggestName(const QUrl &baseURL, const QString &oldName);
 #endif
 
 /**
@@ -172,35 +174,63 @@ enum Error {
     ERR_CYCLIC_LINK = KJob::UserDefinedError + 19,
     ERR_USER_CANCELED = KJob::KilledJobError,
     ERR_CYCLIC_COPY = KJob::UserDefinedError + 21,
-    ERR_COULD_NOT_CREATE_SOCKET = KJob::UserDefinedError + 22, ///< @deprecated
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 0)
+    ERR_COULD_NOT_CREATE_SOCKET = KJob::UserDefinedError + 22, ///< @deprecated Since 5.0, use ERR_CANNOT_CREATE_SOCKET
+#endif
     ERR_CANNOT_CREATE_SOCKET = KJob::UserDefinedError + 22,
-    ERR_COULD_NOT_CONNECT = KJob::UserDefinedError + 23, ///< @deprecated
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 0)
+    ERR_COULD_NOT_CONNECT = KJob::UserDefinedError + 23, ///< @deprecated Since 5.0, use ERR_CANNOT_CONNECT
+#endif
     ERR_CANNOT_CONNECT = KJob::UserDefinedError + 23,
     ERR_CONNECTION_BROKEN = KJob::UserDefinedError + 24,
     ERR_NOT_FILTER_PROTOCOL = KJob::UserDefinedError + 25,
-    ERR_COULD_NOT_MOUNT = KJob::UserDefinedError + 26, ///< @deprecated
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 0)
+    ERR_COULD_NOT_MOUNT = KJob::UserDefinedError + 26, ///< @deprecated Since 5.0, use ERR_CANNOT_MOUNT
+#endif
     ERR_CANNOT_MOUNT = KJob::UserDefinedError + 26,
-    ERR_COULD_NOT_UNMOUNT = KJob::UserDefinedError + 27, ///< @deprecated
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 0)
+    ERR_COULD_NOT_UNMOUNT = KJob::UserDefinedError + 27, ///< @deprecated Since 5.0, use ERR_CANNOT_UNMOUNT
+#endif
     ERR_CANNOT_UNMOUNT = KJob::UserDefinedError + 27,
-    ERR_COULD_NOT_READ = KJob::UserDefinedError + 28, ///< @deprecated
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 0)
+    ERR_COULD_NOT_READ = KJob::UserDefinedError + 28, ///< @deprecated Since 5.0, use ERR_CANNOT_READ
+#endif
     ERR_CANNOT_READ = KJob::UserDefinedError + 28,
-    ERR_COULD_NOT_WRITE = KJob::UserDefinedError + 29, ///< @deprecated
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 0)
+    ERR_COULD_NOT_WRITE = KJob::UserDefinedError + 29, ///< @deprecated Since 5.0, use ERR_CANNOT_WRITE
+#endif
     ERR_CANNOT_WRITE = KJob::UserDefinedError + 29,
-    ERR_COULD_NOT_BIND = KJob::UserDefinedError + 30, ///< @deprecated
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 0)
+    ERR_COULD_NOT_BIND = KJob::UserDefinedError + 30, ///< @deprecated Since 5.0, use ERR_CANNOT_BIND
+#endif
     ERR_CANNOT_BIND = KJob::UserDefinedError + 30,
-    ERR_COULD_NOT_LISTEN = KJob::UserDefinedError + 31, ///< @deprecated
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 0)
+    ERR_COULD_NOT_LISTEN = KJob::UserDefinedError + 31, ///< @deprecated Since 5.0, use ERR_CANNOT_LISTEN
+#endif
     ERR_CANNOT_LISTEN = KJob::UserDefinedError + 31,
-    ERR_COULD_NOT_ACCEPT = KJob::UserDefinedError + 32, ///< @deprecated
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 0)
+    ERR_COULD_NOT_ACCEPT = KJob::UserDefinedError + 32, ///< @deprecated Since 5.0, use ERR_CANNOT_ACCEPT
+#endif
     ERR_CANNOT_ACCEPT = KJob::UserDefinedError + 32,
-    ERR_COULD_NOT_LOGIN = KJob::UserDefinedError + 33, ///< @deprecated
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 0)
+    ERR_COULD_NOT_LOGIN = KJob::UserDefinedError + 33, ///< @deprecated Since 5.0, use ERR_CANNOT_LOGIN
+#endif
     ERR_CANNOT_LOGIN = KJob::UserDefinedError + 33,
-    ERR_COULD_NOT_STAT = KJob::UserDefinedError + 34, ///< @deprecated
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 0)
+    ERR_COULD_NOT_STAT = KJob::UserDefinedError + 34, ///< @deprecated Since 5.0, use ERR_CANNOT_STAT
+#endif
     ERR_CANNOT_STAT = KJob::UserDefinedError + 34,
-    ERR_COULD_NOT_CLOSEDIR = KJob::UserDefinedError + 35, ///< @deprecated
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 0)
+    ERR_COULD_NOT_CLOSEDIR = KJob::UserDefinedError + 35, ///< @deprecated Since 5.0, use ERR_CANNOT_CLOSEDIR
+#endif
     ERR_CANNOT_CLOSEDIR = KJob::UserDefinedError + 35,
-    ERR_COULD_NOT_MKDIR = KJob::UserDefinedError + 37, ///< @deprecated
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 0)
+    ERR_COULD_NOT_MKDIR = KJob::UserDefinedError + 37, ///< @deprecated Since 5.0, use ERR_CANNOT_MKDIR
+#endif
     ERR_CANNOT_MKDIR = KJob::UserDefinedError + 37,
-    ERR_COULD_NOT_RMDIR = KJob::UserDefinedError + 38, ///< @deprecated
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 0)
+    ERR_COULD_NOT_RMDIR = KJob::UserDefinedError + 38, ///< @deprecated Since 5.0, use ERR_CANNOT_RMDIR
+#endif
     ERR_CANNOT_RMDIR = KJob::UserDefinedError + 38,
     ERR_CANNOT_RESUME = KJob::UserDefinedError + 39,
     ERR_CANNOT_RENAME = KJob::UserDefinedError + 40,
@@ -211,7 +241,9 @@ enum Error {
     ERR_SLAVE_DIED = KJob::UserDefinedError + 43,
     ERR_OUT_OF_MEMORY = KJob::UserDefinedError + 44,
     ERR_UNKNOWN_PROXY_HOST = KJob::UserDefinedError + 45,
-    ERR_COULD_NOT_AUTHENTICATE = KJob::UserDefinedError + 46, ///< @deprecated
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 0)
+    ERR_COULD_NOT_AUTHENTICATE = KJob::UserDefinedError + 46, ///< @deprecated Since 5.0, use ERR_CANNOT_AUTHENTICATE
+#endif
     ERR_CANNOT_AUTHENTICATE = KJob::UserDefinedError + 46,
     ERR_ABORTED = KJob::UserDefinedError + 47, ///< Action got aborted from application side
     ERR_INTERNAL_SERVER = KJob::UserDefinedError + 48,
@@ -239,7 +271,9 @@ enum Error {
     ///< object.  For instance, TLS is demanded by
     ///< the server in order to continue.
     ERR_POST_DENIED = KJob::UserDefinedError + 65, ///< Issued when trying to POST data to a certain Ports
-    ERR_COULD_NOT_SEEK = KJob::UserDefinedError + 66, ///< @deprecated
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 0)
+    ERR_COULD_NOT_SEEK = KJob::UserDefinedError + 66, ///< @deprecated Since 5.0, use ERR_CANNOT_SEEK
+#endif
     // see job.cpp
     ERR_CANNOT_SEEK = KJob::UserDefinedError + 66,
     ERR_CANNOT_SETTIME = KJob::UserDefinedError + 67, ///< Emitted by setModificationTime

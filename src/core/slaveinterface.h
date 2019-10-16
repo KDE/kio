@@ -51,7 +51,11 @@ enum Info {
     INF_MIME_TYPE = 21,
     INF_ERROR_PAGE = 22,
     INF_WARNING = 23,
-    INF_GETTING_FILE, ///< @deprecated
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(3, 0)
+    INF_GETTING_FILE, ///< @deprecated Since 3.0
+#else
+    INF_GETTING_FILE_DEPRECATED_DO_NOT_USE,
+#endif
     INF_UNUSED = 25, ///< now unused
     INF_INFOMESSAGE,
     INF_META_DATA,
@@ -74,14 +78,23 @@ enum Message {
     MSG_LIST_ENTRIES,
     MSG_RENAMED, ///< unused
     MSG_RESUME,
-    MSG_SLAVE_STATUS, ///< only for compatibility, use V2 for KF >= 5.45. TODO KF6: remove
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 45)
+    MSG_SLAVE_STATUS, ///< @deprecated Since 5.45, use MSG_SLAVE_STATUS_V2
+#else
+    MSG_SLAVE_STATUS_DEPRECATED_DO_NOT_USE,
+#endif
     MSG_SLAVE_ACK, // 110
     MSG_NET_REQUEST,
     MSG_NET_DROP,
     MSG_NEED_SUBURL_DATA,
     MSG_CANRESUME,
-    MSG_AUTH_KEY, ///< @deprecated
-    MSG_DEL_AUTH_KEY, ///< @deprecated
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(3, 1)
+    MSG_AUTH_KEY, ///< @deprecated Since 3.1
+    MSG_DEL_AUTH_KEY, ///< @deprecated Since 3.1
+#else
+    MSG_AUTH_KEY_DEPRECATED_DO_NOT_USE,
+    MSG_DEL_AUTH_KEY_DEPRECATED_DO_NOT_USE,
+#endif
     MSG_OPENED,
     MSG_WRITTEN,
     MSG_HOST_INFO_REQ,
@@ -109,9 +122,13 @@ public:
 
     virtual ~SlaveInterface();
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 0)
     // TODO KF6: remove these methods, Connection isn't an exported class
-    KIOCORE_DEPRECATED void setConnection(Connection *connection);
-    KIOCORE_DEPRECATED Connection *connection() const;
+    KIOCORE_DEPRECATED_VERSION(5, 0, "Do not use")
+    void setConnection(Connection *connection);
+    KIOCORE_DEPRECATED_VERSION(5, 0, "Do not use")
+    Connection *connection() const;
+#endif
 
     // Send our answer to the MSG_RESUME (canResume) request
     // (to tell the "put" job whether to resume or not)

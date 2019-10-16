@@ -362,6 +362,7 @@ public:
      */
     QString configValue(QString key, const QString &defaultValue=QString()) const;
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 64)
     /**
      * Returns a configuration object to query config/meta-data information
      * from.
@@ -369,10 +370,12 @@ public:
      * The application provides the slave with all configuration information
      * relevant for the current protocol and host.
      *
-     * TODO KF6: remove, perhaps rename mapConfig() to config()
      * @deprecated since 5.64 use mapConfig instead
      */
-    KIOCORE_DEPRECATED KConfigGroup *config();
+    KIOCORE_DEPRECATED_VERSION(5, 64, "Use SlaveBase::mapConfig()")
+    KConfigGroup *config();
+    // KF6: perhaps rename mapConfig() to config() when removing this
+#endif
 
     /**
      * Returns an object that can translate remote filenames into proper
@@ -737,6 +740,7 @@ public:
      **/
     int readData(QByteArray &buffer);
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 0)
     /**
      * It collects entries and emits them via listEntries
      * when enough of them are there or a certain time
@@ -752,8 +756,8 @@ public:
      * You should make sure that finished() is called when the entry
      * listing is completed and simply remove the call to listEntry(entry, true).
      */
-#ifndef KIOCORE_NO_DEPRECATED
-    KIOCORE_DEPRECATED void listEntry(const UDSEntry &_entry, bool ready);
+    KIOCORE_DEPRECATED_VERSION(5, 0, "See API docs")
+    void listEntry(const UDSEntry &_entry, bool ready);
 #endif
 
     /**
@@ -824,6 +828,7 @@ public:
      */
     int openPasswordDialogV2(KIO::AuthInfo &info, const QString &errorMsg = QString());
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 24)
     /**
      * @deprecated since KF 5.24, use openPasswordDialogV2.
      * The return value works differently:
@@ -832,7 +837,9 @@ public:
      *  store and pass the return value to error(), when NOT zero,
      *  as shown documentation for openPasswordDialogV2().
      */
-    KIOCORE_DEPRECATED bool openPasswordDialog(KIO::AuthInfo &info, const QString &errorMsg = QString());
+    KIOCORE_DEPRECATED_VERSION(5, 24, "Use SlaveBase::openPasswordDialogV2(...)")
+    bool openPasswordDialog(KIO::AuthInfo &info, const QString &errorMsg = QString());
+#endif
 
     /**
      * Checks for cached authentication based on parameters
@@ -891,10 +898,8 @@ public:
      */
     bool cacheAuthentication(const AuthInfo &info);
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 0)
     /**
-     * @deprecated for a very very long time, not implemented anymore
-     * Probably dates back to model dialup times.
-     *
      * Used by the slave to check if it can connect
      * to a given host. This should be called where the slave is ready
      * to do a ::connect() on a socket. For each call to
@@ -911,14 +916,16 @@ public:
      *
      * @return true in theory, the host is reachable
      *         false the system is offline and the host is in a remote network.
+     *
+     * @deprecated Since 5.0, for a very very long time, not implemented anymore
+     * Probably dates back to model dialup times.
      */
-#ifndef KIOCORE_NO_DEPRECATED
+    KIOCORE_DEPRECATED_VERSION(5, 0, "Not implemented & used")
     bool requestNetwork(const QString &host = QString());
 #endif
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 0)
     /**
-     * @deprecated for a very very long time, not implemented anymore
-     * Probably dates back to model dialup times.
      *
      * Used by the slave to withdraw a connection requested by
      * requestNetwork. This function cancels the last call to
@@ -931,8 +938,11 @@ public:
      * @param host the host passed to requestNetwork
      *
      * A slave should call this function every time it disconnect from a host.
+     * *
+     * @deprecated Since 5.0, for a very very long time, not implemented anymore
+     * Probably dates back to model dialup times.
      * */
-#ifndef KIOCORE_NO_DEPRECATED
+    KIOCORE_DEPRECATED_VERSION(5, 0, "Not implemented & used")
     void dropNetwork(const QString &host = QString());
 #endif
 

@@ -109,7 +109,8 @@ public:
      */
     void setPopupFiles(const QList<QUrl> &files);
 
-#ifndef KIOFILEWIDGETS_NO_DEPRECATED
+#if KIOFILEWIDGETS_ENABLE_DEPRECATED_SINCE(5, 0)
+    KIOFILEWIDGETS_DEPRECATED_VERSION(5, 0, "Use KNewFileMenu::setPopupFiles(const QList<QUrl> &)")
     void setPopupFiles(const QUrl &file)
     {
         setPopupFiles(QList<QUrl>() << file);

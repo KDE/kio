@@ -143,7 +143,7 @@ public:
      */
     void setUrl(const QUrl &url, bool clearforward = true);
 
-#if !defined(KIOFILEWIDGETS_NO_DEPRECATED) && !defined(DOXYGEN_SHOULD_SKIP_THIS)
+#if KIOFILEWIDGETS_ENABLE_DEPRECATED_SINCE(5, 33)
     /**
      * Sets the file to preselect to @p pathOrUrl
      *
@@ -156,7 +156,8 @@ public:
      * @deprecated since 5.33, use setSelectedUrl instead, after ensuring that
      * construct the QUrl correctly (e.g. use fromLocalFile for local paths).
      */
-    KIOFILEWIDGETS_DEPRECATED void setSelection(const QString &pathOrUrl);
+    KIOFILEWIDGETS_DEPRECATED_VERSION(5, 33, "Use KFileWidget::setSelectedUrl(const QUrl &)")
+    void setSelection(const QString &pathOrUrl);
 #endif
 
     /**

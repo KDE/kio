@@ -162,7 +162,6 @@ public:
     Q_DECLARE_PUBLIC(PreviewJob)
 };
 
-#ifndef KIOWIDGETS_NO_DEPRECATED
 PreviewJob::PreviewJob(const KFileItemList &items, int width, int height,
                        int iconSize, int iconAlpha, bool scale, bool save,
                        const QStringList *enabledPlugins)
@@ -178,7 +177,6 @@ PreviewJob::PreviewJob(const KFileItemList &items, int width, int height,
     // Return to event loop first, determineNextFile() might delete this;
     QTimer::singleShot(0, this, SLOT(startPreview()));
 }
-#endif
 
 PreviewJob::PreviewJob(const KFileItemList &items,
                        const QSize &size,
@@ -788,7 +786,6 @@ QStringList PreviewJob::supportedMimeTypes()
     return result;
 }
 
-#ifndef KIOWIDGETS_NO_DEPRECATED
 PreviewJob *KIO::filePreview(const KFileItemList &items, int width, int height,
                              int iconSize, int iconAlpha, bool scale, bool save,
                              const QStringList *enabledPlugins)
@@ -810,19 +807,16 @@ PreviewJob *KIO::filePreview(const QList<QUrl> &items, int width, int height,
     return new PreviewJob(fileItems, width, height, iconSize, iconAlpha,
                           scale, save, enabledPlugins);
 }
-#endif
 
 PreviewJob *KIO::filePreview(const KFileItemList &items, const QSize &size, const QStringList *enabledPlugins)
 {
     return new PreviewJob(items, size, enabledPlugins);
 }
 
-#ifndef KIOWIDGETS_NO_DEPRECATED
 KIO::filesize_t PreviewJob::maximumFileSize()
 {
     KConfigGroup cg(KSharedConfig::openConfig(), "PreviewSettings");
     return cg.readEntry("MaximumSize", 5 * 1024 * 1024LL /* 5MB */);
 }
-#endif
 
 #include "moc_previewjob.cpp"

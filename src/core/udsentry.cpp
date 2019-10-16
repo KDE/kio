@@ -46,9 +46,7 @@ public:
     int count() const;
     QString stringValue(uint udsField) const;
     long long numberValue(uint udsField, long long defaultValue = -1) const;
-#ifndef KIOCORE_NO_DEPRECATED
     QList<uint> listFields() const;
-#endif
     QVector<uint> fields() const;
     bool contains(uint udsField) const;
     void clear();
@@ -145,7 +143,6 @@ long long UDSEntryPrivate::numberValue(uint udsField, long long defaultValue) co
     return defaultValue;
 }
 
-#ifndef KIOCORE_NO_DEPRECATED
 QList<uint> UDSEntryPrivate::listFields() const
 {
     QList<uint> res;
@@ -155,7 +152,6 @@ QList<uint> UDSEntryPrivate::listFields() const
     }
     return res;
 }
-#endif
 
 QVector<uint> UDSEntryPrivate::fields() const
 {
@@ -417,12 +413,10 @@ void UDSEntry::replace(uint field, long long value)
     d->replace(field, value);
 }
 
-#ifndef KIOCORE_NO_DEPRECATED
 QList<uint> UDSEntry::listFields() const
 {
     return d->listFields();
 }
-#endif
 
 QVector<uint> UDSEntry::fields() const
 {

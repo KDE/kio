@@ -115,8 +115,12 @@ public:
         HostNameMismatch,
         PathLengthExceeded
     };
+
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 63)
     /** @deprecated since 5.63, use the QSslError ctor instead. */
-    KIOCORE_DEPRECATED KSslError(KSslError::Error error = NoError, const QSslCertificate &cert = QSslCertificate());
+    KIOCORE_DEPRECATED_VERSION(5, 63, "Use KSslError(const QSslError &)")
+    KSslError(KSslError::Error error = NoError, const QSslCertificate &cert = QSslCertificate());
+#endif
     KSslError(const QSslError &error);
     KSslError(const KSslError &other);
     ~KSslError();

@@ -50,27 +50,38 @@ public:
     QDateTime expiryDateTime() const;
     void setRejected(bool rejected);
     bool isRejected() const;
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 64)
     /** @deprecated since 5.64, use the QSslError variant. */
-    KIOCORE_DEPRECATED bool isErrorIgnored(KSslError::Error error) const;
+    KIOCORE_DEPRECATED_VERSION(5, 64, "Use KSslCertificateRule::isErrorIgnored(QSslError::SslError)")
+    bool isErrorIgnored(KSslError::Error error) const;
+#endif
     /**
      * Returns whether @p error is ignored for this certificate.
      * @since 5.64
      */
     bool isErrorIgnored(QSslError::SslError error) const;
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 64)
     /** @deprecated since 5.64, use the QSslError variant. */
-    KIOCORE_DEPRECATED void setIgnoredErrors(const QList<KSslError::Error> &errors);
+    KIOCORE_DEPRECATED_VERSION(5, 64, "Use KSslCertificateRule::setIgnoredErrors(const QList<QSslError> &)")
+    void setIgnoredErrors(const QList<KSslError::Error> &errors);
     /** @deprecated since 5.64, use the QSslError variant. */
-    KIOCORE_DEPRECATED void setIgnoredErrors(const QList<KSslError> &errors);
+    KIOCORE_DEPRECATED_VERSION(5, 64, "Use KSslCertificateRule::setIgnoredErrors(const QList<QSslError> &)")
+    void setIgnoredErrors(const QList<KSslError> &errors);
+#endif
     /**
      * Set the ignored errors for this certificate.
      * @since 5.64
      */
     void setIgnoredErrors(const QList<QSslError> &errors);
     QList<KSslError::Error> ignoredErrors() const; // TODO KF6 return QSslError::SslError list
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 64)
     /** @deprecated since 5.64, use the QSslError variant. */
-    KIOCORE_DEPRECATED QList<KSslError::Error> filterErrors(const QList<KSslError::Error> &errors) const;
+    KIOCORE_DEPRECATED_VERSION(5, 64, "Use KSslCertificateRule::filterErrors(const QList<QSslError> &)")
+    QList<KSslError::Error> filterErrors(const QList<KSslError::Error> &errors) const;
     /** @deprecated since 5.64, use the QSslError variant. */
-    KIOCORE_DEPRECATED QList<KSslError> filterErrors(const QList<KSslError> &errors) const;
+    KIOCORE_DEPRECATED_VERSION(5, 64, "Use KSslCertificateRule::filterErrors(const QList<QSslError> &)")
+    QList<KSslError> filterErrors(const QList<KSslError> &errors) const;
+#endif
     /**
      * Filter out errors that are already ignored.
      * @since 5.64
@@ -91,9 +102,10 @@ public:
     void clearRule(const QSslCertificate &cert, const QString &hostName);
     KSslCertificateRule rule(const QSslCertificate &cert, const QString &hostName) const;
 
-    // use caCertificates() instead
-#ifndef KIOCORE_NO_DEPRECATED
-    KIOCORE_DEPRECATED QList<QSslCertificate> rootCertificates() const
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(4, 6)
+    /** @deprecated Since 4.6, use caCertificates() instead */
+    KIOCORE_DEPRECATED_VERSION(4, 6, "Use KSslCertificateManager::caCertificates()")
+    QList<QSslCertificate> rootCertificates() const
     {
         return caCertificates();
     }
@@ -101,10 +113,14 @@ public:
 
     QList<QSslCertificate> caCertificates() const;
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 64)
     /** @deprecated since 5.64, use the corresponding QSslError variant. */
-    static KIOCORE_DEPRECATED QList<KSslError> nonIgnorableErrors(const QList<KSslError> &);
+    KIOCORE_DEPRECATED_VERSION(5, 64, "Use KSslCertificateManager::nonIgnorableErrors(const QList<QSslError> &)")
+    static QList<KSslError> nonIgnorableErrors(const QList<KSslError> &);
     /** @deprecated since 5.64, use the corresponding QSslError variant. */
-    static KIOCORE_DEPRECATED QList<KSslError::Error> nonIgnorableErrors(const QList<KSslError::Error> &);
+    KIOCORE_DEPRECATED_VERSION(5, 64, "Use KSslCertificateManager::nonIgnorableErrors(const QList<QSslError> &)")
+    static QList<KSslError::Error> nonIgnorableErrors(const QList<KSslError::Error> &);
+#endif
     /**
      * Returns the subset of @p errors that cannot be ignored, ie. that is considered fatal.
      * @since 5.64

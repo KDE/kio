@@ -151,21 +151,27 @@ public:
      */
     void reserve(int size);
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 48)
     /**
      * insert field with string value
      * @param field numeric field id
      * @param value to set
      * @deprecated since 5.48 in favor of fastInsert or replace
      */
-    KIOCORE_DEPRECATED void insert(uint field, const QString &value);
+    KIOCORE_DEPRECATED_VERSION(5, 48, "Use UDSEntry::fastInsert(uint, const QString &) or UDSEntry::replace(uint, const QString &)")
+    void insert(uint field, const QString &value);
+#endif
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 48)
     /**
      * insert field with numeric value
      * @param field numeric field id
      * @param l value to set
      * @deprecated since 5.48 in favor of fastInsert or replace
      */
-    KIOCORE_DEPRECATED void insert(uint field, long long l);
+    KIOCORE_DEPRECATED_VERSION(5, 48, "Use UDSEntry::fastInsert(uint, long long) or UDSEntry::replace(uint, long long)")
+    void insert(uint field, long long l);
+#endif
 
     /**
      * insert field with string value, it will assert if the field is already inserted. In that case, use replace() instead.
@@ -195,13 +201,14 @@ public:
      */
     bool contains(uint field) const;
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 8)
     /**
      * List all fields.
      * @return all fields.
      * @deprecated since 5.8. Use fields() instead.
      */
-#ifndef KIOCORE_NO_DEPRECATED
-    KIOCORE_DEPRECATED QList<uint> listFields() const;
+    KIOCORE_DEPRECATED_VERSION(5, 8, "Use UDSEntry::fields()")
+    QList<uint> listFields() const;
 #endif
 
     /**

@@ -66,15 +66,16 @@ public:
     virtual ~Job();
     void start() override {} // Since KIO autostarts its jobs
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 0)
     /**
      * Retrieves the UI delegate of this job.
      *
-     * @deprecated since 5.0, can now be replaced with uiDelegate()
-     *
      * @return the delegate used by the job to communicate with the UI
+     *
+     * @deprecated since 5.0, can now be replaced with uiDelegate()
      */
-#ifndef KIOCORE_NO_DEPRECATED
-    KIOCORE_DEPRECATED KJobUiDelegate *ui() const;
+    KIOCORE_DEPRECATED_VERSION(5, 0, "Use KJob::uiDelegate()")
+    KJobUiDelegate *ui() const;
 #endif
 
     /**
@@ -220,15 +221,16 @@ public:
 protected:
 
 Q_SIGNALS:
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 0)
     /**
-     * @deprecated. Don't use !
      * Emitted when the job is canceled.
      * Signal result() is emitted as well, and error() is,
      * in this case, ERR_USER_CANCELED.
      * @param job the job that emitted this signal
+     * @deprecated Since 5.0. Don't use !
      */
-#ifndef KIOCORE_NO_DEPRECATED
-    KIOCORE_DEPRECATED void canceled(KJob *job);
+    KIOCORE_DEPRECATED_VERSION(5, 0, "Do not use")
+    void canceled(KJob *job);
 #endif
 
     /**

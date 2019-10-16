@@ -106,16 +106,17 @@ public:
 
     virtual ~KSambaShare();
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(4, 6)
     /**
      * Returns the path to the used smb.conf file
      * or empty string if no file was found
      *
      * @return @c the path to the smb.conf file
      *
-     * @deprecated
+     * @deprecated Since 4.6, the conf file is no longer used
      */
-#ifndef KIOCORE_NO_DEPRECATED
-    KIOCORE_DEPRECATED QString smbConfPath() const;
+    KIOCORE_DEPRECATED_VERSION(4, 6, "Conf file no longer used")
+    QString smbConfPath() const;
 #endif
 
 Q_SIGNALS:

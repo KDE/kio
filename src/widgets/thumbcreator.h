@@ -104,7 +104,9 @@ public:
      */
     enum Flags {
         None = 0,      /**< No hints. */
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 32)
         DrawFrame = 1, /**< \deprecated since 5.32. Used to paint a frame around the preview, but applications take care of that nowadays. */
+#endif
         BlendIcon = 2  /**< The mimetype icon should be blended over the preview. */
     };
 
@@ -168,16 +170,19 @@ public:
     virtual void writeConfiguration(const QWidget *configurationWidget);
 };
 
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 0)
 /**
  * @class ThumbCreatorV2 thumbcreator.h <KIO/ThumbCreator>
  * @since 4.7
  * @deprecated since 5.0, use ThumbCreator
  */
-class KIOWIDGETS_DEPRECATED_EXPORT ThumbCreatorV2 : public ThumbCreator
+class KIOWIDGETS_DEPRECATED_VERSION(5, 0, "Use ThumbCreator")
+KIOWIDGETS_EXPORT ThumbCreatorV2 : public ThumbCreator
 {
 public:
     virtual ~ThumbCreatorV2();
 };
+#endif
 
 // KF6 TODO: rename this to something less generic
 typedef ThumbCreator *(*newCreator)();

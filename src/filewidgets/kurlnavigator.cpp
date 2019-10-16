@@ -54,10 +54,8 @@ using namespace KDEPrivate;
 
 struct LocationData {
     QUrl url;
-#ifndef KIOFILEWIDGETS_NO_DEPRECATED
     QUrl rootUrl;      // KDE5: remove after the deprecated methods have been removed
     QPoint pos;        // KDE5: remove after the deprecated methods have been removed
-#endif
     QByteArray state;
 };
 
@@ -1138,29 +1136,23 @@ void KUrlNavigator::setFocus()
     }
 }
 
-#ifndef KIOFILEWIDGETS_NO_DEPRECATED
 void KUrlNavigator::setUrl(const QUrl &url)
 {
     // deprecated
     setLocationUrl(url);
 }
-#endif
 
-#ifndef KIOFILEWIDGETS_NO_DEPRECATED
 void KUrlNavigator::saveRootUrl(const QUrl &url)
 {
     // deprecated
     d->m_history[d->m_historyIndex].rootUrl = url;
 }
-#endif
 
-#ifndef KIOFILEWIDGETS_NO_DEPRECATED
 void KUrlNavigator::savePosition(int x, int y)
 {
     // deprecated
     d->m_history[d->m_historyIndex].pos = QPoint(x, y);
 }
-#endif
 
 void KUrlNavigator::keyPressEvent(QKeyEvent *event)
 {
@@ -1272,7 +1264,6 @@ QWidget *KUrlNavigator::dropWidget() const
     return d->m_dropWidget;
 }
 
-#ifndef KIOFILEWIDGETS_NO_DEPRECATED
 const QUrl &KUrlNavigator::url() const
 {
     // deprecated
@@ -1283,25 +1274,19 @@ const QUrl &KUrlNavigator::url() const
     url = locationUrl();
     return url;
 }
-#endif
 
-#ifndef KIOFILEWIDGETS_NO_DEPRECATED
 QUrl KUrlNavigator::url(int index) const
 {
     // deprecated
     return d->buttonUrl(index);
 }
-#endif
 
-#ifndef KIOFILEWIDGETS_NO_DEPRECATED
 QUrl KUrlNavigator::historyUrl(int historyIndex) const
 {
     // deprecated
     return locationUrl(historyIndex);
 }
-#endif
 
-#ifndef KIOFILEWIDGETS_NO_DEPRECATED
 const QUrl &KUrlNavigator::savedRootUrl() const
 {
     // deprecated
@@ -1312,22 +1297,17 @@ const QUrl &KUrlNavigator::savedRootUrl() const
     rootUrl = d->m_history[d->m_historyIndex].rootUrl;
     return rootUrl;
 }
-#endif
 
-#ifndef KIOFILEWIDGETS_NO_DEPRECATED
 QPoint KUrlNavigator::savedPosition() const
 {
     // deprecated
     return d->m_history[d->m_historyIndex].pos;
 }
-#endif
 
-#ifndef KIOFILEWIDGETS_NO_DEPRECATED
 void KUrlNavigator::setHomeUrl(const QString &homeUrl)
 {
     // deprecated
     setLocationUrl(QUrl::fromUserInput(homeUrl));
 }
-#endif
 
 #include "moc_kurlnavigator.cpp"

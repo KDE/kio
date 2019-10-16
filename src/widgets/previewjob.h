@@ -65,7 +65,7 @@ public:
         ScaledAndCached
     };
 
-#ifndef KIOWIDGETS_NO_DEPRECATED
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(4, 7)
     /**
      * Creates a new PreviewJob.
      * @param items a list of files to create previews for
@@ -82,13 +82,14 @@ public:
      * the names of the plugins that may be used. If enabledPlugins is zero
      * all available plugins are used.
      *
-     * @deprecated Use PreviewJob(const KFileItemList&, const QSize&, const QStringList*) in combination
+     * @deprecated Since 4.7, use PreviewJob(const KFileItemList&, const QSize&, const QStringList*) in combination
      *             with the setter-methods instead. Note that the semantics of
      *             \p enabledPlugins has been slightly changed.
      */
-    KIOWIDGETS_DEPRECATED PreviewJob(const KFileItemList &items, int width, int height,
-                                     int iconSize, int iconAlpha, bool scale, bool save,
-                                     const QStringList *enabledPlugins);
+    KIOWIDGETS_DEPRECATED_VERSION(4, 7, "Use PreviewJob(const KFileItemList&, const QSize&, const QStringList*)")
+    PreviewJob(const KFileItemList &items, int width, int height,
+               int iconSize, int iconAlpha, bool scale, bool save,
+               const QStringList *enabledPlugins);
 #endif
 
     /**
@@ -208,15 +209,16 @@ public:
      */
     static QStringList supportedMimeTypes();
 
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(4, 5)
     /**
      * Returns the default "maximum file size", in bytes, used by PreviewJob.
      * This is useful for applications providing a GUI for letting the user change the size.
      * @since 4.1
-     * @deprecated PreviewJob uses different maximum file sizes dependent on the URL since 4.5.
+     * @deprecated Since 4.5, PreviewJob uses different maximum file sizes dependent on the URL.
      *             The returned file size is only valid for local URLs.
      */
-#ifndef KIOWIDGETS_NO_DEPRECATED
-    KIOWIDGETS_DEPRECATED static KIO::filesize_t maximumFileSize();
+    KIOWIDGETS_DEPRECATED_VERSION(4, 5, "See API dox")
+    static KIO::filesize_t maximumFileSize();
 #endif
 
 Q_SIGNALS:
@@ -244,7 +246,7 @@ private:
     Q_DECLARE_PRIVATE(PreviewJob)
 };
 
-#ifndef KIOWIDGETS_NO_DEPRECATED
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(4, 7)
 /**
  * Creates a PreviewJob to generate or retrieve a preview image
  * for the given URL.
@@ -264,12 +266,15 @@ private:
  * the names of the plugins that may be used.
  * @return the new PreviewJob
  * @see PreviewJob::availablePlugins()
- * @deprecated Use KIO::filePreview(const KFileItemList&, const QSize&, const QStringList*) in combination
+ * @deprecated Since 4.7, use KIO::filePreview(const KFileItemList&, const QSize&, const QStringList*) in combination
  *             with the setter-methods instead. Note that the semantics of
  *             \p enabledPlugins has been slightly changed.
  */
-KIOWIDGETS_DEPRECATED_EXPORT PreviewJob *filePreview(const KFileItemList &items, int width, int height = 0, int iconSize = 0, int iconAlpha = 70, bool scale = true, bool save = true, const QStringList *enabledPlugins = nullptr);   // KDE5: use enums instead of bool scale + bool save
+KIOWIDGETS_DEPRECATED_VERSION(4, 7, "Use KIO::filePreview(const KFileItemList &, const QSize &, const QStringList *")
+KIOWIDGETS_EXPORT PreviewJob *filePreview(const KFileItemList &items, int width, int height = 0, int iconSize = 0, int iconAlpha = 70, bool scale = true, bool save = true, const QStringList *enabledPlugins = nullptr);   // KDE5: use enums instead of bool scale + bool save
+#endif
 
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(4, 7)
 /**
  * Creates a PreviewJob to generate or retrieve a preview image
  * for the given URL.
@@ -289,11 +294,12 @@ KIOWIDGETS_DEPRECATED_EXPORT PreviewJob *filePreview(const KFileItemList &items,
  * the names of the plugins that may be used.
  * @return the new PreviewJob
  * @see PreviewJob::availablePlugins()
- * @deprecated Use KIO::filePreview(const KFileItemList&, const QSize&, const QStringList*) in combination
+ * @deprecated Since 4.7, use KIO::filePreview(const KFileItemList&, const QSize&, const QStringList*) in combination
  *             with the setter-methods instead. Note that the semantics of
  *             \p enabledPlugins has been slightly changed.
  */
-KIOWIDGETS_DEPRECATED_EXPORT PreviewJob *filePreview(const QList<QUrl> &items, int width, int height = 0, int iconSize = 0, int iconAlpha = 70, bool scale = true, bool save = true, const QStringList *enabledPlugins = nullptr);
+KIOWIDGETS_DEPRECATED_VERSION(4, 7, "Use KIO::filePreview(const KFileItemList &, const QSize &, const QStringList *")
+KIOWIDGETS_EXPORT PreviewJob *filePreview(const QList<QUrl> &items, int width, int height = 0, int iconSize = 0, int iconAlpha = 70, bool scale = true, bool save = true, const QStringList *enabledPlugins = nullptr);
 #endif
 
 /**

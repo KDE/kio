@@ -64,9 +64,8 @@ class KIOWIDGETS_EXPORT KUrlRequester : public QWidget
     Q_PROPERTY(QString filter READ filter WRITE setFilter)
     Q_PROPERTY(KFile::Modes mode READ mode WRITE setMode)
     Q_PROPERTY(QFileDialog::AcceptMode acceptMode READ acceptMode WRITE setAcceptMode)
-#ifndef KIOWIDGETS_NO_DEPRECATED
+    /// @deprecated Since 5.0, use placeholderText
     Q_PROPERTY(QString clickMessage READ clickMessage WRITE setClickMessage)
-#endif
     Q_PROPERTY(QString placeholderText READ placeholderText WRITE setPlaceholderText)
     Q_PROPERTY(QString text READ text WRITE setText NOTIFY textChanged)
     Q_PROPERTY(Qt::WindowModality fileDialogModality READ fileDialogModality WRITE setFileDialogModality)
@@ -180,9 +179,8 @@ public:
      * @deprecated since 5.0. The dialog will be created anyway when the user
      * requests it, and will behave according to the properties of KUrlRequester.
      */
-#ifndef KIOWIDGETS_NO_DEPRECATED
-    virtual KIOWIDGETS_DEPRECATED QFileDialog *fileDialog() const;
-#endif
+    KIOWIDGETS_DEPRECATED_VERSION(5, 0, "See API docs")
+    virtual QFileDialog *fileDialog() const;
 
     /**
      * @returns a pointer to the lineedit, either the default one, or the
@@ -222,22 +220,24 @@ public:
      */
     const KEditListWidget::CustomEditor &customEditor();
 
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 0)
     /**
      * @returns the message set with setClickMessage
      * @since 4.2
-     * @deprecated use KUrlRequester::placeholderText instead.
+     * @deprecated Since 5.0, use KUrlRequester::placeholderText instead.
      */
-#ifndef KIOWIDGETS_NO_DEPRECATED
-    KIOWIDGETS_DEPRECATED QString clickMessage() const;
+    KIOWIDGETS_DEPRECATED_VERSION(5, 0, "Use KUrlRequester::placeholderText()")
+    QString clickMessage() const;
 #endif
 
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 0)
     /**
      * Set a click message @p msg
      * @since 4.2
-     * @deprecated use KUrlRequester::setPlaceholderText instead.
+     * @deprecated Since 5.0, use KUrlRequester::setPlaceholderText instead.
      */
-#ifndef KIOWIDGETS_NO_DEPRECATED
-    KIOWIDGETS_DEPRECATED void setClickMessage(const QString &msg);
+    KIOWIDGETS_DEPRECATED_VERSION(5, 0, "Use KUrlRequester::setPlaceholderText(const QString&)")
+    void setClickMessage(const QString &msg);
 #endif
 
     /**
@@ -280,16 +280,17 @@ public Q_SLOTS:
      */
     void setStartDir(const QUrl &startDir);
 
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(4, 3)
     /**
      * Sets the url in the lineedit to @p QUrl::fromLocalFile(path).
      * This is only for local paths; do not pass a url here.
      * This method is mostly for "local paths only" url requesters,
      * for instance those set up with setMode(KFile::File|KFile::ExistingOnly|KFile::LocalOnly)
      *
-     * @deprecated Use setUrl(QUrl::fromLocalFile(path)) instead.
+     * @deprecated Since 4.3. Use setUrl(QUrl::fromLocalFile(path)) instead.
      */
-#ifndef KIOWIDGETS_NO_DEPRECATED
-    KIOWIDGETS_DEPRECATED void setPath(const QString &path);
+    KIOWIDGETS_DEPRECATED_VERSION(4, 3, "Use KUrlRequester::setUrlQUrl::fromLocalFile(path))")
+    void setPath(const QString &path);
 #endif
 
     /**

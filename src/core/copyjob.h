@@ -154,6 +154,7 @@ Q_SIGNALS:
      */
     void totalDirs(KJob *job, unsigned long dirs);
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 2)
     /**
      * Emitted when it is known which files / directories are going
      * to be created. Note that this may still change e.g. when
@@ -162,8 +163,9 @@ Q_SIGNALS:
      * @param files a list of items that are about to be created.
      * @deprecated since 5.2 -- this signal is unused since kde 3...
      */
-
+    KIOCORE_DEPRECATED_VERSION(5, 2, "To be removed due to no known users")
     QT_MOC_COMPAT void aboutToCreate(KIO::Job *job, const QList<KIO::CopyInfo> &files);
+#endif
 
     /**
      * Sends the number of processed files.

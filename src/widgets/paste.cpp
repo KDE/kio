@@ -293,8 +293,7 @@ KIOWIDGETS_EXPORT KIO::Job *KIO::pasteClipboard(const QUrl &destUrl, QWidget *wi
     return pasteMimeDataImpl(mimeData, destUrl, QString(), widget, true /*clipboard*/);
 }
 
-// deprecated. KF6: remove
-KIOWIDGETS_DEPRECATED_EXPORT QString KIO::pasteActionText()
+QString KIO::pasteActionText()
 {
     const QMimeData *mimeData = QApplication::clipboard()->mimeData();
     const QList<QUrl> urls = KUrlMimeData::urlsFromMimeData(mimeData);

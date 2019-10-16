@@ -83,12 +83,13 @@ public:
     static QUrl getUrl(const QUrl &url = QUrl(),
                        QWidget *parent = nullptr, const QString &caption = QString());
 
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 0)
     /**
      * Returns a pointer to the file dialog used by the KUrlRequester.
      * @deprecated since 5.0, use urlRequester() methods instead.
      */
-#ifndef KIOWIDGETS_NO_DEPRECATED
-    KIOWIDGETS_DEPRECATED QFileDialog *fileDialog();
+    KIOWIDGETS_DEPRECATED_VERSION(5, 0, "Use KUrlRequesterDialog::urlRequester() and methods on it")
+    QFileDialog *fileDialog();
 #endif
 
     /**

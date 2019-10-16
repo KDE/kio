@@ -57,16 +57,17 @@ public:
      */
     void setSide(StatSide side);
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(4, 0)
     /**
      * A stat() can have two meanings. Either we want to read from this URL,
      * or to check if we can write to it. First case is "source", second is "dest".
      * It is necessary to know what the StatJob is for, to tune the kioslave's behavior
      * (e.g. with FTP).
      * @param source true for "source" mode, false for "dest" mode
-     * @deprecated use setSide(StatSide side).
+     * @deprecated Since 4.0, use setSide(StatSide side).
      */
-#ifndef KIOCORE_NO_DEPRECATED
-    KIOCORE_DEPRECATED void setSide(bool source);
+    KIOCORE_DEPRECATED_VERSION(4, 0, "Use StatJob::setSide(StatSide)")
+    void setSide(bool source);
 #endif
 
     /**
@@ -184,6 +185,8 @@ KIOCORE_EXPORT StatJob *stat(const QUrl &url, JobFlags flags = DefaultFlags);
  */
 KIOCORE_EXPORT StatJob *stat(const QUrl &url, KIO::StatJob::StatSide side,
                              short int details, JobFlags flags = DefaultFlags);
+
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(4, 0)
 /**
  * Find all details for one file or directory.
  * This version of the call includes two additional booleans, @p sideIsSource and @p details.
@@ -210,10 +213,11 @@ KIOCORE_EXPORT StatJob *stat(const QUrl &url, KIO::StatJob::StatSide side,
  * "it's a file or a directory, or it doesn't exist". This is used by KRun.
  * @param flags Can be HideProgressInfo here
  * @return the job handling the operation.
+ * @deprecated Since 4.0, use stat(const QUrl &, KIO::StatJob::StatSide, short int, JobFlags)
  */
-#ifndef KIOCORE_NO_DEPRECATED
-KIOCORE_DEPRECATED_EXPORT StatJob *stat(const QUrl &url, bool sideIsSource,
-                                        short int details, JobFlags flags = DefaultFlags);
+KIOCORE_DEPRECATED_VERSION(4, 0, "Use KIO::stat(const QUrl &, KIO::StatJob::StatSide, short int, JobFlags)")
+KIOCORE_EXPORT StatJob *stat(const QUrl &url, bool sideIsSource,
+                             short int details, JobFlags flags = DefaultFlags);
 #endif
 
 /**

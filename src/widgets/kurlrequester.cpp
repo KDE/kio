@@ -384,12 +384,10 @@ void KUrlRequester::setUrl(const QUrl &url)
     d->setText(url.toDisplayString(QUrl::PreferLocalFile));
 }
 
-#ifndef KIOWIDGETS_NO_DEPRECATED
 void KUrlRequester::setPath(const QString &path)
 {
     d->setText(path);
 }
-#endif
 
 void KUrlRequester::setText(const QString &text)
 {
@@ -571,7 +569,6 @@ QStringList KUrlRequester::mimeTypeFilters() const
     return d->mimeTypeFilters;
 }
 
-#ifndef KIOWIDGETS_NO_DEPRECATED
 QFileDialog *KUrlRequester::fileDialog() const
 {
     if (d->myFileDialog &&
@@ -597,7 +594,6 @@ QFileDialog *KUrlRequester::fileDialog() const
 
     return d->myFileDialog;
 }
-#endif
 
 void KUrlRequester::clear()
 {
@@ -646,12 +642,10 @@ KUrlCompletion *KUrlRequester::completionObject() const
     return d->myCompletion;
 }
 
-#ifndef KIOWIDGETS_NO_DEPRECATED
 void KUrlRequester::setClickMessage(const QString &msg)
 {
     setPlaceholderText(msg);
 }
-#endif
 
 void KUrlRequester::setPlaceholderText(const QString &msg)
 {
@@ -660,12 +654,10 @@ void KUrlRequester::setPlaceholderText(const QString &msg)
     }
 }
 
-#ifndef KIOWIDGETS_NO_DEPRECATED
 QString KUrlRequester::clickMessage() const
 {
     return placeholderText();
 }
-#endif
 
 QString KUrlRequester::placeholderText() const
 {

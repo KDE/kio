@@ -31,6 +31,7 @@ namespace KIO
 class Job;
 class CopyJob;
 
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 4)
 /**
  * Pastes the content of the clipboard to the given destination URL.
  * URLs are treated separately (performing a file copy)
@@ -43,8 +44,11 @@ class CopyJob;
  * @return the job that handles the operation
  * @deprecated since 5.4, use KIO::paste() from <KIO/PasteJob> (which takes care of undo/redo too)
  */
-KIOWIDGETS_DEPRECATED_EXPORT Job *pasteClipboard(const QUrl &destURL, QWidget *widget, bool move = false);
+KIOWIDGETS_DEPRECATED_VERSION(5, 4, "Use KIO::paste(...) from <KIO/PasteJob>")
+KIOWIDGETS_EXPORT Job *pasteClipboard(const QUrl &destURL, QWidget *widget, bool move = false);
+#endif
 
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 4)
 /**
  * Save the given mime @p data to the given destination URL
  * after offering the user to choose a data format.
@@ -60,8 +64,10 @@ KIOWIDGETS_DEPRECATED_EXPORT Job *pasteClipboard(const QUrl &destURL, QWidget *w
  * @see pasteClipboard()
  * @deprecated since 5.4, use KIO::paste() from <KIO/PasteJob> (which takes care of undo/redo too)
  */
-KIOWIDGETS_DEPRECATED_EXPORT Job *pasteMimeData(const QMimeData *data, const QUrl &destUrl,
+KIOWIDGETS_DEPRECATED_VERSION(5, 4, "Use KIO::paste(...) from <KIO/PasteJob>")
+KIOWIDGETS_EXPORT Job *pasteMimeData(const QMimeData *data, const QUrl &destUrl,
                                      const QString &dialogText, QWidget *widget);
+#endif
 
 /**
  * Returns true if pasteMimeData will find any interesting format in @p data.
@@ -70,6 +76,7 @@ KIOWIDGETS_DEPRECATED_EXPORT Job *pasteMimeData(const QMimeData *data, const QUr
  */
 KIOWIDGETS_EXPORT bool canPasteMimeData(const QMimeData *data);
 
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 4)
 /**
  * Returns the text to use for the Paste action, when the application supports
  * pasting files, urls, and clipboard data, using pasteClipboard().
@@ -77,7 +84,9 @@ KIOWIDGETS_EXPORT bool canPasteMimeData(const QMimeData *data);
  * isn't possible right now.
  * @deprecated since 5.4, use pasteActionText(const QMimeData *, bool*, const KFileItem &)
  */
-KIOWIDGETS_DEPRECATED_EXPORT QString pasteActionText();
+KIOWIDGETS_DEPRECATED_VERSION(5, 4, "Use KIO::pasteActionText(const QMimeData *, bool*, const KFileItem &)")
+KIOWIDGETS_EXPORT QString pasteActionText();
+#endif
 
 /**
  * Returns the text to use for the Paste action, when the application supports

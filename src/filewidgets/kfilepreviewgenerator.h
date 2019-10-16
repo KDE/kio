@@ -78,10 +78,13 @@ public:
     void setPreviewShown(bool show);
     bool isPreviewShown() const;
 
+#if KIOFILEWIDGETS_ENABLE_DEPRECATED_SINCE(4, 3)
     /**
-     * @deprecated Use KFilePreviewGenerator::updateIcons() instead.
+     * @deprecated Since 4.3, use KFilePreviewGenerator::updateIcons() instead.
      */
+    KIOFILEWIDGETS_DEPRECATED_VERSION(4, 3, "Use KFilePreviewGenerator::updateIcons()")
     void updatePreviews();
+#endif
 
     /**
      * Sets the list of enabled thumbnail plugins.

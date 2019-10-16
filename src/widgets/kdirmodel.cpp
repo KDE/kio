@@ -1079,14 +1079,12 @@ KFileItem KDirModel::itemForIndex(const QModelIndex &index) const
     }
 }
 
-#ifndef KIOWIDGETS_NO_DEPRECATED
 QModelIndex KDirModel::indexForItem(const KFileItem *item) const
 {
     // Note that we can only use the URL here, not the pointer.
     // KFileItems can be copied.
     return indexForUrl(item->url()); // O(n)
 }
-#endif
 
 QModelIndex KDirModel::indexForItem(const KFileItem &item) const
 {
