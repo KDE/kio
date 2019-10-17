@@ -22,21 +22,27 @@
 #define _KSSLUI_H
 
 #include "kiowidgets_export.h"
-#include <ktcpsocket.h>
+#include <ksslerroruidata.h>
+#include <ktcpsocket.h> // TODO KF6 remove this include
 
 namespace KIO
 {
+/** UI methods for handling SSL errors. */
 namespace SslUi
 {
 
+/** Error rule storage behavior. */
 enum RulesStorage {
     RecallRules = 1, ///< apply stored certificate rules (typically ignored errors)
     StoreRules = 2, ///< make new ignore rules from the user's choice and store them
     RecallAndStoreRules = 3 ///< apply stored rules and store new rules
 };
 
-bool KIOWIDGETS_EXPORT askIgnoreSslErrors(const KTcpSocket *socket,
-        RulesStorage storedRules = RecallAndStoreRules);
+/**
+ * @deprecated since 5.64 use the KSslErrorUiData variant instead.
+ */
+bool KIOWIDGETS_DEPRECATED_EXPORT askIgnoreSslErrors(const KTcpSocket *socket,
+        RulesStorage storedRules = RecallAndStoreRules); // TODO KF6 remove
 
 /**
  * If there are errors while establishing an SSL encrypted connection to a peer, usually due to
