@@ -55,21 +55,21 @@ TrashConfigModule::TrashConfigModule(QWidget *parent, const QVariantList &)
     useTypeChanged();
 
     connect(mUseTimeLimit, &QAbstractButton::toggled,
-            this, QOverload<>::of(&TrashConfigModule::changed));
+            this, &TrashConfigModule::markAsChanged);
     connect(mUseTimeLimit, &QAbstractButton::toggled,
             this, &TrashConfigModule::useTypeChanged);
     connect(mDays, QOverload<int>::of(&QSpinBox::valueChanged),
-            this, QOverload<>::of(&TrashConfigModule::changed));
+            this, &TrashConfigModule::markAsChanged);
     connect(mUseSizeLimit, &QAbstractButton::toggled,
-            this, QOverload<>::of(&TrashConfigModule::changed));
+            this, &TrashConfigModule::markAsChanged);
     connect(mUseSizeLimit, &QAbstractButton::toggled,
             this, &TrashConfigModule::useTypeChanged);
     connect(mPercent, QOverload<double>::of(&QDoubleSpinBox::valueChanged),
             this, &TrashConfigModule::percentChanged);
     connect(mPercent, QOverload<double>::of(&QDoubleSpinBox::valueChanged),
-            this, QOverload<>::of(&TrashConfigModule::changed));
+            this, &TrashConfigModule::markAsChanged);
     connect(mLimitReachedAction, QOverload<int>::of(&QComboBox::currentIndexChanged),
-            this, QOverload<>::of(&TrashConfigModule::changed));
+            this, &TrashConfigModule::markAsChanged);
 
     trashChanged(0);
     trashInitialize = true;

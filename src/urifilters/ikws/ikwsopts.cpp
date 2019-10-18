@@ -246,13 +246,13 @@ FilterOptions::FilterOptions(const KAboutData *about, QWidget *parent)
     m_dlg.cmbDefaultEngine->setModel(wrapInProxyModel(m_providersModel->createListModel()));
 
     // Connect all the signals/slots...
-    connect(m_dlg.cbEnableShortcuts, &QAbstractButton::toggled, this, QOverload<>::of(&FilterOptions::changed));
+    connect(m_dlg.cbEnableShortcuts, &QAbstractButton::toggled, this, &FilterOptions::markAsChanged);
     connect(m_dlg.cbEnableShortcuts, &QAbstractButton::toggled, this, &FilterOptions::updateSearchProviderEditingButons);
-    connect(m_dlg.cbUseSelectedShortcutsOnly, &QAbstractButton::toggled, this, QOverload<>::of(&FilterOptions::changed));
+    connect(m_dlg.cbUseSelectedShortcutsOnly, &QAbstractButton::toggled, this, &FilterOptions::markAsChanged);
 
-    connect(m_providersModel, &ProvidersModel::dataModified, this, QOverload<>::of(&FilterOptions::changed));
-    connect(m_dlg.cmbDefaultEngine, QOverload<int>::of(&QComboBox::currentIndexChanged), this, QOverload<>::of(&FilterOptions::changed));
-    connect(m_dlg.cmbDelimiter, QOverload<int>::of(&QComboBox::currentIndexChanged), this, QOverload<>::of(&FilterOptions::changed));
+    connect(m_providersModel, &ProvidersModel::dataModified, this, &FilterOptions::markAsChanged);
+    connect(m_dlg.cmbDefaultEngine, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &FilterOptions::markAsChanged);
+    connect(m_dlg.cmbDelimiter, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &FilterOptions::markAsChanged);
 
     connect(m_dlg.pbNew, &QAbstractButton::clicked, this, &FilterOptions::addSearchProvider);
     connect(m_dlg.pbDelete, &QAbstractButton::clicked, this, &FilterOptions::deleteSearchProvider);
