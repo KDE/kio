@@ -20,7 +20,6 @@
 #include "emptytrashjob.h"
 #include "job.h"
 #include "job_p.h"
-#include <kdirnotify.h>
 //#include <knotification.h>
 
 using namespace KIO;
@@ -51,10 +50,9 @@ EmptyTrashJob::~EmptyTrashJob()
 {
 }
 
+// TODO KF6: remove this
 void EmptyTrashJob::slotFinished()
 {
-    //KNotification::event("Trash: emptied", QString(), QPixmap(), 0, KNotification::DefaultEvent);
-    org::kde::KDirNotify::emitFilesAdded(QUrl(QStringLiteral("trash:/")));
     SimpleJob::slotFinished();
 }
 
