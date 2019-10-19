@@ -78,8 +78,6 @@ public:
 
     KConfig config;
     org::kde::KSSLDInterface *iface;
-    QHash<QString, KSslError::Error> stringToSslError;
-    QHash<KSslError::Error, QString> sslErrorToString;
 
     QList<QSslCertificate> defaultCaCertificates;
 
