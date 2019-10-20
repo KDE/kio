@@ -90,7 +90,7 @@ add_library(KF5KIOWidgets ${kiowidgets_SRCS})
 add_library(KF5::KIOWidgets ALIAS KF5KIOWidgets)
 ecm_generate_export_header(KF5KIOWidgets
     BASE_NAME KIOWidgets
-    # GROUP_BASE_NAME KF <- enable once all of KF modules use ecm_generate_export_header
+    GROUP_BASE_NAME KF
     VERSION ${KF5_VERSION}
     DEPRECATED_BASE_VERSION 0
     DEPRECATION_VERSIONS 4.0 4.1 4.3 4.4 4.5 4.6 4.7 5.0 5.4 5.6 5.25 5.31 5.32 5.64

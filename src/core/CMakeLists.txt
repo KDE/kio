@@ -133,7 +133,7 @@ add_library(KF5KIOCore ${kiocore_SRCS})
 add_library(KF5::KIOCore ALIAS KF5KIOCore)
 ecm_generate_export_header(KF5KIOCore
     BASE_NAME KIOCore
-    # GROUP_BASE_NAME KF <- enable once all of KF modules use ecm_generate_export_header
+    GROUP_BASE_NAME KF
     VERSION ${KF5_VERSION}
     DEPRECATED_BASE_VERSION 0
     DEPRECATION_VERSIONS 3.0 3.1 3.4 4.0 4.3 4.5 4.6 5.0 5.2 5.8 5.24 5.45 5.48 5.63 5.61 5.64

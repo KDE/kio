@@ -50,7 +50,7 @@ add_library(KF5KIOFileWidgets ${kiofilewidgets_SRCS})
 add_library(KF5::KIOFileWidgets ALIAS KF5KIOFileWidgets)
 ecm_generate_export_header(KF5KIOFileWidgets
     BASE_NAME KIOFileWidgets
-    # GROUP_BASE_NAME KF <- enable once all of KF modules use ecm_generate_export_header
+    GROUP_BASE_NAME KF
     VERSION ${KF5_VERSION}
     DEPRECATED_BASE_VERSION 0
     DEPRECATION_VERSIONS 4.3 4.5 5.0 5.33
