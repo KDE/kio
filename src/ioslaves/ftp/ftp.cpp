@@ -317,7 +317,7 @@ void FtpInternal::setHost(const QString &_host, quint16 _port, const QString &_u
     qCDebug(KIO_FTP) << _host << "port=" << _port << "user=" << _user;
 
     m_proxyURL.clear();
-    m_proxyUrls = q->config()->readEntry("ProxyUrls", QStringList());
+    m_proxyUrls = q->mapConfig().value(QStringLiteral("ProxyUrls"), QStringList()).toStringList();
     qCDebug(KIO_FTP) << "proxy urls:" << m_proxyUrls;
 
     if (m_host != _host || m_port != _port ||
@@ -372,7 +372,7 @@ Result FtpInternal::ftpOpenConnection(LoginMode loginMode)
         }
     }
 
-    m_bTextMode = q->config()->readEntry("textmode", false);
+    m_bTextMode = q->configValue(QStringLiteral("textmode"), false);
     q->connected();
 
     // Redirected due to credential change...
@@ -506,11 +506,11 @@ Result FtpInternal::ftpLogin(bool *userChanged)
     QString user(m_user);
     QString pass(m_pass);
 
-    if (q->config()->readEntry("EnableAutoLogin", false)) {
-        QString au = q->config()->readEntry("autoLoginUser");
+    if (q->configValue(QStringLiteral("EnableAutoLogin"), false)) {
+        QString au = q->configValue(QStringLiteral("autoLoginUser"));
         if (!au.isEmpty()) {
             user = au;
-            pass = q->config()->readEntry("autoLoginPass");
+            pass = q->configValue(QStringLiteral("autoLoginPass"));
         }
     }
 
@@ -526,7 +526,7 @@ Result FtpInternal::ftpLogin(bool *userChanged)
 
     // Check for cached authentication first and fallback to
     // anonymous login when no stored credentials are found.
-    if (!q->config()->readEntry("TryAnonymousLoginFirst", false) &&
+    if (!q->configValue(QStringLiteral("TryAnonymousLoginFirst"), false) &&
             pass.isEmpty() && q->checkCachedAuthentication(info)) {
         user = info.username;
         pass = info.password;
@@ -573,7 +573,7 @@ Result FtpInternal::ftpLogin(bool *userChanged)
             info.keepPassword = true; // Prompt the user for persistence as well.
             info.setModified(false);  // Default the modified flag since we reuse authinfo.
 
-            const bool disablePassDlg = q->config()->readEntry("DisablePassDlg", false);
+            const bool disablePassDlg = q->configValue(QStringLiteral("DisablePassDlg"), false);
             if (disablePassDlg) {
                 return Result::fail(ERR_USER_CANCELED, m_host);
             }
@@ -673,7 +673,7 @@ Result FtpInternal::ftpLogin(bool *userChanged)
         qCWarning(KIO_FTP) << "SYST failed";
     }
 
-    if (q->config()->readEntry("EnableAutoLoginMacro", false)) {
+    if (q->configValue(QStringLiteral("EnableAutoLoginMacro"), false)) {
         ftpAutoLoginMacro();
     }
 
@@ -949,7 +949,7 @@ int FtpInternal::ftpOpenDataConnection()
     int  iErrCodePASV = 0;  // Remember error code from PASV
 
     // First try passive (EPSV & PASV) modes
-    if (!q->config()->readEntry("DisablePassiveMode", false)) {
+    if (!q->configValue(QStringLiteral("DisablePassiveMode"), false)) {
         iErrCode = ftpOpenPASVDataConnection();
         if (iErrCode == 0) {
             return 0;    // success
@@ -957,7 +957,7 @@ int FtpInternal::ftpOpenDataConnection()
         iErrCodePASV = iErrCode;
         ftpCloseDataConnection();
 
-        if (!q->config()->readEntry("DisableEPSV", false)) {
+        if (!q->configValue(QStringLiteral("DisableEPSV"), false)) {
             iErrCode = ftpOpenEPSVDataConnection();
             if (iErrCode == 0) {
                 return 0;    // success
@@ -2070,7 +2070,7 @@ Result FtpInternal::ftpPut(int iCopyFile, const QUrl &dest_url,
     if (m_user.isEmpty() || m_user == QLatin1String(FTP_LOGIN)) {
         bMarkPartial = false;
     } else {
-        bMarkPartial = q->config()->readEntry("MarkPartial", true);
+        bMarkPartial = q->configValue(QStringLiteral("MarkPartial"), true);
     }
 
     QString dest_orig = dest_url.path();
@@ -2179,7 +2179,7 @@ Result FtpInternal::ftpPut(int iCopyFile, const QUrl &dest_url,
         if (bMarkPartial) {
             // Remove if smaller than minimum size
             if (ftpSize(dest, 'I') &&
-                    (processed_size < q->config()->readEntry("MinimumKeepSize", DEFAULT_MINIMUM_KEEP_SIZE))) {
+                    (processed_size < q->configValue(QStringLiteral("MinimumKeepSize"), DEFAULT_MINIMUM_KEEP_SIZE))) {
                 const QByteArray cmd = "DELE " + q->remoteEncoding()->encode(dest);
                 (void) ftpSendCmd(cmd);
             }
@@ -2400,7 +2400,7 @@ Result FtpInternal::ftpCopyGet(int &iCopyFile, const QString &sCopyFile,
     bool bResume = false;
     QFileInfo sPartInfo(sPart);
     const bool bPartExists = sPartInfo.exists();
-    const bool bMarkPartial = q->config()->readEntry("MarkPartial", true);
+    const bool bMarkPartial = q->configValue(QStringLiteral("MarkPartial"), true);
     const QString dest = bMarkPartial ? sPart : sCopyFile;
     if (bMarkPartial && bPartExists && sPartInfo.size() > 0) {
         // must not be a folder! please fix a similar bug in kio_file!!
@@ -2472,7 +2472,7 @@ Result FtpInternal::ftpCopyGet(int &iCopyFile, const QString &sCopyFile,
         } else {
             sPartInfo.refresh();
             if (sPartInfo.exists()) { // should a very small ".part" be deleted?
-                int size = q->config()->readEntry("MinimumKeepSize", DEFAULT_MINIMUM_KEEP_SIZE);
+                int size = q->configValue(QStringLiteral("MinimumKeepSize"), DEFAULT_MINIMUM_KEEP_SIZE);
                 if (sPartInfo.size() < size) {
                     QFile::remove(sPart);
                 }
