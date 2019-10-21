@@ -24,6 +24,7 @@ include(ECMGenerateHeaders)
 include(ECMAddQch)
 include(ECMMarkNonGuiExecutable)
 include(ECMQtDeclareLoggingCategory)
+include(ECMSourceVersionControl)
 
 ecm_setup_version(
   PROJECT
@@ -35,18 +36,15 @@ ecm_setup_version(
 option(KIOCORE_ONLY "Only compile KIOCore, not KIOWidgets or anything that depends on it. This will disable support for cookies and passwordhandling (prompting and storing)." OFF)
 option(KIO_FORK_SLAVES "If set we start the slaves via QProcess. It's also possible to change this by setting the environment variable KDE_FORK_SLAVES." OFF)
 
-# Enable state assertion by default on Jenkins.
+# Enable state assertion by default on Jenkins and from-git builds.
 # This option should eventually be dropped and always be enabled.
 set(ASSERT_SLAVE_STATES_DEFAULT OFF)
-if(DEFINED ENV{JENKINS_SERVER_COOKIE})
+if(DEFINED ENV{JENKINS_SERVER_COOKIE} OR ECM_SOURCE_UNDER_VERSION_CONTROL)
     set(ASSERT_SLAVE_STATES_DEFAULT ON)
 endif()
 option(KIO_ASSERT_SLAVE_STATES
     "Used to control whether slave state assertions are enabled. When not enabled only warnings are generated."
     ${ASSERT_SLAVE_STATES_DEFAULT})
-if(KIO_ASSERT_SLAVE_STATES AND NOT CMAKE_BUILD_TYPE MATCHES "[Dd]ebug$")
-    message(FATAL_ERROR "KIO_ASSERT_SLAVE_STATES option enabled but not a Debug build. This makes no sense!")
-endif()
 
 option(BUILD_QCH "Build API documentation in QCH format (for e.g. Qt Assistant, Qt Creator & KDevelop)" OFF)
 add_feature_info(QCH ${BUILD_QCH} "API documentation in QCH format (for e.g. Qt Assistant, Qt Creator & KDevelop)")
