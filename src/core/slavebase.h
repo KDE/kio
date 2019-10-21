@@ -339,7 +339,7 @@ public:
      * The application provides the slave with all configuration information
      * relevant for the current protocol and host.
      *
-     * Use configValue() as shorcut.
+     * Use configValue() as shortcut.
      * @since 5.64
      */
     QMap<QString, QVariant> mapConfig() const;
@@ -659,7 +659,7 @@ public:
     virtual void special(const QByteArray &data);
 
     /**
-     * Used for multiple get. Currently only used foir HTTP pielining
+     * Used for multiple get. Currently only used for HTTP pipelining
      * support.
      *
      * @param data packed data; Contains number of URLs to fetch, and for
