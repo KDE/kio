@@ -25,6 +25,16 @@
 
 #include "kconfig.h"
 
+class KSslCertificateRulePrivate
+{
+public:
+    QSslCertificate certificate;
+    QString hostName;
+    bool isRejected;
+    QDateTime expiryDateTime;
+    QList<QSslError::SslError> ignoredErrors;
+};
+
 struct KSslCaCertificate {
     enum Store {
         SystemStore = 0,

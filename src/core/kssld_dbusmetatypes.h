@@ -22,12 +22,14 @@
 #ifndef KSSLD_DBUSMETATYPES_H
 #define KSSLD_DBUSMETATYPES_H
 
+#include "ksslcertificatemanager_p.h"
+
 #include <qglobal.h>
 #include <QDBusArgument>
 #include <QDBusMetaType>
 
 Q_DECLARE_METATYPE(KSslCertificateRule)
-Q_DECLARE_METATYPE(KSslError::Error)
+Q_DECLARE_METATYPE(QSslError::SslError)
 
 QDBusArgument &operator<<(QDBusArgument &argument, const QSslCertificate &cert)
 {
@@ -52,7 +54,7 @@ QDBusArgument &operator<<(QDBusArgument &argument, const KSslCertificateRule &ru
     argument.beginStructure();
     argument << rule.certificate() << rule.hostName()
              << rule.isRejected() << rule.expiryDateTime().toString(Qt::ISODate)
-             << rule.ignoredErrors();
+             << rule.d->ignoredErrors; // TODO KF6: replace by a call to rule.ignoredErrors
     argument.endStructure();
     return argument;
 }
@@ -63,7 +65,7 @@ const QDBusArgument &operator>>(const QDBusArgument &argument, KSslCertificateRu
     QString hostName;
     bool isRejected;
     QString expiryStr;
-    QList<KSslError::Error> ignoredErrors;
+    QList<QSslError::SslError> ignoredErrors;
     argument.beginStructure();
     argument >> cert >> hostName >> isRejected >> expiryStr >> ignoredErrors;
     argument.endStructure();
@@ -76,7 +78,7 @@ const QDBusArgument &operator>>(const QDBusArgument &argument, KSslCertificateRu
     return argument;
 }
 
-QDBusArgument &operator<<(QDBusArgument &argument, const KSslError::Error &error)
+QDBusArgument &operator<<(QDBusArgument &argument, const QSslError::SslError &error)
 {
     argument.beginStructure();  //overhead ho!
     argument << static_cast<int>(error);
@@ -84,13 +86,13 @@ QDBusArgument &operator<<(QDBusArgument &argument, const KSslError::Error &error
     return argument;
 }
 
-const QDBusArgument &operator>>(const QDBusArgument &argument, KSslError::Error &error)
+const QDBusArgument &operator>>(const QDBusArgument &argument, QSslError::SslError &error)
 {
     int data;
     argument.beginStructure();
     argument >> data;
     argument.endStructure();
-    error = static_cast<KSslError::Error>(data);
+    error = static_cast<QSslError::SslError>(data);
     return argument;
 }
 
@@ -99,8 +101,8 @@ static void registerMetaTypesForKSSLD()
     qDBusRegisterMetaType<QSslCertificate>();
     qDBusRegisterMetaType<KSslCertificateRule>();
     qDBusRegisterMetaType<QList<QSslCertificate> >();
-    qDBusRegisterMetaType<KSslError::Error>();
-    qDBusRegisterMetaType<QList<KSslError::Error> >();
+    qDBusRegisterMetaType<QSslError::SslError>();
+    qDBusRegisterMetaType<QList<QSslError::SslError>>();
 }
 
 #endif //KSSLD_DBUSMETATYPES_H

@@ -57,16 +57,6 @@ CertificatePEM = <PEM-encoded certificate> #host entries are all lowercase, thus
 
 // TODO GUI for managing exception rules
 
-class KSslCertificateRulePrivate
-{
-public:
-    QSslCertificate certificate;
-    QString hostName;
-    bool isRejected;
-    QDateTime expiryDateTime;
-    QList<QSslError::SslError> ignoredErrors;
-};
-
 KSslCertificateRule::KSslCertificateRule(const QSslCertificate &cert, const QString &hostName)
     : d(new KSslCertificateRulePrivate())
 {
@@ -164,6 +154,16 @@ void KSslCertificateRule::setIgnoredErrors(const QList<QSslError> &errors)
     for (const QSslError &error : errors) {
         if (!isErrorIgnored(error.error())) {
             d->ignoredErrors.append(error.error());
+        }
+    }
+}
+
+void KSslCertificateRule::setIgnoredErrors(const QList<QSslError::SslError> &errors)
+{
+    d->ignoredErrors.clear();
+    for (QSslError::SslError error : errors) {
+        if (!isErrorIgnored(error)) {
+            d->ignoredErrors.append(error);
         }
     }
 }

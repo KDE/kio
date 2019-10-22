@@ -29,6 +29,7 @@
 #include <QStringList>
 #include <QDate>
 
+class QDBusArgument;
 class QSslCertificate;
 class KSslCertificateRulePrivate;
 class KSslCertificateManagerPrivate;
@@ -73,6 +74,11 @@ public:
      * @since 5.64
      */
     void setIgnoredErrors(const QList<QSslError> &errors);
+    /**
+     * Set the ignored errors for this certificate.
+     * @since 5.64
+     */
+    void setIgnoredErrors(const QList<QSslError::SslError> &errors);
     QList<KSslError::Error> ignoredErrors() const; // TODO KF6 return QSslError::SslError list
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 64)
     /** @deprecated since 5.64, use the QSslError variant. */
@@ -88,6 +94,7 @@ public:
      */
     QList<QSslError> filterErrors(const QList<QSslError> &errors) const;
 private:
+    friend QDBusArgument &operator<<(QDBusArgument &argument, const KSslCertificateRule &rule); // TODO KF6 remove
     KSslCertificateRulePrivate *const d;
 };
 
