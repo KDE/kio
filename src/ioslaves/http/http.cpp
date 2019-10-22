@@ -56,8 +56,8 @@
 #include <klocalizedstring.h>
 
 #include <QDBusInterface>
+#include <QSslSocket>
 #include <kremoteencoding.h>
-#include <ktcpsocket.h>
 
 #include <ioslave_defaults.h>
 #include <http_slave_defaults.h>
@@ -2243,7 +2243,7 @@ bool HTTPProtocol::httpOpenConnection()
     }
 
     // Disable Nagle's algorithm, i.e turn on TCP_NODELAY.
-    KTcpSocket *sock = qobject_cast<KTcpSocket *>(socket());
+    QSslSocket *sock = qobject_cast<QSslSocket *>(socket());
     if (sock) {
         qCDebug(KIO_HTTP) << "TCP_NODELAY:" << sock->socketOption(QAbstractSocket::LowDelayOption);
         sock->setSocketOption(QAbstractSocket::LowDelayOption, 1);
