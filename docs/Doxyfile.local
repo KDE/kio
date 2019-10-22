@@ -1,2 +1,21 @@
+### KApiDox Project-specific Overrides File
+
 # slaves are plugins and not part of the API
 EXCLUDE_PATTERNS += */ioslaves/*
+# define so that deprecated API is not skipped
+PREDEFINED += \
+    "KIOCORE_ENABLE_DEPRECATED_SINCE(x, y)=1" \
+    "KIOCORE_BUILD_DEPRECATED_SINCE(x, y)=1" \
+    "KIOCORE_DEPRECATED_VERSION(x, y, t)=" \
+    "KNTLM_ENABLE_DEPRECATED_SINCE(x, y)=1" \
+    "KNTLM_BUILD_DEPRECATED_SINCE(x, y)=1" \
+    "KNTLM_DEPRECATED_VERSION(x, y, t)=" \
+    "KIOGUI_ENABLE_DEPRECATED_SINCE(x, y)=1" \
+    "KIOGUI_BUILD_DEPRECATED_SINCE(x, y)=1" \
+    "KIOGUI_DEPRECATED_VERSION(x, y, t)=" \
+    "KIOWIDGETS_ENABLE_DEPRECATED_SINCE(x, y)=1" \
+    "KIOWIDGETS_BUILD_DEPRECATED_SINCE(x, y)=1" \
+    "KIOWIDGETS_DEPRECATED_VERSION(x, y, t)=" \
+    "KIOFILEWIDGETS_ENABLE_DEPRECATED_SINCE(x, y)=1" \
+    "KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(x, y)=1" \
+    "KIOFILEWIDGETS_DEPRECATED_VERSION(x, y, t)="
