@@ -172,7 +172,8 @@ static QString sanitizeCustomHTTPHeader(const QString &_header)
         if (!header.contains(QLatin1Char(':')) ||
                 header.startsWith(QLatin1String("host"), Qt::CaseInsensitive) ||
                 header.startsWith(QLatin1String("proxy-authorization"), Qt::CaseInsensitive) ||
-                header.startsWith(QLatin1String("via"), Qt::CaseInsensitive)) {
+                header.startsWith(QLatin1String("via"), Qt::CaseInsensitive) ||
+                header.startsWith(QLatin1String("depth"), Qt::CaseInsensitive)) {
             continue;
         }
 
@@ -2599,7 +2600,7 @@ bool HTTPProtocol::sendQuery()
             davHeader += metaData(QStringLiteral("davHeader"));
 
             // Set content type of webdav data
-            if (hasDavData) {
+            if (hasDavData && !header.contains(QLatin1String("Content-Type: "))) {
                 davHeader += QStringLiteral("Content-Type: text/xml; charset=utf-8\r\n");
             }
 
