@@ -31,7 +31,9 @@
 #include <ksslcertificatemanager.h>
 #include <ksslsettings.h>
 #include <klocalizedstring.h>
-#include <ktcpsocket.h>
+
+#include <QSslCipher>
+#include <QSslSocket>
 
 #include <QDBusConnection>
 
@@ -85,15 +87,9 @@ public:
     void setSslMetaData()
     {
         sslMetaData.insert(QStringLiteral("ssl_in_use"), QStringLiteral("TRUE"));
-        KSslCipher cipher = socket.sessionCipher();
-        sslMetaData.insert(QStringLiteral("ssl_protocol_version"), socket.negotiatedSslVersionName());
-        const QString sslCipher =
-            cipher.encryptionMethod() + QLatin1Char('\n') +
-            cipher.authenticationMethod() + QLatin1Char('\n') +
-            cipher.keyExchangeMethod() + QLatin1Char('\n') +
-            cipher.digestMethod();
-        sslMetaData.insert(QStringLiteral("ssl_cipher"), sslCipher);
-        sslMetaData.insert(QStringLiteral("ssl_cipher_name"), cipher.name());
+        QSslCipher cipher = socket.sessionCipher();
+        sslMetaData.insert(QStringLiteral("ssl_protocol_version"), cipher.protocolString());
+        sslMetaData.insert(QStringLiteral("ssl_cipher"), cipher.name());
         sslMetaData.insert(QStringLiteral("ssl_cipher_used_bits"), QString::number(cipher.usedBits()));
         sslMetaData.insert(QStringLiteral("ssl_cipher_bits"), QString::number(cipher.supportedBits()));
         sslMetaData.insert(QStringLiteral("ssl_peer_ip"), ip);
@@ -103,7 +99,7 @@ public:
         // those belong to the peer (==website or similar) certificate.
         for (int i = 0; i < sslErrors.count(); i++) {
             if (sslErrors[i].certificate().isNull()) {
-                sslErrors[i] = QSslError(sslErrors[i].sslError().error(), peerCertificateChain[0]);
+                sslErrors[i] = QSslError(sslErrors[i].error(), peerCertificateChain[0]);
             }
         }
 
@@ -147,14 +143,14 @@ public:
         }
     }
 
-    SslResult startTLSInternal(KTcpSocket::SslVersion sslVersion,
+    SslResult startTLSInternal(QSsl::SslProtocol sslVersion,
                                int waitForEncryptedTimeout = -1);
 
     TCPSlaveBase * const q;
 
     bool isBlocking;
 
-    KTcpSocket socket;
+    QSslSocket socket;
 
     QString host;
     QString ip;
@@ -166,7 +162,7 @@ public:
     bool autoSSL;
     bool sslNoUi; // If true, we just drop the connection silently
     // if SSL certificate check fails in some way.
-    QList<KSslError> sslErrors;
+    QList<QSslError> sslErrors;
 
     MetaData sslMetaData;
 };
@@ -222,7 +218,7 @@ ssize_t TCPSlaveBase::write(const char *data, ssize_t len)
 
     d->socket.flush();  //this is supposed to get the data on the wire faster
 
-    if (d->socket.state() != KTcpSocket::ConnectedState || !success) {
+    if (d->socket.state() != QAbstractSocket::ConnectedState || !success) {
         /*qDebug() << "Write failed, will return -1! Socket error is"
           << d->socket.error() << ", Socket state is" << d->socket.state()
           << "Return value of waitForBytesWritten() is" << success;*/
@@ -234,7 +230,7 @@ ssize_t TCPSlaveBase::write(const char *data, ssize_t len)
 
 ssize_t TCPSlaveBase::read(char *data, ssize_t len)
 {
-    if (d->usingSSL && (d->socket.encryptionMode() != KTcpSocket::SslClientMode)) {
+    if (d->usingSSL && (d->socket.mode() != QSslSocket::SslClientMode)) {
         d->clearSslMetaData();
         //qDebug() << "lost SSL connection.";
         return -1;
@@ -247,7 +243,7 @@ ssize_t TCPSlaveBase::read(char *data, ssize_t len)
 #if 0
     // Do not do this because its only benefit is to cause a nasty side effect
     // upstream in Qt. See BR# 260769.
-    else if (d->socket.encryptionMode() != KTcpSocket::SslClientMode ||
+    else if (d->socket.mode() != QSslSocket::SslClientMode ||
              QNetworkProxy::applicationProxy().type() == QNetworkProxy::NoProxy) {
         // we only do this when it doesn't trigger Qt socket bugs. When it doesn't break anything
         // it seems to help performance.
@@ -259,7 +255,7 @@ ssize_t TCPSlaveBase::read(char *data, ssize_t len)
 
 ssize_t TCPSlaveBase::readLine(char *data, ssize_t len)
 {
-    if (d->usingSSL && (d->socket.encryptionMode() != KTcpSocket::SslClientMode)) {
+    if (d->usingSSL && (d->socket.mode() != QSslSocket::SslClientMode)) {
         d->clearSslMetaData();
         //qDebug() << "lost SSL connection.";
         return -1;
@@ -272,7 +268,7 @@ ssize_t TCPSlaveBase::readLine(char *data, ssize_t len)
             d->socket.waitForReadyRead(timeout);
         }
         ssize_t readStep = d->socket.readLine(&data[readTotal], len - readTotal);
-        if (readStep == -1 || (readStep == 0 && d->socket.state() != KTcpSocket::ConnectedState)) {
+        if (readStep == -1 || (readStep == 0 && d->socket.state() != QAbstractSocket::ConnectedState)) {
             return -1;
         }
         readTotal += readStep;
@@ -303,7 +299,7 @@ int TCPSlaveBase::connectToHost(const QString &host, quint16 port, QString *erro
         errorString->clear();  // clear prior error messages.
     }
 
-    d->socket.setVerificationPeerName(host); // Used for ssl certificate verification (SNI)
+    d->socket.setPeerVerifyName(host); // Used for ssl certificate verification (SNI)
 
     //  - leaving SSL - warn before we even connect
     //### see if it makes sense to move this into the HTTP ioslave which is the only
@@ -344,18 +340,18 @@ int TCPSlaveBase::connectToHost(const QString &host, quint16 port, QString *erro
         << ", error=" << d->socket.error()
         << ", connected?" << connectOk;*/
 
-    if (d->socket.state() != KTcpSocket::ConnectedState) {
+    if (d->socket.state() != QAbstractSocket::ConnectedState) {
         if (errorString) {
             *errorString = host + QLatin1String(": ") + d->socket.errorString();
         }
         switch (d->socket.error()) {
-        case KTcpSocket::UnsupportedSocketOperationError:
+        case QAbstractSocket::UnsupportedSocketOperationError:
             return ERR_UNSUPPORTED_ACTION;
-        case KTcpSocket::RemoteHostClosedError:
+        case QAbstractSocket::RemoteHostClosedError:
             return ERR_CONNECTION_BROKEN;
-        case KTcpSocket::SocketTimeoutError:
+        case QAbstractSocket::SocketTimeoutError:
             return ERR_SERVER_TIMEOUT;
-        case KTcpSocket::HostNotFoundError:
+        case QAbstractSocket::HostNotFoundError:
             return ERR_UNKNOWN_HOST;
         default:
             return ERR_CANNOT_CONNECT;
@@ -368,7 +364,7 @@ int TCPSlaveBase::connectToHost(const QString &host, quint16 port, QString *erro
     d->port = d->socket.peerPort();
 
     if (d->autoSSL) {
-        const SslResult res = d->startTLSInternal(KTcpSocket::SecureProtocols, timeout);
+        const SslResult res = d->startTLSInternal(QSsl::SecureProtocols, timeout);
 
         if (res & ResultFailed) {
             if (errorString) {
@@ -387,7 +383,7 @@ void TCPSlaveBase::disconnectFromHost()
     d->ip.clear();
     d->usingSSL = false;
 
-    if (d->socket.state() == KTcpSocket::UnconnectedState) {
+    if (d->socket.state() == QAbstractSocket::UnconnectedState) {
         // discard incoming data - the remote host might have disconnected us in the meantime
         // but the visible effect of disconnectFromHost() should stay the same.
         d->socket.close();
@@ -398,7 +394,7 @@ void TCPSlaveBase::disconnectFromHost()
     //    does that. QCA::TLS can do it apparently but that is not enough if
     //    we want to present that as KDE API. Not a big loss in any case.
     d->socket.disconnectFromHost();
-    if (d->socket.state() != KTcpSocket::UnconnectedState) {
+    if (d->socket.state() != QAbstractSocket::UnconnectedState) {
         d->socket.waitForDisconnected(-1);    // wait for unsent data to be sent
     }
     d->socket.close(); //whatever that means on a socket
@@ -429,10 +425,10 @@ bool TCPSlaveBase::startSsl()
     if (d->usingSSL) {
         return false;
     }
-    return d->startTLSInternal(KTcpSocket::SecureProtocols) & ResultOk;
+    return d->startTLSInternal(QSsl::SecureProtocols) & ResultOk;
 }
 
-TCPSlaveBase::SslResult TCPSlaveBase::TcpSlaveBasePrivate::startTLSInternal(KTcpSocket::SslVersion version,
+TCPSlaveBase::SslResult TCPSlaveBase::TcpSlaveBasePrivate::startTLSInternal(QSsl::SslProtocol sslVersion,
                                                                             int waitForEncryptedTimeout)
 {
     q->selectClientCertificate();
@@ -441,8 +437,8 @@ TCPSlaveBase::SslResult TCPSlaveBase::TcpSlaveBasePrivate::startTLSInternal(KTcp
     //### we don't support session reuse for now...
     usingSSL = true;
 
-    // Set the SSL version to use...
-    socket.setAdvertisedSslVersion(version);
+    // Set the SSL protocol version to use...
+    socket.setProtocol(sslVersion);
 
     /* Usually ignoreSslErrors() would be called in the slot invoked by the sslErrors()
        signal but that would mess up the flow of control. We will check for errors
@@ -453,9 +449,9 @@ TCPSlaveBase::SslResult TCPSlaveBase::TcpSlaveBasePrivate::startTLSInternal(KTcp
     const bool encryptionStarted = socket.waitForEncrypted(waitForEncryptedTimeout);
 
     //Set metadata, among other things for the "SSL Details" dialog
-    KSslCipher cipher = socket.sessionCipher();
+    QSslCipher cipher = socket.sessionCipher();
 
-    if (!encryptionStarted || socket.encryptionMode() != KTcpSocket::SslClientMode
+    if (!encryptionStarted || socket.mode() != QSslSocket::SslClientMode
             || cipher.isNull() || cipher.usedBits() == 0 || socket.peerCertificateChain().isEmpty()) {
         usingSSL = false;
         clearSslMetaData();
@@ -466,15 +462,15 @@ TCPSlaveBase::SslResult TCPSlaveBase::TcpSlaveBasePrivate::startTLSInternal(KTcp
           << ", the socket says:" << socket.errorString()
           << "and the list of SSL errors contains"
           << socket.sslErrors().count() << "items.";*/
-        /*Q_FOREACH(const KSslError& sslError, socket.sslErrors()) {
+        /*for (const QSslError &sslError : socket.sslErrors()) {
           qDebug() << "SSL ERROR: (" << sslError.error() << ")" << sslError.errorString();
           }*/
         return ResultFailed | ResultFailedEarly;
     }
 
     /*qDebug() << "Cipher info - "
-      << " advertised SSL protocol version" << socket.advertisedSslVersion()
-      << " negotiated SSL protocol version" << socket.negotiatedSslVersion()
+      << " advertised SSL protocol version" << socket.protocol()
+      << " negotiated SSL protocol version" << socket.sessionProtocol()
       << " authenticationMethod:" << cipher.authenticationMethod()
       << " encryptionMethod:" << cipher.encryptionMethod()
       << " keyExchangeMethod:" << cipher.keyExchangeMethod()
@@ -721,7 +717,7 @@ TCPSlaveBase::SslResult TCPSlaveBase::verifyServerCertificate()
         return ResultFailed;
     }
 
-    QList<KSslError> fatalErrors = KSslCertificateManager::nonIgnorableErrors(d->sslErrors);
+    const QList<QSslError> fatalErrors = KSslCertificateManager::nonIgnorableErrors(d->sslErrors);
     if (!fatalErrors.isEmpty()) {
         //TODO message "sorry, fatal error, you can't override it"
         return ResultFailed;
@@ -731,7 +727,7 @@ TCPSlaveBase::SslResult TCPSlaveBase::verifyServerCertificate()
     KSslCertificateRule rule = cm->rule(peerCertificationChain.first(), d->host);
 
     // remove previously seen and acknowledged errors
-    QList<KSslError> remainingErrors = rule.filterErrors(d->sslErrors);
+    const QList<QSslError> remainingErrors = rule.filterErrors(d->sslErrors);
     if (remainingErrors.isEmpty()) {
         //qDebug() << "Error list empty after removing errors to be ignored. Continuing.";
         return ResultOk | ResultOverridden;
@@ -740,7 +736,7 @@ TCPSlaveBase::SslResult TCPSlaveBase::verifyServerCertificate()
     //### We don't ask to permanently reject the certificate
 
     QString message = i18n("The server failed the authenticity check (%1).\n\n", d->host);
-    for (const KSslError &err : qAsConst(d->sslErrors)) {
+    for (const QSslError &err : qAsConst(d->sslErrors)) {
         message += err.errorString() + QLatin1Char('\n');
     }
     message = message.trimmed();
@@ -905,8 +901,8 @@ TCPSlaveBase::SslResult TCPSlaveBase::verifyServerCertificate()
 
 bool TCPSlaveBase::isConnected() const
 {
-    //QSslSocket::isValid() and therefore KTcpSocket::isValid() are shady...
-    return d->socket.state() == KTcpSocket::ConnectedState;
+    // QSslSocket::isValid() is shady...
+    return d->socket.state() == QAbstractSocket::ConnectedState;
 }
 
 bool TCPSlaveBase::waitForResponse(int t)
