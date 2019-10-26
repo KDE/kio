@@ -46,7 +46,6 @@ K_PLUGIN_CLASS_WITH_JSON(KAutoWebSearch, "kuriikwsfilter.json")
 KAutoWebSearch::KAutoWebSearch(QObject *parent, const QVariantList &)
     : KUriFilterPlugin(QStringLiteral("kuriikwsfilter"), parent)
 {
-    KLocalizedString::insertQtDomain("kurifilter");
     QDBusConnection::sessionBus().connect(QString(), QStringLiteral("/"), QStringLiteral("org.kde.KUriFilterPlugin"),
                                           QStringLiteral("configure"), this, SLOT(configure()));
 }

@@ -318,13 +318,13 @@ KBookmark KFilePlacesItem::createBookmark(KBookmarkManager *manager,
 }
 
 KBookmark KFilePlacesItem::createSystemBookmark(KBookmarkManager *manager,
+        const QString &translationContext,
         const QString &untranslatedLabel,
-        const QString &translatedLabel,
         const QUrl &url,
         const QString &iconName)
 {
-    Q_UNUSED(translatedLabel); // parameter is only necessary to force the caller
-    // providing a translated string for the label
+    Q_UNUSED(translationContext); // parameter is only necessary to force the caller
+    // to provide a marked-for-translation string for the label, with context
 
     KBookmark bookmark = createBookmark(manager, untranslatedLabel, url, iconName);
     if (!bookmark.isNull()) {

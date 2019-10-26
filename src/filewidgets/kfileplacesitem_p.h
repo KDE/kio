@@ -76,8 +76,8 @@ public:
                                     const QString &iconName,
                                     KFilePlacesItem *after = nullptr);
     static KBookmark createSystemBookmark(KBookmarkManager *manager,
+                                          const QString &translationContext,
                                           const QString &untranslatedLabel,
-                                          const QString &translatedLabel,
                                           const QUrl &url,
                                           const QString &iconName);
     static KBookmark createDeviceBookmark(KBookmarkManager *manager,

@@ -277,16 +277,11 @@ KFilePlacesModel::KFilePlacesModel(const QString &alternativeApplicationName, QO
 
     if (root.first().isNull() || !QFile::exists(file)) {
 
-        // NOTE: The context for these I18N_NOOP2 calls has to be "KFile System Bookmarks".
+        // NOTE: The context for these I18NC_NOOP calls has to be "KFile System Bookmarks".
         // The real i18nc call is made later, with this context, so the two must match.
-        //
-        // createSystemBookmark actually does nothing with its third argument,
-        // but we have to give it something so the I18N_NOOP2 calls stay here for now.
-        //
-        // (coles, 13th May 2009)
-
+        // createSystemBookmark actually does nothing with its second argument, the context,
         KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
-                                              QStringLiteral("Home"), I18N_NOOP2("KFile System Bookmarks", "Home"),
+                                              I18NC_NOOP("KFile System Bookmarks", "Home"),
                                               QUrl::fromLocalFile(QDir::homePath()), QStringLiteral("user-home"));
 
         // Some distros may not create various standard XDG folders by default
@@ -294,28 +289,28 @@ KFilePlacesModel::KFilePlacesModel(const QString &alternativeApplicationName, QO
         const QString desktopFolder = QStandardPaths::writableLocation(QStandardPaths::DesktopLocation);
         if (QDir(desktopFolder).exists()) {
             KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
-                                                QStringLiteral("Desktop"), I18N_NOOP2("KFile System Bookmarks", "Desktop"),
+                                                I18NC_NOOP("KFile System Bookmarks", "Desktop"),
                                                 QUrl::fromLocalFile(desktopFolder), QStringLiteral("user-desktop"));
         }
         const QString documentsFolder = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);
         if (QDir(documentsFolder).exists()) {
             KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
-                                                QStringLiteral("Documents"), I18N_NOOP2("KFile System Bookmarks", "Documents"),
+                                                I18NC_NOOP("KFile System Bookmarks", "Documents"),
                                                 QUrl::fromLocalFile(documentsFolder), QStringLiteral("folder-documents"));
         }
         const QString downloadFolder = QStandardPaths::writableLocation(QStandardPaths::DownloadLocation);
         if (QDir(downloadFolder).exists()) {
             KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
-                                                QStringLiteral("Downloads"), I18N_NOOP2("KFile System Bookmarks", "Downloads"),
+                                                I18NC_NOOP("KFile System Bookmarks", "Downloads"),
                                                 QUrl::fromLocalFile(downloadFolder), QStringLiteral("folder-downloads"));
         }
 
         KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
-                                              QStringLiteral("Network"), I18N_NOOP2("KFile System Bookmarks", "Network"),
+                                              I18NC_NOOP("KFile System Bookmarks", "Network"),
                                               QUrl(QStringLiteral("remote:/")), QStringLiteral("folder-network"));
 
         KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
-                                              QStringLiteral("Trash"), I18N_NOOP2("KFile System Bookmarks", "Trash"),
+                                              I18NC_NOOP("KFile System Bookmarks", "Trash"),
                                               QUrl(QStringLiteral("trash:/")), QStringLiteral("user-trash"));
 
         setDefaultMetadataItemForGroup(PlacesType);
@@ -337,11 +332,11 @@ KFilePlacesModel::KFilePlacesModel(const QString &alternativeApplicationName, QO
         root.setMetaDataItem(QStringLiteral("withRecentlyUsed"), QStringLiteral("true"));
 
         KBookmark recentFilesBookmark = KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
-                                            QStringLiteral("Recent Files"), I18N_NOOP2("KFile System Bookmarks", "Recent Files"),
+                                            I18NC_NOOP("KFile System Bookmarks", "Recent Files"),
                                             QUrl(QStringLiteral("recentlyused:/files")), QStringLiteral("document-open-recent"));
 
         KBookmark recentDirectoriesBookmark = KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
-                                            QStringLiteral("Recent Locations"), I18N_NOOP2("KFile System Bookmarks", "Recent Locations"),
+                                            I18NC_NOOP("KFile System Bookmarks", "Recent Locations"),
                                             QUrl(QStringLiteral("recentlyused:/locations")), QStringLiteral("folder-open-recent"));
 
         setDefaultMetadataItemForGroup(RecentlySavedType);
@@ -362,22 +357,22 @@ KFilePlacesModel::KFilePlacesModel(const QString &alternativeApplicationName, QO
 
         root.setMetaDataItem(QStringLiteral("withBaloo"), QStringLiteral("true"));
         KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
-                                              QStringLiteral("Modified Today"), I18N_NOOP2("KFile System Bookmarks", "Today"),
+                                              I18NC_NOOP("KFile System Bookmarks", "Modified Today"),
                                               QUrl(QStringLiteral("timeline:/today")),  QStringLiteral("go-jump-today"));
         KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
-                                              QStringLiteral("Modified Yesterday"), I18N_NOOP2("KFile System Bookmarks", "Yesterday"),
+                                              I18NC_NOOP("KFile System Bookmarks", "Modified Yesterday"),
                                               QUrl(QStringLiteral("timeline:/yesterday")),  QStringLiteral("view-calendar-day"));
         KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
-                                              QStringLiteral("Documents"), I18N_NOOP2("KFile System Bookmarks", "Documents"),
+                                              I18NC_NOOP("KFile System Bookmarks", "Documents"),
                                              QUrl(QStringLiteral("search:/documents")),  QStringLiteral("folder-text"));
         KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
-                                              QStringLiteral("Images"), I18N_NOOP2("KFile System Bookmarks", "Images"),
+                                              I18NC_NOOP("KFile System Bookmarks", "Images"),
                                               QUrl(QStringLiteral("search:/images")),  QStringLiteral("folder-images"));
         KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
-                                              QStringLiteral("Audio"), I18N_NOOP2("KFile System Bookmarks", "Audio"),
+                                              I18NC_NOOP("KFile System Bookmarks", "Audio"),
                                               QUrl(QStringLiteral("search:/audio")),  QStringLiteral("folder-sound"));
         KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
-                                              QStringLiteral("Videos"), I18N_NOOP2("KFile System Bookmarks", "Videos"),
+                                              I18NC_NOOP("KFile System Bookmarks", "Videos"),
                                               QUrl(QStringLiteral("search:/videos")),  QStringLiteral("folder-videos"));
 
         setDefaultMetadataItemForGroup(SearchForType);

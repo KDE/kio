@@ -45,7 +45,6 @@ QLoggingCategory category("org.kde.kurifilter-ikws", QtWarningMsg);
 KUriSearchFilter::KUriSearchFilter(QObject *parent, const QVariantList &)
     : KUriFilterPlugin(QStringLiteral("kurisearchfilter"), parent)
 {
-    KLocalizedString::insertQtDomain("kurifilter");
     QDBusConnection::sessionBus().connect(QString(), QStringLiteral("/"), QStringLiteral("org.kde.KUriFilterPlugin"),
                                           QStringLiteral("configure"), this, SLOT(configure()));
 }
