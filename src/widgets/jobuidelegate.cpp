@@ -362,7 +362,7 @@ int KIO::JobUiDelegate::requestMessageBox(KIO::JobUiDelegate::MessageBoxType typ
                             sslMetaData.value(QStringLiteral("ssl_cipher")),
                             sslMetaData.value(QStringLiteral("ssl_cipher_used_bits")).toInt(),
                             sslMetaData.value(QStringLiteral("ssl_cipher_bits")).toInt(),
-                            KSslInfoDialog::errorsFromString(sslMetaData.value(QStringLiteral("ssl_cert_errors"))));
+                            KSslInfoDialog::certificateErrorsFromString(sslMetaData.value(QStringLiteral("ssl_cert_errors"))));
             kid->exec();
         } else {
             result = -1;

@@ -26,6 +26,7 @@
 
 #include "tcpslavebase.h"
 #include "kiocoredebug.h"
+#include "ksslerror_p.h"
 
 #include <kconfiggroup.h>
 #include <ksslcertificatemanager.h>
@@ -108,7 +109,7 @@ public:
         for (const QSslCertificate &cert : peerCertificateChain ) {
             for (const KSslError &error : qAsConst(sslErrors)) {
                 if (error.certificate() == cert) {
-                    errorStr += QString::number(static_cast<int>(error.error())) + QLatin1Char('\t');
+                    errorStr += QString::number(static_cast<int>(KSslErrorPrivate::errorFromKSslError(error.error()))) + QLatin1Char('\t');
                 }
             }
             if (errorStr.endsWith(QLatin1Char('\t'))) {

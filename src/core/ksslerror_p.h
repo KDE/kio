@@ -27,7 +27,7 @@
 class KSslErrorPrivate
 {
 public:
-    static KSslError::Error errorFromQSslError(QSslError::SslError e);
+    KIOCORE_EXPORT static KSslError::Error errorFromQSslError(QSslError::SslError e);
     KIOCORE_EXPORT static QSslError::SslError errorFromKSslError(KSslError::Error e);
 
     QSslError error;

@@ -110,7 +110,17 @@ public:
     void setMainPartEncrypted(bool);
     void setAuxiliaryPartsEncrypted(bool);
 
-    static QList<QList<KSslError::Error> > errorsFromString(const QString &s);
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 65)
+    /** @deprecated since 5.65, use certificateErrorsFromString */
+    KIOCORE_DEPRECATED_VERSION(5, 65, "use the QSslError variant")
+    static QList<QList<KSslError::Error> > errorsFromString(const QString &s); // TODO KF6 remove
+#endif
+    /**
+     * Converts certificate errors as provided in the "ssl_cert_errors" meta data
+     * to a list of QSslError::SslError values per certificate in the certificate chain.
+     * @since 5.65
+     */
+    static QList<QList<QSslError::SslError>> certificateErrorsFromString(const QString &errorsString);
 
 private:
     void updateWhichPartsEncrypted();

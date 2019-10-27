@@ -251,7 +251,7 @@ QList<QList<KSslError::Error> > KSslInfoDialog::errorsFromString(const QString &
         const QStringList sl2 = s.split(QLatin1Char('\t'), QString::SkipEmptyParts);
         for (const QString &s2 : sl2) {
             bool didConvert;
-            KSslError::Error error = static_cast<KSslError::Error>(s2.toInt(&didConvert));
+            KSslError::Error error = KSslErrorPrivate::errorFromQSslError(static_cast<QSslError::SslError>(s2.toInt(&didConvert)));
             if (didConvert) {
                 certErrors.append(error);
             }
@@ -261,3 +261,23 @@ QList<QList<KSslError::Error> > KSslInfoDialog::errorsFromString(const QString &
     return ret;
 }
 
+//static
+QList<QList<QSslError::SslError>> KSslInfoDialog::certificateErrorsFromString(const QString &errorsString)
+{
+    const QStringList sl = errorsString.split(QLatin1Char('\n'), QString::KeepEmptyParts);
+    QList<QList<QSslError::SslError>> ret;
+    ret.reserve(sl.size());
+    for (const QString &s : sl) {
+        QList<QSslError::SslError> certErrors;
+        const QStringList sl2 = s.split(QLatin1Char('\t'), QString::SkipEmptyParts);
+        for (const QString &s2 : sl2) {
+            bool didConvert;
+            QSslError::SslError error = static_cast<QSslError::SslError>(s2.toInt(&didConvert));
+            if (didConvert) {
+                certErrors.append(error);
+            }
+        }
+        ret.append(certErrors);
+    }
+    return ret;
+}
