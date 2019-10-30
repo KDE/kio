@@ -95,6 +95,7 @@ public:
     QList<QSslError> filterErrors(const QList<QSslError> &errors) const;
 private:
     friend QDBusArgument &operator<<(QDBusArgument &argument, const KSslCertificateRule &rule); // TODO KF6 remove
+    friend class KSSLD; // TODO KF6 remove
     KSslCertificateRulePrivate *const d;
 };
 

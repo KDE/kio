@@ -23,6 +23,7 @@
 #include "kssld.h"
 
 #include "ksslcertificatemanager.h"
+#include "ksslcertificatemanager_p.h"
 #include "kssld_adaptor.h"
 
 #include <kconfig.h>
@@ -42,23 +43,34 @@ public:
     {
         struct strErr {
             const char *str;
-            KSslError::Error err;
+            QSslError::SslError err;
         };
 
         //hmmm, looks like these are all of the errors where it is possible to continue.
+        // TODO for Qt > 5.14 QSslError::SslError is a Q_ENUM, and we can therefore replace this manual mapping table
         const static strErr strError[] = {
-            {"NoError", KSslError::NoError},
-            {"UnknownError", KSslError::UnknownError},
-            {"InvalidCertificateAuthority", KSslError::InvalidCertificateAuthorityCertificate},
-            {"InvalidCertificate", KSslError::InvalidCertificate},
-            {"CertificateSignatureFailed", KSslError::CertificateSignatureFailed},
-            {"SelfSignedCertificate", KSslError::SelfSignedCertificate},
-            {"RevokedCertificate", KSslError::RevokedCertificate},
-            {"InvalidCertificatePurpose", KSslError::InvalidCertificatePurpose},
-            {"RejectedCertificate", KSslError::RejectedCertificate},
-            {"UntrustedCertificate", KSslError::UntrustedCertificate},
-            {"ExpiredCertificate", KSslError::ExpiredCertificate},
-            {"HostNameMismatch", KSslError::HostNameMismatch}
+            {"NoError", QSslError::NoError},
+            {"UnknownError", QSslError::UnspecifiedError},
+            {"InvalidCertificateAuthority", QSslError::InvalidCaCertificate},
+            {"InvalidCertificate", QSslError::UnableToDecodeIssuerPublicKey},
+            {"CertificateSignatureFailed", QSslError::CertificateSignatureFailed},
+            {"SelfSignedCertificate", QSslError::SelfSignedCertificate},
+            {"RevokedCertificate", QSslError::CertificateRevoked},
+            {"InvalidCertificatePurpose", QSslError::InvalidPurpose},
+            {"RejectedCertificate", QSslError::CertificateRejected},
+            {"UntrustedCertificate", QSslError::CertificateUntrusted},
+            {"ExpiredCertificate", QSslError::CertificateExpired},
+            {"HostNameMismatch", QSslError::HostNameMismatch},
+            {"UnableToGetLocalIssuerCertificate", QSslError::UnableToGetLocalIssuerCertificate},
+            {"InvalidNotBeforeField", QSslError::InvalidNotBeforeField},
+            {"InvalidNotAfterField", QSslError::InvalidNotAfterField},
+            {"CertificateNotYetValid", QSslError::CertificateNotYetValid},
+            {"SubjectIssuerMismatch", QSslError::SubjectIssuerMismatch},
+            {"AuthorityIssuerSerialNumberMismatch", QSslError::AuthorityIssuerSerialNumberMismatch},
+            {"SelfSignedCertificateInChain", QSslError::SelfSignedCertificateInChain},
+            {"UnableToVerifyFirstCertificate", QSslError::UnableToVerifyFirstCertificate},
+            {"UnableToDecryptCertificateSignature", QSslError::UnableToDecryptCertificateSignature},
+            {"UnableToGetIssuerCertificate", QSslError::UnableToGetIssuerCertificate}
         };
 
         for (const strErr &row : strError) {
@@ -69,8 +81,8 @@ public:
     }
 
     KConfig config;
-    QHash<QString, KSslError::Error> stringToSslError;
-    QHash<KSslError::Error, QString> sslErrorToString;
+    QHash<QString, QSslError::SslError> stringToSslError;
+    QHash<QSslError::SslError, QString> sslErrorToString;
 };
 
 KSSLD::KSSLD(QObject *parent, const QVariantList &)
@@ -102,7 +114,7 @@ void KSSLD::setRule(const KSslCertificateRule &rule)
     if (rule.isRejected()) {
         sl.append(QStringLiteral("Reject"));
     } else {
-        foreach (KSslError::Error e, rule.ignoredErrors()) {
+        foreach (QSslError::SslError e, rule.d->ignoredErrors) { // TODO KF6 call ignoredErrors() method instead
             sl.append(d->sslErrorToString.value(e));
         }
     }
@@ -242,7 +254,7 @@ KSslCertificateRule KSSLD::rule(const QSslCertificate &cert, const QString &host
         return ret;
     }
 
-    QList<KSslError::Error> ignoredErrors;
+    QList<QSslError::SslError> ignoredErrors;
     bool isRejected = false;
     for (const QString &s : qAsConst(sl)) {
         if (s == QLatin1String("Reject")) {
