@@ -79,12 +79,12 @@ bool KIO::SslUi::askIgnoreSslErrors(const KSslErrorUiData &uiData, RulesStorage 
         if (msgResult == KMessageBox::Yes) {
             //Details was chosen - show the certificate and error details
 
-            QList<QList<KSslError::Error> > meh;    // parallel list to cert list :/
+            QList<QList<QSslError::SslError> > meh;    // parallel list to cert list :/
 
             meh.reserve(ud->certificateChain.size());
             for (const QSslCertificate &cert : qAsConst(ud->certificateChain)) {
-                QList<KSslError::Error> errors;
-                for (const KSslError &error : qAsConst(ud->sslErrors)) {
+                QList<QSslError::SslError> errors;
+                for (const QSslError &error : qAsConst(ud->sslErrors)) {
                     if (error.certificate() == cert) {
                         // we keep only the error code enum here
                         errors.append(error.error());
