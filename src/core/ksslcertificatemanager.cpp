@@ -506,26 +506,35 @@ QList<QSslCertificate> KSslCertificateManager::caCertificates() const
 }
 
 //static
-QList<KSslError> KSslCertificateManager::nonIgnorableErrors(const QList<KSslError> &/*e*/)
+QList<KSslError> KSslCertificateManager::nonIgnorableErrors(const QList<KSslError> &errors)
 {
     QList<KSslError> ret;
-    // ### add filtering here...
+    // errors not handled in KSSLD
+    std::copy_if(errors.begin(), errors.end(), std::back_inserter(ret), [](const KSslError &e) {
+        return e.error() == KSslError::NoPeerCertificate || e.error() == KSslError::PathLengthExceeded;
+    });
     return ret;
 }
 
 //static
-QList<KSslError::Error> KSslCertificateManager::nonIgnorableErrors(const QList<KSslError::Error> &/*e*/)
+QList<KSslError::Error> KSslCertificateManager::nonIgnorableErrors(const QList<KSslError::Error> &errors)
 {
     QList<KSslError::Error> ret;
-    // ### add filtering here...
+    // errors not handled in KSSLD
+    std::copy_if(errors.begin(), errors.end(), std::back_inserter(ret), [](const KSslError::Error &e) {
+        return e == KSslError::NoPeerCertificate || e == KSslError::PathLengthExceeded;
+    });
     return ret;
 }
 
 QList<QSslError> KSslCertificateManager::nonIgnorableErrors(const QList<QSslError> &errors)
 {
-    Q_UNUSED(errors)
-    // ### add filtering here...
-    return {};
+    QList<QSslError> ret;
+    // errors not handled in KSSLD
+    std::copy_if(errors.begin(), errors.end(), std::back_inserter(ret), [](const QSslError &e) {
+        return e.error() == QSslError::NoPeerCertificate || e.error() == QSslError::PathLengthExceeded || e.error() == QSslError::NoSslSupport;
+    });
+    return ret;
 }
 
 QList<KSslCaCertificate> _allKsslCaCertificates(KSslCertificateManager *cm)

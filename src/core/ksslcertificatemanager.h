@@ -123,10 +123,10 @@ public:
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 64)
     /** @deprecated since 5.64, use the corresponding QSslError variant. */
     KIOCORE_DEPRECATED_VERSION(5, 64, "Use KSslCertificateManager::nonIgnorableErrors(const QList<QSslError> &)")
-    static QList<KSslError> nonIgnorableErrors(const QList<KSslError> &);
+    static QList<KSslError> nonIgnorableErrors(const QList<KSslError> &errors);
     /** @deprecated since 5.64, use the corresponding QSslError variant. */
     KIOCORE_DEPRECATED_VERSION(5, 64, "Use KSslCertificateManager::nonIgnorableErrors(const QList<QSslError> &)")
-    static QList<KSslError::Error> nonIgnorableErrors(const QList<KSslError::Error> &);
+    static QList<KSslError::Error> nonIgnorableErrors(const QList<KSslError::Error> &errors);
 #endif
     /**
      * Returns the subset of @p errors that cannot be ignored, ie. that is considered fatal.
