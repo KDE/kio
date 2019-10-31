@@ -348,19 +348,19 @@ public:
      * Returns a bool from the config/meta-data information.
      * @since 5.64
      */
-    bool configValue(QString key, bool defaultValue) const;
+    bool configValue(const QString &key, bool defaultValue) const;
 
     /**
      * Returns an int from the config/meta-data information.
      * @since 5.64
      */
-    int configValue(QString key, int defaultValue) const;
+    int configValue(const QString &key, int defaultValue) const;
 
     /**
      * Returns a QString from the config/meta-data information.
      * @since 5.64
      */
-    QString configValue(QString key, const QString &defaultValue=QString()) const;
+    QString configValue(const QString &key, const QString &defaultValue=QString()) const;
 
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 64)
     /**
