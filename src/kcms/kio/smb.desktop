@@ -102,6 +102,7 @@ Comment[da]=Akkreditiver som bruges til at tilgå delte SMB-ressourcer
 Comment[de]=Anmeldungsdaten für den Zugriff auf SMB-Freigaben
 Comment[en_GB]=Credentials used to access SMB shares
 Comment[es]=Credenciales usadas para acceder a los recursos compartidos de SMB
+Comment[et]=Kasutajatunnused juurdepääsuks SMB ressurssidele
 Comment[eu]=SMB partekatzeetara sartzeko kredentzialak
 Comment[fi]=Käyttäjätiedot SMB-jakoihin pääsemiseksi
 Comment[fr]=Identifiants utilisés pour accéder aux partages SMB

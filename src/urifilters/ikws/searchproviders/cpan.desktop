@@ -98,6 +98,7 @@ Query[da]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[de]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[en_GB]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[es]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
+Query[et]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[eu]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[fi]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[fr]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}

@@ -103,6 +103,7 @@ Comment[da]=Indstil den brugeragent der angives af HTTP-kioslaven
 Comment[de]=Browserkennung für das HTTP-Ein-/Ausgabemodul einrichten
 Comment[en_GB]=Configure the User Agent exposed by the HTTP kioslave
 Comment[es]=Configurar el agente de usuario mostrado por el kioslave HTTP
+Comment[et]=HTTP KIO-mooduli kaudu tuvastatud identifikaatori seadistamine
 Comment[eu]=Konfiguratu HTTP kioslave-k agerian jarriko duen erabiltzailearen agentea
 Comment[fi]=Aseta HTTP-KIO-palvelun käyttäjäagentti
 Comment[fr]=Configurer l'agent utilisateur montré par le module d'entrées / sorties HTTP

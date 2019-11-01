@@ -97,6 +97,7 @@ Query[da]=https://dx.doi.org/\\{@}
 Query[de]=https://dx.doi.org/\\{@}
 Query[en_GB]=https://dx.doi.org/\\{@}
 Query[es]=https://dx.doi.org/\\{@}
+Query[et]=https://dx.doi.org/\\{@}
 Query[eu]=https://dx.doi.org/\\{@}
 Query[fi]=https://dx.doi.org/\\{@}
 Query[fr]=https://dx.doi.org/\\{@}

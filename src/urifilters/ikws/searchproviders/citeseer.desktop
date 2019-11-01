@@ -98,6 +98,7 @@ Query[da]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=d
 Query[de]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[en_GB]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[es]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
+Query[et]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[eu]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[fi]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[fr]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc

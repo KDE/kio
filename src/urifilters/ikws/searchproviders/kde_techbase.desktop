@@ -77,6 +77,7 @@ Query[da]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[de]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[en_GB]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[es]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
+Query[et]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[eu]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[fi]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[fr]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
