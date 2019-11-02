@@ -831,7 +831,7 @@ bool KRun::runCommand(const QString &cmd, QWidget *window, const QString &workin
         return false;
     }
 
-    const QString bin = args.first();
+    const QString &bin = args.first();
     return KRun::runCommand(cmd, bin, bin /*iconName*/, window, QByteArray(), workingDirectory);
 }
 

@@ -1390,7 +1390,7 @@ bool KDirOperator::eventFilter(QObject *watched, QEvent *event)
 
             if (mimeFilters.size() > 1) {
                 mimeFilterPass = false;
-                const QUrl url = urls.constFirst();
+                const QUrl &url = urls.constFirst();
 
                 QMimeDatabase mimeDataBase;
                 QMimeType fileMimeType = mimeDataBase.mimeTypeForUrl(url);
@@ -1414,7 +1414,7 @@ bool KDirOperator::eventFilter(QObject *watched, QEvent *event)
         QDropEvent *evt = static_cast<QDropEvent *>(event);
         const QList<QUrl> urls = KUrlMimeData::urlsFromMimeData(evt->mimeData(), KUrlMimeData::DecodeOptions::PreferLocalUrls);
 
-        const QUrl url = urls.constFirst();
+        const QUrl &url = urls.constFirst();
 
         // stat the url to get details
         KIO::StatJob *job = KIO::stat(url, KIO::HideProgressInfo);

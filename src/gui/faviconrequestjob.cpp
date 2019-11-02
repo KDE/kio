@@ -139,7 +139,7 @@ void FavIconRequestJob::doStart()
 void FavIconRequestJob::slotResult(KJob *job)
 {
     KIO::TransferJob *tjob = static_cast<KIO::TransferJob *>(job);
-    const QUrl iconUrl = tjob->url();
+    const QUrl &iconUrl = tjob->url();
     KIO::FavIconsCache *cache = KIO::FavIconsCache::instance();
     if (!job->error()) {
         QBuffer buffer(&d->m_iconData);

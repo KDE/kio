@@ -1143,7 +1143,7 @@ Result FtpInternal::mkdir(const QUrl &url, int permissions)
         // Check whether or not mkdir failed because
         // the directory already exists...
         if (ftpFolder(path)) {
-            const QString failedPath = path;
+            const QString &failedPath = path;
             // Change the directory back to what it was...
             (void) ftpFolder(currentPath);
             return Result::fail(ERR_DIR_ALREADY_EXIST, failedPath);
@@ -1373,9 +1373,9 @@ Result FtpInternal::stat(const QUrl &url)
     tempurl.setPath(path);   // take the clean one
     QString listarg; // = tempurl.directory(QUrl::ObeyTrailingSlash);
     QString parentDir;
-    QString filename = tempurl.fileName();
+    const QString filename = tempurl.fileName();
     Q_ASSERT(!filename.isEmpty());
-    QString search = filename;
+    const QString &search = filename;
 
     // Try cwd into it, if it works it's a dir (and then we'll list the parent directory to get more info)
     // if it doesn't work, it's a file (and then we'll use dir filename)

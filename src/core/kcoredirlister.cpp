@@ -1548,7 +1548,7 @@ void KCoreDirListerCache::renameDir(const QUrl &oldUrl, const QUrl &newUrl)
     // Look at all dirs being listed/shown
     for (auto itu = itemsInUse.begin(), ituend = itemsInUse.end(); itu != ituend; ++itu) {
         DirItem *dir = itu.value();
-        QUrl oldDirUrl(itu.key());
+        const QUrl &oldDirUrl = itu.key();
         qCDebug(KIO_CORE_DIRLISTER) << "itemInUse:" << oldDirUrl;
         // Check if this dir is oldUrl, or a subfolder of it
         if (oldDirUrl == oldUrl || oldUrl.isParentOf(oldDirUrl)) {
@@ -1941,7 +1941,7 @@ void KCoreDirListerCache::deleteDir(const QUrl &_dirUrl)
     auto itu = itemsInUse.begin();
     const auto ituend = itemsInUse.end();
     for (; itu != ituend; ++itu) {
-        const QUrl deletedUrl(itu.key());
+        const QUrl &deletedUrl = itu.key();
         if (dirUrl == deletedUrl || dirUrl.isParentOf(deletedUrl)) {
             affectedItems.append(deletedUrl);
         }

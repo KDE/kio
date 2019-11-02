@@ -418,7 +418,7 @@ void TestTrash::trashFileIntoOtherPartition()
     }
     const QString fileName = QStringLiteral("testtrash-file");
     const QString origFilePath = m_otherPartitionTopDir + fileName;
-    const QString fileId = fileName;
+    const QString &fileId = fileName;
     // cleanup
     QFile::remove(m_otherPartitionTrashDir + QLatin1String("/info/") + fileId + QLatin1String(".trashinfo"));
     QFile::remove(m_otherPartitionTrashDir + QLatin1String("/files/") + fileId);

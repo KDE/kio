@@ -317,7 +317,7 @@ public:
      *     - KCookieReject, reject all cookies for _domain
      *     - KCookieAsk, the user decides what to do with cookies for _domain
      */
-    void setDomainAdvice(const QString &_domain, KCookieAdvice _advice);
+    void setDomainAdvice(const QString &domain, KCookieAdvice advice);
 
     /**
      * This function sets the advice for all cookies originating from

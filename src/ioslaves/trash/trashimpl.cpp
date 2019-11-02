@@ -1401,7 +1401,7 @@ bool TrashImpl::adaptTrashSize(const QString &origPath, int trashId)
 
                 bool deleteFurther = true;
                 for (int i = 0; (i < infoList.count()) && deleteFurther; ++i) {
-                    const QFileInfo info = infoList.at(i);
+                    const QFileInfo &info = infoList.at(i);
 
                     del(trashId, info.fileName());   // delete trashed file
 

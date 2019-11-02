@@ -245,7 +245,7 @@ void KFileItemActions::setItemListProperties(const KFileItemListProperties &item
 int KFileItemActions::addServiceActionsTo(QMenu *mainMenu)
 {
     const KFileItemList items = d->m_props.items();
-    const KFileItem firstItem = items.first();
+    const KFileItem &firstItem = items.first();
     const QString protocol = firstItem.url().scheme(); // assumed to be the same for all items
     const bool isLocal = !firstItem.localPath().isEmpty();
     const bool isSingleLocal = items.count() == 1 && isLocal;
@@ -608,7 +608,7 @@ void KFileItemActions::addOpenWithActionsTo(QMenu *topMenu, const QString &trade
     //// Ok, we have everything, now insert
 
     const KFileItemList items = d->m_props.items();
-    const KFileItem firstItem = items.first();
+    const KFileItem &firstItem = items.first();
     const bool isLocal = firstItem.url().isLocalFile();
     // "Open With..." for folders is really not very useful, especially for remote folders.
     // (media:/something, or trash:/, or ftp://...)

@@ -360,7 +360,7 @@ public:
      * Returns a QString from the config/meta-data information.
      * @since 5.64
      */
-    QString configValue(const QString &key, const QString &defaultValue=QString()) const;
+    QString configValue(const QString &key, const QString &defaultValue = QString()) const;
 
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 64)
     /**

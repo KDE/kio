@@ -385,7 +385,7 @@ bool KPropertiesDialog::showDialog(const KFileItemList &_items, QWidget *parent,
                                    bool modal)
 {
     if (_items.count() == 1) {
-        const KFileItem item = _items.first();
+        const KFileItem &item = _items.first();
         if (item.entry().count() == 0 && item.localPath().isEmpty()) // this remote item wasn't listed by a slave
             // Let's stat to get more info on the file
         {
@@ -2723,7 +2723,7 @@ bool KChecksumsPlugin::supports(const KFileItemList &items)
         return false;
     }
 
-    const KFileItem item = items.first();
+    const KFileItem &item = items.first();
     return item.isFile() && !item.localPath().isEmpty() && item.isReadable() && !item.isDesktopFile() && !item.isLink();
 }
 
@@ -3088,7 +3088,7 @@ bool KUrlPropsPlugin::supports(const KFileItemList &_items)
     if (_items.count() != 1) {
         return false;
     }
-    const KFileItem item = _items.first();
+    const KFileItem &item = _items.first();
     // check if desktop file
     if (!item.isDesktopFile()) {
         return false;
@@ -3389,7 +3389,7 @@ bool KDevicePropsPlugin::supports(const KFileItemList &_items)
     if (_items.count() != 1) {
         return false;
     }
-    const KFileItem item = _items.first();
+    const KFileItem &item = _items.first();
     // check if desktop file
     if (!item.isDesktopFile()) {
         return false;
@@ -3902,7 +3902,7 @@ bool KDesktopPropsPlugin::supports(const KFileItemList &_items)
         return false;
     }
 
-    const KFileItem item = _items.first();
+    const KFileItem &item = _items.first();
 
     // check if desktop file
     if (!item.isDesktopFile()) {

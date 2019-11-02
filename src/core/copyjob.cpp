@@ -664,7 +664,7 @@ void CopyJobPrivate::slotEntries(KIO::Job *job, const UDSEntryList &list)
 
 void CopyJobPrivate::slotSubError(ListJob *job, ListJob *subJob)
 {
-    const QUrl url = subJob->url();
+    const QUrl &url = subJob->url();
     qCWarning(KIO_CORE) << url << subJob->errorString();
 
     Q_Q(CopyJob);
@@ -991,7 +991,7 @@ void CopyJobPrivate::startListing(const QUrl &src)
     m_bURLDirty = true;
     ListJob *newjob = listRecursive(src, KIO::HideProgressInfo);
     newjob->setUnrestricted(true);
-    q->connect(newjob, &ListJob::entries, q, [this](KIO::Job *job, KIO::UDSEntryList list) {
+    q->connect(newjob, &ListJob::entries, q, [this](KIO::Job *job, const KIO::UDSEntryList &list) {
         slotEntries(job, list);
     });
     q->connect(newjob, &ListJob::subError, q, [this](KIO::ListJob *job, KIO::ListJob *subJob) {

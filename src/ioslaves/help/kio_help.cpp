@@ -98,7 +98,7 @@ QString HelpProtocol::lookupFile(const QString &fname,
 {
     redirect = false;
 
-    const QString path = fname;
+    const QString &path = fname;
 
     QString result = langLookup(path);
     if (result.isEmpty()) {

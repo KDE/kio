@@ -1341,7 +1341,7 @@ void KNewFileMenu::setPopupFiles(const QList<QUrl> &files)
     if (files.isEmpty()) {
         d->m_newMenuGroup->setEnabled(false);
     } else {
-        QUrl firstUrl = files.first();
+        const QUrl &firstUrl = files.first();
         if (KProtocolManager::supportsWriting(firstUrl)) {
             d->m_newMenuGroup->setEnabled(true);
             if (d->m_newDirAction) {

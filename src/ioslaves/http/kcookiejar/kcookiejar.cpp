@@ -1098,9 +1098,8 @@ KCookieAdvice KCookieJar::getDomainAdvice(const QString &_domain) const
 // This function sets the advice for all cookies originating from
 // _domain.
 //
-void KCookieJar::setDomainAdvice(const QString &_domain, KCookieAdvice _advice)
+void KCookieJar::setDomainAdvice(const QString &domain, KCookieAdvice _advice)
 {
-    QString domain(_domain);
     KHttpCookieList *cookieList = m_cookieDomains.value(domain);
 
     if (cookieList) {

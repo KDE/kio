@@ -492,7 +492,7 @@ void KDirModelPrivate::_k_slotNewItems(const QUrl &directoryUrl, const KFileItem
         //qDebug() << url;
 
         if (!urlsBeingFetched.isEmpty()) {
-            const QUrl dirUrl(url);
+            const QUrl &dirUrl = url;
             for (const QUrl &urlFetched : qAsConst(urlsBeingFetched)) {
                 if (dirUrl.matches(urlFetched, QUrl::StripTrailingSlash) || dirUrl.isParentOf(urlFetched)) {
                     //qDebug() << "Listing found" << dirUrl.url() << "which is a parent of fetched url" << urlFetched;

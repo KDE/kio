@@ -438,7 +438,7 @@ void DeleteJob::slotResult(KJob *job)
                 return;
             }
 
-            const UDSEntry entry = statJob->statResult();
+            const UDSEntry &entry = statJob->statResult();
             // Is it a file or a dir ?
             const bool isLink = entry.isLink();
             const bool isDir = entry.isDir();

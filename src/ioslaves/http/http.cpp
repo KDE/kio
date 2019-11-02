@@ -135,7 +135,7 @@ static bool isCrossDomainRequest(const QString &fqdn, const QString &originURL)
     // Document Origin domain
     QString a = url.host();
     // Current request domain
-    QString b = fqdn;
+    const QString &b = fqdn;
 
     if (a == b) {
         return false;
