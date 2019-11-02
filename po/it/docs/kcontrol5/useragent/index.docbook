@@ -1,0 +1,164 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Italian "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="useragent" lang="&language;">
+<title
+>Identificazione del browser</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Krishna.Tateneni; &Krishna.Tateneni.mail;</author>
+<othercredit role="translator"
+><firstname
+>Luciano</firstname
+><surname
+>Montanaro</surname
+><contrib
+>Traduzione della documentazione</contrib
+></othercredit
+><othercredit role="translator"
+><firstname
+>Federico</firstname
+><surname
+>Zenith</surname
+><affiliation
+><address
+><email
+>federico.zenith@member.fsf.org</email
+></address
+></affiliation
+><contrib
+>Manutenzione della traduzione</contrib
+></othercredit
+><othercredit role="translator"
+><firstname
+>Paolo</firstname
+><surname
+>Zamponi</surname
+><affiliation
+><address
+><email
+>zapaolo@email.it</email
+></address
+></affiliation
+><contrib
+>Manutenzione del documento</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>10/11/2016</date>
+<releaseinfo
+>Frameworks 5.29</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Impostazioni di sistema</keyword>
+<keyword
+>user agent</keyword>
+<keyword
+>browser</keyword>
+<keyword
+>identificazione</keyword>
+</keywordset>
+
+</articleinfo>
+
+<sect1 id="user-agent">
+<title
+>Identificazione del browser</title>
+
+
+<sect2 id="user-agent-intro">
+<title
+>Introduzione</title>
+
+<para
+>Quando &konqueror; si connette ad un sito per recuperare informazioni, vengono inviate alcune semplici informazioni al sito Web in forma di un'intestazione <quote
+><foreignphrase lang="en"
+>User Agent</foreignphrase
+></quote
+>.</para>
+
+<para
+>A causa di piccole differenze nel funzionamento dei diversi browser, i siti che si basano troppo su di uno solo di essi possono a volte non funzionare come previsto con gli altri. Alcuni siti Web sono abbastanza furbi da controllare questa intestazione, in modo da usarla per produrre del codice &HTML;il cui contenuto risulti corretto indipendentemente dal browser.</para>
+
+<para
+>Tuttavia si possono trovare anche dei siti che si rifiutano di funzionare correttamente se non si usa un browser <quote
+>approvato</quote
+> dal sito. In questi casi può essere necessario imbrogliare il sito, facendo in modo che &konqueror; finga di essere un altro browser in questa intestazione.</para>
+
+</sect2>
+
+<sect2 id="user-agent-use">
+<title
+>Uso</title>
+
+<para
+>Da questo modulo puoi configurare il tipo di browser che &konqueror; dichiarerà di essere. Puoi regolare queste informazioni sito per sito. Di solito l'elenco indicato con <guilabel
+>Identificazione specifica per sito</guilabel
+> sarà vuoto, in modo che &konqueror; usi sempre la stringa di identificazione predefinita.</para>
+
+<para
+>Puoi disabilitare del tutto l'invio delle informazioni sul tipo di browser, disattivando la casella <guilabel
+>Manda il testo di identificazione</guilabel
+>. Questo potrebbe avere effetti imprevisti su alcuni siti ed altri potrebbero addirittura negarti l'accesso, per cui usa questa modalità con attenzione.</para>
+
+<para
+>Per configurare una nuova identificazione specifica, premi il pulsante <guibutton
+>Nuova...</guibutton
+>. Inserisci il nome del server o un dominio nella casella di testo indicata come <guilabel
+>Durante la navigazione nel seguente sito</guilabel
+>.</para>
+
+<para
+>Nota che <emphasis
+>non</emphasis
+> è ammesso l'uso del caratteri jolly <token
+>*</token
+>. Però, la stringa <userinput
+>kde.org</userinput
+> corrisponderà a tutti gli host del dominio <systemitem
+>kde.org</systemitem
+>.</para>
+
+<para
+>Dopo aver inserito il nome del server seleziona la stringa di identificazione nella casella successiva, indicata <guilabel
+>Usa la seguente identificazione:</guilabel
+>, o scegline una dalla lista. L'<guilabel
+>Identificazione reale</guilabel
+>, cioè la stringa che viene inviata al server, è visualizzata nel campo.</para>
+
+<para
+>Puoi fare clic su una voce esistente dell'elenco e poi modificare i contenuti delle caselle di testo premendo il pulsante <guibutton
+>Cambia...</guibutton
+>.</para>
+
+<para
+>Per eliminare le voci selezionate dall'elenco di associazioni si può usare il pulsante <guibutton
+>Elimina</guibutton
+>; il pulsante <guibutton
+>Elimina tutte</guibutton
+> eliminerà tutte le associazioni. Fai clic su <guibutton
+>Applica</guibutton
+> perché le modifiche abbiano effetto.</para>
+
+<para
+>Puoi usare le caselle in cima allo schermo per creare una tua stringa di identificazione personale, scegliendo la tua combinazione di nome e versione del sistema operativo, piattaforma, tipo di processore e lingua.</para>
+
+<para
+>In ogni caso, l'identificazione inviata in mancanza di altre istruzioni è indicata in grassetto in cima alla pagina.</para>
+
+</sect2>
+
+</sect1>
+
+</article>
