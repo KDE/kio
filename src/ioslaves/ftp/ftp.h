@@ -463,7 +463,7 @@ public:
     /**
      * Calls @ref statEntry.
      */
-    bool maybeEmitStatEntry(FtpEntry &ftpEnt, const QString &search, const QString &filename, bool isDir);
+    bool maybeEmitStatEntry(FtpEntry &ftpEnt, const QString &filename, bool isDir);
 
     /**
      * Setup the connection to the server.

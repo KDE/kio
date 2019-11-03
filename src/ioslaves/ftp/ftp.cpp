@@ -1375,7 +1375,6 @@ Result FtpInternal::stat(const QUrl &url)
     QString parentDir;
     const QString filename = tempurl.fileName();
     Q_ASSERT(!filename.isEmpty());
-    const QString &search = filename;
 
     // Try cwd into it, if it works it's a dir (and then we'll list the parent directory to get more info)
     // if it doesn't work, it's a file (and then we'll use dir filename)
@@ -1425,7 +1424,7 @@ Result FtpInternal::stat(const QUrl &url)
     }
     qCDebug(KIO_FTP) << "Starting of list was ok";
 
-    Q_ASSERT(!search.isEmpty() && search != QLatin1String("/"));
+    Q_ASSERT(!filename.isEmpty() && filename != QLatin1String("/"));
 
     bool bFound = false;
     QUrl linkURL;
@@ -1440,7 +1439,7 @@ Result FtpInternal::stat(const QUrl &url)
         // We look for search or filename, since some servers (e.g. ftp.tuwien.ac.at)
         // return only the filename when doing "dir /full/path/to/file"
         if (!bFound) {
-            bFound = maybeEmitStatEntry(ftpEnt, search, filename, isDir);
+            bFound = maybeEmitStatEntry(ftpEnt, filename, isDir);
         }
         qCDebug(KIO_FTP) << ftpEnt.name;
     }
@@ -1448,7 +1447,7 @@ Result FtpInternal::stat(const QUrl &url)
     for (int i = 0, count = ftpValidateEntList.count(); i < count; ++i) {
         FtpEntry &ftpEnt = ftpValidateEntList[i];
         fixupEntryName(&ftpEnt);
-        if (maybeEmitStatEntry(ftpEnt, search, filename, isDir)) {
+        if (maybeEmitStatEntry(ftpEnt, filename, isDir)) {
             break;
         }
     }
@@ -1470,9 +1469,9 @@ Result FtpInternal::stat(const QUrl &url)
     return Result::pass();
 }
 
-bool FtpInternal::maybeEmitStatEntry(FtpEntry &ftpEnt, const QString &search, const QString &filename, bool isDir)
+bool FtpInternal::maybeEmitStatEntry(FtpEntry &ftpEnt, const QString &filename, bool isDir)
 {
-    if ((search == ftpEnt.name || filename == ftpEnt.name) && !filename.isEmpty()) {
+    if (filename == ftpEnt.name && !filename.isEmpty()) {
         UDSEntry entry;
         ftpCreateUDSEntry(filename, ftpEnt, entry, isDir);
         q->statEntry(entry);
