@@ -36,7 +36,6 @@
 #include <QHBoxLayout>
 #include <QMimeData>
 #include <QMenu>
-#include <QAction>
 
 class KUrlDragPushButton : public QPushButton
 {

@@ -92,7 +92,7 @@ public:
     /**
      * Returns a @c containing a string describing the permission added to the users, such as
      * "[DOMAIN\]username1:X,[DOMAIN\]username2:X,...". X stands for "F" (full control), "R"
-     * (read-only) and "D" (deny). By dafault the acl is Everyone:R.
+     * (read-only) and "D" (deny). By default the acl is Everyone:R.
      *
      * @return @c the share acl.
      */

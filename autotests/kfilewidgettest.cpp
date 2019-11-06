@@ -32,7 +32,6 @@
 #include <klocalizedstring.h>
 #include <kurlnavigator.h>
 #include <KUrlComboBox>
-#include <KFileFilterCombo>
 #include "kiotesthelper.h" // createTestFile
 
 #include <QAbstractItemView>

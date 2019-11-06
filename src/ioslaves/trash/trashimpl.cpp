@@ -35,7 +35,6 @@
 #include <kconfiggroup.h>
 #include <kmountpoint.h>
 #include <kfileutils.h>
-#include <kdirnotify.h>
 
 #include <QCoreApplication>
 #include <QEventLoop>

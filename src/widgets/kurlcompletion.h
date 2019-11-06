@@ -125,7 +125,7 @@ public:
      * Checks whether environment variables are completed and
      * whether they are replaced internally while finding completions.
      * Default is enabled.
-     * @return true if environment vvariables will be replaced
+     * @return true if environment variables will be replaced
      */
     virtual bool replaceEnv() const;
 

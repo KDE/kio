@@ -2202,7 +2202,7 @@ void KFileWidgetPrivate::_k_slotViewDoubleClicked(const QModelIndex &index)
 
 void KFileWidgetPrivate::_k_slotViewKeyEnterReturnPressed()
 {
-    // an enter/return event occured in the view
+    // an enter/return event occurred in the view
     // when we are saving one file and there is no selection in the view (otherwise we get an activated event)
     if (operationMode == KFileWidget::Saving && (ops->mode() & KFile::File) && ops->selectedItems().isEmpty()) {
         q->slotOk();

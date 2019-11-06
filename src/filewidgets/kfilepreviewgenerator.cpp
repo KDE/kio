@@ -1096,7 +1096,7 @@ void KFilePreviewGenerator::Private::orderItems(KFileItemList &items)
     }
 
     // Order the items in a way that the preview for the visible items
-    // is generated first, as this improves the feeled performance a lot.
+    // is generated first, as this improves the felt performance a lot.
     const bool hasProxy = (m_proxyModel != nullptr);
     const int itemCount = items.count();
     const QRect visibleArea = m_viewAdapter->visibleArea();
