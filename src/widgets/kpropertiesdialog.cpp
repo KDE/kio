@@ -1124,6 +1124,7 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
 
             l = new QLabel(dt.toString(Qt::DefaultLocaleLongDate), d->m_frame);
             grid->addWidget(l, curRow++, 2);
+            l->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::TextSelectableByKeyboard);
         }
 
         dt = item.time(KFileItem::ModificationTime);
