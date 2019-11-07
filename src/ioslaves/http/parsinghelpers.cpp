@@ -161,8 +161,7 @@ HeaderTokenizer::HeaderTokenizer(char *buffer)
         {"www-authenticate", false} //see proxy-authenticate
     };
 
-    for (uint i = 0; i < sizeof(headerFieldTemplates) / sizeof(HeaderFieldTemplate); i++) {
-        const HeaderFieldTemplate &ft = headerFieldTemplates[i];
+    for (const HeaderFieldTemplate &ft : headerFieldTemplates) {
         insert(QByteArray(ft.name), HeaderField(ft.isMultiValued));
     }
 }
