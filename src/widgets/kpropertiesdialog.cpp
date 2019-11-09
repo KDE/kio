@@ -100,11 +100,13 @@ extern "C" {
 #include <kio/chmodjob.h>
 #include <kio/directorysizejob.h>
 #include <KIO/FileSystemFreeSpaceJob>
+#include <KIO/OpenFileManagerWindowJob>
 #include <kio/renamedialog.h>
 #include <kio/jobuidelegate.h>
 #include <kjobwidgets.h>
 #include <kmountpoint.h>
 #include <kmessagebox.h>
+#include <kmessagewidget.h>
 #include <kservice.h>
 #include <ksharedconfig.h>
 #include <kcombobox.h>
@@ -1111,9 +1113,38 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
         grid->addWidget(l, curRow, 0, Qt::AlignRight);
 
         d->m_linkTargetLineEdit = new KLineEdit(item.linkDest(), d->m_frame);
-        grid->addWidget(d->m_linkTargetLineEdit, curRow++, 2);
         connect(d->m_linkTargetLineEdit, &QLineEdit::textChanged,
                 this, QOverload<>::of(&KFilePropsPlugin::setDirty));
+
+        QPushButton *goThereButton = new QPushButton(d->m_frame);
+        goThereButton->setIcon(QIcon::fromTheme(QStringLiteral("go-jump")));
+
+        QHBoxLayout *row = new QHBoxLayout(d->m_frame);
+        row->setContentsMargins(0, 0, 0, 0);
+        row->addWidget(d->m_linkTargetLineEdit);
+        row->addWidget(goThereButton);
+        grid->addLayout(row, curRow++, 2);
+
+        KMessageWidget* messageWidget = new KMessageWidget(d->m_frame);
+        messageWidget->setWordWrap(true);
+        messageWidget->setMessageType(KMessageWidget::Error);
+        messageWidget->setText(i18n("Invalid link target"));
+        messageWidget->hide();
+        grid->addWidget(messageWidget, curRow++, 0, 1, -1);
+
+        connect(goThereButton, &QPushButton::clicked,
+                this, [=]() {
+                    const QUrl targetLocation = QUrl::fromLocalFile(d->m_linkTargetLineEdit->text());
+                    KIO::StatJob *statJob = KIO::stat(targetLocation, KIO::HideProgressInfo);
+                    bool ok = statJob->exec();
+                    if (ok) {
+                        KIO::highlightInFileManager({targetLocation});
+                        _props->close();
+                        return;
+                    }
+                    // Show error message if the link destination doesn't exist
+                    messageWidget->animatedShow();
+                });
     }
 
     if (!d->bMultiple) { // Dates for multiple don't make much sense...
