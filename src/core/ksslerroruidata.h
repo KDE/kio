@@ -43,10 +43,14 @@ public:
      * Default construct an instance with no useful data.
      */
     KSslErrorUiData();
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 65)
     /**
      * Create an instance and initialize it with SSL error data from @p socket.
+     * @deprecated since 5.65, use QSslSocket variant
      */
+    KIOCORE_DEPRECATED_VERSION(5, 65, "Use QSslSocket variant")
     KSslErrorUiData(const KTcpSocket *socket);
+#endif
     /**
      * Create an instance and initialize it with SSL error data from @p socket.
      */
