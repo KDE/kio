@@ -21,11 +21,14 @@
 #ifndef KTCPSOCKET_H
 #define KTCPSOCKET_H
 
+#include "kiocore_export.h"
+
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 65)
+#include "ksslerroruidata.h"
+
 #include <QSslSocket>
 #include <QSslConfiguration>
 
-#include "kiocore_export.h"
-#include "ksslerroruidata.h"
 
 /*
   Notes on QCA::TLS compatibility
@@ -38,6 +41,10 @@
 
 class KSslKeyPrivate;
 
+/** SSL Key
+ *  @deprecated since 5.65, use QSslKey instead.
+ */
+KIOCORE_DEPRECATED_VERSION(5, 65, "Use QSslKey")
 class KIOCORE_EXPORT KSslKey
 {
 public:
@@ -67,6 +74,10 @@ private:
 
 class KSslCipherPrivate;
 
+/** SSL Cipher
+ *  @deprecated since 5.65, use QSslCipher instead.
+ */
+KIOCORE_DEPRECATED_VERSION(5, 65, "Use QSslCipher")
 class KIOCORE_EXPORT KSslCipher
 {
 public:
@@ -95,7 +106,10 @@ private:
 class KSslErrorPrivate;
 class KTcpSocket;
 
-/** To be replaced by QSslError. */
+/** To be replaced by QSslError.
+ *  @deprecated since 5.65
+ */
+KIOCORE_DEPRECATED_VERSION(5, 65, "Use QSslError")
 class KIOCORE_EXPORT KSslError
 {
 public:
@@ -150,6 +164,10 @@ private:
 class KTcpSocketPrivate;
 class QHostAddress;
 
+/** TCP socket.
+ *  @deprecated since 5.65, use QSslSocket instead.
+ */
+KIOCORE_DEPRECATED_VERSION(5, 65, "Use QSslSocket")
 class KIOCORE_EXPORT KTcpSocket: public QIODevice
 {
     Q_OBJECT
@@ -399,5 +417,7 @@ private:
     friend class KTcpSocketPrivate;
     KTcpSocketPrivate *const d;
 };
+
+#endif // deprecated since 5.65
 
 #endif // KTCPSOCKET_H
