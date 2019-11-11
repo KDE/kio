@@ -20,7 +20,7 @@
 #include "kdirmodel.h"
 #include "kdirlister.h"
 #include "kfileitem.h"
-#include "kio_widgets_debug.h"
+
 #include <klocalizedstring.h>
 #include <kjobuidelegate.h>
 #include <kio/simplejob.h>
@@ -28,6 +28,7 @@
 #include "joburlcache_p.h"
 #include <kurlmimedata.h>
 #include <kiconloader.h>
+
 #include <QMimeData>
 #include <QBitArray>
 #include <QDebug>
@@ -35,6 +36,7 @@
 #include <QFileInfo>
 #include <QDir>
 #include <QIcon>
+#include <QLoggingCategory>
 #include <qplatformdefs.h>
 
 #include <algorithm>
@@ -42,6 +44,8 @@
 #ifdef Q_OS_WIN
 #include <qt_windows.h>
 #endif
+
+static QLoggingCategory category("kf5.kio.kdirmodel", QtInfoMsg);
 
 class KDirModelNode;
 class KDirModelDirNode;
@@ -294,7 +298,7 @@ KDirModelNode *KDirModelPrivate::expandAllParentsUntil(const QUrl &_url) const /
             nodePath += QLatin1Char('/');
         }
         if (!pathStr.startsWith(nodePath)) {
-            qCWarning(KIO_WIDGETS) << "The kioslave for" << url.scheme() << "violates the hierarchy structure:"
+            qCWarning(category) << "The kioslave for" << url.scheme() << "violates the hierarchy structure:"
                        << "I arrived at node" << nodePath << ", but" << pathStr << "does not start with that path.";
             return nullptr;
         }
@@ -329,11 +333,11 @@ KDirModelNode *KDirModelPrivate::expandAllParentsUntil(const QUrl &_url) const /
 #ifndef NDEBUG
 void KDirModelPrivate::dump()
 {
-    qCDebug(KIO_WIDGETS) << "Dumping contents of KDirModel" << q << "dirLister url:" << m_dirLister->url();
+    qCDebug(category) << "Dumping contents of KDirModel" << q << "dirLister url:" << m_dirLister->url();
     QHashIterator<QUrl, KDirModelNode *> it(m_nodeHash);
     while (it.hasNext()) {
         it.next();
-        qDebug(KIO_WIDGETS) << it.key() << it.value();
+        qCDebug(category) << it.key() << it.value();
     }
 }
 #endif
@@ -437,7 +441,7 @@ void KDirModelPrivate::_k_slotNewItems(const QUrl &directoryUrl, const KFileItem
     // If the directory containing the items wasn't found, then we have a big problem.
     // Are you calling KDirLister::openUrl(url,true,false)? Please use expandToUrl() instead.
     if (!result) {
-        qCWarning(KIO_WIDGETS) << "Items emitted in directory" << directoryUrl
+        qCWarning(category) << "Items emitted in directory" << directoryUrl
                    << "but that directory isn't in KDirModel!"
                    << "Root directory:" << urlForNode(m_rootNode);
         for (const KFileItem &item : items) {
@@ -454,17 +458,16 @@ void KDirModelPrivate::_k_slotNewItems(const QUrl &directoryUrl, const KFileItem
     const QModelIndex index = indexForNode(dirNode); // O(n)
     const int newItemsCount = items.count();
     const int newRowCount = dirNode->m_childNodes.count() + newItemsCount;
-#if 0
+
 #ifndef NDEBUG // debugIndex only defined in debug mode
-    //qDebug() << items.count() << "in" << directoryUrl
-            << "index=" << debugIndex(index) << "newRowCount=" << newRowCount;
-#endif
+    qCDebug(category) << items.count() << "in" << directoryUrl
+                      << "index=" << debugIndex(index) << "newRowCount=" << newRowCount;
 #endif
 
     q->beginInsertRows(index, newRowCount - newItemsCount, newRowCount - 1);   // parent, first, last
 
     const QList<QUrl> urlsBeingFetched = m_urlsBeingFetched.value(dirNode);
-    //qDebug() << "urlsBeingFetched for dir" << dirNode << directoryUrl << ":" << urlsBeingFetched;
+    qCDebug(category) << "urlsBeingFetched for dir" << dirNode << directoryUrl << ":" << urlsBeingFetched;
 
     QList<QModelIndex> emitExpandFor;
 
@@ -481,7 +484,7 @@ void KDirModelPrivate::_k_slotNewItems(const QUrl &directoryUrl, const KFileItem
         // not sure if/how it ever happened.
         //if (dirNode->m_childNodes.count() &&
         //    dirNode->m_childNodes.last()->item().name() == (*it).name()) {
-        //    qCWarning(KIO_WIDGETS) << "Already having" << (*it).name() << "in" << directoryUrl
+        //    qCWarning(category) << "Already having" << (*it).name() << "in" << directoryUrl
         //             << "url=" << dirNode->m_childNodes.last()->item().url();
         //    abort();
         //}
@@ -489,7 +492,6 @@ void KDirModelPrivate::_k_slotNewItems(const QUrl &directoryUrl, const KFileItem
         dirNode->m_childNodes.append(node);
         const QUrl url = it->url();
         m_nodeHash.insert(cleanupUrl(url), node);
-        //qDebug() << url;
 
         if (!urlsBeingFetched.isEmpty()) {
             const QUrl &dirUrl = url;
@@ -527,7 +529,7 @@ void KDirModelPrivate::_k_slotCompleted(const QUrl &directoryUrl)
 
 void KDirModelPrivate::_k_slotDeleteItems(const KFileItemList &items)
 {
-    //qDebug() << items.count();
+    qCDebug(category) << items.count() << "items";
 
     // I assume all items are from the same directory.
     // From KDirLister's code, this should be the case, except maybe emitChanges?
@@ -536,7 +538,7 @@ void KDirModelPrivate::_k_slotDeleteItems(const KFileItemList &items)
     QUrl url = item.url();
     KDirModelNode *node = nodeForUrl(url); // O(depth)
     if (!node) {
-        qCWarning(KIO_WIDGETS) << "No node found for item that was just removed:" << url;
+        qCWarning(category) << "No node found for item that was just removed:" << url;
         return;
     }
 
@@ -566,7 +568,7 @@ void KDirModelPrivate::_k_slotDeleteItems(const KFileItemList &items)
             url = item.url();
             node = nodeForUrl(url);
             if (!node) {
-                qCWarning(KIO_WIDGETS) << "No node found for item that was just removed:" << url;
+                qCWarning(category) << "No node found for item that was just removed:" << url;
                 continue;
             }
             if (!node->parent()) {
@@ -1170,7 +1172,7 @@ Qt::ItemFlags KDirModel::flags(const QModelIndex &index) const
         } else {
             KFileItem item = itemForIndex(index);
             if (item.isNull()) {
-                qCWarning(KIO_WIDGETS) << "Invalid item returned for index";
+                qCWarning(category) << "Invalid item returned for index";
             } else if (item.isDir()) {
                 if (d->m_dropsAllowed & DropOnDirectory) {
                     f |= Qt::ItemIsDropEnabled;
