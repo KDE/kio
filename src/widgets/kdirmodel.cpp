@@ -310,7 +310,7 @@ KDirModelNode *KDirModelPrivate::expandAllParentsUntil(const QUrl &_url) const /
         nodeUrl = nodeUrl.adjusted(QUrl::StripTrailingSlash); // #172508
         KDirModelNode *node = nodeForUrl(nodeUrl);
         if (!node) {
-            //qDebug() << "child equal or starting with" << url << "not found";
+            qCDebug(category) << nodeUrl << "not found, needs to be listed";
             // return last parent found:
             return dirNode;
         }
@@ -319,10 +319,10 @@ KDirModelNode *KDirModelPrivate::expandAllParentsUntil(const QUrl &_url) const /
 
         //qDebug() << " nodeUrl=" << nodeUrl;
         if (nodeUrl == url) {
-            //qDebug() << "Found node" << node << "for" << url;
+            qCDebug(category) << "Found node" << node << "for" << url;
             return node;
         }
-        //qDebug() << "going into" << node->item().url();
+        qCDebug(category) << "going into" << node->item().url();
         Q_ASSERT(isDir(node));
         dirNode = static_cast<KDirModelDirNode *>(node);
     }
@@ -370,7 +370,6 @@ KDirModelNode *KDirModelPrivate::nodeForIndex(const QModelIndex &index) const
  * Invalid parent index means root of the tree, m_rootNode
  */
 
-#ifndef NDEBUG
 static QString debugIndex(const QModelIndex &index)
 {
     QString str;
@@ -386,7 +385,6 @@ static QString debugIndex(const QModelIndex &index)
     }
     return str;
 }
-#endif
 
 KDirModel::KDirModel(QObject *parent)
     : QAbstractItemModel(parent),
@@ -459,15 +457,15 @@ void KDirModelPrivate::_k_slotNewItems(const QUrl &directoryUrl, const KFileItem
     const int newItemsCount = items.count();
     const int newRowCount = dirNode->m_childNodes.count() + newItemsCount;
 
-#ifndef NDEBUG // debugIndex only defined in debug mode
     qCDebug(category) << items.count() << "in" << directoryUrl
                       << "index=" << debugIndex(index) << "newRowCount=" << newRowCount;
-#endif
 
     q->beginInsertRows(index, newRowCount - newItemsCount, newRowCount - 1);   // parent, first, last
 
     const QList<QUrl> urlsBeingFetched = m_urlsBeingFetched.value(dirNode);
-    qCDebug(category) << "urlsBeingFetched for dir" << dirNode << directoryUrl << ":" << urlsBeingFetched;
+    if (!urlsBeingFetched.isEmpty()) {
+        qCDebug(category) << "urlsBeingFetched for dir" << dirNode << directoryUrl << ":" << urlsBeingFetched;
+    }
 
     QList<QModelIndex> emitExpandFor;
 
@@ -659,10 +657,7 @@ void KDirModelPrivate::_k_slotRefreshItems(const QList<QPair<KFileItem, KFileIte
             }
         }
     }
-#ifndef NDEBUG // debugIndex only defined in debug mode
     //qDebug() << "dataChanged(" << debugIndex(topLeft) << " - " << debugIndex(bottomRight);
-    Q_UNUSED(debugIndex(QModelIndex())); // fix compiler warning
-#endif
     bottomRight = bottomRight.sibling(bottomRight.row(), q->columnCount(QModelIndex()) - 1);
     emit q->dataChanged(topLeft, bottomRight);
 }
@@ -758,9 +753,7 @@ void KDirModel::itemChanged(const QModelIndex &index)
         node->setPreview(QIcon());
     }
 
-#ifndef NDEBUG // debugIndex only defined in debug mode
-    //qDebug() << "dataChanged(" << debugIndex(index);
-#endif
+    qCDebug(category) << "dataChanged(" << debugIndex(index) << ")";
     emit dataChanged(index, index);
 }
 
@@ -1260,26 +1253,26 @@ void KDirModel::expandToUrl(const QUrl &url)
 {
     // emit expand for each parent and return last parent
     KDirModelNode *result = d->expandAllParentsUntil(url); // O(depth)
-    //qDebug() << url << result;
 
     if (!result) { // doesn't seem related to our base url?
+        qCDebug(category) << url << "does not seem related to our base URL, aborting";
         return;
     }
-    if (!(result->item().isNull()) && result->item().url() == url) {
+    if (!result->item().isNull() && result->item().url() == url) {
         // We have it already, nothing to do
-        //qDebug() << "have it already item=" <<url /*result->item()*/;
+        qCDebug(category) << "we have it already:" << url;
         return;
     }
 
     d->m_urlsBeingFetched[result].append(url);
 
     if (result == d->m_rootNode) {
-        //qDebug() << "Remembering to emit expand after listing the root url";
+        qCDebug(category) << "Remembering to emit expand after listing the root url";
         // the root is fetched by default, so it must be currently being fetched
         return;
     }
 
-    //qDebug() << "Remembering to emit expand after listing" << result->item().url();
+    qCDebug(category) << "Remembering to emit expand after listing" << result->item().url();
 
     // start a new fetch to look for the next level down the URL
     const QModelIndex parentIndex = d->indexForNode(result); // O(n)
