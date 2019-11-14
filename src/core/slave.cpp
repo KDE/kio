@@ -513,7 +513,13 @@ Slave *Slave::createSlave(const QString &protocol, const QUrl &url, int &error, 
             << qlibexec
             << qlibexecKF5
             << QFile::decodeName(CMAKE_INSTALL_FULL_LIBEXECDIR_KF5); // look at our installation location
-        const QString kioslaveExecutable = QStandardPaths::findExecutable(QStringLiteral("kioslave5"), searchPaths);
+        QString kioslaveExecutable = QStandardPaths::findExecutable(QStringLiteral("kioslave5"), searchPaths);
+        if (kioslaveExecutable.isEmpty()) {
+            // Fallback to PATH. On win32 we install to bin/ which tests outside
+            // KIO cannot not find at the time ctest is run because it
+            // isn't the same as applicationDirPath().
+            kioslaveExecutable = QStandardPaths::findExecutable(QStringLiteral("kioslave5"));
+        }
         if (kioslaveExecutable.isEmpty()) {
             error_text = i18n("Can not find 'kioslave5' executable at '%1'", searchPaths.join(QLatin1String(", ")));
             error = KIO::ERR_CANNOT_CREATE_SLAVE;
