@@ -39,6 +39,8 @@
 #include <QFileInfo>
 #include <QDir>
 #include <QPointer>
+#include <QThread>
+#include <QMetaObject>
 
 #include "job_p.h"
 
@@ -58,13 +60,31 @@ enum DeleteJobState {
     DELETEJOB_STATE_DELETING_DIRS
 };
 
-/*
-static const char* const s_states[] = {
-    "DELETEJOB_STATE_STATING",
-    "DELETEJOB_STATE_DELETING_FILES",
-    "DELETEJOB_STATE_DELETING_DIRS"
+class DeleteJobIOWorker : public QObject {
+    Q_OBJECT
+
+Q_SIGNALS:
+    void rmfileResult(bool succeeded, bool isLink);
+    void rmddirResult(bool succeeded);
+
+public Q_SLOTS:
+
+    /**
+     * Deletes the file @p url points to
+     * The file must be a LocalFile
+     */
+    void rmfile(const QUrl& url, bool isLink) {
+        emit rmfileResult(QFile::remove(url.toLocalFile()), isLink);
+    }
+
+    /**
+     * Deletes the directory @p url points to
+     * The directory must be a LocalFile
+     */
+    void rmdir(const QUrl& url) {
+        emit rmddirResult(QDir().rmdir(url.toLocalFile()));
+    }
 };
-*/
 
 class DeleteJobPrivate: public KIO::JobPrivate
 {
@@ -91,8 +111,11 @@ public:
     QList<QUrl>::iterator m_currentStat;
     QSet<QString> m_parentDirs;
     QTimer *m_reportTimer;
+    DeleteJobIOWorker *m_ioworker = nullptr;
+    QThread *m_thread = nullptr;
 
     void statNextSrc();
+    DeleteJobIOWorker* worker();
     void currentSourceStated(bool isDir, bool isLink);
     void finishedStatPhase();
     void deleteNextFile();
@@ -101,6 +124,16 @@ public:
     void slotReport();
     void slotStart();
     void slotEntries(KIO::Job *, const KIO::UDSEntryList &list);
+
+
+    /// Callback of worker rmfile
+    void rmFileResult(bool result, bool isLink);
+    /// Callback of worker rmdir
+    void rmdirResult(bool result);
+    void deleteFileUsingJob(const QUrl& url, bool isLink);
+    void deleteDirUsingJob(const QUrl& url);
+
+    ~DeleteJobPrivate();
 
     Q_DECLARE_PUBLIC(DeleteJob)
 
@@ -138,6 +171,14 @@ DeleteJob::~DeleteJob()
 {
 }
 
+DeleteJobPrivate::~DeleteJobPrivate()
+{
+    if (m_thread) {
+        m_thread->quit();
+        m_thread->wait();
+    }
+}
+
 QList<QUrl> DeleteJob::urls() const
 {
     return d_func()->m_srcList;
@@ -146,6 +187,28 @@ QList<QUrl> DeleteJob::urls() const
 void DeleteJobPrivate::slotStart()
 {
     statNextSrc();
+}
+
+DeleteJobIOWorker* DeleteJobPrivate::worker()
+{
+    Q_Q(DeleteJob);
+
+    if (!m_ioworker) {
+        m_thread = new QThread();
+
+        m_ioworker = new DeleteJobIOWorker;
+        m_ioworker->moveToThread(m_thread);
+        QObject::connect(m_thread, &QThread::finished, m_ioworker, &QObject::deleteLater);
+        QObject::connect(m_ioworker, &DeleteJobIOWorker::rmfileResult, q, [=](bool result, bool isLink){
+            this->rmFileResult(result, isLink);
+        });
+        QObject::connect(m_ioworker, &DeleteJobIOWorker::rmddirResult, q, [=](bool result){
+            this->rmdirResult(result);
+        });
+        m_thread->start();
+    }
+
+    return m_ioworker;
 }
 
 void DeleteJobPrivate::slotReport()
@@ -279,85 +342,125 @@ void DeleteJobPrivate::finishedStatPhase()
     deleteNextFile();
 }
 
-void DeleteJobPrivate::deleteNextFile()
+
+void DeleteJobPrivate::rmFileResult(bool result, bool isLink)
+{
+    if (result) {
+        m_processedFiles++;
+
+        if (isLink) {
+            symlinks.removeFirst();
+        } else {
+            files.removeFirst();
+        }
+
+        deleteNextFile();
+    } else {
+        // fallback if QFile::remove() failed (we'll use the job's error handling in that case)
+        deleteFileUsingJob(m_currentURL, isLink);
+    }
+}
+
+void DeleteJobPrivate::deleteFileUsingJob(const QUrl &url, bool isLink)
 {
     Q_Q(DeleteJob);
-    //qDebug();
-    if (!files.isEmpty() || !symlinks.isEmpty()) {
-        SimpleJob *job;
-        do {
-            // Take first file to delete out of list
-            QList<QUrl>::iterator it = files.begin();
-            bool isLink = false;
-            if (it == files.end()) { // No more files
-                it = symlinks.begin(); // Pick up a symlink to delete
-                isLink = true;
-            }
-            // Normal deletion
-            // If local file, try do it directly
-            if ((*it).isLocalFile() && QFile::remove((*it).toLocalFile())) {
-                //kdDebug(7007) << "DeleteJob deleted" << (*it).toLocalFile();
-                job = nullptr;
-                m_processedFiles++;
-                if (m_processedFiles % 300 == 1 || m_totalFilesDirs < 300) {  // update progress info every 300 files
-                    m_currentURL = *it;
-                    slotReport();
-                }
-            } else {
-                // if remote - or if unlink() failed (we'll use the job's error handling in that case)
-                //qDebug() << "calling file_delete on" << *it;
-                if (isHttpProtocol(it->scheme())) {
-                    job = KIO::http_delete(*it, KIO::HideProgressInfo);
-                } else {
-                    job = KIO::file_delete(*it, KIO::HideProgressInfo);
-                    job->setParentJob(q);
-                }
-                Scheduler::setJobPriority(job, 1);
-                m_currentURL = (*it);
-            }
-            if (isLink) {
-                symlinks.erase(it);
-            } else {
-                files.erase(it);
-            }
-            if (job) {
-                q->addSubjob(job);
-                return;
-            }
-            // loop only if direct deletion worked (job=0) and there is something else to delete
-        } while (!job && (!files.isEmpty() || !symlinks.isEmpty()));
+
+    SimpleJob *job;
+    if (isHttpProtocol(url.scheme())) {
+        job = KIO::http_delete(url, KIO::HideProgressInfo);
+    } else {
+        job = KIO::file_delete(url, KIO::HideProgressInfo);
+        job->setParentJob(q);
     }
+    Scheduler::setJobPriority(job, 1);
+
+    if (isLink) {
+        symlinks.removeFirst();
+    } else {
+        files.removeFirst();
+    }
+
+    q->addSubjob(job);
+}
+
+void DeleteJobPrivate::deleteNextFile()
+{
+    //qDebug();
+
+    // if there is something else to delete
+    // the loop is run using callbacks slotResult and rmFileResult
+    if (!files.isEmpty() || !symlinks.isEmpty()) {
+
+        // Take first file to delete out of list
+        QList<QUrl>::iterator it = files.begin();
+        const bool isLink = (it == files.end()); // No more files
+        if (isLink) {
+            it = symlinks.begin(); // Pick up a symlink to delete
+        }
+        m_currentURL = (*it);
+
+        // If local file, try do it directly
+        if (m_currentURL.isLocalFile()) {
+            // separate thread will do the work
+            QMetaObject::invokeMethod(worker(), "rmfile", Qt::QueuedConnection,
+                                      Q_ARG(const QUrl&, m_currentURL),
+                                      Q_ARG(bool, isLink));
+        } else {
+            // if remote, use a job
+            deleteFileUsingJob(m_currentURL, isLink);
+        }
+        return;
+    }
+
     state = DELETEJOB_STATE_DELETING_DIRS;
     deleteNextDir();
+}
+
+void DeleteJobPrivate::rmdirResult(bool result)
+{
+    if (result) {
+        m_processedDirs++;
+        dirs.removeLast();
+        deleteNextDir();
+    } else {
+        // fallback
+        deleteDirUsingJob(m_currentURL);
+    }
+}
+
+void DeleteJobPrivate::deleteDirUsingJob(const QUrl &url)
+{
+    Q_Q(DeleteJob);
+
+    // Call rmdir - works for kioslaves with canDeleteRecursive too,
+    // CMD_DEL will trigger the recursive deletion in the slave.
+    SimpleJob *job = KIO::rmdir(url);
+    job->setParentJob(q);
+    job->addMetaData(QStringLiteral("recurse"), QStringLiteral("true"));
+    Scheduler::setJobPriority(job, 1);
+    dirs.removeLast();
+    q->addSubjob(job);
 }
 
 void DeleteJobPrivate::deleteNextDir()
 {
     Q_Q(DeleteJob);
+
     if (!dirs.isEmpty()) { // some dirs to delete ?
-        do {
-            // Take first dir to delete out of list - last ones first !
-            QList<QUrl>::iterator it = --dirs.end();
-            // If local dir, try to rmdir it directly
-            if ((*it).isLocalFile() && QDir().rmdir((*it).toLocalFile())) {
-                m_processedDirs++;
-                if (m_processedDirs % 100 == 1) {   // update progress info every 100 dirs
-                    m_currentURL = *it;
-                    slotReport();
-                }
-            } else {
-                // Call rmdir - works for kioslaves with canDeleteRecursive too,
-                // CMD_DEL will trigger the recursive deletion in the slave.
-                SimpleJob *job = KIO::rmdir(*it);
-                job->setParentJob(q);
-                job->addMetaData(QStringLiteral("recurse"), QStringLiteral("true"));
-                Scheduler::setJobPriority(job, 1);
-                dirs.erase(it);
-                q->addSubjob(job);
-                return;
-            }
-            dirs.erase(it);
-        } while (!dirs.isEmpty());
+
+        // the loop is run using callbacks slotResult and rmdirResult
+        // Take first dir to delete out of list - last ones first !
+        QList<QUrl>::iterator it = --dirs.end();
+        m_currentURL = (*it);
+        // If local dir, try to rmdir it directly
+        if (m_currentURL.isLocalFile()) {
+            // delete it on separate worker thread
+            QMetaObject::invokeMethod(worker(), "rmdir", Qt::QueuedConnection,
+                                      Q_ARG(const QUrl&, m_currentURL));
+        } else {
+            deleteDirUsingJob(m_currentURL);
+        }
+        return;
     }
 
     // Re-enable watching on the dirs that held the deleted files
@@ -511,4 +614,5 @@ DeleteJob *KIO::del(const QList<QUrl> &src, JobFlags flags)
     return job;
 }
 
+#include "deletejob.moc"
 #include "moc_deletejob.cpp"
