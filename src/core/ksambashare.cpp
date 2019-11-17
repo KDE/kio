@@ -25,6 +25,7 @@
 
 #include <QMap>
 #include <QFile>
+#include <QHostInfo>
 #include <QLoggingCategory>
 #include <QRegExp>
 #include <QFileInfo>
@@ -144,12 +145,33 @@ QString KSambaSharePrivate::testparmParamValue(const QString &parameterName)
     if (!stdErr.isEmpty()) {
         QList<QByteArray> err;
         err << stdErr.trimmed().split('\n');
-        if ((err.count() == 2)
-                && err.at(0).startsWith("Load smb config files from")
-                && err.at(1).startsWith("Loaded services file OK.")) {
-            //qDebug() << "Running testparm" << args;
-        } else {
-            qCWarning(KIO_CORE) << "We got some errors while running testparm" << stdErr;
+        // ignore first two lines
+        if (err.count() > 0 && err.at(0).startsWith("Load smb config files from")) {
+            err.removeFirst();
+        }
+        if (err.count() > 0 && err.at(0).startsWith("Loaded services file OK.")) {
+            err.removeFirst();
+        }
+        if (err.count() > 0 && err.at(0).startsWith("WARNING: The 'netbios name' is too long (max. 15 chars).")) {
+            // netbios name must be of at most 15 characters long
+            // means either netbios name is badly configured
+            // or not set and the default value is being used , it being "$(hostname)-W"
+            // which means any hostname longer than 13 caracters will cause this warning
+            // when no netbios name was defined
+            // See https://www.novell.com/documentation/open-enterprise-server-2018/file_samba_cifs_lx/data/bc855e3.html
+            const QString defaultNetbiosName = QHostInfo::localHostName().append(QStringLiteral("-W"));
+            if (defaultNetbiosName.length() > 14) {
+                qCWarning(KIO_CORE) << "Your samba 'netbios name' parameter was longer than the authorized 15 characters.\n"
+                                    << "It may be because your hostname is longer than 13 and samba default 'netbios name' defaults to 'hostname-W', here:" << defaultNetbiosName<< "\n"
+                                    << "If that it is the case simply define a 'netbios name' parameter in /etc/samba/smb.conf at most 15 characters long";
+            } else {
+                qCWarning(KIO_CORE) << "Your samba 'netbios name' parameter was longer than the authorized 15 characters."
+                                    << "Please define a 'netbios name' parameter in /etc/samba/smb.conf at most 15 characters long";
+            }
+            err.removeFirst();
+        }
+        if (err.count() > 0) {
+            qCWarning(KIO_CORE) << "We got some errors while running testparm" << err.join("\n");
         }
     }
 
