@@ -44,8 +44,7 @@ class KSslKeyPrivate;
 /** SSL Key
  *  @deprecated since 5.65, use QSslKey instead.
  */
-KIOCORE_DEPRECATED_VERSION(5, 65, "Use QSslKey")
-class KIOCORE_EXPORT KSslKey
+class KIOCORE_DEPRECATED_VERSION(5, 65, "Use QSslKey") KIOCORE_EXPORT KSslKey
 {
 public:
     enum Algorithm {
@@ -77,8 +76,7 @@ class KSslCipherPrivate;
 /** SSL Cipher
  *  @deprecated since 5.65, use QSslCipher instead.
  */
-KIOCORE_DEPRECATED_VERSION(5, 65, "Use QSslCipher")
-class KIOCORE_EXPORT KSslCipher
+class KIOCORE_DEPRECATED_VERSION(5, 65, "Use QSslCipher") KIOCORE_EXPORT KSslCipher
 {
 public:
     KSslCipher();
@@ -109,8 +107,7 @@ class KTcpSocket;
 /** To be replaced by QSslError.
  *  @deprecated since 5.65
  */
-KIOCORE_DEPRECATED_VERSION(5, 65, "Use QSslError")
-class KIOCORE_EXPORT KSslError
+class KIOCORE_DEPRECATED_VERSION(5, 65, "Use QSslError") KIOCORE_EXPORT KSslError
 {
 public:
     enum Error {
@@ -167,8 +164,7 @@ class QHostAddress;
 /** TCP socket.
  *  @deprecated since 5.65, use QSslSocket instead.
  */
-KIOCORE_DEPRECATED_VERSION(5, 65, "Use QSslSocket")
-class KIOCORE_EXPORT KTcpSocket: public QIODevice
+class KIOCORE_DEPRECATED_VERSION(5, 65, "Use QSslSocket") KIOCORE_EXPORT KTcpSocket: public QIODevice
 {
     Q_OBJECT
 public:
