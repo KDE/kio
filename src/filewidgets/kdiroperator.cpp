@@ -1933,7 +1933,8 @@ void KDirOperator::setupActions()
     QAction *upAction = d->actionCollection->addAction(KStandardAction::Up, QStringLiteral("up"), this, SLOT(cdUp()));
     upAction->setText(i18n("Parent Folder"));
 
-    d->actionCollection->addAction(KStandardAction::Back, QStringLiteral("back"), this, SLOT(back()));
+    QAction *backAction = d->actionCollection->addAction(KStandardAction::Back, QStringLiteral("back"), this, SLOT(back()));
+    backAction->setShortcut(Qt::Key_Backspace);
 
     d->actionCollection->addAction(KStandardAction::Forward, QStringLiteral("forward"), this, SLOT(forward()));
 
