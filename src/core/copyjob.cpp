@@ -54,7 +54,6 @@
 #include <QTimer>
 #include <QFile>
 #include <QFileInfo>
-#include <QLinkedList>
 #include <sys/stat.h> // mode_t
 #include <QPointer>
 
@@ -63,6 +62,7 @@
 #include <kfilesystemtype.h>
 #include <kfileutils.h>
 
+#include <list>
 
 #include <QLoggingCategory>
 Q_DECLARE_LOGGING_CATEGORY(KIO_COPYJOB_DEBUG)
@@ -175,8 +175,8 @@ public:
     bool m_bURLDirty;
     // Used after copying all the files into the dirs, to set mtime (TODO: and permissions?)
     // after the copy is done
-    QLinkedList<CopyInfo> m_directoriesCopied;
-    QLinkedList<CopyInfo>::const_iterator m_directoriesCopiedIterator;
+    std::list<CopyInfo> m_directoriesCopied;
+    std::list<CopyInfo>::const_iterator m_directoriesCopiedIterator;
 
     CopyJob::CopyMode m_mode;
     bool m_asMethod;
@@ -1155,7 +1155,7 @@ void CopyJobPrivate::slotResultCreatingDirs(KJob *job)
     } else { // no error : remove from list, to move on to next dir
         //this is required for the undo feature
         emit q->copyingDone(q, (*it).uSource, finalDestUrl((*it).uSource, (*it).uDest), (*it).mtime, true, false);
-        m_directoriesCopied.append(*it);
+        m_directoriesCopied.push_back(*it);
         dirs.erase(it);
     }
 
@@ -1774,7 +1774,7 @@ void CopyJobPrivate::deleteNextDir()
     } else {
         // This step is done, move on
         state = STATE_SETTING_DIR_ATTRIBUTES;
-        m_directoriesCopiedIterator = m_directoriesCopied.constBegin();
+        m_directoriesCopiedIterator = m_directoriesCopied.cbegin();
         setNextDirAttribute();
     }
 }
@@ -1782,11 +1782,11 @@ void CopyJobPrivate::deleteNextDir()
 void CopyJobPrivate::setNextDirAttribute()
 {
     Q_Q(CopyJob);
-    while (m_directoriesCopiedIterator != m_directoriesCopied.constEnd() &&
+    while (m_directoriesCopiedIterator != m_directoriesCopied.cend() &&
             !(*m_directoriesCopiedIterator).mtime.isValid()) {
         ++m_directoriesCopiedIterator;
     }
-    if (m_directoriesCopiedIterator != m_directoriesCopied.constEnd()) {
+    if (m_directoriesCopiedIterator != m_directoriesCopied.cend()) {
         const QUrl url = (*m_directoriesCopiedIterator).uDest;
         const QDateTime dt = (*m_directoriesCopiedIterator).mtime;
         ++m_directoriesCopiedIterator;
