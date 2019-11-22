@@ -317,7 +317,7 @@ void FtpInternal::setHost(const QString &_host, quint16 _port, const QString &_u
     qCDebug(KIO_FTP) << _host << "port=" << _port << "user=" << _user;
 
     m_proxyURL.clear();
-    m_proxyUrls = q->mapConfig().value(QStringLiteral("ProxyUrls"), QStringList()).toStringList();
+    m_proxyUrls = q->mapConfig().value(QStringLiteral("ProxyUrls"), QString()).toString().split(QLatin1Char(','));
     qCDebug(KIO_FTP) << "proxy urls:" << m_proxyUrls;
 
     if (m_host != _host || m_port != _port ||
