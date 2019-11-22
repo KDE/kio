@@ -35,8 +35,9 @@
 #include <QFile>
 #include <QTextStream>
 #include <QDir>
-#include <QLinkedList>
 #include <qmimedatabase.h>
+
+#include <list>
 
 #include <QLoggingCategory>
 Q_DECLARE_LOGGING_CATEGORY(KIO_CORE_DIRLISTER)
@@ -1542,7 +1543,7 @@ void KCoreDirListerCache::renameDir(const QUrl &oldUrl, const QUrl &newUrl)
     //DirItem *dir = itemsInUse.take( oldUrlStr );
     //emitRedirections( oldUrl, url );
 
-    QLinkedList<ItemInUseChange> itemsToChange;
+    QVector<ItemInUseChange> itemsToChange;
     QSet<KCoreDirLister *> listers;
 
     // Look at all dirs being listed/shown
