@@ -1543,7 +1543,7 @@ void KCoreDirListerCache::renameDir(const QUrl &oldUrl, const QUrl &newUrl)
     //DirItem *dir = itemsInUse.take( oldUrlStr );
     //emitRedirections( oldUrl, url );
 
-    QVector<ItemInUseChange> itemsToChange;
+    std::vector<ItemInUseChange> itemsToChange;
     QSet<KCoreDirLister *> listers;
 
     // Look at all dirs being listed/shown
@@ -1565,9 +1565,9 @@ void KCoreDirListerCache::renameDir(const QUrl &oldUrl, const QUrl &newUrl)
             // Update URL in dir item and in itemsInUse
             dir->redirect(newDirUrl);
 
-            itemsToChange.append(ItemInUseChange(oldDirUrl.adjusted(QUrl::StripTrailingSlash),
-                                                 newDirUrl.adjusted(QUrl::StripTrailingSlash),
-                                                 dir));
+            itemsToChange.emplace_back(oldDirUrl.adjusted(QUrl::StripTrailingSlash),
+                                       newDirUrl.adjusted(QUrl::StripTrailingSlash),
+                                       dir);
             // Rename all items under that dir
             // If all items of the directory change the same part of their url, the order is not
             // changed, therefore just change it in the list.
@@ -1593,12 +1593,12 @@ void KCoreDirListerCache::renameDir(const QUrl &oldUrl, const QUrl &newUrl)
 
     // Do the changes to itemsInUse out of the loop to avoid messing up iterators,
     // and so that emitRefreshItem can find the stuff in the hash.
-    for (const ItemInUseChange &i : qAsConst(itemsToChange)) {
+    for (const ItemInUseChange &i : itemsToChange) {
         itemsInUse.remove(i.oldUrl);
         itemsInUse.insert(i.newUrl, i.dirItem);
     }
     //Now that all the caches are updated and consistent, emit the redirection.
-    for (const ItemInUseChange& i : qAsConst(itemsToChange)) {
+    for (const ItemInUseChange& i : itemsToChange) {
         emitRedirections(QUrl(i.oldUrl), QUrl(i.newUrl));
     }
     // Is oldUrl a directory in the cache?
