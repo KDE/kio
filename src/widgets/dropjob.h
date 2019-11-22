@@ -107,7 +107,7 @@ private:
  * which is then implemented by the job, using KIO::move, KIO::copy or KIO::link
  * Additional actions provided by the application or by plugins can be shown in the popup.
  *
- * If the mime data contains other data than URLs, it is saved into a file after asking
+ * If the mime data contains data other than URLs, it is saved into a file after asking
  * the user to choose a filename and the preferred data format.
  *
  * This job takes care of recording the subjob in the FileUndoManager, and emits
