@@ -120,15 +120,6 @@ public:
         : m_slave(nullptr), m_packedArgs(packedArgs), m_url(url), m_command(command),
           m_checkOnHold(false), m_schedSerial(0), m_redirectionHandlingEnabled(true)
     {
-#if 0
-        if (m_url.hasSubUrl()) {
-            QList<QUrl> list = KUrl::split(m_url);
-            list.removeLast();
-            m_subUrl = KUrl::join(list);
-            //qDebug() << "New URL = "  << m_url.url();
-            //qDebug() << "Sub URL = "  << m_subUrl.url();
-        }
-#endif
     }
 
     Slave *m_slave;

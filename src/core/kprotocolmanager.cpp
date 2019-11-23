@@ -646,13 +646,6 @@ static void extractProxyCacheKeyFromUrl(const QUrl &u, QString *key)
 
 QString KProtocolManager::slaveProtocol(const QUrl &url, QStringList &proxyList)
 {
-#if 0
-    if (url.hasSubUrl()) { // We don't want the suburl's protocol
-        const QUrl::List list = QUrl::split(url);
-        return slaveProtocol(list.last(), proxyList);
-    }
-#endif
-
     proxyList.clear();
 
     // Do not perform a proxy lookup for any url classified as a ":local" url or
