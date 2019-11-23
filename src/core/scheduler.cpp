@@ -683,6 +683,10 @@ public:
         }
         qDeleteAll(m_protocols);
     }
+
+    SchedulerPrivate(const SchedulerPrivate &) = delete;
+    SchedulerPrivate &operator=(const SchedulerPrivate &) = delete;
+
     Scheduler *q;
 
     Slave *m_slaveOnHold;
@@ -789,7 +793,7 @@ Scheduler::Scheduler()
     const QString dbusInterface = QStringLiteral("org.kde.KIO.Scheduler");
     QDBusConnection dbus = QDBusConnection::sessionBus();
     // Not needed, right? We just want to emit two signals.
-    //dbus.registerObject("/KIO/Scheduler", this, QDBusConnection::ExportScriptableSlots |
+    //dbus.registerObject(dbusPath, this, QDBusConnection::ExportScriptableSlots |
     //                    QDBusConnection::ExportScriptableSignals);
     dbus.connect(QString(), dbusPath, dbusInterface, QStringLiteral("reparseSlaveConfiguration"),
                  this, SLOT(slotReparseSlaveConfiguration(QString,QDBusMessage)));
