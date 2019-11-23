@@ -2161,7 +2161,7 @@ bool HTTPProtocol::httpOpenConnection()
 
     // Get proxy information...
     if (m_request.proxyUrls.isEmpty()) {
-        m_request.proxyUrls = mapConfig().value(QStringLiteral("ProxyUrls"), QString()).toString().split(QLatin1Char(','));
+        m_request.proxyUrls = mapConfig().value(QStringLiteral("ProxyUrls"), QString()).toString().split(QLatin1Char(','), QString::SkipEmptyParts);
         qCDebug(KIO_HTTP) << "Proxy URLs:" << m_request.proxyUrls;
     }
 
