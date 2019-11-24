@@ -1,8 +1,5 @@
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/.. ${CMAKE_CURRENT_BINARY_DIR}/.. )
 
-remove_definitions(-DQT_NO_CAST_FROM_ASCII)
-remove_definitions(-DQT_NO_CAST_FROM_BYTEARRAY)
-
 set (kpasswdserver_test_SRCS
  kpasswdservertest.cpp
  ../kpasswdserver.cpp

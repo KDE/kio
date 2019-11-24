@@ -20,9 +20,6 @@
     Boston, MA 02110-1301, USA.
 */
 
-// TODO: remove me
-#undef QT_NO_CAST_FROM_ASCII
-
 #include "kencodingfiledialog.h"
 
 #include "kfilewidget.h"
@@ -88,7 +85,7 @@ KEncodingFileDialog::KEncodingFileDialog(const QUrl &startDir,
 
     d->encoding->clear();
     QString sEncoding = encoding;
-    QString systemEncoding = QTextCodec::codecForLocale()->name();
+    QString systemEncoding = QLatin1String(QTextCodec::codecForLocale()->name());
     if (sEncoding.isEmpty() || sEncoding == QLatin1String("System")) {
         sEncoding = systemEncoding;
     }
@@ -102,12 +99,13 @@ KEncodingFileDialog::KEncodingFileDialog(const QUrl &startDir,
 
         if (found) {
             d->encoding->addItem(encoding);
-            if ((codecForEnc->name() == sEncoding) || (encoding == sEncoding)) {
+            const QString codecName = QLatin1String(codecForEnc->name());
+            if ((codecName == sEncoding) || (encoding == sEncoding)) {
                 d->encoding->setCurrentIndex(insert);
                 foundRequested = true;
             }
 
-            if ((codecForEnc->name() == systemEncoding) || (encoding == systemEncoding)) {
+            if ((codecName == systemEncoding) || (encoding == systemEncoding)) {
                 system = insert;
             }
             insert++;

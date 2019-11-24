@@ -24,9 +24,6 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-// TODO: remove me
-#undef QT_NO_CAST_FROM_ASCII
-
 // Own
 #include "kcookiespolicies.h"
 
@@ -177,7 +174,7 @@ void KCookiesPolicies::changePressed(QTreeWidgetItem* item, bool state)
 
     KCookiesPolicySelectionDlg pdlg (this);
     pdlg.setWindowTitle (i18nc ("@title:window", "Change Cookie Policy"));
-    pdlg.setPolicy (KCookieAdvice::strToAdvice (mDomainPolicyMap.value(oldDomain)));
+    pdlg.setPolicy (KCookieAdvice::strToAdvice(QString::fromLatin1(mDomainPolicyMap.value(oldDomain))));
     pdlg.setEnableHostEdit (state, oldDomain);
 
     if (pdlg.exec() && !pdlg.domain().isEmpty()) {
@@ -366,14 +363,15 @@ void KCookiesPolicies::save()
     group.writeEntry ("AcceptSessionCookies", state);
 
     QString advice;
-    if (mUi.rbPolicyAccept->isChecked())
-        advice = KCookieAdvice::adviceToStr (KCookieAdvice::Accept);
-    else if (mUi.rbPolicyAcceptForSession->isChecked())
-        advice = KCookieAdvice::adviceToStr (KCookieAdvice::AcceptForSession);
-    else if (mUi.rbPolicyReject->isChecked())
-        advice = KCookieAdvice::adviceToStr (KCookieAdvice::Reject);
-    else
-        advice = KCookieAdvice::adviceToStr (KCookieAdvice::Ask);
+    if (mUi.rbPolicyAccept->isChecked()) {
+        advice = QString::fromLatin1(KCookieAdvice::adviceToStr(KCookieAdvice::Accept));
+    } else if (mUi.rbPolicyAcceptForSession->isChecked()) {
+         advice = QString::fromLatin1(KCookieAdvice::adviceToStr(KCookieAdvice::AcceptForSession));
+    } else if (mUi.rbPolicyReject->isChecked()) {
+        advice = QString::fromLatin1(KCookieAdvice::adviceToStr(KCookieAdvice::Reject));
+    } else {
+        advice = QString::fromLatin1(KCookieAdvice::adviceToStr(KCookieAdvice::Ask));
+    }
 
     group.writeEntry ("CookieGlobalAdvice", advice);
 
@@ -381,7 +379,7 @@ void KCookiesPolicies::save()
     QMapIterator<QString, const char*> it (mDomainPolicyMap);
     while (it.hasNext()) {
         it.next();
-        const QString policy = tolerantToAce(it.key()) + QLatin1Char(':') + QLatin1String(it.value());
+        const QString policy = QLatin1String(tolerantToAce(it.key())) + QLatin1Char(':') + QLatin1String(it.value());
         domainConfig << policy;
     }
 

@@ -301,7 +301,7 @@ private Q_SLOTS:
         QList<KIO::AuthInfo> authInfos;
         for (int i=0; i < 10; ++i) {
            KIO::AuthInfo info;
-           info.url = QUrl("http://www.example.com/test" + QString::number(i) + ".html");
+           info.url = QUrl(QLatin1String("http://www.example.com/test") + QString::number(i) + QLatin1String(".html"));
            authInfos << info;
         }
 
@@ -322,7 +322,7 @@ private Q_SLOTS:
         QList<KIO::AuthInfo> authInfos;
         for (int i=0; i < 10; ++i) {
            KIO::AuthInfo info;
-           info.url = QUrl("http://www.example.com/test" + QString::number(i) + ".html");
+           info.url = QUrl(QLatin1String("http://www.example.com/test") + QString::number(i) + QStringLiteral(".html"));
            authInfos << info;
         }
 

@@ -318,15 +318,15 @@ KBookmark KFilePlacesItem::createBookmark(KBookmarkManager *manager,
 }
 
 KBookmark KFilePlacesItem::createSystemBookmark(KBookmarkManager *manager,
-        const QString &translationContext,
-        const QString &untranslatedLabel,
+        const char *translationContext,
+        const QByteArray &untranslatedLabel,
         const QUrl &url,
         const QString &iconName)
 {
     Q_UNUSED(translationContext); // parameter is only necessary to force the caller
     // to provide a marked-for-translation string for the label, with context
 
-    KBookmark bookmark = createBookmark(manager, untranslatedLabel, url, iconName);
+    KBookmark bookmark = createBookmark(manager, QString::fromUtf8(untranslatedLabel), url, iconName);
     if (!bookmark.isNull()) {
         bookmark.setMetaDataItem(QStringLiteral("isSystemItem"), QStringLiteral("true"));
     }
@@ -349,7 +349,7 @@ KBookmark KFilePlacesItem::createDeviceBookmark(KBookmarkManager *manager,
 KBookmark KFilePlacesItem::createTagBookmark(KBookmarkManager *manager,
         const QString &tag)
 {
-    KBookmark bookmark = createSystemBookmark(manager, tag, tag, QUrl(QLatin1String("tags:/") + tag), QLatin1String("tag"));
+    KBookmark bookmark = createSystemBookmark(manager, tag.toUtf8().data(), tag.toUtf8(), QUrl(QLatin1String("tags:/") + tag), QLatin1String("tag"));
     bookmark.setMetaDataItem(QStringLiteral("tag"), tag);
     bookmark.setMetaDataItem(QStringLiteral("isSystemItem"), QStringLiteral("true"));
 

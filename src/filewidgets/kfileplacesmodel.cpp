@@ -18,9 +18,6 @@
 
 */
 
-// TODO: remove me
-#undef QT_NO_CAST_FROM_ASCII
-
 #include "kfileplacesmodel.h"
 #include "kfileplacesitem_p.h"
 
@@ -184,7 +181,9 @@ public:
                     }
 
                     if (!existingBookmarks.contains(QUrl(tagsUrlBase))) {
-                        KBookmark alltags = KFilePlacesItem::createSystemBookmark(bookmarkManager, QStringLiteral("All tags"), i18n("All tags"), QUrl(tagsUrlBase), QStringLiteral("tag"));
+                        KBookmark alltags = KFilePlacesItem::createSystemBookmark(bookmarkManager, "All tags"
+                                                                                  , i18n("All tags").toUtf8().data()
+                                                                                  , QUrl(tagsUrlBase), QStringLiteral("tag"));
                     }
                 }
 
@@ -276,7 +275,6 @@ KFilePlacesModel::KFilePlacesModel(const QString &alternativeApplicationName, QO
     };
 
     if (root.first().isNull() || !QFile::exists(file)) {
-
         // NOTE: The context for these I18NC_NOOP calls has to be "KFile System Bookmarks".
         // The real i18nc call is made later, with this context, so the two must match.
         // createSystemBookmark actually does nothing with its second argument, the context,
@@ -342,7 +340,7 @@ KFilePlacesModel::KFilePlacesModel(const QString &alternativeApplicationName, QO
         setDefaultMetadataItemForGroup(RecentlySavedType);
 
         // Move The recently used bookmarks below the trash, making it the first element in the Recent group
-        KBookmark trashBookmark = bookmarkForUrl(QUrl("trash:/"));
+        KBookmark trashBookmark = bookmarkForUrl(QUrl(QStringLiteral("trash:/")));
         if (!trashBookmark.isNull()) {
             root.moveBookmark(recentFilesBookmark, trashBookmark);
             root.moveBookmark(recentDirectoriesBookmark, recentFilesBookmark);

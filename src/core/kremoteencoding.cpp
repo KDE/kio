@@ -16,9 +16,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-// TODO: remove me
-#undef QT_NO_CAST_FROM_BYTEARRAY
-
 #include "kremoteencoding.h"
 
 #include <kstringhandler.h>
@@ -97,7 +94,8 @@ QByteArray KRemoteEncoding::fileName(const QUrl &url) const
 
 const char *KRemoteEncoding::encoding() const
 {
-    return d->m_codec->name();
+    // KF6 TODO: return QByteArray
+    return d->m_codec->name().constData();
 }
 
 int KRemoteEncoding::encodingMib() const

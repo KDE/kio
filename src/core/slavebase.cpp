@@ -21,9 +21,6 @@
  *
  **/
 
-// TODO: remove me
-#undef QT_NO_CAST_FROM_ASCII
-
 #include "slavebase.h"
 
 #include <config-kiocore.h>
@@ -210,7 +207,7 @@ public:
         KIO_STATE_ASSERT(finalState(),
                          Q_FUNC_INFO,
                          qUtf8Printable(QStringLiteral("%1 did not call finished() or error()! Please fix the %2 KIO slave")
-                                        .arg(cmdName)
+                                        .arg(QLatin1String(cmdName))
                                         .arg(QCoreApplication::applicationName())));
         // Force the command into finished state. We'll not reach this for Debug builds
         // that fail the assertion. For Release builds we'll have made sure that the
@@ -226,7 +223,7 @@ public:
         KIO_STATE_ASSERT(!finalState(),
                          Q_FUNC_INFO,
                          qUtf8Printable(QStringLiteral("%1 called finished() or error(), but it's not supposed to! Please fix the %2 KIO slave")
-                                        .arg(cmdName)
+                                        .arg(QLatin1String(cmdName))
                                         .arg(QCoreApplication::applicationName())));
     }
 
@@ -903,49 +900,49 @@ KIOCORE_EXPORT QString KIO::unsupportedActionErrorString(const QString &protocol
 
 void SlaveBase::openConnection()
 {
-    error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(mProtocol, CMD_CONNECT));
+    error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(protocolName(), CMD_CONNECT));
 }
 void SlaveBase::closeConnection()
 { } // No response!
 void SlaveBase::stat(QUrl const &)
 {
-    error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(mProtocol, CMD_STAT));
+    error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(protocolName(), CMD_STAT));
 }
 void SlaveBase::put(QUrl const &, int, JobFlags)
 {
-    error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(mProtocol, CMD_PUT));
+    error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(protocolName(), CMD_PUT));
 }
 void SlaveBase::special(const QByteArray &)
 {
-    error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(mProtocol, CMD_SPECIAL));
+    error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(protocolName(), CMD_SPECIAL));
 }
 void SlaveBase::listDir(QUrl const &)
 {
-    error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(mProtocol, CMD_LISTDIR));
+    error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(protocolName(), CMD_LISTDIR));
 }
 void SlaveBase::get(QUrl const &)
 {
-    error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(mProtocol, CMD_GET));
+    error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(protocolName(), CMD_GET));
 }
 void SlaveBase::open(QUrl const &, QIODevice::OpenMode)
 {
-    error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(mProtocol, CMD_OPEN));
+    error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(protocolName(), CMD_OPEN));
 }
 void SlaveBase::read(KIO::filesize_t)
 {
-    error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(mProtocol, CMD_READ));
+    error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(protocolName(), CMD_READ));
 }
 void SlaveBase::write(const QByteArray &)
 {
-    error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(mProtocol, CMD_WRITE));
+    error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(protocolName(), CMD_WRITE));
 }
 void SlaveBase::seek(KIO::filesize_t)
 {
-    error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(mProtocol, CMD_SEEK));
+    error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(protocolName(), CMD_SEEK));
 }
 void SlaveBase::close()
 {
-    error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(mProtocol, CMD_CLOSE));
+    error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(protocolName(), CMD_CLOSE));
 }
 void SlaveBase::mimetype(QUrl const &url)
 {
@@ -953,47 +950,47 @@ void SlaveBase::mimetype(QUrl const &url)
 }
 void SlaveBase::rename(QUrl const &, QUrl const &, JobFlags)
 {
-    error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(mProtocol, CMD_RENAME));
+    error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(protocolName(), CMD_RENAME));
 }
 void SlaveBase::symlink(QString const &, QUrl const &, JobFlags)
 {
-    error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(mProtocol, CMD_SYMLINK));
+    error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(protocolName(), CMD_SYMLINK));
 }
 void SlaveBase::copy(QUrl const &, QUrl const &, int, JobFlags)
 {
-    error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(mProtocol, CMD_COPY));
+    error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(protocolName(), CMD_COPY));
 }
 void SlaveBase::del(QUrl const &, bool)
 {
-    error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(mProtocol, CMD_DEL));
+    error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(protocolName(), CMD_DEL));
 }
 void SlaveBase::setLinkDest(const QUrl &, const QString &)
 {
-    error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(mProtocol, CMD_SETLINKDEST));
+    error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(protocolName(), CMD_SETLINKDEST));
 }
 void SlaveBase::mkdir(QUrl const &, int)
 {
-    error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(mProtocol, CMD_MKDIR));
+    error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(protocolName(), CMD_MKDIR));
 }
 void SlaveBase::chmod(QUrl const &, int)
 {
-    error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(mProtocol, CMD_CHMOD));
+    error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(protocolName(), CMD_CHMOD));
 }
 void SlaveBase::setModificationTime(QUrl const &, const QDateTime &)
 {
-    error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(mProtocol, CMD_SETMODIFICATIONTIME));
+    error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(protocolName(), CMD_SETMODIFICATIONTIME));
 }
 void SlaveBase::chown(QUrl const &, const QString &, const QString &)
 {
-    error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(mProtocol, CMD_CHOWN));
+    error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(protocolName(), CMD_CHOWN));
 }
 void SlaveBase::setSubUrl(QUrl const &)
 {
-    error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(mProtocol, CMD_SUBURL));
+    error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(protocolName(), CMD_SUBURL));
 }
 void SlaveBase::multiGet(const QByteArray &)
 {
-    error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(mProtocol, CMD_MULTI_GET));
+    error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(protocolName(), CMD_MULTI_GET));
 }
 
 void SlaveBase::slave_status()
@@ -1500,7 +1497,7 @@ void SlaveBase::virtual_hook(int id, void *data)
 
     switch(id) {
     case GetFileSystemFreeSpace: {
-        error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(mProtocol, CMD_FILESYSTEMFREESPACE));
+        error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(protocolName(), CMD_FILESYSTEMFREESPACE));
     } break;
     }
 }

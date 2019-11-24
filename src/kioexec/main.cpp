@@ -19,9 +19,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-// TODO: remove me
-#undef QT_NO_CAST_FROM_ASCII
-
 #include "main.h"
 #include "kio_version.h"
 #include "kioexecdinterface.h"
@@ -199,7 +196,7 @@ void KIOExec::slotRunApp()
     // Store modification times
     QList<FileInfo>::Iterator it = fileList.begin();
     for (; it != fileList.end() ; ++it) {
-        QFileInfo info(QFile::encodeName(it->path));
+        QFileInfo info(it->path);
         it->time = info.lastModified();
         QUrl url = QUrl::fromLocalFile(it->path);
         list << url;
@@ -262,7 +259,7 @@ void KIOExec::slotRunApp()
             QThread::currentThread()->sleep(sleepSecs);
             const QString parentDir = info.path();
             qDebug() << sleepSecs << "seconds have passed, deleting" << info.filePath();
-            QFile(QFile::encodeName(src)).remove();
+            QFile(src).remove();
             // NOTE: this is not necessarily a temporary directory.
             if (QDir().rmdir(parentDir)) {
                 qDebug() << "Removed empty parent directory" << parentDir;

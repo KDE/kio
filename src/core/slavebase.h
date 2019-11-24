@@ -1029,6 +1029,12 @@ protected:
     virtual void virtual_hook(int id, void *data);
 
 private:
+    // Convenience function converting mProtocol to QString as unsupportedActionErrorString(), which
+    // is used in many places in the code, takes a QString parameter
+    inline const QString protocolName() const {
+        return QString::fromLatin1(mProtocol);
+    }
+
     // This helps catching missing tr()/i18n() calls in error().
     void error(int _errid, const QByteArray &_text);
     void send(int cmd, const QByteArray &arr = QByteArray());

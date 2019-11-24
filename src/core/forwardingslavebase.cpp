@@ -17,9 +17,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-// TODO: remove me
-#undef QT_NO_CAST_FROM_ASCII
-
 #include "forwardingslavebase.h"
 #include "../pathhelpers_p.h"
 
@@ -91,7 +88,7 @@ bool ForwardingSlaveBasePrivate::internalRewriteUrl(const QUrl &url, QUrl &newUR
 {
     bool result = true;
 
-    if (url.scheme() == q->mProtocol) {
+    if (url.scheme() == QLatin1String(q->mProtocol)) {
         result = q->rewriteUrl(url, newURL);
     } else {
         newURL = url;

@@ -1,8 +1,6 @@
 
 project(kioslave-ftp)
 
-remove_definitions(-DQT_NO_CAST_FROM_ASCII) # TODO REMOVE
-
 include(ConfigureChecks.cmake)
 configure_file(config-kioslave-ftp.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kioslave-ftp.h )
 

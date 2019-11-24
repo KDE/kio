@@ -1217,7 +1217,7 @@ Result FtpInternal::del(const QUrl &url, bool isfile)
     // When deleting a directory, we must exit from it first
     // The last command probably went into it (to stat it)
     if (!isfile) {
-        (void) ftpFolder(q->remoteEncoding()->directory(url));    // ignore errors
+        (void) ftpFolder(q->remoteEncoding()->decode(q->remoteEncoding()->directory(url)));    // ignore errors
     }
 
     const QByteArray cmd = (isfile ? "DELE " : "RMD ") + q->remoteEncoding()->encode(url);
@@ -2343,7 +2343,7 @@ Result FtpInternal::copy(const QUrl &src, const QUrl &dest, int permissions, KIO
 
 bool FtpInternal::isSocksProxyScheme(const QString &scheme)
 {
-    return scheme == "socks" || scheme == "socks5";
+    return scheme == QLatin1String("socks") || scheme == QLatin1String("socks5");
 }
 
 bool FtpInternal::isSocksProxy() const

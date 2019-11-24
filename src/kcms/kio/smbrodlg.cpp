@@ -18,9 +18,6 @@
     Boston, MA 02110-1301, USA.
 */
 
-// TODO: remove me
-#undef QT_NO_CAST_FROM_ASCII
-
 // Own
 #include "smbrodlg.h"
 
@@ -122,7 +119,7 @@ void SMBRoOptions::load()
       unsigned int a2 = qc2.toLatin1() - 'A';
       unsigned int a3 = qc3.toLatin1() - '0';
       unsigned int num = ((a1 & 0x3F) << 10) | ((a2& 0x1F) << 5) | (a3 & 0x1F);
-      password[i] = QChar((uchar)((num - 17) ^ 173)); // restore
+      password[i] = QLatin1Char((num - 17) ^ 173); // restore
    }
    m_passwordLe->setText(password);
 
@@ -149,9 +146,9 @@ void SMBRoOptions::save()
       unsigned int a1 = (num & 0xFC00) >> 10;
       unsigned int a2 = (num & 0x3E0) >> 5;
       unsigned int a3 = (num & 0x1F);
-      scrambled += (char)(a1+'0');
-      scrambled += (char)(a2+'A');
-      scrambled += (char)(a3+'0');
+      scrambled += QLatin1Char((char)(a1+'0'));
+      scrambled += QLatin1Char((char)(a2+'A'));
+      scrambled += QLatin1Char((char)(a3+'0'));
    }
    group.writeEntry( "Password", scrambled);
 
