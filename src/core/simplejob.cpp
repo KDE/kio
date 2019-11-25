@@ -56,7 +56,7 @@ bool SimpleJob::doKill()
         d->m_extraFlags |= JobPrivate::EF_KillCalled;
         Scheduler::cancelJob(this); // deletes the slave if not 0
     } else {
-        qCWarning(KIO_CORE) << this << "This is overkill.";
+        qCWarning(KIO_CORE) << this << "killed twice, this is overkill";
     }
     return Job::doKill();
 }
