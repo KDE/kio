@@ -34,7 +34,8 @@ set_target_properties(kded_kcookiejar PROPERTIES
 
 target_link_libraries(kded_kcookiejar
    KF5::WindowSystem
-   KF5::Service # kpluginfactory
+   KF5::ConfigCore
+   KF5::CoreAddons
    KF5::DBusAddons
    KF5::I18n
    KF5::WidgetsAddons
