@@ -170,7 +170,7 @@ private Q_SLOTS:
         auto job = KIO::copy({ QUrl::fromLocalFile(QFINDTESTDATA("ftp/testCopy1")) }, inaccessibleUrl, KIO::Resume);
         job->setUiDelegate(nullptr);
         QVERIFY(!job->exec());
-        QCOMPARE(job->error(), KIO::ERR_COULD_NOT_WRITE);
+        QCOMPARE(job->error(), KIO::ERR_CANNOT_WRITE);
         QFile file(inaccessiblePath);
         QVERIFY(!file.exists());
     }
@@ -188,7 +188,7 @@ private Q_SLOTS:
         auto job = KIO::copy({ QUrl::fromLocalFile(QFINDTESTDATA("ftp/testCopy2")) }, inaccessibleUrl, KIO::Resume);
         job->setUiDelegate(nullptr);
         QVERIFY(!job->exec());
-        QCOMPARE(job->error(), KIO::ERR_COULD_NOT_WRITE);
+        QCOMPARE(job->error(), KIO::ERR_CANNOT_WRITE);
         QFile file(inaccessiblePath);
         QVERIFY(!file.exists());
     }

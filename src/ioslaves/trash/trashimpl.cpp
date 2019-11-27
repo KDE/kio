@@ -116,7 +116,7 @@ int TrashImpl::testDir(const QString &_name) const
         if (!ok) {
             //KMessageBox::sorry( 0, i18n( "Could not create directory %1. Check for permissions." ).arg( name ) );
             qCWarning(KIO_TRASH) << "could not create" << name;
-            return KIO::ERR_COULD_NOT_MKDIR;
+            return KIO::ERR_CANNOT_MKDIR;
         } else {
             //qCDebug(KIO_TRASH) << name << "created.";
         }
@@ -303,7 +303,7 @@ bool TrashImpl::createInfo(const QString &origPath, int &trashId, QString &fileI
                 url.setPath(url.path() + KFileUtils::suggestName(baseDirectory,  fileName));
                 // and try again on the next iteration
             } else {
-                error(KIO::ERR_COULD_NOT_WRITE, url.path());
+                error(KIO::ERR_CANNOT_WRITE, url.path());
                 return false;
             }
         }
@@ -315,7 +315,7 @@ bool TrashImpl::createInfo(const QString &origPath, int &trashId, QString &fileI
 
     FILE *file = ::fdopen(fd, "w");
     if (!file) {   // can't see how this would happen
-        error(KIO::ERR_COULD_NOT_WRITE, infoPath);
+        error(KIO::ERR_CANNOT_WRITE, infoPath);
         return false;
     }
 
@@ -589,7 +589,7 @@ bool TrashImpl::mkdir(int trashId, const QString &fileId, int permissions)
             error(KIO::ERR_DISK_FULL, path);
             return false;
         } else {
-            error(KIO::ERR_COULD_NOT_MKDIR, path);
+            error(KIO::ERR_CANNOT_MKDIR, path);
             return false;
         }
     } else {

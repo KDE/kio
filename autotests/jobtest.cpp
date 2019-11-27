@@ -1509,7 +1509,7 @@ void JobTest::chmodFileError()
     KIO::Job *job = KIO::chmod(items, newPerm, S_IWGRP /*TODO: QFile::WriteGroup*/, QStringLiteral("root"), QString(), false, KIO::HideProgressInfo);
     // Simulate the user pressing "Skip" in the dialog.
     PredefinedAnswerJobUiDelegate extension;
-    extension.m_skipResult = KIO::S_SKIP;
+    extension.m_skipResult = KIO::Result_Skip;
     job->setUiDelegateExtension(&extension);
 
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
@@ -1681,7 +1681,7 @@ void JobTest::copyDirectoryAlreadyExistsSkip()
     job = KIO::copy(u, d, KIO::HideProgressInfo);
     // Simulate the user pressing "Skip" in the dialog.
     PredefinedAnswerJobUiDelegate extension;
-    extension.m_skipResult = KIO::S_SKIP;
+    extension.m_skipResult = KIO::Result_Skip;
     job->setUiDelegateExtension(&extension);
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
     QVERIFY(QFile::exists(dest + QStringLiteral("/a/testfile")));

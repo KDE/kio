@@ -164,7 +164,7 @@ void FavIconRequestJob::slotResult(KJob *job)
                         img.save(&saveFile, "PNG") && saveFile.commit()) {
                     d->m_iconFile = localPath;
                 } else {
-                    setError(KIO::ERR_COULD_NOT_WRITE);
+                    setError(KIO::ERR_CANNOT_WRITE);
                     setErrorText(i18n("Error saving image to %1", localPath));
                 }
             } else {

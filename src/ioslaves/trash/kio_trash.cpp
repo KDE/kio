@@ -346,7 +346,7 @@ void TrashProtocol::stat(const QUrl &url)
         }
 
         if (!ok) {
-            error(KIO::ERR_COULD_NOT_STAT, url.toString());
+            error(KIO::ERR_CANNOT_STAT, url.toString());
             return;
         }
 
@@ -665,7 +665,7 @@ void TrashProtocol::fileSystemFreeSpace(const QUrl &url)
 
     TrashImpl::TrashSpaceInfo spaceInfo;
     if (!impl.trashSpaceInfo(url.path(), spaceInfo)) {
-        error(KIO::ERR_COULD_NOT_STAT, url.toDisplayString());
+        error(KIO::ERR_CANNOT_STAT, url.toDisplayString());
         return;
     }
 

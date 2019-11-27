@@ -123,8 +123,8 @@ public:
           m_askSkipCalled(0),
           m_askDeleteCalled(0),
           m_messageBoxCalled(0),
-          m_renameResult(KIO::R_SKIP),
-          m_skipResult(KIO::S_SKIP),
+          m_renameResult(KIO::Result_Skip),
+          m_skipResult(KIO::Result_Skip),
           m_deleteResult(false),
           m_messageBoxResult(0)
     {

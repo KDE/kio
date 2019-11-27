@@ -1533,7 +1533,7 @@ void FileProtocol::fileSystemFreeSpace(const QUrl &url)
 
             finished();
         } else {
-            error(KIO::ERR_COULD_NOT_STAT, url.url());
+            error(KIO::ERR_CANNOT_STAT, url.url());
         }
     } else {
         error(KIO::ERR_UNSUPPORTED_PROTOCOL, url.url());

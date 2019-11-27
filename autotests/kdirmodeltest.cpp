@@ -1294,7 +1294,7 @@ void KDirModelTest::testOverwriteFileWithDir() // #151851 c4
     KIO::Job *job = KIO::move(QUrl::fromLocalFile(dir), QUrl::fromLocalFile(file), KIO::HideProgressInfo);
     job->setUiDelegate(nullptr);
     PredefinedAnswerJobUiDelegate extension;
-    extension.m_renameResult = KIO::R_OVERWRITE;
+    extension.m_renameResult = KIO::Result_Overwrite;
     job->setUiDelegateExtension(&extension);
     QVERIFY(job->exec());
 
