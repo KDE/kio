@@ -656,7 +656,11 @@ bool KTcpSocket::waitForDisconnected(int msecs)
 void KTcpSocket::addCaCertificate(const QSslCertificate &certificate)
 {
     d->maybeLoadCertificates();
+#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
     d->sock.addCaCertificate(certificate);
+#else
+    d->sock.sslConfiguration().addCaCertificate(certificate);
+#endif
 }
 
 /*
@@ -671,7 +675,11 @@ bool KTcpSocket::addCaCertificates(const QString &path, QSsl::EncodingFormat for
 void KTcpSocket::addCaCertificates(const QList<QSslCertificate> &certificates)
 {
     d->maybeLoadCertificates();
+#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
     d->sock.addCaCertificates(certificates);
+#else
+    d->sock.sslConfiguration().addCaCertificates(certificates);
+#endif
 }
 
 QList<QSslCertificate> KTcpSocket::caCertificates() const

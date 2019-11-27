@@ -88,7 +88,11 @@ static QBasicAtomicInt s_waitDuration = Q_BASIC_ATOMIC_INITIALIZER(-1);
 
 static int initialWaitDuration()
 {
+#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
     if (s_waitDuration.load() == -1) {
+#else
+    if (s_waitDuration.loadRelaxed() == -1) {
+#endif
         const QByteArray envVar = qgetenv("KURLCOMPLETION_WAIT");
         if (envVar.isEmpty()) {
             s_waitDuration = 200; // default: 200 ms
@@ -216,7 +220,11 @@ public:
         if (!isFinished()) {
             qCDebug(KIO_WIDGETS) << "stopping thread" << this;
         }
+#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
         m_terminationRequested.store(true);
+#else
+        m_terminationRequested.storeRelaxed(true);
+#endif
         wait();
     }
 
@@ -237,7 +245,11 @@ protected:
     }
     bool terminationRequested() const
     {
+#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
         return m_terminationRequested.load();
+#else
+        return m_terminationRequested.loadRelaxed();
+#endif
     }
     void done()
     {
