@@ -947,13 +947,7 @@ void KRun::init()
         QMimeDatabase db;
         QMimeType mime = db.mimeTypeForUrl(d->m_strURL);
         //qDebug() << "MIME TYPE is " << mime.name();
-        if (!d->m_externalBrowser.isEmpty() && (
-                    mime.inherits(QStringLiteral("text/html")) ||
-                    mime.inherits(QStringLiteral("application/xhtml+xml")))) {
-            if (d->runExecutable(d->m_externalBrowser)) {
-                return;
-            }
-        } else if (mime.isDefault() && !QFileInfo(localPath).isReadable()) {
+        if (mime.isDefault() && !QFileInfo(localPath).isReadable()) {
             // Unknown mimetype because the file is unreadable, no point in showing an open-with dialog (#261002)
             const QString msg = KIO::buildErrorString(KIO::ERR_ACCESS_DENIED, localPath);
             handleInitError(KIO::ERR_ACCESS_DENIED, msg);
