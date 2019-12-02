@@ -47,7 +47,6 @@
 #include <ktoolbar.h>
 #include <kurlcompletion.h>
 #include <kprotocolmanager.h>
-#include <kio/pixmaploader.h>
 #include <kio/job.h>
 #include <kio/jobuidelegate.h>
 #include <kio/scheduler.h>
@@ -60,6 +59,7 @@
 #include <QCheckBox>
 #include <QDesktopWidget>
 #include <QDockWidget>
+#include <QIcon>
 #include <QLayout>
 #include <QLabel>
 #include <QLineEdit>
@@ -73,6 +73,7 @@
 #include <qmimedatabase.h>
 #include <QTimer>
 
+#include <KIconLoader>
 #include <kshell.h>
 #include <kmessagebox.h>
 #include <kurlauthorized.h>
@@ -411,27 +412,20 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
 #endif
 #else
     u = QUrl::fromLocalFile(QDir::rootPath());
-    pathCombo->addDefaultUrl(u,
-                             KIO::pixmapForUrl(u, 0, KIconLoader::Small),
-                             u.toLocalFile());
+    pathCombo->addDefaultUrl(u, QIcon::fromTheme(KIO::iconNameForUrl(u)), u.toLocalFile());
 #endif
 
     u = QUrl::fromLocalFile(QDir::homePath());
-    pathCombo->addDefaultUrl(u, KIO::pixmapForUrl(u, 0, KIconLoader::Small),
-                             u.toLocalFile());
+    pathCombo->addDefaultUrl(u, QIcon::fromTheme(KIO::iconNameForUrl(u)), u.toLocalFile());
 
     QUrl docPath = QUrl::fromLocalFile(QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation));
     if (u.adjusted(QUrl::StripTrailingSlash) != docPath.adjusted(QUrl::StripTrailingSlash) &&
             QDir(docPath.toLocalFile()).exists()) {
-        pathCombo->addDefaultUrl(docPath,
-                                 KIO::pixmapForUrl(docPath, 0, KIconLoader::Small),
-                                 docPath.toLocalFile());
+        pathCombo->addDefaultUrl(docPath, QIcon::fromTheme(KIO::iconNameForUrl(docPath)), docPath.toLocalFile());
     }
 
     u = QUrl::fromLocalFile(QStandardPaths::writableLocation(QStandardPaths::DesktopLocation));
-    pathCombo->addDefaultUrl(u,
-                             KIO::pixmapForUrl(u, 0, KIconLoader::Small),
-                             u.toLocalFile());
+    pathCombo->addDefaultUrl(u, QIcon::fromTheme(KIO::iconNameForUrl(u)), u.toLocalFile());
 
     d->ops = new KDirOperator(QUrl(), d->opsWidget);
     d->ops->setObjectName(QStringLiteral("KFileWidget::ops"));
