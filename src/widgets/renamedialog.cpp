@@ -557,7 +557,7 @@ void RenameDialog::showSrcIcon(const KFileItem &fileitem)
     d->m_srcPendingPreview = false;
 
     const int size = d->m_srcPreview->height();
-    const QPixmap pix = KIconLoader::global()->loadMimeTypeIcon(fileitem.iconName(), KIconLoader::Desktop, size);
+    const QPixmap pix = QIcon::fromTheme(fileitem.iconName(), QIcon::fromTheme(QStringLiteral("application-octet-stream"))).pixmap(size);
     d->m_srcPreview->setPixmap(pix);
 }
 
@@ -567,7 +567,7 @@ void RenameDialog::showDestIcon(const KFileItem &fileitem)
     d->m_destPendingPreview = false;
 
     const int size = d->m_destPreview->height();
-    const QPixmap pix = KIconLoader::global()->loadMimeTypeIcon(fileitem.iconName(), KIconLoader::Desktop, size);
+    const QPixmap pix = QIcon::fromTheme(fileitem.iconName(), QIcon::fromTheme(QStringLiteral("application-octet-stream"))).pixmap(size);
     d->m_destPreview->setPixmap(pix);
 }
 
