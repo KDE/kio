@@ -685,8 +685,6 @@ protected:
 
     void resizeEvent(QResizeEvent *event) override;
 
-    void keyPressEvent(QKeyEvent *event) override;
-
     /**
      * Sets up all the actions. Called from the constructor, you usually
      * better not call this.

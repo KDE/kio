@@ -70,16 +70,6 @@ template class QHash<QString, KFileItem>;
 // sorting mode.
 static const int QDirSortMask = QDir::SortByMask | QDir::Type;
 
-
-void KDirOperator::keyPressEvent(QKeyEvent *e)
-{
-    if (!(e->key() == Qt::Key_Return || e->key() == Qt::Key_Enter)) {
-        QWidget::keyPressEvent(e);
-    } else {
-        emit keyEnterReturnPressed();
-    }
-}
-
 class Q_DECL_HIDDEN KDirOperator::Private
 {
 public:
@@ -1444,6 +1434,19 @@ bool KDirOperator::eventFilter(QObject *watched, QEvent *event)
         }
         evt->accept();
         return true;
+    }
+    case QEvent::KeyPress: {
+        QKeyEvent *evt = static_cast<QKeyEvent *>(event);
+        if (evt->key() == Qt::Key_Return || evt->key() == Qt::Key_Enter) {
+            // when no elements are selected and Return/Enter is pressed
+            // emit keyEnterReturnPressed
+            // let activated event be emitted by subsequent QAbstractItemView::keyPress otherwise
+            if (!d->itemView->currentIndex().isValid()) {
+                emit keyEnterReturnPressed();
+                evt->accept();
+                return true;
+            }
+        }
     }
     default:
         break;
