@@ -1597,7 +1597,7 @@ KIO::Job *CopyJobPrivate::linkNextFile(const QUrl &uSource, const QUrl &uDest, J
                 QString protocol = uSource.scheme();
                 if (protocol == QLatin1String("ftp")) {
                     config.writeEntry("Icon", QStringLiteral("folder-remote"));
-                } else if (protocol == QLatin1String("http")) {
+                } else if (protocol == QLatin1String("http") || protocol == QLatin1String("https")) {
                     config.writeEntry("Icon", QStringLiteral("text-html"));
                 } else if (protocol == QLatin1String("info")) {
                     config.writeEntry("Icon", QStringLiteral("text-x-texinfo"));
