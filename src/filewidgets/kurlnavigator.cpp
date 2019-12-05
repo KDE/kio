@@ -826,8 +826,8 @@ bool KUrlNavigator::Private::isCompressedPath(const QUrl &url) const
             mime.inherits(QStringLiteral("application/x-tzo")) || // (not sure KTar supports those?)
             mime.inherits(QStringLiteral("application/zip")) ||
             mime.inherits(QStringLiteral("application/x-archive")) ||
-            mime.inherits(QStringLiteral("application/vnd.rar")) || // the following depends on krarc
-            mime.inherits(QStringLiteral("application/x-7z-compressed")) ||
+            mime.inherits(QStringLiteral("application/x-7z-compressed")) || // the following depends on krarc
+            mime.inherits(QStringLiteral("application/vnd.rar")) ||
             mime.inherits(QStringLiteral("application/x-ace")) ||
             mime.inherits(QStringLiteral("application/x-arj")) ||
             mime.inherits(QStringLiteral("application/x-cpio")) ||
@@ -1050,8 +1050,8 @@ void KUrlNavigator::setLocationUrl(const QUrl &newUrl)
     // code locationUrl() and url become the same URLs
     QUrl firstChildUrl = KIO::UrlUtil::firstChildUrl(locationUrl(), url);
 
-    if ((url.scheme() == QLatin1String("tar")) || (url.scheme() == QLatin1String("zip")) || (url.scheme() == QLatin1String("krarc"))) {
-        // The URL represents a tar- or zip-file, or an archive file supported by krarc.
+    if ((url.scheme() == QLatin1String("tar")) || (url.scheme() == QLatin1String("zip")) || (url.scheme() == QLatin1String("sevenz")) || (url.scheme() == QLatin1String("krarc"))) {
+        // The URL represents a tar-, zip- or 7z-file, or an archive file supported by krarc.
         // Check whether the URL is really part of the archive file, otherwise
         // replace it by the local path again.
         bool insideCompressedPath = d->isCompressedPath(url);
@@ -1068,7 +1068,7 @@ void KUrlNavigator::setLocationUrl(const QUrl &newUrl)
             }
         }
         if (!insideCompressedPath) {
-            // drop the tar: or zip: or krarc: protocol since we are not
+            // drop the tar:, zip:, sevenz: or krarc: protocol since we are not
             // inside the compressed path
             url.setScheme(QStringLiteral("file"));
             firstChildUrl.setScheme(QStringLiteral("file"));
