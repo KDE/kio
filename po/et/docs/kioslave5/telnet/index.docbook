@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Estonian  "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="telnet">
+<title
+>telnet</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Ferdinand.Gassauer; &Ferdinand.Gassauer.mail;</author>
+<othercredit role="translator"
+><firstname
+>Marek</firstname
+><surname
+>Laane</surname
+><affiliation
+><address
+><email
+>bald@online.ee</email
+></address
+></affiliation
+><contrib
+>Tõlge eesti keelde</contrib
+></othercredit
+> 
+</authorgroup>
+</articleinfo>
+<para
+>Kaugterminaliprotokoll TELNET võimaldab kasutajal logida end sisse suvalisele võrgus asuvale masinale, millel on TELNETi tugi. </para>
+
+<para
+>Vaata manuaalist: <ulink url="man:/telnet"
+>telnet</ulink
+>. </para>
+
+</article>
