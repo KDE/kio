@@ -1156,7 +1156,7 @@ QSize KFilePlacesView::sizeHint() const
         }
     }
 
-    const int iconSize = KIconLoader::global()->currentSize(KIconLoader::Small) + 3 * LATERAL_MARGIN;
+    const int iconSize = style()->pixelMetric(QStyle::PM_SmallIconSize) + 3 * LATERAL_MARGIN;
     return QSize(iconSize + textWidth + fm.height() / 2, height);
 }
 
@@ -1224,7 +1224,7 @@ void KFilePlacesView::Private::adaptItemSize()
         return;    // We've nothing to display anyway
     }
 
-    const int minSize = IconSize(KIconLoader::Small);
+    const int minSize = q->style()->pixelMetric(QStyle::PM_SmallIconSize);
     const int maxSize = 64;
 
     int textWidth = 0;
