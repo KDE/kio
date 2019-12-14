@@ -5620,7 +5620,7 @@ void HTTPProtocol::virtual_hook(int id, void *data)
         fileSystemFreeSpace(*url);
     }   break;
     default:
-        SlaveBase::virtual_hook(id, data);
+        TCPSlaveBase::virtual_hook(id, data);
     }
 }
 
