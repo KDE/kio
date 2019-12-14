@@ -31,6 +31,7 @@ public:
     }
 
     QTextCodec *m_codec;
+    QByteArray m_codeName;
 };
 
 KRemoteEncoding::KRemoteEncoding(const char *name)
@@ -95,7 +96,8 @@ QByteArray KRemoteEncoding::fileName(const QUrl &url) const
 const char *KRemoteEncoding::encoding() const
 {
     // KF6 TODO: return QByteArray
-    return d->m_codec->name().constData();
+    d->m_codeName = d->m_codec->name();
+    return d->m_codeName.constData();
 }
 
 int KRemoteEncoding::encodingMib() const
