@@ -164,7 +164,7 @@ public:
           bookmarkManager(nullptr),
           fileIndexingEnabled(isFileIndexingEnabled()),
           tags(),
-          tagsLister(new KCoreDirLister())
+          tagsLister(new KCoreDirLister(q))
     {
         if (KProtocolInfo::isKnownProtocol(QStringLiteral("tags"))) {
             connect(tagsLister, &KCoreDirLister::itemsAdded, q, [this](const QUrl&, const KFileItemList& items) {
