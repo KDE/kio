@@ -1805,7 +1805,7 @@ bool FtpInternal::ftpReadDir(FtpEntry &de)
                 }
 
             // Parse third field
-            if (qstrlen(p_date_3) == 4) { // 4 digits, looks like a year
+            if (p_date_3 && !strchr(p_date_3, ':')) { // No colon, looks like a year
                 year = atoi(p_date_3);
             } else {
                 // otherwise, the year is implicit
