@@ -353,11 +353,15 @@ public:
      */
     void setLocationLabel(const QString &text);
 
+#if KIOFILEWIDGETS_ENABLE_DEPRECATED_SINCE(5, 66)
     /**
      * Returns a pointer to the toolbar.
+     * @deprecated since 5.66 due to no known users and leaking KXMLGui into the API.
      *
      */
+    KIOFILEWIDGETS_DEPRECATED_VERSION(5, 66, "No known user")
     KToolBar *toolBar() const;
+#endif
 
     /**
      * @returns a pointer to the OK-Button in the filedialog.

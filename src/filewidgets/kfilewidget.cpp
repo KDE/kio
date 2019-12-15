@@ -2834,10 +2834,12 @@ void KFileWidgetPrivate::updateFilterText()
     }
 }
 
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 66)
 KToolBar *KFileWidget::toolBar() const
 {
     return d->toolbar;
 }
+#endif
 
 void KFileWidget::setCustomWidget(QWidget *widget)
 {
