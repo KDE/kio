@@ -35,6 +35,7 @@
 #include <kconfig.h>
 #include <kconfiggroup.h>
 #include <kdirnotify.h>
+#include <kiconeffect.h>
 #include <klocalizedstring.h>
 #include <kmessagebox.h>
 #include <kmountpoint.h>
@@ -206,10 +207,15 @@ void KFilePlacesViewDelegate::paint(QPainter *painter, const QStyleOptionViewIte
     QApplication::style()->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, painter);
     const KFilePlacesModel *placesModel = static_cast<const KFilePlacesModel *>(index.model());
 
+    const bool indicateHidden = m_view->showAll() && index.model()->data(index, KFilePlacesModel::HiddenRole).toBool();
+
     bool isLTR = opt.direction == Qt::LeftToRight;
 
     QIcon icon = index.model()->data(index, Qt::DecorationRole).value<QIcon>();
     QPixmap pm = icon.pixmap(m_iconSize, m_iconSize, (opt.state & QStyle::State_Selected) && (opt.state & QStyle::State_Active) ? QIcon::Selected : QIcon::Normal);
+    if (indicateHidden) {
+        KIconEffect::semiTransparent(pm);
+    }
     QPoint point(isLTR ? opt.rect.left() + LATERAL_MARGIN
                  : opt.rect.right() - LATERAL_MARGIN - m_iconSize, opt.rect.top() + (opt.rect.height() - m_iconSize) / 2);
     painter->drawPixmap(point, pm);
@@ -222,6 +228,17 @@ void KFilePlacesViewDelegate::paint(QPainter *painter, const QStyleOptionViewIte
             cg = QPalette::Inactive;
         }
         painter->setPen(opt.palette.color(cg, QPalette::HighlightedText));
+    } else if (indicateHidden) {
+        // From Dolphin's KStandardItemListWidget::updateAdditionalInfoTextColor()
+        const QColor c1 = opt.palette.text().color();
+        const QColor c2 = opt.palette.base().color();
+
+        const int p1 = 70;
+        const int p2 = 100 - p1;
+        QColor hiddenColor = QColor((c1.red()   * p1 + c2.red()   * p2) / 100,
+                                           (c1.green() * p1 + c2.green() * p2) / 100,
+                                           (c1.blue()  * p1 + c2.blue()  * p2) / 100);
+        painter->setPen(hiddenColor);
     }
 
     QRect rectText;
@@ -542,6 +559,7 @@ public:
     bool dragging;
     Solid::StorageAccess *lastClickedStorage = nullptr;
     QPersistentModelIndex lastClickedIndex;
+    Qt::MouseButton lastClickedButton = Qt::NoButton;
 
     QRect dropRect;
 
@@ -561,6 +579,8 @@ public:
     void triggerItemDisappearingAnimation();
 
     void _k_placeClicked(const QModelIndex &index);
+    void placeClicked(const QModelIndex &index, Qt::MouseButton button);
+
     void _k_placeEntered(const QModelIndex &index);
     void _k_placeLeft(const QModelIndex &index);
     void _k_storageSetupDone(const QModelIndex &index, bool success);
@@ -612,11 +632,19 @@ KFilePlacesView::KFilePlacesView(QWidget *parent)
     palette.setColor(viewport()->foregroundRole(), palette.color(QPalette::WindowText));
     viewport()->setPalette(palette);
 
-    connect(this, SIGNAL(clicked(QModelIndex)),
-            this, SLOT(_k_placeClicked(QModelIndex)));
     // Note: Don't connect to the activated() signal, as the behavior when it is
     // committed depends on the used widget style. The click behavior of
     // KFilePlacesView should be style independent.
+    connect(this, &KFilePlacesView::clicked, this, [this](const QModelIndex &index) {
+        d->placeClicked(index, Qt::LeftButton);
+    });
+
+    // This signal can be disconnected by e.g. Dolphin to implement its own teardown behavior
+    connect(this, &KFilePlacesView::teardownRequested, this, [this](const QModelIndex &index) {
+        if (auto *placesModel = qobject_cast<KFilePlacesModel *>(model())) {
+            placesModel->requestTeardown(index);
+        }
+    });
 
     connect(&d->adaptItemsTimeline, SIGNAL(valueChanged(qreal)),
             this, SLOT(_k_adaptItemsUpdate(qreal)));
@@ -641,6 +669,10 @@ KFilePlacesView::KFilePlacesView(QWidget *parent)
             this, SLOT(_k_placeEntered(QModelIndex)));
     connect(d->watcher, SIGNAL(entryLeft(QModelIndex)),
             this, SLOT(_k_placeLeft(QModelIndex)));
+    connect(d->watcher, &KFilePlacesEventWatcher::entryMiddleClicked,
+            this, [this](const QModelIndex &index) {
+        d->placeClicked(index, Qt::MiddleButton);
+    });
 
     d->pollDevices.setInterval(5000);
     connect(&d->pollDevices, SIGNAL(timeout()), this, SLOT(_k_triggerDevicePolling()));
@@ -714,8 +746,17 @@ void KFilePlacesView::setUrl(const QUrl &url)
     }
 }
 
+bool KFilePlacesView::showAll() const
+{
+    return d->showAll;
+}
+
 void KFilePlacesView::setShowAll(bool showAll)
 {
+    if (d->showAll == showAll) {
+        return;
+    }
+
     KFilePlacesModel *placesModel = qobject_cast<KFilePlacesModel *>(model());
 
     if (placesModel == nullptr) {
@@ -748,13 +789,15 @@ void KFilePlacesView::setShowAll(bool showAll)
         }
         d->triggerItemDisappearingAnimation();
     }
+
+    emit showAllChanged(showAll);
 }
 
 void KFilePlacesView::keyPressEvent(QKeyEvent *event)
 {
     QListView::keyPressEvent(event);
     if ((event->key() == Qt::Key_Return) || (event->key() == Qt::Key_Enter)) {
-        d->_k_placeClicked(currentIndex());
+        d->placeClicked(currentIndex(), Qt::LeftButton);
     }
 }
 
@@ -875,6 +918,8 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
         return;
     }
 
+    emit contextMenuAboutToShow(index, &menu);
+
     QAction *result = menu.exec(event->globalPos());
 
     if (emptyTrash && (result == emptyTrash)) {
@@ -926,7 +971,7 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
     } else if (showAll && (result == showAll)) {
         setShowAll(showAll->isChecked());
     } else if (teardown && (result == teardown)) {
-        placesModel->requestTeardown(index);
+        emit teardownRequested(index);
     } else if (eject && (result == eject)) {
         placesModel->requestEject(index);
     } else if (add && (result == add)) {
@@ -1380,7 +1425,12 @@ void KFilePlacesView::Private::triggerItemDisappearingAnimation()
     }
 }
 
-void KFilePlacesView::Private::_k_placeClicked(const QModelIndex &index)
+void KFilePlacesView::Private::_k_placeClicked(const QModelIndex &index) // TODO remove
+{
+    placeClicked(index, Qt::LeftButton);
+}
+
+void KFilePlacesView::Private::placeClicked(const QModelIndex &index, Qt::MouseButton button)
 {
     KFilePlacesModel *placesModel = qobject_cast<KFilePlacesModel *>(q->model());
 
@@ -1395,11 +1445,19 @@ void KFilePlacesView::Private::_k_placeClicked(const QModelIndex &index)
                          q, SLOT(_k_storageSetupDone(QModelIndex,bool)));
 
         lastClickedIndex = index;
+        lastClickedButton = button;
         placesModel->requestSetup(index);
         return;
     }
 
     setCurrentIndex(index);
+
+    const QUrl url = KFilePlacesModel::convertedUrl(placesModel->url(index));
+    if (button == Qt::MiddleButton) {
+        emit q->placeMiddleClicked(url);
+    } else {
+        emit q->placeActivated(url);
+    }
 }
 
 void KFilePlacesView::Private::_k_placeEntered(const QModelIndex &index)
@@ -1435,6 +1493,12 @@ void KFilePlacesView::Private::_k_storageSetupDone(const QModelIndex &index, boo
 
     if (success) {
         setCurrentIndex(lastClickedIndex);
+        const QUrl url = KFilePlacesModel::convertedUrl(placesModel->url(lastClickedIndex));
+        if (lastClickedButton == Qt::MiddleButton) {
+            emit q->placeMiddleClicked(url);
+        } else {
+            emit q->placeActivated(url);
+        }
     } else {
         q->setUrl(currentUrl);
     }

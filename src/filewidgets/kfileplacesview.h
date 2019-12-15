@@ -61,13 +61,23 @@ public:
     void setAutoResizeItemsEnabled(bool enabled);
     bool isAutoResizeItemsEnabled() const;
 
+    /**
+     * Whether all items (i.e. including hidden ones) will be shown.
+     * @since 5.66
+     */
+    bool showAll() const;
+
 public Q_SLOTS:
     void setUrl(const QUrl &url);
+    /**
+     * Whether all items (i.e. including hidden ones) should be shown.
+     */
     void setShowAll(bool showAll);
     QSize sizeHint() const override;
     void setModel(QAbstractItemModel *model) override;
 
 protected:
+    // FIXME KF6 just in case void event(QEvent *event) override;
     void keyPressEvent(QKeyEvent *event) override;
     void contextMenuEvent(QContextMenuEvent *event) override;
     void resizeEvent(QResizeEvent *event) override;
@@ -96,9 +106,55 @@ Q_SIGNALS:
      */
     void urlsDropped(const QUrl &dest, QDropEvent *event, QWidget *parent);
 
+    /**
+     * Emitted when a place is actived, i.e. it is clicked on with left mouse button.
+     * @param url The URL of the place
+     * @since 5.66
+     */
+    void placeActivated(const QUrl &url);
+    /**
+     * Emitted when a place is middle-clicked. This can be used to open the place
+     * in a new tab instead of the current view.
+     * @param url The URL of the place.
+     * @since 5.66
+     */
+    void placeMiddleClicked(const QUrl &url);
+
+    /**
+     * Emitted just before the context menu opens. This can be used to add additional
+     * application actions to the menu.
+     * @param index The model index of the place whose menu is about to open.
+     * @param menu The menu that will be opened.
+     * @since 5.66
+     */
+    void contextMenuAboutToShow(const QModelIndex &index, QMenu *menu);
+
+    /**
+     * Emitted when teardown of a device (e.g. unmounting a drive) was requested.
+     * By default this signal is connected to a handler that will proceed tearing
+     * down the device, however, the signal can be disconnected to implement custom
+     * teardown behavior instead, like so:
+     * @code
+     * disconnect(view, &KFilePlacesView::teardownRequested, view, nullptr);
+     * connect(view, &KFilePlacesView::teardownRequested, this, [this](const QModelIndex &index) {
+     *     // For example store it in a QPersistentModelIndex, run an operation, and then call
+     *     // placesModel->requestTeardown(index);
+     * });
+     * @endcode
+     * @param index The model index of the device that should be torn down.
+     * @since 5.66
+     */
+    void teardownRequested(const QModelIndex &index);
+
+    /**
+     * Emitted when showAll changes
+     * @since 5.66
+     */
+    void showAllChanged(bool showAll);
+
 private:
     Q_PRIVATE_SLOT(d, void adaptItemSize())
-    Q_PRIVATE_SLOT(d, void _k_placeClicked(const QModelIndex &))
+    Q_PRIVATE_SLOT(d, void _k_placeClicked(const QModelIndex &)) // TODO remove
     Q_PRIVATE_SLOT(d, void _k_placeEntered(const QModelIndex &))
     Q_PRIVATE_SLOT(d, void _k_placeLeft(const QModelIndex &))
     Q_PRIVATE_SLOT(d, void _k_storageSetupDone(const QModelIndex &, bool))
