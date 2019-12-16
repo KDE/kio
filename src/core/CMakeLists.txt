@@ -111,6 +111,7 @@ if (WIN32)
 endif()
 
 qt5_add_dbus_interface(kiocore_SRCS org.kde.KSlaveLauncher.xml klauncher_interface)
+qt5_add_dbus_interface(kiocore_SRCS org.kde.KIOFuse.VFS.xml kiofuse_interface)
 
 set_source_files_properties(org.kde.KPasswdServer.xml
         PROPERTIES INCLUDE authinfo.h
