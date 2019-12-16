@@ -22,9 +22,11 @@
 
 #include <QUrl>
 #include <QObject>
-class KLocalSocketServer;
+
+class QLocalServer;
+class QLocalSocket;
+
 class QTcpServer;
-class QTcpSocket;
 
 namespace KIO
 {
@@ -40,17 +42,13 @@ class ConnectionBackend: public QObject
 
 public:
     enum { Idle, Listening, Connected } state;
-    enum Mode { LocalSocketMode, TcpSocketMode };
     QUrl address;
     QString errorString;
 
 private:
 
-    QTcpSocket *socket;
-    union {
-        KLocalSocketServer *localServer;
-        QTcpServer *tcpServer;
-    };
+    QLocalSocket *socket;
+    QLocalServer *localServer;
     long len;
     int cmd;
     int port;
@@ -66,7 +64,7 @@ Q_SIGNALS:
     void newConnection();
 
 public:
-    explicit ConnectionBackend(Mode m, QObject *parent = nullptr);
+    explicit ConnectionBackend(QObject *parent = nullptr);
     ~ConnectionBackend();
 
     void setSuspended(bool enable);

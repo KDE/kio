@@ -63,8 +63,6 @@ endif()
 
 if(UNIX)
   ecm_add_tests(
-    klocalsockettest.cpp
-    klocalsocketservertest.cpp
     privilegejobtest.cpp
     NAME_PREFIX "kiocore-"
     LINK_LIBRARIES KF5::KIOCore KF5::I18n Qt5::Test Qt5::Network

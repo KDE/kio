@@ -140,9 +140,7 @@ void Connection::connectToRemote(const QUrl &address)
     const QString scheme = address.scheme();
 
     if (scheme == QLatin1String("local")) {
-        d->setBackend(new ConnectionBackend(ConnectionBackend::LocalSocketMode, this));
-    } else if (scheme == QLatin1String("tcp")) {
-        d->setBackend(new ConnectionBackend(ConnectionBackend::TcpSocketMode, this));
+        d->setBackend(new ConnectionBackend(this));
     } else {
         qCWarning(KIO_CORE) << "Unknown protocol requested:" << scheme << "(" << address << ")";
         Q_ASSERT(0);

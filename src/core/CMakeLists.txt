@@ -20,7 +20,6 @@ configure_file(config-kmountpoint.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kmo
 
 set(kiocore_SRCS
   idleslave.cpp
-  klocalsocket.cpp
   connectionbackend.cpp
   connection.cpp
   connectionserver.cpp
@@ -129,13 +128,11 @@ ecm_qt_export_logging_category(
 
 if (UNIX)
    set(kiocore_SRCS ${kiocore_SRCS}
-      klocalsocket_unix.cpp
       kioglobal_p_unix.cpp
    )
 endif()
 if (WIN32)
    set(kiocore_SRCS ${kiocore_SRCS}
-      klocalsocket_win.cpp
       kioglobal_p_win.cpp
    )
 endif()

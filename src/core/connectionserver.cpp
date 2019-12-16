@@ -48,11 +48,7 @@ ConnectionServer::~ConnectionServer()
 
 void ConnectionServer::listenForRemote()
 {
-#ifdef Q_OS_WIN
-    d->backend = new ConnectionBackend(ConnectionBackend::TcpSocketMode, this);
-#else
-    d->backend = new ConnectionBackend(ConnectionBackend::LocalSocketMode, this);
-#endif
+    d->backend = new ConnectionBackend(this);
     if (!d->backend->listenForRemote()) {
         delete d->backend;
         d->backend = nullptr;
