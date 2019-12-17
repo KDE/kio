@@ -100,7 +100,7 @@ public:
 
     void startDrag();
 
-    int sectionHeaderHeight() const;
+    int sectionHeaderHeight(const QModelIndex &index) const;
 
     void clearFreeSpaceInfo();
 
@@ -163,10 +163,10 @@ QSize KFilePlacesViewDelegate::sizeHint(const QStyleOptionViewItem &option,
         iconSize = m_disappearingIconSize;
     }
 
-    int height = option.fontMetrics.height() / 2 + qMax(iconSize, option.fontMetrics.height());
+    int height = LATERAL_MARGIN + qMax(iconSize, option.fontMetrics.height());
 
     if (indexIsSectionHeader(index)) {
-        height += sectionHeaderHeight();
+        height += sectionHeaderHeight(index);
     }
 
     return QSize(option.rect.width(), height);
@@ -186,7 +186,7 @@ void KFilePlacesViewDelegate::paint(QPainter *painter, const QStyleOptionViewIte
         }
 
         // Move the target rect to the actual item rect
-        const int headerHeight = sectionHeaderHeight();
+        const int headerHeight = sectionHeaderHeight(index);
         opt.rect.translate(0, headerHeight);
         opt.rect.setHeight(opt.rect.height() - headerHeight);
     }
@@ -421,7 +421,7 @@ bool KFilePlacesViewDelegate::pointIsHeaderArea(const QPoint &pos)
     if (indexIsSectionHeader(index)) {
         const QRect vRect = m_view->visualRect(index);
         const int delegateY = pos.y() - vRect.y();
-        if (delegateY <= sectionHeaderHeight()) {
+        if (delegateY <= sectionHeaderHeight(index)) {
             return true;
         }
     }
@@ -489,11 +489,11 @@ void KFilePlacesViewDelegate::drawSectionHeader(QPainter *painter, const QStyleO
     const QString category = placesModel->isGroupHidden(index) ? i18n("%1 (hidden)", groupLabel) : groupLabel;
 
     QRect textRect(option.rect);
-    textRect.setLeft(textRect.left() + 3);
+    textRect.setLeft(textRect.left() + LATERAL_MARGIN);
     /* Take spacing into account:
        The spacing to the previous section compensates for the spacing to the first item.*/
     textRect.setY(textRect.y() /* + qMax(2, m_view->spacing()) - qMax(2, m_view->spacing())*/);
-    textRect.setHeight(sectionHeaderHeight());
+    textRect.setHeight(sectionHeaderHeight(index));
 
     painter->save();
 
@@ -529,10 +529,18 @@ QColor KFilePlacesViewDelegate::mixedColor(const QColor& c1, const QColor& c2, i
                   (c1.blue()  * c1Percent + c2.blue()  * c2Percent) / 100);
 }
 
-int KFilePlacesViewDelegate::sectionHeaderHeight() const
+int KFilePlacesViewDelegate::sectionHeaderHeight(const QModelIndex &index) const
 {
     // Account for the spacing between header and item
-    return QApplication::fontMetrics().height() + qMax(2, m_view->spacing());
+    const int spacing = qMax(2, m_view->spacing());
+    int height = QApplication::fontMetrics().height() + spacing;
+
+    // Add some additional spacing inbetween groups
+    if (index.row() > 0) {
+        height += LATERAL_MARGIN;
+    }
+
+    return height;
 }
 
 
@@ -1293,6 +1301,9 @@ void KFilePlacesView::Private::adaptItemSize()
     const int maxSize = 64;
 
     int textWidth = 0;
+    int totalSectionsHeight = 0;
+    QString previousSection;
+
     QFontMetrics fm = q->fontMetrics();
     for (int i = 0; i < placesModel->rowCount(); ++i) {
         QModelIndex index = placesModel->index(i, 0);
@@ -1300,13 +1311,22 @@ void KFilePlacesView::Private::adaptItemSize()
         if (!placesModel->isHidden(index)) {
             textWidth = qMax(textWidth, fm.boundingRect(index.data(Qt::DisplayRole).toString()).width());
         }
+
+        if (!q->isRowHidden(index.row())) {
+            const QString sectionName = index.data(KFilePlacesModel::GroupRole).toString();
+            if (previousSection != sectionName) {
+                previousSection = sectionName;
+
+                totalSectionsHeight += delegate->sectionHeaderHeight(index);
+            }
+        }
     }
 
     const int margin = q->style()->pixelMetric(QStyle::PM_FocusFrameHMargin, nullptr, q) + 1;
     const int maxWidth = q->viewport()->width() - textWidth - 4 * margin - 1;
 
     const int totalItemsHeight = (fm.height() / 2) * rowCount;
-    const int totalSectionsHeight = delegate->sectionHeaderHeight() * sectionsCount();
+
     const int maxHeight = ((q->height() - totalSectionsHeight - totalItemsHeight) / rowCount) - 1;
 
     int size = qMin(maxHeight, maxWidth);
