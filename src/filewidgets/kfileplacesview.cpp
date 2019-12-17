@@ -564,6 +564,7 @@ public:
     QRect dropRect;
 
     void setCurrentIndex(const QModelIndex &index);
+    void setIconSizeAnimated(int newSize);
     void adaptItemSize();
     void updateHiddenRows();
     void clearFreeSpaceInfos();
@@ -644,6 +645,10 @@ KFilePlacesView::KFilePlacesView(QWidget *parent)
         if (auto *placesModel = qobject_cast<KFilePlacesModel *>(model())) {
             placesModel->requestTeardown(index);
         }
+    });
+
+    connect(this, &QAbstractItemView::iconSizeChanged, this, [this](const QSize &newSize) {
+        d->setIconSizeAnimated(newSize.width());
     });
 
     connect(&d->adaptItemsTimeline, SIGNAL(valueChanged(qreal)),
@@ -1236,6 +1241,20 @@ void KFilePlacesView::Private::setCurrentIndex(const QModelIndex &index)
     }
 }
 
+void KFilePlacesView::Private::setIconSizeAnimated(int newSize)
+{
+    if (smoothItemResizing) {
+        oldSize = delegate->iconSize();
+        endSize = newSize;
+        if (adaptItemsTimeline.state() != QTimeLine::Running) {
+            adaptItemsTimeline.start();
+        }
+    } else {
+        delegate->setIconSize(newSize);
+        q->scheduleDelayedItemsLayout();
+    }
+}
+
 void KFilePlacesView::Private::adaptItemSize()
 {
     KFilePlacesViewDelegate *delegate = static_cast<KFilePlacesViewDelegate *>(q->itemDelegate());
@@ -1304,16 +1323,7 @@ void KFilePlacesView::Private::adaptItemSize()
         return;
     }
 
-    if (smoothItemResizing) {
-        oldSize = delegate->iconSize();
-        endSize = size;
-        if (adaptItemsTimeline.state() != QTimeLine::Running) {
-            adaptItemsTimeline.start();
-        }
-    } else {
-        delegate->setIconSize(size);
-        q->scheduleDelayedItemsLayout();
-    }
+    setIconSizeAnimated(size);
 }
 
 void KFilePlacesView::Private::updateHiddenRows()
