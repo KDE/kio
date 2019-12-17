@@ -923,7 +923,8 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
         return;
     }
 
-    emit contextMenuAboutToShow(index, &menu);
+    // Clicking a header should be treated as clicking no device, hence passing an invalid model index
+    emit contextMenuAboutToShow(clickOverHeader ? QModelIndex() : index, &menu);
 
     QAction *result = menu.exec(event->globalPos());
 
