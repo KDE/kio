@@ -2033,8 +2033,7 @@ void JobTest::cancelCopyAndCleanDest()
 
     const QString baseDir = homeTmpDir();
     const QString srcTemplate = baseDir + QStringLiteral("testfile_XXXXXX");
-    const QString destFile = baseDir + QStringLiteral("testfile_copy");
-
+    const QString destFile = baseDir + QStringLiteral("testfile_copy_") + QString::fromLatin1(QTest::currentDataTag());
 
     QTemporaryFile f(srcTemplate);
     if (!f.open()) {
