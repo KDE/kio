@@ -125,6 +125,7 @@ extern "C" {
 #include <kfileitemlistproperties.h>
 #include <kwindowconfig.h>
 #include <kioglobal_p.h>
+#include <kprotocolinfo.h>
 
 #include "ui_checksumswidget.h"
 #include "ui_kpropertiesdesktopbase.h"
@@ -1147,7 +1148,38 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
                 });
     }
 
-    if (!d->bMultiple) { // Dates for multiple don't make much sense...
+    if (!d->bMultiple) { // Dates and extra fields for multiple don't make much sense...
+        const auto extraFields = KProtocolInfo::extraFields(url);
+        for (int i = 0; i < extraFields.count(); ++i) {
+            const auto &field = extraFields.at(i);
+
+            QString label = item.entry().stringValue(KIO::UDSEntry::UDS_EXTRA + i);
+            if (field.type == KProtocolInfo::ExtraField::Invalid || label.isEmpty()) {
+                continue;
+            }
+
+            if (field.type == KProtocolInfo::ExtraField::DateTime) {
+                const QDateTime date = QDateTime::fromString(label, Qt::ISODate);
+                if (!date.isValid()) {
+                    continue;
+                }
+
+                label = date.toString(Qt::DefaultLocaleLongDate);
+            }
+
+            l = new QLabel(i18n("%1:", field.name), d->m_frame);
+            grid->addWidget(l, curRow, 0, Qt::AlignRight);
+
+            l = new KSqueezedTextLabel(label, d->m_frame);
+            if (properties->layoutDirection() == Qt::RightToLeft) {
+                l->setAlignment(Qt::AlignRight);
+            } else {
+                l->setLayoutDirection(Qt::LeftToRight);
+            }
+            grid->addWidget(l, curRow++, 2);
+            l->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::TextSelectableByKeyboard);
+        }
+
         QDateTime dt = item.time(KFileItem::CreationTime);
         if (!dt.isNull()) {
             l = new QLabel(i18n("Created:"), d->m_frame);
