@@ -209,23 +209,23 @@ public:
      * It is set to false if the connection becomes closed.
      *
      */
-    Result openConnection() Q_REQUIRED_RESULT;
+    Q_REQUIRED_RESULT Result openConnection();
 
     /**
      * Closes the connection
      */
     void closeConnection();
 
-    Result stat(const QUrl &url) Q_REQUIRED_RESULT;
+    Q_REQUIRED_RESULT Result stat(const QUrl &url)    ;
 
     Result listDir(const QUrl &url);
-    Result mkdir(const QUrl &url, int permissions) Q_REQUIRED_RESULT;
-    Result rename(const QUrl &src, const QUrl &dst, KIO::JobFlags flags) Q_REQUIRED_RESULT;
-    Result del(const QUrl &url, bool isfile) Q_REQUIRED_RESULT;
-    Result chmod(const QUrl &url, int permissions) Q_REQUIRED_RESULT;
+    Q_REQUIRED_RESULT Result mkdir(const QUrl &url, int permissions);
+    Q_REQUIRED_RESULT Result rename(const QUrl &src, const QUrl &dst, KIO::JobFlags flags);
+    Q_REQUIRED_RESULT Result del(const QUrl &url, bool isfile);
+    Q_REQUIRED_RESULT Result chmod(const QUrl &url, int permissions);
 
-    Result get(const QUrl &url) Q_REQUIRED_RESULT;
-    Result put(const QUrl &url, int permissions, KIO::JobFlags flags) Q_REQUIRED_RESULT;
+    Q_REQUIRED_RESULT Result get(const QUrl &url);
+    Q_REQUIRED_RESULT Result put(const QUrl &url, int permissions, KIO::JobFlags flags);
     //virtual void mimetype( const QUrl& url );
 
     void slave_status();
@@ -233,7 +233,7 @@ public:
     /**
      * Handles the case that one side of the job is a local file
      */
-    Result copy(const QUrl &src, const QUrl &dest, int permissions, KIO::JobFlags flags) Q_REQUIRED_RESULT;
+    Q_REQUIRED_RESULT Result copy(const QUrl &src, const QUrl &dest, int permissions, KIO::JobFlags flags);
 
     // ---------------------------------------- END API
 
@@ -250,7 +250,7 @@ public:
      *
      * @return true on success (a login failure would return false).
      */
-    Result ftpOpenConnection(LoginMode loginMode) Q_REQUIRED_RESULT;
+    Q_REQUIRED_RESULT Result ftpOpenConnection(LoginMode loginMode);
 
     /**
      * Executes any auto login macro's as specified in a .netrc file.
@@ -266,7 +266,7 @@ public:
      *                    was changed during login.
      * @return true on success.
      */
-    Result ftpLogin(bool *userChanged = nullptr) Q_REQUIRED_RESULT;
+    Q_REQUIRED_RESULT Result ftpLogin(bool *userChanged = nullptr);
 
     /**
      * ftpSendCmd - send a command (@p cmd) and read response
@@ -277,7 +277,7 @@ public:
      *
      * return true if any response received, false on error
      */
-    bool ftpSendCmd(const QByteArray &cmd, int maxretries = 1) Q_REQUIRED_RESULT;
+    Q_REQUIRED_RESULT bool ftpSendCmd(const QByteArray &cmd, int maxretries = 1);
 
     /**
      * Use the SIZE command to get the file size.
@@ -296,7 +296,7 @@ public:
     /**
      * Set the current working directory, but only if not yet current
      */
-    bool ftpFolder(const QString &path) Q_REQUIRED_RESULT;
+    Q_REQUIRED_RESULT bool ftpFolder(const QString &path);
 
     /**
      * Runs a command on the ftp server like "list" or "retr". In contrast to
@@ -309,8 +309,8 @@ public:
      *
      * @return true if the command was accepted by the server.
      */
-    Result ftpOpenCommand(const char *command, const QString &path, char mode,
-                        int errorcode, KIO::fileoffset_t offset = 0) Q_REQUIRED_RESULT;
+    Q_REQUIRED_RESULT Result ftpOpenCommand(const char *command, const QString &path, char mode,
+                        int errorcode, KIO::fileoffset_t offset = 0);
 
     /**
      * The counterpart to openCommand.
@@ -356,7 +356,7 @@ public:
     bool ftpChmod(const QString &path, int permissions);
 
     // used by listDir
-    Result ftpOpenDir(const QString &path) Q_REQUIRED_RESULT;
+    Q_REQUIRED_RESULT Result ftpOpenDir(const QString &path);
     /**
       * Called to parse directory listings, call this until it returns false
       */
@@ -369,22 +369,22 @@ public:
 
     void ftpShortStatAnswer(const QString &filename, bool isDir);
 
-    Result ftpStatAnswerNotFound(const QString &path, const QString &filename) Q_REQUIRED_RESULT;
+    Q_REQUIRED_RESULT Result ftpStatAnswerNotFound(const QString &path, const QString &filename);
 
     /**
      * This is the internal implementation of rename() - set put().
      *
      * @return true on success.
      */
-    Result ftpRename(const QString &src, const QString &dst, KIO::JobFlags flags) Q_REQUIRED_RESULT;
+    Q_REQUIRED_RESULT Result ftpRename(const QString &src, const QString &dst, KIO::JobFlags flags);
 
     /**
      * Called by openConnection. It opens the control connection to the ftp server.
      *
      * @return true on success.
      */
-    Result ftpOpenControlConnection() Q_REQUIRED_RESULT;
-    Result ftpOpenControlConnection(const QString &host, int port) Q_REQUIRED_RESULT;
+    Q_REQUIRED_RESULT Result ftpOpenControlConnection();
+    Q_REQUIRED_RESULT Result ftpOpenControlConnection(const QString &host, int port);
 
     /**
      * closes the socket holding the control connection (see ftpOpenControlConnection)
@@ -412,7 +412,7 @@ public:
      * @param hCopyOffset local file only: non-zero for resume
      * @return 0 for success, -1 for server error, -2 for client error
      */
-    Result ftpGet(int iCopyFile, const QString &sCopyFile, const QUrl &url, KIO::fileoffset_t hCopyOffset) Q_REQUIRED_RESULT;
+    Q_REQUIRED_RESULT Result ftpGet(int iCopyFile, const QString &sCopyFile, const QUrl &url, KIO::fileoffset_t hCopyOffset);
 
     /**
      * This is the internal implementation of put() - see copy().
@@ -424,7 +424,7 @@ public:
      * @param iCopyFile   -1 -or- handle of a local source file
      * @return 0 for success, -1 for server error, -2 for client error
      */
-    Result ftpPut(int iCopyFile, const QUrl &url, int permissions, KIO::JobFlags flags) Q_REQUIRED_RESULT;
+    Q_REQUIRED_RESULT Result ftpPut(int iCopyFile, const QUrl &url, int permissions, KIO::JobFlags flags);
 
     /**
      * helper called from copy() to implement FILE -> FTP transfers
@@ -434,7 +434,7 @@ public:
      * @param sCopyFile   path of the local source file
      * @return 0 for success, -1 for server error, -2 for client error
      */
-    Result ftpCopyPut(int &iCopyFile, const QString &sCopyFile, const QUrl &url, int permissions, KIO::JobFlags flags) Q_REQUIRED_RESULT;
+    Q_REQUIRED_RESULT Result ftpCopyPut(int &iCopyFile, const QString &sCopyFile, const QUrl &url, int permissions, KIO::JobFlags flags);
 
     /**
      * helper called from copy() to implement FTP -> FILE transfers
@@ -444,7 +444,7 @@ public:
      * @param sCopyFile   path of the local destination file
      * @return 0 for success, -1 for server error, -2 for client error
      */
-    Result ftpCopyGet(int &iCopyFile, const QString &sCopyFile, const QUrl &url, int permissions, KIO::JobFlags flags) Q_REQUIRED_RESULT;
+    Q_REQUIRED_RESULT Result ftpCopyGet(int &iCopyFile, const QString &sCopyFile, const QUrl &url, int permissions, KIO::JobFlags flags);
 
     /**
      * Sends the mime type of the content to retrieved.
@@ -452,7 +452,7 @@ public:
      * @param iError      set to an ERR_xxxx code on error
      * @return 0 for success, -1 for server error, -2 for client error
      */
-    Result ftpSendMimeType(const QUrl &url) Q_REQUIRED_RESULT;
+    Q_REQUIRED_RESULT Result ftpSendMimeType(const QUrl &url);
 
     /**
      * Fixes up an entry name so that extraneous whitespaces do not cause
@@ -468,7 +468,7 @@ public:
     /**
      * Setup the connection to the server.
      */
-    ConnectionResult synchronousConnectToHost(const QString &host, quint16 port) Q_REQUIRED_RESULT;
+    Q_REQUIRED_RESULT ConnectionResult synchronousConnectToHost(const QString &host, quint16 port);
 
 private: // data members
     Ftp *const q;
