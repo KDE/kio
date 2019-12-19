@@ -1036,7 +1036,7 @@ QList<QUrl> KCoreDirListerCache::directoriesForCanonicalPath(const QUrl &dir) co
 {
     QList<QUrl> dirs;
     dirs << dir;
-    dirs << canonicalUrls.value(dir).toSet().toList(); /* make unique; there are faster ways, but this is really small anyway */
+    dirs << canonicalUrls.value(dir).toSet().values(); /* make unique; there are faster ways, but this is really small anyway */
 
     if (dirs.count() > 1) {
         qCDebug(KIO_CORE_DIRLISTER) << dir << "known as" << dirs;
