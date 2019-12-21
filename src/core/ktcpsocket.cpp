@@ -44,10 +44,8 @@ static KTcpSocket::SslVersion kSslVersionFromQ(QSsl::SslProtocol protocol)
         return KTcpSocket::TlsV1_1;
     case QSsl::TlsV1_2:
         return KTcpSocket::TlsV1_2;
-#if (QT_VERSION >= QT_VERSION_CHECK(5, 12, 0))
     case QSsl::TlsV1_3:
         return KTcpSocket::TlsV1_3;
-#endif
     case QSsl::AnyProtocol:
         return KTcpSocket::AnySslVersion;
     case QSsl::TlsV1SslV3:
@@ -69,9 +67,7 @@ static QSsl::SslProtocol qSslProtocolFromK(KTcpSocket::SslVersion sslVersion)
     KTcpSocket::SslVersions validVersions(KTcpSocket::SslV2 | KTcpSocket::SslV3 | KTcpSocket::TlsV1);
     validVersions |= KTcpSocket::TlsV1_1;
     validVersions |= KTcpSocket::TlsV1_2;
-#if (QT_VERSION >= QT_VERSION_CHECK(5, 12, 0))
     validVersions |= KTcpSocket::TlsV1_3;
-#endif
     validVersions |= KTcpSocket::TlsV1SslV3;
     validVersions |= KTcpSocket::SecureProtocols;
 
@@ -90,10 +86,8 @@ static QSsl::SslProtocol qSslProtocolFromK(KTcpSocket::SslVersion sslVersion)
         return QSsl::TlsV1_1;
     case KTcpSocket::TlsV1_2:
         return QSsl::TlsV1_2;
-#if (QT_VERSION >= QT_VERSION_CHECK(5, 12, 0))
     case KTcpSocket::TlsV1_3:
         return QSsl::TlsV1_3;
-#endif
     case KTcpSocket::TlsV1SslV3:
         return QSsl::TlsV1SslV3;
     case KTcpSocket::SecureProtocols:
@@ -118,10 +112,8 @@ static QString protocolString(QSsl::SslProtocol protocol)
         return QStringLiteral("TLSv1.1");
     case QSsl::TlsV1_2:
         return QStringLiteral("TLSv1.2");
-#if (QT_VERSION >= QT_VERSION_CHECK(5, 12, 0))
     case QSsl::TlsV1_3:
         return QStringLiteral("TLSv1.3");
-#endif
     default:
         return QStringLiteral("Unknown");;
     }
