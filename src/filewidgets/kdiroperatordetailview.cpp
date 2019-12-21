@@ -41,6 +41,12 @@ KDirOperatorDetailView::KDirOperatorDetailView(QWidget *parent) :
     setEditTriggers(QAbstractItemView::NoEditTriggers);
     setVerticalScrollMode(QListView::ScrollPerPixel);
     setHorizontalScrollMode(QListView::ScrollPerPixel);
+
+    const QFontMetrics metrics(viewport()->font());
+    const int singleStep = metrics.height() * QApplication::wheelScrollLines();
+
+    verticalScrollBar()->setSingleStep(singleStep);
+    horizontalScrollBar()->setSingleStep(singleStep);
 }
 
 KDirOperatorDetailView::~KDirOperatorDetailView()

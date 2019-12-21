@@ -42,6 +42,12 @@ KDirOperatorIconView::KDirOperatorIconView(QWidget *parent, QStyleOptionViewItem
 
     decorationPosition = aDecorationPosition;
 
+    const QFontMetrics metrics(viewport()->font());
+    const int singleStep = metrics.height() * QApplication::wheelScrollLines();
+
+    verticalScrollBar()->setSingleStep(singleStep);
+    horizontalScrollBar()->setSingleStep(singleStep);
+
     updateLayout();
     connect(this, &QListView::iconSizeChanged, this, &KDirOperatorIconView::updateLayout);
 }
