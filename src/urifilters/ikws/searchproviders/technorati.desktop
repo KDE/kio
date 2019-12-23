@@ -105,6 +105,7 @@ Query[eu]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[fi]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[fr]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[gl]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
+Query[ia]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[id]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[it]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[ko]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
