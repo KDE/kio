@@ -468,6 +468,18 @@ public:
     static bool supportsOpening(const QUrl &url);
 
     /**
+     * Returns whether the protocol can be truncated with FileJob::truncate(KIO::filesize_t length).
+     *
+     * This corresponds to the "truncating=" field in the protocol description file.
+     * Valid values for this field are "true" or "false" (default).
+     *
+     * @param url the url to check
+     * @return true if the protocol supports truncating
+     * @since 5.66
+     */
+    static bool supportsTruncating(const QUrl &url);
+
+    /**
      * Returns whether the protocol can copy files/objects directly from the
      * filesystem itself. If not, the application will read files from the
      * filesystem using the file-protocol and pass the data on to the destination

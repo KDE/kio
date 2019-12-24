@@ -61,7 +61,8 @@ enum Info {
     INF_META_DATA,
     INF_NETWORK_STATUS,
     INF_MESSAGEBOX,
-    INF_POSITION
+    INF_POSITION,
+    INF_TRUNCATED
     // add new ones here once a release is done, to avoid breaking binary compatibility
 };
 
@@ -175,6 +176,7 @@ Q_SIGNALS:
     void processedSize(KIO::filesize_t);
     void redirection(const QUrl &);
     void position(KIO::filesize_t);
+    void truncated(KIO::filesize_t);
 
     void speed(unsigned long);
     void errorPage();

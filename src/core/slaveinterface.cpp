@@ -227,6 +227,11 @@ bool SlaveInterface::dispatch(int _cmd, const QByteArray &rawdata)
         emit position(pos);
         break;
     }
+    case INF_TRUNCATED: {
+        KIO::filesize_t length = readFilesize_t(stream);
+        emit truncated(length);
+        break;
+    }
     case INF_SPEED:
         stream >> ul;
         d->slave_calcs_speed = true;

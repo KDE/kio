@@ -564,6 +564,18 @@ void FileProtocol::seek(KIO::filesize_t offset)
     }
 }
 
+void FileProtocol::truncate(KIO::filesize_t length)
+{
+    Q_ASSERT(mFile && mFile->isOpen());
+
+    if (mFile->resize(length)) {
+        truncated(length);
+    } else {
+        error(KIO::ERR_CANNOT_TRUNCATE, mFile->fileName());
+        closeWithoutFinish();
+    }
+}
+
 void FileProtocol::closeWithoutFinish()
 {
     Q_ASSERT(mFile);
@@ -1546,6 +1558,10 @@ void FileProtocol::virtual_hook(int id, void *data)
     case SlaveBase::GetFileSystemFreeSpace: {
         QUrl *url = static_cast<QUrl *>(data);
         fileSystemFreeSpace(*url);
+    } break;
+    case SlaveBase::Truncate: {
+        auto length = static_cast<KIO::filesize_t *>(data);
+        truncate(*length);
     } break;
     default: {
         SlaveBase::virtual_hook(id, data);

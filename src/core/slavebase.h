@@ -207,6 +207,11 @@ public:
     void written(KIO::filesize_t _bytes);
 
     /**
+     * @since 5.66
+     */
+    void truncated(KIO::filesize_t _length);
+
+    /**
      * Only use this if you can't know in advance the size of the
      * copied data. For example, if you're doing variable bitrate
      * compression of the source.
@@ -1041,7 +1046,8 @@ protected:
 
     enum VirtualFunctionId {
         AppConnectionMade = 0,
-        GetFileSystemFreeSpace = 1   // KF6 TODO: Turn into a virtual method
+        GetFileSystemFreeSpace = 1,   // KF6 TODO: Turn into a virtual method
+        Truncate = 2, // KF6 TODO: Turn into a virtual method
     };
     virtual void virtual_hook(int id, void *data);
 

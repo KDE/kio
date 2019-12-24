@@ -653,6 +653,12 @@ void SlaveBase::position(KIO::filesize_t _pos)
     send(INF_POSITION, data);
 }
 
+void SlaveBase::truncated(KIO::filesize_t _length)
+{
+    KIO_DATA << KIO_FILESIZE_T(_length);
+    send(INF_TRUNCATED, data);
+}
+
 void SlaveBase::processedPercent(float /* percent */)
 {
     //qDebug() << "STUB";
@@ -1392,6 +1398,13 @@ void SlaveBase::dispatchOpenCommand(int command, const QByteArray &data)
         seek(offset);
         break;
     }
+    case CMD_TRUNCATE: {
+        KIO::filesize_t length;
+        stream >> length;
+        void *data = static_cast<void *>(&length);
+        virtual_hook(Truncate, data);
+        break;
+    }
     case CMD_NONE:
         break;
     case CMD_CLOSE:
@@ -1485,6 +1498,9 @@ void SlaveBase::virtual_hook(int id, void *data)
     switch(id) {
     case GetFileSystemFreeSpace: {
         error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(protocolName(), CMD_FILESYSTEMFREESPACE));
+    } break;
+    case Truncate: {
+        error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(protocolName(), CMD_TRUNCATE));
     } break;
     }
 }

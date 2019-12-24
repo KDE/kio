@@ -32,7 +32,7 @@ class FileJobPrivate;
  * @class KIO::FileJob filejob.h <KIO/FileJob>
  *
  *  The file-job is an asynchronous version of normal file handling.
- *  It allows block-wise reading and writing, and allows seeking. Results are returned through signals.
+ *  It allows block-wise reading and writing, and allows seeking and truncation. Results are returned through signals.
  *
  *  Should always be created using KIO::open(QUrl)
  */
@@ -99,6 +99,19 @@ public:
     void seek(KIO::filesize_t offset);
 
     /**
+     * Truncate
+     *
+     * The slave emits truncated() on successful truncation to the specified \p length.
+     *
+     * On error the truncated() signal is not emitted. To catch errors please
+     * connect to the result() signal.
+     *
+     * @param length the desired length to truncate to
+     * @since 5.66
+     */
+    void truncate(KIO::filesize_t length);
+
+    /**
      * Size
      *
      * @return the file size
@@ -160,6 +173,14 @@ Q_SIGNALS:
      */
     void position(KIO::Job *job, KIO::filesize_t offset);
 
+    /**
+     * The file has been truncated to this point. Emitted after truncate().
+     * @param job the job that emitted this signal
+     * @param length the new length of the file
+     * @since 5.66
+     */
+    void truncated(KIO::Job *job, KIO::filesize_t length);
+
 protected:
     FileJob(FileJobPrivate &dd);
 
@@ -171,6 +192,7 @@ private:
     Q_PRIVATE_SLOT(d_func(), void slotWritten(KIO::filesize_t))
     Q_PRIVATE_SLOT(d_func(), void slotFinished())
     Q_PRIVATE_SLOT(d_func(), void slotPosition(KIO::filesize_t))
+    Q_PRIVATE_SLOT(d_func(), void slotTruncated(KIO::filesize_t))
     Q_PRIVATE_SLOT(d_func(), void slotTotalSize(KIO::filesize_t))
 
     Q_DECLARE_PRIVATE(FileJob)

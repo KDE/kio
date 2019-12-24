@@ -25,6 +25,7 @@
             "maxInstances": 5, 
             "moving": true, 
             "opening": true, 
+            "truncating": true,
             "output": "filesystem", 
             "protocol": "file", 
             "reading": true, 

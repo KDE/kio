@@ -45,6 +45,7 @@ public:
     void slotWritten(KIO::filesize_t);
     void slotFinished();
     void slotPosition(KIO::filesize_t);
+    void slotTruncated(KIO::filesize_t);
     void slotTotalSize(KIO::filesize_t);
 
     /**
@@ -108,6 +109,17 @@ void FileJob::seek(KIO::filesize_t offset)
     d->m_slave->send(CMD_SEEK, packedArgs);
 }
 
+void FileJob::truncate(KIO::filesize_t length)
+{
+    Q_D(FileJob);
+    if (!d->m_open) {
+        return;
+    }
+
+    KIO_ARGS << KIO::filesize_t(length);
+    d->m_slave->send(CMD_TRUNCATE, packedArgs);
+}
+
 void FileJob::close()
 {
     Q_D(FileJob);
@@ -154,6 +166,12 @@ void FileJobPrivate::slotPosition(KIO::filesize_t pos)
 {
     Q_Q(FileJob);
     emit q->position(q, pos);
+}
+
+void FileJobPrivate::slotTruncated(KIO::filesize_t length)
+{
+    Q_Q(FileJob);
+    emit q->truncated(q, length);
 }
 
 void FileJobPrivate::slotTotalSize(KIO::filesize_t t_size)
@@ -208,6 +226,9 @@ void FileJobPrivate::start(Slave *slave)
 
     q->connect(slave, SIGNAL(position(KIO::filesize_t)),
                SLOT(slotPosition(KIO::filesize_t)));
+
+    q->connect(slave, SIGNAL(truncated(KIO::filesize_t)),
+               SLOT(slotTruncated(KIO::filesize_t)));
 
     q->connect(slave, SIGNAL(written(KIO::filesize_t)),
                SLOT(slotWritten(KIO::filesize_t)));

@@ -47,6 +47,7 @@ KProtocolInfoPrivate::KProtocolInfoPrivate(const QString &path)
     m_supportsLinking = config.readEntry("linking", false);
     m_supportsMoving = config.readEntry("moving", false);
     m_supportsOpening = config.readEntry("opening", false);
+    m_supportsTruncating = config.readEntry("truncating", false);
     m_canCopyFromFile = config.readEntry("copyFromFile", false);
     m_canCopyToFile = config.readEntry("copyToFile", false);
     m_canRenameFromFile = config.readEntry("renameFromFile", false);
@@ -136,6 +137,7 @@ KProtocolInfoPrivate::KProtocolInfoPrivate(const QString &name, const QString &e
     m_supportsLinking = json.value(QStringLiteral("linking")).toBool();
     m_supportsMoving = json.value(QStringLiteral("moving")).toBool();
     m_supportsOpening = json.value(QStringLiteral("opening")).toBool();
+    m_supportsTruncating = json.value(QStringLiteral("truncating")).toBool();
     m_canCopyFromFile = json.value(QStringLiteral("copyFromFile")).toBool();
     m_canCopyToFile = json.value(QStringLiteral("copyToFile")).toBool();
     m_canRenameFromFile = json.value(QStringLiteral("renameFromFile")).toBool();

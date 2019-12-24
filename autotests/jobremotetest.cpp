@@ -276,7 +276,7 @@ void JobRemoteTest::slotFileJobClose(KIO::Job *job)
 {
     Q_UNUSED(job);
     m_closeSignalCalled = true;
-    qDebug() << "+++++++++ closed";
+    qDebug() << "+++++++++ filejob closed";
 }
 
 ////
@@ -319,8 +319,9 @@ void JobRemoteTest::openFileReading()
             this, &JobRemoteTest::slotFileJob2Written);
     connect(fileJob, &KIO::FileJob::position,
             this, &JobRemoteTest::slotFileJob2Position);
+    // Can reuse this slot (same for all tests).
     connect(fileJob, QOverload<KIO::Job*>::of(&KIO::FileJob::close),
-            this, &JobRemoteTest::slotFileJob2Close);
+            this, &JobRemoteTest::slotFileJobClose);
     m_result = -1;
     m_closeSignalCalled = false;
 
@@ -376,13 +377,6 @@ void JobRemoteTest::slotFileJob2Position(KIO::Job *job, KIO::filesize_t offset)
     fileJob->read(5);
 }
 
-void JobRemoteTest::slotFileJob2Close(KIO::Job *job)
-{
-    Q_UNUSED(job);
-    m_closeSignalCalled = true;
-    qDebug() << "+++++++++ job2 closed";
-}
-
 ////
 
 void JobRemoteTest::slotMimetype(KIO::Job *job, const QString &type)
@@ -431,7 +425,7 @@ void JobRemoteTest::openFileRead0Bytes()
             this, &JobRemoteTest::slotFileJob3Position);
     // Can reuse this as well.
     connect(fileJob, QOverload<KIO::Job*>::of(&KIO::FileJob::close),
-            this, &JobRemoteTest::slotFileJob3Close);
+            this, &JobRemoteTest::slotFileJobClose);
     m_result = -1;
     m_closeSignalCalled = false;
 
@@ -461,9 +455,75 @@ void JobRemoteTest::slotFileJob3Data(KIO::Job *job, const QByteArray& data)
     fileJob->close();
 }
 
-void JobRemoteTest::slotFileJob3Close(KIO::Job *job)
+void JobRemoteTest::openFileTruncating()
+{
+    QUrl u(remoteTmpUrl());
+    u.setPath(u.path() + "openFileTruncating");
+
+    const QByteArray putData("test1");
+
+    KIO::StoredTransferJob *putJob = KIO::storedPut(putData,
+                                     u,
+                                     0600, KIO::Overwrite | KIO::HideProgressInfo
+                                                   );
+
+    quint64 secsSinceEpoch = QDateTime::currentSecsSinceEpoch(); // Use second granularity, supported on all filesystems
+    QDateTime mtime = QDateTime::fromSecsSinceEpoch(secsSinceEpoch - 30); // 30 seconds ago
+    putJob->setModificationTime(mtime);
+    putJob->setUiDelegate(nullptr);
+    connect(putJob, &KJob::result,
+            this, &JobRemoteTest::slotResult);
+    m_result = -1;
+    enterLoop();
+    QVERIFY(m_result == 0);   // no error
+
+    m_truncatedFile.setFileName(u.toLocalFile());
+    QVERIFY(m_truncatedFile.exists());
+    QVERIFY(m_truncatedFile.open(QIODevice::ReadOnly));
+    fileJob = KIO::open(u, QIODevice::ReadWrite);
+
+    fileJob->setUiDelegate(nullptr);
+    connect(fileJob, &KJob::result,
+            this, &JobRemoteTest::slotResult);
+    connect(fileJob, &KIO::FileJob::open,
+            this, &JobRemoteTest::slotFileJob4Open);
+    connect(fileJob, &KIO::FileJob::truncated,
+            this, &JobRemoteTest::slotFileJob4Truncated);
+    // Can reuse this slot (same for all tests).
+    connect(fileJob, QOverload<KIO::Job*>::of(&KIO::FileJob::close),
+            this, &JobRemoteTest::slotFileJobClose);
+    m_result = -1;
+    m_closeSignalCalled = false;
+
+    enterLoop();
+    QVERIFY(m_result == 0);   // no error
+    QVERIFY(m_closeSignalCalled); // close signal called.
+}
+
+void JobRemoteTest::slotFileJob4Open(KIO::Job *job)
 {
     Q_UNUSED(job);
-    m_closeSignalCalled = true;
-    qDebug() << "+++++++++ job2 closed";
+    fileJob->truncate(10);
+    qDebug() << "Truncating file to 10";
+}
+
+void JobRemoteTest::slotFileJob4Truncated(KIO::Job *job, KIO::filesize_t length)
+{
+    Q_UNUSED(job);
+    if(length == 10) {
+        m_truncatedFile.seek(0);
+        QCOMPARE(m_truncatedFile.readAll(), QByteArray("test1\x00\x00\x00\x00\x00", 10));
+        fileJob->truncate(4);
+        qDebug() << "Truncating file to 4";
+    } else if(length == 4) {
+        m_truncatedFile.seek(0);
+        QCOMPARE(m_truncatedFile.readAll(), QByteArray("test"));
+        fileJob->truncate(0);
+        qDebug() << "Truncating file to 0";
+    } else {
+        m_truncatedFile.seek(0);
+        QCOMPARE(m_truncatedFile.readAll(), QByteArray());
+        fileJob->close();
+        qDebug() << "Truncating file finished";
+    }
 }

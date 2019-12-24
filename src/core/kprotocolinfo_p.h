@@ -48,6 +48,7 @@ public:
     bool m_supportsLinking : 1;
     bool m_supportsMoving : 1;
     bool m_supportsOpening : 1;
+    bool m_supportsTruncating : 1;
     bool m_determineMimetypeFromExtension : 1;
     bool m_canCopyFromFile : 1;
     bool m_canCopyToFile : 1;

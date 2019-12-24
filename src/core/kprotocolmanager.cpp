@@ -1223,6 +1223,16 @@ bool KProtocolManager::supportsOpening(const QUrl &url)
     return prot->m_supportsOpening;
 }
 
+bool KProtocolManager::supportsTruncating(const QUrl &url)
+{
+    KProtocolInfoPrivate *prot = findProtocol(url);
+    if (!prot) {
+        return false;
+    }
+
+    return prot->m_supportsTruncating;
+}
+
 bool KProtocolManager::canCopyFromFile(const QUrl &url)
 {
     KProtocolInfoPrivate *prot = findProtocol(url);
