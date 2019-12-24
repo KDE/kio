@@ -131,7 +131,7 @@ static QString actionDetails(ActionType actionType, const QVariantList &args)
 bool FileProtocol::privilegeOperationUnitTestMode()
 {
     return (metaData(QStringLiteral("UnitTesting")) == QLatin1String("true"))
-            && (requestPrivilegeOperation() == KIO::OperationAllowed);
+            && (requestPrivilegeOperation(QStringLiteral("Test Call")) == KIO::OperationAllowed);
 }
 
 PrivilegeOperationReturnValue FileProtocol::tryOpen(QFile &f, const QByteArray &path, int flags, int mode, int errcode)
