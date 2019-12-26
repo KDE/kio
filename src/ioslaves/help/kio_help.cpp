@@ -34,7 +34,6 @@
 #include <QFileInfo>
 #include <QFile>
 #include <QMimeDatabase>
-#include <QRegExp>
 #include <QStandardPaths>
 #include <QUrl>
 
@@ -300,7 +299,7 @@ void HelpProtocol::get(const QUrl &url)
             if (!anchor.isEmpty()) {
                 int index = 0;
                 while (true) {
-                    index = mParsed.indexOf(QRegExp(QStringLiteral("<a name=")), index);
+                    index = mParsed.indexOf(QStringLiteral("<a name="), index);
                     if (index == -1) {
                         //qDebug() << "no anchor\n";
                         break; // use whatever is the target, most likely index.html

@@ -21,7 +21,7 @@
 #include "script.h"
 
 #include <QString>
-#include <QRegExp>
+#include <QRegularExpression>
 #include <QDateTime>
 #include <QUrl>
 
@@ -314,8 +314,9 @@ Q_INVOKABLE QJSValue DNSDomainLevels(QString host)
 // @returns true if @p str matches the shell @p pattern
 Q_INVOKABLE QJSValue ShExpMatch(QString str, QString patternStr)
 {
-    QRegExp pattern(patternStr, Qt::CaseSensitive, QRegExp::Wildcard);
-    return QJSValue(pattern.exactMatch(str));
+    const QRegularExpression pattern(QRegularExpression::anchoredPattern(
+                                      QRegularExpression::wildcardToRegularExpression(patternStr)));
+    return QJSValue(pattern.match(str).hasMatch());
 }
 
 // weekdayRange(day [, "GMT" ])

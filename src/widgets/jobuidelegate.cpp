@@ -38,6 +38,7 @@
 #include <QPointer>
 #include <QWidget>
 #include <QIcon>
+#include <QRegularExpression>
 #include <QUrl>
 
 #include "kio/scheduler.h"
@@ -216,7 +217,7 @@ bool KIO::JobUiDelegate::askDeleteConfirmation(const QList<QUrl> &urls,
                 QString path = url.path();
                 // HACK (#98983): remove "0-foo". Note that it works better than
                 // displaying KFileItem::name(), for files under a subdir.
-                path.remove(QRegExp(QStringLiteral("^/[0-9]*-")));
+                path.remove(QRegularExpression(QStringLiteral("^/[0-9]*-")));
                 prettyList.append(path);
             } else {
                 prettyList.append(url.toDisplayString(QUrl::PreferLocalFile));

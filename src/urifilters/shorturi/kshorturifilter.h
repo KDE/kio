@@ -24,7 +24,7 @@
 #define KSHORTURIFILTER_H
 
 #include <QList>
-#include <QRegExp>
+#include <QRegularExpression>
 #include <QVariant>
 
 #include <kurifilter.h>
@@ -98,13 +98,13 @@ private:
         }
 
         URLHint(const QString &r, const QString &p, KUriFilterData::UriTypes t = KUriFilterData::NetProtocol)
-            : regexp(QRegExp(r))
+            : hintRe(r)
             , prepend(p)
             , type(t)
         {
         }
 
-        QRegExp regexp; // if this matches, then...
+        QRegularExpression hintRe; // if this matches, then...
         QString prepend; // ...prepend this to the url
         KUriFilterData::UriTypes type;
     };

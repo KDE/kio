@@ -25,7 +25,7 @@
 
 #include <QtTestWidgets>
 #include <QDir>
-#include <QRegExp>
+#include <QRegularExpression>
 #include <QHostInfo>
 
 #include <iostream>
@@ -111,7 +111,7 @@ static void runFilterTest(const QString &a, const QString &expectedResult = null
 
         if (!expectedResult.isEmpty()) {
             // Hack for other locales than english, normalize google hosts to google.com
-            cmd.replace(QRegExp(QStringLiteral("www\\.google\\.[^/]*/")), QStringLiteral("www.google.com/"));
+            cmd.replace(QRegularExpression(QStringLiteral("www\\.google\\.[^/]*/")), QStringLiteral("www.google.com/"));
             if (cmd != expectedResult) {
                 qWarning() << a;
                 QCOMPARE(cmd, expectedResult);

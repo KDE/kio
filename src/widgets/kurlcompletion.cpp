@@ -30,7 +30,7 @@
 #include <limits.h>
 
 #include <QMutex>
-#include <QRegExp>
+#include <QRegularExpression>
 #include <QDir>
 #include <QDirIterator>
 #include <QFile>
@@ -496,11 +496,11 @@ void KUrlCompletionPrivate::MyURL::init(const QString &_url, const QUrl &cwd)
     }
 
     // Look for a protocol in 'url'
-    QRegExp protocol_regex = QRegExp(QStringLiteral("^(?![A-Za-z]:)[^/\\s\\\\]*:"));
+    const QRegularExpression protocol_regex(QStringLiteral("^(?![A-Za-z]:)[^/\\s\\\\]*:"));
 
     // Assume "file:" or whatever is given by 'cwd' if there is
     // no protocol.  (QUrl does this only for absolute paths)
-    if (protocol_regex.indexIn(url_copy) == 0) {
+    if (protocol_regex.match(url_copy).hasMatch()) {
         m_kurl = QUrl(url_copy);
         m_isURL = true;
     } else { // relative path or ~ or $something

@@ -35,7 +35,7 @@
 #include <qdom.h>
 #include <QFile>
 #include <QLibraryInfo>
-#include <QRegExp>
+#include <QRegularExpression>
 #include <QDateTime>
 #include <QBuffer>
 #include <QIODevice>
@@ -164,9 +164,9 @@ static bool isCrossDomainRequest(const QString &fqdn, const QString &originURL)
 static QString sanitizeCustomHTTPHeader(const QString &_header)
 {
     QString sanitizedHeaders;
-    const QStringList headers = _header.split(QRegExp(QStringLiteral("[\r\n]")));
+    const QVector<QStringRef> headers = _header.splitRef(QRegularExpression(QStringLiteral("[\r\n]")));
 
-    for (const QString &header : headers) {
+    for (const QStringRef &header : headers) {
         // Do not allow Request line to be specified and ignore
         // the other HTTP headers.
         if (!header.contains(QLatin1Char(':')) ||
@@ -3280,7 +3280,7 @@ endParsing:
                     rel = rel.mid(5, rel.length() - 6);
                     if (rel.toLower() == QLatin1String("pageservices")) {
                         //### the remove() part looks fishy!
-                        QString url = link[0].remove(QRegExp(QStringLiteral("[<>]"))).trimmed();
+                        QString url = link[0].remove(QRegularExpression(QStringLiteral("[<>]"))).trimmed();
                         setMetaData(QStringLiteral("PageServices"), url);
                     }
                 }
@@ -3296,12 +3296,12 @@ endParsing:
                                      .split(QLatin1Char('='), QString::SkipEmptyParts);
                 if (policy.count() == 2) {
                     if (policy[0].toLower() == QLatin1String("policyref")) {
-                        policyrefs << policy[1].remove(QRegExp(QStringLiteral("[\")\']"))).trimmed();
+                        policyrefs << policy[1].remove(QRegularExpression(QStringLiteral("[\")\']"))).trimmed();
                     } else if (policy[0].toLower() == QLatin1String("cp")) {
                         // We convert to cp\ncp\ncp\n[...]\ncp to be consistent with
                         // other metadata sent in strings.  This could be a bit more
                         // efficient but I'm going for correctness right now.
-                        const QString s = policy[1].remove(QRegExp(QStringLiteral("[\")\']")));
+                        const QString s = policy[1].remove(QRegularExpression(QStringLiteral("[\")\']")));
                         const QStringList cps = s.split(QLatin1Char(' '), QString::SkipEmptyParts);
                         compact << cps;
                     }
@@ -3367,7 +3367,7 @@ endParsing:
         if (tIt.hasNext()) {
             // Now we have to check to see what is offered for the upgrade
             QString offered = toQString(tIt.next());
-            upgradeOffers = offered.split(QRegExp(QStringLiteral("[ \n,\r\t]")), QString::SkipEmptyParts);
+            upgradeOffers = offered.split(QRegularExpression(QStringLiteral("[ \n,\r\t]")), QString::SkipEmptyParts);
         }
         for (const QString &opt : qAsConst(upgradeOffers)) {
             if (opt == QLatin1String("TLS/1.0")) {

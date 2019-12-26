@@ -40,7 +40,7 @@
 #include <QImage>
 #include <QPixmap>
 #include <QTimer>
-#include <QRegExp>
+#include <QRegularExpression>
 #include <qtemporaryfile.h>
 #include <qsavefile.h>
 
@@ -339,7 +339,7 @@ void PreviewJobPrivate::startPreview()
             QMap<QString, KService::Ptr>::ConstIterator pluginIt = mimeMap.constFind(mimeType);
             if (pluginIt == mimeMap.constEnd()) {
                 QString groupMimeType = mimeType;
-                groupMimeType.replace(QRegExp(QStringLiteral("/.*")), QStringLiteral("/*"));
+                groupMimeType.replace(QRegularExpression(QStringLiteral("/.*")), QStringLiteral("/*"));
                 pluginIt = mimeMap.constFind(groupMimeType);
 
                 if (pluginIt == mimeMap.constEnd()) {

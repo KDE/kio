@@ -44,6 +44,7 @@
 #include <QDBusInterface>
 #include <QCache>
 #include <QLocale>
+#include <QRegularExpression>
 #include <qstandardpaths.h>
 #include <qmimedatabase.h>
 
@@ -900,9 +901,9 @@ QString KProtocolManager::defaultUserAgent(const QString &_modifiers)
 
             // Clean up unnecessary separators that could be left over from the
             // possible keyword removal above...
-            agentStr.replace(QRegExp(QL1S("[(]\\s*[;]\\s*")), QStringLiteral("("));
-            agentStr.replace(QRegExp(QL1S("[;]\\s*[;]\\s*")), QStringLiteral("; "));
-            agentStr.replace(QRegExp(QL1S("\\s*[;]\\s*[)]")), QStringLiteral(")"));
+            agentStr.replace(QRegularExpression(QStringLiteral("[(]\\s*[;]\\s*")), QStringLiteral("("));
+            agentStr.replace(QRegularExpression(QStringLiteral("[;]\\s*[;]\\s*")), QStringLiteral("; "));
+            agentStr.replace(QRegularExpression(QStringLiteral("\\s*[;]\\s*[)]")), QStringLiteral(")"));
         } else {
             agentStr.remove(QStringLiteral("%osname%"));
             agentStr.remove(QStringLiteral("%osversion%"));

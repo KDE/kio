@@ -30,8 +30,6 @@
 #define QL1C(x)   QLatin1Char(x)
 #define QL1S(x)   QLatin1String(x)
 
-#define HOSTPORT_PATTERN "[a-zA-Z0-9][a-zA-Z0-9+-]*(?:\\:[0-9]{1,5})?(?:/[\\w:@&=+$,-.!~*'()]*)*"
-
 namespace {
 QLoggingCategory category("org.kde.kurifilter-localdomain", QtWarningMsg);
 }
@@ -42,8 +40,9 @@ QLoggingCategory category("org.kde.kurifilter-localdomain", QtWarningMsg);
  */
 LocalDomainUriFilter::LocalDomainUriFilter(QObject *parent, const QVariantList & /*args*/)
     : KUriFilterPlugin(QStringLiteral("localdomainurifilter"), parent)
-    , m_hostPortPattern(QL1S(HOSTPORT_PATTERN))
 {
+    m_hostPortPattern = QRegularExpression(QRegularExpression::anchoredPattern(
+         QStringLiteral("[a-zA-Z0-9][a-zA-Z0-9+-]*(?:\\:[0-9]{1,5})?(?:/[\\w:@&=+$,-.!~*'()]*)*")));
 }
 
 bool LocalDomainUriFilter::filterUri(KUriFilterData &data) const
@@ -54,7 +53,7 @@ bool LocalDomainUriFilter::filterUri(KUriFilterData &data) const
     // When checking for local domain just validate it is indeed a local domain,
     // but do not modify the hostname! See bug#
     if ((protocol.isEmpty() || !KProtocolInfo::isKnownProtocol(protocol))
-        && m_hostPortPattern.exactMatch(data.typedString())) {
+        && m_hostPortPattern.match(data.typedString()).hasMatch()) {
         QString host(data.typedString().left(data.typedString().indexOf(QL1C('/'))));
         const int pos = host.indexOf(QL1C(':'));
         if (pos > -1) {

@@ -39,7 +39,7 @@
 #include <kdesktopfile.h>
 #include <QDir>
 #include <QCoreApplication>
-#include <QRegExp>
+#include <QRegularExpression>
 #include <qplatformdefs.h>
 
 #include <kconfiggroup.h>
@@ -101,7 +101,7 @@ void KRecentDocument::add(const QUrl &url, const QString &desktopEntryName)
     }
 
     QString openStr = url.toDisplayString();
-    openStr.replace(QRegExp(QStringLiteral("\\$")), QStringLiteral("$$"));   // Desktop files with type "Link" are $-variable expanded
+    openStr.replace(QRegularExpression(QStringLiteral("\\$")), QStringLiteral("$$"));   // Desktop files with type "Link" are $-variable expanded
 
     // qDebug() << "KRecentDocument::add for " << openStr;
     KConfigGroup config = KSharedConfig::openConfig()->group(QByteArray("RecentDocuments"));

@@ -43,7 +43,7 @@
 
 #include <QString>
 #include <QFile>
-#include <QRegExp>
+#include <QRegularExpression>
 #include <QTextStream>
 #include <QLocale>
 #include <QUrl>
@@ -629,7 +629,8 @@ void KCookieJar::extractDomains(const QString &_fqdn,
         return;
     }
     // Return numeric IPv4 addresses as is...
-    if (_fqdn[0] >= QL1C('0') && _fqdn[0] <= QL1C('9') && _fqdn.indexOf(QRegExp(QStringLiteral(IP_ADDRESS_EXPRESSION))) > -1) {
+    if (_fqdn[0] >= QL1C('0') && _fqdn[0] <= QL1C('9')
+        && _fqdn.indexOf(QRegularExpression(QStringLiteral(IP_ADDRESS_EXPRESSION))) > -1) {
         _domains.append(_fqdn);
         return;
     }

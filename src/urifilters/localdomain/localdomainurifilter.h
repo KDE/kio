@@ -23,7 +23,7 @@
 
 #include <KUriFilter>
 
-#include <QRegExp>
+#include <QRegularExpression>
 
 class QHostInfo;
 class QEventLoop;
@@ -45,7 +45,7 @@ public:
 private:
     bool exists(const QString &) const;
 
-    QRegExp m_hostPortPattern;
+    QRegularExpression m_hostPortPattern;
 };
 
 #endif
