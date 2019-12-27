@@ -81,6 +81,7 @@ protected Q_SLOTS:
     void slotFreeSpaceResult(KIO::Job *job, KIO::filesize_t size, KIO::filesize_t available);
     void slotSizeStop();
     void slotSizeDetermine();
+    void slotSizeDetails();
 
 Q_SIGNALS:
     void leaveModality();

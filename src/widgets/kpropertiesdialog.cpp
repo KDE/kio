@@ -779,8 +779,11 @@ public:
     QWidget *iconArea;
 
     QLabel *m_sizeLabel;
+
     QPushButton *m_sizeDetermineButton;
     QPushButton *m_sizeStopButton;
+    QPushButton *m_sizeDetailsButton;
+
     KLineEdit *m_linkTargetLineEdit;
 
     QString m_sRelativePath;
@@ -1085,6 +1088,7 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
            QLocale().toString(totalSize)));
         d->m_sizeDetermineButton = nullptr;
         d->m_sizeStopButton = nullptr;
+        d->m_sizeDetailsButton = nullptr;
     } else { // Directory
         QHBoxLayout *sizelay = new QHBoxLayout();
         grid->addLayout(sizelay, curRow++, 2);
@@ -1092,12 +1096,23 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
         // buttons
         d->m_sizeDetermineButton = new QPushButton(i18n("Calculate"), d->m_frame);
         d->m_sizeStopButton = new QPushButton(i18n("Stop"), d->m_frame);
+
         d->m_sizeDetermineButton->setIcon(QIcon::fromTheme(QStringLiteral("view-refresh")));
         d->m_sizeStopButton->setIcon(QIcon::fromTheme(QStringLiteral("dialog-cancel")));
+
         connect(d->m_sizeDetermineButton, &QAbstractButton::clicked, this, &KFilePropsPlugin::slotSizeDetermine);
         connect(d->m_sizeStopButton, &QAbstractButton::clicked, this, &KFilePropsPlugin::slotSizeStop);
+
         sizelay->addWidget(d->m_sizeDetermineButton, 0);
         sizelay->addWidget(d->m_sizeStopButton, 0);
+
+        if (!QStandardPaths::findExecutable(QStringLiteral("filelight")).isEmpty()) {
+            d->m_sizeDetailsButton = new QPushButton(i18n("Explore in Filelight"), d->m_frame);
+            d->m_sizeDetailsButton->setIcon(QIcon::fromTheme(QStringLiteral("filelight")));
+            connect(d->m_sizeDetailsButton, &QPushButton::clicked, this, &KFilePropsPlugin::slotSizeDetails);
+            sizelay->addWidget(d->m_sizeDetailsButton, 0);
+        }
+
         sizelay->addStretch(10); // so that the buttons don't grow horizontally
 
         // auto-launch for local dirs only, and not for '/'
@@ -1430,6 +1445,12 @@ void KFilePropsPlugin::slotSizeStop()
 
     d->m_sizeStopButton->setEnabled(false);
     d->m_sizeDetermineButton->setEnabled(true);
+}
+
+void KFilePropsPlugin::slotSizeDetails()
+{
+    // Open the current folder in filelight
+    KRun::run(QStringLiteral("/usr/bin/filelight"), { properties->url() }, properties->window(), QStringLiteral("Filelight"), QStringLiteral("filelight"));
 }
 
 KFilePropsPlugin::~KFilePropsPlugin()
