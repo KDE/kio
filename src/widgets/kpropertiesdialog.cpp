@@ -804,7 +804,7 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
     // check that the other items match against it, resetting when not.
     bool isLocal;
     const KFileItem item = properties->item();
-    QUrl url = item.mostLocalUrl(isLocal);
+    QUrl url = item.mostLocalUrl(&isLocal);
     bool isReallyLocal = item.url().isLocalFile();
     bool bDesktopFile = item.isDesktopFile();
     mode_t mode = item.mode();
@@ -3160,7 +3160,7 @@ bool KUrlPropsPlugin::supports(const KFileItemList &_items)
 
     // open file and check type
     bool isLocal;
-    QUrl url = item.mostLocalUrl(isLocal);
+    QUrl url = item.mostLocalUrl(&isLocal);
     if (!isLocal) {
         return false;
     }
@@ -3461,7 +3461,7 @@ bool KDevicePropsPlugin::supports(const KFileItemList &_items)
 
     // open file and check type
     bool isLocal;
-    QUrl url = item.mostLocalUrl(isLocal);
+    QUrl url = item.mostLocalUrl(&isLocal);
     if (!isLocal) {
         return false;
     }
@@ -3975,7 +3975,7 @@ bool KDesktopPropsPlugin::supports(const KFileItemList &_items)
 
     // open file and check type
     bool isLocal;
-    QUrl url = item.mostLocalUrl(isLocal);
+    QUrl url = item.mostLocalUrl(&isLocal);
     if (!isLocal) {
         return false;
     }
