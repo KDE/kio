@@ -1450,7 +1450,7 @@ void KFilePropsPlugin::slotSizeStop()
 void KFilePropsPlugin::slotSizeDetails()
 {
     // Open the current folder in filelight
-    KRun::run(QStringLiteral("/usr/bin/filelight"), { properties->url() }, properties->window(), QStringLiteral("Filelight"), QStringLiteral("filelight"));
+    KRun::run((QStandardPaths::findExecutable(QStringLiteral("filelight"))), { properties->url() }, properties->window(), QStringLiteral("Filelight"), QStringLiteral("filelight"));
 }
 
 KFilePropsPlugin::~KFilePropsPlugin()
