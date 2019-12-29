@@ -196,6 +196,10 @@ QString KFilePlaceEditDialog::label() const
 
 QString KFilePlaceEditDialog::icon() const
 {
+    if (!isIconEditable()) {
+        return QString();
+    }
+
     return m_iconButton->icon();
 }
 
