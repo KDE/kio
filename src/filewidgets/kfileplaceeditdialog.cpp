@@ -111,7 +111,7 @@ KFilePlaceEditDialog::KFilePlaceEditDialog(bool allowGlobal, const QUrl &url,
     // Room for at least 40 chars (average char width is half of height)
     m_urlEdit->setMinimumWidth(m_urlEdit->fontMetrics().height() * (40 / 2));
 
-    if (url.scheme() != QLatin1String("trash")) {
+    if (isIconEditable()) {
         whatsThisText = i18n("<qt>This is the icon that will appear in the Places panel.<br /><br />"
                              "Click on the button to select a different icon.</qt>");
         m_iconButton = new KIconButton(this);
@@ -214,5 +214,5 @@ bool KFilePlaceEditDialog::applicationLocal() const
 
 bool KFilePlaceEditDialog::isIconEditable() const
 {
-    return m_iconButton;
+    return url().scheme() != QLatin1String("trash");
 }
