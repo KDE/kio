@@ -27,7 +27,7 @@
 #include <QFile>
 #include <QHostInfo>
 #include <QLoggingCategory>
-#include <QRegExp>
+#include <QRegularExpression>
 #include <QFileInfo>
 #include <QTextStream>
 #include <QStringList>
@@ -256,8 +256,8 @@ QList<KSambaShareData> KSambaSharePrivate::getSharesByPath(const QString &path) 
 bool KSambaSharePrivate::isShareNameValid(const QString &name) const
 {
     // Samba forbidden chars
-    const QRegExp notToMatchRx(QStringLiteral("[%<>*\?|/\\+=;:\",]"));
-    return (notToMatchRx.indexIn(name) == -1);
+    const QRegularExpression notToMatchRx(QStringLiteral("[%<>*\?|/+=;:\",]"));
+    return !notToMatchRx.match(name).hasMatch();
 }
 
 bool KSambaSharePrivate::isDirectoryShared(const QString &path) const
@@ -309,10 +309,11 @@ KSambaShareData::UserShareError KSambaSharePrivate::isPathValid(const QString &p
 
 KSambaShareData::UserShareError KSambaSharePrivate::isAclValid(const QString &acl) const
 {
-    const QRegExp aclRx(QStringLiteral("(?:(?:(\\w(\\w|\\s)*)\\\\|)(\\w+\\s*):([fFrRd]{1})(?:,|))*"));
+    const QRegularExpression aclRx(QRegularExpression::anchoredPattern(
+                                    QStringLiteral("(?:(?:(\\w(\\w|\\s)*)\\\\|)(\\w+\\s*):([fFrRd]{1})(?:,|))*")));
     // TODO: check if user is a valid smb user
-    return aclRx.exactMatch(acl) ? KSambaShareData::UserShareAclOk
-           : KSambaShareData::UserShareAclInvalid;
+    return aclRx.match(acl).hasMatch() ? KSambaShareData::UserShareAclOk
+                                         : KSambaShareData::UserShareAclInvalid;
 }
 
 KSambaShareData::UserShareError KSambaSharePrivate::guestsAllowed(const
@@ -400,13 +401,15 @@ KSambaShareData::UserShareError KSambaSharePrivate::remove(const KSambaShareData
 
 QMap<QString, KSambaShareData> KSambaSharePrivate::parse(const QByteArray &usershareData)
 {
-    const QRegExp headerRx(QString::fromLatin1("^\\s*\\["
-                                         "([^%<>*\?|/\\+=;:\",]+)"
-                                         "\\]"));
+    const QRegularExpression headerRx(QRegularExpression::anchoredPattern(
+                                        QStringLiteral("^\\s*\\["
+                                                       "([^%<>*\?|/+=;:\",]+)"
+                                                       "\\]")));
 
-    const QRegExp OptValRx(QString::fromLatin1("^\\s*([\\w\\d\\s]+)"
-                                         "="
-                                         "(.*)$"));
+    const QRegularExpression OptValRx(QRegularExpression::anchoredPattern(
+                                        QStringLiteral("^\\s*([\\w\\d\\s]+)"
+                                                       "="
+                                                       "(.*)$")));
 
     QTextStream stream(usershareData);
     QString currentShare;
@@ -415,27 +418,24 @@ QMap<QString, KSambaShareData> KSambaSharePrivate::parse(const QByteArray &users
     while (!stream.atEnd()) {
         const QString line = stream.readLine().trimmed();
 
-        if (headerRx.exactMatch(line)) {
-            currentShare = headerRx.cap(1).trimmed();
+        QRegularExpressionMatch match;
+        if ((match = headerRx.match(line)).hasMatch()) {
+            currentShare = match.captured(1).trimmed();
 
             if (!shares.contains(currentShare)) {
                 KSambaShareData shareData;
                 shareData.dd->name = currentShare;
                 shares.insert(currentShare, shareData);
             }
-        } else if (OptValRx.exactMatch(line)) {
-            const QString key = OptValRx.cap(1).trimmed();
-            const QString value = OptValRx.cap(2).trimmed();
+        } else if ((match = OptValRx.match(line)).hasMatch()) {
+            const QString key = match.captured(1).trimmed();
+            const QString value = match.captured(2).trimmed();
             KSambaShareData shareData = shares[currentShare];
 
             if (key == QLatin1String("path")) {
                 // Samba accepts paths with and w/o trailing slash, we
                 // use and expect path without slash
-                if (value.endsWith(QLatin1Char('/'))) {
-                    shareData.dd->path = value.left(value.size() - 1);
-                } else {
-                    shareData.dd->path = value;
-                }
+                shareData.dd->path = value.endsWith(QLatin1Char('/')) ? value.chopped(1) : value;
             } else if (key == QLatin1String("comment")) {
                 shareData.dd->comment = value;
             } else if (key == QLatin1String("usershare_acl")) {
