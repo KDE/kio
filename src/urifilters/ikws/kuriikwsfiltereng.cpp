@@ -29,6 +29,7 @@
 #include <kconfig.h>
 #include <kprotocolinfo.h>
 
+#include <QRegularExpression>
 #include <QTextCodec>
 #include <QLoggingCategory>
 
@@ -135,18 +136,16 @@ QStringList KURISearchFilterEngine::modifySubstitutionMap(SubstMap &map, const Q
 
     // Do some pre-encoding, before we can start the work:
     {
-        int start = 0;
-        int pos = 0;
-        QRegExp qsexpr(QStringLiteral("\\\"[^\\\"]*\\\""));
-
-        // Temporary substitute spaces in quoted strings (" " -> "%20")
+        const QRegularExpression qsexpr(QStringLiteral("\\\"[^\\\"]*\\\""));
+        // Temporarily substitute spaces in quoted strings (" " -> "%20")
         // Needed to split user query into StringList correctly.
-        while ((pos = qsexpr.indexIn(userquery, start)) >= 0)
-        {
-            QString s = userquery.mid(pos, qsexpr.matchedLength());
-            s.replace(QLatin1Char(' '), QLatin1String("%20"));
-            start = pos + s.length(); // Move after last quote
-            userquery.replace(pos, qsexpr.matchedLength(), s);
+        int start = 0;
+        QRegularExpressionMatch match;
+        while ((match = qsexpr.match(userquery, start)).hasMatch()) {
+            QString str = match.captured(0);
+            str.replace(QLatin1Char(' '), QLatin1String("%20"));
+            userquery.replace(match.capturedStart(0), match.capturedLength(0), str);
+            start = match.capturedStart(0) + str.size(); // Move after last quote
         }
     }
 
@@ -204,7 +203,7 @@ QString KURISearchFilterEngine::substituteQuery(const QString &url, SubstMap &ma
 {
     QString newurl = url;
     QStringList ql = modifySubstitutionMap(map, userquery);
-    int count = ql.count();
+    const int count = ql.count();
 
     // Check, if old style '\1' is found and replace it with \{@} (compatibility mode):
     {
@@ -220,17 +219,16 @@ QString KURISearchFilterEngine::substituteQuery(const QString &url, SubstMap &ma
     qCDebug(category) << "Substitute references:\n";
     // Substitute references (\{ref1,ref2,...}) with values from user query:
     {
-        int pos = 0;
-        QRegExp reflist(QStringLiteral("\\\\\\{[^\\}]+\\}"));
-
+        const QRegularExpression reflistRe(QStringLiteral("\\\\\\{([^\\}]+)\\}"));
         // Substitute reflists (\{ref1,ref2,...}):
-        while ((pos = reflist.indexIn(newurl)) >= 0)
-        {
+        int start = 0;
+        QRegularExpressionMatch match;
+        while ((match = reflistRe.match(newurl, start)).hasMatch()) {
             bool found = false;
 
             //bool rest = false;
             QString v;
-            QString rlstring = newurl.mid(pos + 2, reflist.matchedLength() - 3);
+            const QString rlstring = match.captured(1);
             PDVAR("  reference list", rlstring);
 
             // \{@} gets a special treatment later
@@ -243,16 +241,14 @@ QString KURISearchFilterEngine::substituteQuery(const QString &url, SubstMap &ma
             QStringList rl = rlstring.split(QLatin1Char(','), QString::SkipEmptyParts);
             int i = 0;
 
-            while ((i < rl.count()) && !found)
-            {
-                QString rlitem = rl[i];
-                QRegExp range(QStringLiteral("[0-9]*\\-[0-9]*"));
-
+            while ((i < rl.count()) && !found) {
+                const QString rlitem = rl.at(i);
+                const QRegularExpression rangeRe(QStringLiteral("([0-9]*)\\-([0-9]*)"));
+                const QRegularExpressionMatch rangeMatch = rangeRe.match(rlitem);
                 // Substitute a range of keywords
-                if (range.indexIn(rlitem) >= 0) {
-                    int pos = rlitem.indexOf(QLatin1Char('-'));
-                    int first = rlitem.leftRef(pos).toInt();
-                    int last = rlitem.rightRef(rlitem.length()-pos-1).toInt();
+                if (rangeMatch.hasMatch()) {
+                    int first = rangeMatch.captured(1).toInt();
+                    int last = rangeMatch.captured(2).toInt();
 
                     if (first == 0) {
                         first = 1;
@@ -319,7 +315,8 @@ QString KURISearchFilterEngine::substituteQuery(const QString &url, SubstMap &ma
                 i++;
             }
 
-            newurl.replace(pos, reflist.matchedLength(), v);
+            newurl.replace(match.capturedStart(0), match.capturedLength(0), v);
+            start = match.capturedStart(0) + v.size();
         }
 
         // Special handling for \{@};
