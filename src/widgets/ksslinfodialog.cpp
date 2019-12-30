@@ -76,21 +76,6 @@ KSslInfoDialog::KSslInfoDialog(QWidget *parent)
     connect(buttonBox, &QDialogButtonBox::accepted, this, &QDialog::accept);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
     layout->addWidget(buttonBox);
-
-#if 0
-    if (QSslSocket::supportsSsl()) {
-        if (d->m_secCon) {
-            d->pixmap->setPixmap(BarIcon("security-high"));
-            d->info->setText(i18n("Current connection is secured with SSL."));
-        } else {
-            d->pixmap->setPixmap(BarIcon("security-low"));
-            d->info->setText(i18n("Current connection is not secured with SSL."));
-        }
-    } else {
-        d->pixmap->setPixmap(BarIcon("security-low"));
-        d->info->setText(i18n("SSL support is not available in this build of KDE."));
-    }
-#endif
 }
 
 KSslInfoDialog::~KSslInfoDialog()
