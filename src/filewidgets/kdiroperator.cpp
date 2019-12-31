@@ -45,6 +45,7 @@
 #include <QTimer>
 #include <QDebug>
 #include <QMimeDatabase>
+#include <QRegularExpression>
 #include <QStack>
 
 #include <kdirlister.h>
@@ -1463,49 +1464,44 @@ bool KDirOperator::Private::checkPreviewInternal() const
         return false;
     }
 
-    QStringList mimeTypes = dirLister->mimeFilters();
-    const QStringList nameFilter = dirLister->nameFilter().split(QLatin1Char(' '), QString::SkipEmptyParts);
-    QMimeDatabase db;
+    const QStringList mimeTypes = dirLister->mimeFilters();
+    const QStringList nameFilters = dirLister->nameFilter().split(QLatin1Char(' '), QString::SkipEmptyParts);
 
-    if (mimeTypes.isEmpty() && nameFilter.isEmpty() && !supported.isEmpty()) {
+    if (mimeTypes.isEmpty() && nameFilters.isEmpty() && !supported.isEmpty()) {
         return true;
     } else {
-        QRegExp r;
-        r.setPatternSyntax(QRegExp::Wildcard);   // the "mimetype" can be "image/*"
+        QMimeDatabase db;
+        QRegularExpression re;
 
         if (!mimeTypes.isEmpty()) {
-            QStringList::ConstIterator it = supported.begin();
+            for (const QString &str : supported) {
+                // wilcard matching because the "mimetype" can be "image/*"
+                re.setPattern(QRegularExpression::wildcardToRegularExpression(str));
 
-            for (; it != supported.end(); ++it) {
-                r.setPattern(*it);
-
-                QStringList result = mimeTypes.filter(r);
-                if (!result.isEmpty()) {   // matches! -> we want previews
+                if (mimeTypes.indexOf(re) != -1) {  // matches! -> we want previews
                     return true;
                 }
             }
         }
 
-        if (!nameFilter.isEmpty()) {
+        if (!nameFilters.isEmpty()) {
             // find the mimetypes of all the filter-patterns
-            QStringList::const_iterator it1 = nameFilter.begin();
-            for (; it1 != nameFilter.end(); ++it1) {
-                if ((*it1) == QLatin1String("*")) {
+            for (const QString &filter : nameFilters) {
+                if (filter == QLatin1Char('*')) {
                     return true;
                 }
 
-                QMimeType mt = db.mimeTypeForFile(*it1, QMimeDatabase::MatchExtension /*fast mode, no file contents exist*/);
+                const QMimeType mt = db.mimeTypeForFile(filter, QMimeDatabase::MatchExtension /*fast mode, no file contents exist*/);
                 if (!mt.isValid()) {
                     continue;
                 }
-                QString mime = mt.name();
+                const QString mime = mt.name();
 
+                for (const QString &str : supported) {
                 // the "mimetypes" we get from the PreviewJob can be "image/*"
                 // so we need to check in wildcard mode
-                QStringList::ConstIterator it2 = supported.begin();
-                for (; it2 != supported.end(); ++it2) {
-                    r.setPattern(*it2);
-                    if (r.indexIn(mime) != -1) {
+                    re.setPattern(QRegularExpression::wildcardToRegularExpression(str));
+                    if (re.match(mime).hasMatch()) {
                         return true;
                     }
                 }

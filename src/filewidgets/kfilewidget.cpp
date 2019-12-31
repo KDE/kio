@@ -2451,11 +2451,15 @@ void KFileWidgetPrivate::updateLocationEditExtension(const QString &lastExtensio
 
 QString KFileWidgetPrivate::findMatchingFilter(const QString &filter, const QString &filename) const
 {
-    const QStringList patterns = filter.left(filter.indexOf(QLatin1Char('|'))).split(QLatin1Char(' '), QString::SkipEmptyParts);       // '*.foo *.bar|Foo type' -> '*.foo', '*.bar'
+     // e.g.: '*.foo *.bar|Foo type' -> '*.foo', '*.bar'
+    const QStringList patterns = filter.left(filter.indexOf(QLatin1Char('|'))).split(QLatin1Char(' '),
+                                             QString::SkipEmptyParts);
+
+    QRegularExpression rx;
     for (const QString &p : patterns) {
-        QRegExp rx(p);
-        rx.setPatternSyntax(QRegExp::Wildcard);
-        if (rx.exactMatch(filename)) {
+        rx.setPattern(QRegularExpression::anchoredPattern(
+                                        QRegularExpression::wildcardToRegularExpression(p)));
+        if (rx.match(filename).hasMatch()) {
             return p;
         }
     }
