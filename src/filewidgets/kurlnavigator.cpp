@@ -827,6 +827,8 @@ bool KUrlNavigator::Private::isCompressedPath(const QUrl &url) const
             mime.inherits(QStringLiteral("application/zip")) ||
             mime.inherits(QStringLiteral("application/x-archive")) ||
             mime.inherits(QStringLiteral("application/x-7z-compressed")) || // the following depends on krarc
+            mime.inherits(QStringLiteral("application/x-rpm")) ||
+            mime.inherits(QStringLiteral("application/x-source-rpm")) ||
             mime.inherits(QStringLiteral("application/vnd.rar")) ||
             mime.inherits(QStringLiteral("application/x-ace")) ||
             mime.inherits(QStringLiteral("application/x-arj")) ||
