@@ -40,18 +40,24 @@
  *
  * @short Resolves pixmaps for URLs
  * @author Carsten Pfeiffer <pfeiffer@kde.org>
+ *
+ * @deprecated since 5.66, use KIO::iconNameForUrl to get the icon name and use QIcon::fromTheme
  */
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 66)
+
 class KIOWIDGETS_EXPORT KUrlPixmapProvider : public KPixmapProvider
 {
 public:
     /**
      * Creates a new url pixmap provider.
      */
+    KIOWIDGETS_DEPRECATED_VERSION(5, 66, "Use KIO::iconNameForUrl to get the icon name and use QIcon::fromTheme")
     KUrlPixmapProvider();
 
     /**
      * Destroys the url pixmap provider.
      */
+    KIOWIDGETS_DEPRECATED_VERSION(5, 66, "Use KIO::iconNameForUrl to get the icon name and use QIcon::fromTheme")
     ~KUrlPixmapProvider();
 
     /**
@@ -64,6 +70,7 @@ public:
      * @return the resulting pixmap
      * @see KIconLoader::StdSizes
      */
+    KIOWIDGETS_DEPRECATED_VERSION(5, 66, "Use KIO::iconNameForUrl to get the icon name and use QIcon::fromTheme")
     QPixmap pixmapFor(const QString &url, int size = 0) override;
 protected:
     void virtual_hook(int id, void *data) override;
@@ -72,5 +79,7 @@ private:
     class Private;
     Private *const d;
 };
+
+#endif
 
 #endif // KURLPIXMAPPROVIDER_H

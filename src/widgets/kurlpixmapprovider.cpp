@@ -23,6 +23,8 @@
 #include <kio/global.h>
 #include <pixmaploader.h>
 
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 66)
+
 KUrlPixmapProvider::KUrlPixmapProvider()
     : d(nullptr)
 {
@@ -42,3 +44,5 @@ void KUrlPixmapProvider::virtual_hook(int id, void *data)
 {
     KPixmapProvider::virtual_hook(id, data);
 }
+
+#endif
