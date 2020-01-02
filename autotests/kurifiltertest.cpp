@@ -84,15 +84,15 @@ static void runFilterTest(const QString &a, const QString &expectedResult = null
         case KUriFilterData::LocalFile:
         case KUriFilterData::LocalDir:
             qDebug() << "*** Result: Local Resource =>  '"
-                     << filterData->uri().toLocalFile() << "'" << endl;
+                     << filterData->uri().toLocalFile() << "'";
             break;
         case KUriFilterData::Help:
             qDebug() << "*** Result: Local Resource =>  '"
-                     << filterData->uri().url() << "'" << endl;
+                     << filterData->uri().url() << "'";
             break;
         case KUriFilterData::NetProtocol:
             qDebug() << "*** Result: Network Resource => '"
-                     << filterData->uri().url() << "'" << endl;
+                     << filterData->uri().url() << "'";
             break;
         case KUriFilterData::Shell:
         case KUriFilterData::Executable:

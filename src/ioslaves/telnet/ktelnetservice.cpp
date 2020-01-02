@@ -57,7 +57,7 @@ int main(int argc, char **argv)
     } else if (url.scheme() == QLatin1String("rlogin")) {
         cmd << QStringLiteral("rlogin");
     } else {
-        qCritical() << "Invalid protocol " << url.scheme() << endl;
+        qCritical() << "Invalid protocol " << url.scheme();
         return 2;
     }
 
@@ -80,7 +80,7 @@ int main(int argc, char **argv)
     }
 
     if (host.isEmpty() || host.startsWith(QLatin1Char('-'))) {
-        qCritical() << "Invalid hostname " << host << endl;
+        qCritical() << "Invalid hostname " << host;
         return 2;
     }
 

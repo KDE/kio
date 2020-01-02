@@ -234,7 +234,7 @@ bool RemoteImpl::deleteNetworkFolder(const QString &filename) const
 bool RemoteImpl::renameFolders(const QString &src, const QString &dest, bool overwrite) const
 {
     qCDebug(KIOREMOTE_LOG) << "RemoteImpl::renameFolders: "
-                           << src << ", " << dest << endl;
+                           << src << ", " << dest;
 
     QString directory;
     const QString srcDesktopFileName = src + QLatin1String(".desktop");
@@ -261,7 +261,7 @@ bool RemoteImpl::renameFolders(const QString &src, const QString &dest, bool ove
 bool RemoteImpl::changeFolderTarget(const QString &src, const QString &target, bool overwrite) const
 {
     qCDebug(KIOREMOTE_LOG) << "RemoteImpl::changeFolderTarget: "
-                           << src << ", " << target << endl;
+                           << src << ", " << target;
 
     QString directory;
     const QString srcDesktopFileName = src + QLatin1String(".desktop");

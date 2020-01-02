@@ -204,7 +204,7 @@ void TestTrash::initTestCase()
             m_otherPartitionTrashDir = trashdir;
             m_otherPartitionId = *it;
             qDebug() << "OK, found another writable partition: topDir=" << m_otherPartitionTopDir
-                     << " trashDir=" << m_otherPartitionTrashDir << " id=" << m_otherPartitionId << endl;
+                     << " trashDir=" << m_otherPartitionTrashDir << " id=" << m_otherPartitionId;
             break;
         }
     }
@@ -330,7 +330,7 @@ void TestTrash::trashFile(const QString &origFilePath, const QString &fileId)
     KIO::Job *job = KIO::move(u, QUrl(QStringLiteral("trash:/")), KIO::HideProgressInfo);
     bool ok = job->exec();
     if (!ok) {
-        qCritical() << "moving " << u << " to trash failed with error " << job->error() << " " << job->errorString() << endl;
+        qCritical() << "moving " << u << " to trash failed with error " << job->error() << " " << job->errorString();
     }
     QVERIFY(ok);
     if (origFilePath.startsWith(QLatin1String("/tmp")) && m_tmpIsWritablePartition) {

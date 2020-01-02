@@ -818,7 +818,7 @@ void HTTPProtocol::davStatList(const QUrl &url, bool stat)
 
     bool hasResponse = false;
 
-    qCDebug(KIO_HTTP) << endl << multiResponse.toString(2);
+    qCDebug(KIO_HTTP) << '\n' << multiResponse.toString(2);
 
     for (QDomNode n = multiResponse.documentElement().firstChild();
             !n.isNull(); n = n.nextSibling()) {
@@ -3125,7 +3125,7 @@ endParsing:
         // TODO review use of STRTOLL vs. QByteArray::toInt()
 
         foundDelimiter = readDelimitedText(buffer, &bufPos, maxHeaderSize, 2);
-        qCDebug(KIO_HTTP) << " -- full response:" << endl << QByteArray(buffer, bufPos).trimmed();
+        qCDebug(KIO_HTTP) << " -- full response:\n" << QByteArray(buffer, bufPos).trimmed();
         // Use this to see newlines:
         //qCDebug(KIO_HTTP) << " -- full response:" << endl << QByteArray(buffer, bufPos).replace("\r", "\\r").replace("\n", "\\n\n");
         Q_ASSERT(foundDelimiter);

@@ -154,7 +154,7 @@ void KUrlCompletionTest::testLocalRelativePath()
     QCOMPARE(comp1, QStringLiteral("file1"));
 
     // Completion from relative path
-    qDebug() << endl << "now completing on 'file#'";
+    qDebug() << "\nnow completing on 'file#'";
     m_completion->makeCompletion(QStringLiteral("file#"));
     QVERIFY(!m_completion->isRunning()); // last listing reused
     QStringList compall = m_completion->allMatches();
@@ -165,7 +165,7 @@ void KUrlCompletionTest::testLocalRelativePath()
     QCOMPARE(comp2, QStringLiteral("file#a"));
 
     // Completion with empty string
-    qDebug() << endl << "now completing on ''";
+    qDebug() << "\nnow completing on ''";
     m_completion->makeCompletion(QLatin1String(""));
     waitForCompletion(m_completion);
     QStringList compEmpty = m_completion->allMatches();
@@ -341,7 +341,7 @@ void KUrlCompletionTest::testLocalURL()
 void KUrlCompletionTest::testEmptyCwd()
 {
     // Completion with empty string (with a KUrlCompletion whose cwd is "")
-    qDebug() << endl << "now completing on '' with empty cwd";
+    qDebug() << "\nnow completing on '' with empty cwd";
     m_completionEmptyCwd->makeCompletion(QLatin1String(""));
     waitForCompletion(m_completionEmptyCwd);
     QStringList compEmpty = m_completionEmptyCwd->allMatches();
