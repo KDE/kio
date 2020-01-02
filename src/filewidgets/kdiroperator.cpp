@@ -58,6 +58,7 @@
 #include <kio/jobuidelegate.h>
 #include <kio/previewjob.h>
 #include <KIO/OpenFileManagerWindowJob>
+#include <KIO/RenameFileDialog>
 #include <kfilepreviewgenerator.h>
 #include <krun.h>
 #include <kpropertiesdialog.h>
@@ -427,6 +428,7 @@ void KDirOperator::updateSelectionDependentActions()
 {
     const bool hasSelection = (d->itemView != nullptr) &&
                               d->itemView->selectionModel()->hasSelection();
+    d->actionCollection->action(QStringLiteral("rename"))->setEnabled(hasSelection);
     d->actionCollection->action(QStringLiteral("trash"))->setEnabled(hasSelection);
     d->actionCollection->action(QStringLiteral("delete"))->setEnabled(hasSelection);
     d->actionCollection->action(QStringLiteral("properties"))->setEnabled(hasSelection);
@@ -863,6 +865,23 @@ void KDirOperator::setIsSaving(bool isSaving)
 bool KDirOperator::isSaving() const
 {
     return d->isSaving;
+}
+
+void KDirOperator::renameSelected()
+{
+    if (d->itemView == nullptr) {
+        return;
+    }
+
+    const KFileItemList items = selectedItems();
+    if (items.isEmpty()) {
+        return;
+    }
+
+    KIO::RenameFileDialog* dialog = new KIO::RenameFileDialog(items, this);
+    connect(dialog, SIGNAL(renamingFinished()), SLOT(_k_assureVisibleSelection()));
+
+    dialog->open();
 }
 
 void KDirOperator::trashSelected()
@@ -1949,6 +1968,9 @@ void KDirOperator::setupActions()
     mkdirAction->setIcon(QIcon::fromTheme(QStringLiteral("folder-new")));
     connect(mkdirAction, SIGNAL(triggered(bool)), this, SLOT(mkdir()));
 
+    QAction *rename = KStandardAction::renameFile(this, &KDirOperator::renameSelected, this);
+    d->actionCollection->addAction(QStringLiteral("rename"), rename);
+
     QAction *trash = new QAction(i18n("Move to Trash"), this);
     d->actionCollection->addAction(QStringLiteral("trash"), trash);
     trash->setIcon(QIcon::fromTheme(QStringLiteral("user-trash")));
@@ -2162,6 +2184,10 @@ void KDirOperator::setupMenu(int whichActions)
 
     if (whichActions & FileActions) {
         d->actionMenu->addAction(d->actionCollection->action(QStringLiteral("new")));
+
+        d->actionMenu->addAction(d->actionCollection->action(QStringLiteral("rename")));
+        d->actionCollection->action(QStringLiteral("rename"))->setEnabled(KProtocolManager::supportsMoving(d->currUrl));
+
         if (d->currUrl.isLocalFile() && !(QApplication::keyboardModifiers() & Qt::ShiftModifier)) {
             d->actionMenu->addAction(d->actionCollection->action(QStringLiteral("trash")));
         }

@@ -795,6 +795,13 @@ public Q_SLOTS:
     QString makeDirCompletion(const QString &);
 
     /**
+     * Initiates a rename operation on the currently selected files/directories,
+     * prompting the user to choose a new name(s) for the currently selected items
+     * @since 5.67
+     */
+    void renameSelected();
+
+    /**
      * Trashes the currently selected files/directories.
      *
      * This function used to take activation reason and keyboard modifiers,
