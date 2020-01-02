@@ -321,7 +321,7 @@ void SlaveBase::dispatchLoop()
 
         int ms = -1;
         if (d->nextTimeout.isValid()) {
-            ms = qMax<int>(d->nextTimeout.elapsed() - d->nextTimeoutMsecs, 1);
+            ms = qMax<int>(d->nextTimeoutMsecs - d->nextTimeout.elapsed(), 1);
         }
 
         int ret = -1;
