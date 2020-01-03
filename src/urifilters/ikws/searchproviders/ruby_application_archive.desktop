@@ -47,7 +47,7 @@ Name[km]=ប័ណ្ណសារ​កម្មវិធី​មគ្គុ�
 Name[kn]=ರೂಬಿ ಅನ್ವಯ ಕಡತಾಗಾರ (ಆರ್ಕೈವ್)
 Name[ko]=Ruby 프로그램 저장소
 Name[ku]=Arşîva Sepanên Ruby
-Name[lt]=Ruby taikomųjų programų archyvas
+Name[lt]=Ruby programų archyvas
 Name[lv]=Ruby programmu arhīvs
 Name[mai]=रूबी अनुप्रयोग आर्काइव
 Name[mk]=Архива со Ruby-апликации
@@ -110,6 +110,7 @@ Query[ia]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[id]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[it]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[ko]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
+Query[lt]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[nl]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[nn]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[pl]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}

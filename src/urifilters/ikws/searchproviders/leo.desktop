@@ -46,7 +46,7 @@ Name[km]=LEO-បកប្រែ
 Name[kn]=ಲಿಯೋ-ಅನುವಾದ
 Name[ko]=LEO-번역
 Name[ku]=LEO-Wergerandin
-Name[lt]=LEO-Translate
+Name[lt]=LEO – vertimas
 Name[lv]=LEO-tulkošana
 Name[mai]=लिओ-अनुवाद
 Name[mk]=LEO - превод
@@ -109,6 +109,7 @@ Query[ia]=https://dict.leo.org/?search=\\{@}
 Query[id]=https://dict.leo.org/?search=\\{@}
 Query[it]=https://dict.leo.org/?search=\\{@}
 Query[ko]=https://dict.leo.org/?search=\\{@}
+Query[lt]=https://dict.leo.org/?search=\\{@}
 Query[nl]=https://dict.leo.org/?search=\\{@}
 Query[nn]=https://dict.leo.org/?search=\\{@}
 Query[pl]=https://dict.leo.org/?search=\\{@}

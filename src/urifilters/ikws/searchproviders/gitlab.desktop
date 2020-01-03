@@ -21,6 +21,7 @@ Name[ia]=GitLab
 Name[id]=GitLab
 Name[it]=GitLab
 Name[ko]=GitLab
+Name[lt]=GitLab
 Name[nl]=GitLab
 Name[nn]=GitLab
 Name[pl]=GitLab
@@ -53,6 +54,7 @@ Query[ia]=https://gitlab.com/search?search=\\{@}
 Query[id]=https://gitlab.com/search?search=\\{@}
 Query[it]=https://gitlab.com/search?search=\\{@}
 Query[ko]=https://gitlab.com/search?search=\\{@}
+Query[lt]=https://gitlab.com/search?search=\\{@}
 Query[nl]=https://gitlab.com/search?search=\\{@}
 Query[nn]=https://gitlab.com/search?search=\\{@}
 Query[pl]=https://gitlab.com/search?search=\\{@}

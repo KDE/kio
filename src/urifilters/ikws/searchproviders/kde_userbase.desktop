@@ -37,7 +37,7 @@ Name[kk]=KDE UserBase
 Name[km]=KDE UserBase
 Name[kn]=ಕೆಡಿಇ ಯುಸರ್ ಬೇಸ್
 Name[ko]=KDE UserBase
-Name[lt]=KDE UserBase
+Name[lt]=KDE naudotojų bazė
 Name[lv]=KDE UserBase
 Name[mai]=केडीई प्रयोक्ता बेस
 Name[ml]=കെഡിഇ യൂസര്‍ബേസ്
@@ -87,6 +87,7 @@ Query[ia]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[id]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[it]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[ko]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
+Query[lt]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[nl]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[nn]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[pl]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search

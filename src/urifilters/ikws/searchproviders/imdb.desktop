@@ -48,7 +48,7 @@ Name[km]=មូលដ្ឋាន​ទិន្នន័យ​ភាពយន�
 Name[kn]=ಜಾಲ ಚಲಚ್ಚಿತ್ರ ದತ್ತಸಂಚಯ
 Name[ko]=인터넷 영화 데이터베이스(IMDB)
 Name[ku]=Danegeha Fîlman a Înternetê
-Name[lt]=Interneto kino filmų duomenų bazė
+Name[lt]=Internetinė filmų duomenų bazė
 Name[lv]=Interneta filmu datubāze
 Name[mai]=इंटरनेट चलचित्र डाटाबेस
 Name[mk]=Интернет база на филмови
@@ -110,6 +110,7 @@ Query[ia]=https://imdb.com/find?s=all&q=\\{@}
 Query[id]=https://imdb.com/find?s=all&q=\\{@}
 Query[it]=https://imdb.com/find?s=all&q=\\{@}
 Query[ko]=https://imdb.com/find?s=all&q=\\{@}
+Query[lt]=https://imdb.com/find?s=all&q=\\{@}
 Query[nl]=https://imdb.com/find?s=all&q=\\{@}
 Query[nn]=https://imdb.com/find?s=all&q=\\{@}
 Query[pl]=https://imdb.com/find?s=all&q=\\{@}

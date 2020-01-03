@@ -48,7 +48,7 @@ Name[km]=ឯកសារ​ថ្មី​បំផុត​លើ​បណ្�
 Name[kn]=ಇತ್ತೀಚಿನ  ಕ್ಯೂಟಿ ಜಾಲಲಭ್ಯ ದಸ್ತಾವೇಜೀಕರಣ
 Name[ko]=최신 Qt 온라인 문서
 Name[ku]=Belgekirinên Girêdayî ên Qt ên Dawî
-Name[lt]=Naujausia Qt dokumentacija tinkle
+Name[lt]=Naujausia Qt internetinė tinkle
 Name[lv]=Jaunākā Qt dokumentācija tīmeklī
 Name[mai]=नवीनतम क्यूटी आनलाइन दस्ताबेज
 Name[mk]=Последната Qt-документација на мрежа
@@ -109,6 +109,7 @@ Query[ia]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[id]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[it]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[ko]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
+Query[lt]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[nl]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[nn]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[pl]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}

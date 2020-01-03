@@ -43,7 +43,7 @@ Name[km]=ក្រុមហ៊ុន​ផ្ដល់​​ការ​​ស�
 Name[kn]=ದೂರವಾಣಿ ಪುಸ್ತಕ ಹುಡುಕಾಟ ಪೂರೈಕೆದಾರ
 Name[ko]=Telephonebook 검색 공급자
 Name[ku]=Peydakera Lêgerîna LênûskaTelefonê
-Name[lt]=Telefono knygų paieškos teikėjas
+Name[lt]=Telefonų knygos paieškos teikėjas
 Name[lv]=Tālruņa katalogu meklēšanas sniedzējs
 Name[mai]=टेलिफोनबुक खोज प्रदायक
 Name[mk]=Telephonebook сервис за пребарување
@@ -105,6 +105,7 @@ Query[ia]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{
 Query[id]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
 Query[it]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
 Query[ko]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
+Query[lt]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
 Query[nl]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
 Query[nn]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
 Query[pl]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}

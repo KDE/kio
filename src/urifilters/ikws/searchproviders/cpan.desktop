@@ -46,7 +46,7 @@ Name[km]=CPAN - Comprehensive Perl Archive Network
 Name[kn]=CPAN -ವ್ಯಾಪಕ ಪರ್ಲ್ ಕಡತಾಗಾರ (ಆರ್ಕೈವ್) ಜಾಲ
 Name[ko]=CPAN - Comprehensive Perl Archive Network
 Name[ku]=CPAN - Tora Arşîva Perl yê Bikitekit
-Name[lt]=CPAN – Visapusiško Perlo Archyvo Tinklas
+Name[lt]=CPAN – Visapusis Perlo Archyvo Tinklas
 Name[lv]=CPAN - visaptverošs perl arhīvu tīkls
 Name[mai]=CPAN - काम्प्रेहेंसिव पर्ल आर्काइव नेटवर्क
 Name[mk]=CPAN - Обемна мрежа со Perl архиви
@@ -107,6 +107,7 @@ Query[ia]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[id]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[it]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[ko]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
+Query[lt]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[nl]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[nn]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[pl]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}

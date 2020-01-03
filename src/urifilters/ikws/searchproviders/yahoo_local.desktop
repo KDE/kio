@@ -37,7 +37,7 @@ Name[kk]=Yahoo Local
 Name[km]=មូលដ្ឋាន​របស់​យ៉ាហ៊ូ
 Name[kn]=ಯಾಹೂ ಸ್ಥಳೀಯ
 Name[ko]=Yahoo 로컬
-Name[lt]=Yahoo Local
+Name[lt]=Yahoo vietovė
 Name[lv]=Yahoo Local
 Name[ml]=യാഹൂ പ്രാദേശികം
 Name[mr]=याहू स्थानिक
@@ -86,6 +86,7 @@ Query[ia]=https://local.yahoo.com/results?stx=\\{@}&ei=UTF-8&fr=yfp-t-701&fr2=ta
 Query[id]=https://local.yahoo.com/results?stx=\\{@}&ei=UTF-8&fr=yfp-t-701&fr2=tab-img
 Query[it]=https://local.yahoo.com/results?stx=\\{@}&ei=UTF-8&fr=yfp-t-701&fr2=tab-img
 Query[ko]=https://local.yahoo.com/results?stx=\\{@}&ei=UTF-8&fr=yfp-t-701&fr2=tab-img
+Query[lt]=https://local.yahoo.com/results?stx=\\{@}&ei=UTF-8&fr=yfp-t-701&fr2=tab-img
 Query[nl]=https://local.yahoo.com/results?stx=\\{@}&ei=UTF-8&fr=yfp-t-701&fr2=tab-img
 Query[nn]=https://local.yahoo.com/results?stx=\\{@}&ei=UTF-8&fr=yfp-t-701&fr2=tab-img
 Query[pl]=https://local.yahoo.com/results?stx=\\{@}&ei=UTF-8&fr=yfp-t-701&fr2=tab-img

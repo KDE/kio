@@ -133,7 +133,7 @@ Query[km]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSea
 Query[kn]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search
 Query[ko]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search
 Query[ku]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search
-Query[lt]=http://tug.ctan.org/cgi-bin/filenameSearch.py?action=/search/&filename=\\{ at }
+Query[lt]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search
 Query[lv]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search
 Query[mai]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search
 Query[ml]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search
