@@ -74,6 +74,28 @@ QString KFilePlacesItem::id() const
     }
 }
 
+bool KFilePlacesItem::hasSupportedScheme(const QStringList &schemes) const
+{
+    if (schemes.isEmpty()) {
+        return true;
+    }
+
+    // StorageAccess is always local, doesn't need to be accessible to know this
+    if (m_access && schemes.contains(QLatin1String("file"))) {
+        return true;
+    }
+
+    if (m_networkShare && schemes.contains(m_networkShare->url().scheme())) {
+        return true;
+    }
+
+    if (m_mtp && schemes.contains(QLatin1String("mtp"))) {
+        return true;
+    }
+
+    return false;
+}
+
 bool KFilePlacesItem::isDevice() const
 {
     return !bookmark().metaDataItem(QStringLiteral("UDI")).isEmpty();

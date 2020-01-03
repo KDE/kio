@@ -70,6 +70,8 @@ public:
     bool isHidden() const;
     void setHidden(bool hide);
 
+    bool hasSupportedScheme(const QStringList &schemes) const;
+
     static KBookmark createBookmark(KBookmarkManager *manager,
                                     const QString &label,
                                     const QUrl &url,

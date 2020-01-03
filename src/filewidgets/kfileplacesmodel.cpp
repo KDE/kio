@@ -754,15 +754,19 @@ QList<KFilePlacesItem *> KFilePlacesModel::Private::loadBookmarkList()
                 bool isSupportedUrl = isBalooUrl(url) ? fileIndexingEnabled : true;
                 bool isSupportedScheme = supportedSchemes.isEmpty() || supportedSchemes.contains(url.scheme());
 
-                if (isSupportedScheme && ((isSupportedUrl && udi.isEmpty() && allowedHere) || deviceAvailable)) {
-
-                    KFilePlacesItem *item;
-                    if (deviceAvailable) {
-                        item = new KFilePlacesItem(bookmarkManager, bookmark.address(), udi);
-                        // TODO: Update bookmark internal element
-                    } else {
-                        item = new KFilePlacesItem(bookmarkManager, bookmark.address());
+                KFilePlacesItem *item = nullptr;
+                if (deviceAvailable) {
+                    item = new KFilePlacesItem(bookmarkManager, bookmark.address(), udi);
+                    if (!item->hasSupportedScheme(supportedSchemes)) {
+                        delete item;
+                        item = nullptr;
                     }
+                } else if (isSupportedScheme && isSupportedUrl && udi.isEmpty() && allowedHere) {
+                    // TODO: Update bookmark internal element
+                    item = new KFilePlacesItem(bookmarkManager, bookmark.address());
+                }
+
+                if (item) {
                     connect(item, SIGNAL(itemChanged(QString)),
                             q, SLOT(_k_itemChanged(QString)));
 
