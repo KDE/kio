@@ -1,0 +1,150 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Serbian-Latin "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="useragent" lang="&language;">
+<title
+>Identifikacija pregledača</title>
+<articleinfo>
+<authorgroup>
+<author
+><personname
+><firstname
+>Krišna</firstname
+> <surname
+>Tateneni</surname
+></personname
+> &Krishna.Tateneni.mail;</author>
+<othercredit role="translator"
+><firstname
+>Dragan</firstname
+><surname
+>Pantelić</surname
+><affiliation
+><address
+><email
+>falcon-10@gmx.de</email
+></address
+></affiliation
+><contrib
+>prevod</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>10. 11. 2016.</date>
+<releaseinfo
+>Radni okviri KDE‑a 5.29</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Sistemske postavke</keyword>
+<keyword
+>korisnički agent</keyword>
+<keyword
+>pregledač</keyword>
+<keyword
+>identifikacija</keyword>
+</keywordset>
+
+</articleinfo>
+
+<sect1 id="user-agent">
+<title
+>Identifikacija pregledača</title>
+
+
+<sect2 id="user-agent-intro">
+<title
+>Uvod</title>
+
+<para
+>Kad se <application
+>K‑osvajač</application
+> poveže na veb sajt da dobavi podatke, sajtu šalje neke osnovne identifikacione podatke, u vidu zaglavlja „korisničkog agenta“.</para>
+
+<para
+>Zbog malih razlika u funkcionisanju između veb pregledača, stranice sa veb sajta koji se isuviše oslanja na određeni pregledač ponekad se ne prikazuju kao što je zamišljeno u drugim pregledačima. Neki veb sajtovi dovoljno su pametni da ispitaju sadržaj zaglavlja korisničkog agenta i prema njemu podese HTML kô̂d, tako da se stranice prikazuju pravilno u svim pregledačima.</para>
+
+<para
+>Međutim, možete naići na veb sajtove koji odbijaju da funkcionišu pravilno ako ne koristite pregledač koji sajt smatra za „podesan“. U tim slučajevima, možete pokušati da „zavarate“ veb sajt tako što ćete naložiti <application
+>K‑osvajaču</application
+> da se predstavi kao neki drugi pregledač, kroz zaglavlje korisničkog agenta.</para>
+
+</sect2>
+
+<sect2 id="user-agent-use">
+<title
+>Upotreba</title>
+
+<para
+>U ovom modulu možete podesiti tip pregledača za koji će se <application
+>K‑osvajač</application
+> izdavati. Ovaj podatak možete zadati po veb sajtu. Ako je spisak <guilabel
+>Posebne identifikacije za sajtove</guilabel
+> prazan, kao što je obično, <application
+>K‑osvajač</application
+> će uvek koristiti podrazumevanu nisku korisničkog agenta.</para>
+
+<para
+>Pražnjenjem kućice <guilabel
+>Šalji identifikaciju</guilabel
+> možete u potpunosti isključiti slanje korisničkog agenta. To može da prouzrokuje čudno ponašanje nekih sajtova, čak i uskraćivanje pristupa, te isključujte oprezno.</para>
+
+<para
+>Za podešavanje sveze novog agenta, pritisnite dugme <guibutton
+>Novo...</guibutton
+>. U dijalogu koji se pojavi, ukucajte ime servera ili domena u polje <guilabel
+>Kada pregledam sledeći sajt:</guilabel
+> pri vrhu.</para>
+
+<para
+>Zapazite da u ovom polju <emphasis
+>ne možete</emphasis
+> koristiti džokerski znak <token
+>*</token
+>. Međutim, niska <userinput
+>kde.org</userinput
+> poklopiće sve domaćine u domenu <systemitem
+>kde.org</systemitem
+>.</para>
+
+<para
+>Nakon upisivanja imena servera, izaberite identifikacionu nisku sa spiska <guilabel
+>Koristi sledeću identifikaciju:</guilabel
+>. Polje <guilabel
+>Stvarna identifikacija:</guilabel
+> prikazuje niske koje se šalju serveru.</para>
+
+<para
+>Možete kliknuti na postojeći unos u spisku, zatim izmeniti sadržaje polja, pa kliknuti na <guibutton
+>Izmeni...</guibutton
+>.</para>
+
+<para
+>Dugme <guibutton
+>Obriši</guibutton
+> koristite za brisanje odabrane stavke sa spiska podešenih sveza korisničkog agenta. Dugme <guibutton
+>Obriši sve</guibutton
+> ukloniće sve podešene niske korisničkog agenta. Kliknite na <guibutton
+>Primeni</guibutton
+> da izmene stupe u dejstvo.</para>
+
+<para
+>Kućicama na vrhu ekrana možete izgraditi korisnički agent sasvim po svom nahođenju, izborom kombinacije imena i verzije operativnog sistema, platforme, tipa procesora i jezika.</para>
+
+<para
+>Korisnički agent koji se podrazumevano šalje u svakom je trenutku dat podebljanim tekstom na vrhu stranice.</para>
+
+</sect2>
+
+</sect1>
+
+</article>

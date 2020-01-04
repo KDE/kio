@@ -1,0 +1,83 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Brazilian-Portuguese "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="data">
+<title
+>URLs de Dados</title>
+
+<articleinfo>
+<authorgroup>
+<author
+><personname
+><firstname
+>Leo</firstname
+><surname
+>Savernik</surname
+></personname
+> <address
+><email
+>l.savernik@aon.at</email
+></address
+> </author>
+<othercredit role="translator"
+><firstname
+>Lisiane</firstname
+><surname
+>Sztoltz</surname
+><affiliation
+><address
+><email
+>lisiane@conectiva.com.br</email
+></address
+></affiliation
+><contrib
+>Tradução</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>06/02/2003</date>
+<!--releaseinfo
+>2.20.00</releaseinfo-->
+
+</articleinfo>
+
+<para
+>URLs de dados permitem que pequenos documentos de dados sejam incluídos na URL. Isto é útil para pequenos casos de testes HTML ou outras ocasiões que não justificam um documento por si só.</para>
+
+<para
+><userinput
+>data:,bla</userinput
+> (note a vírgula após dois pontos) entregará um documento de texto que contém nada além de <literal
+>bla</literal
+> </para>
+
+<para
+>O último exemplo entregou um documento texto. Para documentos HTML deve ser especificado o tipo MIME <literal
+>text/html</literal
+>: <userinput
+>data:text/html,&lt;title&gt;Caso de Teste&lt;/title&gt;&lt;p&gt;Isto é um teste&lt;/p&gt;</userinput
+>. Este exemplo produz exatamente o mesmo resultado do que se o conteúdo tivesse sido carregado de um documento separado. </para>
+
+<para
+>Também é possível especificar conjuntos de caracteres alternantes. Note que caracteres de 8 bits têm de ser escapados com um sinal de porcentagem e seus códigos de dois dígitos hexadecimais: <userinput
+>data:;charset=iso-8859-1,Gr%FC%DFe aus Schl%E4gl</userinput
+> resulta em <literal
+>Gr&uuml;&szlig;e aus Schl&auml;gl</literal
+>, onde, ao omitir o atributo de conjunto de caracteres deve deixar algo como <literal
+>Gr??e aus Schl?gl</literal
+> </para>
+
+<para
+><ulink url="https://www.ietf.org/rfc/rfc2397.txt"
+>IETF RFC2397</ulink
+> fornece mais informações.</para>
+
+</article>
+
