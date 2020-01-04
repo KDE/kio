@@ -64,6 +64,13 @@ public:
     static QStringList recentDocuments();
 
     /**
+     *
+     * Return a list of recent URLs.
+     *
+     */
+    static QStringList recentUrls();
+
+    /**
      * Add a new item to the Recent Document menu.
      *
      * @param url The url to add.

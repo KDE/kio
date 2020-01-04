@@ -53,13 +53,15 @@
 #include <kconfiggroup.h>
 #include <ksharedconfig.h>
 
+static QString xbelPath()
+{
+    return QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/recently-used.xbel");
+}
+
 static bool addToXbel(const QUrl &url, const QString &desktopEntryName)
 {
-    const QString xbelPath = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("recently-used.xbel");
-
-
     // Won't help for GTK applications and whatnot, but we can be good citizens ourselves
-    QLockFile lockFile(xbelPath + QLatin1String(".lock"));
+    QLockFile lockFile(xbelPath() + QLatin1String(".lock"));
     lockFile.setStaleLockTime(0);
     if (!lockFile.tryLock(100)) { // give it 100ms
         qWarning() << "Failed to lock recently used";
@@ -69,7 +71,7 @@ static bool addToXbel(const QUrl &url, const QString &desktopEntryName)
 
     QByteArray existingContent;
     {
-        QFile input(xbelPath);
+        QFile input(xbelPath());
         if (input.open(QIODevice::ReadOnly)) {
             existingContent = input.readAll();
         } else {
@@ -82,7 +84,7 @@ static bool addToXbel(const QUrl &url, const QString &desktopEntryName)
     const QString currentTimestamp = QDateTime::currentDateTime().toString(Qt::ISODate);
     QXmlStreamReader xml(existingContent);
 
-    QSaveFile outputFile(xbelPath);
+    QSaveFile outputFile(xbelPath());
     if (!outputFile.open(QIODevice::WriteOnly)) {
         qWarning() << "Failed to recently-used.xbel for writing:" << outputFile.errorString();
         return false;
@@ -246,10 +248,79 @@ static bool addToXbel(const QUrl &url, const QString &desktopEntryName)
     return !xml.error();
 }
 
+static QMap<QString, QDateTime> xbelRecentlyUsedList()
+{
+    QMap<QString, QDateTime> ret;
+    QFile input(xbelPath());
+    if (!input.open(QIODevice::ReadOnly)) {
+        qWarning() << "Failed to open" << input.fileName() << input.errorString();
+        return ret;
+    }
+
+    QXmlStreamReader xml(&input);
+    xml.readNextStartElement();
+    if (xml.name() != QLatin1String("xbel")
+            || xml.attributes().value(QLatin1String("version")) != QLatin1String("1.0")) {
+        qWarning() << "The file is not an XBEL version 1.0 file.";
+        return ret;
+    }
+
+    while (!xml.atEnd() && !xml.hasError()) {
+        if (xml.readNext() != QXmlStreamReader::StartElement || xml.name() != QStringLiteral("bookmark")) {
+            continue;
+        }
+        const QString urlString = xml.attributes().value(QLatin1String("href")).toString();
+        if (urlString.isEmpty()) {
+            qWarning() << "Invalid bookmark in" << input.fileName();
+            continue;
+        }
+        const QUrl url(urlString);
+        if (url.isLocalFile() && !QFile(url.toLocalFile()).exists()) {
+            continue;
+        }
+        const QDateTime modified = QDateTime::fromString(xml.attributes().value(QLatin1String("modified")).toString(), Qt::ISODate);
+        const QDateTime visited = QDateTime::fromString(xml.attributes().value(QLatin1String("visited")).toString(), Qt::ISODate);
+        const QDateTime added = QDateTime::fromString(xml.attributes().value(QLatin1String("added")).toString(), Qt::ISODate);
+        if (modified > visited && modified > added) {
+            ret[urlString] = modified;
+        } else if (visited > added) {
+            ret[urlString] = visited;
+        } else {
+            ret[urlString] = added;
+        }
+
+    }
+
+    return ret;
+}
+
 QString KRecentDocument::recentDocumentDirectory()
 {
     // need to change this path, not sure where
     return QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/RecentDocuments/");
+}
+
+QStringList KRecentDocument::recentUrls()
+{
+    QMap<QString, QDateTime> documents = xbelRecentlyUsedList();
+    for (const QString &pathDesktop : recentDocuments()) {
+        const KDesktopFile tmpDesktopFile(pathDesktop);
+        const QString url = tmpDesktopFile.desktopGroup().readPathEntry("URL", QString());
+        if (url.isEmpty()) {
+            continue;
+        }
+        const QDateTime lastModified = QFileInfo(pathDesktop).lastModified();
+        if (documents.contains(url) && documents[url] > lastModified) {
+            continue;
+        }
+        documents[url] = lastModified;
+    }
+    QStringList ret = documents.keys();
+    std::sort(ret.begin(), ret.end(), [&](const QString &doc1, const QString &doc2) {
+        return documents[doc1] < documents[doc2];
+    });
+
+    return ret;
 }
 
 QStringList KRecentDocument::recentDocuments()
