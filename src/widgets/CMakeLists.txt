@@ -61,6 +61,7 @@ set(kiowidgets_SRCS
   executablefileopendialog.cpp
   dndpopupmenuplugin.cpp
   kurifiltersearchprovideractions.cpp
+  renamefiledialog.cpp
 )
 if (WIN32)
   list(APPEND kiowidgets_SRCS
@@ -174,6 +175,7 @@ ecm_generate_headers(KIOWidgets_CamelCase_HEADERS
   Paste
   PixmapLoader
   KUriFilterSearchProviderActions # KF6: fix and move to non-KIO prefixed install folder
+  RenameFileDialog
 
   PREFIX KIO
   REQUIRED_HEADERS KIO_namespaced_widgets_HEADERS
