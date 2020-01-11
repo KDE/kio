@@ -43,7 +43,7 @@
  *
  * @deprecated since 5.66, use KIO::iconNameForUrl to get the icon name and use QIcon::fromTheme
  */
-#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 66)
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 66) && KCOMPLETION_ENABLE_DEPRECATED_SINCE(5, 66)
 
 class KIOWIDGETS_EXPORT KUrlPixmapProvider : public KPixmapProvider
 {

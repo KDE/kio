@@ -23,7 +23,7 @@
 #include <kio/global.h>
 #include <pixmaploader.h>
 
-#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 66)
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 66) && KCOMPLETION_ENABLE_DEPRECATED_SINCE(5, 66)
 
 KUrlPixmapProvider::KUrlPixmapProvider()
     : d(nullptr)
