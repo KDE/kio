@@ -60,7 +60,7 @@ public:
         QSet<QString> extensions;
         QMimeDatabase db;
         for (const QUrl &url : qAsConst(m_srcList)) {
-            const QString extension = db.suffixForFileName(url.toDisplayString().toLower());
+            const QString extension = db.suffixForFileName(url.path());
             if (extensions.contains(extension)) {
                 m_allExtensionsDifferent = false;
                 break;
@@ -168,7 +168,7 @@ void BatchRenameJobPrivate::slotStart()
         QString newName = indexedName(m_newName, m_index, m_placeHolder);
         const QUrl oldUrl = *m_listIterator;
         QMimeDatabase db;
-        const QString extension = db.suffixForFileName(oldUrl.path().toLower());
+        const QString extension = db.suffixForFileName(oldUrl.path());
         if (!extension.isEmpty()) {
             newName += QLatin1Char('.') + extension;
         }
