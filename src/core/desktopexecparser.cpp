@@ -220,13 +220,23 @@ bool KIO::DesktopExecParser::isProtocolInSupportedList(const QUrl &url, const QS
     return url.isLocalFile() || supportedProtocols.contains(url.scheme().toLower());
 }
 
+// We have up to two sources of data, for protocols not handled by kioslaves (so called "helper") :
+// 1) the exec line of the .protocol file, if there's one
+// 2) the application associated with x-scheme-handler/<protocol> if there's one
+
+// If both exist, then:
+//  A) if the .protocol file says "launch an application", then the new-style handler-app has priority
+//  B) but if the .protocol file is for a kioslave (e.g. kio_http) then this has priority over
+//     firefox or chromium saying x-scheme-handler/http. Gnome people want to send all HTTP urls
+//     to a webbrowser, but we want mimetype-determination-in-calling-application by default
+//     (the user can configure a BrowserApplication though)
 bool KIO::DesktopExecParser::hasSchemeHandler(const QUrl &url)
 {
     if (KProtocolInfo::isHelperProtocol(url)) {
         return true;
     }
     if (KProtocolInfo::isKnownProtocol(url)) {
-        return false; // see schemeHandler()... this is case B, we prefer kioslaves over the competition
+        return false; // see KRun::init()... this is case B, we prefer kioslaves over the competition
     }
     const KService::Ptr service = KMimeTypeTrader::self()->preferredService(QLatin1String("x-scheme-handler/") + url.scheme());
     if (service) {
