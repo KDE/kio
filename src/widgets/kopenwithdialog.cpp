@@ -1076,9 +1076,8 @@ bool KOpenWithDialogPrivate::checkAccept()
 
             if (!qMimeType.isEmpty()) {
                 addToMimeAppsList(menuId);
-            } else {
-                m_pService = new KService(newPath);
             }
+            m_pService = new KService(newPath);
         }
     }
 
