@@ -538,6 +538,7 @@ public:
     QLabel *label;
     QString qMimeType;
     QString qMimeTypeComment;
+    KCollapsibleGroupBox *dialogExtension;
     QCheckBox *terminal;
     QCheckBox *remember;
     QCheckBox *nocloseonexit;
@@ -725,7 +726,7 @@ void KOpenWithDialogPrivate::init(const QString &_text, const QString &_value)
     }
 
     //Advanced options
-    KCollapsibleGroupBox *dialogExtension = new KCollapsibleGroupBox(q);
+    dialogExtension = new KCollapsibleGroupBox(q);
     dialogExtension->setTitle(i18n("Terminal options"));
 
     QVBoxLayout *dialogExtensionLayout = new QVBoxLayout;
@@ -1129,6 +1130,8 @@ void KOpenWithDialog::hideNoCloseOnExit()
     // uncheck the checkbox because the value could be used when "Run in Terminal" is selected
     d->nocloseonexit->setChecked(false);
     d->nocloseonexit->hide();
+
+    d->dialogExtension->setVisible(d->nocloseonexit->isVisible() || d->terminal->isVisible());
 }
 
 void KOpenWithDialog::hideRunInTerminal()
