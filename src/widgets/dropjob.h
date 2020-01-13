@@ -33,6 +33,19 @@ class KFileItemListProperties;
 namespace KIO
 {
 
+/**
+* Special flag of DropJob in addition to KIO::JobFlag
+*
+* @since 5.67
+*/
+enum DropJobFlag
+{
+    DropJobDefaultFlags = 0,
+    ShowMenuManually = 1, ///< show the menu manually with DropJob::showMenu
+};
+Q_DECLARE_FLAGS(DropJobFlags, DropJobFlag)
+Q_DECLARE_OPERATORS_FOR_FLAGS(DropJobFlags)
+
 class CopyJob;
 class DropJobPrivate;
 
@@ -61,6 +74,14 @@ public:
      * This can be called upfront, or for convenience, when popupMenuAboutToShow is emitted.
      */
     void setApplicationActions(const QList<QAction *> &actions);
+
+    /**
+     * Allows the application to show the menu manually.
+     * DropJob instance has to be created with the KIO::ShowMenuManually flag
+     *
+     * @since 5.67
+     */
+    void showMenu(const QPoint &p, QAction *atAction = nullptr);
 
 Q_SIGNALS:
     /**
@@ -125,6 +146,22 @@ private:
  * @since 5.4
  */
 KIOWIDGETS_EXPORT DropJob *drop(const QDropEvent *dropEvent, const QUrl &destUrl, JobFlags flags = DefaultFlags);
+
+/**
+ * Similar to KIO::drop
+ *
+ * @param dropEvent the drop event, from which the job will extract mimeData, dropAction, etc.
+         The application should take care of calling dropEvent->acceptProposedAction().
+ * @param destUrl The URL of the target file or directory
+ * @param dropjobFlags Show the menu immediately or manually.
+ * @param flags passed to the sub job
+ *
+ * @return A pointer to the job handling the operation.
+ * @warning Don't forget to call DropJob::showMenu on this job, otherwise the popup will never be shown
+ *
+ * @since 5.67
+ */
+KIOWIDGETS_EXPORT DropJob *drop(const QDropEvent *dropEvent, const QUrl &destUrl, DropJobFlags dropjobFlags, JobFlags flags = DefaultFlags); // TODO KF6: merge with DropJobFlags dropjobFlag = DropJobDefaultFlags
 
 }
 

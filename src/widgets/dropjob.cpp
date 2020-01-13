@@ -80,7 +80,7 @@ private:
 class KIO::DropJobPrivate : public KIO::JobPrivate
 {
 public:
-    DropJobPrivate(const QDropEvent *dropEvent, const QUrl &destUrl, JobFlags flags)
+    DropJobPrivate(const QDropEvent *dropEvent, const QUrl &destUrl, DropJobFlags dropjobFlags, JobFlags flags)
         : JobPrivate(),
           // Extract everything from the dropevent, since it will be deleted before the job starts
           m_mimeData(dropEvent->mimeData()),
@@ -90,6 +90,7 @@ public:
           m_keyboardModifiers(dropEvent->keyboardModifiers()),
           m_destUrl(destUrl),
           m_destItem(KCoreDirLister::cachedItemForUrl(destUrl)),
+          m_dropjobFlags(dropjobFlags),
           m_flags(flags),
           m_triggered(false)
     {
@@ -147,6 +148,7 @@ public:
     QUrl m_destUrl;
     KFileItem m_destItem; // null for remote URLs not found in the dirlister cache
     const JobFlags m_flags;
+    const DropJobFlags m_dropjobFlags;
     QList<QAction *> m_appActions;
     QList<QAction *> m_pluginActions;
     bool m_triggered;  // Tracks whether an action has been triggered in the popup menu.
@@ -158,9 +160,9 @@ public:
     void slotTriggered(QAction *);
     void slotAboutToHide();
 
-    static inline DropJob *newJob(const QDropEvent *dropEvent, const QUrl &destUrl, JobFlags flags)
+    static inline DropJob *newJob(const QDropEvent *dropEvent, const QUrl &destUrl, DropJobFlags dropjobFlags, JobFlags flags)
     {
-        DropJob *job = new DropJob(*new DropJobPrivate(dropEvent, destUrl, flags));
+        DropJob *job = new DropJob(*new DropJobPrivate(dropEvent, destUrl, dropjobFlags, flags));
         job->setUiDelegate(KIO::createDefaultJobUiDelegate());
         // Note: never KIO::getJobTracker()->registerJob here.
         // We don't want a progress dialog during the copy/move/link popup, it would in fact close
@@ -410,6 +412,20 @@ void DropJob::setApplicationActions(const QList<QAction *> &actions)
     for (KIO::DropMenu *menu : qAsConst(d->m_menus)) {
         menu->addExtraActions(d->m_appActions, d->m_pluginActions);
     }
+
+}
+
+void DropJob::showMenu(const QPoint &p, QAction *atAction)
+{
+    Q_D(DropJob);
+
+    if (!(d->m_dropjobFlags & KIO::ShowMenuManually)) {
+        return;
+    }
+
+    for (KIO::DropMenu *menu : qAsConst(d->m_menus)) {
+        menu->popup(p, atAction);
+    }
 }
 
 void DropJobPrivate::slotTriggered(QAction *action)
@@ -461,7 +477,10 @@ void DropJobPrivate::handleCopyToDirectory()
                 m_triggered = true;
                 slotTriggered(action);
             });
-            menu->popup(window ? window->mapToGlobal(m_relativePos) : QCursor::pos());
+
+            if (!(m_dropjobFlags & KIO::ShowMenuManually)) {
+                menu->popup(window ? window->mapToGlobal(m_relativePos) : QCursor::pos());
+            }
             m_menus.insert(menu);
             QObject::connect(menu, &QObject::destroyed, q, [this, menu]() {
                 m_menus.remove(menu);
@@ -570,7 +589,12 @@ void DropJob::slotResult(KJob *job)
 
 DropJob * KIO::drop(const QDropEvent *dropEvent, const QUrl &destUrl, JobFlags flags)
 {
-    return DropJobPrivate::newJob(dropEvent, destUrl, flags);
+    return DropJobPrivate::newJob(dropEvent, destUrl, KIO::DropJobDefaultFlags, flags);
+}
+
+DropJob * KIO::drop(const QDropEvent *dropEvent, const QUrl &destUrl, DropJobFlags dropjobFlags, JobFlags flags)
+{
+    return DropJobPrivate::newJob(dropEvent, destUrl, dropjobFlags, flags);
 }
 
 #include "moc_dropjob.cpp"
