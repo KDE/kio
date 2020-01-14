@@ -208,6 +208,15 @@ QStringList KIO::DesktopExecParser::supportedProtocols(const KService &service)
             }
         }
     }
+
+    // add x-scheme-handler/<protocol>
+    const auto servicesTypes = service.serviceTypes();
+    for (const auto &mimeType : servicesTypes) {
+        if (mimeType.startsWith(QLatin1String("x-scheme-handler/"))) {
+            supportedProtocols << mimeType.mid(17);
+        }
+    }
+
     //qCDebug(KIO_CORE) << "supportedProtocols:" << supportedProtocols;
     return supportedProtocols;
 }

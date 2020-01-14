@@ -96,25 +96,10 @@ void KRun::KRunPrivate::startTimer()
 
 // ---------------------------------------------------------------------------
 
-static QString schemeHandler(const QString &protocol)
+
+static KService::Ptr schemeService(const QString &protocol)
 {
-    // We have up to two sources of data, for protocols not handled by kioslaves (so called "helper") :
-    // 1) the exec line of the .protocol file, if there's one
-    // 2) the application associated with x-scheme-handler/<protocol> if there's one
-
-    // If both exist, then:
-    //  A) if the .protocol file says "launch an application", then the new-style handler-app has priority
-    //  B) but if the .protocol file is for a kioslave (e.g. kio_http) then this has priority over
-    //     firefox or chromium saying x-scheme-handler/http. Gnome people want to send all HTTP urls
-    //     to a webbrowser, but we want mimetype-determination-in-calling-application by default
-    //     (the user can configure a BrowserApplication though)
-
-    const KService::Ptr service = KMimeTypeTrader::self()->preferredService(QLatin1String("x-scheme-handler/") + protocol);
-    if (service) {
-        return service->exec(); // for helper protocols, the handler app has priority over the hardcoded one (see A above)
-    }
-    Q_ASSERT(KProtocolInfo::isHelperProtocol(protocol));
-    return KProtocolInfo::exec(protocol);
+    return KMimeTypeTrader::self()->preferredService(QLatin1String("x-scheme-handler/") + protocol);
 }
 
 static bool checkNeedPortalSupport()
@@ -960,18 +945,32 @@ void KRun::init()
             return;
         }
     } else if (KIO::DesktopExecParser::hasSchemeHandler(d->m_strURL)) {
-        //qDebug() << "Using scheme handler";
-        const QString exec = schemeHandler(d->m_strURL.scheme());
-        if (exec.isEmpty()) {
-            mimeTypeDetermined(KProtocolManager::defaultMimetype(d->m_strURL));
-            return;
-        } else {
-            if (run(exec, QList<QUrl>() << d->m_strURL, d->m_window, QString(), QString(), d->m_asn)) {
+        // looks for an application associated with x-scheme-handler/<protocol>
+        const KService::Ptr service = schemeService(d->m_strURL.scheme());
+        if (service) {
+            //  if there's one...
+            if (runApplication(*service, QList<QUrl>() << d->m_strURL, d->m_window, RunFlags{}, QString(), d->m_asn)) {
                 d->m_bFinished = true;
                 d->startTimer();
                 return;
             }
+        } else {
+            // fallback, look for associated helper protocol
+            Q_ASSERT(KProtocolInfo::isHelperProtocol(d->m_strURL.scheme()));
+            const auto exec = KProtocolInfo::exec(d->m_strURL.scheme());
+            if (exec.isEmpty()) {
+                // use default mimetype opener for file
+                mimeTypeDetermined(KProtocolManager::defaultMimetype(d->m_strURL));
+                return;
+            } else {
+                if (run(exec, QList<QUrl>() << d->m_strURL, d->m_window, QString(), QString(), d->m_asn)) {
+                    d->m_bFinished = true;
+                    d->startTimer();
+                    return;
+                }
+            }
         }
+
     }
 
 #if 0 // removed for KF5 (for portability). Reintroduce a bool or flag if useful.
