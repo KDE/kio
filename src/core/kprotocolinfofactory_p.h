@@ -45,7 +45,7 @@ public:
     KProtocolInfoFactory();
     ~KProtocolInfoFactory();
 
-    /*
+    /**
      * Returns protocol info for @p protocol.
      *
      * Does not take proxy settings into account.
