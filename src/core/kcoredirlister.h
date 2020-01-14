@@ -590,6 +590,7 @@ protected:
      * @param name the name to filter
      * @param filters a list of regular expressions for filtering
      */
+    // TODO KF6 remove
     virtual bool doNameFilter(const QString &name, const QList<QRegExp> &filters) const;
 
     /**
@@ -599,6 +600,7 @@ protected:
      * @param mime the mime type to filter
      * @param filters the list of mime types to filter
      */
+    // TODO KF6 remove
     virtual bool doMimeFilter(const QString &mime, const QStringList &filters) const;
 
     /**

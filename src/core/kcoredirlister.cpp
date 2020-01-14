@@ -30,7 +30,7 @@
 #include "kiocoredebug.h"
 #include "../pathhelpers_p.h"
 
-#include <QRegExp>
+#include <QRegularExpression>
 #include <QFileInfo>
 #include <QFile>
 #include <QTextStream>
@@ -2302,7 +2302,9 @@ void KCoreDirLister::setNameFilter(const QString &nameFilter)
     // Split on white space
     const QStringList list = nameFilter.split(QLatin1Char(' '), QString::SkipEmptyParts);
     for (const QString &filter : list) {
-        d->settings.lstFilters.append(QRegExp(filter, Qt::CaseInsensitive, QRegExp::Wildcard));
+        d->settings.lstFilters.append(
+            QRegularExpression(QRegularExpression::wildcardToRegularExpression(filter),
+                               QRegularExpression::CaseInsensitiveOption));
     }
 }
 
@@ -2349,7 +2351,13 @@ QStringList KCoreDirLister::mimeFilters() const
 
 bool KCoreDirLister::matchesFilter(const QString &name) const
 {
-    return doNameFilter(name, d->settings.lstFilters);
+    for (const QRegularExpression &filter : d->settings.lstFilters) {
+        if (filter.match(name).hasMatch()) {
+            return true;
+        }
+    }
+
+    return false;
 }
 
 bool KCoreDirLister::matchesMimeFilter(const QString &mime) const

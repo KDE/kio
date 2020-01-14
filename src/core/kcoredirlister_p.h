@@ -34,6 +34,7 @@
 #include <kio/global.h>
 #include <kdirwatch.h>
 
+class QRegularExpression;
 class KCoreDirLister;
 namespace KIO
 {
@@ -144,7 +145,7 @@ public:
         FilterSettings() : isShowingDotFiles(false), dirOnlyMode(false) {}
         bool isShowingDotFiles;
         bool dirOnlyMode;
-        QList<QRegExp> lstFilters;
+        QVector<QRegularExpression> lstFilters;
         QStringList mimeFilter;
         QStringList mimeExcludeFilter;
     };
