@@ -314,8 +314,7 @@ Q_INVOKABLE QJSValue DNSDomainLevels(QString host)
 // @returns true if @p str matches the shell @p pattern
 Q_INVOKABLE QJSValue ShExpMatch(QString str, QString patternStr)
 {
-    const QRegularExpression pattern(QRegularExpression::anchoredPattern(
-                                      QRegularExpression::wildcardToRegularExpression(patternStr)));
+    const QRegularExpression pattern(QRegularExpression::wildcardToRegularExpression(patternStr));
     return QJSValue(pattern.match(str).hasMatch());
 }
 

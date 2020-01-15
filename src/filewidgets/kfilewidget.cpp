@@ -2457,8 +2457,7 @@ QString KFileWidgetPrivate::findMatchingFilter(const QString &filter, const QStr
 
     QRegularExpression rx;
     for (const QString &p : patterns) {
-        rx.setPattern(QRegularExpression::anchoredPattern(
-                                        QRegularExpression::wildcardToRegularExpression(p)));
+        rx.setPattern(QRegularExpression::wildcardToRegularExpression(p));
         if (rx.match(filename).hasMatch()) {
             return p;
         }
