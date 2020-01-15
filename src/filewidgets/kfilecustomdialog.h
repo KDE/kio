@@ -36,7 +36,18 @@ class KIOFILEWIDGETS_EXPORT KFileCustomDialog : public QDialog
 {
     Q_OBJECT
 public:
+    /**
+     * Constructs a custom file dialog
+     */
     explicit KFileCustomDialog(QWidget *parent = nullptr);
+
+    /**
+     * Constructs a custom file dialog
+     * @param startDir see the KFileWidget constructor for documentation
+     * @since 5.67
+     */
+    explicit KFileCustomDialog(const QUrl &startDir, QWidget *parent = nullptr);
+
     ~KFileCustomDialog() override;
 
     /**

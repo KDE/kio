@@ -31,20 +31,19 @@ public:
     explicit KFileCustomDialogPrivate(KFileCustomDialog *qq)
         : q(qq)
     {
-        init();
     }
-    void init();
+    void init(const QUrl &startDir);
 
     KFileWidget *mFileWidget = nullptr;
     KFileCustomDialog * const q;
 };
 
-void KFileCustomDialogPrivate::init()
+void KFileCustomDialogPrivate::init(const QUrl &startDir)
 {
     QVBoxLayout *mainLayout = new QVBoxLayout(q);
     mainLayout->setObjectName(QStringLiteral("mainlayout"));
 
-    mFileWidget = new KFileWidget(QUrl(), q);
+    mFileWidget = new KFileWidget(startDir, q);
     mFileWidget->setObjectName(QStringLiteral("filewidget"));
     mainLayout->addWidget(mFileWidget);
 
@@ -62,6 +61,14 @@ KFileCustomDialog::KFileCustomDialog(QWidget *parent)
     : QDialog(parent),
       d(new KFileCustomDialogPrivate(this))
 {
+    d->init(QUrl());
+}
+
+KFileCustomDialog::KFileCustomDialog(const QUrl &startDir, QWidget *parent)
+    : QDialog(parent),
+      d(new KFileCustomDialogPrivate(this))
+{
+    d->init(startDir);
 }
 
 KFileCustomDialog::~KFileCustomDialog()
