@@ -344,7 +344,11 @@ int TCPSlaveBase::connectToHost(const QString &host, quint16 port, QString *erro
         if (errorString) {
             *errorString = host + QLatin1String(": ") + d->socket.errorString();
         }
+#if (QT_VERSION < QT_VERSION_CHECK(5, 15, 0))
         switch (d->socket.error()) {
+#else
+        switch (d->socket.socketError()) {
+#endif
         case QAbstractSocket::UnsupportedSocketOperationError:
             return ERR_UNSUPPORTED_ACTION;
         case QAbstractSocket::RemoteHostClosedError:
@@ -478,7 +482,11 @@ TCPSlaveBase::SslResult TCPSlaveBase::TcpSlaveBasePrivate::startTLSInternal(QSsl
       << " supportedBits:" << cipher.supportedBits()
       << " usedBits:" << cipher.usedBits();*/
 
+#if (QT_VERSION < QT_VERSION_CHECK(5, 15, 0))
     sslErrors = socket.sslErrors();
+#else
+    sslErrors = socket.sslHandshakeErrors();
+#endif
 
     // TODO: review / rewrite / remove the comment
     // The app side needs the metadata now for the SSL error dialog (if any) but
