@@ -547,7 +547,12 @@ void KTcpSocket::disconnectFromHost()
 
 KTcpSocket::Error KTcpSocket::error() const
 {
-    return d->errorFromAbsSocket(d->sock.error());
+#if (QT_VERSION < QT_VERSION_CHECK(5, 15, 0))
+    const auto networkError = d->sock.error();
+#else
+    const auto networkError = d->sock.socketError();
+#endif
+    return d->errorFromAbsSocket(networkError);
 }
 
 QList<KSslError> KTcpSocket::sslErrors() const
