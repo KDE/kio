@@ -162,7 +162,12 @@ void HttpServerThread::run()
                 Q_ASSERT(clientSocket);
                 continue; // go to "waitForReadyRead"
             } else {
-                qDebug() << "HttpServerThread:" << clientSocket->error() << "waiting for \"request\" packet";
+#if (QT_VERSION < QT_VERSION_CHECK(5, 15, 0))
+                const auto clientSocketError = clientSocket->error();
+#else
+                const auto clientSocketError = clientSocket->socketError();
+#endif
+                qDebug() << "HttpServerThread:" << clientSocketError << "waiting for \"request\" packet";
                 break;
             }
         }
@@ -236,7 +241,12 @@ void HttpServerThread::run()
                 const QByteArray unauthorized = "HTTP/1.1 401 Authorization Required\r\nWWW-Authenticate: Basic realm=\"example\"\r\nContent-Length: 0\r\n\r\n";
                 clientSocket->write(unauthorized);
                 if (!clientSocket->waitForBytesWritten(2000)) {
-                    qDebug() << "HttpServerThread:" << clientSocket->error() << "writing auth request";
+#if (QT_VERSION < QT_VERSION_CHECK(5, 15, 0))
+                    const auto clientSocketError = clientSocket->error();
+#else
+                    const auto clientSocketError = clientSocket->socketError();
+#endif
+                    qDebug() << "HttpServerThread:" << clientSocketError << "writing auth request";
                     break;
                 }
                 continue;

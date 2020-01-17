@@ -117,8 +117,13 @@ AccessManagerReply::AccessManagerReply(const QNetworkAccessManager::Operation op
     setUrl(request.url());
     setOperation(op);
     setError(static_cast<QNetworkReply::NetworkError>(errorCode), errorMessage);
-    if (error() != QNetworkReply::NoError) {
-        QMetaObject::invokeMethod(this, "error", Qt::QueuedConnection, Q_ARG(QNetworkReply::NetworkError, error()));
+#if (QT_VERSION < QT_VERSION_CHECK(5, 15, 0))
+    const auto networkError = error();
+#else
+    const auto networkError = this->networkError();
+#endif
+    if (networkError != QNetworkReply::NoError) {
+        QMetaObject::invokeMethod(this, "error", Qt::QueuedConnection, Q_ARG(QNetworkReply::NetworkError, networkError));
     }
 
     emitFinished(true, Qt::QueuedConnection);
