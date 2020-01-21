@@ -30,6 +30,7 @@
 #include <QCoreApplication>
 #include <QFileInfo>
 #include <QUrl>
+#include <QVector>
 
 #include <kio/global.h>
 #include <kdirwatch.h>
