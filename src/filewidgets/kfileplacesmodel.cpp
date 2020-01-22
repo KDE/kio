@@ -354,12 +354,17 @@ KFilePlacesModel::KFilePlacesModel(const QString &alternativeApplicationName, QO
         root.metaDataItem(QStringLiteral("withBaloo")) != QLatin1String("true")) {
 
         root.setMetaDataItem(QStringLiteral("withBaloo"), QStringLiteral("true"));
-        KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
-                                              I18NC_NOOP("KFile System Bookmarks", "Modified Today"),
-                                              QUrl(QStringLiteral("timeline:/today")),  QStringLiteral("go-jump-today"));
-        KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
-                                              I18NC_NOOP("KFile System Bookmarks", "Modified Yesterday"),
-                                              QUrl(QStringLiteral("timeline:/yesterday")),  QStringLiteral("view-calendar-day"));
+
+        // don't add by default "Modified Today" and "Modified Yesterday" when recentlyused:/ is present
+        if (root.metaDataItem(QStringLiteral("withRecentlyUsed")) != QLatin1String("true")) {
+            KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
+                                                  I18NC_NOOP("KFile System Bookmarks", "Modified Today"),
+                                                  QUrl(QStringLiteral("timeline:/today")),  QStringLiteral("go-jump-today"));
+            KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
+                                                  I18NC_NOOP("KFile System Bookmarks", "Modified Yesterday"),
+                                                  QUrl(QStringLiteral("timeline:/yesterday")),  QStringLiteral("view-calendar-day"));
+        }
+
         KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
                                               I18NC_NOOP("KFile System Bookmarks", "Documents"),
                                              QUrl(QStringLiteral("search:/documents")),  QStringLiteral("folder-text"));
