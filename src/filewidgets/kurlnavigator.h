@@ -366,7 +366,7 @@ public Q_SLOTS:
      */
     void requestActivation();
 
-#if !defined(DOXYGEN_SHOULD_SKIP_THIS)
+#if !defined(K_DOXYGEN)
     // KDE5: Remove and listen for focus-signal instead
     void setFocus();
 #endif
@@ -467,7 +467,7 @@ Q_SIGNALS:
     void urlSelectionRequested(const QUrl &url);
 
 protected:
-#if !defined(DOXYGEN_SHOULD_SKIP_THIS)
+#if !defined(K_DOXYGEN)
     /**
      * If the Escape key is pressed, the navigation bar should switch
      * to the breadcrumb view.
