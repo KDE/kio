@@ -1221,6 +1221,7 @@ void CopyJobPrivate::slotResultConflictCreatingDirs(KJob *job)
     case Result_AutoRename:
         m_bAutoRenameDirs = true;
     // fall through
+        Q_FALLTHROUGH();
     case Result_Rename: {
         QUrl newUrl((*it).uDest);
         newUrl.setPath(newPath, QUrl::DecodedMode);
@@ -1231,6 +1232,7 @@ void CopyJobPrivate::slotResultConflictCreatingDirs(KJob *job)
     case Result_AutoSkip:
         m_bAutoSkipDirs = true;
     // fall through
+        Q_FALLTHROUGH();
     case Result_Skip:
         m_skipList.append(existingDest);
         skip((*it).uSource, true);
