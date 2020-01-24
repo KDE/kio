@@ -1627,11 +1627,13 @@ void JobTest::moveDestAlreadyExistsAutoRename(const QString &destDir, bool moveD
         }
     }
 
-    QList<QUrl> urls; urls << QUrl::fromLocalFile(file1) << QUrl::fromLocalFile(file2);
+    QList<QUrl> urls = {QUrl::fromLocalFile(file1), QUrl::fromLocalFile(file2)};
     KIO::CopyJob *job = KIO::move(urls, QUrl::fromLocalFile(destDir), KIO::HideProgressInfo);
     job->setUiDelegate(nullptr);
     job->setUiDelegateExtension(nullptr);
     job->setAutoRename(true);
+
+    QSignalSpy spyRenamed(job, &KIO::CopyJob::renamed);
 
     //qDebug() << QDir(destDir).entryList();
 
@@ -1640,12 +1642,22 @@ void JobTest::moveDestAlreadyExistsAutoRename(const QString &destDir, bool moveD
     qDebug() << QDir(destDir).entryList();
     QVERIFY(!QFile::exists(file1)); // it was moved
     QVERIFY(!QFile::exists(file2)); // it was moved
+
     QVERIFY(QFile::exists(existingDest1));
     QVERIFY(QFile::exists(existingDest2));
     const QString file3 = destDir + prefix + "(3)";
     const QString file4 = destDir + prefix + "(4)";
     QVERIFY(QFile::exists(file3));
     QVERIFY(QFile::exists(file4));
+
+    QCOMPARE(spyRenamed.count(), 2);
+    auto list = spyRenamed.takeFirst();
+    QCOMPARE(list.at(1).toUrl(), QUrl::fromLocalFile(destDir + prefix + "(1)"));
+    QCOMPARE(list.at(2).toUrl(), QUrl::fromLocalFile(file3));
+    list = spyRenamed.takeFirst();
+    QCOMPARE(list.at(1).toUrl(), QUrl::fromLocalFile(destDir + prefix + "(2)"));
+    QCOMPARE(list.at(2).toUrl(), QUrl::fromLocalFile(file4));
+
     if (moveDirs) {
         QDir().rmdir(file1);
         QDir().rmdir(file2);
@@ -1688,6 +1700,44 @@ void JobTest::copyDirectoryAlreadyExistsSkip()
 
     QDir(src).removeRecursively();
     QDir(dest).removeRecursively();
+}
+
+void JobTest::copyFileAlreadyExistsRename()
+{
+    const QString sourceFile = homeTmpDir() + "file";
+    const QString dest = homeTmpDir() + "dest/";
+    const QString alreadyExisting = dest + "file";
+    const QString renamedFile = dest + "file-renamed";
+
+    createTestFile(sourceFile);
+    createTestFile(alreadyExisting);
+    QVERIFY(QFile::exists(sourceFile));
+    QVERIFY(QFile::exists(alreadyExisting));
+
+    createTestDirectory(dest);
+
+    QUrl s = QUrl::fromLocalFile(sourceFile);
+    QUrl d = QUrl::fromLocalFile(dest);
+
+    KIO::CopyJob* job = KIO::copy(s, d, KIO::HideProgressInfo);
+    // Simulate the user pressing "Rename" in the dialog and choosing another destination.
+    PredefinedAnswerJobUiDelegate extension;
+    extension.m_renameResult = KIO::Result_Rename;
+    extension.m_renamedest = renamedFile;
+    job->setUiDelegateExtension(&extension);
+
+    QSignalSpy spyRenamed(job, &KIO::CopyJob::renamed);
+
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
+    QVERIFY(QFile::exists(renamedFile));
+
+    QCOMPARE(spyRenamed.count(), 1);
+    auto list = spyRenamed.takeFirst();
+    QCOMPARE(list.at(1).toUrl(), QUrl::fromLocalFile(alreadyExisting));
+    QCOMPARE(list.at(2).toUrl(), QUrl::fromLocalFile(renamedFile));
+
+    QVERIFY(QFile(sourceFile).remove());
+    QVERIFY(QDir(dest).removeRecursively());
 }
 
 void JobTest::safeOverwrite_data()

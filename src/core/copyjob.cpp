@@ -2003,6 +2003,7 @@ void CopyJobPrivate::slotResultRenaming(KJob *job)
 
                 m_dest = destDirectory;
                 m_dest.setPath(concatPaths(m_dest.path(), newName));
+                emit q->renamed(q, dest, m_dest);
                 KIO::Job *job = KIO::stat(m_dest, StatJob::DestinationSide, 2, KIO::HideProgressInfo);
                 state = STATE_STATING;
                 destinationState = DEST_NOT_STATED;
@@ -2094,6 +2095,7 @@ void CopyJobPrivate::slotResultRenaming(KJob *job)
                     // Set m_dest to the chosen destination
                     // This is only for this src url; the next one will revert to m_globalDest
                     m_dest.setPath(newPath);
+                    emit q->renamed(q, dest, m_dest); // for e.g. KPropertiesDialog
                     KIO::Job *job = KIO::stat(m_dest, StatJob::DestinationSide, 2, KIO::HideProgressInfo);
                     state = STATE_STATING;
                     destinationState = DEST_NOT_STATED;

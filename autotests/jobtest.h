@@ -100,6 +100,7 @@ private Q_SLOTS:
     void moveDestAlreadyExistsAutoRename();
 
     void copyDirectoryAlreadyExistsSkip();
+    void copyFileAlreadyExistsRename();
 
     void safeOverwrite();
     void safeOverwrite_data();

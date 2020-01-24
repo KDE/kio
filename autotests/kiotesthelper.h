@@ -147,7 +147,7 @@ public:
         Q_UNUSED(src)
         Q_UNUSED(dest)
         Q_UNUSED(options)
-        Q_UNUSED(newDest)
+        newDest = m_renamedest;
         ++m_askFileRenameCalled;
         return m_renameResult;
     }
@@ -202,4 +202,5 @@ public:
     KIO::SkipDialog_Result m_skipResult;
     bool m_deleteResult;
     int m_messageBoxResult;
+    QString m_renamedest;
 };
