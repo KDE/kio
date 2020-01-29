@@ -121,6 +121,8 @@ private:
     mutable QHash<KUserId, QString> mUsercache;
     mutable QHash<KGroupId, QString> mGroupcache;
     QFile *mFile;
+
+    bool testMode = false;
 };
 
 #endif

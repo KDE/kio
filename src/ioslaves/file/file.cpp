@@ -163,6 +163,7 @@ static QFile::Permissions modeToQFilePermissions(int mode)
 FileProtocol::FileProtocol(const QByteArray &pool, const QByteArray &app)
     : SlaveBase(QByteArrayLiteral("file"), pool, app), mFile(nullptr)
 {
+    testMode = !qEnvironmentVariableIsEmpty("KIOSLAVE_FILE_ENABLE_TESTMODE");
 }
 
 FileProtocol::~FileProtocol()

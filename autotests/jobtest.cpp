@@ -78,6 +78,9 @@ void JobTest::initTestCase()
     // To avoid a runtime dependency on klauncher
     qputenv("KDE_FORK_SLAVES", "yes");
 
+    // to make sure io is not too fast
+    qputenv("KIOSLAVE_FILE_ENABLE_TESTMODE", "1");
+
     s_referenceTimeStamp = QDateTime::currentDateTime().addSecs(-30);   // 30 seconds ago
 
     // Start with a clean base dir
@@ -2083,41 +2086,44 @@ void JobTest::cancelCopyAndCleanDest()
 
     const QString baseDir = homeTmpDir();
     const QString srcTemplate = baseDir + QStringLiteral("testfile_XXXXXX");
-    const QString destFile = baseDir + QStringLiteral("testfile_copy_") + QString::fromLatin1(QTest::currentDataTag());
+    const QString destFile = baseDir + QStringLiteral("testfile_copy_slow_") + QString::fromLatin1(QTest::currentDataTag());
 
     QTemporaryFile f(srcTemplate);
     if (!f.open()) {
         qFatal("Couldn't open %s", qPrintable(f.fileName()));
     }
-    f.seek(9999999);
+    f.seek(999999);
     f.write("0");
     f.close();
-    QCOMPARE(f.size(), 10000000); //~10MB
+    QCOMPARE(f.size(), 1000000); //~1MB
 
     if (overwrite) {
         createTestFile(destFile);
     }
+    const QString destToCheck = (overwrite) ? destFile + QStringLiteral(".part") : destFile;
 
     KIO::JobFlag m_overwriteFlag = overwrite ? KIO::Overwrite : KIO::DefaultFlags;
     KIO::FileCopyJob *copyJob = KIO::file_copy(QUrl::fromLocalFile(f.fileName()), QUrl::fromLocalFile(destFile), -1, KIO::HideProgressInfo | m_overwriteFlag);
     copyJob->setUiDelegate(nullptr);
     QSignalSpy spyProcessedSize(copyJob, &KIO::Job::processedSize);
-    connect(copyJob, &KIO::Job::processedSize, this, [destFile, suspend, overwrite](KJob *job, qulonglong processedSize) {
+    QSignalSpy spyFinished(copyJob, &KIO::Job::finished);
+    connect(copyJob, &KIO::Job::processedSize, this, [destFile, suspend, destToCheck](KJob *job, qulonglong processedSize) {
         if (processedSize > 0) {
-            const QString destToCheck = (!overwrite) ? destFile : destFile + QStringLiteral(".part");
             QVERIFY2(QFile::exists(destToCheck), qPrintable(destToCheck));
             if (suspend) {
                 job->suspend();
             }
-            job->kill();
-            QVERIFY(!QFile::exists(destToCheck));
+            QVERIFY(job->kill());
         }
     });
+
     QVERIFY(!copyJob->exec());
     QCOMPARE(spyProcessedSize.count(), 1);
-    // Give time to the kioslave to finish copy() and warn about chown/chmod failing (because FileCopyJob::doKill removed the file)
-    // Less confusing if the warnings show here.
-    QTest::qWait(500);
-    QVERIFY(!QFile::exists(destFile));
+    QCOMPARE(spyFinished.count(), 1);
+    QCOMPARE(copyJob->error(), KIO::ERR_USER_CANCELED);
+
+    // the destination file actual deletion happens after finished() is emitted
+    // we need to give some time to the ioslave to finish the file cleaning
+    QTRY_VERIFY2(!QFile::exists(destToCheck), qPrintable(destToCheck));
 }
 

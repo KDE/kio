@@ -578,6 +578,12 @@ void FileCopyJob::slotResult(KJob *job)
 
 bool FileCopyJob::doKill()
 {
+#ifdef Q_OS_WIN
+//TODO Use SetConsoleCtrlHandler on Windows or similar behaviour.
+// https://stackoverflow.com/questions/2007516/is-there-a-posix-sigterm-alternative-on-windows-a-gentle-kill-for-console-ap
+// https://danielkaes.wordpress.com/2009/06/04/how-to-catch-kill-events-with-python/
+// https://phabricator.kde.org/D25117#566107
+
     Q_D(FileCopyJob);
 
     // If we are interrupted in the middle of file copying,
@@ -592,7 +598,7 @@ bool FileCopyJob::doKill()
             QFile::remove(d->m_dest.toLocalFile());
         }
     }
-
+#endif
     return Job::doKill();
 }
 

@@ -31,6 +31,7 @@
 #include <QDir>
 #include <qplatformdefs.h>
 #include <QStandardPaths>
+#include <QThread>
 
 #include <QDebug>
 #include <kconfiggroup.h>
@@ -311,7 +312,12 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl,
     bool use_sendfile = buff_src.st_size < 0x7FFFFFFF;
 #endif
     bool existing_dest_delete_attempted = false;
-    while (1) {
+    while (!wasKilled()) {
+
+        if (testMode && dest_file.fileName().contains(QLatin1String("slow"))) {
+            QThread::usleep(500);
+        }
+
 #ifdef USE_SENDFILE
         if (use_sendfile) {
             off_t sf = processed_size;
@@ -397,6 +403,15 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl,
 
     src_file.close();
     dest_file.close();
+
+    if (wasKilled()) {
+        qCDebug(KIO_FILE) << "Clean dest file after ioslave was killed:" << dest;
+        if (!QFile::remove(dest)) {  // don't keep partly copied file
+            execWithElevatedPrivilege(DEL, {_dest}, errno);
+        }
+        error(KIO::ERR_USER_CANCELED, dest);
+        return;
+    }
 
     if (dest_file.error() != QFile::NoError) {
         qCWarning(KIO_FILE) << "Error when closing file descriptor[2]:" << dest_file.errorString();
