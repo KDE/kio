@@ -71,6 +71,11 @@ void KUrlNavigatorPlacesSelector::updateMenu()
 {
     m_placesMenu->clear();
 
+    // Submenus have to be deleted explicitly (QTBUG-11070)
+    for(QObject *obj : QObjectList(m_placesMenu->children())) {
+        delete qobject_cast<QMenu*>(obj); // Noop for nullptr
+    }
+
     updateSelection(m_selectedUrl);
 
     QString previousGroup;
