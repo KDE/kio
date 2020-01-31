@@ -54,7 +54,7 @@ SkipDialog::SkipDialog(QWidget *parent, KIO::SkipDialog_Options options, const Q
         connect(skipButton, &QAbstractButton::clicked, this, &SkipDialog::skipPressed);
         buttonBox->addButton(skipButton, QDialogButtonBox::ActionRole);
 
-        QPushButton *autoSkipButton = new QPushButton(i18n("AutoSkip"));
+        QPushButton *autoSkipButton = new QPushButton(i18n("Skip All"));
         connect(autoSkipButton, &QAbstractButton::clicked, this, &SkipDialog::autoSkipPressed);
         buttonBox->addButton(autoSkipButton, QDialogButtonBox::ActionRole);
     }
