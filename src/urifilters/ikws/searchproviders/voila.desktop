@@ -94,7 +94,7 @@ Name[zh_CN]=Voila
 Name[zh_TW]=Voila
 X-KDE-ServiceTypes=SearchProvider
 Keys=voila
-Query=http://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
+Query=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
 Query[af]=http://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
 Query[ar]=http://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
 Query[as]=http://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*

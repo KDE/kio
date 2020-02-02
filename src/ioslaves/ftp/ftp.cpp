@@ -364,7 +364,7 @@ Result FtpInternal::ftpOpenConnection(LoginMode loginMode)
     q->infoMessage(i18n("Connected to host %1", m_host));
 
     bool userNameChanged = false;
-    if (loginMode != LoginMode::Defered) {
+    if (loginMode != LoginMode::Deferred) {
         const Result result = ftpLogin(&userNameChanged);
         m_bLoggedOn = result.success;
         if (!m_bLoggedOn) {
@@ -787,7 +787,7 @@ bool FtpInternal::ftpSendCmd(const QByteArray &cmd, int maxretries)
             // the beginning...
             if (maxretries > 0 && !isPassCmd) {
                 closeConnection();
-                const auto result = ftpOpenConnection(LoginMode::Defered);
+                const auto result = ftpOpenConnection(LoginMode::Deferred);
                 if (result.success && ftpSendCmd(cmd, maxretries - 1)) {
                     return true;
                 }

@@ -50,7 +50,7 @@ class FtpInternal;
  * Login Mode for ftpOpenConnection
  */
 enum class LoginMode {
-    Defered,
+    Deferred,
     Explicit,
     Implicit
 };
@@ -244,7 +244,7 @@ public:
      * Connect and login to the FTP server.
      *
      * @param loginMode controls if login info should be sent<br>
-     *  loginDefered  - must not be logged on, no login info is sent<br>
+     *  loginDeferred  - must not be logged on, no login info is sent<br>
      *  loginExplicit - must not be logged on, login info is sent<br>
      *  loginImplicit - login info is sent if not logged on
      *

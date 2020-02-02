@@ -155,8 +155,8 @@ QString KSambaSharePrivate::testparmParamValue(const QString &parameterName)
         if (err.count() > 0 && err.at(0).startsWith("WARNING: The 'netbios name' is too long (max. 15 chars).")) {
             // netbios name must be of at most 15 characters long
             // means either netbios name is badly configured
-            // or not set and the default value is being used , it being "$(hostname)-W"
-            // which means any hostname longer than 13 caracters will cause this warning
+            // or not set and the default value is being used, it being "$(hostname)-W"
+            // which means any hostname longer than 13 characters will cause this warning
             // when no netbios name was defined
             // See https://www.novell.com/documentation/open-enterprise-server-2018/file_samba_cifs_lx/data/bc855e3.html
             const QString defaultNetbiosName = QHostInfo::localHostName().append(QStringLiteral("-W"));
