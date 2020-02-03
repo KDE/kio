@@ -115,7 +115,7 @@ Query[ru]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[sk]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[sv]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[tg]=https://technorati.com/tag/\\{@}?sourceid=kde-search
-Query[uk]=http://technorati.com/tag/\\{@}?sourceid=kde-search
+Query[uk]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[x-test]=xxhttps://technorati.com/tag/\\{@}?sourceid=kde-searchxx
 Query[zh_CN]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[zh_TW]=https://technorati.com/tag/\\{@}?sourceid=kde-search

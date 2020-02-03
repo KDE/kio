@@ -141,7 +141,7 @@ Query[sv]=https://sv.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[tg]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[tr]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[ug]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
-Query[uk]=http://uk.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
+Query[uk]=https://uk.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[wa]=https://wa.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Potch%C3%AE
 Query[x-test]=xxhttps://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Goxx
 Query[zh_CN]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go

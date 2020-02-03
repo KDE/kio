@@ -120,7 +120,7 @@ Query[ru]=https://api.kde.org/classmapper.php?class=\\{@}
 Query[sk]=https://api.kde.org/classmapper.php?class=\\{@}
 Query[sv]=https://api.kde.org/classmapper.php?class=\\{@}
 Query[tg]=https://api.kde.org/classmapper.php?class=\\{@}
-Query[uk]=http://api.kde.org/classmapper.php?class=\\{@}
+Query[uk]=https://api.kde.org/classmapper.php?class=\\{@}
 Query[x-test]=xxhttps://api.kde.org/classmapper.php?class=\\{@}xx
 Query[zh_CN]=https://api.kde.org/classmapper.php?class=\\{@}
 Query[zh_TW]=https://api.kde.org/classmapper.php?class=\\{@}

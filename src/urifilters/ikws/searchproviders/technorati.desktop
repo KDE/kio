@@ -119,7 +119,7 @@ Query[ru]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[sk]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[sv]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[tg]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
-Query[uk]=http://technorati.com/search?return=sites&authority=high&q=\\{@}
+Query[uk]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[x-test]=xxhttps://technorati.com/search?return=sites&authority=high&q=\\{@}xx
 Query[zh_CN]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[zh_TW]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
