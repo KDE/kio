@@ -836,12 +836,14 @@ void KOpenWithDialog::slotTextChanged()
     if (d->edit->text().size() > 2) {
         d->view->expandAll();
         QAbstractItemModel *model = d->view->model();
-        //Automatically select the first result (first leaf node) when the filter has match
-        QModelIndex leafNodeIdx = model->index(0, 0);
-        while (model->hasChildren(leafNodeIdx)) {
-            leafNodeIdx = model->index(0, 0, leafNodeIdx);
+        if (model->rowCount() == 1) { // Automatically select the result (first leaf node) if the
+                                      // filter has only one match
+            QModelIndex leafNodeIdx = model->index(0, 0);
+            while (model->hasChildren(leafNodeIdx)) {
+                leafNodeIdx = model->index(0, 0, leafNodeIdx);
+            }
+            d->view->setCurrentIndex(leafNodeIdx);
         }
-        d->view->setCurrentIndex(leafNodeIdx);
     } else {
         d->view->collapseAll();
         d->view->setCurrentIndex(d->view->rootIndex()); // Unset and deselect all the elements
