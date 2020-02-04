@@ -95,3 +95,14 @@ Name[zh_TW]=Voila
 X-KDE-ServiceTypes=SearchProvider
 Keys=voila
 Query=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
+Query[ca]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
+Query[et]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
+Query[lt]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
+Query[nl]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
+Query[pt]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
+Query[pt_BR]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
+Query[ru]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
+Query[sv]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
+Query[uk]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
+Query[x-test]=xxhttps://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*xx
+Query[zh_TW]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
