@@ -96,7 +96,9 @@ X-KDE-ServiceTypes=SearchProvider
 Keys=voila
 Query=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
 Query[ca]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
+Query[es]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
 Query[et]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
+Query[eu]=http://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
 Query[lt]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
 Query[nl]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
 Query[pt]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*

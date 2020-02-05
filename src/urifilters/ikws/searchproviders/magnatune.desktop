@@ -73,7 +73,9 @@ Name[zh_CN]=Magnatune
 Name[zh_TW]=Magnatune
 Query=https://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
 Query[ca]=https://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
+Query[es]=https://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
 Query[et]=https://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
+Query[eu]=http://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
 Query[lt]=https://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
 Query[nl]=https://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
 Query[pt]=https://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
