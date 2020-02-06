@@ -74,6 +74,7 @@ Name[zh_TW]=CNRTL/TILF 法語字典
 X-KDE-ServiceTypes=SearchProvider
 Keys=dictfr
 Query=https://www.cnrtl.fr/definition/\\{@}
+Query[ast]=https://www.cnrtl.fr/definition/\\{@}
 Query[ca]=https://www.cnrtl.fr/definition/\\{@}
 Query[es]=https://www.cnrtl.fr/definition/\\{@}
 Query[et]=https://www.cnrtl.fr/definition/\\{@}

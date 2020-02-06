@@ -92,6 +92,7 @@ Name[x-test]=xxDictionary of the Spanish Academy (RAE)xx
 Name[zh_CN]=西班牙学院的字典(RAE)
 Name[zh_TW]=西班牙金像獎字典 (RAE)
 Query=https://www.rae.es/drae/?val=\\{@}
+Query[ast]=https://www.rae.es/drae/?val=\\{@}
 Query[ca]=https://www.rae.es/drae/?val=\\{@}
 Query[es]=https://www.rae.es/drae/?val=\\{@}
 Query[et]=https://www.rae.es/drae/?val=\\{@}
