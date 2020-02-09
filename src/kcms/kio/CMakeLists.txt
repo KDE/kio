@@ -29,6 +29,13 @@ ki18n_wrap_ui(kcm_kio_PART_SRCS
     kcookiesmanagement.ui
     kcookiespolicyselectiondlg.ui)
 
+ecm_qt_export_logging_category(
+    IDENTIFIER KIO_USERAGENTDLG
+    CATEGORY_NAME kf5.kio.useragentdlg
+    DESCRIPTION "kio useragentdialog (KIO)"
+    EXPORT KIO
+)
+
 add_library(kcm_kio MODULE ${kcm_kio_PART_SRCS})
 
 target_link_libraries(kcm_kio

@@ -7,7 +7,10 @@ qt5_add_dbus_adaptor(kioexecd_SRCS ${CMAKE_CURRENT_BINARY_DIR}/org.kde.KIOExecd.
 ecm_qt_declare_logging_category(kioexecd_SRCS
     HEADER kioexecdebug.h
     IDENTIFIER KIOEXEC
-    CATEGORY_NAME kf5.kio.execd)
+    CATEGORY_NAME kf5.kio.execd
+    DESCRIPTION "kioexecd (KIO)"
+    EXPORT KIO
+)
 
 kcoreaddons_add_plugin(kioexecd
     SOURCES ${kioexecd_SRCS}

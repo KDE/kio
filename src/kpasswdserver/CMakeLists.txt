@@ -19,6 +19,13 @@ set(kiod_kpasswdserver_SRCS kpasswdserver.cpp kiod_kpasswdserver.cpp)
 
 qt5_add_dbus_adaptor(kiod_kpasswdserver_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/../core/org.kde.KPasswdServer.xml kpasswdserver.h KPasswdServer)
 
+ecm_qt_export_logging_category(
+    IDENTIFIER category
+    CATEGORY_NAME org.kde.kio.kpasswdserver
+    DESCRIPTION "KPasswdServer (KIO)"
+    EXPORT KIO
+)
+
 kcoreaddons_add_plugin(kiod_kpasswdserver INSTALL_NAMESPACE "kf5/kiod" JSON kpasswdserver.json SOURCES ${kiod_kpasswdserver_SRCS})
 set_target_properties(kiod_kpasswdserver PROPERTIES
     OUTPUT_NAME kpasswdserver

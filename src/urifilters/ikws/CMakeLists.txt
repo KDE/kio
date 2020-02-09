@@ -11,6 +11,14 @@ set(kuriikwsfilter_SRCS
 
 ki18n_wrap_ui(kuriikwsfilter_SRCS ikwsopts_ui.ui searchproviderdlg_ui.ui)
 
+ecm_qt_export_logging_category(
+    IDENTIFIER category
+    CATEGORY_NAME org.kde.kurifilter-ikws
+    DEFAULT_SEVERITY Warning
+    DESCRIPTION "KUriFilter IKWS (KIO)"
+    EXPORT KIO
+)
+
 kcoreaddons_add_plugin(kuriikwsfilter INSTALL_NAMESPACE "kf5/urifilters" JSON kuriikwsfilter.json SOURCES ${kuriikwsfilter_SRCS})
 
 target_link_libraries(kuriikwsfilter

@@ -40,6 +40,12 @@ endif()
 
 endif()
 
+ecm_qt_install_logging_categories(
+    EXPORT KIO
+    FILE kio.categories
+    DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR}
+)
+
 if (BUILD_QCH)
     macro(_make_absolute var_name base_path)
         set(_result)

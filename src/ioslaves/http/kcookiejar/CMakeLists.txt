@@ -24,6 +24,13 @@ set(kded_kcookiejar_SRCS
    kcookiewin.cpp
 )
 
+ecm_qt_export_logging_category(
+    IDENTIFIER KIO_COOKIEJAR
+    CATEGORY_NAME kf5.kio.cookiejar
+    DESCRIPTION "kcookiejar (KIO)"
+    EXPORT KIO
+)
+
 qt5_add_dbus_adaptor( kded_kcookiejar_SRCS ${CMAKE_CURRENT_BINARY_DIR}/org.kde.KCookieServer.xml kcookieserver.h KCookieServer )
 
 

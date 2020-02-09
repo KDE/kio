@@ -5,6 +5,13 @@ if (APPLE)
     set(kiod_SRCS ${kiod_SRCS} kiod_agent.mm)
 endif()
 
+ecm_qt_export_logging_category(
+    IDENTIFIER KIOD_CATEGORY
+    CATEGORY_NAME kf5.kiod
+    DESCRIPTION "KIO Daemon (KIO)"
+    EXPORT KIO
+)
+
 add_executable(kiod5 ${kiod_SRCS})
 
 target_link_libraries(kiod5

@@ -10,6 +10,13 @@ set(kio_ftp_PART_SRCS
 ftp.cpp
 )
 
+ecm_qt_export_logging_category(
+    IDENTIFIER KIO_FTP
+    CATEGORY_NAME kf5.kio.kio_ftp
+    DEFAULT_SEVERITY Warning
+    DESCRIPTION "kio ftp (KIO)"
+    EXPORT KIO
+)
 
 add_library(kio_ftp MODULE ${kio_ftp_PART_SRCS})
 target_link_libraries(kio_ftp Qt5::Network KF5::KIOCore KF5::I18n)
