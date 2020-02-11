@@ -97,6 +97,7 @@ Keys=voila
 Query=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
 Query[ast]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
 Query[ca]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
+Query[de]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
 Query[es]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
 Query[et]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
 Query[eu]=http://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*

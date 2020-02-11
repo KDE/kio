@@ -94,6 +94,7 @@ Name[zh_TW]=西班牙金像獎字典 (RAE)
 Query=https://www.rae.es/drae/?val=\\{@}
 Query[ast]=https://www.rae.es/drae/?val=\\{@}
 Query[ca]=https://www.rae.es/drae/?val=\\{@}
+Query[de]=https://www.rae.es/drae/?val=\\{@}
 Query[es]=https://www.rae.es/drae/?val=\\{@}
 Query[et]=https://www.rae.es/drae/?val=\\{@}
 Query[eu]=http://www.rae.es/drae/?val=\\{@}
