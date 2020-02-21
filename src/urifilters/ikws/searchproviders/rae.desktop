@@ -109,6 +109,7 @@ Query[ru]=https://www.rae.es/drae/?val=\\{@}
 Query[sv]=https://www.rae.es/drae/?val=\\{@}
 Query[uk]=https://www.rae.es/drae/?val=\\{@}
 Query[x-test]=xxhttps://www.rae.es/drae/?val=\\{@}xx
+Query[zh_CN]=https://www.rae.es/drae/?val=\\{@}
 Query[zh_TW]=https://www.rae.es/drae/?val=\\{@}
 X-KDE-ServiceTypes=SearchProvider
 Type=Service
