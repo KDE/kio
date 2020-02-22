@@ -30,6 +30,7 @@
 #include "kiotesthelper.h"
 
 #include <QMimeDatabase>
+#include <KProtocolInfo>
 
 QTEST_MAIN(KFileItemTest)
 
@@ -620,7 +621,18 @@ void KFileItemTest::testIconNameForUrl_data()
     QTest::newRow("relative") << QUrl("foo") << "unknown";
     QTest::newRow("tilde") << QUrl("~") << "unknown";
 
-    // TODO more tests
+    QTest::newRow("unknownscheme folder") << QUrl("unknownscheme:/") << "inode-directory";
+    QTest::newRow("unknownscheme file") << QUrl("unknownscheme:/test") << "application-octet-stream";
+
+    QTest::newRow("trash folder") << QUrl("trash:/") << "user-trash-full";
+    QTest::newRow("trash file") << QUrl("trash:/test") << "user-trash-full";
+
+    QTest::newRow("https scheme") << QUrl("https://kde.org/") << "text-html";
+
+    if (KProtocolInfo::isKnownProtocol("smb")) {
+        QTest::newRow("smb folder") << QUrl("smb:/") << "network-workgroup";
+        QTest::newRow("smb file") << QUrl("smb:/test") << "network-workgroup";
+    }
 }
 
 void KFileItemTest::testIconNameForUrl()

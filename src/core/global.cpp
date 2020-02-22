@@ -223,25 +223,23 @@ QString KIO::favIconForUrl(const QUrl &url)
 
 QString KIO::iconNameForUrl(const QUrl &url)
 {
-    const QLatin1String unknown("unknown");
     if (url.scheme().isEmpty()) { // empty URL or relative URL (e.g. '~')
-        return unknown;
+        return QStringLiteral("unknown");
     }
     QMimeDatabase db;
     const QMimeType mt = db.mimeTypeForUrl(url);
-    const QString mimeTypeIcon = mt.iconName();
-    QString i = mimeTypeIcon;
+    QString iconName;
 
     if (url.isLocalFile()) {
         // Check to see whether it's an xdg location (e.g. Pictures folder)
         if (mt.inherits(QStringLiteral("inode/directory"))) {
-            i = KIOPrivate::iconForStandardPath(url.toLocalFile());
+            iconName = KIOPrivate::iconForStandardPath(url.toLocalFile());
         }
 
         // Let KFileItem::iconName handle things for us
-        if (i == unknown || i.isEmpty() || mt.isDefault()) {
+        if (iconName.isEmpty()) {
             const KFileItem item(url, mt.name());
-            i = item.iconName();
+            iconName = item.iconName();
         }
 
     } else {
@@ -249,29 +247,27 @@ QString KIO::iconNameForUrl(const QUrl &url)
 
         // Look for a favicon
         if (url.scheme().startsWith(QLatin1String("http"))) {
-            i = favIconForUrl(url);
+            iconName = favIconForUrl(url);
         }
 
         // Then handle the trash
         else if (url.scheme() == QLatin1String("trash") && url.path().length() <= 1) {
             KConfig trashConfig(QStringLiteral("trashrc"), KConfig::SimpleConfig);
             if (trashConfig.group("Status").readEntry("Empty", true)) {
-                i = QStringLiteral("user-trash");
+                iconName = QStringLiteral("user-trash");
             } else {
-                i = QStringLiteral("user-trash-full");
+                iconName = QStringLiteral("user-trash-full");
             }
         }
 
-        if (i.isEmpty()) {
-            i = KProtocolInfo::icon(url.scheme());
-        }
-
-        // root of protocol: if we found nothing, revert to mimeTypeIcon (which is usually "folder")
-        if (url.path().length() <= 1 && (i == unknown || i.isEmpty())) {
-            i = mimeTypeIcon;
+        // and other protocols
+        if (iconName.isEmpty()) {
+            iconName = KProtocolInfo::icon(url.scheme());
         }
     }
-    return !i.isEmpty() ? i : unknown;
+    // if we found nothing, return QMimeType.iconName()
+    // (which fallbacks to "application-octet-stream" when no mimetype could be determined)
+    return !iconName.isEmpty() ? iconName : mt.iconName();
 }
 
 QUrl KIO::upUrl(const QUrl &url)
