@@ -20,7 +20,6 @@
 */
 
 #include "kdirnotify.h"
-#include <kdbusconnectionpool.h> // HAND-EDIT
 #include <QUrl>
 
 /*
