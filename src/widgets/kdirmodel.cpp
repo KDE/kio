@@ -32,6 +32,7 @@
 #include <QMimeData>
 #include <QBitArray>
 #include <QDebug>
+#include <QDirIterator>
 #include <QFile>
 #include <QFileInfo>
 #include <QDir>
@@ -1144,9 +1145,21 @@ bool KDirModel::hasChildren(const QModelIndex &parent) const
         return true;
     }
 
-    const KFileItem &parentItem = static_cast<KDirModelNode *>(parent.internalPointer())->item();
+    const KDirModelNode *parentNode = static_cast<KDirModelNode *>(parent.internalPointer());
+    const KFileItem &parentItem = parentNode->item();
     Q_ASSERT(!parentItem.isNull());
-    return parentItem.isDir();
+    if (!parentItem.isDir()) {
+        return false;
+    }
+    if (static_cast<const KDirModelDirNode *>(parentNode)->isPopulated()) {
+        return !static_cast<const KDirModelDirNode *>(parentNode)->m_childNodes.isEmpty();
+    }
+    if (parentItem.isLocalFile()) {
+        QDirIterator it(parentItem.localPath(), QDir::Dirs | QDir::NoSymLinks | QDir::NoDotAndDotDot,  QDirIterator::Subdirectories);
+        return it.hasNext();
+    }
+    // Remote and not listed yet, we can't know; let the user click on it so we'll find out
+    return true;
 }
 
 Qt::ItemFlags KDirModel::flags(const QModelIndex &index) const
