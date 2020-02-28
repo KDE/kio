@@ -430,7 +430,10 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
             if (!d->service.workingDirectory().isEmpty()) {
                 terminal += QLatin1String(" --workdir ") + KShell::quoteArg(d->service.workingDirectory());
             }
-            terminal += QLatin1String(" -qwindowtitle '%c' %i");
+            terminal += QLatin1String(" -qwindowtitle '%c'");
+            if(!d->service.icon().isEmpty()) {
+                terminal += QLatin1String(" -qwindowicon ") + KShell::quoteArg(d->service.icon().replace(QLatin1Char('%'), QLatin1String("%%")));
+            }
         }
         terminal += QLatin1Char(' ') + d->service.terminalOptions();
         if (!mx1.expandMacrosShellQuote(terminal)) {
