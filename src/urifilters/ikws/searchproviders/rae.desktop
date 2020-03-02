@@ -99,6 +99,8 @@ Query[es]=https://www.rae.es/drae/?val=\\{@}
 Query[et]=https://www.rae.es/drae/?val=\\{@}
 Query[eu]=http://www.rae.es/drae/?val=\\{@}
 Query[ia]=https://www.rae.es/drae/?val=\\{@}
+Query[id]=https://www.rae.es/drae/?val=\\{@}
+Query[it]=https://www.rae.es/drae/?val=\\{@}
 Query[ko]=https://www.rae.es/drae/?val=\\{@}
 Query[lt]=https://www.rae.es/drae/?val=\\{@}
 Query[nl]=https://www.rae.es/drae/?val=\\{@}
