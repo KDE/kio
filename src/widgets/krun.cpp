@@ -712,6 +712,13 @@ qint64 KRun::runApplication(const KService &service, const QList<QUrl> &urls, QW
         return 0;
     }
 
+    if (!flags.testFlag(DeleteTemporaryFiles)) {
+        // Remember we opened those urls, for the "recent documents" menu in kicker
+        for (const QUrl &url : urls) {
+            KRecentDocument::add(url, service.desktopEntryName());
+        }
+    }
+
     KService::Ptr servicePtr(new KService(service)); // clone
     return runApplicationImpl(servicePtr, urls, window, flags, suggestedFileName, asn);
 }
@@ -719,20 +726,12 @@ qint64 KRun::runApplication(const KService &service, const QList<QUrl> &urls, QW
 qint64 KRun::runService(const KService &_service, const QList<QUrl> &_urls, QWidget *window,
                       bool tempFiles, const QString &suggestedFileName, const QByteArray &asn)
 {
-    if (!_service.entryPath().isEmpty() &&
-            !KDesktopFile::isAuthorizedDesktopFile(_service.entryPath()) &&
-            !::makeServiceExecutable(_service, window)) {
-        return 0;
-    }
-
-    if (!tempFiles) {
-        // Remember we opened those urls, for the "recent documents" menu in kicker
-        for (const QUrl &url : _urls) {
-            KRecentDocument::add(url, _service.desktopEntryName());
-        }
-    }
-    KService::Ptr servicePtr(new KService(_service)); // clone
-    return runApplicationImpl(servicePtr, _urls, window, tempFiles ? RunFlags(DeleteTemporaryFiles) : RunFlags(), suggestedFileName, asn);
+    return runApplication(_service,
+                   _urls,
+                   window,
+                   tempFiles ? RunFlags(DeleteTemporaryFiles) : RunFlags(),
+                   suggestedFileName,
+                   asn);
 }
 
 bool KRun::run(const QString &_exec, const QList<QUrl> &_urls, QWidget *window, const QString &_name,
