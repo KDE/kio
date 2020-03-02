@@ -62,7 +62,6 @@
 
 #include <kurlauthorized.h>
 #include <kmessagebox.h>
-#include <ktoolinvocation.h>
 #include <klocalizedstring.h>
 #include <kprotocolmanager.h>
 #include <kprocess.h>
@@ -732,67 +731,8 @@ qint64 KRun::runService(const KService &_service, const QList<QUrl> &_urls, QWid
             KRecentDocument::add(url, _service.desktopEntryName());
         }
     }
-
-    bool useKToolInvocation = !(tempFiles || _service.entryPath().isEmpty() || !suggestedFileName.isEmpty());
-
-    if (useKToolInvocation) {
-        // Is klauncher installed? Let's try to start it, if it fails, then we won't use it.
-        static int klauncherAvailable = -1;
-        if (klauncherAvailable == -1) {
-            KToolInvocation::ensureKdeinitRunning();
-            QDBusConnectionInterface *dbusDaemon = QDBusConnection::sessionBus().interface();
-            klauncherAvailable = dbusDaemon->isServiceRegistered(QStringLiteral("org.kde.klauncher5"));
-        }
-        if (klauncherAvailable == 0) {
-            useKToolInvocation = false;
-        }
-    }
-
-    if (!useKToolInvocation) {
-        KService::Ptr servicePtr(new KService(_service)); // clone
-        return runApplicationImpl(servicePtr, _urls, window, tempFiles ? RunFlags(DeleteTemporaryFiles) : RunFlags(), suggestedFileName, asn);
-    }
-
-    // Resolve urls if needed, depending on what the app supports
-    const QList<QUrl> urls = resolveURLs(_urls, _service);
-
-    //qDebug() << "Running" << _service.entryPath() << _urls << "using klauncher";
-
-    QString error;
-    int pid = 0; //TODO KF6: change KToolInvokation to take a qint64*
-
-    QByteArray myasn = asn;
-    // startServiceByDesktopPath() doesn't take QWidget*, add it to the startup info now
-    if (window) {
-        if (myasn.isEmpty()) {
-            myasn = KStartupInfo::createNewStartupId();
-        }
-        if (myasn != "0") {
-            KStartupInfoId id;
-            id.initId(myasn);
-            KStartupInfoData data;
-            // QTBUG-59017 Calling winId() on an embedded widget will break interaction
-            // with it on high-dpi multi-screen setups (cf. also Bug 363548), hence using
-            // its parent window instead
-            if (window->window()) {
-                data.setLaunchedBy(window->window()->winId());
-            }
-            KStartupInfo::sendChange(id, data);
-        }
-    }
-
-    int i = KToolInvocation::startServiceByDesktopPath(
-                _service.entryPath(), QUrl::toStringList(urls), &error, nullptr, &pid, myasn
-            );
-
-    if (i != 0) {
-        //qDebug() << error;
-        KMessageBox::sorry(window, error);
-        return 0;
-    }
-
-    //qDebug() << "startServiceByDesktopPath worked fine";
-    return pid;
+    KService::Ptr servicePtr(new KService(_service)); // clone
+    return runApplicationImpl(servicePtr, _urls, window, tempFiles ? RunFlags(DeleteTemporaryFiles) : RunFlags(), suggestedFileName, asn);
 }
 
 bool KRun::run(const QString &_exec, const QList<QUrl> &_urls, QWidget *window, const QString &_name,
