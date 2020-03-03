@@ -479,11 +479,7 @@ Result FtpInternal::ftpOpenControlConnection(const QString &host, int port)
             iErrorCode = ERR_CANNOT_CONNECT;
         }
     } else {
-#if (QT_VERSION < QT_VERSION_CHECK(5, 15, 0))
         const auto socketError = m_control->error();
-#else
-        const auto socketError = m_control->socketError();
-#endif
         if (socketError == QAbstractSocket::HostNotFoundError) {
             iErrorCode = ERR_UNKNOWN_HOST;
         }
@@ -2609,11 +2605,7 @@ ConnectionResult FtpInternal::synchronousConnectToHost(const QString &host, quin
     socket->setProxy(proxy);
     socket->connectToHost(host, port);
     socket->waitForConnected(q->connectTimeout() * 1000);
-#if (QT_VERSION < QT_VERSION_CHECK(5, 15, 0))
     const auto socketError = socket->error();
-#else
-    const auto socketError = socket->socketError();
-#endif
      if (socketError == QAbstractSocket::ProxyAuthenticationRequiredError) {
         AuthInfo info;
         info.url = proxyUrl;

@@ -547,11 +547,7 @@ void KTcpSocket::disconnectFromHost()
 
 KTcpSocket::Error KTcpSocket::error() const
 {
-#if (QT_VERSION < QT_VERSION_CHECK(5, 15, 0))
     const auto networkError = d->sock.error();
-#else
-    const auto networkError = d->sock.socketError();
-#endif
     return d->errorFromAbsSocket(networkError);
 }
 
@@ -560,11 +556,7 @@ QList<KSslError> KTcpSocket::sslErrors() const
     //### pretty slow; also consider throwing out duplicate error codes. We may get
     //    duplicates even though there were none in the original list because KSslError
     //    has a smallest common denominator range of SSL error codes.
-#if (QT_VERSION < QT_VERSION_CHECK(5, 15, 0))
     const auto qsslErrors = d->sock.sslErrors();
-#else
-    const auto qsslErrors = d->sock.sslHandshakeErrors();
-#endif
     QList<KSslError> ret;
     ret.reserve(qsslErrors.size());
     for (const QSslError &e : qsslErrors) {
