@@ -317,7 +317,11 @@ void FtpInternal::setHost(const QString &_host, quint16 _port, const QString &_u
     qCDebug(KIO_FTP) << _host << "port=" << _port << "user=" << _user;
 
     m_proxyURL.clear();
+#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
     m_proxyUrls = q->mapConfig().value(QStringLiteral("ProxyUrls"), QString()).toString().split(QLatin1Char(','), QString::SkipEmptyParts);
+#else
+    m_proxyUrls = q->mapConfig().value(QStringLiteral("ProxyUrls"), QString()).toString().split(QLatin1Char(','), Qt::SkipEmptyParts);
+#endif
     qCDebug(KIO_FTP) << "proxy urls:" << m_proxyUrls;
 
     if (m_host != _host || m_port != _port ||
@@ -712,11 +716,19 @@ void FtpInternal::ftpAutoLoginMacro()
         return;
     }
 
+#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
     const QStringList list = macro.split(QLatin1Char('\n'), QString::SkipEmptyParts);
+#else
+    const QStringList list = macro.split(QLatin1Char('\n'), Qt::SkipEmptyParts);
+#endif
 
     for (QStringList::const_iterator it = list.begin(); it != list.end(); ++it) {
         if ((*it).startsWith(QLatin1String("init"))) {
+#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
             const QStringList list2 = macro.split(QLatin1Char('\\'), QString::SkipEmptyParts);
+#else
+            const QStringList list2 = macro.split(QLatin1Char('\\'), Qt::SkipEmptyParts);
+#endif
             it = list2.begin();
             ++it;  // ignore the macro name
 

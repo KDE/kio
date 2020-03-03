@@ -232,7 +232,11 @@ public:
     // Converts from "*.foo *.bar|Comment" to "Comment (*.foo *.bar)"
     QStringList kToQFilters(const QString &filters) const
     {
+#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
         QStringList qFilters = filters.split(QLatin1Char('\n'), QString::SkipEmptyParts);
+#else
+        QStringList qFilters = filters.split(QLatin1Char('\n'), Qt::SkipEmptyParts);
+#endif
 
         for (QString &qFilter : qFilters) {
             int sep = qFilter.indexOf(QLatin1Char('|'));

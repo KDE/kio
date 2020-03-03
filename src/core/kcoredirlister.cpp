@@ -2300,7 +2300,11 @@ void KCoreDirLister::setNameFilter(const QString &nameFilter)
     d->settings.lstFilters.clear();
     d->nameFilter = nameFilter;
     // Split on white space
+#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
     const QStringList list = nameFilter.split(QLatin1Char(' '), QString::SkipEmptyParts);
+#else
+    const QStringList list = nameFilter.split(QLatin1Char(' '), Qt::SkipEmptyParts);
+#endif
     for (const QString &filter : list) {
         d->settings.lstFilters.append(
             QRegularExpression(QRegularExpression::wildcardToRegularExpression(filter),

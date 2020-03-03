@@ -155,7 +155,11 @@ void SearchProviderDialog::accept()
 
     const QString name = m_dlg.leName->text().trimmed();
     const QString query = m_dlg.leQuery->text().trimmed();
+#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
     QStringList keys = m_dlg.leShortcut->text().trimmed().toLower().split(QLatin1Char(','), QString::SkipEmptyParts);
+#else
+    QStringList keys = m_dlg.leShortcut->text().trimmed().toLower().split(QLatin1Char(','), Qt::SkipEmptyParts);
+#endif
     keys.removeDuplicates();// #169801. Remove duplicates...
     const QString charset = (m_dlg.cbCharset->currentIndex() ? m_dlg.cbCharset->currentText().trimmed() : QString());
 

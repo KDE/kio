@@ -299,7 +299,11 @@ QStringList ProxyScout::handleRequest(const QUrl &url)
     try {
         QStringList proxyList;
         const QString result = m_script->evaluate(url).trimmed();
+#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
         const QStringList proxies = result.split(QLatin1Char(';'), QString::SkipEmptyParts);
+#else
+        const QStringList proxies = result.split(QLatin1Char(';'), Qt::SkipEmptyParts);
+#endif
         const int size = proxies.count();
 
         for (int i = 0; i < size; ++i) {

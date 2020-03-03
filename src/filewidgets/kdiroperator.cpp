@@ -728,7 +728,11 @@ bool KDirOperator::mkdir(const QString &directory, bool enterDirectory)
     bool exists = false;
     QUrl folderurl(d->currUrl);
 
+#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
     const QStringList dirs = directory.split(QLatin1Char('/'), QString::SkipEmptyParts);
+#else
+    const QStringList dirs = directory.split(QLatin1Char('/'), Qt::SkipEmptyParts);
+#endif
     QStringList::ConstIterator it = dirs.begin();
 
     for (; it != dirs.end(); ++it) {
@@ -1484,7 +1488,11 @@ bool KDirOperator::Private::checkPreviewInternal() const
     }
 
     const QStringList mimeTypes = dirLister->mimeFilters();
+#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
     const QStringList nameFilters = dirLister->nameFilter().split(QLatin1Char(' '), QString::SkipEmptyParts);
+#else
+    const QStringList nameFilters = dirLister->nameFilter().split(QLatin1Char(' '), Qt::SkipEmptyParts);
+#endif
 
     if (mimeTypes.isEmpty() && nameFilters.isEmpty() && !supported.isEmpty()) {
         return true;

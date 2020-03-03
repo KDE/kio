@@ -150,7 +150,11 @@ QStringList KURISearchFilterEngine::modifySubstitutionMap(SubstMap &map, const Q
     }
 
     // Split user query between spaces:
+#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
     QStringList l = userquery.simplified().split(QLatin1Char(' '), QString::SkipEmptyParts);
+#else
+    QStringList l = userquery.simplified().split(QLatin1Char(' '), Qt::SkipEmptyParts);
+#endif
 
     // Back-substitute quoted strings (%20 -> " "):
     userquery.replace(QLatin1String("%20"), QLatin1String(" "));
@@ -238,7 +242,11 @@ QString KURISearchFilterEngine::substituteQuery(const QString &url, SubstMap &ma
             }
 
             // TODO: strip whitespaces around commas
+#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
             QStringList rl = rlstring.split(QLatin1Char(','), QString::SkipEmptyParts);
+#else
+            QStringList rl = rlstring.split(QLatin1Char(','), Qt::SkipEmptyParts);
+#endif
             int i = 0;
 
             while ((i < rl.count()) && !found) {

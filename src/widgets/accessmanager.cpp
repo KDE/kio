@@ -514,7 +514,11 @@ QList<QNetworkCookie> CookieJar::cookiesForUrl(const QUrl &url) const
     }
 
     const QString cookieStr = reply.value();
+#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
     const QStringList cookies = cookieStr.split(QStringLiteral("; "), QString::SkipEmptyParts);
+#else
+    const QStringList cookies = cookieStr.split(QStringLiteral("; "), Qt::SkipEmptyParts);
+#endif
     for (const QString &cookie : cookies) {
         const int index = cookie.indexOf(QL1C('='));
         const QStringRef name = cookie.leftRef(index);

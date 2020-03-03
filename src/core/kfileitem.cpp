@@ -1056,7 +1056,11 @@ QStringList KFileItem::overlays() const
 
     d->ensureInitialized();
 
+#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
     QStringList names = d->m_entry.stringValue(KIO::UDSEntry::UDS_ICON_OVERLAY_NAMES).split(QLatin1Char(','), QString::SkipEmptyParts);
+#else
+    QStringList names = d->m_entry.stringValue(KIO::UDSEntry::UDS_ICON_OVERLAY_NAMES).split(QLatin1Char(','), Qt::SkipEmptyParts);
+#endif
 
     if (d->m_bLink) {
         names.append(QStringLiteral("emblem-symbolic-link"));

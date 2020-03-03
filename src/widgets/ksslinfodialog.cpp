@@ -179,7 +179,11 @@ void KSslInfoDialog::setSslInfo(const QList<QSslCertificate> &certificateChain,
     d->ui.address->setText(host);
     d->ui.sslVersion->setText(sslProtocol);
 
+#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
     const QStringList cipherInfo = cipher.split(QLatin1Char('\n'), QString::SkipEmptyParts);
+#else
+    const QStringList cipherInfo = cipher.split(QLatin1Char('\n'), Qt::SkipEmptyParts);
+#endif
     if (cipherInfo.size() >= 4) {
         d->ui.encryption->setText(i18nc("%1, using %2 bits of a %3 bit key", "%1, %2 %3", cipherInfo[0],
                                         i18ncp("Part of: %1, using %2 bits of a %3 bit key",
@@ -228,12 +232,20 @@ void KSslInfoDialog::displayFromChain(int i)
 //static
 QList<QList<KSslError::Error> > KSslInfoDialog::errorsFromString(const QString &es)
 {
+#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
     const QStringList sl = es.split(QLatin1Char('\n'), QString::KeepEmptyParts);
+#else
+    const QStringList sl = es.split(QLatin1Char('\n'), Qt::KeepEmptyParts);
+#endif
     QList<QList<KSslError::Error> > ret;
     ret.reserve(sl.size());
     for (const QString &s : sl) {
         QList<KSslError::Error> certErrors;
+#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
         const QStringList sl2 = s.split(QLatin1Char('\t'), QString::SkipEmptyParts);
+#else
+        const QStringList sl2 = s.split(QLatin1Char('\t'), Qt::SkipEmptyParts);
+#endif
         for (const QString &s2 : sl2) {
             bool didConvert;
             KSslError::Error error = KSslErrorPrivate::errorFromQSslError(static_cast<QSslError::SslError>(s2.toInt(&didConvert)));
@@ -249,12 +261,20 @@ QList<QList<KSslError::Error> > KSslInfoDialog::errorsFromString(const QString &
 //static
 QList<QList<QSslError::SslError>> KSslInfoDialog::certificateErrorsFromString(const QString &errorsString)
 {
+#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
     const QStringList sl = errorsString.split(QLatin1Char('\n'), QString::KeepEmptyParts);
+#else
+    const QStringList sl = errorsString.split(QLatin1Char('\n'), Qt::KeepEmptyParts);
+#endif
     QList<QList<QSslError::SslError>> ret;
     ret.reserve(sl.size());
     for (const QString &s : sl) {
         QList<QSslError::SslError> certErrors;
+#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
         const QStringList sl2 = s.split(QLatin1Char('\t'), QString::SkipEmptyParts);
+#else
+        const QStringList sl2 = s.split(QLatin1Char('\t'), Qt::SkipEmptyParts);
+#endif
         for (const QString &s2 : sl2) {
             bool didConvert;
             QSslError::SslError error = static_cast<QSslError::SslError>(s2.toInt(&didConvert));

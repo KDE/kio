@@ -889,7 +889,11 @@ bool KUrlCompletionPrivate::exeCompletion(const KUrlCompletionPrivate::MyURL &ur
     if (!url.file().isEmpty()) {
         // $PATH
         dirList = QString::fromLocal8Bit(qgetenv("PATH")).split(
+#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
                       QDir::listSeparator(), QString::SkipEmptyParts);
+#else
+                      QDir::listSeparator(), Qt::SkipEmptyParts);
+#endif
 
         QStringList::Iterator it = dirList.begin();
 
