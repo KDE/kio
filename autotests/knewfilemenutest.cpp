@@ -100,7 +100,7 @@ private Q_SLOTS:
         QTest::newRow("url desktop file") << "Link to Location " << "" << "tmp_link.desktop" << "tmp_link.desktop";
         QTest::newRow("url desktop file no extension") << "Link to Location " << "" << "tmp_link" << "tmp_link";
         QTest::newRow("url desktop file .pl extension") << "Link to Location " << "" << "tmp_link.pl" << "tmp_link.pl.desktop";
-        QTest::newRow("symlink") << "Basic link" << "" << "thelink" << "thelink";
+        QTest::newRow("symlink") << "Basic Link" << "" << "thelink" << "thelink";
         QTest::newRow("folder") << "Folder..." << "New Folder" << "folder1" << "folder1";
         QTest::newRow("folder_default_name") << "Folder..." << "New Folder" << "New Folder" << "New Folder";
         QTest::newRow("folder_with_suggested_name") << "Folder..." << "New Folder (1)" << "New Folder (1)" << "New Folder (1)";
@@ -179,7 +179,7 @@ private Q_SLOTS:
             }
             emittedUrl = spy.at(0).at(0).toUrl();
             QVERIFY(QFile::exists(path));
-            if (actionText != QLatin1String("Basic link")) {
+            if (actionText != QLatin1String("Basic Link")) {
                 QFile file(path);
                 QVERIFY(file.open(QIODevice::ReadOnly));
                 const QByteArray contents = file.readAll();
