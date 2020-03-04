@@ -46,6 +46,22 @@ set(kiofilewidgets_SRCS
 
 qt5_add_resources(kiofilewidgets_SRCS ../new_file_templates/templates.qrc)
 
+ecm_qt_export_logging_category(
+    IDENTIFIER KFILEWIDGETS_LOG
+    CATEGORY_NAME kf5.kio.filewidgets
+    DESCRIPTION "KFileWidgets (KIO)"
+    EXPORT KIO
+)
+
+ecm_qt_declare_logging_category(kiofilewidgets_SRCS
+    HEADER kfilefiltercombo_debug.h
+    IDENTIFIER KIO_KFILEWIDGETS_KFILEFILTERCOMBO
+    CATEGORY_NAME kf5.kio.filewidgets.kfilefiltercombo
+    DEFAULT_SEVERITY Warning
+    DESCRIPTION "KFileFilterCombo (KIO)"
+    EXPORT KIO
+)
+
 add_library(KF5KIOFileWidgets ${kiofilewidgets_SRCS})
 add_library(KF5::KIOFileWidgets ALIAS KF5KIOFileWidgets)
 ecm_generate_export_header(KF5KIOFileWidgets

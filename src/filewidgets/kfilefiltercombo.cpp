@@ -18,6 +18,7 @@
 */
 
 #include "kfilefiltercombo.h"
+#include "kfilefiltercombo_debug.h"
 
 #include <QDebug>
 #include <klocalizedstring.h>
@@ -150,7 +151,11 @@ void KFileFilterCombo::setMimeFilter(const QStringList &types,
     QString allComments, allTypes;
     for (QStringList::ConstIterator it = types.begin(); it != types.end(); ++it) {
         // qDebug() << *it;
-        QMimeType type = db.mimeTypeForName(*it);
+        const QMimeType type = db.mimeTypeForName(*it);
+        if (!type.isValid()) {
+            qCWarning(KIO_KFILEWIDGETS_KFILEFILTERCOMBO) << *it << "is not a valid mimeType";
+            continue;
+        }
 
         if (type.name().startsWith(QLatin1String("all/"))) {
             hasAllFilesFilter = true;
