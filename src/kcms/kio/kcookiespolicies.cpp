@@ -247,7 +247,8 @@ void KCookiesPolicies::deletePressed()
 {
     QTreeWidgetItem* nextItem = nullptr;
 
-    Q_FOREACH (QTreeWidgetItem * item, mUi.policyTreeWidget->selectedItems()) {
+    const QList<QTreeWidgetItem *> selectedItems = mUi.policyTreeWidget->selectedItems();
+    for (const QTreeWidgetItem *item : selectedItems) {
         nextItem = mUi.policyTreeWidget->itemBelow (item);
         if (!nextItem)
             nextItem = mUi.policyTreeWidget->itemAbove (item);

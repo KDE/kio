@@ -163,9 +163,10 @@ void KCookiesManagement::save()
   {
     cookiesDom.next();
     CookiePropList list = cookiesDom.value();
-    foreach(CookieProp *cookie, list)
-    {
-      QDBusInterface kded(QStringLiteral("org.kde.kcookiejar5"), QStringLiteral("/modules/kcookiejar"), QStringLiteral("org.kde.KCookieServer"), QDBusConnection::sessionBus());
+    for (auto it = list.begin(); it < list.end(); ++it) {
+      CookieProp *cookie = *it;
+      QDBusInterface kded(QStringLiteral("org.kde.kcookiejar5"), QStringLiteral("/modules/kcookiejar"),
+                          QStringLiteral("org.kde.KCookieServer"), QDBusConnection::sessionBus());
       QDBusReply<void> reply = kded.call( QStringLiteral("deleteCookie"), cookie->domain,
                                           cookie->host, cookie->path,
                                           cookie->name );

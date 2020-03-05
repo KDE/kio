@@ -108,14 +108,14 @@ void KURIFilterModule::load()
 
 void KURIFilterModule::save()
 {
-    foreach(KCModule * module, modules) {
+    for (KCModule *module : qAsConst(modules)) {
         module->save();
     }
 }
 
 void KURIFilterModule::defaults()
 {
-    foreach(KCModule * module, modules) {
+    for (KCModule *module : qAsConst(modules)) {
         module->defaults();
     }
 }
