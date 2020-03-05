@@ -624,8 +624,9 @@ void KFileItemTest::testIconNameForUrl_data()
     QTest::newRow("unknownscheme folder") << QUrl("unknownscheme:/") << "inode-directory";
     QTest::newRow("unknownscheme file") << QUrl("unknownscheme:/test") << "application-octet-stream";
 
-    QTest::newRow("trash folder") << QUrl("trash:/") << "user-trash-full";
-    QTest::newRow("trash file") << QUrl("trash:/test") << "user-trash-full";
+    QTest::newRow("trash:/ itself") << QUrl("trash:/") << "user-trash-full";
+    QTest::newRow("folder under trash:/") << QUrl("trash:/folder/") << "inode-directory";
+    QTest::newRow("file under trash:/") << QUrl("trash:/test") << "application-octet-stream";
 
     QTest::newRow("https scheme") << QUrl("https://kde.org/") << "text-html";
 

@@ -251,12 +251,13 @@ QString KIO::iconNameForUrl(const QUrl &url)
         }
 
         // Then handle the trash
-        else if (url.scheme() == QLatin1String("trash") && url.path().length() <= 1) {
-            KConfig trashConfig(QStringLiteral("trashrc"), KConfig::SimpleConfig);
-            if (trashConfig.group("Status").readEntry("Empty", true)) {
-                iconName = QStringLiteral("user-trash");
-            } else {
-                iconName = QStringLiteral("user-trash-full");
+        else if (url.scheme() == QLatin1String("trash")) {
+            if (url.path().length() <= 1) { // trash:/ itself
+                KConfig trashConfig(QStringLiteral("trashrc"), KConfig::SimpleConfig);
+                iconName = trashConfig.group("Status").readEntry("Empty", true) ?
+                           QStringLiteral("user-trash") : QStringLiteral("user-trash-full");
+            } else { // url.path().length() > 1, it's a file/folder under trash:/
+                iconName = mt.iconName();
             }
         }
 
