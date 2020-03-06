@@ -127,13 +127,14 @@ private Q_SLOTS:
         QAction *action = coll.action(QStringLiteral("the_action"));
         QVERIFY(action);
         QAction *textAct = nullptr;
-        Q_FOREACH (QAction *act, action->menu()->actions()) {
+        const QList<QAction *> actionsList = action->menu()->actions();
+        for (QAction *act : actionsList) {
             if (act->text().contains(actionText)) {
                 textAct = act;
             }
         }
         if (!textAct) {
-            Q_FOREACH (QAction *act, action->menu()->actions()) {
+            for (const QAction *act : actionsList) {
                 qDebug() << act << act->text() << act->data();
             }
             const QString err = QLatin1String("action with text \"") + actionText + QLatin1String("\" not found.");

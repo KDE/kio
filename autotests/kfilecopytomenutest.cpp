@@ -159,7 +159,8 @@ private:
     static QStringList extractActionNames(const QMenu &menu)
     {
         QStringList ret;
-        foreach (const QAction *action, menu.actions()) {
+        const QList<QAction *> actionsList = menu.actions();
+        for (const QAction *action : actionsList) {
             ret.append(action->objectName());
         }
         return ret;

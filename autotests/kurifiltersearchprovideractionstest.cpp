@@ -77,7 +77,8 @@ void KUriFilterSearchProviderActionsTest::shouldAddActionToMenu()
     }
 
     int count = 0;
-    Q_FOREACH (QAction *act, menu->actions().at(0)->menu()->actions()) {
+    const QList<QAction *> actionsList = menu->actions().at(0)->menu()->actions();
+    for (const QAction *act : actionsList) {
         if (!act->data().isNull()) {
             QVERIFY(actionData.contains(act->data().toString()));
             count++;

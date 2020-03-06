@@ -59,7 +59,8 @@ private:
 static KFileWidget *findFileWidget()
 {
     QList<KFileWidget *> widgets;
-    foreach (QWidget *widget, QApplication::topLevelWidgets()) {
+    const QList<QWidget *> widgetsList = QApplication::topLevelWidgets();
+    for (QWidget *widget : widgetsList) {
         KFileWidget *fw = widget->findChild<KFileWidget *>();
         if (fw) {
             widgets.append(fw);

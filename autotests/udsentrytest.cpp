@@ -57,7 +57,7 @@ struct UDSTestField {
  */
 void UDSEntryTest::testSaveLoad()
 {
-    QVector<QVector<UDSTestField> > testCases {
+    const QVector<QVector<UDSTestField> > testCases {
         // Data for 1st UDSEntry.
         {
         UDSTestField(KIO::UDSEntry::UDS_SIZE, 1),
@@ -128,10 +128,10 @@ void UDSEntryTest::testSaveLoad()
     QByteArray data;
     {
         QDataStream stream(&data, QIODevice::WriteOnly);
-        foreach (const QVector<UDSTestField> &testCase, testCases) {
+        for (const QVector<UDSTestField> &testCase : testCases) {
             KIO::UDSEntry entry;
 
-            foreach (const UDSTestField &field, testCase) {
+            for (const UDSTestField &field : testCase) {
                 uint uds = field.m_uds;
                 if (uds & KIO::UDSEntry::UDS_STRING) {
                     entry.fastInsert(uds, field.m_string);
@@ -149,12 +149,12 @@ void UDSEntryTest::testSaveLoad()
     // Re-load the entries and compare with the data in testCases.
     {
         QDataStream stream(data);
-        foreach (const QVector<UDSTestField> &testCase, testCases) {
+        for (const QVector<UDSTestField> &testCase : testCases) {
             KIO::UDSEntry entry;
             stream >> entry;
             QCOMPARE(entry.count(), testCase.count());
 
-            foreach (const UDSTestField &field, testCase) {
+            for (const UDSTestField &field : testCase) {
                 uint uds = field.m_uds;
                 QVERIFY(entry.contains(uds));
 
@@ -175,10 +175,10 @@ void UDSEntryTest::testSaveLoad()
 
     {
         QDataStream stream(&data, QIODevice::WriteOnly);
-        foreach (const QVector<UDSTestField> &testCase, testCases) {
+        for (const QVector<UDSTestField> &testCase : testCases) {
             stream << testCase.count();
 
-            foreach (const UDSTestField &field, testCase) {
+            for (const UDSTestField &field : testCase) {
                 uint uds = field.m_uds;
                 stream << uds;
 
@@ -194,12 +194,12 @@ void UDSEntryTest::testSaveLoad()
 
     {
         QDataStream stream(data);
-        foreach (const QVector<UDSTestField> &testCase, testCases) {
+        for (const QVector<UDSTestField> &testCase : testCases) {
             KIO::UDSEntry entry;
             stream >> entry;
             QCOMPARE(entry.count(), testCase.count());
 
-            foreach (const UDSTestField &field, testCase) {
+            for (const UDSTestField &field : testCase) {
                 uint uds = field.m_uds;
                 QVERIFY(entry.contains(uds));
 

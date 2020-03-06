@@ -369,10 +369,11 @@ void KUrlCompletionTest::testUser()
     m_completionEmptyCwd->makeCompletion(QStringLiteral("~"));
     waitForCompletion(m_completionEmptyCwd);
     const auto matches = m_completionEmptyCwd->allMatches();
-    if (!KUser::allUserNames().isEmpty()) {
+    const QStringList allUsers = KUser::allUserNames();
+    if (!allUsers.isEmpty()) {
         Q_ASSERT(!matches.isEmpty());
     }
-    foreach (const auto &user, KUser::allUserNames()) {
+    for (const auto &user : allUsers) {
         QVERIFY2(matches.contains(QLatin1Char('~') + user), qPrintable(matches.join(QLatin1Char(' '))));
     }
 
@@ -415,7 +416,8 @@ void KUrlCompletionTest::testCancel()
         QVERIFY2(!match.startsWith(QLatin1Char('g')), qPrintable(match));
     }
     waitForCompletion(&comp);
-    foreach (const QString &match, comp.allMatches()) {
+    const QStringList matchesB = comp.allMatches();
+    for (const QString &match : matchesB) {
         QVERIFY2(!match.startsWith(QLatin1Char('g')), qPrintable(match));
     }
 }

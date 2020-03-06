@@ -114,16 +114,15 @@ void HeaderTokenizeTest::testMessyHeader()
     // matter but we have to be exact because the tokenizer does not move strings around,
     // it only overwrites \r and \n in case of line continuations.
 
-    typedef QPair<int, int> intPair;    //foreach is a macro and does not like commas
-
     int nValues = 0;
-    foreach (const QByteArray &ba, QByteArray(messyResult).split('\n')) {
+    const QList<QByteArray> messyResultsList = QByteArray(messyResult).split('\n');
+    for (const QByteArray &ba : messyResultsList) {
         QList<QByteArray> values = ba.split('\t');
         QByteArray key = values.takeFirst();
         nValues += values.count();
 
         QList<QByteArray> comparisonValues;
-        foreach (intPair be, tokenizer.value(key).beginEnd) {
+        for (const QPair<int, int> be : tokenizer.value(key).beginEnd) {
             comparisonValues.append(QByteArray(buffer + be.first, be.second - be.first));
         }
 
@@ -147,7 +146,7 @@ void HeaderTokenizeTest::testMessyHeader()
         if (!it.value().beginEnd.isEmpty()) {
             qDebug() << it.key() << ":";
         }
-        foreach (intPair be, it.value().beginEnd) {
+        for (const QPair<int, int> be : it.value().beginEnd) {
             qDebug() << "  " << QByteArray(buffer + be.first, be.second - be.first);
         }
     }
@@ -165,16 +164,15 @@ void HeaderTokenizeTest::testRedirectHeader()
     int tokenizeEnd = tokenizer.tokenize(0, strlen(redirectHeader));
     QCOMPARE(tokenizeEnd, (int)strlen(redirectHeader));
 
-    typedef QPair<int, int> intPair;
-
     int nValues = 0;
-    foreach (const QByteArray &ba, QByteArray(redirectResult).split('\n')) {
+    const QList<QByteArray> redirectResults = QByteArray(redirectResult).split('\n');
+    for (const QByteArray &ba : redirectResults) {
         QList<QByteArray> values = ba.split('\t');
         QByteArray key = values.takeFirst();
         nValues += values.count();
 
         QList<QByteArray> comparisonValues;
-        foreach (intPair be, tokenizer.value(key).beginEnd) {
+        for (const QPair<int, int> be : tokenizer.value(key).beginEnd) {
             comparisonValues.append(QByteArray(buffer + be.first, be.second - be.first));
         }
 

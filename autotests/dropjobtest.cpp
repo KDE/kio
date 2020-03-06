@@ -493,7 +493,8 @@ private Q_SLOTS:
 private:
     static QMenu *findPopup()
     {
-        Q_FOREACH (QWidget *widget, qApp->topLevelWidgets()) {
+        const QList<QWidget *> widgetsList = qApp->topLevelWidgets();
+        for (QWidget *widget : widgetsList) {
             if (QMenu *menu = qobject_cast<QMenu *>(widget)) {
                 return menu;
             }
@@ -503,7 +504,8 @@ private:
     static Qt::DropActions popupDropActions(QMenu *menu)
     {
         Qt::DropActions actions;
-        Q_FOREACH (QAction *action, menu->actions()) {
+        const QList<QAction *> actionsList = menu->actions();
+        for (const QAction *action : actionsList) {
             const QVariant userData = action->data();
             if (userData.isValid()) {
                 actions |= userData.value<Qt::DropAction>();
