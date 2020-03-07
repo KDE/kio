@@ -1,0 +1,146 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Italian "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="mailto">
+<title
+>mailto</title>
+<articleinfo>
+<authorgroup>
+<author
+><firstname
+>Christopher</firstname
+> <surname
+>Yeleighton</surname
+> <email
+>giecrilj@stegny.2a.pl</email
+></author>
+
+<othercredit role="translator"
+><firstname
+>Luciano</firstname
+> <surname
+>Montanaro</surname
+> <affiliation
+><address
+><email
+>mikelima@cirulla.net</email
+></address
+></affiliation
+> <contrib
+>Traduzione del documento</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>20/08/2018</date>
+<releaseinfo
+>Frameworks 5.50</releaseinfo>
+</articleinfo>
+<para
+>Il kioslave mailto si occupa di avviare il compositore di messaggi di posta elettronica a tua scelta quando apri un &URL; col protocollo mailto <ulink url="https://tools.ietf.org/html/rfc6068"
+>RFC6068</ulink
+>). </para>
+
+<variablelist>
+<varlistentry>
+<term
+>Sintassi</term>
+<listitem
+><para
+>La sintassi di un &URL; mailto segue il seguente modello:</para>
+
+<para
+>mailto:destinatari?query</para>
+
+<para
+>in cui «destinatari» è una lista di indirizzi &SMTP; in formato ristretto, e la parte della query può contenere uno o più dei seguenti parametri:</para>
+
+<variablelist>
+<varlistentry>
+<term
+>&amp;to=destinatari</term>
+<listitem
+><para
+>Aggiunge ulteriori destinatari.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>&amp;cc=destinatari</term>
+<listitem
+><para
+>Aggiunge ulteriori destinatari in copia carbone.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>&amp;bcc=destinatari</term>
+<listitem
+><para
+>Aggiunge ulteriori destinatari in copia carbone nascosta. Questi destinatari riceveranno il messaggio, senza che gli altri destinatari lo sappiano.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>&amp;body=testo</term>
+<listitem
+><para
+>Specifica il testo del messaggio. Questo testo non dovrebbe essere lungo, dato che ci sono limiti per la lunghezza degli &URL;.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>&amp;subject=testo</term>
+<listitem
+><para
+>Specifica l'oggetto del messaggio.</para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>Esempio</term>
+<listitem
+><para
+>   
+<literal
+>mailto:info@kde.org?cc=kde@kde.org&amp;subject=Grazie!&amp;body=KDE%20mi %20piace!%20Come%20posso%20aiutare%3F</literal>
+</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>Configurazione</term>
+<listitem
+><para
+>Scegli in &systemsettings; l'applicazione con cui gestire &URL; mailto nel modulo <menuchoice
+><guimenu
+>Applicazioni</guimenu
+><guimenuitem
+>Applicazioni predefinite</guimenuitem
+></menuchoice
+>, nella categoria <guilabel
+>Personalizzazione</guilabel
+>. </para
+></listitem>
+</varlistentry>
+
+</variablelist>
+  
+</article>
