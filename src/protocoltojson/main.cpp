@@ -64,37 +64,31 @@ int main (int argc, char *argv[])
     }
 
     // different attributes to copy
-    QStringList stringAttributes;
-    stringAttributes << QStringLiteral("protocol") << QStringLiteral("exec")
-        << QStringLiteral("fileNameUsedForCopying") << QStringLiteral("defaultMimetype")
-        << QStringLiteral("Icon") << QStringLiteral("config") << QStringLiteral("input")
-        << QStringLiteral("output") << QStringLiteral("X-DocPath") << QStringLiteral("DocPath")
-        << QStringLiteral("Class") << QStringLiteral("ProxiedBy");
+    const QStringList stringAttributes(
+        {QStringLiteral("protocol"), QStringLiteral("exec"), QStringLiteral("fileNameUsedForCopying"),
+         QStringLiteral("defaultMimetype"), QStringLiteral("Icon"), QStringLiteral("config"),
+         QStringLiteral("input"), QStringLiteral("output"), QStringLiteral("X-DocPath"),
+         QStringLiteral("DocPath"), QStringLiteral("Class"), QStringLiteral("ProxiedBy")});
 
-    QStringList stringListAttributes;
-    stringListAttributes << QStringLiteral("listing") << QStringLiteral("archiveMimetype")
-        << QStringLiteral("ExtraTypes") << QStringLiteral("Capabilities");
+    const QStringList stringListAttributes({QStringLiteral("listing"), QStringLiteral("archiveMimetype"),
+                                            QStringLiteral("ExtraTypes"), QStringLiteral("Capabilities")});
 
-    QStringList boolAttributes;
-    boolAttributes << QStringLiteral("source") << QStringLiteral("helper")
-        << QStringLiteral("reading") << QStringLiteral("writing")
-        << QStringLiteral("makedir") << QStringLiteral("deleting")
-        << QStringLiteral("linking") << QStringLiteral("moving")
-        << QStringLiteral("opening") << QStringLiteral("copyFromFile")
-        << QStringLiteral("copyToFile") << QStringLiteral("renameFromFile")
-        << QStringLiteral("renameToFile") << QStringLiteral("deleteRecursive")
-        << QStringLiteral("determineMimetypeFromExtension") << QStringLiteral("ShowPreviews");
+    const QStringList boolAttributes(
+        {QStringLiteral("source"), QStringLiteral("helper"), QStringLiteral("reading"), QStringLiteral("writing"),
+         QStringLiteral("makedir"),QStringLiteral("deleting"), QStringLiteral("linking"), QStringLiteral("moving"),
+         QStringLiteral("opening"), QStringLiteral("copyFromFile"), QStringLiteral("copyToFile"),
+         QStringLiteral("renameFromFile"), QStringLiteral("renameToFile"), QStringLiteral("deleteRecursive"),
+         QStringLiteral("determineMimetypeFromExtension"), QStringLiteral("ShowPreviews")});
 
-    QStringList intAttributes;
-    intAttributes << QStringLiteral("maxInstances") << QStringLiteral("maxInstancesPerHost");
+    const QStringList intAttributes({QStringLiteral("maxInstances"), QStringLiteral("maxInstancesPerHost")});
 
-    QStringList translatedStringListAttributes;
-    translatedStringListAttributes << QStringLiteral("ExtraNames");
+    const QStringList translatedStringListAttributes({QStringLiteral("ExtraNames")});
 
     // constructed the json data by parsing all .protocol files
     QVariantMap protocolsData;
     const QRegularExpression localeRegex(QStringLiteral("^\\w+\\[(.*)\\]="));
-    Q_FOREACH(const QString &file, parser.positionalArguments()) {
+    const QStringList args = parser.positionalArguments();
+    for (const QString &file : args) {
         // get full path
         const QString fullFilePath(QDir::current().absoluteFilePath(file));
 
@@ -113,29 +107,29 @@ int main (int argc, char *argv[])
         QVariantMap protocolData;
 
         // convert the different types
-        Q_FOREACH(const QString &key, stringAttributes) {
+        for (const QString &key : stringAttributes) {
             if (config.hasKey(key)) {
                 protocolData.insert(key, config.readEntry(key, QString()));
             }
         }
-        Q_FOREACH(const QString &key, stringListAttributes) {
+        for (const QString &key : stringListAttributes) {
             if (config.hasKey(key)) {
                 protocolData.insert(key, config.readEntry(key, QStringList()));
             }
         }
-        Q_FOREACH(const QString &key, boolAttributes) {
+        for (const QString &key : boolAttributes) {
             if (config.hasKey(key)) {
                 protocolData.insert(key, config.readEntry(key, bool(false)));
             }
         }
-        Q_FOREACH(const QString& key, intAttributes) {
+        for (const QString& key : intAttributes) {
             if (config.hasKey(key)) {
                 protocolData.insert(key, config.readEntry(key, int(0)));
             }
         }
 
         // handle translated keys
-        Q_FOREACH(const QString &key, translatedStringListAttributes) {
+        for (const QString &key : translatedStringListAttributes) {
             // read untranslated entry first in any case!
             sconfig.setLocale(QString());
             protocolData.insert(key, config.readEntry(key, QStringList()));
