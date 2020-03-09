@@ -913,7 +913,12 @@ void KFilePreviewGenerator::Private::applyCutItemEffect(const KFileItemList &ite
         return;
     }
 
-    const QSet<QUrl> cutUrls = KUrlMimeData::urlsFromMimeData(mimeData).toSet();
+    const QList<QUrl> urlsList = KUrlMimeData::urlsFromMimeData(mimeData);
+#if QT_VERSION < QT_VERSION_CHECK(5, 14, 0)
+    const QSet<QUrl> cutUrls = urlsList.toSet();
+#else
+    const QSet<QUrl> cutUrls(urlsList.begin(), urlsList.end());
+#endif
 
     DataChangeObtainer obt(this);
     KIconEffect *iconEffect = KIconLoader::global()->iconEffect();

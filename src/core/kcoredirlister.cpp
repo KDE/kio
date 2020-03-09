@@ -1034,9 +1034,16 @@ QSet<KCoreDirLister *> KCoreDirListerCache::emitRefreshItem(const KFileItem &old
 
 QList<QUrl> KCoreDirListerCache::directoriesForCanonicalPath(const QUrl &dir) const
 {
-    QList<QUrl> dirs;
-    dirs << dir;
-    dirs << canonicalUrls.value(dir).toSet().values(); /* make unique; there are faster ways, but this is really small anyway */
+    QList<QUrl> urlList = canonicalUrls.value(dir);
+    // make unique
+    if (urlList.size() > 1) {
+        std::sort(urlList.begin(), urlList.end());
+        auto end_unique = std::unique(urlList.begin(), urlList.end());
+        urlList.erase(end_unique, urlList.end());
+    }
+
+    QList<QUrl> dirs({dir});
+    dirs.append(urlList);
 
     if (dirs.count() > 1) {
         qCDebug(KIO_CORE_DIRLISTER) << dir << "known as" << dirs;
