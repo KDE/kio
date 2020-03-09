@@ -164,6 +164,7 @@ int KFileItemActionsPrivate::insertServicesSubmenus(const QMap<QString, ServiceL
 
         QMenu *actionSubmenu = new QMenu(menu);
         actionSubmenu->setTitle(it.key());
+        actionSubmenu->setIcon(QIcon::fromTheme(it.value().first().icon()));
         actionSubmenu->menuAction()->setObjectName(QStringLiteral("services_submenu")); // for the unittest
         menu->addMenu(actionSubmenu);
         count += insertServices(it.value(), actionSubmenu, isBuiltin);
