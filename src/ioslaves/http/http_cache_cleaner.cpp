@@ -598,17 +598,12 @@ static void removeOldFiles()
 {
     const char *oldDirs = "0abcdefghijklmnopqrstuvwxyz";
     const int n = strlen(oldDirs);
-    QDir cacheRootDir(filePath(QString()));
-    for (int i = 0; i < n; i++) {
-        QString dirName = QString::fromLatin1(&oldDirs[i], 1);
-        // delete files in directory...
-        Q_FOREACH (const QString &baseName, QDir(filePath(dirName)).entryList()) {
-            QFile::remove(filePath(dirName + QLatin1Char('/') + baseName));
-        }
-        // delete the (now hopefully empty!) directory itself
-        cacheRootDir.rmdir(dirName);
+    const QString cacheRootDir = filePath(QString());
+    for (int i = 0; i < n; ++i) {
+        const QString dirName = QString::fromLatin1(&oldDirs[i], 1);
+        QDir(cacheRootDir + dirName).removeRecursively();
     }
-    QFile::remove(filePath(QStringLiteral("cleaned")));
+    QFile::remove(cacheRootDir + QLatin1String("cleaned"));
 }
 
 class CacheCleaner
