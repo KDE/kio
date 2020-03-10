@@ -201,7 +201,7 @@ static bool readFromWallet( KWallet::Wallet* wallet, const QString& key, const Q
 bool KPasswdServer::hasPendingQuery(const QString &key, const KIO::AuthInfo &info)
 {
     const QString path2 (info.url.path().left(info.url.path().indexOf(QLatin1Char('/'))+1));
-    Q_FOREACH(const Request *request, m_authPending) {
+    for (const Request *request : qAsConst(m_authPending)) {
         if (request->key != key) {
             continue;
         }
@@ -473,12 +473,11 @@ KPasswdServer::removeAuthInfo(const QString& host, const QString& protocol, cons
     {
         dictIterator.next();
 
-        AuthInfoContainerList *authList = dictIterator.value();
+        const AuthInfoContainerList *authList = dictIterator.value();
         if (!authList)
             continue;
 
-        Q_FOREACH(AuthInfoContainer *current, *authList)
-        {
+        for (const AuthInfoContainer *current : *authList) {
             qCDebug(category) << "Evaluating: " << current->info.url.scheme()
                      << current->info.url.host()
                      << current->info.username;
@@ -642,13 +641,13 @@ KPasswdServer::findAuthInfoItem(const QString &key, const KIO::AuthInfo &info)
    if (authList)
    {
       QString path2 = info.url.path().left(info.url.path().indexOf(QLatin1Char('/'))+1);
-      Q_FOREACH(AuthInfoContainer *current, *authList)
-      {
+      auto it = authList->begin();
+      while (it != authList->end()) {
+          AuthInfoContainer *current = (*it);
           if (current->expire == AuthInfoContainer::expTime &&
-              static_cast<qulonglong>(time(nullptr)) > current->expireTime)
-          {
-              authList->removeOne(current);
+              static_cast<qulonglong>(time(nullptr)) > current->expireTime) {
               delete current;
+              it = authList->erase(it);
               continue;
           }
 
@@ -665,6 +664,8 @@ KPasswdServer::findAuthInfoItem(const QString &key, const KIO::AuthInfo &info)
                   (info.username.isEmpty() || info.username == current->info.username))
                 return current; // TODO: Update directory info,
           }
+
+          ++it;
       }
    }
    return nullptr;
@@ -677,12 +678,13 @@ KPasswdServer::removeAuthInfoItem(const QString &key, const KIO::AuthInfo &info)
    if (!authList)
       return;
 
-   Q_FOREACH(AuthInfoContainer *current, *authList)
-   {
-       if (current->info.realmValue == info.realmValue)
-       {
-          authList->removeOne(current);
-          delete current;
+   auto it = authList->begin();
+   while (it != authList->end()) {
+       if ((*it)->info.realmValue == info.realmValue) {
+          delete (*it);
+          it = authList->erase(it);
+       } else {
+          ++it;
        }
    }
    if (authList->isEmpty())
@@ -709,13 +711,14 @@ KPasswdServer::addAuthInfoItem(const QString &key, const KIO::AuthInfo &info, ql
       m_authDict.insert(key, authList);
    }
    AuthInfoContainer *authItem = nullptr;
-   Q_FOREACH(AuthInfoContainer* current, *authList)
-   {
-       if (current->info.realmValue == info.realmValue)
-       {
-          authList->removeAll(current);
-          authItem = current;
+   auto it = authList->begin();
+   while (it != authList->end()) {
+       if ((*it)->info.realmValue == info.realmValue) {
+          authItem = (*it);
+          it = authList->erase(it);
           break;
+       } else {
+          ++it;
        }
    }
 

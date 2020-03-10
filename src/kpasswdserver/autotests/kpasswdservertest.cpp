@@ -533,7 +533,8 @@ private:
 protected Q_SLOTS:
     void checkAndFillDialog(const KIO::AuthInfo& info, const KIO::AuthInfo& filledInfo, QDialog::DialogCode code)
     {
-        Q_FOREACH(QWidget *widget, QApplication::topLevelWidgets()) {
+        const QList<QWidget *> widgetsList = QApplication::topLevelWidgets();
+        for (QWidget *widget : widgetsList) {
             if (KPasswordDialog* dialog = qobject_cast<KPasswordDialog *>(widget)) {
                 if (code == QDialog::Accepted) {
                     QCOMPARE(dialog->username(), getUserNameFrom(info));
@@ -550,7 +551,8 @@ protected Q_SLOTS:
 
     void checkRetryDialog(QDialogButtonBox::StandardButton code = s_buttonYes)
     {
-        Q_FOREACH(QWidget *widget, QApplication::topLevelWidgets()) {
+        const QList<QWidget *> widgetsList = QApplication::topLevelWidgets();
+        for (QWidget *widget : widgetsList) {
             QDialog* dialog = qobject_cast<QDialog*>(widget);
             if (dialog && !dialog->inherits("KPasswordDialog")) {
                 dialog->done(code);
