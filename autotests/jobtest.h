@@ -83,6 +83,8 @@ private Q_SLOTS:
     void rmdirEmpty();
     void rmdirNotEmpty();
     void stat();
+    void statDetailsBasic();
+    void statDetailsBasicSetDetails();
 #ifndef Q_OS_WIN
     void statSymlink();
 #endif

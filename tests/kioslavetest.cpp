@@ -249,7 +249,7 @@ void KioslaveTest::startJob()
         break;
 
     case Stat:
-        myJob = KIO::stat(src, KIO::StatJob::SourceSide, 2);
+        myJob = KIO::statDetails(src, KIO::StatJob::SourceSide);
         break;
 
     case Get:

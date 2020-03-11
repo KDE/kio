@@ -67,7 +67,7 @@ static QString localTmpDir()
 
 static bool myExists(const QUrl &url)
 {
-    KIO::Job *job = KIO::stat(url, KIO::StatJob::DestinationSide, 0, KIO::HideProgressInfo);
+    KIO::Job *job = KIO::statDetails(url, KIO::StatJob::DestinationSide, KIO::StatDetail::Basic, KIO::HideProgressInfo);
     job->setUiDelegate(nullptr);
     return job->exec();
 }

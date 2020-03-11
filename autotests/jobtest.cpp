@@ -42,6 +42,7 @@
 #include <kio/copyjob.h>
 #include <kio/deletejob.h>
 #include <kio/chmodjob.h>
+#include <kio/statjob.h>
 #include "kiotesthelper.h" // createTestFile etc.
 #ifndef Q_OS_WIN
 #include <unistd.h> // for readlink
@@ -114,7 +115,7 @@ void JobTest::enterLoop()
 
 void JobTest::storedGet()
 {
-    qDebug();
+    // qDebug();
     const QString filePath = homeTmpDir() + "fileFromHome";
     createTestFile(filePath);
     QUrl u = QUrl::fromLocalFile(filePath);
@@ -599,7 +600,7 @@ void JobTest::copyFileToSamePartition()
 
 void JobTest::copyDirectoryToSamePartition()
 {
-    qDebug();
+    // qDebug();
     const QString src = homeTmpDir() + "dirFromHome";
     const QString dest = homeTmpDir() + "dirFromHome_copied";
     createTestDirectory(src);
@@ -608,7 +609,7 @@ void JobTest::copyDirectoryToSamePartition()
 
 void JobTest::copyDirectoryToExistingDirectory()
 {
-    qDebug();
+    // qDebug();
     // just the same as copyDirectoryToSamePartition, but this time dest exists.
     // So we get a subdir, "dirFromHome_copy/dirFromHome"
     const QString src = homeTmpDir() + "dirFromHome";
@@ -620,7 +621,7 @@ void JobTest::copyDirectoryToExistingDirectory()
 
 void JobTest::copyFileToOtherPartition()
 {
-    qDebug();
+    // qDebug();
     const QString filePath = homeTmpDir() + "fileFromHome";
     const QString dest = otherTmpDir() + "fileFromHome_copied";
     createTestFile(filePath);
@@ -629,7 +630,7 @@ void JobTest::copyFileToOtherPartition()
 
 void JobTest::copyDirectoryToOtherPartition()
 {
-    qDebug();
+    // qDebug();
     const QString src = homeTmpDir() + "dirFromHome";
     const QString dest = otherTmpDir() + "dirFromHome_copied";
     createTestDirectory(src);
@@ -676,6 +677,7 @@ void JobTest::copyFolderWithUnaccessibleSubfolder()
     createTestDirectory(src_dir);
     createTestDirectory(src_dir + "/folder1");
     QString inaccessible = src_dir + "/folder1/inaccessible";
+
     createTestDirectory(inaccessible);
 
     QFile(inaccessible).setPermissions(QFile::Permissions()); // Make it inaccessible
@@ -1381,8 +1383,21 @@ void JobTest::stat()
     KIO::StatJob *job = KIO::stat(url, KIO::HideProgressInfo);
     QVERIFY(job);
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
-    // TODO set setSide, setDetails
+    // TODO set setSide
     const KIO::UDSEntry &entry = job->statResult();
+
+    // we only get filename, access, type, size, uid, gid, btime, mtime, atime
+    QVERIFY(entry.contains(KIO::UDSEntry::UDS_NAME));
+    QVERIFY(entry.contains(KIO::UDSEntry::UDS_ACCESS));
+    QVERIFY(entry.contains(KIO::UDSEntry::UDS_SIZE));
+    QVERIFY(entry.contains(KIO::UDSEntry::UDS_FILE_TYPE));
+    QVERIFY(entry.contains(KIO::UDSEntry::UDS_USER));
+    QVERIFY(entry.contains(KIO::UDSEntry::UDS_GROUP));
+    QVERIFY(entry.contains(KIO::UDSEntry::UDS_CREATION_TIME));
+    QVERIFY(entry.contains(KIO::UDSEntry::UDS_MODIFICATION_TIME));
+    QVERIFY(entry.contains(KIO::UDSEntry::UDS_ACCESS_TIME));
+    QCOMPARE(entry.count(), 9);
+
     QVERIFY(!entry.isDir());
     QVERIFY(!entry.isLink());
     QCOMPARE(entry.stringValue(KIO::UDSEntry::UDS_NAME), QStringLiteral("fileFromHome"));
@@ -1413,6 +1428,83 @@ void JobTest::stat()
 #endif
 }
 
+void JobTest::statDetailsBasic()
+{
+    const QString filePath = homeTmpDir() + "fileFromHome";
+    createTestFile(filePath);
+    const QUrl url(QUrl::fromLocalFile(filePath));
+    KIO::StatJob *job = KIO::statDetails(url, KIO::StatJob::StatSide::SourceSide, KIO::StatDetail::Basic,  KIO::HideProgressInfo);
+    QVERIFY(job);
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
+    // TODO set setSide
+    const KIO::UDSEntry &entry = job->statResult();
+
+    // we only get filename, access, type, size, (no linkdest)
+    QVERIFY(entry.contains(KIO::UDSEntry::UDS_NAME));
+    QVERIFY(entry.contains(KIO::UDSEntry::UDS_ACCESS));
+    QVERIFY(entry.contains(KIO::UDSEntry::UDS_SIZE));
+    QVERIFY(entry.contains(KIO::UDSEntry::UDS_FILE_TYPE));
+    QCOMPARE(entry.count(), 4);
+
+    QVERIFY(!entry.isDir());
+    QVERIFY(!entry.isLink());
+    QVERIFY(entry.numberValue(KIO::UDSEntry::UDS_ACCESS) > 0);
+    QCOMPARE(entry.stringValue(KIO::UDSEntry::UDS_NAME), QStringLiteral("fileFromHome"));
+
+    // Compare what we get via kio_file and what we get when KFileItem stat()s directly
+    // for the requested fields
+    const KFileItem kioItem(entry, url);
+    const KFileItem fileItem(url);
+    QCOMPARE(kioItem.name(), fileItem.name());
+    QCOMPARE(kioItem.url(), fileItem.url());
+    QCOMPARE(kioItem.size(), fileItem.size());
+    QCOMPARE(kioItem.user(), "");
+    QCOMPARE(kioItem.group(), "");
+    QCOMPARE(kioItem.mimetype(), "application/octet-stream");
+    QCOMPARE(kioItem.permissions(), 438);
+    QCOMPARE(kioItem.time(KFileItem::ModificationTime), QDateTime());
+    QCOMPARE(kioItem.time(KFileItem::AccessTime), QDateTime());
+}
+
+void JobTest::statDetailsBasicSetDetails()
+{
+    const QString filePath = homeTmpDir() + "fileFromHome";
+    createTestFile(filePath);
+    const QUrl url(QUrl::fromLocalFile(filePath));
+    KIO::StatJob *job = KIO::stat(url);
+    job->setDetails(KIO::StatDetail::Basic);
+    QVERIFY(job);
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
+    // TODO set setSide
+    const KIO::UDSEntry &entry = job->statResult();
+
+    // we only get filename, access, type, size, (no linkdest)
+    QVERIFY(entry.contains(KIO::UDSEntry::UDS_NAME));
+    QVERIFY(entry.contains(KIO::UDSEntry::UDS_ACCESS));
+    QVERIFY(entry.contains(KIO::UDSEntry::UDS_SIZE));
+    QVERIFY(entry.contains(KIO::UDSEntry::UDS_FILE_TYPE));
+    QCOMPARE(entry.count(), 4);
+
+    QVERIFY(!entry.isDir());
+    QVERIFY(!entry.isLink());
+    QVERIFY(entry.numberValue(KIO::UDSEntry::UDS_ACCESS) > 0);
+    QCOMPARE(entry.stringValue(KIO::UDSEntry::UDS_NAME), QStringLiteral("fileFromHome"));
+
+    // Compare what we get via kio_file and what we get when KFileItem stat()s directly
+    // for the requested fields
+    const KFileItem kioItem(entry, url);
+    const KFileItem fileItem(url);
+    QCOMPARE(kioItem.name(), fileItem.name());
+    QCOMPARE(kioItem.url(), fileItem.url());
+    QCOMPARE(kioItem.size(), fileItem.size());
+    QCOMPARE(kioItem.user(), "");
+    QCOMPARE(kioItem.group(), "");
+    QCOMPARE(kioItem.mimetype(), "application/octet-stream");
+    QCOMPARE(kioItem.permissions(), 438);
+    QCOMPARE(kioItem.time(KFileItem::ModificationTime), QDateTime());
+    QCOMPARE(kioItem.time(KFileItem::AccessTime), QDateTime());
+}
+
 #ifndef Q_OS_WIN
 void JobTest::statSymlink()
 {
@@ -1424,13 +1516,30 @@ void JobTest::statSymlink()
     setTimeStamp(symlink, QDateTime::currentDateTime().addSecs(-20)); // differentiate link time and source file time
 
     const QUrl url(QUrl::fromLocalFile(symlink));
-    KIO::StatJob *job = KIO::stat(url, KIO::HideProgressInfo);
+    KIO::StatJob *job = KIO::statDetails(url, KIO::StatJob::StatSide::SourceSide,
+                                         KIO::StatDetail::Basic | KIO::StatDetail::ResolveSymlink | KIO::StatDetail::User | KIO::StatDetail::Time,
+                                         KIO::HideProgressInfo);
     QVERIFY(job);
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
     // TODO set setSide, setDetails
     const KIO::UDSEntry &entry = job->statResult();
+
+    // we only get filename, access, type, size, linkdest, uid, gid, btime, mtime, atime
+    QVERIFY(entry.contains(KIO::UDSEntry::UDS_NAME));
+    QVERIFY(entry.contains(KIO::UDSEntry::UDS_ACCESS));
+    QVERIFY(entry.contains(KIO::UDSEntry::UDS_SIZE));
+    QVERIFY(entry.contains(KIO::UDSEntry::UDS_FILE_TYPE));
+    QVERIFY(entry.contains(KIO::UDSEntry::UDS_LINK_DEST));
+    QVERIFY(entry.contains(KIO::UDSEntry::UDS_USER));
+    QVERIFY(entry.contains(KIO::UDSEntry::UDS_GROUP));
+    QVERIFY(entry.contains(KIO::UDSEntry::UDS_CREATION_TIME));
+    QVERIFY(entry.contains(KIO::UDSEntry::UDS_MODIFICATION_TIME));
+    QVERIFY(entry.contains(KIO::UDSEntry::UDS_ACCESS_TIME));
+    QCOMPARE(entry.count(), 10);
+
     QVERIFY(!entry.isDir());
     QVERIFY(entry.isLink());
+    QVERIFY(entry.numberValue(KIO::UDSEntry::UDS_ACCESS) > 0);
     QCOMPARE(entry.stringValue(KIO::UDSEntry::UDS_NAME), QStringLiteral("link"));
 
     // Compare what we get via kio_file and what we get when KFileItem stat()s directly

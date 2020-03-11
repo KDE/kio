@@ -313,6 +313,34 @@ enum  PrivilegeOperationStatus {
 };
 
 /**
+ * Describes the fields that a stat command will retrieve
+ * @see UDSEntry
+ * @since 5.69
+ */
+enum StatDetail {
+    /// No field returned, useful to check if a file exists
+    NoDetails = 0x0,
+    /// Filename, access, type, size, linkdest
+    Basic = 0x1,
+    /// uid, gid
+    User = 0x2,
+    /// atime, mtime, btime
+    Time = 0x4,
+    /// Resolve symlinks
+    ResolveSymlink = 0x8,
+    /// acl Data
+    Acl = 0x10,
+    /// dev, inode
+    Inode = 0x20,
+
+    /// Default value includes fields provided by other entries
+    StatDefaultDetails = Basic | User | Time | Acl | ResolveSymlink,
+};
+Q_DECLARE_FLAGS(StatDetails, StatDetail)
+
+Q_DECLARE_OPERATORS_FOR_FLAGS(KIO::StatDetails)
+
+/**
  * Parses the string representation of the cache control option.
  *
  * @param cacheControl the string representation

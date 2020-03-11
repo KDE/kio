@@ -865,11 +865,42 @@ QString FileProtocol::getGroupName(KGroupId gid) const
 
 #if HAVE_STATX
 // statx syscall is available
-inline int LSTAT(const char* path, struct statx * buff) {
-    return statx(AT_FDCWD, path, AT_SYMLINK_NOFOLLOW, STATX_BASIC_STATS | STATX_BTIME, buff);
+inline int LSTAT(const char* path, struct statx * buff, KIO::StatDetails details) {
+    uint32_t mask = 0;
+    if (details & KIO::Basic) {
+        // filename, access, type, size, linkdest
+        mask |= STATX_SIZE | STATX_TYPE;
+    }
+    if (details & KIO::User) {
+        // uid, gid
+        mask |= STATX_UID | STATX_GID;
+    }
+    if (details & KIO::Time) {
+        // atime, mtime, btime
+        mask |= STATX_ATIME | STATX_MTIME | STATX_BTIME;
+    }
+    if (details & KIO::Inode) {
+        // dev, inode
+        mask |= STATX_INO;
+    }
+    return statx(AT_FDCWD, path, AT_SYMLINK_NOFOLLOW, mask, buff);
 }
-inline int STAT(const char* path, struct statx * buff) {
-    return statx(AT_FDCWD, path, AT_STATX_SYNC_AS_STAT, STATX_BASIC_STATS | STATX_BTIME, buff);
+inline int STAT(const char* path, struct statx * buff, KIO::StatDetails details) {
+    uint32_t mask = 0;
+    if (details & KIO::Basic) {
+        // filename, access, type, size, linkdest
+        mask |= STATX_SIZE | STATX_TYPE;
+    }
+    if (details & KIO::User) {
+        // uid, gid
+        mask |= STATX_UID | STATX_GID;
+    }
+    if (details & KIO::Time) {
+        // atime, mtime, btime
+        mask |= STATX_ATIME | STATX_MTIME | STATX_BTIME;
+    }
+    // KIO::Inode is ignored as when STAT is called, the entry inode field has already been filled
+    return statx(AT_FDCWD, path, AT_STATX_SYNC_AS_STAT, mask, buff);
 }
 inline static uint16_t stat_mode(struct statx &buf) { return buf.stx_mode; }
 inline static uint32_t stat_dev(struct statx &buf) { return buf.stx_dev_major; }
@@ -881,10 +912,12 @@ inline static int64_t stat_atime(struct statx &buf) { return buf.stx_atime.tv_se
 inline static int64_t stat_mtime(struct statx &buf) { return buf.stx_mtime.tv_sec; }
 #else
 // regular stat struct
-inline int LSTAT(const char* path, QT_STATBUF * buff) {
+inline int LSTAT(const char* path, QT_STATBUF * buff, KIO::StatDetails details) {
+    Q_UNUSED(details)
     return QT_LSTAT(path, buff);
 }
-inline int STAT(const char* path, QT_STATBUF * buff) {
+inline int STAT(const char* path, QT_STATBUF * buff, KIO::StatDetails details) {
+    Q_UNUSED(details)
     return QT_STAT(path, buff);
 }
 inline static mode_t stat_mode(QT_STATBUF &buf) { return buf.st_mode; }
@@ -900,28 +933,35 @@ inline static time_t stat_mtime(QT_STATBUF &buf) { return buf.st_mtime; }
 #endif
 
 bool FileProtocol::createUDSEntry(const QString &filename, const QByteArray &path, UDSEntry &entry,
-                                  short int details)
+                                  KIO::StatDetails details)
 {
     assert(entry.count() == 0); // by contract :-)
-    switch (details) {
-    case 0:
+    int entries = 0;
+    if (details & KIO::Basic) {
         // filename, access, type, size, linkdest
-        entry.reserve(5);
-        break;
-    case 1:
-        // uid, gid, atime, mtime, btime
-        entry.reserve(10);
-        break;
-    case 2:
-        // acl data
-        entry.reserve(13);
-        break;
-    default: // case details > 2
-        // dev, inode
-        entry.reserve(15);
-        break;
+        entries += 5;
     }
-    entry.fastInsert(KIO::UDSEntry::UDS_NAME, filename);
+    if (details & KIO::User) {
+        // uid, gid
+        entries += 2;
+    }
+    if (details & KIO::Time) {
+        // atime, mtime, btime
+        entries += 3;
+    }
+    if (details & KIO::Acl) {
+        // acl data
+        entries += 3;
+    }
+    if (details & KIO::Inode) {
+        // dev, inode
+        entries += 2;
+    }
+    entry.reserve(entries);
+
+    if (details & KIO::Basic) {
+        entry.fastInsert(KIO::UDSEntry::UDS_NAME, filename);
+    }
 
     mode_t type;
     mode_t access;
@@ -938,64 +978,68 @@ bool FileProtocol::createUDSEntry(const QString &filename, const QByteArray &pat
     QT_STATBUF buff;
 #endif
 
-    if (LSTAT(path.data(), &buff) == 0)  {
+    if (LSTAT(path.data(), &buff, details) == 0)  {
 
-        if (details > 2) {
+        if (details & KIO::Inode) {
             entry.fastInsert(KIO::UDSEntry::UDS_DEVICE_ID, stat_dev(buff));
             entry.fastInsert(KIO::UDSEntry::UDS_INODE, stat_ino(buff));
         }
 
         if ((stat_mode(buff) & QT_STAT_MASK) == QT_STAT_LNK) {
 
+            if (details & KIO::Basic) {
 #ifdef Q_OS_WIN
             const QString linkTarget = QFile::symLinkTarget(QFile::decodeName(path));
 #else
-            // Use readlink on Unix because symLinkTarget turns relative targets into absolute (#352927)
-            #if HAVE_STATX
-                size_t lowerBound = 256;
-                size_t higherBound = 1024;
-                uint64_t s = stat_size(buff);
-                if (s > SIZE_MAX) {
-                    qCWarning(KIO_FILE) << "file size bigger than SIZE_MAX, too big for readlink use!" << path;
-                    return false;
-                }
-                size_t size = static_cast<size_t>(s);
-                using SizeType = size_t;
-            #else
-                off_t lowerBound = 256;
-                off_t higherBound = 1024;
-                off_t size = stat_size(buff);
-                using SizeType = off_t;
-            #endif
-            SizeType bufferSize = qBound(lowerBound, size +1, higherBound);
-            QByteArray linkTargetBuffer;
-            linkTargetBuffer.resize(bufferSize);
-            while (true) {
-                ssize_t n = readlink(path.constData(), linkTargetBuffer.data(), bufferSize);
-                if (n < 0 && errno != ERANGE) {
-                    qCWarning(KIO_FILE) << "readlink failed!" << path;
-                    return false;
-                } else if (n > 0 && static_cast<SizeType>(n) != bufferSize) {
-                    // the buffer was not filled in the last iteration
-                    // we are finished reading, break the loop
-                    linkTargetBuffer.truncate(n);
-                    break;
-                }
-                bufferSize *= 2;
+                // Use readlink on Unix because symLinkTarget turns relative targets into absolute (#352927)
+                #if HAVE_STATX
+                    size_t lowerBound = 256;
+                    size_t higherBound = 1024;
+                    uint64_t s = stat_size(buff);
+                    if (s > SIZE_MAX) {
+                        qCWarning(KIO_FILE) << "file size bigger than SIZE_MAX, too big for readlink use!" << path;
+                        return false;
+                    }
+                    size_t size = static_cast<size_t>(s);
+                    using SizeType = size_t;
+                #else
+                    off_t lowerBound = 256;
+                    off_t higherBound = 1024;
+                    off_t size = stat_size(buff);
+                    using SizeType = off_t;
+                #endif
+                SizeType bufferSize = qBound(lowerBound, size +1, higherBound);
+                QByteArray linkTargetBuffer;
                 linkTargetBuffer.resize(bufferSize);
-            }
-            const QString linkTarget = QFile::decodeName(linkTargetBuffer);
+                while (true) {
+                    ssize_t n = readlink(path.constData(), linkTargetBuffer.data(), bufferSize);
+                    if (n < 0 && errno != ERANGE) {
+                        qCWarning(KIO_FILE) << "readlink failed!" << path;
+                        return false;
+                    } else if (n > 0 && static_cast<SizeType>(n) != bufferSize) {
+                        // the buffer was not filled in the last iteration
+                        // we are finished reading, break the loop
+                        linkTargetBuffer.truncate(n);
+                        break;
+                    }
+                    bufferSize *= 2;
+                    linkTargetBuffer.resize(bufferSize);
+                }
+                const QString linkTarget = QFile::decodeName(linkTargetBuffer);
 #endif
-            entry.fastInsert(KIO::UDSEntry::UDS_LINK_DEST, linkTarget);
+                entry.fastInsert(KIO::UDSEntry::UDS_LINK_DEST, linkTarget);
+            }
 
-            // A symlink -> follow it only if details>1
-            if (details > 1) {
-                if (STAT(path.constData(), &buff) == -1) {
+            // A symlink
+            if (details & KIO::ResolveSymlink) {
+                if (STAT(path.constData(), &buff, details) == -1) {
                     isBrokenSymLink = true;
                 } else {
 #if HAVE_POSIX_ACL
-                    // valid symlink, will get the ACLs of the destination
-                    targetPath = linkTargetBuffer;
+                    if (details & KIO::Acl) {
+                        // valid symlink, will get the ACLs of the destination
+                        targetPath = linkTargetBuffer;
+                    }
 #endif
                 }
             }
@@ -1005,23 +1049,25 @@ bool FileProtocol::createUDSEntry(const QString &filename, const QByteArray &pat
         return false;
     }
 
-    if (isBrokenSymLink) {
-        // It is a link pointing to nowhere
-        type = S_IFMT - 1;
-        access = S_IRWXU | S_IRWXG | S_IRWXO;
-        size = 0LL;
-    } else {
-        type = stat_mode(buff) & S_IFMT; // extract file type
-        access = stat_mode(buff) & 07777; // extract permissions
-        size = stat_size(buff);
+    if (details & KIO::Basic) {
+        if (isBrokenSymLink) {
+            // It is a link pointing to nowhere
+            type = S_IFMT - 1;
+            access = S_IRWXU | S_IRWXG | S_IRWXO;
+            size = 0LL;
+        } else {
+            type = stat_mode(buff) & S_IFMT; // extract file type
+            access = stat_mode(buff) & 07777; // extract permissions
+            size = stat_size(buff);
+        }
+
+        entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, type);
+        entry.fastInsert(KIO::UDSEntry::UDS_ACCESS, access);
+        entry.fastInsert(KIO::UDSEntry::UDS_SIZE, size);
     }
 
-    entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, type);
-    entry.fastInsert(KIO::UDSEntry::UDS_ACCESS, access);
-    entry.fastInsert(KIO::UDSEntry::UDS_SIZE, size);
-
 #if HAVE_POSIX_ACL
-    if (details > 1) {
+    if (details & KIO::Acl) {
         /* Append an atom indicating whether the file has extended acl information
          * and if withACL is specified also one with the acl itself. If it's a directory
          * and it has a default ACL, also append that. */
@@ -1029,15 +1075,18 @@ bool FileProtocol::createUDSEntry(const QString &filename, const QByteArray &pat
     }
 #endif
 
-    if (details > 0) {
-        entry.fastInsert(KIO::UDSEntry::UDS_MODIFICATION_TIME, stat_mtime(buff));
-        entry.fastInsert(KIO::UDSEntry::UDS_ACCESS_TIME, stat_atime(buff));
+    if (details & KIO::User) {
 #ifndef Q_OS_WIN
         entry.fastInsert(KIO::UDSEntry::UDS_USER, getUserName(KUserId(stat_uid(buff))));
         entry.fastInsert(KIO::UDSEntry::UDS_GROUP, getGroupName(KGroupId(stat_gid(buff))));
 #else
 #pragma message("TODO: st_uid and st_gid are always zero, use GetSecurityInfo to find the owner")
 #endif
+    }
+
+    if (details & KIO::Time) {
+        entry.fastInsert(KIO::UDSEntry::UDS_MODIFICATION_TIME, stat_mtime(buff));
+        entry.fastInsert(KIO::UDSEntry::UDS_ACCESS_TIME, stat_atime(buff));
 
 #ifdef st_birthtime
         /* For example FreeBSD's and NetBSD's stat contains a field for

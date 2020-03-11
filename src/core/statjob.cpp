@@ -32,13 +32,13 @@ class KIO::StatJobPrivate: public SimpleJobPrivate
 {
 public:
     inline StatJobPrivate(const QUrl &url, int command, const QByteArray &packedArgs)
-        : SimpleJobPrivate(url, command, packedArgs), m_bSource(true), m_details(2)
+        : SimpleJobPrivate(url, command, packedArgs), m_bSource(true), m_details(KIO::StatDefaultDetails)
     {}
 
     UDSEntry m_statResult;
     QUrl m_redirectionURL;
     bool m_bSource;
-    short int m_details;
+    KIO::StatDetails m_details;
     void slotStatEntry(const KIO::UDSEntry &entry);
     void slotRedirection(const QUrl &url);
 
@@ -84,10 +84,38 @@ void StatJob::setSide(StatSide side)
     d_func()->m_bSource = side == SourceSide;
 }
 
-void StatJob::setDetails(short int details)
+void StatJob::setDetails(KIO::StatDetails details)
 {
     d_func()->m_details = details;
 }
+
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 69)
+void StatJob::setDetails(short int details)
+{
+    // for backward compatibility
+    d_func()->m_details = detailsToStatDetails(details);
+}
+
+void StatJob::setDetails(KIO::StatDetail detail)
+{
+    d_func()->m_details = detail;
+}
+
+KIO::StatDetails KIO::detailsToStatDetails(int details)
+{
+    KIO::StatDetails detailsFlag = KIO::StatDetail::Basic;
+    if (details > 0) {
+        detailsFlag |= KIO::StatDetail::User | KIO::StatDetail::Time;
+    }
+    if (details > 1) {
+         detailsFlag |= KIO::StatDetail::ResolveSymlink | KIO::StatDetail::Acl;
+    }
+    if (details > 2) {
+        detailsFlag |= KIO::StatDetail::Inode;
+    }
+    return detailsFlag;
+}
+#endif
 
 const UDSEntry &StatJob::statResult() const
 {
@@ -110,7 +138,7 @@ void StatJobPrivate::start(Slave *slave)
 {
     Q_Q(StatJob);
     m_outgoingMetaData.insert(QStringLiteral("statSide"), m_bSource ? QStringLiteral("source") : QStringLiteral("dest"));
-    m_outgoingMetaData.insert(QStringLiteral("details"), QString::number(m_details));
+    m_outgoingMetaData.insert(QStringLiteral("statDetails"), QString::number(m_details));
 
     q->connect(slave, SIGNAL(statEntry(KIO::UDSEntry)),
                SLOT(slotStatEntry(KIO::UDSEntry)));
@@ -176,12 +204,12 @@ void StatJob::slotMetaData(const KIO::MetaData &_metaData)
 StatJob *KIO::stat(const QUrl &url, JobFlags flags)
 {
     // Assume sideIsSource. Gets are more common than puts.
-    return stat(url, StatJob::SourceSide, 2, flags);
+    return statDetails(url, StatJob::SourceSide, KIO::StatDefaultDetails, flags);
 }
 
 StatJob *KIO::mostLocalUrl(const QUrl &url, JobFlags flags)
 {
-    StatJob *job = stat(url, StatJob::SourceSide, 2, flags);
+    StatJob *job = statDetails(url, StatJob::SourceSide, KIO::StatDefaultDetails, flags);
     if (url.isLocalFile()) {
         QTimer::singleShot(0, job, &StatJob::slotFinished);
         Scheduler::cancelJob(job); // deletes the slave if not 0
@@ -195,6 +223,17 @@ StatJob *KIO::stat(const QUrl &url, bool sideIsSource, short int details, JobFla
     KIO_ARGS << url;
     StatJob *job = StatJobPrivate::newJob(url, CMD_STAT, packedArgs, flags);
     job->setSide(sideIsSource ? StatJob::SourceSide : StatJob::DestinationSide);
+    job->setDetails(details);
+    return job;
+}
+
+StatJob *KIO::statDetails(const QUrl &url, KIO::StatJob::StatSide side, KIO::StatDetails details, JobFlags flags)
+{
+    // TODO KF6: rename to stat
+    //qCDebug(KIO_CORE) << "stat" << url;
+    KIO_ARGS << url;
+    StatJob *job = StatJobPrivate::newJob(url, CMD_STAT, packedArgs, flags);
+    job->setSide(side);
     job->setDetails(details);
     return job;
 }

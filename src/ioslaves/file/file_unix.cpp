@@ -48,6 +48,7 @@
 #include <KRandom>
 
 #include "fdreceiver.h"
+#include "statjob.h"
 
 //sendfile has different semantics in different platforms
 #if HAVE_SENDFILE && defined Q_OS_LINUX
@@ -603,8 +604,7 @@ void FileProtocol::listDir(const QUrl &url)
         return;
     }
 
-    const QString sDetails = metaData(QStringLiteral("details"));
-    const int details = sDetails.isEmpty() ? 2 : sDetails.toInt();
+    const KIO::StatDetails details = getStatDetails();
     //qDebug() << "========= LIST " << url << "details=" << details << " =========";
     UDSEntry entry;
 
@@ -627,7 +627,7 @@ void FileProtocol::listDir(const QUrl &url)
          * for every entry thus becoming slower.
          *
          */
-        if (details == 0) {
+        if (details == KIO::Basic) {
             entry.fastInsert(KIO::UDSEntry::UDS_NAME, filename);
 #ifdef HAVE_DIRENT_D_TYPE
             entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE,
@@ -892,6 +892,25 @@ void FileProtocol::chown(const QUrl &url, const QString &owner, const QString &g
     }
 }
 
+KIO::StatDetails FileProtocol::getStatDetails()
+{
+    // takes care of converting old metadata details to new StatDetails
+    // TODO KF6 : remove legacy "details" code path
+    KIO::StatDetails details;
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 69)
+    if (hasMetaData(QStringLiteral("statDetails"))) {
+#endif
+        const QString statDetails = metaData(QStringLiteral("statDetails"));
+        details = statDetails.isEmpty() ? KIO::StatDefaultDetails : static_cast<KIO::StatDetails>(statDetails.toInt());
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 69)
+    } else {
+        const QString sDetails = metaData(QStringLiteral("details"));
+        details = sDetails.isEmpty() ? KIO::StatDefaultDetails : KIO::detailsToStatDetails(sDetails.toInt());
+    }
+#endif
+    return details;
+}
+
 void FileProtocol::stat(const QUrl &url)
 {
     if (!isLocalFileSameHost(url)) {
@@ -908,8 +927,8 @@ void FileProtocol::stat(const QUrl &url)
      */
     const QString path(url.adjusted(QUrl::StripTrailingSlash).toLocalFile());
     const QByteArray _path(QFile::encodeName(path));
-    const QString sDetails = metaData(QStringLiteral("details"));
-    const int details = sDetails.isEmpty() ? 2 : sDetails.toInt();
+
+    const KIO::StatDetails details = getStatDetails();
 
     UDSEntry entry;
     if (!createUDSEntry(url.fileName(), _path, entry, details)) {

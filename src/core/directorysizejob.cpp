@@ -17,6 +17,7 @@
     Boston, MA 02110-1301, USA.
 */
 
+#include "global.h"
 #include "directorysizejob.h"
 #include "listjob.h"
 #include <kio/jobuidelegatefactory.h>
@@ -110,6 +111,7 @@ void DirectorySizeJobPrivate::processNextItem()
     Q_Q(DirectorySizeJob);
     while (m_currentItem < m_lstItems.count()) {
         const KFileItem item = m_lstItems[m_currentItem++];
+        // qDebug() << item;
         if (!item.isLink()) {
             if (item.isDir()) {
                 //qDebug() << "dir -> listing";
@@ -133,7 +135,12 @@ void DirectorySizeJobPrivate::startNextJob(const QUrl &url)
     Q_Q(DirectorySizeJob);
     //qDebug() << url;
     KIO::ListJob *listJob = KIO::listRecursive(url, KIO::HideProgressInfo);
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 69)
+    // TODO KF6: remove legacy details code path
     listJob->addMetaData(QStringLiteral("details"), QStringLiteral("3"));
+#endif
+    listJob->addMetaData(QStringLiteral("statDetails"),
+                         QString::number(KIO::StatDetail::Basic | KIO::StatDetail::ResolveSymlink | KIO::StatDetail::Inode));
     q->connect(listJob, SIGNAL(entries(KIO::Job*,KIO::UDSEntryList)),
                SLOT(slotEntries(KIO::Job*,KIO::UDSEntryList)));
     q->addSubjob(listJob);
@@ -146,6 +153,7 @@ void DirectorySizeJobPrivate::slotEntries(KIO::Job *, const KIO::UDSEntryList &l
     for (; it != end; ++it) {
 
         const KIO::UDSEntry &entry = *it;
+
         const long device = entry.numberValue(KIO::UDSEntry::UDS_DEVICE_ID, 0);
         if (device) {
             // Hard-link detection (#67939)

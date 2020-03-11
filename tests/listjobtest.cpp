@@ -41,7 +41,7 @@ int main(int argc, char **argv)
 
         KIO::ListJob *job = KIO::listDir(url, KIO::HideProgressInfo);
         job->setUiDelegate(nullptr);
-        job->addMetaData(QStringLiteral("details"), QStringLiteral("2")); // Default is 2 which means all details. 0 means just a few essential fields (KIO::UDSEntry::UDS_NAME, KIO::UDSEntry::UDS_FILE_TYPE and KIO::UDSEntry::UDS_LINK_DEST if it is a symbolic link. Not provided otherwise.
+        job->addMetaData(QStringLiteral("statDetails"), QString::number(KIO::StatDefaultDetails));
 
         QObject::connect(job, &KIO::ListJob::entries,
                          [&entriesListed] (KIO::Job*, const KIO::UDSEntryList &entries) {
