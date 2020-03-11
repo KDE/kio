@@ -35,6 +35,7 @@ private Q_SLOTS:
     void testProcessDesktopExec();
     void testProcessDesktopExecNoFile_data();
     void testProcessDesktopExecNoFile();
+    void testKtelnetservice();
 
     void testMimeTypeFile();
     void testMimeTypeDirectory();

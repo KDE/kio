@@ -347,6 +347,9 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
     } else if (!appSupportedProtocols.contains(QLatin1String("KIO"))) {
         for (int i = 0; i < d->urls.count(); ++i)  {
             const QUrl url = d->urls.at(i);
+            if (hasSchemeHandler(url)) {
+                break;
+            }
             const bool supported = isProtocolInSupportedList(url, appSupportedProtocols);
             // NOTE: Some non-KIO apps may support the URLs (e.g. VLC supports smb://)
             // but will not have the password if they are not in the URL itself.

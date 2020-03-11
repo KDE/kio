@@ -233,6 +233,31 @@ void KRunUnitTest::testProcessDesktopExecNoFile()
     QCOMPARE(KShell::joinArgs(parser.resultingArguments()), expected);
 }
 
+void KRunUnitTest::testKtelnetservice()
+{
+    const QString ktelnetDesk = QFINDTESTDATA(QStringLiteral("../src/ioslaves/telnet/ktelnetservice5.desktop"));
+    QVERIFY(!ktelnetDesk.isEmpty());
+
+    QString ktelnetExec = QStandardPaths::findExecutable(QStringLiteral("ktelnetservice5"));
+
+    const KService service(ktelnetDesk);
+
+    // if KIO is installed we'll find <bindir>/ktelnetservice5, otherwise KIO::DesktopExecParser will
+    // use the executable from Exec= line
+    if (ktelnetExec.isEmpty()) {
+        ktelnetExec = service.exec().remove(QLatin1String(" %u"));
+    }
+    QVERIFY(!ktelnetExec.isEmpty());
+
+    const QStringList protocols({QStringLiteral("ssh"), QStringLiteral("telnet"), QStringLiteral("rlogin")});
+    for (const QString &protocol : protocols) {
+        QList<QUrl> urls({QUrl(QStringLiteral("%1://root@10.1.1.1").arg(protocol))});
+        KIO::DesktopExecParser parser(service, urls);
+        QCOMPARE(KShell::joinArgs(parser.resultingArguments()),
+                 QStringLiteral("%1 %2://root@10.1.1.1").arg(ktelnetExec, protocol));
+    }
+}
+
 class KRunImpl : public KRun
 {
 public:
