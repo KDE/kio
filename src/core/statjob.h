@@ -200,7 +200,7 @@ KIOCORE_EXPORT StatJob *stat(const QUrl &url, JobFlags flags = DefaultFlags);
 KIOCORE_EXPORT StatJob *statDetails(const QUrl &url, KIO::StatJob::StatSide side,
                              KIO::StatDetails details = KIO::StatDetail::StatDefaultDetails, JobFlags flags = DefaultFlags);
 
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 68)
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 69)
 /**
  * Find all details for one file or directory.
  * This version of the call includes two additional booleans, @p sideIsSource and @p details.
