@@ -987,7 +987,8 @@ bool FileProtocol::createUDSEntry(const QString &filename, const QByteArray &pat
 
         if ((stat_mode(buff) & QT_STAT_MASK) == QT_STAT_LNK) {
 
-            if (details & KIO::Basic) {
+            QByteArray linkTargetBuffer;
+            if (details & (KIO::Basic|KIO::ResolveSymlink)) {
 #ifdef Q_OS_WIN
             const QString linkTarget = QFile::symLinkTarget(QFile::decodeName(path));
 #else
@@ -1009,7 +1010,6 @@ bool FileProtocol::createUDSEntry(const QString &filename, const QByteArray &pat
                     using SizeType = off_t;
                 #endif
                 SizeType bufferSize = qBound(lowerBound, size +1, higherBound);
-                QByteArray linkTargetBuffer;
                 linkTargetBuffer.resize(bufferSize);
                 while (true) {
                     ssize_t n = readlink(path.constData(), linkTargetBuffer.data(), bufferSize);
