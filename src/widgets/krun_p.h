@@ -123,7 +123,7 @@ public:
     static bool displayNativeOpenWithDialog(const QList<QUrl> &lst, QWidget *window, bool tempFiles,
                                             const QString &suggestedFileName, const QByteArray &asn);
 #endif
-    bool runExecutable(const QString &_exec);
+    bool runExternalBrowser(const QString &_exec);
 
     void showPrompt();
     /**

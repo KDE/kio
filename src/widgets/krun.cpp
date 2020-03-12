@@ -849,7 +849,7 @@ void KRun::init()
     }
 
     if (!d->m_externalBrowser.isEmpty() && d->m_strURL.scheme().startsWith(QLatin1String("http"))) {
-        if (d->runExecutable(d->m_externalBrowser)) {
+        if (d->runExternalBrowser(d->m_externalBrowser)) {
             return;
         }
     } else if (d->m_strURL.isLocalFile() &&
@@ -958,21 +958,21 @@ KRun::~KRun()
     delete d;
 }
 
-bool KRun::KRunPrivate::runExecutable(const QString &_exec)
+bool KRun::KRunPrivate::runExternalBrowser(const QString &_exec)
 {
     QList<QUrl> urls;
     urls.append(m_strURL);
     if (_exec.startsWith(QLatin1Char('!'))) {
         // Literal command
         const QString exec = _exec.midRef(1) + QLatin1String(" %u");
-        if (q->run(exec, urls, m_window, QString(), QString(), m_asn)) {
+        if (KRun::run(exec, urls, m_window, QString(), QString(), m_asn)) {
             m_bFinished = true;
             startTimer();
             return true;
         }
     } else {
         KService::Ptr service = KService::serviceByStorageId(_exec);
-        if (service && q->runApplication(*service, urls, m_window, RunFlags{}, QString(), m_asn)) {
+        if (service && KRun::runApplication(*service, urls, m_window, RunFlags{}, QString(), m_asn)) {
             m_bFinished = true;
             startTimer();
             return true;
