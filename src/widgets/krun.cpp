@@ -1561,7 +1561,6 @@ KProcessRunner::KProcessRunner(const QString &cmd, const QString &execName, cons
     init(service, bin,
          execName /*user-visible name*/,
          iconName, windowId, asn);
-
 }
 
 void KProcessRunner::init(const KService::Ptr &service, const QString &bin, const QString &userVisibleName, const QString &iconName, WId windowId, const QByteArray &asn)
@@ -1673,6 +1672,7 @@ void KProcessRunner::terminateStartupNotification()
 
 void KProcessRunner::emitDelayedError(const QString &errorMsg)
 {
+    terminateStartupNotification();
     // Use delayed invocation so the caller has time to connect to the signal
     QMetaObject::invokeMethod(this, [this, errorMsg]() {
         emit error(errorMsg);
