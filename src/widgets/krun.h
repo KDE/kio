@@ -215,7 +215,7 @@ public:
      * @deprecated since 5.6, use runApplication instead. No change needed on the application side,
      * the only difference is the return value (qint64 instead of bool).
      */
-    KIOWIDGETS_DEPRECATED_VERSION(5, 6, "Use KRun::runApplication(const KService &, const QList<QUrl> &, QWidget *,                                  RunFlags, const QString &, const QByteArray &")
+    KIOWIDGETS_DEPRECATED_VERSION(5, 6, "Use KRun::runApplication(const KService &, const QList<QUrl> &, QWidget *, RunFlags, const QString &, const QByteArray &")
     static bool run(const KService &service, const QList<QUrl> &urls, QWidget *window,
                     bool tempFiles = false, const QString &suggestedFileName = QString(),
                     const QByteArray &asn = QByteArray());
