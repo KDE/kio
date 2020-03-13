@@ -142,11 +142,12 @@ void KIOExec::slotResult(KJob *job)
         if (job->error()) {
             // That error dialog would be queued, i.e. not immediate...
             //job->showErrorDialog();
-            if ((job->error() != KIO::ERR_USER_CANCELED))
+            if (job->error() != KIO::ERR_USER_CANCELED) {
                 KMessageBox::error(nullptr, job->errorString());
+            }
 
             auto it = std::find_if(fileList.begin(), fileList.end(),
-                                   [&path](const FileInfo &i) { return (i.path == path); });
+                                   [&path](const FileInfo &i) { return i.path == path; });
             if (it != fileList.end()) {
                 fileList.erase(it);
             } else {
@@ -252,11 +253,12 @@ void KIOExec::slotRunApp()
             }
         }
 
-        if ((uploadChanges || mTempFiles) && exit_code == 0) {            // Wait for a reasonable time so that even if the application forks on startup (like OOo or amarok)
+        if ((uploadChanges || mTempFiles) && exit_code == 0) {
+            // Wait for a reasonable time so that even if the application forks on startup (like OOo or amarok)
             // it will have time to start up and read the file before it gets deleted. #130709.
             const int sleepSecs = 180;
             qDebug() << "sleeping for" << sleepSecs << "seconds before deleting file...";
-            QThread::currentThread()->sleep(sleepSecs);
+            QThread::sleep(sleepSecs);
             const QString parentDir = info.path();
             qDebug() << sleepSecs << "seconds have passed, deleting" << info.filePath();
             QFile(src).remove();
