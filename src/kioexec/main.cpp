@@ -123,7 +123,8 @@ KIOExec::KIOExec(const QStringList &args, bool tempFiles, const QString &suggest
     }
 
     if (mTempFiles) {
-        slotRunApp();
+        // delay call so QApplication::exit passes the exit code to exec()
+        QTimer::singleShot(0, this, &KIOExec::slotRunApp);
         return;
     }
 
