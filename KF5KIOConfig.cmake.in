@@ -17,6 +17,7 @@ find_dependency(KF5ItemViews "@KF5_DEP_VERSION@")
 find_dependency(KF5JobWidgets "@KF5_DEP_VERSION@")
 find_dependency(KF5Solid "@KF5_DEP_VERSION@")
 find_dependency(KF5XmlGui "@KF5_DEP_VERSION@")
+find_dependency(KF5WindowSystem "@KF5_DEP_VERSION@")
 endif()
 
 find_dependency(Qt5Network "@REQUIRED_QT_VERSION@")

@@ -41,10 +41,6 @@
 #include <QDesktopWidget>
 #include <qmimedatabase.h>
 #include <QDebug>
-#include <QDBusConnection>
-#include <QDBusConnectionInterface>
-#include <QDBusInterface>
-#include <QDBusReply>
 #include <QHostInfo>
 #include <QDesktopServices>
 #include <QScreen>
@@ -59,6 +55,8 @@
 #include "krecentdocument.h"
 #include "kdesktopfileactions.h"
 #include <kio/desktopexecparser.h>
+#include "kprocessrunner_p.h"
+#include "processlauncherjob.h"
 
 #include <kurlauthorized.h>
 #include <kmessagebox.h>
@@ -115,7 +113,22 @@ static qint64 runProcessRunner(KProcessRunner *processRunner, QWidget *widget)
         QEventLoopLocker locker;
         KMessageBox::sorry(widget, errorString);
     });
+    processRunner->waitForStarted();
     return processRunner->pid();
+}
+
+static qint64 runProcessLauncherJob(KIO::ProcessLauncherJob *job, QWidget *widget)
+{
+    QObject *receiver = widget ? static_cast<QObject *>(widget) : static_cast<QObject *>(qApp);
+    QObject::connect(job, &KJob::result, receiver, [widget](KJob *job) {
+        if (job->error()) {
+            QEventLoopLocker locker;
+            KMessageBox::sorry(widget, job->errorString());
+        }
+    });
+    job->start();
+    job->waitForStarted();
+    return job->pid();
 }
 
 // ---------------------------------------------------------------------------
@@ -474,77 +487,11 @@ QString KRun::binaryName(const QString &execLine, bool removePath)
 }
 
 // This code is also used in klauncher.
-// TODO: move this to KProcessRunner
+// TODO: port klauncher to KIOGuiPrivate::checkStartupNotify once this lands
+// TODO: then deprecate this method, and remove in KF6
 bool KRun::checkStartupNotify(const QString & /*binName*/, const KService *service, bool *silent_arg, QByteArray *wmclass_arg)
 {
-    bool silent = false;
-    QByteArray wmclass;
-    if (service && service->property(QStringLiteral("StartupNotify")).isValid()) {
-        silent = !service->property(QStringLiteral("StartupNotify")).toBool();
-        wmclass = service->property(QStringLiteral("StartupWMClass")).toString().toLatin1();
-    } else if (service && service->property(QStringLiteral("X-KDE-StartupNotify")).isValid()) {
-        silent = !service->property(QStringLiteral("X-KDE-StartupNotify")).toBool();
-        wmclass = service->property(QStringLiteral("X-KDE-WMClass")).toString().toLatin1();
-    } else { // non-compliant app
-        if (service) {
-            if (service->isApplication()) { // doesn't have .desktop entries needed, start as non-compliant
-                wmclass = "0"; // krazy:exclude=doublequote_chars
-            } else {
-                return false; // no startup notification at all
-            }
-        } else {
-#if 0
-            // Create startup notification even for apps for which there shouldn't be any,
-            // just without any visual feedback. This will ensure they'll be positioned on the proper
-            // virtual desktop, and will get user timestamp from the ASN ID.
-            wmclass = '0';
-            silent = true;
-#else   // That unfortunately doesn't work, when the launched non-compliant application
-            // launches another one that is compliant and there is any delay inbetween (bnc:#343359)
-            return false;
-#endif
-        }
-    }
-    if (silent_arg) {
-        *silent_arg = silent;
-    }
-    if (wmclass_arg) {
-        *wmclass_arg = wmclass;
-    }
-    return true;
-}
-
-static qint64 runApplicationImpl(const KService::Ptr &service, const QList<QUrl> &_urls, QWidget *window,
-                                 KRun::RunFlags flags, const QString &suggestedFileName, const QByteArray &asn)
-{
-    QList<QUrl> urlsToRun = _urls;
-    if ((_urls.count() > 1) && !service->allowMultipleFiles()) {
-        // We need to launch the application N times. That sucks.
-        // We ignore the result for application 2 to N.
-        // For the first file we launch the application in the
-        // usual way. The reported result is based on this
-        // application.
-        QList<QUrl>::ConstIterator it = _urls.begin();
-        while (++it != _urls.end()) {
-            QList<QUrl> singleUrl;
-            singleUrl.append(*it);
-            runApplicationImpl(service, singleUrl, window, flags, suggestedFileName, QByteArray());
-        }
-        urlsToRun.clear();
-        urlsToRun.append(_urls.first());
-    }
-    // QTBUG-59017 Calling winId() on an embedded widget will break interaction
-    // with it on high-dpi multi-screen setups (cf. also Bug 363548), hence using
-    // its parent window instead
-    auto windowId = WId{};
-    if (window) {
-        window = window->window();
-        windowId = window ? window->winId() : WId{};
-    }
-
-    auto *processRunner = new KProcessRunner(service, urlsToRun,
-                                             windowId, flags, suggestedFileName, asn);
-    return runProcessRunner(processRunner, window);
+    return KIOGuiPrivate::checkStartupNotify(service, silent_arg, wmclass_arg);
 }
 
 // WARNING: don't call this from DesktopExecParser, since klauncher uses that too...
@@ -712,15 +659,24 @@ qint64 KRun::runApplication(const KService &service, const QList<QUrl> &urls, QW
         return 0;
     }
 
-    if (!flags.testFlag(DeleteTemporaryFiles)) {
-        // Remember we opened those urls, for the "recent documents" menu in kicker
-        for (const QUrl &url : urls) {
-            KRecentDocument::add(url, service.desktopEntryName());
-        }
+    KService::Ptr servicePtr(new KService(service)); // clone
+    // QTBUG-59017 Calling winId() on an embedded widget will break interaction
+    // with it on high-dpi multi-screen setups (cf. also Bug 363548), hence using
+    // its parent window instead
+    auto windowId = WId{};
+    if (window) {
+        window = window->window();
+        windowId = window ? window->winId() : WId{};
     }
 
-    KService::Ptr servicePtr(new KService(service)); // clone
-    return runApplicationImpl(servicePtr, urls, window, flags, suggestedFileName, asn);
+    KIO::ProcessLauncherJob *job = new KIO::ProcessLauncherJob(servicePtr, windowId);
+    job->setUrls(urls);
+    if (flags & DeleteTemporaryFiles) {
+        job->setRunFlags(KIO::ProcessLauncherJob::DeleteTemporaryFiles);
+    }
+    job->setSuggestedFileName(suggestedFileName);
+    job->setStartupId(asn);
+    return runProcessLauncherJob(job, window);
 }
 
 qint64 KRun::runService(const KService &_service, const QList<QUrl> &_urls, QWidget *window,
@@ -1487,224 +1443,6 @@ bool KRun::initializeNextAction() const
 bool KRun::isLocalFile() const
 {
     return d->m_strURL.isLocalFile();
-}
-
-/****************/
-
-KProcessRunner::KProcessRunner(const KService::Ptr &service, const QList<QUrl> &urls, WId windowId,
-                               KRun::RunFlags flags, const QString &suggestedFileName, const QByteArray &asn)
-    : m_process{new KProcess},
-      m_executable(KIO::DesktopExecParser::executablePath(service->exec()))
-{
-    KIO::DesktopExecParser execParser(*service, urls);
-    execParser.setUrlsAreTempFiles(flags & KRun::DeleteTemporaryFiles);
-    execParser.setSuggestedFileName(suggestedFileName);
-    const QStringList args = execParser.resultingArguments();
-    if (args.isEmpty()) {
-        emitDelayedError(i18n("Error processing Exec field in %1", service->entryPath()));
-        return;
-    }
-    //qDebug() << "runTempService: KProcess args=" << args;
-    *m_process << args;
-
-    enum DiscreteGpuCheck { NotChecked, Present, Absent };
-    static DiscreteGpuCheck s_gpuCheck = NotChecked;
-
-    if (service->runOnDiscreteGpu() && s_gpuCheck == NotChecked) {
-        // Check whether we have a discrete gpu
-        bool hasDiscreteGpu = false;
-        QDBusInterface iface(QStringLiteral("org.kde.Solid.PowerManagement"),
-                             QStringLiteral("/org/kde/Solid/PowerManagement"),
-                             QStringLiteral("org.kde.Solid.PowerManagement"),
-                             QDBusConnection::sessionBus());
-        if (iface.isValid()) {
-            QDBusReply<bool> reply = iface.call(QStringLiteral("hasDualGpu"));
-            if (reply.isValid()) {
-                hasDiscreteGpu = reply.value();
-            }
-        }
-
-        s_gpuCheck = hasDiscreteGpu ? Present : Absent;
-    }
-
-    if (service->runOnDiscreteGpu() && s_gpuCheck == Present) {
-        m_process->setEnv(QStringLiteral("DRI_PRIME"), QStringLiteral("1"));
-    }
-
-    QString workingDir(service->workingDirectory());
-    if (workingDir.isEmpty() && !urls.isEmpty() && urls.first().isLocalFile()) {
-        workingDir = urls.first().adjusted(QUrl::RemoveFilename).toLocalFile();
-    }
-    m_process->setWorkingDirectory(workingDir);
-
-    if ((flags & KRun::DeleteTemporaryFiles) == 0) {
-        // Remember we opened those urls, for the "recent documents" menu in kicker
-        for (const QUrl &url : urls) {
-            KRecentDocument::add(url, service->desktopEntryName());
-        }
-    }
-
-    const QString bin = KIO::DesktopExecParser::executableName(m_executable);
-    init(service, bin, service->name(), service->icon(), windowId, asn);
-}
-
-KProcessRunner::KProcessRunner(const QString &cmd, const QString &execName, const QString &iconName, WId windowId, const QByteArray &asn, const QString &workingDirectory)
-    : m_process{new KProcess},
-      m_executable(execName)
-{
-    m_process->setShellCommand(cmd);
-    if (!workingDirectory.isEmpty()) {
-        m_process->setWorkingDirectory(workingDirectory);
-    }
-    QString bin = KIO::DesktopExecParser::executableName(m_executable);
-    KService::Ptr service = KService::serviceByDesktopName(bin);
-    init(service, bin,
-         execName /*user-visible name*/,
-         iconName, windowId, asn);
-}
-
-void KProcessRunner::init(const KService::Ptr &service, const QString &bin, const QString &userVisibleName, const QString &iconName, WId windowId, const QByteArray &asn)
-{
-    if (service && !service->entryPath().isEmpty()
-            && !KDesktopFile::isAuthorizedDesktopFile(service->entryPath())) {
-        qCWarning(KIO_WIDGETS) << "No authorization to execute " << service->entryPath();
-        emitDelayedError(i18n("You are not authorized to execute this file."));
-        return;
-    }
-
-#if HAVE_X11
-    static bool isX11 = QGuiApplication::platformName() == QLatin1String("xcb");
-    if (isX11) {
-        bool silent;
-        QByteArray wmclass;
-        const bool startup_notify = (asn != "0" && KRun::checkStartupNotify(QString() /*unused*/, service.data(), &silent, &wmclass));
-        if (startup_notify) {
-            m_startupId.initId(asn);
-            m_startupId.setupStartupEnv();
-            KStartupInfoData data;
-            data.setHostname();
-            data.setBin(bin);
-            if (!userVisibleName.isEmpty()) {
-                data.setName(userVisibleName);
-            } else if (service && !service->name().isEmpty()) {
-                data.setName(service->name());
-            }
-            data.setDescription(i18n("Launching %1", data.name()));
-            if (!iconName.isEmpty()) {
-                data.setIcon(iconName);
-            } else if (service && !service->icon().isEmpty()) {
-                data.setIcon(service->icon());
-            }
-            if (!wmclass.isEmpty()) {
-                data.setWMClass(wmclass);
-            }
-            if (silent) {
-                data.setSilent(KStartupInfoData::Yes);
-            }
-            data.setDesktop(KWindowSystem::currentDesktop());
-            if (windowId) {
-                data.setLaunchedBy(windowId);
-            }
-            if (service && !service->entryPath().isEmpty()) {
-                data.setApplicationId(service->entryPath());
-            }
-            KStartupInfo::sendStartup(m_startupId, data);
-        }
-    }
-#else
-    Q_UNUSED(bin);
-    Q_UNUSED(userVisibleName);
-    Q_UNUSED(iconName);
-#endif
-    startProcess();
-}
-
-void KProcessRunner::startProcess()
-{
-    connect(m_process.get(), QOverload<int,QProcess::ExitStatus>::of(&QProcess::finished),
-            this, &KProcessRunner::slotProcessExited);
-
-    m_process->start();
-    if (!m_process->waitForStarted()) {
-        //qDebug() << "wait for started failed, exitCode=" << process->exitCode()
-        //         << "exitStatus=" << process->exitStatus();
-        // Note that exitCode is 255 here (the first time), and 0 later on (bug?).
-
-        // Use delayed invocation so the caller has time to connect to the signal
-        QMetaObject::invokeMethod(this, [this]() {
-            slotProcessExited(255, m_process->exitStatus());
-        }, Qt::QueuedConnection);
-    } else {
-        m_pid = m_process->processId();
-
-#if HAVE_X11
-        if (!m_startupId.isNull() && m_pid) {
-            KStartupInfoData data;
-            data.addPid(m_pid);
-            KStartupInfo::sendChange(m_startupId, data);
-            KStartupInfo::resetStartupEnv();
-        }
-#endif
-    }
-}
-
-KProcessRunner::~KProcessRunner()
-{
-    // This destructor deletes m_process, since it's a unique_ptr.
-}
-
-qint64 KProcessRunner::pid() const
-{
-    return m_pid;
-}
-
-void KProcessRunner::terminateStartupNotification()
-{
-#if HAVE_X11
-    if (!m_startupId.isNull()) {
-        KStartupInfoData data;
-        data.addPid(m_pid); // announce this pid for the startup notification has finished
-        data.setHostname();
-        KStartupInfo::sendFinish(m_startupId, data);
-    }
-#endif
-}
-
-void KProcessRunner::emitDelayedError(const QString &errorMsg)
-{
-    terminateStartupNotification();
-    // Use delayed invocation so the caller has time to connect to the signal
-    QMetaObject::invokeMethod(this, [this, errorMsg]() {
-        emit error(errorMsg);
-        deleteLater();
-    }, Qt::QueuedConnection);
-}
-
-void
-KProcessRunner::slotProcessExited(int exitCode, QProcess::ExitStatus exitStatus)
-{
-    //qDebug() << m_executable << "exitCode=" << exitCode << "exitStatus=" << exitStatus;
-    Q_UNUSED(exitStatus)
-
-    terminateStartupNotification(); // do this before the messagebox
-
-    if (exitCode != 0 && !m_executable.isEmpty()) {
-        // Let's see if the error is because the exe doesn't exist.
-        // When this happens, waitForStarted returns false, but not if kioexec
-        // was involved, then we come here, that's why the code is here.
-        //
-        // We'll try to find the executable relatively to current directory,
-        // (or with a full path, if m_executable is absolute), and then in the PATH.
-        if (!QFile(m_executable).exists() && QStandardPaths::findExecutable(m_executable).isEmpty()) {
-            const QString &errorString = i18n("Could not find the program '%1'", m_executable);
-            qWarning() << errorString;
-            emit error(errorString);
-        } else {
-            //qDebug() << process->readAllStandardError();
-        }
-    }
-
-    deleteLater();
 }
 
 #include "moc_krun.cpp"

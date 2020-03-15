@@ -19,6 +19,8 @@
 
 // This file can only be included once in a given binary
 
+#include <QTest>
+#include <QDateTime>
 #include <QDebug>
 #include <qglobal.h>
 #include <qstandardpaths.h>

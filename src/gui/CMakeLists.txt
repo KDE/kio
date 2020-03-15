@@ -1,5 +1,17 @@
+configure_file(config-kiogui.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kiogui.h)
+
 set(kiogui_SRCS
    faviconrequestjob.cpp
+   processlauncherjob.cpp
+   kprocessrunner.cpp
+)
+
+ecm_qt_declare_logging_category(kiogui_SRCS
+    HEADER kiogui_debug.h
+    IDENTIFIER KIO_GUI
+    CATEGORY_NAME kf5.kio.gui
+    DESCRIPTION "KIOGui (KIO)"
+    EXPORT KIO
 )
 
 ecm_qt_declare_logging_category(kiogui_SRCS
@@ -19,6 +31,7 @@ target_include_directories(KF5KIOGui INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTAL
 target_link_libraries(KF5KIOGui
   PUBLIC
     KF5::KIOCore
+    KF5::WindowSystem
     Qt5::Gui
   PRIVATE
     KF5::I18n
@@ -33,6 +46,7 @@ set_target_properties(KF5KIOGui PROPERTIES VERSION ${KIO_VERSION_STRING}
 ecm_generate_headers(KIOGui_CamelCase_HEADERS
   HEADER_NAMES
   FavIconRequestJob
+  ProcessLauncherJob
 
   PREFIX KIO
   REQUIRED_HEADERS KIO_namespaced_gui_HEADERS
