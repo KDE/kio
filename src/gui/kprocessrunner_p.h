@@ -27,7 +27,6 @@
 #include <KProcess>
 
 #include <QObject>
-#include <qwindowdefs.h> // WId
 #include <memory>
 #include <KStartupInfo>
 
@@ -54,13 +53,12 @@ public:
      * Run a KService (application desktop file) to open @p urls.
      * @param service the service to run
      * @param urls the list of URLs, can be empty
-     * @param windowId the identifier of window of the app that invoked this class.
      * @param flags various flags
      * @param suggestedFileName see KRun::setSuggestedFileName
      * @param asn Application startup notification id, if any (otherwise "").
 
      */
-    KProcessRunner(const KService::Ptr &service, const QList<QUrl> &urls, WId windowId,
+    KProcessRunner(const KService::Ptr &service, const QList<QUrl> &urls,
                    KIO::ProcessLauncherJob::RunFlags flags = {}, const QString &suggestedFileName = {}, const QByteArray &asn = {});
 
     /**
@@ -69,14 +67,13 @@ public:
      * @param execName the name of the executable, if known. This improves startup notification,
      * as well as honoring various flags coming from the desktop file for this executable, if there's one.
      * @param iconName icon for the startup notification
-     * @param windowId the identifier of window of the app that invoked this class.
      * @param asn Application startup notification id, if any (otherwise "").
      * @param workingDirectory the working directory for the started process. The default
      *                         (if passing an empty string) is the user's document path.
      *                         This allows a command like "kwrite file.txt" to find file.txt from the right place.
      */
     KProcessRunner(const QString &cmd, const QString &execName, const QString &iconName,
-                   WId windowId, const QByteArray &asn = {}, const QString &workingDirectory = {});
+                   const QByteArray &asn = {}, const QString &workingDirectory = {});
 
     /**
      * @return the PID of the process that was started, on success
@@ -108,7 +105,7 @@ private Q_SLOTS:
 
 private:
     void init(const KService::Ptr &service, const QString &bin, const QString &userVisibleName,
-              const QString &iconName, WId windowId, const QByteArray &asn);
+              const QString &iconName, const QByteArray &asn);
     void startProcess();
     void terminateStartupNotification();
     void emitDelayedError(const QString &errorMsg);

@@ -97,7 +97,7 @@ void ProcessLauncherJobTest::startProcess()
 
     // When running a ProcessLauncherJob
     KService::Ptr servicePtr(new KService(path));
-    KIO::ProcessLauncherJob *job = new KIO::ProcessLauncherJob(servicePtr, WId{}, this);
+    KIO::ProcessLauncherJob *job = new KIO::ProcessLauncherJob(servicePtr, this);
     job->setUrls(urls);
     if (tempFile) {
         job->setRunFlags(KIO::ProcessLauncherJob::DeleteTemporaryFiles);
@@ -146,7 +146,7 @@ void ProcessLauncherJobTest::shouldFailOnNonExecutableDesktopFile()
     createSrcFile(srcFile);
     const QList<QUrl> urls{QUrl::fromLocalFile(srcFile)};
     KService::Ptr servicePtr(new KService(desktopFilePath));
-    KIO::ProcessLauncherJob *job = new KIO::ProcessLauncherJob(servicePtr, WId{}, this);
+    KIO::ProcessLauncherJob *job = new KIO::ProcessLauncherJob(servicePtr, this);
     job->setUrls(urls);
     QVERIFY(!job->exec());
     QCOMPARE(job->error(), KJob::UserDefinedError);
@@ -174,7 +174,7 @@ void ProcessLauncherJobTest::shouldFailOnNonExistingExecutable()
     file.sync();
 
     KService::Ptr servicePtr(new KService(desktopFilePath));
-    KIO::ProcessLauncherJob *job = new KIO::ProcessLauncherJob(servicePtr, WId{}, this);
+    KIO::ProcessLauncherJob *job = new KIO::ProcessLauncherJob(servicePtr, this);
     job->setUrls({QUrl::fromLocalFile(desktopFilePath)}); // just to have one URL as argument, as the desktop file expects
     if (tempFile) {
         job->setRunFlags(KIO::ProcessLauncherJob::DeleteTemporaryFiles);

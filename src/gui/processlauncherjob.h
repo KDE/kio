@@ -25,7 +25,6 @@
 #include "kiogui_export.h"
 #include <KJob>
 #include <KService>
-#include <qwindowdefs.h> // WId
 #include <QUrl>
 
 namespace KIO {
@@ -57,10 +56,9 @@ public:
     /**
      * @brief Creates a ProcessLauncherJob
      * @param service the service (application desktop file) to run
-     * @param windowId the identifier of the window requesting this. Used for KStartupInfo::setLaunchedBy. ### TODO: launchedBy is unused? Remove?
      * @param parent the parent QObject
      */
-    explicit ProcessLauncherJob(const KService::Ptr &service, WId windowId, QObject *parent = nullptr);
+    explicit ProcessLauncherJob(const KService::Ptr &service, QObject *parent = nullptr);
 
     /**
      * Destructor

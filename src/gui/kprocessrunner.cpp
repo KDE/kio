@@ -38,7 +38,7 @@
 
 static int s_instanceCount = 0; // for the unittest
 
-KProcessRunner::KProcessRunner(const KService::Ptr &service, const QList<QUrl> &urls, WId windowId,
+KProcessRunner::KProcessRunner(const KService::Ptr &service, const QList<QUrl> &urls,
                                KIO::ProcessLauncherJob::RunFlags flags, const QString &suggestedFileName, const QByteArray &asn)
     : m_process{new KProcess},
       m_executable(KIO::DesktopExecParser::executablePath(service->exec()))
@@ -102,10 +102,10 @@ KProcessRunner::KProcessRunner(const KService::Ptr &service, const QList<QUrl> &
     // m_executable can be a full shell command, so <bin> here is not 100% reliable.
     // E.g. it could be "cd", which isn't an existing binary. It's just a heuristic anyway.
     const QString bin = KIO::DesktopExecParser::executableName(m_executable);
-    init(service, bin, service->name(), service->icon(), windowId, asn);
+    init(service, bin, service->name(), service->icon(), asn);
 }
 
-KProcessRunner::KProcessRunner(const QString &cmd, const QString &execName, const QString &iconName, WId windowId, const QByteArray &asn, const QString &workingDirectory)
+KProcessRunner::KProcessRunner(const QString &cmd, const QString &execName, const QString &iconName, const QByteArray &asn, const QString &workingDirectory)
     : m_process{new KProcess},
       m_executable(execName)
 {
@@ -118,10 +118,10 @@ KProcessRunner::KProcessRunner(const QString &cmd, const QString &execName, cons
     KService::Ptr service = KService::serviceByDesktopName(bin);
     init(service, bin,
          execName /*user-visible name*/,
-         iconName, windowId, asn);
+         iconName, asn);
 }
 
-void KProcessRunner::init(const KService::Ptr &service, const QString &bin, const QString &userVisibleName, const QString &iconName, WId windowId, const QByteArray &asn)
+void KProcessRunner::init(const KService::Ptr &service, const QString &bin, const QString &userVisibleName, const QString &iconName, const QByteArray &asn)
 {
     if (service && !service->entryPath().isEmpty()
             && !KDesktopFile::isAuthorizedDesktopFile(service->entryPath())) {
@@ -160,9 +160,6 @@ void KProcessRunner::init(const KService::Ptr &service, const QString &bin, cons
                 data.setSilent(KStartupInfoData::Yes);
             }
             data.setDesktop(KWindowSystem::currentDesktop());
-            if (windowId) {
-                data.setLaunchedBy(windowId);
-            }
             if (service && !service->entryPath().isEmpty()) {
                 data.setApplicationId(service->entryPath());
             }

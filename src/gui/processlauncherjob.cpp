@@ -26,8 +26,8 @@
 class KIO::ProcessLauncherJobPrivate
 {
 public:
-    ProcessLauncherJobPrivate(const KService::Ptr &service, WId windowId)
-        : m_service(service), m_windowId(windowId) {}
+    ProcessLauncherJobPrivate(const KService::Ptr &service)
+        : m_service(service) {}
 
     void slotStarted(KIO::ProcessLauncherJob *q, KProcessRunner *processRunner) {
         m_pids.append(processRunner->pid());
@@ -36,7 +36,6 @@ public:
         }
     }
     const KService::Ptr m_service;
-    const WId m_windowId;
     QList<QUrl> m_urls;
     KIO::ProcessLauncherJob::RunFlags m_runFlags;
     QString m_suggestedFileName;
@@ -46,8 +45,8 @@ public:
     int m_numProcessesPending = 0;
 };
 
-KIO::ProcessLauncherJob::ProcessLauncherJob(const KService::Ptr &service, WId windowId, QObject *parent)
-    : KJob(parent), d(new ProcessLauncherJobPrivate(service, windowId))
+KIO::ProcessLauncherJob::ProcessLauncherJob(const KService::Ptr &service, QObject *parent)
+    : KJob(parent), d(new ProcessLauncherJobPrivate(service))
 {
 }
 
@@ -87,7 +86,7 @@ void KIO::ProcessLauncherJob::start()
         d->m_numProcessesPending = d->m_urls.count();
         d->m_processRunners.reserve(d->m_numProcessesPending);
         for (int i = 1; i < d->m_urls.count(); ++i) {
-            auto *processRunner = new KProcessRunner(d->m_service, { d->m_urls.at(i) }, d->m_windowId,
+            auto *processRunner = new KProcessRunner(d->m_service, { d->m_urls.at(i) },
                                                      d->m_runFlags, d->m_suggestedFileName, QByteArray());
             d->m_processRunners.push_back(processRunner);
             connect(processRunner, &KProcessRunner::processStarted, this, [this, processRunner]() {
@@ -99,7 +98,7 @@ void KIO::ProcessLauncherJob::start()
         d->m_numProcessesPending = 1;
     }
 
-    auto *processRunner = new KProcessRunner(d->m_service, d->m_urls, d->m_windowId,
+    auto *processRunner = new KProcessRunner(d->m_service, d->m_urls,
                                              d->m_runFlags, d->m_suggestedFileName, d->m_startupId);
     d->m_processRunners.push_back(processRunner);
     connect(processRunner, &KProcessRunner::error, this, [this](const QString &errorText) {

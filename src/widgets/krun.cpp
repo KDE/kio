@@ -663,13 +663,11 @@ qint64 KRun::runApplication(const KService &service, const QList<QUrl> &urls, QW
     // QTBUG-59017 Calling winId() on an embedded widget will break interaction
     // with it on high-dpi multi-screen setups (cf. also Bug 363548), hence using
     // its parent window instead
-    auto windowId = WId{};
     if (window) {
         window = window->window();
-        windowId = window ? window->winId() : WId{};
     }
 
-    KIO::ProcessLauncherJob *job = new KIO::ProcessLauncherJob(servicePtr, windowId);
+    KIO::ProcessLauncherJob *job = new KIO::ProcessLauncherJob(servicePtr);
     job->setUrls(urls);
     if (flags & DeleteTemporaryFiles) {
         job->setRunFlags(KIO::ProcessLauncherJob::DeleteTemporaryFiles);
@@ -728,13 +726,11 @@ bool KRun::runCommand(const QString &cmd, const QString &execName, const QString
     // QTBUG-59017 Calling winId() on an embedded widget will break interaction
     // with it on high-dpi multi-screen setups (cf. also Bug 363548), hence using
     // its parent window instead
-    auto windowId = WId{};
     if (window) {
         window = window->window();
-        windowId = window ? window->winId() : WId{};
     }
 
-    auto *processRunner = new KProcessRunner(cmd, execName, iconName, windowId, asn, workingDirectory);
+    auto *processRunner = new KProcessRunner(cmd, execName, iconName, asn, workingDirectory);
     return runProcessRunner(processRunner, window);
 }
 
