@@ -76,6 +76,7 @@ Keys=dictfr
 Query=https://www.cnrtl.fr/definition/\\{@}
 Query[ast]=https://www.cnrtl.fr/definition/\\{@}
 Query[ca]=https://www.cnrtl.fr/definition/\\{@}
+Query[cs]=https://www.cnrtl.fr/definition/\\{@}
 Query[de]=https://www.cnrtl.fr/definition/\\{@}
 Query[es]=https://www.cnrtl.fr/definition/\\{@}
 Query[et]=https://www.cnrtl.fr/definition/\\{@}
