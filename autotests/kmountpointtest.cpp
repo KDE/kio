@@ -122,7 +122,8 @@ void KMountPointTest::testPossibleMountPoints()
 
     QVERIFY(mountWithDevice);
 
-#ifdef Q_OS_UNIX
+    // BSD CI runs in a container without '/' in fstab, so skip this
+#if defined(Q_OS_UNIX) && !defined(Q_OS_FREEBSD)
     const KMountPoint::Ptr rootMountPoint = mountPoints.findByPath(QStringLiteral("/"));
     QVERIFY(rootMountPoint);
     QCOMPARE(rootMountPoint->mountPoint(), QStringLiteral("/"));
