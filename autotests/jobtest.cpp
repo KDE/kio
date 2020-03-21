@@ -1762,13 +1762,31 @@ void JobTest::moveDestAlreadyExistsAutoRename(const QString &destDir, bool moveD
     QVERIFY(QFile::exists(file3));
     QVERIFY(QFile::exists(file4));
 
-    QCOMPARE(spyRenamed.count(), 2);
+    QVERIFY(!spyRenamed.isEmpty());
+
     auto list = spyRenamed.takeFirst();
     QCOMPARE(list.at(1).toUrl(), QUrl::fromLocalFile(destDir + prefix + "(1)"));
     QCOMPARE(list.at(2).toUrl(), QUrl::fromLocalFile(file3));
-    list = spyRenamed.takeFirst();
-    QCOMPARE(list.at(1).toUrl(), QUrl::fromLocalFile(destDir + prefix + "(2)"));
-    QCOMPARE(list.at(2).toUrl(), QUrl::fromLocalFile(file4));
+
+    // Normally we'd see renamed(1, 3) and renamed(2, 4)
+    // But across partitions, direct rename fails, and we end up with a task list of
+    // 1->3, 2->3 since renaming 1 to 3 didn't happen yet.
+    // so renamed(2, 3) is emitted, as if the user had chosen that.
+    // And when that fails, we then get (3, 4)
+    if (spyRenamed.count() == 2) {
+        list = spyRenamed.takeFirst();
+        QCOMPARE(list.at(1).toUrl(), QUrl::fromLocalFile(destDir + prefix + "(2)"));
+        QCOMPARE(list.at(2).toUrl(), QUrl::fromLocalFile(file3));
+
+        list = spyRenamed.takeFirst();
+        QCOMPARE(list.at(1).toUrl(), QUrl::fromLocalFile(file3));
+        QCOMPARE(list.at(2).toUrl(), QUrl::fromLocalFile(file4));
+    } else {
+        QCOMPARE(spyRenamed.count(), 1);
+        list = spyRenamed.takeFirst();
+        QCOMPARE(list.at(1).toUrl(), QUrl::fromLocalFile(destDir + prefix + "(2)"));
+        QCOMPARE(list.at(2).toUrl(), QUrl::fromLocalFile(file4));
+    }
 
     if (moveDirs) {
         QDir().rmdir(file1);
