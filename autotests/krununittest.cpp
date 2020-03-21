@@ -32,9 +32,11 @@ QTEST_GUILESS_MAIN(KRunUnitTest)
 #include <desktopexecparser.h>
 #include <kshell.h>
 #include <kservice.h>
+#include <kmimetypetrader.h>
 #include <kconfiggroup.h>
 #include <ksharedconfig.h>
 #include <kprocess.h>
+#include <kprotocolinfo.h>
 #include <KDesktopFile>
 #include "kiotesthelper.h" // createTestFile etc.
 #ifdef Q_OS_UNIX
@@ -246,19 +248,25 @@ void KRunUnitTest::testKtelnetservice()
 
     QString ktelnetExec = QStandardPaths::findExecutable(QStringLiteral("ktelnetservice5"));
 
-    const KService service(ktelnetDesk);
+    KService::Ptr service = KService::serviceByStorageId(QStringLiteral("ktelnetservice5.desktop"));
+    QVERIFY(service);
 
     // if KIO is installed we'll find <bindir>/ktelnetservice5, otherwise KIO::DesktopExecParser will
     // use the executable from Exec= line
     if (ktelnetExec.isEmpty()) {
-        ktelnetExec = service.exec().remove(QLatin1String(" %u"));
+        ktelnetExec = service->exec().remove(QLatin1String(" %u"));
     }
     QVERIFY(!ktelnetExec.isEmpty());
 
     const QStringList protocols({QStringLiteral("ssh"), QStringLiteral("telnet"), QStringLiteral("rlogin")});
     for (const QString &protocol : protocols) {
-        QList<QUrl> urls({QUrl(QStringLiteral("%1://root@10.1.1.1").arg(protocol))});
-        KIO::DesktopExecParser parser(service, urls);
+        // Check that hasSchemeHandler will return true
+        QVERIFY(!KProtocolInfo::isKnownProtocol(protocol));
+        QVERIFY(!KProtocolInfo::isHelperProtocol(protocol));
+        QVERIFY(KMimeTypeTrader::self()->preferredService(QLatin1String("x-scheme-handler/") + protocol));
+
+        const QList<QUrl> urls({QUrl(QStringLiteral("%1://root@10.1.1.1").arg(protocol))});
+        KIO::DesktopExecParser parser(*service, urls);
         QCOMPARE(KShell::joinArgs(parser.resultingArguments()),
                  QStringLiteral("%1 %2://root@10.1.1.1").arg(ktelnetExec, protocol));
     }
