@@ -238,6 +238,12 @@ void KRunUnitTest::testKtelnetservice()
     const QString ktelnetDesk = QFINDTESTDATA(QStringLiteral("../src/ioslaves/telnet/ktelnetservice5.desktop"));
     QVERIFY(!ktelnetDesk.isEmpty());
 
+    // KMimeTypeTrader::self() in KIO::DesktopExecParser::hasSchemeHandler() needs the .desktop file to be installed
+    const QString destDir = QStandardPaths::writableLocation(QStandardPaths::ApplicationsLocation);
+    QVERIFY(QDir().mkpath(destDir));
+    QFile::remove(destDir + QLatin1String("/ktelnetservice5.desktop"));
+    QVERIFY(QFile::copy(ktelnetDesk, destDir + QLatin1String("/ktelnetservice5.desktop")));
+
     QString ktelnetExec = QStandardPaths::findExecutable(QStringLiteral("ktelnetservice5"));
 
     const KService service(ktelnetDesk);
