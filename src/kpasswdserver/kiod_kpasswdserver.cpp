@@ -27,4 +27,3 @@
 K_PLUGIN_CLASS_WITH_JSON(KPasswdServer, "kpasswdserver.json")
 
 #include "kiod_kpasswdserver.moc"
-

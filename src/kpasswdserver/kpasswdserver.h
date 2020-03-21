@@ -25,113 +25,122 @@
 #ifndef KPASSWDSERVER_H
 #define KPASSWDSERVER_H
 
+#include <QDBusContext>
+#include <QDBusMessage>
 #include <QHash>
 #include <QList>
 #include <QWidget>
-#include <QDBusContext>
-#include <QDBusMessage>
 
-#include <kio/authinfo.h>
 #include <kdedmodule.h>
+#include <kio/authinfo.h>
 
-namespace KWallet {
-    class Wallet;
+namespace KWallet
+{
+class Wallet;
 }
 
 class KPasswdServer : public KDEDModule, protected QDBusContext
 {
-  Q_OBJECT
+    Q_OBJECT
 
 public:
-  explicit KPasswdServer(QObject* parent, const QList<QVariant>& = QList<QVariant>());
-  ~KPasswdServer();
+    explicit KPasswdServer(QObject *parent, const QList<QVariant> & = QList<QVariant>());
+    ~KPasswdServer();
 
-  // Called by the unit test
-  void setWalletDisabled(bool d) { m_walletDisabled = d; }
+    // Called by the unit test
+    void setWalletDisabled(bool d)
+    {
+        m_walletDisabled = d;
+    }
 
 public Q_SLOTS:
-  qlonglong checkAuthInfoAsync(KIO::AuthInfo, qlonglong, qlonglong);
-  qlonglong queryAuthInfoAsync(const KIO::AuthInfo &, const QString &, qlonglong, qlonglong, qlonglong);
-  void addAuthInfo(const KIO::AuthInfo &, qlonglong);
-  void removeAuthInfo(const QString& host, const QString& protocol, const QString& user);
+    qlonglong checkAuthInfoAsync(KIO::AuthInfo, qlonglong, qlonglong);
+    qlonglong queryAuthInfoAsync(const KIO::AuthInfo &, const QString &, qlonglong, qlonglong, qlonglong);
+    void addAuthInfo(const KIO::AuthInfo &, qlonglong);
+    void removeAuthInfo(const QString &host, const QString &protocol, const QString &user);
 
-  // legacy methods provided for compatibility with old clients
-  QByteArray checkAuthInfo(const QByteArray &, qlonglong, qlonglong);
-  QByteArray queryAuthInfo(const QByteArray &, const QString &, qlonglong, qlonglong, qlonglong);
-  void addAuthInfo(const QByteArray &, qlonglong);
+    // legacy methods provided for compatibility with old clients
+    QByteArray checkAuthInfo(const QByteArray &, qlonglong, qlonglong);
+    QByteArray queryAuthInfo(const QByteArray &, const QString &, qlonglong, qlonglong, qlonglong);
+    void addAuthInfo(const QByteArray &, qlonglong);
 
-  void processRequest();
-  // Remove all authentication info associated with windowId
-  void removeAuthForWindowId(qlonglong windowId);
+    void processRequest();
+    // Remove all authentication info associated with windowId
+    void removeAuthForWindowId(qlonglong windowId);
 
 Q_SIGNALS:
-  void checkAuthInfoAsyncResult(qlonglong requestId, qlonglong seqNr, const KIO::AuthInfo &);
-  void queryAuthInfoAsyncResult(qlonglong requestId, qlonglong seqNr, const KIO::AuthInfo &);
+    void checkAuthInfoAsyncResult(qlonglong requestId, qlonglong seqNr, const KIO::AuthInfo &);
+    void queryAuthInfoAsyncResult(qlonglong requestId, qlonglong seqNr, const KIO::AuthInfo &);
 
 private Q_SLOTS:
-  void passwordDialogDone(int);
-  void retryDialogDone(int);
-  void windowRemoved(WId);
+    void passwordDialogDone(int);
+    void retryDialogDone(int);
+    void windowRemoved(WId);
 
 private:
-  struct AuthInfoContainer {
-      AuthInfoContainer() : expire( expNever ), seqNr( 0 ), isCanceled( false ) {}
+    struct AuthInfoContainer {
+        AuthInfoContainer()
+            : expire(expNever)
+            , seqNr(0)
+            , isCanceled(false)
+        {
+        }
 
-    KIO::AuthInfo info;
-    QString directory;
+        KIO::AuthInfo info;
+        QString directory;
 
-    enum { expNever, expWindowClose, expTime } expire;
-    QList<qlonglong> windowList;
-    qulonglong expireTime;
-    qlonglong seqNr;
+        enum { expNever, expWindowClose, expTime } expire;
+        QList<qlonglong> windowList;
+        qulonglong expireTime;
+        qlonglong seqNr;
 
-    bool isCanceled;
+        bool isCanceled;
 
-    struct Sorter {
-        bool operator() (AuthInfoContainer* n1, AuthInfoContainer* n2) const;
+        struct Sorter {
+            bool operator()(AuthInfoContainer *n1, AuthInfoContainer *n2) const;
+        };
     };
-  };
 
-  struct Request {
-     bool isAsync; // true for async requests
-     qlonglong requestId; // set for async requests only
-     QDBusMessage transaction; // set for sync requests only
-     QString key;
-     KIO::AuthInfo info;
-     QString errorMsg;
-     qlonglong windowId;
-     qlonglong seqNr;
-     bool prompt;
-  };
+    struct Request {
+        bool isAsync;             // true for async requests
+        qlonglong requestId;      // set for async requests only
+        QDBusMessage transaction; // set for sync requests only
+        QString key;
+        KIO::AuthInfo info;
+        QString errorMsg;
+        qlonglong windowId;
+        qlonglong seqNr;
+        bool prompt;
+    };
 
-  QString createCacheKey( const KIO::AuthInfo &info );
-  const AuthInfoContainer *findAuthInfoItem(const QString &key, const KIO::AuthInfo &info);
-  void removeAuthInfoItem(const QString &key, const KIO::AuthInfo &info);
-  void addAuthInfoItem(const QString &key, const KIO::AuthInfo &info, qlonglong windowId, qlonglong seqNr, bool canceled);
-  void copyAuthInfo(const AuthInfoContainer*, KIO::AuthInfo&);
-  void updateAuthExpire(const QString &key, const AuthInfoContainer *, qlonglong windowId, bool keep);
+    QString createCacheKey(const KIO::AuthInfo &info);
+    const AuthInfoContainer *findAuthInfoItem(const QString &key, const KIO::AuthInfo &info);
+    void removeAuthInfoItem(const QString &key, const KIO::AuthInfo &info);
+    void addAuthInfoItem(const QString &key, const KIO::AuthInfo &info, qlonglong windowId, qlonglong seqNr, bool canceled);
+    void copyAuthInfo(const AuthInfoContainer *, KIO::AuthInfo &);
+    void updateAuthExpire(const QString &key, const AuthInfoContainer *, qlonglong windowId, bool keep);
 
 #ifdef HAVE_KF5WALLET
-  bool openWallet( qlonglong windowId );
+    bool openWallet(qlonglong windowId);
 #endif
 
-  bool hasPendingQuery(const QString &key, const KIO::AuthInfo &info);
-  void sendResponse (Request* request);
-  void showPasswordDialog(Request* request);
-  void updateCachedRequestKey(QList<Request*>&, const QString& oldKey, const QString& newKey);
+    bool hasPendingQuery(const QString &key, const KIO::AuthInfo &info);
+    void sendResponse(Request *request);
+    void showPasswordDialog(Request *request);
+    void updateCachedRequestKey(QList<Request *> &, const QString &oldKey, const QString &newKey);
 
-  typedef QList<AuthInfoContainer*> AuthInfoContainerList;
-  QHash<QString, AuthInfoContainerList*> m_authDict;
+    typedef QList<AuthInfoContainer *> AuthInfoContainerList;
+    QHash<QString, AuthInfoContainerList *> m_authDict;
 
-  QList<Request*> m_authPending;
-  QList<Request*> m_authWait;
-  QHash<int, QStringList> mWindowIdList;
-  QHash<QObject*, Request*> m_authInProgress;
-  QHash<QObject*, Request*> m_authRetryInProgress;
-  QStringList m_authPrompted;
-  KWallet::Wallet* m_wallet;
-  bool m_walletDisabled;
-  qlonglong m_seqNr;
+    QList<Request *> m_authPending;
+    QList<Request *> m_authWait;
+    QHash<int, QStringList> mWindowIdList;
+    QHash<QObject *, Request *> m_authInProgress;
+    QHash<QObject *, Request *> m_authRetryInProgress;
+    QStringList m_authPrompted;
+    KWallet::Wallet *m_wallet;
+    bool m_walletDisabled;
+    qlonglong m_seqNr;
 };
 
 #endif
