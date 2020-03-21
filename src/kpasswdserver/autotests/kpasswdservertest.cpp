@@ -194,7 +194,8 @@ private Q_SLOTS:
         // but cancel the retry dialog.
         info.password.clear();
         result = KIO::AuthInfo();
-        queryAuthWithDialog(server, info, filledInfo, result, s_buttonCancel, QDialog::Accepted /*unused*/, QStringLiteral("Invalid username or password"));
+        queryAuthWithDialog(server, info, filledInfo, result, s_buttonCancel,
+                            QDialog::Accepted /*unused*/, QStringLiteral("Invalid username or password"));
     }
 
     void testAcceptRetryDialog()
@@ -219,7 +220,8 @@ private Q_SLOTS:
         info.password.clear();
         result = KIO::AuthInfo();
 
-        queryAuthWithDialog(server, info, filledInfo, result, s_buttonYes, QDialog::Accepted, QStringLiteral("Invalid username or password"));
+        queryAuthWithDialog(server, info, filledInfo, result, s_buttonYes,
+                            QDialog::Accepted, QStringLiteral("Invalid username or password"));
     }
 
     void testUsernameMistmatch()
@@ -408,11 +410,13 @@ private:
 
         if (hasErrorMessage) {
             // Retry dialog only knows Yes/No
-            QMetaObject::invokeMethod(this, "checkRetryDialog", Qt::QueuedConnection, Q_ARG(QDialogButtonBox::StandardButton, retryButton));
+            QMetaObject::invokeMethod(this, "checkRetryDialog", Qt::QueuedConnection,
+                                      Q_ARG(QDialogButtonBox::StandardButton, retryButton));
         }
 
         if (!isCancelRetryDialogTest) {
-            QMetaObject::invokeMethod(this, "checkAndFillDialog", Qt::QueuedConnection, Q_ARG(KIO::AuthInfo, info), Q_ARG(KIO::AuthInfo, filledInfo), Q_ARG(QDialog::DialogCode, code));
+            QMetaObject::invokeMethod(this, "checkAndFillDialog", Qt::QueuedConnection, Q_ARG(KIO::AuthInfo, info),
+                                      Q_ARG(KIO::AuthInfo, filledInfo), Q_ARG(QDialog::DialogCode, code));
         }
         // Force KPasswdServer to process the request now, otherwise the checkAndFillDialog needs a timer too...
         server.processRequest();
