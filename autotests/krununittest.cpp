@@ -235,6 +235,8 @@ void KRunUnitTest::testProcessDesktopExecNoFile()
     QCOMPARE(KShell::joinArgs(parser.resultingArguments()), expected);
 }
 
+extern KSERVICE_EXPORT int ksycoca_ms_between_checks;
+
 void KRunUnitTest::testKtelnetservice()
 {
     const QString ktelnetDesk = QFINDTESTDATA(QStringLiteral("../src/ioslaves/telnet/ktelnetservice5.desktop"));
@@ -246,11 +248,12 @@ void KRunUnitTest::testKtelnetservice()
     QFile::remove(destDir + QLatin1String("/ktelnetservice5.desktop"));
     QVERIFY(QFile::copy(ktelnetDesk, destDir + QLatin1String("/ktelnetservice5.desktop")));
 
-    QString ktelnetExec = QStandardPaths::findExecutable(QStringLiteral("ktelnetservice5"));
+    ksycoca_ms_between_checks = 0; // need it to check the ksycoca mtime
 
     KService::Ptr service = KService::serviceByStorageId(QStringLiteral("ktelnetservice5.desktop"));
     QVERIFY(service);
 
+    QString ktelnetExec = QStandardPaths::findExecutable(QStringLiteral("ktelnetservice5"));
     // if KIO is installed we'll find <bindir>/ktelnetservice5, otherwise KIO::DesktopExecParser will
     // use the executable from Exec= line
     if (ktelnetExec.isEmpty()) {
