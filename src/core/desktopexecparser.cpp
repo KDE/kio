@@ -327,6 +327,12 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
         return result;
     }
 
+    // Return true for non-KIO desktop files with explicit X-KDE-Protocols list, like vlc, for the special case below
+    auto isNonKIO = [this]() {
+        const QStringList protocols = d->service.property(QStringLiteral("X-KDE-Protocols")).toStringList();
+        return !protocols.isEmpty() && !protocols.contains(QLatin1String("KIO"));
+    };
+
     // Check if we need kioexec, or KIOFuse
     bool useKioexec = false;
     org::kde::KIOFuse::VFS kiofuse_iface(QStringLiteral("org.kde.KIOFuse"),
@@ -335,46 +341,30 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
     struct MountRequest { QDBusPendingReply<QString> reply; int urlIndex; };
     QVector<MountRequest> requests;
     requests.reserve(d->urls.count());
-    QStringList appSupportedProtocols = supportedProtocols(d->service);
-    if (!mx1.hasUrls) {
-        for (int i = 0; i < d->urls.count(); ++i)  {
-            const QUrl url = d->urls.at(i);
-            if (!url.isLocalFile() && !hasSchemeHandler(url)) {
-                // Lets try a KIOFuse mount instead.
-                requests.push_back({ kiofuse_iface.mountUrl(url.toString()), i });
-            }
+    const QStringList appSupportedProtocols = supportedProtocols(d->service);
+    for (int i = 0; i < d->urls.count(); ++i)  {
+        const QUrl url = d->urls.at(i);
+        const bool supported = mx1.hasUrls ? isProtocolInSupportedList(url, appSupportedProtocols) : url.isLocalFile();
+        if (!supported) {
+            // if FUSE fails, we'll have to fallback to kioexec
+            useKioexec = true;
         }
-    } else if (!appSupportedProtocols.contains(QLatin1String("KIO"))) {
-        for (int i = 0; i < d->urls.count(); ++i)  {
-            const QUrl url = d->urls.at(i);
-            if (hasSchemeHandler(url)) {
-                break;
-            }
-            const bool supported = isProtocolInSupportedList(url, appSupportedProtocols);
-            // NOTE: Some non-KIO apps may support the URLs (e.g. VLC supports smb://)
-            // but will not have the password if they are not in the URL itself.
-            // Hence convert URL to KIOFuse equivalent in case there is a password.
-            // @see https://pointieststick.com/2018/01/17/videos-on-samba-shares/
-            // @see https://bugs.kde.org/show_bug.cgi?id=330192
-            if (!supported || (!url.userName().isEmpty() && url.password().isEmpty())) {
-                requests.push_back({ kiofuse_iface.mountUrl(url.toString()), i });
-            }
+        // NOTE: Some non-KIO apps may support the URLs (e.g. VLC supports smb://)
+        // but will not have the password if they are not in the URL itself.
+        // Hence convert URL to KIOFuse equivalent in case there is a password.
+        // @see https://pointieststick.com/2018/01/17/videos-on-samba-shares/
+        // @see https://bugs.kde.org/show_bug.cgi?id=330192
+        if (!supported || (!url.userName().isEmpty() && url.password().isEmpty() && isNonKIO())) {
+            requests.push_back({ kiofuse_iface.mountUrl(url.toString()), i });
         }
     }
 
-    // Doesn't matter that we've blocked here to process the replies.
-    // Main thing that we want is to send the mount requests without blocking.
     for (auto &request : requests) {
         request.reply.waitForFinished();
-        if (request.reply.isError()) {
-            useKioexec = true;
-            // At this point we should just send the original urls to kioexec.
-            // There's no point sending urls to kioexec that go through kiofuse.
-            break;
-        }
     }
+    const bool fuseError = std::any_of(requests.cbegin(), requests.cend(), [](const MountRequest &request) { return request.reply.isError(); });
 
-    if (useKioexec) {
+    if (fuseError && useKioexec) {
         // We need to run the app through kioexec
         result << kioexecPath();
         if (d->tempFiles) {
@@ -392,7 +382,9 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
     // At this point we know we're not using kioexec, so feel free to replace
     // KIO URLs with their KIOFuse local path.
     for (const auto &request : qAsConst(requests)) {
-        d->urls[request.urlIndex] = QUrl::fromLocalFile(request.reply.value());
+        if (!request.reply.isError()) {
+            d->urls[request.urlIndex] = QUrl::fromLocalFile(request.reply.value());
+        }
     }
 
     if (appHasTempFileOption) {
