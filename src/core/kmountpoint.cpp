@@ -193,6 +193,9 @@ KMountPoint::List KMountPoint::possibleMountPoints(DetailsNeededFlags infoNeeded
 
     STRUCT_MNTENT fe;
     while (GETMNTENT(fstab, fe)) {
+        if (QByteArray(MOUNTTYPE(fe)) == "swap") {
+            continue;
+        }
         Ptr mp(new KMountPoint);
         mp->d->mountedFrom = QFile::decodeName(FSNAME(fe));
 
@@ -247,6 +250,9 @@ KMountPoint::List KMountPoint::possibleMountPoints(DetailsNeededFlags infoNeeded
 #endif
         mp->d->mountPoint = item[i++];
         mp->d->mountType = item[i++];
+        if (mp->d->mountType == QLatin1String("swap")) {
+            continue;
+        }
         QString options = item[i++];
 
         if (infoNeeded & NeedMountOptions) {
