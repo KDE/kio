@@ -94,8 +94,6 @@ protected:
     void virtual_hook(int id, void *data) override;
 
 private:
-    bool createUDSEntry(const QString &filename, const QByteArray &path, KIO::UDSEntry &entry,
-                        KIO::StatDetails details);
     int setACL(const char *path, mode_t perm, bool _directoryDefault);
     QString getUserName(KUserId uid) const;
     QString getGroupName(KGroupId gid) const;
@@ -118,8 +116,6 @@ private:
     void closeWithoutFinish();
 
 private:
-    mutable QHash<KUserId, QString> mUsercache;
-    mutable QHash<KGroupId, QString> mGroupcache;
     QFile *mFile;
 
     bool testMode = false;
