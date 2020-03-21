@@ -428,6 +428,7 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
     pathCombo->addDefaultUrl(u, QIcon::fromTheme(KIO::iconNameForUrl(u)), u.toLocalFile());
 
     d->ops = new KDirOperator(QUrl(), d->opsWidget);
+    d->ops->installEventFilter(this);
     d->ops->setObjectName(QStringLiteral("KFileWidget::ops"));
     d->ops->setIsSaving(d->operationMode == Saving);
     opsWidgetLayout->addWidget(d->ops);
@@ -1908,6 +1909,12 @@ bool KFileWidget::eventFilter(QObject *watched, QEvent *event)
                 break;
             }
         }
+    } else if (watched == d->ops && event->type() == QEvent::KeyPress &&
+               (keyEvent->key() == Qt::Key_Return || keyEvent->key() == Qt::Key_Enter)) {
+        // ignore return events from the KDirOperator
+        // they are not needed, activated is used to handle this case
+        event->accept();
+        return true;
     }
 
     return res;
