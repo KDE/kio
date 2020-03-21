@@ -1393,10 +1393,10 @@ void JobTest::stat()
     QVERIFY(entry.contains(KIO::UDSEntry::UDS_FILE_TYPE));
     QVERIFY(entry.contains(KIO::UDSEntry::UDS_USER));
     QVERIFY(entry.contains(KIO::UDSEntry::UDS_GROUP));
-    QVERIFY(entry.contains(KIO::UDSEntry::UDS_CREATION_TIME));
+    //QVERIFY(entry.contains(KIO::UDSEntry::UDS_CREATION_TIME)); // only true if st_birthtime or statx is used
     QVERIFY(entry.contains(KIO::UDSEntry::UDS_MODIFICATION_TIME));
     QVERIFY(entry.contains(KIO::UDSEntry::UDS_ACCESS_TIME));
-    QCOMPARE(entry.count(), 9);
+    QCOMPARE(entry.count(), 8 + (entry.contains(KIO::UDSEntry::UDS_CREATION_TIME) ? 1 : 0));
 
     QVERIFY(!entry.isDir());
     QVERIFY(!entry.isLink());
@@ -1532,10 +1532,10 @@ void JobTest::statSymlink()
     QVERIFY(entry.contains(KIO::UDSEntry::UDS_LINK_DEST));
     QVERIFY(entry.contains(KIO::UDSEntry::UDS_USER));
     QVERIFY(entry.contains(KIO::UDSEntry::UDS_GROUP));
-    QVERIFY(entry.contains(KIO::UDSEntry::UDS_CREATION_TIME));
+    //QVERIFY(entry.contains(KIO::UDSEntry::UDS_CREATION_TIME)); // only true if st_birthtime or statx is used
     QVERIFY(entry.contains(KIO::UDSEntry::UDS_MODIFICATION_TIME));
     QVERIFY(entry.contains(KIO::UDSEntry::UDS_ACCESS_TIME));
-    QCOMPARE(entry.count(), 10);
+    QCOMPARE(entry.count(), 9 + (entry.contains(KIO::UDSEntry::UDS_CREATION_TIME) ? 1 : 0));
 
     QVERIFY(!entry.isDir());
     QVERIFY(entry.isLink());
