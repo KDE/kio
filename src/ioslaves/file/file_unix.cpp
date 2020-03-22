@@ -340,10 +340,7 @@ static bool createUDSEntry(const QString &filename, const QByteArray &path, UDSE
         entry.fastInsert(KIO::UDSEntry::UDS_NAME, filename);
     }
 
-    mode_t type;
-    mode_t access;
     bool isBrokenSymLink = false;
-    signed long long size = 0LL;
 #if HAVE_POSIX_ACL
     QByteArray targetPath = path;
 #endif
@@ -423,7 +420,10 @@ static bool createUDSEntry(const QString &filename, const QByteArray &path, UDSE
         return false;
     }
 
+    mode_t type = 0;
     if (details & KIO::Basic) {
+        mode_t access;
+        signed long long size;
         if (isBrokenSymLink) {
             // It is a link pointing to nowhere
             type = S_IFMT - 1;
