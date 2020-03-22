@@ -400,3 +400,11 @@ PrivilegeOperationReturnValue FileProtocol::tryChangeFileAttr(ActionType, const 
 {
     return PrivilegeOperationReturnValue::failure(err);
 }
+
+int FileProtocol::setACL(const char *path, mode_t perm, bool directoryDefault)
+{
+    Q_UNUSED(path);
+    Q_UNUSED(perm);
+    Q_UNUSED(directoryDefault);
+    return 0;
+}
