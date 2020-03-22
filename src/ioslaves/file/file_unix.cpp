@@ -41,6 +41,7 @@
 #include <errno.h>
 #if HAVE_SYS_XATTR_H
 #include <sys/xattr.h>
+#include <stdint.h>
 #endif
 #include <utime.h>
 
@@ -862,40 +863,24 @@ static bool isNtfsHidden(const QString &filename)
 {
     constexpr auto attrName = "system.ntfs_attrib_be";
     const auto filenameEncoded = QFile::encodeName(filename);
-#ifdef Q_OS_MACOS
-    auto length = getxattr(filenameEncoded.data(), attrName, nullptr, 0, 0, XATTR_NOFOLLOW);
-#else
-    auto length = getxattr(filenameEncoded.data(), attrName, nullptr, 0);
-#endif
-    if (length <= 0) {
-        return false;
-    }
-    constexpr size_t xattr_size = 1024;
+
+    uint32_t intAttr = 0;
+    constexpr size_t xattr_size = sizeof(intAttr);
     char strAttr[xattr_size];
 #ifdef Q_OS_MACOS
-    length = getxattr(filenameEncoded.data(), attrName, strAttr, xattr_size, 0, XATTR_NOFOLLOW);
+    auto length = getxattr(filenameEncoded.data(), attrName, strAttr, xattr_size, 0, XATTR_NOFOLLOW);
 #else
-    length = getxattr(filenameEncoded.data(), attrName, strAttr, xattr_size);
+    auto length = getxattr(filenameEncoded.data(), attrName, strAttr, xattr_size);
 #endif
     if (length <= 0) {
         return false;
     }
 
-    // Decode result to hex string
-    static constexpr auto digits = "0123456789abcdef";
-    QVarLengthArray<char> hexAttr(static_cast<int>(length) * 2 + 4);
     char *c = strAttr;
-    char *e = hexAttr.data();
-    *e++ ='0';
-    *e++ = 'x';
-    for (auto n = 0; n < length; n++, c++) {
-        *e++ = digits[(static_cast<uchar>(*c) >> 4)];
-        *e++ = digits[(static_cast<uchar>(*c) & 0x0F)];
+    for (decltype(length) n = 0; n < length; ++n, ++c) {
+        intAttr <<= 8;
+        intAttr |= static_cast<uchar>(*c);
     }
-    *e = '\0';
-
-    // Decode hex string to int
-    auto intAttr = static_cast<uint>(strtol(hexAttr.data(), nullptr, 16));
 
     constexpr auto FILE_ATTRIBUTE_HIDDEN = 0x2u;
     return static_cast<bool>(intAttr & FILE_ATTRIBUTE_HIDDEN);
