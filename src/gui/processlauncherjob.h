@@ -41,12 +41,11 @@ class ProcessLauncherJobPrivate;
  * does not have the executable bit set and offering to make it so. Therefore file managers
  * should use KRun::runApplication rather than using ProcessLauncherJob directly.
  *
- * The @p pid() will be available immediately after start(), but the job will only finish
- * when the application exits.
+ * When passing multiple URLs to an application that doesn't support opening
+ * multiple files, the application will be launched once for each URL.
  *
- * Deleting the job while the application is running, will leave it running, but this means
- * there won't be any chance to terminate startup notification if the application crashes
- * on startup before it gets a chance to do that on its own.
+ * The job finishes when the application is successfully started. At that point you can
+ * query the PID(s).
  *
  * @since 5.69
  */
@@ -61,8 +60,9 @@ public:
     explicit ProcessLauncherJob(const KService::Ptr &service, QObject *parent = nullptr);
 
     /**
-     * Destructor
-     * Note that jobs auto-delete themselves after emitting result
+     * Destructor.
+     * Note that jobs auto-delete themselves after emitting result.
+     * Deleting/killing the job will not stop the started application.
      */
     ~ProcessLauncherJob() override;
 
