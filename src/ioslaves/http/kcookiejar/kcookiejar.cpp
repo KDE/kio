@@ -311,8 +311,16 @@ KCookieJar::KCookieJar()
 
     KConfig cfg(QStringLiteral("kf5/kcookiejar/domain_info"), KConfig::NoGlobals, QStandardPaths::GenericDataLocation);
     KConfigGroup group(&cfg, QString());
-    m_gTLDs = QSet<QString>::fromList(group.readEntry("gTLDs", QStringList()));
-    m_twoLevelTLD = QSet<QString>::fromList(group.readEntry("twoLevelTLD", QStringList()));
+
+    const QStringList tldList = group.readEntry("gTLDs", QStringList());
+    const QStringList twoLevelTldList = group.readEntry("twoLevelTLD", QStringList());
+#if QT_VERSION < QT_VERSION_CHECK(5, 14, 0)
+    m_gTLDs = QSet<QString>::fromList(tldList);
+    m_twoLevelTLD = QSet<QString>::fromList(twoLevelTldList);
+#else
+    m_gTLDs = QSet<QString>(tldList.begin(), tldList.end());
+    m_twoLevelTLD = QSet<QString>(twoLevelTldList.begin(), twoLevelTldList.end());
+#endif
 }
 
 //

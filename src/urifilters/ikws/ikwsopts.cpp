@@ -126,7 +126,13 @@ void ProvidersModel::setProviders(const QList<SearchProvider *> &providers, cons
 void ProvidersModel::setFavoriteProviders(const QStringList &favoriteEngines)
 {
     beginResetModel();
+
+#if QT_VERSION < QT_VERSION_CHECK(5, 14, 0)
     m_favoriteEngines = QSet<QString>::fromList(favoriteEngines);
+#else
+    m_favoriteEngines = QSet<QString>(favoriteEngines.begin(), favoriteEngines.end());
+#endif
+
     endResetModel();
 }
 
@@ -182,7 +188,11 @@ void ProvidersModel::changeProvider(SearchProvider *p)
 
 QStringList ProvidersModel::favoriteEngines() const
 {
+#if QT_VERSION < QT_VERSION_CHECK(5, 14, 0)
     return m_favoriteEngines.toList();
+#else
+    return QStringList(m_favoriteEngines.cbegin(), m_favoriteEngines.cend());
+#endif
 }
 
 //END ProvidersModel
