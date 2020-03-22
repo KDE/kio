@@ -26,7 +26,7 @@
 class KIO::ProcessLauncherJobPrivate
 {
 public:
-    ProcessLauncherJobPrivate(const KService::Ptr &service)
+    explicit ProcessLauncherJobPrivate(const KService::Ptr &service)
         : m_service(service) {}
 
     void slotStarted(KIO::ProcessLauncherJob *q, KProcessRunner *processRunner) {
