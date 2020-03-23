@@ -1433,7 +1433,7 @@ void JobTest::statDetailsBasic()
     const QString filePath = homeTmpDir() + "fileFromHome";
     createTestFile(filePath);
     const QUrl url(QUrl::fromLocalFile(filePath));
-    KIO::StatJob *job = KIO::statDetails(url, KIO::StatJob::StatSide::SourceSide, KIO::StatDetail::Basic,  KIO::HideProgressInfo);
+    KIO::StatJob *job = KIO::statDetails(url, KIO::StatJob::StatSide::SourceSide, KIO::StatBasic,  KIO::HideProgressInfo);
     QVERIFY(job);
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
     // TODO set setSide
@@ -1472,7 +1472,7 @@ void JobTest::statDetailsBasicSetDetails()
     createTestFile(filePath);
     const QUrl url(QUrl::fromLocalFile(filePath));
     KIO::StatJob *job = KIO::stat(url);
-    job->setDetails(KIO::StatDetail::Basic);
+    job->setDetails(KIO::StatBasic);
     QVERIFY(job);
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
     // TODO set setSide
@@ -1517,7 +1517,7 @@ void JobTest::statSymlink()
 
     const QUrl url(QUrl::fromLocalFile(symlink));
     KIO::StatJob *job = KIO::statDetails(url, KIO::StatJob::StatSide::SourceSide,
-                                         KIO::StatDetail::Basic | KIO::StatDetail::ResolveSymlink | KIO::StatDetail::User | KIO::StatDetail::Time,
+                                         KIO::StatBasic | KIO::StatResolveSymlink | KIO::StatUser | KIO::StatTime,
                                          KIO::HideProgressInfo);
     QVERIFY(job);
     QVERIFY2(job->exec(), qPrintable(job->errorString()));

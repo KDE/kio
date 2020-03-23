@@ -198,7 +198,7 @@ KIOCORE_EXPORT StatJob *stat(const QUrl &url, JobFlags flags = DefaultFlags);
  * @since 5.69
  */
 KIOCORE_EXPORT StatJob *statDetails(const QUrl &url, KIO::StatJob::StatSide side,
-                             KIO::StatDetails details = KIO::StatDetail::StatDefaultDetails, JobFlags flags = DefaultFlags);
+                             KIO::StatDetails details = KIO::StatDefaultDetails, JobFlags flags = DefaultFlags);
 
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 69)
 /**

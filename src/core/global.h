@@ -319,22 +319,22 @@ enum  PrivilegeOperationStatus {
  */
 enum StatDetail {
     /// No field returned, useful to check if a file exists
-    NoDetails = 0x0,
+    StatNoDetails = 0x0,
     /// Filename, access, type, size, linkdest
-    Basic = 0x1,
+    StatBasic = 0x1,
     /// uid, gid
-    User = 0x2,
+    StatUser = 0x2,
     /// atime, mtime, btime
-    Time = 0x4,
+    StatTime = 0x4,
     /// Resolve symlinks
-    ResolveSymlink = 0x8,
+    StatResolveSymlink = 0x8,
     /// acl Data
-    Acl = 0x10,
+    StatAcl = 0x10,
     /// dev, inode
-    Inode = 0x20,
+    StatInode = 0x20,
 
     /// Default value includes fields provided by other entries
-    StatDefaultDetails = Basic | User | Time | Acl | ResolveSymlink,
+    StatDefaultDetails = StatBasic | StatUser | StatTime | StatAcl | StatResolveSymlink,
 };
 Q_DECLARE_FLAGS(StatDetails, StatDetail)
 

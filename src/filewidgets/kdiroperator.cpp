@@ -742,7 +742,7 @@ bool KDirOperator::mkdir(const QString &directory, bool enterDirectory)
         } else {
             KIO::StatJob *job = KIO::stat(folderurl);
             KJobWidgets::setWindow(job, this);
-            job->setDetails(KIO::StatDetail::NoDetails); //We only want to know if it exists
+            job->setDetails(KIO::StatNoDetails); //We only want to know if it exists
             job->setSide(KIO::StatJob::DestinationSide);
             exists = job->exec();
         }

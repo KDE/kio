@@ -247,19 +247,19 @@ static QString getGroupName(KGroupId gid)
 // statx syscall is available
 inline int LSTAT(const char* path, struct statx * buff, KIO::StatDetails details) {
     uint32_t mask = 0;
-    if (details & KIO::Basic) {
+    if (details & KIO::StatBasic) {
         // filename, access, type, size, linkdest
         mask |= STATX_SIZE | STATX_TYPE;
     }
-    if (details & KIO::User) {
+    if (details & KIO::StatUser) {
         // uid, gid
         mask |= STATX_UID | STATX_GID;
     }
-    if (details & KIO::Time) {
+    if (details & KIO::StatTime) {
         // atime, mtime, btime
         mask |= STATX_ATIME | STATX_MTIME | STATX_BTIME;
     }
-    if (details & KIO::Inode) {
+    if (details & KIO::StatInode) {
         // dev, inode
         mask |= STATX_INO;
     }
@@ -267,15 +267,15 @@ inline int LSTAT(const char* path, struct statx * buff, KIO::StatDetails details
 }
 inline int STAT(const char* path, struct statx * buff, KIO::StatDetails details) {
     uint32_t mask = 0;
-    if (details & KIO::Basic) {
+    if (details & KIO::StatBasic) {
         // filename, access, type, size, linkdest
         mask |= STATX_SIZE | STATX_TYPE;
     }
-    if (details & KIO::User) {
+    if (details & KIO::StatUser) {
         // uid, gid
         mask |= STATX_UID | STATX_GID;
     }
-    if (details & KIO::Time) {
+    if (details & KIO::StatTime) {
         // atime, mtime, btime
         mask |= STATX_ATIME | STATX_MTIME | STATX_BTIME;
     }
@@ -315,29 +315,29 @@ static bool createUDSEntry(const QString &filename, const QByteArray &path, UDSE
 {
     assert(entry.count() == 0); // by contract :-)
     int entries = 0;
-    if (details & KIO::Basic) {
+    if (details & KIO::StatBasic) {
         // filename, access, type, size, linkdest
         entries += 5;
     }
-    if (details & KIO::User) {
+    if (details & KIO::StatUser) {
         // uid, gid
         entries += 2;
     }
-    if (details & KIO::Time) {
+    if (details & KIO::StatTime) {
         // atime, mtime, btime
         entries += 3;
     }
-    if (details & KIO::Acl) {
+    if (details & KIO::StatAcl) {
         // acl data
         entries += 3;
     }
-    if (details & KIO::Inode) {
+    if (details & KIO::StatInode) {
         // dev, inode
         entries += 2;
     }
     entry.reserve(entries);
 
-    if (details & KIO::Basic) {
+    if (details & KIO::StatBasic) {
         entry.fastInsert(KIO::UDSEntry::UDS_NAME, filename);
     }
 
@@ -355,7 +355,7 @@ static bool createUDSEntry(const QString &filename, const QByteArray &path, UDSE
 
     if (LSTAT(path.data(), &buff, details) == 0)  {
 
-        if (details & KIO::Inode) {
+        if (details & KIO::StatInode) {
             entry.fastInsert(KIO::UDSEntry::UDS_DEVICE_ID, stat_dev(buff));
             entry.fastInsert(KIO::UDSEntry::UDS_INODE, stat_ino(buff));
         }
@@ -363,7 +363,7 @@ static bool createUDSEntry(const QString &filename, const QByteArray &path, UDSE
         if ((stat_mode(buff) & QT_STAT_MASK) == QT_STAT_LNK) {
 
             QByteArray linkTargetBuffer;
-            if (details & (KIO::Basic|KIO::ResolveSymlink)) {
+            if (details & (KIO::StatBasic|KIO::StatResolveSymlink)) {
 
                 // Use readlink on Unix because symLinkTarget turns relative targets into absolute (#352927)
                 #if HAVE_STATX
@@ -403,7 +403,7 @@ static bool createUDSEntry(const QString &filename, const QByteArray &path, UDSE
             }
 
             // A symlink
-            if (details & KIO::ResolveSymlink) {
+            if (details & KIO::StatResolveSymlink) {
                 if (STAT(path.constData(), &buff, details) == -1) {
                     isBrokenSymLink = true;
                 } else {
@@ -422,7 +422,7 @@ static bool createUDSEntry(const QString &filename, const QByteArray &path, UDSE
     }
 
     mode_t type = 0;
-    if (details & KIO::Basic) {
+    if (details & KIO::StatBasic) {
         mode_t access;
         signed long long size;
         if (isBrokenSymLink) {
@@ -450,12 +450,12 @@ static bool createUDSEntry(const QString &filename, const QByteArray &path, UDSE
     }
 #endif
 
-    if (details & KIO::User) {
+    if (details & KIO::StatUser) {
         entry.fastInsert(KIO::UDSEntry::UDS_USER, getUserName(KUserId(stat_uid(buff))));
         entry.fastInsert(KIO::UDSEntry::UDS_GROUP, getGroupName(KGroupId(stat_gid(buff))));
     }
 
-    if (details & KIO::Time) {
+    if (details & KIO::StatTime) {
         entry.fastInsert(KIO::UDSEntry::UDS_MODIFICATION_TIME, stat_mtime(buff));
         entry.fastInsert(KIO::UDSEntry::UDS_ACCESS_TIME, stat_atime(buff));
 
@@ -959,7 +959,7 @@ void FileProtocol::listDir(const QUrl &url)
          * for every entry thus becoming slower.
          *
          */
-        if (details == KIO::Basic) {
+        if (details == KIO::StatBasic) {
             entry.fastInsert(KIO::UDSEntry::UDS_NAME, filename);
 #ifdef HAVE_DIRENT_D_TYPE
             entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE,

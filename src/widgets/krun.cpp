@@ -896,7 +896,7 @@ void KRun::init()
 
     // It may be a directory or a file, let's stat
     KIO::JobFlags flags = d->m_bProgressInfo ? KIO::DefaultFlags : KIO::HideProgressInfo;
-    KIO::StatJob *job = KIO::statDetails(d->m_strURL, KIO::StatJob::SourceSide, KIO::StatDetail::Basic, flags);
+    KIO::StatJob *job = KIO::statDetails(d->m_strURL, KIO::StatJob::SourceSide, KIO::StatBasic, flags);
     KJobWidgets::setWindow(job, d->m_window);
     connect(job, &KJob::result,
             this, &KRun::slotStatResult);

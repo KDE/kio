@@ -103,15 +103,15 @@ void StatJob::setDetails(KIO::StatDetail detail)
 
 KIO::StatDetails KIO::detailsToStatDetails(int details)
 {
-    KIO::StatDetails detailsFlag = KIO::StatDetail::Basic;
+    KIO::StatDetails detailsFlag = KIO::StatBasic;
     if (details > 0) {
-        detailsFlag |= KIO::StatDetail::User | KIO::StatDetail::Time;
+        detailsFlag |= KIO::StatUser | KIO::StatTime;
     }
     if (details > 1) {
-         detailsFlag |= KIO::StatDetail::ResolveSymlink | KIO::StatDetail::Acl;
+         detailsFlag |= KIO::StatResolveSymlink | KIO::StatAcl;
     }
     if (details > 2) {
-        detailsFlag |= KIO::StatDetail::Inode;
+        detailsFlag |= KIO::StatInode;
     }
     return detailsFlag;
 }

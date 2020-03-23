@@ -315,7 +315,7 @@ void DeleteJobPrivate::statNextSrc()
             // Done, jump to the last else of this method
             statNextSrc();
         } else {
-            KIO::SimpleJob *job = KIO::statDetails(m_currentURL, StatJob::SourceSide, KIO::StatDetail::Basic, KIO::HideProgressInfo);
+            KIO::SimpleJob *job = KIO::statDetails(m_currentURL, StatJob::SourceSide, KIO::StatBasic, KIO::HideProgressInfo);
             Scheduler::setJobPriority(job, 1);
             //qDebug() << "stat'ing" << m_currentURL;
             q->addSubjob(job);
@@ -506,7 +506,7 @@ void DeleteJobPrivate::currentSourceStated(bool isDir, bool isLink)
             // TODO KF6: remove legacy details code path
             newjob->addMetaData(QStringLiteral("details"), QStringLiteral("0"));
 #endif
-            newjob->addMetaData(QStringLiteral("statDetails"), QString::number(KIO::Basic));
+            newjob->addMetaData(QStringLiteral("statDetails"), QString::number(KIO::StatBasic));
             newjob->setUnrestricted(true); // No KIOSK restrictions
             Scheduler::setJobPriority(newjob, 1);
             QObject::connect(newjob, SIGNAL(entries(KIO::Job*,KIO::UDSEntryList)),

@@ -363,7 +363,7 @@ void CopyJobPrivate::slotStart()
     // Stat the dest
     state = STATE_STATING;
     const QUrl dest = m_asMethod ? m_dest.adjusted(QUrl::RemoveFilename) : m_dest;
-    KIO::Job *job = KIO::statDetails(dest, StatJob::DestinationSide, KIO::StatDetail::StatDefaultDetails, KIO::HideProgressInfo);
+    KIO::Job *job = KIO::statDetails(dest, StatJob::DestinationSide, KIO::StatDefaultDetails, KIO::HideProgressInfo);
     qCDebug(KIO_COPYJOB_DEBUG) << "CopyJob: stating the dest" << m_dest;
     q->addSubjob(job);
 }
@@ -908,7 +908,7 @@ void CopyJobPrivate::statCurrentSrc()
         }
 
         // Stat the next src url
-        Job *job = KIO::statDetails(m_currentSrcURL, StatJob::SourceSide, KIO::StatDetail::StatDefaultDetails, KIO::HideProgressInfo);
+        Job *job = KIO::statDetails(m_currentSrcURL, StatJob::SourceSide, KIO::StatDefaultDetails, KIO::HideProgressInfo);
         qCDebug(KIO_COPYJOB_DEBUG) << "KIO::stat on" << m_currentSrcURL;
         state = STATE_STATING;
         q->addSubjob(job);
@@ -1139,7 +1139,7 @@ void CopyJobPrivate::slotResultCreatingDirs(KJob *job)
 
                         // We need to stat the existing dir, to get its last-modification time
                         QUrl existingDest((*it).uDest);
-                        SimpleJob *newJob = KIO::statDetails(existingDest, StatJob::DestinationSide, KIO::StatDetail::StatDefaultDetails, KIO::HideProgressInfo);
+                        SimpleJob *newJob = KIO::statDetails(existingDest, StatJob::DestinationSide, KIO::StatDefaultDetails, KIO::HideProgressInfo);
                         Scheduler::setJobPriority(newJob, 1);
                         qCDebug(KIO_COPYJOB_DEBUG) << "KIO::stat for resolving conflict on" << existingDest;
                         state = STATE_CONFLICT_CREATING_DIRS;
@@ -1352,7 +1352,7 @@ void CopyJobPrivate::slotResultCopyingFiles(KJob *job)
                     Q_ASSERT(!q->hasSubjobs());
                     // We need to stat the existing file, to get its last-modification time
                     QUrl existingFile((*it).uDest);
-                    SimpleJob *newJob = KIO::statDetails(existingFile, StatJob::DestinationSide, KIO::StatDetail::StatDefaultDetails, KIO::HideProgressInfo);
+                    SimpleJob *newJob = KIO::statDetails(existingFile, StatJob::DestinationSide, KIO::StatDefaultDetails, KIO::HideProgressInfo);
                     Scheduler::setJobPriority(newJob, 1);
                     qCDebug(KIO_COPYJOB_DEBUG) << "KIO::stat for resolving conflict on" << existingFile;
                     state = STATE_CONFLICT_COPYING_FILES;

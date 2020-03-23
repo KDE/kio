@@ -77,7 +77,7 @@ static KIO::Job *pasteClipboardUrls(const QMimeData *mimeData, const QUrl &destD
 static QUrl getDestinationUrl(const QUrl &srcUrl, const QUrl &destUrl, QWidget *widget)
 {
     KIO::StatJob *job = KIO::stat(destUrl, destUrl.isLocalFile() ? KIO::HideProgressInfo : KIO::DefaultFlags);
-    job->setDetails(KIO::StatDetail::Basic);
+    job->setDetails(KIO::StatBasic);
     job->setSide(KIO::StatJob::DestinationSide);
     KJobWidgets::setWindow(job, widget);
 
