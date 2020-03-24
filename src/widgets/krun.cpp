@@ -56,7 +56,7 @@
 #include "kdesktopfileactions.h"
 #include <kio/desktopexecparser.h>
 #include "kprocessrunner_p.h"
-#include "processlauncherjob.h"
+#include "applicationlauncherjob.h"
 
 #include <kurlauthorized.h>
 #include <kmessagebox.h>
@@ -117,7 +117,7 @@ static qint64 runProcessRunner(KProcessRunner *processRunner, QWidget *widget)
     return processRunner->pid();
 }
 
-static qint64 runProcessLauncherJob(KIO::ProcessLauncherJob *job, QWidget *widget)
+static qint64 runApplicationLauncherJob(KIO::ApplicationLauncherJob *job, QWidget *widget)
 {
     QObject *receiver = widget ? static_cast<QObject *>(widget) : static_cast<QObject *>(qApp);
     QObject::connect(job, &KJob::result, receiver, [widget](KJob *job) {
@@ -667,14 +667,14 @@ qint64 KRun::runApplication(const KService &service, const QList<QUrl> &urls, QW
         window = window->window();
     }
 
-    KIO::ProcessLauncherJob *job = new KIO::ProcessLauncherJob(servicePtr);
+    KIO::ApplicationLauncherJob *job = new KIO::ApplicationLauncherJob(servicePtr);
     job->setUrls(urls);
     if (flags & DeleteTemporaryFiles) {
-        job->setRunFlags(KIO::ProcessLauncherJob::DeleteTemporaryFiles);
+        job->setRunFlags(KIO::ApplicationLauncherJob::DeleteTemporaryFiles);
     }
     job->setSuggestedFileName(suggestedFileName);
     job->setStartupId(asn);
-    return runProcessLauncherJob(job, window);
+    return runApplicationLauncherJob(job, window);
 }
 
 qint64 KRun::runService(const KService &_service, const QList<QUrl> &_urls, QWidget *window,

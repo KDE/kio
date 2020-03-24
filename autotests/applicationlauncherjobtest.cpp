@@ -19,8 +19,8 @@
     Boston, MA 02110-1301, USA.
 */
 
-#include "processlauncherjobtest.h"
-#include "processlauncherjob.h"
+#include "applicationlauncherjobtest.h"
+#include "applicationlauncherjob.h"
 
 #include "kiotesthelper.h" // createTestFile etc.
 
@@ -37,21 +37,21 @@
 #include <QTest>
 #include <kprocessrunner_p.h>
 
-QTEST_GUILESS_MAIN(ProcessLauncherJobTest)
+QTEST_GUILESS_MAIN(ApplicationLauncherJobTest)
 
-void ProcessLauncherJobTest::initTestCase()
+void ApplicationLauncherJobTest::initTestCase()
 {
     QStandardPaths::setTestModeEnabled(true);
 }
 
-void ProcessLauncherJobTest::cleanupTestCase()
+void ApplicationLauncherJobTest::cleanupTestCase()
 {
     std::for_each(m_filesToRemove.begin(), m_filesToRemove.end(), [](const QString & f) {
         QFile::remove(f);
     });
 }
 
-static const char s_tempServiceName[] = "processlauncherjobtest_service.desktop";
+static const char s_tempServiceName[] = "applicationlauncherjobtest_service.desktop";
 
 static void createSrcFile(const QString path)
 {
@@ -60,7 +60,7 @@ static void createSrcFile(const QString path)
     srcFile.write("Hello world\n");
 }
 
-void ProcessLauncherJobTest::startProcess_data()
+void ApplicationLauncherJobTest::startProcess_data()
 {
     QTest::addColumn<bool>("tempFile");
     QTest::addColumn<bool>("useExec");
@@ -77,7 +77,7 @@ void ProcessLauncherJobTest::startProcess_data()
     QTest::newRow("2_tempfiles_waitForStarted") << true << false << 2;
 }
 
-void ProcessLauncherJobTest::startProcess()
+void ApplicationLauncherJobTest::startProcess()
 {
     QFETCH(bool, tempFile);
     QFETCH(bool, useExec);
@@ -95,12 +95,12 @@ void ProcessLauncherJobTest::startProcess()
         urls.append(QUrl::fromLocalFile(srcFile));
     }
 
-    // When running a ProcessLauncherJob
+    // When running a ApplicationLauncherJob
     KService::Ptr servicePtr(new KService(path));
-    KIO::ProcessLauncherJob *job = new KIO::ProcessLauncherJob(servicePtr, this);
+    KIO::ApplicationLauncherJob *job = new KIO::ApplicationLauncherJob(servicePtr, this);
     job->setUrls(urls);
     if (tempFile) {
-        job->setRunFlags(KIO::ProcessLauncherJob::DeleteTemporaryFiles);
+        job->setRunFlags(KIO::ApplicationLauncherJob::DeleteTemporaryFiles);
     }
     if (useExec) {
         QVERIFY(job->exec());
@@ -133,7 +133,7 @@ void ProcessLauncherJobTest::startProcess()
     QTRY_COMPARE(KProcessRunner::instanceCount(), 0);
 }
 
-void ProcessLauncherJobTest::shouldFailOnNonExecutableDesktopFile()
+void ApplicationLauncherJobTest::shouldFailOnNonExecutableDesktopFile()
 {
     // Given a .desktop file in a temporary directory (outside the trusted paths)
     QTemporaryDir tempDir;
@@ -146,14 +146,14 @@ void ProcessLauncherJobTest::shouldFailOnNonExecutableDesktopFile()
     createSrcFile(srcFile);
     const QList<QUrl> urls{QUrl::fromLocalFile(srcFile)};
     KService::Ptr servicePtr(new KService(desktopFilePath));
-    KIO::ProcessLauncherJob *job = new KIO::ProcessLauncherJob(servicePtr, this);
+    KIO::ApplicationLauncherJob *job = new KIO::ApplicationLauncherJob(servicePtr, this);
     job->setUrls(urls);
     QVERIFY(!job->exec());
     QCOMPARE(job->error(), KJob::UserDefinedError);
     QCOMPARE(job->errorString(), QStringLiteral("You are not authorized to execute this file."));
 }
 
-void ProcessLauncherJobTest::shouldFailOnNonExistingExecutable_data()
+void ApplicationLauncherJobTest::shouldFailOnNonExistingExecutable_data()
 {
     QTest::addColumn<bool>("tempFile");
 
@@ -161,7 +161,7 @@ void ProcessLauncherJobTest::shouldFailOnNonExistingExecutable_data()
     QTest::newRow("tempFile") << true;
 }
 
-void ProcessLauncherJobTest::shouldFailOnNonExistingExecutable()
+void ApplicationLauncherJobTest::shouldFailOnNonExistingExecutable()
 {
     QFETCH(bool, tempFile);
 
@@ -174,10 +174,10 @@ void ProcessLauncherJobTest::shouldFailOnNonExistingExecutable()
     file.sync();
 
     KService::Ptr servicePtr(new KService(desktopFilePath));
-    KIO::ProcessLauncherJob *job = new KIO::ProcessLauncherJob(servicePtr, this);
+    KIO::ApplicationLauncherJob *job = new KIO::ApplicationLauncherJob(servicePtr, this);
     job->setUrls({QUrl::fromLocalFile(desktopFilePath)}); // just to have one URL as argument, as the desktop file expects
     if (tempFile) {
-        job->setRunFlags(KIO::ProcessLauncherJob::DeleteTemporaryFiles);
+        job->setRunFlags(KIO::ApplicationLauncherJob::DeleteTemporaryFiles);
     }
     QVERIFY(!job->exec());
     QCOMPARE(job->error(), KJob::UserDefinedError);
@@ -186,7 +186,7 @@ void ProcessLauncherJobTest::shouldFailOnNonExistingExecutable()
     QFile::remove(desktopFilePath);
 }
 
-void ProcessLauncherJobTest::writeTempServiceDesktopFile(const QString &filePath)
+void ApplicationLauncherJobTest::writeTempServiceDesktopFile(const QString &filePath)
 {
     if (!QFile::exists(filePath)) {
         KDesktopFile file(filePath);
@@ -202,7 +202,7 @@ void ProcessLauncherJobTest::writeTempServiceDesktopFile(const QString &filePath
     }
 }
 
-QString ProcessLauncherJobTest::createTempService()
+QString ApplicationLauncherJobTest::createTempService()
 {
     const QString fileName = s_tempServiceName;
     const QString fakeService = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/kservices5/") + fileName;

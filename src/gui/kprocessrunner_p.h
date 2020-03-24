@@ -21,7 +21,7 @@
 #ifndef KPROCESSRUNNER_P_H
 #define KPROCESSRUNNER_P_H
 
-#include "processlauncherjob.h"
+#include "applicationlauncherjob.h"
 #include "kiogui_export.h"
 
 #include <KProcess>
@@ -59,7 +59,7 @@ public:
 
      */
     KProcessRunner(const KService::Ptr &service, const QList<QUrl> &urls,
-                   KIO::ProcessLauncherJob::RunFlags flags = {}, const QString &suggestedFileName = {}, const QByteArray &asn = {});
+                   KIO::ApplicationLauncherJob::RunFlags flags = {}, const QString &suggestedFileName = {}, const QByteArray &asn = {});
 
     /**
      * Run a shell command

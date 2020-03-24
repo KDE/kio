@@ -2,7 +2,7 @@ configure_file(config-kiogui.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kiogui.h
 
 set(kiogui_SRCS
    faviconrequestjob.cpp
-   processlauncherjob.cpp
+   applicationlauncherjob.cpp
    kprocessrunner.cpp
 )
 
@@ -46,7 +46,7 @@ set_target_properties(KF5KIOGui PROPERTIES VERSION ${KIO_VERSION_STRING}
 ecm_generate_headers(KIOGui_CamelCase_HEADERS
   HEADER_NAMES
   FavIconRequestJob
-  ProcessLauncherJob
+  ApplicationLauncherJob
 
   PREFIX KIO
   REQUIRED_HEADERS KIO_namespaced_gui_HEADERS

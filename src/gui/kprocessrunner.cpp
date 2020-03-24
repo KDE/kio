@@ -39,7 +39,7 @@
 static int s_instanceCount = 0; // for the unittest
 
 KProcessRunner::KProcessRunner(const KService::Ptr &service, const QList<QUrl> &urls,
-                               KIO::ProcessLauncherJob::RunFlags flags, const QString &suggestedFileName, const QByteArray &asn)
+                               KIO::ApplicationLauncherJob::RunFlags flags, const QString &suggestedFileName, const QByteArray &asn)
     : m_process{new KProcess},
       m_executable(KIO::DesktopExecParser::executablePath(service->exec()))
 {
@@ -52,7 +52,7 @@ KProcessRunner::KProcessRunner(const KService::Ptr &service, const QList<QUrl> &
         return;
     }
 
-    execParser.setUrlsAreTempFiles(flags & KIO::ProcessLauncherJob::DeleteTemporaryFiles);
+    execParser.setUrlsAreTempFiles(flags & KIO::ApplicationLauncherJob::DeleteTemporaryFiles);
     execParser.setSuggestedFileName(suggestedFileName);
     const QStringList args = execParser.resultingArguments();
     if (args.isEmpty()) {
@@ -92,7 +92,7 @@ KProcessRunner::KProcessRunner(const KService::Ptr &service, const QList<QUrl> &
     }
     m_process->setWorkingDirectory(workingDir);
 
-    if ((flags & KIO::ProcessLauncherJob::DeleteTemporaryFiles) == 0) {
+    if ((flags & KIO::ApplicationLauncherJob::DeleteTemporaryFiles) == 0) {
         // Remember we opened those urls, for the "recent documents" menu in kicker
         for (const QUrl &url : urls) {
             KRecentDocument::add(url, service->desktopEntryName());
@@ -194,7 +194,7 @@ bool KProcessRunner::waitForStarted()
 void KProcessRunner::slotProcessError(QProcess::ProcessError errorCode)
 {
     // E.g. the process crashed.
-    // This is unlikely to happen while the ProcessLauncherJob is still connected to the KProcessRunner.
+    // This is unlikely to happen while the ApplicationLauncherJob is still connected to the KProcessRunner.
     // So the emit does nothing, this is really just for debugging.
     qCDebug(KIO_GUI) << m_executable << "error=" << errorCode << m_process->errorString();
     Q_EMIT error(m_process->errorString());

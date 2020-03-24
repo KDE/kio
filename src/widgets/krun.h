@@ -255,7 +255,7 @@ public:
      * If you need to wait for the application to register to D-Bus, use D-Bus activation instead.
      *
      * If you don't need the prompt for asking the user whether to add the executable bit for
-     * desktop files or binaries that don't have it, you can use KIO::ProcessLauncherJob from KIOGui directly.
+     * desktop files or binaries that don't have it, you can use KIO::ApplicationLauncherJob from KIOGui directly.
      *
      * @param service the service to run
      * @param urls the list of URLs, can be empty (app launched

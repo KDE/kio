@@ -19,8 +19,8 @@
     Boston, MA 02110-1301, USA.
 */
 
-#ifndef KIO_PROCESSLAUNCHERJOB_H
-#define KIO_PROCESSLAUNCHERJOB_H
+#ifndef KIO_APPLICATIONLAUNCHERJOB_H
+#define KIO_APPLICATIONLAUNCHERJOB_H
 
 #include "kiogui_export.h"
 #include <KJob>
@@ -29,17 +29,17 @@
 
 namespace KIO {
 
-class ProcessLauncherJobPrivate;
+class ApplicationLauncherJobPrivate;
 
 /**
- * @brief ProcessLauncherJob runs a process (application) and watches it while running.
+ * @brief ApplicationLauncherJob runs an application and watches it while running.
  *
  * It creates a startup notification and finishes it on success or on error (for the taskbar).
  * It also emits an error message if necessary (e.g. "program not found").
  *
  * Note that this class doesn't support warning the user if a desktop file or a binary
  * does not have the executable bit set and offering to make it so. Therefore file managers
- * should use KRun::runApplication rather than using ProcessLauncherJob directly.
+ * should use KRun::runApplication rather than using ApplicationLauncherJob directly.
  *
  * When passing multiple URLs to an application that doesn't support opening
  * multiple files, the application will be launched once for each URL.
@@ -49,22 +49,22 @@ class ProcessLauncherJobPrivate;
  *
  * @since 5.69
  */
-class KIOGUI_EXPORT ProcessLauncherJob : public KJob
+class KIOGUI_EXPORT ApplicationLauncherJob : public KJob
 {
 public:
     /**
-     * @brief Creates a ProcessLauncherJob
+     * @brief Creates a ApplicationLauncherJob
      * @param service the service (application desktop file) to run
      * @param parent the parent QObject
      */
-    explicit ProcessLauncherJob(const KService::Ptr &service, QObject *parent = nullptr);
+    explicit ApplicationLauncherJob(const KService::Ptr &service, QObject *parent = nullptr);
 
     /**
      * Destructor.
      * Note that jobs auto-delete themselves after emitting result.
      * Deleting/killing the job will not stop the started application.
      */
-    ~ProcessLauncherJob() override;
+    ~ApplicationLauncherJob() override;
 
     /**
      * @brief setUrls specifies the URLs to be passed to the application
@@ -127,8 +127,8 @@ public:
     QVector<qint64> pids() const;
 
 private:
-    friend class ProcessLauncherJobPrivate;
-    QScopedPointer<ProcessLauncherJobPrivate> d;
+    friend class ApplicationLauncherJobPrivate;
+    QScopedPointer<ApplicationLauncherJobPrivate> d;
 };
 
 } // namespace KIO

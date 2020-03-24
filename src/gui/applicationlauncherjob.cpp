@@ -19,17 +19,17 @@
     Boston, MA 02110-1301, USA.
 */
 
-#include "processlauncherjob.h"
+#include "applicationlauncherjob.h"
 #include "kprocessrunner_p.h"
 #include "kiogui_debug.h"
 
-class KIO::ProcessLauncherJobPrivate
+class KIO::ApplicationLauncherJobPrivate
 {
 public:
-    explicit ProcessLauncherJobPrivate(const KService::Ptr &service)
+    explicit ApplicationLauncherJobPrivate(const KService::Ptr &service)
         : m_service(service) {}
 
-    void slotStarted(KIO::ProcessLauncherJob *q, KProcessRunner *processRunner) {
+    void slotStarted(KIO::ApplicationLauncherJob *q, KProcessRunner *processRunner) {
         m_pids.append(processRunner->pid());
         if (--m_numProcessesPending == 0) {
             q->emitResult();
@@ -37,7 +37,7 @@ public:
     }
     const KService::Ptr m_service;
     QList<QUrl> m_urls;
-    KIO::ProcessLauncherJob::RunFlags m_runFlags;
+    KIO::ApplicationLauncherJob::RunFlags m_runFlags;
     QString m_suggestedFileName;
     QByteArray m_startupId;
     QVector<qint64> m_pids;
@@ -45,38 +45,38 @@ public:
     int m_numProcessesPending = 0;
 };
 
-KIO::ProcessLauncherJob::ProcessLauncherJob(const KService::Ptr &service, QObject *parent)
-    : KJob(parent), d(new ProcessLauncherJobPrivate(service))
+KIO::ApplicationLauncherJob::ApplicationLauncherJob(const KService::Ptr &service, QObject *parent)
+    : KJob(parent), d(new ApplicationLauncherJobPrivate(service))
 {
 }
 
-KIO::ProcessLauncherJob::~ProcessLauncherJob()
+KIO::ApplicationLauncherJob::~ApplicationLauncherJob()
 {
     // Do *NOT* delete the KProcessRunner instances here.
     // We need it to keep running so it can do terminate startup notification on process exit.
 }
 
-void KIO::ProcessLauncherJob::setUrls(const QList<QUrl> &urls)
+void KIO::ApplicationLauncherJob::setUrls(const QList<QUrl> &urls)
 {
     d->m_urls = urls;
 }
 
-void KIO::ProcessLauncherJob::setRunFlags(RunFlags runFlags)
+void KIO::ApplicationLauncherJob::setRunFlags(RunFlags runFlags)
 {
     d->m_runFlags = runFlags;
 }
 
-void KIO::ProcessLauncherJob::setSuggestedFileName(const QString &suggestedFileName)
+void KIO::ApplicationLauncherJob::setSuggestedFileName(const QString &suggestedFileName)
 {
     d->m_suggestedFileName = suggestedFileName;
 }
 
-void KIO::ProcessLauncherJob::setStartupId(const QByteArray &startupId)
+void KIO::ApplicationLauncherJob::setStartupId(const QByteArray &startupId)
 {
     d->m_startupId = startupId;
 }
 
-void KIO::ProcessLauncherJob::start()
+void KIO::ApplicationLauncherJob::start()
 {
     if (d->m_urls.count() > 1 && !d->m_service->allowMultipleFiles()) {
         // We need to launch the application N times.
@@ -111,7 +111,7 @@ void KIO::ProcessLauncherJob::start()
     });
 }
 
-bool KIO::ProcessLauncherJob::waitForStarted()
+bool KIO::ApplicationLauncherJob::waitForStarted()
 {
     const bool ret = std::all_of(d->m_processRunners.cbegin(),
                                  d->m_processRunners.cend(),
@@ -122,12 +122,12 @@ bool KIO::ProcessLauncherJob::waitForStarted()
     return ret;
 }
 
-qint64 KIO::ProcessLauncherJob::pid() const
+qint64 KIO::ApplicationLauncherJob::pid() const
 {
     return d->m_pids.at(0);
 }
 
-QVector<qint64> KIO::ProcessLauncherJob::pids() const
+QVector<qint64> KIO::ApplicationLauncherJob::pids() const
 {
     return d->m_pids;
 }

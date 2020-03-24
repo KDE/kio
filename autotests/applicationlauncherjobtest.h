@@ -19,13 +19,13 @@
     Boston, MA 02110-1301, USA.
 */
 
-#ifndef PROCESSLAUNCHERJOBTEST_H
-#define PROCESSLAUNCHERJOBTEST_H
+#ifndef APPLICATIONLAUNCHERJOBTEST_H
+#define APPLICATIONLAUNCHERJOBTEST_H
 
 #include <QObject>
 #include <QStringList>
 
-class ProcessLauncherJobTest : public QObject
+class ApplicationLauncherJobTest : public QObject
 {
     Q_OBJECT
 
@@ -49,5 +49,5 @@ private:
 
 };
 
-#endif /* PROCESSLAUNCHERJOBTEST_H */
+#endif /* APPLICATIONLAUNCHERJOBTEST_H */
 

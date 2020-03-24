@@ -74,7 +74,7 @@ endif()
 if (TARGET KF5::KIOGui)
   ecm_add_tests(
     favicontest.cpp
-    processlauncherjobtest.cpp
+    applicationlauncherjobtest.cpp
     NAME_PREFIX "kiogui-"
     LINK_LIBRARIES KF5::KIOCore KF5::KIOGui Qt5::Test
   )
