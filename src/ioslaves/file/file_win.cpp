@@ -104,6 +104,7 @@ static UDSEntry createUDSEntryWin(const QFileInfo &fileInfo)
     entry.insert(KIO::UDSEntry::UDS_USER, fileInfo.owner());
     entry.insert(KIO::UDSEntry::UDS_GROUP, fileInfo.group());
     entry.insert(KIO::UDSEntry::UDS_ACCESS_TIME, fileInfo.lastRead().toSecsSinceEpoch());
+    entry.insert(KIO::UDSEntry::UDS_CREATION_TIME, fileInfo.birthTime().toSecsSinceEpoch());
 
     return entry;
 }
