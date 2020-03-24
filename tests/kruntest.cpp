@@ -57,8 +57,6 @@ static const struct {
     { "run(missing lib, no url)", "should show error message (remove libqca-qt5.so.2 for this, e.g. by editing LD_LIBRARY_PATH if qca is in its own prefix)", "qcatool-qt5", nullptr },
     { "run(missing lib, file url)", "should show error message (remove libqca-qt5.so.2 for this, e.g. by editing LD_LIBRARY_PATH if qca is in its own prefix)", "qcatool-qt5", testFile },
     { "run(missing lib, remote url)", "should show error message (remove libqca-qt5.so.2 for this, e.g. by editing LD_LIBRARY_PATH if qca is in its own prefix)", "qcatool-qt5", "http://www.kde.org" },
-    { "runCommand(empty)", "should error", "", "" }, // #186036
-    { "runCommand(full path)", "should work normally", "kruntest", "" }
 };
 
 Receiver::Receiver()
@@ -103,22 +101,14 @@ void Receiver::slotLaunchTest()
     Q_ASSERT(button);
     const int testNumber = button->property("testNumber").toInt();
     QList<QUrl> urls;
-    if (QByteArray(s_tests[testNumber].text).startsWith("runCommand")) {
-        QString exec = s_tests[testNumber].exec;
-        if (exec == QLatin1String("kruntest")) {
-            exec = QCoreApplication::applicationFilePath();
+    if (s_tests[testNumber].url) {
+        QString urlStr(s_tests[testNumber].url);
+        if (urlStr == QLatin1String(testFile)) {
+            urlStr = QFINDTESTDATA(testFile);
         }
-        KRun::runCommand(exec, this);
-    } else {
-        if (s_tests[testNumber].url) {
-            QString urlStr(s_tests[testNumber].url);
-            if (urlStr == QLatin1String(testFile)) {
-                urlStr = QFINDTESTDATA(testFile);
-            }
-            urls << QUrl::fromUserInput(urlStr);
-        }
-        KRun::run(s_tests[testNumber].exec, urls, this);
+        urls << QUrl::fromUserInput(urlStr);
     }
+    KRun::run(s_tests[testNumber].exec, urls, this);
 }
 
 void Receiver::slotStop()

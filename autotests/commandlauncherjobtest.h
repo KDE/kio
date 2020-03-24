@@ -36,6 +36,7 @@ private Q_SLOTS:
     void startProcess();
 
     void doesNotFailOnNonExistingExecutable();
+    void shouldDoNothingOnEmptyCommand();
 };
 
 #endif /* COMMANDLAUNCHERJOBTEST_H */

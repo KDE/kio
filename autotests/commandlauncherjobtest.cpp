@@ -108,3 +108,13 @@ void CommandLauncherJobTest::doesNotFailOnNonExistingExecutable()
     // Then it doesn't actually fail. QProcess is starting /bin/sh, which works...
     QVERIFY(job->exec());
 }
+
+void CommandLauncherJobTest::shouldDoNothingOnEmptyCommand()
+{
+    // When running an empty command
+    KIO::CommandLauncherJob *job = new KIO::CommandLauncherJob(QString(), this);
+
+    // THEN it should do nothing
+    // at least not crash (old bug 186036)
+    QVERIFY(job->exec());
+}
