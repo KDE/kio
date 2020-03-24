@@ -55,7 +55,7 @@
 #include "krecentdocument.h"
 #include "kdesktopfileactions.h"
 #include <kio/desktopexecparser.h>
-#include "kprocessrunner_p.h"
+#include "kprocessrunner_p.h" // for KIOGuiPrivate::checkStartupNotify
 #include "applicationlauncherjob.h"
 
 #include <kurlauthorized.h>
@@ -65,6 +65,7 @@
 #include <kprocess.h>
 #include <kjobwidgets.h>
 #include <ksharedconfig.h>
+#include <commandlauncherjob.h>
 
 #include <QFile>
 #include <QFileInfo>
@@ -106,18 +107,21 @@ static bool checkNeedPortalSupport()
             qEnvironmentVariableIsSet("SNAP");
 }
 
-static qint64 runProcessRunner(KProcessRunner *processRunner, QWidget *widget)
+static qint64 runApplicationLauncherJob(KIO::ApplicationLauncherJob *job, QWidget *widget)
 {
     QObject *receiver = widget ? static_cast<QObject *>(widget) : static_cast<QObject *>(qApp);
-    QObject::connect(processRunner, &KProcessRunner::error, receiver, [widget](const QString &errorString) {
-        QEventLoopLocker locker;
-        KMessageBox::sorry(widget, errorString);
+    QObject::connect(job, &KJob::result, receiver, [widget](KJob *job) {
+        if (job->error()) {
+            QEventLoopLocker locker;
+            KMessageBox::sorry(widget, job->errorString());
+        }
     });
-    processRunner->waitForStarted();
-    return processRunner->pid();
+    job->start();
+    job->waitForStarted();
+    return job->pid();
 }
 
-static qint64 runApplicationLauncherJob(KIO::ApplicationLauncherJob *job, QWidget *widget)
+static qint64 runCommandLauncherJob(KIO::CommandLauncherJob *job, QWidget *widget)
 {
     QObject *receiver = widget ? static_cast<QObject *>(widget) : static_cast<QObject *>(qApp);
     QObject::connect(job, &KJob::result, receiver, [widget](KJob *job) {
@@ -721,17 +725,16 @@ bool KRun::runCommand(const QString &cmd, const QString &execName, const QString
 bool KRun::runCommand(const QString &cmd, const QString &execName, const QString &iconName,
                       QWidget *window, const QByteArray &asn, const QString &workingDirectory)
 {
-    //qDebug() << "runCommand " << cmd << "," << execName;
+    auto *job = new KIO::CommandLauncherJob(cmd);
+    job->setExecutable(execName);
+    job->setIcon(iconName);
+    job->setStartupId(asn);
+    job->setWorkingDirectory(workingDirectory);
 
-    // QTBUG-59017 Calling winId() on an embedded widget will break interaction
-    // with it on high-dpi multi-screen setups (cf. also Bug 363548), hence using
-    // its parent window instead
     if (window) {
         window = window->window();
     }
-
-    auto *processRunner = new KProcessRunner(cmd, execName, iconName, asn, workingDirectory);
-    return runProcessRunner(processRunner, window);
+    return runCommandLauncherJob(job, window);
 }
 
 KRun::KRun(const QUrl &url, QWidget *window,

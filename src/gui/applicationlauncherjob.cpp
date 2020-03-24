@@ -53,7 +53,7 @@ KIO::ApplicationLauncherJob::ApplicationLauncherJob(const KService::Ptr &service
 KIO::ApplicationLauncherJob::~ApplicationLauncherJob()
 {
     // Do *NOT* delete the KProcessRunner instances here.
-    // We need it to keep running so it can do terminate startup notification on process exit.
+    // We need it to keep running so it can terminate startup notification on process exit.
 }
 
 void KIO::ApplicationLauncherJob::setUrls(const QList<QUrl> &urls)

@@ -64,15 +64,15 @@ public:
     /**
      * Run a shell command
      * @param cmd must be a shell command. No need to append "&" to it.
-     * @param execName the name of the executable, if known. This improves startup notification,
-     * as well as honoring various flags coming from the desktop file for this executable, if there's one.
+     * @param desktopName name of the desktop file, if known.
+     * @param execName the name of the executable, if known.
      * @param iconName icon for the startup notification
      * @param asn Application startup notification id, if any (otherwise "").
      * @param workingDirectory the working directory for the started process. The default
      *                         (if passing an empty string) is the user's document path.
      *                         This allows a command like "kwrite file.txt" to find file.txt from the right place.
      */
-    KProcessRunner(const QString &cmd, const QString &execName, const QString &iconName,
+    KProcessRunner(const QString &cmd, const QString &desktopName, const QString &execName, const QString &iconName,
                    const QByteArray &asn = {}, const QString &workingDirectory = {});
 
     /**
@@ -104,14 +104,14 @@ private Q_SLOTS:
     void slotProcessStarted();
 
 private:
-    void init(const KService::Ptr &service, const QString &bin, const QString &userVisibleName,
+    void init(const KService::Ptr &service, const QString &userVisibleName,
               const QString &iconName, const QByteArray &asn);
     void startProcess();
     void terminateStartupNotification();
     void emitDelayedError(const QString &errorMsg);
 
     std::unique_ptr<KProcess> m_process;
-    const QString m_executable; // can be a full path
+    QString m_executable; // can be a full path
     KStartupInfoId m_startupId;
     qint64 m_pid = 0;
 

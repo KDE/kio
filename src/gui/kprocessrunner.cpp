@@ -99,13 +99,10 @@ KProcessRunner::KProcessRunner(const KService::Ptr &service, const QList<QUrl> &
         }
     }
 
-    // m_executable can be a full shell command, so <bin> here is not 100% reliable.
-    // E.g. it could be "cd", which isn't an existing binary. It's just a heuristic anyway.
-    const QString bin = KIO::DesktopExecParser::executableName(m_executable);
-    init(service, bin, service->name(), service->icon(), asn);
+    init(service, service->name(), service->icon(), asn);
 }
 
-KProcessRunner::KProcessRunner(const QString &cmd, const QString &execName, const QString &iconName, const QByteArray &asn, const QString &workingDirectory)
+KProcessRunner::KProcessRunner(const QString &cmd, const QString &desktopName, const QString &execName, const QString &iconName, const QByteArray &asn, const QString &workingDirectory)
     : m_process{new KProcess},
       m_executable(execName)
 {
@@ -114,14 +111,20 @@ KProcessRunner::KProcessRunner(const QString &cmd, const QString &execName, cons
     if (!workingDirectory.isEmpty()) {
         m_process->setWorkingDirectory(workingDirectory);
     }
-    QString bin = KIO::DesktopExecParser::executableName(m_executable);
-    KService::Ptr service = KService::serviceByDesktopName(bin);
-    init(service, bin,
-         execName /*user-visible name*/,
-         iconName, asn);
+    if (!desktopName.isEmpty()) {
+        KService::Ptr service = KService::serviceByDesktopName(desktopName);
+        if (service) {
+            if (m_executable.isEmpty()) {
+                m_executable = KIO::DesktopExecParser::executablePath(service->exec());
+            }
+            init(service, service->name(), service->icon(), asn);
+            return;
+        }
+    }
+    init(KService::Ptr(), execName /*user-visible name*/, iconName, asn);
 }
 
-void KProcessRunner::init(const KService::Ptr &service, const QString &bin, const QString &userVisibleName, const QString &iconName, const QByteArray &asn)
+void KProcessRunner::init(const KService::Ptr &service, const QString &userVisibleName, const QString &iconName, const QByteArray &asn)
 {
     if (service && !service->entryPath().isEmpty()
             && !KDesktopFile::isAuthorizedDesktopFile(service->entryPath())) {
@@ -141,6 +144,9 @@ void KProcessRunner::init(const KService::Ptr &service, const QString &bin, cons
             m_startupId.setupStartupEnv();
             KStartupInfoData data;
             data.setHostname();
+            // When it comes from a desktop file, m_executable can be a full shell command, so <bin> here is not 100% reliable.
+            // E.g. it could be "cd", which isn't an existing binary. It's just a heuristic anyway.
+            const QString bin = KIO::DesktopExecParser::executableName(m_executable);
             data.setBin(bin);
             if (!userVisibleName.isEmpty()) {
                 data.setName(userVisibleName);
