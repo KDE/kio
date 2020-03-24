@@ -31,7 +31,7 @@
 // BEGIN Global variables
 const QString fileNameArg = QLatin1String("/home/user/Folder1/SubFolder2/a%1.txt");
 // to check with 10, 100, 1000, ... KFileItem
-const int maxPowerOfTen=4;
+const int maxPowerOfTen=3;
 // To use the same random list of names and url for all the tests
 QVector<int> randInt[maxPowerOfTen];
 // The same list of random integers for all the tests
