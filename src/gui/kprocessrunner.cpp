@@ -30,11 +30,17 @@
 #include <KWindowSystem>
 
 #include <QDBusConnection>
+#include <QDBusConnectionInterface>
 #include <QDBusInterface>
+#include <QDBusMetaType>
+#include <QDBusPendingCallWatcher>
 #include <QDBusReply>
 #include <QFileInfo>
 #include <QGuiApplication>
 #include <QStandardPaths>
+#include <QUuid>
+
+#include <mutex>
 
 static int s_instanceCount = 0; // for the unittest
 
@@ -177,6 +183,12 @@ void KProcessRunner::init(const KService::Ptr &service, const QString &userVisib
     Q_UNUSED(userVisibleName);
     Q_UNUSED(iconName);
 #endif
+    if (service) {
+        m_scopeId = service->desktopEntryName();
+    }
+    if (m_scopeId.isEmpty()) {
+        m_scopeId = m_executable;
+    }
     startProcess();
 }
 
@@ -209,6 +221,7 @@ void KProcessRunner::slotProcessError(QProcess::ProcessError errorCode)
 void KProcessRunner::slotProcessStarted()
 {
     m_pid = m_process->processId();
+    registerCGroup();
 
 #if HAVE_X11
     if (!m_startupId.isNull() && m_pid) {
@@ -265,6 +278,60 @@ void KProcessRunner::slotProcessExited(int exitCode, QProcess::ExitStatus exitSt
     terminateStartupNotification();
     deleteLater();
 }
+
+void KProcessRunner::registerCGroup()
+{
+#ifdef Q_OS_LINUX
+    if (!qEnvironmentVariableIsSet("KDE_APPLICATIONS_AS_SCOPE")) {
+        return;
+    }
+    if (!QDBusConnection::sessionBus().interface()->isServiceRegistered(QStringLiteral("org.freedesktop.systemd1"))) {
+        return;
+    }
+
+    typedef QPair<QString, QDBusVariant> NamedVariant;
+    typedef QList<NamedVariant> NamedVariantList;
+
+    static std::once_flag dbusTypesRegistered;
+    std::call_once(dbusTypesRegistered, []() {
+        qDBusRegisterMetaType<NamedVariant>();
+        qDBusRegisterMetaType<NamedVariantList>();
+        qDBusRegisterMetaType<QPair<QString, NamedVariantList>>();
+        qDBusRegisterMetaType<QList<QPair<QString, NamedVariantList>>>();
+    });
+
+    QDBusMessage message = QDBusMessage::createMethodCall(QStringLiteral("org.freedesktop.systemd1"),
+                                   QStringLiteral("/org/freedesktop/systemd1"),
+                                   QStringLiteral("org.freedesktop.systemd1.Manager"),
+                                   QStringLiteral("StartTransientUnit"));
+
+    const QString name = QStringLiteral("apps-%1-%2.scope").arg(m_scopeId, QUuid::createUuid().toString(QUuid::Id128));
+    // mode defines what to do in the case of a name conflict, in this case, just do nothing
+    const QString mode = QStringLiteral("fail");
+
+    const QList<uint> pidList = {static_cast<quint32>(m_process->pid())};
+
+    NamedVariantList properties = {NamedVariant({QStringLiteral("PIDs"), QDBusVariant(QVariant::fromValue(pidList))})};
+
+    QList<QPair<QString, NamedVariantList>> aux;
+
+    message.setArguments({name, mode, QVariant::fromValue(properties), QVariant::fromValue(aux)});
+    QDBusPendingCall reply = QDBusConnection::sessionBus().asyncCall(message);
+
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(reply, this);
+
+    QObject::connect(watcher, &QDBusPendingCallWatcher::finished, qApp, [=]() {
+        watcher->deleteLater();
+        if (reply.isError()) {
+            qCWarning(KIO_GUI) << "Failed to register new cgroup:" << name;
+        } else {
+            qCDebug(KIO_GUI) << "Successfully registered new cgroup:" << name;
+        }
+    });
+
+#endif
+}
+
 
 // This code is also used in klauncher (and KRun).
 bool KIOGuiPrivate::checkStartupNotify(const KService *service, bool *silent_arg, QByteArray *wmclass_arg)

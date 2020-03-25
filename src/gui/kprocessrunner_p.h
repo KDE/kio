@@ -107,12 +107,14 @@ private:
     void init(const KService::Ptr &service, const QString &userVisibleName,
               const QString &iconName, const QByteArray &asn);
     void startProcess();
+    void registerCGroup();
     void terminateStartupNotification();
     void emitDelayedError(const QString &errorMsg);
 
     std::unique_ptr<KProcess> m_process;
     QString m_executable; // can be a full path
     KStartupInfoId m_startupId;
+    QString m_scopeId;
     qint64 m_pid = 0;
 
     Q_DISABLE_COPY(KProcessRunner)
