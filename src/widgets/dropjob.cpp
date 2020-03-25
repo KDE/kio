@@ -90,8 +90,8 @@ public:
           m_keyboardModifiers(dropEvent->keyboardModifiers()),
           m_destUrl(destUrl),
           m_destItem(KCoreDirLister::cachedItemForUrl(destUrl)),
-          m_dropjobFlags(dropjobFlags),
           m_flags(flags),
+          m_dropjobFlags(dropjobFlags),
           m_triggered(false)
     {
         // Check for the drop of a bookmark -> we want a Link action
