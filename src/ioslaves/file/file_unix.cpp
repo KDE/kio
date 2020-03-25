@@ -408,7 +408,7 @@ static bool createUDSEntry(const QString &filename, const QByteArray &path, UDSE
                     isBrokenSymLink = true;
                 } else {
 #if HAVE_POSIX_ACL
-                    if (details & KIO::Acl) {
+                    if (details & KIO::StatAcl) {
                         // valid symlink, will get the ACLs of the destination
                         targetPath = linkTargetBuffer;
                     }
@@ -442,7 +442,7 @@ static bool createUDSEntry(const QString &filename, const QByteArray &path, UDSE
     }
 
 #if HAVE_POSIX_ACL
-    if (details & KIO::Acl) {
+    if (details & KIO::StatAcl) {
         /* Append an atom indicating whether the file has extended acl information
          * and if withACL is specified also one with the acl itself. If it's a directory
          * and it has a default ACL, also append that. */
