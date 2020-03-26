@@ -460,10 +460,15 @@ void KNewFileMenuPrivate::executeOtherDesktopFile(const KNewFileMenuSingleton::E
 void KNewFileMenuPrivate::executeRealFileOrDir(const KNewFileMenuSingleton::Entry &entry)
 {
     // The template is not a desktop file
-    // Show the small dialog for getting the destination filename
+    // Prompt the user to set the destination filename
     QString text = entry.text;
     text.remove(QStringLiteral("...")); // the ... is fine for the menu item but not for the default filename
     text = text.trimmed(); // In some languages, there is a space in front of "...", see bug 268895
+    // add the extension (from the templatePath), should work with .txt, .html and with ".tar.gz"... etc
+    const QString fileName = entry.templatePath.mid(entry.templatePath.lastIndexOf(QLatin1Char('/')));
+    const int dotIndex = fileName.indexOf(QLatin1Char('.'));
+    text += dotIndex > 0 ? fileName.midRef(dotIndex) : QStringRef();
+
     m_copyData.m_src = entry.templatePath;
 
     const QUrl directory = mostLocalUrl(m_popupFiles.first());

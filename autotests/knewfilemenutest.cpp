@@ -94,9 +94,9 @@ private Q_SLOTS:
         QTest::addColumn<QString>("typedFilename"); // what the user is typing
         QTest::addColumn<QString>("expectedFilename"); // the final file name
 
-        QTest::newRow("text file") << "Text File" << "Text File" << "tmp_knewfilemenutest.txt" << "tmp_knewfilemenutest.txt";
-        QTest::newRow("text file with jpeg extension") << "Text File" << "Text File" << "foo.jpg" << "foo.jpg.txt";
-        QTest::newRow("html file") << "HTML File" << "HTML File" << "foo.html" << "foo.html";
+        QTest::newRow("text file") << "Text File" << "Text File.txt" << "tmp_knewfilemenutest.txt" << "tmp_knewfilemenutest.txt";
+        QTest::newRow("text file with jpeg extension") << "Text File" << "Text File.txt" << "foo.jpg" << "foo.jpg.txt";
+        QTest::newRow("html file") << "HTML File" << "HTML File.html" << "foo.html" << "foo.html";
         QTest::newRow("url desktop file") << "Link to Location " << "" << "tmp_link.desktop" << "tmp_link.desktop";
         QTest::newRow("url desktop file no extension") << "Link to Location " << "" << "tmp_link" << "tmp_link";
         QTest::newRow("url desktop file .pl extension") << "Link to Location " << "" << "tmp_link.pl" << "tmp_link.pl.desktop";
