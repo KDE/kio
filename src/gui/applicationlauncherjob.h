@@ -60,6 +60,14 @@ public:
     explicit ApplicationLauncherJob(const KService::Ptr &service, QObject *parent = nullptr);
 
     /**
+     * @brief Creates a ApplicationLauncherJob
+     * @param service the service (application desktop file) to run
+     * @param serviceAction the service action within the service to run
+     * @param parent the parent QObject
+     */
+    explicit ApplicationLauncherJob(const KService::Ptr &service, const KServiceAction &serviceAction, QObject *parent = nullptr);
+
+    /**
      * Destructor.
      * Note that jobs auto-delete themselves after emitting result.
      * Deleting/killing the job will not stop the started application.

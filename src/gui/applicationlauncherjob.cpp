@@ -35,7 +35,7 @@ public:
             q->emitResult();
         }
     }
-    const KService::Ptr m_service;
+    KService::Ptr m_service;
     QList<QUrl> m_urls;
     KIO::ApplicationLauncherJob::RunFlags m_runFlags;
     QString m_suggestedFileName;
@@ -48,6 +48,14 @@ public:
 KIO::ApplicationLauncherJob::ApplicationLauncherJob(const KService::Ptr &service, QObject *parent)
     : KJob(parent), d(new ApplicationLauncherJobPrivate(service))
 {
+}
+
+KIO::ApplicationLauncherJob::ApplicationLauncherJob(const KService::Ptr &service, const KServiceAction &serviceAction, QObject *parent)
+    : ApplicationLauncherJob(service, parent)
+{
+    Q_ASSERT(d->m_service);
+    d->m_service.detach();
+    d->m_service->setExec(serviceAction.exec());
 }
 
 KIO::ApplicationLauncherJob::~ApplicationLauncherJob()
