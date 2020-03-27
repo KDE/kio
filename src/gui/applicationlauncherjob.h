@@ -72,11 +72,10 @@ public:
 
     /**
      * @brief Creates a ApplicationLauncherJob
-     * @param service the service (application desktop file) to run
-     * @param serviceAction the service action within the service to run
+     * @param serviceAction the service action to run
      * @param parent the parent QObject
      */
-    explicit ApplicationLauncherJob(const KService::Ptr &service, const KServiceAction &serviceAction, QObject *parent = nullptr);
+    explicit ApplicationLauncherJob(const KServiceAction &serviceAction, QObject *parent = nullptr);
 
     /**
      * Destructor.

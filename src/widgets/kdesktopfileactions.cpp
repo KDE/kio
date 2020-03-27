@@ -23,10 +23,12 @@
 #include "../core/config-kmountpoint.h" // for HAVE_VOLMGT (yes I cheat a bit)
 #include "kio_widgets_debug.h"
 
+#include <KIO/ApplicationLauncherJob>
 #include "krun.h"
 #include "kautomount.h"
 #include <kmessagebox.h>
 #include <kdirnotify.h>
+#include <KDialogJobUiDelegate>
 #include <kmountpoint.h>
 
 #include <kdesktopfile.h>
@@ -386,10 +388,16 @@ void KDesktopFileActions::executeService(const QList<QUrl> &urls, const KService
         }
 #endif
     } else {
-        //qDebug() << action.name() << "first url's path=" << urls.first().toLocalFile() << "exec=" << action.exec();
-        KRun::run(action.exec(), urls, nullptr, action.text(), action.icon());
-        // The action may update the desktop file. Example: eject unmounts (#5129).
-        org::kde::KDirNotify::emitFilesChanged(urls);
+        KIO::ApplicationLauncherJob *job = new KIO::ApplicationLauncherJob(action);
+        job->setUrls(urls);
+        QObject::connect(job, &KJob::result, qApp, [urls]() {
+                // The action may update the desktop file. Example: eject unmounts (#5129).
+                org::kde::KDirNotify::emitFilesChanged(urls);
+                });
+        auto *delegate = new KDialogJobUiDelegate;
+        delegate->setAutoErrorHandlingEnabled(true);
+        job->setUiDelegate(delegate);
+        job->start();
     }
 }
 

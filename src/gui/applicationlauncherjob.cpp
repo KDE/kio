@@ -50,8 +50,8 @@ KIO::ApplicationLauncherJob::ApplicationLauncherJob(const KService::Ptr &service
 {
 }
 
-KIO::ApplicationLauncherJob::ApplicationLauncherJob(const KService::Ptr &service, const KServiceAction &serviceAction, QObject *parent)
-    : ApplicationLauncherJob(service, parent)
+KIO::ApplicationLauncherJob::ApplicationLauncherJob(const KServiceAction &serviceAction, QObject *parent)
+    : ApplicationLauncherJob(serviceAction.service(), parent)
 {
     Q_ASSERT(d->m_service);
     d->m_service.detach();
