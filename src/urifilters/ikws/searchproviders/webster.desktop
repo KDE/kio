@@ -118,6 +118,7 @@ Query[pt]=https://www.merriam-webster.com/dictionary/\\{@}
 Query[pt_BR]=https://www.merriam-webster.com/dictionary/\\{@}
 Query[ru]=https://www.merriam-webster.com/dictionary/\\{@}
 Query[sk]=https://www.merriam-webster.com/dictionary/\\{@}
+Query[sl]=https://www.merriam-webster.com/dictionary/\\{@}
 Query[sv]=https://www.merriam-webster.com/dictionary/\\{@}
 Query[tg]=https://www.merriam-webster.com/dictionary/\\{@}
 Query[uk]=https://www.merriam-webster.com/dictionary/\\{@}

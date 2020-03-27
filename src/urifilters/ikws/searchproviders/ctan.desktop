@@ -115,6 +115,7 @@ Query[pt]=https://ctan.org/search?phrase=\\{@}
 Query[pt_BR]=https://ctan.org/search?phrase=\\{@}
 Query[ru]=https://ctan.org/search?phrase=\\{@}
 Query[sk]=https://ctan.org/search?phrase=\\{@}
+Query[sl]=https://ctan.org/search?phrase=\\{@}
 Query[sv]=https://ctan.org/search?phrase=\\{@}
 Query[tg]=https://ctan.org/search?phrase=\\{@}
 Query[uk]=https://ctan.org/search?phrase=\\{@}

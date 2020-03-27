@@ -68,7 +68,7 @@ Name[ru]=Каталог свободного ПО FSF/UNESCO
 Name[se]=FSF/UNESCO Free Software Directory
 Name[si]=FSF/UNESCO නිදහස් මෘදුකාංග ශබ්දකෝශය
 Name[sk]=FSF/UNESCO Adresár slobodného softvéru
-Name[sl]=Imenik prostega programja FSF/UNESCO 
+Name[sl]=Imenik prostega programja FSF/UNESCO
 Name[sr]=Именик слободног софтвера ЗСС/Унеско
 Name[sr@ijekavian]=Именик слободног софтвера ЗСС/Унеско
 Name[sr@ijekavianlatin]=Imenik slobodnog softvera ZSS/Unesco
@@ -114,6 +114,7 @@ Query[pt]=https://directory.fsf.org/search/?query=\\{@}
 Query[pt_BR]=https://directory.fsf.org/search/?query=\\{@}
 Query[ru]=https://directory.fsf.org/search/?query=\\{@}
 Query[sk]=https://directory.fsf.org/search/?query=\\{@}
+Query[sl]=https://directory.fsf.org/search/?query=\\{@}
 Query[sv]=https://directory.fsf.org/search/?query=\\{@}
 Query[tg]=https://directory.fsf.org/search/?query=\\{@}
 Query[uk]=https://directory.fsf.org/search/?query=\\{@}

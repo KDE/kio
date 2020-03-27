@@ -110,6 +110,7 @@ Query[nn]=https://www.rae.es/drae/?val=\\{@}
 Query[pt]=https://www.rae.es/drae/?val=\\{@}
 Query[pt_BR]=https://www.rae.es/drae/?val=\\{@}
 Query[ru]=https://www.rae.es/drae/?val=\\{@}
+Query[sl]=https://www.rae.es/drae/?val=\\{@}
 Query[sv]=https://www.rae.es/drae/?val=\\{@}
 Query[uk]=https://www.rae.es/drae/?val=\\{@}
 Query[x-test]=xxhttps://www.rae.es/drae/?val=\\{@}xx

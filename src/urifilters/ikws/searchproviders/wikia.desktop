@@ -96,6 +96,7 @@ Query[pt]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=
 Query[pt_BR]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[ru]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[sk]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
+Query[sl]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[sv]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[tg]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[uk]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search

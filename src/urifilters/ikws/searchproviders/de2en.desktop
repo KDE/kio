@@ -68,7 +68,7 @@ Name[ru]=Переводчик dictcc.com: немецко-английский
 Name[se]=dict.cc Jorgaleapmi: Duiskkagielas eŋgelašgillii
 Name[si]=dict.cc Translation: German to English
 Name[sk]=dict.cc Preklad z nemčiny do angličtiny
-Name[sl]=Prevod dict.cc: nemščina v angleščino
+Name[sl]=prevod dict.cc: nemščina v angleščino
 Name[sr]=German to English: дикт.цц: са немачког на енглески
 Name[sr@ijekavian]=German to English: дикт.цц: са њемачког на енглески
 Name[sr@ijekavianlatin]=dict.cc: sa nemačkog na engleski
@@ -114,6 +114,7 @@ Query[pt]=https://www.dict.cc/?s=\\{@}
 Query[pt_BR]=https://www.dict.cc/?s=\\{@}
 Query[ru]=https://www.dict.cc/?s=\\{@}
 Query[sk]=https://www.dict.cc/?s=\\{@}
+Query[sl]=https://www.dict.cc/?s=\\{@}
 Query[sv]=https://www.dict.cc/?s=\\{@}
 Query[tg]=https://www.dict.cc/?s=\\{@}
 Query[uk]=https://www.dict.cc/?s=\\{@}

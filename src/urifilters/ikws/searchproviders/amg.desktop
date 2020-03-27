@@ -113,6 +113,7 @@ Query[pt]=https://www.allmusic.com/search/all/\\{@}
 Query[pt_BR]=https://www.allmusic.com/search/all/\\{@}
 Query[ru]=https://www.allmusic.com/search/all/\\{@}
 Query[sk]=https://www.allmusic.com/search/all/\\{@}
+Query[sl]=https://www.allmusic.com/search/all/\\{@}
 Query[sv]=https://www.allmusic.com/search/all/\\{@}
 Query[tg]=https://www.allmusic.com/search/all/\\{@}
 Query[uk]=https://www.allmusic.com/search/all/\\{@}

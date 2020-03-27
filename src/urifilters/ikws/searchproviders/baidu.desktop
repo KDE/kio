@@ -96,6 +96,7 @@ Query[pt]=https://www.baidu.com/s?wd=\\{@}
 Query[pt_BR]=https://www.baidu.com/s?wd=\\{@}
 Query[ru]=https://www.baidu.com/s?wd=\\{@}
 Query[sk]=https://www.baidu.com/s?wd=\\{@}
+Query[sl]=https://www.baidu.com/s?wd=\\{@}
 Query[sv]=https://www.baidu.com/s?wd=\\{@}
 Query[tg]=https://www.baidu.com/s?wd=\\{@}
 Query[uk]=https://www.baidu.com/s?wd=\\{@}

@@ -113,6 +113,7 @@ Query[pt]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[pt_BR]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[ru]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[sk]=https://technorati.com/tag/\\{@}?sourceid=kde-search
+Query[sl]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[sv]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[tg]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[uk]=https://technorati.com/tag/\\{@}?sourceid=kde-search
