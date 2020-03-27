@@ -178,9 +178,8 @@ int KFileItemActionsPrivate::insertServices(const ServiceList &list,
         bool isBuiltin)
 {
     int count = 0;
-    ServiceList::const_iterator it = list.begin();
-    for (; it != list.end(); ++it) {
-        if ((*it).isSeparator()) {
+    for (const KServiceAction &serviceAction : list) {
+        if (serviceAction.isSeparator()) {
             const QList<QAction *> actions = menu->actions();
             if (!actions.isEmpty() && !actions.last()->isSeparator()) {
                 menu->addSeparator();
@@ -188,16 +187,16 @@ int KFileItemActionsPrivate::insertServices(const ServiceList &list,
             continue;
         }
 
-        if (isBuiltin || !(*it).noDisplay()) {
+        if (isBuiltin || !serviceAction.noDisplay()) {
             QAction *act = new QAction(q);
             act->setObjectName(QStringLiteral("menuaction")); // for the unittest
-            QString text = (*it).text();
+            QString text = serviceAction.text();
             text.replace(QLatin1Char('&'), QLatin1String("&&"));
             act->setText(text);
-            if (!(*it).icon().isEmpty()) {
-                act->setIcon(QIcon::fromTheme((*it).icon()));
+            if (!serviceAction.icon().isEmpty()) {
+                act->setIcon(QIcon::fromTheme(serviceAction.icon()));
             }
-            act->setData(QVariant::fromValue(*it));
+            act->setData(QVariant::fromValue(serviceAction));
             m_executeServiceActionGroup.addAction(act);
 
             menu->addAction(act); // Add to toplevel menu
