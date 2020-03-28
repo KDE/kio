@@ -59,6 +59,30 @@ public:
     ~KDirModel();
 
     /**
+     * Flags for the openUrl() method
+     * @since 5.69
+     */
+    enum OpenUrlFlag {
+        NoFlags = 0x0,   ///< No additional flags specified.
+        Reload = 0x1,    ///< Indicates whether to use the cache or to reread
+                         ///< the directory from the disk.
+                         ///< Use only when opening a dir not yet listed by our dirLister()
+                         ///< without using the cache. Otherwise use dirLister()->updateDirectory().
+        ShowRoot = 0x2,  ///< Display a root node for the URL being opened.
+    };
+    Q_DECLARE_FLAGS(OpenUrlFlags, OpenUrlFlag)
+
+    /**
+     * Display the contents of @p url in the model.
+     * Apart from the support for the ShowRoot flag, this is equivalent to dirLister()->openUrl(url, flags)
+     * @param url   the URL of the directory whose contents should be listed.
+     *              Unless ShowRoot is set, the item for this directory will NOT be shown, the model starts at its children.
+     * @param flags see OpenUrlFlag
+     * @since 5.69
+     */
+    void openUrl(const QUrl &url, OpenUrlFlags flags = NoFlags);
+
+    /**
      * Set the directory lister to use by this model, instead of the default KDirLister created internally.
      * The model takes ownership.
      */
@@ -278,5 +302,6 @@ private:
 };
 
 Q_DECLARE_OPERATORS_FOR_FLAGS(KDirModel::DropsAllowed)
+Q_DECLARE_OPERATORS_FOR_FLAGS(KDirModel::OpenUrlFlags)
 
 #endif /* KDIRMODEL_H */

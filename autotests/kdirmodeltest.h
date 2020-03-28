@@ -62,6 +62,9 @@ private Q_SLOTS:
     void testMimeData();
     void testDotHiddenFile_data();
     void testDotHiddenFile();
+    void testShowRoot();
+    void testShowRootWithTrailingSlash();
+    void testShowRootAndExpandToUrl();
 
     // These tests must be done last
     void testDeleteFile();

@@ -1,5 +1,5 @@
 /* This file is part of the KDE project
-   Copyright (C) 2006 David Faure <faure@kde.org>
+   Copyright (C) 2006-2019 David Faure <faure@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -24,6 +24,7 @@
 #include <klocalizedstring.h>
 #include <kjobuidelegate.h>
 #include <kio/simplejob.h>
+#include <kio/statjob.h>
 #include <kio/fileundomanager.h>
 #include "joburlcache_p.h"
 #include <kurlmimedata.h>
@@ -203,6 +204,7 @@ public:
     {
         delete m_rootNode;
         m_rootNode = new KDirModelDirNode(nullptr, KFileItem());
+        m_showNodeForListedUrl = false;
     }
     // Emit expand for each parent and then return the
     // last known parent if there is no node for this url
@@ -212,6 +214,16 @@ public:
     KDirModelNode *nodeForUrl(const QUrl &url) const;
     KDirModelNode *nodeForIndex(const QModelIndex &index) const;
     QModelIndex indexForNode(KDirModelNode *node, int rowNumber = -1 /*unknown*/) const;
+
+    static QUrl rootParentOf(const QUrl &url) {
+        // <url> is what we listed, and which is visible at the root of the tree
+        // Here we want the (invisible) parent of that url
+        QUrl parent(url.adjusted(QUrl::RemoveFilename|QUrl::StripTrailingSlash));
+        if (url.path() == QLatin1String("/")) {
+            parent.setPath(QString());
+        }
+        return parent;
+    }
     bool isDir(KDirModelNode *node) const
     {
         return (node == m_rootNode) || node->item().isDir();
@@ -225,7 +237,12 @@ public:
          * For instance ksvn+http://url?rev=100 is the parent for ksvn+http://url/file?rev=100
          * so we have to remove the query in both to be able to compare the URLs
          */
-        QUrl url(node == m_rootNode ? m_dirLister->url() : node->item().url());
+        QUrl url;
+        if (node == m_rootNode && !m_showNodeForListedUrl) {
+            url = m_dirLister->url();
+        } else {
+            url = node->item().url();
+        }
         if (url.hasQuery() || url.hasFragment()) { // avoid detach if not necessary.
             url.setQuery(QString());
             url.setFragment(QString()); // kill ref (#171117)
@@ -237,12 +254,14 @@ public:
 #ifndef NDEBUG
     void dump();
 #endif
+    Q_DISABLE_COPY(KDirModelPrivate)
 
     KDirModel * const q;
     KDirLister *m_dirLister;
     KDirModelDirNode *m_rootNode;
     KDirModel::DropsAllowed m_dropsAllowed;
     bool m_jobTransfersVisible;
+    bool m_showNodeForListedUrl = false;
     // key = current known parent node (always a KDirModelDirNode but KDirModelNode is more convenient),
     // value = final url[s] being fetched
     QMap<KDirModelNode *, QList<QUrl> > m_urlsBeingFetched;
@@ -277,19 +296,26 @@ KDirModelNode *KDirModelPrivate::expandAllParentsUntil(const QUrl &_url) const /
 
     //qDebug() << url;
     QUrl nodeUrl = urlForNode(m_rootNode);
+    KDirModelDirNode *dirNode = m_rootNode;
+    if (m_showNodeForListedUrl && !m_rootNode->m_childNodes.isEmpty()) {
+        dirNode = static_cast<KDirModelDirNode *>(m_rootNode->m_childNodes.at(0)); // ### will be incorrect if we list drives on Windows
+        nodeUrl = dirNode->item().url();
+        qCDebug(category) << "listed URL is visible, adjusted starting point to" << nodeUrl;
+    }
     if (url == nodeUrl) {
-        return m_rootNode;
+        return dirNode;
     }
 
     // Protocol mismatch? Don't even start comparing paths then. #171721
     if (url.scheme() != nodeUrl.scheme()) {
+        qCWarning(category) << "protocol mismatch:" << url.scheme() << "vs" << nodeUrl.scheme();
         return nullptr;
     }
 
     const QString pathStr = url.path(); // no trailing slash
-    KDirModelDirNode *dirNode = m_rootNode;
 
     if (!pathStr.startsWith(nodeUrl.path())) {
+        qCDebug(category) << pathStr << "does not start with" << nodeUrl.path();
         return nullptr;
     }
 
@@ -421,6 +447,35 @@ void KDirModel::setDirLister(KDirLister *dirLister)
         [this](const QUrl &oldUrl, const QUrl &newUrl){d->_k_slotRedirection(oldUrl, newUrl);} );
 }
 
+void KDirModel::openUrl(const QUrl &inputUrl, OpenUrlFlags flags)
+{
+    Q_ASSERT(d->m_dirLister);
+    const QUrl url = cleanupUrl(inputUrl);
+    if (flags & ShowRoot) {
+        d->_k_slotClear();
+        d->m_showNodeForListedUrl = true;
+        // Store the parent URL into the invisible root node
+        const QUrl parentUrl = d->rootParentOf(url);
+        d->m_rootNode->setItem(KFileItem(parentUrl));
+        // Stat the requested url, to create the visible node
+        KIO::StatJob *statJob = KIO::stat(url, KIO::HideProgressInfo);
+        connect(statJob, &KJob::result, this, [statJob, parentUrl, url, this]() {
+            if (!statJob->error()) {
+                const KIO::UDSEntry entry = statJob->statResult();
+                KFileItem visibleRootItem(entry, url);
+                visibleRootItem.setName(url.path() == QLatin1String("/") ? QStringLiteral("/") : url.fileName());
+                d->_k_slotNewItems(parentUrl, QList<KFileItem>{visibleRootItem});
+                Q_ASSERT(d->m_rootNode->m_childNodes.count() == 1);
+                expandToUrl(url);
+            } else {
+                qWarning() << statJob->errorString();
+            }
+        });
+    } else {
+        d->m_dirLister->openUrl(url, (flags & Reload) ? KDirLister::Reload : KDirLister::NoFlags);
+    }
+}
+
 Qt::DropActions KDirModel::supportedDropActions() const
 {
     return Qt::CopyAction | Qt::MoveAction | Qt::LinkAction | Qt::IgnoreAction;
@@ -438,7 +493,7 @@ void KDirModelPrivate::_k_slotNewItems(const QUrl &directoryUrl, const KFileItem
 
     KDirModelNode *result = nodeForUrl(directoryUrl); // O(depth)
     // If the directory containing the items wasn't found, then we have a big problem.
-    // Are you calling KDirLister::openUrl(url,true,false)? Please use expandToUrl() instead.
+    // Are you calling KDirLister::openUrl(url,Keep)? Please use expandToUrl() instead.
     if (!result) {
         qCWarning(category) << "Items emitted in directory" << directoryUrl
                    << "but that directory isn't in KDirModel!"
@@ -1069,6 +1124,9 @@ QMimeData *KDirModel::mimeData(const QModelIndexList &indexes) const
 KFileItem KDirModel::itemForIndex(const QModelIndex &index) const
 {
     if (!index.isValid()) {
+        if (d->m_showNodeForListedUrl) {
+            return {};
+        }
         return d->m_dirLister->rootItem();
     } else {
         return static_cast<KDirModelNode *>(index.internalPointer())->item();

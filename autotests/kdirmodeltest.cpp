@@ -131,7 +131,7 @@ void KDirModelTest::fillModel(bool reload, bool expectAllIndexes)
     const QString path = m_tempDir->path() + '/';
     KDirLister *dirLister = m_dirModel->dirLister();
     qDebug() << "Calling openUrl";
-    dirLister->openUrl(QUrl::fromLocalFile(path), reload ? KDirLister::Reload : KDirLister::NoFlags);
+    m_dirModel->openUrl(QUrl::fromLocalFile(path), reload ? KDirModel::Reload : KDirModel::NoFlags);
     connect(dirLister, SIGNAL(completed()), this, SLOT(slotListingCompleted()));
     qDebug() << "enterLoop, waiting for completed()";
     enterLoop();
@@ -1178,6 +1178,67 @@ void KDirModelTest::testDotHiddenFile()
     }
 
     dh.remove();
+}
+
+void KDirModelTest::testShowRoot()
+{
+    KDirModel dirModel;
+    const QUrl homeUrl = QUrl::fromLocalFile(QDir::homePath());
+    const QUrl fsRootUrl = QUrl(QStringLiteral("file:///"));
+
+    // openUrl("/", ShowRoot) should create a "/" item
+    dirModel.openUrl(fsRootUrl, KDirModel::ShowRoot);
+    QTRY_COMPARE(dirModel.rowCount(), 1);
+    const QModelIndex rootIndex = dirModel.index(0, 0);
+    QVERIFY(rootIndex.isValid());
+    QCOMPARE(rootIndex.data().toString(), QStringLiteral("/"));
+    QVERIFY(!dirModel.parent(rootIndex).isValid());
+    QCOMPARE(dirModel.itemForIndex(rootIndex).url(), QUrl(QStringLiteral("file:///")));
+    QCOMPARE(dirModel.itemForIndex(rootIndex).name(), QStringLiteral("/"));
+
+    // expandToUrl should work
+    dirModel.expandToUrl(homeUrl);
+    QTRY_VERIFY(dirModel.indexForUrl(homeUrl).isValid());
+
+    // test itemForIndex and indexForUrl
+    QCOMPARE(dirModel.itemForIndex(QModelIndex()).url(), QUrl());
+    QVERIFY(!dirModel.indexForUrl(QUrl()).isValid());
+    const QUrl slashUrl = QUrl::fromLocalFile(QStringLiteral("/"));
+    QCOMPARE(dirModel.indexForUrl(slashUrl), rootIndex);
+
+    // switching to another URL should also show a root node
+    QSignalSpy spyRowsRemoved(&dirModel, &QAbstractItemModel::rowsRemoved);
+    const QUrl tempUrl = QUrl::fromLocalFile(QDir::tempPath());
+    dirModel.openUrl(tempUrl, KDirModel::ShowRoot);
+    QTRY_COMPARE(dirModel.rowCount(), 1);
+    QCOMPARE(spyRowsRemoved.count(), 1);
+    const QModelIndex newRootIndex = dirModel.index(0, 0);
+    QVERIFY(newRootIndex.isValid());
+    QCOMPARE(newRootIndex.data().toString(), QFileInfo(QDir::tempPath()).fileName());
+    QVERIFY(!dirModel.parent(newRootIndex).isValid());
+    QVERIFY(!dirModel.indexForUrl(slashUrl).isValid());
+    QCOMPARE(dirModel.itemForIndex(newRootIndex).url(), tempUrl);
+}
+
+void KDirModelTest::testShowRootWithTrailingSlash()
+{
+    // GIVEN
+    KDirModel dirModel;
+    const QUrl homeUrl = QUrl::fromLocalFile(QDir::homePath() + QLatin1Char('/'));
+
+    // WHEN
+    dirModel.openUrl(homeUrl, KDirModel::ShowRoot);
+    QTRY_VERIFY(dirModel.indexForUrl(homeUrl).isValid());
+}
+
+void KDirModelTest::testShowRootAndExpandToUrl()
+{
+    // call expandToUrl without waiting for initial listing of root node
+    KDirModel dirModel;
+    dirModel.openUrl(QUrl(QStringLiteral("file:///")), KDirModel::ShowRoot);
+    const QUrl homeUrl = QUrl::fromLocalFile(QDir::homePath());
+    dirModel.expandToUrl(homeUrl);
+    QTRY_VERIFY(dirModel.indexForUrl(homeUrl).isValid());
 }
 
 void KDirModelTest::testDeleteFile()
