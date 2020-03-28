@@ -33,10 +33,15 @@ class KProcess;
 #include "executablefileopendialog_p.h"
 #include "kstartupinfo.h"
 
+namespace KIO {
+    class ApplicationLauncherJob;
+    class CommandLauncherJob;
+}
+
 /**
  * @internal
  */
-class Q_DECL_HIDDEN KRun::KRunPrivate
+class Q_DECL_HIDDEN KRunPrivate
 {
 public:
     KRunPrivate(KRun *parent);
@@ -53,6 +58,8 @@ public:
                                             const QString &suggestedFileName, const QByteArray &asn);
 #endif
     bool runExternalBrowser(const QString &_exec);
+    static qint64 runApplicationLauncherJob(KIO::ApplicationLauncherJob *job, QWidget *widget);
+    static qint64 runCommandLauncherJob(KIO::CommandLauncherJob *job, QWidget *widget);
 
     void showPrompt();
     /**

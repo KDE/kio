@@ -25,6 +25,9 @@
 #include "kiogui_export.h"
 #include <KJob>
 
+class KRunPrivate; // KF6 REMOVE
+class CommandLauncherJobTest; // KF6 REMOVE
+
 namespace KIO {
 
 class CommandLauncherJobPrivate;
@@ -98,17 +101,19 @@ public:
     void start() override;
 
     /**
-     * Blocks until the process has started.
-     */
-    bool waitForStarted();
-
-    /**
      * @return the PID of the application that was started.
      * Available after the job emits result().
      */
     qint64 pid() const;
 
 private:
+    friend class ::KRunPrivate; // KF6 REMOVE
+    friend class ::CommandLauncherJobTest; // KF6 REMOVE
+    /**
+     * Blocks until the process has started. Only exists for KRun, will disappear in KF6.
+     */
+    bool waitForStarted();
+
     friend class CommandLauncherJobPrivate;
     QScopedPointer<CommandLauncherJobPrivate> d;
 };

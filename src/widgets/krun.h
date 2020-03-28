@@ -30,6 +30,7 @@
 class KService;
 class KJob;
 class QTimer;
+class KRunPrivate;
 
 namespace KIO
 {
@@ -667,7 +668,7 @@ protected:
     bool isLocalFile() const;
 
 private:
-    class KRunPrivate;
+    friend class KRunPrivate;
     KRunPrivate *const d;
 };
 

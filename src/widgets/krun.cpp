@@ -81,13 +81,13 @@
 #endif
 #include <qstandardpaths.h>
 
-KRun::KRunPrivate::KRunPrivate(KRun *parent)
+KRunPrivate::KRunPrivate(KRun *parent)
     : q(parent),
       m_showingDialog(false)
 {
 }
 
-void KRun::KRunPrivate::startTimer()
+void KRunPrivate::startTimer()
 {
     m_timer->start(0);
 }
@@ -107,7 +107,7 @@ static bool checkNeedPortalSupport()
             qEnvironmentVariableIsSet("SNAP");
 }
 
-static qint64 runApplicationLauncherJob(KIO::ApplicationLauncherJob *job, QWidget *widget)
+qint64 KRunPrivate::runApplicationLauncherJob(KIO::ApplicationLauncherJob *job, QWidget *widget)
 {
     QObject *receiver = widget ? static_cast<QObject *>(widget) : static_cast<QObject *>(qApp);
     QObject::connect(job, &KJob::result, receiver, [widget](KJob *job) {
@@ -121,7 +121,7 @@ static qint64 runApplicationLauncherJob(KIO::ApplicationLauncherJob *job, QWidge
     return job->pid();
 }
 
-static qint64 runCommandLauncherJob(KIO::CommandLauncherJob *job, QWidget *widget)
+qint64 KRunPrivate::runCommandLauncherJob(KIO::CommandLauncherJob *job, QWidget *widget)
 {
     QObject *receiver = widget ? static_cast<QObject *>(widget) : static_cast<QObject *>(qApp);
     QObject::connect(job, &KJob::result, receiver, [widget](KJob *job) {
@@ -449,7 +449,7 @@ bool KRun::displayOpenWithDialog(const QList<QUrl> &lst, QWidget *window, bool t
 #ifdef Q_OS_WIN
     KConfigGroup cfgGroup(KSharedConfig::openConfig(), QStringLiteral("KOpenWithDialog Settings"));
     if (cfgGroup.readEntry("Native", true)) {
-        return KRun::KRunPrivate::displayNativeOpenWithDialog(lst, window, tempFiles,
+        return KRunPrivate::displayNativeOpenWithDialog(lst, window, tempFiles,
                 suggestedFileName, asn);
     }
 #endif
@@ -678,7 +678,7 @@ qint64 KRun::runApplication(const KService &service, const QList<QUrl> &urls, QW
     }
     job->setSuggestedFileName(suggestedFileName);
     job->setStartupId(asn);
-    return runApplicationLauncherJob(job, window);
+    return KRunPrivate::runApplicationLauncherJob(job, window);
 }
 
 qint64 KRun::runService(const KService &_service, const QList<QUrl> &_urls, QWidget *window,
@@ -734,7 +734,7 @@ bool KRun::runCommand(const QString &cmd, const QString &execName, const QString
     if (window) {
         window = window->window();
     }
-    return runCommandLauncherJob(job, window);
+    return KRunPrivate::runCommandLauncherJob(job, window);
 }
 
 KRun::KRun(const QUrl &url, QWidget *window,
@@ -747,7 +747,7 @@ KRun::KRun(const QUrl &url, QWidget *window,
     d->init(url, window, showProgressInfo, asn);
 }
 
-void KRun::KRunPrivate::init(const QUrl &url, QWidget *window,
+void KRunPrivate::init(const QUrl &url, QWidget *window,
                              bool showProgressInfo, const QByteArray &asn)
 {
     m_bFault = false;
@@ -913,7 +913,7 @@ KRun::~KRun()
     delete d;
 }
 
-bool KRun::KRunPrivate::runExternalBrowser(const QString &_exec)
+bool KRunPrivate::runExternalBrowser(const QString &_exec)
 {
     QList<QUrl> urls;
     urls.append(m_strURL);
@@ -927,7 +927,7 @@ bool KRun::KRunPrivate::runExternalBrowser(const QString &_exec)
         }
     } else {
         KService::Ptr service = KService::serviceByStorageId(_exec);
-        if (service && KRun::runApplication(*service, urls, m_window, RunFlags{}, QString(), m_asn)) {
+        if (service && KRun::runApplication(*service, urls, m_window, KRun::RunFlags{}, QString(), m_asn)) {
             m_bFinished = true;
             startTimer();
             return true;
@@ -936,17 +936,17 @@ bool KRun::KRunPrivate::runExternalBrowser(const QString &_exec)
     return false;
 }
 
-void KRun::KRunPrivate::showPrompt()
+void KRunPrivate::showPrompt()
 {
     ExecutableFileOpenDialog *dialog = new ExecutableFileOpenDialog(promptMode(), q->window());
     dialog->setAttribute(Qt::WA_DeleteOnClose);
-    connect(dialog, &ExecutableFileOpenDialog::finished, q, [this, dialog](int result){
-        onDialogFinished(result, dialog->isDontAskAgainChecked());
-        });
+    QObject::connect(dialog, &ExecutableFileOpenDialog::finished, q, [this, dialog](int result){
+                         onDialogFinished(result, dialog->isDontAskAgainChecked());
+    });
     dialog->show();
 }
 
-bool KRun::KRunPrivate::isPromptNeeded()
+bool KRunPrivate::isPromptNeeded()
 {
     if (m_strURL == QUrl(QStringLiteral("remote:/x-wizard_service.desktop"))) {
         return false;
@@ -954,7 +954,7 @@ bool KRun::KRunPrivate::isPromptNeeded()
     const QMimeDatabase db;
     const QMimeType mime = db.mimeTypeForUrl(m_strURL);
 
-    const bool isFileExecutable = (isExecutableFile(m_strURL, mime.name()) ||
+    const bool isFileExecutable = (KRun::isExecutableFile(m_strURL, mime.name()) ||
                                    mime.inherits(QStringLiteral("application/x-desktop")));
 
     if (isFileExecutable) {
@@ -971,7 +971,7 @@ bool KRun::KRunPrivate::isPromptNeeded()
     return false;
 }
 
-ExecutableFileOpenDialog::Mode KRun::KRunPrivate::promptMode()
+ExecutableFileOpenDialog::Mode KRunPrivate::promptMode()
 {
     const QMimeDatabase db;
     const QMimeType mime = db.mimeTypeForUrl(m_strURL);
@@ -987,7 +987,7 @@ ExecutableFileOpenDialog::Mode KRun::KRunPrivate::promptMode()
     return ExecutableFileOpenDialog::OnlyExecute;
 }
 
-void KRun::KRunPrivate::onDialogFinished(int result, bool isDontAskAgainSet)
+void KRunPrivate::onDialogFinished(int result, bool isDontAskAgainSet)
 {
     if (result == ExecutableFileOpenDialog::Rejected) {
         m_bFinished = true;

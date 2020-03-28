@@ -27,6 +27,9 @@
 #include <KService>
 #include <QUrl>
 
+class KRunPrivate; // KF6 REMOVE
+class ApplicationLauncherJobTest; // KF6 REMOVE
+
 namespace KIO {
 
 class ApplicationLauncherJobPrivate;
@@ -116,11 +119,6 @@ public:
     void start() override;
 
     /**
-     * Blocks until the process has started.
-     */
-    bool waitForStarted();
-
-    /**
      * @return the PID of the application that was started.
      * Convenience method for pids().at(0). You should only use this when specifying zero or one URL,
      * or when you are sure that the application supports opening multiple files. Otherwise use pids().
@@ -135,6 +133,13 @@ public:
     QVector<qint64> pids() const;
 
 private:
+    friend class ::KRunPrivate; // KF6 REMOVE
+    friend class ::ApplicationLauncherJobTest; // KF6 REMOVE
+    /**
+     * Blocks until the process has started. Only exists for KRun, will disappear in KF6.
+     */
+    bool waitForStarted();
+
     friend class ApplicationLauncherJobPrivate;
     QScopedPointer<ApplicationLauncherJobPrivate> d;
 };
