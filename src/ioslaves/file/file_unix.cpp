@@ -355,11 +355,6 @@ static bool createUDSEntry(const QString &filename, const QByteArray &path, UDSE
 
     if (LSTAT(path.data(), &buff, details) == 0)  {
 
-        if (details & KIO::StatInode) {
-            entry.fastInsert(KIO::UDSEntry::UDS_DEVICE_ID, stat_dev(buff));
-            entry.fastInsert(KIO::UDSEntry::UDS_INODE, stat_ino(buff));
-        }
-
         if ((stat_mode(buff) & QT_STAT_MASK) == QT_STAT_LNK) {
 
             QByteArray linkTargetBuffer;
@@ -479,6 +474,11 @@ static bool createUDSEntry(const QString &filename, const QByteArray &path, UDSE
             entry.fastInsert(KIO::UDSEntry::UDS_CREATION_TIME, buff.stx_btime.tv_sec);
         }
 #endif
+    }
+
+    if (details & KIO::StatInode) {
+        entry.fastInsert(KIO::UDSEntry::UDS_DEVICE_ID, stat_dev(buff));
+        entry.fastInsert(KIO::UDSEntry::UDS_INODE, stat_ino(buff));
     }
 
     return true;
