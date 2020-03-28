@@ -87,6 +87,7 @@ public:
 
     QString icon;
     QString text;
+    QString tooltip;
     QString entryPath;
     QString exec;
     bool isDir;
@@ -147,6 +148,7 @@ void KApplicationModelPrivate::fillNode(const QString &_entryPath, KDEPrivate::A
     for (const KSycocaEntry::Ptr &p : list) {
         QString icon;
         QString text;
+        QString tooltip;
         QString entryPath;
         QString exec;
         bool isDir = false;
@@ -159,6 +161,11 @@ void KApplicationModelPrivate::fillNode(const QString &_entryPath, KDEPrivate::A
 
             icon = service->icon();
             text = service->name();
+
+            // no point adding a tooltip that only repeats service->name()
+            const QString generic = service->genericName();
+            tooltip = generic != text ? generic : QString();
+
             exec = service->exec();
             entryPath = service->entryPath();
         } else if (p->isType(KST_KServiceGroup)) {
@@ -180,6 +187,7 @@ void KApplicationModelPrivate::fillNode(const QString &_entryPath, KDEPrivate::A
         KDEPrivate::AppNode *newnode = new KDEPrivate::AppNode();
         newnode->icon = icon;
         newnode->text = text;
+        newnode->tooltip = tooltip;
         newnode->entryPath = entryPath;
         newnode->exec = exec;
         newnode->isDir = isDir;
@@ -234,6 +242,11 @@ QVariant KApplicationModel::data(const QModelIndex &index, int role) const
     case Qt::DecorationRole:
         if (!node->icon.isEmpty()) {
             return QIcon::fromTheme(node->icon);
+        }
+        break;
+    case Qt::ToolTipRole:
+        if (!node->tooltip.isEmpty()) {
+            return node->tooltip;
         }
         break;
     default:
