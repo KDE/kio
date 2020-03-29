@@ -82,7 +82,7 @@ static int runDll(QWidget *parent, const QString &libraryName, const QByteArray 
 }
 
 // Windows implementation using "OpenAs_RunDLL" entry
-bool KRun::KRunPrivate::displayNativeOpenWithDialog(const QList<QUrl> &lst, QWidget *window, bool tempFiles,
+bool KRunPrivate::displayNativeOpenWithDialog(const QList<QUrl> &lst, QWidget *window, bool tempFiles,
         const QString &suggestedFileName, const QByteArray &asn)
 {
     Q_UNUSED(tempFiles);
