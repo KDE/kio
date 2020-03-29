@@ -360,17 +360,17 @@ void OpenUrlJobTest::runNativeExecutable()
     KIO::OpenUrlJob *job = new KIO::OpenUrlJob(QUrl::fromLocalFile(scriptFile), mimeType, this);
     job->setRunExecutables(true); // startProcess tests the case where this isn't set
     job->setUiDelegate(new KJobUiDelegate);
-    auto *handler = new TestUntrustedProgramHandler(job->uiDelegate());
-    handler->setRetVal(handlerRetVal);
-
-    const bool success = job->exec();
 
     // Then --- it depends on what the user says via the handler
     if (!withHandler) {
-        QVERIFY(!success);
+        QVERIFY(!job->exec());
         QCOMPARE((int)job->error(), (int)KJob::UserDefinedError);
         QCOMPARE(job->errorString(), QStringLiteral("The program \"%1\" needs to have executable permission before it can be launched.").arg(scriptFile));
     } else {
+        auto *handler = new TestUntrustedProgramHandler(job->uiDelegate());
+        handler->setRetVal(handlerRetVal);
+
+        const bool success = job->exec();
         if (handlerRetVal) {
             QVERIFY(success);
             QTRY_VERIFY(QFileInfo::exists(dir + QLatin1String("/dest"))); // TRY because CommandLineLauncherJob finishes immediately
@@ -458,6 +458,8 @@ void OpenUrlJobTest::openOrExecuteDesktop()
     createSrcFile(dir + QLatin1String("/src"));
     const QByteArray cmd("cp " + QFile::encodeName(dir) + "/src " + QFile::encodeName(dir) +  "/dest-open-or-execute-desktop");
     writeApplicationDesktopFile(desktopFile, cmd);
+    QFile file(desktopFile);
+    QVERIFY(file.setPermissions(QFile::ExeUser | file.permissions())); // otherwise we'll get the untrusted program warning
 
     // When using OpenUrlJob to open the .desktop file
     KIO::OpenUrlJob *job = new KIO::OpenUrlJob(QUrl::fromLocalFile(desktopFile), QStringLiteral("application/x-desktop"), this);
