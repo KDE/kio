@@ -41,6 +41,14 @@ class CommandLauncherJobPrivate;
  * The job finishes when the application is successfully started. At that point you can
  * query the PID.
  *
+ * For error handling, either connect to the result() signal, or for a simple messagebox on error,
+ * you can do
+ * @code
+ *    auto *delegate = new KDialogJobUiDelegate;
+ *    delegate->setAutoErrorHandlingEnabled(true);
+ *    job->setUiDelegate(delegate);
+ * @endcode
+ *
  * @since 5.69
  */
 class KIOGUI_EXPORT CommandLauncherJob : public KJob
