@@ -31,7 +31,7 @@ protected:
     /**
      * Constructor
      */
-    UntrustedProgramHandlerInterface();
+    explicit UntrustedProgramHandlerInterface(QObject *parent = nullptr);
 
     /**
      * Destructor

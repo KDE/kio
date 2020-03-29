@@ -36,7 +36,7 @@ protected:
     /**
      * Constructor
      */
-    OpenWithHandlerInterface();
+    explicit OpenWithHandlerInterface(QObject *parent = nullptr);
 
     /**
      * Destructor

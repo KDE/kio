@@ -23,7 +23,7 @@ namespace KIO {
 class WidgetsOpenWithHandler : public OpenWithHandlerInterface
 {
 public:
-    WidgetsOpenWithHandler();
+    explicit WidgetsOpenWithHandler(QObject *parent = nullptr);
     ~WidgetsOpenWithHandler() override;
 
     void promptUserForApplication(KJob *job, const QList<QUrl> &urls, const QString &mimeType) override;

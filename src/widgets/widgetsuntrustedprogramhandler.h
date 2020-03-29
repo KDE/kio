@@ -25,7 +25,7 @@ namespace KIO {
 class WidgetsUntrustedProgramHandler : public UntrustedProgramHandlerInterface
 {
 public:
-    WidgetsUntrustedProgramHandler();
+    explicit WidgetsUntrustedProgramHandler(QObject *parent = nullptr);
     ~WidgetsUntrustedProgramHandler() override;
 
     void showUntrustedProgramWarning(KJob *job, const QString &programName) override;

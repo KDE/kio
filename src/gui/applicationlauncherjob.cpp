@@ -10,26 +10,13 @@
 #include "untrustedprogramhandlerinterface.h"
 #include "kiogui_debug.h"
 #include "openwithhandlerinterface.h"
+#include "jobuidelegatefactory.h"
 #include "../core/global.h"
 
 #include <KAuthorized>
 #include <KDesktopFile>
 #include <KLocalizedString>
 #include <QFileInfo>
-
-// KF6 TODO: Remove
-static KIO::UntrustedProgramHandlerInterface *s_untrustedProgramHandler = nullptr;
-
-extern KIO::OpenWithHandlerInterface *s_openWithHandler; // defined in openurljob.cpp
-
-namespace KIO {
-// Hidden API because in KF6 we'll just check if the job's uiDelegate implements UntrustedProgramHandlerInterface.
-KIOGUI_EXPORT void setDefaultUntrustedProgramHandler(KIO::UntrustedProgramHandlerInterface *iface) { s_untrustedProgramHandler = iface; }
-// For OpenUrlJob
-KIO::UntrustedProgramHandlerInterface *defaultUntrustedProgramHandler() { return s_untrustedProgramHandler; }
-}
-
-#include <KLocalizedString>
 
 class KIO::ApplicationLauncherJobPrivate
 {
@@ -130,11 +117,12 @@ void KIO::ApplicationLauncherJob::start()
         if (program.isEmpty()) { // e.g. due to command line arguments
             program = d->m_service->exec();
         }
-        if (!s_untrustedProgramHandler) {
+        auto *untrustedProgramHandler = KIO::delegateExtension<KIO::UntrustedProgramHandlerInterface *>(this);
+        if (!untrustedProgramHandler) {
             emitUnauthorizedError();
             return;
         }
-        connect(s_untrustedProgramHandler, &KIO::UntrustedProgramHandlerInterface::result, this, [this](bool result) {
+        connect(untrustedProgramHandler, &KIO::UntrustedProgramHandlerInterface::result, this, [this, untrustedProgramHandler](bool result) {
             if (result) {
                 // Assume that service is an absolute path since we're being called (relative paths
                 // would have been allowed unless Kiosk said no, therefore we already know where the
@@ -142,7 +130,7 @@ void KIO::ApplicationLauncherJob::start()
                 // and add the +x bit.
 
                 QString errorString;
-                if (s_untrustedProgramHandler->makeServiceFileExecutable(d->m_service->entryPath(), errorString)) {
+                if (untrustedProgramHandler->makeServiceFileExecutable(d->m_service->entryPath(), errorString)) {
                     proceedAfterSecurityChecks();
                 } else {
                     QString serviceName = d->m_service->name();
@@ -159,7 +147,7 @@ void KIO::ApplicationLauncherJob::start()
                 emitResult();
             }
         });
-        s_untrustedProgramHandler->showUntrustedProgramWarning(this, d->m_service->name());
+        untrustedProgramHandler->showUntrustedProgramWarning(this, d->m_service->name());
         return;
     }
     proceedAfterSecurityChecks();
@@ -251,27 +239,29 @@ void KIO::ApplicationLauncherJobPrivate::showOpenWithDialog()
         q->emitResult();
         return;
     }
-    if (!s_openWithHandler) {
+
+    auto *openWithHandler = KIO::delegateExtension<KIO::OpenWithHandlerInterface *>(q);
+    if (!openWithHandler) {
         q->setError(KJob::UserDefinedError);
         q->setErrorText(i18n("Internal error: could not prompt the user for which application to start"));
         q->emitResult();
         return;
     }
 
-    QObject::connect(s_openWithHandler, &KIO::OpenWithHandlerInterface::canceled, q, [this]() {
+    QObject::connect(openWithHandler, &KIO::OpenWithHandlerInterface::canceled, q, [this]() {
         q->setError(KIO::ERR_USER_CANCELED);
         q->emitResult();
     });
 
-    QObject::connect(s_openWithHandler, &KIO::OpenWithHandlerInterface::serviceSelected, q, [this](const KService::Ptr &service) {
+    QObject::connect(openWithHandler, &KIO::OpenWithHandlerInterface::serviceSelected, q, [this](const KService::Ptr &service) {
         Q_ASSERT(service);
         m_service = service;
         q->start();
     });
 
-    QObject::connect(s_openWithHandler, &KIO::OpenWithHandlerInterface::handled, q, [this]() {
+    QObject::connect(openWithHandler, &KIO::OpenWithHandlerInterface::handled, q, [this]() {
         q->emitResult();
     });
 
-    s_openWithHandler->promptUserForApplication(q, m_urls, QString() /* MIME type name unknown */);
+    openWithHandler->promptUserForApplication(q, m_urls, QString() /* MIME type name unknown */);
 }

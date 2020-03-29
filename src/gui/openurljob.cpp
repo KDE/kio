@@ -13,6 +13,7 @@
 #include "commandlauncherjob.h"
 #include "desktopexecparser.h"
 #include "untrustedprogramhandlerinterface.h"
+#include "jobuidelegatefactory.h"
 #include "kiogui_debug.h"
 
 #include <KApplicationTrader>
@@ -32,14 +33,6 @@
 #include <QTimer>
 
 #include <kio/scheduler.h>
-
-KIO::OpenWithHandlerInterface *s_openWithHandler = nullptr;
-KIO::OpenOrExecuteFileInterface *s_openOrExecuteFileHandler = nullptr;
-namespace KIO {
-// Hidden API because in KF6 we'll just check if the job's uiDelegate implements these interfaces
-KIOGUI_EXPORT void setDefaultOpenWithHandler(KIO::OpenWithHandlerInterface *iface) { s_openWithHandler = iface; }
-KIOGUI_EXPORT void setDefaultOpenOrExecuteFileHandler(KIO::OpenOrExecuteFileInterface *iface) { s_openOrExecuteFileHandler = iface; }
-}
 
 class KIO::OpenUrlJobPrivate
 {
@@ -541,15 +534,11 @@ void KIO::OpenUrlJobPrivate::handleBinariesHelper(const QString &localPath, bool
     executeCommand();
 }
 
-namespace KIO {
-extern KIO::UntrustedProgramHandlerInterface *defaultUntrustedProgramHandler();
-}
-
 // For local, native executables (i.e. not shell scripts) without execute bit,
 // show a prompt asking the user if he wants to run the program.
 void KIO::OpenUrlJobPrivate::showUntrustedProgramWarningDialog(const QString &filePath)
 {
-    KIO::UntrustedProgramHandlerInterface *untrustedProgramHandler = defaultUntrustedProgramHandler();
+    auto *untrustedProgramHandler = KIO::delegateExtension<KIO::UntrustedProgramHandlerInterface *>(q);
     if (!untrustedProgramHandler) {
         // No way to ask the user to make it executable
         q->setError(KJob::UserDefinedError);
@@ -746,7 +735,8 @@ void KIO::OpenUrlJobPrivate::showOpenWithDialog()
         return;
     }
 
-    if (!s_openWithHandler || QOperatingSystemVersion::currentType() == QOperatingSystemVersion::Windows) {
+    auto *openWithHandler = KIO::delegateExtension<KIO::OpenWithHandlerInterface *>(q);
+    if (!openWithHandler || QOperatingSystemVersion::currentType() == QOperatingSystemVersion::Windows) {
         // As KDE on windows doesn't know about the windows default applications, offers will be empty in nearly all cases.
         // So we use QDesktopServices::openUrl to let windows decide how to open the file.
         // It's also our fallback if there's no handler to show an open-with dialog.
@@ -758,20 +748,20 @@ void KIO::OpenUrlJobPrivate::showOpenWithDialog()
         return;
     }
 
-    QObject::connect(s_openWithHandler, &KIO::OpenWithHandlerInterface::canceled, q, [this]() {
+    QObject::connect(openWithHandler, &KIO::OpenWithHandlerInterface::canceled, q, [this]() {
         q->setError(KIO::ERR_USER_CANCELED);
         q->emitResult();
     });
 
-    QObject::connect(s_openWithHandler, &KIO::OpenWithHandlerInterface::serviceSelected, q, [this](const KService::Ptr &service) {
+    QObject::connect(openWithHandler, &KIO::OpenWithHandlerInterface::serviceSelected, q, [this](const KService::Ptr &service) {
         startService(service);
     });
 
-    QObject::connect(s_openWithHandler, &KIO::OpenWithHandlerInterface::handled, q, [this]() {
+    QObject::connect(openWithHandler, &KIO::OpenWithHandlerInterface::handled, q, [this]() {
         q->emitResult();
     });
 
-    s_openWithHandler->promptUserForApplication(q, {m_url}, m_mimeTypeName);
+    openWithHandler->promptUserForApplication(q, {m_url}, m_mimeTypeName);
 }
 
 void KIO::OpenUrlJobPrivate::showOpenOrExecuteFileDialog(std::function<void(bool)> dialogFinished)
@@ -779,7 +769,8 @@ void KIO::OpenUrlJobPrivate::showOpenOrExecuteFileDialog(std::function<void(bool
     QMimeDatabase db;
     QMimeType mimeType = db.mimeTypeForName(m_mimeTypeName);
 
-    if (!s_openOrExecuteFileHandler) {
+    auto *openOrExecuteFileHandler = KIO::delegateExtension<KIO::OpenOrExecuteFileInterface *>(q);
+    if (!openOrExecuteFileHandler) {
         // No way to ask the user whether to execute or open
         if (isTextScript(mimeType)
             || mimeType.inherits(QStringLiteral("application/x-desktop"))) { // Open text-based ones in the default app
@@ -792,18 +783,18 @@ void KIO::OpenUrlJobPrivate::showOpenOrExecuteFileDialog(std::function<void(bool
         return;
     }
 
-    QObject::connect(s_openOrExecuteFileHandler, &KIO::OpenOrExecuteFileInterface::canceled, q, [this]() {
+    QObject::connect(openOrExecuteFileHandler, &KIO::OpenOrExecuteFileInterface::canceled, q, [this]() {
         q->setError(KIO::ERR_USER_CANCELED);
         q->emitResult();
     });
 
-    QObject::connect(s_openOrExecuteFileHandler, &KIO::OpenOrExecuteFileInterface::executeFile,
+    QObject::connect(openOrExecuteFileHandler, &KIO::OpenOrExecuteFileInterface::executeFile,
                      q, [this, dialogFinished](bool shouldExecute) {
         m_runExecutables = shouldExecute;
         dialogFinished(shouldExecute);
     });
 
-    s_openOrExecuteFileHandler->promptUserOpenOrExecute(q, m_mimeTypeName);
+    openOrExecuteFileHandler->promptUserOpenOrExecute(q, m_mimeTypeName);
 }
 
 void KIO::OpenUrlJob::slotResult(KJob *job)

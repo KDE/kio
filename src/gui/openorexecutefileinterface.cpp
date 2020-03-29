@@ -11,7 +11,10 @@ using namespace KIO;
 
 class KIO::OpenOrExecuteFileInterfacePrivate {};
 
-OpenOrExecuteFileInterface::OpenOrExecuteFileInterface() = default;
+OpenOrExecuteFileInterface::OpenOrExecuteFileInterface(QObject *parent)
+    : QObject(parent)
+{
+}
 
 OpenOrExecuteFileInterface::~OpenOrExecuteFileInterface() = default;
 

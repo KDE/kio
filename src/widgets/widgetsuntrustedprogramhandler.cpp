@@ -23,8 +23,8 @@
 #include <QStyle>
 #include <QVBoxLayout>
 
-KIO::WidgetsUntrustedProgramHandler::WidgetsUntrustedProgramHandler()
-    : KIO::UntrustedProgramHandlerInterface(), d(nullptr)
+KIO::WidgetsUntrustedProgramHandler::WidgetsUntrustedProgramHandler(QObject *parent)
+    : KIO::UntrustedProgramHandlerInterface(parent), d(nullptr)
 {
 }
 

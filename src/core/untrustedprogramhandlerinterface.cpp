@@ -13,8 +13,8 @@
 
 using namespace KIO;
 
-UntrustedProgramHandlerInterface::UntrustedProgramHandlerInterface()
-    : d(nullptr)
+UntrustedProgramHandlerInterface::UntrustedProgramHandlerInterface(QObject *parent)
+    : QObject(parent), d(nullptr)
 {
 }
 

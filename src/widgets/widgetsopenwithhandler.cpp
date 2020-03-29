@@ -20,8 +20,8 @@
 #include "widgetsopenwithhandler_win.cpp" // displayNativeOpenWithDialog
 #endif
 
-KIO::WidgetsOpenWithHandler::WidgetsOpenWithHandler()
-    : KIO::OpenWithHandlerInterface()
+KIO::WidgetsOpenWithHandler::WidgetsOpenWithHandler(QObject *parent)
+    : KIO::OpenWithHandlerInterface(parent)
 {
 }
 

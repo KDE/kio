@@ -20,7 +20,7 @@ namespace KIO {
 class WidgetsOpenOrExecuteFileHandler : public OpenOrExecuteFileInterface
 {
 public:
-    WidgetsOpenOrExecuteFileHandler();
+    explicit WidgetsOpenOrExecuteFileHandler(QObject *parent = nullptr);
     ~WidgetsOpenOrExecuteFileHandler() override;
 
     void promptUserOpenOrExecute(KJob *job, const QString &mimetype) override;

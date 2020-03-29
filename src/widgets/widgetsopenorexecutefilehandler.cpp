@@ -16,8 +16,8 @@
 #include <QApplication>
 #include <QMimeDatabase>
 
-KIO::WidgetsOpenOrExecuteFileHandler::WidgetsOpenOrExecuteFileHandler()
-    : KIO::OpenOrExecuteFileInterface()
+KIO::WidgetsOpenOrExecuteFileHandler::WidgetsOpenOrExecuteFileHandler(QObject *parent)
+    : KIO::OpenOrExecuteFileInterface(parent)
 {
 }
 

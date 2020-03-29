@@ -15,6 +15,7 @@
 #include <KService>
 #include <KConfigGroup>
 #include <KDesktopFile>
+#include <KJobUiDelegate>
 
 #ifdef Q_OS_UNIX
 #include <signal.h> // kill
@@ -31,13 +32,10 @@ QTEST_GUILESS_MAIN(OpenUrlJobTest)
 
 extern KSERVICE_EXPORT int ksycoca_ms_between_checks;
 
-namespace KIO {
-KIOGUI_EXPORT void setDefaultUntrustedProgramHandler(KIO::UntrustedProgramHandlerInterface *iface);
-KIOGUI_EXPORT void setDefaultOpenOrExecuteFileHandler(KIO::OpenOrExecuteFileInterface *iface);
-}
 class TestUntrustedProgramHandler : public KIO::UntrustedProgramHandlerInterface
 {
 public:
+    explicit TestUntrustedProgramHandler(QObject *parent) : KIO::UntrustedProgramHandlerInterface(parent) {}
     void showUntrustedProgramWarning(KJob *job, const QString &programName) override {
         Q_UNUSED(job)
         m_calls << programName;
@@ -49,11 +47,11 @@ public:
     QStringList m_calls;
     bool m_retVal = false;
 };
-static TestUntrustedProgramHandler s_handler;
 
 class TestOpenOrExecuteHandler : public KIO::OpenOrExecuteFileInterface
 {
 public:
+    explicit TestOpenOrExecuteHandler(QObject *parent) : KIO::OpenOrExecuteFileInterface(parent) {}
     void promptUserOpenOrExecute(KJob *job, const QString &mimeType) override
     {
         Q_UNUSED(job)
@@ -74,7 +72,6 @@ private:
     bool m_executeFile = false;
     bool m_cancelIt = false;
 };
-static TestOpenOrExecuteHandler s_openOrExecuteFileHandler;
 
 static const char s_tempServiceName[] = "openurljobtest_service.desktop";
 
@@ -359,19 +356,19 @@ void OpenUrlJobTest::runNativeExecutable()
     file.close();
     // Note that it's missing executable permissions
 
-    s_handler.m_calls.clear();
-    s_handler.setRetVal(handlerRetVal);
-    KIO::setDefaultUntrustedProgramHandler(withHandler ? &s_handler : nullptr);
-
     // When using OpenUrlJob to run the executable
     KIO::OpenUrlJob *job = new KIO::OpenUrlJob(QUrl::fromLocalFile(scriptFile), mimeType, this);
     job->setRunExecutables(true); // startProcess tests the case where this isn't set
+    job->setUiDelegate(new KJobUiDelegate);
+    auto *handler = new TestUntrustedProgramHandler(job->uiDelegate());
+    handler->setRetVal(handlerRetVal);
+
     const bool success = job->exec();
 
     // Then --- it depends on what the user says via the handler
     if (!withHandler) {
         QVERIFY(!success);
-        QCOMPARE(job->error(), KJob::UserDefinedError);
+        QCOMPARE((int)job->error(), (int)KJob::UserDefinedError);
         QCOMPARE(job->errorString(), QStringLiteral("The program \"%1\" needs to have executable permission before it can be launched.").arg(scriptFile));
     } else {
         if (handlerRetVal) {
@@ -379,7 +376,7 @@ void OpenUrlJobTest::runNativeExecutable()
             QTRY_VERIFY(QFileInfo::exists(dir + QLatin1String("/dest"))); // TRY because CommandLineLauncherJob finishes immediately
         } else {
             QVERIFY(!success);
-            QCOMPARE(job->error(), KIO::ERR_USER_CANCELED);
+            QCOMPARE((int)job->error(), (int)KIO::ERR_USER_CANCELED);
         }
     }
 #endif
@@ -412,28 +409,28 @@ void OpenUrlJobTest::openOrExecuteScript()
     // scripts that are not executable as text files
     QVERIFY(file.setPermissions(QFile::ExeUser | file.permissions()));
 
-    KIO::setDefaultOpenOrExecuteFileHandler(&s_openOrExecuteFileHandler);
-
     // When using OpenUrlJob to open the script
     KIO::OpenUrlJob *job = new KIO::OpenUrlJob(QUrl::fromLocalFile(scriptFile), QStringLiteral("application/x-shellscript"), this);
     job->setShowOpenOrExecuteDialog(true);
+    job->setUiDelegate(new KJobUiDelegate);
+    auto *openOrExecuteFileHandler = new TestOpenOrExecuteHandler(job->uiDelegate());
 
     // Then --- it depends on what the user says via the handler
     if (dialogResult == QLatin1String("execute_true")) {
         job->setRunExecutables(false); // Overriden by the user's choice
-        s_openOrExecuteFileHandler.setExecuteFile(true);
+        openOrExecuteFileHandler->setExecuteFile(true);
         QVERIFY(job->exec());
         // TRY because CommandLineLauncherJob finishes immediately, and tempDir
         // will go out of scope and get deleted before the copy operation actually finishes
         QTRY_VERIFY(QFileInfo::exists(dir + QLatin1String("/dest")));
     } else if (dialogResult == QLatin1String("execute_false")) {
         job->setRunExecutables(true); // Overriden by the user's choice
-        s_openOrExecuteFileHandler.setExecuteFile(false);
+        openOrExecuteFileHandler->setExecuteFile(false);
         QVERIFY(job->exec());
         const QString testOpen = m_tempDir.path() + QLatin1String("/dest"); // see the .desktop file in writeApplicationDesktopFile
         QTRY_VERIFY(QFileInfo::exists(testOpen));
     } else if (dialogResult == QLatin1String("canceled")) {
-        s_openOrExecuteFileHandler.setCanceled();
+        openOrExecuteFileHandler->setCanceled();
         QVERIFY(!job->exec());
         QCOMPARE(job->error(), KIO::ERR_USER_CANCELED);
     }
@@ -462,28 +459,28 @@ void OpenUrlJobTest::openOrExecuteDesktop()
     const QByteArray cmd("cp " + QFile::encodeName(dir) + "/src " + QFile::encodeName(dir) +  "/dest-open-or-execute-desktop");
     writeApplicationDesktopFile(desktopFile, cmd);
 
-    KIO::setDefaultOpenOrExecuteFileHandler(&s_openOrExecuteFileHandler);
-
     // When using OpenUrlJob to open the .desktop file
     KIO::OpenUrlJob *job = new KIO::OpenUrlJob(QUrl::fromLocalFile(desktopFile), QStringLiteral("application/x-desktop"), this);
     job->setShowOpenOrExecuteDialog(true);
+    job->setUiDelegate(new KJobUiDelegate);
+    auto *openOrExecuteFileHandler = new TestOpenOrExecuteHandler(job->uiDelegate());
 
     // Then --- it depends on what the user says via the handler
     if (dialogResult == QLatin1String("execute_true")) {
         job->setRunExecutables(false); // Overriden by the user's choice
-        s_openOrExecuteFileHandler.setExecuteFile(true);
+        openOrExecuteFileHandler->setExecuteFile(true);
         QVERIFY2(job->exec(), qPrintable(job->errorString()));
         // TRY because CommandLineLauncherJob finishes immediately, and tempDir
         // will go out of scope and get deleted before the copy operation actually finishes
         QTRY_VERIFY(QFileInfo::exists(dir + QLatin1String("/dest-open-or-execute-desktop")));
     } if (dialogResult == QLatin1String("execute_false")) {
         job->setRunExecutables(true); // Overriden by the user's choice
-        s_openOrExecuteFileHandler.setExecuteFile(false);
+        openOrExecuteFileHandler->setExecuteFile(false);
         QVERIFY2(job->exec(), qPrintable(job->errorString()));
         const QString testOpen = m_tempDir.path() + QLatin1String("/dest"); // see the .desktop file in writeApplicationDesktopFile
         QTRY_VERIFY(QFileInfo::exists(testOpen));
     } else if (dialogResult == QLatin1String("canceled")) {
-        s_openOrExecuteFileHandler.setCanceled();
+        openOrExecuteFileHandler->setCanceled();
         QVERIFY(!job->exec());
         QCOMPARE(job->error(), KIO::ERR_USER_CANCELED);
     }

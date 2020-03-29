@@ -8,6 +8,7 @@
 #include "jobtest.h"
 
 #include <KLocalizedString>
+#include <KJobUiDelegate>
 
 #include <QDebug>
 #include <QPointer>

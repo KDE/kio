@@ -41,30 +41,13 @@ class Q_DECL_HIDDEN KIO::JobUiDelegate::Private
 public:
 };
 
-namespace KIO {
-KIOGUI_EXPORT void setDefaultUntrustedProgramHandler(KIO::UntrustedProgramHandlerInterface *iface);
-KIOGUI_EXPORT void setDefaultOpenWithHandler(KIO::OpenWithHandlerInterface *iface);
-KIOGUI_EXPORT void setDefaultOpenOrExecuteFileHandler(KIO::OpenOrExecuteFileInterface *iface);
-}
-
 KIO::JobUiDelegate::JobUiDelegate()
     : d(new Private())
 {
-    // KF6 TODO: remove, inherit from these handlers instead
-    static bool s_done = false;
-    if (!s_done) {
-        s_done = true;
-        static WidgetsUntrustedProgramHandler s_handler;
-        KIO::setDefaultUntrustedProgramHandler(&s_handler);
-
-        static WidgetsOpenWithHandler s_openUrlHandler;
-        KIO::setDefaultOpenWithHandler(&s_openUrlHandler);
-
-        static WidgetsOpenOrExecuteFileHandler s_openOrExecuteFileHandler;
-        KIO::setDefaultOpenOrExecuteFileHandler(&s_openOrExecuteFileHandler);
-
-    }
-    // Create extension objects. See KIO::Job::extension<>().
+    // Create extension objects. See KIO::delegateExtension<T>().
+    new WidgetsUntrustedProgramHandler(this);
+    new WidgetsOpenWithHandler(this);
+    new WidgetsOpenOrExecuteFileHandler(this);
     new WidgetsAskUserActionHandler(this);
 }
 

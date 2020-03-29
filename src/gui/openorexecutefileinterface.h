@@ -35,7 +35,7 @@ protected:
     /**
      * Constructor
      */
-    OpenOrExecuteFileInterface();
+    explicit OpenOrExecuteFileInterface(QObject *parent = nullptr);
 
     /**
      * Destructor

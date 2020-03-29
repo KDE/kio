@@ -15,7 +15,10 @@ using namespace KIO;
 
 class KIO::OpenWithHandlerInterfacePrivate {};
 
-OpenWithHandlerInterface::OpenWithHandlerInterface() = default;
+OpenWithHandlerInterface::OpenWithHandlerInterface(QObject *parent)
+    : QObject(parent)
+{
+}
 
 OpenWithHandlerInterface::~OpenWithHandlerInterface() = default;
 

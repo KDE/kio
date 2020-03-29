@@ -1164,7 +1164,7 @@ void CopyJobPrivate::slotResultCreatingDirs(KJob *job)
                         newUrl.setPath(concatPaths(newUrl.path(), newName));
                         renameDirectory(it, newUrl);
                     } else {
-                        if (!q->delegateExtension<AskUserActionInterface *>()) {
+                        if (!KIO::delegateExtension<AskUserActionInterface *>(q)) {
                             q->Job::slotResult(job); // will set the error and emit result(this)
                             return;
                         }
@@ -1241,7 +1241,7 @@ void CopyJobPrivate::slotResultConflictCreatingDirs(KJob *job)
         m_reportTimer->stop();
     }
 
-    auto *askUserActionInterface = q->delegateExtension<KIO::AskUserActionInterface *>();
+    auto *askUserActionInterface = KIO::delegateExtension<KIO::AskUserActionInterface *>(q);
 
     QObject::connect(askUserActionInterface, &KIO::AskUserActionInterface::askUserRenameResult,
                      q, [=](RenameDialog_Result result, const QUrl &newUrl, KJob *parentJob) {
@@ -1389,7 +1389,7 @@ void CopyJobPrivate::slotResultCopyingFiles(KJob *job)
                     emit q->aboutToCreate(q, files);
 #endif
                 } else {
-                    if (!q->delegateExtension<AskUserActionInterface *>()) {
+                    if (!KIO::delegateExtension<AskUserActionInterface *>(q)) {
                         q->Job::slotResult(job);   // will set the error and emit result(this)
                         return;
                     }
@@ -1413,7 +1413,7 @@ void CopyJobPrivate::slotResultCopyingFiles(KJob *job)
                     ++m_processedFiles;
                     files.erase(it);
                 } else {
-                    if (!q->delegateExtension<AskUserActionInterface *>()) {
+                    if (!KIO::delegateExtension<AskUserActionInterface *>(q)) {
                         q->Job::slotResult(job);   // will set the error and emit result(this)
                         return;
                     }
@@ -1492,7 +1492,7 @@ void CopyJobPrivate::slotResultErrorCopyingFiles(KJob *job)
 
     q->removeSubjob(job);
     Q_ASSERT(!q->hasSubjobs());
-    auto *askUserActionInterface = q->delegateExtension<KIO::AskUserActionInterface *>();
+    auto *askUserActionInterface = KIO::delegateExtension<KIO::AskUserActionInterface *>(q);
 
     if ((m_conflictError == ERR_FILE_ALREADY_EXIST)
             || (m_conflictError == ERR_DIR_ALREADY_EXIST)
@@ -2026,7 +2026,7 @@ void CopyJobPrivate::slotResultRenaming(KJob *job)
     if (destinationState == DEST_IS_DIR && !m_asMethod) {
         dest = addPathToUrl(dest, m_currentSrcURL.fileName());
     }
-    auto *askUserActionInterface = q->delegateExtension<KIO::AskUserActionInterface *>();
+    auto *askUserActionInterface = KIO::delegateExtension<KIO::AskUserActionInterface *>(q);
 
     if (err) {
         // This code is similar to CopyJobPrivate::slotResultErrorCopyingFiles

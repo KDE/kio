@@ -16,6 +16,7 @@
 #include <KService>
 #include <KConfigGroup>
 #include <KDesktopFile>
+#include <KJobUiDelegate>
 
 #ifdef Q_OS_UNIX
 #include <signal.h> // kill
@@ -28,13 +29,10 @@
 
 QTEST_GUILESS_MAIN(ApplicationLauncherJobTest)
 
-namespace KIO {
-KIOGUI_EXPORT void setDefaultUntrustedProgramHandler(KIO::UntrustedProgramHandlerInterface *iface);
-KIOGUI_EXPORT void setDefaultOpenWithHandler(KIO::OpenWithHandlerInterface *iface);
-}
 class TestUntrustedProgramHandler : public KIO::UntrustedProgramHandlerInterface
 {
 public:
+    explicit TestUntrustedProgramHandler(QObject *parent) : KIO::UntrustedProgramHandlerInterface(parent) {}
     void showUntrustedProgramWarning(KJob *job, const QString &programName) override {
         Q_UNUSED(job)
         m_calls << programName;
@@ -47,11 +45,10 @@ public:
     bool m_retVal = false;
 };
 
-static TestUntrustedProgramHandler s_handler;
-
 class TestOpenWithHandler : public KIO::OpenWithHandlerInterface
 {
 public:
+    explicit TestOpenWithHandler(QObject *parent) : KIO::OpenWithHandlerInterface(parent) {}
     void promptUserForApplication(KJob *job, const QList<QUrl> &url, const QString &mimeType) override
     {
         Q_UNUSED(job);
@@ -67,7 +64,6 @@ public:
     QStringList m_mimeTypes;
     KService::Ptr m_chosenService;
 };
-static TestOpenWithHandler s_openWithHandler;
 
 void ApplicationLauncherJobTest::initTestCase()
 {
@@ -195,12 +191,13 @@ void ApplicationLauncherJobTest::shouldFailOnNonExecutableDesktopFile()
     const QList<QUrl> urls{QUrl::fromLocalFile(srcFile)};
     KService::Ptr servicePtr(new KService(desktopFilePath));
 
-    s_handler.m_calls.clear();
-    s_handler.setRetVal(handlerRetVal);
-    KIO::setDefaultUntrustedProgramHandler(withHandler ? &s_handler : nullptr);
-
     KIO::ApplicationLauncherJob *job = new KIO::ApplicationLauncherJob(servicePtr, this);
     job->setUrls(urls);
+    job->setUiDelegate(new KJobUiDelegate);
+    TestUntrustedProgramHandler *handler = withHandler ? new TestUntrustedProgramHandler(job->uiDelegate()) : nullptr;
+    if (handler) {
+        handler->setRetVal(handlerRetVal);
+    }
     bool success;
     if (useExec) {
         success = job->exec();
@@ -215,6 +212,10 @@ void ApplicationLauncherJobTest::shouldFailOnNonExecutableDesktopFile()
     } else {
         if (handlerRetVal) {
             QVERIFY(success);
+            // check that the handler was called (before any event loop deletes the job...)
+            QCOMPARE(handler->m_calls.count(), 1);
+            QCOMPARE(handler->m_calls.at(0), QStringLiteral("KRunUnittestService"));
+
             const QString dest = srcDir + "/dest_srcfile";
             QTRY_VERIFY2(QFile::exists(dest), qPrintable(dest));
 
@@ -225,14 +226,7 @@ void ApplicationLauncherJobTest::shouldFailOnNonExecutableDesktopFile()
             QVERIFY(!success);
             QCOMPARE(job->error(), KIO::ERR_USER_CANCELED);
         }
-        }
-
-    if (withHandler) {
-        // check that the handler was called
-        QCOMPARE(s_handler.m_calls.count(), 1);
-        QCOMPARE(s_handler.m_calls.at(0), QStringLiteral("KRunUnittestService"));
     }
-
 }
 
 void ApplicationLauncherJobTest::shouldFailOnNonExistingExecutable_data()
@@ -380,25 +374,21 @@ void ApplicationLauncherJobTest::showOpenWithDialog()
 
     KIO::ApplicationLauncherJob *job = new KIO::ApplicationLauncherJob(this);
     job->setUrls({QUrl::fromLocalFile(srcFile)});
-
+    job->setUiDelegate(new KJobUiDelegate);
+    TestOpenWithHandler *openWithHandler = withHandler ? new TestOpenWithHandler(job->uiDelegate()) : nullptr;
     KService::Ptr service = KService::serviceByDesktopName(QString(s_tempServiceName).remove(".desktop"));
     QVERIFY(service);
     if (withHandler) {
-        s_openWithHandler.m_urls.clear();
-        s_openWithHandler.m_mimeTypes.clear();
-        s_openWithHandler.m_chosenService = handlerRetVal ? service : KService::Ptr{};
-        KIO::setDefaultOpenWithHandler(&s_openWithHandler);
-    } else {
-        KIO::setDefaultOpenWithHandler(nullptr);
+        openWithHandler->m_chosenService = handlerRetVal ? service : KService::Ptr{};
     }
 
     const bool success = job->exec();
 
     // Then --- it depends on what the user says via the handler
     if (withHandler) {
-        QCOMPARE(s_openWithHandler.m_urls.count(), 1);
-        QCOMPARE(s_openWithHandler.m_mimeTypes.count(), 1);
-        QCOMPARE(s_openWithHandler.m_mimeTypes.at(0), QString()); // the job doesn't have the information
+        QCOMPARE(openWithHandler->m_urls.count(), 1);
+        QCOMPARE(openWithHandler->m_mimeTypes.count(), 1);
+        QCOMPARE(openWithHandler->m_mimeTypes.at(0), QString()); // the job doesn't have the information
         if (handlerRetVal) {
             QVERIFY2(success, qPrintable(job->errorString()));
             // If the user chose a service, it should be executed (it writes to "dest")

@@ -9,6 +9,7 @@
 #include <kdirnotify.h>
 #include <kio/copyjob.h>
 #include <kio/chmodjob.h>
+#include "jobuidelegatefactory.h"
 #include <kprotocolinfo.h>
 #include <kdirlister.h>
 //TODO #include "../../kdeui/tests/proxymodeltestsuite/modelspy.h"
@@ -1439,7 +1440,7 @@ void KDirModelTest::testOverwriteFileWithDir() // #151851 c4
                    &m_eventLoop, &QTestEventLoop::exitLoop);
 
     KIO::Job *job = KIO::move(QUrl::fromLocalFile(dir), QUrl::fromLocalFile(file), KIO::HideProgressInfo);
-    delete job->delegateExtension<KIO::AskUserActionInterface *>();
+    delete KIO::delegateExtension<KIO::AskUserActionInterface *>(job);
     auto *askUserHandler = new PredefinedAnswerAskUserInterface(job->uiDelegate());
     askUserHandler->m_renameResult = KIO::Result_Overwrite;
     QVERIFY(job->exec());
