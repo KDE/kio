@@ -87,6 +87,7 @@ extern "C" {
 
 #include <kauthorized.h>
 #include <KColorScheme>
+#include <KDialogJobUiDelegate>
 #include <kdirnotify.h>
 #include <kdiskfreespaceinfo.h>
 #include <kdesktopfile.h>
@@ -115,7 +116,7 @@ extern "C" {
 #include <kseparator.h>
 #include <ksqueezedtextlabel.h>
 #include <kmimetypetrader.h>
-#include <krun.h>
+#include <KIO/ApplicationLauncherJob>
 #include <kio/desktopexecparser.h>
 #include <kacl.h>
 #include <kconfiggroup.h>
@@ -1106,7 +1107,7 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
         sizelay->addWidget(d->m_sizeDetermineButton, 0);
         sizelay->addWidget(d->m_sizeStopButton, 0);
 
-        if (!QStandardPaths::findExecutable(QStringLiteral("filelight")).isEmpty()) {
+        if (KService::serviceByDesktopName(QStringLiteral("org.kde.filelight"))) {
             d->m_sizeDetailsButton = new QPushButton(i18n("Explore in Filelight"), d->m_frame);
             d->m_sizeDetailsButton->setIcon(QIcon::fromTheme(QStringLiteral("filelight")));
             connect(d->m_sizeDetailsButton, &QPushButton::clicked, this, &KFilePropsPlugin::slotSizeDetails);
@@ -1450,7 +1451,15 @@ void KFilePropsPlugin::slotSizeStop()
 void KFilePropsPlugin::slotSizeDetails()
 {
     // Open the current folder in filelight
-    KRun::run((QStandardPaths::findExecutable(QStringLiteral("filelight"))), { properties->url() }, properties->window(), QStringLiteral("Filelight"), QStringLiteral("filelight"));
+    KService::Ptr service = KService::serviceByDesktopName(QStringLiteral("org.kde.filelight"));
+    if (service) {
+        auto *job = new KIO::ApplicationLauncherJob(service);
+        job->setUrls({ properties->url() });
+        auto *delegate = new KDialogJobUiDelegate;
+        delegate->setAutoErrorHandlingEnabled(true);
+        job->setUiDelegate(delegate);
+        job->start();
+    }
 }
 
 KFilePropsPlugin::~KFilePropsPlugin()
