@@ -465,7 +465,10 @@ bool KMountPoint::probablySlow() const
         || d->mountType == QLatin1String("nfs4")
         || d->mountType == QLatin1String("cifs")
         || d->mountType == QLatin1String("autofs")
-        || d->mountType == QLatin1String("subfs");
+        || d->mountType == QLatin1String("subfs")
+        // Technically KIOFUSe mounts local slaves as well,
+        // such as recents:/, but better safe than sorry...
+        || d->mountType == QLatin1String("fuse.kio-fuse");
 }
 
 bool KMountPoint::testFileSystemFlag(FileSystemFlag flag) const
