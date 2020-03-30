@@ -281,6 +281,7 @@ void KProcessRunner::slotProcessExited(int exitCode, QProcess::ExitStatus exitSt
 
 void KProcessRunner::registerCGroup()
 {
+    // As specified in "XDG standardization for applications" in https://systemd.io/DESKTOP_ENVIRONMENTS/
 #ifdef Q_OS_LINUX
     if (!qEnvironmentVariableIsSet("KDE_APPLICATIONS_AS_SCOPE")) {
         return;
