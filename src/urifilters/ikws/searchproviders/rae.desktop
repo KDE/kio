@@ -96,6 +96,7 @@ Query[ast]=https://www.rae.es/drae/?val=\\{@}
 Query[ca]=https://www.rae.es/drae/?val=\\{@}
 Query[cs]=https://www.rae.es/drae/?val=\\{@}
 Query[de]=https://www.rae.es/drae/?val=\\{@}
+Query[en_GB]=https://www.rae.es/drae/?val=\\{@}
 Query[es]=https://www.rae.es/drae/?val=\\{@}
 Query[et]=https://www.rae.es/drae/?val=\\{@}
 Query[eu]=http://www.rae.es/drae/?val=\\{@}
