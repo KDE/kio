@@ -53,6 +53,7 @@
 
 #if HAVE_STATX
 #include <sys/stat.h>
+#include <sys/sysmacros.h> // for makedev()
 #endif
 
 //sendfile has different semantics in different platforms
@@ -281,7 +282,7 @@ inline int STAT(const char* path, struct statx * buff, KIO::StatDetails details)
     return statx(AT_FDCWD, path, AT_STATX_SYNC_AS_STAT, mask, buff);
 }
 inline static uint16_t stat_mode(struct statx &buf) { return buf.stx_mode; }
-inline static uint32_t stat_dev(struct statx &buf) { return buf.stx_dev_major; }
+inline static dev_t stat_dev(struct statx &buf) { return makedev(buf.stx_dev_major, buf.stx_dev_minor); }
 inline static uint64_t stat_ino(struct statx &buf) { return buf.stx_ino; }
 inline static uint64_t stat_size(struct statx &buf) { return buf.stx_size; }
 inline static uint32_t stat_uid(struct statx &buf) { return buf.stx_uid; }

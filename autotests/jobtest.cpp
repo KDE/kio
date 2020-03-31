@@ -1505,6 +1505,46 @@ void JobTest::statDetailsBasicSetDetails()
     QCOMPARE(kioItem.time(KFileItem::AccessTime), QDateTime());
 }
 
+void JobTest::statWithInode()
+{
+    const QString filePath = homeTmpDir() + "fileFromHome";
+    createTestFile(filePath);
+    const QUrl url(QUrl::fromLocalFile(filePath));
+    KIO::StatJob *job = KIO::statDetails(url, KIO::StatJob::SourceSide, KIO::StatInode);
+    QVERIFY(job);
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
+
+    const KIO::UDSEntry &entry = job->statResult();
+    QVERIFY(entry.contains(KIO::UDSEntry::UDS_DEVICE_ID));
+    QVERIFY(entry.contains(KIO::UDSEntry::UDS_INODE));
+    QCOMPARE(entry.count(), 2);
+
+    const QString path = otherTmpDir() + "otherFile";
+    createTestFile(path);
+    const QUrl otherUrl(QUrl::fromLocalFile(path));
+    KIO::StatJob *otherJob = KIO::statDetails(otherUrl, KIO::StatJob::SourceSide, KIO::StatInode);
+    QVERIFY(otherJob);
+    QVERIFY2(otherJob->exec(), qPrintable(otherJob->errorString()));
+
+    const KIO::UDSEntry otherEntry = otherJob->statResult();
+    QVERIFY(otherEntry.contains(KIO::UDSEntry::UDS_DEVICE_ID));
+    QVERIFY(otherEntry.contains(KIO::UDSEntry::UDS_INODE));
+    QCOMPARE(otherEntry.count(), 2);
+
+    const int device = entry.numberValue(KIO::UDSEntry::UDS_DEVICE_ID);
+    const int otherDevice = otherEntry.numberValue(KIO::UDSEntry::UDS_DEVICE_ID);
+
+    // this test doesn't make sense on the CI as it's an LXC container with one partition
+    if (otherTmpDirIsOnSamePartition()) {
+        // On the CI where the two tmp dirs are on the only parition available
+        // in the LXC container, the device ID's would be identical
+        QCOMPARE(device, otherDevice);
+    }
+    else {
+        QVERIFY(device != otherDevice);
+    }
+}
+
 #ifndef Q_OS_WIN
 void JobTest::statSymlink()
 {
