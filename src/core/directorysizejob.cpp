@@ -162,7 +162,11 @@ void DirectorySizeJobPrivate::slotEntries(KIO::Job *, const KIO::UDSEntryList &l
             if (visitedInodes.contains(inode)) {
                 continue;
             }
-            visitedInodes.insert(inode);
+            if (!entry.isLink()) {
+                // don't add symlinks, otherwise on a next iteration the dir this symlink points to
+                // might be skipped
+                visitedInodes.insert(inode);
+            }
         }
         const KIO::filesize_t size = entry.numberValue(KIO::UDSEntry::UDS_SIZE, 0);
         const QString name = entry.stringValue(KIO::UDSEntry::UDS_NAME);
