@@ -219,6 +219,7 @@ RenameDialog::RenameDialog(QWidget *parent, const QString &_caption,
         } else {
             UDSEntry srcUds;
 
+            srcUds.reserve(4);
             srcUds.fastInsert(UDSEntry::UDS_NAME, d->src.fileName());
             srcUds.fastInsert(UDSEntry::UDS_MODIFICATION_TIME, mtimeSrc.toMSecsSinceEpoch() / 1000);
             srcUds.fastInsert(UDSEntry::UDS_CREATION_TIME, ctimeSrc.toMSecsSinceEpoch() / 1000);
@@ -232,6 +233,7 @@ RenameDialog::RenameDialog(QWidget *parent, const QString &_caption,
         } else {
             UDSEntry destUds;
 
+            destUds.reserve(4);
             destUds.fastInsert(UDSEntry::UDS_NAME, d->dest.fileName());
             destUds.fastInsert(UDSEntry::UDS_MODIFICATION_TIME, mtimeDest.toMSecsSinceEpoch() / 1000);
             destUds.fastInsert(UDSEntry::UDS_CREATION_TIME, ctimeDest.toMSecsSinceEpoch() / 1000);

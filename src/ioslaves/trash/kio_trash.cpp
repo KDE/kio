@@ -285,6 +285,7 @@ void TrashProtocol::copyOrMoveToTrash(const QUrl &src, const QUrl &dest, CopyOrM
 void TrashProtocol::createTopLevelDirEntry(KIO::UDSEntry &entry)
 {
     entry.clear();
+    entry.reserve(8);
     entry.fastInsert(KIO::UDSEntry::UDS_NAME, QStringLiteral("."));
     entry.fastInsert(KIO::UDSEntry::UDS_DISPLAY_NAME, i18n("Trash"));
     entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
@@ -438,6 +439,7 @@ void TrashProtocol::listDir(const QUrl &url)
 
 bool TrashProtocol::createUDSEntry(const QString &physicalPath, const QString &displayFileName, const QString &internalFileName, KIO::UDSEntry &entry, const TrashedFileInfo &info)
 {
+    entry.reserve(13);
     QByteArray physicalPath_c = QFile::encodeName(physicalPath);
     QT_STATBUF buff;
     if (QT_LSTAT(physicalPath_c.constData(), &buff) == -1) {

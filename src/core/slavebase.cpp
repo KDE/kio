@@ -547,6 +547,7 @@ void SlaveBase::finished()
         if (!d->m_rootEntryListed) {
             qCWarning(KIO_CORE) << "UDSEntry for '.' not found, creating a default one. Please fix the" << QCoreApplication::applicationName() << "KIO slave";
             KIO::UDSEntry entry;
+            entry.reserve(4);
             entry.fastInsert(KIO::UDSEntry::UDS_NAME, QStringLiteral("."));
             entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
             entry.fastInsert(KIO::UDSEntry::UDS_SIZE, 0);

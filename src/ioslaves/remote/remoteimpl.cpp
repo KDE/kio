@@ -122,6 +122,7 @@ QUrl RemoteImpl::findBaseURL(const QString &filename) const
 void RemoteImpl::createTopLevelEntry(KIO::UDSEntry &entry) const
 {
     entry.clear();
+    entry.reserve(8);
     entry.fastInsert(KIO::UDSEntry::UDS_NAME, QStringLiteral("."));
     entry.fastInsert(KIO::UDSEntry::UDS_DISPLAY_NAME, i18n("Network"));
     entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
@@ -155,6 +156,7 @@ bool RemoteImpl::createWizardEntry(KIO::UDSEntry &entry) const
         return false;
     }
 
+    entry.reserve(7);
     entry.fastInsert(KIO::UDSEntry::UDS_NAME, i18n("Add Network Folder"));
     entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFREG);
     entry.fastInsert(KIO::UDSEntry::UDS_URL, Strings::wizardUrl());
@@ -193,6 +195,7 @@ bool RemoteImpl::createEntry(KIO::UDSEntry &entry, const QString &directory,
     QString new_filename = file;
     new_filename.chop(8);
 
+    entry.reserve(8);
     entry.fastInsert(KIO::UDSEntry::UDS_NAME, desktop.readName());
     entry.fastInsert(KIO::UDSEntry::UDS_URL, QLatin1String("remote:/") + new_filename);
 
