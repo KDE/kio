@@ -91,7 +91,7 @@ static bool forkSlaves()
     // In such case we start the slave via QProcess.
     // It's possible to force this by setting the env. variable
     // KDE_FORK_SLAVES, Clearcase seems to require this.
-#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
+#if QT_VERSION < QT_VERSION_CHECK(5, 14, 0)
     if (bForkSlaves.load() == -1) {
 #else
     if (bForkSlaves.loadRelaxed() == -1) {
@@ -117,7 +117,7 @@ static bool forkSlaves()
 
         bForkSlaves.testAndSetRelaxed(-1, fork ? 1 : 0);
     }
-#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
+#if QT_VERSION < QT_VERSION_CHECK(5, 14, 0)
     return bForkSlaves.load() == 1;
 #else
     return bForkSlaves.loadRelaxed() == 1;
