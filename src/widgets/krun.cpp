@@ -498,34 +498,6 @@ bool KRun::checkStartupNotify(const QString & /*binName*/, const KService *servi
     return KIOGuiPrivate::checkStartupNotify(service, silent_arg, wmclass_arg);
 }
 
-// WARNING: don't call this from DesktopExecParser, since klauncher uses that too...
-// TODO: make this async, see the job->exec() in there...
-static QList<QUrl> resolveURLs(const QList<QUrl> &_urls, const KService &_service)
-{
-    // Check which protocols the application supports.
-    // This can be a list of actual protocol names, or just KIO for KDE apps.
-    const QStringList appSupportedProtocols = KIO::DesktopExecParser::supportedProtocols(_service);
-    QList<QUrl> urls(_urls);
-    if (!appSupportedProtocols.contains(QLatin1String("KIO"))) {
-        for (QUrl &url : urls) {
-            bool supported = KIO::DesktopExecParser::isProtocolInSupportedList(url, appSupportedProtocols);
-            //qDebug() << "Looking at url=" << url << " supported=" << supported;
-            if (!supported && KProtocolInfo::protocolClass(url.scheme()) == QLatin1String(":local")) {
-                // Maybe we can resolve to a local URL?
-                KIO::StatJob *job = KIO::mostLocalUrl(url);
-                if (job->exec()) { // ## nasty nested event loop!
-                    const QUrl localURL = job->mostLocalUrl();
-                    if (localURL != url) {
-                        url = localURL;
-                        //qDebug() << "Changed to" << localURL;
-                    }
-                }
-            }
-        }
-    }
-    return urls;
-}
-
 // Helper function to make the given .desktop file executable by ensuring
 // that a #!/usr/bin/env xdg-open line is added if necessary and the file has
 // the +x bit set for the user.  Returns false if either fails.
