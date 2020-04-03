@@ -306,7 +306,10 @@ void KProcessRunner::registerCGroup()
                                    QStringLiteral("org.freedesktop.systemd1.Manager"),
                                    QStringLiteral("StartTransientUnit"));
 
-    const QString name = QStringLiteral("apps-%1-%2.scope").arg(m_scopeId, QUuid::createUuid().toString(QUuid::Id128));
+    // "-" is a special character in systemd representing a heirachical level. It should be escaped.
+    const QString escapedScopeId = m_scopeId.replace(QLatin1Char('-'), QStringLiteral("\\x2d"));
+
+    const QString name = QStringLiteral("apps-%1-%2.scope").arg(escapedScopeId, QUuid::createUuid().toString(QUuid::Id128));
     // mode defines what to do in the case of a name conflict, in this case, just do nothing
     const QString mode = QStringLiteral("fail");
 
