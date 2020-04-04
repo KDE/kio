@@ -58,15 +58,13 @@
 //sendfile has different semantics in different platforms
 #if HAVE_SENDFILE && defined Q_OS_LINUX
 #define USE_SENDFILE 1
-#endif
-
-#ifdef USE_SENDFILE
 #include <sys/sendfile.h>
 #endif
 
 using namespace KIO;
 
-#define MAX_IPC_SIZE (1024*32)
+/* 512 kB */
+#define MAX_IPC_SIZE (1024*512)
 
 static bool
 same_inode(const QT_STATBUF &src, const QT_STATBUF &dest)
@@ -658,7 +656,7 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl,
     char buffer[ MAX_IPC_SIZE ];
     ssize_t n = 0;
 #ifdef USE_SENDFILE
-    bool use_sendfile = buff_src.st_size < 0x7FFFFFFF;
+    bool use_sendfile = true;
 #endif
     bool existing_dest_delete_attempted = false;
     while (!wasKilled()) {
