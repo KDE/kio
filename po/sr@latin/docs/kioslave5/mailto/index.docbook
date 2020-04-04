@@ -1,0 +1,160 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Serbian-Latin "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="mailto">
+<title
+>Slanje pošte</title>
+<articleinfo>
+<authorgroup>
+<author
+><firstname
+>Kristofer</firstname
+> <surname
+>Jelejton</surname
+> <email
+>giecrilj@stegny.2a.pl</email
+></author>
+
+<othercredit role="translator"
+><firstname
+>Dragan</firstname
+><surname
+>Pantelić</surname
+><affiliation
+><address
+><email
+>falcon-10@gmx.de</email
+></address
+></affiliation
+><contrib
+>prevod</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>28. 1. 2012.</date>
+<releaseinfo
+>KDE 4.8</releaseinfo>
+</articleinfo>
+<para
+>Poštanski U/I zahvat odgovoran je za pokretanje sastavljača poruka po vašem izboru kada otvorite URL sa poštanskom šemom (<ulink url="http://tools.ietf.org/html/rfc6068"
+>RFC 6068</ulink
+>). </para>
+
+<variablelist>
+<varlistentry>
+<term
+>Sintaksa</term>
+<listitem
+><para
+>Sintaksa poštanskog URL‑a sledi obrazac:</para>
+
+<para
+><literal
+>mailto:primaoci?upit</literal
+></para>
+
+<para
+>gde su <literal
+>primaoci</literal
+> spisak SMTP adresa, a <literal
+>upit</literal
+> mogu činiti jedan ili više sledećih parametara:</para>
+
+<variablelist>
+<varlistentry>
+<term
+><literal
+>&amp;to=primaoci</literal
+></term>
+<listitem
+><para
+>Zadaje dodatne primaoce.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><literal
+>&amp;cc=primaoci</literal
+></term>
+<listitem
+><para
+>Zadaje dodatne primaoce za CC.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><literal
+>&amp;bcc=primaoci</literal
+></term>
+<listitem
+><para
+>Zadaje dodatne primaoce za BCC. Ovi primaoci će primiti poruku tako da ostali primaoci ne znaju za to.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><literal
+>&amp;body=tekst</literal
+></term>
+<listitem
+><para
+>Zadaje tekst poruke. Tekst ne bi trebalo da bude dugačak, jer postoje čvrsta ograničenja na dužinu URL‑ova.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><literal
+>&amp;subject=tekst</literal
+></term>
+<listitem
+><para
+>Zadaje temu poruke.</para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>Primer</term>
+<listitem
+><para
+>   
+<literal
+>mailto:info@kde.org?cc=kde@kde.org&amp;subject=Thank%20you!&amp;body=KDE%20rocks!%20How%20can%20I%20help%3F</literal>
+</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>Podešavanje</term>
+<listitem
+><para
+>Program za obrađivanje poštanskih URL‑ova možete izabrati u Sistemskim postavkama, pod <menuchoice
+><guimenu
+>Izgled i ponašanje radnog prostora</guimenu
+><guimenuitem
+>Podrazumevani programi</guimenuitem
+></menuchoice
+>. </para
+></listitem>
+</varlistentry>
+
+</variablelist>
+  
+</article>
