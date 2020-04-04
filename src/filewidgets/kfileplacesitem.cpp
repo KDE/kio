@@ -261,7 +261,7 @@ QVariant KFilePlacesItem::deviceData(int role) const
     if (d.isValid()) {
         switch (role) {
         case Qt::DisplayRole:
-            return d.description();
+            return d.displayName();
         case Qt::DecorationRole:
             return KDE::icon(m_iconPath, m_emblems);
         case KFilePlacesModel::UrlRole:
