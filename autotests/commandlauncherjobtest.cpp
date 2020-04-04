@@ -44,10 +44,10 @@ static void createSrcFile(const QString path)
 {
     QFile srcFile(path);
     QVERIFY2(srcFile.open(QFile::WriteOnly), qPrintable(srcFile.errorString()));
-    srcFile.write("Hello world\n");
+    QVERIFY(srcFile.write("Hello world\n") > 0);
 }
 
-void CommandLauncherJobTest::startProcess_data()
+void CommandLauncherJobTest::startProcessAsCommand_data()
 {
     QTest::addColumn<bool>("useExec");
 
@@ -55,7 +55,7 @@ void CommandLauncherJobTest::startProcess_data()
     QTest::newRow("waitForStarted") << false;
 }
 
-void CommandLauncherJobTest::startProcess()
+void CommandLauncherJobTest::startProcessAsCommand()
 {
     QFETCH(bool, useExec);
 
@@ -89,8 +89,120 @@ void CommandLauncherJobTest::startProcess()
     QVERIFY(pid != 0);
     const QString dest = srcDir + "/destfile";
     QTRY_VERIFY2(QFile::exists(dest), qPrintable(dest));
-    QVERIFY(QFile::exists(srcDir + "/srcfile"));
-    QVERIFY(QFile::remove(dest)); // cleanup
+    QVERIFY(QFile::remove(srcFile)); // cleanup
+    QVERIFY(QFile::remove(dest));
+
+    // Just to make sure
+    QTRY_COMPARE(KProcessRunner::instanceCount(), 0);
+}
+
+void CommandLauncherJobTest::startProcessWithArgs_data()
+{
+    QTest::addColumn<QString>("srcName");
+    QTest::addColumn<QString>("destName");
+
+    QTest::newRow("path without spaces") << QStringLiteral("srcfile") << QStringLiteral("destfile");
+    QTest::newRow("path with spaces") << QStringLiteral("Source File") << QStringLiteral("Destination File");
+}
+
+void CommandLauncherJobTest::startProcessWithArgs()
+{
+    QFETCH(QString, srcName);
+    QFETCH(QString, destName);
+
+    QTemporaryDir tempDir;
+    const QString srcDir = tempDir.path();
+    const QString srcPath = srcDir + '/' + srcName;
+    const QString destPath = srcDir + '/' + destName;
+
+    createSrcFile(srcPath);
+    QVERIFY(QFileInfo::exists(srcPath));
+
+#ifdef Q_OS_WIN
+    const QString executable = "copy.exe";
+#else
+    const QString executable = "cp";
+#endif
+
+    auto *job = new KIO::CommandLauncherJob(executable, {
+        srcPath, destName
+    }, this);
+    job->setWorkingDirectory(srcDir);
+
+    job->start();
+    QVERIFY(job->waitForStarted());
+
+    const qint64 pid = job->pid();
+
+    // Then the service should be executed (which copies the source file to "dest")
+    QVERIFY(pid != 0);
+    QTRY_VERIFY2(QFileInfo::exists(destPath), qPrintable(destPath));
+    QVERIFY(QFile::remove(srcPath));
+    QVERIFY(QFile::remove(destPath)); // cleanup
+
+    // Just to make sure
+    QTRY_COMPARE(KProcessRunner::instanceCount(), 0);
+}
+
+void CommandLauncherJobTest::startProcessWithSpacesInExecutablePath_data()
+{
+    QTest::addColumn<QString>("srcName");
+    QTest::addColumn<QString>("destName");
+
+    QTest::newRow("path without spaces") << QStringLiteral("srcfile") << QStringLiteral("destfile");
+    QTest::newRow("path with spaces") << QStringLiteral("Source File") << QStringLiteral("Destination File");
+}
+
+void CommandLauncherJobTest::startProcessWithSpacesInExecutablePath()
+{
+    QFETCH(QString, srcName);
+    QFETCH(QString, destName);
+
+    QTemporaryDir tempDir;
+
+    const QString srcDir = tempDir.filePath("folder with spaces");
+    QVERIFY(QDir().mkpath(srcDir));
+
+    const QString srcPath = srcDir + '/' + srcName;
+    const QString destPath = srcDir + '/' + destName;
+
+    createSrcFile(srcPath);
+    QVERIFY(QFileInfo::exists(srcPath));
+
+    // Copy the executable into the folder with spaces in its path
+#ifdef Q_OS_WIN
+    const QString executableName = "copy"; // QStandardPaths appends extension as necessary
+#else
+    const QString executableName = "cp";
+#endif
+
+    const QString executablePath = QStandardPaths::findExecutable(executableName);
+    QVERIFY(!executablePath.isEmpty());
+    QFileInfo fi(executablePath);
+    // Needed since it could be .exe or .bat on Windows
+    const QString executableFileName = fi.fileName();
+
+    const QString executable = srcDir + '/' + executableFileName;
+    QVERIFY(QFile::copy(executablePath, executable));
+
+    auto *job = new KIO::CommandLauncherJob(executable, {
+        srcPath, destName
+    }, this);
+    job->setWorkingDirectory(srcDir);
+
+    job->start();
+    QVERIFY(job->waitForStarted());
+
+    const qint64 pid = job->pid();
+
+    // Then the service should be executed (which copies the source file to "dest")
+    QVERIFY(pid != 0);
+    QTRY_VERIFY2(QFileInfo::exists(destPath), qPrintable(destPath));
+
+    // cleanup
+    QVERIFY(QFile::remove(destPath));
+    QVERIFY(QFile::remove(srcPath));
+    QVERIFY(QFile::remove(executable));
 
     // Just to make sure
     QTRY_COMPARE(KProcessRunner::instanceCount(), 0);

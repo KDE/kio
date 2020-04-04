@@ -27,9 +27,6 @@
 class KIO::CommandLauncherJobPrivate
 {
 public:
-    explicit CommandLauncherJobPrivate(const QString &command)
-        : m_command(command) {}
-
     QString m_command;
     QString m_desktopName;
     QString m_executable;
@@ -41,8 +38,16 @@ public:
 };
 
 KIO::CommandLauncherJob::CommandLauncherJob(const QString &command, QObject *parent)
-    : KJob(parent), d(new CommandLauncherJobPrivate(command))
+    : KJob(parent), d(new CommandLauncherJobPrivate())
 {
+    d->m_command = command;
+}
+
+KIO::CommandLauncherJob::CommandLauncherJob(const QString &executable, const QStringList &args, QObject *parent)
+    : KJob(parent), d(new CommandLauncherJobPrivate())
+{
+    d->m_executable = executable;
+    d->m_command = KShell::quoteArg(executable) + QLatin1Char(' ') + KShell::joinArgs(args);
 }
 
 KIO::CommandLauncherJob::~CommandLauncherJob()

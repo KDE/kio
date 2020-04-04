@@ -32,8 +32,14 @@ class CommandLauncherJobTest : public QObject
 private Q_SLOTS:
     void initTestCase();
 
-    void startProcess_data();
-    void startProcess();
+    void startProcessAsCommand_data();
+    void startProcessAsCommand();
+
+    void startProcessWithArgs_data();
+    void startProcessWithArgs();
+
+    void startProcessWithSpacesInExecutablePath_data();
+    void startProcessWithSpacesInExecutablePath();
 
     void doesNotFailOnNonExistingExecutable();
     void shouldDoNothingOnEmptyCommand();

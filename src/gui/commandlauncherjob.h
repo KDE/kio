@@ -64,6 +64,16 @@ public:
     explicit CommandLauncherJob(const QString &command, QObject *parent = nullptr);
 
     /**
+     * @brief Creates a CommandLauncherJob
+     * @param executable the name of the executable
+     * @param args the commandline arguments to pass to the executable
+     * @param parent the parent QObject
+     *
+     * Please consider also calling setExecutable and setIcon for better startup notification.
+     */
+    explicit CommandLauncherJob(const QString &executable, const QStringList &args, QObject *parent = nullptr);
+
+    /**
      * Destructor
      * Note that jobs auto-delete themselves after emitting result
      */
