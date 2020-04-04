@@ -59,7 +59,8 @@ public:
      * @param command the shell command to run
      * @param parent the parent QObject
      *
-     * Please consider also calling setExecutable and setIcon for better startup notification.
+     * Please consider also calling setDesktopName, or setExecutable and setIcon
+     * for better startup notification.
      */
     explicit CommandLauncherJob(const QString &command, QObject *parent = nullptr);
 
@@ -69,7 +70,8 @@ public:
      * @param args the commandline arguments to pass to the executable
      * @param parent the parent QObject
      *
-     * Please consider also calling setExecutable and setIcon for better startup notification.
+     * Please consider also calling setDesktopName, or setExecutable and setIcon
+     * for better startup notification.
      */
     explicit CommandLauncherJob(const QString &executable, const QStringList &args, QObject *parent = nullptr);
 
