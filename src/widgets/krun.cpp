@@ -118,7 +118,7 @@ qint64 KRunPrivate::runApplicationLauncherJob(KIO::ApplicationLauncherJob *job, 
     });
     job->start();
     job->waitForStarted();
-    return job->pid();
+    return job->error() ? 0 : job->pid();
 }
 
 qint64 KRunPrivate::runCommandLauncherJob(KIO::CommandLauncherJob *job, QWidget *widget)
@@ -132,7 +132,7 @@ qint64 KRunPrivate::runCommandLauncherJob(KIO::CommandLauncherJob *job, QWidget 
     });
     job->start();
     job->waitForStarted();
-    return job->pid();
+    return job->error() ? 0 : job->pid();
 }
 
 // ---------------------------------------------------------------------------
