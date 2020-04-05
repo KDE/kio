@@ -145,13 +145,13 @@ public:
     QFileDialog::AcceptMode acceptMode() const;
 
     /**
-     * Sets the filters for the file dialog, separated by \n.
+     * Sets the filters for the file dialog, separated by \\n.
      * @see QFileDialog::setNameFilters()
      */
     void setFilter(const QString &filter);
 
     /**
-    * Returns the filters for the file dialog, separated by \n.
+    * Returns the filters for the file dialog, separated by \\n.
     * @see QFileDialog::nameFilters()
     */
     QString filter() const;
