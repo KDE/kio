@@ -155,18 +155,14 @@ void DirectorySizeJobPrivate::slotEntries(KIO::Job *, const KIO::UDSEntryList &l
         const KIO::UDSEntry &entry = *it;
 
         const long device = entry.numberValue(KIO::UDSEntry::UDS_DEVICE_ID, 0);
-        if (device) {
+        if (device && !entry.isLink()) {
             // Hard-link detection (#67939)
             const long inode = entry.numberValue(KIO::UDSEntry::UDS_INODE, 0);
             QSet<long> &visitedInodes = m_visitedInodes[device];  // find or insert
             if (visitedInodes.contains(inode)) {
                 continue;
             }
-            if (!entry.isLink()) {
-                // don't add symlinks, otherwise on a next iteration the dir this symlink points to
-                // might be skipped
-                visitedInodes.insert(inode);
-            }
+            visitedInodes.insert(inode);
         }
         const KIO::filesize_t size = entry.numberValue(KIO::UDSEntry::UDS_SIZE, 0);
         const QString name = entry.stringValue(KIO::UDSEntry::UDS_NAME);
