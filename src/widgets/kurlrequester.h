@@ -120,6 +120,9 @@ public:
      * Sets the mode of the file dialog.
      * Note: you can only select one file with the filedialog,
      * so KFile::Files doesn't make much sense.
+     *
+     * The default is KFile::File | KFile::ExistingOnly | KFile::LocalOnly.
+     *
      * @see QFileDialog::setFileMode()
      */
     void setMode(KFile::Modes m);
@@ -132,6 +135,9 @@ public:
 
     /**
      * Sets the open / save mode of the file dialog.
+     *
+     * The default is QFileDialog::AcceptOpen.
+     *
      * @see QFileDialog::setAcceptMode()
      * @since 5.33
      */
@@ -263,6 +269,9 @@ public:
     /**
      * Set the window modality for the file dialog to @p modality
      * Directory selection dialogs are always modal
+     *
+     * The default is Qt::ApplicationModal.
+     *
      * @since 4.4
      */
     void setFileDialogModality(Qt::WindowModality modality);
