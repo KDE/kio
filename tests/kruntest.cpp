@@ -19,13 +19,16 @@
 
 #include "kruntest.h"
 
+#include <KIO/ApplicationLauncherJob>
+#include <KDialogJobUiDelegate>
+
 #include <QLabel>
 #include <QApplication>
 #include <QDebug>
 #include <kservice.h>
 #include <QPushButton>
 #include <QLayout>
-#include <QtTest>
+#include <QTest> // QFINDTESTDATA
 
 #include <qplatformdefs.h>
 
@@ -108,7 +111,11 @@ void Receiver::slotLaunchTest()
         }
         urls << QUrl::fromUserInput(urlStr);
     }
-    KRun::run(s_tests[testNumber].exec, urls, this);
+    KService::Ptr service(new KService("Some Name", s_tests[testNumber].exec, QString()));
+    auto *job = new KIO::ApplicationLauncherJob(service, this);
+    job->setUrls(urls);
+    job->setUiDelegate(new KDialogJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, this));
+    job->start();
 }
 
 void Receiver::slotStop()
