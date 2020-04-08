@@ -1276,15 +1276,18 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
 
 bool KFilePropsPlugin::enableIconButton() const
 {
-    bool iconEnabled = false;
     const KFileItem item = properties->item();
     // If the current item is a directory, check if it's writable,
     // so we can create/update a .directory
     // Current item is a file, same thing: check if it is writable
     if (item.isWritable()) {
-        iconEnabled = true;
+        // exclude remote dirs as changing the icon has no effect (bug 205954)
+        if (item.isLocalFile() || item.url().scheme() == QLatin1String("desktop")) {
+            return true;
+        }
     }
-    return iconEnabled;
+
+    return false;
 }
 
 // QString KFilePropsPlugin::tabName () const
