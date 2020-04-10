@@ -1136,7 +1136,7 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
         QPushButton *goThereButton = new QPushButton(d->m_frame);
         goThereButton->setIcon(QIcon::fromTheme(QStringLiteral("go-jump")));
 
-        QHBoxLayout *row = new QHBoxLayout(d->m_frame);
+        QHBoxLayout *row = new QHBoxLayout();
         row->setContentsMargins(0, 0, 0, 0);
         row->addWidget(d->m_linkTargetLineEdit);
         row->addWidget(goThereButton);
