@@ -284,8 +284,7 @@ void TrashProtocol::copyOrMoveToTrash(const QUrl &src, const QUrl &dest, CopyOrM
 
 void TrashProtocol::createTopLevelDirEntry(KIO::UDSEntry &entry)
 {
-    entry.clear();
-    entry.reserve(8);
+    entry.reserve(entry.count() + 8);
     entry.fastInsert(KIO::UDSEntry::UDS_NAME, QStringLiteral("."));
     entry.fastInsert(KIO::UDSEntry::UDS_DISPLAY_NAME, i18n("Trash"));
     entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
@@ -302,7 +301,7 @@ void TrashProtocol::stat(const QUrl &url)
     const QString path = url.path();
     if (path.isEmpty() || path == QLatin1String("/")) {
         // The root is "virtual" - it's not a single physical directory
-        KIO::UDSEntry entry;
+        KIO::UDSEntry entry = impl.trashUDSEntry();
         createTopLevelDirEntry(entry);
         statEntry(entry);
         finished();

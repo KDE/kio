@@ -27,6 +27,8 @@
 
 #include <kconfig.h>
 
+class QFileInfo;
+
 /**
  * @short A class that encapsulates the directory size cache.
  *
@@ -39,6 +41,12 @@
 class TrashSizeCache
 {
 public:
+
+    struct SizeAndModTime {
+        qulonglong size;
+        qint64 mtime;
+    };
+
     /**
      * Creates a new trash size cache object for the given trash @p path.
      */
@@ -66,9 +74,15 @@ public:
      */
     qulonglong calculateSize();
 
+    /**
+     * Calculates and returns the current trash size and its last modification date
+     */
+    SizeAndModTime calculateSizeAndLatestModDate();
+
 private:
     QString mTrashSizeCachePath;
     QString mTrashPath;
+    QFileInfo getTrashFileInfo(const QString &fileName);
 };
 
 #endif

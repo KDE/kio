@@ -341,6 +341,10 @@ public:
         /// @since 4.7.3
         UDS_INODE = 30 | UDS_NUMBER,
 
+        /// For folders, the recursize size of its content
+        /// @since 5.70
+        UDS_RECURSIVE_SIZE = 31 | UDS_NUMBER,
+
         /// Extra data (used only if you specified Columns/ColumnsTypes)
         /// NB: you cannot repeat this entry; use UDS_EXTRA + i
         /// until UDS_EXTRA_END.

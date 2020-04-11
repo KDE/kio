@@ -343,6 +343,17 @@ public:
     KIO::filesize_t size() const;
 
     /**
+     * @brief For folders, its recursive size:
+     * the size of its files plus the recursiveSize of its folder
+     *
+     * Initially only implemented for trash:/
+     *
+     * @since 5.70
+     * @return The recursive size
+     */
+    KIO::filesize_t recursiveSize() const;
+
+    /**
      * Requests the modification, access or creation time, depending on @p which.
      * @param which the timestamp
      * @return the time asked for, QDateTime() if not available

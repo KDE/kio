@@ -92,6 +92,7 @@ public:
 
     QString localPath() const;
     KIO::filesize_t size() const;
+    KIO::filesize_t recursiveSize() const;
     QDateTime time(KFileItem::FileTimes which) const;
     void setTime(KFileItem::FileTimes which, uint time_t_val) const;
     void setTime(KFileItem::FileTimes which, const QDateTime &val) const;
@@ -316,6 +317,17 @@ KIO::filesize_t KFileItemPrivate::size() const
     if (m_bIsLocalUrl) {
         return QFileInfo(m_url.toLocalFile()).size();
     }
+    return 0;
+}
+
+KIO::filesize_t KFileItemPrivate::recursiveSize() const
+{
+    // Extract it from the KIO::UDSEntry
+    long long fieldVal = m_entry.numberValue(KIO::UDSEntry::UDS_RECURSIVE_SIZE, -1);
+    if (fieldVal != -1) {
+        return static_cast<KIO::filesize_t>(fieldVal);
+    }
+
     return 0;
 }
 
@@ -682,6 +694,15 @@ KIO::filesize_t KFileItem::size() const
     }
 
     return d->size();
+}
+
+KIO::filesize_t KFileItem::recursiveSize() const
+{
+    if (!d) {
+        return 0;
+    }
+
+    return d->recursiveSize();
 }
 
 bool KFileItem::hasExtendedACL() const

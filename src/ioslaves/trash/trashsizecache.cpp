@@ -60,8 +60,7 @@ void TrashSizeCache::add(const QString &directoryName, qulonglong directorySize)
             }
         }
 
-        const QString fileInfoPath = mTrashPath + QLatin1String("/info/") + directoryName + QLatin1String(".trashinfo");
-        QDateTime mtime = QFileInfo(fileInfoPath).lastModified();
+        QDateTime mtime = getTrashFileInfo(directoryName).lastModified();
         QByteArray newLine = QByteArray::number(directorySize) + ' ' + QByteArray::number(mtime.toMSecsSinceEpoch()) + spaceAndDirAndNewline;
         out.write(newLine);
         out.commit();
@@ -94,23 +93,29 @@ void TrashSizeCache::clear()
     QFile::remove(mTrashSizeCachePath);
 }
 
-struct CacheData {
-    qulonglong size;
-    qint64 mtime;
-};
-
 qulonglong TrashSizeCache::calculateSize()
+{
+    return this->calculateSizeAndLatestModDate().size;
+}
+
+QFileInfo TrashSizeCache::getTrashFileInfo(const QString &fileName)
+{
+    const QString fileInfoPath = mTrashPath + QLatin1String("/info/") + fileName + QLatin1String(".trashinfo");
+    return QFileInfo(fileInfoPath);
+}
+
+TrashSizeCache::SizeAndModTime TrashSizeCache::calculateSizeAndLatestModDate()
 {
     // First read the directorysizes cache into memory
     QFile file(mTrashSizeCachePath);
-    typedef QHash<QByteArray, CacheData> DirCacheHash;
+    typedef QHash<QByteArray, SizeAndModTime> DirCacheHash;
     DirCacheHash dirCache;
     if (file.open(QIODevice::ReadOnly)) {
         while (!file.atEnd()) {
             const QByteArray line = file.readLine();
             const int firstSpace = line.indexOf(' ');
             const int secondSpace = line.indexOf(' ', firstSpace + 1);
-            CacheData data;
+            SizeAndModTime data;
             data.size = line.left(firstSpace).toULongLong();
             // "012 4567 name" -> firstSpace=3, secondSpace=8, we want mid(4,4)
             data.mtime = line.mid(firstSpace + 1, secondSpace - firstSpace - 1).toLongLong();
@@ -122,37 +127,57 @@ qulonglong TrashSizeCache::calculateSize()
     QDirIterator it(mTrashPath + QLatin1String("/files/"), QDirIterator::NoIteratorFlags);
 
     qulonglong sum = 0;
+    qint64 max_mtime = 0;
+    const auto checkMaxTime = [&max_mtime] (const qint64 lastModTime) {
+        if (lastModTime > max_mtime) {
+            max_mtime = lastModTime;
+        }
+    };
+    const auto checkLastModTime = [this, checkMaxTime] (const QString &fileName) {
+        const auto trashFileInfo = getTrashFileInfo(fileName);
+        if (!trashFileInfo.exists()) {
+            return;
+        }
+        checkMaxTime(trashFileInfo.lastModified().toMSecsSinceEpoch());
+    };
     while (it.hasNext()) {
-        const QFileInfo file = it.next();
-        if (file.fileName() == QLatin1Char('.') || file.fileName() == QLatin1String("..")) {
+        const QFileInfo fileInfo = it.next();
+        const QString fileName = fileInfo.fileName();
+        if (fileName == QLatin1Char('.') || fileName == QLatin1String("..")) {
             continue;
         }
-        if (file.isSymLink()) {
+        if (fileInfo.isSymLink()) {
             // QFileInfo::size does not return the actual size of a symlink. #253776
             QT_STATBUF buff;
-            return static_cast<qulonglong>(QT_LSTAT(QFile::encodeName(file.absoluteFilePath()).constData(), &buff) == 0 ? buff.st_size : 0);
-        } else if (file.isFile()) {
-            sum += file.size();
+            if (QT_LSTAT(QFile::encodeName(fileInfo.absoluteFilePath()).constData(), &buff) == 0) {
+                sum += static_cast<unsigned long long>(buff.st_size);
+                checkLastModTime(fileName);
+            }
+        } else if (fileInfo.isFile()) {
+            sum += static_cast<unsigned long long>(fileInfo.size());
+            checkLastModTime(fileName);
         } else {
+            // directories
             bool usableCache = false;
-            const QString fileId = file.fileName();
-            DirCacheHash::const_iterator it = dirCache.constFind(QFile::encodeName(fileId));
+            DirCacheHash::const_iterator it = dirCache.constFind(QFile::encodeName(fileName));
             if (it != dirCache.constEnd()) {
-                const CacheData &data = *it;
-                const QString fileInfoPath = mTrashPath + QLatin1String("/info/") + fileId + QLatin1String(".trashinfo");
-                if (QFileInfo(fileInfoPath).lastModified().toMSecsSinceEpoch() == data.mtime) {
+                const SizeAndModTime &data = *it;
+                const auto trashFileInfo = getTrashFileInfo(fileName);
+                if (trashFileInfo.exists() && trashFileInfo.lastModified().toMSecsSinceEpoch() == data.mtime) {
                     sum += data.size;
                     usableCache = true;
+                    checkMaxTime(data.mtime);
                 }
             }
             if (!usableCache) {
-                const qulonglong size = DiscSpaceUtil::sizeOfPath(file.absoluteFilePath());
+                // directories with no cache data (or outdated)
+                const qulonglong size = DiscSpaceUtil::sizeOfPath(fileInfo.absoluteFilePath());
                 sum += size;
-                add(fileId, size);
+                // NOTE: this does not take into account the directory content modification date
+                checkMaxTime(QFileInfo(fileInfo.absolutePath()).lastModified().toMSecsSinceEpoch());
+                add(fileName, size);
             }
         }
-
     }
-
-    return sum;
+    return {sum, max_mtime};
 }

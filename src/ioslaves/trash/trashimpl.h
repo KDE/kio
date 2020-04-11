@@ -90,6 +90,8 @@ public:
     };
     /// List trashed files
     typedef QList<TrashedFileInfo> TrashedFileInfoList;
+    /// Returns the TrashedFileInfo of all files in all trashes
+    /// uses scanTrashDirectories() to refresh m_trashDirectories
     TrashedFileInfoList list();
 
     /// Return the info for a given trashed file
@@ -102,6 +104,9 @@ public:
     /// Get the space info for a given trash path
     /// Space information is only valid if trashSpaceInfo returns true
     bool trashSpaceInfo(const QString &path, TrashSpaceInfo &info);
+
+    /// Returns an UDSEntry corresponding to trash:/
+    KIO::UDSEntry trashUDSEntry();
 
     /// Return the physicalPath for a given trashed file - helper method which
     /// encapsulates the call to infoForFile. Don't use if you need more info from TrashedFileInfo.

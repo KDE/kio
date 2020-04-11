@@ -408,8 +408,6 @@ bool TrashImpl::moveToTrash(const QString &origPath, int trashId, const QString 
         return false;
     }
 
-    const qulonglong pathSize = DiscSpaceUtil::sizeOfPath(origPath);
-
 #ifdef Q_OS_OSX
     createTrashInfrastructure(trashId);
 #endif
@@ -427,6 +425,7 @@ bool TrashImpl::moveToTrash(const QString &origPath, int trashId, const QString 
 
     if (QFileInfo(dest).isDir()) {
         TrashSizeCache trashSize(trashDirectoryPath(trashId));
+        const qulonglong pathSize = DiscSpaceUtil::sizeOfPath(origPath);
         trashSize.add(fileId, pathSize);
     }
 
@@ -490,8 +489,6 @@ bool TrashImpl::copyToTrash(const QString &origPath, int trashId, const QString 
         return false;
     }
 
-    const qulonglong pathSize = DiscSpaceUtil::sizeOfPath(origPath);
-
 #ifdef Q_OS_OSX
     createTrashInfrastructure(trashId);
 #endif
@@ -502,6 +499,7 @@ bool TrashImpl::copyToTrash(const QString &origPath, int trashId, const QString 
 
     if (QFileInfo(dest).isDir()) {
         TrashSizeCache trashSize(trashDirectoryPath(trashId));
+        const qulonglong pathSize = DiscSpaceUtil::sizeOfPath(origPath);
         trashSize.add(fileId, pathSize);
     }
 
@@ -1081,6 +1079,34 @@ int TrashImpl::findTrashDirectory(const QString &origPath)
     m_topDirectories.insert(id, mountPoint);
 
     return idForTrashDirectory(trashDir);
+}
+
+KIO::UDSEntry TrashImpl::trashUDSEntry()
+{
+    KIO::filesize_t size = 0;
+    long latestModifiedDate = 0;
+
+    for (const QString &trashPath: qAsConst(m_trashDirectories)) {
+
+        TrashSizeCache trashSize(trashPath);
+        TrashSizeCache::SizeAndModTime res = trashSize.calculateSizeAndLatestModDate();
+        size += res.size;
+
+        // Find latest modification date
+        if (res.mtime > latestModifiedDate) {
+            latestModifiedDate = res.mtime;
+        }
+    }
+
+    KIO::UDSEntry entry;
+    entry.reserve(3);
+    entry.fastInsert(KIO::UDSEntry::UDS_RECURSIVE_SIZE, static_cast<long long>(size));
+
+    entry.fastInsert(KIO::UDSEntry::UDS_MODIFICATION_TIME, latestModifiedDate / 1000);
+    // access date is unreliable for the trash folder, use the modified date instead
+    entry.fastInsert(KIO::UDSEntry::UDS_ACCESS_TIME, latestModifiedDate / 1000);
+
+    return entry;
 }
 
 void TrashImpl::scanTrashDirectories() const
