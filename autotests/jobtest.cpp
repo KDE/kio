@@ -1514,7 +1514,7 @@ void JobTest::statWithInode()
     QVERIFY(job);
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
 
-    const KIO::UDSEntry &entry = job->statResult();
+    const KIO::UDSEntry entry = job->statResult();
     QVERIFY(entry.contains(KIO::UDSEntry::UDS_DEVICE_ID));
     QVERIFY(entry.contains(KIO::UDSEntry::UDS_INODE));
     QCOMPARE(entry.count(), 2);
