@@ -2113,7 +2113,7 @@ void KDirOperator::setupActions()
 
     KToggleAction *showHiddenAction = new KToggleAction(i18n("Show Hidden Files"), this);
     d->actionCollection->addAction(QStringLiteral("show hidden"), showHiddenAction);
-    showHiddenAction->setShortcuts({Qt::ALT + Qt::Key_Period, Qt::CTRL + Qt::Key_H, Qt::Key_F8});
+    showHiddenAction->setShortcuts(KStandardShortcut::showHideHiddenFiles());
     connect(showHiddenAction, SIGNAL(toggled(bool)), SLOT(_k_slotToggleHidden(bool)));
 
     KToggleAction *previewAction = new KToggleAction(i18n("Show Preview Panel"), this);
