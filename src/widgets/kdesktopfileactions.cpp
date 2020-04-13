@@ -308,6 +308,7 @@ QList<KServiceAction> KDesktopFileActions::userDefinedServices(const KService &s
     return result;
 }
 
+// KF6 TODO add QWiget* parameter
 void KDesktopFileActions::executeService(const QList<QUrl> &urls, const KServiceAction &action)
 {
     //qDebug() << "EXECUTING Service " << action.name();
@@ -323,7 +324,7 @@ void KDesktopFileActions::executeService(const QList<QUrl> &urls, const KService
             const QString dev = cfg.readDevice();
             if (dev.isEmpty()) {
                 QString tmp = i18n("The desktop entry file\n%1\nis of type FSDevice but has no Dev=... entry.",  path);
-                KMessageBox::error(nullptr, tmp);
+                KMessageBox::error(nullptr /*TODO window*/, tmp);
                 return;
             }
             KMountPoint::Ptr mp = KMountPoint::currentMountPoints().findByDevice(dev);
@@ -394,9 +395,7 @@ void KDesktopFileActions::executeService(const QList<QUrl> &urls, const KService
                 // The action may update the desktop file. Example: eject unmounts (#5129).
                 org::kde::KDirNotify::emitFilesChanged(urls);
                 });
-        auto *delegate = new KDialogJobUiDelegate;
-        delegate->setAutoErrorHandlingEnabled(true);
-        job->setUiDelegate(delegate);
+        job->setUiDelegate(new KDialogJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, nullptr /*TODO window*/));
         job->start();
     }
 }

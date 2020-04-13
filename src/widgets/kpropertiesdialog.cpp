@@ -1458,9 +1458,7 @@ void KFilePropsPlugin::slotSizeDetails()
     if (service) {
         auto *job = new KIO::ApplicationLauncherJob(service);
         job->setUrls({ properties->url() });
-        auto *delegate = new KDialogJobUiDelegate;
-        delegate->setAutoErrorHandlingEnabled(true);
-        job->setUiDelegate(delegate);
+        job->setUiDelegate(new KDialogJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, properties));
         job->start();
     }
 }
