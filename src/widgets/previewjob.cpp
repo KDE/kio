@@ -148,6 +148,8 @@ public:
     uchar *shmaddr;
     // Root of thumbnail cache
     QString thumbRoot;
+    // List of encrypted mount points for checking if we should save thumbnail
+    KMountPoint::List encryptedMountsList;
 
     void getOrCreateThumbnail();
     bool statResultThumbnail();
@@ -302,10 +304,9 @@ void PreviewJobPrivate::startPreview()
         }
     }
 
+    //Prepare encryptedMountsList which will be used in ::slotThumbData
     const auto mountsList = KMountPoint::currentMountPoints();
-    KMountPoint::List encryptedMountsList;
     const auto thumbRootMount = mountsList.findByPath(thumbRoot);
-
     std::copy_if(mountsList.begin(), mountsList.end(),
                  std::back_inserter(encryptedMountsList),
                  [&thumbRootMount] (KMountPoint::Ptr mount) {
@@ -321,10 +322,6 @@ void PreviewJobPrivate::startPreview()
     for (; kit != kend; ++kit) {
         PreviewItem item;
         item.item = *kit;
-
-        if (encryptedMountsList.findByPath(item.item.localPath())) {
-            continue;
-        }
 
         const QString mimeType = item.item.mimetype();
         KService::Ptr plugin(nullptr);
@@ -692,11 +689,12 @@ void PreviewJobPrivate::createThumbnail(const QString &pixPath)
 
 void PreviewJobPrivate::slotThumbData(KIO::Job *, const QByteArray &data)
 {
+    const bool isEncrypted = encryptedMountsList.findByPath(currentItem.item.url().toLocalFile());
     bool save = bSave &&
+                !sequenceIndex && !isEncrypted &&
                 currentItem.plugin->property(QStringLiteral("CacheThumbnail")).toBool() &&
                 (!currentItem.item.url().isLocalFile() ||
-                 !currentItem.item.url().adjusted(QUrl::RemoveFilename).toLocalFile().startsWith(thumbRoot))
-                && !sequenceIndex;
+                 !currentItem.item.url().adjusted(QUrl::RemoveFilename).toLocalFile().startsWith(thumbRoot));
     QImage thumb;
 #if WITH_SHM
     if (shmaddr) {
