@@ -53,9 +53,7 @@ class ApplicationLauncherJobPrivate;
  * For error handling, either connect to the result() signal, or for a simple messagebox on error,
  * you can do
  * @code
- *    auto *delegate = new KDialogJobUiDelegate;
- *    delegate->setAutoErrorHandlingEnabled(true);
- *    job->setUiDelegate(delegate);
+ *    job->setUiDelegate(new KDialogJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, this));
  * @endcode
  *
  * @since 5.69
