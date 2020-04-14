@@ -543,8 +543,6 @@ public:
      * Lists the contents of @p url.
      * The slave should emit ERR_CANNOT_ENTER_DIRECTORY if it doesn't exist,
      * if we don't have enough permissions.
-     * It should also emit totalFiles as soon as it knows how many
-     * files it will list.
      * You should not list files if the path in @p url is empty, but redirect
      * to a non-empty path instead.
      */
