@@ -222,7 +222,7 @@ public:
      * to give some info about the current state.
      * Don't emit it in listDir, listEntries speaks for itself.
      */
-    void processedPercent(float percent);
+    void processedPercent(float percent); // KF6 TODO REMOVE
 
     /**
      * Call this in get and copy, to give the current transfer
