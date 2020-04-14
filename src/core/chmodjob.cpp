@@ -24,7 +24,6 @@
 
 #include <KLocalizedString>
 #include <KUser>
-#include <QLinkedList>
 #include <QDebug>
 
 
@@ -32,6 +31,8 @@
 #include "job_p.h"
 #include "jobuidelegatefactory.h"
 #include "kioglobal_p.h"
+
+#include <stack>
 
 namespace KIO
 {
@@ -70,7 +71,7 @@ public:
     bool m_recursive;
     bool m_bAutoSkipFiles;
     KFileItemList m_lstItems;
-    QLinkedList<ChmodInfo> m_infos; // linkedlist since we keep removing the first item
+    std::stack<ChmodInfo> m_infos;
 
     void _k_chmodNextFile();
     void _k_slotEntries(KIO::Job *, const KIO::UDSEntryList &);
@@ -127,7 +128,7 @@ void ChmodJobPrivate::_k_processList()
                           << "\n with ~mask (mask bits we keep) =" << QString::number((uint)~m_mask,8)
                           << "\n bits we keep =" << QString::number(permissions & ~m_mask,8)
                           << "\n new permissions = " << QString::number(info.permissions,8);*/
-            m_infos.prepend(info);
+            m_infos.push(std::move(info));
             //qDebug() << "processList : Adding info for " << info.url;
             // Directory and recursive -> list
             if (item.isDir() && m_recursive) {
@@ -184,9 +185,9 @@ void ChmodJobPrivate::_k_slotEntries(KIO::Job *, const KIO::UDSEntryList &list)
                           << "\n with ~mask (mask bits we keep) =" << QString::number((uint)~mask,8)
                           << "\n bits we keep =" << QString::number(permissions & ~mask,8)
                           << "\n new permissions = " << QString::number(info.permissions,8);*/
-            // Prepend this info in our todo list.
+            // Push this info on top of the stack so it's handled first.
             // This way, the toplevel dirs are done last.
-            m_infos.prepend(info);
+            m_infos.push(std::move(info));
         }
     }
 }
@@ -194,8 +195,9 @@ void ChmodJobPrivate::_k_slotEntries(KIO::Job *, const KIO::UDSEntryList &list)
 void ChmodJobPrivate::_k_chmodNextFile()
 {
     Q_Q(ChmodJob);
-    if (!m_infos.isEmpty()) {
-        ChmodInfo info = m_infos.takeFirst();
+    if (!m_infos.empty()) {
+        ChmodInfo info = m_infos.top();
+        m_infos.pop();
         // First update group / owner (if local file)
         // (permissions have to set after, in case of suid and sgid)
         if (info.url.isLocalFile() && (m_newOwner.isValid() || m_newGroup.isValid())) {
@@ -206,7 +208,7 @@ void ChmodJobPrivate::_k_chmodNextFile()
                 } else if (!m_bAutoSkipFiles) {
                     const QString errMsg = i18n("<qt>Could not modify the ownership of file <b>%1</b>. You have insufficient access to the file to perform the change.</qt>", path);
                     SkipDialog_Options options;
-                    if (m_infos.count() > 1) {
+                    if (m_infos.size() > 1) {
                         options |= SkipDialog_MultipleItems;
                     }
                     const SkipDialog_Result skipResult = m_uiDelegateExtension->askSkip(q, options, errMsg);
@@ -219,7 +221,7 @@ void ChmodJobPrivate::_k_chmodNextFile()
                         QMetaObject::invokeMethod(q, "_k_chmodNextFile", Qt::QueuedConnection);
                         return;
                     case Result_Retry:
-                        m_infos.prepend(info);
+                        m_infos.push(std::move(info));
                         QMetaObject::invokeMethod(q, "_k_chmodNextFile", Qt::QueuedConnection);
                         return;
                     case Result_Cancel:
