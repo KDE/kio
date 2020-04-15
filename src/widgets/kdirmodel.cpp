@@ -505,6 +505,7 @@ void KDirModelPrivate::_k_slotNewItems(const QUrl &directoryUrl, const KFileItem
         dump();
 #endif
         Q_ASSERT(result);
+        return;
     }
     Q_ASSERT(isDir(result));
     KDirModelDirNode *dirNode = static_cast<KDirModelDirNode *>(result);
