@@ -22,6 +22,8 @@
 
 #include "kstatusbarofflineindicator.h"
 
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 70)
+
 #include <QLabel>
 #include <QVBoxLayout>
 #include <kiconloader.h>
@@ -81,3 +83,5 @@ void KStatusBarOfflineIndicatorPrivate::_k_networkStatusChanged(bool isOnline)
 }
 
 #include "moc_kstatusbarofflineindicator.cpp"
+
+#endif
