@@ -452,7 +452,7 @@ void CopyJobPrivate::slotResultStating(KJob *job)
             qCDebug(KIO_COPYJOB_DEBUG) << "dest is dir:" << isDir;
 
             const QString sLocalPath = entry.stringValue(KIO::UDSEntry::UDS_LOCAL_PATH);
-            if (!sLocalPath.isEmpty() && kio_resolve_local_urls && destinationState != DEST_DOESNT_EXIST) {
+            if (!sLocalPath.isEmpty() && kio_resolve_local_urls) {
                 const QString fileName = m_dest.fileName();
                 m_dest = QUrl::fromLocalFile(sLocalPath);
                 if (m_asMethod) {
