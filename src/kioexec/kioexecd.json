@@ -2,6 +2,7 @@
     "KPlugin": {
         "Description": "Monitors cached remote files for changes",
         "Description[ar]": "يُراقب الملفات البعيدة المخبّأة بحثًا عن تغييرات",
+        "Description[az]": "Məsafədəki komputerdə keşlənən faylların dəyşikliklərinin izlənməsi",
         "Description[ca@valencia]": "Controla els canvis als fitxers remots en la memòria cau",
         "Description[ca]": "Controla els canvis als fitxers remots en la memòria cau",
         "Description[cs]": "Monitoruje změny vzdálených souborů v mezipaměti",
@@ -40,6 +41,7 @@
         "Description[zh_CN]": "监视缓存的远程文件修改",
         "Description[zh_TW]": "監視已快取的遠端檔案變更",
         "Name": "KIOExec Daemon",
+        "Name[az]": "KIOExec Xidməti",
         "Name[ca@valencia]": "Dimoni KIOExec",
         "Name[ca]": "Dimoni KIOExec",
         "Name[cs]": "Démon KIOExec",

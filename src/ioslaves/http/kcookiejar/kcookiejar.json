@@ -2,6 +2,7 @@
     "KPlugin": {
         "Description": "Stores network cookies",
         "Description[ar]": "يُخزّن كعكات الشبكة",
+        "Description[az]": "Şəbəkə kukilərinin saxlanması",
         "Description[ca@valencia]": "Emmagatzema les galetes de la xarxa",
         "Description[ca]": "Emmagatzema les galetes de la xarxa",
         "Description[cs]": "Ukládá síťová cookie",
@@ -43,6 +44,7 @@
         "Description[zh_TW]": "儲存網路 cookies",
         "Name": "Cookie Jar",
         "Name[ar]": "إناء الكعك",
+        "Name[az]": "Kuki Xidməti",
         "Name[ca@valencia]": "Repositori de les galetes",
         "Name[ca]": "Repositori de les galetes",
         "Name[cs]": "Cookie Jar",
