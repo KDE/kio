@@ -47,8 +47,7 @@ KFileBookmarkHandler::KFileBookmarkHandler(KFileWidget *widget)
     KBookmarkManager *manager = KBookmarkManager::managerForFile(file, QStringLiteral("kfile"));
     manager->setUpdate(true);
 
-    m_bookmarkMenu = new KBookmarkMenu(manager, this, m_menu,
-                                       widget->actionCollection());
+    m_bookmarkMenu = new KBookmarkMenu(manager, this, m_menu);
 }
 
 KFileBookmarkHandler::~KFileBookmarkHandler()

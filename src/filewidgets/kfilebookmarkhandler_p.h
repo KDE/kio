@@ -25,9 +25,6 @@
 class QMenu;
 class KFileWidget;
 
-/**
- * Note: Ported to new KBookmarkMenu, but untested
- */
 class KFileBookmarkHandler : public QObject, public KBookmarkOwner
 {
     Q_OBJECT
