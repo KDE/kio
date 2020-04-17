@@ -332,6 +332,8 @@ enum StatDetail {
     StatAcl = 0x10,
     /// dev, inode
     StatInode = 0x20,
+    /// recursive size @since 5.70
+    StatRecursiveSize = 0x40,
 
     /// Default value includes fields provided by other entries
     StatDefaultDetails = StatBasic | StatUser | StatTime | StatAcl | StatResolveSymlink,

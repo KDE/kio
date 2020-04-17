@@ -75,6 +75,7 @@ private:
     void restore(const QUrl &trashURL);
     void enterLoop();
     void fileSystemFreeSpace(const QUrl &url);
+    KIO::StatDetails getStatDetails();
 
     TrashImpl impl;
     QString m_userName;

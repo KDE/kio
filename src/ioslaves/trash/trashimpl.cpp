@@ -1081,31 +1081,32 @@ int TrashImpl::findTrashDirectory(const QString &origPath)
     return idForTrashDirectory(trashDir);
 }
 
-KIO::UDSEntry TrashImpl::trashUDSEntry()
+KIO::UDSEntry TrashImpl::trashUDSEntry(KIO::StatDetails details)
 {
-    KIO::filesize_t size = 0;
-    long latestModifiedDate = 0;
-
-    for (const QString &trashPath: qAsConst(m_trashDirectories)) {
-
-        TrashSizeCache trashSize(trashPath);
-        TrashSizeCache::SizeAndModTime res = trashSize.calculateSizeAndLatestModDate();
-        size += res.size;
-
-        // Find latest modification date
-        if (res.mtime > latestModifiedDate) {
-            latestModifiedDate = res.mtime;
-        }
-    }
-
     KIO::UDSEntry entry;
-    entry.reserve(3);
-    entry.fastInsert(KIO::UDSEntry::UDS_RECURSIVE_SIZE, static_cast<long long>(size));
+    if (details & KIO::StatRecursiveSize) {
+        KIO::filesize_t size = 0;
+        long latestModifiedDate = 0;
 
-    entry.fastInsert(KIO::UDSEntry::UDS_MODIFICATION_TIME, latestModifiedDate / 1000);
-    // access date is unreliable for the trash folder, use the modified date instead
-    entry.fastInsert(KIO::UDSEntry::UDS_ACCESS_TIME, latestModifiedDate / 1000);
+        for (const QString &trashPath: qAsConst(m_trashDirectories)) {
 
+            TrashSizeCache trashSize(trashPath);
+            TrashSizeCache::SizeAndModTime res = trashSize.calculateSizeAndLatestModDate();
+            size += res.size;
+
+            // Find latest modification date
+            if (res.mtime > latestModifiedDate) {
+                latestModifiedDate = res.mtime;
+            }
+        }
+
+        entry.reserve(3);
+        entry.fastInsert(KIO::UDSEntry::UDS_RECURSIVE_SIZE, static_cast<long long>(size));
+
+        entry.fastInsert(KIO::UDSEntry::UDS_MODIFICATION_TIME, latestModifiedDate / 1000);
+        // access date is unreliable for the trash folder, use the modified date instead
+        entry.fastInsert(KIO::UDSEntry::UDS_ACCESS_TIME, latestModifiedDate / 1000);
+    }
     return entry;
 }
 

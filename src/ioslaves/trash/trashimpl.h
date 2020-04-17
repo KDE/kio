@@ -106,7 +106,7 @@ public:
     bool trashSpaceInfo(const QString &path, TrashSpaceInfo &info);
 
     /// Returns an UDSEntry corresponding to trash:/
-    KIO::UDSEntry trashUDSEntry();
+    KIO::UDSEntry trashUDSEntry(KIO::StatDetails details);
 
     /// Return the physicalPath for a given trashed file - helper method which
     /// encapsulates the call to infoForFile. Don't use if you need more info from TrashedFileInfo.

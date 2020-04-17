@@ -295,13 +295,32 @@ void TrashProtocol::createTopLevelDirEntry(KIO::UDSEntry &entry)
     entry.fastInsert(KIO::UDSEntry::UDS_GROUP, m_groupName);
 }
 
+KIO::StatDetails TrashProtocol::getStatDetails()
+{
+    // takes care of converting old metadata details to new StatDetails
+    // TODO KF6 : remove legacy "details" code path
+    KIO::StatDetails details;
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 69)
+    if (hasMetaData(QStringLiteral("statDetails"))) {
+#endif
+        const QString statDetails = metaData(QStringLiteral("statDetails"));
+        details = statDetails.isEmpty() ? KIO::StatDefaultDetails : static_cast<KIO::StatDetails>(statDetails.toInt());
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 69)
+    } else {
+        const QString sDetails = metaData(QStringLiteral("details"));
+        details = sDetails.isEmpty() ? KIO::StatDefaultDetails : KIO::detailsToStatDetails(sDetails.toInt());
+    }
+#endif
+    return details;
+}
+
 void TrashProtocol::stat(const QUrl &url)
 {
     INIT_IMPL;
     const QString path = url.path();
     if (path.isEmpty() || path == QLatin1String("/")) {
         // The root is "virtual" - it's not a single physical directory
-        KIO::UDSEntry entry = impl.trashUDSEntry();
+        KIO::UDSEntry entry = impl.trashUDSEntry(getStatDetails());
         createTopLevelDirEntry(entry);
         statEntry(entry);
         finished();
