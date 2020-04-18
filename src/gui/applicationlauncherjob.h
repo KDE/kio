@@ -35,6 +35,8 @@ namespace KIO {
 class ApplicationLauncherJobPrivate;
 
 /**
+ * @class ApplicationLauncherJob applicationlauncherjob.h <KIO/ApplicationLauncherJob>
+ *
  * @brief ApplicationLauncherJob runs an application and watches it while running.
  *
  * It creates a startup notification and finishes it on success or on error (for the taskbar).

@@ -33,6 +33,8 @@ namespace KIO {
 class CommandLauncherJobPrivate;
 
 /**
+ * @class CommandLauncherJob commandlauncherjob.h <KIO/CommandLauncherJob>
+ *
  * @brief CommandLauncherJob runs a command and watches it while running.
  *
  * It creates a startup notification and finishes it on success or on error (for the taskbar).
