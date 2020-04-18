@@ -32,6 +32,7 @@ set(NON_KIOCORE_LINK_QCHS
     KF5ItemViews_QCH
     KF5XmlGui_QCH
     KF5Solid_QCH
+    KF5WindowSystem_QCH
 )
 
 if(BUILD_DESIGNERPLUGIN)
