@@ -64,28 +64,29 @@ class KIOGUI_EXPORT ApplicationLauncherJob : public KJob
 {
 public:
     /**
-     * @brief Creates a ApplicationLauncherJob
+     * Creates an ApplicationLauncherJob.
      * @param service the service (application desktop file) to run
      * @param parent the parent QObject
      */
     explicit ApplicationLauncherJob(const KService::Ptr &service, QObject *parent = nullptr);
 
     /**
-     * @brief Creates a ApplicationLauncherJob
+     * Creates an ApplicationLauncherJob.
      * @param serviceAction the service action to run
      * @param parent the parent QObject
      */
     explicit ApplicationLauncherJob(const KServiceAction &serviceAction, QObject *parent = nullptr);
 
     /**
-     * Destructor.
+     * Destructor
+     *
      * Note that jobs auto-delete themselves after emitting result.
      * Deleting/killing the job will not stop the started application.
      */
     ~ApplicationLauncherJob() override;
 
     /**
-     * @brief setUrls specifies the URLs to be passed to the application
+     * Specifies the URLs to be passed to the application.
      * @param urls list of files (local or remote) to open
      *
      * Note that when passing multiple URLs to an application that doesn't support opening
@@ -99,34 +100,36 @@ public:
     Q_DECLARE_FLAGS(RunFlags, RunFlag)
 
     /**
-     * @brief setRunFlags specifies various flags
+     * Specifies various flags.
      * @param runFlags the flags to be set. For instance, whether the URLs are temporary files that should be deleted after execution.
      */
     void setRunFlags(RunFlags runFlags);
 
     /**
      * Sets the file name to use in the case of downloading the file to a tempfile
-     * in order to give to a non-url-aware application. Some apps rely on the extension
-     * to determine the mimetype of the file. Usually the file name comes from the URL,
-     * but in the case of the HTTP Content-Disposition header, we need to override the
-     * file name.
+     * in order to give to a non-URL-aware application.
+     * Some apps rely on the extension to determine the mimetype of the file.
+     * Usually the file name comes from the URL, but in the case of the
+     * HTTP Content-Disposition header, we need to override the file name.
      * @param suggestedFileName the file name
      */
     void setSuggestedFileName(const QString &suggestedFileName);
 
     /**
-     * @brief setStartupId sets the startupId of the new application
-     * @param startupId Application startup notification id, if any (otherwise "").
+     * Sets the startup notification id of the application launch.
+     * @param startupId startup notification id, if any (otherwise "").
      */
     void setStartupId(const QByteArray &startupId);
 
     /**
-     * @brief start starts the job. You must call this, after all the setters.
+     * Starts the job.
+     * You must call this, after having done all the setters.
      */
     void start() override;
 
     /**
-     * @return the PID of the application that was started.
+     * @return the PID of the application that was started
+     *
      * Convenience method for pids().at(0). You should only use this when specifying zero or one URL,
      * or when you are sure that the application supports opening multiple files. Otherwise use pids().
      * Available after the job emits result().
@@ -134,7 +137,8 @@ public:
     qint64 pid() const;
 
     /**
-     * @return the PIDs of the applications that were started.
+     * @return the PIDs of the applications that were started
+     *
      * Available after the job emits result().
      */
     QVector<qint64> pids() const;

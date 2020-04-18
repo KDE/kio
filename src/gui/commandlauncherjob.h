@@ -55,73 +55,79 @@ class KIOGUI_EXPORT CommandLauncherJob : public KJob
 {
 public:
     /**
-     * @brief Creates a CommandLauncherJob
+     * Creates a CommandLauncherJob.
      * @param command the shell command to run
      * @param parent the parent QObject
      *
-     * Please consider also calling setDesktopName, or setExecutable and setIcon
+     * Please consider also calling setDesktopName(), or setExecutable() and setIcon()
      * for better startup notification.
      */
     explicit CommandLauncherJob(const QString &command, QObject *parent = nullptr);
 
     /**
-     * @brief Creates a CommandLauncherJob
+     * Creates a CommandLauncherJob.
      * @param executable the name of the executable
      * @param args the commandline arguments to pass to the executable
      * @param parent the parent QObject
      *
-     * Please consider also calling setDesktopName, or setExecutable and setIcon
+     * Please consider also calling setDesktopName(), or setExecutable() and setIcon()
      * for better startup notification.
      */
     explicit CommandLauncherJob(const QString &executable, const QStringList &args, QObject *parent = nullptr);
 
     /**
      * Destructor
+     *
      * Note that jobs auto-delete themselves after emitting result
      */
     ~CommandLauncherJob() override;
 
     /**
-     * Allows to set the name of the executable, used in the startup notification.
-     * (see KStartupInfoData::setBin)
+     * Sets the name of the executable, used in the startup notification
+     * (see KStartupInfoData::setBin()).
      * @param executable executable name, with or without a path
-     * Alternatively, use setDesktopName.
+     *
+     * Alternatively, use setDesktopName().
      */
     void setExecutable(const QString &executable);
 
     /**
-     * @brief Sets the icon for the startup notification
+     * Sets the icon for the startup notification.
      * @param iconName name of the icon, to be loaded from the current icon theme
-     * Alternatively, use setDesktopName.
+     *
+     * Alternatively, use setDesktopName().
      */
     void setIcon(const QString &iconName);
 
     /**
-     * Allows to set the name of the desktop file (e.g. "org.kde.dolphin", the extension is optional)
-     * This is an alternative solution for setIcon and setExecutable, i.e. the icon
-     * will be taken from the desktop file, and the executable inferred from the Exec line.
+     * Set the name of the desktop file (e.g.\ "org.kde.dolphin", the extension is optional).
+     *
+     * This is an alternative solution for setIcon() and setExecutable(), i.e. the icon
+     * will be taken from the desktop file, and the executable inferred from the "Exec" line.
      */
     void setDesktopName(const QString &desktopName);
 
     /**
-     * @brief setStartupId sets the startupId of the new application
-     * @param startupId Application startup notification id, if any (otherwise "").
+     * Sets the startup notification id of the command launch.
+     * @param startupId startup notification id, if any (otherwise "").
      */
     void setStartupId(const QByteArray &startupId);
 
     /**
-     * @brief Sets the working directory from which to run the command
+     * Sets the working directory from which to run the command.
      * @param workingDirectory path of a local directory
      */
     void setWorkingDirectory(const QString &workingDirectory);
 
     /**
-     * @brief start starts the job. You must call this, after all the setters.
+     * Starts the job.
+     * You must call this, after having done all the setters.
      */
     void start() override;
 
     /**
-     * @return the PID of the application that was started.
+     * @return the PID of the application that was started
+     *
      * Available after the job emits result().
      */
     qint64 pid() const;
