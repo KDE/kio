@@ -266,9 +266,14 @@ inline int LSTAT(const char* path, struct statx * buff, KIO::StatDetails details
 }
 inline int STAT(const char* path, struct statx * buff, KIO::StatDetails details) {
     uint32_t mask = 0;
-    if (details & KIO::StatBasic) {
-        // filename, access, type, size, linkdest
-        mask |= STATX_SIZE | STATX_TYPE;
+    // KIO::StatAcl needs type
+    if (details & (KIO::StatBasic | KIO::StatAcl | KIO::StatResolveSymlink)) {
+        // filename, access, type
+        mask |= STATX_TYPE;
+    }
+    if (details & (KIO::StatBasic | KIO::StatResolveSymlink)) {
+        // size, linkdest
+        mask |= STATX_SIZE;
     }
     if (details & KIO::StatUser) {
         // uid, gid
@@ -416,7 +421,7 @@ static bool createUDSEntry(const QString &filename, const QByteArray &path, UDSE
     }
 
     mode_t type = 0;
-    if (details & KIO::StatBasic) {
+    if (details & (KIO::StatBasic | KIO::StatAcl)) {
         mode_t access;
         signed long long size;
         if (isBrokenSymLink) {
@@ -430,19 +435,21 @@ static bool createUDSEntry(const QString &filename, const QByteArray &path, UDSE
             size = stat_size(buff);
         }
 
-        entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, type);
-        entry.fastInsert(KIO::UDSEntry::UDS_ACCESS, access);
-        entry.fastInsert(KIO::UDSEntry::UDS_SIZE, size);
-    }
+        if (details & KIO::StatBasic) {
+            entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, type);
+            entry.fastInsert(KIO::UDSEntry::UDS_ACCESS, access);
+            entry.fastInsert(KIO::UDSEntry::UDS_SIZE, size);
+        }
 
 #if HAVE_POSIX_ACL
-    if (details & KIO::StatAcl) {
-        /* Append an atom indicating whether the file has extended acl information
-         * and if withACL is specified also one with the acl itself. If it's a directory
-         * and it has a default ACL, also append that. */
-        appendACLAtoms(targetPath, entry, type);
-    }
+        if (details & KIO::StatAcl) {
+            /* Append an atom indicating whether the file has extended acl information
+             * and if withACL is specified also one with the acl itself. If it's a directory
+             * and it has a default ACL, also append that. */
+            appendACLAtoms(targetPath, entry, type);
+        }
 #endif
+    }
 
     if (details & KIO::StatUser) {
         entry.fastInsert(KIO::UDSEntry::UDS_USER, getUserName(KUserId(stat_uid(buff))));
