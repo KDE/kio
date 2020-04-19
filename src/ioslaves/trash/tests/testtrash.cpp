@@ -586,8 +586,21 @@ void TestTrash::checkDirCacheValidity()
         QVERIFY(line.endsWith('\n'));
         line.chop(1);
         qDebug() << "LINE" << line;
-        const int lastSpace = line.lastIndexOf(' ');
-        const QByteArray dir = QByteArray::fromPercentEncoding(line.mid(lastSpace + 1));
+
+        const auto exploded = line.split(' ');
+        QCOMPARE(exploded.size(), 3);
+
+        bool succeeded = false;
+        const int size = exploded.at(0).toInt(&succeeded);
+        QVERIFY(succeeded);
+        QVERIFY(size > 0);
+
+        const int mtime = exploded.at(0).toInt(&succeeded);
+        QVERIFY(succeeded);
+        QVERIFY(mtime > 0);
+        QVERIFY(QDateTime::fromMSecsSinceEpoch(mtime).isValid());
+
+        const QByteArray dir = QByteArray::fromPercentEncoding(exploded.at(2));
         QVERIFY2(!seenDirs.contains(dir), dir.constData());
         seenDirs.insert(dir);
         const QString localDir = m_trashDir + QLatin1String("/files/") + QFile::decodeName(dir);
@@ -600,6 +613,7 @@ void TestTrash::trashDirectoryFromHome()
 {
     QString dirName = QStringLiteral("trashDirFromHome");
     trashDirectory(homeTmpDir() + dirName, dirName);
+    checkDirCacheValidity();
     // Do it again, check that we got a different id
     trashDirectory(homeTmpDir() + dirName, dirName + QLatin1String(" (1)"));
 }
@@ -701,6 +715,8 @@ void TestTrash::delDirectory()
     QVERIFY(!file.exists());
     QFileInfo info(m_trashDir + QLatin1String("/info/trashDirFromHome.trashinfo"));
     QVERIFY(!info.exists());
+
+    checkDirCacheValidity();
 
     // trash it again, we'll need it later
     QString dirName = QStringLiteral("trashDirFromHome");

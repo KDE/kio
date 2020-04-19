@@ -425,7 +425,7 @@ bool TrashImpl::moveToTrash(const QString &origPath, int trashId, const QString 
 
     if (QFileInfo(dest).isDir()) {
         TrashSizeCache trashSize(trashDirectoryPath(trashId));
-        const qulonglong pathSize = DiscSpaceUtil::sizeOfPath(origPath);
+        const qulonglong pathSize = DiscSpaceUtil::sizeOfPath(dest);
         trashSize.add(fileId, pathSize);
     }
 
@@ -499,7 +499,7 @@ bool TrashImpl::copyToTrash(const QString &origPath, int trashId, const QString 
 
     if (QFileInfo(dest).isDir()) {
         TrashSizeCache trashSize(trashDirectoryPath(trashId));
-        const qulonglong pathSize = DiscSpaceUtil::sizeOfPath(origPath);
+        const qulonglong pathSize = DiscSpaceUtil::sizeOfPath(dest);
         trashSize.add(fileId, pathSize);
     }
 
