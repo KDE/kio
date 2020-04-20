@@ -33,6 +33,7 @@ class Job;
 class ClipboardUpdater;
 
 /**
+ * @see RenameDialog_Options
  * @since 5.0
  */
 enum RenameDialog_Option {
@@ -44,6 +45,9 @@ enum RenameDialog_Option {
     RenameDialog_NoRename = 64, ///< Don't offer a "Rename" button.
     RenameDialog_IsDirectory = 128 ///< The destination is a directory, the dialog updates labels and tooltips accordingly.
 };
+/**
+ * Stores a combination of #RenameDialog_Option values.
+ */
 Q_DECLARE_FLAGS(RenameDialog_Options, RenameDialog_Option)
 
 // For compat
@@ -70,11 +74,15 @@ typedef RenameDialog_Options RenameDialog_Mode;
 /**
  * SkipDialog_MultipleItems: Set if the current operation concerns multiple files, so it makes sense
  *  to offer buttons that apply the user's choice to all files/folders.
+ * @see SkipDialog_Options
  * @since 5.0
  */
 enum SkipDialog_Option {
     SkipDialog_MultipleItems = 8
 };
+/**
+ * Stores a combination of #SkipDialog_Option values.
+ */
 Q_DECLARE_FLAGS(SkipDialog_Options, SkipDialog_Option)
 
 /**

@@ -68,8 +68,12 @@ public:
      * BasicInfoNeeded: only the basic details: mountedFrom, mountPoint, mountType.
      * NeedMountOptions: also fetch the options used when mounting, see mountOptions.
      * NeedRealDeviceName: also fetch the device name (with symlinks resolved), see realDeviceName.
+     * @see DetailsNeededFlags
      */
     enum DetailsNeededFlag { BasicInfoNeeded = 0, NeedMountOptions = 1, NeedRealDeviceName = 2 };
+    /**
+     * Stores a combination of #DetailsNeededFlag values.
+     */
     Q_DECLARE_FLAGS(DetailsNeededFlags, DetailsNeededFlag)
 
     /**

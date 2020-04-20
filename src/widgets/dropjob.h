@@ -36,6 +36,7 @@ namespace KIO
 /**
 * Special flag of DropJob in addition to KIO::JobFlag
 *
+* @see DropJobFlags
 * @since 5.67
 */
 enum DropJobFlag
@@ -43,6 +44,9 @@ enum DropJobFlag
     DropJobDefaultFlags = 0,
     ShowMenuManually = 1, ///< show the menu manually with DropJob::showMenu
 };
+/**
+ * Stores a combination of #DropJobFlag values.
+ */
 Q_DECLARE_FLAGS(DropJobFlags, DropJobFlag)
 Q_DECLARE_OPERATORS_FOR_FLAGS(DropJobFlags)
 

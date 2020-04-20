@@ -315,6 +315,7 @@ enum  PrivilegeOperationStatus {
 /**
  * Describes the fields that a stat command will retrieve
  * @see UDSEntry
+ * @see StatDetails
  * @since 5.69
  */
 enum StatDetail {
@@ -338,6 +339,9 @@ enum StatDetail {
     /// Default value includes fields provided by other entries
     StatDefaultDetails = StatBasic | StatUser | StatTime | StatAcl | StatResolveSymlink,
 };
+/**
+ * Stores a combination of #StatDetail values.
+ */
 Q_DECLARE_FLAGS(StatDetails, StatDetail)
 
 Q_DECLARE_OPERATORS_FOR_FLAGS(KIO::StatDetails)

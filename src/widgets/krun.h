@@ -244,10 +244,16 @@ public:
                              bool tempFiles = false, const QString &suggestedFileName = QString(),
                              const QByteArray &asn = QByteArray()); // TODO KF6: deprecate/remove
 
+    /**
+     * @see RunFlags
+     */
     enum RunFlag {
         DeleteTemporaryFiles = 0x1, ///< the URLs passed to the service will be deleted when it exits (if the URLs are local files)
         RunExecutables = 0x2,       ///< Whether to run URLs that are executable scripts or binaries @see isExecutableFile() @since 5.31
     };
+    /**
+     * Stores a combination of #RunFlag values.
+     */
     Q_DECLARE_FLAGS(RunFlags, RunFlag)
 
     /**

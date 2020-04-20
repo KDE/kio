@@ -73,6 +73,9 @@ class KIOCORE_EXPORT KCoreDirLister : public QObject
     Q_PROPERTY(QStringList mimeFilter READ mimeFilters WRITE setMimeFilter RESET clearMimeFilter)
 
 public:
+    /**
+     * @see OpenUrlFlags
+     */
     enum OpenUrlFlag {
         NoFlags = 0x0,   ///< No additional flags specified.
 
@@ -87,6 +90,9 @@ public:
                  ///< without using the cache. Otherwise use updateDirectory.
     };
 
+    /**
+     * Stores a combination of #OpenUrlFlag values.
+     */
     Q_DECLARE_FLAGS(OpenUrlFlags, OpenUrlFlag)
 
     /**

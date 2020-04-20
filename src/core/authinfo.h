@@ -319,12 +319,16 @@ public:
      * @li presetOnly       search entries that are specified as "preset".
      *
      * @see lookup
+     * @see LookUpMode
      */
     enum LookUpModeFlag {
         exactOnly = 0x0002,
         defaultOnly = 0x0004,
         presetOnly = 0x0008
     };
+    /**
+     * Stores a combination of #LookUpModeFlag values.
+     */
     Q_DECLARE_FLAGS(LookUpMode, LookUpModeFlag)
 
     /**

@@ -205,6 +205,7 @@ public:
       *
       * @see setSearchFilteringOptions
       * @see KUriFilter::filterSearchUri
+      * @see SearchFilterOptions
       * @since 4.6
       */
     enum SearchFilterOption {
@@ -213,6 +214,9 @@ public:
         RetrievePreferredSearchProvidersOnly = 0x02,
         RetrieveAvailableSearchProvidersOnly = (RetrievePreferredSearchProvidersOnly | RetrieveSearchProvidersOnly)
     };
+    /**
+     * Stores a combination of #SearchFilterOption values.
+     */
     Q_DECLARE_FLAGS(SearchFilterOptions, SearchFilterOption)
 
     /**
@@ -868,11 +872,16 @@ public:
     *
     * @li NormalTextFilter      The plugin used to filter normal text, e.g. "some term to search".
     * @li WebShortcutFilter     The plugin used to filter web shortcuts, e.g. gg:KDE.
+    *
+    * @see SearchFilterTypes
     */
     enum SearchFilterType {
         NormalTextFilter = 0x01,
         WebShortcutFilter = 0x02
     };
+    /**
+     * Stores a combination of #SearchFilterType values.
+     */
     Q_DECLARE_FLAGS(SearchFilterTypes, SearchFilterType)
 
     /**

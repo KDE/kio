@@ -273,6 +273,7 @@ private:
  * Flags for the job properties.
  * Not all flags are supported in all cases. Please see documentation of
  * the calling function!
+ * @see JobFlags
  */
 enum JobFlag {
     /**
@@ -310,6 +311,9 @@ enum JobFlag {
      */
     NoPrivilegeExecution = 8,
 };
+/**
+ * Stores a combination of #JobFlag values.
+ */
 Q_DECLARE_FLAGS(JobFlags, JobFlag)
 Q_DECLARE_OPERATORS_FOR_FLAGS(JobFlags)
 

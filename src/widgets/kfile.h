@@ -41,6 +41,7 @@ public:
      * @li @p Files - Get multiple file names from the user.
      * @li @p ExistingOnly - Never return a filename which does not exist yet
      * @li @p LocalOnly - Don't return remote filenames
+     * @see Modes
      */
     enum Mode {
         File         = 1,
@@ -50,6 +51,9 @@ public:
         LocalOnly    = 16,
         ModeMax      = 65536
     };
+    /**
+     * Stores a combination of #Mode values.
+     */
     Q_DECLARE_FLAGS(Modes, Mode)
     Q_FLAG(Modes)
 

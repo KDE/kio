@@ -68,12 +68,18 @@ public:
         Negotiate_56              = 0x80000000
     };
 
+    /**
+     * @see AuthFlags
+     */
     enum AuthFlag {
         Force_V1 = 0x1,
         Force_V2 = 0x2,
         Add_LM = 0x4
     };
 
+    /**
+     * Stores a combination of #AuthFlag values.
+     */
     Q_DECLARE_FLAGS(AuthFlags, AuthFlag)
 
     typedef struct {

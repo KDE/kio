@@ -60,6 +60,7 @@ public:
 
     /**
      * Flags for the openUrl() method
+     * @see OpenUrlFlags
      * @since 5.69
      */
     enum OpenUrlFlag {
@@ -70,6 +71,9 @@ public:
                          ///< without using the cache. Otherwise use dirLister()->updateDirectory().
         ShowRoot = 0x2,  ///< Display a root node for the URL being opened.
     };
+    /**
+     * Stores a combination of #OpenUrlFlag values.
+     */
     Q_DECLARE_FLAGS(OpenUrlFlags, OpenUrlFlag)
 
     /**
@@ -173,12 +177,18 @@ public:
         HasJobRole = 0x01E555A5  ///< returns whether or not there is a job on an item (file/directory)
     };
 
+    /**
+     * @see DropsAllowed
+     */
     enum DropsAllowedFlag {
         NoDrops = 0,
         DropOnDirectory = 1, ///< allow drops on any directory
         DropOnAnyFile = 2, ///< allow drops on any file
         DropOnLocalExecutable = 4 ///< allow drops on local executables, shell scripts and desktop files. Can be used with DropOnDirectory.
     };
+    /**
+     * Stores a combination of #DropsAllowedFlag values.
+     */
     Q_DECLARE_FLAGS(DropsAllowed, DropsAllowedFlag)
 
     /// Set whether dropping onto items should be allowed, and for which kind of item
