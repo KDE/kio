@@ -375,10 +375,10 @@ void KUriFilterTest::shortUris_data()
     addRow("http:", QStringLiteral("http:"), KUriFilterData::NetProtocol);
 
     // The default search engine is set to 'Google'
-    //this may fail if your DNS knows domains KDE or FTP
     addRow("gg:", QLatin1String(""), KUriFilterData::NetProtocol);   // see bug 56218
-    addRow("KDE", QStringLiteral("https://www.google.com/search?q=KDE&ie=UTF-8"), KUriFilterData::NetProtocol);
-    addRow("HTTP", QStringLiteral("https://www.google.com/search?q=HTTP&ie=UTF-8"), KUriFilterData::NetProtocol);
+    // disable localdomain in case the local DNS or /etc/hosts knows domains KDE or HTTP (e.g. due to search domain)
+    addRow("KDE", QStringLiteral("https://www.google.com/search?q=KDE&ie=UTF-8"), KUriFilterData::NetProtocol, { QStringLiteral("kshorturifilter"), QStringLiteral("kuriikwsfilter") });
+    addRow("HTTP", QStringLiteral("https://www.google.com/search?q=HTTP&ie=UTF-8"), KUriFilterData::NetProtocol, { QStringLiteral("kshorturifilter"), QStringLiteral("kuriikwsfilter") });
 }
 
 void KUriFilterTest::shortUris()
