@@ -128,6 +128,12 @@ private:
 
 Q_GLOBAL_STATIC(JobUiDelegateStatic, s_static)
 
+KIO::JobUiDelegate::JobUiDelegate(KJobUiDelegate::Flags flags, QWidget *window)
+    : KDialogJobUiDelegate(flags, window), d(new Private())
+{
+    s_static()->registerWindow(window);
+}
+
 void KIO::JobUiDelegate::setWindow(QWidget *window)
 {
     KDialogJobUiDelegate::setWindow(window);

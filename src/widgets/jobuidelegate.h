@@ -50,6 +50,14 @@ public:
     JobUiDelegate();
 
     /**
+     * Constructs a new KIO Job UI Delegate.
+     * @param flags allows to enable automatic error/warning handling
+     * @param window the window associated with this delegate, see setWindow.
+     * @since 5.70
+     */
+    explicit JobUiDelegate(KJobUiDelegate::Flags flags, QWidget *window);
+
+    /**
      * Destroys the KIO Job UI delegate.
      */
     virtual ~JobUiDelegate();
