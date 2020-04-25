@@ -58,6 +58,7 @@ set(kiowidgets_SRCS
   dndpopupmenuplugin.cpp
   kurifiltersearchprovideractions.cpp
   renamefiledialog.cpp
+  widgetsuntrustedprogramhandler.cpp
 )
 if (WIN32)
   list(APPEND kiowidgets_SRCS

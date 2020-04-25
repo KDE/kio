@@ -58,7 +58,6 @@ public:
                                             const QString &suggestedFileName, const QByteArray &asn);
 #endif
     bool runExternalBrowser(const QString &_exec);
-    static qint64 runApplicationLauncherJob(KIO::ApplicationLauncherJob *job, QWidget *widget);
     static qint64 runCommandLauncherJob(KIO::CommandLauncherJob *job, QWidget *widget);
 
     void showPrompt();

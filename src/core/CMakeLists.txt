@@ -84,6 +84,7 @@ set(kiocore_SRCS
   kmountpoint.cpp
   kcoredirlister.cpp
   faviconscache.cpp
+  untrustedprogramhandlerinterface.cpp
 
   ksslcertificatemanager.cpp
   ksslerroruidata.cpp

@@ -23,6 +23,8 @@
 #include "jobuidelegate.h"
 #include <kio/jobuidelegatefactory.h>
 #include "kio_widgets_debug.h"
+#include "kiogui_export.h"
+#include "widgetsuntrustedprogramhandler.h"
 
 #include <kconfiggroup.h>
 #include <kjob.h>
@@ -48,9 +50,16 @@ class Q_DECL_HIDDEN KIO::JobUiDelegate::Private
 public:
 };
 
+namespace KIO {
+KIOGUI_EXPORT void setDefaultUntrustedProgramHandler(KIO::UntrustedProgramHandlerInterface *iface);
+}
+
 KIO::JobUiDelegate::JobUiDelegate()
     : d(new Private())
 {
+    // KF6 TODO: remove, inherit from WidgetsUntrustedProgramHandler instead
+    static WidgetsUntrustedProgramHandler s_handler;
+    KIO::setDefaultUntrustedProgramHandler(&s_handler);
 }
 
 KIO::JobUiDelegate::~JobUiDelegate()

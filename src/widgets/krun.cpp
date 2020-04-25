@@ -32,18 +32,12 @@
 #include <QDialog>
 #include <QDialogButtonBox>
 #include <QWidget>
-#include <QLabel>
-#include <QVBoxLayout>
-#include <QHBoxLayout>
-#include <QPlainTextEdit>
-#include <QPushButton>
 #include <QApplication>
 #include <QDesktopWidget>
 #include <qmimedatabase.h>
 #include <QDebug>
 #include <QHostInfo>
 #include <QDesktopServices>
-#include <QScreen>
 
 #include <kiconloader.h>
 #include <kjobuidelegate.h>
@@ -57,6 +51,8 @@
 #include <kio/desktopexecparser.h>
 #include "kprocessrunner_p.h" // for KIOGuiPrivate::checkStartupNotify
 #include "applicationlauncherjob.h"
+#include "jobuidelegate.h"
+#include "widgetsuntrustedprogramhandler.h"
 
 #include <kurlauthorized.h>
 #include <kmessagebox.h>
@@ -74,7 +70,6 @@
 #include <kconfiggroup.h>
 #include <kstandardguiitem.h>
 #include <kguiitem.h>
-#include <qsavefile.h>
 
 #if HAVE_X11
 #include <kwindowsystem.h>
@@ -105,20 +100,6 @@ static bool checkNeedPortalSupport()
     return !QStandardPaths::locate(QStandardPaths::RuntimeLocation,
                                    QLatin1String("flatpak-info")).isEmpty() ||
             qEnvironmentVariableIsSet("SNAP");
-}
-
-qint64 KRunPrivate::runApplicationLauncherJob(KIO::ApplicationLauncherJob *job, QWidget *widget)
-{
-    QObject *receiver = widget ? static_cast<QObject *>(widget) : static_cast<QObject *>(qApp);
-    QObject::connect(job, &KJob::result, receiver, [widget](KJob *job) {
-        if (job->error()) {
-            QEventLoopLocker locker;
-            KMessageBox::sorry(widget, job->errorString());
-        }
-    });
-    job->start();
-    job->waitForStarted();
-    return job->error() ? 0 : job->pid();
 }
 
 qint64 KRunPrivate::runCommandLauncherJob(KIO::CommandLauncherJob *job, QWidget *widget)
@@ -186,144 +167,6 @@ void KRun::handleError(KJob *job)
     }
 }
 
-// Simple QDialog that resizes the given text edit after being shown to more
-// or less fit the enclosed text.
-class SecureMessageDialog : public QDialog
-{
-    Q_OBJECT
-public:
-    SecureMessageDialog(QWidget *parent) : QDialog(parent), m_textEdit(nullptr)
-    {
-    }
-
-    void setTextEdit(QPlainTextEdit *textEdit)
-    {
-        m_textEdit = textEdit;
-    }
-
-protected:
-    void showEvent(QShowEvent *e) override
-    {
-        if (e->spontaneous()) {
-            return;
-        }
-
-        // Now that we're shown, use our width to calculate a good
-        // bounding box for the text, and resize m_textEdit appropriately.
-        QDialog::showEvent(e);
-
-        if (!m_textEdit) {
-            return;
-        }
-
-        QSize fudge(20, 24); // About what it sounds like :-/
-
-        // Form rect with a lot of height for bounding.  Use no more than
-        // 5 lines.
-        QRect curRect(m_textEdit->rect());
-        QFontMetrics metrics(fontMetrics());
-        curRect.setHeight(5 * metrics.lineSpacing());
-        curRect.setWidth(qMax(curRect.width(), 300)); // At least 300 pixels ok?
-
-        QString text(m_textEdit->toPlainText());
-        curRect = metrics.boundingRect(curRect, Qt::TextWordWrap | Qt::TextSingleLine, text);
-
-        // Scroll bars interfere.  If we don't think there's enough room, enable
-        // the vertical scrollbar however.
-        m_textEdit->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-        if (curRect.height() < m_textEdit->height()) { // then we've got room
-            m_textEdit->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-            m_textEdit->setMaximumHeight(curRect.height() + fudge.height());
-        }
-
-        m_textEdit->setMinimumSize(curRect.size() + fudge);
-        m_textEdit->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
-    }
-
-private:
-    QPlainTextEdit *m_textEdit;
-};
-
-// Shows confirmation dialog whether an untrusted program should be run
-// or not, since it may be potentially dangerous.
-static int showUntrustedProgramWarning(const QString &programName, QWidget *window)
-{
-    SecureMessageDialog *baseDialog = new SecureMessageDialog(window);
-    baseDialog->setWindowTitle(i18nc("Warning about executing unknown program", "Warning"));
-
-    QVBoxLayout *topLayout = new QVBoxLayout;
-    baseDialog->setLayout(topLayout);
-
-    // Dialog will have explanatory text with a disabled lineedit with the
-    // Exec= to make it visually distinct.
-    QWidget *baseWidget = new QWidget(baseDialog);
-    QHBoxLayout *mainLayout = new QHBoxLayout(baseWidget);
-
-    QLabel *iconLabel = new QLabel(baseWidget);
-    QPixmap warningIcon(KIconLoader::global()->loadIcon(QStringLiteral("dialog-warning"), KIconLoader::NoGroup, KIconLoader::SizeHuge));
-    mainLayout->addWidget(iconLabel);
-    iconLabel->setPixmap(warningIcon);
-
-    QVBoxLayout *contentLayout = new QVBoxLayout;
-    QString warningMessage = i18nc("program name follows in a line edit below",
-                                   "This will start the program:");
-
-    QLabel *message = new QLabel(warningMessage, baseWidget);
-    contentLayout->addWidget(message);
-
-    QPlainTextEdit *textEdit = new QPlainTextEdit(baseWidget);
-    textEdit->setPlainText(programName);
-    textEdit->setReadOnly(true);
-    contentLayout->addWidget(textEdit);
-
-    QLabel *footerLabel = new QLabel(i18n("If you do not trust this program, click Cancel"));
-    contentLayout->addWidget(footerLabel);
-    contentLayout->addStretch(0); // Don't allow the text edit to expand
-
-    mainLayout->addLayout(contentLayout);
-
-    topLayout->addWidget(baseWidget);
-    baseDialog->setTextEdit(textEdit);
-
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(baseDialog);
-    buttonBox->setStandardButtons(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
-    KGuiItem::assign(buttonBox->button(QDialogButtonBox::Ok), KStandardGuiItem::cont());
-    buttonBox->button(QDialogButtonBox::Cancel)->setDefault(true);
-    buttonBox->button(QDialogButtonBox::Cancel)->setFocus();
-    QObject::connect(buttonBox, &QDialogButtonBox::accepted, baseDialog, &QDialog::accept);
-    QObject::connect(buttonBox, &QDialogButtonBox::rejected, baseDialog, &QDialog::reject);
-    topLayout->addWidget(buttonBox);
-
-    // Constrain maximum size.  Minimum size set in
-    // the dialog's show event.
-#if QT_VERSION < QT_VERSION_CHECK(5, 14, 0)
-    const QSize screenSize = QApplication::screens().at(0)->size();
-#else
-    const QSize screenSize = baseDialog->screen()->size();
-#endif
-    baseDialog->resize(screenSize.width() / 4, 50);
-    baseDialog->setMaximumHeight(screenSize.height() / 3);
-    baseDialog->setMaximumWidth(screenSize.width() / 10 * 8);
-
-    return baseDialog->exec();
-}
-
-// Helper function that attempts to set execute bit for given file.
-static bool setExecuteBit(const QString &fileName, QString &errorString)
-{
-    QFile file(fileName);
-
-    // corresponds to owner on unix, which will have to do since if the user
-    // isn't the owner we can't change perms anyways.
-    if (!file.setPermissions(QFile::ExeUser | file.permissions())) {
-        errorString = file.errorString();
-        qCWarning(KIO_WIDGETS) << "Unable to change permissions for" << fileName << errorString;
-        return false;
-    }
-
-    return true;
-}
-
 bool KRun::runUrl(const QUrl &url, const QString &mimetype, QWidget *window, bool tempFile, bool runExecutables, const QString &suggestedFileName, const QByteArray &asn)
 {
     RunFlags flags = tempFile ? KRun::DeleteTemporaryFiles : RunFlags();
@@ -369,15 +212,15 @@ bool KRun::runUrl(const QUrl &u, const QString &_mimetype, QWidget *window, RunF
                 // show prompt asking user if he wants to run the program.
                 if (!isFileExecutable && isNativeBinary) {
                     canRun = false;
-                    int result = showUntrustedProgramWarning(u.fileName(), window);
-                    if (result == QDialog::Accepted) {
+                    KIO::WidgetsUntrustedProgramHandler handler;
+                    if (handler.execUntrustedProgramWarning(window, u.fileName())) {
                         QString errorString;
-                        if (!setExecuteBit(u.toLocalFile(), errorString)) {
+                        if (!handler.setExecuteBit(u.toLocalFile(), errorString)) {
                             KMessageBox::sorry(
-                                window,
-                                i18n("<qt>Unable to make file <b>%1</b> executable.\n%2.</qt>",
-                                     u.toLocalFile(), errorString)
-                            );
+                                        window,
+                                        i18n("<qt>Unable to make file <b>%1</b> executable.\n%2.</qt>",
+                                             u.toLocalFile(), errorString)
+                                        );
                         } else {
                             canRun = true;
                         }
@@ -389,6 +232,7 @@ bool KRun::runUrl(const QUrl &u, const QString &_mimetype, QWidget *window, RunF
                 }
 
                 if (canRun) {
+                    qDebug() << "Execute the URL as a command";
                     return (KRun::runCommand(KShell::quoteArg(u.toLocalFile()), QString(), QString(),
                                 window, asn, u.adjusted(QUrl::RemoveFilename).toLocalFile())); // just execute the url as a command
                     // ## TODO implement deleting the file if tempFile==true
@@ -498,126 +342,6 @@ bool KRun::checkStartupNotify(const QString & /*binName*/, const KService *servi
     return KIOGuiPrivate::checkStartupNotify(service, silent_arg, wmclass_arg);
 }
 
-// Helper function to make the given .desktop file executable by ensuring
-// that a #!/usr/bin/env xdg-open line is added if necessary and the file has
-// the +x bit set for the user.  Returns false if either fails.
-static bool makeServiceFileExecutable(const QString &fileName, QString &errorString)
-{
-    // Open the file and read the first two characters, check if it's
-    // #!.  If not, create a new file, prepend appropriate lines, and copy
-    // over.
-    QFile desktopFile(fileName);
-    if (!desktopFile.open(QFile::ReadOnly)) {
-        errorString = desktopFile.errorString();
-        qCWarning(KIO_WIDGETS) << "Error opening service" << fileName << errorString;
-        return false;
-    }
-
-    QByteArray header = desktopFile.peek(2);   // First two chars of file
-    if (header.size() == 0) {
-        errorString = desktopFile.errorString();
-        qCWarning(KIO_WIDGETS) << "Error inspecting service" << fileName << errorString;
-        return false; // Some kind of error
-    }
-
-    if (header != "#!") {
-        // Add header
-        QSaveFile saveFile;
-        saveFile.setFileName(fileName);
-        if (!saveFile.open(QIODevice::WriteOnly)) {
-            errorString = saveFile.errorString();
-            qCWarning(KIO_WIDGETS) << "Unable to open replacement file for" << fileName << errorString;
-            return false;
-        }
-
-        QByteArray shebang("#!/usr/bin/env xdg-open\n");
-        if (saveFile.write(shebang) != shebang.size()) {
-            errorString = saveFile.errorString();
-            qCWarning(KIO_WIDGETS) << "Error occurred adding header for" << fileName << errorString;
-            saveFile.cancelWriting();
-            return false;
-        }
-
-        // Now copy the one into the other and then close and reopen desktopFile
-        QByteArray desktopData(desktopFile.readAll());
-        if (desktopData.isEmpty()) {
-            errorString = desktopFile.errorString();
-            qCWarning(KIO_WIDGETS) << "Unable to read service" << fileName << errorString;
-            saveFile.cancelWriting();
-            return false;
-        }
-
-        if (saveFile.write(desktopData) != desktopData.size()) {
-            errorString = saveFile.errorString();
-            qCWarning(KIO_WIDGETS) << "Error copying service" << fileName << errorString;
-            saveFile.cancelWriting();
-            return false;
-        }
-
-        desktopFile.close();
-        if (!saveFile.commit()) { // Figures....
-            errorString = saveFile.errorString();
-            qCWarning(KIO_WIDGETS) << "Error committing changes to service" << fileName << errorString;
-            return false;
-        }
-
-        if (!desktopFile.open(QFile::ReadOnly)) {
-            errorString = desktopFile.errorString();
-            qCWarning(KIO_WIDGETS) << "Error re-opening service" << fileName << errorString;
-            return false;
-        }
-    } // Add header
-
-    return setExecuteBit(fileName, errorString);
-}
-
-// Helper function to make a .desktop file executable if prompted by the user.
-// returns true if KRun::run() should continue with execution, false if user declined
-// to make the file executable or we failed to make it executable.
-static bool makeServiceExecutable(const KService &service, QWidget *window)
-{
-    if (!KAuthorized::authorize(QStringLiteral("run_desktop_files"))) {
-        qCWarning(KIO_WIDGETS) << "No authorization to execute " << service.entryPath();
-        KMessageBox::sorry(window, i18n("You are not authorized to execute this service."));
-        return false; // Don't circumvent the Kiosk
-    }
-
-    // We can use KStandardDirs::findExe to resolve relative pathnames
-    // but that gets rid of the command line arguments.
-    QString program = QFileInfo(service.exec()).canonicalFilePath();
-    if (program.isEmpty()) { // e.g. due to command line arguments
-        program = service.exec();
-    }
-
-    int result = showUntrustedProgramWarning(program, window);
-    if (result != QDialog::Accepted) {
-        return false;
-    }
-
-    // Assume that service is an absolute path since we're being called (relative paths
-    // would have been allowed unless Kiosk said no, therefore we already know where the
-    // .desktop file is.  Now add a header to it if it doesn't already have one
-    // and add the +x bit.
-
-    QString errorString;
-    if (!::makeServiceFileExecutable(service.entryPath(), errorString)) {
-        QString serviceName = service.name();
-        if (serviceName.isEmpty()) {
-            serviceName = service.genericName();
-        }
-
-        KMessageBox::sorry(
-            window,
-            i18n("Unable to make the service %1 executable, aborting execution.\n%2.",
-                 serviceName, errorString)
-        );
-
-        return false;
-    }
-
-    return true;
-}
-
 bool KRun::run(const KService &_service, const QList<QUrl> &_urls, QWidget *window,
                bool tempFiles, const QString &suggestedFileName, const QByteArray &asn)
 {
@@ -629,12 +353,6 @@ qint64 KRun::runApplication(const KService &service, const QList<QUrl> &urls, QW
                             RunFlags flags, const QString &suggestedFileName,
                             const QByteArray &asn)
 {
-    if (!service.entryPath().isEmpty() &&
-            !KDesktopFile::isAuthorizedDesktopFile(service.entryPath()) &&
-            !::makeServiceExecutable(service, window)) {
-        return 0;
-    }
-
     KService::Ptr servicePtr(new KService(service)); // clone
     // QTBUG-59017 Calling winId() on an embedded widget will break interaction
     // with it on high-dpi multi-screen setups (cf. also Bug 363548), hence using
@@ -650,7 +368,10 @@ qint64 KRun::runApplication(const KService &service, const QList<QUrl> &urls, QW
     }
     job->setSuggestedFileName(suggestedFileName);
     job->setStartupId(asn);
-    return KRunPrivate::runApplicationLauncherJob(job, window);
+    job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, window));
+    job->start();
+    job->waitForStarted();
+    return job->error() ? 0 : job->pid();
 }
 
 qint64 KRun::runService(const KService &_service, const QList<QUrl> &_urls, QWidget *window,
@@ -1418,4 +1139,3 @@ bool KRun::isLocalFile() const
 
 #include "moc_krun.cpp"
 #include "moc_krun_p.cpp"
-#include "krun.moc"

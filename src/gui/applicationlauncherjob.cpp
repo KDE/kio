@@ -21,7 +21,20 @@
 
 #include "applicationlauncherjob.h"
 #include "kprocessrunner_p.h"
+#include "untrustedprogramhandlerinterface.h"
 #include "kiogui_debug.h"
+#include "../core/global.h"
+
+#include <KAuthorized>
+#include <KDesktopFile>
+#include <KLocalizedString>
+#include <QFileInfo>
+
+static KIO::UntrustedProgramHandlerInterface *s_untrustedProgramHandler = nullptr;
+namespace KIO {
+// Hidden API because in KF6 we'll just check if the job's uiDelegate implements UntrustedProgramHandlerInterface.
+KIOGUI_EXPORT void setDefaultUntrustedProgramHandler(KIO::UntrustedProgramHandlerInterface *iface) { s_untrustedProgramHandler = iface; }
+}
 
 class KIO::ApplicationLauncherJobPrivate
 {
@@ -84,7 +97,65 @@ void KIO::ApplicationLauncherJob::setStartupId(const QByteArray &startupId)
     d->m_startupId = startupId;
 }
 
+void KIO::ApplicationLauncherJob::emitUnauthorizedError()
+{
+    setError(KJob::UserDefinedError);
+    setErrorText(i18n("You are not authorized to execute this file."));
+    emitResult();
+}
+
 void KIO::ApplicationLauncherJob::start()
+{
+    // First, the security checks
+    if (!KAuthorized::authorize(QStringLiteral("run_desktop_files"))) {
+        // KIOSK restriction, cannot be circumvented
+        emitUnauthorizedError();
+        return;
+    }
+    if (!d->m_service->entryPath().isEmpty() &&
+            !KDesktopFile::isAuthorizedDesktopFile(d->m_service->entryPath())) {
+        // We can use QStandardPaths::findExecutable to resolve relative pathnames
+        // but that gets rid of the command line arguments.
+        QString program = QFileInfo(d->m_service->exec()).canonicalFilePath();
+        if (program.isEmpty()) { // e.g. due to command line arguments
+            program = d->m_service->exec();
+        }
+        if (!s_untrustedProgramHandler) {
+            emitUnauthorizedError();
+            return;
+        }
+        connect(s_untrustedProgramHandler, &KIO::UntrustedProgramHandlerInterface::result, this, [this](bool result) {
+            if (result) {
+                // Assume that service is an absolute path since we're being called (relative paths
+                // would have been allowed unless Kiosk said no, therefore we already know where the
+                // .desktop file is.  Now add a header to it if it doesn't already have one
+                // and add the +x bit.
+
+                QString errorString;
+                if (s_untrustedProgramHandler->makeServiceFileExecutable(d->m_service->entryPath(), errorString)) {
+                    proceedAfterSecurityChecks();
+                } else {
+                    QString serviceName = d->m_service->name();
+                    if (serviceName.isEmpty()) {
+                        serviceName = d->m_service->genericName();
+                    }
+                    setError(KJob::UserDefinedError);
+                    setErrorText(i18n("Unable to make the service %1 executable, aborting execution.\n%2.",
+                                      serviceName, errorString));
+                    emitResult();
+                }
+            } else {
+                setError(KIO::ERR_USER_CANCELED);
+                emitResult();
+            }
+        });
+        s_untrustedProgramHandler->showUntrustedProgramWarning(this, d->m_service->name());
+        return;
+    }
+    proceedAfterSecurityChecks();
+}
+
+void KIO::ApplicationLauncherJob::proceedAfterSecurityChecks()
 {
     if (d->m_urls.count() > 1 && !d->m_service->allowMultipleFiles()) {
         // We need to launch the application N times.
@@ -119,8 +190,28 @@ void KIO::ApplicationLauncherJob::start()
     });
 }
 
+// For KRun
 bool KIO::ApplicationLauncherJob::waitForStarted()
 {
+    if (error() != KJob::NoError) {
+        return false;
+    }
+    if (d->m_processRunners.isEmpty()) {
+        // Maybe we're in the security prompt...
+        // Can't avoid the nested event loop
+        // This fork of KJob::exec doesn't set QEventLoop::ExcludeUserInputEvents
+        const bool wasAutoDelete = isAutoDelete();
+        setAutoDelete(false);
+        QEventLoop loop;
+        connect(this, &KJob::result, this, [&](KJob *job) {
+            loop.exit(job->error());
+        });
+        const int ret = loop.exec();
+        if (wasAutoDelete) {
+            deleteLater();
+        }
+        return ret != KJob::NoError;
+    }
     const bool ret = std::all_of(d->m_processRunners.cbegin(),
                                  d->m_processRunners.cend(),
                                  [](KProcessRunner *r) { return r->waitForStarted(); });

@@ -21,6 +21,8 @@
 
 #include "applicationlauncherjobtest.h"
 #include "applicationlauncherjob.h"
+#include <kprocessrunner_p.h>
+#include <untrustedprogramhandlerinterface.h>
 
 #include "kiotesthelper.h" // createTestFile etc.
 
@@ -36,9 +38,28 @@
 #include <QStandardPaths>
 #include <QTemporaryDir>
 #include <QTest>
-#include <kprocessrunner_p.h>
 
 QTEST_GUILESS_MAIN(ApplicationLauncherJobTest)
+
+namespace KIO {
+KIOGUI_EXPORT void setDefaultUntrustedProgramHandler(KIO::UntrustedProgramHandlerInterface *iface);
+}
+class TestUntrustedProgramHandler : public KIO::UntrustedProgramHandlerInterface
+{
+public:
+    void showUntrustedProgramWarning(KJob *job, const QString &programName) override {
+        Q_UNUSED(job)
+        m_calls << programName;
+        Q_EMIT result(m_retVal);
+    }
+
+    void setRetVal(bool b) { m_retVal = b; }
+
+    QStringList m_calls;
+    bool m_retVal = false;
+};
+
+static TestUntrustedProgramHandler s_handler;
 
 void ApplicationLauncherJobTest::initTestCase()
 {
@@ -134,8 +155,26 @@ void ApplicationLauncherJobTest::startProcess()
     QTRY_COMPARE(KProcessRunner::instanceCount(), 0);
 }
 
+void ApplicationLauncherJobTest::shouldFailOnNonExecutableDesktopFile_data()
+{
+    QTest::addColumn<bool>("withHandler");
+    QTest::addColumn<bool>("handlerRetVal");
+    QTest::addColumn<bool>("useExec");
+
+    QTest::newRow("no_handler_exec") << false << false << true;
+    QTest::newRow("handler_false_exec") << true << false << true;
+    QTest::newRow("handler_true_exec") << true << true << true;
+    QTest::newRow("no_handler_waitForStarted") << false << false << false;
+    QTest::newRow("handler_false_waitForStarted") << true << false << false;
+    QTest::newRow("handler_true_waitForStarted") << true << true << false;
+}
+
 void ApplicationLauncherJobTest::shouldFailOnNonExecutableDesktopFile()
 {
+    QFETCH(bool, useExec);
+    QFETCH(bool, withHandler);
+    QFETCH(bool, handlerRetVal);
+
     // Given a .desktop file in a temporary directory (outside the trusted paths)
     QTemporaryDir tempDir;
     const QString srcDir = tempDir.path();
@@ -147,11 +186,42 @@ void ApplicationLauncherJobTest::shouldFailOnNonExecutableDesktopFile()
     createSrcFile(srcFile);
     const QList<QUrl> urls{QUrl::fromLocalFile(srcFile)};
     KService::Ptr servicePtr(new KService(desktopFilePath));
+
+    s_handler.m_calls.clear();
+    s_handler.setRetVal(handlerRetVal);
+    KIO::setDefaultUntrustedProgramHandler(withHandler ? &s_handler : nullptr);
+
     KIO::ApplicationLauncherJob *job = new KIO::ApplicationLauncherJob(servicePtr, this);
     job->setUrls(urls);
-    QVERIFY(!job->exec());
-    QCOMPARE(job->error(), KJob::UserDefinedError);
-    QCOMPARE(job->errorString(), QStringLiteral("You are not authorized to execute this file."));
+    bool success;
+    if (useExec) {
+        success = job->exec();
+    } else {
+        job->start();
+        success = job->waitForStarted();
+    }
+    if (!withHandler) {
+        QVERIFY(!success);
+        QCOMPARE(job->error(), KJob::UserDefinedError);
+        QCOMPARE(job->errorString(), QStringLiteral("You are not authorized to execute this file."));
+    } else {
+        if (handlerRetVal) {
+            QVERIFY(success);
+            // The actual shell process will race against the deletion of the QTemporaryDir,
+            // so don't be surprised by stderr like getcwd: cannot access parent directories: No such file or directory
+            QTest::qWait(50); // this helps a bit
+        } else {
+            QVERIFY(!success);
+            QCOMPARE(job->error(), KIO::ERR_USER_CANCELED);
+        }
+        }
+
+    if (withHandler) {
+        // check that the handler was called
+        QCOMPARE(s_handler.m_calls.count(), 1);
+        QCOMPARE(s_handler.m_calls.at(0), QStringLiteral("KRunUnittestService"));
+    }
+
 }
 
 void ApplicationLauncherJobTest::shouldFailOnNonExistingExecutable_data()

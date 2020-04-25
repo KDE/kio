@@ -36,6 +36,7 @@ private Q_SLOTS:
     void startProcess_data();
     void startProcess();
 
+    void shouldFailOnNonExecutableDesktopFile_data();
     void shouldFailOnNonExecutableDesktopFile();
 
     void shouldFailOnNonExistingExecutable_data();

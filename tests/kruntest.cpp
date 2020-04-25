@@ -20,7 +20,7 @@
 #include "kruntest.h"
 
 #include <KIO/ApplicationLauncherJob>
-#include <KDialogJobUiDelegate>
+#include <KIO/JobUiDelegate>
 
 #include <QLabel>
 #include <QApplication>
@@ -57,6 +57,7 @@ static const struct {
     { "run(doesnotexit, no url)", "should show error message", "doesnotexist", nullptr },
     { "run(doesnotexit, file url)", "should show error message", "doesnotexist", testFile },
     { "run(doesnotexit, remote url)", "should use kioexec and show error message", "doesnotexist", "http://www.kde.org" },
+    { "run(not-executable-desktopfile)", "should ask for confirmation", "nonexec", nullptr },
     { "run(missing lib, no url)", "should show error message (remove libqca-qt5.so.2 for this, e.g. by editing LD_LIBRARY_PATH if qca is in its own prefix)", "qcatool-qt5", nullptr },
     { "run(missing lib, file url)", "should show error message (remove libqca-qt5.so.2 for this, e.g. by editing LD_LIBRARY_PATH if qca is in its own prefix)", "qcatool-qt5", testFile },
     { "run(missing lib, remote url)", "should show error message (remove libqca-qt5.so.2 for this, e.g. by editing LD_LIBRARY_PATH if qca is in its own prefix)", "qcatool-qt5", "http://www.kde.org" },
@@ -111,10 +112,25 @@ void Receiver::slotLaunchTest()
         }
         urls << QUrl::fromUserInput(urlStr);
     }
-    KService::Ptr service(new KService("Some Name", s_tests[testNumber].exec, QString()));
+    KService::Ptr service;
+    if (QByteArray(s_tests[testNumber].exec) == "nonexec") {
+        const QString desktopFile = QFINDTESTDATA("../src/ioslaves/trash/kcmtrash.desktop");
+        if (desktopFile.isEmpty()) {
+            qWarning() << "kcmtrash.desktop not found!";
+        }
+        const QString dest = QStringLiteral("kcmtrash.desktop");
+        QFile::remove(dest);
+        bool ok = QFile::copy(desktopFile, dest);
+        if (!ok) {
+            qWarning() << "Failed to copy" << desktopFile << "to" << dest;
+        }
+        service = KService::Ptr(new KService(QDir::currentPath() + QLatin1Char('/') + dest));
+    } else {
+        service = KService::Ptr(new KService("Some Name", s_tests[testNumber].exec, QString()));
+    }
     auto *job = new KIO::ApplicationLauncherJob(service, this);
     job->setUrls(urls);
-    job->setUiDelegate(new KDialogJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, this));
+    job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, this));
     job->start();
 }
 

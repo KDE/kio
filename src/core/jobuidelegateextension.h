@@ -269,6 +269,8 @@ public:
      */
     virtual void updateUrlInClipboard(const QUrl &src, const QUrl &dest);
 
+    // TODO KF6: add virtual_hook
+
 private:
     class Private;
     Private *const d;

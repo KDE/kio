@@ -27,7 +27,7 @@
 #include <KService>
 #include <QUrl>
 
-class KRunPrivate; // KF6 REMOVE
+class KRun; // KF6 REMOVE
 class ApplicationLauncherJobTest; // KF6 REMOVE
 
 namespace KIO {
@@ -42,10 +42,6 @@ class ApplicationLauncherJobPrivate;
  * It creates a startup notification and finishes it on success or on error (for the taskbar).
  * It also emits an error message if necessary (e.g. "program not found").
  *
- * Note that this class doesn't support warning the user if a desktop file or a binary
- * does not have the executable bit set and offering to make it so. Therefore file managers
- * should use KRun::runApplication rather than using ApplicationLauncherJob directly.
- *
  * When passing multiple URLs to an application that doesn't support opening
  * multiple files, the application will be launched once for each URL.
  *
@@ -55,8 +51,11 @@ class ApplicationLauncherJobPrivate;
  * For error handling, either connect to the result() signal, or for a simple messagebox on error,
  * you can do
  * @code
- *    job->setUiDelegate(new KDialogJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, this));
+ *    job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, this));
  * @endcode
+ * Using JobUiDelegate (which is widgets based) also enables the feature of asking the user
+ * in case the executable or desktop file isn't marked as executable. Otherwise the job will
+ * just refuse executing those files.
  *
  * @since 5.69
  */
@@ -150,12 +149,14 @@ public:
     QVector<qint64> pids() const;
 
 private:
-    friend class ::KRunPrivate; // KF6 REMOVE
+    friend class ::KRun; // KF6 REMOVE
     friend class ::ApplicationLauncherJobTest; // KF6 REMOVE
     /**
      * Blocks until the process has started. Only exists for KRun, will disappear in KF6.
      */
     bool waitForStarted();
+    void emitUnauthorizedError();
+    void proceedAfterSecurityChecks();
 
     friend class ApplicationLauncherJobPrivate;
     QScopedPointer<ApplicationLauncherJobPrivate> d;
