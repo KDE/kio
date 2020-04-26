@@ -19,7 +19,6 @@
 
 #include "kdesktopfileactions.h"
 
-#include "config-kiowidgets.h" // KIO_NO_SOLID
 #include "../core/config-kmountpoint.h" // for HAVE_VOLMGT (yes I cheat a bit)
 #include "kio_widgets_debug.h"
 
@@ -35,18 +34,6 @@
 #include <kconfiggroup.h>
 #include <klocalizedstring.h>
 #include <kservice.h>
-
-#if ! KIO_NO_SOLID
-//Solid
-#include <solid/devicenotifier.h>
-#include <solid/device.h>
-#include <solid/deviceinterface.h>
-#include <solid/predicate.h>
-#include <solid/storageaccess.h>
-#include <solid/opticaldrive.h>
-#include <solid/opticaldisc.h>
-#include <solid/block.h>
-#endif
 
 #include <QDBusInterface>
 #include <QDBusReply>
@@ -200,28 +187,6 @@ QList<KServiceAction> KDesktopFileActions::builtinServices(const QUrl &_url)
             offerMount = true;
         }
     }
-#if ! KIO_NO_SOLID
-    else { // url to device
-        Solid::Predicate predicate(Solid::DeviceInterface::Block, "device", _url.toLocalFile());
-        const QList<Solid::Device> devList = Solid::Device::listFromQuery(predicate, QString());
-        if (devList.empty()) {
-            //qDebug() << "Device" << _url.toLocalFile() << "not found";
-            return result;
-        }
-        Solid::Device device = devList[0];
-        Solid::StorageAccess *access = device.as<Solid::StorageAccess>();
-        Solid::StorageDrive *drive = device.parent().as<Solid::StorageDrive>();
-        bool mounted = access && access->isAccessible();
-
-        if ((mounted || device.is<Solid::OpticalDisc>()) && drive && drive->isRemovable()) {
-            offerUnmount = true;
-        }
-
-        if (!mounted && ((drive && drive->isHotpluggable()) || device.is<Solid::OpticalDisc>())) {
-            offerMount = true;
-        }
-    }
-#endif
 
     if (offerMount) {
         KServiceAction mount(QStringLiteral("mount"), i18n("Mount"), QString(), QString(), false);
@@ -357,37 +322,6 @@ void KDesktopFileActions::executeService(const QList<QUrl> &urls, const KService
 #endif
             }
         }
-#if ! KIO_NO_SOLID
-        else { // path to device
-            Solid::Predicate predicate(Solid::DeviceInterface::Block, "device", path);
-            const QList<Solid::Device> devList = Solid::Device::listFromQuery(predicate, QString());
-            if (!devList.empty()) {
-                Solid::Device device = devList[0];
-                if (actionData == ST_MOUNT) {
-                    if (device.is<Solid::StorageVolume>()) {
-                        Solid::StorageAccess *access = device.as<Solid::StorageAccess>();
-                        if (access) {
-                            access->setup();
-                        }
-                    }
-                } else if (actionData == ST_UNMOUNT) {
-                    if (device.is<Solid::OpticalDisc>()) {
-                        Solid::OpticalDrive *drive = device.parent().as<Solid::OpticalDrive>();
-                        if (drive != 0) {
-                            drive->eject();
-                        }
-                    } else if (device.is<Solid::StorageVolume>()) {
-                        Solid::StorageAccess *access = device.as<Solid::StorageAccess>();
-                        if (access && access->isAccessible()) {
-                            access->teardown();
-                        }
-                    }
-                }
-            } else {
-                //qDebug() << "Device" << path << "not found";
-            }
-        }
-#endif
     } else {
         KIO::ApplicationLauncherJob *job = new KIO::ApplicationLauncherJob(action);
         job->setUrls(urls);

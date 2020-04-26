@@ -254,8 +254,7 @@ int KFileItemActions::addServiceActionsTo(QMenu *mainMenu)
     KIO::PopupServices s;
 
     // 1 - Look for builtin and user-defined services
-    if (isSingleLocal && (d->m_props.mimeType() == QLatin1String("application/x-desktop") || // .desktop file
-                          d->m_props.mimeType() == QLatin1String("inode/blockdevice"))) { // dev file
+    if (isSingleLocal && d->m_props.mimeType() == QLatin1String("application/x-desktop")) {
         // get builtin services, like mount/unmount
         const QString path = firstItem.localPath();
         s.builtin = KDesktopFileActions::builtinServices(QUrl::fromLocalFile(path));

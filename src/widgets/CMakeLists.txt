@@ -2,10 +2,6 @@ project(KIOWidgets)
 
 #include (ConfigureChecks.cmake)
 
-# Device desktop files aren't really used anymore
-set(KIO_NO_SOLID TRUE)
-
-
 find_package(ACL)
 set(HAVE_LIBACL ${ACL_FOUND})
 set(HAVE_POSIX_ACL ${ACL_FOUND})
