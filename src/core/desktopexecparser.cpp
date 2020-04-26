@@ -245,7 +245,7 @@ bool KIO::DesktopExecParser::hasSchemeHandler(const QUrl &url)
         return true;
     }
     if (KProtocolInfo::isKnownProtocol(url)) {
-        return false; // see KRun::init()... this is case B, we prefer kioslaves over the competition
+        return false; // this is case B, we prefer kioslaves over the competition
     }
     const KService::Ptr service = KMimeTypeTrader::self()->preferredService(QLatin1String("x-scheme-handler/") + url.scheme());
     if (service) {
@@ -298,7 +298,7 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
 {
     QString exec = d->service.exec();
     if (exec.isEmpty()) {
-        qCWarning(KIO_CORE) << "KRun: no Exec field in `" << d->service.entryPath() << "' !";
+        qCWarning(KIO_CORE) << "No Exec field in `" << d->service.entryPath() << "' !";
         return QStringList();
     }
 
@@ -309,7 +309,7 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
     KRunMX2 mx2(d->urls);
 
     if (!mx1.expandMacrosShellQuote(exec)) {    // Error in shell syntax
-        qCWarning(KIO_CORE) << "KRun: syntax error in command" << d->service.exec() << ", service" << d->service.name();
+        qCWarning(KIO_CORE) << "Syntax error in command" << d->service.exec() << ", service" << d->service.name();
         return QStringList();
     }
 
@@ -432,7 +432,7 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
         }
         terminal += QLatin1Char(' ') + d->service.terminalOptions();
         if (!mx1.expandMacrosShellQuote(terminal)) {
-            qCWarning(KIO_CORE) << "KRun: syntax error in command" << terminal << ", service" << d->service.name();
+            qCWarning(KIO_CORE) << "Syntax error in command" << terminal << ", service" << d->service.name();
             return QStringList();
         }
         mx2.expandMacrosShellQuote(terminal);
