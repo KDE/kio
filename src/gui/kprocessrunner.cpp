@@ -83,6 +83,11 @@ KProcessRunner::KProcessRunner(const KService::Ptr &service, const QList<QUrl> &
       m_executable(KIO::DesktopExecParser::executablePath(service->exec()))
 {
     ++s_instanceCount;
+
+    if (!service->isValid()) {
+        emitDelayedError(i18n("The desktop entry file\n%1\nis not valid.", service->entryPath()));
+        return;
+    }
     KIO::DesktopExecParser execParser(*service, urls);
 
     const QString realExecutable = execParser.resultingArguments().at(0);
@@ -174,7 +179,7 @@ void KProcessRunner::init(const KService::Ptr &service, const QString &userVisib
 {
     if (service && !service->entryPath().isEmpty()
             && !KDesktopFile::isAuthorizedDesktopFile(service->entryPath())) {
-        qCWarning(KIO_GUI) << "No authorization to execute " << service->entryPath();
+        qCWarning(KIO_GUI) << "No authorization to execute" << service->entryPath();
         emitDelayedError(i18n("You are not authorized to execute this file."));
         return;
     }

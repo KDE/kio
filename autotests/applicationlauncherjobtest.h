@@ -41,6 +41,8 @@ private Q_SLOTS:
     void shouldFailOnNonExistingExecutable_data();
     void shouldFailOnNonExistingExecutable();
 
+    void shouldFailOnInvalidService();
+
 private:
     QString createTempService();
     void writeTempServiceDesktopFile(const QString &filePath);

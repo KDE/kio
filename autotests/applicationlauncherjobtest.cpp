@@ -32,6 +32,7 @@
 #include <signal.h> // kill
 #endif
 
+#include <QRegularExpression>
 #include <QStandardPaths>
 #include <QTemporaryDir>
 #include <QTest>
@@ -194,6 +195,26 @@ void ApplicationLauncherJobTest::shouldFailOnNonExistingExecutable()
     } else {
         QCOMPARE(job->errorString(), QStringLiteral("Could not find the program 'does_not_exist'"));
     }
+    QFile::remove(desktopFilePath);
+}
+
+void ApplicationLauncherJobTest::shouldFailOnInvalidService()
+{
+    const QString desktopFilePath = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/kservices5/invalid_service.desktop");
+    KDesktopFile file(desktopFilePath);
+    KConfigGroup group = file.desktopGroup();
+    group.writeEntry("Name", "KRunUnittestService");
+    group.writeEntry("Type", "NoSuchType");
+    group.writeEntry("Exec", "does_not_exist");
+    file.sync();
+
+    QTest::ignoreMessage(QtWarningMsg, QRegularExpression("The desktop entry file \".*\" has Type.*\"NoSuchType\" instead of \"Application\" or \"Service\""));
+    KService::Ptr servicePtr(new KService(desktopFilePath));
+    KIO::ApplicationLauncherJob *job = new KIO::ApplicationLauncherJob(servicePtr, this);
+    QVERIFY(!job->exec());
+    QCOMPARE(job->error(), KJob::UserDefinedError);
+    QCOMPARE(job->errorString(), QStringLiteral("The desktop entry file\n%1\nis not valid.").arg(desktopFilePath));
+
     QFile::remove(desktopFilePath);
 }
 

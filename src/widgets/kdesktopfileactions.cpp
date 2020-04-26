@@ -41,7 +41,6 @@
 enum BuiltinServiceType { ST_MOUNT = 0x0E1B05B0, ST_UNMOUNT = 0x0E1B05B1 }; // random numbers
 
 static bool runFSDevice(const QUrl &_url, const KDesktopFile &cfg, const QByteArray &asn);
-static bool runApplication(const QUrl &_url, const QString &_serviceFile, const QByteArray &asn);
 static bool runLink(const QUrl &_url, const KDesktopFile &cfg, const QByteArray &asn);
 
 
@@ -78,7 +77,8 @@ bool KDesktopFileActions::runWithStartup(const QUrl &u, bool _is_local, const QB
         return runFSDevice(u, cfg, asn);
     } else if (cfg.hasApplicationType()
                || (cfg.readType() == QLatin1String("Service") && !cfg.desktopGroup().readEntry("Exec").isEmpty())) { // for kio_settings
-        return runApplication(u, u.toLocalFile(), asn);
+        KService service(u.toLocalFile());
+        return KRun::runApplication(service, QList<QUrl>(), nullptr /*TODO - window*/, KRun::RunFlags{}, QString(), asn);
     } else if (cfg.hasLinkType()) {
         return runLink(u, cfg, asn);
     }
@@ -122,19 +122,6 @@ static bool runFSDevice(const QUrl &_url, const KDesktopFile &cfg, const QByteAr
     }
 
     return retval;
-}
-
-static bool runApplication(const QUrl &_url, const QString &_serviceFile, const QByteArray &asn)
-{
-    KService s(_serviceFile);
-    if (!s.isValid())
-    {
-        QString tmp = i18n("The desktop entry file\n%1\nis not valid.", _url.toString());
-        KMessageBox::error(nullptr, tmp);
-        return false;
-    }
-
-    return KRun::runApplication(s, QList<QUrl>(), nullptr /*TODO - window*/, KRun::RunFlags{}, QString(), asn);
 }
 
 static bool runLink(const QUrl &_url, const KDesktopFile &cfg, const QByteArray &asn)
