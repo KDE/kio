@@ -156,21 +156,29 @@ void ApplicationLauncherJobTest::shouldFailOnNonExecutableDesktopFile()
 void ApplicationLauncherJobTest::shouldFailOnNonExistingExecutable_data()
 {
     QTest::addColumn<bool>("tempFile");
+    QTest::addColumn<bool>("fullPath");
 
-    QTest::newRow("file") << false;
-    QTest::newRow("tempFile") << true;
+    QTest::newRow("file") << false << false;
+    QTest::newRow("tempFile") << true << false;
+    QTest::newRow("file_fullPath") << false << true;
+    QTest::newRow("tempFile_fullPath") << true << true;
 }
 
 void ApplicationLauncherJobTest::shouldFailOnNonExistingExecutable()
 {
     QFETCH(bool, tempFile);
+    QFETCH(bool, fullPath);
 
     const QString desktopFilePath = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/kservices5/non_existing_executable.desktop");
     KDesktopFile file(desktopFilePath);
     KConfigGroup group = file.desktopGroup();
     group.writeEntry("Name", "KRunUnittestService");
     group.writeEntry("Type", "Service");
-    group.writeEntry("Exec", "does_not_exist %f %d/dest_%n");
+    if (fullPath) {
+        group.writeEntry("Exec", "/usr/bin/does_not_exist %f %d/dest_%n");
+    } else {
+        group.writeEntry("Exec", "does_not_exist %f %d/dest_%n");
+    }
     file.sync();
 
     KService::Ptr servicePtr(new KService(desktopFilePath));
@@ -181,8 +189,11 @@ void ApplicationLauncherJobTest::shouldFailOnNonExistingExecutable()
     }
     QVERIFY(!job->exec());
     QCOMPARE(job->error(), KJob::UserDefinedError);
-    QCOMPARE(job->errorString(), QStringLiteral("Could not find the program 'does_not_exist'"));
-
+    if (fullPath) {
+        QCOMPARE(job->errorString(), QStringLiteral("Could not find the program '/usr/bin/does_not_exist'"));
+    } else {
+        QCOMPARE(job->errorString(), QStringLiteral("Could not find the program 'does_not_exist'"));
+    }
     QFile::remove(desktopFilePath);
 }
 

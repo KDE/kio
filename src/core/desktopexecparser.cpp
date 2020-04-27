@@ -443,14 +443,17 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
     KShell::Errors err;
     QStringList execlist = KShell::splitArgs(exec, KShell::AbortOnMeta | KShell::TildeExpand, &err);
     if (err == KShell::NoError && !execlist.isEmpty()) { // mx1 checked for syntax errors already
-        // Resolve the executable to ensure that helpers in libexec are found.
-        // Too bad for commands that need a shell - they must reside in $PATH.
-        QString exePath = QStandardPaths::findExecutable(execlist.first());
-        if (exePath.isEmpty()) {
-            exePath = QFile::decodeName(CMAKE_INSTALL_FULL_LIBEXECDIR_KF5 "/") + execlist.first();
-        }
-        if (QFile::exists(exePath)) {
-            execlist[0] = exePath;
+        const QString executable = execlist.at(0);
+        if (QDir::isRelativePath(executable)) {
+            // Resolve the executable to ensure that helpers in libexec are found.
+            // Too bad for commands that need a shell - they must reside in $PATH.
+            QString exePath = QStandardPaths::findExecutable(executable);
+            if (exePath.isEmpty()) {
+                exePath = QFile::decodeName(CMAKE_INSTALL_FULL_LIBEXECDIR_KF5 "/") + executable;
+            }
+            if (QFile::exists(exePath)) {
+                execlist[0] = exePath;
+            }
         }
     }
     if (d->service.substituteUid()) {

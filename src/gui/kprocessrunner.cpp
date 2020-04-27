@@ -35,14 +35,47 @@
 #include <QDBusMetaType>
 #include <QDBusPendingCallWatcher>
 #include <QDBusReply>
+#include <QDir>
 #include <QFileInfo>
 #include <QGuiApplication>
 #include <QStandardPaths>
+#include <QString>
 #include <QUuid>
 
 #include <mutex>
 
 static int s_instanceCount = 0; // for the unittest
+
+static QString findNonExecutableProgram(const QString &executable)
+{
+    // Relative to current dir, or absolute path
+    const QFileInfo fi(executable);
+    if (fi.exists() && !fi.isExecutable()) {
+        return executable;
+    }
+
+#ifdef Q_OS_UNIX
+    // This is a *very* simplified version of QStandardPaths::findExecutable
+#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
+    const auto skipEmptyParts = QString::SkipEmptyParts;
+#else
+    const auto skipEmptyParts = Qt::SkipEmptyParts;
+#endif
+    const QStringList searchPaths = QString::fromLocal8Bit(qgetenv("PATH")).split(QDir::listSeparator(), skipEmptyParts);
+    for (const QString &searchPath : searchPaths) {
+        const QString candidate = searchPath + QLatin1Char('/') + executable;
+        const QFileInfo fileInfo(candidate);
+        if (fileInfo.exists()) {
+            if (fileInfo.isExecutable()) {
+                qWarning() << "Internal program error. QStandardPaths::findExecutable couldn't find" << executable << "but our own logic found it at" << candidate << ". Please report a bug at https://bugs.kde.org";
+            } else {
+                return candidate;
+            }
+        }
+    }
+#endif
+    return QString();
+}
 
 KProcessRunner::KProcessRunner(const KService::Ptr &service, const QList<QUrl> &urls,
                                KIO::ApplicationLauncherJob::RunFlags flags, const QString &suggestedFileName, const QByteArray &asn)
@@ -53,8 +86,15 @@ KProcessRunner::KProcessRunner(const KService::Ptr &service, const QList<QUrl> &
     KIO::DesktopExecParser execParser(*service, urls);
 
     const QString realExecutable = execParser.resultingArguments().at(0);
-    if (!QFileInfo::exists(realExecutable) && QStandardPaths::findExecutable(realExecutable).isEmpty()) {
-        emitDelayedError(i18n("Could not find the program '%1'", realExecutable));
+    // realExecutable is a full path if DesktopExecParser was able to locate it. Otherwise it's still relative, which is a bad sign.
+    if (QDir::isRelativePath(realExecutable) || !QFileInfo(realExecutable).isExecutable()) {
+        // Does it really not exist, or is it non-executable? (bug #415567)
+        const QString nonExecutable = findNonExecutableProgram(realExecutable);
+        if (nonExecutable.isEmpty()) {
+            emitDelayedError(i18n("Could not find the program '%1'", realExecutable));
+        } else {
+            emitDelayedError(i18n("The program '%1' was found at '%2' but it is missing executable permissions.", realExecutable, nonExecutable));
+        }
         return;
     }
 
