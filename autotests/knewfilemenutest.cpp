@@ -185,7 +185,7 @@ private Q_SLOTS:
                 QVERIFY(file.open(QIODevice::ReadOnly));
                 const QByteArray contents = file.readAll();
                 if (actionText.startsWith(QLatin1String("HTML"))) {
-                    QCOMPARE(QString::fromLatin1(contents.left(6)), QStringLiteral("<html>"));
+                    QCOMPARE(QString::fromLatin1(contents.left(6)), QStringLiteral("<!DOCT"));
                 }
             }
         }
