@@ -244,12 +244,15 @@ RenameDialog::RenameDialog(QWidget *parent, const QString &_caption,
 
         d->m_srcPreview = createLabel(parent, QString());
         d->m_destPreview = createLabel(parent, QString());
+        QLabel *srcToDestArrow = createLabel(parent, QString());
 
         d->m_srcPreview->setMinimumHeight(KIconLoader::SizeEnormous);
         d->m_destPreview->setMinimumHeight(KIconLoader::SizeEnormous);
+        srcToDestArrow->setMinimumHeight(KIconLoader::SizeEnormous);
 
         d->m_srcPreview->setAlignment(Qt::AlignCenter);
         d->m_destPreview->setAlignment(Qt::AlignCenter);
+        srcToDestArrow->setAlignment(Qt::AlignCenter);
 
         d->m_srcPendingPreview = true;
         d->m_destPendingPreview = true;
@@ -281,28 +284,35 @@ RenameDialog::RenameDialog(QWidget *parent, const QString &_caption,
         QLabel *srcTitle = createLabel(parent, i18n("Source"), true);
         gridLayout->addWidget(srcTitle, ++gridRow, 0);
         QLabel *destTitle = createLabel(parent, i18n("Destination"), true);
-        gridLayout->addWidget(destTitle, gridRow, 1);
+        gridLayout->addWidget(destTitle, gridRow, 2);
 
         QLabel *srcUrlLabel = createSqueezedLabel(parent, d->src.toDisplayString(QUrl::PreferLocalFile));
         srcUrlLabel->setTextFormat(Qt::PlainText);
         gridLayout->addWidget(srcUrlLabel, ++gridRow, 0);
         QLabel *destUrlLabel = createSqueezedLabel(parent, d->dest.toDisplayString(QUrl::PreferLocalFile));
         destUrlLabel->setTextFormat(Qt::PlainText);
-        gridLayout->addWidget(destUrlLabel, gridRow, 1);
+        gridLayout->addWidget(destUrlLabel, gridRow, 2);
 
-        // The labels containing previews or icons
+
+        // The labels containing previews or icons, and an arrow icon indicating
+        // direction from src to dest
+        const QString arrowName = qApp->isRightToLeft() ? QStringLiteral("go-previous")
+                                                          : QStringLiteral("go-next");
+        const QPixmap pix = QIcon::fromTheme(arrowName).pixmap(d->m_srcPreview->height());
+        srcToDestArrow->setPixmap(pix);
         gridLayout->addWidget(d->m_srcArea, ++gridRow, 0);
-        gridLayout->addWidget(d->m_destArea, gridRow, 1);
+        gridLayout->addWidget(srcToDestArrow, gridRow, 1);
+        gridLayout->addWidget(d->m_destArea, gridRow, 2);
 
         QLabel *srcDateLabel = createDateLabel(parent, d->srcItem);
         gridLayout->addWidget(srcDateLabel, ++gridRow, 0);
         QLabel *destDateLabel = createDateLabel(parent, d->destItem);
-        gridLayout->addWidget(destDateLabel, gridRow, 1);
+        gridLayout->addWidget(destDateLabel, gridRow, 2);
 
         QLabel *srcSizeLabel = createSizeLabel(parent, d->srcItem);
         gridLayout->addWidget(srcSizeLabel, ++gridRow, 0);
         QLabel *destSizeLabel = createSizeLabel(parent, d->destItem);
-        gridLayout->addWidget(destSizeLabel, gridRow, 1);
+        gridLayout->addWidget(destSizeLabel, gridRow, 2);
 
     } else {
         // This is the case where we don't want to allow overwriting, the existing
