@@ -64,8 +64,8 @@ public:
      * are provided by this class.
      *
      * The default implementation in this base class simply emits result(false).
-     * Any application linking to KIOWidgets will benefit from an automatically registered
-     * subclass which implements this method using QtWidgets.
+     * Any application using KIO::JobUiDelegate (KIOWidgets) will benefit from an
+     * automatically registered subclass which implements this method using QtWidgets.
      */
     virtual void showUntrustedProgramWarning(KJob *job, const QString &programName);
 
