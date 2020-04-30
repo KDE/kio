@@ -163,6 +163,8 @@ QDialog *KIO::WidgetsUntrustedProgramHandler::createDialog(QWidget *parentWidget
     baseDialog->resize(screenSize.width() / 4, 50);
     baseDialog->setMaximumHeight(screenSize.height() / 3);
     baseDialog->setMaximumWidth(screenSize.width() / 10 * 8);
+
+    baseDialog->setAttribute(Qt::WA_DeleteOnClose);
     return baseDialog;
 }
 
