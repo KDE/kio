@@ -1,0 +1,223 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Brazilian-Portuguese "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="ebrowsing" lang="&language;">
+<articleinfo>
+<title
+>Atalhos da Web</title>
+<authorgroup>
+<author
+>&Krishna.Tateneni; &Krishna.Tateneni.mail;</author>
+<author
+>&Yves.Arrouye; &Yves.Arrouye.mail;</author>
+<othercredit role="translator"
+><firstname
+>Lisiane</firstname
+> <surname
+>Sztoltz</surname
+><affiliation
+><address
+> <email
+>lisiane@conectiva.com.br</email
+></address
+></affiliation
+><contrib
+>Tradução</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>10/11/2016</date>
+<releaseinfo
+>Frameworks 5.29</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Configurações do Sistema</keyword>
+<keyword
+>navegação melhorada</keyword>
+<keyword
+>atalhos da Web</keyword>
+<keyword
+>navegação</keyword>
+</keywordset>
+
+</articleinfo>
+<sect1 id="ebrowse">
+
+<title
+>Atalhos da Web</title>
+
+<sect2 id="ebrowse-intro">
+
+<title
+>Introdução</title>
+
+<para
+>O &konqueror; oferece algumas características para melhorar a sua navegação. Uma das características deste tipo são os <emphasis
+>Atalhos da Web</emphasis
+>.</para>
+
+<para
+>Você já pode ter ouvido falar que o &kde; é muito amigável em relação à Internet. Por exemplo, você pode clicar no item <guimenuitem
+>Executar</guimenuitem
+> no menu K ou pressionar as teclas de atalho (<keycombo action="simul"
+>&Alt;<keycap
+>F2</keycap
+></keycombo
+> ou <keycombo action="simul"
+>&Alt;<keycap
+>Espaço</keycap
+></keycombo
+>, a menos que você tenha modificado estas teclas) e digitar uma &URI;. <footnote
+><para
+>URI - Identificador Uniforme do Recurso (Uniform Resource Identifier): um modo padronizado de se referir a recursos tais como seu computador, um endereço Web, um endereço de e-mail, <abbrev
+>etc...</abbrev
+>.</para
+></footnote
+></para>
+
+<para
+>Atalhos da Web, por outro lado, permitem que você use novos pseudo-esquemas de &URL;, ou atalhos, que basicamente deixam que você <emphasis
+>crie parâmetros</emphasis
+> para &URI;s comumente usadas. Por exemplo, se você gosta do mecanismo de busca do Google, você pode configurar o &kde; de modo que um pseudo-esquema de &URL;, como <emphasis
+>gg</emphasis
+>, irá executar uma busca no Google. Deste modo, digitando <userinput
+>gg: <replaceable
+>minha busca</replaceable
+></userinput
+> irá procurar <replaceable
+>minha busca</replaceable
+> no Google.</para>
+
+<note
+><para
+>Você pode ver porque estes esquemas são chamados de pseudo-esquemas de &URL;. Eles são usados de modo parecido ao da &URL;, mas a entrada não é propriamente uma &URL; codificada, pois você digita <userinput
+>google:aplicativos kde</userinput
+>, e não <userinput
+>google:aplicativos+kde</userinput
+>.</para
+></note>
+
+<para
+>Você pode usar os atalhos da Web nos mesmos locais que usaria um &URI;. Os atalhos para vários mecanismos de busca já devem estar configurados em seu sistema, mas você pode adicionar novos atalhos, ou ainda modificar ou excluir entradas existentes neste módulo. </para>
+
+</sect2>
+
+<sect2 id="ebrowse-use">
+
+<title
+>Atalhos da Web</title>
+
+<para
+>Os nomes descritivos dos atalhos definidos são mostrados na caixa de listagem. Como em outras listas no &kde;, você pode clicar no cabeçalho de uma das colunas para alternar a ordenação (ascendente/descendente), bem como redimensionar as colunas.</para>
+
+<para
+>No fundo da lista, a opção <guilabel
+>Ativar os atalhos da Web</guilabel
+> deverá estar assinalada para ativar esta funcionalidade. Use os botões à direita para criar, modificar ou apagar os atalhos.</para>
+
+<para
+>Se a opção <guilabel
+>Usar apenas os atalhos preferidos</guilabel
+> estiver selecionada, somente atalhos Web marcados como preferidos na terceira coluna da lista são usados nos locais onde somente poucos atalhos selecionados podem ser mostrados ao mesmo tempo. </para>
+ 
+<para
+>Abaixo da lista, você irá encontrar duas opções adicionais:</para>
+<variablelist>
+<varlistentry
+><term
+><guilabel
+>Atalhos padrão da Web</guilabel
+></term>
+<listitem>
+<para
+>Selecione o motor de busca a usar nos campos de texto que fornecem serviços de pesquisa, quando você inserir palavras e frases normais em vez de um &URL;. Para desativar esta funcionalidade, selecione <guilabel
+>Nenhum</guilabel
+> na lista. </para
+></listitem>
+</varlistentry>
+<varlistentry
+><term
+><guilabel
+>Separador de palavras-chave</guilabel
+></term>
+<listitem>
+<para
+>Escolha o separador que divide as palavras-chave e a frase ou palavra a procurar.</para
+></listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>Com um clique duplo em um item específico da lista de mecanismos de busca ou com um clique no botão <guibutton
+>Alterar</guibutton
+>, os detalhes para aquele item serão mostrados em uma nova janela. Além disso, para o nome descritivo do item você também pode ver o &URI; que é usado, bem como os atalhos associados, que podem ser digitados em qualquer lugar no &kde; (no local onde uma &URI; é esperada). Um mecanismo de busca pode ter múltiplos atalhos, separados por vírgulas.</para>
+
+<para
+>As caixas de texto são usadas não somente para exibir a informação sobre um item da lista de atalhos, mas também para modificar ou adicionar novos itens.</para>
+
+<para
+>Você pode modificar o conteúdo da caixa de texto <guilabel
+>URL do atalho</guilabel
+> ou da caixa de texto <guilabel
+>Atalhos</guilabel
+>. Clique em <guibutton
+>OK</guibutton
+> para salvar suas modificações ou em <guibutton
+> Cancelar</guibutton
+> para sair do janela sem modificações.</para>
+
+<para
+>Se você examinar o conteúdo da caixa de texto <guilabel
+>URL de atalho</guilabel
+>, verá que a maioria, se não todas as entradas, possuem um <option
+> \{@}</option
+> contido nelas. Esta sequência de quatro caracteres age como um parâmetro, que diz que elas são substituídas pelo que você digitar depois do caractere de dois pontos, que está entre um atalho e seu parâmetro. Para adicionar este espaço de consulta para uma URL de atalho, clique no botão à direita do campo de texto. Vamos considerar alguns exemplos para esclarecer o uso de atalhos da Web.</para>
+
+<para
+>Suponha que o &URI; é <userinput
+>http://www.google.com/search?q=\{@}</userinput
+>, e <userinput
+>gg</userinput
+> é o atalho para este &URI;. Então, digitar <userinput
+>gg:<replaceable
+>alpha</replaceable
+></userinput
+>, equivale a digitar <userinput
+>http://www.google.com/search?q=<replaceable
+>alpha</replaceable
+></userinput
+>. Você poderia digitar qualquer coisa depois do caractere <userinput
+>:</userinput
+>; o que você digitar simplesmente é substituído pelos caracteres <option
+> \{@}</option
+> e depois convertido para o conjunto de caracteres apropriado para o provedor de busca, e então, a &URL; é codificada corretamente. Somente a parte <option
+>\{@}</option
+> da busca do &URI; é tocada; o resto dos caracteres, supõe-se, já estão codificados como &URL; corretamente, e são deixados como estão.</para>
+
+<para
+>Você também pode ter atalhos sem parâmetros. Suponha que a &URI; foi <emphasis
+>file:/home/me/mydocs/calligra/words</emphasis
+> e o atalho foi <emphasis
+>mywords</emphasis
+>. Então, digitar <userinput
+>mywords:</userinput
+> é o mesmo que digitar a &URI; completo. Note que não existe nada depois dos dois pontos quando se digita o atalho, mas os dois pontos ainda são necessários, a fim de que o atalho seja reconhecido.</para>
+
+<para
+>A esta hora, você já deve ter compreendido que mesmo que estes atalhos sejam chamados de Atalhos da Web, eles realmente são atalhos de &URI;s, criados, que podem apontar não somente para sites Web como para mecanismos de busca, mas também para quaisquer outras coisas que possam ser apontadas por um &URI;. Atalhos da Web são características de navegação muito poderosas no &kde;.</para>
+
+</sect2>
+
+</sect1>
+
+</article>

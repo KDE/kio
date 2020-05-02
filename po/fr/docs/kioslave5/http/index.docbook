@@ -1,0 +1,56 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % French "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="http">
+<title
+>http / https</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Lauri.Watts; &Lauri.Watts.mail;</author>
+&traducteurEquipeKDE; 
+</authorgroup>
+</articleinfo>
+
+<para
+><acronym
+>http</acronym
+> signifie <emphasis
+>H</emphasis
+>yper<emphasis
+>T</emphasis
+>ext <emphasis
+>T</emphasis
+>ransfer <emphasis
+>P</emphasis
+>rotocol (protocole de transfert hypertexte).</para>
+
+<para
+>Le module d'entrées-sorties http est utilisé par toutes les applications &kde; pour gérer les connexions vers les serveurs http, c'est-à-dire les serveurs web. L'usage le plus courant est pour afficher les pages web dans le navigateur &konqueror;.</para>
+
+<para
+>Vous pouvez utiliser le module d'entrées-sorties dans &konqueror; en lui donnant une <acronym
+>URL</acronym
+>. <userinput
+>http://<replaceable
+>www.kde.org</replaceable
+></userinput
+>.</para>
+
+<para
+>https est le protocole http encapsulé dans un flux SSL/TLS.</para>
+<para
+>SSL signifie <foreignphrase
+>Secure Sockets Layer protocol</foreignphrase
+>. C'est un protocole de sécurisation qui permet la confidentialité des communications sur internet. Le protocole permet aux applications client / serveur de communiquer de façon à éviter les écoutes, la falsification et la contrefaçon. </para>
+<para
+>TSL signifie <foreignphrase
+>Transport Layer Security</foreignphrase
+>.</para>
+
+</article>

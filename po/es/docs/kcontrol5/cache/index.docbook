@@ -1,0 +1,131 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Spanish "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="cache" lang="&language;">
+<title
+>Caché</title>
+<articleinfo>
+
+<authorgroup>
+<author
+><firstname
+>Lauri</firstname
+><surname
+>Watts</surname
+></author>
+
+<othercredit role="translator"
+> <firstname
+>Pablo</firstname
+> <surname
+>de Vicente</surname
+> <affiliation
+><address
+><email
+>pablo.devicente@gmail.com</email
+></address
+></affiliation
+> <contrib
+>Traductor</contrib
+> </othercredit
+> <othercredit role="translator"
+> <firstname
+>Miguel</firstname
+> <surname
+>Revilla Rodríguez</surname
+> <affiliation
+><address
+><email
+>yo@miguelrevilla.com</email
+></address
+></affiliation
+> <contrib
+>Traductor</contrib
+> </othercredit
+> <othercredit role="translator"
+> <firstname
+>Marcos</firstname
+> <surname
+>Fouces Lago</surname
+> <affiliation
+><address
+><email
+>mfouces@yahoo.es</email
+></address
+></affiliation
+> <contrib
+>Traductor</contrib
+> </othercredit
+><othercredit role="translator"
+><firstname
+>Cristina Yenyxe</firstname
+><surname
+>González García</surname
+><affiliation
+><address
+><email
+>the.blue.valkyrie@gmail.com</email
+></address
+></affiliation
+><contrib
+>Traductor</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>2016-11-10</date>
+<releaseinfo
+>Frameworks 5.29</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Preferencias del sistema</keyword>
+<keyword
+>Konqueror</keyword>
+<keyword
+>Caché</keyword>
+</keywordset>
+</articleinfo>
+
+<para
+>Este módulo le permite controlar el tamaño de la caché local usada por &konqueror;. Tenga en cuenta que cada usuario del equipo tiene una carpeta de caché separada, y esta no se comparte con otros navegadores web, como &firefox;.</para>
+
+<para
+>El almacenado de copias locales de páginas web que ha visitado permite a &konqueror; cargar rápidamente sus contenidos en visitas posteriores. Solo será necesario recargar los contenidos del sitio original si han cambiado desde su última visita, o si pulsa el botón recargar en &konqueror;.</para>
+
+<para
+>Si realmente no desea que se almacene ninguna de las páginas visitadas en su equipo, puede desactivar la caché de disco de &konqueror; quitando la marca de la casilla etiquetada <guilabel
+>Usar caché</guilabel
+>.</para>
+
+<para
+>Aquí puede configurar la gestión de la caché de &konqueror;. <guilabel
+>Mantener caché sincronizada</guilabel
+> significa que &konqueror; buscará todos los archivos que necesite representar en el caché, descargandolos si no están allí, y después mostrando el elemento desde el caché. <guilabel
+>Usar caché si es posible</guilabel
+> signfica que &konqueror; probará la caché y, si el objeto no está ahí, lo descargará y mostrará. <guilabel
+>Modo de navegación desconectado</guilabel
+> signfica que &konqueror; probará la caché y, si un objeto no está ahí, no lo mostrará.</para>
+
+<para
+>Puede controlar el tamaño de la caché introduciendo la cantidad que desee en el cuadro de texto etiquetado <guilabel
+>Tamaño de la caché</guilabel
+>. Este es el espacio promedio en kilobytes que el directorio caché tiene permitido utilizar. Si se hace muy grande, &konqueror; borrará los archivos más antiguos a medida que se introduzcan otros nuevos.</para>
+
+<para
+>Esto sin embargo, es un valor promedio, y durante una sesión de navegación la caché podría ser sustancialmente mayor.</para>
+
+<para
+>En cualquier momento puede utilizar el botón <guibutton
+>Vaciar caché</guibutton
+> para vaciar la caché.</para>
+
+</article>
