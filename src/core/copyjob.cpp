@@ -62,6 +62,7 @@
 #include <kdiskfreespaceinfo.h>
 #include <kfilesystemtype.h>
 #include <kfileutils.h>
+#include <KIO/FileSystemFreeSpaceJob>
 
 #include <list>
 
@@ -180,7 +181,7 @@ public:
     std::list<CopyInfo>::const_iterator m_directoriesCopiedIterator;
 
     CopyJob::CopyMode m_mode;
-    bool m_asMethod;
+    bool m_asMethod; // See copyAs() method
     DestinationState destinationState;
     CopyJobState state;
 
@@ -411,46 +412,35 @@ void CopyJobPrivate::slotResultStating(KJob *job)
     const UDSEntry entry = static_cast<StatJob *>(job)->statResult();
 
     if (destinationState == DEST_NOT_STATED) {
-        if (m_dest.isLocalFile()) {   //works for dirs as well
-            QString path(m_dest.toLocalFile());
-            QFileInfo fileInfo(path);
-            if (m_asMethod || !fileInfo.exists()) {
-                // In copy-as mode, we want to check the directory to which we're
-                // copying. The target file or directory does not exist yet, which
-                // might confuse KDiskFreeSpaceInfo.
-                path = fileInfo.absolutePath();
-                fileInfo.setFile(path);
-            }
-            KDiskFreeSpaceInfo freeSpaceInfo = KDiskFreeSpaceInfo::freeSpaceInfo(path);
-            if (freeSpaceInfo.isValid()) {
-                m_freeSpace = freeSpaceInfo.available();
-            } else {
-                qCDebug(KIO_COPYJOB_DEBUG) << "Couldn't determine free space information for" << path;
-             }
-            //TODO actually preliminary check is even more valuable for slow NFS/SMB mounts,
-            //but we need to find a way to report connection errors to user
-
-            // Also check for writability, before spending time stat'ing everything (#141564)
-            // TODO: this is done only for local files, but we could use the UDSEntry to do this portably
-            // ... assuming all kioslaves set permissions correctly
-            if (!m_privilegeExecutionEnabled && fileInfo.exists() && !fileInfo.isWritable()) {
-                q->setError(ERR_WRITE_ACCESS_DENIED);
-                q->setErrorText(path);
-                q->emitResult();
-                return;
-            }
-        }
-
         const bool isGlobalDest = m_dest == m_globalDest;
-        const bool isDir = entry.isDir();
+
         // we were stating the dest
         if (job->error()) {
             destinationState = DEST_DOESNT_EXIST;
             qCDebug(KIO_COPYJOB_DEBUG) << "dest does not exist";
         } else {
+            const bool isDir = entry.isDir();
+
+            // Check for writability, before spending time stat'ing everything (#141564).
+            // Note that "job" already takes into account asMethod in slotStart.
+            // This assumes all kioslaves set permissions correctly...
+            const int permissions = entry.numberValue(KIO::UDSEntry::UDS_ACCESS, -1);
+            const bool isWritable = (permissions != -1) && (permissions & S_IWUSR);
+            if (!m_privilegeExecutionEnabled && !isWritable) {
+                const QUrl dest = m_asMethod ? m_dest.adjusted(QUrl::RemoveFilename) : m_dest;
+                q->setError(ERR_WRITE_ACCESS_DENIED);
+                q->setErrorText(dest.toDisplayString(QUrl::PreferLocalFile));
+                q->emitResult();
+                return;
+            }
+
             // Treat symlinks to dirs as dirs here, so no test on isLink
             destinationState = isDir ? DEST_IS_DIR : DEST_IS_FILE;
             qCDebug(KIO_COPYJOB_DEBUG) << "dest is dir:" << isDir;
+
+            if (isGlobalDest) {
+                m_globalDestinationState = destinationState;
+            }
 
             const QString sLocalPath = entry.stringValue(KIO::UDSEntry::UDS_LOCAL_PATH);
             if (!sLocalPath.isEmpty() && kio_resolve_local_urls) {
@@ -465,12 +455,38 @@ void CopyJobPrivate::slotResultStating(KJob *job)
                 }
             }
         }
-        if (isGlobalDest) {
-            m_globalDestinationState = destinationState;
-        }
 
         q->removeSubjob(job);
         Q_ASSERT(!q->hasSubjobs());
+
+        // In copy-as mode, we want to check the directory to which we're
+        // copying. The target file or directory does not exist yet, which
+        // might confuse KDiskFreeSpaceInfo/FileSystemFreeSpaceJob.
+        const QUrl existingDest = m_asMethod ? m_dest.adjusted(QUrl::RemoveFilename) : m_dest;
+        if (m_dest.isLocalFile()) {
+            const QString path = existingDest.toLocalFile();
+            // Check available free space for local urls
+            KDiskFreeSpaceInfo freeSpaceInfo = KDiskFreeSpaceInfo::freeSpaceInfo(path);
+            if (freeSpaceInfo.isValid()) {
+                m_freeSpace = freeSpaceInfo.available();
+            } else {
+                qCDebug(KIO_COPYJOB_DEBUG) << "Couldn't determine free space information for" << path;
+            }
+        } else {
+            // Check available free space for remote urls
+            KIO::FileSystemFreeSpaceJob *spaceJob = KIO::fileSystemFreeSpace(existingDest);
+            q->connect(spaceJob, &KIO::FileSystemFreeSpaceJob::result,
+                       q, [this, existingDest](KIO::Job *spaceJob, KIO::filesize_t size, KIO::filesize_t available) {
+                Q_UNUSED(size)
+                if (!spaceJob->error()) {
+                    m_freeSpace = available;
+                } else {
+                    qCDebug(KIO_COPYJOB_DEBUG) << "Couldn't determine free space information for" << existingDest;
+                }
+                statCurrentSrc();
+            });
+            return;
+        }
 
         // After knowing what the dest is, we can start stat'ing the first src.
         statCurrentSrc();
