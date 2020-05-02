@@ -21,7 +21,6 @@
 
 #include "krun.h"
 #include "krun_p.h"
-#include <config-kiowidgets.h> // HAVE_X11
 #include "kio_widgets_debug.h"
 
 #include <assert.h>
@@ -71,9 +70,6 @@
 #include <kstandardguiitem.h>
 #include <kguiitem.h>
 
-#if HAVE_X11
-#include <kwindowsystem.h>
-#endif
 #include <qstandardpaths.h>
 
 KRunPrivate::KRunPrivate(KRun *parent)
