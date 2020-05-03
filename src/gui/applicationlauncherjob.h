@@ -129,6 +129,7 @@ public:
     /**
      * Starts the job.
      * You must call this, after having done all the setters.
+     * This is (potentially) a GUI job, never use exec(), it would block user interaction.
      */
     void start() override;
 

@@ -514,7 +514,9 @@ public:
     /**
      * Determine mime type from URLs
      */
-    void setMimeType(const QList<QUrl> &_urls);
+    void setMimeTypeFromUrls(const QList<QUrl> &_urls);
+
+    void setMimeType(const QString &mimeType);
 
     void addToMimeAppsList(const QString &serviceId);
 
@@ -576,12 +578,19 @@ KOpenWithDialog::KOpenWithDialog(const QList<QUrl> &_urls, QWidget *parent)
     {
         text = i18n("Choose the name of the program with which to open the selected files.");
     }
-    d->setMimeType(_urls);
+    d->setMimeTypeFromUrls(_urls);
     d->init(text, QString());
 }
 
 KOpenWithDialog::KOpenWithDialog(const QList<QUrl> &_urls, const QString &_text,
                                  const QString &_value, QWidget *parent)
+    : KOpenWithDialog(_urls, QString(), _text, _value, parent)
+{
+}
+
+KOpenWithDialog::KOpenWithDialog(const QList<QUrl> &_urls, const QString &mimeType,
+                                 const QString &_text, const QString &_value,
+                                 QWidget *parent)
     : QDialog(parent), d(new KOpenWithDialogPrivate(this))
 {
     setObjectName(QStringLiteral("openwith"));
@@ -597,7 +606,11 @@ KOpenWithDialog::KOpenWithDialog(const QList<QUrl> &_urls, const QString &_text,
         }
     }
     setWindowTitle(i18n("Choose Application"));
-    d->setMimeType(_urls);
+    if (mimeType.isEmpty()) {
+        d->setMimeTypeFromUrls(_urls);
+    } else {
+        d->setMimeType(mimeType);
+    }
     d->init(text, _value);
 }
 
@@ -611,13 +624,8 @@ KOpenWithDialog::KOpenWithDialog(const QString &mimeType, const QString &value,
     QString text = i18n("<qt>Select the program for the file type: <b>%1</b>. "
                         "If the program is not listed, enter the name or click "
                         "the browse button.</qt>", mimeType);
-    d->qMimeType = mimeType;
-    QMimeDatabase db;
-    d->qMimeTypeComment = db.mimeTypeForName(mimeType).comment();
+    d->setMimeType(mimeType);
     d->init(text, value);
-    if (d->remember) {
-        d->remember->hide();
-    }
 }
 
 KOpenWithDialog::KOpenWithDialog(QWidget *parent)
@@ -633,7 +641,7 @@ KOpenWithDialog::KOpenWithDialog(QWidget *parent)
     d->init(text, QString());
 }
 
-void KOpenWithDialogPrivate::setMimeType(const QList<QUrl> &_urls)
+void KOpenWithDialogPrivate::setMimeTypeFromUrls(const QList<QUrl> &_urls)
 {
     if (_urls.count() == 1) {
         QMimeDatabase db;
@@ -647,6 +655,13 @@ void KOpenWithDialogPrivate::setMimeType(const QList<QUrl> &_urls)
     } else {
         qMimeType.clear();
     }
+}
+
+void KOpenWithDialogPrivate::setMimeType(const QString &mimeType)
+{
+    qMimeType = mimeType;
+    QMimeDatabase db;
+    qMimeTypeComment = db.mimeTypeForName(mimeType).comment();
 }
 
 void KOpenWithDialogPrivate::init(const QString &_text, const QString &_value)

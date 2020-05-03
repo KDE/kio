@@ -70,7 +70,9 @@
 #include <kstandardguiitem.h>
 #include <kguiitem.h>
 
+#include <KIO/OpenUrlJob>
 #include <qstandardpaths.h>
+#include <KIO/JobUiDelegate>
 
 KRunPrivate::KRunPrivate(KRun *parent)
     : q(parent),
@@ -176,101 +178,17 @@ bool KRun::runUrl(const QUrl &url, const QString &mimetype, QWidget *window, boo
 // This is called by foundMimeType, since it knows the mimetype of the URL
 bool KRun::runUrl(const QUrl &u, const QString &_mimetype, QWidget *window, RunFlags flags, const QString &suggestedFileName, const QByteArray &asn)
 {
-    const QMimeDatabase db;
     const bool runExecutables = flags.testFlag(KRun::RunExecutables);
     const bool tempFile = flags.testFlag(KRun::DeleteTemporaryFiles);
-    bool noRun = false;
-    bool noAuth = false;
-    if (_mimetype == QLatin1String("application/x-desktop")) {
-        if (u.isLocalFile() && runExecutables) {
-            return KDesktopFileActions::runWithStartup(u, true, asn);
-        }
-    } else if (isExecutable(_mimetype)) {
-        // Check whether file is executable script
-        const QMimeType mime = db.mimeTypeForName(_mimetype);
-#ifdef Q_OS_WIN
-        bool isNativeBinary = !mime.inherits(QStringLiteral("text/plain"));
-#else
-        bool isNativeBinary = !mime.inherits(QStringLiteral("text/plain")) && !mime.inherits(QStringLiteral("application/x-ms-dos-executable"));
-#endif
-        // Only run local files
-        if (u.isLocalFile() && runExecutables) {
-            if (KAuthorized::authorize(QStringLiteral("shell_access"))) {
 
-                bool canRun = true;
-                bool isFileExecutable = hasExecuteBit(u.toLocalFile());
-
-                // For executables that aren't scripts and without execute bit,
-                // show prompt asking user if he wants to run the program.
-                if (!isFileExecutable && isNativeBinary) {
-                    canRun = false;
-                    KIO::WidgetsUntrustedProgramHandler handler;
-                    if (handler.execUntrustedProgramWarning(window, u.fileName())) {
-                        QString errorString;
-                        if (!handler.setExecuteBit(u.toLocalFile(), errorString)) {
-                            KMessageBox::sorry(
-                                        window,
-                                        i18n("<qt>Unable to make file <b>%1</b> executable.\n%2.</qt>",
-                                             u.toLocalFile(), errorString)
-                                        );
-                        } else {
-                            canRun = true;
-                        }
-                    }
-                } else if (!isFileExecutable && !isNativeBinary) {
-                    // Don't try to run scripts/exes without execute bit, instead
-                    // open them with default application
-                    canRun = false;
-                }
-
-                if (canRun) {
-                    qDebug() << "Execute the URL as a command";
-                    return (KRun::runCommand(KShell::quoteArg(u.toLocalFile()), QString(), QString(),
-                                window, asn, u.adjusted(QUrl::RemoveFilename).toLocalFile())); // just execute the url as a command
-                    // ## TODO implement deleting the file if tempFile==true
-                }
-
-            } else {
-                // Show no permission warning
-                noAuth = true;
-            }
-        } else if (isNativeBinary) {
-            // Show warning for executables that aren't scripts
-            noRun = true;
-        }
-    }
-
-    if (noRun) {
-        KMessageBox::sorry(window,
-                           i18n("<qt>The file <b>%1</b> is an executable program. "
-                                "For safety it will not be started.</qt>", u.toDisplayString().toHtmlEscaped()));
-        return false;
-    }
-    if (noAuth) {
-        KMessageBox::error(window,
-                           i18n("<qt>You do not have permission to run <b>%1</b>.</qt>", u.toDisplayString().toHtmlEscaped()));
-        return false;
-    }
-
-    QList<QUrl> lst;
-    lst.append(u);
-
-    KService::Ptr offer = KMimeTypeTrader::self()->preferredService(_mimetype);
-
-    if (!offer) {
-#ifdef Q_OS_WIN
-        // As KDE on windows doesn't know about the windows default applications offers will be empty in nearly all cases.
-        // So we use QDesktopServices::openUrl to let windows decide how to open the file
-        return QDesktopServices::openUrl(u);
-#else
-        // Open-with dialog
-        // TODO : pass the mimetype as a parameter, to show it (comment field) in the dialog !
-        // Hmm, in fact KOpenWithDialog::setServiceType already guesses the mimetype from the first URL of the list...
-        return displayOpenWithDialog(lst, window, tempFile, suggestedFileName, asn);
-#endif
-    }
-
-    return KRun::runApplication(*offer, lst, window, flags, suggestedFileName, asn);
+    KIO::OpenUrlJob *job = new KIO::OpenUrlJob(u, _mimetype);
+    job->setSuggestedFileName(suggestedFileName);
+    job->setStartupId(asn);
+    job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, window));
+    job->setDeleteTemporaryFile(tempFile);
+    job->setRunExecutables(runExecutables);
+    job->start();
+    return true;
 }
 
 bool KRun::displayOpenWithDialog(const QList<QUrl> &lst, QWidget *window, bool tempFiles,
@@ -289,6 +207,9 @@ bool KRun::displayOpenWithDialog(const QList<QUrl> &lst, QWidget *window, bool t
                 suggestedFileName, asn);
     }
 #endif
+
+    // TODO : pass the mimetype as a parameter, to show it (comment field) in the dialog !
+    // Hmm, in fact KOpenWithDialog::setServiceType already guesses the mimetype from the first URL of the list...
     KOpenWithDialog dialog(lst, QString(), QString(), window);
     dialog.setWindowModality(Qt::WindowModal);
     if (dialog.exec()) {
@@ -911,7 +832,7 @@ void KRun::foundMimeType(const QString &type)
     // Resolve .desktop files from media:/, remote:/, applications:/ etc.
     QMimeType mime = db.mimeTypeForName(type);
     if (!mime.isValid()) {
-        qCWarning(KIO_WIDGETS) << "Unknown mimetype " << type;
+        qCWarning(KIO_WIDGETS) << "Unknown mimetype" << type;
     } else if (mime.inherits(QStringLiteral("application/x-desktop")) && !d->m_localPath.isEmpty()) {
         d->m_strURL = QUrl::fromLocalFile(d->m_localPath);
     }

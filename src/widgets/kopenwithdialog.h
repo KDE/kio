@@ -81,6 +81,21 @@ public:
                     QWidget *parent = nullptr);
 
     /**
+     * Create a dialog that asks for a application for opening a given
+     * URL (or more than one), when we already know the mimetype of the URL(s).
+     *
+     * @param urls   is the URLs that should be opened
+     * @param mimeType the MIME type of the URL
+     * @param text   appears as a label on top of the entry box.
+     * @param value  is the initial value of the line
+     * @param parent parent widget
+     * @since 5.71
+     */
+    KOpenWithDialog(const QList<QUrl> &urls, const QString &mimeType,
+                    const QString &text, const QString &value,
+                    QWidget *parent = nullptr);
+
+    /**
      * Create a dialog to select an application
      * Note that this dialog doesn't apply to URLs.
      *

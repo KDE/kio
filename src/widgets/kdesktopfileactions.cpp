@@ -44,12 +44,13 @@ static bool runFSDevice(const QUrl &_url, const KDesktopFile &cfg, const QByteAr
 static bool runLink(const QUrl &_url, const KDesktopFile &cfg, const QByteArray &asn);
 
 
-
+// TODO KF6 remove, use OpenUrlJob instead
 bool KDesktopFileActions::run(const QUrl &u, bool _is_local)
 {
     return runWithStartup(u, _is_local, QByteArray());
 }
 
+// TODO KF6 remove, use OpenUrlJob instead
 bool KDesktopFileActions::runWithStartup(const QUrl &u, bool _is_local, const QByteArray &asn)
 {
     // It might be a security problem to run external untrusted desktop
@@ -137,7 +138,7 @@ static bool runLink(const QUrl &_url, const KDesktopFile &cfg, const QByteArray 
     KRun *run = new KRun(url, (QWidget *)nullptr, true, asn);
 
     // X-KDE-LastOpenedWith holds the service desktop entry name that
-    // was should be preferred for opening this URL if possible.
+    // should be preferred for opening this URL if possible.
     // This is used by the Recent Documents menu for instance.
     QString lastOpenedWidth = cfg.desktopGroup().readEntry("X-KDE-LastOpenedWith");
     if (!lastOpenedWidth.isEmpty()) {

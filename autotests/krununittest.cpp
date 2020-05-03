@@ -348,7 +348,7 @@ void KRunUnitTest::testMimeTypeBrokenLink()
     QTest::qWait(100); // let auto-deletion proceed.
 }
 
-void KRunUnitTest::testMimeTypeDoesNotExist()
+void KRunUnitTest::testMimeTypeDoesNotExist() // ported to OpenUrlJobTest::nonExistingFile()
 {
     KRunImpl *krun = new KRunImpl(QUrl::fromLocalFile(QStringLiteral("/does/not/exist")));
     QSignalSpy spyError(krun, SIGNAL(error()));

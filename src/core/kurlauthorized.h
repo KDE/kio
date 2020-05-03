@@ -131,7 +131,8 @@ KIOCORE_EXPORT bool authorizeUrlAction(const QString &action, const QUrl &baseUr
  * @see authorizeUrlAction()
  * @since 5.0
  */
-KIOCORE_EXPORT void allowUrlAction(const QString &action, const QUrl &baseUrl, const QUrl  &destUrl);
+KIOCORE_EXPORT void allowUrlAction(const QString &action, const QUrl &baseUrl, const QUrl &destUrl);
+
 }
 
 #endif

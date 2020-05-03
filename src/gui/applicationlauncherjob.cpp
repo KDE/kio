@@ -30,10 +30,13 @@
 #include <KLocalizedString>
 #include <QFileInfo>
 
+// KF6 TODO: Remove
 static KIO::UntrustedProgramHandlerInterface *s_untrustedProgramHandler = nullptr;
 namespace KIO {
 // Hidden API because in KF6 we'll just check if the job's uiDelegate implements UntrustedProgramHandlerInterface.
 KIOGUI_EXPORT void setDefaultUntrustedProgramHandler(KIO::UntrustedProgramHandlerInterface *iface) { s_untrustedProgramHandler = iface; }
+// For OpenUrlJob
+KIO::UntrustedProgramHandlerInterface *defaultUntrustedProgramHandler() { return s_untrustedProgramHandler; }
 }
 
 #include <KLocalizedString>
