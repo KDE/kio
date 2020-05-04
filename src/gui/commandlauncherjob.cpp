@@ -23,6 +23,7 @@
 #include "kprocessrunner_p.h"
 #include "kiogui_debug.h"
 #include <kshell.h>
+#include <KLocalizedString>
 
 class KIO::CommandLauncherJobPrivate
 {
@@ -90,6 +91,14 @@ void KIO::CommandLauncherJob::start()
             d->m_executable = args.first();
         }
     }
+
+    QString displayName = d->m_executable;
+    KService::Ptr service = KService::serviceByDesktopName(d->m_desktopName);
+    if (service) {
+        displayName = service->name();
+    }
+    emit description(this, i18nc("Launching application", "Launching %1", displayName), {}, {});
+
     if (d->m_iconName.isEmpty()) {
         d->m_iconName = d->m_executable;
     }

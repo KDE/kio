@@ -36,6 +36,8 @@ namespace KIO {
 KIOGUI_EXPORT void setDefaultUntrustedProgramHandler(KIO::UntrustedProgramHandlerInterface *iface) { s_untrustedProgramHandler = iface; }
 }
 
+#include <KLocalizedString>
+
 class KIO::ApplicationLauncherJobPrivate
 {
 public:
@@ -106,6 +108,8 @@ void KIO::ApplicationLauncherJob::emitUnauthorizedError()
 
 void KIO::ApplicationLauncherJob::start()
 {
+    emit description(this, i18nc("Launching application", "Launching %1", d->m_service->name()), {}, {});
+
     // First, the security checks
     if (!KAuthorized::authorize(QStringLiteral("run_desktop_files"))) {
         // KIOSK restriction, cannot be circumvented
