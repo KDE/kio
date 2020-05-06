@@ -1936,46 +1936,19 @@ void CopyJobPrivate::slotResultRenaming(KJob *job)
         dest = addPathToUrl(dest, m_currentSrcURL.fileName());
     }
     if (err) {
-        // Direct renaming didn't work. Try renaming to a temp name,
+        // Direct renaming didn't work. Use QFile::rename(),
         // this can help e.g. when renaming 'a' to 'A' on a VFAT partition.
         // In that case it's the _same_ dir, we don't want to copy+del (data loss!)
-        // TODO: replace all this code with QFile::rename once
-        // https://codereview.qt-project.org/44823 is in
-        if ((err == ERR_FILE_ALREADY_EXIST || err == ERR_DIR_ALREADY_EXIST || err == ERR_IDENTICAL_FILES) &&
-                m_currentSrcURL.isLocalFile() && dest.isLocalFile()) {
+        if ((err == ERR_FILE_ALREADY_EXIST || err == ERR_DIR_ALREADY_EXIST || err == ERR_IDENTICAL_FILES)
+            && m_currentSrcURL.isLocalFile() && dest.isLocalFile()) {
             const QString _src(m_currentSrcURL.adjusted(QUrl::StripTrailingSlash).toLocalFile());
             const QString _dest(dest.adjusted(QUrl::StripTrailingSlash).toLocalFile());
-            if (_src != _dest && QString::compare(_src, _dest, Qt::CaseInsensitive) == 0) {
-                qCDebug(KIO_COPYJOB_DEBUG) << "Couldn't rename directly, dest already exists. Detected special case of lower/uppercase renaming in same dir, try with 2 rename calls";
-                const QString srcDir = QFileInfo(_src).absolutePath();
-                QTemporaryFile tmpFile(srcDir + QLatin1String("/kio_XXXXXX"));
-                const bool openOk = tmpFile.open();
-                if (!openOk) {
-                    qCWarning(KIO_CORE) << "Couldn't open temp file in" << srcDir;
-                } else {
-                    const QString _tmp(tmpFile.fileName());
-                    tmpFile.close();
-                    tmpFile.remove();
-                    qCDebug(KIO_COPYJOB_DEBUG) << "QTemporaryFile using" << _tmp << "as intermediary";
-                    if (QFile::rename(_src, _tmp)) {
-                        qCDebug(KIO_COPYJOB_DEBUG) << "Renaming" << _src << "to" << _tmp << "succeeded";
-                        if (!QFile::exists(_dest) && QFile::rename(_tmp, _dest)) {
-                            err = 0;
-                            org::kde::KDirNotify::emitFileRenamed(m_currentSrcURL, dest);
-                        } else {
-                            qCDebug(KIO_COPYJOB_DEBUG) << "Didn't manage to rename" << _tmp << "to" << _dest << ", reverting";
-                            // Revert back to original name!
-                            if (!QFile::rename(_tmp, _src)) {
-                                qCWarning(KIO_CORE) << "Couldn't rename" << _tmp << "back to" << _src << '!';
-                                // Severe error, abort
-                                q->Job::slotResult(job); // will set the error and emit result(this)
-                                return;
-                            }
-                        }
-                    } else {
-                        qCDebug(KIO_COPYJOB_DEBUG) << "mv" << _src << _tmp << "failed:" << strerror(errno);
-                    }
-                }
+            if (QFile::rename(_src, _dest)) {
+                err = 0;
+                org::kde::KDirNotify::emitFileRenamed(m_currentSrcURL, dest);
+            } else {
+                q->Job::slotResult(job);
+                return;
             }
         }
     }
