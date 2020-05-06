@@ -1070,6 +1070,20 @@ void KNewFileMenuPrivate::_k_slotTextChanged(const QString &text)
         m_messageWidget->animatedShow();
     }
 
+    // File or folder begins with a space; show warning
+    else if (text.startsWith(QLatin1Char(' '))) {
+        m_messageWidget->setText(xi18nc("@info", "The name <filename>%1</filename> starts with a space, which will result in it being shown before other items when sorting alphabetically, among other potential oddities.", text));
+        m_messageWidget->setMessageType(KMessageWidget::Warning);
+        m_messageWidget->animatedShow();
+    }
+
+    // File or folder ends with a space; show warning
+    else if (text.endsWith(QLatin1Char(' '))) {
+        m_messageWidget->setText(xi18nc("@info", "The name <filename>%1</filename> ends with a space, which is a bit unusual and may be unintentional.", text));
+        m_messageWidget->setMessageType(KMessageWidget::Warning);
+        m_messageWidget->animatedShow();
+    }
+
 #ifndef Q_OS_WIN
     // Inform the user that slashes in folder names create a directory tree
     else if (text.contains(QLatin1Char('/'))) {
