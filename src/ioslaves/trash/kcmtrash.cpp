@@ -284,8 +284,8 @@ void TrashConfigModule::setupGui()
 
 
     mPercent = new QDoubleSpinBox(this);
-    mPercent->setRange(0.001, 100);
-    mPercent->setDecimals(3);
+    mPercent->setRange(0.01, 100);
+    mPercent->setDecimals(2);
     mPercent->setSingleStep(1);
     mPercent->setSuffix(QStringLiteral(" %"));
     mPercent->setWhatsThis(xi18nc("@info:whatsthis",
