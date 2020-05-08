@@ -1914,8 +1914,8 @@ void JobTest::safeOverwrite_data()
 {
     QTest::addColumn<bool>("destFileExists");
 
-    QTest::newRow("dest file exists") << true;
-    QTest::newRow("dest file doesn't exist") << false;
+    QTest::newRow("dest_file_exists") << true;
+    QTest::newRow("dest_file_does_not_exist") << false;
 }
 
 void JobTest::safeOverwrite()
@@ -1934,10 +1934,14 @@ void JobTest::safeOverwrite()
     createTestDirectory(srcDir);
     createTestDirectory(destDir);
 
-    QVERIFY(QFile::resize(srcFile, 1000000)); //~1MB
+    const int srcSize = 1000000; // ~1MB
+    QVERIFY(QFile::resize(srcFile, srcSize));
     if (!destFileExists) {
         QVERIFY(QFile::remove(destFile));
+    } else {
+        QVERIFY(QFile::exists(destFile));
     }
+    QVERIFY(!QFile::exists(destPartFile));
 
     if (otherTmpDirIsOnSamePartition()) {
         QSKIP(qPrintable(QStringLiteral("This test requires %1 and %2 to be on different partitions").arg(srcDir, destDir)));
@@ -1946,10 +1950,11 @@ void JobTest::safeOverwrite()
     KIO::FileCopyJob *job = KIO::file_move(QUrl::fromLocalFile(srcFile), QUrl::fromLocalFile(destFile), -1, KIO::HideProgressInfo | KIO::Overwrite);
     job->setUiDelegate(nullptr);
     QSignalSpy spyTotalSize(job, &KIO::FileCopyJob::totalSize);
-    connect(job, &KIO::FileCopyJob::totalSize, this, [destFileExists, destPartFile](KJob *job, qulonglong totalSize) {
+    connect(job, &KIO::FileCopyJob::processedSize, this, [destFileExists, destPartFile](KJob *job, qulonglong size) {
         Q_UNUSED(job);
-        if (totalSize > 0) {
-            QCOMPARE(destFileExists, QFile::exists(destPartFile));
+        if (size > 0 && size < srcSize) {
+            // To avoid overwriting dest, we want the kioslave to use dest.part
+            QCOMPARE(QFileInfo::exists(destPartFile), destFileExists);
         }
     });
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
