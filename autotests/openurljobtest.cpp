@@ -232,7 +232,7 @@ void OpenUrlJobTest::refuseRunningRemoteNativeExecutables()
     QVERIFY2(job->errorString().contains("For safety it will not be started"), qPrintable(job->errorString()));
 }
 
-KCONFIGCORE_EXPORT void reloadUrlActionRestrictions();
+KCONFIGCORE_EXPORT void loadUrlActionRestrictions(const KConfigGroup &cg);
 
 void OpenUrlJobTest::notAuthorized()
 {
@@ -240,7 +240,7 @@ void OpenUrlJobTest::notAuthorized()
     cg.writeEntry("rule_count", 1);
     cg.writeEntry("rule_1", QStringList{"open", {}, {}, {}, "file", "", "", "false"});
     cg.sync();
-    reloadUrlActionRestrictions();
+    loadUrlActionRestrictions(cg);
 
     KIO::OpenUrlJob *job = new KIO::OpenUrlJob(QUrl("file:///"), QStringLiteral("text/plain"), this);
     QVERIFY(!job->exec());
@@ -250,7 +250,7 @@ void OpenUrlJobTest::notAuthorized()
     cg.deleteEntry("rule_1");
     cg.deleteEntry("rule_count");
     cg.sync();
-    reloadUrlActionRestrictions();
+    loadUrlActionRestrictions(cg);
 }
 
 void OpenUrlJobTest::runScript_data()
