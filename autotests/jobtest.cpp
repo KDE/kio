@@ -1950,7 +1950,7 @@ void JobTest::safeOverwrite()
     KIO::FileCopyJob *job = KIO::file_move(QUrl::fromLocalFile(srcFile), QUrl::fromLocalFile(destFile), -1, KIO::HideProgressInfo | KIO::Overwrite);
     job->setUiDelegate(nullptr);
     QSignalSpy spyTotalSize(job, &KIO::FileCopyJob::totalSize);
-    connect(job, &KIO::FileCopyJob::processedSize, this, [destFileExists, destPartFile](KJob *job, qulonglong size) {
+    connect(job, &KIO::FileCopyJob::processedSize, this, [&](KJob *job, qulonglong size) {
         Q_UNUSED(job);
         if (size > 0 && size < srcSize) {
             // To avoid overwriting dest, we want the kioslave to use dest.part
