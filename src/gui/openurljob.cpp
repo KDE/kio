@@ -56,7 +56,8 @@ class KIO::OpenUrlJobPrivate
 {
 public:
     explicit OpenUrlJobPrivate(const QUrl &url, OpenUrlJob *qq)
-        : m_url(url), q(qq) {
+        : m_url(url), q(qq)
+    {
         q->setCapabilities(KJob::Killable);
     }
 
@@ -135,9 +136,8 @@ void KIO::OpenUrlJob::setFollowRedirections(bool b)
 
 static bool checkNeedPortalSupport()
 {
-    return !QStandardPaths::locate(QStandardPaths::RuntimeLocation,
-                                   QLatin1String("flatpak-info")).isEmpty() ||
-            qEnvironmentVariableIsSet("SNAP");
+    return !(QStandardPaths::locate(QStandardPaths::RuntimeLocation, QLatin1String("flatpak-info")).isEmpty()
+            || qEnvironmentVariableIsSet("SNAP"));
 }
 
 void KIO::OpenUrlJob::start()
@@ -296,8 +296,7 @@ void KIO::OpenUrlJobPrivate::statFile()
             return;
         }
 
-        const mode_t mode = entry.numberValue(KIO::UDSEntry::UDS_FILE_TYPE);
-        if ((mode & QT_STAT_MASK) == QT_STAT_DIR) { // it's a dir
+        if (entry.isDir()) {
             m_mimeTypeName = QStringLiteral("inode/directory");
             runUrlWithMimeType();
         } else { // it's a file
@@ -363,8 +362,7 @@ void KIO::OpenUrlJobPrivate::scanFileWithGet()
 
     KIO::TransferJob *job = KIO::get(m_url, KIO::NoReload /*reload*/, KIO::HideProgressInfo);
     job->setUiDelegate(nullptr);
-    QObject::connect(job, &KJob::result,
-                     q, [=]() {
+    QObject::connect(job, &KJob::result, q, [=]() {
         const int errCode = job->error();
         if (errCode) {
              // ERR_NO_CONTENT is not an error, but an indication no further
@@ -389,9 +387,10 @@ void KIO::OpenUrlJobPrivate::scanFileWithGet()
 
         // If the current mime-type is the default mime-type, then attempt to
         // determine the "real" mimetype from the file name (bug #279675)
-        QMimeType mime = fixupMimeType(m_mimeTypeName, m_suggestedFileName.isEmpty() ? m_url.fileName() : m_suggestedFileName);
-        if (mime.isValid() && mime.name() != m_mimeTypeName) {
-            m_mimeTypeName = mime.name();
+        const QMimeType mime = fixupMimeType(m_mimeTypeName, m_suggestedFileName.isEmpty() ? m_url.fileName() : m_suggestedFileName);
+        const QString mimeName = mime.name();
+        if (mime.isValid() && mimeName != m_mimeTypeName) {
+            m_mimeTypeName = mimeName;
         }
 
         if (m_suggestedFileName.isEmpty()) {
@@ -448,8 +447,7 @@ static bool isExecutableMime(const QMimeType &mimeType)
 // Helper function that returns whether a file has the execute bit set or not.
 static bool hasExecuteBit(const QString &fileName)
 {
-    QFileInfo file(fileName);
-    return file.isExecutable();
+    return QFileInfo(fileName).isExecutable();
 }
 
 namespace KIO {
@@ -465,7 +463,7 @@ bool KIO::OpenUrlJobPrivate::handleExecutables(const QMimeType &mimeType)
         return true; // handled
     }
 
-    // Check whether file is executable script
+    // Check whether file is an executable script
 #ifdef Q_OS_WIN
     const bool isNativeBinary = !mimeType.inherits(QStringLiteral("text/plain"));
 #else
@@ -573,9 +571,9 @@ void KIO::OpenUrlJobPrivate::runUrlWithMimeType()
                 return;
             }
             if ((cfg.hasApplicationType()
-                 || cfg.readType() == QLatin1String("Service"))// for kio_settings
-                    && !cfgGroup.readEntry("Exec").isEmpty()
-                    && m_runExecutables) {
+                 || cfg.readType() == QLatin1String("Service")) // for kio_settings
+                && !cfgGroup.readEntry("Exec").isEmpty()
+                && m_runExecutables) {
                 KService::Ptr service(new KService(filePath));
                 startService(service);
                 return;
@@ -588,7 +586,7 @@ void KIO::OpenUrlJobPrivate::runUrlWithMimeType()
 
     // Scripts and executables
     QMimeDatabase db;
-    QMimeType mimeType = db.mimeTypeForName(m_mimeTypeName);
+    const QMimeType mimeType = db.mimeTypeForName(m_mimeTypeName);
     if (isExecutableMime(mimeType)) {
         if (handleExecutables(mimeType)) {
             return;
@@ -614,7 +612,7 @@ void KIO::OpenUrlJobPrivate::showOpenWithDialog()
     }
 
     if (!s_openUrlJobHandler || QOperatingSystemVersion::currentType() == QOperatingSystemVersion::Windows) {
-        // As KDE on windows doesn't know about the windows default applications offers will be empty in nearly all cases.
+        // As KDE on windows doesn't know about the windows default applications, offers will be empty in nearly all cases.
         // So we use QDesktopServices::openUrl to let windows decide how to open the file.
         // It's also our fallback if there's no handler to show an open-with dialog.
         if (!QDesktopServices::openUrl(m_url)) {

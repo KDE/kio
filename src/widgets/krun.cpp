@@ -209,7 +209,7 @@ bool KRun::displayOpenWithDialog(const QList<QUrl> &lst, QWidget *window, bool t
 #endif
 
     // TODO : pass the mimetype as a parameter, to show it (comment field) in the dialog !
-    // Hmm, in fact KOpenWithDialog::setServiceType already guesses the mimetype from the first URL of the list...
+    // Note KOpenWithDialog::setMimeTypeFromUrls already guesses the mimetype if lst.size() == 1
     KOpenWithDialog dialog(lst, QString(), QString(), window);
     dialog.setWindowModality(Qt::WindowModal);
     if (dialog.exec()) {

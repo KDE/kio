@@ -47,13 +47,13 @@ class KIOGUI_EXPORT OpenUrlJob : public KCompositeJob
     Q_OBJECT
 public:
     /**
-     * @brief Creates a OpenUrlJob in order to open a URL.
+     * @brief Creates an OpenUrlJob in order to open a URL.
      * @param url the URL of the file/directory to open
      */
     explicit OpenUrlJob(const QUrl &url, QObject *parent = nullptr);
 
     /**
-     * @brief Creates a OpenUrlJob for the case where the mimeType is already known
+     * @brief Creates an OpenUrlJob for the case where the mimeType is already known
      * @param url the URL of the file/directory to open
      * @param mimeType the type of file/directory. See QMimeType.
      */
@@ -62,7 +62,7 @@ public:
     /**
      * Destructor
      *
-     * Note that jobs auto-delete themselves after emitting result.
+     * Note that by default jobs auto-delete themselves after emitting result.
      */
     ~OpenUrlJob() override;
 
@@ -72,8 +72,8 @@ public:
     void setDeleteTemporaryFile(bool b);
 
     /**
-     * Sets the file name to use in the case of downloading the file to a tempfile
-     * in order to give to a non-URL-aware application.
+     * Sets the file name to use in the case of downloading the file to a tempfile,
+     * in order to give it to a non-URL-aware application.
      * Some apps rely on the extension to determine the mimetype of the file.
      * Usually the file name comes from the URL, but in the case of the
      * HTTP Content-Disposition header, we need to override the file name.
@@ -98,7 +98,7 @@ public:
      * Sets whether the external webbrowser setting should be honoured.
      * This is enabled by default.
      * This should only be disabled in webbrowser applications.
-     * @param b whether to enable the external browser or not.
+     * @param b whether to let the external browser handle the URL or not
      */
     void setEnableExternalBrowser(bool b);
 
@@ -111,14 +111,14 @@ public:
 
     /**
      * Starts the job.
-     * You must call this, after having done all the setters.
+     * You must call this, after having called all the needed setters.
      * This is a GUI job, never use exec(), it would block user interaction.
      */
     void start() override;
 
 Q_SIGNALS:
     /**
-     * Emitted when the mimeType was determined.
+     * Emitted when the mimeType is determined.
      * This can be used for special cases like webbrowsers
      * who want to embed the URL in some cases, rather than starting a different
      * application. In that case they can kill the job.

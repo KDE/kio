@@ -31,7 +31,7 @@ namespace KIO {
 // TODO KF6: Make KIO::JobUiDelegate inherit from WidgetsOpenUrlJobHandler
 // (or even merge the two classes)
 // so that setDelegate(new KIO::JobUiDelegate) provides both dialog boxes on error
-// and the open with dialog.
+// and the open-with dialog.
 
 class WidgetsOpenUrlJobHandler : public OpenUrlJobHandlerInterface
 {

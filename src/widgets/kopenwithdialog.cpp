@@ -521,11 +521,10 @@ public:
     void addToMimeAppsList(const QString &serviceId);
 
     /**
-     * Create a dialog that asks for a application to open a given
-     * URL(s) with.
+     * Creates a dialog that lets the user select an application for opening one or more URLs.
      *
-     * @param text   appears as a label on top of the entry box.
-     * @param value  is the initial value of the line
+     * @param text   appears as a label on top of the entry box
+     * @param value  is the initial value in the entry box
      */
     void init(const QString &text, const QString &value);
 

@@ -34,7 +34,7 @@ class OpenUrlJobHandlerInterfacePrivate;
  * @class OpenUrlJobHandlerInterface openurljobhandlerinterface.h <KIO/OpenUrlJobHandlerInterface>
  * @brief The OpenUrlJobHandlerInterface class allows OpenUrlJob to
  * prompt the user about which application to use to open URLs that do not
- * have an associated application (the "Open With" dialog).
+ * have an associated application (via the "Open With" dialog).
  *
  * This extension mechanism for jobs is similar to KIO::JobUiDelegateExtension
  * and UntrustedProgramHandlerInterface.
@@ -58,21 +58,21 @@ protected:
 public:
     /**
      * Show the "Open With" dialog.
-     * @param job the job calling this. Useful to get all is properties
+     * @param job the job calling this. Useful to get all its properties
      * @param url the URL to open
      * @param mimeType the mimeType of the URL
      *
      * Implementations of this method must emit either serviceSelected or canceled.
      *
-     * The default implementation in this base class simply emits cancelled().
-     * Any application using KIO::JobUiDelegate (KIOWidgets) will benefit from an
+     * The default implementation in this base class simply emits canceled().
+     * Any application using KIO::JobUiDelegate (from KIOWidgets) will benefit from an
      * automatically registered subclass which implements this method using KOpenWithDialog.
      */
     virtual void promptUserForApplication(KIO::OpenUrlJob *job, const QUrl &url, const QString &mimeType);
 
 Q_SIGNALS:
     /**
-     * Emitted by promptUserForApplication() once the user chose an application.
+     * Emitted by promptUserForApplication() once the user chooses an application.
      * @param service the application chosen by the user
      */
     void serviceSelected(const KService::Ptr &service);

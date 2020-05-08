@@ -43,7 +43,6 @@ enum BuiltinServiceType { ST_MOUNT = 0x0E1B05B0, ST_UNMOUNT = 0x0E1B05B1 }; // r
 static bool runFSDevice(const QUrl &_url, const KDesktopFile &cfg, const QByteArray &asn);
 static bool runLink(const QUrl &_url, const KDesktopFile &cfg, const QByteArray &asn);
 
-
 // TODO KF6 remove, use OpenUrlJob instead
 bool KDesktopFileActions::run(const QUrl &u, bool _is_local)
 {
