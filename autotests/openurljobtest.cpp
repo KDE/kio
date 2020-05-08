@@ -79,8 +79,9 @@ void OpenUrlJobTest::initTestCase()
     QFile::remove(mimeApps);
 
     ksycoca_ms_between_checks = 0; // need it to check the ksycoca mtime
-    const QString fakeService = QStandardPaths::writableLocation(QStandardPaths::ApplicationsLocation) + QLatin1Char('/') + s_tempServiceName;
+    QString fakeService = QStandardPaths::writableLocation(QStandardPaths::ApplicationsLocation) + QLatin1Char('/') + s_tempServiceName;
     writeApplicationDesktopFile(fakeService);
+    fakeService = QFileInfo(fakeService).canonicalFilePath();
     m_filesToRemove.append(fakeService);
 
     // Ensure our service is the preferred one
