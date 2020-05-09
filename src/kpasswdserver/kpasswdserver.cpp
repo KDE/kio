@@ -422,6 +422,9 @@ void KPasswdServer::addAuthInfo(const KIO::AuthInfo &info, qlonglong windowId)
 {
     qCDebug(category) << "User =" << info.username << ", Realm =" << info.realmValue
                       << ", WindowId =" << windowId;
+    if (!info.keepPassword) {
+        qWarning() << "This kioslave is caching a password in KWallet even though the user didn't ask for it!";
+    }
     const QString key(createCacheKey(info));
 
     m_seqNr++;
