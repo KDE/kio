@@ -65,6 +65,11 @@ public:
     void remove(const QString &directoryName);
 
     /**
+     * Renames a directory in the cache.
+     */
+    void rename(const QString &oldDirectoryName, const QString &newDirectoryName);
+
+    /**
      * Sets the trash size to 0 bytes.
      */
     void clear();

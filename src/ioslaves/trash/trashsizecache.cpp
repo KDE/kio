@@ -39,11 +39,17 @@ TrashSizeCache::TrashSizeCache(const QString &path)
     //qCDebug(KIO_TRASH) << "CACHE:" << mTrashSizeCachePath;
 }
 
+// Only the last part of the line: space, directory name, '\n'
+static QByteArray spaceAndDirectoryAndNewline(const QString &directoryName)
+{
+    const QByteArray encodedDir = QFile::encodeName(directoryName).toPercentEncoding();
+    return ' ' + encodedDir + '\n';
+}
+
 void TrashSizeCache::add(const QString &directoryName, qulonglong directorySize)
 {
     //qCDebug(KIO_TRASH) << directoryName << directorySize;
-    const QByteArray encodedDir = QFile::encodeName(directoryName).toPercentEncoding();
-    const QByteArray spaceAndDirAndNewline = ' ' + encodedDir + '\n';
+    const QByteArray spaceAndDirAndNewline = spaceAndDirectoryAndNewline(directoryName);
     QFile file(mTrashSizeCachePath);
     QSaveFile out(mTrashSizeCachePath);
     if (out.open(QIODevice::WriteOnly)) {
@@ -71,8 +77,7 @@ void TrashSizeCache::add(const QString &directoryName, qulonglong directorySize)
 void TrashSizeCache::remove(const QString &directoryName)
 {
     //qCDebug(KIO_TRASH) << directoryName;
-    const QByteArray encodedDir = QFile::encodeName(directoryName).toPercentEncoding();
-    const QByteArray spaceAndDirAndNewline = ' ' + encodedDir + '\n';
+    const QByteArray spaceAndDirAndNewline = spaceAndDirectoryAndNewline(directoryName);
     QFile file(mTrashSizeCachePath);
     QSaveFile out(mTrashSizeCachePath);
     if (file.open(QIODevice::ReadOnly) && out.open(QIODevice::WriteOnly)) {
@@ -81,6 +86,24 @@ void TrashSizeCache::remove(const QString &directoryName)
             if (line.endsWith(spaceAndDirAndNewline)) {
                 // Found it -> skip it
                 continue;
+            }
+            out.write(line);
+        }
+    }
+    out.commit();
+}
+
+void TrashSizeCache::rename(const QString &oldDirectoryName, const QString &newDirectoryName)
+{
+    const QByteArray spaceAndDirAndNewline = spaceAndDirectoryAndNewline(oldDirectoryName);
+    QFile file(mTrashSizeCachePath);
+    QSaveFile out(mTrashSizeCachePath);
+    if (file.open(QIODevice::ReadOnly) && out.open(QIODevice::WriteOnly)) {
+        while (!file.atEnd()) {
+            QByteArray line = file.readLine();
+            if (line.endsWith(spaceAndDirAndNewline)) {
+                // Found it -> rename it, keeping the size
+                line = line.left(line.length() - spaceAndDirAndNewline.length()) + spaceAndDirectoryAndNewline(newDirectoryName);
             }
             out.write(line);
         }

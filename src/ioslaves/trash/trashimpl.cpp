@@ -566,6 +566,11 @@ bool TrashImpl::moveInTrash(int trashId, const QString &oldFileId, const QString
     if (directRename(oldInfo, newInfo)) {
         if (directRename(oldFile, newFile)) {
             // success
+
+            if (QFileInfo(newFile).isDir()) {
+                TrashSizeCache trashSize(trashDirectoryPath(trashId));
+                trashSize.rename(oldFileId, newFileId);
+            }
             return true;
         } else {
             // rollback
