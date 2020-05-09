@@ -176,7 +176,7 @@ QList<KServiceAction> KDesktopFileActions::builtinServices(const QUrl &_url)
     }
 
     if (offerMount) {
-        KServiceAction mount(QStringLiteral("mount"), i18n("Mount"), QString(), QString(), false);
+        KServiceAction mount(QStringLiteral("mount"), i18n("Mount"), QString(), QString(), false, {});
         mount.setData(QVariant(ST_MOUNT));
         result.append(mount);
     }
@@ -191,7 +191,7 @@ QList<KServiceAction> KDesktopFileActions::builtinServices(const QUrl &_url)
 #else
         text = i18n("Unmount");
 #endif
-        KServiceAction unmount(QStringLiteral("unmount"), text, QString(), QString(), false);
+        KServiceAction unmount(QStringLiteral("unmount"), text, QString(), QString(), false, {});
         unmount.setData(QVariant(ST_UNMOUNT));
         result.append(unmount);
     }
