@@ -22,6 +22,7 @@
 #include "global.h"
 #include "copyjob.h"
 #include "kiocoredebug.h"
+#include "kioglobal_p.h"
 #include <errno.h>
 #include "kcoredirlister.h"
 #include "kfileitem.h"
