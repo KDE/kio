@@ -1043,6 +1043,18 @@ void FileProtocol::rename(const QUrl &srcUrl, const QUrl &destUrl,
     // with its target (#169547)
     bool dest_exists = (QT_LSTAT(_dest.data(), &buff_dest) != -1);
     if (dest_exists) {
+        // Try QFile::rename(), this can help when renaming 'a' to 'A' on a case-insensitive
+        // filesystem, e.g. FAT32/VFAT.
+        if (src != dest && QString::compare(src, dest, Qt::CaseInsensitive) == 0) {
+            qCDebug(KIO_FILE) << "Dest already exists; detected special case of lower/uppercase renaming"
+                              << "in same dir on a case-insensitive filesystem, try with QFile::rename()"
+                              << "(which uses 2 rename calls)";
+            if (QFile::rename(src, dest)) {
+                finished();
+                return;
+            }
+        }
+
         if (same_inode(buff_dest, buff_src)) {
             error(KIO::ERR_IDENTICAL_FILES, dest);
             return;

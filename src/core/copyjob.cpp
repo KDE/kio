@@ -1961,23 +1961,7 @@ void CopyJobPrivate::slotResultRenaming(KJob *job)
     if (destinationState == DEST_IS_DIR && !m_asMethod) {
         dest = addPathToUrl(dest, m_currentSrcURL.fileName());
     }
-    if (err) {
-        // Direct renaming didn't work. Use QFile::rename(),
-        // this can help e.g. when renaming 'a' to 'A' on a VFAT partition.
-        // In that case it's the _same_ dir, we don't want to copy+del (data loss!)
-        if ((err == ERR_FILE_ALREADY_EXIST || err == ERR_DIR_ALREADY_EXIST || err == ERR_IDENTICAL_FILES)
-            && m_currentSrcURL.isLocalFile() && dest.isLocalFile()) {
-            const QString _src(m_currentSrcURL.adjusted(QUrl::StripTrailingSlash).toLocalFile());
-            const QString _dest(dest.adjusted(QUrl::StripTrailingSlash).toLocalFile());
-            if (QFile::rename(_src, _dest)) {
-                err = 0;
-                org::kde::KDirNotify::emitFileRenamed(m_currentSrcURL, dest);
-            } else {
-                q->Job::slotResult(job);
-                return;
-            }
-        }
-    }
+
     if (err) {
         // This code is similar to CopyJobPrivate::slotResultErrorCopyingFiles
         // but here it's about the base src url being moved/renamed
