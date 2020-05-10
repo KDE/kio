@@ -82,8 +82,7 @@ public:
      * @param asn
      *        Application startup notification id, if available (otherwise "").
      *
-     * Porting note: kdelibs 4 had mode_t mode and bool isLocalFile arguments after
-     * window and before showProgressInfo. Removed in KF5.
+     * @deprecated since 5.71, use KIO::OpenUrlJob(url) (except for KRun subclasses, for now)
      */
     KRun(const QUrl &url, QWidget *window,
          bool showProgressInfo = true,
@@ -213,15 +212,26 @@ public:
      * @param asn Application startup notification id, if any (otherwise "").
      * @return @c true on success, @c false on error
      *
-     * @deprecated since 5.6, use runApplication instead. No change needed on the application side,
-     * the only difference is the return value (qint64 instead of bool).
+     * @deprecated since 5.6. Since 5.71 use ApplicationLauncherJob, otherwise runApplication instead.
+     * @code
+     *   KIO::ApplicationLauncherJob *job = new KIO::ApplicationLauncherJob(service);
+     *   job->setUrls(urls);
+     *   job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, window));
+     *   if (tempFiles) {
+     *       job->setRunFlags(KIO::ApplicationLauncherJob::DeleteTemporaryFiles);
+     *   }
+     *   job->setSuggestedFileName(suggestedFileName);
+     *   job->setStartupId(asn);
+     *   job->start();
+     * @endcode
      */
-    KIOWIDGETS_DEPRECATED_VERSION(5, 6, "Use KRun::runApplication(const KService &, const QList<QUrl> &, QWidget *, RunFlags, const QString &, const QByteArray &")
+    KIOWIDGETS_DEPRECATED_VERSION(5, 6, "Use KIO::ApplicationLauncherJob, see API docs for a code sample")
     static bool run(const KService &service, const QList<QUrl> &urls, QWidget *window,
                     bool tempFiles = false, const QString &suggestedFileName = QString(),
                     const QByteArray &asn = QByteArray());
 #endif
 
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 71)
     /**
      * Open a list of URLs with a certain service (application).
      *
@@ -239,10 +249,23 @@ public:
      * @param asn Application startup notification id, if any (otherwise "").
      * @return 0 on error, the process ID on success
      * @since 5.6
+     * @deprecated since 5.71, use ApplicationLauncherJob instead.
+     * @code
+     *   KIO::ApplicationLauncherJob *job = new KIO::ApplicationLauncherJob(service);
+     *   job->setUrls(urls);
+     *   job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, window));
+     *   if (tempFiles) {
+     *       job->setRunFlags(KIO::ApplicationLauncherJob::DeleteTemporaryFiles);
+     *   }
+     *   job->setSuggestedFileName(suggestedFileName);
+     *   job->setStartupId(asn);
+     *   job->start();
+     * @endcode
      */
+    KIOWIDGETS_DEPRECATED_VERSION(5, 71, "Use KIO::ApplicationLauncherJob, see API docs for a code sample")
     static qint64 runService(const KService &service, const QList<QUrl> &urls, QWidget *window,
                              bool tempFiles = false, const QString &suggestedFileName = QString(),
-                             const QByteArray &asn = QByteArray()); // TODO KF6: deprecate/remove
+                             const QByteArray &asn = QByteArray());
 
     /**
      * @see RunFlags
@@ -253,6 +276,7 @@ public:
     };
     /**
      * Stores a combination of #RunFlag values.
+     * @deprecated since 5.71, see porting instructions in the respective methods
      */
     Q_DECLARE_FLAGS(RunFlags, RunFlag)
 
@@ -273,7 +297,19 @@ public:
      * @param asn Application startup notification id, if any (otherwise "").
      * @return 0 on error, the process ID on success
      * @since 5.24
+     *
+     * @deprecated since 5.71, use ApplicationLauncherJob instead.
+     * @code
+     *   KIO::ApplicationLauncherJob *job = new KIO::ApplicationLauncherJob(service);
+     *   job->setUrls(urls);
+     *   job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, window));
+     *   job->setSuggestedFileName(suggestedFileName);
+     *   job->setRunFlags(flags);
+     *   job->setStartupId(asn);
+     *   job->start();
+     * @endcode
      */
+    KIOWIDGETS_DEPRECATED_VERSION(5, 71, "Use KIO::ApplicationLauncherJob, see API docs for a code sample")
     static qint64 runApplication(const KService &service, const QList<QUrl> &urls, QWidget *window,
                                  RunFlags flags = RunFlags(), const QString &suggestedFileName = QString(),
                                  const QByteArray &asn = QByteArray());
@@ -293,11 +329,23 @@ public:
      * @param icon the icon which should be used by the application.
      * @param asn Application startup notification id, if any (otherwise "").
      * @return @c true on success, @c false on error
+     *
+     * @deprecated since 5.71, use KIO::ApplicationLauncherJob with a temporary KService
+     * @code
+     *   KService::Ptr service(new KService(name, exec, icon));
+     *   KIO::ApplicationLauncherJob *job = new KIO::ApplicationLauncherJob(service);
+     *   job->setUrls(urls);
+     *   job->setUiDelegate(new KDialogJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, window));
+     *   job->setStartupId(asn);
+     *   job->start();
+     * @endcode
      */
+    KIOWIDGETS_DEPRECATED_VERSION(5, 71, "Use KIO::ApplicationLauncherJob with a temporary KService, see API docs for a code sample")
     static bool run(const QString &exec, const QList<QUrl> &urls, QWidget *window,
                     const QString &name = QString(),
                     const QString &icon = QString(),
                     const QByteArray &asn = QByteArray());
+#endif
 
 #if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 31)
     /**
@@ -317,14 +365,24 @@ public:
      * @param suggestedFileName see setSuggestedFileName
      * @param asn Application startup notification id, if any (otherwise "").
      * @return @c true on success, @c false on error
-     * @deprecated since 5.31, use runUrl() with RunFlags instead.
+     * @deprecated since 5.31. Since 5.71 use OpenUrlJob, otherwise runUrl() with RunFlags.
+     * @code
+     *   KIO::OpenUrlJob *job = new KIO::OpenUrlJob(url, mimetype);
+     *   job->setSuggestedFileName(suggestedFileName);
+     *   job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, window));
+     *   job->setRunExecutables(runExecutables);
+     *   job->setDeleteTemporaryFile(...); // depending on the old RunFlags
+     *   job->setStartupId(asn);
+     *   job->start();
+     * @endcode
      */
-    KIOWIDGETS_DEPRECATED_VERSION(5, 31, "Use KRun::const QUrl &, const QString &, QWidget *, RunFlags, const QString &, const QByteArray &")
+    KIOWIDGETS_DEPRECATED_VERSION(5, 31, "Use KIO::OpenUrlJob, see API docs for a code sample")
     static bool runUrl(const QUrl &url, const QString &mimetype, QWidget *window,
                        bool tempFile = false, bool runExecutables = true,
                        const QString &suggestedFileName = QString(), const QByteArray &asn = QByteArray());
 #endif
 
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 71)
     /**
      * Open the given URL.
      *
@@ -339,7 +397,18 @@ public:
      * @param asn Application startup notification id, if any (otherwise "").
      * @return @c true on success, @c false on error
      * @since 5.31
+     * @deprecated since 5.71, use KIO::OpenUrlJob:
+     * @code
+     *   KIO::OpenUrlJob *job = new KIO::OpenUrlJob(url, mimetype);
+     *   job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, window));
+     *   job->setRunExecutables(runExecutables);
+     *   job->setDeleteTemporaryFile(...); // depending on the old RunFlags
+     *   job->setSuggestedFileName(suggestedFileName);
+     *   job->setStartupId(asn);
+     *   job->start();
+     * @endcode
      */
+    KIOWIDGETS_DEPRECATED_VERSION(5, 71, "Use KIO::OpenUrlJob, see API docs for a code sample")
     static bool runUrl(const QUrl &url, const QString &mimetype, QWidget *window, RunFlags flags,
                        const QString &suggestedFileName = QString(), const QByteArray &asn = QByteArray());
 
@@ -358,7 +427,15 @@ public:
      * a command like "kwrite file.txt" finds file.txt from the right place
      *
      * @return @c true on success, @c false on error
+     * @deprecated since 5.71, use KIO::CommandLauncherJob
+     * @code
+     *   KIO::CommandLauncherJob *job = new KIO::CommandLauncherJob(cmd);
+     *   job->setUiDelegate(new KDialogJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, window));
+     *   job->setWorkingDirectory(workingDirectory);
+     *   job->start();
+     * @endcode
      */
+    KIOWIDGETS_DEPRECATED_VERSION(5, 71, "Use KIO::CommandLauncherJob, see API docs for a code sample")
     static bool runCommand(const QString &cmd, QWidget *window, const QString &workingDirectory = QString());
 
     /**
@@ -372,7 +449,18 @@ public:
      * @param window The top-level widget of the app that invoked this object.
      * @param asn Application startup notification id, if any (otherwise "").
      * @return @c true on success, @c false on error
+     * @deprecated since 5.71, use KIO::CommandLauncherJob
+     * @code
+     *   KIO::CommandLauncherJob *job = new KIO::CommandLauncherJob(cmd);
+     *   job->setUiDelegate(new KDialogJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, window));
+     *   job->setWorkingDirectory(workingDirectory);
+     *   job->setExecutable(execName);
+     *   job->setIcon(icon);
+     *   job->setStartupId(asn);
+     *   job->start();
+     * @endcode
      */
+    KIOWIDGETS_DEPRECATED_VERSION(5, 71, "Use KIO::CommandLauncherJob, see API docs for a code sample")
     static bool runCommand(const QString &cmd, const QString &execName,
                            const QString &icon, QWidget *window, const QByteArray &asn = QByteArray());
 
@@ -382,11 +470,22 @@ public:
      * @param workingDirectory the working directory for the started process. The default
      *                         (if passing an empty string) is the user's document path.
      * @since 4.4
+     * @deprecated since 5.71, use KIO::CommandLauncherJob instead
+     * @code
+     *   KIO::CommandLauncherJob *job = new KIO::CommandLauncherJob(cmd);
+     *   job->setUiDelegate(new KDialogJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, window));
+     *   job->setWorkingDirectory(workingDirectory);
+     *   job->setExecutable(execName);
+     *   job->setIcon(icon);
+     *   job->setStartupId(asn);
+     *   job->start();
+     * @endcode
      */
+    KIOWIDGETS_DEPRECATED_VERSION(5, 71, "Use KIO::CommandLauncherJob, see API docs for a code sample")
     static bool runCommand(const QString &cmd, const QString &execName,
                            const QString &icon, QWidget *window,
                            const QByteArray &asn, const QString &workingDirectory);
-    // TODO KDE5: merge the above with 5-args runCommand, using QString()
+#endif
 
     /**
      * Display the Open-With dialog for those URLs, and run the chosen application.
@@ -497,7 +596,7 @@ protected Q_SLOTS:
      * This slot is called whenever the internal timer fired,
      * in order to move on to the next step.
      */
-    void slotTimeout(); // KDE5: rename to slotNextStep() or something like that
+    void slotTimeout();
 
     /**
      * This slot is called when the scan job is finished.
