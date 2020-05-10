@@ -422,7 +422,6 @@ void CopyJobPrivate::slotResultStating(KJob *job)
             const bool isDir = entry.isDir();
 
             // Check for writability, before spending time stat'ing everything (#141564).
-            // Note that "job" already takes into account asMethod in slotStart.
             // This assumes all kioslaves set permissions correctly...
             const int permissions = entry.numberValue(KIO::UDSEntry::UDS_ACCESS, -1);
             const bool isWritable = (permissions != -1) && (permissions & S_IWUSR);
