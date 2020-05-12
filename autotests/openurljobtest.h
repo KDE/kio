@@ -55,12 +55,14 @@ private Q_SLOTS:
     void ftpUrlWithKIO();
 
     void takeOverAfterMimeTypeFound();
+    void runDesktopFileDirectly();
 
 private:
     void writeApplicationDesktopFile(const QString &filePath);
 
     QStringList m_filesToRemove;
     QTemporaryDir m_tempDir;
+    QString m_fakeService;
 };
 
 #endif /* OPENURLJOBTEST_H */

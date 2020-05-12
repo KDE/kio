@@ -86,7 +86,11 @@ private:
     bool handleExecutables(const QMimeType &mimeType);
     void runLink(const QString &filePath, const QString &urlStr, const QString &optionalServiceName);
     void showOpenWithDialog();
-    void startService(const KService::Ptr &service);
+    void startService(const KService::Ptr &service, const QList<QUrl> &urls);
+    void startService(const KService::Ptr &service)
+    {
+        startService(service, {m_url});
+    }
 };
 
 KIO::OpenUrlJob::OpenUrlJob(const QUrl &url, QObject *parent)
@@ -308,10 +312,10 @@ void KIO::OpenUrlJobPrivate::statFile()
     });
 }
 
-void KIO::OpenUrlJobPrivate::startService(const KService::Ptr &service)
+void KIO::OpenUrlJobPrivate::startService(const KService::Ptr &service, const QList<QUrl> &urls)
 {
     KIO::ApplicationLauncherJob *job = new KIO::ApplicationLauncherJob(service, q);
-    job->setUrls({m_url});
+    job->setUrls(urls);
     job->setRunFlags(m_deleteTemporaryFile ? KIO::ApplicationLauncherJob::DeleteTemporaryFiles : KIO::ApplicationLauncherJob::RunFlags{});
     job->setSuggestedFileName(m_suggestedFileName);
     job->setStartupId(m_startupId);
@@ -575,7 +579,7 @@ void KIO::OpenUrlJobPrivate::runUrlWithMimeType()
                 && !cfgGroup.readEntry("Exec").isEmpty()
                 && m_runExecutables) {
                 KService::Ptr service(new KService(filePath));
-                startService(service);
+                startService(service, {});
                 return;
             } else if (cfg.hasLinkType()) {
                 runLink(filePath, cfg.readUrl(), cfg.desktopGroup().readEntry("X-KDE-LastOpenedWith"));

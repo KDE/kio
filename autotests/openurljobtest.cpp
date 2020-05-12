@@ -79,10 +79,10 @@ void OpenUrlJobTest::initTestCase()
     QFile::remove(mimeApps);
 
     ksycoca_ms_between_checks = 0; // need it to check the ksycoca mtime
-    QString fakeService = QStandardPaths::writableLocation(QStandardPaths::ApplicationsLocation) + QLatin1Char('/') + s_tempServiceName;
-    writeApplicationDesktopFile(fakeService);
-    fakeService = QFileInfo(fakeService).canonicalFilePath();
-    m_filesToRemove.append(fakeService);
+    m_fakeService = QStandardPaths::writableLocation(QStandardPaths::ApplicationsLocation) + QLatin1Char('/') + s_tempServiceName;
+    writeApplicationDesktopFile(m_fakeService);
+    m_fakeService = QFileInfo(m_fakeService).canonicalFilePath();
+    m_filesToRemove.append(m_fakeService);
 
     // Ensure our service is the preferred one
     KConfig mimeAppsCfg(mimeApps);
@@ -95,7 +95,7 @@ void OpenUrlJobTest::initTestCase()
     for (const char *mimeType : {"text/plain", "application/x-shellscript"}) {
         KService::Ptr preferredTextEditor = KApplicationTrader::preferredService(QString::fromLatin1(mimeType));
         QVERIFY(preferredTextEditor);
-        QCOMPARE(preferredTextEditor->entryPath(), fakeService);
+        QCOMPARE(preferredTextEditor->entryPath(), m_fakeService);
     }
 
     // As used for preferredService
@@ -440,6 +440,17 @@ void OpenUrlJobTest::takeOverAfterMimeTypeFound()
     QVERIFY(!job->exec());
     QCOMPARE(job->error(), KJob::KilledJobError);
     QCOMPARE(foundMime, "image/jpeg");
+}
+
+void OpenUrlJobTest::runDesktopFileDirectly()
+{
+    KIO::OpenUrlJob *job = new KIO::OpenUrlJob(QUrl::fromLocalFile(m_fakeService), this);
+    job->setRunExecutables(true);
+    QVERIFY(job->exec());
+
+    const QString dest = m_tempDir.path() + "/dest";
+    QTRY_VERIFY2(QFile::exists(dest), qPrintable(dest));
+    QCOMPARE(readFile(dest), QString{});
 }
 
 void OpenUrlJobTest::writeApplicationDesktopFile(const QString &filePath)
