@@ -232,7 +232,9 @@ KIOCORE_EXPORT StatJob *statDetails(const QUrl &url, KIO::StatJob::StatSide side
 KIOCORE_DEPRECATED_VERSION(5, 69, "Use KIO::statDetails(const QUrl &, KIO::StatSide, KIO::StatDetails details, JobFlags)")
 KIOCORE_EXPORT StatJob *stat(const QUrl &url, KIO::StatJob::StatSide side,
                              short int details, JobFlags flags = DefaultFlags);
+#endif
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 69)
 /**
  * Converts the legacy stat details int to a StatDetail Flag
  * @param details @see setDetails()
@@ -241,7 +243,6 @@ KIOCORE_EXPORT StatJob *stat(const QUrl &url, KIO::StatJob::StatSide side,
  */
 KIOCORE_DEPRECATED_VERSION(5, 69, "Use directly KIO::StatDetails")
 KIOCORE_EXPORT KIO::StatDetails detailsToStatDetails(int details);
-
 #endif
 
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(4, 0)

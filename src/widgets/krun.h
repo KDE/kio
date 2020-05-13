@@ -266,7 +266,9 @@ public:
     static qint64 runService(const KService &service, const QList<QUrl> &urls, QWidget *window,
                              bool tempFiles = false, const QString &suggestedFileName = QString(),
                              const QByteArray &asn = QByteArray());
+#endif
 
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 71)
     /**
      * @see RunFlags
      */
@@ -279,7 +281,9 @@ public:
      * @deprecated since 5.71, see porting instructions in the respective methods
      */
     Q_DECLARE_FLAGS(RunFlags, RunFlag)
+#endif
 
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 71)
     /**
      * Run an application (known from its .desktop file, i.e. as a KService)
      *
@@ -313,7 +317,9 @@ public:
     static qint64 runApplication(const KService &service, const QList<QUrl> &urls, QWidget *window,
                                  RunFlags flags = RunFlags(), const QString &suggestedFileName = QString(),
                                  const QByteArray &asn = QByteArray());
+#endif
 
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 71)
     /**
      * Open a list of URLs with an executable.
      *
@@ -411,7 +417,9 @@ public:
     KIOWIDGETS_DEPRECATED_VERSION(5, 71, "Use KIO::OpenUrlJob, see API docs for a code sample")
     static bool runUrl(const QUrl &url, const QString &mimetype, QWidget *window, RunFlags flags,
                        const QString &suggestedFileName = QString(), const QByteArray &asn = QByteArray());
+#endif
 
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 71)
     /**
      * Run the given shell command and notifies KDE of the starting
      * of the application. If the program to be called doesn't exist,
@@ -437,7 +445,9 @@ public:
      */
     KIOWIDGETS_DEPRECATED_VERSION(5, 71, "Use KIO::CommandLauncherJob, see API docs for a code sample")
     static bool runCommand(const QString &cmd, QWidget *window, const QString &workingDirectory = QString());
+#endif
 
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 71)
     /**
      * Same as the other runCommand(), but it also takes the name of the
      * binary, to display an error message in case it couldn't find it.
@@ -463,7 +473,9 @@ public:
     KIOWIDGETS_DEPRECATED_VERSION(5, 71, "Use KIO::CommandLauncherJob, see API docs for a code sample")
     static bool runCommand(const QString &cmd, const QString &execName,
                            const QString &icon, QWidget *window, const QByteArray &asn = QByteArray());
+#endif
 
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 71)
     /**
      * Overload that also takes a working directory, so that a command like
      * "kwrite file.txt" finds file.txt from the right place.
