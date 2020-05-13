@@ -91,6 +91,7 @@ private Q_SLOTS:
     void statSymlink();
 #endif
     void mostLocalUrl();
+    void mostLocalUrlHttp();
     void chmodFile();
 #ifdef Q_OS_UNIX
     void chmodSticky();

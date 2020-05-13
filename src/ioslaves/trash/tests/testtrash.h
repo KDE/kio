@@ -84,6 +84,7 @@ private Q_SLOTS:
 
     void listRootDir();
     void listRecursiveRootDir();
+    void mostLocalUrlTest();
     void listSubDir();
 
     void delRootFile();

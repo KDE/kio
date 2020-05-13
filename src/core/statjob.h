@@ -108,18 +108,20 @@ public:
 
     /**
      * @brief most local URL
-     * Call this in the slot connected to result,
-     * and only after making sure no error happened.
-     * @return the most local URL for the URL we were stat'ing.
+     *
+     * Call this in a slot connected to the result signal, and only after making sure no error
+     * happened.
+     *
+     * @return the most local URL for the URL we were stat'ing
      *
      * Sample usage:
      *
      * @code
-     * KIO::StatJob* job = KIO::mostLocalUrl("desktop:/foo");
+     * KIO::StatJob *job = KIO::mostLocalUrl("desktop:/foo");
      * job->uiDelegate()->setWindow(this);
      * connect(job, &KJob::result, this, &MyClass::slotMostLocalUrlResult);
      * [...]
-     * // and in the slot slotMostLocalUrlResult(KJob *job)
+     * // and in slotMostLocalUrlResult(KJob *job)
      * if (job->error()) {
      *    [...] // doesn't exist
      * } else {

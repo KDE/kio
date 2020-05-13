@@ -738,6 +738,22 @@ static bool MyNetAccess_exists(const QUrl &url)
     return MyNetAccess_stat(url, dummy);
 }
 
+void TestTrash::mostLocalUrlTest()
+{
+    const QStringList trashFiles = QDir(m_trashDir + QLatin1String("/files/")).entryList();
+    for (const QString &file : trashFiles) {
+        if (file == QLatin1Char('.') || file == QLatin1String("..")) {
+            continue;
+        }
+        QUrl url;
+        url.setScheme(QStringLiteral("trash"));
+        url.setPath(QLatin1String("0-") + file);
+        KIO::StatJob *statJob = KIO::mostLocalUrl(url, KIO::HideProgressInfo);
+        QVERIFY(statJob->exec());
+        QCOMPARE(url, statJob->mostLocalUrl());
+    }
+}
+
 void TestTrash::statRoot()
 {
     QUrl url(QStringLiteral("trash:/"));

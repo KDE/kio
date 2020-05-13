@@ -1642,6 +1642,15 @@ void JobTest::mostLocalUrl()
     QCOMPARE(job->mostLocalUrl().toLocalFile(), filePath);
 }
 
+void JobTest::mostLocalUrlHttp() {
+    // the url is returned as-is, as an http url can't have a mostLocalUrl
+    const QUrl url("http://www.google.com");
+    KIO::StatJob *httpStat = KIO::mostLocalUrl(url, KIO::HideProgressInfo);
+    QVERIFY(httpStat);
+    QVERIFY2(httpStat->exec(), qPrintable(httpStat->errorString()));
+    QCOMPARE(httpStat->mostLocalUrl(), url);
+}
+
 void JobTest::chmodFile()
 {
     const QString filePath = homeTmpDir() + "fileForChmod";

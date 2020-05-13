@@ -23,6 +23,7 @@
 #include "job_p.h"
 #include "slave.h"
 #include "scheduler.h"
+#include <KProtocolInfo>
 #include <kurlauthorized.h>
 #include <QTimer>
 
@@ -126,14 +127,16 @@ const UDSEntry &StatJob::statResult() const
 
 QUrl StatJob::mostLocalUrl() const
 {
-    if (!url().isLocalFile()) {
-        const UDSEntry &udsEntry = d_func()->m_statResult;
-        const QString path = udsEntry.stringValue(KIO::UDSEntry::UDS_LOCAL_PATH);
-        if (!path.isEmpty()) {
-            return QUrl::fromLocalFile(path);
-        }
+    const QUrl _url = url();
+
+    if (_url.isLocalFile()) {
+        return _url;
     }
-    return url();
+
+    const UDSEntry &udsEntry = d_func()->m_statResult;
+    const QString path = udsEntry.stringValue(KIO::UDSEntry::UDS_LOCAL_PATH);
+
+    return !path.isEmpty() ? QUrl::fromLocalFile(path) : _url;
 }
 
 void StatJobPrivate::start(Slave *slave)
@@ -212,7 +215,7 @@ StatJob *KIO::stat(const QUrl &url, JobFlags flags)
 StatJob *KIO::mostLocalUrl(const QUrl &url, JobFlags flags)
 {
     StatJob *job = statDetails(url, StatJob::SourceSide, KIO::StatDefaultDetails, flags);
-    if (url.isLocalFile()) {
+    if (url.isLocalFile() || KProtocolInfo::protocolClass(url.scheme()) != QLatin1String(":local")) {
         QTimer::singleShot(0, job, &StatJob::slotFinished);
         Scheduler::cancelJob(job); // deletes the slave if not 0
     }
