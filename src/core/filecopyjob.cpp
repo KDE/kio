@@ -340,7 +340,7 @@ void FileCopyJobPrivate::slotCanResume(KIO::Job *job, KIO::filesize_t offset)
     if (job == m_putJob || job == m_copyJob) {
         //qDebug() << "'can resume' from PUT job. offset=" << KIO::number(offset);
         if (offset) {
-            RenameDialog_Result res = R_RESUME;
+            RenameDialog_Result res = Result_Resume;
 
             if (!KProtocolManager::autoResume() && !(m_flags & Overwrite) && m_uiDelegateExtension) {
                 QString newPath;
@@ -354,9 +354,9 @@ void FileCopyJobPrivate::slotCanResume(KIO::Job *job, KIO::filesize_t offset)
                           m_sourceSize, offset);
             }
 
-            if (res == R_OVERWRITE || (m_flags & Overwrite)) {
+            if (res == Result_Overwrite || (m_flags & Overwrite)) {
                 offset = 0;
-            } else if (res == R_CANCEL) {
+            } else if (res == Result_Cancel) {
                 if (job == m_putJob) {
                     m_putJob->kill(FileCopyJob::Quietly);
                     q->removeSubjob(m_putJob);
