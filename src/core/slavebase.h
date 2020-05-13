@@ -376,7 +376,6 @@ public:
      */
     QString configValue(const QString &key, const QString &defaultValue = QString()) const;
 
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 64)
     /**
      * Returns a configuration object to query config/meta-data information
      * from.
@@ -384,12 +383,11 @@ public:
      * The application provides the slave with all configuration information
      * relevant for the current protocol and host.
      *
-     * @deprecated since 5.64 use mapConfig instead
+     * @note Since 5.64 prefer to use mapConfig() or one of the configValue(...) overloads.
+     * @todo Find replacements for the other current usages of this method.
      */
-    KIOCORE_DEPRECATED_VERSION(5, 64, "Use SlaveBase::mapConfig()")
     KConfigGroup *config();
     // KF6: perhaps rename mapConfig() to config() when removing this
-#endif
 
     /**
      * Returns an object that can translate remote filenames into proper
