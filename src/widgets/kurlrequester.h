@@ -298,7 +298,7 @@ public Q_SLOTS:
      *
      * @deprecated Since 4.3. Use setUrl(QUrl::fromLocalFile(path)) instead.
      */
-    KIOWIDGETS_DEPRECATED_VERSION(4, 3, "Use KUrlRequester::setUrlQUrl::fromLocalFile(path))")
+    KIOWIDGETS_DEPRECATED_VERSION(4, 3, "Use KUrlRequester::setUrl(QUrl::fromLocalFile(path))")
     void setPath(const QString &path);
 #endif
 
