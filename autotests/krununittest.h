@@ -22,6 +22,7 @@
 
 #include <QObject>
 #include <QStringList>
+#include "kiowidgets_export.h"
 
 class KRunUnitTest : public QObject
 {
@@ -42,8 +43,10 @@ private Q_SLOTS:
     void testMimeTypeBrokenLink();
     void testMimeTypeDoesNotExist();
 
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 71)
     void KRunRunService_data();
     void KRunRunService();
+#endif
 private:
     QString createTempService();
 

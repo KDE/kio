@@ -74,10 +74,12 @@ StatJob::~StatJob()
 {
 }
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(4, 0)
 void StatJob::setSide(bool source)
 {
     d_func()->m_bSource = source;
 }
+#endif
 
 void StatJob::setSide(StatSide side)
 {
@@ -217,6 +219,7 @@ StatJob *KIO::mostLocalUrl(const QUrl &url, JobFlags flags)
     return job;
 }
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(4, 0)
 StatJob *KIO::stat(const QUrl &url, bool sideIsSource, short int details, JobFlags flags)
 {
     //qCDebug(KIO_CORE) << "stat" << url;
@@ -226,6 +229,7 @@ StatJob *KIO::stat(const QUrl &url, bool sideIsSource, short int details, JobFla
     job->setDetails(details);
     return job;
 }
+#endif
 
 StatJob *KIO::statDetails(const QUrl &url, KIO::StatJob::StatSide side, KIO::StatDetails details, JobFlags flags)
 {
@@ -238,6 +242,7 @@ StatJob *KIO::statDetails(const QUrl &url, KIO::StatJob::StatSide side, KIO::Sta
     return job;
 }
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 69)
 StatJob *KIO::stat(const QUrl &url, KIO::StatJob::StatSide side, short int details, JobFlags flags)
 {
     //qCDebug(KIO_CORE) << "stat" << url;
@@ -247,5 +252,6 @@ StatJob *KIO::stat(const QUrl &url, KIO::StatJob::StatSide side, short int detai
     job->setDetails(details);
     return job;
 }
+#endif
 
 #include "moc_statjob.cpp"

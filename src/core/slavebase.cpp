@@ -753,6 +753,7 @@ void SlaveBase::infoMessage(const QString &_msg)
     send(INF_INFOMESSAGE, data);
 }
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 0)
 bool SlaveBase::requestNetwork(const QString &host)
 {
     KIO_DATA << host << d->slaveid;
@@ -767,12 +768,15 @@ bool SlaveBase::requestNetwork(const QString &host)
         return false;
     }
 }
+#endif
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 0)
 void SlaveBase::dropNetwork(const QString &host)
 {
     KIO_DATA << host << d->slaveid;
     send(MSG_NET_DROP, data);
 }
+#endif
 
 void SlaveBase::statEntry(const UDSEntry &entry)
 {
@@ -780,6 +784,7 @@ void SlaveBase::statEntry(const UDSEntry &entry)
     send(MSG_STAT_ENTRY, data);
 }
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 0)
 void SlaveBase::listEntry(const UDSEntry &entry, bool _ready)
 {
     if (_ready) {
@@ -794,6 +799,7 @@ void SlaveBase::listEntry(const UDSEntry &entry, bool _ready)
         listEntry(entry);
     }
 }
+#endif
 
 void SlaveBase::listEntry(const UDSEntry &entry)
 {
@@ -998,11 +1004,13 @@ void SlaveBase::reparseConfiguration()
     d->remotefile = nullptr;
 }
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 24)
 bool SlaveBase::openPasswordDialog(AuthInfo &info, const QString &errorMsg)
 {
     const int errorCode = openPasswordDialogV2(info, errorMsg);
     return errorCode == KJob::NoError;
 }
+#endif
 
 int SlaveBase::openPasswordDialogV2(AuthInfo &info, const QString &errorMsg)
 {

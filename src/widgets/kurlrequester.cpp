@@ -387,10 +387,12 @@ void KUrlRequester::setUrl(const QUrl &url)
     d->setText(url.toDisplayString(QUrl::PreferLocalFile));
 }
 
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(4, 3)
 void KUrlRequester::setPath(const QString &path)
 {
     d->setText(path);
 }
+#endif
 
 void KUrlRequester::setText(const QString &text)
 {
@@ -645,10 +647,12 @@ KUrlCompletion *KUrlRequester::completionObject() const
     return d->myCompletion;
 }
 
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 0)
 void KUrlRequester::setClickMessage(const QString &msg)
 {
     setPlaceholderText(msg);
 }
+#endif
 
 void KUrlRequester::setPlaceholderText(const QString &msg)
 {
@@ -657,10 +661,12 @@ void KUrlRequester::setPlaceholderText(const QString &msg)
     }
 }
 
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 0)
 QString KUrlRequester::clickMessage() const
 {
     return placeholderText();
 }
+#endif
 
 QString KUrlRequester::placeholderText() const
 {

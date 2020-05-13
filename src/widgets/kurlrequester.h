@@ -64,8 +64,10 @@ class KIOWIDGETS_EXPORT KUrlRequester : public QWidget
     Q_PROPERTY(QString filter READ filter WRITE setFilter)
     Q_PROPERTY(KFile::Modes mode READ mode WRITE setMode)
     Q_PROPERTY(QFileDialog::AcceptMode acceptMode READ acceptMode WRITE setAcceptMode)
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 0)
     /// @deprecated Since 5.0, use placeholderText
     Q_PROPERTY(QString clickMessage READ clickMessage WRITE setClickMessage)
+#endif
     Q_PROPERTY(QString placeholderText READ placeholderText WRITE setPlaceholderText)
     Q_PROPERTY(QString text READ text WRITE setText NOTIFY textChanged)
     Q_PROPERTY(Qt::WindowModality fileDialogModality READ fileDialogModality WRITE setFileDialogModality)

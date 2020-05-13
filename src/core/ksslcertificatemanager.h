@@ -79,7 +79,11 @@ public:
      * @since 5.64
      */
     void setIgnoredErrors(const QList<QSslError::SslError> &errors);
-    QList<KSslError::Error> ignoredErrors() const; // TODO KF6 return QSslError::SslError list
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 64)
+    QList<KSslError::Error> ignoredErrors() const;
+#else
+    QList<QSslError::SslError> ignoredErrors() const;
+#endif
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 64)
     /** @deprecated since 5.64, use the QSslError variant. */
     KIOCORE_DEPRECATED_VERSION(5, 64, "Use KSslCertificateRule::filterErrors(const QList<QSslError> &)")

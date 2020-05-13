@@ -122,6 +122,7 @@ void KSslInfoDialog::updateWhichPartsEncrypted()
     }
 }
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 64)
 void KSslInfoDialog::setSslInfo(const QList<QSslCertificate> &certificateChain,
                                 const QString &ip, const QString &host,
                                 const QString &sslProtocol, const QString &cipher,
@@ -140,6 +141,7 @@ void KSslInfoDialog::setSslInfo(const QList<QSslCertificate> &certificateChain,
     }
     setSslInfo(certificateChain, ip, host, sslProtocol, cipher, usedBits, bits, qValidationErrors);
 }
+#endif
 
 void KSslInfoDialog::setSslInfo(const QList<QSslCertificate> &certificateChain,
                                 const QString &ip, const QString &host,
@@ -229,6 +231,7 @@ void KSslInfoDialog::displayFromChain(int i)
     d->issuer->setCertificate(cert, KSslCertificateBox::Issuer);
 }
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 65)
 //static
 QList<QList<KSslError::Error> > KSslInfoDialog::errorsFromString(const QString &es)
 {
@@ -257,6 +260,7 @@ QList<QList<KSslError::Error> > KSslInfoDialog::errorsFromString(const QString &
     }
     return ret;
 }
+#endif
 
 //static
 QList<QList<QSslError::SslError>> KSslInfoDialog::certificateErrorsFromString(const QString &errorsString)

@@ -127,10 +127,12 @@ QUrl KUrlRequesterDialog::getUrl(const QUrl &dir, QWidget *parent,
     return url;
 }
 
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 0)
 QFileDialog *KUrlRequesterDialog::fileDialog()
 {
     return d->urlRequester->fileDialog();
 }
+#endif
 
 KUrlRequester *KUrlRequesterDialog::urlRequester()
 {

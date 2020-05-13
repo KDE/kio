@@ -19,6 +19,11 @@ macro(KIOWIDGETS_EXECUTABLE_TESTS)
   endforeach()
 endmacro(KIOWIDGETS_EXECUTABLE_TESTS)
 
+if(NOT EXCLUDE_DEPRECATED_BEFORE_AND_AT STREQUAL "CURRENT" AND
+   EXCLUDE_DEPRECATED_BEFORE_AND_AT VERSION_LESS 5.71.0)
+    set(runapplication_EXE runapplication)
+endif()
+
 KIOWIDGETS_EXECUTABLE_TESTS(
   getalltest
   kruntest
@@ -41,5 +46,5 @@ KIOWIDGETS_EXECUTABLE_TESTS(
   kprotocolinfo_dumper
   kfilewidgettest_gui
   kfilewidgettest_saving_gui
-  runapplication
+  ${runapplication_EXE}
 )

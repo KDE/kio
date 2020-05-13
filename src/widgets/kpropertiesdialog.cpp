@@ -713,10 +713,12 @@ KPropertiesDialogPlugin::~KPropertiesDialogPlugin()
     delete d;
 }
 
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(4, 1)
 bool KPropertiesDialogPlugin::isDesktopFile(const KFileItem &_item)
 {
     return _item.isDesktopFile();
 }
+#endif
 
 void KPropertiesDialogPlugin::setDirty(bool b)
 {

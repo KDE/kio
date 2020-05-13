@@ -12,6 +12,11 @@ find_package(Qt5Widgets REQUIRED)
 
 find_package(Qt5Concurrent ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE)
 
+if(NOT EXCLUDE_DEPRECATED_BEFORE_AND_AT STREQUAL "CURRENT" AND
+   EXCLUDE_DEPRECATED_BEFORE_AND_AT VERSION_LESS 5.65.0)
+    set(ktcpsockettest_SRC ktcpsockettest.cpp)
+endif()
+
 ecm_add_tests(
  kacltest.cpp
  listdirtest.cpp
@@ -22,7 +27,7 @@ ecm_add_tests(
  jobremotetest.cpp
  kfileitemtest.cpp
  kprotocolinfotest.cpp
- ktcpsockettest.cpp
+ ${ktcpsockettest_SRC}
  globaltest.cpp
  mkpathjobtest.cpp
  threadtest.cpp
@@ -83,6 +88,11 @@ if (TARGET KF5::KIOGui)
 endif()
 
 if (TARGET KF5::KIOWidgets)
+if(NOT EXCLUDE_DEPRECATED_BEFORE_AND_AT STREQUAL "CURRENT" AND
+   EXCLUDE_DEPRECATED_BEFORE_AND_AT VERSION_LESS 5.4.0)
+    set(jobguitest_SRC jobguitest.cpp)
+endif()
+
 ecm_add_tests(
  clipboardupdatertest.cpp
  dropjobtest.cpp
@@ -94,7 +104,7 @@ ecm_add_tests(
  fileundomanagertest.cpp
  kurifiltertest.cpp
  kurlcompletiontest.cpp
- jobguitest.cpp
+ ${jobguitest_SRC}
  pastetest.cpp
  accessmanagertest.cpp
  kurifiltersearchprovideractionstest.cpp

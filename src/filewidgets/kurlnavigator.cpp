@@ -1138,23 +1138,29 @@ void KUrlNavigator::setFocus()
     }
 }
 
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(4, 5)
 void KUrlNavigator::setUrl(const QUrl &url)
 {
     // deprecated
     setLocationUrl(url);
 }
+#endif
 
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(4, 5)
 void KUrlNavigator::saveRootUrl(const QUrl &url)
 {
     // deprecated
     d->m_history[d->m_historyIndex].rootUrl = url;
 }
+#endif
 
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(4, 5)
 void KUrlNavigator::savePosition(int x, int y)
 {
     // deprecated
     d->m_history[d->m_historyIndex].pos = QPoint(x, y);
 }
+#endif
 
 void KUrlNavigator::keyPressEvent(QKeyEvent *event)
 {
@@ -1266,6 +1272,7 @@ QWidget *KUrlNavigator::dropWidget() const
     return d->m_dropWidget;
 }
 
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(4, 5)
 const QUrl &KUrlNavigator::url() const
 {
     // deprecated
@@ -1276,19 +1283,25 @@ const QUrl &KUrlNavigator::url() const
     url = locationUrl();
     return url;
 }
+#endif
 
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(4, 5)
 QUrl KUrlNavigator::url(int index) const
 {
     // deprecated
     return d->buttonUrl(index);
 }
+#endif
 
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(4, 5)
 QUrl KUrlNavigator::historyUrl(int historyIndex) const
 {
     // deprecated
     return locationUrl(historyIndex);
 }
+#endif
 
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(4, 5)
 const QUrl &KUrlNavigator::savedRootUrl() const
 {
     // deprecated
@@ -1299,17 +1312,22 @@ const QUrl &KUrlNavigator::savedRootUrl() const
     rootUrl = d->m_history[d->m_historyIndex].rootUrl;
     return rootUrl;
 }
+#endif
 
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(4, 5)
 QPoint KUrlNavigator::savedPosition() const
 {
     // deprecated
     return d->m_history[d->m_historyIndex].pos;
 }
+#endif
 
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(4, 5)
 void KUrlNavigator::setHomeUrl(const QString &homeUrl)
 {
     // deprecated
     setLocationUrl(QUrl::fromUserInput(homeUrl));
 }
+#endif
 
 #include "moc_kurlnavigator.cpp"

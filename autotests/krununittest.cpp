@@ -368,6 +368,7 @@ static void createSrcFile(const QString path)
     srcFile.write("Hello world\n");
 }
 
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 71)
 void KRunUnitTest::KRunRunService_data()
 {
     QTest::addColumn<bool>("tempFile");
@@ -378,6 +379,9 @@ void KRunUnitTest::KRunRunService_data()
     QTest::newRow("runApp") << false << true;
     QTest::newRow("runApp_tempfile") << true << true;
 }
+#endif
+
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 71)
 void KRunUnitTest::KRunRunService()
 {
     QFETCH(bool, tempFile);
@@ -413,6 +417,7 @@ void KRunUnitTest::KRunRunService()
     ::kill(pid, SIGTERM);
 #endif
 }
+#endif
 
 QString KRunUnitTest::createTempService()
 {

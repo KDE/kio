@@ -697,7 +697,9 @@ public:
     SessionData sessionData;
 
     void doJob(SimpleJob *job);
+#if KIOCORE_BUILD_DEPRECATED_SINCE(4, 5)
     void scheduleJob(SimpleJob *job);
+#endif
     void setJobPriority(SimpleJob *job, int priority);
     void cancelJob(SimpleJob *job);
     void jobFinished(KIO::SimpleJob *job, KIO::Slave *slave);
@@ -810,10 +812,12 @@ void Scheduler::doJob(SimpleJob *job)
     schedulerPrivate()->doJob(job);
 }
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(4, 5)
 void Scheduler::scheduleJob(SimpleJob *job)
 {
     schedulerPrivate()->scheduleJob(job);
 }
+#endif
 
 void Scheduler::setJobPriority(SimpleJob *job, int priority)
 {
@@ -979,11 +983,13 @@ void SchedulerPrivate::doJob(SimpleJob *job)
     proto->queueJob(job);
 }
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(4, 5)
 void SchedulerPrivate::scheduleJob(SimpleJob *job)
 {
     //qDebug() << job;
     setJobPriority(job, 1);
 }
+#endif
 
 void SchedulerPrivate::setJobPriority(SimpleJob *job, int priority)
 {

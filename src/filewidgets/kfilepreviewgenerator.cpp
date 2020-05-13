@@ -1246,11 +1246,12 @@ bool KFilePreviewGenerator::isPreviewShown() const
     return d->m_previewShown;
 }
 
-// deprecated (use updateIcons() instead)
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(4, 3)
 void KFilePreviewGenerator::updatePreviews()
 {
     updateIcons();
 }
+#endif
 
 void KFilePreviewGenerator::updateIcons()
 {

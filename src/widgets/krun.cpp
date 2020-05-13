@@ -165,6 +165,7 @@ void KRun::handleError(KJob *job)
     }
 }
 
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 31)
 bool KRun::runUrl(const QUrl &url, const QString &mimetype, QWidget *window, bool tempFile, bool runExecutables, const QString &suggestedFileName, const QByteArray &asn)
 {
     RunFlags flags = tempFile ? KRun::DeleteTemporaryFiles : RunFlags();
@@ -174,7 +175,9 @@ bool KRun::runUrl(const QUrl &url, const QString &mimetype, QWidget *window, boo
 
     return runUrl(url, mimetype, window, flags, suggestedFileName, asn);
 }
+#endif
 
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 71)
 // This is called by foundMimeType, since it knows the mimetype of the URL
 bool KRun::runUrl(const QUrl &u, const QString &_mimetype, QWidget *window, RunFlags flags, const QString &suggestedFileName, const QByteArray &asn)
 {
@@ -190,6 +193,7 @@ bool KRun::runUrl(const QUrl &u, const QString &_mimetype, QWidget *window, RunF
     job->start();
     return true;
 }
+#endif
 
 bool KRun::displayOpenWithDialog(const QList<QUrl> &lst, QWidget *window, bool tempFiles,
                                  const QString &suggestedFileName, const QByteArray &asn)
@@ -224,6 +228,7 @@ bool KRun::displayOpenWithDialog(const QList<QUrl> &lst, QWidget *window, bool t
     return false;
 }
 
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(4, 0)
 void KRun::shellQuote(QString &_str)
 {
     // Credits to Walter, says Bernd G. :)
@@ -233,7 +238,9 @@ void KRun::shellQuote(QString &_str)
     const QChar q = QLatin1Char('\'');
     _str.replace(q, QLatin1String("'\\''")).prepend(q).append(q);
 }
+#endif
 
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 0)
 QStringList KRun::processDesktopExec(const KService &_service, const QList<QUrl> &_urls, bool tempFiles, const QString &suggestedFileName)
 {
     KIO::DesktopExecParser parser(_service, _urls);
@@ -241,11 +248,14 @@ QStringList KRun::processDesktopExec(const KService &_service, const QList<QUrl>
     parser.setSuggestedFileName(suggestedFileName);
     return parser.resultingArguments();
 }
+#endif
 
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 0)
 QString KRun::binaryName(const QString &execLine, bool removePath)
 {
     return removePath ? KIO::DesktopExecParser::executableName(execLine) : KIO::DesktopExecParser::executablePath(execLine);
 }
+#endif
 
 // This code is also used in klauncher.
 // TODO: port klauncher to KIOGuiPrivate::checkStartupNotify once this lands
@@ -255,13 +265,16 @@ bool KRun::checkStartupNotify(const QString & /*binName*/, const KService *servi
     return KIOGuiPrivate::checkStartupNotify(service, silent_arg, wmclass_arg);
 }
 
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 6)
 bool KRun::run(const KService &_service, const QList<QUrl> &_urls, QWidget *window,
                bool tempFiles, const QString &suggestedFileName, const QByteArray &asn)
 {
     const RunFlags flags = tempFiles ? KRun::DeleteTemporaryFiles : RunFlags();
     return runApplication(_service, _urls, window, flags, suggestedFileName, asn) != 0;
 }
+#endif
 
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 71)
 qint64 KRun::runApplication(const KService &service, const QList<QUrl> &urls, QWidget *window,
                             RunFlags flags, const QString &suggestedFileName,
                             const QByteArray &asn)
@@ -286,7 +299,9 @@ qint64 KRun::runApplication(const KService &service, const QList<QUrl> &urls, QW
     job->waitForStarted();
     return job->error() ? 0 : job->pid();
 }
+#endif
 
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 71)
 qint64 KRun::runService(const KService &_service, const QList<QUrl> &_urls, QWidget *window,
                       bool tempFiles, const QString &suggestedFileName, const QByteArray &asn)
 {
@@ -297,7 +312,9 @@ qint64 KRun::runService(const KService &_service, const QList<QUrl> &_urls, QWid
                    suggestedFileName,
                    asn);
 }
+#endif
 
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 71)
 bool KRun::run(const QString &_exec, const QList<QUrl> &_urls, QWidget *window, const QString &_name,
                const QString &_icon, const QByteArray &asn)
 {
@@ -305,7 +322,9 @@ bool KRun::run(const QString &_exec, const QList<QUrl> &_urls, QWidget *window, 
 
     return runApplication(*service, _urls, window, RunFlags{}, QString(), asn);
 }
+#endif
 
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 71)
 bool KRun::runCommand(const QString &cmd, QWidget *window, const QString &workingDirectory)
 {
     if (cmd.isEmpty()) {
@@ -322,12 +341,16 @@ bool KRun::runCommand(const QString &cmd, QWidget *window, const QString &workin
     const QString &bin = args.first();
     return KRun::runCommand(cmd, bin, bin /*iconName*/, window, QByteArray(), workingDirectory);
 }
+#endif
 
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 71)
 bool KRun::runCommand(const QString &cmd, const QString &execName, const QString &iconName, QWidget *window, const QByteArray &asn)
 {
     return runCommand(cmd, execName, iconName, window, asn, QString());
 }
+#endif
 
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 71)
 bool KRun::runCommand(const QString &cmd, const QString &execName, const QString &iconName,
                       QWidget *window, const QByteArray &asn, const QString &workingDirectory)
 {
@@ -342,6 +365,7 @@ bool KRun::runCommand(const QString &cmd, const QString &execName, const QString
     }
     return KRunPrivate::runCommandLauncherJob(job, window);
 }
+#endif
 
 KRun::KRun(const QUrl &url, QWidget *window,
            bool showProgressInfo, const QByteArray &asn)
@@ -1010,40 +1034,52 @@ KIO::Job *KRun::job()
     return d->m_job;
 }
 
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(4, 4)
 QTimer &KRun::timer()
 {
     return *d->m_timer;
 }
+#endif
 
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(4, 1)
 void KRun::setDoScanFile(bool scanFile)
 {
     d->m_bScanFile = scanFile;
 }
+#endif
 
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(4, 1)
 bool KRun::doScanFile() const
 {
     return d->m_bScanFile;
 }
+#endif
 
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(4, 1)
 void KRun::setIsDirecory(bool isDirectory)
 {
     d->m_bIsDirectory = isDirectory;
 }
+#endif
 
 bool KRun::isDirectory() const
 {
     return d->m_bIsDirectory;
 }
 
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(4, 1)
 void KRun::setInitializeNextAction(bool initialize)
 {
     d->m_bInit = initialize;
 }
+#endif
 
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(4, 1)
 bool KRun::initializeNextAction() const
 {
     return d->m_bInit;
 }
+#endif
 
 bool KRun::isLocalFile() const
 {

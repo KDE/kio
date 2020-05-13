@@ -24,6 +24,7 @@
 #include "kiocore_export.h"
 #include "ktcpsocket.h"
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 65)
 class KSslErrorPrivate
 {
 public:
@@ -32,5 +33,6 @@ public:
 
     QSslError error;
 };
+#endif
 
 #endif

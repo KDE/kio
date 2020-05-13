@@ -21,6 +21,7 @@
 #define URLNAVIGATORTEST_H
 
 #include <QObject>
+#include <kiofilewidgets_export.h>
 class KUrlNavigator;
 
 class KUrlNavigatorTest : public QObject
@@ -41,8 +42,10 @@ private Q_SLOTS:
     void testUrlParsing_data();
     void testUrlParsing();
 
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(4, 5)
     void testButtonUrl_data();
     void testButtonUrl();
+#endif
     void testButtonText();
 
     void testInitWithRedundantPathSeparators();

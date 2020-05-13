@@ -26,11 +26,13 @@
 #include <ksslinfodialog.h>
 #include <ksslerroruidata_p.h>
 
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 64)
 bool KIO::SslUi::askIgnoreSslErrors(const KTcpSocket *socket, RulesStorage storedRules)
 {
     KSslErrorUiData uiData(socket);
     return askIgnoreSslErrors(uiData, storedRules);
 }
+#endif
 
 bool KIO::SslUi::askIgnoreSslErrors(const KSslErrorUiData &uiData, RulesStorage storedRules)
 {

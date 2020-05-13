@@ -222,6 +222,7 @@ void KUrlNavigatorTest::testUrlParsing()
     QCOMPARE(m_navigator->locationUrl(), url);
 }
 
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(4, 5)
 void KUrlNavigatorTest::testButtonUrl_data()
 {
     QTest::addColumn<QUrl>("locationUrl");
@@ -258,6 +259,7 @@ void KUrlNavigatorTest::testButtonUrl()
     // THEN
     QCOMPARE(buttonUrl, expectedButtonUrl);
 }
+#endif
 
 void KUrlNavigatorTest::testButtonText()
 {
@@ -278,7 +280,7 @@ void KUrlNavigatorTest::testInitWithRedundantPathSeparators()
 {
     KUrlNavigator temp_nav(nullptr, QUrl::fromLocalFile(QStringLiteral("/home/foo///test")), nullptr);
 
-    const QUrl buttonUrl = temp_nav.url(3);
+    const QUrl buttonUrl = temp_nav.locationUrl();
 
     QCOMPARE(buttonUrl, QUrl::fromLocalFile(QStringLiteral("/home/foo/test")));
 }

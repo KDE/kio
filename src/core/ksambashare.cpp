@@ -55,12 +55,13 @@ static const char *const DefaultSambaConfigFilePathList[] = {
 KSambaSharePrivate::KSambaSharePrivate(KSambaShare *parent)
     : q_ptr(parent)
     , data()
-    , smbConf()
     , userSharePath()
     , skipUserShare(false)
 {
     setUserSharePath();
+#if KIOCORE_BUILD_DEPRECATED_SINCE(4, 6)
     findSmbConf();
+#endif
     data = parse(getNetUserShareInfo());
 }
 
@@ -80,6 +81,7 @@ bool KSambaSharePrivate::isSambaInstalled()
     return false;
 }
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(4, 6)
 // Try to find the samba config file path
 // in several well-known paths
 bool KSambaSharePrivate::findSmbConf()
@@ -96,6 +98,7 @@ bool KSambaSharePrivate::findSmbConf()
 
     return false;
 }
+#endif
 
 void KSambaSharePrivate::setUserSharePath()
 {
@@ -488,11 +491,13 @@ KSambaShare::~KSambaShare()
     delete d_ptr;
 }
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(4, 6)
 QString KSambaShare::smbConfPath() const
 {
     Q_D(const KSambaShare);
     return d->smbConf;
 }
+#endif
 
 bool KSambaShare::isDirectoryShared(const QString &path) const
 {

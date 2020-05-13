@@ -529,11 +529,13 @@ KFileItem::KFileItem(const KIO::UDSEntry &entry, const QUrl &itemOrDirUrl,
 {
 }
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 0)
 KFileItem::KFileItem(mode_t mode, mode_t permissions, const QUrl &url, bool delayedMimeTypes)
     : d(new KFileItemPrivate(KIO::UDSEntry(), mode, permissions,
                              url, false, delayedMimeTypes, KFileItem::NormalMimeTypeDetermination))
 {
 }
+#endif
 
 KFileItem::KFileItem(const QUrl &url, const QString &mimeType, mode_t mode)
     : d(new KFileItemPrivate(KIO::UDSEntry(), mode, KFileItem::Unknown,
@@ -1264,6 +1266,7 @@ bool KFileItem::isFile() const
     return !isDir();
 }
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(4, 0)
 bool KFileItem::acceptsDrops() const
 {
     // A directory ?
@@ -1287,6 +1290,7 @@ bool KFileItem::acceptsDrops() const
 
     return false;
 }
+#endif
 
 QString KFileItem::getStatusBarInfo() const
 {
@@ -1394,6 +1398,7 @@ QString KFileItem::timeString(FileTimes which) const
     return d->time(which).toString();
 }
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(4, 0)
 QString KFileItem::timeString(unsigned int which) const
 {
     if (!d) {
@@ -1410,11 +1415,14 @@ QString KFileItem::timeString(unsigned int which) const
         return timeString(ModificationTime);
     }
 }
+#endif
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(4, 0)
 void KFileItem::assign(const KFileItem &item)
 {
     *this = item;
 }
+#endif
 
 QUrl KFileItem::mostLocalUrl(bool *local) const
 {

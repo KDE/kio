@@ -30,9 +30,11 @@ ThumbCreator::Flags ThumbCreator::flags() const
     return None;
 }
 
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 0)
 ThumbCreatorV2::~ThumbCreatorV2()
 {
 }
+#endif
 
 QWidget *ThumbCreator::createConfigurationWidget()
 {

@@ -636,10 +636,12 @@ QString KUriFilter::filteredUri(const QString &uri, const QStringList &filters)
     return data.uri().toString();
 }
 
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(4, 6)
 bool KUriFilter::filterSearchUri(KUriFilterData &data)
 {
     return filterSearchUri(data, (NormalTextFilter | WebShortcutFilter));
 }
+#endif
 
 bool KUriFilter::filterSearchUri(KUriFilterData &data, SearchFilterTypes types)
 {

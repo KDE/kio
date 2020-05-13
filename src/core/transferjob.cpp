@@ -197,6 +197,7 @@ void TransferJob::sendAsyncData(const QByteArray &dataForSlave)
     d->m_extraFlags &= ~JobPrivate::EF_TransferJobNeedData;
 }
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(4, 3)
 void TransferJob::setReportDataSent(bool enabled)
 {
     Q_D(TransferJob);
@@ -206,11 +207,14 @@ void TransferJob::setReportDataSent(bool enabled)
         d->m_extraFlags &= ~JobPrivate::EF_TransferJobDataSent;
     }
 }
+#endif
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(4, 3)
 bool TransferJob::reportDataSent() const
 {
     return (d_func()->m_extraFlags & JobPrivate::EF_TransferJobDataSent);
 }
+#endif
 
 QString TransferJob::mimetype() const
 {

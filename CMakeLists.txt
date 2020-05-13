@@ -33,6 +33,8 @@ ecm_setup_version(
   PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF5KIOConfigVersion.cmake"
   SOVERSION 5)
 
+set(EXCLUDE_DEPRECATED_BEFORE_AND_AT 0 CACHE STRING "Control the range of deprecated API excluded from the build [default=0].")
+
 option(KIOCORE_ONLY "Only compile KIOCore, not KIOWidgets or anything that depends on it. This will disable support for cookies and passwordhandling (prompting and storing)." OFF)
 option(KIO_FORK_SLAVES "If set we start the slaves via QProcess. It's also possible to change this by setting the environment variable KDE_FORK_SLAVES." OFF)
 

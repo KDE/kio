@@ -67,7 +67,11 @@ void IdleSlave::gotInput()
         deleteLater();
     } else if (cmd == MSG_SLAVE_ACK) {
         deleteLater();
-    } else if (cmd != MSG_SLAVE_STATUS_V2 && cmd != MSG_SLAVE_STATUS) {
+    } else if (cmd != MSG_SLAVE_STATUS_V2
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 45)
+        && cmd != MSG_SLAVE_STATUS
+#endif
+                                  ) {
         qCritical() << "Unexpected data from KIO slave.";
         deleteLater();
     } else {

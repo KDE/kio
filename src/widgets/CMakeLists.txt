@@ -106,6 +106,7 @@ ecm_generate_export_header(KF5KIOWidgets
     VERSION ${KF5_VERSION}
     DEPRECATED_BASE_VERSION 0
     DEPRECATION_VERSIONS 4.0 4.1 4.3 4.4 4.5 4.6 4.7 5.0 5.4 5.6 5.25 5.31 5.32 5.64 5.66 5.71
+    EXCLUDE_DEPRECATED_BEFORE_AND_AT ${EXCLUDE_DEPRECATED_BEFORE_AND_AT}
 )
 # TODO: add support for EXCLUDE_DEPRECATED_BEFORE_AND_AT to all KIO libs
 # needs fixing of undeprecated API being still implemented using own deprecated API

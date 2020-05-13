@@ -476,10 +476,12 @@ void RenameDialog::renamePressed()
     }
 }
 
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 0)
 QString RenameDialog::suggestName(const QUrl &baseURL, const QString &oldName)
 {
     return KFileUtils::suggestName(baseURL, oldName);
 }
+#endif
 
 // Propose button clicked
 void RenameDialog::suggestNewNamePressed()

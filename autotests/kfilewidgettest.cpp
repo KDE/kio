@@ -218,6 +218,7 @@ private Q_SLOTS:
         QTest::newRow("filename") << baseDir << fileName << baseDir << fileName;
     }
 
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 33)
     void testSetSelection()
     {
         // GIVEN
@@ -243,6 +244,7 @@ private Q_SLOTS:
         //}
         QCOMPARE(fw.locationEdit()->currentText(), expectedCurrentText);
     }
+#endif
 
     void testSetSelectedUrl_data()
     {

@@ -45,6 +45,7 @@
 #include <QDebug>
 #include <QFileInfo>
 
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 4)
 // This could be made a public method, if there's a need for pasting only urls
 // and not random data.
 /**
@@ -73,6 +74,7 @@ static KIO::Job *pasteClipboardUrls(const QMimeData *mimeData, const QUrl &destD
     }
     return nullptr;
 }
+#endif
 
 static QUrl getDestinationUrl(const QUrl &srcUrl, const QUrl &destUrl, QWidget *widget)
 {
@@ -266,6 +268,7 @@ KIO::Job *pasteMimeDataImpl(const QMimeData *mimeData, const QUrl &destUrl,
     return putDataAsyncTo(newUrl, ba, widget, KIO::Overwrite);
 }
 
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 4)
 // The main method for pasting
 KIOWIDGETS_EXPORT KIO::Job *KIO::pasteClipboard(const QUrl &destUrl, QWidget *widget, bool move)
 {
@@ -292,7 +295,9 @@ KIOWIDGETS_EXPORT KIO::Job *KIO::pasteClipboard(const QUrl &destUrl, QWidget *wi
 
     return pasteMimeDataImpl(mimeData, destUrl, QString(), widget, true /*clipboard*/);
 }
+#endif
 
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 4)
 QString KIO::pasteActionText()
 {
     const QMimeData *mimeData = QApplication::clipboard()->mimeData();
@@ -309,6 +314,7 @@ QString KIO::pasteActionText()
         return QString();
     }
 }
+#endif
 
 KIOWIDGETS_EXPORT QString KIO::pasteActionText(const QMimeData *mimeData, bool *enable, const KFileItem &destItem)
 {
@@ -353,12 +359,14 @@ KIOWIDGETS_EXPORT QString KIO::pasteActionText(const QMimeData *mimeData, bool *
 }
 
 
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 4)
 // The [new] main method for dropping
 KIOWIDGETS_EXPORT KIO::Job *KIO::pasteMimeData(const QMimeData *mimeData, const QUrl &destUrl,
         const QString &dialogText, QWidget *widget)
 {
     return pasteMimeDataImpl(mimeData, destUrl, dialogText, widget, false /*not clipboard*/);
 }
+#endif
 
 KIOWIDGETS_EXPORT void KIO::setClipboardDataCut(QMimeData* mimeData, bool cut)
 {

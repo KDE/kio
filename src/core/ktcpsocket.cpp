@@ -31,6 +31,8 @@
 #include <QNetworkProxy>
 #include <QAuthenticator>
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 65)
+
 static KTcpSocket::SslVersion kSslVersionFromQ(QSsl::SslProtocol protocol)
 {
     switch (protocol) {
@@ -140,6 +142,7 @@ private:
     QHash<QString, QSslCipher> allCiphers;
 };
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 65)
 KSslError::Error KSslErrorPrivate::errorFromQSslError(QSslError::SslError e)
 {
     switch (e) {
@@ -269,6 +272,7 @@ QSslError KSslError::sslError() const
 {
     return d->error;
 }
+#endif
 
 class KTcpSocketPrivate
 {
@@ -1059,3 +1063,5 @@ QList<KSslCipher> KSslCipher::supportedCiphers()
 }
 
 #include "moc_ktcpsocket.cpp"
+
+#endif

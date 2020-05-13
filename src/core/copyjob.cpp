@@ -947,12 +947,14 @@ void CopyJobPrivate::statCurrentSrc()
             return;
         }
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 2)
         if (!dirs.isEmpty()) {
             emit q->aboutToCreate(q, dirs);
         }
         if (!files.isEmpty()) {
             emit q->aboutToCreate(q, files);
         }
+#endif
         // Check if we are copying a single file
         m_bSingleFileCopy = (files.count() == 1 && dirs.isEmpty());
         // Then start copying things
@@ -988,9 +990,11 @@ void CopyJobPrivate::startRenameJob(const QUrl &slave_url)
     info.size = (KIO::filesize_t) - 1;
     info.uSource = m_currentSrcURL;
     info.uDest = dest;
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 2)
     QList<CopyInfo> files;
     files.append(info);
     emit q->aboutToCreate(q, files);
+#endif
 
     KIO_ARGS << m_currentSrcURL << dest << (qint8) false /*no overwrite*/;
     SimpleJob *newJob = SimpleJobPrivate::newJobNoUi(slave_url, CMD_RENAME, packedArgs);
@@ -1102,12 +1106,14 @@ void CopyJobPrivate::renameDirectory(const QList<CopyInfo>::iterator &it, const 
             (*renamefileit).uDest.setPath(n, QUrl::DecodedMode);
         }
     }
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 2)
     if (!dirs.isEmpty()) {
         emit q->aboutToCreate(q, dirs);
     }
     if (!files.isEmpty()) {
         emit q->aboutToCreate(q, files);
     }
+#endif
 }
 
 void CopyJobPrivate::slotResultCreatingDirs(KJob *job)
@@ -1356,9 +1362,11 @@ void CopyJobPrivate::slotResultCopyingFiles(KJob *job)
                     emit q->renamed(q, (*it).uDest, newDest); // for e.g. kpropsdlg
                     (*it).uDest = newDest;
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 2)
                     QList<CopyInfo> files;
                     files.append(*it);
                     emit q->aboutToCreate(q, files);
+#endif
                 } else {
                     if (!q->uiDelegateExtension()) {
                         q->Job::slotResult(job);   // will set the error and emit result(this)
@@ -1542,9 +1550,11 @@ void CopyJobPrivate::slotResultErrorCopyingFiles(KJob *job)
         (*it).uDest = newUrl;
         m_bURLDirty = true;
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 2)
         QList<CopyInfo> files;
         files.append(*it);
         emit q->aboutToCreate(q, files);
+#endif
     }
     break;
     case Result_AutoSkip:

@@ -22,6 +22,8 @@
 #define KSSLCERTIFICATEMANAGER_P_H
 
 #include <QMutex>
+#include <QSet>
+#include <QString>
 
 #include "kconfig.h"
 

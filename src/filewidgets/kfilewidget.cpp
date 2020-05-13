@@ -1600,6 +1600,7 @@ bool KFileWidgetPrivate::toOverwrite(const QUrl &url)
     return true;
 }
 
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 33)
 void KFileWidget::setSelection(const QString &url)
 {
 //     qDebug() << "setSelection " << url;
@@ -1617,6 +1618,7 @@ void KFileWidget::setSelection(const QString &url)
 
     setSelectedUrl(urlFromString(url));
 }
+#endif
 
 void KFileWidget::setSelectedUrl(const QUrl &url)
 {

@@ -23,6 +23,7 @@
 #define _KSSLINFODIALOG_H
 
 #include <QDialog>
+#include <QSslError>
 
 #include "kiowidgets_export.h"
 #include "ktcpsocket.h" // TODO KF6 remove this include

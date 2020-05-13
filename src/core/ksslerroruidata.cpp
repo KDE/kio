@@ -32,6 +32,7 @@ KSslErrorUiData::KSslErrorUiData()
     d->bits = 0;
 }
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 65)
 KSslErrorUiData::KSslErrorUiData(const KTcpSocket *socket)
     : d(new Private())
 {
@@ -48,6 +49,7 @@ KSslErrorUiData::KSslErrorUiData(const KTcpSocket *socket)
     d->usedBits = socket->sessionCipher().usedBits();
     d->bits = socket->sessionCipher().supportedBits();
 }
+#endif
 
 KSslErrorUiData::KSslErrorUiData(const QSslSocket *socket)
     : d(new Private())

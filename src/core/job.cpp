@@ -53,11 +53,12 @@ Job::~Job()
     delete d_ptr;
 }
 
-// Exists for historical reasons only
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 0)
 KJobUiDelegate *Job::ui() const
 {
     return uiDelegate();
 }
+#endif
 
 JobUiDelegateExtension *Job::uiDelegateExtension() const
 {
