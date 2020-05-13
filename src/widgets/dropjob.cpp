@@ -30,6 +30,7 @@
 #include <KConfigGroup>
 #include <KCoreDirLister>
 #include <KDesktopFile>
+#include <KIO/ApplicationLauncherJob>
 #include <KIO/CopyJob>
 #include <KIO/DndPopupMenuPlugin>
 #include <KIO/FileUndoManager>
@@ -41,7 +42,6 @@
 #include <KPluginLoader>
 #include <KProtocolManager>
 #include <KUrlMimeData>
-#include <KRun>
 #include <KService>
 
 #include <QDropEvent>
@@ -542,12 +542,18 @@ void DropJobPrivate::handleDropToDesktopFile()
     const KConfigGroup desktopGroup = desktopFile.desktopGroup();
     if (desktopFile.hasApplicationType()) {
         // Drop to application -> start app with urls as argument
-        KService service(destFile);
-        if (!KRun::runApplication(service, m_urls, KJobWidgets::window(q))) {
-            q->setError(KIO::ERR_CANNOT_LAUNCH_PROCESS);
-            q->setErrorText(destFile);
-        }
-        q->emitResult();
+        KService::Ptr service(new KService(destFile));
+        KIO::ApplicationLauncherJob *job = new KIO::ApplicationLauncherJob(service);
+        job->setUrls(m_urls);
+        job->setUiDelegate(q->uiDelegate());
+        job->start();
+        QObject::connect(job, &KJob::result, q, [=]() {
+            if (job->error()) {
+                q->setError(KIO::ERR_CANNOT_LAUNCH_PROCESS);
+                q->setErrorText(destFile);
+            }
+            q->emitResult();
+        });
     } else if (desktopFile.hasLinkType() && desktopGroup.hasKey(urlKey)) {
         // Drop to link -> adjust destination directory
         m_destUrl = QUrl::fromUserInput(desktopGroup.readPathEntry(urlKey, QString()));
