@@ -876,7 +876,7 @@ void CopyJobPrivate::statCurrentSrc()
             entry = cachedItem.entry();
             if (destinationState != DEST_DOESNT_EXIST) { // only resolve src if we could resolve dest (#218719)
                 bool dummyIsLocal;
-                m_currentSrcURL = cachedItem.mostLocalUrl(dummyIsLocal); // #183585
+                m_currentSrcURL = cachedItem.mostLocalUrl(&dummyIsLocal); // #183585
             }
         }
 

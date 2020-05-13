@@ -1103,7 +1103,7 @@ QMimeData *KDirModel::mimeData(const QModelIndexList &indexes) const
         const KFileItem &item = d->nodeForIndex(index)->item();
         urls << item.url();
         bool isLocal;
-        mostLocalUrls << item.mostLocalUrl(isLocal);
+        mostLocalUrls << item.mostLocalUrl(&isLocal);
         if (!isLocal) {
             canUseMostLocalUrls = false;
         }
