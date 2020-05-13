@@ -100,7 +100,7 @@ enum RenameDialog_Result {
     Result_AutoRename = 8,
     Result_Retry = 9,
 
-    // @deprecated since 5.0, use the RenameDialog_Option enum values
+    // @deprecated since 5.0, use the undeprecated enum values
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 0)
     R_CANCEL = Result_Cancel,
     R_RENAME = Result_Rename,
