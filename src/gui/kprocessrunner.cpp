@@ -88,9 +88,17 @@ KProcessRunner::KProcessRunner(const KService::Ptr &service, const QList<QUrl> &
         emitDelayedError(i18n("The desktop entry file\n%1\nis not valid.", service->entryPath()));
         return;
     }
-    KIO::DesktopExecParser execParser(*service, urls);
 
-    const QString realExecutable = execParser.resultingArguments().at(0);
+    KIO::DesktopExecParser execParser(*service, urls);
+    execParser.setUrlsAreTempFiles(flags & KIO::ApplicationLauncherJob::DeleteTemporaryFiles);
+    execParser.setSuggestedFileName(suggestedFileName);
+    const QStringList args = execParser.resultingArguments();
+    if (args.isEmpty()) {
+        emitDelayedError(i18n("Error processing Exec field in %1", service->entryPath()));
+        return;
+    }
+
+    const QString realExecutable = args.at(0);
     // realExecutable is a full path if DesktopExecParser was able to locate it. Otherwise it's still relative, which is a bad sign.
     if (QDir::isRelativePath(realExecutable) || !QFileInfo(realExecutable).isExecutable()) {
         // Does it really not exist, or is it non-executable? (bug #415567)
@@ -103,13 +111,6 @@ KProcessRunner::KProcessRunner(const KService::Ptr &service, const QList<QUrl> &
         return;
     }
 
-    execParser.setUrlsAreTempFiles(flags & KIO::ApplicationLauncherJob::DeleteTemporaryFiles);
-    execParser.setSuggestedFileName(suggestedFileName);
-    const QStringList args = execParser.resultingArguments();
-    if (args.isEmpty()) {
-        emitDelayedError(i18n("Error processing Exec field in %1", service->entryPath()));
-        return;
-    }
     //qDebug() << "KProcess args=" << args;
     *m_process << args;
 
