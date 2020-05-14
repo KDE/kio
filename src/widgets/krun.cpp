@@ -1087,4 +1087,3 @@ bool KRun::isLocalFile() const
 }
 
 #include "moc_krun.cpp"
-#include "moc_krun_p.cpp"
