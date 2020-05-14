@@ -73,6 +73,12 @@ find_package(KF5ItemViews ${KF5_DEP_VERSION} REQUIRED)
 find_package(KF5JobWidgets ${KF5_DEP_VERSION} REQUIRED)
 find_package(KF5WidgetsAddons ${KF5_DEP_VERSION} REQUIRED)
 find_package(KF5WindowSystem ${KF5_DEP_VERSION} REQUIRED)
+
+find_package(KDED)
+set_package_properties(KDED PROPERTIES DESCRIPTION "Daemon providing session services"
+                       TYPE RUNTIME
+                       PURPOSE "KDED is used at runtime for proxy management and cookie storage"
+                      )
 endif()
 
 if (UNIX)
