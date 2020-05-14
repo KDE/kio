@@ -82,6 +82,7 @@ KIOWIDGETS_EXPORT QList<KServiceAction> userDefinedServices(const KService &serv
   */
 KIOWIDGETS_EXPORT void executeService(const QList<QUrl> &urls, const KServiceAction &service);
 
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 71)
 /**
  * Invokes the default action for the desktop entry. If the desktop
  * entry is not local, then only false is returned. Otherwise we
@@ -92,9 +93,13 @@ KIOWIDGETS_EXPORT void executeService(const QList<QUrl> &urls, const KServiceAct
  * @param _is_local true if the URL is local, false otherwise
  * @return true on success and false on failure.
  * @see KRun::runUrl
+ * @deprecated since 5.71, use OpenUrlJob instead
  */
+KIOWIDGETS_DEPRECATED_VERSION(5, 71, "Use KIO::OpenUrlJob instead")
 KIOWIDGETS_EXPORT bool run(const QUrl &_url, bool _is_local);
+#endif
 
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 71)
 /**
  * Invokes the default action for the desktop entry. If the desktop
  * entry is not local, then only false is returned. Otherwise we
@@ -109,9 +114,11 @@ KIOWIDGETS_EXPORT bool run(const QUrl &_url, bool _is_local);
  * @return true on success and false on failure.
  * @see KRun::runUrl
  * @since 5.5
- * @todo kf6: merge with run
+ * @deprecated since 5.71, use OpenUrlJob instead
  */
+KIOWIDGETS_DEPRECATED_VERSION(5, 71, "Use KIO::OpenUrlJob instead")
 KIOWIDGETS_EXPORT bool runWithStartup(const QUrl &_url, bool _is_local, const QByteArray &asn);
+#endif
 }
 
 #endif
