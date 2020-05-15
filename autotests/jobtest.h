@@ -49,6 +49,7 @@ private Q_SLOTS:
     void copyFileToSamePartition();
     void copyDirectoryToSamePartition();
     void copyDirectoryToExistingDirectory();
+    void copyDirectoryToExistingSymlinkedDirectory();
     void copyFileToOtherPartition();
     void copyDirectoryToOtherPartition();
     void copyRelativeSymlinkToSamePartition();

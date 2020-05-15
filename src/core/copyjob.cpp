@@ -366,7 +366,7 @@ void CopyJobPrivate::slotStart()
     state = STATE_STATING;
     const QUrl dest = m_asMethod ? m_dest.adjusted(QUrl::RemoveFilename) : m_dest;
     // We need isDir() and UDS_LOCAL_PATH (for slaves who set it). Let's assume the latter is part of StatBasic too.
-    KIO::Job *job = KIO::statDetails(dest, StatJob::DestinationSide, KIO::StatBasic, KIO::HideProgressInfo);
+    KIO::Job *job = KIO::statDetails(dest, StatJob::DestinationSide, KIO::StatBasic | KIO::StatResolveSymlink, KIO::HideProgressInfo);
     qCDebug(KIO_COPYJOB_DEBUG) << "CopyJob: stating the dest" << dest;
     q->addSubjob(job);
 }
