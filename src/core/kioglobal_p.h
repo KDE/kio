@@ -112,7 +112,7 @@ namespace KIOPrivate {
     };
 
     /** Creates a symbolic link at @p destination pointing to @p source
-     * Unlink UNIX, Windows needs to know whether the symlink points to a file or a directory
+     * Unlike UNIX, Windows needs to know whether the symlink points to a file or a directory
      * when creating the link. This information can be passed in @p type. If @p type is not given
      * the windows code will guess the type based on the source file.
      * @note On Windows this requires the current user to have the SeCreateSymbolicLink privilege which
