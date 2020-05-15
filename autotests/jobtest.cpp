@@ -619,6 +619,36 @@ void JobTest::copyDirectoryToExistingDirectory()
     copyLocalDirectory(src, dest, AlreadyExists);
 }
 
+void JobTest::copyDirectoryToExistingSymlinkedDirectory()
+{
+    // qDebug();
+    // just the same as copyDirectoryToSamePartition, but this time dest is a symlink.
+    // So we get a file in the symlink dir, "dirFromHome_symlink/dirFromHome" and
+    // "dirFromHome_symOrigin/dirFromHome"
+    const QString src = homeTmpDir() + "dirFromHome";
+    const QString origSymlink = homeTmpDir() + "dirFromHome_symOrigin";
+    const QString targetSymlink = homeTmpDir() + "dirFromHome_symlink";
+    createTestDirectory(src);
+    createTestDirectory(origSymlink);
+
+    bool ok = KIOPrivate::createSymlink(origSymlink, targetSymlink);
+    if (!ok) {
+        qFatal("couldn't create symlink: %s", strerror(errno));
+    }
+    QVERIFY(QFileInfo(targetSymlink).isSymLink());
+    QVERIFY(QFileInfo(targetSymlink).isDir());
+
+    KIO::Job *job = KIO::copy(QUrl::fromLocalFile(src), QUrl::fromLocalFile(targetSymlink), KIO::HideProgressInfo);
+    job->setUiDelegate(nullptr);
+    job->setUiDelegateExtension(nullptr);
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
+    QVERIFY(QFile::exists(src));     // still there
+
+    // file is visible in both places due to symlink
+    QVERIFY(QFileInfo(origSymlink + "/dirFromHome").isDir());;
+    QVERIFY(QFileInfo(targetSymlink + "/dirFromHome").isDir());
+}
+
 void JobTest::copyFileToOtherPartition()
 {
     // qDebug();
