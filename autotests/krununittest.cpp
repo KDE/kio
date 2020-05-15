@@ -46,9 +46,9 @@ QTEST_GUILESS_MAIN(KRunUnitTest)
 void KRunUnitTest::initTestCase()
 {
     QStandardPaths::setTestModeEnabled(true);
-    // testProcessDesktopExec works only if your terminal application is set to "x-term"
+    // testProcessDesktopExec works only if your terminal application is set to "xterm"
     KConfigGroup cg(KSharedConfig::openConfig(), "General");
-    cg.writeEntry("TerminalApplication", "x-term");
+    cg.writeEntry("TerminalApplication", "xterm");
 
     // Determine the full path of sh - this is needed to make testProcessDesktopExecNoFile()
     // pass on systems where QStandardPaths::findExecutable("sh") is not "/bin/sh".
@@ -131,12 +131,12 @@ void KRunUnitTest::testProcessDesktopExec()
     static const char *const results[] = {
         "/bin/date -u", // 0
         "/bin/sh -c 'echo $PWD '", // 1
-        "x-term -T ' - just_a_test' -e /bin/date -u", // 2
-        "x-term -T ' - just_a_test' -e /bin/sh -c 'echo $PWD '", // 3
+        "/usr/bin/xterm -T ' - just_a_test' -e /bin/date -u", // 2
+        "/usr/bin/xterm -T ' - just_a_test' -e /bin/sh -c 'echo $PWD '", // 3
         /* kdesu */ " -u sprallo -c '/bin/date -u'", // 4
         /* kdesu */ " -u sprallo -c '/bin/sh -c '\\''echo $PWD '\\'''", // 5
-        "x-term -T ' - just_a_test' -e su sprallo -c '/bin/date -u'", // 6
-        "x-term -T ' - just_a_test' -e su sprallo -c '/bin/sh -c '\\''echo $PWD '\\'''", // 7
+        "/usr/bin/xterm -T ' - just_a_test' -e su sprallo -c '/bin/date -u'", // 6
+        "/usr/bin/xterm -T ' - just_a_test' -e su sprallo -c '/bin/sh -c '\\''echo $PWD '\\'''", // 7
     };
 
     // Find out the full path of the shell which will be used to execute shell commands
