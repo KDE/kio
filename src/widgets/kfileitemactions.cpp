@@ -30,6 +30,8 @@
 #include <kservicetypetrader.h>
 #include <KAbstractFileItemActionPlugin>
 #include <KPluginMetaData>
+#include <KIO/ApplicationLauncherJob>
+#include <KIO/JobUiDelegate>
 
 #include <QFile>
 #include <QMenu>
@@ -728,7 +730,11 @@ void KFileItemActionsPrivate::slotRunPreferredApplications()
             KRun::displayOpenWithDialog(serviceItems.urlList(), m_parentWidget);
             continue;
         }
-        KRun::runApplication(*servicePtr, serviceItems.urlList(), m_parentWidget);
+
+        KIO::ApplicationLauncherJob *job = new KIO::ApplicationLauncherJob(servicePtr);
+        job->setUrls(serviceItems.urlList());
+        job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, m_parentWidget));
+        job->start();
     }
 }
 
@@ -755,11 +761,14 @@ void KFileItemActionsPrivate::openWithByMime(const KFileItemList &fileItems)
 
 void KFileItemActionsPrivate::slotRunApplication(QAction *act)
 {
-    // Is it an application, from one of the "Open With" actions
+    // Is it an application, from one of the "Open With" actions?
     KService::Ptr app = act->data().value<KService::Ptr>();
     Q_ASSERT(app);
     if (app) {
-        KRun::runApplication(*app, m_props.urlList(), m_parentWidget);
+        KIO::ApplicationLauncherJob *job = new KIO::ApplicationLauncherJob(app);
+        job->setUrls(m_props.urlList());
+        job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, m_parentWidget));
+        job->start();
     }
 }
 
