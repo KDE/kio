@@ -647,6 +647,8 @@ void JobTest::copyDirectoryToExistingSymlinkedDirectory()
     // file is visible in both places due to symlink
     QVERIFY(QFileInfo(origSymlink + "/dirFromHome").isDir());;
     QVERIFY(QFileInfo(targetSymlink + "/dirFromHome").isDir());
+    QVERIFY(QDir(origSymlink).removeRecursively());
+    QVERIFY(QFile::remove(targetSymlink));
 }
 
 void JobTest::copyFileToOtherPartition()
