@@ -59,8 +59,8 @@ public:
     /**
      * Show the "Open With" dialog.
      * @param job the job calling this. Useful to get all its properties
-     * @param url the URL to open
-     * @param mimeType the mimeType of the URL
+     * @param urls the URLs to open
+     * @param mimeType the mimeType of the URLs, if known. Can be empty otherwise.
      *
      * Implementations of this method must emit either serviceSelected or canceled.
      *
@@ -68,7 +68,7 @@ public:
      * Any application using KIO::JobUiDelegate (from KIOWidgets) will benefit from an
      * automatically registered subclass which implements this method using KOpenWithDialog.
      */
-    virtual void promptUserForApplication(KIO::OpenUrlJob *job, const QUrl &url, const QString &mimeType);
+    virtual void promptUserForApplication(KIO::OpenUrlJob *job, const QList<QUrl> &urls, const QString &mimeType);
 
 Q_SIGNALS:
     /**

@@ -632,7 +632,7 @@ void KIO::OpenUrlJobPrivate::showOpenWithDialog()
         startService(service);
     });
 
-    s_openUrlJobHandler->promptUserForApplication(q, m_url, m_mimeTypeName);
+    s_openUrlJobHandler->promptUserForApplication(q, {m_url}, m_mimeTypeName);
 }
 
 void KIO::OpenUrlJob::slotResult(KJob *job)

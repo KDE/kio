@@ -32,10 +32,10 @@ OpenUrlJobHandlerInterface::OpenUrlJobHandlerInterface() = default;
 
 OpenUrlJobHandlerInterface::~OpenUrlJobHandlerInterface() = default;
 
-void OpenUrlJobHandlerInterface::promptUserForApplication(OpenUrlJob *job, const QUrl &url, const QString &mimeType)
+void OpenUrlJobHandlerInterface::promptUserForApplication(OpenUrlJob *job, const QList<QUrl> &urls, const QString &mimeType)
 {
     Q_UNUSED(job)
-    Q_UNUSED(url)
+    Q_UNUSED(urls)
     Q_UNUSED(mimeType)
     Q_EMIT canceled();
 }

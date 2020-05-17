@@ -35,11 +35,11 @@ KIO::WidgetsOpenUrlJobHandler::WidgetsOpenUrlJobHandler()
 
 KIO::WidgetsOpenUrlJobHandler::~WidgetsOpenUrlJobHandler() = default;
 
-void KIO::WidgetsOpenUrlJobHandler::promptUserForApplication(KIO::OpenUrlJob *job, const QUrl &url, const QString &mimeType)
+void KIO::WidgetsOpenUrlJobHandler::promptUserForApplication(KIO::OpenUrlJob *job, const QList<QUrl> &urls, const QString &mimeType)
 {
     QWidget *parentWidget = job ? KJobWidgets::window(job) : qApp->activeWindow();
 
-    KOpenWithDialog *dialog = new KOpenWithDialog({url}, mimeType, QString(), QString(), parentWidget);
+    KOpenWithDialog *dialog = new KOpenWithDialog(urls, mimeType, QString(), QString(), parentWidget);
     dialog->setAttribute(Qt::WA_DeleteOnClose);
     connect(dialog, &QDialog::accepted, this, [=]() {
         KService::Ptr service = dialog->service();

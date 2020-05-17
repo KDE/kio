@@ -39,7 +39,7 @@ public:
     WidgetsOpenUrlJobHandler();
     ~WidgetsOpenUrlJobHandler() override;
 
-    void promptUserForApplication(KIO::OpenUrlJob *job, const QUrl &url, const QString &mimeType) override;
+    void promptUserForApplication(KIO::OpenUrlJob *job, const QList<QUrl> &urls, const QString &mimeType) override;
 
 private:
     // Note: no d pointer because not exported at this point
