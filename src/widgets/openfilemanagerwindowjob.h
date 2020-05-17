@@ -51,7 +51,7 @@ class OpenFileManagerWindowJobPrivate;
  * which means if you, for example, pass it just a URL to a folder it will
  * not open this particular folder but instead highlight it within its parent folder.
  *
- * If you just want to open a folder, use KRun instead.
+ * If you just want to open a folder, use OpenUrlJob instead.
  *
  * @since 5.24
  */

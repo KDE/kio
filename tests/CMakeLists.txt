@@ -46,5 +46,6 @@ KIOWIDGETS_EXECUTABLE_TESTS(
   kprotocolinfo_dumper
   kfilewidgettest_gui
   kfilewidgettest_saving_gui
+  openfilemanagerwindowtest
   ${runapplication_EXE}
 )
