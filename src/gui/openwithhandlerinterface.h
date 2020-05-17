@@ -18,8 +18,8 @@
     Boston, MA 02110-1301, USA.
 */
 
-#ifndef OPENURLJOBHANDLERINTERFACE_H
-#define OPENURLJOBHANDLERINTERFACE_H
+#ifndef OPENWITHHANDLERINTERFACE_H
+#define OPENWITHHANDLERINTERFACE_H
 
 #include <QObject>
 #include <kiogui_export.h>
@@ -28,11 +28,11 @@ class QString;
 
 namespace KIO {
 class OpenUrlJob;
-class OpenUrlJobHandlerInterfacePrivate;
+class OpenWithHandlerInterfacePrivate;
 
 /**
- * @class OpenUrlJobHandlerInterface openurljobhandlerinterface.h <KIO/OpenUrlJobHandlerInterface>
- * @brief The OpenUrlJobHandlerInterface class allows OpenUrlJob to
+ * @class OpenWithHandlerInterface openwithhandlerinterface.h <KIO/OpenWithHandlerInterface>
+ * @brief The OpenWithHandlerInterface class allows OpenUrlJob to
  * prompt the user about which application to use to open URLs that do not
  * have an associated application (via the "Open With" dialog).
  *
@@ -41,19 +41,19 @@ class OpenUrlJobHandlerInterfacePrivate;
  *
  * @since 5.71
  */
-class KIOGUI_EXPORT OpenUrlJobHandlerInterface : public QObject
+class KIOGUI_EXPORT OpenWithHandlerInterface : public QObject
 {
     Q_OBJECT
 protected:
     /**
      * Constructor
      */
-    OpenUrlJobHandlerInterface();
+    OpenWithHandlerInterface();
 
     /**
      * Destructor
      */
-    ~OpenUrlJobHandlerInterface() override;
+    ~OpenWithHandlerInterface() override;
 
 public:
     /**
@@ -83,9 +83,9 @@ Q_SIGNALS:
     void canceled();
 
 private:
-    QScopedPointer<OpenUrlJobHandlerInterfacePrivate> d;
+    QScopedPointer<OpenWithHandlerInterfacePrivate> d;
 };
 
 }
 
-#endif // OPENURLJOBHANDLERINTERFACE_H
+#endif // OPENWITHHANDLERINTERFACE_H

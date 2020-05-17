@@ -20,7 +20,7 @@
 
 #include "kopenwithdialog.h"
 #include "openurljob.h"
-#include "widgetsopenurljobhandler.h"
+#include "widgetsopenwithhandler.h"
 
 #include <KJobWidgets>
 #include <KLocalizedString>
@@ -28,14 +28,14 @@
 
 #include <QApplication>
 
-KIO::WidgetsOpenUrlJobHandler::WidgetsOpenUrlJobHandler()
-    : KIO::OpenUrlJobHandlerInterface()
+KIO::WidgetsOpenWithHandler::WidgetsOpenWithHandler()
+    : KIO::OpenWithHandlerInterface()
 {
 }
 
-KIO::WidgetsOpenUrlJobHandler::~WidgetsOpenUrlJobHandler() = default;
+KIO::WidgetsOpenWithHandler::~WidgetsOpenWithHandler() = default;
 
-void KIO::WidgetsOpenUrlJobHandler::promptUserForApplication(KIO::OpenUrlJob *job, const QList<QUrl> &urls, const QString &mimeType)
+void KIO::WidgetsOpenWithHandler::promptUserForApplication(KIO::OpenUrlJob *job, const QList<QUrl> &urls, const QString &mimeType)
 {
     QWidget *parentWidget = job ? KJobWidgets::window(job) : qApp->activeWindow();
 

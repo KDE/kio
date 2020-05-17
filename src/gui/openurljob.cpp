@@ -20,7 +20,7 @@
 */
 
 #include "openurljob.h"
-#include "openurljobhandlerinterface.h"
+#include "openwithhandlerinterface.h"
 #include "global.h"
 #include "job.h" // for buildErrorString
 #include "commandlauncherjob.h"
@@ -46,10 +46,10 @@
 
 #include <kio/scheduler.h>
 
-static KIO::OpenUrlJobHandlerInterface *s_openUrlJobHandler = nullptr;
+static KIO::OpenWithHandlerInterface *s_openWithHandler = nullptr;
 namespace KIO {
-// Hidden API because in KF6 we'll just check if the job's uiDelegate implements OpenUrlJobHandlerInterface.
-KIOGUI_EXPORT void setDefaultOpenUrlJobHandler(KIO::OpenUrlJobHandlerInterface *iface) { s_openUrlJobHandler = iface; }
+// Hidden API because in KF6 we'll just check if the job's uiDelegate implements OpenWithHandlerInterface.
+KIOGUI_EXPORT void setDefaultOpenWithHandler(KIO::OpenWithHandlerInterface *iface) { s_openWithHandler = iface; }
 }
 
 class KIO::OpenUrlJobPrivate
@@ -615,7 +615,7 @@ void KIO::OpenUrlJobPrivate::showOpenWithDialog()
         return;
     }
 
-    if (!s_openUrlJobHandler || QOperatingSystemVersion::currentType() == QOperatingSystemVersion::Windows) {
+    if (!s_openWithHandler || QOperatingSystemVersion::currentType() == QOperatingSystemVersion::Windows) {
         // As KDE on windows doesn't know about the windows default applications, offers will be empty in nearly all cases.
         // So we use QDesktopServices::openUrl to let windows decide how to open the file.
         // It's also our fallback if there's no handler to show an open-with dialog.
@@ -627,16 +627,16 @@ void KIO::OpenUrlJobPrivate::showOpenWithDialog()
         return;
     }
 
-    QObject::connect(s_openUrlJobHandler, &KIO::OpenUrlJobHandlerInterface::canceled, q, [this]() {
+    QObject::connect(s_openWithHandler, &KIO::OpenWithHandlerInterface::canceled, q, [this]() {
         q->setError(KIO::ERR_USER_CANCELED);
         q->emitResult();
     });
 
-    QObject::connect(s_openUrlJobHandler, &KIO::OpenUrlJobHandlerInterface::serviceSelected, q, [this](const KService::Ptr &service) {
+    QObject::connect(s_openWithHandler, &KIO::OpenWithHandlerInterface::serviceSelected, q, [this](const KService::Ptr &service) {
         startService(service);
     });
 
-    s_openUrlJobHandler->promptUserForApplication(q, {m_url}, m_mimeTypeName);
+    s_openWithHandler->promptUserForApplication(q, {m_url}, m_mimeTypeName);
 }
 
 void KIO::OpenUrlJob::slotResult(KJob *job)

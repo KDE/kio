@@ -59,7 +59,7 @@ set(kiowidgets_SRCS
   kurifiltersearchprovideractions.cpp
   renamefiledialog.cpp
   widgetsuntrustedprogramhandler.cpp
-  widgetsopenurljobhandler.cpp
+  widgetsopenwithhandler.cpp
 )
 if (WIN32)
   list(APPEND kiowidgets_SRCS

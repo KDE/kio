@@ -18,33 +18,24 @@
     Boston, MA 02110-1301, USA.
 */
 
-#ifndef WIDGETSOPENURLJOBHANDLER_H
-#define WIDGETSOPENURLJOBHANDLER_H
+#include "openwithhandlerinterface.h"
 
-#include "openurljobhandlerinterface.h"
+#include <QFile>
+#include <QSaveFile>
+#include "kiocoredebug.h"
 
-class QDialog;
-class QWidget;
+using namespace KIO;
 
-namespace KIO {
+class KIO::OpenWithHandlerInterfacePrivate {};
 
-// TODO KF6: Make KIO::JobUiDelegate inherit from WidgetsOpenUrlJobHandler
-// (or even merge the two classes)
-// so that setDelegate(new KIO::JobUiDelegate) provides both dialog boxes on error
-// and the open-with dialog.
+OpenWithHandlerInterface::OpenWithHandlerInterface() = default;
 
-class WidgetsOpenUrlJobHandler : public OpenUrlJobHandlerInterface
+OpenWithHandlerInterface::~OpenWithHandlerInterface() = default;
+
+void OpenWithHandlerInterface::promptUserForApplication(OpenUrlJob *job, const QList<QUrl> &urls, const QString &mimeType)
 {
-public:
-    WidgetsOpenUrlJobHandler();
-    ~WidgetsOpenUrlJobHandler() override;
-
-    void promptUserForApplication(KIO::OpenUrlJob *job, const QList<QUrl> &urls, const QString &mimeType) override;
-
-private:
-    // Note: no d pointer because not exported at this point
-};
-
+    Q_UNUSED(job)
+    Q_UNUSED(urls)
+    Q_UNUSED(mimeType)
+    Q_EMIT canceled();
 }
-
-#endif // WIDGETSOPENURLJOBHANDLER_H

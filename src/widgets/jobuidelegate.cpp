@@ -25,7 +25,7 @@
 #include "kio_widgets_debug.h"
 #include "kiogui_export.h"
 #include "widgetsuntrustedprogramhandler.h"
-#include "widgetsopenurljobhandler.h"
+#include "widgetsopenwithhandler.h"
 
 #include <kconfiggroup.h>
 #include <kjob.h>
@@ -53,7 +53,7 @@ public:
 
 namespace KIO {
 KIOGUI_EXPORT void setDefaultUntrustedProgramHandler(KIO::UntrustedProgramHandlerInterface *iface);
-KIOGUI_EXPORT void setDefaultOpenUrlJobHandler(KIO::OpenUrlJobHandlerInterface *iface);
+KIOGUI_EXPORT void setDefaultOpenWithHandler(KIO::OpenWithHandlerInterface *iface);
 }
 
 KIO::JobUiDelegate::JobUiDelegate()
@@ -62,8 +62,8 @@ KIO::JobUiDelegate::JobUiDelegate()
     // KF6 TODO: remove, inherit from WidgetsUntrustedProgramHandler instead
     static WidgetsUntrustedProgramHandler s_handler;
     KIO::setDefaultUntrustedProgramHandler(&s_handler);
-    static WidgetsOpenUrlJobHandler s_openUrlHandler;
-    KIO::setDefaultOpenUrlJobHandler(&s_openUrlHandler);
+    static WidgetsOpenWithHandler s_openUrlHandler;
+    KIO::setDefaultOpenWithHandler(&s_openUrlHandler);
 }
 
 KIO::JobUiDelegate::~JobUiDelegate()
