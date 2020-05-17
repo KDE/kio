@@ -128,6 +128,7 @@ static bool runFSDevice(const QUrl &_url, const KDesktopFile &cfg, const QByteAr
 }
 #endif
 
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 71)
 static bool runLink(const QUrl &_url, const KDesktopFile &cfg, const QByteArray &asn)
 {
     QString u = cfg.readUrl();
@@ -150,6 +151,7 @@ static bool runLink(const QUrl &_url, const KDesktopFile &cfg, const QByteArray 
 
     return false;
 }
+#endif
 
 QList<KServiceAction> KDesktopFileActions::builtinServices(const QUrl &_url)
 {
