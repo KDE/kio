@@ -71,13 +71,13 @@ void ClipboardUpdaterTest::testPasteAfterRenameFiles()
         QUrl newUrl = url;
         newUrl.setPath(url.path() + QLatin1String("_renamed"));
         KIO::SimpleJob *job = KIO::rename(url, newUrl, KIO::HideProgressInfo);
-        QVERIFY(job->exec());
+        QVERIFY2(job->exec(), qPrintable(job->errorString()));
     }
 
     const QString pasteDir = dir.path() + QLatin1String("/pastedir");
     createTestDirectory(pasteDir, NoSymlink);
     KIO::Job *job = KIO::paste(clipboard->mimeData(), QUrl::fromLocalFile(pasteDir));
-    QVERIFY(job->exec());
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
     QCOMPARE(job->error(), 0);
 }
 
@@ -103,7 +103,7 @@ void ClipboardUpdaterTest::testPasteAfterMoveFile()
     const QString pasteDir = dir.path() + QLatin1String("/pastedir");
     createTestDirectory(pasteDir, NoSymlink);
     KIO::Job *job = KIO::paste(clipboard->mimeData(), QUrl::fromLocalFile(pasteDir));
-    QVERIFY(job->exec());
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
     QCOMPARE(job->error(), 0);
 }
 
@@ -125,7 +125,7 @@ void ClipboardUpdaterTest::testPasteAfterMoveFiles()
     const QString pasteDir = dir.path() + QLatin1String("/pastedir");
     createTestDirectory(pasteDir, NoSymlink);
     KIO::Job *job = KIO::paste(clipboard->mimeData(), QUrl::fromLocalFile(pasteDir));
-    QVERIFY(job->exec());
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
     QCOMPARE(job->error(), 0);
 }
 
@@ -147,7 +147,9 @@ void ClipboardUpdaterTest::testPasteAfterDeleteFile()
     const QString pasteDir = dir.path() + QLatin1String("/pastedir");
     createTestDirectory(pasteDir, NoSymlink);
     KIO::Job *job = KIO::paste(clipboard->mimeData(), QUrl::fromLocalFile(pasteDir), nullptr);
-    QVERIFY(!job);
+    QVERIFY(job);
+    QVERIFY(!job->exec());
+    QCOMPARE(job->error(), int(KIO::ERR_NO_CONTENT));
 }
 
 void ClipboardUpdaterTest::testPasteAfterDeleteFiles()
@@ -168,6 +170,8 @@ void ClipboardUpdaterTest::testPasteAfterDeleteFiles()
     const QString pasteDir = dir.path() + QLatin1String("/pastedir");
     createTestDirectory(pasteDir, NoSymlink);
     KIO::Job *job = KIO::paste(clipboard->mimeData(), QUrl::fromLocalFile(pasteDir), nullptr);
-    QVERIFY(!job);
+    QVERIFY(job);
+    QVERIFY(!job->exec());
+    QCOMPARE(job->error(), int(KIO::ERR_NO_CONTENT));
 }
 
