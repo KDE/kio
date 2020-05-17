@@ -38,12 +38,12 @@ private Q_SLOTS:
     void testProcessDesktopExecNoFile();
     void testKtelnetservice();
 
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 71)
     void testMimeTypeFile();
     void testMimeTypeDirectory();
     void testMimeTypeBrokenLink();
     void testMimeTypeDoesNotExist();
 
-#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 71)
     void KRunRunService_data();
     void KRunRunService();
 #endif

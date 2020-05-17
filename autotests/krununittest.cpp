@@ -275,6 +275,7 @@ void KRunUnitTest::testKtelnetservice()
     }
 }
 
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 71)
 class KRunImpl : public KRun
 {
 public:
@@ -359,6 +360,9 @@ void KRunUnitTest::testMimeTypeDoesNotExist() // ported to OpenUrlJobTest::nonEx
     QTest::qWait(100); // let auto-deletion proceed.
 }
 
+#endif
+
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 71)
 static const char s_tempServiceName[] = "krununittest_service.desktop";
 
 static void createSrcFile(const QString path)
@@ -367,6 +371,7 @@ static void createSrcFile(const QString path)
     QVERIFY2(srcFile.open(QFile::WriteOnly), qPrintable(srcFile.errorString()));
     srcFile.write("Hello world\n");
 }
+#endif
 
 #if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 71)
 void KRunUnitTest::KRunRunService_data()
@@ -417,7 +422,6 @@ void KRunUnitTest::KRunRunService()
     ::kill(pid, SIGTERM);
 #endif
 }
-#endif
 
 QString KRunUnitTest::createTempService()
 {
@@ -443,3 +447,5 @@ QString KRunUnitTest::createTempService()
     m_filesToRemove.append(fakeService);
     return fakeService;
 }
+
+#endif

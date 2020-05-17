@@ -20,6 +20,8 @@
 */
 
 #include "krun.h"
+
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 71)
 #include "krun_p.h"
 #include "kio_widgets_debug.h"
 
@@ -1092,3 +1094,4 @@ bool KRun::isLocalFile() const
 }
 
 #include "moc_krun.cpp"
+#endif

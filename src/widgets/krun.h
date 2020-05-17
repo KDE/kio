@@ -37,6 +37,7 @@ namespace KIO
 class Job;
 }
 
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 71)
 /**
  * @class KRun krun.h <KRun>
  *
@@ -803,5 +804,6 @@ private:
     friend class KRunPrivate;
     KRunPrivate *const d;
 };
+#endif
 
 #endif
