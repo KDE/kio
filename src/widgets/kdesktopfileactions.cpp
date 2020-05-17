@@ -91,6 +91,7 @@ bool KDesktopFileActions::runWithStartup(const QUrl &u, bool _is_local, const QB
 }
 #endif
 
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 71)
 static bool runFSDevice(const QUrl &_url, const KDesktopFile &cfg, const QByteArray &asn)
 {
     bool retval = false;
@@ -125,6 +126,7 @@ static bool runFSDevice(const QUrl &_url, const KDesktopFile &cfg, const QByteAr
 
     return retval;
 }
+#endif
 
 static bool runLink(const QUrl &_url, const KDesktopFile &cfg, const QByteArray &asn)
 {
