@@ -17,9 +17,10 @@
 */
 
 #include "kautomount.h"
-#include "krun.h"
 #include "kdirwatch.h"
 #include "kio/job.h"
+#include <KIO/JobUiDelegate>
+#include <KIO/OpenUrlJob>
 #include "kio_widgets_debug.h"
 #include <kdirnotify.h>
 #include <kjobuidelegate.h>
@@ -87,7 +88,10 @@ void KAutoMountPrivate::slotResult(KJob *job)
             const QUrl url = QUrl::fromLocalFile(mp->mountPoint());
             //qDebug() << "KAutoMount: m_strDevice=" << m_strDevice << " -> mountpoint=" << mountpoint;
             if (m_bShowFilemanagerWindow) {
-                KRun::runUrl(url, QStringLiteral("inode/directory"), nullptr /*TODO - window*/, KRun::RunFlags(KRun::RunExecutables));
+                KIO::OpenUrlJob *job = new KIO::OpenUrlJob(url, QStringLiteral("inode/directory"));
+                job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, nullptr /*TODO - window*/));
+                job->setRunExecutables(true);
+                job->start();
             }
             // Notify about the new stuff in that dir, in case of opened windows showing it
             org::kde::KDirNotify::emitFilesAdded(url);
