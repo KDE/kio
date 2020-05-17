@@ -19,23 +19,7 @@
 #ifndef _kruntest_h
 #define _kruntest_h
 
-#include <krun.h>
-
 #include <QWidget>
-
-class testKRun : public KRun
-{
-    Q_OBJECT
-public:
-
-    testKRun(const QUrl &_url, QWidget *_topLevel)
-        : KRun(_url, _topLevel, false /*no progress info*/) {}
-
-    virtual ~testKRun() {}
-
-    void foundMimeType(const QString &_type) override;
-
-};
 
 class QPushButton;
 class Receiver : public QWidget

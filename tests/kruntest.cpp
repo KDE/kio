@@ -21,6 +21,7 @@
 
 #include <KIO/ApplicationLauncherJob>
 #include <KIO/JobUiDelegate>
+#include <KIO/OpenUrlJob>
 
 #include <QLabel>
 #include <QApplication>
@@ -30,18 +31,12 @@
 #include <QLayout>
 #include <QTest> // QFINDTESTDATA
 
+#include <QDir>
 #include <qplatformdefs.h>
 
-const int MAXKRUNS = 100;
+static const int s_maxJobs = 100;
 
-testKRun *myArray[MAXKRUNS];
-
-void testKRun::foundMimeType(const QString &_type)
-{
-    qDebug() << "found mime type" << _type << "for URL=" << url();
-    setFinished(true);
-    return;
-}
+static KIO::OpenUrlJob *jobArray[s_maxJobs];
 
 static const char testFile[] = "kruntest.cpp";
 
@@ -70,16 +65,16 @@ Receiver::Receiver()
     lay->addWidget(h);
     connect(h, SIGNAL(clicked()), qApp, SLOT(quit()));
 
-    start = new QPushButton(QStringLiteral("Launch KRuns"), this);
+    start = new QPushButton(QStringLiteral("Launch OpenUrlJobs"), this);
     lay->addWidget(start);
     connect(start, &QAbstractButton::clicked, this, &Receiver::slotStart);
 
-    stop = new QPushButton(QStringLiteral("Stop those KRuns"), this);
+    stop = new QPushButton(QStringLiteral("Stop those OpenUrlJobs"), this);
     stop->setEnabled(false);
     lay->addWidget(stop);
     connect(stop, &QAbstractButton::clicked, this, &Receiver::slotStop);
 
-    QPushButton *launchOne = new QPushButton(QStringLiteral("Launch one http KRun"), this);
+    QPushButton *launchOne = new QPushButton(QStringLiteral("Launch one http OpenUrlJob"), this);
     lay->addWidget(launchOne);
     connect(launchOne, &QAbstractButton::clicked, this, &Receiver::slotLaunchOne);
 
@@ -136,9 +131,9 @@ void Receiver::slotLaunchTest()
 
 void Receiver::slotStop()
 {
-    for (int i = 0; i < MAXKRUNS; i++) {
-        qDebug() << "deleting krun" << i;
-        delete myArray[i];
+    for (int i = 0; i < s_maxJobs; i++) {
+        qDebug() << "deleting job" << i;
+        delete jobArray[i];
     }
     start->setEnabled(true);
     stop->setEnabled(false);
@@ -146,10 +141,11 @@ void Receiver::slotStop()
 
 void Receiver::slotStart()
 {
-    for (int i = 0; i < MAXKRUNS; i++) {
-        qDebug() << "creating testKRun" << i;
-        myArray[i] = new testKRun(QUrl::fromLocalFile(QStringLiteral("file:///tmp")), window());
-        myArray[i]->setAutoDelete(false);
+    for (int i = 0; i < s_maxJobs; i++) {
+        qDebug() << "creating testjob" << i;
+        jobArray[i] = new KIO::OpenUrlJob(QUrl::fromLocalFile(QDir::tempPath()));
+        jobArray[i]->setAutoDelete(false);
+        jobArray[i]->start();
     }
     start->setEnabled(false);
     stop->setEnabled(true);
@@ -157,7 +153,9 @@ void Receiver::slotStart()
 
 void Receiver::slotLaunchOne()
 {
-    new testKRun(QUrl(QStringLiteral("http://www.kde.org")), window());
+    auto *job = new KIO::OpenUrlJob(QUrl(QStringLiteral("http://www.kde.org")));
+    job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, this));
+    job->start();
 }
 
 int main(int argc, char **argv)
@@ -168,4 +166,3 @@ int main(int argc, char **argv)
     Receiver receiver;
     return app.exec();
 }
-
