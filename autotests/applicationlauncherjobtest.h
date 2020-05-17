@@ -43,6 +43,8 @@ private Q_SLOTS:
     void shouldFailOnNonExistingExecutable();
 
     void shouldFailOnInvalidService();
+    void shouldFailOnServiceWithNoExec();
+    void shouldFailOnExecutableWithoutPermissions();
 
 private:
     QString createTempService();

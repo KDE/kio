@@ -125,7 +125,7 @@ void ApplicationLauncherJobTest::startProcess()
         job->setRunFlags(KIO::ApplicationLauncherJob::DeleteTemporaryFiles);
     }
     if (useExec) {
-        QVERIFY(job->exec());
+        QVERIFY2(job->exec(), qPrintable(job->errorString()));
     } else {
         job->start();
         QVERIFY(job->waitForStarted());
@@ -286,6 +286,58 @@ void ApplicationLauncherJobTest::shouldFailOnInvalidService()
     QCOMPARE(job->errorString(), QStringLiteral("The desktop entry file\n%1\nis not valid.").arg(desktopFilePath));
 
     QFile::remove(desktopFilePath);
+}
+
+void ApplicationLauncherJobTest::shouldFailOnServiceWithNoExec()
+{
+    const QString desktopFilePath = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/kservices5/invalid_service.desktop");
+    KDesktopFile file(desktopFilePath);
+    KConfigGroup group = file.desktopGroup();
+    group.writeEntry("Name", "KRunUnittestServiceNoExec");
+    group.writeEntry("Type", "Service");
+    file.sync();
+
+    QTest::ignoreMessage(QtWarningMsg, qPrintable(QString("No Exec field in \"%1\"").arg(desktopFilePath)));
+    KService::Ptr servicePtr(new KService(desktopFilePath));
+    KIO::ApplicationLauncherJob *job = new KIO::ApplicationLauncherJob(servicePtr, this);
+    QVERIFY(!job->exec());
+    QCOMPARE(job->error(), KJob::UserDefinedError);
+    QCOMPARE(job->errorString(), QStringLiteral("No Exec field in %1").arg(desktopFilePath));
+
+    QFile::remove(desktopFilePath);
+}
+
+void ApplicationLauncherJobTest::shouldFailOnExecutableWithoutPermissions()
+{
+#ifdef Q_OS_UNIX
+    // Given an executable shell script that copies "src" to "dest" (we'll cheat with the mimetype to treat it like a native binary)
+    QTemporaryDir tempDir;
+    const QString dir = tempDir.path();
+    const QString scriptFilePath = dir + QStringLiteral("/script.sh");
+    QFile scriptFile(scriptFilePath);
+    QVERIFY(scriptFile.open(QIODevice::WriteOnly));
+    scriptFile.write("#!/bin/sh\ncp src dest");
+    scriptFile.close();
+    // Note that it's missing executable permissions
+
+    const QString desktopFilePath = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/kservices5/invalid_service.desktop");
+    KDesktopFile file(desktopFilePath);
+    KConfigGroup group = file.desktopGroup();
+    group.writeEntry("Name", "KRunUnittestServiceNoPermission");
+    group.writeEntry("Type", "Service");
+    group.writeEntry("Exec", scriptFilePath);
+    file.sync();
+
+    KService::Ptr servicePtr(new KService(desktopFilePath));
+    KIO::ApplicationLauncherJob *job = new KIO::ApplicationLauncherJob(servicePtr, this);
+    QVERIFY(!job->exec());
+    QCOMPARE(job->error(), KJob::UserDefinedError);
+    QCOMPARE(job->errorString(), QStringLiteral("The program '%1' is missing executable permissions.").arg(scriptFilePath));
+
+    QFile::remove(desktopFilePath);
+#else
+    QSKIP("This test is not run on Windows");
+#endif
 }
 
 void ApplicationLauncherJobTest::writeTempServiceDesktopFile(const QString &filePath)

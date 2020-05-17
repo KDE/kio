@@ -77,7 +77,7 @@ void KRunUnitTest::testExecutableName_data()
     QTest::newRow("\"progname\" \"arg1\"") << "\"progname\" \"arg1\"" << "progname" << "progname";
     QTest::newRow("'quoted' \"arg1\"") << "'quoted' \"arg1\"" << "quoted" << "quoted";
     QTest::newRow(" 'leading space'   arg1") << " 'leading space'   arg1" << "leading space" << "leading space";
-    QTest::newRow("if_command") << "if test -e /tmp/foo; then kwrite ; else konsole ; fi" << "if" << "if";
+    QTest::newRow("if_command") << "if test -e /tmp/foo; then kwrite ; else konsole ; fi" << "" << ""; // "if" isn't a known executable, so this is good...
 }
 
 void KRunUnitTest::testExecutableName()
@@ -193,11 +193,6 @@ void KRunUnitTest::testProcessDesktopExecNoFile_data()
     QVERIFY(QFileInfo::exists(kioexec));
     QString kioexecQuoted = KShell::quoteArg(kioexec);
 
-    QString kmailservice = QStandardPaths::findExecutable(QStringLiteral("kmailservice5"));
-    if (!QFile::exists(kmailservice)) {
-        kmailservice = QStringLiteral("kmailservice5");
-    }
-
     QTest::newRow("%U l0") << "kdeinit5 %U" << l0 << false << kdeinit;
     QTest::newRow("%U l1") << "kdeinit5 %U" << l1 << false << kdeinit + " /tmp";
     QTest::newRow("%U l2") << "kdeinit5 %U" << l2 << false << kdeinit + " http://localhost/foo";
@@ -219,8 +214,9 @@ void KRunUnitTest::testProcessDesktopExecNoFile_data()
     QTest::newRow("sh -c kdeinit5 %F") << "sh -c \"kdeinit5 \"'\\\"'\"%F\"'\\\"'"
                                        << l1 << false << m_sh + " -c 'kdeinit5 \\\"/tmp\\\"'";
 
-    QTest::newRow("kmailservice5 %u l1") << "kmailservice5 %u" << l1 << false << kmailservice + " /tmp";
-    QTest::newRow("kmailservice5 %u l4") << "kmailservice5 %u" << l4 << false << kmailservice + " http://login:password@www.kde.org";
+    // This was originally with kmailservice5, but that relies on it being installed
+    QTest::newRow("kdeinit5 %u l1") << "kdeinit5 %u" << l1 << false << kdeinit + " /tmp";
+    QTest::newRow("kdeinit5 %u l4") << "kdeinit5 %u" << l4 << false << kdeinit + " http://login:password@www.kde.org";
 }
 
 void KRunUnitTest::testProcessDesktopExecNoFile()
@@ -232,7 +228,9 @@ void KRunUnitTest::testProcessDesktopExecNoFile()
     QFETCH(QString, expected);
     KIO::DesktopExecParser parser(service, urls);
     parser.setUrlsAreTempFiles(tempfiles);
-    QCOMPARE(KShell::joinArgs(parser.resultingArguments()), expected);
+    const QStringList args = parser.resultingArguments();
+    QVERIFY2(!args.isEmpty(), qPrintable(parser.errorMessage()));
+    QCOMPARE(KShell::joinArgs(args), expected);
 }
 
 extern KSERVICE_EXPORT int ksycoca_ms_between_checks;

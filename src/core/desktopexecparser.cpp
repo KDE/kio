@@ -30,6 +30,7 @@
 #include <kconfiggroup.h>
 #include <kprotocolinfo.h>
 #include <kmimetypetrader.h>
+#include <KLocalizedString>
 
 #include <QFile>
 #include <QDir>
@@ -264,6 +265,7 @@ public:
     QList<QUrl> urls;
     bool tempFiles;
     QString suggestedFileName;
+    QString m_errorString;
 };
 
 KIO::DesktopExecParser::DesktopExecParser(const KService &service, const QList<QUrl> &urls)
@@ -294,12 +296,77 @@ static const QString kioexecPath()
     return kioexec;
 }
 
+static QString findNonExecutableProgram(const QString &executable)
+{
+    // Relative to current dir, or absolute path
+    const QFileInfo fi(executable);
+    if (fi.exists() && !fi.isExecutable()) {
+        return executable;
+    }
+
+#ifdef Q_OS_UNIX
+    // This is a *very* simplified version of QStandardPaths::findExecutable
+#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
+    const auto skipEmptyParts = QString::SkipEmptyParts;
+#else
+    const auto skipEmptyParts = Qt::SkipEmptyParts;
+#endif
+    const QStringList searchPaths = QString::fromLocal8Bit(qgetenv("PATH")).split(QDir::listSeparator(), skipEmptyParts);
+    for (const QString &searchPath : searchPaths) {
+        const QString candidate = searchPath + QLatin1Char('/') + executable;
+        const QFileInfo fileInfo(candidate);
+        if (fileInfo.exists()) {
+            if (fileInfo.isExecutable()) {
+                qWarning() << "Internal program error. QStandardPaths::findExecutable couldn't find" << executable << "but our own logic found it at" << candidate << ". Please report a bug at https://bugs.kde.org";
+            } else {
+                return candidate;
+            }
+        }
+    }
+#endif
+    return QString();
+}
+
 QStringList KIO::DesktopExecParser::resultingArguments() const
 {
     QString exec = d->service.exec();
     if (exec.isEmpty()) {
-        qCWarning(KIO_CORE) << "No Exec field in `" << d->service.entryPath() << "' !";
+        d->m_errorString = i18n("No Exec field in %1", d->service.entryPath());
+        qCWarning(KIO_CORE) << "No Exec field in" << d->service.entryPath();
         return QStringList();
+    }
+
+    // Extract the name of the binary to execute from the full Exec line, to see if it exists
+    const QString binary = executablePath(exec);
+    QString executableFullPath;
+    if (!binary.isEmpty()) { // skip all this if the Exec line is a complex shell command
+        if (QDir::isRelativePath(binary)) {
+            // Resolve the executable to ensure that helpers in libexec are found.
+            // Too bad for commands that need a shell - they must reside in $PATH.
+            executableFullPath = QStandardPaths::findExecutable(binary);
+            qDebug() << "findExecutable(" << binary << ") said" << executableFullPath;
+            if (executableFullPath.isEmpty()) {
+                executableFullPath = QFile::decodeName(CMAKE_INSTALL_FULL_LIBEXECDIR_KF5 "/") + binary;
+            }
+        } else {
+            executableFullPath = binary;
+        }
+
+        // Now check that the binary exists and has the executable flag
+        if (!QFileInfo(executableFullPath).isExecutable()) {
+            // Does it really not exist, or is it non-executable (on Unix)? (bug #415567)
+            const QString nonExecutable = findNonExecutableProgram(binary);
+            if (nonExecutable.isEmpty()) {
+                d->m_errorString = i18n("Could not find the program '%1'", binary);
+            } else {
+                if (QDir::isRelativePath(binary)) {
+                    d->m_errorString = i18n("The program '%1' was found at '%2' but it is missing executable permissions.", binary, nonExecutable);
+                } else {
+                    d->m_errorString = i18n("The program '%1' is missing executable permissions.", nonExecutable);
+                }
+            }
+            return QStringList();
+        }
     }
 
     QStringList result;
@@ -309,6 +376,7 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
     KRunMX2 mx2(d->urls);
 
     if (!mx1.expandMacrosShellQuote(exec)) {    // Error in shell syntax
+        d->m_errorString = i18n("Syntax error in command %1 coming from %2", exec, d->service.entryPath());
         qCWarning(KIO_CORE) << "Syntax error in command" << d->service.exec() << ", service" << d->service.name();
         return QStringList();
     }
@@ -425,6 +493,7 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
 
         QString terminalPath = QStandardPaths::findExecutable(terminal);
         if (terminalPath.isEmpty()) {
+            d->m_errorString = i18n("Terminal %1 not found while trying to run %2", terminal, d->service.entryPath());
             qCWarning(KIO_CORE) << "Terminal" << terminal << "not found, service" << d->service.name();
             return QStringList();
         }
@@ -440,6 +509,7 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
         }
         terminal += QLatin1Char(' ') + d->service.terminalOptions();
         if (!mx1.expandMacrosShellQuote(terminal)) {
+            d->m_errorString = i18n("Syntax error in command %1 while trying to run %2", terminal, d->service.entryPath());
             qCWarning(KIO_CORE) << "Syntax error in command" << terminal << ", service" << d->service.name();
             return QStringList();
         }
@@ -450,20 +520,10 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
 
     KShell::Errors err;
     QStringList execlist = KShell::splitArgs(exec, KShell::AbortOnMeta | KShell::TildeExpand, &err);
-    if (err == KShell::NoError && !execlist.isEmpty()) { // mx1 checked for syntax errors already
-        const QString executable = execlist.at(0);
-        if (QDir::isRelativePath(executable)) {
-            // Resolve the executable to ensure that helpers in libexec are found.
-            // Too bad for commands that need a shell - they must reside in $PATH.
-            QString exePath = QStandardPaths::findExecutable(executable);
-            if (exePath.isEmpty()) {
-                exePath = QFile::decodeName(CMAKE_INSTALL_FULL_LIBEXECDIR_KF5 "/") + executable;
-            }
-            if (QFile::exists(exePath)) {
-                execlist[0] = exePath;
-            }
-        }
+    if (!executableFullPath.isEmpty()) {
+        execlist[0] = executableFullPath;
     }
+
     if (d->service.substituteUid()) {
         if (d->service.terminal()) {
             result << QStringLiteral("su");
@@ -499,6 +559,11 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
     return result;
 }
 
+QString KIO::DesktopExecParser::errorMessage() const
+{
+    return d->m_errorString;
+}
+
 //static
 QString KIO::DesktopExecParser::executableName(const QString &execLine)
 {
@@ -510,7 +575,7 @@ QString KIO::DesktopExecParser::executableName(const QString &execLine)
 QString KIO::DesktopExecParser::executablePath(const QString &execLine)
 {
     // Remove parameters and/or trailing spaces.
-    const QStringList args = KShell::splitArgs(execLine);
+    const QStringList args = KShell::splitArgs(execLine, KShell::AbortOnMeta | KShell::TildeExpand);
     for (const QString &arg : args) {
         if (!arg.contains(QLatin1Char('='))) {
             return arg;

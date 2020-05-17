@@ -79,8 +79,15 @@ public:
 
     /**
      * @return a list of arguments suitable for QProcess.
+     * Returns an empty list on error, check errorMessage() for details.
      */
     QStringList resultingArguments() const;
+
+    /**
+     * @return an error message for when resultingArguments() returns an empty list
+     * @since 5.71
+     */
+    QString errorMessage() const;
 
     /**
      * Returns the list of protocols which the application supports.

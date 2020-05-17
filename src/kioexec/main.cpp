@@ -206,6 +206,11 @@ void KIOExec::slotRunApp()
 
     KIO::DesktopExecParser execParser(service, list);
     QStringList params = execParser.resultingArguments();
+    if (params.isEmpty()) {
+        qWarning() << execParser.errorMessage();
+        QApplication::exit(-1);
+        return;
+    }
 
     qDebug() << "EXEC" << params.join(QLatin1Char(' '));
 
