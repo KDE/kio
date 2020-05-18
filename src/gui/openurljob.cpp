@@ -46,7 +46,7 @@
 
 #include <kio/scheduler.h>
 
-static KIO::OpenWithHandlerInterface *s_openWithHandler = nullptr;
+KIO::OpenWithHandlerInterface *s_openWithHandler = nullptr;
 namespace KIO {
 // Hidden API because in KF6 we'll just check if the job's uiDelegate implements OpenWithHandlerInterface.
 KIOGUI_EXPORT void setDefaultOpenWithHandler(KIO::OpenWithHandlerInterface *iface) { s_openWithHandler = iface; }
@@ -634,6 +634,10 @@ void KIO::OpenUrlJobPrivate::showOpenWithDialog()
 
     QObject::connect(s_openWithHandler, &KIO::OpenWithHandlerInterface::serviceSelected, q, [this](const KService::Ptr &service) {
         startService(service);
+    });
+
+    QObject::connect(s_openWithHandler, &KIO::OpenWithHandlerInterface::handled, q, [this]() {
+        q->emitResult();
     });
 
     s_openWithHandler->promptUserForApplication(q, {m_url}, m_mimeTypeName);

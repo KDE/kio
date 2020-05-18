@@ -61,11 +61,7 @@ set(kiowidgets_SRCS
   widgetsuntrustedprogramhandler.cpp
   widgetsopenwithhandler.cpp
 )
-if (WIN32)
-  list(APPEND kiowidgets_SRCS
-    krun_win.cpp
-  )
-else()
+if (NOT WIN32)
   list(APPEND kiowidgets_SRCS
     kautomount.cpp
   )

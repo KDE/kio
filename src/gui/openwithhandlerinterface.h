@@ -26,8 +26,9 @@
 #include <KService>
 class QString;
 
+class KJob;
+
 namespace KIO {
-class OpenUrlJob;
 class OpenWithHandlerInterfacePrivate;
 
 /**
@@ -68,7 +69,7 @@ public:
      * Any application using KIO::JobUiDelegate (from KIOWidgets) will benefit from an
      * automatically registered subclass which implements this method using KOpenWithDialog.
      */
-    virtual void promptUserForApplication(KIO::OpenUrlJob *job, const QList<QUrl> &urls, const QString &mimeType);
+    virtual void promptUserForApplication(KJob *job, const QList<QUrl> &urls, const QString &mimeType);
 
 Q_SIGNALS:
     /**
@@ -81,6 +82,12 @@ Q_SIGNALS:
      * Emitted by promptUserForApplication() if the user canceled the application selection dialog.
      */
     void canceled();
+
+    /**
+     * Emitted by promptUserForApplication() if it fully handled it including launching the app.
+     * This is a special case for the native Windows open-with dialog.
+     */
+    void handled();
 
 private:
     QScopedPointer<OpenWithHandlerInterfacePrivate> d;

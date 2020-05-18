@@ -23,6 +23,7 @@
 #include "kprocessrunner_p.h"
 #include "untrustedprogramhandlerinterface.h"
 #include "kiogui_debug.h"
+#include "openwithhandlerinterface.h"
 #include "../core/global.h"
 
 #include <KAuthorized>
@@ -32,6 +33,9 @@
 
 // KF6 TODO: Remove
 static KIO::UntrustedProgramHandlerInterface *s_untrustedProgramHandler = nullptr;
+
+extern KIO::OpenWithHandlerInterface *s_openWithHandler; // defined in openurljob.cpp
+
 namespace KIO {
 // Hidden API because in KF6 we'll just check if the job's uiDelegate implements UntrustedProgramHandlerInterface.
 KIOGUI_EXPORT void setDefaultUntrustedProgramHandler(KIO::UntrustedProgramHandlerInterface *iface) { s_untrustedProgramHandler = iface; }
@@ -44,15 +48,18 @@ KIO::UntrustedProgramHandlerInterface *defaultUntrustedProgramHandler() { return
 class KIO::ApplicationLauncherJobPrivate
 {
 public:
-    explicit ApplicationLauncherJobPrivate(const KService::Ptr &service)
-        : m_service(service) {}
+    explicit ApplicationLauncherJobPrivate(KIO::ApplicationLauncherJob *job, const KService::Ptr &service)
+        : m_service(service), q(job) {}
 
-    void slotStarted(KIO::ApplicationLauncherJob *q, KProcessRunner *processRunner) {
+    void slotStarted(KProcessRunner *processRunner) {
         m_pids.append(processRunner->pid());
         if (--m_numProcessesPending == 0) {
             q->emitResult();
         }
     }
+
+    void showOpenWithDialog();
+
     KService::Ptr m_service;
     QList<QUrl> m_urls;
     KIO::ApplicationLauncherJob::RunFlags m_runFlags;
@@ -61,10 +68,11 @@ public:
     QVector<qint64> m_pids;
     QVector<KProcessRunner *> m_processRunners;
     int m_numProcessesPending = 0;
+    KIO::ApplicationLauncherJob *q;
 };
 
 KIO::ApplicationLauncherJob::ApplicationLauncherJob(const KService::Ptr &service, QObject *parent)
-    : KJob(parent), d(new ApplicationLauncherJobPrivate(service))
+    : KJob(parent), d(new ApplicationLauncherJobPrivate(this, service))
 {
 }
 
@@ -74,6 +82,11 @@ KIO::ApplicationLauncherJob::ApplicationLauncherJob(const KServiceAction &servic
     Q_ASSERT(d->m_service);
     d->m_service.detach();
     d->m_service->setExec(serviceAction.exec());
+}
+
+KIO::ApplicationLauncherJob::ApplicationLauncherJob(QObject *parent)
+    : KJob(parent), d(new ApplicationLauncherJobPrivate(this, {}))
+{
 }
 
 KIO::ApplicationLauncherJob::~ApplicationLauncherJob()
@@ -111,6 +124,10 @@ void KIO::ApplicationLauncherJob::emitUnauthorizedError()
 
 void KIO::ApplicationLauncherJob::start()
 {
+    if (!d->m_service) {
+        d->showOpenWithDialog();
+        return;
+    }
     emit description(this, i18nc("Launching application", "Launching %1", d->m_service->name()), {}, {});
 
     // First, the security checks
@@ -176,7 +193,7 @@ void KIO::ApplicationLauncherJob::proceedAfterSecurityChecks()
                                                      d->m_runFlags, d->m_suggestedFileName, QByteArray());
             d->m_processRunners.push_back(processRunner);
             connect(processRunner, &KProcessRunner::processStarted, this, [this, processRunner]() {
-                d->slotStarted(this, processRunner);
+                d->slotStarted(processRunner);
             });
         }
         d->m_urls = { d->m_urls.at(0) };
@@ -193,7 +210,7 @@ void KIO::ApplicationLauncherJob::proceedAfterSecurityChecks()
         emitResult();
     });
     connect(processRunner, &KProcessRunner::processStarted, this, [this, processRunner]() {
-        d->slotStarted(this, processRunner);
+        d->slotStarted(processRunner);
     });
 }
 
@@ -236,4 +253,31 @@ qint64 KIO::ApplicationLauncherJob::pid() const
 QVector<qint64> KIO::ApplicationLauncherJob::pids() const
 {
     return d->m_pids;
+}
+
+void KIO::ApplicationLauncherJobPrivate::showOpenWithDialog()
+{
+    if (!KAuthorized::authorizeAction(QStringLiteral("openwith"))) {
+        q->setError(KJob::UserDefinedError);
+        q->setErrorText(i18n("You are not authorized to select an application to open this file."));
+        q->emitResult();
+        return;
+    }
+
+    QObject::connect(s_openWithHandler, &KIO::OpenWithHandlerInterface::canceled, q, [this]() {
+        q->setError(KIO::ERR_USER_CANCELED);
+        q->emitResult();
+    });
+
+    QObject::connect(s_openWithHandler, &KIO::OpenWithHandlerInterface::serviceSelected, q, [this](const KService::Ptr &service) {
+        Q_ASSERT(service);
+        m_service = service;
+        q->start();
+    });
+
+    QObject::connect(s_openWithHandler, &KIO::OpenWithHandlerInterface::handled, q, [this]() {
+        q->emitResult();
+    });
+
+    s_openWithHandler->promptUserForApplication(q, m_urls, QString() /* mimetype name unknown */);
 }

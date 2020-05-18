@@ -23,6 +23,7 @@
 #include "applicationlauncherjob.h"
 #include <kprocessrunner_p.h>
 #include <untrustedprogramhandlerinterface.h>
+#include <openwithhandlerinterface.h>
 
 #include "kiotesthelper.h" // createTestFile etc.
 
@@ -43,6 +44,7 @@ QTEST_GUILESS_MAIN(ApplicationLauncherJobTest)
 
 namespace KIO {
 KIOGUI_EXPORT void setDefaultUntrustedProgramHandler(KIO::UntrustedProgramHandlerInterface *iface);
+KIOGUI_EXPORT void setDefaultOpenWithHandler(KIO::OpenWithHandlerInterface *iface);
 }
 class TestUntrustedProgramHandler : public KIO::UntrustedProgramHandlerInterface
 {
@@ -60,6 +62,26 @@ public:
 };
 
 static TestUntrustedProgramHandler s_handler;
+
+class TestOpenWithHandler : public KIO::OpenWithHandlerInterface
+{
+public:
+    void promptUserForApplication(KJob *job, const QList<QUrl> &url, const QString &mimeType) override
+    {
+        Q_UNUSED(job);
+        m_urls << url;
+        m_mimeTypes << mimeType;
+        if (m_chosenService) {
+            Q_EMIT serviceSelected(m_chosenService);
+        } else {
+            Q_EMIT canceled();
+        }
+    }
+    QList<QUrl> m_urls;
+    QStringList m_mimeTypes;
+    KService::Ptr m_chosenService;
+};
+static TestOpenWithHandler s_openWithHandler;
 
 void ApplicationLauncherJobTest::initTestCase()
 {
@@ -207,6 +229,9 @@ void ApplicationLauncherJobTest::shouldFailOnNonExecutableDesktopFile()
     } else {
         if (handlerRetVal) {
             QVERIFY(success);
+            const QString dest = srcDir + "/dest_srcfile";
+            QTRY_VERIFY2(QFile::exists(dest), qPrintable(dest));
+
             // The actual shell process will race against the deletion of the QTemporaryDir,
             // so don't be surprised by stderr like getcwd: cannot access parent directories: No such file or directory
             QTest::qWait(50); // this helps a bit
@@ -337,6 +362,56 @@ void ApplicationLauncherJobTest::shouldFailOnExecutableWithoutPermissions()
     QFile::remove(desktopFilePath);
 #else
     QSKIP("This test is not run on Windows");
+#endif
+}
+
+void ApplicationLauncherJobTest::showOpenWithDialog_data()
+{
+     QTest::addColumn<bool>("handlerRetVal");
+
+     QTest::newRow("false_canceled") << false;
+     QTest::newRow("true_service_selected") << true;
+}
+
+void ApplicationLauncherJobTest::showOpenWithDialog()
+{
+#ifdef Q_OS_UNIX
+    QFETCH(bool, handlerRetVal);
+
+    // Given a local text file (we could test multiple files, too...)
+    QTemporaryDir tempDir;
+    const QString srcDir = tempDir.path();
+    const QString srcFile = srcDir + QLatin1String("/file.txt");
+    createSrcFile(srcFile);
+
+    KIO::ApplicationLauncherJob *job = new KIO::ApplicationLauncherJob(this);
+    job->setUrls({QUrl::fromLocalFile(srcFile)});
+
+    KService::Ptr service = KService::serviceByDesktopName(QString(s_tempServiceName).remove(".desktop"));
+    QVERIFY(service);
+    s_openWithHandler.m_urls.clear();
+    s_openWithHandler.m_mimeTypes.clear();
+    s_openWithHandler.m_chosenService = handlerRetVal ? service : KService::Ptr{};
+    KIO::setDefaultOpenWithHandler(&s_openWithHandler);
+
+    const bool success = job->exec();
+
+    // Then --- it depends on what the user says via the handler
+
+    QCOMPARE(s_openWithHandler.m_urls.count(), 1);
+    QCOMPARE(s_openWithHandler.m_mimeTypes.count(), 1);
+    QCOMPARE(s_openWithHandler.m_mimeTypes.at(0), QString()); // the job doesn't have the information
+    if (handlerRetVal) {
+        QVERIFY2(success, qPrintable(job->errorString()));
+        // If the user chose a service, it should be executed (it writes to "dest")
+        const QString dest = srcDir + "/dest_file.txt";
+        QTRY_VERIFY2(QFile::exists(dest), qPrintable(dest));
+    } else {
+        QVERIFY(!success);
+        QCOMPARE(job->error(), KIO::ERR_USER_CANCELED);
+    }
+#else
+    QSKIP("Test skipped on Windows because the code ends up in QDesktopServices::openUrl")
 #endif
 }
 

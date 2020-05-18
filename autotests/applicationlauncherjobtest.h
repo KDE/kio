@@ -46,6 +46,9 @@ private Q_SLOTS:
     void shouldFailOnServiceWithNoExec();
     void shouldFailOnExecutableWithoutPermissions();
 
+    void showOpenWithDialog_data();
+    void showOpenWithDialog();
+
 private:
     QString createTempService();
     void writeTempServiceDesktopFile(const QString &filePath);

@@ -77,6 +77,12 @@ public:
     explicit ApplicationLauncherJob(const KServiceAction &serviceAction, QObject *parent = nullptr);
 
     /**
+     * Creates an ApplicationLauncherJob which will prompt the user for which application to use (via the "open with" dialog).
+     * @param parent the parent QObject
+     */
+    explicit ApplicationLauncherJob(QObject *parent = nullptr);
+
+    /**
      * Destructor
      *
      * Note that jobs auto-delete themselves after emitting result.

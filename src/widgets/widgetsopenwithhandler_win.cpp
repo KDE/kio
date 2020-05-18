@@ -17,9 +17,6 @@
     Boston, MA 02110-1301, USA.
 */
 
-#include "krun.h"
-#include "krun_p.h"
-
 #include <QDir>
 #include <QWidget>
 
@@ -82,16 +79,14 @@ static int runDll(QWidget *parent, const QString &libraryName, const QByteArray 
 }
 
 // Windows implementation using "OpenAs_RunDLL" entry
-bool KRunPrivate::displayNativeOpenWithDialog(const QList<QUrl> &lst, QWidget *window, bool tempFiles,
-        const QString &suggestedFileName, const QByteArray &asn)
+static bool displayNativeOpenWithDialog(const QList<QUrl> &lst, QWidget *window)
 {
     Q_UNUSED(tempFiles);
     Q_UNUSED(suggestedFileName);
-    Q_UNUSED(asn);
 
     QStringList fnames;
     for (const QUrl &url : lst) {
-        fnames += QDir::toNativeSeparators(url.path());
+        fnames += url.isLocalFile() ? QDir::toNativeSeparators(url.toLocalFile()) : url.toString();
     }
     int result = runDll(window,
                         QLatin1String("shell32.dll"),

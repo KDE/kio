@@ -39,7 +39,7 @@ public:
     WidgetsOpenWithHandler();
     ~WidgetsOpenWithHandler() override;
 
-    void promptUserForApplication(KIO::OpenUrlJob *job, const QList<QUrl> &urls, const QString &mimeType) override;
+    void promptUserForApplication(KJob *job, const QList<QUrl> &urls, const QString &mimeType) override;
 
 private:
     // Note: no d pointer because not exported at this point

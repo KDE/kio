@@ -22,11 +22,16 @@
 #include "openurljob.h"
 #include "widgetsopenwithhandler.h"
 
+#include <KConfigGroup>
 #include <KJobWidgets>
 #include <KLocalizedString>
-#include <KJobWidgets>
+#include <KSharedConfig>
 
 #include <QApplication>
+
+#ifdef Q_OS_WIN
+#include "widgetsopenwithhandler_win.cpp" // displayNativeOpenWithDialog
+#endif
 
 KIO::WidgetsOpenWithHandler::WidgetsOpenWithHandler()
     : KIO::OpenWithHandlerInterface()
@@ -35,9 +40,22 @@ KIO::WidgetsOpenWithHandler::WidgetsOpenWithHandler()
 
 KIO::WidgetsOpenWithHandler::~WidgetsOpenWithHandler() = default;
 
-void KIO::WidgetsOpenWithHandler::promptUserForApplication(KIO::OpenUrlJob *job, const QList<QUrl> &urls, const QString &mimeType)
+void KIO::WidgetsOpenWithHandler::promptUserForApplication(KJob *job, const QList<QUrl> &urls, const QString &mimeType)
 {
     QWidget *parentWidget = job ? KJobWidgets::window(job) : qApp->activeWindow();
+
+#ifdef Q_OS_WIN
+        KConfigGroup cfgGroup(KSharedConfig::openConfig(), QStringLiteral("KOpenWithDialog Settings"));
+        if (cfgGroup.readEntry("Native", true)) {
+            // Implemented in applicationlauncherjob_win.cpp
+            if (displayNativeOpenWithDialog(urls, parentWidget)) {
+                Q_EMIT handled();
+                return;
+            } else {
+                // Some error happened with the Windows-specific code. Fallback to the KDE one...
+            }
+        }
+#endif
 
     KOpenWithDialog *dialog = new KOpenWithDialog(urls, mimeType, QString(), QString(), parentWidget);
     dialog->setAttribute(Qt::WA_DeleteOnClose);

@@ -499,19 +499,34 @@ public:
                            const QByteArray &asn, const QString &workingDirectory);
 #endif
 
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 71)
     /**
      * Display the Open-With dialog for those URLs, and run the chosen application.
-     * @param lst the list of applications to run
+     * @param lst the list of URLs to open
      * @param window The top-level widget of the app that invoked this object.
      * @param tempFiles if true and lst are local files, they will be deleted
      *        when the application exits.
      * @param suggestedFileName see setSuggestedFileName
      * @param asn Application startup notification id, if any (otherwise "").
      * @return false if the dialog was canceled
+     * @deprecated since 5.71, use KIO::ApplicationLauncherJob with no service argument (or a null service)
+     * @code
+     *   KIO::ApplicationLauncherJob *job = new KIO::ApplicationLauncherJob();
+     *   job->setUrls(urls);
+     *   job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, window));
+     *   if (tempFiles) {
+     *       job->setRunFlags(KIO::ApplicationLauncherJob::DeleteTemporaryFiles);
+     *   }
+     *   job->setSuggestedFileName(suggestedFileName);
+     *   job->setStartupId(asn);
+     *   job->start();
+     * @endcode
      */
+    KIOWIDGETS_DEPRECATED_VERSION(5, 71, "Use KIO::OpenUrlJob, see API docs for a code sample")
     static bool displayOpenWithDialog(const QList<QUrl> &lst, QWidget *window,
                                       bool tempFiles = false, const QString &suggestedFileName = QString(),
-                                      const QByteArray &asn = QByteArray()); // TODO deprecate and provide RunFlags() overload
+                                      const QByteArray &asn = QByteArray());
+#endif
 
 #if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(4, 0)
     /**

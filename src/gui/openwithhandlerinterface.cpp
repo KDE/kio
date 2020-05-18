@@ -32,7 +32,7 @@ OpenWithHandlerInterface::OpenWithHandlerInterface() = default;
 
 OpenWithHandlerInterface::~OpenWithHandlerInterface() = default;
 
-void OpenWithHandlerInterface::promptUserForApplication(OpenUrlJob *job, const QList<QUrl> &urls, const QString &mimeType)
+void OpenWithHandlerInterface::promptUserForApplication(KJob *job, const QList<QUrl> &urls, const QString &mimeType)
 {
     Q_UNUSED(job)
     Q_UNUSED(urls)

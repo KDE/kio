@@ -74,6 +74,10 @@
 #include <qstandardpaths.h>
 #include <KIO/JobUiDelegate>
 
+#ifdef Q_OS_WIN
+#include "widgetsopenwithhandler_win.cpp" // displayNativeOpenWithDialog
+#endif
+
 KRunPrivate::KRunPrivate(KRun *parent)
     : q(parent),
       m_showingDialog(false)
@@ -195,6 +199,7 @@ bool KRun::runUrl(const QUrl &u, const QString &_mimetype, QWidget *window, RunF
 }
 #endif
 
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 71)
 bool KRun::displayOpenWithDialog(const QList<QUrl> &lst, QWidget *window, bool tempFiles,
                                  const QString &suggestedFileName, const QByteArray &asn)
 {
@@ -207,8 +212,7 @@ bool KRun::displayOpenWithDialog(const QList<QUrl> &lst, QWidget *window, bool t
 #ifdef Q_OS_WIN
     KConfigGroup cfgGroup(KSharedConfig::openConfig(), QStringLiteral("KOpenWithDialog Settings"));
     if (cfgGroup.readEntry("Native", true)) {
-        return KRunPrivate::displayNativeOpenWithDialog(lst, window, tempFiles,
-                suggestedFileName, asn);
+        return displayNativeOpenWithDialog(lst, window);
     }
 #endif
 
@@ -227,6 +231,7 @@ bool KRun::displayOpenWithDialog(const QList<QUrl> &lst, QWidget *window, bool t
     }
     return false;
 }
+#endif
 
 #if KIOWIDGETS_BUILD_DEPRECATED_SINCE(4, 0)
 void KRun::shellQuote(QString &_str)

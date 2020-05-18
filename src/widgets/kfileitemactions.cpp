@@ -20,7 +20,6 @@
 
 #include "kfileitemactions.h"
 #include "kfileitemactions_p.h"
-#include <krun.h>
 #include <kmimetypetrader.h>
 #include <kdesktopfileactions.h>
 #include <klocalizedstring.h>
@@ -725,12 +724,7 @@ void KFileItemActionsPrivate::slotRunPreferredApplications()
             continue;
         }
 
-        const KService::Ptr servicePtr = KService::serviceByStorageId(serviceId);
-        if (!servicePtr) {
-            KRun::displayOpenWithDialog(serviceItems.urlList(), m_parentWidget);
-            continue;
-        }
-
+        const KService::Ptr servicePtr = KService::serviceByStorageId(serviceId); // can be nullptr
         KIO::ApplicationLauncherJob *job = new KIO::ApplicationLauncherJob(servicePtr);
         job->setUrls(serviceItems.urlList());
         job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, m_parentWidget));
@@ -755,7 +749,11 @@ void KFileItemActionsPrivate::openWithByMime(const KFileItemList &fileItems)
                 mimeItems << item;
             }
         }
-        KRun::displayOpenWithDialog(mimeItems.urlList(), m_parentWidget);
+        // Show Open With dialog
+        KIO::ApplicationLauncherJob *job = new KIO::ApplicationLauncherJob();
+        job->setUrls(mimeItems.urlList());
+        job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, m_parentWidget));
+        job->start();
     }
 }
 
@@ -776,7 +774,10 @@ void KFileItemActionsPrivate::slotOpenWithDialog()
 {
     // The item 'Other...' or 'Open With...' has been selected
     emit q->openWithDialogAboutToBeShown();
-    KRun::displayOpenWithDialog(m_props.urlList(), m_parentWidget);
+    KIO::ApplicationLauncherJob *job = new KIO::ApplicationLauncherJob();
+    job->setUrls(m_props.urlList());
+    job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, m_parentWidget));
+    job->start();
 }
 
 QStringList KFileItemActionsPrivate::listMimeTypes(const KFileItemList &items)
