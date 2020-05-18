@@ -296,7 +296,7 @@ public:
     /**
      * Callback function that reads in directory name from dialog and processes it
      */
-    void _k_slotCreateDirectory();
+    void _k_slotCreateDirectory(bool writeHiddenDir = false);
 
     /**
      * Callback function that reads in directory name from dialog and processes it. This will wirte
@@ -831,7 +831,7 @@ void KNewFileMenuPrivate::_k_slotActionTriggered(QAction *action)
 
 }
 
-void KNewFileMenuPrivate::_k_slotCreateDirectory()
+void KNewFileMenuPrivate::_k_slotCreateDirectory(bool writeHiddenDir)
 {
     QUrl url;
     QUrl baseUrl = m_popupFiles.first();
