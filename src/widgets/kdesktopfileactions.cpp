@@ -266,7 +266,7 @@ QList<KServiceAction> KDesktopFileActions::userDefinedServices(const KService &s
     return result;
 }
 
-// KF6 TODO add QWiget* parameter
+// KF6 TODO remove this method and use ApplicationLauncherJob instead
 void KDesktopFileActions::executeService(const QList<QUrl> &urls, const KServiceAction &action)
 {
     //qDebug() << "EXECUTING Service " << action.name();
