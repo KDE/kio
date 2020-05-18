@@ -186,7 +186,7 @@ protected Q_SLOTS:
 private:
     Q_PRIVATE_SLOT(d, void _k_slotAbortDialog())
     Q_PRIVATE_SLOT(d, void _k_slotActionTriggered(QAction *))
-    Q_PRIVATE_SLOT(d, void _k_slotCreateDirectory(bool writeHiddenDir = false))
+    Q_PRIVATE_SLOT(d, void _k_slotCreateDirectory())
     Q_PRIVATE_SLOT(d, void _k_slotCreateHiddenDirectory())
     Q_PRIVATE_SLOT(d, void _k_slotFillTemplates())
     Q_PRIVATE_SLOT(d, void _k_slotOtherDesktopFile())
