@@ -344,7 +344,6 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
             // Resolve the executable to ensure that helpers in libexec are found.
             // Too bad for commands that need a shell - they must reside in $PATH.
             executableFullPath = QStandardPaths::findExecutable(binary);
-            qDebug() << "findExecutable(" << binary << ") said" << executableFullPath;
             if (executableFullPath.isEmpty()) {
                 executableFullPath = QFile::decodeName(CMAKE_INSTALL_FULL_LIBEXECDIR_KF5 "/") + binary;
             }

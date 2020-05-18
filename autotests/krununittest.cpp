@@ -46,6 +46,9 @@ QTEST_GUILESS_MAIN(KRunUnitTest)
 void KRunUnitTest::initTestCase()
 {
     QStandardPaths::setTestModeEnabled(true);
+
+    qputenv("PATH", qgetenv("PATH") + QFile::encodeName(QDir::listSeparator() + QCoreApplication::applicationDirPath()));
+
     // testProcessDesktopExec works only if your terminal application is set to "xterm"
     KConfigGroup cg(KSharedConfig::openConfig(), "General");
     cg.writeEntry("TerminalApplication", "xterm");
@@ -182,9 +185,7 @@ void KRunUnitTest::testProcessDesktopExecNoFile_data()
     // A real-world use case would be kate.
     // But I picked ktrash5 since it's installed by kio
     QString ktrash = QStandardPaths::findExecutable(QStringLiteral("ktrash5"));
-    if (ktrash.isEmpty()) {
-        ktrash = QStringLiteral("ktrash5");
-    }
+    QVERIFY(!ktrash.isEmpty());
 
     QString kioexec = QCoreApplication::applicationDirPath() + "/kioexec";
     if (!QFileInfo::exists(kioexec)) {
