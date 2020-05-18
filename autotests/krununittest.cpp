@@ -186,6 +186,7 @@ void KRunUnitTest::testProcessDesktopExecNoFile_data()
     // But I picked ktrash5 since it's installed by kio
     QString ktrash = QStandardPaths::findExecutable(QStringLiteral("ktrash5"));
     QVERIFY(!ktrash.isEmpty());
+    QString ktrashQuoted = KShell::quoteArg(ktrash);
 
     QString kioexec = QCoreApplication::applicationDirPath() + "/kioexec";
     if (!QFileInfo::exists(kioexec)) {
@@ -194,18 +195,18 @@ void KRunUnitTest::testProcessDesktopExecNoFile_data()
     QVERIFY(QFileInfo::exists(kioexec));
     QString kioexecQuoted = KShell::quoteArg(kioexec);
 
-    QTest::newRow("%U l0") << "ktrash5 %U" << l0 << false << ktrash;
-    QTest::newRow("%U l1") << "ktrash5 %U" << l1 << false << ktrash + " /tmp";
-    QTest::newRow("%U l2") << "ktrash5 %U" << l2 << false << ktrash + " http://localhost/foo";
-    QTest::newRow("%U l3") << "ktrash5 %U" << l3 << false << ktrash + " '/local/some file' http://remotehost.org/bar";
+    QTest::newRow("%U l0") << "ktrash5 %U" << l0 << false << ktrashQuoted;
+    QTest::newRow("%U l1") << "ktrash5 %U" << l1 << false << ktrashQuoted + " /tmp";
+    QTest::newRow("%U l2") << "ktrash5 %U" << l2 << false << ktrashQuoted + " http://localhost/foo";
+    QTest::newRow("%U l3") << "ktrash5 %U" << l3 << false << ktrashQuoted + " '/local/some file' http://remotehost.org/bar";
 
-    //QTest::newRow("%u l0") << "ktrash5 %u" << l0 << false << ktrash; // gives runtime warning
-    QTest::newRow("%u l1") << "ktrash5 %u" << l1 << false << ktrash + " /tmp";
-    QTest::newRow("%u l2") << "ktrash5 %u" << l2 << false << ktrash + " http://localhost/foo";
-    //QTest::newRow("%u l3") << "ktrash5 %u" << l3 << false << ktrash; // gives runtime warning
+    //QTest::newRow("%u l0") << "ktrash5 %u" << l0 << false << ktrashQuoted; // gives runtime warning
+    QTest::newRow("%u l1") << "ktrash5 %u" << l1 << false << ktrashQuoted + " /tmp";
+    QTest::newRow("%u l2") << "ktrash5 %u" << l2 << false << ktrashQuoted + " http://localhost/foo";
+    //QTest::newRow("%u l3") << "ktrash5 %u" << l3 << false << ktrashQuoted; // gives runtime warning
 
-    QTest::newRow("%F l0") << "ktrash5 %F" << l0 << false << ktrash;
-    QTest::newRow("%F l1") << "ktrash5 %F" << l1 << false << ktrash + " /tmp";
+    QTest::newRow("%F l0") << "ktrash5 %F" << l0 << false << ktrashQuoted;
+    QTest::newRow("%F l1") << "ktrash5 %F" << l1 << false << ktrashQuoted + " /tmp";
     QTest::newRow("%F l2") << "ktrash5 %F" << l2 << false << kioexecQuoted + " 'ktrash5 %F' http://localhost/foo";
     QTest::newRow("%F l3") << "ktrash5 %F" << l3 << false << kioexecQuoted + " 'ktrash5 %F' 'file:///local/some file' http://remotehost.org/bar";
 
@@ -216,8 +217,8 @@ void KRunUnitTest::testProcessDesktopExecNoFile_data()
                                        << l1 << false << m_sh + " -c 'ktrash5 \\\"/tmp\\\"'";
 
     // This was originally with kmailservice5, but that relies on it being installed
-    QTest::newRow("ktrash5 %u l1") << "ktrash5 %u" << l1 << false << ktrash + " /tmp";
-    QTest::newRow("ktrash5 %u l4") << "ktrash5 %u" << l4 << false << ktrash + " http://login:password@www.kde.org";
+    QTest::newRow("ktrash5 %u l1") << "ktrash5 %u" << l1 << false << ktrashQuoted + " /tmp";
+    QTest::newRow("ktrash5 %u l4") << "ktrash5 %u" << l4 << false << ktrashQuoted + " http://login:password@www.kde.org";
 }
 
 void KRunUnitTest::testProcessDesktopExecNoFile()
