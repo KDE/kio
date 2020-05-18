@@ -411,7 +411,7 @@ void ApplicationLauncherJobTest::showOpenWithDialog()
         QCOMPARE(job->error(), KIO::ERR_USER_CANCELED);
     }
 #else
-    QSKIP("Test skipped on Windows because the code ends up in QDesktopServices::openUrl")
+    QSKIP("Test skipped on Windows because the code ends up in QDesktopServices::openUrl");
 #endif
 }
 
