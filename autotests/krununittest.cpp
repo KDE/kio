@@ -271,7 +271,7 @@ void KRunUnitTest::testKtelnetservice()
         const QList<QUrl> urls({QUrl(QStringLiteral("%1://root@10.1.1.1").arg(protocol))});
         KIO::DesktopExecParser parser(*service, urls);
         QCOMPARE(KShell::joinArgs(parser.resultingArguments()),
-                 QStringLiteral("%1 %2://root@10.1.1.1").arg(ktelnetExec, protocol));
+                 QStringLiteral("%1 %2://root@10.1.1.1").arg(KShell::quoteArg(ktelnetExec), protocol));
     }
 }
 
