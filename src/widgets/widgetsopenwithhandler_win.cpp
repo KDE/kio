@@ -81,9 +81,6 @@ static int runDll(QWidget *parent, const QString &libraryName, const QByteArray 
 // Windows implementation using "OpenAs_RunDLL" entry
 static bool displayNativeOpenWithDialog(const QList<QUrl> &lst, QWidget *window)
 {
-    Q_UNUSED(tempFiles);
-    Q_UNUSED(suggestedFileName);
-
     QStringList fnames;
     for (const QUrl &url : lst) {
         fnames += url.isLocalFile() ? QDir::toNativeSeparators(url.toLocalFile()) : url.toString();
