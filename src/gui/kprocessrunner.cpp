@@ -189,7 +189,7 @@ void KProcessRunner::init(const KService::Ptr &service, const QString &userVisib
         m_scopeId = service->desktopEntryName();
     }
     if (m_scopeId.isEmpty()) {
-        m_scopeId = m_executable;
+        m_scopeId = KIO::DesktopExecParser::executableName(m_executable);
     }
     startProcess();
 }
