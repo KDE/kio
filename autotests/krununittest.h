@@ -51,6 +51,7 @@ private:
     QString createTempService();
 
     QString m_sh;
+    QString m_xterm;
     QStringList m_filesToRemove;
 
 };

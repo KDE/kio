@@ -53,6 +53,9 @@ void KRunUnitTest::initTestCase()
     KConfigGroup cg(KSharedConfig::openConfig(), "General");
     cg.writeEntry("TerminalApplication", "xterm");
 
+    m_xterm = QStandardPaths::findExecutable(QStringLiteral("xterm"));
+    QVERIFY(!m_xterm.isEmpty());
+
     // Determine the full path of sh - this is needed to make testProcessDesktopExecNoFile()
     // pass on systems where QStandardPaths::findExecutable("sh") is not "/bin/sh".
     m_sh = QStandardPaths::findExecutable(QStringLiteral("sh"));
@@ -163,6 +166,7 @@ void KRunUnitTest::testProcessDesktopExec()
                     }
                 }
                 const QString result = QString::fromLatin1(results[pt])
+                                       .replace(QLatin1String("/usr/bin/xterm"), m_xterm)
                                        .replace(QLatin1String("/bin/sh"), shellPath)
                                        .replace(QLatin1String("/bin/date"), datePath);
                 checkDesktopExecParser(execs[ex], terms[te], sus[su], l0, false, exe + result);
