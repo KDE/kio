@@ -49,11 +49,7 @@ KUrlNavigatorPlacesSelector::KUrlNavigatorPlacesSelector(QWidget *parent, KFileP
 
     updateMenu();
 
-    connect(m_placesModel, &QAbstractItemModel::rowsInserted,
-            this, &KUrlNavigatorPlacesSelector::updateMenu);
-    connect(m_placesModel, &QAbstractItemModel::rowsRemoved,
-            this, &KUrlNavigatorPlacesSelector::updateMenu);
-    connect(m_placesModel, &QAbstractItemModel::dataChanged,
+    connect(m_placesModel, &KFilePlacesModel::reloaded,
             this, &KUrlNavigatorPlacesSelector::updateMenu);
     connect(m_placesMenu, &QMenu::triggered,
             this, &KUrlNavigatorPlacesSelector::activatePlace);

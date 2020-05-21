@@ -720,6 +720,8 @@ void KFilePlacesModel::Private::_k_reloadBookmarks()
 
     qDeleteAll(currentItems);
     currentItems.clear();
+
+    emit q->reloaded();
 }
 
 bool KFilePlacesModel::Private::isBalooUrl(const QUrl &url) const

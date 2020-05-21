@@ -358,6 +358,13 @@ Q_SIGNALS:
      */
     void groupHiddenChanged(KFilePlacesModel::GroupType group, bool hidden);
 
+    /**
+     * Called once the model has been reloaded
+     *
+     * @since 5.71
+     */
+    void reloaded();
+
 private:
     Q_PRIVATE_SLOT(d, void _k_initDeviceList())
     Q_PRIVATE_SLOT(d, void _k_deviceAdded(const QString &))
