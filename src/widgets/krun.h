@@ -84,6 +84,14 @@ public:
      *        Application startup notification id, if available (otherwise "").
      *
      * @deprecated since 5.71, use KIO::OpenUrlJob(url) (except for KRun subclasses, for now)
+     * @code
+     *   KIO::OpenUrlJob *job = new KIO::OpenUrlJob(url);
+     *   job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, window));
+     *   job->setStartupId(asn);
+     *   // methods like setRunExecutables, setSuggestedFilename, setEnableExternalBrowser, setFollowRedirections
+     *   // exist in both classes
+     *   job->start();
+     * @endcode
      */
     KRun(const QUrl &url, QWidget *window,
          bool showProgressInfo = true,
