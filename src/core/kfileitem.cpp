@@ -31,6 +31,7 @@
 #include <QDataStream>
 #include <QMimeDatabase>
 #include <QDebug>
+#include <QLocale>
 #include <qplatformdefs.h>
 
 #include <klocalizedstring.h>
@@ -1395,7 +1396,7 @@ QString KFileItem::timeString(FileTimes which) const
         return QString();
     }
 
-    return d->time(which).toString();
+    return QLocale::system().toString(d->time(which), QLocale::LongFormat);
 }
 
 #if KIOCORE_BUILD_DEPRECATED_SINCE(4, 0)
