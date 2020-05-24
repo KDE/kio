@@ -274,11 +274,7 @@ RenameDialog::RenameDialog(QWidget *parent, const QString &_caption,
         QLabel *titleLabel = new QLabel(i18n("This action will overwrite the destination."), this);
         gridLayout->addWidget(titleLabel, gridRow, 0, 1, 2);    // takes the complete first line
 
-        if (mtimeDest > mtimeSrc) {
-            QLabel *warningLabel = new QLabel(i18n("Warning, the destination is more recent."), this);
 
-            gridLayout->addWidget(warningLabel, ++gridRow, 0, 1, 2);
-        }
         gridLayout->setRowMinimumHeight(++gridRow, 15);    // spacer
 
         QLabel *srcTitle = createLabel(parent, i18n("Source"), true);
@@ -306,13 +302,29 @@ RenameDialog::RenameDialog(QWidget *parent, const QString &_caption,
 
         QLabel *srcDateLabel = createDateLabel(parent, d->srcItem);
         gridLayout->addWidget(srcDateLabel, ++gridRow, 0);
+
         QLabel *destDateLabel = createDateLabel(parent, d->destItem);
         gridLayout->addWidget(destDateLabel, gridRow, 2);
+        if (mtimeDest > mtimeSrc) {
+            QLabel* warningLabel = createLabel(this, i18n("The destination is more recent."), true);
+            gridLayout->addWidget(warningLabel, ++gridRow, 2);
+        }
 
         QLabel *srcSizeLabel = createSizeLabel(parent, d->srcItem);
         gridLayout->addWidget(srcSizeLabel, ++gridRow, 0);
+
         QLabel *destSizeLabel = createSizeLabel(parent, d->destItem);
         gridLayout->addWidget(destSizeLabel, gridRow, 2);
+        if (d->srcItem.size() != d->destItem.size()) {
+            QString text;
+            if (d->srcItem.size() > d->destItem.size()) {
+                text = i18n("The source file is bigger.");
+            } else {
+                text = i18n("The destination file is bigger.");
+            }
+            QLabel* warningLabel = createLabel(this, text, true);
+            gridLayout->addWidget(warningLabel, ++gridRow, 2);
+        }
 
     } else {
         // This is the case where we don't want to allow overwriting, the existing
