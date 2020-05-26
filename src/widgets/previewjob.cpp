@@ -50,7 +50,6 @@
 #include <kservicetypetrader.h>
 #include <kservice.h>
 #include <ksharedconfig.h>
-#include <QLinkedList>
 #include <kconfiggroup.h>
 #include <kprotocolinfo.h>
 #include <qmimedatabase.h>
@@ -107,8 +106,8 @@ public:
     // Some plugins support remote URLs, <protocol, mimetypes>
     QHash<QString, QStringList> m_remoteProtocolPlugins;
     // Our todo list :)
-    // We remove the first item at every step, so use QLinkedList
-    QLinkedList<PreviewItem> items;
+    // We remove the first item at every step, so use std::list
+    std::list<PreviewItem> items;
     // The current item
     PreviewItem currentItem;
     // The modification time of that URL
@@ -364,7 +363,7 @@ void PreviewJobPrivate::startPreview()
 
         if (plugin) {
             item.plugin = plugin;
-            items.append(item);
+            items.push_back(item);
             if (!bNeedCache && bSave && plugin->property(QStringLiteral("CacheThumbnail")).toBool()) {
                 const QUrl url = (*kit).url();
                 if (!url.isLocalFile() ||
@@ -405,11 +404,15 @@ void PreviewJobPrivate::startPreview()
 void PreviewJob::removeItem(const QUrl &url)
 {
     Q_D(PreviewJob);
-    for (QLinkedList<PreviewItem>::Iterator it = d->items.begin(); it != d->items.end(); ++it)
+
+    auto it = d->items.cbegin();
+    while (it != d->items.cend()) {
         if ((*it).item.url() == url) {
             d->items.erase(it);
             break;
         }
+        ++it;
+    }
 
     if (d->currentItem.item.url() == url) {
         KJob *job = subjobs().first();
@@ -452,15 +455,15 @@ void PreviewJobPrivate::determineNextFile()
         }
     }
     // No more items ?
-    if (items.isEmpty()) {
+    if (items.empty()) {
         q->emitResult();
         return;
     } else {
         // First, stat the orig file
         state = PreviewJobPrivate::STATE_STATORIG;
-        currentItem = items.first();
+        currentItem = items.front();
+        items.pop_front();
         succeeded = false;
-        items.removeFirst();
         KIO::Job *job = KIO::stat(currentItem.item.url(), KIO::HideProgressInfo);
         job->addMetaData(QStringLiteral("thumbnail"), QStringLiteral("1"));
         job->addMetaData(QStringLiteral("no-auth-prompt"), QStringLiteral("true"));
