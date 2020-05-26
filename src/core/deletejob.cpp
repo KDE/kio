@@ -475,6 +475,11 @@ void DeleteJobPrivate::deleteNextDir()
     if (m_reportTimer != nullptr) {
         m_reportTimer->stop();
     }
+    // display final numbers
+    q->setProcessedAmount(KJob::Directories, m_processedDirs);
+    q->setProcessedAmount(KJob::Files, m_processedFiles);
+    q->emitPercent(m_processedFiles + m_processedDirs, m_totalFilesDirs);
+
     q->emitResult();
 }
 
