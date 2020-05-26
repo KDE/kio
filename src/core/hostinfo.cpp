@@ -369,7 +369,10 @@ QHostInfo HostInfoAgentPrivate::lookupCachedHostInfoFor(const QString &hostName)
         return info->first;
     }
 
-    return QHostInfo();
+    // not found in dnsCache
+    QHostInfo hostInfo;
+    hostInfo.setError(QHostInfo::HostNotFound);
+    return hostInfo;
 }
 
 void HostInfoAgentPrivate::cacheLookup(const QHostInfo &info)
