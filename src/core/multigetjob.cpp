@@ -23,7 +23,6 @@
 #include "scheduler.h"
 #include "slave.h"
 #include <kurlauthorized.h>
-#include <QLinkedList>
 
 using namespace KIO;
 
@@ -46,7 +45,7 @@ public:
             return req.id == id;
         }
     };
-    typedef QLinkedList<GetRequest> RequestQueue;
+    typedef std::list<GetRequest> RequestQueue;
 
     RequestQueue m_waitQueue;
     RequestQueue m_activeQueue;
@@ -62,7 +61,7 @@ public:
     void start(Slave *slave) override;
 
     bool findCurrentEntry();
-    void flushQueue(QLinkedList<GetRequest> &queue);
+    void flushQueue(RequestQueue &queue);
 
     Q_DECLARE_PUBLIC(MultiGetJob)
 
@@ -88,33 +87,30 @@ void MultiGetJob::get(long id, const QUrl &url, const MetaData &metaData)
     Q_D(MultiGetJob);
     MultiGetJobPrivate::GetRequest entry(id, url, metaData);
     entry.metaData[QStringLiteral("request-id")] = QString::number(id);
-    d->m_waitQueue.append(entry);
+    d->m_waitQueue.push_back(entry);
 }
 
 void MultiGetJobPrivate::flushQueue(RequestQueue &queue)
 {
     // Use multi-get
     // Scan all jobs in m_waitQueue
-    RequestQueue::iterator wqit = m_waitQueue.begin();
-    const RequestQueue::iterator wqend = m_waitQueue.end();
-    while (wqit != wqend) {
-        const GetRequest &entry = *wqit;
+    auto wqIt = m_waitQueue.begin();
+    while (wqIt != m_waitQueue.end()) {
+        const GetRequest &entry = *wqIt;
         if ((m_url.scheme() == entry.url.scheme()) &&
                 (m_url.host() == entry.url.host()) &&
                 (m_url.port() == entry.url.port()) &&
                 (m_url.userName() == entry.url.userName())) {
-            queue.append(entry);
-            wqit = m_waitQueue.erase(wqit);
+            queue.push_back(entry);
+            wqIt = m_waitQueue.erase(wqIt);
         } else {
-            ++wqit;
+            ++wqIt;
         }
     }
     // Send number of URLs, (URL, metadata)*
-    KIO_ARGS << (qint32) queue.count();
-    RequestQueue::const_iterator qit = queue.constBegin();
-    const RequestQueue::const_iterator qend = queue.constEnd();
-    for (; qit != qend; ++qit) {
-        stream << (*qit).url << (*qit).metaData;
+    KIO_ARGS << (qint32) queue.size();
+    for (const GetRequest &entry : queue) {
+        stream << entry.url << entry.metaData;
     }
     m_packedArgs = packedArgs;
     m_command = CMD_MULTI_GET;
@@ -123,9 +119,14 @@ void MultiGetJobPrivate::flushQueue(RequestQueue &queue)
 
 void MultiGetJobPrivate::start(Slave *slave)
 {
-    // Add first job from m_waitQueue and add it to m_activeQueue
-    GetRequest entry = m_waitQueue.takeFirst();
-    m_activeQueue.append(entry);
+    if (m_waitQueue.empty()) {
+        return;
+    }
+    // Get the first entry from m_waitQueue and add it to m_activeQueue
+    const GetRequest entry = m_waitQueue.front();
+    m_activeQueue.push_back(entry);
+    // then remove it from m_waitQueue
+    m_waitQueue.pop_front();
 
     m_url = entry.url;
 
@@ -147,22 +148,21 @@ void MultiGetJobPrivate::start(Slave *slave)
 bool MultiGetJobPrivate::findCurrentEntry()
 {
     if (b_multiGetActive) {
-        long id = m_incomingMetaData[QStringLiteral("request-id")].toLong();
-        RequestQueue::const_iterator qit = m_activeQueue.constBegin();
-        const RequestQueue::const_iterator qend = m_activeQueue.constEnd();
-        for (; qit != qend; ++qit) {
-            if ((*qit).id == id) {
-                m_currentEntry = *qit;
+        const long id = m_incomingMetaData.value(QStringLiteral("request-id")).toLong();
+        for (const GetRequest &entry : m_activeQueue) {
+            if (entry.id == id) {
+                m_currentEntry = entry;
                 return true;
             }
         }
+
         m_currentEntry.id = 0;
         return false;
     } else {
-        if (m_activeQueue.isEmpty()) {
+        if (m_activeQueue.empty()) {
             return false;
         }
-        m_currentEntry = m_activeQueue.first();
+        m_currentEntry = m_activeQueue.front();
         return true;
     }
 }
@@ -194,9 +194,9 @@ void MultiGetJob::slotFinished()
     d->m_redirectionURL = QUrl();
     setError(0);
     d->m_incomingMetaData.clear();
-    d->m_activeQueue.removeAll(d->m_currentEntry);
-    if (d->m_activeQueue.isEmpty()) {
-        if (d->m_waitQueue.isEmpty()) {
+    d->m_activeQueue.remove(d->m_currentEntry);
+    if (d->m_activeQueue.empty()) {
+        if (d->m_waitQueue.empty()) {
             // All done
             TransferJob::slotFinished();
         } else {
@@ -205,7 +205,7 @@ void MultiGetJob::slotFinished()
             // again.
             d->slaveDone();
 
-            d->m_url = d->m_waitQueue.first().url;
+            d->m_url = d->m_waitQueue.front().url;
             if ((d->m_extraFlags & JobPrivate::EF_KillCalled) == 0) {
                 Scheduler::doJob(this);
             }
@@ -227,8 +227,8 @@ void MultiGetJob::slotMimetype(const QString &_mimetype)
     if (d->b_multiGetActive) {
         MultiGetJobPrivate::RequestQueue newQueue;
         d->flushQueue(newQueue);
-        if (!newQueue.isEmpty()) {
-            d->m_activeQueue += newQueue;
+        if (!newQueue.empty()) {
+            d->m_activeQueue.splice(d->m_activeQueue.cend(), newQueue);
             d->m_slave->send(d->m_command, d->m_packedArgs);
         }
     }
