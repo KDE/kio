@@ -66,16 +66,17 @@
 
 static QString expandTilde(const QString &name, bool isfile = false)
 {
-    if (!name.isEmpty() && (!isfile || name[0] == QLatin1Char('\\'))) {
-        const QString expandedName = KShell::tildeExpand(name);
-        // When a tilde mark cannot be properly expanded, the above call
-        // returns an empty string...
-        if (!expandedName.isEmpty()) {
-            return expandedName;
-        }
+    if (name.isEmpty() || name == QLatin1Char('~')) {
+        return name;
     }
 
-    return name;
+    QString expandedName;
+    if (!isfile || name[0] == QLatin1Char('\\')) {
+        expandedName = KShell::tildeExpand(name);
+    }
+
+    // If a tilde mark cannot be properly expanded, KShell::tildeExpand returns an empty string
+    return !expandedName.isEmpty() ? expandedName : name;
 }
 
 // Singleton, with data shared by all KNewFileMenu instances
