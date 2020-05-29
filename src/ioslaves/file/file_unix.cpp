@@ -1071,7 +1071,7 @@ void FileProtocol::rename(const QUrl &srcUrl, const QUrl &destUrl,
         }
     }
 
-    if (::rename(_src.data(), _dest.data())) {
+    if (::rename(_src.data(), _dest.data()) == -1) {
         if (auto err = execWithElevatedPrivilege(RENAME, {_src, _dest}, errno)) {
             if (!err.wasCanceled()) {
                 if ((err == EACCES) || (err == EPERM)) {
