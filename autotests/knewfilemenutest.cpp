@@ -42,6 +42,7 @@ class KNewFileMenuTest : public QObject
 private Q_SLOTS:
     void initTestCase()
     {
+        QStandardPaths::setTestModeEnabled(true);
         qputenv("KDE_FORK_SLAVES", "yes"); // to avoid a runtime dependency on klauncher
 #ifdef Q_OS_UNIX
         m_umask = ::umask(0);
@@ -103,6 +104,14 @@ private Q_SLOTS:
         QTest::newRow("symlink") << "Basic Link" << "" << "thelink" << "thelink";
         QTest::newRow("folder") << "Folder..." << "New Folder" << "folder1" << "folder1";
         QTest::newRow("folder_named_tilde") << "Folder..." << "New Folder" << "~" << "~";
+
+        // /home/user
+        const QString homeDir = QStandardPaths::writableLocation(QStandardPaths::HomeLocation);
+        // ~/.qttest/share
+        const QString dataDir =
+            QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation).replace(homeDir, QLatin1String("~"));
+        QTest::newRow("folder_tilde_expanded") << "Folder..." << "New Folder" << dataDir + "/folderTildeExpanded" << "folderTildeExpanded";
+
         QTest::newRow("folder_default_name") << "Folder..." << "New Folder" << "New Folder" << "New Folder";
         QTest::newRow("folder_with_suggested_name") << "Folder..." << "New Folder (1)" << "New Folder (1)" << "New Folder (1)";
         QTest::newRow("folder_with_suggested_name_but_user_overrides") << "Folder..." << "New Folder (2)" << "New Folder" << "";
@@ -164,6 +173,10 @@ private Q_SLOTS:
         QSignalSpy folderSpy(&menu, SIGNAL(directoryCreated(QUrl)));
         dialog->accept();
         QString path = m_tmpDir.path() + QLatin1Char('/') + expectedFilename;
+        if (typedFilename.contains(QLatin1String("folderTildeExpanded"))) {
+            path = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation)
+                   + QLatin1Char('/') + QLatin1String("folderTildeExpanded");
+        }
         if (actionText == QLatin1String("Folder...")) {
             if (expectedFilename.isEmpty()) {
                 // This is the "Folder already exists" case; expect an error dialog
