@@ -30,6 +30,7 @@
 #include <QRegularExpression>
 #include <QFileInfo>
 #include <QTextStream>
+#include <QStandardPaths>
 #include <QStringList>
 #include <QProcess>
 #include <QDebug>
@@ -71,14 +72,19 @@ KSambaSharePrivate::~KSambaSharePrivate()
 
 bool KSambaSharePrivate::isSambaInstalled()
 {
-    if (QFile::exists(QStringLiteral("/usr/sbin/smbd"))
-            || QFile::exists(QStringLiteral("/usr/local/sbin/smbd"))) {
-        return true;
+    const bool daemonExists =
+        !QStandardPaths::findExecutable(QStringLiteral("smbd"),
+                                       {QStringLiteral("/usr/sbin/"), QStringLiteral("/usr/local/sbin/")}).isEmpty();
+    if (!daemonExists) {
+        qCDebug(KIO_CORE_SAMBASHARE) << "KSambaShare: Could not find smbd";
     }
 
-    //qDebug() << "Samba is not installed!";
+    const bool clientExists = !QStandardPaths::findExecutable(QStringLiteral("testparm")).isEmpty();
+    if (!clientExists) {
+        qCDebug(KIO_CORE_SAMBASHARE) << "KSambaShare: Could not find testparm tool, most likely samba-client isn't installed";
+    }
 
-    return false;
+    return daemonExists && clientExists;
 }
 
 #if KIOCORE_BUILD_DEPRECATED_SINCE(4, 6)
