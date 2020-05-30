@@ -102,6 +102,7 @@ private Q_SLOTS:
         QTest::newRow("url desktop file .pl extension") << "Link to Location " << "" << "tmp_link.pl" << "tmp_link.pl.desktop";
         QTest::newRow("symlink") << "Basic Link" << "" << "thelink" << "thelink";
         QTest::newRow("folder") << "Folder..." << "New Folder" << "folder1" << "folder1";
+        QTest::newRow("folder_named_tilde") << "Folder..." << "New Folder" << "~" << "~";
         QTest::newRow("folder_default_name") << "Folder..." << "New Folder" << "New Folder" << "New Folder";
         QTest::newRow("folder_with_suggested_name") << "Folder..." << "New Folder (1)" << "New Folder (1)" << "New Folder (1)";
         QTest::newRow("folder_with_suggested_name_but_user_overrides") << "Folder..." << "New Folder (2)" << "New Folder" << "";
