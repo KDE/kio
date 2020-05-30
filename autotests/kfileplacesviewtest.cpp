@@ -82,13 +82,6 @@ void KFilePlacesViewTest::testUrlChanged_data()
         QTest::newRow("Recent Files") << idx++ << QStringLiteral("recentlyused:/files");
         QTest::newRow("Recent Locations") << idx++ << QStringLiteral("recentlyused:/locations");
     }
-    const QDate currentDate = QDate::currentDate();
-    const QDate yesterdayDate = currentDate.addDays(-1);
-    QTest::newRow("Today") << idx++ << QStringLiteral("timeline:/today");
-    QTest::newRow("Yesterday") << idx++ << QString("timeline:/%1-%2/%1-%2-%3")
-                                  .arg(yesterdayDate.year())
-                                  .arg(yesterdayDate.month(), 2, 10, QChar('0'))
-                                  .arg(yesterdayDate.day(), 2, 10, QChar('0'));
 
     // search
     QTest::newRow("Documents") << idx++ << QStringLiteral("baloosearch:/documents");
