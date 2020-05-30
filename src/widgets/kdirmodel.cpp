@@ -1216,7 +1216,11 @@ bool KDirModel::hasChildren(const QModelIndex &parent) const
         return !static_cast<const KDirModelDirNode *>(parentNode)->m_childNodes.isEmpty();
     }
     if (parentItem.isLocalFile()) {
-        QDirIterator it(parentItem.localPath(), QDir::Dirs | QDir::NoSymLinks | QDir::NoDotAndDotDot,  QDirIterator::Subdirectories);
+        QDir::Filters filters = QDir::Dirs | QDir::NoSymLinks | QDir::NoDotAndDotDot;
+        if (!d->m_dirLister->dirOnlyMode()) {
+            filters |= QDir::Files;
+        }
+        QDirIterator it(parentItem.localPath(), filters,  QDirIterator::Subdirectories);
         return it.hasNext();
     }
     // Remote and not listed yet, we can't know; let the user click on it so we'll find out

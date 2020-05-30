@@ -65,6 +65,8 @@ private Q_SLOTS:
     void testShowRoot();
     void testShowRootWithTrailingSlash();
     void testShowRootAndExpandToUrl();
+    void testHasChildren_data();
+    void testHasChildren();
 
     // These tests must be done last
     void testDeleteFile();

@@ -284,6 +284,7 @@ void KDirModelTest::testIndex()
     QModelIndex sibling1 = m_dirModel->sibling(subsubdirIndex.row(), 0, m_fileInDirIndex);
     QVERIFY(sibling1.isValid());
     QVERIFY(sibling1 == subsubdirIndex);
+    QVERIFY(m_dirModel->hasChildren(subsubdirIndex));
 
     // Invalid sibling call
     QVERIFY(!m_dirModel->sibling(1, 0, m_fileInSubdirIndex).isValid());
@@ -1239,6 +1240,51 @@ void KDirModelTest::testShowRootAndExpandToUrl()
     const QUrl homeUrl = QUrl::fromLocalFile(QDir::homePath());
     dirModel.expandToUrl(homeUrl);
     QTRY_VERIFY(dirModel.indexForUrl(homeUrl).isValid());
+}
+
+void KDirModelTest::testHasChildren_data()
+{
+    QTest::addColumn<bool>("dirsOnly");
+
+    QTest::newRow("with_files") << false;
+    QTest::newRow("dirs_only") << true;
+}
+
+// Test hasChildren without first populating the dirs
+void KDirModelTest::testHasChildren()
+{
+    QFETCH(bool, dirsOnly);
+
+    m_dirModel->dirLister()->setDirOnlyMode(dirsOnly);
+    fillModel(true, false);
+
+    QVERIFY(m_dirModel->hasChildren());
+
+    auto firstSubdirIndex = [this](const QModelIndex &parentIndex) {
+        for (int row = 0; row < m_dirModel->rowCount(parentIndex); ++row) {
+            QModelIndex idx = m_dirModel->index(row, 0, parentIndex);
+            if (m_dirModel->itemForIndex(idx).isDir()) {
+                return idx;
+            }
+        }
+        return QModelIndex();
+    };
+
+    m_dirIndex = firstSubdirIndex(QModelIndex());
+    QVERIFY(m_dirIndex.isValid());
+    QVERIFY(m_dirModel->hasChildren(m_dirIndex));
+
+    auto listDir = [this](const QModelIndex &index) {
+        QSignalSpy completedSpy(m_dirModel->dirLister(), QOverload<>::of(&KDirLister::completed));
+        m_dirModel->fetchMore(index);
+        return completedSpy.wait();
+    };
+    // Now list subdir/
+    QVERIFY(listDir(m_dirIndex));
+
+    const QModelIndex subsubdirIndex = firstSubdirIndex(m_dirIndex);
+    QVERIFY(subsubdirIndex.isValid());
+    QCOMPARE(m_dirModel->hasChildren(subsubdirIndex), !dirsOnly);
 }
 
 void KDirModelTest::testDeleteFile()
