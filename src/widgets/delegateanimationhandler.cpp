@@ -375,7 +375,7 @@ int DelegateAnimationHandler::runAnimations(AnimationList *list, const QAbstract
     int activeAnimations = 0;
     QRegion region;
 
-    QMutableLinkedListIterator<AnimationState *> i(*list);
+    QMutableListIterator<AnimationState *> i(*list);
     while (i.hasNext()) {
         AnimationState *state = i.next();
 

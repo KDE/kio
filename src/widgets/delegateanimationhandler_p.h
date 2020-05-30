@@ -135,7 +135,7 @@ class DelegateAnimationHandler : public QObject
 {
     Q_OBJECT
 
-    typedef QLinkedList<AnimationState *> AnimationList;
+    typedef QList<AnimationState *> AnimationList;
     typedef QMapIterator<const QAbstractItemView *, AnimationList *> AnimationListsIterator;
     typedef QMutableMapIterator<const QAbstractItemView *, AnimationList *> MutableAnimationListsIterator;
 
