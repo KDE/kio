@@ -4,6 +4,7 @@ Name=Debian Backports Search
 Name[af]=Debian Backports Soektog
 Name[as]=Debian Backports Search
 Name[ast]=Gueta de backports de Debian
+Name[az]=Debian Portlarının Axtarışı
 Name[be]=Пошук Debian Backports
 Name[be@latin]=Pošuk „Backports” dla systemy „Debian”
 Name[bg]=Търсене в Debian Backports
@@ -87,6 +88,7 @@ Name[zh_CN]=Debian 仓库搜索
 Name[zh_TW]=Debian Backports 搜尋
 Query=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
 Query[ast]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
+Query[az]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
 Query[ca]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
 Query[ca@valencia]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
 Query[cs]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}

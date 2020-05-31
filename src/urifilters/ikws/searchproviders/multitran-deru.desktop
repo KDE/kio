@@ -5,6 +5,7 @@ Name=Multitran - Translate Between German and Russian
 Name[af]=Multitran - Vertaal tussen Duits en Russies
 Name[ar]=Multitran - ترجمة بين الألمانية والروسية
 Name[as]=Multitran - জাৰ্মান আৰু ৰুচীয় ভাষাৰ মাজত অনুবাদ
+Name[az]=Multitran - Alman və Rus dillərində tərcümə edin
 Name[be@latin]=Pierakład „Multitran”: niamieckaja ➙ rasiejskaja
 Name[bg]=Multitran - превод между немски и руски
 Name[bn]=মাল্টিট্র্যান - জার্মান থেকে রুশ বা রুশ থেকে জার্মান-এ অনুবাদ করুন
@@ -88,6 +89,7 @@ X-KDE-ServiceTypes=SearchProvider
 Keys=mt,mtde
 Query=https://multitran.ru/c/m.exe?l1=3&s=\\{@}
 Query[ast]=https://multitran.ru/c/m.exe?l1=3&s=\\{@}
+Query[az]=https://multitran.ru/c/m.exe?l1=3&s=\\{@}
 Query[ca]=https://multitran.ru/c/m.exe?l1=3&s=\\{@}
 Query[ca@valencia]=https://multitran.ru/c/m.exe?l1=3&s=\\{@}
 Query[cs]=https://multitran.ru/c/m.exe?l1=3&s=\\{@}

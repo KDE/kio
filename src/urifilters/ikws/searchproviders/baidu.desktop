@@ -3,6 +3,7 @@ Type=Service
 Name=Baidu
 Name[ar]=Baidu
 Name[ast]=Baidu
+Name[az]=Baidu
 Name[bg]=Търсене в Baidu
 Name[bn]=বাইডু
 Name[bs]=Bajdu
@@ -72,6 +73,7 @@ X-KDE-ServiceTypes=SearchProvider
 Keys=baidu
 Query=https://www.baidu.com/s?wd=\\{@}
 Query[ast]=https://www.baidu.com/s?wd=\\{@}
+Query[az]=https://www.baidu.com/s?wd=\\{@}
 Query[ca]=https://www.baidu.com/s?wd=\\{@}
 Query[ca@valencia]=https://www.baidu.com/s?wd=\\{@}
 Query[cs]=https://www.baidu.com/s?wd=\\{@}

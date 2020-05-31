@@ -5,6 +5,7 @@ Name=Multitran - Translate Between Italian and Russian
 Name[af]=Multitran - Vertaal tussen Italiaans en Russies
 Name[ar]=Multitran - ترجمة بين الإيطالية والروسية
 Name[as]=Multitran - ইটালীয় আৰু ৰুচীয় ভাষাৰ মাজত অনুবাদ
+Name[az]=Multitran - İtalyan və Rus arasında tərcümə
 Name[be@latin]=Pierakład „Multitran”: italjanskaja ➙ rasiejskaja
 Name[bg]=Multitran - превод между италиански и руски
 Name[bn]=মাল্টিট্র্যান - ইতালিয়ান থেকে রুশ বা রুশ থেকে ইতালিয়ান-এ অনুবাদ করুন
@@ -88,6 +89,7 @@ X-KDE-ServiceTypes=SearchProvider
 Keys=mt,mtde
 Query=https://multitran.ru/c/m.exe?l1=23&s=\\{@}
 Query[ast]=https://multitran.ru/c/m.exe?l1=23&s=\\{@}
+Query[az]=https://multitran.ru/c/m.exe?l1=23&s=\\{@}
 Query[ca]=https://multitran.ru/c/m.exe?l1=23&s=\\{@}
 Query[ca@valencia]=https://multitran.ru/c/m.exe?l1=23&s=\\{@}
 Query[cs]=https://multitran.ru/c/m.exe?l1=23&s=\\{@}

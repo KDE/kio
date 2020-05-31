@@ -4,6 +4,7 @@ Hidden=false
 Keys=duckduckgoshopping,dds,dukgoshop
 Name=Duck Duck Go Shopping
 Name[ar]=تسوّق دك دك جو
+Name[az]=Duck Duck Go : Alış
 Name[bg]=Пазаруване в Duck Duck Go
 Name[bn]=ডাক ডাক গো শপিং
 Name[bs]=Dak dak go (kupovina)
@@ -73,6 +74,7 @@ Name[zh_TW]=Duck Duck Go Shopping
 Query=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[ar]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[ast]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
+Query[az]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[bg]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[bs]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[ca]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde

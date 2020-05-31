@@ -4,6 +4,7 @@ Name=Google (I'm Feeling Lucky)
 Name[af]=Google (Vat 'n kaans)
 Name[ar]=جوجل (باستخدام ميزة ضربة حظ)
 Name[as]=Google (I'm Feeling Lucky)
+Name[az]=Google Mən Xöşbəxtəm
 Name[be]=Google (Мне пашанцуе)
 Name[be@latin]=Google („Mnie pašancuje”)
 Name[bg]=Google ("Чувствам се късметлия")
@@ -93,6 +94,7 @@ X-KDE-ServiceTypes=SearchProvider
 Keys=ggl,gglucky
 Query=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
 Query[ar]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
+Query[az]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
 Query[bg]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
 Query[bs]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
 Query[ca]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8

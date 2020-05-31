@@ -4,6 +4,7 @@ Name=LEO-Translate
 Name[af]=LEO-Vertaal
 Name[ar]=ترجمة LEO
 Name[as]=LEO-Translate
+Name[az]=LEO-Tərcümə
 Name[be]=LEO-Translate
 Name[be@latin]=Pierakład „LEO”
 Name[bg]=LEO-превод
@@ -93,6 +94,7 @@ X-KDE-ServiceTypes=SearchProvider
 Keys=leo
 Query=https://dict.leo.org/?search=\\{@}
 Query[ast]=https://dict.leo.org/?search=\\{@}
+Query[az]=https://dict.leo.org/?search=\\{@}
 Query[ca]=https://dict.leo.org/?search=\\{@}
 Query[ca@valencia]=https://dict.leo.org/?search=\\{@}
 Query[cs]=https://dict.leo.org/?search=\\{@}

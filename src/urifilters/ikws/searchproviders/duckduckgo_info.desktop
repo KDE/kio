@@ -4,6 +4,7 @@ Hidden=false
 Keys=duckduckgoinfo,ddi
 Name=Duck Duck Go Info
 Name[ar]=معلومات دك دك جو
+Name[az]=Duck Duck Go  Haqqında Məlumat
 Name[bg]=Информация в Duck Duck Go
 Name[bn]=ডাক ডাক গো তথ্য
 Name[bs]=Dak dak go (informacije)
@@ -72,6 +73,7 @@ Name[zh_TW]=Duck Duck Go Info
 Query=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[ar]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[ast]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
+Query[az]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[bg]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[bs]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[ca]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde

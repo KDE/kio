@@ -4,6 +4,7 @@ Name=CTAN Catalog
 Name[af]=CTAN Katalogus
 Name[ar]=كتالوج CTAN
 Name[as]=CTAN Catalog
+Name[az]=CTAN Kataloq
 Name[be]=Каталог CTAN
 Name[be@latin]=Kataloh CTAN
 Name[bg]=Каталог CTAN
@@ -93,6 +94,7 @@ Query=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchS
 Query[ar]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search
 Query[as]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search
 Query[ast]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search
+Query[az]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search
 Query[be@latin]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search
 Query[bg]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search
 Query[bn]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search

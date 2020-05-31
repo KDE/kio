@@ -6,6 +6,7 @@ Name=WordReference.com Translation: English to French
 Name[af]=WordReference.com Vertaling: Engels na Frans
 Name[ar]=ترجمة WordReference.com: من الانجليزية إلى الفرنسية
 Name[as]=WordReference.com Translation: English to French
+Name[az]=WordReference.com Tərcümə :İngiliscədən Fransızcaya
 Name[be]=WordReference.com Пераклад: з англійскай на французскую
 Name[be@latin]=Pierakład „WordReference.com”: anhielskaja ➙ francuskaja
 Name[bg]=Превод с WordReference.com — от английски към френски
@@ -90,6 +91,7 @@ Name[x-test]=xxWordReference.com Translation: English to Frenchxx
 Name[zh_CN]=WordReference.com 翻译：英语译法语
 Name[zh_TW]=WordReference.com 翻譯: 英文至法文
 Query=https://www.wordreference.com/fr/Translation.asp?enfr=\\{@}
+Query[az]=https://www.wordreference.com/fr/Translation.asp?enfr=\\{@}
 Query[ca]=https://www.wordreference.com/fr/Translation.asp?enfr=\\{@}
 Query[ca@valencia]=https://www.wordreference.com/fr/Translation.asp?enfr=\\{@}
 Query[cs]=https://www.wordreference.com/fr/Translation.asp?enfr=\\{@}

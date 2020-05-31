@@ -2,6 +2,7 @@
 Type=Service
 Name=Ecosia search engine
 Name[ar]=محرّك بحث Ecosia
+Name[az]=Ecosia axtarış vasitəsi
 Name[bg]=Търсачка Ecosia
 Name[bn]=ইকোসিয়া সার্চ ইঞ্জিন
 Name[bs]=Ekozija
@@ -72,6 +73,7 @@ X-KDE-ServiceTypes=SearchProvider
 Keys=ec,et,ethicle
 Query=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[ast]=https://ecosia.org/search.php?q=\\{@}&meta=normal
+Query[az]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[ca]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[ca@valencia]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[cs]=https://ecosia.org/search.php?q=\\{@}&meta=normal

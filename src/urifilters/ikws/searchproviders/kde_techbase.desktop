@@ -4,6 +4,7 @@ Hidden=false
 Keys=kdetechbase,techbase,tb
 Name=KDE TechBase
 Name[ar]=قاعدة التعلم لكدي
+Name[az]=KDE Texniki Basa
 Name[bg]=Техническо ръководство за KDE
 Name[bn]=KDE টেক-বেস
 Name[bs]=Tehbaza KDE‑a
@@ -70,6 +71,7 @@ Name[x-test]=xxKDE TechBasexx
 Name[zh_CN]=KDE 技术信息库
 Name[zh_TW]=KDE TechBase
 Query=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
+Query[az]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[ca]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[ca@valencia]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[cs]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search

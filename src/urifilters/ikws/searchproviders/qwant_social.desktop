@@ -1,6 +1,7 @@
 [Desktop Entry]
 Keys=qwso
 Name=Qwant Social
+Name[az]=Qwant Sosial
 Name[ca]=Tertúlia a Qwant
 Name[ca@valencia]=Tertúlia a Qwant
 Name[cs]=Qwant Social
@@ -45,6 +46,7 @@ Name[zh_CN]=Qwant 社会
 Name[zh_TW]=Qwant Social
 Query=https://www.qwant.com/single?q=\\{@}&client=kde&source=social
 Query[ast]=https://www.qwant.com/single?q=\\{@}&client=kde&source=social
+Query[az]=https://www.qwant.com/single?q=\\{@}&client=kde&source=social
 Query[ca]=https://www.qwant.com/single?q=\\{@}&client=kde&source=social
 Query[ca@valencia]=https://www.qwant.com/single?q=\\{@}&client=kde&source=social
 Query[cs]=https://www.qwant.com/single?q=\\{@}&client=kde&source=social

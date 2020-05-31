@@ -4,6 +4,7 @@ Name=FSF/UNESCO Free Software Directory
 Name[af]=FSF/UNESCO Gratis Sagteware Gids
 Name[ar]=دليل FSF/UNESCO للبرمجيات الحرّة
 Name[as]=FSF/UNESCO Free Software Directory
+Name[az]=FSF/UNESCO üzrə Azad Proqram Təminatı
 Name[be]=Каталог свабоднага праграмнага забеспячэння FSF/UNESCO
 Name[be@latin]=Kataloh svabodnych prahramaŭ „FSF/UNESCO”
 Name[bg]=Директория със свободен софтуер на FSF/UNESCO
@@ -90,6 +91,7 @@ X-KDE-ServiceTypes=SearchProvider
 Keys=fsd
 Query=https://directory.fsf.org/search/?query=\\{@}
 Query[ast]=https://directory.fsf.org/search/?query=\\{@}
+Query[az]=https://directory.fsf.org/search/?query=\\{@}
 Query[ca]=https://directory.fsf.org/search/?query=\\{@}
 Query[ca@valencia]=https://directory.fsf.org/search/?query=\\{@}
 Query[cs]=https://directory.fsf.org/search/?query=\\{@}

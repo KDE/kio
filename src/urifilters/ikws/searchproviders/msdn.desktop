@@ -4,6 +4,7 @@ Name=Microsoft Developer Network Search
 Name[af]=Microsoft Developer Network Soektog
 Name[ar]=بحث شبكة مايكروسوفت للمطورين
 Name[as]=Microsoft Developer Network Search
+Name[az]=Microsoft Developer Network Axtarışı
 Name[be]=Пошук у сетцы для распрацоўшчыкаў Microsoft
 Name[be@latin]=Pošuk „Microsoft Developer Network”
 Name[bg]=Търсене в Microsoft Developer Network
@@ -93,6 +94,7 @@ X-KDE-ServiceTypes=SearchProvider
 Keys=msdn
 Query=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
 Query[ar]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
+Query[az]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
 Query[bg]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
 Query[bs]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
 Query[ca]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}

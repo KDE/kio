@@ -5,6 +5,7 @@ Name[af]=Feedster
 Name[ar]=Feedster
 Name[as]=Feedster
 Name[ast]=Feedster
+Name[az]=Feedster
 Name[be]=Feedster
 Name[be@latin]=Feedster
 Name[bg]=Feedster
@@ -94,6 +95,7 @@ X-KDE-ServiceTypes=SearchProvider
 Keys=blog,rss,feedster
 Query=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[ast]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
+Query[az]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[ca]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[ca@valencia]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[cs]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}

@@ -4,6 +4,7 @@ Name=Ruby Application Archive
 Name[af]=Ruby Toepassing Argief
 Name[ar]=أرشيف تطبيقات روبي
 Name[as]=Ruby Application Archive
+Name[az]=Ruby Tətbiq Arxivi
 Name[be]=Архіў праграмаў Ruby
 Name[be@latin]=Aplikacyi „Ruby”
 Name[bg]=Архив на Ruby
@@ -94,6 +95,7 @@ X-KDE-ServiceTypes=SearchProvider
 Keys=raa
 Query=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[ast]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
+Query[az]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[ca]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[ca@valencia]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[cs]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}

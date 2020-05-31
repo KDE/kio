@@ -4,6 +4,7 @@ Name=Technorati Tags
 Name[af]=Technorati Tags
 Name[ar]=وسوم Technorati
 Name[as]=Technorati Tags
+Name[az]=Technorati Yarlıqları
 Name[be]=Тэгі Technorati
 Name[be@latin]=Technorati Tags
 Name[bg]=Етикети в Technorati
@@ -89,6 +90,7 @@ X-KDE-ServiceTypes=SearchProvider
 Keys=tags,tag,technoratitags
 Query=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[ast]=https://technorati.com/tag/\\{@}?sourceid=kde-search
+Query[az]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[ca]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[ca@valencia]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[cs]=https://technorati.com/tag/\\{@}?sourceid=kde-search

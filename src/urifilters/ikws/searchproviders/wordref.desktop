@@ -6,6 +6,7 @@ Name=WordReference.com English Dictionary
 Name[af]=WordReference.com Engelse Woordeboek
 Name[ar]=قاموس WordReference.com الانجليزي
 Name[as]=WordReference.com English Dictionary
+Name[az]=WordReference.com İngilis dili lüğəti
 Name[be]=WordReference.com Англійскі слоўнік
 Name[be@latin]=Anhielski słoŭnik „WordReference.com”
 Name[bg]=Английски речник WordReference.com
@@ -91,6 +92,7 @@ Name[x-test]=xxWordReference.com English Dictionaryxx
 Name[zh_CN]=WordReference.com 英语字典
 Name[zh_TW]=WordReference.com 英文字典
 Query=https://www.wordreference.com/english/definition.asp?en=\\{@}
+Query[az]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[ca]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[ca@valencia]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[cs]=https://www.wordreference.com/english/definition.asp?en=\\{@}

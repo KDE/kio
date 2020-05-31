@@ -5,6 +5,7 @@ Keys=wikia,wka
 Name=Wikia
 Name[ar]=ويكيا
 Name[ast]=Wikia
+Name[az]=Wikia
 Name[bg]=Wikia
 Name[bn]=উইকিয়া
 Name[bs]=Vikija
@@ -72,6 +73,7 @@ Name[zh_CN]=Wikia
 Name[zh_TW]=Wikia
 Query=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[ast]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
+Query[az]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[ca]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[ca@valencia]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[cs]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search

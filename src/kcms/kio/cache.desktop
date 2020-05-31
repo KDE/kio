@@ -17,6 +17,7 @@ Name[af]=Kas
 Name[ar]=الخبيئة
 Name[as]=কেছে
 Name[ast]=Caché
+Name[az]=Keş
 Name[be]=Кэш
 Name[be@latin]=Padručnaja pamiać
 Name[bg]=Временна памет
@@ -102,6 +103,7 @@ Name[zh_TW]=快取
 
 Comment=Configure web cache settings
 Comment[ar]=إعدادات ضبط خبيئة الوبّ
+Comment[az]=Veb keş ayarlarını tənzimlə
 Comment[ca]=Configura les opcions per a la memòria cau del web
 Comment[ca@valencia]=Configura les opcions per a la memòria cau del web
 Comment[cs]=Nastavení mezipaměti pro webové stránky
@@ -145,6 +147,7 @@ Comment[zh_CN]=配置网页缓存设置
 Comment[zh_TW]=設定網頁快取設定
 
 X-KDE-Keywords=Cache,History,Browsing History,Ports,Size
+X-KDE-Keywords[az]=Keş Tarix, Baxış Tarixi, Portlar, Ölçü
 X-KDE-Keywords[ca]=Memòria cau,Historial,Historial del navegador,Ports,Mida
 X-KDE-Keywords[ca@valencia]=Memòria cau,Historial,Historial del navegador,Ports,Mida
 X-KDE-Keywords[da]=Cache,historik,browserhistorik,porte,størrelse

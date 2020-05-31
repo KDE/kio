@@ -2,6 +2,7 @@
 Type=Service
 Name=CNRTL/TILF French dictionary
 Name[ar]=قاموس CNRTL/TILF الفرنسي
+Name[az]=CNRTL/TILF Fransızca Lüğət
 Name[bg]=Френски речник CNRTL/TILF
 Name[bn]=CNRTL/TILF ফরাসী ডিকশনারী
 Name[bs]=CNRTL/TILF francuski rječnik
@@ -75,6 +76,7 @@ X-KDE-ServiceTypes=SearchProvider
 Keys=dictfr
 Query=https://www.cnrtl.fr/definition/\\{@}
 Query[ast]=https://www.cnrtl.fr/definition/\\{@}
+Query[az]=https://www.cnrtl.fr/definition/\\{@}
 Query[ca]=https://www.cnrtl.fr/definition/\\{@}
 Query[cs]=https://www.cnrtl.fr/definition/\\{@}
 Query[de]=https://www.cnrtl.fr/definition/\\{@}

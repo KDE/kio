@@ -3,6 +3,7 @@ Keys=bug,bugno,bugnr
 Name=KDE Bug Database Bug Number Search
 Name[af]=Kde Fout Databasis Fout Nommer Soektog
 Name[ar]=بحث قاعدة بيانات علل كدي عبر رقم العلة
+Name[az]=KDE Xətalar Bazasında Nömrə Üzrə Axtarış
 Name[be]=Пошук па нумару памылкі ў базе памылак KDE
 Name[be@latin]=Pošuk u bazie viadomych chibaŭ KDE pavodle numara
 Name[bg]=Търсене по номер в базата от данни с бъгове на KDE
@@ -91,6 +92,7 @@ Name[zh_TW]=KDE 臭蟲資料庫按錯誤編號搜索
 Query=https://bugs.kde.org/show_bug.cgi?id=\\{@}
 Query[ar]=https://bugs.kde.org/show_bug.cgi?id=\\{@}
 Query[ast]=https://bugs.kde.org/show_bug.cgi?id=\\{@}
+Query[az]=https://bugs.kde.org/show_bug.cgi?id=\\{@}
 Query[bg]=https://bugs.kde.org/show_bug.cgi?id=\\{@}
 Query[bn]=https://bugs.kde.org/show_bug.cgi?id=\\{@}
 Query[bs]=https://bugs.kde.org/show_bug.cgi?id=\\{@}

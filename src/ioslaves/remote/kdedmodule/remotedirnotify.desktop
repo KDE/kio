@@ -2,6 +2,7 @@
 Type=Service
 Name=Remote URL Change Notifier
 Name[ast]=Avisador de cambeos d'URLs remotes
+Name[az]=URL Dəyiçikliklərini İzləmək
 Name[bg]=Уведомител за промени в отдалечени URL-адреси
 Name[bn]=দূরবর্তী ইউ-আর-এল পরিবর্তন নোটিফায়ার
 Name[bs]=Izveštavač o izmjenama udaljenog URL‑a
@@ -67,6 +68,7 @@ Name[x-test]=xxRemote URL Change Notifierxx
 Name[zh_CN]=远程 URL 更改通知器
 Name[zh_TW]=遠端網址變更通知程式
 Comment=Provides change notification for network folders
+Comment[az]=Şəbəkə qovluqları üçün dəyişiklik bildirişi tətbiq edin
 Comment[bg]=Уведомления за промени в мрежови папки
 Comment[bn]=নেটওয়ার্ক ফোল্ডার-এ পরিবর্তনের সূচনা দেয়
 Comment[bs]=Ispostavlja obavještenja o izmjenama u mrežnim fasciklama

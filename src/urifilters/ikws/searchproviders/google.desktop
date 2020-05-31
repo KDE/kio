@@ -6,6 +6,7 @@ Name[af]=Google
 Name[ar]=جوجل
 Name[as]=Google
 Name[ast]=Google
+Name[az]=Google
 Name[be]=Google
 Name[be@latin]=Google
 Name[bg]=Google
@@ -97,6 +98,7 @@ X-KDE-ServiceTypes=SearchProvider
 Keys=gg,google
 Query=https://www.google.com/search?q=\\{@}&ie=UTF-8
 Query[ar]=https://www.google.com/search?q=\\{@}&ie=UTF-8
+Query[az]=https://www.google.com/search?q=\\{@}&ie=UTF-8
 Query[bg]=https://www.google.com/search?q=\\{@}&ie=UTF-8
 Query[bs]=https://www.google.com/search?q=\\{@}&ie=UTF-8
 Query[ca]=https://www.google.cat/search?q=\\{@}&ie=UTF-8

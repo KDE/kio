@@ -9,6 +9,7 @@ Icon=www
 Class=:internet
 Description=Microsoft Media Server Protocol
 Description[ar]=ميفاق خادوم مايكروسوفت للوسائط
+Description[az]=Microsoft Media Server Protokolu
 Description[ca]=Protocol del Microsoft Media Server
 Description[ca@valencia]=Protocol del Microsoft Media Server
 Description[cs]=Microsoft Media Server protokol

@@ -5,6 +5,7 @@ Keys=jamendo,jmd
 Name=Jamendo
 Name[ar]=Jamendo
 Name[ast]=Jamendo
+Name[az]=Jamendo
 Name[bg]=Jamendo
 Name[bn]=জামেন্ডো
 Name[bs]=Džamendo
@@ -73,6 +74,7 @@ Name[x-test]=xxJamendoxx
 Name[zh_CN]=Jamendo
 Name[zh_TW]=Jamendo
 Query=https://www.jamendo.com/en/search?qs=q=\\{@}
+Query[az]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[ca]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[ca@valencia]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[cs]=https://www.jamendo.com/en/search?qs=q=\\{@}

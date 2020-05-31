@@ -6,6 +6,7 @@ Name=Python Reference Manual
 Name[af]=Python Verwysing Handleiding
 Name[ar]=دليل مرجع بايثون
 Name[as]=Python প্ৰসঙ্গৰ হাতপুথি
+Name[az]=Python İstinad Təlimatı
 Name[be]=Падручнік Python
 Name[be@latin]=Daviednik dla „Python”
 Name[bg]=Python Reference Manual
@@ -93,6 +94,7 @@ Name[zh_CN]=Python 参考手册
 Name[zh_TW]=Python 參考手冊
 Query=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
 Query[ar]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
+Query[az]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
 Query[bg]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
 Query[bs]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
 Query[ca]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org

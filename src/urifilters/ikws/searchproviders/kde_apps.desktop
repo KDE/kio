@@ -4,6 +4,7 @@ Name=KDE App Search
 Name[af]=KDE App Soektog
 Name[ar]=بحث تطبيقات كدي
 Name[as]=KDE App Search
+Name[az]=KDE Proqram Axtarışı
 Name[be]=Пошук праграмаў KDE
 Name[be@latin]=Pošuk aplikacyjaŭ KDE
 Name[bg]=KDE App Search
@@ -93,6 +94,7 @@ X-KDE-ServiceTypes=SearchProvider
 Keys=apps,appsy
 Query=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[ast]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
+Query[az]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[ca]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[ca@valencia]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[cs]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}

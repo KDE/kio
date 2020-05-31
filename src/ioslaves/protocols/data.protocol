@@ -7,6 +7,7 @@ Icon=internet-services
 Class=:internet
 Description=A kioslave for data URIs (rfc2397)
 Description[ast]=Un kioslave pa URIs de datos (rfc2397)
+Description[az]=URİ -ları rfc2397  görə açılması
 Description[ca]=Un «kioslave» per als URI de dades (RFC2397)
 Description[ca@valencia]=Un «kioslave» per als URI de dades (RFC2397)
 Description[cs]=Kioslave pro datová URI (rfc2397)

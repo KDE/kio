@@ -4,6 +4,7 @@ Name=Ask Jeeves
 Name[af]=Vra Jeeves
 Name[ar]=Ask Jeeves
 Name[as]=Ask Jeeves
+Name[az]=Ask Jeeves
 Name[be]=Ask Jeeves
 Name[be@latin]=Ask Jeeves
 Name[bg]=Ask Jeeves
@@ -92,6 +93,7 @@ Name[zh_TW]=Ask Jeeves
 X-KDE-ServiceTypes=SearchProvider
 Keys=ask,jeeves
 Query=https://www.ask.com/main/askJeeves.asp?origin=0&qSource=4&site_name=Jeeves&metasearch=yes&ask=\\{@}
+Query[az]=https://www.ask.com/main/askJeeves.asp?origin=0&qSource=4&site_name=Jeeves&metasearch=yes&ask=\\{@}
 Query[ca]=https://www.ask.com/main/askJeeves.asp?origin=0&qSource=4&site_name=Jeeves&metasearch=yes&ask=\\{@}
 Query[ca@valencia]=https://www.ask.com/main/askJeeves.asp?origin=0&qSource=4&site_name=Jeeves&metasearch=yes&ask=\\{@}
 Query[cs]=https://www.ask.com/main/askJeeves.asp?origin=0&qSource=4&site_name=Jeeves&metasearch=yes&ask=\\{@}

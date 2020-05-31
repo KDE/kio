@@ -3,6 +3,7 @@ Type=Service
 Name=Freecode
 Name[ar]=فريكود
 Name[ast]=Freecode
+Name[az]=Freecode
 Name[bg]=Freecode
 Name[bs]=Freecode
 Name[ca]=Freecode
@@ -59,6 +60,7 @@ Keys=fc,freecode
 Query=http://freecode.com/search?q=\\{@}
 Query[ar]=http://freecode.com/search?q=\\{@}
 Query[ast]=http://freecode.com/search?q=\\{@}
+Query[az]=http://freecode.com/search?q=\\{@}
 Query[bg]=http://freecode.com/search?q=\\{@}
 Query[bs]=http://freecode.com/search?q=\\{@}
 Query[ca]=http://freecode.com/search?q=\\{@}

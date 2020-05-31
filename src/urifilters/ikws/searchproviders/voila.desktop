@@ -5,6 +5,7 @@ Name[af]=Voila
 Name[ar]=Voila
 Name[as]=Voila
 Name[ast]=Voila
+Name[az]=Voila
 Name[be]=Voila
 Name[be@latin]=Voila
 Name[bg]=Voila
@@ -96,6 +97,7 @@ X-KDE-ServiceTypes=SearchProvider
 Keys=voila
 Query=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
 Query[ast]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
+Query[az]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
 Query[ca]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
 Query[cs]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
 Query[de]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*

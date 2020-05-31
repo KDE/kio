@@ -5,6 +5,7 @@ Name[af]=FreeDB
 Name[ar]=FreeDB
 Name[as]=FreeDB
 Name[ast]=FreeDB
+Name[az]=FreeDB
 Name[be]=FreeDB
 Name[be@latin]=FreeDB
 Name[bg]=FreeDB
@@ -97,6 +98,7 @@ Query[af]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[ar]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[as]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[ast]=http://www.freedb.org/freedb_search.php?words=\\{@}
+Query[az]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[be]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[be@latin]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[bg]=http://www.freedb.org/freedb_search.php?words=\\{@}

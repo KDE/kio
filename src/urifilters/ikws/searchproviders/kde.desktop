@@ -7,6 +7,7 @@ Name=KDE API Documentation
 Name[af]=KDE API Dokumentasie
 Name[ar]=توثيق واجهة برمجة تطبيقات كدي
 Name[as]=KDE API Documentation
+Name[az]=KDE API Sənədləşməsi
 Name[be]=Дакументацыя па KDE API
 Name[be@latin]=Dakumenty pra API KDE
 Name[bg]=Документация на KDE API
@@ -94,6 +95,7 @@ Name[zh_CN]=KDE API 文档
 Name[zh_TW]=KDE API 文件
 Query=https://api.kde.org/classmapper.php?class=\\{@}
 Query[ast]=https://api.kde.org/classmapper.php?class=\\{@}
+Query[az]=https://api.kde.org/classmapper.php?class=\\{@}
 Query[ca]=https://api.kde.org/classmapper.php?class=\\{@}
 Query[ca@valencia]=https://api.kde.org/classmapper.php?class=\\{@}
 Query[cs]=https://api.kde.org/classmapper.php?class=\\{@}

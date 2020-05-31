@@ -6,6 +6,7 @@ Name=dict.cc Translation: English to German
 Name[af]=dict.cc Vertaling: Engels na Duits
 Name[ar]=ترجمة dict.cc: من الانجليزية إلى الألمانية
 Name[as]=dict.cc Translation: English to German
+Name[az]=dict.cc  tərcümə: İngiliscədən Almancaya
 Name[be]=dict.cc Пераклад: з англійскай на нямецкую
 Name[be@latin]=Pierakład „dict.cc”: anhielskaja ➙ niamieckaja
 Name[bg]=Превод с dict.cc — от английски към немски
@@ -90,6 +91,7 @@ Name[zh_CN]=dict.cc 翻译：英语译德语
 Name[zh_TW]=dict.cc 翻譯: 英文至德文
 Query=https://www.dict.cc/?s=\\{@}
 Query[ast]=https://www.dict.cc/?s=\\{@}
+Query[az]=https://www.dict.cc/?s=\\{@}
 Query[ca]=https://www.dict.cc/?s=\\{@}
 Query[ca@valencia]=https://www.dict.cc/?s=\\{@}
 Query[cs]=https://www.dict.cc/?s=\\{@}

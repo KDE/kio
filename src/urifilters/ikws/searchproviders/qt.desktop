@@ -6,6 +6,7 @@ Name=Latest Qt Online Documentation
 Name[af]=Nuutste Qt Aanlyn Dokumentasie
 Name[ar]=توثيق عبر الإنترنت لآخر إصدار من كيوت
 Name[as]=শেহতীয়া Qt অন-লাইন আলেখ্যন
+Name[az]=Ən son Qt Online Sənədləşməsi
 Name[be]=Найноўшая дакументацыя па Qt
 Name[be@latin]=Dakumentacyja dla „Qt”
 Name[bg]=Последна документация на Qt
@@ -92,6 +93,7 @@ Name[zh_CN]=最新的 Qt 在线文档
 Name[zh_TW]=最新的 Qt 線上文件
 Query=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[ast]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
+Query[az]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[ca]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[ca@valencia]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[cs]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}

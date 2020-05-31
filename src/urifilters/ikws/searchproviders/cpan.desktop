@@ -4,6 +4,7 @@ Name=CPAN - Comprehensive Perl Archive Network
 Name[af]=CPAN - Omvattende Perl Argief Netwerk
 Name[ar]=CPAN - شبكة أرشيف بيرل الشاملة
 Name[as]=CPAN - Comprehensive Perl Archive Network
+Name[az]=CPAN - Perl Skriplər Arxivi
 Name[be]=CPAN - Comprehensive Perl Archive Network
 Name[be@latin]=CPAN: zbor prahramaŭ u movie „Perl”
 Name[bg]=CPAN - Comprehensive Perl Archive Network
@@ -91,6 +92,7 @@ Name[zh_CN]=CPAN - 综合性 Perl 档案网络
 Name[zh_TW]=CPAN - 全面的 Perl 收集網路
 Query=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[ast]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
+Query[az]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[ca]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[ca@valencia]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[cs]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}

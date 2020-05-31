@@ -15,6 +15,7 @@ Name=Browser Identification
 Name[af]=Stelsel identifisering
 Name[ar]=تعريف المتصفّح
 Name[as]=চৰকৰ চিনাক্তকৰণ
+Name[az]=Brouzer İD-si
 Name[be]=Ідэнтыфікацыя вандроўніка
 Name[be@latin]=Identyfikacyja hartača
 Name[bg]=Идентификация
@@ -96,6 +97,7 @@ Name[zh_CN]=浏览器识别
 Name[zh_TW]=瀏覽器識別
 
 Comment=Configure the User Agent exposed by the HTTP kioslave
+Comment[az]=HTTP kioslave tərəfindən Brauzer versiyasının göndərilməsi
 Comment[ca]=Configura l'agent d'usuari exposat pel «kioslave» HTTP
 Comment[ca@valencia]=Configura l'agent d'usuari exposat pel «kioslave» HTTP
 Comment[cs]=Nastavit agenta pro HTTP kioslave
@@ -135,6 +137,7 @@ Comment[zh_CN]=配置 HTTP kioslave 的对外客户端
 Comment[zh_TW]=設定要由 HTTP kioslave 使用的使用者代理
 
 X-KDE-Keywords=User Agent,Browser,Internet,WWW,Network,agent,bindings,server,login
+X-KDE-Keywords[az]=User Agent,Browser,Internet,WWW,Network,agent,bindings,server,login İstifadəçi Agent, Brauzer, İnternet, WWW, Şəbəkə, agent, bağlayıcılar, server, giriş
 X-KDE-Keywords[ca]=Agent d'usuari,Navegador,Internet,WWW,Xarxa,agent,lligams,servidor,connexió
 X-KDE-Keywords[ca@valencia]=Agent d'usuari,Navegador,Internet,WWW,Xarxa,agent,lligams,servidor,connexió
 X-KDE-Keywords[da]=User agent,brugeragent,internet,www,netværk,agent,bindinger,server,login

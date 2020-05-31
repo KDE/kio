@@ -2,6 +2,7 @@
 Type=Service
 Name=Google Shopping
 Name[ar]=تسوّق جوجل
+Name[az]=Google Alış-Veriş
 Name[bg]=Пазаруване в Google
 Name[bs]=Google‑shopping
 Name[ca]=Compres de Google
@@ -57,6 +58,7 @@ X-KDE-ServiceTypes=SearchProvider
 Keys=ggs,ggshopping
 Query=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[ar]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
+Query[az]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[bg]=https://www.google.com/search?hl=bg&tbm=shop&q=\\{@}
 Query[bs]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[ca]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}

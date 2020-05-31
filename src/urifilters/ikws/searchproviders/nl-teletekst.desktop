@@ -2,6 +2,7 @@
 Name=Teletekst Search Provider
 Name[af]=Teleteks soektog verskaffer
 Name[as]=Teletekst Search Provider
+Name[az]=Teletext Axtarış Təminatçısı
 Name[be]=Пошук тэлетэксту
 Name[be@latin]=Pošuk teletekstaŭ
 Name[bg]=Търсене в телетекст
@@ -91,6 +92,7 @@ X-KDE-ServiceTypes=SearchProvider
 Keys=tt,teletekst
 Query=https://nos.nl/teletekst#\\{@}
 Query[ast]=https://nos.nl/teletekst#\\{@}
+Query[az]=https://nos.nl/teletekst#\\{@}
 Query[ca]=https://nos.nl/teletekst#\\{@}
 Query[ca@valencia]=https://nos.nl/teletekst#\\{@}
 Query[cs]=https://nos.nl/teletekst#\\{@}

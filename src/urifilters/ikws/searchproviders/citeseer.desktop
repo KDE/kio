@@ -5,6 +5,7 @@ Keys=cite,cs
 Name=CiteSeer: Scientific Literature Digital Library
 Name[af]=CiteSeer: Wetenskaplike Digitale Literatuur Biblioteek
 Name[ar]=CiteSeer: مكتبة وسائط الأدب العلمي
+Name[az]=CiteSeer: Elmi Ədəbiyyat Rəqəmsal Kitabxanası
 Name[be]=CiteSeer: Лічбавая бібліятэка навуковай літаратуры
 Name[be@latin]=„CiteSeer”: navukovaja elektronnaja biblijateka
 Name[bg]=Цифрова библиотека с научна литература CiteSeer
@@ -91,6 +92,7 @@ Name[zh_CN]=CiteSeer：科学文献数字图书馆
 Name[zh_TW]=CiteSeer: 科學文獻數位圖書館
 Query=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[ast]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
+Query[az]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[ca]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[ca@valencia]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[cs]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
