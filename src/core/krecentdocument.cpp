@@ -6,6 +6,8 @@
 
 #include "krecentdocument.h"
 
+#include "kiocoredebug.h"
+
 #ifdef Q_OS_WIN
 #include <sys/utime.h>
 #else
@@ -15,6 +17,8 @@
 #include <KDesktopFile>
 #include <QCoreApplication>
 #include <QDebug>
+#include <kio/global.h>
+#include <kdesktopfile.h>
 #include <QDir>
 #include <QRegularExpression>
 #include <kio/global.h>
@@ -43,7 +47,7 @@ static bool addToXbel(const QUrl &url, const QString &desktopEntryName)
     QLockFile lockFile(xbelPath() + QLatin1String(".lock"));
     lockFile.setStaleLockTime(0);
     if (!lockFile.tryLock(100)) { // give it 100ms
-        qWarning() << "Failed to lock recently used";
+        qCWarning(KIO_CORE) << "Failed to lock recently used";
         return false;
     }
 
@@ -54,7 +58,7 @@ static bool addToXbel(const QUrl &url, const QString &desktopEntryName)
         if (input.open(QIODevice::ReadOnly)) {
             existingContent = input.readAll();
         } else {
-            qWarning() << "Failed to open existing recently used" << input.errorString();
+            qCWarning(KIO_CORE) << "Failed to open existing recently used" << input.errorString();
         }
     }
 
@@ -65,7 +69,7 @@ static bool addToXbel(const QUrl &url, const QString &desktopEntryName)
 
     QSaveFile outputFile(xbelPath());
     if (!outputFile.open(QIODevice::WriteOnly)) {
-        qWarning() << "Failed to recently-used.xbel for writing:" << outputFile.errorString();
+        qCWarning(KIO_CORE) << "Failed to recently-used.xbel for writing:" << outputFile.errorString();
         return false;
     }
 
@@ -77,7 +81,7 @@ static bool addToXbel(const QUrl &url, const QString &desktopEntryName)
     xml.readNextStartElement();
     if (xml.name() != QLatin1String("xbel")
             || xml.attributes().value(QLatin1String("version")) != QLatin1String("1.0")) {
-        qWarning() << "The file is not an XBEL version 1.0 file.";
+        qCWarning(KIO_CORE) << "The file is not an XBEL version 1.0 file.";
         return false;
     }
     output.writeAttributes(xml.attributes());
@@ -173,10 +177,10 @@ static bool addToXbel(const QUrl &url, const QString &desktopEntryName)
             output.writeComment(xml.text().toString());
             break;
         case QXmlStreamReader::EndDocument:
-            qWarning() << "Malformed, got end document before end of xbel" << xml.tokenString();
+            qCWarning(KIO_CORE) << "Malformed, got end document before end of xbel" << xml.tokenString();
             return false;
         default:
-            qWarning() << "unhandled token" << xml.tokenString();
+            qCWarning(KIO_CORE) << "unhandled token" << xml.tokenString();
             break;
         }
     }
@@ -232,7 +236,7 @@ static QMap<QUrl, QDateTime> xbelRecentlyUsedList()
     QMap<QUrl, QDateTime> ret;
     QFile input(xbelPath());
     if (!input.open(QIODevice::ReadOnly)) {
-        qWarning() << "Failed to open" << input.fileName() << input.errorString();
+        qCWarning(KIO_CORE) << "Failed to open" << input.fileName() << input.errorString();
         return ret;
     }
 
@@ -240,7 +244,7 @@ static QMap<QUrl, QDateTime> xbelRecentlyUsedList()
     xml.readNextStartElement();
     if (xml.name() != QLatin1String("xbel")
             || xml.attributes().value(QLatin1String("version")) != QLatin1String("1.0")) {
-        qWarning() << "The file is not an XBEL version 1.0 file.";
+        qCWarning(KIO_CORE) << "The file is not an XBEL version 1.0 file.";
         return ret;
     }
 
@@ -250,7 +254,7 @@ static QMap<QUrl, QDateTime> xbelRecentlyUsedList()
         }
         const QString urlString = xml.attributes().value(QLatin1String("href")).toString();
         if (urlString.isEmpty()) {
-            qWarning() << "Invalid bookmark in" << input.fileName();
+            qCWarning(KIO_CORE) << "Invalid bookmark in" << input.fileName();
             continue;
         }
         const QUrl url(urlString);
@@ -413,7 +417,7 @@ void KRecentDocument::add(const QUrl &url, const QString &desktopEntryName)
     conf.writeEntry("Icon", KIO::iconNameForUrl(url));
 
     if (!addToXbel(url, desktopEntryName)) {
-        qWarning() << "Failed to add to recently used bookmark file";
+        qCWarning(KIO_CORE) << "Failed to add to recently used bookmark file";
     }
 }
 
