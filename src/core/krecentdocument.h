@@ -46,7 +46,7 @@ public:
      * Return a list of recent URLs.
      *
      */
-    static QStringList recentUrls();
+    static QList<QUrl> recentUrls();
 
     /**
      * Add a new item to the Recent Document menu.

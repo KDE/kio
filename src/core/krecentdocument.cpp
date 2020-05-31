@@ -227,9 +227,9 @@ static bool addToXbel(const QUrl &url, const QString &desktopEntryName)
     return !xml.error();
 }
 
-static QMap<QString, QDateTime> xbelRecentlyUsedList()
+static QMap<QUrl, QDateTime> xbelRecentlyUsedList()
 {
-    QMap<QString, QDateTime> ret;
+    QMap<QUrl, QDateTime> ret;
     QFile input(xbelPath());
     if (!input.open(QIODevice::ReadOnly)) {
         qWarning() << "Failed to open" << input.fileName() << input.errorString();
@@ -261,11 +261,11 @@ static QMap<QString, QDateTime> xbelRecentlyUsedList()
         const QDateTime visited = QDateTime::fromString(xml.attributes().value(QLatin1String("visited")).toString(), Qt::ISODate);
         const QDateTime added = QDateTime::fromString(xml.attributes().value(QLatin1String("added")).toString(), Qt::ISODate);
         if (modified > visited && modified > added) {
-            ret[urlString] = modified;
+            ret[url] = modified;
         } else if (visited > added) {
-            ret[urlString] = visited;
+            ret[url] = visited;
         } else {
-            ret[urlString] = added;
+            ret[url] = added;
         }
 
     }
@@ -279,12 +279,12 @@ QString KRecentDocument::recentDocumentDirectory()
     return QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/RecentDocuments/");
 }
 
-QStringList KRecentDocument::recentUrls()
+QList<QUrl> KRecentDocument::recentUrls()
 {
-    QMap<QString, QDateTime> documents = xbelRecentlyUsedList();
+    QMap<QUrl, QDateTime> documents = xbelRecentlyUsedList();
     for (const QString &pathDesktop : recentDocuments()) {
         const KDesktopFile tmpDesktopFile(pathDesktop);
-        const QString url = tmpDesktopFile.desktopGroup().readPathEntry("URL", QString());
+        const QUrl url(tmpDesktopFile.desktopGroup().readPathEntry("URL", QString()));
         if (url.isEmpty()) {
             continue;
         }
@@ -294,8 +294,8 @@ QStringList KRecentDocument::recentUrls()
         }
         documents[url] = lastModified;
     }
-    QStringList ret = documents.keys();
-    std::sort(ret.begin(), ret.end(), [&](const QString &doc1, const QString &doc2) {
+    QList<QUrl> ret = documents.keys();
+    std::sort(ret.begin(), ret.end(), [&](const QUrl &doc1, const QUrl &doc2) {
         return documents[doc1] < documents[doc2];
     });
 
