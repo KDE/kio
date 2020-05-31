@@ -930,12 +930,18 @@ void SchedulerPrivate::slotReparseSlaveConfiguration(const QString &proto, const
 
     QHash<QString, ProtoQueue *>::ConstIterator it = proto.isEmpty() ? m_protocols.constBegin() :
             m_protocols.constFind(proto);
+    QHash<QString, ProtoQueue *>::ConstIterator endIt = m_protocols.constEnd();
+
     // not found?
-    if (it == m_protocols.constEnd()) {
+    if (it == endIt) {
         return;
     }
-    QHash<QString, ProtoQueue *>::ConstIterator endIt = proto.isEmpty() ? m_protocols.constEnd() :
-            it + 1;
+
+    if (!proto.isEmpty()) {
+        endIt = it;
+        ++endIt;
+    }
+
     for (; it != endIt; ++it) {
         const QList<KIO::Slave *> list = it.value()->allSlaves();
         for (Slave *slave : list) {
