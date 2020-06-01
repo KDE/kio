@@ -28,6 +28,7 @@
 #include <kactioncollection.h>
 #include <knewfilemenu.h>
 #include <KIO/StoredTransferJob>
+#include <KShell>
 
 #include <qtemporarydir.h>
 
@@ -105,12 +106,10 @@ private Q_SLOTS:
         QTest::newRow("folder") << "Folder..." << "New Folder" << "folder1" << "folder1";
         QTest::newRow("folder_named_tilde") << "Folder..." << "New Folder" << "~" << "~";
 
-        // /home/user
-        const QString homeDir = QStandardPaths::writableLocation(QStandardPaths::HomeLocation);
-        // ~/.qttest/share
-        const QString dataDir =
-            QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation).replace(homeDir, QLatin1String("~"));
-        QTest::newRow("folder_tilde_expanded") << "Folder..." << "New Folder" << dataDir + "/folderTildeExpanded" << "folderTildeExpanded";
+        // ~/.qttest/share/folderTildeExpanded
+        const QString tildeDirPath = KShell::tildeCollapse(QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation)
+                                                           + QLatin1String("/folderTildeExpanded"));
+        QTest::newRow("folder_tilde_expanded") << "Folder..." << "New Folder" << tildeDirPath << "folderTildeExpanded";
 
         QTest::newRow("folder_default_name") << "Folder..." << "New Folder" << "New Folder" << "New Folder";
         QTest::newRow("folder_with_suggested_name") << "Folder..." << "New Folder (1)" << "New Folder (1)" << "New Folder (1)";
