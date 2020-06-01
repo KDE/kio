@@ -2326,7 +2326,7 @@ QString HTTPProtocol::formatRequestUri() const
         // if the URL contained the default port it should have been stripped earlier
         Q_ASSERT(m_request.url.port() != defaultPort());
         u.setPort(m_request.url.port());
-        u.setPath(m_request.url.path(QUrl::FullyEncoded));
+        u.setPath(m_request.url.path(QUrl::FullyEncoded), QUrl::TolerantMode);
         u.setQuery(m_request.url.query(QUrl::FullyEncoded));
         return u.toString(QUrl::FullyEncoded);
     } else {
