@@ -1285,6 +1285,8 @@ void KDirModelTest::testHasChildren()
     const QModelIndex subsubdirIndex = firstSubdirIndex(m_dirIndex);
     QVERIFY(subsubdirIndex.isValid());
     QCOMPARE(m_dirModel->hasChildren(subsubdirIndex), !dirsOnly);
+
+    m_dirModel->dirLister()->setDirOnlyMode(false);
 }
 
 void KDirModelTest::testDeleteFile()
