@@ -806,8 +806,10 @@ void KFilePlacesModelTest::testEnableBaloo()
          urls << places_with_baloo.url(index).toDisplayString(QUrl::PreferLocalFile);
     }
 
-    QVERIFY(urls.contains("recentlyused:/files"));
-    QVERIFY(urls.contains("recentlyused:/locations"));
+    if (m_hasRecentlyUsedKio) {
+        QVERIFY(urls.contains("recentlyused:/files"));
+        QVERIFY(urls.contains("recentlyused:/locations"));
+    }
 
     QVERIFY(urls.contains("search:/documents"));
     QVERIFY(urls.contains("search:/images"));
