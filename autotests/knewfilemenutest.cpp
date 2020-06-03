@@ -109,6 +109,7 @@ private Q_SLOTS:
         // ~/.qttest/share/folderTildeExpanded
         const QString tildeDirPath = KShell::tildeCollapse(QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation)
                                                            + QLatin1String("/folderTildeExpanded"));
+        QVERIFY(tildeDirPath.startsWith(QLatin1Char('~')));
         QTest::newRow("folder_tilde_expanded") << "Folder..." << "New Folder" << tildeDirPath << "folderTildeExpanded";
 
         QTest::newRow("folder_default_name") << "Folder..." << "New Folder" << "New Folder" << "New Folder";
