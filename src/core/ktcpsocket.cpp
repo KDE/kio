@@ -560,7 +560,11 @@ QList<KSslError> KTcpSocket::sslErrors() const
     //### pretty slow; also consider throwing out duplicate error codes. We may get
     //    duplicates even though there were none in the original list because KSslError
     //    has a smallest common denominator range of SSL error codes.
+#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
+    const auto qsslErrors = d->sock.sslHandshakeErrors();
+#else
     const auto qsslErrors = d->sock.sslErrors();
+#endif
     QList<KSslError> ret;
     ret.reserve(qsslErrors.size());
     for (const QSslError &e : qsslErrors) {
