@@ -146,7 +146,7 @@ void ClipboardUpdaterTest::testPasteAfterDeleteFile()
 
     const QString pasteDir = dir.path() + QLatin1String("/pastedir");
     createTestDirectory(pasteDir, NoSymlink);
-    KIO::Job *job = KIO::paste(clipboard->mimeData(), QUrl::fromLocalFile(pasteDir), nullptr);
+    KIO::Job *job = KIO::paste(clipboard->mimeData(), QUrl::fromLocalFile(pasteDir), KIO::DefaultFlags);
     QVERIFY(job);
     QVERIFY(!job->exec());
     QCOMPARE(job->error(), int(KIO::ERR_NO_CONTENT));
@@ -169,7 +169,7 @@ void ClipboardUpdaterTest::testPasteAfterDeleteFiles()
 
     const QString pasteDir = dir.path() + QLatin1String("/pastedir");
     createTestDirectory(pasteDir, NoSymlink);
-    KIO::Job *job = KIO::paste(clipboard->mimeData(), QUrl::fromLocalFile(pasteDir), nullptr);
+    KIO::Job *job = KIO::paste(clipboard->mimeData(), QUrl::fromLocalFile(pasteDir), KIO::DefaultFlags);
     QVERIFY(job);
     QVERIFY(!job->exec());
     QCOMPARE(job->error(), int(KIO::ERR_NO_CONTENT));
