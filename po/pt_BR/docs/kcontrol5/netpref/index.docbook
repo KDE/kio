@@ -1,0 +1,157 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Brazilian-Portuguese "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="netpref" lang="&language;">
+<articleinfo>
+<title
+>Preferências da conexão</title>
+<authorgroup>
+<author
+>&Lauri.Watts; &Lauri.Watts.mail;</author>
+
+<othercredit role="translator"
+><firstname
+>Lisiane</firstname
+> <surname
+>Sztoltz</surname
+><affiliation
+><address
+> <email
+>lisiane@conectiva.com.br</email
+></address
+></affiliation
+><contrib
+>Tradução</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>10/11/2016</date>
+<releaseinfo
+>Frameworks 5.29</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdebase</keyword>
+<keyword
+>Centro de Controle</keyword>
+<keyword
+>rede</keyword>
+<keyword
+>tempos limite</keyword>
+</keywordset>
+
+</articleinfo>
+
+<sect1 id="timeouts">
+
+<title
+>Preferências da conexão</title>
+
+<para
+>Aqui você pode configurar os valores de tempo de espera (timeout). Você pode desejar aumentá-los, caso sua conexão seja muito lenta, mas as configurações padrão são as mais apropriadas para a maioria dos usuários.</para>
+
+<para
+>Aqui, <guilabel
+>Valores do tempo de espera</guilabel
+> correspondem à quanto tempo um aplicativo deve esperar por uma resposta de uma operação de rede.</para>
+
+<para
+>Você pode configurar os seguintes tempos de espera:</para>
+
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>Leitura do soquete:</guilabel
+></term>
+<listitem>
+<para
+>Alguns aplicativos usam <firstterm
+>sockets</firstterm
+> (soquetes) para se comunicar. Você pode pensar em um soquete como uma torneira; enquanto está aberta, a água (ou em nosso caso, os dados) saem, sem nenhuma obstrução. Se algo parar este fluxo de dados, o aplicativo aguardará por mais dados. Isto poderia ser um tempo muito longo, mas você pode configurar um tempo máximo para que um aplicativo aguarde, através desta opção.</para>
+<para
+>Esta configuração aplica-se somente para aplicativos do &kde;.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Conexão ao proxy:</guilabel
+></term>
+<listitem>
+<para
+>Configura quanto tempo esperar por uma conexão a um servidor proxy, se estiver configurada. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Conexão ao servidor:</guilabel
+></term>
+<listitem>
+<para
+>Configura quanto tempo esperar por uma conexão a um servidor remoto. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Resposta do servidor:</guilabel
+></term>
+<listitem>
+<para
+>Configura quanto tempo esperar por uma resposta de um servidor remoto. </para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+<para
+>Você poderá configurar aqui as <guilabel
+>Opções de FTP</guilabel
+>. Atualmente, existem apenas duas opções:</para>
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>Habilitar o modo passivo (PASV)</guilabel
+></term>
+<listitem
+><para
+>O FTP passivo é frequentemente necessário quando você estiver atrás de um firewall. Muitos destes permitem somente conexões que foram iniciadas <quote
+>de dentro</quote
+>. O FTP passivo é controlado pelo cliente, que o torna utilizável através de firewalls.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Marcar arquivos parcialmente enviados</guilabel
+></term>
+<listitem
+><para
+>Quando esta opção estiver assinalada, os arquivos parcialmente enviados irão ter uma extensão <literal role="extension"
+>.part</literal
+> adicional no fim do arquivo. Esta extensão será removida quando o recebimento do arquivo terminar. </para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+
+
+</sect1>
+</article>
