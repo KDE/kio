@@ -161,7 +161,7 @@ void BatchRenameJobPrivate::slotStart()
     Q_Q(BatchRenameJob);
 
     if (m_listIterator == m_srcList.constBegin()) { //  emit total
-        q->setTotalAmount(KJob::Files, m_srcList.count());
+        q->setTotalAmount(KJob::Items, m_srcList.count());
     }
 
     if (m_listIterator != m_srcList.constEnd()) {
@@ -179,7 +179,7 @@ void BatchRenameJobPrivate::slotStart()
         KIO::Job * job = KIO::moveAs(oldUrl, m_newUrl, KIO::HideProgressInfo);
         job->setParentJob(q);
         q->addSubjob(job);
-        q->setProcessedAmount(KJob::Files, q->processedAmount(KJob::Files) + 1);
+        q->setProcessedAmount(KJob::Items, q->processedAmount(KJob::Items) + 1);
     } else {
         q->emitResult();
     }
