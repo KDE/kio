@@ -55,6 +55,7 @@ void KFilePlacesViewTest::initTestCase()
     QVERIFY(m_tmpHome.isValid());
     qputenv("HOME", m_tmpHome.path().toUtf8());
     qputenv("KDE_FORK_SLAVES", "yes"); // to avoid a runtime dependency on klauncher
+    qputenv("KDE_FULL_SESSION", "1"); // forcefully enable recentlyused:/, this env var isn't set on CI
     QStandardPaths::setTestModeEnabled(true);
 
     cleanupTestCase();
