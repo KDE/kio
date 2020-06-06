@@ -55,7 +55,7 @@ void KFilePlacesViewTest::initTestCase()
     QVERIFY(m_tmpHome.isValid());
     qputenv("HOME", m_tmpHome.path().toUtf8());
     qputenv("KDE_FORK_SLAVES", "yes"); // to avoid a runtime dependency on klauncher
-    qputenv("KDE_FULL_SESSION", "1"); // forcefully enable recentlyused:/, this env var isn't set on CI
+    qputenv("KDE_FULL_SESSION", "1"); // attempt to enable recentlyused:/ if present, so we only need to test for isKnownProtocol below
     QStandardPaths::setTestModeEnabled(true);
 
     cleanupTestCase();
@@ -66,6 +66,13 @@ void KFilePlacesViewTest::initTestCase()
     config.sync();
 
     qRegisterMetaType<QModelIndex>();
+
+    // Debug code, to help understanding the actual test
+    KFilePlacesModel model;
+    for (int row = 0; row < model.rowCount(); ++row) {
+        const QModelIndex index = model.index(row, 0);
+        qDebug() << model.url(index);
+    }
 }
 
 void KFilePlacesViewTest::cleanupTestCase()
@@ -78,10 +85,13 @@ void KFilePlacesViewTest::testUrlChanged_data()
     QTest::addColumn<int>("row");
     QTest::addColumn<QString>("expectedUrl");
 
-    int idx = 3;
+    int idx = 3; // skip home, trash, remote
     if (KProtocolInfo::isKnownProtocol(QStringLiteral("recentlyused"))) {
         QTest::newRow("Recent Files") << idx++ << QStringLiteral("recentlyused:/files");
         QTest::newRow("Recent Locations") << idx++ << QStringLiteral("recentlyused:/locations");
+    } else {
+        QTest::newRow("Modified Today") << idx++ << QStringLiteral("timeline:/today");
+        ++idx; // Modified Yesterday gets turned into "timeline:/2020-06/2020-06-05"
     }
 
     // search
