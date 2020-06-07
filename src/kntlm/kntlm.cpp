@@ -29,8 +29,7 @@
 #include <QDate>
 #include <QtEndian>
 #include <QCryptographicHash>
-
-#include <krandom.h>
+#include <QRandomGenerator>
 
 static const char NTLM_SIGNATURE[] = "NTLMSSP";
 
@@ -156,7 +155,7 @@ static QByteArray createBlob(const QByteArray &targetinfo)
     bl->timestamp = qToLittleEndian(now);
 
     for (unsigned char &b : bl->challenge) {
-        b = KRandom::random() % 0xff;
+        b = QRandomGenerator::global()->bounded(0xff);
     }
 
     memcpy(blob.data() + NTLM_BLOB_SIZE, targetinfo.data(), targetinfo.size());
@@ -388,7 +387,7 @@ QByteArray KNTLM::getLMv2Response(const QString &target, const QString &user,
     QByteArray clientChallenge(8, 0);
 
     for (uint i = 0; i < 8; i++) {
-        clientChallenge.data() [i] = KRandom::random() % 0xff;
+        clientChallenge.data() [i] = QRandomGenerator::global()->bounded(0xff);
     }
 
     return lmv2Response(hash, clientChallenge, challenge);
