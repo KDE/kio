@@ -51,14 +51,16 @@ static bool addToXbel(const QUrl &url, const QString &desktopEntryName)
         return false;
     }
 
-
     QByteArray existingContent;
     {
         QFile input(xbelPath());
-        if (input.open(QIODevice::ReadOnly)) {
+        if (input.exists() && input.open(QIODevice::ReadOnly)) {
             existingContent = input.readAll();
+        } else if (!input.exists()) { // That it doesn't exist is a very uncommon case
+            qCDebug(KIO_CORE) << input.fileName() << "does not exist, creating new";
         } else {
             qCWarning(KIO_CORE) << "Failed to open existing recently used" << input.errorString();
+            return false;
         }
     }
 
@@ -73,14 +75,19 @@ static bool addToXbel(const QUrl &url, const QString &desktopEntryName)
         return false;
     }
 
+    // Marginally more readable to avoid all the QStringLiteral() spam below
+    static const QLatin1String xbelTag("xbel");
+    static const QLatin1String versionAttribute("version");
+    static const QLatin1String expectedVersion("1.0");
+
     QXmlStreamWriter output(&outputFile);
     output.setAutoFormatting(true);
     output.writeStartDocument();
-    output.writeStartElement(QStringLiteral("xbel"));
+    output.writeStartElement(xbelTag);
 
     xml.readNextStartElement();
-    if (xml.name() != QLatin1String("xbel")
-            || xml.attributes().value(QLatin1String("version")) != QLatin1String("1.0")) {
+    if (xml.name() != xbelTag
+            || xml.attributes().value(versionAttribute) != expectedVersion) {
         qCWarning(KIO_CORE) << "The file is not an XBEL version 1.0 file.";
         return false;
     }
@@ -90,11 +97,21 @@ static bool addToXbel(const QUrl &url, const QString &desktopEntryName)
         output.writeNamespace(ns.namespaceUri().toString(), ns.prefix().toString());
     }
 
+    // Actually parse the old XML
+    static const QLatin1String applicationsBookmarkTag("bookmark:applications");
+    static const QLatin1String applicationBookmarkTag("bookmark:application");
+    static const QLatin1String bookmarkTag("bookmark");
+    static const QLatin1String nameAttribute("name");
+    static const QLatin1String countAttribute("count");
+    static const QLatin1String modifiedAttribute("modified");
+    static const QLatin1String visitedAttribute("visited");
+    static const QLatin1String hrefAttribute("href");
+
     bool foundExisting = false;
     bool inRightBookmark = false;
     bool inRightApplications = false;
     while (!xml.atEnd() && !xml.hasError()) {
-        if (xml.readNext() == QXmlStreamReader::EndElement && xml.name() == QStringLiteral("xbel")) {
+        if (xml.readNext() == QXmlStreamReader::EndElement && xml.name() == xbelTag) {
             break;
         }
         switch(xml.tokenType()) {
@@ -102,50 +119,49 @@ static bool addToXbel(const QUrl &url, const QString &desktopEntryName)
             QString tagName = xml.qualifiedName().toString();
 
             QXmlStreamAttributes attributes = xml.attributes();
-            if (!foundExisting && xml.name() == QStringLiteral("bookmark") && attributes.value(QLatin1String("href")) == newUrl) {
+            if (!foundExisting && xml.name() == bookmarkTag && attributes.value(hrefAttribute) == newUrl) {
                 QXmlStreamAttributes newAttributes;
                 for (const QXmlStreamAttribute &old : attributes) {
-                    if (old.qualifiedName() == QLatin1String("count")) {
+                    if (old.qualifiedName() == countAttribute) {
                         continue;
                     }
-                    if (old.qualifiedName() == QLatin1String("modified")) {
+                    if (old.qualifiedName() == modifiedAttribute) {
                         continue;
                     }
-                    if (old.qualifiedName() == QLatin1String("visited")) {
+                    if (old.qualifiedName() == visitedAttribute) {
                         continue;
                     }
                     newAttributes.append(old);
                 }
-                newAttributes.append(QLatin1String("modified"), currentTimestamp);
-                newAttributes.append(QLatin1String("visited"), currentTimestamp);
+                newAttributes.append(modifiedAttribute, currentTimestamp);
+                newAttributes.append(visitedAttribute, currentTimestamp);
                 attributes = newAttributes;
 
                 inRightBookmark = true;
             }
-            if (inRightBookmark && tagName == QStringLiteral("bookmark:applications")) {
+            if (inRightBookmark && tagName == applicationBookmarkTag) {
                 inRightApplications = true;
             }
 
-            // QT_NO_CAST_FROM_ASCII is premature optimization and kills readability, but that's just me
-            if (inRightApplications && tagName == QStringLiteral("bookmark:application")  && attributes.value(QStringLiteral("name")) == desktopEntryName) {
+            if (inRightApplications && tagName == applicationBookmarkTag && attributes.value(nameAttribute) == desktopEntryName) {
                 bool countOk;
-                int count = attributes.value(QLatin1String("count")).toInt(&countOk);
+                int count = attributes.value(countAttribute).toInt(&countOk);
                 if (!countOk) {
                     count = 0;
                 }
 
                 QXmlStreamAttributes newAttributes;
                 for (const QXmlStreamAttribute &old : attributes) {
-                    if (old.qualifiedName() == QLatin1String("count")) {
+                    if (old.qualifiedName() == countAttribute) {
                         continue;
                     }
-                    if (old.qualifiedName() == QLatin1String("modified")) {
+                    if (old.qualifiedName() == modifiedAttribute) {
                         continue;
                     }
                     newAttributes.append(old);
                 }
-                newAttributes.append(QLatin1String("count"), QString::number(count + 1));
-                newAttributes.append(QLatin1String("modified"), currentTimestamp);
+                newAttributes.append(countAttribute, QString::number(count + 1));
+                newAttributes.append(modifiedAttribute, currentTimestamp);
                 attributes = newAttributes;
 
                 foundExisting = true;
@@ -157,10 +173,10 @@ static bool addToXbel(const QUrl &url, const QString &desktopEntryName)
         }
         case QXmlStreamReader::EndElement: {
             QString tagName = xml.qualifiedName().toString();
-            if (tagName == QStringLiteral("bookmark:applications")) {
+            if (tagName == applicationsBookmarkTag) {
                 inRightApplications = false;
             }
-            if (tagName == QStringLiteral("bookmark")) {
+            if (tagName == bookmarkTag) {
                 inRightBookmark = false;
             }
             output.writeEndElement();
@@ -185,31 +201,41 @@ static bool addToXbel(const QUrl &url, const QString &desktopEntryName)
         }
     }
 
-    if (!foundExisting) {
-        output.writeStartElement(QLatin1String("bookmark"));
+    static const QLatin1String infoTag("info");
+    static const QLatin1String metadataTag("metadata");
+    static const QLatin1String addedAttribute("added");
+    static const QLatin1String execAttribute("added");
+    static const QLatin1String ownerAttribute("owner");
+    static const QLatin1String ownerValue("http://freedesktop.org");
+    static const QLatin1String mimeTypeTag("mime:mime-type");
+    static const QLatin1String typeAttribute("type");
+    static const QLatin1String defaultCountValue("1");
 
-        output.writeAttribute(QLatin1String("added"), currentTimestamp);
-        output.writeAttribute(QLatin1String("modified"), currentTimestamp);
-        output.writeAttribute(QLatin1String("visited"), currentTimestamp);
-        output.writeAttribute(QLatin1String("href"), newUrl);
+    if (!foundExisting) {
+        output.writeStartElement(bookmarkTag);
+
+        output.writeAttribute(addedAttribute, currentTimestamp);
+        output.writeAttribute(modifiedAttribute, currentTimestamp);
+        output.writeAttribute(visitedAttribute, currentTimestamp);
+        output.writeAttribute(hrefAttribute, newUrl);
 
         {
             QMimeDatabase mimeDb;
 
-            output.writeStartElement(QLatin1String("info"));
-            output.writeStartElement(QLatin1String("metadata"));
-            output.writeAttribute(QLatin1String("owner"), QLatin1String("http://freedesktop.org"));
+            output.writeStartElement(infoTag);
+            output.writeStartElement(metadataTag);
+            output.writeAttribute(ownerAttribute, ownerValue);
 
-            output.writeEmptyElement(QLatin1String("mime:mime-type"));
-            output.writeAttribute(QLatin1String("type"), mimeDb.mimeTypeForUrl(url).name());
+            output.writeEmptyElement(mimeTypeTag);
+            output.writeAttribute(typeAttribute, mimeDb.mimeTypeForUrl(url).name());
 
             {
-                output.writeStartElement(QLatin1String("bookmark:applications"));
-                output.writeEmptyElement(QLatin1String("bookmark:application"));
-                output.writeAttribute(QLatin1String("name"), desktopEntryName);
-                output.writeAttribute(QLatin1String("exec"), desktopEntryName);
-                output.writeAttribute(QLatin1String("modified"), currentTimestamp);
-                output.writeAttribute(QLatin1String("count"), QLatin1String("1"));
+                output.writeStartElement(applicationsBookmarkTag);
+                output.writeEmptyElement(applicationBookmarkTag);
+                output.writeAttribute(nameAttribute, desktopEntryName);
+                output.writeAttribute(execAttribute, desktopEntryName);
+                output.writeAttribute(modifiedAttribute, currentTimestamp);
+                output.writeAttribute(countAttribute, defaultCountValue);
                 output.writeEndElement();
             }
 
@@ -286,6 +312,11 @@ QString KRecentDocument::recentDocumentDirectory()
 QList<QUrl> KRecentDocument::recentUrls()
 {
     QMap<QUrl, QDateTime> documents = xbelRecentlyUsedList();
+
+    // TODO KF6: Revisit if we should still continue to fetch the old recentDocuments()
+    // We need to do it to be compatible with older versions of ourselves, and
+    // possibly others who for some reason did the same as us, but it could
+    // possibly also be done as a one-time migration.
     for (const QString &pathDesktop : recentDocuments()) {
         const KDesktopFile tmpDesktopFile(pathDesktop);
         const QUrl url(tmpDesktopFile.desktopGroup().readPathEntry("URL", QString()));
@@ -308,7 +339,9 @@ QList<QUrl> KRecentDocument::recentUrls()
 
 QStringList KRecentDocument::recentDocuments()
 {
-    QDir d(recentDocumentDirectory(), QStringLiteral("*.desktop"), QDir::Time, QDir::Files | QDir::Readable | QDir::Hidden);
+    // TODO KF6: Consider deprecating this, also see the comment above in recentUrls()
+    QDir d(recentDocumentDirectory(), QStringLiteral("*.desktop"), QDir::Time,
+           QDir::Files | QDir::Readable | QDir::Hidden);
 
     if (!d.exists()) {
         d.mkdir(recentDocumentDirectory());
