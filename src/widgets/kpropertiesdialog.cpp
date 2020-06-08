@@ -176,6 +176,10 @@ public:
      * Inserts all pages in the dialog.
      */
     void insertPages();
+    /**
+     * Apply change, returns if the changes are applied successfully.
+     */
+    bool applyChanges();
 
     KPropertiesDialog * const q;
     bool m_aborted;
@@ -197,6 +201,7 @@ public:
      * List of all plugins inserted ( first one first )
      */
     QList<KPropertiesDialogPlugin *> m_pageList;
+    QAbstractButton *m_applyButton;
 };
 
 KPropertiesDialog::KPropertiesDialog(const KFileItem &item,
@@ -409,6 +414,10 @@ bool KPropertiesDialog::showDialog(const QList<QUrl> &urls, QWidget* parent,
 void KPropertiesDialog::KPropertiesDialogPrivate::init()
 {
     q->setFaceType(KPageDialog::Tabbed);
+    q->setStandardButtons(QDialogButtonBox::Ok | QDialogButtonBox::Apply | QDialogButtonBox::Cancel);
+    m_applyButton = q->button(QDialogButtonBox::Apply);
+    m_applyButton->setEnabled(false);
+    q->connect(m_applyButton, &QAbstractButton::clicked, q, [=] { applyChanges(); });
 
     insertPages();
 
@@ -453,6 +462,8 @@ void KPropertiesDialog::insertPlugin(KPropertiesDialogPlugin *plugin)
 {
     connect(plugin, &KPropertiesDialogPlugin::changed,
             plugin, QOverload<>::of(&KPropertiesDialogPlugin::setDirty));
+    connect(plugin, &KPropertiesDialogPlugin::changed,
+            this, [=] { d->m_applyButton->setEnabled(true); });
 
     d->m_pageList.append(plugin);
 }
@@ -498,17 +509,17 @@ void KPropertiesDialog::slotOk()
     accept();
 }
 
-void KPropertiesDialog::accept()
+bool KPropertiesDialog::KPropertiesDialogPrivate::applyChanges()
 {
     QList<KPropertiesDialogPlugin *>::const_iterator pageListIt;
-    d->m_aborted = false;
+    m_aborted = false;
 
-    KFilePropsPlugin *filePropsPlugin = qobject_cast<KFilePropsPlugin *>(d->m_pageList.first());
+    KFilePropsPlugin *filePropsPlugin = qobject_cast<KFilePropsPlugin *>(m_pageList.first());
 
     // If any page is dirty, then set the main one (KFilePropsPlugin) as
     // dirty too. This is what makes it possible to save changes to a global
     // desktop file into a local one. In other cases, it doesn't hurt.
-    for (pageListIt = d->m_pageList.constBegin(); pageListIt != d->m_pageList.constEnd(); ++pageListIt) {
+    for (pageListIt = m_pageList.constBegin(); pageListIt != m_pageList.constEnd(); ++pageListIt) {
         if ((*pageListIt)->isDirty() && filePropsPlugin) {
             filePropsPlugin->setDirty();
             break;
@@ -519,7 +530,7 @@ void KPropertiesDialog::accept()
     // This is because in case of renaming a file, KFilePropsPlugin will call
     // KPropertiesDialog::rename, so other tab will be ok with whatever order
     // BUT for file copied from templates, we need to do the renaming first !
-    for (pageListIt = d->m_pageList.constBegin(); pageListIt != d->m_pageList.constEnd() && !d->m_aborted; ++pageListIt) {
+    for (pageListIt = m_pageList.constBegin(); pageListIt != m_pageList.constEnd() && !m_aborted; ++pageListIt) {
         if ((*pageListIt)->isDirty()) {
             // qDebug() << "applying changes for " << (*pageListIt)->metaObject()->className();
             (*pageListIt)->applyChanges();
@@ -529,12 +540,21 @@ void KPropertiesDialog::accept()
         }
     }
 
-    if (!d->m_aborted && filePropsPlugin) {
+    if (!m_aborted && filePropsPlugin) {
         filePropsPlugin->postApplyChanges();
     }
 
-    if (!d->m_aborted) {
-        emit applied();
+    if (!m_aborted) {
+        m_applyButton->setEnabled(false);
+        emit q->applied();
+    }
+    return !m_aborted;
+}
+
+void KPropertiesDialog::accept()
+{
+    if (d->applyChanges()) {
+        // For OK button, close the dialog.
         emit propertiesClosed();
         deleteLater(); // somewhat like Qt::WA_DeleteOnClose would do.
         KPageDialog::accept();
