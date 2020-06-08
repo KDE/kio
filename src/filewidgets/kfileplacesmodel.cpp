@@ -395,6 +395,9 @@ KFilePlacesModel::KFilePlacesModel(const QString &alternativeApplicationName, QO
     if (KProtocolInfo::isKnownProtocol(QStringLiteral("mtp"))) {
         predicate = QLatin1Char('[') + predicate + QLatin1String(" OR PortableMediaPlayer.supportedProtocols == 'mtp']");
     }
+    if (KProtocolInfo::isKnownProtocol(QStringLiteral("afc"))) {
+        predicate = QLatin1Char('[') + predicate + QLatin1String(" OR PortableMediaPlayer.supportedProtocols == 'afc']");
+    }
 
     d->predicate = Solid::Predicate::fromString(predicate);
 

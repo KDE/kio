@@ -89,8 +89,13 @@ bool KFilePlacesItem::hasSupportedScheme(const QStringList &schemes) const
         return true;
     }
 
-    if (m_mtp && schemes.contains(QLatin1String("mtp"))) {
-        return true;
+    if (m_player) {
+        const QStringList protocols = m_player->supportedProtocols();
+        for (const QString &protocol : protocols) {
+            if (schemes.contains(protocol)) {
+                return true;
+            }
+        }
     }
 
     return false;
@@ -278,8 +283,12 @@ QVariant KFilePlacesItem::deviceData(int role) const
                 // figure it out, but cannot handle multiple disc drives.
                 // See https://bugs.kde.org/show_bug.cgi?id=314544#c40
                 return QUrl(QStringLiteral("audiocd:/"));
-            } else if (m_mtp) {
-                return QUrl(QStringLiteral("mtp:udi=%1").arg(d.udi()));
+            } else if (m_player) {
+                const QStringList protocols = m_player->supportedProtocols();
+                if (!protocols.isEmpty()) {
+                    return QUrl(QStringLiteral("%1:udi=%2").arg(protocols.first(), d.udi()));
+                }
+                return QVariant();
             } else {
                 return QVariant();
             }
@@ -406,7 +415,7 @@ bool KFilePlacesItem::updateDeviceInfo(const QString &udi)
         m_access = m_device.as<Solid::StorageAccess>();
         m_volume = m_device.as<Solid::StorageVolume>();
         m_disc = m_device.as<Solid::OpticalDisc>();
-        m_mtp = m_device.as<Solid::PortableMediaPlayer>();
+        m_player = m_device.as<Solid::PortableMediaPlayer>();
         m_networkShare = m_device.as<Solid::NetworkShare>();
         m_iconPath = m_device.icon();
         m_emblems = m_device.emblems();
@@ -427,7 +436,7 @@ bool KFilePlacesItem::updateDeviceInfo(const QString &udi)
         m_access = nullptr;
         m_volume = nullptr;
         m_disc = nullptr;
-        m_mtp = nullptr;
+        m_player = nullptr;
         m_drive = nullptr;
         m_networkShare = nullptr;
         m_iconPath.clear();

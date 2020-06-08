@@ -113,7 +113,7 @@ private:
     QPointer<Solid::StorageVolume> m_volume;
     QPointer<Solid::StorageDrive> m_drive;
     QPointer<Solid::OpticalDisc> m_disc;
-    QPointer<Solid::PortableMediaPlayer> m_mtp;
+    QPointer<Solid::PortableMediaPlayer> m_player;
     QPointer<Solid::NetworkShare> m_networkShare;
     QString m_iconPath;
     QStringList m_emblems;
