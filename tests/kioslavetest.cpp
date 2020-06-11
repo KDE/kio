@@ -12,6 +12,7 @@
 #include "kioslavetest.h"
 
 #include <QApplication>
+#include <QLocale>
 #include <QLayout>
 #include <QMessageBox>
 #include <QDir>
@@ -388,15 +389,15 @@ void KioslaveTest::printUDSEntry(const KIO::UDSEntry &entry)
             break;
         case KIO::UDSEntry::UDS_CREATION_TIME:
             timestamp = QDateTime::fromSecsSinceEpoch(entry.numberValue(*it));
-            qDebug() << "CreationTime: " << timestamp.toString(Qt::SystemLocaleShortDate);
+            qDebug() << "CreationTime: " << QLocale().toString(timestamp, QLocale::ShortFormat);
             break;
         case KIO::UDSEntry::UDS_MODIFICATION_TIME:
             timestamp = QDateTime::fromSecsSinceEpoch(entry.numberValue(*it));
-            qDebug() << "ModificationTime: " << timestamp.toString(Qt::SystemLocaleShortDate);
+            qDebug() << "ModificationTime: " << QLocale().toString(timestamp, QLocale::ShortFormat);
             break;
         case KIO::UDSEntry::UDS_ACCESS_TIME:
             timestamp = QDateTime::fromSecsSinceEpoch(entry.numberValue(*it));
-            qDebug() << "AccessTime: " << timestamp.toString(Qt::SystemLocaleShortDate);
+            qDebug() << "AccessTime: " << QLocale().toString(timestamp, QLocale::ShortFormat);
             break;
         }
     }

@@ -30,6 +30,7 @@
 #include <kurlmimedata.h>
 #include <kiconloader.h>
 
+#include <QLocale>
 #include <QMimeData>
 #include <QBitArray>
 #include <QDebug>
@@ -833,7 +834,7 @@ QVariant KDirModel::data(const QModelIndex &index, int role) const
                 return KIO::convertSize(item.size()); // size formatted as QString
             case ModifiedTime: {
                 QDateTime dt = item.time(KFileItem::ModificationTime);
-                return dt.toString(Qt::SystemLocaleShortDate);
+                return QLocale().toString(dt, QLocale::ShortFormat);
             }
             case Permissions:
                 return item.permissionsString();

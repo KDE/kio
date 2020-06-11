@@ -22,6 +22,7 @@
 #include <klocalizedstring.h>
 #include <KStringHandler>
 
+#include <QLocale>
 #include <QUrl>
 #include <QDateTime>
 #include <QDataStream>
@@ -284,7 +285,7 @@ QStringList KIO::Job::detailedErrorStrings(const QUrl *reqUrl /*= 0*/,
         url = i18nc("@info url", "(unknown)");
     }
 
-    datetime = QDateTime::currentDateTime().toString(Qt::DefaultLocaleLongDate);
+    datetime = QLocale().toString(QDateTime::currentDateTime() , QLocale::LongFormat);
 
     ret << errorName;
     ret << i18nc("@info %1 error name, %2 description",
@@ -345,7 +346,7 @@ KIOCORE_EXPORT QByteArray KIO::rawErrorDetail(int errorCode, const QString &erro
         protocol = i18nc("@info protocol", "(unknown)");
     }
 
-    datetime = QDateTime::currentDateTime().toString(Qt::DefaultLocaleLongDate);
+    datetime = QLocale().toString(QDateTime::currentDateTime(), QLocale::LongFormat);
 
     QString errorName, techName, description;
     QStringList causes, solutions;

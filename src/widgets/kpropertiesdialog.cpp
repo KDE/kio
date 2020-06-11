@@ -1167,6 +1167,7 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
     }
 
     if (!d->bMultiple) { // Dates and extra fields for multiple don't make much sense...
+        QLocale locale;
         const auto extraFields = KProtocolInfo::extraFields(url);
         for (int i = 0; i < extraFields.count(); ++i) {
             const auto &field = extraFields.at(i);
@@ -1182,7 +1183,7 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
                     continue;
                 }
 
-                label = date.toString(Qt::DefaultLocaleLongDate);
+                label = locale.toString(date, QLocale::LongFormat);
             }
 
             l = new QLabel(i18n("%1:", field.name), d->m_frame);
@@ -1203,7 +1204,7 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
             l = new QLabel(i18n("Created:"), d->m_frame);
             grid->addWidget(l, curRow, 0, Qt::AlignRight);
 
-            l = new QLabel(dt.toString(Qt::DefaultLocaleLongDate), d->m_frame);
+            l = new QLabel(locale.toString(dt, QLocale::LongFormat), d->m_frame);
             grid->addWidget(l, curRow++, 2);
             l->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::TextSelectableByKeyboard);
         }
@@ -1213,7 +1214,7 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
             l = new QLabel(i18n("Modified:"), d->m_frame);
             grid->addWidget(l, curRow, 0, Qt::AlignRight);
 
-            l = new QLabel(dt.toString(Qt::DefaultLocaleLongDate), d->m_frame);
+            l = new QLabel(locale.toString(dt, QLocale::LongFormat), d->m_frame);
             l->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::TextSelectableByKeyboard);
             grid->addWidget(l, curRow++, 2);
         }
@@ -1223,7 +1224,7 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
             l = new QLabel(i18n("Accessed:"), d->m_frame);
             grid->addWidget(l, curRow, 0, Qt::AlignRight);
 
-            l = new QLabel(dt.toString(Qt::DefaultLocaleLongDate), d->m_frame);
+            l = new QLabel(locale.toString(dt, QLocale::LongFormat), d->m_frame);
             l->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::TextSelectableByKeyboard);
             grid->addWidget(l, curRow++, 2);
         }
