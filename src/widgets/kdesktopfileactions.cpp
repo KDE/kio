@@ -40,8 +40,10 @@
 
 enum BuiltinServiceType { ST_MOUNT = 0x0E1B05B0, ST_UNMOUNT = 0x0E1B05B1 }; // random numbers
 
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 71)
 static bool runFSDevice(const QUrl &_url, const KDesktopFile &cfg, const QByteArray &asn);
 static bool runLink(const QUrl &_url, const KDesktopFile &cfg, const QByteArray &asn);
+#endif
 
 #if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 71)
 bool KDesktopFileActions::run(const QUrl &u, bool _is_local)
