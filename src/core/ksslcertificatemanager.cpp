@@ -265,8 +265,13 @@ void KSslCertificateManagerPrivate::loadDefaultCaCertificates()
     KConfig config(QStringLiteral("ksslcablacklist"), KConfig::SimpleConfig);
     KConfigGroup group = config.group("Blacklist of CA Certificates");
 
+#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
+    certs.append(QSslCertificate::fromPath(userCertDir + QLatin1Char('*'), QSsl::Pem,
+                                           QSslCertificate::PatternSyntax::Wildcard));
+#else
     certs.append(QSslCertificate::fromPath(userCertDir + QLatin1Char('*'), QSsl::Pem,
                                            QRegExp::Wildcard));
+#endif
     for (const QSslCertificate &cert : qAsConst(certs)) {
         const QByteArray digest = cert.digest().toHex();
         if (!group.hasKey(digest.constData())) {
@@ -422,8 +427,13 @@ QList<KSslCaCertificate> KSslCertificateManagerPrivate::allCertificates() const
         ret += KSslCaCertificate(cert, KSslCaCertificate::SystemStore, false);
     }
 
+#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
+    const QList<QSslCertificate> userList = QSslCertificate::fromPath(userCertDir + QLatin1Char('*'), QSsl::Pem,
+                                                                   QSslCertificate::PatternSyntax::Wildcard);
+#else
     const QList<QSslCertificate> userList = QSslCertificate::fromPath(userCertDir + QLatin1Char('*'), QSsl::Pem,
                                                                    QRegExp::Wildcard);
+#endif
     for (const QSslCertificate &cert : userList) {
         ret += KSslCaCertificate(cert, KSslCaCertificate::UserStore, false);
     }
