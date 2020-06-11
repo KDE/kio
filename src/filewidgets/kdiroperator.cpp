@@ -1961,8 +1961,10 @@ void KDirOperator::setupActions()
 
     QAction *backAction = d->actionCollection->addAction(KStandardAction::Back, QStringLiteral("back"), this, SLOT(back()));
     backAction->setShortcut(Qt::Key_Backspace);
+    backAction->setToolTip(i18nc("@info", "Go back"));
 
-    d->actionCollection->addAction(KStandardAction::Forward, QStringLiteral("forward"), this, SLOT(forward()));
+    QAction* forwardAction = d->actionCollection->addAction(KStandardAction::Forward, QStringLiteral("forward"), this, SLOT(forward()));
+    forwardAction->setToolTip(i18nc("@info", "Go forward"));
 
     QAction *homeAction = d->actionCollection->addAction(KStandardAction::Home, QStringLiteral("home"), this, SLOT(home()));
     homeAction->setText(i18n("Home Folder"));
