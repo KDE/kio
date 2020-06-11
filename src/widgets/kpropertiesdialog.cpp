@@ -858,8 +858,8 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
     grid->setColumnStretch(0, 0);
     grid->setColumnStretch(1, 0);
     grid->setColumnStretch(2, 1);
-    const int spacingHint = d->m_frame->style()->pixelMetric(QStyle::PM_DefaultLayoutSpacing);
-    grid->addItem(new QSpacerItem(spacingHint, 0), 0, 1);
+    const int horizontalSpacing = d->m_frame->style()->pixelMetric(QStyle::PM_LayoutHorizontalSpacing);
+    grid->addItem(new QSpacerItem(horizontalSpacing, 0), 0, 1);
     vbl->addLayout(grid);
     int curRow = 0;
 
