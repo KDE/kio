@@ -167,7 +167,6 @@ void ProvidersModel::deleteProvider(SearchProvider *p)
     beginRemoveRows(QModelIndex(), row, row);
     m_favoriteEngines.remove(m_providers.takeAt(row)->desktopEntryName());
     endRemoveRows();
-    delete p;
     emit dataModified();
 }
 
