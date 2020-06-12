@@ -82,7 +82,8 @@ void SearchProvider::setKeys(const QStringList &keys)
     // until the name is unique
     for (const QString &key : keys) {
         if (key.length() > name.length()) {
-            name = key.toLower();
+            // We should avoid hidden files and directory paths, BUG: 407944
+            name = key.toLower().remove(QLatin1Char('.')).remove(QLatin1Char('/'));;
         }
     }
 
