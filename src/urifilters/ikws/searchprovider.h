@@ -24,7 +24,7 @@
 class SearchProvider : public KUriFilterSearchProvider
 {
 public:
-    SearchProvider() : m_dirty(false)
+    SearchProvider() : m_dirty(false), m_isHidden(false)
     {
     }
 
@@ -46,6 +46,10 @@ public:
         return m_dirty;
     }
 
+    bool isHidden() const {
+        return m_isHidden;
+    }
+
     void setName(const QString &);
     void setQuery(const QString &);
     void setKeys(const QStringList &);
@@ -59,6 +63,7 @@ private:
     QString m_charset;
     QString m_iconName;
     bool m_dirty;
+    bool m_isHidden;
 };
 
 #endif

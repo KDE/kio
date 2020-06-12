@@ -304,7 +304,14 @@ void FilterOptions::load()
     const QString defaultSearchEngine = group.readEntry("DefaultWebShortcut");
     const QStringList favoriteEngines = group.readEntry("PreferredWebShortcuts", DEFAULT_PREFERRED_SEARCH_PROVIDERS);
 
-    const QList<SearchProvider *> providers = m_registry.findAll();
+    const QList<SearchProvider *> allProviders = m_registry.findAll();
+    QList<SearchProvider *> providers;
+    for (auto *provider : allProviders) {
+        if (!provider->isHidden()) {
+            providers << provider;
+        }
+    }
+
     int defaultProviderIndex = providers.size(); //default is "None", it is last in the list
 
     for (SearchProvider *provider : providers) {

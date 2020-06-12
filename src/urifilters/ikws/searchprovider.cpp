@@ -38,6 +38,7 @@ SearchProvider::SearchProvider(const QString &servicePath)
     m_query = group.readEntry(QStringLiteral("Query"));
     m_charset = group.readEntry(QStringLiteral("Charset"));
     m_iconName = group.readEntry(QStringLiteral("Icon"));
+    m_isHidden = group.readEntry(QStringLiteral("Hidden"), false);
 }
 
 SearchProvider::~SearchProvider()
