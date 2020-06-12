@@ -85,7 +85,8 @@ void SearchProviderDialog::slotChanged()
 {
     m_buttons->button(QDialogButtonBox::Ok)->setEnabled(!(m_dlg.leName->text().isEmpty()
                                                           || m_dlg.leShortcut->text().isEmpty()
-                                                          || m_dlg.leQuery->text().isEmpty()));
+                                                          || m_dlg.leQuery->text().isEmpty())
+                                                          && m_dlg.noteLabel->text().isEmpty());
 }
 
 // Check if the user wants to assign shorthands that are already assigned to
@@ -141,6 +142,7 @@ void SearchProviderDialog::shortcutsChanged(const QString &newShorthands)
     } else {
         m_dlg.noteLabel->clear();
     }
+    slotChanged();
 }
 
 void SearchProviderDialog::accept()
