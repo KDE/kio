@@ -141,18 +141,25 @@ public:
 
 Q_SIGNALS:
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 72)
     /**
      * Emitted when the total number of files is known.
      * @param job the job that emitted this signal
      * @param files the total number of files
      */
-    void totalFiles(KJob *job, unsigned long files);
+    KIOCORE_DEPRECATED_VERSION(5, 72, "Use KJob::totalAmount instead. This one is not emitted")
+    QT_MOC_COMPAT void totalFiles(KJob *job, unsigned long files);
+#endif
+
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 72)
     /**
      * Emitted when the total number of directories is known.
      * @param job the job that emitted this signal
      * @param dirs the total number of directories
      */
-    void totalDirs(KJob *job, unsigned long dirs);
+    KIOCORE_DEPRECATED_VERSION(5, 72, "Use KJob::totalAmount instead. This one is not emitted")
+    QT_MOC_COMPAT void totalDirs(KJob *job, unsigned long dirs);
+#endif
 
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 2)
     /**
