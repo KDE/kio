@@ -1397,7 +1397,8 @@ void HTTPProtocol::rename(const QUrl &src, const QUrl &dest, KIO::JobFlags flags
         proceedUntilResponseHeader();
     }
 
-    if (m_request.responseCode == 201) {
+    // The server returns a HTTP/1.1 201 Created or 204 No Content on successful completion
+    if (m_request.responseCode == 201 || m_request.responseCode == 204) {
         davFinished();
     } else {
         davError();
