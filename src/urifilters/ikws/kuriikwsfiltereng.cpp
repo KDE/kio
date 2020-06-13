@@ -425,6 +425,7 @@ void KURISearchFilterEngine::loadConfig()
     qCDebug(category) << "Web Shortcuts Enabled: " << m_bWebShortcutsEnabled;
     qCDebug(category) << "Default Shortcut: " << m_defaultWebShortcut;
     qCDebug(category) << "Keyword Delimiter: " << m_cKeywordDelimiter;
+    m_registry.reload();
 }
 
 SearchProviderRegistry *KURISearchFilterEngine::registry()

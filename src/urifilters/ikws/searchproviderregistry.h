@@ -52,8 +52,9 @@ public:
 
     SearchProvider *findByDesktopName(const QString &desktopName) const;
 
-private:
     void reload();
+
+private:
     QStringList directories() const;
 
     QList<SearchProvider *> m_searchProviders;
