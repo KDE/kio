@@ -1121,6 +1121,18 @@ void TestTrash::moveSymlinkFromTrash()
     QVERIFY(QFileInfo(destPath).isSymLink());
 }
 
+void TestTrash::testMoveNonExistingFile()
+{
+    const QUrl dest = QUrl::fromLocalFile(homeTmpDir() + QLatin1String("DoesNotExist"));
+    KIO::Job *job =
+        KIO::file_move(QUrl(QStringLiteral("trash:/0-DoesNotExist")), dest, -1, KIO::HideProgressInfo);
+
+    QVERIFY(!job->exec());
+    QCOMPARE(job->error(), KIO::ERR_DOES_NOT_EXIST);
+    QCOMPARE(job->errorString(), QStringLiteral("The file or folder trash:/DoesNotExist does not exist."));
+
+}
+
 void TestTrash::getFile()
 {
     const QString fileId = QStringLiteral("fileFromHome (1)");

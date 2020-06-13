@@ -545,6 +545,11 @@ bool TrashImpl::directRename(const QString &src, const QString &dest)
                 error(KIO::ERR_ACCESS_DENIED, dest);
             } else if (errno == EROFS) { // The file is on a read-only filesystem
                 error(KIO::ERR_CANNOT_DELETE, src);
+            } else if (errno == ENOENT) {
+                const QString marker(QStringLiteral("Trash/files/"));
+                const int idx = src.lastIndexOf(marker) + marker.size();
+                const QString displayName = QLatin1String("trash:/") + src.mid(idx);
+                error(KIO::ERR_DOES_NOT_EXIST, displayName);
             } else {
                 error(KIO::ERR_CANNOT_RENAME, src);
             }

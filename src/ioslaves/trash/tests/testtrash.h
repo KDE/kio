@@ -82,6 +82,7 @@ private Q_SLOTS:
     void moveFileInDirectoryFromTrash();
     void moveDirectoryFromTrash();
     void moveSymlinkFromTrash();
+    void testMoveNonExistingFile();
 
     void listRootDir();
     void listRecursiveRootDir();
