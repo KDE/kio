@@ -79,6 +79,7 @@ public:
     /**
      * Creates an ApplicationLauncherJob which will prompt the user for which application to use (via the "open with" dialog).
      * @param parent the parent QObject
+     * @since 5.71
      */
     explicit ApplicationLauncherJob(QObject *parent = nullptr);
 
