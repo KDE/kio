@@ -1001,7 +1001,9 @@ void HTTPProtocol::davParsePropstats(const QDomNodeList &propstats, UDSEntry &en
                 // (tested with Apache + mod_dav 1.0.3)
                 if (property.text() == QLatin1String("httpd/unix-directory")) {
                     isDirectory = true;
-                } else {
+                } else if (property.text() != QLatin1String("application/octet-stream")) {
+                    // The server could be lazy and always return application/octet-stream;
+                    // we will guess the mime-type later in that case.
                     mimeType = property.text();
                 }
             } else if (property.tagName() == QLatin1String("executable")) {
