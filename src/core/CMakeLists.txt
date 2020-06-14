@@ -235,6 +235,7 @@ ecm_generate_headers(KIOCore_CamelCase_HEADERS
   MkpathJob
   SlaveBase
   SlaveConfig
+  WorkerBase
   HostInfo
   MetaData
   UDSEntry
