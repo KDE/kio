@@ -1,6 +1,18 @@
 [Desktop Entry]
 Keys=archwiki,arch
 Name=ArchWiki
+Name[ca]=ArchWiki
+Name[nl]=ArchWiki
+Name[nn]=ArchWiki
+Name[pt]=ArchWiki
+Name[uk]=ArchWiki
+Name[x-test]=xxArchWikixx
 Query=https://wiki.archlinux.org/index.php?search=\\{@}
+Query[ca]=https://wiki.archlinux.org/index.php?search=\\{@}
+Query[nl]=https://wiki.archlinux.org/index.php?search=\\{@}
+Query[nn]=https://wiki.archlinux.org/index.php?search=\\{@}
+Query[pt]=https://wiki.archlinux.org/index.php?search=\\{@}
+Query[uk]=https://wiki.archlinux.org/index.php?search=\\{@}
+Query[x-test]=xxhttps://wiki.archlinux.org/index.php?search=\\{@}xx
 X-KDE-ServiceTypes=SearchProvider
 Type=Service
