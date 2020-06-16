@@ -838,11 +838,19 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl,
     }
 
     // copy access and modification time
+#ifdef Q_OS_LINUX
+    // with nano secs precision
+    struct timespec ut[2];
+    ut[0] = buff_src.st_atim;
+    ut[1] = buff_src.st_mtim;
+    if (::futimens(dest_file.handle(), ut) != 0) {
+#else
     struct utimbuf ut;
     ut.actime = buff_src.st_atime;
     ut.modtime = buff_src.st_mtime;
     if (::utime(_dest.data(), &ut) != 0) {
-        if (tryChangeFileAttr(UTIME, {_dest, qint64(ut.actime), qint64(ut.modtime)}, errno)) {
+#endif
+        if (tryChangeFileAttr(UTIME, {_dest, qint64(buff_src.st_atime), qint64(buff_src.st_mtime)}, errno)) {
             qCWarning(KIO_FILE) << "Couldn't preserve access and modification time for" << dest;
         }
     }
