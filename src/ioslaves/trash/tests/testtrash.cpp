@@ -669,6 +669,30 @@ void TestTrash::trashBrokenSymlinkIntoSubdir()
     trashDirectory(origPath, QStringLiteral("subDirBrokenSymlink"));
 }
 
+void TestTrash::testRemoveStaleInfofile()
+{
+    const QString fileName = QStringLiteral("disappearingFileInTrash");
+    const QString filePath = homeTmpDir() + fileName;
+    createTestFile(filePath);
+    trashFile(filePath, fileName);
+
+    const QString pathInTrash = m_trashDir + QLatin1String("/files/") + QLatin1String("disappearingFileInTrash");
+    // remove the file without using KIO
+    QVERIFY(QFile::remove(pathInTrash));
+
+    // .trashinfo file still exists
+    const QString infoPath = m_trashDir + QLatin1String("/info/disappearingFileInTrash.trashinfo");
+    QVERIFY(QFile(infoPath).exists());
+
+    KIO::ListJob *job = KIO::listDir(QUrl(QStringLiteral("trash:/")), KIO::HideProgressInfo);
+    connect(job, &KIO::ListJob::entries, this, &TestTrash::slotEntries);
+    QVERIFY(job->exec());
+
+    // during the list job, kio_trash should have deleted the .trashinfo file since it
+    // references a trashed file that doesn't exist any more
+    QVERIFY(!QFile(infoPath).exists());
+}
+
 void TestTrash::delRootFile()
 {
     // test deleting a trashed file

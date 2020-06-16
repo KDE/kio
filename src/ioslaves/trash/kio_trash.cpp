@@ -461,7 +461,8 @@ bool TrashProtocol::createUDSEntry(const QString &physicalPath, const QString &d
     QByteArray physicalPath_c = QFile::encodeName(physicalPath);
     QT_STATBUF buff;
     if (QT_LSTAT(physicalPath_c.constData(), &buff) == -1) {
-        qCWarning(KIO_TRASH) << "couldn't stat " << physicalPath;
+        qCWarning(KIO_TRASH) << "couldn't stat " << physicalPath << ", relevant trashinfo file will be removed";
+        impl.deleteInfo(info.trashId, info.fileId);
         return false;
     }
     if (S_ISLNK(buff.st_mode)) {
