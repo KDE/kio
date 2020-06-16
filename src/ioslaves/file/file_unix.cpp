@@ -56,6 +56,11 @@
 #include <sys/sysmacros.h> // for makedev()
 #endif
 
+#ifdef Q_OS_LINUX
+#include <sys/ioctl.h>
+#include <linux/fs.h>
+#endif
+
 //sendfile has different semantics in different platforms
 #if HAVE_SENDFILE && defined Q_OS_LINUX
 #define USE_SENDFILE 1
@@ -660,85 +665,65 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl,
 #endif
     totalSize(buff_src.st_size);
 
-    KIO::filesize_t processed_size = 0;
-    char buffer[ MAX_IPC_SIZE ];
-    ssize_t n = 0;
-#ifdef USE_SENDFILE
-    bool use_sendfile = true;
+#ifdef FICLONE
+    // Share data blocks ("reflink") on supporting filesystems, like brfs and XFS
+    int ret = ::ioctl (dest_file.handle(), FICLONE, src_file.handle());
+    if (ret != -1) {
+        processedSize(src_file.size());
+    } else {
+        // if fs does not support reflinking, files are on different devices...
 #endif
-    bool existing_dest_delete_attempted = false;
-    while (!wasKilled()) {
-
-        if (testMode && dest_file.fileName().contains(QLatin1String("slow"))) {
-            QThread::usleep(500);
-        }
-
+        KIO::filesize_t processed_size = 0;
+        char buffer[ MAX_IPC_SIZE ];
+        ssize_t n = 0;
 #ifdef USE_SENDFILE
-        if (use_sendfile) {
-            off_t sf = processed_size;
-            n = ::sendfile(dest_file.handle(), src_file.handle(), &sf, MAX_IPC_SIZE);
-            processed_size = sf;
-            if (n == -1 && (errno == EINVAL || errno == ENOSYS)) {     //not all filesystems support sendfile()
-                // qDebug() << "sendfile() not supported, falling back ";
-                use_sendfile = false;
-            }
-        }
-        if (!use_sendfile)
+        bool use_sendfile = true;
 #endif
-            n = ::read(src_file.handle(), buffer, MAX_IPC_SIZE);
+        bool existing_dest_delete_attempted = false;
+        while (!wasKilled()) {
 
-        if (n == -1) {
-            if (errno == EINTR) {
-                continue;
+            if (testMode && dest_file.fileName().contains(QLatin1String("slow"))) {
+                QThread::usleep(500);
             }
+
 #ifdef USE_SENDFILE
             if (use_sendfile) {
-                // qDebug() << "sendfile() error:" << strerror(errno);
-                if (errno == ENOSPC) { // disk full
-                    if (!_dest_backup.isEmpty() && !existing_dest_delete_attempted) {
-                        ::unlink(_dest_backup.constData());
-                        existing_dest_delete_attempted = true;
-                        continue;
-                    }
-                    error(KIO::ERR_DISK_FULL, dest);
-                } else {
-                    error(KIO::ERR_SLAVE_DEFINED,
-                          i18n("Cannot copy file from %1 to %2. (Errno: %3)",
-                               src, dest, errno));
+                off_t sf = processed_size;
+                n = ::sendfile(dest_file.handle(), src_file.handle(), &sf, MAX_IPC_SIZE);
+                processed_size = sf;
+                if (n == -1 && (errno == EINVAL || errno == ENOSYS)) {     //not all filesystems support sendfile()
+                    // qDebug() << "sendfile() not supported, falling back ";
+                    use_sendfile = false;
                 }
-            } else
-#endif
-                error(KIO::ERR_CANNOT_READ, src);
-            src_file.close();
-            dest_file.close();
-#if HAVE_POSIX_ACL
-            if (acl) {
-                acl_free(acl);
             }
+            if (!use_sendfile)
 #endif
-            if (!QFile::remove(dest)) {  // don't keep partly copied file
-                execWithElevatedPrivilege(DEL, {_dest}, errno);
-            }
-            return;
-        }
-        if (n == 0) {
-            break;    // Finished
-        }
+                n = ::read(src_file.handle(), buffer, MAX_IPC_SIZE);
+
+            if (n == -1) {
+                if (errno == EINTR) {
+                    continue;
+                }
 #ifdef USE_SENDFILE
-        if (!use_sendfile) {
-#endif
-            if (dest_file.write(buffer, n) != n) {
-                if (dest_file.error() == QFileDevice::ResourceError) {  // disk full
-                    if (!_dest_backup.isEmpty() && !existing_dest_delete_attempted) {
-                        ::unlink(_dest_backup.constData());
-                        existing_dest_delete_attempted = true;
-                        continue;
+                if (use_sendfile) {
+                    // qDebug() << "sendfile() error:" << strerror(errno);
+                    if (errno == ENOSPC) { // disk full
+                        if (!_dest_backup.isEmpty() && !existing_dest_delete_attempted) {
+                            ::unlink(_dest_backup.constData());
+                            existing_dest_delete_attempted = true;
+                            continue;
+                        }
+                        error(KIO::ERR_DISK_FULL, dest);
+                    } else {
+                        error(KIO::ERR_SLAVE_DEFINED,
+                              i18n("Cannot copy file from %1 to %2. (Errno: %3)",
+                                   src, dest, errno));
                     }
-                    error(KIO::ERR_DISK_FULL, dest);
-                } else {
-                    qCWarning(KIO_FILE) << "Couldn't write[2]. Error:" << dest_file.errorString();
-                    error(KIO::ERR_CANNOT_WRITE, dest);
-                }
+                } else
+#endif
+                    error(KIO::ERR_CANNOT_READ, src);
+                src_file.close();
+                dest_file.close();
 #if HAVE_POSIX_ACL
                 if (acl) {
                     acl_free(acl);
@@ -749,12 +734,43 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl,
                 }
                 return;
             }
-            processed_size += n;
+            if (n == 0) {
+                break;    // Finished
+            }
 #ifdef USE_SENDFILE
-        }
+            if (!use_sendfile) {
 #endif
-        processedSize(processed_size);
+                if (dest_file.write(buffer, n) != n) {
+                    if (dest_file.error() == QFileDevice::ResourceError) {  // disk full
+                        if (!_dest_backup.isEmpty() && !existing_dest_delete_attempted) {
+                            ::unlink(_dest_backup.constData());
+                            existing_dest_delete_attempted = true;
+                            continue;
+                        }
+                        error(KIO::ERR_DISK_FULL, dest);
+                    } else {
+                        qCWarning(KIO_FILE) << "Couldn't write[2]. Error:" << dest_file.errorString();
+                        error(KIO::ERR_CANNOT_WRITE, dest);
+                    }
+#if HAVE_POSIX_ACL
+                    if (acl) {
+                        acl_free(acl);
+                    }
+#endif
+                    if (!QFile::remove(dest)) {  // don't keep partly copied file
+                        execWithElevatedPrivilege(DEL, {_dest}, errno);
+                    }
+                    return;
+                }
+                processed_size += n;
+#ifdef USE_SENDFILE
+            }
+#endif
+            processedSize(processed_size);
+        }
+#ifdef FICLONE
     }
+#endif
 
     src_file.close();
     dest_file.close();
