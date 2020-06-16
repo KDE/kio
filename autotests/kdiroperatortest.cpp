@@ -133,6 +133,63 @@ private Q_SLOTS:
         QCOMPARE(spy.count(), 1);
         QCOMPARE(spy.first().at(0).toUrl(), fileUrl);
     }
+
+    void testDirHighlighting()
+    {
+        const QString path = QFileInfo(QFINDTESTDATA("kdiroperatortest.cpp")).absolutePath() + QLatin1Char('/');
+        // <src dir>/autotests/
+        const QUrl dirC(QUrl::fromLocalFile(path));
+        const QUrl dirB = dirC.resolved(QUrl(QStringLiteral("..")));
+        const QUrl dirA = dirB.resolved(QUrl(QStringLiteral("..")));
+
+        KDirOperator dirOp(dirC);
+
+        dirOp.show();
+        dirOp.activateWindow();
+        QVERIFY(QTest::qWaitForWindowActive(&dirOp));
+
+        dirOp.setView(KFile::Default);
+
+        // first case, go up...
+        dirOp.cdUp();
+        QTest::qWait(2000); // wait for dirlister to finish listing; is there a better way?
+        KFileItemList selected = dirOp.selectedItems();
+        // ... the dir we've just left is highlighted
+        QCOMPARE(selected.at(0).url(), dirC.adjusted(QUrl::StripTrailingSlash));
+
+        // same as above
+        dirOp.cdUp();
+        QTest::qWait(2000);
+        selected = dirOp.selectedItems();
+        QCOMPARE(selected.at(0).url(), dirB.adjusted(QUrl::StripTrailingSlash));
+
+        // we were in A/B/C, went up twice, now in A/
+        // going back, we are in B/ and C/ is highlighted
+        dirOp.back();
+        QTest::qWait(2000);
+        selected = dirOp.selectedItems();
+        QCOMPARE(selected.at(0).url(), dirC.adjusted(QUrl::StripTrailingSlash));
+
+        dirOp.clearHistory();
+        // we start in A/
+        dirOp.setUrl(dirA, true);
+        // go to B/
+        dirOp.setUrl(dirB, true);
+        // go to C/
+        dirOp.setUrl(dirC, true);
+
+        // go back, C/ is highlighted
+        dirOp.back();
+        QTest::qWait(2000);
+        selected = dirOp.selectedItems();
+        QCOMPARE(selected.at(0).url(), dirC.adjusted(QUrl::StripTrailingSlash));
+
+        // go back, B/ is highlighted
+        dirOp.back();
+        QTest::qWait(2000);
+        selected = dirOp.selectedItems();
+        QCOMPARE(selected.at(0).url(), dirB.adjusted(QUrl::StripTrailingSlash));
+    }
 };
 
 QTEST_MAIN(KDirOperatorTest)

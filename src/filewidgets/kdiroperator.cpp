@@ -187,11 +187,14 @@ public:
     QUrl previewUrl;
     int previewWidth;
 
-    bool dirHighlighting;
+
     bool onlyDoubleClickSelectsFiles;
     bool followNewDirectories;
     bool followSelectedDirectories;
-    QString lastURL; // used for highlighting a directory on cdUp
+
+    bool dirHighlighting;
+    QUrl m_lastUrl; // used for highlighting a directory on back/cdUp
+
     QTimer *progressDelayTimer;
     int dropOptions;
 
@@ -1048,7 +1051,6 @@ void KDirOperator::setUrl(const QUrl &_newurl, bool clearforward)
         d->forwardStack.clear();
     }
 
-    d->lastURL = d->currUrl.toString(QUrl::StripTrailingSlash);
     d->currUrl = newurl;
 
     pathChanged();
@@ -1208,9 +1210,22 @@ void KDirOperator::back()
     d->forwardStack.push(new QUrl(d->currUrl));
 
     QUrl *s = d->backStack.pop();
-
-    setUrl(*s, false);
+    const QUrl newUrl = *s;
     delete s;
+
+    if (d->dirHighlighting) {
+        const QUrl _url =
+            newUrl.adjusted(QUrl::StripTrailingSlash).adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash);
+
+        if (_url == d->currUrl.adjusted(QUrl::StripTrailingSlash) && !d->backStack.isEmpty()) {
+            // e.g. started in a/b/c, cdUp() twice to "a", then back(), we highlight "c"
+            d->m_lastUrl = *(d->backStack.top());
+        } else {
+            d->m_lastUrl = d->currUrl;
+        }
+    }
+
+    setUrl(newUrl, false);
 }
 
 // Code pinched from kfm then hacked
@@ -1236,6 +1251,11 @@ void KDirOperator::cdUp()
 {
     // Allow /d/c// to go up to /d/ instead of /d/c/
     QUrl tmp(d->currUrl.adjusted(QUrl::NormalizePathSegments));
+
+    if (d->dirHighlighting) {
+        d->m_lastUrl = d->currUrl;
+    }
+
     setUrl(tmp.resolved(QUrl(QStringLiteral(".."))), true);
 }
 
@@ -2509,6 +2529,10 @@ void KDirOperator::Private::_k_slotIOFinished()
 
     if (preview) {
         preview->clearPreview();
+    }
+
+    if (dirHighlighting) {
+        parent->setCurrentItem(m_lastUrl);
     }
 }
 
