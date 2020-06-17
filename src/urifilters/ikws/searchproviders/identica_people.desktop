@@ -67,7 +67,6 @@ Name[ug]=Identi.ca كىشىلەر
 Name[uk]=Постаті Identi.ca
 Name[vi]=Identi.ca Mọi Người
 Name[wa]=Identi.ca Djins
-Name[x-test]=xxIdenti.ca Peoplexx
 Name[zh_CN]=Identi.ca 人物
 Name[zh_TW]=Identi.ca People
 Query=https://identi.ca/search/people?q=\\{@}&search=Search
@@ -123,7 +122,6 @@ Query[tr]=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[ug]=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[uk]=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[wa]=https://identi.ca/search/people?q=\\{@}&search=Search
-Query[x-test]=xxhttps://identi.ca/search/people?q=\\{@}&search=Searchxx
 Query[zh_CN]= http://identi.ca/search/people?q=\\{@}&search=Search
 Query[zh_TW]=https://identi.ca/search/people?q=\\{@}&search=Search
 X-KDE-ServiceTypes=SearchProvider

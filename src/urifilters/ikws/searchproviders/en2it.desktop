@@ -87,7 +87,6 @@ Name[uz]=WordReference.com tarjima: Inglizchadan Italyanchaga
 Name[uz@cyrillic]=WordReference.com таржима: Инглизчадан Италянчага
 Name[vi]=WordReference.com Dịch: Tiếng Anh sang tiếng Ý
 Name[wa]=WordReference.com ratournaedje di l' inglès viè l' itålyin
-Name[x-test]=xxWordReference.com Translation: English to Italianxx
 Name[zh_CN]=WordReference.com 翻译：英语译意大利语
 Name[zh_TW]=WordReference.com 翻譯: 英文至義大利文
 Query=https://www.wordreference.com/it/translation.asp?enit=\\{@}
@@ -120,7 +119,6 @@ Query[sl]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[sv]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[tg]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[uk]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
-Query[x-test]=xxhttps://www.wordreference.com/it/translation.asp?enit=\\{@}xx
 Query[zh_CN]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[zh_TW]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
 X-KDE-ServiceTypes=SearchProvider

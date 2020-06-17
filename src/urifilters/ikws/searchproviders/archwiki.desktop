@@ -10,7 +10,6 @@ Name[pt]=ArchWiki
 Name[pt_BR]=ArchWiki
 Name[sv]=ArchWiki
 Name[uk]=ArchWiki
-Name[x-test]=xxArchWikixx
 Query=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[ca]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[es]=https://wiki.archlinux.org/index.php?search=\\{@}
@@ -21,6 +20,5 @@ Query[pt]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[pt_BR]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[sv]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[uk]=https://wiki.archlinux.org/index.php?search=\\{@}
-Query[x-test]=xxhttps://wiki.archlinux.org/index.php?search=\\{@}xx
 X-KDE-ServiceTypes=SearchProvider
 Type=Service

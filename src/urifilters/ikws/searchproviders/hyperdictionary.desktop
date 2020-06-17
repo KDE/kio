@@ -88,7 +88,6 @@ Name[uz]=HyperDictionary.com
 Name[uz@cyrillic]=HyperDictionary.com
 Name[vi]=HyperDictionary.com
 Name[wa]=HyperDictionary.com
-Name[x-test]=xxHyperDictionary.comxx
 Name[zh_CN]=HyperDictionary.com
 Name[zh_TW]=HyperDictionary.com
 X-KDE-ServiceTypes=SearchProvider
@@ -180,6 +179,5 @@ Query[uz]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[uz@cyrillic]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[vi]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[wa]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
-Query[x-test]=xxhttp://www.hyperdictionary.com/search.aspx?define=\\{@}xx
 Query[zh_CN]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[zh_TW]=http://www.hyperdictionary.com/search.aspx?define=\\{@}

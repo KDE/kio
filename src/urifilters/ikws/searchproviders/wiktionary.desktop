@@ -86,7 +86,6 @@ Name[uz]=Wiktionary - Erkin lugʻat
 Name[uz@cyrillic]=Wiktionary - Эркин луғат
 Name[vi]=Wiktionary - Từ điển tự do
 Name[wa]=L' esplicant motî do walon so Wikipedia
-Name[x-test]=xxWiktionary - The Free Dictionaryxx
 Name[zh_CN]=维基字典 - 免费的字典
 Name[zh_TW]=Wiktionary - 免費的字典
 X-KDE-ServiceTypes=SearchProvider
@@ -144,7 +143,6 @@ Query[tr]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[ug]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[uk]=https://uk.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[wa]=https://wa.wiktionary.org/w/index.php?search=\\{@}&title=Sipeci%C3%A5s%3ACweri
-Query[x-test]=xxhttps://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Goxx
 Query[zh_CN]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[zh_TW]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Charset=utf8

@@ -88,7 +88,6 @@ Name[uz]=Google - Yangiliklar
 Name[uz@cyrillic]=Google - Янгиликлар
 Name[vi]=Tin tức Google
 Name[wa]=Google News
-Name[x-test]=xxGoogle Newsxx
 Name[zh_CN]=Google 新闻
 Name[zh_TW]=Google 新聞
 X-KDE-ServiceTypes=SearchProvider
@@ -145,7 +144,6 @@ Query[tr]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[ug]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[uk]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[wa]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
-Query[x-test]=xxhttps://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8xx
 Query[zh_CN]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[zh_TW]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Charset=utf8

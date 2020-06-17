@@ -96,7 +96,6 @@ Name[uz@cyrillic]=Прокси
 Name[vi]=Ủy nhiệm
 Name[wa]=Procsi
 Name[xh]=Umntu onegunya lokusebenzela omnye
-Name[x-test]=xxProxyxx
 Name[zh_CN]=代理
 Name[zh_TW]=代理
 
@@ -184,7 +183,6 @@ Comment[uz@cyrillic]=Прокси серверларини мослаш
 Comment[vi]=Cấu hình máy phục vụ ủy nhiệm được sử dụng
 Comment[wa]=Apontyî les sierveus procsi eployîs
 Comment[xh]=Qwalasela indlela abasebenziswa ngayo abancedisi be proxy
-Comment[x-test]=xxConfigure the proxy servers usedxx
 Comment[zh_CN]=配置所用的代理服务器
 Comment[zh_TW]=設定使用的代理伺服器
 
@@ -227,7 +225,6 @@ X-KDE-Keywords[sv]=Proxy,Proxyserver,Brandvägg,Squid
 X-KDE-Keywords[tg]=Прокси, хизматрасони прокси, девори оташ,Squid
 X-KDE-Keywords[tr]=Vekil,Vekil sunucu,Güvenlik duvarı,Squid
 X-KDE-Keywords[uk]=Proxy,Proxy server,Firewall,Squid,proxy,проксі,сервер,проксі-сервер,брандмауер,файрвол
-X-KDE-Keywords[x-test]=xxProxyxx,xxProxy serverxx,xxFirewallxx,xxSquidxx
 X-KDE-Keywords[zh_CN]=Proxy,Proxy server,Firewall,Squid,代理,代理服务器,防火墙
 X-KDE-Keywords[zh_TW]=Proxy,Proxy server,Firewall,Squid
 

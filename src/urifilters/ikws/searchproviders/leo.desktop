@@ -87,7 +87,6 @@ Name[uz@cyrillic]=LEO таржима
 Name[vi]=Dịch bằng LEO
 Name[wa]=LEO-Translate
 Name[xh]=LEO-Guqulela
-Name[x-test]=xxLEO-Translatexx
 Name[zh_CN]=LEO-Translate
 Name[zh_TW]=LEO-Translate
 X-KDE-ServiceTypes=SearchProvider
@@ -123,6 +122,5 @@ Query[sl]=https://dict.leo.org/?search=\\{@}
 Query[sv]=https://dict.leo.org/?search=\\{@}
 Query[tg]=https://dict.leo.org/?search=\\{@}
 Query[uk]=https://dict.leo.org/?search=\\{@}
-Query[x-test]=xxhttps://dict.leo.org/?search=\\{@}xx
 Query[zh_CN]=https://dict.leo.org/?search=\\{@}
 Query[zh_TW]=https://dict.leo.org/?search=\\{@}

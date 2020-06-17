@@ -65,7 +65,6 @@ Name[ug]=Beolingus تور لۇغىتى
 Name[uk]=Мережевий словник Beolingus
 Name[vi]=Từ điển trực tuyến Beolingus
 Name[wa]=Motî so fyis Beolingus
-Name[x-test]=xxBeolingus Online Dictionaryxx
 Name[zh_CN]=Beolingus 在线词典
 Name[zh_TW]=Beolingus 線上字典
 X-KDE-ServiceTypes=SearchProvider
@@ -101,7 +100,6 @@ Query[sl]=https://dict.tu-chemnitz.de/dings.cgi?lang=de&service=deen&opterrors=0
 Query[sv]=https://dict.tu-chemnitz.de/dings.cgi?lang=de&service=deen&opterrors=0&optpro=0&query=\\{@}&iservice=&comment=&email
 Query[tg]=https://dict.tu-chemnitz.de/dings.cgi?lang=de&service=deen&opterrors=0&optpro=0&query=\\{@}&iservice=&comment=&email
 Query[uk]=https://dict.tu-chemnitz.de/dings.cgi?lang=de&service=deen&opterrors=0&optpro=0&query=\\{@}&iservice=&comment=&email
-Query[x-test]=xxhttps://dict.tu-chemnitz.de/dings.cgi?lang=de&service=deen&opterrors=0&optpro=0&query=\\{@}&iservice=&comment=&emailxx
 Query[zh_CN]=https://dict.tu-chemnitz.de/dings.cgi?lang=de&service=deen&opterrors=0&optpro=0&query=\\{@}&iservice=&comment=&email
 Query[zh_TW]=https://dict.tu-chemnitz.de/dings.cgi?lang=de&service=deen&opterrors=0&optpro=0&query=\\{@}&iservice=&comment=&email
 

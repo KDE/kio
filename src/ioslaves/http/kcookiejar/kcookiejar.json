@@ -39,7 +39,6 @@
         "Description[tg]": "Кукиҳои шабакаро нигоҳ медорад",
         "Description[tr]": "Ağ çerezlerini saklar",
         "Description[uk]": "Зберігання кук мережі",
-        "Description[x-test]": "xxStores network cookiesxx",
         "Description[zh_CN]": "存储网络 Cookie",
         "Description[zh_TW]": "儲存網路 cookies",
         "Name": "Cookie Jar",
@@ -81,7 +80,6 @@
         "Name[tg]": "Гунҷоиши кукиҳо",
         "Name[tr]": "Kurabiye Kavanozu",
         "Name[uk]": "Глечик з куками",
-        "Name[x-test]": "xxCookie Jarxx",
         "Name[zh_CN]": "Cookie Jar",
         "Name[zh_TW]": "Cookie Jar",
         "ServiceTypes": [

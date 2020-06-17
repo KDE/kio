@@ -55,7 +55,6 @@ Name[sv]=Kakor
 Name[tg]=Кукиҳо
 Name[tr]=Çerezler
 Name[uk]=Куки
-Name[x-test]=xxCookiesxx
 Name[zh_CN]=Cookie
 Name[zh_TW]=Cookies
 
@@ -141,7 +140,6 @@ Comment[uz@cyrillic]=Кукилар ишлашини мослаш
 Comment[vi]=Cấu hình cách cookie hoạt động
 Comment[wa]=Apontyî l' dujhance des coûkes
 Comment[xh]=Qwalasela indlela ezisebenza ngayo i cookies
-Comment[x-test]=xxConfigure the way cookies workxx
 Comment[zh_CN]=配置 Cookie 相关设置
 Comment[zh_TW]=設定 cookies 運作方式
 
@@ -184,6 +182,5 @@ X-KDE-Keywords[sv]=Kakor,Webbläsning,Internet,WWW,Nätverk,Princip,Domäner
 X-KDE-Keywords[tg]=Кукиҳо,Тамошо,Интернет,WWW,Шабака,Сиёсат,Доменҳо
 X-KDE-Keywords[tr]=Çerezler,Tarama,İnternet,WWW,Ağ,Politika,Alan Adları
 X-KDE-Keywords[uk]=Cookies,Browsing,Internet,WWW,Network,Policy,Domains,кука,куки,перегляд,інтернет,мережа,правило,правила,домен,домени
-X-KDE-Keywords[x-test]=xxCookiesxx,xxBrowsingxx,xxInternetxx,xxWWWxx,xxNetworkxx,xxPolicyxx,xxDomainsxx
 X-KDE-Keywords[zh_CN]=Cookies,Browsing,Internet,WWW,Network,Policy,Domains,浏览,互联网,网络,策略,域名
 X-KDE-Keywords[zh_TW]=Cookies,Browsing,Internet,WWW,Network,Policy,Domains

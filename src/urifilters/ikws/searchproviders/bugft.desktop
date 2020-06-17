@@ -87,7 +87,6 @@ Name[uz@cyrillic]=KDE хато маълумот базаси (бутун мат�
 Name[vi]=Tìm kiếm cơ sở dữ liệu lỗi của KDE, dùng toàn bộ dòng từ khoá đã nhập
 Name[wa]=Båze di dnêyes pol cweraedje di bugs di KDE dvins l' tecse
 Name[xh]=Uphendlo lwesiseko sedata ye KDE Bug Olubhaliweyo ngokupheleleyo
-Name[x-test]=xxKDE Bug Database Fulltext Searchxx
 Name[zh_CN]=KDE Bug 数据库全文检索
 Name[zh_TW]=KDE 臭蟲資料庫全文檢索
 Query=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
@@ -142,7 +141,6 @@ Query[tr]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[ug]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[uk]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[wa]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
-Query[x-test]=xxhttps://bugs.kde.org/buglist.cgi?quicksearch=\\{@}xx
 Query[zh_CN]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[zh_TW]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 X-KDE-ServiceTypes=SearchProvider

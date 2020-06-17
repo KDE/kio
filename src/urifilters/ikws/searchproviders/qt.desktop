@@ -88,7 +88,6 @@ Name[uz]=Qt uchun koʻllanma
 Name[uz@cyrillic]=Qt учун кўлланма
 Name[vi]=Tài liệu Trực tuyến Mới nhất của Qt
 Name[wa]=Documintåcion di Qt so les fyis
-Name[x-test]=xxLatest Qt Online Documentationxx
 Name[zh_CN]=最新的 Qt 在线文档
 Name[zh_TW]=最新的 Qt 線上文件
 Query=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
@@ -127,7 +126,6 @@ Query[sr@latin]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[sv]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[tg]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[uk]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
-Query[x-test]=xxhttps://doc.qt.io/qt-5/search-results.html?q=\\{@}xx
 Query[zh_CN]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[zh_TW]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 X-KDE-ServiceTypes=SearchProvider

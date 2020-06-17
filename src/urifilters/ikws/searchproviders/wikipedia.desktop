@@ -89,7 +89,6 @@ Name[uz]=Wikipedia - Erkin ensiklopediya
 Name[uz@cyrillic]=Wikipedia - Эркин энциклопедия
 Name[vi]=Wikipedia - Từ điển bách khoa toàn thư tự do
 Name[wa]=Wikipedia - Li libe eciclopedeye
-Name[x-test]=xxWikipedia - The Free Encyclopediaxx
 Name[zh_CN]=维基百科 - 免费的百科全书
 Name[zh_TW]=Wikipedia - 免費的 Encyclopedia
 X-KDE-ServiceTypes=SearchProvider
@@ -147,7 +146,6 @@ Query[tr]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[ug]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[uk]=https://uk.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[wa]=https://wa.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Potch%C3%AE
-Query[x-test]=xxhttps://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Goxx
 Query[zh_CN]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[zh_TW]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Charset=utf8

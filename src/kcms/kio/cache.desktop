@@ -97,7 +97,6 @@ Name[uz@cyrillic]=Кэш
 Name[vi]=Bộ nhớ tạm
 Name[wa]=Muchete
 Name[xh]=Indawo yokugcina efihlakeleyo
-Name[x-test]=xxCachexx
 Name[zh_CN]=缓存
 Name[zh_TW]=快取
 
@@ -142,7 +141,6 @@ Comment[sv]=Anpassa webbcacheinställningar
 Comment[tg]=Танзимоти зерҳофизаи танзими сомона
 Comment[tr]=Ağ önbellek ayarlarını yapılandırın
 Comment[uk]=Налаштування параметрів кешу сторінок інтернету
-Comment[x-test]=xxConfigure web cache settingsxx
 Comment[zh_CN]=配置网页缓存设置
 Comment[zh_TW]=設定網頁快取設定
 
@@ -184,6 +182,5 @@ X-KDE-Keywords[sv]=Cache,Historik,Webbläsningshistorik,Portar,Storlek
 X-KDE-Keywords[tg]=Зерҳофиза,Таърих,Таърихи тамошо,бандарҳо,Андоза
 X-KDE-Keywords[tr]=Önbellek,Geçmiş,Tarayıcı Geçmişi,Portlar,Boyut
 X-KDE-Keywords[uk]=Cache,History,Browsing History,Ports,Size,кеш,журнал,історія,перегляд,порти,розмір
-X-KDE-Keywords[x-test]=xxCachexx,xxHistoryxx,xxBrowsing Historyxx,xxPortsxx,xxSizexx
 X-KDE-Keywords[zh_CN]=Cache,History,Browsing History,Ports,Size,缓存,历史,浏览历史,端口,大小
 X-KDE-Keywords[zh_TW]=Cache,History,Browsing History,Ports,Size

@@ -69,7 +69,6 @@ Name[ug]=ئامازون MP3
 Name[uk]=Amazon MP3
 Name[vi]=Amazon MP3
 Name[wa]=Amazon MP3
-Name[x-test]=xxAmazon MP3xx
 Name[zh_CN]=Amazon MP3
 Name[zh_TW]=Amazon MP3
 Query=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=digital-music&field-keywords=\\{@}&x=0&y=0
@@ -103,7 +102,6 @@ Query[sl]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=digital-music
 Query[sv]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=digital-music&field-keywords=\\{@}&x=0&y=0
 Query[tg]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=digital-music&field-keywords=\\{@}&x=0&y=0
 Query[uk]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=digital-music&field-keywords=\\{@}&x=0&y=0
-Query[x-test]=xxhttps://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=digital-music&field-keywords=\\{@}&x=0&y=0xx
 Query[zh_CN]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=digital-music&field-keywords=\\{@}&x=0&y=0
 Query[zh_TW]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=digital-music&field-keywords=\\{@}&x=0&y=0
 X-KDE-ServiceTypes=SearchProvider

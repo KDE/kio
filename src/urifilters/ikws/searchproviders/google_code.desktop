@@ -67,7 +67,6 @@ Name[ug]=Google Code
 Name[uk]=Google Code
 Name[vi]=Google Mã
 Name[wa]=Google Côde
-Name[x-test]=xxGoogle Codexx
 Name[zh_CN]=Google Code
 Name[zh_TW]=Google Code
 Query=https://code.google.com/query/#q=\\{%2520}
@@ -122,7 +121,6 @@ Query[tr]=https://code.google.com/query/#q=\\{%2520}
 Query[ug]=https://code.google.com/query/#q=\\{%2520}
 Query[uk]=https://code.google.com/query/#q=\\{%2520}
 Query[wa]=https://code.google.com/query/#q=\\{%2520}
-Query[x-test]=xxhttps://code.google.com/query/#q=\\{%2520}xx
 Query[zh_CN]=https://code.google.com/query/#q=\\{%2520}
 Query[zh_TW]=https://code.google.com/query/#q=\\{%2520}
 X-KDE-ServiceTypes=SearchProvider

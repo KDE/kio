@@ -82,7 +82,6 @@ Name[uz]=Multitran - Gollanchadan Ruschaga tarjima
 Name[uz@cyrillic]=Multitran - Голланчадан Русчага таржима
 Name[vi]=Multitran - Dịch giữa tiếng Hà Lan và tiếng Nga
 Name[wa]=Multitran - Ratoûne inte li Neyerlandès eyet l' Russe
-Name[x-test]=xxMultitran - Translate Between Dutch and Russianxx
 Name[zh_CN]=Multitran - 在荷兰语和俄语之间互译
 Name[zh_TW]=Multitran - 翻譯荷蘭語和俄語
 X-KDE-ServiceTypes=SearchProvider
@@ -118,6 +117,5 @@ Query[sl]=https://multitran.ru/c/m.exe?l1=24&s=\\{@}
 Query[sv]=https://multitran.ru/c/m.exe?l1=24&s=\\{@}
 Query[tg]=https://multitran.ru/c/m.exe?l1=24&s=\\{@}
 Query[uk]=https://multitran.ru/c/m.exe?l1=24&s=\\{@}
-Query[x-test]=xxhttps://multitran.ru/c/m.exe?l1=24&s=\\{@}xx
 Query[zh_CN]=https://multitran.ru/c/m.exe?l1=24&s=\\{@}
 Query[zh_TW]=https://multitran.ru/c/m.exe?l1=24&s=\\{@}

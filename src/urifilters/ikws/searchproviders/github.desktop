@@ -69,7 +69,6 @@ Name[ug]=GitHub
 Name[uk]=GitHub
 Name[vi]=GitHub
 Name[wa]=GitHub
-Name[x-test]=xxGitHubxx
 Name[zh_CN]=GitHub
 Name[zh_TW]=GitHub
 Query=https://github.com/search?q=\\{@}&x=0&y=0
@@ -125,7 +124,6 @@ Query[tr]=https://github.com/search?q=\\{@}&x=0&y=0
 Query[ug]=https://github.com/search?q=\\{@}&x=0&y=0
 Query[uk]=https://github.com/search?q=\\{@}&x=0&y=0
 Query[wa]=https://github.com/search?q=\\{@}&x=0&y=0
-Query[x-test]=xxhttps://github.com/search?q=\\{@}&x=0&y=0xx
 Query[zh_CN]=https://github.com/search?q=\\{@}&x=0&y=0
 Query[zh_TW]=https://github.com/search?q=\\{@}&x=0&y=0
 X-KDE-ServiceTypes=SearchProvider

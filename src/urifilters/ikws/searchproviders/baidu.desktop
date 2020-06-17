@@ -66,7 +66,6 @@ Name[ug]=Baidu
 Name[uk]=Baidu
 Name[vi]=Baidu
 Name[wa]=Baidu
-Name[x-test]=xxBaiduxx
 Name[zh_CN]=百度
 Name[zh_TW]=百度
 X-KDE-ServiceTypes=SearchProvider
@@ -102,6 +101,5 @@ Query[sl]=https://www.baidu.com/s?wd=\\{@}
 Query[sv]=https://www.baidu.com/s?wd=\\{@}
 Query[tg]=https://www.baidu.com/s?wd=\\{@}
 Query[uk]=https://www.baidu.com/s?wd=\\{@}
-Query[x-test]=xxhttps://www.baidu.com/s?wd=\\{@}xx
 Query[zh_CN]=https://www.baidu.com/s?wd=\\{@}
 Query[zh_TW]=https://www.baidu.com/s?wd=\\{@}

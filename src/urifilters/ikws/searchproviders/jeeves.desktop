@@ -87,7 +87,6 @@ Name[uz@cyrillic]=Ask Jeeves
 Name[vi]=Hỏi Jeeves
 Name[wa]=Ask Jeeves
 Name[xh]=Ask Jeeves
-Name[x-test]=xxAsk Jeevesxx
 Name[zh_CN]=Ask Jeeves
 Name[zh_TW]=Ask Jeeves
 X-KDE-ServiceTypes=SearchProvider
@@ -122,6 +121,5 @@ Query[sl]=https://www.ask.com/main/askJeeves.asp?origin=0&qSource=4&site_name=Je
 Query[sv]=https://www.ask.com/main/askJeeves.asp?origin=0&qSource=4&site_name=Jeeves&metasearch=yes&ask=\\{@}
 Query[tg]=https://www.ask.com/main/askJeeves.asp?origin=0&qSource=4&site_name=Jeeves&metasearch=yes&ask=\\{@}
 Query[uk]=https://www.ask.com/main/askJeeves.asp?origin=0&qSource=4&site_name=Jeeves&metasearch=yes&ask=\\{@}
-Query[x-test]=xxhttps://www.ask.com/main/askJeeves.asp?origin=0&qSource=4&site_name=Jeeves&metasearch=yes&ask=\\{@}xx
 Query[zh_CN]=https://www.ask.com/main/askJeeves.asp?origin=0&qSource=4&site_name=Jeeves&metasearch=yes&ask=\\{@}
 Query[zh_TW]=https://www.ask.com/main/askJeeves.asp?origin=0&qSource=4&site_name=Jeeves&metasearch=yes&ask=\\{@}

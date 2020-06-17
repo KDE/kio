@@ -89,7 +89,6 @@ Name[uz@cyrillic]=RPM қидириш
 Name[vi]=Tìm RPM
 Name[wa]=RPM-Find
 Name[xh]=RPM-Fumana
-Name[x-test]=xxRPM-Findxx
 Name[zh_CN]=RPM-Find
 Name[zh_TW]=RPM-Find
 X-KDE-ServiceTypes=SearchProvider
@@ -125,6 +124,5 @@ Query[sl]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[sv]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[tg]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[uk]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
-Query[x-test]=xxhttps://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}xx
 Query[zh_CN]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[zh_TW]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}

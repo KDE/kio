@@ -87,7 +87,6 @@ Name[uz]=CiteSeer: Aniq fanlar uchun elektron kutubxona
 Name[uz@cyrillic]=CiteSeer: Аниқ фанлар учун электрон кутубхона
 Name[vi]=CiteSeer:Thư viện khoa học và văn học số hoá
 Name[wa]=Cite Seer: Livreye limerike di scrijhaedjes syintifikes
-Name[x-test]=xxCiteSeer: Scientific Literature Digital Libraryxx
 Name[zh_CN]=CiteSeer：科学文献数字图书馆
 Name[zh_TW]=CiteSeer: 科學文獻數位圖書館
 Query=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
@@ -121,7 +120,6 @@ Query[sl]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=d
 Query[sv]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[tg]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[uk]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
-Query[x-test]=xxhttps://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=docxx
 Query[zh_CN]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[zh_TW]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 X-KDE-ServiceTypes=SearchProvider

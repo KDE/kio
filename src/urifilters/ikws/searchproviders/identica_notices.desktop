@@ -68,7 +68,6 @@ Name[ug]=Identi.ca ئۇقتۇرۇشلار
 Name[uk]=Нотатки Identi.ca
 Name[vi]=Identi.ca Chú ý
 Name[wa]=Identi.ca Notices
-Name[x-test]=xxIdenti.ca Noticesxx
 Name[zh_CN]=Identi.ca 通知
 Name[zh_TW]=Identi.ca Notices
 Query=https://identi.ca/search/notice?q=\\{@}
@@ -124,7 +123,6 @@ Query[tr]=https://identi.ca/search/notice?q=\\{@}
 Query[ug]=https://identi.ca/search/notice?q=\\{@}
 Query[uk]=https://identi.ca/search/notice?q=\\{@}
 Query[wa]=https://identi.ca/search/notice?q=\\{@}
-Query[x-test]=xxhttps://identi.ca/search/notice?q=\\{@}xx
 Query[zh_CN]= http://identi.ca/search/notice?q=\\{@}
 Query[zh_TW]=https://identi.ca/search/notice?q=\\{@}
 X-KDE-ServiceTypes=SearchProvider

@@ -70,7 +70,6 @@ Name[ug]=Wolfram Alpha
 Name[uk]=Wolfram Alpha
 Name[vi]=Wolfram Alpha
 Name[wa]=Wolfram Alpha
-Name[x-test]=xxWolfram Alphaxx
 Name[zh_CN]=Wolfram Alpha
 Name[zh_TW]=Wolfram Alpha
 Query=https://www.wolframalpha.com/input/?i=\\{@}
@@ -126,7 +125,6 @@ Query[tr]=https://www.wolframalpha.com/input/?i=\\{@}
 Query[ug]=https://www.wolframalpha.com/input/?i=\\{@}
 Query[uk]=https://www.wolframalpha.com/input/?i=\\{@}
 Query[wa]=https://www.wolframalpha.com/input/?i=\\{@}
-Query[x-test]=xxhttps://www.wolframalpha.com/input/?i=\\{@}xx
 Query[zh_CN]= http://www.wolframalpha.com/input/?i=\\{@}
 Query[zh_TW]=https://www.wolframalpha.com/input/?i=\\{@}
 X-KDE-ServiceTypes=SearchProvider

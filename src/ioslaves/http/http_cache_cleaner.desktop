@@ -49,7 +49,6 @@ Name[tg]=Тозакунандаи зерҳофизаи HTTP
 Name[tr]=HTTP Önbellek Temizleyici
 Name[tt]=HTTP кешын бушату
 Name[uk]=Очищувач кешу HTTP
-Name[x-test]=xxHTTP Cache Cleanerxx
 Name[zh_CN]=HTTP 缓存清除程序
 Name[zh_HK]=HTTP 快取清除程式
 Name[zh_TW]=HTTP 快取清除程式
@@ -103,7 +102,6 @@ Comment[tg]=Вурудҳои куҳнаро аз зерҳофизаи HTTP то�
 Comment[tr]=HTTP önbelleğinden eski girdileri siler
 Comment[tt]=HTTP кэшенда булган иске керемнәрне бетерү
 Comment[uk]=Вичищає старі елементи з кешу HTTP
-Comment[x-test]=xxCleans up old entries from the HTTP cachexx
 Comment[zh_CN]=从 HTTP 缓存中清除旧条目
 Comment[zh_HK]=從 HTTP 快取中清除舊的項目
 Comment[zh_TW]=從 HTTP 快取中清除舊的項目

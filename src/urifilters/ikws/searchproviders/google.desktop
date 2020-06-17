@@ -91,7 +91,6 @@ Name[uz@cyrillic]=Google
 Name[vi]=Google
 Name[wa]=Google
 Name[xh]=Google
-Name[x-test]=xxGooglexx
 Name[zh_CN]=Google
 Name[zh_TW]=Google
 X-KDE-ServiceTypes=SearchProvider
@@ -148,7 +147,6 @@ Query[tr]=https://www.google.com/search?q=\\{@}&ie=UTF-8
 Query[ug]=https://www.google.com/search?q=\\{@}&ie=UTF-8
 Query[uk]=https://www.google.com/search?q=\\{@}&ie=UTF-8
 Query[wa]=https://www.google.com/search?q=\\{@}&ie=UTF-8
-Query[x-test]=xxhttps://www.google.com/search?q=\\{@}&ie=UTF-8xx
 Query[zh_CN]=https://www.google.com/search?q=\\{@}&ie=UTF-8
 Query[zh_TW]=https://www.google.com/search?q=\\{@}&ie=UTF-8
 Suggest=https://www.google.com/complete/search?q=\\{@}&output=toolbar
