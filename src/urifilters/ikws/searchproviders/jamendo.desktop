@@ -70,6 +70,7 @@ Name[ug]=Jamendo
 Name[uk]=Jamendo
 Name[vi]=Jamendo
 Name[wa]=Jamendo
+Name[x-test]=xxJamendoxx
 Name[zh_CN]=Jamendo
 Name[zh_TW]=Jamendo
 Query=https://www.jamendo.com/en/search?qs=q=\\{@}
@@ -102,6 +103,7 @@ Query[sl]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[sv]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[tg]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[uk]=https://www.jamendo.com/en/search?qs=q=\\{@}
+Query[x-test]=xxhttps://www.jamendo.com/en/search?qs=q=\\{@}xx
 Query[zh_CN]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[zh_TW]=https://www.jamendo.com/en/search?qs=q=\\{@}
 X-KDE-ServiceTypes=SearchProvider

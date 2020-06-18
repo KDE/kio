@@ -40,6 +40,7 @@ Name[sv]=Arch Linux-paketsökning
 Name[tg]=Ҷустуҷӯи бастаҳои Arch Linux
 Name[tr]=Arch Linux Paket Araması
 Name[uk]=Пошук пакунків для Arch Linux
+Name[x-test]=xxArch Linux Package Searchxx
 Name[zh_CN]=Arch Linux 软件包搜索
 Name[zh_TW]=Arch Linux 軟體包搜尋
 Query=https://www.archlinux.org/packages/?q=\\{@}
@@ -73,6 +74,7 @@ Query[sl]=https://www.archlinux.org/packages/?q=\\{@}
 Query[sv]=https://www.archlinux.org/packages/?q=\\{@}
 Query[tg]=https://www.archlinux.org/packages/?q=\\{@}
 Query[uk]=https://www.archlinux.org/packages/?q=\\{@}
+Query[x-test]=xxhttps://www.archlinux.org/packages/?q=\\{@}xx
 Query[zh_CN]=https://www.archlinux.org/packages/?q=\\{@}
 Query[zh_TW]=https://www.archlinux.org/packages/?q=\\{@}
 X-KDE-ServiceTypes=SearchProvider

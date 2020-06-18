@@ -90,6 +90,7 @@ Name[uz]=KDE API boʻyicha qoʻllanmalar
 Name[uz@cyrillic]=KDE API бўйича қўлланмалар
 Name[vi]=Tài liệu về API của KDE
 Name[wa]=Documintåcion di l' API di KDE
+Name[x-test]=xxKDE API Documentationxx
 Name[zh_CN]=KDE API 文档
 Name[zh_TW]=KDE API 文件
 Query=https://api.kde.org/classmapper.php?class=\\{@}
@@ -123,6 +124,7 @@ Query[sl]=https://api.kde.org/classmapper.php?class=\\{@}
 Query[sv]=https://api.kde.org/classmapper.php?class=\\{@}
 Query[tg]=https://api.kde.org/classmapper.php?class=\\{@}
 Query[uk]=https://api.kde.org/classmapper.php?class=\\{@}
+Query[x-test]=xxhttps://api.kde.org/classmapper.php?class=\\{@}xx
 Query[zh_CN]=https://api.kde.org/classmapper.php?class=\\{@}
 Query[zh_TW]=https://api.kde.org/classmapper.php?class=\\{@}
 X-KDE-ServiceTypes=SearchProvider

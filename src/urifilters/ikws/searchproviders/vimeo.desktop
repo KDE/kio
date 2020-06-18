@@ -69,6 +69,7 @@ Name[ug]=Vimeo
 Name[uk]=Vimeo
 Name[vi]=Vimeo
 Name[wa]=Vimeo
+Name[x-test]=xxVimeoxx
 Name[zh_CN]=Vimeo
 Name[zh_TW]=Vimeo
 Query=https://vimeo.com/search?q=\\{@}
@@ -102,6 +103,7 @@ Query[sl]=https://vimeo.com/search?q=\\{@}
 Query[sv]=https://vimeo.com/search?q=\\{@}
 Query[tg]=https://vimeo.com/search?q=\\{@}
 Query[uk]=https://vimeo.com/search?q=\\{@}
+Query[x-test]=xxhttps://vimeo.com/search?q=\\{@}xx
 Query[zh_CN]=https://vimeo.com/search?q=\\{@}
 Query[zh_TW]=https://vimeo.com/search?q=\\{@}
 X-KDE-ServiceTypes=SearchProvider

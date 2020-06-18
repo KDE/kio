@@ -87,6 +87,7 @@ Name[uz]=Google - Kino
 Name[uz@cyrillic]=Google - Кино
 Name[vi]=Tìm phim ảnh qua Google
 Name[wa]=Google Movies
+Name[x-test]=xxGoogle Moviesxx
 Name[zh_CN]=Google 电影
 Name[zh_TW]=Google 電影
 X-KDE-ServiceTypes=SearchProvider
@@ -121,6 +122,7 @@ Query[sl]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[sv]=https://www.google.se/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[tg]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[uk]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
+Query[x-test]=xxhttps://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8xx
 Query[zh_CN]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[zh_TW]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Charset=utf8

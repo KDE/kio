@@ -89,6 +89,7 @@ Name[uz@cyrillic]=Google - Расм қидириш
 Name[vi]=Tìm kiếm Hình ảnh Google
 Name[wa]=Cweraedje d' imådjes avou Google
 Name[xh]=Uphendlo Lomfanekiso we Google
+Name[x-test]=xxGoogle Image Searchxx
 Name[zh_CN]=Google 图像搜索
 Name[zh_TW]=Google 圖片搜尋
 X-KDE-ServiceTypes=SearchProvider
@@ -145,5 +146,6 @@ Query[tr]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[ug]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[uk]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[wa]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
+Query[x-test]=xxhttps://www.google.com/search?site=imghp&tbm=isch&q=\\{@}xx
 Query[zh_CN]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[zh_TW]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}

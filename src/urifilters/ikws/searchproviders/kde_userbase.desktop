@@ -68,6 +68,7 @@ Name[ug]=KDE UserBase
 Name[uk]=UserBase KDE
 Name[vi]=KDE UserBase
 Name[wa]=KDE UserBase (Uzeus)
+Name[x-test]=xxKDE UserBasexx
 Name[zh_CN]=KDE 用户信息库
 Name[zh_TW]=KDE UserBase
 Query=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
@@ -100,6 +101,7 @@ Query[sl]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[sv]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[tg]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[uk]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
+Query[x-test]=xxhttps://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Searchxx
 Query[zh_CN]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[zh_TW]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 X-KDE-ServiceTypes=SearchProvider

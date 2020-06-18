@@ -66,6 +66,7 @@ Name[ug]=Flickr ئاممىۋى ئىجادىيەت
 Name[uk]=Flickr Creative Commons
 Name[vi]=Flickr Creative Commons
 Name[wa]=Flickr Creative Commons
+Name[x-test]=xxFlickr Creative Commonsxx
 Name[zh_CN]=Flickr 公用创作物
 Name[zh_TW]=Flickr Creative Commons
 Query=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
@@ -121,6 +122,7 @@ Query[tr]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[ug]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[uk]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[wa]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
+Query[x-test]=xxhttps://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1xx
 Query[zh_CN]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[zh_TW]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 X-KDE-ServiceTypes=SearchProvider

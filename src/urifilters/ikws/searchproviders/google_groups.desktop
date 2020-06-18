@@ -89,6 +89,7 @@ Name[uz@cyrillic]=Google - Гуруҳлар
 Name[vi]=Google Nhóm
 Name[wa]=Google Groups
 Name[xh]=Amaqela e Google
+Name[x-test]=xxGoogle Groupsxx
 Name[zh_CN]=Google 兴趣小组
 Name[zh_TW]=Google 群組
 X-KDE-ServiceTypes=SearchProvider
@@ -145,5 +146,6 @@ Query[tr]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
 Query[ug]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
 Query[uk]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
 Query[wa]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
+Query[x-test]=xxhttps://groups.google.com/groups?oi=djq&as_q=\\{@}xx
 Query[zh_CN]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
 Query[zh_TW]=https://groups.google.com/groups?oi=djq&as_q=\\{@}

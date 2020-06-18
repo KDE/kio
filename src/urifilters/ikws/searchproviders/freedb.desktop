@@ -88,6 +88,7 @@ Name[uz]=FreeDB
 Name[uz@cyrillic]=FreeDB
 Name[vi]=Tra FreeDB
 Name[wa]=FreeDB
+Name[x-test]=xxFreeDBxx
 Name[zh_CN]=FreeDB
 Name[zh_TW]=FreeDB
 X-KDE-ServiceTypes=SearchProvider
@@ -179,6 +180,7 @@ Query[uz]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[uz@cyrillic]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[vi]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[wa]=http://www.freedb.org/freedb_search.php?words=\\{@}
+Query[x-test]=xxhttp://www.freedb.org/freedb_search.php?words=\\{@}xx
 Query[zh_CN]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[zh_TW]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Charset=utf8

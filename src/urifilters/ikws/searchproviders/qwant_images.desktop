@@ -41,6 +41,7 @@ Name[sv]=Qwant-bilder
 Name[tg]=Тасвирҳои Qwant
 Name[tr]=Qwant Resimleri
 Name[uk]=Зображення Qwant
+Name[x-test]=xxQwant Imagesxx
 Name[zh_CN]=Qwant 图像
 Name[zh_TW]=Qwant Images
 Query=https://www.qwant.com/single?q=\\{@}&client=kde&source=images
@@ -86,6 +87,7 @@ Query[sv]=https://www.qwant.com/single?q=\\{@}&client=kde&source=images
 Query[tg]=https://www.qwant.com/single?q=\\{@}&client=kde&source=images
 Query[tr]=https://www.qwant.com/single?q=\\{@}&client=kde&source=images
 Query[uk]=https://www.qwant.com/single?q=\\{@}&client=kde&source=images
+Query[x-test]=xxhttps://www.qwant.com/single?q=\\{@}&client=kde&source=imagesxx
 Query[zh_CN]=https://www.qwant.com/single?q=\\{@}&client=kde&source=images
 Query[zh_TW]=https://www.qwant.com/single?q=\\{@}&client=kde&source=images
 X-KDE-ServiceTypes=SearchProvider

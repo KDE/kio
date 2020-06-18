@@ -52,6 +52,7 @@ Name[tr]=Qt4 Belgelendirmesi
 Name[ug]=Qt4 قوللانمىسى
 Name[uk]=Документація з Qt4
 Name[wa]=Documintåcion di Qt4
+Name[x-test]=xxQt4 Documentationxx
 Name[zh_CN]=Qt4 文档
 Name[zh_TW]=Qt4 文件
 X-KDE-ServiceTypes=SearchProvider
@@ -92,5 +93,6 @@ Query[sr@latin]=https://doc.qt.io/archives/qt-4.8/search-results.html?q=\\{@}
 Query[sv]=https://doc.qt.io/archives/qt-4.8/search-results.html?q=\\{@}
 Query[tg]=https://doc.qt.io/archives/qt-4.8/search-results.html?q=\\{@}
 Query[uk]=https://doc.qt.io/archives/qt-4.8/search-results.html?q=\\{@}
+Query[x-test]=xxhttps://doc.qt.io/archives/qt-4.8/search-results.html?q=\\{@}xx
 Query[zh_CN]=https://doc.qt.io/archives/qt-4.8/search-results.html?q=\\{@}
 Query[zh_TW]=https://doc.qt.io/archives/qt-4.8/search-results.html?q=\\{@}

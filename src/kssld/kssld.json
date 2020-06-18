@@ -39,6 +39,7 @@
         "Description[tg]": "Сиёсати гувоҳиномаи SSL-ро ба барномаҳо таъмин менамояд",
         "Description[tr]": "Uygulamalara SSL sertifika ilkesi sağlar",
         "Description[uk]": "Правила роботи з сертифікатами SSL для програм",
+        "Description[x-test]": "xxProvides SSL certificate policy to applicationsxx",
         "Description[zh_CN]": "向应用程序提供 SSL 证书策略",
         "Description[zh_TW]": "提供 SSL 憑證政策給應用程式",
         "Name": "SSL Certificate Policy",
@@ -80,6 +81,7 @@
         "Name[tg]": "Сиёсати гувоҳиномаи SSL",
         "Name[tr]": "SSL Sertifika Politikası",
         "Name[uk]": "Правила для сертифікатів SSL",
+        "Name[x-test]": "xxSSL Certificate Policyxx",
         "Name[zh_CN]": "SSL 证书策略",
         "Name[zh_TW]": "SSL 憑證政策",
         "ServiceTypes": [

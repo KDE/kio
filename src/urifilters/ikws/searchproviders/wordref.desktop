@@ -88,6 +88,7 @@ Name[uz]=WordReference.com Inglizcha lugʻat
 Name[uz@cyrillic]=WordReference.com Инглизча луғат
 Name[vi]=Từ điển tiếng Anh WordReference.com
 Name[wa]=WordReference.com diccionaire inglès
+Name[x-test]=xxWordReference.com English Dictionaryxx
 Name[zh_CN]=WordReference.com 英语字典
 Name[zh_TW]=WordReference.com 英文字典
 Query=https://www.wordreference.com/english/definition.asp?en=\\{@}
@@ -120,6 +121,7 @@ Query[sl]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[sv]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[tg]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[uk]=https://www.wordreference.com/english/definition.asp?en=\\{@}
+Query[x-test]=xxhttps://www.wordreference.com/english/definition.asp?en=\\{@}xx
 Query[zh_CN]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[zh_TW]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 X-KDE-ServiceTypes=SearchProvider

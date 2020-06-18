@@ -87,6 +87,7 @@ Name[uz@cyrillic]=CTAN - TeX бўйича мукаммал архив тармо
 Name[vi]=CTAN - Mạng kho lưu TeX đầy đủ
 Name[wa]=CPAN - Rantoele d' Årtchives TeX avou ttafwait
 Name[xh]=CTAN - Enomxholo TeX Indawo yokugcina Yomsebenzi womnatha
+Name[x-test]=xxCTAN - Comprehensive TeX Archive Networkxx
 Name[zh_CN]=CTAN - 综合性 TeX 档案网络
 Name[zh_TW]=CTAN - 全面的 Tex 收集網路
 Query=https://ctan.org/search?phrase=\\{@}
@@ -120,6 +121,7 @@ Query[sl]=https://ctan.org/search?phrase=\\{@}
 Query[sv]=https://ctan.org/search?phrase=\\{@}
 Query[tg]=https://ctan.org/search?phrase=\\{@}
 Query[uk]=https://ctan.org/search?phrase=\\{@}
+Query[x-test]=xxhttps://ctan.org/search?phrase=\\{@}xx
 Query[zh_CN]=https://ctan.org/search?phrase=\\{@}
 Query[zh_TW]=https://ctan.org/search?phrase=\\{@}
 X-KDE-ServiceTypes=SearchProvider

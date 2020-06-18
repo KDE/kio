@@ -87,6 +87,7 @@ Name[uz]=CTAN katalogi
 Name[uz@cyrillic]=CTAN каталоги
 Name[vi]=Phân loại CTAN
 Name[wa]=Catalogue do CTAN
+Name[x-test]=xxCTAN Catalogxx
 Name[zh_CN]=CTAN 目录
 Name[zh_TW]=CTAN 目錄
 Query=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search
@@ -169,6 +170,7 @@ Query[uz]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSea
 Query[uz@cyrillic]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search
 Query[vi]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search
 Query[wa]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search
+Query[x-test]=xxhttp://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Searchxx
 Query[zh_CN]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search
 Query[zh_TW]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search
 X-KDE-ServiceTypes=SearchProvider

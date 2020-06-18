@@ -51,6 +51,7 @@ Description[tg]=Вазифаи kioslave барои иттилооти URI (rfc23
 Description[tr]=Veri adresleri için bir kioslave (rfc2397)
 Description[tt]=URI файлы өчен kioslave (rfc2397)
 Description[uk]=Підлеглий В/В для адрес (URI) даних (rfc2397)
+Description[x-test]=xxA kioslave for data URIs (rfc2397)xx
 Description[zh_CN]=用于数据 URI(rfc2397) 的 kioslave
 Description[zh_TW]=A kioslave for data URIs (rfc2397)
 X-DocPath=kioslave5/data/index.html

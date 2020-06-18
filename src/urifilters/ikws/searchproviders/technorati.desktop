@@ -87,6 +87,7 @@ Name[uz]=Technorati
 Name[uz@cyrillic]=Technorati
 Name[vi]=Technorati
 Name[wa]=Technorati
+Name[x-test]=xxTechnoratixx
 Name[zh_CN]=Technorati
 Name[zh_TW]=Technorati
 X-KDE-ServiceTypes=SearchProvider
@@ -122,6 +123,7 @@ Query[sl]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[sv]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[tg]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[uk]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
+Query[x-test]=xxhttps://technorati.com/search?return=sites&authority=high&q=\\{@}xx
 Query[zh_CN]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[zh_TW]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Charset=utf8

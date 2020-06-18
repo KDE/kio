@@ -95,6 +95,7 @@ Name[uz@cyrillic]=Веб-қисқартмалари
 Name[vi]=Lối tắt Mạng
 Name[wa]=Rascourtis waibe
 Name[xh]=Ezimfutshane ze Web
+Name[x-test]=xxWeb Shortcutsxx
 Name[zh_CN]=网页快捷方式
 Name[zh_TW]=網頁捷徑
 
@@ -141,6 +142,7 @@ Comment[sv]=Anpassa webbgenvägar
 Comment[tg]=Танзимоти миёнбурҳои интернетӣ
 Comment[tr]=Web kısayollarını yapılandır
 Comment[uk]=Налаштування вебскорочень
+Comment[x-test]=xxConfigure web shortcutsxx
 Comment[zh_CN]=配置网页快捷键
 Comment[zh_TW]=設定網頁捷徑
 
@@ -184,6 +186,7 @@ X-KDE-Keywords[sv]=Webbgenvägar,bläddra,WWW,Internet,Internetfilter,Nätverk,S
 X-KDE-Keywords[tg]=Миёнбурҳои интернетӣ,Тамошокунӣ,WWW,Интернет,Полоши интернетӣ,Шабака,Низомҳои ҷустуҷӯ,Миёнбурҳо
 X-KDE-Keywords[tr]=Web Kısayolları,Tarama,WWW,İnternet,İnternet Filtreleri,Ağ,Arama Motorları,Kısayollar
 X-KDE-Keywords[uk]=Web Shortcuts,Browsing,WWW,Internet,Internet Filters,Network,Search Engines,Shortcuts,додатково,додатковий,інтернет,фільтри,фільтрування,фільтр,мережа,рушій,пошук,рушії пошуку,скорочення,вебскорочення
+X-KDE-Keywords[x-test]=xxWeb Shortcutsxx,xxBrowsingxx,xxWWWxx,xxInternetxx,xxInternet Filtersxx,xxNetworkxx,xxSearch Enginesxx,xxShortcutsxx
 X-KDE-Keywords[zh_CN]=Web Shortcuts,Browsing,WWW,Internet,Internet Filters,Network,Search Engines,Shortcuts,网页快捷键,浏览,互联网,搜索引擎,快捷键,网络
 X-KDE-Keywords[zh_TW]=Web Shortcuts,Browsing,WWW,Internet,Internet Filters,Network,Search Engines,Shortcuts
 

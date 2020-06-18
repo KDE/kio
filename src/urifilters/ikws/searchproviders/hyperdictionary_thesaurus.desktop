@@ -87,6 +87,7 @@ Name[uz]=HyperDictionary.com lugʻati
 Name[uz@cyrillic]=HyperDictionary.com луғати
 Name[vi]=Từ điển đồng nghĩa HyperDictionary.com
 Name[wa]=Motî HyperDictionary.com
+Name[x-test]=xxHyperDictionary.com Thesaurusxx
 Name[zh_CN]=HyperDictionary.com 宝藏
 Name[zh_TW]=HyperDictionary.com 辭典
 X-KDE-ServiceTypes=SearchProvider
@@ -178,5 +179,6 @@ Query[uz]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
 Query[uz@cyrillic]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
 Query[vi]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
 Query[wa]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
+Query[x-test]=xxhttp://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}xx
 Query[zh_CN]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
 Query[zh_TW]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}

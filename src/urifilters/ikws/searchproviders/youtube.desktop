@@ -68,6 +68,7 @@ Name[ug]=YouTube
 Name[uk]=YouTube
 Name[vi]=YouTube
 Name[wa]=YouTube
+Name[x-test]=xxYouTubexx
 Name[zh_CN]=YouTube
 Name[zh_TW]=YouTube
 Query=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
@@ -123,6 +124,7 @@ Query[tr]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
 Query[ug]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
 Query[uk]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
 Query[wa]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
+Query[x-test]=xxhttps://www.youtube.com/results?search_query=\\{@}&search_type=&aq=fxx
 Query[zh_CN]= http://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
 Query[zh_TW]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
 X-KDE-ServiceTypes=SearchProvider

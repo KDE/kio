@@ -87,6 +87,7 @@ Name[uz@cyrillic]=Google (Омадим борга ўхшайди)
 Name[vi]=Google (Xem một trang)
 Name[wa]=Google (Dji tchai roed dssus)
 Name[xh]=Google (I'm Feeling Lucky)
+Name[x-test]=xxGoogle (I'm Feeling Lucky)xx
 Name[zh_CN]=Google (手气不错)
 Name[zh_TW]=Google (好手氣)
 X-KDE-ServiceTypes=SearchProvider
@@ -143,6 +144,7 @@ Query[tr]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-
 Query[ug]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
 Query[uk]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
 Query[wa]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
+Query[x-test]=xxhttps://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8xx
 Query[zh_CN]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
 Query[zh_TW]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
 Charset=utf8

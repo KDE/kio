@@ -87,6 +87,7 @@ Name[uz@cyrillic]=CPAN - Perl бўйича мукаммал архив тарм�
 Name[vi]=CPAN - Mạng kho lưu Perl đầy đủ
 Name[wa]=CPAN - Rantoele d' Årtchives Perl avou ttafwait
 Name[xh]=CPAN - Enomxholo Perl Indawo yokugcina Yomsebenzi womnatha
+Name[x-test]=xxCPAN - Comprehensive Perl Archive Networkxx
 Name[zh_CN]=CPAN - 综合性 Perl 档案网络
 Name[zh_TW]=CPAN - 全面的 Perl 收集網路
 Query=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
@@ -120,6 +121,7 @@ Query[sl]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[sv]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[tg]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[uk]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
+Query[x-test]=xxhttps://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}xx
 Query[zh_CN]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[zh_TW]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 X-KDE-ServiceTypes=SearchProvider

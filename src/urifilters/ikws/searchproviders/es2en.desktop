@@ -87,6 +87,7 @@ Name[uz]=WordReference.com tarjima: Ispanchadan Inglizchaga
 Name[uz@cyrillic]=WordReference.com таржима: Испанчадан Инглизчага
 Name[vi]=WordReference.com Dịch: Tiếng Tây Ban Nha sang tiếng Anh
 Name[wa]=WordReference.com ratournaedje do castiyan viè l' inglès
+Name[x-test]=xxWordReference.com Translation: Spanish to Englishxx
 Name[zh_CN]=WordReference.com 翻译：西班牙语译英语
 Name[zh_TW]=WordReference.com 翻譯: 西班牙文至英文
 Query=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
@@ -119,6 +120,7 @@ Query[sl]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[sv]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[tg]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[uk]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
+Query[x-test]=xxhttps://www.wordreference.com/es/en/translation.asp?spen=\\{@}xx
 Query[zh_CN]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[zh_TW]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 X-KDE-ServiceTypes=SearchProvider

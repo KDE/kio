@@ -68,6 +68,7 @@ Name[ug]=Duck Duck Go
 Name[uk]=Duck Duck Go
 Name[vi]=Duck Duck Go
 Name[wa]=Duck Duck Go
+Name[x-test]=xxDuck Duck Goxx
 Name[zh_CN]=Duck Duck Go
 Name[zh_TW]=Duck Duck Go
 Query=https://duckduckgo.com/?q=\\{@}&t=kde
@@ -122,6 +123,7 @@ Query[tr]=https://duckduckgo.com/?q=\\{@}&t=kde
 Query[ug]=https://duckduckgo.com/?q=\\{@}&t=kde
 Query[uk]=https://duckduckgo.com/?q=\\{@}&t=kde
 Query[wa]=https://duckduckgo.com/?q=\\{@}&t=kde
+Query[x-test]=xxhttps://duckduckgo.com/?q=\\{@}&t=kdexx
 Query[zh_CN]=https://duckduckgo.com/?q=\\{@}&t=kde
 Query[zh_TW]=https://duckduckgo.com/?q=\\{@}&t=kde
 X-KDE-ServiceTypes=SearchProvider

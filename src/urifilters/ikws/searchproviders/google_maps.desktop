@@ -66,6 +66,7 @@ Name[ug]=Google خەرىتە
 Name[uk]=Карти Google
 Name[vi]=Google Bản Đồ
 Name[wa]=Google Mapes
+Name[x-test]=xxGoogle Mapsxx
 Name[zh_CN]=Google 地图
 Name[zh_TW]=Google 地圖
 X-KDE-ServiceTypes=SearchProvider
@@ -122,5 +123,6 @@ Query[tr]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[ug]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[uk]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[wa]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
+Query[x-test]=xxhttps://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addrxx
 Query[zh_CN]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[zh_TW]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr

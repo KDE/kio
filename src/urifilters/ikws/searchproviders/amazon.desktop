@@ -68,6 +68,7 @@ Name[ug]=ئامازون
 Name[uk]=Amazon
 Name[vi]=Amazon
 Name[wa]=Amazon
+Name[x-test]=xxAmazonxx
 Name[zh_CN]=Amazon
 Name[zh_TW]=Amazon
 Query=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=aps&field-keywords=\\{@}&x=0&y=0
@@ -101,6 +102,7 @@ Query[sl]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=aps&field-key
 Query[sv]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=aps&field-keywords=\\{@}&x=0&y=0
 Query[tg]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=aps&field-keywords=\\{@}&x=0&y=0
 Query[uk]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=aps&field-keywords=\\{@}&x=0&y=0
+Query[x-test]=xxhttps://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=aps&field-keywords=\\{@}&x=0&y=0xx
 Query[zh_CN]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=aps&field-keywords=\\{@}&x=0&y=0
 Query[zh_TW]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=aps&field-keywords=\\{@}&x=0&y=0
 X-KDE-ServiceTypes=SearchProvider

@@ -67,6 +67,7 @@ Name[ug]=Duck Duck Go ئۇچۇرى
 Name[uk]=Duck Duck Go Info
 Name[vi]=Duck Duck Go Thông Tin
 Name[wa]=Duck Duck Go Info
+Name[x-test]=xxDuck Duck Go Infoxx
 Name[zh_CN]=Duck Duck Go 信息
 Name[zh_TW]=Duck Duck Go Info
 Query=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
@@ -121,6 +122,7 @@ Query[tr]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[ug]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[uk]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[wa]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
+Query[x-test]=xxhttps://duckduckgo.com/?q=\\{@}&v=r&t=kdexx
 Query[zh_CN]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[zh_TW]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 X-KDE-ServiceTypes=SearchProvider
