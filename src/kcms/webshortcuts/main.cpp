@@ -95,6 +95,7 @@ KURIFilterModule::KURIFilterModule(QWidget *parent, const QVariantList &args)
     if (m_widget) {
         layout->addWidget(m_widget);
     }
+    setMinimumWidth(600);
 }
 
 void KURIFilterModule::load()
