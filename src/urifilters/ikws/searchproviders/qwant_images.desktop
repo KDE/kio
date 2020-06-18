@@ -44,7 +44,7 @@ Name[uk]=Зображення Qwant
 Name[x-test]=xxQwant Imagesxx
 Name[zh_CN]=Qwant 图像
 Name[zh_TW]=Qwant Images
-Query=https://www.qwant.com/single?q=\\{@}&client=kde&source=images
+Query=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[ast]=https://www.qwant.com/single?q=\\{@}&client=kde&source=images
 Query[az]=https://www.qwant.com/single?q=\\{@}&client=kde&source=images
 Query[ca]=https://www.qwant.com/single?q=\\{@}&client=kde&source=images

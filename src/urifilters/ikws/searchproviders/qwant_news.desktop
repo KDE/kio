@@ -44,7 +44,7 @@ Name[uk]=Новини Qwant
 Name[x-test]=xxQwant Newsxx
 Name[zh_CN]=Qwant 新闻
 Name[zh_TW]=Qwant News
-Query=https://www.qwant.com/single?q=\\{@}&client=kde&source=news
+Query=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[ast]=https://www.qwant.com/single?q=\\{@}&client=kde&source=news
 Query[az]=https://www.qwant.com/single?q=\\{@}&client=kde&source=news
 Query[ca]=https://www.qwant.com/single?q=\\{@}&client=kde&source=news

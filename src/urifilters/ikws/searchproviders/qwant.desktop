@@ -45,7 +45,7 @@ Name[uk]=Qwant
 Name[x-test]=xxQwantxx
 Name[zh_CN]=Qwant
 Name[zh_TW]=Qwant
-Query=https://www.qwant.com/?q=\\{@}&client=kde&source=web
+Query=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[ast]=https://www.qwant.com/?q=\\{@}&client=kde&source=web
 Query[az]=https://www.qwant.com/?q=\\{@}&client=kde&source=web
 Query[ca]=https://www.qwant.com/?q=\\{@}&client=kde&source=web

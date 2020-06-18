@@ -44,7 +44,7 @@ Name[uk]=Торгівля Qwant
 Name[x-test]=xxQwant Shoppingxx
 Name[zh_CN]=Qwant 购物
 Name[zh_TW]=Qwant Shopping
-Query=https://www.qwant.com/single?q=\\{@}&client=kde&source=shopping
+Query=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[ast]=https://www.qwant.com/single?q=\\{@}&client=kde&source=shopping
 Query[az]=https://www.qwant.com/single?q=\\{@}&client=kde&source=shopping
 Query[ca]=https://www.qwant.com/single?q=\\{@}&client=kde&source=shopping
