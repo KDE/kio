@@ -67,9 +67,14 @@ void FileSystemFreeSpaceJobPrivate::start(Slave *slave)
 
 void FileSystemFreeSpaceJob::slotFinished()
 {
-    KIO::filesize_t total = queryMetaData(QStringLiteral("total")).toULongLong();
-    KIO::filesize_t available = queryMetaData(QStringLiteral("available")).toULongLong();
+    const QString totalStr = queryMetaData(QStringLiteral("total"));
+    const QString availableStr = queryMetaData(QStringLiteral("available"));
 
+    if (availableStr.isEmpty()) { // CopyJob only cares for available. "total" is optional
+        setError(KIO::ERR_UNSUPPORTED_ACTION);
+    }
+    const KIO::filesize_t total = totalStr.toULongLong();
+    const KIO::filesize_t available = availableStr.toULongLong();
     emit result(this, total, available);
 
     // Return slave to the scheduler
