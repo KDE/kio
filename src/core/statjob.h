@@ -229,9 +229,9 @@ KIOCORE_EXPORT StatJob *statDetails(const QUrl &url, KIO::StatJob::StatSide side
  * "it's a file or a directory or a symlink, or it doesn't exist". This is used by KRun and DeleteJob.
  * @param flags Can be HideProgressInfo here
  * @return the job handling the operation.
- * @deprecated since 5.69, use statDetails(const QUrl &, KIO::StatSide, KIO::StatDetails, JobFlags)
+ * @deprecated since 5.69, use statDetails(const QUrl &, KIO::StatJob::StatSide, KIO::StatDetails, JobFlags)
  */
-KIOCORE_DEPRECATED_VERSION(5, 69, "Use KIO::statDetails(const QUrl &, KIO::StatSide, KIO::StatDetails details, JobFlags)")
+KIOCORE_DEPRECATED_VERSION(5, 69, "Use KIO::statDetails(const QUrl &, KIO::StatJob::StatSide, KIO::StatDetails, JobFlags)")
 KIOCORE_EXPORT StatJob *stat(const QUrl &url, KIO::StatJob::StatSide side,
                              short int details, JobFlags flags = DefaultFlags);
 #endif
