@@ -316,7 +316,8 @@ void FilterOptions::load()
 
     for (SearchProvider *provider : providers) {
         if (defaultSearchEngine == provider->desktopEntryName()) {
-            defaultProviderIndex = providers.size();
+            defaultProviderIndex = providers.indexOf(provider);
+            break;
         }
     }
 
