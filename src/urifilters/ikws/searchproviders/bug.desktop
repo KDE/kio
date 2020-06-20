@@ -1,6 +1,6 @@
 [Desktop Entry]
-Keys=bugft
-Name=KDE Bug Database Fulltext Search
+Keys=bug,bugft,bugno,bugnr
+Name=KDE Bugzilla
 Name[af]=KDE Fout Databasis voltext Soektog
 Name[ar]=بحث قاعدة بيانات علل كدي عبر النص كاملًا
 Name[as]=KDE Bug Database Fulltext Search
