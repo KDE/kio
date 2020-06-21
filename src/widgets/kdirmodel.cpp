@@ -1217,10 +1217,18 @@ bool KDirModel::hasChildren(const QModelIndex &parent) const
         return !static_cast<const KDirModelDirNode *>(parentNode)->m_childNodes.isEmpty();
     }
     if (parentItem.isLocalFile()) {
-        QDir::Filters filters = QDir::Dirs | QDir::NoSymLinks | QDir::NoDotAndDotDot;
-        if (!d->m_dirLister->dirOnlyMode()) {
-            filters |= QDir::Files;
+        QDir::Filters filters = QDir::Dirs | QDir::NoDotAndDotDot;
+
+        if (d->m_dirLister->dirOnlyMode()) {
+            filters |= QDir::NoSymLinks;
+        } else {
+            filters |= QDir::Files | QDir::System;
         }
+
+        if (d->m_dirLister->showingDotFiles()) {
+            filters |= QDir::Hidden;
+        }
+
         QDirIterator it(parentItem.localPath(), filters,  QDirIterator::Subdirectories);
         return it.hasNext();
     }

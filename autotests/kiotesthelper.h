@@ -94,7 +94,24 @@ static void createTestSymlink(const QString &path, const QByteArray &target = "/
     QVERIFY(QFileInfo(path).isSymLink());
 }
 
-enum CreateTestDirectoryOptions { DefaultOptions = 0, NoSymlink = 1 };
+static void createTestPipe(const QString &path)
+{
+#ifndef Q_OS_WIN
+    int ok = mkfifo(QFile::encodeName(path), S_IWUSR | S_IRUSR | S_IRGRP | S_IROTH);
+    if (ok != 0) {
+        qFatal("couldn't create named pipe: %s", strerror(errno));
+    }
+    QT_STATBUF buf;
+    QVERIFY(QT_LSTAT(QFile::encodeName(path), &buf) == 0);
+    QVERIFY(S_ISFIFO(buf.st_mode));
+#else
+    // to not change the filecount everywhere in the tests
+    createTestFile(path + QStringLiteral(path));
+#endif
+    QVERIFY(QFileInfo(path).exists());
+}
+
+enum CreateTestDirectoryOptions { DefaultOptions = 0, NoSymlink = 1, Empty = 2 };
 static inline void createTestDirectory(const QString &path, CreateTestDirectoryOptions opt = DefaultOptions)
 {
     QDir dir;
@@ -102,15 +119,18 @@ static inline void createTestDirectory(const QString &path, CreateTestDirectoryO
     if (!ok && !dir.exists()) {
         qFatal("Couldn't create %s", qPrintable(path));
     }
-    createTestFile(path + QStringLiteral("/testfile"));
-    if ((opt & NoSymlink) == 0) {
+
+    if((opt & Empty) == 0){
+        createTestFile(path + QStringLiteral("/testfile"));
+        if ((opt & NoSymlink) == 0) {
 #ifndef Q_OS_WIN
-        createTestSymlink(path + QStringLiteral("/testlink"));
-        QVERIFY(QFileInfo(path + QStringLiteral("/testlink")).isSymLink());
+            createTestSymlink(path + QStringLiteral("/testlink"));
+            QVERIFY(QFileInfo(path + QStringLiteral("/testlink")).isSymLink());
 #else
-        // to not change the filecount everywhere in the tests
-        createTestFile(path + QStringLiteral("/testlink"));
+            // to not change the filecount everywhere in the tests
+            createTestFile(path + QStringLiteral("/testlink"));
 #endif
+        }
     }
     setTimeStamp(path, s_referenceTimeStamp);
 }

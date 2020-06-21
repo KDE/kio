@@ -97,6 +97,16 @@ void KDirModelTest::recreateTestData()
      * PATH/subdir/testsymlink
      * PATH/subdir/subsubdir
      * PATH/subdir/subsubdir/testfile
+     * PATH/subdir/hasChildren
+     * PATH/subdir/hasChildren/emptyDir
+     * PATH/subdir/hasChildren/hiddenfileDir
+     * PATH/subdir/hasChildren/hiddenfileDir/.hidden
+     * PATH/subdir/hasChildren/hiddenDirDir
+     * PATH/subdir/hasChildren/hiddenDirDir/.hidden
+     * PATH/subdir/hasChildren/symlinkDir
+     * PATH/subdir/hasChildren/symlinkDir/link
+     * PATH/subdir/hasChildren/pipeDir
+     * PATH/subdir/hasChildren/pipeDir/pipe
      */
     const QString path = m_tempDir->path() + '/';
     for (const QString &f : qAsConst(m_topLevelFileNames)) {
@@ -106,6 +116,16 @@ void KDirModelTest::recreateTestData()
     createTestFile(path + ".hiddenfile2");
     createTestDirectory(path + "subdir");
     createTestDirectory(path + "subdir/subsubdir", NoSymlink);
+    createTestDirectory(path + "subdir/hasChildren", Empty);
+    createTestDirectory(path + "subdir/hasChildren/emptyDir", Empty);
+    createTestDirectory(path + "subdir/hasChildren/hiddenfileDir", Empty);
+    createTestFile(path + "subdir/hasChildren/hiddenfileDir/.hidden");
+    createTestDirectory(path + "subdir/hasChildren/hiddenDirDir", Empty);
+    createTestDirectory(path + "subdir/hasChildren/hiddenDirDir/.hidden", Empty);
+    createTestDirectory(path + "subdir/hasChildren/symlinkDir", Empty);
+    createTestSymlink(path + "subdir/hasChildren/symlinkDir/link", QString(path + "toplevelfile_1").toUtf8());
+    createTestDirectory(path + "subdir/hasChildren/pipeDir", Empty);
+    createTestPipe(path + "subdir/hasChildren/pipeDir/pipe");
 
     m_dirIndex = QModelIndex();
     m_fileIndex = QModelIndex();
@@ -191,7 +211,7 @@ void KDirModelTest::collectKnownIndexes()
     // Index of a file inside a directory (subdir/testfile)
     QModelIndex subdirIndex;
     m_fileInDirIndex = QModelIndex();
-    for (int row = 0; row < 3; ++row) {
+    for (int row = 0; row < 4; ++row) {
         QModelIndex idx = m_dirModel->index(row, 0, m_dirIndex);
         if (m_dirModel->itemForIndex(idx).isDir()) {
             subdirIndex = idx;
@@ -235,7 +255,7 @@ void KDirModelTest::testRowCount()
     const int topLevelRowCount = m_dirModel->rowCount();
     QCOMPARE(topLevelRowCount, m_topLevelFileNames.count() + 1 /*subdir*/);
     const int subdirRowCount = m_dirModel->rowCount(m_dirIndex);
-    QCOMPARE(subdirRowCount, 3);
+    QCOMPARE(subdirRowCount, 4);
 
     QVERIFY(m_fileIndex.isValid());
     const int fileRowCount = m_dirModel->rowCount(m_fileIndex); // #176555
@@ -393,7 +413,7 @@ void KDirModelTest::testData()
     QCOMPARE(display2, QString("toplevelfile_2"));
 
     // Subdir: check child count
-    QCOMPARE(m_dirModel->data(m_dirIndex, KDirModel::ChildCountRole).toInt(), 3);
+    QCOMPARE(m_dirModel->data(m_dirIndex, KDirModel::ChildCountRole).toInt(), 4);
 
     // Subsubdir: check child count
     QCOMPARE(m_dirModel->data(m_fileInSubdirIndex.parent(), KDirModel::ChildCountRole).toInt(), 1);
@@ -885,7 +905,7 @@ void KDirModelTest::testFilter()
     m_dirModel->dirLister()->emitChanges();
 
     QCOMPARE(m_dirModel->rowCount(), 4); // 3 toplevel* files, one subdir
-    QCOMPARE(m_dirModel->rowCount(m_dirIndex), 1); // the files get filtered out, the subdir remains
+    QCOMPARE(m_dirModel->rowCount(m_dirIndex), 2); // the files get filtered out, subsubdir and hasChildren are remaining
 
     // In the subdir, we can get rowsRemoved signals like (1,2) or (0,0)+(2,2),
     // depending on the order of the files in the model.
@@ -1245,32 +1265,37 @@ void KDirModelTest::testShowRootAndExpandToUrl()
 void KDirModelTest::testHasChildren_data()
 {
     QTest::addColumn<bool>("dirsOnly");
+    QTest::addColumn<bool>("withHidden");
 
-    QTest::newRow("with_files") << false;
-    QTest::newRow("dirs_only") << true;
+    QTest::newRow("with_files_and_no_hidden") << false << false;
+    QTest::newRow("dirs_only_and_no_hidden") << true << false;
+    QTest::newRow("with_files_and_hidden") << false << true;
+    QTest::newRow("dirs_only_with_hidden") << true << true;
 }
 
 // Test hasChildren without first populating the dirs
 void KDirModelTest::testHasChildren()
 {
     QFETCH(bool, dirsOnly);
+    QFETCH(bool, withHidden);
 
     m_dirModel->dirLister()->setDirOnlyMode(dirsOnly);
+    m_dirModel->dirLister()->setShowingDotFiles(withHidden);
     fillModel(true, false);
 
     QVERIFY(m_dirModel->hasChildren());
 
-    auto firstSubdirIndex = [this](const QModelIndex &parentIndex) {
+    auto findDir = [this](const QModelIndex &parentIndex, const QString &name){
         for (int row = 0; row < m_dirModel->rowCount(parentIndex); ++row) {
             QModelIndex idx = m_dirModel->index(row, 0, parentIndex);
-            if (m_dirModel->itemForIndex(idx).isDir()) {
+            if (m_dirModel->itemForIndex(idx).isDir() && m_dirModel->itemForIndex(idx).name() == name) {
                 return idx;
             }
         }
         return QModelIndex();
     };
 
-    m_dirIndex = firstSubdirIndex(QModelIndex());
+    m_dirIndex = findDir(QModelIndex(), "subdir");
     QVERIFY(m_dirIndex.isValid());
     QVERIFY(m_dirModel->hasChildren(m_dirIndex));
 
@@ -1282,11 +1307,40 @@ void KDirModelTest::testHasChildren()
     // Now list subdir/
     QVERIFY(listDir(m_dirIndex));
 
-    const QModelIndex subsubdirIndex = firstSubdirIndex(m_dirIndex);
+    const QModelIndex subsubdirIndex = findDir(m_dirIndex, "subsubdir");
     QVERIFY(subsubdirIndex.isValid());
     QCOMPARE(m_dirModel->hasChildren(subsubdirIndex), !dirsOnly);
 
+    const QModelIndex hasChildrenDirIndex = findDir(m_dirIndex, "hasChildren");
+    QVERIFY(hasChildrenDirIndex.isValid());
+    QVERIFY(m_dirModel->hasChildren(hasChildrenDirIndex));
+
+    // Now list hasChildren/
+    QVERIFY(listDir(hasChildrenDirIndex));
+
+    QModelIndex testDirIndex = findDir(hasChildrenDirIndex, "emptyDir");
+    QVERIFY(testDirIndex.isValid());
+    QVERIFY(!m_dirModel->hasChildren(testDirIndex));
+
+    testDirIndex = findDir(hasChildrenDirIndex, "hiddenfileDir");
+    QVERIFY(testDirIndex.isValid());
+    QCOMPARE(m_dirModel->hasChildren(testDirIndex), !dirsOnly && withHidden);
+
+    testDirIndex = findDir(hasChildrenDirIndex, "hiddenDirDir");
+    QVERIFY(testDirIndex.isValid());
+    QCOMPARE(m_dirModel->hasChildren(testDirIndex), withHidden);
+
+    testDirIndex = findDir(hasChildrenDirIndex, "pipeDir");
+    QVERIFY(testDirIndex.isValid());
+    QCOMPARE(m_dirModel->hasChildren(testDirIndex), !dirsOnly);
+
+    testDirIndex = findDir(hasChildrenDirIndex, "symlinkDir");
+    QVERIFY(testDirIndex.isValid());
+    QCOMPARE(m_dirModel->hasChildren(testDirIndex), !dirsOnly);
+
     m_dirModel->dirLister()->setDirOnlyMode(false);
+    m_dirModel->dirLister()->setShowingDotFiles(false);
+
 }
 
 void KDirModelTest::testDeleteFile()
