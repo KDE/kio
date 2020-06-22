@@ -45,5 +45,10 @@ Name[x-test]=xxQwant Shoppingxx
 Name[zh_CN]=Qwant 购物
 Name[zh_TW]=Qwant Shopping
 Query=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
+Query[ca]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
+Query[nl]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
+Query[sv]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
+Query[uk]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
+Query[x-test]=xxhttps://www.qwant.com/?q=\\{@}&client=kde&t=shoppingxx
 X-KDE-ServiceTypes=SearchProvider
 Type=Service

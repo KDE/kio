@@ -46,5 +46,10 @@ Name[x-test]=xxQwantxx
 Name[zh_CN]=Qwant
 Name[zh_TW]=Qwant
 Query=https://www.qwant.com/?q=\\{@}&client=kde&t=web
+Query[ca]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
+Query[nl]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
+Query[sv]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
+Query[uk]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
+Query[x-test]=xxhttps://www.qwant.com/?q=\\{@}&client=kde&t=webxx
 X-KDE-ServiceTypes=SearchProvider
 Type=Service

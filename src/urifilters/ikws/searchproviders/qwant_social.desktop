@@ -45,5 +45,10 @@ Name[x-test]=xxQwant Socialxx
 Name[zh_CN]=Qwant 社会
 Name[zh_TW]=Qwant Social
 Query=https://www.qwant.com/?q=\\{@}&client=kde&t=social
+Query[ca]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
+Query[nl]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
+Query[sv]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
+Query[uk]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
+Query[x-test]=xxhttps://www.qwant.com/?q=\\{@}&client=kde&t=socialxx
 X-KDE-ServiceTypes=SearchProvider
 Type=Service

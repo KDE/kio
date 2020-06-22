@@ -45,5 +45,10 @@ Name[x-test]=xxQwant Newsxx
 Name[zh_CN]=Qwant 新闻
 Name[zh_TW]=Qwant News
 Query=https://www.qwant.com/?q=\\{@}&client=kde&t=news
+Query[ca]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
+Query[nl]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
+Query[sv]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
+Query[uk]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
+Query[x-test]=xxhttps://www.qwant.com/?q=\\{@}&client=kde&t=newsxx
 X-KDE-ServiceTypes=SearchProvider
 Type=Service

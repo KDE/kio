@@ -46,5 +46,10 @@ Name[x-test]=xxQwant Videosxx
 Name[zh_CN]=Qwant 视频
 Name[zh_TW]=Qwant Videos
 Query=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
+Query[ca]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
+Query[nl]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
+Query[sv]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
+Query[uk]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
+Query[x-test]=xxhttps://www.qwant.com/?q=\\{@}&client=kde&t=videosxx
 X-KDE-ServiceTypes=SearchProvider
 Type=Service
