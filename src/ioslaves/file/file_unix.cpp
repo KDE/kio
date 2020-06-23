@@ -773,6 +773,28 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl,
 #endif
 
     src_file.close();
+
+    // copy access and modification time
+    if (!wasKilled()) {
+    #ifdef Q_OS_LINUX
+        // with nano secs precision
+        struct timespec ut[2];
+        ut[0] = buff_src.st_atim;
+        ut[1] = buff_src.st_mtim;
+        // need to do this with the dest file still opened, or this fails
+        if (::futimens(dest_file.handle(), ut) != 0) {
+    #else
+        struct utimbuf ut;
+        ut.actime = buff_src.st_atime;
+        ut.modtime = buff_src.st_mtime;
+        if (::utime(_dest.data(), &ut) != 0) {
+    #endif
+            if (tryChangeFileAttr(UTIME, {_dest, qint64(buff_src.st_atime), qint64(buff_src.st_mtime)}, errno)) {
+                qCWarning(KIO_FILE) << "Couldn't preserve access and modification time for" << dest;
+            }
+        }
+    }
+
     dest_file.close();
 
     if (wasKilled()) {
@@ -834,24 +856,6 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl,
     } else {
         if (tryChangeFileAttr(CHOWN, {_dest, buff_src.st_uid, buff_src.st_gid}, errno)) {
             qCWarning(KIO_FILE) << "Couldn't preserve group for" << dest;
-        }
-    }
-
-    // copy access and modification time
-#ifdef Q_OS_LINUX
-    // with nano secs precision
-    struct timespec ut[2];
-    ut[0] = buff_src.st_atim;
-    ut[1] = buff_src.st_mtim;
-    if (::futimens(dest_file.handle(), ut) != 0) {
-#else
-    struct utimbuf ut;
-    ut.actime = buff_src.st_atime;
-    ut.modtime = buff_src.st_mtime;
-    if (::utime(_dest.data(), &ut) != 0) {
-#endif
-        if (tryChangeFileAttr(UTIME, {_dest, qint64(buff_src.st_atime), qint64(buff_src.st_mtime)}, errno)) {
-            qCWarning(KIO_FILE) << "Couldn't preserve access and modification time for" << dest;
         }
     }
 
