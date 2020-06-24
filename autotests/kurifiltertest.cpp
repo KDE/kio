@@ -468,7 +468,7 @@ void KUriFilterTest::internetKeywords_data()
 {
     setupColumns();
     addRow(QString::asprintf("gg%cfoo bar", s_delimiter).toUtf8(), QStringLiteral("https://www.google.com/search?q=foo+bar&ie=UTF-8"), KUriFilterData::NetProtocol);
-    addRow(QString::asprintf("bug%c55798", s_delimiter).toUtf8(), QStringLiteral("https://bugs.kde.org/show_bug.cgi?id=55798"), KUriFilterData::NetProtocol);
+    addRow(QString::asprintf("bug%c55798", s_delimiter).toUtf8(), QStringLiteral("https://bugs.kde.org/buglist.cgi?quicksearch=55798"), KUriFilterData::NetProtocol);
 
     addRow(QString::asprintf("gg%cC++", s_delimiter).toUtf8(), QStringLiteral("https://www.google.com/search?q=C%2B%2B&ie=UTF-8"), KUriFilterData::NetProtocol);
     addRow(QString::asprintf("gg%cC#", s_delimiter).toUtf8(), QStringLiteral("https://www.google.com/search?q=C%23&ie=UTF-8"), KUriFilterData::NetProtocol);
