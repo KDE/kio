@@ -1,6 +1,11 @@
 [Desktop Entry]
 Keys=bug,bugft,bugno,bugnr
 Name=KDE Bugs
+Name[ca]=KDE Bugs
+Name[pt_BR]=Erros do KDE
+Name[sv]=KDE Bugs
+Name[uk]=Вади KDE
+Name[x-test]=xxKDE Bugsxx
 Query=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[ar]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[ast]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
