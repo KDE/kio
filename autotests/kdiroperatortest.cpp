@@ -134,11 +134,11 @@ private Q_SLOTS:
         QCOMPARE(spy.first().at(0).toUrl(), fileUrl);
     }
 
-    void testDirHighlighting()
+    void testEnabledDirHighlighting()
     {
         const QString path = QFileInfo(QFINDTESTDATA("kdiroperatortest.cpp")).absolutePath() + QLatin1Char('/');
         // <src dir>/autotests/
-        const QUrl dirC(QUrl::fromLocalFile(path));
+        const QUrl dirC = QUrl::fromLocalFile(path);
         const QUrl dirB = dirC.resolved(QUrl(QStringLiteral("..")));
         const QUrl dirA = dirB.resolved(QUrl(QStringLiteral("..")));
 
@@ -152,43 +152,116 @@ private Q_SLOTS:
 
         // first case, go up...
         dirOp.cdUp();
-        QTest::qWait(2000); // wait for dirlister to finish listing; is there a better way?
-        KFileItemList selected = dirOp.selectedItems();
-        // ... the dir we've just left is highlighted
-        QCOMPARE(selected.at(0).url(), dirC.adjusted(QUrl::StripTrailingSlash));
+        QCOMPARE(dirOp.url(), dirB);
+
+        // the selection will happen after the dirLister has completed listing
+        QTRY_VERIFY(!dirOp.selectedItems().isEmpty());
+        QCOMPARE(dirOp.selectedItems().at(0).url(), dirC.adjusted(QUrl::StripTrailingSlash));
 
         // same as above
         dirOp.cdUp();
-        QTest::qWait(2000);
-        selected = dirOp.selectedItems();
-        QCOMPARE(selected.at(0).url(), dirB.adjusted(QUrl::StripTrailingSlash));
+        QCOMPARE(dirOp.url(), dirA);
+
+        QTRY_VERIFY(!dirOp.selectedItems().isEmpty());
+        QCOMPARE(dirOp.selectedItems().at(0).url(), dirB.adjusted(QUrl::StripTrailingSlash));
 
         // we were in A/B/C, went up twice, now in A/
         // going back, we are in B/ and C/ is highlighted
         dirOp.back();
-        QTest::qWait(2000);
-        selected = dirOp.selectedItems();
-        QCOMPARE(selected.at(0).url(), dirC.adjusted(QUrl::StripTrailingSlash));
+        QCOMPARE(dirOp.url(), dirB);
+
+        QTRY_VERIFY(!dirOp.selectedItems().isEmpty());
+        QCOMPARE(dirOp.selectedItems().at(0).url(), dirC.adjusted(QUrl::StripTrailingSlash));
 
         dirOp.clearHistory();
         // we start in A/
         dirOp.setUrl(dirA, true);
+        QCOMPARE(dirOp.url(), dirA);
         // go to B/
         dirOp.setUrl(dirB, true);
+        QCOMPARE(dirOp.url(), dirB);
         // go to C/
         dirOp.setUrl(dirC, true);
+        QCOMPARE(dirOp.url(), dirC);
 
         // go back, C/ is highlighted
         dirOp.back();
-        QTest::qWait(2000);
-        selected = dirOp.selectedItems();
-        QCOMPARE(selected.at(0).url(), dirC.adjusted(QUrl::StripTrailingSlash));
+        QCOMPARE(dirOp.url(), dirB);
+
+        QTRY_VERIFY(!dirOp.selectedItems().isEmpty());
+        QCOMPARE(dirOp.selectedItems().at(0).url(), dirC.adjusted(QUrl::StripTrailingSlash));
 
         // go back, B/ is highlighted
         dirOp.back();
-        QTest::qWait(2000);
-        selected = dirOp.selectedItems();
-        QCOMPARE(selected.at(0).url(), dirB.adjusted(QUrl::StripTrailingSlash));
+        QCOMPARE(dirOp.url(), dirA);
+
+        QTRY_VERIFY(!dirOp.selectedItems().isEmpty());
+        QCOMPARE(dirOp.selectedItems().at(0).url(), dirB.adjusted(QUrl::StripTrailingSlash));
+    }
+
+    void testDisabledDirHighlighting()
+    {
+        const QString path = QFileInfo(QFINDTESTDATA("kdiroperatortest.cpp")).absolutePath() + QLatin1Char('/');
+        // <src dir>/autotests/
+        const QUrl dirC = QUrl::fromLocalFile(path);
+        const QUrl dirB = dirC.resolved(QUrl(QStringLiteral("..")));
+        const QUrl dirA = dirB.resolved(QUrl(QStringLiteral("..")));
+
+        KDirOperator dirOp(dirC);
+        dirOp.setEnableDirHighlighting(false);
+
+        dirOp.show();
+        dirOp.activateWindow();
+        QVERIFY(QTest::qWaitForWindowActive(&dirOp));
+
+        dirOp.setView(KFile::Default);
+
+        // finishedLoading is emitted when the dirLister emits the completed signal
+        QSignalSpy finishedSpy(&dirOp, &KDirOperator::finishedLoading);
+        // first case, go up...
+        dirOp.cdUp();
+        QCOMPARE(dirOp.url(), dirB);
+
+        QVERIFY(finishedSpy.wait(1000));
+        // ... no items highlighted
+        QVERIFY(dirOp.selectedItems().isEmpty());
+
+        // same as above
+        dirOp.cdUp();
+        QCOMPARE(dirOp.url(), dirA);
+
+        QVERIFY(finishedSpy.wait(1000));
+        QVERIFY(dirOp.selectedItems().isEmpty());
+
+        // we were in A/B/C, went up twice, now in A/
+        dirOp.back();
+        QCOMPARE(dirOp.url(), dirB);
+
+        QVERIFY(finishedSpy.wait(1000));
+        QVERIFY(dirOp.selectedItems().isEmpty());
+
+        dirOp.clearHistory();
+        // we start in A/
+        dirOp.setUrl(dirA, true);
+        QCOMPARE(dirOp.url(), dirA);
+        // go to B/
+        dirOp.setUrl(dirB, true);
+        QCOMPARE(dirOp.url(), dirB);
+        // go to C/
+        dirOp.setUrl(dirC, true);
+        QCOMPARE(dirOp.url(), dirC);
+
+        dirOp.back();
+        QCOMPARE(dirOp.url(), dirB);
+
+        QVERIFY(finishedSpy.wait(1000));
+        QVERIFY(dirOp.selectedItems().isEmpty());
+
+        dirOp.back();
+        QCOMPARE(dirOp.url(), dirA);
+
+        QVERIFY(finishedSpy.wait(1000));
+        QVERIFY(dirOp.selectedItems().isEmpty());
     }
 };
 

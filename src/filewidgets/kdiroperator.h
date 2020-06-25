@@ -545,21 +545,26 @@ public:
     void clearHistory();
 
     /**
-     * When going up in the directory hierarchy, KDirOperator can highlight
-     * the directory that was just left.
+     * When using the up or back actions to navigate the directory hierarchy, KDirOperator
+     * can highlight the directory that was just left.
      *
-     * I.e. when you go from /home/gis/src to /home/gis, the item "src" will
-     * be made the current item.
+     * For example:
+     *  - starting in /a/b/c/, going up to /a/b, "c" will be highlighted
+     *  - starting in /a/b/c, going up (twice) to /a, "b" will be highlighted;
+     *    using the back action to go to /a/b/, "c" will be highlighted
+     *  - starting in /a, going to "b", then going to "c", using the back action
+     *    to go to /a/b/, "c" will be highlighted; using the back action again to go
+     *    to /a/, "b" will be highlighted
      *
-     * Default is off.
+     * @see dirHighlighting. The default is to highlight directories when going back/up.
      */
     virtual void setEnableDirHighlighting(bool enable);
 
     /**
      * @returns whether the last directory will be made the current item
-     * when going up in the directory hierarchy.
+     * (and hence highlighted) when going up or back in the directory hierarchy
      *
-     * Default is false.
+     * Directories are highlighted by default.
      */
     bool dirHighlighting() const;
 

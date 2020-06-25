@@ -235,7 +235,7 @@ KDirOperator::Private::Private(KDirOperator *_parent) :
     onlyDoubleClickSelectsFiles(!qApp->style()->styleHint(QStyle::SH_ItemView_ActivateItemOnSingleClick)),
     followNewDirectories(true),
     followSelectedDirectories(true),
-    dirHighlighting(false),
+    dirHighlighting(true),
     progressDelayTimer(nullptr),
     dropOptions(0),
     actionMenu(nullptr),
