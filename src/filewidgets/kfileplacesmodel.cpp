@@ -1071,7 +1071,8 @@ bool KFilePlacesModel::dropMimeData(const QMimeData *data, Qt::DropAction action
 
 QHash<int, QByteArray> KFilePlacesModel::roleNames() const
 {
-    QHash<int, QByteArray> roles;
+
+    QHash<int, QByteArray> roles = QAbstractItemModel::roleNames();
     roles[UrlRole] = "url";
     roles[HiddenRole] = "hidden";
     roles[SetupNeededRole] = "setupNeeded";
