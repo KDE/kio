@@ -56,6 +56,8 @@ public:
         TagsType ///< @since 5.54
     };
 
+    Q_ENUM(GroupType)
+
     explicit KFilePlacesModel(QObject *parent = nullptr);
     /**
     * @brief Construct a new KFilePlacesModel with an alternativeApplicationName
@@ -288,6 +290,7 @@ public:
     QMimeData *mimeData(const QModelIndexList &indexes) const override;
     bool dropMimeData(const QMimeData *data, Qt::DropAction action,
                       int row, int column, const QModelIndex &parent) override;
+    QHash<int, QByteArray> roleNames() const override;
 
     /**
      * @brief Reload bookmark information

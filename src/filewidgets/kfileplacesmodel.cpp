@@ -1069,6 +1069,20 @@ bool KFilePlacesModel::dropMimeData(const QMimeData *data, Qt::DropAction action
     return true;
 }
 
+QHash<int, QByteArray> KFilePlacesModel::roleNames() const
+{
+    QHash<int, QByteArray> roles;
+    roles[UrlRole] = "url";
+    roles[HiddenRole] = "hidden";
+    roles[SetupNeededRole] = "setupNeeded";
+    roles[FixedDeviceRole] = "fixedDevice";
+    roles[CapacityBarRecommendedRole] = "capacityBarRecommended";
+    roles[GroupRole] = "group";
+    roles[IconNameRole] = "iconName";
+    roles[GroupHiddenRole] = "groupHidden";
+    return roles;
+}
+
 void KFilePlacesModel::refresh() const
 {
     d->reloadAndSignal();
