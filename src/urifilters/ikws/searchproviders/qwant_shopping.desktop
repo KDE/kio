@@ -46,6 +46,7 @@ Name[zh_CN]=Qwant 购物
 Name[zh_TW]=Qwant Shopping
 Query=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[ca]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
+Query[eu]=https://www.qwant.com/single?q=\\{@}&client=kde&source=shopping
 Query[nl]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[pt]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[pt_BR]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping

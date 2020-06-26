@@ -47,6 +47,7 @@ Name[zh_CN]=Qwant 视频
 Name[zh_TW]=Qwant Videos
 Query=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[ca]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
+Query[eu]=https://www.qwant.com/single?q=\\{@}&client=kde&source=videos
 Query[nl]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[pt]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[pt_BR]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos

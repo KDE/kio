@@ -46,6 +46,7 @@ Name[zh_CN]=Qwant 图像
 Name[zh_TW]=Qwant Images
 Query=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[ca]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
+Query[eu]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[nl]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[pt]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[pt_BR]=https://www.qwant.com/?q=\\{@}&client=kde&t=images

@@ -46,6 +46,7 @@ Name[zh_CN]=Qwant 社会
 Name[zh_TW]=Qwant Social
 Query=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[ca]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
+Query[eu]=https://www.qwant.com/single?q=\\{@}&client=kde&source=social
 Query[nl]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[pt]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[pt_BR]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
