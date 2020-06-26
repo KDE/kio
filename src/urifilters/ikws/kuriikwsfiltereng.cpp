@@ -197,9 +197,8 @@ QStringList KURISearchFilterEngine::modifySubstitutionMap(SubstMap &map, const Q
 
 static QString encodeString(const QString &s, QTextCodec *codec)
 {
-    // don't encode the space character, we replace it with + after the encoding
-    QByteArray encoded = codec->fromUnicode(s).toPercentEncoding(QByteArrayLiteral(" "));
-    encoded.replace(' ', '+');
+    // we encode all characters, including the space character BUG: 304276
+    QByteArray encoded = codec->fromUnicode(s).toPercentEncoding();
     return QString::fromUtf8(encoded);
 }
 
