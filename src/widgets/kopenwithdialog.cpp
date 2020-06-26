@@ -726,13 +726,13 @@ void KOpenWithDialogPrivate::init(const QString &_text, const QString &_value)
     QObject::connect(edit, &KUrlRequester::textChanged, q, &KOpenWithDialog::slotTextChanged);
     QObject::connect(edit, SIGNAL(urlSelected(QUrl)), q, SLOT(_k_slotFileSelected()));
 
+    view = new KApplicationView(q);
     QTreeViewProxyFilter *proxyModel = new QTreeViewProxyFilter(view);
     KApplicationModel *appModel = new KApplicationModel(proxyModel);
     proxyModel->setSourceModel(appModel);
     proxyModel->setFilterKeyColumn(0);
     proxyModel->setFilterCaseSensitivity(Qt::CaseInsensitive);
     proxyModel->setRecursiveFilteringEnabled(true);
-    view = new KApplicationView(q);
     view->setModels(appModel, proxyModel);
     topLayout->addWidget(view);
     topLayout->setStretchFactor(view, 1);
