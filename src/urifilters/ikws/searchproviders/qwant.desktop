@@ -46,8 +46,11 @@ Name[x-test]=xxQwantxx
 Name[zh_CN]=Qwant
 Name[zh_TW]=Qwant
 Query=https://www.qwant.com/?q=\\{@}&client=kde&t=web
+Query[az]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[ca]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
+Query[en_GB]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[eu]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
+Query[fr]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[nl]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[pt]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[pt_BR]=https://www.qwant.com/?q=\\{@}&client=kde&t=web

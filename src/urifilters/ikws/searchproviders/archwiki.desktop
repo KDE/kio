@@ -1,11 +1,14 @@
 [Desktop Entry]
 Keys=archwiki,arch
 Name=ArchWiki
+Name[az]=ArchWiki
 Name[ca]=ArchWiki
 Name[cs]=ArchWiki
 Name[de]=ArchWiki
+Name[en_GB]=ArchWiki
 Name[es]=ArchWiki
 Name[eu]=ArchWiki
+Name[fr]=ArchWiki
 Name[it]=ArchWiki
 Name[lt]=ArchWiki
 Name[nl]=ArchWiki
@@ -16,11 +19,14 @@ Name[sv]=ArchWiki
 Name[uk]=ArchWiki
 Name[x-test]=xxArchWikixx
 Query=https://wiki.archlinux.org/index.php?search=\\{@}
+Query[az]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[ca]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[cs]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[de]=https://wiki.archlinux.org/index.php?search=\\{@}
+Query[en_GB]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[es]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[eu]=https://wiki.archlinux.org/index.php?search=\\{@}
+Query[fr]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[it]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[lt]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[nl]=https://wiki.archlinux.org/index.php?search=\\{@}
