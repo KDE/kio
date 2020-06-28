@@ -57,6 +57,8 @@ public:
     /**
      * Creates a CommandLauncherJob.
      * @param command the shell command to run
+     * The command is given "as is" to the shell, it must already be quoted if necessary.
+     * If @p command is instead a filename, consider using the other constructor, even if no args are present.
      * @param parent the parent QObject
      *
      * Please consider also calling setDesktopName(), or setExecutable() and setIcon()
