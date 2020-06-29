@@ -1,6 +1,16 @@
 [Desktop Entry]
 Keys=deepl
 Name=DeepL
+Name[ca]=DeepL
+Name[nl]=DeepL
+Name[sv]=DeepL
+Name[uk]=DeepL
+Name[x-test]=xxDeepLxx
 Query=https://www.deepl.com/translator#any/any/\\{@}
+Query[ca]=https://www.deepl.com/translator#any/any/\\{@}
+Query[nl]=https://www.deepl.com/translator#any/any/\\{@}
+Query[sv]=https://www.deepl.com/translator#any/any/\\{@}
+Query[uk]=https://www.deepl.com/translator#any/any/\\{@}
+Query[x-test]=xxhttps://www.deepl.com/translator#any/any/\\{@}xx
 X-KDE-ServiceTypes=SearchProvider
 Type=Service
