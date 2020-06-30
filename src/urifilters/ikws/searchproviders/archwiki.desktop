@@ -8,6 +8,7 @@ Name[de]=ArchWiki
 Name[en_GB]=ArchWiki
 Name[es]=ArchWiki
 Name[eu]=ArchWiki
+Name[fi]=ArchWiki
 Name[fr]=ArchWiki
 Name[it]=ArchWiki
 Name[lt]=ArchWiki
@@ -26,6 +27,7 @@ Query[de]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[en_GB]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[es]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[eu]=https://wiki.archlinux.org/index.php?search=\\{@}
+Query[fi]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[fr]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[it]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[lt]=https://wiki.archlinux.org/index.php?search=\\{@}

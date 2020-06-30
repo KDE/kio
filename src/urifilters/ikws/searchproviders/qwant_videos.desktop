@@ -50,6 +50,7 @@ Query[az]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[ca]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[en_GB]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[eu]=https://www.qwant.com/single?q=\\{@}&client=kde&source=videos
+Query[fi]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[fr]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[nl]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[pt]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos

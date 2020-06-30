@@ -102,6 +102,7 @@ Query[en_GB]=https://www.rae.es/drae/?val=\\{@}
 Query[es]=https://www.rae.es/drae/?val=\\{@}
 Query[et]=https://www.rae.es/drae/?val=\\{@}
 Query[eu]=http://www.rae.es/drae/?val=\\{@}
+Query[fi]=https://www.rae.es/drae/?val=\\{@}
 Query[fr]=https://www.rae.es/drae/?val=\\{@}
 Query[ia]=https://www.rae.es/drae/?val=\\{@}
 Query[id]=https://www.rae.es/drae/?val=\\{@}

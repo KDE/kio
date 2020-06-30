@@ -49,6 +49,7 @@ Query[az]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[ca]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[en_GB]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[eu]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
+Query[fi]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[fr]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[nl]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[pt]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
