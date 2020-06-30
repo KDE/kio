@@ -106,7 +106,7 @@ static void createTestPipe(const QString &path)
     QVERIFY(S_ISFIFO(buf.st_mode));
 #else
     // to not change the filecount everywhere in the tests
-    createTestFile(path + QStringLiteral(path));
+    createTestFile(path);
 #endif
     QVERIFY(QFileInfo(path).exists());
 }
