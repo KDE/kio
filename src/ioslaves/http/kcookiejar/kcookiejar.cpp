@@ -154,7 +154,7 @@ KCookieAdvice KCookieJar::strToAdvice(const QString &_str)
         return KCookieDunno;
     }
 
-    QString advice = _str.toLower();
+    QString advice = _str.toLower().remove(QLatin1Char(' '));
 
     if (advice == QL1S("accept")) {
         return KCookieAccept;
