@@ -51,6 +51,7 @@ Query[en_GB]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[eu]=https://www.qwant.com/single?q=\\{@}&client=kde&source=social
 Query[fi]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[fr]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
+Query[ko]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[nl]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[pt]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[pt_BR]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
