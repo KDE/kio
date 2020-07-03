@@ -49,6 +49,7 @@ Query=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[az]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[ca]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[en_GB]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
+Query[es]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[eu]=https://www.qwant.com/single?q=\\{@}&client=kde&source=videos
 Query[fi]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[fr]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
@@ -56,6 +57,7 @@ Query[ko]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[nl]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[pt]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[pt_BR]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
+Query[sl]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[sv]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[uk]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[x-test]=xxhttps://www.qwant.com/?q=\\{@}&client=kde&t=videosxx

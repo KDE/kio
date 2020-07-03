@@ -48,6 +48,7 @@ Query=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[az]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[ca]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[en_GB]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
+Query[es]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[eu]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[fi]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[fr]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
@@ -55,6 +56,7 @@ Query[ko]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[nl]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[pt]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[pt_BR]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
+Query[sl]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[sv]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[uk]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[x-test]=xxhttps://www.qwant.com/?q=\\{@}&client=kde&t=imagesxx

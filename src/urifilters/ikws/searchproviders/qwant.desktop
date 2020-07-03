@@ -49,6 +49,7 @@ Query=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[az]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[ca]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[en_GB]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
+Query[es]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[eu]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[fi]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[fr]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
@@ -56,6 +57,7 @@ Query[ko]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[nl]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[pt]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[pt_BR]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
+Query[sl]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[sv]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[uk]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[x-test]=xxhttps://www.qwant.com/?q=\\{@}&client=kde&t=webxx
