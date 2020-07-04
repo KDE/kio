@@ -549,7 +549,7 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl,
         return;
     }
 
-    // qDebug() << "copy(): " << srcUrl << " -> " << destUrl << ", mode=" << _mode;
+    qCDebug(KIO_FILE) << "copy()" << srcUrl << "to" << destUrl << "mode=" << _mode;
 
     const QString src = srcUrl.toLocalFile();
     QString dest = destUrl.toLocalFile();
