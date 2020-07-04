@@ -774,6 +774,8 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl,
 
     src_file.close();
 
+    dest_file.flush(); // so the write() happens before futimes()
+
     // copy access and modification time
     if (!wasKilled()) {
     #ifdef Q_OS_LINUX
