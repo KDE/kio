@@ -631,9 +631,9 @@ void FileUndoManagerTest::testModifyFileBeforeUndo()
 {
     // based on testCopyDirectory (so that we check that it works for files in subdirs too)
     const QString destdir = destDir();
-    QList<QUrl> lst; lst << QUrl::fromLocalFile(srcSubDir());
-    const QUrl d = QUrl::fromLocalFile(destdir);
-    KIO::CopyJob *job = KIO::copy(lst, d, KIO::HideProgressInfo);
+    const QList<QUrl> lst{ QUrl::fromLocalFile(srcSubDir()) };
+    const QUrl dest = QUrl::fromLocalFile(destdir);
+    KIO::CopyJob *job = KIO::copy(lst, dest, KIO::HideProgressInfo);
     job->setUiDelegate(nullptr);
     FileUndoManager::self()->recordCopyJob(job);
 
@@ -642,7 +642,7 @@ void FileUndoManagerTest::testModifyFileBeforeUndo()
 
     checkTestDirectory(srcSubDir());   // src untouched
     checkTestDirectory(destSubDir());
-    const QString destFile =  destSubDir() + "/fileindir";
+    const QString destFile = destSubDir() + "/fileindir";
     setTimeStamp(destFile);   // simulate a modification of the file
 
     doUndo();

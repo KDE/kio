@@ -501,7 +501,7 @@ void FileUndoManagerPrivate::slotResult(KJob *job)
         KIO::StatJob *statJob = static_cast<KIO::StatJob *>(job);
         const QDateTime mtime = QDateTime::fromMSecsSinceEpoch(1000 * statJob->statResult().numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME, -1), Qt::UTC);
         if (mtime != op.m_mtime) {
-            //qDebug() << op.m_dst << " was modified after being copied!";
+            qCDebug(KIO_WIDGETS) << op.m_dst << "was modified after being copied. Initial timestamp" << mtime << "now" << op.m_mtime;
             QDateTime srcTime = op.m_mtime.toLocalTime();
             QDateTime destTime = mtime.toLocalTime();
             if (!m_uiInterface->copiedFileWasModified(op.m_src, op.m_dst, srcTime, destTime)) {
