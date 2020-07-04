@@ -784,10 +784,12 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl,
         // need to do this with the dest file still opened, or this fails
         if (::futimens(dest_file.handle(), ut) != 0) {
     #else
-        struct utimbuf ut;
-        ut.actime = buff_src.st_atime;
-        ut.modtime = buff_src.st_mtime;
-        if (::utime(_dest.data(), &ut) != 0) {
+        struct timeval ut[2];
+        ut[0].tv_sec = buff_src.st_atime;
+        ut[0].tv_usec = 0;
+        ut[1].tv_sec = buff_src.st_mtime;
+        ut[1].tv_usec = 0;
+        if (::futimes(dest_file.handle(), ut) != 0) {
     #endif
             if (tryChangeFileAttr(UTIME, {_dest, qint64(buff_src.st_atime), qint64(buff_src.st_mtime)}, errno)) {
                 qCWarning(KIO_FILE) << "Couldn't preserve access and modification time for" << dest;
