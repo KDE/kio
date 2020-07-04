@@ -94,7 +94,7 @@ static void createTestSymlink(const QString &path, const QByteArray &target = "/
     QVERIFY(QFileInfo(path).isSymLink());
 }
 
-static void createTestPipe(const QString &path)
+void createTestPipe(const QString &path)
 {
 #ifndef Q_OS_WIN
     int ok = mkfifo(QFile::encodeName(path), S_IWUSR | S_IRUSR | S_IRGRP | S_IROTH);

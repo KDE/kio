@@ -213,9 +213,10 @@ void KDirModelTest::collectKnownIndexes()
     m_fileInDirIndex = QModelIndex();
     for (int row = 0; row < 4; ++row) {
         QModelIndex idx = m_dirModel->index(row, 0, m_dirIndex);
-        if (m_dirModel->itemForIndex(idx).isDir()) {
+        const KFileItem item = m_dirModel->itemForIndex(idx);
+        if (item.isDir() && item.name() == QLatin1String("subsubdir")) {
             subdirIndex = idx;
-        } else if (m_dirModel->itemForIndex(idx).name() == QLatin1String("testfile")) {
+        } else if (item.name() == QLatin1String("testfile")) {
             m_fileInDirIndex = idx;
         }
     }
@@ -307,7 +308,7 @@ void KDirModelTest::testIndex()
     QVERIFY(m_dirModel->hasChildren(subsubdirIndex));
 
     // Invalid sibling call
-    QVERIFY(!m_dirModel->sibling(1, 0, m_fileInSubdirIndex).isValid());
+    QVERIFY(!m_dirModel->sibling(2, 0, m_fileInSubdirIndex).isValid());
 
     // Test index() with a valid parent (dir).
     QModelIndex index2 = m_dirModel->index(m_fileInSubdirIndex.row(), m_fileInSubdirIndex.column(), subsubdirIndex);
