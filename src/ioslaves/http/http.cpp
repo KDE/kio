@@ -30,6 +30,7 @@
 
 #include <config-kioslave-http.h>
 
+#include <limits>
 #include <qplatformdefs.h> // must be explicitly included for MacOSX
 
 #include <qdom.h>
@@ -712,7 +713,7 @@ void HTTPProtocol::stat(const QUrl &url)
     if (m_protocol != "webdav" && m_protocol != "webdavs") {
         QString statSide = metaData(QStringLiteral("statSide"));
         if (statSide != QLatin1String("source")) {
-            // When uploading we assume the file doesn't exit
+            // When uploading we assume the file does not exist.
             error(ERR_DOES_NOT_EXIST, url.toDisplayString());
             return;
         }
@@ -1306,14 +1307,10 @@ void HTTPProtocol::put(const QUrl &url, int, KIO::JobFlags flags)
             }
 
             // Checks if the destination exists and return an error if it does.
-            if (!davStatDestination()) {
-                error(ERR_FILE_ALREADY_EXIST, QString());
+            if (davDestinationExists()) {
+                error(ERR_FILE_ALREADY_EXIST, url.fileName());
                 return;
             }
-
-            // force re-authentication...
-            delete m_wwwAuth;
-            m_wwwAuth = nullptr;
         }
     }
 
@@ -1332,11 +1329,28 @@ void HTTPProtocol::copy(const QUrl &src, const QUrl &dest, int, KIO::JobFlags fl
     if (isSourceLocal && !isDestinationLocal) {
         copyPut(src, dest, flags);
     } else {
-        if (!maybeSetRequestUrl(dest) || !maybeSetRequestUrl(src)) {
+        if (!maybeSetRequestUrl(dest)) {
             return;
         }
 
         resetSessionSettings();
+
+        if (!(flags & KIO::Overwrite)) {
+            // check to make sure this host supports WebDAV
+            if (!davHostOk()) {
+                return;
+            }
+
+            // Checks if the destination exists and return an error if it does.
+            if (davDestinationExists()) {
+                error(ERR_FILE_ALREADY_EXIST, dest.fileName());
+                return;
+            }
+        }
+
+        if (!maybeSetRequestUrl(src)) {
+            return;
+        }
 
         // destination has to be "http(s)://..."
         QUrl newDest (dest);
@@ -1348,7 +1362,7 @@ void HTTPProtocol::copy(const QUrl &src, const QUrl &dest, int, KIO::JobFlags fl
         m_request.url.setQuery(QString());
         m_request.cacheTag.policy = CC_Reload;
 
-        proceedUntilResponseHeader();
+        proceedUntilResponseContent();
 
         // The server returns a HTTP/1.1 201 Created or 204 No Content on successful completion
         if (m_request.responseCode == 201 || m_request.responseCode == 204) {
@@ -5583,14 +5597,15 @@ void HTTPProtocol::copyPut(const QUrl& src, const QUrl& dest, JobFlags flags)
         }
 
         // Checks if the destination exists and return an error if it does.
-        if (!davStatDestination()) {
+        if (davDestinationExists()) {
+            error(ERR_FILE_ALREADY_EXIST, dest.fileName());
             return;
         }
     }
 
     m_POSTbuf = new QFile (src.toLocalFile());
     if (!m_POSTbuf->open(QFile::ReadOnly)) {
-        error(KIO::ERR_CANNOT_OPEN_FOR_READING, QString());
+        error(KIO::ERR_CANNOT_OPEN_FOR_READING, src.fileName());
         return;
     }
 
@@ -5600,7 +5615,7 @@ void HTTPProtocol::copyPut(const QUrl& src, const QUrl& dest, JobFlags flags)
     proceedUntilResponseContent();
 }
 
-bool HTTPProtocol::davStatDestination()
+bool HTTPProtocol::davDestinationExists()
 {
     const QByteArray request ("<?xml version=\"1.0\" encoding=\"utf-8\" ?>"
                               "<D:propfind xmlns:D=\"DAV:\"><D:prop>"
@@ -5624,16 +5639,19 @@ bool HTTPProtocol::davStatDestination()
         m_request.isKeepAlive = true; // reset the keep alive flag.
     }
 
-    if (m_request.responseCode == 207) {
-        error(ERR_FILE_ALREADY_EXIST, QString());
-        return false;
+    if (m_request.responseCode >= 200 && m_request.responseCode < 300) {
+        // 2XX means the file exists. This includes 207 (multi-status response).
+        qCDebug(KIO_HTTP) << "davDestinationExists: file exists. code:" << m_request.responseCode;
+        return true;
+    } else {
+        qCDebug(KIO_HTTP) << "davDestinationExists: file does not exist. code:" << m_request.responseCode;
     }
 
     // force re-authentication...
     delete m_wwwAuth;
     m_wwwAuth = nullptr;
 
-    return true;
+    return false;
 }
 
 void HTTPProtocol::fileSystemFreeSpace(const QUrl &url)

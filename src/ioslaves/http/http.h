@@ -506,9 +506,9 @@ protected:
     void copyPut(const QUrl& src, const QUrl& dest, KIO::JobFlags flags);
 
     /**
-      * Stats a remote DAV file and returns true if it exists.
+      * Stats a remote DAV file and returns true if it already exists.
       */
-    bool davStatDestination();
+    bool davDestinationExists();
 
     void virtual_hook(int id, void *data) override;
 

@@ -66,6 +66,17 @@ if(Gem_ftpd_FOUND)
     )
 endif()
 
+find_package(WsgidavExe)
+set_package_properties(Gem_ftpd PROPERTIES
+    DESCRIPTION "wsgidav required for running the webdavtest.")
+if(WsgidavExe_FOUND)
+    ecm_add_tests(
+        webdavtest.cpp
+        NAME_PREFIX "kiocore-"
+        LINK_LIBRARIES KF5::KIOCore Qt5::Test Qt5::Network
+    )
+endif()
+
 if(UNIX)
   ecm_add_tests(
     privilegejobtest.cpp
