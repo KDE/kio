@@ -134,7 +134,6 @@ public:
     QString findMatchingFilter(const QString &filter, const QString &filename) const;
     void updateFilter();
     void updateFilterText();
-    QList<QUrl> &parseSelectedUrls();
     /**
      * Parses the string "line" for files. If line doesn't contain any ", the
      * whole line will be interpreted as one file. If the number of " is odd,
@@ -221,9 +220,6 @@ public:
 
     // the last selected url
     QUrl url;
-
-    // the selected filenames in multiselection mode -- FIXME
-    QString filenames;
 
     // now following all kind of widgets, that I need to rebuild
     // the geometry management
@@ -1087,7 +1083,7 @@ void KFileWidget::slotOk()
 
 void KFileWidget::accept()
 {
-    d->inAccept = true; // parseSelectedUrls() checks that
+    d->inAccept = true;
 
     *lastDirectory() = d->ops->url();
     if (!d->fileClass.isEmpty()) {
@@ -1701,47 +1697,12 @@ QList<QUrl> KFileWidget::selectedUrls() const
     QList<QUrl> list;
     if (d->inAccept) {
         if (d->ops->mode() & KFile::Files) {
-            list = d->parseSelectedUrls();
+            list = d->urlList;
         } else {
             list.append(d->url);
         }
     }
     return list;
-}
-
-QList<QUrl> &KFileWidgetPrivate::parseSelectedUrls()
-{
-//     qDebug();
-
-    if (filenames.isEmpty()) {
-        return urlList;
-    }
-
-    urlList.clear();
-    if (filenames.contains(QLatin1Char('/'))) {    // assume _one_ absolute filename
-        QUrl u;
-        if (containsProtocolSection(filenames)) {
-            u = QUrl(filenames);
-        } else {
-            u.setPath(filenames);
-        }
-
-        if (u.isValid()) {
-            urlList.append(u);
-        } else
-            KMessageBox::error(q,
-                               i18n("The chosen filenames do not\n"
-                                    "appear to be valid."),
-                               i18n("Invalid Filenames"));
-    }
-
-    else {
-        urlList = tokenize(filenames);
-    }
-
-    filenames.clear(); // indicate that we parsed that one
-
-    return urlList;
 }
 
 // FIXME: current implementation drawback: a filename can't contain quotes
@@ -1832,7 +1793,7 @@ QStringList KFileWidget::selectedFiles() const
 
     if (d->inAccept) {
         if (d->ops->mode() & KFile::Files) {
-            const QList<QUrl> urls = d->parseSelectedUrls();
+            const QList<QUrl> urls = d->urlList;
             QList<QUrl>::const_iterator it = urls.begin();
             while (it != urls.end()) {
                 QUrl url = d->mostLocalUrl(*it);
