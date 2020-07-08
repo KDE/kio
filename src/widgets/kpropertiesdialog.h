@@ -28,7 +28,7 @@
 
 #include "kiowidgets_export.h"
 #include <kfileitem.h>
-#include <kpagedialog.h>
+#include <KPageDialog>
 
 class KPropertiesDialogPlugin;
 

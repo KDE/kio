@@ -33,7 +33,7 @@
 #include <QJSValue>
 #include <QJSValueIterator>
 
-#include <klocalizedstring.h>
+#include <KLocalizedString>
 #include <kio/hostinfo.h>
 
 #define QL1S(x)    QLatin1String(x)

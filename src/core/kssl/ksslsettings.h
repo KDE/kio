@@ -25,7 +25,7 @@
 
 #include <QString>
 
-#include <kconfig.h>
+#include <KConfig>
 
 class KSSLSettingsPrivate;
 

@@ -24,9 +24,9 @@
 #include <QTextStream>
 #include <QDebug>
 
-#include <kdirwatch.h>
-#include <kconfig.h>
-#include <kconfiggroup.h>
+#include <KDirWatch>
+#include <KConfig>
+#include <KConfigGroup>
 #include "kiocoredebug.h"
 
 class Q_DECL_HIDDEN KNFSShare::KNFSSharePrivate

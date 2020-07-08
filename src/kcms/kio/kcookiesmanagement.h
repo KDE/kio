@@ -27,7 +27,7 @@
 #include <QTreeWidget>
 #include <QHash>
 
-#include <kcmodule.h>
+#include <KCModule>
 #include "ui_kcookiesmanagement.h"
 
 struct CookieProp;

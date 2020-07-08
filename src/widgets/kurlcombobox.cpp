@@ -26,8 +26,8 @@
 
 #include <QDebug>
 #include <kio/global.h>
-#include <klocalizedstring.h>
-#include <kiconloader.h>
+#include <KLocalizedString>
+#include <KIconLoader>
 
 #include <algorithm>
 #include <memory>

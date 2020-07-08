@@ -27,7 +27,7 @@
 #include <QDBusArgument>
 #include <QDBusMetaType>
 
-#include <qstandardpaths.h>
+#include <QStandardPaths>
 
 using namespace KIO;
 

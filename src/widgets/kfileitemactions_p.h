@@ -23,8 +23,8 @@
 
 #include <kfileitemlistproperties.h>
 #include <kfileitem.h>
-#include <kserviceaction.h>
-#include <kservice.h>
+#include <KServiceAction>
+#include <KService>
 #include <KConfig>
 
 #include <QActionGroup>

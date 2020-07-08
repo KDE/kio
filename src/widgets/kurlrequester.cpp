@@ -21,10 +21,10 @@
 #include "kio_widgets_debug.h"
 #include "../pathhelpers_p.h"
 
-#include <kcombobox.h>
-#include <kdragwidgetdecorator.h>
-#include <klineedit.h>
-#include <klocalizedstring.h>
+#include <KComboBox>
+#include <KDragWidgetDecorator>
+#include <KLineEdit>
+#include <KLocalizedString>
 #include <kprotocolmanager.h>
 #include <kurlcompletion.h>
 

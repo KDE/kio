@@ -22,7 +22,7 @@
 #ifndef KSSLD_H
 #define KSSLD_H
 
-#include <kdedmodule.h>
+#include <KDEDModule>
 #include <QList>
 #include <QVariant>
 class QString;

@@ -22,9 +22,9 @@
 #include "connectionbackend_p.h"
 #include <errno.h>
 #include <QCoreApplication>
-#include <klocalizedstring.h>
+#include <KLocalizedString>
 #include <QFile>
-#include <qstandardpaths.h>
+#include <QStandardPaths>
 #include <QTemporaryFile>
 #include <QPointer>
 #include <QElapsedTimer>

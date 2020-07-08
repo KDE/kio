@@ -29,19 +29,19 @@
 #include "../pathhelpers_p.h"
 
 #include <kdirnotify.h>
-#include <kjobwidgets.h>
-#include <klocalizedstring.h>
-#include <kmessagebox.h>
-#include <kurlmimedata.h>
+#include <KJobWidgets>
+#include <KLocalizedString>
+#include <KMessageBox>
+#include <KUrlMimeData>
 #include <kfileitem.h>
 #include <kfileitemlistproperties.h>
 
 #include <QApplication>
 #include <QClipboard>
 #include <QMimeData>
-#include <qtemporaryfile.h>
-#include <qmimedatabase.h>
-#include <qinputdialog.h>
+#include <QTemporaryFile>
+#include <QMimeDatabase>
+#include <QInputDialog>
 #include <QDebug>
 #include <QFileInfo>
 

@@ -25,12 +25,12 @@
 #include <QMenu>
 #include <knameandurlinputdialog.h>
 #include <kpropertiesdialog.h>
-#include <kactioncollection.h>
+#include <KActionCollection>
 #include <knewfilemenu.h>
 #include <KIO/StoredTransferJob>
 #include <KShell>
 
-#include <qtemporarydir.h>
+#include <QTemporaryDir>
 
 #ifdef Q_OS_UNIX
 #include <sys/types.h>

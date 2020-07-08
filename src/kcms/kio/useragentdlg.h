@@ -25,7 +25,7 @@
 #ifndef _USERAGENTDLG_H
 #define _USERAGENTDLG_H
 
-#include <kcmodule.h>
+#include <KCModule>
 #include "ui_useragentdlg.h"
 
 class KConfig;

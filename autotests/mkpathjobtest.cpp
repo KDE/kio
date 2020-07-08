@@ -17,7 +17,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include <qtest.h>
+#include <QTest>
 #include <QSignalSpy>
 #include <QDir>
 #include <QStandardPaths>

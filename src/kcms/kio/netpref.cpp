@@ -11,8 +11,8 @@
 #include <ioslave_defaults.h>
 #include <KLocalizedString>
 #include <KPluralHandlingSpinBox>
-#include <kconfig.h>
-#include <kpluginfactory.h>
+#include <KConfig>
+#include <KPluginFactory>
 #include <KConfigGroup>
 
 // Local

@@ -24,8 +24,8 @@
 
 #include <kfileplacesview.h>
 #include <kfileplacesmodel.h>
-#include <kconfig.h>
-#include <kconfiggroup.h>
+#include <KConfig>
+#include <KConfigGroup>
 #include <KProtocolInfo>
 
 #include <QTest>

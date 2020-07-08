@@ -27,7 +27,7 @@
 #include "simplejob.h"
 #include "transferjob.h"
 #include "commands_p.h"
-#include "kjobtrackerinterface.h"
+#include <KJobTrackerInterface>
 #include <kio/jobuidelegateextension.h>
 #include <kio/jobuidelegatefactory.h>
 #include <QUrl>

@@ -29,9 +29,9 @@
 #include <QWidget>
 
 // KDE
-#include <kcombobox.h>
+#include <KComboBox>
 #include <QLineEdit>
-#include <kurllabel.h>
+#include <KUrlLabel>
 #include <QVBoxLayout>
 
 

@@ -26,20 +26,20 @@
 
 #include <QDialog>
 #include <QDialogButtonBox>
-#include <qpainter.h>
-#include <qpushbutton.h>
+#include <QPainter>
+#include <QPushButton>
 #include <QButtonGroup>
 #include <QGroupBox>
-#include <qradiobutton.h>
-#include <qcombobox.h>
-#include <qlabel.h>
-#include <qcheckbox.h>
-#include <qlayout.h>
+#include <QRadioButton>
+#include <QComboBox>
+#include <QLabel>
+#include <QCheckBox>
+#include <QLayout>
 #include <QStackedWidget>
 #include <QMouseEvent>
 #include <QHeaderView>
 
-#include <klocalizedstring.h>
+#include <KLocalizedString>
 #include <kfileitem.h>
 
 #if HAVE_ACL_LIBACL_H

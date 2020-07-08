@@ -32,7 +32,7 @@
 
 #include <kfileitem.h>
 #include <kfileplacesmodel.h>
-#include <klocalizedstring.h>
+#include <KLocalizedString>
 #include <kprotocolinfo.h>
 #include <kurlcombobox.h>
 #include <kurlcompletion.h>
@@ -45,7 +45,7 @@
 #include <QDropEvent>
 #include <QKeyEvent>
 #include <QMenu>
-#include <qmimedatabase.h>
+#include <QMimeDatabase>
 #include <QMimeData>
 #include <QHBoxLayout>
 

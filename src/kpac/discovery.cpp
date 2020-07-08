@@ -47,10 +47,10 @@
 #include <QTimer>
 #include <QProcess>
 #include <QHostInfo>
-#include <qstandardpaths.h>
-#include <qurl.h>
+#include <QStandardPaths>
+#include <QUrl>
 
-#include <klocalizedstring.h>
+#include <KLocalizedString>
 #include "moc_discovery.cpp"
 
 namespace KPAC

@@ -20,7 +20,7 @@
 
 #include "kdiroperator.h"
 #include <kprotocolmanager.h>
-#include <kiconloader.h>
+#include <KIconLoader>
 #include "kdirmodel.h"
 #include "kdiroperatordetailview_p.h"
 #include "kdiroperatoriconview_p.h"
@@ -29,7 +29,7 @@
 #include "kfilemetapreview_p.h"
 #include "kpreviewwidgetbase.h"
 #include "knewfilemenu.h"
-#include <kurlmimedata.h>
+#include <KUrlMimeData>
 #include "../pathhelpers_p.h"
 
 #include <config-kiofilewidgets.h>
@@ -50,9 +50,9 @@
 
 #include <kdirlister.h>
 #include <kfileitemdelegate.h>
-#include <klocalizedstring.h>
-#include <kmessagebox.h>
-#include <kjobwidgets.h>
+#include <KLocalizedString>
+#include <KMessageBox>
+#include <KJobWidgets>
 #include <kio/deletejob.h>
 #include <kio/copyjob.h>
 #include <kio/jobuidelegate.h>
@@ -62,9 +62,9 @@
 #include <kfilepreviewgenerator.h>
 #include <krun.h>
 #include <kpropertiesdialog.h>
-#include <kactioncollection.h>
-#include <kconfiggroup.h>
-#include <ksharedconfig.h>
+#include <KActionCollection>
+#include <KConfigGroup>
+#include <KSharedConfig>
 
 template class QHash<QString, KFileItem>;
 

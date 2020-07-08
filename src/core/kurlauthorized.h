@@ -22,7 +22,7 @@
 #define KURLAUTHORIZED_H
 
 #include "kiocore_export.h"
-#include <kauthorized.h>
+#include <KAuthorized>
 
 class QUrl;
 class QString;

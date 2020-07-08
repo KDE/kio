@@ -9,12 +9,12 @@
 #include "kfilemetapreview_p.h"
 
 #include <QLayout>
-#include <qmimedatabase.h>
+#include <QMimeDatabase>
 
 #include <QDebug>
 #include <kio/previewjob.h>
-#include <kpluginloader.h>
-#include <kpluginfactory.h>
+#include <KPluginLoader>
+#include <KPluginFactory>
 #include <kimagefilepreview.h>
 
 bool KFileMetaPreview::s_tryAudioPreview = true;

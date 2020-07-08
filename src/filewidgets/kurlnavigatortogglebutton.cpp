@@ -19,7 +19,7 @@
 
 #include "kurlnavigatortogglebutton_p.h"
 
-#include <klocalizedstring.h>
+#include <KLocalizedString>
 
 #include <QPainter>
 #include <QPaintEvent>

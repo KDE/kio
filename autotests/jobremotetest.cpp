@@ -20,10 +20,10 @@
 
 #include "jobremotetest.h"
 
-#include <qtest.h>
+#include <QTest>
 
 #include <QDebug>
-#include <klocalizedstring.h>
+#include <KLocalizedString>
 
 #include <QEventLoop>
 #include <QDir>
@@ -35,7 +35,7 @@
 #include <kio/copyjob.h>
 #include <kio/deletejob.h>
 #include <kio/filejob.h>
-#include <qstandardpaths.h>
+#include <QStandardPaths>
 //#include "kiotesthelper.h" // createTestFile etc.
 
 QTEST_MAIN(JobRemoteTest)

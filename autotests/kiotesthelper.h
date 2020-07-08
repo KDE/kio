@@ -23,7 +23,7 @@
 #include <QDateTime>
 #include <QDebug>
 #include <qglobal.h>
-#include <qstandardpaths.h>
+#include <QStandardPaths>
 #include <qplatformdefs.h>
 #include <QDir>
 #ifdef Q_OS_UNIX

@@ -24,7 +24,7 @@
 #define KURLCOMPLETION_H
 
 #include "kiowidgets_export.h"
-#include <kcompletion.h>
+#include <KCompletion>
 #include <kio/udsentry.h>
 #include <QString>
 

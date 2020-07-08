@@ -33,31 +33,31 @@
 #include <QPushButton>
 #include <QStandardPaths>
 
-#include <qtemporaryfile.h>
-#include <kactioncollection.h>
-#include <kconfiggroup.h>
+#include <QTemporaryFile>
+#include <KActionCollection>
+#include <KConfigGroup>
 #include <QDebug>
-#include <kdesktopfile.h>
-#include <kdirwatch.h>
+#include <KDesktopFile>
+#include <KDirWatch>
 #include <kdirnotify.h>
-#include <kjobwidgets.h>
-#include <klocalizedstring.h>
-#include <kmessagebox.h>
-#include <kmessagewidget.h>
+#include <KJobWidgets>
+#include <KLocalizedString>
+#include <KMessageBox>
+#include <KMessageWidget>
 #include <kprotocolinfo.h>
 #include <kprotocolmanager.h>
 #include <krun.h>
-#include <kshell.h>
+#include <KShell>
 #include <kio/job.h>
 #include <kio/copyjob.h>
 #include <kio/jobuidelegate.h>
 #include <kio/fileundomanager.h>
 #include <kio/mkpathjob.h>
 #include <kurifilter.h>
-#include <kfileutils.h>
+#include <KFileUtils>
 
 #include <kpropertiesdialog.h>
-#include <qmimedatabase.h>
+#include <QMimeDatabase>
 #ifdef Q_OS_WIN
 #include <sys/utime.h>
 #else

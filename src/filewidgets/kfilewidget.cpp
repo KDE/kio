@@ -37,14 +37,14 @@
 #include <config-kiofilewidgets.h>
 #include <defaults-kfile.h>
 
-#include <kactioncollection.h>
-#include <kactionmenu.h>
-#include <kconfiggroup.h>
+#include <KActionCollection>
+#include <KActionMenu>
+#include <KConfigGroup>
 #include <kdiroperator.h>
 #include <kfilefiltercombo.h>
 #include <kimagefilepreview.h>
 #include <krecentdocument.h>
-#include <ktoolbar.h>
+#include <KToolBar>
 #include <kurlcompletion.h>
 #include <kprotocolmanager.h>
 #include <kio/job.h>
@@ -52,9 +52,9 @@
 #include <kio/scheduler.h>
 #include <krecentdirs.h>
 #include <QDebug>
-#include <klocalizedstring.h>
+#include <KLocalizedString>
 #include <kfileitemdelegate.h>
-#include <ksharedconfig.h>
+#include <KSharedConfig>
 
 #include <QCheckBox>
 #include <QDesktopWidget>
@@ -70,14 +70,14 @@
 #include <QApplication>
 #include <QPushButton>
 #include <QStandardPaths>
-#include <qmimedatabase.h>
+#include <QMimeDatabase>
 #include <QTimer>
 
 #include <KIconLoader>
-#include <kshell.h>
-#include <kmessagebox.h>
+#include <KShell>
+#include <KMessageBox>
 #include <kurlauthorized.h>
-#include <kjobwidgets.h>
+#include <KJobWidgets>
 
 class KFileWidgetPrivate
 {

@@ -34,9 +34,9 @@
 
 #endif /* HAVE_LIBGSSAPI */
 
-#include <krandom.h>
+#include <KRandom>
 #include <QDebug>
-#include <kconfiggroup.h>
+#include <KConfigGroup>
 #include <kio/authinfo.h>
 #include <kntlm.h>
 

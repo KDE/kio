@@ -21,7 +21,7 @@
 #include "kurifiltersearchprovideractions.h"
 #include <KUriFilter>
 #include <QMenu>
-#include <qtest.h>
+#include <QTest>
 
 void KUriFilterSearchProviderActionsTest::initTestCase()
 {

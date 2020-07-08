@@ -27,20 +27,20 @@
 #include <kio/chmodjob.h>
 #include <kio/copyjob.h>
 #include <kio/deletejob.h>
-#include <qdebug.h>
+#include <QDebug>
 #include <QUrl>
 #include <kdirnotify.h>
 #include <KSharedConfig>
 #include <kfileitem.h>
-#include <kconfiggroup.h>
+#include <KConfigGroup>
 #include <kmountpoint.h>
-#include <kfileutils.h>
+#include <KFileUtils>
 
 #include <QCoreApplication>
 #include <QEventLoop>
 #include <QFile>
 #include <QDir>
-#include <kjobuidelegate.h>
+#include <KJobUiDelegate>
 
 #include <sys/stat.h>
 #include <sys/types.h>

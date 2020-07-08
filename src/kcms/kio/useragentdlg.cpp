@@ -37,12 +37,12 @@
 #include <QLoggingCategory>
 
 // KDE
-#include <kconfig.h>
+#include <KConfig>
 #include <KConfigGroup>
 #include <KLocalizedString>
-#include <kmessagebox.h>
+#include <KMessageBox>
 #include <http_slave_defaults.h>
-#include <kpluginfactory.h>
+#include <KPluginFactory>
 
 Q_DECLARE_LOGGING_CATEGORY(KIO_USERAGENTDLG)
 Q_LOGGING_CATEGORY(KIO_USERAGENTDLG, "kf5.kio.useragentdlg")

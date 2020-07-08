@@ -26,7 +26,7 @@
 
 #include <QCoreApplication>
 #include <QDirIterator>
-#include <qstandardpaths.h>
+#include <QStandardPaths>
 
 #include "kiocoredebug.h"
 

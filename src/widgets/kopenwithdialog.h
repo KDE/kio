@@ -24,7 +24,7 @@
 
 #include <QDialog>
 #include <QUrl>
-#include <kservice.h>
+#include <KService>
 
 class KOpenWithDialogPrivate;
 

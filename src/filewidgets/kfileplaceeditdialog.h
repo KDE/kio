@@ -24,7 +24,7 @@
 
 #include <QDialog>
 #include <QUrl>
-#include <kiconloader.h>
+#include <KIconLoader>
 
 class QCheckBox;
 class QDialogButtonBox;

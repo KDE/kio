@@ -22,7 +22,7 @@
 #include "commandlauncherjob.h"
 #include "kprocessrunner_p.h"
 #include "kiogui_debug.h"
-#include <kshell.h>
+#include <KShell>
 #include <KLocalizedString>
 
 class KIO::CommandLauncherJobPrivate

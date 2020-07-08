@@ -19,8 +19,8 @@
 #ifndef KFILEBOOKMARKHANDLER_H
 #define KFILEBOOKMARKHANDLER_H
 
-#include <kbookmarkmanager.h>
-#include <kbookmarkmenu.h>
+#include <KBookmarkManager>
+#include <KBookmarkMenu>
 
 class QMenu;
 class KFileWidget;

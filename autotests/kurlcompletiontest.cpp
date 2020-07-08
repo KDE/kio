@@ -17,13 +17,13 @@
  */
 
 #include <QtTest>
-#include <qapplication.h>
+#include <QApplication>
 #include <kurlcompletion.h>
 #include <KUser>
 #include <QDebug>
 #include <QDir>
 #include <QFile>
-#include <qtemporarydir.h>
+#include <QTemporaryDir>
 #include <QThread>
 #include <qplatformdefs.h>
 

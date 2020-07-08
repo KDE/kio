@@ -28,7 +28,7 @@
 #include <QUrl>
 #include <QFile>
 
-#include <qmimetype.h>
+#include <QMimeType>
 #include <QList>
 #include <qplatformdefs.h>
 

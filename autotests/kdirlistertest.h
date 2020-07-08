@@ -21,7 +21,7 @@
 
 #include <QSignalSpy>
 #include <QObject>
-#include <qtemporarydir.h>
+#include <QTemporaryDir>
 #include <QDate>
 #include <kdirlister.h>
 #include <QEventLoop>

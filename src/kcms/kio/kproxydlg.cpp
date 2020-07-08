@@ -26,10 +26,10 @@
 #include "ksaveioconfig.h"
 
 // KDE
-#include <kpluginfactory.h>
+#include <KPluginFactory>
 #include <KLineEdit>
 #include <KLocalizedString>
-#include <kmessagebox.h>
+#include <KMessageBox>
 #include <kurifilter.h>
 
 // Qt

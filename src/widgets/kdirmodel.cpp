@@ -21,14 +21,14 @@
 #include "kdirlister.h"
 #include "kfileitem.h"
 
-#include <klocalizedstring.h>
-#include <kjobuidelegate.h>
+#include <KLocalizedString>
+#include <KJobUiDelegate>
 #include <kio/simplejob.h>
 #include <kio/statjob.h>
 #include <kio/fileundomanager.h>
 #include "joburlcache_p.h"
-#include <kurlmimedata.h>
-#include <kiconloader.h>
+#include <KUrlMimeData>
+#include <KIconLoader>
 
 #include <QLocale>
 #include <QMimeData>

@@ -17,13 +17,13 @@
 */
 
 #include "kautomount.h"
-#include "kdirwatch.h"
+#include <KDirWatch>
 #include "kio/job.h"
 #include <KIO/JobUiDelegate>
 #include <KIO/OpenUrlJob>
 #include "kio_widgets_debug.h"
 #include <kdirnotify.h>
-#include <kjobuidelegate.h>
+#include <KJobUiDelegate>
 #include <kmountpoint.h>
 #include <QDebug>
 

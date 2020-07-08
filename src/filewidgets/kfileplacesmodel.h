@@ -24,7 +24,7 @@
 
 #include <QAbstractItemModel>
 #include <QUrl>
-#include <kbookmark.h>
+#include <KBookmark>
 
 #include <solid/device.h>
 

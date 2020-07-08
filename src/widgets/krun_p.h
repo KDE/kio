@@ -31,7 +31,7 @@
 class KProcess;
 
 #include "executablefileopendialog_p.h"
-#include "kstartupinfo.h"
+#include <KStartupInfo>
 
 namespace KIO {
     class ApplicationLauncherJob;

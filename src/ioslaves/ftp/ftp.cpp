@@ -52,13 +52,13 @@
 #include <QTcpServer>
 #include <QSslSocket>
 #include <QAuthenticator>
-#include <qmimedatabase.h>
+#include <QMimeDatabase>
 
 #include <QDebug>
 #include <ioslave_defaults.h>
-#include <klocalizedstring.h>
+#include <KLocalizedString>
 #include <kremoteencoding.h>
-#include <kconfiggroup.h>
+#include <KConfigGroup>
 
 #include "kioglobal_p.h"
 

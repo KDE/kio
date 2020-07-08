@@ -20,8 +20,8 @@
 
 #include "sslui.h"
 
-#include <klocalizedstring.h>
-#include <kmessagebox.h>
+#include <KLocalizedString>
+#include <KMessageBox>
 #include <ksslcertificatemanager.h>
 #include <ksslinfodialog.h>
 #include <ksslerroruidata_p.h>

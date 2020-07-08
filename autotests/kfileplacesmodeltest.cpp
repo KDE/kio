@@ -21,19 +21,19 @@
 #include <QDBusInterface>
 #include <QTemporaryDir>
 
-#include <kbookmarkmanager.h>
-#include <kbookmark.h>
+#include <KBookmarkManager>
+#include <KBookmark>
 #include <QDebug>
 #include <kfileplacesmodel.h>
 #include <solid/device.h>
-#include <kconfig.h>
-#include <kconfiggroup.h>
+#include <KConfig>
+#include <KConfigGroup>
 #include <KProtocolInfo>
 
 #include <QtTest>
 
 #include <stdlib.h>
-#include <qstandardpaths.h>
+#include <QStandardPaths>
 
 Q_DECLARE_METATYPE(KFilePlacesModel::GroupType)
 

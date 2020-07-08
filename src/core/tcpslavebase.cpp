@@ -27,10 +27,10 @@
 #include "tcpslavebase.h"
 #include "kiocoredebug.h"
 
-#include <kconfiggroup.h>
+#include <KConfigGroup>
 #include <ksslcertificatemanager.h>
 #include <ksslsettings.h>
-#include <klocalizedstring.h>
+#include <KLocalizedString>
 
 #include <QSslCipher>
 #include <QSslSocket>

@@ -19,7 +19,7 @@
 
 #include "fileundomanagertest.h"
 
-#include <qtest.h>
+#include <QTest>
 #include <QSignalSpy>
 #include <QDateTime>
 #include <QDir>
@@ -37,11 +37,11 @@
 #include <kio/batchrenamejob.h>
 #include <kioglobal_p.h>
 #include <kprotocolinfo.h>
-#include <kurlmimedata.h>
+#include <KUrlMimeData>
 
 #include <QDebug>
-#include <kconfig.h>
-#include <kconfiggroup.h>
+#include <KConfig>
+#include <KConfigGroup>
 
 #include <errno.h>
 #include <time.h>

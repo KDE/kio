@@ -35,8 +35,8 @@
 #include <QProcess>
 #include <QDebug>
 
-#include <kdirwatch.h>
-#include <kuser.h>
+#include <KDirWatch>
+#include <KUser>
 
 Q_DECLARE_LOGGING_CATEGORY(KIO_CORE_SAMBASHARE)
 Q_LOGGING_CATEGORY(KIO_CORE_SAMBASHARE, "kf5.kio.core.sambashare", QtWarningMsg)

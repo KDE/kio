@@ -19,8 +19,8 @@
 */
 
 #include "httpfilter.h"
-#include <kcompressiondevice.h>
-#include <kfilterbase.h>
+#include <KCompressionDevice>
+#include <KFilterBase>
 #include <KLocalizedString>
 #include <QDebug>
 

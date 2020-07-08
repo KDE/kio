@@ -31,7 +31,7 @@
 #include <QDirIterator>
 #include <QFileInfo>
 
-#include <kconfiggroup.h>
+#include <KConfigGroup>
 #include <QDebug>
 
 #include "kioglobal_p.h"

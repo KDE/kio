@@ -22,7 +22,7 @@
 #include <QSignalSpy>
 #include <QTest>
 #include <kpasswdserver.h>
-#include <kpassworddialog.h>
+#include <KPasswordDialog>
 
 static const char *sigQueryAuthInfoResult = SIGNAL(queryAuthInfoAsyncResult(qlonglong, qlonglong, KIO::AuthInfo));
 static const char *sigCheckAuthInfoResult = SIGNAL(checkAuthInfoAsyncResult(qlonglong, qlonglong, KIO::AuthInfo));

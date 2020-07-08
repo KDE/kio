@@ -32,8 +32,8 @@
 // KDE
 #include <KLocalizedString>
 #include <QDateTime>
-#include <kiconloader.h>
-#include <kmessagebox.h>
+#include <KIconLoader>
+#include <KMessageBox>
 #include <QLocale>
 // Local
 #include "kcookiesmain.h"

@@ -36,22 +36,22 @@
 #include <QScrollBar>
 #include <QLayout>
 
-#include <kiconloader.h>
-#include <kmessagebox.h>
+#include <KIconLoader>
+#include <KMessageBox>
 #include <kio/global.h>
 #include <kio/udsentry.h>
-#include <klocalizedstring.h>
+#include <KLocalizedString>
 #include <kfileitem.h>
-#include <kseparator.h>
-#include <kstringhandler.h>
-#include <kstandardguiitem.h>
-#include <kguiitem.h>
-#include <ksqueezedtextlabel.h>
+#include <KSeparator>
+#include <KStringHandler>
+#include <KStandardGuiItem>
+#include <KGuiItem>
+#include <KSqueezedTextLabel>
 #if 0
-#include <kfilemetadatawidget.h>
+#include <KFileMetaDataWidget>
 #endif
 #include <previewjob.h>
-#include <kfileutils.h>
+#include <KFileUtils>
 
 using namespace KIO;
 

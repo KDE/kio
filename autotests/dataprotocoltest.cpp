@@ -12,7 +12,7 @@
 
 #include "dataprotocoltest.h"
 
-#include <qtest.h>
+#include <QTest>
 #include <QDebug>
 
 #include <kio/global.h>

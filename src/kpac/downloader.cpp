@@ -24,7 +24,7 @@
 
 #include <QTextCodec>
 
-#include <klocalizedstring.h>
+#include <KLocalizedString>
 #include <kio/job.h>
 
 namespace KPAC

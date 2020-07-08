@@ -21,13 +21,13 @@
 */
 
 #include <QApplication>
-#include <ktoolinvocation.h>
-#include <kauthorized.h>
+#include <KToolInvocation>
+#include <KAuthorized>
 #include <QMessageBox>
 #include <QDebug>
-#include <klocalizedstring.h>
-#include <kconfig.h>
-#include <kconfiggroup.h>
+#include <KLocalizedString>
+#include <KConfig>
+#include <KConfigGroup>
 #include <QUrl>
 
 int main(int argc, char **argv)

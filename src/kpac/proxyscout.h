@@ -20,7 +20,7 @@
 #ifndef KPAC_PROXYSCOUT_H
 #define KPAC_PROXYSCOUT_H
 
-#include <kdedmodule.h>
+#include <KDEDModule>
 
 #include <QUrl>
 #include <QMap>

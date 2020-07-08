@@ -30,7 +30,7 @@
 
 #include <kurlauthorized.h>
 #include <kprotocolinfo.h>
-#include <qmimedatabase.h>
+#include <QMimeDatabase>
 
 #include <QtMath>
 #include <QSslConfiguration>

@@ -34,15 +34,15 @@
 #include <QLocale>
 #include <qplatformdefs.h>
 
-#include <klocalizedstring.h>
-#include <kdesktopfile.h>
+#include <KLocalizedString>
+#include <KDesktopFile>
 #include <kmountpoint.h>
-#include <kconfiggroup.h>
+#include <KConfigGroup>
 #ifndef Q_OS_WIN
 #include <knfsshare.h>
 #include <ksambashare.h>
 #endif
-#include <kfilesystemtype.h>
+#include <KFileSystemType>
 
 class KFileItemPrivate : public QSharedData
 {

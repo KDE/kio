@@ -21,9 +21,9 @@
 #include "kurlnavigatorplacesselector_p.h"
 
 #include <kfileplacesmodel.h>
-#include <kurlmimedata.h>
+#include <KUrlMimeData>
 
-#include <qmimedatabase.h>
+#include <QMimeDatabase>
 #include <QDragEnterEvent>
 #include <QDragLeaveEvent>
 #include <QDropEvent>

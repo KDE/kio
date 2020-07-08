@@ -24,7 +24,7 @@
 #include <QLayout>
 #include <QTabWidget>
 
-#include <kcmodule.h>
+#include <KCModule>
 
 #include "ui_ikwsopts_ui.h"
 #include "searchproviderregistry.h"

@@ -19,7 +19,7 @@
 
 #include "testtrash.h"
 
-#include <qtest.h>
+#include <QTest>
 
 #include "kio_trash.h"
 #include "../../../pathhelpers_p.h"
@@ -32,13 +32,13 @@
 #include <kio/copyjob.h>
 #include <kio/deletejob.h>
 #include <QDebug>
-#include <kconfiggroup.h>
+#include <KConfigGroup>
 
 #include <QDir>
 #include <QUrl>
 #include <QFileInfo>
 #include <QVector>
-#include <kjobuidelegate.h>
+#include <KJobUiDelegate>
 
 #include <stdio.h>
 #include <stdlib.h>

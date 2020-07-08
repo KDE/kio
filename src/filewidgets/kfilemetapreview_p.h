@@ -12,7 +12,7 @@
 #include <QHash>
 #include <QStackedWidget>
 #include <kpreviewwidgetbase.h>
-#include <qmimetype.h>
+#include <QMimeType>
 
 // Internal, but exported for KDirOperator (kfile) and KPreviewProps (kdelibs4support)
 class KIOFILEWIDGETS_EXPORT KFileMetaPreview : public KPreviewWidgetBase

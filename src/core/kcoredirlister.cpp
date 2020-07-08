@@ -23,7 +23,7 @@
 #include "kcoredirlister.h"
 #include "kcoredirlister_p.h"
 
-#include <klocalizedstring.h>
+#include <KLocalizedString>
 #include <kio/listjob.h>
 #include "kprotocolmanager.h"
 #include "kmountpoint.h"
@@ -35,7 +35,7 @@
 #include <QFile>
 #include <QTextStream>
 #include <QDir>
-#include <qmimedatabase.h>
+#include <QMimeDatabase>
 
 #include <list>
 

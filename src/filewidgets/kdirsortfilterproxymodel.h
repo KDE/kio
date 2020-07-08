@@ -25,7 +25,7 @@
 
 #include <QFileInfo>
 
-#include <kcategorizedsortfilterproxymodel.h>
+#include <KCategorizedSortFilterProxyModel>
 
 #include "kiofilewidgets_export.h"
 

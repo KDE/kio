@@ -27,12 +27,12 @@
 #include "widgetsuntrustedprogramhandler.h"
 #include "widgetsopenwithhandler.h"
 
-#include <kconfiggroup.h>
-#include <kjob.h>
-#include <kjobwidgets.h>
-#include <klocalizedstring.h>
-#include <kmessagebox.h>
-#include <ksharedconfig.h>
+#include <KConfigGroup>
+#include <KJob>
+#include <KJobWidgets>
+#include <KLocalizedString>
+#include <KMessageBox>
+#include <KSharedConfig>
 #include <ksslinfodialog.h>
 #include <clipboardupdater_p.h>
 

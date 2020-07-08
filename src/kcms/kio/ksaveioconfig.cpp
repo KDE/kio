@@ -29,8 +29,8 @@
 // KDE
 #include <KConfig>
 #include <KLocalizedString>
-#include <kmessagebox.h>
-#include <kconfiggroup.h>
+#include <KMessageBox>
+#include <KConfigGroup>
 #include <ioslave_defaults.h>
 class KSaveIOConfigPrivate
 {

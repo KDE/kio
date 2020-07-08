@@ -19,8 +19,8 @@
 
 // KDE
 #include <KLocalizedString>
-#include <kmessagebox.h>
-#include <kpluginfactory.h>
+#include <KMessageBox>
+#include <KPluginFactory>
 
 
 K_PLUGIN_FACTORY_DECLARATION (KioConfigFactory)

@@ -22,8 +22,8 @@
 
 #include "hostinfo.h"
 
-#include <kiconloader.h>
-#include <kservice.h>
+#include <KIconLoader>
+#include <KService>
 #include <kio/global.h>
 
 #include <KPluginMetaData>

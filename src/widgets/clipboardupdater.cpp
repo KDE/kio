@@ -21,7 +21,7 @@
 #include "jobclasses.h"
 #include "copyjob.h"
 #include "deletejob.h"
-#include <kurlmimedata.h>
+#include <KUrlMimeData>
 #include "../pathhelpers_p.h"
 
 #include <QGuiApplication>

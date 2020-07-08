@@ -22,7 +22,7 @@
 #define KURLPIXMAPPROVIDER_H
 
 #include "kiowidgets_export.h"
-#include <kpixmapprovider.h>
+#include <KPixmapProvider>
 
 /**
  * @class KUrlPixmapProvider kurlpixmapprovider.h <KUrlPixmapProvider>

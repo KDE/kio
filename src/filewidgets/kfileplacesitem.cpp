@@ -22,9 +22,9 @@
 #include <QDateTime>
 #include <QIcon>
 
-#include <kbookmarkmanager.h>
-#include <kiconloader.h>
-#include <klocalizedstring.h>
+#include <KBookmarkManager>
+#include <KIconLoader>
+#include <KLocalizedString>
 #include <KConfig>
 #include <KConfigGroup>
 #include <kprotocolinfo.h>

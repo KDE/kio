@@ -22,16 +22,16 @@
 #include "defaultviewadapter_p.h"
 #include <imagefilter_p.h> // from kiowidgets
 #include <config-kiofilewidgets.h> // for HAVE_XRENDER
-#include <kconfiggroup.h>
+#include <KConfigGroup>
 #include <kfileitem.h>
-#include <kiconeffect.h>
+#include <KIconEffect>
 #include <kio/previewjob.h>
 #include <kio/paste.h>
 #include <kdirlister.h>
 #include <kdirmodel.h>
-#include <kiconloader.h>
-#include <ksharedconfig.h>
-#include <kurlmimedata.h>
+#include <KIconLoader>
+#include <KSharedConfig>
+#include <KUrlMimeData>
 
 #include <QApplication>
 #include <QAbstractItemView>

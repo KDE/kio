@@ -52,9 +52,9 @@
 #include <QThread>
 
 #include <QDebug>
-#include <kconfig.h>
-#include <kconfiggroup.h>
-#include <klocalizedstring.h>
+#include <KConfig>
+#include <KConfigGroup>
+#include <KLocalizedString>
 
 #include <QDBusInterface>
 #include <QSslSocket>

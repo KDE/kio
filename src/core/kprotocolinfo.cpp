@@ -22,9 +22,9 @@
 #include "kprotocolinfo_p.h"
 #include "kprotocolinfofactory_p.h"
 
-#include <kconfig.h>
-#include <ksharedconfig.h>
-#include <kconfiggroup.h>
+#include <KConfig>
+#include <KSharedConfig>
+#include <KConfigGroup>
 #include <QUrl>
 #include <KPluginMetaData>
 

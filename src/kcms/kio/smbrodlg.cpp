@@ -27,10 +27,10 @@
 #include <QGridLayout>
 
 // KDE
-#include <kcharsets.h>
-#include <kcombobox.h>
-#include <kconfig.h>
-#include <kpluginfactory.h>
+#include <KCharsets>
+#include <KComboBox>
+#include <KConfig>
+#include <KPluginFactory>
 #include <KLocalizedString>
 //#include <config-apps.h>
 #include <KConfigGroup>

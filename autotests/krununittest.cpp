@@ -26,16 +26,16 @@
 
 QTEST_GUILESS_MAIN(KRunUnitTest)
 
-#include <qstandardpaths.h>
+#include <QStandardPaths>
 
 #include "krun.h"
 #include <desktopexecparser.h>
-#include <kshell.h>
-#include <kservice.h>
-#include <kmimetypetrader.h>
-#include <kconfiggroup.h>
-#include <ksharedconfig.h>
-#include <kprocess.h>
+#include <KShell>
+#include <KService>
+#include <KMimeTypeTrader>
+#include <KConfigGroup>
+#include <KSharedConfig>
+#include <KProcess>
 #include <kprotocolinfo.h>
 #include <KDesktopFile>
 #include "kiotesthelper.h" // createTestFile etc.

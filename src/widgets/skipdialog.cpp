@@ -27,7 +27,7 @@
 #include <QLabel>
 #include <QVBoxLayout>
 
-#include <klocalizedstring.h>
+#include <KLocalizedString>
 #include <kio/jobuidelegateextension.h>
 
 using namespace KIO;

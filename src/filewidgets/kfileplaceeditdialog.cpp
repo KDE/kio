@@ -19,12 +19,12 @@
 
 #include "kfileplaceeditdialog.h"
 
-#include <kaboutdata.h>
-#include <kconfig.h>
-#include <kiconbutton.h>
-#include <kiconloader.h>
-#include <klineedit.h>
-#include <klocalizedstring.h>
+#include <KAboutData>
+#include <KConfig>
+#include <KIconButton>
+#include <KIconLoader>
+#include <KLineEdit>
+#include <KLocalizedString>
 #include <kio/global.h>
 #include <kprotocolinfo.h>
 #include <kurlrequester.h>
@@ -36,7 +36,7 @@
 #include <QApplication>
 
 #include <qplatformdefs.h>
-#include <kconfiggroup.h>
+#include <KConfigGroup>
 
 bool KFilePlaceEditDialog::getInformation(bool allowGlobal, QUrl &url,
         QString &label, QString &icon,

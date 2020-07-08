@@ -18,12 +18,12 @@
 #include <QVBoxLayout>
 #include <QStyle>
 
-#include <kconfig.h>
-#include <kiconloader.h>
-#include <klocalizedstring.h>
+#include <KConfig>
+#include <KIconLoader>
+#include <KLocalizedString>
 #include <kfileitem.h>
 #include <kio/previewjob.h>
-#include <kconfiggroup.h>
+#include <KConfigGroup>
 
 /**** KImageFilePreview ****/
 

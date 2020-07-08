@@ -24,14 +24,14 @@
 
 #include <qplatformdefs.h>
 
-#include <kjobuidelegate.h>
+#include <KJobUiDelegate>
 #include <kio/job.h>
 #include <kio/copyjob.h>
 #include <kio/deletejob.h>
 #include <kprotocolinfo.h>
 #include <QTimer>
-#include <qcommandlineparser.h>
-#include <qcommandlineoption.h>
+#include <QCommandLineParser>
+#include <QCommandLineOption>
 
 using namespace KIO;
 

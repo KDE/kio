@@ -36,30 +36,30 @@
 #include <QCheckBox>
 #include <QStyle>
 #include <QStyleOptionButton>
-#include <qstandardpaths.h>
-#include <qmimedatabase.h>
+#include <QStandardPaths>
+#include <QMimeDatabase>
 #include <QScreen>
 
 #include <kurlauthorized.h>
-#include <khistorycombobox.h>
-#include <kdesktopfile.h>
-#include <klineedit.h>
-#include <ksharedconfig.h>
-#include <klocalizedstring.h>
-#include <kmessagebox.h>
-#include <kshell.h>
+#include <KHistoryComboBox>
+#include <KDesktopFile>
+#include <KLineEdit>
+#include <KSharedConfig>
+#include <KLocalizedString>
+#include <KMessageBox>
+#include <KShell>
 #include <kio/desktopexecparser.h>
-#include <kstringhandler.h>
+#include <KStringHandler>
 #include <kurlcompletion.h>
 #include <kurlrequester.h>
-#include <kservicegroup.h>
-#include <kcollapsiblegroupbox.h>
+#include <KServiceGroup>
+#include <KCollapsibleGroupBox>
 #include <QDebug>
 
 #include <assert.h>
 #include <stdlib.h>
 #include <kbuildsycocaprogressdialog.h>
-#include <kconfiggroup.h>
+#include <KConfigGroup>
 
 inline void writeEntry(KConfigGroup &group, const char *key,
                        const KCompletion::CompletionMode &aValue,

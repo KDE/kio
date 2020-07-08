@@ -26,7 +26,7 @@
 #include <QStringList>
 #include <QIcon>
 
-#include <kcombobox.h>
+#include <KComboBox>
 class QUrl;
 class KUrlComboBoxPrivate;
 

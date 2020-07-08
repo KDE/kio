@@ -22,7 +22,7 @@
 #include "kiocoredebug.h"
 
 #include <ksslcertificatemanager.h>
-#include <klocalizedstring.h>
+#include <KLocalizedString>
 
 #include <QUrl>
 #include <QSslKey>

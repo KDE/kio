@@ -33,7 +33,7 @@
 #include <QVector>
 
 #include <kio/global.h>
-#include <kdirwatch.h>
+#include <KDirWatch>
 
 class QRegularExpression;
 class KCoreDirLister;

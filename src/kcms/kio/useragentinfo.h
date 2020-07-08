@@ -19,7 +19,7 @@
 #ifndef USERAGENTINFO_H
 #define USERAGENTINFO_H
 
-#include <kservice.h>
+#include <KService>
 
 class QString;
 class QStringList;

@@ -27,7 +27,7 @@
 #include <QSysInfo>
 
 // KDE
-#include <kservicetypetrader.h>
+#include <KServiceTypeTrader>
 
 #define UA_PTOS(x) (*it)->property(x).toString()
 #define QFL(x) QLatin1String(x)

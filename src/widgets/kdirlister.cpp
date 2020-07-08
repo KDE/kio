@@ -22,10 +22,10 @@
 
 #include "kdirlister.h"
 #include <kio/listjob.h>
-#include <kjobwidgets.h>
-#include <kjobuidelegate.h>
+#include <KJobWidgets>
+#include <KJobUiDelegate>
 
-#include <kmessagebox.h>
+#include <KMessageBox>
 #include <QWidget>
 
 class Q_DECL_HIDDEN KDirLister::Private

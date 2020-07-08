@@ -35,14 +35,14 @@
 #include <QWidget>
 #include <QApplication>
 #include <QDesktopWidget>
-#include <qmimedatabase.h>
+#include <QMimeDatabase>
 #include <QDebug>
 #include <QHostInfo>
 #include <QDesktopServices>
 
-#include <kiconloader.h>
-#include <kjobuidelegate.h>
-#include <kmimetypetrader.h>
+#include <KIconLoader>
+#include <KJobUiDelegate>
+#include <KMimeTypeTrader>
 #include "kio/job.h"
 #include "kio/global.h"
 #include "kio/scheduler.h"
@@ -56,24 +56,24 @@
 #include "widgetsuntrustedprogramhandler.h"
 
 #include <kurlauthorized.h>
-#include <kmessagebox.h>
-#include <klocalizedstring.h>
+#include <KMessageBox>
+#include <KLocalizedString>
 #include <kprotocolmanager.h>
-#include <kprocess.h>
-#include <kjobwidgets.h>
-#include <ksharedconfig.h>
+#include <KProcess>
+#include <KJobWidgets>
+#include <KSharedConfig>
 #include <commandlauncherjob.h>
 
 #include <QFile>
 #include <QFileInfo>
-#include <kdesktopfile.h>
-#include <kshell.h>
-#include <kconfiggroup.h>
-#include <kstandardguiitem.h>
-#include <kguiitem.h>
+#include <KDesktopFile>
+#include <KShell>
+#include <KConfigGroup>
+#include <KStandardGuiItem>
+#include <KGuiItem>
 
 #include <KIO/OpenUrlJob>
-#include <qstandardpaths.h>
+#include <QStandardPaths>
 #include <KIO/JobUiDelegate>
 
 #ifdef Q_OS_WIN

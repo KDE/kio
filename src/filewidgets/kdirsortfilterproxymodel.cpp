@@ -24,9 +24,9 @@
 
 #include <kdirmodel.h>
 #include <kfileitem.h>
-#include <klocalizedstring.h>
-#include <kconfiggroup.h>
-#include <ksharedconfig.h>
+#include <KLocalizedString>
+#include <KConfigGroup>
+#include <KSharedConfig>
 
 #include <QCollator>
 

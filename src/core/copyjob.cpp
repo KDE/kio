@@ -34,13 +34,13 @@
 #include "filecopyjob.h"
 #include "../pathhelpers_p.h"
 
-#include <kconfiggroup.h>
-#include <klocalizedstring.h>
-#include <kdesktopfile.h>
+#include <KConfigGroup>
+#include <KLocalizedString>
+#include <KDesktopFile>
 
 #include "slave.h"
 #include "scheduler.h"
-#include "kdirwatch.h"
+#include <KDirWatch>
 #include "kprotocolmanager.h"
 
 #include <jobuidelegateextension.h>
@@ -52,7 +52,7 @@
 #include <utime.h>
 #endif
 
-#include <qtemporaryfile.h>
+#include <QTemporaryFile>
 #include <QTimer>
 #include <QFile>
 #include <QFileInfo>
@@ -61,8 +61,8 @@
 
 #include "job_p.h"
 #include <kdiskfreespaceinfo.h>
-#include <kfilesystemtype.h>
-#include <kfileutils.h>
+#include <KFileSystemType>
+#include <KFileUtils>
 #include <KIO/FileSystemFreeSpaceJob>
 
 #include <list>

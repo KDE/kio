@@ -18,8 +18,8 @@
 
 #include "pastedialog_p.h"
 
-#include <kcombobox.h>
-#include <klocalizedstring.h>
+#include <KComboBox>
+#include <KLocalizedString>
 
 #include <QApplication>
 #include <QDialogButtonBox>

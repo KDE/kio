@@ -17,7 +17,7 @@
     Boston, MA 02110-1301, USA.
 */
 
-#include <qtest.h>
+#include <QTest>
 #include <QStandardPaths>
 #include <KIO/Job>
 #include <KIO/FavIconRequestJob>

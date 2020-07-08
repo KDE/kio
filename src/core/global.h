@@ -23,7 +23,7 @@
 #include <QString>
 #include <QFile>  // for QFile::Permissions
 
-#include <kjob.h>
+#include <KJob>
 
 #include "metadata.h" // for source compat
 #include "jobtracker.h" // for source compat

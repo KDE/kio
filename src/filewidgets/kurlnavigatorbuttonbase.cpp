@@ -20,7 +20,7 @@
 
 #include "kurlnavigatorbuttonbase_p.h"
 
-#include <klocalizedstring.h>
+#include <KLocalizedString>
 
 #include <QStyle>
 #include <QStyleOptionViewItem>

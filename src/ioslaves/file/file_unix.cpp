@@ -34,8 +34,8 @@
 #include <QThread>
 
 #include <QDebug>
-#include <kconfiggroup.h>
-#include <klocalizedstring.h>
+#include <KConfigGroup>
+#include <KLocalizedString>
 #include <kmountpoint.h>
 
 #include <errno.h>

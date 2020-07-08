@@ -10,7 +10,7 @@
 #ifndef __KCOOKIESMAIN_H
 #define __KCOOKIESMAIN_H
 
-#include <kcmodule.h>
+#include <KCModule>
 
 class QTabWidget;
 class KCookiesPolicies;

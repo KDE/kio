@@ -1,7 +1,7 @@
 #ifndef NETPREF_H
 #define NETPREF_H
 
-#include <kcmodule.h>
+#include <KCModule>
 
 class QGroupBox;
 class QCheckBox;

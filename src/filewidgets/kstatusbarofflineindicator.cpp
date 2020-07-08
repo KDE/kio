@@ -26,8 +26,8 @@
 
 #include <QLabel>
 #include <QVBoxLayout>
-#include <kiconloader.h>
-#include <klocalizedstring.h>
+#include <KIconLoader>
+#include <KLocalizedString>
 
 #include <QIcon>
 #include <QNetworkConfigurationManager>

@@ -31,7 +31,7 @@
 #include <QList>
 #include <QWidget>
 
-#include <kdedmodule.h>
+#include <KDEDModule>
 #include <kio/authinfo.h>
 
 namespace KWallet

@@ -18,16 +18,16 @@
 */
 
 #include "kdirlistertest.h"
-#include <qtemporaryfile.h>
+#include <QTemporaryFile>
 #include <kdirlister.h>
-#include <qtest.h>
+#include <QTest>
 
 QTEST_MAIN(KDirListerTest)
 
 #include <QDebug>
 #include "kiotesthelper.h"
 #include <kio/deletejob.h>
-#include <kdirwatch.h>
+#include <KDirWatch>
 #include <kprotocolinfo.h>
 #include <kio/job.h>
 #include <kio/copyjob.h>

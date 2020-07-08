@@ -19,7 +19,7 @@
 #ifndef SEARCHPROVIDERDLG_H
 #define SEARCHPROVIDERDLG_H
 
-#include <qdialog.h>
+#include <QDialog>
 
 #include "ui_searchproviderdlg_ui.h"
 

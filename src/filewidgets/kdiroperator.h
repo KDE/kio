@@ -25,8 +25,8 @@
 #include <QStack>
 #include <QStyleOptionViewItem>
 
-#include <ktoggleaction.h>
-#include <kcompletion.h>
+#include <KToggleAction>
+#include <KCompletion>
 #include <kdirlister.h>
 #include <kfileitem.h>
 #include <kfile.h>

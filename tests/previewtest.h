@@ -1,7 +1,7 @@
 #ifndef PREVIEWTEST_H
 #define PREVIEWTEST_H
 
-#include <qwidget.h>
+#include <QWidget>
 #include <kio/job.h>
 
 class QLineEdit;

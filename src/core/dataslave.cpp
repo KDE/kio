@@ -23,7 +23,7 @@
 #include "commands_p.h"
 #include "slavebase.h"
 
-#include <klocalizedstring.h>
+#include <KLocalizedString>
 
 #include <QTimer>
 #include <QDataStream>

@@ -20,13 +20,13 @@
 
 #include "kfileitemactions.h"
 #include "kfileitemactions_p.h"
-#include <kmimetypetrader.h>
+#include <KMimeTypeTrader>
 #include <kdesktopfileactions.h>
-#include <klocalizedstring.h>
+#include <KLocalizedString>
 #include <kurlauthorized.h>
-#include <kconfiggroup.h>
-#include <kdesktopfile.h>
-#include <kservicetypetrader.h>
+#include <KConfigGroup>
+#include <KDesktopFile>
+#include <KServiceTypeTrader>
 #include <KAbstractFileItemActionPlugin>
 #include <KPluginMetaData>
 #include <KIO/ApplicationLauncherJob>
@@ -34,7 +34,7 @@
 
 #include <QFile>
 #include <QMenu>
-#include <qmimedatabase.h>
+#include <QMimeDatabase>
 #include <QtAlgorithms>
 
 #include <QDBusConnection>

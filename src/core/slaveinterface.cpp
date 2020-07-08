@@ -26,7 +26,7 @@
 #include "hostinfo.h"
 #include <qplatformdefs.h>
 #include <signal.h>
-#include <klocalizedstring.h>
+#include <KLocalizedString>
 #include <time.h>
 
 #include <QDebug>

@@ -27,7 +27,7 @@
 
 // KDE
 #include <QLineEdit>
-#include <kcombobox.h>
+#include <KComboBox>
 #include <QVBoxLayout>
 
 class DomainNameValidator : public QValidator

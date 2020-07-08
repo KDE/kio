@@ -36,14 +36,14 @@
 
 #include <QDebug>
 #include <kio/global.h>
-#include <kdesktopfile.h>
+#include <KDesktopFile>
 #include <QDir>
 #include <QCoreApplication>
 #include <QRegularExpression>
 #include <qplatformdefs.h>
 
-#include <kconfiggroup.h>
-#include <ksharedconfig.h>
+#include <KConfigGroup>
+#include <KSharedConfig>
 
 QString KRecentDocument::recentDocumentDirectory()
 {

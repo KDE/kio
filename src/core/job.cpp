@@ -25,8 +25,8 @@
 #include <time.h>
 
 
-#include <klocalizedstring.h>
-#include <kstringhandler.h>
+#include <KLocalizedString>
+#include <KStringHandler>
 
 #include <kio/jobuidelegateextension.h>
 #include "slave.h"

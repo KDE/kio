@@ -37,11 +37,11 @@
 #include <QDBusInterface>
 
 // KDE
-#include <kiconloader.h>
-#include <kmessagebox.h>
+#include <KIconLoader>
+#include <KMessageBox>
 #include <KConfigGroup>
 #include <KLocalizedString>
-#include <kconfig.h>
+#include <KConfig>
 #include <QUrl>
 
 

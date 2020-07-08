@@ -25,7 +25,7 @@
 #include <QSet>
 #include <QString>
 
-#include "kconfig.h"
+#include <KConfig>
 
 class KSslCertificateRulePrivate
 {

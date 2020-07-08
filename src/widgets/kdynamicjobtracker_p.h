@@ -20,7 +20,7 @@
 #ifndef KDYNAMICJOBTRACKER_H
 #define KDYNAMICJOBTRACKER_H
 
-#include <kjobtrackerinterface.h>
+#include <KJobTrackerInterface>
 
 /**
  * This class implements a simple job tracker which registers any job to the KWidgetJobTracker if a

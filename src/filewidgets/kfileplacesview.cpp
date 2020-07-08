@@ -32,19 +32,19 @@
 #include <QPointer>
 #include <QScrollBar>
 
-#include <kconfig.h>
-#include <kconfiggroup.h>
+#include <KConfig>
+#include <KConfigGroup>
 #include <kdirnotify.h>
-#include <klocalizedstring.h>
-#include <kmessagebox.h>
+#include <KLocalizedString>
+#include <KMessageBox>
 #include <kmountpoint.h>
 #include <kpropertiesdialog.h>
 #include <kio/emptytrashjob.h>
 #include <kio/filesystemfreespacejob.h>
 #include <kio/jobuidelegate.h>
-#include <kjob.h>
-#include <kjobwidgets.h>
-#include <kcapacitybar.h>
+#include <KJob>
+#include <KJobWidgets>
+#include <KCapacityBar>
 #include <solid/storageaccess.h>
 #include <solid/storagedrive.h>
 #include <solid/storagevolume.h>

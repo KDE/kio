@@ -21,11 +21,11 @@
 
 #include <QClipboard>
 
-#include <qapplication.h>
+#include <QApplication>
 #include <QVBoxLayout>
-#include <kcharsets.h>
-#include <kmessagebox.h>
-#include <klocalizedstring.h>
+#include <KCharsets>
+#include <KMessageBox>
+#include <KLocalizedString>
 
 SearchProviderDialog::SearchProviderDialog(SearchProvider *provider, QList<SearchProvider *> &providers, QWidget *parent)
     : QDialog(parent)

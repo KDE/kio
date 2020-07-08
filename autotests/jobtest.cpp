@@ -19,7 +19,7 @@
 
 #include "jobtest.h"
 
-#include <klocalizedstring.h>
+#include <KLocalizedString>
 
 #include <QDebug>
 #include <QPointer>

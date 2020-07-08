@@ -26,9 +26,9 @@
 #include "searchproviderdlg.h"
 
 #include <KBuildSycocaProgressDialog>
-#include <klocalizedstring.h>
-#include <kconfiggroup.h>
-#include <ksharedconfig.h>
+#include <KLocalizedString>
+#include <KConfigGroup>
+#include <KSharedConfig>
 
 #include <QDBusConnection>
 #include <QDBusMessage>

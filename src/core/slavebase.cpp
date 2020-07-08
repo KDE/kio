@@ -41,10 +41,10 @@
 #include <QDataStream>
 #include <QMap>
 
-#include <kconfig.h>
-#include <kconfiggroup.h>
-#include <kcrash.h>
-#include <klocalizedstring.h>
+#include <KConfig>
+#include <KConfigGroup>
+#include <KCrash>
+#include <KLocalizedString>
 
 #include "kremoteencoding.h"
 

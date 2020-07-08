@@ -32,14 +32,14 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include <QFile>
 #include <QDBusConnection>
 
-#include <kconfig.h>
+#include <KConfig>
 #include <QDebug>
 
-#include <kpluginfactory.h>
-#include <kpluginloader.h>
+#include <KPluginFactory>
+#include <KPluginLoader>
 #include <KLocalizedString>
 #include <kwindowsystem.h>
-#include <qstandardpaths.h>
+#include <QStandardPaths>
 #include <QMessageBox>
 
 #include <QLoggingCategory>

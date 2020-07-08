@@ -27,14 +27,14 @@
 
 #include "kpasswdserveradaptor.h"
 
-#include <klocalizedstring.h>
-#include <kmessagebox.h>
-#include <kpassworddialog.h>
-#include <kusertimestamp.h>
+#include <KLocalizedString>
+#include <KMessageBox>
+#include <KPasswordDialog>
+#include <KUserTimestamp>
 #include <kwindowsystem.h>
 
 #ifdef HAVE_KF5WALLET
-#include <kwallet.h>
+#include <KWallet>
 #endif
 
 #include <QPushButton>

@@ -24,7 +24,7 @@
 #include "mkdirjob.h"
 #include "job.h"
 
-#include <qmimedatabase.h>
+#include <QMimeDatabase>
 
 #include <QEventLoop>
 

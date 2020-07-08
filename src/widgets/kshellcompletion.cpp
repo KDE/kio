@@ -21,8 +21,8 @@
 
 #include <stdlib.h>
 #include <QCharRef>
-#include <kcompletion.h>
-#include <kcompletionmatches.h>
+#include <KCompletion>
+#include <KCompletionMatches>
 
 class KShellCompletionPrivate
 {

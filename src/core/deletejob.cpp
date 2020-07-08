@@ -27,12 +27,12 @@
 #include "listjob.h"
 #include "kcoredirlister.h"
 #include "scheduler.h"
-#include "kdirwatch.h"
+#include <KDirWatch>
 #include "kprotocolmanager.h"
 #include <kdirnotify.h>
 #include "../pathhelpers_p.h"
 
-#include <klocalizedstring.h>
+#include <KLocalizedString>
 #include <kio/jobuidelegatefactory.h>
 
 #include <QTimer>

@@ -21,8 +21,8 @@
 
 #include "kpasswdserver.h"
 
-#include <kpluginfactory.h>
-#include <kpluginloader.h>
+#include <KPluginFactory>
+#include <KPluginLoader>
 
 K_PLUGIN_CLASS_WITH_JSON(KPasswdServer, "kpasswdserver.json")
 

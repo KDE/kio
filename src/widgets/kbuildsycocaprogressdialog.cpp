@@ -16,9 +16,9 @@
    Boston, MA 02110-1301, USA.
 */
 #include "kbuildsycocaprogressdialog.h"
-#include <ksycoca.h>
-#include <qstandardpaths.h>
-#include <klocalizedstring.h>
+#include <KSycoca>
+#include <QStandardPaths>
+#include <KLocalizedString>
 #include <QDBusConnection>
 #include <QDBusInterface>
 #include <QProcess>

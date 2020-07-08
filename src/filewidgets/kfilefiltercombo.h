@@ -24,7 +24,7 @@
 
 #include <QStringList>
 
-#include <kcombobox.h>
+#include <KComboBox>
 
 /**
  * @class KFileFilterCombo kfilefiltercombo.h <KFileFilterCombo>

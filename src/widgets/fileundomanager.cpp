@@ -29,10 +29,10 @@
 #include <kio/mkdirjob.h>
 #include <kio/mkpathjob.h>
 #include <kio/batchrenamejob.h>
-#include <kjobwidgets.h>
-#include <klocalizedstring.h>
-#include <kmessagebox.h>
-#include <kjobtrackerinterface.h>
+#include <KJobWidgets>
+#include <KLocalizedString>
+#include <KMessageBox>
+#include <KJobTrackerInterface>
 #include <kio/jobuidelegate.h>
 #include <job_p.h>
 #include "kio_widgets_debug.h"

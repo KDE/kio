@@ -27,8 +27,8 @@
 
 #include "kiotesthelper.h" // createTestFile etc.
 
-#include <kservice.h>
-#include <kconfiggroup.h>
+#include <KService>
+#include <KConfigGroup>
 #include <KDesktopFile>
 
 #ifdef Q_OS_UNIX

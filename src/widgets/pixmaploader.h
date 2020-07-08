@@ -20,7 +20,7 @@
 #define KIO_PIXMAPLOADER_H
 
 #include <QPixmap>
-#include <kiconloader.h>
+#include <KIconLoader>
 #include "kiowidgets_export.h"
 
 class QUrl;

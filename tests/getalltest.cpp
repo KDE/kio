@@ -1,8 +1,8 @@
-#include <kservice.h>
-#include <qmimedatabase.h>
-#include <kservicetype.h>
+#include <KService>
+#include <QMimeDatabase>
+#include <KServiceType>
 
-#include <qapplication.h>
+#include <QApplication>
 #include <QDebug>
 
 int main(int argc, char *argv[])

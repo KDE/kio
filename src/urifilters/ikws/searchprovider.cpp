@@ -18,8 +18,8 @@
 
 #include "searchprovider.h"
 
-#include <krandom.h>
-#include <kservicetypetrader.h>
+#include <KRandom>
+#include <KServiceTypeTrader>
 #include <QStandardPaths>
 #include <KIO/Global> // KIO::iconNameForUrl
 #include <QFileInfo>

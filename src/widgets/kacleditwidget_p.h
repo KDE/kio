@@ -30,7 +30,7 @@
 #include <QTreeWidget>
 #include <QHash>
 
-#include <kcombobox.h>
+#include <KComboBox>
 #include <kfileitem.h>
 
 class KACLListViewItem;

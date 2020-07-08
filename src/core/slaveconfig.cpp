@@ -23,8 +23,8 @@
 #include <QHash>
 #include <QThreadStorage>
 
-#include <kconfig.h>
-#include <ksharedconfig.h>
+#include <KConfig>
+#include <KSharedConfig>
 #include <kprotocolinfo.h>
 #include <kprotocolmanager.h>
 

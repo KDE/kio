@@ -22,14 +22,14 @@
 #include "desktopexecparser.h"
 #include "kiofuse_interface.h"
 
-#include <kmacroexpander.h>
-#include <kshell.h>
-#include <ksharedconfig.h>
-#include <kdesktopfile.h>
-#include <kservice.h>
-#include <kconfiggroup.h>
+#include <KMacroExpander>
+#include <KShell>
+#include <KSharedConfig>
+#include <KDesktopFile>
+#include <KService>
+#include <KConfigGroup>
 #include <kprotocolinfo.h>
-#include <kmimetypetrader.h>
+#include <KMimeTypeTrader>
 #include <KLocalizedString>
 
 #include <QFile>

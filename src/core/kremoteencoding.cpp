@@ -18,7 +18,7 @@
 
 #include "kremoteencoding.h"
 
-#include <kstringhandler.h>
+#include <KStringHandler>
 #include <QTextCodec>
 #include <QUrl>
 

@@ -28,8 +28,8 @@
 #include <QStandardPaths>
 
 // KDE
-#include <kprocess.h>
-#include <kpluginfactory.h>
+#include <KProcess>
+#include <KPluginFactory>
 #include <http_slave_defaults.h>
 #include <config-kiocore.h>
 #include <KLocalizedString>

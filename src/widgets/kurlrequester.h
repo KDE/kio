@@ -22,7 +22,7 @@
 
 #include "kiowidgets_export.h"
 
-#include <keditlistwidget.h>
+#include <KEditListWidget>
 #include <kfile.h>
 
 #include <QFileDialog>

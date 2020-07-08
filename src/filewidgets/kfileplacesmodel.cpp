@@ -32,23 +32,23 @@
 #include <QTimer>
 #include <QFile>
 #include <QAction>
-#include <qmimedatabase.h>
+#include <QMimeDatabase>
 
 #include <kfileitem.h>
-#include <klocalizedstring.h>
+#include <KLocalizedString>
 
 #include <QDebug>
-#include <kurlmimedata.h>
+#include <KUrlMimeData>
 
-#include <kbookmarkmanager.h>
-#include <kbookmark.h>
+#include <KBookmarkManager>
+#include <KBookmark>
 
 #include <kio/job.h>
 #include <kprotocolinfo.h>
 #include <KCoreDirLister>
 
-#include <kconfig.h>
-#include <kconfiggroup.h>
+#include <KConfig>
+#include <KConfigGroup>
 
 #include <solid/devicenotifier.h>
 #include <solid/storageaccess.h>
@@ -58,7 +58,7 @@
 #include <solid/opticaldisc.h>
 #include <solid/portablemediaplayer.h>
 #include <solid/predicate.h>
-#include <qstandardpaths.h>
+#include <QStandardPaths>
 
 namespace {
     QString stateNameForGroupType(KFilePlacesModel::GroupType type)

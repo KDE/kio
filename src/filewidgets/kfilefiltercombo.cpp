@@ -21,8 +21,8 @@
 #include "kfilefiltercombo_debug.h"
 
 #include <QDebug>
-#include <klocalizedstring.h>
-#include <qmimedatabase.h>
+#include <KLocalizedString>
+#include <QMimeDatabase>
 #include <config-kiofilewidgets.h>
 #include <QEvent>
 #include <QLineEdit>

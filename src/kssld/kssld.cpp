@@ -26,12 +26,12 @@
 #include "ksslcertificatemanager_p.h"
 #include "kssld_adaptor.h"
 
-#include <kconfig.h>
-#include <kconfiggroup.h>
+#include <KConfig>
+#include <KConfigGroup>
 
 #include <QDate>
-#include <kpluginfactory.h>
-#include <kpluginloader.h>
+#include <KPluginFactory>
+#include <KPluginLoader>
 
 K_PLUGIN_CLASS_WITH_JSON(KSSLD, "kssld.json")
 

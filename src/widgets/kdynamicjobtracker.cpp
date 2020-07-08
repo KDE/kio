@@ -22,9 +22,9 @@
 #include "kio_widgets_debug.h"
 #include "kuiserver_interface.h"
 
-#include <kuiserverjobtracker.h>
-#include <kwidgetjobtracker.h>
-#include <kjobtrackerinterface.h>
+#include <KUiServerJobTracker>
+#include <KWidgetJobTracker>
+#include <KJobTrackerInterface>
 #include <kio/jobtracker.h>
 
 #include <QApplication>

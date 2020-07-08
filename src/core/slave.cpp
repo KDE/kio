@@ -30,11 +30,11 @@
 #include <QElapsedTimer>
 
 #include <QDBusConnection>
-#include <klocalizedstring.h>
+#include <KLocalizedString>
 
-#include <kdeinitinterface.h>
+#include <KDEInitInterface>
 #include <klauncher_interface.h>
-#include <kpluginloader.h>
+#include <KPluginLoader>
 
 #include "dataprotocol_p.h"
 #include "connection_p.h"

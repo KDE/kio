@@ -20,7 +20,7 @@
 
 #include "knameandurlinputdialog.h"
 
-#include <klineedit.h>
+#include <KLineEdit>
 #include <kurlrequester.h>
 #include <kprotocolmanager.h>
 #include <QDialogButtonBox>

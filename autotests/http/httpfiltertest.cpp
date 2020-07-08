@@ -18,8 +18,8 @@
 
 #include <QtTest>
 
-#include "kfilterdev.h"
-#include "kfilterbase.h"
+#include <KFilterDev>
+#include <KFilterBase>
 #include <QFile>
 #include <QDebug>
 #include <QDir>

@@ -21,7 +21,7 @@
 #define TRASHIMPL_H
 
 #include <kio/job.h>
-#include <kconfig.h>
+#include <KConfig>
 
 #include <QDateTime>
 #include <QMap>

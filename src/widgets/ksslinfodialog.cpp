@@ -29,8 +29,8 @@
 
 #include <QSslCertificate>
 
-#include <klocalizedstring.h>
-#include <kiconloader.h> // BarIcon
+#include <KLocalizedString>
+#include <KIconLoader> // BarIcon
 
 #include "ktcpsocket.h"
 

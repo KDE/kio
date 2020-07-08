@@ -37,13 +37,13 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include <QLocalSocket>
 
 #include <QDebug>
-#include <klocalizedstring.h>
+#include <KLocalizedString>
 #include <kprotocolmanager.h>
 
 #include <qplatformdefs.h>
-#include <qstandardpaths.h>
-#include <qcommandlineparser.h>
-#include <qcommandlineoption.h>
+#include <QStandardPaths>
+#include <QCommandLineParser>
+#include <QCommandLineOption>
 #include <QCryptographicHash>
 #include <QDBusError>
 #include <QDataStream>

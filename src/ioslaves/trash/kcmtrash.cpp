@@ -29,13 +29,13 @@
 #include <QListWidget>
 #include <QListWidgetItem>
 
-#include <kconfig.h>
-#include <kconfiggroup.h>
+#include <KConfig>
+#include <KConfigGroup>
 #include <KLocalizedString>
-#include <qdialog.h>
-#include <qicon.h>
-#include <kpluginfactory.h>
-#include <kpluginloader.h>
+#include <QDialog>
+#include <QIcon>
+#include <KPluginFactory>
+#include <KPluginLoader>
 #include <KFormat>
 #include <QSpinBox>
 

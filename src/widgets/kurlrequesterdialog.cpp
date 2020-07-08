@@ -24,10 +24,10 @@
 #include <QFileDialog>
 #include <QVBoxLayout>
 
-#include <klineedit.h>
-#include <klocalizedstring.h>
+#include <KLineEdit>
+#include <KLocalizedString>
 #include <krecentdocument.h>
-#include <kstandardguiitem.h>
+#include <KStandardGuiItem>
 #include <kurlrequester.h>
 
 class KUrlRequesterDialogPrivate

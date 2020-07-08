@@ -20,7 +20,7 @@
 #define KDIRMODELTEST_H
 
 #include <QObject>
-#include <qtemporarydir.h>
+#include <QTemporaryDir>
 #include <kdirmodel.h>
 #include <QEventLoop>
 #include <QtTest>

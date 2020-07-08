@@ -22,7 +22,7 @@
 #ifndef KPROXYDLG_H
 #define KPROXYDLG_H
 
-#include <kcmodule.h>
+#include <KCModule>
 #include "ui_kproxydlg.h"
 
 class KProxyDialog : public KCModule

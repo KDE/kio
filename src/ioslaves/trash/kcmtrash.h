@@ -20,7 +20,7 @@
 #ifndef KCMTRASH_H
 #define KCMTRASH_H
 
-#include <kcmodule.h>
+#include <KCModule>
 
 class QCheckBox;
 class QComboBox;

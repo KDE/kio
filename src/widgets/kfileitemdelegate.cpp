@@ -36,16 +36,16 @@
 #include <QListView>
 #include <QPaintEngine>
 #include <qmath.h>
-#include <qmimedatabase.h>
+#include <QMimeDatabase>
 #include <QTextEdit>
 
-#include <klocalizedstring.h>
-#include <kiconloader.h>
-#include <kiconeffect.h>
+#include <KLocalizedString>
+#include <KIconLoader>
+#include <KIconEffect>
 #include <kdirmodel.h>
 #include <kfileitem.h>
-#include <kcolorscheme.h>
-#include <kstringhandler.h>
+#include <KColorScheme>
+#include <KStringHandler>
 
 #include "delegateanimationhandler_p.h"
 

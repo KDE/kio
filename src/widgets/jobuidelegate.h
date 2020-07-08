@@ -23,7 +23,7 @@
 #ifndef KIO_JOBUIDELEGATE_H
 #define KIO_JOBUIDELEGATE_H
 
-#include <kdialogjobuidelegate.h>
+#include <KDialogJobUiDelegate>
 #include <kio/jobuidelegateextension.h>
 #include <kio/skipdialog.h>
 #include <kio/renamedialog.h>

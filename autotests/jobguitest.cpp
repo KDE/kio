@@ -18,7 +18,7 @@
 */
 
 #include <QApplication>
-#include <qtest.h>
+#include <QTest>
 #include <kio/copyjob.h>
 #include <kio/paste.h>
 #include <kio/deletejob.h>

@@ -50,8 +50,8 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include <QUrl>
 
 #include <kwindowsystem.h>
-#include <klocalizedstring.h>
-#include <kusertimestamp.h>
+#include <KLocalizedString>
+#include <KUserTimestamp>
 
 enum {
     AcceptedForSession = QDialog::Accepted + 1

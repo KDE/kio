@@ -20,9 +20,9 @@
 
 #include <QtTest>
 #include <kdiroperator.h>
-#include <kconfiggroup.h>
-#include <ksharedconfig.h>
-#include <qtreeview.h>
+#include <KConfigGroup>
+#include <KSharedConfig>
+#include <QTreeView>
 #include <QSignalSpy>
 #include <QDir>
 

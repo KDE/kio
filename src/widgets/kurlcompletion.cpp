@@ -44,15 +44,15 @@
 #include <kurlauthorized.h>
 #include <kio/job.h>
 #include <kprotocolmanager.h>
-#include <kconfig.h>
-#include <ksharedconfig.h>
-#include <kcompletion.h>
+#include <KConfig>
+#include <KSharedConfig>
+#include <KCompletion>
 #include <kioglobal_p.h>
 #include <KUser>
 #include <kio_widgets_debug.h>
 
 #include <time.h>
-#include <kconfiggroup.h>
+#include <KConfigGroup>
 
 #ifdef Q_OS_WIN
 #include <qt_windows.h>

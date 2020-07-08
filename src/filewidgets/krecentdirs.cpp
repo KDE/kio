@@ -26,9 +26,9 @@
  *
  */
 #include "krecentdirs.h"
-#include <kconfig.h>
-#include <kconfiggroup.h>
-#include <ksharedconfig.h>
+#include <KConfig>
+#include <KConfigGroup>
+#include <KSharedConfig>
 
 #define MAX_DIR_HISTORY 3
 

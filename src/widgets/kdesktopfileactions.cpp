@@ -25,15 +25,15 @@
 #include <KIO/ApplicationLauncherJob>
 #include "krun.h"
 #include "kautomount.h"
-#include <kmessagebox.h>
+#include <KMessageBox>
 #include <kdirnotify.h>
 #include <KDialogJobUiDelegate>
 #include <kmountpoint.h>
 
-#include <kdesktopfile.h>
-#include <kconfiggroup.h>
-#include <klocalizedstring.h>
-#include <kservice.h>
+#include <KDesktopFile>
+#include <KConfigGroup>
+#include <KLocalizedString>
+#include <KService>
 
 #include <QDBusInterface>
 #include <QDBusReply>

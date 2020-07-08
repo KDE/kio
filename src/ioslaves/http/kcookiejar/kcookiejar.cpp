@@ -36,9 +36,9 @@
 
 #include "kcookiejar.h"
 
-#include <kconfig.h>
-#include <kconfiggroup.h>
-#include <qsavefile.h>
+#include <KConfig>
+#include <KConfigGroup>
+#include <QSaveFile>
 #include <QDebug>
 
 #include <QString>

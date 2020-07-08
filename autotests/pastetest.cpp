@@ -19,14 +19,14 @@
 
 #include "pastetest.h"
 
-#include <qtest.h>
+#include <QTest>
 #include <QDir>
 #include <QMimeData>
 #include <QStandardPaths>
 #include <QUrl>
 #include <QSignalSpy>
 
-#include <kurlmimedata.h>
+#include <KUrlMimeData>
 #include <kio/paste.h>
 #include <kio/pastejob.h>
 #include <KFileItem>

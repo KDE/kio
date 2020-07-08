@@ -26,7 +26,7 @@
 #include <QPaintEvent>
 #include <QStyleOption>
 
-#include <klocalizedstring.h>
+#include <KLocalizedString>
 #include <kprotocolinfo.h>
 #include <kprotocolmanager.h>
 #include <kurlnavigator.h>

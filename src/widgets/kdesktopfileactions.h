@@ -20,7 +20,7 @@
 #ifndef KDESKTOPFILEACTIONS_H
 #define KDESKTOPFILEACTIONS_H
 
-#include <kserviceaction.h>
+#include <KServiceAction>
 #include "kiowidgets_export.h"
 #include <QList>
 #include <QUrl>

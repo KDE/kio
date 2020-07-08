@@ -26,13 +26,13 @@
 
 #include <defaults-kfile.h>
 
-#include <kcombobox.h>
-#include <kconfiggroup.h>
-#include <klocalizedstring.h>
-#include <kcharsets.h>
+#include <KComboBox>
+#include <KConfigGroup>
+#include <KLocalizedString>
+#include <KCharsets>
 #include <krecentdocument.h>
-#include <ksharedconfig.h>
-#include <kwindowconfig.h>
+#include <KSharedConfig>
+#include <KWindowConfig>
 
 #include <QBoxLayout>
 #include <QPushButton>

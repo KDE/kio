@@ -25,7 +25,7 @@
 
 #include <QtTest>
 #include <qplatformdefs.h>
-#include <qstandardpaths.h>
+#include <QStandardPaths>
 
 #include "../../src/ioslaves/http/kcookiejar/kcookiejar.cpp"
 

@@ -24,7 +24,7 @@
 #include <QPointer>
 #include <QStringList>
 #include <QUrl>
-#include <kbookmark.h>
+#include <KBookmark>
 #include <solid/device.h>
 #include "kfileplacesmodel.h"
 

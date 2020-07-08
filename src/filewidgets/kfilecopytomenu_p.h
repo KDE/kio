@@ -20,7 +20,7 @@
 #ifndef KFILECOPYTOMENU_P_H
 #define KFILECOPYTOMENU_P_H
 
-#include <kconfiggroup.h>
+#include <KConfigGroup>
 #include <QMenu>
 #include <QActionGroup>
 #include <QUrl>

@@ -52,17 +52,17 @@
 #include <QVarLengthArray>
 #include <QCoreApplication>
 #include <QFile>
-#include <qtemporaryfile.h>
+#include <QTemporaryFile>
 #ifdef Q_OS_WIN
 #include <QDir>
 #include <QFileInfo>
 #endif
 
 #include <QDebug>
-#include <kconfiggroup.h>
-#include <kshell.h>
+#include <KConfigGroup>
+#include <KShell>
 #include <kmountpoint.h>
-#include <klocalizedstring.h>
+#include <KLocalizedString>
 #include <QMimeDatabase>
 #include <QStandardPaths>
 #include <QDataStream>

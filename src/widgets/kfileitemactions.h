@@ -21,7 +21,7 @@
 #ifndef KFILEITEMACTIONS_H
 #define KFILEITEMACTIONS_H
 
-#include <kservice.h>
+#include <KService>
 #include <kfileitem.h>
 #include "kiowidgets_export.h"
 

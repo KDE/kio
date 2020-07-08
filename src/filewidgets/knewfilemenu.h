@@ -22,7 +22,7 @@
 #define KNEWFILEMENU_H
 
 #include <QUrl>
-#include <kactionmenu.h>
+#include <KActionMenu>
 #include "kiofilewidgets_export.h"
 
 class KJob;

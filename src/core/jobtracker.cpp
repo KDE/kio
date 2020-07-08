@@ -17,7 +17,7 @@
 */
 
 #include "jobtracker.h"
-#include <kjobtrackerinterface.h>
+#include <KJobTrackerInterface>
 
 static KJobTrackerInterface *s_tracker = nullptr;
 Q_GLOBAL_STATIC(KJobTrackerInterface, globalDummyTracker)

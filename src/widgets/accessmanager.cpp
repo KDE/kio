@@ -26,13 +26,13 @@
 
 #include "accessmanagerreply_p.h"
 #include "job.h"
-#include "kjobwidgets.h"
+#include <KJobWidgets>
 #include "scheduler.h"
 #include "kio_widgets_debug.h"
-#include <kconfiggroup.h>
-#include <ksharedconfig.h>
+#include <KConfigGroup>
+#include <KSharedConfig>
 #include <kprotocolinfo.h>
-#include <klocalizedstring.h>
+#include <KLocalizedString>
 
 #include <QUrl>
 #include <QNetworkCookie>

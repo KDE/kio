@@ -24,9 +24,9 @@
 #include <QMenu>
 
 #include <kbookmarkimporter.h>
-#include <kbookmarkdombuilder.h>
+#include <KBookmarkDomBuilder>
 #include <kio/global.h>
-#include <qstandardpaths.h>
+#include <QStandardPaths>
 
 #include "kfilewidget.h"
 

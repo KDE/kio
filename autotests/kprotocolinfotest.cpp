@@ -23,7 +23,7 @@
 #include <KConfigGroup>
 #include <QDebug>
 #include <QtTest>
-#include <qstandardpaths.h>
+#include <QStandardPaths>
 
 // Tests both KProtocolInfo and KProtocolManager
 

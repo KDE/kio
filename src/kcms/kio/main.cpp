@@ -23,7 +23,7 @@
 // Qt
 
 // KDE
-#include <kpluginfactory.h>
+#include <KPluginFactory>
 
 // Local
 #include "kcookiesmain.h"

@@ -26,8 +26,8 @@
 #include "../pathhelpers_p.h"
 
 #include <kio/job.h>
-#include <klocalizedstring.h>
-#include <kstringhandler.h>
+#include <KLocalizedString>
+#include <KStringHandler>
 
 #include <QTimer>
 #include <QPainter>

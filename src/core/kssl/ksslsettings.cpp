@@ -21,9 +21,9 @@
 #include "ksslsettings.h"
 
 
-#include <kconfiggroup.h>
+#include <KConfigGroup>
 
-#include <qstandardpaths.h>
+#include <QStandardPaths>
 
 class CipherNode
 {

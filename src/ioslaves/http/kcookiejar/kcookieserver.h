@@ -26,7 +26,7 @@
 #define KCOOKIESERVER_H
 
 #include <QStringList>
-#include <kdedmodule.h>
+#include <KDEDModule>
 #include <QDBusConnection>
 #include <QDBusContext>
 

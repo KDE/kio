@@ -20,8 +20,8 @@
 
 #include "storedtransferjob.h"
 #include "job_p.h"
-#include <kconfig.h>
-#include <kconfiggroup.h>
+#include <KConfig>
+#include <KConfigGroup>
 #include <kurlauthorized.h>
 #include <QTimer>
 

@@ -25,7 +25,7 @@
 #include <QLineEdit>
 #include <QCheckBox>
 
-#include <kcmodule.h>
+#include <KCModule>
 
 class KComboBox;
 

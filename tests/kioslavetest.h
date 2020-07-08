@@ -19,12 +19,12 @@
 #include <QButtonGroup>
 #include <QWidget>
 
-#include <kmainwindow.h>
+#include <KMainWindow>
 
 #include "kio/job.h"
 #include "kio/global.h"
 #include <kio/scheduler.h>
-#include "kstatusbarjobtracker.h"
+#include <KStatusBarJobTracker>
 
 namespace KIO {
 class Slave;

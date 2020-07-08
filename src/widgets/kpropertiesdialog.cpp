@@ -85,16 +85,16 @@ extern "C" {
 }
 #endif
 
-#include <kauthorized.h>
+#include <KAuthorized>
 #include <KColorScheme>
 #include <KDialogJobUiDelegate>
 #include <kdirnotify.h>
 #include <kdiskfreespaceinfo.h>
-#include <kdesktopfile.h>
-#include <kiconbutton.h>
+#include <KDesktopFile>
+#include <KIconButton>
 #include <kurlrequester.h>
-#include <klocalizedstring.h>
-#include <kjobuidelegate.h>
+#include <KLocalizedString>
+#include <KJobUiDelegate>
 #include <kio/global.h>
 #include <kio/job.h>
 #include <kio/copyjob.h>
@@ -104,27 +104,27 @@ extern "C" {
 #include <KIO/OpenFileManagerWindowJob>
 #include <kio/renamedialog.h>
 #include <kio/jobuidelegate.h>
-#include <kjobwidgets.h>
+#include <KJobWidgets>
 #include <kmountpoint.h>
-#include <kmessagebox.h>
-#include <kmessagewidget.h>
-#include <kservice.h>
-#include <ksharedconfig.h>
-#include <kcombobox.h>
-#include <kcompletion.h>
-#include <klineedit.h>
-#include <kseparator.h>
-#include <ksqueezedtextlabel.h>
-#include <kmimetypetrader.h>
+#include <KMessageBox>
+#include <KMessageWidget>
+#include <KService>
+#include <KSharedConfig>
+#include <KComboBox>
+#include <KCompletion>
+#include <KLineEdit>
+#include <KSeparator>
+#include <KSqueezedTextLabel>
+#include <KMimeTypeTrader>
 #include <KIO/ApplicationLauncherJob>
 #include <kio/desktopexecparser.h>
 #include <kacl.h>
-#include <kconfiggroup.h>
-#include <kmimetypeeditor.h>
-#include <kshell.h>
-#include <kcapacitybar.h>
+#include <KConfigGroup>
+#include <KMimeTypeEditor>
+#include <KShell>
+#include <KCapacityBar>
 #include <kfileitemlistproperties.h>
-#include <kwindowconfig.h>
+#include <KWindowConfig>
 #include <kioglobal_p.h>
 #include <kprotocolinfo.h>
 
@@ -136,7 +136,7 @@ extern "C" {
 #endif
 
 #include <kbuildsycocaprogressdialog.h>
-#include <kmimetypechooser.h>
+#include <KMimeTypeChooser>
 
 #ifdef Q_OS_WIN
 #include <qt_windows.h>

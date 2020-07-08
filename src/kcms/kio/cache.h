@@ -23,7 +23,7 @@
 #define CACHECONFIGMODULE_H
 
 // KDE
-#include <kcmodule.h>
+#include <KCModule>
 
 // Local
 #include "ui_cache.h"

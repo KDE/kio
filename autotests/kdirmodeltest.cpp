@@ -26,7 +26,7 @@
 #include <kdirlister.h>
 //TODO #include "../../kdeui/tests/proxymodeltestsuite/modelspy.h"
 
-#include <qtest.h>
+#include <QTest>
 
 #ifdef Q_OS_UNIX
 #include <utime.h>
@@ -34,7 +34,7 @@
 #include <QDebug>
 #include <kio/deletejob.h>
 #include <kio/job.h>
-#include <kdirwatch.h>
+#include <KDirWatch>
 #include "kiotesthelper.h"
 #include <QUrl>
 

@@ -25,8 +25,8 @@
 #include "kuriikwsfiltereng.h"
 #include "searchprovider.h"
 
-#include <kconfiggroup.h>
-#include <kconfig.h>
+#include <KConfigGroup>
+#include <KConfig>
 #include <kprotocolinfo.h>
 
 #include <QRegularExpression>

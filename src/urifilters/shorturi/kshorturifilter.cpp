@@ -30,15 +30,15 @@
 #include <QRegularExpression>
 #include <qplatformdefs.h>
 
-#include <klocalizedstring.h>
-#include <kpluginfactory.h>
+#include <KLocalizedString>
+#include <KPluginFactory>
 #include <kprotocolinfo.h>
-#include <kconfig.h>
-#include <kconfiggroup.h>
-#include <kmimetypetrader.h>
-#include <kservice.h>
+#include <KConfig>
+#include <KConfigGroup>
+#include <KMimeTypeTrader>
+#include <KService>
 #include <kurlauthorized.h>
-#include <kuser.h>
+#include <KUser>
 
 namespace {
 QLoggingCategory category("org.kde.kurifilter-shorturi", QtWarningMsg);

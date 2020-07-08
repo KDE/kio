@@ -26,13 +26,13 @@
 #include "script.h"
 
 #include <QDebug>
-#include <klocalizedstring.h>
+#include <KLocalizedString>
 #include <kprotocolmanager.h>
-#include <kpluginfactory.h>
-#include <kpluginloader.h>
+#include <KPluginFactory>
+#include <KPluginLoader>
 
 #ifdef HAVE_KF5NOTIFICATIONS
-#include <knotification.h>
+#include <KNotification>
 #endif
 
 #include <QNetworkConfigurationManager>

@@ -29,7 +29,7 @@
 
 #include <kdiroperator.h>
 #include <KFileFilterCombo>
-#include <klocalizedstring.h>
+#include <KLocalizedString>
 #include <kurlnavigator.h>
 #include <KUrlComboBox>
 #include "kiotesthelper.h" // createTestFile

@@ -8,9 +8,9 @@
 #include <QPushButton>
 
 #include <QDebug>
-#include <kconfiggroup.h>
-#include <kiconloader.h>
-#include <ksharedconfig.h>
+#include <KConfigGroup>
+#include <KIconLoader>
+#include <KSharedConfig>
 #include <kio/previewjob.h>
 
 PreviewTest::PreviewTest()

@@ -21,7 +21,7 @@
 #include "directorysizejob.h"
 #include "listjob.h"
 #include <kio/jobuidelegatefactory.h>
-#include <qdebug.h>
+#include <QDebug>
 #include <QTimer>
 
 #include "job_p.h"

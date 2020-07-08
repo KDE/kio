@@ -41,19 +41,19 @@
 #include <QPixmap>
 #include <QTimer>
 #include <QRegularExpression>
-#include <qtemporaryfile.h>
-#include <qsavefile.h>
+#include <QTemporaryFile>
+#include <QSaveFile>
 
 #include <QCryptographicHash>
 
 #include <kfileitem.h>
-#include <kservicetypetrader.h>
-#include <kservice.h>
-#include <ksharedconfig.h>
-#include <kconfiggroup.h>
+#include <KServiceTypeTrader>
+#include <KService>
+#include <KSharedConfig>
+#include <KConfigGroup>
 #include <kprotocolinfo.h>
-#include <qmimedatabase.h>
-#include <qstandardpaths.h>
+#include <QMimeDatabase>
+#include <QStandardPaths>
 #include <KMountPoint>
 
 #include <algorithm>

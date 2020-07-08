@@ -24,12 +24,12 @@
 
 #include "ktcpsocket.h"
 #include "ksslerroruidata_p.h"
-#include <kconfig.h>
-#include <kconfiggroup.h>
-#include <klocalizedstring.h>
+#include <KConfig>
+#include <KConfigGroup>
+#include <KLocalizedString>
 
 #include <QDebug>
-#include <qstandardpaths.h>
+#include <QStandardPaths>
 #include <QFile>
 #include <QDir>
 #include <QDBusConnection>

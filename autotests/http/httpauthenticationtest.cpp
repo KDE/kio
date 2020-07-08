@@ -19,7 +19,7 @@
 
 #include "httpauthenticationtest.h"
 
-#include <qtest.h>
+#include <QTest>
 
 #include <QList>
 #include <QByteArray>

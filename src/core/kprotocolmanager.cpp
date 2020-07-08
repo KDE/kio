@@ -45,8 +45,8 @@
 #include <QCache>
 #include <QLocale>
 #include <QRegularExpression>
-#include <qstandardpaths.h>
-#include <qmimedatabase.h>
+#include <QStandardPaths>
+#include <QMimeDatabase>
 
 #if !defined(QT_NO_NETWORKPROXY) && (defined (Q_OS_WIN32) || defined(Q_OS_MAC))
 #include <QNetworkProxyFactory>
@@ -54,10 +54,10 @@
 #endif
 
 #include <kio_version.h>
-#include <kconfiggroup.h>
-#include <ksharedconfig.h>
+#include <KConfigGroup>
+#include <KSharedConfig>
 
-#include <kmimetypetrader.h>
+#include <KMimeTypeTrader>
 #include <kprotocolinfofactory_p.h>
 
 #include "slaveconfig.h"

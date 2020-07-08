@@ -28,7 +28,7 @@
 
 #include <cmath>
 #include "kdirmodel.h"
-#include <qabstractproxymodel.h>
+#include <QAbstractProxyModel>
 
 #include "moc_delegateanimationhandler_p.cpp"
 

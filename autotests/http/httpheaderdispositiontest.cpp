@@ -19,7 +19,7 @@
 
 #include "httpheaderdispositiontest.h"
 
-#include <qtest.h>
+#include <QTest>
 
 #include <QByteArray>
 

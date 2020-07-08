@@ -19,14 +19,14 @@
 
 #include "kfileitemtest.h"
 #include <kfileitemlistproperties.h>
-#include <qtest.h>
+#include <QTest>
 #include <kfileitem.h>
 
-#include <qtemporarydir.h>
-#include <qtemporaryfile.h>
-#include <kuser.h>
-#include <kdesktopfile.h>
-#include <kconfiggroup.h>
+#include <QTemporaryDir>
+#include <QTemporaryFile>
+#include <KUser>
+#include <KDesktopFile>
+#include <KConfigGroup>
 #include "kiotesthelper.h"
 
 #include <QMimeDatabase>

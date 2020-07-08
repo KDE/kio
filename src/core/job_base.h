@@ -21,7 +21,7 @@
 #ifndef KIO_JOB_BASE_H
 #define KIO_JOB_BASE_H
 
-#include <kcompositejob.h>
+#include <KCompositeJob>
 #include <kio/metadata.h>
 
 namespace KIO

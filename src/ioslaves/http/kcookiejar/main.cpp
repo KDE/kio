@@ -24,9 +24,9 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include <QDBusConnection>
 #include <QDBusInterface>
 
-#include <klocalizedstring.h>
-#include <qcommandlineparser.h>
-#include <qcommandlineoption.h>
+#include <KLocalizedString>
+#include <QCommandLineParser>
+#include <QCommandLineOption>
 #include "kcookieserverinterface.h"
 
 static void callKded(const QString &arg1, const QString &arg2)

@@ -15,7 +15,7 @@
 #include <QDateTime>
 
 #include <QDebug>
-#include <kfilterdev.h>
+#include <KFilterDev>
 
 static bool readCache(const QString &filename,
                       const QString &cache, QString &output)

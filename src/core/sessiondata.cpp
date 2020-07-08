@@ -24,10 +24,10 @@
 #include <QStandardPaths>
 #include <QTextCodec>
 
-#include <kconfiggroup.h>
-#include <klocalizedstring.h>
+#include <KConfigGroup>
+#include <KLocalizedString>
 #include <kprotocolmanager.h>
-#include <ksharedconfig.h>
+#include <KSharedConfig>
 
 #include <kio/slaveconfig.h>
 #include "http_slave_defaults.h"

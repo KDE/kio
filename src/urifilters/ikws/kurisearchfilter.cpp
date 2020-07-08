@@ -25,8 +25,8 @@
 #include "ikwsopts.h"
 
 #include <KPluginFactory>
-#include <klocalizedstring.h>
-#include <kaboutdata.h>
+#include <KLocalizedString>
+#include <KAboutData>
 
 #include <QDBusConnection>
 #include <QLoggingCategory>

@@ -26,7 +26,7 @@
 #include <QLabel>
 #include <QApplication>
 #include <QDebug>
-#include <kservice.h>
+#include <KService>
 #include <QPushButton>
 #include <QLayout>
 #include <QTest> // QFINDTESTDATA

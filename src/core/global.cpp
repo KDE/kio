@@ -21,14 +21,14 @@
 #include "faviconscache_p.h"
 
 #include <kprotocolinfo.h>
-#include <kconfig.h>
-#include <kconfiggroup.h>
+#include <KConfig>
+#include <KConfigGroup>
 #include <kfileitem.h>
-#include <klocalizedstring.h>
-#include <ksharedconfig.h>
-#include <kformat.h>
-#include <kfileutils.h>
-#include <qmimedatabase.h>
+#include <KLocalizedString>
+#include <KSharedConfig>
+#include <KFormat>
+#include <KFileUtils>
+#include <QMimeDatabase>
 #include <QUrl>
 
 #include "kiocoredebug.h"
