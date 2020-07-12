@@ -96,15 +96,15 @@ private Q_SLOTS:
         QList<QUrl> urls; urls << QUrl::fromLocalFile(m_srcFile);
         generator.setUrls(urls);
         QCOMPARE(extractActionNames(menu), QStringList() << QStringLiteral("copyTo_submenu") << QStringLiteral("moveTo_submenu"));
-        //menu.popup(QPoint(-50, -50));
-        QMenu *copyMenu = menu.actions().at(0)->menu(); // "copy" submenu
-        QVERIFY(copyMenu);
+        QAction *copyMenuAction = menu.actions().at(0);
 
         // When
-        copyMenu->popup(QPoint(-100, -100));
+        menu.setActiveAction(copyMenuAction);
+        menu.popup(QPoint(-100, -100));
 
         // Then
-        const QStringList actionNames = extractActionNames(*copyMenu);
+        const QStringList actionNames = extractActionNames(*copyMenuAction->menu());
+        QVERIFY(!actionNames.isEmpty());
         QCOMPARE(actionNames.first(), QStringLiteral("home"));
         QVERIFY(actionNames.contains(QLatin1String("browse")));
         QCOMPARE(actionNames.at(actionNames.count() - 2), m_nonWritableTempDir.path());
