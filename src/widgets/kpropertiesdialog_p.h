@@ -177,6 +177,7 @@ private Q_SLOTS:
     void slotShowMd5();
     void slotShowSha1();
     void slotShowSha256();
+    void slotShowSha512();
     /**
      * Compare @p input (required to be lowercase) with the checksum in cache.
      */
@@ -186,6 +187,7 @@ private:
     static bool isMd5(const QString &input);
     static bool isSha1(const QString &input);
     static bool isSha256(const QString &input);
+    static bool isSha512(const QString &input);
     static QString computeChecksum(QCryptographicHash::Algorithm algorithm, const QString &path);
     static QCryptographicHash::Algorithm detectAlgorithm(const QString &input);
 

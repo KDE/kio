@@ -2767,6 +2767,7 @@ public:
     QString m_md5;
     QString m_sha1;
     QString m_sha256;
+    QString m_sha512;
 };
 
 KChecksumsPlugin::KChecksumsPlugin(KPropertiesDialog *dialog)
@@ -2778,6 +2779,7 @@ KChecksumsPlugin::KChecksumsPlugin(KPropertiesDialog *dialog)
     d->m_ui.md5CopyButton->hide();
     d->m_ui.sha1CopyButton->hide();
     d->m_ui.sha256CopyButton->hide();
+    d->m_ui.sha512CopyButton->hide();
 
     connect(d->m_ui.lineEdit, &QLineEdit::textChanged, this, [=](const QString &text) {
         slotVerifyChecksum(text.toLower());
@@ -2786,6 +2788,7 @@ KChecksumsPlugin::KChecksumsPlugin(KPropertiesDialog *dialog)
     connect(d->m_ui.md5Button, &QPushButton::clicked, this, &KChecksumsPlugin::slotShowMd5);
     connect(d->m_ui.sha1Button, &QPushButton::clicked, this, &KChecksumsPlugin::slotShowSha1);
     connect(d->m_ui.sha256Button, &QPushButton::clicked, this, &KChecksumsPlugin::slotShowSha256);
+    connect(d->m_ui.sha512Button, &QPushButton::clicked, this, &KChecksumsPlugin::slotShowSha512);
 
     d->fileWatcher.addPath(properties->item().localPath());
     connect(&d->fileWatcher, &QFileSystemWatcher::fileChanged, this, &KChecksumsPlugin::slotInvalidateCache);
@@ -2801,6 +2804,10 @@ KChecksumsPlugin::KChecksumsPlugin(KPropertiesDialog *dialog)
 
     connect(d->m_ui.sha256CopyButton, &QPushButton::clicked, this, [=]() {
         clipboard->setText(d->m_sha256);
+    });
+
+    connect(d->m_ui.sha512CopyButton, &QPushButton::clicked, this, [=]() {
+        clipboard->setText(d->m_sha512);
     });
 
     connect(d->m_ui.pasteButton, &QPushButton::clicked, this, [=]() {
@@ -2830,6 +2837,7 @@ void KChecksumsPlugin::slotInvalidateCache()
     d->m_md5 = QString();
     d->m_sha1 = QString();
     d->m_sha256 = QString();
+    d->m_sha512 = QString();
 }
 
 void KChecksumsPlugin::slotShowMd5()
@@ -2863,6 +2871,17 @@ void KChecksumsPlugin::slotShowSha256()
     d->m_ui.sha256Button->hide();
 
     showChecksum(QCryptographicHash::Sha256, label, d->m_ui.sha256CopyButton);
+}
+
+void KChecksumsPlugin::slotShowSha512()
+{
+    auto label = new QLabel(i18nc("@action:button", "Calculating..."), &d->m_widget);
+    label->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::TextSelectableByKeyboard);
+
+    d->m_ui.calculateWidget->layout()->replaceWidget(d->m_ui.sha512Button, label);
+    d->m_ui.sha512Button->hide();
+
+    showChecksum(QCryptographicHash::Sha512, label, d->m_ui.sha512CopyButton);
 }
 
 void KChecksumsPlugin::slotVerifyChecksum(const QString &input)
@@ -2912,6 +2931,9 @@ void KChecksumsPlugin::slotVerifyChecksum(const QString &input)
         case QCryptographicHash::Sha256:
             slotShowSha256();
             break;
+        case QCryptographicHash::Sha512:
+            slotShowSha512();
+            break;
         default:
             break;
         }
@@ -2949,6 +2971,12 @@ bool KChecksumsPlugin::isSha256(const QString &input)
     return regex.match(input).hasMatch();
 }
 
+bool KChecksumsPlugin::isSha512(const QString &input)
+{
+    QRegularExpression regex(QStringLiteral("^[a-f0-9]{128}$"));
+    return regex.match(input).hasMatch();
+}
+
 QString KChecksumsPlugin::computeChecksum(QCryptographicHash::Algorithm algorithm, const QString &path)
 {
     QFile file(path);
@@ -2974,6 +3002,10 @@ QCryptographicHash::Algorithm KChecksumsPlugin::detectAlgorithm(const QString &i
 
     if (isSha256(input)) {
         return QCryptographicHash::Sha256;
+    }
+
+    if (isSha512(input)) {
+        return QCryptographicHash::Sha512;
     }
 
     // Md4 used as negative error code.
@@ -3080,6 +3112,8 @@ QString KChecksumsPlugin::cachedChecksum(QCryptographicHash::Algorithm algorithm
         return d->m_sha1;
     case QCryptographicHash::Sha256:
         return d->m_sha256;
+    case QCryptographicHash::Sha512:
+        return d->m_sha512;
     default:
         break;
     }
@@ -3098,6 +3132,9 @@ void KChecksumsPlugin::cacheChecksum(const QString &checksum, QCryptographicHash
         break;
     case QCryptographicHash::Sha256:
         d->m_sha256 = checksum;
+        break;
+    case QCryptographicHash::Sha512:
+        d->m_sha512 = checksum;
         break;
     default:
         return;
