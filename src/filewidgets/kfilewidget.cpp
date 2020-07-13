@@ -2015,8 +2015,10 @@ void KFileWidgetPrivate::writeViewConfig()
 
     ops->writeConfig(tmpGroup);
 
-    // Copy saved settings to kdeglobals
-    tmpGroup.copyTo(&configGroup, KConfigGroup::Persistent | KConfigGroup::Global);
+    // Copy saved settings to kdeglobals except when this is called by unit tests
+    if (qEnvironmentVariableIsEmpty("KFILEWIDGET_ENABLE_TESTMODE")) {
+        tmpGroup.copyTo(&configGroup, KConfigGroup::Persistent | KConfigGroup::Global);
+    }
 }
 
 void KFileWidgetPrivate::readRecentFiles()

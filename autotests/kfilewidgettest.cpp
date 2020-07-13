@@ -49,6 +49,8 @@ private Q_SLOTS:
     {
         // To avoid a runtime dependency on klauncher
         qputenv("KDE_FORK_SLAVES", "yes");
+        // To avoid altering ~/.config/kdeglobals when KFileWidget calls writeViewConfig
+        qputenv("KFILEWIDGET_ENABLE_TESTMODE", "1");
 
         QStandardPaths::setTestModeEnabled(true);
 
