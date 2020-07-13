@@ -12,7 +12,8 @@ set(kiogui_SRCS
 ecm_qt_declare_logging_category(kiogui_SRCS
     HEADER kiogui_debug.h
     IDENTIFIER KIO_GUI
-    CATEGORY_NAME kf5.kio.gui
+    CATEGORY_NAME kf.kio.gui
+    OLD_CATEGORY_NAMES kf5.kio.gui
     DESCRIPTION "KIOGui (KIO)"
     EXPORT KIO
 )
@@ -20,7 +21,8 @@ ecm_qt_declare_logging_category(kiogui_SRCS
 ecm_qt_declare_logging_category(kiogui_SRCS
     HEADER favicons_debug.h
     IDENTIFIER FAVICONS_LOG
-    CATEGORY_NAME kf5.kio.favicons
+    CATEGORY_NAME kf.kio.gui.favicons
+    OLD_CATEGORY_NAMES kf5.kio.favicons
     DESCRIPTION "FavIcons (KIO)"
     EXPORT KIO
 )

@@ -70,14 +70,16 @@ endif()
 ecm_qt_declare_logging_category(kiowidgets_SRCS
     HEADER kio_widgets_debug.h
     IDENTIFIER KIO_WIDGETS
-    CATEGORY_NAME kf5.kio.widgets
+    CATEGORY_NAME kf.kio.widgets
+    OLD_CATEGORY_NAMES kf5.kio.widgets
     DESCRIPTION "KIOWidgets (KIO)"
     EXPORT KIO
 )
 
 ecm_qt_export_logging_category(
     IDENTIFIER category
-    CATEGORY_NAME kf5.kio.kdirmodel
+    CATEGORY_NAME kf.idletime
+    OLD_CATEGORY_NAMES kf.kio.widgets.kdirmodel
     DESCRIPTION "KDirModel (KIO)"
     EXPORT KIO
 )

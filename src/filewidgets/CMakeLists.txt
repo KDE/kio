@@ -48,7 +48,8 @@ qt5_add_resources(kiofilewidgets_SRCS ../new_file_templates/templates.qrc)
 
 ecm_qt_export_logging_category(
     IDENTIFIER KFILEWIDGETS_LOG
-    CATEGORY_NAME kf5.kio.filewidgets
+    CATEGORY_NAME kf.kio.filewidgets
+    OLD_CATEGORY_NAMES kf5.kio.filewidgets
     DESCRIPTION "KFileWidgets (KIO)"
     EXPORT KIO
 )
@@ -56,7 +57,8 @@ ecm_qt_export_logging_category(
 ecm_qt_declare_logging_category(kiofilewidgets_SRCS
     HEADER kfilefiltercombo_debug.h
     IDENTIFIER KIO_KFILEWIDGETS_KFILEFILTERCOMBO
-    CATEGORY_NAME kf5.kio.filewidgets.kfilefiltercombo
+    CATEGORY_NAME kf.kio.filewidgets.kfilefiltercombo
+    OLD_CATEGORY_NAMES kf5.kio.filewidgets.kfilefiltercombo
     DEFAULT_SEVERITY Warning
     DESCRIPTION "KFileFilterCombo (KIO)"
     EXPORT KIO

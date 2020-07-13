@@ -41,7 +41,7 @@
 #include <KUser>
 
 namespace {
-QLoggingCategory category("org.kde.kurifilter-shorturi", QtWarningMsg);
+QLoggingCategory category("kf.kio.urifilters.shorturi", QtWarningMsg);
 }
 
 /**

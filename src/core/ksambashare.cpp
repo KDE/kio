@@ -39,7 +39,7 @@
 #include <KUser>
 
 Q_DECLARE_LOGGING_CATEGORY(KIO_CORE_SAMBASHARE)
-Q_LOGGING_CATEGORY(KIO_CORE_SAMBASHARE, "kf5.kio.core.sambashare", QtWarningMsg)
+Q_LOGGING_CATEGORY(KIO_CORE_SAMBASHARE, "kf.kio.core.sambashare", QtWarningMsg)
 
 // Default smb.conf locations
 // sorted by priority, most priority first

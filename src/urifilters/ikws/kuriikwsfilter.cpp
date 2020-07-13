@@ -33,7 +33,7 @@
 #define QL1C(x)  QLatin1Char(x)
 
 namespace {
-QLoggingCategory category("org.kde.kurifilter-ikws", QtWarningMsg);
+QLoggingCategory category("kf.kio.urifilters.ikws", QtWarningMsg);
 }
 
 /**

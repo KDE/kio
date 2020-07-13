@@ -64,7 +64,7 @@
 
 #include <QLoggingCategory>
 Q_DECLARE_LOGGING_CATEGORY(KIO_FTP)
-Q_LOGGING_CATEGORY(KIO_FTP, "kf5.kio.kio_ftp", QtWarningMsg)
+Q_LOGGING_CATEGORY(KIO_FTP, "kf.kio.slaves.ftp", QtWarningMsg)
 
 #if HAVE_STRTOLL
 #define charToLongLong(a) strtoll(a, nullptr, 10)

@@ -31,7 +31,8 @@ ki18n_wrap_ui(kcm_kio_PART_SRCS
 
 ecm_qt_export_logging_category(
     IDENTIFIER KIO_USERAGENTDLG
-    CATEGORY_NAME kf5.kio.useragentdlg
+    CATEGORY_NAME kf.configwidgets.cms.kf.kio.useragentdlg
+    OLD_CATEGORY_NAMES kf5.kio.useragentdlg
     DESCRIPTION "kio useragentdialog (KIO)"
     EXPORT KIO
 )

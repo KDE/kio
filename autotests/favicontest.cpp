@@ -92,7 +92,7 @@ void FavIconTest::initTestCase()
     QVERIFY(!QFileInfo::exists(favIconCacheDir));
 
     // Enable debug output
-    QLoggingCategory::setFilterRules(QStringLiteral("kde.kio.favicons.debug=true"));
+    QLoggingCategory::setFilterRules(QStringLiteral("kf.kio.gui.favicons.debug=true"));
 }
 
 void FavIconTest::favIconForUrlShouldBeEmptyInitially()

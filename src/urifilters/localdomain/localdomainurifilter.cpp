@@ -31,7 +31,7 @@
 #define QL1S(x)   QLatin1String(x)
 
 namespace {
-QLoggingCategory category("org.kde.kurifilter-localdomain", QtWarningMsg);
+QLoggingCategory category("kf.kio.urifilters.localdomain", QtWarningMsg);
 }
 
 /**

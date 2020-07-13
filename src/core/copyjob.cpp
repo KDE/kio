@@ -69,7 +69,7 @@
 
 #include <QLoggingCategory>
 Q_DECLARE_LOGGING_CATEGORY(KIO_COPYJOB_DEBUG)
-Q_LOGGING_CATEGORY(KIO_COPYJOB_DEBUG, "kf5.kio.core.copyjob", QtWarningMsg)
+Q_LOGGING_CATEGORY(KIO_COPYJOB_DEBUG, "kf.kio.core.copyjob", QtWarningMsg)
 
 using namespace KIO;
 

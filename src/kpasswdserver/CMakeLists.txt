@@ -21,7 +21,8 @@ qt5_add_dbus_adaptor(kiod_kpasswdserver_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/../core
 
 ecm_qt_export_logging_category(
     IDENTIFIER category
-    CATEGORY_NAME org.kde.kio.kpasswdserver
+    CATEGORY_NAME kf.kio.kpasswdserver
+    OLD_CATEGORY_NAMES org.kde.kio.kpasswdserver
     DESCRIPTION "KPasswdServer (KIO)"
     EXPORT KIO
 )

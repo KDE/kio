@@ -39,7 +39,7 @@
 K_PLUGIN_CLASS_WITH_JSON(KUriSearchFilter, "kurisearchfilter.json")
 
 namespace {
-QLoggingCategory category("org.kde.kurifilter-ikws", QtWarningMsg);
+QLoggingCategory category("kf.kio.urifilters.ikws", QtWarningMsg);
 }
 
 KUriSearchFilter::KUriSearchFilter(QObject *parent, const QVariantList &)

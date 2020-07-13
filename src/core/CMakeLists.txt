@@ -98,14 +98,16 @@ set(kiocore_SRCS
 ecm_qt_declare_logging_category(kiocore_SRCS
     HEADER kiocoredebug.h
     IDENTIFIER KIO_CORE
-    CATEGORY_NAME kf5.kio.core
+    CATEGORY_NAME kf.kio.core
+    OLD_CATEGORY_NAMES kf5.kio.core
     DESCRIPTION "KIOCore (KIO)"
     EXPORT KIO
 )
 
 ecm_qt_export_logging_category(
     IDENTIFIER KIO_COPYJOB_DEBUG
-    CATEGORY_NAME kf5.kio.core.copyjob
+    CATEGORY_NAME kf.kio.core.copyjob
+    OLD_CATEGORY_NAMES kf5.kio.core.copyjob
     DEFAULT_SEVERITY Warning
     DESCRIPTION "KIO::CopyJob (KIO)"
     EXPORT KIO
@@ -113,7 +115,8 @@ ecm_qt_export_logging_category(
 
 ecm_qt_export_logging_category(
     IDENTIFIER KIO_CORE_DIRLISTER
-    CATEGORY_NAME kf5.kio.core.dirlister
+    CATEGORY_NAME kf.kio.core.dirlister
+    OLD_CATEGORY_NAMES kf5.kio.core.dirlister
     DEFAULT_SEVERITY Warning
     DESCRIPTION "KCoreDirLister (KIO)"
     EXPORT KIO
@@ -121,7 +124,8 @@ ecm_qt_export_logging_category(
 
 ecm_qt_export_logging_category(
     IDENTIFIER KIO_CORE_SAMBASHARE
-    CATEGORY_NAME kf5.kio.core.sambashare
+    CATEGORY_NAME kf.kio.core.sambashare
+    OLD_CATEGORY_NAMES kf5.kio.core.sambashare
     DEFAULT_SEVERITY Warning
     DESCRIPTION "sambashare (KIO)"
     EXPORT KIO

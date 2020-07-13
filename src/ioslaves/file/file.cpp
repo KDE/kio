@@ -75,7 +75,7 @@
 #include <kdirnotify.h>
 #include <ioslave_defaults.h>
 
-Q_LOGGING_CATEGORY(KIO_FILE, "kf5.kio.kio_file")
+Q_LOGGING_CATEGORY(KIO_FILE, "kf.kio.slaves.file")
 
 // Pseudo plugin class to embed meta data
 class KIOPluginForMetaData : public QObject

@@ -45,7 +45,7 @@
 #include <KPluginFactory>
 
 Q_DECLARE_LOGGING_CATEGORY(KIO_USERAGENTDLG)
-Q_LOGGING_CATEGORY(KIO_USERAGENTDLG, "kf5.kio.useragentdlg")
+Q_LOGGING_CATEGORY(KIO_USERAGENTDLG, "kf.configwidgets.cms.kf.kio.useragentdlg")
 
 K_PLUGIN_FACTORY_DECLARATION (KioConfigFactory)
 

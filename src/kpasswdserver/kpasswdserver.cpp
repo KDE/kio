@@ -41,7 +41,7 @@
 #include <QTimer>
 #include <ctime>
 
-static QLoggingCategory category("org.kde.kio.kpasswdserver", QtInfoMsg);
+static QLoggingCategory category("kf.kio.kpasswdserver", QtInfoMsg);
 
 #define AUTHINFO_EXTRAFIELD_DOMAIN QStringLiteral("domain")
 #define AUTHINFO_EXTRAFIELD_ANONYMOUS QStringLiteral("anonymous")

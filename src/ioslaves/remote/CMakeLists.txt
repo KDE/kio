@@ -8,7 +8,8 @@ set(kio_remote_SRCS
 ecm_qt_declare_logging_category(kio_remote_SRCS
     HEADER debug.h
     IDENTIFIER KIOREMOTE_LOG
-    CATEGORY_NAME kf5.kio.kio_remote
+    CATEGORY_NAME kf.kio.slaves.remote
+    OLD_CATEGORY_NAMES kf5.kio.kio_remote
     DEFAULT_SEVERITY Info
     DESCRIPTION "kio_remote (KIO)"
     EXPORT KIO

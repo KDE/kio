@@ -26,7 +26,7 @@
 
 #include <stdio.h>
 
-Q_LOGGING_CATEGORY(KIO_HTTP_FILTER, "kf5.kio.kio_http.filter")
+Q_LOGGING_CATEGORY(KIO_HTTP_FILTER, "kf.kio.slaves.http.filter")
 
 /*
 Testcases:

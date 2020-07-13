@@ -13,7 +13,8 @@ ki18n_wrap_ui(kuriikwsfilter_SRCS ikwsopts_ui.ui searchproviderdlg_ui.ui)
 
 ecm_qt_export_logging_category(
     IDENTIFIER category
-    CATEGORY_NAME org.kde.kurifilter-ikws
+    CATEGORY_NAME kf.kio.urifilters.ikws
+    OLD_CATEGORY_NAMES org.kde.kurifilter-ikws
     DEFAULT_SEVERITY Warning
     DESCRIPTION "KUriFilter IKWS (KIO)"
     EXPORT KIO

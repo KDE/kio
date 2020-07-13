@@ -48,7 +48,7 @@
 #include <QLocale>
 #include <QUrl>
 
-Q_LOGGING_CATEGORY(KIO_COOKIEJAR, "kf5.kio.cookiejar")
+Q_LOGGING_CATEGORY(KIO_COOKIEJAR, "kf.kio.slaves.http.cookiejar")
 
 // BR87227
 // Waba: Should the number of cookies be limited?

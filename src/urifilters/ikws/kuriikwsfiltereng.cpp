@@ -34,7 +34,7 @@
 #include <QLoggingCategory>
 
 namespace {
-QLoggingCategory category("org.kde.kurifilter-ikws", QtWarningMsg);
+QLoggingCategory category("kf.kio.urifilters.ikws", QtWarningMsg);
 }
 
 #define PDVAR(n, v) qCDebug(category) << n << " = '" << v << "'"

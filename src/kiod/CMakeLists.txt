@@ -7,7 +7,8 @@ endif()
 
 ecm_qt_export_logging_category(
     IDENTIFIER KIOD_CATEGORY
-    CATEGORY_NAME kf5.kiod
+    CATEGORY_NAME kf.kio.kiod
+    OLD_CATEGORY_NAMES kf5.kiod
     DESCRIPTION "KIO Daemon (KIO)"
     EXPORT KIO
 )

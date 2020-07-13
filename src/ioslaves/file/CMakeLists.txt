@@ -24,7 +24,8 @@ configure_file(config-kioslave-file.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-k
 
 ecm_qt_export_logging_category(
     IDENTIFIER KIO_FILE
-    CATEGORY_NAME kf5.kio.kio_file
+    CATEGORY_NAME kf.kio.slaves.file
+    OLD_CATEGORY_NAMES kf5.kio.kio_file
     DESCRIPTION "kiofile (KIO)"
     EXPORT KIO
 )

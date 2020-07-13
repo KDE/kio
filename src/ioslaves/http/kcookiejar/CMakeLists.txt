@@ -26,7 +26,8 @@ set(kded_kcookiejar_SRCS
 
 ecm_qt_export_logging_category(
     IDENTIFIER KIO_COOKIEJAR
-    CATEGORY_NAME kf5.kio.cookiejar
+    CATEGORY_NAME kf.kio.slaves.http.cookiejar
+    OLD_CATEGORY_NAMES kf5.kio.cookiejar
     DESCRIPTION "kcookiejar (KIO)"
     EXPORT KIO
 )

@@ -178,7 +178,7 @@ void KUriFilterTest::initTestCase()
     qDebug() << "libpaths" << QCoreApplication::libraryPaths();
 
     qputenv("KDE_FORK_SLAVES", "yes");   // simpler, for the final cleanup
-    QLoggingCategory::setFilterRules(QStringLiteral("org.kde.kurifilter-*=true"));
+    QLoggingCategory::setFilterRules(QStringLiteral("kf.kio.urifilters.*=true"));
 
     QString searchProvidersDir = QFINDTESTDATA("../src/urifilters/ikws/searchproviders/google.desktop").section('/', 0, -2);
     QVERIFY(!searchProvidersDir.isEmpty());

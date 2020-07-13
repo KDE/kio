@@ -31,7 +31,7 @@
 
 #include <QLoggingCategory>
 Q_DECLARE_LOGGING_CATEGORY(KIOD_CATEGORY)
-Q_LOGGING_CATEGORY(KIOD_CATEGORY, "kf5.kiod")
+Q_LOGGING_CATEGORY(KIOD_CATEGORY, "kf.kio.kiod")
 
 class KIOD : public QObject
 {

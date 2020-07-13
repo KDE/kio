@@ -74,7 +74,7 @@
 
 #include <QLoggingCategory>
 Q_DECLARE_LOGGING_CATEGORY(KIO_HTTP)
-Q_LOGGING_CATEGORY(KIO_HTTP, "kf5.kio.kio_http", QtWarningMsg) // disable debug by default
+Q_LOGGING_CATEGORY(KIO_HTTP, "kf.kio.slaves.http", QtWarningMsg) // disable debug by default
 
 // HeaderTokenizer declarations
 #include "parsinghelpers.h"
