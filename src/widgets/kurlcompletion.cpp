@@ -576,7 +576,7 @@ void KUrlCompletionPrivate::init()
     KConfigGroup cg(KSharedConfig::openConfig(), "URLCompletion");
 
     url_auto_completion = cg.readEntry("alwaysAutoComplete", true);
-    popup_append_slash = cg.readEntry("popupAppendSlash", true);
+    popup_append_slash = cg.readEntry("popupAppendSlash", false);
     onlyLocalProto = cg.readEntry("LocalProtocolsOnly", false);
 
     q->setIgnoreCase(true);
