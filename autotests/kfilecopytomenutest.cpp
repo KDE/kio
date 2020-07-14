@@ -131,9 +131,11 @@ private Q_SLOTS:
         QList<QUrl> urls; urls << QUrl::fromLocalFile(m_srcFile);
         generator.setUrls(urls);
         generator.addActionsTo(&menu);
-        QMenu *copyMenu = menu.actions().at(0)->menu();
-        copyMenu->popup(QPoint(-100, -100));
-        const QList<QAction *> actions = copyMenu->actions();
+        QAction *copyMenuAction = menu.actions().at(0);
+        menu.setActiveAction(copyMenuAction);
+
+        menu.popup(QPoint(-100, -100));
+        const QList<QAction *> actions = copyMenuAction->menu()->actions();
         if (m_lastActionCount == 0) {
             m_lastActionCount = actions.count();
         } else {
