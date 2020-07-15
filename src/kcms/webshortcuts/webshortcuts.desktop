@@ -8,7 +8,7 @@ Exec=kcmshell5 webshortcuts
 X-KDE-Library=kcm_webshortcuts
 X-KDE-ParentApp=kcontrol
 
-X-KDE-System-Settings-Parent-Category=shortcuts
+X-KDE-System-Settings-Parent-Category=search
 X-KDE-Weight=70
 
 Name=Web Shortcuts
