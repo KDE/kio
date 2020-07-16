@@ -171,7 +171,7 @@ void KFileFilterCombo::setMimeFilter(const QStringList &types,
             continue;
         }
 
-        if (type.name().startsWith(QLatin1String("all/"))) {
+        if (type.name().startsWith(QLatin1String("all/")) || type.isDefault()) {
             hasAllFilesFilter = true;
             continue;
         }
