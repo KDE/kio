@@ -52,6 +52,7 @@ Query[es]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[eu]=https://www.qwant.com/single?q=\\{@}&client=kde&source=shopping
 Query[fi]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[fr]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
+Query[it]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[ko]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[nl]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[pt]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
