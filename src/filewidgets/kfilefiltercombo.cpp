@@ -149,6 +149,20 @@ void KFileFilterCombo::setMimeFilter(const QStringList &types,
     d->m_allTypes = defaultType.isEmpty() && (types.count() > 1);
 
     QString allComments, allTypes;
+
+    // If there's mimetypes that have the same comment, we will show the extension
+    // in addition to the mime comment
+    QHash<QString, int> allTypeComments;
+    for (QStringList::ConstIterator it = types.begin(); it != types.end(); ++it) {
+        const QMimeType type = db.mimeTypeForName(*it);
+        if (!type.isValid()) {
+            qCWarning(KIO_KFILEWIDGETS_KFILEFILTERCOMBO) << *it << "is not a valid mimeType";
+            continue;
+        }
+
+        allTypeComments[type.comment()] += 1;
+    }
+
     for (QStringList::ConstIterator it = types.begin(); it != types.end(); ++it) {
         // qDebug() << *it;
         const QMimeType type = db.mimeTypeForName(*it);
@@ -172,7 +186,11 @@ void KFileFilterCombo::setMimeFilter(const QStringList &types,
             allTypes += type.name();
             allComments += type.comment();
         }
-        addItem(type.comment());
+        if (allTypeComments.value(type.comment()) > 1) {
+            addItem(i18nc("%1 is the mimetype name, %2 is the extensions", "%1 (%2)", type.comment(), type.suffixes().join(QStringLiteral(", "))));
+        } else {
+            addItem(type.comment());
+        }
         if (type.name() == defaultType) {
             setCurrentIndex(count() - 1);
         }
