@@ -424,8 +424,8 @@ int KFileItemActions::addServiceActionsTo(QMenu *mainMenu)
     QMenu *actionMenu = mainMenu;
     int userItemCount = 0;
     if (s.user.count() + s.userSubmenus.count() +
-            s.userPriority.count() + s.userPrioritySubmenus.count() > 1) {
-        // we have more than one item, so let's make a submenu
+            s.userPriority.count() + s.userPrioritySubmenus.count() > 3) {
+        // we have more than three items, so let's make a submenu
         actionMenu = new QMenu(i18nc("@title:menu", "&Actions"), mainMenu);
         actionMenu->setIcon(QIcon::fromTheme(QStringLiteral("view-more-symbolic")));
         actionMenu->menuAction()->setObjectName(QStringLiteral("actions_submenu")); // for the unittest
