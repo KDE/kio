@@ -190,9 +190,14 @@ RenameDialog::RenameDialog(QWidget *parent, const QString &_caption,
     }
 
     if (_options & RenameDialog_Overwrite) {
-        const QString text = (_options & RenameDialog_IsDirectory) ? i18nc("Write files into an existing folder", "&Write Into") : i18n("&Overwrite");
-        d->bOverwrite = new QPushButton(text, this);
-        d->bOverwrite->setToolTip(i18n("Files and folders will be copied into the existing directory, alongside its existing contents.\nYou will be prompted again in case of a conflict with an existing file in the directory."));
+        d->bOverwrite = new QPushButton(this);
+        KGuiItem::assign(d->bOverwrite, KStandardGuiItem::overwrite());
+
+        if (_options & RenameDialog_IsDirectory) {
+            d->bOverwrite->setText(i18nc("Write files into an existing folder", "&Write Into"));
+            d->bOverwrite->setIcon(QIcon());
+            d->bOverwrite->setToolTip(i18n("Files and folders will be copied into the existing directory, alongside its existing contents.\nYou will be prompted again in case of a conflict with an existing file in the directory."));
+        }
         connect(d->bOverwrite, &QAbstractButton::clicked, this, &RenameDialog::overwritePressed);
     }
 
