@@ -120,7 +120,7 @@ static CompareFilesResult compareFiles(const QString &filepath, const QString &s
     QByteArray buffer2(bufferSize, 0);
 
     bool result = true;
-    auto seekFillBuffer = [](qint64 pos, QFile &f, QByteArray &buffer){
+    auto seekFillBuffer = [bufferSize](qint64 pos, QFile &f, QByteArray &buffer){
         auto ioresult = f.seek(pos);
         int bytesRead;
         if (ioresult) {
