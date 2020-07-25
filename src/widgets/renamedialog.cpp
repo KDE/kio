@@ -91,6 +91,80 @@ static KSqueezedTextLabel *createSqueezedLabel(QWidget *parent, const QString &t
     return label;
 }
 
+enum CompareFilesResult {
+    Identical,
+    PartiallyIdentical,
+    Different
+};
+static CompareFilesResult compareFiles(const QString &filepath, const QString &secondFilePath)
+{
+    const qint64 bufferSize = 4096; // 4kb
+    QFile f(filepath);
+    QFile f2(secondFilePath);
+    const auto fileSize = f.size();
+
+    if (fileSize != f2.size()) {
+        return CompareFilesResult::Different;
+    }
+    if (!f.open(QFile::ReadOnly)) {
+        qCWarning(KIO_WIDGETS) << "Could not open file for comparison:" << f.fileName();
+        return CompareFilesResult::Different;
+    }
+    if (!f2.open(QFile::ReadOnly)) {
+        f.close();
+        qCWarning(KIO_WIDGETS) << "Could not open file for comparison:" << f2.fileName();
+        return CompareFilesResult::Different;
+    }
+
+    QByteArray buffer(bufferSize, 0);
+    QByteArray buffer2(bufferSize, 0);
+
+    bool result = true;
+    auto seekFillBuffer = [](qint64 pos, QFile &f, QByteArray &buffer){
+        auto ioresult = f.seek(pos);
+        int bytesRead;
+        if (ioresult) {
+            bytesRead = f.read(buffer.data(), bufferSize);
+            ioresult = bytesRead != -1;
+        }
+        if (!ioresult) {
+            qCWarning(KIO_WIDGETS) << "Could not read file for comparison:" << f.fileName();
+            return false;
+        }
+        return true;
+    };
+
+    // compare at the beginning of the files
+    result = result && seekFillBuffer(0, f, buffer);
+    result = result && seekFillBuffer(0, f2, buffer2);
+    result = result && buffer == buffer2;
+
+    if (result && fileSize > 2 * bufferSize) {
+        // compare the contents in the middle of the files
+        result = result && seekFillBuffer(fileSize / 2 - bufferSize / 2, f, buffer);
+        result = result && seekFillBuffer(fileSize / 2 - bufferSize / 2, f2, buffer2);
+        result = result && buffer == buffer2;
+    }
+
+    if (result && fileSize > bufferSize) {
+        // compare the contents at the end of the files
+        result = result && seekFillBuffer(fileSize - bufferSize, f, buffer);
+        result = result && seekFillBuffer(fileSize - bufferSize, f2, buffer2);
+        result = result && buffer == buffer2;
+    }
+
+    if (!result) {
+        return CompareFilesResult::Different;
+    }
+
+    if (fileSize <= bufferSize * 3) {
+        // for files smaller than bufferSize * 3, we in fact compared fully the files
+        return CompareFilesResult::Identical;
+    } else {
+        return CompareFilesResult::PartiallyIdentical;
+    }
+}
+
 /** @internal */
 class Q_DECL_HIDDEN RenameDialog::RenameDialogPrivate
 {
@@ -294,6 +368,7 @@ RenameDialog::RenameDialog(QWidget *parent, const QString &_caption,
         destUrlLabel->setTextFormat(Qt::PlainText);
         gridLayout->addWidget(destUrlLabel, gridRow, 2);
 
+        gridLayout->addWidget(d->m_srcArea, ++gridRow, 0, 2, 1);
 
         // The labels containing previews or icons, and an arrow icon indicating
         // direction from src to dest
@@ -301,34 +376,67 @@ RenameDialog::RenameDialog(QWidget *parent, const QString &_caption,
                                                           : QStringLiteral("go-next");
         const QPixmap pix = QIcon::fromTheme(arrowName).pixmap(d->m_srcPreview->height());
         srcToDestArrow->setPixmap(pix);
-        gridLayout->addWidget(d->m_srcArea, ++gridRow, 0);
         gridLayout->addWidget(srcToDestArrow, gridRow, 1);
+
         gridLayout->addWidget(d->m_destArea, gridRow, 2);
+
+        QLabel *diffTitle = createLabel(parent, i18n("Differences"), true);
+        gridLayout->addWidget(diffTitle, ++gridRow, 1);
 
         QLabel *srcDateLabel = createDateLabel(parent, d->srcItem);
         gridLayout->addWidget(srcDateLabel, ++gridRow, 0);
 
-        QLabel *destDateLabel = createDateLabel(parent, d->destItem);
-        gridLayout->addWidget(destDateLabel, gridRow, 2);
         if (mtimeDest > mtimeSrc) {
-            QLabel* warningLabel = createLabel(this, i18n("The destination is more recent."), true);
-            gridLayout->addWidget(warningLabel, ++gridRow, 2);
+            gridLayout->addWidget(createLabel(parent, QStringLiteral("The destination is <b>more recent</b>")), gridRow, 1);
         }
+        QLabel *destDateLabel = createLabel(parent, i18n("Date: %1", d->destItem.timeString(KFileItem::ModificationTime)));
+        gridLayout->addWidget(destDateLabel, gridRow, 2);
 
         QLabel *srcSizeLabel = createSizeLabel(parent, d->srcItem);
         gridLayout->addWidget(srcSizeLabel, ++gridRow, 0);
 
-        QLabel *destSizeLabel = createSizeLabel(parent, d->destItem);
-        gridLayout->addWidget(destSizeLabel, gridRow, 2);
         if (d->srcItem.size() != d->destItem.size()) {
             QString text;
+            int diff = 0;
             if (d->srcItem.size() > d->destItem.size()) {
-                text = i18n("The source file is bigger.");
+                diff = d->srcItem.size()  - d->destItem.size();
+                text = i18n("The destination is <b>smaller by %1</b>", KIO::convertSize(diff));
             } else {
-                text = i18n("The destination file is bigger.");
+                diff = d->destItem.size()  - d->srcItem.size();
+                text = i18n("The destination is <b>bigger by %1</b>", KIO::convertSize(diff));
             }
-            QLabel* warningLabel = createLabel(this, text, true);
-            gridLayout->addWidget(warningLabel, ++gridRow, 2);
+            gridLayout->addWidget(createLabel(parent, text), gridRow, 1);
+        }
+        QLabel *destSizeLabel = createLabel(parent, i18n("Size: %1", KIO::convertSize(d->destItem.size())));
+        gridLayout->addWidget(destSizeLabel, gridRow, 2);
+
+        // check files contents for local files
+        if (d->dest.isLocalFile() && d->src.isLocalFile()) {
+
+            const CompareFilesResult CompareFilesResult = compareFiles(d->src.toLocalFile(), d->dest.toLocalFile());
+
+            QString text;
+            switch (CompareFilesResult) {
+                case CompareFilesResult::Identical: text = i18n("The files are identical."); break;
+                case CompareFilesResult::PartiallyIdentical: text = i18n("The files seem identical."); break;
+                case CompareFilesResult::Different: text = i18n("The files are different."); break;
+            }
+            QLabel* filesIdenticalLabel = createLabel(this, text, true);
+            if (CompareFilesResult == CompareFilesResult::PartiallyIdentical) {
+                QLabel* pixmapLabel = new QLabel(this);
+                pixmapLabel->setPixmap(QIcon::fromTheme(QStringLiteral("help-about")).pixmap(QSize(16,16)));
+                pixmapLabel->setToolTip(
+                            i18n("The files are likely to be identical: they have the same size and their contents are the same at the beginning, middle and end.")
+                            );
+                pixmapLabel->setCursor(Qt::WhatsThisCursor);
+
+                QHBoxLayout* hbox = new QHBoxLayout(this);
+                hbox->addWidget(filesIdenticalLabel);
+                hbox->addWidget(pixmapLabel);
+                gridLayout->addLayout(hbox, gridRow + 1, 1);
+            } else {
+                gridLayout->addWidget(filesIdenticalLabel, gridRow + 1, 1);
+            }
         }
 
     } else {
@@ -663,10 +771,11 @@ void RenameDialog::resizePanels()
 
 QScrollArea *RenameDialog::createContainerLayout(QWidget *parent, const KFileItem &item, QLabel *preview)
 {
+    Q_UNUSED(item)
+#if 0 // PENDING
     KFileItemList itemList;
     itemList << item;
 
-#if 0 // PENDING
     // KFileMetaDataWidget was deprecated for a Nepomuk widget, which is itself deprecated...
     // If we still want metadata shown, we need a plugin that fetches data from KFileMetaData::ExtractorCollection
     KFileMetaDataWidget *metaWidget =  new KFileMetaDataWidget(this);
