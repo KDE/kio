@@ -990,12 +990,12 @@ bool KRun::isExecutable(const QString &mimeTypeName)
 {
     QMimeDatabase db;
     QMimeType mimeType = db.mimeTypeForName(mimeTypeName);
-    return (mimeType.inherits(QLatin1String("application/x-desktop")) ||
-            mimeType.inherits(QLatin1String("application/x-executable")) ||
+    return (mimeType.inherits(QStringLiteral("application/x-desktop")) ||
+            mimeType.inherits(QStringLiteral("application/x-executable")) ||
             /* See https://bugs.freedesktop.org/show_bug.cgi?id=97226 */
-            mimeType.inherits(QLatin1String("application/x-sharedlib")) ||
-            mimeType.inherits(QLatin1String("application/x-ms-dos-executable")) ||
-            mimeType.inherits(QLatin1String("application/x-shellscript")));
+            mimeType.inherits(QStringLiteral("application/x-sharedlib")) ||
+            mimeType.inherits(QStringLiteral("application/x-ms-dos-executable")) ||
+            mimeType.inherits(QStringLiteral("application/x-shellscript")));
 }
 
 void KRun::setUrl(const QUrl &url)

@@ -457,10 +457,10 @@ void KIO::OpenUrlJobPrivate::emitAccessDenied()
 // Feel free to make public if needed.
 static bool isExecutableMime(const QMimeType &mimeType)
 {
-    return (mimeType.inherits(QLatin1String("application/x-executable")) ||
+    return (mimeType.inherits(QStringLiteral("application/x-executable")) ||
             /* e.g. /usr/bin/ls, see https://gitlab.freedesktop.org/xdg/shared-mime-info/-/issues/11 */
-            mimeType.inherits(QLatin1String("application/x-sharedlib")) ||
-            mimeType.inherits(QLatin1String("application/x-ms-dos-executable")));
+            mimeType.inherits(QStringLiteral("application/x-sharedlib")) ||
+            mimeType.inherits(QStringLiteral("application/x-ms-dos-executable")));
 }
 
 // Helper function that returns whether a file has the execute bit set or not.
