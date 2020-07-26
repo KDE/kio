@@ -21,6 +21,7 @@
 
 #include "openurljob.h"
 #include "openwithhandlerinterface.h"
+#include "openorexecutefileinterface.h"
 #include "global.h"
 #include "job.h" // for buildErrorString
 #include "commandlauncherjob.h"
@@ -47,9 +48,11 @@
 #include <kio/scheduler.h>
 
 KIO::OpenWithHandlerInterface *s_openWithHandler = nullptr;
+KIO::OpenOrExecuteFileInterface *s_openOrExecuteFileHandler = nullptr;
 namespace KIO {
-// Hidden API because in KF6 we'll just check if the job's uiDelegate implements OpenWithHandlerInterface.
+// Hidden API because in KF6 we'll just check if the job's uiDelegate implements these interfaces
 KIOGUI_EXPORT void setDefaultOpenWithHandler(KIO::OpenWithHandlerInterface *iface) { s_openWithHandler = iface; }
+KIOGUI_EXPORT void setDefaultOpenOrExecuteFileHandler(KIO::OpenOrExecuteFileInterface *iface) { s_openOrExecuteFileHandler = iface; }
 }
 
 class KIO::OpenUrlJobPrivate
@@ -78,14 +81,22 @@ public:
     KService::Ptr m_preferredService;
     bool m_deleteTemporaryFile = false;
     bool m_runExecutables = false;
+    bool m_showOpenOrExecuteDialog = false;
     bool m_externalBrowserEnabled = true;
     bool m_followRedirections = true;
 
 private:
     void executeCommand();
-    bool handleExecutables(const QMimeType &mimeType);
+    void handleExecutables(const QMimeType &mimeType);
+    void handleDesktopFiles();
+    void handleShellscripts();
+    void openInPreferredApp();
     void runLink(const QString &filePath, const QString &urlStr, const QString &optionalServiceName);
+
     void showOpenWithDialog();
+    void showOpenOrExecuteFileDialog(std::function<void(bool)> dialogFinished);
+    void showUntrustedProgramWarningDialog(const QString &filePath);
+
     void startService(const KService::Ptr &service, const QList<QUrl> &urls);
     void startService(const KService::Ptr &service)
     {
@@ -126,6 +137,11 @@ void KIO::OpenUrlJob::setStartupId(const QByteArray &startupId)
 void KIO::OpenUrlJob::setRunExecutables(bool allow)
 {
     d->m_runExecutables = allow;
+}
+
+void KIO::OpenUrlJob::setShowOpenOrExecuteDialog(bool b)
+{
+    d->m_showOpenOrExecuteDialog = b;
 }
 
 void KIO::OpenUrlJob::setEnableExternalBrowser(bool b)
@@ -437,15 +453,14 @@ void KIO::OpenUrlJobPrivate::emitAccessDenied()
     q->emitResult();
 }
 
-// was: KRun::isExecutable. Feel free to make public if needed.
+// was: KRun::isExecutable (minus application/x-desktop and application/x-shellscript mimetypes).
+// Feel free to make public if needed.
 static bool isExecutableMime(const QMimeType &mimeType)
 {
-    return (mimeType.inherits(QLatin1String("application/x-desktop")) ||
-            mimeType.inherits(QLatin1String("application/x-executable")) ||
-            /* See https://bugs.freedesktop.org/show_bug.cgi?id=97226 */
+    return (mimeType.inherits(QLatin1String("application/x-executable")) ||
+            /* e.g. /usr/bin/ls, see https://gitlab.freedesktop.org/xdg/shared-mime-info/-/issues/11 */
             mimeType.inherits(QLatin1String("application/x-sharedlib")) ||
-            mimeType.inherits(QLatin1String("application/x-ms-dos-executable")) ||
-            mimeType.inherits(QLatin1String("application/x-shellscript")));
+            mimeType.inherits(QLatin1String("application/x-ms-dos-executable")));
 }
 
 // Helper function that returns whether a file has the execute bit set or not.
@@ -454,18 +469,25 @@ static bool hasExecuteBit(const QString &fileName)
     return QFileInfo(fileName).isExecutable();
 }
 
-namespace KIO {
-extern KIO::UntrustedProgramHandlerInterface *defaultUntrustedProgramHandler();
-}
-
-// Return true if handled in any way (success or error)
-// Return false if the caller should proceed
-bool KIO::OpenUrlJobPrivate::handleExecutables(const QMimeType &mimeType)
+// Handle native binaries (.e.g. /usr/bin/*); and .exe files
+void KIO::OpenUrlJobPrivate::handleExecutables(const QMimeType &mimeType)
 {
     if (!KAuthorized::authorize(QStringLiteral("shell_access"))) {
         emitAccessDenied();
-        return true; // handled
+        return;
     }
+
+    const bool isLocal = m_url.isLocalFile();
+    // Don't run remote executables
+    if (!isLocal) {
+        q->setError(KJob::UserDefinedError);
+        q->setErrorText(i18n("The executable file \"%1\" is located on a remote filesystem. "
+                             "For safety reasons it will not be started.", m_url.toDisplayString()));
+        q->emitResult();
+        return;
+    }
+
+    const QString localPath = m_url.toLocalFile();
 
     // Check whether file is an executable script
 #ifdef Q_OS_WIN
@@ -474,59 +496,82 @@ bool KIO::OpenUrlJobPrivate::handleExecutables(const QMimeType &mimeType)
     const bool isNativeBinary = !mimeType.inherits(QStringLiteral("text/plain")) && !mimeType.inherits(QStringLiteral("application/x-ms-dos-executable"));
 #endif
 
-    if (!m_url.isLocalFile() || !m_runExecutables) {
-        if (isNativeBinary) {
-            // Show warning for executables that aren't scripts
-            q->setError(KJob::UserDefinedError);
-            q->setErrorText(i18n("The file \"%1\" is an executable program. "
-                                 "For safety it will not be started.", m_url.toDisplayString()));
-            q->emitResult();
-            return true; // handled
-        }
-        // Let scripts be open as text files, if remote, or no exec allowed
-        return false;
+    if (m_showOpenOrExecuteDialog) {
+        auto dialogFinished = [this, localPath, isNativeBinary](bool shouldExecute) {
+            if (shouldExecute) {
+                if (isNativeBinary) {
+                    if (!hasExecuteBit(localPath)) {
+                        showUntrustedProgramWarningDialog(localPath);
+                        return;
+                    }
+                    executeCommand(); // Local executable with execute bit, proceed
+                } else { // For .exe files, open in the default app (e.g. WINE)
+                    openInPreferredApp();
+                }
+            }
+        };
+
+        showOpenOrExecuteFileDialog(dialogFinished);
+        return;
     }
 
-    const QString localPath = m_url.toLocalFile();
+    // For local .exe files, open in the default app (e.g. WINE)
+    if (!isNativeBinary) {
+        openInPreferredApp();
+        return;
+    }
 
-    // For executables that aren't scripts and without execute bit,
-    // show prompt asking user if he wants to run the program.
+    // Native binaries
+
+    if (!m_runExecutables) {
+        q->setError(KJob::UserDefinedError);
+        q->setErrorText(i18n("For security reasons, launching executables is not allowed in this context."));
+        q->emitResult();
+        return;
+    }
+
     if (!hasExecuteBit(localPath)) {
-        if (!isNativeBinary) {
-            // Don't try to run scripts/exes without execute bit, instead
-            // open them with default application
-            return false;
-        }
-        KIO::UntrustedProgramHandlerInterface *untrustedProgramHandler = defaultUntrustedProgramHandler();
-        if (!untrustedProgramHandler) {
-            // No way to ask the user to make it executable
-            q->setError(KJob::UserDefinedError);
-            q->setErrorText(i18n("The program \"%1\" needs to have executable permission before it can be launched.", localPath));
-            q->emitResult();
-            return true;
-        }
-        QObject::connect(untrustedProgramHandler, &KIO::UntrustedProgramHandlerInterface::result, q, [=](bool result) {
-            if (result) {
-                QString errorString;
-                if (untrustedProgramHandler->setExecuteBit(localPath, errorString)) {
-                    executeCommand();
-                } else {
-                    q->setError(KJob::UserDefinedError);
-                    q->setErrorText(i18n("Unable to make file \"%1\" executable.\n%2.", localPath, errorString));
-                    q->emitResult();
-                }
-            } else {
-                q->setError(KIO::ERR_USER_CANCELED);
-                q->emitResult();
-            }
-        });
-        untrustedProgramHandler->showUntrustedProgramWarning(q, m_url.fileName());
-        return true;
+        // Show untrustedProgram dialog for local, native executables without the execute bit
+        showUntrustedProgramWarningDialog(localPath);
+        return;
     }
 
     // Local executable with execute bit, proceed
     executeCommand();
-    return true; // handled
+}
+
+namespace KIO {
+extern KIO::UntrustedProgramHandlerInterface *defaultUntrustedProgramHandler();
+}
+
+// For local, native executables (i.e. not shell scripts) without execute bit,
+// show a prompt asking the user if he wants to run the program.
+void KIO::OpenUrlJobPrivate::showUntrustedProgramWarningDialog(const QString &filePath)
+{
+    KIO::UntrustedProgramHandlerInterface *untrustedProgramHandler = defaultUntrustedProgramHandler();
+    if (!untrustedProgramHandler) {
+        // No way to ask the user to make it executable
+        q->setError(KJob::UserDefinedError);
+        q->setErrorText(i18n("The program \"%1\" needs to have executable permission before it can be launched.", filePath));
+        q->emitResult();
+        return;
+    }
+    QObject::connect(untrustedProgramHandler, &KIO::UntrustedProgramHandlerInterface::result, q, [=](bool result) {
+        if (result) {
+            QString errorString;
+            if (untrustedProgramHandler->setExecuteBit(filePath, errorString)) {
+                executeCommand();
+            } else {
+                q->setError(KJob::UserDefinedError);
+                q->setErrorText(i18n("Unable to make file \"%1\" executable.\n%2.", filePath, errorString));
+                q->emitResult();
+            }
+        } else {
+            q->setError(KIO::ERR_USER_CANCELED);
+            q->emitResult();
+        }
+    });
+    untrustedProgramHandler->showUntrustedProgramWarning(q, m_url.fileName());
 }
 
 void KIO::OpenUrlJobPrivate::executeCommand()
@@ -559,45 +604,131 @@ void KIO::OpenUrlJobPrivate::runUrlWithMimeType()
         return;
     }
 
-    // Local desktop file
-    if (m_url.isLocalFile() && m_mimeTypeName == QLatin1String("application/x-desktop")) {
-        if (m_url.fileName() == QLatin1String(".directory")) {
-            // We cannot execute a .directory file. Open with a text editor instead.
-            m_mimeTypeName = QStringLiteral("text/plain");
-        } else {
-            const QString filePath = m_url.toLocalFile();
-            KDesktopFile cfg(filePath);
-            KConfigGroup cfgGroup = cfg.desktopGroup();
-            if (!cfgGroup.hasKey("Type")) {
-                q->setError(KJob::UserDefinedError);
-                q->setErrorText(i18n("The desktop entry file %1 has no Type=... entry.", filePath));
-                q->emitResult();
-                return;
-            }
-            if ((cfg.hasApplicationType()
-                 || cfg.readType() == QLatin1String("Service")) // for kio_settings
-                && !cfgGroup.readEntry("Exec").isEmpty()
-                && m_runExecutables) {
-                KService::Ptr service(new KService(filePath));
-                startService(service, {});
-                return;
-            } else if (cfg.hasLinkType()) {
-                runLink(filePath, cfg.readUrl(), cfg.desktopGroup().readEntry("X-KDE-LastOpenedWith"));
-                return;
-            }
-        }
-    }
 
     // Scripts and executables
     QMimeDatabase db;
     const QMimeType mimeType = db.mimeTypeForName(m_mimeTypeName);
+
+    // .desktop files
+    if (mimeType.inherits(QStringLiteral("application/x-desktop"))) {
+        handleDesktopFiles();
+        return;
+    }
+
+    // Shell scripts
+    if (mimeType.inherits(QStringLiteral("application/x-shellscript"))) {
+        handleShellscripts();
+        return;
+    }
+
+    // Binaries (e.g. /usr/bin/konsole) and .exe files
     if (isExecutableMime(mimeType)) {
-        if (handleExecutables(mimeType)) {
-            return;
-        }
+        handleExecutables(mimeType);
+        return;
     }
 
     // General case: look up associated application
+    openInPreferredApp();
+}
+
+void KIO::OpenUrlJobPrivate::handleDesktopFiles()
+{
+    // Open remote .desktop files in the default (text editor) app
+    if (!m_url.isLocalFile()) {
+        openInPreferredApp();
+        return;
+    }
+
+    if (m_url.fileName() == QLatin1String(".directory")) {
+        // We cannot execute a .directory file, open in the default app
+        m_mimeTypeName = QStringLiteral("text/plain");
+        openInPreferredApp();
+        return;
+    }
+
+    const QString filePath = m_url.toLocalFile();
+    KDesktopFile cfg(filePath);
+    KConfigGroup cfgGroup = cfg.desktopGroup();
+    if (!cfgGroup.hasKey("Type")) {
+        q->setError(KJob::UserDefinedError);
+        q->setErrorText(i18n("The desktop entry file %1 has no Type=... entry.", filePath));
+        q->emitResult();
+        openInPreferredApp();
+        return;
+    }
+
+    if (cfg.hasLinkType()) {
+        runLink(filePath, cfg.readUrl(), cfg.desktopGroup().readEntry("X-KDE-LastOpenedWith"));
+        return;
+    }
+
+    if ((cfg.hasApplicationType()
+         || cfg.readType() == QLatin1String("Service")) // for kio_settings
+        && !cfgGroup.readEntry("Exec").isEmpty()) { // type Application or Service
+        if (m_showOpenOrExecuteDialog) { // Show the openOrExecute dialog
+            auto dialogFinished = [this, filePath](bool shouldExecute) {
+                if (shouldExecute) { // Run the file
+                    KService::Ptr service(new KService(filePath));
+                    startService(service, {});
+                    return;
+                }
+                // The user selected "open"
+                openInPreferredApp();
+            };
+
+            showOpenOrExecuteFileDialog(dialogFinished);
+            return;
+        }
+
+        if (m_runExecutables) {
+            KService::Ptr service(new KService(filePath));
+            startService(service, {});
+            return;
+        }
+    } // type Application or Service
+
+    // Fallback to opening in the default app
+    openInPreferredApp();
+}
+
+void KIO::OpenUrlJobPrivate::handleShellscripts()
+{
+    if (!KAuthorized::authorize(QStringLiteral("shell_access"))) {
+        emitAccessDenied();
+        return;
+    }
+
+    const bool isLocal = m_url.isLocalFile();
+    const QString localPath = m_url.toLocalFile();
+    if (!isLocal || !hasExecuteBit(localPath)) {
+        // Open remote shell scripts or ones without the execute bit, with the
+        // default application
+        openInPreferredApp();
+        return;
+    }
+
+    if (m_showOpenOrExecuteDialog) {
+        auto dialogFinished = [this](bool shouldExecute) {
+            if (shouldExecute) {
+                executeCommand();
+            } else {
+                openInPreferredApp();
+            }
+        };
+
+        showOpenOrExecuteFileDialog(dialogFinished);
+        return;
+    }
+
+    if (m_runExecutables) { // Local executable shell script, proceed
+        executeCommand();
+    } else { // Open in the default (text editor) app
+        openInPreferredApp();
+    }
+}
+
+void KIO::OpenUrlJobPrivate::openInPreferredApp()
+{
     KService::Ptr service = KApplicationTrader::preferredService(m_mimeTypeName);
     if (service) {
         startService(service);
@@ -641,6 +772,38 @@ void KIO::OpenUrlJobPrivate::showOpenWithDialog()
     });
 
     s_openWithHandler->promptUserForApplication(q, {m_url}, m_mimeTypeName);
+}
+
+void KIO::OpenUrlJobPrivate::showOpenOrExecuteFileDialog(std::function<void(bool)> dialogFinished)
+{
+    QMimeDatabase db;
+    QMimeType mimeType = db.mimeTypeForName(m_mimeTypeName);
+
+    if (!s_openOrExecuteFileHandler) {
+        // No way to ask the user whether to execute or open
+        if (mimeType.inherits(QStringLiteral("application/x-shellscript"))
+            || mimeType.inherits(QStringLiteral("application/x-desktop"))) { // Open text-based ones in the default app
+            openInPreferredApp();
+        } else {
+            q->setError(KJob::UserDefinedError);
+            q->setErrorText(i18n("The program \"%1\" could not be launched.", m_url.toDisplayString(QUrl::PreferLocalFile)));
+            q->emitResult();
+        }
+        return;
+    }
+
+    QObject::connect(s_openOrExecuteFileHandler, &KIO::OpenOrExecuteFileInterface::canceled, q, [this]() {
+        q->setError(KIO::ERR_USER_CANCELED);
+        q->emitResult();
+    });
+
+    QObject::connect(s_openOrExecuteFileHandler, &KIO::OpenOrExecuteFileInterface::executeFile,
+                     q, [this, dialogFinished](bool shouldExecute) {
+        m_runExecutables = shouldExecute;
+        dialogFinished(shouldExecute);
+    });
+
+    s_openOrExecuteFileHandler->promptUserOpenOrExecute(q, m_mimeTypeName);
 }
 
 void KIO::OpenUrlJob::slotResult(KJob *job)

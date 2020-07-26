@@ -47,6 +47,10 @@ private Q_SLOTS:
     void runScript();
     void runNativeExecutable_data();
     void runNativeExecutable();
+    void openOrExecuteScript_data();
+    void openOrExecuteScript();
+    void openOrExecuteDesktop_data();
+    void openOrExecuteDesktop();
     void launchExternalBrowser_data();
     void launchExternalBrowser();
     void nonExistingFile();
@@ -58,7 +62,7 @@ private Q_SLOTS:
     void runDesktopFileDirectly();
 
 private:
-    void writeApplicationDesktopFile(const QString &filePath);
+    void writeApplicationDesktopFile(const QString &filePath, const QByteArray &cmd);
 
     QStringList m_filesToRemove;
     QTemporaryDir m_tempDir;

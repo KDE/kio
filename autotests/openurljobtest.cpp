@@ -40,6 +40,7 @@
 #include <QTemporaryFile>
 #include <QTest>
 #include <untrustedprogramhandlerinterface.h>
+#include <openorexecutefileinterface.h>
 
 QTEST_GUILESS_MAIN(OpenUrlJobTest)
 
@@ -47,6 +48,7 @@ extern KSERVICE_EXPORT int ksycoca_ms_between_checks;
 
 namespace KIO {
 KIOGUI_EXPORT void setDefaultUntrustedProgramHandler(KIO::UntrustedProgramHandlerInterface *iface);
+KIOGUI_EXPORT void setDefaultOpenOrExecuteFileHandler(KIO::OpenOrExecuteFileInterface *iface);
 }
 class TestUntrustedProgramHandler : public KIO::UntrustedProgramHandlerInterface
 {
@@ -62,8 +64,32 @@ public:
     QStringList m_calls;
     bool m_retVal = false;
 };
-
 static TestUntrustedProgramHandler s_handler;
+
+class TestOpenOrExecuteHandler : public KIO::OpenOrExecuteFileInterface
+{
+public:
+    void promptUserOpenOrExecute(KJob *job, const QString &mimeType) override
+    {
+        Q_UNUSED(job)
+        Q_UNUSED(mimeType);
+        if (m_cancelIt) {
+            Q_EMIT canceled();
+            m_cancelIt = false;
+            return;
+        }
+
+        Q_EMIT executeFile(m_executeFile);
+    }
+
+    void setExecuteFile(bool b) { m_executeFile = b; }
+    void setCanceled() { m_cancelIt = true; }
+
+private:
+    bool m_executeFile = false;
+    bool m_cancelIt = false;
+};
+static TestOpenOrExecuteHandler s_openOrExecuteFileHandler;
 
 static const char s_tempServiceName[] = "openurljobtest_service.desktop";
 
@@ -80,7 +106,9 @@ void OpenUrlJobTest::initTestCase()
 
     ksycoca_ms_between_checks = 0; // need it to check the ksycoca mtime
     m_fakeService = QStandardPaths::writableLocation(QStandardPaths::ApplicationsLocation) + QLatin1Char('/') + s_tempServiceName;
-    writeApplicationDesktopFile(m_fakeService);
+    // not using %d because of remote urls
+    const QByteArray cmd = QByteArray("echo %u > " + QFile::encodeName(m_tempDir.path()) + "/dest");
+    writeApplicationDesktopFile(m_fakeService, cmd);
     m_fakeService = QFileInfo(m_fakeService).canonicalFilePath();
     m_filesToRemove.append(m_fakeService);
 
@@ -221,7 +249,7 @@ void OpenUrlJobTest::refuseRunningNativeExecutables()
    KIO::OpenUrlJob *job = new KIO::OpenUrlJob(QUrl::fromLocalFile(QCoreApplication::applicationFilePath()), QStringLiteral("application/x-executable"), this);
    QVERIFY(!job->exec());
    QCOMPARE(job->error(), KJob::UserDefinedError);
-   QVERIFY2(job->errorString().contains("For safety it will not be started"), qPrintable(job->errorString()));
+   QVERIFY2(job->errorString().contains("For security reasons, launching executables is not allowed in this context."), qPrintable(job->errorString()));
 }
 
 void OpenUrlJobTest::refuseRunningRemoteNativeExecutables()
@@ -230,7 +258,8 @@ void OpenUrlJobTest::refuseRunningRemoteNativeExecutables()
     job->setRunExecutables(true); // even with this enabled, an error will occur
     QVERIFY(!job->exec());
     QCOMPARE(job->error(), KJob::UserDefinedError);
-    QVERIFY2(job->errorString().contains("For safety it will not be started"), qPrintable(job->errorString()));
+    QVERIFY2(job->errorString().contains("is located on a remote filesystem. For safety reasons it will not be started"),
+             qPrintable(job->errorString()));
 }
 
 KCONFIGCORE_EXPORT void loadUrlActionRestrictions(const KConfigGroup &cg);
@@ -337,6 +366,111 @@ void OpenUrlJobTest::runNativeExecutable()
             QVERIFY(!success);
             QCOMPARE(job->error(), KIO::ERR_USER_CANCELED);
         }
+    }
+#endif
+}
+
+void OpenUrlJobTest::openOrExecuteScript_data()
+{
+    QTest::addColumn<QString>("dialogResult");
+
+    QTest::newRow("execute_true") << "execute_true";
+    QTest::newRow("execute_false") << "execute_false";
+    QTest::newRow("canceled") << "canceled";
+}
+
+void OpenUrlJobTest::openOrExecuteScript()
+{
+#ifdef Q_OS_UNIX
+    QFETCH(QString, dialogResult);
+
+    // Given an executable shell script that copies "src" to "dest"
+    QTemporaryDir tempDir;
+    const QString dir = tempDir.path();
+    createSrcFile(dir + QLatin1String("/src"));
+    const QString scriptFile = dir + QLatin1String("/script.sh");
+    QFile file(scriptFile);
+    QVERIFY(file.open(QIODevice::WriteOnly));
+    file.write("#!/bin/sh\ncp src dest");
+    file.close();
+    // Set the executable bit, because OpenUrlJob will always open shell
+    // scripts that are not executable as text files
+    QVERIFY(file.setPermissions(QFile::ExeUser | file.permissions()));
+
+    KIO::setDefaultOpenOrExecuteFileHandler(&s_openOrExecuteFileHandler);
+
+    // When using OpenUrlJob to open the script
+    KIO::OpenUrlJob *job = new KIO::OpenUrlJob(QUrl::fromLocalFile(scriptFile), QStringLiteral("application/x-shellscript"), this);
+    job->setShowOpenOrExecuteDialog(true);
+
+    // Then --- it depends on what the user says via the handler
+    if (dialogResult == QLatin1String("execute_true")) {
+        job->setRunExecutables(false); // Overriden by the user's choice
+        s_openOrExecuteFileHandler.setExecuteFile(true);
+        QVERIFY(job->exec());
+        // TRY because CommandLineLauncherJob finishes immediately, and tempDir
+        // will go out of scope and get deleted before the copy operation actually finishes
+        QTRY_VERIFY(QFileInfo::exists(dir + QLatin1String("/dest")));
+    } else if (dialogResult == QLatin1String("execute_false")) {
+        job->setRunExecutables(true); // Overriden by the user's choice
+        s_openOrExecuteFileHandler.setExecuteFile(false);
+        QVERIFY(job->exec());
+        const QString testOpen = m_tempDir.path() + QLatin1String("/dest"); // see the .desktop file in writeApplicationDesktopFile
+        QTRY_VERIFY(QFileInfo::exists(testOpen));
+    } else if (dialogResult == QLatin1String("canceled")) {
+        s_openOrExecuteFileHandler.setCanceled();
+        QVERIFY(!job->exec());
+        QCOMPARE(job->error(), KIO::ERR_USER_CANCELED);
+    }
+#endif
+}
+
+void OpenUrlJobTest::openOrExecuteDesktop_data()
+{
+    QTest::addColumn<QString>("dialogResult");
+
+    QTest::newRow("execute_true") << "execute_true";
+    QTest::newRow("execute_false") << "execute_false";
+    QTest::newRow("canceled") << "canceled";
+}
+
+void OpenUrlJobTest::openOrExecuteDesktop()
+{
+#ifdef Q_OS_UNIX
+    QFETCH(QString, dialogResult);
+
+    // Given a .desktop file, with an Exec line that copies "src" to "dest"
+    QTemporaryDir tempDir;
+    const QString dir = tempDir.path();
+    const QString desktopFile = dir + QLatin1String("/testopenorexecute.desktop");
+    createSrcFile(dir + QLatin1String("/src"));
+    const QByteArray cmd("cp " + QFile::encodeName(dir) + "/src " + QFile::encodeName(dir) +  "/dest-open-or-execute-desktop");
+    writeApplicationDesktopFile(desktopFile, cmd);
+
+    KIO::setDefaultOpenOrExecuteFileHandler(&s_openOrExecuteFileHandler);
+
+    // When using OpenUrlJob to open the .desktop file
+    KIO::OpenUrlJob *job = new KIO::OpenUrlJob(QUrl::fromLocalFile(desktopFile), QStringLiteral("application/x-desktop"), this);
+    job->setShowOpenOrExecuteDialog(true);
+
+    // Then --- it depends on what the user says via the handler
+    if (dialogResult == QLatin1String("execute_true")) {
+        job->setRunExecutables(false); // Overriden by the user's choice
+        s_openOrExecuteFileHandler.setExecuteFile(true);
+        QVERIFY2(job->exec(), qPrintable(job->errorString()));
+        // TRY because CommandLineLauncherJob finishes immediately, and tempDir
+        // will go out of scope and get deleted before the copy operation actually finishes
+        QTRY_VERIFY(QFileInfo::exists(dir + QLatin1String("/dest-open-or-execute-desktop")));
+    } if (dialogResult == QLatin1String("execute_false")) {
+        job->setRunExecutables(true); // Overriden by the user's choice
+        s_openOrExecuteFileHandler.setExecuteFile(false);
+        QVERIFY2(job->exec(), qPrintable(job->errorString()));
+        const QString testOpen = m_tempDir.path() + QLatin1String("/dest"); // see the .desktop file in writeApplicationDesktopFile
+        QTRY_VERIFY(QFileInfo::exists(testOpen));
+    } else if (dialogResult == QLatin1String("canceled")) {
+        s_openOrExecuteFileHandler.setCanceled();
+        QVERIFY(!job->exec());
+        QCOMPARE(job->error(), KIO::ERR_USER_CANCELED);
     }
 #endif
 }
@@ -453,13 +587,13 @@ void OpenUrlJobTest::runDesktopFileDirectly()
     QCOMPARE(readFile(dest), QString{});
 }
 
-void OpenUrlJobTest::writeApplicationDesktopFile(const QString &filePath)
+void OpenUrlJobTest::writeApplicationDesktopFile(const QString &filePath, const QByteArray &command)
 {
     KDesktopFile file(filePath);
     KConfigGroup group = file.desktopGroup();
     group.writeEntry("Name", "KRunUnittestService");
     group.writeEntry("MimeType", "text/plain;application/x-shellscript;x-scheme-handler/scheme");
     group.writeEntry("Type", "Application");
-    group.writeEntry("Exec", QByteArray("echo %u > " + QFile::encodeName(m_tempDir.path()) + "/dest")); // not using %d because of remote urls
+    group.writeEntry("Exec", command);
     QVERIFY(file.sync());
 }

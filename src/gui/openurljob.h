@@ -102,6 +102,36 @@ public:
     void setRunExecutables(bool allow);
 
     /**
+     * Set this to @c true if this class should show a dialog to ask the user about how
+     * to handle various types of executable files; note that executing/running remote
+     * files is disallowed as that is not secure (in the case of remote shell scripts
+     * and .desktop files, they are always opened as text in the default application):
+     *  - For native binaries: whether to execute or cancel
+     *  - For .exe files: whether to execute or cancel, ("execute" on Linux in this
+     *    context means running the file with the default application (e.g. WINE))
+     *  - For executable shell scripts: whether to execute the file or open it as
+     *    text in the default application; note that if the file doesn't have the
+     *    execute bit, it'll always be opened as text
+     *  - For .desktop files: whether to run the file or open it as text in the default
+     *    application; note that if the .desktop file is located in a non-standard
+     *    location (on Linux standard locations are /usr/share/applications or
+     *    ~/.local/share/applications) and does not have the execute bit, another dialog
+     *    (see UntrustedProgramHandlerInterface) will be launched to ask the user whether
+     *    they trust running the application (the one the .desktop file launches based on
+     *    the Exec line)
+     *
+     * Note that the dialog, ExecutableFileOpenDialog (from KIOWidgets), provides an option
+     * to remember the last value used and not ask again, if that is set, then the dialog will
+     * not be shown.
+     *
+     * When set to @c true this will take precedence over setRunExecutables (the latter can be
+     * used to allow running executables without first asking the user for confirmation).
+     *
+     * @since 5.73
+     */
+    void setShowOpenOrExecuteDialog(bool b);
+
+    /**
      * Sets whether the external webbrowser setting should be honoured.
      * This is enabled by default.
      * This should only be disabled in webbrowser applications.

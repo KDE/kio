@@ -6,6 +6,7 @@ set(kiogui_SRCS
    faviconrequestjob.cpp
    openurljob.cpp
    openwithhandlerinterface.cpp
+   openorexecutefileinterface.cpp
    kprocessrunner.cpp
 )
 

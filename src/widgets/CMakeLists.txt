@@ -60,6 +60,7 @@ set(kiowidgets_SRCS
   renamefiledialog.cpp
   widgetsuntrustedprogramhandler.cpp
   widgetsopenwithhandler.cpp
+  widgetsopenorexecutefilehandler.cpp
 )
 if (NOT WIN32)
   list(APPEND kiowidgets_SRCS
