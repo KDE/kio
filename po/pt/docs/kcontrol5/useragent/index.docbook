@@ -1,0 +1,140 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Portuguese "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="useragent" lang="&language;">
+<title
+>Identificação do Navegador</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Krishna.Tateneni; &Krishna.Tateneni.mail;</author>
+<othercredit role="translator"
+><firstname
+>José</firstname
+><surname
+>Pires</surname
+><affiliation
+><address
+><email
+>zepires@gmail.com</email
+></address
+></affiliation
+><contrib
+>Tradução</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>2016-11-10</date>
+<releaseinfo
+>Plataformas 5.29</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Systemsettings</keyword>
+<keyword
+>agente do utilizador</keyword>
+<keyword
+>navegador</keyword>
+<keyword
+>identificação</keyword>
+</keywordset>
+
+</articleinfo>
+
+<sect1 id="user-agent">
+<title
+>Identificação do Navegador</title>
+
+
+<sect2 id="user-agent-intro">
+<title
+>Introdução</title>
+
+<para
+>Quando o &konqueror; se liga a um 'site' Web para obter informações, é enviada alguma informação de identificação básica para o 'site', sob a forma de um cabeçalho <quote
+>User Agent</quote
+>.</para>
+
+<para
+>Por causa de diferenças menores nas quais os diferentes navegadores Web funcionam, as páginas Web que se baseiam demasiado num em especial podem às vezes não mostrar o resultado pretendido, quando são vistos utilizando outro navegador. Alguns 'sites' são espertos o suficiente para examinar o conteúdo do cabeçalho de agente do utilizador e incorporar essa informação no código de &HTML;, de modo a que o conteúdo seja mostrado correctamente, independentemente do navegador usado.</para>
+
+<para
+>Contudo, poderá chegar à conclusão que algumas páginas Web se recusam a funcionar convenientemente a não ser que utilize um navegador reconhecido como <quote
+>apropriado</quote
+> para esse 'site'. Nestes casos, poderá achar que é necessário enganar o 'site' Web, fazendo com que o &konqueror; se identifique como outro navegador no cabeçalho de agente do utilizador.</para>
+
+</sect2>
+
+<sect2 id="user-agent-use">
+<title
+>Utilização</title>
+
+<para
+>Neste módulo, o utilizador pode configurar o tipo de navegador que o &konqueror; irá usar para se identificar. Poderá controlar esta informação por cada 'site' Web. Normalmente, a lista que está identificada como <guilabel
+>Identificação Específica do 'Site'/Domínio</guilabel
+> estará vazia, de modo a que o &konqueror; utilize o seu texto de identificação por omissão.</para>
+
+<para
+>Poderá desactivar por completo o envio de um agente de utilizador por completo, ao desligar a opção <guilabel
+>Enviar a identificação</guilabel
+>. Isto poderá causar um comportamento estranho em alguns 'sites', ou mesmo negar-lhe o acesso aos mesmos, por isso desligue esta opção com cuidado.</para>
+
+<para
+>Para configurar uma nova associação de agente, carregue no botão <guibutton
+>Novo...</guibutton
+>. Indique o nome do servidor ou do domínio no campo de texto no topo da janela que aparece, que está identificada como <guilabel
+>Ao ligar ao seguinte 'site'</guilabel
+>.</para>
+
+<para
+>Lembre-se que <emphasis
+>não</emphasis
+> poderá usar o carácter especial <token
+>*</token
+> neste campo de texto. Contudo, o texto <userinput
+>kde.org</userinput
+> irá corresponder a todas as máquinas do domínio <systemitem
+>kde.org</systemitem
+>.</para>
+
+<para
+>Depois de escrever o nome do servidor, indique a mensagem de identificação na lista que segue, identificada como <guilabel
+>Utilizar a seguinte identidade:</guilabel
+>, ou escolha um texto da lista. A <guilabel
+>Identificação real</guilabel
+>, &ie; os textos enviados para o servidor, aparece no campo respectivo.</para>
+
+<para
+>O utilizador poderá carregar num registo existente na lista e então modificar o conteúdo dos campos de texto, carregando depois em <guibutton
+>Alterar...</guibutton
+>.</para>
+
+<para
+>O botão <guibutton
+>Apagar</guibutton
+> pode ser usado para apagar o item seleccionado da lista. O botão <guibutton
+>Reiniciar</guibutton
+> irá limpar os campos de texto superior, mas não irá tocar nas associações já configuradas. Carregue em <guibutton
+>Aplicar</guibutton
+>, para que as alterações fiquem efectivas.</para>
+
+<para
+>Poderá utilizar as opções no topo do ecrã para criar um novo agente de utilizador que é exclusivamente seu, escolhendo a sua própria configuração do nome e versão do sistema operativo, plataforma, tipo de processador e língua.</para>
+
+<para
+>Em todos os casos, o agente de utilizador que está a ser enviado por omissão é mostrado em negrito no topo da página.</para>
+
+</sect2>
+
+</sect1>
+
+</article>

@@ -1,0 +1,91 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % German "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="cache" lang="&language;">
+<title
+>Zwischenspeicher</title>
+<articleinfo>
+
+<authorgroup>
+<author
+><firstname
+>Lauri</firstname
+><surname
+>Watts</surname
+></author>
+
+<othercredit role="translator"
+><firstname
+>Marco</firstname
+><surname
+>Wegner</surname
+><affiliation
+><address
+><email
+>mail@marcowegner.de</email
+></address
+></affiliation
+><contrib
+>Deutsche Übersetzung</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>2016-11-10</date>
+<releaseinfo
+>Frameworks 5.29</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Systemeinstellungen</keyword>
+<keyword
+>Konqueror</keyword>
+<keyword
+>Zwischenspeicher</keyword>
+</keywordset>
+</articleinfo>
+
+<para
+>Über dieses Modul können Sie die Größe des von &konqueror; verwendeten lokalen Zwischenspeichers kontrollieren. Hinweis: Jeder Benutzer des Rechners hat seinen eigenen Zwischenspeicherordner, und dieser Ordner kann nicht mit anderen Internet-Browsern wie &firefox; gemeinsam genutzt werden.</para>
+
+<para
+>Die lokale Zwischenspeicherung von Internetseiten erlaubt &konqueror; bei weiteren Besuchen dieser Seite die Inhalte schnell zu laden. Dabei werden nur die Inhalte aus dem Internet geladen, die sich seit dem letzten Besuch verändert haben. Ein Klick auf den Knopf <guiicon
+>Dokument neu laden</guiicon
+> lädt das gesamte Dokument neu aus dem Internet.</para>
+
+<para
+>Falls Sie nicht möchten, dass die Internetseiten, die Sie besucht haben, auf Ihrem Rechner gespeichert werden, dann können Sie den Zwischenspeicher von &konqueror; abschalten, indem Sie das Ankreuzfeld <guilabel
+>Zwischenspeicher verwenden</guilabel
+> deaktivieren.</para>
+
+<para
+>Hier kann festgelegt werden, wie sorgfältig &konqueror; den Zwischenspeicher aktualisiert. <guilabel
+>Zwischenspeicher aktuell halten</guilabel
+> bedeutet, dass &konqueror; versucht alle Objekte aus dem Zwischenspeicher zu laden. Falls sie noch nicht vorhanden sind, werden Sie heruntergeladen, worauf dann die die lokale Kopie angezeigt wird. <guilabel
+>Zwischenspeicher verwenden, wenn möglich</guilabel
+> bedeutet, dass &konqueror; versuchen wird, das Objekt aus dem Zwischenspeicher zu laden. Wenn es dort nicht vorhanden ist, wird es aus dem Internet geladen und direkt angezeigt. Im <guilabel
+>Offline-Browsing-Modus</guilabel
+> zeigt &konqueror; nur Objekt an, die sich im Zwischenspeicher befinden. Es wird nicht versucht, fehlende Objekte aus dem Internet zu laden.</para>
+
+<para
+>Die durchschnittliche Größe des Zwischenspeichers kann über den Wert im Eingabefeld <guilabel
+>Zwischenspeicher auf Festplatte</guilabel
+> kontrolliert werden. Es handelt sich um eine durchschnittliche Größe in KByte. Wenn die Größe des Zwischenspeichers die angegebene Zahl überschreitet, beginnt &konqueror; damit, die ältesten Dateien aus dem Zwischenspeicher zu löschen.</para>
+
+<para
+>Während einer längeren Suche im Internet kann dieser Durchschnittswert erheblich überschritten werden.</para>
+
+<para
+>Mit dem Knopf <guibutton
+>Zwischenspeicher leeren</guibutton
+> kann jederzeit der Zwischenspeicherinhalt gelöscht werden.</para>
+
+</article>
