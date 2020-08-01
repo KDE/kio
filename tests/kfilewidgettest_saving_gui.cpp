@@ -6,18 +6,36 @@
 */
 
 #include <QApplication>
+#include <QCommandLineParser>
+#include <QCommandLineOption>
 #include <KFileWidget>
 #include <QUrl>
 #include <QDebug>
 #include <QPushButton>
 
 int main(int argc, char **argv)
-{
+{ 
     QApplication app(argc, argv);
 
-    KFileWidget* fileWidget = new KFileWidget(QUrl(QStringLiteral("kfiledialog:///SaveDialog")), nullptr);
+    // Do some args
+    QCommandLineParser parser;
+    parser.addOption(QCommandLineOption("multiple", "Allows multiple files selection"));
+    parser.addPositionalArgument("folder", "The initial folder");
+    parser.process(app);
+    QStringList posargs = parser.positionalArguments();
+
+    QUrl folder = QUrl(QStringLiteral("kfiledialog:///SaveDialog"));
+    if (!posargs.isEmpty()) {
+        folder = QUrl::fromUserInput(posargs.at(0));
+    }
+    qDebug() << "Starting at" << folder;
+    KFileWidget* fileWidget = new KFileWidget(folder);
     fileWidget->setOperationMode(KFileWidget::Saving);
-    fileWidget->setMode(KFile::File);
+    if (parser.isSet(QStringLiteral("multiple"))) {
+        fileWidget->setMode(KFile::Files);
+    } else {
+        fileWidget->setMode(KFile::File);
+    }
     fileWidget->setAttribute(Qt::WA_DeleteOnClose);
 
     fileWidget->okButton()->show();
@@ -32,10 +50,10 @@ int main(int argc, char **argv)
     app.connect(fileWidget, &KFileWidget::accepted, fileWidget, [&app, fileWidget]() {
         qDebug() << "accepted";
         fileWidget->accept();
-        qDebug() << fileWidget->selectedFile();
-        qDebug() << fileWidget->selectedUrl();
-        qDebug() << fileWidget->selectedFiles();
-        qDebug() << fileWidget->selectedUrls();
+        qDebug() << "Selected File:" << fileWidget->selectedFile();
+        qDebug() << "Selected Url:" << fileWidget->selectedUrl();
+        qDebug() << "Selected Files:" << fileWidget->selectedFiles();
+        qDebug() << "Selected Urls:" << fileWidget->selectedUrls();
         app.exit();
     });
 

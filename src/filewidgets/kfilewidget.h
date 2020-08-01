@@ -160,6 +160,14 @@ public:
     void setSelectedUrl(const QUrl &url);
 
     /**
+     * Sets a list of URLs as preselected
+     * 
+     * @see setSelectedUrl
+     * @since 5.75
+     */
+    void setSelectedUrls(const QList<QUrl> &urls);
+
+    /**
      * Sets the operational mode of the filedialog to @p Saving, @p Opening
      * or @p Other. This will set some flags that are specific to loading
      * or saving files. E.g. setKeepLocation() makes mostly sense for

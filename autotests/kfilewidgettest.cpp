@@ -8,6 +8,7 @@
 #include "kfilewidget.h"
 
 #include <QLabel>
+#include <QLoggingCategory>
 #include <QTemporaryDir>
 #include <QTest>
 #include <QStandardPaths>
@@ -23,6 +24,14 @@
 #include <QAbstractItemView>
 #include <QDropEvent>
 #include <QMimeData>
+#include <QStringLiteral>
+#include <QList>
+#include <QUrl>
+
+
+Q_DECLARE_LOGGING_CATEGORY(KIO_KFILEWIDGETS_FW)
+Q_LOGGING_CATEGORY(KIO_KFILEWIDGETS_FW, "kf.kio.kfilewidgets.kfilewidget", QtInfoMsg)
+
 
 /**
  * Unit test for KFileWidget
@@ -30,6 +39,7 @@
 class KFileWidgetTest : public QObject
 {
     Q_OBJECT
+
 private Q_SLOTS:
     void initTestCase()
     {
@@ -517,6 +527,101 @@ private Q_SLOTS:
         }
 
         QVERIFY(QFile::exists(dir + QStringLiteral("/folder1/folder2/folder3/folder4/folder5")));
+    }
+
+    void testTokenize_data()
+    {   
+        // Real filename (as in how they are stored in the fs) 
+        QTest::addColumn<QList<QString>>("fileNames");
+        // Escaped value of the text-box in the dialog
+        QTest::addColumn<QString>("expectedCurrentText");
+
+        QTest::newRow("simple") << QList<QString>{"test2"} << QString("test2");
+
+        // When a single file with space is selected, it is _not_ quoted ...
+        QTest::newRow("space-single-file") 
+            << QList<QString>{"test space"} 
+            << QString("test space");
+
+        // However, when multiple files are selected, they are quoted
+        QTest::newRow("space-multi-file")
+            << QList<QString>{"test space", "test2"} 
+            << QString("\"test space\" \"test2\"");
+
+        // All quotes in names should be escaped, however since this is a single
+        // file, the whole name will not be escaped.
+        QTest::newRow("quote-single-file")
+            << QList<QString>{"test\"quote"} 
+            << QString("test\\\"quote");
+        
+        // Escape multiple files. Files should also be wrapped in ""
+        // Note that we are also testing quote at the end of the name
+        QTest::newRow("quote-multi-file")
+            << QList<QString>{"test\"quote", "test2-quote\"", "test"} 
+            << QString("\"test\\\"quote\" \"test2-quote\\\"\" \"test\"");
+
+        // Ok, enough with quotes... lets do some backslashes
+        // Backslash literals in file names - Unix only case
+        QTest::newRow("backslash-single-file")
+            << QList<QString>{"test\\backslash"} 
+            << QString("test\\\\backslash");
+
+        QTest::newRow("backslash-multi-file")
+            << QList<QString>{"test\\back\\slash", "test"} 
+            << QString("\"test\\\\back\\\\slash\" \"test\"");
+
+        QTest::newRow("double-backslash-multi-file")
+            << QList<QString>{"test\\\\back\\slash", "test"} 
+            << QString("\"test\\\\\\\\back\\\\slash\" \"test\"");
+
+        QTest::newRow("double-backslash-end")
+            << QList<QString>{"test\\\\"} 
+            << QString("test\\\\\\\\");
+
+        QTest::newRow("single-backslash-end")
+            << QList<QString>{"some thing", "test\\"} 
+            << QString("\"some thing\" \"test\\\\\"");
+
+    }
+
+    void testTokenize()
+    {
+        // We will use setSelectedUrls([QUrl]) here in order to check correct
+        // filename escaping. Afterwards we will accept() the dialog to confirm
+        // correct result
+        QFETCH(QList<QString>, fileNames);
+        QFETCH(QString, expectedCurrentText);
+
+        QTemporaryDir tempDir;
+        const QUrl dirUrl = QUrl::fromLocalFile(tempDir.path());
+        QList<QUrl> fileUrls;
+        for (const auto& fileName : fileNames) {
+            fileUrls.append(QUrl::fromLocalFile(tempDir.filePath(fileName)));
+            qCDebug(KIO_KFILEWIDGETS_FW) << fileName << " => " << QUrl::fromLocalFile(tempDir.filePath(fileName));
+        }
+
+        KFileWidget fw(dirUrl);
+        fw.setOperationMode(KFileWidget::Opening);
+        fw.setMode(KFile::Files);
+        fw.setSelectedUrls(fileUrls);
+        fw.show();
+        fw.activateWindow();
+        QVERIFY(QTest::qWaitForWindowActive(&fw));
+
+        // Verify the expected populated name.
+        QCOMPARE(fw.baseUrl().adjusted(QUrl::StripTrailingSlash), dirUrl);
+        QCOMPARE(fw.locationEdit()->currentText(), expectedCurrentText);
+
+        // QFileDialog ends up calling KDEPlatformFileDialog::selectedFiles()
+        // which calls KFileWidget::selectedUrls().
+        // Accept the filename to ensure that a filename is selected.
+        connect(&fw, &KFileWidget::accepted, &fw, &KFileWidget::accept);
+        QTest::keyClick(fw.locationEdit(), Qt::Key_Return);
+        QList<QUrl> urls = fw.selectedUrls();
+
+        // We must have the same size as requested files
+        QCOMPARE(urls.size(), fileNames.size());
+        QCOMPARE(urls, fileUrls);
     }
 };
 

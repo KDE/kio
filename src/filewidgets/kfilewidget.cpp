@@ -54,6 +54,7 @@
 #include <QMenu>
 #include <QSplitter>
 #include <QAbstractProxyModel>
+#include <QLoggingCategory>
 #include <QHelpEvent>
 #include <QApplication>
 #include <QPushButton>
@@ -66,6 +67,10 @@
 #include <KMessageBox>
 #include <kurlauthorized.h>
 #include <KJobWidgets>
+
+Q_DECLARE_LOGGING_CATEGORY(KIO_KFILEWIDGETS_FW)
+Q_LOGGING_CATEGORY(KIO_KFILEWIDGETS_FW, "kf.kio.kfilewidgets.kfilewidget", QtInfoMsg)
+
 
 class KFileWidgetPrivate
 {
@@ -774,6 +779,15 @@ QSize KFileWidget::sizeHint() const
 
 static QString relativePathOrUrl(const QUrl &baseUrl, const QUrl &url);
 
+/**
+ * Escape the given Url so that is fit for use in the selected list of file. This
+ * mainly handles double quote (") characters. These are used to separate entries
+ * in the list, however, if `"` appears in the filename (or path), this will be 
+ * escaped as `\"`. Later, the tokenizer is able to understand the difference 
+ * and do the right thing
+ */
+static QString escapeDoubleQuotes(QString && path);
+
 // Called by KFileDialog
 void KFileWidget::slotOk()
 {
@@ -879,7 +893,8 @@ void KFileWidget::slotOk()
             stringList.reserve(locationEditCurrentTextList.count());
             for (int i = 0; i < locationEditCurrentTextList.count(); ++i) {
                 Q_ASSERT(topMostUrl.isParentOf(locationEditCurrentTextList[i]));
-                stringList << relativePathOrUrl(topMostUrl, locationEditCurrentTextList[i]);
+                QString relativePath = relativePathOrUrl(topMostUrl, locationEditCurrentTextList[i]);
+                stringList << escapeDoubleQuotes(std::move(relativePath));
             }
 
             d->ops->setUrl(topMostUrl, true);
@@ -1282,6 +1297,14 @@ static QString relativePathOrUrl(const QUrl &baseUrl, const QUrl &url)
     }
 }
 
+static QString escapeDoubleQuotes(QString && path) {
+    // First escape the escape character that we are using
+    path.replace(QStringLiteral("\\"), QStringLiteral("\\\\"));
+    // Second, escape the quotes
+    path.replace(QStringLiteral("\""), QStringLiteral("\\\""));
+    return path;
+}
+
 void KFileWidgetPrivate::setLocationText(const QList<QUrl> &urlList)
 {
     const QUrl currUrl = ops->url();
@@ -1289,14 +1312,19 @@ void KFileWidgetPrivate::setLocationText(const QList<QUrl> &urlList)
     if (urlList.count() > 1) {
         QString urls;
         for (const QUrl &url : urlList) {
-            urls += QStringLiteral("\"%1\"").arg(relativePathOrUrl(currUrl, url)) + QLatin1Char(' ');
+            urls += QStringLiteral("\"%1\" ").arg(
+                escapeDoubleQuotes(relativePathOrUrl(currUrl, url))
+            );
         }
         urls.chop(1);
 
         setDummyHistoryEntry(urls, QPixmap(), false);
     } else if (urlList.count() == 1) {
         const QPixmap mimeTypeIcon = KIconLoader::global()->loadMimeTypeIcon(KIO::iconNameForUrl(urlList[0]),  KIconLoader::Small);
-        setDummyHistoryEntry(relativePathOrUrl(currUrl, urlList[0]), mimeTypeIcon);
+        setDummyHistoryEntry(
+            escapeDoubleQuotes(relativePathOrUrl(currUrl, urlList[0])),
+            mimeTypeIcon
+        );
     } else {
         removeDummyHistoryEntry();
     }
@@ -1586,6 +1614,19 @@ void KFileWidget::setSelectedUrl(const QUrl &url)
     d->setLocationText(url);
 }
 
+void KFileWidget::setSelectedUrls(const QList<QUrl> &urls)
+{   
+    if (urls.isEmpty()) {
+        return;
+    }
+
+    // Honor protocols that do not support directory listing
+    if (!urls[0].isRelative() && !KProtocolManager::supportsListing(urls[0])) {
+        return;
+    }
+    d->setLocationText(urls);
+}
+
 void KFileWidgetPrivate::_k_slotLoadingFinished()
 {
     const QString currentText = locationEdit->currentText();
@@ -1666,66 +1707,77 @@ QList<QUrl> KFileWidget::selectedUrls() const
     return list;
 }
 
-// FIXME: current implementation drawback: a filename can't contain quotes
 QList<QUrl> KFileWidgetPrivate::tokenize(const QString &line) const
 {
-//     qDebug();
+    qCDebug(KIO_KFILEWIDGETS_FW) << "Tokenizing:" << line; 
 
     QList<QUrl> urls;
-    QUrl u(ops->url());
+    QUrl u(ops->url().adjusted(QUrl::RemoveFilename));
     if (!u.path().endsWith(QLatin1Char('/'))) {
         u.setPath(u.path() + QLatin1Char('/'));
     }
-    QString name;
 
-    const int count = line.count(QLatin1Char('"'));
-    if (count == 0) {   // no " " -> assume one single file
-        if (!QDir::isAbsolutePath(line)) {
-            u = u.adjusted(QUrl::RemoveFilename);
-            u.setPath(u.path() + line);
-            if (u.isValid()) {
-                urls.append(u);
-            }
-        } else {
-            urls << QUrl::fromLocalFile(line);
+    // A helper that creates, validates and appends a new url based
+    // on the given filename.
+    auto addUrl = [u, &urls](const QString & partial_name) 
+    { 
+        if (partial_name.trimmed().isEmpty()) {
+            return;
         }
 
-        return urls;
+        // This returns QUrl(partial_name) for absolute URLs.
+        // Otherwise, returns the concatenated url.
+        QUrl finalUrl = u.resolved(QUrl(partial_name));
+        if (finalUrl.isValid()) {
+            urls.append(finalUrl);
+        } else {
+            // This can happen in the first quote! (ex: ' "something here"')
+            qCDebug(KIO_KFILEWIDGETS_FW) << "Discarding Invalid" << finalUrl;
+        }
+    };
+
+    // An iterative approach here where we toggle the "escape" flag
+    // if we hit `\`. If we hit `"` and the escape flag is false,
+    // we split
+    QString partial_name;
+    bool escape = false;
+    for(int i = 0; i < line.length(); i++) {
+        const QChar ch = line[i];
+
+        // Handle any character previously escaped
+        if (escape) {
+            partial_name += ch;
+            escape = false;
+            continue;
+        }
+        
+        // Handle escape start
+        if (ch.toLatin1() == '\\') {
+            escape = true;
+            continue;
+        }
+
+        // Handle UNESCAPED quote (") since the above ifs are
+        // dealing with the escaped ones
+        if (ch.toLatin1() == '"') {
+            addUrl(partial_name);
+            partial_name.clear();
+            continue;
+        }
+
+        // Any other character just append
+        partial_name += ch;
     }
 
-    int start = 0;
-    int index1 = -1, index2 = -1;
-    while (true) {
-        index1 = line.indexOf(QLatin1Char('"'), start);
-        index2 = line.indexOf(QLatin1Char('"'), index1 + 1);
-
-        if (index1 < 0 || index2 < 0) {
-            break;
-        }
-
-        // get everything between the " "
-        name = line.mid(index1 + 1, index2 - index1 - 1);
-
-        // since we use setPath we need to do this under a temporary url
-        QUrl _u(u);
-        QUrl currUrl(name);
-
-        if (!QDir::isAbsolutePath(currUrl.url())) {
-            _u = _u.adjusted(QUrl::RemoveFilename);
-            _u.setPath(_u.path() + name);
-        } else {
-            // we allow to insert various absolute paths like:
-            // "/home/foo/bar.txt" "/boot/grub/menu.lst"
-            _u = currUrl;
-        }
-
-        if (_u.isValid()) {
-            urls.append(_u);
-        }
-
-        start = index2 + 1;
+    // Handle the last item which is buffered in 
+    // partial_name. This is required for single-file
+    // selection dialogs since the name will not be 
+    // wrapped in quotes
+    if (!partial_name.isEmpty()) {
+        addUrl(partial_name);
+        partial_name.clear();
     }
-
+    
     return urls;
 }
 

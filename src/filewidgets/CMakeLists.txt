@@ -54,6 +54,15 @@ ecm_qt_export_logging_category(
     EXPORT KIO
 )
 
+ecm_qt_export_logging_category(
+    IDENTIFIER KIO_KFILEWIDGETS_FW
+    CATEGORY_NAME kf.kio.filewidgets.kfilewidget
+    OLD_CATEGORY_NAMES kf5.kio.filewidgets.kfilewidget
+    DEFAULT_SEVERITY Info
+    DESCRIPTION "KFileWidgets (KIO)"
+    EXPORT KIO
+)
+
 ecm_qt_declare_logging_category(kiofilewidgets_SRCS
     HEADER kfilefiltercombo_debug.h
     IDENTIFIER KIO_KFILEWIDGETS_KFILEFILTERCOMBO
