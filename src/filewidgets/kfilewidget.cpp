@@ -561,8 +561,6 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
     connect(d->urlNavigator, &KUrlNavigator::returnPressed,
             d->ops, QOverload<>::of(&QWidget::setFocus));
 
-    QString whatsThisText;
-
     // the Location label/edit
     d->locationLabel = new QLabel(i18n("&Name:"), this);
     d->locationEdit = new KUrlComboBox(KUrlComboBox::Files, true, this);
