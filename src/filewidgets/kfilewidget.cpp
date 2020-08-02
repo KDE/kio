@@ -570,6 +570,7 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
 
     // read our configuration
     KSharedConfig::Ptr config = KSharedConfig::openConfig();
+    config->reparseConfiguration(); // grab newly added dirs by other processes (#403524)
     KConfigGroup group(config, ConfigGroup);
     readConfig(group);
 
