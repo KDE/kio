@@ -110,3 +110,50 @@ void KUrlComboBoxTest::testRemoveUrl()
     QCOMPARE(combo.urls(), QStringList{});
     QCOMPARE(combo.itemText(0), QString());
 }
+
+void KUrlComboBoxTest::testAddUrls()
+{
+    // GIVEN
+    KUrlComboBox combo(KUrlComboBox::Both);
+    combo.addDefaultUrl(QUrl("http://kde.org"));
+    combo.addDefaultUrl(QUrl("http://www.kde.org"));
+
+    const QStringList urls{"http://foo.org", "http://bar.org"};
+    combo.setUrls(urls);
+
+    // WHEN
+    const QString url("http://foo.org/newUrl");
+    combo.setUrl(QUrl(url));
+
+    // THEN
+    QStringList expected = urls;
+    expected << url;
+    QCOMPARE(combo.urls(), expected);
+}
+
+void KUrlComboBoxTest::testSetMaxItems()
+{
+    // GIVEN
+    KUrlComboBox combo(KUrlComboBox::Both);
+    combo.addDefaultUrl(QUrl("http://kde.org"));
+    combo.addDefaultUrl(QUrl("http://www.kde.org"));
+
+    const QStringList urls{"http://foo.org", "http://bar.org", "http://example.org", "http://example2.org"};
+    combo.setUrls(urls);
+
+    QStringList expected = urls;
+    QCOMPARE(combo.urls(), expected);
+
+    // WHEN
+    combo.setMaxItems(4); // includes the default URLs
+
+    // THEN
+    expected = expected.mid(2);
+    QCOMPARE(combo.urls(), expected);
+
+    // WHEN
+    combo.setMaxItems(1); // no room for additional URLs
+
+    // THEN
+    QCOMPARE(combo.urls(), QStringList());
+}

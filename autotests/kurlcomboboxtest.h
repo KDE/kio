@@ -31,6 +31,8 @@ private Q_SLOTS:
     void testTextForItem_data();
     void testSetUrlMultipleTimes();
     void testRemoveUrl();
+    void testAddUrls();
+    void testSetMaxItems();
 };
 
 #endif //KURLCOMBOBOXTEST_H
