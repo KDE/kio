@@ -759,20 +759,20 @@ TrashImpl::TrashedFileInfoList TrashImpl::list()
         //getcwd(path_buffer, PATH_MAX - 1);
         //if ( chdir( infoPathEnc ) )
         //    continue;
-        for (QStringList::const_iterator entryIt = entryNames.constBegin(), entryEnd = entryNames.constEnd();
-                entryIt != entryEnd; ++entryIt) {
-            QString fileName = *entryIt;
+
+        const QLatin1String tail(".trashinfo");
+        const int tailLength = tail.size();
+        for (const QString &fileName : entryNames) {
             if (fileName == QLatin1Char('.') || fileName == QLatin1String("..")) {
                 continue;
             }
-            if (!fileName.endsWith(QLatin1String(".trashinfo"))) {
+            if (!fileName.endsWith(tail)) {
                 qCWarning(KIO_TRASH) << "Invalid info file found in" << infoPath << ":" << fileName;
                 continue;
             }
-            fileName.chop(10);
 
             TrashedFileInfo info;
-            if (infoForFile(trashId, fileName, info)) {
+            if (infoForFile(trashId, fileName.chopped(tailLength), info)) {
                 lst << info;
             }
         }

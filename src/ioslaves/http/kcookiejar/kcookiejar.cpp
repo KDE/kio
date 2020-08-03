@@ -977,9 +977,7 @@ void KCookieJar::addCookie(KHttpCookie &cookie)
         }
     }
 
-    QStringListIterator it(domains);
-    while (it.hasNext()) {
-        const QString &key = it.next();
+    for (const QString &key : qAsConst(domains)) {
         KHttpCookieList *list;
 
         if (key.isNull()) {
@@ -1330,12 +1328,11 @@ bool KCookieJar::saveCookies(const QString &_filename)
               "Name", "Sec", "Value");
     ts << str;
 
-    QStringListIterator it(m_domainList);
-    while (it.hasNext()) {
-        const QString &domain = it.next();
+
+    for (const QString &domainName : qAsConst(m_domainList)) {
         bool domainPrinted = false;
 
-        KHttpCookieList *cookieList = m_cookieDomains.value(domain);
+        KHttpCookieList *cookieList = m_cookieDomains.value(domainName);
         if (!cookieList) {
             continue;
         }
@@ -1353,7 +1350,7 @@ bool KCookieJar::saveCookies(const QString &_filename)
                 // Only save cookies that are not "session-only cookies"
                 if (!domainPrinted) {
                     domainPrinted = true;
-                    ts << '[' << domain.toLocal8Bit().data() << "]\n";
+                    ts << '[' << domainName.toLocal8Bit().data() << "]\n";
                 }
                 // Store persistent cookies
                 const QString path = QL1C('"') + cookie.path() + QL1C('"');
@@ -1559,9 +1556,7 @@ void KCookieJar::saveConfig(KConfig *_config)
     policyGroup.writeEntry("CookieGlobalAdvice", adviceToStr(m_globalAdvice));
 
     QStringList domainSettings;
-    QStringListIterator it(m_domainList);
-    while (it.hasNext()) {
-        const QString &domain = it.next();
+    for (const QString &domain : qAsConst(m_domainList)) {
         KCookieAdvice advice = getDomainAdvice(domain);
         if (advice != KCookieDunno) {
             const QString value = domain + QL1C(':') + adviceToStr(advice);

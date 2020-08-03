@@ -71,20 +71,20 @@ QString HelpProtocol::langLookup(const QString &fname)
     }
 
     // try to locate the file
-    for (QStringList::ConstIterator it = search.constBegin(); it != search.constEnd(); ++it) {
-        //qDebug() << "Looking for help in: " << *it;
+    for (const QString &path : qAsConst(search)) {
+        //qDebug() << "Looking for help in: " << path;
 
-        QFileInfo info(*it);
+        QFileInfo info(path);
         if (info.exists() && info.isFile() && info.isReadable()) {
-            return *it;
+            return path;
         }
 
-        if ((*it).endsWith(QLatin1String(".html"))) {
-            const QString file = (*it).leftRef((*it).lastIndexOf(QLatin1Char('/'))) + QLatin1String("/index.docbook");
+        if (path.endsWith(QLatin1String(".html"))) {
+            const QString file = path.leftRef(path.lastIndexOf(QLatin1Char('/'))) + QLatin1String("/index.docbook");
             //qDebug() << "Looking for help in: " << file;
             info.setFile(file);
             if (info.exists() && info.isFile() && info.isReadable()) {
-                return *it;
+                return path;
             }
         }
     }

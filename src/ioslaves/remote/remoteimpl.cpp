@@ -49,10 +49,8 @@ void RemoteImpl::listRoot(KIO::UDSEntryList &list) const
     const QStringList dirList = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("remoteview"),
                                                           QStandardPaths::LocateDirectory);
 
-    QStringList::ConstIterator dirpath = dirList.constBegin();
-    const QStringList::ConstIterator end = dirList.constEnd();
-    for (; dirpath != end; ++dirpath) {
-        QDir dir = *dirpath;
+    for (const QString &dirpath : dirList) {
+        QDir dir(dirpath);
         if (!dir.exists()) {
             continue;
         }
@@ -61,14 +59,10 @@ void RemoteImpl::listRoot(KIO::UDSEntryList &list) const
                                                     QDir::Files | QDir::Readable);
 
         KIO::UDSEntry entry;
-
-        QStringList::ConstIterator name = filenames.constBegin();
-        QStringList::ConstIterator endf = filenames.constEnd();
-
-        for (; name != endf; ++name) {
-            if (!names_found.contains(*name) && createEntry(entry, *dirpath, *name)) {
+        for (const QString &name : filenames) {
+            if (!names_found.contains(name) && createEntry(entry, dirpath, name)) {
                 list.append(entry);
-                names_found.append(*name);
+                names_found.append(name);
             }
         }
     }
@@ -81,11 +75,9 @@ bool RemoteImpl::findDirectory(const QString &filename, QString &directory) cons
     const QStringList dirList = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("remoteview"),
                                                           QStandardPaths::LocateDirectory);
 
-    QStringList::ConstIterator dirpath = dirList.constBegin();
-    const QStringList::ConstIterator end = dirList.constEnd();
-    for (; dirpath != end; ++dirpath) {
-        if (QFileInfo::exists(*dirpath + QLatin1Char('/') + filename)) {
-            directory = *dirpath + QLatin1Char('/');
+    for (const QString &dirpath : dirList) {
+        if (QFileInfo::exists(dirpath + QLatin1Char('/') + filename)) {
+            directory = dirpath + QLatin1Char('/');
             return true;
         }
     }
