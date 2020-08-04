@@ -318,7 +318,7 @@ KFilePlacesModel::KFilePlacesModel(const QString &alternativeApplicationName, QO
         setDefaultMetadataItemForGroup(TagsType);
 
         // Force bookmarks to be saved. If on open/save dialog and the bookmarks are not saved, QFile::exists
-        // will always return false, which opening/closing all the time the open/save dialog would case the
+        // will always return false, which opening/closing all the time the open/save dialog would cause the
         // bookmarks to be added once each time, having lots of times each bookmark. (ereslibre)
         d->bookmarkManager->saveAs(file);
     }
@@ -451,7 +451,7 @@ bool KFilePlacesModel::isHidden(const QModelIndex &index) const
 bool KFilePlacesModel::isGroupHidden(const GroupType type) const
 {
     const QString hidden = d->bookmarkManager->root().metaDataItem(stateNameForGroupType(type));
-    return hidden == QLatin1String("true") ? true : false;
+    return hidden == QLatin1String("true");
 }
 
 bool KFilePlacesModel::isGroupHidden(const QModelIndex &index) const
@@ -697,7 +697,7 @@ void KFilePlacesModel::Private::_k_reloadBookmarks()
             }
             ++it_i;
             ++it_c;
-        } else if ((*it_i)->id() != (*it_c)->id()) {
+        } else {
             int row = items.indexOf(*it_i);
 
             if (it_i + 1 != end_i && (*(it_i + 1))->id() == (*it_c)->id()) { // if the next one matches, it's a remove
