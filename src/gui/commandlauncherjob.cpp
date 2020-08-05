@@ -34,7 +34,7 @@ public:
     QString m_iconName;
     QString m_workingDirectory;
     QByteArray m_startupId;
-    KProcessRunner *m_processRunner = nullptr;
+    QPointer<KProcessRunner> m_processRunner;
     qint64 m_pid = 0;
 };
 
@@ -102,24 +102,29 @@ void KIO::CommandLauncherJob::start()
     if (d->m_iconName.isEmpty()) {
         d->m_iconName = d->m_executable;
     }
-    d->m_processRunner = new KProcessRunner(d->m_command, d->m_desktopName, d->m_executable,
-                                             d->m_iconName, d->m_startupId,
-                                             d->m_workingDirectory);
+    d->m_processRunner = KProcessRunner::fromCommand(d->m_command, d->m_desktopName, d->m_executable,
+                                                     d->m_iconName, d->m_startupId,
+                                                     d->m_workingDirectory);
     connect(d->m_processRunner, &KProcessRunner::error, this, [this](const QString &errorText) {
         setError(KJob::UserDefinedError);
         setErrorText(errorText);
         emitResult();
     });
-    connect(d->m_processRunner, &KProcessRunner::processStarted, this, [this]() {
-        d->m_pid = d->m_processRunner->pid();
+    connect(d->m_processRunner, &KProcessRunner::processStarted, this, [this](qint64 pid) {
+        d->m_pid = pid;
         emitResult();
     });
 }
 
 bool KIO::CommandLauncherJob::waitForStarted()
 {
+    if (d->m_processRunner.isNull()) {
+        return false;
+    }
     const bool ret = d->m_processRunner->waitForStarted();
-    qApp->sendPostedEvents(d->m_processRunner); // so slotStarted gets called
+    if (!d->m_processRunner.isNull()) {
+        qApp->sendPostedEvents(d->m_processRunner); // so slotStarted gets called
+    }
     return ret;
 }
 

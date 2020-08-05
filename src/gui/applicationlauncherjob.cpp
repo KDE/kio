@@ -51,8 +51,8 @@ public:
     explicit ApplicationLauncherJobPrivate(KIO::ApplicationLauncherJob *job, const KService::Ptr &service)
         : m_service(service), q(job) {}
 
-    void slotStarted(KProcessRunner *processRunner) {
-        m_pids.append(processRunner->pid());
+    void slotStarted(qint64 pid) {
+        m_pids.append(pid);
         if (--m_numProcessesPending == 0) {
             q->emitResult();
         }
@@ -66,7 +66,7 @@ public:
     QString m_suggestedFileName;
     QByteArray m_startupId;
     QVector<qint64> m_pids;
-    QVector<KProcessRunner *> m_processRunners;
+    QVector<QPointer<KProcessRunner>> m_processRunners;
     int m_numProcessesPending = 0;
     KIO::ApplicationLauncherJob *q;
 };
@@ -189,11 +189,11 @@ void KIO::ApplicationLauncherJob::proceedAfterSecurityChecks()
         d->m_numProcessesPending = d->m_urls.count();
         d->m_processRunners.reserve(d->m_numProcessesPending);
         for (int i = 1; i < d->m_urls.count(); ++i) {
-            auto *processRunner = new KProcessRunner(d->m_service, { d->m_urls.at(i) },
-                                                     d->m_runFlags, d->m_suggestedFileName, QByteArray());
+            auto *processRunner = KProcessRunner::fromApplication(d->m_service, { d->m_urls.at(i) },
+                                                                  d->m_runFlags, d->m_suggestedFileName, QByteArray());
             d->m_processRunners.push_back(processRunner);
-            connect(processRunner, &KProcessRunner::processStarted, this, [this, processRunner]() {
-                d->slotStarted(processRunner);
+            connect(processRunner, &KProcessRunner::processStarted, this, [this](qint64 pid) {
+                d->slotStarted(pid);
             });
         }
         d->m_urls = { d->m_urls.at(0) };
@@ -201,16 +201,16 @@ void KIO::ApplicationLauncherJob::proceedAfterSecurityChecks()
         d->m_numProcessesPending = 1;
     }
 
-    auto *processRunner = new KProcessRunner(d->m_service, d->m_urls,
-                                             d->m_runFlags, d->m_suggestedFileName, d->m_startupId);
+    auto *processRunner = KProcessRunner::fromApplication(d->m_service, d->m_urls,
+                                                          d->m_runFlags, d->m_suggestedFileName, d->m_startupId);
     d->m_processRunners.push_back(processRunner);
     connect(processRunner, &KProcessRunner::error, this, [this](const QString &errorText) {
         setError(KJob::UserDefinedError);
         setErrorText(errorText);
         emitResult();
     });
-    connect(processRunner, &KProcessRunner::processStarted, this, [this, processRunner]() {
-        d->slotStarted(processRunner);
+    connect(processRunner, &KProcessRunner::processStarted, this, [this](qint64 pid) {
+        d->slotStarted(pid);
     });
 }
 
@@ -238,9 +238,11 @@ bool KIO::ApplicationLauncherJob::waitForStarted()
     }
     const bool ret = std::all_of(d->m_processRunners.cbegin(),
                                  d->m_processRunners.cend(),
-                                 [](KProcessRunner *r) { return r->waitForStarted(); });
-    for (KProcessRunner *r : qAsConst(d->m_processRunners)) {
-        qApp->sendPostedEvents(r); // so slotStarted gets called
+                                 [](QPointer<KProcessRunner> r) { return r.isNull() || r->waitForStarted(); });
+    for (auto r : qAsConst(d->m_processRunners)) {
+        if (!r.isNull()) {
+            qApp->sendPostedEvents(r); // so slotStarted gets called
+        }
     }
     return ret;
 }

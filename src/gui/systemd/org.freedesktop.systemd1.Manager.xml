@@ -1,0 +1,28 @@
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN"
+"http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node>
+  <interface name="org.freedesktop.systemd1.Manager">
+    <method name="StartTransientUnit">
+      <annotation name="org.qtproject.QtDBus.QtTypeName.In2" value="QVariantMultiMap"/>
+      <annotation name="org.qtproject.QtDBus.QtTypeName.In3" value="TransientAuxList"/>
+      <arg name="name" type="s" direction="in"/>
+      <arg name="mode" type="s" direction="in"/>
+      <arg name="properties" type="a(sv)" direction="in"/>
+      <arg name="aux" type="a(sa(sv))" direction="in"/>
+    </method>
+    <method name="Subscribe">
+    </method>
+    <method name="Unsubscribe">
+    </method>
+    <signal name="UnitNew">
+      <arg name="name" type="s"/>
+      <arg name="path" type="o"/>
+    </signal>
+    <signal name="JobRemoved">
+      <arg name="id" type="u"/>
+      <arg name="job" type="o"/>
+      <arg name="unit" type="s"/>
+      <arg name="result" type="s"/>
+    </signal>
+  </interface>
+</node>

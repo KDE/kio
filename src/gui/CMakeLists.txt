@@ -10,6 +10,19 @@ set(kiogui_SRCS
    kprocessrunner.cpp
 )
 
+if (CMAKE_SYSTEM_NAME STREQUAL "Linux")
+    set(SYSTEMD_DBUS_XMLS
+        systemd/org.freedesktop.systemd1.Manager.xml
+        systemd/org.freedesktop.systemd1.Unit.xml
+        systemd/org.freedesktop.DBus.Properties.xml)
+
+    set_source_files_properties(${SYSTEMD_DBUS_XMLS} PROPERTIES INCLUDE systemd/dbustypes.h)
+
+    qt5_add_dbus_interfaces(kiogui_SRCS ${SYSTEMD_DBUS_XMLS})
+
+    list(APPEND kiogui_SRCS systemd/systemdprocessrunner.cpp)
+endif ()
+
 ecm_qt_declare_logging_category(kiogui_SRCS
     HEADER kiogui_debug.h
     IDENTIFIER KIO_GUI
