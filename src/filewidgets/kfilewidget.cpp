@@ -393,36 +393,6 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
     d->urlNavigator->setPlacesSelectorVisible(false);
     opsWidgetLayout->addWidget(d->urlNavigator);
 
-    QUrl u;
-    KUrlComboBox *pathCombo = d->urlNavigator->editor();
-#ifdef Q_OS_WIN
-#if 0
-    foreach (const QFileInfo &drive, QFSFileEngine::drives()) {
-        u = QUrl::fromLocalFile(drive.filePath());
-        pathCombo->addDefaultUrl(u,
-                                 KIO::pixmapForUrl(u, 0, KIconLoader::Small),
-                                 i18n("Drive: %1",  u.toLocalFile()));
-    }
-#else
-#pragma message("QT5 PORT")
-#endif
-#else
-    u = QUrl::fromLocalFile(QDir::rootPath());
-    pathCombo->addDefaultUrl(u, QIcon::fromTheme(KIO::iconNameForUrl(u)), u.toLocalFile());
-#endif
-
-    u = QUrl::fromLocalFile(QDir::homePath());
-    pathCombo->addDefaultUrl(u, QIcon::fromTheme(KIO::iconNameForUrl(u)), u.toLocalFile());
-
-    QUrl docPath = QUrl::fromLocalFile(QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation));
-    if (u.adjusted(QUrl::StripTrailingSlash) != docPath.adjusted(QUrl::StripTrailingSlash) &&
-            QDir(docPath.toLocalFile()).exists()) {
-        pathCombo->addDefaultUrl(docPath, QIcon::fromTheme(KIO::iconNameForUrl(docPath)), docPath.toLocalFile());
-    }
-
-    u = QUrl::fromLocalFile(QStandardPaths::writableLocation(QStandardPaths::DesktopLocation));
-    pathCombo->addDefaultUrl(u, QIcon::fromTheme(KIO::iconNameForUrl(u)), u.toLocalFile());
-
     d->ops = new KDirOperator(QUrl(), d->opsWidget);
     d->ops->installEventFilter(this);
     d->ops->setObjectName(QStringLiteral("KFileWidget::ops"));
@@ -552,6 +522,7 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
     d->toolbar->setToolButtonStyle(Qt::ToolButtonIconOnly);
     d->toolbar->setMovable(false);
 
+    KUrlComboBox *pathCombo = d->urlNavigator->editor();
     KUrlCompletion *pathCompletionObj = new KUrlCompletion(KUrlCompletion::DirCompletion);
     pathCombo->setCompletionObject(pathCompletionObj);
     pathCombo->setAutoDeleteCompletionObject(true);
