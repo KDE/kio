@@ -260,6 +260,8 @@ KBookmark KFilePlacesModel::bookmarkForUrl(const QUrl &searchUrl) const
     return KBookmark();
 }
 
+static inline QString versionKey() { return QStringLiteral("kde_places_version"); }
+
 KFilePlacesModel::KFilePlacesModel(const QString &alternativeApplicationName, QObject *parent)
     : QAbstractItemModel(parent), d(new Private(this))
 {
@@ -274,48 +276,64 @@ KFilePlacesModel::KFilePlacesModel(const QString &alternativeApplicationName, QO
         root.setMetaDataItem(stateNameForGroupType(type), QStringLiteral("false"));
     };
 
-    if (root.first().isNull() || !QFile::exists(file)) {
-        // NOTE: The context for these I18NC_NOOP calls has to be "KFile System Bookmarks".
-        // The real i18nc call is made later, with this context, so the two must match.
-        // createSystemBookmark actually does nothing with its second argument, the context,
-        KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
-                                              I18NC_NOOP("KFile System Bookmarks", "Home"),
-                                              QUrl::fromLocalFile(QDir::homePath()), QStringLiteral("user-home"));
+    static const int s_currentVersion = 2;
 
-        // Some distros may not create various standard XDG folders by default
-        // so check for their existence before adding bookmarks for them
-        const QString desktopFolder = QStandardPaths::writableLocation(QStandardPaths::DesktopLocation);
-        if (QDir(desktopFolder).exists()) {
-            KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
-                                                I18NC_NOOP("KFile System Bookmarks", "Desktop"),
-                                                QUrl::fromLocalFile(desktopFolder), QStringLiteral("user-desktop"));
+    const bool newFile = root.first().isNull() || !QFile::exists(file);
+    const int fileVersion = root.metaDataItem(versionKey()).toInt();
+
+    if (newFile || fileVersion < s_currentVersion) {
+        root.setMetaDataItem(versionKey(), QString::number(s_currentVersion));
+
+        const QList<QUrl> seenUrls = root.groupUrlList();
+
+        auto createSystemBookmark = [this, &seenUrls](const char *translationContext,
+                const QByteArray &untranslatedLabel,
+                const QUrl &url,
+                const QString &iconName) {
+            if (!seenUrls.contains(url)) {
+                KFilePlacesItem::createSystemBookmark(d->bookmarkManager, translationContext, untranslatedLabel, url, iconName);
+            }
+        };
+
+        if (fileVersion < 2) {
+            // NOTE: The context for these I18NC_NOOP calls has to be "KFile System Bookmarks".
+            // The real i18nc call is made later, with this context, so the two must match.
+            // createSystemBookmark actually does nothing with its second argument, the context,
+            createSystemBookmark(I18NC_NOOP("KFile System Bookmarks", "Home"),
+                                 QUrl::fromLocalFile(QDir::homePath()), QStringLiteral("user-home"));
+
+            // Some distros may not create various standard XDG folders by default
+            // so check for their existence before adding bookmarks for them
+            const QString desktopFolder = QStandardPaths::writableLocation(QStandardPaths::DesktopLocation);
+            if (QDir(desktopFolder).exists()) {
+                createSystemBookmark(I18NC_NOOP("KFile System Bookmarks", "Desktop"),
+                                     QUrl::fromLocalFile(desktopFolder), QStringLiteral("user-desktop"));
+            }
+            const QString documentsFolder = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);
+            if (QDir(documentsFolder).exists()) {
+                createSystemBookmark(I18NC_NOOP("KFile System Bookmarks", "Documents"),
+                                     QUrl::fromLocalFile(documentsFolder), QStringLiteral("folder-documents"));
+            }
+            const QString downloadFolder = QStandardPaths::writableLocation(QStandardPaths::DownloadLocation);
+            if (QDir(downloadFolder).exists()) {
+                createSystemBookmark(I18NC_NOOP("KFile System Bookmarks", "Downloads"),
+                                     QUrl::fromLocalFile(downloadFolder), QStringLiteral("folder-downloads"));
+            }
+
+            createSystemBookmark(I18NC_NOOP("KFile System Bookmarks", "Network"),
+                                 QUrl(QStringLiteral("remote:/")), QStringLiteral("folder-network"));
+
+            createSystemBookmark(I18NC_NOOP("KFile System Bookmarks", "Trash"),
+                                 QUrl(QStringLiteral("trash:/")), QStringLiteral("user-trash"));
         }
-        const QString documentsFolder = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);
-        if (QDir(documentsFolder).exists()) {
-            KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
-                                                I18NC_NOOP("KFile System Bookmarks", "Documents"),
-                                                QUrl::fromLocalFile(documentsFolder), QStringLiteral("folder-documents"));
+
+        if (newFile) {
+            setDefaultMetadataItemForGroup(PlacesType);
+            setDefaultMetadataItemForGroup(RemoteType);
+            setDefaultMetadataItemForGroup(DevicesType);
+            setDefaultMetadataItemForGroup(RemovableDevicesType);
+            setDefaultMetadataItemForGroup(TagsType);
         }
-        const QString downloadFolder = QStandardPaths::writableLocation(QStandardPaths::DownloadLocation);
-        if (QDir(downloadFolder).exists()) {
-            KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
-                                                I18NC_NOOP("KFile System Bookmarks", "Downloads"),
-                                                QUrl::fromLocalFile(downloadFolder), QStringLiteral("folder-downloads"));
-        }
-
-        KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
-                                              I18NC_NOOP("KFile System Bookmarks", "Network"),
-                                              QUrl(QStringLiteral("remote:/")), QStringLiteral("folder-network"));
-
-        KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
-                                              I18NC_NOOP("KFile System Bookmarks", "Trash"),
-                                              QUrl(QStringLiteral("trash:/")), QStringLiteral("user-trash"));
-
-        setDefaultMetadataItemForGroup(PlacesType);
-        setDefaultMetadataItemForGroup(RemoteType);
-        setDefaultMetadataItemForGroup(DevicesType);
-        setDefaultMetadataItemForGroup(RemovableDevicesType);
-        setDefaultMetadataItemForGroup(TagsType);
 
         // Force bookmarks to be saved. If on open/save dialog and the bookmarks are not saved, QFile::exists
         // will always return false, which opening/closing all the time the open/save dialog would cause the

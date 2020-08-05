@@ -55,8 +55,9 @@ private Q_SLOTS:
     void initTestCase();
     void cleanupTestCase();
 
-    void testInitialState();
     void testInitialList();
+    void testAddingInLaterVersion_data();
+    void testAddingInLaterVersion();
     void testReparse();
     void testInternalBookmarksHaveIds();
     void testHiding();
@@ -89,6 +90,7 @@ private:
     QStringList placesUrls(KFilePlacesModel *model = nullptr) const;
     QDBusInterface *fakeManager();
     QDBusInterface *fakeDevice(const QString &udi);
+    void createPlacesModels();
 
     KFilePlacesModel *m_places;
     KFilePlacesModel *m_places2; // To check that they always stay in sync
@@ -128,10 +130,26 @@ void KFilePlacesModelTest::initTestCase()
     const QString fakeHw = QFINDTESTDATA("fakecomputer.xml");
     QVERIFY(!fakeHw.isEmpty());
     qputenv("SOLID_FAKEHW", QFile::encodeName(fakeHw));
+    m_hasRecentlyUsedKio = qEnvironmentVariableIsSet("KDE_FULL_SESSION") && KProtocolInfo::isKnownProtocol(QStringLiteral("recentlyused"));
+
+    createPlacesModels();
+}
+
+void KFilePlacesModelTest::createPlacesModels()
+{
+    KBookmarkManager *mgr = KBookmarkManager::managerForExternalFile(bookmarksFile());
+    QSignalSpy spy(mgr, &KBookmarkManager::changed);
     m_places = new KFilePlacesModel();
     m_places2 = new KFilePlacesModel();
 
-    m_hasRecentlyUsedKio = qEnvironmentVariableIsSet("KDE_FULL_SESSION") && KProtocolInfo::isKnownProtocol(QStringLiteral("recentlyused"));
+    // When the xbel file is empty, KFilePlacesModel fills it with 3 default items
+    // 5 when ioslave recentlyused:/ is installed
+    QCOMPARE(m_places->rowCount(), m_hasRecentlyUsedKio ? 5 : 3);
+
+    QVERIFY(spy.wait());
+
+    // Devices have a delayed loading. Waiting for KDirWatch also waits for that to happen
+    QCOMPARE(m_places->rowCount(), m_hasRecentlyUsedKio ? 10 : 8);
 }
 
 void KFilePlacesModelTest::cleanupTestCase()
@@ -197,14 +215,6 @@ QDBusInterface *KFilePlacesModelTest::fakeDevice(const QString &udi)
     return iface;
 }
 
-void KFilePlacesModelTest::testInitialState()
-{
-    QCOMPARE(m_places->rowCount(), m_hasRecentlyUsedKio ? 5 : 3); // when the xbel file is empty, KFilePlacesModel fills it with 3 default items
-    // 4 when ioslave recentlyused:/ is installed
-    QCoreApplication::processEvents(); // Devices have a delayed loading
-    QCOMPARE(m_places->rowCount(), m_hasRecentlyUsedKio ? 10 : 8);
-}
-
 static const QStringList initialListOfPlaces()
 {
     return QStringList() << QDir::homePath() << QStringLiteral("trash:/");
@@ -250,29 +260,117 @@ void KFilePlacesModelTest::testInitialList()
     CHECK_PLACES_URLS(urls);
 }
 
+void KFilePlacesModelTest::testAddingInLaterVersion_data()
+{
+    QTest::addColumn<QByteArray>("contents");
+    QTest::addColumn<QStringList>("expectedUrls");
+
+    // Create a places file with only Home in it, and no version number
+    static const char contentsPart1[] =
+            "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+            "<xbel xmlns:bookmark=\"http://www.freedesktop.org/standards/desktop-bookmarks\">\n";
+
+    static const char versionXml[] =
+            "  <info>\n"
+            "   <metadata owner=\"http://www.kde.org\">\n"
+            "    <kde_places_version>2</kde_places_version>\n"
+            "   </metadata>\n"
+            "  </info>\n";
+
+    static const char contentsPart2[] =
+            " <bookmark href=\"trash:/\">\n"
+            "  <title>Home</title>\n"
+            "  <info>\n"
+            "   <metadata owner=\"http://freedesktop.org\">\n"
+            "    <bookmark:icon name=\"user-home\"/>\n"
+            "   </metadata>\n"
+            "   <metadata owner=\"http://www.kde.org\">\n"
+            "    <ID>1481703882/0</ID>\n"
+            "    <isSystemItem>true</isSystemItem>\n"
+            "   </metadata>\n"
+            "  </info>\n"
+            " </bookmark>\n"
+            "</xbel>";
+
+    // No version key: KFilePlacesModel will add the missing entries: home and remote
+    // Just not in the usual order
+    QStringList expectedWithReorder = initialListOfUrls();
+    expectedWithReorder.move(1, 0);
+    QTest::newRow("just_home_no_version") << (QByteArray(contentsPart1) + contentsPart2) << expectedWithReorder;
+
+    // Existing version key: home and remote were removed by the user, leave them out
+    QStringList expectedUrls{ QStringLiteral("trash:/") };
+    expectedUrls << initialListOfShared()
+                 << initialListOfRecent()
+                 << initialListOfDevices()
+                 << initialListOfRemovableDevices();
+    QVERIFY(expectedUrls.removeOne(QStringLiteral("remote:/")));
+    QTest::newRow("just_home_version_2") << (QByteArray(contentsPart1) + versionXml + contentsPart2) << expectedUrls;
+
+}
+
+void KFilePlacesModelTest::testAddingInLaterVersion()
+{
+    QFETCH(QByteArray, contents);
+    QFETCH(QStringList, expectedUrls);
+
+    // Avoid interference
+    delete m_places;
+    delete m_places2;
+    QCoreApplication::processEvents();
+
+    KBookmarkManager *mgr = KBookmarkManager::managerForExternalFile(bookmarksFile());
+
+    auto cleanupFunc = [this, mgr]() {
+        QFile::remove(bookmarksFile());
+        // let KDirWatch process the deletion
+        QTRY_VERIFY(mgr->root().first().isNull());
+        createPlacesModels();
+        testInitialList();
+    };
+    struct Cleanup {
+        explicit Cleanup(const std::function<void()> &f) : func(f) {}
+        ~Cleanup() { func(); }
+        std::function<void()> func;
+    } cleanup(cleanupFunc);
+
+    QTest::qWait(1000); // for KDirWatch
+    QSignalSpy spy(mgr, &KBookmarkManager::changed);
+
+    // WHEN
+    QFile file(bookmarksFile());
+    QVERIFY(file.open(QIODevice::WriteOnly));
+    file.write(contents);
+    file.close();
+    QVERIFY(spy.wait());
+
+    // THEN
+    KFilePlacesModel model;
+    QCoreApplication::processEvents(); // Devices have a delayed loading
+
+    if (placesUrls(&model) != expectedUrls) {
+        qDebug() << "Expected:" << expectedUrls;
+        qDebug() << "Got:" << placesUrls(&model);
+        QCOMPARE(placesUrls(&model), expectedUrls);
+    }
+}
+
 void KFilePlacesModelTest::testReparse()
 {
-    QStringList urls;
-
     // add item
-
     m_places->addPlace(QStringLiteral("foo"), QUrl::fromLocalFile(QStringLiteral("/foo")),
                        QString(), QString());
 
-    urls = initialListOfUrls();
-
+    QStringList urls = initialListOfUrls();
     // it will be added at the end of places section
     urls.insert(2, QStringLiteral("/foo"));
     CHECK_PLACES_URLS(urls);
 
     // reparse the bookmark file
-
     KBookmarkManager *bookmarkManager = KBookmarkManager::managerForFile(bookmarksFile(), QStringLiteral("kfilePlaces"));
-
     bookmarkManager->notifyCompleteChange(QString());
 
     // check if they are the same
-
     CHECK_PLACES_URLS(urls);
 
     // try to remove item
