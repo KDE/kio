@@ -683,7 +683,7 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl,
         while (!wasKilled()) {
 
             if (testMode && dest_file.fileName().contains(QLatin1String("slow"))) {
-                QThread::usleep(500);
+                QThread::msleep(50);
             }
 
 #ifdef USE_SENDFILE
