@@ -184,6 +184,10 @@ void KFileFilterCombo::setMimeFilter(const QStringList &types,
         }
     }
 
+    if (count() == 1) {
+        d->m_allTypes = false;
+    }
+
     if (d->m_allTypes) {
         if (count() <= 3) { // show the mime-comments of at max 3 types
             insertItem(0, allComments);
