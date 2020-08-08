@@ -806,6 +806,9 @@ void KFileWidget::slotOk()
         // qDebug() << "No mode() provided";
     }
 
+    // Clear the list as we are going to refill it
+    d->urlList.clear();
+
     // if we are on file mode, and the list of provided files/folder is greater than one, inform
     // the user about it
     if (locationEditCurrentTextList.count() > 1) {
