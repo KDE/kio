@@ -1,24 +1,11 @@
-/*****************************************************************************
- * Copyright (C) 2006-2010 by Peter Penz <peter.penz@gmx.at>                 *
- * Copyright (C) 2006 by Aaron J. Seigo <aseigo@kde.org>                     *
- * Copyright (C) 2007 by Kevin Ottens <ervin@kde.org>                        *
- * Copyright (C) 2007 by Urs Wolfer <uwolfer @ kde.org>                      *
- *                                                                           *
- * This library is free software; you can redistribute it and/or             *
- * modify it under the terms of the GNU Library General Public               *
- * License as published by the Free Software Foundation; either              *
- * version 2 of the License, or (at your option) any later version.          *
- *                                                                           *
- * This library is distributed in the hope that it will be useful,           *
- * but WITHOUT ANY WARRANTY; without even the implied warranty of            *
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU         *
- * Library General Public License for more details.                          *
- *                                                                           *
- * You should have received a copy of the GNU Library General Public License *
- * along with this library; see the file COPYING.LIB.  If not, write to      *
- * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,      *
- * Boston, MA 02110-1301, USA.                                               *
- *****************************************************************************/
+/*
+    SPDX-FileCopyrightText: 2006-2010 Peter Penz <peter.penz@gmx.at>
+    SPDX-FileCopyrightText: 2006 Aaron J. Seigo <aseigo@kde.org>
+    SPDX-FileCopyrightText: 2007 Kevin Ottens <ervin@kde.org>
+    SPDX-FileCopyrightText: 2007 Urs Wolfer <uwolfer @ kde.org>
+
+    SPDX-License-Identifier: LGPL-2.0-or-later
+*/
 
 #include "kurlnavigator.h"
 
@@ -304,9 +291,9 @@ void KUrlNavigator::Private::applyUncommittedUrl()
     // Parts of the following code have been taken
     // from the class KateFileSelector located in
     // kate/app/katefileselector.hpp of Kate.
-    // Copyright (C) 2001 Christoph Cullmann <cullmann@kde.org>
-    // Copyright (C) 2001 Joseph Wenninger <jowenn@kde.org>
-    // Copyright (C) 2001 Anders Lund <anders.lund@lund.tdcadsl.dk>
+    // SPDX-FileCopyrightText: 2001 Christoph Cullmann <cullmann@kde.org>
+    // SPDX-FileCopyrightText: 2001 Joseph Wenninger <jowenn@kde.org>
+    // SPDX-FileCopyrightText: 2001 Anders Lund <anders.lund@lund.tdcadsl.dk>
 
     const QUrl typedUrl = q->uncommittedUrl();
     QStringList urls = m_pathBox->urls();

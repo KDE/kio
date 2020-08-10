@@ -1,7 +1,7 @@
 /*
- * Copyright (C) 2002,2003 Leo Savernik <l.savernik@aon.at>
- * Copyright (C) 2012 Rolf Eike Beer <kde@opensource.sf-tec.de>
- */
+    SPDX-FileCopyrightText: 2002, 2003 Leo Savernik <l.savernik@aon.at>
+    SPDX-FileCopyrightText: 2012 Rolf Eike Beer <kde@opensource.sf-tec.de>
+*/
 
 #ifdef DATAKIOSLAVE
 #  undef DATAKIOSLAVE

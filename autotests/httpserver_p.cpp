@@ -1,21 +1,11 @@
-/****************************************************************************
-** Copyright (C) 2010-2016 Klaralvdalens Datakonsult AB, a KDAB Group company, info@kdab.com.
-** Author: David Faure <david.faure@kdab.com>
-** All rights reserved.
-**
-** This file initially comes from the KD Soap library.
-**
-** This file may be distributed and/or modified under the terms of the
-** GNU Lesser General Public License version 2.1 and version 3 as published by the
-** Free Software Foundation and appearing in the file COPYING.LIB included.
-**
-** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
-** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
-**
-** Contact info@kdab.com if any conditions of this licensing are not
-** clear to you.
-**
-**********************************************************************/
+/*
+    SPDX-FileCopyrightText: 2010-2016 Klaralvdalens Datakonsult AB, a KDAB Group company <info@kdab.com>
+    SPDX-FileContributor: David Faure <david.faure@kdab.com>
+
+    This file initially comes from the KD Soap library.
+
+    SPDX-License-Identifier: LGPL-2.1-only OR LGPL-3.0-only
+*/
 
 #include "httpserver_p.h"
 #include <KIO/Job>

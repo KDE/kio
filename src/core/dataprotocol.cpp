@@ -1,20 +1,10 @@
-//  dataprotocol.cpp
-// ==================
-//
-// Implementation of the data protocol (rfc 2397)
-//
-// Author: Leo Savernik
-// Email: l.savernik@aon.at
-// Copyright (C) 2002, 2003 by Leo Savernik <l.savernik@aon.at>
-// Created: Sam Dez 28 14:11:18 CET 2002
+/*
+    Implementation of the data protocol (rfc 2397)
 
-/***************************************************************************
- *                                                                         *
- *   This program is free software; you can redistribute it and/or modify  *
- *   it under the terms of the GNU Lesser General Public License as        *
- *   published by the Free Software Foundation; version 2.                 *
- *                                                                         *
- ***************************************************************************/
+    SPDX-FileCopyrightText: 2002, 2003 Leo Savernik <l.savernik@aon.at>
+
+    SPDX-License-Identifier: LGPL-2.0-only
+*/
 
 #include "dataprotocol_p.h"
 

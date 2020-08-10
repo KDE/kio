@@ -1,11 +1,11 @@
-/*    kcookiesmain.h - Cookies configuration
- *
- *    First version of cookies configuration:
- *        Copyright (C) Waldo Bastian <bastian@kde.org>
- *    This dialog box:
- *        Copyright (C) David Faure <faure@kde.org>
- *
- */
+/*
+    kcookiesmain.h - Cookies configuration
+
+    First version of cookies configuration:
+        SPDX-FileCopyrightText: Waldo Bastian <bastian@kde.org>
+    This dialog box:
+        SPDX-FileCopyrightText: David Faure <faure@kde.org>
+*/
 
 #ifndef __KCOOKIESMAIN_H
 #define __KCOOKIESMAIN_H

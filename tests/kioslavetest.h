@@ -1,12 +1,8 @@
 /*
- This file is or will be part of KDE desktop environment
+    This file is or will be part of KDE desktop environment
+    SPDX-FileCopyrightText: 1999 Matt Koss <koss@miesto.sk>
 
- Copyright 1999 Matt Koss <koss@miesto.sk>
-
- It is licensed under GPL version 2.
-
- If it is part of KDE libraries than this file is licensed under
- LGPL version 2.
+    SPDX-License-Identifier: LGPL-2.0-only
 */
 
 #ifndef _KIOSLAVETEST_H

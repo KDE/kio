@@ -1,6 +1,6 @@
 /*
- * Copyright (C) 2012 Rolf Eike Beer <kde@opensource.sf-tec.de>
- */
+    SPDX-FileCopyrightText: 2012 Rolf Eike Beer <kde@opensource.sf-tec.de>
+*/
 
 #ifndef DATAPROTOCOLTEST_H
 #define DATAPROTOCOLTEST_H

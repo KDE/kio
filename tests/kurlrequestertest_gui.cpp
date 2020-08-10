@@ -1,11 +1,9 @@
 /*
- *
- * This file is part of the KDE project.
- * Copyright (C) 2001 Carsten Pfeiffer <pfeiffer@kde.org>
- *
- * You can Freely distribute this program under the GNU Library General Public
- * License. See the file "COPYING" for the exact licensing terms.
- */
+    This file is part of the KDE project.
+    SPDX-FileCopyrightText: 2001 Carsten Pfeiffer <pfeiffer@kde.org>
+
+    SPDX-License-Identifier: LGPL-2.0-only
+*/
 
 #include <QApplication>
 #include <kurlrequester.h>
