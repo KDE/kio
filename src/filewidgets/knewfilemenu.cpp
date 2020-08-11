@@ -822,6 +822,12 @@ void KNewFileMenuPrivate::_k_slotActionTriggered(QAction *action)
 
 void KNewFileMenuPrivate::_k_slotCreateDirectory()
 {
+    // Automatically trim trailing spaces since they're pretty much always
+    // unintentional and can cause issues on Windows in shared environments
+    while (m_text.endsWith(QLatin1Char(' '))) {
+        m_text.chop(1);
+    }
+
     QUrl url;
     QUrl baseUrl = m_popupFiles.first();
 
@@ -1014,6 +1020,11 @@ void KNewFileMenuPrivate::_k_slotOtherDesktopFileClosed()
 
 void KNewFileMenuPrivate::_k_slotRealFileOrDir()
 {
+    // Automatically trim trailing spaces since they're pretty much always
+    // unintentional and can cause issues on Windows in shared environments
+    while (m_text.endsWith(QLatin1Char(' '))) {
+        m_text.chop(1);
+    }
     m_copyData.m_chosenFileName = m_text;
     _k_slotAbortDialog();
     executeStrategy();
@@ -1062,13 +1073,6 @@ void KNewFileMenuPrivate::_k_slotTextChanged(const QString &text)
     // File or folder begins with a space; show warning
     else if (text.startsWith(QLatin1Char(' '))) {
         m_messageWidget->setText(xi18nc("@info", "The name <filename>%1</filename> starts with a space, which will result in it being shown before other items when sorting alphabetically, among other potential oddities.", text));
-        m_messageWidget->setMessageType(KMessageWidget::Warning);
-        m_messageWidget->animatedShow();
-    }
-
-    // File or folder ends with a space; show warning
-    else if (text.endsWith(QLatin1Char(' '))) {
-        m_messageWidget->setText(xi18nc("@info", "The name <filename>%1</filename> ends with a space, which is a bit unusual and may be unintentional.", text));
         m_messageWidget->setMessageType(KMessageWidget::Warning);
         m_messageWidget->animatedShow();
     }
