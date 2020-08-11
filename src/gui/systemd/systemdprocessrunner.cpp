@@ -113,7 +113,9 @@ void SystemdProcessRunner::startProcess()
                                                 // so we can be notified (see https://github.com/systemd/systemd/pull/3984)
             { QStringLiteral("Environment"), m_process->environment() },
             { QStringLiteral("WorkingDirectory"), m_process->workingDirectory() },
-            { QStringLiteral("ExecStart"), QVariant::fromValue(ExecCommandList { { m_process->program().first(), m_process->program(), false } }) } },
+            { QStringLiteral("ExecStart"), QVariant::fromValue(ExecCommandList { { m_process->program().first(), m_process->program(), false } }) },
+            { QStringLiteral("KillMode"), QStringLiteral("process")}
+        },
         {} // aux is currently unused and should be passed as empty array.
     );
     connect(new QDBusPendingCallWatcher(startReply, this),
