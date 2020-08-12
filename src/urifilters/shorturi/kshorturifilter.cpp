@@ -22,7 +22,7 @@
 #include <kprotocolinfo.h>
 #include <KConfig>
 #include <KConfigGroup>
-#include <KMimeTypeTrader>
+#include <KApplicationTrader>
 #include <KService>
 #include <kurlauthorized.h>
 #include <KUser>
@@ -84,7 +84,7 @@ static bool isKnownProtocol(const QString &protocol)
     if (KProtocolInfo::isKnownProtocol(protocol) || protocol == QLatin1String("mailto")) {
         return true;
     }
-    const KService::Ptr service = KMimeTypeTrader::self()->preferredService(QLatin1String("x-scheme-handler/") + protocol);
+    const KService::Ptr service = KApplicationTrader::preferredService(QLatin1String("x-scheme-handler/") + protocol);
     return service;
 }
 

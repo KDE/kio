@@ -19,7 +19,7 @@ QTEST_GUILESS_MAIN(KRunUnitTest)
 #include <desktopexecparser.h>
 #include <KShell>
 #include <KService>
-#include <KMimeTypeTrader>
+#include <KApplicationTrader>
 #include <KConfigGroup>
 #include <KSharedConfig>
 #include <KProcess>
@@ -233,7 +233,7 @@ void KRunUnitTest::testKtelnetservice()
     const QString ktelnetDesk = QFINDTESTDATA(QStringLiteral("../src/ioslaves/telnet/ktelnetservice5.desktop"));
     QVERIFY(!ktelnetDesk.isEmpty());
 
-    // KMimeTypeTrader::self() in KIO::DesktopExecParser::hasSchemeHandler() needs the .desktop file to be installed
+    // KApplicationTrader in KIO::DesktopExecParser::hasSchemeHandler() needs the .desktop file to be installed
     const QString destDir = QStandardPaths::writableLocation(QStandardPaths::ApplicationsLocation);
     QVERIFY(QDir().mkpath(destDir));
     QFile::remove(destDir + QLatin1String("/ktelnetservice5.desktop"));
@@ -257,7 +257,7 @@ void KRunUnitTest::testKtelnetservice()
         // Check that hasSchemeHandler will return true
         QVERIFY(!KProtocolInfo::isKnownProtocol(protocol));
         QVERIFY(!KProtocolInfo::isHelperProtocol(protocol));
-        QVERIFY(KMimeTypeTrader::self()->preferredService(QLatin1String("x-scheme-handler/") + protocol));
+        QVERIFY(KApplicationTrader::preferredService(QLatin1String("x-scheme-handler/") + protocol));
 
         const QList<QUrl> urls({QUrl(QStringLiteral("%1://root@10.1.1.1").arg(protocol))});
         KIO::DesktopExecParser parser(*service, urls);

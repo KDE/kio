@@ -17,7 +17,7 @@
 #include <KService>
 #include <KConfigGroup>
 #include <kprotocolinfo.h>
-#include <KMimeTypeTrader>
+#include <KApplicationTrader>
 #include <KLocalizedString>
 
 #include <QFile>
@@ -236,7 +236,7 @@ bool KIO::DesktopExecParser::hasSchemeHandler(const QUrl &url)
     if (KProtocolInfo::isKnownProtocol(url)) {
         return false; // this is case B, we prefer kioslaves over the competition
     }
-    const KService::Ptr service = KMimeTypeTrader::self()->preferredService(QLatin1String("x-scheme-handler/") + url.scheme());
+    const KService::Ptr service = KApplicationTrader::preferredService(QLatin1String("x-scheme-handler/") + url.scheme());
     if (service) {
         qCDebug(KIO_CORE) << QLatin1String("preferred service for x-scheme-handler/") + url.scheme() << service->desktopEntryName();
     }

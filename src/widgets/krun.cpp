@@ -30,7 +30,7 @@
 
 #include <KIconLoader>
 #include <KJobUiDelegate>
-#include <KMimeTypeTrader>
+#include <KApplicationTrader>
 #include "kio/job.h"
 #include "kio/global.h"
 #include "kio/scheduler.h"
@@ -84,7 +84,7 @@ void KRunPrivate::startTimer()
 
 static KService::Ptr schemeService(const QString &protocol)
 {
-    return KMimeTypeTrader::self()->preferredService(QLatin1String("x-scheme-handler/") + protocol);
+    return KApplicationTrader::preferredService(QLatin1String("x-scheme-handler/") + protocol);
 }
 
 static bool checkNeedPortalSupport()
