@@ -264,7 +264,7 @@ KFilePlacesModel::KFilePlacesModel(const QString &alternativeApplicationName, QO
         root.setMetaDataItem(stateNameForGroupType(type), QStringLiteral("false"));
     };
 
-    static const int s_currentVersion = 2;
+    static const int s_currentVersion = 3;
 
     const bool newFile = root.first().isNull() || !QFile::exists(file);
     const int fileVersion = root.metaDataItem(versionKey()).toInt();
@@ -313,6 +313,41 @@ KFilePlacesModel::KFilePlacesModel(const QString &alternativeApplicationName, QO
 
             createSystemBookmark(I18NC_NOOP("KFile System Bookmarks", "Trash"),
                                  QUrl(QStringLiteral("trash:/")), QStringLiteral("user-trash"));
+        }
+
+        if (!newFile && fileVersion < 3) {
+            KBookmarkGroup root = d->bookmarkManager->root();
+            KBookmark bItem = root.first();
+            while (!bItem.isNull()) {
+                KBookmark nextbItem = root.next(bItem);
+                const bool isSystemItem = bItem.metaDataItem(QStringLiteral("isSystemItem")) == QLatin1String("true");
+                if (isSystemItem) {
+                    const QString text = bItem.fullText();
+                    // Because of b8a4c2223453932202397d812a0c6b30c6186c70 we need to find the system bookmark named Audio Files
+                    // and rename it to Audio, otherwise users are getting untranslated strings
+                    if (text == QLatin1String("Audio Files")) {
+                        bItem.setFullText(QStringLiteral("Audio"));
+                    } else if (text == QLatin1String("Today")) {
+                        // Because of 19feef732085b444515da3f6c66f3352bbcb1824 we need to find the system bookmark named Today
+                        // and rename it to Modified Today, otherwise users are getting untranslated strings
+                        bItem.setFullText(QStringLiteral("Modified Today"));
+                    } else if (text == QLatin1String("Yesterday")) {
+                        // Because of 19feef732085b444515da3f6c66f3352bbcb1824 we need to find the system bookmark named Yesterday
+                        // and rename it to Modified Yesterday, otherwise users are getting untranslated strings
+                        bItem.setFullText(QStringLiteral("Modified Yesterday"));
+                    } else if (text == QLatin1String("This Month")) {
+                        // Because of 7e1d2fb84546506c91684dd222c2485f0783848f we need to find the system bookmark named This Month
+                        // and remove it, otherwise users are getting untranslated strings
+                        root.deleteBookmark(bItem);
+                    } else if (text == QLatin1String("Last Month")) {
+                        // Because of 7e1d2fb84546506c91684dd222c2485f0783848f we need to find the system bookmark named Last Month
+                        // and remove it, otherwise users are getting untranslated strings
+                        root.deleteBookmark(bItem);
+                    }
+                }
+
+                bItem = nextbItem;
+            }
         }
 
         if (newFile) {
