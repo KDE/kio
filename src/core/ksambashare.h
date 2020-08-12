@@ -2,6 +2,7 @@
     This file is part of the KDE project
     SPDX-FileCopyrightText: 2004 Jan Schaefer <j_schaef@informatik.uni-kl.de>
     SPDX-FileCopyrightText: 2010 Rodrigo Belem <rclbelem@gmail.com>
+    SPDX-FileCopyrightText: 2020 Harald Sitter <sitter@kde.org>
 
     SPDX-License-Identifier: LGPL-2.0-only
 */
@@ -107,6 +108,16 @@ public:
     KIOCORE_DEPRECATED_VERSION(4, 6, "Conf file no longer used")
     QString smbConfPath() const;
 #endif
+
+    /**
+     * Used to obtain UserShareSystemError error strings. This is usually the
+     * verbatim stderr of internal helper commands and may contain newlines.
+     * Do not use this to obtain error strings for other error types!
+     *
+     * @return QString containing the most relevant last stderr
+     * @since 5.74
+     */
+    QString lastSystemErrorString() const;
 
 Q_SIGNALS:
     /**

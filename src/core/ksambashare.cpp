@@ -2,6 +2,7 @@
     This file is part of the KDE project
     SPDX-FileCopyrightText: 2004 Jan Schaefer <j_schaef@informatik.uni-kl.de>
     SPDX-FileCopyrightText: 2010 Rodrigo Belem <rclbelem@gmail.com>
+    SPDX-FileCopyrightText: 2020 Harald Sitter <sitter@kde.org>
 
     SPDX-License-Identifier: LGPL-2.0-only
 */
@@ -336,17 +337,10 @@ KSambaShareData::UserShareError KSambaSharePrivate::add(const KSambaShareData &s
         return KSambaShareData::UserShareSystemError;
     }
 
-    QByteArray stdOut;
-    QByteArray stdErr;
-
     if (data.contains(shareData.name())) {
         if (data.value(shareData.name()).path() != shareData.path()) {
             return KSambaShareData::UserShareNameInUse;
         }
-    } else {
-        // It needs to be added here, otherwise another instance of KSambaShareDataPrivate
-        // will be created and added to data.
-        data.insert(shareData.name(), shareData);
     }
 
     QString guestok = QStringLiteral("guest_ok=%1").arg(
@@ -363,20 +357,28 @@ KSambaShareData::UserShareError KSambaSharePrivate::add(const KSambaShareData &s
         guestok,
     };
 
-    int ret = runProcess(QStringLiteral("net"), args, stdOut, stdErr);
+    QByteArray stdOut;
+    int ret = runProcess(QStringLiteral("net"), args, stdOut, m_stdErr);
 
     //TODO: parse and process error messages.
-    if (!stdErr.isEmpty()) {
+    if (!m_stdErr.isEmpty()) {
         // create a parser for the error output and
         // send error message somewhere
         qCWarning(KIO_CORE) << "We got some errors while running 'net usershare add'" << args;
-        qCWarning(KIO_CORE) << stdErr;
+        qCWarning(KIO_CORE) << m_stdErr;
+    }
+
+    if (ret == 0 && !data.contains(shareData.name())) {
+        // It needs to be added in this function explicitly, otherwise another instance of
+        // KSambaShareDataPrivate will be created and added to data when the share
+        // definiton changes on-disk and we re-parse the data.
+        data.insert(shareData.name(), shareData);
     }
 
     return (ret == 0) ? KSambaShareData::UserShareOk : KSambaShareData::UserShareSystemError;
 }
 
-KSambaShareData::UserShareError KSambaSharePrivate::remove(const KSambaShareData &shareData) const
+KSambaShareData::UserShareError KSambaSharePrivate::remove(const KSambaShareData &shareData)
 {
     if (!isSambaInstalled()) {
         return KSambaShareData::UserShareSystemError;
@@ -393,8 +395,20 @@ KSambaShareData::UserShareError KSambaSharePrivate::remove(const KSambaShareData
         shareData.name(),
     };
 
-    int result = QProcess::execute(QStringLiteral("net"), args);
-    return (result == 0) ? KSambaShareData::UserShareOk : KSambaShareData::UserShareSystemError;
+    QByteArray stdout;
+    int ret = runProcess(QStringLiteral("net"), args, stdout, m_stdErr);
+
+    //TODO: parse and process error messages.
+    if (!m_stdErr.isEmpty()) {
+        // create a parser for the error output and
+        // send error message somewhere
+        qCWarning(KIO_CORE) << "We got some errors while running 'net usershare delete'" << args;
+        qCWarning(KIO_CORE) << m_stdErr;
+    }
+
+    return (ret == 0) ? KSambaShareData::UserShareOk : KSambaShareData::UserShareSystemError;
+
+    // NB: the share file gets deleted which leads us to reload and drop the ShareData, hence no explicit remove
 }
 
 QMap<QString, KSambaShareData> KSambaSharePrivate::parse(const QByteArray &usershareData)
@@ -460,7 +474,7 @@ void KSambaSharePrivate::_k_slotFileChange(const QString &path)
         return;
     }
     data = parse(getNetUserShareInfo());
-    //qDebug() << "path changed:" << path;
+    qCDebug(KIO_CORE) << "reloading data; path changed:" << path;
     Q_Q(KSambaShare);
     emit q->changed();
 }
@@ -528,6 +542,12 @@ QList<KSambaShareData> KSambaShare::getSharesByPath(const QString &path) const
 {
     Q_D(const KSambaShare);
     return d->getSharesByPath(path);
+}
+
+QString KSambaShare::lastSystemErrorString() const
+{
+    Q_D(const KSambaShare);
+    return QString::fromUtf8(d->m_stdErr);
 }
 
 class KSambaShareSingleton

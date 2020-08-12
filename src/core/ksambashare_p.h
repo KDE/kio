@@ -45,7 +45,7 @@ public:
     KSambaShareData::UserShareError guestsAllowed(const KSambaShareData::GuestPermission &guestok) const;
 
     KSambaShareData::UserShareError add(const KSambaShareData &shareData);
-    KSambaShareData::UserShareError remove(const KSambaShareData &shareName) const;
+    KSambaShareData::UserShareError remove(const KSambaShareData &shareName);
     static QMap<QString, KSambaShareData> parse(const QByteArray &usershareData);
 
     void _k_slotFileChange(const QString &path);
@@ -58,6 +58,7 @@ private:
     QString smbConf;
     QString userSharePath;
     bool skipUserShare;
+    QByteArray m_stdErr;
 };
 
 #endif

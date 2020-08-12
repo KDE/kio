@@ -52,7 +52,7 @@ public:
         UserShareGuestsOk,
         UserShareGuestsInvalid,
         UserShareGuestsNotAllowed,
-        UserShareSystemError
+        UserShareSystemError /* < A system error occurred; check KSambaShare::lastSystemErrorString */
     };
 
     KSambaShareData();
@@ -153,14 +153,14 @@ public:
     /**
      * Share the folder with the information that has been set.
      *
-     * @return @c UserShareOk if the share was added.
+     * @return @c UserShareOk if the share was added or other errors as applicable. Also see UserShareSystemError.
      */
     KSambaShareData::UserShareError save();
 
     /**
      * Unshare the folder held by the object.
      *
-     * @return @c UserShareOk if the share was removed.
+     * @return @c UserShareOk if the share was removed or other errors as applicable. Also see UserShareSystemError.
      */
     KSambaShareData::UserShareError remove();
 
