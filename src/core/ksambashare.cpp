@@ -395,8 +395,8 @@ KSambaShareData::UserShareError KSambaSharePrivate::remove(const KSambaShareData
         shareData.name(),
     };
 
-    QByteArray stdout;
-    int ret = runProcess(QStringLiteral("net"), args, stdout, m_stdErr);
+    QByteArray stdOut;
+    int ret = runProcess(QStringLiteral("net"), args, stdOut, m_stdErr);
 
     //TODO: parse and process error messages.
     if (!m_stdErr.isEmpty()) {
