@@ -20,6 +20,7 @@ Name[sl]=KDE Bugs
 Name[sv]=KDE Bugs
 Name[uk]=Вади KDE
 Name[x-test]=xxKDE Bugsxx
+Name[zh_CN]=KDE Bugs
 Query=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[ar]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[ast]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}

@@ -64,5 +64,6 @@ Query[sl]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[sv]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[uk]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[x-test]=xxhttps://www.qwant.com/?q=\\{@}&client=kde&t=shoppingxx
+Query[zh_CN]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 X-KDE-ServiceTypes=SearchProvider
 Type=Service
