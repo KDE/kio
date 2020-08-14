@@ -11,7 +11,7 @@ X-KDE-ParentApp=kcontrol
 X-KDE-System-Settings-Parent-Category=search
 X-KDE-Weight=70
 
-Name=Web Shortcuts
+Name=Web Search Keywords
 Name[af]=Web Kortpaaie
 Name[ar]=اختصارات الوبّ
 Name[as]=ৱেবৰ চমু পথ
@@ -99,7 +99,7 @@ Name[x-test]=xxWeb Shortcutsxx
 Name[zh_CN]=网页快捷方式
 Name[zh_TW]=網頁捷徑
 
-Comment=Configure web shortcuts
+Comment=Configure web search keywords
 Comment[ar]=اضبط اختصارات الوبّ
 Comment[ast]=Configura los atayos web
 Comment[az]=Veb qısayollarını tənzimlə
@@ -146,7 +146,7 @@ Comment[x-test]=xxConfigure web shortcutsxx
 Comment[zh_CN]=配置网页快捷键
 Comment[zh_TW]=設定網頁捷徑
 
-X-KDE-Keywords=Web Shortcuts,Browsing,WWW,Internet,Internet Filters,Network,Search Engines,Shortcuts
+X-KDE-Keywords=Web Search Keywords,Web Search,Search,Keyword,Web Shortcuts,Browsing,WWW,Internet,Internet Filters,Network,Search Engines,Shortcuts
 X-KDE-Keywords[az]=Web Shortcuts,Browsing,WWW,Internet,Internet Filters,Network,Search Engines,Shortcuts Veb Qısayolları, Tarama, WWW, İnternet, İnternet Filtrləri, Şəbəkə, Axtarış motorları,Qısa yollar
 X-KDE-Keywords[ca]=Dreceres web,Navegació,WWW,Internet,Filtres d'internet,Xarxa,Motors de cerca,Dreceres
 X-KDE-Keywords[ca@valencia]=Dreceres web,Navegació,WWW,Internet,Filtres d'internet,Xarxa,Motors de cerca,Dreceres

@@ -35,9 +35,9 @@ QVariant ProvidersModel::headerData(int section, Qt::Orientation orientation, in
     if (role == Qt::DisplayRole) {
         switch (section) {
         case Name:
-            return i18nc("@title:column Name label from web shortcuts column", "Name");
+            return i18nc("@title:column Name label from web search keyword column", "Name");
         case Shortcuts:
-            return i18nc("@title:column", "Shortcuts");
+            return i18nc("@title:column", "Keywords");
         case Preferred:
             return i18nc("@title:column", "Preferred");
         default:
@@ -90,9 +90,9 @@ QVariant ProvidersModel::data(const QModelIndex &index, int role) const
 
         if (role == Qt::ToolTipRole || role == Qt::WhatsThisRole) {
             if (index.column() == Preferred) {
-                return xi18nc("@info:tooltip", "Check this box to select the highlighted web shortcut "
-                                               "as preferred.<nl/>Preferred web shortcuts are used in "
-                                               "places where only a few select shortcuts can be shown "
+                return xi18nc("@info:tooltip", "Check this box to select the highlighted web search keyword "
+                                               "as preferred.<nl/>Preferred web search keywords are used in "
+                                               "places where only a few select keywords can be shown "
                                                "at one time.");
             }
         }
@@ -196,7 +196,7 @@ QVariant ProvidersListModel::data(const QModelIndex &index, int role) const
     if (index.isValid()) {
         if (role == Qt::DisplayRole) {
             if (index.row() == m_providers.size()) {
-                return i18nc("@item:inlistbox No default web shortcut", "None");
+                return i18nc("@item:inlistbox No default web search keyword", "None");
             }
             return m_providers.at(index.row())->name();
         }
@@ -262,8 +262,8 @@ FilterOptions::FilterOptions(const KAboutData *about, QWidget *parent)
 
 QString FilterOptions::quickHelp() const
 {
-    return xi18nc("@info:whatsthis", "<para>In this module you can configure the web shortcuts feature. "
-                                     "Web shortcuts allow you to quickly search or lookup words on "
+    return xi18nc("@info:whatsthis", "<para>In this module you can configure the web search keywords feature. "
+                                     "Web search keywords allow you to quickly search or lookup words on "
                                      "the Internet. For example, to search for information about the "
                                      "KDE project using the Google engine, you simply type <emphasis>gg:KDE</emphasis> "
                                      "or <emphasis>google:KDE</emphasis>.</para>"

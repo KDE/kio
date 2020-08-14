@@ -14,10 +14,10 @@
    <item row="0" column="0">
     <widget class="QCheckBox" name="cbEnableShortcuts">
      <property name="toolTip">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable or disable web shortcuts. &lt;/p&gt;&lt;p&gt;Web shortcuts allow you to quickly access or search for information located online or on your hard drive. &lt;/p&gt;&lt;p&gt;KDE comes with many predefined Web shortcuts. One such Web shortcut is the Google (TM) search shortcut. To use it, you simply type the keyword 'gg' followed by the keyword delimiter and the search term, e.g. &lt;span style=&quot; font-weight:600;&quot;&gt;gg:KDE&lt;/span&gt;.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable or disable web search keywords. &lt;/p&gt;&lt;p&gt;Web search keywords allow you to quickly access or search for information located online or on your hard drive. &lt;/p&gt;&lt;p&gt;KDE comes with many predefined keywords. One such keyword can be used to perform a the Google (TM) search; to use it, you simply type the keyword 'gg' followed by the keyword delimiter and the search term, e.g. &lt;span style=&quot; font-weight:600;&quot;&gt;gg:KDE&lt;/span&gt;.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
      <property name="text">
-      <string>&amp;Enable Web shortcuts</string>
+      <string>&amp;Enable Web search keywords</string>
      </property>
     </widget>
    </item>
@@ -27,14 +27,14 @@
       <bool>false</bool>
      </property>
      <property name="text">
-      <string>&amp;Use preferred shortcuts only</string>
+      <string>&amp;Use preferred keywords only</string>
      </property>
     </widget>
    </item>
    <item row="2" column="0">
     <widget class="KLineEdit" name="searchLineEdit">
      <property name="placeholderText">
-      <string>Search for shortcut</string>
+      <string>Search for web search keywords</string>
      </property>
      <property name="showClearButton" stdset="0">
       <bool>true</bool>
@@ -68,7 +68,7 @@
      <item>
       <widget class="QPushButton" name="pbNew">
        <property name="toolTip">
-        <string>Add a new Web shortcut</string>
+        <string>Add a new Web search keyword</string>
        </property>
        <property name="text">
         <string>&amp;New...</string>
@@ -81,7 +81,7 @@
         <bool>false</bool>
        </property>
        <property name="toolTip">
-        <string>Modify the highlighted Web shortcut</string>
+        <string>Modify the highlighted Web search keyword</string>
        </property>
        <property name="text">
         <string>Chan&amp;ge...</string>
@@ -94,7 +94,7 @@
         <bool>false</bool>
        </property>
        <property name="toolTip">
-        <string>Delete the highlighted Web shortcut</string>
+        <string>Delete the highlighted Web search keyword</string>
        </property>
        <property name="text">
         <string>De&amp;lete</string>
@@ -138,7 +138,7 @@ Select the search engine to use for input boxes that provide automatic lookup se
 &lt;/qt&gt;</string>
        </property>
        <property name="text">
-        <string>Default Web &amp;shortcut:</string>
+        <string>Default Web &amp;search keyword:</string>
        </property>
        <property name="wordWrap">
         <bool>false</bool>
@@ -163,7 +163,7 @@ Select the search engine to use for input boxes that provide automatic lookup se
         </size>
        </property>
        <property name="whatsThis">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Select a default web shortcut. &lt;/p&gt;&lt;p&gt;This allows applications to automatically convert the typed word or phrase to web shortcut queries when they cannot be filtered into a proper URL. &lt;/p&gt;&lt;p&gt;To disable this functionality select &lt;span style=&quot; font-weight:600;&quot;&gt;None&lt;/span&gt; from the list. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Select a default web search keyword. &lt;/p&gt;&lt;p&gt;This allows applications to automatically convert the typed word or phrase to web search keyword queries when they cannot be filtered into a proper URL. &lt;/p&gt;&lt;p&gt;To disable this functionality select &lt;span style=&quot; font-weight:600;&quot;&gt;None&lt;/span&gt; from the list. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
        <property name="sizeAdjustPolicy">
         <enum>QComboBox::AdjustToMinimumContentsLengthWithIcon</enum>
@@ -201,7 +201,7 @@ Select the search engine to use for input boxes that provide automatic lookup se
         </sizepolicy>
        </property>
        <property name="toolTip">
-        <string>Choose a delimiter to mark the Web shortcut keyword.</string>
+        <string>Choose a delimiter to mark the Web search keyword.</string>
        </property>
        <item>
         <property name="text">
