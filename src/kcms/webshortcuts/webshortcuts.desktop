@@ -12,9 +12,30 @@ X-KDE-System-Settings-Parent-Category=search
 X-KDE-Weight=70
 
 Name=Web Search Keywords
+Name[ca]=Paraules clau de cerca a la web
+Name[es]=Palabras clave de búsqueda web
+Name[nl]=Webzoektrefwoorden
+Name[pt]=Palavras-Chave da Pesquisa Web
+Name[sv]=Webbsökningsnyckelord
+Name[uk]=Ключові слова пошуку в інтернеті
+Name[x-test]=xxWeb Search Keywordsxx
 
 Comment=Configure web search keywords
+Comment[ca]=Configura les paraules clau de cerca a la web
+Comment[es]=Configurar palabras clave de búsqueda web
+Comment[nl]=Webzoektrefwoorden configureren
+Comment[pt]=Configurar as palavras-chave da pesquisa na Web
+Comment[sv]=Anpassa webbsökningsnyckelord
+Comment[uk]=Налаштування ключових слів пошуку в інтернеті
+Comment[x-test]=xxConfigure web search keywordsxx
 
 X-KDE-Keywords=Web Search Keywords,Web Search,Search,Keyword,Web Shortcuts,Browsing,WWW,Internet,Internet Filters,Network,Search Engines,Shortcuts
+X-KDE-Keywords[ca]=Paraules clau de cerca a la web,Cerca a la web,Cerca,Paraules clau,Dreceres web,Navegació,WWW,Internet,Filtres d'internet,Xarxa,Motors de cerca,Dreceres
+X-KDE-Keywords[es]=Palabras clave de búsqueda web,Búsqueda web,Buscar,Palabra clave,Accesos rápidos Web,Navegación,WWW,Internet,Filtros de Internet,Red,Motores de búsqueda,Accesos rápidos
+X-KDE-Keywords[nl]=Web-zoeken op trefwoorden,web-zoeken,zoeken,trefwoord,web-sneltoetsen,browsing,www,internet,internet-filters,netwerk,zoekmachines,sneltoetsen
+X-KDE-Keywords[pt]=Palavras-Chave de Pesquisa na Web,Pesquisa na Web,Pesquisa,Palavra-Chave,Atalhos Web,Navegação,WWW,Internet,Filtros da Internet,Rede,Motores de Busca,Atalhos
+X-KDE-Keywords[sv]=Webbsökningsnyckelord,Webbsökning,Nyckelord,Webbgenvägar,Bläddring,WWW,Internet,Internetfilter,Nätverk,Söktjänster,Genvägar
+X-KDE-Keywords[uk]=Web Search Keywords,Web Search,Search,Keyword,Web Shortcuts,Browsing,WWW,Internet,Internet Filters,Network,Search Engines,Shortcuts,ключові,слова,вебпошук,пошук,слово,додатково,додатковий,інтернет,фільтри,фільтрування,фільтр,мережа,рушій,пошук,рушії пошуку,скорочення,вебскорочення
+X-KDE-Keywords[x-test]=xxWeb Search Keywordsxx,xxWeb Searchxx,xxSearchxx,xxKeywordxx,xxWeb Shortcutsxx,xxBrowsingxx,xxWWWxx,xxInternetxx,xxInternet Filtersxx,xxNetworkxx,xxSearch Enginesxx,xxShortcutsxx
 
 Categories=Qt;KDE;X-KDE-settings-webbrowsing;
