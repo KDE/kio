@@ -40,7 +40,7 @@ private:
     void writeTempServiceDesktopFile(const QString &filePath);
 
     QStringList m_filesToRemove;
-
+    QString m_tempService;
 };
 
 #endif /* APPLICATIONLAUNCHERJOBTEST_H */

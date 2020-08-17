@@ -251,6 +251,12 @@ void KIO::ApplicationLauncherJobPrivate::showOpenWithDialog()
         q->emitResult();
         return;
     }
+    if (!s_openWithHandler) {
+        q->setError(KJob::UserDefinedError);
+        q->setErrorText(i18n("Internal error: could not prompt the user for which application to start"));
+        q->emitResult();
+        return;
+    }
 
     QObject::connect(s_openWithHandler, &KIO::OpenWithHandlerInterface::canceled, q, [this]() {
         q->setError(KIO::ERR_USER_CANCELED);

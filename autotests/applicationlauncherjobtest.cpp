@@ -72,6 +72,7 @@ static TestOpenWithHandler s_openWithHandler;
 void ApplicationLauncherJobTest::initTestCase()
 {
     QStandardPaths::setTestModeEnabled(true);
+    m_tempService = createTempService();
 }
 
 void ApplicationLauncherJobTest::cleanupTestCase()
@@ -114,7 +115,6 @@ void ApplicationLauncherJobTest::startProcess()
     QFETCH(int, numFiles);
 
     // Given a service desktop file and a number of source files
-    const QString path = createTempService();
     QTemporaryDir tempDir;
     const QString srcDir = tempDir.path();
     QList<QUrl> urls;
@@ -126,7 +126,7 @@ void ApplicationLauncherJobTest::startProcess()
     }
 
     // When running a ApplicationLauncherJob
-    KService::Ptr servicePtr(new KService(path));
+    KService::Ptr servicePtr(new KService(m_tempService));
     KIO::ApplicationLauncherJob *job = new KIO::ApplicationLauncherJob(servicePtr, this);
     job->setUrls(urls);
     if (tempFile) {
@@ -353,15 +353,18 @@ void ApplicationLauncherJobTest::shouldFailOnExecutableWithoutPermissions()
 
 void ApplicationLauncherJobTest::showOpenWithDialog_data()
 {
+     QTest::addColumn<bool>("withHandler");
      QTest::addColumn<bool>("handlerRetVal");
 
-     QTest::newRow("false_canceled") << false;
-     QTest::newRow("true_service_selected") << true;
+     QTest::newRow("without_handler") << false << false;
+     QTest::newRow("false_canceled") << true << false;
+     QTest::newRow("true_service_selected") << true << true;
 }
 
 void ApplicationLauncherJobTest::showOpenWithDialog()
 {
 #ifdef Q_OS_UNIX
+    QFETCH(bool, withHandler);
     QFETCH(bool, handlerRetVal);
 
     // Given a local text file (we could test multiple files, too...)
@@ -375,26 +378,34 @@ void ApplicationLauncherJobTest::showOpenWithDialog()
 
     KService::Ptr service = KService::serviceByDesktopName(QString(s_tempServiceName).remove(".desktop"));
     QVERIFY(service);
-    s_openWithHandler.m_urls.clear();
-    s_openWithHandler.m_mimeTypes.clear();
-    s_openWithHandler.m_chosenService = handlerRetVal ? service : KService::Ptr{};
-    KIO::setDefaultOpenWithHandler(&s_openWithHandler);
+    if (withHandler) {
+        s_openWithHandler.m_urls.clear();
+        s_openWithHandler.m_mimeTypes.clear();
+        s_openWithHandler.m_chosenService = handlerRetVal ? service : KService::Ptr{};
+        KIO::setDefaultOpenWithHandler(&s_openWithHandler);
+    } else {
+        KIO::setDefaultOpenWithHandler(nullptr);
+    }
 
     const bool success = job->exec();
 
     // Then --- it depends on what the user says via the handler
-
-    QCOMPARE(s_openWithHandler.m_urls.count(), 1);
-    QCOMPARE(s_openWithHandler.m_mimeTypes.count(), 1);
-    QCOMPARE(s_openWithHandler.m_mimeTypes.at(0), QString()); // the job doesn't have the information
-    if (handlerRetVal) {
-        QVERIFY2(success, qPrintable(job->errorString()));
-        // If the user chose a service, it should be executed (it writes to "dest")
-        const QString dest = srcDir + "/dest_file.txt";
-        QTRY_VERIFY2(QFile::exists(dest), qPrintable(dest));
+    if (withHandler) {
+        QCOMPARE(s_openWithHandler.m_urls.count(), 1);
+        QCOMPARE(s_openWithHandler.m_mimeTypes.count(), 1);
+        QCOMPARE(s_openWithHandler.m_mimeTypes.at(0), QString()); // the job doesn't have the information
+        if (handlerRetVal) {
+            QVERIFY2(success, qPrintable(job->errorString()));
+            // If the user chose a service, it should be executed (it writes to "dest")
+            const QString dest = srcDir + "/dest_file.txt";
+            QTRY_VERIFY2(QFile::exists(dest), qPrintable(dest));
+        } else {
+            QVERIFY(!success);
+            QCOMPARE(job->error(), KIO::ERR_USER_CANCELED);
+        }
     } else {
         QVERIFY(!success);
-        QCOMPARE(job->error(), KIO::ERR_USER_CANCELED);
+        QCOMPARE(job->error(), KJob::UserDefinedError);
     }
 #else
     QSKIP("Test skipped on Windows because the code ends up in QDesktopServices::openUrl");
