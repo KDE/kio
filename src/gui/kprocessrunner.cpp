@@ -68,7 +68,7 @@ KProcessRunner *KProcessRunner::fromApplication(const KService::Ptr &service,
         return instance;
     }
 
-    //qDebug() << "KProcess args=" << args;
+    qCDebug(KIO_GUI) << "Starting process:" << args;
     *instance->m_process << args;
 
     enum DiscreteGpuCheck { NotChecked, Present, Absent };
@@ -273,6 +273,7 @@ void KProcessRunner::terminateStartupNotification()
 
 void KProcessRunner::emitDelayedError(const QString &errorMsg)
 {
+    qCWarning(KIO_GUI) << errorMsg;
     terminateStartupNotification();
     // Use delayed invocation so the caller has time to connect to the signal
     QMetaObject::invokeMethod(this, [this, errorMsg]() {

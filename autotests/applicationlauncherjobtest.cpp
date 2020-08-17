@@ -269,6 +269,7 @@ void ApplicationLauncherJobTest::shouldFailOnNonExistingExecutable()
     if (tempFile) {
         job->setRunFlags(KIO::ApplicationLauncherJob::DeleteTemporaryFiles);
     }
+    QTest::ignoreMessage(QtWarningMsg, QRegularExpression("Could not find the program '.*'")); // from KProcessRunner
     QVERIFY(!job->exec());
     QCOMPARE(job->error(), KJob::UserDefinedError);
     if (fullPath) {
@@ -292,9 +293,11 @@ void ApplicationLauncherJobTest::shouldFailOnInvalidService()
     QTest::ignoreMessage(QtWarningMsg, QRegularExpression("The desktop entry file \".*\" has Type.*\"NoSuchType\" instead of \"Application\" or \"Service\""));
     KService::Ptr servicePtr(new KService(desktopFilePath));
     KIO::ApplicationLauncherJob *job = new KIO::ApplicationLauncherJob(servicePtr, this);
+    QTest::ignoreMessage(QtWarningMsg, QRegularExpression("The desktop entry file.*is not valid")); // from KProcessRunner
     QVERIFY(!job->exec());
     QCOMPARE(job->error(), KJob::UserDefinedError);
-    QCOMPARE(job->errorString(), QStringLiteral("The desktop entry file\n%1\nis not valid.").arg(desktopFilePath));
+    const QString expectedError = QStringLiteral("The desktop entry file\n%1\nis not valid.").arg(desktopFilePath);
+    QCOMPARE(job->errorString(), expectedError);
 
     QFile::remove(desktopFilePath);
 }
@@ -308,9 +311,10 @@ void ApplicationLauncherJobTest::shouldFailOnServiceWithNoExec()
     group.writeEntry("Type", "Service");
     file.sync();
 
-    QTest::ignoreMessage(QtWarningMsg, qPrintable(QString("No Exec field in \"%1\"").arg(desktopFilePath)));
+    QTest::ignoreMessage(QtWarningMsg, qPrintable(QString("No Exec field in \"%1\"").arg(desktopFilePath))); // from KService
     KService::Ptr servicePtr(new KService(desktopFilePath));
     KIO::ApplicationLauncherJob *job = new KIO::ApplicationLauncherJob(servicePtr, this);
+    QTest::ignoreMessage(QtWarningMsg, QRegularExpression("No Exec field in .*")); // from KProcessRunner
     QVERIFY(!job->exec());
     QCOMPARE(job->error(), KJob::UserDefinedError);
     QCOMPARE(job->errorString(), QStringLiteral("No Exec field in %1").arg(desktopFilePath));
@@ -341,6 +345,7 @@ void ApplicationLauncherJobTest::shouldFailOnExecutableWithoutPermissions()
 
     KService::Ptr servicePtr(new KService(desktopFilePath));
     KIO::ApplicationLauncherJob *job = new KIO::ApplicationLauncherJob(servicePtr, this);
+    QTest::ignoreMessage(QtWarningMsg, QRegularExpression("The program .* is missing executable permissions.")); // from KProcessRunner
     QVERIFY(!job->exec());
     QCOMPARE(job->error(), KJob::UserDefinedError);
     QCOMPARE(job->errorString(), QStringLiteral("The program '%1' is missing executable permissions.").arg(scriptFilePath));
