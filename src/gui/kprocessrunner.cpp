@@ -7,7 +7,7 @@
 
 #include "kprocessrunner_p.h"
 
-#ifdef Q_OS_LINUX && !defined(Q_OS_ANDROID)
+#if defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)
 #include "systemd/systemdprocessrunner_p.h"
 #endif
 
@@ -41,7 +41,7 @@ KProcessRunner::KProcessRunner(const QString &executable)
 
 KProcessRunner *KProcessRunner::makeInstance(const QString &executable)
 {
-#ifdef Q_OS_LINUX && !defined(Q_OS_ANDROID)
+#if defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)
     if (SystemdProcessRunner::isAvailable()) {
         return new SystemdProcessRunner(executable);
     }
