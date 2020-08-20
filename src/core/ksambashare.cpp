@@ -308,6 +308,8 @@ KSambaShareData::UserShareError KSambaSharePrivate::isPathValid(const QString &p
 
 KSambaShareData::UserShareError KSambaSharePrivate::isAclValid(const QString &acl) const
 {
+    // NOTE: capital D is not missing from the regex net usershare will in fact refuse to consider it valid
+    //   - verified 2020-08-20
     const QRegularExpression aclRx(QRegularExpression::anchoredPattern(
                                     QStringLiteral("(?:(?:(\\w(\\w|\\s)*)\\\\|)(\\w+\\s*):([fFrRd]{1})(?:,|))*")));
     // TODO: check if user is a valid smb user
