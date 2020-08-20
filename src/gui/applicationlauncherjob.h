@@ -35,13 +35,16 @@ class ApplicationLauncherJobPrivate;
  * query the PID(s).
  *
  * For error handling, either connect to the result() signal, or for a simple messagebox on error,
- * you can do
+ * you can use:
  * @code
  *    job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, this));
  * @endcode
  * Using JobUiDelegate (which is widgets based) also enables the feature of asking the user
  * in case the executable or desktop file isn't marked as executable. Otherwise the job will
- * just refuse executing those files.
+ * just refuse executing such files.
+ *
+ * To invoke the open-with dialog (from KIOWidgets), construct an ApplicationLauncherJob without
+ * any arguments or with a null KService.
  *
  * @since 5.69
  */
@@ -63,7 +66,8 @@ public:
     explicit ApplicationLauncherJob(const KServiceAction &serviceAction, QObject *parent = nullptr);
 
     /**
-     * Creates an ApplicationLauncherJob which will prompt the user for which application to use (via the "open with" dialog).
+     * Creates an ApplicationLauncherJob which will prompt the user for which application to use
+     * (via the open-with dialog from KIOWidgets).
      * @param parent the parent QObject
      * @since 5.71
      */
