@@ -92,7 +92,7 @@ Q_SIGNALS:
     void processStarted(qint64 pid);
 
 protected:
-    KProcessRunner(const QString &executable);
+    KProcessRunner();
     virtual void startProcess() = 0;
     void setPid(qint64 pid);
     void terminateStartupNotification();
@@ -103,7 +103,6 @@ protected:
     qint64 m_pid = 0;
 
 private:
-    static KProcessRunner *makeInstance(const QString &executable);
     void emitDelayedError(const QString &errorMsg);
     void init(const KService::Ptr &service, const QString &userVisibleName,
               const QString &iconName, const QByteArray &asn);
@@ -118,7 +117,7 @@ class ForkingProcessRunner : public KProcessRunner
     Q_OBJECT
 
 public:
-    explicit ForkingProcessRunner(const QString &executable);
+    explicit ForkingProcessRunner();
 
     void startProcess() override;
     bool waitForStarted(int timeout) override;

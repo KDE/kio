@@ -40,8 +40,8 @@ bool SystemdProcessRunner::isAvailable()
     return runAsService;
 }
 
-SystemdProcessRunner::SystemdProcessRunner(const QString &executable)
-    : KProcessRunner(executable)
+SystemdProcessRunner::SystemdProcessRunner()
+    : KProcessRunner()
 {
 }
 

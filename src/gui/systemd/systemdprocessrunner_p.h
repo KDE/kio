@@ -19,7 +19,7 @@ class SystemdProcessRunner : public KProcessRunner
     Q_OBJECT
 
 public:
-    explicit SystemdProcessRunner(const QString &executable);
+    explicit SystemdProcessRunner();
     void startProcess() override;
     bool waitForStarted(int timeout) override;
     static bool isAvailable();

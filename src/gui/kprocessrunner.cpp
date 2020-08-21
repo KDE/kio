@@ -32,21 +32,20 @@
 
 static int s_instanceCount = 0; // for the unittest
 
-KProcessRunner::KProcessRunner(const QString &executable)
+KProcessRunner::KProcessRunner()
     : m_process {new KProcess}
-    , m_executable(executable)
 {
     ++s_instanceCount;
 }
 
-KProcessRunner *KProcessRunner::makeInstance(const QString &executable)
+static KProcessRunner *makeInstance()
 {
 #if defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)
     if (SystemdProcessRunner::isAvailable()) {
-        return new SystemdProcessRunner(executable);
+        return new SystemdProcessRunner();
     }
 #endif
-    return new ForkingProcessRunner(executable);
+    return new ForkingProcessRunner();
 }
 
 KProcessRunner *KProcessRunner::fromApplication(const KService::Ptr &service,
@@ -55,12 +54,14 @@ KProcessRunner *KProcessRunner::fromApplication(const KService::Ptr &service,
                                                 const QString &suggestedFileName,
                                                 const QByteArray &asn)
 {
-    auto instance = makeInstance(KIO::DesktopExecParser::executablePath(service->exec()));
+    auto instance = makeInstance();
 
     if (!service->isValid()) {
         instance->emitDelayedError(i18n("The desktop entry file\n%1\nis not valid.", service->entryPath()));
         return instance;
     }
+
+    instance->m_executable = KIO::DesktopExecParser::executablePath(service->exec());
 
     KIO::DesktopExecParser execParser(*service, urls);
     execParser.setUrlsAreTempFiles(flags & KIO::ApplicationLauncherJob::DeleteTemporaryFiles);
@@ -122,8 +123,9 @@ KProcessRunner *KProcessRunner::fromCommand(const QString &cmd,
                                             const QByteArray &asn,
                                             const QString &workingDirectory)
 {
-    auto instance = makeInstance(KIO::DesktopExecParser::executablePath(execName));
+    auto instance = makeInstance();
 
+    instance->m_executable = KIO::DesktopExecParser::executablePath(execName);
     instance->m_process->setShellCommand(cmd);
     if (!workingDirectory.isEmpty()) {
         instance->m_process->setWorkingDirectory(workingDirectory);
@@ -332,7 +334,7 @@ bool KIOGuiPrivate::checkStartupNotify(const KService *service, bool *silent_arg
     return true;
 }
 
-ForkingProcessRunner::ForkingProcessRunner(const QString &executable)
-    : KProcessRunner(executable)
+ForkingProcessRunner::ForkingProcessRunner()
+    : KProcessRunner()
 {
 }
