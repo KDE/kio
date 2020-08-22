@@ -544,8 +544,8 @@ bool PreviewJobPrivate::statResultThumbnail()
     origName = url.toEncoded(QUrl::RemovePassword);
 
     QCryptographicHash md5(QCryptographicHash::Md5);
-    md5.addData(QFile::encodeName(QString::fromUtf8(origName)));
-    thumbName = QString::fromUtf8(QFile::encodeName(QString::fromLatin1(md5.result().toHex()))) + QLatin1String(".png");
+    md5.addData(origName);
+    thumbName = QString::fromLatin1(md5.result().toHex()) + QLatin1String(".png");
 
     QImage thumb;
     if (!thumb.load(thumbPath + thumbName)) {
