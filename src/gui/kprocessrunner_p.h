@@ -96,6 +96,7 @@ protected:
     virtual void startProcess() = 0;
     void setPid(qint64 pid);
     void terminateStartupNotification();
+    QString name() const;
 
     std::unique_ptr<KProcess> m_process;
     QString m_executable; // can be a full path

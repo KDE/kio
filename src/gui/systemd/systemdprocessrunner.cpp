@@ -80,7 +80,7 @@ bool SystemdProcessRunner::waitForStarted(int timeout)
 void SystemdProcessRunner::startProcess()
 {
     m_serviceName = QStringLiteral("app-%1@%2.service")
-                        .arg(escapeUnitName(!m_desktopName.isEmpty() ? m_desktopName : m_executable),
+                        .arg(escapeUnitName(name()),
                             QUuid::createUuid().toString(QUuid::Id128));
 
     // Watch for new services

@@ -199,8 +199,15 @@ void KProcessRunner::init(const KService::Ptr &service, const QString &userVisib
     Q_UNUSED(iconName);
 #endif
     if (service) {
+        // Store the desktop name, used by debug output and for the systemd unit name
         m_desktopName = service->menuId();
-        m_desktopName.truncate(m_desktopName.length() - strlen(".desktop"));
+        if (m_desktopName.endsWith(QLatin1String(".desktop"))) { // always true, in theory
+            m_desktopName.chop(strlen(".desktop"));
+        }
+        if (m_desktopName.isEmpty()) { // desktop files not in the menu
+            // desktopEntryName is lowercase so this is only a fallback
+            m_desktopName = service->desktopEntryName();
+        }
     }
     startProcess();
 }
@@ -227,7 +234,7 @@ void ForkingProcessRunner::slotProcessError(QProcess::ProcessError errorCode)
     // E.g. the process crashed.
     // This is unlikely to happen while the ApplicationLauncherJob is still connected to the KProcessRunner.
     // So the emit does nothing, this is really just for debugging.
-    qCDebug(KIO_GUI) << m_executable << "error=" << errorCode << m_process->errorString();
+    qCDebug(KIO_GUI) << name() << "error=" << errorCode << m_process->errorString();
     Q_EMIT error(m_process->errorString());
 }
 
@@ -239,7 +246,7 @@ void ForkingProcessRunner::slotProcessStarted()
 void KProcessRunner::setPid(qint64 pid)
 {
     if (!m_pid && pid) {
-        qCDebug(KIO_GUI) << "Setting PID" << pid << "for:" << m_executable;
+        qCDebug(KIO_GUI) << "Setting PID" << pid << "for:" << name();
         m_pid = pid;
 #if HAVE_X11
         if (!m_startupId.isNull()) {
@@ -276,6 +283,11 @@ void KProcessRunner::terminateStartupNotification()
 #endif
 }
 
+QString KProcessRunner::name() const
+{
+    return !m_desktopName.isEmpty() ? m_desktopName : m_executable;
+}
+
 void KProcessRunner::emitDelayedError(const QString &errorMsg)
 {
     qCWarning(KIO_GUI) << errorMsg;
@@ -289,7 +301,7 @@ void KProcessRunner::emitDelayedError(const QString &errorMsg)
 
 void ForkingProcessRunner::slotProcessExited(int exitCode, QProcess::ExitStatus exitStatus)
 {
-    qCDebug(KIO_GUI) << m_executable << "exitCode=" << exitCode << "exitStatus=" << exitStatus;
+    qCDebug(KIO_GUI) << name() << "exitCode=" << exitCode << "exitStatus=" << exitStatus;
     terminateStartupNotification();
     deleteLater();
 }
