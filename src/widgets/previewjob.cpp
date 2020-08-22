@@ -539,10 +539,9 @@ bool PreviewJobPrivate::statResultThumbnail()
         return false;
     }
 
-    QUrl url = currentItem.item.mostLocalUrl();
+    const QUrl url = currentItem.item.mostLocalUrl();
     // Don't include the password if any
-    url.setPassword(QString());
-    origName = url.toEncoded();
+    origName = url.toEncoded(QUrl::RemovePassword);
 
     QCryptographicHash md5(QCryptographicHash::Md5);
     md5.addData(QFile::encodeName(QString::fromUtf8(origName)));
