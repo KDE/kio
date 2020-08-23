@@ -371,8 +371,11 @@ private:
     class NetRCPrivate;
     NetRCPrivate *const d;
 };
+
+Q_DECLARE_OPERATORS_FOR_FLAGS(NetRC::LookUpMode)
+
 }
-Q_DECLARE_OPERATORS_FOR_FLAGS(KIO::NetRC::LookUpMode)
+
 Q_DECLARE_METATYPE(KIO::AuthInfo)
 
 #endif

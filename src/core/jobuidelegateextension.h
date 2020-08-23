@@ -37,6 +37,7 @@ enum RenameDialog_Option {
  * Stores a combination of #RenameDialog_Option values.
  */
 Q_DECLARE_FLAGS(RenameDialog_Options, RenameDialog_Option)
+Q_DECLARE_OPERATORS_FOR_FLAGS(RenameDialog_Options)
 
 // For compat
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 0)
@@ -72,6 +73,8 @@ enum SkipDialog_Option {
  * Stores a combination of #SkipDialog_Option values.
  */
 Q_DECLARE_FLAGS(SkipDialog_Options, SkipDialog_Option)
+Q_DECLARE_OPERATORS_FOR_FLAGS(SkipDialog_Options)
+
 
 /**
  * The result of a rename or skip dialog
@@ -279,8 +282,5 @@ KIOCORE_EXPORT JobUiDelegateExtension *defaultJobUiDelegateExtension();
 KIOCORE_EXPORT void setDefaultJobUiDelegateExtension(JobUiDelegateExtension *extension);
 
 } // namespace KIO
-
-Q_DECLARE_OPERATORS_FOR_FLAGS(KIO::RenameDialog_Options)
-Q_DECLARE_OPERATORS_FOR_FLAGS(KIO::SkipDialog_Options)
 
 #endif
