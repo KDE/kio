@@ -1,5 +1,6 @@
 /*
     SPDX-FileCopyrightText: 2010 Rodrigo Belem <rclbelem@gmail.com>
+    SPDX-FileCopyrightText: 2020 Harald Sitter <sitter@kde.org>
 
     SPDX-License-Identifier: LGPL-2.1-only OR LGPL-3.0-only OR LicenseRef-KDE-Accepted-LGPL
 */
@@ -40,6 +41,7 @@ public:
     bool isShareNameValid(const QString &name) const;
     bool isDirectoryShared(const QString &path) const;
     bool isShareNameAvailable(const QString &name) const;
+    bool areGuestsAllowed() const;
     KSambaShareData::UserShareError isPathValid(const QString &path) const;
     KSambaShareData::UserShareError isAclValid(const QString &acl) const;
     KSambaShareData::UserShareError guestsAllowed(const KSambaShareData::GuestPermission &guestok) const;

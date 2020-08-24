@@ -317,14 +317,16 @@ KSambaShareData::UserShareError KSambaSharePrivate::isAclValid(const QString &ac
                                          : KSambaShareData::UserShareAclInvalid;
 }
 
+bool KSambaSharePrivate::areGuestsAllowed() const
+{
+    return KSambaSharePrivate::testparmParamValue(QStringLiteral("usershare allow guests")) != QLatin1String("No");
+}
+
 KSambaShareData::UserShareError KSambaSharePrivate::guestsAllowed(const
         KSambaShareData::GuestPermission &guestok) const
 {
-    if (guestok == KSambaShareData::GuestsAllowed) {
-        if (KSambaSharePrivate::testparmParamValue(QStringLiteral("usershare allow guests"))
-                == QLatin1String("No")) {
-            return KSambaShareData::UserShareGuestsNotAllowed;
-        }
+    if (guestok == KSambaShareData::GuestsAllowed && !areGuestsAllowed()) {
+        return KSambaShareData::UserShareGuestsNotAllowed;
     }
 
     return KSambaShareData::UserShareGuestsOk;

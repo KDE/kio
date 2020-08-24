@@ -119,6 +119,16 @@ public:
      */
     QString lastSystemErrorString() const;
 
+    /**
+     * Check whether usershares may enable guests. System-level configuration
+     * may disable usershare guests and prevent saving KSambaShareData with
+     * UserGuestPermission set.
+     *
+     * @return @c true when usershares may allow guest access
+     * @since 5.74
+     */
+    bool areGuestsAllowed() const;
+
 Q_SIGNALS:
     /**
      * Emitted when a share is updated, added or removed
