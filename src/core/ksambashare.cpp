@@ -554,6 +554,12 @@ QString KSambaShare::lastSystemErrorString() const
     return QString::fromUtf8(d->m_stdErr);
 }
 
+bool KSambaShare::areGuestsAllowed() const
+{
+    Q_D(const KSambaShare);
+    return d->areGuestsAllowed();
+}
+
 class KSambaShareSingleton
 {
 public:
