@@ -78,6 +78,7 @@ extern "C" {
 #include <kdirnotify.h>
 #include <kdiskfreespaceinfo.h>
 #include <KDesktopFile>
+#include <KPluginMetaData>
 #include <KIconButton>
 #include <kurlrequester.h>
 #include <KLocalizedString>
@@ -614,8 +615,28 @@ void KPropertiesDialog::KPropertiesDialogPrivate::insertPages()
     ).arg(item.url().scheme());
 
     // qDebug() << "trader query: " << query;
+
+    QStringList addedPlugins;
+    const auto jsonPlugins = KPluginLoader::findPlugins(QStringLiteral("kf5/propertiesdialog"));
+    for (const auto &jsonMetadata : jsonPlugins) {
+        KPluginFactory *factory = KPluginLoader(jsonMetadata.fileName()).factory();
+        if (!factory) {
+            continue;
+        }
+        KPropertiesDialogPlugin* plugin = factory->create<KPropertiesDialogPlugin>(q);
+        if (plugin) {
+            q->insertPlugin(plugin);
+            addedPlugins.append(jsonMetadata.pluginId());
+        }
+    }
+
+    // TODO KF6 - Remove once we drop loading of C++ plugins without JSON metadata.
     const KService::List offers = KMimeTypeTrader::self()->query(mimetype, QStringLiteral("KPropertiesDialog/Plugin"), query);
     for (const KService::Ptr &ptr : offers) {
+        if (addedPlugins.contains(ptr->desktopEntryName())) {
+            continue;
+        }
+        qCWarning(KIO_WIDGETS) << "Plugin" << ptr->desktopEntryName() << "is using the deprecated loading style. Please port it to JSON loading.";
         KPropertiesDialogPlugin *plugin = ptr->createInstance<KPropertiesDialogPlugin>(q);
         if (!plugin) {
             continue;
@@ -623,6 +644,7 @@ void KPropertiesDialog::KPropertiesDialogPrivate::insertPages()
         plugin->setObjectName(ptr->name());
 
         q->insertPlugin(plugin);
+        addedPlugins.append(ptr->desktopEntryName());
     }
 }
 
