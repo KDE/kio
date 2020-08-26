@@ -30,6 +30,10 @@
 #include <QMimeDatabase>
 #include <QOperatingSystemVersion>
 #include <QTimer>
+#include <QProcess>
+
+#include <sys/types.h>
+#include <sys/xattr.h>
 
 #include <kio/scheduler.h>
 
@@ -170,6 +174,41 @@ void KIO::OpenUrlJob::start()
         emitResult();
         return;
     }
+
+    char data[255];
+
+    auto path = d->m_url.toLocalFile();
+    auto isApp = true;
+    auto size = getxattr(path.toLocal8Bit().data(), "user.org.kde.plasma.file-created-by", data, 255);
+    if (size == 0) {
+        isApp = true;
+        size = getxattr(path.toLocal8Bit().data(), "user.org.kde.plasma.file-created-by-executable", data, 255);
+    }
+
+    do {
+    if (size != 0) {
+        auto value = QString::fromLocal8Bit(data, size);
+        if (isApp) {
+            if (!value.endsWith(QStringLiteral(".desktop"))) {
+                value = value + QStringLiteral(".desktop");
+            }
+            KDesktopFile file(QStandardPaths::ApplicationsLocation, value);
+            auto service = KService(&file);
+            KIO::DesktopExecParser parser(service, {d->m_url});
+            auto arguments = parser.resultingArguments();
+            if (arguments.isEmpty()) {
+                break;
+            }
+            auto prog = arguments.first();
+            arguments.pop_front();
+            QProcess::execute(prog, arguments);
+            emitResult();
+        } else {
+            QProcess::execute(value, {path});
+            emitResult();
+        }
+    }
+    } while (false);
 
     // If we know the mimetype, proceed
     if (!d->m_mimeTypeName.isEmpty()) {
