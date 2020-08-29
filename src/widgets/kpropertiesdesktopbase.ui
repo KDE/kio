@@ -73,16 +73,15 @@
        <property name="whatsThis">
         <string>Type the command to start this application here.
 
-Following the command, you can have several place holders which will be replaced with the actual values when the actual program is run:
-%f - a single file name
-%F - a list of files; use for applications that can open several local files at once
+Following the command, you can have several placeholders which will be replaced with the actual values when the actual program is run:
+
+%f - a single filename
+%F - a list of files (for apps that can open several files at once)
 %u - a single URL
 %U - a list of URLs
-%d - the directory of the file to open
-%D - a list of directories
-%i - the icon
-%m - the mini-icon
-%c - the caption</string>
+%i - the icon of the .desktop file
+%c - the name of the .desktop file
+%k - the location of the .desktop file</string>
        </property>
        <property name="text">
         <string>Co&amp;mmand:</string>
@@ -99,16 +98,15 @@ Following the command, you can have several place holders which will be replaced
          <property name="whatsThis">
           <string>Type the command to start this application here.
 
-Following the command, you can have several place holders which will be replaced with the actual values when the actual program is run:
-%f - a single file name
-%F - a list of files; use for applications that can open several local files at once
+Following the command, you can have several placeholders which will be replaced with the actual values when the actual program is run:
+
+%f - a single filename
+%F - a list of files (for apps that can open several files at once)
 %u - a single URL
 %U - a list of URLs
-%d - the directory of the file to open
-%D - a list of directories
-%i - the icon
-%m - the mini-icon
-%c - the caption</string>
+%i - the icon of the .desktop file
+%c - the name of the .desktop file
+%k - the location of the .desktop file</string>
          </property>
         </widget>
        </item>
