@@ -124,7 +124,19 @@ QUrl StatJob::mostLocalUrl() const
     const UDSEntry &udsEntry = d_func()->m_statResult;
     const QString path = udsEntry.stringValue(KIO::UDSEntry::UDS_LOCAL_PATH);
 
-    return !path.isEmpty() ? QUrl::fromLocalFile(path) : _url;
+    if (path.isEmpty()) { // Return url as-is
+        return _url;
+    }
+
+    const QString protoClass = KProtocolInfo::protocolClass(_url.scheme());
+    if (protoClass != QLatin1String(":local")) { // UDS_LOCAL_PATH was set but wrong Class
+        qCWarning(KIO_CORE) << "The protocol Class of the url that was being stat'ed" << _url << ", is" << protoClass
+                            << ", however UDS_LOCAL_PATH was set; if you use UDS_LOCAL_PATH, the protocolClass"
+                               " should be :local, see KProtocolInfo API docs for more details.";
+        return _url;
+    }
+
+    return QUrl::fromLocalFile(path);
 }
 
 void StatJobPrivate::start(Slave *slave)
