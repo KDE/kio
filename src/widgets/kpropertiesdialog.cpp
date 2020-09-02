@@ -162,7 +162,6 @@ public:
     explicit KPropertiesDialogPrivate(KPropertiesDialog *qq)
         : q(qq)
         , m_aborted(false)
-        , fileSharePage(nullptr)
     {
     }
     ~KPropertiesDialogPrivate()
@@ -180,7 +179,7 @@ public:
 
     KPropertiesDialog * const q;
     bool m_aborted;
-    QWidget *fileSharePage;
+    KPageWidgetItem *fileSharePageItem = nullptr;
     /**
      * The URL of the props dialog (when shown for only one file)
      */
@@ -419,15 +418,14 @@ void KPropertiesDialog::KPropertiesDialogPrivate::init()
 
 void KPropertiesDialog::showFileSharingPage()
 {
-    if (d->fileSharePage) {
-        // FIXME: this showFileSharingPage thingy looks broken! (tokoe)
-        // showPage( pageIndex( d->fileSharePage));
+    if (d->fileSharePageItem) {
+        setCurrentPage(d->fileSharePageItem);
     }
 }
 
 void KPropertiesDialog::setFileSharingPage(QWidget *page)
 {
-    d->fileSharePage = page;
+    d->fileSharePageItem = addPage(page, i18nc("@title:tab", "Share"));
 }
 
 void KPropertiesDialog::setFileNameReadOnly(bool ro)

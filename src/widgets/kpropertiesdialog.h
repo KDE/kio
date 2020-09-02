@@ -307,6 +307,8 @@ public:
      * This page is shown when calling showFileSharingPage().
      *
      * @param page the page to set
+     *
+     * \note This should only be called by KPropertiesDialog plugins.
      * \see showFileSharingPage
      */
     void setFileSharingPage(QWidget *page);
