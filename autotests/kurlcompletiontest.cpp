@@ -137,7 +137,7 @@ void KUrlCompletionTest::testLocalRelativePath()
     QVERIFY(comp1all.contains(QLatin1String("file1")));
     QVERIFY(comp1all.contains(QLatin1String("file#a")));
     QVERIFY(comp1all.contains(QLatin1String("file.")));
-    QVERIFY(comp1all.contains(QLatin1String("file_subdir")));
+    QVERIFY(comp1all.contains(QLatin1String("file_subdir/")));
     QString comp1 = m_completion->replacedPath(QStringLiteral("file1")); // like KUrlRequester does
     QCOMPARE(comp1, QStringLiteral("file1"));
 
@@ -163,15 +163,15 @@ void KUrlCompletionTest::testLocalRelativePath()
     waitForCompletion(m_completion);
     const auto compAllHidden = m_completion->allMatches();
     QCOMPARE(compAllHidden.count(), 2);
-    QVERIFY(compAllHidden.contains(QLatin1String(".1_hidden_file_subdir")));
-    QVERIFY(compAllHidden.contains(QLatin1String(".2_hidden_file_subdir")));
+    QVERIFY(compAllHidden.contains(QLatin1String(".1_hidden_file_subdir/")));
+    QVERIFY(compAllHidden.contains(QLatin1String(".2_hidden_file_subdir/")));
 
     // Completion with '.2', should find only hidden folders starting with '2'
     m_completion->makeCompletion(QStringLiteral(".2"));
     waitForCompletion(m_completion);
     const auto compHiddenStartingWith2 = m_completion->allMatches();
     QCOMPARE(compHiddenStartingWith2.count(), 1);
-    QVERIFY(compHiddenStartingWith2.contains(QLatin1String(".2_hidden_file_subdir")));
+    QVERIFY(compHiddenStartingWith2.contains(QLatin1String(".2_hidden_file_subdir/")));
 
     // Completion with 'file.', should only find one file
     m_completion->makeCompletion(QStringLiteral("file."));
@@ -192,7 +192,7 @@ void KUrlCompletionTest::testLocalRelativePath()
     waitForCompletion(m_completionWithMimeFilter);
     const auto compMimeFolder = m_completionWithMimeFilter->allMatches();
     QCOMPARE(compMimeFolder.count(), 1);
-    QVERIFY(compMimeFolder.contains(QLatin1String("file_subdir")));
+    QVERIFY(compMimeFolder.contains(QLatin1String("file_subdir/")));
 }
 
 void KUrlCompletionTest::testLocalAbsolutePath()
@@ -214,15 +214,15 @@ void KUrlCompletionTest::testLocalAbsolutePath()
     waitForCompletion(m_completion);
     const auto compAllHidden = m_completion->allMatches();
     QCOMPARE(compAllHidden.count(), 2);
-    QVERIFY(compAllHidden.contains(m_dir + ".1_hidden_file_subdir"));
-    QVERIFY(compAllHidden.contains(m_dir + ".2_hidden_file_subdir"));
+    QVERIFY(compAllHidden.contains(m_dir + ".1_hidden_file_subdir/"));
+    QVERIFY(compAllHidden.contains(m_dir + ".2_hidden_file_subdir/"));
 
     // Completion with '.2', should find only hidden folders starting with '2'
     m_completion->makeCompletion(m_dir + ".2");
     waitForCompletion(m_completion);
     const auto compHiddenStartingWith2 = m_completion->allMatches();
     QCOMPARE(compHiddenStartingWith2.count(), 1);
-    QVERIFY(compHiddenStartingWith2.contains(m_dir + ".2_hidden_file_subdir"));
+    QVERIFY(compHiddenStartingWith2.contains(m_dir + ".2_hidden_file_subdir/"));
 
     // Completion with 'file.', should only find one file
     m_completion->makeCompletion(m_dir + "file.");
@@ -243,7 +243,7 @@ void KUrlCompletionTest::testLocalAbsolutePath()
     waitForCompletion(m_completionWithMimeFilter);
     const auto compMimeFolder = m_completionWithMimeFilter->allMatches();
     QCOMPARE(compMimeFolder.count(), 1);
-    QVERIFY(compMimeFolder.contains(m_dir + "file_subdir"));
+    QVERIFY(compMimeFolder.contains(m_dir + "file_subdir/"));
 }
 
 void KUrlCompletionTest::testLocalURL()
@@ -260,7 +260,7 @@ void KUrlCompletionTest::testLocalURL()
     QVERIFY(comp1all.contains(m_dirURL.toString() + "file1"));
     qDebug() << "Looking for" << m_dirURL.toString() + "file.";
     QVERIFY(comp1all.contains(m_dirURL.toString() + "file."));
-    QVERIFY(comp1all.contains(m_dirURL.toString() + "file_subdir"));
+    QVERIFY(comp1all.contains(m_dirURL.toString() + "file_subdir/"));
     QString filehash = m_dirURL.toString() + "file%23a";
     qDebug() << "Looking for" << filehash;
     QVERIFY(comp1all.contains(filehash));
@@ -290,8 +290,8 @@ void KUrlCompletionTest::testLocalURL()
     waitForCompletion(m_completion);
     const auto compAllHidden = m_completion->allMatches();
     QCOMPARE(compAllHidden.count(), 2);
-    QVERIFY(compAllHidden.contains(m_dirURL.toString() + ".1_hidden_file_subdir"));
-    QVERIFY(compAllHidden.contains(m_dirURL.toString() + ".2_hidden_file_subdir"));
+    QVERIFY(compAllHidden.contains(m_dirURL.toString() + ".1_hidden_file_subdir/"));
+    QVERIFY(compAllHidden.contains(m_dirURL.toString() + ".2_hidden_file_subdir/"));
 
     // Completion with '.2', should find only hidden folders starting with '2'
     url = QUrl::fromLocalFile(m_dirURL.toLocalFile() + ".2");
@@ -300,7 +300,7 @@ void KUrlCompletionTest::testLocalURL()
     waitForCompletion(m_completion);
     const auto compHiddenStartingWith2 = m_completion->allMatches();
     QCOMPARE(compHiddenStartingWith2.count(), 1);
-    QVERIFY(compHiddenStartingWith2.contains(m_dirURL.toString() + QStringLiteral(".2_hidden_file_subdir")));
+    QVERIFY(compHiddenStartingWith2.contains(m_dirURL.toString() + QStringLiteral(".2_hidden_file_subdir/")));
 
     // Completion with 'file.', should only find one file
     url = QUrl::fromLocalFile(m_dirURL.toLocalFile() + QStringLiteral("file."));
@@ -323,7 +323,7 @@ void KUrlCompletionTest::testLocalURL()
     waitForCompletion(m_completionWithMimeFilter);
     const auto compMimeFolder = m_completionWithMimeFilter->allMatches();
     QCOMPARE(compMimeFolder.count(), 1);
-    QVERIFY(compMimeFolder.contains(m_dirURL.toString() + QStringLiteral("file_subdir")));
+    QVERIFY(compMimeFolder.contains(m_dirURL.toString() + QStringLiteral("file_subdir/")));
 }
 
 void KUrlCompletionTest::testEmptyCwd()
