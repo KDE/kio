@@ -88,25 +88,12 @@ endif()
 if (TARGET KF5::KIOGui)
   ecm_add_tests(
     favicontest.cpp
+    applicationlauncherjobtest.cpp
     openurljobtest.cpp
+    commandlauncherjobtest.cpp
     NAME_PREFIX "kiogui-"
     LINK_LIBRARIES KF5::KIOCore KF5::KIOGui Qt5::Test
   )
-
-  foreach(_kprocessrunnerTest applicationlauncherjob commandlauncherjob)
-    foreach(_forceScope 1 0)
-      if(${_forceScope})
-        set(KPR_TEST_TARGET ${_kprocessrunnerTest}_systemdtest)
-      else()
-        set(KPR_TEST_TARGET ${_kprocessrunnerTest}_forkingtest)
-      endif()
-      add_executable(${KPR_TEST_TARGET} ${_kprocessrunnerTest}test.cpp)
-      target_link_libraries(${KPR_TEST_TARGET} KF5::KIOCore KF5::KIOGui Qt5::Test)
-      ecm_mark_as_test(${KPR_TEST_TARGET})
-      add_test(NAME ${KPR_TEST_TARGET} COMMAND ${KPR_TEST_TARGET})
-      set_tests_properties(${KPR_TEST_TARGET} PROPERTIES ENVIRONMENT KDE_APPLICATIONS_AS_SCOPE=${_forceScope})
-    endforeach()
-  endforeach()
 
   target_link_libraries(favicontest Qt5::Concurrent)
 endif()

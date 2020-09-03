@@ -7,10 +7,6 @@
 
 #include "kprocessrunner_p.h"
 
-#if defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)
-#include "systemd/systemdprocessrunner_p.h"
-#endif
-
 #include "kiogui_debug.h"
 #include "config-kiogui.h"
 
@@ -21,7 +17,10 @@
 #include <KWindowSystem>
 
 #include <QDBusConnection>
+#include <QDBusConnectionInterface>
 #include <QDBusInterface>
+#include <QDBusMetaType>
+#include <QDBusPendingCallWatcher>
 #include <QDBusReply>
 #include <QDir>
 #include <QFileInfo>
@@ -30,36 +29,20 @@
 #include <QString>
 #include <QUuid>
 
+#include <mutex>
+
 static int s_instanceCount = 0; // for the unittest
 
-KProcessRunner::KProcessRunner(const QString &executable)
-    : m_process {new KProcess}
-    , m_executable(executable)
+KProcessRunner::KProcessRunner(const KService::Ptr &service, const QList<QUrl> &urls,
+                               KIO::ApplicationLauncherJob::RunFlags flags, const QString &suggestedFileName, const QByteArray &asn)
+    : m_process{new KProcess},
+      m_executable(KIO::DesktopExecParser::executablePath(service->exec()))
 {
     ++s_instanceCount;
-}
-
-KProcessRunner *KProcessRunner::makeInstance(const QString &executable)
-{
-#if defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)
-    if (SystemdProcessRunner::isAvailable()) {
-        return new SystemdProcessRunner(executable);
-    }
-#endif
-    return new ForkingProcessRunner(executable);
-}
-
-KProcessRunner *KProcessRunner::fromApplication(const KService::Ptr &service,
-                                                const QList<QUrl> &urls,
-                                                KIO::ApplicationLauncherJob::RunFlags flags,
-                                                const QString &suggestedFileName,
-                                                const QByteArray &asn)
-{
-    auto instance = makeInstance(KIO::DesktopExecParser::executablePath(service->exec()));
 
     if (!service->isValid()) {
-        instance->emitDelayedError(i18n("The desktop entry file\n%1\nis not valid.", service->entryPath()));
-        return instance;
+        emitDelayedError(i18n("The desktop entry file\n%1\nis not valid.", service->entryPath()));
+        return;
     }
 
     KIO::DesktopExecParser execParser(*service, urls);
@@ -67,12 +50,12 @@ KProcessRunner *KProcessRunner::fromApplication(const KService::Ptr &service,
     execParser.setSuggestedFileName(suggestedFileName);
     const QStringList args = execParser.resultingArguments();
     if (args.isEmpty()) {
-        instance->emitDelayedError(execParser.errorMessage());
-        return instance;
+        emitDelayedError(execParser.errorMessage());
+        return;
     }
 
     qCDebug(KIO_GUI) << "Starting process:" << args;
-    *instance->m_process << args;
+    *m_process << args;
 
     enum DiscreteGpuCheck { NotChecked, Present, Absent };
     static DiscreteGpuCheck s_gpuCheck = NotChecked;
@@ -95,14 +78,14 @@ KProcessRunner *KProcessRunner::fromApplication(const KService::Ptr &service,
     }
 
     if (service->runOnDiscreteGpu() && s_gpuCheck == Present) {
-        instance->m_process->setEnv(QStringLiteral("DRI_PRIME"), QStringLiteral("1"));
+        m_process->setEnv(QStringLiteral("DRI_PRIME"), QStringLiteral("1"));
     }
 
     QString workingDir(service->workingDirectory());
     if (workingDir.isEmpty() && !urls.isEmpty() && urls.first().isLocalFile()) {
         workingDir = urls.first().adjusted(QUrl::RemoveFilename).toLocalFile();
     }
-    instance->m_process->setWorkingDirectory(workingDir);
+    m_process->setWorkingDirectory(workingDir);
 
     if ((flags & KIO::ApplicationLauncherJob::DeleteTemporaryFiles) == 0) {
         // Remember we opened those urls, for the "recent documents" menu in kicker
@@ -111,37 +94,30 @@ KProcessRunner *KProcessRunner::fromApplication(const KService::Ptr &service,
         }
     }
 
-    instance->init(service, service->name(), service->icon(), asn);
-    return instance;
+    init(service, service->name(), service->icon(), asn);
 }
 
-KProcessRunner *KProcessRunner::fromCommand(const QString &cmd,
-                                            const QString &desktopName,
-                                            const QString &execName,
-                                            const QString &iconName,
-                                            const QByteArray &asn,
-                                            const QString &workingDirectory)
+KProcessRunner::KProcessRunner(const QString &cmd, const QString &desktopName, const QString &execName, const QString &iconName, const QByteArray &asn, const QString &workingDirectory)
+    : m_process{new KProcess},
+      m_executable(execName)
 {
-    auto instance = makeInstance(KIO::DesktopExecParser::executablePath(execName));
-
-    instance->m_process->setShellCommand(cmd);
+    ++s_instanceCount;
+    m_process->setShellCommand(cmd);
     if (!workingDirectory.isEmpty()) {
-        instance->m_process->setWorkingDirectory(workingDirectory);
+        m_process->setWorkingDirectory(workingDirectory);
     }
     if (!desktopName.isEmpty()) {
         KService::Ptr service = KService::serviceByDesktopName(desktopName);
         if (service) {
-            if (instance->m_executable.isEmpty()) {
-                instance->m_executable = KIO::DesktopExecParser::executablePath(service->exec());
+            if (m_executable.isEmpty()) {
+                m_executable = KIO::DesktopExecParser::executablePath(service->exec());
             }
-            instance->init(service, service->name(), service->icon(), asn);
-            return instance;
+            init(service, service->name(), service->icon(), asn);
+            return;
         }
     }
-    instance->init(KService::Ptr(), execName /*user-visible name*/, iconName, asn);
-    return instance;
+    init(KService::Ptr(), execName /*user-visible name*/, iconName, asn);
 }
-
 
 void KProcessRunner::init(const KService::Ptr &service, const QString &userVisibleName, const QString &iconName, const QByteArray &asn)
 {
@@ -197,30 +173,32 @@ void KProcessRunner::init(const KService::Ptr &service, const QString &userVisib
     Q_UNUSED(iconName);
 #endif
     if (service) {
-        m_desktopName = service->menuId();
-        m_desktopName.truncate(m_desktopName.length() - strlen(".desktop"));
+        m_scopeId = service->desktopEntryName();
+    }
+    if (m_scopeId.isEmpty()) {
+        m_scopeId = KIO::DesktopExecParser::executableName(m_executable);
     }
     startProcess();
 }
 
-void ForkingProcessRunner::startProcess()
+void KProcessRunner::startProcess()
 {
     connect(m_process.get(), QOverload<int,QProcess::ExitStatus>::of(&QProcess::finished),
-            this, &ForkingProcessRunner::slotProcessExited);
+            this, &KProcessRunner::slotProcessExited);
     connect(m_process.get(), &QProcess::started,
-            this, &ForkingProcessRunner::slotProcessStarted, Qt::QueuedConnection);
+            this, &KProcessRunner::slotProcessStarted, Qt::QueuedConnection);
     connect(m_process.get(), &QProcess::errorOccurred,
-            this, &ForkingProcessRunner::slotProcessError);
+            this, &KProcessRunner::slotProcessError);
 
     m_process->start();
 }
 
-bool ForkingProcessRunner::waitForStarted(int timeout)
+bool KProcessRunner::waitForStarted()
 {
-    return m_process->waitForStarted(timeout);
+    return m_process->waitForStarted();
 }
 
-void ForkingProcessRunner::slotProcessError(QProcess::ProcessError errorCode)
+void KProcessRunner::slotProcessError(QProcess::ProcessError errorCode)
 {
     // E.g. the process crashed.
     // This is unlikely to happen while the ApplicationLauncherJob is still connected to the KProcessRunner.
@@ -229,26 +207,20 @@ void ForkingProcessRunner::slotProcessError(QProcess::ProcessError errorCode)
     Q_EMIT error(m_process->errorString());
 }
 
-void ForkingProcessRunner::slotProcessStarted()
+void KProcessRunner::slotProcessStarted()
 {
-    setPid(m_process->processId());
-}
+    m_pid = m_process->processId();
+    registerCGroup();
 
-void KProcessRunner::setPid(qint64 pid)
-{
-    if (!m_pid && pid) {
-        qCDebug(KIO_GUI) << "Setting PID" << pid << "for:" << m_executable;
-        m_pid = pid;
 #if HAVE_X11
-        if (!m_startupId.isNull()) {
-            KStartupInfoData data;
-            data.addPid(static_cast<int>(m_pid));
-            KStartupInfo::sendChange(m_startupId, data);
-            KStartupInfo::resetStartupEnv();
-        }
-#endif
-        Q_EMIT processStarted(pid);
+    if (!m_startupId.isNull() && m_pid) {
+        KStartupInfoData data;
+        data.addPid(m_pid);
+        KStartupInfo::sendChange(m_startupId, data);
+        KStartupInfo::resetStartupEnv();
     }
+#endif
+    emit processStarted();
 }
 
 KProcessRunner::~KProcessRunner()
@@ -262,12 +234,17 @@ int KProcessRunner::instanceCount()
     return s_instanceCount;
 }
 
+qint64 KProcessRunner::pid() const
+{
+    return m_pid;
+}
+
 void KProcessRunner::terminateStartupNotification()
 {
 #if HAVE_X11
     if (!m_startupId.isNull()) {
         KStartupInfoData data;
-        data.addPid(static_cast<int>(m_pid)); // announce this pid for the startup notification has finished
+        data.addPid(m_pid); // announce this pid for the startup notification has finished
         data.setHostname();
         KStartupInfo::sendFinish(m_startupId, data);
     }
@@ -285,12 +262,70 @@ void KProcessRunner::emitDelayedError(const QString &errorMsg)
     }, Qt::QueuedConnection);
 }
 
-void ForkingProcessRunner::slotProcessExited(int exitCode, QProcess::ExitStatus exitStatus)
+void KProcessRunner::slotProcessExited(int exitCode, QProcess::ExitStatus exitStatus)
 {
     qCDebug(KIO_GUI) << m_executable << "exitCode=" << exitCode << "exitStatus=" << exitStatus;
     terminateStartupNotification();
     deleteLater();
 }
+
+void KProcessRunner::registerCGroup()
+{
+    // As specified in "XDG standardization for applications" in https://systemd.io/DESKTOP_ENVIRONMENTS/
+#ifdef Q_OS_LINUX
+    if (!qEnvironmentVariableIsSet("KDE_APPLICATIONS_AS_SCOPE")) {
+        return;
+    }
+    if (!QDBusConnection::sessionBus().interface()->isServiceRegistered(QStringLiteral("org.freedesktop.systemd1"))) {
+        return;
+    }
+
+    typedef QPair<QString, QDBusVariant> NamedVariant;
+    typedef QList<NamedVariant> NamedVariantList;
+
+    static std::once_flag dbusTypesRegistered;
+    std::call_once(dbusTypesRegistered, []() {
+        qDBusRegisterMetaType<NamedVariant>();
+        qDBusRegisterMetaType<NamedVariantList>();
+        qDBusRegisterMetaType<QPair<QString, NamedVariantList>>();
+        qDBusRegisterMetaType<QList<QPair<QString, NamedVariantList>>>();
+    });
+
+    QDBusMessage message = QDBusMessage::createMethodCall(QStringLiteral("org.freedesktop.systemd1"),
+                                   QStringLiteral("/org/freedesktop/systemd1"),
+                                   QStringLiteral("org.freedesktop.systemd1.Manager"),
+                                   QStringLiteral("StartTransientUnit"));
+
+    // "-" is a special character in systemd representing a heirachical level. It should be escaped.
+    const QString escapedScopeId = m_scopeId.replace(QLatin1Char('-'), QStringLiteral("\\x2d"));
+
+    const QString name = QStringLiteral("apps-%1-%2.scope").arg(escapedScopeId, QUuid::createUuid().toString(QUuid::Id128));
+    // mode defines what to do in the case of a name conflict, in this case, just do nothing
+    const QString mode = QStringLiteral("fail");
+
+    const QList<uint> pidList = {static_cast<quint32>(m_process->pid())};
+
+    NamedVariantList properties = {NamedVariant({QStringLiteral("PIDs"), QDBusVariant(QVariant::fromValue(pidList))})};
+
+    QList<QPair<QString, NamedVariantList>> aux;
+
+    message.setArguments({name, mode, QVariant::fromValue(properties), QVariant::fromValue(aux)});
+    QDBusPendingCall reply = QDBusConnection::sessionBus().asyncCall(message);
+
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(reply, this);
+
+    QObject::connect(watcher, &QDBusPendingCallWatcher::finished, qApp, [=]() {
+        watcher->deleteLater();
+        if (reply.isError()) {
+            qCWarning(KIO_GUI) << "Failed to register new cgroup:" << name;
+        } else {
+            qCDebug(KIO_GUI) << "Successfully registered new cgroup:" << name;
+        }
+    });
+
+#endif
+}
+
 
 // This code is also used in klauncher (and KRun).
 bool KIOGuiPrivate::checkStartupNotify(const KService *service, bool *silent_arg, QByteArray *wmclass_arg)
@@ -330,9 +365,4 @@ bool KIOGuiPrivate::checkStartupNotify(const KService *service, bool *silent_arg
         *wmclass_arg = wmclass;
     }
     return true;
-}
-
-ForkingProcessRunner::ForkingProcessRunner(const QString &executable)
-    : KProcessRunner(executable)
-{
 }

@@ -45,11 +45,8 @@ public:
      * @param asn Application startup notification id, if any (otherwise "").
 
      */
-    static KProcessRunner *fromApplication(const KService::Ptr &service,
-                                           const QList<QUrl> &urls,
-                                           KIO::ApplicationLauncherJob::RunFlags flags = {},
-                                           const QString &suggestedFileName = {},
-                                           const QByteArray &asn = {});
+    KProcessRunner(const KService::Ptr &service, const QList<QUrl> &urls,
+                   KIO::ApplicationLauncherJob::RunFlags flags = {}, const QString &suggestedFileName = {}, const QByteArray &asn = {});
 
     /**
      * Run a shell command
@@ -62,17 +59,15 @@ public:
      *                         (if passing an empty string) is the user's document path.
      *                         This allows a command like "kwrite file.txt" to find file.txt from the right place.
      */
-    static KProcessRunner *fromCommand(const QString &cmd,
-                                       const QString &desktopName,
-                                       const QString &execName,
-                                       const QString &iconName,
-                                       const QByteArray &asn = {},
-                                       const QString &workingDirectory = {});
+    KProcessRunner(const QString &cmd, const QString &desktopName, const QString &execName, const QString &iconName,
+                   const QByteArray &asn = {}, const QString &workingDirectory = {});
 
     /**
-     * Blocks until the process has started. Only exists for KRun via Command/ApplicationLauncherJob, will disappear in KF6.
+     * @return the PID of the process that was started, on success
      */
-    virtual bool waitForStarted(int timeout = 30000) = 0;
+    qint64 pid() const;
+
+    bool waitForStarted();
 
     virtual ~KProcessRunner();
 
@@ -87,46 +82,29 @@ Q_SIGNALS:
 
     /**
      * @brief emitted when the process was successfully started
-     * @param pid PID of the process that was started
      */
-    void processStarted(qint64 pid);
-
-protected:
-    KProcessRunner(const QString &executable);
-    virtual void startProcess() = 0;
-    void setPid(qint64 pid);
-    void terminateStartupNotification();
-
-    std::unique_ptr<KProcess> m_process;
-    QString m_executable; // can be a full path
-    QString m_desktopName;
-    qint64 m_pid = 0;
-
-private:
-    static KProcessRunner *makeInstance(const QString &executable);
-    void emitDelayedError(const QString &errorMsg);
-    void init(const KService::Ptr &service, const QString &userVisibleName,
-              const QString &iconName, const QByteArray &asn);
-
-    KStartupInfoId m_startupId;
-
-    Q_DISABLE_COPY(KProcessRunner)
-};
-
-class ForkingProcessRunner : public KProcessRunner
-{
-    Q_OBJECT
-
-public:
-    explicit ForkingProcessRunner(const QString &executable);
-
-    void startProcess() override;
-    bool waitForStarted(int timeout) override;
+    void processStarted();
 
 private Q_SLOTS:
     void slotProcessExited(int, QProcess::ExitStatus);
     void slotProcessError(QProcess::ProcessError error);
     void slotProcessStarted();
+
+private:
+    void init(const KService::Ptr &service, const QString &userVisibleName,
+              const QString &iconName, const QByteArray &asn);
+    void startProcess();
+    void registerCGroup();
+    void terminateStartupNotification();
+    void emitDelayedError(const QString &errorMsg);
+
+    std::unique_ptr<KProcess> m_process;
+    QString m_executable; // can be a full path
+    KStartupInfoId m_startupId;
+    QString m_scopeId;
+    qint64 m_pid = 0;
+
+    Q_DISABLE_COPY(KProcessRunner)
 };
 
 #endif
