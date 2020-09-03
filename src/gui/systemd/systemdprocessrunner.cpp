@@ -26,7 +26,7 @@ bool SystemdProcessRunner::isAvailable()
     static std::once_flag dbusRegistered;
     static bool runAsService = false;
     std::call_once(dbusRegistered, []() {
-        if (qEnvironmentVariableIntValue("KDE_APPLICATIONS_AS_SCOPE") &&
+        if (qEnvironmentVariableIntValue("KDE_APPLICATIONS_AS_SERVICE") &&
             (QDBusConnection::sessionBus().interface()->isServiceRegistered(systemdService))) {
             runAsService = true;
             qDBusRegisterMetaType<QVariantMultiItem>();

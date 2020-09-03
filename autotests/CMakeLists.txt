@@ -104,7 +104,7 @@ if (TARGET KF5::KIOGui)
       target_link_libraries(${KPR_TEST_TARGET} KF5::KIOCore KF5::KIOGui Qt5::Test)
       ecm_mark_as_test(${KPR_TEST_TARGET})
       add_test(NAME ${KPR_TEST_TARGET} COMMAND ${KPR_TEST_TARGET})
-      set_tests_properties(${KPR_TEST_TARGET} PROPERTIES ENVIRONMENT KDE_APPLICATIONS_AS_SCOPE=${_forceScope})
+      set_tests_properties(${KPR_TEST_TARGET} PROPERTIES ENVIRONMENT KDE_APPLICATIONS_AS_SERVICE=${_forceScope})
     endforeach()
   endforeach()
 
