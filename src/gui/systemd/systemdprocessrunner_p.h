@@ -14,6 +14,9 @@ class OrgFreedesktopDBusPropertiesInterface;
 class QDBusObjectPath;
 class QDBusPendingCallWatcher;
 
+const auto systemdService = QStringLiteral("org.freedesktop.systemd1");
+const auto systemdPath = QStringLiteral("/org/freedesktop/systemd1");
+
 class SystemdProcessRunner : public KProcessRunner
 {
     Q_OBJECT
@@ -23,6 +26,7 @@ public:
     void startProcess() override;
     bool waitForStarted(int timeout) override;
     static bool isAvailable();
+    static QString escapeUnitName(const QString &input);
 
 private:
     void handleProperties(QDBusPendingCallWatcher *watcher);

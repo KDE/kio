@@ -20,7 +20,7 @@ if (CMAKE_SYSTEM_NAME STREQUAL "Linux")
 
     qt5_add_dbus_interfaces(kiogui_SRCS ${SYSTEMD_DBUS_XMLS})
 
-    list(APPEND kiogui_SRCS systemd/systemdprocessrunner.cpp)
+    list(APPEND kiogui_SRCS systemd/systemdprocessrunner.cpp systemd/scopedprocessrunner.cpp)
 endif ()
 
 ecm_qt_declare_logging_category(kiogui_SRCS

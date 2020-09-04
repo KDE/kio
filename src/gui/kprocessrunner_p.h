@@ -123,10 +123,10 @@ public:
     void startProcess() override;
     bool waitForStarted(int timeout) override;
 
-private Q_SLOTS:
+protected Q_SLOTS:
     void slotProcessExited(int, QProcess::ExitStatus);
     void slotProcessError(QProcess::ProcessError error);
-    void slotProcessStarted();
+    virtual void slotProcessStarted();
 };
 
 #endif

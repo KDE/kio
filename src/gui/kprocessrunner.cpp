@@ -9,6 +9,7 @@
 
 #if defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)
 #include "systemd/systemdprocessrunner_p.h"
+#include "systemd/scopedprocessrunner_p.h"
 #endif
 
 #include "kiogui_debug.h"
@@ -42,7 +43,10 @@ static KProcessRunner *makeInstance()
 {
 #if defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)
     if (SystemdProcessRunner::isAvailable()) {
-        return new SystemdProcessRunner();
+        if (qEnvironmentVariableIntValue("KDE_APPLICATIONS_AS_SERVICE")) {
+            return new SystemdProcessRunner();
+        }
+        return new ScopedProcessRunner();
     }
 #endif
     return new ForkingProcessRunner();

@@ -19,15 +19,12 @@
 
 using namespace org::freedesktop;
 
-static const auto systemdService = QStringLiteral("org.freedesktop.systemd1");
-
 bool SystemdProcessRunner::isAvailable()
 {
     static std::once_flag dbusRegistered;
     static bool runAsService = false;
     std::call_once(dbusRegistered, []() {
-        if (qEnvironmentVariableIntValue("KDE_APPLICATIONS_AS_SCOPE") &&
-            (QDBusConnection::sessionBus().interface()->isServiceRegistered(systemdService))) {
+        if (QDBusConnection::sessionBus().interface()->isServiceRegistered(systemdService)) {
             runAsService = true;
             qDBusRegisterMetaType<QVariantMultiItem>();
             qDBusRegisterMetaType<QVariantMultiMap>();
@@ -46,7 +43,7 @@ SystemdProcessRunner::SystemdProcessRunner()
 }
 
 // Only alphanum, ':' and '_' allowed in systemd unit names
-static QString escapeUnitName(const QString &input)
+QString SystemdProcessRunner::escapeUnitName(const QString &input)
 {
     QString res;
     const auto bytes = input.toUtf8();
@@ -84,7 +81,7 @@ void SystemdProcessRunner::startProcess()
                             QUuid::createUuid().toString(QUuid::Id128));
 
     // Watch for new services
-    m_manager = new systemd1::Manager(systemdService, QStringLiteral("/org/freedesktop/systemd1"), QDBusConnection::sessionBus(), this);
+    m_manager = new systemd1::Manager(systemdService, systemdPath, QDBusConnection::sessionBus(), this);
     m_manager->Subscribe();
     connect(m_manager, &systemd1::Manager::UnitNew, this, &SystemdProcessRunner::handleUnitNew);
 
