@@ -46,7 +46,9 @@ static KProcessRunner *makeInstance()
         if (qEnvironmentVariableIntValue("KDE_APPLICATIONS_AS_SERVICE")) {
             return new SystemdProcessRunner();
         }
-        return new ScopedProcessRunner();
+        if (qEnvironmentVariableIntValue("KDE_APPLICATIONS_AS_SCOPE")) {
+            return new ScopedProcessRunner();
+        }
     }
 #endif
     return new ForkingProcessRunner();
