@@ -101,6 +101,8 @@ protected:
     std::unique_ptr<KProcess> m_process;
     QString m_executable; // can be a full path
     QString m_desktopName;
+    QString m_desktopFilePath;
+    QString m_description;
     qint64 m_pid = 0;
 
 private:

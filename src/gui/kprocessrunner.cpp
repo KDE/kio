@@ -214,6 +214,13 @@ void KProcessRunner::init(const KService::Ptr &service, const QString &userVisib
             // desktopEntryName is lowercase so this is only a fallback
             m_desktopName = service->desktopEntryName();
         }
+        m_desktopFilePath = QFileInfo(service->entryPath()).absoluteFilePath();
+        m_description = service->name();
+        if (!service->genericName().isEmpty()) {
+            m_description.append(QStringLiteral(" - %1").arg(service->genericName()));
+        }
+    } else {
+        m_description = userVisibleName;
     }
     startProcess();
 }

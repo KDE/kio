@@ -106,6 +106,8 @@ void SystemdProcessRunner::startProcess()
         { // Properties of the transient service unit
             { QStringLiteral("Type"), QStringLiteral("oneshot") },
             { QStringLiteral("Slice"), QStringLiteral("app.slice") },
+            { QStringLiteral("Description"), m_description },
+            { QStringLiteral("SourcePath"), m_desktopFilePath },
             { QStringLiteral("AddRef"), true }, // Asks systemd to avoid garbage collecting the service if it immediately crashes,
                                                 // so we can be notified (see https://github.com/systemd/systemd/pull/3984)
             { QStringLiteral("Environment"), m_process->environment() },
