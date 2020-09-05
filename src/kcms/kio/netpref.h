@@ -29,6 +29,7 @@ private:
     QGroupBox* gb_Ftp;
     QGroupBox* gb_Timeout;
     QCheckBox* cb_globalMarkPartial;
+    KPluralHandlingSpinBox* sb_globalMinimumKeepSize;
     QCheckBox* cb_ftpEnablePasv;
     QCheckBox* cb_ftpMarkPartial;
 

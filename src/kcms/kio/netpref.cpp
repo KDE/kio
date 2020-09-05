@@ -82,6 +82,19 @@ KIOPreferences::KIOPreferences(QWidget *parent, const QVariantList &)
             this, &KIOPreferences::configChanged);
     globalLayout->addWidget(cb_globalMarkPartial);
 
+    auto partialWidget = new QWidget(this);
+    connect(cb_globalMarkPartial, &QAbstractButton::toggled, partialWidget, &QWidget::setEnabled);
+    globalLayout->addWidget(partialWidget);
+    auto partialLayout = new QFormLayout;
+    partialLayout->setContentsMargins(20, 0, 0, 0); // indent below mark partial
+    partialWidget->setLayout(partialLayout);
+    sb_globalMinimumKeepSize = new KPluralHandlingSpinBox( this );
+    sb_globalMinimumKeepSize->setSuffix( ki18np( " byte", " bytes" ) );
+    connect(sb_globalMinimumKeepSize, QOverload<int>::of(&QSpinBox::valueChanged),
+            this, &KIOPreferences::configChanged);
+    partialLayout->addRow(i18nc( "@label:spinbox", "If cancelled, automatically delete partially uploaded files smaller than:" ),
+                          sb_globalMinimumKeepSize);
+
     gb_Ftp = new QGroupBox( i18n( "FTP Options" ), this );
     mainLayout->addWidget( gb_Ftp );
     QVBoxLayout* ftpLayout = new QVBoxLayout(gb_Ftp);
@@ -127,6 +140,8 @@ void KIOPreferences::load()
   sb_proxyConnect->setValue( proto.proxyConnectTimeout() );
 
   cb_globalMarkPartial->setChecked( proto.markPartial() );
+  sb_globalMinimumKeepSize->setRange( 0, 1024 * 1024 * 1024 /* 1 GiB */ );
+  sb_globalMinimumKeepSize->setValue( proto.minimumKeepSize() );
 
   KConfig config( QStringLiteral("kio_ftprc"), KConfig::NoGlobals );
   cb_ftpEnablePasv->setChecked( !config.group("").readEntry( "DisablePassiveMode", false ) );
@@ -142,6 +157,7 @@ void KIOPreferences::save()
   KSaveIOConfig::setProxyConnectTimeout( sb_proxyConnect->value() );
 
   KSaveIOConfig::setMarkPartial( cb_globalMarkPartial->isChecked() );
+  KSaveIOConfig::setMinimumKeepSize( sb_globalMinimumKeepSize->value() );
 
   KConfig config(QStringLiteral("kio_ftprc"), KConfig::NoGlobals);
   config.group("").writeEntry( "DisablePassiveMode", !cb_ftpEnablePasv->isChecked() );
