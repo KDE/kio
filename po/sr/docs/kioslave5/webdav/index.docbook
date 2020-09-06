@@ -1,0 +1,89 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Serbian "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="webdav">
+<title
+>ВебДАВ и вебДАВс</title>
+<articleinfo>
+<authorgroup>
+<author
+><personname
+><firstname
+>Хамиш</firstname
+> <surname
+>Рода</surname
+></personname
+> &Hamish.Rodda.mail;</author>
+<othercredit role="translator"
+><firstname
+>Драган</firstname
+><surname
+>Пантелић</surname
+><affiliation
+><address
+><email
+>falcon-10@gmx.de</email
+></address
+></affiliation
+><contrib
+>превод</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>21. 1. 2002.</date>
+</articleinfo>
+<para
+>ВебДАВ је протокол за дистрибуирану израду и верзионисање на Вебу. Омогућава лако управљање документима и скриптама на ХТТП серверу, уз додатне могућности пројектоване да поједноставе управљање верзијама између више аутора.</para>
+
+<para
+>Коришћење овог протокола је просто. Унесите локацију коју желите да погледате, слично ХТТП УРЛ‑у осим што је почетни део, протокол, сада <literal
+>webdav://</literal
+>; нпр. <userinput
+>webdav://<replaceable
+>www.imedomacina.com/putanja/</replaceable
+></userinput
+>. Ако задате име фасцикле, добићете списак фајлова и фасцикли којима можете манипулисати као у било којем другом фајл систему.</para>
+
+<variablelist>
+<title
+>Могућности вебДАВ‑а</title>
+<varlistentry>
+<term
+>Закључавање</term>
+<listitem>
+<para
+>Закључавање фајлова омогућава кориснику да закључа фајл, информишући друге да тренутно ради на фајлу. На тај начин се фајл може уређивати без бојазни да би друга особа, која обрађује исти документ, могла пребрисати измене.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+>Приступ изворном фајлу</term>
+<listitem>
+<para
+>ВебДАВ дозвољава приступ скрипти која се позива ради стварања одређене странице, како би се измене могле унети у саму скрипту.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+>Подршка својстава по документу</term>
+<listitem>
+<para
+>Као помоћ у идентификацији докумената, могу им се додати произвољна својства (нпр. ко је аутор).</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>Да бисте искористили ове додатне способности, требаће вам програм који их подржава. Тренутно их кроз овај У/И захват не подржава ниједан.</para>
+
+<para
+>ВебДАВс је протокол вебДАВ шифрован ССЛ‑ом.</para>
+
+</article>
