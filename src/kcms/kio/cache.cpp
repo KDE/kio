@@ -28,6 +28,8 @@ CacheConfigModule::CacheConfigModule(QWidget *parent, const QVariantList &)
                   :KCModule(parent)
 {
   ui.setupUi(this);
+
+  connect(ui.clearCacheButton, &QAbstractButton::clicked, this, &CacheConfigModule::clearCache);
 }
 
 CacheConfigModule::~CacheConfigModule()
@@ -108,7 +110,7 @@ void CacheConfigModule::configChanged()
   emit changed( true );
 }
 
-void CacheConfigModule::on_clearCacheButton_clicked()
+void CacheConfigModule::clearCache()
 {
     const QString exe = QFile::decodeName(CMAKE_INSTALL_FULL_LIBEXECDIR_KF5 "/kio_http_cache_cleaner");
 

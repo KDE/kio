@@ -182,6 +182,18 @@ KProxyDialog::KProxyDialog(QWidget* parent, const QVariantList& args)
     Q_UNUSED(args);
     mUi.setupUi(this);
 
+    connect(mUi.autoDetectButton, &QAbstractButton::clicked, this, &KProxyDialog::autoDetect);
+    connect(mUi.showEnvValueCheckBox, &QAbstractButton::toggled, this, &KProxyDialog::showEnvValue);
+    connect(mUi.useSameProxyCheckBox, &QAbstractButton::clicked, this, &KProxyDialog::setUseSameProxy);
+    connect(mUi.manualProxyHttpEdit, &QLineEdit::textChanged, this, [this](const QString &text) {
+        mUi.useSameProxyCheckBox->setEnabled(!text.isEmpty());
+    });
+    connect(mUi.manualNoProxyEdit, &QLineEdit::textChanged, this, [this](const QString &text) {
+        mUi.useReverseProxyCheckBox->setEnabled(!text.isEmpty());
+    });
+    connect(mUi.manualProxyHttpEdit, &QLineEdit::textEdited, this, &KProxyDialog::syncProxies);
+    connect(mUi.manualProxyHttpSpinBox, QOverload<int>::of(&QSpinBox::valueChanged), this, &KProxyDialog::syncProxyPorts);
+
     mUi.systemProxyGroupBox->setVisible(false);
     mUi.manualProxyGroupBox->setVisible(false);
     mUi.autoDetectButton->setVisible(false);
@@ -412,7 +424,7 @@ bool KProxyDialog::autoDetectSystemProxy(QLineEdit* edit, const QString& envVarS
     return false;
 }
 
-void KProxyDialog::on_autoDetectButton_clicked()
+void KProxyDialog::autoDetect()
 {
     const bool showValue = mUi.showEnvValueCheckBox->isChecked();
     bool wasChanged = false;
@@ -427,17 +439,7 @@ void KProxyDialog::on_autoDetectButton_clicked()
         emit changed (true);
 }
 
-void KProxyDialog::on_manualProxyHttpEdit_textChanged(const QString& text)
-{
-    mUi.useSameProxyCheckBox->setEnabled(!text.isEmpty());
-}
-
-void KProxyDialog::on_manualNoProxyEdit_textChanged (const QString& text)
-{
-    mUi.useReverseProxyCheckBox->setEnabled(!text.isEmpty());
-}
-
-void KProxyDialog::on_manualProxyHttpEdit_textEdited(const QString& text)
+void KProxyDialog::syncProxies(const QString& text)
 {
     if (!mUi.useSameProxyCheckBox->isChecked()) {
         return;
@@ -448,7 +450,7 @@ void KProxyDialog::on_manualProxyHttpEdit_textEdited(const QString& text)
     mUi.manualProxySocksEdit->setText(text);
 }
 
-void KProxyDialog::on_manualProxyHttpSpinBox_valueChanged (int value)
+void KProxyDialog::syncProxyPorts(int value)
 {
     if (!mUi.useSameProxyCheckBox->isChecked()) {
         return;
@@ -459,7 +461,7 @@ void KProxyDialog::on_manualProxyHttpSpinBox_valueChanged (int value)
     mUi.manualProxySocksSpinBox->setValue(value);
 }
 
-void KProxyDialog::on_showEnvValueCheckBox_toggled (bool on)
+void KProxyDialog::showEnvValue(bool on)
 {
     if (on) {
         showSystemProxyUrl(mUi.systemProxyHttpEdit, &mProxyMap[mUi.systemProxyHttpEdit->objectName()]);
@@ -482,7 +484,7 @@ void KProxyDialog::on_showEnvValueCheckBox_toggled (bool on)
     mUi.systemNoProxyEdit->setEnabled(true);
 }
 
-void KProxyDialog::on_useSameProxyCheckBox_clicked(bool on)
+void KProxyDialog::setUseSameProxy(bool on)
 {
     if (on) {
         mProxyMap[QStringLiteral("ManProxyHttps")] = manualProxyToText (mUi.manualProxyHttpsEdit, mUi.manualProxyHttpsSpinBox, QL1C (' '));

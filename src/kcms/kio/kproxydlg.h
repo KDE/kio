@@ -34,14 +34,11 @@ public:
     QString quickHelp() const override;
 
 private Q_SLOTS:
-    void on_autoDetectButton_clicked();
-    void on_showEnvValueCheckBox_toggled(bool);
-    void on_useSameProxyCheckBox_clicked(bool);
-
-    void on_manualProxyHttpEdit_textChanged(const QString&);
-    void on_manualNoProxyEdit_textChanged(const QString&);    
-    void on_manualProxyHttpEdit_textEdited(const QString&);
-    void on_manualProxyHttpSpinBox_valueChanged(int);
+    void autoDetect();
+    void showEnvValue(bool);
+    void setUseSameProxy(bool);
+    void syncProxies(const QString&);
+    void syncProxyPorts(int);
 
     void slotChanged();
 

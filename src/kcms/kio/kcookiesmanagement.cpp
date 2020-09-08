@@ -99,7 +99,14 @@ KCookiesManagement::KCookiesManagement(QWidget *parent)
   mUi.setupUi(this);
   mUi.searchLineEdit->setTreeWidget(mUi.cookiesTreeWidget);
   mUi.cookiesTreeWidget->setColumnWidth(0, 150);
-  connect(mUi.cookiesTreeWidget, &QTreeWidget::itemDoubleClicked, this, &KCookiesManagement::on_configPolicyButton_clicked);
+
+  connect(mUi.deleteButton, &QAbstractButton::clicked, this, &KCookiesManagement::deleteCurrent);
+  connect(mUi.deleteAllButton, &QAbstractButton::clicked, this, &KCookiesManagement::deleteAll);
+  connect(mUi.reloadButton, &QAbstractButton::clicked, this, &KCookiesManagement::reload);
+  connect(mUi.cookiesTreeWidget, &QTreeWidget::itemExpanded, this, &KCookiesManagement::listCookiesForDomain);
+  connect(mUi.cookiesTreeWidget, &QTreeWidget::currentItemChanged, this, &KCookiesManagement::updateForItem);
+  connect(mUi.cookiesTreeWidget, &QTreeWidget::itemDoubleClicked, this, &KCookiesManagement::showConfigPolicyDialog);
+  connect(mUi.configPolicyButton, &QAbstractButton::clicked, this, &KCookiesManagement::showConfigPolicyDialog);
 }
 
 KCookiesManagement::~KCookiesManagement()
@@ -179,7 +186,7 @@ void KCookiesManagement::save()
 void KCookiesManagement::defaults()
 {
   reset();
-  on_reloadButton_clicked();
+  reload();
 }
 
 void KCookiesManagement::reset(bool deleteAll)
@@ -212,7 +219,7 @@ QString KCookiesManagement::quickHelp() const
   return i18n("<h1>Cookie Management Quick Help</h1>" );
 }
 
-void KCookiesManagement::on_reloadButton_clicked()
+void KCookiesManagement::reload()
 {
   QDBusInterface kded(QStringLiteral("org.kde.kcookiejar5"), QStringLiteral("/modules/kcookiejar"), QStringLiteral("org.kde.KCookieServer"), QDBusConnection::sessionBus());
   QDBusReply<QStringList> reply = kded.call( QStringLiteral("findDomains") );
@@ -248,7 +255,7 @@ void KCookiesManagement::on_reloadButton_clicked()
 
 Q_DECLARE_METATYPE( QList<int> )
 
-void KCookiesManagement::on_cookiesTreeWidget_itemExpanded(QTreeWidgetItem *item)
+void KCookiesManagement::listCookiesForDomain(QTreeWidgetItem *item)
 {
   CookieListViewItem* cookieDom = static_cast<CookieListViewItem*>(item);
   if (!cookieDom || cookieDom->cookiesLoaded())
@@ -321,7 +328,7 @@ bool KCookiesManagement::cookieDetails(CookieProp *cookie)
   return true;
 }
 
-void KCookiesManagement::on_cookiesTreeWidget_currentItemChanged(QTreeWidgetItem* item)
+void KCookiesManagement::updateForItem(QTreeWidgetItem* item)
 {
   if (item) {
     CookieListViewItem* cookieItem = static_cast<CookieListViewItem*>(item);
@@ -348,7 +355,7 @@ void KCookiesManagement::on_cookiesTreeWidget_currentItemChanged(QTreeWidgetItem
   mUi.deleteButton->setEnabled(item != nullptr);
 }
 
-void KCookiesManagement::on_configPolicyButton_clicked()
+void KCookiesManagement::showConfigPolicyDialog()
 {
   // Get current item
   CookieListViewItem *item = static_cast<CookieListViewItem*>(mUi.cookiesTreeWidget->currentItem());
@@ -369,7 +376,7 @@ void KCookiesManagement::on_configPolicyButton_clicked()
   }
 }
 
-void KCookiesManagement::on_deleteButton_clicked()
+void KCookiesManagement::deleteCurrent()
 {
   QTreeWidgetItem* currentItem = mUi.cookiesTreeWidget->currentItem();
   Q_ASSERT(currentItem); // the button is disabled otherwise
@@ -402,7 +409,7 @@ void KCookiesManagement::on_deleteButton_clicked()
   emit changed( true );
 }
 
-void KCookiesManagement::on_deleteAllButton_clicked()
+void KCookiesManagement::deleteAll()
 {
   mDeleteAllFlag = true;
   reset(true);

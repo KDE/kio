@@ -56,12 +56,12 @@ public:
     QString quickHelp() const override;
 
 private Q_SLOTS:
-    void on_deleteButton_clicked();
-    void on_deleteAllButton_clicked();
-    void on_reloadButton_clicked();
-    void on_cookiesTreeWidget_itemExpanded(QTreeWidgetItem*);
-    void on_cookiesTreeWidget_currentItemChanged(QTreeWidgetItem*);
-    void on_configPolicyButton_clicked();
+    void deleteCurrent();
+    void deleteAll();
+    void reload();
+    void listCookiesForDomain(QTreeWidgetItem*);
+    void updateForItem(QTreeWidgetItem*);
+    void showConfigPolicyDialog();
 
 private:
     void reset (bool deleteAll = false);

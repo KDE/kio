@@ -29,7 +29,7 @@ public:
 
 private Q_SLOTS:
   void configChanged();
-  void on_clearCacheButton_clicked();
+  void clearCache();
 
 private:
   Ui::CacheConfigUI ui;

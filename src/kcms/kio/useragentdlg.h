@@ -36,18 +36,10 @@ public:
 private Q_SLOTS:
   void updateButtons();
 
-  void on_newButton_clicked();
-  void on_changeButton_clicked();
-  void on_deleteButton_clicked();
-  void on_deleteAllButton_clicked();
-
-  void on_sendUACheckBox_clicked();
-  void on_osNameCheckBox_clicked();
-  void on_osVersionCheckBox_clicked();
-  void on_processorTypeCheckBox_clicked();
-  void on_languageCheckBox_clicked();
-  void on_sitePolicyTreeWidget_itemSelectionChanged();
-  void on_sitePolicyTreeWidget_itemDoubleClicked(QTreeWidgetItem*, int);
+  void newSitePolicy();
+  void changeSitePolicy(QTreeWidgetItem*);
+  void deleteSitePolicies();
+  void deleteAllSitePolicies();
 
 private:
   void changeDefaultUAModifiers();

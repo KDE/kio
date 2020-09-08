@@ -50,6 +50,21 @@ UserAgentDlg::UserAgentDlg (QWidget* parent, const QVariantList&)
     ui.changeButton->setIcon (QIcon::fromTheme(QStringLiteral("edit-rename")));
     ui.deleteButton->setIcon (QIcon::fromTheme(QStringLiteral("list-remove")));
     ui.deleteAllButton->setIcon (QIcon::fromTheme(QStringLiteral("edit-delete")));
+
+    connect(ui.newButton, &QAbstractButton::clicked, this, &UserAgentDlg::newSitePolicy);
+    connect(ui.changeButton, &QAbstractButton::clicked,
+            this, [this]() { changeSitePolicy(ui.sitePolicyTreeWidget->currentItem()); });
+    connect(ui.deleteButton, &QAbstractButton::clicked, this, &UserAgentDlg::deleteSitePolicies);
+    connect(ui.deleteAllButton, &QAbstractButton::clicked, this, &UserAgentDlg::deleteAllSitePolicies);
+
+    connect(ui.sendUACheckBox, &QAbstractButton::clicked, this, [this]() { configChanged(); });
+    connect(ui.osNameCheckBox, &QAbstractButton::clicked, this, &UserAgentDlg::changeDefaultUAModifiers);
+    connect(ui.osVersionCheckBox, &QAbstractButton::clicked, this, &UserAgentDlg::changeDefaultUAModifiers);
+    connect(ui.processorTypeCheckBox, &QAbstractButton::clicked, this, &UserAgentDlg::changeDefaultUAModifiers);
+    connect(ui.languageCheckBox, &QAbstractButton::clicked, this, &UserAgentDlg::changeDefaultUAModifiers);
+
+    connect(ui.sitePolicyTreeWidget, &QTreeWidget::itemSelectionChanged, this, &UserAgentDlg::updateButtons);
+    connect(ui.sitePolicyTreeWidget, &QTreeWidget::itemDoubleClicked, this, &UserAgentDlg::changeSitePolicy);
 }
 
 UserAgentDlg::~UserAgentDlg()
@@ -58,12 +73,7 @@ UserAgentDlg::~UserAgentDlg()
     delete m_config;
 }
 
-void UserAgentDlg::on_sendUACheckBox_clicked()
-{
-    configChanged();
-}
-
-void UserAgentDlg::on_newButton_clicked()
+void UserAgentDlg::newSitePolicy()
 {
     const QPointer<UserAgentSelectorDlg> pdlg (new UserAgentSelectorDlg (m_userAgentInfo, this));
     pdlg->setWindowTitle(i18nc ("@title:window", "Add Identification"));
@@ -81,12 +91,7 @@ void UserAgentDlg::on_newButton_clicked()
     delete pdlg;
 }
 
-void UserAgentDlg::on_changeButton_clicked()
-{
-    on_sitePolicyTreeWidget_itemDoubleClicked (ui.sitePolicyTreeWidget->currentItem(), -1);
-}
-
-void UserAgentDlg::on_deleteButton_clicked()
+void UserAgentDlg::deleteSitePolicies()
 {
     SiteList selectedItems = ui.sitePolicyTreeWidget->selectedItems();
     SiteListIterator endIt = selectedItems.end();
@@ -98,34 +103,14 @@ void UserAgentDlg::on_deleteButton_clicked()
     configChanged();
 }
 
-void UserAgentDlg::on_deleteAllButton_clicked()
+void UserAgentDlg::deleteAllSitePolicies()
 {
     ui.sitePolicyTreeWidget->clear();
     updateButtons();
     configChanged();
 }
 
-void UserAgentDlg::on_osNameCheckBox_clicked()
-{
-    changeDefaultUAModifiers();
-}
-
-void UserAgentDlg::on_osVersionCheckBox_clicked()
-{
-    changeDefaultUAModifiers();
-}
-
-void UserAgentDlg::on_processorTypeCheckBox_clicked()
-{
-    changeDefaultUAModifiers();
-}
-
-void UserAgentDlg::on_languageCheckBox_clicked()
-{
-    changeDefaultUAModifiers();
-}
-
-void UserAgentDlg::on_sitePolicyTreeWidget_itemDoubleClicked (QTreeWidgetItem* item, int)
+void UserAgentDlg::changeSitePolicy(QTreeWidgetItem* item)
 {
     if (item) {
         // Store the current site name...
@@ -213,11 +198,6 @@ void UserAgentDlg::updateButtons()
     ui.changeButton->setEnabled ( (hasItems && selectedItemCount == 1));
     ui.deleteButton->setEnabled ( (hasItems && selectedItemCount > 0));
     ui.deleteAllButton->setEnabled (hasItems);
-}
-
-void UserAgentDlg::on_sitePolicyTreeWidget_itemSelectionChanged()
-{
-    updateButtons();
 }
 
 void UserAgentDlg::load()
