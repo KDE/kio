@@ -17,8 +17,8 @@
 <!-- TRANS:ROLES_OF_TRANSLATORS -->
 </authorgroup>
 
-<date>2014-04-02</date>
-<releaseinfo>Frameworks 5.0</releaseinfo>
+<date>2020-09-08</date>
+<releaseinfo>Frameworks 5.73</releaseinfo>
 
 </articleinfo>
 
@@ -27,15 +27,23 @@
 <para>The documentation may not exist, or it may not have been installed
 with the application.</para>
 
+<tip><para>
+Please do not email the author of this page to find the missing document.
+He will just tell you to follow the instructions on this page.
+</para></tip>
+
 <simplesect>
 <title>How to solve this issue</title>
 
-<para>If the application is &kde; software, start by searching the <ulink
-url="https://docs.kde.org/">KDE Documentation site</ulink> for the requested
-documentation. If you find the documentation on that site, your distribution
-might ship a separate package for documentation (&eg;  called plasma-doc for
-documentation related to &plasma;). Please use the package manager of your
-distribution to find and install the missing documentation.</para>
+<para>If the application is &kde; software, first use the search function in
+&khelpcenter;.  In some cases, the documentation has a different name than the
+software was using to try to find it.  If that doesn't work, try searching the
+<ulink url="https://docs.kde.org/">KDE Documentation site</ulink> for the
+requested documentation. If you find the documentation on that site, your
+distribution might ship a separate package for documentation (&eg; called
+plasma-doc for documentation related to &plasma;). Please use the package
+manager of your distribution to find and install the missing
+documentation.</para>
 
 <para>If you use a source based distribution, such as Gentoo, be sure that
 there are not any configuration settings (USE flags in Gentoo) that
