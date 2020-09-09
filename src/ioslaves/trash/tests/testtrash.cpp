@@ -158,7 +158,7 @@ void TestTrash::initTestCase()
     QVector<int> writableTopDirs;
     for (TrashImpl::TrashDirMap::ConstIterator it = trashDirs.constBegin(); it != trashDirs.constEnd(); ++it) {
         if (it.key() == 0) {
-            QVERIFY(it.value() == m_trashDir);
+            QCOMPARE(it.value(), m_trashDir);
             QVERIFY(topDirs.find(0) == topDirs.end());
             foundTrashDir = true;
         } else {
@@ -328,7 +328,7 @@ void TestTrash::trashFile(const QString &origFilePath, const QString &fileId)
 
         QFileInfo files(m_trashDir + QLatin1String("/files/") + fileId);
         QVERIFY(files.isFile());
-        QVERIFY(files.size() == 12);
+        QCOMPARE(files.size(), 12);
     }
 
     // coolo suggests testing that the original file is actually gone, too :)
@@ -343,7 +343,7 @@ void TestTrash::trashFile(const QString &origFilePath, const QString &fileId)
             QUrl trashURL(it.value());
             qDebug() << trashURL;
             QVERIFY(!trashURL.isEmpty());
-            QVERIFY(trashURL.scheme() == QLatin1String("trash"));
+            QCOMPARE(trashURL.scheme(), QLatin1String("trash"));
             int trashId = 0;
             if (origFilePath.startsWith(QLatin1String("/tmp")) && m_tmpIsWritablePartition) {
                 trashId = m_tmpTrashId;
@@ -389,7 +389,7 @@ void TestTrash::testTrashNotEmpty()
     KConfig cfg(QStringLiteral("trashrc"), KConfig::SimpleConfig);
     const KConfigGroup group = cfg.group("Status");
     QVERIFY(group.exists());
-    QVERIFY(group.readEntry("Empty", true) == false);
+    QCOMPARE(group.readEntry("Empty", true), false);
 }
 
 void TestTrash::trashFileFromOther()
@@ -427,7 +427,7 @@ void TestTrash::trashFileIntoOtherPartition()
 
     QFileInfo files(m_otherPartitionTrashDir + QLatin1String("/files/") + fileId);
     QVERIFY(files.isFile());
-    QVERIFY(files.size() == 12);
+    QCOMPARE(files.size(), 12);
 
     // coolo suggests testing that the original file is actually gone, too :)
     QVERIFY(!QFile::exists(origFilePath));
@@ -440,8 +440,8 @@ void TestTrash::trashFileIntoOtherPartition()
             QUrl trashURL(it.value());
             qDebug() << trashURL;
             QVERIFY(!trashURL.isEmpty());
-            QVERIFY(trashURL.scheme() == QLatin1String("trash"));
-            QVERIFY(trashURL.path() == QStringLiteral("/%1-%2").arg(m_otherPartitionId).arg(fileId));
+            QCOMPARE(trashURL.scheme(), QLatin1String("trash"));
+            QCOMPARE(trashURL.path(), QStringLiteral("/%1-%2").arg(m_otherPartitionId).arg(fileId));
             found = true;
         }
     }
@@ -462,7 +462,7 @@ void TestTrash::trashFileOwnedByRoot()
     bool ok = job->exec();
     QVERIFY(!ok);
 
-    QVERIFY(job->error() == KIO::ERR_ACCESS_DENIED);
+    QCOMPARE(job->error(), KIO::ERR_ACCESS_DENIED);
     const QString infoPath(m_trashDir + QLatin1String("/info/") + fileId + QLatin1String(".trashinfo"));
     QVERIFY(!QFile::exists(infoPath));
 
@@ -492,7 +492,7 @@ void TestTrash::trashSymlink(const QString &origFilePath, const QString &fileId,
 
     QFileInfo files(m_trashDir + QLatin1String("/files/") + fileId);
     QVERIFY(files.isSymLink());
-    QVERIFY(files.symLinkTarget() == QFile::decodeName(target));
+    QCOMPARE(files.symLinkTarget(), QFile::decodeName(target));
     QVERIFY(!QFile::exists(origFilePath));
 }
 
@@ -542,7 +542,7 @@ void TestTrash::trashDirectory(const QString &origPath, const QString &fileId)
     QFileInfo files(m_trashDir + QLatin1String("/files/") + fileId + QLatin1String("/testfile"));
     QVERIFY(files.exists());
     QVERIFY(files.isFile());
-    QVERIFY(files.size() == 12);
+    QCOMPARE(files.size(), 12);
     QVERIFY(!QFile::exists(origPath));
     QVERIFY(QFile::exists(m_trashDir + QStringLiteral("/files/") + fileId + QStringLiteral("/subdir/subfile")));
 
@@ -704,7 +704,7 @@ void TestTrash::delFileInDirectory()
     KIO::Job *delJob = KIO::del(QUrl(QStringLiteral("trash:/0-trashDirFromHome/testfile")), KIO::HideProgressInfo);
     bool ok = delJob->exec();
     QVERIFY(!ok);
-    QVERIFY(delJob->error() == KIO::ERR_ACCESS_DENIED);
+    QCOMPARE(delJob->error(), KIO::ERR_ACCESS_DENIED);
 
     QFileInfo dir(m_trashDir + QLatin1String("/files/trashDirFromHome"));
     QVERIFY(dir.exists());
@@ -888,7 +888,7 @@ void TestTrash::copyFileFromTrash()
     const QString destPath = otherTmpDir() + QString::fromLatin1("fileFromHome_copied");
     copyFromTrash("fileFromHome", destPath);
     QVERIFY(QFileInfo(destPath).isFile());
-    QVERIFY(QFileInfo(destPath).size() == 12);
+    QCOMPARE(QFileInfo(destPath).size(), 12);
 #endif
 }
 
@@ -897,7 +897,7 @@ void TestTrash::copyFileInDirectoryFromTrash()
     const QString destPath = otherTmpDir() + QLatin1String("testfile_copied");
     copyFromTrash(QStringLiteral("trashDirFromHome"), destPath, QStringLiteral("testfile"));
     QVERIFY(QFileInfo(destPath).isFile());
-    QVERIFY(QFileInfo(destPath).size() == 12);
+    QCOMPARE(QFileInfo(destPath).size(), 12);
     QVERIFY(QFileInfo(destPath).isWritable());
 }
 
@@ -1053,7 +1053,7 @@ void TestTrash::moveFileInDirectoryFromTrash()
     const QString destPath = otherTmpDir() + QStringLiteral("testfile_restored");
     copyFromTrash(QStringLiteral("trashDirFromHome"), destPath, QStringLiteral("testfile"));
     QVERIFY(QFileInfo(destPath).isFile());
-    QVERIFY(QFileInfo(destPath).size() == 12);
+    QCOMPARE(QFileInfo(destPath).size(), 12);
 }
 
 void TestTrash::moveDirectoryFromTrash()
@@ -1185,7 +1185,7 @@ void TestTrash::restoreFileFromSubDir()
     bool ok = job->exec();
     QVERIFY(!ok);
     // dest dir doesn't exist -> error message
-    QVERIFY(job->error() == KIO::ERR_SLAVE_DEFINED);
+    QCOMPARE(job->error(), KIO::ERR_SLAVE_DEFINED);
 
     // check that nothing happened
     QVERIFY(QFile::exists(infoFile));
@@ -1219,7 +1219,7 @@ void TestTrash::restoreFileToDeletedDirectory()
     bool ok = job->exec();
     QVERIFY(!ok);
     // dest dir doesn't exist -> error message
-    QVERIFY(job->error() == KIO::ERR_SLAVE_DEFINED);
+    QCOMPARE(job->error(), KIO::ERR_SLAVE_DEFINED);
 
     // check that nothing happened
     QVERIFY(QFile::exists(infoFile));
@@ -1307,7 +1307,7 @@ void TestTrash::slotEntries(KIO::Job *, const KIO::UDSEntryList &lst)
         QUrl url(entry.stringValue(KIO::UDSEntry::UDS_URL));
         qDebug() << "name" << name << "displayName" << displayName << " UDS_URL=" << url;
         if (!url.isEmpty()) {
-            QVERIFY(url.scheme() == QStringLiteral("trash"));
+            QCOMPARE(url.scheme(), QStringLiteral("trash"));
         }
         m_listResult << name;
         m_displayNameListResult << displayName;
