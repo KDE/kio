@@ -212,10 +212,30 @@ StatJob *KIO::stat(const QUrl &url, JobFlags flags)
     return statDetails(url, StatJob::SourceSide, KIO::StatDefaultDetails, flags);
 }
 
+static bool isUrlValid(const QUrl &url)
+{
+    if (!url.isValid()) {
+        qCWarning(KIO_CORE) << "Invalid url:" << url << ", cancelling job.";
+        return false;
+    }
+
+    if (url.isLocalFile()) {
+        qCWarning(KIO_CORE) << "Url" << url << "already represents a local file, cancelling job.";
+        return false;
+    }
+
+    if (KProtocolInfo::protocolClass(url.scheme()) != QLatin1String(":local")) {
+        qCWarning(KIO_CORE) << "Protocol Class of url" << url << ", isn't ':local', cancelling job.";
+        return false;
+    }
+
+    return true;
+}
+
 StatJob *KIO::mostLocalUrl(const QUrl &url, JobFlags flags)
 {
     StatJob *job = statDetails(url, StatJob::SourceSide, KIO::StatDefaultDetails, flags);
-    if (url.isLocalFile() || KProtocolInfo::protocolClass(url.scheme()) != QLatin1String(":local")) {
+    if (!isUrlValid(url)) {
         QTimer::singleShot(0, job, &StatJob::slotFinished);
         Scheduler::cancelJob(job); // deletes the slave if not 0
     }
