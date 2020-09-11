@@ -1210,9 +1210,9 @@ QString TrashImpl::trashForMountPoint(const QString &topdir, bool createIfNeeded
     const QByteArray trashDir_c = QFile::encodeName(trashDir);
     if (QT_LSTAT(trashDir_c.constData(), &buff) == 0) {
         if ((buff.st_uid == uid)  // must be owned by user
-                && (S_ISDIR(buff.st_mode)) // must be a dir
-                && (!S_ISLNK(buff.st_mode)) // not a symlink
-                && ((buff.st_mode & 0777) == 0700)) {  // rwx for user, ------ for group and others
+                && S_ISDIR(buff.st_mode) // must be a dir
+                && !S_ISLNK(buff.st_mode) // not a symlink
+                && ((buff.st_mode & 0700) == 0700)) { // and we need write access to it
 
             if (checkTrashSubdirs(trashDir_c)) {
                 return trashDir;
@@ -1248,24 +1248,7 @@ bool TrashImpl::initTrashDirectory(const QByteArray &trashDir_c) const
         return false;
     }
     //qCDebug(KIO_TRASH);
-    // This trash dir will be useable only if the directory is owned by user.
-    // In theory this is the case, but not on e.g. USB keys...
-    uid_t uid = getuid();
-    QT_STATBUF buff;
-    if (QT_LSTAT(trashDir_c.constData(), &buff) != 0) {
-        return false;    // huh?
-    }
-    if ((buff.st_uid == uid)  // must be owned by user
-            && ((buff.st_mode & 0777) == 0700)) {  // rwx for user, --- for group and others
-
-        return checkTrashSubdirs(trashDir_c);
-
-    } else {
-        qCWarning(KIO_TRASH) << trashDir_c << "just created, by it doesn't have the right permissions, probably some strange unsupported filesystem";
-        ::rmdir(trashDir_c.constData());
-        return false;
-    }
-    return true;
+    return checkTrashSubdirs(trashDir_c);
 }
 
 bool TrashImpl::checkTrashSubdirs(const QByteArray &trashDir_c) const
