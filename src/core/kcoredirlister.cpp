@@ -90,16 +90,6 @@ bool KCoreDirListerCache::listDir(KCoreDirLister *lister, const QUrl &_u,
     QUrl _url(_u);
     _url.setPath(QDir::cleanPath(_url.path())); // kill consecutive slashes
 
-    if (!_url.host().isEmpty() && KProtocolInfo::protocolClass(_url.scheme()) == QLatin1String(":local")
-            && _url.scheme() != QLatin1String("file")) {
-        // ":local" protocols ignore the hostname, so strip it out preventively - #160057
-        // kio_file is special cased since it does honor the hostname (by redirecting to e.g. smb)
-        _url.setHost(QString());
-        if (_keep == false) {
-            emit lister->redirection(_url);
-        }
-    }
-
     // like this we don't have to worry about trailing slashes any further
     _url = _url.adjusted(QUrl::StripTrailingSlash);
 
