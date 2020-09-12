@@ -250,13 +250,6 @@ int KFileItemActions::addServiceActionsTo(QMenu *mainMenu)
         KConfigGroup cfg = desktopFile.desktopGroup();
         const QString priority = cfg.readEntry("X-KDE-Priority");
         const QString submenuName = cfg.readEntry("X-KDE-Submenu");
-#if 0
-        if (cfg.readEntry("Type") == "Link") {
-            d->m_url = cfg.readEntry("URL");
-            // TODO: Do we want to make all the actions apply on the target
-            // of the .desktop file instead of the .desktop file itself?
-        }
-#endif
         ServiceList &list = s.selectList(priority, submenuName);
         list = KDesktopFileActions::userDefinedServices(path, desktopFile, true /*isLocal*/);
     }
@@ -289,120 +282,23 @@ int KFileItemActions::addServiceActionsTo(QMenu *mainMenu)
         KDesktopFile desktopFile(file);
         const KConfigGroup cfg = desktopFile.desktopGroup();
 
-        if (!KIOSKAuthorizedAction(cfg)) {
+        if (!d->shouldDisplayServiceMenu(cfg, protocol)) {
             continue;
-        }
-
-        if (cfg.hasKey("X-KDE-ShowIfRunning")) {
-            const QString app = cfg.readEntry("X-KDE-ShowIfRunning");
-            if (QDBusConnection::sessionBus().interface()->isServiceRegistered(app)) {
-                continue;
-            }
-        }
-        if (cfg.hasKey("X-KDE-ShowIfDBusCall")) {
-            QString calldata = cfg.readEntry("X-KDE-ShowIfDBusCall");
-            const QStringList parts = calldata.split(QLatin1Char(' '));
-            const QString &app = parts.at(0);
-            const QString &obj = parts.at(1);
-            QString interface = parts.at(2);
-            QString method;
-            int pos = interface.lastIndexOf(QLatin1Char('.'));
-            if (pos != -1) {
-                method = interface.mid(pos + 1);
-                interface.truncate(pos);
-            }
-
-            //if (!QDBus::sessionBus().busService()->nameHasOwner(app))
-            //    continue; //app does not exist so cannot send call
-
-            QDBusMessage reply = QDBusInterface(app, obj, interface).
-                                 call(method, QUrl::toStringList(urlList));
-            if (reply.arguments().count() < 1 || reply.arguments().at(0).type() != QVariant::Bool || !reply.arguments().at(0).toBool()) {
-                continue;
-            }
-
-        }
-        if (cfg.hasKey("X-KDE-Protocol")) {
-            const QString theProtocol = cfg.readEntry("X-KDE-Protocol");
-            if (theProtocol.startsWith(QLatin1Char('!'))) {
-                const QStringRef excludedProtocol = theProtocol.midRef(1);
-                if (excludedProtocol == protocol) {
-                    continue;
-                }
-            } else if (protocol != theProtocol) {
-                continue;
-            }
-        } else if (cfg.hasKey("X-KDE-Protocols")) {
-            const QStringList protocols = cfg.readEntry("X-KDE-Protocols", QStringList());
-            if (!protocols.contains(protocol)) {
-                continue;
-            }
-        } else if (protocol == QLatin1String("trash")) {
-            // Require servicemenus for the trash to ask for protocol=trash explicitly.
-            // Trashed files aren't supposed to be available for actions.
-            // One might want a servicemenu for trash.desktop itself though.
-            continue;
-        }
-
-        if (cfg.hasKey("X-KDE-Require")) {
-            const QStringList capabilities = cfg.readEntry("X-KDE-Require", QStringList());
-            if (capabilities.contains(QLatin1String("Write")) && !d->m_props.supportsWriting()) {
-                continue;
-            }
-        }
-
-        if (cfg.hasKey("X-KDE-RequiredNumberOfUrls")) {
-            const QStringList requiredNumberOfUrls = cfg.readEntry("X-KDE-RequiredNumberOfUrls", QStringList());
-
-            bool matchesAtLeastOneCriterion = false;
-
-            for (const QString &criterion : requiredNumberOfUrls) {
-                const int number = criterion.toInt();
-                if (number < 1) {
-                    continue;
-                }
-
-                if (urlList.count() == number) {
-                    matchesAtLeastOneCriterion = true;
-                    break;
-                }
-            }
-
-            if (!matchesAtLeastOneCriterion) {
-                continue;
-            }
         }
 
         if (cfg.hasKey("Actions") || cfg.hasKey("X-KDE-GetActionMenu")) {
-            // Like KService, we support ServiceTypes, X-KDE-ServiceTypes, and MimeType.
-            const QStringList types = cfg.readEntry("ServiceTypes", QStringList())
-                    << cfg.readEntry("X-KDE-ServiceTypes", QStringList())
-                    << cfg.readXdgListEntry("MimeType");
-
-            if (types.isEmpty()) {
+            if (!d->checkTypesMatch(cfg)) {
                 continue;
             }
 
-            const QStringList excludeTypes = cfg.readEntry("ExcludeServiceTypes", QStringList());
+            const QString priority = cfg.readEntry("X-KDE-Priority");
+            const QString submenuName = cfg.readEntry("X-KDE-Submenu");
 
-            const bool ok = std::all_of(items.constBegin(),
-                                        items.constEnd(),
-                                        [&types, &excludeTypes](const KFileItem &i)
-            {
-                return mimeTypeListContains(types, i) && !mimeTypeListContains(excludeTypes, i);
-            });
-
-
-            if (ok) {
-                const QString priority = cfg.readEntry("X-KDE-Priority");
-                const QString submenuName = cfg.readEntry("X-KDE-Submenu");
-
-                ServiceList &list = s.selectList(priority, submenuName);
-                const ServiceList userServices = KDesktopFileActions::userDefinedServices(*(*it2), isLocal, urlList);
-                for (const KServiceAction &action : userServices) {
-                    if (showGroup.readEntry(action.name(), true)) {
-                        list += action;
-                    }
+            ServiceList &list = s.selectList(priority, submenuName);
+            const ServiceList userServices = KDesktopFileActions::userDefinedServices(*(*it2), isLocal, urlList);
+            for (const KServiceAction &action : userServices) {
+                if (showGroup.readEntry(action.name(), true)) {
+                    list += action;
                 }
             }
         }
@@ -807,6 +703,116 @@ QAction *KFileItemActionsPrivate::createAppAction(const KService::Ptr &service, 
     act->setData(QVariant::fromValue(service));
     m_runApplicationActionGroup.addAction(act);
     return act;
+}
+
+bool KFileItemActionsPrivate::shouldDisplayServiceMenu(const KConfigGroup &cfg, const QString &protocol) const
+{
+    const QList<QUrl> urlList = m_props.urlList();
+    if (!KIOSKAuthorizedAction(cfg)) {
+        return false;
+    }
+
+    if (cfg.hasKey("X-KDE-ShowIfRunning")) {
+        const QString app = cfg.readEntry("X-KDE-ShowIfRunning");
+        if (QDBusConnection::sessionBus().interface()->isServiceRegistered(app)) {
+            return false;
+        }
+    }
+    if (cfg.hasKey("X-KDE-ShowIfDBusCall")) {
+        QString calldata = cfg.readEntry("X-KDE-ShowIfDBusCall");
+        const QStringList parts = calldata.split(QLatin1Char(' '));
+        const QString &app = parts.at(0);
+        const QString &obj = parts.at(1);
+        QString interface = parts.at(2);
+        QString method;
+        int pos = interface.lastIndexOf(QLatin1Char('.'));
+        if (pos != -1) {
+            method = interface.mid(pos + 1);
+            interface.truncate(pos);
+        }
+
+        //if (!QDBus::sessionBus().busService()->nameHasOwner(app))
+        //    continue; //app does not exist so cannot send call
+
+        QDBusMessage reply = QDBusInterface(app, obj, interface).
+            call(method, QUrl::toStringList(urlList));
+        if (reply.arguments().count() < 1 || reply.arguments().at(0).type() != QVariant::Bool || !reply.arguments().at(0).toBool()) {
+            return false;
+        }
+
+    }
+    if (cfg.hasKey("X-KDE-Protocol")) {
+        const QString theProtocol = cfg.readEntry("X-KDE-Protocol");
+        if (theProtocol.startsWith(QLatin1Char('!'))) {
+            const QStringRef excludedProtocol = theProtocol.midRef(1);
+            if (excludedProtocol == protocol) {
+                return false;
+            }
+        } else if (protocol != theProtocol) {
+            return false;
+        }
+    } else if (cfg.hasKey("X-KDE-Protocols")) {
+        const QStringList protocols = cfg.readEntry("X-KDE-Protocols", QStringList());
+        if (!protocols.contains(protocol)) {
+            return false;
+        }
+    } else if (protocol == QLatin1String("trash")) {
+        // Require servicemenus for the trash to ask for protocol=trash explicitly.
+        // Trashed files aren't supposed to be available for actions.
+        // One might want a servicemenu for trash.desktop itself though.
+        return false;
+    }
+
+    if (cfg.hasKey("X-KDE-Require")) {
+        const QStringList capabilities = cfg.readEntry("X-KDE-Require", QStringList());
+        if (capabilities.contains(QLatin1String("Write")) && !m_props.supportsWriting()) {
+            return false;
+        }
+    }
+
+    if (cfg.hasKey("X-KDE-RequiredNumberOfUrls")) {
+        const QStringList requiredNumberOfUrls = cfg.readEntry("X-KDE-RequiredNumberOfUrls", QStringList());
+
+        bool matchesAtLeastOneCriterion = false;
+
+        for (const QString &criterion : requiredNumberOfUrls) {
+            const int number = criterion.toInt();
+            if (number < 1) {
+                continue;
+            }
+
+            if (urlList.count() == number) {
+                matchesAtLeastOneCriterion = true;
+                break;
+            }
+        }
+
+        if (!matchesAtLeastOneCriterion) {
+            return false;
+        }
+    }
+    return true;
+}
+
+bool KFileItemActionsPrivate::checkTypesMatch(const KConfigGroup &cfg) const
+{
+    // Like KService, we support ServiceTypes, X-KDE-ServiceTypes, and MimeType.
+    const QStringList types = cfg.readEntry("ServiceTypes", QStringList())
+        << cfg.readEntry("X-KDE-ServiceTypes", QStringList())
+        << cfg.readXdgListEntry("MimeType");
+
+    if (types.isEmpty()) {
+        return false;
+    }
+
+    const QStringList excludeTypes = cfg.readEntry("ExcludeServiceTypes", QStringList());
+    const KFileItemList items = m_props.items();
+    return std::all_of(items.constBegin(), items.constEnd(),
+                                [&types, &excludeTypes](const KFileItem &i)
+                                {
+                                    return mimeTypeListContains(types, i) && !mimeTypeListContains(excludeTypes, i);
+                                });
+
 }
 
 QAction *KFileItemActions::preferredOpenWithAction(const QString &traderConstraint)

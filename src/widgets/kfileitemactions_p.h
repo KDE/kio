@@ -56,6 +56,11 @@ public Q_SLOTS:
 private:
     void openWithByMime(const KFileItemList &fileItems);
 
+    // Utility function which returns true if the service menu should be displayed
+    bool shouldDisplayServiceMenu(const KConfigGroup &cfg, const QString &protocol) const;
+    // Utility functions which returns true if the types for the service are set and the exclude types are not contained
+    bool checkTypesMatch(const KConfigGroup &cfg) const;
+
 private Q_SLOTS:
     // For servicemenus
     void slotExecuteService(QAction *act);
