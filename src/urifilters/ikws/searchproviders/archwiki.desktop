@@ -6,6 +6,7 @@ Name[ca]=ArchWiki
 Name[cs]=ArchWiki
 Name[da]=ArchWiki
 Name[de]=ArchWiki
+Name[el]=ArchWiki
 Name[en_GB]=ArchWiki
 Name[es]=ArchWiki
 Name[eu]=ArchWiki
@@ -31,6 +32,7 @@ Query[ca]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[cs]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[da]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[de]=https://wiki.archlinux.org/index.php?search=\\{@}
+Query[el]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[en_GB]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[es]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[eu]=https://wiki.archlinux.org/index.php?search=\\{@}

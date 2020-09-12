@@ -98,6 +98,7 @@ Query[ca@valencia]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{qu
 Query[cs]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[da]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[de]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
+Query[el]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[en_GB]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[es]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[et]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
