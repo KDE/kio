@@ -1213,9 +1213,14 @@ void KUrlCompletionPrivate::_k_slotEntries(KIO::Job *, const KIO::UDSEntryList &
             entry_name = entry.stringValue(KIO::UDSEntry::UDS_NAME);
         }
 
-        //qDebug() << "name:" << name;
+        // This can happen with kdeconnect://deviceId as a completion for kdeconnect:/,
+        // there's no fileName [and the UDS_NAME is unrelated, can't use that].
+        // This code doesn't support completing hostnames anyway (see addPathToUrl below).
+        if (entry_name.isEmpty()) {
+            continue;
+        }
 
-        if ((!entry_name.isEmpty() && entry_name.at(0) == QLatin1Char('.')) &&
+        if (entry_name.at(0) == QLatin1Char('.') &&
                 (list_urls_no_hidden ||
                  entry_name.length() == 1 ||
                  (entry_name.length() == 2 && entry_name.at(1) == QLatin1Char('.')))) {
