@@ -38,10 +38,11 @@ void KRunUnitTest::initTestCase()
 
     // testProcessDesktopExec works only if your terminal application is set to "xterm"
     KConfigGroup cg(KSharedConfig::openConfig(), "General");
-    cg.writeEntry("TerminalApplication", "xterm");
+    cg.writeEntry("TerminalApplication", "true");
 
-    m_xterm = QStandardPaths::findExecutable(QStringLiteral("xterm"));
-    QVERIFY(!m_xterm.isEmpty());
+    // We just want to test if the command is properly constructed
+    m_pseudoTerminalProgram = QStandardPaths::findExecutable(QStringLiteral("true"));
+    QVERIFY(!m_pseudoTerminalProgram.isEmpty());
 
     // Determine the full path of sh - this is needed to make testProcessDesktopExecNoFile()
     // pass on systems where QStandardPaths::findExecutable("sh") is not "/bin/sh".
@@ -124,12 +125,12 @@ void KRunUnitTest::testProcessDesktopExec()
     static const char *const results[] = {
         "/bin/date -u", // 0
         "/bin/sh -c 'echo $PWD '", // 1
-        "/usr/bin/xterm -T ' - just_a_test' -e /bin/date -u", // 2
-        "/usr/bin/xterm -T ' - just_a_test' -e /bin/sh -c 'echo $PWD '", // 3
+        "/bin/true -T ' - just_a_test' -e /bin/date -u", // 2
+        "/bin/true -T ' - just_a_test' -e /bin/sh -c 'echo $PWD '", // 3
         /* kdesu */ " -u sprallo -c '/bin/date -u'", // 4
         /* kdesu */ " -u sprallo -c '/bin/sh -c '\\''echo $PWD '\\'''", // 5
-        "/usr/bin/xterm -T ' - just_a_test' -e su sprallo -c '/bin/date -u'", // 6
-        "/usr/bin/xterm -T ' - just_a_test' -e su sprallo -c '/bin/sh -c '\\''echo $PWD '\\'''", // 7
+        "/bin/true -T ' - just_a_test' -e su sprallo -c '/bin/date -u'", // 6
+        "/bin/true -T ' - just_a_test' -e su sprallo -c '/bin/sh -c '\\''echo $PWD '\\'''", // 7
     };
 
     // Find out the full path of the shell which will be used to execute shell commands
@@ -153,7 +154,7 @@ void KRunUnitTest::testProcessDesktopExec()
                     }
                 }
                 const QString result = QString::fromLatin1(results[pt])
-                                       .replace(QLatin1String("/usr/bin/xterm"), m_xterm)
+                                       .replace(QLatin1String("/bin/true"), m_pseudoTerminalProgram)
                                        .replace(QLatin1String("/bin/sh"), shellPath)
                                        .replace(QLatin1String("/bin/date"), datePath);
                 checkDesktopExecParser(execs[ex], terms[te], sus[su], l0, false, exe + result);
