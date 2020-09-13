@@ -31,6 +31,8 @@ class KIOFILEWIDGETS_EXPORT KFilePlacesModel : public QAbstractItemModel
 {
     Q_OBJECT
 public:
+    // Note: run   printf "0x%08X\n" $(($RANDOM*$RANDOM))
+    // to define additional roles.
     enum AdditionalRoles {
         UrlRole = 0x069CD12B, /// @see url()
         HiddenRole = 0x0741CAAC, /// @see isHidden()
