@@ -1048,7 +1048,7 @@ void KDirModelTest::testRemoteUrlWithHost() // #178416
     connect(dirLister, SIGNAL(completed()), this, SLOT(slotListingCompleted()));
     enterLoop();
 
-    QCOMPARE(dirLister->url().toString(), QString("remote:"));
+    QCOMPARE(dirLister->url().toString(), QString("remote://foo"));
 }
 
 void KDirModelTest::testZipFile() // # 171721
