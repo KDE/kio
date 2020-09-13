@@ -22,11 +22,7 @@ static QString *nextYear;
 static KConfig *config = nullptr;
 static int windowId = 1234; // random number to be used as windowId for test cookies
 
-static void FAIL(const QString &msg)
-{
-    qWarning("%s", msg.toLocal8Bit().data());
-    exit(1);
-}
+#define FAIL(x) QFAIL(qPrintable(x))
 
 static void popArg(QString &command, QString &line)
 {
@@ -180,7 +176,7 @@ static void processLine(QString line)
 
     if (line[0] == '#') {
         if (line[1] == '#') {
-            qDebug("%s", line.toLatin1().constData());
+            qDebug().noquote() << line;
         }
         return;
     }
@@ -208,26 +204,6 @@ static void processLine(QString line)
     }
 }
 
-static void runRegression(const QString &filename)
-{
-    FILE *file = QT_FOPEN(QFile::encodeName(filename).constData(), "r");
-    if (!file) {
-        FAIL(QStringLiteral("Can't open '%1'").arg(filename));
-    }
-
-    char buf[4096];
-    while (fgets(buf, sizeof(buf), file)) {
-        int l = strlen(buf);
-        if (l) {
-            l--;
-            buf[l] = 0;
-        }
-        processLine(QString::fromUtf8(buf));
-    }
-    fclose(file);
-    qDebug("%s OK", filename.toLocal8Bit().data());
-}
-
 class KCookieJarTest : public QObject
 {
     Q_OBJECT
@@ -253,7 +229,13 @@ private Q_SLOTS:
     {
         QFETCH(QString, fileName);
         clearConfig();
-        runRegression(fileName);
+
+        QFile file(fileName);
+        QVERIFY2(file.open(QIODevice::ReadOnly), qPrintable(fileName));
+        while (!file.atEnd()) {
+            const QByteArray buf = file.readLine().chopped(1);
+            processLine(QString::fromUtf8(buf));
+        }
     }
 
     void testParseUrl_data()
