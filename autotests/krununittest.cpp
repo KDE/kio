@@ -309,7 +309,7 @@ void KRunUnitTest::testMimeTypeFile()
     createTestFile(filePath, true);
     KRunImpl *krun = new KRunImpl(QUrl::fromLocalFile(filePath));
     krun->setAutoDelete(false);
-    QSignalSpy spyFinished(krun, SIGNAL(finished()));
+    QSignalSpy spyFinished(krun, &KRun::finished);
     QVERIFY(spyFinished.wait(1000));
     QCOMPARE(krun->mimeTypeFound(), QString::fromLatin1("text/plain"));
     delete krun;
@@ -320,7 +320,7 @@ void KRunUnitTest::testMimeTypeDirectory()
     const QString dir = homeTmpDir() + "dir";
     createTestDirectory(dir);
     KRunImpl *krun = new KRunImpl(QUrl::fromLocalFile(dir));
-    QSignalSpy spyFinished(krun, SIGNAL(finished()));
+    QSignalSpy spyFinished(krun, &KRun::finished);
     QVERIFY(spyFinished.wait(1000));
     QCOMPARE(krun->mimeTypeFound(), QString::fromLatin1("inode/directory"));
 }
@@ -330,8 +330,8 @@ void KRunUnitTest::testMimeTypeBrokenLink()
     const QString dir = homeTmpDir() + "dir";
     createTestDirectory(dir);
     KRunImpl *krun = new KRunImpl(QUrl::fromLocalFile(dir + "/testlink"));
-    QSignalSpy spyError(krun, SIGNAL(error()));
-    QSignalSpy spyFinished(krun, SIGNAL(finished()));
+    QSignalSpy spyError(krun, &KRun::error);
+    QSignalSpy spyFinished(krun, &KRun::finished);
     QVERIFY(spyFinished.wait(1000));
     QVERIFY(krun->mimeTypeFound().isEmpty());
     QCOMPARE(spyError.count(), 1);
@@ -343,8 +343,8 @@ void KRunUnitTest::testMimeTypeBrokenLink()
 void KRunUnitTest::testMimeTypeDoesNotExist() // ported to OpenUrlJobTest::nonExistingFile()
 {
     KRunImpl *krun = new KRunImpl(QUrl::fromLocalFile(QStringLiteral("/does/not/exist")));
-    QSignalSpy spyError(krun, SIGNAL(error()));
-    QSignalSpy spyFinished(krun, SIGNAL(finished()));
+    QSignalSpy spyError(krun, &KRun::error);
+    QSignalSpy spyFinished(krun, &KRun::finished);
     QVERIFY(spyFinished.wait(1000));
     QVERIFY(krun->mimeTypeFound().isEmpty());
     QCOMPARE(spyError.count(), 1);

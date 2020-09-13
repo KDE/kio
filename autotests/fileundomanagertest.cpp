@@ -262,7 +262,7 @@ void FileUndoManagerTest::testCopyFiles()
 
     QSignalSpy spyUndoAvailable(FileUndoManager::self(), SIGNAL(undoAvailable(bool)));
     QVERIFY(spyUndoAvailable.isValid());
-    QSignalSpy spyTextChanged(FileUndoManager::self(), SIGNAL(undoTextChanged(QString)));
+    QSignalSpy spyTextChanged(FileUndoManager::self(), &FileUndoManager::undoTextChanged);
     QVERIFY(spyTextChanged.isValid());
 
     bool ok = job->exec();

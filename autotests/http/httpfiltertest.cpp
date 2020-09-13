@@ -75,8 +75,8 @@ void HTTPFilterTest::test_deflateWithZlibHeader()
 
     {
         HTTPFilterDeflate filter;
-        QSignalSpy spyOutput(&filter, SIGNAL(output(QByteArray)));
-        QSignalSpy spyError(&filter, SIGNAL(error(QString)));
+        QSignalSpy spyOutput(&filter, &HTTPFilterBase::output);
+        QSignalSpy spyError(&filter, &HTTPFilterBase::error);
         filter.slotInput(deflatedData);
         QCOMPARE(spyOutput.count(), 2);
         QCOMPARE(spyOutput[0][0].toByteArray(), data);
@@ -86,8 +86,8 @@ void HTTPFilterTest::test_deflateWithZlibHeader()
     {
         // Now a test for giving raw deflate data to HTTPFilter
         HTTPFilterDeflate filter;
-        QSignalSpy spyOutput(&filter, SIGNAL(output(QByteArray)));
-        QSignalSpy spyError(&filter, SIGNAL(error(QString)));
+        QSignalSpy spyOutput(&filter, &HTTPFilterBase::output);
+        QSignalSpy spyError(&filter, &HTTPFilterBase::error);
         QByteArray rawDeflate = deflatedData.mid(2); // remove CMF+FLG
         rawDeflate.chop(4); // remove trailing Adler32.
         filter.slotInput(rawDeflate);
@@ -107,8 +107,8 @@ void HTTPFilterTest::test_httpFilterGzip()
     // Test sending the whole data in one go
     {
         HTTPFilterGZip filter;
-        QSignalSpy spyOutput(&filter, SIGNAL(output(QByteArray)));
-        QSignalSpy spyError(&filter, SIGNAL(error(QString)));
+        QSignalSpy spyOutput(&filter, &HTTPFilterBase::output);
+        QSignalSpy spyError(&filter, &HTTPFilterBase::error);
         filter.slotInput(compressed);
         QCOMPARE(spyOutput.count(), 2);
         QCOMPARE(spyOutput[0][0].toByteArray(), testData);
@@ -120,9 +120,9 @@ void HTTPFilterTest::test_httpFilterGzip()
     {
         m_filterOutput.clear();
         HTTPFilterGZip filter;
-        QSignalSpy spyOutput(&filter, SIGNAL(output(QByteArray)));
+        QSignalSpy spyOutput(&filter, &HTTPFilterBase::output);
         connect(&filter, &HTTPFilterBase::output, this, &HTTPFilterTest::slotFilterOutput);
-        QSignalSpy spyError(&filter, SIGNAL(error(QString)));
+        QSignalSpy spyError(&filter, &HTTPFilterBase::error);
         for (int i = 0; i < compressed.size(); ++i) {
             //qDebug() << "sending byte number" << i << ":" << (uchar)compressed[i];
             filter.slotInput(QByteArray(compressed.constData() + i, 1));

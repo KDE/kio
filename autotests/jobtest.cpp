@@ -705,7 +705,7 @@ void JobTest::copyFolderWithUnaccessibleSubfolder()
 
     KIO::CopyJob *job = KIO::copy(QUrl::fromLocalFile(src_dir), QUrl::fromLocalFile(dst_dir), KIO::HideProgressInfo);
 
-    QSignalSpy spy(job, SIGNAL(warning(KJob*,QString,QString)));
+    QSignalSpy spy(job, &KJob::warning);
     job->setUiDelegate(nullptr);   // no skip dialog, thanks
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
 
@@ -744,7 +744,7 @@ void JobTest::suspendFileCopy()
     const QUrl u = QUrl::fromLocalFile(filePath);
     const QUrl d = QUrl::fromLocalFile(dest);
     KIO::Job *job = KIO::file_copy(u, d, KIO::HideProgressInfo);
-    QSignalSpy spyResult(job, SIGNAL(result(KJob*)));
+    QSignalSpy spyResult(job, &KJob::result);
     job->setUiDelegate(nullptr);
     job->setUiDelegateExtension(nullptr);
     QVERIFY(job->suspend());
@@ -764,7 +764,7 @@ void JobTest::suspendCopy()
     const QUrl u = QUrl::fromLocalFile(filePath);
     const QUrl d = QUrl::fromLocalFile(dest);
     KIO::Job *job = KIO::copy(u, d, KIO::HideProgressInfo);
-    QSignalSpy spyResult(job, SIGNAL(result(KJob*)));
+    QSignalSpy spyResult(job, &KJob::result);
     job->setUiDelegate(nullptr);
     job->setUiDelegateExtension(nullptr);
     QVERIFY(job->suspend());
@@ -1733,7 +1733,7 @@ void JobTest::mimeTypeError()
     KIO::MimetypeJob *job = KIO::mimetype(QUrl::fromLocalFile(filePath), KIO::HideProgressInfo);
     QVERIFY(job);
     QSignalSpy spyMimeType(job, SIGNAL(mimetype(KIO::Job*,QString)));
-    QSignalSpy spyResult(job, SIGNAL(result(KJob*)));
+    QSignalSpy spyResult(job, &KJob::result);
     QVERIFY(!job->exec());
     QCOMPARE(spyMimeType.count(), 0);
     QCOMPARE(spyResult.count(), 1);

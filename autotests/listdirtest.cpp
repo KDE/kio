@@ -43,7 +43,7 @@ void ListDirTest::numFilesTestCase()
         job->setUiDelegate(nullptr);
         connect(job, &KIO::ListJob::entries, this, &ListDirTest::slotEntries);
 
-        QSignalSpy spy(job, SIGNAL(result(KJob*)));
+        QSignalSpy spy(job, &KJob::result);
         QVERIFY(spy.wait(100000));
         QCOMPARE(job->error(), 0); // no error
     }

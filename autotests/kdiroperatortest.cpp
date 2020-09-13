@@ -101,7 +101,7 @@ private Q_SLOTS:
         QFETCH(QUrl, expectedUrl);
 
         KDirOperator dirOp;
-        QSignalSpy spy(&dirOp, SIGNAL(urlEntered(QUrl)));
+        QSignalSpy spy(&dirOp, &KDirOperator::urlEntered);
         dirOp.setUrl(url, true);
         QCOMPARE(spy.takeFirst().at(0).toUrl(), expectedUrl);
     }

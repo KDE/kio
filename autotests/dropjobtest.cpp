@@ -42,7 +42,7 @@ class JobSpy : public QObject
 public:
     JobSpy(KIO::Job *job)
         : QObject(nullptr),
-          m_spy(job, SIGNAL(result(KJob*))),
+          m_spy(job, &KJob::result),
           m_error(0)
     {
         connect(job, &KJob::result, this, [this](KJob * job) {
@@ -145,7 +145,7 @@ private Q_SLOTS:
         QDropEvent dropEvent(QPoint(10, 10), Qt::CopyAction, &m_mimeData, Qt::LeftButton, Qt::NoModifier);
         KIO::DropJob *job = KIO::drop(&dropEvent, destUrl, KIO::HideProgressInfo);
         job->setUiDelegate(nullptr);
-        QSignalSpy spy(job, SIGNAL(itemCreated(QUrl)));
+        QSignalSpy spy(job, &KIO::DropJob::itemCreated);
 
         // Then the application is run with the source file as argument
         // (in this example, it copies the source file to "dest")
@@ -205,8 +205,8 @@ private Q_SLOTS:
         job->setUiDelegate(nullptr);
         job->setUiDelegateExtension(nullptr);
         JobSpy jobSpy(job);
-        QSignalSpy copyJobSpy(job, SIGNAL(copyJobStarted(KIO::CopyJob*)));
-        QSignalSpy itemCreatedSpy(job, SIGNAL(itemCreated(QUrl)));
+        QSignalSpy copyJobSpy(job, &KIO::DropJob::copyJobStarted);
+        QSignalSpy itemCreatedSpy(job, &KIO::DropJob::itemCreated);
 
         // Then the file is copied
         QVERIFY(jobSpy.waitForResult());
@@ -255,8 +255,8 @@ private Q_SLOTS:
         QDropEvent dropEvent(QPoint(10, 10), dropAction, &m_mimeData, Qt::LeftButton, modifiers);
         KIO::DropJob *job = KIO::drop(&dropEvent, QUrl(QStringLiteral("trash:/")), KIO::HideProgressInfo);
         job->setUiDelegate(nullptr);
-        QSignalSpy copyJobSpy(job, SIGNAL(copyJobStarted(KIO::CopyJob*)));
-        QSignalSpy itemCreatedSpy(job, SIGNAL(itemCreated(QUrl)));
+        QSignalSpy copyJobSpy(job, &KIO::DropJob::copyJobStarted);
+        QSignalSpy itemCreatedSpy(job, &KIO::DropJob::itemCreated);
 
         // Then a confirmation dialog should appear
         PredefinedAnswerJobUiDelegate extension;
@@ -287,7 +287,7 @@ private Q_SLOTS:
         const QFile::Permissions origPerms = QFileInfo(m_srcFile).permissions();
         QVERIFY(QFileInfo(m_srcFile).isWritable());
         KIO::CopyJob *copyJob = KIO::move(QUrl::fromLocalFile(m_srcFile), QUrl(QStringLiteral("trash:/")));
-        QSignalSpy copyingDoneSpy(copyJob, SIGNAL(copyingDone(KIO::Job*,QUrl,QUrl,QDateTime,bool,bool)));
+        QSignalSpy copyingDoneSpy(copyJob, &KIO::CopyJob::copyingDone);
         QVERIFY(copyJob->exec());
         const QUrl trashUrl = copyingDoneSpy.at(0).at(2).value<QUrl>();
         QVERIFY(trashUrl.isValid());
@@ -298,8 +298,8 @@ private Q_SLOTS:
         QDropEvent dropEvent(QPoint(10, 10), Qt::CopyAction, &m_mimeData, Qt::LeftButton, Qt::NoModifier);
         KIO::DropJob *job = KIO::drop(&dropEvent, QUrl::fromLocalFile(m_srcDir), KIO::HideProgressInfo);
         job->setUiDelegate(nullptr);
-        QSignalSpy copyJobSpy(job, SIGNAL(copyJobStarted(KIO::CopyJob*)));
-        QSignalSpy spy(job, SIGNAL(itemCreated(QUrl)));
+        QSignalSpy copyJobSpy(job, &KIO::DropJob::copyJobStarted);
+        QSignalSpy spy(job, &KIO::DropJob::itemCreated);
 
         // Then the file should be moved, without a popup. No point in copying out of the trash, or linking to it.
         QVERIFY2(job->exec(), qPrintable(job->errorString()));
@@ -330,7 +330,7 @@ private Q_SLOTS:
         QDropEvent dropEvent(QPoint(10, 10), Qt::CopyAction, &m_mimeData, Qt::LeftButton, Qt::NoModifier);
         KIO::DropJob *job = KIO::drop(&dropEvent, destUrl, KIO::HideProgressInfo);
         job->setUiDelegate(nullptr);
-        QSignalSpy copyJobSpy(job, SIGNAL(copyJobStarted(KIO::CopyJob*)));
+        QSignalSpy copyJobSpy(job, &KIO::DropJob::copyJobStarted);
         QVERIFY2(job->exec(), qPrintable(job->errorString()));
 
         // Then a full move shouldn't happen, just a link
@@ -356,8 +356,8 @@ private Q_SLOTS:
         QDropEvent dropEvent(QPoint(10, 10), Qt::CopyAction, &m_mimeData, Qt::LeftButton, Qt::NoModifier);
         KIO::DropJob *job = KIO::drop(&dropEvent, QUrl(QStringLiteral("trash:/")), KIO::HideProgressInfo);
         job->setUiDelegate(nullptr);
-        QSignalSpy copyJobSpy(job, SIGNAL(copyJobStarted(KIO::CopyJob*)));
-        QSignalSpy spy(job, SIGNAL(itemCreated(QUrl)));
+        QSignalSpy copyJobSpy(job, &KIO::DropJob::copyJobStarted);
+        QSignalSpy spy(job, &KIO::DropJob::itemCreated);
 
         // Then an error should be reported and no files action should occur
         QVERIFY(!job->exec());
@@ -408,8 +408,8 @@ private Q_SLOTS:
         job->setUiDelegateExtension(nullptr); // no rename dialog
         JobSpy jobSpy(job);
         qRegisterMetaType<KFileItemListProperties>();
-        QSignalSpy spyShow(job, SIGNAL(popupMenuAboutToShow(KFileItemListProperties)));
-        QSignalSpy copyJobSpy(job, SIGNAL(copyJobStarted(KIO::CopyJob*)));
+        QSignalSpy spyShow(job, &KIO::DropJob::popupMenuAboutToShow);
+        QSignalSpy copyJobSpy(job, &KIO::DropJob::copyJobStarted);
         QVERIFY(spyShow.isValid());
 
         // Then a popup should appear, with the expected available actions

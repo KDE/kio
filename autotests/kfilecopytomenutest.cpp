@@ -129,7 +129,7 @@ private Q_SLOTS:
             QCOMPARE(actions.count(), m_lastActionCount); // should be stable, i.e. selecting a recent dir shouldn't duplicate it
         }
         QAction *copyAction = actions.at(actions.count() - actionNumber);
-        QSignalSpy spy(&generator, SIGNAL(error(int,QString)));
+        QSignalSpy spy(&generator, &KFileCopyToMenu::error);
 
         // When
         copyAction->trigger();

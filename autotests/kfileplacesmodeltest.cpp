@@ -436,7 +436,7 @@ void KFilePlacesModelTest::testHiding()
     QModelIndex b = m_places->index(6, 0);
 
     QList<QVariant> args;
-    QSignalSpy spy(m_places, SIGNAL(dataChanged(QModelIndex,QModelIndex)));
+    QSignalSpy spy(m_places, &QAbstractItemModel::dataChanged);
 
     // Verify that hidden is taken into account and is not global
     m_places->setPlaceHidden(a, true);
@@ -477,8 +477,8 @@ void KFilePlacesModelTest::testHiding()
 void KFilePlacesModelTest::testMove()
 {
     QList<QVariant> args;
-    QSignalSpy spy_inserted(m_places, SIGNAL(rowsInserted(QModelIndex,int,int)));
-    QSignalSpy spy_removed(m_places, SIGNAL(rowsRemoved(QModelIndex,int,int)));
+    QSignalSpy spy_inserted(m_places, &QAbstractItemModel::rowsInserted);
+    QSignalSpy spy_removed(m_places, &QAbstractItemModel::rowsRemoved);
 
     KBookmarkManager *bookmarkManager = KBookmarkManager::managerForFile(bookmarksFile(), QStringLiteral("kfilePlaces"));
     KBookmarkGroup root = bookmarkManager->root();
@@ -539,12 +539,12 @@ void KFilePlacesModelTest::testMove()
 void KFilePlacesModelTest::testDragAndDrop()
 {
     QList<QVariant> args;
-    QSignalSpy spy_moved(m_places, SIGNAL(rowsMoved(QModelIndex,int,int,QModelIndex,int)));
+    QSignalSpy spy_moved(m_places, &QAbstractItemModel::rowsMoved);
 
     // Monitor rowsInserted() and rowsRemoved() to ensure they are never emitted:
     // Moving with drag and drop is expected to emit rowsMoved()
-    QSignalSpy spy_inserted(m_places, SIGNAL(rowsInserted(QModelIndex,int,int)));
-    QSignalSpy spy_removed(m_places, SIGNAL(rowsRemoved(QModelIndex,int,int)));
+    QSignalSpy spy_inserted(m_places, &QAbstractItemModel::rowsInserted);
+    QSignalSpy spy_removed(m_places, &QAbstractItemModel::rowsRemoved);
 
 
     // Move /home at the end of the places list
@@ -607,9 +607,9 @@ void KFilePlacesModelTest::testDragAndDrop()
 void KFilePlacesModelTest::testPlacesLifecycle()
 {
     QList<QVariant> args;
-    QSignalSpy spy_inserted(m_places, SIGNAL(rowsInserted(QModelIndex,int,int)));
-    QSignalSpy spy_removed(m_places, SIGNAL(rowsRemoved(QModelIndex,int,int)));
-    QSignalSpy spy_changed(m_places, SIGNAL(dataChanged(QModelIndex,QModelIndex)));
+    QSignalSpy spy_inserted(m_places, &QAbstractItemModel::rowsInserted);
+    QSignalSpy spy_removed(m_places, &QAbstractItemModel::rowsRemoved);
+    QSignalSpy spy_changed(m_places, &QAbstractItemModel::dataChanged);
 
     m_places->addPlace(QStringLiteral("Foo"), QUrl::fromLocalFile(QStringLiteral("/home/foo")));
 
@@ -727,8 +727,8 @@ void KFilePlacesModelTest::testPlacesLifecycle()
 void KFilePlacesModelTest::testDevicePlugging()
 {
     QList<QVariant> args;
-    QSignalSpy spy_inserted(m_places, SIGNAL(rowsInserted(QModelIndex,int,int)));
-    QSignalSpy spy_removed(m_places, SIGNAL(rowsRemoved(QModelIndex,int,int)));
+    QSignalSpy spy_inserted(m_places, &QAbstractItemModel::rowsInserted);
+    QSignalSpy spy_removed(m_places, &QAbstractItemModel::rowsRemoved);
 
     fakeManager()->call(QStringLiteral("unplug"), "/org/kde/solid/fakehw/volume_part1_size_993284096");
 
@@ -861,7 +861,7 @@ void KFilePlacesModelTest::testDevicePlugging()
 void KFilePlacesModelTest::testDeviceSetupTeardown()
 {
     QList<QVariant> args;
-    QSignalSpy spy_changed(m_places, SIGNAL(dataChanged(QModelIndex,QModelIndex)));
+    QSignalSpy spy_changed(m_places, &QAbstractItemModel::dataChanged);
 
     fakeDevice(QStringLiteral("/org/kde/solid/fakehw/volume_part1_size_993284096/StorageAccess"))->call(QStringLiteral("teardown"));
 
@@ -923,7 +923,7 @@ void KFilePlacesModelTest::testRemoteUrls()
     QFETCH(QString, expectedGroup);
 
     QList<QVariant> args;
-    QSignalSpy spy_inserted(m_places, SIGNAL(rowsInserted(QModelIndex,int,int)));
+    QSignalSpy spy_inserted(m_places, &QAbstractItemModel::rowsInserted);
 
     // insert a new network url
     m_places->addPlace(QStringLiteral("My Shared"), url, QString(), QString(), QModelIndex());

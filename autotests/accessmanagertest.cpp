@@ -27,7 +27,7 @@ private Q_SLOTS:
     {
         const QString aFile = QFINDTESTDATA("accessmanagertest.cpp");
         QNetworkReply *reply = manager()->get(QNetworkRequest(QUrl::fromLocalFile(aFile)));
-        QSignalSpy spy(reply, SIGNAL(finished()));
+        QSignalSpy spy(reply, &QNetworkReply::finished);
         QVERIFY(spy.wait());
 
         QFile f(aFile);
@@ -48,7 +48,7 @@ private Q_SLOTS:
         QFile::remove(aFile);
 
         QNetworkReply *reply = manager()->put(QNetworkRequest(QUrl::fromLocalFile(aFile)), &buffer);
-        QSignalSpy spy(reply, SIGNAL(finished()));
+        QSignalSpy spy(reply, &QNetworkReply::finished);
         QVERIFY(reply->isRunning());
         QVERIFY(spy.wait());
 
@@ -72,7 +72,7 @@ private Q_SLOTS:
         QFile::remove(aFile);
 
         QNetworkReply *reply = manager()->put(QNetworkRequest(QUrl::fromLocalFile(aFile)), &process);
-        QSignalSpy spy(reply, SIGNAL(finished()));
+        QSignalSpy spy(reply, &QNetworkReply::finished);
         QVERIFY(spy.wait());
         QVERIFY(QFile::exists(aFile));
 

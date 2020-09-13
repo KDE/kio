@@ -156,8 +156,8 @@ private Q_SLOTS:
             lineEdit->setText(typedFilename);
         }
         QUrl emittedUrl;
-        QSignalSpy spy(&menu, SIGNAL(fileCreated(QUrl)));
-        QSignalSpy folderSpy(&menu, SIGNAL(directoryCreated(QUrl)));
+        QSignalSpy spy(&menu, &KNewFileMenu::fileCreated);
+        QSignalSpy folderSpy(&menu, &KNewFileMenu::directoryCreated);
         dialog->accept();
         QString path = m_tmpDir.path() + QLatin1Char('/') + expectedFilename;
         if (typedFilename.contains(QLatin1String("folderTildeExpanded"))) {

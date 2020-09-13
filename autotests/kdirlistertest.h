@@ -31,7 +31,7 @@ class MyDirLister : public KDirLister, GlobalInits
 {
 public:
     MyDirLister()
-        : spyStarted(this, SIGNAL(started(QUrl))),
+        : spyStarted(this, &KCoreDirLister::started),
           spyClear(this, SIGNAL(clear())),
           spyClearQUrl(this, SIGNAL(clear(QUrl))),
           spyCompleted(this, SIGNAL(completed())),
@@ -39,7 +39,7 @@ public:
           spyCanceled(this, SIGNAL(canceled())),
           spyCanceledQUrl(this, SIGNAL(canceled(QUrl))),
           spyRedirection(this, SIGNAL(redirection(QUrl))),
-          spyItemsDeleted(this, SIGNAL(itemsDeleted(KFileItemList)))
+          spyItemsDeleted(this, &KCoreDirLister::itemsDeleted)
     {}
 
     void clearSpies()
