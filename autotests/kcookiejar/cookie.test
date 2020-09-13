@@ -168,9 +168,9 @@ COOKIE ASK http://foo.bar Set-Cookie: name=value;expires=Tue, 06-Dec-2039 00:30:
 CHECK http://foo.bar Cookie: name=value
 CLEAR COOKIES
 ## Check non-standard expiration dates (BR# 145244)
-COOKIE ASK http://foo.bar Set-Cookie: name=value; expires=Sat Sep 12 07:00:00 2020 GMT; path="/"
+COOKIE ASK http://foo.bar Set-Cookie: name=value; expires=Sat Sep 12 07:00:00 2220 GMT; path="/"
 COOKIE ASK http://foo.bar Set-Cookie: name1=value1; expires=Thu, 01 Jan 1970 00:00:00 GMT; path="/"
-COOKIE ASK http://foo.bar Set-Cookie: name2=value2; expires=Sat Sep 12 2020 07:00:00 GMT; path="/"
+COOKIE ASK http://foo.bar Set-Cookie: name2=value2; expires=Sat Sep 12 2220 07:00:00 GMT; path="/"
 CHECK http://foo.bar Cookie: name=value; name2=value2
 CLEAR COOKIES
 ## Check path restrictions
