@@ -117,6 +117,7 @@ endif()
 add_definitions(-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x054900)
 # we use KPixmapProvider in public API
 add_definitions(-DKCOMPLETION_DISABLE_DEPRECATED_BEFORE_AND_AT=0x054100)
+add_definitions(-DQT_NO_FOREACH)
 
 add_definitions(-DTRANSLATION_DOMAIN=\"kio5\")
 if (IS_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/po")

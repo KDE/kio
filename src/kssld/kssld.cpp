@@ -100,7 +100,7 @@ void KSSLD::setRule(const KSslCertificateRule &rule)
         sl.append(QStringLiteral("Reject"));
     } else {
 #if KIOCORE_BUILD_DEPRECATED_SINCE(5, 64)
-        foreach (QSslError::SslError e, rule.d->ignoredErrors) {
+        for (QSslError::SslError e : qAsConst(rule.d->ignoredErrors)) {
 #else
         const auto ignoredErrors = rule.ignoredErrors();
         for (QSslError::SslError e : ignoredErrors) {
@@ -140,9 +140,11 @@ void KSSLD::pruneExpiredRules()
 {
     // expired rules are deleted when trying to load them, so we just try to load all rules.
     // be careful about iterating over KConfig(Group) while changing it
-    foreach (const QString &groupName, d->config.groupList()) {
+    const QStringList groupNames = d->config.groupList();
+    for (const QString &groupName : groupNames) {
         QByteArray certDigest = groupName.toLatin1();
-        foreach (const QString &key, d->config.group(groupName).keyList()) {
+        const QStringList keys = d->config.group(groupName).keyList();
+        for (const QString &key : keys) {
             if (key == QLatin1String("CertificatePEM")) {
                 continue;
             }
