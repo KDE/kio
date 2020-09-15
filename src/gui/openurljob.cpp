@@ -73,9 +73,9 @@ public:
 
 private:
     void executeCommand();
-    void handleExecutables(const QMimeType &mimeType);
+    void handleBinaries(const QMimeType &mimeType);
     void handleDesktopFiles();
-    void handleShellscripts();
+    void handleScripts();
     void openInPreferredApp();
     void runLink(const QString &filePath, const QString &urlStr, const QString &optionalServiceName);
 
@@ -439,14 +439,29 @@ void KIO::OpenUrlJobPrivate::emitAccessDenied()
     q->emitResult();
 }
 
-// was: KRun::isExecutable (minus application/x-desktop and application/x-shellscript mimetypes).
+// was: KRun::isExecutable (minus application/x-desktop mimetype).
 // Feel free to make public if needed.
-static bool isExecutableMime(const QMimeType &mimeType)
+static bool isBinary(const QMimeType &mimeType)
 {
-    return (mimeType.inherits(QStringLiteral("application/x-executable")) ||
-            /* e.g. /usr/bin/ls, see https://gitlab.freedesktop.org/xdg/shared-mime-info/-/issues/11 */
-            mimeType.inherits(QStringLiteral("application/x-sharedlib")) ||
-            mimeType.inherits(QStringLiteral("application/x-ms-dos-executable")));
+    // - Binaries could be e.g.:
+    //   - application/x-executable
+    //   - application/x-sharedlib e.g. /usr/bin/ls, see
+    //     https://gitlab.freedesktop.org/xdg/shared-mime-info/-/issues/11
+    //
+    // - Mimetypes that inherit application/x-executable _and_ text/plain are scripts, these are
+    //   handled by handleScripts()
+
+    return (mimeType.inherits(QStringLiteral("application/x-executable"))
+            || mimeType.inherits(QStringLiteral("application/x-sharedlib"))
+            || mimeType.inherits(QStringLiteral("application/x-ms-dos-executable")));
+}
+
+// Helper function that returns whether a file is a text-based script
+// e.g. ".sh", ".csh", ".py", ".js"
+static bool isTextScript(const QMimeType &mimeType)
+{
+    return (mimeType.inherits(QStringLiteral("application/x-executable"))
+            && mimeType.inherits(QStringLiteral("text/plain")));
 }
 
 // Helper function that returns whether a file has the execute bit set or not.
@@ -456,7 +471,7 @@ static bool hasExecuteBit(const QString &fileName)
 }
 
 // Handle native binaries (.e.g. /usr/bin/*); and .exe files
-void KIO::OpenUrlJobPrivate::handleExecutables(const QMimeType &mimeType)
+void KIO::OpenUrlJobPrivate::handleBinaries(const QMimeType &mimeType)
 {
     if (!KAuthorized::authorize(QStringLiteral("shell_access"))) {
         emitAccessDenied();
@@ -475,11 +490,9 @@ void KIO::OpenUrlJobPrivate::handleExecutables(const QMimeType &mimeType)
 
     const QString localPath = m_url.toLocalFile();
 
-    // Check whether file is an executable script
-#ifdef Q_OS_WIN
-    const bool isNativeBinary = !mimeType.inherits(QStringLiteral("text/plain"));
-#else
-    const bool isNativeBinary = !mimeType.inherits(QStringLiteral("text/plain")) && !mimeType.inherits(QStringLiteral("application/x-ms-dos-executable"));
+    bool isNativeBinary = true;
+#ifndef Q_OS_WIN
+    isNativeBinary = !mimeType.inherits(QStringLiteral("application/x-ms-dos-executable"));
 #endif
 
     if (m_showOpenOrExecuteDialog) {
@@ -497,6 +510,8 @@ void KIO::OpenUrlJobPrivate::handleExecutables(const QMimeType &mimeType)
             }
         };
 
+        // Ask the user for confirmation before executing this binary (for binaries
+        // the dialog will only show Execute/Cancel)
         showOpenOrExecuteFileDialog(dialogFinished);
         return;
     }
@@ -601,15 +616,15 @@ void KIO::OpenUrlJobPrivate::runUrlWithMimeType()
         return;
     }
 
-    // Shell scripts
-    if (mimeType.inherits(QStringLiteral("application/x-shellscript"))) {
-        handleShellscripts();
+    // Scripts (e.g. .sh, .csh, .py, .js)
+    if (isTextScript(mimeType)) {
+        handleScripts();
         return;
     }
 
-    // Binaries (e.g. /usr/bin/konsole) and .exe files
-    if (isExecutableMime(mimeType)) {
-        handleExecutables(mimeType);
+    // Binaries (e.g. /usr/bin/{konsole,ls}) and .exe files
+    if (isBinary(mimeType)) {
+        handleBinaries(mimeType);
         return;
     }
 
@@ -677,8 +692,9 @@ void KIO::OpenUrlJobPrivate::handleDesktopFiles()
     openInPreferredApp();
 }
 
-void KIO::OpenUrlJobPrivate::handleShellscripts()
+void KIO::OpenUrlJobPrivate::handleScripts()
 {
+    // Executable scripts of any type can run arbitrary shell commands
     if (!KAuthorized::authorize(QStringLiteral("shell_access"))) {
         emitAccessDenied();
         return;
@@ -687,8 +703,7 @@ void KIO::OpenUrlJobPrivate::handleShellscripts()
     const bool isLocal = m_url.isLocalFile();
     const QString localPath = m_url.toLocalFile();
     if (!isLocal || !hasExecuteBit(localPath)) {
-        // Open remote shell scripts or ones without the execute bit, with the
-        // default application
+        // Open remote scripts or ones without the execute bit, with the default application
         openInPreferredApp();
         return;
     }
@@ -706,7 +721,7 @@ void KIO::OpenUrlJobPrivate::handleShellscripts()
         return;
     }
 
-    if (m_runExecutables) { // Local executable shell script, proceed
+    if (m_runExecutables) { // Local executable script, proceed
         executeCommand();
     } else { // Open in the default (text editor) app
         openInPreferredApp();
@@ -767,7 +782,7 @@ void KIO::OpenUrlJobPrivate::showOpenOrExecuteFileDialog(std::function<void(bool
 
     if (!s_openOrExecuteFileHandler) {
         // No way to ask the user whether to execute or open
-        if (mimeType.inherits(QStringLiteral("application/x-shellscript"))
+        if (isTextScript(mimeType)
             || mimeType.inherits(QStringLiteral("application/x-desktop"))) { // Open text-based ones in the default app
             openInPreferredApp();
         } else {

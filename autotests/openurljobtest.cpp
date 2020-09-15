@@ -103,14 +103,13 @@ void OpenUrlJobTest::initTestCase()
     KConfigGroup grp = mimeAppsCfg.group("Default Applications");
     grp.writeEntry("text/plain", s_tempServiceName);
     grp.writeEntry("text/html", s_tempServiceName);
-    grp.writeEntry("application/x-shellscript", s_tempServiceName);
     grp.sync();
 
-    for (const char *mimeType : {"text/plain", "application/x-shellscript"}) {
-        KService::Ptr preferredTextEditor = KApplicationTrader::preferredService(QString::fromLatin1(mimeType));
-        QVERIFY(preferredTextEditor);
-        QCOMPARE(preferredTextEditor->entryPath(), m_fakeService);
-    }
+
+    // "text/plain" encompasses all scripts (shell, python, perl)
+    KService::Ptr preferredTextEditor = KApplicationTrader::preferredService(QStringLiteral("text/plain"));
+    QVERIFY(preferredTextEditor);
+    QCOMPARE(preferredTextEditor->entryPath(), m_fakeService);
 
     // As used for preferredService
     QVERIFY(KService::serviceByDesktopName("openurljobtest_service"));
@@ -230,17 +229,38 @@ void OpenUrlJobTest::invalidUrl()
     QCOMPARE(job2->errorString(), QStringLiteral("Malformed URL\n/pathonly"));
 }
 
+void OpenUrlJobTest::refuseRunningNativeExecutables_data()
+{
+    QTest::addColumn<QString>("mimeType");
+
+    // Executables under e.g. /usr/bin/ can be either of these two mimetypes
+    // see https://gitlab.freedesktop.org/xdg/shared-mime-info/-/issues/11
+    QTest::newRow("x-sharedlib") << "application/x-sharedlib";
+    QTest::newRow("x-executable") << "application/x-executable";
+}
+
 void OpenUrlJobTest::refuseRunningNativeExecutables()
 {
-   KIO::OpenUrlJob *job = new KIO::OpenUrlJob(QUrl::fromLocalFile(QCoreApplication::applicationFilePath()), QStringLiteral("application/x-executable"), this);
+   QFETCH(QString, mimeType);
+
+   KIO::OpenUrlJob *job = new KIO::OpenUrlJob(QUrl::fromLocalFile(QCoreApplication::applicationFilePath()), mimeType, this);
    QVERIFY(!job->exec());
    QCOMPARE(job->error(), KJob::UserDefinedError);
    QVERIFY2(job->errorString().contains("For security reasons, launching executables is not allowed in this context."), qPrintable(job->errorString()));
 }
 
+void OpenUrlJobTest::refuseRunningRemoteNativeExecutables_data()
+{
+    QTest::addColumn<QString>("mimeType");
+    QTest::newRow("x-sharedlib") << "application/x-sharedlib";
+    QTest::newRow("x-executable") << "application/x-executable";
+}
+
 void OpenUrlJobTest::refuseRunningRemoteNativeExecutables()
 {
-    KIO::OpenUrlJob *job = new KIO::OpenUrlJob(QUrl("protocol://host/path/exe"), QStringLiteral("application/x-executable"), this);
+   QFETCH(QString, mimeType);
+
+    KIO::OpenUrlJob *job = new KIO::OpenUrlJob(QUrl("protocol://host/path/exe"), mimeType, this);
     job->setRunExecutables(true); // even with this enabled, an error will occur
     QVERIFY(!job->exec());
     QCOMPARE(job->error(), KJob::UserDefinedError);
@@ -273,8 +293,11 @@ void OpenUrlJobTest::runScript_data()
 {
     QTest::addColumn<QString>("mimeType");
 
+    // All text-based scripts inherit text/plain and application/x-executable, no need to test
+    // all flavours (python, perl, lua, awk ...etc), this sample should be enough
     QTest::newRow("shellscript") << "application/x-shellscript";
-    QTest::newRow("native") << "application/x-executable";
+    QTest::newRow("pythonscript") << "text/x-python";
+    QTest::newRow("javascript") << "application/javascript";
 }
 
 void OpenUrlJobTest::runScript()
@@ -305,16 +328,23 @@ void OpenUrlJobTest::runScript()
 
 void OpenUrlJobTest::runNativeExecutable_data()
 {
+    QTest::addColumn<QString>("mimeType");
     QTest::addColumn<bool>("withHandler");
     QTest::addColumn<bool>("handlerRetVal");
 
-    QTest::newRow("no_handler") << false << false;
-    QTest::newRow("handler_false") << true << false;
-    QTest::newRow("handler_true") << true << true;
+    QTest::newRow("no_handler_x-sharedlib") << "application/x-sharedlib" << false << false;
+    QTest::newRow("handler_false_x-sharedlib") << "application/x-sharedlib" << true << false;
+    QTest::newRow("handler_true_x-sharedlib") << "application/x-sharedlib" << true << true;
+
+    QTest::newRow("no_handler_x-executable") << "application/x-executable" << false << false;
+    QTest::newRow("handler_false_x-executable") << "application/x-executable" << true << false;
+    QTest::newRow("handler_true_x-executable") << "application/x-executable" << true << true;
+
 }
 
 void OpenUrlJobTest::runNativeExecutable()
 {
+    QFETCH(QString, mimeType);
     QFETCH(bool, withHandler);
     QFETCH(bool, handlerRetVal);
 
@@ -335,7 +365,7 @@ void OpenUrlJobTest::runNativeExecutable()
     KIO::setDefaultUntrustedProgramHandler(withHandler ? &s_handler : nullptr);
 
     // When using OpenUrlJob to run the executable
-    KIO::OpenUrlJob *job = new KIO::OpenUrlJob(QUrl::fromLocalFile(scriptFile), QStringLiteral("application/x-executable"), this);
+    KIO::OpenUrlJob *job = new KIO::OpenUrlJob(QUrl::fromLocalFile(scriptFile), mimeType, this);
     job->setRunExecutables(true); // startProcess tests the case where this isn't set
     const bool success = job->exec();
 

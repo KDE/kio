@@ -26,7 +26,9 @@ private Q_SLOTS:
 
     void noServiceNoHandler();
     void invalidUrl();
+    void refuseRunningNativeExecutables_data();
     void refuseRunningNativeExecutables();
+    void refuseRunningRemoteNativeExecutables_data();
     void refuseRunningRemoteNativeExecutables();
     void notAuthorized();
     void runScript_data();
