@@ -25,6 +25,10 @@
 #include <kio/copyjob.h>
 #include <kio/deletejob.h>
 #include <kprotocolinfo.h>
+
+// QT_STAT_LNK on Windows
+#include "kioglobal_p.h"
+
 #include <QTimer>
 #include <QCommandLineParser>
 #include <QCommandLineOption>
