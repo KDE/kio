@@ -97,6 +97,11 @@ public:
     /**
      * @brief most local URL
      *
+     * Since this method depends on UDSEntry::UDS_LOCAL_PATH having been previously set
+     * by a KIO slave, ideally you should first check that the protocol Class of the URL
+     * being stat'ed is ":local" before creating the StatJob at all. Typically only ":local"
+     * KIO slaves set UDS_LOCAL_PATH. See KProtocolInfo::protocolClass().
+     *
      * Call this in a slot connected to the result signal, and only after making sure no error
      * happened.
      *
@@ -105,7 +110,7 @@ public:
      * Sample usage:
      *
      * @code
-     * KIO::StatJob *job = KIO::mostLocalUrl("desktop:/foo");
+     * auto *job = KIO::mostLocalUrl("desktop:/foo");
      * job->uiDelegate()->setWindow(this);
      * connect(job, &KJob::result, this, &MyClass::slotMostLocalUrlResult);
      * [...]
@@ -270,12 +275,48 @@ KIOCORE_EXPORT StatJob *stat(const QUrl &url, bool sideIsSource,
 #endif
 
 /**
- * Tries to map a local URL for the given URL, using a KIO job.
+ * Tries to map a local URL for the given URL, using a KIO job. This only makes sense for
+ * protocols that have Class ":local" (such protocols most likely have KIO Slaves that set
+ * UDSEntry::UDS_LOCAL_PATH); ideally you should check the URL protocol Class before creating
+ * a StatJob. See KProtocolInfo::protocolClass().
  *
  * Starts a (stat) job for determining the "most local URL" for a given URL.
  * Retrieve the result with StatJob::mostLocalUrl in the result slot.
- * @param url The URL we are testing.
- * \since 4.4
+ *
+ * @param url The URL we are stat'ing.
+ *
+ * @since 4.4
+ *
+ * Sample usage:
+ *
+ * Here the KIO slave name is "foo", which for example could be:
+ *  - "desktop", "fonts", "kdeconnect", these have class ":local"
+ *  - "ftp", "sftp", "smb", these have class ":internet"
+ *
+ * @code
+ *
+ * QUrl url(QStringLiteral("foo://bar/");
+ * if (url.isLocalFile()) { // If it's a local URL, there is no need to stat
+ *    [...]
+ * } else if (KProtocolInfo::protocolClass(url.scheme()) == QLatin1String(":local")) {
+ *     // Not a local URL, but if the protocol class is ":local", we may be able to stat
+ *     // and get a "most local URL"
+ *     auto *job = KIO::mostLocalUrl(url);
+ *     job->uiDelegate()->setWindow(this);
+ *     connect(job, &KJob::result, this, &MyClass::slotMostLocalUrlResult);
+ *     [...]
+ *     // And in slotMostLocalUrlResult(KJob *job)
+ *     if (job->error()) {
+ *         [...] // Doesn't exist, ideally show an error message
+ *     } else {
+ *         const QUrl localUrl = job->mostLocalUrl();
+ *         // localUrl = file:///local/path/to/bar/
+ *         [...]
+ *     }
+ * }
+ *
+ * @endcode
+ *
  */
 KIOCORE_EXPORT StatJob *mostLocalUrl(const QUrl &url, JobFlags flags = DefaultFlags);
 
