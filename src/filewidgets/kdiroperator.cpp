@@ -2519,7 +2519,8 @@ void KDirOperator::Private::_k_slotIOFinished()
         preview->clearPreview();
     }
 
-    if (dirHighlighting) {
+    // m_lastUrl can be empty when e.g. kfilewidget is first opened
+    if (!m_lastUrl.isEmpty() && dirHighlighting) {
         parent->setCurrentItem(m_lastUrl);
     }
 }
