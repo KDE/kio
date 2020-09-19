@@ -157,7 +157,7 @@ public:
      * Sets the dummy entry on the history combo box. If the dummy entry
      * already exists, it is overwritten with this information.
      */
-    void setDummyHistoryEntry(const QString &text, const QPixmap &icon = QPixmap(),
+    void setDummyHistoryEntry(const QString &text, const QIcon &icon = QIcon(),
                               bool usePreviousPixmapIfNull = true);
 
     /**
@@ -1189,7 +1189,7 @@ void KFileWidgetPrivate::multiSelectionChanged()
     setLocationText(list.urlList());
 }
 
-void KFileWidgetPrivate::setDummyHistoryEntry(const QString &text, const QPixmap &icon,
+void KFileWidgetPrivate::setDummyHistoryEntry(const QString &text, const QIcon &icon,
         bool usePreviousPixmapIfNull)
 {
     // setCurrentItem() will cause textChanged() being emitted,
@@ -1263,7 +1263,6 @@ void KFileWidgetPrivate::removeDummyHistoryEntry()
 void KFileWidgetPrivate::setLocationText(const QUrl &url)
 {
     if (!url.isEmpty()) {
-        QPixmap mimeTypeIcon = KIconLoader::global()->loadMimeTypeIcon(KIO::iconNameForUrl(url), KIconLoader::Small);
         if (!url.isRelative()) {
             const QUrl directory = url.adjusted(QUrl::RemoveFilename);
             if (!directory.path().isEmpty()) {
@@ -1272,6 +1271,8 @@ void KFileWidgetPrivate::setLocationText(const QUrl &url)
                 q->setUrl(url, false);
             }
         }
+
+        const QIcon mimeTypeIcon = QIcon::fromTheme(KIO::iconNameForUrl(url), QIcon::fromTheme(QStringLiteral("application-octet-stream")));
         setDummyHistoryEntry(url.fileName(), mimeTypeIcon);
     } else {
         removeDummyHistoryEntry();
@@ -1318,9 +1319,9 @@ void KFileWidgetPrivate::setLocationText(const QList<QUrl> &urlList)
         }
         urls.chop(1);
 
-        setDummyHistoryEntry(urls, QPixmap(), false);
+        setDummyHistoryEntry(urls, QIcon(), false);
     } else if (urlList.count() == 1) {
-        const QPixmap mimeTypeIcon = KIconLoader::global()->loadMimeTypeIcon(KIO::iconNameForUrl(urlList[0]),  KIconLoader::Small);
+        const QIcon mimeTypeIcon = QIcon::fromTheme(KIO::iconNameForUrl(urlList[0]), QIcon::fromTheme(QStringLiteral("application-octet-stream")));
         setDummyHistoryEntry(
             escapeDoubleQuotes(relativePathOrUrl(currUrl, urlList[0])),
             mimeTypeIcon
@@ -1653,8 +1654,8 @@ void KFileWidgetPrivate::_k_fileCompletion(const QString &match)
     }
 
     const QUrl url = urlFromString(match);
-    const QPixmap pix = KIconLoader::global()->loadMimeTypeIcon(KIO::iconNameForUrl(url), KIconLoader::Small);
-    setDummyHistoryEntry(locationEdit->currentText(), pix, !locationEdit->currentText().isEmpty());
+    const QIcon mimeTypeIcon = QIcon::fromTheme(KIO::iconNameForUrl(url), QIcon::fromTheme(QStringLiteral("application-octet-stream")));
+    setDummyHistoryEntry(locationEdit->currentText(), mimeTypeIcon, !locationEdit->currentText().isEmpty());
 }
 
 void KFileWidgetPrivate::_k_slotLocationChanged(const QString &text)
