@@ -98,6 +98,7 @@ Query[nn]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[pl]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[pt]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[pt_BR]=https://www.jamendo.com/en/search?qs=q=\\{@}
+Query[ro]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[ru]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[sk]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[sl]=https://www.jamendo.com/en/search?qs=q=\\{@}

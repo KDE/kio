@@ -98,6 +98,7 @@ Query[nn]=https://www.flickr.com/search/?q=\\{@}
 Query[pl]=https://www.flickr.com/search/?q=\\{@}
 Query[pt]=https://www.flickr.com/search/?q=\\{@}
 Query[pt_BR]=https://www.flickr.com/search/?q=\\{@}
+Query[ro]=https://www.flickr.com/search/?q=\\{@}
 Query[ru]=https://www.flickr.com/search/?q=\\{@}
 Query[sk]=https://www.flickr.com/search/?q=\\{@}
 Query[sl]=https://www.flickr.com/search/?q=\\{@}

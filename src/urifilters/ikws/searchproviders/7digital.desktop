@@ -98,6 +98,7 @@ Query[nn]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=S
 Query[pl]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[pt]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[pt_BR]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
+Query[ro]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[ru]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[sk]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[sl]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search

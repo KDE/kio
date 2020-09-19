@@ -115,6 +115,7 @@ Query[nn]=https://dx.doi.org/\\{@}
 Query[pl]=https://dx.doi.org/\\{@}
 Query[pt]=https://dx.doi.org/\\{@}
 Query[pt_BR]=https://dx.doi.org/\\{@}
+Query[ro]=https://dx.doi.org/\\{@}
 Query[ru]=https://dx.doi.org/\\{@}
 Query[sk]=https://dx.doi.org/\\{@}
 Query[sl]=https://dx.doi.org/\\{@}

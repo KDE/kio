@@ -29,6 +29,7 @@ Name[nn]=Søk etter Arch Linux-pakkar
 Name[pl]=Wyszukiwanie pakietów Arch Linux
 Name[pt]=Procura de Pacotes do Arch Linux
 Name[pt_BR]=Pesquisa de pacotes Arch Linux
+Name[ro]=Căutare pachete Arch Linux
 Name[ru]=Поиск пакетов Arch Linux
 Name[sk]=Hľadanie balíčkov pre Arch Linux
 Name[sl]=Iskanje po paketih Arch Linux
@@ -69,6 +70,7 @@ Query[nn]=https://www.archlinux.org/packages/?q=\\{@}
 Query[pl]=https://www.archlinux.org/packages/?q=\\{@}
 Query[pt]=https://www.archlinux.org/packages/?q=\\{@}
 Query[pt_BR]=https://www.archlinux.org/packages/?q=\\{@}
+Query[ro]=https://www.archlinux.org/packages/?q=\\{@}
 Query[ru]=https://www.archlinux.org/packages/?q=\\{@}
 Query[sk]=https://www.archlinux.org/packages/?q=\\{@}
 Query[sl]=https://www.archlinux.org/packages/?q=\\{@}

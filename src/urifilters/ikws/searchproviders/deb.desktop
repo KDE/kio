@@ -115,6 +115,7 @@ Query[nn]=https://packages.debian.org/\\{@}
 Query[pl]=https://packages.debian.org/\\{@}
 Query[pt]=https://packages.debian.org/\\{@}
 Query[pt_BR]=https://packages.debian.org/\\{@}
+Query[ro]=https://packages.debian.org/\\{@}
 Query[ru]=https://packages.debian.org/\\{@}
 Query[sk]=https://packages.debian.org/\\{@}
 Query[sl]=https://packages.debian.org/\\{@}

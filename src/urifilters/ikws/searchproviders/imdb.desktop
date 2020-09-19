@@ -119,6 +119,7 @@ Query[nn]=https://imdb.com/find?s=all&q=\\{@}
 Query[pl]=https://imdb.com/find?s=all&q=\\{@}
 Query[pt]=https://imdb.com/find?s=all&q=\\{@}
 Query[pt_BR]=https://imdb.com/find?s=all&q=\\{@}
+Query[ro]=https://imdb.com/find?s=all&q=\\{@}
 Query[ru]=https://imdb.com/find?s=all&q=\\{@}
 Query[sk]=https://imdb.com/find?s=all&q=\\{@}
 Query[sl]=https://imdb.com/find?s=all&q=\\{@}

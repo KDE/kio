@@ -97,6 +97,7 @@ Query[nn]=https://www.bing.com/search?q=\\{@}
 Query[pl]=https://www.bing.com/search?q=\\{@}
 Query[pt]=https://www.bing.com/search?q=\\{@}
 Query[pt_BR]=https://www.bing.com/search?q=\\{@}
+Query[ro]=https://www.bing.com/search?q=\\{@}
 Query[ru]=https://www.bing.com/search?q=\\{@}
 Query[sk]=https://www.bing.com/search?q=\\{@}
 Query[sl]=https://www.bing.com/search?q=\\{@}
