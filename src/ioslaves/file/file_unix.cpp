@@ -575,7 +575,7 @@ PrivilegeOperationReturnValue FileProtocol::tryChangeFileAttr(ActionType action,
 {
     KAuth::Action execAction(QStringLiteral("org.kde.kio.file.exec"));
     execAction.setHelperId(QStringLiteral("org.kde.kio.file"));
-    if (execAction.status() == KAuth::Action::AuthorizedStatus) {
+    if (execAction.status() == KAuth::Action::AuthorizedStatus || execAction.status() == KAuth::Action::AuthRequiredStatus) {
         return execWithElevatedPrivilege(action, args, errcode);
     }
     return PrivilegeOperationReturnValue::failure(errcode);
