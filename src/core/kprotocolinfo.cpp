@@ -42,6 +42,7 @@ KProtocolInfoPrivate::KProtocolInfoPrivate(const QString &path)
     m_canRenameFromFile = config.readEntry("renameFromFile", false);
     m_canRenameToFile = config.readEntry("renameToFile", false);
     m_canDeleteRecursive = config.readEntry("deleteRecursive", false);
+    m_supportsPrivilegeExecution = config.readEntry("privilegeExecution", false);
     const QString fnu = config.readEntry("fileNameUsedForCopying", "FromURL");
     m_fileNameUsedForCopying = KProtocolInfo::FromUrl;
     if (fnu == QLatin1String("Name")) {
@@ -132,6 +133,7 @@ KProtocolInfoPrivate::KProtocolInfoPrivate(const QString &name, const QString &e
     m_canRenameFromFile = json.value(QStringLiteral("renameFromFile")).toBool();
     m_canRenameToFile = json.value(QStringLiteral("renameToFile")).toBool();
     m_canDeleteRecursive = json.value(QStringLiteral("deleteRecursive")).toBool();
+    m_supportsPrivilegeExecution = json.value(QStringLiteral("privilegeExecution")).toBool();
 
     // default is "FromURL"
     const QString fnu = json.value(QStringLiteral("fileNameUsedForCopying")).toString();

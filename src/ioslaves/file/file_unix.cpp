@@ -1518,6 +1518,28 @@ PrivilegeOperationReturnValue FileProtocol::execWithElevatedPrivilege(ActionType
     argv.insert(QStringLiteral("arguments"), helperArgs);
     execAction.setArguments(argv);
 
+    const auto actionHelper = [](ActionType action) -> QString {
+        switch (action) {
+        case ActionType::CHMOD:   return i18n("Authentication is required to change this file's permissions.");
+        case ActionType::CHOWN:   return i18n("Authentication is required to change who owns this file.");
+        case ActionType::DEL:     return i18n("Authentication is required to delete this file.");
+        case ActionType::MKDIR:   return i18n("Authentication is required to create a folder.");
+        case ActionType::OPEN:    return i18n("Authentication is required to open this file.");
+        case ActionType::OPENDIR: return i18n("Authentication is required to open this folder.");
+        case ActionType::RENAME:  return i18n("Authentication is required to rename this file.");
+        case ActionType::RMDIR:   return i18n("Authentication is required to delete this folder.");
+        case ActionType::SYMLINK: return i18n("Authentication is required to create a symlink.");
+        case ActionType::UTIME:   return i18n("Authentication is required to modify this file's last updated time.");
+        case ActionType::UNKNOWN: return i18n("Authentication is required to perform this action.");
+        }
+        Q_UNREACHABLE();
+        return QString();
+    };
+
+    KAuth::Action::DetailsMap details;
+    details.insert(KAuth::Action::AuthDetail::DetailMessage, actionHelper(action));
+    execAction.setDetailsV2(details);
+
     auto reply = execAction.execute();
     if (reply->exec()) {
         addTemporaryAuthorization(actionId);
