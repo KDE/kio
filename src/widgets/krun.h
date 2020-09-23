@@ -73,12 +73,12 @@ public:
      *
      * @deprecated since 5.71, use KIO::OpenUrlJob(url) (except for KRun subclasses, for now)
      * @code
-     *   KIO::OpenUrlJob *job = new KIO::OpenUrlJob(url);
-     *   job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, window));
-     *   job->setStartupId(asn);
-     *   // methods like setRunExecutables, setSuggestedFilename, setEnableExternalBrowser, setFollowRedirections
-     *   // exist in both classes
-     *   job->start();
+     *    auto *job = new KIO::OpenUrlJob(url);
+     *    job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, window));
+     *    job->setStartupId(asn);
+     *    // methods like setRunExecutables, setSuggestedFilename, setEnableExternalBrowser, setFollowRedirections
+     *    // exist in both classes
+     *    job->start();
      * @endcode
      */
     KRun(const QUrl &url, QWidget *window,
@@ -211,15 +211,15 @@ public:
      *
      * @deprecated since 5.6. Since 5.71 use ApplicationLauncherJob, otherwise runApplication instead.
      * @code
-     *   KIO::ApplicationLauncherJob *job = new KIO::ApplicationLauncherJob(service);
-     *   job->setUrls(urls);
-     *   job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, window));
-     *   if (tempFiles) {
-     *       job->setRunFlags(KIO::ApplicationLauncherJob::DeleteTemporaryFiles);
-     *   }
-     *   job->setSuggestedFileName(suggestedFileName);
-     *   job->setStartupId(asn);
-     *   job->start();
+     *    auto *job = new KIO::ApplicationLauncherJob(service);
+     *    job->setUrls(urls);
+     *    job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, window));
+     *    if (tempFiles) {
+     *        job->setRunFlags(KIO::ApplicationLauncherJob::DeleteTemporaryFiles);
+     *    }
+     *    job->setSuggestedFileName(suggestedFileName);
+     *    job->setStartupId(asn);
+     *    job->start();
      * @endcode
      */
     KIOWIDGETS_DEPRECATED_VERSION(5, 6, "Use KIO::ApplicationLauncherJob, see API docs for a code sample")
@@ -248,15 +248,15 @@ public:
      * @since 5.6
      * @deprecated since 5.71, use ApplicationLauncherJob instead.
      * @code
-     *   KIO::ApplicationLauncherJob *job = new KIO::ApplicationLauncherJob(service);
-     *   job->setUrls(urls);
-     *   job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, window));
-     *   if (tempFiles) {
-     *       job->setRunFlags(KIO::ApplicationLauncherJob::DeleteTemporaryFiles);
-     *   }
-     *   job->setSuggestedFileName(suggestedFileName);
-     *   job->setStartupId(asn);
-     *   job->start();
+     *    auto *job = new KIO::ApplicationLauncherJob(service);
+     *    job->setUrls(urls);
+     *    job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, window));
+     *    if (tempFiles) {
+     *        job->setRunFlags(KIO::ApplicationLauncherJob::DeleteTemporaryFiles);
+     *    }
+     *    job->setSuggestedFileName(suggestedFileName);
+     *    job->setStartupId(asn);
+     *    job->start();
      * @endcode
      */
     KIOWIDGETS_DEPRECATED_VERSION(5, 71, "Use KIO::ApplicationLauncherJob, see API docs for a code sample")
@@ -301,13 +301,13 @@ public:
      *
      * @deprecated since 5.71, use ApplicationLauncherJob instead.
      * @code
-     *   KIO::ApplicationLauncherJob *job = new KIO::ApplicationLauncherJob(service);
-     *   job->setUrls(urls);
-     *   job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, window));
-     *   job->setSuggestedFileName(suggestedFileName);
-     *   job->setRunFlags(flags);
-     *   job->setStartupId(asn);
-     *   job->start();
+     *    auto *job = new KIO::ApplicationLauncherJob(service);
+     *    job->setUrls(urls);
+     *    job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, window));
+     *    job->setSuggestedFileName(suggestedFileName);
+     *    job->setRunFlags(flags);
+     *    job->setStartupId(asn);
+     *    job->start();
      * @endcode
      */
     KIOWIDGETS_DEPRECATED_VERSION(5, 71, "Use KIO::ApplicationLauncherJob, see API docs for a code sample")
@@ -335,12 +335,12 @@ public:
      *
      * @deprecated since 5.71, use KIO::ApplicationLauncherJob with a temporary KService
      * @code
-     *   KService::Ptr service(new KService(name, exec, icon));
-     *   KIO::ApplicationLauncherJob *job = new KIO::ApplicationLauncherJob(service);
-     *   job->setUrls(urls);
-     *   job->setUiDelegate(new KDialogJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, window));
-     *   job->setStartupId(asn);
-     *   job->start();
+     *    KService::Ptr service(new KService(name, exec, icon));
+     *    auto *job = new KIO::ApplicationLauncherJob(service);
+     *    job->setUrls(urls);
+     *    job->setUiDelegate(new KDialogJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, window));
+     *    job->setStartupId(asn);
+     *    job->start();
      * @endcode
      */
     KIOWIDGETS_DEPRECATED_VERSION(5, 71, "Use KIO::ApplicationLauncherJob with a temporary KService, see API docs for a code sample")
@@ -370,13 +370,13 @@ public:
      * @return @c true on success, @c false on error
      * @deprecated since 5.31. Since 5.71 use OpenUrlJob, otherwise runUrl() with RunFlags.
      * @code
-     *   KIO::OpenUrlJob *job = new KIO::OpenUrlJob(url, mimetype);
-     *   job->setSuggestedFileName(suggestedFileName);
-     *   job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, window));
-     *   job->setRunExecutables(runExecutables);
-     *   job->setDeleteTemporaryFile(...); // depending on the old RunFlags
-     *   job->setStartupId(asn);
-     *   job->start();
+     *    auto *job = new KIO::OpenUrlJob(url, mimetype);
+     *    job->setSuggestedFileName(suggestedFileName);
+     *    job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, window));
+     *    job->setRunExecutables(runExecutables);
+     *    job->setDeleteTemporaryFile(...); // depending on the old RunFlags
+     *    job->setStartupId(asn);
+     *    job->start();
      * @endcode
      */
     KIOWIDGETS_DEPRECATED_VERSION(5, 31, "Use KIO::OpenUrlJob, see API docs for a code sample")
@@ -402,13 +402,13 @@ public:
      * @since 5.31
      * @deprecated since 5.71, use KIO::OpenUrlJob:
      * @code
-     *   KIO::OpenUrlJob *job = new KIO::OpenUrlJob(url, mimetype);
-     *   job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, window));
-     *   job->setRunExecutables(runExecutables);
-     *   job->setDeleteTemporaryFile(...); // depending on the old RunFlags
-     *   job->setSuggestedFileName(suggestedFileName);
-     *   job->setStartupId(asn);
-     *   job->start();
+     *    auto *job = new KIO::OpenUrlJob(url, mimetype);
+     *    job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, window));
+     *    job->setRunExecutables(runExecutables);
+     *    job->setDeleteTemporaryFile(...); // depending on the old RunFlags
+     *    job->setSuggestedFileName(suggestedFileName);
+     *    job->setStartupId(asn);
+     *    job->start();
      * @endcode
      */
     KIOWIDGETS_DEPRECATED_VERSION(5, 71, "Use KIO::OpenUrlJob, see API docs for a code sample")
@@ -434,10 +434,10 @@ public:
      * @return @c true on success, @c false on error
      * @deprecated since 5.71, use KIO::CommandLauncherJob
      * @code
-     *   KIO::CommandLauncherJob *job = new KIO::CommandLauncherJob(cmd);
-     *   job->setUiDelegate(new KDialogJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, window));
-     *   job->setWorkingDirectory(workingDirectory);
-     *   job->start();
+     *    auto *job = new KIO::CommandLauncherJob(cmd);
+     *    job->setUiDelegate(new KDialogJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, window));
+     *    job->setWorkingDirectory(workingDirectory);
+     *    job->start();
      * @endcode
      */
     KIOWIDGETS_DEPRECATED_VERSION(5, 71, "Use KIO::CommandLauncherJob, see API docs for a code sample")
@@ -458,13 +458,13 @@ public:
      * @return @c true on success, @c false on error
      * @deprecated since 5.71, use KIO::CommandLauncherJob
      * @code
-     *   KIO::CommandLauncherJob *job = new KIO::CommandLauncherJob(cmd);
-     *   job->setUiDelegate(new KDialogJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, window));
-     *   job->setWorkingDirectory(workingDirectory);
-     *   job->setExecutable(execName);
-     *   job->setIcon(icon);
-     *   job->setStartupId(asn);
-     *   job->start();
+     *    auto *job = new KIO::CommandLauncherJob(cmd);
+     *    job->setUiDelegate(new KDialogJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, window));
+     *    job->setWorkingDirectory(workingDirectory);
+     *    job->setExecutable(execName);
+     *    job->setIcon(icon);
+     *    job->setStartupId(asn);
+     *    job->start();
      * @endcode
      */
     KIOWIDGETS_DEPRECATED_VERSION(5, 71, "Use KIO::CommandLauncherJob, see API docs for a code sample")
@@ -481,13 +481,13 @@ public:
      * @since 4.4
      * @deprecated since 5.71, use KIO::CommandLauncherJob instead
      * @code
-     *   KIO::CommandLauncherJob *job = new KIO::CommandLauncherJob(cmd);
-     *   job->setUiDelegate(new KDialogJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, window));
-     *   job->setWorkingDirectory(workingDirectory);
-     *   job->setExecutable(execName);
-     *   job->setIcon(icon);
-     *   job->setStartupId(asn);
-     *   job->start();
+     *    auto *job = new KIO::CommandLauncherJob(cmd);
+     *    job->setUiDelegate(new KDialogJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, window));
+     *    job->setWorkingDirectory(workingDirectory);
+     *    job->setExecutable(execName);
+     *    job->setIcon(icon);
+     *    job->setStartupId(asn);
+     *    job->start();
      * @endcode
      */
     KIOWIDGETS_DEPRECATED_VERSION(5, 71, "Use KIO::CommandLauncherJob, see API docs for a code sample")
@@ -508,15 +508,15 @@ public:
      * @return false if the dialog was canceled
      * @deprecated since 5.71, use KIO::ApplicationLauncherJob with no service argument (or a null service)
      * @code
-     *   KIO::ApplicationLauncherJob *job = new KIO::ApplicationLauncherJob();
-     *   job->setUrls(urls);
-     *   job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, window));
-     *   if (tempFiles) {
-     *       job->setRunFlags(KIO::ApplicationLauncherJob::DeleteTemporaryFiles);
-     *   }
-     *   job->setSuggestedFileName(suggestedFileName);
-     *   job->setStartupId(asn);
-     *   job->start();
+     *    auto *job = new KIO::ApplicationLauncherJob();
+     *    job->setUrls(urls);
+     *    job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, window));
+     *    if (tempFiles) {
+     *        job->setRunFlags(KIO::ApplicationLauncherJob::DeleteTemporaryFiles);
+     *    }
+     *    job->setSuggestedFileName(suggestedFileName);
+     *    job->setStartupId(asn);
+     *    job->start();
      * @endcode
      */
     KIOWIDGETS_DEPRECATED_VERSION(5, 71, "Use KIO::OpenUrlJob, see API docs for a code sample")
