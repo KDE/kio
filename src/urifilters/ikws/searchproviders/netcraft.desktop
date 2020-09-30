@@ -119,6 +119,7 @@ Query[nn]=https://uptime.netcraft.com/up/graph?site=\\{@}
 Query[pl]=https://uptime.netcraft.com/up/graph?site=\\{@}
 Query[pt]=https://uptime.netcraft.com/up/graph?site=\\{@}
 Query[pt_BR]=https://uptime.netcraft.com/up/graph?site=\\{@}
+Query[ro]=https://uptime.netcraft.com/up/graph?site=\\{@}
 Query[ru]=https://uptime.netcraft.com/up/graph?site=\\{@}
 Query[sk]=https://uptime.netcraft.com/up/graph?site=\\{@}
 Query[sl]=https://uptime.netcraft.com/up/graph?site=\\{@}
