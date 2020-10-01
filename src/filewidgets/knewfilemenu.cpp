@@ -764,21 +764,14 @@ void KNewFileMenuPrivate::fillMenu()
 
 QUrl KNewFileMenuPrivate::mostLocalUrl(const QUrl &url)
 {
-    if (url.isLocalFile()) {
+    if (url.isLocalFile() || KProtocolInfo::protocolClass(url.scheme()) != QLatin1String(":local")) {
         return url;
     }
 
-    KIO::StatJob *job = KIO::stat(url);
+    KIO::StatJob *job = KIO::mostLocalUrl(url);
     KJobWidgets::setWindow(job, m_parentWidget);
 
-    if (!job->exec()) {
-        return url;
-    }
-
-    KIO::UDSEntry entry = job->statResult();
-    const QString path = entry.stringValue(KIO::UDSEntry::UDS_LOCAL_PATH);
-
-    return path.isEmpty() ? url : QUrl::fromLocalFile(path);
+    return job->exec() ? job->mostLocalUrl() : url;
 }
 
 void KNewFileMenuPrivate::_k_slotAbortDialog()
@@ -1259,13 +1252,7 @@ void KNewFileMenu::createDirectory()
         return;
     }
 
-    QUrl baseUrl = d->m_popupFiles.first();
-
-    KIO::StatJob *job = KIO::mostLocalUrl(baseUrl);
-
-    if (job->exec()) {
-        baseUrl = job->mostLocalUrl();
-    }
+    QUrl baseUrl = d->mostLocalUrl(d->m_popupFiles.first());
 
     QString name = d->m_text.isEmpty() ? i18nc("Default name for a new folder", "New Folder") :
                    d->m_text;
