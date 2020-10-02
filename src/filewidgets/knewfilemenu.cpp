@@ -159,7 +159,7 @@ void KNewFileMenuSingleton::parseFiles()
                 QString type = desktopFile.readType();
                 if (type == QLatin1String("Link")) {
                     templatePath = desktopFile.desktopGroup().readPathEntry("URL", QString());
-                    if (templatePath[0] != QLatin1Char('/') && !templatePath.startsWith(QLatin1String("__"))) {
+                    if (!templatePath.startsWith(QLatin1Char('/')) && !templatePath.startsWith(QLatin1String("__"))) {
                         if (templatePath.startsWith(QLatin1String("file:/"))) {
                             templatePath = QUrl(templatePath).toLocalFile();
                         } else {

@@ -682,7 +682,7 @@ Result FtpInternal::ftpLogin(bool *userChanged)
     const int iEnd = sTmp.lastIndexOf(QLatin1Char('"'));
     if (iBeg > 0 && iBeg < iEnd) {
         m_initialPath = sTmp.mid(iBeg + 1, iEnd - iBeg - 1);
-        if (m_initialPath[0] != QLatin1Char('/')) {
+        if (!m_initialPath.startsWith(QLatin1Char('/'))) {
             m_initialPath.prepend(QLatin1Char('/'));
         }
         qCDebug(KIO_FTP) << "Initial path set to: " << m_initialPath;
@@ -1705,7 +1705,7 @@ bool FtpInternal::ftpReadDir(FtpEntry &de)
                     de.link.clear();
                 }
 
-                if (tmp[0] == '/') { // listing on ftp://ftp.gnupg.org/ starts with '/'
+                if (tmp.startsWith('/')) { // listing on ftp://ftp.gnupg.org/ starts with '/'
                     tmp.remove(0, 1);
                 }
 

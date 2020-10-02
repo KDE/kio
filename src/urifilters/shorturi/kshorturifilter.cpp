@@ -171,12 +171,12 @@ bool KShortUriFilter::filterUri(KUriFilterData &data) const
     // Handle MAN & INFO pages shortcuts...
     const QString man_proto = QStringLiteral("man:");
     const QString info_proto = QStringLiteral("info:");
-    if (cmd[0] == QLatin1Char('#')
+    if (cmd.startsWith(QLatin1Char('#'))
         || cmd.indexOf(man_proto) == 0
         || cmd.indexOf(info_proto) == 0) {
         if (cmd.leftRef(2) == QLatin1String("##")) {
             cmd = QLatin1String("info:/") + cmd.midRef(2);
-        } else if (cmd[0] == QLatin1Char('#')) {
+        } else if (cmd.startsWith(QLatin1Char('#'))) {
             cmd = QLatin1String("man:/") + cmd.midRef(1);
         } else if ((cmd == info_proto) || (cmd == man_proto)) {
             cmd += QLatin1Char('/');
@@ -234,7 +234,7 @@ bool KShortUriFilter::filterUri(KUriFilterData &data) const
         }
     }
 
-    if (path[0] == QLatin1Char('~')) {
+    if (path.startsWith(QLatin1Char('~'))) {
         int slashPos = path.indexOf(QLatin1Char('/'));
         if (slashPos == -1) {
             slashPos = path.length();
@@ -259,7 +259,7 @@ bool KShortUriFilter::filterUri(KUriFilterData &data) const
             }
         }
         expanded = true;
-    } else if (path[0] == QLatin1Char('$')) {
+    } else if (path.startsWith(QLatin1Char('$'))) {
         // Environment variable expansion.
         auto match = sEnvVarExp.match(path);
         if (match.hasMatch()) {
@@ -293,7 +293,7 @@ bool KShortUriFilter::filterUri(KUriFilterData &data) const
     const QString abs_path = data.absolutePath();
 
     const bool canBeAbsolute = (protocol.isEmpty() && !abs_path.isEmpty());
-    const bool canBeLocalAbsolute = (canBeAbsolute && abs_path[0] == QLatin1Char('/') && !isMalformed);
+    const bool canBeLocalAbsolute = (canBeAbsolute && abs_path.startsWith(QLatin1Char('/')) && !isMalformed);
     bool exists = false;
 
     /*qCDebug(category) << "abs_path=" << abs_path
