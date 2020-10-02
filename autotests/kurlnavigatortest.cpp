@@ -209,6 +209,29 @@ void KUrlNavigatorTest::testUrlParsing()
     QCOMPARE(m_navigator->locationUrl(), url);
 }
 
+void KUrlNavigatorTest::testFixUrlPath_data()
+{
+    QTest::addColumn<QString>("input");
+    QTest::addColumn<QUrl>("url");
+    // ":local" KProtocols, a '/' is added so that the url path isn't empty
+    QTest::newRow("desktopKIO") << (QStringLiteral("desktop:")) << QUrl(QStringLiteral("desktop:/"));
+    QTest::newRow("trashKIO") << (QStringLiteral("trash:")) << QUrl(QStringLiteral("trash:/"));
+    // QUrl setPath("/") results in "file:///"
+    QTest::newRow("fileKIO") << (QStringLiteral("file:")) << QUrl(QStringLiteral("file:///"));
+}
+
+void KUrlNavigatorTest::testFixUrlPath()
+{
+    QFETCH(QString, input);
+    QFETCH(QUrl, url);
+
+    m_navigator->setLocationUrl(QUrl());
+    m_navigator->setUrlEditable(true);
+    m_navigator->editor()->setCurrentText(input);
+    QTest::keyClick(m_navigator->editor(), Qt::Key_Enter);
+    QCOMPARE(m_navigator->locationUrl(), url);
+}
+
 #if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(4, 5)
 void KUrlNavigatorTest::testButtonUrl_data()
 {

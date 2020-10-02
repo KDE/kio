@@ -29,6 +29,9 @@ private Q_SLOTS:
     void testUrlParsing_data();
     void testUrlParsing();
 
+    void testFixUrlPath_data();
+    void testFixUrlPath();
+
 #if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(4, 5)
     void testButtonUrl_data();
     void testButtonUrl();

@@ -295,7 +295,13 @@ void KUrlNavigator::Private::applyUncommittedUrl()
     // SPDX-FileCopyrightText: 2001 Joseph Wenninger <jowenn@kde.org>
     // SPDX-FileCopyrightText: 2001 Anders Lund <anders.lund@lund.tdcadsl.dk>
 
-    const QUrl typedUrl = q->uncommittedUrl();
+    QUrl typedUrl = q->uncommittedUrl();
+    // For example "desktop:/" _not_ "desktop:", see the comment in slotProtocolChanged()
+    if (!typedUrl.isEmpty() && typedUrl.path().isEmpty()
+        && KProtocolInfo::protocolClass(typedUrl.scheme()) == QLatin1String(":local")) {
+        typedUrl.setPath(QStringLiteral("/"));
+    }
+
     QStringList urls = m_pathBox->urls();
     urls.removeAll(typedUrl.toString());
     urls.prepend(typedUrl.toString());
@@ -328,7 +334,10 @@ void KUrlNavigator::Private::slotProtocolChanged(const QString &protocol)
 
     QUrl url;
     url.setScheme(protocol);
-    if (protocol == QLatin1String("file")) {
+    if (KProtocolInfo::protocolClass(protocol) == QLatin1String(":local")) {
+        // E.g. "file:/" or "desktop:/", _not_ "file:" or "desktop:" respectively.
+        // This is the more expected behaviour, "file:somedir" treats somedir as
+        // a path relative to current dir; file:/somedir is an absolute path to /somedir.
         url.setPath(QStringLiteral("/"));
     } else {
         // With no authority set we'll get e.g. "ftp:" instead of "ftp://".
