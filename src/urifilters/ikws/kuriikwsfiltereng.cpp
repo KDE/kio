@@ -51,17 +51,25 @@ SearchProvider *KURISearchFilterEngine::webShortcutQuery(const QString &typedStr
         QString key;
         if (pos > -1) {
             key = typedString.left(pos).toLower(); // #169801
+            searchTerm = typedString.mid(pos+1);
         } else if (!typedString.isEmpty() && m_cKeywordDelimiter == ' ') {
             key = typedString;
+            searchTerm = typedString.mid(pos+1);
+        } else if (typedString.contains(QLatin1Char('!'))) {
+            const static QRegularExpression bangRegex(QStringLiteral("!([^ ]+)"));
+            const auto match = bangRegex.match(typedString);
+            if (match.hasMatch() && match.lastCapturedIndex() == 1) {
+                key = match.captured(1);
+                searchTerm = QString(typedString).remove(bangRegex);
+            }
         }
 
-        qCDebug(category) << "m_cKeywordDelimiter=" << QLatin1Char(m_cKeywordDelimiter) << "pos=" << pos << "key=" << key;
+        qCDebug(category) << "m_cKeywordDelimiter=" << QLatin1Char(m_cKeywordDelimiter) << "key=" << key << "typedString=" << typedString;
 
         if (!key.isEmpty() && !KProtocolInfo::isKnownProtocol(key)) {
             provider = m_registry.findByKey(key);
             if (provider) {
                 if (!m_bUseOnlyPreferredWebShortcuts || m_preferredWebShortcuts.contains(provider->desktopEntryName())) {
-                    searchTerm = typedString.mid(pos+1);
                     qCDebug(category) << "found provider" << provider->desktopEntryName() << "searchTerm=" << searchTerm;
                 } else {
                     provider = nullptr;
