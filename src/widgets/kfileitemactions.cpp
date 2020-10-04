@@ -795,6 +795,18 @@ bool KFileItemActionsPrivate::shouldDisplayServiceMenu(const KConfigGroup &cfg, 
             return false;
         }
     }
+    if (cfg.hasKey("X-KDE-MinNumberOfUrls")) {
+        const int minNumber = cfg.readEntry("X-KDE-MinNumberOfUrls").toInt();
+        if (urlList.count() < minNumber) {
+            return false;
+        }
+    }
+    if (cfg.hasKey("X-KDE-MaxNumberOfUrls")) {
+        const int maxNumber = cfg.readEntry("X-KDE-MaxNumberOfUrls").toInt();
+        if (urlList.count() > maxNumber) {
+            return false;
+        }
+    }
     return true;
 }
 
