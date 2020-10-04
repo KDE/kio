@@ -1,0 +1,146 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Brazilian-Portuguese "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="mailto">
+<title
+>mailto</title>
+<articleinfo>
+<authorgroup>
+<author
+><firstname
+>Christopher</firstname
+> <surname
+>Yeleighton</surname
+> <email
+>giecrilj@stegny.2a.pl</email
+></author>
+
+<othercredit role="translator"
+><firstname
+>Lisiane</firstname
+> <surname
+>Sztoltz</surname
+><affiliation
+><address
+> <email
+>lisiane@conectiva.com.br</email
+></address
+></affiliation
+><contrib
+>Tradução</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>20/08/2018</date>
+<releaseinfo
+>Frameworks 5.50</releaseinfo>
+</articleinfo>
+<para
+>O kioslave mailto é responsável por iniciar o compositor de e-mail de sua escolha quando você abrir uma &URL; no esquema mailto (<ulink url="https://tools.ietf.org/html/rfc6068"
+>RFC6068</ulink
+>). </para>
+
+<variablelist>
+<varlistentry>
+<term
+>Sintaxe</term>
+<listitem
+><para
+>A sintaxe de uma &URL; mailto obedece ao seguinte padrão:</para>
+
+<para
+>mailto:destinatários?consulta</para>
+
+<para
+>onde os destinatários formam uma lista de especificações de endereços &SMTP; restrita, e a parte da consulta pode conter um ou mais dos seguintes parâmetros:</para>
+
+<variablelist>
+<varlistentry>
+<term
+>&amp;to=destinatários</term>
+<listitem
+><para
+>Especifica destinatários adicionais.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>&amp;cc=destinatários</term>
+<listitem
+><para
+>Especifica destinatários adicionais de cópias Cc.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>&amp;bcc=destinatários</term>
+<listitem
+><para
+>Especifica destinatários adicionais de cópias ocultas Cco. Estes destinatários receberão a mensagem, mas todos os outros destinatários não saberão sobre isto.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>&amp;body=texto</term>
+<listitem
+><para
+>Especifica o texto da mensagem. Este texto não deve ser longo, já que pode haver limites sobre quão grande uma &URL; pode ser.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>&amp;subject=texto</term>
+<listitem
+><para
+>Especifica o assunto da mensagem.</para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>Exemplo</term>
+<listitem
+><para
+>   
+<literal
+>mailto:kde-i18n-pt_BR@kde.org?cc=kde@kde.org&amp;subject=Obrigado!&amp;body=O%20KDE%20é%20muito%20bom!%20Como%20posso%20ajudar%3F</literal>
+</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>Configuração</term>
+<listitem
+><para
+>Escolha o aplicativo para manejar as URLs mailto no módulo do &systemsettings; <menuchoice
+><guimenu
+>Aplicativos</guimenu
+> <guimenuitem
+>Aplicativos padrão</guimenuitem
+></menuchoice
+>, na categoria <guilabel
+>Personalização</guilabel
+>. </para
+></listitem>
+</varlistentry>
+
+</variablelist>
+  
+</article>
