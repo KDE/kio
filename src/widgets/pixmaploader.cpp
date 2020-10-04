@@ -9,6 +9,7 @@
 #include <QUrl>
 #include <kio/global.h> // iconNameForUrl
 
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 75)
 QPixmap KIO::pixmapForUrl(const QUrl &url, int mode, KIconLoader::Group group,
                           int force_size, int state, QString *path)
 {
@@ -16,3 +17,4 @@ QPixmap KIO::pixmapForUrl(const QUrl &url, int mode, KIconLoader::Group group,
     const QString iconName = KIO::iconNameForUrl(url);
     return KIconLoader::global()->loadMimeTypeIcon(iconName, group, force_size, state, QStringList(), path);
 }
+#endif

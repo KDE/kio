@@ -17,6 +17,7 @@ class QUrl;
 namespace KIO
 {
 
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 75)
 /**
  * Convenience method to find the pixmap for a URL.
  *
@@ -32,11 +33,16 @@ namespace KIO
  * @param path Output parameter to get the full path. Seldom needed.
  *              Ignored if null pointer.
  * @return the pixmap of the URL, can be a default icon if not found
+ * @deprecated since 5.75, use KIO::iconNameForUrl() to get the
+ * icon name and
+ * QIcon::fromTheme(name, QIcon::fromTheme(QStringLiteral("application-octet-stream")))
  */
+KIOWIDGETS_DEPRECATED_VERSION(5, 75, "Use KIO::iconNameForUrl")
 KIOWIDGETS_EXPORT QPixmap pixmapForUrl(const QUrl &url, int dummy = 0, KIconLoader::Group group = KIconLoader::Desktop,
                                        int force_size = 0, int state = 0, QString *path = nullptr);
 
 }
+#endif
 
 #endif /* KIO_PIXMAPLOADER_H */
 
