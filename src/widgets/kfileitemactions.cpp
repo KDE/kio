@@ -768,6 +768,9 @@ bool KFileItemActionsPrivate::shouldDisplayServiceMenu(const KConfigGroup &cfg, 
         if (capabilities.contains(QLatin1String("Write")) && !m_props.supportsWriting()) {
             return false;
         }
+        if (capabilities.contains(QLatin1String("Read")) && !m_props.supportsReading()) {
+            return false;
+        }
     }
 
     if (cfg.hasKey("X-KDE-RequiredNumberOfUrls")) {
