@@ -41,8 +41,8 @@ KIOWIDGETS_DEPRECATED_VERSION(5, 75, "Use KIO::iconNameForUrl")
 KIOWIDGETS_EXPORT QPixmap pixmapForUrl(const QUrl &url, int dummy = 0, KIconLoader::Group group = KIconLoader::Desktop,
                                        int force_size = 0, int state = 0, QString *path = nullptr);
 
-}
 #endif
+}
 
 #endif /* KIO_PIXMAPLOADER_H */
 
