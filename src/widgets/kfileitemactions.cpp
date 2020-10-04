@@ -28,6 +28,7 @@
 #include <QDBusConnectionInterface>
 #include <QDBusInterface>
 #include <QDBusMessage>
+#include <kio_widgets_debug.h>
 
 static bool KIOSKAuthorizedAction(const KConfigGroup &cfg)
 {
@@ -711,14 +712,16 @@ bool KFileItemActionsPrivate::shouldDisplayServiceMenu(const KConfigGroup &cfg, 
     if (!KIOSKAuthorizedAction(cfg)) {
         return false;
     }
-
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 76)
     if (cfg.hasKey("X-KDE-ShowIfRunning")) {
+        qCWarning(KIO_WIDGETS) << "The property X-KDE-ShowIfRunning is deprecated and will be removed in future releases";
         const QString app = cfg.readEntry("X-KDE-ShowIfRunning");
         if (QDBusConnection::sessionBus().interface()->isServiceRegistered(app)) {
             return false;
         }
     }
     if (cfg.hasKey("X-KDE-ShowIfDBusCall")) {
+        qCWarning(KIO_WIDGETS) << "The property X-KDE-ShowIfDBusCall is deprecated and will be removed in future releases";
         QString calldata = cfg.readEntry("X-KDE-ShowIfDBusCall");
         const QStringList parts = calldata.split(QLatin1Char(' '));
         const QString &app = parts.at(0);
@@ -731,9 +734,6 @@ bool KFileItemActionsPrivate::shouldDisplayServiceMenu(const KConfigGroup &cfg, 
             interface.truncate(pos);
         }
 
-        //if (!QDBus::sessionBus().busService()->nameHasOwner(app))
-        //    continue; //app does not exist so cannot send call
-
         QDBusMessage reply = QDBusInterface(app, obj, interface).
             call(method, QUrl::toStringList(urlList));
         if (reply.arguments().count() < 1 || reply.arguments().at(0).type() != QVariant::Bool || !reply.arguments().at(0).toBool()) {
@@ -741,6 +741,7 @@ bool KFileItemActionsPrivate::shouldDisplayServiceMenu(const KConfigGroup &cfg, 
         }
 
     }
+#endif
     if (cfg.hasKey("X-KDE-Protocol")) {
         const QString theProtocol = cfg.readEntry("X-KDE-Protocol");
         if (theProtocol.startsWith(QLatin1Char('!'))) {
@@ -763,12 +764,15 @@ bool KFileItemActionsPrivate::shouldDisplayServiceMenu(const KConfigGroup &cfg, 
         return false;
     }
 
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 76)
     if (cfg.hasKey("X-KDE-Require")) {
+        qCWarning(KIO_WIDGETS) << "The property X-KDE-Require is deprecated and will be removed in future releases";
         const QStringList capabilities = cfg.readEntry("X-KDE-Require", QStringList());
         if (capabilities.contains(QLatin1String("Write")) && !m_props.supportsWriting()) {
             return false;
         }
     }
+#endif
 
     if (cfg.hasKey("X-KDE-RequiredNumberOfUrls")) {
         const QStringList requiredNumberOfUrls = cfg.readEntry("X-KDE-RequiredNumberOfUrls", QStringList());
