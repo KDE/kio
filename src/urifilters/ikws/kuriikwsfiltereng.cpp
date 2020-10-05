@@ -46,21 +46,23 @@ SearchProvider *KURISearchFilterEngine::webShortcutQuery(const QString &typedStr
     SearchProvider *provider = nullptr;
 
     if (m_bWebShortcutsEnabled) {
-        const int pos = typedString.indexOf(QLatin1Char(m_cKeywordDelimiter));
-
         QString key;
-        if (pos > -1) {
-            key = typedString.left(pos).toLower(); // #169801
-            searchTerm = typedString.mid(pos+1);
-        } else if (!typedString.isEmpty() && m_cKeywordDelimiter == ' ') {
-            key = typedString;
-            searchTerm = typedString.mid(pos+1);
-        } else if (typedString.contains(QLatin1Char('!'))) {
+         if (typedString.contains(QLatin1Char('!'))) {
             const static QRegularExpression bangRegex(QStringLiteral("!([^ ]+)"));
             const auto match = bangRegex.match(typedString);
             if (match.hasMatch() && match.lastCapturedIndex() == 1) {
                 key = match.captured(1);
                 searchTerm = QString(typedString).remove(bangRegex);
+            }
+        }
+        if (key.isEmpty()) {
+            const int pos = typedString.indexOf(QLatin1Char(m_cKeywordDelimiter));
+            if (pos > -1) {
+                key = typedString.left(pos).toLower(); // #169801
+                searchTerm = typedString.mid(pos+1);
+            } else if (!typedString.isEmpty() && m_cKeywordDelimiter == ' ') {
+                key = typedString;
+                searchTerm = typedString.mid(pos+1);
             }
         }
 
