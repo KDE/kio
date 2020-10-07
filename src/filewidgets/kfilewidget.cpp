@@ -470,11 +470,11 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
     d->iconSizeSlider->setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Fixed);
     d->iconSizeSlider->setMinimumWidth(40);
     d->iconSizeSlider->setOrientation(Qt::Horizontal);
-    d->iconSizeSlider->setMinimum(0);
-    d->iconSizeSlider->setMaximum(100);
+    d->iconSizeSlider->setMinimum(KIconLoader::SizeSmall);
+    d->iconSizeSlider->setMaximum(KIconLoader::SizeEnormous);
     d->iconSizeSlider->installEventFilter(this);
     connect(d->iconSizeSlider, &QAbstractSlider::valueChanged,
-            d->ops, &KDirOperator::setIconsZoom);
+            d->ops, &KDirOperator::setIconSize);
     connect(d->iconSizeSlider, SIGNAL(valueChanged(int)),
             this, SLOT(_k_slotIconSizeChanged(int)));
     connect(d->iconSizeSlider, SIGNAL(sliderMoved(int)),
@@ -580,7 +580,7 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
     readConfig(group);
 
     coll->action(QStringLiteral("inline preview"))->setChecked(d->ops->isInlinePreviewShown());
-    d->iconSizeSlider->setValue(d->ops->iconsZoom());
+    d->iconSizeSlider->setValue(d->ops->iconSize());
 
     KFilePreviewGenerator *pg = d->ops->previewGenerator();
     if (pg) {
@@ -2137,35 +2137,33 @@ void KFileWidgetPrivate::_k_activateUrlNavigator()
 
 void KFileWidgetPrivate::_k_zoomOutIconsSize()
 {
-    const int currValue = ops->iconsZoom();
-    const int futValue = qMax(0, currValue - 10);
+    const int currValue = ops->iconSize();
+    const int futValue = qMax(static_cast<int>(KIconLoader::SizeSmall), currValue - 10);
     iconSizeSlider->setValue(futValue);
     _k_slotIconSizeSliderMoved(futValue);
 }
 
 void KFileWidgetPrivate::_k_zoomInIconsSize()
 {
-    const int currValue = ops->iconsZoom();
-    const int futValue = qMin(100, currValue + 10);
+    const int currValue = ops->iconSize();
+    const int futValue = qMin(static_cast<int>(KIconLoader::SizeEnormous), currValue + 10);
     iconSizeSlider->setValue(futValue);
     _k_slotIconSizeSliderMoved(futValue);
 }
 
 void KFileWidgetPrivate::_k_slotIconSizeChanged(int _value)
 {
-    int maxSize = KIconLoader::SizeEnormous - KIconLoader::SizeSmall;
-    int value = (maxSize * _value / 100) + KIconLoader::SizeSmall;
-    switch (value) {
+    switch (_value) {
     case KIconLoader::SizeSmall:
     case KIconLoader::SizeSmallMedium:
     case KIconLoader::SizeMedium:
     case KIconLoader::SizeLarge:
     case KIconLoader::SizeHuge:
     case KIconLoader::SizeEnormous:
-        iconSizeSlider->setToolTip(i18n("Icon size: %1 pixels (standard size)", value));
+        iconSizeSlider->setToolTip(i18n("Icon size: %1 pixels (standard size)", _value));
         break;
     default:
-        iconSizeSlider->setToolTip(i18n("Icon size: %1 pixels", value));
+        iconSizeSlider->setToolTip(i18n("Icon size: %1 pixels", _value));
         break;
     }
 }

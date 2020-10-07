@@ -627,11 +627,22 @@ public:
      */
     bool isInlinePreviewShown() const;
 
+#if KIOFILEWIDGETS_ENABLE_DEPRECATED_SINCE(5, 76)
     /**
      * Returns the icon zoom.
      * @since 4.2
      */
+    KIOFILEWIDGETS_DEPRECATED_VERSION(5, 76, "Use KDirOperator::iconSize()")
     int iconsZoom() const;
+#endif
+
+    /**
+     * Returns the icon size in pixels, ranged from KIconLoader::SizeSmall (16) to
+     * KIconLoader::SizeEnormous (128).
+     *
+     * @since 5.76
+     */
+    int iconSize() const;
 
     /**
      * If the system is set up to trigger items on single click, if @p isSaving
@@ -805,12 +816,23 @@ public Q_SLOTS:
      */
     virtual void trashSelected();
 
+#if KIOFILEWIDGETS_ENABLE_DEPRECATED_SINCE(5, 76)
     /**
      * Notifies that the icons size should change. @p value is an int ranged from 0 to 100.
      * 100 means KIconLoader::SizeEnormous.
      * @since 4.2
      */
+    KIOFILEWIDGETS_DEPRECATED_VERSION(5, 76, "Use KDirOperator::setIconSize(int)")
     void setIconsZoom(int value);
+#endif
+
+    /**
+     * Notifies that the icons size should change. @p value is the icon size in pixels, ranged
+     * from KIconLoader::SizeSmall (16) to KIconLoader::SizeEnormous (128).
+     *
+     * @since 5.76
+     */
+    void setIconSize(int value);
 
     /**
      * Set the URL schemes that the file widget should allow navigating to.

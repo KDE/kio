@@ -196,7 +196,7 @@ public:
     KFilePreviewGenerator *previewGenerator;
 
     bool showPreviews;
-    int iconsZoom;
+    int iconSize;
 
     bool isSaving;
 
@@ -232,7 +232,7 @@ KDirOperator::Private::Private(KDirOperator *_parent) :
     configGroup(nullptr),
     previewGenerator(nullptr),
     showPreviews(false),
-    iconsZoom(0),
+    iconSize(KIconLoader::SizeSmall),
     isSaving(false),
     decorationMenu(nullptr),
     leftAction(nullptr),
@@ -847,9 +847,18 @@ bool KDirOperator::isInlinePreviewShown() const
     return d->showPreviews;
 }
 
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 76)
 int KDirOperator::iconsZoom() const
 {
-    return d->iconsZoom;
+    const int stepSize = (KIconLoader::SizeEnormous - KIconLoader::SizeSmall) / 100;
+    const int zoom = (d->iconSize / stepSize) - KIconLoader::SizeSmall;
+    return zoom;
+}
+#endif
+
+int KDirOperator::iconSize() const
+{
+    return d->iconSize;
 }
 
 void KDirOperator::setIsSaving(bool isSaving)
@@ -896,28 +905,38 @@ void KDirOperator::trashSelected()
     }
 }
 
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 76)
 void KDirOperator::setIconsZoom(int _value)
 {
-    if (d->iconsZoom == _value) {
-        return;
-    }
-
     int value = _value;
     value = qMin(100, value);
     value = qMax(0, value);
+    const int stepSize = (KIconLoader::SizeEnormous - KIconLoader::SizeSmall) / 100;
+    const int val = (value * stepSize) + KIconLoader::SizeSmall;
+    setIconSize(val);
+}
+#endif
 
-    d->iconsZoom = value;
+void KDirOperator::setIconSize(int value)
+{
+    if (d->iconSize == value) {
+        return;
+    }
+
+    int size = value;
+    size = qMin(static_cast<int>(KIconLoader::SizeEnormous), size);
+    size = qMax(static_cast<int>(KIconLoader::SizeSmall), size);
+
+    d->iconSize = size;
 
     if (!d->previewGenerator) {
         return;
     }
 
-    const int maxSize = KIconLoader::SizeEnormous - KIconLoader::SizeSmall;
-    const int val = (maxSize * value / 100) + KIconLoader::SizeSmall;
-    d->itemView->setIconSize(QSize(val, val));
+    d->itemView->setIconSize(QSize(size, size));
     d->previewGenerator->updateIcons();
 
-    emit currentIconSizeChanged(value);
+    emit currentIconSizeChanged(size);
 }
 
 void KDirOperator::close()
@@ -1388,9 +1407,9 @@ bool KDirOperator::eventFilter(QObject *watched, QEvent *event)
         QWheelEvent *evt = static_cast<QWheelEvent *>(event);
         if (evt->modifiers() & Qt::ControlModifier) {
             if (evt->angleDelta().y() > 0) {
-                setIconsZoom(d->iconsZoom + 10);
+                setIconSize(d->iconSize + 10);
             } else {
-                setIconsZoom(d->iconsZoom - 10);
+                setIconSize(d->iconSize - 10);
             }
             return true;
         }
@@ -1739,9 +1758,8 @@ void KDirOperator::setView(QAbstractItemView *view)
     const bool previewForcedToTrue = d->inlinePreviewState == Private::ForcedToTrue;
     const bool previewShown = d->inlinePreviewState == Private::NotForced ? d->showPreviews : previewForcedToTrue;
     d->previewGenerator = new KFilePreviewGenerator(d->itemView);
-    const int maxSize = KIconLoader::SizeEnormous - KIconLoader::SizeSmall;
-    const int val = (maxSize * d->iconsZoom / 100) + KIconLoader::SizeSmall;
-    d->itemView->setIconSize(previewForcedToTrue ? QSize(KIconLoader::SizeHuge, KIconLoader::SizeHuge) : QSize(val, val));
+    d->itemView->setIconSize(previewForcedToTrue ? QSize(KIconLoader::SizeHuge, KIconLoader::SizeHuge)
+                                                   : QSize(d->iconSize, d->iconSize));
     d->previewGenerator->setPreviewShown(previewShown);
     d->actionCollection->action(QStringLiteral("inline preview"))->setChecked(previewShown);
 
@@ -1751,9 +1769,9 @@ void KDirOperator::setView(QAbstractItemView *view)
 
     emit viewChanged(view);
 
-    const int zoom = previewForcedToTrue ? (KIconLoader::SizeHuge - KIconLoader::SizeSmall + 1) * 100 / maxSize : d->iconSizeForViewType(view);
+    const int zoom = previewForcedToTrue ? KIconLoader::SizeHuge : d->iconSizeForViewType(view);
 
-    // this will make d->iconsZoom be updated, since setIconsZoom slot will be called
+    // this will make d->iconSize be updated, since setIconSize slot will be called
     emit currentIconSizeChanged(zoom);
 }
 
@@ -2421,7 +2439,7 @@ void KDirOperator::Private::writeIconZoomSettingsIfNeeded() {
      // must match behavior of iconSizeForViewType
      if (configGroup && itemView) {
          ZoomSettingsForView zoomSettings = zoomSettingsForViewForView();
-         configGroup->writeEntry(zoomSettings.name, iconsZoom);
+         configGroup->writeEntry(zoomSettings.name, iconSize);
      }
 }
 
