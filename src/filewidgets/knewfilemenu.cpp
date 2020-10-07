@@ -234,8 +234,8 @@ class KNewFileMenuPrivate
 public:
     explicit KNewFileMenuPrivate(KActionCollection *collection, KNewFileMenu *qq)
         : m_actionCollection(collection),
-          m_delayedSlotTextChangedTimer(new QTimer(qq)),
-          q(qq)
+          q(qq),
+          m_delayedSlotTextChangedTimer(new QTimer(q))
     {
         m_delayedSlotTextChangedTimer->setInterval(150);
         m_delayedSlotTextChangedTimer->setSingleShot(true);
@@ -287,6 +287,11 @@ public:
      * Called when New->* is clicked
      */
     void _k_slotActionTriggered(QAction *action);
+
+    /**
+     * Shows a dialog asking the user to enter a name when creating a new folder.
+     */
+    void showNewDirNameDlg(const QString &name);
 
     /**
      * Callback function that reads in directory name from dialog and processes it
@@ -1321,60 +1326,64 @@ void KNewFileMenu::createDirectory()
 
     d->m_baseUrl = d->mostLocalUrl(d->m_popupFiles.first());
 
-    QString name = d->m_text.isEmpty() ? i18nc("Default name for a new folder", "New Folder") :
-                   d->m_text;
+    QString name = !d->m_text.isEmpty() ? d->m_text
+                                          : i18nc("Default name for a new folder", "New Folder");
 
     if (d->m_baseUrl.isLocalFile() && QFileInfo::exists(d->m_baseUrl.toLocalFile() + QLatin1Char('/') + name)) {
         name = KFileUtils::suggestName(d->m_baseUrl, name);
     }
 
-    QDialog *fileDialog = new QDialog(d->m_parentWidget);
-    fileDialog->setModal(isModal());
+    d->showNewDirNameDlg(name);
+}
+
+void KNewFileMenuPrivate::showNewDirNameDlg(const QString &name)
+{
+    QDialog *fileDialog = new QDialog(m_parentWidget);
+    fileDialog->setModal(m_modal);
     fileDialog->setAttribute(Qt::WA_DeleteOnClose);
     fileDialog->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
     fileDialog->setWindowTitle(i18nc("@title:window", "New Folder"));
-    d->m_fileDialog = fileDialog;
+    m_fileDialog = fileDialog;
 
     QVBoxLayout *layout = new QVBoxLayout;
     layout->setSizeConstraint(QLayout::SetFixedSize);
 
-    d->m_messageWidget = new KMessageWidget(fileDialog);
-    d->m_messageWidget->setCloseButtonVisible(false);
-    d->m_messageWidget->setWordWrap(true);
-    d->m_messageWidget->hide();
-    QLabel *label = new QLabel(i18n("Create new folder in %1:", d->m_baseUrl.toDisplayString(QUrl::PreferLocalFile)), fileDialog);
+    m_messageWidget = new KMessageWidget(fileDialog);
+    m_messageWidget->setCloseButtonVisible(false);
+    m_messageWidget->setWordWrap(true);
+    m_messageWidget->hide();
+    QLabel *label = new QLabel(i18n("Create new folder in %1:", m_baseUrl.toDisplayString(QUrl::PreferLocalFile)), fileDialog);
 
-    d->m_lineEdit = new QLineEdit(fileDialog);
-    d->m_lineEdit->setClearButtonEnabled(true);
-    d->m_lineEdit->setText(name);
-    d->m_lineEdit->setMinimumWidth(400);
+    m_lineEdit = new QLineEdit(fileDialog);
+    m_lineEdit->setClearButtonEnabled(true);
+    m_lineEdit->setText(name);
+    m_lineEdit->setMinimumWidth(400);
 
-    d->m_buttonBox = new QDialogButtonBox(fileDialog);
-    d->m_buttonBox->setStandardButtons(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
-    QObject::connect(d->m_buttonBox, &QDialogButtonBox::accepted, fileDialog, &QDialog::accept);
-    QObject::connect(d->m_buttonBox, &QDialogButtonBox::rejected, fileDialog, &QDialog::reject);
+    m_buttonBox = new QDialogButtonBox(fileDialog);
+    m_buttonBox->setStandardButtons(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
+    QObject::connect(m_buttonBox, &QDialogButtonBox::accepted, fileDialog, &QDialog::accept);
+    QObject::connect(m_buttonBox, &QDialogButtonBox::rejected, fileDialog, &QDialog::reject);
 
-    d->m_creatingDirectory = true;
-    d->_k_slotTextChanged(name); // have to save string in d->m_text in case user does not touch dialog
-    connect(d->m_lineEdit, &QLineEdit::textChanged, this, [this](const QString & /*text */) { d->_k_delayedSlotTextChanged(); });
-    d->m_delayedSlotTextChangedTimer->callOnTimeout(d->m_lineEdit, [this]() {
-        d->_k_slotTextChanged(d->m_lineEdit->text());
+    m_creatingDirectory = true;
+    _k_slotTextChanged(name); // have to save string in m_text in case user does not touch dialog
+    QObject::connect(m_lineEdit, &QLineEdit::textChanged, q, [this]() { _k_delayedSlotTextChanged(); });
+    m_delayedSlotTextChangedTimer->callOnTimeout(m_lineEdit, [this]() {
+        _k_slotTextChanged(m_lineEdit->text());
     });
 
     layout->addWidget(label);
-    layout->addWidget(d->m_lineEdit);
-    layout->addWidget(d->m_buttonBox);
-    layout->addWidget(d->m_messageWidget);
+    layout->addWidget(m_lineEdit);
+    layout->addWidget(m_buttonBox);
+    layout->addWidget(m_messageWidget);
     layout->addStretch();
 
     fileDialog->setLayout(layout);
-    connect(fileDialog, &QDialog::accepted, this, [this]() { d->_k_slotCreateDirectory(); });
-    connect(fileDialog, SIGNAL(rejected()), this, SLOT(_k_slotAbortDialog()));
-
+    QObject::connect(fileDialog, &QDialog::accepted, q, [this]() { _k_slotCreateDirectory(); });
+    QObject::connect(fileDialog, &QDialog::rejected, q, [this]() { _k_slotAbortDialog(); });
 
     fileDialog->show();
-    d->m_lineEdit->selectAll();
-    d->m_lineEdit->setFocus();
+    m_lineEdit->selectAll();
+    m_lineEdit->setFocus();
 }
 
 void KNewFileMenu::createFile()
