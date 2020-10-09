@@ -119,7 +119,7 @@ void OpenUrlJobTest::initTestCase()
 
 void OpenUrlJobTest::cleanupTestCase()
 {
-    for (const QString &file : m_filesToRemove) {
+    for (const QString &file : qAsConst(m_filesToRemove)) {
         QFile::remove(file);
     };
 }

@@ -600,7 +600,7 @@ void KFileItemTest::testIconNameForUrl_data()
     }
 
     QTest::newRow("home") << QUrl::fromLocalFile(QDir::homePath()) << "user-home";
-    const QString moviesPath = QStandardPaths::standardLocations(QStandardPaths::MoviesLocation).first();
+    const QString moviesPath = QStandardPaths::standardLocations(QStandardPaths::MoviesLocation).constFirst();
     if (QFileInfo::exists(moviesPath)) {
         QTest::newRow("videos") << QUrl::fromLocalFile(moviesPath) << (moviesPath == QDir::homePath() ? "user-home" : "folder-videos");
     }

@@ -32,7 +32,7 @@ void KFileItemActionsTest::testSetParentWidget()
 
     // Initialize fileItemActions with a KFileItemList that contains only the home URL.
     KFileItemList items;
-    const QUrl homeUrl = QUrl::fromLocalFile(QStandardPaths::standardLocations(QStandardPaths::HomeLocation).first());
+    const QUrl homeUrl = QUrl::fromLocalFile(QStandardPaths::standardLocations(QStandardPaths::HomeLocation).constFirst());
     const KFileItem item(homeUrl, QStringLiteral("inode/directory"));
     items << item;
     const KFileItemListProperties properties(items);

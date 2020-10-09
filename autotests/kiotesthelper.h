@@ -96,7 +96,7 @@ void createTestPipe(const QString &path)
     // to not change the filecount everywhere in the tests
     createTestFile(path);
 #endif
-    QVERIFY(QFileInfo(path).exists());
+    QVERIFY(QFileInfo::exists(path));
 }
 
 enum CreateTestDirectoryOptions { DefaultOptions = 0, NoSymlink = 1, Empty = 2 };

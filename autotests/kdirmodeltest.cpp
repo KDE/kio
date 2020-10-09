@@ -425,7 +425,6 @@ void KDirModelTest::testReload()
 void KDirModelTest::testModifyFile()
 {
     const QString file = m_tempDir->path() + "/toplevelfile_2";
-    const QUrl url = QUrl::fromLocalFile(file);
 
 #if 1
     QSignalSpy spyDataChanged(m_dirModel, &QAbstractItemModel::dataChanged);
