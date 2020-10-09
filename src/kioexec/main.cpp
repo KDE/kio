@@ -282,8 +282,11 @@ int main(int argc, char **argv)
     KDBusService service(KDBusService::Multiple);
 
     QCommandLineParser parser;
-    parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("tempfiles") , i18n("Treat URLs as local files and delete them afterwards")));
-    parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("suggestedfilename"), i18n("Suggested file name for the downloaded file"), QStringLiteral("filename")));
+    parser.addOption(QCommandLineOption(QStringList{QStringLiteral("tempfiles")},
+                                        i18n("Treat URLs as local files and delete them afterwards")));
+    parser.addOption(QCommandLineOption(QStringList{QStringLiteral("suggestedfilename")},
+                                        i18n("Suggested file name for the downloaded file"),
+                                        QStringLiteral("filename")));
     parser.addPositionalArgument(QStringLiteral("command"), i18n("Command to execute"));
     parser.addPositionalArgument(QStringLiteral("urls"), i18n("URL(s) or local file(s) used for 'command'"));
 

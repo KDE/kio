@@ -703,8 +703,12 @@ int main(int argc, char **argv)
     parser.addVersionOption();
     parser.setApplicationDescription(QCoreApplication::translate("main", "KDE HTTP cache maintenance tool"));
     parser.addHelpOption();
-    parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("clear-all"), QCoreApplication::translate("main", "Empty the cache")));
-    parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("file-info"), QCoreApplication::translate("main", "Display information about cache file"), QStringLiteral("filename")));
+    parser.addOption(QCommandLineOption(QStringList{QStringLiteral("clear-all")},
+                                        QCoreApplication::translate("main", "Empty the cache")));
+    parser.addOption(QCommandLineOption(
+        QStringList{QStringLiteral("file-info")},
+        QCoreApplication::translate("main", "Display information about cache file"),
+        QStringLiteral("filename")));
     parser.process(app);
 
     OperationMode mode = CleanCache;

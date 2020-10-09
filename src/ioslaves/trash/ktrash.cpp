@@ -27,8 +27,11 @@ int main(int argc, char *argv[])
     parser.setApplicationDescription(i18n("Helper program to handle the KDE trash can\n"
                                           "Note: to move files to the trash, do not use ktrash, but \"kioclient move 'url' trash:/\""));
 
-    parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("empty"), i18n("Empty the contents of the trash")));
-    parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("restore"), i18n("Restore a trashed file to its original location"), QStringLiteral("file")));
+    parser.addOption(QCommandLineOption(QStringList{QStringLiteral("empty")},
+                                        i18n("Empty the contents of the trash")));
+    parser.addOption(QCommandLineOption(QStringList{QStringLiteral("restore")},
+                                        i18n("Restore a trashed file to its original location"),
+                                        QStringLiteral("file")));
 
     parser.process(app);
 

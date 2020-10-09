@@ -31,10 +31,15 @@ int main(int argc, char *argv[])
     parser.addVersionOption();
     parser.setApplicationDescription(description);
     parser.addHelpOption();
-    parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("shutdown"), QCoreApplication::translate("main", "Shut down cookie jar")));
-    parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("remove"), QCoreApplication::translate("main", "Remove cookies for domain"), QStringLiteral("domain")));
-    parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("remove-all"), QCoreApplication::translate("main", "Remove all cookies")));
-    parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("reload-config"), QCoreApplication::translate("main", "Reload configuration file")));
+    parser.addOption(QCommandLineOption(QStringList{QStringLiteral("shutdown")},
+                                        QCoreApplication::translate("main", "Shut down cookie jar")));
+    parser.addOption(QCommandLineOption(QStringList{QStringLiteral("remove")},
+                                        QCoreApplication::translate("main", "Remove cookies for domain"),
+                                        QStringLiteral("domain")));
+    parser.addOption(QCommandLineOption(QStringList{QStringLiteral("remove-all")},
+                                        QCoreApplication::translate("main", "Remove all cookies")));
+    parser.addOption(QCommandLineOption(QStringList{QStringLiteral("reload-config")},
+                                        QCoreApplication::translate("main", "Reload configuration file")));
     parser.process(app);
 
     org::kde::KCookieServer *kcookiejar = new org::kde::KCookieServer(QStringLiteral("org.kde.kcookiejar5"), QStringLiteral("/modules/kcookiejar"), QDBusConnection::sessionBus());

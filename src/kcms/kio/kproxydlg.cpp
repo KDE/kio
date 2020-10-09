@@ -108,7 +108,7 @@ static QString proxyUrlFromInput(KProxyDialog::DisplayUrlFlags* flags,
         data.setDefaultUrlScheme(defaultScheme);
     }
 
-    if (KUriFilter::self()->filterUri(data, QStringList() << QStringLiteral("kshorturifilter"))) {
+    if (KUriFilter::self()->filterUri(data, QStringList{QStringLiteral("kshorturifilter")})) {
         QUrl url = data.uri();
         const int portNum = (spinBox->value() > 0 ? spinBox->value() : url.port());
         url.setPort(-1);
@@ -156,7 +156,7 @@ static void setProxyInformation(const QString& value,
         }
 
         QUrl url;
-        if (KUriFilter::self()->filterUri(data, QStringList() << QStringLiteral("kshorturifilter"))) {
+        if (KUriFilter::self()->filterUri(data, QStringList{QStringLiteral("kshorturifilter")})) {
             url = QUrl(data.uri());
             url.setUserName(QString());
             url.setPassword(QString());
