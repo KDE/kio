@@ -49,26 +49,26 @@ void OrgKdeKDirNotifyInterface::emitFileMoved(const QUrl &src, const QUrl &dst)
 
 void OrgKdeKDirNotifyInterface::emitFilesAdded(const QUrl &directory)
 {
-    emitSignal(QStringLiteral("FilesAdded"), QVariantList() << directory.toString());
+    emitSignal(QStringLiteral("FilesAdded"), QVariantList{QVariant(directory.toString())});
 }
 
 void OrgKdeKDirNotifyInterface::emitFilesChanged(const QList<QUrl> &fileList)
 {
-    emitSignal(QStringLiteral("FilesChanged"), QVariantList() << QVariant(QUrl::toStringList(fileList)));
+    emitSignal(QStringLiteral("FilesChanged"), QVariantList{QVariant(QUrl::toStringList(fileList))});
 }
 
 void OrgKdeKDirNotifyInterface::emitFilesRemoved(const QList<QUrl> &fileList)
 {
-    emitSignal(QStringLiteral("FilesRemoved"), QVariantList() << QVariant(QUrl::toStringList(fileList)));
+    emitSignal(QStringLiteral("FilesRemoved"), QVariantList{QVariant(QUrl::toStringList(fileList))});
 }
 
 void OrgKdeKDirNotifyInterface::emitEnteredDirectory(const QUrl &url)
 {
-    emitSignal(QStringLiteral("enteredDirectory"), QVariantList() << url.toString());
+    emitSignal(QStringLiteral("enteredDirectory"), QVariantList{QVariant(url.toString())});
 }
 
 void OrgKdeKDirNotifyInterface::emitLeftDirectory(const QUrl &url)
 {
-    emitSignal(QStringLiteral("leftDirectory"), QVariantList() << url.toString());
+    emitSignal(QStringLiteral("leftDirectory"), QVariantList{QVariant(url.toString())});
 }
 

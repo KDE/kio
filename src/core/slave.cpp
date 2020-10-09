@@ -495,7 +495,7 @@ Slave *Slave::createSlave(const QString &protocol, const QUrl &url, int &error, 
             return nullptr;
         }
 
-        const QStringList args = QStringList() << lib_path << protocol << QLatin1String("") << slaveAddress.toString();
+        const QStringList args = QStringList{lib_path, protocol, QString(), slaveAddress.toString()};
         //qDebug() << "kioslave" << ", " << lib_path << ", " << protocol << ", " << QString() << ", " << slaveAddress;
 
         // look where libexec path is (can be set in qt.conf)

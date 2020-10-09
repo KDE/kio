@@ -924,7 +924,7 @@ void KCoreDirListerCache::slotFileRenamed(const QString &_src, const QString &_d
     const KFileItem &existingDestItem = findByUrl(nullptr, dst);
     if (!existingDestItem.isNull()) {
         qCDebug(KIO_CORE_DIRLISTER) << dst << "already existed, let's delete it";
-        slotFilesRemoved(QList<QUrl>() << dst);
+        slotFilesRemoved(QList<QUrl>{dst});
     }
 
     // If the item had a UDS_URL as well as UDS_NAME set, the user probably wants
@@ -946,7 +946,7 @@ void KCoreDirListerCache::slotFileRenamed(const QString &_src, const QString &_d
 
     // Now update the KFileItem representing that file or dir (not exclusive with the above!)
     if (!oldItem.isLocalFile() && !oldItem.localPath().isEmpty() && dstPath.isEmpty()) { // it uses UDS_LOCAL_PATH and we don't know the new path? needs an update then
-        slotFilesChanged(QStringList() << src.toString());
+        slotFilesChanged(QStringList{src.toString()});
     } else {
         const QUrl &itemOldUrl = fileitem.url();
         if (nameOnly) {
