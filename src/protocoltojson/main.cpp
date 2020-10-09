@@ -30,7 +30,9 @@ int main (int argc, char *argv[])
     parser.addHelpOption();
 
     // -o/--output
-    const QCommandLineOption outputOption(QStringList() << QStringLiteral("o") << QStringLiteral("output"), QStringLiteral("Output file name for JSON data."), QStringLiteral("name"));
+    const QCommandLineOption outputOption(QStringList{QStringLiteral("o"), QStringLiteral("output")},
+                                          QStringLiteral("Output file name for JSON data."),
+                                          QStringLiteral("name"));
     parser.addOption(outputOption);
 
     // files to open

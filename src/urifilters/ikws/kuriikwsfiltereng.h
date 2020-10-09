@@ -19,7 +19,7 @@
 #include "searchproviderregistry.h"
 
 #define DEFAULT_PREFERRED_SEARCH_PROVIDERS \
-    QStringList() << QStringLiteral("google") << QStringLiteral("youtube") << QStringLiteral("yahoo") << QStringLiteral("wikipedia") << QStringLiteral("wikit")
+    QStringList{QStringLiteral("google"), QStringLiteral("youtube"), QStringLiteral("yahoo"), QStringLiteral("wikipedia"), QStringLiteral("wikit")}
 
 class SearchProvider;
 

@@ -861,7 +861,7 @@ void KPasswdServer::sendResponse(KPasswdServer::Request *request)
         QDataStream stream2(&replyData, QIODevice::WriteOnly);
         stream2 << request->info;
         QDBusConnection::sessionBus().send(
-            request->transaction.createReply(QVariantList() << replyData << m_seqNr));
+            request->transaction.createReply(QVariantList{QVariant(replyData), QVariant(m_seqNr)}));
     }
 
     // Check all requests in the wait queue.
@@ -890,7 +890,7 @@ void KPasswdServer::sendResponse(KPasswdServer::Request *request)
                 emit checkAuthInfoAsyncResult(waitRequest->requestId, m_seqNr, rcinfo);
             } else {
                 QDBusConnection::sessionBus().send(
-                    waitRequest->transaction.createReply(QVariantList() << replyData << m_seqNr));
+                    waitRequest->transaction.createReply(QVariantList{QVariant(replyData), QVariant(m_seqNr)}));
             }
 
             delete waitRequest;
