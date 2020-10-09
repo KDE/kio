@@ -38,7 +38,7 @@ He will just tell you to follow the instructions on this page.
 <para>If the application is &kde; software, first use the search function in
 &khelpcenter;.  In some cases, the documentation has a different name than the
 software was using to try to find it.  If that doesn't work, try searching the
-<ulink url="https://docs.kde.org/">KDE Documentation site</ulink> for the
+<ulink url="https://docs.kde.org/">&kde; Documentation site</ulink> for the
 requested documentation. If you find the documentation on that site, your
 distribution might ship a separate package for documentation (&eg; called
 plasma-doc for documentation related to &plasma;). Please use the package
@@ -53,20 +53,20 @@ might have disabled the installation of the documentation.
 <para>If you have done that, but still get this page displayed instead of the
 application handbook, you probably found a bug in the help
 system.  In this case, please report this on the <ulink
-url="https://bugs.kde.org/">KDE Bug Tracker</ulink> under the KIO product.
+url="https://bugs.kde.org/">&kde;'s bugtracker</ulink> under the KIO product.
 </para>
 
 <para>If you do not find any documentation on the <ulink
-url="https://docs.kde.org/">KDE Documentation site</ulink>, the
+url="https://docs.kde.org/">&kde; Documentation site</ulink>, the
 application may not have offline documentation.  Please report this on
-the <ulink url="https://bugs.kde.org/">KDE Bug Tracker</ulink> under the
+the <ulink url="https://bugs.kde.org/">&kde;'s bugtracker</ulink> under the
 product for the application.
 </para>
 
 <para>In case the application does not have offline documentation, you should
 use the online resources <ulink
 url="https://userbase.kde.org/">UserBase Documentation</ulink> and
-<ulink url="https://forum.kde.org/">KDE Community Forums</ulink> to get
+<ulink url="https://forum.kde.org/">&kde; Community Forums</ulink> to get
 help.
 </para>
 

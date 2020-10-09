@@ -100,7 +100,7 @@ more information.</para></note>
 </varlistentry>
 
 <varlistentry>
-<term><guilabel>Use proxy auto configuration URL</guilabel></term>
+<term><guilabel>Use proxy auto configuration URL:</guilabel></term>
 <listitem>
 <para>Select this option if your proxy support is provided through a
 script file located at a specific address.  You can then enter the
@@ -110,7 +110,7 @@ icon to browse to it.</para>
 </varlistentry>
 
 <varlistentry>
-<term><guilabel>Use system proxy configuration</guilabel></term>
+<term><guilabel>Use system proxy configuration:</guilabel></term>
 <listitem>
 <para>Some systems are setup with $<envar>HTTP_PROXY</envar> to allow
 graphical as well as non-graphical applications to share the same
@@ -119,7 +119,7 @@ proxy configuration information.</para>
 the <guibutton>Auto Detect</guibutton> button to provide the environment
 variable names used to set the address of the proxy server(s).</para>
 <!-- Exceptions fields are different for system proxy (envar) + manual proxy list of hosts/IPs? -->
-<para>In the <guilabel>Exceptions</guilabel> field enter the environment variable, 
+<para>In the <guilabel>Exceptions:</guilabel> field enter the environment variable,
 &eg; $<envar>NO_PROXY</envar>, used to store the 
 addresses of sites for which the proxy server should not be used.</para>
 <para>Use <guilabel>Show the value of the environment variables</guilabel> to 
@@ -132,18 +132,18 @@ How to enable Auto Detect button?
 </listitem>
 </varlistentry>
 <varlistentry>
-<term><guilabel>Use manually specified proxy configuration</guilabel></term>
+<term><guilabel>Use manually specified proxy configuration:</guilabel></term>
 <listitem>
 
 <para>The complete addressing information for the proxy includes both
 the Internet address and a port number. You should enter these into
 the relevant text boxes. Check <guilabel>Use this proxy server for all 
-protocols</guilabel> to copy the addresses and port of the HTTP proxy server 
+protocols</guilabel> to copy the addresses and port of the &HTTP; proxy server
 into all other proxy fields, in order to help save some typing.</para>
 
 <variablelist>
 <varlistentry>
-<term><guilabel>Exceptions</guilabel></term>
+<term><guilabel>Exceptions:</guilabel></term>
 <listitem>
 <para>Enter a comma separated list of hostnames or ip addresses that should 
 be excluded from using the above proxy settings. If you want to exclude all 
@@ -151,8 +151,8 @@ hosts for a given domain, then simply enter the domain name preceded by a dot.
 For example, to exclude all hostnames for kde.org, enter <userinput>.kde.org</userinput>. 
 Wildcard characters such as <userinput>*</userinput> or <userinput>?</userinput> 
 are not supported and will have no effect. 
-Additionally, you can also enter IP addresses, e.g. 127.0.0.1 and 
-IP addresses with a subnet, e.g. 192.168.0.1/24.</para>
+Additionally, you can also enter IP addresses, &eg; 127.0.0.1 and
+IP addresses with a subnet, &eg; 192.168.0.1/24.</para>
 </listitem>
 </varlistentry>
 </variablelist>

@@ -52,7 +52,7 @@ try the cache, and if an object is not there, it will not attempt to
 download it from the Internet.</para>
 
 <para>You can control the size of the cache by typing a number into the
-text box labeled <guilabel>Disk cache size</guilabel>.  This is the
+text box labeled <guilabel>Disk cache size:</guilabel>.  This is the
 average amount of space in kilobytes that the cache folder is allowed
 to use. When the cache grows too large, &konqueror; will delete older
 files to reduce the size of the cache folder.</para>

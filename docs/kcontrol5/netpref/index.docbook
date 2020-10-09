@@ -98,7 +98,7 @@ which makes it usable through firewalls.</para></listitem>
 <term><guilabel>Mark partially uploaded files</guilabel></term>
 <listitem><para>When a mark is placed in this box, partially uploaded files will 
 have a <literal role="extension">.part</literal> extension added to the end 
-of the file. This extension is removed once the file download is complete. </para></listitem>
+of the file. This extension is removed once the file download is complete.</para></listitem>
 </varlistentry>
 
 </variablelist>

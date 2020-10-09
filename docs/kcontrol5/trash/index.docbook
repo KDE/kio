@@ -27,7 +27,7 @@ This module allows you to configure the settings for the trash.
 </para>
 
 <variablelist>
-<varlistentry><term><guilabel>Cleanup</guilabel></term>
+<varlistentry><term><guilabel>Cleanup:</guilabel></term>
 <listitem><para>
 Check this box to allow automatic deletion of files that are 
 older than the value specified. Leave this disabled to <emphasis>not</emphasis> 
@@ -37,7 +37,7 @@ older than this will be automatically deleted.
 </para></listitem>
 </varlistentry>
 
-<varlistentry><term><guilabel>Size</guilabel></term>
+<varlistentry><term><guilabel>Size:</guilabel></term>
 <listitem><para>
 Check this box to limit the trash to the maximum amount of disk space 
 that you specify. Otherwise, it will be unlimited.
@@ -52,7 +52,7 @@ the trash is displayed right of the spinbox.
 </para></listitem>
 </varlistentry>
 
-<varlistentry><term><guilabel>Full trash</guilabel></term>
+<varlistentry><term><guilabel>Full trash:</guilabel></term>
 <listitem><para>
 When the size limit is reached, the selected action will be performed, 
 either the oldest or biggest files will be deleted automatically

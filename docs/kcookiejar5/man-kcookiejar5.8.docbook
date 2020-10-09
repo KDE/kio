@@ -35,7 +35,7 @@
 
 <refnamediv>
 <refname><command>kcookiejar5</command></refname>
-<refpurpose>Command line interface to the &kde; HTTP cookie daemon</refpurpose>
+<refpurpose>Command line interface to the &kde; &HTTP; cookie daemon</refpurpose>
 </refnamediv>
 
 <refsynopsisdiv>
@@ -56,8 +56,8 @@
 <refsect1>
 <title>Description</title>
 
-<para><command>kcookiejar5</command> is a command line interface to the HTTP cookie store used by KDE,
-a D-BUS service to store/retrieve/clean cookies.
+<para><command>kcookiejar5</command> is a command line interface to the &HTTP; cookie store used by &kde;,
+a &DBus; service to store/retrieve/clean cookies.
 </para>
 </refsect1>
 
@@ -76,14 +76,14 @@ a D-BUS service to store/retrieve/clean cookies.
 <varlistentry>
 <term><option>-v</option><option>--version</option></term>
 <listitem>
-<para>Show version information</para>
+<para>Show version information.</para>
 </listitem>
 </varlistentry>
 
 <varlistentry>
 <term><option>--shutdown</option></term>
 <listitem>
-<para>Shut down cookie jar and the D-BUS service.
+<para>Shut down cookie jar and the &DBus; service.
 </para>
 </listitem>
 </varlistentry>
@@ -120,9 +120,9 @@ Reloads the configuration file.
 
 <refsect1>
 <title>Usage</title>
-<para><command>kcookiejar5</command> is a command line tool to access the kded module which manages cookies in <command>Konqueror</command> and other KDE applications.</para>
+<para><command>kcookiejar5</command> is a command line tool to access the kded module which manages cookies in &konqueror; and other &kde; applications.</para>
 <para>
-When started without parameters it loads the kded module to provide the dbus interface to store cookies.
+When started without parameters it loads the kded module to provide the &DBus; interface to store cookies.
 </para>
 <para>
 When <command>kcookiejar5</command> is started with some parameters, it does
@@ -140,7 +140,7 @@ additional tasks to the cookies jar it provides, like removing the cookies from 
 
 <refsect1>
 <title>Bugs</title>
-<para>Please use <ulink url="https://bugs.kde.org">KDE's bugtracker</ulink> to report bugs.</para>
+<para>Please use <ulink url="https://bugs.kde.org">&kde;'s bugtracker</ulink> to report bugs.</para>
 </refsect1>
 
 </refentry>

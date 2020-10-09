@@ -19,12 +19,12 @@
 <emphasis>A</emphasis>uthoring and <emphasis>V</emphasis>ersioning
 protocol for the World Wide Web. It allows for easy management of
 documents and scripts on a <ulink
-url="help:/kioslave/webdav.html">http</ulink> server, and has
+url="help:/kioslave/webdav.html">&HTTP;</ulink> server, and has
 additional features designed to simplify version management amongst
 multiple authors.</para>
 
 <para>Usage of this protocol is simple. Type the location you want to
-view, similar to a <acronym>http</acronym> URL except for the
+view, similar to a &HTTP; &URL; except for the
 webdav:// protocol name at the start. An example is
 <userinput>webdav://<replaceable>www.hostname.com/path/</replaceable></userinput>.
 If you specify a folder name, a list of files and folders will be

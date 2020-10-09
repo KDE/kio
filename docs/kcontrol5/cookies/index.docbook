@@ -47,7 +47,7 @@ the web sites get, or to customize banner advertising.</para>
 
 <para>The cookies page allows you to set policies
 for the use of cookies when you are browsing the web with the
-&konqueror; web browser. </para>
+&konqueror; web browser.</para>
 
 <warning><para>Note that the policies that you set using this control
 module will <emphasis>not</emphasis> apply to other web browsers such
@@ -169,7 +169,7 @@ choose a general policy for a specific host (for example, by selecting
 confirm a cookie).</para>
 
 <para>You can also select a specific host domain from the list and click the
-<guibutton>Change</guibutton> button to choose a different policy for that
+<guibutton>Change...</guibutton> button to choose a different policy for that
 domain than the one shown in the list.</para>
 
 <para>To delete a domain specific policy, choose a domain from the list, and
@@ -193,7 +193,7 @@ of these cookies, you will notice that its contents will show up in the frame
 <para>By clicking the <guibutton>Delete</guibutton> button you can now delete the selected
 cookie. Click <guibutton>Delete All</guibutton> to delete all cookies stored.</para>
 
-<para>If a domain is selected, you can use <guibutton>Configure Policy</guibutton> to set 
+<para>If a domain is selected, you can use <guibutton>Configure Policy...</guibutton> to set
 a site policy.</para>
 
 <para>Choose <guibutton>Reload List</guibutton> to reload the list

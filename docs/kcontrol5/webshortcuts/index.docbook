@@ -41,12 +41,11 @@ experience. One such feature is <emphasis>Web Shortcuts</emphasis>.</para>
 For example, you can click on the <guimenuitem>Run</guimenuitem> menu
 item or type the keyboard shortcut assigned to that command (<keycombo
 action="simul">&Alt;<keycap>F2</keycap></keycombo> or <keycombo
-action="simul">&Alt;<keycap>Space</keycap></keycombo>,
+action="simul">&Alt;&Space;</keycombo>,
 unless you have changed it) and type in a &URI;.
 <footnote><para>Uniform Resource Identifier. A standardized way of
 referring to a resource such as a file on your computer, a World Wide
-Web address, an email address,
-<abbrev>etc...</abbrev>.</para></footnote></para>
+Web address, an email address, &etc;</para></footnote></para>
 
 <para>Web shortcuts, on the other hand, let you come up with new pseudo
 &URL; schemes, or shortcuts, that basically let you
@@ -68,39 +67,39 @@ input is not properly &URL; encoded, so one will type
 shortcuts wherever you would normally use
 &URI;s. Shortcuts for several search engines should
 already be configured on your system, but you can add new keywords, and
-change or delete existing ones in this module. </para>
+change or delete existing ones in this module.</para>
 
 </sect2>
 
 <sect2 id="ebrowse-use">
 
-<title>Web Shortcuts</title>
+<title>Web Search Keywords</title>
 
 <para>The descriptive names of defined web shortcuts are shown in a
 list box. As with other lists in &kde;, you can click on a column
 heading to toggle the sort order between ascending and
 descending, and you can resize the columns.</para>
 
-<para>At the bottom of the list the option <guilabel>Enable Web shortcuts</guilabel> 
+<para>At the bottom of the list the option <guilabel>Enable Web search keywords</guilabel>
 has to be checked to enable this feature. Use the buttons on the right to 
 create, modify or delete shortcuts.</para>
 
-<para>If <guilabel>Use preferred shortcuts only</guilabel> is checked, only
-web shortcuts marked as preferred in the third column of the list
+<para>If <guilabel>Use preferred keywords only</guilabel> is checked, only
+keywords marked as preferred in the second column of the list
 are used in places where only a few select 
 shortcuts can be shown at one time.
 </para>
  
 <para>Below the list you find two additional options:</para>
 <variablelist>
-<varlistentry><term><guilabel>Default Web shortcuts</guilabel></term>
+<varlistentry><term><guilabel>Default Web search keyword:</guilabel></term>
 <listitem>
 <para>Select the search engine to use for input boxes that provide automatic 
 lookup services when you type in normal words and phrases instead of a &URL;. 
 To disable this feature select <guilabel>None</guilabel> from the list.
 </para></listitem>
 </varlistentry>
-<varlistentry><term><guilabel>Keyword delimiter</guilabel></term>
+<varlistentry><term><guilabel>Keyword delimiter:</guilabel></term>
 <listitem>
 <para>Choose the delimiter that separates the keyword from the phrase or word to 
 be searched.</para></listitem>
@@ -108,7 +107,7 @@ be searched.</para></listitem>
 </variablelist>
 
 <para>If you double-click on a specific entry in the list of defined
-search providers or click the <guibutton>Change</guibutton> button, 
+search providers or click the <guibutton>Change...</guibutton> button,
 the details for that entry are shown in a popup
 dialog.  In addition to the descriptive name for the item, you can
 also see the &URI; which is used, as well as the
@@ -121,27 +120,27 @@ about an item in the list of web shortcuts, but also for modifying or
 adding new items.</para>
 
 <para>You can change the contents of either the <guilabel>Shortcut 
-URL</guilabel> or the <guilabel>Shortcuts</guilabel> text box.
+URL:</guilabel> or the <guilabel>Shortcuts:</guilabel> text box.
 Click <guibutton>OK</guibutton> to save your changes or
 <guibutton>Cancel</guibutton> to exit the dialog with no
 changes.</para>
 
-<para>If you examine the contents of the <guilabel>Shortcuts 
-URL</guilabel> text box, you will find that most, if not all of the
+<para>If you examine the contents of the <guilabel>Shortcut
+URL:</guilabel> text box, you will find that most, if not all of the
 entries have a <option>\{@}</option> in them. This sequence of four
 characters acts as a parameter, which is to say that they are replaced
 by whatever you happen to type after the colon character that is
 between a shortcut and its parameter. To add this query placeholder 
-to a shortcuts url, click on the button at the right of the text box.
+to a shortcut &URL;, click on the button at the right of the text box.
 Let's consider some examples to clarify how to use web shortcuts.</para>
 
 <para>Suppose that the &URI; is
-<userinput>http://www.google.com/search?q=\{@}</userinput>, and
+<userinput>https://www.google.com/search?q=\{@}</userinput>, and
 <userinput>gg</userinput> is a shortcut to this
 &URI;. Then, typing
 <userinput>gg:<replaceable>alpha</replaceable></userinput> is
 equivalent to
-<userinput>http://www.google.com/search?q=<replaceable>alpha</replaceable></userinput>.
+<userinput>https://www.google.com/search?q=<replaceable>alpha</replaceable></userinput>.
 You could type anything after the <userinput>:</userinput> character;
 whatever you have typed simply replaces the <option>\{@}</option>
 characters, after being converted to the appropriate character set for

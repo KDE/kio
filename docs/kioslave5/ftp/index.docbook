@@ -26,12 +26,12 @@ the transfer of one or more files. The local &FTP; program becomes a
 client that uses <acronym>TCP</acronym> to contact an &FTP; server
 program on the remote computer. Each time the user requests a file
 transfer, the client and the server programs cooperate to send a copy
-of the data across the Internet.  </para>
+of the data across the Internet.</para>
 
 <para> &FTP; servers which allow <quote>anonymous &FTP;</quote> permit
 any user, not only users with accounts on the host, to browse the
 <quote>ftp</quote> archives and download files. Some &FTP; servers are
-configured to allow users to upload files.  </para>
+configured to allow users to upload files.</para>
 
 <para>
 &FTP; is commonly used to retrieve information and obtain software stored in 

@@ -72,16 +72,16 @@ deny you access to some websites, so disable this with caution.</para>
 <guibutton>New...</guibutton> button.  Type the name of the server or
 a domain in the text box at the top of the dialog that pops up, which
 is labeled <guilabel>When browsing the following
-site</guilabel>.</para>
+site:</guilabel>.</para>
 
 <para>Note that you can <emphasis>not</emphasis> use the wildcard
 character <token>*</token> in this text box. However, the string
 <userinput>kde.org</userinput> will match all hosts in the domain
-<systemitem>kde.org</systemitem></para>
+<systemitem>kde.org</systemitem>.</para>
 
 <para>After typing the name of the server, select the identifying
 string in the next combo box, which is labeled <guilabel>Use the
-following identification:</guilabel>. The <guilabel>Real identification</guilabel>
+following identification:</guilabel>. The <guilabel>Real identification:</guilabel>
 &ie; the strings sent to the server, is displayed in the field.</para>
 
 <para>You can click on an existing entry in the list, and then modify the contents of the
