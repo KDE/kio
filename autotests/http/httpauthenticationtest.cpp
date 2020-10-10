@@ -51,7 +51,6 @@ static void parseAuthHeader(const QByteArray &header,
 
 static QByteArray hmacMD5(const QByteArray &data, const QByteArray &key)
 {
-    QByteArray ret;
     QByteArray ipad(64, 0x36);
     QByteArray opad(64, 0x5c);
 
@@ -151,7 +150,7 @@ void HTTPAuthenticationTest::testHeaderParsing()
     QFETCH(QByteArray, resultValues);
 
     QByteArray chosenHeader, chosenScheme;
-    QList<QByteArray> parsingResult, expectedResult;
+    QList<QByteArray> parsingResult;
     parseAuthHeader(header, &chosenHeader, &chosenScheme, &parsingResult);
     QCOMPARE(chosenScheme, resultScheme);
     QCOMPARE(joinQByteArray(parsingResult), resultValues);

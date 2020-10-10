@@ -284,7 +284,7 @@ void FileUndoManagerTest::testCopyFiles()
     m_uiInterface->setNextReplyToConfirmDeletion(false);   // act like the user didn't confirm
     FileUndoManager::self()->undo();
     QCOMPARE(m_uiInterface->files().count(), 1);   // confirmDeletion was called
-    QCOMPARE(m_uiInterface->files()[0].toString(), QUrl::fromLocalFile(destFile()).toString());
+    QCOMPARE(m_uiInterface->files().constFirst().toString(), QUrl::fromLocalFile(destFile()).toString());
     QVERIFY(QFile::exists(destFile()));     // nothing happened yet
 
     // OK, now do it
@@ -296,7 +296,7 @@ void FileUndoManagerTest::testCopyFiles()
     QVERIFY(spyUndoAvailable.count() >= 2);   // it's in fact 3, due to lock/unlock emitting it as well
     QCOMPARE(spyTextChanged.count(), 2);
     QCOMPARE(m_uiInterface->files().count(), 1);   // confirmDeletion was called
-    QCOMPARE(m_uiInterface->files()[0].toString(), QUrl::fromLocalFile(destFile()).toString());
+    QCOMPARE(m_uiInterface->files().constFirst().toString(), QUrl::fromLocalFile(destFile()).toString());
 
     // Check that undo worked
     QVERIFY(!QFile::exists(destFile()));
@@ -485,7 +485,7 @@ void FileUndoManagerTest::testCreateDir()
     m_uiInterface->setNextReplyToConfirmDeletion(false);   // act like the user didn't confirm
     FileUndoManager::self()->undo();
     QCOMPARE(m_uiInterface->files().count(), 1);   // confirmDeletion was called
-    QCOMPARE(m_uiInterface->files()[0].toString(), url.toString());
+    QCOMPARE(m_uiInterface->files().constFirst().toString(), url.toString());
     QVERIFY(QFile::exists(path));   // nothing happened yet
 
     // OK, now do it
@@ -514,9 +514,10 @@ void FileUndoManagerTest::testMkpath()
     doUndo();
 
     QVERIFY(!FileUndoManager::self()->undoAvailable());
-    QCOMPARE(m_uiInterface->files().count(), 2);   // confirmDeletion was called
-    QCOMPARE(m_uiInterface->files()[0].toLocalFile(), path);
-    QCOMPARE(m_uiInterface->files()[1].toLocalFile(), parent);
+    const auto files = m_uiInterface->files();
+    QCOMPARE(files.count(), 2);   // confirmDeletion was called
+    QCOMPARE(files[0].toLocalFile(), path);
+    QCOMPARE(files[1].toLocalFile(), parent);
 
     QVERIFY(!QFile::exists(path));
 }

@@ -103,7 +103,7 @@ void KFilePlacesViewTest::testUrlChanged()
     QSignalSpy urlChangedSpy(&pv, &KFilePlacesView::urlChanged);
     const QModelIndex targetIndex = pv.model()->index(row, 0);
     pv.scrollTo(targetIndex);
-    pv.clicked(targetIndex);
+    Q_EMIT pv.clicked(targetIndex);
     QTRY_COMPARE(urlChangedSpy.count(), 1);
     const QList<QVariant> args = urlChangedSpy.takeFirst();
     QCOMPARE(args.at(0).toUrl().toString(), expectedUrl);

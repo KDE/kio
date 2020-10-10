@@ -115,7 +115,6 @@ private Q_SLOTS:
     void shouldIgnoreUnrelatedBasePath()
     {
         QUrl url = QUrl::fromLocalFile(m_dir);
-        const QUrl baseUrl = url;
         url.setPath(url.path() + "/subdir5/subsubdir");
         KIO::Job *job = KIO::mkpath(url, QUrl::fromLocalFile(QStringLiteral("/does/not/exist")));
         job->setUiDelegate(nullptr);

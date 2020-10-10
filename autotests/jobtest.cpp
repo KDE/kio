@@ -290,7 +290,7 @@ void JobTest::storedPutIODeviceFastDevice()
     const auto pos = putDataBuffer.pos();
     int size = putDataBuffer.write(putDataContents);
     putDataBuffer.seek(pos);
-    putDataBuffer.readChannelFinished();
+    Q_EMIT putDataBuffer.readChannelFinished();
 
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
     QCOMPARE(size, putDataContents.size());
@@ -333,7 +333,7 @@ void JobTest::storedPutIODeviceSlowDevice()
     QTimer::singleShot(200, this, writeOnce);
     QTimer::singleShot(400, this, writeOnce);
     // Simulate the transfer is done
-    QTimer::singleShot(450, this, [&putDataBuffer](){ putDataBuffer.readChannelFinished(); });
+    QTimer::singleShot(450, this, [&putDataBuffer](){ Q_EMIT putDataBuffer.readChannelFinished(); });
 
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
     QCOMPARE(size, putDataContents.size() * 2);
@@ -375,7 +375,7 @@ void JobTest::storedPutIODeviceSlowDeviceBigChunk()
 
     QTimer::singleShot(200, this, writeOnce);
     // Simulate the transfer is done
-    QTimer::singleShot(450, this, [&putDataBuffer](){ putDataBuffer.readChannelFinished(); });
+    QTimer::singleShot(450, this, [&putDataBuffer](){ Q_EMIT putDataBuffer.readChannelFinished(); });
 
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
     QCOMPARE(size, putDataContents.size());
