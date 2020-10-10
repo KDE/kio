@@ -617,6 +617,10 @@ public:
      *
      * If the slave returns an error ERR_UNSUPPORTED_ACTION, the job will
      * ask for get + put instead.
+     *
+     * If the slave returns an error ERR_FILE_ALREADY_EXIST, the job will
+     * ask for a different destination filename.
+     *
      * @param src where to copy the file from (decoded)
      * @param dest where to copy the file to (decoded)
      * @param permissions may be -1. In this case no special permission mode is set.
