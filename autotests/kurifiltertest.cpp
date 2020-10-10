@@ -153,7 +153,7 @@ static void testLocalFile(const QString &filename)
     }
 }
 
-static char s_delimiter = ':'; // the alternative is ' '
+static const char s_delimiter = WEBSHORTCUT_SEPARATOR;
 
 void KUriFilterTest::initTestCase()
 {
@@ -171,12 +171,6 @@ void KUriFilterTest::initTestCase()
     QString searchProvidersDir = QFINDTESTDATA("../src/urifilters/ikws/searchproviders/google.desktop").section('/', 0, -2);
     QVERIFY(!searchProvidersDir.isEmpty());
     qputenv("KIO_SEARCHPROVIDERS_DIR", QFile::encodeName(searchProvidersDir));
-
-    // Allow testing of the search engine using both delimiters...
-    const char *envDelimiter = ::getenv("KURIFILTERTEST_DELIMITER");
-    if (envDelimiter) {
-        s_delimiter = envDelimiter[0];
-    }
 
     // Many tests check the "default search engine" feature.
     // There is no default search engine by default (since it was annoying when making typos),

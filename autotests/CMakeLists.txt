@@ -133,7 +133,6 @@ ecm_add_tests(
  kdirmodeltest.cpp
  kfileitemactionstest.cpp
  fileundomanagertest.cpp
- kurifiltertest.cpp
  kurlcompletiontest.cpp
  ${jobguitest_SRC}
  pastetest.cpp
@@ -143,6 +142,20 @@ ecm_add_tests(
  LINK_LIBRARIES KF5::KIOCore KF5::KIOWidgets Qt5::Test Qt5::DBus
 )
 set_target_properties(krununittest PROPERTIES COMPILE_FLAGS "-DCMAKE_INSTALL_FULL_LIBEXECDIR_KF5=\"\\\"${CMAKE_INSTALL_FULL_LIBEXECDIR_KF5}\\\"\"")
+
+set(URIFILTER_COLON_TEST kiowidgets_colon_separator_test)
+add_executable(${URIFILTER_COLON_TEST} kurifiltertest.cpp)
+target_link_libraries(${URIFILTER_COLON_TEST} KF5::KIOCore KF5::KIOWidgets Qt5::Test Qt5::DBus)
+ecm_mark_as_test(${URIFILTER_COLON_TEST})
+add_test(NAME ${URIFILTER_COLON_TEST} COMMAND ${URIFILTER_COLON_TEST})
+target_compile_definitions(${URIFILTER_COLON_TEST} PUBLIC "-DWEBSHORTCUT_SEPARATOR=':'")
+
+set(URIFILTER_SPACE_TEST kiowidgets_space_separator_test)
+add_executable(${URIFILTER_SPACE_TEST} kurifiltertest.cpp)
+target_link_libraries(${URIFILTER_SPACE_TEST} KF5::KIOCore KF5::KIOWidgets Qt5::Test Qt5::DBus)
+ecm_mark_as_test(${URIFILTER_SPACE_TEST})
+add_test(NAME ${URIFILTER_SPACE_TEST} COMMAND ${URIFILTER_SPACE_TEST})
+target_compile_definitions(${URIFILTER_SPACE_TEST} PUBLIC "-DWEBSHORTCUT_SEPARATOR=' '")
 
 # Same as accessmanagertest, but using QNetworkAccessManager, to make sure we
 # behave the same

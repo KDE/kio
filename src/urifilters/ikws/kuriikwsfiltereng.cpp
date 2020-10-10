@@ -28,8 +28,8 @@ QLoggingCategory category("kf.kio.urifilters.ikws", QtWarningMsg);
 #define PDVAR(n, v) qCDebug(category) << n << " = '" << v << "'"
 
 /**
- * IMPORTANT: If you change anything here, make sure you run the kurifiltertest
- * regression test (this should be included as part of "make test").
+ * IMPORTANT: If you change anything here, make sure you run the kiowidgets_space_separator_test and kiowidgets_colon_separator_test
+ * regression tests (this should be included as part of "make test").
  */
 
 KURISearchFilterEngine::KURISearchFilterEngine()
@@ -68,7 +68,9 @@ SearchProvider *KURISearchFilterEngine::webShortcutQuery(const QString &typedStr
 
         qCDebug(category) << "m_cKeywordDelimiter=" << QLatin1Char(m_cKeywordDelimiter) << "key=" << key << "typedString=" << typedString;
 
-        if (!key.isEmpty() && !KProtocolInfo::isKnownProtocol(key)) {
+        // If the key contains a : an assertion in the isKnownProtocol method would fail. This can be
+        // the case if the delimiter is switched to space, see kiowidgets_space_separator_test
+        if (!key.isEmpty() && (key.contains(QLatin1Char(':')) || !KProtocolInfo::isKnownProtocol(key))) {
             provider = m_registry.findByKey(key);
             if (provider) {
                 if (!m_bUseOnlyPreferredWebShortcuts || m_preferredWebShortcuts.contains(provider->desktopEntryName())) {
