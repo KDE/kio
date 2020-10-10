@@ -17,7 +17,6 @@
 
 namespace KIO
 {
-
 class OpenFileManagerWindowJobPrivate;
 
 /**
@@ -93,9 +92,10 @@ public:
 
 private:
     friend class AbstractOpenFileManagerWindowStrategy;
+    friend class OpenFileManagerWindowDBusStrategy;
+    friend class OpenFileManagerWindowKRunStrategy;
 
     OpenFileManagerWindowJobPrivate *const d;
-
 };
 
 /**

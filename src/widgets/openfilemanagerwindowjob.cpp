@@ -26,8 +26,9 @@ namespace KIO
 class OpenFileManagerWindowJobPrivate
 {
 public:
-    OpenFileManagerWindowJobPrivate()
-        : strategy(nullptr)
+    OpenFileManagerWindowJobPrivate(OpenFileManagerWindowJob *qq)
+        : q(qq),
+          strategy(nullptr)
     {
 
     }
@@ -37,6 +38,21 @@ public:
         delete strategy;
     }
 
+    AbstractOpenFileManagerWindowStrategy* createDBusStrategy()
+    {
+        delete strategy;
+        strategy = new OpenFileManagerWindowDBusStrategy(q);
+        return strategy;
+    }
+
+    AbstractOpenFileManagerWindowStrategy* createKRunStrategy()
+    {
+        delete strategy;
+        strategy = new OpenFileManagerWindowKRunStrategy(q);
+        return strategy;
+    }
+
+    OpenFileManagerWindowJob *const q;
     QList<QUrl> highlightUrls;
     QByteArray startupId;
 
@@ -45,15 +61,13 @@ public:
 
 OpenFileManagerWindowJob::OpenFileManagerWindowJob(QObject *parent)
     : KJob(parent)
-    , d(new OpenFileManagerWindowJobPrivate())
+    , d(new OpenFileManagerWindowJobPrivate(this))
 {
-
 #ifdef Q_OS_LINUX
-    d->strategy = new OpenFileManagerWindowDBusStrategy(this);
+    d->createDBusStrategy();
 #else
-    d->strategy = new OpenFileManagerWindowKRunStrategy(this);
+    d->createKRunStrategy();
 #endif
-
 }
 
 OpenFileManagerWindowJob::~OpenFileManagerWindowJob()
@@ -120,8 +134,8 @@ void OpenFileManagerWindowDBusStrategy::start(const QList<QUrl> &urls, const QBy
 
         if (reply.isError()) {
             // Try the KRun strategy as fallback, also calls emitResult inside
-            OpenFileManagerWindowKRunStrategy kRunStrategy(job);
-            kRunStrategy.start(urls, asn);
+            AbstractOpenFileManagerWindowStrategy *kRunStrategy = job->d->createKRunStrategy();
+            kRunStrategy->start(urls, asn);
             return;
         }
 
