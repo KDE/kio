@@ -28,6 +28,7 @@
 #include <KDesktopFile>
 #include <KDirWatch>
 #include <kdirnotify.h>
+#include <KDirOperator>
 #include <KJobWidgets>
 #include <KLocalizedString>
 #include <KMessageBox>
@@ -1372,7 +1373,19 @@ void KNewFileMenu::setViewShowsHiddenFiles(bool b)
 void KNewFileMenu::slotResult(KJob *job)
 {
     if (job->error()) {
-        static_cast<KIO::Job *>(job)->uiDelegate()->showErrorMessage();
+        if (job->error() == KIO::ERR_DIR_ALREADY_EXIST) {
+            auto *simpleJob = ::qobject_cast<KIO::SimpleJob *>(job);
+            if (simpleJob) {
+                const QUrl jobUrl = simpleJob->url();
+                KMessageBox::sorry(d->m_parentWidget,
+                                   i18n("A folder named \"%1\" already exists.",
+                                        jobUrl.toDisplayString(QUrl::PreferLocalFile)));
+                // Select the existing dir
+                emit selectExistingDir(jobUrl);
+            }
+        } else { // All other errors
+            static_cast<KIO::Job *>(job)->uiDelegate()->showErrorMessage();
+        }
     } else {
         // Was this a copy or a mkdir?
         if (job->property("newDirectoryURL").isValid()) {

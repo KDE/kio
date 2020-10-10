@@ -2162,6 +2162,9 @@ void KDirOperator::setupActions()
 
     d->newFileMenu = new KNewFileMenu(d->actionCollection, QStringLiteral("new"), this);
     connect(d->newFileMenu, SIGNAL(directoryCreated(QUrl)), this, SLOT(_k_slotDirectoryCreated(QUrl)));
+    connect(d->newFileMenu, &KNewFileMenu::selectExistingDir, this, [this](const QUrl &url) {
+        setCurrentItem(url);
+    });
 
     d->actionCollection->addAssociatedWidget(this);
     const QList<QAction *> list = d->actionCollection->actions();
