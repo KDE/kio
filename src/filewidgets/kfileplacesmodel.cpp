@@ -628,6 +628,11 @@ QModelIndex KFilePlacesModel::closestItem(const QUrl &url) const
     // which covers the bigger range of the URL.
     for (int row = 0; row < d->items.size(); ++row) {
         KFilePlacesItem *item = d->items[row];
+
+        if (item->isHidden()) {
+            continue;
+        }
+
         const QUrl itemUrl(item->data(UrlRole).toUrl());
 
         if (itemUrl.matches(url, QUrl::StripTrailingSlash) || itemUrl.isParentOf(url)) {
