@@ -213,8 +213,7 @@ void KUrlNavigatorTest::testFixUrlPath_data()
 {
     QTest::addColumn<QString>("input");
     QTest::addColumn<QUrl>("url");
-    // ":local" KProtocols, a '/' is added so that the url path isn't empty
-    QTest::newRow("desktopKIO") << (QStringLiteral("desktop:")) << QUrl(QStringLiteral("desktop:/"));
+    // ":local" KProtocols, a '/' is added so that the url "path" isn't empty
     QTest::newRow("trashKIO") << (QStringLiteral("trash:")) << QUrl(QStringLiteral("trash:/"));
     // QUrl setPath("/") results in "file:///"
     QTest::newRow("fileKIO") << (QStringLiteral("file:")) << QUrl(QStringLiteral("file:///"));
