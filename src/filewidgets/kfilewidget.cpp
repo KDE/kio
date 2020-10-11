@@ -68,6 +68,9 @@
 #include <kurlauthorized.h>
 #include <KJobWidgets>
 
+#include <algorithm>
+#include <array>
+
 Q_DECLARE_LOGGING_CATEGORY(KIO_KFILEWIDGETS_FW)
 Q_LOGGING_CATEGORY(KIO_KFILEWIDGETS_FW, "kf.kio.kfilewidgets.kfilewidget", QtInfoMsg)
 
@@ -281,6 +284,10 @@ public:
     // blank item added when loaded
     bool confirmOverwrite : 1;
     bool differentHierarchyLevelItemsEntered;
+
+    const std::array<KIconLoader::StdSizes, 6> stdIconSizes =
+            {KIconLoader::SizeSmall, KIconLoader::SizeSmallMedium, KIconLoader::SizeMedium,
+             KIconLoader::SizeLarge, KIconLoader::SizeHuge, KIconLoader::SizeEnormous};
 
     QSlider *iconSizeSlider;
     QAction *zoomOutAction;
@@ -2138,17 +2145,35 @@ void KFileWidgetPrivate::_k_activateUrlNavigator()
 void KFileWidgetPrivate::_k_zoomOutIconsSize()
 {
     const int currValue = ops->iconSize();
-    const int futValue = qMax(static_cast<int>(KIconLoader::SizeSmall), currValue - 10);
-    iconSizeSlider->setValue(futValue);
-    _k_slotIconSizeSliderMoved(futValue);
+
+    // Jump to the nearest standard size
+    auto r_itEnd = stdIconSizes.crend();
+    auto it = std::find_if(stdIconSizes.crbegin(), r_itEnd,
+                 [currValue](KIconLoader::StdSizes size) { return size < currValue; });
+
+    Q_ASSERT(it != r_itEnd);
+
+    const int nearestSize = *it;
+
+    iconSizeSlider->setValue(nearestSize);
+    _k_slotIconSizeSliderMoved(nearestSize);
 }
 
 void KFileWidgetPrivate::_k_zoomInIconsSize()
 {
     const int currValue = ops->iconSize();
-    const int futValue = qMin(static_cast<int>(KIconLoader::SizeEnormous), currValue + 10);
-    iconSizeSlider->setValue(futValue);
-    _k_slotIconSizeSliderMoved(futValue);
+
+    // Jump to the nearest standard size
+    auto itEnd = stdIconSizes.cend();
+    auto it = std::find_if(stdIconSizes.cbegin(), itEnd,
+                 [currValue](KIconLoader::StdSizes size) { return size > currValue; });
+
+    Q_ASSERT(it != itEnd);
+
+    const int nearestSize = *it;
+
+    iconSizeSlider->setValue(nearestSize);
+    _k_slotIconSizeSliderMoved(nearestSize);
 }
 
 void KFileWidgetPrivate::_k_slotIconSizeChanged(int _value)
