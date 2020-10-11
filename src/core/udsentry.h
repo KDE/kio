@@ -256,11 +256,11 @@ public:
         UDS_HIDDEN = 8 | UDS_NUMBER,
         /// Access permissions (part of the mode returned by stat)
         UDS_ACCESS = 9 | UDS_NUMBER,
-        /// The last time the file was modified
+        /// The last time the file was modified. Required time format: seconds since UNIX epoch.
         UDS_MODIFICATION_TIME = 10 | UDS_TIME,
-        /// The last time the file was opened
+        /// The last time the file was opened. Required time format: seconds since UNIX epoch.
         UDS_ACCESS_TIME = 11 | UDS_TIME,
-        /// The time the file was created
+        /// The time the file was created. Required time format: seconds since UNIX epoch.
         UDS_CREATION_TIME = 12 | UDS_TIME,
         /// File type, part of the mode returned by stat
         /// (for a link, this returns the file type of the pointed item)
