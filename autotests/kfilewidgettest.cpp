@@ -24,6 +24,7 @@
 #include <QAbstractItemView>
 #include <QDropEvent>
 #include <QMimeData>
+#include <QStringList>
 #include <QStringLiteral>
 #include <QList>
 #include <QUrl>
@@ -530,57 +531,61 @@ private Q_SLOTS:
     }
 
     void testTokenize_data()
-    {   
-        // Real filename (as in how they are stored in the fs) 
-        QTest::addColumn<QList<QString>>("fileNames");
+    {
+        // Real filename (as in how they are stored in the fs)
+        QTest::addColumn<QStringList>("fileNames");
         // Escaped value of the text-box in the dialog
         QTest::addColumn<QString>("expectedCurrentText");
 
-        QTest::newRow("simple") << QList<QString>{"test2"} << QString("test2");
+        QTest::newRow("simple") << QStringList{"test2"} << QString("test2");
 
         // When a single file with space is selected, it is _not_ quoted ...
-        QTest::newRow("space-single-file") 
-            << QList<QString>{"test space"} 
+        QTest::newRow("space-single-file")
+            << QStringList{"test space"}
             << QString("test space");
 
         // However, when multiple files are selected, they are quoted
         QTest::newRow("space-multi-file")
-            << QList<QString>{"test space", "test2"} 
+            << QStringList{"test space", "test2"}
             << QString("\"test space\" \"test2\"");
 
         // All quotes in names should be escaped, however since this is a single
         // file, the whole name will not be escaped.
         QTest::newRow("quote-single-file")
-            << QList<QString>{"test\"quote"} 
+            << QStringList{"test\"quote"}
             << QString("test\\\"quote");
-        
+
         // Escape multiple files. Files should also be wrapped in ""
         // Note that we are also testing quote at the end of the name
         QTest::newRow("quote-multi-file")
-            << QList<QString>{"test\"quote", "test2-quote\"", "test"} 
+            << QStringList{"test\"quote", "test2-quote\"", "test"}
             << QString("\"test\\\"quote\" \"test2-quote\\\"\" \"test\"");
 
         // Ok, enough with quotes... lets do some backslashes
         // Backslash literals in file names - Unix only case
         QTest::newRow("backslash-single-file")
-            << QList<QString>{"test\\backslash"} 
+            << QStringList{"test\\backslash"}
             << QString("test\\\\backslash");
 
         QTest::newRow("backslash-multi-file")
-            << QList<QString>{"test\\back\\slash", "test"} 
+            << QStringList{"test\\back\\slash", "test"}
             << QString("\"test\\\\back\\\\slash\" \"test\"");
 
         QTest::newRow("double-backslash-multi-file")
-            << QList<QString>{"test\\\\back\\slash", "test"} 
+            << QStringList{"test\\\\back\\slash", "test"}
             << QString("\"test\\\\\\\\back\\\\slash\" \"test\"");
 
         QTest::newRow("double-backslash-end")
-            << QList<QString>{"test\\\\"} 
+            << QStringList{"test\\\\"}
             << QString("test\\\\\\\\");
 
         QTest::newRow("single-backslash-end")
-            << QList<QString>{"some thing", "test\\"} 
+            << QStringList{"some thing", "test\\"}
             << QString("\"some thing\" \"test\\\\\"");
+
+        QTest::newRow("sharp")
+            << QStringList{"some#thing"}
+            << QString("some#thing");
 
     }
 
@@ -589,7 +594,7 @@ private Q_SLOTS:
         // We will use setSelectedUrls([QUrl]) here in order to check correct
         // filename escaping. Afterwards we will accept() the dialog to confirm
         // correct result
-        QFETCH(QList<QString>, fileNames);
+        QFETCH(QStringList, fileNames);
         QFETCH(QString, expectedCurrentText);
 
         QTemporaryDir tempDir;

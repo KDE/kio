@@ -789,8 +789,8 @@ static QString relativePathOrUrl(const QUrl &baseUrl, const QUrl &url);
 /**
  * Escape the given Url so that is fit for use in the selected list of file. This
  * mainly handles double quote (") characters. These are used to separate entries
- * in the list, however, if `"` appears in the filename (or path), this will be 
- * escaped as `\"`. Later, the tokenizer is able to understand the difference 
+ * in the list, however, if `"` appears in the filename (or path), this will be
+ * escaped as `\"`. Later, the tokenizer is able to understand the difference
  * and do the right thing
  */
 static QString escapeDoubleQuotes(QString && path);
@@ -1623,7 +1623,7 @@ void KFileWidget::setSelectedUrl(const QUrl &url)
 }
 
 void KFileWidget::setSelectedUrls(const QList<QUrl> &urls)
-{   
+{
     if (urls.isEmpty()) {
         return;
     }
@@ -1717,7 +1717,7 @@ QList<QUrl> KFileWidget::selectedUrls() const
 
 QList<QUrl> KFileWidgetPrivate::tokenize(const QString &line) const
 {
-    qCDebug(KIO_KFILEWIDGETS_FW) << "Tokenizing:" << line; 
+    qCDebug(KIO_KFILEWIDGETS_FW) << "Tokenizing:" << line;
 
     QList<QUrl> urls;
     QUrl u(ops->url().adjusted(QUrl::RemoveFilename));
@@ -1727,15 +1727,21 @@ QList<QUrl> KFileWidgetPrivate::tokenize(const QString &line) const
 
     // A helper that creates, validates and appends a new url based
     // on the given filename.
-    auto addUrl = [u, &urls](const QString & partial_name) 
-    { 
+    auto addUrl = [u, &urls](const QString &partial_name)
+    {
         if (partial_name.trimmed().isEmpty()) {
             return;
         }
 
+        // We have to use setPath here, so that something like "test#file"
+        // isn't interpreted to have path "test" and fragment "file".
+        QUrl partial_url;
+        partial_url.setPath(partial_name);
+
         // This returns QUrl(partial_name) for absolute URLs.
         // Otherwise, returns the concatenated url.
-        QUrl finalUrl = u.resolved(QUrl(partial_name));
+        const QUrl finalUrl = u.resolved(partial_url);
+
         if (finalUrl.isValid()) {
             urls.append(finalUrl);
         } else {
@@ -1758,7 +1764,7 @@ QList<QUrl> KFileWidgetPrivate::tokenize(const QString &line) const
             escape = false;
             continue;
         }
-        
+
         // Handle escape start
         if (ch.toLatin1() == '\\') {
             escape = true;
@@ -1777,15 +1783,14 @@ QList<QUrl> KFileWidgetPrivate::tokenize(const QString &line) const
         partial_name += ch;
     }
 
-    // Handle the last item which is buffered in 
-    // partial_name. This is required for single-file
-    // selection dialogs since the name will not be 
-    // wrapped in quotes
+    // Handle the last item which is buffered in partial_name. This is
+    // required for single-file selection dialogs since the name will not
+    // be wrapped in quotes
     if (!partial_name.isEmpty()) {
         addUrl(partial_name);
         partial_name.clear();
     }
-    
+
     return urls;
 }
 
