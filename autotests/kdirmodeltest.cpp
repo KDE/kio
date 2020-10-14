@@ -686,7 +686,7 @@ void KDirModelTest::testChmodDirectory() // #53397
     QVERIFY(job->exec());
     // ChmodJob doesn't talk to KDirNotify, kpropertiesdialog does.
     // [this allows to group notifications after all the changes one can make in the dialog]
-    org::kde::KDirNotify::emitFilesChanged(QList<QUrl>() << QUrl::fromLocalFile(path));
+    org::kde::KDirNotify::emitFilesChanged(QList<QUrl>{QUrl::fromLocalFile(path)});
     // Wait for the DBUS signal from KDirNotify, it's the one the triggers rowsRemoved
     enterLoop();
 
@@ -723,20 +723,18 @@ void KDirModelTest::testExpandToUrl_data()
             << int(NoFlag) << QString() << QStringList();
     QTest::newRow(".")
             << int(NoFlag) << "." << (QStringList());
-    QTest::newRow("subdir")
-            << int(NoFlag) << "subdir" << (QStringList() << QStringLiteral("subdir"));
-    QTest::newRow("subdir/.")
-            << int(NoFlag) << "subdir/." << (QStringList() << QStringLiteral("subdir"));
+    QTest::newRow("subdir") << int(NoFlag) << "subdir" << QStringList{QStringLiteral("subdir")};
+    QTest::newRow("subdir/.") << int(NoFlag) << "subdir/." << QStringList{QStringLiteral("subdir")};
 
     const QString subsubdir = QStringLiteral("subdir/subsubdir");
     // Must list root, emit expand for subdir, list subdir, emit expand for subsubdir.
     QTest::newRow("subdir/subsubdir")
-            << int(NoFlag) << subsubdir << (QStringList() << QStringLiteral("subdir") << subsubdir);
+            << int(NoFlag) << subsubdir << QStringList{QStringLiteral("subdir"), subsubdir};
 
     // Must list root, emit expand for subdir, list subdir, emit expand for subsubdir, list subsubdir.
     const QString subsubdirfile = subsubdir + "/testfile";
     QTest::newRow("subdir/subsubdir/testfile sync")
-            << int(NoFlag) << subsubdirfile << (QStringList() << QStringLiteral("subdir") << subsubdir << subsubdirfile);
+            << int(NoFlag) << subsubdirfile << QStringList{QStringLiteral("subdir"), subsubdir, subsubdirfile};
 
 #ifndef Q_OS_WIN
     // Expand a symlink to a directory (#219547)
@@ -745,21 +743,21 @@ void KDirModelTest::testExpandToUrl_data()
     QVERIFY(QFileInfo(dirlink).isSymLink());
     // If this test fails, your first move should be to enable all debug output and see if KDirWatch says inotify failed
     QTest::newRow("dirlink")
-            << int(NoFlag) << "dirlink/subsubdir" << (QStringList() << QStringLiteral("dirlink") << QStringLiteral("dirlink/subsubdir"));
+            << int(NoFlag) << "dirlink/subsubdir" << QStringList{QStringLiteral("dirlink"), QStringLiteral("dirlink/subsubdir")};
 #endif
 
     // Do a cold-cache test too, but nowadays it doesn't change anything anymore,
     // apart from testing different code paths inside KDirLister.
     QTest::newRow("subdir/subsubdir/testfile with reload")
-            << int(NewDir) << subsubdirfile << (QStringList() << QStringLiteral("subdir") << subsubdir << subsubdirfile);
+            << int(NewDir) << subsubdirfile << QStringList{QStringLiteral("subdir"), subsubdir, subsubdirfile};
 
     QTest::newRow("hold dest dir") // #193364
-            << int(NewDir | ListFinalDir) << subsubdirfile << (QStringList() << QStringLiteral("subdir") << subsubdir << subsubdirfile);
+            << int(NewDir | ListFinalDir) << subsubdirfile << QStringList{QStringLiteral("subdir"), subsubdir, subsubdirfile};
 
     // Put subdir in cache too (#175035)
     QTest::newRow("hold subdir and dest dir")
             << int(NewDir | CacheSubdir | ListFinalDir | Recreate) << subsubdirfile
-            << (QStringList() << QStringLiteral("subdir") << subsubdir << subsubdirfile);
+            << QStringList{QStringLiteral("subdir"), subsubdir, subsubdirfile};
 
     // Make sure the last test has the Recreate option set, for the subsequent test methods.
 }
@@ -948,7 +946,7 @@ void KDirModelTest::testMimeFilter()
     QSignalSpy spyItemsFilteredByMime(m_dirModel->dirLister(), &KCoreDirLister::itemsFilteredByMime);
     QSignalSpy spyItemsDeleted(m_dirModel->dirLister(), &KCoreDirLister::itemsDeleted);
     QSignalSpy spyRowsRemoved(m_dirModel, &QAbstractItemModel::rowsRemoved);
-    m_dirModel->dirLister()->setMimeFilter(QStringList() << QStringLiteral("application/pdf"));
+    m_dirModel->dirLister()->setMimeFilter(QStringList{QStringLiteral("application/pdf")});
     QCOMPARE(m_dirModel->rowCount(), oldTopLevelRowCount); // no change yet
     QCOMPARE(m_dirModel->rowCount(m_dirIndex), oldSubdirRowCount); // no change yet
     m_dirModel->dirLister()->emitChanges();
@@ -1146,19 +1144,21 @@ void KDirModelTest::testDotHiddenFile_data()
     QTest::addColumn<QStringList>("fileContents");
     QTest::addColumn<QStringList>("expectedListing");
 
-    QStringList allItems; allItems << QStringLiteral("toplevelfile_1") << QStringLiteral("toplevelfile_2") << QStringLiteral("toplevelfile_3") << SPECIALCHARS << QStringLiteral("subdir");
-    QTest::newRow("empty_file") << QStringList() << allItems;
+    const QStringList allItems{QStringLiteral("toplevelfile_1"), QStringLiteral("toplevelfile_2"),
+                               QStringLiteral("toplevelfile_3"), SPECIALCHARS, QStringLiteral("subdir")};
+    QTest::newRow("empty_file") << (QStringList{}) << allItems;
 
-    QTest::newRow("simple_name") << (QStringList() << QStringLiteral("toplevelfile_1")) << QStringList(allItems.mid(1));
+    QTest::newRow("simple_name") << (QStringList{QStringLiteral("toplevelfile_1")}) << QStringList(allItems.mid(1));
 
     QStringList allButSpecialChars = allItems; allButSpecialChars.removeAt(3);
-    QTest::newRow("special_chars") << (QStringList() << SPECIALCHARS) << allButSpecialChars;
+    QTest::newRow("special_chars") << (QStringList{SPECIALCHARS}) << allButSpecialChars;
 
     QStringList allButSubdir = allItems; allButSubdir.removeAt(4);
-    QTest::newRow("subdir") << (QStringList() << QStringLiteral("subdir")) << allButSubdir;
+    QTest::newRow("subdir") << (QStringList{QStringLiteral("subdir")}) << allButSubdir;
 
-    QTest::newRow("many_lines") << (QStringList() << QStringLiteral("subdir") << QStringLiteral("toplevelfile_1") << QStringLiteral("toplevelfile_3") << QStringLiteral("toplevelfile_2"))
-                                << (QStringList() << SPECIALCHARS);
+    QTest::newRow("many_lines") << (QStringList{QStringLiteral("subdir"), QStringLiteral("toplevelfile_1"),
+                                                QStringLiteral("toplevelfile_3"), QStringLiteral("toplevelfile_2")})
+                                << QStringList{SPECIALCHARS};
 }
 
 void KDirModelTest::testDotHiddenFile()

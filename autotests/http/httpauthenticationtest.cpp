@@ -26,7 +26,7 @@ static void parseAuthHeader(const QByteArray &header,
                             QByteArray *scheme,
                             QList<QByteArray> *result)
 {
-    const QList<QByteArray> authHeaders = KAbstractHttpAuthentication::splitOffers(QList<QByteArray>() << header);
+    const QList<QByteArray> authHeaders = KAbstractHttpAuthentication::splitOffers(QList<QByteArray>{header});
     QByteArray chosenHeader = KAbstractHttpAuthentication::bestOffer(authHeaders);
 
     if (bestOffer) {

@@ -120,7 +120,7 @@ private Q_SLOTS:
         }
 #endif
         QVERIFY(QFileInfo(m_srcFile).isWritable());
-        m_mimeData.setUrls(QList<QUrl>() << QUrl::fromLocalFile(m_srcFile));
+        m_mimeData.setUrls(QList<QUrl>{QUrl::fromLocalFile(m_srcFile)});
     }
 
     void shouldDropToDesktopFile()
@@ -199,7 +199,7 @@ private Q_SLOTS:
 
         // When dropping the source file onto the directory
         const QUrl destUrl = QUrl::fromLocalFile(dest);
-        m_mimeData.setUrls(QList<QUrl>() << QUrl::fromLocalFile(srcFile));
+        m_mimeData.setUrls(QList<QUrl>{QUrl::fromLocalFile(srcFile)});
         QDropEvent dropEvent(QPoint(10, 10), dropAction, &m_mimeData, Qt::LeftButton, modifiers);
         KIO::DropJob *job = KIO::drop(&dropEvent, destUrl, KIO::HideProgressInfo | KIO::NoPrivilegeExecution);
         job->setUiDelegate(nullptr);
@@ -251,7 +251,7 @@ private Q_SLOTS:
         const bool isLink = QFileInfo(srcFile).isSymLink();
 
         // When dropping it into the trash, with <modifiers> pressed
-        m_mimeData.setUrls(QList<QUrl>() << QUrl::fromLocalFile(srcFile));
+        m_mimeData.setUrls(QList<QUrl>{QUrl::fromLocalFile(srcFile)});
         QDropEvent dropEvent(QPoint(10, 10), dropAction, &m_mimeData, Qt::LeftButton, modifiers);
         KIO::DropJob *job = KIO::drop(&dropEvent, QUrl(QStringLiteral("trash:/")), KIO::HideProgressInfo);
         job->setUiDelegate(nullptr);
@@ -294,7 +294,7 @@ private Q_SLOTS:
         QVERIFY(!QFile::exists(m_srcFile));
 
         // When dropping the trashed file into a local dir, without modifiers
-        m_mimeData.setUrls(QList<QUrl>() << trashUrl);
+        m_mimeData.setUrls(QList<QUrl>{trashUrl});
         QDropEvent dropEvent(QPoint(10, 10), Qt::CopyAction, &m_mimeData, Qt::LeftButton, Qt::NoModifier);
         KIO::DropJob *job = KIO::drop(&dropEvent, QUrl::fromLocalFile(m_srcDir), KIO::HideProgressInfo);
         job->setUiDelegate(nullptr);
@@ -326,7 +326,7 @@ private Q_SLOTS:
         const QUrl destUrl = QUrl::fromLocalFile(tempDestDir.path());
 
         // When dropping a link / icon of the trash...
-        m_mimeData.setUrls(QList<QUrl>() << trashUrl);
+        m_mimeData.setUrls(QList<QUrl>{trashUrl});
         QDropEvent dropEvent(QPoint(10, 10), Qt::CopyAction, &m_mimeData, Qt::LeftButton, Qt::NoModifier);
         KIO::DropJob *job = KIO::drop(&dropEvent, destUrl, KIO::HideProgressInfo);
         job->setUiDelegate(nullptr);
@@ -352,7 +352,7 @@ private Q_SLOTS:
         QVERIFY(!QFile::exists(m_srcFile));
 
         // When dropping the trashed file in the trash
-        m_mimeData.setUrls(QList<QUrl>() << trashUrl);
+        m_mimeData.setUrls(QList<QUrl>{trashUrl});
         QDropEvent dropEvent(QPoint(10, 10), Qt::CopyAction, &m_mimeData, Qt::LeftButton, Qt::NoModifier);
         KIO::DropJob *job = KIO::drop(&dropEvent, QUrl(QStringLiteral("trash:/")), KIO::HideProgressInfo);
         job->setUiDelegate(nullptr);

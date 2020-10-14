@@ -58,7 +58,7 @@ public Q_SLOTS:
 
         QMimeData *mimeData = new QMimeData;
         QUrl fileUrl = QUrl::fromLocalFile(filePath);
-        mimeData->setUrls(QList<QUrl>() << fileUrl);
+        mimeData->setUrls(QList<QUrl>{fileUrl});
         QApplication::clipboard()->setMimeData(mimeData);
 
         KIO::Job *job = KIO::pasteClipboard(QUrl::fromLocalFile(otherTmpDir()), static_cast<QWidget *>(nullptr));

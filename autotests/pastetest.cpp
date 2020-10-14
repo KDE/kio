@@ -85,9 +85,9 @@ void KIOPasteTest::testPasteActionText_data()
     QTest::addColumn<bool>("expectedEnabled");
     QTest::addColumn<QString>("expectedText");
 
-    QList<QUrl> urlDir = QList<QUrl>() << QUrl::fromLocalFile(QDir::tempPath());
-    QList<QUrl> urlFile = QList<QUrl>() << QUrl::fromLocalFile(QCoreApplication::applicationFilePath());
-    QList<QUrl> urlRemote = QList<QUrl>() << QUrl(QStringLiteral("http://www.kde.org"));
+    QList<QUrl> urlDir = QList<QUrl>{QUrl::fromLocalFile(QDir::tempPath())};
+    QList<QUrl> urlFile = QList<QUrl>{QUrl::fromLocalFile(QCoreApplication::applicationFilePath())};
+    QList<QUrl> urlRemote = QList<QUrl>{QUrl(QStringLiteral("http://www.kde.org"))};
     QList<QUrl> urls = urlDir + urlRemote;
     QTest::newRow("nothing") << QList<QUrl>() << false << false << "Paste";
     QTest::newRow("one_dir") << urlDir << false << true << "Paste One Folder";
@@ -151,8 +151,8 @@ void KIOPasteTest::testPasteJob_data()
     const QString file = m_dir + "/file";
     createTestFile(file);
 
-    QList<QUrl> urlFile = QList<QUrl>() << QUrl::fromLocalFile(file);
-    QList<QUrl> urlDir = QList<QUrl>() << QUrl::fromLocalFile(m_dir);
+    QList<QUrl> urlFile = QList<QUrl>{QUrl::fromLocalFile(file)};
+    QList<QUrl> urlDir = QList<QUrl>{QUrl::fromLocalFile(m_dir)};
 
     QTest::newRow("nothing") << QList<QUrl>() << false << false << QString();
     QTest::newRow("copy_one_file") << urlFile << false << false << file.section('/', -1);

@@ -473,7 +473,7 @@ void KUriFilterTest::localdomain()
     const QString host = QHostInfo::localHostName();
     if (host.isEmpty()) {
         const QString expected = QLatin1String("http://") + host;
-        runFilterTest(host, expected, KUriFilterData::NetProtocol, QStringList() << QStringLiteral("localdomainurifilter"), nullptr, false);
+        runFilterTest(host, expected, KUriFilterData::NetProtocol, QStringList{QStringLiteral("localdomainurifilter")}, nullptr, false);
     }
 }
 
