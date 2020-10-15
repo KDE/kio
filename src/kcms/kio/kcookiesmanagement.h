@@ -67,7 +67,6 @@ private:
     void reset (bool deleteAll = false);
     bool cookieDetails(CookieProp *cookie);
     void clearCookieDetails();
-    bool policyenabled();
     
     bool mDeleteAllFlag;
     QWidget* mMainWidget;

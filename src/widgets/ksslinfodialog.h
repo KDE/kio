@@ -44,14 +44,6 @@ public:
      */
     virtual ~KSslInfoDialog();
 
-    /**
-     *  Tell the dialog if the connection has portions that may not be
-     *  secure (ie. a mixture of secure and insecure frames)
-     *
-     *  @param isIt true if security is in question
-     */
-    void setSecurityInQuestion(bool isIt);
-
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 64)
     /**
      *  Set information to display about the SSL connection.
