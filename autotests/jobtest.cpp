@@ -1799,7 +1799,7 @@ void JobTest::moveDestAlreadyExistsAutoRename(const QString &destDir, bool moveD
     const QString file2 = homeTmpDir() + prefix + "(2)";
     const QString existingDest1 = destDir + prefix + "(1)";
     const QString existingDest2 = destDir + prefix + "(2)";
-    const QStringList sources = QStringList() << file1 << file2 << existingDest1 << existingDest2;
+    const QStringList sources = QStringList{file1, file2, existingDest1, existingDest2};
     for (const QString &source : sources) {
         if (moveDirs) {
             QVERIFY(QDir().mkdir(source));

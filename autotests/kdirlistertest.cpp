@@ -415,7 +415,7 @@ void KDirListerTest::testRefreshRootItem()
 
     // Arguably, the mtime change of "subdir" should lead to a refreshItem of subdir in the root dir.
     // So the next line shouldn't be necessary, if KDirLister did this correctly. This isn't what this test is about though.
-    org::kde::KDirNotify::emitFilesChanged(QList<QUrl>() << QUrl::fromLocalFile(path));
+    org::kde::KDirNotify::emitFilesChanged(QList<QUrl>{QUrl::fromLocalFile(path)});
     QTRY_VERIFY(!m_refreshedItems.isEmpty());
 
     QCOMPARE(m_dirLister.spyStarted.count(), 0);
@@ -448,8 +448,8 @@ void KDirListerTest::testRefreshRootItem()
     org::kde::KDirNotify::emitFilesAdded(QUrl::fromLocalFile(path));
     QTest::qWait(200);
     // The order of these two is not deterministic
-    org::kde::KDirNotify::emitFilesChanged(QList<QUrl>() << QUrl::fromLocalFile(directoryFile));
-    org::kde::KDirNotify::emitFilesChanged(QList<QUrl>() << QUrl::fromLocalFile(path));
+    org::kde::KDirNotify::emitFilesChanged(QList<QUrl>{QUrl::fromLocalFile(directoryFile)});
+    org::kde::KDirNotify::emitFilesChanged(QList<QUrl>{QUrl::fromLocalFile(path)});
     QTRY_VERIFY(!m_refreshedItems.isEmpty());
 
     QCOMPARE(m_refreshedItems.count(), 1);

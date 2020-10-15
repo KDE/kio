@@ -205,12 +205,12 @@ QDBusInterface *KFilePlacesModelTest::fakeDevice(const QString &udi)
 
 static const QStringList initialListOfPlaces()
 {
-    return QStringList() << QDir::homePath() << QStringLiteral("trash:/");
+    return QStringList{QDir::homePath(), QStringLiteral("trash:/")};
 }
 
 static const QStringList initialListOfShared()
 {
-    return QStringList() << QStringLiteral("remote:/") << QStringLiteral("/media/nfs");
+    return QStringList{QStringLiteral("remote:/"), QStringLiteral("/media/nfs")};
 }
 
 static const QStringList initialListOfRecent()
@@ -225,12 +225,12 @@ static const QStringList initialListOfRecent()
 
 static const QStringList initialListOfDevices()
 {
-    return QStringList() << QStringLiteral("/foreign");
+    return QStringList{QStringLiteral("/foreign")};
 }
 
 static const QStringList initialListOfRemovableDevices()
 {
-    return QStringList() << QStringLiteral("/media/floppy0") << QStringLiteral("/media/XO-Y4") << QStringLiteral("/media/cdrom");
+    return QStringList{QStringLiteral("/media/floppy0"), QStringLiteral("/media/XO-Y4"), QStringLiteral("/media/cdrom")};
 }
 
 static const QStringList initialListOfUrls()

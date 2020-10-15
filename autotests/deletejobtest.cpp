@@ -62,8 +62,7 @@ void DeleteJobTest::deleteDirectoryTestCase_data() const
 {
     QTest::addColumn<QStringList>("fileNames");
 
-    QStringList filesInNonEmptyDirectory = QStringList() << QStringLiteral("1.txt");
-    QTest::newRow("non-empty directory") << filesInNonEmptyDirectory;
+    QTest::newRow("non-empty directory") << QStringList{QStringLiteral("1.txt")};
     QTest::newRow("empty directory") << QStringList();
 }
 

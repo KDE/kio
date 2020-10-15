@@ -100,7 +100,7 @@ void KUrlRequesterTest::testUrlRequester()
     QKeyEvent keyPressEv(QKeyEvent::KeyPress, Qt::Key_Return, Qt::NoModifier);
     qApp->sendEvent(fw ? static_cast<QWidget *>(fw) : static_cast<QWidget *>(fileDialog), &keyPressEv);
     QCOMPARE(fileDialog->result(), static_cast<int>(QDialog::Accepted));
-    QCOMPARE(fileDialog->selectedFiles(), QStringList() << filePath);
+    QCOMPARE(fileDialog->selectedFiles(), QStringList{filePath});
     QCOMPARE(req.url().toLocalFile(), filePath);
 
     // Check there is no longer any file dialog visible
@@ -122,7 +122,7 @@ void KUrlRequesterTest::testUrlRequester()
     // Click OK, check URLRequester shows and returns selected file
     qApp->sendEvent(fw ? static_cast<QWidget *>(fw) : static_cast<QWidget *>(fileDialog), &keyPressEv);
     QCOMPARE(fileDialog->result(), static_cast<int>(QDialog::Accepted));
-    QCOMPARE(fileDialog->selectedFiles(), QStringList() << filePath2);
+    QCOMPARE(fileDialog->selectedFiles(), QStringList{filePath2});
     QCOMPARE(req.url().toLocalFile(), filePath2);
 }
 
