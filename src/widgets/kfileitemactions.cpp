@@ -233,6 +233,11 @@ void KFileItemActions::setItemListProperties(const KFileItemListProperties &item
 
 int KFileItemActions::addServiceActionsTo(QMenu *mainMenu)
 {
+    return addServiceActionsTo(mainMenu, nullptr);
+}
+
+int KFileItemActions::addServiceActionsTo(QMenu *mainMenu, QMenu *actionsMenu)
+{
     const KFileItemList items = d->m_props.items();
     const KFileItem &firstItem = items.first();
     const QString protocol = firstItem.url().scheme(); // assumed to be the same for all items
@@ -305,15 +310,19 @@ int KFileItemActions::addServiceActionsTo(QMenu *mainMenu)
         }
     }
 
-    QMenu *actionMenu = mainMenu;
+    QMenu *actionMenu = actionsMenu;
     int userItemCount = 0;
     if (s.user.count() + s.userSubmenus.count() +
-            s.userPriority.count() + s.userPrioritySubmenus.count() > 3) {
-        // we have more than three items, so let's make a submenu
-        actionMenu = new QMenu(i18nc("@title:menu", "&Actions"), mainMenu);
-        actionMenu->setIcon(QIcon::fromTheme(QStringLiteral("view-more-symbolic")));
-        actionMenu->menuAction()->setObjectName(QStringLiteral("actions_submenu")); // for the unittest
-        mainMenu->addMenu(actionMenu);
+        s.userPriority.count() + s.userPrioritySubmenus.count() > 3) {
+        if (!actionMenu) {
+            // we have more than three items, so let's make a submenu
+            actionMenu = new QMenu(i18nc("@title:menu", "&Actions"), mainMenu);
+            actionMenu->setIcon(QIcon::fromTheme(QStringLiteral("view-more-symbolic")));
+            actionMenu->menuAction()->setObjectName(QStringLiteral("actions_submenu")); // for the unittest
+            mainMenu->addMenu(actionMenu);
+        }
+    } else {
+        actionMenu = mainMenu;
     }
 
     userItemCount += d->insertServicesSubmenus(s.userPrioritySubmenus, actionMenu, false);
@@ -338,6 +347,11 @@ int KFileItemActions::addServiceActionsTo(QMenu *mainMenu)
 
 int KFileItemActions::addPluginActionsTo(QMenu *mainMenu)
 {
+    return addPluginActionsTo(mainMenu, nullptr);
+}
+
+int KFileItemActions::addPluginActionsTo(QMenu *mainMenu, QMenu *actionsMenu)
+{
     QString commonMimeType = d->m_props.mimeType();
     if (commonMimeType.isEmpty() && d->m_props.isFile()) {
         commonMimeType = QStringLiteral("application/octet-stream");
@@ -359,7 +373,11 @@ int KFileItemActions::addPluginActionsTo(QMenu *mainMenu)
             abstractPlugin->setParent(mainMenu);
             auto actions = abstractPlugin->actions(d->m_props, d->m_parentWidget);
             itemCount += actions.count();
-            mainMenu->addActions(actions);
+            if (actionsMenu && service->property(QStringLiteral("X-KDE-Actions-Submenu")).toBool()) {
+                actionsMenu->addActions(actions);
+            } else {
+                mainMenu->addActions(actions);
+            }
             addedPlugins.append(service->desktopEntryName());
         }
     }
@@ -401,7 +419,11 @@ int KFileItemActions::addPluginActionsTo(QMenu *mainMenu)
             abstractPlugin->setParent(this);
             auto actions = abstractPlugin->actions(d->m_props, d->m_parentWidget);
             itemCount += actions.count();
-            mainMenu->addActions(actions);
+            if (actionsMenu && jsonMetadata.rawData().value(QStringLiteral("X-KDE-Actions-Submenu")).toBool()) {
+                actionsMenu->addActions(actions);
+            } else {
+                mainMenu->addActions(actions);
+            }
             addedPlugins.append(jsonMetadata.pluginId());
         }
     }

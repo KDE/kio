@@ -49,3 +49,8 @@ Comment[uk]=Додаток пункту контекстного меню KIO
 Comment[x-test]=xxPlugin for the KIO file item context menuxx
 Comment[zh_CN]=KIO 文件项的右键菜单插件
 Comment[zh_TW]=KIO 檔案項目內文選單的外掛程式
+
+# If the menu should be displayed under the "Actions" submenu. This option is disabled by default.
+# If there is no "Actions" submenu the actions will be added to the top-level menu as if this option was disabled.
+[PropertyDef::X-KDE-Actions-Submenu]
+Type=bool

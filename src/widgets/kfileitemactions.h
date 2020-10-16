@@ -145,6 +145,13 @@ public:
     int addServiceActionsTo(QMenu *menu);
 
     /**
+     * @overload
+     * @param actionsMenu Menu which will be used to add the entries for the "Actions" submenu
+     * @since 5.76
+     */
+    int addServiceActionsTo(QMenu *menu, QMenu *actionsMenu);
+
+    /**
      * Add actions implemented by plugins.
      * These are defined in .desktop files or JSON in plugins using the KFileItemAction/Plugin service type,
      * and the KAbstractFileItemActionPlugin base class.
@@ -155,6 +162,13 @@ public:
      * @since 5.27
      */
     int addPluginActionsTo(QMenu *menu);
+
+    /**
+     * @overload
+     * @param actionsMenu Menu which will be used to add the entries for the "Actions" submenu
+     * @since 5.76
+     */
+    int addPluginActionsTo(QMenu *menu, QMenu *actionsMenu);
 
 Q_SIGNALS:
     /**
