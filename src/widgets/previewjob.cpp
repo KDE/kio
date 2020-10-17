@@ -548,7 +548,8 @@ bool PreviewJobPrivate::statResultThumbnail()
     thumbName = QString::fromLatin1(md5.result().toHex()) + QLatin1String(".png");
 
     QImage thumb;
-    if (!thumb.load(thumbPath + thumbName)) {
+    QFile thumbFile(thumbPath + thumbName);
+    if (!thumbFile.open(QIODevice::ReadOnly) || !thumb.load(&thumbFile, "png")) {
         return false;
     }
 
