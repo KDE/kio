@@ -9,6 +9,7 @@
 */
 
 #include "previewjob.h"
+#include "kio_widgets_debug.h"
 
 #if defined(Q_OS_UNIX) && !defined(Q_OS_ANDROID)
 #define WITH_SHM 1
@@ -539,9 +540,20 @@ bool PreviewJobPrivate::statResultThumbnail()
         return false;
     }
 
-    const QUrl url = currentItem.item.mostLocalUrl();
-    // Don't include the password if any
-    origName = url.toEncoded(QUrl::RemovePassword);
+    bool isLocal;
+    const QUrl url = currentItem.item.mostLocalUrl(&isLocal);
+    if (isLocal) {
+        const QFileInfo localFile(url.toLocalFile());
+        const QString canonicalPath = localFile.canonicalFilePath();
+        origName = QUrl::fromLocalFile(canonicalPath).toEncoded(QUrl::RemovePassword | QUrl::FullyEncoded);
+        if (origName.isEmpty()) {
+            qCWarning(KIO_WIDGETS) << "Failed to convert" << url << "to canonical path";
+            return false;
+        }
+    } else {
+        // Don't include the password if any
+        origName = url.toEncoded(QUrl::RemovePassword);
+    }
 
     QCryptographicHash md5(QCryptographicHash::Md5);
     md5.addData(origName);
