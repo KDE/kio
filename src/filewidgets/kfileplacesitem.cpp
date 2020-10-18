@@ -12,6 +12,7 @@
 
 #include <KBookmarkManager>
 #include <KIconLoader>
+#include <KMountPoint>
 #include <KLocalizedString>
 #include <KConfig>
 #include <KConfigGroup>
@@ -45,6 +46,17 @@ KFilePlacesItem::KFilePlacesItem(KBookmarkManager *manager,
             KConfig cfg(QStringLiteral("trashrc"), KConfig::SimpleConfig);
             const KConfigGroup group = cfg.group("Status");
             m_folderIsEmpty = group.readEntry("Empty", true);
+        }
+    }
+
+    // Hide SSHFS network device mounted by kdeconnect, since we already have the kdeconnect:// place.
+    if (isDevice() && m_access && device().vendor() == QLatin1String("fuse.sshfs")) {
+        auto mountPoint = KMountPoint::currentMountPoints().findByPath(m_access->filePath());
+        if (mountPoint->mountedFrom().startsWith(QLatin1String("kdeconnect@"))) {
+            // Hide only if the user never set the "Hide" checkbox on the device.
+            if (m_bookmark.metaDataItem(QStringLiteral("IsHidden")).isEmpty()) {
+                setHidden(true);
+            }
         }
     }
 }
