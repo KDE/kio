@@ -1463,7 +1463,7 @@ bool KDirOperator::eventFilter(QObject *watched, QEvent *event)
 
         setFocus();
 
-        KIO::UDSEntry entry = job->statResult();
+        const KIO::UDSEntry entry = job->statResult();
 
         if (entry.isDir()) {
             // if this was a directory

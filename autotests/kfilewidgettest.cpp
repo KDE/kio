@@ -56,17 +56,6 @@ private Q_SLOTS:
     {
     }
 
-    QWidget *findLocationLabel(QWidget *parent)
-    {
-        const QList<QLabel*> labels = parent->findChildren<QLabel*>();
-        for (QLabel *label : labels) {
-            if (label->text() == i18n("&Name:"))
-                return label->buddy();
-        }
-        Q_ASSERT(false);
-        return nullptr;
-    }
-
     void testFilterCombo()
     {
         KFileWidget fw(QUrl(QStringLiteral("kfiledialog:///SaveDialog")), nullptr);
@@ -186,12 +175,12 @@ private Q_SLOTS:
         QString outFileName;
         QUrl localUrl = KFileWidget::getStartUrl(QUrl(QStringLiteral("kfiledialog:///attachmentDir")), recentDirClass, outFileName);
         QCOMPARE(recentDirClass, QStringLiteral(":attachmentDir"));
-        QCOMPARE(localUrl.path(), QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation));
+        QCOMPARE(localUrl.toLocalFile(), QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation));
         QVERIFY(outFileName.isEmpty());
 
         localUrl = KFileWidget::getStartUrl(QUrl(QStringLiteral("kfiledialog:///attachments/foo.txt?global")), recentDirClass, outFileName);
         QCOMPARE(recentDirClass, QStringLiteral("::attachments"));
-        QCOMPARE(localUrl.path(), QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation));
+        QCOMPARE(localUrl.toLocalFile(), QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation));
         QCOMPARE(outFileName, QStringLiteral("foo.txt"));
     }
 
@@ -227,9 +216,6 @@ private Q_SLOTS:
         const QUrl expectedBaseUrl = QUrl::fromLocalFile(expectedBaseDir);
 
         KFileWidget fw(baseUrl);
-        fw.show();
-        fw.activateWindow();
-        QVERIFY(QTest::qWaitForWindowActive(&fw));
 
         // WHEN
         fw.setSelection(selection); // now deprecated, this test shows why ;)
@@ -275,9 +261,6 @@ private Q_SLOTS:
         const QUrl baseUrl = QUrl::fromLocalFile(baseDir).adjusted(QUrl::StripTrailingSlash);
         const QUrl expectedBaseUrl = QUrl::fromLocalFile(expectedBaseDir);
         KFileWidget fw(baseUrl);
-        fw.show();
-        fw.activateWindow();
-        QVERIFY(QTest::qWaitForWindowActive(&fw));
 
         // WHEN
         fw.setSelectedUrl(selectionUrl);
@@ -383,9 +366,6 @@ private Q_SLOTS:
         fw.setSelectedUrl(fileUrl);
         // Calling setFilter has side-effects and changes the file name.
         fw.setFilter(filter);
-        fw.show();
-        fw.activateWindow();
-        QVERIFY(QTest::qWaitForWindowActive(&fw));
 
         // Verify the expected populated name.
         QCOMPARE(fw.baseUrl().adjusted(QUrl::StripTrailingSlash), dirUrl);
@@ -412,9 +392,6 @@ private Q_SLOTS:
         fw.setOperationMode(KFileWidget::Saving);
         fw.setSelectedUrl(QUrl::fromLocalFile(tempDir.filePath("some.txt")));
         fw.setFilter("*.txt|Txt\n*.c|C");
-        fw.show();
-        fw.activateWindow();
-        QVERIFY(QTest::qWaitForWindowActive(&fw));
 
         // Initial filename.
         QCOMPARE(fw.locationEdit()->currentText(), QStringLiteral("some.txt"));
@@ -470,29 +447,28 @@ private Q_SLOTS:
         fileWidget.setOperationMode(KFileWidget::Saving);
         fileWidget.setMode(KFile::File);
         fileWidget.show();
-        fileWidget.activateWindow();
-        QVERIFY(QTest::qWaitForWindowActive(&fileWidget));
 
         QMimeData *mimeData = new QMimeData();
         mimeData->setUrls(QList<QUrl>() << fileUrl);
 
         KDirLister *dirLister = fileWidget.dirOperator()->dirLister();
-        QSignalSpy spy(dirLister, SIGNAL(completed(const QUrl &_url)));
+        QSignalSpy spy(dirLister, SIGNAL(completed(QUrl)));
+
+        QAbstractItemView *view = fileWidget.dirOperator()->view();
+        QVERIFY(view);
 
         QDragEnterEvent event1(QPoint(), Qt::DropAction::MoveAction, mimeData, Qt::MouseButton::LeftButton, Qt::KeyboardModifier::NoModifier);
-
-        QVERIFY(qApp->sendEvent(fileWidget.dirOperator()->view()->viewport(), &event1));
+        QVERIFY(qApp->sendEvent(view->viewport(), &event1));
 
         // Fake drop
         QDropEvent event(QPoint(), Qt::DropAction::MoveAction, mimeData, Qt::MouseButton::LeftButton, Qt::KeyboardModifier::NoModifier);
+        QVERIFY(qApp->sendEvent(view->viewport(), &event));
 
-        QVERIFY(qApp->sendEvent(fileWidget.dirOperator()->view()->viewport(), &event));
-
-        // QVERIFY(QTest::qWaitForWindowActive(&fileWidget));
-
-        // once we drop a file the dirlister scans the dir
-        // wait for the completed signal from the dirlister
-        spy.wait();
+        if (!dir.isEmpty()) {
+            // once we drop a file the dirlister scans the dir
+            // wait for the completed signal from the dirlister
+            QVERIFY(spy.wait());
+        }
 
         // Verify the expected populated name.
         QCOMPARE(fileWidget.baseUrl().adjusted(QUrl::StripTrailingSlash), dirUrl);
@@ -503,7 +479,7 @@ private Q_SLOTS:
         // Accept the filename to ensure that a filename is selected.
         connect(&fileWidget, &KFileWidget::accepted, &fileWidget, &KFileWidget::accept);
         QTest::keyClick(fileWidget.locationEdit(), Qt::Key_Return);
-        QList<QUrl> urls = fileWidget.selectedUrls();
+        const QList<QUrl> urls = fileWidget.selectedUrls();
         QCOMPARE(urls.size(), 1);
         QCOMPARE(urls[0], fileUrl);
     }
@@ -609,9 +585,6 @@ private Q_SLOTS:
         fw.setOperationMode(KFileWidget::Opening);
         fw.setMode(KFile::Files);
         fw.setSelectedUrls(fileUrls);
-        fw.show();
-        fw.activateWindow();
-        QVERIFY(QTest::qWaitForWindowActive(&fw));
 
         // Verify the expected populated name.
         QCOMPARE(fw.baseUrl().adjusted(QUrl::StripTrailingSlash), dirUrl);
@@ -622,12 +595,25 @@ private Q_SLOTS:
         // Accept the filename to ensure that a filename is selected.
         connect(&fw, &KFileWidget::accepted, &fw, &KFileWidget::accept);
         QTest::keyClick(fw.locationEdit(), Qt::Key_Return);
-        QList<QUrl> urls = fw.selectedUrls();
+        const QList<QUrl> urls = fw.selectedUrls();
 
         // We must have the same size as requested files
         QCOMPARE(urls.size(), fileNames.size());
         QCOMPARE(urls, fileUrls);
     }
+
+private:
+    static QWidget *findLocationLabel(QWidget *parent)
+    {
+        const QList<QLabel*> labels = parent->findChildren<QLabel*>();
+        for (QLabel *label : labels) {
+            if (label->text() == i18n("&Name:"))
+                return label->buddy();
+        }
+        Q_ASSERT(false);
+        return nullptr;
+    }
+
 };
 
 QTEST_MAIN(KFileWidgetTest)
