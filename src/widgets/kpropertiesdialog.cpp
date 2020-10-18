@@ -994,7 +994,7 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
     }
     grid->addWidget(d->iconArea, curRow, 0, Qt::AlignCenter);
 
-    KFileItemListProperties itemList(KFileItemList() << item);
+    KFileItemListProperties itemList(KFileItemList{item});
     if (d->bMultiple || isTrash || hasRoot || !(d->m_bFromTemplate || itemList.supportsMoving())) {
         setFileNameReadOnly(true);
         if (d->bMultiple) {

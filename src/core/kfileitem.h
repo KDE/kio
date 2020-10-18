@@ -593,6 +593,10 @@ public:
     /// Creates a new KFileItemList from a QList of file @p items.
     KFileItemList(const QList<KFileItem> &items);
 
+    /// Creates a new KFileItemList from an initializer_list of file @p items.
+    /// @since 5.76
+    KFileItemList(std::initializer_list<KFileItem> items);
+
     /**
      * Find a KFileItem by name and return it.
      * @return the item with the given name, or a null-item if none was found

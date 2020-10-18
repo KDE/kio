@@ -739,11 +739,11 @@ void RenameDialog::resizePanels()
     d->m_srcArea->setMinimumSize(halfSize.boundedTo(maxHalfSize));
     d->m_destArea->setMinimumSize(halfSize.boundedTo(maxHalfSize));
 
-    KIO::PreviewJob *srcJob = KIO::filePreview(KFileItemList() << d->srcItem,
+    KIO::PreviewJob *srcJob = KIO::filePreview(KFileItemList{d->srcItem},
                               QSize(d->m_srcPreview->width() * qreal(0.9), d->m_srcPreview->height()));
     srcJob->setScaleType(KIO::PreviewJob::Unscaled);
 
-    KIO::PreviewJob *destJob = KIO::filePreview(KFileItemList() << d->destItem,
+    KIO::PreviewJob *destJob = KIO::filePreview(KFileItemList{d->destItem},
                                QSize(d->m_destPreview->width() * qreal(0.9), d->m_destPreview->height()));
     destJob->setScaleType(KIO::PreviewJob::Unscaled);
 

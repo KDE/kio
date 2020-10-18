@@ -516,7 +516,7 @@ void KFilePreviewGenerator::Private::requestSequenceIcon(const QModelIndex &inde
         }
 
         ///@todo Update directly, without using m_sequenceIndices
-        updateIcons(KFileItemList() << item);
+        updateIcons(KFileItemList{item});
     }
 }
 

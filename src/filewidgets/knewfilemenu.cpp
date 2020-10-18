@@ -954,7 +954,7 @@ void KNewFileMenuPrivate::_k_slotFillTemplates()
 
     for (const QString &path : templates) {
         dir.setPath(path);
-        const QStringList &entryList(dir.entryList(QStringList() << QStringLiteral("*.desktop"), QDir::Files));
+        const QStringList &entryList(dir.entryList(QStringList{QStringLiteral("*.desktop")}, QDir::Files));
         files.reserve(files.size() + entryList.size());
         for (const QString &entry : entryList) {
             const QString file = concatPaths(dir.path(), entry);
@@ -1148,7 +1148,7 @@ void KNewFileMenuPrivate::_k_slotUrlDesktopFile()
     uriData.setData(linkUrl); // the url to put in the file
     uriData.setCheckForExecutables(false);
 
-    if (KUriFilter::self()->filterUri(uriData, QStringList() << QStringLiteral("kshorturifilter"))) {
+    if (KUriFilter::self()->filterUri(uriData, QStringList{QStringLiteral("kshorturifilter")})) {
         linkUrl = uriData.uri();
     }
 

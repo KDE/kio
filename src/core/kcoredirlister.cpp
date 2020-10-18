@@ -1952,7 +1952,7 @@ void KCoreDirListerCache::deleteDir(const QUrl &_dirUrl)
                 if (kdl->d->url == deletedUrl) {
                     // tell the view first. It might need the subdirs' items (which forgetDirs will delete)
                     if (!kdl->d->rootFileItem.isNull()) {
-                        emit kdl->itemsDeleted(KFileItemList() << kdl->d->rootFileItem);
+                        emit kdl->itemsDeleted(KFileItemList{kdl->d->rootFileItem});
                     }
                     forgetDirs(kdl);
                     kdl->d->rootFileItem = KFileItem();

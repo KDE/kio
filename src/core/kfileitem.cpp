@@ -1638,6 +1638,11 @@ KFileItemList::KFileItemList(const QList<KFileItem> &items)
 {
 }
 
+KFileItemList::KFileItemList(std::initializer_list<KFileItem> items)
+    : QList<KFileItem>(items)
+{
+}
+
 KFileItem KFileItemList::findByName(const QString &fileName) const
 {
     const_iterator it = begin();

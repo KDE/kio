@@ -783,7 +783,7 @@ void KFileItemTest::testNonWritableDirectory()
 
     // When using KFileItemListProperties on the file
     const KFileItem item(QUrl::fromLocalFile(file.fileName()));
-    KFileItemListProperties props(KFileItemList() << item);
+    KFileItemListProperties props(KFileItemList{item});
 
     // Then it should say moving is not supported
     QVERIFY(!props.supportsMoving());
