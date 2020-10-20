@@ -270,6 +270,32 @@ private Q_SLOTS:
         QCOMPARE(fw.locationEdit()->currentText(), expectedCurrentText);
     }
 
+    void testPreserveFilenameWhileNavigating() // bug 418711
+    {
+        // GIVEN
+        const QUrl url = QUrl::fromLocalFile(QDir::homePath());
+        KFileWidget fw(url);
+        fw.setOperationMode(KFileWidget::Saving);
+        fw.setMode(KFile::File);
+        QString baseDir = QDir::homePath();
+        if (baseDir.endsWith('/')) {
+            baseDir.chop(1);
+        }
+        const QString fileName = QStringLiteral("somefi#le");
+        const QUrl fileUrl = QUrl::fromLocalFile(baseDir + QLatin1Char('/') + fileName);
+        fw.setSelectedUrl(fileUrl);
+        const QUrl baseUrl = QUrl::fromLocalFile(baseDir);
+        QCOMPARE(fw.baseUrl().adjusted(QUrl::StripTrailingSlash), baseUrl);
+        QCOMPARE(fw.locationEdit()->currentText(), fileName);
+
+        // WHEN
+        fw.dirOperator()->cdUp();
+
+        // THEN
+        QCOMPARE(fw.baseUrl().adjusted(QUrl::StripTrailingSlash), baseUrl.adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash));
+        QCOMPARE(fw.locationEdit()->currentText(), fileName); // unchanged
+    }
+
     void testEnterUrl_data()
     {
         QTest::addColumn<QUrl>("expectedUrl");

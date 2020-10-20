@@ -1506,8 +1506,6 @@ void KFileWidgetPrivate::_k_urlEntered(const QUrl &url)
 {
 //     qDebug();
 
-    QString filename = locationEditCurrentText();
-
     KUrlComboBox *pathCombo = urlNavigator->editor();
     if (pathCombo->count() != 0) { // little hack
         pathCombo->setUrl(url);
@@ -1515,8 +1513,10 @@ void KFileWidgetPrivate::_k_urlEntered(const QUrl &url)
 
     bool blocked = locationEdit->blockSignals(true);
     if (keepLocation) {
-        QUrl currentUrl = urlFromString(filename);
-        locationEdit->changeUrl(0, QIcon::fromTheme(KIO::iconNameForUrl(currentUrl)), currentUrl);
+        const QUrl currentUrl = urlFromString(locationEditCurrentText());
+        // iconNameForUrl will get the icon or fallback to a generic one
+        locationEdit->setItemIcon(0, QIcon::fromTheme(KIO::iconNameForUrl(currentUrl)));
+        // Preserve the text when clicking on the view (cf _k_fileHighlighted)
         locationEdit->lineEdit()->setModified(true);
     }
 
