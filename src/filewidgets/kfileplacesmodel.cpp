@@ -297,11 +297,6 @@ KFilePlacesModel::KFilePlacesModel(const QString &alternativeApplicationName, QO
                 createSystemBookmark(I18NC_NOOP("KFile System Bookmarks", "Desktop"),
                                      QUrl::fromLocalFile(desktopFolder), QStringLiteral("user-desktop"));
             }
-            const QString pictureFolder = QStandardPaths::writableLocation(QStandardPaths::PicturesLocation);
-            if (QDir(pictureFolder).exists()) {
-                createSystemBookmark(I18NC_NOOP("KFile System Bookmarks", "Pictures"),
-                                     QUrl::fromLocalFile(pictureFolder), QStringLiteral("folder-pictures"));
-            }
             const QString documentsFolder = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);
             if (QDir(documentsFolder).exists()) {
                 createSystemBookmark(I18NC_NOOP("KFile System Bookmarks", "Documents"),
@@ -316,6 +311,11 @@ KFilePlacesModel::KFilePlacesModel(const QString &alternativeApplicationName, QO
             if (QDir(musicFolder).exists()) {
                 createSystemBookmark(I18NC_NOOP("KFile System Bookmarks", "Music"),
                                      QUrl::fromLocalFile(musicFolder), QStringLiteral("folder-music"));
+            }
+            const QString pictureFolder = QStandardPaths::writableLocation(QStandardPaths::PicturesLocation);
+            if (QDir(pictureFolder).exists()) {
+                createSystemBookmark(I18NC_NOOP("KFile System Bookmarks", "Pictures"),
+                                     QUrl::fromLocalFile(pictureFolder), QStringLiteral("folder-pictures"));
             }
             // Choosing the name "Videos" instead of "Movies", since that is how the folder
             // is called normally on Linux according to the QStandardPaths documentation:
