@@ -376,8 +376,7 @@ KFilePlacesModel::KFilePlacesModel(const QString &alternativeApplicationName, QO
                                              QUrl::fromLocalFile(pictureFolder), QStringLiteral("folder-pictures"), after);
             }
             // Choosing the name "Videos" instead of "Movies", since that is how the folder
-            // is called normally on Linux according to the QStandardPaths documentation:
-            // https://doc.qt.io/qt-5/qstandardpaths.html#StandardLocation-enum
+            // is called normally on Linux: https://cgit.freedesktop.org/xdg/xdg-user-dirs/tree/user-dirs.defaults
             const QString videoFolder = QStandardPaths::writableLocation(QStandardPaths::MoviesLocation);
             if (QDir(videoFolder).exists()) {
                 after = createSystemBookmark(I18NC_NOOP("KFile System Bookmarks", "Videos"),
