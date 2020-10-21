@@ -74,6 +74,7 @@ public:
 private:
     void executeCommand();
     void handleBinaries(const QMimeType &mimeType);
+    void handleBinariesHelper(const QString &localPath, bool isNativeBinary);
     void handleDesktopFiles();
     void handleScripts();
     void openInPreferredApp();
@@ -497,17 +498,11 @@ void KIO::OpenUrlJobPrivate::handleBinaries(const QMimeType &mimeType)
 
     if (m_showOpenOrExecuteDialog) {
         auto dialogFinished = [this, localPath, isNativeBinary](bool shouldExecute) {
-            if (shouldExecute) {
-                if (isNativeBinary) {
-                    if (!hasExecuteBit(localPath)) {
-                        showUntrustedProgramWarningDialog(localPath);
-                        return;
-                    }
-                    executeCommand(); // Local executable with execute bit, proceed
-                } else { // For .exe files, open in the default app (e.g. WINE)
-                    openInPreferredApp();
-                }
-            }
+            // shouldExecute is always true if we get here, because for binaries the
+            // dialog only offers Execute/Cancel
+            Q_UNUSED(shouldExecute)
+
+            handleBinariesHelper(localPath, isNativeBinary);
         };
 
         // Ask the user for confirmation before executing this binary (for binaries
@@ -516,6 +511,11 @@ void KIO::OpenUrlJobPrivate::handleBinaries(const QMimeType &mimeType)
         return;
     }
 
+    handleBinariesHelper(localPath, isNativeBinary);
+}
+
+void KIO::OpenUrlJobPrivate::handleBinariesHelper(const QString &localPath, bool isNativeBinary)
+{
     // For local .exe files, open in the default app (e.g. WINE)
     if (!isNativeBinary) {
         openInPreferredApp();
