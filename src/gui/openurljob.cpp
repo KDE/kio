@@ -663,29 +663,28 @@ void KIO::OpenUrlJobPrivate::handleDesktopFiles()
         return;
     }
 
-    if ((cfg.hasApplicationType()
-         || cfg.readType() == QLatin1String("Service")) // for kio_settings
-        && !cfgGroup.readEntry("Exec").isEmpty()) { // type Application or Service
-        if (m_showOpenOrExecuteDialog) { // Show the openOrExecute dialog
-            auto dialogFinished = [this, filePath](bool shouldExecute) {
-                if (shouldExecute) { // Run the file
-                    KService::Ptr service(new KService(filePath));
-                    startService(service, {});
-                    return;
-                }
-                // The user selected "open"
-                openInPreferredApp();
-            };
+    if ((cfg.hasApplicationType() || cfg.readType() == QLatin1String("Service"))) { // kio_settings lets users run Type=Service desktop files
+        KService::Ptr service(new KService(filePath));
+        if (!service->exec().isEmpty()) {
+            if (m_showOpenOrExecuteDialog) { // Show the openOrExecute dialog
+                auto dialogFinished = [this, filePath, service](bool shouldExecute) {
+                    if (shouldExecute) { // Run the file
+                        startService(service, {});
+                        return;
+                    }
+                    // The user selected "open"
+                    openInPreferredApp();
+                };
 
-            showOpenOrExecuteFileDialog(dialogFinished);
-            return;
-        }
+                showOpenOrExecuteFileDialog(dialogFinished);
+                return;
+            }
 
-        if (m_runExecutables) {
-            KService::Ptr service(new KService(filePath));
-            startService(service, {});
-            return;
-        }
+            if (m_runExecutables) {
+                startService(service, {});
+                return;
+            }
+        } // exec is not empty
     } // type Application or Service
 
     // Fallback to opening in the default app
