@@ -264,7 +264,7 @@ KFilePlacesModel::KFilePlacesModel(const QString &alternativeApplicationName, QO
         root.setMetaDataItem(stateNameForGroupType(type), QStringLiteral("false"));
     };
 
-    static const int s_currentVersion = 3;
+    static const int s_currentVersion = 4;
 
     const bool newFile = root.first().isNull() || !QFile::exists(file);
     const int fileVersion = root.metaDataItem(versionKey()).toInt();
@@ -277,10 +277,12 @@ KFilePlacesModel::KFilePlacesModel(const QString &alternativeApplicationName, QO
         auto createSystemBookmark = [this, &seenUrls](const char *translationContext,
                 const QByteArray &untranslatedLabel,
                 const QUrl &url,
-                const QString &iconName) {
+                const QString &iconName,
+                const KBookmark &after) {
             if (!seenUrls.contains(url)) {
-                KFilePlacesItem::createSystemBookmark(d->bookmarkManager, translationContext, untranslatedLabel, url, iconName);
+                return KFilePlacesItem::createSystemBookmark(d->bookmarkManager, translationContext, untranslatedLabel, url, iconName, after);
             }
+            return KBookmark();
         };
 
         if (fileVersion < 2) {
@@ -288,49 +290,30 @@ KFilePlacesModel::KFilePlacesModel(const QString &alternativeApplicationName, QO
             // The real i18nc call is made later, with this context, so the two must match.
             // createSystemBookmark actually does nothing with its second argument, the context,
             createSystemBookmark(I18NC_NOOP("KFile System Bookmarks", "Home"),
-                                 QUrl::fromLocalFile(QDir::homePath()), QStringLiteral("user-home"));
+                                 QUrl::fromLocalFile(QDir::homePath()), QStringLiteral("user-home"), KBookmark());
 
             // Some distros may not create various standard XDG folders by default
             // so check for their existence before adding bookmarks for them
             const QString desktopFolder = QStandardPaths::writableLocation(QStandardPaths::DesktopLocation);
             if (QDir(desktopFolder).exists()) {
                 createSystemBookmark(I18NC_NOOP("KFile System Bookmarks", "Desktop"),
-                                     QUrl::fromLocalFile(desktopFolder), QStringLiteral("user-desktop"));
+                                     QUrl::fromLocalFile(desktopFolder), QStringLiteral("user-desktop"), KBookmark());
             }
             const QString documentsFolder = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);
             if (QDir(documentsFolder).exists()) {
                 createSystemBookmark(I18NC_NOOP("KFile System Bookmarks", "Documents"),
-                                     QUrl::fromLocalFile(documentsFolder), QStringLiteral("folder-documents"));
+                                     QUrl::fromLocalFile(documentsFolder), QStringLiteral("folder-documents"), KBookmark());
             }
             const QString downloadFolder = QStandardPaths::writableLocation(QStandardPaths::DownloadLocation);
             if (QDir(downloadFolder).exists()) {
                 createSystemBookmark(I18NC_NOOP("KFile System Bookmarks", "Downloads"),
-                                     QUrl::fromLocalFile(downloadFolder), QStringLiteral("folder-downloads"));
+                                     QUrl::fromLocalFile(downloadFolder), QStringLiteral("folder-downloads"), KBookmark());
             }
-            const QString musicFolder = QStandardPaths::writableLocation(QStandardPaths::MusicLocation);
-            if (QDir(musicFolder).exists()) {
-                createSystemBookmark(I18NC_NOOP("KFile System Bookmarks", "Music"),
-                                     QUrl::fromLocalFile(musicFolder), QStringLiteral("folder-music"));
-            }
-            const QString pictureFolder = QStandardPaths::writableLocation(QStandardPaths::PicturesLocation);
-            if (QDir(pictureFolder).exists()) {
-                createSystemBookmark(I18NC_NOOP("KFile System Bookmarks", "Pictures"),
-                                     QUrl::fromLocalFile(pictureFolder), QStringLiteral("folder-pictures"));
-            }
-            // Choosing the name "Videos" instead of "Movies", since that is how the folder
-            // is called normally on Linux according to the QStandardPaths documentation:
-            // https://doc.qt.io/qt-5/qstandardpaths.html#StandardLocation-enum
-            const QString videoFolder = QStandardPaths::writableLocation(QStandardPaths::MoviesLocation);
-            if (QDir(videoFolder).exists()) {
-                createSystemBookmark(I18NC_NOOP("KFile System Bookmarks", "Videos"),
-                                     QUrl::fromLocalFile(videoFolder), QStringLiteral("folder-videos"));
-            }
-
             createSystemBookmark(I18NC_NOOP("KFile System Bookmarks", "Network"),
-                                 QUrl(QStringLiteral("remote:/")), QStringLiteral("folder-network"));
+                                 QUrl(QStringLiteral("remote:/")), QStringLiteral("folder-network"), KBookmark());
 
             createSystemBookmark(I18NC_NOOP("KFile System Bookmarks", "Trash"),
-                                 QUrl(QStringLiteral("trash:/")), QStringLiteral("user-trash"));
+                                 QUrl(QStringLiteral("trash:/")), QStringLiteral("user-trash"), KBookmark());
         }
 
         if (!newFile && fileVersion < 3) {
@@ -366,6 +349,41 @@ KFilePlacesModel::KFilePlacesModel(const QString &alternativeApplicationName, QO
 
                 bItem = nextbItem;
             }
+        }
+        if (fileVersion < 4) {
+            auto findSystemBookmark = [this](const QString &untranslatedText) {
+                KBookmarkGroup root = d->bookmarkManager->root();
+                KBookmark bItem = root.first();
+                while (!bItem.isNull()) {
+                    const bool isSystemItem = bItem.metaDataItem(QStringLiteral("isSystemItem")) == QLatin1String("true");
+                    if (isSystemItem && bItem.fullText() == untranslatedText) {
+                        return bItem;
+                    }
+                    bItem = root.next(bItem);
+                }
+                return KBookmark();
+            };
+            KBookmark after = findSystemBookmark(QLatin1String("Downloads"));
+
+            const QString musicFolder = QStandardPaths::writableLocation(QStandardPaths::MusicLocation);
+            if (QDir(musicFolder).exists()) {
+                after = createSystemBookmark(I18NC_NOOP("KFile System Bookmarks", "Music"),
+                                             QUrl::fromLocalFile(musicFolder), QStringLiteral("folder-music"), after);
+            }
+            const QString pictureFolder = QStandardPaths::writableLocation(QStandardPaths::PicturesLocation);
+            if (QDir(pictureFolder).exists()) {
+                after = createSystemBookmark(I18NC_NOOP("KFile System Bookmarks", "Pictures"),
+                                             QUrl::fromLocalFile(pictureFolder), QStringLiteral("folder-pictures"), after);
+            }
+            // Choosing the name "Videos" instead of "Movies", since that is how the folder
+            // is called normally on Linux according to the QStandardPaths documentation:
+            // https://doc.qt.io/qt-5/qstandardpaths.html#StandardLocation-enum
+            const QString videoFolder = QStandardPaths::writableLocation(QStandardPaths::MoviesLocation);
+            if (QDir(videoFolder).exists()) {
+                after = createSystemBookmark(I18NC_NOOP("KFile System Bookmarks", "Videos"),
+                                             QUrl::fromLocalFile(videoFolder), QStringLiteral("folder-videos"), after);
+            }
+
         }
 
         if (newFile) {

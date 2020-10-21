@@ -69,7 +69,8 @@ public:
                                           const char *translationContext,
                                           const QByteArray &untranslatedLabel,
                                           const QUrl &url,
-                                          const QString &iconName);
+                                          const QString &iconName,
+                                          const KBookmark &after = KBookmark());
     static KBookmark createDeviceBookmark(KBookmarkManager *manager,
                                           const QString &udi);
     static KBookmark createTagBookmark(KBookmarkManager *manager,
