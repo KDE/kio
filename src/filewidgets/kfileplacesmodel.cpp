@@ -264,6 +264,7 @@ KFilePlacesModel::KFilePlacesModel(const QString &alternativeApplicationName, QO
         root.setMetaDataItem(stateNameForGroupType(type), QStringLiteral("false"));
     };
 
+    // Increase this version number and use the following logic to handle the update process for existing installations.
     static const int s_currentVersion = 4;
 
     const bool newFile = root.first().isNull() || !QFile::exists(file);
@@ -288,7 +289,7 @@ KFilePlacesModel::KFilePlacesModel(const QString &alternativeApplicationName, QO
         if (fileVersion < 2) {
             // NOTE: The context for these I18NC_NOOP calls has to be "KFile System Bookmarks".
             // The real i18nc call is made later, with this context, so the two must match.
-            // createSystemBookmark actually does nothing with its second argument, the context,
+            // createSystemBookmark actually does nothing with its second argument, the context.
             createSystemBookmark(I18NC_NOOP("KFile System Bookmarks", "Home"),
                                  QUrl::fromLocalFile(QDir::homePath()), QStringLiteral("user-home"), KBookmark());
 
@@ -363,6 +364,10 @@ KFilePlacesModel::KFilePlacesModel(const QString &alternativeApplicationName, QO
                 }
                 return KBookmark();
             };
+            // This variable is used to insert the new bookmarks at the correct place starting after the "Downloads"
+            // bookmark. When the user already has some of the bookmarks set up manually, the createSystemBookmark()
+            // function returns an empty KBookmark so the following entries will be added at the end of the bookmark
+            // section to not mess with the users setup.
             KBookmark after = findSystemBookmark(QLatin1String("Downloads"));
 
             const QString musicFolder = QStandardPaths::writableLocation(QStandardPaths::MusicLocation);
