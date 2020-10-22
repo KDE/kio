@@ -674,7 +674,8 @@ void PreviewJobPrivate::createThumbnail(const QString &pixPath)
             shmdt((char *)shmaddr);
             shmctl(shmid, IPC_RMID, nullptr);
         }
-        shmid = shmget(IPC_PRIVATE, cacheWidth * cacheHeight * 4, IPC_CREAT | 0600);
+        auto size = std::max(cacheWidth * cacheHeight, width * height);
+        shmid = shmget(IPC_PRIVATE, size * 4, IPC_CREAT | 0600);
         if (shmid != -1) {
             shmaddr = (uchar *)(shmat(shmid, nullptr, SHM_RDONLY));
             if (shmaddr == (uchar *) - 1) {
