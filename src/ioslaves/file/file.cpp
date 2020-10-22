@@ -465,6 +465,7 @@ void FileProtocol::write(const QByteArray &data)
             closeWithoutFinish();
         }
     } else {
+        mFile->flush();
         written(bytesWritten);
     }
 }
