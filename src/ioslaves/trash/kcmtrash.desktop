@@ -165,7 +165,6 @@ Comment[zh_TW]=此服務允許設定垃圾桶的檢視。
 Icon=user-trash
 Type=Service
 X-KDE-ServiceTypes=KCModule
-Exec=kcmshell5 kcmtrash
 
 X-KDE-Library=kcm_trash
 X-KDE-PluginKeyword=trash

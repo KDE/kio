@@ -1,5 +1,4 @@
 [Desktop Entry]
-Exec=kcmshell5 netpref
 Icon=preferences-system-network-connection
 Type=Service
 X-KDE-ServiceTypes=KCModule

@@ -3,7 +3,6 @@ Type=Service
 X-KDE-ServiceTypes=KCModule
 X-DocPath=kcontrol5/webshortcuts/index.html
 Icon=preferences-web-browser-shortcuts
-Exec=kcmshell5 webshortcuts
 
 X-KDE-Library=kcm_webshortcuts
 X-KDE-ParentApp=kcontrol

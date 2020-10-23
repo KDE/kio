@@ -2,7 +2,6 @@
 Type=Service
 X-KDE-ServiceTypes=KCModule
 Icon=preferences-web-browser-identification
-Exec=kcmshell5 useragent
 X-DocPath=kcontrol5/useragent/index.html
 
 X-KDE-Library=kcm_kio
