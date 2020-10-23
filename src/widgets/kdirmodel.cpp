@@ -1226,9 +1226,12 @@ bool KDirModel::hasChildren(const QModelIndex &parent) const
 
 Qt::ItemFlags KDirModel::flags(const QModelIndex &index) const
 {
-    Qt::ItemFlags f = Qt::ItemIsEnabled;
-    if (index.column() == Name) {
-        f |= Qt::ItemIsSelectable | Qt::ItemIsEditable | Qt::ItemIsDragEnabled;
+    Qt::ItemFlags f;
+    if (index.isValid()) {
+        f |= Qt::ItemIsEnabled;
+        if (index.column() == Name) {
+            f |= Qt::ItemIsSelectable | Qt::ItemIsEditable | Qt::ItemIsDragEnabled;
+        }
     }
 
     // Allow dropping onto this item?

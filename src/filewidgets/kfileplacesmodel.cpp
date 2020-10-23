@@ -962,10 +962,10 @@ Qt::DropActions KFilePlacesModel::supportedDropActions() const
 
 Qt::ItemFlags KFilePlacesModel::flags(const QModelIndex &index) const
 {
-    Qt::ItemFlags res = Qt::ItemIsSelectable | Qt::ItemIsEnabled;
+    Qt::ItemFlags res;
 
     if (index.isValid()) {
-        res |= Qt::ItemIsDragEnabled;
+        res |= Qt::ItemIsDragEnabled | Qt::ItemIsSelectable | Qt::ItemIsEnabled;
     }
 
     if (!index.isValid()) {
