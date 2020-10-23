@@ -22,7 +22,6 @@
 
 #include <KSharedConfig>
 #include <QStandardPaths>
-#include <QTemporaryDir>
 #include <QTemporaryFile>
 #include <QTest>
 #include <untrustedprogramhandlerinterface.h>

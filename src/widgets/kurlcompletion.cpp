@@ -33,7 +33,6 @@
 #include <kprotocolmanager.h>
 #include <KConfig>
 #include <KSharedConfig>
-#include <KCompletion>
 #include <kioglobal_p.h>
 #include <KUser>
 #include <kio_widgets_debug.h>

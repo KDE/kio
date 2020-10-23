@@ -11,7 +11,6 @@
 #include <KAboutData>
 #include <KConfig>
 #include <KIconButton>
-#include <KIconLoader>
 #include <KLineEdit>
 #include <KLocalizedString>
 #include <kio/global.h>

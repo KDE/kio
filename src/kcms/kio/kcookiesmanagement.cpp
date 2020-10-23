@@ -11,7 +11,6 @@
 #include "kcookiesmanagement.h"
 
 // Qt
-#include <QList>
 #include <QPushButton>
 #include <QDBusConnection>
 #include <QDBusReply>

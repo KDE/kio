@@ -19,7 +19,6 @@
 #include <KLocalizedString>
 #include <KIconLoader> // BarIcon
 
-#include "ktcpsocket.h"
 
 class Q_DECL_HIDDEN KSslInfoDialog::KSslInfoDialogPrivate
 {

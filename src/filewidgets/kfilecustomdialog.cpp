@@ -7,7 +7,6 @@
 */
 
 #include "kfilecustomdialog.h"
-#include "kfilewidget.h"
 
 #include <QUrl>
 #include <QVBoxLayout>

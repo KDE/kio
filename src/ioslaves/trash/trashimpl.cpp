@@ -11,7 +11,6 @@
 #include "kiotrashdebug.h"
 
 #include <KLocalizedString>
-#include <kio/job.h>
 #include <kio/chmodjob.h>
 #include <kio/copyjob.h>
 #include <kio/deletejob.h>

@@ -26,7 +26,6 @@
 #include <QDBusInterface>
 #include <QDBusReply>
 #include <QNetworkReply>
-#include <QNetworkRequest>
 #include <QSslCipher>
 #include <QSslCertificate>
 #include <QSslConfiguration>

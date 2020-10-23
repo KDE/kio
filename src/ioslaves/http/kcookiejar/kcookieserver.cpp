@@ -13,7 +13,6 @@
 
 #include <QTimer>
 #include <QFile>
-#include <QDBusConnection>
 
 #include <KConfig>
 #include <QDebug>

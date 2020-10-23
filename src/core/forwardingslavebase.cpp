@@ -14,7 +14,6 @@
 
 #include <QMimeDatabase>
 
-#include <QEventLoop>
 
 namespace KIO
 {

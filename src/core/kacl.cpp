@@ -10,7 +10,6 @@
 
 #include <config-kiocore.h>
 
-#include <qplatformdefs.h>
 #if HAVE_POSIX_ACL
 #include <sys/acl.h>
 #include <acl/libacl.h>
@@ -19,8 +18,6 @@
 #include <QString>
 #include <QDataStream>
 
-#include <QList>
-#include <QPair>
 
 #include <memory>
 

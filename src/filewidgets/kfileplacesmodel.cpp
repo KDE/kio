@@ -29,7 +29,6 @@
 #include <KUrlMimeData>
 
 #include <KBookmarkManager>
-#include <KBookmark>
 
 #include <kio/job.h>
 #include <kprotocolinfo.h>

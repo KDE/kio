@@ -23,7 +23,6 @@
 #include <QFile>
 #include <QLibraryInfo>
 #include <QRegularExpression>
-#include <QDateTime>
 #include <QBuffer>
 #include <QIODevice>
 #include <QTemporaryFile>

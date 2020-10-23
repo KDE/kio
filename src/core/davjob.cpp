@@ -8,13 +8,11 @@
 
 #include "davjob.h"
 
-#include <QDomDocument>
 #include <QDataStream>
 
 #include "httpmethod_p.h"
 
 #include "jobclasses.h"
-#include "global.h"
 #include "job.h"
 #include "job_p.h"
 

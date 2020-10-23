@@ -10,10 +10,8 @@
 
 #include "file.h"
 
-#include <config-kioslave-file.h>
 
 #include <QDirIterator>
-#include <qplatformdefs.h>
 
 #include <KDiskFreeSpaceInfo>
 
@@ -37,7 +35,6 @@
 #include <QDate>
 #include <QVarLengthArray>
 #include <QCoreApplication>
-#include <QFile>
 #include <QTemporaryFile>
 #ifdef Q_OS_WIN
 #include <QDir>

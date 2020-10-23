@@ -34,9 +34,7 @@
 #include <QDebug>
 #include <QMimeDatabase>
 #include <QRegularExpression>
-#include <QStack>
 
-#include <kdirlister.h>
 #include <kfileitemdelegate.h>
 #include <KLocalizedString>
 #include <KMessageBox>

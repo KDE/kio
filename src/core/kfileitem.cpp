@@ -15,12 +15,10 @@
 #include <QDate>
 #include <QDir>
 #include <QDirIterator>
-#include <QFile>
 #include <QDataStream>
 #include <QMimeDatabase>
 #include <QDebug>
 #include <QLocale>
-#include <qplatformdefs.h>
 
 #include <KLocalizedString>
 #include <KDesktopFile>

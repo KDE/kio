@@ -13,7 +13,6 @@
 #include "connection_p.h"
 #include "commands_p.h"
 #include "hostinfo.h"
-#include <qplatformdefs.h>
 #include <signal.h>
 #include <KLocalizedString>
 #include <time.h>

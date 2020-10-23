@@ -18,16 +18,13 @@
 // too much trouble... (Simon)
 
 #include "kcookiewin.h"
-#include "kcookiejar.h"
 
 #include <QDateTime>
 #include <QDialogButtonBox>
 #include <QLabel>
 #include <QLayout>
 #include <QLineEdit>
-#include <QGroupBox>
 #include <QPushButton>
-#include <QRadioButton>
 #include <QShortcut>
 #include <QStyle>
 #include <QUrl>

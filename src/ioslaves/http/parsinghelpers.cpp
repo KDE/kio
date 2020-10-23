@@ -9,7 +9,6 @@
 #include <ctype.h>
 
 #include <QDir>
-#include <QMap>
 #include <QTextCodec>
 
 #include <QDebug>

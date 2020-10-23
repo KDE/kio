@@ -11,7 +11,6 @@
 #include "udsentry.h"
 
 #include <QString>
-#include <QList>
 #include <QDataStream>
 #include <QVector>
 #include <QDebug>

@@ -7,7 +7,6 @@
 
 #include "script.h"
 
-#include <QString>
 #include <QRegularExpression>
 #include <QDateTime>
 #include <QUrl>

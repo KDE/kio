@@ -17,7 +17,6 @@
 #include <QVBoxLayout>
 
 #include <KLocalizedString>
-#include <kio/jobuidelegateextension.h>
 
 using namespace KIO;
 

@@ -35,7 +35,6 @@
 
 #include <QCryptographicHash>
 
-#include <kfileitem.h>
 #include <KServiceTypeTrader>
 #include <KService>
 #include <KSharedConfig>

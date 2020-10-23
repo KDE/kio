@@ -9,7 +9,6 @@
 
 #include "deletejob.h"
 
-#include "global.h"
 #include "job.h" // buildErrorString
 #include "statjob.h"
 #include "listjob.h"

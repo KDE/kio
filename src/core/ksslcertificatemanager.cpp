@@ -9,7 +9,6 @@
 #include "ksslcertificatemanager_p.h"
 #include "ksslerror_p.h"
 
-#include "ktcpsocket.h"
 #include "ksslerroruidata_p.h"
 #include <KConfig>
 #include <KConfigGroup>

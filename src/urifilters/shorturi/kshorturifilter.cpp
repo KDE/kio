@@ -14,7 +14,6 @@
 #include <QDir>
 #include <QDBusConnection>
 #include <QLoggingCategory>
-#include <QRegularExpression>
 #include <qplatformdefs.h>
 
 #include <KLocalizedString>

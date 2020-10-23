@@ -6,7 +6,6 @@
 
 #include "hostinfo.h"
 
-#include <QString>
 #include <QHash>
 #include <QCache>
 #include <QMetaType>

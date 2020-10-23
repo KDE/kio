@@ -18,7 +18,6 @@
 #include <QDir>
 #include <QFileInfo>
 #include <QStandardPaths>
-#include <QUrl>
 
 static const int predefinedTimeout = 30000; // 30s
 

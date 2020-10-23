@@ -7,7 +7,6 @@
 
 #include "kdirlistertest.h"
 #include <QTemporaryFile>
-#include <kdirlister.h>
 #include <QTest>
 
 QTEST_MAIN(KDirListerTest)

@@ -10,7 +10,6 @@
 #include <QtTest>
 #include <config-kiocore.h>
 
-#include <kacl.h>
 
 
 // The code comes partly from kdebase/kioslave/trash/testtrash.cpp

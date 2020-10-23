@@ -26,7 +26,6 @@
 
 #include <KIconLoader>
 #include <KMessageBox>
-#include <kio/global.h>
 #include <kio/udsentry.h>
 #include <KLocalizedString>
 #include <kfileitem.h>
