@@ -44,6 +44,7 @@
 #include <kio/mkpathjob.h>
 #include <kurifilter.h>
 #include <KFileUtils>
+#include <QTimer>
 
 #include <kpropertiesdialog.h>
 #include <QMimeDatabase>
@@ -233,8 +234,12 @@ class KNewFileMenuPrivate
 public:
     explicit KNewFileMenuPrivate(KActionCollection *collection, KNewFileMenu *qq)
         : m_actionCollection(collection),
+          m_delayedSlotTextChangedTimer(new QTimer(qq)),
           q(qq)
-    {}
+    {
+        m_delayedSlotTextChangedTimer->setInterval(150);
+        m_delayedSlotTextChangedTimer->setSingleShot(true);
+    }
 
     bool checkSourceExists(const QString &src);
 
@@ -316,6 +321,11 @@ public:
     void _k_slotRealFileOrDir();
 
     /**
+      * Delay calls to _k_slotTextChanged
+      */
+    void _k_delayedSlotTextChanged();
+
+    /**
       * Dialogs use this slot to write the changed string into KNewFile menu when the user
       * changes touches them
       */
@@ -333,12 +343,18 @@ public:
       */
     void _k_slotUrlDesktopFile();
 
-    KActionCollection *m_actionCollection;
-    QDialog *m_fileDialog;
+    /**
+     * Callback to check if a file/directory with the same name as the one being created, exists
+     */
+    void _k_slotStatResult(KJob *job);
 
-    KActionMenu *m_menuDev;
+    KActionCollection *m_actionCollection;
+    QDialog *m_fileDialog = nullptr;
+
+    KActionMenu *m_menuDev = nullptr;
     int m_menuItemsVersion = 0;
-    QAction *m_newDirAction;
+    QAction *m_newDirAction = nullptr;
+    QLineEdit *m_lineEdit = nullptr;
     KMessageWidget* m_messageWidget = nullptr;
     QDialogButtonBox* m_buttonBox = nullptr;
 
@@ -351,8 +367,8 @@ public:
     /**
      * The action group that our actions belong to
      */
-    QActionGroup *m_newMenuGroup;
-    QWidget *m_parentWidget;
+    QActionGroup *m_newMenuGroup = nullptr;
+    QWidget *m_parentWidget = nullptr;
 
     /**
      * When the user pressed the right mouse button over an URL a popup menu
@@ -369,6 +385,13 @@ public:
     KNewFileMenu * const q;
 
     KNewFileMenuCopyData m_copyData;
+
+    /**
+     * Use to delay a bit feedback to user
+     */
+    QTimer* m_delayedSlotTextChangedTimer;
+
+    QUrl m_baseUrl;
 };
 
 bool KNewFileMenuPrivate::checkSourceExists(const QString &src)
@@ -462,6 +485,7 @@ void KNewFileMenuPrivate::executeRealFileOrDir(const KNewFileMenuSingleton::Entr
     m_copyData.m_src = entry.templatePath;
 
     const QUrl directory = mostLocalUrl(m_popupFiles.first());
+    m_baseUrl = directory;
     const QUrl defaultFile = QUrl::fromLocalFile(directory.toLocalFile() + QLatin1Char('/') + KIO::encodeFileName(text));
     if (defaultFile.isLocalFile() && QFile::exists(defaultFile.toLocalFile())) {
         text = KFileUtils::suggestName(directory, text);
@@ -482,10 +506,10 @@ void KNewFileMenuPrivate::executeRealFileOrDir(const KNewFileMenuSingleton::Entr
     m_messageWidget->hide();
     QLabel *label = new QLabel(entry.comment, fileDialog);
 
-    QLineEdit *lineEdit = new QLineEdit(fileDialog);
-    lineEdit->setClearButtonEnabled(true);
-    lineEdit->setText(text);
-    lineEdit->setMinimumWidth(400);
+    m_lineEdit = new QLineEdit(fileDialog);
+    m_lineEdit->setClearButtonEnabled(true);
+    m_lineEdit->setText(text);
+    m_lineEdit->setMinimumWidth(400);
 
     m_buttonBox = new QDialogButtonBox(fileDialog);
     m_buttonBox->setStandardButtons(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
@@ -494,10 +518,13 @@ void KNewFileMenuPrivate::executeRealFileOrDir(const KNewFileMenuSingleton::Entr
 
     m_creatingDirectory = false;
     _k_slotTextChanged(text);
-    QObject::connect(lineEdit, SIGNAL(textChanged(QString)), q, SLOT(_k_slotTextChanged(QString)));
+    QObject::connect(m_lineEdit, &QLineEdit::textChanged, q, [this](const QString & /*text */) { _k_delayedSlotTextChanged(); });
+    m_delayedSlotTextChangedTimer->callOnTimeout(m_lineEdit, [this]() {
+        _k_slotTextChanged(m_lineEdit->text());
+    });
 
     layout->addWidget(label);
-    layout->addWidget(lineEdit);
+    layout->addWidget(m_lineEdit);
     layout->addWidget(m_buttonBox);
     layout->addWidget(m_messageWidget);
     layout->addStretch();
@@ -507,8 +534,8 @@ void KNewFileMenuPrivate::executeRealFileOrDir(const KNewFileMenuSingleton::Entr
     QObject::connect(fileDialog, SIGNAL(rejected()), q, SLOT(_k_slotAbortDialog()));
 
     fileDialog->show();
-    lineEdit->selectAll();
-    lineEdit->setFocus();
+    m_lineEdit->selectAll();
+    m_lineEdit->setFocus();
 }
 
 void KNewFileMenuPrivate::executeSymLink(const KNewFileMenuSingleton::Entry &entry)
@@ -1041,6 +1068,12 @@ void KNewFileMenuPrivate::_k_slotSymLink()
     executeStrategy();
 }
 
+void KNewFileMenuPrivate::_k_delayedSlotTextChanged()
+{
+    m_buttonBox->button(QDialogButtonBox::Ok)->setEnabled(false);
+    m_delayedSlotTextChangedTimer->start();
+}
+
 void KNewFileMenuPrivate::_k_slotTextChanged(const QString &text)
 {
     m_buttonBox->button(QDialogButtonBox::Ok)->setEnabled(true);
@@ -1126,11 +1159,44 @@ void KNewFileMenuPrivate::_k_slotTextChanged(const QString &text)
         m_messageWidget->setMessageType(KMessageWidget::Warning);
         m_messageWidget->animatedShow();
     }
-
     else {
         m_messageWidget->hide();
     }
+
+    if (!text.isEmpty()) {
+        // Check file does not already exists
+        KIO::StatJob* job = KIO::statDetails(QUrl(m_baseUrl.toString() + QLatin1Char('/') + text), KIO::StatJob::StatSide::SourceSide, KIO::StatDetail::StatBasic);
+        QObject::connect(job, &KJob::result, q, [this] (KJob *job) { _k_slotStatResult(job); });
+        job->start();
+    }
+
     m_text = text;
+}
+
+void KNewFileMenuPrivate::_k_slotStatResult(KJob *job) {
+    KIO::StatJob* statJob = static_cast<KIO::StatJob*>(job);
+    if (!m_lineEdit || statJob->url() != QUrl(m_baseUrl.toString() + QLatin1Char('/') + m_lineEdit->text())) {
+        //ignore stat Result when the lineEdit has changed
+        return;
+    }
+    auto error = job->error();
+    if (error) {
+        if (error == KIO::ERR_DOES_NOT_EXIST) {
+            // fine for file creation
+        } else {
+            qWarning() << error << job->errorString();
+        }
+    } else {
+        const KIO::UDSEntry& entry = statJob->statResult();
+        if (entry.isDir()) {
+            m_messageWidget->setText(xi18nc("@info", "A directory with name <filename>%1</filename> already exists.", m_lineEdit->text()));
+        } else {
+            m_messageWidget->setText(xi18nc("@info", "A file with name <filename>%1</filename> already exists.",  m_lineEdit->text()));
+        }
+        m_messageWidget->setMessageType(KMessageWidget::Error);
+        m_messageWidget->animatedShow();
+        m_buttonBox->button(QDialogButtonBox::Ok)->setEnabled(false);
+    }
 }
 
 void KNewFileMenuPrivate::_k_slotUrlDesktopFile()
@@ -1253,13 +1319,13 @@ void KNewFileMenu::createDirectory()
         return;
     }
 
-    QUrl baseUrl = d->mostLocalUrl(d->m_popupFiles.first());
+    d->m_baseUrl = d->mostLocalUrl(d->m_popupFiles.first());
 
     QString name = d->m_text.isEmpty() ? i18nc("Default name for a new folder", "New Folder") :
                    d->m_text;
 
-    if (baseUrl.isLocalFile() && QFileInfo::exists(baseUrl.toLocalFile() + QLatin1Char('/') + name)) {
-        name = KFileUtils::suggestName(baseUrl, name);
+    if (d->m_baseUrl.isLocalFile() && QFileInfo::exists(d->m_baseUrl.toLocalFile() + QLatin1Char('/') + name)) {
+        name = KFileUtils::suggestName(d->m_baseUrl, name);
     }
 
     QDialog *fileDialog = new QDialog(d->m_parentWidget);
@@ -1276,12 +1342,12 @@ void KNewFileMenu::createDirectory()
     d->m_messageWidget->setCloseButtonVisible(false);
     d->m_messageWidget->setWordWrap(true);
     d->m_messageWidget->hide();
-    QLabel *label = new QLabel(i18n("Create new folder in %1:", baseUrl.toDisplayString(QUrl::PreferLocalFile)), fileDialog);
+    QLabel *label = new QLabel(i18n("Create new folder in %1:", d->m_baseUrl.toDisplayString(QUrl::PreferLocalFile)), fileDialog);
 
-    QLineEdit *lineEdit = new QLineEdit(fileDialog);
-    lineEdit->setClearButtonEnabled(true);
-    lineEdit->setText(name);
-    lineEdit->setMinimumWidth(400);
+    d->m_lineEdit = new QLineEdit(fileDialog);
+    d->m_lineEdit->setClearButtonEnabled(true);
+    d->m_lineEdit->setText(name);
+    d->m_lineEdit->setMinimumWidth(400);
 
     d->m_buttonBox = new QDialogButtonBox(fileDialog);
     d->m_buttonBox->setStandardButtons(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
@@ -1290,10 +1356,13 @@ void KNewFileMenu::createDirectory()
 
     d->m_creatingDirectory = true;
     d->_k_slotTextChanged(name); // have to save string in d->m_text in case user does not touch dialog
-    connect(lineEdit, SIGNAL(textChanged(QString)), this, SLOT(_k_slotTextChanged(QString)));
+    connect(d->m_lineEdit, &QLineEdit::textChanged, this, [this](const QString & /*text */) { d->_k_delayedSlotTextChanged(); });
+    d->m_delayedSlotTextChangedTimer->callOnTimeout(d->m_lineEdit, [this]() {
+        d->_k_slotTextChanged(d->m_lineEdit->text());
+    });
 
     layout->addWidget(label);
-    layout->addWidget(lineEdit);
+    layout->addWidget(d->m_lineEdit);
     layout->addWidget(d->m_buttonBox);
     layout->addWidget(d->m_messageWidget);
     layout->addStretch();
@@ -1304,8 +1373,8 @@ void KNewFileMenu::createDirectory()
 
 
     fileDialog->show();
-    lineEdit->selectAll();
-    lineEdit->setFocus();
+    d->m_lineEdit->selectAll();
+    d->m_lineEdit->setFocus();
 }
 
 void KNewFileMenu::createFile()

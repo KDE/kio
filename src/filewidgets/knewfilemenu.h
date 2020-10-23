@@ -190,7 +190,6 @@ private:
     Q_PRIVATE_SLOT(d, void _k_slotOtherDesktopFile())
     Q_PRIVATE_SLOT(d, void _k_slotOtherDesktopFileClosed())
     Q_PRIVATE_SLOT(d, void _k_slotRealFileOrDir())
-    Q_PRIVATE_SLOT(d, void _k_slotTextChanged(const QString))
     Q_PRIVATE_SLOT(d, void _k_slotSymLink())
     Q_PRIVATE_SLOT(d, void _k_slotUrlDesktopFile())
 
