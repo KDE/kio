@@ -42,6 +42,7 @@
 #include <kio/jobuidelegate.h>
 #include <kio/fileundomanager.h>
 #include <kio/mkpathjob.h>
+#include <KIO/NameFinderJob>
 #include <kurifilter.h>
 #include <KFileUtils>
 #include <QTimer>
@@ -1324,16 +1325,20 @@ void KNewFileMenu::createDirectory()
         return;
     }
 
-    d->m_baseUrl = d->mostLocalUrl(d->m_popupFiles.first());
-
     QString name = !d->m_text.isEmpty() ? d->m_text
                                           : i18nc("Default name for a new folder", "New Folder");
 
-    if (d->m_baseUrl.isLocalFile() && QFileInfo::exists(d->m_baseUrl.toLocalFile() + QLatin1Char('/') + name)) {
-        name = KFileUtils::suggestName(d->m_baseUrl, name);
-    }
+    d->m_baseUrl = d->m_popupFiles.first();
 
-    d->showNewDirNameDlg(name);
+    auto nameJob = new KIO::NameFinderJob(d->m_baseUrl, name, this);
+    connect(nameJob, &KJob::result, this, [=]() mutable {
+        if (!nameJob->error()) {
+            d->m_baseUrl = nameJob->baseUrl();
+            name = nameJob->finalName();
+        }
+        d->showNewDirNameDlg(name);
+    });
+    nameJob->start();
 }
 
 void KNewFileMenuPrivate::showNewDirNameDlg(const QString &name)
