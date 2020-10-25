@@ -468,6 +468,12 @@ void JobTest::copyLocalFile(const QString &src, const QString &dest)
     }
     QCOMPARE(spyCopyingDone.count(), 1);
 
+    QCOMPARE(job->totalAmount(KJob::Files), 1);
+    QCOMPARE(job->totalAmount(KJob::Directories), 0);
+    QCOMPARE(job->processedAmount(KJob::Files), 1);
+    QCOMPARE(job->processedAmount(KJob::Directories), 0);
+    QCOMPARE(job->percent(), 100);
+
     // cleanup and retry with KIO::copyAs()
     QFile::remove(dest);
     job = KIO::copyAs(u, d, KIO::HideProgressInfo);
@@ -532,12 +538,24 @@ void JobTest::copyLocalDirectory(const QString &src, const QString &_dest, int f
     }
 #endif
 
+    QCOMPARE(job->totalAmount(KJob::Files), 2); // testfile and testlink
+    QCOMPARE(job->totalAmount(KJob::Directories), 1);
+    QCOMPARE(job->processedAmount(KJob::Files), 2);
+    QCOMPARE(job->processedAmount(KJob::Directories), 1);
+    QCOMPARE(job->percent(), 100);
+
     // Do it again, with Overwrite.
     // Use copyAs, we don't want a subdir inside d.
     job = KIO::copyAs(u, d, KIO::HideProgressInfo | KIO::Overwrite);
     job->setUiDelegate(nullptr);
     job->setUiDelegateExtension(nullptr);
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
+
+    QCOMPARE(job->totalAmount(KJob::Files), 2); // testfile and testlink
+    QCOMPARE(job->totalAmount(KJob::Directories), 1);
+    QCOMPARE(job->processedAmount(KJob::Files), 2);
+    QCOMPARE(job->processedAmount(KJob::Directories), 1);
+    QCOMPARE(job->percent(), 100);
 
     // Do it again, without Overwrite (should fail).
     job = KIO::copyAs(u, d, KIO::HideProgressInfo);
@@ -703,21 +721,37 @@ void JobTest::copyFolderWithUnaccessibleSubfolder()
     QFile(inaccessible).setPermissions(QFile::Permissions()); // Make it inaccessible
     //Copying should throw some warnings, as it cannot access some folders
 
+    struct Cleanup {
+        explicit Cleanup(const QString &inaccessible, const QString &src, const QString &dest)
+            : inaccessible(inaccessible), src_dir(src), dst_dir(dest) {}
+        ~Cleanup() {
+            QFile(inaccessible).setPermissions(QFile::Permissions(QFile::ReadOwner | QFile::WriteOwner | QFile::ExeOwner));
+
+            KIO::DeleteJob *deljob1 = KIO::del(QUrl::fromLocalFile(src_dir), KIO::HideProgressInfo);
+            deljob1->setUiDelegate(nullptr); // no skip dialog, thanks
+            QVERIFY(deljob1->exec());
+
+            KIO::DeleteJob *deljob2 = KIO::del(QUrl::fromLocalFile(dst_dir), KIO::HideProgressInfo);
+            deljob2->setUiDelegate(nullptr); // no skip dialog, thanks
+            QVERIFY(deljob2->exec());
+        }
+    private:
+        const QString inaccessible;
+        const QString src_dir;
+        const QString dst_dir;
+    } c(inaccessible, src_dir, dst_dir);
+
     KIO::CopyJob *job = KIO::copy(QUrl::fromLocalFile(src_dir), QUrl::fromLocalFile(dst_dir), KIO::HideProgressInfo);
 
     QSignalSpy spy(job, &KJob::warning);
     job->setUiDelegate(nullptr);   // no skip dialog, thanks
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
 
-    QFile(inaccessible).setPermissions(QFile::Permissions(QFile::ReadOwner | QFile::WriteOwner | QFile::ExeOwner));
-
-    KIO::DeleteJob *deljob1 = KIO::del(QUrl::fromLocalFile(src_dir), KIO::HideProgressInfo);
-    deljob1->setUiDelegate(nullptr); // no skip dialog, thanks
-    QVERIFY(deljob1->exec());
-
-    KIO::DeleteJob *deljob2 = KIO::del(QUrl::fromLocalFile(dst_dir), KIO::HideProgressInfo);
-    deljob2->setUiDelegate(nullptr); // no skip dialog, thanks
-    QVERIFY(deljob2->exec());
+    QCOMPARE(job->totalAmount(KJob::Files), 4); // testfile, testlink, folder1/testlink, folder1/testfile
+    QCOMPARE(job->totalAmount(KJob::Directories), 3); // srcHome, srcHome/folder1, srcHome/folder1/inaccessible
+    QCOMPARE(job->processedAmount(KJob::Files), 4);
+    QCOMPARE(job->processedAmount(KJob::Directories), 3);
+    QCOMPARE(job->percent(), 100);
 
     QCOMPARE(spy.count(), 1); // one warning should be emitted by the copy job
 }
@@ -912,6 +946,16 @@ void JobTest::moveDirectoryToOtherPartition()
 #endif
 }
 
+struct CleanupInaccessibleSubdir {
+    explicit CleanupInaccessibleSubdir(const QString &subdir) : subdir(subdir) {}
+    ~CleanupInaccessibleSubdir() {
+        QVERIFY(QFile(subdir).setPermissions(QFile::Permissions(QFile::ReadOwner | QFile::WriteOwner | QFile::ExeOwner)));
+        QVERIFY(QDir(subdir).removeRecursively());
+    }
+private:
+    const QString subdir;
+};
+
 void JobTest::moveFileNoPermissions()
 {
 #ifdef Q_OS_WIN
@@ -923,6 +967,7 @@ void JobTest::moveFileNoPermissions()
     const QString src = subdir + "/thefile";
     createTestFile(src);
     QVERIFY(QFile(subdir).setPermissions(QFile::Permissions())); // Make it inaccessible
+    CleanupInaccessibleSubdir c(subdir);
 
     // When trying to move it
     const QString dest = homeTmpDir() + "dest";
@@ -940,10 +985,11 @@ void JobTest::moveFileNoPermissions()
     // In this test it's the same partition, so no dest created.
     QVERIFY(!QFile::exists(dest));
 
-    // Cleanup
-    QVERIFY(QFile(subdir).setPermissions(QFile::Permissions(QFile::ReadOwner | QFile::WriteOwner | QFile::ExeOwner)));
-    QVERIFY(QFile::exists(src));
-    QVERIFY(QDir(subdir).removeRecursively());
+    QCOMPARE(job->totalAmount(KJob::Files), 0);
+    QCOMPARE(job->totalAmount(KJob::Directories), 0);
+    QCOMPARE(job->processedAmount(KJob::Files), 0);
+    QCOMPARE(job->processedAmount(KJob::Directories), 0);
+    QCOMPARE(job->percent(), 0);
 }
 
 void JobTest::moveDirectoryNoPermissions()
@@ -957,6 +1003,7 @@ void JobTest::moveDirectoryNoPermissions()
     QVERIFY(QDir().mkpath(src));
     QVERIFY(QFileInfo(src).isDir());
     QVERIFY(QFile(subdir).setPermissions(QFile::Permissions())); // Make it inaccessible
+    CleanupInaccessibleSubdir c(subdir);
 
     // When trying to move it
     const QString dest = homeTmpDir() + "mdnp";
@@ -970,10 +1017,11 @@ void JobTest::moveDirectoryNoPermissions()
 
     QVERIFY(!QFile::exists(dest));
 
-    // Cleanup
-    QVERIFY(QFile(subdir).setPermissions(QFile::Permissions(QFile::ReadOwner | QFile::WriteOwner | QFile::ExeOwner)));
-    QVERIFY(QFile::exists(src));
-    QVERIFY(QDir(subdir).removeRecursively());
+    QCOMPARE(job->totalAmount(KJob::Files), 0);
+    QCOMPARE(job->totalAmount(KJob::Directories), 0);
+    QCOMPARE(job->processedAmount(KJob::Files), 0);
+    QCOMPARE(job->processedAmount(KJob::Directories), 0);
+    QCOMPARE(job->percent(), 0);
 }
 
 void JobTest::moveDirectoryToReadonlyFilesystem_data()
@@ -1756,6 +1804,12 @@ void JobTest::moveFileDestAlreadyExists() // #157601
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
     QVERIFY(QFile::exists(file1)); // it was skipped
     QVERIFY(!QFile::exists(file2)); // it was moved
+
+    QCOMPARE(job->totalAmount(KJob::Files), 1);
+    QCOMPARE(job->totalAmount(KJob::Directories), 0);
+    QCOMPARE(job->processedAmount(KJob::Files), 1);
+    QCOMPARE(job->processedAmount(KJob::Directories), 0);
+    QCOMPARE(job->percent(), 100);
 }
 
 void JobTest::moveDestAlreadyExistsAutoRename_data()
@@ -1899,6 +1953,12 @@ void JobTest::copyDirectoryAlreadyExistsSkip()
 
     QDir(src).removeRecursively();
     QDir(dest).removeRecursively();
+
+    QCOMPARE(job->totalAmount(KJob::Files), 2); // testfile, testlink
+    QCOMPARE(job->totalAmount(KJob::Directories), 1);
+    QCOMPARE(job->processedAmount(KJob::Files), 0);
+    QCOMPARE(job->processedAmount(KJob::Directories), 1);
+    QCOMPARE(job->percent(), 0); // ### TODO: this seems wrong
 }
 
 void JobTest::copyFileAlreadyExistsRename()

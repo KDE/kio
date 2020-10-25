@@ -689,8 +689,9 @@ void CopyJobPrivate::addCopyInfoFromUDSEntry(const UDSEntry &entry, const QUrl &
     }
     info.ctime = QDateTime::fromMSecsSinceEpoch(1000 * entry.numberValue(KIO::UDSEntry::UDS_CREATION_TIME, -1), Qt::UTC);
     info.size = static_cast<KIO::filesize_t>(entry.numberValue(KIO::UDSEntry::UDS_SIZE, -1));
+    const bool isDir = entry.isDir();
 
-    if (info.size != (KIO::filesize_t) - 1) {
+    if (!isDir && info.size != (KIO::filesize_t) - 1) {
         m_totalSize += info.size;
     }
 
@@ -702,7 +703,6 @@ void CopyJobPrivate::addCopyInfoFromUDSEntry(const UDSEntry &entry, const QUrl &
         url = QUrl(urlStr);
     }
     QString localPath = entry.stringValue(KIO::UDSEntry::UDS_LOCAL_PATH);
-    const bool isDir = entry.isDir();
     info.linkDest = entry.stringValue(KIO::UDSEntry::UDS_LINK_DEST);
 
     if (fileName != QLatin1String("..") && fileName != QLatin1String(".")) {
