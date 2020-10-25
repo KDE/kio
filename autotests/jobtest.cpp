@@ -1928,8 +1928,18 @@ void JobTest::mimeTypeError()
     QCOMPARE(spyResult.count(), 1);
 }
 
+void JobTest::moveFileDestAlreadyExists_data()
+{
+    QTest::addColumn<bool>("autoSkip");
+
+    QTest::newRow("autoSkip") << true;
+    QTest::newRow("manualSkip") << false;
+}
+
 void JobTest::moveFileDestAlreadyExists() // #157601
 {
+    QFETCH(bool, autoSkip);
+
     const QString file1 = homeTmpDir() + "fileFromHome";
     createTestFile(file1);
     const QString file2 = homeTmpDir() + "anotherFile";
@@ -1937,20 +1947,72 @@ void JobTest::moveFileDestAlreadyExists() // #157601
     const QString existingDest = otherTmpDir() + "fileFromHome";
     createTestFile(existingDest);
 
-    QList<QUrl> urls; urls << QUrl::fromLocalFile(file1) << QUrl::fromLocalFile(file2);
+    const QList<QUrl> urls{QUrl::fromLocalFile(file1), QUrl::fromLocalFile(file2)};
     KIO::CopyJob *job = KIO::move(urls, QUrl::fromLocalFile(otherTmpDir()), KIO::HideProgressInfo);
     job->setUiDelegate(nullptr);
     job->setUiDelegateExtension(nullptr);
-    job->setAutoSkip(true);
+    PredefinedAnswerJobUiDelegate extension;
+    if (autoSkip) {
+        job->setUiDelegateExtension(nullptr);
+        job->setAutoSkip(true);
+    } else {
+        // Simulate the user pressing "Skip" in the dialog.
+        extension.m_skipResult = KIO::Result_Skip;
+        job->setUiDelegateExtension(&extension);
+    }
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
     QVERIFY(QFile::exists(file1)); // it was skipped
     QVERIFY(!QFile::exists(file2)); // it was moved
 
-    QCOMPARE(job->totalAmount(KJob::Files), 1);
+    QCOMPARE(job->totalAmount(KJob::Files), 1); // ### TODO why not 2? file1 and file2
     QCOMPARE(job->totalAmount(KJob::Directories), 0);
     QCOMPARE(job->processedAmount(KJob::Files), 1);
     QCOMPARE(job->processedAmount(KJob::Directories), 0);
     QCOMPARE(job->percent(), 100);
+
+    QFile::remove(otherTmpDir() + "anotherFile");
+}
+
+void JobTest::copyFileDestAlreadyExists_data()
+{
+    QTest::addColumn<bool>("autoSkip");
+
+    QTest::newRow("autoSkip") << true;
+    QTest::newRow("manualSkip") << false;
+}
+
+void JobTest::copyFileDestAlreadyExists() // to test skipping when copying
+{
+    QFETCH(bool, autoSkip);
+    const QString file1 = homeTmpDir() + "fileFromHome";
+    createTestFile(file1);
+    const QString file2 = homeTmpDir() + "anotherFile";
+    createTestFile(file2);
+    const QString existingDest = otherTmpDir() + "fileFromHome";
+    createTestFile(existingDest);
+
+    const QList<QUrl> urls{QUrl::fromLocalFile(file1), QUrl::fromLocalFile(file2)};
+    KIO::CopyJob *job = KIO::copy(urls, QUrl::fromLocalFile(otherTmpDir()), KIO::HideProgressInfo);
+    job->setUiDelegate(nullptr);
+    PredefinedAnswerJobUiDelegate extension;
+    if (autoSkip) {
+        job->setUiDelegateExtension(nullptr);
+        job->setAutoSkip(true);
+    } else {
+        // Simulate the user pressing "Skip" in the dialog.
+        extension.m_skipResult = KIO::Result_Skip;
+        job->setUiDelegateExtension(&extension);
+    }
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
+    QVERIFY(QFile::exists(otherTmpDir() + "anotherFile"));
+
+    QCOMPARE(job->totalAmount(KJob::Files), 2); // file1, file2
+    QCOMPARE(job->totalAmount(KJob::Directories), 0);
+    QCOMPARE(job->processedAmount(KJob::Files), 2);
+    QCOMPARE(job->processedAmount(KJob::Directories), 0);
+    QCOMPARE(job->percent(), 100);
+
+    QFile::remove(otherTmpDir() + "anotherFile");
 }
 
 void JobTest::moveDestAlreadyExistsAutoRename_data()

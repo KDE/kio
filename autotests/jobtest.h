@@ -88,7 +88,10 @@ private Q_SLOTS:
     void mimeType();
     void mimeTypeError();
     void calculateRemainingSeconds();
+    void moveFileDestAlreadyExists_data();
     void moveFileDestAlreadyExists();
+    void copyFileDestAlreadyExists_data();
+    void copyFileDestAlreadyExists();
     void moveDestAlreadyExistsAutoRename_data();
     void moveDestAlreadyExistsAutoRename();
 
