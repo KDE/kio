@@ -1179,9 +1179,10 @@ void KNewFileMenuPrivate::_k_slotTextChanged(const QString &text)
     m_text = text;
 }
 
-void KNewFileMenuPrivate::_k_slotStatResult(KJob *job) {
+void KNewFileMenuPrivate::_k_slotStatResult(KJob *job)
+{
     KIO::StatJob* statJob = static_cast<KIO::StatJob*>(job);
-    if (!m_lineEdit || statJob->url() != QUrl(m_baseUrl.toString() + QLatin1Char('/') + m_lineEdit->text())) {
+    if (m_text.isEmpty() || statJob->url().adjusted(QUrl::StripTrailingSlash).fileName() != m_text) {
         //ignore stat Result when the lineEdit has changed
         return;
     }
@@ -1195,9 +1196,9 @@ void KNewFileMenuPrivate::_k_slotStatResult(KJob *job) {
     } else {
         const KIO::UDSEntry& entry = statJob->statResult();
         if (entry.isDir()) {
-            m_messageWidget->setText(xi18nc("@info", "A directory with name <filename>%1</filename> already exists.", m_lineEdit->text()));
+            m_messageWidget->setText(xi18nc("@info", "A directory with name <filename>%1</filename> already exists.", m_text));
         } else {
-            m_messageWidget->setText(xi18nc("@info", "A file with name <filename>%1</filename> already exists.",  m_lineEdit->text()));
+            m_messageWidget->setText(xi18nc("@info", "A file with name <filename>%1</filename> already exists.",  m_text));
         }
         m_messageWidget->setMessageType(KMessageWidget::Error);
         m_messageWidget->animatedShow();
