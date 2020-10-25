@@ -3,6 +3,7 @@
     SPDX-FileCopyrightText: 2002 Waldo Bastian <bastian@kde.org>
     SPDX-FileCopyrightText: 2005 David Faure <faure@kde.org>
     SPDX-FileCopyrightText: 2012 Dawit Alemayehu <adawit@kde.org>
+    SPDX-FileCopyrightText: 2020 Harald Sitter <sitter@kde.org>
 
     SPDX-License-Identifier: GPL-2.0-only
 */
@@ -34,6 +35,7 @@ static QLoggingCategory category("kf.kio.kpasswdserver", QtInfoMsg);
 #define AUTHINFO_EXTRAFIELD_BYPASS_CACHE_AND_KWALLET QStringLiteral("bypass-cache-and-kwallet")
 #define AUTHINFO_EXTRAFIELD_SKIP_CACHING_ON_QUERY QStringLiteral("skip-caching-on-query")
 #define AUTHINFO_EXTRAFIELD_HIDE_USERNAME_INPUT QStringLiteral("hide-username-line")
+#define AUTHINFO_EXTRAFIELD_USERNAME_CONTEXT_HELP QStringLiteral("username-context-help")
 
 static qlonglong getRequestId()
 {
@@ -825,6 +827,11 @@ void KPasswdServer::showPasswordDialog(KPasswdServer::Request *request)
         && password.isEmpty()
         && username.isEmpty()) {
         dlg->setAnonymousMode(info.getExtraField(AUTHINFO_EXTRAFIELD_ANONYMOUS).toBool());
+    }
+
+    const QVariant userContextHelp = info.getExtraField(AUTHINFO_EXTRAFIELD_USERNAME_CONTEXT_HELP);
+    if (userContextHelp.isValid()) {
+        dlg->setUsernameContextHelp(userContextHelp.toString());
     }
 
 #ifndef Q_OS_MACOS
