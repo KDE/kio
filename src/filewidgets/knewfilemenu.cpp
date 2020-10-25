@@ -354,14 +354,21 @@ public:
      */
     void _k_slotStatResult(KJob *job);
 
+    /**
+     * Initializes m_fileDialog and the other widgets that are included in it. Mainly to reduce
+     * code duplication in showNewDirNameDlg() and executeRealFileOrDir().
+     */
+    void initDialog();
+
     KActionCollection *m_actionCollection;
-    QDialog *m_fileDialog = nullptr;
 
     KActionMenu *m_menuDev = nullptr;
     int m_menuItemsVersion = 0;
     QAction *m_newDirAction = nullptr;
-    QLineEdit *m_lineEdit = nullptr;
+    QDialog *m_fileDialog = nullptr;
     KMessageWidget* m_messageWidget = nullptr;
+    QLabel *m_label = nullptr;
+    QLineEdit *m_lineEdit = nullptr;
     QDialogButtonBox* m_buttonBox = nullptr;
 
     // This is used to allow _k_slotTextChanged to know whether it's being used to
@@ -399,6 +406,39 @@ public:
 
     QUrl m_baseUrl;
 };
+
+void KNewFileMenuPrivate::initDialog()
+{
+    m_fileDialog = new QDialog(m_parentWidget);
+    m_fileDialog->setAttribute(Qt::WA_DeleteOnClose);
+    m_fileDialog->setModal(m_modal);
+    m_fileDialog->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+    m_messageWidget = new KMessageWidget(m_fileDialog);
+    m_messageWidget->setCloseButtonVisible(false);
+    m_messageWidget->setWordWrap(true);
+    m_messageWidget->hide();
+
+    m_label = new QLabel(m_fileDialog);
+
+    m_lineEdit = new QLineEdit(m_fileDialog);
+    m_lineEdit->setClearButtonEnabled(true);
+    m_lineEdit->setMinimumWidth(400);
+
+    m_buttonBox = new QDialogButtonBox(m_fileDialog);
+    m_buttonBox->setStandardButtons(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
+    QObject::connect(m_buttonBox, &QDialogButtonBox::accepted, m_fileDialog, &QDialog::accept);
+    QObject::connect(m_buttonBox, &QDialogButtonBox::rejected, m_fileDialog, &QDialog::reject);
+
+    QVBoxLayout *layout = new QVBoxLayout(m_fileDialog);
+    layout->setSizeConstraint(QLayout::SetFixedSize);
+
+    layout->addWidget(m_label);
+    layout->addWidget(m_lineEdit);
+    layout->addWidget(m_buttonBox);
+    layout->addWidget(m_messageWidget);
+    layout->addStretch();
+}
 
 bool KNewFileMenuPrivate::checkSourceExists(const QString &src)
 {
@@ -478,6 +518,8 @@ void KNewFileMenuPrivate::executeOtherDesktopFile(const KNewFileMenuSingleton::E
 
 void KNewFileMenuPrivate::executeRealFileOrDir(const KNewFileMenuSingleton::Entry &entry)
 {
+    initDialog();
+
     // The template is not a desktop file
     // Prompt the user to set the destination filename
     QString text = entry.text;
@@ -497,49 +539,21 @@ void KNewFileMenuPrivate::executeRealFileOrDir(const KNewFileMenuSingleton::Entr
         text = KFileUtils::suggestName(directory, text);
     }
 
-    QDialog *fileDialog = new QDialog(m_parentWidget);
-    fileDialog->setAttribute(Qt::WA_DeleteOnClose);
-    fileDialog->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
-    fileDialog->setModal(q->isModal());
-    m_fileDialog = fileDialog;
+    m_label->setText(entry.comment);
 
-    QVBoxLayout *layout = new QVBoxLayout;
-    layout->setSizeConstraint(QLayout::SetFixedSize);
-
-    m_messageWidget = new KMessageWidget(fileDialog);
-    m_messageWidget->setCloseButtonVisible(false);
-    m_messageWidget->setWordWrap(true);
-    m_messageWidget->hide();
-    QLabel *label = new QLabel(entry.comment, fileDialog);
-
-    m_lineEdit = new QLineEdit(fileDialog);
-    m_lineEdit->setClearButtonEnabled(true);
     m_lineEdit->setText(text);
-    m_lineEdit->setMinimumWidth(400);
-
-    m_buttonBox = new QDialogButtonBox(fileDialog);
-    m_buttonBox->setStandardButtons(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
-    QObject::connect(m_buttonBox, &QDialogButtonBox::accepted, fileDialog, &QDialog::accept);
-    QObject::connect(m_buttonBox, &QDialogButtonBox::rejected, fileDialog, &QDialog::reject);
 
     m_creatingDirectory = false;
     _k_slotTextChanged(text);
-    QObject::connect(m_lineEdit, &QLineEdit::textChanged, q, [this](const QString & /*text */) { _k_delayedSlotTextChanged(); });
+    QObject::connect(m_lineEdit, &QLineEdit::textChanged, q, [this]() { _k_delayedSlotTextChanged(); });
     m_delayedSlotTextChangedTimer->callOnTimeout(m_lineEdit, [this]() {
         _k_slotTextChanged(m_lineEdit->text());
     });
 
-    layout->addWidget(label);
-    layout->addWidget(m_lineEdit);
-    layout->addWidget(m_buttonBox);
-    layout->addWidget(m_messageWidget);
-    layout->addStretch();
+    QObject::connect(m_fileDialog, &QDialog::accepted, q, [this]() { _k_slotRealFileOrDir(); });
+    QObject::connect(m_fileDialog, &QDialog::rejected, q, [this]() { _k_slotAbortDialog(); });
 
-    fileDialog->setLayout(layout);
-    QObject::connect(fileDialog, SIGNAL(accepted()), q, SLOT(_k_slotRealFileOrDir()));
-    QObject::connect(fileDialog, SIGNAL(rejected()), q, SLOT(_k_slotAbortDialog()));
-
-    fileDialog->show();
+    m_fileDialog->show();
     m_lineEdit->selectAll();
     m_lineEdit->setFocus();
 }
@@ -1344,31 +1358,13 @@ void KNewFileMenu::createDirectory()
 
 void KNewFileMenuPrivate::showNewDirNameDlg(const QString &name)
 {
-    QDialog *fileDialog = new QDialog(m_parentWidget);
-    fileDialog->setModal(m_modal);
-    fileDialog->setAttribute(Qt::WA_DeleteOnClose);
-    fileDialog->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
-    fileDialog->setWindowTitle(i18nc("@title:window", "New Folder"));
-    m_fileDialog = fileDialog;
+    initDialog();
 
-    QVBoxLayout *layout = new QVBoxLayout;
-    layout->setSizeConstraint(QLayout::SetFixedSize);
+    m_fileDialog->setWindowTitle(i18nc("@title:window", "New Folder"));
 
-    m_messageWidget = new KMessageWidget(fileDialog);
-    m_messageWidget->setCloseButtonVisible(false);
-    m_messageWidget->setWordWrap(true);
-    m_messageWidget->hide();
-    QLabel *label = new QLabel(i18n("Create new folder in %1:", m_baseUrl.toDisplayString(QUrl::PreferLocalFile)), fileDialog);
+    m_label->setText(i18n("Create new folder in %1:", m_baseUrl.toDisplayString(QUrl::PreferLocalFile)));
 
-    m_lineEdit = new QLineEdit(fileDialog);
-    m_lineEdit->setClearButtonEnabled(true);
     m_lineEdit->setText(name);
-    m_lineEdit->setMinimumWidth(400);
-
-    m_buttonBox = new QDialogButtonBox(fileDialog);
-    m_buttonBox->setStandardButtons(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
-    QObject::connect(m_buttonBox, &QDialogButtonBox::accepted, fileDialog, &QDialog::accept);
-    QObject::connect(m_buttonBox, &QDialogButtonBox::rejected, fileDialog, &QDialog::reject);
 
     m_creatingDirectory = true;
     _k_slotTextChanged(name); // have to save string in m_text in case user does not touch dialog
@@ -1377,17 +1373,10 @@ void KNewFileMenuPrivate::showNewDirNameDlg(const QString &name)
         _k_slotTextChanged(m_lineEdit->text());
     });
 
-    layout->addWidget(label);
-    layout->addWidget(m_lineEdit);
-    layout->addWidget(m_buttonBox);
-    layout->addWidget(m_messageWidget);
-    layout->addStretch();
+    QObject::connect(m_fileDialog, &QDialog::accepted, q, [this]() { _k_slotCreateDirectory(); });
+    QObject::connect(m_fileDialog, &QDialog::rejected, q, [this]() { _k_slotAbortDialog(); });
 
-    fileDialog->setLayout(layout);
-    QObject::connect(fileDialog, &QDialog::accepted, q, [this]() { _k_slotCreateDirectory(); });
-    QObject::connect(fileDialog, &QDialog::rejected, q, [this]() { _k_slotAbortDialog(); });
-
-    fileDialog->show();
+    m_fileDialog->show();
     m_lineEdit->selectAll();
     m_lineEdit->setFocus();
 }
