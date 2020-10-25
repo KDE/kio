@@ -63,6 +63,7 @@ set(kiocore_SRCS
   simplejob.cpp
   specialjob.cpp
   statjob.cpp
+  namefinderjob.cpp
   storedtransferjob.cpp
   transferjob.cpp
   filesystemfreespacejob.cpp
@@ -254,6 +255,7 @@ ecm_generate_headers(KIOCore_CamelCase_HEADERS
   SimpleJob
   SpecialJob
   StatJob
+  NameFinderJob
   StoredTransferJob
   TransferJob
   Scheduler
