@@ -1359,14 +1359,26 @@ bool KDirOperator::eventFilter(QObject *watched, QEvent *event)
 
             d->lastHoveredIndex = hoveredIndex;
 
-            const QModelIndex focusedIndex = d->itemView->selectionModel() ? d->itemView->selectionModel()->currentIndex()
+            const QModelIndex currentIndex = d->itemView->selectionModel() ? d->itemView->selectionModel()->currentIndex()
                                              : QModelIndex();
 
-            if (!hoveredIndex.isValid() && focusedIndex.isValid() &&
-                    d->itemView->selectionModel()->isSelected(focusedIndex) &&
-                    (d->lastHoveredIndex != focusedIndex)) {
-                const QModelIndex sourceFocusedIndex = d->proxyModel->mapToSource(focusedIndex);
-                const KFileItem item = d->dirModel->itemForIndex(sourceFocusedIndex);
+            if (!hoveredIndex.isValid() && currentIndex.isValid() &&
+                    (d->lastHoveredIndex != currentIndex)) {
+                const KFileItem item = d->itemView->model()->data(currentIndex, KDirModel::FileItemRole).value<KFileItem>();
+                if (!item.isNull()) {
+                    d->preview->showPreview(item.url());
+                }
+            }
+        }
+    }
+    break;
+    case QEvent::Leave: {
+        if (d->preview && !d->preview->isHidden()) {
+            // when mouse leaves the view, show preview of selected file
+            const QModelIndex currentIndex = d->itemView->selectionModel() ? d->itemView->selectionModel()->currentIndex()
+                                             : QModelIndex();
+            if (currentIndex.isValid()) {
+                const KFileItem item = d->itemView->model()->data(currentIndex, KDirModel::FileItemRole).value<KFileItem>();
                 if (!item.isNull()) {
                     d->preview->showPreview(item.url());
                 }
