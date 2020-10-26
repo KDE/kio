@@ -17,12 +17,15 @@
 #include <KIO/StoredTransferJob>
 #include <KShell>
 
+#include <QPushButton>
 #include <QTemporaryDir>
 
 #ifdef Q_OS_UNIX
 #include <sys/types.h>
 #include <sys/stat.h>
 #endif
+
+#include <algorithm>
 
 class KNewFileMenuTest : public QObject
 {
@@ -138,8 +141,19 @@ private Q_SLOTS:
             QVERIFY2(textAct, qPrintable(err));
         }
         textAct->trigger();
-        QDialog *dialog = parentWidget.findChild<QDialog *>();
-        QVERIFY(dialog);
+
+        QDialog *dialog;
+        // QTRY_ because a NameFinderJob could be running and the dialog will be shown when
+        // it finishes.
+        QTRY_VERIFY(dialog = parentWidget.findChild<QDialog *>());
+
+        const auto buttonsList = dialog->findChildren<QPushButton *>();
+        auto it = std::find_if(buttonsList.cbegin(), buttonsList.cend(), [](const QPushButton *button) {
+            return button->text() == QLatin1String("&OK");
+        });
+        QVERIFY(it != buttonsList.cend());
+        QPushButton *okButton = *it;
+
         if (KNameAndUrlInputDialog *nauiDialog = qobject_cast<KNameAndUrlInputDialog *>(dialog)) {
             QCOMPARE(nauiDialog->name(), expectedDefaultFilename);
             nauiDialog->setSuggestedName(typedFilename);
@@ -158,6 +172,16 @@ private Q_SLOTS:
         QUrl emittedUrl;
         QSignalSpy spy(&menu, &KNewFileMenu::fileCreated);
         QSignalSpy folderSpy(&menu, &KNewFileMenu::directoryCreated);
+
+        // expectedFilename is empty in the "Folder already exists" case, the button won't
+        // become enabled.
+        if (!expectedFilename.isEmpty()) {
+            // For all other cases, QTRY_ because we may be waiting for the StatJob in
+            // KNewFileMenuPrivate::_k_delayedSlotTextChanged() to finish, the OK button
+            // is disabled while it's checking if a folder/file with that name already exists.
+            QTRY_VERIFY(okButton->isEnabled());
+        }
+
         dialog->accept();
         QString path = m_tmpDir.path() + QLatin1Char('/') + expectedFilename;
         if (typedFilename.contains(QLatin1String("folderTildeExpanded"))) {
