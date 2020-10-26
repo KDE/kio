@@ -20,7 +20,7 @@ class AbstractOpenFileManagerWindowStrategy
 
 public:
     explicit AbstractOpenFileManagerWindowStrategy(OpenFileManagerWindowJob *job)
-        : job(job)
+        : m_job(job)
     {
 
     }
@@ -30,12 +30,12 @@ public:
 
     void emitResultProxy(int error = KJob::NoError)
     {
-        job->setError(error);
-        job->emitResult();
+        m_job->setError(error);
+        m_job->emitResult();
     }
 
 protected:
-    OpenFileManagerWindowJob *job;
+    OpenFileManagerWindowJob *m_job;
 
 };
 
