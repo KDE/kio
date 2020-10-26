@@ -610,19 +610,19 @@ KFilePlacesView::KFilePlacesView(QWidget *parent)
             this, SLOT(_k_adaptItemsUpdate(qreal)));
     d->adaptItemsTimeline.setDuration(500);
     d->adaptItemsTimeline.setUpdateInterval(5);
-    d->adaptItemsTimeline.setCurveShape(QTimeLine::EaseInOutCurve);
+    d->adaptItemsTimeline.setEasingCurve(QEasingCurve::InOutSine);
 
     connect(&d->itemAppearTimeline, SIGNAL(valueChanged(qreal)),
             this, SLOT(_k_itemAppearUpdate(qreal)));
     d->itemAppearTimeline.setDuration(500);
     d->itemAppearTimeline.setUpdateInterval(5);
-    d->itemAppearTimeline.setCurveShape(QTimeLine::EaseInOutCurve);
+    d->itemAppearTimeline.setEasingCurve(QEasingCurve::InOutSine);
 
     connect(&d->itemDisappearTimeline, SIGNAL(valueChanged(qreal)),
             this, SLOT(_k_itemDisappearUpdate(qreal)));
     d->itemDisappearTimeline.setDuration(500);
     d->itemDisappearTimeline.setUpdateInterval(5);
-    d->itemDisappearTimeline.setCurveShape(QTimeLine::EaseInOutCurve);
+    d->itemDisappearTimeline.setEasingCurve(QEasingCurve::InOutSine);
 
     viewport()->installEventFilter(d->watcher);
     connect(d->watcher, SIGNAL(entryEntered(QModelIndex)),

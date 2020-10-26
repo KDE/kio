@@ -68,8 +68,9 @@ KCookiesPolicySelectionDlg::KCookiesPolicySelectionDlg (QWidget* parent, Qt::Win
     mButtonBox->button(QDialogButtonBox::Ok)->setEnabled(false);
     connect(mUi.leDomain, &QLineEdit::textEdited,
             this, &KCookiesPolicySelectionDlg::slotTextChanged);
-    connect(mUi.cbPolicy, QOverload<const QString&>::of(&QComboBox::currentIndexChanged),
-            this, &KCookiesPolicySelectionDlg::slotPolicyChanged);
+    connect(mUi.cbPolicy, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [this](const int index) {
+                slotPolicyChanged(mUi.cbPolicy->itemText(index));
+            });
 
     mUi.leDomain->setFocus();
 }

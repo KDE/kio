@@ -448,7 +448,11 @@ void AccessManagerReply::slotResult(KJob *kJob)
         setAttribute(static_cast<QNetworkRequest::Attribute>(KIO::AccessManager::KioError), errcode);
         if (errcode && errcode != KIO::ERR_NO_CONTENT) {
             const auto networkError = error();
+#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
             emit error(networkError);
+#else
+            emit errorOccurred(networkError);
+#endif
         }
     }
 
@@ -464,7 +468,11 @@ void AccessManagerReply::slotStatResult(KJob *kJob)
 {
     if (jobError(kJob)) {
         const auto networkError = error();
+#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
         emit error(networkError);
+#else
+        emit errorOccurred(networkError);
+#endif
         emitFinished(true);
         return;
     }
@@ -491,7 +499,11 @@ void AccessManagerReply::slotRedirection(KIO::Job *job, const QUrl &u)
         qCWarning(KIO_WIDGETS) << "Redirection from" << url() << "to" << u << "REJECTED by policy!";
         setError(QNetworkReply::ContentAccessDenied, u.toString());
         const auto networkError = error();
+#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
         emit error(networkError);
+#else
+        emit errorOccurred(networkError);
+#endif
         return;
     }
     setAttribute(QNetworkRequest::RedirectionTargetAttribute, QUrl(u));

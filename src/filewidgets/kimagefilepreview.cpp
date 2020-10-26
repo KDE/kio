@@ -34,7 +34,7 @@ public:
         , clear(true)
     {
         m_timeLine = new QTimeLine(150);
-        m_timeLine->setCurveShape(QTimeLine::EaseInCurve);
+        m_timeLine->setEasingCurve(QEasingCurve::InCurve);
         m_timeLine->setDirection(QTimeLine::Forward);
         m_timeLine->setFrameRange(0, 100);
     }
