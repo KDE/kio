@@ -130,6 +130,10 @@ private:
     void enterLoop();
     enum { AlreadyExists = 1 };
     void copyLocalFile(const QString &src, const QString &dest);
+    bool checkXattrFsSupport(const QString &writeTest);
+    bool setXattr(const QString &src);
+    QList<QByteArray> readXattr(const QString &src);
+    void compareXattr(const QString &src, const QString &dest);
     void copyLocalDirectory(const QString &src, const QString &dest, int flags = 0);
     void moveLocalFile(const QString &src, const QString &dest);
     void moveLocalDirectory(const QString &src, const QString &dest);
@@ -144,6 +148,9 @@ private:
     QStringList m_names;
     int m_dataReqCount;
     QString m_mimetype;
+    QString m_setXattrCmd;
+    QString m_getXattrCmd;
+    std::function<QStringList(const QString&, const QString&, const QString&)> m_setXattrFormatArgs;
 };
 
 #endif

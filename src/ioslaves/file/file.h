@@ -59,6 +59,7 @@ public:
     void write(const QByteArray &data) override;
     void seek(KIO::filesize_t offset) override;
     void truncate(KIO::filesize_t length);
+    bool copyXattrs(const int src_fd, const int dest_fd);
     void close() override;
 
     /**

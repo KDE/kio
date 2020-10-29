@@ -25,10 +25,7 @@
 #include <kmountpoint.h>
 
 #include <errno.h>
-#if HAVE_SYS_XATTR_H
-#include <sys/xattr.h>
 #include <stdint.h>
-#endif
 #include <utime.h>
 
 #include <KAuth>
@@ -51,6 +48,13 @@
 #if HAVE_SENDFILE && defined Q_OS_LINUX
 #define USE_SENDFILE 1
 #include <sys/sendfile.h>
+#endif
+
+#if HAVE_SYS_XATTR_H
+#include <sys/xattr.h>
+//BSD uses a different include
+#elif HAVE_SYS_EXTATTR_H
+#include <sys/extattr.h>
 #endif
 
 using namespace KIO;
@@ -527,6 +531,118 @@ PrivilegeOperationReturnValue FileProtocol::tryChangeFileAttr(ActionType action,
     return PrivilegeOperationReturnValue::failure(errcode);
 }
 
+
+#if HAVE_SYS_XATTR_H || HAVE_SYS_EXTATTR_H
+bool FileProtocol::copyXattrs(const int src_fd, const int dest_fd)
+{
+    // Get the list of keys
+    ssize_t listlen = 0;
+    QByteArray keylist;
+    while (true) {
+        keylist.resize(listlen);
+#if HAVE_SYS_XATTR_H && !defined(__stub_getxattr) && !defined(Q_OS_MAC)
+        listlen = flistxattr(src_fd, keylist.data(), listlen);
+#elif defined(Q_OS_MAC)
+        listlen = flistxattr(src_fd, keylist.data(), listlen, 0);
+#elif HAVE_SYS_EXTATTR_H
+        listlen = extattr_list_fd(src_fd, EXTATTR_NAMESPACE_USER,
+                                  listlen == 0 ? nullptr : keylist.data(),
+                                  listlen);
+#endif
+        if (listlen > 0 && keylist.size() == 0) {
+            continue;
+        }
+        if (listlen > 0 && keylist.size() > 0) {
+            break;
+        }
+        if (listlen == -1 && errno == ERANGE) {
+            listlen = 0;
+            continue;
+        }
+        if (listlen == -1) {
+            if (errno == ENOTSUP) {
+                qCDebug(KIO_FILE) << "source filesystem does not support xattrs";
+            }
+            return false;
+        }
+        if (listlen == 0) {
+            qCDebug(KIO_FILE) << "the file don't have any xattr";
+            return true;
+        }
+    }
+
+    keylist.resize(listlen);
+
+    // Linux and MacOS return a list of null terminated strings, each string = [data,'\0']
+    // BSDs return a list of items, each item consisting of the size byte
+    // prepended to the key = [size, data]
+    QByteArray::const_iterator keyPtr = keylist.cbegin();
+    size_t keyLen;
+    QByteArray value;
+
+    // For each key
+    while (keyPtr != keylist.cend()) {
+        // Get size of the key
+#if HAVE_SYS_XATTR_H
+        keyLen = strlen(keyPtr);
+#elif HAVE_SYS_EXTATTR_H
+        keyLen = static_cast<unsigned char>(*keyPtr);
+        keyPtr++;
+#endif
+        QByteArray key(keyPtr, keyLen);
+
+        // Get the value for key
+        ssize_t valuelen = 0;
+        do {
+            value.resize(valuelen);
+#if HAVE_SYS_XATTR_H && !defined(__stub_getxattr) && !defined(Q_OS_MAC)
+            valuelen = fgetxattr(src_fd, key.constData(), value.data(), valuelen);
+#elif defined(Q_OS_MAC)
+            valuelen = fgetxattr(src_fd, key.constData(), value.data(), valuelen, 0, 0);
+#elif HAVE_SYS_EXTATTR_H
+            valuelen = extattr_get_fd(src_fd, EXTATTR_NAMESPACE_USER, key.constData(),
+                                      valuelen == 0 ? nullptr : value.data(),
+                                      valuelen);
+#endif
+            if (valuelen > 0 && value.size() == 0) {
+                continue;
+            }
+            if (valuelen > 0 && value.size() > 0) {
+                break;
+            }
+            if (valuelen == -1 && errno == ERANGE) {
+                valuelen = 0;
+                continue;
+            }
+            // happens when attr value is an empty string
+            if (valuelen == 0) {
+                break;
+            }
+        } while (true);
+
+        // Write key:value pair on destination
+#if HAVE_SYS_XATTR_H && !defined(__stub_getxattr) && !defined(Q_OS_MAC)
+        ssize_t destlen = fsetxattr(dest_fd, key.constData(), value.constData(), valuelen, 0);
+#elif defined(Q_OS_MAC)
+        ssize_t destlen = fsetxattr(dest_fd, key.constData(), value.constData(), valuelen, 0, 0);
+#elif HAVE_SYS_EXTATTR_H
+        ssize_t destlen = extattr_set_fd(dest_fd, EXTATTR_NAMESPACE_USER, key.constData(), value.constData(), valuelen);
+#endif
+        if (destlen == -1 && errno == ENOTSUP) {
+            qCDebug(KIO_FILE) << "Destination filesystem does not support xattrs";
+            return false;
+        }
+
+#if HAVE_SYS_XATTR_H
+        keyPtr += keyLen + 1;
+#elif HAVE_SYS_EXTATTR_H
+        keyPtr += keyLen;
+#endif
+    }
+    return true;
+}
+#endif // HAVE_SYS_XATTR_H || HAVE_SYS_EXTATTR_H
+
 void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl,
                         int _mode, JobFlags _flags)
 {
@@ -755,6 +871,13 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl,
             processedSize(processed_size);
         }
 #ifdef FICLONE
+    }
+#endif
+
+    // Copy Extended attributes
+#if HAVE_SYS_XATTR_H || HAVE_SYS_EXTATTR_H
+    if (!copyXattrs(src_file.handle(), dest_file.handle())) {
+        qCDebug(KIO_FILE) << "cant copy Extended attributes";
     }
 #endif
 

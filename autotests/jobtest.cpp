@@ -22,6 +22,7 @@
 #include <QTest>
 #include <QUrl>
 #include <QElapsedTimer>
+#include <QProcess>
 
 #include <kmountpoint.h>
 #include <kprotocolinfo.h>
@@ -79,6 +80,39 @@ void JobTest::initTestCase()
         bool ok = QDir().mkdir(otherTmpDir());
         if (!ok) {
             qFatal("couldn't create %s", qPrintable(otherTmpDir()));
+        }
+    }
+
+    /*****
+     * Set platform xattr related commands.
+     * Linux commands: setfattr, getfattr
+     * BSD commands: setextattr, getextattr
+     * MacOS commands: xattr -w, xattr -p
+     ****/
+    m_getXattrCmd = QStandardPaths::findExecutable("getfattr");
+    if (m_getXattrCmd.endsWith("getfattr")) {
+        m_setXattrCmd = QStandardPaths::findExecutable("setfattr");
+        m_setXattrFormatArgs = [](const QString& attrName, const QString& value, const QString& fileName) {
+            return QStringList{QLatin1String("-n"), attrName, QLatin1String("-v"), value, fileName};
+        };
+    } else {
+        // On BSD there is lsextattr to list all xattrs and getextattr to get a value
+        // for specific xattr. For test purposes lsextattr is more suitable to be used
+        // as m_getXattrCmd, so search for it instead of getextattr.
+        m_getXattrCmd = QStandardPaths::findExecutable("lsextattr");
+        if (m_getXattrCmd.endsWith("lsextattr")) {
+            m_setXattrCmd = QStandardPaths::findExecutable("setextattr");
+            m_setXattrFormatArgs = [](const QString& attrName, const QString& value, const QString& fileName) {
+                return QStringList{QLatin1String("user"), attrName, value, fileName};
+            };
+        } else {
+            m_getXattrCmd = QStandardPaths::findExecutable("xattr");
+            m_setXattrFormatArgs = [](const QString& attrName, const QString& value, const QString& fileName) {
+                return QStringList{QLatin1String("-w"), attrName, value, fileName};
+            };
+            if (!m_getXattrCmd.endsWith("xattr")) {
+                qWarning() << "Neither getfattr, getextattr nor xattr was found.";
+            }
         }
     }
 
@@ -414,7 +448,98 @@ void JobTest::asyncStoredPutReadyReadAfterFinish()
     QTRY_VERIFY(jobFinished);
 }
 
-////
+static QHash<QString, QString> getSampleXattrs()
+{
+    QHash<QString, QString> attrs;
+    attrs["user.name with space"] = "value with spaces";
+    attrs["user.baloo.rating"] = "1";
+    attrs["user.fnewLine"] = "line1\\nline2";
+    attrs["user.flistNull"] = "item1\\0item2";
+    attrs["user.fattr.with.a.lot.of.namespaces"] = "true";
+    attrs["user.fempty"] = "";
+    return attrs;
+}
+
+bool JobTest::checkXattrFsSupport(const QString &dir)
+{
+    const QString writeTest = dir + "/fsXattrTestFile";
+    createTestFile(writeTest);
+    bool ret = setXattr(writeTest);
+    QFile::remove(writeTest);
+    return ret;
+}
+
+bool JobTest::setXattr(const QString &dest)
+{
+    QProcess xattrWriter;
+    xattrWriter.setProcessChannelMode(QProcess::MergedChannels);
+
+    QHash<QString, QString> attrs = getSampleXattrs();
+    QHashIterator<QString, QString> i(attrs);
+    while (i.hasNext()) {
+        i.next();
+        QStringList arguments = m_setXattrFormatArgs(i.key(), i.value(), dest);
+        xattrWriter.start(m_setXattrCmd, arguments);
+        xattrWriter.waitForStarted();
+        xattrWriter.waitForFinished(-1);
+        if(xattrWriter.exitStatus() != QProcess::NormalExit) {
+            return false;
+        }
+        QList<QByteArray> resultdest = xattrWriter.readAllStandardOutput().split('\n');
+        if (!resultdest[0].isEmpty()) {
+            QWARN("Error writing user xattr. Xattr copy tests will be disabled.");
+            qDebug() << resultdest;
+            return false;
+        }
+    }
+
+    return true;
+}
+
+QList<QByteArray> JobTest::readXattr(const QString &src)
+{
+    QProcess xattrReader;
+    xattrReader.setProcessChannelMode(QProcess::MergedChannels);
+
+    QStringList arguments;
+    char outputSeparator = '\n';
+    // Linux
+    if (m_getXattrCmd.endsWith("getfattr")) {
+        arguments = QStringList {"-d", src};
+    }
+    // BSD
+    else if (m_getXattrCmd.endsWith("lsextattr")) {
+        arguments = QStringList {"-q", "user", src};
+        outputSeparator = '\t';
+    }
+    // MacOS
+    else {
+        arguments = QStringList {"-l", src };
+    }
+
+    xattrReader.start(m_getXattrCmd, arguments);
+    xattrReader.waitForFinished();
+    QList<QByteArray> result = xattrReader.readAllStandardOutput().split(outputSeparator);
+    if (m_getXattrCmd.endsWith("getfattr")) {
+        // Line 1 is the file name
+        result.removeAt(1);
+    }
+    else if (m_getXattrCmd.endsWith("lsextattr")) {
+        // cut off trailing \n
+        result.last().chop(1);
+        // lsextattr does not sort its output
+        std::sort(result.begin(), result.end());
+    }
+
+    return result;
+}
+
+void JobTest::compareXattr(const QString &src, const QString &dest)
+{
+    auto srcAttrs = readXattr(src);
+    auto dstAttrs = readXattr(dest);
+    QCOMPARE(dstAttrs, srcAttrs);
+}
 
 void JobTest::copyLocalFile(const QString &src, const QString &dest)
 {
@@ -429,6 +554,7 @@ void JobTest::copyLocalFile(const QString &src, const QString &dest)
     QVERIFY(QFile::exists(dest));
     QVERIFY(QFile::exists(src));     // still there
     QCOMPARE(int(QFileInfo(dest).permissions()), int(0x6666));
+    compareXattr(src, dest);
 
     {
         // check that the timestamp is the same (#24443)
@@ -454,6 +580,7 @@ void JobTest::copyLocalFile(const QString &src, const QString &dest)
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
     QVERIFY(QFile::exists(dest));
     QVERIFY(QFile::exists(src));     // still there
+    compareXattr(src, dest);
     {
         // check that the timestamp is the same (#24443)
         QFileInfo srcInfo(src);
@@ -482,6 +609,7 @@ void JobTest::copyLocalFile(const QString &src, const QString &dest)
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
     QVERIFY(QFile::exists(dest));
     QVERIFY(QFile::exists(src));     // still there
+    compareXattr(src, dest);
 
     // Do it again, with Overwrite.
     job = KIO::copyAs(u, d, KIO::Overwrite | KIO::HideProgressInfo);
@@ -490,6 +618,7 @@ void JobTest::copyLocalFile(const QString &src, const QString &dest)
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
     QVERIFY(QFile::exists(dest));
     QVERIFY(QFile::exists(src));     // still there
+    compareXattr(src, dest);
 
     // Do it again, without Overwrite (should fail).
     job = KIO::copyAs(u, d, KIO::HideProgressInfo);
@@ -498,6 +627,7 @@ void JobTest::copyLocalFile(const QString &src, const QString &dest)
     QVERIFY(!job->exec());
 
     // Clean up
+    QFile::remove(src);
     QFile::remove(dest);
 }
 
@@ -598,9 +728,13 @@ static void copyLocalSymlink(const QString &src, const QString &dest, const QStr
 
 void JobTest::copyFileToSamePartition()
 {
-    const QString filePath = homeTmpDir() + "fileFromHome";
-    const QString dest = homeTmpDir() + "fileFromHome_copied";
+    const QString homeDir = homeTmpDir();
+    const QString filePath = homeDir + "fileFromHome";
+    const QString dest = homeDir + "fileFromHome_copied";
     createTestFile(filePath);
+    if (checkXattrFsSupport(homeDir)) {
+        setXattr(filePath);
+    }
     copyLocalFile(filePath, dest);
 }
 
@@ -660,9 +794,16 @@ void JobTest::copyDirectoryToExistingSymlinkedDirectory()
 void JobTest::copyFileToOtherPartition()
 {
     // qDebug();
-    const QString filePath = homeTmpDir() + "fileFromHome";
-    const QString dest = otherTmpDir() + "fileFromHome_copied";
+    const QString homeDir = homeTmpDir();
+    const QString otherHomeDir = otherTmpDir();
+    const QString filePath = homeDir + "fileFromHome";
+    const QString dest = otherHomeDir + "fileFromHome_copied";
+    bool canRead = checkXattrFsSupport(homeDir);
+    bool canWrite = checkXattrFsSupport(otherHomeDir);
     createTestFile(filePath);
+    if (canRead && canWrite) {
+        setXattr(filePath);
+    }
     copyLocalFile(filePath, dest);
 }
 

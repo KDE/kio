@@ -10,8 +10,11 @@
 /* Defined to if you have a d_type member in struct dirent */
 #cmakedefine01 HAVE_DIRENT_D_TYPE
 
-/* Defined if system has extended file attributes support. */
+/* Defined if system has <sys/xattr.h> header file. */
 #cmakedefine01 HAVE_SYS_XATTR_H
+
+/* Defined if system has <sys/extattr.h> header file. */
+#cmakedefine01 HAVE_SYS_EXTATTR_H
 
 /* Defined if system has the sendfile function. */
 #cmakedefine01 HAVE_SENDFILE
