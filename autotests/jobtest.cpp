@@ -127,6 +127,15 @@ void JobTest::cleanupTestCase()
     QDir(otherTmpDir()).removeRecursively();
 }
 
+struct ScopedCleaner
+{
+    using Func = std::function<void()>;
+    ScopedCleaner(Func f) : m_f(std::move(f)) {}
+    ~ScopedCleaner() { m_f(); }
+private:
+    const Func m_f;
+};
+
 void JobTest::enterLoop()
 {
     QEventLoop eventLoop;
@@ -862,25 +871,17 @@ void JobTest::copyFolderWithUnaccessibleSubfolder()
     QFile(inaccessible).setPermissions(QFile::Permissions()); // Make it inaccessible
     //Copying should throw some warnings, as it cannot access some folders
 
-    struct Cleanup {
-        explicit Cleanup(const QString &inaccessible, const QString &src, const QString &dest)
-            : inaccessible(inaccessible), src_dir(src), dst_dir(dest) {}
-        ~Cleanup() {
-            QFile(inaccessible).setPermissions(QFile::Permissions(QFile::ReadOwner | QFile::WriteOwner | QFile::ExeOwner));
+    ScopedCleaner cleaner( [&]{
+        QFile(inaccessible).setPermissions(QFile::Permissions(QFile::ReadOwner | QFile::WriteOwner | QFile::ExeOwner));
 
-            KIO::DeleteJob *deljob1 = KIO::del(QUrl::fromLocalFile(src_dir), KIO::HideProgressInfo);
-            deljob1->setUiDelegate(nullptr); // no skip dialog, thanks
-            QVERIFY(deljob1->exec());
+        KIO::DeleteJob *deljob1 = KIO::del(QUrl::fromLocalFile(src_dir), KIO::HideProgressInfo);
+        deljob1->setUiDelegate(nullptr); // no skip dialog, thanks
+        QVERIFY(deljob1->exec());
 
-            KIO::DeleteJob *deljob2 = KIO::del(QUrl::fromLocalFile(dst_dir), KIO::HideProgressInfo);
-            deljob2->setUiDelegate(nullptr); // no skip dialog, thanks
-            QVERIFY(deljob2->exec());
-        }
-    private:
-        const QString inaccessible;
-        const QString src_dir;
-        const QString dst_dir;
-    } c(inaccessible, src_dir, dst_dir);
+        KIO::DeleteJob *deljob2 = KIO::del(QUrl::fromLocalFile(dst_dir), KIO::HideProgressInfo);
+        deljob2->setUiDelegate(nullptr); // no skip dialog, thanks
+        QVERIFY(deljob2->exec());
+    });
 
     KIO::CopyJob *job = KIO::copy(QUrl::fromLocalFile(src_dir), QUrl::fromLocalFile(dst_dir), KIO::HideProgressInfo);
 
@@ -1208,6 +1209,11 @@ void JobTest::moveDirectoryToReadonlyFilesystem()
     QVERIFY2(QDir().mkdir(dst_dir), qPrintable(dst_dir));
     QFile(dst_dir).setPermissions(QFile::Permissions(QFile::ReadOwner | QFile::ExeOwner)); // Make it readonly, moving should throw some errors
 
+    ScopedCleaner cleaner([&] {
+        QVERIFY(QFile(dst_dir).setPermissions(QFile::Permissions(QFile::ReadOwner | QFile::WriteOwner | QFile::ExeOwner)));
+        QVERIFY(QDir(dst_dir).removeRecursively());
+    });
+
     KIO::CopyJob *job = KIO::move(sources, dst, KIO::HideProgressInfo | KIO::NoPrivilegeExecution);
     job->setUiDelegate(nullptr);
     QVERIFY(!job->exec());
@@ -1225,10 +1231,6 @@ void JobTest::moveDirectoryToReadonlyFilesystem()
     for (const QUrl &srcUrl : qAsConst(sources)) {
         QVERIFY(QFileInfo::exists(srcUrl.toLocalFile())); // no moving happened
     }
-
-    // Cleanup
-    QVERIFY(QFile(dst_dir).setPermissions(QFile::Permissions(QFile::ReadOwner | QFile::WriteOwner | QFile::ExeOwner)));
-    QVERIFY(QDir(dst_dir).removeRecursively());
 }
 
 void JobTest::listRecursive()
@@ -1947,6 +1949,10 @@ void JobTest::moveFileDestAlreadyExists() // #157601
     const QString existingDest = otherTmpDir() + "fileFromHome";
     createTestFile(existingDest);
 
+    ScopedCleaner cleaner([] {
+        QFile::remove(otherTmpDir() + "anotherFile");
+    });
+
     const QList<QUrl> urls{QUrl::fromLocalFile(file1), QUrl::fromLocalFile(file2)};
     KIO::CopyJob *job = KIO::move(urls, QUrl::fromLocalFile(otherTmpDir()), KIO::HideProgressInfo);
     job->setUiDelegate(nullptr);
@@ -1969,8 +1975,6 @@ void JobTest::moveFileDestAlreadyExists() // #157601
     QCOMPARE(job->processedAmount(KJob::Files), 1);
     QCOMPARE(job->processedAmount(KJob::Directories), 0);
     QCOMPARE(job->percent(), 100);
-
-    QFile::remove(otherTmpDir() + "anotherFile");
 }
 
 void JobTest::copyFileDestAlreadyExists_data()
@@ -1990,6 +1994,10 @@ void JobTest::copyFileDestAlreadyExists() // to test skipping when copying
     createTestFile(file2);
     const QString existingDest = otherTmpDir() + "fileFromHome";
     createTestFile(existingDest);
+
+    ScopedCleaner cleaner([] {
+        QFile::remove(otherTmpDir() + "anotherFile");
+    });
 
     const QList<QUrl> urls{QUrl::fromLocalFile(file1), QUrl::fromLocalFile(file2)};
     KIO::CopyJob *job = KIO::copy(urls, QUrl::fromLocalFile(otherTmpDir()), KIO::HideProgressInfo);
@@ -2011,8 +2019,6 @@ void JobTest::copyFileDestAlreadyExists() // to test skipping when copying
     QCOMPARE(job->processedAmount(KJob::Files), 2);
     QCOMPARE(job->processedAmount(KJob::Directories), 0);
     QCOMPARE(job->percent(), 100);
-
-    QFile::remove(otherTmpDir() + "anotherFile");
 }
 
 void JobTest::moveDestAlreadyExistsAutoRename_data()
@@ -2178,6 +2184,11 @@ void JobTest::copyFileAlreadyExistsRename()
 
     createTestDirectory(dest);
 
+    ScopedCleaner cleaner([&] {
+        QVERIFY(QFile(sourceFile).remove());
+        QVERIFY(QDir(dest).removeRecursively());
+    });
+
     QUrl s = QUrl::fromLocalFile(sourceFile);
     QUrl d = QUrl::fromLocalFile(dest);
 
@@ -2197,9 +2208,6 @@ void JobTest::copyFileAlreadyExistsRename()
     auto list = spyRenamed.takeFirst();
     QCOMPARE(list.at(1).toUrl(), QUrl::fromLocalFile(alreadyExisting));
     QCOMPARE(list.at(2).toUrl(), QUrl::fromLocalFile(renamedFile));
-
-    QVERIFY(QFile(sourceFile).remove());
-    QVERIFY(QDir(dest).removeRecursively());
 }
 
 void JobTest::safeOverwrite_data()
@@ -2225,6 +2233,11 @@ void JobTest::safeOverwrite()
 
     createTestDirectory(srcDir);
     createTestDirectory(destDir);
+
+    ScopedCleaner cleaner([&] {
+        QDir(srcDir).removeRecursively();
+        QDir(destDir).removeRecursively();
+    });
 
     const int srcSize = 1000000; // ~1MB
     QVERIFY(QFile::resize(srcFile, srcSize));
@@ -2254,9 +2267,6 @@ void JobTest::safeOverwrite()
     QVERIFY(!QFile::exists(srcFile));
     QVERIFY(!QFile::exists(destPartFile));
     QCOMPARE(spyTotalSize.count(), 1);
-
-    QDir(srcDir).removeRecursively();
-    QDir(destDir).removeRecursively();
 }
 
 void JobTest::moveAndOverwrite()
@@ -2330,6 +2340,10 @@ void JobTest::createSymlink()
     const QString destDir = homeTmpDir() + "dest";
     QVERIFY(QDir().mkpath(destDir));
 
+    ScopedCleaner cleaner([&] {
+        QDir(destDir).removeRecursively();
+    });
+
     // With KIO::link (high-level)
     KIO::CopyJob *job = KIO::link(QUrl::fromLocalFile(sourceFile), QUrl::fromLocalFile(destDir), KIO::HideProgressInfo);
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
@@ -2346,9 +2360,6 @@ void JobTest::createSymlink()
     QVERIFY(QFileInfo::exists(sourceFile));
     QVERIFY(QFileInfo(linkPath).isSymLink());
     QCOMPARE(QFileInfo(linkPath).symLinkTarget(), sourceFile);
-
-    // Cleanup
-    QVERIFY(QDir(destDir).removeRecursively());
 }
 
 void JobTest::createSymlinkTargetDirDoesntExist()
@@ -2375,11 +2386,14 @@ void JobTest::createSymlinkAsShouldSucceed()
     const QString dest = homeTmpDir() + "testlink";
     QFile::remove(dest); // just in case
 
+    ScopedCleaner cleaner([&] {
+        QVERIFY(QFile::remove(dest));
+    });
+
     KIO::CopyJob *job = KIO::linkAs(QUrl::fromLocalFile(sourceFile), QUrl::fromLocalFile(dest), KIO::HideProgressInfo);
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
     QVERIFY(QFileInfo::exists(sourceFile));
     QVERIFY(QFileInfo(dest).isSymLink());
-    QVERIFY(QFile::remove(dest));
 }
 
 void JobTest::createSymlinkAsShouldFailDirectoryExists()
@@ -2391,6 +2405,10 @@ void JobTest::createSymlinkAsShouldFailDirectoryExists()
     createTestFile(sourceFile);
     const QString dest = homeTmpDir() + "dest";
     QVERIFY(QDir().mkpath(dest)); // dest exists as a directory
+
+    ScopedCleaner cleaner([&] {
+        QVERIFY(QDir().rmdir(dest));
+    });
 
     // With KIO::link (high-level)
     KIO::CopyJob *job = KIO::linkAs(QUrl::fromLocalFile(sourceFile), QUrl::fromLocalFile(dest), KIO::HideProgressInfo);
@@ -2404,9 +2422,6 @@ void JobTest::createSymlinkAsShouldFailDirectoryExists()
     QVERIFY(!symlinkJob->exec());
     QCOMPARE(symlinkJob->error(), (int)KIO::ERR_DIR_ALREADY_EXIST);
     QVERIFY(QFileInfo::exists(sourceFile));
-
-    // Cleanup
-    QVERIFY(QDir().rmdir(dest));
 }
 
 void JobTest::createSymlinkAsShouldFailFileExists()
@@ -2418,6 +2433,11 @@ void JobTest::createSymlinkAsShouldFailFileExists()
     createTestFile(sourceFile);
     const QString dest = homeTmpDir() + "testlink";
     QFile::remove(dest); // just in case
+
+    ScopedCleaner cleaner([&] {
+        QVERIFY(QFile::remove(sourceFile));
+        QVERIFY(QFile::remove(dest));
+    });
 
     // First time works
     KIO::CopyJob *job = KIO::linkAs(QUrl::fromLocalFile(sourceFile), QUrl::fromLocalFile(dest), KIO::HideProgressInfo);
@@ -2433,10 +2453,6 @@ void JobTest::createSymlinkAsShouldFailFileExists()
     KIO::Job *symlinkJob = KIO::symlink(sourceFile, QUrl::fromLocalFile(dest), KIO::HideProgressInfo);
     QVERIFY(!symlinkJob->exec());
     QCOMPARE(symlinkJob->error(), (int)KIO::ERR_FILE_ALREADY_EXIST);
-
-    // Cleanup
-    QVERIFY(QFile::remove(sourceFile));
-    QVERIFY(QFile::remove(dest));
 }
 
 void JobTest::createSymlinkWithOverwriteShouldWork()
@@ -2448,6 +2464,11 @@ void JobTest::createSymlinkWithOverwriteShouldWork()
     createTestFile(sourceFile);
     const QString dest = homeTmpDir() + "testlink";
     QFile::remove(dest); // just in case
+
+    ScopedCleaner cleaner([&] {
+        QVERIFY(QFile::remove(sourceFile));
+        QVERIFY(QFile::remove(dest));
+    });
 
     // First time works
     KIO::CopyJob *job = KIO::linkAs(QUrl::fromLocalFile(sourceFile), QUrl::fromLocalFile(dest), KIO::HideProgressInfo);
@@ -2465,10 +2486,6 @@ void JobTest::createSymlinkWithOverwriteShouldWork()
     QVERIFY2(symlinkJob->exec(), qPrintable(symlinkJob->errorString()));
     QVERIFY(QFileInfo(dest).isSymLink());
     QCOMPARE(QFileInfo(dest).symLinkTarget(), QString(sourceFile + QLatin1Char('3')));
-
-    // Cleanup
-    QVERIFY(QFile::remove(dest));
-    QVERIFY(QFile::remove(sourceFile));
 }
 
 void JobTest::createBrokenSymlink()
