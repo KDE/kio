@@ -149,7 +149,7 @@ private Q_SLOTS:
 
         const auto buttonsList = dialog->findChildren<QPushButton *>();
         auto it = std::find_if(buttonsList.cbegin(), buttonsList.cend(), [](const QPushButton *button) {
-            return button->text() == QLatin1String("&OK");
+            return button->text().contains("OK");
         });
         QVERIFY(it != buttonsList.cend());
         QPushButton *okButton = *it;
