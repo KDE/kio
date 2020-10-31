@@ -453,7 +453,7 @@ void FileUndoManagerTest::testCreateSymlink()
     createTestFile(targetPath, "Link's Target");
     QVERIFY(QFile::exists(targetPath));
 
-    KIO::CopyJob *job = KIO::link(target, link);
+    KIO::CopyJob *job = KIO::link(target, link, KIO::HideProgressInfo);
     job->setUiDelegate(nullptr);
     FileUndoManager::self()->recordCopyJob(job);
     bool ok = job->exec();
@@ -503,7 +503,7 @@ void FileUndoManagerTest::testMkpath()
     QVERIFY(!QFile::exists(path));
     const QUrl url = QUrl::fromLocalFile(path);
 
-    KIO::Job *job = KIO::mkpath(url);
+    KIO::Job *job = KIO::mkpath(url, QUrl(), KIO::HideProgressInfo);
     job->setUiDelegate(nullptr);
     FileUndoManager::self()->recordJob(FileUndoManager::Mkpath, QList<QUrl>(), url, job);
     QVERIFY(job->exec());
@@ -654,7 +654,7 @@ void FileUndoManagerTest::testPasteClipboardUndo()
 
     // Paste the contents of the clipboard and check its status
     QUrl destDirUrl = QUrl::fromLocalFile(destDir());
-    KIO::Job *job = KIO::paste(mimeData, destDirUrl);
+    KIO::Job *job = KIO::paste(mimeData, destDirUrl, KIO::HideProgressInfo);
     QVERIFY(job);
     QVERIFY(job->exec());
 
@@ -687,7 +687,7 @@ void FileUndoManagerTest::testBatchRename()
     createTestFile(srcList.at(1).path(), "foo");
     createTestFile(srcList.at(2).path(), "foo");
 
-    KIO::Job *job = KIO::batchRename(srcList, QLatin1String("newfile###"), 1, QLatin1Char('#'));
+    KIO::Job *job = KIO::batchRename(srcList, QLatin1String("newfile###"), 1, QLatin1Char('#'), KIO::HideProgressInfo);
     job->setUiDelegate(nullptr);
     FileUndoManager::self()->recordJob(FileUndoManager::BatchRename, srcList, QUrl(), job);
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
