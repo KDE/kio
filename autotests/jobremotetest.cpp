@@ -36,7 +36,7 @@ static QUrl remoteTmpUrl()
 {
     QString customDir(qgetenv("KIO_JOBREMOTETEST_REMOTETMP"));
     if (customDir.isEmpty()) {
-        return QUrl::fromLocalFile(QStandardPaths::writableLocation(QStandardPaths::DataLocation) + '/');
+        return QUrl::fromLocalFile(QStandardPaths::writableLocation(QStandardPaths::AppDataLocation) + '/');
     } else {
         // Could be a path or a URL
         return QUrl::fromUserInput(customDir + '/');

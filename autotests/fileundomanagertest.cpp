@@ -50,7 +50,7 @@ using namespace KIO;
 
 static QString homeTmpDir()
 {
-    return QStandardPaths::writableLocation(QStandardPaths::DataLocation) + QDir::separator();
+    return QStandardPaths::writableLocation(QStandardPaths::AppDataLocation) + QDir::separator();
 }
 static QString destDir()
 {

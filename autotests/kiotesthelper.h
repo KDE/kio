@@ -25,7 +25,7 @@
 
 QString homeTmpDir()
 {
-    const QString dir(QStandardPaths::writableLocation(QStandardPaths::DataLocation) + QStringLiteral("/kiotests/"));
+    const QString dir(QStandardPaths::writableLocation(QStandardPaths::AppDataLocation) + QStringLiteral("/kiotests/"));
     if (!QFile::exists(dir)) {
         const bool ok = QDir().mkpath(dir);
         if (!ok) {
