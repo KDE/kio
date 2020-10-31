@@ -82,6 +82,7 @@ set(kiocore_SRCS
   jobtracker.cpp
   jobuidelegateextension.cpp
   jobuidelegatefactory.cpp
+  askuseractioninterface.cpp
   kmountpoint.cpp
   kcoredirlister.cpp
   faviconscache.cpp
@@ -245,6 +246,7 @@ ecm_generate_headers(KIOCore_CamelCase_HEADERS
   UDSEntry
   JobUiDelegateExtension
   JobUiDelegateFactory
+  AskUserActionInterface
   SlaveInterface
   Slave
   FileCopyJob

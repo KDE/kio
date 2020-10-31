@@ -15,6 +15,7 @@
 #include "widgetsuntrustedprogramhandler.h"
 #include "widgetsopenwithhandler.h"
 #include "widgetsopenorexecutefilehandler.h"
+#include "widgetsaskuseractionhandler.h"
 
 #include <KConfigGroup>
 #include <KJob>
@@ -44,18 +45,25 @@ namespace KIO {
 KIOGUI_EXPORT void setDefaultUntrustedProgramHandler(KIO::UntrustedProgramHandlerInterface *iface);
 KIOGUI_EXPORT void setDefaultOpenWithHandler(KIO::OpenWithHandlerInterface *iface);
 KIOGUI_EXPORT void setDefaultOpenOrExecuteFileHandler(KIO::OpenOrExecuteFileInterface *iface);
+
+KIOCORE_EXPORT void setDefaultAskUserActionInterface(KIO::AskUserActionInterface *iface);
 }
 
 KIO::JobUiDelegate::JobUiDelegate()
     : d(new Private())
 {
-    // KF6 TODO: remove, inherit from WidgetsUntrustedProgramHandler instead
+    // KF6 TODO: remove, inherit from these handlers instead
     static WidgetsUntrustedProgramHandler s_handler;
     KIO::setDefaultUntrustedProgramHandler(&s_handler);
+
     static WidgetsOpenWithHandler s_openUrlHandler;
     KIO::setDefaultOpenWithHandler(&s_openUrlHandler);
+
     static WidgetsOpenOrExecuteFileHandler s_openOrExecuteFileHandler;
     KIO::setDefaultOpenOrExecuteFileHandler(&s_openOrExecuteFileHandler);
+
+    static WidgetsAskUserActionHandler s_askUserActionHandler;
+    KIO::setDefaultAskUserActionInterface(&s_askUserActionHandler);
 }
 
 KIO::JobUiDelegate::~JobUiDelegate()

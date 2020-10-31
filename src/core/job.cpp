@@ -17,8 +17,17 @@
 #include <KStringHandler>
 
 #include <kio/jobuidelegateextension.h>
+#include <kio/askuseractioninterface.h>
 #include "slave.h"
 #include "scheduler.h"
+
+// KF6 TODO: Remove
+static KIO::AskUserActionInterface *s_askUserActionInterface = nullptr;
+namespace KIO {
+// Hidden API because in KF6 we'll just check if the job's uiDelegate implements AskUserActionInterface.
+KIOCORE_EXPORT void setDefaultAskUserActionInterface(KIO::AskUserActionInterface *iface) { s_askUserActionInterface = iface; }
+KIO::AskUserActionInterface *defaultAskUserActionInterface() { return s_askUserActionInterface; }
+}
 
 using namespace KIO;
 

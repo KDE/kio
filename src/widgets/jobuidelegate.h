@@ -13,6 +13,7 @@
 
 #include <KDialogJobUiDelegate>
 #include <kio/jobuidelegateextension.h>
+#include <kio/askuseractioninterface.h>
 #include <kio/skipdialog.h>
 #include <kio/renamedialog.h>
 #include <kio/global.h>

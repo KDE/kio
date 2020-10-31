@@ -57,6 +57,7 @@ set(kiowidgets_SRCS
   widgetsuntrustedprogramhandler.cpp
   widgetsopenwithhandler.cpp
   widgetsopenorexecutefilehandler.cpp
+  widgetsaskuseractionhandler.cpp
 )
 if (NOT WIN32)
   list(APPEND kiowidgets_SRCS
