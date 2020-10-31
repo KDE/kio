@@ -134,6 +134,7 @@ public:
         , m_totalSize(0)
         , m_processedSize(0)
         , m_fileProcessedSize(0)
+        , m_filesHandledByDirectRename(0)
         , m_processedFiles(0)
         , m_processedDirs(0)
         , m_srcList(src)
@@ -179,6 +180,7 @@ public:
     KIO::filesize_t m_totalSize;
     KIO::filesize_t m_processedSize;
     KIO::filesize_t m_fileProcessedSize;
+    int m_filesHandledByDirectRename;
     int m_processedFiles;
     int m_processedDirs;
     QList<CopyInfo> files;
@@ -606,9 +608,6 @@ void CopyJobPrivate::slotReport()
     // If showProgressInfo was set, progressId() is > 0.
     switch (state) {
     case STATE_RENAMING:
-        q->setTotalAmount(KJob::Files, m_srcList.count());
-    // fall-through intended
-        Q_FALLTHROUGH();
     case STATE_COPYING_FILES:
         q->setProcessedAmount(KJob::Files, m_processedFiles);
         q->setProcessedAmount(KJob::Bytes, m_processedSize + m_fileProcessedSize);
@@ -648,7 +647,7 @@ void CopyJobPrivate::slotReport()
             }
         }
         q->setTotalAmount(KJob::Bytes, m_totalSize);
-        q->setTotalAmount(KJob::Files, files.count());
+        q->setTotalAmount(KJob::Files, files.count() + m_filesHandledByDirectRename);
         q->setTotalAmount(KJob::Directories, dirs.count());
         break;
 
@@ -971,6 +970,9 @@ void CopyJobPrivate::startRenameJob(const QUrl &slave_url)
     }
     m_currentDestURL = dest;
     qCDebug(KIO_COPYJOB_DEBUG) << m_currentSrcURL << "->" << dest << "trying direct rename first";
+    if (state != STATE_RENAMING) {
+        q->setTotalAmount(KJob::Files, m_srcList.count());
+    }
     state = STATE_RENAMING;
 
     struct CopyInfo info;
@@ -1966,6 +1968,7 @@ void CopyJobPrivate::slotResultRenaming(KJob *job)
             bool isDir = (err == ERR_DIR_ALREADY_EXIST); // ## technically, isDir means "source is dir", not "dest is dir" #######
             if ((isDir && m_bAutoSkipDirs) || (!isDir && m_bAutoSkipFiles)) {
                 // Move on to next source url
+                ++m_filesHandledByDirectRename;
                 skipSrc(isDir);
                 return;
             } else if ((isDir && m_bOverwriteAllDirs) || (!isDir && m_bOverwriteAllFiles)) {
@@ -2085,6 +2088,7 @@ void CopyJobPrivate::slotResultRenaming(KJob *job)
                     Q_FALLTHROUGH();
                 case Result_Skip:
                     // Move on to next url
+                    ++m_filesHandledByDirectRename;
                     skipSrc(isDir);
                     return;
                 case Result_OverwriteAll:
@@ -2130,6 +2134,7 @@ void CopyJobPrivate::slotResultRenaming(KJob *job)
     } else {
         qCDebug(KIO_COPYJOB_DEBUG) << "Renaming succeeded, move on";
         ++m_processedFiles;
+        ++m_filesHandledByDirectRename;
         // Emit copyingDone for FileUndoManager to remember what we did.
         // Use resolved URL m_currentSrcURL since that's what we just used for renaming. See bug 391606 and kio_desktop's testTrashAndUndo().
         emit q->copyingDone(q, m_currentSrcURL, finalDestUrl(m_currentSrcURL, dest), QDateTime() /*mtime unknown, and not needed*/, m_bCurrentSrcIsDir, true);
