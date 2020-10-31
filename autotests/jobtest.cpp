@@ -2016,7 +2016,7 @@ void JobTest::copyFileDestAlreadyExists() // to test skipping when copying
 
     QCOMPARE(job->totalAmount(KJob::Files), 2); // file1, file2
     QCOMPARE(job->totalAmount(KJob::Directories), 0);
-    QCOMPARE(job->processedAmount(KJob::Files), 2);
+    QCOMPARE(job->processedAmount(KJob::Files), 1);
     QCOMPARE(job->processedAmount(KJob::Directories), 0);
     QCOMPARE(job->percent(), 100);
 }
@@ -2150,17 +2150,17 @@ void JobTest::moveDestAlreadyExistsAutoRename(const QString &destDir, bool moveD
         if (moveDirs) {
             QCOMPARE(job->totalAmount(KJob::Directories), 2);
             QCOMPARE(job->totalAmount(KJob::Files), 4); // innerfiles
-            // ### TODO QCOMPARE(job->processedAmount(KJob::Directories), 2);
-            // ### TODO QCOMPARE(job->processedAmount(KJob::Files), 4);
+            QCOMPARE(job->processedAmount(KJob::Directories), 2);
+            QCOMPARE(job->processedAmount(KJob::Files), 4);
         } else {
             QCOMPARE(job->totalAmount(KJob::Files), 2);
             QCOMPARE(job->totalAmount(KJob::Directories), 0);
-            // ### TODO QCOMPARE(job->processedAmount(KJob::Files), 2);
-            // ### TODO QCOMPARE(job->processedAmount(KJob::Directories), 0);
+            QCOMPARE(job->processedAmount(KJob::Files), 2);
+            QCOMPARE(job->processedAmount(KJob::Directories), 0);
         }
     }
 
-    // ### TODO QCOMPARE(job->percent(), 100);
+    QCOMPARE(job->percent(), 100);
 }
 
 void JobTest::copyDirectoryAlreadyExistsSkip()
@@ -2197,7 +2197,7 @@ void JobTest::copyDirectoryAlreadyExistsSkip()
     QCOMPARE(job->totalAmount(KJob::Directories), 1);
     QCOMPARE(job->processedAmount(KJob::Files), 0);
     QCOMPARE(job->processedAmount(KJob::Directories), 1);
-    QCOMPARE(job->percent(), 0); // ### TODO: this seems wrong
+    QCOMPARE(job->percent(), 0);
 }
 
 void JobTest::copyFileAlreadyExistsRename()

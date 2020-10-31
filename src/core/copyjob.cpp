@@ -608,6 +608,9 @@ void CopyJobPrivate::slotReport()
     // If showProgressInfo was set, progressId() is > 0.
     switch (state) {
     case STATE_RENAMING:
+        q->setProcessedAmount(KJob::Files, m_processedFiles);
+        break;
+
     case STATE_COPYING_FILES:
         q->setProcessedAmount(KJob::Files, m_processedFiles);
         q->setProcessedAmount(KJob::Bytes, m_processedSize + m_fileProcessedSize);
@@ -646,6 +649,7 @@ void CopyJobPrivate::slotReport()
                 emitCopying(q, m_currentSrcURL, m_currentDestURL);
             }
         }
+        q->setProgressUnit(KJob::Bytes);
         q->setTotalAmount(KJob::Bytes, m_totalSize);
         q->setTotalAmount(KJob::Files, files.count() + m_filesHandledByDirectRename);
         q->setTotalAmount(KJob::Directories, dirs.count());
@@ -921,7 +925,6 @@ void CopyJobPrivate::statCurrentSrc()
     } else {
         // Finished the stat'ing phase
         // First make sure that the totals were correctly emitted
-        state = STATE_STATING;
         m_bURLDirty = true;
         slotReport();
 
@@ -971,6 +974,7 @@ void CopyJobPrivate::startRenameJob(const QUrl &slave_url)
     m_currentDestURL = dest;
     qCDebug(KIO_COPYJOB_DEBUG) << m_currentSrcURL << "->" << dest << "trying direct rename first";
     if (state != STATE_RENAMING) {
+        q->setProgressUnit(KJob::Files);
         q->setTotalAmount(KJob::Files, m_srcList.count());
     }
     state = STATE_RENAMING;
@@ -1133,6 +1137,7 @@ void CopyJobPrivate::slotResultCreatingDirs(KJob *job)
                 if (shouldOverwriteDir(destDir)) {     // overwrite => just skip
                     emit q->copyingDone(q, (*it).uSource, finalDestUrl((*it).uSource, (*it).uDest), (*it).mtime, true /* directory */, false /* renamed */);
                     dirs.erase(it);   // Move on to next dir
+                    ++m_processedDirs;
                 } else {
                     if (m_bAutoRenameDirs) {
                         const QUrl destDirectory = (*it).uDest.adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash);
@@ -1171,10 +1176,9 @@ void CopyJobPrivate::slotResultCreatingDirs(KJob *job)
         emit q->copyingDone(q, (*it).uSource, finalDestUrl((*it).uSource, (*it).uDest), (*it).mtime, true, false);
         m_directoriesCopied.push_back(*it);
         dirs.erase(it);
+        ++m_processedDirs;
     }
 
-    m_processedDirs++;
-    //emit processedAmount( this, KJob::Directories, m_processedDirs );
     q->removeSubjob(job);
     Q_ASSERT(!q->hasSubjobs());   // We should have only one job at a time ...
     createNextDir();
@@ -1252,27 +1256,26 @@ void CopyJobPrivate::slotResultConflictCreatingDirs(KJob *job)
         skip((*it).uSource, true);
         // Move on to next dir
         dirs.erase(it);
-        m_processedDirs++;
+        ++m_processedDirs;
         break;
     case Result_Overwrite:
         m_overwriteList.insert(existingDest);
         emit q->copyingDone(q, (*it).uSource, finalDestUrl((*it).uSource, (*it).uDest), (*it).mtime, true /* directory */, false /* renamed */);
         // Move on to next dir
         dirs.erase(it);
-        m_processedDirs++;
+        ++m_processedDirs;
         break;
     case Result_OverwriteAll:
         m_bOverwriteAllDirs = true;
         emit q->copyingDone(q, (*it).uSource, finalDestUrl((*it).uSource, (*it).uDest), (*it).mtime, true /* directory */, false /* renamed */);
         // Move on to next dir
         dirs.erase(it);
-        m_processedDirs++;
+        ++m_processedDirs;
         break;
     default:
         Q_ASSERT(0);
     }
     state = STATE_CREATING_DIRS;
-    //emit processedAmount( this, KJob::Directories, m_processedDirs );
     createNextDir();
 }
 
@@ -1322,7 +1325,7 @@ void CopyJobPrivate::createNextDir()
         }
 
         state = STATE_COPYING_FILES;
-        m_processedFiles++; // Ralf wants it to start at 1, not 0
+        ++m_processedFiles; // Ralf wants it to start at 1, not 0
         copyNextFile();
     }
 }
@@ -1379,6 +1382,7 @@ void CopyJobPrivate::slotResultCopyingFiles(KJob *job)
                     // Very special case, see a few lines below
                     // We are deleting the source of a symlink we successfully moved... ignore error
                     m_fileProcessedSize = (*it).size;
+                    ++m_processedFiles;
                     files.erase(it);
                 } else {
                     if (!q->uiDelegateExtension()) {
@@ -1427,8 +1431,8 @@ void CopyJobPrivate::slotResultCopyingFiles(KJob *job)
         }
         // remove from list, to move on to next file
         files.erase(it);
+        ++m_processedFiles;
     }
-    m_processedFiles++;
 
     // clear processed size for last file and add it to overall processed size
     m_processedSize += m_fileProcessedSize;
@@ -1556,7 +1560,6 @@ void CopyJobPrivate::slotResultErrorCopyingFiles(KJob *job)
         skip((*it).uSource, false);
         m_processedSize += (*it).size;
         files.erase(it);
-        m_processedFiles++;
         break;
     case Result_OverwriteAll:
         m_bOverwriteAllFiles = true;
@@ -1632,8 +1635,7 @@ KIO::Job *CopyJobPrivate::linkNextFile(const QUrl &uSource, const QUrl &uDest, J
                 }
                 config.sync();
                 files.erase(files.begin());   // done with this one, move on
-                m_processedFiles++;
-                //emit processedAmount( this, KJob::Files, m_processedFiles );
+                ++m_processedFiles;
                 copyNextFile();
                 return nullptr;
             } else {
