@@ -1127,7 +1127,7 @@ void JobTest::moveFileNoPermissions()
     // In this test it's the same partition, so no dest created.
     QVERIFY(!QFile::exists(dest));
 
-    QCOMPARE(job->totalAmount(KJob::Files), 0);
+    QCOMPARE(job->totalAmount(KJob::Files), 1);
     QCOMPARE(job->totalAmount(KJob::Directories), 0);
     QCOMPARE(job->processedAmount(KJob::Files), 0);
     QCOMPARE(job->processedAmount(KJob::Directories), 0);
@@ -1159,7 +1159,7 @@ void JobTest::moveDirectoryNoPermissions()
 
     QVERIFY(!QFile::exists(dest));
 
-    QCOMPARE(job->totalAmount(KJob::Files), 0);
+    QCOMPARE(job->totalAmount(KJob::Files), 1);
     QCOMPARE(job->totalAmount(KJob::Directories), 0);
     QCOMPARE(job->processedAmount(KJob::Files), 0);
     QCOMPARE(job->processedAmount(KJob::Directories), 0);
@@ -1970,7 +1970,7 @@ void JobTest::moveFileDestAlreadyExists() // #157601
     QVERIFY(QFile::exists(file1)); // it was skipped
     QVERIFY(!QFile::exists(file2)); // it was moved
 
-    QCOMPARE(job->totalAmount(KJob::Files), 1); // ### TODO why not 2? file1 and file2
+    QCOMPARE(job->totalAmount(KJob::Files), 2);
     QCOMPARE(job->totalAmount(KJob::Directories), 0);
     QCOMPARE(job->processedAmount(KJob::Files), 1);
     QCOMPARE(job->processedAmount(KJob::Directories), 0);
@@ -2044,7 +2044,7 @@ void JobTest::moveDestAlreadyExistsAutoRename()
     } else {
         dir = otherTmpDir();
     }
-    moveDestAlreadyExistsAutoRename(dir, moveDirs);
+    moveDestAlreadyExistsAutoRename(dir, moveDirs, samePartition);
 
     if (samePartition) {
         // cleanup
@@ -2054,7 +2054,7 @@ void JobTest::moveDestAlreadyExistsAutoRename()
     }
 }
 
-void JobTest::moveDestAlreadyExistsAutoRename(const QString &destDir, bool moveDirs) // #256650
+void JobTest::moveDestAlreadyExistsAutoRename(const QString &destDir, bool moveDirs, bool samePartition) // #256650
 {
     const QString prefix = moveDirs ? QStringLiteral("dir ") : QStringLiteral("file ");
 
@@ -2066,6 +2066,8 @@ void JobTest::moveDestAlreadyExistsAutoRename(const QString &destDir, bool moveD
     for (const QString &source : sources) {
         if (moveDirs) {
             QVERIFY(QDir().mkdir(source));
+            createTestFile(source + "/innerfile");
+            createTestFile(source + "/innerfile2");
         } else {
             createTestFile(source);
         }
@@ -2119,7 +2121,12 @@ void JobTest::moveDestAlreadyExistsAutoRename(const QString &destDir, bool moveD
     // 1->3, 2->3 since renaming 1 to 3 didn't happen yet.
     // so renamed(2, 3) is emitted, as if the user had chosen that.
     // And when that fails, we then get (3, 4)
-    if (spyRenamed.count() == 2) {
+    if (!samePartition) {
+        // Remove all renamed signals about innerfiles
+        spyRenamed.erase(std::remove_if(spyRenamed.begin(), spyRenamed.end(), [](const QList<QVariant> &spy){
+            return spy.at(1).toUrl().path().contains("innerfile");
+        }), spyRenamed.end());
+
         list = spyRenamed.takeFirst();
         QCOMPARE(list.at(1).toUrl(), QUrl::fromLocalFile(destDir + prefix + "(2)"));
         QCOMPARE(list.at(2).toUrl(), QUrl::fromLocalFile(file3));
@@ -2133,6 +2140,27 @@ void JobTest::moveDestAlreadyExistsAutoRename(const QString &destDir, bool moveD
         QCOMPARE(list.at(1).toUrl(), QUrl::fromLocalFile(destDir + prefix + "(2)"));
         QCOMPARE(list.at(2).toUrl(), QUrl::fromLocalFile(file4));
     }
+
+    if (samePartition) {
+        QCOMPARE(job->totalAmount(KJob::Files), 2); // direct-renamed, so counted as files
+        QCOMPARE(job->totalAmount(KJob::Directories), 0);
+        QCOMPARE(job->processedAmount(KJob::Files), 2);
+        QCOMPARE(job->processedAmount(KJob::Directories), 0);
+    } else {
+        if (moveDirs) {
+            QCOMPARE(job->totalAmount(KJob::Directories), 2);
+            QCOMPARE(job->totalAmount(KJob::Files), 4); // innerfiles
+            // ### TODO QCOMPARE(job->processedAmount(KJob::Directories), 2);
+            // ### TODO QCOMPARE(job->processedAmount(KJob::Files), 4);
+        } else {
+            QCOMPARE(job->totalAmount(KJob::Files), 2);
+            QCOMPARE(job->totalAmount(KJob::Directories), 0);
+            // ### TODO QCOMPARE(job->processedAmount(KJob::Files), 2);
+            // ### TODO QCOMPARE(job->processedAmount(KJob::Directories), 0);
+        }
+    }
+
+    // ### TODO QCOMPARE(job->percent(), 100);
 }
 
 void JobTest::copyDirectoryAlreadyExistsSkip()
