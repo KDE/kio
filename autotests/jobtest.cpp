@@ -2026,10 +2026,10 @@ void JobTest::moveDestAlreadyExistsAutoRename_data()
     QTest::addColumn<bool>("samePartition");
     QTest::addColumn<bool>("moveDirs");
 
-    QTest::newRow("files same partition") << true << false;
-    QTest::newRow("files other partition") << false << false;
-    QTest::newRow("dirs same partition") << true << true;
-    QTest::newRow("dirs other partition") << false << true;
+    QTest::newRow("files_same_partition") << true << false;
+    QTest::newRow("files_other_partition") << false << false;
+    QTest::newRow("dirs_same_partition") << true << true;
+    QTest::newRow("dirs_other_partition") << false << true;
 }
 
 void JobTest::moveDestAlreadyExistsAutoRename()
@@ -2070,8 +2070,24 @@ void JobTest::moveDestAlreadyExistsAutoRename(const QString &destDir, bool moveD
             createTestFile(source);
         }
     }
+    const QString file3 = destDir + prefix + "(3)";
+    const QString file4 = destDir + prefix + "(4)";
 
-    QList<QUrl> urls = {QUrl::fromLocalFile(file1), QUrl::fromLocalFile(file2)};
+    ScopedCleaner cleaner([&]() {
+        if (moveDirs) {
+            QDir().rmdir(file1);
+            QDir().rmdir(file2);
+            QDir().rmdir(file3);
+            QDir().rmdir(file4);
+        } else {
+            QFile::remove(file1);
+            QFile::remove(file2);
+            QFile::remove(file3);
+            QFile::remove(file4);
+        }
+    });
+
+    const QList<QUrl> urls = {QUrl::fromLocalFile(file1), QUrl::fromLocalFile(file2)};
     KIO::CopyJob *job = KIO::move(urls, QUrl::fromLocalFile(destDir), KIO::HideProgressInfo);
     job->setUiDelegate(nullptr);
     job->setUiDelegateExtension(nullptr);
@@ -2083,14 +2099,12 @@ void JobTest::moveDestAlreadyExistsAutoRename(const QString &destDir, bool moveD
 
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
 
-    qDebug() << QDir(destDir).entryList();
+    //qDebug() << QDir(destDir).entryList();
     QVERIFY(!QFile::exists(file1)); // it was moved
     QVERIFY(!QFile::exists(file2)); // it was moved
 
     QVERIFY(QFile::exists(existingDest1));
     QVERIFY(QFile::exists(existingDest2));
-    const QString file3 = destDir + prefix + "(3)";
-    const QString file4 = destDir + prefix + "(4)";
     QVERIFY(QFile::exists(file3));
     QVERIFY(QFile::exists(file4));
 
@@ -2118,18 +2132,6 @@ void JobTest::moveDestAlreadyExistsAutoRename(const QString &destDir, bool moveD
         list = spyRenamed.takeFirst();
         QCOMPARE(list.at(1).toUrl(), QUrl::fromLocalFile(destDir + prefix + "(2)"));
         QCOMPARE(list.at(2).toUrl(), QUrl::fromLocalFile(file4));
-    }
-
-    if (moveDirs) {
-        QDir().rmdir(file1);
-        QDir().rmdir(file2);
-        QDir().rmdir(file3);
-        QDir().rmdir(file4);
-    } else {
-        QFile::remove(file1);
-        QFile::remove(file2);
-        QFile::remove(file3);
-        QFile::remove(file4);
     }
 }
 
