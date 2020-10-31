@@ -122,6 +122,15 @@ public:
      */
     QStringList supportedMimeTypes() const;
 
+    /**
+     * Whether on not the dialog should emit `selectExistingDir` when trying to create an exist directory
+     *
+     * default: false
+     *
+     * @since 5.76
+     */
+    void setSelectDirWhenAlreadyExist(bool b);
+
 public Q_SLOTS:
     /**
      * Checks if updating the list is necessary

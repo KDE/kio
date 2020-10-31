@@ -405,6 +405,8 @@ public:
     QTimer* m_delayedSlotTextChangedTimer;
 
     QUrl m_baseUrl;
+
+    bool m_selectDirWhenAlreadyExists = false;
 };
 
 void KNewFileMenuPrivate::initDialog()
@@ -1193,6 +1195,11 @@ void KNewFileMenuPrivate::_k_slotTextChanged(const QString &text)
     m_text = text;
 }
 
+void KNewFileMenu::setSelectDirWhenAlreadyExist(bool shouldSelectExistingDir)
+{
+    d->m_selectDirWhenAlreadyExists = shouldSelectExistingDir;
+}
+
 void KNewFileMenuPrivate::_k_slotStatResult(KJob *job)
 {
     KIO::StatJob* statJob = static_cast<KIO::StatJob*>(job);
@@ -1208,15 +1215,23 @@ void KNewFileMenuPrivate::_k_slotStatResult(KJob *job)
             qWarning() << error << job->errorString();
         }
     } else {
+        bool shouldEnable = false;
+        KMessageWidget::MessageType messageType = KMessageWidget::Error;
+
         const KIO::UDSEntry& entry = statJob->statResult();
         if (entry.isDir()) {
+            if (m_selectDirWhenAlreadyExists && m_creatingDirectory)  {
+                // allow "overwrite" of dir
+                messageType = KMessageWidget::Information;
+                shouldEnable = true;
+            }
             m_messageWidget->setText(xi18nc("@info", "A directory with name <filename>%1</filename> already exists.", m_text));
         } else {
             m_messageWidget->setText(xi18nc("@info", "A file with name <filename>%1</filename> already exists.",  m_text));
         }
-        m_messageWidget->setMessageType(KMessageWidget::Error);
+        m_messageWidget->setMessageType(messageType);
         m_messageWidget->animatedShow();
-        m_buttonBox->button(QDialogButtonBox::Ok)->setEnabled(false);
+        m_buttonBox->button(QDialogButtonBox::Ok)->setEnabled(shouldEnable);
     }
 }
 
@@ -1449,10 +1464,8 @@ void KNewFileMenu::slotResult(KJob *job)
         if (job->error() == KIO::ERR_DIR_ALREADY_EXIST) {
             auto *simpleJob = ::qobject_cast<KIO::SimpleJob *>(job);
             if (simpleJob) {
+                Q_ASSERT(d->m_selectDirWhenAlreadyExists);
                 const QUrl jobUrl = simpleJob->url();
-                KMessageBox::sorry(d->m_parentWidget,
-                                   i18n("A folder named \"%1\" already exists.",
-                                        jobUrl.toDisplayString(QUrl::PreferLocalFile)));
                 // Select the existing dir
                 emit selectExistingDir(jobUrl);
             }

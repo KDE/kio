@@ -1308,6 +1308,11 @@ QStringList KDirOperator::newFileMenuSupportedMimeTypes() const
     return d->newFileMenu->supportedMimeTypes();
 }
 
+void KDirOperator::setNewFileMenuSelectDirWhenAlreadyExist(bool selectOnDirExists)
+{
+    d->newFileMenu->setSelectDirWhenAlreadyExist(selectOnDirExists);
+}
+
 bool KDirOperator::checkPreviewSupport()
 {
     KToggleAction *previewAction = static_cast<KToggleAction *>(d->actionCollection->action(QStringLiteral("preview")));

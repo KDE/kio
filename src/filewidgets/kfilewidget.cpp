@@ -397,6 +397,7 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
     d->ops->installEventFilter(this);
     d->ops->setObjectName(QStringLiteral("KFileWidget::ops"));
     d->ops->setIsSaving(d->operationMode == Saving);
+    d->ops->setNewFileMenuSelectDirWhenAlreadyExist(true);
     opsWidgetLayout->addWidget(d->ops);
     connect(d->ops, SIGNAL(urlEntered(QUrl)),
             SLOT(_k_urlEntered(QUrl)));

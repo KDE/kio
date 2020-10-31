@@ -201,6 +201,13 @@ public:
     QStringList newFileMenuSupportedMimeTypes() const;
 
     /**
+     * Setting this to true will make a directory get selected when trying to create a new one that has the same name.
+     *
+     * @since 5.76
+     */
+    void setNewFileMenuSelectDirWhenAlreadyExist(bool selectOnDirExists);
+
+    /**
      * Clears both the namefilter and mimetype filter, so that all files and
      * directories will be shown. Call updateDir() to apply it.
      *
