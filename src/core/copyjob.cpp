@@ -608,7 +608,10 @@ void CopyJobPrivate::slotReport()
     // If showProgressInfo was set, progressId() is > 0.
     switch (state) {
     case STATE_RENAMING:
+        // "N" files renamed shouldn't include skipped files
         q->setProcessedAmount(KJob::Files, m_processedFiles);
+        // % value should include skipped files
+        q->emitPercent(m_filesHandledByDirectRename, q->totalAmount(KJob::Files));
         break;
 
     case STATE_COPYING_FILES:
@@ -974,7 +977,6 @@ void CopyJobPrivate::startRenameJob(const QUrl &slave_url)
     m_currentDestURL = dest;
     qCDebug(KIO_COPYJOB_DEBUG) << m_currentSrcURL << "->" << dest << "trying direct rename first";
     if (state != STATE_RENAMING) {
-        q->setProgressUnit(KJob::Files);
         q->setTotalAmount(KJob::Files, m_srcList.count());
     }
     state = STATE_RENAMING;

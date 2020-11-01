@@ -144,7 +144,7 @@ private:
     void deleteSymlink(bool using_fast_path);
     void deleteManyDirs(bool using_fast_path);
     void deleteManyFilesTogether(bool using_fast_path);
-    void moveDestAlreadyExistsAutoRename(const QString &destDir, bool moveDirs, bool samePartition);
+    void moveDestAlreadyExistsAutoRename(const QString &destDir, bool moveDirs);
 
     int m_result;
     QByteArray m_data;

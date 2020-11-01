@@ -46,7 +46,8 @@ static QString otherTmpDir()
 #ifdef Q_OS_WIN
     return QDir::tempPath() + "/jobtest/";
 #else
-    // This one needs to be on another partition
+    // This one needs to be on another partition, but we can't guarantee that it is
+    // On CI, it typically isn't...
     return QStringLiteral("/tmp/jobtest/");
 #endif
 }
@@ -2044,7 +2045,7 @@ void JobTest::moveDestAlreadyExistsAutoRename()
     } else {
         dir = otherTmpDir();
     }
-    moveDestAlreadyExistsAutoRename(dir, moveDirs, samePartition);
+    moveDestAlreadyExistsAutoRename(dir, moveDirs);
 
     if (samePartition) {
         // cleanup
@@ -2054,7 +2055,7 @@ void JobTest::moveDestAlreadyExistsAutoRename()
     }
 }
 
-void JobTest::moveDestAlreadyExistsAutoRename(const QString &destDir, bool moveDirs, bool samePartition) // #256650
+void JobTest::moveDestAlreadyExistsAutoRename(const QString &destDir, bool moveDirs) // #256650
 {
     const QString prefix = moveDirs ? QStringLiteral("dir ") : QStringLiteral("file ");
 
@@ -2116,12 +2117,19 @@ void JobTest::moveDestAlreadyExistsAutoRename(const QString &destDir, bool moveD
     QCOMPARE(list.at(1).toUrl(), QUrl::fromLocalFile(destDir + prefix + "(1)"));
     QCOMPARE(list.at(2).toUrl(), QUrl::fromLocalFile(file3));
 
+    bool samePartition = false;
     // Normally we'd see renamed(1, 3) and renamed(2, 4)
     // But across partitions, direct rename fails, and we end up with a task list of
     // 1->3, 2->3 since renaming 1 to 3 didn't happen yet.
     // so renamed(2, 3) is emitted, as if the user had chosen that.
     // And when that fails, we then get (3, 4)
-    if (!samePartition) {
+    if (spyRenamed.count() == 1) {
+        // It was indeed on the same partition
+        samePartition = true;
+        list = spyRenamed.takeFirst();
+        QCOMPARE(list.at(1).toUrl(), QUrl::fromLocalFile(destDir + prefix + "(2)"));
+        QCOMPARE(list.at(2).toUrl(), QUrl::fromLocalFile(file4));
+    } else {
         // Remove all renamed signals about innerfiles
         spyRenamed.erase(std::remove_if(spyRenamed.begin(), spyRenamed.end(), [](const QList<QVariant> &spy){
             return spy.at(1).toUrl().path().contains("innerfile");
@@ -2133,11 +2141,6 @@ void JobTest::moveDestAlreadyExistsAutoRename(const QString &destDir, bool moveD
 
         list = spyRenamed.takeFirst();
         QCOMPARE(list.at(1).toUrl(), QUrl::fromLocalFile(file3));
-        QCOMPARE(list.at(2).toUrl(), QUrl::fromLocalFile(file4));
-    } else {
-        QCOMPARE(spyRenamed.count(), 1);
-        list = spyRenamed.takeFirst();
-        QCOMPARE(list.at(1).toUrl(), QUrl::fromLocalFile(destDir + prefix + "(2)"));
         QCOMPARE(list.at(2).toUrl(), QUrl::fromLocalFile(file4));
     }
 
