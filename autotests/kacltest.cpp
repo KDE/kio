@@ -30,7 +30,7 @@ void KACLTest::initTestCase()
 #if !HAVE_POSIX_ACL
     QSKIP("ACL support not compiled");
 #endif
-    m_acl2.setACL(s_testACL2);
+    QVERIFY(m_acl2.setACL(s_testACL2));
 }
 
 void KACLTest::testAsString()
