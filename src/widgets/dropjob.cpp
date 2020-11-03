@@ -119,9 +119,9 @@ public:
         return true;
     }
     void handleCopyToDirectory();
+    void slotDropActionDetermined(int error);
     void handleDropToDesktopFile();
     void handleDropToExecutable();
-    int determineDropAction();
     void fillPopupMenu(KIO::DropMenu *popup);
     void addPluginActions(KIO::DropMenu *popup, const KFileItemListProperties &itemProps);
     void doCopyToDirectory();
@@ -241,73 +241,6 @@ void DropJobPrivate::slotStart()
         QObject::connect(job, &KIO::PasteJob::itemCreated, q, &KIO::DropJob::itemCreated);
         q->addSubjob(job);
     }
-}
-
-// Input: m_dropAction as set by Qt at the time of the drop event
-// Output: m_dropAction possibly modified
-// Returns a KIO error code, in case of error.
-int DropJobPrivate::determineDropAction()
-{
-    Q_Q(DropJob);
-
-    if (!KProtocolManager::supportsWriting(m_destUrl)) {
-        return KIO::ERR_CANNOT_WRITE;
-    }
-
-    if (!m_destItem.isNull() && !m_destItem.isWritable() && (m_flags & KIO::NoPrivilegeExecution)) {
-            return KIO::ERR_WRITE_ACCESS_DENIED;
-    }
-
-    bool allItemsAreFromTrash = true;
-    bool containsTrashRoot = false;
-    for (const QUrl &url : m_urls) {
-        const bool local = url.isLocalFile();
-        if (!local /*optimization*/ && url.scheme() == QLatin1String("trash")) {
-            if (url.path().isEmpty() || url.path() == QLatin1String("/")) {
-                containsTrashRoot = true;
-            }
-        } else {
-            allItemsAreFromTrash = false;
-        }
-        if (url.matches(m_destUrl, QUrl::StripTrailingSlash)) {
-            return KIO::ERR_DROP_ON_ITSELF;
-        }
-    }
-
-    const bool trashing = m_destUrl.scheme() == QLatin1String("trash");
-    if (trashing) {
-        if (allItemsAreFromTrash) {
-            qCDebug(KIO_WIDGETS) << "Dropping items from trash to trash";
-            return KIO::ERR_DROP_ON_ITSELF;
-        }
-        m_dropAction = Qt::MoveAction;
-        if (!q->uiDelegateExtension()->askDeleteConfirmation(m_urls, KIO::JobUiDelegate::Trash, KIO::JobUiDelegate::DefaultConfirmation)) {
-            return KIO::ERR_USER_CANCELED;
-        }
-        return KJob::NoError; // ok
-    }
-    const bool implicitCopy = m_destUrl.scheme() == QLatin1String("stash");
-    if (implicitCopy) {
-        m_dropAction = Qt::CopyAction;
-        return KJob::NoError; // ok
-    }
-    if (containsTrashRoot) {
-        // Dropping a link to the trash: don't move the full contents, just make a link (#319660)
-        m_dropAction = Qt::LinkAction;
-        return KJob::NoError; // ok
-    }
-    if (allItemsAreFromTrash) {
-        // No point in asking copy/move/link when using dragging from the trash, just move the file out.
-        m_dropAction = Qt::MoveAction;
-        return KJob::NoError; // ok
-    }
-    if (m_keyboardModifiers & (Qt::ControlModifier | Qt::ShiftModifier | Qt::AltModifier)) {
-        // Qt determined m_dropAction from the modifiers already
-        return KJob::NoError; // ok
-    }
-
-    // We need to ask the user with a popup menu. Let the caller know.
-    return KIO::ERR_UNKNOWN;
 }
 
 void DropJobPrivate::fillPopupMenu(KIO::DropMenu *popup)
@@ -450,34 +383,124 @@ void DropJobPrivate::handleCopyToDirectory()
 {
     Q_Q(DropJob);
 
-    if (int error = determineDropAction()) {
-        if (error == KIO::ERR_UNKNOWN) {
-            auto window = KJobWidgets::window(q);
-            KIO::DropMenu *menu = new KIO::DropMenu(window);
-            QObject::connect(menu, &QMenu::aboutToHide, menu, &QObject::deleteLater);
+    // Process m_dropAction as set by Qt at the time of the drop event
+    if (!KProtocolManager::supportsWriting(m_destUrl)) {
+        slotDropActionDetermined(KIO::ERR_CANNOT_WRITE);
+        return;
+    }
 
-            // If the user clicks outside the menu, it will be destroyed without emitting the triggered signal.
-            QObject::connect(menu, &QMenu::aboutToHide, q, [this]() { slotAboutToHide(); });
+    if (!m_destItem.isNull() && !m_destItem.isWritable() && (m_flags & KIO::NoPrivilegeExecution)) {
+        slotDropActionDetermined(KIO::ERR_WRITE_ACCESS_DENIED);
+        return;
+    }
 
-            fillPopupMenu(menu);
-            QObject::connect(menu, &QMenu::triggered, q, [this](QAction* action) {
-                m_triggered = true;
-                slotTriggered(action);
-            });
-
-            if (!(m_dropjobFlags & KIO::ShowMenuManually)) {
-                menu->popup(window ? window->mapToGlobal(m_relativePos) : QCursor::pos());
+    bool allItemsAreFromTrash = true;
+    bool containsTrashRoot = false;
+    for (const QUrl &url : m_urls) {
+        const bool local = url.isLocalFile();
+        if (!local /*optimization*/ && url.scheme() == QLatin1String("trash")) {
+            if (url.path().isEmpty() || url.path() == QLatin1String("/")) {
+                containsTrashRoot = true;
             }
-            m_menus.insert(menu);
-            QObject::connect(menu, &QObject::destroyed, q, [this, menu]() {
-                m_menus.remove(menu);
-            });
         } else {
-            q->setError(error);
-            q->emitResult();
+            allItemsAreFromTrash = false;
         }
-    } else {
+        if (url.matches(m_destUrl, QUrl::StripTrailingSlash)) {
+            slotDropActionDetermined(KIO::ERR_DROP_ON_ITSELF);
+            return;
+        }
+    }
+
+    const bool trashing = m_destUrl.scheme() == QLatin1String("trash");
+    if (trashing) {
+        if (allItemsAreFromTrash) {
+            qCDebug(KIO_WIDGETS) << "Dropping items from trash to trash";
+            slotDropActionDetermined(KIO::ERR_DROP_ON_ITSELF);
+            return;
+        }
+        m_dropAction = Qt::MoveAction;
+
+        auto *askUserInterface = KIO::delegateExtension<AskUserActionInterface *>(q);
+
+        // No UI Delegate set for this job, or a delegate that doesn't implement
+        // AskUserActionInterface, then just proceed with the job without asking.
+        // This is useful for non-interactive usage, (which doesn't actually apply
+        // here as a DropJob is always interactive), but this is useful for unittests,
+        // which are typically non-interactive.
+        if (!askUserInterface) {
+            slotDropActionDetermined(KJob::NoError);
+            return;
+        }
+
+        QObject::connect(askUserInterface, &KIO::AskUserActionInterface::askUserDeleteResult,
+                         q, [this](bool allowDelete) {
+            if (allowDelete) {
+                slotDropActionDetermined(KJob::NoError);
+            } else {
+                slotDropActionDetermined(KIO::ERR_USER_CANCELED);
+            }
+        });
+
+        askUserInterface->askUserDelete(m_urls, KIO::AskUserActionInterface::Trash,
+                                        KIO::AskUserActionInterface::DefaultConfirmation,
+                                        KJobWidgets::window(q));
+        return;
+    }
+
+    // If we can't determine the action below, we use ERR::UNKNOWN as we need to ask
+    // the user via a popup menu.
+    int err = KIO::ERR_UNKNOWN;
+    const bool implicitCopy = m_destUrl.scheme() == QLatin1String("stash");
+    if (implicitCopy) {
+        m_dropAction = Qt::CopyAction;
+        err = KJob::NoError; // Ok
+    } else if (containsTrashRoot) {
+        // Dropping a link to the trash: don't move the full contents, just make a link (#319660)
+        m_dropAction = Qt::LinkAction;
+        err = KJob::NoError; // Ok
+    } else if (allItemsAreFromTrash) {
+        // No point in asking copy/move/link when using dragging from the trash, just move the file out.
+        m_dropAction = Qt::MoveAction;
+        err = KJob::NoError; // Ok
+    } else if (m_keyboardModifiers & (Qt::ControlModifier | Qt::ShiftModifier | Qt::AltModifier)) {
+        // Qt determined m_dropAction from the modifiers already
+        err = KJob::NoError; // Ok
+    }
+    slotDropActionDetermined(err);
+}
+
+void DropJobPrivate::slotDropActionDetermined(int error)
+{
+    Q_Q(DropJob);
+
+    if (error == KJob::NoError) {
         doCopyToDirectory();
+        return;
+    }
+
+    // There was an error, handle it
+    if (error == KIO::ERR_UNKNOWN) {
+        auto *window = KJobWidgets::window(q);
+        KIO::DropMenu *menu = new KIO::DropMenu(window);
+        QObject::connect(menu, &QMenu::aboutToHide, menu, &QObject::deleteLater);
+
+        // If the user clicks outside the menu, it will be destroyed without emitting the triggered signal.
+        QObject::connect(menu, &QMenu::aboutToHide, q, [this]() { slotAboutToHide(); });
+
+        fillPopupMenu(menu);
+        QObject::connect(menu, &QMenu::triggered, q, [this](QAction* action) {
+            m_triggered = true;
+            slotTriggered(action);
+        });
+
+        if (!(m_dropjobFlags & KIO::ShowMenuManually)) {
+            menu->popup(window ? window->mapToGlobal(m_relativePos) : QCursor::pos());
+        }
+        m_menus.insert(menu);
+        QObject::connect(menu, &QObject::destroyed, q, [this, menu]() { m_menus.remove(menu); });
+    } else {
+        q->setError(error);
+        q->emitResult();
     }
 }
 

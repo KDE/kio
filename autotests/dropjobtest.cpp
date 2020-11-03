@@ -22,6 +22,8 @@
 #include <KConfigGroup>
 #include <KDesktopFile>
 #include <KFileItemListProperties>
+#include <KJobUiDelegate>
+#include "mockcoredelegateextensions.h"
 
 Q_DECLARE_METATYPE(Qt::KeyboardModifiers)
 Q_DECLARE_METATYPE(Qt::DropAction)
@@ -255,18 +257,18 @@ private Q_SLOTS:
         m_mimeData.setUrls(QList<QUrl>{QUrl::fromLocalFile(srcFile)});
         QDropEvent dropEvent(QPoint(10, 10), dropAction, &m_mimeData, Qt::LeftButton, modifiers);
         KIO::DropJob *job = KIO::drop(&dropEvent, QUrl(QStringLiteral("trash:/")), KIO::HideProgressInfo);
-        job->setUiDelegate(nullptr);
         QSignalSpy copyJobSpy(job, &KIO::DropJob::copyJobStarted);
         QSignalSpy itemCreatedSpy(job, &KIO::DropJob::itemCreated);
 
         // Then a confirmation dialog should appear
-        PredefinedAnswerJobUiDelegate extension;
-        extension.m_deleteResult = true;
-        job->setUiDelegateExtension(&extension);
+        auto *uiDelegate = new KJobUiDelegate;
+        job->setUiDelegate(uiDelegate);
+        auto *askUserHandler = new MockAskUserInterface(uiDelegate);
+        askUserHandler->m_deleteResult = true;
 
-        // and the file should be moved to the trash, no matter what the modifiers are
+        // And the file should be moved to the trash, no matter what the modifiers are
         QVERIFY2(job->exec(), qPrintable(job->errorString()));
-        QCOMPARE(extension.m_askDeleteCalled, 1);
+        QCOMPARE(askUserHandler->m_askUserDeleteCalled, 1);
         QCOMPARE(copyJobSpy.count(), 1);
         QCOMPARE(itemCreatedSpy.count(), 1);
         const QUrl trashUrl = itemCreatedSpy.at(0).at(0).value<QUrl>();
