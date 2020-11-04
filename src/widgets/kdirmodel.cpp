@@ -737,13 +737,13 @@ void KDirModelPrivate::_k_slotClear()
     const int numRows = m_rootNode->m_childNodes.count();
     if (numRows > 0) {
         q->beginRemoveRows(QModelIndex(), 0, numRows - 1);
+        m_nodeHash.clear();
+        clear();
         q->endRemoveRows();
+    } else {
+        m_nodeHash.clear();
+        clear();
     }
-
-    m_nodeHash.clear();
-    //emit layoutAboutToBeChanged();
-    clear();
-    //emit layoutChanged();
 }
 
 void KDirModelPrivate::_k_slotJobUrlsChanged(const QStringList &urlList)
@@ -981,6 +981,9 @@ bool KDirModel::setData(const QModelIndex &index, const QVariant &value, int rol
 
 int KDirModel::rowCount(const QModelIndex &parent) const
 {
+    if (parent.column() > 0) { // for QAbstractItemModelTester
+        return 0;
+    }
     KDirModelNode *node = d->nodeForIndex(parent);
     if (!node || !d->isDir(node)) { // #176555
         return 0;
