@@ -79,8 +79,8 @@ ecm_qt_declare_logging_category(kiowidgets_SRCS
 
 ecm_qt_export_logging_category(
     IDENTIFIER category
-    CATEGORY_NAME kf.idletime
-    OLD_CATEGORY_NAMES kf.kio.widgets.kdirmodel
+    CATEGORY_NAME kf.kio.widgets.kdirmodel
+    OLD_CATEGORY_NAMES kf5.kio.kdirmodel
     DESCRIPTION "KDirModel (KIO)"
     EXPORT KIO
 )
