@@ -84,7 +84,7 @@ Name[ug]=LEO تەرجىمە
 Name[uk]=LEO-Translate
 Name[uz]=LEO tarjima
 Name[uz@cyrillic]=LEO таржима
-Name[vi]=Dịch bằng LEO
+Name[vi]=LEO-Dịch
 Name[wa]=LEO-Translate
 Name[xh]=LEO-Guqulela
 Name[x-test]=xxLEO-Translatexx
@@ -125,6 +125,7 @@ Query[sl]=https://dict.leo.org/?search=\\{@}
 Query[sv]=https://dict.leo.org/?search=\\{@}
 Query[tg]=https://dict.leo.org/?search=\\{@}
 Query[uk]=https://dict.leo.org/?search=\\{@}
+Query[vi]=https://dict.leo.org/?search=\\{@}
 Query[x-test]=xxhttps://dict.leo.org/?search=\\{@}xx
 Query[zh_CN]=https://dict.leo.org/?search=\\{@}
 Query[zh_TW]=https://dict.leo.org/?search=\\{@}

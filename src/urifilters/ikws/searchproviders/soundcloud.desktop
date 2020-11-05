@@ -38,6 +38,7 @@ Name[sv]=Soundcloud
 Name[tg]=Абри садо
 Name[tr]=Soundcloud
 Name[uk]=Soundcloud
+Name[vi]=Soundcloud
 Name[x-test]=xxSoundcloudxx
 Name[zh_CN]=Soundcloud
 Name[zh_TW]=Soundcloud
@@ -81,6 +82,7 @@ Query[sv]=https://soundcloud.com/search?q=\\{@}
 Query[tg]=https://soundcloud.com/search?q=\\{@}
 Query[tr]=https://soundcloud.com/search?q=\\{@}
 Query[uk]=https://soundcloud.com/search?q=\\{@}
+Query[vi]=https://soundcloud.com/search?q=\\{@}
 Query[x-test]=xxhttps://soundcloud.com/search?q=\\{@}xx
 Query[zh_CN]=https://soundcloud.com/search?q=\\{@}
 Query[zh_TW]=https://soundcloud.com/search?q=\\{@}

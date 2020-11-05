@@ -26,6 +26,7 @@ Name[sl]=KDE Bugs
 Name[sv]=KDE Bugs
 Name[tg]=Хатоҳои KDE
 Name[uk]=Вади KDE
+Name[vi]=Lỗi KDE
 Name[x-test]=xxKDE Bugsxx
 Name[zh_CN]=KDE Bugs
 Query=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
@@ -79,6 +80,7 @@ Query[tg]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[tr]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[ug]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[uk]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
+Query[vi]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[wa]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[x-test]=xxhttps://bugs.kde.org/buglist.cgi?quicksearch=\\{@}xx
 Query[zh_CN]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}

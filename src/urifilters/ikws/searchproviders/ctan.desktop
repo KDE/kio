@@ -84,7 +84,7 @@ Name[ug]=CTAN - كەڭ دائىرىلىك TeX ئارخىپ تورى
 Name[uk]=CTAN — всеосяжна мережа архівів TeX
 Name[uz]=CTAN - TeX boʻyicha mukammal arxiv tarmogʻi
 Name[uz@cyrillic]=CTAN - TeX бўйича мукаммал архив тармоғи
-Name[vi]=CTAN - Mạng kho lưu TeX đầy đủ
+Name[vi]=CTAN - Mạng kho trữ TeX tổng hợp (Comprehensive TeX Archive Network)
 Name[wa]=CPAN - Rantoele d' Årtchives TeX avou ttafwait
 Name[xh]=CTAN - Enomxholo TeX Indawo yokugcina Yomsebenzi womnatha
 Name[x-test]=xxCTAN - Comprehensive TeX Archive Networkxx
@@ -123,6 +123,7 @@ Query[sl]=https://ctan.org/search?phrase=\\{@}
 Query[sv]=https://ctan.org/search?phrase=\\{@}
 Query[tg]=https://ctan.org/search?phrase=\\{@}
 Query[uk]=https://ctan.org/search?phrase=\\{@}
+Query[vi]=https://ctan.org/search?phrase=\\{@}
 Query[x-test]=xxhttps://ctan.org/search?phrase=\\{@}xx
 Query[zh_CN]=https://ctan.org/search?phrase=\\{@}
 Query[zh_TW]=https://ctan.org/search?phrase=\\{@}

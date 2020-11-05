@@ -41,6 +41,7 @@ Name[sv]=Qwant-shopping
 Name[tg]=Дукони онлайни Qwant
 Name[tr]=Qwant Alışveriş
 Name[uk]=Торгівля Qwant
+Name[vi]=Qwant Mua sắm
 Name[x-test]=xxQwant Shoppingxx
 Name[zh_CN]=Qwant 购物
 Name[zh_TW]=Qwant Shopping
@@ -69,6 +70,7 @@ Query[sl]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[sv]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[tg]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[uk]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
+Query[vi]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[x-test]=xxhttps://www.qwant.com/?q=\\{@}&client=kde&t=shoppingxx
 Query[zh_CN]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 X-KDE-ServiceTypes=SearchProvider

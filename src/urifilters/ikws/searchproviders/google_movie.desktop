@@ -85,7 +85,7 @@ Name[ug]=Google كىنولار
 Name[uk]=Фільми на Google
 Name[uz]=Google - Kino
 Name[uz@cyrillic]=Google - Кино
-Name[vi]=Tìm phim ảnh qua Google
+Name[vi]=Google Điện ảnh
 Name[wa]=Google Movies
 Name[x-test]=xxGoogle Moviesxx
 Name[zh_CN]=Google 电影
@@ -124,6 +124,7 @@ Query[sl]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[sv]=https://www.google.se/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[tg]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[uk]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
+Query[vi]=https://www.google.com.vn/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[x-test]=xxhttps://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8xx
 Query[zh_CN]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[zh_TW]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8

@@ -85,7 +85,7 @@ Name[ug]=CiteSeer: پەن-تېخنىكا ئەسەرلىرى رەقەملىك ك�
 Name[uk]=CiteSeer: цифрова бібліотека наукової літератури
 Name[uz]=CiteSeer: Aniq fanlar uchun elektron kutubxona
 Name[uz@cyrillic]=CiteSeer: Аниқ фанлар учун электрон кутубхона
-Name[vi]=CiteSeer:Thư viện khoa học và văn học số hoá
+Name[vi]=CiteSeer: Thư viện số tài liệu khoa học
 Name[wa]=Cite Seer: Livreye limerike di scrijhaedjes syintifikes
 Name[x-test]=xxCiteSeer: Scientific Literature Digital Libraryxx
 Name[zh_CN]=CiteSeer：科学文献数字图书馆
@@ -123,6 +123,7 @@ Query[sl]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=d
 Query[sv]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[tg]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[uk]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
+Query[vi]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[x-test]=xxhttps://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=docxx
 Query[zh_CN]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[zh_TW]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc

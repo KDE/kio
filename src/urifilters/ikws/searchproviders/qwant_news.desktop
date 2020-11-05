@@ -41,6 +41,7 @@ Name[sv]=Qwant-nyheter
 Name[tg]=Ахбори Qwant
 Name[tr]=Qwant Haberleri
 Name[uk]=Новини Qwant
+Name[vi]=Qwant Tin tức
 Name[x-test]=xxQwant Newsxx
 Name[zh_CN]=Qwant 新闻
 Name[zh_TW]=Qwant News
@@ -69,6 +70,7 @@ Query[sl]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[sv]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[tg]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[uk]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
+Query[vi]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[x-test]=xxhttps://www.qwant.com/?q=\\{@}&client=kde&t=newsxx
 Query[zh_CN]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 X-KDE-ServiceTypes=SearchProvider

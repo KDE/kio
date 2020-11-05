@@ -85,7 +85,7 @@ Name[ug]=WordReference.com تەرجىمە: ئىنگلىزچىدىن ئىسپان
 Name[uk]=WordReference.com — переклад з англійської іспанською
 Name[uz]=WordReference.com tarjima: Inglizchadan Ispanchaga
 Name[uz@cyrillic]=WordReference.com таржима: Инглизчадан Испанчага
-Name[vi]=WordReference.com Dịch: tiếng Anh sang tiếng Tây Ban Nha
+Name[vi]=WordReference.com Dịch: Tiếng Anh sang tiếng Tây Ban Nha
 Name[wa]=WordReference.com ratournaedje di l' inglès viè l' espagnol
 Name[x-test]=xxWordReference.com Translation: English to Spanishxx
 Name[zh_CN]=WordReference.com 翻译：英语译西班牙语
@@ -122,6 +122,7 @@ Query[sl]=https://www.wordreference.com/es/translation.asp?tranword=\\{@}
 Query[sv]=https://www.wordreference.com/es/translation.asp?tranword=\\{@}
 Query[tg]=https://www.wordreference.com/es/translation.asp?tranword=\\{@}
 Query[uk]=https://www.wordreference.com/es/translation.asp?tranword=\\{@}
+Query[vi]=https://www.wordreference.com/es/translation.asp?tranword=\\{@}
 Query[x-test]=xxhttps://www.wordreference.com/es/translation.asp?tranword=\\{@}xx
 Query[zh_CN]=https://www.wordreference.com/es/translation.asp?tranword=\\{@}
 Query[zh_TW]=https://www.wordreference.com/es/translation.asp?tranword=\\{@}

@@ -65,7 +65,7 @@ Name[th]=ข้อมูลของ Duck Duck Go
 Name[tr]=Duck Duck Go Bilgileri
 Name[ug]=Duck Duck Go ئۇچۇرى
 Name[uk]=Duck Duck Go Info
-Name[vi]=Duck Duck Go Thông Tin
+Name[vi]=Duck Duck Go Thông tin
 Name[wa]=Duck Duck Go Info
 Name[x-test]=xxDuck Duck Go Infoxx
 Name[zh_CN]=Duck Duck Go 信息
@@ -121,6 +121,7 @@ Query[tg]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[tr]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[ug]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[uk]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
+Query[vi]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[wa]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[x-test]=xxhttps://duckduckgo.com/?q=\\{@}&v=r&t=kdexx
 Query[zh_CN]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde

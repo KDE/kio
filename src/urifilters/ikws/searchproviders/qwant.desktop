@@ -43,6 +43,7 @@ Name[sv]=Qwant
 Name[tg]=Qwant
 Name[tr]=Qwant
 Name[uk]=Qwant
+Name[vi]=Qwant
 Name[x-test]=xxQwantxx
 Name[zh_CN]=Qwant
 Name[zh_TW]=Qwant
@@ -72,6 +73,7 @@ Query[sl]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[sv]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[tg]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[uk]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
+Query[vi]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[x-test]=xxhttps://www.qwant.com/?q=\\{@}&client=kde&t=webxx
 Query[zh_CN]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 X-KDE-ServiceTypes=SearchProvider

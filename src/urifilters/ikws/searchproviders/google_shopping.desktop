@@ -50,6 +50,7 @@ Name[tg]=Дукони онлайни Google
 Name[tr]=Google Mağaza
 Name[ug]=گۇگىل دۇكىنى
 Name[uk]=Google Shopping
+Name[vi]=Google Mua sắm
 Name[wa]=Botike Google
 Name[x-test]=xxGoogle Shoppingxx
 Name[zh_CN]= Yahoo 购物
@@ -107,6 +108,7 @@ Query[tg]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[tr]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[ug]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[uk]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
+Query[vi]=https://www.google.com.vn/search?hl=vi&tbm=shop&q=\\{@}
 Query[wa]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[x-test]=xxhttps://www.google.com/search?hl=en&tbm=shop&q=\\{@}xx
 Query[zh_CN]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}

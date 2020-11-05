@@ -41,6 +41,7 @@ Name[sv]=Qwant-bilder
 Name[tg]=Тасвирҳои Qwant
 Name[tr]=Qwant Resimleri
 Name[uk]=Зображення Qwant
+Name[vi]=Qwant Ảnh
 Name[x-test]=xxQwant Imagesxx
 Name[zh_CN]=Qwant 图像
 Name[zh_TW]=Qwant Images
@@ -69,6 +70,7 @@ Query[sl]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[sv]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[tg]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[uk]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
+Query[vi]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[x-test]=xxhttps://www.qwant.com/?q=\\{@}&client=kde&t=imagesxx
 Query[zh_CN]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 X-KDE-ServiceTypes=SearchProvider

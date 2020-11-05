@@ -105,6 +105,7 @@ Query[sl]=https://www.flickr.com/search/?q=\\{@}
 Query[sv]=https://www.flickr.com/search/?q=\\{@}
 Query[tg]=https://www.flickr.com/search/?q=\\{@}
 Query[uk]=https://www.flickr.com/search/?q=\\{@}
+Query[vi]=https://www.flickr.com/search/?q=\\{@}
 Query[x-test]=xxhttps://www.flickr.com/search/?q=\\{@}xx
 Query[zh_CN]=https://www.flickr.com/search/?q=\\{@}
 Query[zh_TW]=https://www.flickr.com/search/?q=\\{@}

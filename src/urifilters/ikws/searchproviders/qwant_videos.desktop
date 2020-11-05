@@ -42,6 +42,7 @@ Name[sv]=Qwant-videor
 Name[tg]=Видеоҳои Qwant
 Name[tr]=Qwant Videoları
 Name[uk]=Відео Qwant
+Name[vi]=Qwant Phim
 Name[x-test]=xxQwant Videosxx
 Name[zh_CN]=Qwant 视频
 Name[zh_TW]=Qwant Videos
@@ -70,6 +71,7 @@ Query[sl]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[sv]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[tg]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[uk]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
+Query[vi]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[x-test]=xxhttps://www.qwant.com/?q=\\{@}&client=kde&t=videosxx
 Query[zh_CN]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 X-KDE-ServiceTypes=SearchProvider

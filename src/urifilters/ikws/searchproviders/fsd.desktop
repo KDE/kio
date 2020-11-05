@@ -82,7 +82,7 @@ Name[th]=FSF/UNESCO - ไดเรกทอรีซอฟต์แวร์เ�
 Name[tr]=FSF/UNESCO Ücretsiz Yazılım Dizini
 Name[ug]=FSF/UNESCO ھەقسىز يۇمشاق دېتاللار مۇندەرىجىسى
 Name[uk]=Словник з вільного програмного забезпечення FSF/UNESCO
-Name[vi]=Thư mục Phần mềm Tự do FSF/UNESCO
+Name[vi]=Thư mục phần mềm tự do FSF/UNESCO
 Name[wa]=Indecse des libes programes FSF/UNESCO
 Name[x-test]=xxFSF/UNESCO Free Software Directoryxx
 Name[zh_CN]=FSF/UNESCO 自由软件目录
@@ -122,6 +122,7 @@ Query[sl]=https://directory.fsf.org/search/?query=\\{@}
 Query[sv]=https://directory.fsf.org/search/?query=\\{@}
 Query[tg]=https://directory.fsf.org/search/?query=\\{@}
 Query[uk]=https://directory.fsf.org/search/?query=\\{@}
+Query[vi]=https://directory.fsf.org/search/?query=\\{@}
 Query[x-test]=xxhttps://directory.fsf.org/search/?query=\\{@}xx
 Query[zh_CN]=https://directory.fsf.org/search/?query=\\{@}
 Query[zh_TW]=https://directory.fsf.org/search/?query=\\{@}

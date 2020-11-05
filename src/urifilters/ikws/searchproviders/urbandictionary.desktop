@@ -66,7 +66,7 @@ Name[th]=พจนานุกรม Urban
 Name[tr]=Urban Dictionary
 Name[ug]=Urban لۇغىتى
 Name[uk]=Urban Dictionary
-Name[vi]=Urban Dictionary
+Name[vi]=Từ điển Thành thị
 Name[wa]=Urban Dictionary
 Name[x-test]=xxUrban Dictionaryxx
 Name[zh_CN]=都市词典
@@ -103,6 +103,7 @@ Query[sl]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[sv]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[tg]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[uk]=https://www.urbandictionary.com/define.php?term=\\{@}
+Query[vi]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[x-test]=xxhttps://www.urbandictionary.com/define.php?term=\\{@}xx
 Query[zh_CN]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[zh_TW]=https://www.urbandictionary.com/define.php?term=\\{@}

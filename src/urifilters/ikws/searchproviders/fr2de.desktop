@@ -82,7 +82,7 @@ Name[ug]=LEO - فىرانسۇزچە گېرمانچە ئارىسىدا تەرجى
 Name[uk]=LEO — переклад з французької німецькою
 Name[uz]=LEO - Fransuzchadan Olmonchaga tarjima
 Name[uz@cyrillic]=LEO - Французчадан Олмончага таржима
-Name[vi]=LEO - Dịch tiếng Pháp sang tiếng Đức
+Name[vi]=LEO - Dịch giữa tiếng Pháp và tiếng Đức
 Name[wa]=LEO - Ratoûne inte li francès eyet l' almand
 Name[x-test]=xxLEO - Translate Between French and Germanxx
 Name[zh_CN]=LEO - 在法语和德语之间互译
@@ -122,6 +122,7 @@ Query[sl]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[sv]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[tg]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[uk]=https://dict.leo.org/?lp=frde&search=\\{@}
+Query[vi]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[x-test]=xxhttps://dict.leo.org/?lp=frde&search=\\{@}xx
 Query[zh_CN]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[zh_TW]=https://dict.leo.org/?lp=frde&search=\\{@}

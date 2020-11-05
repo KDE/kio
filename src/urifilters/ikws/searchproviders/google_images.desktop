@@ -86,7 +86,7 @@ Name[ug]=Google سۈرەت ئىزدە
 Name[uk]=Пошук зображень на Google
 Name[uz]=Google - Rasm qidirish
 Name[uz@cyrillic]=Google - Расм қидириш
-Name[vi]=Tìm kiếm Hình ảnh Google
+Name[vi]=Google Tìm kiếm Hình ảnh
 Name[wa]=Cweraedje d' imådjes avou Google
 Name[xh]=Uphendlo Lomfanekiso we Google
 Name[x-test]=xxGoogle Image Searchxx
@@ -145,6 +145,7 @@ Query[tg]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[tr]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[ug]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[uk]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
+Query[vi]=https://www.google.com.vn/search?site=imghp&tbm=isch&q=\\{@}
 Query[wa]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[x-test]=xxhttps://www.google.com/search?site=imghp&tbm=isch&q=\\{@}xx
 Query[zh_CN]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}

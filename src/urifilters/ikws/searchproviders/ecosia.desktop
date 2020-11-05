@@ -64,7 +64,7 @@ Name[th]=บริการค้นหา Ecosia
 Name[tr]=Ecosia arama motoru
 Name[ug]=Ecosia ئىزدەش ماتورى
 Name[uk]=Рушій пошуку Ecosia
-Name[vi]=Bộ máy tìm kiếm Ecosia
+Name[vi]=Dụng cụ tìm kiếm Ecosia
 Name[wa]=Ricwerrece Ecosia
 Name[x-test]=xxEcosia search enginexx
 Name[zh_CN]=Ecosia 搜索引擎
@@ -104,6 +104,7 @@ Query[sl]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[sv]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[tg]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[uk]=https://ecosia.org/search.php?q=\\{@}&meta=normal
+Query[vi]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[x-test]=xxhttps://ecosia.org/search.php?q=\\{@}&meta=normalxx
 Query[zh_CN]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[zh_TW]=https://ecosia.org/search.php?q=\\{@}&meta=normal

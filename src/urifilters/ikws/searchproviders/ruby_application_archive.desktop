@@ -85,7 +85,7 @@ Name[ug]=Ruby پروگرامما ئارخىپى
 Name[uk]=Архів програм мовою Ruby
 Name[uz]=Ruby dastur arxivi
 Name[uz@cyrillic]=Ruby дастур архиви
-Name[vi]=Kho lưu trữ ứng dụng Ruby
+Name[vi]=Kho trữ ứng dụng Ruby
 Name[wa]=Årtchives di programes Ruby
 Name[xh]=Indawo ye Ruby yokugcina Isicelo
 Name[x-test]=xxRuby Application Archivexx
@@ -125,6 +125,7 @@ Query[sl]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[sv]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[tg]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[uk]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
+Query[vi]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[x-test]=xxhttps://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}xx
 Query[zh_CN]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[zh_TW]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}

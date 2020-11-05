@@ -86,7 +86,7 @@ Name[ug]=Netcraft
 Name[uk]=Netcraft
 Name[uz]=Netcraft
 Name[uz@cyrillic]=Netcraft
-Name[vi]=Tra Netcraft
+Name[vi]=Netcraft
 Name[wa]=Netcraft
 Name[x-test]=xxNetcraftxx
 Name[zh_CN]=Netcraft
@@ -126,6 +126,7 @@ Query[sl]=https://uptime.netcraft.com/up/graph?site=\\{@}
 Query[sv]=https://uptime.netcraft.com/up/graph?site=\\{@}
 Query[tg]=https://uptime.netcraft.com/up/graph?site=\\{@}
 Query[uk]=https://uptime.netcraft.com/up/graph?site=\\{@}
+Query[vi]=https://uptime.netcraft.com/up/graph?site=\\{@}
 Query[x-test]=xxhttps://uptime.netcraft.com/up/graph?site=\\{@}xx
 Query[zh_CN]=https://uptime.netcraft.com/up/graph?site=\\{@}
 Query[zh_TW]=https://uptime.netcraft.com/up/graph?site=\\{@}

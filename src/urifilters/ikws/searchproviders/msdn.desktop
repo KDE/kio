@@ -84,7 +84,7 @@ Name[ug]=مىكروسوفت ئىجادكارلار تورىدىن ئىزدە
 Name[uk]=Пошук в Microsoft Developer Network
 Name[uz]=Microsoft Developer Network'da qidirish
 Name[uz@cyrillic]=Microsoft Developer Network'да қидириш
-Name[vi]=Tìm kiếm qua Mạng Nhà phát triển Microsoft
+Name[vi]=Tìm kiếm Mạng Nhà phát triển Microsoft
 Name[wa]=Cweraedje del rantoele des programeus Microsoft
 Name[xh]=Uphendlo Womsebenzi womnatha Wombhekisi phambili we Microsoft
 Name[x-test]=xxMicrosoft Developer Network Searchxx
@@ -143,6 +143,7 @@ Query[tg]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
 Query[tr]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
 Query[ug]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
 Query[uk]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
+Query[vi]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
 Query[wa]=https://social.msdn.microsoft.com/Search/fr-BE?query=\\{@}
 Query[x-test]=xxhttps://social.msdn.microsoft.com/Search/en-US?query=\\{@}xx
 Query[zh_CN]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}

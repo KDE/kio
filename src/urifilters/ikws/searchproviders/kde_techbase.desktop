@@ -65,7 +65,7 @@ Name[th]=KDE TechBase
 Name[tr]=KDE TechBase
 Name[ug]=KDE TechBase
 Name[uk]=TechBase KDE
-Name[vi]=KDE TechBase
+Name[vi]=Cơ sở Kĩ thuật KDE
 Name[wa]=KDE TechBase (Tecnike)
 Name[x-test]=xxKDE TechBasexx
 Name[zh_CN]=KDE 技术信息库
@@ -101,6 +101,7 @@ Query[sl]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[sv]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[tg]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[uk]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
+Query[vi]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[x-test]=xxhttps://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Searchxx
 Query[zh_CN]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[zh_TW]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search

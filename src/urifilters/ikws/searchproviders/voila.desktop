@@ -87,7 +87,7 @@ Name[ug]=Voila
 Name[uk]=Voila
 Name[uz]=Voila
 Name[uz@cyrillic]=Voila
-Name[vi]=Tra Voilà
+Name[vi]=Voila
 Name[wa]=Voilà
 Name[xh]=Voila
 Name[x-test]=xxVoilaxx
@@ -124,6 +124,7 @@ Query[sl]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
 Query[sv]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
 Query[tg]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
 Query[uk]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
+Query[vi]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
 Query[x-test]=xxhttps://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*xx
 Query[zh_CN]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
 Query[zh_TW]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*

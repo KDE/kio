@@ -84,7 +84,7 @@ Name[ug]=CPAN - كەڭ دائىرىلىك Perl ئارخىپ تورى
 Name[uk]=CPAN — всеосяжна мережа архівів Perl
 Name[uz]=CPAN - Perl boʻyicha mukammal arxiv tarmogʻi
 Name[uz@cyrillic]=CPAN - Perl бўйича мукаммал архив тармоғи
-Name[vi]=CPAN - Mạng kho lưu Perl đầy đủ
+Name[vi]=CPAN - Mạng kho trữ Perl tổng hợp (Comprehensive Perl Archive Network)
 Name[wa]=CPAN - Rantoele d' Årtchives Perl avou ttafwait
 Name[xh]=CPAN - Enomxholo Perl Indawo yokugcina Yomsebenzi womnatha
 Name[x-test]=xxCPAN - Comprehensive Perl Archive Networkxx
@@ -123,6 +123,7 @@ Query[sl]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[sv]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[tg]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[uk]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
+Query[vi]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[x-test]=xxhttps://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}xx
 Query[zh_CN]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[zh_TW]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}

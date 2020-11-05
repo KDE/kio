@@ -85,7 +85,7 @@ Name[ug]=WordReference.com تەرجىمە: فىرانسۇزچىغا ئىنگلى
 Name[uk]=WordReference.com — переклад з французької англійською
 Name[uz]=WordReference.com tarjima: Fransuzchadan Inglizchaga
 Name[uz@cyrillic]=WordReference.com таржима: Французчадан Инглизчага
-Name[vi]=WordReference.com Dịch: tiếng Pháp sang tiếng Anh
+Name[vi]=WordReference.com Dịch: Tiếng Pháp sang tiếng Anh
 Name[wa]=WordReference.com ratournaedje do francès viè l' inglès
 Name[x-test]=xxWordReference.com Translation: French to Englishxx
 Name[zh_CN]=WordReference.com 翻译：法语译英语
@@ -122,6 +122,7 @@ Query[sl]=https://www.wordreference.com/fr/en/translation.asp?fren=\\{@}
 Query[sv]=https://www.wordreference.com/fr/en/translation.asp?fren=\\{@}
 Query[tg]=https://www.wordreference.com/fr/en/translation.asp?fren=\\{@}
 Query[uk]=https://www.wordreference.com/fr/en/translation.asp?fren=\\{@}
+Query[vi]=https://www.wordreference.com/fr/en/translation.asp?fren=\\{@}
 Query[x-test]=xxhttps://www.wordreference.com/fr/en/translation.asp?fren=\\{@}xx
 Query[zh_CN]=https://www.wordreference.com/fr/en/translation.asp?fren=\\{@}
 Query[zh_TW]=https://www.wordreference.com/fr/en/translation.asp?fren=\\{@}

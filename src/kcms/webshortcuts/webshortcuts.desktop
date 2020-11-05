@@ -33,6 +33,7 @@ Name[sl]=Ključne besede iskanja po spletu
 Name[sv]=Webbsökningsnyckelord
 Name[tg]=Калидвожаҳои ҷустуҷӯии интернетӣ
 Name[uk]=Ключові слова пошуку в інтернеті
+Name[vi]=Từ khoá tìm kiếm web
 Name[x-test]=xxWeb Search Keywordsxx
 
 Comment=Configure web search keywords
@@ -58,6 +59,7 @@ Comment[sl]=Nastavi ključne besede iskanja po spletu
 Comment[sv]=Anpassa webbsökningsnyckelord
 Comment[tg]=Танзимоти калидвожаҳои ҷустуҷӯии интернетӣ
 Comment[uk]=Налаштування ключових слів пошуку в інтернеті
+Comment[vi]=Cấu hình từ khoá tìm kiếm web
 Comment[x-test]=xxConfigure web search keywordsxx
 
 X-KDE-Keywords=Web Search Keywords,Web Search,Search,Keyword,Web Shortcuts,Browsing,WWW,Internet,Internet Filters,Network,Search Engines,Shortcuts
@@ -83,6 +85,7 @@ X-KDE-Keywords[sl]=Ključne besede iskanja po spletu,Iskanje po spletu,Iskanje,K
 X-KDE-Keywords[sv]=Webbsökningsnyckelord,Webbsökning,Nyckelord,Webbgenvägar,Bläddring,WWW,Internet,Internetfilter,Nätverk,Söktjänster,Genvägar
 X-KDE-Keywords[tg]=Калидвожаҳои ҷустуҷӯии интернетӣ,Ҷустуҷӯи интернетӣ,Ҷустуҷӯ,Калидвожа,Миёнбурҳои интернетӣ,Тамошои интернетӣ,WWW,Интернет,полои интернетӣ,Шабака,Низомҳои ҷустуҷӯӣ,Миёнбурҳо
 X-KDE-Keywords[uk]=Web Search Keywords,Web Search,Search,Keyword,Web Shortcuts,Browsing,WWW,Internet,Internet Filters,Network,Search Engines,Shortcuts,ключові,слова,вебпошук,пошук,слово,додатково,додатковий,інтернет,фільтри,фільтрування,фільтр,мережа,рушій,пошук,рушії пошуку,скорочення,вебскорочення
+X-KDE-Keywords[vi]=Web Search Keywords,Web Search,Search,Keyword,Web Shortcuts,Browsing,WWW,Internet,Internet Filters,Network,Search Engines,Shortcuts,Từ khoá tìm kiếm web,Tìm kiếm web,Tìm kiếm,Từ khoá,Lối tắt web,Duyệt,WWW,Liên Mạng,Bộ lọc Liên Mạng,Mạng,Dụng cụ tìm kiếm,Lối tắt
 X-KDE-Keywords[x-test]=xxWeb Search Keywordsxx,xxWeb Searchxx,xxSearchxx,xxKeywordxx,xxWeb Shortcutsxx,xxBrowsingxx,xxWWWxx,xxInternetxx,xxInternet Filtersxx,xxNetworkxx,xxSearch Enginesxx,xxShortcutsxx
 
 Categories=Qt;KDE;X-KDE-settings-webbrowsing;
