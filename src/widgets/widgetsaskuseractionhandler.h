@@ -8,6 +8,7 @@
 #ifndef WIDGETSASKUSERACTIONHANDLER_H
 #define WIDGETSASKUSERACTIONHANDLER_H
 
+#include "kiowidgets_export.h"
 #include <kio/jobuidelegateextension.h>
 #include <kio/askuseractioninterface.h>
 #include <kio/skipdialog.h>
@@ -30,7 +31,7 @@ namespace KIO {
 
 class WidgetsAskUserActionHandlerPrivate;
 
-class WidgetsAskUserActionHandler : public AskUserActionInterface
+class KIOWIDGETS_EXPORT WidgetsAskUserActionHandler : public AskUserActionInterface
 {
 public:
     WidgetsAskUserActionHandler();
@@ -38,8 +39,6 @@ public:
     ~WidgetsAskUserActionHandler() override;
 
     /**
-     * \relates KIO::RenameDialog
-     *
      * @copydoc KIO::AskUserActionInterface::askUserRename()
      */
     void askUserRename(KJob *job,
@@ -60,6 +59,29 @@ public:
     void askUserSkip(KJob *job,
                      KIO::SkipDialog_Options options,
                      const QString &error_text) override;
+
+    /**
+     * @copydoc KIO::AskUserActionInterface::askUserDelete()
+     */
+    void askUserDelete(const QList<QUrl> &urls,
+                       DeletionType deletionType,
+                       ConfirmationType confirmationType,
+                       QWidget *parent = nullptr) override;
+
+    /**
+     * @copydoc KIO::AskUserActionInterface::requestUserMessageBox()
+     */
+    void requestUserMessageBox(MessageDialogType type,
+                               const QString &text,
+                               const QString &caption,
+                               const QString &buttonYes,
+                               const QString &buttonNo,
+                               const QString &iconYes = QString(),
+                               const QString &iconNo = QString(),
+                               const QString &dontAskAgainName = QString(),
+                               const QString &details = QString(),
+                               const KIO::MetaData &metaData = KIO::MetaData(),
+                               QWidget *parent = nullptr) override;
 
 private:
     std::unique_ptr<WidgetsAskUserActionHandlerPrivate> d;
