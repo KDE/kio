@@ -28,6 +28,7 @@ Name[vi]=DeepL
 Name[x-test]=xxDeepLxx
 Name[zh_CN]=DeepL
 Query=https://www.deepl.com/translator#any/any/\\{@}
+Query[ast]=https://www.deepl.com/translator#any/any/\\{@}
 Query[az]=https://www.deepl.com/translator#any/any/\\{@}
 Query[ca]=https://www.deepl.com/translator#any/any/\\{@}
 Query[cs]=https://www.deepl.com/translator#any/any/\\{@}

@@ -47,6 +47,7 @@ Name[x-test]=xxQwant Videosxx
 Name[zh_CN]=Qwant 视频
 Name[zh_TW]=Qwant Videos
 Query=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
+Query[ast]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[az]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[ca]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[cs]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos

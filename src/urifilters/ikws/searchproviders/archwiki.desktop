@@ -1,6 +1,7 @@
 [Desktop Entry]
 Keys=archwiki,arch
 Name=ArchWiki
+Name[ast]=ArchWiki
 Name[az]=ArchWiki
 Name[ca]=ArchWiki
 Name[cs]=ArchWiki
@@ -31,6 +32,7 @@ Name[vi]=ArchWiki
 Name[x-test]=xxArchWikixx
 Name[zh_CN]=ArchWiki
 Query=https://wiki.archlinux.org/index.php?search=\\{@}
+Query[ast]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[az]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[ca]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[cs]=https://wiki.archlinux.org/index.php?search=\\{@}
