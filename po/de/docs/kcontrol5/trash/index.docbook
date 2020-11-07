@@ -1,0 +1,98 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % German "INCLUDE">
+]>
+<article id="trash" lang="&language;">
+<title
+>Papierkorb</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Burkhard.Lueck;</author>
+<othercredit role="translator"
+><firstname
+>Burkhard</firstname
+><surname
+>Lück</surname
+><affiliation
+><address
+><email
+>lueck@hube-lueck.de</email
+></address
+></affiliation
+><contrib
+>Übersetzung</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>2018-05-31</date>
+<releaseinfo
+>Frameworks 5.48</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Systemeinstellungen</keyword>
+<keyword
+>Papierkorb</keyword>
+</keywordset>
+</articleinfo>
+
+<para
+>In diesem Modul können die Einstellungen für den Papierkorb festgelegt werden. </para>
+
+<variablelist>
+<varlistentry
+><term
+><guilabel
+>Aufräumen</guilabel
+></term>
+<listitem
+><para
+>Aktivieren Sie diese Einstellung, um das automatische Löschen von Dateien zu erlauben, die älter als der angegebene Wert sind. Wenn die Einstellung deaktiviert ist, werden <emphasis
+>keine</emphasis
+> Dateien automatisch nach einer bestimmten Zeit aus dem Papierkorb gelöscht. Legen Sie die Anzahl der Tage fest, die Dateien im Papierkorb verbleiben können, bevor sie automatisch gelöscht werden. </para
+></listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>Größe</guilabel
+></term>
+<listitem
+><para
+>Aktivieren Sie diese Einstellung, um die Größe des Papierkorbs auf den eingestellten Maximalwert einzustellen. Wenn Sie diese Einstellung nicht vornehmen, wird der Platz im Papierkorb nicht begrenzt. </para
+></listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>Begrenzen auf</guilabel
+></term>
+<listitem
+><para
+>Dies ist die maximale Größe in Prozent von der Festplattenkapazität, die der Papierkorb annehmen kann. Der daraus errechnete maximale Speicherplatz, der für den Papierkorb zur Verfügung steht, wird rechts neben dem Drehfeld angezeigt. </para
+></listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>Papierkorb voll</guilabel
+></term>
+<listitem
+><para
+>Wenn die Größenbeschränkung erreicht wird, wird die hier ausgewählte Aktion ausgeführt, entweder die ältesten oder die größten Dateien werden gelöscht oder es wird eine Warnung ausgegeben. </para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+</article>

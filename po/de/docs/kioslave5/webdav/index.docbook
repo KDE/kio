@@ -1,0 +1,97 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % German "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="webdav">
+<title
+>webdav / webdavs</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Hamish.Rodda; &Hamish.Rodda.mail;</author>
+<othercredit role="translator"
+><firstname
+>Marco</firstname
+><surname
+>Wegner</surname
+><affiliation
+><address
+><email
+>mail@marcowegner.de</email
+></address
+></affiliation
+><contrib
+>Übersetzer</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>2002-01-21</date>
+</articleinfo>
+<para
+><acronym
+>WebDAV</acronym
+> ist ein <quote
+><emphasis
+>D</emphasis
+>istributed <emphasis
+>A</emphasis
+>uthoring and <emphasis
+>V</emphasis
+>ersioning</quote
+>-Protokoll für das Internet. Mit Hilfe dieses Protokolls kann man Dokumente und Skripte auf einem <ulink url="help:/kioslave/webdav.html"
+>&HTTP;</ulink
+>-Server verwalten. Es bietet einige zusätzliche Funktionen, um die Koordinierung von verschiedenen Versionen zwischen mehreren Autoren zu vereinfachen.</para>
+
+<para
+>Die Verwendung des Protokolls ist einfach. Geben Sie die Adresse ein, die Sie betrachten möchten, ähnlich einer &HTTP;-Adresse, außer das Sie für den Protokollnamen webdav:// einsetzen. Ein Beispiel ist <userinput
+>webdav://<replaceable
+>www.Rechnername.de/Pfad/</replaceable
+></userinput
+>. Wenn Sie einen Ordnernamen eingeben, werden alle Dateien und Unterordner angezeigt und Sie können mit diesen so arbeiten, als befänden sie sich auf Ihrer lokalen Festplatte.</para>
+
+<variablelist>
+<title
+>Funktionen von WebDAV</title>
+<varlistentry>
+<term
+>Sperren</term>
+<listitem>
+<para
+>Es ist möglich, eine Datei zu sperren und damit andere davon in Kenntnis zu setzen, dass man gerade an dieser Datei arbeitet. Auf diese Weise kann man eine Datei verändern, ohne befürchten zu müssen, dass diese Änderungen von einer anderen Person, die gleichzeitig an diesem Dokument arbeitet, überschrieben werden.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+>Zugriff auf Quelltexte</term>
+<listitem>
+<para
+>Mit <acronym
+>WebDAV</acronym
+> kann man auf Skripte zugreifen, die eine bestimmte Internetseite erzeugen. Damit kann man die Skripte selbst verändern.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+>Unterstützung für Dokumenteneigenschaften</term>
+<listitem>
+<para
+>Einem Dokument können verschiedene Eigenschaften wie &eg; der Autor zugeordnet werden.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>Um diese zusätzlichen Funktionen zu nutzen, benötigen Sie eine Anwendung, die diese unterstützt. Bisher gibt es keine Anwendung, die diese Funktionen über dieses Ein-/Ausgabemodul unterstützt.</para>
+
+<para
+>WebDAVS verschlüsselt das <acronym
+>WebDAV</acronym
+>-Protokoll mit Hilfe von SSL.</para>
+
+</article>
