@@ -232,8 +232,8 @@ static QSortFilterProxyModel *wrapInProxyModel(QAbstractItemModel *model)
     return proxyModel;
 }
 
-FilterOptions::FilterOptions(const KAboutData *about, QWidget *parent)
-    : KCModule(about, parent)
+FilterOptions::FilterOptions(QWidget *parent)
+    : KCModule(parent)
     , m_providersModel(new ProvidersModel(this))
 {
     m_dlg.setupUi(this);

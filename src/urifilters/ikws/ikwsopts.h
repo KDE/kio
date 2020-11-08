@@ -25,7 +25,7 @@ class FilterOptions : public KCModule
     Q_OBJECT
 
 public:
-    explicit FilterOptions(const KAboutData *about, QWidget *parent = nullptr);
+    explicit FilterOptions(QWidget *parent = nullptr);
 
     void load() override;
     void save() override;

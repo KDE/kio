@@ -14,7 +14,6 @@
 
 #include <KPluginFactory>
 #include <KLocalizedString>
-#include <KAboutData>
 
 #include <QDBusConnection>
 #include <QLoggingCategory>
@@ -73,7 +72,7 @@ bool KUriSearchFilter::filterUri(KUriFilterData &data) const
 
 KCModule *KUriSearchFilter::configModule(QWidget *parent, const char *) const
 {
-    return new FilterOptions(KAboutData::pluginData(QStringLiteral("kcmkurifilt")), parent);
+    return new FilterOptions(parent);
 }
 
 QString KUriSearchFilter::configName() const
