@@ -96,6 +96,7 @@ X-KDE-ServiceTypes=SearchProvider
 Keys=ggg,groups,dj,deja
 Query=https://groups.google.com/groups?oi=djq&as_q=\\{@}
 Query[ar]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
+Query[ast]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
 Query[az]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
 Query[bg]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
 Query[bs]=https://groups.google.com/groups?oi=djq&as_q=\\{@}

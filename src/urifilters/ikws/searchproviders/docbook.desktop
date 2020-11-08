@@ -93,6 +93,7 @@ Name[x-test]=xxDocBook - The Definitive Guidexx
 Name[zh_CN]=DocBook - 权威指南
 Name[zh_TW]=DocBook - 終極指南
 Query=https://www.docbook.org/tdg/en/html/\\{1}.html
+Query[ast]=https://www.docbook.org/tdg/en/html/\\{1}.html
 Query[az]=https://www.docbook.org/tdg/en/html/\\{1}.html
 Query[ca]=https://www.docbook.org/tdg/en/html/\\{1}.html
 Query[ca@valencia]=https://www.docbook.org/tdg/en/html/\\{1}.html

@@ -59,6 +59,7 @@ X-KDE-ServiceTypes=SearchProvider
 Keys=ggs,ggshopping
 Query=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[ar]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
+Query[ast]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[az]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[bg]=https://www.google.com/search?hl=bg&tbm=shop&q=\\{@}
 Query[bs]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}

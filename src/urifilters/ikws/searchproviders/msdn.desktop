@@ -94,6 +94,7 @@ X-KDE-ServiceTypes=SearchProvider
 Keys=msdn
 Query=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
 Query[ar]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
+Query[ast]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
 Query[az]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
 Query[bg]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
 Query[bs]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}

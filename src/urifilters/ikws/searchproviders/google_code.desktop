@@ -72,6 +72,7 @@ Name[zh_CN]=Google Code
 Name[zh_TW]=Google Code
 Query=https://code.google.com/query/#q=\\{%2520}
 Query[ar]=https://code.google.com/query/#q=\\{%2520}
+Query[ast]=https://code.google.com/query/#q=\\{%2520}
 Query[az]=https://code.google.com/query/#q=\\{%2520}
 Query[bg]=https://code.google.com/query/#q=\\{%2520}
 Query[bs]=https://code.google.com/query/#q=\\{%2520}

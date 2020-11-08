@@ -6,6 +6,7 @@ Name=WordReference.com Translation: Italian to English
 Name[af]=WordReference.com Vertaling: Italiaans na Engels
 Name[ar]=ترجمة WordReference.com: من الإيطالية إلى الانجليزية
 Name[as]=WordReference.com অনুবাদ: ইটালিয়ানৰ পৰা ইংৰাজী
+Name[ast]=Traducción de WordReference.com: Italianu a inglés
 Name[az]=WordReference.com Tərcümə: İtalyancadan İngiliscəyə
 Name[be]=WordReference.com Пераклад: з італьянскай на англійскую
 Name[be@latin]=Pierakład „WordReference.com”: italjanskaja ➙ anhielskaja
@@ -91,6 +92,7 @@ Name[x-test]=xxWordReference.com Translation: Italian to Englishxx
 Name[zh_CN]=WordReference.com 翻译：意大利语译英语
 Name[zh_TW]=WordReference.com 翻譯: 義大利文至英文
 Query=https://www.wordreference.com/it/en/translation.asp?iten=\\{@}
+Query[ast]=https://www.wordreference.com/it/en/translation.asp?iten=\\{@}
 Query[az]=https://www.wordreference.com/it/en/translation.asp?iten=\\{@}
 Query[ca]=https://www.wordreference.com/it/en/translation.asp?iten=\\{@}
 Query[ca@valencia]=https://www.wordreference.com/it/en/translation.asp?iten=\\{@}

@@ -6,6 +6,7 @@ Name=WordReference.com Translation: Spanish to English
 Name[af]=WordReference.com Vertaling: Spaans na Engels
 Name[ar]=ترجمة WordReference.com: من الإسبانية إلى الانجليزية
 Name[as]=WordReference.com Translation: Spanish to English
+Name[ast]=Traducción de WordReference.com: Castellán a inglés
 Name[az]=WordReference.com  Tərcümə: İspancadan İngiliscəyə
 Name[be]=WordReference.com Пераклад: з іспанскай на англійскую
 Name[be@latin]=Pierakład „WordReference.com”: hišpanskaja ➙ anhielskaja
@@ -91,6 +92,7 @@ Name[x-test]=xxWordReference.com Translation: Spanish to Englishxx
 Name[zh_CN]=WordReference.com 翻译：西班牙语译英语
 Name[zh_TW]=WordReference.com 翻譯: 西班牙文至英文
 Query=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
+Query[ast]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[az]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[ca]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[ca@valencia]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}

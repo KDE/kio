@@ -96,6 +96,7 @@ X-KDE-ServiceTypes=SearchProvider
 Keys=ggi,images
 Query=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[ar]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
+Query[ast]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[az]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[bg]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[bs]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}

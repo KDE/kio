@@ -95,6 +95,7 @@ X-KDE-ServiceTypes=SearchProvider
 Keys=ggn,googlenews
 Query=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[ar]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
+Query[ast]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[az]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[bg]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[bs]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8

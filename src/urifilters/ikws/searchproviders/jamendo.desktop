@@ -74,6 +74,7 @@ Name[x-test]=xxJamendoxx
 Name[zh_CN]=Jamendo
 Name[zh_TW]=Jamendo
 Query=https://www.jamendo.com/en/search?qs=q=\\{@}
+Query[ast]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[az]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[ca]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[ca@valencia]=https://www.jamendo.com/en/search?qs=q=\\{@}
