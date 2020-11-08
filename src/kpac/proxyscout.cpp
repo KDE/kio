@@ -16,7 +16,6 @@
 #include <KLocalizedString>
 #include <kprotocolmanager.h>
 #include <KPluginFactory>
-#include <KPluginLoader>
 
 #ifdef HAVE_KF5NOTIFICATIONS
 #include <KNotification>

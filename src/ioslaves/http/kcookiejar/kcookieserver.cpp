@@ -18,7 +18,6 @@
 #include <QDebug>
 
 #include <KPluginFactory>
-#include <KPluginLoader>
 #include <KLocalizedString>
 #include <kwindowsystem.h>
 #include <QStandardPaths>

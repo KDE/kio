@@ -16,7 +16,6 @@
 
 #include <QDate>
 #include <KPluginFactory>
-#include <KPluginLoader>
 
 K_PLUGIN_CLASS_WITH_JSON(KSSLD, "kssld.json")
 

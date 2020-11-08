@@ -22,7 +22,6 @@
 #include <QDialog>
 #include <QIcon>
 #include <KPluginFactory>
-#include <KPluginLoader>
 #include <KFormat>
 #include <QSpinBox>
 
