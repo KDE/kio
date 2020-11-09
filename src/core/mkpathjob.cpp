@@ -36,11 +36,10 @@ public:
         const QStringList basePathComponents = baseUrl.path().split(QLatin1Char('/'), Qt::SkipEmptyParts);
 #endif
 
-        const QString startPath
 #ifdef Q_OS_WIN
-                                ;
+        const QString startPath;
 #else
-                                = QLatin1String("/");
+        const QString startPath = QLatin1String("/");
 #endif
         m_url.setPath(startPath);
         int i = 0;
