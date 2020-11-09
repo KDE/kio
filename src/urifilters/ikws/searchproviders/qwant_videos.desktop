@@ -67,6 +67,7 @@ Query[nl]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[nn]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[pt]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[pt_BR]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
+Query[ru]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[sk]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[sl]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[sv]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos

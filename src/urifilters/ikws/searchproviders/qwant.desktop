@@ -69,6 +69,7 @@ Query[nn]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[pt]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[pt_BR]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[ro]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
+Query[ru]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[sk]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[sl]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[sv]=https://www.qwant.com/?q=\\{@}&client=kde&t=web

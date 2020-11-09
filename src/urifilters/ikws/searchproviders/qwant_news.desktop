@@ -66,6 +66,7 @@ Query[nl]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[nn]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[pt]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[pt_BR]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
+Query[ru]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[sk]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[sl]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[sv]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
