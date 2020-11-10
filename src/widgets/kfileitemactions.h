@@ -145,6 +145,15 @@ public:
     int addServiceActionsTo(QMenu *menu);
 
     /**
+     * @param additionalActions Additional actions that should be added to the "Actions" submenu or
+     * top level menu if there are less than three entries in total.
+     * @return the number of actions added
+     * @see addServiceActionsTo(QMenu *menu)
+     * @since 5.77
+     */
+    int addServiceActionsTo(QMenu *menu, const QList<QAction *> &additionalActions);
+
+    /**
      * Add actions implemented by plugins.
      * These are defined in .desktop files or JSON in plugins using the KFileItemAction/Plugin service type,
      * and the KAbstractFileItemActionPlugin base class.

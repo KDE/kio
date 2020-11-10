@@ -229,6 +229,11 @@ void KFileItemActions::setItemListProperties(const KFileItemListProperties &item
 
 int KFileItemActions::addServiceActionsTo(QMenu *mainMenu)
 {
+    return addServiceActionsTo(mainMenu, {});
+}
+
+int KFileItemActions::addServiceActionsTo(QMenu *mainMenu, const QList<QAction *> &additionalActions)
+{
     const KFileItemList items = d->m_props.items();
     const KFileItem &firstItem = items.first();
     const QString protocol = firstItem.url().scheme(); // assumed to be the same for all items
@@ -304,7 +309,7 @@ int KFileItemActions::addServiceActionsTo(QMenu *mainMenu)
     QMenu *actionMenu = mainMenu;
     int userItemCount = 0;
     if (s.user.count() + s.userSubmenus.count() +
-            s.userPriority.count() + s.userPrioritySubmenus.count() > 3) {
+            s.userPriority.count() + s.userPrioritySubmenus.count() + additionalActions.count() > 3) {
         // we have more than three items, so let's make a submenu
         actionMenu = new QMenu(i18nc("@title:menu", "&Actions"), mainMenu);
         actionMenu->setIcon(QIcon::fromTheme(QStringLiteral("view-more-symbolic")));
@@ -312,17 +317,12 @@ int KFileItemActions::addServiceActionsTo(QMenu *mainMenu)
         mainMenu->addMenu(actionMenu);
     }
 
+    userItemCount += additionalActions.count();
+    for (QAction *action : additionalActions) {
+        actionMenu->addAction(action);
+    }
     userItemCount += d->insertServicesSubmenus(s.userPrioritySubmenus, actionMenu, false);
     userItemCount += d->insertServices(s.userPriority, actionMenu, false);
-
-    // see if we need to put a separator between our priority items and our regular items
-    if (userItemCount > 0 &&
-            (s.user.count() > 0 ||
-             s.userSubmenus.count() > 0 ||
-             s.builtin.count() > 0) &&
-            !actionMenu->actions().constLast()->isSeparator()) {
-        actionMenu->addSeparator();
-    }
     userItemCount += d->insertServicesSubmenus(s.userSubmenus, actionMenu, false);
     userItemCount += d->insertServices(s.user, actionMenu, false);
     userItemCount += d->insertServices(s.builtin, mainMenu, true);
