@@ -189,12 +189,16 @@ void DropMenu::addExtraActions(const QList<QAction *> &appActions, const QList<Q
 
     m_appActions = appActions;
     m_pluginActions = pluginActions;
+
     if (!m_appActions.isEmpty() || !m_pluginActions.isEmpty()) {
-        if (!m_extraActionsSeparator) {
-            m_extraActionsSeparator = new QAction(this);
-            m_extraActionsSeparator->setSeparator(true);
+        QAction *firstExtraAction = m_appActions.value(0, m_pluginActions.value(0, nullptr));
+        if (firstExtraAction && !firstExtraAction->isSeparator()) {
+            if (!m_extraActionsSeparator) {
+                m_extraActionsSeparator = new QAction(this);
+                m_extraActionsSeparator->setSeparator(true);
+            }
+            addAction(m_extraActionsSeparator);
         }
-        addAction(m_extraActionsSeparator);
         addActions(appActions);
         addActions(pluginActions);
     }
@@ -366,8 +370,6 @@ void DropJobPrivate::fillPopupMenu(KIO::DropMenu *popup)
     popup->addAction(popupLinkAction);
 
     addPluginActions(popup, itemProps);
-
-    popup->addSeparator();
 }
 
 void DropJobPrivate::addPluginActions(KIO::DropMenu *popup, const KFileItemListProperties &itemProps)
