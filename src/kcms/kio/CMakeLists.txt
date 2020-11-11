@@ -11,7 +11,6 @@ set(kcm_kio_PART_SRCS
     kcookiespolicies.cpp
     kcookiesmanagement.cpp
     kcookiespolicyselectiondlg.cpp
-    smbrodlg.cpp
     useragentdlg.cpp
     kproxydlg.cpp
     useragentinfo.cpp
@@ -58,6 +57,6 @@ install(TARGETS kcm_kio  DESTINATION ${KDE_INSTALL_PLUGINDIR} )
 
 ########### install files ###############
 
-install( FILES smb.desktop cookies.desktop useragent.desktop cache.desktop
+install( FILES cookies.desktop useragent.desktop cache.desktop
     netpref.desktop proxy.desktop  DESTINATION  ${KDE_INSTALL_KSERVICES5DIR} )
 install( FILES uasprovider.desktop  DESTINATION  ${KDE_INSTALL_KSERVICETYPES5DIR} )
