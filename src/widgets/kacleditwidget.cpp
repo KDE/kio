@@ -304,9 +304,9 @@ void KACLListViewItem::calcEffectiveRights()
                 || type == KACLListView::NamedGroup)
             && !isDefault) {
 
-        strEffective[0] = (m_pACLListView->maskPermissions() & value & ACL_READ) ? 'r' : '-';
-        strEffective[1] = (m_pACLListView->maskPermissions() & value & ACL_WRITE) ? 'w' : '-';
-        strEffective[2] = (m_pACLListView->maskPermissions() & value & ACL_EXECUTE) ? 'x' : '-';
+        strEffective[0] = QLatin1Char((m_pACLListView->maskPermissions() & value & ACL_READ) ? 'r' : '-');
+        strEffective[1] = QLatin1Char((m_pACLListView->maskPermissions() & value & ACL_WRITE) ? 'w' : '-');
+        strEffective[2] = QLatin1Char((m_pACLListView->maskPermissions() & value & ACL_EXECUTE) ? 'x' : '-');
         /*
                 // What about any partial perms?
                 if ( maskPerms & partialPerms & ACL_READ || // Partial perms on entry
@@ -324,9 +324,9 @@ void KACLListViewItem::calcEffectiveRights()
         */
     } else {
         // No, the effective value are just the value in this entry
-        strEffective[0] = (value & ACL_READ) ? 'r' : '-';
-        strEffective[1] = (value & ACL_WRITE) ? 'w' : '-';
-        strEffective[2] = (value & ACL_EXECUTE) ? 'x' : '-';
+        strEffective[0] = QLatin1Char((value & ACL_READ) ? 'r' : '-');
+        strEffective[1] = QLatin1Char((value & ACL_WRITE) ? 'w' : '-');
+        strEffective[2] = QLatin1Char((value & ACL_EXECUTE) ? 'x' : '-');
 
         /*
         // What about any partial perms?
