@@ -29,6 +29,7 @@
 #include <QDBusInterface>
 #include <QDBusMessage>
 #include <kio_widgets_debug.h>
+#include <algorithm>
 
 static bool KIOSKAuthorizedAction(const KConfigGroup &cfg)
 {
@@ -48,13 +49,10 @@ static bool KIOSKAuthorizedAction(const KConfigGroup &cfg)
 static bool mimeTypeListContains(const QStringList &list, const KFileItem &item)
 {
     const QString itemMimeType = item.mimetype();
-
-    for (const QString &i : list) {
-
+    return std::any_of(list.constBegin(), list.constEnd(), [itemMimeType, item](const QString &i) {
         if (i == itemMimeType || i == QLatin1String("all/all")) {
             return true;
         }
-
         if (item.isFile() && (i == QLatin1String("allfiles") ||
             i == QLatin1String("all/allfiles") || i == QLatin1String("application/octet-stream"))) {
             return true;
@@ -74,12 +72,10 @@ static bool mimeTypeListContains(const QStringList &list, const KFileItem &item)
             const QStringRef iTopLevelType = i.midRef(0, iSlashPos);
             const QStringRef itemTopLevelType = itemMimeType.midRef(0, itemSlashPos);
 
-            if (itemTopLevelType == iTopLevelType) {
-                return true;
-            }
+            return itemTopLevelType == iTopLevelType;
         }
-    }
-    return false;
+        return false;
+    });
 }
 
 
@@ -354,7 +350,7 @@ int KFileItemActions::addPluginActionsTo(QMenu *mainMenu)
             continue;
         }
 
-        KAbstractFileItemActionPlugin *abstractPlugin = service->createInstance<KAbstractFileItemActionPlugin>();
+        auto *abstractPlugin = service->createInstance<KAbstractFileItemActionPlugin>();
         if (abstractPlugin) {
             abstractPlugin->setParent(mainMenu);
             auto actions = abstractPlugin->actions(d->m_props, d->m_parentWidget);
@@ -372,13 +368,9 @@ int KFileItemActions::addPluginActionsTo(QMenu *mainMenu)
 
         auto mimeType = db.mimeTypeForName(commonMimeType);
         const QStringList list = metaData.mimeTypes();
-        for (const auto &supportedMimeType : list) {
-            if (mimeType.inherits(supportedMimeType)) {
-                return true;
-            }
-        }
-
-        return false;
+        return std::any_of(list.constBegin(), list.constEnd(), [mimeType](const QString &supportedMimeType) {
+            return mimeType.inherits(supportedMimeType);
+        });
     });
 
     for (const auto &jsonMetadata : jsonPlugins) {
@@ -396,7 +388,7 @@ int KFileItemActions::addPluginActionsTo(QMenu *mainMenu)
         if (!factory) {
             continue;
         }
-        KAbstractFileItemActionPlugin* abstractPlugin = factory->create<KAbstractFileItemActionPlugin>();
+        auto *abstractPlugin = factory->create<KAbstractFileItemActionPlugin>();
         if (abstractPlugin) {
             abstractPlugin->setParent(this);
             auto actions = abstractPlugin->actions(d->m_props, d->m_parentWidget);
@@ -609,7 +601,7 @@ void KFileItemActionsPrivate::slotRunPreferredApplications()
         }
 
         const KService::Ptr servicePtr = KService::serviceByStorageId(serviceId); // can be nullptr
-        KIO::ApplicationLauncherJob *job = new KIO::ApplicationLauncherJob(servicePtr);
+        auto *job = new KIO::ApplicationLauncherJob(servicePtr);
         job->setUrls(serviceItems.urlList());
         job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, m_parentWidget));
         job->start();
@@ -634,7 +626,7 @@ void KFileItemActionsPrivate::openWithByMime(const KFileItemList &fileItems)
             }
         }
         // Show Open With dialog
-        KIO::ApplicationLauncherJob *job = new KIO::ApplicationLauncherJob();
+        auto *job = new KIO::ApplicationLauncherJob();
         job->setUrls(mimeItems.urlList());
         job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, m_parentWidget));
         job->start();
@@ -647,7 +639,7 @@ void KFileItemActionsPrivate::slotRunApplication(QAction *act)
     KService::Ptr app = act->data().value<KService::Ptr>();
     Q_ASSERT(app);
     if (app) {
-        KIO::ApplicationLauncherJob *job = new KIO::ApplicationLauncherJob(app);
+        auto *job = new KIO::ApplicationLauncherJob(app);
         job->setUrls(m_props.urlList());
         job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, m_parentWidget));
         job->start();
@@ -658,7 +650,7 @@ void KFileItemActionsPrivate::slotOpenWithDialog()
 {
     // The item 'Other...' or 'Open With...' has been selected
     emit q->openWithDialogAboutToBeShown();
-    KIO::ApplicationLauncherJob *job = new KIO::ApplicationLauncherJob();
+    auto *job = new KIO::ApplicationLauncherJob();
     job->setUrls(m_props.urlList());
     job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, m_parentWidget));
     job->start();
