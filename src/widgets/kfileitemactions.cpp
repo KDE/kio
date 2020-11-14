@@ -37,13 +37,9 @@ static bool KIOSKAuthorizedAction(const KConfigGroup &cfg)
         return true;
     }
     const QStringList list = cfg.readEntry("X-KDE-AuthorizeAction", QStringList());
-    for (QStringList::ConstIterator it = list.constBegin();
-            it != list.constEnd(); ++it) {
-        if (!KAuthorized::authorize((*it).trimmed())) {
-            return false;
-        }
-    }
-    return true;
+    return std::all_of(list.constBegin(), list.constEnd(), [](const QString &action) {
+         return KAuthorized::authorize(action.trimmed());
+    });
 }
 
 static bool mimeTypeListContains(const QStringList &list, const KFileItem &item)
@@ -194,7 +190,7 @@ int KFileItemActionsPrivate::insertServices(const ServiceList &list,
 
 void KFileItemActionsPrivate::slotExecuteService(QAction *act)
 {
-    KServiceAction serviceAction = act->data().value<KServiceAction>();
+    const KServiceAction serviceAction = act->data().value<KServiceAction>();
     if (KAuthorized::authorizeAction(serviceAction.name())) {
         KDesktopFileActions::executeService(m_props.urlList(), serviceAction);
     }
@@ -218,11 +214,9 @@ void KFileItemActions::setItemListProperties(const KFileItemListProperties &item
 
     d->m_mimeTypeList.clear();
     const KFileItemList items = d->m_props.items();
-    KFileItemList::const_iterator kit = items.constBegin();
-    const KFileItemList::const_iterator kend = items.constEnd();
-    for (; kit != kend; ++kit) {
-        if (!d->m_mimeTypeList.contains((*kit).mimetype())) {
-            d->m_mimeTypeList << (*kit).mimetype();
+    for (const KFileItem &item : items) {
+        if (!d->m_mimeTypeList.contains(item.mimetype())) {
+            d->m_mimeTypeList << item.mimetype();
         }
     }
 }
@@ -248,8 +242,8 @@ int KFileItemActions::addServiceActionsTo(QMenu *mainMenu, const QList<QAction *
         // get builtin services, like mount/unmount
         const QString path = firstItem.localPath();
         s.builtin = KDesktopFileActions::builtinServices(QUrl::fromLocalFile(path));
-        KDesktopFile desktopFile(path);
-        KConfigGroup cfg = desktopFile.desktopGroup();
+        const KDesktopFile desktopFile(path);
+        const KConfigGroup cfg = desktopFile.desktopGroup();
         const QString priority = cfg.readEntry("X-KDE-Priority");
         const QString submenuName = cfg.readEntry("X-KDE-Submenu");
         ServiceList &list = s.selectList(priority, submenuName);
@@ -260,7 +254,7 @@ int KFileItemActions::addServiceActionsTo(QMenu *mainMenu, const QList<QAction *
 
     // first check the .directory if this is a directory
     if (d->m_props.isDirectory() && isSingleLocal) {
-        QString dotDirectoryFile = QUrl::fromLocalFile(firstItem.localPath()).path().append(QLatin1String("/.directory"));
+        const QString dotDirectoryFile = QUrl::fromLocalFile(firstItem.localPath()).path().append(QLatin1String("/.directory"));
         if (QFile::exists(dotDirectoryFile)) {
             const KDesktopFile desktopFile(dotDirectoryFile);
             const KConfigGroup cfg = desktopFile.desktopGroup();
@@ -278,10 +272,9 @@ int KFileItemActions::addServiceActionsTo(QMenu *mainMenu, const QList<QAction *
 
     const QMimeDatabase db;
     const KService::List entries = KServiceTypeTrader::self()->query(QStringLiteral("KonqPopupMenu/Plugin"));
-    KService::List::const_iterator eEnd = entries.end();
-    for (KService::List::const_iterator it2 = entries.begin(); it2 != eEnd; ++it2) {
-        QString file = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("kservices5/") + (*it2)->entryPath());
-        KDesktopFile desktopFile(file);
+    for (const KServicePtr &entry : entries) {
+        QString file = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("kservices5/") + entry->entryPath());
+        const KDesktopFile desktopFile(file);
         const KConfigGroup cfg = desktopFile.desktopGroup();
 
         if (!d->shouldDisplayServiceMenu(cfg, protocol)) {
@@ -297,7 +290,7 @@ int KFileItemActions::addServiceActionsTo(QMenu *mainMenu, const QList<QAction *
             const QString submenuName = cfg.readEntry("X-KDE-Submenu");
 
             ServiceList &list = s.selectList(priority, submenuName);
-            const ServiceList userServices = KDesktopFileActions::userDefinedServices(*(*it2), isLocal, urlList);
+            const ServiceList userServices = KDesktopFileActions::userDefinedServices(*entry, isLocal, urlList);
             for (const KServiceAction &action : userServices) {
                 if (showGroup.readEntry(action.name(), true)) {
                     list += action;
@@ -391,7 +384,7 @@ int KFileItemActions::addPluginActionsTo(QMenu *mainMenu)
         auto *abstractPlugin = factory->create<KAbstractFileItemActionPlugin>();
         if (abstractPlugin) {
             abstractPlugin->setParent(this);
-            auto actions = abstractPlugin->actions(d->m_props, d->m_parentWidget);
+            const QList<QAction *> actions = abstractPlugin->actions(d->m_props, d->m_parentWidget);
             itemCount += actions.count();
             mainMenu->addActions(actions);
             addedPlugins.append(jsonMetadata.pluginId());
@@ -541,9 +534,8 @@ void KFileItemActions::addOpenWithActionsTo(QMenu *topMenu, const QString &trade
                 topMenu->addMenu(menu);
 
                 // Add other apps to the sub-menu
-                KService::List::ConstIterator it = offers.constBegin();
-                for (; it != offers.constEnd(); it++) {
-                    QAction *act = d->createAppAction(*it,
+                for (const KServicePtr &service : qAsConst(offers)) {
+                    QAction *act = d->createAppAction(service,
                                                       // no submenu -> prefix single offer
                                                       menu == topMenu);
                     menu->addAction(act);
