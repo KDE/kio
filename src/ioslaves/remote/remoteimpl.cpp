@@ -106,7 +106,7 @@ void RemoteImpl::createTopLevelEntry(KIO::UDSEntry &entry) const
     entry.fastInsert(KIO::UDSEntry::UDS_NAME, QStringLiteral("."));
     entry.fastInsert(KIO::UDSEntry::UDS_DISPLAY_NAME, i18n("Network"));
     entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
-    entry.fastInsert(KIO::UDSEntry::UDS_ACCESS, 0777);
+    entry.fastInsert(KIO::UDSEntry::UDS_ACCESS, 0500);
     entry.fastInsert(KIO::UDSEntry::UDS_MIME_TYPE, QStringLiteral("inode/directory"));
     entry.fastInsert(KIO::UDSEntry::UDS_ICON_NAME, QStringLiteral("folder-remote"));
     entry.fastInsert(KIO::UDSEntry::UDS_USER, QStringLiteral("root"));
