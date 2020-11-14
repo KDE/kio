@@ -29,6 +29,7 @@
 #include <ksambashare.h>
 #endif
 #include <KFileSystemType>
+#include <KProtocolManager>
 
 class KFileItemPrivate : public QSharedData
 {
@@ -1191,11 +1192,11 @@ bool KFileItem::isWritable() const
     }
 
     // Or if we can't write it - not network transparent
-    if (d->m_bIsLocalUrl && !QFileInfo(d->m_url.toLocalFile()).isWritable()) {
-        return false;
+    if (d->m_bIsLocalUrl) {
+        return QFileInfo(d->m_url.toLocalFile()).isWritable();
+    } else {
+        return KProtocolManager::supportsWriting(d->m_url);
     }
-
-    return true;
 }
 
 bool KFileItem::isHidden() const
