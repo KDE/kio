@@ -196,8 +196,6 @@ void KFileItemActionsPrivate::slotExecuteService(QAction *act)
     }
 }
 
-////
-
 KFileItemActions::KFileItemActions(QObject *parent)
     : QObject(parent), d(new KFileItemActionsPrivate(this))
 {
@@ -484,9 +482,7 @@ void KFileItemActions::addOpenWithActionsTo(QMenu *topMenu, const QString &trade
     if (!d->m_props.isDirectory() || isLocal) {
 
         QAction *runAct = new QAction(this);
-
         const QStringList serviceIdList = d->listPreferredServiceIds(d->m_mimeTypeList, traderConstraint);
-        //qDebug() << "serviceIdList=" << serviceIdList;
 
         // When selecting files with multiple mimetypes, offer either "open with <app for all>"
         // or a generic <open> (if there are any apps associated).
@@ -573,7 +569,6 @@ void KFileItemActions::addOpenWithActionsTo(QMenu *topMenu, const QString &trade
 void KFileItemActionsPrivate::slotRunPreferredApplications()
 {
     const KFileItemList fileItems = m_fileOpenList;
-
     const QStringList mimeTypeList = listMimeTypes(fileItems);
     const QStringList serviceIdList = listPreferredServiceIds(mimeTypeList, m_traderConstraint);
 
