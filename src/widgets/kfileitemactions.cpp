@@ -753,26 +753,9 @@ bool KFileItemActionsPrivate::shouldDisplayServiceMenu(const KConfigGroup &cfg, 
     }
 #endif
 
-    if (cfg.hasKey("X-KDE-RequiredNumberOfUrls")) {
-        const QStringList requiredNumberOfUrls = cfg.readEntry("X-KDE-RequiredNumberOfUrls", QStringList());
-
-        bool matchesAtLeastOneCriterion = false;
-
-        for (const QString &criterion : requiredNumberOfUrls) {
-            const int number = criterion.toInt();
-            if (number < 1) {
-                continue;
-            }
-
-            if (urlList.count() == number) {
-                matchesAtLeastOneCriterion = true;
-                break;
-            }
-        }
-
-        if (!matchesAtLeastOneCriterion) {
-            return false;
-        }
+    const auto requiredNumbers = cfg.readEntry("X-KDE-RequiredNumberOfUrls", QList<int>());
+    if (!requiredNumbers.isEmpty() && !requiredNumbers.contains(urlList.count())) {
+        return false;
     }
     if (cfg.hasKey("X-KDE-MinNumberOfUrls")) {
         const int minNumber = cfg.readEntry("X-KDE-MinNumberOfUrls").toInt();
