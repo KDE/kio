@@ -33,9 +33,6 @@
 
 static bool KIOSKAuthorizedAction(const KConfigGroup &cfg)
 {
-    if (!cfg.hasKey("X-KDE-AuthorizeAction")) {
-        return true;
-    }
     const QStringList list = cfg.readEntry("X-KDE-AuthorizeAction", QStringList());
     return std::all_of(list.constBegin(), list.constEnd(), [](const QString &action) {
          return KAuthorized::authorize(action.trimmed());
