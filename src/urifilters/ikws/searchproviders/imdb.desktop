@@ -109,6 +109,7 @@ Query[eu]=https://imdb.com/find?s=all&q=\\{@}
 Query[fi]=https://imdb.com/find?s=all&q=\\{@}
 Query[fr]=https://imdb.com/find?s=all&q=\\{@}
 Query[gl]=https://imdb.com/find?s=all&q=\\{@}
+Query[hu]=https://imdb.com/find?s=all&q=\\{@}
 Query[ia]=https://imdb.com/find?s=all&q=\\{@}
 Query[id]=https://imdb.com/find?s=all&q=\\{@}
 Query[it]=https://imdb.com/find?s=all&q=\\{@}
