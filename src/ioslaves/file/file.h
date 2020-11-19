@@ -20,9 +20,11 @@
 #include <config-kioslave-file.h>
 #include <qplatformdefs.h> // mode_t
 
-#if HAVE_POSIX_ACL
-#include <acl/libacl.h>
+#if HAVE_SYS_ACL_H
 #include <sys/acl.h>
+#endif
+#if HAVE_ACL_LIBACL_H
+#include <acl/libacl.h>
 #endif
 
 #include "file_p.h"

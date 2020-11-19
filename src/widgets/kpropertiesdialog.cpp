@@ -65,6 +65,19 @@
 #include <QVector>
 #include <QtConcurrent>
 
+#include <cerrno>
+extern "C" {
+#if HAVE_SYS_XATTR_H
+#include <sys/xattr.h>
+#endif
+#if HAVE_SYS_EXTATTR_H
+#include <sys/extattr.h>
+#endif
+#if HAVE_SYS_MOUNT_H
+#include <sys/mount.h>
+#endif
+}
+
 #include <KAuthorized>
 #include <KCapacityBar>
 #include <KColorScheme>
@@ -119,9 +132,6 @@
 #include <functional>
 
 #if HAVE_POSIX_ACL
-extern "C" {
-#include <sys/xattr.h>
-}
 #include "kacleditwidget.h"
 #endif
 
