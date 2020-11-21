@@ -11,17 +11,16 @@
 #include "useragentinfo.h"
 
 // Qt
-#include <QPushButton>
+#include <QComboBox>
 #include <QDialogButtonBox>
+#include <QLineEdit>
+#include <QPushButton>
 #include <QValidator>
+#include <QVBoxLayout>
 #include <QWidget>
 
 // KDE
-#include <KComboBox>
-#include <QLineEdit>
 #include <KUrlLabel>
-#include <QVBoxLayout>
-
 
 class UserAgentSiteNameValidator : public QValidator
 {

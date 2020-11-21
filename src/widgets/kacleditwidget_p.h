@@ -18,7 +18,7 @@
 #include <QTreeWidget>
 #include <QHash>
 
-#include <KComboBox>
+#include <QComboBox>
 #include <kfileitem.h>
 
 class KACLListViewItem;
@@ -149,8 +149,8 @@ private:
     int m_allowedTypes;
     int m_allowedDefaultTypes;
     QButtonGroup *m_buttonGroup;
-    KComboBox *m_usersCombo;
-    KComboBox *m_groupsCombo;
+    QComboBox *m_usersCombo;
+    QComboBox *m_groupsCombo;
     QStackedWidget *m_widgetStack;
     QCheckBox *m_defaultCB;
     QHash<QAbstractButton *, int> m_buttonIds;

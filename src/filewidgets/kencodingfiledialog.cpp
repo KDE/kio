@@ -14,7 +14,6 @@
 
 #include <defaults-kfile.h>
 
-#include <KComboBox>
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KCharsets>
@@ -23,6 +22,7 @@
 #include <KWindowConfig>
 
 #include <QBoxLayout>
+#include <QComboBox>
 #include <QPushButton>
 #include <QTextCodec>
 
@@ -31,7 +31,7 @@ struct KEncodingFileDialogPrivate {
         : cfgGroup(KSharedConfig::openConfig(), ConfigGroup)
     {}
 
-    KComboBox *encoding;
+    QComboBox *encoding;
     KFileWidget *w;
     KConfigGroup cfgGroup;
 };
@@ -68,7 +68,7 @@ KEncodingFileDialog::KEncodingFileDialog(const QUrl &startDir,
     connect(d->w->cancelButton(), &QAbstractButton::clicked, this, &KEncodingFileDialog::slotCancel);
     connect(d->w, &KFileWidget::accepted, this, &KEncodingFileDialog::accept);
 
-    d->encoding = new KComboBox(this);
+    d->encoding = new QComboBox(this);
     d->w->setCustomWidget(i18n("Encoding:"), d->encoding);
 
     d->encoding->clear();

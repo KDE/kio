@@ -185,7 +185,7 @@
        </spacer>
       </item>
       <item row="1" column="1">
-       <widget class="KComboBox" name="dbusCombo">
+       <widget class="QComboBox" name="dbusCombo">
         <item>
          <property name="text">
           <string>None</string>
@@ -224,11 +224,6 @@
   </layout>
  </widget>
  <customwidgets>
-  <customwidget>
-   <class>KComboBox</class>
-   <extends>QComboBox</extends>
-   <header>kcombobox.h</header>
-  </customwidget>
   <customwidget>
    <class>KLineEdit</class>
    <extends>QLineEdit</extends>

@@ -7,10 +7,10 @@
 
 #include "pastedialog_p.h"
 
-#include <KComboBox>
 #include <KLocalizedString>
 
 #include <QApplication>
+#include <QComboBox>
 #include <QDialogButtonBox>
 #include <QLabel>
 #include <QLineEdit>
@@ -44,7 +44,7 @@ KIO::PasteDialog::PasteDialog(const QString &caption, const QString &label,
     m_label->setBuddy(m_lineEdit);
 
     layout->addWidget(new QLabel(i18n("Data format:"), frame));
-    m_comboBox = new KComboBox(frame);
+    m_comboBox = new QComboBox(frame);
     m_comboBox->addItems(items);
     layout->addWidget(m_comboBox);
 

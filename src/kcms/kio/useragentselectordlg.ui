@@ -58,7 +58,7 @@ Select the browser identification to use whenever contacting the site you specif
     </widget>
    </item>
    <item>
-    <widget class="KComboBox" name="aliasComboBox" >
+    <widget class="QComboBox" name="aliasComboBox" >
      <property name="whatsThis" >
       <string>&lt;qt>
 Select the browser identification to use whenever contacting the site you specified above.
@@ -112,11 +112,6 @@ The actual browser identification text that will be sent to the remote machine.
   </layout>
  </widget>
  <customwidgets>
-  <customwidget>
-   <class>KComboBox</class>
-   <extends>QComboBox</extends>
-   <header>kcombobox.h</header>
-  </customwidget>
   <customwidget>
    <class>QLineEdit</class>
    <extends>QLineEdit</extends>

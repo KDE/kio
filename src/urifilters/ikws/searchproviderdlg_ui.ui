@@ -72,7 +72,7 @@ Recommended is \{@}, since it removes all query variables (name=value) from the 
     </widget>
    </item>
    <item row="5" column="2" colspan="2">
-    <widget class="KComboBox" name="cbCharset">
+    <widget class="QComboBox" name="cbCharset">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
        <horstretch>0</horstretch>
@@ -169,22 +169,12 @@ The shortcuts entered here can be used as a pseudo-URI scheme in KDE. For exampl
    </item>
   </layout>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>KComboBox</class>
-   <extends>QComboBox</extends>
-   <header>kcombobox.h</header>
-  </customwidget>
- </customwidgets>
  <tabstops>
   <tabstop>leName</tabstop>
   <tabstop>leQuery</tabstop>
   <tabstop>leShortcut</tabstop>
   <tabstop>cbCharset</tabstop>
  </tabstops>
- <includes>
-  <include location="local">kcombobox.h</include>
- </includes>
  <resources/>
  <connections/>
 </ui>

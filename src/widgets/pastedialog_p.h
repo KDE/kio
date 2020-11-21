@@ -10,7 +10,7 @@
 
 #include <QDialog>
 
-class KComboBox;
+class QComboBox;
 class QLineEdit;
 class QLabel;
 
@@ -42,7 +42,7 @@ private Q_SLOTS:
 private:
     QLabel *m_label;
     QLineEdit *m_lineEdit;
-    KComboBox *m_comboBox;
+    QComboBox *m_comboBox;
     bool m_clipboardChanged;
 };
 

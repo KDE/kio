@@ -440,7 +440,7 @@ EditACLEntryDialog::EditACLEntryDialog(KACLListView *listView, KACLListViewItem 
     m_widgetStack->addWidget(usersBox);
 
     QLabel *usersLabel = new QLabel(i18n("User: "), usersBox);
-    m_usersCombo = new KComboBox(usersBox);
+    m_usersCombo = new QComboBox(usersBox);
     m_usersCombo->setEditable(false);
     m_usersCombo->setObjectName(QStringLiteral("users"));
     usersLabel->setBuddy(m_usersCombo);
@@ -455,7 +455,7 @@ EditACLEntryDialog::EditACLEntryDialog(KACLListView *listView, KACLListViewItem 
     m_widgetStack->addWidget(groupsBox);
 
     QLabel *groupsLabel = new QLabel(i18n("Group: "), groupsBox);
-    m_groupsCombo = new KComboBox(groupsBox);
+    m_groupsCombo = new QComboBox(groupsBox);
     m_groupsCombo->setEditable(false);
     m_groupsCombo->setObjectName(QStringLiteral("groups"));
     groupsLabel->setBuddy(m_groupsCombo);
