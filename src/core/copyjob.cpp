@@ -1819,28 +1819,6 @@ void CopyJobPrivate::setNextDirAttribute()
         job->setParentJob(q);
         Scheduler::setJobPriority(job, 1);
         q->addSubjob(job);
-
-#if 0 // ifdef Q_OS_UNIX
-        // TODO: can be removed now. Or reintroduced as a fast path for local files
-        // if launching even more jobs as done above is a performance problem.
-        //
-        QLinkedList<CopyInfo>::const_iterator it = m_directoriesCopied.constBegin();
-        for (; it != m_directoriesCopied.constEnd(); ++it) {
-            const QUrl &url = (*it).uDest;
-            if (url.isLocalFile() && (*it).mtime != (time_t) - 1) {
-                QT_STATBUF statbuf;
-                if (QT_LSTAT(url.path(), &statbuf) == 0) {
-                    struct utimbuf utbuf;
-                    utbuf.actime = statbuf.st_atime; // access time, unchanged
-                    utbuf.modtime = (*it).mtime; // modification time
-                    utime(path, &utbuf);
-                }
-
-            }
-        }
-        m_directoriesCopied.clear();
-        // but then we need to jump to the else part below. Maybe with a recursive call?
-#endif
     } else {
         if (m_reportTimer) {
             m_reportTimer->stop();

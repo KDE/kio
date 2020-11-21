@@ -385,27 +385,12 @@ bool KCoreDirListerCache::validUrl(KCoreDirLister *lister, const QUrl &url) cons
 
 void KCoreDirListerCache::stop(KCoreDirLister *lister, bool silent)
 {
-#ifdef DEBUG_CACHE
-    //printDebug();
-#endif
     qCDebug(KIO_CORE_DIRLISTER) << "lister:" << lister << "silent=" << silent;
 
     const QList<QUrl> urls = lister->d->lstDirs;
     for (const QUrl &url : urls) {
         stopListingUrl(lister, url, silent);
     }
-
-#if 0 // test code
-    QHash<QString, KCoreDirListerCacheDirectoryData>::iterator dirit = directoryData.begin();
-    const QHash<QString, KCoreDirListerCacheDirectoryData>::iterator dirend = directoryData.end();
-    for (; dirit != dirend; ++dirit) {
-        KCoreDirListerCacheDirectoryData &dirData = dirit.value();
-        if (dirData.listersCurrentlyListing.contains(lister)) {
-            qCDebug(KIO_CORE_DIRLISTER) << "ERROR: found lister" << lister << "in list - for" << dirit.key();
-            Q_ASSERT(false);
-        }
-    }
-#endif
 }
 
 void KCoreDirListerCache::stopListingUrl(KCoreDirLister *lister, const QUrl &_u, bool silent)

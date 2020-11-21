@@ -348,15 +348,9 @@ void ForwardingSlaveBasePrivate::connectJob(KIO::Job *job)
 
     // Forward metadata (e.g. modification time for put())
     job->setMetaData(q->allMetaData());
-#if 0 // debug code
-    //qDebug() << "transferring metadata:";
-    const MetaData md = allMetaData();
-    for (MetaData::const_iterator it = md.begin(); it != md.end(); ++it)
-        //qDebug() << it.key() << " = " << it.data();
-#endif
 
-        q->connect(job, SIGNAL(result(KJob*)),
-                   SLOT(_k_slotResult(KJob*)));
+    q->connect(job, SIGNAL(result(KJob*)),
+               SLOT(_k_slotResult(KJob*)));
     q->connect(job, SIGNAL(warning(KJob*,QString,QString)),
                SLOT(_k_slotWarning(KJob*,QString)));
     q->connect(job, SIGNAL(infoMessage(KJob*,QString,QString)),

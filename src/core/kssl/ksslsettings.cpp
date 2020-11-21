@@ -157,27 +157,6 @@ void KSSLSettings::save()
 
     d->m_cfg->sync();
     // FIXME - ciphers
-#if 0
-#if KSSL_HAVE_SSL
-    cfg.setGroup("SSLv3");
-    for (unsigned int i = 0; i < v3ciphers.count(); i++) {
-        QString ciphername;
-        ciphername.sprintf("cipher_%s", v3ciphers[i].ascii());
-        if (v3selectedciphers.contains(v3ciphers[i])) {
-            cfg.writeEntry(ciphername, true);
-        } else {
-            cfg.writeEntry(ciphername, false);
-        }
-    }
-    d->m_cfg->sync();
-#endif
-
-    // insure proper permissions -- contains sensitive data
-    QString cfgName(QStandardPaths::locate(QStandardPaths::GenericConfigLocation, "cryptodefaults"));
-    if (!cfgName.isEmpty()) {
-        KDE::chmod(cfgName, 0600);
-    }
-#endif
 }
 
 bool KSSLSettings::warnOnEnter() const

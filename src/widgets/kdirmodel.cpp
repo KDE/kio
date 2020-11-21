@@ -997,7 +997,7 @@ int KDirModel::rowCount(const QModelIndex &parent) const
     for (int i = 0; i < count; ++i) {
         filenames << d->urlForNode(parentNode->m_childNodes.at(i)).fileName();
     }
-    //qDebug() << "rowCount for " << d->urlForNode(parentNode) << ": " << count << filenames;
+    qDebug() << "rowCount for " << d->urlForNode(parentNode) << ": " << count << filenames;
 #endif
     return count;
 }

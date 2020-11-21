@@ -34,9 +34,6 @@
 #include <KStandardGuiItem>
 #include <KGuiItem>
 #include <KSqueezedTextLabel>
-#if 0
-#include <KFileMetaDataWidget>
-#endif
 #include <previewjob.h>
 #include <KFileUtils>
 
@@ -783,9 +780,6 @@ QScrollArea *RenameDialog::createContainerLayout(QWidget *parent, const KFileIte
     containerLayout->setContentsMargins(0, 0, 0, 0);
     containerLayout->setSpacing(0);
     containerLayout->addWidget(preview);
-#if 0 // PENDING
-    containerLayout->addWidget(metaWidget);
-#endif
     containerLayout->addStretch(1);
 
     QScrollArea *metaDataArea = new QScrollArea(parent);

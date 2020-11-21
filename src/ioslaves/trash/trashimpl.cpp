@@ -80,10 +80,6 @@ int TrashImpl::testDir(const QString &_name) const
 
         bool ok = QDir().mkdir(name);
         if (!ok && QFile::exists(name)) {
-#if 0 // this would require to use SlaveBase's method to ask the question
-            //int ret = KMessageBox::warningYesNo( 0, i18n("%1 is a file, but KDE needs it to be a directory. Move it to %2.orig and create directory?").arg(name).arg(name) );
-            //if ( ret == KMessageBox::Yes ) {
-#endif
             QString new_name = name;
             name.append(QStringLiteral(".orig"));
             if (QFile::rename(name, new_name)) {
@@ -94,11 +90,6 @@ int TrashImpl::testDir(const QString &_name) const
             if (!ok) {
                 return KIO::ERR_DIR_ALREADY_EXIST;
             }
-#if 0
-            //} else {
-            //    return 0;
-            //}
-#endif
         }
         if (!ok) {
             //KMessageBox::sorry( 0, i18n( "Could not create directory %1. Check for permissions." ).arg( name ) );
@@ -1245,11 +1236,9 @@ int TrashImpl::idForTrashDirectory(const QString &trashDir) const
 
 bool TrashImpl::initTrashDirectory(const QByteArray &trashDir_c) const
 {
-    //qCDebug(KIO_TRASH) << trashDir_c;
     if (mkdir(trashDir_c.constData(), 0700) != 0) {
         return false;
     }
-    //qCDebug(KIO_TRASH);
     return checkTrashSubdirs(trashDir_c);
 }
 

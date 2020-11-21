@@ -36,14 +36,6 @@
 
 #include "delegateanimationhandler_p.h"
 
-#if 0 // was: HAVE_X11 && HAVE_XRENDER
-#  include <X11/Xlib.h>
-#  include <X11/extensions/Xrender.h>
-#  include <QX11Info>
-#  undef KeyPress
-#  undef FocusOut
-#endif
-
 struct Margin {
     int left, right, top, bottom;
 };
@@ -602,56 +594,7 @@ QPixmap KFileItemDelegate::Private::transition(const QPixmap &from, const QPixma
         p.end();
 
         return under;
-    }
-// Cannot use XRender with QPixmap anymore.
-#if 0 // HAVE_X11 && HAVE_XRENDER
-    else if (from.paintEngine()->hasFeature(QPaintEngine::PorterDuff)) { // We have Xrender support
-        // QX11PaintEngine doesn't implement CompositionMode_Plus in Qt 4.3,
-        // which we need to be able to do a transition from one pixmap to
-        // another.
-        //
-        // In order to avoid the overhead of converting the pixmaps to images
-        // and doing the operation entirely in software, this function has a
-        // specialized path for X11 that uses Xrender directly to do the
-        // transition. This operation can be fully accelerated in HW.
-        //
-        // This specialization can be removed when QX11PaintEngine supports
-        // CompositionMode_Plus.
-        QPixmap source(to), destination(from);
-
-        source.detach();
-        destination.detach();
-
-        Display *dpy = QX11Info::display();
-
-        XRenderPictFormat *format = XRenderFindStandardFormat(dpy, PictStandardA8);
-        XRenderPictureAttributes pa;
-        pa.repeat = 1; // RepeatNormal
-
-        // Create a 1x1 8 bit repeating alpha picture
-        Pixmap pixmap = XCreatePixmap(dpy, destination.handle(), 1, 1, 8);
-        Picture alpha = XRenderCreatePicture(dpy, pixmap, format, CPRepeat, &pa);
-        XFreePixmap(dpy, pixmap);
-
-        // Fill the alpha picture with the opacity value
-        XRenderColor xcolor;
-        xcolor.alpha = quint16(0xffff * amount);
-        XRenderFillRectangle(dpy, PictOpSrc, alpha, &xcolor, 0, 0, 1, 1);
-
-        // Reduce the alpha of the destination with 1 - opacity
-        XRenderComposite(dpy, PictOpOutReverse, alpha, None, destination.x11PictureHandle(),
-                         0, 0, 0, 0, 0, 0, destination.width(), destination.height());
-
-        // Add source * opacity to the destination
-        XRenderComposite(dpy, PictOpAdd, source.x11PictureHandle(), alpha,
-                         destination.x11PictureHandle(),
-                         0, 0, 0, 0, 0, 0, destination.width(), destination.height());
-
-        XRenderFreePicture(dpy, alpha);
-        return destination;
-    }
-#endif
-    else {
+    } else {
         // Fall back to using QRasterPaintEngine to do the transition.
         QImage under = from.toImage();
         QImage over  = to.toImage();

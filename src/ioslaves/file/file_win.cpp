@@ -149,20 +149,6 @@ void FileProtocol::copy(const QUrl &src, const QUrl &dest,
         } else if (dwLastErr == ERROR_ACCESS_DENIED) {
             error(KIO::ERR_ACCESS_DENIED, _dest.filePath());
         } else {
-#if 0
-            LPVOID lpMsgBuf;
-
-            FormatMessage(
-                FORMAT_MESSAGE_ALLOCATE_BUFFER |
-                FORMAT_MESSAGE_FROM_SYSTEM |
-                FORMAT_MESSAGE_IGNORE_INSERTS,
-                NULL,
-                dwLastErr,
-                MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT),
-                (LPTSTR) &lpMsgBuf,
-                0, NULL);
-            OutputDebugString((WCHAR *)lpMsgBuf);
-#endif
             error(KIO::ERR_CANNOT_RENAME, _src.filePath());
             // qDebug() <<  "Copying file " << _src.filePath() << " failed (" << dwLastErr << ")";
         }

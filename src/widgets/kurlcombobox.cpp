@@ -426,11 +426,6 @@ void KUrlComboBoxPrivate::updateItem(const KUrlComboItem *item,
                                      int index, const QIcon &icon)
 {
     m_parent->setItemIcon(index, icon);
-#if 0
-    if (m_parent->isEditable()) {
-        item->text.clear(); // so that it gets recalculated
-    }
-#endif
     m_parent->setItemText(index, textForItem(item));
 }
 

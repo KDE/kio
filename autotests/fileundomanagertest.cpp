@@ -337,19 +337,6 @@ void FileUndoManagerTest::testMoveFiles()
 #endif
 }
 
-// Testing for overwrite isn't possible, because non-interactive jobs never overwrite.
-// And nothing different happens anyway, the dest is removed...
-#if 0
-void FileUndoManagerTest::testCopyFilesOverwrite()
-{
-    qDebug();
-    // Create a different file in the destdir
-    createTestFile(destFile(), "An old file already in the destdir");
-
-    testCopyFiles();
-}
-#endif
-
 void FileUndoManagerTest::testCopyDirectory()
 {
     const QString destdir = destDir();

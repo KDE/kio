@@ -1955,18 +1955,6 @@ void HTTPProtocol::multiGet(const QByteArray &data)
     if (m_isBusy) {
         m_request = saveRequest;
     }
-#if 0
-    if (!m_isBusy) {
-        m_isBusy = true;
-        QMutableListIterator<HTTPRequest> it(m_requestQueue);
-        while (it.hasNext()) {
-            m_request = it.next();
-            it.remove();
-            proceedUntilResponseContent();
-        }
-        m_isBusy = false;
-    }
-#endif
     if (!m_isBusy) {
         m_isBusy = true;
         QMutableListIterator<HTTPRequest> it(m_requestQueue);
@@ -2904,19 +2892,6 @@ try_again:
         qCDebug(KIO_HTTP) << "No connection.";
         return false; // Reestablish connection and try again
     }
-
-#if 0
-    // NOTE: This is unnecessary since TCPSlaveBase::read does the same exact
-    // thing. Plus, if we are unable to read from the socket we need to resend
-    // the request as done below, not error out! Do not assume remote server
-    // will honor persistent connections!!
-    if (!waitForResponse(m_remoteRespTimeout)) {
-        qCDebug(KIO_HTTP) << "Got socket error:" << socket()->errorString();
-        // No response error
-        error(ERR_SERVER_TIMEOUT, m_request.url.host());
-        return false;
-    }
-#endif
 
     int bufPos = 0;
     bool foundDelimiter = readDelimitedText(buffer, &bufPos, maxHeaderSize, 1);

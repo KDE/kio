@@ -371,19 +371,19 @@ bool KFileItemPrivate::cmp(const KFileItemPrivate &item) const
     }
 
 #if 0
-    //qDebug() << "Comparing" << m_url << "and" << item.m_url;
-    //qDebug() << " name" << (m_strName == item.m_strName);
-    //qDebug() << " local" << (m_bIsLocalUrl == item.m_bIsLocalUrl);
-    //qDebug() << " mode" << (m_fileMode == item.m_fileMode);
-    //qDebug() << " perm" << (m_permissions == item.m_permissions);
-    //qDebug() << " UDS_EXTENDED_ACL" << (m_entry.stringValue( KIO::UDSEntry::UDS_EXTENDED_ACL ) == item.m_entry.stringValue( KIO::UDSEntry::UDS_EXTENDED_ACL ));
-    //qDebug() << " UDS_ACL_STRING" << (m_entry.stringValue( KIO::UDSEntry::UDS_ACL_STRING ) == item.m_entry.stringValue( KIO::UDSEntry::UDS_ACL_STRING ));
-    //qDebug() << " UDS_DEFAULT_ACL_STRING" << (m_entry.stringValue( KIO::UDSEntry::UDS_DEFAULT_ACL_STRING ) == item.m_entry.stringValue( KIO::UDSEntry::UDS_DEFAULT_ACL_STRING ));
-    //qDebug() << " m_bLink" << (m_bLink == item.m_bLink);
-    //qDebug() << " m_hidden" << (m_hidden == item.m_hidden);
-    //qDebug() << " size" << (size() == item.size());
-    //qDebug() << " ModificationTime" << m_entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME) << item.m_entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME);
-    //qDebug() << " UDS_ICON_NAME" << (m_entry.stringValue( KIO::UDSEntry::UDS_ICON_NAME ) == item.m_entry.stringValue( KIO::UDSEntry::UDS_ICON_NAME ));
+    qDebug() << "Comparing" << m_url << "and" << item.m_url;
+    qDebug() << " name" << (m_strName == item.m_strName);
+    qDebug() << " local" << (m_bIsLocalUrl == item.m_bIsLocalUrl);
+    qDebug() << " mode" << (m_fileMode == item.m_fileMode);
+    qDebug() << " perm" << (m_permissions == item.m_permissions);
+    qDebug() << " UDS_EXTENDED_ACL" << (m_entry.stringValue( KIO::UDSEntry::UDS_EXTENDED_ACL ) == item.m_entry.stringValue( KIO::UDSEntry::UDS_EXTENDED_ACL ));
+    qDebug() << " UDS_ACL_STRING" << (m_entry.stringValue( KIO::UDSEntry::UDS_ACL_STRING ) == item.m_entry.stringValue( KIO::UDSEntry::UDS_ACL_STRING ));
+    qDebug() << " UDS_DEFAULT_ACL_STRING" << (m_entry.stringValue( KIO::UDSEntry::UDS_DEFAULT_ACL_STRING ) == item.m_entry.stringValue( KIO::UDSEntry::UDS_DEFAULT_ACL_STRING ));
+    qDebug() << " m_bLink" << (m_bLink == item.m_bLink);
+    qDebug() << " m_hidden" << (m_hidden == item.m_hidden);
+    qDebug() << " size" << (size() == item.size());
+    qDebug() << " ModificationTime" << m_entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME) << item.m_entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME);
+    qDebug() << " UDS_ICON_NAME" << (m_entry.stringValue( KIO::UDSEntry::UDS_ICON_NAME ) == item.m_entry.stringValue( KIO::UDSEntry::UDS_ICON_NAME ));
 #endif
     return (m_strName == item.m_strName
             && m_bIsLocalUrl == item.m_bIsLocalUrl

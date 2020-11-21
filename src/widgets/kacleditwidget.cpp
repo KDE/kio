@@ -190,37 +190,6 @@ bool KACLListViewItem::operator< (const QTreeWidgetItem &other) const
     return key() < static_cast<const KACLListViewItem &>(other).key();
 }
 
-#if 0
-void KACLListViewItem::paintCell(QPainter *p, const QColorGroup &cg,
-                                 int column, int width, int alignment)
-{
-    if (isDefault) {
-        setForeground(QColor(0, 0, 255));
-    }
-    if (isPartial) {
-        QFont font = p->font();
-        font.setItalic(true);
-        setForeground(QColor(100, 100, 100));
-        p->setFont(font);
-    }
-    QTreeWidgetItem::paintCell(p, mycg, column, width, alignment);
-
-    KACLListViewItem *below = 0;
-    if (itemBelow()) {
-        below = static_cast<KACLListViewItem *>(itemBelow());
-    }
-    const bool lastUser = type == KACLListView::NamedUser && below && below->type == KACLListView::NamedGroup;
-    const bool lastNonDefault = !isDefault && below && below->isDefault;
-    if (type == KACLListView::Mask || lastUser || lastNonDefault) {
-        p->setPen(QPen(Qt::gray, 0, Qt::DotLine));
-        if (type == KACLListView::Mask) {
-            p->drawLine(0, 0, width - 1, 0);
-        }
-        p->drawLine(0, height() - 1, width - 1, height() - 1);
-    }
-}
-#endif
-
 void KACLListViewItem::updatePermissionIcons()
 {
     unsigned int partialPerms = value;

@@ -445,12 +445,7 @@ void KDirModelTest::testModifyFile()
     enterLoop();
 
     // If we come here, then dataChanged() was emitted - all good.
-#if 0
-    QCOMPARE(modelSpy.count(), 1);
-    const QVariantList dataChanged = modelSpy.first();
-#else
     const QVariantList dataChanged = spyDataChanged[0];
-#endif
     QModelIndex receivedIndex = dataChanged[0].value<QModelIndex>();
     COMPARE_INDEXES(receivedIndex, m_secondFileIndex);
     receivedIndex = dataChanged[1].value<QModelIndex>();

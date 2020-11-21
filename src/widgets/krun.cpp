@@ -492,14 +492,6 @@ void KRun::init()
 
     }
 
-#if 0 // removed for KF5 (for portability). Reintroduce a bool or flag if useful.
-    // Did we already get the information that it is a directory ?
-    if ((d->m_mode & QT_STAT_MASK) == QT_STAT_DIR) {
-        mimeTypeDetermined("inode/directory");
-        return;
-    }
-#endif
-
     // Let's see whether it is a directory
 
     if (!KProtocolManager::supportsListing(d->m_strURL)) {

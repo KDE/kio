@@ -204,9 +204,6 @@ private:
     // For the certificate verification code
     SslResult verifyServerCertificate();
 
-    // For prompting for the client certificate to use
-    void selectClientCertificate();
-
     class TcpSlaveBasePrivate;
     TcpSlaveBasePrivate *const d;
 };

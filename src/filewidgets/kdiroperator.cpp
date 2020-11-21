@@ -72,7 +72,6 @@ public:
 
     // private methods
     bool checkPreviewInternal() const;
-    void checkPath(const QString &txt, bool takeFiles = false);
     bool openUrl(const QUrl &url, KDirLister::OpenUrlFlags flags = KDirLister::NoFlags);
     int sortColumn() const;
     Qt::SortOrder sortOrder() const;
@@ -945,63 +944,6 @@ void KDirOperator::close()
     d->dirCompletion.clear();
     d->completeListDirty = true;
     d->dirLister->stop();
-}
-
-void KDirOperator::Private::checkPath(const QString &, bool /*takeFiles*/) // SLOT
-{
-#if 0
-    // copy the argument in a temporary string
-    QString text = _txt;
-    // it's unlikely to happen, that at the beginning are spaces, but
-    // for the end, it happens quite often, I guess.
-    text = text.trimmed();
-    // if the argument is no URL (the check is quite fragil) and it's
-    // no absolute path, we add the current directory to get a correct url
-    if (text.find(':') < 0 && text[0] != '/') {
-        text.insert(0, d->currUrl);
-    }
-
-    // in case we have a selection defined and someone patched the file-
-    // name, we check, if the end of the new name is changed.
-    if (!selection.isNull()) {
-        int position = text.lastIndexOf('/');
-        ASSERT(position >= 0); // we already inserted the current d->dirLister in case
-        QString filename = text.mid(position + 1, text.length());
-        if (filename != selection) {
-            selection.clear();
-        }
-    }
-
-    QUrl u(text); // I have to take care of entered URLs
-    bool filenameEntered = false;
-
-    if (u.isLocalFile()) {
-        // the empty path is kind of a hack
-        KFileItem i("", u.toLocalFile());
-        if (i.isDir()) {
-            setUrl(text, true);
-        } else {
-            if (takeFiles)
-                if (acceptOnlyExisting && !i.isFile()) {
-                    warning("you entered an invalid URL");
-                } else {
-                    filenameEntered = true;
-                }
-        }
-    } else {
-        setUrl(text, true);
-    }
-
-    if (filenameEntered) {
-        filename_ = u.url();
-        emit fileSelected(filename_);
-
-        QApplication::restoreOverrideCursor();
-
-        accept();
-    }
-#endif
-    // qDebug() << "TODO KDirOperator::checkPath()";
 }
 
 void KDirOperator::setUrl(const QUrl &_newurl, bool clearforward)

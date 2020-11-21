@@ -1426,14 +1426,6 @@ void FileProtocol::stat(const QUrl &url)
         error(KIO::ERR_DOES_NOT_EXIST, path);
         return;
     }
-#if 0
-///////// debug code
-    MetaData::iterator it1 = mOutgoingMetaData.begin();
-    for (; it1 != mOutgoingMetaData.end(); it1++) {
-        // qDebug() << it1.key() << " = " << it1.data();
-    }
-/////////
-#endif
     statEntry(entry);
 
     finished();

@@ -750,13 +750,6 @@ bool FtpInternal::ftpSendCmd(const QByteArray &cmd, int maxretries)
 
     // Don't print out the password...
     bool isPassCmd = (cmd.left(4).toLower() == "pass");
-#if 0
-    if (!isPassCmd) {
-        qDebug() << "send> " << cmd.data();
-    } else {
-        qDebug() << "send> pass [protected]";
-    }
-#endif
 
     // Send the message...
     const QByteArray buf = cmd + "\r\n";      // Yes, must use CR/LF - see http://cr.yp.to/ftp/request.html
@@ -1981,71 +1974,6 @@ Result FtpInternal::ftpGet(int iCopyFile, const QString &sCopyFile, const QUrl &
     q->processedSize(m_size == UnknownSize ? processed_size : m_size);
     return Result::pass();
 }
-
-#if 0
-void FtpInternal::mimetype(const QUrl &url)
-{
-    if (!ftpOpenConnection(loginImplicit)) {
-        return;
-    }
-
-    if (!ftpOpenCommand("retr", url.path(), 'I', ERR_CANNOT_OPEN_FOR_READING, 0)) {
-        qCWarning(KIO_FTP) << "Can't open for reading";
-        return;
-    }
-    char buffer[ 2048 ];
-    QByteArray array;
-    // Get one chunk of data only and send it, KIO::Job will determine the
-    // mimetype from it using KMimeMagic
-    int n = m_data->read(buffer, 2048);
-    array.setRawData(buffer, n);
-    data(array);
-    array.resetRawData(buffer, n);
-
-    qCDebug(KIO_FTP) << "aborting";
-    ftpAbortTransfer();
-
-    qCDebug(KIO_FTP) << "finished";
-    finished();
-    qCDebug(KIO_FTP) << "after finished";
-}
-
-void FtpInternal::ftpAbortTransfer()
-{
-    // RFC 959, page 34-35
-    // IAC (interpret as command) = 255 ; IP (interrupt process) = 254
-    // DM = 242 (data mark)
-    char msg[4];
-    // 1. User system inserts the Telnet "Interrupt Process" (IP) signal
-    //   in the Telnet stream.
-    msg[0] = (char) 255; //IAC
-    msg[1] = (char) 254; //IP
-    (void) send(sControl, msg, 2, 0);
-    // 2. User system sends the Telnet "Sync" signal.
-    msg[0] = (char) 255; //IAC
-    msg[1] = (char) 242; //DM
-    if (send(sControl, msg, 2, MSG_OOB) != 2)
-        ; // error...
-
-    // Send ABOR
-    qCDebug(KIO_FTP) << "send ABOR";
-    QCString buf = "ABOR\r\n";
-    if (KSocks::self()->write(sControl, buf.data(), buf.length()) <= 0)  {
-        error(ERR_CANNOT_WRITE, QString());
-        return;
-    }
-
-    //
-    qCDebug(KIO_FTP) << "read resp";
-    if (readresp() != '2') {
-        error(ERR_CANNOT_READ, QString());
-        return;
-    }
-
-    qCDebug(KIO_FTP) << "close sockets";
-    closeSockets();
-}
-#endif
 
 //===============================================================================
 // public: put           upload file to server

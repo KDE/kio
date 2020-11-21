@@ -185,17 +185,6 @@ static void permissionsToEntry(acl_entry_t entry, unsigned short v)
     }
 }
 
-#if HAVE_POSIX_ACL
-#if 0
-static void printACL(acl_t acl, const QString &comment)
-{
-    const char *txt = acl_to_text(acl);
-    qCDebug(KIO_CORE) << comment << txt;
-    acl_free(txt);
-}
-#endif
-#endif
-
 static int getUidForName(const QString &name)
 {
     struct passwd *user = getpwnam(name.toLocal8Bit().constData());
@@ -482,7 +471,6 @@ bool KACL::KACLPrivate::setAllUsersOrGroups(const QList< QPair<QString, unsigned
     acl_t newACL = acl_dup(m_acl);
     acl_entry_t entry;
 
-//printACL( newACL, "Before cleaning: " );
     // clear user entries
     int ret = acl_get_entry(newACL, ACL_FIRST_ENTRY, &entry);
     while (ret == 1) {
@@ -497,7 +485,6 @@ bool KACL::KACLPrivate::setAllUsersOrGroups(const QList< QPair<QString, unsigned
             ret = acl_get_entry(newACL, ACL_NEXT_ENTRY, &entry);
         }
     }
-//printACL( newACL, "After cleaning out entries: " );
 
     // now add the entries from the list
     QList< QPair<QString, unsigned short> >::const_iterator it = list.constBegin();
@@ -516,7 +503,6 @@ bool KACL::KACLPrivate::setAllUsersOrGroups(const QList< QPair<QString, unsigned
         }
         ++it;
     }
-//printACL( newACL, "After adding entries: " );
     if (allIsWell && atLeastOneUserOrGroup) {
         // 23.1.1 of 1003.1e states that as soon as there is a named user or
         // named group entry, there needs to be a mask entry as well, so add

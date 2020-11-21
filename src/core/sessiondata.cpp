@@ -22,36 +22,6 @@
 namespace KIO
 {
 
-/***************************** SessionData::AuthData ************************/
-#if 0
-struct SessionData::AuthData {
-
-public:
-    AuthData() {}
-
-    AuthData(const QByteArray &k, const QByteArray &g, bool p)
-    {
-        key = k;
-        group = g;
-        persist = p;
-    }
-
-    bool isKeyMatch(const QByteArray &val) const
-    {
-        return (val == key);
-    }
-
-    bool isGroupMatch(const QByteArray &val) const
-    {
-        return (val == group);
-    }
-
-    QByteArray key;
-    QByteArray group;
-    bool persist;
-};
-#endif
-
 /********************************* SessionData ****************************/
 
 class SessionData::SessionDataPrivate
@@ -72,7 +42,6 @@ public:
 SessionData::SessionData()
     : d(new SessionDataPrivate)
 {
-//  authData = 0;
 }
 
 SessionData::~SessionData()
