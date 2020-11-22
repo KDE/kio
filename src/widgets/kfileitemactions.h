@@ -165,6 +165,27 @@ public:
      */
     int addPluginActionsTo(QMenu *menu);
 
+    enum class MenuActionSource {
+        Services = 0x1, // Add builtin actions, user defined actions and servicemenu actions
+        Plugins = 0x2, // Add actions implemented by plugins. See KAbstractFileItemActionPlugin base class.
+        All = Services | Plugins,
+    };
+    Q_DECLARE_FLAGS(MenuActionSources, MenuActionSource)
+
+    /**
+     * This methods adds additional actions to the menu.
+     * @param menu Menu to which the actions/submenus will be added.
+     * @param sources sources from which the actions should be fetched. By default all sources are used.
+     * @param additionalActions additional actions that should be added to the "Actions" submenu or
+     * top level menu if there are less than three entries in total.
+     * @param excludeList list of action names or plugin ids that should be excluded
+     * @since 5.77
+     */
+    void addActionsTo(QMenu *menu,
+                      MenuActionSources sources = MenuActionSource::All,
+                      const QList<QAction *> &additionalActions = {},
+                      const QStringList &excludeList = {});
+
 Q_SIGNALS:
     /**
      * Emitted before the "Open With" dialog is shown
@@ -186,6 +207,7 @@ private:
     KFileItemActionsPrivate *const d;
     friend class KFileItemActionsPrivate;
 };
+Q_DECLARE_OPERATORS_FOR_FLAGS(KFileItemActions::MenuActionSources)
 
 #endif /* KFILEITEMACTIONS_H */
 
