@@ -11,6 +11,7 @@
 #include "deletejob.h"
 #include "mkdirjob.h"
 #include "job.h"
+#include "kiocoredebug.h"
 
 #include <QMimeDatabase>
 
@@ -146,8 +147,6 @@ QUrl ForwardingSlaveBase::requestedUrl() const
 
 void ForwardingSlaveBase::get(const QUrl &url)
 {
-    //qDebug() << url;
-
     QUrl new_url;
     if (d->internalRewriteUrl(url, new_url)) {
         KIO::TransferJob *job = KIO::get(new_url, NoReload, HideProgressInfo);
@@ -162,8 +161,6 @@ void ForwardingSlaveBase::get(const QUrl &url)
 void ForwardingSlaveBase::put(const QUrl &url, int permissions,
                               JobFlags flags)
 {
-    //qDebug() << url;
-
     QUrl new_url;
     if (d->internalRewriteUrl(url, new_url)) {
         KIO::TransferJob *job = KIO::put(new_url, permissions,
@@ -178,8 +175,6 @@ void ForwardingSlaveBase::put(const QUrl &url, int permissions,
 
 void ForwardingSlaveBase::stat(const QUrl &url)
 {
-    //qDebug() << url;
-
     QUrl new_url;
     if (d->internalRewriteUrl(url, new_url)) {
         KIO::SimpleJob *job = KIO::stat(new_url, KIO::HideProgressInfo);
@@ -193,8 +188,6 @@ void ForwardingSlaveBase::stat(const QUrl &url)
 
 void ForwardingSlaveBase::mimetype(const QUrl &url)
 {
-    //qDebug() << url;
-
     QUrl new_url;
     if (d->internalRewriteUrl(url, new_url)) {
         KIO::TransferJob *job = KIO::mimetype(new_url, KIO::HideProgressInfo);
@@ -208,8 +201,6 @@ void ForwardingSlaveBase::mimetype(const QUrl &url)
 
 void ForwardingSlaveBase::listDir(const QUrl &url)
 {
-    //qDebug() << url;
-
     QUrl new_url;
     if (d->internalRewriteUrl(url, new_url)) {
         KIO::ListJob *job = KIO::listDir(new_url, KIO::HideProgressInfo);
@@ -223,8 +214,6 @@ void ForwardingSlaveBase::listDir(const QUrl &url)
 
 void ForwardingSlaveBase::mkdir(const QUrl &url, int permissions)
 {
-    //qDebug() << url;
-
     QUrl new_url;
     if (d->internalRewriteUrl(url, new_url)) {
         KIO::SimpleJob *job = KIO::mkdir(new_url, permissions);
@@ -239,7 +228,7 @@ void ForwardingSlaveBase::mkdir(const QUrl &url, int permissions)
 void ForwardingSlaveBase::rename(const QUrl &src, const QUrl &dest,
                                  JobFlags flags)
 {
-    //qDebug() << src << "," << dest;
+    qCDebug(KIO_CORE) << "rename" << src << dest;
 
     QUrl new_src, new_dest;
     if (!d->internalRewriteUrl(src, new_src)) {
@@ -257,7 +246,7 @@ void ForwardingSlaveBase::rename(const QUrl &src, const QUrl &dest,
 void ForwardingSlaveBase::symlink(const QString &target, const QUrl &dest,
                                   JobFlags flags)
 {
-    //qDebug() << target << ", " << dest;
+    qCDebug(KIO_CORE) << "symlink" << target << dest;
 
     QUrl new_dest;
     if (d->internalRewriteUrl(dest, new_dest)) {
@@ -272,8 +261,6 @@ void ForwardingSlaveBase::symlink(const QString &target, const QUrl &dest,
 
 void ForwardingSlaveBase::chmod(const QUrl &url, int permissions)
 {
-    //qDebug() << url;
-
     QUrl new_url;
     if (d->internalRewriteUrl(url, new_url)) {
         KIO::SimpleJob *job = KIO::chmod(new_url, permissions);
@@ -287,8 +274,6 @@ void ForwardingSlaveBase::chmod(const QUrl &url, int permissions)
 
 void ForwardingSlaveBase::setModificationTime(const QUrl &url, const QDateTime &mtime)
 {
-    //qDebug() << url;
-
     QUrl new_url;
     if (d->internalRewriteUrl(url, new_url)) {
         KIO::SimpleJob *job = KIO::setModificationTime(new_url, mtime);
@@ -303,7 +288,7 @@ void ForwardingSlaveBase::setModificationTime(const QUrl &url, const QDateTime &
 void ForwardingSlaveBase::copy(const QUrl &src, const QUrl &dest,
                                int permissions, JobFlags flags)
 {
-    //qDebug() << src << "," << dest;
+    qCDebug(KIO_CORE) << "copy" << src << dest;
 
     QUrl new_src, new_dest;
     if (!d->internalRewriteUrl(src, new_src)) {
@@ -320,8 +305,6 @@ void ForwardingSlaveBase::copy(const QUrl &src, const QUrl &dest,
 
 void ForwardingSlaveBase::del(const QUrl &url, bool isfile)
 {
-    //qDebug() << url;
-
     QUrl new_url;
     if (d->internalRewriteUrl(url, new_url)) {
         if (isfile) {
