@@ -2325,13 +2325,9 @@ QStringList KCoreDirLister::mimeFilters() const
 
 bool KCoreDirLister::matchesFilter(const QString &name) const
 {
-    for (const QRegularExpression &filter : d->settings.lstFilters) {
-        if (filter.match(name).hasMatch()) {
-            return true;
-        }
-    }
-
-    return false;
+    return std::any_of(d->settings.lstFilters.cbegin(), d->settings.lstFilters.cend(), [&name](const QRegularExpression &filter) {
+        return filter.match(name).hasMatch();
+    });
 }
 
 bool KCoreDirLister::matchesMimeFilter(const QString &mime) const
@@ -2373,13 +2369,9 @@ bool KCoreDirLister::matchesMimeFilter(const KFileItem &item) const
 
 bool KCoreDirLister::doNameFilter(const QString &name, const QList<QRegExp> &filters) const
 {
-    for (const QRegExp &filter : filters) {
-        if (filter.exactMatch(name)) {
-            return true;
-        }
-    }
-
-    return false;
+    return std::any_of(filters.cbegin(), filters.cend(), [&name](const QRegExp &filter) {
+        return filter.exactMatch(name);
+    });
 }
 
 bool KCoreDirLister::doMimeFilter(const QString &mime, const QStringList &filters) const
@@ -2395,29 +2387,16 @@ bool KCoreDirLister::doMimeFilter(const QString &mime, const QStringList &filter
     }
 
     qCDebug(KIO_CORE_DIRLISTER) << "doMimeFilter: investigating:" << mimeptr.name();
-    QStringList::const_iterator it = filters.begin();
-    for (; it != filters.end(); ++it)
-        if (mimeptr.inherits(*it)) {
-            return true;
-        }
-    //else   qCDebug(KIO_CORE_DIRLISTER) << "doMimeFilter: compared without result to  "<<*it;
-
-    return false;
+    return std::any_of(filters.cbegin(), filters.cend(), [&mimeptr](const QString &filter) {
+        return mimeptr.inherits(filter);
+    });
 }
 
 bool KCoreDirLister::Private::doMimeExcludeFilter(const QString &mime, const QStringList &filters) const
 {
-    if (filters.isEmpty()) {
-        return true;
-    }
-
-    QStringList::const_iterator it = filters.begin();
-    for (; it != filters.end(); ++it)
-        if ((*it) == mime) {
-            return false;
-        }
-
-    return true;
+    return !std::any_of(filters.cbegin(), filters.cend(), [&mime](const QString &filter) {
+        return mime == filter;
+    });
 }
 
 void KCoreDirLister::handleError(KIO::Job *job)
