@@ -332,7 +332,6 @@ int AccessManagerReply::jobError(KJob *kJob)
     case KIO::ERR_SLAVE_DEFINED:
     case KIO::ERR_NO_CONTENT: // Sent by a 204 response is not an error condition.
         setError(QNetworkReply::NoError, kJob->errorText());
-        //qDebug() << "0 -> QNetworkReply::NoError";
         break;
     case KIO::ERR_IS_DIRECTORY:
         // This error condition can happen if you click on an ftp link that points
@@ -342,57 +341,44 @@ int AccessManagerReply::jobError(KJob *kJob)
         break;
     case KIO::ERR_CANNOT_CONNECT:
         setError(QNetworkReply::ConnectionRefusedError, kJob->errorText());
-        //qDebug() << "KIO::ERR_CANNOT_CONNECT -> QNetworkReply::ConnectionRefusedError";
         break;
     case KIO::ERR_UNKNOWN_HOST:
         setError(QNetworkReply::HostNotFoundError, kJob->errorText());
-        //qDebug() << "KIO::ERR_UNKNOWN_HOST -> QNetworkReply::HostNotFoundError";
         break;
     case KIO::ERR_SERVER_TIMEOUT:
         setError(QNetworkReply::TimeoutError, kJob->errorText());
-        //qDebug() << "KIO::ERR_SERVER_TIMEOUT -> QNetworkReply::TimeoutError";
         break;
     case KIO::ERR_USER_CANCELED:
     case KIO::ERR_ABORTED:
         setError(QNetworkReply::OperationCanceledError, kJob->errorText());
-        //qDebug() << "KIO::ERR_ABORTED -> QNetworkReply::OperationCanceledError";
         break;
     case KIO::ERR_UNKNOWN_PROXY_HOST:
         setError(QNetworkReply::ProxyNotFoundError, kJob->errorText());
-        //qDebug() << "KIO::UNKNOWN_PROXY_HOST -> QNetworkReply::ProxyNotFoundError";
         break;
     case KIO::ERR_ACCESS_DENIED:
         setError(QNetworkReply::ContentAccessDenied, kJob->errorText());
-        //qDebug() << "KIO::ERR_ACCESS_DENIED -> QNetworkReply::ContentAccessDenied";
         break;
     case KIO::ERR_WRITE_ACCESS_DENIED:
         setError(QNetworkReply::ContentOperationNotPermittedError, kJob->errorText());
-        //qDebug() << "KIO::ERR_WRITE_ACCESS_DENIED -> QNetworkReply::ContentOperationNotPermittedError";
         break;
     case KIO::ERR_DOES_NOT_EXIST:
         setError(QNetworkReply::ContentNotFoundError, kJob->errorText());
-        //qDebug() << "KIO::ERR_DOES_NOT_EXIST -> QNetworkReply::ContentNotFoundError";
         break;
     case KIO::ERR_CANNOT_AUTHENTICATE:
         setError(QNetworkReply::AuthenticationRequiredError, kJob->errorText());
-        //qDebug() << "KIO::ERR_CANNOT_AUTHENTICATE -> QNetworkReply::AuthenticationRequiredError";
         break;
     case KIO::ERR_UNSUPPORTED_PROTOCOL:
     case KIO::ERR_NO_SOURCE_PROTOCOL:
         setError(QNetworkReply::ProtocolUnknownError, kJob->errorText());
-        //qDebug() << "KIO::ERR_UNSUPPORTED_PROTOCOL -> QNetworkReply::ProtocolUnknownError";
         break;
     case KIO::ERR_CONNECTION_BROKEN:
         setError(QNetworkReply::RemoteHostClosedError, kJob->errorText());
-        //qDebug() << "KIO::ERR_CONNECTION_BROKEN -> QNetworkReply::RemoteHostClosedError";
         break;
     case KIO::ERR_UNSUPPORTED_ACTION:
         setError(QNetworkReply::ProtocolInvalidOperationError, kJob->errorText());
-        //qDebug() << "KIO::ERR_UNSUPPORTED_ACTION -> QNetworkReply::ProtocolInvalidOperationError";
         break;
     default:
         setError(QNetworkReply::UnknownNetworkError, kJob->errorText());
-        //qDebug() << KIO::rawErrorDetail(errCode, QString()) << "-> QNetworkReply::UnknownNetworkError";
     }
 
     return errCode;
