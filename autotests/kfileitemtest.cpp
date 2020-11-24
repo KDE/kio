@@ -615,12 +615,15 @@ void KFileItemTest::testIconNameForUrl_data()
     QTest::newRow("trash:/ itself") << QUrl("trash:/") << "user-trash-full";
     QTest::newRow("folder under trash:/") << QUrl("trash:/folder/") << "inode-directory";
     QTest::newRow("file under trash:/") << QUrl("trash:/test") << "application-octet-stream";
+    QTest::newRow("image file under trash:/") << QUrl("trash:/test.png") << "image-png";
 
     QTest::newRow("https scheme") << QUrl("https://kde.org/") << "text-html";
 
     if (KProtocolInfo::isKnownProtocol("smb")) {
-        QTest::newRow("smb folder") << QUrl("smb:/") << "network-workgroup";
-        QTest::newRow("smb file") << QUrl("smb:/test") << "network-workgroup";
+        QTest::newRow("smb root") << QUrl("smb:/") << "network-workgroup";
+        QTest::newRow("smb unknown file") << QUrl("smb:/test") << "network-workgroup";
+        QTest::newRow("smb directory/") << QUrl("smb:/unknown/") << "inode-directory";
+        QTest::newRow("smb image file") << QUrl("smb:/test.png") << "image-png";
     }
 }
 

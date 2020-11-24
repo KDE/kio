@@ -253,7 +253,7 @@ QString KIO::iconNameForUrl(const QUrl &url)
         }
 
         // and other protocols
-        if (iconName.isEmpty()) {
+        if (iconName.isEmpty() && (mt.isDefault() || url.path().size() <= 1)) {
             iconName = KProtocolInfo::icon(url.scheme());
         }
     }
