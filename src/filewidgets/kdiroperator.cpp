@@ -1979,7 +1979,7 @@ void KDirOperator::setupActions()
     // the sort menu actions
     KActionMenu *sortMenu = new KActionMenu(i18n("Sorting"), this);
     sortMenu->setIcon(QIcon::fromTheme(QStringLiteral("view-sort")));
-    sortMenu->setDelayed(false);
+    sortMenu->setPopupMode(QToolButton::InstantPopup);
     d->actionCollection->addAction(QStringLiteral("sorting menu"),  sortMenu);
 
     KToggleAction *byNameAction = new KToggleAction(i18n("Sort by Name"), this);

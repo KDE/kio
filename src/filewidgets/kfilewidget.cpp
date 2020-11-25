@@ -470,7 +470,7 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
     menu->addAction(showBookmarksAction);
     menu->addAction(coll->action(QStringLiteral("preview")));
 
-    menu->setDelayed(false);
+    menu->setPopupMode(QToolButton::InstantPopup);
     connect(menu->menu(), &QMenu::aboutToShow,
             d->ops, &KDirOperator::updateSelectionDependentActions);
 
@@ -2703,7 +2703,7 @@ void KFileWidgetPrivate::_k_toggleBookmarks(bool show)
                    SLOT(_k_enterUrl(QString)));
 
         bookmarkButton = new KActionMenu(QIcon::fromTheme(QStringLiteral("bookmarks")), i18n("Bookmarks"), q);
-        bookmarkButton->setDelayed(false);
+        bookmarkButton->setPopupMode(QToolButton::InstantPopup);
         q->actionCollection()->addAction(QStringLiteral("bookmark"), bookmarkButton);
         bookmarkButton->setMenu(bookmarkHandler->menu());
         bookmarkButton->setWhatsThis(i18n("<qt>This button allows you to bookmark specific locations. "
