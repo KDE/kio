@@ -334,7 +334,7 @@ void DropJobPrivate::fillPopupMenu(KIO::DropMenu *popup)
     Q_ASSERT(seq.endsWith(QLatin1Char('+')));
     seq.chop(1); // chop superfluous '+'
     QAction* popupMoveAction = new QAction(i18n("&Move Here") + QLatin1Char('\t') + seq, popup);
-    popupMoveAction->setIcon(QIcon::fromTheme(QStringLiteral("go-jump")));
+    popupMoveAction->setIcon(QIcon::fromTheme(QStringLiteral("edit-move"), QIcon::fromTheme(QStringLiteral("go-jump"))));
     popupMoveAction->setData(QVariant::fromValue(Qt::MoveAction));
     seq = QKeySequence(Qt::ControlModifier).toString();
     Q_ASSERT(seq.endsWith(QLatin1Char('+')));
