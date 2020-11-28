@@ -149,6 +149,7 @@ public:
         , m_bAutoSkipDirs(false)
         , m_bOverwriteAllFiles(false)
         , m_bOverwriteAllDirs(false)
+        , m_bOverwriteWhenOlder(false)
         , m_conflictError(0)
         , m_reportTimer(nullptr)
     {
@@ -204,6 +205,7 @@ public:
     bool m_bAutoSkipDirs;
     bool m_bOverwriteAllFiles;
     bool m_bOverwriteAllDirs;
+    bool m_bOverwriteWhenOlder;
     int m_conflictError;
 
     QTimer *m_reportTimer;
@@ -1372,7 +1374,7 @@ void CopyJobPrivate::slotResultCopyingFiles(KJob *job)
                     Q_ASSERT(!q->hasSubjobs());
                     // We need to stat the existing file, to get its last-modification time
                     QUrl existingFile((*it).uDest);
-                    SimpleJob *newJob = KIO::statDetails(existingFile, StatJob::DestinationSide, KIO::StatDefaultDetails, KIO::HideProgressInfo);
+                    SimpleJob *newJob = KIO::statDetails(existingFile, StatJob::DestinationSide, KIO::StatDetail::StatBasic | KIO::StatDetail::StatTime, KIO::HideProgressInfo);
                     Scheduler::setJobPriority(newJob, 1);
                     qCDebug(KIO_COPYJOB_DEBUG) << "KIO::stat for resolving conflict on" << existingFile;
                     state = STATE_CONFLICT_COPYING_FILES;
@@ -1458,7 +1460,7 @@ void CopyJobPrivate::slotResultErrorCopyingFiles(KJob *job)
     // The file we were trying to create:
     QList<CopyInfo>::Iterator it = files.begin();
 
-    RenameDialog_Result res;
+    RenameDialog_Result res = Result_Cancel;
     QString newPath;
 
     if (m_reportTimer) {
@@ -1488,26 +1490,53 @@ void CopyJobPrivate::slotResultErrorCopyingFiles(KJob *job)
                      (*it).uSource.adjusted(QUrl::StripTrailingSlash).path() == linkDest)) {
                 options = RenameDialog_OverwriteItself;
             } else {
-                options = RenameDialog_Overwrite;
-                // These timestamps are used only when RenameDialog_Overwrite is set.
-                destmtime = QDateTime::fromMSecsSinceEpoch(1000 * entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME, -1), Qt::UTC);
-                destctime = QDateTime::fromMSecsSinceEpoch(1000 * entry.numberValue(KIO::UDSEntry::UDS_CREATION_TIME, -1), Qt::UTC);
+                const qint64 destMTimeStamp = entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME, -1);
+                if (m_bOverwriteWhenOlder && (*it).mtime.isValid() && destMTimeStamp != -1){
+                    if ((*it).mtime.currentSecsSinceEpoch() > destMTimeStamp) {
+                        qCDebug(KIO_COPYJOB_DEBUG) << "dest is older, overwriting" << (*it).uDest;
+                        res = Result_Overwrite;
+                    } else {
+                        qCDebug(KIO_COPYJOB_DEBUG) << "dest is newer, skipping" << (*it).uDest;
+                        res = Result_Skip;
+                    }
+                } else {
+                    // These timestamps are used only when RenameDialog_Overwrite is set.
+                    destmtime = QDateTime::fromMSecsSinceEpoch(1000 * destMTimeStamp, Qt::UTC);
+                    destctime = QDateTime::fromMSecsSinceEpoch(1000 * entry.numberValue(KIO::UDSEntry::UDS_CREATION_TIME, -1), Qt::UTC);
+
+                    options = RenameDialog_Overwrite;
+                }
             }
             isDir = false;
         }
 
-        if (!m_bSingleFileCopy) {
-            options = RenameDialog_Options(options | RenameDialog_MultipleItems | RenameDialog_Skip);
-        }
+        // if no preset value was set
+        if (res == Result_Cancel) {
 
-        res = q->uiDelegateExtension()->askFileRename(q, !isDir ?
-                i18n("File Already Exists") : i18n("Already Exists as Folder"),
-                (*it).uSource,
-                (*it).uDest,
-                options, newPath,
-                (*it).size, destsize,
-                (*it).ctime, destctime,
-                (*it).mtime, destmtime);
+            if (!m_bSingleFileCopy) {
+                options = RenameDialog_Options(options | RenameDialog_MultipleItems | RenameDialog_Skip);
+            }
+
+            res = q->uiDelegateExtension()->askFileRename(q, !isDir ?
+                    i18n("File Already Exists") : i18n("Already Exists as Folder"),
+                    (*it).uSource,
+                    (*it).uDest,
+                    options, newPath,
+                    (*it).size, destsize,
+                    (*it).ctime, destctime,
+                    (*it).mtime, destmtime);
+
+            if (res == Result_OverwriteWhenOlder) {
+                m_bOverwriteWhenOlder = true;
+                if ((*it).mtime > destmtime) {
+                    qCDebug(KIO_COPYJOB_DEBUG) << "dest is older, overwriting" << (*it).uDest;
+                    res = Result_Overwrite;
+                } else {
+                    qCDebug(KIO_COPYJOB_DEBUG) << "dest is newer, skipping" << (*it).uDest;
+                    res = Result_Skip;
+                }
+            }
+        }
 
     } else {
         if (job->error() == ERR_USER_CANCELED) {
@@ -2021,7 +2050,17 @@ void CopyJobPrivate::slotResultRenaming(KJob *job)
                     m_reportTimer->stop();
                 }
 
-                RenameDialog_Result r = q->uiDelegateExtension()->askFileRename(
+                RenameDialog_Result r;
+                if (m_bOverwriteWhenOlder && mtimeSrc.isValid() && mtimeDest.isValid()){
+                    if (mtimeSrc > mtimeDest) {
+                        qCDebug(KIO_COPYJOB_DEBUG) << "dest is older, overwriting" << dest;
+                        r = Result_Overwrite;
+                    } else {
+                        qCDebug(KIO_COPYJOB_DEBUG) << "dest is newer, skipping" << dest;
+                        r = Result_Skip;
+                    }
+                } else {
+                    r = q->uiDelegateExtension()->askFileRename(
                                             q,
                                             err != ERR_DIR_ALREADY_EXIST ? i18n("File Already Exists") : i18n("Already Exists as Folder"),
                                             m_currentSrcURL,
@@ -2030,9 +2069,21 @@ void CopyJobPrivate::slotResultRenaming(KJob *job)
                                             sizeSrc, sizeDest,
                                             ctimeSrc, ctimeDest,
                                             mtimeSrc, mtimeDest);
+                }
 
                 if (m_reportTimer) {
                     m_reportTimer->start(REPORT_TIMEOUT);
+                }
+
+                if (r == Result_OverwriteWhenOlder){
+                    m_bOverwriteWhenOlder = true;
+                    if (mtimeSrc > mtimeDest) {
+                        qCDebug(KIO_COPYJOB_DEBUG) << "dest is older, overwriting" << dest;
+                        r = Result_Overwrite;
+                    } else {
+                        qCDebug(KIO_COPYJOB_DEBUG) << "dest is newer, skipping" << dest;
+                        r = Result_Skip;
+                    }
                 }
 
                 switch (r) {
@@ -2041,6 +2092,7 @@ void CopyJobPrivate::slotResultRenaming(KJob *job)
                     q->emitResult();
                     return;
                 }
+
                 case Result_AutoRename:
                     if (isDir) {
                         m_bAutoRenameDirs = true;

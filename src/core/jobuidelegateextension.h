@@ -90,6 +90,12 @@ enum RenameDialog_Result {
     Result_ResumeAll = 7,
     Result_AutoRename = 8,
     Result_Retry = 9,
+    /*
+     * Can be returned only when multiple files are passed, Option overwrite is passed
+     * And files modification times are valid
+     * @since 5.77
+     */
+    Result_OverwriteWhenOlder = 10,
 
     // @deprecated since 5.0, use the undeprecated enum values
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 0)

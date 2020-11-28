@@ -23,6 +23,8 @@
 #include <QScrollArea>
 #include <QScrollBar>
 #include <QLayout>
+#include <QMenu>
+#include <QToolButton>
 
 #include <KIconLoader>
 #include <KMessageBox>
@@ -104,7 +106,8 @@ static CompareFilesResult compareFiles(const QString &filepath, const QString &s
     QByteArray buffer2(bufferSize, 0);
 
     bool result = true;
-    auto seekFillBuffer = [bufferSize](qint64 pos, QFile &f, QByteArray &buffer){
+
+    auto seekFillBuffer = [bufferSize](qint64 pos, QFile &f, QByteArray &buffer) {
         auto ioresult = f.seek(pos);
         int bytesRead;
         if (ioresult) {
@@ -156,7 +159,8 @@ public:
     RenameDialogPrivate()
     {
         bCancel = nullptr;
-        bRename = bSkip = bOverwrite = nullptr;
+        bRename = bSkip = nullptr;
+        bOverwrite = nullptr;
         bResume = bSuggestNewName = nullptr;
         bApplyAll = nullptr;
         m_pLineEdit = nullptr;
@@ -186,7 +190,8 @@ public:
     QPushButton *bCancel;
     QPushButton *bRename;
     QPushButton *bSkip;
-    QPushButton *bOverwrite;
+    QToolButton *bOverwrite;
+    QAction     *bOverwriteWhenOlder;
     QPushButton *bResume;
     QPushButton *bSuggestNewName;
     QCheckBox *bApplyAll;
@@ -248,13 +253,28 @@ RenameDialog::RenameDialog(QWidget *parent, const QString &_caption,
     }
 
     if (_options & RenameDialog_Overwrite) {
-        d->bOverwrite = new QPushButton(this);
-        KGuiItem::assign(d->bOverwrite, KStandardGuiItem::overwrite());
+        d->bOverwrite = new QToolButton(this);
+        d->bOverwrite->setText(KStandardGuiItem::overwrite().text());
+        d->bOverwrite->setIcon(QIcon::fromTheme(KStandardGuiItem::overwrite().iconName()));
+        d->bOverwrite->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
 
         if (_options & RenameDialog_IsDirectory) {
             d->bOverwrite->setText(i18nc("Write files into an existing folder", "&Write Into"));
             d->bOverwrite->setIcon(QIcon());
             d->bOverwrite->setToolTip(i18n("Files and folders will be copied into the existing directory, alongside its existing contents.\nYou will be prompted again in case of a conflict with an existing file in the directory."));
+
+        } else if ((_options & RenameDialog_MultipleItems) && mtimeSrc.isValid() && mtimeDest.isValid()) {
+            d->bOverwriteWhenOlder = new QAction(QIcon::fromTheme(KStandardGuiItem::overwrite().iconName()),
+                                                 i18nc("Overwrite files into an existing folder when files are older", "&Overwrite older files"), this);
+            d->bOverwriteWhenOlder->setEnabled(false);
+            d->bOverwriteWhenOlder->setToolTip(i18n("Destination files which have older modification times will be overwritten by the source, skipped otherwise."));
+            connect(d->bOverwriteWhenOlder, &QAction::triggered, this, &RenameDialog::overwriteWhenOlderPressed);
+
+            QMenu *overwriteMenu = new QMenu();
+            overwriteMenu->addAction(d->bOverwriteWhenOlder);
+            d->bOverwrite->setMenu(overwriteMenu);
+            d->bOverwrite->setPopupMode(QToolButton::MenuButtonPopup);
+
         }
         connect(d->bOverwrite, &QAbstractButton::clicked, this, &RenameDialog::overwritePressed);
     }
@@ -627,6 +647,13 @@ void RenameDialog::overwritePressed()
     }
 }
 
+void RenameDialog::overwriteWhenOlderPressed()
+{
+    if (d->bApplyAll && d->bApplyAll->isChecked()) {
+        done(Result_OverwriteWhenOlder);
+    }
+}
+
 void RenameDialog::overwriteAllPressed()
 {
     done(Result_OverwriteAll);
@@ -648,27 +675,25 @@ void RenameDialog::resumeAllPressed()
 
 void RenameDialog::applyAllPressed()
 {
-    if (d->bApplyAll  && d->bApplyAll->isChecked()) {
+    const bool applyAll = d->bApplyAll && d->bApplyAll->isChecked();
+
+    if (applyAll) {
         d->m_pLineEdit->setText(KIO::decodeFileName(d->dest.fileName()));
         d->m_pLineEdit->setEnabled(false);
-
-        if (d->bRename) {
-            d->bRename->setEnabled(true);
-        }
-
-        if (d->bSuggestNewName) {
-            d->bSuggestNewName->setEnabled(false);
-        }
     } else {
         d->m_pLineEdit->setEnabled(true);
+    }
 
-        if (d->bRename) {
-            d->bRename->setEnabled(false);
-        }
+    if (d->bRename) {
+        d->bRename->setEnabled(applyAll);
+    }
 
-        if (d->bSuggestNewName) {
-            d->bSuggestNewName->setEnabled(true);
-        }
+    if (d->bSuggestNewName) {
+        d->bSuggestNewName->setEnabled(!applyAll);
+    }
+
+    if (d->bOverwriteWhenOlder) {
+        d->bOverwriteWhenOlder->setEnabled(applyAll);
     }
 }
 

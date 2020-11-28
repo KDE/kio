@@ -2302,6 +2302,120 @@ void JobTest::safeOverwrite()
     QCOMPARE(spyTotalSize.count(), 1);
 }
 
+void JobTest::overwriteOlderFiles_data()
+{
+    QTest::addColumn<bool>("destFileOlder");
+    QTest::addColumn<bool>("moving");
+
+    QTest::newRow("dest_file_older_copying") << true << false;
+    QTest::newRow("dest_file_older_moving") << true << true;
+    QTest::newRow("dest_file_younger_copying") << false << false;
+    QTest::newRow("dest_file_younger_moving") << false << true;
+}
+
+void JobTest::overwriteOlderFiles()
+{
+
+    QFETCH(bool, destFileOlder);
+    QFETCH(bool, moving);
+    const QString srcDir = homeTmpDir() + "overwrite";
+    const QString srcFile = srcDir + "/testfile";
+    const QString srcFile2 = srcDir + "/testfile2";
+    const QString srcFile3 = srcDir + "/testfile3";
+    const QString destDir = otherTmpDir() + "overwrite_other";
+    const QString destFile = destDir + "/testfile";
+    const QString destFile2 = destDir + "/testfile2";
+    const QString destFile3 = destDir + "/testfile3";
+    const QString destPartFile = destFile + ".part";
+
+    createTestDirectory(srcDir);
+    createTestDirectory(destDir);
+    createTestFile(srcFile2);
+    createTestFile(srcFile3);
+    createTestFile(destFile2);
+    createTestFile(destFile3);
+    QVERIFY(!QFile::exists(destPartFile));
+
+    const int srcSize = 1000; // ~1KB
+    QVERIFY(QFile::resize(srcFile, srcSize));
+    QVERIFY(QFile::resize(srcFile2, srcSize));
+    QVERIFY(QFile::resize(srcFile3, srcSize));
+    if (destFileOlder) {
+        setTimeStamp(destFile, QFile(srcFile).fileTime(QFileDevice::FileModificationTime).addSecs(-2));
+        setTimeStamp(destFile2,  QFile(srcFile2).fileTime(QFileDevice::FileModificationTime).addSecs(-2));
+
+        QVERIFY(QFile(destFile).fileTime(QFileDevice::FileModificationTime) <= QFile(srcFile).fileTime(QFileDevice::FileModificationTime));
+        QVERIFY(QFile(destFile2).fileTime(QFileDevice::FileModificationTime) <= QFile(srcFile2).fileTime(QFileDevice::FileModificationTime));
+    } else {
+        setTimeStamp(destFile, QFile(srcFile).fileTime(QFileDevice::FileModificationTime).addSecs(2));
+        setTimeStamp(destFile2, QFile(srcFile2).fileTime(QFileDevice::FileModificationTime).addSecs(2));
+
+        QVERIFY(QFile(destFile).fileTime(QFileDevice::FileModificationTime) >= QFile(srcFile).fileTime(QFileDevice::FileModificationTime));
+        QVERIFY(QFile(destFile2).fileTime(QFileDevice::FileModificationTime) >= QFile(srcFile2).fileTime(QFileDevice::FileModificationTime));
+    }
+    // to have an always skipped file
+    setTimeStamp(destFile3,  QFile(srcFile3).fileTime(QFileDevice::FileModificationTime).addSecs(2));
+
+    KIO::CopyJob *job;
+    if (moving) {
+        job = KIO::move(
+                {QUrl::fromLocalFile(srcFile), QUrl::fromLocalFile(srcFile2), QUrl::fromLocalFile(srcFile3)},
+                QUrl::fromLocalFile(destDir), KIO::HideProgressInfo);
+    } else {
+        job = KIO::copy(
+                {QUrl::fromLocalFile(srcFile), QUrl::fromLocalFile(srcFile2), QUrl::fromLocalFile(srcFile3)},
+                QUrl::fromLocalFile(destDir), KIO::HideProgressInfo);
+    }
+    job->setUiDelegate(nullptr);
+    PredefinedAnswerJobUiDelegate extension;
+    extension.m_renameResult = KIO::Result_OverwriteWhenOlder;
+    job->setUiDelegateExtension(&extension);
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
+    QCOMPARE(extension.m_askFileRenameCalled, 1);
+    QVERIFY(!QFile::exists(destPartFile));
+    //QCOMPARE(spyTotalSize.count(), 1);
+
+    // skipped file whose dest is always newer
+    QVERIFY(QFile::exists(srcFile3)); // it was skipped
+    QCOMPARE(QFile(destFile3).size(), 11);
+
+    if (destFileOlder) {
+        // files were overwritten
+        QCOMPARE(QFile(destFile).size(), 1000);
+        QCOMPARE(QFile(destFile2).size(), 1000);
+
+        // files were overwritten
+        QCOMPARE(job->processedAmount(KJob::Files), 2);
+        QCOMPARE(job->processedAmount(KJob::Directories), 0);
+
+        if (moving) {
+            QVERIFY(!QFile::exists(srcFile)); // it was moved
+            QVERIFY(!QFile::exists(srcFile2)); // it was moved
+        } else {
+            QVERIFY(QFile::exists(srcFile)); // it was copied
+            QVERIFY(QFile::exists(srcFile2)); // it was copied
+
+            QCOMPARE(QFile(destFile).fileTime(QFileDevice::FileModificationTime),
+                     QFile(srcFile).fileTime(QFileDevice::FileModificationTime));
+            QCOMPARE(QFile(destFile2).fileTime(QFileDevice::FileModificationTime),
+                     QFile(srcFile2).fileTime(QFileDevice::FileModificationTime));
+        }
+    } else {
+        // files were skipped
+        QCOMPARE(job->processedAmount(KJob::Files), 0);
+        QCOMPARE(job->processedAmount(KJob::Directories), 0);
+
+        QCOMPARE(QFile(destFile).size(), 11);
+        QCOMPARE(QFile(destFile2).size(), 11);
+
+        QVERIFY(QFile::exists(srcFile));
+        QVERIFY(QFile::exists(srcFile2));
+    }
+
+    QDir(srcDir).removeRecursively();
+    QDir(destDir).removeRecursively();
+}
+
 void JobTest::moveAndOverwrite()
 {
     const QString sourceFile = homeTmpDir() + "fileFromHome";
