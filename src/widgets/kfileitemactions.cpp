@@ -218,12 +218,7 @@ void KFileItemActions::setItemListProperties(const KFileItemListProperties &item
 
 int KFileItemActions::addServiceActionsTo(QMenu *mainMenu)
 {
-    return addServiceActionsTo(mainMenu, {});
-}
-
-int KFileItemActions::addServiceActionsTo(QMenu *mainMenu, const QList<QAction *> &additionalActions)
-{
-    return d->addServiceActionsTo(mainMenu, additionalActions, {}).first;
+    return d->addServiceActionsTo(mainMenu, {}, {}).first;
 }
 
 int KFileItemActions::addPluginActionsTo(QMenu *mainMenu)
