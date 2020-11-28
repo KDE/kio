@@ -432,7 +432,7 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
     coll->action(QStringLiteral("forward"))->setWhatsThis(i18n("Click this button to move forward one step in the browsing history."));
 
     coll->action(QStringLiteral("reload"))->setWhatsThis(i18n("Click this button to reload the contents of the current location."));
-    coll->action(QStringLiteral("mkdir"))->setShortcut(QKeySequence(Qt::Key_F10));
+    coll->action(QStringLiteral("mkdir"))->setShortcuts(KStandardShortcut::createFolder());
     coll->action(QStringLiteral("mkdir"))->setWhatsThis(i18n("Click this button to create a new folder."));
 
     QAction *goToNavigatorAction = coll->addAction(QStringLiteral("gotonavigator"), this, SLOT(_k_activateUrlNavigator()));
