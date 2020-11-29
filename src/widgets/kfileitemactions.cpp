@@ -751,8 +751,6 @@ int KFileItemActionsPrivate::addPluginActionsTo(QMenu *mainMenu,
     QMenu *actionsMenu,
     const QStringList &excludeList)
 {
-    Q_UNUSED(actionsMenu) // TODO Add property to metadata which allows plugins to be displayed under actions
-
     QString commonMimeType = m_props.mimeType();
     if (commonMimeType.isEmpty() && m_props.isFile()) {
         commonMimeType = QStringLiteral("application/octet-stream");
@@ -813,7 +811,12 @@ int KFileItemActionsPrivate::addPluginActionsTo(QMenu *mainMenu,
             abstractPlugin->setParent(this);
             const QList<QAction *> actions = abstractPlugin->actions(m_props, m_parentWidget);
             itemCount += actions.count();
-            mainMenu->addActions(actions);
+            const QString showInSubmenu = jsonMetadata.value(QStringLiteral("X-KDE-Show-In-Submenu"));
+            if (showInSubmenu == QLatin1String("true")) {
+                actionsMenu->addActions(actions);
+            } else {
+                mainMenu->addActions(actions);
+            }
             addedPlugins.append(jsonMetadata.pluginId());
         }
     }

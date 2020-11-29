@@ -69,6 +69,8 @@ class KFileItemListProperties;
  * \endcode
  *
  * @note the plugin should be installed in the "kf5/kfileitemaction" subfolder of $QT_PLUGIN_PATH.
+ * @note If the plugin has a lower priority and should show up in the "Actions" submenu,
+ * you can set the X-KDE-Show-In-Submenu property to true.
  *
  * @author Sebastian Trueg <trueg@kde.org>
  *
