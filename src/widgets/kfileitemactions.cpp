@@ -478,12 +478,10 @@ void KFileItemActionsPrivate::slotRunApplication(QAction *act)
     // Is it an application, from one of the "Open With" actions?
     KService::Ptr app = act->data().value<KService::Ptr>();
     Q_ASSERT(app);
-    if (app) {
-        auto *job = new KIO::ApplicationLauncherJob(app);
-        job->setUrls(m_props.urlList());
-        job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, m_parentWidget));
-        job->start();
-    }
+    auto *job = new KIO::ApplicationLauncherJob(app);
+    job->setUrls(m_props.urlList());
+    job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, m_parentWidget));
+    job->start();
 }
 
 void KFileItemActionsPrivate::slotOpenWithDialog()
