@@ -55,17 +55,19 @@ static bool mimeTypeListContains(const QStringList &list, const KFileItem &item)
             return true;
         }
 
-        const int iSlashPos = i.indexOf(QLatin1Char(QLatin1Char('/')));
+        const int iSlashPos = i.indexOf(QLatin1Char('/'));
         Q_ASSERT(iSlashPos > 0);
-        const QStringRef iSubType = i.midRef(iSlashPos+1);
+        const QStringView iStrView{i};
+        const auto iSubType = iStrView.mid(iSlashPos+1);
 
         if (iSubType == QLatin1String("*")) {
             const int itemSlashPos = itemMimeType.indexOf(QLatin1Char('/'));
-            Q_ASSERT(itemSlashPos > 0);
-            const QStringRef iTopLevelType = i.midRef(0, iSlashPos);
-            const QStringRef itemTopLevelType = itemMimeType.midRef(0, itemSlashPos);
 
-            return itemTopLevelType == iTopLevelType;
+            Q_ASSERT(itemSlashPos > 0);
+            const auto iTopLevelType = iStrView.mid(0, iSlashPos);
+            const auto itemTopLevelType = QStringView{itemMimeType}.mid(0, itemSlashPos);
+
+            return itemTopLevelType.compare(iTopLevelType) == 0;
         }
         return false;
     });
@@ -577,8 +579,8 @@ bool KFileItemActionsPrivate::shouldDisplayServiceMenu(const KConfigGroup &cfg, 
     if (cfg.hasKey("X-KDE-Protocol")) {
         const QString theProtocol = cfg.readEntry("X-KDE-Protocol");
         if (theProtocol.startsWith(QLatin1Char('!'))) {
-            const QStringRef excludedProtocol = theProtocol.midRef(1);
-            if (excludedProtocol == protocol) {
+            const auto excludedProtocol = QStringView{theProtocol}.mid(1);
+            if (excludedProtocol.compare(protocol) == 0) {
                 return false;
             }
         } else if (protocol != theProtocol) {

@@ -1047,7 +1047,7 @@ bool KOpenWithDialogPrivate::checkAccept()
                         index = serviceExec.indexOf(QLatin1String("%f"), 0, Qt::CaseInsensitive);
                     }
                     if (index > -1) {
-                        fullExec += QLatin1Char(' ') + serviceExec.midRef(index, 2);
+                        fullExec += QLatin1Char(' ') + QStringView{serviceExec}.mid(index, 2);
                     }
                 }
                 // qDebug() << "Creating service with Exec=" << fullExec;

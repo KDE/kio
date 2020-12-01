@@ -77,7 +77,7 @@ KPreviewWidgetBase *KFileMetaPreview::findExistingProvider(const QString &mimeTy
     // ### mimetype may be image/* for example, try that
     const int index = mimeType.indexOf(QLatin1Char('/'));
     if (index > 0) {
-        provider = m_previewProviders.value(mimeType.leftRef(index + 1) + QLatin1Char('*'));
+        provider = m_previewProviders.value(QStringView{mimeType}.left(index + 1) + QLatin1Char('*'));
         if (provider) {
             return provider;
         }

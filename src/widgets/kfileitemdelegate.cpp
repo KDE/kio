@@ -368,7 +368,7 @@ QString KFileItemDelegate::Private::elidedText(QTextLayout &layout, const QStyle
             // Unfortunately, if the line ends because of a line separator, elidedText() will be too
             // clever and keep adding lines until it finds one that's too wide.
             if (line.naturalTextWidth() < maxWidth && text[start + length - 1] == QChar::LineSeparator) {
-                elided += text.midRef(start, length - 1);
+                elided += QStringView{text}.mid(start, length - 1);
             } else {
                 elided += option.fontMetrics.elidedText(text.mid(start), option.textElideMode, maxWidth);
             }
@@ -379,7 +379,7 @@ QString KFileItemDelegate::Private::elidedText(QTextLayout &layout, const QStyle
                 elided += QChar::LineSeparator;
             }
         } else {
-            elided += text.midRef(start, length);
+            elided += QStringView{text}.mid(start, length);
         }
 
         height += line.height();

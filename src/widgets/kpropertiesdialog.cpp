@@ -1326,7 +1326,7 @@ void KFilePropsPlugin::slotEditFileType()
     if (d->mimeType == QLatin1String("application/octet-stream")) {
         const int pos = d->oldFileName.lastIndexOf(QLatin1Char('.'));
         if (pos != -1) {
-            mime = QLatin1Char('*') + d->oldFileName.midRef(pos);
+            mime = QLatin1Char('*') + QStringView{d->oldFileName}.mid(pos);
         } else {
             mime = QStringLiteral("*");
         }

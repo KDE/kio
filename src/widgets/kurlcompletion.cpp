@@ -1194,9 +1194,8 @@ void KUrlCompletionPrivate::_k_slotEntries(KIO::Job *, const KIO::UDSEntryList &
     KIO::UDSEntryList::ConstIterator it = entries.constBegin();
     const KIO::UDSEntryList::ConstIterator end = entries.constEnd();
 
-    QString filter = list_urls_filter;
-
-    int filter_len = filter.length();
+    const QStringView filter{list_urls_filter};
+    const int filter_len = filter.size();
 
     // Iterate over all files
     //
@@ -1232,7 +1231,7 @@ void KUrlCompletionPrivate::_k_slotEntries(KIO::Job *, const KIO::UDSEntryList &
             continue;
         }
 
-        if (filter_len != 0 && entry_name.leftRef(filter_len) != filter) {
+        if (filter_len != 0 && QStringView{entry_name}.left(filter_len).compare(filter) != 0) {
             continue;
         }
 
@@ -1447,7 +1446,7 @@ static bool expandEnv(QString &text)
         // Skip escaped '$'
         //
         if (pos > 0 && text.at(pos - 1) == QLatin1Char('\\')) {
-            pos++;
+            ++pos;
         }
         // Variable found => expand
         //
@@ -1469,10 +1468,9 @@ static bool expandEnv(QString &text)
             // and defined
             //
             if (pos2 >= 0) {
-                int len = pos2 - pos;
-                const QStringRef key = text.midRef(pos + 1, len - 1);
-                QString value =
-                    QString::fromLocal8Bit(qgetenv(key.toLocal8Bit().constData()));
+                const int len = pos2 - pos;
+                const auto key = QStringView{text}.mid(pos + 1, len - 1);
+                const QString value = QString::fromLocal8Bit(qgetenv(key.toLocal8Bit().constData()));
 
                 if (!value.isEmpty()) {
                     expanded = true;
