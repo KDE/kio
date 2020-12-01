@@ -197,7 +197,8 @@ void KFileItemListPropertiesPrivate::determineMimeTypeAndGroup() const
         // Determine if common mimetype among all items
         if (m_mimeType != itemMimeType) {
             m_mimeType.clear();
-            if (m_mimeGroup != itemMimeType.leftRef(itemMimeType.indexOf(QLatin1Char('/')))) {
+            const int idx = itemMimeType.indexOf(QLatin1Char('/'));
+            if (m_mimeGroup.compare(QStringView{itemMimeType}.left(idx)) != 0) {
                 m_mimeGroup.clear(); // mimetype groups are different as well!
             }
         }

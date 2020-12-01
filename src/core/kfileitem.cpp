@@ -942,9 +942,8 @@ static QString iconFromDirectoryFile(const QString &path)
     }
 
     if (icon.startsWith(QLatin1String("./"))) {
-        // path is relative with respect to the location
-        // of the .directory file (#73463)
-        return path + icon.midRef(1);
+        // Path is relative with respect to the location of the .directory file (#73463)
+        return path + QStringView{icon}.mid(1);
     }
     return icon;
 }
