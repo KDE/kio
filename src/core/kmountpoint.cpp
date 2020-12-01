@@ -82,11 +82,11 @@ public:
     void finalizePossibleMountPoint(DetailsNeededFlags infoNeeded);
     void finalizeCurrentMountPoint(DetailsNeededFlags infoNeeded);
 
-    QString mountedFrom;
-    QString device; // Only available when the NeedRealDeviceName flag was set.
-    QString mountPoint;
-    QString mountType;
-    QStringList mountOptions;
+    QString m_mountedFrom;
+    QString m_device; // Only available when the NeedRealDeviceName flag was set.
+    QString m_mountPoint;
+    QString m_mountType;
+    QStringList m_mountOptions;
 };
 
 KMountPoint::KMountPoint()
@@ -129,38 +129,38 @@ KMountPoint::~KMountPoint()
 
 void KMountPoint::Private::finalizePossibleMountPoint(DetailsNeededFlags infoNeeded)
 {
-    if (mountedFrom.startsWith(QLatin1String("UUID="))) {
-        const QStringRef uuid = mountedFrom.midRef(5);
+    if (m_mountedFrom.startsWith(QLatin1String("UUID="))) {
+        const QStringRef uuid = m_mountedFrom.midRef(5);
         const QString potentialDevice = QFile::symLinkTarget(QLatin1String("/dev/disk/by-uuid/") + uuid);
         if (QFile::exists(potentialDevice)) {
-            mountedFrom = potentialDevice;
+            m_mountedFrom = potentialDevice;
         }
     }
-    if (mountedFrom.startsWith(QLatin1String("LABEL="))) {
-        const QStringRef label = mountedFrom.midRef(6);
+    if (m_mountedFrom.startsWith(QLatin1String("LABEL="))) {
+        const QStringRef label = m_mountedFrom.midRef(6);
         const QString potentialDevice = QFile::symLinkTarget(QLatin1String("/dev/disk/by-label/") + label);
         if (QFile::exists(potentialDevice)) {
-            mountedFrom = potentialDevice;
+            m_mountedFrom = potentialDevice;
         }
     }
 
     if (infoNeeded & NeedRealDeviceName) {
-        if (mountedFrom.startsWith(QLatin1Char('/'))) {
-            device = QFileInfo(mountedFrom).canonicalFilePath();
+        if (m_mountedFrom.startsWith(QLatin1Char('/'))) {
+            m_device = QFileInfo(m_mountedFrom).canonicalFilePath();
         }
     }
 
     // Chop trailing slash
-    if (mountedFrom.endsWith(QLatin1Char('/'))) {
-        mountedFrom.chop(1);
+    if (m_mountedFrom.endsWith(QLatin1Char('/'))) {
+        m_mountedFrom.chop(1);
     }
 }
 
 void KMountPoint::Private::finalizeCurrentMountPoint(DetailsNeededFlags infoNeeded)
 {
     if (infoNeeded & NeedRealDeviceName) {
-        if (mountedFrom.startsWith(QLatin1Char('/'))) {
-            device = QFileInfo(mountedFrom).canonicalFilePath();
+        if (m_mountedFrom.startsWith(QLatin1Char('/'))) {
+            m_device = QFileInfo(m_mountedFrom).canonicalFilePath();
         }
     }
 }
@@ -185,14 +185,14 @@ KMountPoint::List KMountPoint::possibleMountPoints(DetailsNeededFlags infoNeeded
             continue;
         }
         Ptr mp(new KMountPoint);
-        mp->d->mountedFrom = QFile::decodeName(FSNAME(fe));
+        mp->d->m_mountedFrom = QFile::decodeName(FSNAME(fe));
 
-        mp->d->mountPoint = QFile::decodeName(MOUNTPOINT(fe));
-        mp->d->mountType = QFile::decodeName(MOUNTTYPE(fe));
+        mp->d->m_mountPoint = QFile::decodeName(MOUNTPOINT(fe));
+        mp->d->m_mountType = QFile::decodeName(MOUNTTYPE(fe));
 
         if (infoNeeded & NeedMountOptions) {
             QString options = QFile::decodeName(MOUNTOPTIONS(fe));
-            mp->d->mountOptions = options.split(QLatin1Char(','));
+            mp->d->m_mountOptions = options.split(QLatin1Char(','));
         }
 
         mp->d->finalizePossibleMountPoint(infoNeeded);
@@ -231,20 +231,20 @@ KMountPoint::List KMountPoint::possibleMountPoints(DetailsNeededFlags infoNeeded
         Ptr mp(new KMountPoint);
 
         int i = 0;
-        mp->d->mountedFrom = item[i++];
+        mp->d->m_mountedFrom = item[i++];
 #ifdef _OS_SOLARIS_
         //device to fsck
         i++;
 #endif
-        mp->d->mountPoint = item[i++];
-        mp->d->mountType = item[i++];
-        if (mp->d->mountType == QLatin1String("swap")) {
+        mp->d->m_mountPoint = item[i++];
+        mp->d->m_mountType = item[i++];
+        if (mp->d->m_mountType == QLatin1String("swap")) {
             continue;
         }
         QString options = item[i++];
 
         if (infoNeeded & NeedMountOptions) {
-            mp->d->mountOptions = options.split(QLatin1Char(','));
+            mp->d->m_mountOptions = options.split(QLatin1Char(','));
         }
 
         mp->d->finalizePossibleMountPoint(infoNeeded);
@@ -273,20 +273,20 @@ KMountPoint::List KMountPoint::currentMountPoints(DetailsNeededFlags infoNeeded)
 
     for (int i = 0; i < num_fs; i++) {
         Ptr mp(new KMountPoint);
-        mp->d->mountedFrom = QFile::decodeName(mounted[i].f_mntfromname);
-        mp->d->mountPoint = QFile::decodeName(mounted[i].f_mntonname);
+        mp->d->m_mountedFrom = QFile::decodeName(mounted[i].f_mntfromname);
+        mp->d->m_mountPoint = QFile::decodeName(mounted[i].f_mntonname);
 
 #ifdef __osf__
-        mp->d->mountType = QFile::decodeName(mnt_names[mounted[i].f_type]);
+        mp->d->m_mountType = QFile::decodeName(mnt_names[mounted[i].f_type]);
 #else
-        mp->d->mountType = QFile::decodeName(mounted[i].f_fstypename);
+        mp->d->m_mountType = QFile::decodeName(mounted[i].f_fstypename);
 #endif
 
         if (infoNeeded & NeedMountOptions) {
             struct fstab *ft = getfsfile(mounted[i].f_mntonname);
             if (ft != nullptr) {
                 QString options = QFile::decodeName(ft->fs_mntops);
-                mp->d->mountOptions = options.split(QLatin1Char(','));
+                mp->d->m_mountOptions = options.split(QLatin1Char(','));
             } else {
                 // TODO: get mount options if not mounted via fstab, see mounted[i].f_flags
             }
@@ -307,7 +307,7 @@ KMountPoint::List KMountPoint::currentMountPoints(DetailsNeededFlags infoNeeded)
     for (int i = 0; i < 26; i++) {
         if (bits & (1 << i)) {
             Ptr mp(new KMountPoint);
-            mp->d->mountPoint = QString(QLatin1Char('A' + i) + QLatin1String(":/"));
+            mp->d->m_mountPoint = QString(QLatin1Char('A' + i) + QLatin1String(":/"));
             result.append(mp);
         }
     }
@@ -321,19 +321,19 @@ KMountPoint::List KMountPoint::currentMountPoints(DetailsNeededFlags infoNeeded)
     STRUCT_MNTENT fe;
     while (GETMNTENT(mnttab, fe)) {
         Ptr mp(new KMountPoint);
-        mp->d->mountedFrom = QFile::decodeName(FSNAME(fe));
+        mp->d->m_mountedFrom = QFile::decodeName(FSNAME(fe));
 
-        mp->d->mountPoint = QFile::decodeName(MOUNTPOINT(fe));
-        mp->d->mountType = QFile::decodeName(MOUNTTYPE(fe));
+        mp->d->m_mountPoint = QFile::decodeName(MOUNTPOINT(fe));
+        mp->d->m_mountType = QFile::decodeName(MOUNTTYPE(fe));
 
         if (infoNeeded & NeedMountOptions) {
             QString options = QFile::decodeName(MOUNTOPTIONS(fe));
-            mp->d->mountOptions = options.split(QLatin1Char(','));
+            mp->d->m_mountOptions = options.split(QLatin1Char(','));
         }
 
         // Resolve gvfs mountpoints
-        if (mp->d->mountedFrom == QLatin1String("gvfsd-fuse")) {
-            const QDir gvfsDir(mp->d->mountPoint);
+        if (mp->d->m_mountedFrom == QLatin1String("gvfsd-fuse")) {
+            const QDir gvfsDir(mp->d->m_mountPoint);
             const QStringList mountDirs = gvfsDir.entryList(QDir::Dirs | QDir::NoDotAndDotDot);
             for (const QString &mountDir : mountDirs) {
                 const QString type = mountDir.section(QLatin1Char(':'), 0, 0);
@@ -342,9 +342,9 @@ KMountPoint::List KMountPoint::currentMountPoints(DetailsNeededFlags infoNeeded)
                 }
 
                 Ptr gvfsmp(new KMountPoint);
-                gvfsmp->d->mountedFrom = mp->d->mountedFrom;
-                gvfsmp->d->mountPoint = mp->d->mountPoint + QLatin1Char('/') + mountDir;
-                gvfsmp->d->mountType = type;
+                gvfsmp->d->m_mountedFrom = mp->d->m_mountedFrom;
+                gvfsmp->d->m_mountPoint = mp->d->m_mountPoint + QLatin1Char('/') + mountDir;
+                gvfsmp->d->m_mountType = type;
                 result.append(gvfsmp);
             }
         }
@@ -360,27 +360,27 @@ KMountPoint::List KMountPoint::currentMountPoints(DetailsNeededFlags infoNeeded)
 
 QString KMountPoint::mountedFrom() const
 {
-    return d->mountedFrom;
+    return d->m_mountedFrom;
 }
 
 QString KMountPoint::realDeviceName() const
 {
-    return d->device;
+    return d->m_device;
 }
 
 QString KMountPoint::mountPoint() const
 {
-    return d->mountPoint;
+    return d->m_mountPoint;
 }
 
 QString KMountPoint::mountType() const
 {
-    return d->mountType;
+    return d->m_mountType;
 }
 
 QStringList KMountPoint::mountOptions() const
 {
-    return d->mountOptions;
+    return d->m_mountOptions;
 }
 
 KMountPoint::List::List()
@@ -421,7 +421,7 @@ KMountPoint::Ptr KMountPoint::List::findByPath(const QString &path) const
     int max = 0;
     KMountPoint::Ptr result;
     for (const KMountPoint::Ptr &mp : *this) {
-        const QString mountpoint = mp->d->mountPoint;
+        const QString mountpoint = mp->d->m_mountPoint;
         const int length = mountpoint.length();
         if (length > max && pathsAreParentAndChildOrEqual(mountpoint, realname)) {
             max = length;
@@ -435,12 +435,12 @@ KMountPoint::Ptr KMountPoint::List::findByPath(const QString &path) const
 KMountPoint::Ptr KMountPoint::List::findByDevice(const QString &device) const
 {
     const QString realDevice = QFileInfo(device).canonicalFilePath();
-    if (realDevice.isEmpty()) { // d->device can be empty in the loop below, don't match empty with it
+    if (realDevice.isEmpty()) { // d->m_device can be empty in the loop below, don't match empty with it
         return Ptr();
     }
     for (const KMountPoint::Ptr &mountPoint : *this) {
-        if (realDevice.compare(mountPoint->d->device, cs) == 0 ||
-                realDevice.compare(mountPoint->d->mountedFrom, cs) == 0) {
+        if (realDevice.compare(mountPoint->d->m_device, cs) == 0 ||
+                realDevice.compare(mountPoint->d->m_mountedFrom, cs) == 0) {
             return mountPoint;
         }
     }
@@ -449,26 +449,26 @@ KMountPoint::Ptr KMountPoint::List::findByDevice(const QString &device) const
 
 bool KMountPoint::probablySlow() const
 {
-    return d->mountType == QLatin1String("nfs")
-        || d->mountType == QLatin1String("nfs4")
-        || d->mountType == QLatin1String("cifs")
-        || d->mountType == QLatin1String("autofs")
-        || d->mountType == QLatin1String("subfs")
+    return d->m_mountType == QLatin1String("nfs")
+        || d->m_mountType == QLatin1String("nfs4")
+        || d->m_mountType == QLatin1String("cifs")
+        || d->m_mountType == QLatin1String("autofs")
+        || d->m_mountType == QLatin1String("subfs")
         // Technically KIOFUSe mounts local slaves as well,
         // such as recents:/, but better safe than sorry...
-        || d->mountType == QLatin1String("fuse.kio-fuse");
+        || d->m_mountType == QLatin1String("fuse.kio-fuse");
 }
 
 bool KMountPoint::testFileSystemFlag(FileSystemFlag flag) const
 {
-    const bool isMsDos = (d->mountType == QLatin1String("msdos") || d->mountType == QLatin1String("fat") || d->mountType == QLatin1String("vfat"));
-    const bool isNtfs = d->mountType.contains(QLatin1String("fuse.ntfs")) || d->mountType.contains(QLatin1String("fuseblk.ntfs"))
+    const bool isMsDos = (d->m_mountType == QLatin1String("msdos") || d->m_mountType == QLatin1String("fat") || d->m_mountType == QLatin1String("vfat"));
+    const bool isNtfs = d->m_mountType.contains(QLatin1String("fuse.ntfs")) || d->m_mountType.contains(QLatin1String("fuseblk.ntfs"))
                         // fuseblk could really be anything. But its most common use is for NTFS mounts, these days.
-                        || d->mountType == QLatin1String("fuseblk");
-    const bool isSmb = d->mountType == QLatin1String("cifs")
-                    || d->mountType == QLatin1String("smbfs")
+                        || d->m_mountType == QLatin1String("fuseblk");
+    const bool isSmb = d->m_mountType == QLatin1String("cifs")
+                    || d->m_mountType == QLatin1String("smbfs")
                     // gvfs-fuse mounted SMB share
-                    || d->mountType == QLatin1String("smb-share");
+                    || d->m_mountType == QLatin1String("smb-share");
 
     switch (flag)  {
     case SupportsChmod:
