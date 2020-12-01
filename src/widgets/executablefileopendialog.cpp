@@ -36,12 +36,13 @@ ExecutableFileOpenDialog::ExecutableFileOpenDialog(ExecutableFileOpenDialog::Mod
     executeButton->setIcon(QIcon::fromTheme(QStringLiteral("system-run")));
     buttonBox->addButton(executeButton, QDialogButtonBox::AcceptRole);
 
+    buttonBox->button(QDialogButtonBox::Cancel)->setFocus();
+
     QVBoxLayout *layout = new QVBoxLayout(this);
     layout->addWidget(label);
     layout->addWidget(m_dontAskAgain);
     layout->addWidget(buttonBox);
     setLayout(layout);
-
 
     if (mode == OnlyExecute) {
         connect(executeButton, &QPushButton::clicked, [=]{done(ExecuteFile);});
