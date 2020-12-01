@@ -167,7 +167,7 @@ void KNewFileMenuSingleton::parseFiles()
                             templatePath = QUrl(templatePath).toLocalFile();
                         } else {
                             // A relative path, then (that's the default in the files we ship)
-                            const QStringRef linkDir = filePath.leftRef(filePath.lastIndexOf(QLatin1Char('/')) + 1 /*keep / */);
+                            const auto linkDir = QStringView{filePath}.left(filePath.lastIndexOf(QLatin1Char('/')) + 1 /*keep / */);
                             //qDebug() << "linkDir=" << linkDir;
                             templatePath = linkDir + templatePath;
                         }
@@ -527,10 +527,17 @@ void KNewFileMenuPrivate::executeRealFileOrDir(const KNewFileMenuSingleton::Entr
     QString text = entry.text;
     text.remove(QStringLiteral("...")); // the ... is fine for the menu item but not for the default filename
     text = text.trimmed(); // In some languages, there is a space in front of "...", see bug 268895
-    // add the extension (from the templatePath), should work with .txt, .html and with ".tar.gz"... etc
+
+    // Add the extension (from the templatePath), should work with .txt, .html and with ".tar.gz"... etc
+#if QT_VERSION < QT_VERSION_CHECK(5, 14, 0)
     const QString fileName = entry.templatePath.mid(entry.templatePath.lastIndexOf(QLatin1Char('/')));
     const int dotIndex = fileName.indexOf(QLatin1Char('.'));
     text += dotIndex > 0 ? fileName.midRef(dotIndex) : QStringRef();
+#else
+    const auto fileName = QStringView{entry.templatePath}.mid(entry.templatePath.lastIndexOf(QLatin1Char('/')));
+    const int dotIndex = fileName.indexOf(QLatin1Char('.'));
+    text += dotIndex > 0 ? fileName.mid(dotIndex) : QStringView{};
+#endif
 
     m_copyData.m_src = entry.templatePath;
 

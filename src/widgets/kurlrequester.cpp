@@ -228,9 +228,12 @@ public:
 #endif
 
         for (QString &qFilter : qFilters) {
-            int sep = qFilter.indexOf(QLatin1Char('|'));
-            const QStringRef globs = qFilter.leftRef(sep);
-            const QStringRef desc  = qFilter.midRef(sep + 1);
+            const int sep = qFilter.indexOf(QLatin1Char('|'));
+            // TODO: remove this assert when we require Qt >= 5.15.2
+            Q_ASSERT(sep != -1);
+            const auto filterView = QStringView{qFilter};
+            const auto globs = filterView.left(sep);
+            const auto desc  = filterView.mid(sep + 1);
             qFilter = desc + QLatin1String(" (") + globs + QLatin1Char(')');
         }
 

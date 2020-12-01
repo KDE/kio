@@ -1312,7 +1312,7 @@ bool TrashImpl::parseURL(const QUrl &url, int &trashId, QString &fileId, QString
         return false;
     }
     bool ok = false;
-    trashId = path.midRef(start, slashPos - start).toInt(&ok);
+    trashId = QStringView{path}.mid(start, slashPos - start).toInt(&ok);
     Q_ASSERT(ok);
     if (!ok) {
         return false;

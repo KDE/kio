@@ -2422,6 +2422,7 @@ void KFileWidgetPrivate::updateLocationEditExtension(const QString &lastExtensio
         return;
     }
 
+    // TODO: when we require Qt >= 5.14, look at changing urlStr and filename to QStringView
     QString urlStr = locationEditCurrentText();
     if (urlStr.isEmpty()) {
         return;
@@ -2470,7 +2471,7 @@ void KFileWidgetPrivate::updateLocationEditExtension(const QString &lastExtensio
         }
 
         // add extension
-        const QString newText = urlStr.leftRef(fileNameOffset) + fileName + extension;
+        const QString newText = QStringView{urlStr}.left(fileNameOffset) + fileName + extension;
         if (newText != locationEditCurrentText()) {
             locationEdit->setItemText(locationEdit->currentIndex(), newText);
             locationEdit->lineEdit()->setModified(true);

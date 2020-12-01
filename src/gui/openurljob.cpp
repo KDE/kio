@@ -230,7 +230,7 @@ bool KIO::OpenUrlJobPrivate::runExternalBrowser(const QString &exec)
 {
     if (exec.startsWith(QLatin1Char('!'))) {
         // Literal command
-        const QString command = exec.midRef(1) + QLatin1String(" %u");
+        const QString command = QStringView{exec}.mid(1) + QLatin1String(" %u");
         KService::Ptr service(new KService(QString(), command, QString()));
         startService(service);
         return true;
