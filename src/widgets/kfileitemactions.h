@@ -74,17 +74,39 @@ public:
     void setParentWidget(QWidget *widget);
 
     /**
-     * Generate the "Open With <Application>" actions, and adds them to the @p menu.
+     * Generates the "Open With <Application>" actions, and appends them to @p menu.
      * All actions are created as children of the menu.
      *
      * No actions will be added if the "openwith" Kiosk action is not authorized
      * (see KAuthorized::authorize()).
      *
-     * @param menu the QMenu where to add actions
+     * @param menu the QMenu where the actions will be added
      * @param traderConstraint this constraint allows to exclude the current application
      * from the "open with" list. Example: "DesktopEntryName != 'kfmclient'".
+     *
+     * @sa insertOpenWithActionsTo()
      */
     void addOpenWithActionsTo(QMenu *menu, const QString &traderConstraint = QString());
+
+    /**
+     * Generates the "Open With <Application>" actions, and inserts them in @p menu,
+     * before action @p before. If @p before is nullptr or doesn't exist in the menu
+     * the actions will be appended to the menu.
+     *
+     * All actions are created as children of the menu.
+     *
+     * No actions will be added if the "openwith" Kiosk action is not authorized
+     * (see KAuthorized::authorize()).
+     *
+     * @param before the "open with" actions will be inserted before this action; if this action
+     * is nullptr or isn't available in @p topMenu, the "open with" actions will be appended
+     * @param menu the QMenu where the actions will be added
+     * @param traderConstraint this constraint allows to exclude the current application
+     * from the "open with" list. Example: "DesktopEntryName != 'kfmclient'".
+     *
+     * @since 5.77
+     */
+    void insertOpenWithActionsTo(QAction *before, QMenu *topMenu, const QString &traderConstraint);
 
     /**
      * Returns an action for the preferred application only.
