@@ -658,6 +658,11 @@ void KUrlNavigatorButton::initMenu(KUrlNavigatorMenu *menu, int startIndex)
     connect(menu, &KUrlNavigatorMenu::urlsDropped,
             this, QOverload<QAction*,QDropEvent*>::of(&KUrlNavigatorButton::urlsDropped));
 
+    // So that triggering a menu item with the keyboard works
+    connect(menu, &QMenu::triggered, this, [this](QAction *act) {
+        slotMenuActionClicked(act, Qt::LeftButton);
+    });
+
     menu->setLayoutDirection(Qt::LeftToRight);
 
     const int maxIndex = startIndex + 30;  // Don't show more than 30 items in a menu
