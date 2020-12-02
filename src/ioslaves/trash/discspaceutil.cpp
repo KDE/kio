@@ -16,8 +16,7 @@
 
 DiscSpaceUtil::DiscSpaceUtil(const QString &directory)
     : mDirectory(directory),
-      mFullSize(0),
-      mAvailable(0)
+      mFullSize(0)
 {
     calculateFullSize();
 }
@@ -67,11 +66,6 @@ qulonglong DiscSpaceUtil::size() const
     return mFullSize;
 }
 
-qulonglong DiscSpaceUtil::available() const
-{
-    return mAvailable;
-}
-
 QString DiscSpaceUtil::mountPoint() const
 {
     return mMountPoint;
@@ -82,7 +76,6 @@ void DiscSpaceUtil::calculateFullSize()
     KDiskFreeSpaceInfo info = KDiskFreeSpaceInfo::freeSpaceInfo(mDirectory);
     if (info.isValid()) {
         mFullSize = info.size();
-        mAvailable = info.available();
         mMountPoint = info.mountPoint();
     }
 }

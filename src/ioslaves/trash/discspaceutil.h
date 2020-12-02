@@ -38,11 +38,6 @@ public:
     qulonglong size() const;
 
     /**
-     * Returns the available free space on the partition in bytes.
-     */
-    qulonglong available() const;
-
-    /**
      * Returns the mount point of the directory.
      */
     QString mountPoint() const;
@@ -57,7 +52,6 @@ private:
 
     QString mDirectory;
     qulonglong mFullSize;
-    qulonglong mAvailable;
     QString mMountPoint;
 };
 

@@ -794,9 +794,6 @@ bool TrashImpl::trashSpaceInfo(const QString &path, TrashSpaceInfo &info)
     qulonglong total = util.size();
     if (useSizeLimit) {
         total *= percent / 100.0;
-    } else {
-        // No size limit set? then the limit is the available free space on the partition
-        total = util.available();
     }
 
     TrashSizeCache trashSize(trashPath);
