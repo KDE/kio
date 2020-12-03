@@ -76,7 +76,7 @@ private:
     void handleBinaries(const QMimeType &mimeType);
     void handleBinariesHelper(const QString &localPath, bool isNativeBinary);
     void handleDesktopFiles();
-    void handleScripts();
+    void handleScripts(const QMimeType &mimeType);
     void openInPreferredApp();
     void runLink(const QString &filePath, const QString &urlStr, const QString &optionalServiceName);
 
@@ -457,8 +457,8 @@ static bool isBinary(const QMimeType &mimeType)
             || mimeType.inherits(QStringLiteral("application/x-ms-dos-executable")));
 }
 
-// Helper function that returns whether a file is a text-based script
-// e.g. ".sh", ".csh", ".py", ".js"
+// Helper function that returns whether a file is a text-based script (e.g. ".sh", ".csh", ".py")
+// (execluding EMCA/javascript (".es", ".js"), #429839)
 static bool isTextScript(const QMimeType &mimeType)
 {
     return (mimeType.inherits(QStringLiteral("application/x-executable"))
@@ -618,7 +618,7 @@ void KIO::OpenUrlJobPrivate::runUrlWithMimeType()
 
     // Scripts (e.g. .sh, .csh, .py, .js)
     if (isTextScript(mimeType)) {
-        handleScripts();
+        handleScripts(mimeType);
         return;
     }
 
@@ -691,17 +691,19 @@ void KIO::OpenUrlJobPrivate::handleDesktopFiles()
     openInPreferredApp();
 }
 
-void KIO::OpenUrlJobPrivate::handleScripts()
+void KIO::OpenUrlJobPrivate::handleScripts(const QMimeType &mimeType)
 {
+    const bool isJs = mimeType.inherits(QStringLiteral("application/ecmascript"));
+
     // Executable scripts of any type can run arbitrary shell commands
-    if (!KAuthorized::authorize(QStringLiteral("shell_access"))) {
+    if (!isJs && !KAuthorized::authorize(QStringLiteral("shell_access"))) {
         emitAccessDenied();
         return;
     }
 
     const bool isLocal = m_url.isLocalFile();
     const QString localPath = m_url.toLocalFile();
-    if (!isLocal || !hasExecuteBit(localPath)) {
+    if (!isLocal || !hasExecuteBit(localPath) || isJs) {
         // Open remote scripts or ones without the execute bit, with the default application
         openInPreferredApp();
         return;

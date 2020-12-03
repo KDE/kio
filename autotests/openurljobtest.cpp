@@ -154,6 +154,7 @@ void OpenUrlJobTest::startProcess_data()
     QTest::newRow("desktop_file_link_preferred_service") << "application/x-desktop" << "srcfile.html";
     QTest::newRow("non_executable_script_running_not_allowed") << "application/x-shellscript" << "srcfile.sh";
     QTest::newRow("executable_script_running_not_allowed") << "application/x-shellscript" << "srcfile.sh";
+    QTest::newRow("executable_js_always_open_as_text") << "application/javascript" << "srcfile.txt";
 
     // Require mimetype determination
     QTest::newRow("text_file_no_mimetype") << QString() << "srcfile.txt";
@@ -293,10 +294,11 @@ void OpenUrlJobTest::runScript_data()
     QTest::addColumn<QString>("mimeType");
 
     // All text-based scripts inherit text/plain and application/x-executable, no need to test
-    // all flavours (python, perl, lua, awk ...etc), this sample should be enough
+    // all flavours (python, perl, lua, awk ...etc), excluding javascript which is always opened
+    // as text, this sample should be enough
     QTest::newRow("shellscript") << "application/x-shellscript";
     QTest::newRow("pythonscript") << "text/x-python";
-    QTest::newRow("javascript") << "application/javascript";
+    QTest::newRow("perl") << "application/x-perl";
 }
 
 void OpenUrlJobTest::runScript()
