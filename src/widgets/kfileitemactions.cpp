@@ -338,78 +338,79 @@ void KFileItemActions::insertOpenWithActionsTo(QAction *before, QMenu *topMenu, 
     const bool isDir = d->m_props.isDirectory();
     // "Open With..." for folders is really not very useful, especially for remote folders.
     // (media:/something, or trash:/, or ftp://...)
-    if (!isDir || isLocal) {
+    if (isDir || !isLocal) {
+        return;
+    }
 
-        const QStringList serviceIdList = d->listPreferredServiceIds(d->m_mimeTypeList, traderConstraint);
+    const QStringList serviceIdList = d->listPreferredServiceIds(d->m_mimeTypeList, traderConstraint);
 
-        // When selecting files with multiple mimetypes, offer either "open with <app for all>"
-        // or a generic <open> (if there are any apps associated).
-        if (d->m_mimeTypeList.count() > 1
-                && !serviceIdList.isEmpty()
-                && !(serviceIdList.count() == 1 && serviceIdList.first().isEmpty())) { // empty means "no apps associated"
+    // When selecting files with multiple mimetypes, offer either "open with <app for all>"
+    // or a generic <open> (if there are any apps associated).
+    if (d->m_mimeTypeList.count() > 1
+            && !serviceIdList.isEmpty()
+            && !(serviceIdList.count() == 1 && serviceIdList.first().isEmpty())) { // empty means "no apps associated"
 
-            QAction *runAct = new QAction(this);
-            if (serviceIdList.count() == 1) {
-                const KService::Ptr app = preferredService(d->m_mimeTypeList.first(), traderConstraint);
-                runAct->setText(i18n("&Open with %1", app->name()));
-                runAct->setIcon(QIcon::fromTheme(app->icon()));
+        QAction *runAct = new QAction(this);
+        if (serviceIdList.count() == 1) {
+            const KService::Ptr app = preferredService(d->m_mimeTypeList.first(), traderConstraint);
+            runAct->setText(i18n("&Open with %1", app->name()));
+            runAct->setIcon(QIcon::fromTheme(app->icon()));
 
-                // Remove that app from the offers list (#242731)
-                for (int i = 0; i < offers.count(); ++i) {
-                    if (offers[i]->storageId() == app->storageId()) {
-                        offers.removeAt(i);
-                        break;
-                    }
+            // Remove that app from the offers list (#242731)
+            for (int i = 0; i < offers.count(); ++i) {
+                if (offers[i]->storageId() == app->storageId()) {
+                    offers.removeAt(i);
+                    break;
                 }
-            } else {
-                runAct->setText(i18n("&Open"));
             }
-
-            QObject::connect(runAct, &QAction::triggered, d, &KFileItemActionsPrivate::slotRunPreferredApplications);
-            topMenu->insertAction(before, runAct);
-
-            d->m_traderConstraint = traderConstraint;
-            d->m_fileOpenList = d->m_props.items();
+        } else {
+            runAct->setText(i18n("&Open"));
         }
 
-        QAction *openWithAct = new QAction(this);
-        openWithAct->setText(i18nc("@title:menu", "&Open With..."));
-        openWithAct->setObjectName(QStringLiteral("openwith_browse")); // For the unittest
-        QObject::connect(openWithAct, &QAction::triggered, d, &KFileItemActionsPrivate::slotOpenWithDialog);
+        QObject::connect(runAct, &QAction::triggered, d, &KFileItemActionsPrivate::slotRunPreferredApplications);
+        topMenu->insertAction(before, runAct);
 
-        if (!offers.isEmpty()) {
-            // Show the top app inline for files, but not folders
-            if (!isDir) {
-                QAction *act = d->createAppAction(offers.takeFirst(), true);
-                topMenu->insertAction(before, act);
+        d->m_traderConstraint = traderConstraint;
+        d->m_fileOpenList = d->m_props.items();
+    }
+
+    QAction *openWithAct = new QAction(this);
+    openWithAct->setText(i18nc("@title:menu", "&Open With..."));
+    openWithAct->setObjectName(QStringLiteral("openwith_browse")); // For the unittest
+    QObject::connect(openWithAct, &QAction::triggered, d, &KFileItemActionsPrivate::slotOpenWithDialog);
+
+    if (!offers.isEmpty()) {
+        // Show the top app inline for files, but not folders
+        if (!isDir) {
+            QAction *act = d->createAppAction(offers.takeFirst(), true);
+            topMenu->insertAction(before, act);
+        }
+
+        // If there are still more apps, show them in a sub-menu
+        if (!offers.isEmpty()) { // submenu 'open with'
+            QMenu *subMenu = new QMenu(i18nc("@title:menu", "&Open With"), topMenu);
+            subMenu->setIcon(QIcon::fromTheme(QStringLiteral("system-run")));
+            subMenu->menuAction()->setObjectName(QStringLiteral("openWith_submenu")); // For the unittest
+            // Add other apps to the sub-menu
+            for (const KServicePtr &service : qAsConst(offers)) {
+                QAction *act = d->createAppAction(service, false);
+                subMenu->addAction(act);
             }
 
-            // If there are still more apps, show them in a sub-menu
-            if (!offers.isEmpty()) { // submenu 'open with'
-                QMenu *subMenu = new QMenu(i18nc("@title:menu", "&Open With"), topMenu);
-                subMenu->setIcon(QIcon::fromTheme(QStringLiteral("system-run")));
-                subMenu->menuAction()->setObjectName(QStringLiteral("openWith_submenu")); // For the unittest
-                // Add other apps to the sub-menu
-                for (const KServicePtr &service : qAsConst(offers)) {
-                    QAction *act = d->createAppAction(service, false);
-                    subMenu->addAction(act);
-                }
+            subMenu->addSeparator();
 
-                subMenu->addSeparator();
+            openWithAct->setText(i18nc("@action:inmenu Open With", "&Other Application..."));
+            subMenu->addAction(openWithAct);
 
-                openWithAct->setText(i18nc("@action:inmenu Open With", "&Other Application..."));
-                subMenu->addAction(openWithAct);
-
-                topMenu->insertMenu(before, subMenu);
-                topMenu->insertSeparator(before);
-            } else { // No other apps
-                topMenu->insertAction(before, openWithAct);
-            }
-        } else { // no app offers -> Open With...
-            openWithAct->setIcon(QIcon::fromTheme(QStringLiteral("system-run")));
-            openWithAct->setObjectName(QStringLiteral("openwith")); // For the unittest
+            topMenu->insertMenu(before, subMenu);
+            topMenu->insertSeparator(before);
+        } else { // No other apps
             topMenu->insertAction(before, openWithAct);
         }
+    } else { // no app offers -> Open With...
+        openWithAct->setIcon(QIcon::fromTheme(QStringLiteral("system-run")));
+        openWithAct->setObjectName(QStringLiteral("openwith")); // For the unittest
+        topMenu->insertAction(before, openWithAct);
     }
 }
 
