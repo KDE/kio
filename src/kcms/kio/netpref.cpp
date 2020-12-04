@@ -85,9 +85,9 @@ KIOPreferences::KIOPreferences(QWidget *parent, const QVariantList &)
     auto partialWidget = new QWidget(this);
     connect(cb_globalMarkPartial, &QAbstractButton::toggled, partialWidget, &QWidget::setEnabled);
     globalLayout->addWidget(partialWidget);
-    auto partialLayout = new QFormLayout;
+    auto partialLayout = new QFormLayout(partialWidget);
     partialLayout->setContentsMargins(20, 0, 0, 0); // indent below mark partial
-    partialWidget->setLayout(partialLayout);
+
     sb_globalMinimumKeepSize = new KPluralHandlingSpinBox( this );
     sb_globalMinimumKeepSize->setSuffix( ki18np( " byte", " bytes" ) );
     connect(sb_globalMinimumKeepSize, QOverload<int>::of(&QSpinBox::valueChanged),

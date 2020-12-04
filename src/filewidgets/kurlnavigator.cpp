@@ -182,7 +182,7 @@ KUrlNavigator::Private::Private(KUrlNavigator *q, KFilePlacesModel *placesModel)
     m_showPlacesSelector(placesModel != nullptr),
     m_showFullPath(false),
     m_historyIndex(0),
-    m_layout(new QHBoxLayout),
+    m_layout(new QHBoxLayout(q)),
     m_placesSelector(nullptr),
     m_pathBox(nullptr),
     m_protocols(nullptr),
@@ -275,7 +275,6 @@ void KUrlNavigator::Private::initialize(const QUrl &url)
     const int minHeight = m_pathBox->sizeHint().height();
     q->setMinimumHeight(minHeight);
 
-    q->setLayout(m_layout);
     q->setMinimumWidth(100);
 
     updateContent();

@@ -147,8 +147,6 @@ KFilePlaceEditDialog::KFilePlaceEditDialog(bool allowGlobal, const QUrl &url,
     connect(m_buttonBox, &QDialogButtonBox::accepted, this, &QDialog::accept);
     connect(m_buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
     box->addWidget(m_buttonBox);
-
-    setLayout(box);
 }
 
 KFilePlaceEditDialog::~KFilePlaceEditDialog()

@@ -63,8 +63,7 @@ RenameFileDialog::RenameFileDialog(const KFileItemList &items, QWidget *parent)
                    : i18nc("@title:window", "Rename Items"));
     QDialogButtonBox *buttonBox = new QDialogButtonBox(
         QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
-    QVBoxLayout *mainLayout = new QVBoxLayout;
-    setLayout(mainLayout);
+    QVBoxLayout *mainLayout = new QVBoxLayout(this);
     d->okButton = buttonBox->button(QDialogButtonBox::Ok);
     d->okButton->setDefault(true);
     d->okButton->setShortcut(Qt::CTRL + Qt::Key_Return);

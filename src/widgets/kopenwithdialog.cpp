@@ -658,8 +658,7 @@ void KOpenWithDialogPrivate::init(const QString &_text, const QString &_value)
     m_pService = nullptr;
     curService = nullptr;
 
-    QBoxLayout *topLayout = new QVBoxLayout;
-    q->setLayout(topLayout);
+    QBoxLayout *topLayout = new QVBoxLayout(q);
     label = new QLabel(_text, q);
     label->setWordWrap(true);
     topLayout->addWidget(label);
@@ -743,7 +742,7 @@ void KOpenWithDialogPrivate::init(const QString &_text, const QString &_value)
     dialogExtension = new KCollapsibleGroupBox(q);
     dialogExtension->setTitle(i18n("Terminal options"));
 
-    QVBoxLayout *dialogExtensionLayout = new QVBoxLayout;
+    QVBoxLayout *dialogExtensionLayout = new QVBoxLayout(dialogExtension);
     dialogExtensionLayout->setContentsMargins(0, 0, 0, 0);
 
     terminal = new QCheckBox(i18n("Run in &terminal"), q);
@@ -780,7 +779,6 @@ void KOpenWithDialogPrivate::init(const QString &_text, const QString &_value)
     nocloseonexitLayout->addWidget(nocloseonexit);
     dialogExtensionLayout->addLayout(nocloseonexitLayout);
 
-    dialogExtension->setLayout(dialogExtensionLayout);
     topLayout->addWidget(dialogExtension);
 
     buttonBox = new QDialogButtonBox(q);

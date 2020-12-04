@@ -96,8 +96,7 @@ QDialog *KIO::WidgetsUntrustedProgramHandler::createDialog(QWidget *parentWidget
     SecureMessageDialog *baseDialog = new SecureMessageDialog(parentWidget);
     baseDialog->setWindowTitle(i18nc("Warning about executing unknown program", "Warning"));
 
-    QVBoxLayout *topLayout = new QVBoxLayout;
-    baseDialog->setLayout(topLayout);
+    QVBoxLayout *topLayout = new QVBoxLayout(baseDialog);
 
     // Dialog will have explanatory text with a disabled lineedit with the
     // Exec= to make it visually distinct.

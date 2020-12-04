@@ -58,8 +58,7 @@ KEncodingFileDialog::KEncodingFileDialog(const QUrl &startDir,
 
     KWindowConfig::restoreWindowSize(windowHandle(), d->cfgGroup);
 
-    QBoxLayout *mainLayout = new QVBoxLayout;
-    setLayout(mainLayout);
+    QBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->addWidget(d->w);
 
     d->w->okButton()->show();

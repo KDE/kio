@@ -56,8 +56,7 @@ KUrlRequesterDialog::~KUrlRequesterDialog()
 
 void KUrlRequesterDialogPrivate::initDialog(const QString &text, const QUrl &urlName)
 {
-    QVBoxLayout *topLayout = new QVBoxLayout;
-    q->setLayout(topLayout);
+    QVBoxLayout *topLayout = new QVBoxLayout(q);
 
     QLabel *label = new QLabel(text, q);
     topLayout->addWidget(label);

@@ -45,8 +45,7 @@ public:
 KNameAndUrlInputDialog::KNameAndUrlInputDialog(const QString &nameLabel, const QString &urlLabel, const QUrl &startDir, QWidget *parent)
     : QDialog(parent), d(new KNameAndUrlInputDialogPrivate(this))
 {
-    QVBoxLayout *topLayout = new QVBoxLayout;
-    setLayout(topLayout);
+    QVBoxLayout *topLayout = new QVBoxLayout(this);
 
     QFormLayout *formLayout = new QFormLayout;
     formLayout->setContentsMargins(0, 0, 0, 0);

@@ -25,8 +25,7 @@ SkipDialog::SkipDialog(QWidget *parent, KIO::SkipDialog_Options options, const Q
 {
     setWindowTitle(i18n("Information"));
 
-    QVBoxLayout *layout = new QVBoxLayout;
-    setLayout(layout);
+    QVBoxLayout *layout = new QVBoxLayout(this);
 
     layout->addWidget(new QLabel(_error_text, this));
 

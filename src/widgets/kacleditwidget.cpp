@@ -377,8 +377,7 @@ EditACLEntryDialog::EditACLEntryDialog(KACLListView *listView, KACLListViewItem 
     setModal(true);
     setWindowTitle(i18n("Edit ACL Entry"));
 
-    QVBoxLayout *mainLayout = new QVBoxLayout;
-    setLayout(mainLayout);
+    QVBoxLayout *mainLayout = new QVBoxLayout(this);
     QGroupBox *gb = new QGroupBox(i18n("Entry Type"), this);
     QVBoxLayout *gbLayout = new QVBoxLayout(gb);
 
@@ -436,7 +435,6 @@ EditACLEntryDialog::EditACLEntryDialog(KACLListView *listView, KACLListViewItem 
     // users box
     QWidget *usersBox = new QWidget(m_widgetStack);
     QHBoxLayout *usersLayout = new QHBoxLayout(usersBox);
-    usersBox->setLayout(usersLayout);
     m_widgetStack->addWidget(usersBox);
 
     QLabel *usersLabel = new QLabel(i18n("User: "), usersBox);
@@ -451,7 +449,6 @@ EditACLEntryDialog::EditACLEntryDialog(KACLListView *listView, KACLListViewItem 
     // groups box
     QWidget *groupsBox = new QWidget(m_widgetStack);
     QHBoxLayout *groupsLayout = new QHBoxLayout(usersBox);
-    groupsBox->setLayout(groupsLayout);
     m_widgetStack->addWidget(groupsBox);
 
     QLabel *groupsLabel = new QLabel(i18n("Group: "), groupsBox);

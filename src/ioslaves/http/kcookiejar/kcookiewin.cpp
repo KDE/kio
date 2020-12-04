@@ -79,11 +79,10 @@ KCookieWin::KCookieWin(QWidget *parent, KHttpCookieList cookieList,
                   cookie.isCrossDomain() ? i18nc("@item:intext cross domain cookie", " [Cross Domain]") : QString());
     txt += QLatin1String("</body></html>");
 
-    QVBoxLayout *topLayout = new QVBoxLayout;
+    QVBoxLayout *topLayout = new QVBoxLayout(this);
     // This may look wrong, but it makes the dialogue automatically
     // shrink when the details are shown and then hidden again.
     topLayout->setSizeConstraint(QLayout::SetFixedSize);
-    setLayout(topLayout);
 
     QFrame *vBox1 = new QFrame(this);
     topLayout->addWidget(vBox1);
@@ -151,7 +150,7 @@ KCookieWin::KCookieWin(QWidget *parent, KHttpCookieList cookieList,
     // Cookie policy choice...
     QGroupBox *m_btnGrp = new QGroupBox(i18n("Apply Choice To"), vBox1);
     vBox1Layout->addWidget(m_btnGrp);
-    QVBoxLayout *vbox = new QVBoxLayout;
+    QVBoxLayout *vbox = new QVBoxLayout(m_btnGrp);
     txt = (count == 1) ? i18n("&Only this cookie") : i18n("&Only these cookies");
     m_onlyCookies = new QRadioButton(txt, m_btnGrp);
     vbox->addWidget(m_onlyCookies);
@@ -175,7 +174,6 @@ KCookieWin::KCookieWin(QWidget *parent, KHttpCookieList cookieList,
                                     "cookie policy for all cookies until you manually change "
                                     "it from the System Settings."));
 #endif
-    m_btnGrp->setLayout(vbox);
 
     switch (defaultButton) {
     case KCookieJar::ApplyToShownCookiesOnly:

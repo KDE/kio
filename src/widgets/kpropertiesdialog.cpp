@@ -2085,8 +2085,7 @@ void KFilePermissionsPropsPlugin::slotShowAdvancedPermissions()
     QGroupBox *gb;
     QGridLayout *gl;
 
-    QVBoxLayout *vbox = new QVBoxLayout;
-    dlg.setLayout(vbox);
+    QVBoxLayout *vbox = new QVBoxLayout(&dlg);
     // Group: Access Permissions
     gb = new QGroupBox(i18n("Access Permissions"), &dlg);
     vbox->addWidget(gb);
@@ -3933,10 +3932,9 @@ void KDesktopPropsPlugin::slotAdvanced()
     connect(buttonBox, &QDialogButtonBox::accepted, &dlg, &QDialog::accept);
     connect(buttonBox, &QDialogButtonBox::rejected, &dlg, &QDialog::reject);
 
-    QVBoxLayout *layout = new QVBoxLayout;
+    QVBoxLayout *layout = new QVBoxLayout(&dlg);
     layout->addWidget(mainWidget);
     layout->addWidget(buttonBox);
-    dlg.setLayout(layout);
 
     // If the command is changed we reset certain settings that are strongly
     // coupled to the command.

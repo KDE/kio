@@ -42,7 +42,6 @@ ExecutableFileOpenDialog::ExecutableFileOpenDialog(ExecutableFileOpenDialog::Mod
     layout->addWidget(label);
     layout->addWidget(m_dontAskAgain);
     layout->addWidget(buttonBox);
-    setLayout(layout);
 
     if (mode == OnlyExecute) {
         connect(executeButton, &QPushButton::clicked, [=]{done(ExecuteFile);});

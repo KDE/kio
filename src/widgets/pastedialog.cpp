@@ -26,8 +26,7 @@ KIO::PasteDialog::PasteDialog(const QString &caption, const QString &label,
     setWindowTitle(caption);
     setModal(true);
 
-    QVBoxLayout *topLayout = new QVBoxLayout;
-    setLayout(topLayout);
+    QVBoxLayout *topLayout = new QVBoxLayout(this);
 
     QFrame *frame = new QFrame(this);
     topLayout->addWidget(frame);

@@ -41,8 +41,7 @@ KSslInfoDialog::KSslInfoDialog(QWidget *parent)
     setWindowTitle(i18n("KDE SSL Information"));
     setAttribute(Qt::WA_DeleteOnClose);
 
-    QVBoxLayout *layout = new QVBoxLayout;
-    setLayout(layout);
+    QVBoxLayout *layout = new QVBoxLayout(this);
 
     QWidget *mainWidget = new QWidget(this);
     d->ui.setupUi(mainWidget);
