@@ -164,6 +164,7 @@ DeleteJobPrivate::~DeleteJobPrivate()
     if (m_thread) {
         m_thread->quit();
         m_thread->wait();
+        delete m_thread;
     }
 }
 
