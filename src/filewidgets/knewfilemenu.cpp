@@ -354,6 +354,8 @@ public:
      */
     void _k_slotStatResult(KJob *job);
 
+    void _k_slotAccepted();
+
     /**
      * Initializes m_fileDialog and the other widgets that are included in it. Mainly to reduce
      * code duplication in showNewDirNameDlg() and executeRealFileOrDir().
@@ -407,7 +409,25 @@ public:
     QUrl m_baseUrl;
 
     bool m_selectDirWhenAlreadyExists = false;
+    bool m_acceptedPressed = false;
+    bool m_statRunning = false;
 };
+
+void KNewFileMenuPrivate::_k_slotAccepted()
+{
+    if (m_statRunning || m_delayedSlotTextChangedTimer->isActive()) {
+        // stat is running or _k_slotTextChanged has not been called already
+        // delay accept until stat has been run
+        m_acceptedPressed = true;
+
+        if (m_delayedSlotTextChangedTimer->isActive()) {
+            m_delayedSlotTextChangedTimer->stop();
+            _k_slotTextChanged(m_lineEdit->text());
+        }
+    } else {
+        m_fileDialog->accept();
+    }
+}
 
 void KNewFileMenuPrivate::initDialog()
 {
@@ -429,7 +449,7 @@ void KNewFileMenuPrivate::initDialog()
 
     m_buttonBox = new QDialogButtonBox(m_fileDialog);
     m_buttonBox->setStandardButtons(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
-    QObject::connect(m_buttonBox, &QDialogButtonBox::accepted, m_fileDialog, &QDialog::accept);
+    QObject::connect(m_buttonBox, &QDialogButtonBox::accepted, [this]() {_k_slotAccepted();});
     QObject::connect(m_buttonBox, &QDialogButtonBox::rejected, m_fileDialog, &QDialog::reject);
 
     QVBoxLayout *layout = new QVBoxLayout(m_fileDialog);
@@ -1092,16 +1112,15 @@ void KNewFileMenuPrivate::_k_slotSymLink()
 
 void KNewFileMenuPrivate::_k_delayedSlotTextChanged()
 {
-    m_buttonBox->button(QDialogButtonBox::Ok)->setEnabled(false);
     m_delayedSlotTextChangedTimer->start();
+    m_buttonBox->button(QDialogButtonBox::Ok)->setEnabled(!m_lineEdit->text().isEmpty());
 }
 
 void KNewFileMenuPrivate::_k_slotTextChanged(const QString &text)
 {
-    m_buttonBox->button(QDialogButtonBox::Ok)->setEnabled(true);
     // Validate input, displaying a KMessageWidget for questionable names
 
-    if (text.length() == 0) {
+    if (text.isEmpty()) {
         m_messageWidget->hide();
         m_buttonBox->button(QDialogButtonBox::Ok)->setEnabled(false);
     }
@@ -1187,6 +1206,7 @@ void KNewFileMenuPrivate::_k_slotTextChanged(const QString &text)
 
     if (!text.isEmpty()) {
         // Check file does not already exists
+        m_statRunning = true;
         KIO::StatJob* job = KIO::statDetails(QUrl(m_baseUrl.toString() + QLatin1Char('/') + text), KIO::StatJob::StatSide::SourceSide, KIO::StatDetail::StatBasic);
         QObject::connect(job, &KJob::result, q, [this] (KJob *job) { _k_slotStatResult(job); });
         job->start();
@@ -1202,6 +1222,9 @@ void KNewFileMenu::setSelectDirWhenAlreadyExist(bool shouldSelectExistingDir)
 
 void KNewFileMenuPrivate::_k_slotStatResult(KJob *job)
 {
+    m_statRunning = false;
+    bool accepted = m_acceptedPressed;
+    m_acceptedPressed = false;
     KIO::StatJob* statJob = static_cast<KIO::StatJob*>(job);
     if (m_text.isEmpty() || statJob->url().adjusted(QUrl::StripTrailingSlash).fileName() != m_text) {
         //ignore stat Result when the lineEdit has changed
@@ -1211,6 +1234,9 @@ void KNewFileMenuPrivate::_k_slotStatResult(KJob *job)
     if (error) {
         if (error == KIO::ERR_DOES_NOT_EXIST) {
             // fine for file creation
+            if (accepted) {
+                m_fileDialog->accept();
+            }
         } else {
             qWarning() << error << job->errorString();
         }
@@ -1232,6 +1258,10 @@ void KNewFileMenuPrivate::_k_slotStatResult(KJob *job)
         m_messageWidget->setMessageType(messageType);
         m_messageWidget->animatedShow();
         m_buttonBox->button(QDialogButtonBox::Ok)->setEnabled(shouldEnable);
+
+        if (accepted && shouldEnable) {
+            m_fileDialog->accept();
+        }
     }
 }
 
