@@ -523,11 +523,11 @@ public:
     KFilePlacesView *const q;
 
     QUrl currentUrl;
-    bool autoResizeItems;
-    bool showAll;
-    bool smoothItemResizing;
-    bool dropOnPlace;
-    bool dragging;
+    bool autoResizeItems = true;
+    bool showAll = false;
+    bool smoothItemResizing = false;
+    bool dropOnPlace = false;
+    bool dragging = false;
     Solid::StorageAccess *lastClickedStorage = nullptr;
     QPersistentModelIndex lastClickedIndex;
 
@@ -568,19 +568,12 @@ public:
     KFilePlacesEventWatcher *const watcher;
     KFilePlacesViewDelegate *delegate = nullptr;
     QTimer pollDevices;
-    int pollingRequestCount;
+    int pollingRequestCount = 0;
 };
 
 KFilePlacesView::KFilePlacesView(QWidget *parent)
     : QListView(parent), d(new Private(this))
 {
-    d->showAll = false;
-    d->smoothItemResizing = false;
-    d->dropOnPlace = false;
-    d->autoResizeItems = true;
-    d->dragging = false;
-    d->lastClickedStorage = nullptr;
-    d->pollingRequestCount = 0;
     d->delegate = new KFilePlacesViewDelegate(this);
 
     setSelectionRectVisible(false);
