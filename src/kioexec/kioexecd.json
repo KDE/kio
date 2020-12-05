@@ -39,7 +39,7 @@
         "Description[tg]": "Файлҳои дурдастро нисбат ба тағйирот дар зерҳофиза назорат мекунад",
         "Description[tr]": "İzleyiciler uzak dosyaları değişiklikler için ön belleğe aldı",
         "Description[uk]": "Стежить за змінами у кешованих віддалених файлах",
-        "Description[vi]": "Giám sát thay đổi ở các tệp ở xa được lưu đệm",
+        "Description[vi]": "Giám sát thay đổi ở các tệp ở xa được lưu sẵn",
         "Description[x-test]": "xxMonitors cached remote files for changesxx",
         "Description[zh_CN]": "监视缓存的远程文件修改",
         "Description[zh_TW]": "監視已快取的遠端檔案變更",
