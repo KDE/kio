@@ -512,7 +512,7 @@ class Q_DECL_HIDDEN KFilePlacesView::Private
 public:
     explicit Private(KFilePlacesView *parent)
         : q(parent)
-        , watcher(new KFilePlacesEventWatcher(q))
+        , m_watcher(new KFilePlacesEventWatcher(q))
     {}
 
     enum FadeType {
@@ -522,16 +522,16 @@ public:
 
     KFilePlacesView *const q;
 
-    QUrl currentUrl;
-    bool autoResizeItems = true;
-    bool showAll = false;
-    bool smoothItemResizing = false;
-    bool dropOnPlace = false;
-    bool dragging = false;
-    Solid::StorageAccess *lastClickedStorage = nullptr;
-    QPersistentModelIndex lastClickedIndex;
+    QUrl m_currentUrl;
+    bool m_autoResizeItems = true;
+    bool m_showAll = false;
+    bool m_smoothItemResizing = false;
+    bool m_dropOnPlace = false;
+    bool m_dragging = false;
+    Solid::StorageAccess *m_lastClickedStorage = nullptr;
+    QPersistentModelIndex m_lastClickedIndex;
 
-    QRect dropRect;
+    QRect m_dropRect;
 
     void setCurrentIndex(const QModelIndex &index);
     void adaptItemSize();
@@ -559,22 +559,22 @@ public:
     void _k_capacityBarFadeValueChanged();
     void _k_triggerDevicePolling();
 
-    QTimeLine adaptItemsTimeline;
-    int oldSize, endSize;
+    QTimeLine m_adaptItemsTimeline;
+    int m_oldSize, m_endSize;
 
-    QTimeLine itemAppearTimeline;
-    QTimeLine itemDisappearTimeline;
+    QTimeLine m_itemAppearTimeline;
+    QTimeLine m_itemDisappearTimeline;
 
-    KFilePlacesEventWatcher *const watcher;
-    KFilePlacesViewDelegate *delegate = nullptr;
-    QTimer pollDevices;
-    int pollingRequestCount = 0;
+    KFilePlacesEventWatcher *const m_watcher;
+    KFilePlacesViewDelegate *m_delegate = nullptr;
+    QTimer m_pollDevices;
+    int m_pollingRequestCount = 0;
 };
 
 KFilePlacesView::KFilePlacesView(QWidget *parent)
     : QListView(parent), d(new Private(this))
 {
-    d->delegate = new KFilePlacesViewDelegate(this);
+    d->m_delegate = new KFilePlacesViewDelegate(this);
 
     setSelectionRectVisible(false);
     setSelectionMode(SingleSelection);
@@ -586,7 +586,7 @@ KFilePlacesView::KFilePlacesView(QWidget *parent)
     setFrameStyle(QFrame::NoFrame);
 
     setResizeMode(Adjust);
-    setItemDelegate(d->delegate);
+    setItemDelegate(d->m_delegate);
 
     QPalette palette = viewport()->palette();
     palette.setColor(viewport()->backgroundRole(), Qt::transparent);
@@ -599,32 +599,32 @@ KFilePlacesView::KFilePlacesView(QWidget *parent)
     // committed depends on the used widget style. The click behavior of
     // KFilePlacesView should be style independent.
 
-    connect(&d->adaptItemsTimeline, SIGNAL(valueChanged(qreal)),
+    connect(&d->m_adaptItemsTimeline, SIGNAL(valueChanged(qreal)),
             this, SLOT(_k_adaptItemsUpdate(qreal)));
-    d->adaptItemsTimeline.setDuration(500);
-    d->adaptItemsTimeline.setUpdateInterval(5);
-    d->adaptItemsTimeline.setEasingCurve(QEasingCurve::InOutSine);
+    d->m_adaptItemsTimeline.setDuration(500);
+    d->m_adaptItemsTimeline.setUpdateInterval(5);
+    d->m_adaptItemsTimeline.setEasingCurve(QEasingCurve::InOutSine);
 
-    connect(&d->itemAppearTimeline, SIGNAL(valueChanged(qreal)),
+    connect(&d->m_itemAppearTimeline, SIGNAL(valueChanged(qreal)),
             this, SLOT(_k_itemAppearUpdate(qreal)));
-    d->itemAppearTimeline.setDuration(500);
-    d->itemAppearTimeline.setUpdateInterval(5);
-    d->itemAppearTimeline.setEasingCurve(QEasingCurve::InOutSine);
+    d->m_itemAppearTimeline.setDuration(500);
+    d->m_itemAppearTimeline.setUpdateInterval(5);
+    d->m_itemAppearTimeline.setEasingCurve(QEasingCurve::InOutSine);
 
-    connect(&d->itemDisappearTimeline, SIGNAL(valueChanged(qreal)),
+    connect(&d->m_itemDisappearTimeline, SIGNAL(valueChanged(qreal)),
             this, SLOT(_k_itemDisappearUpdate(qreal)));
-    d->itemDisappearTimeline.setDuration(500);
-    d->itemDisappearTimeline.setUpdateInterval(5);
-    d->itemDisappearTimeline.setEasingCurve(QEasingCurve::InOutSine);
+    d->m_itemDisappearTimeline.setDuration(500);
+    d->m_itemDisappearTimeline.setUpdateInterval(5);
+    d->m_itemDisappearTimeline.setEasingCurve(QEasingCurve::InOutSine);
 
-    viewport()->installEventFilter(d->watcher);
-    connect(d->watcher, SIGNAL(entryEntered(QModelIndex)),
+    viewport()->installEventFilter(d->m_watcher);
+    connect(d->m_watcher, SIGNAL(entryEntered(QModelIndex)),
             this, SLOT(_k_placeEntered(QModelIndex)));
-    connect(d->watcher, SIGNAL(entryLeft(QModelIndex)),
+    connect(d->m_watcher, SIGNAL(entryLeft(QModelIndex)),
             this, SLOT(_k_placeLeft(QModelIndex)));
 
-    d->pollDevices.setInterval(5000);
-    connect(&d->pollDevices, SIGNAL(timeout()), this, SLOT(_k_triggerDevicePolling()));
+    d->m_pollDevices.setInterval(5000);
+    connect(&d->m_pollDevices, SIGNAL(timeout()), this, SLOT(_k_triggerDevicePolling()));
 
     // FIXME: this is necessary to avoid flashes of black with some widget styles.
     // could be a bug in Qt (e.g. QAbstractScrollArea) or KFilePlacesView, but has not
@@ -641,22 +641,22 @@ KFilePlacesView::~KFilePlacesView()
 
 void KFilePlacesView::setDropOnPlaceEnabled(bool enabled)
 {
-    d->dropOnPlace = enabled;
+    d->m_dropOnPlace = enabled;
 }
 
 bool KFilePlacesView::isDropOnPlaceEnabled() const
 {
-    return d->dropOnPlace;
+    return d->m_dropOnPlace;
 }
 
 void KFilePlacesView::setAutoResizeItemsEnabled(bool enabled)
 {
-    d->autoResizeItems = enabled;
+    d->m_autoResizeItems = enabled;
 }
 
 bool KFilePlacesView::isAutoResizeItemsEnabled() const
 {
-    return d->autoResizeItems;
+    return d->m_autoResizeItems;
 }
 
 void KFilePlacesView::setUrl(const QUrl &url)
@@ -671,19 +671,19 @@ void KFilePlacesView::setUrl(const QUrl &url)
     QModelIndex current = selectionModel()->currentIndex();
 
     if (index.isValid()) {
-        if (current != index && placesModel->isHidden(current) && !d->showAll) {
+        if (current != index && placesModel->isHidden(current) && !d->m_showAll) {
             KFilePlacesViewDelegate *delegate = static_cast<KFilePlacesViewDelegate *>(itemDelegate());
             d->addDisappearingItem(delegate, current);
         }
 
-        if (current != index && placesModel->isHidden(index) && !d->showAll) {
+        if (current != index && placesModel->isHidden(index) && !d->m_showAll) {
             KFilePlacesViewDelegate *delegate = static_cast<KFilePlacesViewDelegate *>(itemDelegate());
             delegate->addAppearingItem(index);
             d->triggerItemAppearingAnimation();
             setRowHidden(index.row(), false);
         }
 
-        d->currentUrl = url;
+        d->m_currentUrl = url;
 
         if (placesModel->url(index) == url.adjusted(QUrl::StripTrailingSlash) ) {
             selectionModel()->setCurrentIndex(index, QItemSelectionModel::ClearAndSelect);
@@ -691,7 +691,7 @@ void KFilePlacesView::setUrl(const QUrl &url)
             selectionModel()->clear();
         }
     } else {
-        d->currentUrl = QUrl();
+        d->m_currentUrl = QUrl();
         selectionModel()->clear();
     }
 
@@ -708,12 +708,12 @@ void KFilePlacesView::setShowAll(bool showAll)
         return;
     }
 
-    d->showAll = showAll;
+    d->m_showAll = showAll;
 
     KFilePlacesViewDelegate *delegate = static_cast<KFilePlacesViewDelegate *>(itemDelegate());
 
     int rowCount = placesModel->rowCount();
-    QModelIndex current = placesModel->closestItem(d->currentUrl);
+    QModelIndex current = placesModel->closestItem(d->m_currentUrl);
 
     if (showAll) {
         d->updateHiddenRows();
@@ -843,7 +843,7 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
     if (placesModel->hiddenCount() > 0) {
         showAll = new QAction(QIcon::fromTheme(QStringLiteral("visibility")), i18n("&Show All Entries"), &menu);
         showAll->setCheckable(true);
-        showAll->setChecked(d->showAll);
+        showAll->setChecked(d->m_showAll);
         if (mainSeparator == nullptr) {
             mainSeparator = menu.addSeparator();
         }
@@ -897,15 +897,15 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
         const KFilePlacesModel::GroupType type = placesModel->groupType(index);
         placesModel->setGroupHidden(type, hideSection->isChecked());
 
-        if (!d->showAll && hideSection->isChecked()) {
+        if (!d->m_showAll && hideSection->isChecked()) {
             delegate->addDisappearingItemGroup(index);
             d->triggerItemDisappearingAnimation();
         }
     } else if (hide && (result == hide)) {
         placesModel->setPlaceHidden(index, hide->isChecked());
-        QModelIndex current = placesModel->closestItem(d->currentUrl);
+        QModelIndex current = placesModel->closestItem(d->m_currentUrl);
 
-        if (index != current && !d->showAll && hide->isChecked()) {
+        if (index != current && !d->m_showAll && hide->isChecked()) {
             delegate->addDisappearingItem(index);
             d->triggerItemDisappearingAnimation();
         }
@@ -916,7 +916,7 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
     } else if (eject && (result == eject)) {
         placesModel->requestEject(index);
     } else if (add && (result == add)) {
-        QUrl url = d->currentUrl;
+        QUrl url = d->m_currentUrl;
         QString label;
         QString iconName = QStringLiteral("folder");
         bool appLocal = true;
@@ -933,7 +933,7 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
         placesModel->requestSetup(index);
     }
 
-    index = placesModel->closestItem(d->currentUrl);
+    index = placesModel->closestItem(d->m_currentUrl);
     selectionModel()->setCurrentIndex(index, QItemSelectionModel::ClearAndSelect);
 }
 
@@ -952,29 +952,29 @@ void KFilePlacesView::showEvent(QShowEvent *event)
 void KFilePlacesView::hideEvent(QHideEvent *event)
 {
     QListView::hideEvent(event);
-    d->smoothItemResizing = false;
+    d->m_smoothItemResizing = false;
 }
 
 void KFilePlacesView::dragEnterEvent(QDragEnterEvent *event)
 {
     QListView::dragEnterEvent(event);
-    d->dragging = true;
+    d->m_dragging = true;
 
     KFilePlacesViewDelegate *delegate = static_cast<KFilePlacesViewDelegate *>(itemDelegate());
     delegate->setShowHoverIndication(false);
 
-    d->dropRect = QRect();
+    d->m_dropRect = QRect();
 }
 
 void KFilePlacesView::dragLeaveEvent(QDragLeaveEvent *event)
 {
     QListView::dragLeaveEvent(event);
-    d->dragging = false;
+    d->m_dragging = false;
 
     KFilePlacesViewDelegate *delegate = static_cast<KFilePlacesViewDelegate *>(itemDelegate());
     delegate->setShowHoverIndication(true);
 
-    setDirtyRegion(d->dropRect);
+    setDirtyRegion(d->m_dropRect);
 }
 
 void KFilePlacesView::dragMoveEvent(QDragMoveEvent *event)
@@ -984,25 +984,25 @@ void KFilePlacesView::dragMoveEvent(QDragMoveEvent *event)
     // update the drop indicator
     const QPoint pos = event->pos();
     const QModelIndex index = indexAt(pos);
-    setDirtyRegion(d->dropRect);
+    setDirtyRegion(d->m_dropRect);
     if (index.isValid()) {
         const QRect rect = visualRect(index);
         const int gap = d->insertIndicatorHeight(rect.height());
         if (d->insertAbove(rect, pos)) {
             // indicate that the item will be inserted above the current place
-            d->dropRect = QRect(rect.left(), rect.top() - gap / 2,
+            d->m_dropRect = QRect(rect.left(), rect.top() - gap / 2,
                                 rect.width(), gap);
         } else if (d->insertBelow(rect, pos)) {
             // indicate that the item will be inserted below the current place
-            d->dropRect = QRect(rect.left(), rect.bottom() + 1 -  gap / 2,
+            d->m_dropRect = QRect(rect.left(), rect.bottom() + 1 -  gap / 2,
                                 rect.width(), gap);
         } else {
             // indicate that the item be dropped above the current place
-            d->dropRect = rect;
+            d->m_dropRect = rect;
         }
     }
 
-    setDirtyRegion(d->dropRect);
+    setDirtyRegion(d->m_dropRect);
 }
 
 void KFilePlacesView::dropEvent(QDropEvent *event)
@@ -1020,7 +1020,7 @@ void KFilePlacesView::dropEvent(QDropEvent *event)
     }
 
     QListView::dropEvent(event);
-    d->dragging = false;
+    d->m_dragging = false;
 
     KFilePlacesViewDelegate *delegate = static_cast<KFilePlacesViewDelegate *>(itemDelegate());
     delegate->setShowHoverIndication(true);
@@ -1029,22 +1029,22 @@ void KFilePlacesView::dropEvent(QDropEvent *event)
 void KFilePlacesView::paintEvent(QPaintEvent *event)
 {
     QListView::paintEvent(event);
-    if (d->dragging && !d->dropRect.isEmpty()) {
+    if (d->m_dragging && !d->m_dropRect.isEmpty()) {
         // draw drop indicator
         QPainter painter(viewport());
 
-        const QModelIndex index = indexAt(d->dropRect.topLeft());
+        const QModelIndex index = indexAt(d->m_dropRect.topLeft());
         const QRect itemRect = visualRect(index);
-        const bool drawInsertIndicator = !d->dropOnPlace ||
-                                         d->dropRect.height() <= d->insertIndicatorHeight(itemRect.height());
+        const bool drawInsertIndicator = !d->m_dropOnPlace ||
+                                         d->m_dropRect.height() <= d->insertIndicatorHeight(itemRect.height());
 
         if (drawInsertIndicator) {
             // draw indicator for inserting items
             QBrush blendedBrush = viewOptions().palette.brush(QPalette::Normal, QPalette::Highlight);
             QColor color = blendedBrush.color();
 
-            const int y = (d->dropRect.top() + d->dropRect.bottom()) / 2;
-            const int thickness = d->dropRect.height() / 2;
+            const int y = (d->m_dropRect.top() + d->m_dropRect.bottom()) / 2;
+            const int thickness = d->m_dropRect.height() / 2;
             Q_ASSERT(thickness >= 1);
             int alpha = 255;
             const int alphaDec = alpha / (thickness + 1);
@@ -1052,8 +1052,8 @@ void KFilePlacesView::paintEvent(QPaintEvent *event)
                 color.setAlpha(alpha);
                 alpha -= alphaDec;
                 painter.setPen(color);
-                painter.drawLine(d->dropRect.left(), y - i, d->dropRect.right(), y - i);
-                painter.drawLine(d->dropRect.left(), y + i, d->dropRect.right(), y + i);
+                painter.drawLine(d->m_dropRect.left(), y - i, d->m_dropRect.right(), y - i);
+                painter.drawLine(d->m_dropRect.left(), y + i, d->m_dropRect.right(), y + i);
             }
         } else {
             // draw indicator for copying/moving/linking to items
@@ -1097,7 +1097,7 @@ void KFilePlacesView::setModel(QAbstractItemModel *model)
     connect(model, SIGNAL(rowsRemoved(QModelIndex,int,int)),
             this, SLOT(adaptItemSize()), Qt::QueuedConnection);
     connect(selectionModel(), &QItemSelectionModel::currentChanged,
-            d->watcher, &KFilePlacesEventWatcher::currentIndexChanged);
+            d->m_watcher, &KFilePlacesEventWatcher::currentIndexChanged);
 
     static_cast<KFilePlacesViewDelegate *>(itemDelegate())->clearFreeSpaceInfo();
 }
@@ -1105,14 +1105,14 @@ void KFilePlacesView::setModel(QAbstractItemModel *model)
 void KFilePlacesView::rowsInserted(const QModelIndex &parent, int start, int end)
 {
     QListView::rowsInserted(parent, start, end);
-    setUrl(d->currentUrl);
+    setUrl(d->m_currentUrl);
 
     KFilePlacesViewDelegate *delegate = static_cast<KFilePlacesViewDelegate *>(itemDelegate());
     KFilePlacesModel *placesModel = static_cast<KFilePlacesModel *>(model());
 
     for (int i = start; i <= end; ++i) {
         QModelIndex index = placesModel->index(i, 0, parent);
-        if (d->showAll || !placesModel->isHidden(index)) {
+        if (d->m_showAll || !placesModel->isHidden(index)) {
             delegate->addAppearingItem(index);
             d->triggerItemAppearingAnimation();
         } else {
@@ -1149,9 +1149,9 @@ QSize KFilePlacesView::sizeHint() const
 void KFilePlacesView::Private::addDisappearingItem(KFilePlacesViewDelegate *delegate, const QModelIndex &index)
 {
     delegate->addDisappearingItem(index);
-    if (itemDisappearTimeline.state() != QTimeLine::Running) {
+    if (m_itemDisappearTimeline.state() != QTimeLine::Running) {
         delegate->setDisappearingItemProgress(0.0);
-        itemDisappearTimeline.start();
+        m_itemDisappearTimeline.start();
     }
 }
 
@@ -1166,14 +1166,14 @@ void KFilePlacesView::Private::setCurrentIndex(const QModelIndex &index)
     QUrl url = placesModel->url(index);
 
     if (url.isValid()) {
-        currentUrl = url;
+        m_currentUrl = url;
         updateHiddenRows();
         emit q->urlChanged(KFilePlacesModel::convertedUrl(url));
-        if (showAll) {
+        if (m_showAll) {
             q->setShowAll(false);
         }
     } else {
-        q->setUrl(currentUrl);
+        q->setUrl(m_currentUrl);
     }
 }
 
@@ -1181,7 +1181,7 @@ void KFilePlacesView::Private::adaptItemSize()
 {
     KFilePlacesViewDelegate *delegate = static_cast<KFilePlacesViewDelegate *>(q->itemDelegate());
 
-    if (!autoResizeItems) {
+    if (!m_autoResizeItems) {
         const int size = q->iconSize().width(); // Assume width == height
         delegate->setIconSize(size);
         q->scheduleDelayedItemsLayout();
@@ -1196,13 +1196,13 @@ void KFilePlacesView::Private::adaptItemSize()
 
     int rowCount = placesModel->rowCount();
 
-    if (!showAll) {
+    if (!m_showAll) {
         rowCount -= placesModel->hiddenCount();
 
-        QModelIndex current = placesModel->closestItem(currentUrl);
+        QModelIndex current = placesModel->closestItem(m_currentUrl);
 
         if (placesModel->isHidden(current)) {
-            rowCount++;
+            ++rowCount;
         }
     }
 
@@ -1245,11 +1245,11 @@ void KFilePlacesView::Private::adaptItemSize()
         return;
     }
 
-    if (smoothItemResizing) {
-        oldSize = delegate->iconSize();
-        endSize = size;
-        if (adaptItemsTimeline.state() != QTimeLine::Running) {
-            adaptItemsTimeline.start();
+    if (m_smoothItemResizing) {
+        m_oldSize = delegate->iconSize();
+        m_endSize = size;
+        if (m_adaptItemsTimeline.state() != QTimeLine::Running) {
+            m_adaptItemsTimeline.start();
         }
     } else {
         delegate->setIconSize(size);
@@ -1266,11 +1266,11 @@ void KFilePlacesView::Private::updateHiddenRows()
     }
 
     int rowCount = placesModel->rowCount();
-    QModelIndex current = placesModel->closestItem(currentUrl);
+    QModelIndex current = placesModel->closestItem(m_currentUrl);
 
     for (int i = 0; i < rowCount; ++i) {
         QModelIndex index = placesModel->index(i, 0);
-        if (index != current && placesModel->isHidden(index) && !showAll) {
+        if (index != current && placesModel->isHidden(index) && !m_showAll) {
             q->setRowHidden(i, true);
         } else {
             q->setRowHidden(i, false);
@@ -1282,7 +1282,7 @@ void KFilePlacesView::Private::updateHiddenRows()
 
 bool KFilePlacesView::Private::insertAbove(const QRect &itemRect, const QPoint &pos) const
 {
-    if (dropOnPlace) {
+    if (m_dropOnPlace) {
         return pos.y() < itemRect.top() + insertIndicatorHeight(itemRect.height()) / 2;
     }
 
@@ -1291,7 +1291,7 @@ bool KFilePlacesView::Private::insertAbove(const QRect &itemRect, const QPoint &
 
 bool KFilePlacesView::Private::insertBelow(const QRect &itemRect, const QPoint &pos) const
 {
-    if (dropOnPlace) {
+    if (m_dropOnPlace) {
         return pos.y() > itemRect.bottom() - insertIndicatorHeight(itemRect.height()) / 2;
     }
 
@@ -1314,9 +1314,9 @@ int KFilePlacesView::Private::insertIndicatorHeight(int itemHeight) const
 
 void KFilePlacesView::Private::fadeCapacityBar(const QModelIndex &index, FadeType fadeType)
 {
-    QTimeLine *timeLine = delegate->fadeAnimationForIndex(index);
+    QTimeLine *timeLine = m_delegate->fadeAnimationForIndex(index);
     delete timeLine;
-    delegate->removeFadeAnimation(index);
+    m_delegate->removeFadeAnimation(index);
     timeLine = new QTimeLine(250, q);
     connect(timeLine, SIGNAL(valueChanged(qreal)), q, SLOT(_k_capacityBarFadeValueChanged()));
     if (fadeType == FadeIn) {
@@ -1326,7 +1326,7 @@ void KFilePlacesView::Private::fadeCapacityBar(const QModelIndex &index, FadeTyp
         timeLine->setDirection(QTimeLine::Backward);
         timeLine->setCurrentTime(250);
     }
-    delegate->addFadeAnimation(index, timeLine);
+    m_delegate->addFadeAnimation(index, timeLine);
     timeLine->start();
 }
 
@@ -1342,7 +1342,7 @@ int KFilePlacesView::Private::sectionsCount() const
             const QString sectionName = index.data(KFilePlacesModel::GroupRole).toString();
             if (prevSection != sectionName) {
                 prevSection = sectionName;
-                count++;
+                ++count;
             }
         }
     }
@@ -1352,17 +1352,17 @@ int KFilePlacesView::Private::sectionsCount() const
 
 void KFilePlacesView::Private::triggerItemAppearingAnimation()
 {
-    if (itemAppearTimeline.state() != QTimeLine::Running) {
-        delegate->setAppearingItemProgress(0.0);
-        itemAppearTimeline.start();
+    if (m_itemAppearTimeline.state() != QTimeLine::Running) {
+        m_delegate->setAppearingItemProgress(0.0);
+        m_itemAppearTimeline.start();
     }
 }
 
 void KFilePlacesView::Private::triggerItemDisappearingAnimation()
 {
-    if (itemDisappearTimeline.state() != QTimeLine::Running) {
-        delegate->setDisappearingItemProgress(0.0);
-        itemDisappearTimeline.start();
+    if (m_itemDisappearTimeline.state() != QTimeLine::Running) {
+        m_delegate->setDisappearingItemProgress(0.0);
+        m_itemDisappearTimeline.start();
     }
 }
 
@@ -1374,13 +1374,13 @@ void KFilePlacesView::Private::_k_placeClicked(const QModelIndex &index)
         return;
     }
 
-    lastClickedIndex = QPersistentModelIndex();
+    m_lastClickedIndex = QPersistentModelIndex();
 
     if (placesModel->setupNeeded(index)) {
         QObject::connect(placesModel, SIGNAL(setupDone(QModelIndex,bool)),
                          q, SLOT(_k_storageSetupDone(QModelIndex,bool)));
 
-        lastClickedIndex = index;
+        m_lastClickedIndex = index;
         placesModel->requestSetup(index);
         return;
     }
@@ -1391,24 +1391,24 @@ void KFilePlacesView::Private::_k_placeClicked(const QModelIndex &index)
 void KFilePlacesView::Private::_k_placeEntered(const QModelIndex &index)
 {
     fadeCapacityBar(index, FadeIn);
-    pollingRequestCount++;
-    if (pollingRequestCount == 1) {
-        pollDevices.start();
+    ++m_pollingRequestCount;
+    if (m_pollingRequestCount == 1) {
+        m_pollDevices.start();
     }
 }
 
 void KFilePlacesView::Private::_k_placeLeft(const QModelIndex &index)
 {
     fadeCapacityBar(index, FadeOut);
-    pollingRequestCount--;
-    if (!pollingRequestCount) {
-        pollDevices.stop();
+    --m_pollingRequestCount;
+    if (!m_pollingRequestCount) {
+        m_pollDevices.stop();
     }
 }
 
 void KFilePlacesView::Private::_k_storageSetupDone(const QModelIndex &index, bool success)
 {
-    if (index != lastClickedIndex) {
+    if (index != m_lastClickedIndex) {
         return;
     }
 
@@ -1420,19 +1420,19 @@ void KFilePlacesView::Private::_k_storageSetupDone(const QModelIndex &index, boo
     }
 
     if (success) {
-        setCurrentIndex(lastClickedIndex);
+        setCurrentIndex(m_lastClickedIndex);
     } else {
-        q->setUrl(currentUrl);
+        q->setUrl(m_currentUrl);
     }
 
-    lastClickedIndex = QPersistentModelIndex();
+    m_lastClickedIndex = QPersistentModelIndex();
 }
 
 void KFilePlacesView::Private::_k_adaptItemsUpdate(qreal value)
 {
-    int add = (endSize - oldSize) * value;
+    int add = (m_endSize - m_oldSize) * value;
 
-    int size = oldSize + add;
+    int size = m_oldSize + add;
 
     KFilePlacesViewDelegate *delegate = static_cast<KFilePlacesViewDelegate *>(q->itemDelegate());
     delegate->setIconSize(size);
@@ -1462,12 +1462,12 @@ void KFilePlacesView::Private::_k_itemDisappearUpdate(qreal value)
 
 void KFilePlacesView::Private::_k_enableSmoothItemResizing()
 {
-    smoothItemResizing = true;
+    m_smoothItemResizing = true;
 }
 
 void KFilePlacesView::Private::_k_capacityBarFadeValueChanged()
 {
-    const QModelIndex index = delegate->indexForFadeAnimation(static_cast<QTimeLine *>(q->sender()));
+    const QModelIndex index = m_delegate->indexForFadeAnimation(static_cast<QTimeLine *>(q->sender()));
     if (!index.isValid()) {
         return;
     }
@@ -1476,14 +1476,14 @@ void KFilePlacesView::Private::_k_capacityBarFadeValueChanged()
 
 void KFilePlacesView::Private::_k_triggerDevicePolling()
 {
-    const QModelIndex hoveredIndex = watcher->hoveredIndex();
+    const QModelIndex hoveredIndex = m_watcher->hoveredIndex();
     if (hoveredIndex.isValid()) {
         const KFilePlacesModel *placesModel = static_cast<const KFilePlacesModel *>(hoveredIndex.model());
         if (placesModel->isDevice(hoveredIndex)) {
             q->update(hoveredIndex);
         }
     }
-    const QModelIndex focusedIndex = watcher->focusedIndex();
+    const QModelIndex focusedIndex = m_watcher->focusedIndex();
     if (focusedIndex.isValid() && focusedIndex != hoveredIndex) {
         const KFilePlacesModel *placesModel = static_cast<const KFilePlacesModel *>(focusedIndex.model());
         if (placesModel->isDevice(focusedIndex)) {
