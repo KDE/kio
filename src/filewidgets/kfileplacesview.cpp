@@ -20,6 +20,7 @@
 #include <QPointer>
 #include <QScrollBar>
 
+#include <defaults-kfile.h> // ConfigGroup, PlacesIconsAutoresize, PlacesIconsStaticSize
 #include <KConfig>
 #include <KConfigGroup>
 #include <kdirnotify.h>
@@ -33,6 +34,7 @@
 #include <KJob>
 #include <KJobWidgets>
 #include <KCapacityBar>
+#include <KSharedConfig>
 #include <solid/storageaccess.h>
 #include <solid/storagedrive.h>
 #include <solid/storagevolume.h>
@@ -524,9 +526,7 @@ public:
     KFilePlacesView *const q;
 
     QUrl m_currentUrl;
-    bool m_autoResizeItems = true;
     bool m_showAll = false;
-    bool m_smoothItemResizing = false;
     bool m_dropOnPlace = false;
     bool m_dragging = false;
     Solid::StorageAccess *m_lastClickedStorage = nullptr;
@@ -535,6 +535,7 @@ public:
     QRect m_dropRect;
 
     void setCurrentIndex(const QModelIndex &index);
+    // If m_autoResizeItems is true, calculates a proper size for the icons in the places panel
     void adaptItemSize();
     void updateHiddenRows();
     void clearFreeSpaceInfos();
@@ -549,6 +550,18 @@ public:
     void triggerItemAppearingAnimation();
     void triggerItemDisappearingAnimation();
 
+    void writeConfig();
+    void readConfig();
+
+    // Sets the size of the icons in the places panel
+    void relayoutIconSize(int size);
+    // Adds the "Icon Size" sub-menu items
+    void setupIconSizeSubMenu(QMenu *submenu);
+
+    bool m_autoResizeItems = true;
+    bool m_smoothItemResizing = false;
+    int m_oldSize, m_endSize;
+
     void _k_placeClicked(const QModelIndex &index);
     void _k_placeEntered(const QModelIndex &index);
     void _k_placeLeft(const QModelIndex &index);
@@ -561,13 +574,15 @@ public:
     void _k_triggerDevicePolling();
 
     QTimeLine m_adaptItemsTimeline;
-    int m_oldSize, m_endSize;
 
     QTimeLine m_itemAppearTimeline;
     QTimeLine m_itemDisappearTimeline;
 
     KFilePlacesEventWatcher *const m_watcher;
     KFilePlacesViewDelegate *m_delegate;
+
+    int m_iconSz = 0;
+
     QTimer m_pollDevices;
     int m_pollingRequestCount = 0;
 };
@@ -576,6 +591,8 @@ KFilePlacesView::KFilePlacesView(QWidget *parent)
     : QListView(parent), d(new Private(this))
 {
     setItemDelegate(d->m_delegate);
+
+    d->readConfig();
 
     setSelectionRectVisible(false);
     setSelectionMode(SingleSelection);
@@ -740,6 +757,25 @@ void KFilePlacesView::keyPressEvent(QKeyEvent *event)
     }
 }
 
+void KFilePlacesView::Private::readConfig()
+{
+    KConfigGroup cg(KSharedConfig::openConfig(), ConfigGroup);
+    m_autoResizeItems = cg.readEntry(PlacesIconsAutoresize, true);
+    m_delegate->setIconSize(cg.readEntry(PlacesIconsStaticSize, static_cast<int>(KIconLoader::SizeMedium)));
+}
+
+void KFilePlacesView::Private::writeConfig()
+{
+    KConfigGroup cg(KSharedConfig::openConfig(), ConfigGroup);
+    cg.writeEntry(PlacesIconsAutoresize, m_autoResizeItems);
+
+    if (!m_autoResizeItems) {
+        cg.writeEntry(PlacesIconsStaticSize, m_iconSz);
+    }
+
+    cg.sync();
+}
+
 void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
 {
     KFilePlacesModel *placesModel = qobject_cast<KFilePlacesModel *>(model());
@@ -849,6 +885,10 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
         remove = menu.addAction(QIcon::fromTheme(QStringLiteral("edit-delete")), i18n("&Remove Entry '%1'", label));
     }
 
+    QMenu *iconSizeMenu = new QMenu(i18nc("@item:inmenu", "Icon Size"), &menu);
+    menu.insertMenu(mainSeparator, iconSizeMenu);
+    d->setupIconSizeSubMenu(iconSizeMenu);
+
     menu.addActions(actions());
 
     if (menu.isEmpty()) {
@@ -929,6 +969,68 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
 
     index = placesModel->closestItem(d->m_currentUrl);
     selectionModel()->setCurrentIndex(index, QItemSelectionModel::ClearAndSelect);
+}
+
+void KFilePlacesView::Private::setupIconSizeSubMenu(QMenu *submenu)
+{
+    QActionGroup *group = new QActionGroup(submenu);
+
+    auto *autoAct = new QAction(i18nc("@item:inmenu Auto set icon size based on available space in"
+                                      "the Places side-panel", "Auto Resize"),
+                                group);
+    autoAct->setCheckable(true);
+    autoAct->setChecked(m_autoResizeItems);
+    QObject::connect(autoAct, &QAction::toggled, q, [this]() {
+        m_autoResizeItems = true;
+        adaptItemSize();
+        writeConfig();
+    });
+    submenu->addAction(autoAct);
+
+    constexpr KIconLoader::StdSizes iconSizes[] = { KIconLoader::SizeSmall,
+                                                    KIconLoader::SizeSmallMedium,
+                                                    KIconLoader::SizeMedium,
+                                                    KIconLoader::SizeLarge
+                                                  };
+
+    for (const auto iconSize : iconSizes) {
+        auto *act = new QAction(group);
+        act->setCheckable(true);
+
+        switch (iconSize) {
+        case KIconLoader::SizeSmall:
+            act->setText(i18nc("Small icon size", "Small (%1x%1)", KIconLoader::SizeSmall));
+            break;
+        case KIconLoader::SizeSmallMedium:
+            act->setText(i18nc("Medium icon size", "Medium (%1x%1)", KIconLoader::SizeSmallMedium));
+            break;
+        case KIconLoader::SizeMedium:
+            act->setText(i18nc("Large icon size", "Large (%1x%1)", KIconLoader::SizeMedium));
+            break;
+        case KIconLoader::SizeLarge:
+            act->setText(i18nc("Huge icon size", "Huge (%1x%1)", KIconLoader::SizeLarge));
+            break;
+        default:
+            break;
+        }
+
+        QObject::connect(act, &QAction::toggled, q, [this, iconSize]() {
+            m_autoResizeItems = false;
+            relayoutIconSize(iconSize);
+            // Store the new icon size in m_iconSz; which will be used by writeConfig(),
+            // otherwise if m_smoothItemResizing is true, the delegate icon size will be
+            // changed after the m_adaptItemsTimeline times out, by which time writeConfig
+            // has already finished, which means it won't save the new icon size
+            m_iconSz = iconSize;
+            writeConfig();
+        });
+
+        if (!m_autoResizeItems) {
+            act->setChecked(iconSize == m_delegate->iconSize());
+        }
+
+        submenu->addAction(act);
+    }
 }
 
 void KFilePlacesView::resizeEvent(QResizeEvent *event)
@@ -1167,9 +1269,6 @@ void KFilePlacesView::Private::setCurrentIndex(const QModelIndex &index)
 void KFilePlacesView::Private::adaptItemSize()
 {
     if (!m_autoResizeItems) {
-        const int size = q->iconSize().width(); // Assume width == height
-        m_delegate->setIconSize(size);
-        q->scheduleDelayedItemsLayout();
         return;
     }
 
@@ -1226,6 +1325,11 @@ void KFilePlacesView::Private::adaptItemSize()
         size &= ~0xf;
     }
 
+    relayoutIconSize(size);
+}
+
+void KFilePlacesView::Private::relayoutIconSize(const int size)
+{
     if (size == m_delegate->iconSize()) {
         return;
     }

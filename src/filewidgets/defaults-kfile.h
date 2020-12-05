@@ -34,5 +34,7 @@ const int kfile_area = 250;
 #define AutoSelectExtChecked QStringLiteral("Automatically select filename extension")
 #define BreadcrumbNavigation QStringLiteral("Breadcrumb Navigation")
 #define ShowFullPath QStringLiteral("Show Full Path")
+#define PlacesIconsAutoresize QStringLiteral("Places Icons Auto-resize")
+#define PlacesIconsStaticSize QStringLiteral("Places Icons Static Size")
 
 #endif
