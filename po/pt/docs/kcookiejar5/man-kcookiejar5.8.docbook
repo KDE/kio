@@ -1,0 +1,225 @@
+<?xml version="1.0" ?>
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % Portuguese "INCLUDE"
+><!-- change language only here -->
+]>
+
+<refentry lang="&language;">
+
+<refentryinfo>
+<title
+>Manual do Utilizador do kcookiejar5</title>
+<author
+><firstname
+>Waldo</firstname
+> <surname
+> Bastian</surname
+> <affiliation
+> <address
+><email
+>bastian@kde.org</email
+></address>
+</affiliation>
+</author>
+
+<author
+><firstname
+>Dawit</firstname
+> <surname
+>Alemayehu</surname
+> <affiliation
+> <address
+><email
+>adawit@kde.org</email
+></address>
+</affiliation>
+</author>
+
+<date
+>2015-07-31</date>
+<releaseinfo
+>Plataformas 5.13</releaseinfo>
+
+</refentryinfo>
+
+<refmeta>
+<refentrytitle
+><command
+>kcookiejar5</command
+></refentrytitle>
+<manvolnum
+>8</manvolnum>
+</refmeta>
+
+<refnamediv>
+<refname
+><command
+>kcookiejar5</command
+></refname>
+<refpurpose
+>Interface da linha de comandos para o servidor de 'cookies' de HTTP para o &kde;</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv>
+<title
+>Sintaxe</title>
+
+<cmdsynopsis
+><command
+>kcookiejar5</command
+> <arg choice="opt"
+>-h, --help</arg
+> <arg choice="opt"
+>-v, --version</arg
+> <arg choice="opt"
+>--shutdown</arg
+> <arg choice="opt"
+>--remove<replaceable
+> domínio</replaceable
+></arg
+> <arg choice="opt"
+>--remove-all</arg
+> <arg choice="opt"
+>--reload-config</arg
+> </cmdsynopsis>
+</refsynopsisdiv>
+
+<refsect1>
+<title
+>Descrição</title>
+
+<para
+>O <command
+>kcookiejar5</command
+> lida com os 'cookies' de HTTP, oferecendo um serviço de D-BUS para guardar/obter/limpar os 'cookies'. </para>
+</refsect1>
+
+<refsect1>
+<title
+>Opções</title>
+
+<variablelist>
+
+<varlistentry>
+<term
+><option
+>-h</option
+><option
+>--help</option
+></term>
+<listitem>
+<para
+>Mostra a ajuda acerca das opções.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><option
+>-v</option
+><option
+>--version</option
+></term>
+<listitem>
+<para
+>Mostra a versão.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><option
+>--shutdown</option
+></term>
+<listitem>
+<para
+>Desactiva o repositório de 'cookies' e o serviço de D-BUS. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><option
+>--remove</option
+> <parameter
+>domínio</parameter
+></term>
+<listitem>
+<para
+>Remove os 'cookies' referentes ao <parameter
+>domínio</parameter
+> do repositório de 'cookies'. </para>
+</listitem>
+</varlistentry>
+
+
+<varlistentry>
+<term
+><option
+>--remove-all</option
+></term>
+<listitem>
+<para
+>Remove todos os 'cookies' do seu repositório.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><option
+>--reload-config</option
+></term>
+<listitem>
+<para
+>Volta a carregar o ficheiro de configuração. </para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+</refsect1>
+
+<refsect1>
+<title
+>Utilização</title>
+<para
+>O <command
+>kcookiejar5</command
+> é uma ferramenta da linha de comandos para aceder ao módulo do 'kded' que faz a gestão dos 'cookies' no <command
+>Konqueror</command
+> e noutras aplicações do KDE.</para>
+<para
+>Quando é iniciado sem parâmetros, ele carrega o módulo do 'kded' para oferecer a interface de DBus para guardar os 'cookies'. </para>
+<para
+>Quando o <command
+>kcookiejar5</command
+> for iniciado com alguns parâmetros, ele irá efectuar tarefas adicionais sobre o repositório de 'cookies' que oferece, como a remoção dos 'cookies' de um <parameter
+>domínio</parameter
+>. </para>
+
+</refsect1>
+
+<refsect1>
+<title
+>Veja Também</title>
+<para
+><replaceable
+>kf5options</replaceable
+>(7), <replaceable
+>qt5options</replaceable
+>(7) </para>
+</refsect1>
+
+<refsect1>
+<title
+>Problemas</title>
+<para
+>Existem provavelmente diversos erros. Use o <ulink url="http://bugs.kde.org"
+>sistema de gestão de erros do KDE</ulink
+> para os comunicar.</para>
+</refsect1>
+
+</refentry>
+
+
+

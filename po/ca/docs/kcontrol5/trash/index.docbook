@@ -1,0 +1,84 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Catalan  "INCLUDE">
+]>
+<article id="trash" lang="&language;">
+<title
+>Paperera</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Burkhard.Lueck;</author>
+&traductor.Antoni.Bella; 
+</authorgroup>
+
+<date
+>31 de maig de 2018</date>
+<releaseinfo
+>Frameworks 5.48</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Arranjament del sistema</keyword>
+<keyword
+>paperera</keyword>
+</keywordset>
+</articleinfo>
+
+<para
+>Aquest mòdul permet configurar les opcions per a la paperera. </para>
+
+<variablelist>
+<varlistentry
+><term
+><guilabel
+>Neteja:</guilabel
+></term>
+<listitem
+><para
+>Marqueu aquesta casella per a permetre l'eliminació automàtica de fitxers que són més grans que el valor especificat. Deixeu-la sense marca per a <emphasis
+>no</emphasis
+> eliminar automàticament cap element fins després d'un cert lapse de temps. Establir el nombre de dies que els fitxers poden romandre a la paperera. Tots els fitxers més antics que aquest seran eliminats automàticament. </para
+></listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>Mida:</guilabel
+></term>
+<listitem
+><para
+>Marqueu aquesta casella per a limitar la paperera a la quantitat màxima d'espai en disc que especifiqueu. D'altra manera, restarà sense límit. </para
+></listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>Limita a</guilabel
+></term>
+<listitem
+><para
+>Aquest és el percentatge màxim d'espai en disc que s'utilitzarà per a la paperera. La quantitat calculada d'espai en disc que es permetrà per a la paperera apareixerà a la dreta del botó de selecció de valors. </para
+></listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>Paperera plena:</guilabel
+></term>
+<listitem
+><para
+>Quan s'abasti el límit de la mida, es realitzarà l'acció seleccionada, sigui suprimir els fitxers més antics, els més grans o advertiu-vos. </para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+</article>

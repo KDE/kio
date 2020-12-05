@@ -1,0 +1,63 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Swedish "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="ftp">
+<title
+>&FTP;</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Lauri.Watts; &Lauri.Watts.mail;</author>
+<othercredit role="translator"
+> <firstname
+>Stefan</firstname
+> <surname
+>Asserhäll</surname
+> <affiliation
+><address
+><email
+>stefan.asserhall@bredband.net</email
+></address
+></affiliation
+> <contrib
+>Översättare</contrib
+></othercredit
+> 
+</authorgroup>
+</articleinfo>
+
+<para
+>&FTP; är en Internettjänst som används för att överföra datafiler från disken på en dator till disken på en annan, oberoende av operativsystemtyp. </para>
+
+<para
+>På samma sätt som andra Internetprogram använder &FTP; metoden med klient och server: En användare kör ett &FTP;-program på datorn, begär att det ska kontakta en annan dator, och begär sedan överföring av en eller flera filer. Det lokala &FTP;-programmet blir en klient, som använder <acronym
+>TCP</acronym
+> för att kontakta ett &FTP;-serverprogram på den andra datorn. Varje gång en användare begär en filöverföring samarbetar klient- och serverprogrammen för att skicka en kopia av data över Internet.</para>
+
+<para
+>&FTP;-servrar som tillåter <quote
+>anonym &FTP;</quote
+> låter alla användare, inte bara användare med konton på datorn, bläddra i <quote
+>FTP</quote
+>-arkiven och ladda ner filer. Vissa &FTP;-servrar är inställda för att låta användare ladda upp filer.</para>
+
+<para
+>&FTP; används ofta för att hämta information och skaffa programvara som lagras i filer på &FTP;-arkivplatser över hela världen. </para>
+
+
+<para
+>Källa: omskrivet från <ulink url="http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/ftpdef.htm"
+> http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/ftpdef.htm</ulink
+> </para>
+
+<para
+>Se manualen: <ulink url="man:/ftp"
+>ftp</ulink
+>.</para>
+
+</article>
