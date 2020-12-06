@@ -523,17 +523,6 @@ public:
         FadeOut
     };
 
-    KFilePlacesView *const q;
-
-    QUrl m_currentUrl;
-    bool m_showAll = false;
-    bool m_dropOnPlace = false;
-    bool m_dragging = false;
-    Solid::StorageAccess *m_lastClickedStorage = nullptr;
-    QPersistentModelIndex m_lastClickedIndex;
-
-    QRect m_dropRect;
-
     void setCurrentIndex(const QModelIndex &index);
     // If m_autoResizeItems is true, calculates a proper size for the icons in the places panel
     void adaptItemSize();
@@ -546,21 +535,15 @@ public:
     int sectionsCount() const;
 
     void addDisappearingItem(KFilePlacesViewDelegate *delegate, const QModelIndex &index);
-
     void triggerItemAppearingAnimation();
     void triggerItemDisappearingAnimation();
 
     void writeConfig();
     void readConfig();
-
     // Sets the size of the icons in the places panel
     void relayoutIconSize(int size);
     // Adds the "Icon Size" sub-menu items
     void setupIconSizeSubMenu(QMenu *submenu);
-
-    bool m_autoResizeItems = true;
-    bool m_smoothItemResizing = false;
-    int m_oldSize, m_endSize;
 
     void _k_placeClicked(const QModelIndex &index);
     void _k_placeEntered(const QModelIndex &index);
@@ -573,18 +556,34 @@ public:
     void _k_capacityBarFadeValueChanged();
     void _k_triggerDevicePolling();
 
-    QTimeLine m_adaptItemsTimeline;
-
-    QTimeLine m_itemAppearTimeline;
-    QTimeLine m_itemDisappearTimeline;
+    KFilePlacesView *const q;
 
     KFilePlacesEventWatcher *const m_watcher;
     KFilePlacesViewDelegate *m_delegate;
 
-    int m_iconSz = 0;
+    Solid::StorageAccess *m_lastClickedStorage = nullptr;
+    QPersistentModelIndex m_lastClickedIndex;
+
+    QTimeLine m_adaptItemsTimeline;
+    QTimeLine m_itemAppearTimeline;
+    QTimeLine m_itemDisappearTimeline;
 
     QTimer m_pollDevices;
+
+    QRect m_dropRect;
+
+    QUrl m_currentUrl;
+
+    int m_oldSize = 0;
+    int m_endSize = 0;
+    int m_iconSz = 0;
     int m_pollingRequestCount = 0;
+
+    bool m_autoResizeItems = true;
+    bool m_smoothItemResizing = false;
+    bool m_showAll = false;
+    bool m_dropOnPlace = false;
+    bool m_dragging = false;
 };
 
 KFilePlacesView::KFilePlacesView(QWidget *parent)
