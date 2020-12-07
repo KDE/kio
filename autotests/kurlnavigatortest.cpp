@@ -14,6 +14,7 @@
 
 #include "kurlnavigator.h"
 #include "kurlcombobox.h"
+#include "kiotesthelper.h" // createTestDirectory(), createTestSymlink()
 
 QTEST_MAIN(KUrlNavigatorTest)
 
@@ -207,6 +208,53 @@ void KUrlNavigatorTest::testUrlParsing()
     QCOMPARE(m_navigator->uncommittedUrl(), url);
     QTest::keyClick(m_navigator->editor(), Qt::Key_Enter);
     QCOMPARE(m_navigator->locationUrl(), url);
+}
+
+void KUrlNavigatorTest::testRelativePaths()
+{
+    QTemporaryDir tempDir;
+    const QString tempDirPath = tempDir.path();
+    const QString dirA = tempDirPath + QLatin1String("/a");
+    const QString dirB = tempDirPath + QLatin1String("/a/b");
+    const QString link = tempDirPath + QLatin1String("/l");
+    createTestDirectory(dirA);
+    createTestDirectory(dirB);
+    createTestSymlink(link, dirA.toLatin1());
+
+    QVERIFY(QFile::exists(dirA));
+    QVERIFY(QFile::exists(dirB));
+    QVERIFY(QFile::exists(link));
+
+    const QUrl tempDirUrl = QUrl::fromLocalFile(tempDirPath);
+
+    // Change to tempDir
+    m_navigator->setLocationUrl(tempDirUrl);
+    m_navigator->setUrlEditable(true);
+    QCOMPARE(m_navigator->locationUrl(), tempDirUrl);
+
+    // Replace all the text with "a"
+    m_navigator->editor()->setCurrentText(QStringLiteral("a"));
+    QTest::keyClick(m_navigator->editor(), Qt::Key_Enter);
+    // Check the url was resolved to the full path "<tempDir>/a"
+    // QTRY_ because of waiting for the stat job in applyUncommittedUrl() to finish
+    QTRY_COMPARE(m_navigator->locationUrl(), QUrl::fromLocalFile(dirA));
+
+    // Replace all the text with "b"
+    m_navigator->editor()->setCurrentText(QStringLiteral("b"));
+    QTest::keyClick(m_navigator->editor(), Qt::Key_Enter);
+    // Check the url was resolved to the full path "<tempDir>/a/b"
+    // QTRY_ because of waiting for the stat job in applyUncommittedUrl() to finish
+    QTRY_COMPARE(m_navigator->locationUrl(), QUrl::fromLocalFile(dirB));
+
+    // Back to tempDir
+    m_navigator->setLocationUrl(tempDirUrl);
+    QCOMPARE(m_navigator->locationUrl(), tempDirUrl);
+    // Replace all the text with "l" which is a symlink to dirA
+    m_navigator->editor()->setCurrentText(QStringLiteral("l"));
+    QTest::keyClick(m_navigator->editor(), Qt::Key_Enter);
+    // Check the url was resolved to the full path "<tempDir>/l"
+    // QTRY_ because of waiting for the stat job in applyUncommittedUrl() to finish
+    QTRY_COMPARE(m_navigator->locationUrl(), QUrl::fromLocalFile(link));
 }
 
 void KUrlNavigatorTest::testFixUrlPath_data()

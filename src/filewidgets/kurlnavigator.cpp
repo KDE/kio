@@ -19,6 +19,7 @@
 
 #include <kfileitem.h>
 #include <kfileplacesmodel.h>
+#include <KIO/StatJob>
 #include <KLocalizedString>
 #include <kprotocolinfo.h>
 #include <kurlcombobox.h>
@@ -287,30 +288,62 @@ void KUrlNavigator::Private::appendWidget(QWidget *widget, int stretch)
 
 void KUrlNavigator::Private::applyUncommittedUrl()
 {
-    // Parts of the following code have been taken
-    // from the class KateFileSelector located in
-    // kate/app/katefileselector.hpp of Kate.
-    // SPDX-FileCopyrightText: 2001 Christoph Cullmann <cullmann@kde.org>
-    // SPDX-FileCopyrightText: 2001 Joseph Wenninger <jowenn@kde.org>
-    // SPDX-FileCopyrightText: 2001 Anders Lund <anders.lund@lund.tdcadsl.dk>
+    auto applyUrl = [this](QUrl url) {
 
-    QUrl typedUrl = q->uncommittedUrl();
-    // For example "desktop:/" _not_ "desktop:", see the comment in slotProtocolChanged()
-    if (!typedUrl.isEmpty() && typedUrl.path().isEmpty()
-        && KProtocolInfo::protocolClass(typedUrl.scheme()) == QLatin1String(":local")) {
-        typedUrl.setPath(QStringLiteral("/"));
+        // Parts of the following code have been taken from the class KateFileSelector
+        // located in kate/app/katefileselector.hpp of Kate.
+        // SPDX-FileCopyrightText: 2001 Christoph Cullmann <cullmann@kde.org>
+        // SPDX-FileCopyrightText: 2001 Joseph Wenninger <jowenn@kde.org>
+        // SPDX-FileCopyrightText: 2001 Anders Lund <anders.lund@lund.tdcadsl.dk>
+
+        // For example "desktop:/" _not_ "desktop:", see the comment in slotProtocolChanged()
+        if (!url.isEmpty() && url.path().isEmpty()
+            && KProtocolInfo::protocolClass(url.scheme()) == QLatin1String(":local")) {
+            url.setPath(QStringLiteral("/"));
+        }
+
+        const auto urlStr = url.toString();
+        QStringList urls = m_pathBox->urls();
+        urls.removeAll(urlStr);
+        urls.prepend(urlStr);
+        m_pathBox->setUrls(urls, KUrlComboBox::RemoveBottom);
+
+        q->setLocationUrl(url);
+        // The URL might have been adjusted by KUrlNavigator::setUrl(), hence
+        // synchronize the result in the path box.
+        m_pathBox->setUrl(q->locationUrl());
+    };
+
+    const QString text = m_pathBox->currentText().trimmed();
+
+    // Using kshorturifilter to fix up e.g. "ftp.kde.org" ---> "ftp://ftp.kde.org"
+    KUriFilterData filteredData(text);
+    filteredData.setCheckForExecutables(false);
+    const auto filtersList = QStringList{ QStringLiteral("kshorturifilter"), QStringLiteral("kurisearchfilter") };
+    if (KUriFilter::self()->filterUri(filteredData, filtersList)) {
+        applyUrl(filteredData.uri()); // The text was filtered
+        return;
     }
 
-    QStringList urls = m_pathBox->urls();
-    urls.removeAll(typedUrl.toString());
-    urls.prepend(typedUrl.toString());
-    m_pathBox->setUrls(urls, KUrlComboBox::RemoveBottom);
+    QUrl url = q->locationUrl();
+    QString path = url.path();
+    if (!path.endsWith(QLatin1Char('/'))) {
+        path += QLatin1Char('/');
+    }
+    url.setPath(path + text);
 
-    q->setLocationUrl(typedUrl);
-    // The URL might have been adjusted by KUrlNavigator::setUrl(), hence
-    // synchronize the result in the path box.
-    const QUrl currentUrl = q->locationUrl();
-    m_pathBox->setUrl(currentUrl);
+    // Dirs and symlinks to dirs
+    constexpr auto details = KIO::StatBasic | KIO::StatResolveSymlink;
+    auto *job = KIO::statDetails(url,  KIO::StatJob::DestinationSide, details, KIO::HideProgressInfo);
+    connect(job, &KJob::result, q, [this, job, text, applyUrl]() {
+        // If there is a dir matching "text" relative to the current url, use that, e.g.
+        // typing "bar" while at "/path/to/foo", the url becomes "/path/to/foo/bar/"
+        if (!job->error() && job->statResult().isDir()) {
+            applyUrl(job->url());
+        } else { // ... otherwise fallback to whatever QUrl::fromUserInput() returns
+            applyUrl(QUrl::fromUserInput(text));
+        }
+    });
 }
 
 void KUrlNavigator::Private::slotReturnPressed()

@@ -29,6 +29,8 @@ private Q_SLOTS:
     void testUrlParsing_data();
     void testUrlParsing();
 
+    void testRelativePaths();
+
     void testFixUrlPath_data();
     void testFixUrlPath();
 
