@@ -92,7 +92,7 @@ public:
      * as their parent.
      *
      * @param fileItemInfos  Information about the selected file items.
-     * @param parentWidget   A parent widget for error messages or the like.
+     * @param parentWidget   To be used as parent for the returned QActions and error messages or the like.
      *
      * @return A list of actions to be added to a contextual menu for the file
      *         items.
