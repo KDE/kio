@@ -498,6 +498,15 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
     d->zoomInAction = new QAction(QIcon::fromTheme(QStringLiteral("file-zoom-in")), i18n("Zoom in"), this);
     connect(d->zoomInAction, SIGNAL(triggered()), SLOT(_k_zoomInIconsSize()));
 
+    d->bookmarkButton = new KActionMenu(QIcon::fromTheme(QStringLiteral("bookmarks")), i18n("Bookmarks"), this);
+    d->bookmarkButton->setPopupMode(QToolButton::InstantPopup);
+    coll->addAction(QStringLiteral("bookmark"), d->bookmarkButton);
+    d->bookmarkButton->setWhatsThis(i18n("<qt>This button allows you to bookmark specific locations. "
+                                        "Click on this button to open the bookmark menu where you may add, "
+                                        "edit or select a bookmark.<br /><br />"
+                                        "These bookmarks are specific to the file dialog, but otherwise operate "
+                                        "like bookmarks elsewhere in KDE.</qt>"));
+
     QWidget *midSpacer = new QWidget(this);
     midSpacer->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
@@ -512,7 +521,10 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
     d->toolbar->addSeparator();
     d->toolbar->addAction(coll->action(QStringLiteral("inline preview")));
     d->toolbar->addAction(coll->action(QStringLiteral("sorting menu")));
+    d->toolbar->addAction(d->bookmarkButton);
+
     d->toolbar->addWidget(midSpacer);
+
     d->toolbar->addAction(d->zoomOutAction);
     d->toolbar->addWidget(d->iconSizeSlider);
     d->toolbar->addAction(d->zoomInAction);
@@ -2697,26 +2709,18 @@ void KFileWidgetPrivate::_k_toggleBookmarks(bool show)
         if (bookmarkHandler) {
             return;
         }
-
         bookmarkHandler = new KFileBookmarkHandler(q);
         q->connect(bookmarkHandler, SIGNAL(openUrl(QString)),
                    SLOT(_k_enterUrl(QString)));
-
-        bookmarkButton = new KActionMenu(QIcon::fromTheme(QStringLiteral("bookmarks")), i18n("Bookmarks"), q);
-        bookmarkButton->setPopupMode(QToolButton::InstantPopup);
-        q->actionCollection()->addAction(QStringLiteral("bookmark"), bookmarkButton);
         bookmarkButton->setMenu(bookmarkHandler->menu());
-        bookmarkButton->setWhatsThis(i18n("<qt>This button allows you to bookmark specific locations. "
-                                          "Click on this button to open the bookmark menu where you may add, "
-                                          "edit or select a bookmark.<br /><br />"
-                                          "These bookmarks are specific to the file dialog, but otherwise operate "
-                                          "like bookmarks elsewhere in KDE.</qt>"));
-        toolbar->addAction(bookmarkButton);
     } else if (bookmarkHandler) {
+        bookmarkButton->setMenu(nullptr);
         delete bookmarkHandler;
         bookmarkHandler = nullptr;
-        delete bookmarkButton;
-        bookmarkButton = nullptr;
+    }
+
+    if (bookmarkButton) {
+        bookmarkButton->setVisible(show);
     }
 
     static_cast<KToggleAction *>(q->actionCollection()->action(QStringLiteral("toggleBookmarks")))->setChecked(show);
