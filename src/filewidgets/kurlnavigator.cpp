@@ -1142,6 +1142,11 @@ void KUrlNavigator::setLocationUrl(const QUrl &newUrl)
     emit historyChanged();
     emit urlChanged(url);
 
+    KUrlCompletion *urlCompletion = qobject_cast<KUrlCompletion *>(d->m_pathBox->completionObject());
+    if (urlCompletion) {
+        urlCompletion->setDir(url);
+    }
+
     if (firstChildUrl.isValid()) {
         emit urlSelectionRequested(firstChildUrl);
     }
