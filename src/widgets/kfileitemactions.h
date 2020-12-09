@@ -104,7 +104,7 @@ public:
      * @param traderConstraint this constraint allows to exclude the current application
      * from the "open with" list. Example: "DesktopEntryName != 'kfmclient'".
      *
-     * @since 5.77
+     * @since 5.78
      */
     void insertOpenWithActionsTo(QAction *before, QMenu *topMenu, const QString &traderConstraint);
 
