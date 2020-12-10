@@ -519,7 +519,7 @@ public:
      *    job->start();
      * @endcode
      */
-    KIOWIDGETS_DEPRECATED_VERSION(5, 71, "Use KIO::OpenUrlJob, see API docs for a code sample")
+    KIOWIDGETS_DEPRECATED_VERSION(5, 71, "Use KIO::ApplicationLauncherJob, see API docs for a code sample")
     static bool displayOpenWithDialog(const QList<QUrl> &lst, QWidget *window,
                                       bool tempFiles = false, const QString &suggestedFileName = QString(),
                                       const QByteArray &asn = QByteArray());
