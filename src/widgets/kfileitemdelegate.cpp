@@ -75,7 +75,7 @@ public:
     QString display(const QModelIndex &index) const;
     QIcon decoration(const QStyleOptionViewItem &option, const QModelIndex &index) const;
     QPoint iconPosition(const QStyleOptionViewItem &option) const;
-    QRect labelRectangle(const QStyleOptionViewItem &option) const;
+    QRect labelRectangle(const QStyleOptionViewItem &option, const QModelIndex &index) const;
     void layoutTextItems(const QStyleOptionViewItem &option, const QModelIndex &index,
                          QTextLayout *labelLayout, QTextLayout *infoLayout, QRect *textBoundingRect) const;
     void drawTextItems(QPainter *painter, const QTextLayout &labelLayout, const QTextLayout &infoLayout,
@@ -442,7 +442,9 @@ QSize KFileItemDelegate::Private::displaySizeHint(const QStyleOptionViewItem &op
 QSize KFileItemDelegate::Private::decorationSizeHint(const QStyleOptionViewItem &option,
         const QModelIndex &index) const
 {
-    Q_UNUSED(index)
+    if (index.column() > 0) {
+        return QSize(0, 0);
+    }
 
     QSize iconSize = option.icon.actualSize(option.decorationSize);
     if (!verticalLayout(option)) {
@@ -626,7 +628,7 @@ void KFileItemDelegate::Private::layoutTextItems(const QStyleOptionViewItem &opt
 
     setLayoutOptions(*labelLayout, option);
 
-    const QRect textArea = labelRectangle(option);
+    const QRect textArea = labelRectangle(option, index);
     QRect textRect       = subtractMargin(textArea, Private::TextMargin);
 
     // Sizes and constraints for the different text parts
@@ -973,6 +975,9 @@ QTextOption::WrapMode KFileItemDelegate::wrapMode() const
 
 QRect KFileItemDelegate::iconRect(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
+    if (index.column() > 0) {
+        return QRect(0, 0, 0, 0);
+    }
     QStyleOptionViewItem opt(option);
     d->initStyleOption(&opt, index);
     return QRect(d->iconPosition(opt), opt.icon.actualSize(opt.decorationSize));
@@ -1017,9 +1022,12 @@ QIcon KFileItemDelegate::Private::decoration(const QStyleOptionViewItem &option,
     return icon;
 }
 
-QRect KFileItemDelegate::Private::labelRectangle(const QStyleOptionViewItem &option) const
+QRect KFileItemDelegate::Private::labelRectangle(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-    const QSize decoSize = addMargin(option.decorationSize, Private::IconMargin);
+    const QSize decoSize =
+        (index.column() == 0)
+            ? addMargin(option.decorationSize, Private::IconMargin)
+            : QSize(0, 0);
     const QRect itemRect = subtractMargin(option.rect, Private::ItemMargin);
     QRect textArea(QPoint(0, 0), itemRect.size());
 
@@ -1047,6 +1055,10 @@ QRect KFileItemDelegate::Private::labelRectangle(const QStyleOptionViewItem &opt
 
 QPoint KFileItemDelegate::Private::iconPosition(const QStyleOptionViewItem &option) const
 {
+    if (option.index.column() > 0) {
+        return QPoint(0, 0);
+    }
+
     const QRect itemRect = subtractMargin(option.rect, Private::ItemMargin);
     Qt::Alignment alignment;
 
@@ -1368,7 +1380,7 @@ void KFileItemDelegate::updateEditorGeometry(QWidget *editor, const QStyleOption
     d->initStyleOption(&opt, index);
     d->setActiveMargins(d->verticalLayout(opt) ? Qt::Vertical : Qt::Horizontal);
 
-    QRect r = d->labelRectangle(opt);
+    QRect r = d->labelRectangle(opt, index);
 
     // Use the full available width for the editor when maximumSize is set
     if (!d->maximumSize.isEmpty()) {
