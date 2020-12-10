@@ -9,7 +9,7 @@
 */
 
 #include "kshorturifilter.h"
-#include "../../pathhelpers_p.h"
+#include "../pathhelpers_p.h" // concatPaths(), isAbsoluteLocalPath()
 
 #include <QDir>
 #include <QDBusConnection>
@@ -123,7 +123,7 @@ bool KShortUriFilter::filterUri(KUriFilterData &data) const
 
     // Replicate what KUrl(cmd) did in KDE4. This could later be folded into the checks further down...
     QUrl url;
-    if (QDir::isAbsolutePath(cmd)) {
+    if (isAbsoluteLocalPath(cmd)) {
         url = QUrl::fromLocalFile(cmd);
     } else {
         url.setUrl(cmd);
@@ -284,7 +284,7 @@ bool KShortUriFilter::filterUri(KUriFilterData &data) const
         }
     }
 
-    bool isLocalFullPath = QDir::isAbsolutePath(path);
+    bool isLocalFullPath = isAbsoluteLocalPath(path);
 
     // Checking for local resource match...
     // Determine if "uri" is an absolute path to a local resource  OR

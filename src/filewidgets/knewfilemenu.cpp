@@ -7,7 +7,7 @@
 */
 
 #include "knewfilemenu.h"
-#include "../pathhelpers_p.h"
+#include "../pathhelpers_p.h" // concatPaths(), isAbsoluteLocalPath()
 #include "knameandurlinputdialog.h"
 
 #include <QDialog>
@@ -897,9 +897,7 @@ void KNewFileMenuPrivate::_k_slotCreateDirectory()
     QString name = expandTilde(m_text);
 
     if (!name.isEmpty()) {
-        // QDir::isAbsolutePath(":foo") will return true since ':' at the beginning
-        // denotes a QResource and QDir/QFileInfo will consider it "not relative"...
-        if (!name.startsWith(QLatin1Char(':')) && QDir::isAbsolutePath(name)) {
+        if (isAbsoluteLocalPath(name)) {
             url = QUrl::fromLocalFile(name);
         } else {
             if (name == QLatin1Char('.') || name == QLatin1String("..")) {

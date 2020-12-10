@@ -7,6 +7,8 @@
 
 #include "kurlcombobox.h"
 
+#include "../pathhelpers_p.h" // isAbsoluteLocalPath()
+
 #include <QDir>
 #include <QMouseEvent>
 #include <QDrag>
@@ -126,7 +128,7 @@ QStringList KUrlComboBox::urls() const
     for (int i = static_cast<int>(d->defaultList.size()); i < count(); i++) {
         url = itemText(i);
         if (!url.isEmpty()) {
-            if (QDir::isAbsolutePath(url))
+            if (isAbsoluteLocalPath(url))
                 list.append(QUrl::fromLocalFile(url).toString());
             else
                 list.append(url);
@@ -208,7 +210,7 @@ void KUrlComboBox::setUrls(const QStringList &_urls, OverLoadResolving remove)
             continue;
         }
         QUrl u;
-        if (QDir::isAbsolutePath(*it)) {
+        if (isAbsoluteLocalPath(*it)) {
             u = QUrl::fromLocalFile(*it);
         } else {
             u.setUrl(*it);

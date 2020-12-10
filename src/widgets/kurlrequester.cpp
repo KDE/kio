@@ -8,7 +8,7 @@
 
 #include "kurlrequester.h"
 #include "kio_widgets_debug.h"
-#include "../pathhelpers_p.h"
+#include "../pathhelpers_p.h" // concatPaths(), isAbsoluteLocalPath()
 
 #include <KComboBox>
 #include <KDragWidgetDecorator>
@@ -179,7 +179,7 @@ public:
         else
             enteredPath = txt;
 
-        if (QDir::isAbsolutePath(enteredPath)) {
+        if (isAbsoluteLocalPath(enteredPath)) {
             return QUrl::fromLocalFile(enteredPath);
         }
 
