@@ -513,6 +513,7 @@ public:
      */
     bool followSelectedDirectories() const;
 
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 78)
     /**
      * Creates the given directory/url. If it is a relative path,
      * it will be completed with the current directory.
@@ -521,7 +522,10 @@ public:
      * to the user.
      * @returns true if the directory could be created.
      */
+    KIOFILEWIDGETS_DEPRECATED_VERSION(5, 78, "Deprecated for lack of usage; use the other"
+                                             " KDirOperator::mkdir() method instead.")
     virtual bool mkdir(const QString &directory, bool enterDirectory = true);
+#endif
 
     /**
      * Starts and returns a KIO::DeleteJob to delete the given @p items.

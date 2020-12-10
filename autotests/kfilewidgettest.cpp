@@ -22,7 +22,9 @@
 #include "kiotesthelper.h" // createTestFile
 
 #include <QAbstractItemView>
+#include <QDialog>
 #include <QDropEvent>
+#include <QLineEdit>
 #include <QMimeData>
 #include <QStringList>
 #include <QStringLiteral>
@@ -522,14 +524,27 @@ private Q_SLOTS:
         fw.setOperationMode(KFileWidget::Saving);
         fw.setMode(KFile::File);
 
+        QString currentPath = dir;
         // create the nested folders
         for (int i = 1; i < 6; ++i) {
-            fw.dirOperator()->mkdir(QStringLiteral("folder%1").arg(i), true);
+            fw.dirOperator()->mkdir();
+            QDialog *dialog;
+            // QTRY_ because a NameFinderJob could be running and the dialog will be shown when
+            // it finishes.
+            QTRY_VERIFY(dialog = fw.findChild<QDialog *>());
+            QLineEdit *lineEdit = dialog->findChild<QLineEdit *>();
+            QVERIFY(lineEdit);
+            const QString name = QStringLiteral("folder%1").arg(i);
+            lineEdit->setText(name);
             // simulate the time the user will take to type the new folder name
             QTest::qWait(1000);
-        }
 
-        QVERIFY(QFile::exists(dir + QStringLiteral("/folder1/folder2/folder3/folder4/folder5")));
+            dialog->accept();
+
+            currentPath += QLatin1Char('/') + name;
+            // Wait till the filewidget changes to the new folder
+            QTRY_COMPARE(fw.baseUrl().adjusted(QUrl::StripTrailingSlash).toLocalFile(), currentPath);
+        }
     }
 
     void testTokenize_data()

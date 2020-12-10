@@ -704,6 +704,7 @@ void KDirOperator::mkdir()
     d->newFileMenu->createDirectory();
 }
 
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 78)
 bool KDirOperator::mkdir(const QString &directory, bool enterDirectory)
 {
     // Creates "directory", relative to the current directory (d->currUrl).
@@ -754,6 +755,7 @@ bool KDirOperator::mkdir(const QString &directory, bool enterDirectory)
 
     return writeOk;
 }
+#endif
 
 KIO::DeleteJob *KDirOperator::del(const KFileItemList &items,
                                   QWidget *parent,
