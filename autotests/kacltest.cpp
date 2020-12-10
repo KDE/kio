@@ -10,18 +10,14 @@
 #include <QTest>
 #include <config-kiocore.h>
 
-
+#include <sys/types.h>
+#include <grp.h> // getgrnam()
 
 // The code comes partly from kdebase/kioslave/trash/testtrash.cpp
 
 QTEST_MAIN(KACLTest)
 
-static const QString s_testACL(QStringLiteral("user::rw-\nuser:bin:rwx\ngroup::rw-\nmask::rwx\nother::r--\n"));
-static const QString s_testACL2(QStringLiteral("user::rwx\nuser:bin:rwx\ngroup::rw-\ngroup:users:r--\ngroup:audio:--x\nmask::r-x\nother::r--\n"));
-static const QString s_testACLEffective(QStringLiteral("user::rwx\nuser:bin:rwx    #effective:r-x\ngroup::rw-      #effective:r--\ngroup:audio:--x\ngroup:users:r--\nmask::r-x\nother::r--\n"));
-
 KACLTest::KACLTest()
-    : m_acl(s_testACL)
 {
 }
 
@@ -30,17 +26,59 @@ void KACLTest::initTestCase()
 #if !HAVE_POSIX_ACL
     QSKIP("ACL support not compiled");
 #endif
-    QVERIFY(m_acl2.setACL(s_testACL2));
+
+    m_testACL = QStringLiteral("user::rw-\n"
+                               "user:bin:rwx\n"
+                               "group::rw-\n"
+                               "mask::rwx\n"
+                               "other::r--\n");
+
+
+    m_acl = KACL(m_testACL);
+
+    // setACL call acl_from_text(), which seems to order the groups in the resulting ACL
+    // according to group numeric Id, in ascending order. Find which group comes first
+    // so that the tests pass regardless of which distro they're run on.
+    auto *grpStruct = getgrnam("audio");
+    m_audioGid = static_cast<int>(grpStruct->gr_gid);
+
+    grpStruct = getgrnam("users");
+    m_usersGid = static_cast<int>(grpStruct->gr_gid);
+
+    QLatin1String orderedGroups;
+    if (m_audioGid < m_usersGid) {
+        orderedGroups = QLatin1String{"group:audio:--x\n"
+                                      "group:users:r--\n"};
+    } else {
+        orderedGroups = QLatin1String{"group:users:r--\n"
+                                      "group:audio:--x\n"};
+    }
+
+    m_testACL2 = QLatin1String{"user::rwx\n"
+                               "user:bin:rwx\n"
+                               "group::rw-\n"}
+                + orderedGroups
+                + QLatin1String{"mask::r-x\n"
+                                "other::r--\n"};
+
+    m_testACLEffective = QLatin1String{"user::rwx\n"
+                                       "user:bin:rwx    #effective:r-x\n"
+                                       "group::rw-      #effective:r--\n"}
+                         + orderedGroups
+                         + QLatin1String{"mask::r-x\n"
+                                         "other::r--\n"};
+
+    QVERIFY(m_acl2.setACL(m_testACL2));
 }
 
 void KACLTest::testAsString()
 {
-    QCOMPARE(m_acl.asString(), s_testACL);
+    QCOMPARE(m_acl.asString(), m_testACL);
 }
 
 void KACLTest::testSetACL()
 {
-    QCOMPARE(m_acl2.asString().simplified(), s_testACLEffective.simplified());
+    QCOMPARE(m_acl2.asString().simplified(), m_testACLEffective.simplified());
 }
 
 void KACLTest::testGetOwnerPermissions()
@@ -86,31 +124,40 @@ void KACLTest::testGetAllUserPermissions()
 
 void KACLTest::testGetAllGroupsPermissions()
 {
-    ACLGroupPermissionsList list = m_acl2.allGroupPermissions();
-    ACLGroupPermissionsConstIterator it = list.constBegin();
+    const ACLGroupPermissionsList list = m_acl2.allGroupPermissions();
+    QCOMPARE(list.size(), 2);
+
+    const bool isAudioFirst = m_audioGid < m_usersGid;
+
     QString name;
     int permissions;
-    int count = 0;
-    while (it != list.constEnd()) {
-        name = (*it).first;
-        permissions = (*it).second;
-        // setACL sorts them alphabetically ...
-        if (count == 0) {
-            QCOMPARE(name, QStringLiteral("audio"));
-            QCOMPARE(permissions, 1);
-        } else if (count == 1) {
-            QCOMPARE(name, QStringLiteral("users"));
-            QCOMPARE(permissions, 4);
-        }
-        ++it;
-        ++count;
+
+    const auto acl1 = list.at(0);
+    name = acl1.first;
+    permissions = acl1.second;
+    if (isAudioFirst) {
+        QCOMPARE(name, QStringLiteral("audio"));
+        QCOMPARE(permissions, 1);
+    } else {
+        QCOMPARE(name, QStringLiteral("users"));
+        QCOMPARE(permissions, 4);
     }
-    QCOMPARE(count, 2);
+
+    const auto acl2 = list.at(1);
+    name = acl2.first;
+    permissions = acl2.second;
+    if (isAudioFirst) {
+        QCOMPARE(name, QStringLiteral("users"));
+        QCOMPARE(permissions, 4);
+    } else {
+        QCOMPARE(name, QStringLiteral("audio"));
+        QCOMPARE(permissions, 1);
+    }
 }
 
 void KACLTest::testIsExtended()
 {
-    KACL dukeOfMonmoth(s_testACL);
+    KACL dukeOfMonmoth(m_testACL);
     QVERIFY(dukeOfMonmoth.isExtended());
     KACL earlOfUpnor(QStringLiteral("user::r--\ngroup::r--\nother::r--\n"));
     QVERIFY(!earlOfUpnor.isExtended());
@@ -118,9 +165,9 @@ void KACLTest::testIsExtended()
 
 void KACLTest::testOperators()
 {
-    KACL dukeOfMonmoth(s_testACL);
-    KACL JamesScott(s_testACL);
-    KACL earlOfUpnor(s_testACL2);
+    KACL dukeOfMonmoth(m_testACL);
+    KACL JamesScott(m_testACL);
+    KACL earlOfUpnor(m_testACL2);
     QVERIFY(!(dukeOfMonmoth == earlOfUpnor));
     QVERIFY(dukeOfMonmoth != earlOfUpnor);
     QVERIFY(dukeOfMonmoth != earlOfUpnor);
@@ -129,7 +176,7 @@ void KACLTest::testOperators()
 
 void KACLTest::testSettingBasic()
 {
-    KACL CharlesII(s_testACL);
+    KACL CharlesII(m_testACL);
     CharlesII.setOwnerPermissions(7); // clearly
     CharlesII.setOwningGroupPermissions(0);
     CharlesII.setOthersPermissions(0);
@@ -140,7 +187,7 @@ void KACLTest::testSettingBasic()
 
 void KACLTest::testSettingExtended()
 {
-    KACL CharlesII(s_testACL);
+    KACL CharlesII(m_testACL);
     CharlesII.setMaskPermissions(7); // clearly
     bool dummy = false;
     QCOMPARE(int(CharlesII.maskPermissions(dummy)), 7);
@@ -155,7 +202,7 @@ void KACLTest::testSettingExtended()
     CharlesII.setAllUserPermissions(users);
     QCOMPARE(CharlesII.asString(), expected);
 
-    CharlesII.setACL(s_testACL); // reset
+    CharlesII.setACL(m_testACL); // reset
     // it already has an entry for bin, let's change it
     CharlesII.setNamedUserPermissions(QStringLiteral("bin"), 4);
     CharlesII.setNamedUserPermissions(QStringLiteral("root"), 7);
@@ -163,8 +210,23 @@ void KACLTest::testSettingExtended()
 
     // groups, all and named
 
-    const QString expected2(QStringLiteral("user::rw-\nuser:bin:rwx\ngroup::rw-\ngroup:audio:-wx\ngroup:users:r--\nmask::rwx\nother::r--\n"));
-    CharlesII.setACL(s_testACL); // reset
+    QLatin1String orderedGroups;
+    if (m_audioGid < m_usersGid) {
+        orderedGroups = QLatin1String{"group:audio:-wx\n"
+                                      "group:users:r--\n"};
+    } else {
+        orderedGroups = QLatin1String{"group:users:r--\n"
+                                      "group:audio:-wx\n"};
+    }
+
+    const QString expected2 = QLatin1String{"user::rw-\n"
+                                            "user:bin:rwx\n"
+                                            "group::rw-\n"}
+                              + orderedGroups
+                              + QLatin1String{"mask::rwx\n"
+                                              "other::r--\n"};
+
+    CharlesII.setACL(m_testACL); // reset
     ACLGroupPermissionsList groups;
     ACLGroupPermissions group = qMakePair(QStringLiteral("audio"), (unsigned short)3);
     groups.append(group);
@@ -173,7 +235,7 @@ void KACLTest::testSettingExtended()
     CharlesII.setAllGroupPermissions(groups);
     QCOMPARE(CharlesII.asString(), expected2);
 
-    CharlesII.setACL(s_testACL); // reset
+    CharlesII.setACL(m_testACL); // reset
     CharlesII.setNamedGroupPermissions(QStringLiteral("audio"), 3);
     CharlesII.setNamedGroupPermissions(QStringLiteral("users"), 4);
     QCOMPARE(CharlesII.asString(), expected2);
@@ -181,7 +243,7 @@ void KACLTest::testSettingExtended()
 
 void KACLTest::testSettingErrorHandling()
 {
-    KACL foo(s_testACL);
+    KACL foo(m_testACL);
     bool v = foo.setNamedGroupPermissions(QStringLiteral("audio"), 7); // existing group
     QVERIFY(v);
     v = foo.setNamedGroupPermissions(QStringLiteral("jongel"), 7); // non-existing group

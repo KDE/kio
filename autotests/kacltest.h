@@ -37,6 +37,12 @@ private Q_SLOTS:
 private:
     KACL m_acl;
     KACL m_acl2;
+
+    QString m_testACL;
+    QString m_testACL2;
+    QString m_testACLEffective;
+    int m_audioGid;
+    int m_usersGid;
 };
 
 #endif
