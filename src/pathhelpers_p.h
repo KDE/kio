@@ -8,6 +8,7 @@
 #ifndef KIO_PATHHELPERS_P_H
 #define KIO_PATHHELPERS_P_H
 
+#include <QDir>
 #include <QString>
 
 inline
@@ -22,6 +23,15 @@ QString concatPaths(const QString &path1, const QString &path2)
     } else {
         return path1 + path2;
     }
+}
+
+inline
+bool isAbsoluteLocalPath(const QString &path)
+{
+    // QDir::isAbsolutePath() will return true if "path" starts with ':', the latter denotes a
+    // Qt Resource (qrc).
+    // "Local" as in on local disk not in memory (qrc)
+    return !path.startsWith(QLatin1Char(':')) && QDir::isAbsolutePath(path);
 }
 
 #endif // KIO_PATHHELPERS_P_H

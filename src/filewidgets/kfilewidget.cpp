@@ -13,7 +13,7 @@
 */
 
 #include "kfilewidget.h"
-#include "../pathhelpers_p.h"
+#include "../pathhelpers_p.h" // concatPaths() and isAbsoluteLocalPath()
 
 #include "kfileplacesview.h"
 #include "kfileplacesmodel.h"
@@ -338,7 +338,7 @@ static bool containsProtocolSection(const QString &string)
 // without the http-prepending that QUrl::fromUserInput does.
 static QUrl urlFromString(const QString& str)
 {
-    if (QDir::isAbsolutePath(str)) {
+    if (isAbsoluteLocalPath(str)) {
         return QUrl::fromLocalFile(str);
     }
     QUrl url(str);
@@ -765,7 +765,7 @@ QUrl KFileWidgetPrivate::getCompleteUrl(const QString &_url) const
     const QString url = KShell::tildeExpand(_url);
     QUrl u;
 
-    if (QDir::isAbsolutePath(url)) {
+    if (isAbsoluteLocalPath(url)) {
         u = QUrl::fromLocalFile(url);
     } else {
         QUrl relativeUrlTest(ops->url());
@@ -932,9 +932,8 @@ void KFileWidget::slotOk()
     } else if (!locationEditCurrentTextList.isEmpty()) {
         // if we are on file or files mode, and we have an absolute url written by
         // the user, convert it to relative
-        if (!locationEditCurrentText.isEmpty() && !(mode & KFile::Directory) &&
-                (QDir::isAbsolutePath(locationEditCurrentText) ||
-                 containsProtocolSection(locationEditCurrentText))) {
+        if (!locationEditCurrentText.isEmpty() && !(mode & KFile::Directory)
+            && (isAbsoluteLocalPath(locationEditCurrentText) || containsProtocolSection(locationEditCurrentText))) {
 
             QString fileName;
             QUrl url = urlFromString(locationEditCurrentText);

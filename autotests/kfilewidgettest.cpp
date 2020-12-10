@@ -604,6 +604,12 @@ private Q_SLOTS:
             << QStringList{"some#thing"}
             << QString("some#thing");
 
+        // Filenames beginning with ':'; QDir::isAbsolutePath() always returns true
+        // in that case, #322837
+        QTest::newRow("file-beginning-with-colon") << QStringList{":test2"} << QString{":test2"};
+
+        QTest::newRow("multiple-files-beginning-with-colon") << QStringList{":test space", ":test2"}
+                                                             << QString{"\":test space\" \":test2\""};
     }
 
     void testTokenize()
@@ -615,20 +621,23 @@ private Q_SLOTS:
         QFETCH(QString, expectedCurrentText);
 
         QTemporaryDir tempDir;
-        const QUrl dirUrl = QUrl::fromLocalFile(tempDir.path());
+        const QString tempDirPath = tempDir.path();
+        const QUrl tempDirUrl = QUrl::fromLocalFile(tempDirPath);
         QList<QUrl> fileUrls;
-        for (const auto& fileName : fileNames) {
-            fileUrls.append(QUrl::fromLocalFile(tempDir.filePath(fileName)));
-            qCDebug(KIO_KFILEWIDGETS_FW) << fileName << " => " << QUrl::fromLocalFile(tempDir.filePath(fileName));
+        for (const auto &fileName : fileNames) {
+            const QString filePath = tempDirPath + QLatin1Char('/') + fileName;
+            const QUrl localUrl = QUrl::fromLocalFile(filePath);
+            fileUrls.append(localUrl);
+            qCDebug(KIO_KFILEWIDGETS_FW) << fileName << " => " << localUrl;
         }
 
-        KFileWidget fw(dirUrl);
+        KFileWidget fw(tempDirUrl);
         fw.setOperationMode(KFileWidget::Opening);
         fw.setMode(KFile::Files);
         fw.setSelectedUrls(fileUrls);
 
         // Verify the expected populated name.
-        QCOMPARE(fw.baseUrl().adjusted(QUrl::StripTrailingSlash), dirUrl);
+        QCOMPARE(fw.baseUrl().adjusted(QUrl::StripTrailingSlash), tempDirUrl);
         QCOMPARE(fw.locationEdit()->currentText(), expectedCurrentText);
 
         // QFileDialog ends up calling KDEPlatformFileDialog::selectedFiles()
