@@ -66,7 +66,7 @@ RenameFileDialog::RenameFileDialog(const KFileItemList &items, QWidget *parent)
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     d->okButton = buttonBox->button(QDialogButtonBox::Ok);
     d->okButton->setDefault(true);
-    d->okButton->setShortcut(Qt::CTRL + Qt::Key_Return);
+    d->okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
     connect(buttonBox, &QDialogButtonBox::accepted, this, &RenameFileDialog::slotAccepted);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &RenameFileDialog::reject);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &QObject::deleteLater);

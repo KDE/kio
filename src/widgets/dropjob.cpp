@@ -341,7 +341,7 @@ void DropJobPrivate::fillPopupMenu(KIO::DropMenu *popup)
     QAction* popupCopyAction = new QAction(i18n("&Copy Here") + QLatin1Char('\t') + seq, popup);
     popupCopyAction->setIcon(QIcon::fromTheme(QStringLiteral("edit-copy")));
     popupCopyAction->setData(QVariant::fromValue(Qt::CopyAction));
-    seq = QKeySequence(Qt::ControlModifier + Qt::ShiftModifier).toString(QKeySequence::NativeText);
+    seq = QKeySequence(Qt::ControlModifier | Qt::ShiftModifier).toString(QKeySequence::NativeText);
     seq.chop(separatorLength);
     QAction* popupLinkAction = new QAction(i18n("&Link Here") + QLatin1Char('\t') + seq, popup);
     popupLinkAction->setIcon(QIcon::fromTheme(QStringLiteral("edit-link")));

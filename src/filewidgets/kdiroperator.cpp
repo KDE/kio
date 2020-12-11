@@ -1975,7 +1975,7 @@ void KDirOperator::setupActions()
     QAction *action = new QAction(i18n("Delete"), this);
     d->actionCollection->addAction(QStringLiteral("delete"), action);
     action->setIcon(QIcon::fromTheme(QStringLiteral("edit-delete")));
-    action->setShortcut(Qt::SHIFT + Qt::Key_Delete);
+    action->setShortcut(Qt::SHIFT | Qt::Key_Delete);
     connect(action, &QAction::triggered, this, &KDirOperator::deleteSelected);
 
     // the sort menu actions
@@ -2123,7 +2123,7 @@ void KDirOperator::setupActions()
     action = new QAction(i18n("Properties"), this);
     d->actionCollection->addAction(QStringLiteral("properties"), action);
     action->setIcon(QIcon::fromTheme(QStringLiteral("document-properties")));
-    action->setShortcut(Qt::ALT + Qt::Key_Return);
+    action->setShortcut(Qt::ALT | Qt::Key_Return);
     connect(action, SIGNAL(triggered(bool)), this, SLOT(_k_slotProperties()));
 
     // the view menu actions

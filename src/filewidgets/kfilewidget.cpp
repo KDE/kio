@@ -436,7 +436,7 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
     coll->action(QStringLiteral("mkdir"))->setWhatsThis(i18n("Click this button to create a new folder."));
 
     QAction *goToNavigatorAction = coll->addAction(QStringLiteral("gotonavigator"), this, SLOT(_k_activateUrlNavigator()));
-    goToNavigatorAction->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_L));
+    goToNavigatorAction->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_L));
 
     KToggleAction *showSidebarAction =
         new KToggleAction(i18n("Show Places Panel"), this);
