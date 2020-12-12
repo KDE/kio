@@ -160,17 +160,17 @@ QString KSambaSharePrivate::testparmParamValue(const QString &parameterName)
             // See https://www.novell.com/documentation/open-enterprise-server-2018/file_samba_cifs_lx/data/bc855e3.html
             const QString defaultNetbiosName = QHostInfo::localHostName().append(QStringLiteral("-W"));
             if (defaultNetbiosName.length() > 14) {
-                qCWarning(KIO_CORE) << "Your samba 'netbios name' parameter was longer than the authorized 15 characters.\n"
+                qCDebug(KIO_CORE) << "Your samba 'netbios name' parameter was longer than the authorized 15 characters.\n"
                                     << "It may be because your hostname is longer than 13 and samba default 'netbios name' defaults to 'hostname-W', here:" << defaultNetbiosName<< "\n"
                                     << "If that it is the case simply define a 'netbios name' parameter in /etc/samba/smb.conf at most 15 characters long";
             } else {
-                qCWarning(KIO_CORE) << "Your samba 'netbios name' parameter was longer than the authorized 15 characters."
+                qCDebug(KIO_CORE) << "Your samba 'netbios name' parameter was longer than the authorized 15 characters."
                                     << "Please define a 'netbios name' parameter in /etc/samba/smb.conf at most 15 characters long";
             }
             err.removeFirst();
         }
         if (err.count() > 0) {
-            qCWarning(KIO_CORE) << "We got some errors while running testparm" << err.join("\n");
+            qCDebug(KIO_CORE) << "We got some errors while running testparm" << err.join("\n");
         }
     }
 
@@ -206,8 +206,8 @@ QByteArray KSambaSharePrivate::getNetUserShareInfo()
             //TODO: parse and process other error messages.
             // create a parser for the error output and
             // send error message somewhere
-            qCWarning(KIO_CORE) << "We got some errors while running 'net usershare info'";
-            qCWarning(KIO_CORE) << stdErr;
+            qCDebug(KIO_CORE) << "We got some errors while running 'net usershare info'";
+            qCDebug(KIO_CORE) << stdErr;
         }
     }
 
