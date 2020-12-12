@@ -316,10 +316,10 @@ void KUrlNavigator::Private::applyUncommittedUrl()
 
     const QString text = m_pathBox->currentText().trimmed();
 
-    // Using kshorturifilter to fix up e.g. "ftp.kde.org" ---> "ftp://ftp.kde.org"
     KUriFilterData filteredData(text);
     filteredData.setCheckForExecutables(false);
-    const auto filtersList = QStringList{ QStringLiteral("kshorturifilter"), QStringLiteral("kurisearchfilter") };
+    // Using kshorturifilter to fix up e.g. "ftp.kde.org" ---> "ftp://ftp.kde.org"
+    const auto filtersList = QStringList{ QStringLiteral("kshorturifilter") };
     if (KUriFilter::self()->filterUri(filteredData, filtersList)) {
         applyUrl(filteredData.uri()); // The text was filtered
         return;
@@ -1060,7 +1060,7 @@ QUrl KUrlNavigator::uncommittedUrl() const
 {
     KUriFilterData filteredData(d->m_pathBox->currentText().trimmed());
     filteredData.setCheckForExecutables(false);
-    if (KUriFilter::self()->filterUri(filteredData, QStringList{ QStringLiteral("kshorturifilter"), QStringLiteral("kurisearchfilter")})) {
+    if (KUriFilter::self()->filterUri(filteredData, QStringList{ QStringLiteral("kshorturifilter") })) {
         return filteredData.uri();
     } else {
         return QUrl::fromUserInput(filteredData.typedString());
