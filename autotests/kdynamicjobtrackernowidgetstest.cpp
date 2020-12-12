@@ -10,8 +10,9 @@
 #include <KJob>
 #include <KFile>
 
-#include <QtTest>
+#include <QTest>
 #include <QEventLoop>
+#include <QTimer>
 
 // widget is shown with hardcoded delay of 500 ms by KWidgetJobTracker
 static const int testJobRunningTime = 600;

@@ -8,6 +8,7 @@
 #include "ktcpsockettest.h"
 #include <QDebug>
 #include <QTcpServer>
+#include <QThread>
 #include "ktcpsocket.h"
 
 /* TODO items:

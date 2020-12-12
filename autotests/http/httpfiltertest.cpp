@@ -4,7 +4,8 @@
     SPDX-License-Identifier: LGPL-2.0-only
 */
 
-#include <QtTest>
+#include <QSignalSpy>
+#include <QTest>
 
 #include <KFilterDev>
 #include <KFilterBase>

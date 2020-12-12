@@ -10,7 +10,7 @@
 #include <KConfig>
 #include <KConfigGroup>
 #include <QDebug>
-#include <QtTest>
+#include <QTest>
 #include <QStandardPaths>
 
 // Tests both KProtocolInfo and KProtocolManager

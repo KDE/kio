@@ -10,7 +10,7 @@
 #include <QDate>
 #include <QString>
 
-#include <QtTest>
+#include <QTest>
 #include <qplatformdefs.h>
 #include <QStandardPaths>
 

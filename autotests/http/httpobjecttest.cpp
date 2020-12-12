@@ -7,7 +7,7 @@
 
 #include "httpobjecttest.h"
 
-#include <QtTest>
+#include <QTest>
 
 #include <QByteArray>
 

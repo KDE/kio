@@ -6,7 +6,7 @@
 
 #include "listdirtest.h"
 
-#include <QtTest>
+#include <QTest>
 #include <QDir>
 #include <QFile>
 #include <QTemporaryDir>

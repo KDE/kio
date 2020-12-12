@@ -16,6 +16,8 @@
 #include <QTest>
 
 #ifdef Q_OS_UNIX
+#include <QMimeData>
+#include <QSignalSpy>
 #include <utime.h>
 #endif
 #include <QDebug>

@@ -9,7 +9,8 @@
 
 #include "krununittest.h"
 
-#include <QtTest>
+#include <QTest>
+#include <QSignalSpy>
 
 QTEST_GUILESS_MAIN(KRunUnitTest)
 

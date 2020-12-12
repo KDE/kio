@@ -8,7 +8,7 @@
 #ifndef KTCPSOCKETTEST_H
 #define KTCPSOCKETTEST_H
 
-#include <QtTest>
+#include <QTest>
 
 class Server;
 

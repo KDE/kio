@@ -11,7 +11,8 @@
 #include <QTemporaryDir>
 #include <kdirmodel.h>
 #include <QEventLoop>
-#include <QtTest>
+#include <QTest>
+#include <QTestEventLoop>
 
 // If you disable this, you need to change all exitLoop into quit in connect() statements...
 #define USE_QTESTEVENTLOOP

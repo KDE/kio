@@ -5,9 +5,13 @@
     SPDX-License-Identifier: LGPL-2.0-only OR LGPL-3.0-only OR LicenseRef-KDE-Accepted-LGPL
 */
 
-#include <QtTest>
+#include <QTest>
 #include <accessmanager.h>
 #include <QNetworkReply>
+#include <QSignalSpy>
+#include <QProcess>
+#include <QStandardPaths>
+#include <QBuffer>
 
 /**
  * Unit test for AccessManager

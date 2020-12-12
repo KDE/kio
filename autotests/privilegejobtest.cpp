@@ -6,7 +6,7 @@
 
 #include "privilegejobtest.h"
 
-#include <QtTest>
+#include <QTest>
 
 #include <KIO/ChmodJob>
 #include <KIO/CopyJob>

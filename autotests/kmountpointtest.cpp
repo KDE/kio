@@ -6,7 +6,7 @@
 
 #include "kmountpointtest.h"
 
-#include <QtTest>
+#include <QTest>
 #include "kmountpoint.h"
 #include <QDebug>
 #include <qplatformdefs.h>

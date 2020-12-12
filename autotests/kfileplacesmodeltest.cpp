@@ -8,6 +8,7 @@
 #include <QObject>
 #include <QDBusInterface>
 #include <QTemporaryDir>
+#include <QSignalSpy>
 
 #include <KBookmarkManager>
 #include <KBookmark>
@@ -18,7 +19,7 @@
 #include <KConfigGroup>
 #include <KProtocolInfo>
 
-#include <QtTest>
+#include <QTest>
 
 #include <stdlib.h>
 #include <QStandardPaths>

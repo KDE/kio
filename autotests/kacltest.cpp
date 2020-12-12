@@ -7,7 +7,7 @@
 
 #include "kacltest.h"
 
-#include <QtTest>
+#include <QTest>
 #include <config-kiocore.h>
 
 

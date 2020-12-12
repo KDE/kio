@@ -4,7 +4,7 @@
     SPDX-License-Identifier: LGPL-2.0-only
 */
 
-#include <QtTest>
+#include <QTest>
 #include <QApplication>
 #include <kurlcompletion.h>
 #include <KUser>
