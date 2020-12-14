@@ -11,7 +11,6 @@
 #include <QBasicTimer>
 #include <QElapsedTimer>
 #include <QMap>
-#include <QLinkedList>
 #include <QPersistentModelIndex>
 #include <QStyle>
 #include <QTimeLine>
