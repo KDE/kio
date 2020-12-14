@@ -13,8 +13,6 @@
 #include <QDBusPendingCallWatcher>
 #include <QDBusPendingReply>
 
-
-#include <KRun>
 #include <KJobWidgets>
 
 #include <KIO/JobUiDelegate>
