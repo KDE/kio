@@ -17,8 +17,6 @@ public:
     RemoteImpl();
 
     void createTopLevelEntry(KIO::UDSEntry &entry) const;
-    bool createWizardEntry(KIO::UDSEntry &entry) const;
-    bool isWizardURL(const QUrl &url) const;
     bool statNetworkFolder(KIO::UDSEntry &entry, const QString &filename) const;
 
     void listRoot(KIO::UDSEntryList &list) const;

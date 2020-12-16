@@ -85,10 +85,6 @@ void RemoteProtocol::listRoot()
     m_impl.createTopLevelEntry(entry);
     listEntry(entry);
 
-    if (m_impl.createWizardEntry(entry)) {
-        listEntry(entry);
-    }
-
     KIO::UDSEntryList::ConstIterator it = remote_entries.constBegin();
     const KIO::UDSEntryList::ConstIterator end = remote_entries.constEnd();
     for (; it != end; ++it) {
@@ -110,17 +106,6 @@ void RemoteProtocol::stat(const QUrl &url)
         m_impl.createTopLevelEntry(entry);
         statEntry(entry);
         finished();
-        return;
-    }
-
-    if (m_impl.isWizardURL(url)) {
-        KIO::UDSEntry entry;
-        if (m_impl.createWizardEntry(entry)) {
-            statEntry(entry);
-            finished();
-        } else {
-            error(KIO::ERR_DOES_NOT_EXIST, url.toDisplayString());
-        }
         return;
     }
 
@@ -159,8 +144,7 @@ void RemoteProtocol::del(const QUrl &url, bool /*isFile*/)
 {
     qCDebug(KIOREMOTE_LOG) << "RemoteProtocol::del: " << url;
 
-    if (!m_impl.isWizardURL(url)
-        && m_impl.deleteNetworkFolder(url.fileName())) {
+    if (m_impl.deleteNetworkFolder(url.fileName())) {
         finished();
         return;
     }
@@ -186,8 +170,7 @@ void RemoteProtocol::get(const QUrl &url)
 
 void RemoteProtocol::rename(const QUrl &src, const QUrl &dest, KIO::JobFlags flags)
 {
-    if (src.scheme() != QLatin1String("remote") || dest.scheme() != QLatin1String("remote")
-        || m_impl.isWizardURL(src) || m_impl.isWizardURL(dest)) {
+    if (src.scheme() != QLatin1String("remote") || dest.scheme() != QLatin1String("remote")) {
         error(KIO::ERR_UNSUPPORTED_ACTION, src.toDisplayString());
         return;
     }

@@ -16,13 +16,6 @@
 #include <QDir>
 #include <QFile>
 
-namespace {
-namespace Strings {
-QString wizardUrl()     { return QStringLiteral("remote:/x-wizard_service.desktop"); }
-QString wizardService() { return QStringLiteral("org.kde.knetattach"); }
-}
-}
-
 RemoteImpl::RemoteImpl()
 {
     const QString path = QStringLiteral("%1/remoteview").arg(QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation));
@@ -111,46 +104,6 @@ void RemoteImpl::createTopLevelEntry(KIO::UDSEntry &entry) const
     entry.fastInsert(KIO::UDSEntry::UDS_ICON_NAME, QStringLiteral("folder-remote"));
     entry.fastInsert(KIO::UDSEntry::UDS_USER, QStringLiteral("root"));
     entry.fastInsert(KIO::UDSEntry::UDS_GROUP, QStringLiteral("root"));
-}
-
-static QUrl findWizardRealURL()
-{
-    QUrl url;
-    KService::Ptr service = KService::serviceByDesktopName(Strings::wizardService());
-
-    if (service && service->isValid()) {
-        url = QUrl::fromLocalFile(QStandardPaths::locate(QStandardPaths::ApplicationsLocation,
-                                                         QStringLiteral("%1.desktop").arg(Strings::wizardService())));
-    }
-
-    return url;
-}
-
-bool RemoteImpl::createWizardEntry(KIO::UDSEntry &entry) const
-{
-    entry.clear();
-
-    QUrl url = findWizardRealURL();
-
-    if (!url.isValid()) {
-        return false;
-    }
-
-    entry.reserve(7);
-    entry.fastInsert(KIO::UDSEntry::UDS_NAME, i18n("Add Network Folder"));
-    entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFREG);
-    entry.fastInsert(KIO::UDSEntry::UDS_URL, Strings::wizardUrl());
-    entry.fastInsert(KIO::UDSEntry::UDS_LOCAL_PATH, url.path());
-    entry.fastInsert(KIO::UDSEntry::UDS_ACCESS, 0500);
-    entry.fastInsert(KIO::UDSEntry::UDS_MIME_TYPE, QStringLiteral("application/x-desktop"));
-    entry.fastInsert(KIO::UDSEntry::UDS_ICON_NAME, QStringLiteral("folder-new"));
-
-    return true;
-}
-
-bool RemoteImpl::isWizardURL(const QUrl &url) const
-{
-    return url == QUrl(Strings::wizardUrl());
 }
 
 bool RemoteImpl::createEntry(KIO::UDSEntry &entry, const QString &directory,
