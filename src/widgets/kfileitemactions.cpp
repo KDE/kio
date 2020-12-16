@@ -337,8 +337,9 @@ void KFileItemActions::insertOpenWithActionsTo(QAction *before, QMenu *topMenu, 
     const bool isLocal = firstItem.url().isLocalFile();
     const bool isDir = d->m_props.isDirectory();
     // "Open With..." for folders is really not very useful, especially for remote folders.
-    // (media:/something, or trash:/, or ftp://...)
-    if (isDir || !isLocal) {
+    // (media:/something, or trash:/, or ftp://...).
+    // Don't show "open with" actions for remote dirs only
+    if (isDir && !isLocal) {
         return;
     }
 
