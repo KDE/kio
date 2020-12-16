@@ -15,10 +15,10 @@
 
 #include <KLocalizedString>
 
-ExecutableFileOpenDialog::ExecutableFileOpenDialog(ExecutableFileOpenDialog::Mode mode, QWidget *parent) :
-    QDialog(parent)
+ExecutableFileOpenDialog::ExecutableFileOpenDialog(ExecutableFileOpenDialog::Mode mode, QWidget *parent)
+  : QDialog(parent)
 {
-    QLabel *label = new QLabel(i18n("What do you wish to do with this executable file?"), this);
+    QLabel *label = new QLabel(i18n("What do you wish to do with this file?"), this);
 
     m_dontAskAgain = new QCheckBox(this);
     m_dontAskAgain->setText(i18n("Do not ask again"));
