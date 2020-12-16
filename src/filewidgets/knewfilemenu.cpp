@@ -238,7 +238,7 @@ public:
           q(qq),
           m_delayedSlotTextChangedTimer(new QTimer(q))
     {
-        m_delayedSlotTextChangedTimer->setInterval(150);
+        m_delayedSlotTextChangedTimer->setInterval(50);
         m_delayedSlotTextChangedTimer->setSingleShot(true);
     }
 
@@ -1205,7 +1205,13 @@ void KNewFileMenuPrivate::_k_slotTextChanged(const QString &text)
     if (!text.isEmpty()) {
         // Check file does not already exists
         m_statRunning = true;
-        KIO::StatJob* job = KIO::statDetails(QUrl(m_baseUrl.toString() + QLatin1Char('/') + text), KIO::StatJob::StatSide::SourceSide, KIO::StatDetail::StatBasic);
+        QUrl url;
+        if (m_creatingDirectory && text.at(0) == QLatin1Char('~')) {
+            url = QUrl::fromUserInput(KShell::tildeExpand(text));
+        } else {
+            url = QUrl(m_baseUrl.toString() + QLatin1Char('/') + text);
+        }
+        KIO::StatJob* job = KIO::statDetails(url, KIO::StatJob::StatSide::SourceSide, KIO::StatDetail::StatBasic);
         QObject::connect(job, &KJob::result, q, [this] (KJob *job) { _k_slotStatResult(job); });
         job->start();
     }
@@ -1221,13 +1227,18 @@ void KNewFileMenu::setSelectDirWhenAlreadyExist(bool shouldSelectExistingDir)
 void KNewFileMenuPrivate::_k_slotStatResult(KJob *job)
 {
     m_statRunning = false;
-    bool accepted = m_acceptedPressed;
-    m_acceptedPressed = false;
     KIO::StatJob* statJob = static_cast<KIO::StatJob*>(job);
-    if (m_text.isEmpty() || statJob->url().adjusted(QUrl::StripTrailingSlash).fileName() != m_text) {
-        //ignore stat Result when the lineEdit has changed
+    // ignore stat Result when the lineEdit has changed
+    const QUrl url = statJob->url().adjusted(QUrl::StripTrailingSlash);
+    if (m_creatingDirectory && m_lineEdit->text().startsWith(QLatin1Char('~'))) {
+        if (url.path() != KShell::tildeExpand(m_lineEdit->text())) {
+            return;
+        }
+    } else if (url.fileName() != m_lineEdit->text()) {
         return;
     }
+    bool accepted = m_acceptedPressed;
+    m_acceptedPressed = false;
     auto error = job->error();
     if (error) {
         if (error == KIO::ERR_DOES_NOT_EXIST) {

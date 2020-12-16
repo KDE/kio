@@ -122,6 +122,7 @@ private Q_SLOTS:
         KNewFileMenu menu(&coll, QStringLiteral("the_action"), this);
         menu.setModal(false);
         menu.setParentWidget(&parentWidget);
+        menu.setSelectDirWhenAlreadyExist(true);
         QList<QUrl> lst;
         lst << QUrl::fromLocalFile(m_tmpDir.path());
         menu.setPopupFiles(lst);
@@ -184,7 +185,7 @@ private Q_SLOTS:
             QTRY_VERIFY(okButton->isEnabled());
         }
 
-        dialog->accept();
+        okButton->click();
         QString path = m_tmpDir.path() + QLatin1Char('/') + expectedFilename;
         if (typedFilename.contains(QLatin1String("folderTildeExpanded"))) {
             path = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation)
@@ -193,8 +194,7 @@ private Q_SLOTS:
         if (actionText == QLatin1String("Folder...")) {
             if (expectedFilename.isEmpty()) {
                 // This is the "Folder already exists" case; expect an error dialog
-                dialog = parentWidget.findChild<QDialog *>();
-                dialog->accept();
+                okButton->click();
                 path.clear();
             } else {
                 QVERIFY(folderSpy.wait(1000));
