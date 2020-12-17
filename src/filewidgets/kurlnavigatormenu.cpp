@@ -72,6 +72,10 @@ void KUrlNavigatorMenu::mouseReleaseEvent(QMouseEvent *event)
         QAction *action = actionAt(event->pos());
         if (action != nullptr) {
             emit mouseButtonClicked(action, btn);
+
+            // Prevent QMenu default activation, in case
+            // triggered signal is used
+            setActiveAction(nullptr);
         }
         QMenu::mouseReleaseEvent(event);
     }
