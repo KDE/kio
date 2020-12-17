@@ -10,8 +10,10 @@
 #include <QTest>
 #include <config-kiocore.h>
 
+#if HAVE_POSIX_ACL
 #include <sys/types.h>
 #include <grp.h> // getgrnam()
+#endif
 
 // The code comes partly from kdebase/kioslave/trash/testtrash.cpp
 
