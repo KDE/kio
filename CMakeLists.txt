@@ -110,6 +110,14 @@ if (HAVE_X11)
     find_package(Qt5 ${REQUIRED_QT_VERSION} CONFIG REQUIRED X11Extras)
 endif()
 
+find_package(ACL)
+set(HAVE_LIBACL ${ACL_FOUND})
+set(HAVE_POSIX_ACL ${ACL_FOUND})
+set_package_properties(ACL PROPERTIES DESCRIPTION "LibACL"
+                       URL "ftp://oss.sgi.com/projects/xfs/cmd_tars"
+                       TYPE RECOMMENDED
+                       PURPOSE "Support for manipulating access control lists")
+
 # Qt 5.13 deprecated QComboBox::currentIndexChanged(QString) and Qt 5.14 undid that...
 if (NOT Qt5Widgets_VERSION VERSION_LESS 5.14.0)
 add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050d00)

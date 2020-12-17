@@ -2,10 +2,6 @@ project(KIOWidgets)
 
 #include (ConfigureChecks.cmake)
 
-find_package(ACL)
-set(HAVE_LIBACL ${ACL_FOUND})
-set(HAVE_POSIX_ACL ${ACL_FOUND})
-
 set_package_properties(ACL PROPERTIES DESCRIPTION "LibACL" URL "ftp://oss.sgi.com/projects/xfs/cmd_tars"
                        TYPE RECOMMENDED PURPOSE "Support for manipulating access control lists")
 configure_file(config-kiowidgets.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kiowidgets.h)

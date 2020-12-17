@@ -6,13 +6,6 @@ include(CheckSymbolExists)
 
 check_struct_has_member("struct sockaddr" sa_len "sys/types.h;sys/socket.h" HAVE_STRUCT_SOCKADDR_SA_LEN)
 
-find_package(ACL)
-set(HAVE_LIBACL ${ACL_FOUND})
-set(HAVE_POSIX_ACL ${ACL_FOUND})
-set_package_properties(ACL PROPERTIES DESCRIPTION "LibACL" URL "ftp://oss.sgi.com/projects/xfs/cmd_tars"
-                       TYPE RECOMMENDED PURPOSE "Support for manipulating access control lists")
-
-
 ### KMountPoint
 
 check_function_exists(getmntinfo  HAVE_GETMNTINFO)

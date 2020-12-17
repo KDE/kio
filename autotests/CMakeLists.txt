@@ -17,8 +17,12 @@ if(NOT EXCLUDE_DEPRECATED_BEFORE_AND_AT STREQUAL "CURRENT" AND
     set(ktcpsockettest_SRC ktcpsockettest.cpp)
 endif()
 
+if (ACL_FOUND)
+    set (kacltest_SRC kacltest.cpp)
+endif()
+
 ecm_add_tests(
- kacltest.cpp
+ ${kacltest_SRC}
  listdirtest.cpp
  kmountpointtest.cpp
  upurltest.cpp
