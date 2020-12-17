@@ -328,10 +328,15 @@ KIOCORE_EXPORT QByteArray KIO::rawErrorDetail(int errorCode, const QString &erro
         path = reqUrl->path();
 
         // detect if protocol is a network protocol...
-        isSlaveNetwork = KProtocolInfo::protocolClass(protocol) == QLatin1String(":internet");
+        if (!protocol.isEmpty()) {
+            isSlaveNetwork = KProtocolInfo::protocolClass(protocol) == QLatin1String(":internet");
+        }
     } else {
         // assume that the errorText has the location we are interested in
         url = host = domain = path = filename = errorText;
+    }
+
+    if (protocol.isEmpty()) {
         protocol = i18nc("@info protocol", "(unknown)");
     }
 
