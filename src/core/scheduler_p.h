@@ -62,11 +62,7 @@ public:
 #ifdef SCHEDULER_DEBUG
     QList<KIO::SimpleJob *> runningJobs() const
     {
-#if QT_VERSION < QT_VERSION_CHECK(5, 14, 0)
-        return m_runningJobs.toList();
-#else
         return QList<KIO::SimpleJob *>(m_runningJobs.cbegin(), m_runningJobs.cend());
-#endif
     }
 #endif
     bool isJobRunning(KIO::SimpleJob *job) const

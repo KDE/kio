@@ -901,11 +901,7 @@ void KFilePreviewGenerator::Private::applyCutItemEffect(const KFileItemList &ite
     }
 
     const QList<QUrl> urlsList = KUrlMimeData::urlsFromMimeData(mimeData);
-#if QT_VERSION < QT_VERSION_CHECK(5, 14, 0)
-    const QSet<QUrl> cutUrls = urlsList.toSet();
-#else
     const QSet<QUrl> cutUrls(urlsList.begin(), urlsList.end());
-#endif
 
     DataChangeObtainer obt(this);
     KIconEffect *iconEffect = KIconLoader::global()->iconEffect();

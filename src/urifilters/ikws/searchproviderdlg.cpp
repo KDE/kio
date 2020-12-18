@@ -93,11 +93,7 @@ void SearchProviderDialog::shortcutsChanged(const QString &newShorthands)
 
     QHash<QString, const SearchProvider *> contenders;
     const QStringList normList = normalizedShorthands.split(QLatin1Char(','));
-#if QT_VERSION < QT_VERSION_CHECK(5, 14, 0)
-    const QSet<QString> shorthands = normList.toSet();
-#else
     const QSet<QString> shorthands(normList.begin(), normList.end());
-#endif
 
     // Look at each shorthand the user entered and wade through the search
     // provider list in search of a conflicting shorthand. Do not continue

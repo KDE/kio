@@ -298,13 +298,8 @@ KCookieJar::KCookieJar()
 
     const QStringList tldList = group.readEntry("gTLDs", QStringList());
     const QStringList twoLevelTldList = group.readEntry("twoLevelTLD", QStringList());
-#if QT_VERSION < QT_VERSION_CHECK(5, 14, 0)
-    m_gTLDs = QSet<QString>::fromList(tldList);
-    m_twoLevelTLD = QSet<QString>::fromList(twoLevelTldList);
-#else
     m_gTLDs = QSet<QString>(tldList.begin(), tldList.end());
     m_twoLevelTLD = QSet<QString>(twoLevelTldList.begin(), twoLevelTldList.end());
-#endif
 }
 
 //
