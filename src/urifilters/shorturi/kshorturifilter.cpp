@@ -204,7 +204,7 @@ bool KShortUriFilter::filterUri(KUriFilterData &data) const
     QString query;
     QString nameFilter;
 
-    if (QDir::isRelativePath(cmd) && QUrl(cmd).isRelative()) {
+    if (!isAbsoluteLocalPath(cmd) && QUrl(cmd).isRelative()) {
         path = cmd;
         qCDebug(category) << "path=cmd=" << path;
     } else {

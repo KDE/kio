@@ -10,7 +10,7 @@
 */
 
 #include "kurlcompletion.h"
-#include "../pathhelpers_p.h"
+#include "../pathhelpers_p.h" // isAbsoluteLocalPath()
 
 #include <stdlib.h>
 #include <assert.h>
@@ -479,7 +479,7 @@ void KUrlCompletionPrivate::MyURL::init(const QString &_url, const QUrl &cwd)
         m_isURL = true;
     } else { // relative path or ~ or $something
         m_isURL = false;
-        if (!QDir::isRelativePath(url_copy) ||
+        if (isAbsoluteLocalPath(url_copy) ||
                 url_copy.startsWith(QLatin1Char('~')) ||
                 url_copy.startsWith(QLatin1Char('$'))) {
             m_kurl = QUrl::fromLocalFile(url_copy);
@@ -874,7 +874,7 @@ bool KUrlCompletionPrivate::exeCompletion(const KUrlCompletionPrivate::MyURL &ur
         for (; it != dirList.end(); ++it) {
             it->append(QLatin1Char('/'));
         }
-    } else if (!QDir::isRelativePath(directory)) {
+    } else if (isAbsoluteLocalPath(directory)) {
         // complete path in url
         dirList.append(directory);
     } else if (!directory.isEmpty() && !cwd.isEmpty()) {
@@ -929,7 +929,7 @@ bool KUrlCompletionPrivate::fileCompletion(const KUrlCompletionPrivate::MyURL &u
 
     QStringList dirList;
 
-    if (!QDir::isRelativePath(directory)) {
+    if (isAbsoluteLocalPath(directory)) {
         // complete path in url
         dirList.append(directory);
     } else if (!cwd.isEmpty()) {
@@ -1317,7 +1317,7 @@ void KUrlCompletion::postProcessMatch(QString *pMatch) const
             QString copy = QUrl(*pMatch).toLocalFile();
             expandTilde(copy);
             expandEnv(copy);
-            if (QDir::isRelativePath(copy)) {
+            if (!isAbsoluteLocalPath(copy)) {
                 copy.prepend(d->cwd.toLocalFile() + QLatin1Char('/'));
             }
 
