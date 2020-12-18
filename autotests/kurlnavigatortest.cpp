@@ -226,25 +226,34 @@ void KUrlNavigatorTest::testRelativePaths()
     QVERIFY(QFile::exists(link));
 
     const QUrl tempDirUrl = QUrl::fromLocalFile(tempDirPath);
+    const QUrl dirAUrl = QUrl::fromLocalFile(dirA);
+    const QUrl linkUrl = QUrl::fromLocalFile(link);
 
     // Change to tempDir
     m_navigator->setLocationUrl(tempDirUrl);
     m_navigator->setUrlEditable(true);
     QCOMPARE(m_navigator->locationUrl(), tempDirUrl);
 
+    // QTRY_COMPARE because of waiting for the stat job in applyUncommittedUrl() to finish
+
     // Replace all the text with "a"
     m_navigator->editor()->setCurrentText(QStringLiteral("a"));
     QTest::keyClick(m_navigator->editor(), Qt::Key_Enter);
-    // Check the url was resolved to the full path "<tempDir>/a"
-    // QTRY_ because of waiting for the stat job in applyUncommittedUrl() to finish
-    QTRY_COMPARE(m_navigator->locationUrl(), QUrl::fromLocalFile(dirA));
+    QTRY_COMPARE(m_navigator->locationUrl(), dirAUrl);
 
     // Replace all the text with "b"
     m_navigator->editor()->setCurrentText(QStringLiteral("b"));
     QTest::keyClick(m_navigator->editor(), Qt::Key_Enter);
-    // Check the url was resolved to the full path "<tempDir>/a/b"
-    // QTRY_ because of waiting for the stat job in applyUncommittedUrl() to finish
     QTRY_COMPARE(m_navigator->locationUrl(), QUrl::fromLocalFile(dirB));
+
+    // Test "../", which should go up in the dir hierarchy
+    m_navigator->editor()->setCurrentText(QStringLiteral("../"));
+    QTest::keyClick(m_navigator->editor(), Qt::Key_Enter);
+    QTRY_COMPARE(m_navigator->locationUrl().adjusted(QUrl::StripTrailingSlash), dirAUrl);
+    // Test "..", which should go up in the dir hierarchy
+    m_navigator->editor()->setCurrentText(QStringLiteral(".."));
+    QTest::keyClick(m_navigator->editor(), Qt::Key_Enter);
+    QTRY_COMPARE(m_navigator->locationUrl(), tempDirUrl);
 
     // Back to tempDir
     m_navigator->setLocationUrl(tempDirUrl);
@@ -252,9 +261,19 @@ void KUrlNavigatorTest::testRelativePaths()
     // Replace all the text with "l" which is a symlink to dirA
     m_navigator->editor()->setCurrentText(QStringLiteral("l"));
     QTest::keyClick(m_navigator->editor(), Qt::Key_Enter);
-    // Check the url was resolved to the full path "<tempDir>/l"
-    // QTRY_ because of waiting for the stat job in applyUncommittedUrl() to finish
-    QTRY_COMPARE(m_navigator->locationUrl(), QUrl::fromLocalFile(link));
+    QTRY_COMPARE(m_navigator->locationUrl(), linkUrl);
+
+    // Back to tempDir
+    m_navigator->setLocationUrl(tempDirUrl);
+    QCOMPARE(m_navigator->locationUrl(), tempDirUrl);
+    // Replace all the text with "a/b"
+    m_navigator->editor()->setCurrentText(QStringLiteral("a/b"));
+    QTest::keyClick(m_navigator->editor(), Qt::Key_Enter);
+    QTRY_COMPARE(m_navigator->locationUrl(), QUrl::fromLocalFile(dirB));
+    // Now got to l "../../l"
+    m_navigator->editor()->setCurrentText(QStringLiteral("../../l"));
+    QTest::keyClick(m_navigator->editor(), Qt::Key_Enter);
+    QTRY_COMPARE(m_navigator->locationUrl(), linkUrl);
 }
 
 void KUrlNavigatorTest::testFixUrlPath_data()

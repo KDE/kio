@@ -34,6 +34,7 @@ private Q_SLOTS:
     void internetKeywords_data();
     void internetKeywords();
     void localdomain();
+    void relativeGoUp();
 
 private:
     QStringList minicliFilters;

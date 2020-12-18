@@ -45,7 +45,10 @@ static QRegularExpression sEnvVarExp(QStringLiteral("\\$[a-zA-Z_][a-zA-Z0-9_]*")
 static bool isPotentialShortURL(const QString &cmd)
 {
     // Host names and IPv4 address...
-    if (cmd.contains(QLatin1Char('.'))) {
+    // Exclude ".." and paths starting with "../", these are used to go up in a filesystem
+    // dir hierarchy
+    if (cmd != QLatin1String("..") && !cmd.startsWith(QLatin1String("../"))
+        && cmd.contains(QLatin1Char('.'))) {
         return true;
     }
 

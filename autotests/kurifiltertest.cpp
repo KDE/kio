@@ -468,3 +468,13 @@ void KUriFilterTest::localdomain()
     }
 }
 
+void KUriFilterTest::relativeGoUp()
+{
+    // When the text is "../"
+    KUriFilterData filteredData(QStringLiteral("../"));
+    filteredData.setCheckForExecutables(false);
+    // Using kshorturifilter
+    const auto filtersList = QStringList{ QStringLiteral("kshorturifilter") };
+    // Then the text isn't filtered and returned as-is
+    QVERIFY(!KUriFilter::self()->filterUri(filteredData, filtersList));
+}
