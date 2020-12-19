@@ -8,8 +8,8 @@
 #ifndef ASKUSERACTIONINTERFACE_H
 #define ASKUSERACTIONINTERFACE_H
 
-#include <kiocore_export.h>
-#include <kio/jobuidelegateextension.h> // RenameDialog_Result, SkipDialog_Result
+#include "kiocore_export.h"
+#include "jobuidelegateextension.h" // RenameDialog_Result, SkipDialog_Result
 
 #include <QObject>
 
