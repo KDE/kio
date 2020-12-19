@@ -9,7 +9,7 @@
 #define ASKUSERACTIONINTERFACE_H
 
 #include <kiocore_export.h>
-#include <jobuidelegateextension.h> // RenameDialog_Result, SkipDialog_Result
+#include <KIO/JobUiDelegateExtension> // RenameDialog_Result, SkipDialog_Result
 
 #include <QObject>
 
