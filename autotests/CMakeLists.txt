@@ -147,14 +147,14 @@ ecm_add_tests(
 )
 set_target_properties(krununittest PROPERTIES COMPILE_FLAGS "-DCMAKE_INSTALL_FULL_LIBEXECDIR_KF5=\"\\\"${CMAKE_INSTALL_FULL_LIBEXECDIR_KF5}\\\"\"")
 
-set(URIFILTER_COLON_TEST kiowidgets_colon_separator_test)
+set(URIFILTER_COLON_TEST kiowidgets-kurifiltertest-colon-separator)
 add_executable(${URIFILTER_COLON_TEST} kurifiltertest.cpp)
 target_link_libraries(${URIFILTER_COLON_TEST} KF5::KIOCore KF5::KIOWidgets Qt5::Test Qt5::DBus)
 ecm_mark_as_test(${URIFILTER_COLON_TEST})
 add_test(NAME ${URIFILTER_COLON_TEST} COMMAND ${URIFILTER_COLON_TEST})
 target_compile_definitions(${URIFILTER_COLON_TEST} PUBLIC "-DWEBSHORTCUT_SEPARATOR=':'")
 
-set(URIFILTER_SPACE_TEST kiowidgets_space_separator_test)
+set(URIFILTER_SPACE_TEST kiowidgets-kurifiltertest-space-separator)
 add_executable(${URIFILTER_SPACE_TEST} kurifiltertest.cpp)
 target_link_libraries(${URIFILTER_SPACE_TEST} KF5::KIOCore KF5::KIOWidgets Qt5::Test Qt5::DBus)
 ecm_mark_as_test(${URIFILTER_SPACE_TEST})
