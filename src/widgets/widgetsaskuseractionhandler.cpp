@@ -152,14 +152,10 @@ void KIO::WidgetsAskUserActionHandler::askUserDelete(const QList<QUrl> &urls,
 
     switch(deletionType) {
     case Delete: {
-        if (urlCount == 1) {
-            text = xi18nc("@info", "Do you really want to permanently delete this item?<nl/>"
-                          "<filename>%1</filename><nl/><nl/>"
-                          "<emphasis strong='true'>This action cannot be undone.</emphasis>", prettyList.at(0));
-        } else {
-            text = xi18nc("@info", "Do you really want to permanently delete these %1 items?<nl/><nl/>"
-                          "<emphasis strong='true'>This action cannot be undone.</emphasis>", urlCount);
-        }
+        text = xi18ncp("@info", "Do you really want to permanently delete this %1 item?<nl/><nl/>"
+                       "<emphasis strong='true'>This action cannot be undone.</emphasis>",
+                       "Do you really want to permanently delete these %1 items?<nl/><nl/>"
+                       "<emphasis strong='true'>This action cannot be undone.</emphasis>", urlCount);
         acceptButton = KStandardGuiItem::del();
         break;
     }
@@ -174,7 +170,7 @@ void KIO::WidgetsAskUserActionHandler::askUserDelete(const QList<QUrl> &urls,
             text = xi18nc("@info", "Do you really want to move this item to the Trash?<nl/>"
                           "<filename>%1</filename>", prettyList.at(0));
         } else {
-            text = xi18nc("@info", "Do you really want to move these %1 items to the Trash?", urlCount);
+            text = xi18ncp("@info", "Do you really want to move these %1 item to the Trash?", "Do you really want to move these %1 items to the Trash?", urlCount);
         }
         caption = i18n("Move to Trash");
         acceptButton = KGuiItem(i18n("Move to Trash"), QStringLiteral("user-trash"));
