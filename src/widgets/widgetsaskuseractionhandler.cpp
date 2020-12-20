@@ -305,7 +305,8 @@ void KIO::WidgetsAskUserActionHandler::requestUserMessageBox(MessageDialogType t
             btnCode = KIO::SlaveBase::Ok;
             break;
         default:
-            break;
+            qCWarning(KIO_WIDGETS) << "Unknown message dialog result" << result;
+            return;
         }
 
         emit messageBoxResult(btnCode);
