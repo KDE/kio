@@ -466,7 +466,7 @@ public:
             const quint32 newUseCount = fiFromDisk.useCount + 1;
             QByteArray newHeader = cmd.mid(0, SerializedCacheFileInfo::size);
             {
-                QDataStream stream(&newHeader, QIODevice::WriteOnly);
+                QDataStream stream(&newHeader, QIODevice::ReadWrite);
                 stream.skipRawData(SerializedCacheFileInfo::useCountOffset);
                 stream << newUseCount;
             }
