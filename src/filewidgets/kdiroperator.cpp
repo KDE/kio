@@ -146,10 +146,10 @@ public:
 
     // private members
     KDirOperator *const q;
-    QStack<QUrl *> backStack;   ///< Contains all URLs you can reach with the back button.
-    QStack<QUrl *> forwardStack; ///< Contains all URLs you can reach with the forward button.
+    QStack<QUrl *> m_backStack;   ///< Contains all URLs you can reach with the back button.
+    QStack<QUrl *> m_forwardStack; ///< Contains all URLs you can reach with the forward button.
 
-    QModelIndex lastHoveredIndex;
+    QModelIndex m_lastHoveredIndex;
 
     KDirLister *dirLister;
     QUrl currUrl;
@@ -160,7 +160,7 @@ public:
     QDir::SortFlags sorting;
     QStyleOptionViewItem::Position decorationPosition;
 
-    QSplitter *splitter;
+    QSplitter *m_splitter;
 
     QAbstractItemView *itemView;
     KDirModel *dirModel;
@@ -220,7 +220,7 @@ KDirOperator::Private::Private(KDirOperator *qq) :
     q(qq),
     dirLister(nullptr),
     decorationPosition(QStyleOptionViewItem::Left),
-    splitter(nullptr),
+    m_splitter(nullptr),
     itemView(nullptr),
     dirModel(nullptr),
     proxyModel(nullptr),
@@ -259,8 +259,8 @@ KDirOperator::Private::~Private()
     //     itemView->writeConfig(configGroup);
     // }
 
-    qDeleteAll(backStack);
-    qDeleteAll(forwardStack);
+    qDeleteAll(m_backStack);
+    qDeleteAll(m_forwardStack);
     delete preview;
     preview = nullptr;
 
@@ -280,9 +280,9 @@ KDirOperator::KDirOperator(const QUrl &_url, QWidget *parent) :
     QWidget(parent),
     d(new Private(this))
 {
-    d->splitter = new QSplitter(this);
-    d->splitter->setChildrenCollapsible(false);
-    connect(d->splitter, SIGNAL(splitterMoved(int,int)),
+    d->m_splitter = new QSplitter(this);
+    d->m_splitter->setChildrenCollapsible(false);
+    connect(d->m_splitter, SIGNAL(splitterMoved(int,int)),
             this, SLOT(_k_slotSplitterMoved(int,int)));
 
     d->preview = nullptr;
@@ -446,7 +446,7 @@ void KDirOperator::setPreviewWidget(KPreviewWidgetBase *w)
     d->preview = w;
 
     if (w) {
-        d->splitter->addWidget(w);
+        d->m_splitter->addWidget(w);
     }
 
     KToggleAction *previewAction = static_cast<KToggleAction *>(d->actionCollection->action(QStringLiteral("preview")));
@@ -574,7 +574,7 @@ void KDirOperator::Private::_k_togglePreview(bool on)
         if (preview == nullptr) {
             preview = new KFileMetaPreview(q);
             actionCollection->action(QStringLiteral("preview"))->setChecked(true);
-            splitter->addWidget(preview);
+            m_splitter->addWidget(preview);
         }
 
         preview->show();
@@ -1056,9 +1056,9 @@ void KDirOperator::setUrl(const QUrl &_newurl, bool clearforward)
 
     if (clearforward) {
         // autodelete should remove this one
-        d->backStack.push(new QUrl(d->currUrl));
-        qDeleteAll(d->forwardStack);
-        d->forwardStack.clear();
+        d->m_backStack.push(new QUrl(d->currUrl));
+        qDeleteAll(d->m_forwardStack);
+        d->m_forwardStack.clear();
     }
 
     d->currUrl = newurl;
@@ -1068,10 +1068,10 @@ void KDirOperator::setUrl(const QUrl &_newurl, bool clearforward)
 
     // enable/disable actions
     QAction *forwardAction = d->actionCollection->action(QStringLiteral("forward"));
-    forwardAction->setEnabled(!d->forwardStack.isEmpty());
+    forwardAction->setEnabled(!d->m_forwardStack.isEmpty());
 
     QAction *backAction = d->actionCollection->action(QStringLiteral("back"));
-    backAction->setEnabled(!d->backStack.isEmpty());
+    backAction->setEnabled(!d->m_backStack.isEmpty());
 
     QAction *upAction = d->actionCollection->action(QStringLiteral("up"));
     upAction->setEnabled(!isRoot());
@@ -1192,7 +1192,7 @@ void KDirOperator::pathChanged()
         KMessageBox::error(d->itemView,
                            i18n("The specified folder does not exist "
                                 "or was not readable."));
-        if (d->backStack.isEmpty()) {
+        if (d->m_backStack.isEmpty()) {
             home();
         } else {
             back();
@@ -1213,13 +1213,13 @@ void KDirOperator::Private::_k_slotRedirected(const QUrl &newURL)
 // Code pinched from kfm then hacked
 void KDirOperator::back()
 {
-    if (d->backStack.isEmpty()) {
+    if (d->m_backStack.isEmpty()) {
         return;
     }
 
-    d->forwardStack.push(new QUrl(d->currUrl));
+    d->m_forwardStack.push(new QUrl(d->currUrl));
 
-    QUrl *s = d->backStack.pop();
+    QUrl *s = d->m_backStack.pop();
     const QUrl newUrl = *s;
     delete s;
 
@@ -1227,9 +1227,9 @@ void KDirOperator::back()
         const QUrl _url =
             newUrl.adjusted(QUrl::StripTrailingSlash).adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash);
 
-        if (_url == d->currUrl.adjusted(QUrl::StripTrailingSlash) && !d->backStack.isEmpty()) {
+        if (_url == d->currUrl.adjusted(QUrl::StripTrailingSlash) && !d->m_backStack.isEmpty()) {
             // e.g. started in a/b/c, cdUp() twice to "a", then back(), we highlight "c"
-            d->m_lastUrl = *(d->backStack.top());
+            d->m_lastUrl = *(d->m_backStack.top());
         } else {
             d->m_lastUrl = d->currUrl;
         }
@@ -1241,13 +1241,13 @@ void KDirOperator::back()
 // Code pinched from kfm then hacked
 void KDirOperator::forward()
 {
-    if (d->forwardStack.isEmpty()) {
+    if (d->m_forwardStack.isEmpty()) {
         return;
     }
 
-    d->backStack.push(new QUrl(d->currUrl));
+    d->m_backStack.push(new QUrl(d->currUrl));
 
-    QUrl *s = d->forwardStack.pop();
+    QUrl *s = d->m_forwardStack.pop();
     setUrl(*s, false);
     delete s;
 }
@@ -1363,17 +1363,17 @@ bool KDirOperator::eventFilter(QObject *watched, QEvent *event)
         if (d->preview && !d->preview->isHidden()) {
             const QModelIndex hoveredIndex = d->itemView->indexAt(d->itemView->viewport()->mapFromGlobal(QCursor::pos()));
 
-            if (d->lastHoveredIndex == hoveredIndex) {
+            if (d->m_lastHoveredIndex == hoveredIndex) {
                 return QWidget::eventFilter(watched, event);
             }
 
-            d->lastHoveredIndex = hoveredIndex;
+            d->m_lastHoveredIndex = hoveredIndex;
 
             const QModelIndex currentIndex = d->itemView->selectionModel() ? d->itemView->selectionModel()->currentIndex()
                                              : QModelIndex();
 
             if (!hoveredIndex.isValid() && currentIndex.isValid() &&
-                    (d->lastHoveredIndex != currentIndex)) {
+                    (d->m_lastHoveredIndex != currentIndex)) {
                 const KFileItem item = d->itemView->model()->data(currentIndex, KDirModel::FileItemRole).value<KFileItem>();
                 if (!item.isNull()) {
                     d->preview->showPreview(item.url());
@@ -1742,9 +1742,9 @@ void KDirOperator::setView(QAbstractItemView *view)
     connect(d->itemView, SIGNAL(entered(QModelIndex)),
             this, SLOT(_k_triggerPreview(QModelIndex)));
 
-    d->splitter->insertWidget(0, d->itemView);
+    d->m_splitter->insertWidget(0, d->itemView);
 
-    d->splitter->resize(size());
+    d->m_splitter->resize(size());
     d->itemView->show();
 
     if (listDir) {
@@ -2421,7 +2421,7 @@ void KDirOperator::writeConfig(KConfigGroup &configGroup)
 
             if (hasPreview) {
                 // remember the width of the preview widget
-                QList<int> sizes = d->splitter->sizes();
+                QList<int> sizes = d->m_splitter->sizes();
                 Q_ASSERT(sizes.count() == 2);
                 configGroup.writeEntry(QStringLiteral("Preview Width"), sizes[1]);
             }
@@ -2465,20 +2465,20 @@ void KDirOperator::Private::writeIconZoomSettingsIfNeeded() {
 
 void KDirOperator::resizeEvent(QResizeEvent *)
 {
-    // resize the splitter and assure that the width of
+    // resize the m_splitter and assure that the width of
     // the preview widget is restored
-    QList<int> sizes = d->splitter->sizes();
+    QList<int> sizes = d->m_splitter->sizes();
     const bool hasPreview = (sizes.count() == 2);
 
-    d->splitter->resize(size());
-    sizes = d->splitter->sizes();
+    d->m_splitter->resize(size());
+    sizes = d->m_splitter->sizes();
 
     const bool restorePreviewWidth = hasPreview && (d->previewWidth != sizes[1]);
     if (restorePreviewWidth) {
         const int availableWidth = sizes[0] + sizes[1];
         sizes[0] = availableWidth - d->previewWidth;
         sizes[1] = d->previewWidth;
-        d->splitter->setSizes(sizes);
+        d->m_splitter->setSizes(sizes);
     }
     if (hasPreview) {
         d->previewWidth = sizes[1];
@@ -2579,12 +2579,12 @@ QProgressBar *KDirOperator::progressBar() const
 
 void KDirOperator::clearHistory()
 {
-    qDeleteAll(d->backStack);
-    d->backStack.clear();
+    qDeleteAll(d->m_backStack);
+    d->m_backStack.clear();
     d->actionCollection->action(QStringLiteral("back"))->setEnabled(false);
 
-    qDeleteAll(d->forwardStack);
-    d->forwardStack.clear();
+    qDeleteAll(d->m_forwardStack);
+    d->m_forwardStack.clear();
     d->actionCollection->action(QStringLiteral("forward"))->setEnabled(false);
 }
 
@@ -2708,7 +2708,7 @@ void KDirOperator::Private::_k_showPreview()
 
 void KDirOperator::Private::_k_slotSplitterMoved(int, int)
 {
-    const QList<int> sizes = splitter->sizes();
+    const QList<int> sizes = m_splitter->sizes();
     if (sizes.count() == 2) {
         // remember the width of the preview widget (see KDirOperator::resizeEvent())
         previewWidth = sizes[1];
