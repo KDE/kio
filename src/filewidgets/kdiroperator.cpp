@@ -170,7 +170,7 @@ public:
 
     // the enum KFile::FileView as an int
     int viewKind;
-    int defaultView;
+    int m_defaultView;
 
     KFile::Modes m_mode;
     QProgressBar *m_progressBar;
@@ -190,7 +190,7 @@ public:
     QTimer *m_progressDelayTimer;
     int m_dropOptions;
 
-    KActionMenu *actionMenu;
+    KActionMenu *m_actionMenu;
     KActionCollection *m_actionCollection;
 
     KNewFileMenu *m_newFileMenu;
@@ -208,8 +208,8 @@ public:
     KToggleAction *m_leftAction;
     QList<QUrl> m_itemsToBeSetAsCurrent;
     bool m_shouldFetchForItems;
-    InlinePreviewState inlinePreviewState;
-    QStringList supportedSchemes;
+    InlinePreviewState m_inlinePreviewState;
+    QStringList m_supportedSchemes;
 
     // TODO: in KF6 this will become a JobUiDelegate (which will inherit
     // from WidgetsAskUserActionHandler)
@@ -234,7 +234,7 @@ KDirOperator::Private::Private(KDirOperator *qq) :
     m_dirHighlighting(true),
     m_progressDelayTimer(nullptr),
     m_dropOptions(0),
-    actionMenu(nullptr),
+    m_actionMenu(nullptr),
     m_actionCollection(nullptr),
     m_newFileMenu(nullptr),
     configGroup(nullptr),
@@ -245,7 +245,7 @@ KDirOperator::Private::Private(KDirOperator *qq) :
     m_decorationMenu(nullptr),
     m_leftAction(nullptr),
     m_shouldFetchForItems(false),
-    inlinePreviewState(NotForced)
+    m_inlinePreviewState(NotForced)
 {
 }
 
@@ -871,7 +871,7 @@ KFilePreviewGenerator *KDirOperator::previewGenerator() const
 
 void KDirOperator::setInlinePreviewShown(bool show)
 {
-    d->inlinePreviewState = show ? Private::ForcedToTrue : Private::ForcedToFalse;
+    d->m_inlinePreviewState = show ? Private::ForcedToTrue : Private::ForcedToFalse;
 }
 
 bool KDirOperator::isInlinePreviewShown() const
@@ -1094,7 +1094,7 @@ void KDirOperator::rereadDir()
 
 bool KDirOperator::Private::isSchemeSupported(const QString &scheme) const
 {
-    return supportedSchemes.isEmpty() || supportedSchemes.contains(scheme);
+    return m_supportedSchemes.isEmpty() || m_supportedSchemes.contains(scheme);
 }
 
 bool KDirOperator::Private::openUrl(const QUrl &url, KDirLister::OpenUrlFlags flags)
@@ -1342,9 +1342,9 @@ void KDirOperator::activatedMenu(const KFileItem &item, const QPoint &pos)
 
     d->m_actionCollection->action(QStringLiteral("new"))->setEnabled(item.isDir());
 
-    emit contextMenuAboutToShow(item, d->actionMenu->menu());
+    emit contextMenuAboutToShow(item, d->m_actionMenu->menu());
 
-    d->actionMenu->menu()->exec(pos);
+    d->m_actionMenu->menu()->exec(pos);
 }
 
 void KDirOperator::changeEvent(QEvent *event)
@@ -1626,17 +1626,17 @@ void KDirOperator::setView(KFile::FileView viewKind)
     bool preview = (KFile::isPreviewInfo(viewKind) || KFile::isPreviewContents(viewKind));
 
     if (viewKind == KFile::Default) {
-        if (KFile::isDetailView((KFile::FileView)d->defaultView)) {
+        if (KFile::isDetailView((KFile::FileView)d->m_defaultView)) {
             viewKind = KFile::Detail;
-        } else if (KFile::isTreeView((KFile::FileView)d->defaultView)) {
+        } else if (KFile::isTreeView((KFile::FileView)d->m_defaultView)) {
             viewKind = KFile::Tree;
-        } else if (KFile::isDetailTreeView((KFile::FileView)d->defaultView)) {
+        } else if (KFile::isDetailTreeView((KFile::FileView)d->m_defaultView)) {
             viewKind = KFile::DetailTree;
         } else {
             viewKind = KFile::Simple;
         }
 
-        const KFile::FileView defaultViewKind = static_cast<KFile::FileView>(d->defaultView);
+        const KFile::FileView defaultViewKind = static_cast<KFile::FileView>(d->m_defaultView);
         preview = (KFile::isPreviewInfo(defaultViewKind) || KFile::isPreviewContents(defaultViewKind))
                   && d->m_actionCollection->action(QStringLiteral("preview"))->isEnabled();
     }
@@ -1775,8 +1775,8 @@ void KDirOperator::setView(QAbstractItemView *view)
         d->m_itemsToBeSetAsCurrent.clear();
     }
 
-    const bool previewForcedToTrue = d->inlinePreviewState == Private::ForcedToTrue;
-    const bool previewShown = d->inlinePreviewState == Private::NotForced ? d->m_showPreviews : previewForcedToTrue;
+    const bool previewForcedToTrue = d->m_inlinePreviewState == Private::ForcedToTrue;
+    const bool previewShown = d->m_inlinePreviewState == Private::NotForced ? d->m_showPreviews : previewForcedToTrue;
     d->m_previewGenerator = new KFilePreviewGenerator(d->m_itemView);
     d->m_itemView->setIconSize(previewForcedToTrue ? QSize(KIconLoader::SizeHuge, KIconLoader::SizeHuge)
                                                    : QSize(d->m_iconSize, d->m_iconSize));
@@ -1999,8 +1999,8 @@ void KDirOperator::setupActions()
     d->m_actionCollection = new KActionCollection(this);
     d->m_actionCollection->setObjectName(QStringLiteral("KDirOperator::actionCollection"));
 
-    d->actionMenu = new KActionMenu(i18n("Menu"), this);
-    d->m_actionCollection->addAction(QStringLiteral("popupMenu"), d->actionMenu);
+    d->m_actionMenu = new KActionMenu(i18n("Menu"), this);
+    d->m_actionCollection->addAction(QStringLiteral("popupMenu"), d->m_actionMenu);
 
     QAction *upAction = d->m_actionCollection->addAction(KStandardAction::Up, QStringLiteral("up"), this, SLOT(cdUp()));
     upAction->setText(i18n("Parent Folder"));
@@ -2232,50 +2232,50 @@ void KDirOperator::setupMenu(int whichActions)
     sortMenu->addAction(d->m_actionCollection->action(QStringLiteral("dirs first")));
 
     // now plug everything into the popupmenu
-    d->actionMenu->menu()->clear();
+    d->m_actionMenu->menu()->clear();
     if (whichActions & NavActions) {
-        d->actionMenu->addAction(d->m_actionCollection->action(QStringLiteral("up")));
-        d->actionMenu->addAction(d->m_actionCollection->action(QStringLiteral("back")));
-        d->actionMenu->addAction(d->m_actionCollection->action(QStringLiteral("forward")));
-        d->actionMenu->addAction(d->m_actionCollection->action(QStringLiteral("home")));
-        d->actionMenu->addSeparator();
+        d->m_actionMenu->addAction(d->m_actionCollection->action(QStringLiteral("up")));
+        d->m_actionMenu->addAction(d->m_actionCollection->action(QStringLiteral("back")));
+        d->m_actionMenu->addAction(d->m_actionCollection->action(QStringLiteral("forward")));
+        d->m_actionMenu->addAction(d->m_actionCollection->action(QStringLiteral("home")));
+        d->m_actionMenu->addSeparator();
     }
 
     if (whichActions & FileActions) {
-        d->actionMenu->addAction(d->m_actionCollection->action(QStringLiteral("new")));
+        d->m_actionMenu->addAction(d->m_actionCollection->action(QStringLiteral("new")));
 
-        d->actionMenu->addAction(d->m_actionCollection->action(QStringLiteral("rename")));
+        d->m_actionMenu->addAction(d->m_actionCollection->action(QStringLiteral("rename")));
         d->m_actionCollection->action(QStringLiteral("rename"))->setEnabled(KProtocolManager::supportsMoving(d->m_currUrl));
 
         if (d->m_currUrl.isLocalFile() && !(QApplication::keyboardModifiers() & Qt::ShiftModifier)) {
-            d->actionMenu->addAction(d->m_actionCollection->action(QStringLiteral("trash")));
+            d->m_actionMenu->addAction(d->m_actionCollection->action(QStringLiteral("trash")));
         }
         KConfigGroup cg(KSharedConfig::openConfig(), QStringLiteral("KDE"));
         const bool del = !d->m_currUrl.isLocalFile() ||
                          (QApplication::keyboardModifiers() & Qt::ShiftModifier) ||
                          cg.readEntry("ShowDeleteCommand", false);
         if (del) {
-            d->actionMenu->addAction(d->m_actionCollection->action(QStringLiteral("delete")));
+            d->m_actionMenu->addAction(d->m_actionCollection->action(QStringLiteral("delete")));
         }
-        d->actionMenu->addSeparator();
+        d->m_actionMenu->addSeparator();
     }
 
     if (whichActions & SortActions) {
-        d->actionMenu->addAction(sortMenu);
+        d->m_actionMenu->addAction(sortMenu);
         if (!(whichActions & ViewActions)) {
-            d->actionMenu->addSeparator();
+            d->m_actionMenu->addSeparator();
         }
     }
 
     if (whichActions & ViewActions) {
-        d->actionMenu->addAction(d->m_actionCollection->action(QStringLiteral("view menu")));
-        d->actionMenu->addAction(d->m_actionCollection->action(QStringLiteral("reload")));
-        d->actionMenu->addSeparator();
+        d->m_actionMenu->addAction(d->m_actionCollection->action(QStringLiteral("view menu")));
+        d->m_actionMenu->addAction(d->m_actionCollection->action(QStringLiteral("reload")));
+        d->m_actionMenu->addSeparator();
     }
 
     if (whichActions & FileActions) {
-        d->actionMenu->addAction(d->m_actionCollection->action(QStringLiteral("file manager")));
-        d->actionMenu->addAction(d->m_actionCollection->action(QStringLiteral("properties")));
+        d->m_actionMenu->addAction(d->m_actionCollection->action(QStringLiteral("file manager")));
+        d->m_actionMenu->addAction(d->m_actionCollection->action(QStringLiteral("properties")));
     }
 }
 
@@ -2327,23 +2327,23 @@ void KDirOperator::updateViewActions()
 
 void KDirOperator::readConfig(const KConfigGroup &configGroup)
 {
-    d->defaultView = 0;
+    d->m_defaultView = 0;
     QString viewStyle = configGroup.readEntry("View Style", "DetailTree");
     if (viewStyle == QLatin1String("Detail")) {
-        d->defaultView |= KFile::Detail;
+        d->m_defaultView |= KFile::Detail;
     } else if (viewStyle == QLatin1String("Tree")) {
-        d->defaultView |= KFile::Tree;
+        d->m_defaultView |= KFile::Tree;
     } else if (viewStyle == QLatin1String("DetailTree")) {
-        d->defaultView |= KFile::DetailTree;
+        d->m_defaultView |= KFile::DetailTree;
     } else {
-        d->defaultView |= KFile::Simple;
+        d->m_defaultView |= KFile::Simple;
     }
     //if (configGroup.readEntry(QLatin1String("Separate Directories"),
     //                          DefaultMixDirsAndFiles)) {
     //    d->defaultView |= KFile::SeparateDirs;
     //}
     if (configGroup.readEntry(QStringLiteral("Show Preview"), false)) {
-        d->defaultView |= KFile::PreviewContents;
+        d->m_defaultView |= KFile::PreviewContents;
     }
 
     d->m_previewWidth = configGroup.readEntry(QStringLiteral("Preview Width"), 100);
@@ -2380,7 +2380,7 @@ void KDirOperator::readConfig(const KConfigGroup &configGroup)
     }
     d->updateSorting(sorting);
 
-    if (d->inlinePreviewState == Private::NotForced) {
+    if (d->m_inlinePreviewState == Private::NotForced) {
         d->m_showPreviews = configGroup.readEntry(QStringLiteral("Show Inline Previews"), true);
     }
     QStyleOptionViewItem::Position pos = (QStyleOptionViewItem::Position) configGroup.readEntry(QStringLiteral("Decoration position"), (int) QStyleOptionViewItem::Top);
@@ -2447,7 +2447,7 @@ void KDirOperator::writeConfig(KConfigGroup &configGroup)
     }
     configGroup.writeEntry(QStringLiteral("View Style"), style);
 
-    if (d->inlinePreviewState == Private::NotForced) {
+    if (d->m_inlinePreviewState == Private::NotForced) {
         configGroup.writeEntry(QStringLiteral("Show Inline Previews"), d->m_showPreviews);
         d->writeIconZoomSettingsIfNeeded();
     }
@@ -2913,13 +2913,13 @@ void KDirOperator::Private::_k_slotDirectoryCreated(const QUrl &url)
 
 void KDirOperator::setSupportedSchemes(const QStringList &schemes)
 {
-    d->supportedSchemes = schemes;
+    d->m_supportedSchemes = schemes;
     rereadDir();
 }
 
 QStringList KDirOperator::supportedSchemes() const
 {
-    return d->supportedSchemes;
+    return d->m_supportedSchemes;
 }
 
 #include "moc_kdiroperator.cpp"
