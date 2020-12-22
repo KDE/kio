@@ -163,8 +163,8 @@ public:
     QSplitter *m_splitter;
 
     QAbstractItemView *itemView;
-    KDirModel *dirModel;
-    KDirSortFilterProxyModel *proxyModel;
+    KDirModel *m_dirModel;
+    KDirSortFilterProxyModel *m_proxyModel;
 
     KFileItemList pendingMimeTypes;
 
@@ -222,8 +222,8 @@ KDirOperator::Private::Private(KDirOperator *qq) :
     decorationPosition(QStyleOptionViewItem::Left),
     m_splitter(nullptr),
     itemView(nullptr),
-    dirModel(nullptr),
-    proxyModel(nullptr),
+    m_dirModel(nullptr),
+    m_proxyModel(nullptr),
     progressBar(nullptr),
     preview(nullptr),
     previewUrl(),
@@ -264,10 +264,10 @@ KDirOperator::Private::~Private()
     delete preview;
     preview = nullptr;
 
-    delete proxyModel;
-    proxyModel = nullptr;
-    delete dirModel;
-    dirModel = nullptr;
+    delete m_proxyModel;
+    m_proxyModel = nullptr;
+    delete m_dirModel;
+    m_dirModel = nullptr;
     dirLister = nullptr; // deleted by KDirModel
     delete configGroup;
     configGroup = nullptr;
@@ -416,10 +416,10 @@ void KDirOperator::toggleDirsFirst()
 
 void KDirOperator::toggleIgnoreCase()
 {
-    if (d->proxyModel != nullptr) {
-        Qt::CaseSensitivity cs = d->proxyModel->sortCaseSensitivity();
+    if (d->m_proxyModel != nullptr) {
+        Qt::CaseSensitivity cs = d->m_proxyModel->sortCaseSensitivity();
         cs = (cs == Qt::CaseSensitive) ? Qt::CaseInsensitive : Qt::CaseSensitive;
-        d->proxyModel->setSortCaseSensitivity(cs);
+        d->m_proxyModel->setSortCaseSensitivity(cs);
     }
 }
 
@@ -462,11 +462,11 @@ KFileItemList KDirOperator::selectedItems() const
         return itemList;
     }
 
-    const QItemSelection selection = d->proxyModel->mapSelectionToSource(d->itemView->selectionModel()->selection());
+    const QItemSelection selection = d->m_proxyModel->mapSelectionToSource(d->itemView->selectionModel()->selection());
 
     const QModelIndexList indexList = selection.indexes();
     for (const QModelIndex &index : indexList) {
-        KFileItem item = d->dirModel->itemForIndex(index);
+        KFileItem item = d->m_dirModel->itemForIndex(index);
         if (!item.isNull()) {
             itemList.append(item);
         }
@@ -481,8 +481,8 @@ bool KDirOperator::isSelected(const KFileItem &item) const
         return false;
     }
 
-    const QModelIndex dirIndex = d->dirModel->indexForItem(item);
-    const QModelIndex proxyIndex = d->proxyModel->mapFromSource(dirIndex);
+    const QModelIndex dirIndex = d->m_dirModel->indexForItem(item);
+    const QModelIndex proxyIndex = d->m_proxyModel->mapFromSource(dirIndex);
     return d->itemView->selectionModel()->isSelected(proxyIndex);
 }
 
@@ -1145,13 +1145,13 @@ void KDirOperator::Private::updateSorting(QDir::SortFlags sort)
         // QSortFilterProxyModel::sort(int column, Qt::SortOrder order)
         // would do nothing because neither the column nor the sort order have been changed.
         Qt::SortOrder tmpSortOrder = (sortOrder() == Qt::AscendingOrder ? Qt::DescendingOrder : Qt::AscendingOrder);
-        proxyModel->sort(sortOrder(), tmpSortOrder);
-        proxyModel->setSortFoldersFirst(sort & QDir::DirsFirst);
+        m_proxyModel->sort(sortOrder(), tmpSortOrder);
+        m_proxyModel->setSortFoldersFirst(sort & QDir::DirsFirst);
     }
 
     sorting = sort;
     q->updateSortActions();
-    proxyModel->sort(sortColumn(), sortOrder());
+    m_proxyModel->sort(sortColumn(), sortOrder());
 
     // TODO: The headers from QTreeView don't take care about a sorting
     // change of the proxy model hence they must be updated the manually.
@@ -1707,14 +1707,14 @@ void KDirOperator::setView(QAbstractItemView *view)
         // remember the selection of the current item view and apply this selection
         // to the new view later
         const QItemSelection selection = d->itemView->selectionModel()->selection();
-        selectionModel = new QItemSelectionModel(d->proxyModel, this);
+        selectionModel = new QItemSelectionModel(d->m_proxyModel, this);
         selectionModel->select(selection, QItemSelectionModel::Select);
     }
 
     setFocusProxy(nullptr);
     delete d->itemView;
     d->itemView = view;
-    d->itemView->setModel(d->proxyModel);
+    d->itemView->setModel(d->m_proxyModel);
     setFocusProxy(d->itemView);
 
     view->viewport()->installEventFilter(this);
@@ -1770,7 +1770,7 @@ void KDirOperator::setView(QAbstractItemView *view)
 
     d->shouldFetchForItems = qobject_cast<QTreeView *>(view);
     if (d->shouldFetchForItems) {
-        connect(d->dirModel, SIGNAL(expand(QModelIndex)), this, SLOT(_k_slotExpandToUrl(QModelIndex)));
+        connect(d->m_dirModel, SIGNAL(expand(QModelIndex)), this, SLOT(_k_slotExpandToUrl(QModelIndex)));
     } else {
         d->itemsToBeSetAsCurrent.clear();
     }
@@ -1801,28 +1801,28 @@ void KDirOperator::setDirLister(KDirLister *lister)
         return;
     }
 
-    delete d->dirModel;
-    d->dirModel = nullptr;
+    delete d->m_dirModel;
+    d->m_dirModel = nullptr;
 
-    delete d->proxyModel;
-    d->proxyModel = nullptr;
+    delete d->m_proxyModel;
+    d->m_proxyModel = nullptr;
 
     //delete d->dirLister; // deleted by KDirModel already, which took ownership
     d->dirLister = lister;
 
-    d->dirModel = new KDirModel();
-    d->dirModel->setDirLister(d->dirLister);
-    d->dirModel->setDropsAllowed(KDirModel::DropOnDirectory);
+    d->m_dirModel = new KDirModel();
+    d->m_dirModel->setDirLister(d->dirLister);
+    d->m_dirModel->setDropsAllowed(KDirModel::DropOnDirectory);
 
     d->shouldFetchForItems = qobject_cast<QTreeView *>(d->itemView);
     if (d->shouldFetchForItems) {
-        connect(d->dirModel, SIGNAL(expand(QModelIndex)), this, SLOT(_k_slotExpandToUrl(QModelIndex)));
+        connect(d->m_dirModel, SIGNAL(expand(QModelIndex)), this, SLOT(_k_slotExpandToUrl(QModelIndex)));
     } else {
         d->itemsToBeSetAsCurrent.clear();
     }
 
-    d->proxyModel = new KDirSortFilterProxyModel(this);
-    d->proxyModel->setSourceModel(d->dirModel);
+    d->m_proxyModel = new KDirSortFilterProxyModel(this);
+    d->m_proxyModel->setSourceModel(d->m_dirModel);
 
     d->dirLister->setDelayedMimeTypes(true);
 
@@ -1871,7 +1871,7 @@ void KDirOperator::setCurrentItem(const QUrl &url)
     KFileItem item = d->dirLister->findByUrl(url);
     if (d->shouldFetchForItems && item.isNull()) {
         d->itemsToBeSetAsCurrent << url;
-        d->dirModel->expandToUrl(url);
+        d->m_dirModel->expandToUrl(url);
         return;
     }
 
@@ -1890,8 +1890,8 @@ void KDirOperator::setCurrentItem(const KFileItem &item)
     if (selModel) {
         selModel->clear();
         if (!item.isNull()) {
-            const QModelIndex dirIndex = d->dirModel->indexForItem(item);
-            const QModelIndex proxyIndex = d->proxyModel->mapFromSource(dirIndex);
+            const QModelIndex dirIndex = d->m_dirModel->indexForItem(item);
+            const QModelIndex proxyIndex = d->m_proxyModel->mapFromSource(dirIndex);
             selModel->setCurrentIndex(proxyIndex, QItemSelectionModel::Select);
         }
     }
@@ -1910,7 +1910,7 @@ void KDirOperator::setCurrentItems(const QList<QUrl> &urls)
         KFileItem item = d->dirLister->findByUrl(url);
         if (d->shouldFetchForItems && item.isNull()) {
             d->itemsToBeSetAsCurrent << url;
-            d->dirModel->expandToUrl(url);
+            d->m_dirModel->expandToUrl(url);
             continue;
         }
         itemList << item;
@@ -1933,8 +1933,8 @@ void KDirOperator::setCurrentItems(const KFileItemList &items)
         QModelIndex proxyIndex;
         for (const KFileItem &item : items) {
             if (!item.isNull()) {
-                const QModelIndex dirIndex = d->dirModel->indexForItem(item);
-                proxyIndex = d->proxyModel->mapFromSource(dirIndex);
+                const QModelIndex dirIndex = d->m_dirModel->indexForItem(item);
+                proxyIndex = d->m_proxyModel->mapFromSource(dirIndex);
                 selModel->select(proxyIndex, QItemSelectionModel::Select);
             }
         }
@@ -2624,8 +2624,8 @@ void KDirOperator::Private::_k_slotProperties()
 
 void KDirOperator::Private::_k_slotActivated(const QModelIndex &index)
 {
-    const QModelIndex dirIndex = proxyModel->mapToSource(index);
-    KFileItem item = dirModel->itemForIndex(dirIndex);
+    const QModelIndex dirIndex = m_proxyModel->mapToSource(index);
+    KFileItem item = m_dirModel->itemForIndex(dirIndex);
 
     const Qt::KeyboardModifiers modifiers = QApplication::keyboardModifiers();
     if (item.isNull() || (modifiers & Qt::ShiftModifier) || (modifiers & Qt::ControlModifier)) {
@@ -2670,8 +2670,8 @@ void KDirOperator::Private::_k_slotSelectionChanged()
 void KDirOperator::Private::_k_openContextMenu(const QPoint &pos)
 {
     const QModelIndex proxyIndex = itemView->indexAt(pos);
-    const QModelIndex dirIndex = proxyModel->mapToSource(proxyIndex);
-    KFileItem item = dirModel->itemForIndex(dirIndex);
+    const QModelIndex dirIndex = m_proxyModel->mapToSource(proxyIndex);
+    KFileItem item = m_dirModel->itemForIndex(dirIndex);
 
     if (item.isNull()) {
         return;
@@ -2683,8 +2683,8 @@ void KDirOperator::Private::_k_openContextMenu(const QPoint &pos)
 void KDirOperator::Private::_k_triggerPreview(const QModelIndex &index)
 {
     if ((preview != nullptr && !preview->isHidden()) && index.isValid() && (index.column() == KDirModel::Name)) {
-        const QModelIndex dirIndex = proxyModel->mapToSource(index);
-        const KFileItem item = dirModel->itemForIndex(dirIndex);
+        const QModelIndex dirIndex = m_proxyModel->mapToSource(index);
+        const KFileItem item = m_dirModel->itemForIndex(dirIndex);
 
         if (item.isNull()) {
             return;
@@ -2790,14 +2790,14 @@ void KDirOperator::Private::_k_slotExpandToUrl(const QModelIndex &index)
         return;
     }
 
-    const KFileItem item = dirModel->itemForIndex(index);
+    const KFileItem item = m_dirModel->itemForIndex(index);
 
     if (item.isNull()) {
         return;
     }
 
     if (!item.isDir()) {
-        const QModelIndex proxyIndex = proxyModel->mapFromSource(index);
+        const QModelIndex proxyIndex = m_proxyModel->mapFromSource(index);
 
         QList<QUrl>::Iterator it = itemsToBeSetAsCurrent.begin();
         while (it != itemsToBeSetAsCurrent.end()) {
@@ -2805,8 +2805,8 @@ void KDirOperator::Private::_k_slotExpandToUrl(const QModelIndex &index)
             if (url.matches(item.url(), QUrl::StripTrailingSlash) || url.isParentOf(item.url())) {
                 const KFileItem _item = dirLister->findByUrl(url);
                 if (!_item.isNull() && _item.isDir()) {
-                    const QModelIndex _index = dirModel->indexForItem(_item);
-                    const QModelIndex _proxyIndex = proxyModel->mapFromSource(_index);
+                    const QModelIndex _index = m_dirModel->indexForItem(_item);
+                    const QModelIndex _proxyIndex = m_proxyModel->mapFromSource(_index);
                     treeView->expand(_proxyIndex);
 
                     // if we have expanded the last parent of this item, select it
