@@ -161,6 +161,7 @@ public:
         bCancel = nullptr;
         bRename = bSkip = nullptr;
         bOverwrite = nullptr;
+        bOverwriteWhenOlder = nullptr;
         bResume = bSuggestNewName = nullptr;
         bApplyAll = nullptr;
         m_pLineEdit = nullptr;
