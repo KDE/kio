@@ -197,17 +197,17 @@ public:
 
     KConfigGroup *configGroup;
 
-    KFilePreviewGenerator *previewGenerator;
+    KFilePreviewGenerator *m_previewGenerator;
 
     bool m_showPreviews;
     int m_iconSize;
 
-    bool isSaving;
+    bool m_isSaving;
 
-    KActionMenu *decorationMenu;
-    KToggleAction *leftAction;
-    QList<QUrl> itemsToBeSetAsCurrent;
-    bool shouldFetchForItems;
+    KActionMenu *m_decorationMenu;
+    KToggleAction *m_leftAction;
+    QList<QUrl> m_itemsToBeSetAsCurrent;
+    bool m_shouldFetchForItems;
     InlinePreviewState inlinePreviewState;
     QStringList supportedSchemes;
 
@@ -238,13 +238,13 @@ KDirOperator::Private::Private(KDirOperator *qq) :
     m_actionCollection(nullptr),
     m_newFileMenu(nullptr),
     configGroup(nullptr),
-    previewGenerator(nullptr),
+    m_previewGenerator(nullptr),
     m_showPreviews(false),
     m_iconSize(KIconLoader::SizeSmall),
-    isSaving(false),
-    decorationMenu(nullptr),
-    leftAction(nullptr),
-    shouldFetchForItems(false),
+    m_isSaving(false),
+    m_decorationMenu(nullptr),
+    m_leftAction(nullptr),
+    m_shouldFetchForItems(false),
     inlinePreviewState(NotForced)
 {
 }
@@ -600,11 +600,11 @@ void KDirOperator::Private::_k_toggleInlinePreviews(bool show)
 
     m_showPreviews = show;
 
-    if (!previewGenerator) {
+    if (!m_previewGenerator) {
         return;
     }
 
-    previewGenerator->setPreviewShown(show);
+    m_previewGenerator->setPreviewShown(show);
 }
 
 void KDirOperator::Private::_k_slotOpenFileManager()
@@ -866,7 +866,7 @@ KIO::CopyJob *KDirOperator::trash(const KFileItemList &items,
 
 KFilePreviewGenerator *KDirOperator::previewGenerator() const
 {
-    return d->previewGenerator;
+    return d->m_previewGenerator;
 }
 
 void KDirOperator::setInlinePreviewShown(bool show)
@@ -895,12 +895,12 @@ int KDirOperator::iconSize() const
 
 void KDirOperator::setIsSaving(bool isSaving)
 {
-    d->isSaving = isSaving;
+    d->m_isSaving = isSaving;
 }
 
 bool KDirOperator::isSaving() const
 {
-    return d->isSaving;
+    return d->m_isSaving;
 }
 
 void KDirOperator::renameSelected()
@@ -989,12 +989,12 @@ void KDirOperator::setIconSize(int value)
 
     d->m_iconSize = size;
 
-    if (!d->previewGenerator) {
+    if (!d->m_previewGenerator) {
         return;
     }
 
     d->m_itemView->setIconSize(QSize(size, size));
-    d->previewGenerator->updateIcons();
+    d->m_previewGenerator->updateIcons();
 
     emit currentIconSizeChanged(size);
 }
@@ -1766,21 +1766,21 @@ void KDirOperator::setView(QAbstractItemView *view)
 
     // if we cannot cast it to a QListView, disable the "Icon Position" menu. Note that this check
     // needs to be done here, and not in createView, since we can be set an external view
-    d->decorationMenu->setEnabled(qobject_cast<QListView *>(d->m_itemView));
+    d->m_decorationMenu->setEnabled(qobject_cast<QListView *>(d->m_itemView));
 
-    d->shouldFetchForItems = qobject_cast<QTreeView *>(view);
-    if (d->shouldFetchForItems) {
+    d->m_shouldFetchForItems = qobject_cast<QTreeView *>(view);
+    if (d->m_shouldFetchForItems) {
         connect(d->m_dirModel, SIGNAL(expand(QModelIndex)), this, SLOT(_k_slotExpandToUrl(QModelIndex)));
     } else {
-        d->itemsToBeSetAsCurrent.clear();
+        d->m_itemsToBeSetAsCurrent.clear();
     }
 
     const bool previewForcedToTrue = d->inlinePreviewState == Private::ForcedToTrue;
     const bool previewShown = d->inlinePreviewState == Private::NotForced ? d->m_showPreviews : previewForcedToTrue;
-    d->previewGenerator = new KFilePreviewGenerator(d->m_itemView);
+    d->m_previewGenerator = new KFilePreviewGenerator(d->m_itemView);
     d->m_itemView->setIconSize(previewForcedToTrue ? QSize(KIconLoader::SizeHuge, KIconLoader::SizeHuge)
                                                    : QSize(d->m_iconSize, d->m_iconSize));
-    d->previewGenerator->setPreviewShown(previewShown);
+    d->m_previewGenerator->setPreviewShown(previewShown);
     d->m_actionCollection->action(QStringLiteral("inline preview"))->setChecked(previewShown);
 
     // ensure we change everything needed
@@ -1814,11 +1814,11 @@ void KDirOperator::setDirLister(KDirLister *lister)
     d->m_dirModel->setDirLister(d->m_dirLister);
     d->m_dirModel->setDropsAllowed(KDirModel::DropOnDirectory);
 
-    d->shouldFetchForItems = qobject_cast<QTreeView *>(d->m_itemView);
-    if (d->shouldFetchForItems) {
+    d->m_shouldFetchForItems = qobject_cast<QTreeView *>(d->m_itemView);
+    if (d->m_shouldFetchForItems) {
         connect(d->m_dirModel, SIGNAL(expand(QModelIndex)), this, SLOT(_k_slotExpandToUrl(QModelIndex)));
     } else {
-        d->itemsToBeSetAsCurrent.clear();
+        d->m_itemsToBeSetAsCurrent.clear();
     }
 
     d->m_proxyModel = new KDirSortFilterProxyModel(this);
@@ -1869,8 +1869,8 @@ void KDirOperator::setCurrentItem(const QUrl &url)
     // qDebug();
 
     KFileItem item = d->m_dirLister->findByUrl(url);
-    if (d->shouldFetchForItems && item.isNull()) {
-        d->itemsToBeSetAsCurrent << url;
+    if (d->m_shouldFetchForItems && item.isNull()) {
+        d->m_itemsToBeSetAsCurrent << url;
         d->m_dirModel->expandToUrl(url);
         return;
     }
@@ -1908,8 +1908,8 @@ void KDirOperator::setCurrentItems(const QList<QUrl> &urls)
     KFileItemList itemList;
     for (const QUrl &url : urls) {
         KFileItem item = d->m_dirLister->findByUrl(url);
-        if (d->shouldFetchForItems && item.isNull()) {
-            d->itemsToBeSetAsCurrent << url;
+        if (d->m_shouldFetchForItems && item.isNull()) {
+            d->m_itemsToBeSetAsCurrent << url;
             d->m_dirModel->expandToUrl(url);
             continue;
         }
@@ -2110,23 +2110,23 @@ void KDirOperator::setupActions()
     byDateAction->setActionGroup(sortGroup);
     byTypeAction->setActionGroup(sortGroup);
 
-    d->decorationMenu = new KActionMenu(i18n("Icon Position"), this);
-    d->m_actionCollection->addAction(QStringLiteral("decoration menu"), d->decorationMenu);
+    d->m_decorationMenu = new KActionMenu(i18n("Icon Position"), this);
+    d->m_actionCollection->addAction(QStringLiteral("decoration menu"), d->m_decorationMenu);
 
-    d->leftAction = new KToggleAction(i18n("Next to File Name"), this);
-    d->m_actionCollection->addAction(QStringLiteral("decorationAtLeft"), d->leftAction);
-    connect(d->leftAction, SIGNAL(triggered(bool)), this, SLOT(_k_slotChangeDecorationPosition()));
+    d->m_leftAction = new KToggleAction(i18n("Next to File Name"), this);
+    d->m_actionCollection->addAction(QStringLiteral("decorationAtLeft"), d->m_leftAction);
+    connect(d->m_leftAction, SIGNAL(triggered(bool)), this, SLOT(_k_slotChangeDecorationPosition()));
 
     KToggleAction *topAction = new KToggleAction(i18n("Above File Name"), this);
     d->m_actionCollection->addAction(QStringLiteral("decorationAtTop"), topAction);
     connect(topAction, SIGNAL(triggered(bool)), this, SLOT(_k_slotChangeDecorationPosition()));
 
-    d->decorationMenu->addAction(d->leftAction);
-    d->decorationMenu->addAction(topAction);
+    d->m_decorationMenu->addAction(d->m_leftAction);
+    d->m_decorationMenu->addAction(topAction);
 
     QActionGroup *decorationGroup = new QActionGroup(this);
     decorationGroup->setExclusive(true);
-    d->leftAction->setActionGroup(decorationGroup);
+    d->m_leftAction->setActionGroup(decorationGroup);
     topAction->setActionGroup(decorationGroup);
 
     KToggleAction *shortAction = new KToggleAction(i18n("Short View"), this);
@@ -2799,8 +2799,8 @@ void KDirOperator::Private::_k_slotExpandToUrl(const QModelIndex &index)
     if (!item.isDir()) {
         const QModelIndex proxyIndex = m_proxyModel->mapFromSource(index);
 
-        QList<QUrl>::Iterator it = itemsToBeSetAsCurrent.begin();
-        while (it != itemsToBeSetAsCurrent.end()) {
+        QList<QUrl>::Iterator it = m_itemsToBeSetAsCurrent.begin();
+        while (it != m_itemsToBeSetAsCurrent.end()) {
             const QUrl url = *it;
             if (url.matches(item.url(), QUrl::StripTrailingSlash) || url.isParentOf(item.url())) {
                 const KFileItem _item = m_dirLister->findByUrl(url);
@@ -2814,13 +2814,13 @@ void KDirOperator::Private::_k_slotExpandToUrl(const QModelIndex &index)
                         treeView->selectionModel()->select(proxyIndex, QItemSelectionModel::Select);
                     }
                 }
-                it = itemsToBeSetAsCurrent.erase(it);
+                it = m_itemsToBeSetAsCurrent.erase(it);
             } else {
                 ++it;
             }
         }
-    } else if (!itemsToBeSetAsCurrent.contains(item.url())) {
-        itemsToBeSetAsCurrent << item.url();
+    } else if (!m_itemsToBeSetAsCurrent.contains(item.url())) {
+        m_itemsToBeSetAsCurrent << item.url();
     }
 }
 
