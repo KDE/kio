@@ -154,11 +154,11 @@ public:
     KDirLister *dirLister;
     QUrl m_currUrl;
 
-    KCompletion completion;
-    KCompletion dirCompletion;
-    bool completeListDirty;
+    KCompletion m_completion;
+    KCompletion m_dirCompletion;
+    bool m_completeListDirty;
     QDir::SortFlags sorting;
-    QStyleOptionViewItem::Position decorationPosition;
+    QStyleOptionViewItem::Position m_decorationPosition;
 
     QSplitter *m_splitter;
 
@@ -219,7 +219,7 @@ public:
 KDirOperator::Private::Private(KDirOperator *qq) :
     q(qq),
     dirLister(nullptr),
-    decorationPosition(QStyleOptionViewItem::Left),
+    m_decorationPosition(QStyleOptionViewItem::Left),
     m_splitter(nullptr),
     itemView(nullptr),
     m_dirModel(nullptr),
@@ -313,7 +313,7 @@ KDirOperator::KDirOperator(const QUrl &_url, QWidget *parent) :
     setLayoutDirection(Qt::LeftToRight);
     setDirLister(new KDirLister());
 
-    connect(&d->completion, &KCompletion::match,
+    connect(&d->m_completion, &KCompletion::match,
             this, &KDirOperator::slotCompletionMatch);
 
     d->m_progressBar = new QProgressBar(this);
@@ -326,7 +326,7 @@ KDirOperator::KDirOperator(const QUrl &_url, QWidget *parent) :
     connect(d->progressDelayTimer, SIGNAL(timeout()),
             SLOT(_k_slotShowProgress()));
 
-    d->completeListDirty = false;
+    d->m_completeListDirty = false;
 
     // action stuff
     setupActions();
@@ -498,12 +498,12 @@ int KDirOperator::numFiles() const
 
 KCompletion *KDirOperator::completionObject() const
 {
-    return const_cast<KCompletion *>(&d->completion);
+    return const_cast<KCompletion *>(&d->m_completion);
 }
 
 KCompletion *KDirOperator::dirCompletionObject() const
 {
-    return const_cast<KCompletion *>(&d->dirCompletion);
+    return const_cast<KCompletion *>(&d->m_dirCompletion);
 }
 
 KActionCollection *KDirOperator::actionCollection() const
@@ -659,7 +659,7 @@ void KDirOperator::Private::_k_slotIconsView()
 
     // Put the icons on top
     actionCollection->action(QStringLiteral("decorationAtTop"))->setChecked(true);
-    decorationPosition = QStyleOptionViewItem::Top;
+    m_decorationPosition = QStyleOptionViewItem::Top;
 
     // Switch to simple view
     KFile::FileView fileView = static_cast<KFile::FileView>((viewKind & ~allViews()) | KFile::Simple);
@@ -673,7 +673,7 @@ void KDirOperator::Private::_k_slotCompactView()
 
     // Put the icons on the side
     actionCollection->action(QStringLiteral("decorationAtLeft"))->setChecked(true);
-    decorationPosition = QStyleOptionViewItem::Left;
+    m_decorationPosition = QStyleOptionViewItem::Left;
 
     // Switch to simple view
     KFile::FileView fileView = static_cast<KFile::FileView>((viewKind & ~allViews()) | KFile::Simple);
@@ -1003,9 +1003,9 @@ void KDirOperator::close()
 {
     resetCursor();
     d->pendingMimeTypes.clear();
-    d->completion.clear();
-    d->dirCompletion.clear();
-    d->completeListDirty = true;
+    d->m_completion.clear();
+    d->m_dirCompletion.clear();
+    d->m_completeListDirty = true;
     d->dirLister->stop();
 }
 
@@ -1179,8 +1179,8 @@ void KDirOperator::pathChanged()
 
     d->pendingMimeTypes.clear();
     //d->fileView->clear(); TODO
-    d->completion.clear();
-    d->dirCompletion.clear();
+    d->m_completion.clear();
+    d->m_dirCompletion.clear();
 
     // it may be, that we weren't ready at this time
     QApplication::restoreOverrideCursor();
@@ -1204,9 +1204,9 @@ void KDirOperator::Private::_k_slotRedirected(const QUrl &newURL)
 {
     m_currUrl = newURL;
     pendingMimeTypes.clear();
-    completion.clear();
-    dirCompletion.clear();
-    completeListDirty = true;
+    m_completion.clear();
+    m_dirCompletion.clear();
+    m_completeListDirty = true;
     emit q->urlEntered(newURL);
 }
 
@@ -1952,7 +1952,7 @@ QString KDirOperator::makeCompletion(const QString &string)
     }
 
     prepareCompletionObjects();
-    return d->completion.makeCompletion(string);
+    return d->m_completion.makeCompletion(string);
 }
 
 QString KDirOperator::makeDirCompletion(const QString &string)
@@ -1963,7 +1963,7 @@ QString KDirOperator::makeDirCompletion(const QString &string)
     }
 
     prepareCompletionObjects();
-    return d->dirCompletion.makeCompletion(string);
+    return d->m_dirCompletion.makeCompletion(string);
 }
 
 void KDirOperator::prepareCompletionObjects()
@@ -1972,15 +1972,15 @@ void KDirOperator::prepareCompletionObjects()
         return;
     }
 
-    if (d->completeListDirty) {   // create the list of all possible completions
+    if (d->m_completeListDirty) {   // create the list of all possible completions
         const KFileItemList itemList = d->dirLister->items();
         for (const KFileItem &item : itemList) {
-            d->completion.addItem(item.name());
+            d->m_completion.addItem(item.name());
             if (item.isDir()) {
-                d->dirCompletion.addItem(item.name());
+                d->m_dirCompletion.addItem(item.name());
             }
         }
-        d->completeListDirty = false;
+        d->m_completeListDirty = false;
     }
 }
 
@@ -2320,8 +2320,8 @@ void KDirOperator::updateViewActions()
     d->actionCollection->action(QStringLiteral("detailed tree view"))->setChecked(KFile::isDetailTreeView(fv));
 
     // dolphin style views
-    d->actionCollection->action(QStringLiteral("icons view"))->setChecked(KFile::isSimpleView(fv) && d->decorationPosition == QStyleOptionViewItem::Top);
-    d->actionCollection->action(QStringLiteral("compact view"))->setChecked(KFile::isSimpleView(fv) && d->decorationPosition == QStyleOptionViewItem::Left);
+    d->actionCollection->action(QStringLiteral("icons view"))->setChecked(KFile::isSimpleView(fv) && d->m_decorationPosition == QStyleOptionViewItem::Top);
+    d->actionCollection->action(QStringLiteral("compact view"))->setChecked(KFile::isSimpleView(fv) && d->m_decorationPosition == QStyleOptionViewItem::Left);
     d->actionCollection->action(QStringLiteral("details view"))->setChecked(KFile::isDetailTreeView(fv) || KFile::isDetailView(fv));
 }
 
@@ -2452,7 +2452,7 @@ void KDirOperator::writeConfig(KConfigGroup &configGroup)
         d->writeIconZoomSettingsIfNeeded();
     }
 
-    configGroup.writeEntry(QStringLiteral("Decoration position"), (int) d->decorationPosition);
+    configGroup.writeEntry(QStringLiteral("Decoration position"), (int) d->m_decorationPosition);
 }
 
 void KDirOperator::Private::writeIconZoomSettingsIfNeeded() {
@@ -2826,7 +2826,7 @@ void KDirOperator::Private::_k_slotExpandToUrl(const QModelIndex &index)
 
 void KDirOperator::Private::_k_slotItemsChanged()
 {
-    completeListDirty = true;
+    m_completeListDirty = true;
 }
 
 int KDirOperator::Private::iconSizeForViewType(QAbstractItemView *itemView) const
@@ -2843,7 +2843,7 @@ int KDirOperator::Private::iconSizeForViewType(QAbstractItemView *itemView) cons
 KDirOperator::Private::ZoomSettingsForView KDirOperator::Private::zoomSettingsForViewForView() const {
      KFile::FileView fv = static_cast<KFile::FileView>(viewKind);
      if (KFile::isSimpleView(fv)) {
-         if (decorationPosition == QStyleOptionViewItem::Top){
+         if (m_decorationPosition == QStyleOptionViewItem::Top){
              // Simple view decoration above, aka Icons View
              // default to 43% aka 64px
              return {QStringLiteral("iconViewIconSize"), 43};
@@ -2885,13 +2885,13 @@ bool KDirOperator::showHiddenFiles() const
 
 QStyleOptionViewItem::Position KDirOperator::decorationPosition() const
 {
-    return d->decorationPosition;
+    return d->m_decorationPosition;
 }
 
 void KDirOperator::setDecorationPosition(QStyleOptionViewItem::Position position)
 {
-    d->decorationPosition = position;
-    const bool decorationAtLeft = d->decorationPosition == QStyleOptionViewItem::Left;
+    d->m_decorationPosition = position;
+    const bool decorationAtLeft = d->m_decorationPosition == QStyleOptionViewItem::Left;
     d->actionCollection->action(QStringLiteral("decorationAtLeft"))->setChecked(decorationAtLeft);
     d->actionCollection->action(QStringLiteral("decorationAtTop"))->setChecked(!decorationAtLeft);
 }
