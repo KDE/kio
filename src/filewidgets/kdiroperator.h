@@ -1021,6 +1021,8 @@ private:
     Q_PRIVATE_SLOT(d, void _k_slotExpandToUrl(const QModelIndex &))
     Q_PRIVATE_SLOT(d, void _k_slotItemsChanged())
     Q_PRIVATE_SLOT(d, void _k_slotDirectoryCreated(const QUrl &))
+    Q_PRIVATE_SLOT(d, void _k_slotAskUserDeleteResult(bool, const QList<QUrl> &,
+                                                      KIO::AskUserActionInterface::DeletionType, QWidget *))
 };
 
 #endif

@@ -39,6 +39,7 @@
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <KJobWidgets>
+#include <widgetsaskuseractionhandler.h>
 #include <kio/deletejob.h>
 #include <kio/copyjob.h>
 #include <kio/jobuidelegate.h>
@@ -51,6 +52,8 @@
 #include <KActionCollection>
 #include <KConfigGroup>
 #include <KSharedConfig>
+
+#include <memory>
 
 template class QHash<QString, KFileItem>;
 
@@ -76,6 +79,7 @@ public:
     int sortColumn() const;
     Qt::SortOrder sortOrder() const;
     void updateSorting(QDir::SortFlags sort);
+    KIO::WidgetsAskUserActionHandler* askUserHandler();
 
     static bool isReadable(const QUrl &url);
     bool isSchemeSupported(const QString &scheme) const;
@@ -132,12 +136,15 @@ public:
     void _k_slotExpandToUrl(const QModelIndex &);
     void _k_slotItemsChanged();
     void _k_slotDirectoryCreated(const QUrl &);
+    void _k_slotAskUserDeleteResult(bool allowDelete, const QList<QUrl> &urls,
+                                    KIO::AskUserActionInterface::DeletionType deletionType, QWidget *parent);
 
     int iconSizeForViewType(QAbstractItemView *itemView) const;
     void writeIconZoomSettingsIfNeeded();
     ZoomSettingsForView zoomSettingsForViewForView() const;
 
     // private members
+    // TODO: rename "parent" to "q"
     KDirOperator * const parent;
     QStack<QUrl *> backStack;   ///< Contains all URLs you can reach with the back button.
     QStack<QUrl *> forwardStack; ///< Contains all URLs you can reach with the forward button.
@@ -203,6 +210,10 @@ public:
     bool shouldFetchForItems;
     InlinePreviewState inlinePreviewState;
     QStringList supportedSchemes;
+
+    // TODO: in KF6 this will become a JobUiDelegate (which will inherit
+    // from WidgetsAskUserActionHandler)
+    std::unique_ptr<KIO::WidgetsAskUserActionHandler> m_askUserHandler;
 };
 
 KDirOperator::Private::Private(KDirOperator *_parent) :
@@ -792,12 +803,34 @@ KIO::DeleteJob *KDirOperator::del(const KFileItemList &items,
     return nullptr;
 }
 
+KIO::WidgetsAskUserActionHandler* KDirOperator::Private::askUserHandler()
+{
+    if (m_askUserHandler) {
+        return m_askUserHandler.get();
+    }
+
+    m_askUserHandler.reset(new KIO::WidgetsAskUserActionHandler{});
+    QObject::connect(m_askUserHandler.get(), &KIO::WidgetsAskUserActionHandler::askUserDeleteResult,
+                     parent, [this](bool allowDelete, const QList<QUrl> &urls,
+                                    KIO::AskUserActionInterface::DeletionType deletionType, QWidget *parentWidget) {
+                        _k_slotAskUserDeleteResult(allowDelete, urls, deletionType, parentWidget);
+                     });
+
+    return m_askUserHandler.get();
+}
+
 void KDirOperator::deleteSelected()
 {
-    const KFileItemList list = selectedItems();
-    if (!list.isEmpty()) {
-        del(list, this);
+    const QList<QUrl> urls = selectedItems().urlList();
+    if (urls.isEmpty()) {
+        KMessageBox::information(this,
+                                 i18n("You did not select a file to delete."),
+                                 i18n("Nothing to Delete"));
+        return;
     }
+
+    d->askUserHandler()->askUserDelete(urls, KIO::AskUserActionInterface::Delete,
+                                       KIO::AskUserActionInterface::DefaultConfirmation, this);
 }
 
 KIO::CopyJob *KDirOperator::trash(const KFileItemList &items,
@@ -898,10 +931,38 @@ void KDirOperator::trashSelected()
         return;
     }
 
-    const KFileItemList list = selectedItems();
-    if (!list.isEmpty()) {
-        trash(list, this);
+    const QList<QUrl> urls = selectedItems().urlList();
+    if (urls.isEmpty()) {
+        KMessageBox::information(this,
+                                 i18n("You did not select a file to trash."),
+                                 i18n("Nothing to Trash"));
+        return;
     }
+
+    d->askUserHandler()->askUserDelete(urls, KIO::AskUserActionInterface::Trash,
+                                       KIO::AskUserActionInterface::DefaultConfirmation, this);
+}
+
+void KDirOperator::Private::_k_slotAskUserDeleteResult(bool allowDelete, const QList<QUrl> &urls,
+                                                       KIO::AskUserActionInterface::DeletionType deletionType,
+                                                       QWidget *parentWidget)
+{
+    if (parentWidget != parent || !allowDelete) {
+        return;
+    }
+
+    KIO::Job *job = nullptr;
+    if (deletionType == KIO::AskUserActionInterface::Trash) {
+        job = KIO::trash(urls);
+    } else if (deletionType == KIO::AskUserActionInterface::Delete) {
+        job = KIO::del(urls, KIO::DefaultFlags);
+    }
+
+    if (!job) {
+        return;
+    }
+    KJobWidgets::setWindow(job, parent);
+    job->uiDelegate()->setAutoErrorHandlingEnabled(true);
 }
 
 #if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 76)
