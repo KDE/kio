@@ -152,7 +152,7 @@ public:
     QModelIndex m_lastHoveredIndex;
 
     KDirLister *dirLister;
-    QUrl currUrl;
+    QUrl m_currUrl;
 
     KCompletion completion;
     KCompletion dirCompletion;
@@ -173,7 +173,7 @@ public:
     int defaultView;
 
     KFile::Modes mode;
-    QProgressBar *progressBar;
+    QProgressBar *m_progressBar;
 
     KPreviewWidgetBase *preview;
     QUrl previewUrl;
@@ -224,7 +224,7 @@ KDirOperator::Private::Private(KDirOperator *qq) :
     itemView(nullptr),
     m_dirModel(nullptr),
     m_proxyModel(nullptr),
-    progressBar(nullptr),
+    m_progressBar(nullptr),
     preview(nullptr),
     previewUrl(),
     previewWidth(0),
@@ -293,18 +293,18 @@ KDirOperator::KDirOperator(const QUrl &_url, QWidget *parent) :
     if (_url.isEmpty()) { // no dir specified -> current dir
         QString strPath = QDir::currentPath();
         strPath.append(QLatin1Char('/'));
-        d->currUrl = QUrl::fromLocalFile(strPath);
+        d->m_currUrl = QUrl::fromLocalFile(strPath);
     } else {
-        d->currUrl = _url;
-        if (d->currUrl.scheme().isEmpty()) {
-            d->currUrl.setScheme(QStringLiteral("file"));
+        d->m_currUrl = _url;
+        if (d->m_currUrl.scheme().isEmpty()) {
+            d->m_currUrl.setScheme(QStringLiteral("file"));
         }
 
-        QString path = d->currUrl.path();
+        QString path = d->m_currUrl.path();
         if (!path.endsWith(QLatin1Char('/'))) {
             path.append(QLatin1Char('/')); // make sure we have a trailing slash!
         }
-        d->currUrl.setPath(path);
+        d->m_currUrl.setPath(path);
     }
 
     // We set the direction of this widget to LTR, since even on RTL desktops
@@ -316,13 +316,13 @@ KDirOperator::KDirOperator(const QUrl &_url, QWidget *parent) :
     connect(&d->completion, &KCompletion::match,
             this, &KDirOperator::slotCompletionMatch);
 
-    d->progressBar = new QProgressBar(this);
-    d->progressBar->setObjectName(QStringLiteral("d->progressBar"));
-    d->progressBar->adjustSize();
-    d->progressBar->move(2, height() - d->progressBar->height() - 2);
+    d->m_progressBar = new QProgressBar(this);
+    d->m_progressBar->setObjectName(QStringLiteral("d->m_progressBar"));
+    d->m_progressBar->adjustSize();
+    d->m_progressBar->move(2, height() - d->m_progressBar->height() - 2);
 
     d->progressDelayTimer = new QTimer(this);
-    d->progressDelayTimer->setObjectName(QStringLiteral("d->progressBar delay timer"));
+    d->progressDelayTimer->setObjectName(QStringLiteral("d->m_progressBar delay timer"));
     connect(d->progressDelayTimer, SIGNAL(timeout()),
             SLOT(_k_slotShowProgress()));
 
@@ -380,7 +380,7 @@ void KDirOperator::resetCursor()
     if (qApp) {
         QApplication::restoreOverrideCursor();
     }
-    d->progressBar->hide();
+    d->m_progressBar->hide();
 }
 
 void KDirOperator::sortByName()
@@ -611,7 +611,7 @@ void KDirOperator::Private::_k_slotOpenFileManager()
 {
     const KFileItemList list = q->selectedItems();
     if (list.isEmpty()) {
-        KIO::highlightInFileManager({currUrl.adjusted(QUrl::StripTrailingSlash)});
+        KIO::highlightInFileManager({m_currUrl.adjusted(QUrl::StripTrailingSlash)});
     } else {
         KIO::highlightInFileManager(list.urlList());
     }
@@ -726,7 +726,7 @@ bool KDirOperator::mkdir(const QString &directory, bool enterDirectory)
 
     bool writeOk = false;
     bool exists = false;
-    QUrl folderurl(d->currUrl);
+    QUrl folderurl(d->m_currUrl);
 
 #if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
     const QStringList dirs = directory.split(QLatin1Char('/'), QString::SkipEmptyParts);
@@ -1024,7 +1024,7 @@ void KDirOperator::setUrl(const QUrl &_newurl, bool clearforward)
     }
 
     // already set
-    if (newurl.matches(d->currUrl, QUrl::StripTrailingSlash)) {
+    if (newurl.matches(d->m_currUrl, QUrl::StripTrailingSlash)) {
         return;
     }
 
@@ -1034,7 +1034,7 @@ void KDirOperator::setUrl(const QUrl &_newurl, bool clearforward)
     if (!Private::isReadable(newurl)) {
         // maybe newurl is a file? check its parent directory
         newurl = newurl.adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash);
-        if (newurl.matches(d->currUrl, QUrl::StripTrailingSlash)) {
+        if (newurl.matches(d->m_currUrl, QUrl::StripTrailingSlash)) {
             return;    // parent is current dir, nothing to do (fixes #173454, too)
         }
         KIO::StatJob *job = KIO::stat(newurl);
@@ -1056,12 +1056,12 @@ void KDirOperator::setUrl(const QUrl &_newurl, bool clearforward)
 
     if (clearforward) {
         // autodelete should remove this one
-        d->m_backStack.push(new QUrl(d->currUrl));
+        d->m_backStack.push(new QUrl(d->m_currUrl));
         qDeleteAll(d->m_forwardStack);
         d->m_forwardStack.clear();
     }
 
-    d->currUrl = newurl;
+    d->m_currUrl = newurl;
 
     pathChanged();
     emit urlEntered(newurl);
@@ -1089,7 +1089,7 @@ void KDirOperator::updateDir()
 void KDirOperator::rereadDir()
 {
     pathChanged();
-    d->openUrl(d->currUrl, KDirLister::Reload);
+    d->openUrl(d->m_currUrl, KDirLister::Reload);
 }
 
 bool KDirOperator::Private::isSchemeSupported(const QString &scheme) const
@@ -1188,7 +1188,7 @@ void KDirOperator::pathChanged()
     // when KIO::Job emits finished, the slot will restore the cursor
     QApplication::setOverrideCursor(Qt::WaitCursor);
 
-    if (!Private::isReadable(d->currUrl)) {
+    if (!Private::isReadable(d->m_currUrl)) {
         KMessageBox::error(d->itemView,
                            i18n("The specified folder does not exist "
                                 "or was not readable."));
@@ -1202,7 +1202,7 @@ void KDirOperator::pathChanged()
 
 void KDirOperator::Private::_k_slotRedirected(const QUrl &newURL)
 {
-    currUrl = newURL;
+    m_currUrl = newURL;
     pendingMimeTypes.clear();
     completion.clear();
     dirCompletion.clear();
@@ -1217,7 +1217,7 @@ void KDirOperator::back()
         return;
     }
 
-    d->m_forwardStack.push(new QUrl(d->currUrl));
+    d->m_forwardStack.push(new QUrl(d->m_currUrl));
 
     QUrl *s = d->m_backStack.pop();
     const QUrl newUrl = *s;
@@ -1227,11 +1227,11 @@ void KDirOperator::back()
         const QUrl _url =
             newUrl.adjusted(QUrl::StripTrailingSlash).adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash);
 
-        if (_url == d->currUrl.adjusted(QUrl::StripTrailingSlash) && !d->m_backStack.isEmpty()) {
+        if (_url == d->m_currUrl.adjusted(QUrl::StripTrailingSlash) && !d->m_backStack.isEmpty()) {
             // e.g. started in a/b/c, cdUp() twice to "a", then back(), we highlight "c"
             d->m_lastUrl = *(d->m_backStack.top());
         } else {
-            d->m_lastUrl = d->currUrl;
+            d->m_lastUrl = d->m_currUrl;
         }
     }
 
@@ -1245,7 +1245,7 @@ void KDirOperator::forward()
         return;
     }
 
-    d->m_backStack.push(new QUrl(d->currUrl));
+    d->m_backStack.push(new QUrl(d->m_currUrl));
 
     QUrl *s = d->m_forwardStack.pop();
     setUrl(*s, false);
@@ -1254,16 +1254,16 @@ void KDirOperator::forward()
 
 QUrl KDirOperator::url() const
 {
-    return d->currUrl;
+    return d->m_currUrl;
 }
 
 void KDirOperator::cdUp()
 {
     // Allow /d/c// to go up to /d/ instead of /d/c/
-    QUrl tmp(d->currUrl.adjusted(QUrl::NormalizePathSegments));
+    QUrl tmp(d->m_currUrl.adjusted(QUrl::NormalizePathSegments));
 
     if (d->dirHighlighting) {
-        d->m_lastUrl = d->currUrl;
+        d->m_lastUrl = d->m_currUrl;
     }
 
     setUrl(tmp.resolved(QUrl(QStringLiteral(".."))), true);
@@ -1749,7 +1749,7 @@ void KDirOperator::setView(QAbstractItemView *view)
 
     if (listDir) {
         QApplication::setOverrideCursor(Qt::WaitCursor);
-        d->openUrl(d->currUrl);
+        d->openUrl(d->m_currUrl);
     }
 
     if (selectionModel != nullptr) {
@@ -1988,7 +1988,7 @@ void KDirOperator::slotCompletionMatch(const QString &match)
 {
     QUrl url(match);
     if (url.isRelative()) {
-        url = d->currUrl.resolved(url);
+        url = d->m_currUrl.resolved(url);
     }
     setCurrentItem(url);
     emit completion(match);
@@ -2245,13 +2245,13 @@ void KDirOperator::setupMenu(int whichActions)
         d->actionMenu->addAction(d->actionCollection->action(QStringLiteral("new")));
 
         d->actionMenu->addAction(d->actionCollection->action(QStringLiteral("rename")));
-        d->actionCollection->action(QStringLiteral("rename"))->setEnabled(KProtocolManager::supportsMoving(d->currUrl));
+        d->actionCollection->action(QStringLiteral("rename"))->setEnabled(KProtocolManager::supportsMoving(d->m_currUrl));
 
-        if (d->currUrl.isLocalFile() && !(QApplication::keyboardModifiers() & Qt::ShiftModifier)) {
+        if (d->m_currUrl.isLocalFile() && !(QApplication::keyboardModifiers() & Qt::ShiftModifier)) {
             d->actionMenu->addAction(d->actionCollection->action(QStringLiteral("trash")));
         }
         KConfigGroup cg(KSharedConfig::openConfig(), QStringLiteral("KDE"));
-        const bool del = !d->currUrl.isLocalFile() ||
+        const bool del = !d->m_currUrl.isLocalFile() ||
                          (QApplication::keyboardModifiers() & Qt::ShiftModifier) ||
                          cg.readEntry("ShowDeleteCommand", false);
         if (del) {
@@ -2484,9 +2484,9 @@ void KDirOperator::resizeEvent(QResizeEvent *)
         d->previewWidth = sizes[1];
     }
 
-    if (d->progressBar->parent() == this) {
+    if (d->m_progressBar->parent() == this) {
         // might be reparented into a statusbar
-        d->progressBar->move(2, height() - d->progressBar->height() - 2);
+        d->m_progressBar->move(2, height() - d->m_progressBar->height() - 2);
     }
 }
 
@@ -2531,7 +2531,7 @@ bool KDirOperator::followSelectedDirectories() const
 
 void KDirOperator::Private::_k_slotStarted()
 {
-    progressBar->setValue(0);
+    m_progressBar->setValue(0);
     // delay showing the progressbar for one second
     progressDelayTimer->setSingleShot(true);
     progressDelayTimer->start(1000);
@@ -2539,20 +2539,20 @@ void KDirOperator::Private::_k_slotStarted()
 
 void KDirOperator::Private::_k_slotShowProgress()
 {
-    progressBar->raise();
-    progressBar->show();
+    m_progressBar->raise();
+    m_progressBar->show();
 }
 
 void KDirOperator::Private::_k_slotProgress(int percent)
 {
-    progressBar->setValue(percent);
+    m_progressBar->setValue(percent);
 }
 
 void KDirOperator::Private::_k_slotIOFinished()
 {
     progressDelayTimer->stop();
     _k_slotProgress(100);
-    progressBar->hide();
+    m_progressBar->hide();
     emit q->finishedLoading();
     q->resetCursor();
 
@@ -2574,7 +2574,7 @@ void KDirOperator::Private::_k_slotCanceled()
 
 QProgressBar *KDirOperator::progressBar() const
 {
-    return d->progressBar;
+    return d->m_progressBar;
 }
 
 void KDirOperator::clearHistory()
