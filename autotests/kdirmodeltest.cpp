@@ -952,9 +952,9 @@ void KDirModelTest::testMimeFilter()
     QVERIFY(spyRowsRemoved.count() >= 1); // depends on contiguity...
     QVERIFY(spyItemsDeleted.count() >= 1); // once for every dir
     // Maybe it would make sense to have those items in itemsFilteredByMime,
-    // but well, for the only existing use of that signal (mime filter plugin),
+    // but well, for the only existing use of that signal (MIME type filter plugin),
     // it's not really necessary, the plugin has seen those files before anyway.
-    // The signal is mostly useful for the case of listing a dir with a mime filter set.
+    // The signal is mostly useful for the case of listing a dir with a MIME type filter set.
     //QCOMPARE(spyItemsFilteredByMime.count(), 1);
     //QCOMPARE(spyItemsFilteredByMime[0][0].value<KFileItemList>().count(), 4);
     spyItemsDeleted.clear();

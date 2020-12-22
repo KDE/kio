@@ -315,7 +315,7 @@ void FileProtocol::get(const QUrl &url)
     posix_fadvise(f.handle(), 0, 0, POSIX_FADV_SEQUENTIAL);
 #endif
 
-    // Determine the mimetype of the file to be retrieved, and emit it.
+    // Determine the MIME type of the file to be retrieved, and emit it.
     // This is mandatory in all slaves (for KRun/BrowserRun to work)
     // In real "remote" slaves, this is usually done using mimeTypeForFileNameAndData
     // after receiving some data. But we don't know how much data the mimemagic rules
@@ -323,7 +323,7 @@ void FileProtocol::get(const QUrl &url)
     QMimeDatabase db;
     QMimeType mt = db.mimeTypeForFile(url.toLocalFile());
     mimeType(mt.name());
-    // Emit total size AFTER mimetype
+    // Emit total size AFTER the MIME type
     totalSize(buff.st_size);
 
     KIO::filesize_t processed_size = 0;
@@ -413,10 +413,10 @@ void FileProtocol::open(const QUrl &url, QIODevice::OpenMode mode)
 
         return;
     }
-    // Determine the mimetype of the file to be retrieved, and emit it.
+    // Determine the MIME type of the file to be retrieved, and emit it.
     // This is mandatory in all slaves (for KRun/BrowserRun to work).
     // If we're not opening the file ReadOnly or ReadWrite, don't attempt to
-    // read the file and send the mimetype.
+    // read the file and send the MIME type.
     if (mode & QIODevice::ReadOnly) {
         QMimeDatabase db;
         QMimeType mt = db.mimeTypeForFile(url.toLocalFile());

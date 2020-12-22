@@ -96,7 +96,7 @@ QString KFileFilterCombo::currentFilter() const
     if (f == itemText(currentIndex())) { // user didn't edit the text
         f = d->m_filters.value(currentIndex());
         if (d->isMimeFilter || (currentIndex() == 0 && d->hasAllSupportedFiles)) {
-            return f; // we have a mimetype as filter
+            return f; // we have a MIME type as filter
         }
     }
 
@@ -138,13 +138,13 @@ void KFileFilterCombo::setMimeFilter(const QStringList &types,
 
     QString allComments, allTypes;
 
-    // If there's mimetypes that have the same comment, we will show the extension
-    // in addition to the mime comment
+    // If there's MIME types that have the same comment, we will show the extension
+    // in addition to the MIME type comment
     QHash<QString, int> allTypeComments;
     for (QStringList::ConstIterator it = types.begin(); it != types.end(); ++it) {
         const QMimeType type = db.mimeTypeForName(*it);
         if (!type.isValid()) {
-            qCWarning(KIO_KFILEWIDGETS_KFILEFILTERCOMBO) << *it << "is not a valid mimeType";
+            qCWarning(KIO_KFILEWIDGETS_KFILEFILTERCOMBO) << *it << "is not a valid MIME type";
             continue;
         }
 
@@ -155,7 +155,7 @@ void KFileFilterCombo::setMimeFilter(const QStringList &types,
         // qDebug() << *it;
         const QMimeType type = db.mimeTypeForName(*it);
         if (!type.isValid()) {
-            qCWarning(KIO_KFILEWIDGETS_KFILEFILTERCOMBO) << *it << "is not a valid mimeType";
+            qCWarning(KIO_KFILEWIDGETS_KFILEFILTERCOMBO) << *it << "is not a valid MIME type";
             continue;
         }
 
@@ -189,7 +189,7 @@ void KFileFilterCombo::setMimeFilter(const QStringList &types,
     }
 
     if (d->m_allTypes) {
-        if (count() <= 3) { // show the mime-comments of at max 3 types
+        if (count() <= 3) { // show the MIME type comments of at max 3 types
             insertItem(0, allComments);
         } else {
             insertItem(0, i18n("All Supported Files"));

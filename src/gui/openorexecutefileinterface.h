@@ -50,7 +50,7 @@ public:
      *
      * @param job the job calling this. This is useful if you need to
      * get any of its properties
-     * @param mimetype the mimetype of the file being handled
+     * @param mimetype the MIME type of the file being handled
      *
      * Implementations of this method must emit either executeFile or canceled.
      *

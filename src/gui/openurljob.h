@@ -23,7 +23,7 @@ class OpenUrlJobPrivate;
  * @class OpenUrlJob openurljob.h <KIO/OpenUrlJob>
  *
  * @brief OpenUrlJob finds out the right way to "open" a URL.
- * This includes finding out its mimetype, and then the associated application,
+ * This includes finding out its MIME type, and then the associated application,
  * or running desktop files, executables, etc.
  * It also honours the "use this webbrowser for all http(s) URLs" setting.
  *
@@ -46,7 +46,7 @@ public:
     explicit OpenUrlJob(const QUrl &url, QObject *parent = nullptr);
 
     /**
-     * @brief Creates an OpenUrlJob for the case where the mimeType is already known
+     * @brief Creates an OpenUrlJob for the case where the MIME type is already known.
      * @param url the URL of the file/directory to open
      * @param mimeType the type of file/directory. See QMimeType.
      */
@@ -67,7 +67,7 @@ public:
     /**
      * Sets the file name to use in the case of downloading the file to a tempfile,
      * in order to give it to a non-URL-aware application.
-     * Some apps rely on the extension to determine the mimetype of the file.
+     * Some apps rely on the extension to determine the MIME type of the file.
      * Usually the file name comes from the URL, but in the case of the
      * HTTP Content-Disposition header, we need to override the file name.
      * @param suggestedFileName the file name
@@ -141,7 +141,7 @@ public:
 
 Q_SIGNALS:
     /**
-     * Emitted when the mimeType is determined.
+     * Emitted when the MIME type is determined.
      * This can be used for special cases like webbrowsers
      * who want to embed the URL in some cases, rather than starting a different
      * application. In that case they can kill the job.

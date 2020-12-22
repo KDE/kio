@@ -62,7 +62,7 @@ public:
      * following behavior:
      * @li Files  all inserted URLs will be treated as files, therefore the
      *            url shown in the combo will never show a trailing /
-     *            the icon will be the one associated with the file's mimetype.
+     *            the icon will be the one associated with the file's MIME type.
      * @li Directories  all inserted URLs will be treated as directories, will
      *                  have a trailing slash in the combobox. The current
      *                  directory will show the "open folder" icon, other

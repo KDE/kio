@@ -62,8 +62,8 @@ class QWidget;
  * install(FILES foothumbcreator.desktop DESTINATION ${SERVICES_INSTALL_DIR})
  * \endcode
  *
- * Note that you can supply a comma-separated list of mimetypes to the MimeTypes
- * entry, naming all mimetypes your ThumbCreator supports. You can also use
+ * Note that you can supply a comma-separated list of MIME types to the MimeTypes
+ * entry, naming all MIME types your ThumbCreator supports. You can also use
  * simple wildcards, like
  * \htmlonly "text/&#42;".\endhtmlonly\latexonly text/$\ast$.\endlatexonly
  *
@@ -95,7 +95,7 @@ public:
 #if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 32)
         DrawFrame = 1, /**< \deprecated since 5.32. Used to paint a frame around the preview, but applications take care of that nowadays. */
 #endif
-        BlendIcon = 2  /**< The mimetype icon should be blended over the preview. */
+        BlendIcon = 2  /**< The MIME type icon should be blended over the preview. */
     };
 
     /**

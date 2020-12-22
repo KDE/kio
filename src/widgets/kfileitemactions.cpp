@@ -257,7 +257,7 @@ KService::List KFileItemActions::associatedApplications(const QStringList &mimeT
     QList<KFileItemActionsPrivate::ServiceRank> rankings;
     QStringList serviceList;
 
-    // This section does two things.  First, it determines which services are common to all the given mimetypes.
+    // This section does two things.  First, it determines which services are common to all the given MIME types.
     // Second, it ranks them based on their preference level in the associated applications list.
     // The more often a service appear near the front of the list, the LOWER its score.
 
@@ -272,7 +272,7 @@ KService::List KFileItemActions::associatedApplications(const QStringList &mimeT
     }
 
     for (int j = 1; j < mimeTypeList.count(); ++j) {
-        QStringList subservice; // list of services that support this mimetype
+        QStringList subservice; // list of services that support this MIME type
         const KService::List offers = KMimeTypeTrader::self()->query(mimeTypeList[j], QStringLiteral("Application"), traderConstraint);
         subservice.reserve(offers.count());
         for (int i = 0; i != offers.count(); ++i) {
@@ -281,10 +281,10 @@ KService::List KFileItemActions::associatedApplications(const QStringList &mimeT
             const int idPos = serviceList.indexOf(serviceId);
             if (idPos != -1) {
                 rankings[idPos].score += i;
-            } // else: we ignore the services that didn't support the previous mimetypes
+            } // else: we ignore the services that didn't support the previous MIME types
         }
 
-        // Remove services which supported the previous mimetypes but don't support this one
+        // Remove services which supported the previous MIME types but don't support this one
         for (int i = 0; i < serviceList.count(); ++i) {
             if (!subservice.contains(serviceList[i])) {
                 serviceList.removeAt(i);
@@ -292,7 +292,7 @@ KService::List KFileItemActions::associatedApplications(const QStringList &mimeT
                 --i;
             }
         }
-        // Nothing left -> there is no common application for these mimetypes
+        // Nothing left -> there is no common application for these MIME types
         if (rankings.isEmpty()) {
             return KService::List();
         }
@@ -345,7 +345,7 @@ void KFileItemActions::insertOpenWithActionsTo(QAction *before, QMenu *topMenu, 
 
     const QStringList serviceIdList = d->listPreferredServiceIds(d->m_mimeTypeList, traderConstraint);
 
-    // When selecting files with multiple mimetypes, offer either "open with <app for all>"
+    // When selecting files with multiple MIME types, offer either "open with <app for all>"
     // or a generic <open> (if there are any apps associated).
     if (d->m_mimeTypeList.count() > 1
             && !serviceIdList.isEmpty()
@@ -431,7 +431,7 @@ void KFileItemActionsPrivate::slotRunPreferredApplications()
             }
         }
 
-        if (serviceId.isEmpty()) { // empty means: no associated app for this mimetype
+        if (serviceId.isEmpty()) { // empty means: no associated app for this MIME type
             openWithByMime(serviceItems);
             continue;
         }

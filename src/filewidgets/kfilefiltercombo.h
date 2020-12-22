@@ -43,7 +43,7 @@ public:
 
     /**
      * @returns the current filter, either something like "*.cpp *.h"
-     * or the current mimetype, like "text/html", or a list of those, like
+     * or the current MIME type, like "text/html", or a list of those, like
      " "text/html text/plain image/png", all separated with one space.
      */
     QString currentFilter() const;
@@ -55,14 +55,14 @@ public:
     void setCurrentFilter(const QString &filter);
 
     /**
-     * Sets a list of mimetypes.
+     * Sets a list of MIME types.
      * If @p defaultType is set, it will be set as the current item.
-     * Otherwise, a first item showing all the mimetypes will be created.
+     * Otherwise, a first item showing all the MIME types will be created.
      */
     void setMimeFilter(const QStringList &types, const QString &defaultType);
 
     /**
-     * @return true if the filter's first item is the list of all mimetypes
+     * @return true if the filter's first item is the list of all MIME types
      */
     bool showsAllTypes() const;
 
@@ -83,7 +83,7 @@ public:
     QString defaultFilter() const;
 
     /**
-     * @return all filters (this can be a list of patterns or a list of mimetypes)
+     * @return all filters (this can be a list of patterns or a list of MIME types)
      */
     QStringList filters() const;
 

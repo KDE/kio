@@ -58,8 +58,8 @@ public:
      *         @li '::&lt;keyword&gt;' to start in the directory last used
      *             by a filedialog in any application that specified the
      *             same keyword.
-     * @param filter A shell glob or a mime-type-filter that specifies which files to display.
-     *    The preferred option is to set a list of mimetype names, see setMimeFilter() for details.
+     * @param filter A shell glob or a MIME type filter that specifies which files to display.
+     *    The preferred option is to set a list of MIME type names, see setMimeFilter() for details.
      *    Otherwise you can set the text to be displayed for the each glob, and
      *    provide multiple globs, see setFilter() for details.
      * @param parent The widget the dialog will be centered on initially.
@@ -90,8 +90,8 @@ public:
      *         @li '::&lt;keyword&gt;' to start in the directory last used
      *             by a filedialog in any application that specified the
      *             same keyword.
-     * @param filter A shell glob or a mime-type-filter that specifies which files to display.
-     *    The preferred option is to set a list of mimetype names, see setMimeFilter() for details.
+     * @param filter A shell glob or a MIME type filter that specifies which files to display.
+     *    The preferred option is to set a list of MIME type names, see setMimeFilter() for details.
      *    Otherwise you can set the text to be displayed for the each glob, and
      *    provide multiple globs, see setFilter() for details.
      * @param parent The widget the dialog will be centered on initially.
@@ -122,8 +122,8 @@ public:
      *         @li '::&lt;keyword&gt;' to start in the directory last used
      *             by a filedialog in any application that specified the
      *             same keyword.
-     * @param filter A shell glob or a mime-type-filter that specifies which files to display.
-     *    The preferred option is to set a list of mimetype names, see setMimeFilter() for details.
+     * @param filter A shell glob or a MIME type filter that specifies which files to display.
+     *    The preferred option is to set a list of MIME type names, see setMimeFilter() for details.
      *    Otherwise you can set the text to be displayed for the each glob, and
      *    provide multiple globs, see setFilter() for details.
      * @param parent The widget the dialog will be centered on initially.
@@ -154,8 +154,8 @@ public:
      *         @li '::&lt;keyword&gt;' to start in the directory last used
      *             by a filedialog in any application that specified the
      *             same keyword.
-     * @param filter A shell glob or a mime-type-filter that specifies which files to display.
-     *    The preferred option is to set a list of mimetype names, see setMimeFilter() for details.
+     * @param filter A shell glob or a MIME type filter that specifies which files to display.
+     *    The preferred option is to set a list of MIME type names, see setMimeFilter() for details.
      *    Otherwise you can set the text to be displayed for the each glob, and
      *    provide multiple globs, see setFilter() for details.
      * @param parent The widget the dialog will be centered on initially.
@@ -188,8 +188,8 @@ public:
      *         @li '::&lt;keyword&gt;' to start in the directory last used
      *             by a filedialog in any application that specified the
      *             same keyword.
-     * @param filter A shell glob or a mime-type-filter that specifies which files to display.
-     *    The preferred option is to set a list of mimetype names, see setMimeFilter() for details.
+     * @param filter A shell glob or a MIME type filter that specifies which files to display.
+     *    The preferred option is to set a list of MIME type names, see setMimeFilter() for details.
      *    Otherwise you can set the text to be displayed for the each glob, and
      *    provide multiple globs, see setFilter() for details.
      * @param parent The widget the dialog will be centered on initially.
@@ -222,8 +222,8 @@ public:
      *         @li '::&lt;keyword&gt;' to start in the directory last used
      *             by a filedialog in any application that specified the
      *             same keyword.
-     * @param filter A shell glob or a mime-type-filter that specifies which files to display.
-     *    The preferred option is to set a list of mimetype names, see setMimeFilter() for details.
+     * @param filter A shell glob or a MIME type filter that specifies which files to display.
+     *    The preferred option is to set a list of MIME type names, see setMimeFilter() for details.
      *    Otherwise you can set the text to be displayed for the each glob, and
      *    provide multiple globs, see setFilter() for details.
      * @param parent The widget the dialog will be centered on initially.
@@ -265,8 +265,8 @@ private:
      * @param encoding The encoding shown in the encoding combo. If it's
      *          QString(), the global default encoding will be shown.
      *
-     * @param filter A shell glob or a mime-type-filter that specifies which files to display.
-     *    The preferred option is to set a list of mimetype names, see setMimeFilter() for details.
+     * @param filter A shell glob or a MIME type filter that specifies which files to display.
+     *    The preferred option is to set a list of MIME type names, see setMimeFilter() for details.
      *    Otherwise you can set the text to be displayed for the each glob, and
      *    provide multiple globs, see setFilter() for details.
      *

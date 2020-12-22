@@ -127,11 +127,11 @@ Q_SIGNALS:
     void redirection(KIO::Job *job, const QUrl &url);
 
     /**
-     * Mimetype determined.
+     * MIME type determined.
      * @param job the job that emitted this signal
-     * @param type the mime type
+     * @param mimeType the MIME type
      */
-    void mimetype(KIO::Job *job, const QString &type);
+    void mimetype(KIO::Job *job, const QString &mimeType);
 
     /**
      * File is open, metadata has been determined and the

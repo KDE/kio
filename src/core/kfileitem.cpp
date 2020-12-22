@@ -134,7 +134,7 @@ public:
     mutable QString m_strLowerCaseName;
 
     /**
-     * The mimetype of the file
+     * The MIME type of the file
      */
     mutable QMimeType m_mimeType;
 
@@ -169,7 +169,7 @@ public:
     mutable enum { SlowUnknown, Fast, Slow } m_slow: 3;
 
     /**
-     * True if mime type determination by content should be skipped
+     * True if MIME type determination by content should be skipped
      */
     bool m_bSkipMimeTypeFromContent: 1;
 
@@ -401,7 +401,7 @@ bool KFileItemPrivate::cmp(const KFileItemPrivate &item) const
             && m_entry.stringValue(KIO::UDSEntry::UDS_LOCAL_PATH) == item.m_entry.stringValue(KIO::UDSEntry::UDS_LOCAL_PATH)
            );
 
-    // Don't compare the mimetypes here. They might not be known, and we don't want to
+    // Don't compare the MIME types here. They might not be known, and we don't want to
     // do the slow operation of determining them here.
 }
 
@@ -816,7 +816,7 @@ QMimeType KFileItem::determineMimeType() const
             // was:  d->m_mimeType = KMimeType::findByUrl( url, d->m_fileMode, isLocalUrl );
             // => we are no longer using d->m_fileMode for remote URLs.
             Q_ASSERT(d->m_mimeType.isValid());
-            //qDebug() << d << "finding final mimetype for" << url << ":" << d->m_mimeType.name();
+            //qDebug() << d << "finding final MIME type for" << url << ":" << d->m_mimeType.name();
         }
         d->m_bMimeTypeKnown = true;
     }
@@ -836,8 +836,8 @@ bool KFileItem::isMimeTypeKnown() const
         return false;
     }
 
-    // The mimetype isn't known if determineMimeType was never called (on-demand determination)
-    // or if this fileitem has a guessed mimetype (e.g. ftp symlink) - in which case
+    // The MIME type isn't known if determineMimeType was never called (on-demand determination)
+    // or if this fileitem has a guessed MIME type (e.g. ftp symlink) - in which case
     // it always remains "not fully determined"
     return d->m_bMimeTypeKnown && d->m_guessedMimeType.isEmpty();
 }
@@ -885,7 +885,7 @@ QString KFileItem::mimeComment() const
 
     QMimeType mime = currentMimeType();
     // This cannot move to kio_file (with UDS_DISPLAY_TYPE) because it needs
-    // the mimetype to be determined, which is done here, and possibly delayed...
+    // the MIME type to be determined, which is done here, and possibly delayed...
     if (isLocalUrl && !d->isSlow() && mime.inherits(QStringLiteral("application/x-desktop"))) {
         KDesktopFile cfg(url.toLocalFile());
         QString comment = cfg.desktopGroup().readEntry("Comment");
@@ -993,7 +993,7 @@ QString KFileItem::iconName() const
 
     QMimeDatabase db;
     QMimeType mime;
-    // Use guessed mimetype for the icon
+    // Use guessed MIME type for the icon
     if (!d->m_guessedMimeType.isEmpty()) {
         mime = db.mimeTypeForName(d->m_guessedMimeType);
     } else {
@@ -1033,7 +1033,7 @@ QString KFileItem::iconName() const
 
 /**
  * Returns true if this is a desktop file.
- * Mimetype determination is optional.
+ * MIME type determination is optional.
  */
 static bool checkDesktopFile(const KFileItem &item, bool _determineMimeType)
 {
@@ -1567,11 +1567,11 @@ QUrl KFileItem::targetUrl() const
 }
 
 /*
- * Mimetype handling.
+ * MIME type handling.
  *
  * Initial state: m_mimeType = QMimeType().
- * When currentMimeType() is called first: fast mimetype determination,
- *   might either find an accurate mimetype (-> Final state), otherwise we
+ * When currentMimeType() is called first: fast MIME type determination,
+ *   might either find an accurate MIME type (-> Final state), otherwise we
  *   set m_mimeType but not m_bMimeTypeKnown (-> Intermediate state)
  * Intermediate state: determineMimeType() does the real determination -> Final state.
  *
@@ -1585,7 +1585,7 @@ QMimeType KFileItem::currentMimeType() const
     }
 
     if (!d->m_mimeType.isValid()) {
-        // On-demand fast (but not always accurate) mimetype determination
+        // On-demand fast (but not always accurate) MIME type determination
         Q_ASSERT(!d->m_url.isEmpty());
         QMimeDatabase db;
         if (isDir()) {

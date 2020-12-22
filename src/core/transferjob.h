@@ -88,7 +88,7 @@ public:
     /**
      * Call this in the slot connected to result,
      * and only after making sure no error happened.
-     * @return the mimetype of the URL
+     * @return the MIME type of the URL
      */
     QString mimetype() const;
 
@@ -163,11 +163,11 @@ Q_SIGNALS:
     void permanentRedirection(KIO::Job *job, const QUrl &fromUrl, const QUrl &toUrl);
 
     /**
-     * Mimetype determined.
+     * MIME type determined.
      * @param job the job that emitted this signal
-     * @param type the mime type
+     * @param mimeType the MIME type
      */
-    void mimetype(KIO::Job *job, const QString &type);
+    void mimetype(KIO::Job *job, const QString &mimeType);
 
     /**
      * @internal
@@ -204,7 +204,7 @@ private:
  * This is the job to use in order to "download" a file into memory.
  * The slave emits the data through the data() signal.
  *
- * Special case: if you want to determine the mimetype of the file first,
+ * Special case: if you want to determine the MIME type of the file first,
  * and then read it with the appropriate component, you can still use
  * a KIO::get() directly. When that job emits the mimeType signal, (which is
  * guaranteed to happen before it emits any data), put the job on hold:

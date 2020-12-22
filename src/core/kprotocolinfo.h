@@ -209,7 +209,7 @@ public:
     static int maxSlavesPerHost(const QString &protocol);
 
     /**
-     * Returns whether mimetypes can be determined based on extension for this
+     * Returns whether MIME types can be determined based on extension for this
      * protocol. For some protocols, e.g. http, the filename extension in the URL
      * can not be trusted to truly reflect the file type.
      *
@@ -217,17 +217,17 @@ public:
      * Valid values for this field are "true" (default) or "false".
      *
      * @param protocol the protocol to check
-     * @return true if the mime types can be determined by extension
+     * @return true if the MIME types can be determined by extension
      */
     static bool determineMimetypeFromExtension(const QString &protocol);
 
     /**
-     * Returns the default mimetype for the specified protocol, if one exists.
+     * Returns the default MIME type for the specified protocol, if one exists.
      *
      * This corresponds to the "defaultMimetype=" field in the protocol description file.
      *
      * @param protocol the protocol to check
-     * @return the default mimetype of the protocol, or an empty string if none set or protocol unknown
+     * @return the default MIME type of the protocol, or an empty string if none set or protocol unknown
      * @since 5.60
      */
     static QString defaultMimetype(const QString &protocol);
@@ -290,13 +290,13 @@ public:
     static QStringList capabilities(const QString &protocol);
 
     /**
-     * Returns the list of archive mimetypes handled by the kioslave implementing
+     * Returns the list of archive MIME types handled by the kioslave implementing
      * this protocol.
      *
      * This corresponds to the "archiveMimetype=" field in the protocol description file.
      *
      * @param protocol the protocol to check
-     * @return the list of archive mimetypes (e.g. application/x-zip) handled.
+     * @return the list of archive MIME types (e.g. application/x-zip) handled.
      * @since 5.23
      */
     static QStringList archiveMimetypes(const QString &protocol);

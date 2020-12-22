@@ -59,7 +59,7 @@ public:
      * @param items a list of files to create previews for
      * @param width the desired width
      * @param height the desired height, 0 to use the @p width
-     * @param iconSize the size of the mimetype icon to overlay over the
+     * @param iconSize the size of the MIME type icon to overlay over the
      * preview or zero to not overlay an icon. This has no effect if the
      * preview plugin that will be used doesn't use icon overlays.
      * @param iconAlpha transparency to use for the icon overlay
@@ -193,7 +193,7 @@ public:
     /**
      * Returns a list of all supported MIME types. The list can
      * contain entries like text/ * (without the space).
-     * @return the list of mime types
+     * @return the list of MIME types
      */
     static QStringList supportedMimeTypes();
 
@@ -243,7 +243,7 @@ private:
  * @param width the maximum width to use
  * @param height the maximum height to use, if this is 0, the same
  * value as width is used.
- * @param iconSize the size of the mimetype icon to overlay over the
+ * @param iconSize the size of the MIME type icon to overlay over the
  * preview or zero to not overlay an icon. This has no effect if the
  * preview plugin that will be used doesn't use icon overlays.
  * @param iconAlpha transparency to use for the icon overlay
@@ -271,7 +271,7 @@ KIOWIDGETS_EXPORT PreviewJob *filePreview(const KFileItemList &items, int width,
  * @param width the maximum width to use
  * @param height the maximum height to use, if this is 0, the same
  * value as width is used.
- * @param iconSize the size of the mimetype icon to overlay over the
+ * @param iconSize the size of the MIME type icon to overlay over the
  * preview or zero to not overlay an icon. This has no effect if the
  * preview plugin that will be used doesn't use icon overlays.
  * @param iconAlpha transparency to use for the icon overlay

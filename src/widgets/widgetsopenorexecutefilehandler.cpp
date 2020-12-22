@@ -27,7 +27,7 @@ static ExecutableFileOpenDialog::Mode promptMode(const QMimeType &mime)
 {
     // Note that ExecutableFileOpenDialog::OpenAsExecute isn't useful here as
     // OpenUrlJob treats .exe (application/x-ms-dos-executable) files as executables
-    // that are only opened using the default application associated with that mime type
+    // that are only opened using the default application associated with that MIME type
     // e.g. WINE
 
     if (mime.inherits(QStringLiteral("text/plain"))) {

@@ -38,7 +38,7 @@ int main(int argc, char **argv)
     }
     delete dlg;
 
-    // Test with a mimetype
+    // Test with a MIME type
     QString mimetype = QStringLiteral("text/plain");
     dlg = new KOpenWithDialog(mimetype, QStringLiteral("kwrite"), nullptr);
     if (dlg->exec()) {

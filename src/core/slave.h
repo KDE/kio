@@ -192,7 +192,7 @@ private:
      * Puts the kioslave associated with @p url at halt, and return it to klauncher, in order
      * to let another application connect to it and finish the job.
      * This is for the krunner case: type a URL in krunner, it will start downloading
-     * to find the mimetype (KRun), and then hold the slave, publish the held slave using,
+     * to find the MIME type (KRun), and then hold the slave, publish the held slave using,
      * this method, and the final application can continue the same download by requesting
      * the same URL.
      */

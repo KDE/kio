@@ -158,14 +158,14 @@ public:
                                 bool replaceHome, bool replaceEnv = true);
 
     /**
-     * Sets the mimetype filters for the file dialog.
+     * Sets the MIME type filters for the file dialog.
      * @see QFileDialog::setMimeTypeFilters()
      * @since 5.38
      */
     void setMimeTypeFilters(const QStringList &mimeTypes);
 
     /**
-     * Returns the mimetype filters for the file dialog.
+     * Returns the MIME type filters for the file dialog.
      * @see QFileDialog::mimeTypeFilters()
      * @since 5.38
      */

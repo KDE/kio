@@ -1084,7 +1084,7 @@ bool KFilePlacesModel::dropMimeData(const QMimeData *data, Qt::DropAction action
             QMimeType mimetype = db.mimeTypeForName(mimeString);
 
             if (!mimetype.isValid()) {
-                qWarning() << "URL not added to Places as mimetype could not be determined!";
+                qWarning() << "URL not added to Places as MIME type could not be determined!";
                 continue;
             }
 

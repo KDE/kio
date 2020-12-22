@@ -49,11 +49,11 @@ Q_SIGNALS:
     void data(long id, const QByteArray &data);
 
     /**
-     * Mimetype determined
+     * MIME type determined
      * @param id the id of the request
-     * @param type the mime type
+     * @param mimeType the MIME type
      */
-    void mimetype(long id, const QString &type);
+    void mimetype(long id, const QString &mimeType);
 
     /**
      * File transfer completed.

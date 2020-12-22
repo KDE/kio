@@ -384,7 +384,7 @@ KIOCORE_EXPORT QFile::Permissions convertPermissions(int permissions);
 
 /**
  * Return the icon name for a URL.
- * Most of the time this returns the mimetype icon,
+ * Most of the time this returns the MIME type icon,
  * but also has fallback to favicon and protocol-specific icon.
  *
  * Pass this to QIcon::fromTheme().

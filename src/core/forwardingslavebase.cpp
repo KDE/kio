@@ -122,7 +122,7 @@ void ForwardingSlaveBase::prepareUDSEntry(KIO::UDSEntry &entry,
 
         entry.replace(KIO::UDSEntry::UDS_MIME_TYPE, mimetype);
 
-        //qDebug() << "New Mimetype = " << mimetype;
+        //qDebug() << "New MIME type = " << mimetype;
     }
 
     if (d->m_processedURL.isLocalFile()) {

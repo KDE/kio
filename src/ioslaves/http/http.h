@@ -344,7 +344,7 @@ protected:
     void forwardHttpResponseHeader(bool forwardImmediately = true);
 
     /**
-     * fix common mimetype errors by webservers.
+     * fix common MIME type errors by webservers.
      *
      * Helper for readResponseHeader().
      */

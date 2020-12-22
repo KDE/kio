@@ -226,7 +226,7 @@ bool KIO::DesktopExecParser::isProtocolInSupportedList(const QUrl &url, const QS
 //  A) if the .protocol file says "launch an application", then the new-style handler-app has priority
 //  B) but if the .protocol file is for a kioslave (e.g. kio_http) then this has priority over
 //     firefox or chromium saying x-scheme-handler/http. Gnome people want to send all HTTP urls
-//     to a webbrowser, but we want mimetype-determination-in-calling-application by default
+//     to a webbrowser, but we want MIME-type-determination-in-calling-application by default
 //     (the user can configure a BrowserApplication though)
 bool KIO::DesktopExecParser::hasSchemeHandler(const QUrl &url)
 {

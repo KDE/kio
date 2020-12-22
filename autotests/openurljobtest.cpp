@@ -147,7 +147,7 @@ void OpenUrlJobTest::startProcess_data()
     QTest::addColumn<QString>("mimeType");
     QTest::addColumn<QString>("fileName");
 
-    // Known mimetype
+    // Known MIME type
     QTest::newRow("text_file") << "text/plain" << "srcfile.txt";
     QTest::newRow("directory_file") << "application/x-desktop" << ".directory";
     QTest::newRow("desktop_file_link") << "application/x-desktop" << "srcfile.txt";
@@ -155,7 +155,7 @@ void OpenUrlJobTest::startProcess_data()
     QTest::newRow("non_executable_script_running_not_allowed") << "application/x-shellscript" << "srcfile.sh";
     QTest::newRow("executable_script_running_not_allowed") << "application/x-shellscript" << "srcfile.sh";
 
-    // Require mimetype determination
+    // Require MIME type determination
     QTest::newRow("text_file_no_mimetype") << QString() << "srcfile.txt";
     QTest::newRow("directory_file_no_mimetype") << QString() << ".directory";
 }
@@ -232,7 +232,7 @@ void OpenUrlJobTest::refuseRunningNativeExecutables_data()
 {
     QTest::addColumn<QString>("mimeType");
 
-    // Executables under e.g. /usr/bin/ can be either of these two mimetypes
+    // Executables under e.g. /usr/bin/ can be either of these two MIME types
     // see https://gitlab.freedesktop.org/xdg/shared-mime-info/-/issues/11
     QTest::newRow("x-sharedlib") << "application/x-sharedlib";
     QTest::newRow("x-executable") << "application/x-executable";
@@ -348,7 +348,7 @@ void OpenUrlJobTest::runNativeExecutable()
     QFETCH(bool, handlerRetVal);
 
 #ifdef Q_OS_UNIX
-    // Given an executable shell script that copies "src" to "dest" (we'll cheat with the mimetype to treat it like a native binary)
+    // Given an executable shell script that copies "src" to "dest" (we'll cheat with the MIME type to treat it like a native binary)
     QTemporaryDir tempDir;
     const QString dir = tempDir.path();
     createSrcFile(dir + QLatin1String("/src"));

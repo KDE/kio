@@ -15,7 +15,7 @@ TODO
 ====
 * Clean up konq_popupmenu.cc for Type=Link URL=trash:/   :(
 * Also, provide metainfo for trash contents for that desktop link.
-=> maybe we need a new mimetype?
+=> maybe we need a new MIME type?
  Like application/x-trash-desktop, inheriting application/x-desktop. 
  And a "trash.trashdesktop" filename or so (ouch, migration issues...)
 

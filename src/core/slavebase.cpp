@@ -686,7 +686,7 @@ void SlaveBase::mimeType(const QString &_type)
     //qDebug() << _type;
     int cmd;
     do {
-        // Send the meta-data each time we send the mime-type.
+        // Send the meta-data each time we send the MIME type.
         if (!mOutgoingMetaData.isEmpty()) {
             //qDebug() << "emitting meta data";
             KIO_DATA << mOutgoingMetaData;

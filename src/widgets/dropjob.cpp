@@ -315,7 +315,7 @@ void DropJobPrivate::fillPopupMenu(KIO::DropMenu *popup)
     Q_Q(DropJob);
 
     // Check what the source can do
-    // TODO: Determining the mimetype of the source URLs is difficult for remote URLs,
+    // TODO: Determining the MIME type of the source URLs is difficult for remote URLs,
     // we would need to KIO::stat each URL in turn, asynchronously....
     KFileItemList fileItems;
     fileItems.reserve(m_urls.size());

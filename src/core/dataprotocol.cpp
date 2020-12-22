@@ -49,7 +49,7 @@ extern "C" {
 
 /** structure containing header information */
 struct DataHeader {
-    QString mime_type;        // mime type of content (lowercase)
+    QString mime_type;        // MIME type of content (lowercase)
     MetaData attributes;      // attribute/value pairs (attribute lowercase,
     //  value unchanged)
     bool is_base64;       // true if data is base64 encoded
@@ -148,7 +148,7 @@ static QString parseQuotedString(const QByteArray &buf, int &pos)
 
 /** parses the header of a data url
  * @param url the data url
- * @param mimeOnly if the only interesting information is the mime type
+ * @param mimeOnly if the only interesting information is the MIME type
  * @return DataHeader structure with the header information
  */
 static DataHeader parseDataHeader(const QUrl &url, const bool mimeOnly)
@@ -166,7 +166,7 @@ static DataHeader parseDataHeader(const QUrl &url, const bool mimeOnly)
 
     header_info.data_offset = 0;
 
-    // read mime type
+    // read MIME type
     if (raw_url_len == 0) {
         return header_info;
     }

@@ -1158,7 +1158,7 @@ void KCoreDirListerCache::slotEntries(KIO::Job *job, const KIO::UDSEntryList &en
         return;
     }
 
-    // check if anyone wants the mimetypes immediately
+    // check if anyone wants the MIME types immediately
     bool delayedMimeTypes = true;
     for  (const KCoreDirLister *kdl : listers) {
         delayedMimeTypes &= kdl->d->delayedMimeTypes;
@@ -1707,7 +1707,7 @@ void KCoreDirListerCache::slotUpdateResult(KJob *j)
         dir->complete = true;
     }
 
-    // check if anyone wants the mimetypes immediately
+    // check if anyone wants the MIME types immediately
     bool delayedMimeTypes = true;
     for (const KCoreDirLister *kdl : listers) {
         delayedMimeTypes &= kdl->d->delayedMimeTypes;
@@ -2360,7 +2360,7 @@ bool KCoreDirLister::matchesFilter(const KFileItem &item) const
 bool KCoreDirLister::matchesMimeFilter(const KFileItem &item) const
 {
     Q_ASSERT(!item.isNull());
-    // Don't lose time determining the mimetype if there is no filter
+    // Don't lose time determining the MIME type if there is no filter
     if (d->settings.mimeFilter.isEmpty() && d->settings.mimeExcludeFilter.isEmpty()) {
         return true;
     }
@@ -2414,7 +2414,7 @@ void KCoreDirLister::handleErrorMessage(const QString &message)
 void KCoreDirLister::Private::addNewItem(const QUrl &directoryUrl, const KFileItem &item)
 {
     if (!isItemVisible(item)) {
-        return;    // No reason to continue... bailing out here prevents a mimetype scan.
+        return;    // No reason to continue... bailing out here prevents a MIME type scan.
     }
 
     qCDebug(KIO_CORE_DIRLISTER) << "in" << directoryUrl << "item:" << item.url();
@@ -2424,7 +2424,7 @@ void KCoreDirLister::Private::addNewItem(const QUrl &directoryUrl, const KFileIt
         lstNewItems[directoryUrl].append(item);              // items not filtered
     } else {
         Q_ASSERT(!item.isNull());
-        lstMimeFilteredItems.append(item);     // only filtered by mime
+        lstMimeFilteredItems.append(item);     // only filtered by MIME type
     }
 }
 
@@ -2453,7 +2453,7 @@ void KCoreDirLister::Private::addRefreshItem(const QUrl &directoryUrl, const KFi
             lstRefreshItems.append(qMakePair(oldItem, item));
         }
     } else if (!refreshItemWasFiltered) {
-        // notify the user that the mimetype of a file changed that doesn't match
+        // notify the user that the MIME type of a file changed that doesn't match
         // a filter or does match an exclude filter
         // This also happens when renaming foo to .foo and dot files are hidden (#174721)
         Q_ASSERT(!oldItem.isNull());
@@ -2491,8 +2491,8 @@ void KCoreDirLister::Private::emitItems()
 
 bool KCoreDirLister::Private::isItemVisible(const KFileItem &item) const
 {
-    // Note that this doesn't include mime filters, because
-    // of the itemsFilteredByMime signal. Filtered-by-mime items are
+    // Note that this doesn't include MIME type filters, because
+    // of the itemsFilteredByMime signal. Filtered-by-MIME-type items are
     // considered "visible", they are just visible via a different signal...
     return (!settings.dirOnlyMode || item.isDir())
            && m_parent->matchesFilter(item);

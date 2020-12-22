@@ -57,7 +57,7 @@ public:
     /**
      * Sets the file name to use in the case of downloading the file to a tempfile
      * in order to give to a non-url-aware application. Some apps rely on the extension
-     * to determine the mimetype of the file. Usually the file name comes from the URL,
+     * to determine the MIME type of the file. Usually the file name comes from the URL,
      * but in the case of the HTTP Content-Disposition header, we need to override the
      * file name.
      */

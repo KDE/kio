@@ -435,7 +435,7 @@ public:
     Q_REQUIRED_RESULT Result ftpCopyGet(int &iCopyFile, const QString &sCopyFile, const QUrl &url, int permissions, KIO::JobFlags flags);
 
     /**
-     * Sends the mime type of the content to retrieved.
+     * Sends the MIME type of the content to retrieved.
      *
      * @param iError      set to an ERR_xxxx code on error
      * @return 0 for success, -1 for server error, -2 for client error

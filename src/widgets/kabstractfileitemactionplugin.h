@@ -28,7 +28,7 @@ class KFileItemListProperties;
  * menus for files and directories when browsing.
  *
  * Most filetype-based popup menu items can be implemented using servicemenus
- * linked to mime types, and that should be the preferred way of doing this.
+ * linked to MIME types, and that should be the preferred way of doing this.
  * However, complex scenarios such as showing submenus with a variable number of
  * actions or only showing an item if exactly two files are selected need to be
  * implemented as a KFileItemAction plugin.

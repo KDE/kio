@@ -98,7 +98,7 @@ public:
      * @param url the URL whose properties should be displayed
      * @param parent is the parent of the dialog widget.
      *
-     * For local files with a known mimetype, simply create a KFileItem
+     * For local files with a known MIME type, simply create a KFileItem
      * and pass it to the other constructor.
      */
     explicit KPropertiesDialog(const QUrl &url,
@@ -113,7 +113,7 @@ public:
      *             contain at least one non-empty URL)
      * @param parent is the parent of the dialog widget.
      *
-     * For local files with a known mimetype, simply create a KFileItemList
+     * For local files with a known MIME type, simply create a KFileItemList
      * and pass it to the other constructor.
      *
      * @since 5.10
@@ -390,7 +390,7 @@ private:
  * It's up to the plugin to insert pages into the parent dialog.
  *
  * To make a plugin available, define a service that implements the KPropertiesDialog/Plugin
- * servicetype, as well as the mimetypes for which the plugin should be created.
+ * servicetype, as well as the MIME types for which the plugin should be created.
  * For instance, X-KDE-ServiceTypes=KPropertiesDialog/Plugin,text/html,application/x-mymimetype.
  *
  * You can also include X-KDE-Protocol=file if you want that plugin

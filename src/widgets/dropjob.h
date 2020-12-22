@@ -95,7 +95,7 @@ Q_SIGNALS:
     /**
      * Signals that the popup menu is about to be shown.
      * Applications can use the information provided about the dropped URLs
-     * (e.g. the mimetype) to decide whether to call setApplicationActions.
+     * (e.g. the MIME type) to decide whether to call setApplicationActions.
      * @param itemProps properties of the dropped items
      */
     void popupMenuAboutToShow(const KFileItemListProperties &itemProps);

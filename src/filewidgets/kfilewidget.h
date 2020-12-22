@@ -235,9 +235,9 @@ public:
      * want to show the suffix to select by a specific filter, you must
      * repeat it.
      *
-     * If the filter contains an unescaped '/', a mimetype-filter is assumed.
+     * If the filter contains an unescaped '/', a MIME type filter is assumed.
      * If you would like a '/' visible in your filter it can be escaped with
-     * a '\'. You can specify multiple mimetypes like this (separated with
+     * a '\'. You can specify multiple MIME types like this (separated with
      * space):
      *
      * \code
@@ -260,7 +260,7 @@ public:
     QString currentFilter() const;
 
     /**
-     * Returns the mimetype for the desired output format.
+     * Returns the MIME type for the desired output format.
      *
      * This is only valid if setFilterMimeType() has been called
      * previously.
@@ -272,10 +272,10 @@ public:
     /**
      * Sets the filter up to specify the output type.
      *
-     * @param types a list of mimetypes that can be used as output format
-     * @param defaultType the default mimetype to use as output format, if any.
+     * @param types a list of MIME types that can be used as output format
+     * @param defaultType the default MIME type to use as output format, if any.
      * If @p defaultType is set, it will be set as the current item.
-     * Otherwise, a first item showing all the mimetypes will be created.
+     * Otherwise, a first item showing all the MIME types will be created.
      * Typically, @p defaultType should be empty for loading and set for saving.
      *
      * Do not use in conjunction with setFilter()
@@ -284,7 +284,7 @@ public:
                        const QString &defaultType = QString());
 
     /**
-     * The mimetype for the desired output format.
+     * The MIME type for the desired output format.
      *
      * This is only valid if setMimeFilter() has been called
      * previously.
@@ -294,7 +294,7 @@ public:
     QString currentMimeFilter() const;
 
     /**
-     *  Clears any mime- or namefilter. Does not reload the directory.
+     *  Clears any MIME type or name filter. Does not reload the directory.
      */
     void clearFilter();
 

@@ -343,7 +343,7 @@ void JobRemoteTest::slotFileJob2Redirection(KIO::Job *job, const QUrl &url)
 void JobRemoteTest::slotFileJob2Mimetype(KIO::Job *job, const QString &type)
 {
     Q_UNUSED(job);
-    qDebug() << "mimetype: " << type;
+    qDebug() << "MIME type: " << type;
 }
 
 void JobRemoteTest::slotFileJob2Open(KIO::Job *job)

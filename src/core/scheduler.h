@@ -146,8 +146,8 @@ public:
      * Puts a slave on notice. A next job may reuse this slave if it
      * requests the same URL.
      *
-     * A job can be put on hold after it has emit'ed its mimetype.
-     * Based on the mimetype, the program can give control to another
+     * A job can be put on hold after it has emit'ed its mimetype() signal.
+     * Based on the MIME type, the program can give control to another
      * component in the same process which can then resume the job
      * by simply asking for the same URL again.
      * @param job the job that should be stopped

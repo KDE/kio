@@ -26,7 +26,7 @@ class KFileItemActionsPrivate;
  * @li "open with <application>" actions, but also
  * @li builtin services like mount/unmount for old-style device desktop files
  * @li user-defined actions for a .desktop file, defined in the file itself (see the desktop entry standard)
- * @li servicemenus actions, defined in .desktop files and selected based on the mimetype of the url
+ * @li servicemenus actions, defined in .desktop files and selected based on the MIME type of the url
  *
  * KFileItemActions respects Kiosk-based restrictions (see the KAuthorized
  * namespace in the KConfig framework).  In particular, the "action/openwith"
@@ -117,28 +117,28 @@ public:
     QAction *preferredOpenWithAction(const QString &traderConstraint);
 
     /**
-     * Returns the applications associated with all the given mimetypes.
+     * Returns the applications associated with all the given MIME types.
      *
      * Helper method used internally, can also be used for similar GUIs that
      * show the list of associated applications.
      * Used in KParts::BrowserOpenOrSaveQuestion for example.
      *
-     * This is basically a KMimeTypeTrader::query, but it supports multiple mimetypes, and
+     * This is basically a KMimeTypeTrader::query, but it supports multiple MIME types, and
      * also cleans up "apparent" duplicates, such as different versions of the same
      * application installed in parallel.
      *
-     * The list is sorted according to the user preferences for the given mimetype(s).
-     * In case multiple mimetypes appear in the url list, the logic is:
+     * The list is sorted according to the user preferences for the given MIME type(s).
+     * In case multiple MIME types appear in the URL list, the logic is:
      * applications that on average appear earlier on the associated applications
-     * list for the given mimetypes also appear earlier on the final applications list.
+     * list for the given MIME types also appear earlier on the final applications list.
      *
-     * Note that for a single mimetype there is no need to use this, you should use
+     * Note that for a single MIME type there is no need to use this, you should use
      * KMimeTypeTrader instead, e.g. query() or preferredService().
      *
      * This will return an empty list if the "openwith" Kiosk action is not
      * authorized (see KAuthorized::authorize()).
      *
-     * @param mimeTypeList the mimetypes
+     * @param mimeTypeList the MIME types
      * @param traderConstraint this optional constraint allows to exclude the current application
      * from the "open with" list. Example: "DesktopEntryName != 'kfmclient'".
      * @return the sorted list of services.
@@ -151,7 +151,7 @@ public:
      * User-defined actions include:
      * - builtin services like mount/unmount for old-style device desktop files
      * - user-defined actions for a .desktop file, defined in the file itself (see the desktop entry standard)
-     * - servicemenus actions, defined in .desktop files and selected based on the mimetype of the url
+     * - servicemenus actions, defined in .desktop files and selected based on the MIME type of the URL
      *
      * When KFileItemListProperties::supportsWriting() is false, actions that modify the files are not shown.
      * This is controlled by Require=Write in the servicemenu desktop files.

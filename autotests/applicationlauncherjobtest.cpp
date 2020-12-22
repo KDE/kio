@@ -325,7 +325,7 @@ void ApplicationLauncherJobTest::shouldFailOnServiceWithNoExec()
 void ApplicationLauncherJobTest::shouldFailOnExecutableWithoutPermissions()
 {
 #ifdef Q_OS_UNIX
-    // Given an executable shell script that copies "src" to "dest" (we'll cheat with the mimetype to treat it like a native binary)
+    // Given an executable shell script that copies "src" to "dest" (we'll cheat with the MIME type to treat it like a native binary)
     QTemporaryDir tempDir;
     const QString dir = tempDir.path();
     const QString scriptFilePath = dir + QStringLiteral("/script.sh");

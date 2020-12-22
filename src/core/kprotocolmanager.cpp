@@ -769,7 +769,7 @@ QString KProtocolManager::defaultUserAgent(const QString &_modifiers)
        The following code attempts to determine the default user agent string
        from the 'X-KDE-Default-UserAgent' property of the desktop file
        for the preferred service that was configured to handle the 'text/html'
-       mime type. If the preferred service's desktop file does not specify this
+       MIME type. If the preferred service's desktop file does not specify this
        property, the long standing default user agent string will be used.
        The following keyword placeholders are automatically converted when the
        user agent string is read from the property:

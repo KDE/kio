@@ -172,7 +172,7 @@ bool KRun::runUrl(const QUrl &url, const QString &mimetype, QWidget *window, boo
 #endif
 
 #if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 71)
-// This is called by foundMimeType, since it knows the mimetype of the URL
+// This is called by foundMimeType, since it knows the MIME type of the URL
 bool KRun::runUrl(const QUrl &u, const QString &_mimetype, QWidget *window, RunFlags flags, const QString &suggestedFileName, const QByteArray &asn)
 {
     const bool runExecutables = flags.testFlag(KRun::RunExecutables);
@@ -206,8 +206,8 @@ bool KRun::displayOpenWithDialog(const QList<QUrl> &lst, QWidget *window, bool t
     }
 #endif
 
-    // TODO : pass the mimetype as a parameter, to show it (comment field) in the dialog !
-    // Note KOpenWithDialog::setMimeTypeFromUrls already guesses the mimetype if lst.size() == 1
+    // TODO : pass the MIME type as a parameter, to show it (comment field) in the dialog !
+    // Note KOpenWithDialog::setMimeTypeFromUrls already guesses the MIME type if lst.size() == 1
     KOpenWithDialog dialog(lst, QString(), QString(), window);
     dialog.setWindowModality(Qt::WindowModal);
     if (dialog.exec()) {
@@ -452,7 +452,7 @@ void KRun::init()
         QMimeType mime = db.mimeTypeForUrl(d->m_strURL);
         //qDebug() << "MIME TYPE is " << mime.name();
         if (mime.isDefault() && !QFileInfo(localPath).isReadable()) {
-            // Unknown mimetype because the file is unreadable, no point in showing an open-with dialog (#261002)
+            // Unknown MIME type because the file is unreadable, no point in showing an open-with dialog (#261002)
             const QString msg = KIO::buildErrorString(KIO::ERR_ACCESS_DENIED, localPath);
             handleInitError(KIO::ERR_ACCESS_DENIED, msg);
             d->m_bFault = true;
@@ -478,7 +478,7 @@ void KRun::init()
             Q_ASSERT(KProtocolInfo::isHelperProtocol(d->m_strURL.scheme()));
             const auto exec = KProtocolInfo::exec(d->m_strURL.scheme());
             if (exec.isEmpty()) {
-                // use default mimetype opener for file
+                // use default MIME type opener for file
                 mimeTypeDetermined(KProtocolManager::defaultMimetype(d->m_strURL));
                 return;
             } else {
@@ -637,9 +637,9 @@ void KRun::scanFile()
         }
     }
 
-    // No mimetype found, and the URL is not local  (or fast mode not allowed).
+    // No MIME type found, and the URL is not local  (or fast mode not allowed).
     // We need to apply the 'KIO' method, i.e. either asking the server or
-    // getting some data out of the file, to know what mimetype it is.
+    // getting some data out of the file, to know what MIME type it is.
 
     if (!KProtocolManager::supportsReading(d->m_strURL)) {
         qCWarning(KIO_WIDGETS) << "#### NO SUPPORT FOR READING!";
@@ -740,7 +740,7 @@ void KRun::slotStatResult(KJob *job)
 
         d->m_localPath = entry.stringValue(KIO::UDSEntry::UDS_LOCAL_PATH);
 
-        // mimetype already known? (e.g. print:/manager)
+        // MIME type already known? (e.g. print:/manager)
         const QString knownMimeType = entry.stringValue(KIO::UDSEntry::UDS_MIME_TYPE);
 
         if (!knownMimeType.isEmpty()) {
@@ -761,7 +761,7 @@ void KRun::slotStatResult(KJob *job)
 void KRun::slotScanMimeType(KIO::Job *, const QString &mimetype)
 {
     if (mimetype.isEmpty()) {
-        qCWarning(KIO_WIDGETS) << "get() didn't emit a mimetype! Probably a kioslave bug, please check the implementation of" << url().scheme();
+        qCWarning(KIO_WIDGETS) << "get() didn't emit a MIME type! Probably a kioslave bug, please check the implementation of" << url().scheme();
     }
     mimeTypeDetermined(mimetype);
     d->m_job = nullptr;
@@ -804,7 +804,7 @@ void KRun::mimeTypeDetermined(const QString &mimeType)
 
 void KRun::foundMimeType(const QString &type)
 {
-    //qDebug() << "Resulting mime type is " << type;
+    //qDebug() << "Resulting MIME type is " << type;
 
     QMimeDatabase db;
 
@@ -843,7 +843,7 @@ void KRun::foundMimeType(const QString &type)
     // Resolve .desktop files from media:/, remote:/, applications:/ etc.
     QMimeType mime = db.mimeTypeForName(type);
     if (!mime.isValid()) {
-        qCWarning(KIO_WIDGETS) << "Unknown mimetype" << type;
+        qCWarning(KIO_WIDGETS) << "Unknown MIME type" << type;
     } else if (mime.inherits(QStringLiteral("application/x-desktop")) && !d->m_localPath.isEmpty()) {
         d->m_strURL = QUrl::fromLocalFile(d->m_localPath);
     }

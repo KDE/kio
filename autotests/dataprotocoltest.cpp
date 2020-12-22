@@ -98,7 +98,7 @@ public:
 
 private:
     // -- testcase related members
-    QString mime_type_expected;   // expected mime type
+    QString mime_type_expected;   // expected MIME type
     /** contains all attributes and values the testcase has to set */
     KIO::MetaData attributes_expected;
     /** contains the content as it is expected to be returned */
@@ -106,7 +106,7 @@ private:
 
 public:
     /**
-     * sets the mime type that this testcase is expected to return
+     * sets the MIME type that this testcase is expected to return
      */
     void setExpectedMimeType(const QString &mime_type)
     {
@@ -183,7 +183,7 @@ void DataProtocolTest::runAllTests_data()
                                       QByteArray("blah blah") <<
                                       QByteArray("data:,blah%20blah");
 
-    QTest::newRow("mime type, escape resolving") <<
+    QTest::newRow("MIME type, escape resolving") <<
             QByteArray("text/html") <<
             usascii <<
             QByteArray("<div style=\"border:thin orange solid;padding:1ex;background-color:yellow;color:black\">Rich <b>text</b></div>") <<

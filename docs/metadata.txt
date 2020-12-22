@@ -29,7 +29,7 @@ referrer        string          The URL from which the request originates. (read
 
 modified        string          The modification date of the document (set by http and by kio before put)
 
-accept          string          List of mimetypes to accept separated by a ", ". (read by http)
+accept          string          List of MIME types to accept separated by a ", ". (read by http)
 
 responsecode    string          Original response code of the web server. (set by http)
 

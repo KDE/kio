@@ -45,7 +45,7 @@ both a web-browser and a file-manager. As a web-browser it primarily uses
 http-slaves as a file-manager file-slaves.
 
 * Selecting a link in konqueror: konqueror does a partial download of
-the file to check the mimetype (right??) then the application is
+the file to check the MIME type (right??) then the application is
 started which downloads the complete file. In this case it should 
 be able to pass the slave which does the partial download from konqueror
 to the application where it can do the complete download.

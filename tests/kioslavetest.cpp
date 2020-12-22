@@ -316,7 +316,7 @@ void KioslaveTest::slotResult(KJob *_job)
         UDSEntry entry = ((KIO::StatJob *)_job)->statResult();
         printUDSEntry(entry);
     } else if (selectedOperation == Mimetype) {
-        qDebug() << "mimetype is " << ((KIO::MimetypeJob *)_job)->mimetype();
+        qDebug() << "MIME type is " << ((KIO::MimetypeJob *)_job)->mimetype();
     }
 
     if (job == _job) {

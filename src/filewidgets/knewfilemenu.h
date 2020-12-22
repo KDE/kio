@@ -106,9 +106,9 @@ public:
 #endif
 
     /**
-     * Only show the files in a given set of mimetypes.
+     * Only show the files in a given set of MIME types.
      * This is useful in specialized applications (while file managers, on
-     * the other hand, want to show all mimetypes).
+     * the other hand, want to show all MIME types).
      */
     void setSupportedMimeTypes(const QStringList &mime);
 
@@ -118,7 +118,7 @@ public:
     void setViewShowsHiddenFiles(bool b);
 
     /**
-     * Returns the mimetypes set in supportedMimeTypes()
+     * Returns the MIME types set in supportedMimeTypes()
      */
     QStringList supportedMimeTypes() const;
 

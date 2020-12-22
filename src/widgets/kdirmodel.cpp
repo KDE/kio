@@ -689,7 +689,7 @@ void KDirModelPrivate::_k_slotRefreshItems(const QList<QPair<KFileItem, KFileIte
                 m_nodeHash.remove(cleanupUrl(oldUrl));
                 m_nodeHash.insert(cleanupUrl(newUrl), node);
             }
-            // Mimetype changed -> forget cached icon (e.g. from "cut", #164185 comment #13)
+            // MIME type changed -> forget cached icon (e.g. from "cut", #164185 comment #13)
             if (fit->first.determineMimeType().name() != fit->second.determineMimeType().name()) {
                 node->setPreview(QIcon());
             }
@@ -792,8 +792,8 @@ void KDirModel::clearAllPreviews()
 void KDirModel::itemChanged(const QModelIndex &index)
 {
     // This method is really a itemMimeTypeChanged(), it's mostly called by KFilePreviewGenerator.
-    // When the mimetype is determined, clear the old "preview" (could be
-    // mimetype dependent like when cutting files, #164185)
+    // When the MIME type is determined, clear the old "preview" (could be
+    // MIME type dependent like when cutting files, #164185)
     KDirModelNode *node = d->nodeForIndex(index);
     if (node) {
         node->setPreview(QIcon());

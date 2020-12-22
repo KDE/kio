@@ -172,7 +172,7 @@ void KIO::OpenUrlJob::start()
         return;
     }
 
-    // If we know the mimetype, proceed
+    // If we know the MIME type, proceed
     if (!d->m_mimeTypeName.isEmpty()) {
         d->runUrlWithMimeType();
         return;
@@ -257,7 +257,7 @@ void KIO::OpenUrlJobPrivate::useSchemeHandler()
     Q_ASSERT(KProtocolInfo::isHelperProtocol(m_url.scheme()));
     const auto exec = KProtocolInfo::exec(m_url.scheme());
     if (exec.isEmpty()) {
-        // use default mimetype opener for file
+        // use default MIME type opener for file
         m_mimeTypeName = KProtocolManager::defaultMimetype(m_url);
         runUrlWithMimeType();
     } else {
@@ -296,7 +296,7 @@ void KIO::OpenUrlJobPrivate::statFile()
             m_url = QUrl::fromLocalFile(localPath);
         }
 
-        // mimetype already known? (e.g. print:/manager)
+        // MIME type already known? (e.g. print:/manager)
         m_mimeTypeName = entry.stringValue(KIO::UDSEntry::UDS_MIME_TYPE);
         if (!m_mimeTypeName.isEmpty()) {
             runUrlWithMimeType();
@@ -354,9 +354,9 @@ void KIO::OpenUrlJobPrivate::scanFileWithGet()
         }
     }
 
-    // No mimetype found, and the URL is not local  (or fast mode not allowed).
+    // No MIME type found, and the URL is not local  (or fast mode not allowed).
     // We need to apply the 'KIO' method, i.e. either asking the server or
-    // getting some data out of the file, to know what mimetype it is.
+    // getting some data out of the file, to know what MIME type it is.
 
     if (!KProtocolManager::supportsReading(m_url)) {
         qCWarning(KIO_GUI) << "#### NO SUPPORT FOR READING!";
@@ -388,12 +388,12 @@ void KIO::OpenUrlJobPrivate::scanFileWithGet()
             m_url = job->url();
         }
         if (mimetype.isEmpty()) {
-            qCWarning(KIO_GUI) << "get() didn't emit a mimetype! Probably a kioslave bug, please check the implementation of" << m_url.scheme();
+            qCWarning(KIO_GUI) << "get() didn't emit a MIME type! Probably a kioslave bug, please check the implementation of" << m_url.scheme();
         }
         m_mimeTypeName = mimetype;
 
-        // If the current mime-type is the default mime-type, then attempt to
-        // determine the "real" mimetype from the file name (bug #279675)
+        // If the current MIME type is the default MIME type, then attempt to
+        // determine the "real" MIME type from the file name (bug #279675)
         const QMimeType mime = fixupMimeType(m_mimeTypeName, m_suggestedFileName.isEmpty() ? m_url.fileName() : m_suggestedFileName);
         const QString mimeName = mime.name();
         if (mime.isValid() && mimeName != m_mimeTypeName) {
@@ -440,7 +440,7 @@ void KIO::OpenUrlJobPrivate::emitAccessDenied()
     q->emitResult();
 }
 
-// was: KRun::isExecutable (minus application/x-desktop mimetype).
+// was: KRun::isExecutable (minus application/x-desktop MIME type).
 // Feel free to make public if needed.
 static bool isBinary(const QMimeType &mimeType)
 {
@@ -449,7 +449,7 @@ static bool isBinary(const QMimeType &mimeType)
     //   - application/x-sharedlib e.g. /usr/bin/ls, see
     //     https://gitlab.freedesktop.org/xdg/shared-mime-info/-/issues/11
     //
-    // - Mimetypes that inherit application/x-executable _and_ text/plain are scripts, these are
+    // - MIME types that inherit application/x-executable _and_ text/plain are scripts, these are
     //   handled by handleScripts()
 
     return (mimeType.inherits(QStringLiteral("application/x-executable"))

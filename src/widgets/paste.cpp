@@ -228,7 +228,7 @@ KIO::Job *pasteMimeDataImpl(const QMimeData *mimeData, const QUrl &destUrl,
     const QString suggestedFilename = QString::fromUtf8(mimeData->data(QStringLiteral("application/x-kde-suggestedfilename")));
 
     // Now check for plain text
-    // We don't want to display a mimetype choice for a QTextDrag, those mimetypes look ugly.
+    // We don't want to display a MIME type choice for a QTextDrag, those MIME type look ugly.
     if (mimeData->hasText()) {
         ba = mimeData->text().toLocal8Bit(); // encoding OK?
     } else {

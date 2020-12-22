@@ -556,12 +556,12 @@ public:
     static KProtocolInfo::FileNameUsedForCopying fileNameUsedForCopying(const QUrl &url);
 
     /**
-     * Returns default mimetype for this URL based on the protocol.
+     * Returns default MIME type for this URL based on the protocol.
      *
      * This corresponds to the "defaultMimetype=" field in the protocol description file.
      *
      * @param url the url to check
-     * @return the default mime type of the protocol, or null if unknown
+     * @return the default MIME type of the protocol, or an empty string if unknown
      */
     static QString defaultMimetype(const QUrl &url);
 
@@ -619,14 +619,14 @@ public:
     static bool isSourceProtocol(const QUrl &url);
 
     /**
-     * Returns which protocol handles this mimetype, if it's an archive mimetype.
+     * Returns which protocol handles this MIME type, if it's an archive MIME type.
      * For instance zip:/ handles application/x-zip.
      *
      * This is defined in the protocol description file using an entry like
      * "archiveMimetype=application/x-zip"
      *
-     * @param mimeType the mimetype to check
-     * @return the protocol that can handle this archive mimetype, for instance "zip".
+     * @param mimeType the MIME type to check
+     * @return the protocol that can handle this archive MIME type, for instance "zip".
      * @since 4.1
      */
     static QString protocolForArchiveMimetype(const QString &mimeType);

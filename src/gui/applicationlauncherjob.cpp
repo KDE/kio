@@ -273,5 +273,5 @@ void KIO::ApplicationLauncherJobPrivate::showOpenWithDialog()
         q->emitResult();
     });
 
-    s_openWithHandler->promptUserForApplication(q, m_urls, QString() /* mimetype name unknown */);
+    s_openWithHandler->promptUserForApplication(q, m_urls, QString() /* MIME type name unknown */);
 }

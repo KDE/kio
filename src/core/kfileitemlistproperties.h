@@ -26,7 +26,7 @@ class KFileItemList;
  *        KFileItem objects.
  *
  * Given a list of KFileItems, this class can determine (and cache) the common
- * mimetype for all items, whether all items are directories, whether all items
+ * MIME type for all items, whether all items are directories, whether all items
  * are readable, writable, etc.
  * As soon as one file item does not support a specific capability (read, write etc.),
  * it is marked as unsupported for all items.
@@ -117,12 +117,12 @@ public:
     bool isFile() const;
 
     /**
-     * @return the mimetype of all items, if they all have the same, otherwise empty
+     * @return the MIME type of all items, if they all have the same, otherwise an empty string
      */
     QString mimeType() const;
 
     /**
-     * @return the mimetype group (e.g. "text") of all items, if they all have the same, otherwise empty
+     * @return the MIME type group (e.g. "text") of all items, if they all have the same, otherwise an empty string
      */
     QString mimeGroup() const;
 

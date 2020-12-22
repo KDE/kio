@@ -149,7 +149,7 @@ public:
     QString nameFilter() const;
 
     /**
-     * Sets a list of mimetypes as filter. Only files of those mimetypes
+     * Sets a list of MIME types as filter. Only files of those MIME types
      * will be shown.
      *
      * Example:
@@ -159,7 +159,7 @@ public:
      * dirOperator->setMimefilter( filter );
      * \endcode
      *
-     * Node: Without the mimetype inode/directory, only files would be shown.
+     * Node: Without the MIME type inode/directory, only files would be shown.
      * Call updateDir() to apply it.
      *
      * @see KDirLister::setMimeFilter
@@ -168,14 +168,14 @@ public:
     void setMimeFilter(const QStringList &mimetypes);
 
     /**
-     * @returns the current mime filter.
+     * @returns the current MIME type filter.
      */
     QStringList mimeFilter() const;
 
     /**
-     * Only show the files in a given set of mimetypes.
+     * Only show the files in a given set of MIME types.
      * This is useful in specialized applications (while file managers, on
-     * the other hand, want to show all mimetypes). Internally uses
+     * the other hand, want to show all MIME types). Internally uses
      * KNewFileMenu::setSupportedMimeTypes
      *
      * Example:
@@ -186,7 +186,7 @@ public:
      * \endcode
      *
      * Note: If the list is empty, all options will be shown. Otherwise,
-     * without the mimetype inode/directory, only file options will be shown.
+     * without the MIME type inode/directory, only file options will be shown.
      *
      * @see KNewFileMenu::setSupportedMimeTypes
      * @see newFileMenuSupportedMimeTypes
@@ -208,7 +208,7 @@ public:
     void setNewFileMenuSelectDirWhenAlreadyExist(bool selectOnDirExists);
 
     /**
-     * Clears both the namefilter and mimetype filter, so that all files and
+     * Clears both the namefilter and MIME type filter, so that all files and
      * directories will be shown. Call updateDir() to apply it.
      *
      * @see setMimeFilter

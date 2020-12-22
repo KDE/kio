@@ -58,10 +58,10 @@ public:
                     QWidget *parent = nullptr);
 
     /**
-     * Create a dialog to select a service for a given mimetype.
+     * Create a dialog to select a service for a given MIME type.
      * Note that this dialog doesn't apply to URLs.
      *
-     * @param mimeType the mime type we want to choose an application for.
+     * @param mimeType the MIME type we want to choose an application for.
      * @param value  is the initial value of the line
      * @param parent parent widget
      */
@@ -70,7 +70,7 @@ public:
 
     /**
      * Create a dialog that asks for a application for opening a given
-     * URL (or more than one), when we already know the mimetype of the URL(s).
+     * URL (or more than one), when we already know the MIME type of the URL(s).
      *
      * @param urls   is the URLs that should be opened
      * @param mimeType the MIME type of the URL

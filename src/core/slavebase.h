@@ -146,7 +146,7 @@ public:
     /**
      * Call this from stat() to express details about an object, the
      * UDSEntry customarily contains the atoms describing file name, size,
-     * mimetype, etc.
+     * MIME type, etc.
      * @param _entry The UDSEntry containing all of the object attributes.
      */
     void statEntry(const UDSEntry &_entry);
@@ -232,8 +232,8 @@ public:
     void errorPage();
 
     /**
-     * Call this in mimetype() and in get(), when you know the mimetype.
-     * See mimetype about other ways to implement it.
+     * Call this in mimetype() and in get(), when you know the MIME type.
+     * See mimetype() about other ways to implement it.
      */
     void mimeType(const QString &_type);
 
@@ -428,15 +428,15 @@ public:
      * @param url the full url for this request. Host, port and user of the URL
      *        can be assumed to be the same as in the last setHost() call.
      *
-     * The slave should first "emit" the mimetype by calling mimeType(),
+     * The slave should first "emit" the MIME type by calling mimeType(),
      * and then "emit" the data using the data() method.
      *
-     * The reason why we need get() to emit the mimetype is:
+     * The reason why we need get() to emit the MIME type is:
      * when pasting a URL in krunner, or konqueror's location bar,
-     * we have to find out what is the mimetype of that URL.
+     * we have to find out what is the MIME type of that URL.
      * Rather than doing it with a call to mimetype(), then the app or part
      * would have to do a second request to the same server, this is done
-     * like this: get() is called, and when it emits the mimetype, the job
+     * like this: get() is called, and when it emits the MIME type, the job
      * is put on hold and the right app or part is launched. When that app
      * or part calls get(), the slave is magically reused, and the download
      * can now happen. All with a single call to get() in the slave.
@@ -511,15 +511,15 @@ public:
     virtual void stat(const QUrl &url);
 
     /**
-     * Finds mimetype for one file or directory.
+     * Finds MIME type for one file or directory.
      *
      * This method should either emit 'mimeType' or it
      * should send a block of data big enough to be able
-     * to determine the mimetype.
+     * to determine the MIME type.
      *
      * If the slave doesn't reimplement it, a get will
      * be issued, i.e. the whole file will be downloaded before
-     * determining the mimetype on it - this is obviously not a
+     * determining the MIME type on it - this is obviously not a
      * good thing in most cases.
      */
     virtual void mimetype(const QUrl &url);

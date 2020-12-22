@@ -21,7 +21,7 @@ namespace KIO
 /**
  * Convenience method to find the pixmap for a URL.
  *
- * Call this one when you don't know the mimetype.
+ * Call this one when you don't know the MIME type.
  *
  * @param url URL for the file.
  * @param dummy ignored (was a mode_t parameter in kdelibs 4)

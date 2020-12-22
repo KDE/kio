@@ -132,17 +132,17 @@ public:
     virtual void stop(const QUrl &_url);
 
     /**
-     * @return true if the "delayed mimetypes" feature was enabled
+     * @return true if the "delayed MIME types" feature was enabled
      * @see setDelayedMimeTypes
      */
     bool delayedMimeTypes() const;
 
     /**
-     * Delayed mimetypes feature:
-     * If enabled, mime types will be fetched on demand, which leads to a
+     * Delayed MIME types feature:
+     * If enabled, MIME types will be fetched on demand, which leads to a
      * faster initial directory listing, where icons get progressively replaced
      * with the correct one while KMimeTypeResolver is going through the items
-     * with unknown or imprecise mimetype (e.g. files with no extension or an
+     * with unknown or imprecise MIME type (e.g. files with no extension or an
      * unknown extension).
      */
     void setDelayedMimeTypes(bool delayedMimeTypes);
@@ -284,14 +284,14 @@ public:
     QString nameFilter() const;
 
     /**
-     * Set mime-based filter to only list items matching the given mimetypes.
+     * Set MIME type based filter to only list items matching the given MIME types.
      *
      * NOTE: setting the filter does not automatically reload directory.
      * Also calling this function will not affect any named filter already set.
      *
      * You need to call emitChanges() afterwards.
      *
-     * @param mimeList a list of mime-types.
+     * @param mimeList a list of MIME types
      *
      * @see clearMimeFilter
      * @see matchesMimeFilter
@@ -302,12 +302,12 @@ public:
      * Filtering should be done with KFileFilter. This will be implemented in a later
      * revision of KCoreDirLister. This method may be removed then.
      *
-     * Set mime-based exclude filter to only list items not matching the given mimetypes
+     * Set MIME type based exclude filter to only list items not matching the given MIME types
      *
      * NOTE: setting the filter does not automatically reload directory.
      * Also calling this function will not affect any named filter already set.
      *
-     * @param mimeList a list of mime-types.
+     * @param mimeList a list of MIME types
      * @see clearMimeFilter
      * @see matchesMimeFilter
      * @internal
@@ -315,7 +315,7 @@ public:
     void setMimeExcludeFilter(const QStringList &mimeList);
 
     /**
-     * Clears the mime based filter.
+     * Clears the MIME type based filter.
      *
      * You need to call emitChanges() afterwards.
      *
@@ -324,8 +324,8 @@ public:
     virtual void clearMimeFilter();
 
     /**
-     * Returns the list of mime based filters, as set via setMimeFilter().
-     * @return the list of mime based filters. Empty, when no mime filter is set.
+     * Returns the list of MIME type based filters, as set via setMimeFilter().
+     * @return the list of MIME type based filters. Empty, when no MIME type filter is set.
      */
     QStringList mimeFilters() const;
 
@@ -338,13 +338,13 @@ public:
     bool matchesFilter(const QString &name) const;
 
     /**
-     * Checks whether @p mime matches a filter in the list of mime types
-     * @param mime the mimetype to find in the filter list.
-     * @return true if @p name matches a filter in the list,
+     * Checks whether @p mimeType matches a filter in the list of MIME types
+     * @param mimeType the MIME type to find in the filter list.
+     * @return true if @p mimeType matches a filter in the list,
      * otherwise false.
      * @see setMimeFilter.
      */
-    bool matchesMimeFilter(const QString &mime) const;
+    bool matchesMimeFilter(const QString &mimeType) const;
 
     /**
      * Used by items() and itemsForDir() to specify whether you want
@@ -488,7 +488,7 @@ Q_SIGNALS:
     void itemsAdded(const QUrl &directoryUrl, const KFileItemList &items);
 
     /**
-     * Send a list of items filtered-out by mime-type.
+     * Send a list of items filtered-out by MIME type.
      * @param items the list of filtered items
      */
     void itemsFilteredByMime(const KFileItemList &items);
@@ -502,7 +502,7 @@ Q_SIGNALS:
     void itemsDeleted(const KFileItemList &items);
 
     /**
-     * Signal an item to refresh (its mimetype/icon/name has changed).
+     * Signal an item to refresh (its MIME-type/icon/name has changed).
      * Note: KFileItem::refresh has already been called on those items.
      * @param items the items to refresh. This is a list of pairs, where
      * the first item in the pair is the OLD item, and the second item is the
@@ -591,11 +591,11 @@ protected:
      * Called by the public matchesMimeFilter() to do the
      * actual filtering. Those methods may be reimplemented to customize
      * filtering.
-     * @param mime the mime type to filter
-     * @param filters the list of mime types to filter
+     * @param mimeType the MIME type to filter
+     * @param filters the list of MIME types to filter
      */
     // TODO KF6 remove
-    virtual bool doMimeFilter(const QString &mime, const QStringList &filters) const;
+    virtual bool doMimeFilter(const QString &mimeType, const QStringList &filters) const;
 
     /**
      * Reimplement to customize error handling

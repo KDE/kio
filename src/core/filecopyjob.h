@@ -63,16 +63,16 @@ public:
 
 Q_SIGNALS:
     /**
-     * Mimetype determined during a file copy.
+     * MIME type determined during a file copy.
      * This is never emitted during a move, and might not be emitted during
      * a file copy, depending on the slave. But when a get and a put are
      * being used (which is the common case), this signal forwards the
-     * mimetype information from the get job.
+     * MIME type information from the get job.
      *
      * @param job the job that emitted this signal
-     * @param type the mime type
+     * @param mimeType the MIME type
      */
-    void mimetype(KIO::Job *job, const QString &type);
+    void mimetype(KIO::Job *job, const QString &mimeType);
 
 protected Q_SLOTS:
     /**

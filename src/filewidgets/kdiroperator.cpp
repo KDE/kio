@@ -1384,7 +1384,7 @@ bool KDirOperator::eventFilter(QObject *watched, QEvent *event)
             evt->ignore();
 
         } else {
-            // mimetype filtering
+            // MIME type filtering
             bool mimeFilterPass = true;
             const QStringList mimeFilters = d->dirLister->mimeFilters();
 
@@ -1498,7 +1498,7 @@ bool KDirOperator::Private::checkPreviewInternal() const
         }
 
         if (!nameFilters.isEmpty()) {
-            // find the mimetypes of all the filter-patterns
+            // find the MIME types of all the filter-patterns
             for (const QString &filter : nameFilters) {
                 if (filter == QLatin1Char('*')) {
                     return true;

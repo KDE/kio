@@ -33,7 +33,7 @@ void KDirListerTest::initTestCase()
     // To avoid a runtime dependency on klauncher
     qputenv("KDE_FORK_SLAVES", "yes");
 
-    // To avoid failing on broken locally defined mime types
+    // To avoid failing on broken locally defined MIME types
     QStandardPaths::setTestModeEnabled(true);
 
     KIO::setDefaultJobUiDelegateExtension(nullptr); // no "skip" dialogs

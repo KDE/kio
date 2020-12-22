@@ -258,7 +258,7 @@ QString KIO::iconNameForUrl(const QUrl &url)
         }
     }
     // if we found nothing, return QMimeType.iconName()
-    // (which fallbacks to "application-octet-stream" when no mimetype could be determined)
+    // (which fallbacks to "application-octet-stream" when no MIME type could be determined)
     return !iconName.isEmpty() ? iconName : mt.iconName();
 }
 

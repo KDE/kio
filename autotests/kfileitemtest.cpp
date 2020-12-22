@@ -210,7 +210,7 @@ void KFileItemTest::testMimeTypeOnDemand()
     }
 
     {
-        // Calling mimeType directly also does mimetype determination
+        // Calling mimeType directly also does MIME type determination
         KFileItem fileItem(QUrl::fromLocalFile(file.fileName()));
         fileItem.setDelayedMimeTypes(true);
         QVERIFY(!fileItem.isMimeTypeKnown());
@@ -219,7 +219,7 @@ void KFileItemTest::testMimeTypeOnDemand()
     }
 
     {
-        // Calling overlays should NOT do mimetype determination (#237668)
+        // Calling overlays should NOT do MIME type determination (#237668)
         KFileItem fileItem(QUrl::fromLocalFile(file.fileName()));
         fileItem.setDelayedMimeTypes(true);
         QVERIFY(!fileItem.isMimeTypeKnown());
@@ -262,7 +262,7 @@ void KFileItemTest::testMimeTypeOnDemand()
         QCOMPARE(fileItem.determineMimeType().name(), QStringLiteral("text/plain"));
         QCOMPARE(fileItem.mimetype(), QStringLiteral("text/plain"));
 
-        // And if the mimetype is not on demand?
+        // And if the MIME type is not on demand?
         KFileItem fileItem2(QUrl::fromLocalFile(fileName));
         QCOMPARE(fileItem2.currentMimeType().name(), QStringLiteral("text/plain")); // XDG says: application/smil; but can't sniff all files so this can't work
         QVERIFY(fileItem2.isMimeTypeKnown());
@@ -459,7 +459,7 @@ void KFileItemTest::testDotDirectory()
         QCOMPARE(fileItem.mimeComment(), QStringLiteral("com"));
         QCOMPARE(fileItem.iconName(), QStringLiteral("foo"));
     }
-    // Test for calling iconName first, to trigger mimetype resolution
+    // Test for calling iconName first, to trigger MIME type resolution
     {
         KFileItem fileItem(QUrl::fromLocalFile(tempDir.path()), QString(), KFileItem::Unknown);
         QVERIFY(fileItem.isLocalFile());

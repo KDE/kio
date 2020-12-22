@@ -739,7 +739,7 @@ QString KFileWidget::currentMimeFilter() const
 {
     int i = d->filterWidget->currentIndex();
     if (d->filterWidget->showsAllTypes() && i == 0) {
-        return QString();    // The "all types" item has no mimetype
+        return QString();    // The "all types" item has no MIME type
     }
 
     return d->filterWidget->filters().at(i);
@@ -2844,7 +2844,7 @@ void KFileWidgetPrivate::setNonExtSelection()
     }
 }
 
-// Sets the filter text to "File type" if the dialog is saving and a mimetype
+// Sets the filter text to "File type" if the dialog is saving and a MIME type
 // filter has been set; otherwise, the text is "Filter:"
 void KFileWidgetPrivate::updateFilterText()
 {

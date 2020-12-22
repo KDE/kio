@@ -473,7 +473,7 @@ private:
 
     // Set of remote files that have changed recently -- but we can't emit those
     // changes yet, we need to wait for the "update" directory listing.
-    // The cmp() call can't differ mimetypes since they are determined on demand,
+    // The cmp() call can't differ MIME types since they are determined on demand,
     // this is why we need to remember those files here.
     QSet<KFileItem> pendingRemoteUpdates;
 

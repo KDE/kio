@@ -759,7 +759,7 @@ void KFilePreviewGenerator::Private::dispatchIconUpdateQueue()
             m_previews.clear();
         }
 
-        // dispatch mime type queue
+        // dispatch MIME type queue
         for (const KFileItem &item : qAsConst(m_resolvedMimeTypes)) {
             const QModelIndex idx = dirModel->indexForItem(item);
             dirModel->itemChanged(idx);

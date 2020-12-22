@@ -35,9 +35,9 @@ class Job;
  * the default application or another application "bound" to the file type
  * (or URL protocol).
  *
- * In that example, the mimetype of the file is not known by the application,
- * so a KRun instance must be created. It will determine the mimetype by itself.
- * If the mimetype is known, or if you even know the service (application) to
+ * In that example, the MIME type of the file is not known by the application,
+ * so a KRun instance must be created. It will determine the MIME type by itself.
+ * If the MIME type is known, or if you even know the service (application) to
  * use for this file, use one of the static methods.
  *
  * By default KRun uses auto deletion. It causes the KRun instance to delete
@@ -134,8 +134,8 @@ public:
 
     /**
      * Set the preferred service for opening this URL, after
-     * its mimetype will have been found by KRun. IMPORTANT: the service is
-     * only used if its configuration says it can handle this mimetype.
+     * its MIME type will have been found by KRun. IMPORTANT: the service is
+     * only used if its configuration says it can handle this MIME type.
      * This is used for instance for the X-KDE-LastOpenedWith key in
      * the recent documents list, or for the app selection in
      * KParts::BrowserOpenOrSaveQuestion.
@@ -170,7 +170,7 @@ public:
     /**
      * Sets the file name to use in the case of downloading the file to a tempfile
      * in order to give to a non-url-aware application. Some apps rely on the extension
-     * to determine the mimetype of the file. Usually the file name comes from the URL,
+     * to determine the MIME type of the file. Usually the file name comes from the URL,
      * but in the case of the HTTP Content-Disposition header, we need to override the
      * file name.
      */
@@ -354,11 +354,11 @@ public:
     /**
      * Open the given URL.
      *
-     * This function is used after the mime type
+     * This function is used after the MIME type
      * is found out. It will search for all services which can handle
-     * the mime type and call run() afterwards.
+     * the MIME type and call run() afterwards.
      * @param url the URL to open
-     * @param mimetype the mime type of the resource
+     * @param mimetype the MIME type of the resource
      * @param window The top-level widget of the app that invoked this object.
      * @param tempFile if true and url is a local file, it will be deleted
      *        when the launched application exits.
@@ -389,11 +389,11 @@ public:
     /**
      * Open the given URL.
      *
-     * This function can be used after the mime type has been found out.
-     * It will search for all services which can handle the mime type and call run() afterwards.
+     * This function can be used after the MIME type has been found out.
+     * It will search for all services which can handle the MIME type and call run() afterwards.
      *
      * @param url The URL to open.
-     * @param mimetype The mime type of the resource.
+     * @param mimetype the MIME type of the resource
      * @param window The top-level widget of the app that invoked this object.
      * @param flags Various run flags.
      * @param suggestedFileName See setSuggestedFileName()
@@ -583,12 +583,12 @@ public:
      * To be executable the file must pass the following rules:
      * -# Must reside on the local filesystem.
      * -# Must be marked as executable for the user by the filesystem.
-     * -# The mime type must inherit application/x-executable, application/x-executable-script or application/x-sharedlib.
+     * -# The MIME type must inherit application/x-executable, application/x-executable-script or application/x-sharedlib.
      * To allow a script to run when the above rules are satisfied add the entry
      * @code
      * X-KDE-IsAlso=application/x-executable-script
      * @endcode
-     * to the mimetype's desktop file.
+     * to the MIME type's desktop file.
      */
     static bool isExecutableFile(const QUrl &url, const QString &mimetype);
 
@@ -629,12 +629,12 @@ protected Q_SLOTS:
 
     /**
      * This slot is called when the scan job has found out
-     * the mime type.
+     * the MIME type.
      */
     void slotScanMimeType(KIO::Job *, const QString &type);
 
     /**
-     * Call this from subclasses when you have determined the mimetype.
+     * Call this from subclasses when you have determined the MIME type.
      * It will call foundMimeType, but also sets up protection against deletion during message boxes.
      * @since 4.0.2
      */
@@ -661,8 +661,8 @@ protected:
     virtual void scanFile();
 
     /**
-     * Called if the mimetype has been detected. The function runs
-     * the application associated with this mimetype.
+     * Called if the MIME type has been detected. The function runs
+     * the application associated with this MIME type.
      * Reimplement this method to implement a different behavior,
      * like opening the component for displaying the URL embedded.
      *

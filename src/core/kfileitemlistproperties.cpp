@@ -194,11 +194,11 @@ void KFileItemListPropertiesPrivate::determineMimeTypeAndGroup() const
     }
     for (const KFileItem &item : qAsConst(m_items)) {
         const QString itemMimeType = item.mimetype();
-        // Determine if common mimetype among all items
+        // Determine if common MIME type among all items
         if (m_mimeType != itemMimeType) {
             m_mimeType.clear();
             if (m_mimeGroup != itemMimeType.leftRef(itemMimeType.indexOf(QLatin1Char('/')))) {
-                m_mimeGroup.clear(); // mimetype groups are different as well!
+                m_mimeGroup.clear(); // MIME type groups are different as well!
             }
         }
     }

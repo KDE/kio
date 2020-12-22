@@ -64,7 +64,7 @@ KPreviewWidgetBase *KFileMetaPreview::findExistingProvider(const QString &mimeTy
     }
 
     if (mimeInfo.isValid()) {
-        // check mime type inheritance
+        // check MIME type inheritance
         const QStringList parentMimeTypes = mimeInfo.allAncestors();
         for (const QString &parentMimeType : parentMimeTypes) {
             provider = m_previewProviders.value(parentMimeType);
@@ -74,7 +74,7 @@ KPreviewWidgetBase *KFileMetaPreview::findExistingProvider(const QString &mimeTy
         }
     }
 
-    // ### mimetype may be image/* for example, try that
+    // ### MIME type may be image/* for example, try that
     const int index = mimeType.indexOf(QLatin1Char('/'));
     if (index > 0) {
         provider = m_previewProviders.value(mimeType.leftRef(index + 1) + QLatin1Char('*'));
@@ -116,7 +116,7 @@ KPreviewWidgetBase *KFileMetaPreview::previewProviderFor(const QString &mimeType
                 const QStringList mimeTypes = audioPreview->supportedMimeTypes();
                 QStringList::ConstIterator it = mimeTypes.begin();
                 for (; it != mimeTypes.end(); ++it) {
-                    // only add non already handled mimetypes
+                    // only add non already handled MIME types
                     if (m_previewProviders.constFind(*it) == m_previewProviders.constEnd()) {
                         m_previewProviders.insert(*it, audioPreview);
                     }
@@ -125,7 +125,7 @@ KPreviewWidgetBase *KFileMetaPreview::previewProviderFor(const QString &mimeType
         }
     }
 
-    // with the new mimetypes from the audio-preview, try again
+    // with the new MIME types from the audio-preview, try again
     provider = findExistingProvider(mimeType, mimeInfo);
     if (provider) {
         return provider;

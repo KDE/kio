@@ -133,10 +133,10 @@ public:
      * value for KDirMode::ChildCountRole, in addition to KDirModel::FileItemRole.
      *
      * Note that KFileItemDelegate will not call KFileItem::determineMimeType() if
-     * KFileItem::isMimeTypeKnown() returns false, so if you want to display mime types
-     * you should use a KMimeTypeResolver with the model and the view, to ensure that mime
-     * types are resolved. If the mime type isn't known, "Unknown" will be displayed until
-     * the mime type has been successfully resolved.
+     * KFileItem::isMimeTypeKnown() returns false, so if you want to display MIME types
+     * you should use a KMimeTypeResolver with the model and the view, to ensure that MIME
+     * types are resolved. If the MIME type isn't known, "Unknown" will be displayed until
+     * the MIME type has been successfully resolved.
      *
      * @see setShowInformation()
      * @see showInformation()
@@ -152,8 +152,8 @@ public:
         CreationTime,      ///< The date and time the file/folder was created.
         ModificationTime,  ///< The date and time the file/folder was last modified.
         AccessTime,        ///< The date and time the file/folder was last accessed.
-        MimeType,          ///< The mime type for the item, e.g. text/html.
-        FriendlyMimeType,  ///< The descriptive name for the mime type, e.g. HTML Document.
+        MimeType,          ///< The MIME type for the item, e.g. text/html.
+        FriendlyMimeType,  ///< The descriptive name for the MIME type, e.g. HTML Document.
         LinkDest,          ///< The destination of a symbolic link. @since 4.5
         LocalPathOrUrl,    ///< The local path to the file or the URL in case it is not a local file. @since 4.5
         Comment            ///< A simple comment that can be displayed to the user as is. @since 4.6

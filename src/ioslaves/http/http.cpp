@@ -849,13 +849,13 @@ void HTTPProtocol::davStatList(const QUrl &url, bool stat)
             davParsePropstats(propstats, entry);
 
             // Since a lot of webdav servers seem not to send the content-type information
-            // for the requested directory listings, we attempt to guess the mime-type from
+            // for the requested directory listings, we attempt to guess the MIME type from
             // the resource name so long as the resource is not a directory.
             if (entry.stringValue(KIO::UDSEntry::UDS_MIME_TYPE).isEmpty() &&
                     entry.numberValue(KIO::UDSEntry::UDS_FILE_TYPE) != S_IFDIR) {
                 QMimeType mime = db.mimeTypeForFile(thisURL.path(), QMimeDatabase::MatchExtension);
                 if (mime.isValid() && !mime.isDefault()) {
-                    qCDebug(KIO_HTTP) << "Setting" << mime.name() << "as guessed mime type for" << thisURL.path();
+                    qCDebug(KIO_HTTP) << "Setting" << mime.name() << "as guessed MIME type for" << thisURL.path();
                     entry.fastInsert(KIO::UDSEntry::UDS_GUESSED_MIME_TYPE, mime.name());
                 }
             }
@@ -982,14 +982,14 @@ void HTTPProtocol::davParsePropstats(const QDomNodeList &propstats, UDSEntry &en
                 // equiv. to Content-Language header on a GET
                 setMetaData(QStringLiteral("davContentLanguage"), property.text());
             } else if (property.tagName() == QLatin1String("getcontenttype")) {
-                // Content type (mime type)
+                // Content type (MIME type)
                 // This may require adjustments for other server-side webdav implementations
                 // (tested with Apache + mod_dav 1.0.3)
                 if (property.text() == QLatin1String("httpd/unix-directory")) {
                     isDirectory = true;
                 } else if (property.text() != QLatin1String("application/octet-stream")) {
                     // The server could be lazy and always return application/octet-stream;
-                    // we will guess the mime-type later in that case.
+                    // we will guess the MIME type later in that case.
                     mimeType = property.text();
                 }
             } else if (property.tagName() == QLatin1String("executable")) {
@@ -2728,7 +2728,7 @@ void HTTPProtocol::fixupResponseMimetype()
     }
 
     qCDebug(KIO_HTTP) << "before fixup" << m_mimeType;
-    // Convert some common mimetypes to standard mimetypes
+    // Convert some common MIME types to standard MIME types
     if (m_mimeType == QLatin1String("application/x-targz")) {
         m_mimeType = QStringLiteral("application/x-compressed-tar");
     } else if (m_mimeType == QLatin1String("image/x-png")) {
@@ -2759,7 +2759,7 @@ void HTTPProtocol::fixupResponseMimetype()
     }
 
     // Prefer application/x-xz-compressed-tar over application/x-xz for LMZA compressed
-    // tar files. Arch Linux AUR servers notoriously send the wrong mimetype for this.
+    // tar files. Arch Linux AUR servers notoriously send the wrong MIME type for this.
     else if (m_mimeType == QLatin1String("application/x-xz")) {
         if (m_request.url.path().endsWith(QLatin1String(".tar.xz")) ||
                 m_request.url.path().endsWith(QLatin1String(".txz"))) {
@@ -2821,11 +2821,11 @@ void HTTPProtocol::fixupResponseContentEncoding()
     }
 
     // We can't handle "bzip2" encoding (yet). So if we get something with
-    // bzip2 encoding, we change the mimetype to "application/x-bzip".
+    // bzip2 encoding, we change the MIME type to "application/x-bzip".
     // Note for future changes: some web-servers send both "bzip2" as
-    //   encoding and "application/x-bzip[2]" as mimetype. That is wrong.
+    //   encoding and "application/x-bzip[2]" as MIME type. That is wrong.
     //   currently that doesn't bother us, because we remove the encoding
-    //   and set the mimetype to x-bzip anyway.
+    //   and set the MIME type to x-bzip anyway.
     if (!m_contentEncodings.isEmpty() && m_contentEncodings.last() == QLatin1String("bzip2")) {
         m_contentEncodings.removeLast();
         m_mimeType = QStringLiteral("application/x-bzip");
@@ -2908,7 +2908,7 @@ try_again:
             // Some web-servers fail to respond properly to a HEAD request.
             // We compensate for their failure to properly implement the HTTP standard
             // by assuming that they will be sending html.
-            qCDebug(KIO_HTTP) << "HEAD -> returned mimetype:" << DEFAULT_MIME_TYPE;
+            qCDebug(KIO_HTTP) << "HEAD -> returned MIME type:" << DEFAULT_MIME_TYPE;
             mimeType(QStringLiteral(DEFAULT_MIME_TYPE));
             return true;
         }
@@ -3172,7 +3172,7 @@ endParsing:
         if (tIt.hasNext()) {
             QList<QByteArray> l = tIt.next().split(';');
             if (!l.isEmpty()) {
-                // Assign the mime-type.
+                // Assign the MIME type.
                 m_mimeType = toQString(l.first().trimmed().toLower());
                 if (m_mimeType.startsWith(QLatin1Char('"'))) {
                     m_mimeType.remove(0, 1);
@@ -3184,7 +3184,7 @@ endParsing:
                 l.removeFirst();
             }
 
-            // If we still have text, then it means we have a mime-type with a
+            // If we still have text, then it means we have a MIME type with a
             // parameter (eg: charset=iso-8851) ; so let's get that...
             for (const QByteArray &statement : qAsConst(l)) {
                 const int index = statement.indexOf('=');
@@ -3237,7 +3237,7 @@ endParsing:
             // mechanism must be applied to obtain the media-type referenced by the
             // Content-Type header field.  Content-Encoding is primarily used to allow
             // a document to be compressed without loosing the identity of its underlying
-            // media type.  Simply put if it is specified, this is the actual mime-type
+            // media type.  Simply put if it is specified, this is the actual MIME type
             // we should use when we pull the resource !!!
             addEncoding(toQString(tIt.next()), m_contentEncodings);
         }
@@ -3505,7 +3505,7 @@ endParsing:
         // Correct a few common wrong content encodings
         fixupResponseContentEncoding();
 
-        // Correct some common incorrect pseudo-mimetypes
+        // Correct some common incorrect pseudo MIME types
         fixupResponseMimetype();
 
         // parse everything related to expire and other dates, and cache directives; also switch
@@ -3544,13 +3544,13 @@ endParsing:
 
         // IMPORTANT: Do not remove this line because forwardHttpResponseHeader
         // is called below. This line is here to ensure the response headers are
-        // available to the client before it receives mimetype information.
+        // available to the client before it receives MIME type information.
         // The support for putting ioslaves on hold in the KIO-QNAM integration
         // will break if this line is removed.
         setMetaData(QStringLiteral("HTTP-Headers"), m_responseHeaders.join(QLatin1Char('\n')));
     }
 
-    // Let the app know about the mime-type iff this is not a redirection and
+    // Let the app know about the MIME type iff this is not a redirection and
     // the mime-type string is not empty.
     if (!m_isRedirection && m_request.responseCode != 204 &&
             (!m_mimeType.isEmpty() || m_request.method == HTTP_HEAD) &&
@@ -4241,7 +4241,7 @@ void HTTPProtocol::slotData(const QByteArray &_d)
             if ((m_iBytesLeft != NO_SIZE) && (m_iBytesLeft > 0)
                     && (m_mimeTypeBuffer.size() < 1024)) {
                 m_cpMimeBuffer = true;
-                return;   // Do not send up the data since we do not yet know its mimetype!
+                return;   // Do not send up the data since we do not yet know its MIME type!
             }
 
             qCDebug(KIO_HTTP) << "Mimetype buffer size:" << m_mimeTypeBuffer.size();
@@ -4250,12 +4250,12 @@ void HTTPProtocol::slotData(const QByteArray &_d)
             QMimeType mime = db.mimeTypeForFileNameAndData(m_request.url.adjusted(QUrl::StripTrailingSlash).path(), m_mimeTypeBuffer);
             if (mime.isValid() && !mime.isDefault()) {
                 m_mimeType = mime.name();
-                qCDebug(KIO_HTTP) << "Mimetype from content:" << m_mimeType;
+                qCDebug(KIO_HTTP) << "MIME type from content:" << m_mimeType;
             }
 
             if (m_mimeType.isEmpty()) {
                 m_mimeType = QStringLiteral(DEFAULT_MIME_TYPE);
-                qCDebug(KIO_HTTP) << "Using default mimetype:" <<  m_mimeType;
+                qCDebug(KIO_HTTP) << "Using default MIME type:" <<  m_mimeType;
             }
 
             //### we could also open the cache file here

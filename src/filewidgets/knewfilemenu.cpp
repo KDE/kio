@@ -737,13 +737,13 @@ void KNewFileMenuPrivate::fillMenu()
                     if (!m_supportedMimeTypes.isEmpty()) {
                         bool keep = false;
 
-                        // We need to do mimetype filtering, for real files.
+                        // We need to do MIME type filtering, for real files.
                         const bool createSymlink = entry.templatePath == QLatin1String("__CREATE_SYMLINK__");
                         if (createSymlink) {
                             keep = true;
                         } else if (!KDesktopFile::isDesktopFile(entry.templatePath)) {
 
-                            // Determine mimetype on demand
+                            // Determine MIME type on demand
                             QMimeDatabase db;
                             QMimeType mime;
                             if (entry.mimeType.isEmpty()) {

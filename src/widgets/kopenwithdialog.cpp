@@ -499,7 +499,7 @@ public:
     KOpenWithDialog * const q;
 
     /**
-     * Determine mime type from URLs
+     * Determine MIME type from URLs
      */
     void setMimeTypeFromUrls(const QList<QUrl> &_urls);
 
@@ -918,7 +918,7 @@ void KOpenWithDialogPrivate::addToMimeAppsList(const QString &serviceId /*menu i
 
     profile->sync();
 
-    // Also make sure the "auto embed" setting for this mimetype is off
+    // Also make sure the "auto embed" setting for this MIME type is off
     KSharedConfig::Ptr fileTypesConfig = KSharedConfig::openConfig(QStringLiteral("filetypesrc"), KConfig::NoGlobals);
     fileTypesConfig->group("EmbedSettings").writeEntry(QStringLiteral("embed-") + qMimeType, false);
     fileTypesConfig->sync();

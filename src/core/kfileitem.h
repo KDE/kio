@@ -28,7 +28,7 @@ class KFileItemPrivate;
  * A KFileItem is a generic class to handle a file, local or remote.
  * In particular, it makes it easier to handle the result of KIO::listDir
  * (UDSEntry isn't very friendly to use).
- * It includes many file attributes such as mimetype, icon, text, mode, link...
+ * It includes many file attributes such as MIME type, icon, text, mode, link...
  *
  * KFileItem is implicitly shared, i.e. it can be used as a value and copied around at almost no cost.
  */
@@ -67,7 +67,7 @@ public:
      *
      * @param entry the KIO entry used to get the file, contains info about it
      * @param itemOrDirUrl the URL of the item or of the directory containing this item (see urlIsDirectory).
-     * @param delayedMimeTypes specifies if the mimetype of the given
+     * @param delayedMimeTypes specifies if the MIME type of the given
      *       URL should be determined immediately or on demand.
      *       See the bool delayedMimeTypes in the KDirLister constructor.
      * @param urlIsDirectory specifies if the url is just the directory of the
@@ -91,7 +91,7 @@ public:
      * Set to KFileItem::Unknown if you don't know the mode or the permission.
      * @param url the file url
      *
-     * @param delayedMimeTypes specify if the mimetype of the given URL
+     * @param delayedMimeTypes specify if the MIME type of the given URL
      *       should be determined immediately or on demand
      * @deprecated since 5.0. Most callers gave Unknown for mode and permissions,
      * so just port to KFileItem(url) and setDelayedMimeTypes(true) if necessary.
@@ -102,17 +102,17 @@ public:
 #endif
 
     /**
-     * Creates an item representing a file, for which the mimetype is already known.
+     * Creates an item representing a file, for which the MIME type is already known.
      * @param url the file url
-     * @param mimeType the name of the file's mimetype
+     * @param mimeType the name of the file's MIME type
      * @param mode the mode (S_IFDIR...)
      */
     KFileItem(const QUrl &url, const QString &mimeType = QString(), mode_t mode = KFileItem::Unknown); // KF6 TODO: explicit!
 
     /**
-     * Creates an item representing a file, with the option of skipping mime type determination.
+     * Creates an item representing a file, with the option of skipping MIME type determination.
      * @param url the file url
-     * @param mimeTypeDetermination the mode of determining the mime type:
+     * @param mimeTypeDetermination the mode of determining the MIME type:
      *       NormalMimeTypeDetermination by content if local file, i.e. access the file,
      *                                   open and read part of it;
      *                                   by QMimeDatabase::MatchMode::MatchExtension if not local.
@@ -157,14 +157,14 @@ public:
     void refresh();
 
     /**
-     * Re-reads mimetype information.
-     * This is called when the mimetype database changes.
+     * Re-reads MIME type information.
+     * This is called when the MIME type database changes.
      */
     void refreshMimeType();
 
     /**
-     * Sets mimetype determination to be immediate or on demand.
-     * Call this after the constructor, and before using any mimetype-related method.
+     * Sets MIME type determination to be immediate or on demand.
+     * Call this after the constructor, and before using any MIME-type-related method.
      * @since 5.0
      */
     void setDelayedMimeTypes(bool b);
@@ -386,25 +386,25 @@ public:
     QString name(bool lowerCase = false) const;
 
     /**
-     * Returns the mimetype of the file item.
+     * Returns the MIME type of the file item.
      * If @p delayedMimeTypes was used in the constructor, this will determine
-     * the mimetype first. Equivalent to determineMimeType()->name()
-     * @return the mime type of the file
+     * the MIME type first. Equivalent to determineMimeType()->name()
+     * @return the MIME type of the file
      */
     QString mimetype() const;
 
     /**
-     * Returns the mimetype of the file item.
+     * Returns the MIME type of the file item.
      * If delayedMimeTypes was used in the constructor, this will determine
-     * the mimetype first.
-     * @return the mime type
+     * the MIME type first.
+     * @return the MIME type
      */
     QMimeType determineMimeType() const;
 
     /**
-     * Returns the currently known mimetype of the file item.
-     * This will not try to determine the mimetype if unknown.
-     * @return the known mime type
+     * Returns the currently known MIME type of the file item.
+     * This will not try to determine the MIME type if unknown.
+     * @return the known MIME type
      */
     QMimeType currentMimeType() const;
 
@@ -415,9 +415,9 @@ public:
     bool isFinalIconKnown() const;
 
     /**
-     * @return true if we have determined the mimetype of this file already,
+     * @return true if we have determined the MIME type of this file already,
      * i.e. if determineMimeType() will be fast. Otherwise it will have to
-     * find what the mimetype is, which is a possibly slow operation; usually
+     * find what the MIME type is, which is a possibly slow operation; usually
      * this is delayed until necessary.
      */
     bool isMimeTypeKnown() const;
@@ -431,7 +431,7 @@ public:
 
     /**
      * Returns the full path name to the icon that represents
-     * this mime type.
+     * this MIME type.
      * @return iconName the name of the file's icon
      */
     QString iconName() const;

@@ -24,5 +24,5 @@ or, when another slave is put on hold, the slave should be killed.
 The slave must emit "mimetype" during a GET before the first data is send.
 
 It may wait with sending "mimetype" until it has enough data to 
-determine the mimetype, but it should not pass any data along before it has
-sent the mimetype.
+determine the MIME type, but it should not pass any data along before it has
+sent "mimetype".

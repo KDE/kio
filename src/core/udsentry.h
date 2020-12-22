@@ -275,10 +275,10 @@ public:
         /// Use UDS_DISPLAY_NAME if you simply want to customize the user-visible filenames, or use
         /// UDS_TARGET_URL if you want "links" to unrelated urls.
         UDS_URL = 15 | UDS_STRING,
-        /// A mime type; the slave should set it if it's known.
+        /// A MIME type; the slave should set it if it's known.
         UDS_MIME_TYPE = 16 | UDS_STRING,
-        /// A mime type to be used for displaying only.
-        /// But when 'running' the file, the mimetype is re-determined
+        /// A MIME type to be used for displaying only.
+        /// But when 'running' the file, the MIME type is re-determined
         /// This is for special cases like symlinks in FTP; you probably don't want to use this one.
         UDS_GUESSED_MIME_TYPE = 17 | UDS_STRING,
         /// XML properties, e.g. for WebDAV
@@ -302,7 +302,7 @@ public:
         UDS_TARGET_URL = 23 | UDS_STRING,
 
         /// User-readable type of file (if not specified,
-        /// the mimetype's description is used)
+        /// the MIME type's description is used)
         /// @since 4.4
         UDS_DISPLAY_TYPE = 24 | UDS_STRING,
 

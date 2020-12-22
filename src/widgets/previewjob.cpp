@@ -126,7 +126,7 @@ public:
     KIO::filesize_t maximumRemoteSize;
     // the size for the icon overlay
     int iconSize;
-    // the transparency of the blended mimetype icon
+    // the transparency of the blended MIME type icon
     int iconAlpha;
     // Shared memory segment Id. The segment is allocated to a size
     // of extent x extent x 4 (32 bit image) on first need.
@@ -258,7 +258,7 @@ PreviewJob::ScaleType PreviewJob::scaleType() const
 void PreviewJobPrivate::startPreview()
 {
     Q_Q(PreviewJob);
-    // Load the list of plugins to determine which mimetypes are supported
+    // Load the list of plugins to determine which MIME types are supported
     const KService::List plugins = KServiceTypeTrader::self()->query(QStringLiteral("ThumbCreator"));
     QMap<QString, KService::Ptr> mimeMap;
     QHash<QString, QHash<QString, KService::Ptr> > protocolMap;
@@ -272,7 +272,7 @@ void PreviewJobPrivate::startPreview()
         for (const QString &protocol : qAsConst(protocols)) {
             // We cannot use mimeTypes() here, it doesn't support groups such as: text/*
             const QStringList mtypes = (*it)->serviceTypes();
-            // Add supported mimetype for this protocol
+            // Add supported MIME type for this protocol
             QStringList &_ms = m_remoteProtocolPlugins[protocol];
             for (const QString &_m : mtypes) {
                 if (_m != QLatin1String("ThumbCreator")) {
@@ -330,7 +330,7 @@ void PreviewJobPrivate::startPreview()
 
                 if (pluginIt == mimeMap.constEnd()) {
                     QMimeDatabase db;
-                    // check mime type inheritance, resolve aliases
+                    // check MIME type inheritance, resolve aliases
                     const QMimeType mimeInfo = db.mimeTypeForName(mimeType);
                     if (mimeInfo.isValid()) {
                         const QStringList parentMimeTypes = mimeInfo.allAncestors();
@@ -489,7 +489,7 @@ void PreviewJob::slotResult(KJob *job)
             // Remote directories are not supported, don't try to do a file_copy on them
             if (!skipCurrentItem) {
                 // TODO update item.mimeType from the UDS entry, in case it wasn't set initially
-                // But we don't use the mimetype anymore, we just use isDir().
+                // But we don't use the MIME type anymore, we just use isDir().
                 if (d->currentItem.item.isDir()) {
                     skipCurrentItem = true;
                 }
@@ -613,7 +613,7 @@ void PreviewJobPrivate::getOrCreateThumbnail()
         // heuristics for remote URL support
         bool supportsProtocol = false;
         if (m_remoteProtocolPlugins.value(fileUrl.scheme()).contains(item.mimetype())) {
-            // There's a plugin supporting this protocol and mimetype
+            // There's a plugin supporting this protocol and MIME type
             supportsProtocol = true;
         } else if (m_remoteProtocolPlugins.value(QStringLiteral("KIO")).contains(item.mimetype())) {
             // Assume KIO understands any URL, ThumbCreator slaves who have
