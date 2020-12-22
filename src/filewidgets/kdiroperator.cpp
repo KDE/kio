@@ -176,8 +176,8 @@ public:
     QProgressBar *m_progressBar;
 
     KPreviewWidgetBase *preview;
-    QUrl previewUrl;
-    int previewWidth;
+    QUrl m_previewUrl;
+    int m_previewWidth;
 
 
     bool m_onlyDoubleClickSelectsFiles;
@@ -187,8 +187,8 @@ public:
     bool m_dirHighlighting;
     QUrl m_lastUrl; // used for highlighting a directory on back/cdUp
 
-    QTimer *progressDelayTimer;
-    int dropOptions;
+    QTimer *m_progressDelayTimer;
+    int m_dropOptions;
 
     KActionMenu *actionMenu;
     KActionCollection *m_actionCollection;
@@ -199,8 +199,8 @@ public:
 
     KFilePreviewGenerator *previewGenerator;
 
-    bool showPreviews;
-    int iconSize;
+    bool m_showPreviews;
+    int m_iconSize;
 
     bool isSaving;
 
@@ -226,21 +226,21 @@ KDirOperator::Private::Private(KDirOperator *qq) :
     m_proxyModel(nullptr),
     m_progressBar(nullptr),
     preview(nullptr),
-    previewUrl(),
-    previewWidth(0),
+    m_previewUrl(),
+    m_previewWidth(0),
     m_onlyDoubleClickSelectsFiles(!qApp->style()->styleHint(QStyle::SH_ItemView_ActivateItemOnSingleClick)),
     m_followNewDirectories(true),
     m_followSelectedDirectories(true),
     m_dirHighlighting(true),
-    progressDelayTimer(nullptr),
-    dropOptions(0),
+    m_progressDelayTimer(nullptr),
+    m_dropOptions(0),
     actionMenu(nullptr),
     m_actionCollection(nullptr),
     m_newFileMenu(nullptr),
     configGroup(nullptr),
     previewGenerator(nullptr),
-    showPreviews(false),
-    iconSize(KIconLoader::SizeSmall),
+    m_showPreviews(false),
+    m_iconSize(KIconLoader::SizeSmall),
     isSaving(false),
     decorationMenu(nullptr),
     leftAction(nullptr),
@@ -272,8 +272,8 @@ KDirOperator::Private::~Private()
     delete configGroup;
     configGroup = nullptr;
 
-    delete progressDelayTimer;
-    progressDelayTimer = nullptr;
+    delete m_progressDelayTimer;
+    m_progressDelayTimer = nullptr;
 }
 
 KDirOperator::KDirOperator(const QUrl &_url, QWidget *parent) :
@@ -321,9 +321,9 @@ KDirOperator::KDirOperator(const QUrl &_url, QWidget *parent) :
     d->m_progressBar->adjustSize();
     d->m_progressBar->move(2, height() - d->m_progressBar->height() - 2);
 
-    d->progressDelayTimer = new QTimer(this);
-    d->progressDelayTimer->setObjectName(QStringLiteral("d->m_progressBar delay timer"));
-    connect(d->progressDelayTimer, SIGNAL(timeout()),
+    d->m_progressDelayTimer = new QTimer(this);
+    d->m_progressDelayTimer->setObjectName(QStringLiteral("d->m_progressBar delay timer"));
+    connect(d->m_progressDelayTimer, SIGNAL(timeout()),
             SLOT(_k_slotShowProgress()));
 
     d->m_completeListDirty = false;
@@ -594,11 +594,11 @@ void KDirOperator::Private::_k_togglePreview(bool on)
 
 void KDirOperator::Private::_k_toggleInlinePreviews(bool show)
 {
-    if (showPreviews == show) {
+    if (m_showPreviews == show) {
         return;
     }
 
-    showPreviews = show;
+    m_showPreviews = show;
 
     if (!previewGenerator) {
         return;
@@ -876,21 +876,21 @@ void KDirOperator::setInlinePreviewShown(bool show)
 
 bool KDirOperator::isInlinePreviewShown() const
 {
-    return d->showPreviews;
+    return d->m_showPreviews;
 }
 
 #if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 76)
 int KDirOperator::iconsZoom() const
 {
     const int stepSize = (KIconLoader::SizeEnormous - KIconLoader::SizeSmall) / 100;
-    const int zoom = (d->iconSize / stepSize) - KIconLoader::SizeSmall;
+    const int zoom = (d->m_iconSize / stepSize) - KIconLoader::SizeSmall;
     return zoom;
 }
 #endif
 
 int KDirOperator::iconSize() const
 {
-    return d->iconSize;
+    return d->m_iconSize;
 }
 
 void KDirOperator::setIsSaving(bool isSaving)
@@ -979,7 +979,7 @@ void KDirOperator::setIconsZoom(int _value)
 
 void KDirOperator::setIconSize(int value)
 {
-    if (d->iconSize == value) {
+    if (d->m_iconSize == value) {
         return;
     }
 
@@ -987,7 +987,7 @@ void KDirOperator::setIconSize(int value)
     size = qMin(static_cast<int>(KIconLoader::SizeEnormous), size);
     size = qMax(static_cast<int>(KIconLoader::SizeSmall), size);
 
-    d->iconSize = size;
+    d->m_iconSize = size;
 
     if (!d->previewGenerator) {
         return;
@@ -1427,9 +1427,9 @@ bool KDirOperator::eventFilter(QObject *watched, QEvent *event)
         QWheelEvent *evt = static_cast<QWheelEvent *>(event);
         if (evt->modifiers() & Qt::ControlModifier) {
             if (evt->angleDelta().y() > 0) {
-                setIconSize(d->iconSize + 10);
+                setIconSize(d->m_iconSize + 10);
             } else {
-                setIconSize(d->iconSize - 10);
+                setIconSize(d->m_iconSize - 10);
             }
             return true;
         }
@@ -1615,7 +1615,7 @@ void KDirOperator::setAcceptDrops(bool acceptsDrops)
 
 void KDirOperator::setDropOptions(int options)
 {
-    d->dropOptions = options;
+    d->m_dropOptions = options;
     // TODO:
     //if (d->fileView)
     //   d->fileView->setDropOptions(options);
@@ -1776,10 +1776,10 @@ void KDirOperator::setView(QAbstractItemView *view)
     }
 
     const bool previewForcedToTrue = d->inlinePreviewState == Private::ForcedToTrue;
-    const bool previewShown = d->inlinePreviewState == Private::NotForced ? d->showPreviews : previewForcedToTrue;
+    const bool previewShown = d->inlinePreviewState == Private::NotForced ? d->m_showPreviews : previewForcedToTrue;
     d->previewGenerator = new KFilePreviewGenerator(d->m_itemView);
     d->m_itemView->setIconSize(previewForcedToTrue ? QSize(KIconLoader::SizeHuge, KIconLoader::SizeHuge)
-                                                   : QSize(d->iconSize, d->iconSize));
+                                                   : QSize(d->m_iconSize, d->m_iconSize));
     d->previewGenerator->setPreviewShown(previewShown);
     d->m_actionCollection->action(QStringLiteral("inline preview"))->setChecked(previewShown);
 
@@ -1791,7 +1791,7 @@ void KDirOperator::setView(QAbstractItemView *view)
 
     const int zoom = previewForcedToTrue ? KIconLoader::SizeHuge : d->iconSizeForViewType(view);
 
-    // this will make d->iconSize be updated, since setIconSize slot will be called
+    // this will make d->m_iconSize be updated, since setIconSize slot will be called
     emit currentIconSizeChanged(zoom);
 }
 
@@ -2346,7 +2346,7 @@ void KDirOperator::readConfig(const KConfigGroup &configGroup)
         d->defaultView |= KFile::PreviewContents;
     }
 
-    d->previewWidth = configGroup.readEntry(QStringLiteral("Preview Width"), 100);
+    d->m_previewWidth = configGroup.readEntry(QStringLiteral("Preview Width"), 100);
 
     if (configGroup.readEntry(QStringLiteral("Show hidden files"),
                               DefaultShowHidden)) {
@@ -2381,7 +2381,7 @@ void KDirOperator::readConfig(const KConfigGroup &configGroup)
     d->updateSorting(sorting);
 
     if (d->inlinePreviewState == Private::NotForced) {
-        d->showPreviews = configGroup.readEntry(QStringLiteral("Show Inline Previews"), true);
+        d->m_showPreviews = configGroup.readEntry(QStringLiteral("Show Inline Previews"), true);
     }
     QStyleOptionViewItem::Position pos = (QStyleOptionViewItem::Position) configGroup.readEntry(QStringLiteral("Decoration position"), (int) QStyleOptionViewItem::Top);
     setDecorationPosition(pos);
@@ -2448,7 +2448,7 @@ void KDirOperator::writeConfig(KConfigGroup &configGroup)
     configGroup.writeEntry(QStringLiteral("View Style"), style);
 
     if (d->inlinePreviewState == Private::NotForced) {
-        configGroup.writeEntry(QStringLiteral("Show Inline Previews"), d->showPreviews);
+        configGroup.writeEntry(QStringLiteral("Show Inline Previews"), d->m_showPreviews);
         d->writeIconZoomSettingsIfNeeded();
     }
 
@@ -2459,7 +2459,7 @@ void KDirOperator::Private::writeIconZoomSettingsIfNeeded() {
      // must match behavior of iconSizeForViewType
      if (configGroup && m_itemView) {
          ZoomSettingsForView zoomSettings = zoomSettingsForViewForView();
-         configGroup->writeEntry(zoomSettings.name, iconSize);
+         configGroup->writeEntry(zoomSettings.name, m_iconSize);
      }
 }
 
@@ -2473,15 +2473,15 @@ void KDirOperator::resizeEvent(QResizeEvent *)
     d->m_splitter->resize(size());
     sizes = d->m_splitter->sizes();
 
-    const bool restorePreviewWidth = hasPreview && (d->previewWidth != sizes[1]);
+    const bool restorePreviewWidth = hasPreview && (d->m_previewWidth != sizes[1]);
     if (restorePreviewWidth) {
         const int availableWidth = sizes[0] + sizes[1];
-        sizes[0] = availableWidth - d->previewWidth;
-        sizes[1] = d->previewWidth;
+        sizes[0] = availableWidth - d->m_previewWidth;
+        sizes[1] = d->m_previewWidth;
         d->m_splitter->setSizes(sizes);
     }
     if (hasPreview) {
-        d->previewWidth = sizes[1];
+        d->m_previewWidth = sizes[1];
     }
 
     if (d->m_progressBar->parent() == this) {
@@ -2533,8 +2533,8 @@ void KDirOperator::Private::_k_slotStarted()
 {
     m_progressBar->setValue(0);
     // delay showing the progressbar for one second
-    progressDelayTimer->setSingleShot(true);
-    progressDelayTimer->start(1000);
+    m_progressDelayTimer->setSingleShot(true);
+    m_progressDelayTimer->start(1000);
 }
 
 void KDirOperator::Private::_k_slotShowProgress()
@@ -2550,7 +2550,7 @@ void KDirOperator::Private::_k_slotProgress(int percent)
 
 void KDirOperator::Private::_k_slotIOFinished()
 {
-    progressDelayTimer->stop();
+    m_progressDelayTimer->stop();
     _k_slotProgress(100);
     m_progressBar->hide();
     emit q->finishedLoading();
@@ -2691,7 +2691,7 @@ void KDirOperator::Private::_k_triggerPreview(const QModelIndex &index)
         }
 
         if (!item.isDir()) {
-            previewUrl = item.url();
+            m_previewUrl = item.url();
             _k_showPreview();
         } else {
             preview->clearPreview();
@@ -2702,7 +2702,7 @@ void KDirOperator::Private::_k_triggerPreview(const QModelIndex &index)
 void KDirOperator::Private::_k_showPreview()
 {
     if (preview != nullptr) {
-        preview->showPreview(previewUrl);
+        preview->showPreview(m_previewUrl);
     }
 }
 
@@ -2711,7 +2711,7 @@ void KDirOperator::Private::_k_slotSplitterMoved(int, int)
     const QList<int> sizes = m_splitter->sizes();
     if (sizes.count() == 2) {
         // remember the width of the preview widget (see KDirOperator::resizeEvent())
-        previewWidth = sizes[1];
+        m_previewWidth = sizes[1];
     }
 }
 
