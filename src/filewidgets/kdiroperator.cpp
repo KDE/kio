@@ -180,11 +180,11 @@ public:
     int previewWidth;
 
 
-    bool onlyDoubleClickSelectsFiles;
-    bool followNewDirectories;
-    bool followSelectedDirectories;
+    bool m_onlyDoubleClickSelectsFiles;
+    bool m_followNewDirectories;
+    bool m_followSelectedDirectories;
 
-    bool dirHighlighting;
+    bool m_dirHighlighting;
     QUrl m_lastUrl; // used for highlighting a directory on back/cdUp
 
     QTimer *progressDelayTimer;
@@ -228,10 +228,10 @@ KDirOperator::Private::Private(KDirOperator *qq) :
     preview(nullptr),
     previewUrl(),
     previewWidth(0),
-    onlyDoubleClickSelectsFiles(!qApp->style()->styleHint(QStyle::SH_ItemView_ActivateItemOnSingleClick)),
-    followNewDirectories(true),
-    followSelectedDirectories(true),
-    dirHighlighting(true),
+    m_onlyDoubleClickSelectsFiles(!qApp->style()->styleHint(QStyle::SH_ItemView_ActivateItemOnSingleClick)),
+    m_followNewDirectories(true),
+    m_followSelectedDirectories(true),
+    m_dirHighlighting(true),
     progressDelayTimer(nullptr),
     dropOptions(0),
     actionMenu(nullptr),
@@ -1223,7 +1223,7 @@ void KDirOperator::back()
     const QUrl newUrl = *s;
     delete s;
 
-    if (d->dirHighlighting) {
+    if (d->m_dirHighlighting) {
         const QUrl _url =
             newUrl.adjusted(QUrl::StripTrailingSlash).adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash);
 
@@ -1262,7 +1262,7 @@ void KDirOperator::cdUp()
     // Allow /d/c// to go up to /d/ instead of /d/c/
     QUrl tmp(d->m_currUrl.adjusted(QUrl::NormalizePathSegments));
 
-    if (d->dirHighlighting) {
+    if (d->m_dirHighlighting) {
         d->m_lastUrl = d->m_currUrl;
     }
 
@@ -2497,7 +2497,7 @@ void KDirOperator::keyPressEvent(QKeyEvent *e) // TODO KF6 remove
 
 void KDirOperator::setOnlyDoubleClickSelectsFiles(bool enable)
 {
-    d->onlyDoubleClickSelectsFiles = enable;
+    d->m_onlyDoubleClickSelectsFiles = enable;
     // TODO: port to QAbstractItemModel
     //if (d->itemView != 0) {
     //    d->itemView->setOnlyDoubleClickSelectsFiles(enable);
@@ -2506,27 +2506,27 @@ void KDirOperator::setOnlyDoubleClickSelectsFiles(bool enable)
 
 bool KDirOperator::onlyDoubleClickSelectsFiles() const
 {
-    return d->onlyDoubleClickSelectsFiles;
+    return d->m_onlyDoubleClickSelectsFiles;
 }
 
 void KDirOperator::setFollowNewDirectories(bool enable)
 {
-    d->followNewDirectories = enable;
+    d->m_followNewDirectories = enable;
 }
 
 bool KDirOperator::followNewDirectories() const
 {
-    return d->followNewDirectories;
+    return d->m_followNewDirectories;
 }
 
 void KDirOperator::setFollowSelectedDirectories(bool enable)
 {
-    d->followSelectedDirectories = enable;
+    d->m_followSelectedDirectories = enable;
 }
 
 bool KDirOperator::followSelectedDirectories() const
 {
-    return d->followSelectedDirectories;
+    return d->m_followSelectedDirectories;
 }
 
 void KDirOperator::Private::_k_slotStarted()
@@ -2561,7 +2561,7 @@ void KDirOperator::Private::_k_slotIOFinished()
     }
 
     // m_lastUrl can be empty when e.g. kfilewidget is first opened
-    if (!m_lastUrl.isEmpty() && dirHighlighting) {
+    if (!m_lastUrl.isEmpty() && m_dirHighlighting) {
         q->setCurrentItem(m_lastUrl);
     }
 }
@@ -2590,12 +2590,12 @@ void KDirOperator::clearHistory()
 
 void KDirOperator::setEnableDirHighlighting(bool enable)
 {
-    d->dirHighlighting = enable;
+    d->m_dirHighlighting = enable;
 }
 
 bool KDirOperator::dirHighlighting() const
 {
-    return d->dirHighlighting;
+    return d->m_dirHighlighting;
 }
 
 bool KDirOperator::dirOnlyMode() const
@@ -2638,7 +2638,7 @@ void KDirOperator::Private::_k_slotActivated(const QModelIndex &index)
         // when selected. For other views, disabling following selected
         // directories would make selecting a directory a noop which is
         // unintuitive.
-        if (followSelectedDirectories ||
+        if (m_followSelectedDirectories ||
             (viewKind != KFile::Tree && viewKind != KFile::DetailTree)) {
             q->selectDir(item);
         }
@@ -2906,7 +2906,7 @@ bool KDirOperator::Private::isReadable(const QUrl &url)
 
 void KDirOperator::Private::_k_slotDirectoryCreated(const QUrl &url)
 {
-    if (followNewDirectories) {
+    if (m_followNewDirectories) {
         q->setUrl(url, true);
     }
 }
