@@ -166,13 +166,13 @@ public:
     KDirModel *m_dirModel;
     KDirSortFilterProxyModel *m_proxyModel;
 
-    KFileItemList pendingMimeTypes;
+    KFileItemList m_pendingMimeTypes;
 
     // the enum KFile::FileView as an int
     int viewKind;
     int defaultView;
 
-    KFile::Modes mode;
+    KFile::Modes m_mode;
     QProgressBar *m_progressBar;
 
     KPreviewWidgetBase *preview;
@@ -193,7 +193,7 @@ public:
     KActionMenu *actionMenu;
     KActionCollection *m_actionCollection;
 
-    KNewFileMenu *newFileMenu;
+    KNewFileMenu *m_newFileMenu;
 
     KConfigGroup *configGroup;
 
@@ -236,7 +236,7 @@ KDirOperator::Private::Private(KDirOperator *qq) :
     dropOptions(0),
     actionMenu(nullptr),
     m_actionCollection(nullptr),
-    newFileMenu(nullptr),
+    m_newFileMenu(nullptr),
     configGroup(nullptr),
     previewGenerator(nullptr),
     showPreviews(false),
@@ -287,7 +287,7 @@ KDirOperator::KDirOperator(const QUrl &_url, QWidget *parent) :
 
     d->preview = nullptr;
 
-    d->mode = KFile::File;
+    d->m_mode = KFile::File;
     d->viewKind = KFile::Simple;
 
     if (_url.isEmpty()) { // no dir specified -> current dir
@@ -710,9 +710,9 @@ void KDirOperator::Private::_k_slotToggleIgnoreCase()
 
 void KDirOperator::mkdir()
 {
-    d->newFileMenu->setPopupFiles(QList<QUrl>{url()});
-    d->newFileMenu->setViewShowsHiddenFiles(showHiddenFiles());
-    d->newFileMenu->createDirectory();
+    d->m_newFileMenu->setPopupFiles(QList<QUrl>{url()});
+    d->m_newFileMenu->setViewShowsHiddenFiles(showHiddenFiles());
+    d->m_newFileMenu->createDirectory();
 }
 
 #if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 78)
@@ -1002,7 +1002,7 @@ void KDirOperator::setIconSize(int value)
 void KDirOperator::close()
 {
     resetCursor();
-    d->pendingMimeTypes.clear();
+    d->m_pendingMimeTypes.clear();
     d->m_completion.clear();
     d->m_dirCompletion.clear();
     d->m_completeListDirty = true;
@@ -1177,7 +1177,7 @@ void KDirOperator::pathChanged()
         return;
     }
 
-    d->pendingMimeTypes.clear();
+    d->m_pendingMimeTypes.clear();
     //d->fileView->clear(); TODO
     d->m_completion.clear();
     d->m_dirCompletion.clear();
@@ -1203,7 +1203,7 @@ void KDirOperator::pathChanged()
 void KDirOperator::Private::_k_slotRedirected(const QUrl &newURL)
 {
     m_currUrl = newURL;
-    pendingMimeTypes.clear();
+    m_pendingMimeTypes.clear();
     m_completion.clear();
     m_dirCompletion.clear();
     m_completeListDirty = true;
@@ -1305,17 +1305,17 @@ QStringList KDirOperator::mimeFilter() const
 
 void KDirOperator::setNewFileMenuSupportedMimeTypes(const QStringList &mimeTypes)
 {
-    d->newFileMenu->setSupportedMimeTypes(mimeTypes);
+    d->m_newFileMenu->setSupportedMimeTypes(mimeTypes);
 }
 
 QStringList KDirOperator::newFileMenuSupportedMimeTypes() const
 {
-    return d->newFileMenu->supportedMimeTypes();
+    return d->m_newFileMenu->supportedMimeTypes();
 }
 
 void KDirOperator::setNewFileMenuSelectDirWhenAlreadyExist(bool selectOnDirExists)
 {
-    d->newFileMenu->setSelectDirWhenAlreadyExist(selectOnDirExists);
+    d->m_newFileMenu->setSelectDirWhenAlreadyExist(selectOnDirExists);
 }
 
 bool KDirOperator::checkPreviewSupport()
@@ -1336,9 +1336,9 @@ void KDirOperator::activatedMenu(const KFileItem &item, const QPoint &pos)
 {
     updateSelectionDependentActions();
 
-    d->newFileMenu->setPopupFiles(QList<QUrl>{item.url()});
-    d->newFileMenu->setViewShowsHiddenFiles(showHiddenFiles());
-    d->newFileMenu->checkUpToDate();
+    d->m_newFileMenu->setPopupFiles(QList<QUrl>{item.url()});
+    d->m_newFileMenu->setViewShowsHiddenFiles(showHiddenFiles());
+    d->m_newFileMenu->checkUpToDate();
 
     d->m_actionCollection->action(QStringLiteral("new"))->setEnabled(item.isDir());
 
@@ -1667,16 +1667,16 @@ QAbstractItemView *KDirOperator::view() const
 
 KFile::Modes KDirOperator::mode() const
 {
-    return d->mode;
+    return d->m_mode;
 }
 
 void KDirOperator::setMode(KFile::Modes mode)
 {
-    if (d->mode == mode) {
+    if (d->m_mode == mode) {
         return;
     }
 
-    d->mode = mode;
+    d->m_mode = mode;
 
     d->m_dirLister->setDirOnlyMode(dirOnlyMode());
 
@@ -1693,10 +1693,10 @@ void KDirOperator::setView(QAbstractItemView *view)
     }
 
     // TODO: do a real timer and restart it after that
-    d->pendingMimeTypes.clear();
+    d->m_pendingMimeTypes.clear();
     const bool listDir = (d->m_itemView == nullptr);
 
-    if (d->mode & KFile::Files) {
+    if (d->m_mode & KFile::Files) {
         view->setSelectionMode(QAbstractItemView::ExtendedSelection);
     } else {
         view->setSelectionMode(QAbstractItemView::SingleSelection);
@@ -2198,9 +2198,9 @@ void KDirOperator::setupActions()
     // TODO: QAbstractItemView does not offer an action collection. Provide
     // an interface to add a custom action collection.
 
-    d->newFileMenu = new KNewFileMenu(d->m_actionCollection, QStringLiteral("new"), this);
-    connect(d->newFileMenu, SIGNAL(directoryCreated(QUrl)), this, SLOT(_k_slotDirectoryCreated(QUrl)));
-    connect(d->newFileMenu, &KNewFileMenu::selectExistingDir, this, [this](const QUrl &url) {
+    d->m_newFileMenu = new KNewFileMenu(d->m_actionCollection, QStringLiteral("new"), this);
+    connect(d->m_newFileMenu, SIGNAL(directoryCreated(QUrl)), this, SLOT(_k_slotDirectoryCreated(QUrl)));
+    connect(d->m_newFileMenu, &KNewFileMenu::selectExistingDir, this, [this](const QUrl &url) {
         setCurrentItem(url);
     });
 
@@ -2600,7 +2600,7 @@ bool KDirOperator::dirHighlighting() const
 
 bool KDirOperator::dirOnlyMode() const
 {
-    return dirOnlyMode(d->mode);
+    return dirOnlyMode(d->m_mode);
 }
 
 bool KDirOperator::dirOnlyMode(uint mode)
