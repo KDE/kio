@@ -151,7 +151,7 @@ public:
 
     QModelIndex m_lastHoveredIndex;
 
-    KDirLister *dirLister;
+    KDirLister *m_dirLister;
     QUrl m_currUrl;
 
     KCompletion m_completion;
@@ -218,7 +218,7 @@ public:
 
 KDirOperator::Private::Private(KDirOperator *qq) :
     q(qq),
-    dirLister(nullptr),
+    m_dirLister(nullptr),
     m_decorationPosition(QStyleOptionViewItem::Left),
     m_splitter(nullptr),
     itemView(nullptr),
@@ -268,7 +268,7 @@ KDirOperator::Private::~Private()
     m_proxyModel = nullptr;
     delete m_dirModel;
     m_dirModel = nullptr;
-    dirLister = nullptr; // deleted by KDirModel
+    m_dirLister = nullptr; // deleted by KDirModel
     delete configGroup;
     configGroup = nullptr;
 
@@ -342,7 +342,7 @@ KDirOperator::KDirOperator(const QUrl &_url, QWidget *parent) :
 KDirOperator::~KDirOperator()
 {
     resetCursor();
-    disconnect(d->dirLister, nullptr, this, nullptr);
+    disconnect(d->m_dirLister, nullptr, this, nullptr);
     delete d;
 }
 
@@ -372,7 +372,7 @@ bool KDirOperator::isRoot() const
 
 KDirLister *KDirOperator::dirLister() const
 {
-    return d->dirLister;
+    return d->m_dirLister;
 }
 
 void KDirOperator::resetCursor()
@@ -488,12 +488,12 @@ bool KDirOperator::isSelected(const KFileItem &item) const
 
 int KDirOperator::numDirs() const
 {
-    return (d->dirLister == nullptr) ? 0 : d->dirLister->directories().count();
+    return (d->m_dirLister == nullptr) ? 0 : d->m_dirLister->directories().count();
 }
 
 int KDirOperator::numFiles() const
 {
-    return (d->dirLister == nullptr) ? 0 : d->dirLister->items().count() - numDirs();
+    return (d->m_dirLister == nullptr) ? 0 : d->m_dirLister->items().count() - numDirs();
 }
 
 KCompletion *KDirOperator::completionObject() const
@@ -562,7 +562,7 @@ void KDirOperator::Private::_k_slotToggleAllowExpansion(bool allow) {
 
 void KDirOperator::Private::_k_slotToggleHidden(bool show)
 {
-    dirLister->setShowingDotFiles(show);
+    m_dirLister->setShowingDotFiles(show);
     q->updateDir();
     _k_assureVisibleSelection();
 }
@@ -1006,7 +1006,7 @@ void KDirOperator::close()
     d->m_completion.clear();
     d->m_dirCompletion.clear();
     d->m_completeListDirty = true;
-    d->dirLister->stop();
+    d->m_dirLister->stop();
 }
 
 void KDirOperator::setUrl(const QUrl &_newurl, bool clearforward)
@@ -1082,7 +1082,7 @@ void KDirOperator::setUrl(const QUrl &_newurl, bool clearforward)
 void KDirOperator::updateDir()
 {
     QApplication::setOverrideCursor(Qt::WaitCursor);
-    d->dirLister->emitChanges();
+    d->m_dirLister->emitChanges();
     QApplication::restoreOverrideCursor();
 }
 
@@ -1101,7 +1101,7 @@ bool KDirOperator::Private::openUrl(const QUrl &url, KDirLister::OpenUrlFlags fl
 {
     const bool result = KProtocolManager::supportsListing(url)
                         && isSchemeSupported(url.scheme())
-                        && dirLister->openUrl(url, flags);
+                        && m_dirLister->openUrl(url, flags);
     if (!result) { // in that case, neither completed() nor canceled() will be emitted by KDL
         _k_slotCanceled();
     }
@@ -1276,31 +1276,31 @@ void KDirOperator::home()
 
 void KDirOperator::clearFilter()
 {
-    d->dirLister->setNameFilter(QString());
-    d->dirLister->clearMimeFilter();
+    d->m_dirLister->setNameFilter(QString());
+    d->m_dirLister->clearMimeFilter();
     checkPreviewSupport();
 }
 
 void KDirOperator::setNameFilter(const QString &filter)
 {
-    d->dirLister->setNameFilter(filter);
+    d->m_dirLister->setNameFilter(filter);
     checkPreviewSupport();
 }
 
 QString KDirOperator::nameFilter() const
 {
-    return d->dirLister->nameFilter();
+    return d->m_dirLister->nameFilter();
 }
 
 void KDirOperator::setMimeFilter(const QStringList &mimetypes)
 {
-    d->dirLister->setMimeFilter(mimetypes);
+    d->m_dirLister->setMimeFilter(mimetypes);
     checkPreviewSupport();
 }
 
 QStringList KDirOperator::mimeFilter() const
 {
-    return d->dirLister->mimeFilters();
+    return d->m_dirLister->mimeFilters();
 }
 
 void KDirOperator::setNewFileMenuSupportedMimeTypes(const QStringList &mimeTypes)
@@ -1447,7 +1447,7 @@ bool KDirOperator::eventFilter(QObject *watched, QEvent *event)
         } else {
             // MIME type filtering
             bool mimeFilterPass = true;
-            const QStringList mimeFilters = d->dirLister->mimeFilters();
+            const QStringList mimeFilters = d->m_dirLister->mimeFilters();
 
             if (mimeFilters.size() > 1) {
                 mimeFilterPass = false;
@@ -1490,7 +1490,7 @@ bool KDirOperator::eventFilter(QObject *watched, QEvent *event)
             setUrl(url, false);
         } else {
             // if the current url is not known
-            if (d->dirLister->findByUrl(url).isNull()) {
+            if (d->m_dirLister->findByUrl(url).isNull()) {
                 setUrl(url.adjusted(QUrl::RemoveFilename), false);
 
                 // Will set the current item once loading has finished
@@ -1534,11 +1534,11 @@ bool KDirOperator::Private::checkPreviewInternal() const
         return false;
     }
 
-    const QStringList mimeTypes = dirLister->mimeFilters();
+    const QStringList mimeTypes = m_dirLister->mimeFilters();
 #if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
-    const QStringList nameFilters = dirLister->nameFilter().split(QLatin1Char(' '), QString::SkipEmptyParts);
+    const QStringList nameFilters = m_dirLister->nameFilter().split(QLatin1Char(' '), QString::SkipEmptyParts);
 #else
-    const QStringList nameFilters = dirLister->nameFilter().split(QLatin1Char(' '), Qt::SkipEmptyParts);
+    const QStringList nameFilters = m_dirLister->nameFilter().split(QLatin1Char(' '), Qt::SkipEmptyParts);
 #endif
 
     if (mimeTypes.isEmpty() && nameFilters.isEmpty() && !supported.isEmpty()) {
@@ -1678,7 +1678,7 @@ void KDirOperator::setMode(KFile::Modes mode)
 
     d->mode = mode;
 
-    d->dirLister->setDirOnlyMode(dirOnlyMode());
+    d->m_dirLister->setDirOnlyMode(dirOnlyMode());
 
     // reset the view with the different mode
     if (d->itemView != nullptr) {
@@ -1797,7 +1797,7 @@ void KDirOperator::setView(QAbstractItemView *view)
 
 void KDirOperator::setDirLister(KDirLister *lister)
 {
-    if (lister == d->dirLister) { // sanity check
+    if (lister == d->m_dirLister) { // sanity check
         return;
     }
 
@@ -1807,11 +1807,11 @@ void KDirOperator::setDirLister(KDirLister *lister)
     delete d->m_proxyModel;
     d->m_proxyModel = nullptr;
 
-    //delete d->dirLister; // deleted by KDirModel already, which took ownership
-    d->dirLister = lister;
+    //delete d->m_dirLister; // deleted by KDirModel already, which took ownership
+    d->m_dirLister = lister;
 
     d->m_dirModel = new KDirModel();
-    d->m_dirModel->setDirLister(d->dirLister);
+    d->m_dirModel->setDirLister(d->m_dirLister);
     d->m_dirModel->setDropsAllowed(KDirModel::DropOnDirectory);
 
     d->shouldFetchForItems = qobject_cast<QTreeView *>(d->itemView);
@@ -1824,23 +1824,23 @@ void KDirOperator::setDirLister(KDirLister *lister)
     d->m_proxyModel = new KDirSortFilterProxyModel(this);
     d->m_proxyModel->setSourceModel(d->m_dirModel);
 
-    d->dirLister->setDelayedMimeTypes(true);
+    d->m_dirLister->setDelayedMimeTypes(true);
 
     QWidget *mainWidget = topLevelWidget();
-    d->dirLister->setMainWindow(mainWidget);
+    d->m_dirLister->setMainWindow(mainWidget);
     // qDebug() << "mainWidget=" << mainWidget;
 
-    connect(d->dirLister, SIGNAL(percent(int)),
+    connect(d->m_dirLister, SIGNAL(percent(int)),
             SLOT(_k_slotProgress(int)));
-    connect(d->dirLister, SIGNAL(started(QUrl)), SLOT(_k_slotStarted()));
-    connect(d->dirLister, SIGNAL(completed()), SLOT(_k_slotIOFinished()));
-    connect(d->dirLister, SIGNAL(canceled()), SLOT(_k_slotCanceled()));
-    connect(d->dirLister, SIGNAL(redirection(QUrl)),
+    connect(d->m_dirLister, SIGNAL(started(QUrl)), SLOT(_k_slotStarted()));
+    connect(d->m_dirLister, SIGNAL(completed()), SLOT(_k_slotIOFinished()));
+    connect(d->m_dirLister, SIGNAL(canceled()), SLOT(_k_slotCanceled()));
+    connect(d->m_dirLister, SIGNAL(redirection(QUrl)),
             SLOT(_k_slotRedirected(QUrl)));
-    connect(d->dirLister, SIGNAL(newItems(KFileItemList)), SLOT(_k_slotItemsChanged()));
-    connect(d->dirLister, SIGNAL(itemsDeleted(KFileItemList)), SLOT(_k_slotItemsChanged()));
-    connect(d->dirLister, SIGNAL(itemsFilteredByMime(KFileItemList)), SLOT(_k_slotItemsChanged()));
-    connect(d->dirLister, SIGNAL(clear()), SLOT(_k_slotItemsChanged()));
+    connect(d->m_dirLister, SIGNAL(newItems(KFileItemList)), SLOT(_k_slotItemsChanged()));
+    connect(d->m_dirLister, SIGNAL(itemsDeleted(KFileItemList)), SLOT(_k_slotItemsChanged()));
+    connect(d->m_dirLister, SIGNAL(itemsFilteredByMime(KFileItemList)), SLOT(_k_slotItemsChanged()));
+    connect(d->m_dirLister, SIGNAL(clear()), SLOT(_k_slotItemsChanged()));
 }
 
 void KDirOperator::selectDir(const KFileItem &item)
@@ -1868,7 +1868,7 @@ void KDirOperator::setCurrentItem(const QUrl &url)
 {
     // qDebug();
 
-    KFileItem item = d->dirLister->findByUrl(url);
+    KFileItem item = d->m_dirLister->findByUrl(url);
     if (d->shouldFetchForItems && item.isNull()) {
         d->itemsToBeSetAsCurrent << url;
         d->m_dirModel->expandToUrl(url);
@@ -1907,7 +1907,7 @@ void KDirOperator::setCurrentItems(const QList<QUrl> &urls)
 
     KFileItemList itemList;
     for (const QUrl &url : urls) {
-        KFileItem item = d->dirLister->findByUrl(url);
+        KFileItem item = d->m_dirLister->findByUrl(url);
         if (d->shouldFetchForItems && item.isNull()) {
             d->itemsToBeSetAsCurrent << url;
             d->m_dirModel->expandToUrl(url);
@@ -1973,7 +1973,7 @@ void KDirOperator::prepareCompletionObjects()
     }
 
     if (d->m_completeListDirty) {   // create the list of all possible completions
-        const KFileItemList itemList = d->dirLister->items();
+        const KFileItemList itemList = d->m_dirLister->items();
         for (const KFileItem &item : itemList) {
             d->m_completion.addItem(item.name());
             if (item.isDir()) {
@@ -2351,7 +2351,7 @@ void KDirOperator::readConfig(const KConfigGroup &configGroup)
     if (configGroup.readEntry(QStringLiteral("Show hidden files"),
                               DefaultShowHidden)) {
         d->actionCollection->action(QStringLiteral("show hidden"))->setChecked(true);
-        d->dirLister->setShowingDotFiles(true);
+        d->m_dirLister->setShowingDotFiles(true);
     }
 
     if (configGroup.readEntry(QStringLiteral("Allow Expansion"),
@@ -2803,7 +2803,7 @@ void KDirOperator::Private::_k_slotExpandToUrl(const QModelIndex &index)
         while (it != itemsToBeSetAsCurrent.end()) {
             const QUrl url = *it;
             if (url.matches(item.url(), QUrl::StripTrailingSlash) || url.isParentOf(item.url())) {
-                const KFileItem _item = dirLister->findByUrl(url);
+                const KFileItem _item = m_dirLister->findByUrl(url);
                 if (!_item.isNull() && _item.isDir()) {
                     const QModelIndex _index = m_dirModel->indexForItem(_item);
                     const QModelIndex _proxyIndex = m_proxyModel->mapFromSource(_index);
