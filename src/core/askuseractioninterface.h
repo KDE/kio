@@ -216,10 +216,13 @@ Q_SIGNALS:
      * by askUserDelete() finishes, to notify the caller of the user's decision.
      *
      * @param allowDelete set to true if the user confirmed the delete operation, otherwise
-     *                set to false
+     * set to false
+     * @param urls a list of urls to delete/trash
+     * @param deletionType the deletion type to use, one of KIO::AskUserActionInterface::DeletionType
      * @param parent the parent widget
      */
-    void askUserDeleteResult(bool allowDelete, QWidget *parent);
+    void askUserDeleteResult(bool allowDelete, const QList<QUrl> &urls,
+                             KIO::AskUserActionInterface::DeletionType deletionType, QWidget *parent);
 
     /**
      * Implementations of this interface must emit this signal when the dialog invoked

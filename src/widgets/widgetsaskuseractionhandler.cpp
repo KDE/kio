@@ -126,7 +126,7 @@ void KIO::WidgetsAskUserActionHandler::askUserDelete(const QList<QUrl> &urls,
     }
 
     if (!ask) {
-        emit askUserDeleteResult(true, parent);
+        emit askUserDeleteResult(true, urls, deletionType, parent);
         return;
     }
 
@@ -193,10 +193,10 @@ void KIO::WidgetsAskUserActionHandler::askUserDelete(const QList<QUrl> &urls,
     // If we get here, !ask must be false
     dlg->setDontAskAgainChecked(!ask);
 
-    connect(dlg, &QDialog::finished, this, [dlg, this, parent, keyName, kioConfig](const int buttonCode) {
+    connect(dlg, &QDialog::finished, this, [=](const int buttonCode) {
         const bool isDelete = buttonCode == QDialogButtonBox::Yes;
 
-        emit askUserDeleteResult(isDelete, parent);
+        emit askUserDeleteResult(isDelete, urls, deletionType, parent);
 
         if (isDelete) {
             KConfigGroup cg = kioConfig->group("Confirmations");
@@ -205,6 +205,7 @@ void KIO::WidgetsAskUserActionHandler::askUserDelete(const QList<QUrl> &urls,
         }
     });
 
+    dlg->setWindowModality(Qt::WindowModal);
     dlg->show();
 }
 
