@@ -169,7 +169,7 @@ public:
     KFileItemList m_pendingMimeTypes;
 
     // the enum KFile::FileView as an int
-    int viewKind;
+    int m_viewKind;
     int m_defaultView;
 
     KFile::Modes m_mode;
@@ -195,7 +195,7 @@ public:
 
     KNewFileMenu *m_newFileMenu;
 
-    KConfigGroup *configGroup;
+    KConfigGroup *m_configGroup;
 
     KFilePreviewGenerator *m_previewGenerator;
 
@@ -237,7 +237,7 @@ KDirOperator::Private::Private(KDirOperator *qq) :
     m_actionMenu(nullptr),
     m_actionCollection(nullptr),
     m_newFileMenu(nullptr),
-    configGroup(nullptr),
+    m_configGroup(nullptr),
     m_previewGenerator(nullptr),
     m_showPreviews(false),
     m_iconSize(KIconLoader::SizeSmall),
@@ -269,8 +269,8 @@ KDirOperator::Private::~Private()
     delete m_dirModel;
     m_dirModel = nullptr;
     m_dirLister = nullptr; // deleted by KDirModel
-    delete configGroup;
-    configGroup = nullptr;
+    delete m_configGroup;
+    m_configGroup = nullptr;
 
     delete m_progressDelayTimer;
     m_progressDelayTimer = nullptr;
@@ -288,7 +288,7 @@ KDirOperator::KDirOperator(const QUrl &_url, QWidget *parent) :
     d->preview = nullptr;
 
     d->m_mode = KFile::File;
-    d->viewKind = KFile::Simple;
+    d->m_viewKind = KFile::Simple;
 
     if (_url.isEmpty()) { // no dir specified -> current dir
         QString strPath = QDir::currentPath();
@@ -437,9 +437,9 @@ void KDirOperator::setPreviewWidget(KPreviewWidgetBase *w)
 {
     const bool showPreview = (w != nullptr);
     if (showPreview) {
-        d->viewKind = (d->viewKind | KFile::PreviewContents);
+        d->m_viewKind = (d->m_viewKind | KFile::PreviewContents);
     } else {
-        d->viewKind = (d->viewKind & ~KFile::PreviewContents);
+        d->m_viewKind = (d->m_viewKind & ~KFile::PreviewContents);
     }
 
     delete d->preview;
@@ -452,7 +452,7 @@ void KDirOperator::setPreviewWidget(KPreviewWidgetBase *w)
     KToggleAction *previewAction = static_cast<KToggleAction *>(d->m_actionCollection->action(QStringLiteral("preview")));
     previewAction->setEnabled(showPreview);
     previewAction->setChecked(showPreview);
-    setView(static_cast<KFile::FileView>(d->viewKind));
+    setView(static_cast<KFile::FileView>(d->m_viewKind));
 }
 
 KFileItemList KDirOperator::selectedItems() const
@@ -521,7 +521,7 @@ void KDirOperator::Private::_k_slotDetailedView()
     // save old zoom settings
     writeIconZoomSettingsIfNeeded();
 
-    KFile::FileView view = static_cast<KFile::FileView>((viewKind & ~allViews()) | KFile::Detail);
+    KFile::FileView view = static_cast<KFile::FileView>((m_viewKind & ~allViews()) | KFile::Detail);
     q->setView(view);
 }
 
@@ -530,7 +530,7 @@ void KDirOperator::Private::_k_slotSimpleView()
     // save old zoom settings
     writeIconZoomSettingsIfNeeded();
 
-    KFile::FileView view = static_cast<KFile::FileView>((viewKind & ~allViews()) | KFile::Simple);
+    KFile::FileView view = static_cast<KFile::FileView>((m_viewKind & ~allViews()) | KFile::Simple);
     q->setView(view);
 }
 
@@ -539,7 +539,7 @@ void KDirOperator::Private::_k_slotTreeView()
     // save old zoom settings
     writeIconZoomSettingsIfNeeded();
 
-    KFile::FileView view = static_cast<KFile::FileView>((viewKind & ~allViews()) | KFile::Tree);
+    KFile::FileView view = static_cast<KFile::FileView>((m_viewKind & ~allViews()) | KFile::Tree);
     q->setView(view);
 }
 
@@ -548,7 +548,7 @@ void KDirOperator::Private::_k_slotDetailedTreeView()
     // save old zoom settings
     writeIconZoomSettingsIfNeeded();
 
-    KFile::FileView view = static_cast<KFile::FileView>((viewKind & ~allViews()) | KFile::DetailTree);
+    KFile::FileView view = static_cast<KFile::FileView>((m_viewKind & ~allViews()) | KFile::DetailTree);
     q->setView(view);
 }
 
@@ -570,7 +570,7 @@ void KDirOperator::Private::_k_slotToggleHidden(bool show)
 void KDirOperator::Private::_k_togglePreview(bool on)
 {
     if (on) {
-        viewKind = viewKind | KFile::PreviewContents;
+        m_viewKind |= KFile::PreviewContents;
         if (preview == nullptr) {
             preview = new KFileMetaPreview(q);
             m_actionCollection->action(QStringLiteral("preview"))->setChecked(true);
@@ -587,7 +587,7 @@ void KDirOperator::Private::_k_togglePreview(bool on)
             }
         }
     } else if (preview != nullptr) {
-        viewKind = viewKind & ~KFile::PreviewContents;
+        m_viewKind = m_viewKind & ~KFile::PreviewContents;
         preview->hide();
     }
 }
@@ -662,7 +662,7 @@ void KDirOperator::Private::_k_slotIconsView()
     m_decorationPosition = QStyleOptionViewItem::Top;
 
     // Switch to simple view
-    KFile::FileView fileView = static_cast<KFile::FileView>((viewKind & ~allViews()) | KFile::Simple);
+    KFile::FileView fileView = static_cast<KFile::FileView>((m_viewKind & ~allViews()) | KFile::Simple);
     q->setView(fileView);
 }
 
@@ -676,7 +676,7 @@ void KDirOperator::Private::_k_slotCompactView()
     m_decorationPosition = QStyleOptionViewItem::Left;
 
     // Switch to simple view
-    KFile::FileView fileView = static_cast<KFile::FileView>((viewKind & ~allViews()) | KFile::Simple);
+    KFile::FileView fileView = static_cast<KFile::FileView>((m_viewKind & ~allViews()) | KFile::Simple);
     q->setView(fileView);
 }
 
@@ -687,9 +687,9 @@ void KDirOperator::Private::_k_slotDetailsView()
 
     KFile::FileView view;
     if (m_actionCollection->action(QStringLiteral("allow expansion"))->isChecked()) {
-        view = static_cast<KFile::FileView>((viewKind & ~allViews()) | KFile::DetailTree);
+        view = static_cast<KFile::FileView>((m_viewKind & ~allViews()) | KFile::DetailTree);
     } else {
-        view = static_cast<KFile::FileView>((viewKind & ~allViews()) | KFile::Detail);
+        view = static_cast<KFile::FileView>((m_viewKind & ~allViews()) | KFile::Detail);
     }
     q->setView(view);
 }
@@ -1641,8 +1641,8 @@ void KDirOperator::setView(KFile::FileView viewKind)
                   && d->m_actionCollection->action(QStringLiteral("preview"))->isEnabled();
     }
 
-    d->viewKind = static_cast<int>(viewKind);
-    viewKind = static_cast<KFile::FileView>(d->viewKind);
+    d->m_viewKind = static_cast<int>(viewKind);
+    viewKind = static_cast<KFile::FileView>(d->m_viewKind);
 
     QAbstractItemView *newView = createView(this, viewKind);
     setView(newView);
@@ -1657,7 +1657,7 @@ void KDirOperator::setView(KFile::FileView viewKind)
 
 KFile::FileView KDirOperator::viewMode() const
 {
-    return static_cast<KFile::FileView>(d->viewKind);
+    return static_cast<KFile::FileView>(d->m_viewKind);
 }
 
 QAbstractItemView *KDirOperator::view() const
@@ -1682,7 +1682,7 @@ void KDirOperator::setMode(KFile::Modes mode)
 
     // reset the view with the different mode
     if (d->m_itemView != nullptr) {
-        setView(static_cast<KFile::FileView>(d->viewKind));
+        setView(static_cast<KFile::FileView>(d->m_viewKind));
     }
 }
 
@@ -2308,7 +2308,7 @@ void KDirOperator::updateSortActions()
 
 void KDirOperator::updateViewActions()
 {
-    KFile::FileView fv = static_cast<KFile::FileView>(d->viewKind);
+    KFile::FileView fv = static_cast<KFile::FileView>(d->m_viewKind);
 
     //QAction *separateDirs = d->actionCollection->action("separate dirs");
     //separateDirs->setChecked(KFile::isSeparateDirs(fv) &&
@@ -2434,7 +2434,7 @@ void KDirOperator::writeConfig(KConfigGroup &configGroup)
     configGroup.writeEntry(QStringLiteral("Allow Expansion"),
                            d->m_actionCollection->action(QStringLiteral("allow expansion"))->isChecked());
 
-    KFile::FileView fv = static_cast<KFile::FileView>(d->viewKind);
+    KFile::FileView fv = static_cast<KFile::FileView>(d->m_viewKind);
     QString style;
     if (KFile::isDetailView(fv)) {
         style = QStringLiteral("Detail");
@@ -2457,9 +2457,9 @@ void KDirOperator::writeConfig(KConfigGroup &configGroup)
 
 void KDirOperator::Private::writeIconZoomSettingsIfNeeded() {
      // must match behavior of iconSizeForViewType
-     if (configGroup && m_itemView) {
+     if (m_configGroup && m_itemView) {
          ZoomSettingsForView zoomSettings = zoomSettingsForViewForView();
-         configGroup->writeEntry(zoomSettings.name, m_iconSize);
+         m_configGroup->writeEntry(zoomSettings.name, m_iconSize);
      }
 }
 
@@ -2639,7 +2639,7 @@ void KDirOperator::Private::_k_slotActivated(const QModelIndex &index)
         // directories would make selecting a directory a noop which is
         // unintuitive.
         if (m_followSelectedDirectories ||
-            (viewKind != KFile::Tree && viewKind != KFile::DetailTree)) {
+            (m_viewKind != KFile::Tree && m_viewKind != KFile::DetailTree)) {
             q->selectDir(item);
         }
     } else {
@@ -2832,16 +2832,16 @@ void KDirOperator::Private::_k_slotItemsChanged()
 int KDirOperator::Private::iconSizeForViewType(QAbstractItemView *itemView) const
 {
     // must match behavior of writeIconZoomSettingsIfNeeded
-    if (!itemView || !configGroup) {
+    if (!itemView || !m_configGroup) {
         return 0;
     }
 
     ZoomSettingsForView ZoomSettingsForView = zoomSettingsForViewForView();
-    return configGroup->readEntry(ZoomSettingsForView.name, ZoomSettingsForView.defaultValue);
+    return m_configGroup->readEntry(ZoomSettingsForView.name, ZoomSettingsForView.defaultValue);
 }
 
 KDirOperator::Private::ZoomSettingsForView KDirOperator::Private::zoomSettingsForViewForView() const {
-     KFile::FileView fv = static_cast<KFile::FileView>(viewKind);
+     KFile::FileView fv = static_cast<KFile::FileView>(m_viewKind);
      if (KFile::isSimpleView(fv)) {
          if (m_decorationPosition == QStyleOptionViewItem::Top){
              // Simple view decoration above, aka Icons View
@@ -2864,13 +2864,13 @@ KDirOperator::Private::ZoomSettingsForView KDirOperator::Private::zoomSettingsFo
 
 void KDirOperator::setViewConfig(KConfigGroup &configGroup)
 {
-    delete d->configGroup;
-    d->configGroup = new KConfigGroup(configGroup);
+    delete d->m_configGroup;
+    d->m_configGroup = new KConfigGroup(configGroup);
 }
 
 KConfigGroup *KDirOperator::viewConfigGroup() const
 {
-    return d->configGroup;
+    return d->m_configGroup;
 }
 
 void KDirOperator::setShowHiddenFiles(bool s)
