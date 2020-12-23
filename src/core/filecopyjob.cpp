@@ -391,7 +391,7 @@ void FileCopyJobPrivate::slotCanResume(KIO::Job *job, KIO::filesize_t offset)
             q->connect(m_getJob, &KIO::TransferJob::data, q, [this](KIO::Job *job, const QByteArray &data) {
                 slotData(job, data);
             });
-            q->connect(m_getJob, QOverload<KIO::Job *, const QString &>::of(&KIO::TransferJob::mimetype), q, [this](KIO::Job *job, const QString &type) {
+            q->connect(m_getJob, &KIO::TransferJob::mimeTypeFound, q, [this](KIO::Job *job, const QString &type) {
                 slotMimetype(job, type);
             });
         } else { // copyjob
@@ -453,7 +453,10 @@ void FileCopyJobPrivate::slotDataReq(KIO::Job *, QByteArray &data)
 void FileCopyJobPrivate::slotMimetype(KIO::Job *, const QString &type)
 {
     Q_Q(FileCopyJob);
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 78)
     emit q->mimetype(q, type);
+#endif
+    emit q->mimeTypeFound(q, type);
 }
 
 void FileCopyJob::slotResult(KJob *job)

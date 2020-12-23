@@ -382,7 +382,7 @@ void KIO::OpenUrlJobPrivate::scanFileWithGet()
         }
         // if the job succeeded, we certainly hope it emitted mimetype()...
     });
-    QObject::connect(job, QOverload<KIO::Job*,const QString&>::of(&KIO::TransferJob::mimetype),
+    QObject::connect(job, &KIO::TransferJob::mimeTypeFound,
                      q, [=](KIO::Job *, const QString &mimetype) {
         if (m_followRedirections) { // Update our URL in case of a redirection
             m_url = job->url();

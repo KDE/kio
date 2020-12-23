@@ -223,7 +223,10 @@ void MultiGetJob::slotMimetype(const QString &_mimetype)
     if (!d->findCurrentEntry()) {
         return;    // Error, unknown request!
     }
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 78)
     emit mimetype(d->m_currentEntry.id, _mimetype);
+#endif
+    emit mimeTypeFound(d->m_currentEntry.id, _mimetype);
 }
 
 MultiGetJob *KIO::multi_get(long id, const QUrl &url, const MetaData &metaData)

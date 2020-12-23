@@ -596,7 +596,7 @@ void TrashProtocol::get(const QUrl &url)
     KIO::TransferJob *job = KIO::get(fileURL, KIO::NoReload, KIO::HideProgressInfo);
     connect(job, &KIO::TransferJob::data,
             this, &TrashProtocol::slotData);
-    connect(job,  QOverload<KIO::Job*,const QString&>::of(&KIO::TransferJob::mimetype),
+    connect(job,  &KIO::TransferJob::mimeTypeFound,
             this, &TrashProtocol::slotMimetype);
     connect(job, &KJob::result,
             this, &TrashProtocol::jobFinished);

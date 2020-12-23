@@ -369,7 +369,7 @@ void ForwardingSlaveBasePrivate::connectTransferJob(KIO::TransferJob *job)
                SLOT(_k_slotData(KIO::Job*,QByteArray)));
     q->connect(job, SIGNAL(dataReq(KIO::Job*,QByteArray&)),
                SLOT(_k_slotDataReq(KIO::Job*,QByteArray&)));
-    q->connect(job, SIGNAL(mimetype(KIO::Job*,QString)),
+    q->connect(job, SIGNAL(mimeTypeFound(KIO::Job*,QString)),
                SLOT(_k_slotMimetype(KIO::Job*,QString)));
     q->connect(job, SIGNAL(canResume(KIO::Job*,KIO::filesize_t)),
                SLOT(_k_slotCanResume(KIO::Job*,KIO::filesize_t)));

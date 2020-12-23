@@ -655,7 +655,7 @@ void KRun::scanFile()
     KJobWidgets::setWindow(job, d->m_window);
     connect(job, &KJob::result,
             this, &KRun::slotScanFinished);
-    connect(job, QOverload<KIO::Job*,const QString&>::of(&KIO::TransferJob::mimetype),
+    connect(job, &KIO::TransferJob::mimeTypeFound,
             this, &KRun::slotScanMimeType);
     d->m_job = job;
     //qDebug() << "Job" << job << "is about getting from" << d->m_strURL;

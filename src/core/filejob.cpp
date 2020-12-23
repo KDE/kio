@@ -146,7 +146,10 @@ void FileJobPrivate::slotMimetype(const QString &type)
 {
     Q_Q(FileJob);
     m_mimetype = type;
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 78)
     emit q->mimetype(q, m_mimetype);
+#endif
+    emit q->mimeTypeFound(q, m_mimetype);
 }
 
 void FileJobPrivate::slotPosition(KIO::filesize_t pos)

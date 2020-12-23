@@ -162,12 +162,24 @@ Q_SIGNALS:
      */
     void permanentRedirection(KIO::Job *job, const QUrl &fromUrl, const QUrl &toUrl);
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 78)
     /**
      * MIME type determined.
      * @param job the job that emitted this signal
      * @param mimeType the MIME type
+     * @deprecated Since 5.78, use mimeTypeFound(KIO::Job *, const QString &)
      */
+    KIOCORE_DEPRECATED_VERSION(5, 78, "Use KIO::TransferJob::mimeTypeFound(KIO::Job *, const QString &)")
     void mimetype(KIO::Job *job, const QString &mimeType);
+#endif
+
+    /**
+     * MIME type determined.
+     * @param job the job that emitted this signal
+     * @param mimeType the MIME type
+     * @since 5.78
+     */
+    void mimeTypeFound(KIO::Job *job, const QString &mimeType);
 
     /**
      * @internal

@@ -58,7 +58,7 @@ AccessManagerReply::AccessManagerReply(const QNetworkAccessManager::Operation op
         connect(kioJob, &KJob::result, this, &AccessManagerReply::slotResult);
         connect(kioJob, SIGNAL(data(KIO::Job*,QByteArray)),
                 SLOT(slotData(KIO::Job*,QByteArray)));
-        connect(kioJob, SIGNAL(mimetype(KIO::Job*,QString)),
+        connect(kioJob, SIGNAL(mimeTypeFound(KIO::Job*,QString)),
                 SLOT(slotMimeType(KIO::Job*,QString)));
     }
 }

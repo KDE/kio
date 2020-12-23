@@ -52,7 +52,10 @@ void MimetypeJob::slotFinished()
         // assumed it was a file.
         //qDebug() << "It is in fact a directory!";
         d->m_mimetype = QStringLiteral("inode/directory");
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 78)
         emit TransferJob::mimetype(this, d->m_mimetype);
+#endif
+        emit TransferJob::mimeTypeFound(this, d->m_mimetype);
         setError(0);
     }
 

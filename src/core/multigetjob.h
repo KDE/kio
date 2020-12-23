@@ -48,12 +48,24 @@ Q_SIGNALS:
      */
     void data(long id, const QByteArray &data);
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 78)
     /**
      * MIME type determined
      * @param id the id of the request
      * @param mimeType the MIME type
+     * @deprecated Since 5.78, use mimeTypeFound(KIO::Job *, const QString &)
      */
+    KIOCORE_DEPRECATED_VERSION(5, 78, "Use KIO::MultiGetJob::mimeTypeFound(long id, const QString &)")
     void mimetype(long id, const QString &mimeType);
+#endif
+
+    /**
+     * MIME type determined
+     * @param id the id of the request
+     * @param mimeType the MIME type
+     * @since 5.78
+     */
+    void mimeTypeFound(long id, const QString &mimeType);
 
     /**
      * File transfer completed.

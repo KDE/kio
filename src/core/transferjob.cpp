@@ -257,7 +257,10 @@ void TransferJob::slotMimetype(const QString &type)
         qCWarning(KIO_CORE) << "mimetype() emitted again, or after sending first data!; job URL =" << d->m_url;
     }
     d->m_isMimetypeEmitted = true;
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 78)
     emit mimetype(this, type);
+#endif
+    emit mimeTypeFound(this, type);
 }
 
 void TransferJobPrivate::internalSuspend()
