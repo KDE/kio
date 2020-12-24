@@ -248,7 +248,13 @@ public:
     void deleteNextDir();
     void sourceStated(const UDSEntry &entry, const QUrl &sourceUrl);
     void skip(const QUrl &sourceURL, bool isDir);
+
     void slotResultRenaming(KJob *job);
+    void directRenamingFailed(const QUrl &dest);
+    void processDirectRenamingConflictResult(RenameDialog_Result result, bool srcIsDir, bool destIsDir,
+                                             const QDateTime &mtimeSrc, const QDateTime &mtimeDest,
+                                             const QUrl &dest, const QUrl &newUrl);
+
     void slotResultSettingDirAttributes(KJob *job);
     void setNextDirAttribute();
 
@@ -2006,6 +2012,20 @@ void CopyJobPrivate::slotResultSettingDirAttributes(KJob *job)
     setNextDirAttribute();
 }
 
+void CopyJobPrivate::directRenamingFailed(const QUrl &dest)
+{
+    Q_Q(CopyJob);
+
+    qCDebug(KIO_COPYJOB_DEBUG) << "Couldn't rename" << m_currentSrcURL << "to" << dest
+                               << ", reverting to normal way, starting with stat";
+    qCDebug(KIO_COPYJOB_DEBUG) << "KIO::stat on" << m_currentSrcURL;
+
+    KIO::Job *job = KIO::statDetails(m_currentSrcURL, StatJob::SourceSide, KIO::StatDefaultDetails, KIO::HideProgressInfo);
+    state = STATE_STATING;
+    q->addSubjob(job);
+    m_bOnlyRenames = false;
+}
+
 // We were trying to do a direct renaming, before even stat'ing
 void CopyJobPrivate::slotResultRenaming(KJob *job)
 {
@@ -2057,8 +2077,7 @@ void CopyJobPrivate::slotResultRenaming(KJob *job)
                 destinationState = DEST_NOT_STATED;
                 q->addSubjob(job);
                 return;
-            } else if (q->uiDelegateExtension()) {
-                QString newPath;
+            } else if (defaultAskUserActionInterface()) {
                 // we lack mtime info for both the src (not stated)
                 // and the dest (stated but this info wasn't stored)
                 // Let's do it for local files, at least
@@ -2120,91 +2139,34 @@ void CopyJobPrivate::slotResultRenaming(KJob *job)
                         qCDebug(KIO_COPYJOB_DEBUG) << "dest is newer, skipping" << dest;
                         r = Result_Skip;
                     }
+
+                    processDirectRenamingConflictResult(r, isDir, destIsDir, mtimeSrc, mtimeDest, dest, QUrl{});
+                    return;
                 } else {
-                    r = q->uiDelegateExtension()->askFileRename(
-                                            q,
-                                            err != ERR_DIR_ALREADY_EXIST ? i18n("File Already Exists") : i18n("Already Exists as Folder"),
-                                            m_currentSrcURL,
-                                            dest,
-                                            options, newPath,
-                                            sizeSrc, sizeDest,
-                                            ctimeSrc, ctimeDest,
-                                            mtimeSrc, mtimeDest);
-                }
+                    QObject::connect(defaultAskUserActionInterface(), &KIO::AskUserActionInterface::askUserRenameResult,
+                                     q, [=](RenameDialog_Result result, const QUrl &newUrl, KJob *parentJob) {
+                        // If there are multiple CopyJobs, only react to the signal from the dialog invoked
+                        // by _this_ job
+                        if (parentJob != q) {
+                            return;
+                        }
+                        // Only receive askUserRenameResult once per rename dialog
+                        QObject::disconnect(defaultAskUserActionInterface(), &KIO::AskUserActionInterface::askUserRenameResult,
+                                            q, nullptr);
 
-                if (m_reportTimer) {
-                    m_reportTimer->start(REPORT_TIMEOUT);
-                }
+                        processDirectRenamingConflictResult(result, isDir, destIsDir, mtimeSrc, mtimeDest, dest, newUrl);
+                    });
 
-                if (r == Result_OverwriteWhenOlder){
-                    m_bOverwriteWhenOlder = true;
-                    if (mtimeSrc > mtimeDest) {
-                        qCDebug(KIO_COPYJOB_DEBUG) << "dest is older, overwriting" << dest;
-                        r = Result_Overwrite;
-                    } else {
-                        qCDebug(KIO_COPYJOB_DEBUG) << "dest is newer, skipping" << dest;
-                        r = Result_Skip;
-                    }
-                }
+                    const QString caption = err != ERR_DIR_ALREADY_EXIST ? i18n("File Already Exists")
+                                                                           : i18n("Already Exists as Folder");
 
-                switch (r) {
-                case Result_Cancel: {
-                    q->setError(ERR_USER_CANCELED);
-                    q->emitResult();
+                    defaultAskUserActionInterface()->askUserRename(q, caption,
+                                                                   m_currentSrcURL, dest, options,
+                                                                   sizeSrc, sizeDest,
+                                                                   ctimeSrc, ctimeDest,
+                                                                   mtimeSrc, mtimeDest);
+
                     return;
-                }
-
-                case Result_AutoRename:
-                    if (isDir) {
-                        m_bAutoRenameDirs = true;
-                    } else {
-                        m_bAutoRenameFiles = true;
-                    }
-                // fall through
-                    Q_FALLTHROUGH();
-                case Result_Rename: {
-                    // Set m_dest to the chosen destination
-                    // This is only for this src url; the next one will revert to m_globalDest
-                    m_dest.setPath(newPath);
-                    emit q->renamed(q, dest, m_dest); // for e.g. KPropertiesDialog
-                    KIO::Job *job = KIO::statDetails(m_dest, StatJob::DestinationSide, KIO::StatDefaultDetails, KIO::HideProgressInfo);
-                    state = STATE_STATING;
-                    destinationState = DEST_NOT_STATED;
-                    q->addSubjob(job);
-                    return;
-                }
-                case Result_AutoSkip:
-                    if (isDir) {
-                        m_bAutoSkipDirs = true;
-                    } else {
-                        m_bAutoSkipFiles = true;
-                    }
-                // fall through
-                    Q_FALLTHROUGH();
-                case Result_Skip:
-                    // Move on to next url
-                    ++m_filesHandledByDirectRename;
-                    skipSrc(isDir);
-                    return;
-                case Result_OverwriteAll:
-                    if (destIsDir) {
-                        m_bOverwriteAllDirs = true;
-                    } else {
-                        m_bOverwriteAllFiles = true;
-                    }
-                    break;
-                case Result_Overwrite:
-                    // Add to overwrite list
-                    // Note that we add dest, not m_dest.
-                    // This ensures that when moving several urls into a dir (m_dest),
-                    // we only overwrite for the current one, not for all.
-                    // When renaming a single file (m_asMethod), it makes no difference.
-                    qCDebug(KIO_COPYJOB_DEBUG) << "adding to overwrite list: " << dest.path();
-                    m_overwriteList.insert(dest.path());
-                    break;
-                default:
-                    //Q_ASSERT( 0 );
-                    break;
                 }
             } else if (err != KIO::ERR_UNSUPPORTED_ACTION) {
                 // Dest already exists, and job is not interactive -> abort with error
@@ -2220,22 +2182,103 @@ void CopyJobPrivate::slotResultRenaming(KJob *job)
             q->emitResult();
             return;
         }
-        qCDebug(KIO_COPYJOB_DEBUG) << "Couldn't rename" << m_currentSrcURL << "to" << dest << ", reverting to normal way, starting with stat";
-        qCDebug(KIO_COPYJOB_DEBUG) << "KIO::stat on" << m_currentSrcURL;
-        KIO::Job *job = KIO::statDetails(m_currentSrcURL, StatJob::SourceSide, KIO::StatDefaultDetails, KIO::HideProgressInfo);
-        state = STATE_STATING;
-        q->addSubjob(job);
-        m_bOnlyRenames = false;
-    } else {
-        qCDebug(KIO_COPYJOB_DEBUG) << "Renaming succeeded, move on";
-        ++m_processedFiles;
-        ++m_filesHandledByDirectRename;
-        // Emit copyingDone for FileUndoManager to remember what we did.
-        // Use resolved URL m_currentSrcURL since that's what we just used for renaming. See bug 391606 and kio_desktop's testTrashAndUndo().
-        emit q->copyingDone(q, m_currentSrcURL, finalDestUrl(m_currentSrcURL, dest), QDateTime() /*mtime unknown, and not needed*/, m_bCurrentSrcIsDir, true);
-        m_successSrcList.append(*m_currentStatSrc);
-        statNextSrc();
+
+        directRenamingFailed(dest);
+        return;
     }
+
+    // No error
+    qCDebug(KIO_COPYJOB_DEBUG) << "Renaming succeeded, move on";
+    ++m_processedFiles;
+    ++m_filesHandledByDirectRename;
+    // Emit copyingDone for FileUndoManager to remember what we did.
+    // Use resolved URL m_currentSrcURL since that's what we just used for renaming. See bug 391606 and kio_desktop's testTrashAndUndo().
+    emit q->copyingDone(q, m_currentSrcURL, finalDestUrl(m_currentSrcURL, dest), QDateTime() /*mtime unknown, and not needed*/, m_bCurrentSrcIsDir, true);
+    m_successSrcList.append(*m_currentStatSrc);
+    statNextSrc();
+}
+
+void CopyJobPrivate::processDirectRenamingConflictResult(RenameDialog_Result result, bool srcIsDir, bool destIsDir,
+                                                         const QDateTime &mtimeSrc, const QDateTime &mtimeDest,
+                                                         const QUrl &dest, const QUrl &newUrl)
+{
+    Q_Q(CopyJob);
+
+    if (m_reportTimer) {
+        m_reportTimer->start(REPORT_TIMEOUT);
+    }
+
+    if (result == Result_OverwriteWhenOlder){
+        m_bOverwriteWhenOlder = true;
+        if (mtimeSrc > mtimeDest) {
+            qCDebug(KIO_COPYJOB_DEBUG) << "dest is older, overwriting" << dest;
+            result = Result_Overwrite;
+        } else {
+            qCDebug(KIO_COPYJOB_DEBUG) << "dest is newer, skipping" << dest;
+            result = Result_Skip;
+        }
+    }
+
+    switch (result) {
+    case Result_Cancel: {
+        q->setError(ERR_USER_CANCELED);
+        q->emitResult();
+        return;
+    }
+    case Result_AutoRename:
+        if (srcIsDir) {
+            m_bAutoRenameDirs = true;
+        } else {
+            m_bAutoRenameFiles = true;
+        }
+    // fall through
+        Q_FALLTHROUGH();
+    case Result_Rename: {
+        // Set m_dest to the chosen destination
+        // This is only for this src url; the next one will revert to m_globalDest
+        m_dest = newUrl;
+        emit q->renamed(q, dest, m_dest); // For e.g. KPropertiesDialog
+        KIO::Job *job = KIO::statDetails(m_dest, StatJob::DestinationSide, KIO::StatDefaultDetails, KIO::HideProgressInfo);
+        state = STATE_STATING;
+        destinationState = DEST_NOT_STATED;
+        q->addSubjob(job);
+        return;
+    }
+    case Result_AutoSkip:
+        if (srcIsDir) {
+            m_bAutoSkipDirs = true;
+        } else {
+            m_bAutoSkipFiles = true;
+        }
+    // fall through
+        Q_FALLTHROUGH();
+    case Result_Skip:
+        // Move on to next url
+        ++m_filesHandledByDirectRename;
+        skipSrc(srcIsDir);
+        return;
+    case Result_OverwriteAll:
+        if (destIsDir) {
+            m_bOverwriteAllDirs = true;
+        } else {
+            m_bOverwriteAllFiles = true;
+        }
+        break;
+    case Result_Overwrite:
+        // Add to overwrite list
+        // Note that we add dest, not m_dest.
+        // This ensures that when moving several urls into a dir (m_dest),
+        // we only overwrite for the current one, not for all.
+        // When renaming a single file (m_asMethod), it makes no difference.
+        qCDebug(KIO_COPYJOB_DEBUG) << "adding to overwrite list: " << dest.path();
+        m_overwriteList.insert(dest.path());
+        break;
+    default:
+        //Q_ASSERT( 0 );
+        break;
+    }
+
+    directRenamingFailed(dest);
 }
 
 void CopyJob::slotResult(KJob *job)
