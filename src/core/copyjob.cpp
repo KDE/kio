@@ -1170,7 +1170,7 @@ void CopyJobPrivate::slotResultCreatingDirs(KJob *job)
                         newUrl.setPath(concatPaths(newUrl.path(), newName));
                         renameDirectory(it, newUrl);
                     } else {
-                        if (!defaultAskUserActionInterface()) {
+                        if (!q->uiDelegateExtension() /*compat*/ || !defaultAskUserActionInterface()) {
                             q->Job::slotResult(job); // will set the error and emit result(this)
                             return;
                         }
@@ -1395,7 +1395,7 @@ void CopyJobPrivate::slotResultCopyingFiles(KJob *job)
                     emit q->aboutToCreate(q, files);
 #endif
                 } else {
-                    if (!defaultAskUserActionInterface()) {
+                    if (!q->uiDelegateExtension() /*compat*/ || !defaultAskUserActionInterface()) {
                         q->Job::slotResult(job);   // will set the error and emit result(this)
                         return;
                     }
@@ -1419,7 +1419,7 @@ void CopyJobPrivate::slotResultCopyingFiles(KJob *job)
                     ++m_processedFiles;
                     files.erase(it);
                 } else {
-                    if (!defaultAskUserActionInterface()) {
+                    if (!q->uiDelegateExtension() /*compat*/ || !defaultAskUserActionInterface()) {
                         q->Job::slotResult(job);   // will set the error and emit result(this)
                         return;
                     }
@@ -1576,7 +1576,7 @@ void CopyJobPrivate::slotResultErrorCopyingFiles(KJob *job)
     } else {
         if (job->error() == ERR_USER_CANCELED) {
             res = Result_Cancel;
-        } else if (!defaultAskUserActionInterface()) {
+        } else if (!q->uiDelegateExtension() /*compat*/ || !defaultAskUserActionInterface()) {
             q->Job::slotResult(job);   // will set the error and emit result(this)
             return;
         } else {
@@ -2077,7 +2077,7 @@ void CopyJobPrivate::slotResultRenaming(KJob *job)
                 destinationState = DEST_NOT_STATED;
                 q->addSubjob(job);
                 return;
-            } else if (defaultAskUserActionInterface()) {
+            } else if (q->uiDelegateExtension() /*compat*/ && defaultAskUserActionInterface()) {
                 // we lack mtime info for both the src (not stated)
                 // and the dest (stated but this info wasn't stored)
                 // Let's do it for local files, at least
