@@ -53,17 +53,21 @@ KIO::JobUiDelegate::JobUiDelegate()
     : d(new Private())
 {
     // KF6 TODO: remove, inherit from these handlers instead
-    static WidgetsUntrustedProgramHandler s_handler;
-    KIO::setDefaultUntrustedProgramHandler(&s_handler);
+    static bool s_done = false;
+    if (!s_done) {
+        s_done = true;
+        static WidgetsUntrustedProgramHandler s_handler;
+        KIO::setDefaultUntrustedProgramHandler(&s_handler);
 
-    static WidgetsOpenWithHandler s_openUrlHandler;
-    KIO::setDefaultOpenWithHandler(&s_openUrlHandler);
+        static WidgetsOpenWithHandler s_openUrlHandler;
+        KIO::setDefaultOpenWithHandler(&s_openUrlHandler);
 
-    static WidgetsOpenOrExecuteFileHandler s_openOrExecuteFileHandler;
-    KIO::setDefaultOpenOrExecuteFileHandler(&s_openOrExecuteFileHandler);
+        static WidgetsOpenOrExecuteFileHandler s_openOrExecuteFileHandler;
+        KIO::setDefaultOpenOrExecuteFileHandler(&s_openOrExecuteFileHandler);
 
-    static WidgetsAskUserActionHandler s_askUserActionHandler;
-    KIO::setDefaultAskUserActionInterface(&s_askUserActionHandler);
+        static WidgetsAskUserActionHandler s_askUserActionHandler;
+        KIO::setDefaultAskUserActionInterface(&s_askUserActionHandler);
+    }
 }
 
 KIO::JobUiDelegate::~JobUiDelegate()

@@ -36,6 +36,13 @@ void initLocale()
 Q_CONSTRUCTOR_FUNCTION(initLocale)
 #endif
 
+namespace KIO {
+// Hidden API because in KF6 we'll just check if the job's uiDelegate implements AskUserActionInterface.
+extern void setDefaultAskUserActionInterface(KIO::AskUserActionInterface *iface);
+extern KIO::AskUserActionInterface* defaultAskUserActionInterface();
+}
+
+
 class JobSpy : public QObject
 {
     Q_OBJECT
@@ -204,6 +211,7 @@ private Q_SLOTS:
         KIO::DropJob *job = KIO::drop(&dropEvent, destUrl, KIO::HideProgressInfo | KIO::NoPrivilegeExecution);
         job->setUiDelegate(nullptr);
         job->setUiDelegateExtension(nullptr);
+        KIO::setDefaultAskUserActionInterface(nullptr);
         JobSpy jobSpy(job);
         QSignalSpy copyJobSpy(job, &KIO::DropJob::copyJobStarted);
         QSignalSpy itemCreatedSpy(job, &KIO::DropJob::itemCreated);
@@ -298,6 +306,7 @@ private Q_SLOTS:
         QDropEvent dropEvent(QPoint(10, 10), Qt::CopyAction, &m_mimeData, Qt::LeftButton, Qt::NoModifier);
         KIO::DropJob *job = KIO::drop(&dropEvent, QUrl::fromLocalFile(m_srcDir), KIO::HideProgressInfo);
         job->setUiDelegate(nullptr);
+        KIO::setDefaultAskUserActionInterface(nullptr);
         QSignalSpy copyJobSpy(job, &KIO::DropJob::copyJobStarted);
         QSignalSpy spy(job, &KIO::DropJob::itemCreated);
 
@@ -406,6 +415,7 @@ private Q_SLOTS:
         KIO::DropJob *job = KIO::drop(&dropEvent, destUrl, KIO::HideProgressInfo);
         job->setUiDelegate(nullptr);
         job->setUiDelegateExtension(nullptr); // no rename dialog
+        KIO::setDefaultAskUserActionInterface(nullptr); // no rename dialog
         JobSpy jobSpy(job);
         qRegisterMetaType<KFileItemListProperties>();
         QSignalSpy spyShow(job, &KIO::DropJob::popupMenuAboutToShow);
