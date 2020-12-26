@@ -41,6 +41,11 @@ QTEST_MAIN(KDirModelTest)
 
 Q_DECLARE_METATYPE(KFileItemList)
 
+namespace KIO {
+// Hidden API because in KF6 we'll just check if the job's uiDelegate implements AskUserActionInterface.
+extern void setDefaultAskUserActionInterface(KIO::AskUserActionInterface *iface);
+}
+
 void KDirModelTest::initTestCase()
 {
     qputenv("LC_ALL", "en_US.UTF-8");
@@ -1440,12 +1445,12 @@ void KDirModelTest::testOverwriteFileWithDir() // #151851 c4
 
     KIO::Job *job = KIO::move(QUrl::fromLocalFile(dir), QUrl::fromLocalFile(file), KIO::HideProgressInfo);
     job->setUiDelegate(nullptr);
-    PredefinedAnswerJobUiDelegate extension;
-    extension.m_renameResult = KIO::Result_Overwrite;
-    job->setUiDelegateExtension(&extension);
+    PredefinedAnswerAskUserInterface askUserHandler;
+    askUserHandler.m_renameResult = KIO::Result_Overwrite;
+    KIO::setDefaultAskUserActionInterface(&askUserHandler);
     QVERIFY(job->exec());
 
-    QCOMPARE(extension.m_askFileRenameCalled, 1);
+    QCOMPARE(askUserHandler.m_askUserRenameCalled, 1);
 
     // Wait for a removal within the top level (that's for the old file going away), and also
     // for a dataChanged which notifies us that a file has become a directory
