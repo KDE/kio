@@ -39,6 +39,12 @@
 
 QTEST_MAIN(JobTest)
 
+namespace KIO {
+// Hidden API because in KF6 we'll just check if the job's uiDelegate implements AskUserActionInterface.
+extern void setDefaultAskUserActionInterface(KIO::AskUserActionInterface *iface);
+extern KIO::AskUserActionInterface* defaultAskUserActionInterface();
+}
+
 // The code comes partly from kdebase/kioslave/trash/testtrash.cpp
 
 static QString otherTmpDir()
@@ -1979,15 +1985,14 @@ void JobTest::moveFileDestAlreadyExists() // #157601
     const QList<QUrl> urls{QUrl::fromLocalFile(file1), QUrl::fromLocalFile(file2)};
     KIO::CopyJob *job = KIO::move(urls, QUrl::fromLocalFile(otherTmpDir()), KIO::HideProgressInfo);
     job->setUiDelegate(nullptr);
-    job->setUiDelegateExtension(nullptr);
-    PredefinedAnswerJobUiDelegate extension;
+    PredefinedAnswerAskUserInterface askUserHandler;
     if (autoSkip) {
-        job->setUiDelegateExtension(nullptr);
+        KIO::setDefaultAskUserActionInterface(nullptr);
         job->setAutoSkip(true);
     } else {
         // Simulate the user pressing "Skip" in the dialog.
-        extension.m_skipResult = KIO::Result_Skip;
-        job->setUiDelegateExtension(&extension);
+        askUserHandler.m_skipResult = KIO::Result_Skip;
+        KIO::setDefaultAskUserActionInterface(&askUserHandler);
     }
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
     QVERIFY(QFile::exists(file1)); // it was skipped
@@ -2025,14 +2030,14 @@ void JobTest::copyFileDestAlreadyExists() // to test skipping when copying
     const QList<QUrl> urls{QUrl::fromLocalFile(file1), QUrl::fromLocalFile(file2)};
     KIO::CopyJob *job = KIO::copy(urls, QUrl::fromLocalFile(otherTmpDir()), KIO::HideProgressInfo);
     job->setUiDelegate(nullptr);
-    PredefinedAnswerJobUiDelegate extension;
+    PredefinedAnswerAskUserInterface askUserHandler;
     if (autoSkip) {
-        job->setUiDelegateExtension(nullptr);
+        KIO::setDefaultAskUserActionInterface(nullptr);
         job->setAutoSkip(true);
     } else {
         // Simulate the user pressing "Skip" in the dialog.
-        extension.m_skipResult = KIO::Result_Skip;
-        job->setUiDelegateExtension(&extension);
+        askUserHandler.m_skipResult = KIO::Result_Skip;
+        KIO::setDefaultAskUserActionInterface(&askUserHandler);
     }
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
     QVERIFY(QFile::exists(otherTmpDir() + "anotherFile"));
@@ -2208,10 +2213,12 @@ void JobTest::copyDirectoryAlreadyExistsSkip()
     QVERIFY(QFile::exists(dest + QStringLiteral("/a/testfile")));
 
     job = KIO::copy(u, d, KIO::HideProgressInfo);
+
     // Simulate the user pressing "Skip" in the dialog.
-    PredefinedAnswerJobUiDelegate extension;
-    extension.m_skipResult = KIO::Result_Skip;
-    job->setUiDelegateExtension(&extension);
+    PredefinedAnswerAskUserInterface askUserHandler;
+    askUserHandler.m_skipResult = KIO::Result_Skip;
+    KIO::setDefaultAskUserActionInterface(&askUserHandler);
+
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
     QVERIFY(QFile::exists(dest + QStringLiteral("/a/testfile")));
 
@@ -2249,10 +2256,10 @@ void JobTest::copyFileAlreadyExistsRename()
 
     KIO::CopyJob* job = KIO::copy(s, d, KIO::HideProgressInfo);
     // Simulate the user pressing "Rename" in the dialog and choosing another destination.
-    PredefinedAnswerJobUiDelegate extension;
-    extension.m_renameResult = KIO::Result_Rename;
-    extension.m_renamedest = renamedFile;
-    job->setUiDelegateExtension(&extension);
+    PredefinedAnswerAskUserInterface askUserHandler;
+    askUserHandler.m_renameResult = KIO::Result_Rename;
+    askUserHandler.m_newDestUrl = QUrl::fromLocalFile(renamedFile);
+    KIO::setDefaultAskUserActionInterface(&askUserHandler);
 
     QSignalSpy spyRenamed(job, &KIO::CopyJob::renamed);
 
@@ -2388,12 +2395,14 @@ void JobTest::overwriteOlderFiles()
                 {QUrl::fromLocalFile(srcFile), QUrl::fromLocalFile(srcFile2), QUrl::fromLocalFile(srcFile3)},
                 QUrl::fromLocalFile(destDir), KIO::HideProgressInfo);
     }
+
     job->setUiDelegate(nullptr);
-    PredefinedAnswerJobUiDelegate extension;
-    extension.m_renameResult = KIO::Result_OverwriteWhenOlder;
-    job->setUiDelegateExtension(&extension);
+    PredefinedAnswerAskUserInterface askUserHandler;
+    askUserHandler.m_renameResult = KIO::Result_OverwriteWhenOlder;
+    KIO::setDefaultAskUserActionInterface(&askUserHandler);
+
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
-    QCOMPARE(extension.m_askFileRenameCalled, 1);
+    QCOMPARE(askUserHandler.m_askUserRenameCalled, 1);
     QVERIFY(!QFile::exists(destPartFile));
     //QCOMPARE(spyTotalSize.count(), 1);
 
@@ -2492,7 +2501,7 @@ void JobTest::moveOverSymlinkToSelf() // #169547
 
     KIO::CopyJob *job = KIO::move(QUrl::fromLocalFile(sourceFile), QUrl::fromLocalFile(existingDest), KIO::HideProgressInfo);
     job->setUiDelegate(nullptr);
-    job->setUiDelegateExtension(nullptr);
+    KIO::setDefaultAskUserActionInterface(nullptr);
     QVERIFY(!job->exec());
     QCOMPARE(job->error(), (int)KIO::ERR_FILE_ALREADY_EXIST); // and not ERR_IDENTICAL_FILES!
     QVERIFY(QFile::exists(sourceFile)); // it not moved

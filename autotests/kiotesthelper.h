@@ -214,3 +214,108 @@ public:
     int m_messageBoxResult;
     QString m_renamedest;
 };
+
+#include <kio/askuseractioninterface.h>
+class PredefinedAnswerAskUserInterface : public KIO::AskUserActionInterface
+{
+public:
+    PredefinedAnswerAskUserInterface()
+        : KIO::AskUserActionInterface(),
+          m_askUserRenameCalled(0),
+          m_askUserSkipCalled(0),
+          m_askUserDeleteCalled(0),
+          m_messageBoxCalled(0),
+          m_renameResult(KIO::Result_Skip),
+          m_skipResult(KIO::Result_Skip),
+          m_deleteResult(false),
+          m_messageBoxResult(0)
+    {
+    }
+
+    void askUserRename(KJob *job,
+                       const QString &caption,
+                       const QUrl &src,
+                       const QUrl &dest,
+                       KIO::RenameDialog_Options options,
+                       KIO::filesize_t sizeSrc = KIO::filesize_t(-1),
+                       KIO::filesize_t sizeDest = KIO::filesize_t(-1),
+                       const QDateTime &ctimeSrc = QDateTime(),
+                       const QDateTime &ctimeDest = QDateTime(),
+                       const QDateTime &mtimeSrc = QDateTime(),
+                       const QDateTime &mtimeDest = QDateTime()) override
+    {
+        Q_UNUSED(caption)
+        Q_UNUSED(src)
+        Q_UNUSED(dest)
+        Q_UNUSED(options)
+        Q_UNUSED(sizeSrc)
+        Q_UNUSED(sizeDest)
+        Q_UNUSED(ctimeSrc)
+        Q_UNUSED(ctimeDest)
+        Q_UNUSED(mtimeSrc)
+        Q_UNUSED(mtimeDest)
+
+        ++m_askUserRenameCalled;
+        emit askUserRenameResult(m_renameResult, m_newDestUrl, job);
+    }
+
+    void askUserSkip(KJob *job,
+                     KIO::SkipDialog_Options options,
+                     const QString &error_text) override
+    {
+        Q_UNUSED(options)
+        Q_UNUSED(error_text)
+
+        ++m_askUserSkipCalled;
+        emit askUserSkipResult(m_skipResult, job);
+    }
+
+    void askUserDelete(const QList<QUrl> &urls,
+                       DeletionType deletionType,
+                       ConfirmationType confirmationType,
+                       QWidget *parent = nullptr) override
+    {
+        Q_UNUSED(urls)
+        Q_UNUSED(confirmationType)
+
+        ++m_askUserDeleteCalled;
+        emit askUserDeleteResult(m_deleteResult, QList<QUrl>{}, deletionType, parent);
+    }
+
+    void requestUserMessageBox(MessageDialogType type,
+                               const QString &text,
+                               const QString &caption,
+                               const QString &buttonYes,
+                               const QString &buttonNo,
+                               const QString &iconYes = QString(),
+                               const QString &iconNo = QString(),
+                               const QString &dontAskAgainName = QString(),
+                               const QString &details = QString(),
+                               const KIO::MetaData &metaData = KIO::MetaData(),
+                               QWidget *parent = nullptr) override
+    {
+        Q_UNUSED(type)
+        Q_UNUSED(text)
+        Q_UNUSED(caption)
+        Q_UNUSED(buttonYes)
+        Q_UNUSED(buttonNo)
+        Q_UNUSED(iconYes)
+        Q_UNUSED(iconNo)
+        Q_UNUSED(dontAskAgainName)
+        Q_UNUSED(details)
+        Q_UNUSED(metaData)
+        Q_UNUSED(parent)
+    }
+
+    // yeah, public, for get and reset.
+    int m_askUserRenameCalled;
+    int m_askUserSkipCalled;
+    int m_askUserDeleteCalled;
+    int m_messageBoxCalled;
+
+    KIO::RenameDialog_Result m_renameResult;
+    KIO::SkipDialog_Result m_skipResult;
+    bool m_deleteResult;
+    int m_messageBoxResult;
+    QUrl m_newDestUrl;
+};
