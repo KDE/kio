@@ -27,6 +27,8 @@ ecm_qt_export_logging_category(
     EXPORT KIO
 )
 
+kconfig_add_kcfg_files(kuriikwsfilter ikwsconfig.kcfgc)
+
 target_link_libraries(kuriikwsfilter
    KF5::ConfigWidgets  # KCModule
    KF5::KIOWidgets     # KUriFilter
@@ -50,6 +52,8 @@ target_sources(kurisearchfilter PRIVATE
 )
 
 ki18n_wrap_ui(kurisearchfilter ikwsopts_ui.ui searchproviderdlg_ui.ui)
+
+kconfig_add_kcfg_files(kurisearchfilter ikwsconfig.kcfgc)
 
 target_link_libraries(kurisearchfilter
    KF5::ConfigWidgets  # KCModule

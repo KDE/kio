@@ -13,10 +13,9 @@
 #include "searchprovider.h"
 #include "searchproviderdlg.h"
 
-#include <KBuildSycocaProgressDialog>
-#include <KConfigGroup>
+#include <ikwsconfig.h>
+
 #include <KLocalizedString>
-#include <KSharedConfig>
 
 #include <QDBusConnection>
 #include <QDBusMessage>
@@ -113,10 +112,9 @@ QVariant ProvidersModel::data(const QModelIndex &index, int role) const
     return QVariant();
 }
 
-void ProvidersModel::setProviders(const QList<SearchProvider *> &providers, const QStringList &favoriteEngines)
+void ProvidersModel::setProviders(const QList<SearchProvider *> &providers)
 {
     m_providers = providers;
-    setFavoriteProviders(favoriteEngines);
 }
 
 void ProvidersModel::setFavoriteProviders(const QStringList &favoriteEngines)
@@ -202,17 +200,17 @@ QVariant ProvidersListModel::data(const QModelIndex &index, int role) const
         if (noProvider) {
             return i18nc("@item:inlistbox No default web search keyword", "None");
         }
-        return m_providers.at(index.row())->name();
+        return m_providers.at(row)->name();
     case ShortNameRole:
         if (noProvider) {
             return QString();
         }
-        return m_providers.at(index.row())->desktopEntryName();
+        return m_providers.at(row)->desktopEntryName();
     case Qt::DecorationRole:
         if (noProvider) {
             return QIcon::fromTheme(QStringLiteral("empty"));
         }
-        return QIcon::fromTheme(m_providers.at(index.row())->iconName());
+        return QIcon::fromTheme(m_providers.at(row)->iconName());
     }
 
     return QVariant();
@@ -242,6 +240,7 @@ static QSortFilterProxyModel *wrapInProxyModel(QAbstractItemModel *model)
 FilterOptions::FilterOptions(QWidget *parent, const QVariantList &args)
     : KCModule(parent, args)
     , m_providersModel(new ProvidersModel(this))
+    , m_settings(new WebShortcutsSettings(this))
 {
     // Used for tab text in the KCM
     setWindowTitle(i18n("Search F&ilters"));
@@ -251,6 +250,9 @@ FilterOptions::FilterOptions(QWidget *parent, const QVariantList &args)
     QSortFilterProxyModel *searchProviderModel = wrapInProxyModel(m_providersModel);
     m_dlg.lvSearchProviders->setModel(searchProviderModel);
     m_dlg.cmbDefaultEngine->setModel(wrapInProxyModel(m_providersModel->createListModel()));
+
+    // Associate settings object to KCM
+    addConfig(m_settings, this);
 
     // Connect all the signals/slots...
     connect(m_dlg.cbEnableShortcuts, &QAbstractButton::toggled, this, &FilterOptions::markAsChanged);
@@ -283,25 +285,25 @@ QString FilterOptions::quickHelp() const
                   "Konqueror.</para>");
 }
 
-void FilterOptions::setDefaultEngine(int index)
+void FilterOptions::setDefaultEngine(const QString &engine)
 {
     QSortFilterProxyModel *proxy = qobject_cast<QSortFilterProxyModel *>(m_dlg.cmbDefaultEngine->model());
-    if (index == -1) {
-        index = proxy->rowCount() - 1; //"None" is the last
+
+    QModelIndex modelIndex = proxy->mapFromSource(proxy->sourceModel()->index(proxy->rowCount() - 1, 0)); // default is "None", it is last in the list
+
+    if (!engine.isEmpty()) {
+        const auto matchIndexList = proxy->match(proxy->index(0, 0), ProvidersListModel::ShortNameRole, engine, 1, Qt::MatchFixedString);
+        if (!matchIndexList.isEmpty()) {
+            modelIndex = matchIndexList.at(0);
+        }
     }
-    const QModelIndex modelIndex = proxy->mapFromSource(proxy->sourceModel()->index(index, 0));
+
     m_dlg.cmbDefaultEngine->setCurrentIndex(modelIndex.row());
     m_dlg.cmbDefaultEngine->view()->setCurrentIndex(modelIndex); // TODO: remove this when Qt bug is fixed
 }
 
 void FilterOptions::load()
 {
-    KConfig config(QString::fromUtf8(KURISearchFilterEngine::self()->name()) + QLatin1String("rc"), KConfig::NoGlobals);
-    KConfigGroup group = config.group("General");
-
-    const QString defaultSearchEngine = group.readEntry("DefaultWebShortcut");
-    const QStringList favoriteEngines = group.readEntry("PreferredWebShortcuts", KURISearchFilterEngine::defaultSearchProviders());
-
     const QList<SearchProvider *> allProviders = m_registry.findAll();
     QList<SearchProvider *> providers;
     for (auto *provider : allProviders) {
@@ -309,28 +311,25 @@ void FilterOptions::load()
             providers << provider;
         }
     }
+    m_providersModel->setProviders(providers);
 
-    int defaultProviderIndex = providers.size(); // default is "None", it is last in the list
+    m_settings->load();
+    applySettings();
 
-    for (SearchProvider *provider : std::as_const(providers)) {
-        if (defaultSearchEngine == provider->desktopEntryName()) {
-            defaultProviderIndex = providers.indexOf(provider);
-            break;
-        }
-    }
-
-    m_providersModel->setProviders(providers, favoriteEngines);
     m_dlg.lvSearchProviders->setColumnWidth(0, 200);
     m_dlg.lvSearchProviders->resizeColumnToContents(1);
     m_dlg.lvSearchProviders->sortByColumn(0, Qt::AscendingOrder);
     m_dlg.cmbDefaultEngine->model()->sort(0, Qt::AscendingOrder);
-    setDefaultEngine(defaultProviderIndex);
+}
 
-    m_dlg.cbEnableShortcuts->setChecked(group.readEntry("EnableWebShortcuts", true));
-    m_dlg.cbUseSelectedShortcutsOnly->setChecked(group.readEntry("UsePreferredWebShortcutsOnly", false));
+void FilterOptions::applySettings()
+{
+    m_providersModel->setFavoriteProviders(m_settings->favoriteProviders());
+    m_dlg.cbEnableShortcuts->setChecked(m_settings->webShortcutsEnabled());
+    m_dlg.cbUseSelectedShortcutsOnly->setChecked(m_settings->favoritesOnly());
 
-    const QString delimiter = group.readEntry("KeywordDelimiter", ":");
-    setDelimiter(delimiter.at(0).toLatin1());
+    setDelimiter(m_settings->keywordDelimiter().at(0).toLatin1());
+    setDefaultEngine(m_settings->defaultProvider());
 }
 
 char FilterOptions::delimiter()
@@ -346,14 +345,12 @@ void FilterOptions::setDelimiter(char sep)
 
 void FilterOptions::save()
 {
-    KConfig config(QString::fromUtf8(KURISearchFilterEngine::self()->name()) + QLatin1String("rc"), KConfig::NoGlobals);
-
-    KConfigGroup group = config.group("General");
-    group.writeEntry("EnableWebShortcuts", m_dlg.cbEnableShortcuts->isChecked());
-    group.writeEntry("KeywordDelimiter", QString(QLatin1Char(delimiter())));
-    group.writeEntry("DefaultWebShortcut", m_dlg.cmbDefaultEngine->view()->currentIndex().data(ProvidersListModel::ShortNameRole));
-    group.writeEntry("PreferredWebShortcuts", m_providersModel->favoriteEngines());
-    group.writeEntry("UsePreferredWebShortcutsOnly", m_dlg.cbUseSelectedShortcutsOnly->isChecked());
+    m_settings->setWebShortcutsEnabled(m_dlg.cbEnableShortcuts->isChecked());
+    m_settings->setKeywordDelimiter(QString(QLatin1Char(delimiter())));
+    m_settings->setDefaultProvider(m_dlg.cmbDefaultEngine->view()->currentIndex().data(ProvidersListModel::ShortNameRole).toString());
+    m_settings->setFavoriteProviders(m_providersModel->favoriteEngines());
+    m_settings->setFavoritesOnly(m_dlg.cbUseSelectedShortcutsOnly->isChecked());
+    m_settings->save();
 
     const QList<SearchProvider *> providers = m_providersModel->providers();
     const QString path = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/kservices5/searchproviders/");
@@ -402,8 +399,6 @@ void FilterOptions::save()
         service.writeEntry("Hidden", true);
     }
 
-    config.sync();
-
     Q_EMIT changed(false);
 
     // Update filters in running applications...
@@ -413,11 +408,8 @@ void FilterOptions::save()
 
 void FilterOptions::defaults()
 {
-    m_dlg.cbEnableShortcuts->setChecked(true);
-    m_dlg.cbUseSelectedShortcutsOnly->setChecked(false);
-    m_providersModel->setFavoriteProviders(KURISearchFilterEngine::defaultSearchProviders());
-    setDelimiter(':');
-    setDefaultEngine(-1);
+    m_settings->setDefaults();
+    applySettings();
 }
 
 void FilterOptions::addSearchProvider()

@@ -13,9 +13,10 @@
 #include "kuriikwsfiltereng.h"
 #include "searchprovider.h"
 
-#include <KConfig>
-#include <KConfigGroup>
+#include <ikwsconfig.h>
 #include <kprotocolinfo.h>
+
+#include <KSharedConfig>
 
 #include <QLoggingCategory>
 #include <QRegularExpression>
@@ -37,23 +38,15 @@ static void kuriikws_debug(const QString &n, const QString &v)
  */
 
 KURISearchFilterEngine::KURISearchFilterEngine()
+    : m_settings(new WebShortcutsSettings())
+    , m_cKeywordDelimiter(':')
 {
     loadConfig();
 }
 
 KURISearchFilterEngine::~KURISearchFilterEngine()
 {
-}
-
-// static
-QStringList KURISearchFilterEngine::defaultSearchProviders()
-{
-    static const QStringList defaultProviders{QStringLiteral("google"),
-                                              QStringLiteral("youtube"),
-                                              QStringLiteral("yahoo"),
-                                              QStringLiteral("wikipedia"),
-                                              QStringLiteral("wikit")};
-    return defaultProviders;
+    delete m_settings;
 }
 
 SearchProvider *KURISearchFilterEngine::webShortcutQuery(const QString &typedString, QString &searchTerm) const
@@ -65,7 +58,7 @@ SearchProvider *KURISearchFilterEngine::webShortcutQuery(const QString &typedStr
         if (!key.isEmpty() && (key.contains(QLatin1Char(':')) || !KProtocolInfo::isKnownProtocol(key))) {
             provider = m_registry.findByKey(key);
             if (provider) {
-                if (!m_bUseOnlyPreferredWebShortcuts || m_preferredWebShortcuts.contains(provider->desktopEntryName())) {
+                if (!m_settings->favoritesOnly() || m_settings->favoriteProviders().contains(provider->desktopEntryName())) {
                     qCDebug(category) << "found provider" << provider->desktopEntryName() << "searchTerm=" << searchTerm;
                 } else {
                     provider = nullptr;
@@ -76,7 +69,7 @@ SearchProvider *KURISearchFilterEngine::webShortcutQuery(const QString &typedStr
     };
 
     SearchProvider *provider = nullptr;
-    if (m_bWebShortcutsEnabled) {
+    if (m_settings->webShortcutsEnabled()) {
         QString key;
         if (typedString.contains(QLatin1Char('!'))) {
             const static QRegularExpression bangRegex(QStringLiteral("!([^ ]+)"));
@@ -97,7 +90,7 @@ SearchProvider *KURISearchFilterEngine::webShortcutQuery(const QString &typedStr
             }
         }
         if (key.isEmpty()) {
-            const int pos = typedString.indexOf(QLatin1Char(m_cKeywordDelimiter));
+            const int pos = typedString.indexOf(m_cKeywordDelimiter);
             if (pos > -1) {
                 key = typedString.left(pos).toLower(); // #169801
                 searchTerm = typedString.mid(pos + 1);
@@ -108,7 +101,7 @@ SearchProvider *KURISearchFilterEngine::webShortcutQuery(const QString &typedStr
             provider = getProviderForKey(key);
         }
 
-        qCDebug(category) << "m_cKeywordDelimiter=" << QLatin1Char(m_cKeywordDelimiter) << "key=" << key << "typedString=" << typedString;
+        qCDebug(category) << "m_cKeywordDelimiter=" << m_cKeywordDelimiter << "key=" << key << "typedString=" << typedString;
     }
 
     return provider;
@@ -116,19 +109,22 @@ SearchProvider *KURISearchFilterEngine::webShortcutQuery(const QString &typedStr
 
 SearchProvider *KURISearchFilterEngine::autoWebSearchQuery(const QString &typedString, const QString &defaultShortcut) const
 {
-    SearchProvider *provider = nullptr;
-    const QString defaultSearchProvider = (m_defaultWebShortcut.isEmpty() ? defaultShortcut : m_defaultWebShortcut);
-
-    if (m_bWebShortcutsEnabled && !defaultSearchProvider.isEmpty()) {
-        // Make sure we ignore supported protocols, e.g. "smb:", "http:"
-        const int pos = typedString.indexOf(QLatin1Char(':'));
-
-        if (pos == -1 || !KProtocolInfo::isKnownProtocol(typedString.left(pos))) {
-            provider = m_registry.findByDesktopName(defaultSearchProvider);
-        }
+    if (!m_settings->webShortcutsEnabled()) {
+        return nullptr;
     }
 
-    return provider;
+    const QString defaultProviderName = m_settings->defaultProvider().isEmpty() ? defaultShortcut : m_settings->defaultProvider();
+    if (defaultProviderName.isEmpty()) {
+        return nullptr;
+    }
+
+    // Make sure we ignore supported protocols, e.g. "smb:", "http:"
+    const int pos = typedString.indexOf(QLatin1Char(':'));
+    if (pos != -1 && KProtocolInfo::isKnownProtocol(typedString.left(pos))) {
+        return nullptr;
+    }
+
+    return m_registry.findByDesktopName(defaultProviderName);
 }
 
 QByteArray KURISearchFilterEngine::name() const
@@ -138,17 +134,17 @@ QByteArray KURISearchFilterEngine::name() const
 
 char KURISearchFilterEngine::keywordDelimiter() const
 {
-    return m_cKeywordDelimiter;
+    return m_cKeywordDelimiter.toLatin1();
 }
 
 QString KURISearchFilterEngine::defaultSearchEngine() const
 {
-    return m_defaultWebShortcut;
+    return m_settings->defaultProvider();
 }
 
 QStringList KURISearchFilterEngine::favoriteEngineList() const
 {
-    return m_preferredWebShortcuts;
+    return m_settings->favoriteProviders();
 }
 
 Q_GLOBAL_STATIC(KURISearchFilterEngine, sSelfPtr)
@@ -428,29 +424,19 @@ void KURISearchFilterEngine::loadConfig()
 {
     qCDebug(category) << "Keywords Engine: Loading config...";
 
-    // Load the config.
-    KConfig config(QString::fromUtf8(name()) + QLatin1String("rc"), KConfig::NoGlobals);
-    KConfigGroup group = config.group("General");
+    m_settings->setSharedConfig(KSharedConfig::openConfig(QString::fromUtf8(name()) + QLatin1String("rc"), KConfig::NoGlobals));
+    m_settings->load();
 
-    m_cKeywordDelimiter = QString(group.readEntry("KeywordDelimiter", ":")).at(0).toLatin1();
-    m_bWebShortcutsEnabled = group.readEntry("EnableWebShortcuts", true);
-    m_defaultWebShortcut = group.readEntry("DefaultWebShortcut");
-    m_bUseOnlyPreferredWebShortcuts = group.readEntry("UsePreferredWebShortcutsOnly", false);
-
-    QStringList defaultPreferredShortcuts;
-    if (!group.hasKey("PreferredWebShortcuts")) {
-        defaultPreferredShortcuts = KURISearchFilterEngine::defaultSearchProviders();
-    }
-    m_preferredWebShortcuts = group.readEntry("PreferredWebShortcuts", defaultPreferredShortcuts);
-
+    m_cKeywordDelimiter = QLatin1Char(m_settings->keywordDelimiter().at(0).toLatin1());
     // Use either a white space or a : as the keyword delimiter...
-    if (strchr(" :", m_cKeywordDelimiter) == nullptr) {
-        m_cKeywordDelimiter = ':';
+    if (m_cKeywordDelimiter != QLatin1Char(':') && m_cKeywordDelimiter != QLatin1Char(' ')) {
+        m_cKeywordDelimiter = QLatin1Char(':');
     }
 
-    qCDebug(category) << "Web Shortcuts Enabled: " << m_bWebShortcutsEnabled;
-    qCDebug(category) << "Default Shortcut: " << m_defaultWebShortcut;
+    qCDebug(category) << "Web Shortcuts Enabled: " << m_settings->webShortcutsEnabled();
+    qCDebug(category) << "Default Shortcut: " << m_settings->defaultProvider();
     qCDebug(category) << "Keyword Delimiter: " << m_cKeywordDelimiter;
+
     m_registry.reload();
 }
 

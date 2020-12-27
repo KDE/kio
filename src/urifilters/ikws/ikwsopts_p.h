@@ -35,7 +35,7 @@ public:
         return ColumnCount;
     }
 
-    void setProviders(const QList<SearchProvider *> &, const QStringList &);
+    void setProviders(const QList<SearchProvider *> &);
     void setFavoriteProviders(const QStringList &);
     void addProvider(SearchProvider *p);
     void deleteProvider(SearchProvider *p);

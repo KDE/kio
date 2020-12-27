@@ -19,6 +19,7 @@
 #include <QUrl>
 
 class SearchProvider;
+class WebShortcutsSettings;
 
 class KURISearchFilterEngine
 {
@@ -41,8 +42,6 @@ public:
     static KURISearchFilterEngine *self();
     void loadConfig();
 
-    static QStringList defaultSearchProviders();
-
 protected:
     QUrl formatResult(const QString &url, const QString &cset1, const QString &cset2, const QString &query, bool isMalformed, SubstMap &map) const;
 
@@ -54,11 +53,8 @@ private:
     QString substituteQuery(const QString &url, SubstMap &map, const QString &userquery, QTextCodec *codec) const;
 
     SearchProviderRegistry m_registry;
-    QString m_defaultWebShortcut;
-    QStringList m_preferredWebShortcuts;
-    bool m_bWebShortcutsEnabled;
-    bool m_bUseOnlyPreferredWebShortcuts;
-    char m_cKeywordDelimiter;
+    WebShortcutsSettings *m_settings;
+    QLatin1Char m_cKeywordDelimiter;
 };
 
 #endif // KURIIKWSFILTERENG_H
