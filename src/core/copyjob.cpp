@@ -1226,9 +1226,12 @@ void CopyJobPrivate::slotResultConflictCreatingDirs(KJob *job)
     Q_ASSERT(!q->hasSubjobs());    // We should have only one job at a time ...
 
     // Always multi and skip (since there are files after that)
-    RenameDialog_Options options(RenameDialog_MultipleItems | RenameDialog_Skip | RenameDialog_IsDirectory);
+    RenameDialog_Options options(RenameDialog_MultipleItems | RenameDialog_Skip | RenameDialog_DestIsDirectory);
     // Overwrite only if the existing thing is a dir (no chance with a file)
     if (m_conflictError == ERR_DIR_ALREADY_EXIST) {
+        // We are in slotResultConflictCreatingDirs(), so the source is a dir
+        options |= RenameDialog_SourceIsDirectory;
+
         if ((*it).uSource == (*it).uDest ||
                 ((*it).uSource.scheme() == (*it).uDest.scheme() &&
                  (*it).uSource.adjusted(QUrl::StripTrailingSlash).path() == linkDest)) {
@@ -1515,7 +1518,7 @@ void CopyJobPrivate::slotResultErrorCopyingFiles(KJob *job)
         bool isDir = true;
 
         if (m_conflictError == ERR_DIR_ALREADY_EXIST) {
-            options = RenameDialog_IsDirectory;
+            options = RenameDialog_DestIsDirectory;
         } else {
             if ((*it).uSource == (*it).uDest  ||
                     ((*it).uSource.scheme() == (*it).uDest.scheme() &&
@@ -2122,8 +2125,9 @@ void CopyJobPrivate::slotResultRenaming(KJob *job)
                 if (m_srcList.count() > 1) {
                     options |= RenameDialog_Options(RenameDialog_MultipleItems | RenameDialog_Skip);
                 }
+
                 if (destIsDir) {
-                    options |= RenameDialog_IsDirectory;
+                    options |= RenameDialog_DestIsDirectory;
                 }
 
                 if (m_reportTimer) {
