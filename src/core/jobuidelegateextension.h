@@ -31,7 +31,11 @@ enum RenameDialog_Option {
     RenameDialog_MultipleItems = 8, ///< Set if the current operation concerns multiple files, so it makes sense to offer buttons that apply the user's choice to all files/folders.
     RenameDialog_Resume = 16, ///< Offer a "Resume" button (plus "Resume All" if RenameDialog_MultipleItems).
     RenameDialog_NoRename = 64, ///< Don't offer a "Rename" button.
-    RenameDialog_IsDirectory = 128 ///< The destination is a directory, the dialog updates labels and tooltips accordingly.
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 78)
+    RenameDialog_IsDirectory = 128, ///< @deprecated since 5.78, use RenameDialog_DestIsDirectory instead.
+#endif
+    RenameDialog_DestIsDirectory = 128, ///< @since 5.78. The destination is a directory, the dialog updates labels and tooltips accordingly.
+    RenameDialog_SourceIsDirectory = 256, ///< @since 5.78. The source is a directory, the dialog updates labels and tooltips accordingly.
 };
 /**
  * Stores a combination of #RenameDialog_Option values.
