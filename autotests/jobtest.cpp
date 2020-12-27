@@ -1986,6 +1986,7 @@ void JobTest::moveFileDestAlreadyExists() // #157601
     KIO::CopyJob *job = KIO::move(urls, QUrl::fromLocalFile(otherTmpDir()), KIO::HideProgressInfo);
     job->setUiDelegate(nullptr);
     PredefinedAnswerAskUserInterface askUserHandler;
+    PredefinedAnswerJobUiDelegate compatDelegate;
     if (autoSkip) {
         KIO::setDefaultAskUserActionInterface(nullptr);
         job->setAutoSkip(true);
@@ -1993,7 +1994,6 @@ void JobTest::moveFileDestAlreadyExists() // #157601
         // Simulate the user pressing "Skip" in the dialog.
         askUserHandler.m_skipResult = KIO::Result_Skip;
         KIO::setDefaultAskUserActionInterface(&askUserHandler);
-        PredefinedAnswerJobUiDelegate compatDelegate;
         job->setUiDelegateExtension(&compatDelegate); // compat
     }
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
@@ -2033,6 +2033,7 @@ void JobTest::copyFileDestAlreadyExists() // to test skipping when copying
     KIO::CopyJob *job = KIO::copy(urls, QUrl::fromLocalFile(otherTmpDir()), KIO::HideProgressInfo);
     job->setUiDelegate(nullptr);
     PredefinedAnswerAskUserInterface askUserHandler;
+    PredefinedAnswerJobUiDelegate compatDelegate;
     if (autoSkip) {
         KIO::setDefaultAskUserActionInterface(nullptr);
         job->setAutoSkip(true);
@@ -2040,7 +2041,6 @@ void JobTest::copyFileDestAlreadyExists() // to test skipping when copying
         // Simulate the user pressing "Skip" in the dialog.
         askUserHandler.m_skipResult = KIO::Result_Skip;
         KIO::setDefaultAskUserActionInterface(&askUserHandler);
-        PredefinedAnswerJobUiDelegate compatDelegate;
         job->setUiDelegateExtension(&compatDelegate); // compat
     }
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
