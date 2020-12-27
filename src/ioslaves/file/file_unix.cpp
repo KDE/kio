@@ -566,7 +566,7 @@ bool FileProtocol::copyXattrs(const int src_fd, const int dest_fd)
             return false;
         }
         if (listlen == 0) {
-            qCDebug(KIO_FILE) << "the file don't have any xattr";
+            qCDebug(KIO_FILE) << "the file doesn't have any xattr";
             return true;
         }
     }
