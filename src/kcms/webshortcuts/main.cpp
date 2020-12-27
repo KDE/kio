@@ -88,11 +88,18 @@ KURIFilterModule::KURIFilterModule(QWidget *parent, const QVariantList &args)
 
 void KURIFilterModule::load()
 {
-// seems not to be necessary, since modules automatically call load() on show (uwolfer)
-//     foreach( KCModule* module, modules )
-//     {
-//    module->load();
-//     }
+    static bool firstLoad = true;
+
+    // Modules automatically call load() when first shown, but subsequent
+    // calls need to be propagated to make the`Reset` button work
+    if (firstLoad) {
+        firstLoad = false;
+        return;
+    }
+
+    for (KCModule *module : qAsConst(modules)) {
+        module->load();
+    }
 }
 
 void KURIFilterModule::save()
