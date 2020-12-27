@@ -1993,6 +1993,8 @@ void JobTest::moveFileDestAlreadyExists() // #157601
         // Simulate the user pressing "Skip" in the dialog.
         askUserHandler.m_skipResult = KIO::Result_Skip;
         KIO::setDefaultAskUserActionInterface(&askUserHandler);
+        PredefinedAnswerJobUiDelegate compatDelegate;
+        job->setUiDelegateExtension(&compatDelegate); // compat
     }
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
     QVERIFY(QFile::exists(file1)); // it was skipped
@@ -2038,6 +2040,8 @@ void JobTest::copyFileDestAlreadyExists() // to test skipping when copying
         // Simulate the user pressing "Skip" in the dialog.
         askUserHandler.m_skipResult = KIO::Result_Skip;
         KIO::setDefaultAskUserActionInterface(&askUserHandler);
+        PredefinedAnswerJobUiDelegate compatDelegate;
+        job->setUiDelegateExtension(&compatDelegate); // compat
     }
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
     QVERIFY(QFile::exists(otherTmpDir() + "anotherFile"));
@@ -2218,6 +2222,8 @@ void JobTest::copyDirectoryAlreadyExistsSkip()
     PredefinedAnswerAskUserInterface askUserHandler;
     askUserHandler.m_skipResult = KIO::Result_Skip;
     KIO::setDefaultAskUserActionInterface(&askUserHandler);
+    PredefinedAnswerJobUiDelegate compatDelegate;
+    job->setUiDelegateExtension(&compatDelegate); // compat
 
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
     QVERIFY(QFile::exists(dest + QStringLiteral("/a/testfile")));
@@ -2260,6 +2266,8 @@ void JobTest::copyFileAlreadyExistsRename()
     askUserHandler.m_renameResult = KIO::Result_Rename;
     askUserHandler.m_newDestUrl = QUrl::fromLocalFile(renamedFile);
     KIO::setDefaultAskUserActionInterface(&askUserHandler);
+    PredefinedAnswerJobUiDelegate compatDelegate;
+    job->setUiDelegateExtension(&compatDelegate); // compat
 
     QSignalSpy spyRenamed(job, &KIO::CopyJob::renamed);
 
@@ -2400,6 +2408,8 @@ void JobTest::overwriteOlderFiles()
     PredefinedAnswerAskUserInterface askUserHandler;
     askUserHandler.m_renameResult = KIO::Result_OverwriteWhenOlder;
     KIO::setDefaultAskUserActionInterface(&askUserHandler);
+    PredefinedAnswerJobUiDelegate compatDelegate;
+    job->setUiDelegateExtension(&compatDelegate); // compat
 
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
     QCOMPARE(askUserHandler.m_askUserRenameCalled, 1);
