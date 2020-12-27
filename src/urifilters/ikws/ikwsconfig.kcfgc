@@ -1,0 +1,4 @@
+File=ikwsconfig.kcfg
+ClassName=WebShortcutsSettings
+Mutators=true
+ParentInConstructor=true

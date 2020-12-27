@@ -19,6 +19,7 @@
 
 class SearchProvider;
 class ProvidersModel;
+class WebShortcutsSettings;
 
 class FilterOptions : public KCModule
 {
@@ -41,14 +42,17 @@ private Q_SLOTS:
 private:
     void setDelimiter(char);
     char delimiter();
-    void setDefaultEngine(int);
+    void setDefaultEngine(const QString &engine);
+    void applySettings();
 
     // The names of the providers that the user deleted,
     // these are marked as deleted in the user's homedirectory
     // on save if a global service file exists for it.
     QStringList m_deletedProviders;
+
     ProvidersModel *m_providersModel;
     SearchProviderRegistry m_registry;
+    WebShortcutsSettings *m_settings;
 
     Ui::FilterOptionsUI m_dlg;
 };

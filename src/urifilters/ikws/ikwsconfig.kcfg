@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kcfg xmlns="http://www.kde.org/standards/kcfg/1.0"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
+                          http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
+
+  <group name="General">
+
+    <entry name="webShortcutsEnabled" key="EnableWebShortcuts" type="Bool">
+      <default>true</default>
+    </entry>
+
+    <entry name="favoritesOnly" key="UsePreferredWebShortcutsOnly" type="Bool">
+      <default>false</default>
+    </entry>
+
+    <entry name="keywordDelimiter" key="KeywordDelimiter" type="String">
+      <label>Choose the delimiter that separates the keyword from the phrase or word to be searched</label>
+      <default>:</default>
+    </entry>
+
+    <entry name="defaultProvider" key="DefaultWebShortcut" type="String">
+      <default></default>
+    </entry>
+
+    <entry name="favoriteProviders" key="PreferredWebShortcuts" type="StringList">
+      <default>google,youtube,yahoo,wikipedia,wikit</default>
+    </entry>
+
+  </group>
+</kcfg>
