@@ -233,8 +233,13 @@ RenameDialog::RenameDialog(QWidget *parent, const QString &_caption,
 
     if (_options & RenameDialog_MultipleItems) {
         d->bApplyAll = new QCheckBox(i18n("Appl&y to All"), this);
-        d->bApplyAll->setToolTip((_options & RenameDialog_IsDirectory) ? i18n("When this is checked the button pressed will be applied to all subsequent folder conflicts for the remainder of the current job.\nUnless you press Skip you will still be prompted in case of a conflict with an existing file in the directory.")
-                                 : i18n("When this is checked the button pressed will be applied to all subsequent conflicts for the remainder of the current job."));
+        d->bApplyAll->setToolTip((_options & RenameDialog_DestIsDirectory) ?
+                                 i18n("When this is checked the button pressed will be applied to all "
+                                      "subsequent folder conflicts for the remainder of the current job.\n"
+                                      "Unless you press Skip you will still be prompted in case of a "
+                                      "conflict with an existing file in the directory.")
+                                 : i18n("When this is checked the button pressed will be applied to "
+                                        "all subsequent conflicts for the remainder of the current job."));
         connect(d->bApplyAll, &QAbstractButton::clicked, this, &RenameDialog::applyAllPressed);
     }
 
@@ -248,7 +253,8 @@ RenameDialog::RenameDialog(QWidget *parent, const QString &_caption,
 
     if ((_options & RenameDialog_MultipleItems) && (_options & RenameDialog_Skip)) {
         d->bSkip = new QPushButton(i18n("&Skip"), this);
-        d->bSkip->setToolTip((_options & RenameDialog_IsDirectory) ? i18n("Do not copy or move this folder, skip to the next item instead")
+        d->bSkip->setToolTip((_options & RenameDialog_DestIsDirectory) ?
+                             i18n("Do not copy or move this folder, skip to the next item instead")
                              : i18n("Do not copy or move this file, skip to the next item instead"));
         connect(d->bSkip, &QAbstractButton::clicked, this, &RenameDialog::skipPressed);
     }
@@ -259,7 +265,7 @@ RenameDialog::RenameDialog(QWidget *parent, const QString &_caption,
         d->bOverwrite->setIcon(QIcon::fromTheme(KStandardGuiItem::overwrite().iconName()));
         d->bOverwrite->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
 
-        if (_options & RenameDialog_IsDirectory) {
+        if (_options & RenameDialog_DestIsDirectory) {
             d->bOverwrite->setText(i18nc("Write files into an existing folder", "&Write Into"));
             d->bOverwrite->setIcon(QIcon());
             d->bOverwrite->setToolTip(i18n("Files and folders will be copied into the existing directory, alongside its existing contents.\nYou will be prompted again in case of a conflict with an existing file in the directory."));
@@ -416,7 +422,8 @@ RenameDialog::RenameDialog(QWidget *parent, const QString &_caption,
         gridLayout->addWidget(destSizeLabel, gridRow, 2);
 
         // check files contents for local files
-        if (d->dest.isLocalFile() && d->src.isLocalFile()) {
+        if ((d->dest.isLocalFile() && !(_options & RenameDialog_DestIsDirectory))
+            && (d->src.isLocalFile() && !(_options & RenameDialog_SourceIsDirectory))) {
 
             const CompareFilesResult CompareFilesResult = compareFiles(d->src.toLocalFile(), d->dest.toLocalFile());
 
