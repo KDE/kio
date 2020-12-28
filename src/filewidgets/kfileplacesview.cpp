@@ -31,6 +31,7 @@
 #include <kio/emptytrashjob.h>
 #include <kio/filesystemfreespacejob.h>
 #include <kio/jobuidelegate.h>
+#include <widgetsaskuseractionhandler.h>
 #include <KJob>
 #include <KJobWidgets>
 #include <KCapacityBar>
@@ -564,6 +565,8 @@ public:
     Solid::StorageAccess *m_lastClickedStorage = nullptr;
     QPersistentModelIndex m_lastClickedIndex;
 
+    std::unique_ptr<KIO::WidgetsAskUserActionHandler> m_askUserHandler;
+
     QTimeLine m_adaptItemsTimeline;
     QTimeLine m_itemAppearTimeline;
     QTimeLine m_itemDisappearTimeline;
@@ -897,14 +900,27 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
     QAction *result = menu.exec(event->globalPos());
 
     if (emptyTrash && (result == emptyTrash)) {
+        auto *parentWindow = window();
 
-        KIO::JobUiDelegate uiDelegate;
-        uiDelegate.setWindow(window());
-        if (uiDelegate.askDeleteConfirmation(QList<QUrl>(), KIO::JobUiDelegate::EmptyTrash, KIO::JobUiDelegate::DefaultConfirmation)) {
-            KIO::Job* job = KIO::emptyTrash();
-            KJobWidgets::setWindow(job, window());
-            job->uiDelegate()->setAutoErrorHandlingEnabled(true);
+        if (!d->m_askUserHandler) {
+            d->m_askUserHandler.reset(new KIO::WidgetsAskUserActionHandler{});
+
+            connect(d->m_askUserHandler.get(), &KIO::AskUserActionInterface::askUserDeleteResult,
+                    this, [this, parentWindow](bool allowDelete, const QList<QUrl> &,
+                                            KIO::AskUserActionInterface::DeletionType, QWidget *parent) {
+                if (parent != parentWindow || !allowDelete) {
+                    return;
+                }
+
+                KIO::Job *job = KIO::emptyTrash();
+                job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, parentWindow));
+            });
         }
+
+        d->m_askUserHandler->askUserDelete(QList<QUrl>{}, KIO::AskUserActionInterface::EmptyTrash,
+                                           KIO::AskUserActionInterface::DefaultConfirmation,
+                                           parentWindow);
+
     } else if (properties && (result == properties)) {
         KPropertiesDialog::showDialog(placeUrl, this);
     } else if (edit && (result == edit)) {
