@@ -21,6 +21,7 @@ Name[ko]=ArchWiki
 Name[lt]=ArchWiki
 Name[nl]=ArchWiki
 Name[nn]=ArchWiki
+Name[pl]=ArchWiki
 Name[pt]=ArchWiki
 Name[pt_BR]=ArchWiki
 Name[ro]=ArchWiki
@@ -54,6 +55,7 @@ Query[ko]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[lt]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[nl]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[nn]=https://wiki.archlinux.org/index.php?search=\\{@}
+Query[pl]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[pt]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[pt_BR]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[ro]=https://wiki.archlinux.org/index.php?search=\\{@}
