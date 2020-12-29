@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
 
     QObject::connect(job, &KJob::result, &app, [&]() {
         if (job->error()) {
-            app.exit(1);
+            qApp->exit(1);
         } else {
             qDebug() << "Started. pid=" << job->pid();
         }
