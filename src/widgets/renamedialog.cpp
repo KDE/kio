@@ -158,19 +158,6 @@ class Q_DECL_HIDDEN RenameDialog::RenameDialogPrivate
 public:
     RenameDialogPrivate()
     {
-        bCancel = nullptr;
-        bRename = bSkip = nullptr;
-        bOverwrite = nullptr;
-        bOverwriteWhenOlder = nullptr;
-        bResume = bSuggestNewName = nullptr;
-        bApplyAll = nullptr;
-        m_pLineEdit = nullptr;
-        m_srcPendingPreview = false;
-        m_destPendingPreview = false;
-        m_srcPreview = nullptr;
-        m_destPreview = nullptr;
-        m_srcArea = nullptr;
-        m_destArea = nullptr;
     }
 
     void setRenameBoxText(const QString &fileName)
@@ -188,23 +175,23 @@ public:
         }
     }
 
-    QPushButton *bCancel;
-    QPushButton *bRename;
-    QPushButton *bSkip;
-    QToolButton *bOverwrite;
-    QAction     *bOverwriteWhenOlder;
-    QPushButton *bResume;
-    QPushButton *bSuggestNewName;
-    QCheckBox *bApplyAll;
-    QLineEdit *m_pLineEdit;
+    QPushButton *bCancel = nullptr;
+    QPushButton *bRename = nullptr;
+    QPushButton *bSkip = nullptr;
+    QToolButton *bOverwrite = nullptr;
+    QAction     *bOverwriteWhenOlder = nullptr;
+    QPushButton *bResume = nullptr;
+    QPushButton *bSuggestNewName = nullptr;
+    QCheckBox *bApplyAll = nullptr;
+    QLineEdit *m_pLineEdit = nullptr;
     QUrl src;
     QUrl dest;
-    bool m_srcPendingPreview;
-    bool m_destPendingPreview;
-    QLabel *m_srcPreview;
-    QLabel *m_destPreview;
-    QScrollArea *m_srcArea;
-    QScrollArea *m_destArea;
+    bool m_srcPendingPreview = false;
+    bool m_destPendingPreview = false;
+    QLabel *m_srcPreview = nullptr;
+    QLabel *m_destPreview = nullptr;
+    QScrollArea *m_srcArea = nullptr;
+    QScrollArea *m_destArea = nullptr;
     KFileItem srcItem;
     KFileItem destItem;
 };
