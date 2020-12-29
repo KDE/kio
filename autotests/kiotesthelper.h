@@ -219,8 +219,8 @@ public:
 class PredefinedAnswerAskUserInterface : public KIO::AskUserActionInterface
 {
 public:
-    PredefinedAnswerAskUserInterface()
-        : KIO::AskUserActionInterface(),
+    explicit PredefinedAnswerAskUserInterface(QObject *parent = nullptr)
+        : KIO::AskUserActionInterface(parent),
           m_askUserRenameCalled(0),
           m_askUserSkipCalled(0),
           m_askUserDeleteCalled(0),

@@ -45,8 +45,6 @@ namespace KIO {
 KIOGUI_EXPORT void setDefaultUntrustedProgramHandler(KIO::UntrustedProgramHandlerInterface *iface);
 KIOGUI_EXPORT void setDefaultOpenWithHandler(KIO::OpenWithHandlerInterface *iface);
 KIOGUI_EXPORT void setDefaultOpenOrExecuteFileHandler(KIO::OpenOrExecuteFileInterface *iface);
-
-KIOCORE_EXPORT void setDefaultAskUserActionInterface(KIO::AskUserActionInterface *iface);
 }
 
 KIO::JobUiDelegate::JobUiDelegate()
@@ -65,9 +63,9 @@ KIO::JobUiDelegate::JobUiDelegate()
         static WidgetsOpenOrExecuteFileHandler s_openOrExecuteFileHandler;
         KIO::setDefaultOpenOrExecuteFileHandler(&s_openOrExecuteFileHandler);
 
-        static WidgetsAskUserActionHandler s_askUserActionHandler;
-        KIO::setDefaultAskUserActionInterface(&s_askUserActionHandler);
     }
+    // Create extension objects. See KIO::Job::extension<>().
+    new WidgetsAskUserActionHandler(this);
 }
 
 KIO::JobUiDelegate::~JobUiDelegate()

@@ -507,6 +507,7 @@ void DropJobPrivate::doCopyToDirectory()
         return;
     }
     Q_ASSERT(job);
+    job->setUiDelegate(q->uiDelegate());
     job->setParentJob(q);
     job->setMetaData(m_metaData);
     QObject::connect(job, &KIO::CopyJob::copyingDone, q, [q](KIO::Job*, const QUrl &, const QUrl &to) {

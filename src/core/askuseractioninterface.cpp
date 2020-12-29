@@ -15,7 +15,8 @@ public:
     }
 };
 
-KIO::AskUserActionInterface::AskUserActionInterface()
+KIO::AskUserActionInterface::AskUserActionInterface(QObject *parent)
+    : QObject(parent)
 {
 }
 

@@ -10,6 +10,7 @@
 #define KIO_JOB_BASE_H
 
 #include <KCompositeJob>
+#include <KJobUiDelegate>
 #include <kio/metadata.h>
 
 namespace KIO
@@ -77,6 +78,17 @@ public:
      * The default UI delegate extension is KIO::defaultJobUiDelegateExtension()
      */
     void setUiDelegateExtension(JobUiDelegateExtension *extension);
+
+    /**
+     * Returns the child of the uiDelegate() that implements the given extension,
+     * or nullptr if none was found.
+     * @since 5.78
+     */
+    template <typename T>
+    T delegateExtension() const {
+        const KJobUiDelegate *ui = uiDelegate();
+        return ui ? ui->findChild<T>(QString(), Qt::FindDirectChildrenOnly) : nullptr;
+    }
 
 protected:
     /**

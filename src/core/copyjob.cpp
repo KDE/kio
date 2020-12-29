@@ -60,12 +60,6 @@
 Q_DECLARE_LOGGING_CATEGORY(KIO_COPYJOB_DEBUG)
 Q_LOGGING_CATEGORY(KIO_COPYJOB_DEBUG, "kf.kio.core.copyjob", QtWarningMsg)
 
-namespace KIO
-{
-// TODO: KF6; Hidden API, this function is defined in job.cpp
-extern KIO::AskUserActionInterface *defaultAskUserActionInterface();
-}
-
 using namespace KIO;
 
 //this will update the report dialog with 5 Hz, I think this is fast enough, aleXXX
@@ -1170,7 +1164,7 @@ void CopyJobPrivate::slotResultCreatingDirs(KJob *job)
                         newUrl.setPath(concatPaths(newUrl.path(), newName));
                         renameDirectory(it, newUrl);
                     } else {
-                        if (!q->uiDelegateExtension() /*compat*/ || !defaultAskUserActionInterface()) {
+                        if (!q->delegateExtension<AskUserActionInterface *>()) {
                             q->Job::slotResult(job); // will set the error and emit result(this)
                             return;
                         }
@@ -1237,9 +1231,9 @@ void CopyJobPrivate::slotResultConflictCreatingDirs(KJob *job)
                  (*it).uSource.adjusted(QUrl::StripTrailingSlash).path() == linkDest)) {
             options |= RenameDialog_OverwriteItself;
         } else {
-                options |= RenameDialog_Overwrite;
-                destmtime = QDateTime::fromMSecsSinceEpoch(1000 * entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME, -1), Qt::UTC);
-                destctime = QDateTime::fromMSecsSinceEpoch(1000 * entry.numberValue(KIO::UDSEntry::UDS_CREATION_TIME, -1), Qt::UTC);
+            options |= RenameDialog_Overwrite;
+            destmtime = QDateTime::fromMSecsSinceEpoch(1000 * entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME, -1), Qt::UTC);
+            destctime = QDateTime::fromMSecsSinceEpoch(1000 * entry.numberValue(KIO::UDSEntry::UDS_CREATION_TIME, -1), Qt::UTC);
         }
     }
 
@@ -1247,15 +1241,13 @@ void CopyJobPrivate::slotResultConflictCreatingDirs(KJob *job)
         m_reportTimer->stop();
     }
 
-    QObject::connect(defaultAskUserActionInterface(), &KIO::AskUserActionInterface::askUserRenameResult,
-                     q, [q, this, job, it](RenameDialog_Result result, const QUrl &newUrl, KJob *parentJob) {
-        // If there are multiple CopyJobs, only react to the signal from the dialog invoked
-        // by _this_ job
-        if (parentJob != q) {
-            return;
-        }
+    auto *askUserActionInterface = q->delegateExtension<KIO::AskUserActionInterface *>();
+
+    QObject::connect(askUserActionInterface, &KIO::AskUserActionInterface::askUserRenameResult,
+                     q, [=](RenameDialog_Result result, const QUrl &newUrl, KJob *parentJob) {
+        Q_ASSERT(parentJob == q);
         // Only receive askUserRenameResult once per rename dialog
-        QObject::disconnect(defaultAskUserActionInterface(), &KIO::AskUserActionInterface::askUserRenameResult,
+        QObject::disconnect(askUserActionInterface, &KIO::AskUserActionInterface::askUserRenameResult,
                             q, nullptr);
 
         if (m_reportTimer) {
@@ -1275,7 +1267,7 @@ void CopyJobPrivate::slotResultConflictCreatingDirs(KJob *job)
             Q_FALLTHROUGH();
         case Result_Rename:
             renameDirectory(it, newUrl);
-        break;
+            break;
         case Result_AutoSkip:
             m_bAutoSkipDirs = true;
         // fall through
@@ -1308,12 +1300,11 @@ void CopyJobPrivate::slotResultConflictCreatingDirs(KJob *job)
         createNextDir();
     });
 
-    defaultAskUserActionInterface()->askUserRename(q, i18n("Folder Already Exists"),
-                                                   (*it).uSource, (*it).uDest, options,
-                                                   (*it).size, destsize,
-                                                   (*it).ctime, destctime,
-                                                   (*it).mtime, destmtime);
-
+    askUserActionInterface->askUserRename(q, i18n("Folder Already Exists"),
+                                          (*it).uSource, (*it).uDest, options,
+                                          (*it).size, destsize,
+                                          (*it).ctime, destctime,
+                                          (*it).mtime, destmtime);
 }
 
 void CopyJobPrivate::createNextDir()
@@ -1398,7 +1389,7 @@ void CopyJobPrivate::slotResultCopyingFiles(KJob *job)
                     emit q->aboutToCreate(q, files);
 #endif
                 } else {
-                    if (!q->uiDelegateExtension() /*compat*/ || !defaultAskUserActionInterface()) {
+                    if (!q->delegateExtension<AskUserActionInterface *>()) {
                         q->Job::slotResult(job);   // will set the error and emit result(this)
                         return;
                     }
@@ -1422,7 +1413,7 @@ void CopyJobPrivate::slotResultCopyingFiles(KJob *job)
                     ++m_processedFiles;
                     files.erase(it);
                 } else {
-                    if (!q->uiDelegateExtension() /*compat*/ || !defaultAskUserActionInterface()) {
+                    if (!q->delegateExtension<AskUserActionInterface *>()) {
                         q->Job::slotResult(job);   // will set the error and emit result(this)
                         return;
                     }
@@ -1501,6 +1492,7 @@ void CopyJobPrivate::slotResultErrorCopyingFiles(KJob *job)
 
     q->removeSubjob(job);
     Q_ASSERT(!q->hasSubjobs());
+    auto *askUserActionInterface = q->delegateExtension<KIO::AskUserActionInterface *>();
 
     if ((m_conflictError == ERR_FILE_ALREADY_EXIST)
             || (m_conflictError == ERR_DIR_ALREADY_EXIST)
@@ -1553,33 +1545,26 @@ void CopyJobPrivate::slotResultErrorCopyingFiles(KJob *job)
             }
 
             const QString caption = !isDir ? i18n("File Already Exists") : i18n("Already Exists as Folder");
-
-            QObject::connect(defaultAskUserActionInterface(), &KIO::AskUserActionInterface::askUserRenameResult,
-                             q, [q, this, it, destmtime](RenameDialog_Result result, const QUrl &newUrl, KJob *parentJob) {
-                // If there are multiple CopyJobs, only react to the signal from the dialog invoked
-                // by _this_ job
-                if (parentJob != q) {
-                    return;
-                }
-
+            QObject::connect(askUserActionInterface, &KIO::AskUserActionInterface::askUserRenameResult,
+                             q, [=](RenameDialog_Result result, const QUrl &newUrl, KJob *parentJob) {
+                Q_ASSERT(parentJob == q);
                 // Only receive askUserRenameResult once per rename dialog
-                QObject::disconnect(defaultAskUserActionInterface(), &KIO::AskUserActionInterface::askUserRenameResult,
+                QObject::disconnect(askUserActionInterface, &KIO::AskUserActionInterface::askUserRenameResult,
                                     q, nullptr);
-
                 processFileRenameDialogResult(it, result, newUrl, destmtime);
             });
 
-            defaultAskUserActionInterface()->askUserRename(q, caption,
-                                                           (*it).uSource, (*it).uDest, options,
-                                                           (*it).size, destsize,
-                                                           (*it).ctime, destctime,
-                                                           (*it).mtime, destmtime);
+            askUserActionInterface->askUserRename(q, caption,
+                                                  (*it).uSource, (*it).uDest, options,
+                                                  (*it).size, destsize,
+                                                  (*it).ctime, destctime,
+                                                  (*it).mtime, destmtime);
             return;
         }
     } else {
         if (job->error() == ERR_USER_CANCELED) {
             res = Result_Cancel;
-        } else if (!q->uiDelegateExtension() /*compat*/ || !defaultAskUserActionInterface()) {
+        } else if (!askUserActionInterface) {
             q->Job::slotResult(job);   // will set the error and emit result(this)
             return;
         } else {
@@ -1588,21 +1573,16 @@ void CopyJobPrivate::slotResultErrorCopyingFiles(KJob *job)
                 options |= SkipDialog_MultipleItems;
             }
 
-            QObject::connect(defaultAskUserActionInterface(), &KIO::AskUserActionInterface::askUserSkipResult,
-                             q, [q, this, job, it](SkipDialog_Result result, KJob *parentJob) {
-                // If there are multiple CopyJobs, only react to the signal from the dialog invoked
-                // by _this_ job
-                if (parentJob != q) {
-                    return;
-                }
-                // Only receive askUserSkipResult once per skip dialog
-                QObject::disconnect(defaultAskUserActionInterface(), &KIO::AskUserActionInterface::askUserSkipResult,
+            QObject::connect(askUserActionInterface, &KIO::AskUserActionInterface::askUserSkipResult,
+                             q, [=](SkipDialog_Result result, KJob *parentJob) {
+                Q_ASSERT(parentJob == q);
+                // Only receive askUserRenameResult once per rename dialog
+                QObject::disconnect(askUserActionInterface, &KIO::AskUserActionInterface::askUserRenameResult,
                                     q, nullptr);
-
                 processFileRenameDialogResult(it, result, QUrl() /* no new url in skip */, QDateTime{});
             });
 
-            defaultAskUserActionInterface()->askUserSkip(q, options, job->errorString());
+            askUserActionInterface->askUserSkip(q, options, job->errorString());
             return;
         }
     }
@@ -2046,6 +2026,7 @@ void CopyJobPrivate::slotResultRenaming(KJob *job)
     if (destinationState == DEST_IS_DIR && !m_asMethod) {
         dest = addPathToUrl(dest, m_currentSrcURL.fileName());
     }
+    auto *askUserActionInterface = q->delegateExtension<KIO::AskUserActionInterface *>();
 
     if (err) {
         // This code is similar to CopyJobPrivate::slotResultErrorCopyingFiles
@@ -2080,7 +2061,7 @@ void CopyJobPrivate::slotResultRenaming(KJob *job)
                 destinationState = DEST_NOT_STATED;
                 q->addSubjob(job);
                 return;
-            } else if (q->uiDelegateExtension() /*compat*/ && defaultAskUserActionInterface()) {
+            } else if (askUserActionInterface) {
                 // we lack mtime info for both the src (not stated)
                 // and the dest (stated but this info wasn't stored)
                 // Let's do it for local files, at least
@@ -2147,15 +2128,11 @@ void CopyJobPrivate::slotResultRenaming(KJob *job)
                     processDirectRenamingConflictResult(r, isDir, destIsDir, mtimeSrc, mtimeDest, dest, QUrl{});
                     return;
                 } else {
-                    QObject::connect(defaultAskUserActionInterface(), &KIO::AskUserActionInterface::askUserRenameResult,
+                    QObject::connect(askUserActionInterface, &KIO::AskUserActionInterface::askUserRenameResult,
                                      q, [=](RenameDialog_Result result, const QUrl &newUrl, KJob *parentJob) {
-                        // If there are multiple CopyJobs, only react to the signal from the dialog invoked
-                        // by _this_ job
-                        if (parentJob != q) {
-                            return;
-                        }
+                        Q_ASSERT(parentJob == q);
                         // Only receive askUserRenameResult once per rename dialog
-                        QObject::disconnect(defaultAskUserActionInterface(), &KIO::AskUserActionInterface::askUserRenameResult,
+                        QObject::disconnect(askUserActionInterface, &KIO::AskUserActionInterface::askUserRenameResult,
                                             q, nullptr);
 
                         processDirectRenamingConflictResult(result, isDir, destIsDir, mtimeSrc, mtimeDest, dest, newUrl);
@@ -2164,11 +2141,11 @@ void CopyJobPrivate::slotResultRenaming(KJob *job)
                     const QString caption = err != ERR_DIR_ALREADY_EXIST ? i18n("File Already Exists")
                                                                            : i18n("Already Exists as Folder");
 
-                    defaultAskUserActionInterface()->askUserRename(q, caption,
-                                                                   m_currentSrcURL, dest, options,
-                                                                   sizeSrc, sizeDest,
-                                                                   ctimeSrc, ctimeDest,
-                                                                   mtimeSrc, mtimeDest);
+                    askUserActionInterface->askUserRename(q, caption,
+                                                          m_currentSrcURL, dest, options,
+                                                          sizeSrc, sizeDest,
+                                                          ctimeSrc, ctimeDest,
+                                                          mtimeSrc, mtimeDest);
 
                     return;
                 }

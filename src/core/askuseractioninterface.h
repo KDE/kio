@@ -45,14 +45,14 @@ protected:
     /**
      * Constructor
      */
-    AskUserActionInterface();
+    explicit AskUserActionInterface(QObject *parent = nullptr);
 
+public:
     /**
      * Destructor
      */
     ~AskUserActionInterface() override;
 
-public:
     /**
      * @relates KIO::RenameDialog
      *

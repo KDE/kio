@@ -38,8 +38,8 @@ public:
     WidgetsAskUserActionHandler *const q;
 };
 
-KIO::WidgetsAskUserActionHandler::WidgetsAskUserActionHandler()
-    : KIO::AskUserActionInterface(), d(new WidgetsAskUserActionHandlerPrivate(this))
+KIO::WidgetsAskUserActionHandler::WidgetsAskUserActionHandler(QObject *parent)
+    : KIO::AskUserActionInterface(parent), d(new WidgetsAskUserActionHandlerPrivate(this))
 {
 }
 
