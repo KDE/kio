@@ -12,21 +12,21 @@
 #include "jobuidelegatefactory.h"
 #include <kprotocolinfo.h>
 #include <kdirlister.h>
-//TODO #include "../../kdeui/tests/proxymodeltestsuite/modelspy.h"
+#include <kio/deletejob.h>
+#include <kio/job.h>
+#include <KDirWatch>
 
 #include <QTest>
 #include <QMimeData>
 #include <QSignalSpy>
+#include <QDebug>
+#include <QUrl>
 
 #ifdef Q_OS_UNIX
 #include <utime.h>
 #endif
-#include <QDebug>
-#include <kio/deletejob.h>
-#include <kio/job.h>
-#include <KDirWatch>
 #include "kiotesthelper.h"
-#include <QUrl>
+#include "mockcoredelegateextensions.h"
 
 QTEST_MAIN(KDirModelTest)
 
@@ -1441,7 +1441,7 @@ void KDirModelTest::testOverwriteFileWithDir() // #151851 c4
 
     KIO::Job *job = KIO::move(QUrl::fromLocalFile(dir), QUrl::fromLocalFile(file), KIO::HideProgressInfo);
     delete KIO::delegateExtension<KIO::AskUserActionInterface *>(job);
-    auto *askUserHandler = new PredefinedAnswerAskUserInterface(job->uiDelegate());
+    auto *askUserHandler = new MockAskUserInterface(job->uiDelegate());
     askUserHandler->m_renameResult = KIO::Result_Overwrite;
     QVERIFY(job->exec());
 

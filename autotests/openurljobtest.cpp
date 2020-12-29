@@ -11,6 +11,8 @@
 #include <KApplicationTrader>
 
 #include "kiotesthelper.h" // createTestFile etc.
+#include "mockcoredelegateextensions.h"
+#include "mockguidelegateextensions.h"
 
 #include <KService>
 #include <KConfigGroup>
@@ -25,53 +27,10 @@
 #include <QStandardPaths>
 #include <QTemporaryFile>
 #include <QTest>
-#include <untrustedprogramhandlerinterface.h>
-#include <openorexecutefileinterface.h>
 
 QTEST_GUILESS_MAIN(OpenUrlJobTest)
 
 extern KSERVICE_EXPORT int ksycoca_ms_between_checks;
-
-class TestUntrustedProgramHandler : public KIO::UntrustedProgramHandlerInterface
-{
-public:
-    explicit TestUntrustedProgramHandler(QObject *parent) : KIO::UntrustedProgramHandlerInterface(parent) {}
-    void showUntrustedProgramWarning(KJob *job, const QString &programName) override {
-        Q_UNUSED(job)
-        m_calls << programName;
-        Q_EMIT result(m_retVal);
-    }
-
-    void setRetVal(bool b) { m_retVal = b; }
-
-    QStringList m_calls;
-    bool m_retVal = false;
-};
-
-class TestOpenOrExecuteHandler : public KIO::OpenOrExecuteFileInterface
-{
-public:
-    explicit TestOpenOrExecuteHandler(QObject *parent) : KIO::OpenOrExecuteFileInterface(parent) {}
-    void promptUserOpenOrExecute(KJob *job, const QString &mimeType) override
-    {
-        Q_UNUSED(job)
-        Q_UNUSED(mimeType);
-        if (m_cancelIt) {
-            Q_EMIT canceled();
-            m_cancelIt = false;
-            return;
-        }
-
-        Q_EMIT executeFile(m_executeFile);
-    }
-
-    void setExecuteFile(bool b) { m_executeFile = b; }
-    void setCanceled() { m_cancelIt = true; }
-
-private:
-    bool m_executeFile = false;
-    bool m_cancelIt = false;
-};
 
 static const char s_tempServiceName[] = "openurljobtest_service.desktop";
 
@@ -367,7 +326,7 @@ void OpenUrlJobTest::runNativeExecutable()
         QCOMPARE((int)job->error(), (int)KJob::UserDefinedError);
         QCOMPARE(job->errorString(), QStringLiteral("The program \"%1\" needs to have executable permission before it can be launched.").arg(scriptFile));
     } else {
-        auto *handler = new TestUntrustedProgramHandler(job->uiDelegate());
+        auto *handler = new MockUntrustedProgramHandler(job->uiDelegate());
         handler->setRetVal(handlerRetVal);
 
         const bool success = job->exec();
@@ -413,7 +372,7 @@ void OpenUrlJobTest::openOrExecuteScript()
     KIO::OpenUrlJob *job = new KIO::OpenUrlJob(QUrl::fromLocalFile(scriptFile), QStringLiteral("application/x-shellscript"), this);
     job->setShowOpenOrExecuteDialog(true);
     job->setUiDelegate(new KJobUiDelegate);
-    auto *openOrExecuteFileHandler = new TestOpenOrExecuteHandler(job->uiDelegate());
+    auto *openOrExecuteFileHandler = new MockOpenOrExecuteHandler(job->uiDelegate());
 
     // Then --- it depends on what the user says via the handler
     if (dialogResult == QLatin1String("execute_true")) {
@@ -465,7 +424,7 @@ void OpenUrlJobTest::openOrExecuteDesktop()
     KIO::OpenUrlJob *job = new KIO::OpenUrlJob(QUrl::fromLocalFile(desktopFile), QStringLiteral("application/x-desktop"), this);
     job->setShowOpenOrExecuteDialog(true);
     job->setUiDelegate(new KJobUiDelegate);
-    auto *openOrExecuteFileHandler = new TestOpenOrExecuteHandler(job->uiDelegate());
+    auto *openOrExecuteFileHandler = new MockOpenOrExecuteHandler(job->uiDelegate());
 
     // Then --- it depends on what the user says via the handler
     if (dialogResult == QLatin1String("execute_true")) {

@@ -37,6 +37,7 @@
 #ifndef Q_OS_WIN
 #include <unistd.h> // for readlink
 #endif
+#include "mockcoredelegateextensions.h"
 
 QTEST_MAIN(JobTest)
 
@@ -1983,14 +1984,14 @@ void JobTest::moveFileDestAlreadyExists() // #157601
 
     const QList<QUrl> urls{QUrl::fromLocalFile(file1), QUrl::fromLocalFile(file2), QUrl::fromLocalFile(file3)};
     KIO::CopyJob *job = KIO::move(urls, QUrl::fromLocalFile(otherTmpDir()), KIO::HideProgressInfo);
-    PredefinedAnswerAskUserInterface *askUserHandler = nullptr;
+    MockAskUserInterface *askUserHandler = nullptr;
     if (autoSkip) {
         job->setUiDelegate(nullptr);
         job->setAutoSkip(true);
     } else {
         // Simulate the user pressing "Skip" in the dialog.
         job->setUiDelegate(new KJobUiDelegate);
-        askUserHandler = new PredefinedAnswerAskUserInterface(job->uiDelegate());
+        askUserHandler = new MockAskUserInterface(job->uiDelegate());
         askUserHandler->m_renameResult = KIO::Result_Skip;
     }
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
@@ -2040,7 +2041,7 @@ void JobTest::copyFileDestAlreadyExists() // to test skipping when copying
     } else {
         // Simulate the user pressing "Skip" in the dialog.
         job->setUiDelegate(new KJobUiDelegate);
-        auto *askUserHandler = new PredefinedAnswerAskUserInterface(job->uiDelegate());
+        auto *askUserHandler = new MockAskUserInterface(job->uiDelegate());
         askUserHandler->m_skipResult = KIO::Result_Skip;
     }
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
@@ -2220,7 +2221,7 @@ void JobTest::copyDirectoryAlreadyExistsSkip()
 
     // Simulate the user pressing "Skip" in the dialog.
     job->setUiDelegate(new KJobUiDelegate);
-    auto *askUserHandler = new PredefinedAnswerAskUserInterface(job->uiDelegate());
+    auto *askUserHandler = new MockAskUserInterface(job->uiDelegate());
     askUserHandler->m_skipResult = KIO::Result_Skip;
 
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
@@ -2261,7 +2262,7 @@ void JobTest::copyFileAlreadyExistsRename()
     KIO::CopyJob* job = KIO::copy(s, d, KIO::HideProgressInfo);
     // Simulate the user pressing "Rename" in the dialog and choosing another destination.
     job->setUiDelegate(new KJobUiDelegate);
-    auto *askUserHandler = new PredefinedAnswerAskUserInterface(job->uiDelegate());
+    auto *askUserHandler = new MockAskUserInterface(job->uiDelegate());
     askUserHandler->m_renameResult = KIO::Result_Rename;
     askUserHandler->m_newDestUrl = QUrl::fromLocalFile(renamedFile);
 
@@ -2401,7 +2402,7 @@ void JobTest::overwriteOlderFiles()
     }
 
     job->setUiDelegate(new KJobUiDelegate);
-    auto *askUserHandler = new PredefinedAnswerAskUserInterface(job->uiDelegate());
+    auto *askUserHandler = new MockAskUserInterface(job->uiDelegate());
     askUserHandler->m_renameResult = KIO::Result_OverwriteWhenOlder;
 
     QVERIFY2(job->exec(), qPrintable(job->errorString()));

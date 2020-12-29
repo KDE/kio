@@ -8,10 +8,10 @@
 #include "applicationlauncherjobtest.h"
 #include "applicationlauncherjob.h"
 #include <kprocessrunner_p.h>
-#include <untrustedprogramhandlerinterface.h>
-#include <openwithhandlerinterface.h>
 
 #include "kiotesthelper.h" // createTestFile etc.
+#include "mockcoredelegateextensions.h"
+#include "mockguidelegateextensions.h"
 
 #include <KService>
 #include <KConfigGroup>
@@ -28,42 +28,6 @@
 #include <QTest>
 
 QTEST_GUILESS_MAIN(ApplicationLauncherJobTest)
-
-class TestUntrustedProgramHandler : public KIO::UntrustedProgramHandlerInterface
-{
-public:
-    explicit TestUntrustedProgramHandler(QObject *parent) : KIO::UntrustedProgramHandlerInterface(parent) {}
-    void showUntrustedProgramWarning(KJob *job, const QString &programName) override {
-        Q_UNUSED(job)
-        m_calls << programName;
-        Q_EMIT result(m_retVal);
-    }
-
-    void setRetVal(bool b) { m_retVal = b; }
-
-    QStringList m_calls;
-    bool m_retVal = false;
-};
-
-class TestOpenWithHandler : public KIO::OpenWithHandlerInterface
-{
-public:
-    explicit TestOpenWithHandler(QObject *parent) : KIO::OpenWithHandlerInterface(parent) {}
-    void promptUserForApplication(KJob *job, const QList<QUrl> &url, const QString &mimeType) override
-    {
-        Q_UNUSED(job);
-        m_urls << url;
-        m_mimeTypes << mimeType;
-        if (m_chosenService) {
-            Q_EMIT serviceSelected(m_chosenService);
-        } else {
-            Q_EMIT canceled();
-        }
-    }
-    QList<QUrl> m_urls;
-    QStringList m_mimeTypes;
-    KService::Ptr m_chosenService;
-};
 
 void ApplicationLauncherJobTest::initTestCase()
 {
@@ -194,7 +158,7 @@ void ApplicationLauncherJobTest::shouldFailOnNonExecutableDesktopFile()
     KIO::ApplicationLauncherJob *job = new KIO::ApplicationLauncherJob(servicePtr, this);
     job->setUrls(urls);
     job->setUiDelegate(new KJobUiDelegate);
-    TestUntrustedProgramHandler *handler = withHandler ? new TestUntrustedProgramHandler(job->uiDelegate()) : nullptr;
+    MockUntrustedProgramHandler *handler = withHandler ? new MockUntrustedProgramHandler(job->uiDelegate()) : nullptr;
     if (handler) {
         handler->setRetVal(handlerRetVal);
     }
@@ -375,7 +339,7 @@ void ApplicationLauncherJobTest::showOpenWithDialog()
     KIO::ApplicationLauncherJob *job = new KIO::ApplicationLauncherJob(this);
     job->setUrls({QUrl::fromLocalFile(srcFile)});
     job->setUiDelegate(new KJobUiDelegate);
-    TestOpenWithHandler *openWithHandler = withHandler ? new TestOpenWithHandler(job->uiDelegate()) : nullptr;
+    MockOpenWithHandler *openWithHandler = withHandler ? new MockOpenWithHandler(job->uiDelegate()) : nullptr;
     KService::Ptr service = KService::serviceByDesktopName(QString(s_tempServiceName).remove(".desktop"));
     QVERIFY(service);
     if (withHandler) {
