@@ -303,6 +303,8 @@ public:
             case CopyJob::Link:
                 copyType = Symlink;
                 break;
+            default:
+                Q_UNREACHABLE();
             }
             job->d_func()->m_operationType = copyType;
         }
