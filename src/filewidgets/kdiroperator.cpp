@@ -211,8 +211,6 @@ public:
     InlinePreviewState m_inlinePreviewState;
     QStringList m_supportedSchemes;
 
-    // TODO: in KF6 this will become a JobUiDelegate (which will inherit
-    // from WidgetsAskUserActionHandler)
     std::unique_ptr<KIO::WidgetsAskUserActionHandler> m_askUserHandler;
 };
 
