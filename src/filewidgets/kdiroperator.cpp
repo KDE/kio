@@ -64,7 +64,10 @@ static const int QDirSortMask = QDir::SortByMask | QDir::Type;
 class KDirOperatorPrivate
 {
 public:
-    explicit KDirOperatorPrivate(KDirOperator *qq);
+    explicit KDirOperatorPrivate(KDirOperator *qq)
+        : q(qq)
+    {
+    }
 
     ~KDirOperatorPrivate();
 
@@ -82,7 +85,7 @@ public:
     void updateSorting(QDir::SortFlags sort);
     KIO::WidgetsAskUserActionHandler* askUserHandler();
 
-    static bool isReadable(const QUrl &url);
+    bool isReadable(const QUrl &url);
     bool isSchemeSupported(const QString &scheme) const;
 
     KFile::FileView allViews();
@@ -151,20 +154,19 @@ public:
 
     QModelIndex m_lastHoveredIndex;
 
-    KDirLister *m_dirLister;
+    KDirLister *m_dirLister = nullptr;
     QUrl m_currUrl;
 
     KCompletion m_completion;
     KCompletion m_dirCompletion;
-    bool m_completeListDirty;
     QDir::SortFlags m_sorting;
-    QStyleOptionViewItem::Position m_decorationPosition;
+    QStyleOptionViewItem::Position m_decorationPosition = QStyleOptionViewItem::Left;
 
-    QSplitter *m_splitter;
+    QSplitter *m_splitter = nullptr;
 
-    QAbstractItemView *m_itemView;
-    KDirModel *m_dirModel;
-    KDirSortFilterProxyModel *m_proxyModel;
+    QAbstractItemView *m_itemView = nullptr;
+    KDirModel *m_dirModel = nullptr;
+    KDirSortFilterProxyModel *m_proxyModel = nullptr;
 
     KFileItemList m_pendingMimeTypes;
 
@@ -173,79 +175,41 @@ public:
     int m_defaultView;
 
     KFile::Modes m_mode;
-    QProgressBar *m_progressBar;
+    QProgressBar *m_progressBar = nullptr;
 
-    KPreviewWidgetBase *m_preview;
+    KPreviewWidgetBase *m_preview = nullptr;
     QUrl m_previewUrl;
-    int m_previewWidth;
+    int m_previewWidth = 0;
 
+    bool m_completeListDirty = false;
+    bool m_followNewDirectories = true;
+    bool m_followSelectedDirectories = true;
+    bool m_onlyDoubleClickSelectsFiles = !qApp->style()->styleHint(QStyle::SH_ItemView_ActivateItemOnSingleClick);
 
-    bool m_onlyDoubleClickSelectsFiles;
-    bool m_followNewDirectories;
-    bool m_followSelectedDirectories;
-
-    bool m_dirHighlighting;
     QUrl m_lastUrl; // used for highlighting a directory on back/cdUp
 
-    QTimer *m_progressDelayTimer;
-    int m_dropOptions;
+    QTimer *m_progressDelayTimer = nullptr;
+    KActionMenu *m_actionMenu = nullptr;
+    KActionCollection *m_actionCollection = nullptr;
+    KNewFileMenu *m_newFileMenu = nullptr;
+    KConfigGroup *m_configGroup = nullptr;
+    KFilePreviewGenerator *m_previewGenerator = nullptr;
+    KActionMenu *m_decorationMenu = nullptr;
+    KToggleAction *m_leftAction = nullptr;
 
-    KActionMenu *m_actionMenu;
-    KActionCollection *m_actionCollection;
+    int m_dropOptions = 0;
+    int m_iconSize = KIconLoader::SizeSmall;
+    InlinePreviewState m_inlinePreviewState = NotForced;
+    bool m_dirHighlighting = true;
+    bool m_showPreviews = false;
+    bool m_shouldFetchForItems = false;
+    bool m_isSaving = false;
 
-    KNewFileMenu *m_newFileMenu;
-
-    KConfigGroup *m_configGroup;
-
-    KFilePreviewGenerator *m_previewGenerator;
-
-    bool m_showPreviews;
-    int m_iconSize;
-
-    bool m_isSaving;
-
-    KActionMenu *m_decorationMenu;
-    KToggleAction *m_leftAction;
     QList<QUrl> m_itemsToBeSetAsCurrent;
-    bool m_shouldFetchForItems;
-    InlinePreviewState m_inlinePreviewState;
     QStringList m_supportedSchemes;
 
     std::unique_ptr<KIO::WidgetsAskUserActionHandler> m_askUserHandler;
 };
-
-KDirOperatorPrivate::KDirOperatorPrivate(KDirOperator *qq) :
-    q(qq),
-    m_dirLister(nullptr),
-    m_decorationPosition(QStyleOptionViewItem::Left),
-    m_splitter(nullptr),
-    m_itemView(nullptr),
-    m_dirModel(nullptr),
-    m_proxyModel(nullptr),
-    m_progressBar(nullptr),
-    m_preview(nullptr),
-    m_previewUrl(),
-    m_previewWidth(0),
-    m_onlyDoubleClickSelectsFiles(!qApp->style()->styleHint(QStyle::SH_ItemView_ActivateItemOnSingleClick)),
-    m_followNewDirectories(true),
-    m_followSelectedDirectories(true),
-    m_dirHighlighting(true),
-    m_progressDelayTimer(nullptr),
-    m_dropOptions(0),
-    m_actionMenu(nullptr),
-    m_actionCollection(nullptr),
-    m_newFileMenu(nullptr),
-    m_configGroup(nullptr),
-    m_previewGenerator(nullptr),
-    m_showPreviews(false),
-    m_iconSize(KIconLoader::SizeSmall),
-    m_isSaving(false),
-    m_decorationMenu(nullptr),
-    m_leftAction(nullptr),
-    m_shouldFetchForItems(false),
-    m_inlinePreviewState(NotForced)
-{
-}
 
 KDirOperatorPrivate::~KDirOperatorPrivate()
 {
@@ -259,19 +223,17 @@ KDirOperatorPrivate::~KDirOperatorPrivate()
 
     qDeleteAll(m_backStack);
     qDeleteAll(m_forwardStack);
-    delete m_preview;
-    m_preview = nullptr;
 
-    delete m_proxyModel;
+    // The parent KDirOperator will delete these
+    m_preview = nullptr;
     m_proxyModel = nullptr;
-    delete m_dirModel;
     m_dirModel = nullptr;
+    m_progressDelayTimer = nullptr;
+
     m_dirLister = nullptr; // deleted by KDirModel
+
     delete m_configGroup;
     m_configGroup = nullptr;
-
-    delete m_progressDelayTimer;
-    m_progressDelayTimer = nullptr;
 }
 
 KDirOperator::KDirOperator(const QUrl &_url, QWidget *parent)
@@ -1027,7 +989,7 @@ void KDirOperator::setUrl(const QUrl &_newurl, bool clearforward)
     if (!d->isSchemeSupported(newurl.scheme()))
         return;
 
-    if (!KDirOperatorPrivate::isReadable(newurl)) {
+    if (!d->isReadable(newurl)) {
         // maybe newurl is a file? check its parent directory
         newurl = newurl.adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash);
         if (newurl.matches(d->m_currUrl, QUrl::StripTrailingSlash)) {
@@ -1039,7 +1001,7 @@ void KDirOperator::setUrl(const QUrl &_newurl, bool clearforward)
 
         KIO::UDSEntry entry = job->statResult();
         KFileItem i(entry, newurl);
-        if ((!res || !KDirOperatorPrivate::isReadable(newurl)) && i.isDir()) {
+        if ((!res || !d->isReadable(newurl)) && i.isDir()) {
             resetCursor();
             KMessageBox::error(d->m_itemView,
                                i18n("The specified folder does not exist "
@@ -1184,7 +1146,7 @@ void KDirOperator::pathChanged()
     // when KIO::Job emits finished, the slot will restore the cursor
     QApplication::setOverrideCursor(Qt::WaitCursor);
 
-    if (!KDirOperatorPrivate::isReadable(d->m_currUrl)) {
+    if (!d->isReadable(d->m_currUrl)) {
         KMessageBox::error(d->m_itemView,
                            i18n("The specified folder does not exist "
                                 "or was not readable."));
@@ -1807,7 +1769,7 @@ void KDirOperator::setDirLister(KDirLister *lister)
     //delete d->m_dirLister; // deleted by KDirModel already, which took ownership
     d->m_dirLister = lister;
 
-    d->m_dirModel = new KDirModel();
+    d->m_dirModel = new KDirModel(this);
     d->m_dirModel->setDirLister(d->m_dirLister);
     d->m_dirModel->setDropsAllowed(KDirModel::DropOnDirectory);
 
