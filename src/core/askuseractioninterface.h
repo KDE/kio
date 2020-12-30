@@ -122,9 +122,9 @@ public:
      * Used by askUserDelete().
      */
     enum ConfirmationType {
-        DefaultConfirmation, /// Always ask the user for confirmation
-        ForceConfirmation,   /// Do not ask if the user has previously set the "Do not ask again"
-                             /// checkbox that is shown in the message dialog invoked by askUserDelete()
+        DefaultConfirmation, ///< Do not ask if the user has previously set the "Do not ask again"
+                             ///< checkbox (which is is shown in the message dialog invoked by askUserDelete())
+        ForceConfirmation,   ///< Always ask the user for confirmation
     };
 
     /**
