@@ -39,16 +39,18 @@
 class Q_DECL_HIDDEN KIO::JobUiDelegate::Private
 {
 public:
+    Private(KIO::JobUiDelegate *q) {
+        // Create extension objects. See KIO::delegateExtension<T>().
+        new WidgetsUntrustedProgramHandler(q);
+        new WidgetsOpenWithHandler(q);
+        new WidgetsOpenOrExecuteFileHandler(q);
+        new WidgetsAskUserActionHandler(q);
+    }
 };
 
 KIO::JobUiDelegate::JobUiDelegate()
-    : d(new Private())
+    : d(new Private(this))
 {
-    // Create extension objects. See KIO::delegateExtension<T>().
-    new WidgetsUntrustedProgramHandler(this);
-    new WidgetsOpenWithHandler(this);
-    new WidgetsOpenOrExecuteFileHandler(this);
-    new WidgetsAskUserActionHandler(this);
 }
 
 KIO::JobUiDelegate::~JobUiDelegate()
@@ -127,7 +129,7 @@ private:
 Q_GLOBAL_STATIC(JobUiDelegateStatic, s_static)
 
 KIO::JobUiDelegate::JobUiDelegate(KJobUiDelegate::Flags flags, QWidget *window)
-    : KDialogJobUiDelegate(flags, window), d(new Private())
+    : KDialogJobUiDelegate(flags, window), d(new Private(this))
 {
     s_static()->registerWindow(window);
 }

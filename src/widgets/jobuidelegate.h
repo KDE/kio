@@ -44,7 +44,7 @@ public:
      * @param window the window associated with this delegate, see setWindow.
      * @since 5.70
      */
-    explicit JobUiDelegate(KJobUiDelegate::Flags flags, QWidget *window);
+    explicit JobUiDelegate(KJobUiDelegate::Flags flags, QWidget *window); // KF6 TODO: merge with previous ctor using AutoHandlingDisabled and nullptr default values (same in KDialogJobUiDelegate)
 
     /**
      * Destroys the KIO Job UI delegate.
