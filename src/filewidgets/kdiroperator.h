@@ -37,6 +37,8 @@ class CopyJob;
 class DeleteJob;
 }
 
+class KDirOperatorPrivate;
+
 /**
  * @class KDirOperator kdiroperator.h <KDirOperator>
  *
@@ -980,49 +982,8 @@ Q_SIGNALS:
     void keyEnterReturnPressed();
 
 private:
-    class Private;
-    Private *const d;
-
-    Q_PRIVATE_SLOT(d, void _k_slotDetailedView())
-    Q_PRIVATE_SLOT(d, void _k_slotSimpleView())
-    Q_PRIVATE_SLOT(d, void _k_slotTreeView())
-    Q_PRIVATE_SLOT(d, void _k_slotDetailedTreeView())
-    Q_PRIVATE_SLOT(d, void _k_slotToggleAllowExpansion(bool))
-    Q_PRIVATE_SLOT(d, void _k_slotToggleHidden(bool))
-    Q_PRIVATE_SLOT(d, void _k_togglePreview(bool))
-    Q_PRIVATE_SLOT(d, void _k_toggleInlinePreviews(bool))
-    Q_PRIVATE_SLOT(d, void _k_slotOpenFileManager())
-    Q_PRIVATE_SLOT(d, void _k_slotSortByName())
-    Q_PRIVATE_SLOT(d, void _k_slotSortBySize())
-    Q_PRIVATE_SLOT(d, void _k_slotSortByDate())
-    Q_PRIVATE_SLOT(d, void _k_slotSortByType())
-    Q_PRIVATE_SLOT(d, void _k_slotSortReversed(bool))
-    Q_PRIVATE_SLOT(d, void _k_slotToggleDirsFirst())
-    Q_PRIVATE_SLOT(d, void _k_slotIconsView())
-    Q_PRIVATE_SLOT(d, void _k_slotCompactView())
-    Q_PRIVATE_SLOT(d, void _k_slotDetailsView())
-    Q_PRIVATE_SLOT(d, void _k_slotToggleIgnoreCase())
-    Q_PRIVATE_SLOT(d, void _k_slotStarted())
-    Q_PRIVATE_SLOT(d, void _k_slotProgress(int))
-    Q_PRIVATE_SLOT(d, void _k_slotShowProgress())
-    Q_PRIVATE_SLOT(d, void _k_slotIOFinished())
-    Q_PRIVATE_SLOT(d, void _k_slotCanceled())
-    Q_PRIVATE_SLOT(d, void _k_slotRedirected(const QUrl &))
-    Q_PRIVATE_SLOT(d, void _k_slotProperties())
-    Q_PRIVATE_SLOT(d, void _k_slotActivated(const QModelIndex &))
-    Q_PRIVATE_SLOT(d, void _k_slotSelectionChanged())
-    Q_PRIVATE_SLOT(d, void _k_openContextMenu(const QPoint &))
-    Q_PRIVATE_SLOT(d, void _k_triggerPreview(const QModelIndex &))
-    Q_PRIVATE_SLOT(d, void _k_showPreview())
-    Q_PRIVATE_SLOT(d, void _k_slotSplitterMoved(int, int))
-    Q_PRIVATE_SLOT(d, void _k_assureVisibleSelection())
-    Q_PRIVATE_SLOT(d, void _k_synchronizeSortingState(int, Qt::SortOrder))
-    Q_PRIVATE_SLOT(d, void _k_slotChangeDecorationPosition())
-    Q_PRIVATE_SLOT(d, void _k_slotExpandToUrl(const QModelIndex &))
-    Q_PRIVATE_SLOT(d, void _k_slotItemsChanged())
-    Q_PRIVATE_SLOT(d, void _k_slotDirectoryCreated(const QUrl &))
-    Q_PRIVATE_SLOT(d, void _k_slotAskUserDeleteResult(bool, const QList<QUrl> &,
-                                                      KIO::AskUserActionInterface::DeletionType, QWidget *))
+    friend class KDirOperatorPrivate;
+    std::unique_ptr<KDirOperatorPrivate> d;
 };
 
 #endif
