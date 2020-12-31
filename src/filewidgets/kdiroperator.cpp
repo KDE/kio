@@ -279,8 +279,9 @@ KDirOperator::KDirOperator(const QUrl &_url, QWidget *parent)
 {
     d->m_splitter = new QSplitter(this);
     d->m_splitter->setChildrenCollapsible(false);
-    connect(d->m_splitter, SIGNAL(splitterMoved(int,int)),
-            this, SLOT(slotSplitterMoved(int,int)));
+    connect(d->m_splitter, &QSplitter::splitterMoved, this, [this](int pos, int index) {
+        d->slotSplitterMoved(pos, index);
+    });
 
     d->m_preview = nullptr;
 
@@ -320,8 +321,7 @@ KDirOperator::KDirOperator(const QUrl &_url, QWidget *parent)
 
     d->m_progressDelayTimer = new QTimer(this);
     d->m_progressDelayTimer->setObjectName(QStringLiteral("d->m_progressBar delay timer"));
-    connect(d->m_progressDelayTimer, SIGNAL(timeout()),
-            SLOT(slotShowProgress()));
+    connect(d->m_progressDelayTimer, &QTimer::timeout, this, [this]() { d->slotShowProgress(); });
 
     d->m_completeListDirty = false;
 
@@ -911,7 +911,7 @@ void KDirOperator::renameSelected()
     }
 
     KIO::RenameFileDialog* dialog = new KIO::RenameFileDialog(items, this);
-    connect(dialog, SIGNAL(renamingFinished()), SLOT(assureVisibleSelection()));
+    connect(dialog, &KIO::RenameFileDialog::renamingFinished, this, [this]() { d->assureVisibleSelection(); });
 
     dialog->open();
 }
@@ -1727,16 +1727,19 @@ void KDirOperator::setView(QAbstractItemView *view)
     if (treeView) {
         QHeaderView *headerView = treeView->header();
         headerView->setSortIndicator(d->sortColumn(), d->sortOrder());
-        connect(headerView, SIGNAL(sortIndicatorChanged(int,Qt::SortOrder)),
-                this, SLOT(synchronizeSortingState(int,Qt::SortOrder)));
+        connect(headerView, &QHeaderView::sortIndicatorChanged, this, [this](int logicalIndex, Qt::SortOrder order) {
+            d->synchronizeSortingState(logicalIndex, order);
+        });
     }
 
-    connect(d->m_itemView, SIGNAL(activated(QModelIndex)),
-            this, SLOT(slotActivated(QModelIndex)));
-    connect(d->m_itemView, SIGNAL(customContextMenuRequested(QPoint)),
-            this, SLOT(openContextMenu(QPoint)));
-    connect(d->m_itemView, SIGNAL(entered(QModelIndex)),
-            this, SLOT(triggerPreview(QModelIndex)));
+    connect(d->m_itemView, &QAbstractItemView::activated,
+            this, [this](QModelIndex index) { d->slotActivated(index); });
+
+    connect(d->m_itemView, &QAbstractItemView::customContextMenuRequested,
+            this, [this](QPoint pos) { d->openContextMenu(pos); });
+
+    connect(d->m_itemView, &QAbstractItemView::entered,
+            this, [this](QModelIndex index) { d->triggerPreview(index); });
 
     d->m_splitter->insertWidget(0, d->m_itemView);
 
@@ -1753,12 +1756,10 @@ void KDirOperator::setView(QAbstractItemView *view)
         QMetaObject::invokeMethod(this, [this]() { d->assureVisibleSelection(); }, Qt::QueuedConnection);
     }
 
-    connect(d->m_itemView->selectionModel(),
-            SIGNAL(currentChanged(QModelIndex,QModelIndex)),
-            this, SLOT(triggerPreview(QModelIndex)));
-    connect(d->m_itemView->selectionModel(),
-            SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
-            this, SLOT(slotSelectionChanged()));
+    connect(d->m_itemView->selectionModel(), &QItemSelectionModel::currentChanged,
+            this, [this](QModelIndex index) { d->triggerPreview(index); });
+    connect(d->m_itemView->selectionModel(), &QItemSelectionModel::selectionChanged,
+            this, [this]() { d->slotSelectionChanged(); });
 
     // if we cannot cast it to a QListView, disable the "Icon Position" menu. Note that this check
     // needs to be done here, and not in createView, since we can be set an external view
@@ -1766,7 +1767,7 @@ void KDirOperator::setView(QAbstractItemView *view)
 
     d->m_shouldFetchForItems = qobject_cast<QTreeView *>(view);
     if (d->m_shouldFetchForItems) {
-        connect(d->m_dirModel, SIGNAL(expand(QModelIndex)), this, SLOT(slotExpandToUrl(QModelIndex)));
+        connect(d->m_dirModel, &KDirModel::expand, this, [this](QModelIndex index) { d->slotExpandToUrl(index); });
     } else {
         d->m_itemsToBeSetAsCurrent.clear();
     }
@@ -1812,7 +1813,7 @@ void KDirOperator::setDirLister(KDirLister *lister)
 
     d->m_shouldFetchForItems = qobject_cast<QTreeView *>(d->m_itemView);
     if (d->m_shouldFetchForItems) {
-        connect(d->m_dirModel, SIGNAL(expand(QModelIndex)), this, SLOT(slotExpandToUrl(QModelIndex)));
+        connect(d->m_dirModel, &KDirModel::expand, this, [this](QModelIndex index) { d->slotExpandToUrl(index); });
     } else {
         d->m_itemsToBeSetAsCurrent.clear();
     }
@@ -1826,17 +1827,16 @@ void KDirOperator::setDirLister(KDirLister *lister)
     d->m_dirLister->setMainWindow(mainWidget);
     // qDebug() << "mainWidget=" << mainWidget;
 
-    connect(d->m_dirLister, SIGNAL(percent(int)),
-            SLOT(slotProgress(int)));
-    connect(d->m_dirLister, SIGNAL(started(QUrl)), SLOT(slotStarted()));
-    connect(d->m_dirLister, SIGNAL(completed()), SLOT(slotIOFinished()));
-    connect(d->m_dirLister, SIGNAL(canceled()), SLOT(slotCanceled()));
-    connect(d->m_dirLister, SIGNAL(redirection(QUrl)),
-            SLOT(slotRedirected(QUrl)));
-    connect(d->m_dirLister, SIGNAL(newItems(KFileItemList)), SLOT(slotItemsChanged()));
-    connect(d->m_dirLister, SIGNAL(itemsDeleted(KFileItemList)), SLOT(slotItemsChanged()));
-    connect(d->m_dirLister, SIGNAL(itemsFilteredByMime(KFileItemList)), SLOT(slotItemsChanged()));
-    connect(d->m_dirLister, SIGNAL(clear()), SLOT(slotItemsChanged()));
+    connect(d->m_dirLister, &KCoreDirLister::percent, this, [this](int percent) { d->slotProgress(percent); });
+    connect(d->m_dirLister, &KCoreDirLister::started, this, [this]() { d->slotStarted(); });
+    connect(d->m_dirLister, QOverload<>::of(&KCoreDirLister::completed), this, [this]() { d->slotIOFinished(); });
+    connect(d->m_dirLister, QOverload<>::of(&KCoreDirLister::canceled), this, [this]() { d->slotCanceled(); });
+    connect(d->m_dirLister, QOverload<const QUrl &>::of(&KCoreDirLister::redirection),
+            this, [this](const QUrl &url) { d->slotRedirected(url); });
+    connect(d->m_dirLister, &KCoreDirLister::newItems, this, [this]() { d->slotItemsChanged(); });
+    connect(d->m_dirLister, &KCoreDirLister::itemsDeleted, this, [this]() { d->slotItemsChanged(); });
+    connect(d->m_dirLister, &KCoreDirLister::itemsFilteredByMime, this, [this]() { d->slotItemsChanged(); });
+    connect(d->m_dirLister, QOverload<>::of(&KCoreDirLister::clear), this, [this]() { d->slotItemsChanged(); });
 }
 
 void KDirOperator::selectDir(const KFileItem &item)
@@ -2018,7 +2018,7 @@ void KDirOperator::setupActions()
     QAction *mkdirAction = new QAction(i18n("New Folder..."), this);
     d->m_actionCollection->addAction(QStringLiteral("mkdir"), mkdirAction);
     mkdirAction->setIcon(QIcon::fromTheme(QStringLiteral("folder-new")));
-    connect(mkdirAction, SIGNAL(triggered(bool)), this, SLOT(mkdir()));
+    connect(mkdirAction, &QAction::triggered, this, [this]() { mkdir(); });
 
     QAction *rename = KStandardAction::renameFile(this, &KDirOperator::renameSelected, this);
     d->m_actionCollection->addAction(QStringLiteral("rename"), rename);
@@ -2043,19 +2043,19 @@ void KDirOperator::setupActions()
 
     KToggleAction *byNameAction = new KToggleAction(i18n("Sort by Name"), this);
     d->m_actionCollection->addAction(QStringLiteral("by name"), byNameAction);
-    connect(byNameAction, SIGNAL(triggered(bool)), this, SLOT(slotSortByName()));
+    connect(byNameAction, &QAction::triggered, this, [this]() { d->slotSortByName(); });
 
     KToggleAction *bySizeAction = new KToggleAction(i18n("Sort by Size"), this);
     d->m_actionCollection->addAction(QStringLiteral("by size"), bySizeAction);
-    connect(bySizeAction, SIGNAL(triggered(bool)), this, SLOT(slotSortBySize()));
+    connect(bySizeAction, &QAction::triggered, this, [this]() { d->slotSortBySize(); });
 
     KToggleAction *byDateAction = new KToggleAction(i18n("Sort by Date"), this);
     d->m_actionCollection->addAction(QStringLiteral("by date"), byDateAction);
-    connect(byDateAction, SIGNAL(triggered(bool)), this, SLOT(slotSortByDate()));
+    connect(byDateAction, &QAction::triggered, this, [this]() { d->slotSortByDate(); });
 
     KToggleAction *byTypeAction = new KToggleAction(i18n("Sort by Type"), this);
     d->m_actionCollection->addAction(QStringLiteral("by type"), byTypeAction);
-    connect(byTypeAction, SIGNAL(triggered(bool)), this, SLOT(slotSortByType()));
+    connect(byTypeAction, &QAction::triggered, this, [this]() { d->slotSortByType(); });
 
     QActionGroup *sortOrderGroup = new QActionGroup(this);
     sortOrderGroup->setExclusive(true);
@@ -2076,23 +2076,23 @@ void KDirOperator::setupActions()
 
     KToggleAction *dirsFirstAction = new KToggleAction(i18n("Folders First"), this);
     d->m_actionCollection->addAction(QStringLiteral("dirs first"), dirsFirstAction);
-    connect(dirsFirstAction, SIGNAL(triggered(bool)), this, SLOT(slotToggleDirsFirst()));
+    connect(dirsFirstAction, &QAction::triggered, this, [this]() { d->slotToggleDirsFirst(); });
 
     // View modes that match those of Dolphin
     KToggleAction *iconsViewAction = new KToggleAction(i18n("Icons View"), this);
     iconsViewAction->setIcon(QIcon::fromTheme(QStringLiteral("view-list-icons")));
     d->m_actionCollection->addAction(QStringLiteral("icons view"), iconsViewAction);
-    connect(iconsViewAction, SIGNAL(triggered(bool)), this, SLOT(slotIconsView()));
+    connect(iconsViewAction, &QAction::triggered, this, [this]() { d->slotIconsView(); });
 
     KToggleAction *compactViewAction = new KToggleAction(i18n("Compact View"), this);
     compactViewAction->setIcon(QIcon::fromTheme(QStringLiteral("view-list-details")));
     d->m_actionCollection->addAction(QStringLiteral("compact view"), compactViewAction);
-    connect(compactViewAction, SIGNAL(triggered(bool)), this, SLOT(slotCompactView()));
+    connect(compactViewAction, &QAction::triggered, this, [this]() { d->slotCompactView(); });
 
     KToggleAction *detailsViewAction = new KToggleAction(i18n("Details View"), this);
     detailsViewAction->setIcon(QIcon::fromTheme(QStringLiteral("view-list-tree")));
     d->m_actionCollection->addAction(QStringLiteral("details view"), detailsViewAction);
-    connect(detailsViewAction, SIGNAL(triggered(bool)), this, SLOT(slotDetailsView()));
+    connect(detailsViewAction, &QAction::triggered, this, [this]() { d->slotDetailsView(); });
 
     QActionGroup *viewModeGroup = new QActionGroup(this);
     viewModeGroup->setExclusive(true);
@@ -2111,11 +2111,11 @@ void KDirOperator::setupActions()
 
     d->m_leftAction = new KToggleAction(i18n("Next to File Name"), this);
     d->m_actionCollection->addAction(QStringLiteral("decorationAtLeft"), d->m_leftAction);
-    connect(d->m_leftAction, SIGNAL(triggered(bool)), this, SLOT(slotChangeDecorationPosition()));
+    connect(d->m_leftAction, &QAction::triggered, this, [this]() { d->slotChangeDecorationPosition(); });
 
     KToggleAction *topAction = new KToggleAction(i18n("Above File Name"), this);
     d->m_actionCollection->addAction(QStringLiteral("decorationAtTop"), topAction);
-    connect(topAction, SIGNAL(triggered(bool)), this, SLOT(slotChangeDecorationPosition()));
+    connect(topAction, &QAction::triggered, this, [this]() { d->slotChangeDecorationPosition(); });
 
     d->m_decorationMenu->addAction(d->m_leftAction);
     d->m_decorationMenu->addAction(topAction);
@@ -2128,22 +2128,22 @@ void KDirOperator::setupActions()
     KToggleAction *shortAction = new KToggleAction(i18n("Short View"), this);
     d->m_actionCollection->addAction(QStringLiteral("short view"),  shortAction);
     shortAction->setIcon(QIcon::fromTheme(QStringLiteral("view-list-icons")));
-    connect(shortAction, SIGNAL(triggered()), SLOT(slotSimpleView()));
+    connect(shortAction, &QAction::triggered, [this]() { d->slotSimpleView(); });
 
     KToggleAction *detailedAction = new KToggleAction(i18n("Detailed View"), this);
     d->m_actionCollection->addAction(QStringLiteral("detailed view"), detailedAction);
     detailedAction->setIcon(QIcon::fromTheme(QStringLiteral("view-list-details")));
-    connect(detailedAction, SIGNAL(triggered()), SLOT(slotDetailedView()));
+    connect(detailedAction, &QAction::triggered, this, [this]() { d->slotDetailedView(); });
 
     KToggleAction *treeAction = new KToggleAction(i18n("Tree View"), this);
     d->m_actionCollection->addAction(QStringLiteral("tree view"), treeAction);
     treeAction->setIcon(QIcon::fromTheme(QStringLiteral("view-list-tree")));
-    connect(treeAction, SIGNAL(triggered()), SLOT(slotTreeView()));
+    connect(treeAction, &QAction::triggered, this, [this]() { d->slotTreeView(); });
 
     KToggleAction *detailedTreeAction = new KToggleAction(i18n("Detailed Tree View"), this);
     d->m_actionCollection->addAction(QStringLiteral("detailed tree view"), detailedTreeAction);
     detailedTreeAction->setIcon(QIcon::fromTheme(QStringLiteral("view-list-tree")));
-    connect(detailedTreeAction, SIGNAL(triggered()), SLOT(slotDetailedTreeView()));
+    connect(detailedTreeAction, &QAction::triggered, this, [this]() { d->slotDetailedTreeView(); });
 
     QActionGroup *viewGroup = new QActionGroup(this);
     shortAction->setActionGroup(viewGroup);
@@ -2153,35 +2153,34 @@ void KDirOperator::setupActions()
 
     KToggleAction *allowExpansionAction = new KToggleAction(i18n("Allow Expansion in Details View"), this);
     d->m_actionCollection->addAction(QStringLiteral("allow expansion"), allowExpansionAction);
-    connect(allowExpansionAction, SIGNAL(toggled(bool)), SLOT(slotToggleAllowExpansion(bool)));
+    connect(allowExpansionAction, &QAction::toggled, this, [this](bool allow) { d->slotToggleAllowExpansion(allow); });
 
     KToggleAction *showHiddenAction = new KToggleAction(i18n("Show Hidden Files"), this);
     d->m_actionCollection->addAction(QStringLiteral("show hidden"), showHiddenAction);
     showHiddenAction->setShortcuts(KStandardShortcut::showHideHiddenFiles());
-    connect(showHiddenAction, SIGNAL(toggled(bool)), SLOT(slotToggleHidden(bool)));
+    connect(showHiddenAction, &QAction::toggled, this, [this](bool show) { d->slotToggleHidden(show); });
 
     KToggleAction *previewAction = new KToggleAction(i18n("Show Preview Panel"), this);
     d->m_actionCollection->addAction(QStringLiteral("preview"), previewAction);
     previewAction->setShortcut(Qt::Key_F11);
-    connect(previewAction, SIGNAL(toggled(bool)),
-            SLOT(togglePreview(bool)));
+    connect(previewAction, &QAction::toggled, this, [this](bool enable) { d->togglePreview(enable); });
 
     KToggleAction *inlinePreview = new KToggleAction(QIcon::fromTheme(QStringLiteral("view-preview")),
             i18n("Show Preview"), this);
     d->m_actionCollection->addAction(QStringLiteral("inline preview"), inlinePreview);
     inlinePreview->setShortcut(Qt::Key_F12);
-    connect(inlinePreview, SIGNAL(toggled(bool)), SLOT(toggleInlinePreviews(bool)));
+    connect(inlinePreview, &QAction::toggled, this, [this](bool enable) { d->toggleInlinePreviews(enable); });
 
     QAction *fileManager = new QAction(i18n("Open Containing Folder"), this);
     d->m_actionCollection->addAction(QStringLiteral("file manager"), fileManager);
     fileManager->setIcon(QIcon::fromTheme(QStringLiteral("system-file-manager")));
-    connect(fileManager, SIGNAL(triggered()), SLOT(slotOpenFileManager()));
+    connect(fileManager, &QAction::triggered, this, [this]() { d->slotOpenFileManager(); });
 
     action = new QAction(i18n("Properties"), this);
     d->m_actionCollection->addAction(QStringLiteral("properties"), action);
     action->setIcon(QIcon::fromTheme(QStringLiteral("document-properties")));
     action->setShortcut(Qt::ALT | Qt::Key_Return);
-    connect(action, SIGNAL(triggered(bool)), this, SLOT(slotProperties()));
+    connect(action, &QAction::triggered, this, [this]() { d->slotProperties(); });
 
     // the view menu actions
     KActionMenu *viewMenu = new KActionMenu(i18n("&View"), this);
@@ -2195,7 +2194,9 @@ void KDirOperator::setupActions()
     // an interface to add a custom action collection.
 
     d->m_newFileMenu = new KNewFileMenu(d->m_actionCollection, QStringLiteral("new"), this);
-    connect(d->m_newFileMenu, SIGNAL(directoryCreated(QUrl)), this, SLOT(slotDirectoryCreated(QUrl)));
+    connect(d->m_newFileMenu, &KNewFileMenu::directoryCreated, this, [this](const QUrl &url) {
+        d->slotDirectoryCreated(url);
+    });
     connect(d->m_newFileMenu, &KNewFileMenu::selectExistingDir, this, [this](const QUrl &url) {
         setCurrentItem(url);
     });
