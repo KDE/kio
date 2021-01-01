@@ -215,6 +215,7 @@ endif()
 
 set_tests_properties(kiofilewidgets-kfileplacesmodeltest PROPERTIES RUN_SERIAL TRUE)
 set_tests_properties(kiofilewidgets-kfileplacesviewtest PROPERTIES RUN_SERIAL TRUE)
+set_tests_properties(kiowidgets-kurifiltertest-space-separator PROPERTIES RUN_SERIAL TRUE)
 endif()
 
 # this should be done by cmake, see bug 371721
