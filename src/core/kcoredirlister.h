@@ -16,12 +16,16 @@
 #include <QStringList>
 #include <QUrl>
 
+#include <memory>
+
 class KJob;
 namespace KIO
 {
 class Job;
 class ListJob;
 }
+
+class KCoreDirListerPrivate;
 
 /**
  * @class KCoreDirLister kcoredirlister.h <KCoreDirLister>
@@ -613,9 +617,8 @@ protected:
     virtual void jobStarted(KIO::ListJob *);
 
 private:
-    class Private;
-    Private *const d;
-    friend class Private;
+    friend class KCoreDirListerPrivate;
+    std::unique_ptr<KCoreDirListerPrivate> d;
 };
 
 Q_DECLARE_OPERATORS_FOR_FLAGS(KCoreDirLister::OpenUrlFlags)

@@ -33,11 +33,11 @@ class ListJob;
 class OrgKdeKDirNotifyInterface;
 struct KCoreDirListerCacheDirectoryData;
 
-class Q_DECL_HIDDEN KCoreDirLister::Private
+class KCoreDirListerPrivate
 {
 public:
-    explicit Private(KCoreDirLister *parent)
-        : m_parent(parent)
+    explicit KCoreDirListerPrivate(KCoreDirLister *qq)
+        : q(qq)
     {
         complete = false;
 
@@ -50,12 +50,12 @@ public:
         hasPendingChanges = false;
     }
 
-    void _k_emitCachedItems(const QUrl &, bool, bool);
-    void _k_slotInfoMessage(KJob *, const QString &);
-    void _k_slotPercent(KJob *, unsigned long);
-    void _k_slotTotalSize(KJob *, qulonglong);
-    void _k_slotProcessedSize(KJob *, qulonglong);
-    void _k_slotSpeed(KJob *, unsigned long);
+    void emitCachedItems(const QUrl &, bool, bool);
+    void slotInfoMessage(KJob *, const QString &);
+    void slotPercent(KJob *, unsigned long);
+    void slotTotalSize(KJob *, qulonglong);
+    void slotProcessedSize(KJob *, qulonglong);
+    void slotSpeed(KJob *, unsigned long);
 
     bool doMimeExcludeFilter(const QString &mimeExclude, const QStringList &filters) const;
     void connectJob(KIO::ListJob *);
@@ -92,7 +92,7 @@ public:
     class CachedItemsJob;
     CachedItemsJob *cachedItemsJobForUrl(const QUrl &url) const;
 
-    KCoreDirLister * const m_parent;
+    KCoreDirLister *const q;
 
     /**
      * List of dirs handled by this dirlister. The first entry is the base URL.
@@ -189,10 +189,10 @@ public:
 
     // Called by CachedItemsJob:
     // Emits the cached items, for this lister and this url
-    void emitItemsFromCache(KCoreDirLister::Private::CachedItemsJob *job, KCoreDirLister *lister,
+    void emitItemsFromCache(KCoreDirListerPrivate::CachedItemsJob *job, KCoreDirLister *lister,
                             const QUrl &_url, bool _reload, bool _emitCompleted);
     // Called by CachedItemsJob:
-    void forgetCachedItemsJob(KCoreDirLister::Private::CachedItemsJob *job, KCoreDirLister *lister,
+    void forgetCachedItemsJob(KCoreDirListerPrivate::CachedItemsJob *job, KCoreDirLister *lister,
                               const QUrl &url);
 
 public Q_SLOTS:
@@ -506,7 +506,7 @@ struct KCoreDirListerCacheDirectoryData {
 // to give the KCoreDirLister user enough time for connecting to its signals, and so
 // that KCoreDirListerCache behaves just like when a real KIO::Job is used: nothing
 // is emitted during the openUrl call itself.
-class KCoreDirLister::Private::CachedItemsJob : public KJob
+class KCoreDirListerPrivate::CachedItemsJob : public KJob
 {
     Q_OBJECT
 public:
