@@ -179,53 +179,23 @@ void CommandRecorder::slotResult(KJob *job)
 
 void CommandRecorder::slotCopyingDone(KIO::Job *, const QUrl &from, const QUrl &to, const QDateTime &mtime, bool directory, bool renamed)
 {
-    BasicOperation op;
-    op.m_valid = true;
-    op.m_type = directory ? BasicOperation::Directory : BasicOperation::File;
-    op.m_renamed = renamed;
-    op.m_src = from;
-    op.m_dst = to;
-    op.m_mtime = mtime;
-    //qDebug() << op;
-    m_cmd.m_opQueue.prepend(op);
+    const BasicOperation::Type type = directory ? BasicOperation::Directory : BasicOperation::File;
+    m_cmd.m_opQueue.prepend(BasicOperation(type, renamed, from, to, mtime));
 }
 
-// TODO merge the signals?
 void CommandRecorder::slotCopyingLinkDone(KIO::Job *, const QUrl &from, const QString &target, const QUrl &to)
 {
-    BasicOperation op;
-    op.m_valid = true;
-    op.m_type = BasicOperation::Link;
-    op.m_renamed = false;
-    op.m_src = from;
-    op.m_target = target;
-    op.m_dst = to;
-    op.m_mtime = QDateTime();
-    m_cmd.m_opQueue.prepend(op);
+    m_cmd.m_opQueue.prepend(BasicOperation(BasicOperation::Link, false, from, to, {}, target));
 }
 
 void CommandRecorder::slotDirectoryCreated(const QUrl &dir)
 {
-    BasicOperation op;
-    op.m_valid = true;
-    op.m_type = BasicOperation::Directory;
-    op.m_renamed = false;
-    op.m_src = QUrl();
-    op.m_dst = dir;
-    op.m_mtime = QDateTime();
-    m_cmd.m_opQueue.prepend(op);
+    m_cmd.m_opQueue.prepend(BasicOperation(BasicOperation::Directory, false, QUrl(), dir, {}));
 }
 
 void CommandRecorder::slotBatchRenamingDone(const QUrl &from, const QUrl &to)
 {
-    BasicOperation op;
-    op.m_valid = true;
-    op.m_type = BasicOperation::Directory;
-    op.m_renamed = true;
-    op.m_src = from;
-    op.m_dst = to;
-    op.m_mtime = QDateTime();
-    m_cmd.m_opQueue.prepend(op);
+    m_cmd.m_opQueue.prepend(BasicOperation(BasicOperation::Directory, true, from, to, {}));
 }
 
 ////
