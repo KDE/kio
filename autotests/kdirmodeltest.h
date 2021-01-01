@@ -46,7 +46,6 @@ private Q_SLOTS:
     void testUrlWithRef();
     void testRemoteUrlWithHost();
     void testZipFile();
-    void testSmb();
     void testBug196695();
     void testMimeData();
     void testDotHiddenFile_data();

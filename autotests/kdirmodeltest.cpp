@@ -1066,36 +1066,6 @@ void KDirModelTest::testZipFile() // # 171721
     QVERIFY(index.isValid());
 }
 
-void KDirModelTest::testSmb()
-{
-    const QUrl smbUrl(QStringLiteral("smb:/"));
-    // TODO: feed a KDirModel without using a KDirLister.
-    // Calling the slots directly.
-    // This requires that KDirModel does not ask the KDirLister for its rootItem anymore,
-    // but that KDirLister emits the root item whenever it changes.
-    if (!KProtocolInfo::isKnownProtocol(QStringLiteral("smb"))) {
-        QSKIP("kio_smb not installed");
-    }
-    KDirLister *dirLister = m_dirModel->dirLister();
-    dirLister->openUrl(smbUrl, KDirLister::NoFlags);
-    connect(dirLister, SIGNAL(completed()), this, SLOT(slotListingCompleted()));
-    connect(dirLister, SIGNAL(canceled()), this, SLOT(slotListingCompleted()));
-    QSignalSpy spyCanceled(dirLister, SIGNAL(canceled()));
-    enterLoop(); // wait for completed signal
-
-    if (!spyCanceled.isEmpty()) {
-        QSKIP("smb:/ returns an error, probably no network available");
-    }
-
-    QModelIndex index = m_dirModel->index(0, 0);
-    if (index.isValid()) {
-        QVERIFY(m_dirModel->canFetchMore(index));
-        m_dirModel->fetchMore(index);
-        enterLoop(); // wait for completed signal
-        disconnect(dirLister, SIGNAL(completed()), this, SLOT(slotListingCompleted()));
-    }
-}
-
 class MyDirLister : public KDirLister
 {
 public:
