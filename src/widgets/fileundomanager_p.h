@@ -12,6 +12,7 @@
 #include "fileundomanager.h"
 #include <QStack>
 #include <QDateTime>
+#include <QQueue>
 
 class KJob;
 
@@ -21,14 +22,7 @@ namespace KIO
 class FileUndoManagerAdaptor;
 
 struct BasicOperation {
-    typedef QList<BasicOperation> Stack;
-
-    BasicOperation()
-    {
-        m_valid = false;
-    }
-
-    bool m_valid;
+    bool m_valid = false;
     bool m_renamed;
 
     enum Type { File, Link, Directory };
@@ -43,12 +37,13 @@ struct BasicOperation {
 class UndoCommand
 {
 public:
-    typedef QList<UndoCommand> Stack;
-
     UndoCommand()
-    {
-        m_valid = false;
-    }
+        : m_valid(false)
+    {}
+
+    UndoCommand(FileUndoManager::CommandType type, const QList<QUrl> &src, const QUrl &dst, qint64 serialNumber)
+        : m_valid(true), m_type(type), m_src(src), m_dst(dst), m_serialNumber(serialNumber)
+    {}
 
     // TODO: is ::TRASH missing?
     bool isMoveCommand() const
@@ -56,10 +51,9 @@ public:
         return m_type == FileUndoManager::Move || m_type == FileUndoManager::Rename;
     }
 
-    bool m_valid;
-
+    bool m_valid = false;
     FileUndoManager::CommandType m_type;
-    BasicOperation::Stack m_opStack;
+    QVector<BasicOperation> m_opQueue; // we prepend() each op, then dequeue from last(), and iterate in that order
     QList<QUrl> m_src;
     QUrl m_dst;
     quint64 m_serialNumber;
@@ -72,7 +66,6 @@ class CommandRecorder : public QObject
     Q_OBJECT
 public:
     CommandRecorder(FileUndoManager::CommandType op, const QList<QUrl> &src, const QUrl &dst, KIO::Job *job);
-    virtual ~CommandRecorder();
 
 private Q_SLOTS:
     void slotResult(KJob *job);
@@ -121,13 +114,9 @@ public:
     /// called by UndoCommandRecorder
     void addCommand(const UndoCommand &cmd);
 
-    bool m_lock;
+    QStack<UndoCommand> m_commands;
 
-    UndoCommand::Stack m_commands;
-
-    UndoCommand m_current;
-    KIO::Job *m_currentJob;
-    UndoState m_undoState;
+    KIO::Job *m_currentJob = nullptr;
     QStack<QUrl> m_dirStack;
     QStack<QUrl> m_dirCleanupStack;
     QStack<QUrl> m_fileCleanupStack; // files and links
@@ -138,6 +127,10 @@ public:
     quint64 m_nextCommandIndex;
 
     FileUndoManager * const q;
+
+    UndoCommand m_current;
+    UndoState m_undoState;
+    bool m_lock = false;
 
     // DBUS interface
 Q_SIGNALS:

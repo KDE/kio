@@ -14,6 +14,8 @@
 
 #include "kiowidgets_export.h"
 
+#include <memory>
+
 class QDateTime;
 
 namespace KIO
@@ -208,7 +210,7 @@ private:
     friend class CommandRecorder;
 
     friend class FileUndoManagerPrivate;
-    FileUndoManagerPrivate *d;
+    std::unique_ptr<FileUndoManagerPrivate> d;
 };
 
 } // namespace
