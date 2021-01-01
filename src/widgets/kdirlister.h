@@ -11,7 +11,9 @@
 
 #include <kcoredirlister.h>
 #include "kiowidgets_export.h"
+
 class QWidget;
+class KDirListerPrivate;
 
 /**
  * @class KDirLister kdirlister.h <KDirLister>
@@ -87,9 +89,8 @@ protected:
     void jobStarted(KIO::ListJob *) override;
 
 private:
-    class Private;
-    Private *const d;
-    friend class Private;
+    friend class KDirListerPrivate;
+    std::unique_ptr<KDirListerPrivate> d;
 };
 
 #endif

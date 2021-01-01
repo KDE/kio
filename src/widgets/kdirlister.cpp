@@ -16,56 +16,52 @@
 #include <KMessageBox>
 #include <QWidget>
 
-class Q_DECL_HIDDEN KDirLister::Private
+class KDirListerPrivate
 {
 public:
-    Private()
-        : errorParent(nullptr),
-          window(nullptr),
-          autoErrorHandling(false)
-    {}
+    KDirListerPrivate()
+    {
+    }
 
-    QWidget *errorParent;
-    QWidget *window; // Main window this lister is associated with
-    bool autoErrorHandling;
-
+    QWidget *m_errorParent = nullptr;
+    QWidget *m_window = nullptr; // Main window this lister is associated with
+    bool m_autoErrorHandling = false;
 };
 
 KDirLister::KDirLister(QObject *parent)
-    : KCoreDirLister(parent), d(new Private)
+    : KCoreDirLister(parent), d(new KDirListerPrivate)
 {
     setAutoErrorHandlingEnabled(true, nullptr);
 }
 
 KDirLister::~KDirLister()
 {
-    delete d;
 }
 
 bool KDirLister::autoErrorHandlingEnabled() const
 {
-    return d->autoErrorHandling;
+    return d->m_autoErrorHandling;
 }
 
 void KDirLister::setAutoErrorHandlingEnabled(bool enable, QWidget *parent)
 {
-    d->autoErrorHandling = enable;
-    d->errorParent = parent;
+    d->m_autoErrorHandling = enable;
+    d->m_errorParent = parent;
 }
 
 void KDirLister::setMainWindow(QWidget *window)
 {
-    d->window = window;
+    d->m_window = window;
 }
 
 QWidget *KDirLister::mainWindow()
 {
-    return d->window;
+    return d->m_window;
 }
 
 void KDirLister::handleError(KIO::Job *job)
 {
-    if (d->autoErrorHandling) {
+    if (d->m_autoErrorHandling) {
         job->uiDelegate()->showErrorMessage();
     } else {
         KCoreDirLister::handleError(job);
@@ -74,8 +70,8 @@ void KDirLister::handleError(KIO::Job *job)
 
 void KDirLister::handleErrorMessage(const QString &message)
 {
-    if (d->autoErrorHandling) {
-        KMessageBox::error(d->errorParent, message);
+    if (d->m_autoErrorHandling) {
+        KMessageBox::error(d->m_errorParent, message);
     } else {
         KCoreDirLister::handleErrorMessage(message);
     }
@@ -83,8 +79,8 @@ void KDirLister::handleErrorMessage(const QString &message)
 
 void KDirLister::jobStarted(KIO::ListJob *job)
 {
-    if (d->window) {
-        KJobWidgets::setWindow(job, d->window);
+    if (d->m_window) {
+        KJobWidgets::setWindow(job, d->m_window);
     }
 }
 
