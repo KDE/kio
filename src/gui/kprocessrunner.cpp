@@ -269,8 +269,8 @@ void KProcessRunner::setPid(qint64 pid)
             KStartupInfo::resetStartupEnv();
         }
 #endif
-        Q_EMIT processStarted(pid);
     }
+    Q_EMIT processStarted(pid);
 }
 
 KProcessRunner::~KProcessRunner()
