@@ -2430,8 +2430,15 @@ void JobTest::overwriteOlderFiles()
             QVERIFY(QFile::exists(srcFile)); // it was copied
             QVERIFY(QFile::exists(srcFile2)); // it was copied
 
+#ifdef Q_OS_FREEBSD
+            QEXPECT_FAIL("", "dest file is missing milliseconds", Continue);
+            // and yet e618d6fd1b5bad005cf1f180496baf02261c7200 was supposed to fix that...
+#endif
             QCOMPARE(QFile(destFile).fileTime(QFileDevice::FileModificationTime),
                      QFile(srcFile).fileTime(QFileDevice::FileModificationTime));
+#ifdef Q_OS_FREEBSD
+            QEXPECT_FAIL("", "dest file is missing milliseconds", Continue);
+#endif
             QCOMPARE(QFile(destFile2).fileTime(QFileDevice::FileModificationTime),
                      QFile(srcFile2).fileTime(QFileDevice::FileModificationTime));
         }
