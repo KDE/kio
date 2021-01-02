@@ -1,0 +1,94 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Italian "INCLUDE">
+]>
+<article id="documentationnotfound" lang="&language;">
+<title
+>Documentazione non trovata</title>
+<articleinfo>
+<authorgroup>
+<author
+><firstname
+>Jack</firstname
+> <surname
+>Ostroff</surname
+> <affiliation
+> <address
+><email
+>ostroffjh@users.sourceforge.net</email
+></address>
+</affiliation>
+</author>
+<othercredit role="translator"
+><firstname
+>Luciano</firstname
+> <surname
+>Montanaro</surname
+> <affiliation
+><address
+><email
+>mikelima@cirulla.net</email
+></address
+></affiliation
+> <contrib
+>Traduzione del documento</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>2020-09-08</date>
+<releaseinfo
+>Frameworks 5.73</releaseinfo>
+
+</articleinfo>
+
+<para
+>La documentazione richiesta non è stata trovata sul tuo computer.</para>
+
+<para
+>La documentazione potrebbe non esistere, o potrebbe non essere stata installata con l'applicazione.</para>
+
+<tip
+><para
+>L'autore di questa pagina non è la persona da contattare per trovare il documento mancante, in quanto si limiterà a dirvi di seguire le istruzioni in questa pagina. </para
+></tip>
+
+<simplesect>
+<title
+>Come risolvere il problema</title>
+
+<para
+>Se l'applicazione è un software &kde;, inizia con la funzione di ricerca in &khelpcenter;. In alcuni casi la documentazione ha un nome che non coincide con il nome usato da software per trovarla. Se questo non funziona, prova a cercare la documentazione richiesta nel <ulink url="https://docs.kde.org/"
+>sito della documentazione &kde;</ulink
+>. Se trovi la documentazione in quel sito, la tua distribuzione potrebbe fornire un pacchetto separato per la documentazione (&eg; chiamata plasma-doc per la documentazione relativa a &plasma;). Usa il gestore dei pacchetti della tua distribuzione per trovare e installare la documentazione mancante.</para>
+
+<para
+>Se usi una distribuzione basata sul codice sorgente, come Gentoo, assicurati che non ci siano delle impostazioni di configurazione (su Gentoo, i contrassegni USE) che potrebbero aver impedito l'installazione della documentazione. </para>
+
+<para
+>Se hai fatto tutto questo, ma vedi ancora questa pagina invece del manuale dell'applicazione, hai probabilmente trovato un errore nel sistema di aiuto. In questo caso, per piacere, segnalalo sul <ulink url="https://bugs.kde.org/"
+>sito di gestione dei bug di &kde;</ulink
+> nel prodotto KIO. </para>
+
+<para
+>Se non hai trovato la documentazione sul <ulink url="https://docs.kde.org/"
+>sito della documentazione di &kde;</ulink
+>, l'applicazione potrebbe non avere della documentazione accessibile senza connessione. Segnala la cosa sul <ulink url="https://bugs.kde.org/"
+>sito di gestione dei bug di &kde;</ulink
+> nel prodotto dell'applicazione. </para>
+
+<para
+>Se l'applicazione non ha documentazione non accessibile senza connessione alla rete, dovresti usare le risorse in rete della <ulink url="https://userbase.kde.org/"
+>documentazione UserBase</ulink
+> e i <ulink url="https://forum.kde.org/"
+>forum della comunità &kde;</ulink
+> per cercare aiuto. </para>
+
+<para
+>Per le applicazioni non-&kde; contattane l'autore per determinare se è disponibile della documentazione non in linea.</para>
+</simplesect>
+
+</article>

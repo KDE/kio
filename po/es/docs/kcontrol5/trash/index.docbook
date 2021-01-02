@@ -1,0 +1,98 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Spanish "INCLUDE">
+]>
+<article id="trash" lang="&language;">
+<title
+>Papelera</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Burkhard.Lueck;</author>
+<othercredit role="translator"
+><firstname
+>Cristina Yenyxe</firstname
+><surname
+>González García</surname
+><affiliation
+><address
+><email
+>the.blue.valkyrie@gmail.com</email
+></address
+></affiliation
+><contrib
+>Traductor</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>2018-05-31</date>
+<releaseinfo
+>Frameworks 5.48</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Preferencias del sistema</keyword>
+<keyword
+>papelera</keyword>
+</keywordset>
+</articleinfo>
+
+<para
+>Este módulo le permite configurar las preferencias de la papelera. </para>
+
+<variablelist>
+<varlistentry
+><term
+><guilabel
+>Limpieza:</guilabel
+></term>
+<listitem
+><para
+>Marque esta casilla para permitir el borrado automático de archivos más antiguos que el valor especificado. Si no la marca <emphasis
+>no</emphasis
+> se borrará automáticamente ningún archivo después de cierto período de tiempo. Indique el número de archivos que pueden quedar en la papelera, y aquellos que sean más antiguos se eliminarán automáticamente. </para
+></listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>Tamaño:</guilabel
+></term>
+<listitem
+><para
+>Marque esta casilla para limitar la papelera a la cantidad máxima de espacio de disco que indique. En caso contrario será ilimitada. </para
+></listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>Limitar a</guilabel
+></term>
+<listitem
+><para
+>Este es el máximo porcentaje de disco que se usará para la papelera. A la derecha del selector numérico se muestra la cantidad de espacio calculada para utilizar. </para
+></listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>Papelera llena:</guilabel
+></term>
+<listitem
+><para
+>Cuando se alcance el límite de tamaño se realizará la acción seleccionada, y los archivos más grandes o más antiguos se eliminarán automáticamente o se le avisará. </para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+</article>

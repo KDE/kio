@@ -1,0 +1,91 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % German "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="data">
+<title
+>Daten-&URL;s</title>
+
+<articleinfo>
+<authorgroup>
+<author
+><personname
+><firstname
+>Leo</firstname
+><surname
+>Savernik</surname
+></personname
+> <address
+><email
+>l.savernik@aon.at</email
+></address
+> </author>
+<othercredit role="translator"
+><firstname
+>Stephan</firstname
+><surname
+>Johach</surname
+><affiliation
+><address
+><email
+>hunsum@gmx.de</email
+></address
+></affiliation
+><contrib
+>Übersetzer</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>2003-02-06</date>
+<!--releaseinfo
+>2.20.00</releaseinfo-->
+
+</articleinfo>
+
+<para
+>Daten-&URL;s ermöglichen die Unterbringung von Dokumentdaten in geringer Größe direkt in der &URL;. Dies ist beim Testen sehr kleiner &HTML;-Dokumente nützlich oder bei anderen Gelegenheiten, die kein separates Dokument erfordern.</para>
+
+<para
+><userinput
+>data:,bla</userinput
+> (Beachten Sie das Komma nach dem Doppelpunkt) übermittelt ein Dokument, das nichts weiter als <literal
+>bla</literal
+> enthält. </para>
+
+<para
+>Das vorige Beispiel hat ein Textdokument übertragen. Bei &HTML;-Dokumenten müssen Sie den &MIME;-Typ <literal
+>text/html</literal
+> angeben: <quote
+><userinput
+>data:text/html,&lt;title&gt;Testcase&lt;/title&gt;&lt;p&gt;This is a testcase&lt;/p&gt;</userinput
+></quote
+>. Sie erhalten hierbei dieselbe Ausgabe, als wäre der Inhalt des Dokuments aus einer Datei geladen worden. </para>
+
+<para
+>Die Angabe alternativer Zeichensätze ist ebenso möglich. Beachten Sie, dass 8-Bit-Zeichen durch ein Prozentzeichen und ihren zweistelligen Hexadezimalcode angegeben werden müssen: <quote
+><userinput
+>data:;charset=iso-8859-1,Gr%FC%DFe aus Schl%E4gl</userinput
+></quote
+> ergibt <quote
+><literal
+>Gr&uuml;&szlig;e aus Schl&auml;gl</literal
+></quote
+>, wohingegen bei Auslassen der Zeichensatzangabe etwas wie <quote
+><literal
+>Gr??e aus Schl?gl</literal
+></quote
+> herauskommen würde. </para>
+
+<para
+><ulink url="https://www.ietf.org/rfc/rfc2397.txt"
+>IETF RFC2397</ulink
+> enthält weitere Informationen.</para>
+
+</article>
+
