@@ -127,7 +127,9 @@ private Q_SLOTS:
         fw.activateWindow();
         QVERIFY(QTest::qWaitForWindowActive(&fw));
 
-        QVERIFY(findLocationLabel(&fw)->hasFocus());
+        QWidget *label = findLocationLabel(&fw);
+        QVERIFY(label);
+        QVERIFY(label->hasFocus());
     }
 
     void testFocusOnLocationEditChangeDir()
@@ -138,7 +140,9 @@ private Q_SLOTS:
         fw.activateWindow();
         QVERIFY(QTest::qWaitForWindowActive(&fw));
 
-        QVERIFY(findLocationLabel(&fw)->hasFocus());
+        QWidget *label = findLocationLabel(&fw);
+        QVERIFY(label);
+        QVERIFY(label->hasFocus());
     }
 
     void testFocusOnLocationEditChangeDir2()
@@ -150,7 +154,9 @@ private Q_SLOTS:
 
         fw.setUrl(QUrl::fromLocalFile(QDir::tempPath()));
 
-        QVERIFY(findLocationLabel(&fw)->hasFocus());
+        QWidget *label = findLocationLabel(&fw);
+        QVERIFY(label);
+        QVERIFY(label->hasFocus());
     }
 
     void testFocusOnDirOps()
@@ -657,7 +663,7 @@ private:
     {
         const QList<QLabel*> labels = parent->findChildren<QLabel*>();
         for (QLabel *label : labels) {
-            if (label->text() == i18n("&Name:"))
+            if (label->text() == i18n("&Name:") || label->text() == i18n("Name:"))
                 return label->buddy();
         }
         Q_ASSERT(false);
