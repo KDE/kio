@@ -180,22 +180,22 @@ void CommandRecorder::slotResult(KJob *job)
 void CommandRecorder::slotCopyingDone(KIO::Job *, const QUrl &from, const QUrl &to, const QDateTime &mtime, bool directory, bool renamed)
 {
     const BasicOperation::Type type = directory ? BasicOperation::Directory : BasicOperation::File;
-    m_cmd.m_opQueue.prepend(BasicOperation(type, renamed, from, to, mtime));
+    m_cmd.m_opQueue.enqueue(BasicOperation(type, renamed, from, to, mtime));
 }
 
 void CommandRecorder::slotCopyingLinkDone(KIO::Job *, const QUrl &from, const QString &target, const QUrl &to)
 {
-    m_cmd.m_opQueue.prepend(BasicOperation(BasicOperation::Link, false, from, to, {}, target));
+    m_cmd.m_opQueue.enqueue(BasicOperation(BasicOperation::Link, false, from, to, {}, target));
 }
 
 void CommandRecorder::slotDirectoryCreated(const QUrl &dir)
 {
-    m_cmd.m_opQueue.prepend(BasicOperation(BasicOperation::Directory, false, QUrl(), dir, {}));
+    m_cmd.m_opQueue.enqueue(BasicOperation(BasicOperation::Directory, false, QUrl{}, dir, {}));
 }
 
 void CommandRecorder::slotBatchRenamingDone(const QUrl &from, const QUrl &to)
 {
-    m_cmd.m_opQueue.prepend(BasicOperation(BasicOperation::Directory, true, from, to, {}));
+    m_cmd.m_opQueue.enqueue(BasicOperation(BasicOperation::Directory, true, from, to, {}));
 }
 
 ////
@@ -336,13 +336,14 @@ void FileUndoManager::undo()
     const CommandType commandType = cmd.m_type;
 
     // Note that m_opQueue is empty for simple operations like Mkdir.
+    auto &opQueue = d->m_current.m_opQueue;
 
     // Let's first ask for confirmation if we need to delete any file (#99898)
     QList<QUrl> itemsToDelete;
-    for (const BasicOperation &op : qAsConst(d->m_current.m_opQueue)) {
-        const BasicOperation::Type type = op.m_type;
+    for (auto it = opQueue.crbegin(); it != opQueue.crend(); ++it) {
+        const BasicOperation &op = *it;
         const auto destination = op.m_dst;
-        if (type == BasicOperation::File && commandType == FileUndoManager::Copy) {
+        if (op.m_type == BasicOperation::File && commandType == FileUndoManager::Copy) {
             if (destination.isLocalFile() && !QFileInfo::exists(destination.toLocalFile())) {
                 continue;
             }
@@ -373,13 +374,9 @@ void FileUndoManager::undo()
     d->m_undoState = MOVINGFILES;
 
     // Let's have a look at the basic operations we need to undo.
-    // While we're at it, collect all links that should be deleted.
 
-    auto &opQueue = d->m_current.m_opQueue;
-    auto it = opQueue.begin();
-    while (it != opQueue.end()) { // don't cache end() here, erase modifies it
-        bool removeBasicOperation = false;
-        BasicOperation::Type type = (*it).m_type;
+    for (auto it = opQueue.rbegin(); it != opQueue.rend(); ++it) {
+        const BasicOperation::Type type = (*it).m_type;
         if (type == BasicOperation::Directory && !(*it).m_renamed) {
             // If any directory has to be created/deleted, we'll start with that
             d->m_undoState = MAKINGDIRS;
@@ -390,19 +387,15 @@ void FileUndoManager::undo()
             // Collect all dirs that have to be deleted
             // from the destination in both cases (copy and move).
             d->m_dirCleanupStack.prepend((*it).m_dst);
-            removeBasicOperation = true;
         } else if (type == BasicOperation::Link) {
             d->m_fileCleanupStack.prepend((*it).m_dst);
-
-            removeBasicOperation = !d->m_current.isMoveCommand();
-        }
-
-        if (removeBasicOperation) {
-            it = opQueue.erase(it);
-        } else {
-            ++it;
         }
     }
+    auto isBasicOperation = [this](const BasicOperation &op) {
+        return (op.m_type == BasicOperation::Directory && !op.m_renamed)
+                || (op.m_type == BasicOperation::Link && !d->m_current.isMoveCommand());
+    };
+    opQueue.erase(std::remove_if(opQueue.begin(), opQueue.end(), isBasicOperation), opQueue.end());
 
     if (commandType == FileUndoManager::Put) {
         d->m_fileCleanupStack.append(d->m_current.m_dst);
@@ -441,7 +434,7 @@ void FileUndoManagerPrivate::slotResult(KJob *job)
         delete m_undoJob;
         stopUndo(false);
     } else if (m_undoState == STATINGFILE) {
-        BasicOperation op = m_current.m_opQueue.last();
+        const BasicOperation op = m_current.m_opQueue.head();
         //qDebug() << "stat result for " << op.m_dst;
         KIO::StatJob *statJob = static_cast<KIO::StatJob *>(job);
         const QDateTime mtime = QDateTime::fromMSecsSinceEpoch(1000 * statJob->statResult().numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME, -1), Qt::UTC);
@@ -513,16 +506,14 @@ void FileUndoManagerPrivate::stepMakingDirectories()
 void FileUndoManagerPrivate::stepMovingFiles()
 {
     if (!m_current.m_opQueue.isEmpty()) {
-        BasicOperation op = m_current.m_opQueue.last();
-        BasicOperation::Type type = op.m_type;
-
+        const BasicOperation op = m_current.m_opQueue.head();
         Q_ASSERT(op.m_valid);
-        if (type == BasicOperation::Directory) {
+        if (op.m_type == BasicOperation::Directory) {
             Q_ASSERT(op.m_renamed);
             //qDebug() << "rename" << op.m_dst << op.m_src;
             m_currentJob = KIO::rename(op.m_dst, op.m_src, KIO::HideProgressInfo);
             m_undoJob->emitMoving(op.m_dst, op.m_src);
-        } else if (type == BasicOperation::Link) {
+        } else if (op.m_type == BasicOperation::Link) {
             //qDebug() << "symlink" << op.m_target << op.m_src;
             m_currentJob = KIO::symlink(op.m_target, op.m_src, KIO::Overwrite | KIO::HideProgressInfo);
         } else if (m_current.m_type == FileUndoManager::Copy) {
@@ -549,7 +540,7 @@ void FileUndoManagerPrivate::stepMovingFiles()
             m_currentJob->setParentJob(m_undoJob);
         }
 
-        m_current.m_opQueue.removeLast();
+        m_current.m_opQueue.dequeue();
         // The above KIO jobs are lowlevel, they don't trigger KDirNotify notification
         // So we need to do it ourselves (but schedule it to the end of the undo, to compress them)
         QUrl url = op.m_dst.adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash);

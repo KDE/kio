@@ -59,7 +59,7 @@ public:
 
     bool m_valid = false;
     FileUndoManager::CommandType m_type;
-    QVector<BasicOperation> m_opQueue; // we prepend() each op, then dequeue from last(), and iterate in that order
+    QQueue<BasicOperation> m_opQueue;
     QList<QUrl> m_src;
     QUrl m_dst;
     quint64 m_serialNumber;
