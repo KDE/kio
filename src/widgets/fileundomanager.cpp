@@ -335,12 +335,11 @@ void FileUndoManager::undo()
     d->m_current = cmd;
     const CommandType commandType = cmd.m_type;
 
-    auto &opStack = d->m_current.m_opQueue;
-    // Note that opStack is empty for simple operations like Mkdir.
+    // Note that m_opQueue is empty for simple operations like Mkdir.
 
     // Let's first ask for confirmation if we need to delete any file (#99898)
     QList<QUrl> itemsToDelete;
-    for (const BasicOperation &op : opStack) {
+    for (const BasicOperation &op : qAsConst(d->m_current.m_opQueue)) {
         const BasicOperation::Type type = op.m_type;
         const auto destination = op.m_dst;
         if (type == BasicOperation::File && commandType == FileUndoManager::Copy) {
@@ -376,8 +375,9 @@ void FileUndoManager::undo()
     // Let's have a look at the basic operations we need to undo.
     // While we're at it, collect all links that should be deleted.
 
-    auto it = opStack.begin();
-    while (it != opStack.end()) { // don't cache end() here, erase modifies it
+    auto &opQueue = d->m_current.m_opQueue;
+    auto it = opQueue.begin();
+    while (it != opQueue.end()) { // don't cache end() here, erase modifies it
         bool removeBasicOperation = false;
         BasicOperation::Type type = (*it).m_type;
         if (type == BasicOperation::Directory && !(*it).m_renamed) {
@@ -398,7 +398,7 @@ void FileUndoManager::undo()
         }
 
         if (removeBasicOperation) {
-            it = opStack.erase(it);
+            it = opQueue.erase(it);
         } else {
             ++it;
         }
