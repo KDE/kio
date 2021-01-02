@@ -518,13 +518,10 @@ void FileUndoManagerPrivate::stepMovingFiles()
 
         Q_ASSERT(op.m_valid);
         if (type == BasicOperation::Directory) {
-            if (op.m_renamed) {
-                //qDebug() << "rename" << op.m_dst << op.m_src;
-                m_currentJob = KIO::rename(op.m_dst, op.m_src, KIO::HideProgressInfo);
-                m_undoJob->emitMoving(op.m_dst, op.m_src);
-            } else {
-                Q_ASSERT(0);    // this should not happen!
-            }
+            Q_ASSERT(op.m_renamed);
+            //qDebug() << "rename" << op.m_dst << op.m_src;
+            m_currentJob = KIO::rename(op.m_dst, op.m_src, KIO::HideProgressInfo);
+            m_undoJob->emitMoving(op.m_dst, op.m_src);
         } else if (type == BasicOperation::Link) {
             //qDebug() << "symlink" << op.m_target << op.m_src;
             m_currentJob = KIO::symlink(op.m_target, op.m_src, KIO::Overwrite | KIO::HideProgressInfo);
