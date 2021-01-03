@@ -59,6 +59,81 @@
 
 using namespace KIO;
 
+/* There are two variations of struct stat:
+ *  - an old-style, with a one-second-accuracy timestamp in fields
+ *    called st_atime, st_mtime, using a struct timeval (which **has**
+ *    a microseconds field, which isn't used consistently), and
+ *  - a new-style, with nanosecond-accuracy timestamps in fields called
+ *    st_atim, st_mtim, .., using a struct timespec .
+ *
+ * This class helps to use either variant, by using SFINAE to
+ * instantiate methods for old-or-new-style.
+ */
+class stat_helpers
+{
+/* A helper: we can feed this a class (a type), but can use SFINAE to
+ * create type expressions that fail.
+ */
+template <class> struct sfinae_true : std::true_type {};
+
+/* Detecting whether struct stat has a field called st_atim;
+ * the first template (overload) has a long parameter so it is a worse
+ * match than the second one for the literal parameter 0.
+ * The second template only exists if the type expression
+ * for the field st_atim is valid; if it **does** exist it is
+ * a better match.
+ */
+template <typename T> static std::false_type has_atim(long);
+template <typename T> static typename sfinae_true<decltype(T::st_atim)>::type has_atim(int);
+
+/* This is the template that does the work of preserving timestamps:
+ * there are two template function specializations, one for false_type
+ * and one for true_type; only one is instantiated depending on the
+ * type returned from the expression has_atim(0) -- which selects
+ * the better of the two overloads, above.
+ */
+template <typename T> static bool p_preserve_timestamp(int fd, struct stat const& buff);
+
+// No st_atim; use the "old-style" fields and corresponding timestamp-setting function.
+template <> bool p_preserve_timestamp<std::false_type>(int fd, struct stat const& buff)
+{
+    struct timeval ut[2];
+    ut[0].tv_sec = buff.st_atime;
+    ut[0].tv_usec = 0;
+    ut[1].tv_sec = buff.st_mtime;
+    ut[1].tv_usec = 0;
+    return ::futimes(fd, ut) == 0;
+}
+
+// Use "new-style" fields and set timestamp to nanosecond accuracy
+template <> bool p_preserve_timestamp<std::true_type>(int fd, struct stat const& buff)
+{
+    // with nano secs precision
+    struct timespec ut[2];
+    ut[0] = buff.st_atim;
+    ut[1] = buff.st_mtim;
+    return ::futimens(fd, ut) == 0;
+};
+
+public:
+    /* Set the access and modification times of open file @p fd from @p buff
+     *
+     * The file @p fd must be open when this function is called
+     * (see futimes(2) and futimesns(2) depending on your system).
+     * The timestamps are taken from the `struct stat` @p buff.
+     * If nanosecond-accuracy timestamps are available (e.g.
+     * st_atim is a struct timespec) then those timestamps are
+     * preserved, otherwise only whole-second-accuracy is used.
+     *
+     * Returns @c true on success (the system call returned 0),
+     * @c false otherwise.
+     */
+    static inline bool preserve_timestamp(int fd, struct stat const& buff)
+    {
+        return p_preserve_timestamp<decltype(has_atim<struct stat>(0))>(fd, buff);
+    }
+};
+
 /* 512 kB */
 #define MAX_IPC_SIZE (1024*512)
 
@@ -887,21 +962,7 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl,
 
     // copy access and modification time
     if (!wasKilled()) {
-    #if defined(Q_OS_LINUX) || defined(Q_OS_FREEBSD)
-        // with nano secs precision
-        struct timespec ut[2];
-        ut[0] = buff_src.st_atim;
-        ut[1] = buff_src.st_mtim;
-        // need to do this with the dest file still opened, or this fails
-        if (::futimens(dest_file.handle(), ut) != 0) {
-    #else
-        struct timeval ut[2];
-        ut[0].tv_sec = buff_src.st_atime;
-        ut[0].tv_usec = 0;
-        ut[1].tv_sec = buff_src.st_mtime;
-        ut[1].tv_usec = 0;
-        if (::futimes(dest_file.handle(), ut) != 0) {
-    #endif
+        if (!stat_helpers::preserve_timestamp(dest_file.handle(), buff_src)) {
             if (tryChangeFileAttr(UTIME, {_dest, qint64(buff_src.st_atime), qint64(buff_src.st_mtime)}, errno)) {
                 qCWarning(KIO_FILE) << "Couldn't preserve access and modification time for" << dest;
             }
