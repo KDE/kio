@@ -27,7 +27,7 @@ void ScopedProcessRunner::slotProcessStarted()
           { QStringLiteral("Slice"), QStringLiteral("app.slice") },
           { QStringLiteral("Description"), m_description },
           { QStringLiteral("SourcePath"), m_desktopFilePath },
-          { QStringLiteral("PIDs"), QVariant::fromValue(QList<uint> { static_cast<quint32>(m_process->pid()) }) } },
+          { QStringLiteral("PIDs"), QVariant::fromValue(QList<uint> { static_cast<uint>(m_process->processId()) }) } },
         {} // aux is currently unused and should be passed as empty array.
     );
 
