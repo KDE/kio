@@ -77,6 +77,7 @@ private Q_SLOTS:
     void statWithInode();
 #ifndef Q_OS_WIN
     void statSymlink();
+    void statTimeResolution();
 #endif
     void mostLocalUrl();
     void mostLocalUrlHttp();

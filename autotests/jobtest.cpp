@@ -1812,6 +1812,50 @@ void JobTest::statSymlink()
     QCOMPARE(kioItem.time(KFileItem::ModificationTime), fileItem.time(KFileItem::ModificationTime));
     QCOMPARE(kioItem.time(KFileItem::AccessTime), fileItem.time(KFileItem::AccessTime));
 }
+
+/* Check that the underlying system, and Qt, support
+ * millisecond timestamp resolution.
+ */
+void JobTest::statTimeResolution()
+{
+    const QString filePath = homeTmpDir() + "statFile";
+    const QDateTime early70sDate = QDateTime::fromMSecsSinceEpoch(107780520123L);
+    const time_t early70sTime = 107780520; // Seconds for January 6 1973, 12:02
+    
+    createTestFile(filePath);
+    
+    QFile dest_file(filePath);
+    QVERIFY(dest_file.open(QIODevice::ReadOnly));
+    #if defined(Q_OS_LINUX) || defined(Q_OS_FREEBSD)
+        // with nano secs precision
+        struct timespec ut[2];
+        ut[0].tv_sec = early70sTime;
+        ut[0].tv_nsec = 123000000L; // 123 ms
+        ut[1] = ut[0];
+        // need to do this with the dest file still opened, or this fails
+        QCOMPARE(::futimens(dest_file.handle(), ut), 0);
+    #else
+        struct timeval ut[2];
+        ut[0].tv_sec = early70sTime;
+        ut[0].tv_usec = 123000;
+        ut[1] = ut[0];
+        QCOMPARE(::futimes(dest_file.handle(), ut), 0);
+    #endif
+    dest_file.close();
+    
+    // Check that the modification time is set with millisecond precision
+    dest_file.setFileName(filePath);
+    QDateTime d = dest_file.fileTime(QFileDevice::FileModificationTime);
+    QCOMPARE(d, early70sDate);
+    QCOMPARE(d.time().msec(), 123);
+    
+    QT_STATBUF buff_dest;
+    QCOMPARE(QT_STAT(filePath.toLocal8Bit().data(), &buff_dest), 0);
+    QCOMPARE(buff_dest.st_mtim.tv_sec, early70sTime);
+    QCOMPARE(buff_dest.st_mtim.tv_nsec, 123000000L);
+    
+    QCOMPARE(QFileInfo(filePath).lastModified(), early70sDate);
+}
 #endif
 
 void JobTest::mostLocalUrl()
@@ -2430,15 +2474,8 @@ void JobTest::overwriteOlderFiles()
             QVERIFY(QFile::exists(srcFile)); // it was copied
             QVERIFY(QFile::exists(srcFile2)); // it was copied
 
-#ifdef Q_OS_FREEBSD
-            QEXPECT_FAIL("", "dest file is missing milliseconds", Continue);
-            // and yet e618d6fd1b5bad005cf1f180496baf02261c7200 was supposed to fix that...
-#endif
             QCOMPARE(QFile(destFile).fileTime(QFileDevice::FileModificationTime),
                      QFile(srcFile).fileTime(QFileDevice::FileModificationTime));
-#ifdef Q_OS_FREEBSD
-            QEXPECT_FAIL("", "dest file is missing milliseconds", Continue);
-#endif
             QCOMPARE(QFile(destFile2).fileTime(QFileDevice::FileModificationTime),
                      QFile(srcFile2).fileTime(QFileDevice::FileModificationTime));
         }

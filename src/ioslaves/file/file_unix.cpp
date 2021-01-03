@@ -887,7 +887,7 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl,
 
     // copy access and modification time
     if (!wasKilled()) {
-    #ifdef Q_OS_LINUX
+    #if defined(Q_OS_LINUX) || defined(Q_OS_FREEBSD)
         // with nano secs precision
         struct timespec ut[2];
         ut[0] = buff_src.st_atim;
