@@ -91,10 +91,10 @@ void SystemdProcessRunner::startProcess()
         this,
         [this](uint jobId, const QDBusObjectPath &jobPath, const QString &unitName, const QString &result) {
             Q_UNUSED(jobId)
-            if (jobPath.path() == m_jobPath && unitName == m_serviceName && result != QStringLiteral("done")) {
+            if (jobPath.path() == m_jobPath && unitName == m_serviceName && result != QLatin1String("done")) {
                 qCWarning(KIO_GUI) << "Failed to launch process as service:" << m_serviceName << ", result " << result;
                 // result=failed is not a fatal error, service is actually created in this case
-                if (result != QStringLiteral("failed")) {
+                if (result != QLatin1String("failed")) {
                     systemdError(result);
                 }
             }
@@ -151,7 +151,7 @@ void SystemdProcessRunner::handleProperties(QDBusPendingCallWatcher *watcher)
         return;
     }
     const auto activeState = properties[QStringLiteral("ActiveState")].toString();
-    if (activeState != QStringLiteral("inactive") && activeState != QStringLiteral("failed")) {
+    if (activeState != QLatin1String("inactive") && activeState != QLatin1String("failed")) {
         return;
     }
     m_exited = true;
