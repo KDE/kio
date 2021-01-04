@@ -1,6 +1,7 @@
 /*
     This file is part of the KDE libraries
     SPDX-FileCopyrightText: 2014, 2020 David Faure <faure@kde.org>
+    SPDX-FileCopyrightText: 2021 David Edmundson <davidedmundson@kde.org>
 
     SPDX-License-Identifier: LGPL-2.0-only OR LGPL-3.0-only OR LicenseRef-KDE-Accepted-LGPL
 */
@@ -27,7 +28,7 @@
 #include <QTemporaryDir>
 #include <QTest>
 
-QTEST_GUILESS_MAIN(ApplicationLauncherJobTest)
+QTEST_MAIN(ApplicationLauncherJobTest)
 
 void ApplicationLauncherJobTest::initTestCase()
 {
@@ -369,6 +370,46 @@ void ApplicationLauncherJobTest::showOpenWithDialog()
 #else
     QSKIP("Test skipped on Windows because the code ends up in QDesktopServices::openUrl");
 #endif
+}
+
+void ApplicationLauncherJobTest::checkStartupId()
+{
+    static bool isX11 = QGuiApplication::platformName() == QLatin1String("xcb");
+    if (!isX11) {
+        QSKIP("Startup IDs are X11 only. Cannot perform test.");
+    }
+
+    QVERIFY(!qEnvironmentVariableIsSet("DESKTOP_STARTUP_ID"));
+
+    const QString fileName = "KRunUnittestServiceEnvTest";
+    const QString filePath = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/kservices5/") + fileName;
+
+    QTemporaryDir tempDir;
+    const QString outFile = tempDir.path() + "/envOut";
+
+    m_filesToRemove.append(filePath);
+
+    KDesktopFile file(filePath);
+    KConfigGroup group = file.desktopGroup();
+    group.writeEntry("Name", "KRunUnittestService");
+    group.writeEntry("Type", "Service");
+    group.writeEntry("StartupNotify", true);
+    const QString execLine = QStringLiteral("%1 %2").arg(QFINDTESTDATA("dumpenv.sh") , outFile);
+    group.writeEntry("Exec", execLine);
+    file.sync();
+
+    KService::Ptr service(new KService(filePath));
+    QVERIFY(service);
+    KIO::ApplicationLauncherJob *job = new KIO::ApplicationLauncherJob(service, this);
+    QVERIFY(job->exec());
+
+    // job->exec being complete means the process has started, not necessarily that it finished, hence QTRY_
+    QTRY_VERIFY(QFile::exists(outFile));
+
+    // env is written out in the format Foo=BAR, we can treat it like an ini file
+    KConfig env(outFile, KConfig::SimpleConfig);
+
+    QVERIFY(!env.group("").readEntry("DESKTOP_STARTUP_ID", QString()).isEmpty());
 }
 
 void ApplicationLauncherJobTest::writeTempServiceDesktopFile(const QString &filePath)
