@@ -146,8 +146,8 @@ void SystemdProcessRunner::handleProperties(QDBusPendingCallWatcher *watcher)
         return;
     }
     const auto properties = reply.argumentAt<0>();
-    setPid(properties[QStringLiteral("ExecMainPID")].value<quint32>());
     if (!m_pid) {
+        setPid(properties[QStringLiteral("ExecMainPID")].value<quint32>());
         return;
     }
     const auto activeState = properties[QStringLiteral("ActiveState")].toString();
