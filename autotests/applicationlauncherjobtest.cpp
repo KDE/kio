@@ -385,16 +385,20 @@ void ApplicationLauncherJobTest::checkStartupId()
     const QString filePath = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/kservices5/") + fileName;
 
     QTemporaryDir tempDir;
+    const QString scriptFile = tempDir.path() + "dumpenv.sh";
     const QString outFile = tempDir.path() + "/envOut";
 
     m_filesToRemove.append(filePath);
+
+    QVERIFY(QFile::copy(QFINDTESTDATA("dumpenv.sh"), scriptFile));
+    QVERIFY(QFile::setPermissions(scriptFile, QFileDevice::ReadOwner | QFileDevice::ExeOwner));
 
     KDesktopFile file(filePath);
     KConfigGroup group = file.desktopGroup();
     group.writeEntry("Name", "KRunUnittestService");
     group.writeEntry("Type", "Service");
     group.writeEntry("StartupNotify", true);
-    const QString execLine = QStringLiteral("%1 %2").arg(QFINDTESTDATA("dumpenv.sh") , outFile);
+    const QString execLine = QStringLiteral("%1 %2").arg(scriptFile, outFile);
     group.writeEntry("Exec", execLine);
     file.sync();
 
