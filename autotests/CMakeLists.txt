@@ -36,8 +36,6 @@ ecm_add_tests(
  mkpathjobtest.cpp
  threadtest.cpp
  udsentrytest.cpp
- udsentry_benchmark.cpp
- kcoredirlister_benchmark.cpp
  deletejobtest.cpp
  urlutiltest.cpp
  batchrenamejobtest.cpp
@@ -222,3 +220,13 @@ endif()
 if(CMAKE_CXX_COMPILER_ID STREQUAL "Clang" OR CMAKE_CXX_COMPILER_ID STREQUAL "GNU" AND Qt5Core_VERSION VERSION_GREATER 5.8.0)
     set_property(TARGET jobtest APPEND PROPERTY AUTOMOC_MOC_OPTIONS --include ${CMAKE_BINARY_DIR}/src/core/moc_predefs.h)
 endif()
+
+# Benchmarks, compiled (so as not to bit-rot), but not run automatically with `ctest` or `make test`
+add_executable(kcoredirlister_benchmark kcoredirlister_benchmark.cpp)
+target_link_libraries(kcoredirlister_benchmark KF5::KIOCore KF5::KIOWidgets Qt5::Test)
+
+add_executable(udsentry_api_comparison_benchmark udsentry_api_comparison_benchmark.cpp)
+target_link_libraries(udsentry_api_comparison_benchmark KF5::KIOCore KF5::KIOWidgets Qt5::Test)
+
+add_executable(udsentry_benchmark udsentry_benchmark.cpp)
+target_link_libraries(udsentry_benchmark KF5::KIOCore KF5::KIOWidgets Qt5::Test)

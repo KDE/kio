@@ -41,7 +41,6 @@ KIOWIDGETS_EXECUTABLE_TESTS(
   listrecursivetest
   kionetrctest
   ksycocaupdatetest
-  udsentrybenchmark
   kurlnavigatortest_gui
   kprotocolinfo_dumper
   kfilewidgettest_gui
