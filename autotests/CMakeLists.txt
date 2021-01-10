@@ -221,7 +221,7 @@ if(CMAKE_CXX_COMPILER_ID STREQUAL "Clang" OR CMAKE_CXX_COMPILER_ID STREQUAL "GNU
     set_property(TARGET jobtest APPEND PROPERTY AUTOMOC_MOC_OPTIONS --include ${CMAKE_BINARY_DIR}/src/core/moc_predefs.h)
 endif()
 
-# Benchmarks, compiled (so as not to bit-rot), but not run automatically with `ctest` or `make test`
+# Benchmark, compiled, but not run automatically with ctest
 add_executable(kcoredirlister_benchmark kcoredirlister_benchmark.cpp)
 target_link_libraries(kcoredirlister_benchmark KF5::KIOCore KF5::KIOWidgets Qt5::Test)
 
