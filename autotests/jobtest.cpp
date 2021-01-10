@@ -1821,9 +1821,9 @@ void JobTest::statTimeResolution()
     const QString filePath = homeTmpDir() + "statFile";
     const QDateTime early70sDate = QDateTime::fromMSecsSinceEpoch(107780520123L);
     const time_t early70sTime = 107780520; // Seconds for January 6 1973, 12:02
-    
+
     createTestFile(filePath);
-    
+
     QFile dest_file(filePath);
     QVERIFY(dest_file.open(QIODevice::ReadOnly));
     #if defined(Q_OS_LINUX) || defined(Q_OS_FREEBSD)
@@ -1842,18 +1842,20 @@ void JobTest::statTimeResolution()
         QCOMPARE(::futimes(dest_file.handle(), ut), 0);
     #endif
     dest_file.close();
-    
+
     // Check that the modification time is set with millisecond precision
     dest_file.setFileName(filePath);
     QDateTime d = dest_file.fileTime(QFileDevice::FileModificationTime);
     QCOMPARE(d, early70sDate);
     QCOMPARE(d.time().msec(), 123);
-    
-    QT_STATBUF buff_dest;
-    QCOMPARE(QT_STAT(filePath.toLocal8Bit().data(), &buff_dest), 0);
-    QCOMPARE(buff_dest.st_mtim.tv_sec, early70sTime);
-    QCOMPARE(buff_dest.st_mtim.tv_nsec, 123000000L);
-    
+
+    #if defined(Q_OS_LINUX) || defined(Q_OS_FREEBSD)
+        QT_STATBUF buff_dest;
+        QCOMPARE(QT_STAT(filePath.toLocal8Bit().data(), &buff_dest), 0);
+        QCOMPARE(buff_dest.st_mtim.tv_sec, early70sTime);
+        QCOMPARE(buff_dest.st_mtim.tv_nsec, 123000000L);
+    #endif
+
     QCOMPARE(QFileInfo(filePath).lastModified(), early70sDate);
 }
 #endif
