@@ -55,11 +55,6 @@ KIO::PasteDialog::PasteDialog(const QString &caption, const QString &label,
     connect(buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
     topLayout->addWidget(buttonBox);
 
-    //connect( m_lineEdit, SIGNAL(textChanged(QString)),
-    //    SLOT(slotEditTextChanged(QString)) );
-    //connect( this, SIGNAL(user1Clicked()), m_lineEdit, SLOT(clear()) );
-
-    //slotEditTextChanged( value );
     setMinimumWidth(350);
 
     m_clipboardChanged = false;

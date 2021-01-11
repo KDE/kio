@@ -32,13 +32,13 @@ class MyDirLister : public KDirLister, GlobalInits
 public:
     MyDirLister()
         : spyStarted(this, &KCoreDirLister::started),
-          spyClear(this, SIGNAL(clear())),
-          spyClearQUrl(this, SIGNAL(clear(QUrl))),
-          spyCompleted(this, SIGNAL(completed())),
-          spyCompletedQUrl(this, SIGNAL(completed(QUrl))),
-          spyCanceled(this, SIGNAL(canceled())),
-          spyCanceledQUrl(this, SIGNAL(canceled(QUrl))),
-          spyRedirection(this, SIGNAL(redirection(QUrl))),
+          spyClear(this, QOverload<>::of(&KCoreDirLister::clear)),
+          spyClearQUrl(this, QOverload<const QUrl &>::of(&KCoreDirLister::clear)),
+          spyCompleted(this, QOverload<>::of(&KCoreDirLister::completed)),
+          spyCompletedQUrl(this, QOverload<const QUrl &>::of(&KCoreDirLister::completed)),
+          spyCanceled(this, QOverload<>::of(&KCoreDirLister::canceled)),
+          spyCanceledQUrl(this, QOverload<const QUrl &>::of(&KCoreDirLister::canceled)),
+          spyRedirection(this, QOverload<const QUrl &>::of(&KCoreDirLister::redirection)),
           spyItemsDeleted(this, &KCoreDirLister::itemsDeleted)
     {}
 

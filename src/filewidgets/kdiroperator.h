@@ -73,14 +73,10 @@ class KDirOperatorPrivate;
  * \code
  *   KDirOperator *op = new KDirOperator(QUrl("file:///home/gis"), this);
  *   // some signals you might be interested in
- *   connect(op, SIGNAL(urlEntered(const QUrl&)),
- *           SLOT(urlEntered(const QUrl&)));
- *   connect(op, SIGNAL(fileHighlighted(const KFileItem &)),
- *           SLOT(fileHighlighted(const KFileItem &)));
- *   connect(op, SIGNAL(fileSelected(const KFileItem &)),
- *           SLOT(fileSelected(const KFileItem &)));
- *   connect(op, SIGNAL(finishedLoading()),
- *           SLOT(slotLoadingFinished()));
+ *   connect(op, &KDirOperator::urlEntered, this, [this](const QUrl &url) { slotUrlEntered(url); });
+ *   connect(op, &KDirOperator::fileHighlighted, this, [this](const KFileItem &item) { slotFileHighlighted(item) });
+ *   connect(op, &KDirOperator::fileSelected, this, [this](const KFileItem &item) { slotFileSelected(item) });
+ *   connect(op, &KDirOperator::finishedLoading, this, [this]() { slotLoadingFinished(); };
  *
  *   KConfigGroup grp(KSharedConfig::openConfig(),"Your KDiroperator ConfigGroup" );
  *   op->readConfig( &grp);

@@ -65,8 +65,8 @@ void KUrlRequesterDialogPrivate::initDialog(const QString &text, const QUrl &url
     urlRequester->setMinimumWidth(urlRequester->sizeHint().width() * 3);
     topLayout->addWidget(urlRequester);
     urlRequester->setFocus();
-    QObject::connect(urlRequester->lineEdit(), SIGNAL(textChanged(QString)),
-                     q, SLOT(_k_slotTextChanged(QString)));
+    QObject::connect(urlRequester->lineEdit(), &KLineEdit::textChanged,
+                     q, [this](const QString &text) { _k_slotTextChanged(text); });
     /*
     KFile::Mode mode = static_cast<KFile::Mode>( KFile::File |
             KFile::ExistingOnly );

@@ -1279,13 +1279,10 @@ void KUrlCompletionPrivate::_k_slotIOFinished(KJob *job)
 
         assert(list_job);
 
-        q->connect(list_job,
-                   SIGNAL(result(KJob*)),
-                   SLOT(_k_slotIOFinished(KJob*)));
+        q->connect(list_job, &KJob::result, q, [this](KJob *job) { _k_slotIOFinished(job); });
 
-        q->connect(list_job,
-                   SIGNAL(entries(KIO::Job*,KIO::UDSEntryList)),
-                   SLOT(_k_slotEntries(KIO::Job*,KIO::UDSEntryList)));
+        q->connect(list_job, &KIO::ListJob::entries,
+                   q, [this](KIO::Job *job, const KIO::UDSEntryList &list) { _k_slotEntries(job, list); });
     }
 }
 

@@ -710,7 +710,7 @@ void KOpenWithDialogPrivate::init(const QString &_text, const QString &_value)
     }
 
     QObject::connect(edit, &KUrlRequester::textChanged, q, &KOpenWithDialog::slotTextChanged);
-    QObject::connect(edit, SIGNAL(urlSelected(QUrl)), q, SLOT(_k_slotFileSelected()));
+    QObject::connect(edit, &KUrlRequester::urlSelected, q, [this]() { _k_slotFileSelected(); });
 
     view = new KApplicationView(q);
     QTreeViewProxyFilter *proxyModel = new QTreeViewProxyFilter(view);
@@ -723,12 +723,9 @@ void KOpenWithDialogPrivate::init(const QString &_text, const QString &_value)
     topLayout->addWidget(view);
     topLayout->setStretchFactor(view, 1);
 
-    QObject::connect(view, &KApplicationView::selected,
-                     q, &KOpenWithDialog::slotSelected);
-    QObject::connect(view, &KApplicationView::highlighted,
-                     q, &KOpenWithDialog::slotHighlighted);
-    QObject::connect(view, SIGNAL(doubleClicked(QModelIndex)),
-                     q, SLOT(_k_slotDbClick()));
+    QObject::connect(view, &KApplicationView::selected, q, &KOpenWithDialog::slotSelected);
+    QObject::connect(view, &KApplicationView::highlighted, q, &KOpenWithDialog::slotHighlighted);
+    QObject::connect(view, &KApplicationView::doubleClicked, q, [this]() { _k_slotDbClick(); });
 
     if (!qMimeType.isNull()) {
         remember = new QCheckBox(i18n("&Remember application association for all files of type\n\"%1\" (%2)", qMimeTypeComment, qMimeType));

@@ -44,8 +44,8 @@ KStatusBarOfflineIndicator::KStatusBarOfflineIndicator(QWidget *parent)
     label->setToolTip(i18n("The desktop is offline"));
     layout->addWidget(label);
     d->initialize();
-    connect(d->networkConfiguration, SIGNAL(onlineStateChanged(bool)),
-            SLOT(_k_networkStatusChanged(bool)));
+    connect(d->networkConfiguration, &QNetworkConfigurationManager::onlineStateChanged,
+            this, [this](bool isOnline) { d->_k_networkStatusChanged(isOnline); });
 }
 
 KStatusBarOfflineIndicator::~KStatusBarOfflineIndicator()

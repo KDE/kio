@@ -158,8 +158,7 @@ KNFSShare::KNFSShare()
 {
     if (!d->exportsFile.isEmpty() && QFileInfo::exists(d->exportsFile)) {
         KDirWatch::self()->addFile(d->exportsFile);
-        connect(KDirWatch::self(), SIGNAL(dirty(QString)), this,
-                SLOT(_k_slotFileChange(QString)));
+        connect(KDirWatch::self(), &KDirWatch::dirty, this, [this](const QString &path) { d->_k_slotFileChange(path); });
     }
 }
 

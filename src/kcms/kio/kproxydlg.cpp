@@ -207,19 +207,11 @@ KProxyDialog::KProxyDialog(QWidget* parent, const QVariantList& args)
     mUi.manualProxySocksEdit->setValidator(v);
     mUi.manualNoProxyEdit->setValidator(v);
 
-#if defined(Q_OS_LINUX) || defined (Q_OS_UNIX)
-    connect(mUi.systemProxyRadioButton, &QAbstractButton::toggled, mUi.systemProxyGroupBox, &QWidget::setVisible);
-#else
-    mUi.autoDetectButton->setVisible(false);
-    connect(mUi.systemProxyRadioButton, SIGNAL(clicked()), SLOT(slotChanged()));
-#endif
-
-    // signals and slots connections
+    // Signals and slots connections
     connect(mUi.noProxyRadioButton, &QAbstractButton::clicked, this, &KProxyDialog::slotChanged);
     connect(mUi.autoDiscoverProxyRadioButton, &QAbstractButton::clicked, this, &KProxyDialog::slotChanged);
     connect(mUi.autoScriptProxyRadioButton, &QAbstractButton::clicked, this, &KProxyDialog::slotChanged);
     connect(mUi.manualProxyRadioButton, &QAbstractButton::clicked, this, &KProxyDialog::slotChanged);
-    connect(mUi.systemProxyRadioButton, &QAbstractButton::clicked, this, &KProxyDialog::slotChanged);
     connect(mUi.noProxyRadioButton, &QAbstractButton::clicked, this, &KProxyDialog::slotChanged);
     connect(mUi.useReverseProxyCheckBox, &QAbstractButton::clicked, this, &KProxyDialog::slotChanged);
     connect(mUi.useSameProxyCheckBox, &QAbstractButton::clicked, this, &KProxyDialog::slotChanged);
@@ -242,6 +234,13 @@ KProxyDialog::KProxyDialog(QWidget* parent, const QVariantList& args)
     connect(mUi.systemProxyFtpEdit, &QLineEdit::textEdited, this, &KProxyDialog::slotChanged);
     connect(mUi.systemProxySocksEdit, &QLineEdit::textEdited, this, &KProxyDialog::slotChanged);
     connect(mUi.systemNoProxyEdit, &QLineEdit::textEdited, this, &KProxyDialog::slotChanged);
+
+#if defined(Q_OS_LINUX) || defined (Q_OS_UNIX)
+    connect(mUi.systemProxyRadioButton, &QAbstractButton::toggled, mUi.systemProxyGroupBox, &QWidget::setVisible);
+#else
+    mUi.autoDetectButton->setVisible(false);
+#endif
+    connect(mUi.systemProxyRadioButton, &QAbstractButton::clicked, this, &KProxyDialog::slotChanged);
 }
 
 KProxyDialog::~KProxyDialog()

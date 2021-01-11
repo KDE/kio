@@ -76,8 +76,8 @@ KImageFilePreview::KImageFilePreview(QWidget *parent)
     setSupportedMimeTypes(KIO::PreviewJob::supportedMimeTypes());
     setMinimumWidth(50);
 
-    connect(d->m_timeLine, SIGNAL(frameChanged(int)), this, SLOT(_k_slotStepAnimation(int)));
-    connect(d->m_timeLine, SIGNAL(finished()), this, SLOT(_k_slotFinished()));
+    connect(d->m_timeLine, &QTimeLine::frameChanged, this, [this](int value) { d->_k_slotStepAnimation(value); });
+    connect(d->m_timeLine, &QTimeLine::finished, this, [this]() { d->_k_slotFinished(); });
 }
 
 KImageFilePreview::~KImageFilePreview()
@@ -119,13 +119,7 @@ void KImageFilePreview::showPreview(const QUrl &url, bool force)
     int h = d->imageLabel->contentsRect().height() - 4;
 
     if (d->m_job) {
-        disconnect(d->m_job, SIGNAL(result(KJob*)),
-                   this, SLOT(_k_slotResult(KJob*)));
-        disconnect(d->m_job, &KIO::PreviewJob::gotPreview,
-                   this, &KImageFilePreview::gotPreview);
-
-        disconnect(d->m_job, SIGNAL(failed(KFileItem)),
-                   this, SLOT(_k_slotFailed(KFileItem)));
+        disconnect(d->m_job, nullptr, this, nullptr);
 
         d->m_job->kill();
     }
@@ -135,13 +129,9 @@ void KImageFilePreview::showPreview(const QUrl &url, bool force)
         d->m_job->setIgnoreMaximumSize(true);
     }
 
-    connect(d->m_job, SIGNAL(result(KJob*)),
-            this, SLOT(_k_slotResult(KJob*)));
-    connect(d->m_job, &KIO::PreviewJob::gotPreview,
-            this, &KImageFilePreview::gotPreview);
-
-    connect(d->m_job, SIGNAL(failed(KFileItem)),
-            this, SLOT(_k_slotFailed(KFileItem)));
+    connect(d->m_job, &KJob::result, this, [this](KJob *job) { d->_k_slotResult(job); });
+    connect(d->m_job, &KIO::PreviewJob::gotPreview, this, &KImageFilePreview::gotPreview);
+    connect(d->m_job, &KIO::PreviewJob::failed, this, [this](const KFileItem &item) { d->_k_slotFailed(item); });
 }
 
 void KImageFilePreview::resizeEvent(QResizeEvent *)

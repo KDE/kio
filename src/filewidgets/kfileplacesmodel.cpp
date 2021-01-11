@@ -483,13 +483,11 @@ KFilePlacesModel::KFilePlacesModel(const QString &alternativeApplicationName, QO
 
     Q_ASSERT(d->predicate.isValid());
 
-    connect(d->bookmarkManager, SIGNAL(changed(QString,QString)),
-            this, SLOT(_k_reloadBookmarks()));
-    connect(d->bookmarkManager, SIGNAL(bookmarksChanged(QString)),
-            this, SLOT(_k_reloadBookmarks()));
+    connect(d->bookmarkManager, &KBookmarkManager::changed, this, [this]() { d->_k_reloadBookmarks(); });
+    connect(d->bookmarkManager, &KBookmarkManager::bookmarksChanged, this, [this]() { d->_k_reloadBookmarks(); });
 
     d->_k_reloadBookmarks();
-    QTimer::singleShot(0, this, SLOT(_k_initDeviceList()));
+    QTimer::singleShot(0, this, [this]() { d->_k_initDeviceList(); });
 }
 
 KFilePlacesModel::KFilePlacesModel(QObject *parent)
@@ -694,10 +692,8 @@ void KFilePlacesModel::Private::_k_initDeviceList()
 {
     Solid::DeviceNotifier *notifier = Solid::DeviceNotifier::instance();
 
-    connect(notifier, SIGNAL(deviceAdded(QString)),
-            q, SLOT(_k_deviceAdded(QString)));
-    connect(notifier, SIGNAL(deviceRemoved(QString)),
-            q, SLOT(_k_deviceRemoved(QString)));
+    connect(notifier, &Solid::DeviceNotifier::deviceAdded, q, [this](const QString &device) { _k_deviceAdded(device); });
+    connect(notifier, &Solid::DeviceNotifier::deviceRemoved, q, [this](const QString &device) { _k_deviceRemoved(device); });
 
     const QList<Solid::Device> &deviceList = Solid::Device::listFromQuery(predicate);
 
@@ -862,8 +858,8 @@ QList<KFilePlacesItem *> KFilePlacesModel::Private::loadBookmarkList()
                 }
 
                 if (item) {
-                    connect(item, SIGNAL(itemChanged(QString)),
-                            q, SLOT(_k_itemChanged(QString)));
+                    connect(item, &KFilePlacesItem::itemChanged,
+                            q, [this](const QString &id) { _k_itemChanged(id); });
 
                     items << item;
                 }
@@ -873,8 +869,8 @@ QList<KFilePlacesItem *> KFilePlacesModel::Private::loadBookmarkList()
                     tagsList.removeAll(tag);
                     KFilePlacesItem *item = new KFilePlacesItem(bookmarkManager, bookmark.address());
                     items << item;
-                    connect(item, SIGNAL(itemChanged(QString)),
-                                q, SLOT(_k_itemChanged(QString)));
+                    connect(item, &KFilePlacesItem::itemChanged,
+                            q, [this](const QString &id) { _k_itemChanged(id); });
                 }
             }
         }
@@ -888,8 +884,8 @@ QList<KFilePlacesItem *> KFilePlacesModel::Private::loadBookmarkList()
         if (!bookmark.isNull()) {
             KFilePlacesItem *item = new KFilePlacesItem(bookmarkManager,
                     bookmark.address(), udi);
-            connect(item, SIGNAL(itemChanged(QString)),
-                    q, SLOT(_k_itemChanged(QString)));
+            connect(item, &KFilePlacesItem::itemChanged,
+                    q, [this](const QString &id) { _k_itemChanged(id); });
             // TODO: Update bookmark internal element
             items << item;
         }
@@ -900,8 +896,8 @@ QList<KFilePlacesItem *> KFilePlacesModel::Private::loadBookmarkList()
         if (!bookmark.isNull()) {
             KFilePlacesItem *item = new KFilePlacesItem(bookmarkManager,
                     bookmark.address(), tag);
-            connect(item, SIGNAL(itemChanged(QString)),
-                    q, SLOT(_k_itemChanged(QString)));
+            connect(item, &KFilePlacesItem::itemChanged,
+                    q, [this](const QString &id) { _k_itemChanged(id); });
             items << item;
         }
     }
@@ -1392,8 +1388,10 @@ void KFilePlacesModel::requestTeardown(const QModelIndex &index)
     Solid::StorageAccess *access = device.as<Solid::StorageAccess>();
 
     if (access != nullptr) {
-        connect(access, SIGNAL(teardownDone(Solid::ErrorType,QVariant,QString)),
-                this, SLOT(_k_storageTeardownDone(Solid::ErrorType,QVariant)));
+        connect(access, &Solid::StorageAccess::teardownDone,
+                this, [this](Solid::ErrorType error, QVariant errorData) {
+            d->_k_storageTeardownDone(error, errorData);
+        });
 
         access->teardown();
     }
@@ -1406,8 +1404,10 @@ void KFilePlacesModel::requestEject(const QModelIndex &index)
     Solid::OpticalDrive *drive = device.parent().as<Solid::OpticalDrive>();
 
     if (drive != nullptr) {
-        connect(drive, SIGNAL(ejectDone(Solid::ErrorType,QVariant,QString)),
-                this, SLOT(_k_storageTeardownDone(Solid::ErrorType,QVariant)));
+        connect(drive, &Solid::OpticalDrive::ejectDone,
+                this, [this](Solid::ErrorType error, QVariant errorData) {
+            d->_k_storageTeardownDone(error, errorData);
+        });
 
         drive->eject();
     } else {
@@ -1429,8 +1429,10 @@ void KFilePlacesModel::requestSetup(const QModelIndex &index)
 
         d->setupInProgress[access] = index;
 
-        connect(access, SIGNAL(setupDone(Solid::ErrorType,QVariant,QString)),
-                this, SLOT(_k_storageSetupDone(Solid::ErrorType,QVariant)));
+        connect(access, &Solid::StorageAccess::setupDone,
+                this, [this](Solid::ErrorType error, QVariant errorData) {
+            d->_k_storageSetupDone(error, errorData);
+        });
 
         access->setup();
     }

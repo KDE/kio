@@ -279,6 +279,7 @@ public:
     bool m_closedBeforeStart;
     TransferJob *m_subJob;
     QPointer<QIODevice> m_outgoingDataSource;
+    QMetaObject::Connection m_readChannelFinishedConnection;
 
     /**
      * Flow control. Suspend data processing from the slave.

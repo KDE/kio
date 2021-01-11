@@ -25,8 +25,8 @@ TransferJob::TransferJob(TransferJobPrivate &dd)
     }
 
     if (d->m_outgoingDataSource) {
-        connect(d->m_outgoingDataSource, SIGNAL(readChannelFinished()),
-                SLOT(slotIODeviceClosedBeforeStart()));
+        d->m_readChannelFinishedConnection = connect(d->m_outgoingDataSource, &QIODevice::readChannelFinished,
+                                            this, [this]() { d_func()->slotIODeviceClosedBeforeStart(); });
     }
 
 }
@@ -309,12 +309,10 @@ void TransferJobPrivate::start(Slave *slave)
             q->connect(m_outgoingDataSource, &QIODevice::readyRead, q, [this]() {
                 slotDataReqFromDevice();
             });
-            q->connect(m_outgoingDataSource, SIGNAL(readChannelFinished()),
-                    SLOT(slotIODeviceClosed()));
+            q->connect(m_outgoingDataSource, &QIODevice::readChannelFinished, q, [this]() { slotIODeviceClosed(); });
             // We don't really need to disconnect since we're never checking
             // m_closedBeforeStart again but it's the proper thing to do logically
-            QObject::disconnect(m_outgoingDataSource, SIGNAL(readChannelFinished()),
-                                q, SLOT(slotIODeviceClosedBeforeStart()));
+            QObject::disconnect(m_readChannelFinishedConnection);
             if (m_closedBeforeStart) {
                 QMetaObject::invokeMethod(q, "slotIODeviceClosed", Qt::QueuedConnection);
             } else if (m_outgoingDataSource->bytesAvailable() > 0) {

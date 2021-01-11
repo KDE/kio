@@ -54,8 +54,8 @@ KNameAndUrlInputDialog::KNameAndUrlInputDialog(const QString &nameLabel, const Q
     d->m_leName = new QLineEdit(this);
     d->m_leName->setMinimumWidth(d->m_leName->sizeHint().width() * 3);
     d->m_leName->setSelection(0, d->m_leName->text().length()); // autoselect
-    connect(d->m_leName, SIGNAL(textChanged(QString)),
-            SLOT(_k_slotNameTextChanged(QString)));
+    connect(d->m_leName, &QLineEdit::textChanged,
+            this, [this](const QString &text) { d->_k_slotNameTextChanged(text); });
     formLayout->addRow(nameLabel, d->m_leName);
 
     // Second line: url
@@ -64,8 +64,8 @@ KNameAndUrlInputDialog::KNameAndUrlInputDialog(const QString &nameLabel, const Q
     d->m_urlRequester->setMode(KFile::File | KFile::Directory);
 
     d->m_urlRequester->setMinimumWidth(d->m_urlRequester->sizeHint().width() * 3);
-    connect(d->m_urlRequester->lineEdit(), SIGNAL(textChanged(QString)),
-            SLOT(_k_slotURLTextChanged(QString)));
+    connect(d->m_urlRequester->lineEdit(), &QLineEdit::textChanged,
+            this, [this](const QString &text) { d->_k_slotURLTextChanged(text); });
     formLayout->addRow(urlLabel, d->m_urlRequester);
 
     topLayout->addLayout(formLayout);

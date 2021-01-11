@@ -61,10 +61,8 @@ KACLEditWidget::KACLEditWidget(QWidget *parent)
     hbox->setContentsMargins(0, 0, 0, 0);
     d->m_listView = new KACLListView(this);
     hbox->addWidget(d->m_listView);
-    connect(d->m_listView->selectionModel(),
-            SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
-            this,
-            SLOT(_k_slotUpdateButtons()));
+    connect(d->m_listView->selectionModel(), &QItemSelectionModel::selectionChanged,
+            this, [this]() { d->_k_slotUpdateButtons(); });
     QVBoxLayout *vbox = new QVBoxLayout();
     hbox->addLayout(vbox);
     d->m_AddBtn = new QPushButton(i18n("Add Entry..."), this);

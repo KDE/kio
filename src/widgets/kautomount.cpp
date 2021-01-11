@@ -46,7 +46,7 @@ KAutoMount::KAutoMount(bool _readonly, const QByteArray &_format, const QString 
     : d(new KAutoMountPrivate(this, _device, _mountpoint, _desktopFile, _show_filemanager_window))
 {
     KIO::Job *job = KIO::mount(_readonly, _format, _device, _mountpoint);
-    connect(job, SIGNAL(result(KJob*)), this, SLOT(slotResult(KJob*)));
+    connect(job, &KJob::result, this, [this, job]() { d->slotResult(job); });
 }
 
 KAutoMount::~KAutoMount()
@@ -113,7 +113,7 @@ KAutoUnmount::KAutoUnmount(const QString &_mountpoint, const QString &_desktopFi
     : d(new KAutoUnmountPrivate(this, _mountpoint, _desktopFile))
 {
     KIO::Job *job = KIO::unmount(d->m_mountpoint);
-    connect(job, SIGNAL(result(KJob*)), this, SLOT(slotResult(KJob*)));
+    connect(job, &KJob::result, this, [this, job]() { d->slotResult(job); });
 }
 
 void KAutoUnmountPrivate::slotResult(KJob *job)

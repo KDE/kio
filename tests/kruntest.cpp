@@ -49,9 +49,9 @@ static const struct {
 Receiver::Receiver()
 {
     QVBoxLayout *lay = new QVBoxLayout(this);
-    QPushButton *h = new QPushButton(QStringLiteral("Press here to terminate"), this);
-    lay->addWidget(h);
-    connect(h, SIGNAL(clicked()), qApp, SLOT(quit()));
+    QPushButton *btn = new QPushButton(QStringLiteral("Press here to terminate"), this);
+    lay->addWidget(btn);
+    connect(btn, &QPushButton::clicked, qApp, &QApplication::quit);
 
     start = new QPushButton(QStringLiteral("Launch OpenUrlJobs"), this);
     lay->addWidget(start);

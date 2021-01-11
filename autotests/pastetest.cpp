@@ -188,8 +188,8 @@ void KIOPasteTest::testPasteJob()
     QTemporaryDir destTempDir;
     QVERIFY(destTempDir.isValid());
     const QString destDir = destTempDir.path();
-    KIO::Job *job = KIO::paste(&mimeData, QUrl::fromLocalFile(destDir), KIO::HideProgressInfo);
-    QSignalSpy spy(job, SIGNAL(itemCreated(QUrl)));
+    KIO::PasteJob *job = KIO::paste(&mimeData, QUrl::fromLocalFile(destDir), KIO::HideProgressInfo);
+    QSignalSpy spy(job, &KIO::PasteJob::itemCreated);
     QVERIFY(spy.isValid());
     job->setUiDelegate(nullptr);
     const bool expectedSuccess = !expectedFileName.isEmpty();

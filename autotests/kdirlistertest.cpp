@@ -917,7 +917,7 @@ void KDirListerTest::testBug211472()
     connect(&dirLister, &KCoreDirLister::newItems, this, &KDirListerTest::slotNewItems);
 
     dirLister.openUrl(QUrl::fromLocalFile(path));
-    QSignalSpy spyCompleted(&dirLister, SIGNAL(completed()));
+    QSignalSpy spyCompleted(&dirLister, QOverload<>::of(&KCoreDirLister::completed));
     QVERIFY(spyCompleted.wait(1000));
     QVERIFY(dirLister.isFinished());
     QVERIFY(m_items.isEmpty());
@@ -960,7 +960,7 @@ void KDirListerTest::testBug211472()
     QTRY_COMPARE(m_items.count(), 1);
 
     newDir.remove();
-    QSignalSpy spyClear(&dirLister, SIGNAL(clear()));
+    QSignalSpy spyClear(&dirLister, QOverload<>::of(&KCoreDirLister::clear));
     QVERIFY(spyClear.wait(1000));
 }
 
@@ -974,7 +974,7 @@ void KDirListerTest::testRenameCurrentDir() // #294445
     connect(&secondDirLister, &KCoreDirLister::newItems, this, &KDirListerTest::slotNewItems);
 
     secondDirLister.openUrl(QUrl::fromLocalFile(path));
-    QSignalSpy spyCompleted(&secondDirLister, SIGNAL(completed()));
+    QSignalSpy spyCompleted(&secondDirLister, QOverload<>::of(&KCoreDirLister::completed));
     QVERIFY(spyCompleted.wait(1000));
     QVERIFY(secondDirLister.isFinished());
     QVERIFY(m_items.empty());
@@ -983,7 +983,7 @@ void KDirListerTest::testRenameCurrentDir() // #294445
     const QString newPath = m_tempDir.path() + "/newsubdir-2";
     QVERIFY(QDir().rename(path, newPath));
     org::kde::KDirNotify::emitFileRenamed(QUrl::fromLocalFile(path), QUrl::fromLocalFile(newPath));
-    QSignalSpy spyRedirection(&secondDirLister, SIGNAL(redirection(QUrl,QUrl)));
+    QSignalSpy spyRedirection(&secondDirLister, QOverload<const QUrl &, const QUrl &>::of(&KCoreDirLister::redirection));
     QVERIFY(spyRedirection.wait(1000));
 
     // Check that the URL of the root item got updated
@@ -1009,7 +1009,7 @@ void KDirListerTest::testRenameCurrentDirOpenUrl()
     connect(&m_dirLister, &KCoreDirLister::newItems, this, &KDirListerTest::slotNewItems);
 
     m_dirLister.openUrl(QUrl::fromLocalFile(path));
-    QSignalSpy spyCompleted(&m_dirLister, SIGNAL(completed()));
+    QSignalSpy spyCompleted(&m_dirLister, QOverload<>::of(&KCoreDirLister::completed));
     // Wait for the signal completed to be emitted
     QVERIFY(spyCompleted.wait(1000));
     QVERIFY(m_dirLister.isFinished());
@@ -1079,7 +1079,7 @@ void KDirListerTest::testListEmptyDirFromCache() // #278431
     // List and watch an empty dir
     connect(&m_dirLister, &KCoreDirLister::newItems, this, &KDirListerTest::slotNewItems);
     m_dirLister.openUrl(url);
-    QSignalSpy spyCompleted(&m_dirLister, SIGNAL(completed()));
+    QSignalSpy spyCompleted(&m_dirLister, QOverload<>::of(&KCoreDirLister::completed));
     QVERIFY(spyCompleted.wait(1000));
     QVERIFY(m_dirLister.isFinished());
     QVERIFY(m_items.isEmpty());
@@ -1097,10 +1097,10 @@ void KDirListerTest::testListEmptyDirFromCache() // #278431
     // due to the if (!itemU->lstItems.isEmpty()) check which is now removed.
 
     QVERIFY(!secondDirLister.isFinished()); // we didn't go to the event loop yet
-    QSignalSpy spySecondCompleted(&secondDirLister, SIGNAL(completed()));
+    QSignalSpy spySecondCompleted(&secondDirLister, QOverload<>::of(&KCoreDirLister::completed));
     QVERIFY(spySecondCompleted.wait(1000));
     if (!thirdDirLister.isFinished()) {
-        QSignalSpy spyThirdCompleted(&thirdDirLister, SIGNAL(completed()));
+        QSignalSpy spyThirdCompleted(&thirdDirLister, QOverload<>::of(&KCoreDirLister::completed));
         QVERIFY(spyThirdCompleted.wait(1000));
     }
 }
@@ -1115,7 +1115,7 @@ void KDirListerTest::testWatchingAfterCopyJob() // #331582
     // List and watch an empty dir
     connect(&m_dirLister, &KCoreDirLister::newItems, this, &KDirListerTest::slotNewItems);
     m_dirLister.openUrl(QUrl::fromLocalFile(path));
-    QSignalSpy spyCompleted(&m_dirLister, SIGNAL(completed()));
+    QSignalSpy spyCompleted(&m_dirLister, QOverload<>::of(&KCoreDirLister::completed));
     QVERIFY(spyCompleted.wait(1000));
     QVERIFY(m_dirLister.isFinished());
     QVERIFY(m_items.isEmpty());
@@ -1153,7 +1153,7 @@ void KDirListerTest::testWatchingAfterCopyJob() // #331582
     QTRY_COMPARE(m_items.count(), 1);
 
     newDir.remove();
-    QSignalSpy clearSpy(&m_dirLister, SIGNAL(clear()));
+    QSignalSpy clearSpy(&m_dirLister, QOverload<>::of(&KCoreDirLister::clear));
     QVERIFY(clearSpy.wait(1000));
 }
 
@@ -1167,7 +1167,7 @@ void KDirListerTest::testRemoveWatchedDirectory()
     // List and watch an empty dir
     connect(&m_dirLister, &KCoreDirLister::newItems, this, &KDirListerTest::slotNewItems);
     m_dirLister.openUrl(QUrl::fromLocalFile(path));
-    QSignalSpy spyCompleted(&m_dirLister, SIGNAL(completed()));
+    QSignalSpy spyCompleted(&m_dirLister, QOverload<>::of(&KCoreDirLister::completed));
     QVERIFY(spyCompleted.wait(1000));
     QTRY_VERIFY(m_dirLister.isFinished());
     QTRY_VERIFY(m_items.isEmpty());
@@ -1210,7 +1210,7 @@ void KDirListerTest::testDirPermissionChange()
 
     MyDirLister mylister;
     mylister.openUrl(QUrl::fromLocalFile(tempDir.path()));
-    QSignalSpy spyCompleted(&mylister, SIGNAL(completed()));
+    QSignalSpy spyCompleted(&mylister, QOverload<>::of(&KCoreDirLister::completed));
     QVERIFY(spyCompleted.wait(1000));
 
     KFileItemList list = mylister.items();
@@ -1260,7 +1260,7 @@ void KDirListerTest::testCopyAfterListingAndMove() // #353195
 
     // ensure m_dirLister holds the items.
     m_dirLister.openUrl(QUrl::fromLocalFile(path()), KDirLister::NoFlags);
-    QSignalSpy spyCompleted(&m_dirLister, SIGNAL(completed()));
+    QSignalSpy spyCompleted(&m_dirLister, QOverload<>::of(&KCoreDirLister::completed));
     QVERIFY(spyCompleted.wait());
 
     // Move b into a

@@ -344,7 +344,7 @@ void KUrlRequester::KUrlRequesterPrivate::init()
     myButton->setFixedSize(buttonSize, buttonSize);
     myButton->setToolTip(i18n("Open file dialog"));
 
-    connect(myButton, SIGNAL(pressed()), m_parent, SLOT(_k_slotUpdateUrl()));
+    connect(myButton, &KUrlDragPushButton::pressed, m_parent, [this]() { _k_slotUpdateUrl(); });
 
     widget->installEventFilter(m_parent);
     m_parent->setFocusProxy(widget);
@@ -352,7 +352,7 @@ void KUrlRequester::KUrlRequesterPrivate::init()
     topLayout->addWidget(myButton);
 
     connectSignals(m_parent);
-    connect(myButton, SIGNAL(clicked()), m_parent, SLOT(_k_slotOpenDialog()));
+    connect(myButton, &KUrlDragPushButton::clicked, m_parent, [this]() { _k_slotOpenDialog(); });
 
     m_startDir = QUrl::fromLocalFile(QDir::currentPath());
     m_startDirCustomized = false;
@@ -364,7 +364,7 @@ void KUrlRequester::KUrlRequesterPrivate::init()
 
     QAction *openAction = new QAction(m_parent);
     openAction->setShortcut(QKeySequence::Open);
-    m_parent->connect(openAction, SIGNAL(triggered(bool)), SLOT(_k_slotOpenDialog()));
+    m_parent->connect(openAction, &QAction::triggered, m_parent, [this]() { _k_slotOpenDialog(); });
 }
 
 void KUrlRequester::setUrl(const QUrl &url)
@@ -579,7 +579,7 @@ QFileDialog *KUrlRequester::fileDialog() const
         d->applyFileMode(d->myFileDialog, d->fileDialogMode, d->fileDialogAcceptMode);
 
         d->myFileDialog->setWindowModality(d->fileDialogModality);
-        connect(d->myFileDialog, SIGNAL(accepted()), SLOT(_k_slotFileDialogAccepted()));
+        connect(d->myFileDialog, &QFileDialog::accepted, this, [this]() { d->_k_slotFileDialogAccepted(); });
     }
 
     return d->myFileDialog;

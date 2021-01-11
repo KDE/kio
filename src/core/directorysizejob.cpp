@@ -129,8 +129,8 @@ void DirectorySizeJobPrivate::startNextJob(const QUrl &url)
 #endif
     listJob->addMetaData(QStringLiteral("statDetails"),
                          QString::number(KIO::StatBasic | KIO::StatResolveSymlink | KIO::StatInode));
-    q->connect(listJob, SIGNAL(entries(KIO::Job*,KIO::UDSEntryList)),
-               SLOT(slotEntries(KIO::Job*,KIO::UDSEntryList)));
+    q->connect(listJob, &KIO::ListJob::entries,
+               q, [this](KIO::Job* job, const KIO::UDSEntryList &list) { slotEntries(job, list); });
     q->addSubjob(listJob);
 }
 

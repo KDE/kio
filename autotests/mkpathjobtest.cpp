@@ -37,9 +37,9 @@ private Q_SLOTS:
     {
         QVERIFY(QFile::exists(m_dir));
         const QStringList oldEntries = QDir(m_dir).entryList();
-        KIO::Job *job = KIO::mkpath(QUrl::fromLocalFile(m_dir));
+        KIO::MkpathJob *job = KIO::mkpath(QUrl::fromLocalFile(m_dir));
         job->setUiDelegate(nullptr);
-        QSignalSpy spy(job, SIGNAL(directoryCreated(QUrl)));
+        QSignalSpy spy(job, &KIO::MkpathJob::directoryCreated);
         QVERIFY2(job->exec(), qPrintable(job->errorString()));
         QVERIFY(QFile::exists(m_dir));
         QCOMPARE(spy.count(), 0);
@@ -50,9 +50,9 @@ private Q_SLOTS:
     {
         QUrl url = QUrl::fromLocalFile(m_dir);
         url.setPath(url.path() + "/subdir1");
-        KIO::Job *job = KIO::mkpath(url);
+        KIO::MkpathJob *job = KIO::mkpath(url);
         job->setUiDelegate(nullptr);
-        QSignalSpy spy(job, SIGNAL(directoryCreated(QUrl)));
+        QSignalSpy spy(job, &KIO::MkpathJob::directoryCreated);
         QVERIFY2(job->exec(), qPrintable(job->errorString()));
         QCOMPARE(spy.count(), 1);
         QVERIFY(QFile::exists(url.toLocalFile()));
@@ -62,9 +62,9 @@ private Q_SLOTS:
     {
         QUrl url = QUrl::fromLocalFile(m_dir);
         url.setPath(url.path() + "/subdir2/subsubdir");
-        KIO::Job *job = KIO::mkpath(url);
+        KIO::MkpathJob *job = KIO::mkpath(url);
         job->setUiDelegate(nullptr);
-        QSignalSpy spy(job, SIGNAL(directoryCreated(QUrl)));
+        QSignalSpy spy(job, &KIO::MkpathJob::directoryCreated);
         QVERIFY2(job->exec(), qPrintable(job->errorString()));
         QCOMPARE(spy.count(), 2);
         QVERIFY(QFile::exists(url.toLocalFile()));
@@ -74,9 +74,9 @@ private Q_SLOTS:
     {
         const QStringList oldEntries = QDir(m_dir).entryList();
         QUrl url = QUrl::fromLocalFile(m_dir);
-        KIO::Job *job = KIO::mkpath(url, url);
+        KIO::MkpathJob *job = KIO::mkpath(url, url);
         job->setUiDelegate(nullptr);
-        QSignalSpy spy(job, SIGNAL(directoryCreated(QUrl)));
+        QSignalSpy spy(job, &KIO::MkpathJob::directoryCreated);
         QVERIFY2(job->exec(), qPrintable(job->errorString()));
         QCOMPARE(job->totalAmount(KJob::Directories), 0ULL);
         QCOMPARE(spy.count(), 0);
@@ -89,9 +89,9 @@ private Q_SLOTS:
         QUrl url = QUrl::fromLocalFile(m_dir);
         const QUrl baseUrl = url;
         url.setPath(url.path() + "/subdir3");
-        KIO::Job *job = KIO::mkpath(url, baseUrl);
+        KIO::MkpathJob *job = KIO::mkpath(url, baseUrl);
         job->setUiDelegate(nullptr);
-        QSignalSpy spy(job, SIGNAL(directoryCreated(QUrl)));
+        QSignalSpy spy(job, &KIO::MkpathJob::directoryCreated);
         QVERIFY2(job->exec(), qPrintable(job->errorString()));
         QCOMPARE(spy.count(), 1);
         QCOMPARE(job->totalAmount(KJob::Directories), 1ULL);
@@ -103,9 +103,9 @@ private Q_SLOTS:
         QUrl url = QUrl::fromLocalFile(m_dir);
         const QUrl baseUrl = url;
         url.setPath(url.path() + "/subdir4/subsubdir");
-        KIO::Job *job = KIO::mkpath(url, baseUrl);
+        KIO::MkpathJob *job = KIO::mkpath(url, baseUrl);
         job->setUiDelegate(nullptr);
-        QSignalSpy spy(job, SIGNAL(directoryCreated(QUrl)));
+        QSignalSpy spy(job, &KIO::MkpathJob::directoryCreated);
         QVERIFY2(job->exec(), qPrintable(job->errorString()));
         QCOMPARE(spy.count(), 2);
         QCOMPARE(job->totalAmount(KJob::Directories), 2ULL);
@@ -116,9 +116,9 @@ private Q_SLOTS:
     {
         QUrl url = QUrl::fromLocalFile(m_dir);
         url.setPath(url.path() + "/subdir5/subsubdir");
-        KIO::Job *job = KIO::mkpath(url, QUrl::fromLocalFile(QStringLiteral("/does/not/exist")));
+        KIO::MkpathJob *job = KIO::mkpath(url, QUrl::fromLocalFile(QStringLiteral("/does/not/exist")));
         job->setUiDelegate(nullptr);
-        QSignalSpy spy(job, SIGNAL(directoryCreated(QUrl)));
+        QSignalSpy spy(job, &KIO::MkpathJob::directoryCreated);
         QVERIFY2(job->exec(), qPrintable(job->errorString()));
         QCOMPARE(spy.count(), 2);
         QVERIFY(QFile::exists(url.toLocalFile()));

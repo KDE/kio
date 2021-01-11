@@ -526,12 +526,13 @@ void KNewFileMenuPrivate::executeOtherDesktopFile(const KNewFileMenuSingleton::E
         } else {
             templateUrl = QUrl::fromLocalFile(entry.templatePath);
         }
-        QDialog *dlg = new KPropertiesDialog(templateUrl, directory, text, m_parentWidget);
+        KPropertiesDialog *dlg = new KPropertiesDialog(templateUrl, directory, text, m_parentWidget);
         dlg->setModal(q->isModal());
         dlg->setAttribute(Qt::WA_DeleteOnClose);
-        QObject::connect(dlg, SIGNAL(applied()), q, SLOT(_k_slotOtherDesktopFile()));
+        QObject::connect(dlg, &KPropertiesDialog::applied, q, [this]() { _k_slotOtherDesktopFile(); });
         if (usingTemplate) {
-            QObject::connect(dlg, SIGNAL(propertiesClosed()), q, SLOT(_k_slotOtherDesktopFileClosed()));
+            QObject::connect(dlg, &KPropertiesDialog::propertiesClosed,
+                             q, [this]() { _k_slotOtherDesktopFileClosed(); });
         }
         dlg->show();
     }
@@ -587,7 +588,7 @@ void KNewFileMenuPrivate::executeSymLink(const KNewFileMenuSingleton::Entry &ent
     dlg->setAttribute(Qt::WA_DeleteOnClose);
     dlg->setWindowTitle(i18n("Create Symlink"));
     m_fileDialog = dlg;
-    QObject::connect(dlg, SIGNAL(accepted()), q, SLOT(_k_slotSymLink()));
+    QObject::connect(dlg, &QDialog::accepted, q, [this]() { _k_slotSymLink(); });
     dlg->show();
 }
 
@@ -669,7 +670,7 @@ void KNewFileMenuPrivate::executeUrlDesktopFile(const KNewFileMenuSingleton::Ent
     dlg->setAttribute(Qt::WA_DeleteOnClose);
     dlg->setWindowTitle(i18n("Create link to URL"));
     m_fileDialog = dlg;
-    QObject::connect(dlg, SIGNAL(accepted()), q, SLOT(_k_slotUrlDesktopFile()));
+    QObject::connect(dlg, &QDialog::accepted, q, [this]() { _k_slotUrlDesktopFile(); });
     dlg->show();
 }
 
@@ -1002,12 +1003,9 @@ void KNewFileMenuPrivate::_k_slotFillTemplates()
         for (const QString &dir : qAsConst(installedTemplates)) {
             s->dirWatch->addDir(dir);
         }
-        QObject::connect(s->dirWatch, SIGNAL(dirty(QString)),
-                         q, SLOT(_k_slotFillTemplates()));
-        QObject::connect(s->dirWatch, SIGNAL(created(QString)),
-                         q, SLOT(_k_slotFillTemplates()));
-        QObject::connect(s->dirWatch, SIGNAL(deleted(QString)),
-                         q, SLOT(_k_slotFillTemplates()));
+        QObject::connect(s->dirWatch, &KDirWatch::dirty, q, [this]() { _k_slotFillTemplates(); });
+        QObject::connect(s->dirWatch, &KDirWatch::created, q, [this]() { _k_slotFillTemplates(); });
+        QObject::connect(s->dirWatch, &KDirWatch::deleted, q, [this]() { _k_slotFillTemplates(); });
         // Ok, this doesn't cope with new dirs in XDG_DATA_DIRS, but that's another story
     }
     ++s->templatesVersion;
@@ -1342,7 +1340,8 @@ KNewFileMenu::KNewFileMenu(KActionCollection *collection, const QString &name, Q
     // Don't fill the menu yet
     // We'll do that in checkUpToDate (should be connected to aboutToShow)
     d->m_newMenuGroup = new QActionGroup(this);
-    connect(d->m_newMenuGroup, SIGNAL(triggered(QAction*)), this, SLOT(_k_slotActionTriggered(QAction*)));
+    connect(d->m_newMenuGroup, &QActionGroup::triggered,
+            this, [this](QAction *action) { d->_k_slotActionTriggered(action); });
     d->m_parentWidget = qobject_cast<QWidget *>(parent);
     d->m_newDirAction = nullptr;
 

@@ -84,7 +84,7 @@ private Q_SLOTS:
         const QUrl kFileDirUrl(QUrl::fromLocalFile(dir).adjusted(QUrl::RemoveFilename));
 
         KDirOperator dirOp(kFileDirUrl);
-        QSignalSpy completedSpy(dirOp.dirLister(), SIGNAL(completed()));
+        QSignalSpy completedSpy(dirOp.dirLister(), QOverload<>::of(&KCoreDirLister::completed));
         dirOp.setView(KFile::DetailTree);
         completedSpy.wait(1000);
         dirOp.setCurrentItem(QUrl(QStringLiteral("file:///")));

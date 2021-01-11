@@ -49,8 +49,16 @@ void PasteJobPrivate::slotStart()
             } else {
                 copyJob = KIO::copy(urls, m_destDir, m_flags);
             }
-            QObject::connect(copyJob, SIGNAL(copyingDone(KIO::Job*,QUrl,QUrl,QDateTime,bool,bool)), q, SLOT(slotCopyingDone(KIO::Job*,QUrl,QUrl)));
-            QObject::connect(copyJob, SIGNAL(copyingLinkDone(KIO::Job*,QUrl,QString,QUrl)), q, SLOT(slotCopyingLinkDone(KIO::Job*,QUrl,QString,QUrl)));
+            QObject::connect(copyJob, &KIO::CopyJob::copyingDone,
+                             q, [this](KIO::Job* job, const QUrl &src, const QUrl &dest) {
+                slotCopyingDone(job, src, dest);
+            });
+
+            QObject::connect(copyJob, &KIO::CopyJob::copyingLinkDone,
+                             q, [this](KIO::Job* job, const QUrl &from, const QString &target, const QUrl &to) {
+                slotCopyingLinkDone(job, from, target, to);
+            });
+
             KIO::FileUndoManager::self()->recordJob(move ? KIO::FileUndoManager::Move : KIO::FileUndoManager::Copy, QList<QUrl>(), m_destDir, copyJob);
             job = copyJob;
         }

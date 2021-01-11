@@ -490,8 +490,10 @@ KSambaShare::KSambaShare()
     Q_D(const KSambaShare);
     if (!d->userSharePath.isEmpty() && QFileInfo::exists(d->userSharePath)) {
         KDirWatch::self()->addDir(d->userSharePath, KDirWatch::WatchFiles);
-        connect(KDirWatch::self(), SIGNAL(dirty(QString)), this,
-                SLOT(_k_slotFileChange(QString)));
+        connect(KDirWatch::self(), &KDirWatch::dirty, this, [this](const QString &path) {
+            Q_D(KSambaShare);
+            d->_k_slotFileChange(path);
+        });
     }
 }
 

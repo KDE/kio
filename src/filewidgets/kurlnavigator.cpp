@@ -208,25 +208,21 @@ KUrlNavigator::Private::Private(KUrlNavigator *q, KFilePlacesModel *placesModel)
         connect(m_placesSelector, &KUrlNavigatorPlacesSelector::tabRequested,
                 q, &KUrlNavigator::tabRequested);
 
-        connect(placesModel, SIGNAL(rowsInserted(QModelIndex,int,int)),
-                q, SLOT(updateContent()));
-        connect(placesModel, SIGNAL(rowsRemoved(QModelIndex,int,int)),
-                q, SLOT(updateContent()));
-        connect(placesModel, SIGNAL(dataChanged(QModelIndex,QModelIndex)),
-                q, SLOT(updateContent()));
+        connect(placesModel, &KFilePlacesModel::rowsInserted, q, [this]() { updateContent(); });
+        connect(placesModel, &KFilePlacesModel::rowsRemoved, q, [this]() { updateContent(); });
+        connect(placesModel, &KFilePlacesModel::dataChanged, q, [this]() { updateContent(); });
     }
 
     // create protocol combo
     m_protocols = new KUrlNavigatorProtocolCombo(QString(), q);
-    connect(m_protocols, SIGNAL(activated(QString)),
-            q, SLOT(slotProtocolChanged(QString)));
+    connect(m_protocols, &KUrlNavigatorProtocolCombo::activated,
+            q, [this](const QString &protocol) { slotProtocolChanged(protocol); });
 
     // create drop down button for accessing all paths of the URL
     m_dropDownButton = new KUrlNavigatorDropDownButton(q);
     m_dropDownButton->setForegroundRole(QPalette::WindowText);
     m_dropDownButton->installEventFilter(q);
-    connect(m_dropDownButton, SIGNAL(clicked()),
-            q, SLOT(openPathSelectorMenu()));
+    connect(m_dropDownButton, &KUrlNavigatorDropDownButton::clicked, q, [this]() { openPathSelectorMenu(); });
 
     // initialize the path box of the traditional view
     m_pathBox = new KUrlComboBox(KUrlComboBox::Directories, true, q);
@@ -237,20 +233,16 @@ KUrlNavigator::Private::Private(KUrlNavigator *q, KFilePlacesModel *placesModel)
     m_pathBox->setCompletionObject(kurlCompletion);
     m_pathBox->setAutoDeleteCompletionObject(true);
 
-    connect(m_pathBox, SIGNAL(returnPressed()),
-            q, SLOT(slotReturnPressed()));
-    connect(m_pathBox, &KUrlComboBox::urlActivated,
-            q, &KUrlNavigator::setLocationUrl);
-    connect(m_pathBox, SIGNAL(editTextChanged(QString)),
-            q, SLOT(slotPathBoxChanged(QString)));
+    connect(m_pathBox, QOverload<>::of(&KUrlComboBox::returnPressed), q, [this]() { slotReturnPressed(); });
+    connect(m_pathBox, &KUrlComboBox::urlActivated, q, &KUrlNavigator::setLocationUrl);
+    connect(m_pathBox, &QComboBox::editTextChanged, q, [this](const QString &text) { slotPathBoxChanged(text); });
 
     // create toggle button which allows to switch between
     // the breadcrumb and traditional view
     m_toggleEditableMode = new KUrlNavigatorToggleButton(q);
     m_toggleEditableMode->installEventFilter(q);
     m_toggleEditableMode->setMinimumWidth(20);
-    connect(m_toggleEditableMode, SIGNAL(clicked()),
-            q, SLOT(slotToggleEditableButtonPressed()));
+    connect(m_toggleEditableMode, &KUrlNavigatorToggleButton::clicked, q, [this]() { slotToggleEditableButtonPressed(); });
 
     if (m_placesSelector != nullptr) {
         m_layout->addWidget(m_placesSelector);
@@ -261,8 +253,7 @@ KUrlNavigator::Private::Private(KUrlNavigator *q, KFilePlacesModel *placesModel)
     m_layout->addWidget(m_toggleEditableMode);
 
     q->setContextMenuPolicy(Qt::CustomContextMenu);
-    connect(q, SIGNAL(customContextMenuRequested(QPoint)),
-            q, SLOT(openContextMenu(QPoint)));
+    connect(q, &QWidget::customContextMenuRequested, q, [this](const QPoint &pos) { openContextMenu(pos); });
 }
 
 void KUrlNavigator::Private::initialize(const QUrl &url)
@@ -634,12 +625,16 @@ void KUrlNavigator::Private::updateButtons(int startIndex)
                 button = new KUrlNavigatorButton(buttonUrl(idx), q);
                 button->installEventFilter(q);
                 button->setForegroundRole(QPalette::WindowText);
-                connect(button, SIGNAL(urlsDropped(QUrl,QDropEvent*)),
-                        q, SLOT(dropUrls(QUrl,QDropEvent*)));
-                connect(button, SIGNAL(clicked(QUrl,Qt::MouseButton,Qt::KeyboardModifiers)),
-                        q, SLOT(slotNavigatorButtonClicked(QUrl,Qt::MouseButton,Qt::KeyboardModifiers)));
-                connect(button, SIGNAL(finishedTextResolving()),
-                        q, SLOT(updateButtonVisibility()));
+                connect(button, QOverload<const QUrl &, QDropEvent *>::of(&KUrlNavigatorButton::urlsDropped),
+                        q, [this](const QUrl &destination, QDropEvent *event) { dropUrls(destination, event); });
+
+                connect(button, &KUrlNavigatorButton::clicked,
+                        q, [this](const QUrl &url, Qt::MouseButton btn, Qt::KeyboardModifiers modifiers) {
+                    slotNavigatorButtonClicked(url, btn, modifiers);
+                });
+
+                connect(button, &KUrlNavigatorButton::finishedTextResolving, q, [this]() { updateButtonVisibility(); });
+
                 appendWidget(button);
             } else {
                 button = m_navButtons[idx - startIndex];

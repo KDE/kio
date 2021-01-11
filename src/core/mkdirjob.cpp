@@ -54,8 +54,7 @@ MkdirJob::~MkdirJob()
 void MkdirJobPrivate::start(Slave *slave)
 {
     Q_Q(MkdirJob);
-    q->connect(slave, SIGNAL(redirection(QUrl)),
-               SLOT(slotRedirection(QUrl)));
+    q->connect(slave, &KIO::SlaveInterface::redirection, q, [this](const QUrl &url) { slotRedirection(url); });
 
     SimpleJobPrivate::start(slave);
 }

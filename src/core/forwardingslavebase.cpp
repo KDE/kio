@@ -332,18 +332,12 @@ void ForwardingSlaveBasePrivate::connectJob(KIO::Job *job)
     // Forward metadata (e.g. modification time for put())
     job->setMetaData(q->allMetaData());
 
-    q->connect(job, SIGNAL(result(KJob*)),
-               SLOT(_k_slotResult(KJob*)));
-    q->connect(job, SIGNAL(warning(KJob*,QString,QString)),
-               SLOT(_k_slotWarning(KJob*,QString)));
-    q->connect(job, SIGNAL(infoMessage(KJob*,QString,QString)),
-               SLOT(_k_slotInfoMessage(KJob*,QString)));
-    q->connect(job, SIGNAL(totalSize(KJob*,qulonglong)),
-               SLOT(_k_slotTotalSize(KJob*,qulonglong)));
-    q->connect(job, SIGNAL(processedSize(KJob*,qulonglong)),
-               SLOT(_k_slotProcessedSize(KJob*,qulonglong)));
-    q->connect(job, SIGNAL(speed(KJob*,ulong)),
-               SLOT(_k_slotSpeed(KJob*,ulong)));
+    q->connect(job, &KJob::result, q, [this](KJob* job) { _k_slotResult(job); });
+    q->connect(job, &KJob::warning, q, [this](KJob* job, const QString &text) { _k_slotWarning(job, text); });
+    q->connect(job, &KJob::infoMessage, q, [this](KJob* job, const QString &info) { _k_slotInfoMessage(job, info); });
+    q->connect(job, &KJob::totalSize, q, [this](KJob* job, qulonglong size) { _k_slotTotalSize(job, size); });
+    q->connect(job, &KJob::processedSize, q, [this](KJob* job, qulonglong size) { _k_slotProcessedSize(job, size); });
+    q->connect(job, &KJob::speed, q, [this](KJob* job, ulong speed) { _k_slotSpeed(job, speed); });
 }
 
 void ForwardingSlaveBasePrivate::connectSimpleJob(KIO::SimpleJob *job)
@@ -358,21 +352,19 @@ void ForwardingSlaveBasePrivate::connectSimpleJob(KIO::SimpleJob *job)
 void ForwardingSlaveBasePrivate::connectListJob(KIO::ListJob *job)
 {
     connectSimpleJob(job);
-    q->connect(job, SIGNAL(entries(KIO::Job*,KIO::UDSEntryList)),
-               SLOT(_k_slotEntries(KIO::Job*,KIO::UDSEntryList)));
+    q->connect(job, &KIO::ListJob::entries,
+               q, [this](KIO::Job *job, const KIO::UDSEntryList &entries) { _k_slotEntries(job, entries); });
 }
 
 void ForwardingSlaveBasePrivate::connectTransferJob(KIO::TransferJob *job)
 {
     connectSimpleJob(job);
-    q->connect(job, SIGNAL(data(KIO::Job*,QByteArray)),
-               SLOT(_k_slotData(KIO::Job*,QByteArray)));
-    q->connect(job, SIGNAL(dataReq(KIO::Job*,QByteArray&)),
-               SLOT(_k_slotDataReq(KIO::Job*,QByteArray&)));
-    q->connect(job, SIGNAL(mimeTypeFound(KIO::Job*,QString)),
-               SLOT(_k_slotMimetype(KIO::Job*,QString)));
-    q->connect(job, SIGNAL(canResume(KIO::Job*,KIO::filesize_t)),
-               SLOT(_k_slotCanResume(KIO::Job*,KIO::filesize_t)));
+    q->connect(job, &KIO::TransferJob::data, q, [this](KIO::Job *job, const QByteArray &data) { _k_slotData(job, data); });
+    q->connect(job, &KIO::TransferJob::dataReq, q, [this](KIO::Job *job, QByteArray &data) { _k_slotDataReq(job, data); });
+    q->connect(job, &KIO::TransferJob::mimeTypeFound,
+               q, [this](KIO::Job *job, const QString &mimeType) { _k_slotMimetype(job, mimeType); });
+    q->connect(job, &KIO::TransferJob::canResume,
+               q, [this](KIO::Job *job, KIO::filesize_t offset) { _k_slotCanResume(job, offset); });
 }
 
 //////////////////////////////////////////////////////////////////////////////

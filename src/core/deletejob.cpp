@@ -148,7 +148,7 @@ DeleteJob::DeleteJob(DeleteJobPrivate &dd)
     : Job(dd)
 {
     d_func()->m_reportTimer = new QTimer(this);
-    connect(d_func()->m_reportTimer, SIGNAL(timeout()), this, SLOT(slotReport()));
+    connect(d_func()->m_reportTimer, &QTimer::timeout, this, [this]() { d_func()->slotReport(); });
     //this will update the report dialog with 5 Hz, I think this is fast enough, aleXXX
     d_func()->m_reportTimer->start(200);
 
@@ -502,8 +502,8 @@ void DeleteJobPrivate::currentSourceStated(bool isDir, bool isLink)
             newjob->addMetaData(QStringLiteral("statDetails"), QString::number(KIO::StatBasic));
             newjob->setUnrestricted(true); // No KIOSK restrictions
             Scheduler::setJobPriority(newjob, 1);
-            QObject::connect(newjob, SIGNAL(entries(KIO::Job*,KIO::UDSEntryList)),
-                             q, SLOT(slotEntries(KIO::Job*,KIO::UDSEntryList)));
+            QObject::connect(newjob, &KIO::ListJob::entries,
+                             q, [this](KIO::Job* job, const KIO::UDSEntryList &list) { slotEntries(job, list); });
             q->addSubjob(newjob);
             // Note that this listing job will happen in parallel with other stat jobs.
         }

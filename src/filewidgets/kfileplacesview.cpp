@@ -612,38 +612,38 @@ KFilePlacesView::KFilePlacesView(QWidget *parent)
     palette.setColor(viewport()->foregroundRole(), palette.color(QPalette::WindowText));
     viewport()->setPalette(palette);
 
-    connect(this, SIGNAL(clicked(QModelIndex)),
-            this, SLOT(_k_placeClicked(QModelIndex)));
+    connect(this, &KFilePlacesView::clicked,
+            this, [this](const QModelIndex &index) { d->_k_placeClicked(index); });
     // Note: Don't connect to the activated() signal, as the behavior when it is
     // committed depends on the used widget style. The click behavior of
     // KFilePlacesView should be style independent.
 
-    connect(&d->m_adaptItemsTimeline, SIGNAL(valueChanged(qreal)),
-            this, SLOT(_k_adaptItemsUpdate(qreal)));
+    connect(&d->m_adaptItemsTimeline, &QTimeLine::valueChanged,
+            this, [this](qreal value) { d->_k_adaptItemsUpdate(value); });
     d->m_adaptItemsTimeline.setDuration(500);
     d->m_adaptItemsTimeline.setUpdateInterval(5);
     d->m_adaptItemsTimeline.setEasingCurve(QEasingCurve::InOutSine);
 
-    connect(&d->m_itemAppearTimeline, SIGNAL(valueChanged(qreal)),
-            this, SLOT(_k_itemAppearUpdate(qreal)));
+    connect(&d->m_itemAppearTimeline, &QTimeLine::valueChanged,
+            this, [this](qreal value) { d->_k_itemAppearUpdate(value); });
     d->m_itemAppearTimeline.setDuration(500);
     d->m_itemAppearTimeline.setUpdateInterval(5);
     d->m_itemAppearTimeline.setEasingCurve(QEasingCurve::InOutSine);
 
-    connect(&d->m_itemDisappearTimeline, SIGNAL(valueChanged(qreal)),
-            this, SLOT(_k_itemDisappearUpdate(qreal)));
+    connect(&d->m_itemDisappearTimeline, &QTimeLine::valueChanged,
+            this, [this](qreal value) { d->_k_itemDisappearUpdate(value); });
     d->m_itemDisappearTimeline.setDuration(500);
     d->m_itemDisappearTimeline.setUpdateInterval(5);
     d->m_itemDisappearTimeline.setEasingCurve(QEasingCurve::InOutSine);
 
     viewport()->installEventFilter(d->m_watcher);
-    connect(d->m_watcher, SIGNAL(entryEntered(QModelIndex)),
-            this, SLOT(_k_placeEntered(QModelIndex)));
-    connect(d->m_watcher, SIGNAL(entryLeft(QModelIndex)),
-            this, SLOT(_k_placeLeft(QModelIndex)));
+    connect(d->m_watcher, &KFilePlacesEventWatcher::entryEntered,
+            this, [this](const QModelIndex &index) { d->_k_placeEntered(index); });
+    connect(d->m_watcher, &KFilePlacesEventWatcher::entryLeft,
+            this, [this](const QModelIndex &index) { d->_k_placeLeft(index); });
 
     d->m_pollDevices.setInterval(5000);
-    connect(&d->m_pollDevices, SIGNAL(timeout()), this, SLOT(_k_triggerDevicePolling()));
+    connect(&d->m_pollDevices, &QTimer::timeout, this, [this]() { d->_k_triggerDevicePolling(); });
 
     // FIXME: this is necessary to avoid flashes of black with some widget styles.
     // could be a bug in Qt (e.g. QAbstractScrollArea) or KFilePlacesView, but has not
@@ -1199,8 +1199,7 @@ void KFilePlacesView::setModel(QAbstractItemModel *model)
     // called. In case of an item move the remove+add will be done before
     // we adapt the item size (otherwise we'd get it wrong as we'd execute
     // it after the remove only).
-    connect(model, SIGNAL(rowsRemoved(QModelIndex,int,int)),
-            this, SLOT(adaptItemSize()), Qt::QueuedConnection);
+    connect(model, &QAbstractItemModel::rowsRemoved, this, [this]() { d->adaptItemSize(); }, Qt::QueuedConnection);
     connect(selectionModel(), &QItemSelectionModel::currentChanged,
             d->m_watcher, &KFilePlacesEventWatcher::currentIndexChanged);
 
@@ -1422,7 +1421,7 @@ void KFilePlacesView::Private::fadeCapacityBar(const QModelIndex &index, FadeTyp
     delete timeLine;
     m_delegate->removeFadeAnimation(index);
     timeLine = new QTimeLine(250, q);
-    connect(timeLine, SIGNAL(valueChanged(qreal)), q, SLOT(_k_capacityBarFadeValueChanged()));
+    connect(timeLine, &QTimeLine::valueChanged, q, [this]() { _k_capacityBarFadeValueChanged(); });
     if (fadeType == FadeIn) {
         timeLine->setDirection(QTimeLine::Forward);
         timeLine->setCurrentTime(0);
@@ -1481,8 +1480,8 @@ void KFilePlacesView::Private::_k_placeClicked(const QModelIndex &index)
     m_lastClickedIndex = QPersistentModelIndex();
 
     if (placesModel->setupNeeded(index)) {
-        QObject::connect(placesModel, SIGNAL(setupDone(QModelIndex,bool)),
-                         q, SLOT(_k_storageSetupDone(QModelIndex,bool)));
+        QObject::connect(placesModel, &KFilePlacesModel::setupDone,
+                         q, [this](const QModelIndex &idx, bool success) { _k_storageSetupDone(idx, success); });
 
         m_lastClickedIndex = index;
         placesModel->requestSetup(index);
@@ -1519,8 +1518,7 @@ void KFilePlacesView::Private::_k_storageSetupDone(const QModelIndex &index, boo
     KFilePlacesModel *placesModel = qobject_cast<KFilePlacesModel *>(q->model());
 
     if (placesModel) {
-        QObject::disconnect(placesModel, SIGNAL(setupDone(QModelIndex,bool)),
-                            q, SLOT(_k_storageSetupDone(QModelIndex,bool)));
+        QObject::disconnect(placesModel, &KFilePlacesModel::setupDone, q, nullptr);
     }
 
     if (success) {

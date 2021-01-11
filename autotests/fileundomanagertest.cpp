@@ -260,7 +260,7 @@ void FileUndoManagerTest::testCopyFiles()
     job->setUiDelegate(nullptr);
     FileUndoManager::self()->recordCopyJob(job);
 
-    QSignalSpy spyUndoAvailable(FileUndoManager::self(), SIGNAL(undoAvailable(bool)));
+    QSignalSpy spyUndoAvailable(FileUndoManager::self(), QOverload<bool>::of(&FileUndoManager::undoAvailable));
     QVERIFY(spyUndoAvailable.isValid());
     QSignalSpy spyTextChanged(FileUndoManager::self(), &FileUndoManager::undoTextChanged);
     QVERIFY(spyTextChanged.isValid());
@@ -385,7 +385,7 @@ void FileUndoManagerTest::testRenameFile()
     const QUrl newUrl = QUrl::fromLocalFile(srcFile() + ".new");
     QList<QUrl> lst;
     lst.append(oldUrl);
-    QSignalSpy spyUndoAvailable(FileUndoManager::self(), SIGNAL(undoAvailable(bool)));
+    QSignalSpy spyUndoAvailable(FileUndoManager::self(), QOverload<bool>::of(&FileUndoManager::undoAvailable));
     QVERIFY(spyUndoAvailable.isValid());
     KIO::Job *job = KIO::moveAs(oldUrl, newUrl, KIO::HideProgressInfo);
     job->setUiDelegate(nullptr);

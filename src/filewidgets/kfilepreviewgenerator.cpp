@@ -436,24 +436,32 @@ KFilePreviewGenerator::Private::Private(KFilePreviewGenerator *parent,
         m_previewShown = false;
     } else {
         KDirModel *dirModel = m_dirModel.data();
-        connect(dirModel->dirLister(), SIGNAL(newItems(KFileItemList)),
-                q, SLOT(updateIcons(KFileItemList)));
-        connect(dirModel, SIGNAL(dataChanged(QModelIndex,QModelIndex)),
-                q, SLOT(updateIcons(QModelIndex,QModelIndex)));
-        connect(dirModel, SIGNAL(needSequenceIcon(QModelIndex,int)),
-                q, SLOT(requestSequenceIcon(QModelIndex,int)));
-        connect(dirModel, SIGNAL(rowsAboutToBeRemoved(QModelIndex,int,int)),
-                q, SLOT(rowsAboutToBeRemoved(QModelIndex,int,int)));
+        connect(dirModel->dirLister(), &KCoreDirLister::newItems,
+                q, [this](const KFileItemList &items) { updateIcons(items); });
+
+        connect(dirModel, &KDirModel::dataChanged,
+                q, [this](const QModelIndex &topLeft, const QModelIndex &bottomRight) {
+            updateIcons(topLeft, bottomRight);
+        });
+
+        connect(dirModel, &KDirModel::needSequenceIcon,
+                q, [this](const QModelIndex &index, int sequenceIndex) {
+            requestSequenceIcon(index, sequenceIndex);
+        });
+
+        connect(dirModel, &KDirModel::rowsAboutToBeRemoved,
+                q, [this](const QModelIndex &parent, int first, int last) {
+            rowsAboutToBeRemoved(parent, first, last);
+        });
     }
 
     QClipboard *clipboard = QApplication::clipboard();
-    connect(clipboard, SIGNAL(dataChanged()),
-            q, SLOT(updateCutItems()));
+    connect(clipboard, &QClipboard::dataChanged, q, [this]() { updateCutItems(); });
 
     m_iconUpdateTimer = new QTimer(q);
     m_iconUpdateTimer->setSingleShot(true);
     m_iconUpdateTimer->setInterval(200);
-    connect(m_iconUpdateTimer, SIGNAL(timeout()), q, SLOT(dispatchIconUpdateQueue()));
+    connect(m_iconUpdateTimer, &QTimer::timeout, q, [this]() { dispatchIconUpdateQueue(); });
 
     // Whenever the scrollbar values have been changed, the pending previews should
     // be reordered in a way that the previews for the visible items are generated
@@ -462,8 +470,7 @@ KFilePreviewGenerator::Private::Private(KFilePreviewGenerator *parent,
     m_scrollAreaTimer = new QTimer(q);
     m_scrollAreaTimer->setSingleShot(true);
     m_scrollAreaTimer->setInterval(200);
-    connect(m_scrollAreaTimer, SIGNAL(timeout()),
-            q, SLOT(resumeIconUpdates()));
+    connect(m_scrollAreaTimer, &QTimer::timeout, q, [this]() { resumeIconUpdates(); });
     m_viewAdapter->connect(KAbstractViewAdapter::IconSizeChanged,
                            q, SLOT(updateIcons()));
     m_viewAdapter->connect(KAbstractViewAdapter::ScrollBarValueChanged,
@@ -472,8 +479,7 @@ KFilePreviewGenerator::Private::Private(KFilePreviewGenerator *parent,
     m_changedItemsTimer = new QTimer(q);
     m_changedItemsTimer->setSingleShot(true);
     m_changedItemsTimer->setInterval(5000);
-    connect(m_changedItemsTimer, SIGNAL(timeout()),
-            q, SLOT(delayedIconUpdate()));
+    connect(m_changedItemsTimer, &QTimer::timeout, q, [this]() { delayedIconUpdate(); });
 
     KConfigGroup globalConfig(KSharedConfig::openConfig(QStringLiteral("dolphinrc")), "PreviewSettings");
     m_enabledPlugins = globalConfig.readEntry("Plugins", QStringList{
@@ -1054,10 +1060,10 @@ void KFilePreviewGenerator::Private::startPreviewJob(const KFileItemList &items,
             }
         }
 
-        connect(job, SIGNAL(gotPreview(KFileItem,QPixmap)),
-                q, SLOT(addToPreviewQueue(KFileItem,QPixmap)));
-        connect(job, SIGNAL(finished(KJob*)),
-                q, SLOT(slotPreviewJobFinished(KJob*)));
+        connect(job, &KIO::PreviewJob::gotPreview,
+                q, [this](const KFileItem &item, const QPixmap &pixmap) { addToPreviewQueue(item, pixmap); });
+
+        connect(job, &KIO::PreviewJob::finished, q, [this, job]() { slotPreviewJobFinished(job); });
         m_previewJobs.append(job);
     }
 }

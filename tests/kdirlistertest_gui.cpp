@@ -40,43 +40,30 @@ KDirListerTest::KDirListerTest(QWidget *parent)
     connect(startT, &QAbstractButton::clicked, this, &KDirListerTest::startTar);
     connect(test, &QAbstractButton::clicked, this, &KDirListerTest::test);
 
-    connect(lister, &KCoreDirLister::started,
-            debug,  &PrintSignals::started);
-    connect(lister, SIGNAL(completed()),
-            debug,  SLOT(completed()));
-    connect(lister, SIGNAL(completed(QUrl)),
-            debug,  SLOT(completed(QUrl)));
-    connect(lister, SIGNAL(canceled()),
-            debug,  SLOT(canceled()));
-    connect(lister, SIGNAL(canceled(QUrl)),
-            debug,  SLOT(canceled(QUrl)));
-    connect(lister, SIGNAL(redirection(QUrl)),
-            debug,  SLOT(redirection(QUrl)));
-    connect(lister, SIGNAL(redirection(QUrl,QUrl)),
-            debug,  SLOT(redirection(QUrl,QUrl)));
-    connect(lister, SIGNAL(clear()),
-            debug,  SLOT(clear()));
-    connect(lister, &KCoreDirLister::newItems,
-            debug,  &PrintSignals::newItems);
-    connect(lister, &KCoreDirLister::itemsFilteredByMime,
-            debug,  &PrintSignals::itemsFilteredByMime);
-    connect(lister, &KCoreDirLister::itemsDeleted,
-            debug,  &PrintSignals::itemsDeleted);
-    connect(lister, &KCoreDirLister::refreshItems,
-            debug,  &PrintSignals::refreshItems);
-    connect(lister, &KCoreDirLister::infoMessage,
-            debug,  &PrintSignals::infoMessage);
-    connect(lister, &KCoreDirLister::percent,
-            debug,  &PrintSignals::percent);
-    connect(lister, &KCoreDirLister::totalSize,
-            debug,  &PrintSignals::totalSize);
-    connect(lister, &KCoreDirLister::processedSize,
-            debug,  &PrintSignals::processedSize);
-    connect(lister, &KCoreDirLister::speed,
-            debug,  &PrintSignals::speed);
+    connect(lister, &KCoreDirLister::started, debug, &PrintSignals::started);
+    connect(lister, QOverload<>::of(&KDirLister::completed),
+            debug, QOverload<>::of(&PrintSignals::completed));
+    connect(lister, QOverload<const QUrl &>::of(&KDirLister::completed),
+            debug, QOverload<const QUrl &>::of(&PrintSignals::completed));
+    connect(lister, QOverload<>::of(&KDirLister::canceled), debug, QOverload<>::of(&PrintSignals::canceled));
+    connect(lister, QOverload<const QUrl &>::of(&KDirLister::canceled),
+            debug, QOverload<const QUrl &>::of(&PrintSignals::canceled));
+    connect(lister, QOverload<const QUrl &>::of(&KDirLister::redirection),
+            debug, QOverload<const QUrl &>::of(&PrintSignals::redirection));
+    connect(lister, QOverload<const QUrl &, const QUrl &>::of(&KDirLister::redirection),
+            debug, QOverload<const QUrl &, const QUrl &>::of(&PrintSignals::redirection));
+    connect(lister, QOverload<>::of(&KDirLister::clear), debug, &PrintSignals::clear);
+    connect(lister, &KCoreDirLister::newItems, debug, &PrintSignals::newItems);
+    connect(lister, &KCoreDirLister::itemsFilteredByMime, debug, &PrintSignals::itemsFilteredByMime);
+    connect(lister, &KCoreDirLister::itemsDeleted, debug, &PrintSignals::itemsDeleted);
+    connect(lister, &KCoreDirLister::refreshItems, debug, &PrintSignals::refreshItems);
+    connect(lister, &KCoreDirLister::infoMessage, debug, &PrintSignals::infoMessage);
+    connect(lister, &KCoreDirLister::percent, debug, &PrintSignals::percent);
+    connect(lister, &KCoreDirLister::totalSize, debug, &PrintSignals::totalSize);
+    connect(lister, &KCoreDirLister::processedSize, debug, &PrintSignals::processedSize);
+    connect(lister, &KCoreDirLister::speed, debug, &PrintSignals::speed);
 
-    connect(lister, SIGNAL(completed()),
-            this,  SLOT(completed()));
+    connect(lister, QOverload<>::of(&KDirLister::completed), this, &KDirListerTest::completed);
 }
 
 KDirListerTest::~KDirListerTest()

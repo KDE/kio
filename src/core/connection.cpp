@@ -55,8 +55,8 @@ void ConnectionPrivate::setBackend(ConnectionBackend *b)
     delete backend;
     backend = b;
     if (backend) {
-        q->connect(backend, SIGNAL(commandReceived(Task)), SLOT(commandReceived(Task)));
-        q->connect(backend, SIGNAL(disconnected()), SLOT(disconnected()));
+        q->connect(backend, &ConnectionBackend::commandReceived, q, [this](const Task &task) { commandReceived(task); });
+        q->connect(backend, &ConnectionBackend::disconnected, q, [this]() { disconnected(); });
         backend->setSuspended(suspended);
     }
 }

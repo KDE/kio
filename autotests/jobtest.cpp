@@ -156,7 +156,7 @@ void JobTest::storedGet()
     m_result = -1;
 
     KIO::StoredTransferJob *job = KIO::storedGet(u, KIO::NoReload, KIO::HideProgressInfo);
-    QSignalSpy spyPercent(job, SIGNAL(percent(KJob*,ulong)));
+    QSignalSpy spyPercent(job, QOverload<KJob *, unsigned long>::of(&KJob::percent));
     QVERIFY(spyPercent.isValid());
     job->setUiDelegate(nullptr);
     connect(job, &KJob::result,
@@ -228,7 +228,7 @@ void JobTest::storedPut()
     QUrl u = QUrl::fromLocalFile(filePath);
     QByteArray putData = "This is the put data";
     KIO::TransferJob *job = KIO::storedPut(putData, u, 0600, KIO::Overwrite | KIO::HideProgressInfo);
-    QSignalSpy spyPercent(job, SIGNAL(percent(KJob*,ulong)));
+    QSignalSpy spyPercent(job, QOverload<KJob *, unsigned long>::of(&KJob::percent));
     QVERIFY(spyPercent.isValid());
     quint64 secsSinceEpoch = QDateTime::currentSecsSinceEpoch(); // Use second granularity, supported on all filesystems
     QDateTime mtime = QDateTime::fromSecsSinceEpoch(secsSinceEpoch - 30); // 30 seconds ago
@@ -250,7 +250,7 @@ void JobTest::storedPutIODevice()
     putData.setData("This is the put data");
     QVERIFY(putData.open(QIODevice::ReadOnly));
     KIO::TransferJob *job = KIO::storedPut(&putData, QUrl::fromLocalFile(filePath), 0600, KIO::Overwrite | KIO::HideProgressInfo);
-    QSignalSpy spyPercent(job, SIGNAL(percent(KJob*,ulong)));
+    QSignalSpy spyPercent(job, QOverload<KJob *, unsigned long>::of(&KJob::percent));
     QVERIFY(spyPercent.isValid());
     quint64 secsSinceEpoch = QDateTime::currentSecsSinceEpoch(); // Use second granularity, supported on all filesystems
     QDateTime mtime = QDateTime::fromSecsSinceEpoch(secsSinceEpoch - 30); // 30 seconds ago
@@ -323,7 +323,7 @@ void JobTest::storedPutIODeviceFastDevice()
     QVERIFY(putDataBuffer.open(QIODevice::ReadWrite));
 
     KIO::StoredTransferJob *job = KIO::storedPut(&putDataBuffer, u, 0600, KIO::Overwrite | KIO::HideProgressInfo);
-    QSignalSpy spyPercent(job, SIGNAL(percent(KJob*,ulong)));
+    QSignalSpy spyPercent(job, QOverload<KJob *, unsigned long>::of(&KJob::percent));
     QVERIFY(spyPercent.isValid());
     quint64 secsSinceEpoch = QDateTime::currentSecsSinceEpoch(); // Use second granularity, supported on all filesystems
     QDateTime mtime = QDateTime::fromSecsSinceEpoch(secsSinceEpoch - 30); // 30 seconds ago
@@ -359,7 +359,7 @@ void JobTest::storedPutIODeviceSlowDevice()
     QVERIFY(putDataBuffer.open(QIODevice::ReadWrite));
 
     KIO::StoredTransferJob *job = KIO::storedPut(&putDataBuffer, u, 0600, KIO::Overwrite | KIO::HideProgressInfo);
-    QSignalSpy spyPercent(job, SIGNAL(percent(KJob*,ulong)));
+    QSignalSpy spyPercent(job, QOverload<KJob *, unsigned long>::of(&KJob::percent));
     QVERIFY(spyPercent.isValid());
     quint64 secsSinceEpoch = QDateTime::currentSecsSinceEpoch(); // Use second granularity, supported on all filesystems
     QDateTime mtime = QDateTime::fromSecsSinceEpoch(secsSinceEpoch - 30); // 30 seconds ago
@@ -402,7 +402,7 @@ void JobTest::storedPutIODeviceSlowDeviceBigChunk()
     QVERIFY(putDataBuffer.open(QIODevice::ReadWrite));
 
     KIO::StoredTransferJob *job = KIO::storedPut(&putDataBuffer, u, 0600, KIO::Overwrite | KIO::HideProgressInfo);
-    QSignalSpy spyPercent(job, SIGNAL(percent(KJob*,ulong)));
+    QSignalSpy spyPercent(job, QOverload<KJob *, unsigned long>::of(&KJob::percent));
     QVERIFY(spyPercent.isValid());
     quint64 secsSinceEpoch = QDateTime::currentSecsSinceEpoch(); // Use second granularity, supported on all filesystems
     QDateTime mtime = QDateTime::fromSecsSinceEpoch(secsSinceEpoch - 30); // 30 seconds ago
@@ -585,11 +585,11 @@ void JobTest::copyLocalFile(const QString &src, const QString &dest)
 
     // cleanup and retry with KIO::copy()
     QFile::remove(dest);
-    job = KIO::copy(u, d, KIO::HideProgressInfo);
-    QSignalSpy spyCopyingDone(job, SIGNAL(copyingDone(KIO::Job*,QUrl,QUrl,QDateTime,bool,bool)));
-    job->setUiDelegate(nullptr);
-    job->setUiDelegateExtension(nullptr);
-    QVERIFY2(job->exec(), qPrintable(job->errorString()));
+    auto *copyjob = KIO::copy(u, d, KIO::HideProgressInfo);
+    QSignalSpy spyCopyingDone(copyjob, &KIO::CopyJob::copyingDone);
+    copyjob->setUiDelegate(nullptr);
+    copyjob->setUiDelegateExtension(nullptr);
+    QVERIFY2(copyjob->exec(), qPrintable(copyjob->errorString()));
     QVERIFY(QFile::exists(dest));
     QVERIFY(QFile::exists(src));     // still there
     compareXattr(src, dest);
@@ -607,11 +607,11 @@ void JobTest::copyLocalFile(const QString &src, const QString &dest)
     }
     QCOMPARE(spyCopyingDone.count(), 1);
 
-    QCOMPARE(job->totalAmount(KJob::Files), 1);
-    QCOMPARE(job->totalAmount(KJob::Directories), 0);
-    QCOMPARE(job->processedAmount(KJob::Files), 1);
-    QCOMPARE(job->processedAmount(KJob::Directories), 0);
-    QCOMPARE(job->percent(), 100);
+    QCOMPARE(copyjob->totalAmount(KJob::Files), 1);
+    QCOMPARE(copyjob->totalAmount(KJob::Directories), 0);
+    QCOMPARE(copyjob->processedAmount(KJob::Files), 1);
+    QCOMPARE(copyjob->processedAmount(KJob::Directories), 0);
+    QCOMPARE(copyjob->percent(), 100);
 
     // cleanup and retry with KIO::copyAs()
     QFile::remove(dest);
@@ -1950,7 +1950,7 @@ void JobTest::mimeType()
     KIO::MimetypeJob *job = KIO::mimetype(QUrl::fromLocalFile(filePath), KIO::HideProgressInfo);
     QVERIFY(job);
 #if KIOCORE_BUILD_DEPRECATED_SINCE(5, 78)
-    QSignalSpy spyMimeType(job, SIGNAL(mimetype(KIO::Job*,QString)));
+    QSignalSpy spyMimeType(job, QOverload<KIO::Job *, const QString &>::of(&KIO::MimetypeJob::mimetype));
 #endif
     QSignalSpy spyMimeTypeFound(job, &KIO::TransferJob::mimeTypeFound);
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
@@ -1967,7 +1967,7 @@ void JobTest::mimeType()
     KIO::MimetypeJob *job = KIO::mimetype(QUrl("http://www.kde.org"), KIO::HideProgressInfo);
     QVERIFY(job);
 #if KIOCORE_BUILD_DEPRECATED_SINCE(5, 78)
-    QSignalSpy spyMimeType(job, SIGNAL(mimetype(KIO::Job*,QString)));
+    QSignalSpy spyMimeType(job, QOverload<KIO::Job *, const QString &>::of(&KIO::MimetypeJob::mimetype));
 #endif
     QSignalSpy spyMimeTypeFound(job, &KIO::TransferJob::mimeTypeFound);
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
@@ -1989,7 +1989,7 @@ void JobTest::mimeTypeError()
     KIO::MimetypeJob *job = KIO::mimetype(QUrl::fromLocalFile(filePath), KIO::HideProgressInfo);
     QVERIFY(job);
 #if KIOCORE_BUILD_DEPRECATED_SINCE(5, 78)
-    QSignalSpy spyMimeType(job, SIGNAL(mimetype(KIO::Job*,QString)));
+    QSignalSpy spyMimeType(job, QOverload<KIO::Job *, const QString &>::of(&KIO::MimetypeJob::mimetype));
 #endif
     QSignalSpy spyMimeTypeFound(job, &KIO::TransferJob::mimeTypeFound);
     QSignalSpy spyResult(job, &KJob::result);
@@ -2743,12 +2743,12 @@ void JobTest::multiGet()
 
     //qDebug() << file;
     KIO::MultiGetJob *job = KIO::multi_get(0, urls.at(0), KIO::MetaData()); // TODO: missing KIO::HideProgressInfo
-    QSignalSpy spyData(job, SIGNAL(data(long,QByteArray)));
+    QSignalSpy spyData(job, &KIO::MultiGetJob::data);
 #if KIOCORE_BUILD_DEPRECATED_SINCE(5, 78)
     QSignalSpy spyMimeType(job, SIGNAL(mimetype(long,QString)));
 #endif
     QSignalSpy spyMimeTypeFound(job, &KIO::MultiGetJob::mimeTypeFound);
-    QSignalSpy spyResultId(job, SIGNAL(result(long)));
+    QSignalSpy spyResultId(job, QOverload<long>::of(&KIO::MultiGetJob::result));
     QSignalSpy spyResult(job, SIGNAL(result(KJob*)));
     job->setUiDelegate(nullptr);
 

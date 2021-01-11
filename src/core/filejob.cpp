@@ -199,32 +199,23 @@ void FileJobPrivate::slotFinished()
 void FileJobPrivate::start(Slave *slave)
 {
     Q_Q(FileJob);
-    q->connect(slave, SIGNAL(data(QByteArray)),
-               SLOT(slotData(QByteArray)));
+    q->connect(slave, &KIO::SlaveInterface::data, q, [this](const QByteArray &ba) { slotData(ba); });
 
-    q->connect(slave, SIGNAL(redirection(QUrl)),
-               SLOT(slotRedirection(QUrl)));
+    q->connect(slave, &KIO::SlaveInterface::redirection, q, [this](const QUrl &url) { slotRedirection(url); });
 
-    q->connect(slave, SIGNAL(mimeType(QString)),
-               SLOT(slotMimetype(QString)));
+    q->connect(slave, &KIO::SlaveInterface::mimeType, q, [this](const QString &mimeType) { slotMimetype(mimeType); });
 
-    q->connect(slave, SIGNAL(open()),
-               SLOT(slotOpen()));
+    q->connect(slave, &KIO::SlaveInterface::open, q, [this]() { slotOpen(); });
 
-    q->connect(slave, SIGNAL(finished()),
-               SLOT(slotFinished()));
+    q->connect(slave, &KIO::SlaveInterface::finished, q, [this]() { slotFinished(); });
 
-    q->connect(slave, SIGNAL(position(KIO::filesize_t)),
-               SLOT(slotPosition(KIO::filesize_t)));
+    q->connect(slave, &KIO::SlaveInterface::position, q, [this](KIO::filesize_t pos) { slotPosition(pos); });
 
-    q->connect(slave, SIGNAL(truncated(KIO::filesize_t)),
-               SLOT(slotTruncated(KIO::filesize_t)));
+    q->connect(slave, &KIO::SlaveInterface::truncated, q, [this](KIO::filesize_t length) { slotTruncated(length); });
 
-    q->connect(slave, SIGNAL(written(KIO::filesize_t)),
-               SLOT(slotWritten(KIO::filesize_t)));
+    q->connect(slave, &KIO::SlaveInterface::written, q, [this](KIO::filesize_t dataWritten) { slotWritten(dataWritten); });
 
-    q->connect(slave, SIGNAL(totalSize(KIO::filesize_t)),
-               SLOT(slotTotalSize(KIO::filesize_t)));
+    q->connect(slave, &KIO::SlaveInterface::totalSize, q, [this](KIO::filesize_t size) { slotTotalSize(size); });
 
     SimpleJobPrivate::start(slave);
 }
