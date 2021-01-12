@@ -775,7 +775,7 @@ void KFileWidget::slotOk()
 
     const QString locationEditCurrentText(KShell::tildeExpand(d->locationEditCurrentText()));
 
-    QList<QUrl> locationEditCurrentTextList(d->tokenize(locationEditCurrentText));
+    const QList<QUrl> locationEditCurrentTextList(d->tokenize(locationEditCurrentText));
     KFile::Modes mode = d->m_ops->mode();
 
     // if there is nothing to do, just return from here
@@ -791,6 +791,9 @@ void KFileWidget::slotOk()
 
     // Clear the list as we are going to refill it
     d->m_urlList.clear();
+
+    const bool directoryMode = (mode & KFile::Directory);
+    const bool onlyDirectoryMode = directoryMode && !(mode & KFile::File) && !(mode & KFile::Files);
 
     // if we are on file mode, and the list of provided files/folder is greater than one, inform
     // the user about it
@@ -892,7 +895,7 @@ void KFileWidget::slotOk()
     } else if (!locationEditCurrentTextList.isEmpty()) {
         // if we are on file or files mode, and we have an absolute url written by
         // the user, convert it to relative
-        if (!locationEditCurrentText.isEmpty() && !(mode & KFile::Directory)
+        if (!locationEditCurrentText.isEmpty() && !onlyDirectoryMode
             && (isAbsoluteLocalPath(locationEditCurrentText) || containsProtocolSection(locationEditCurrentText))) {
 
             QString fileName;
@@ -940,8 +943,6 @@ void KFileWidget::slotOk()
     // locationEditCurrentTextList contains absolute paths
     // this is the general loop for the File and Files mode. Obviously we know
     // that the File mode will iterate only one time here
-    bool directoryMode = (mode & KFile::Directory);
-    bool onlyDirectoryMode = directoryMode && !(mode & KFile::File) && !(mode & KFile::Files);
     QList<QUrl>::ConstIterator it = locationEditCurrentTextList.constBegin();
     bool filesInList = false;
     while (it != locationEditCurrentTextList.constEnd()) {
