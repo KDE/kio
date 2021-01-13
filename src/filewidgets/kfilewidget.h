@@ -19,6 +19,8 @@
 #include "kfile.h"
 #include <QWidget>
 
+#include <memory>
+
 class QUrl;
 class QPushButton;
 class KActionCollection;
@@ -592,29 +594,7 @@ public:
 
 private:
     friend class KFileWidgetPrivate;
-    KFileWidgetPrivate *const d;
-
-    Q_PRIVATE_SLOT(d, void _k_slotLocationChanged(const QString &))
-    Q_PRIVATE_SLOT(d, void _k_urlEntered(const QUrl &))
-    Q_PRIVATE_SLOT(d, void _k_enterUrl(const QUrl &))
-    Q_PRIVATE_SLOT(d, void _k_enterUrl(const QString &))
-    Q_PRIVATE_SLOT(d, void _k_locationAccepted(const QString &))
-    Q_PRIVATE_SLOT(d, void _k_slotFilterChanged())
-    Q_PRIVATE_SLOT(d, void _k_fileHighlighted(const KFileItem &))
-    Q_PRIVATE_SLOT(d, void _k_fileSelected(const KFileItem &))
-    Q_PRIVATE_SLOT(d, void _k_slotLoadingFinished())
-    Q_PRIVATE_SLOT(d, void _k_fileCompletion(const QString &))
-    Q_PRIVATE_SLOT(d, void _k_toggleSpeedbar(bool))
-    Q_PRIVATE_SLOT(d, void _k_toggleBookmarks(bool))
-    Q_PRIVATE_SLOT(d, void _k_slotAutoSelectExtClicked())
-    Q_PRIVATE_SLOT(d, void _k_placesViewSplitterMoved(int, int))
-    Q_PRIVATE_SLOT(d, void _k_activateUrlNavigator())
-    Q_PRIVATE_SLOT(d, void _k_zoomOutIconsSize())
-    Q_PRIVATE_SLOT(d, void _k_zoomInIconsSize())
-    Q_PRIVATE_SLOT(d, void _k_slotIconSizeSliderMoved(int))
-    Q_PRIVATE_SLOT(d, void _k_slotIconSizeChanged(int))
-    Q_PRIVATE_SLOT(d, void _k_slotViewDoubleClicked(const QModelIndex&))
-    Q_PRIVATE_SLOT(d, void _k_slotViewKeyEnterReturnPressed())
+    std::unique_ptr<KFileWidgetPrivate> const d;
 };
 
 #endif
