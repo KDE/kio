@@ -627,11 +627,7 @@ void KCookieJar::extractDomains(const QString &_fqdn,
     _domains.append(_fqdn);
     _domains.append(QL1C('.') + _fqdn);
 
-#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
-    QStringList partList = _fqdn.split(QL1C('.'), QString::SkipEmptyParts);
-#else
     QStringList partList = _fqdn.split(QL1C('.'), Qt::SkipEmptyParts);
-#endif
 
     if (!partList.isEmpty()) {
         partList.erase(partList.begin());    // Remove hostname
@@ -827,11 +823,7 @@ KHttpCookieList KCookieJar::makeCookies(const QString &_url,
                     }
                 } else {
                     bool ok;
-#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
-                    const QStringList portNums = Value.split(QL1C(' '), QString::SkipEmptyParts);
-#else
                     const QStringList portNums = Value.split(QL1C(' '), Qt::SkipEmptyParts);
-#endif
                     for (const QString &portNum : portNums) {
                         const int port = portNum.toInt(&ok);
                         if (ok) {

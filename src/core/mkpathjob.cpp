@@ -22,19 +22,11 @@ public:
     MkpathJobPrivate(const QUrl &url, const QUrl &baseUrl, JobFlags flags)
         : JobPrivate(),
           m_url(url),
-#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
-          m_pathComponents(url.path().split(QLatin1Char('/'), QString::SkipEmptyParts)),
-#else
           m_pathComponents(url.path().split(QLatin1Char('/'), Qt::SkipEmptyParts)),
-#endif
           m_pathIterator(),
           m_flags(flags)
     {
-#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
-        const QStringList basePathComponents = baseUrl.path().split(QLatin1Char('/'), QString::SkipEmptyParts);
-#else
         const QStringList basePathComponents = baseUrl.path().split(QLatin1Char('/'), Qt::SkipEmptyParts);
-#endif
 
 #ifdef Q_OS_WIN
         const QString startPath;

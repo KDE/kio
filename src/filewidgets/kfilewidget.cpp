@@ -672,11 +672,7 @@ void KFileWidget::setFilter(const QString &filter)
     // interpret as a MIME filter.
 
     if (pos > 0 && filter[pos - 1] != QLatin1Char('\\')) {
-#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
-        QStringList filters = filter.split(QLatin1Char(' '), QString::SkipEmptyParts);
-#else
         QStringList filters = filter.split(QLatin1Char(' '), Qt::SkipEmptyParts);
-#endif
         setMimeFilter(filters);
         return;
     }
@@ -709,11 +705,7 @@ void KFileWidget::setMimeFilter(const QStringList &mimeTypes,
 {
     d->filterWidget->setMimeFilter(mimeTypes, defaultType);
 
-#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
-    QStringList types = d->filterWidget->currentFilter().split(QLatin1Char(' '), QString::SkipEmptyParts); //QStringList::split(" ", d->filterWidget->currentFilter());
-#else
     QStringList types = d->filterWidget->currentFilter().split(QLatin1Char(' '), Qt::SkipEmptyParts); //QStringList::split(" ", d->filterWidget->currentFilter());
-#endif
     types.append(QStringLiteral("inode/directory"));
     d->ops->clearFilter();
     d->ops->setMimeFilter(types);
@@ -1486,11 +1478,7 @@ void KFileWidgetPrivate::_k_slotFilterChanged()
     ops->clearFilter();
 
     if (filter.contains(QLatin1Char('/'))) {
-#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
-        QStringList types = filter.split(QLatin1Char(' '), QString::SkipEmptyParts);
-#else
         QStringList types = filter.split(QLatin1Char(' '), Qt::SkipEmptyParts);
-#endif
         types.prepend(QStringLiteral("inode/directory"));
         ops->setMimeFilter(types);
     } else if (filter.contains(QLatin1Char('*')) || filter.contains(QLatin1Char('?')) || filter.contains(QLatin1Char('['))) {
@@ -2329,11 +2317,7 @@ void KFileWidgetPrivate::updateAutoSelectExtension()
 
             // e.g. "*.cpp"
             if (filter.indexOf(QLatin1Char('/')) < 0) {
-#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
-                extensionList = filter.split(QLatin1Char(' '), QString::SkipEmptyParts);
-#else
                 extensionList = filter.split(QLatin1Char(' '), Qt::SkipEmptyParts);
-#endif
                 defaultExtension = getExtensionFromPatternList(extensionList);
             }
             // e.g. "text/html"
@@ -2493,11 +2477,7 @@ QString KFileWidgetPrivate::findMatchingFilter(const QString &filter, const QStr
 {
      // e.g.: '*.foo *.bar|Foo type' -> '*.foo', '*.bar'
     const QStringList patterns = filter.left(filter.indexOf(QLatin1Char('|'))).split(QLatin1Char(' '),
-#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
-                                             QString::SkipEmptyParts);
-#else
                                              Qt::SkipEmptyParts);
-#endif
 
     QRegularExpression rx;
     for (const QString &p : patterns) {

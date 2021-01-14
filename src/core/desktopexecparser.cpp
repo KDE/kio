@@ -294,12 +294,7 @@ static QString findNonExecutableProgram(const QString &executable)
 
 #ifdef Q_OS_UNIX
     // This is a *very* simplified version of QStandardPaths::findExecutable
-#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
-    const auto skipEmptyParts = QString::SkipEmptyParts;
-#else
-    const auto skipEmptyParts = Qt::SkipEmptyParts;
-#endif
-    const QStringList searchPaths = QString::fromLocal8Bit(qgetenv("PATH")).split(QDir::listSeparator(), skipEmptyParts);
+    const QStringList searchPaths = QString::fromLocal8Bit(qgetenv("PATH")).split(QDir::listSeparator(), Qt::SkipEmptyParts);
     for (const QString &searchPath : searchPaths) {
         const QString candidate = searchPath + QLatin1Char('/') + executable;
         const QFileInfo fileInfo(candidate);

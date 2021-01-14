@@ -185,11 +185,7 @@ void AccessManagerReply::setHeaderFromMetaData(const KIO::MetaData &_metaData)
     }
 
     // Set the raw header information...
-#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
-    const QStringList httpHeaders(metaData.value(QStringLiteral("HTTP-Headers")).split(QL1C('\n'), QString::SkipEmptyParts));
-#else
     const QStringList httpHeaders(metaData.value(QStringLiteral("HTTP-Headers")).split(QL1C('\n'), Qt::SkipEmptyParts));
-#endif
     if (httpHeaders.isEmpty()) {
         const auto charSetIt = metaData.constFind(QStringLiteral("charset"));
         if (charSetIt != metaData.constEnd()) {
@@ -209,11 +205,7 @@ void AccessManagerReply::setHeaderFromMetaData(const KIO::MetaData &_metaData)
                     continue;
                 }
 
-#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
-                QStringList statusLineAttrs(httpHeader.split(QL1C(' '), QString::SkipEmptyParts));
-#else
                 QStringList statusLineAttrs(httpHeader.split(QL1C(' '), Qt::SkipEmptyParts));
-#endif
                 if (statusLineAttrs.count() > 1) {
                     setAttribute(QNetworkRequest::HttpStatusCodeAttribute, statusLineAttrs.at(1));
                 }

@@ -327,11 +327,7 @@ void KIO::WidgetsAskUserActionHandlerPrivate::sslMessageBox(const QString &text,
                                                             QWidget *parent)
 {
     const QStringList sslList = metaData.value(QStringLiteral("ssl_peer_chain")).split(QLatin1Char('\x01'),
-#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
-                                          QString::SkipEmptyParts);
-#else
                                           Qt::SkipEmptyParts);
-#endif
 
     QList<QSslCertificate> certChain;
     bool decodedOk = true;

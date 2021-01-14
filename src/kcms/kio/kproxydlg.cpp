@@ -402,11 +402,7 @@ void KProxyDialog::defaults()
 
 bool KProxyDialog::autoDetectSystemProxy(QLineEdit* edit, const QString& envVarStr, bool showValue)
 {
-#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
-    const QStringList envVars = envVarStr.split(QL1C(','), QString::SkipEmptyParts);
-#else
     const QStringList envVars = envVarStr.split(QL1C(','), Qt::SkipEmptyParts);
-#endif
     for (const QString & envVar : envVars) {
         const QByteArray envVarUtf8(envVar.toUtf8());
         const QByteArray envVarValue = qgetenv(envVarUtf8.constData());

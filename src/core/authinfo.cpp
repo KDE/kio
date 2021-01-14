@@ -406,11 +406,7 @@ bool NetRC::parse(const QString &fileName)
 
 QString NetRC::NetRCPrivate::extract(const QString &buf, const QString &key)
 {
-#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
-    QStringList stringList = buf.split(QLatin1Char(' '), QString::SkipEmptyParts);
-#else
     QStringList stringList = buf.split(QLatin1Char(' '), Qt::SkipEmptyParts);
-#endif
     int i = stringList.indexOf(key);
     if ((i != -1) && (i + 1 < stringList.size())) {
         return stringList.at(i + 1);

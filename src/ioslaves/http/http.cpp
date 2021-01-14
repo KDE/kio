@@ -127,16 +127,8 @@ static bool isCrossDomainRequest(const QString &fqdn, const QString &originURL)
         return false;
     }
 
-#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
-    QStringList la = a.split(QLatin1Char('.'), QString::SkipEmptyParts);
-#else
     QStringList la = a.split(QLatin1Char('.'), Qt::SkipEmptyParts);
-#endif
-#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
-    QStringList lb = b.split(QLatin1Char('.'), QString::SkipEmptyParts);
-#else
     QStringList lb = b.split(QLatin1Char('.'), Qt::SkipEmptyParts);
-#endif
 
     if (qMin(la.count(), lb.count()) < 2) {
         return true;  // better safe than sorry...
@@ -2160,11 +2152,8 @@ bool HTTPProtocol::httpOpenConnection()
 
     // Get proxy information...
     if (m_request.proxyUrls.isEmpty()) {
-#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
-        m_request.proxyUrls = mapConfig().value(QStringLiteral("ProxyUrls"), QString()).toString().split(QLatin1Char(','), QString::SkipEmptyParts);
-#else
         m_request.proxyUrls = mapConfig().value(QStringLiteral("ProxyUrls"), QString()).toString().split(QLatin1Char(','), Qt::SkipEmptyParts);
-#endif
+
         qCDebug(KIO_HTTP) << "Proxy URLs:" << m_request.proxyUrls;
     }
 
@@ -2613,11 +2602,7 @@ bool HTTPProtocol::sendQuery()
     }
 
     qCDebug(KIO_HTTP) << "============ Sending Header:";
-#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
-    const QStringList list = header.split(QStringLiteral("\r\n"), QString::SkipEmptyParts);
-#else
     const QStringList list = header.split(QStringLiteral("\r\n"), Qt::SkipEmptyParts);
-#endif
     for (const QString &s : list) {
         qCDebug(KIO_HTTP) << s;
     }
@@ -3267,11 +3252,7 @@ endParsing:
         tIt = tokenizer.iterator("link");
         if (tIt.hasNext()) {
             // We only support Link: <url>; rel="type"   so far
-#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
-            QStringList link = toQString(tIt.next()).split(QLatin1Char(';'), QString::SkipEmptyParts);
-#else
             QStringList link = toQString(tIt.next()).split(QLatin1Char(';'), Qt::SkipEmptyParts);
-#endif
             if (link.count() == 2) {
                 QString rel = link[1].trimmed();
                 if (rel.startsWith(QLatin1String("rel=\""))) {
@@ -3291,11 +3272,7 @@ endParsing:
             QStringList policyrefs, compact;
             while (tIt.hasNext()) {
                 QStringList policy = toQString(tIt.next().simplified())
-#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
-                                     .split(QLatin1Char('='), QString::SkipEmptyParts);
-#else
                                      .split(QLatin1Char('='), Qt::SkipEmptyParts);
-#endif
                 if (policy.count() == 2) {
                     if (policy[0].toLower() == QLatin1String("policyref")) {
                         policyrefs << policy[1].remove(QRegularExpression(QStringLiteral("[\")\']"))).trimmed();
@@ -3304,11 +3281,7 @@ endParsing:
                         // other metadata sent in strings.  This could be a bit more
                         // efficient but I'm going for correctness right now.
                         const QString s = policy[1].remove(QRegularExpression(QStringLiteral("[\")\']")));
-#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
-                        const QStringList cps = s.split(QLatin1Char(' '), QString::SkipEmptyParts);
-#else
                         const QStringList cps = s.split(QLatin1Char(' '), Qt::SkipEmptyParts);
-#endif
                         compact << cps;
                     }
                 }
@@ -3373,11 +3346,7 @@ endParsing:
         if (tIt.hasNext()) {
             // Now we have to check to see what is offered for the upgrade
             QString offered = toQString(tIt.next());
-#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
-            upgradeOffers = offered.split(QRegularExpression(QStringLiteral("[ \n,\r\t]")), QString::SkipEmptyParts);
-#else
             upgradeOffers = offered.split(QRegularExpression(QStringLiteral("[ \n,\r\t]")), Qt::SkipEmptyParts);
-#endif
         }
         for (const QString &opt : qAsConst(upgradeOffers)) {
             if (opt == QLatin1String("TLS/1.0")) {
