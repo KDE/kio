@@ -39,6 +39,7 @@ Name[tg]=Калидвожаҳои ҷустуҷӯии интернетӣ
 Name[uk]=Ключові слова пошуку в інтернеті
 Name[vi]=Từ khoá tìm kiếm web
 Name[x-test]=xxWeb Search Keywordsxx
+Name[zh_CN]=网页搜索关键字
 
 Comment=Configure web search keywords
 Comment[az]=İnternetdə axtarış açar sözlərini ayarlamaq
@@ -69,6 +70,7 @@ Comment[tg]=Танзимоти калидвожаҳои ҷустуҷӯии ин�
 Comment[uk]=Налаштування ключових слів пошуку в інтернеті
 Comment[vi]=Cấu hình từ khoá tìm kiếm web
 Comment[x-test]=xxConfigure web search keywordsxx
+Comment[zh_CN]=配置网页搜索关键字
 
 X-KDE-Keywords=Web Search Keywords,Web Search,Search,Keyword,Web Shortcuts,Browsing,WWW,Internet,Internet Filters,Network,Search Engines,Shortcuts
 X-KDE-Keywords[az]=Web Shortcuts,Browsing,WWW,Internet,Internet Filters,Network,Search Engines,Shortcuts İnternetdə axtarış açar sözləri, Tarama, WWW, İnternet, İnternet Filtrləri, Şəbəkə, Axtarış motorları,Qısa yollar
