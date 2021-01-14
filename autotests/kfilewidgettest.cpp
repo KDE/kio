@@ -13,7 +13,9 @@
 #include <QTest>
 #include <QStandardPaths>
 #include <QSignalSpy>
+#include <QUrl>
 
+#include <KDirLister>
 #include <kdiroperator.h>
 #include <KFileFilterCombo>
 #include <KLocalizedString>

@@ -13,38 +13,39 @@
 */
 
 #include "kfilewidget.h"
-#include "../pathhelpers_p.h" // concatPaths() and isAbsoluteLocalPath()
 
-#include "kfileplacesview.h"
-#include "kfileplacesmodel.h"
+#include "../pathhelpers_p.h" // concatPaths() and isAbsoluteLocalPath()
 #include "kfilebookmarkhandler_p.h"
-#include "kurlcombobox.h"
-#include "kurlnavigator.h"
+#include "kfileplacesmodel.h"
+#include "kfileplacesview.h"
 #include "kfilepreviewgenerator.h"
 #include "kfilewidgetdocktitlebar_p.h"
-#include <config-kiofilewidgets.h>
-#include <defaults-kfile.h>
-
+#include "kurlcombobox.h"
+#include "kurlnavigator.h"
 #include <KActionCollection>
 #include <KActionMenu>
 #include <KConfigGroup>
+#include <KFileItem>
+#include <KLocalizedString>
+#include <KSharedConfig>
+#include <KToolBar>
+#include <config-kiofilewidgets.h>
+#include <defaults-kfile.h>
+#include <KDirLister>
 #include <kdiroperator.h>
 #include <kfilefiltercombo.h>
+#include <kfileitemdelegate.h>
 #include <kimagefilepreview.h>
-#include <krecentdocument.h>
-#include <KToolBar>
-#include <kurlcompletion.h>
-#include <kprotocolmanager.h>
 #include <kio/job.h>
 #include <kio/jobuidelegate.h>
 #include <kio/scheduler.h>
+#include <kprotocolmanager.h>
 #include <krecentdirs.h>
-#include <QDebug>
-#include <KLocalizedString>
-#include <kfileitemdelegate.h>
-#include <KSharedConfig>
+#include <krecentdocument.h>
+#include <kurlcompletion.h>
 
 #include <QCheckBox>
+#include <QDebug>
 #include <QDesktopWidget>
 #include <QDockWidget>
 #include <QIcon>

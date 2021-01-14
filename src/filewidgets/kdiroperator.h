@@ -9,27 +9,32 @@
 #ifndef KDIROPERATOR_H_
 #define KDIROPERATOR_H_
 
-#include <QWidget>
-#include <QStack>
-#include <QStyleOptionViewItem>
-
-#include <KToggleAction>
-#include <KCompletion>
-#include <kdirlister.h>
-#include <kfileitem.h>
-#include <kfile.h>
 #include "kiofilewidgets_export.h"
+#include <kfile.h>
+
+#include <QStyleOptionViewItem>
+#include <QUrl>
+#include <QWidget>
 
 class QAbstractItemView;
+class QMenu;
 class QModelIndex;
 class QProgressBar;
 
 class KActionCollection;
 class KActionMenu;
 class KConfigGroup;
-class KDirLister;
-class KPreviewWidgetBase;
+class KFileItemList;
 class KFilePreviewGenerator;
+class KPreviewWidgetBase;
+
+#include <QStack> // SIC TODO KF6: Not used, remove
+#include <KToggleAction> // SIC TODO KF6: Not used, remove
+
+// SIC TODO KF6: forward-declaration is enough for these three
+#include <KCompletion>
+#include <KDirLister>
+#include <KFileItem>
 
 namespace KIO
 {
@@ -113,8 +118,7 @@ public:
      *
      * This constructor doesn't start loading the url, setView will do it.
      */
-    explicit KDirOperator(const QUrl &urlName  = QUrl(),
-                          QWidget *parent = nullptr);
+    explicit KDirOperator(const QUrl &urlName  = QUrl{}, QWidget *parent = nullptr);
     /**
      * Destroys the KDirOperator.
      */

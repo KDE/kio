@@ -7,6 +7,7 @@
 
 #include <QTest>
 #include <kdiroperator.h>
+#include <KDirLister>
 #include <KConfigGroup>
 #include <KSharedConfig>
 #include <QTreeView>

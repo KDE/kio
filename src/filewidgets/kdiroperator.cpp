@@ -6,52 +6,53 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "kdiroperator.h"
-#include <kprotocolmanager.h>
-#include <KIconLoader>
+#include <config-kiofilewidgets.h>
+#include <defaults-kfile.h> // ConfigGroup, DefaultShowHidden, DefaultDirsFirst, DefaultSortReversed
+
 #include "kdirmodel.h"
+#include "kdiroperator.h"
 #include "kdiroperatordetailview_p.h"
 #include "kdiroperatoriconview_p.h"
 #include "kdirsortfilterproxymodel.h"
 #include "kfileitem.h"
 #include "kfilemetapreview_p.h"
-#include "kpreviewwidgetbase.h"
 #include "knewfilemenu.h"
+#include "kpreviewwidgetbase.h"
+#include <KActionCollection>
+#include <KCompletion>
+#include <KConfigGroup>
+#include <KDirLister>
+#include <KIO/OpenFileManagerWindowJob>
+#include <KIO/RenameFileDialog>
+#include <KIconLoader>
+#include <KJobWidgets>
+#include <KLocalizedString>
+#include <KMessageBox>
+#include <KProtocolManager>
+#include <KSharedConfig>
 #include <KUrlMimeData>
+#include <kfileitemdelegate.h>
+#include <kfilepreviewgenerator.h>
+#include <kio/copyjob.h>
+#include <kio/deletejob.h>
+#include <kio/jobuidelegate.h>
+#include <kio/previewjob.h>
+#include <kpropertiesdialog.h>
+#include <widgetsaskuseractionhandler.h>
 #include "../pathhelpers_p.h"
 
-#include <config-kiofilewidgets.h>
-#include <defaults-kfile.h> // ConfigGroup, DefaultShowHidden, DefaultDirsFirst, DefaultSortReversed
-
 #include <QApplication>
+#include <QDebug>
 #include <QHeaderView>
 #include <QListView>
 #include <QMenu>
-#include <QProgressBar>
-#include <QSplitter>
-#include <QWheelEvent>
-#include <QTimer>
-#include <QDebug>
 #include <QMimeDatabase>
+#include <QProgressBar>
 #include <QRegularExpression>
-
-#include <kfileitemdelegate.h>
-#include <KLocalizedString>
-#include <KMessageBox>
-#include <KJobWidgets>
-#include <widgetsaskuseractionhandler.h>
-#include <kio/deletejob.h>
-#include <kio/copyjob.h>
-#include <kio/jobuidelegate.h>
-#include <kio/previewjob.h>
-#include <KIO/OpenFileManagerWindowJob>
-#include <KIO/RenameFileDialog>
-#include <kfilepreviewgenerator.h>
-#include <krun.h>
-#include <kpropertiesdialog.h>
-#include <KActionCollection>
-#include <KConfigGroup>
-#include <KSharedConfig>
+#include <QStack>
+#include <QSplitter>
+#include <QTimer>
+#include <QWheelEvent>
 
 #include <memory>
 
