@@ -227,7 +227,7 @@ void FileUndoManagerTest::initTestCase()
     QDir().mkpath(destDir());
     QVERIFY(QFileInfo(destDir()).isDir());
 
-    QVERIFY(!FileUndoManager::self()->undoAvailable());
+    QVERIFY(!FileUndoManager::self()->isUndoAvailable());
     m_uiInterface = new TestUiInterface; // owned by FileUndoManager
     FileUndoManager::self()->setUiInterface(m_uiInterface);
 }
@@ -276,7 +276,7 @@ void FileUndoManagerTest::testCopyFiles()
 
     // might have to wait for dbus signal here... but this is currently disabled.
     //QTest::qWait( 20 );
-    QVERIFY(FileUndoManager::self()->undoAvailable());
+    QVERIFY(FileUndoManager::self()->isUndoAvailable());
     QCOMPARE(spyUndoAvailable.count(), 1);
     QCOMPARE(spyTextChanged.count(), 1);
     m_uiInterface->clear();
@@ -292,7 +292,7 @@ void FileUndoManagerTest::testCopyFiles()
     m_uiInterface->setNextReplyToConfirmDeletion(true);
     doUndo();
 
-    QVERIFY(!FileUndoManager::self()->undoAvailable());
+    QVERIFY(!FileUndoManager::self()->isUndoAvailable());
     QVERIFY(spyUndoAvailable.count() >= 2);   // it's in fact 3, due to lock/unlock emitting it as well
     QCOMPARE(spyTextChanged.count(), 2);
     QCOMPARE(m_uiInterface->files().count(), 1);   // confirmDeletion was called
@@ -500,7 +500,7 @@ void FileUndoManagerTest::testMkpath()
     m_uiInterface->setNextReplyToConfirmDeletion(true);
     doUndo();
 
-    QVERIFY(!FileUndoManager::self()->undoAvailable());
+    QVERIFY(!FileUndoManager::self()->isUndoAvailable());
     const auto files = m_uiInterface->files();
     QCOMPARE(files.count(), 2);   // confirmDeletion was called
     QCOMPARE(files[0].toLocalFile(), path);
@@ -719,14 +719,14 @@ void FileUndoManagerTest::testUndoCopyOfDeletedFile()
         QVERIFY(!QFileInfo::exists(dest.toLocalFile()));
     }
 
-    QVERIFY(FileUndoManager::self()->undoAvailable());
-    QSignalSpy spyUndoAvailable(FileUndoManager::self(), static_cast<void (FileUndoManager::*)(bool)>(&FileUndoManager::undoAvailable));
+    QVERIFY(FileUndoManager::self()->isUndoAvailable());
+    QSignalSpy spyUndoAvailable(FileUndoManager::self(), QOverload<bool>::of(&FileUndoManager::undoAvailable));
     QVERIFY(spyUndoAvailable.isValid());
     // We can't use doUndo() because there is no UndoJob, so the nested event loop would never quit.
     FileUndoManager::self()->undo();
     QCOMPARE(spyUndoAvailable.count(), 1);
     QVERIFY(!spyUndoAvailable.at(0).at(0).toBool());
-    QVERIFY(!FileUndoManager::self()->undoAvailable());
+    QVERIFY(!FileUndoManager::self()->isUndoAvailable());
 }
 
 // TODO: add test (and fix bug) for  DND of remote urls / "Link here" (creates .desktop files) // Undo (doesn't do anything)

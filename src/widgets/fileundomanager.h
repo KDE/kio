@@ -146,10 +146,23 @@ public:
      */
     void recordCopyJob(KIO::CopyJob *copyJob);
 
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 79)
     /**
      * @return true if undo is possible. Usually used for enabling/disabling the undo action.
+     *
+     * @deprecated since 5.79, use isUndoAvailable()
      */
+    KIOWIDGETS_DEPRECATED_VERSION(5, 79, "Use isUndoAvailable()")
     bool undoAvailable() const;
+#endif
+
+    /**
+     * @return true if undo is possible. Usually used for enabling/disabling the undo action.
+     *
+     * @since 5.79
+     */
+    bool isUndoAvailable() const;
+
     /**
      * @return the current text for the undo action.
      */
@@ -176,7 +189,7 @@ public Q_SLOTS:
     void undo();
 
 Q_SIGNALS:
-    /// Emitted when the value of undoAvailable() changes
+    /// Emitted when the value of isUndoAvailable() changes
     void undoAvailable(bool avail);
 
     /// Emitted when the value of undoText() changes

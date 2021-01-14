@@ -273,7 +273,14 @@ void FileUndoManagerPrivate::addCommand(const UndoCommand &cmd)
     emit q->jobRecordingFinished(cmd.m_type);
 }
 
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 79)
 bool FileUndoManager::undoAvailable() const
+{
+    return isUndoAvailable();
+}
+#endif
+
+bool FileUndoManager::isUndoAvailable() const
 {
     return !d->m_commands.isEmpty() && !d->m_lock;
 }
@@ -619,7 +626,7 @@ void FileUndoManagerPrivate::pushCommand(const UndoCommand &cmd)
 void FileUndoManagerPrivate::slotPop()
 {
     m_commands.pop();
-    emit q->undoAvailable(q->undoAvailable());
+    emit q->undoAvailable(q->isUndoAvailable());
     emit q->undoTextChanged(q->undoText());
 }
 
@@ -634,7 +641,7 @@ void FileUndoManagerPrivate::slotUnlock()
 {
 //  Q_ASSERT(m_lock);
     m_lock = false;
-    emit q->undoAvailable(q->undoAvailable());
+    emit q->undoAvailable(q->isUndoAvailable());
 }
 
 QByteArray FileUndoManagerPrivate::get() const
