@@ -12,6 +12,7 @@
 #include <ksslcertificatemanager.h>
 #include <KLocalizedString>
 
+#include <QAbstractSocket>
 #include <QUrl>
 #include <QSslKey>
 #include <QSslCipher>
@@ -407,7 +408,7 @@ KTcpSocket::KTcpSocket(QObject *parent)
     connect(&d->sock, &QIODevice::aboutToClose, this, &QIODevice::aboutToClose);
     connect(&d->sock, &QIODevice::bytesWritten, this, &QIODevice::bytesWritten);
     connect(&d->sock, &QSslSocket::encryptedBytesWritten, this, &KTcpSocket::encryptedBytesWritten);
-    connect(&d->sock, SIGNAL(readyRead()), this, SLOT(reemitReadyRead()));
+    connect(&d->sock, &QSslSocket::readyRead, this, [this]() { d->reemitReadyRead(); });
     connect(&d->sock, &QAbstractSocket::connected, this, &KTcpSocket::connected);
     connect(&d->sock, &QSslSocket::encrypted, this, &KTcpSocket::encrypted);
     connect(&d->sock, &QAbstractSocket::disconnected, this, &KTcpSocket::disconnected);
@@ -415,15 +416,22 @@ KTcpSocket::KTcpSocket(QObject *parent)
     connect(&d->sock, &QAbstractSocket::proxyAuthenticationRequired,
             this, &KTcpSocket::proxyAuthenticationRequired);
 #endif
-    connect(&d->sock, SIGNAL(error(QAbstractSocket::SocketError)),
-            this, SLOT(reemitSocketError(QAbstractSocket::SocketError)));
-    connect(&d->sock, SIGNAL(sslErrors(QList<QSslError>)),
-            this, SLOT(reemitSslErrors(QList<QSslError>)));
+
+#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
+    connect(&d->sock, QOverload<QAbstractSocket::SocketError>::of(&QSslSocket::error),
+            this, [this](QAbstractSocket::SocketError err) { d->reemitSocketError(err); });
+#else
+    connect(&d->sock, &QSslSocket::errorOccurred,
+            this, [this](QAbstractSocket::SocketError err) { d->reemitSocketError(err); });
+#endif
+
+    connect(&d->sock, QOverload<const QList<QSslError> &>::of(&QSslSocket::sslErrors),
+            this, [this](const QList<QSslError> &errorList) { d->reemitSslErrors(errorList); });
     connect(&d->sock, &QAbstractSocket::hostFound, this, &KTcpSocket::hostFound);
-    connect(&d->sock, SIGNAL(stateChanged(QAbstractSocket::SocketState)),
-            this, SLOT(reemitStateChanged(QAbstractSocket::SocketState)));
-    connect(&d->sock, SIGNAL(modeChanged(QSslSocket::SslMode)),
-            this, SLOT(reemitModeChanged(QSslSocket::SslMode)));
+    connect(&d->sock, &QSslSocket::stateChanged,
+            this, [this](QAbstractSocket::SocketState state) { d->reemitStateChanged(state); });
+    connect(&d->sock, &QSslSocket::modeChanged,
+            this, [this](QSslSocket::SslMode mode) { d->reemitModeChanged(mode); });
 }
 
 KTcpSocket::~KTcpSocket()

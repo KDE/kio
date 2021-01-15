@@ -1038,15 +1038,20 @@ void KDirModel::requestSequenceIcon(const QModelIndex &index, int sequenceIndex)
     emit needSequenceIcon(index, sequenceIndex);
 }
 
-void KDirModel::setJobTransfersVisible(bool value)
+void KDirModel::setJobTransfersVisible(bool show)
 {
-    if (value) {
-        d->m_jobTransfersVisible = true;
-        connect(&JobUrlCache::instance(), SIGNAL(jobUrlsChanged(QStringList)), this, SLOT(_k_slotJobUrlsChanged(QStringList)), Qt::UniqueConnection);
+    if (d->m_jobTransfersVisible == show) {
+        return;
+    }
+
+    d->m_jobTransfersVisible = show;
+    if (show) {
+        connect(&JobUrlCache::instance(), &JobUrlCache::jobUrlsChanged,
+                this, [this](const QStringList &urlList) { d->_k_slotJobUrlsChanged(urlList); });
 
         JobUrlCache::instance().requestJobUrlsChanged();
     } else {
-        disconnect(this, SLOT(_k_slotJobUrlsChanged(QStringList)));
+        disconnect(&JobUrlCache::instance(), &JobUrlCache::jobUrlsChanged, this, nullptr);
     }
 
 }

@@ -259,7 +259,7 @@ public:
      *
      * @since 4.5
      */
-    void setJobTransfersVisible(bool value);
+    void setJobTransfersVisible(bool show);
 
     /**
      * Returns whether or not displaying job transfers has been enabled.

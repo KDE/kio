@@ -32,10 +32,19 @@ class QDBusConnection;
  *
  * \code
  * kdirnotify = new org::kde::KDirNotify(QString(), QString(), QDBusConnection::sessionBus(), this);
- * connect(kdirnotify, SIGNAL(FileRenamedWithLocalPath(QString,QString,QString)), SLOT(slotFileRenamed(QString,QString,QString)));
- * connect(kdirnotify, SIGNAL(FilesAdded(QString)), SLOT(slotFilesAdded(QString)));
- * connect(kdirnotify, SIGNAL(FilesChanged(QStringList)), SLOT(slotFilesChanged(QStringList)));
- * connect(kdirnotify, SIGNAL(FilesRemoved(QStringList)), SLOT(slotFilesRemoved(QStringList)));
+ * connect(kdirnotify, &KDirNotify::FileRenamedWithLocalPath,
+ *         this, [this](const QString &src, const QString &dst, const QString &dstPath) {
+ *     slotFileRenamed(src, dst, dstPath);
+ * });
+ *
+ * connect(kdirnotify, &KDirNotify::FilesAdded,
+ *         this, [this](const QString &directory) { slotFilesAdded(directory); });
+ *
+ * connect(kdirnotify, &KDirNotify::FilesChanged,
+ *         this, [this](const QStringList &fileList) { slotFilesChanged(fileList); });
+ *
+ * connect(kdirnotify, &KDirNotify::FilesRemoved,
+ *         this, [this](const QStringList &fileList) { slotFilesRemoved(fileList); });
  * \endcode
  *
  * Especially noteworthy are the empty strings for both \p service and \p path. That

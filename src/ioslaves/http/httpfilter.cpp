@@ -57,7 +57,7 @@ HTTPFilterChain::addFilter(HTTPFilterBase *filter)
     if (!last) {
         first = filter;
     } else {
-        disconnect(last, SIGNAL(output(QByteArray)), nullptr, nullptr);
+        disconnect(last, &HTTPFilterBase::output, nullptr, nullptr);
         filter->chain(last);
     }
     last = filter;

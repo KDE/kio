@@ -71,7 +71,7 @@ KioslaveTest::KioslaveTest(QString src, QString dest, uint op, uint pr)
     opButtons = new QButtonGroup(main_widget);
     QGroupBox *box = new QGroupBox(QStringLiteral("Operation"), main_widget);
     topLayout->addWidget(box, 10);
-    connect(opButtons, SIGNAL(buttonClicked(QAbstractButton*)), SLOT(changeOperation(QAbstractButton*)));
+    connect(opButtons, QOverload<QAbstractButton *>::of(&QButtonGroup::buttonClicked), this, &KioslaveTest::changeOperation);
 
     QBoxLayout *hbLayout = new QHBoxLayout(box);
 
@@ -123,7 +123,8 @@ KioslaveTest::KioslaveTest(QString src, QString dest, uint op, uint pr)
     progressButtons = new QButtonGroup(main_widget);
     box = new QGroupBox(QStringLiteral("Progress dialog mode"), main_widget);
     topLayout->addWidget(box, 10);
-    connect(progressButtons, SIGNAL(buttonClicked(QAbstractButton*)), SLOT(changeProgressMode(QAbstractButton*)));
+    connect(progressButtons, QOverload<QAbstractButton *>::of(&QButtonGroup::buttonClicked),
+            this, &KioslaveTest::changeProgressMode);
 
     hbLayout = new QHBoxLayout(box);
 
@@ -237,35 +238,37 @@ void KioslaveTest::startJob()
     SimpleJob *myJob = nullptr;
 
     switch (selectedOperation) {
-    case List:
-        myJob = KIO::listDir(src);
-        connect(myJob, SIGNAL(entries(KIO::Job*,KIO::UDSEntryList)),
-                SLOT(slotEntries(KIO::Job*,KIO::UDSEntryList)));
+    case List: {
+        KIO::ListJob *listJob = KIO::listDir(src);
+        myJob = listJob;
+        connect(listJob, &KIO::ListJob::entries, this, &KioslaveTest::slotEntries);
         break;
+    }
 
-    case ListRecursive:
-        myJob = KIO::listRecursive(src);
-        connect(myJob, SIGNAL(entries(KIO::Job*,KIO::UDSEntryList)),
-                SLOT(slotEntries(KIO::Job*,KIO::UDSEntryList)));
+    case ListRecursive: {
+        KIO::ListJob *listJob = KIO::listRecursive(src);
+        myJob = listJob;
+        connect(listJob, &KIO::ListJob::entries, this, &KioslaveTest::slotEntries);
         break;
+    }
 
     case Stat:
         myJob = KIO::statDetails(src, KIO::StatJob::SourceSide);
         break;
 
-    case Get:
-        myJob = KIO::get(src, KIO::Reload);
-        connect(myJob, SIGNAL(data(KIO::Job*,QByteArray)),
-                SLOT(slotData(KIO::Job*,QByteArray)));
+    case Get: {
+        KIO::TransferJob *tjob = KIO::get(src, KIO::Reload);
+        myJob = tjob;
+        connect(tjob, &KIO::TransferJob::data, this, &KioslaveTest::slotData);
         break;
+    }
 
     case Put: {
         putBuffer = 0;
         KIO::TransferJob *tjob = KIO::put(src, -1, KIO::Overwrite);
         tjob->setTotalSize(48 * 1024 * 1024);
         myJob = tjob;
-        connect(tjob, &TransferJob::dataReq,
-                this, &KioslaveTest::slotDataReq);
+        connect(tjob, &TransferJob::dataReq, this, &KioslaveTest::slotDataReq);
         break;
     }
 

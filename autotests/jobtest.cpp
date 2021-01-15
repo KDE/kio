@@ -2749,7 +2749,7 @@ void JobTest::multiGet()
 #endif
     QSignalSpy spyMimeTypeFound(job, &KIO::MultiGetJob::mimeTypeFound);
     QSignalSpy spyResultId(job, QOverload<long>::of(&KIO::MultiGetJob::result));
-    QSignalSpy spyResult(job, SIGNAL(result(KJob*)));
+    QSignalSpy spyResult(job, &KJob::result);
     job->setUiDelegate(nullptr);
 
     for (int i = 1; i < numFiles; ++i) {

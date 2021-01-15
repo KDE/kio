@@ -77,10 +77,10 @@ public:
 StoredTransferJob::StoredTransferJob(StoredTransferJobPrivate &dd)
     : TransferJob(dd)
 {
-    connect(this, SIGNAL(data(KIO::Job*,QByteArray)),
-            SLOT(slotStoredData(KIO::Job*,QByteArray)));
-    connect(this, SIGNAL(dataReq(KIO::Job*,QByteArray&)),
-            SLOT(slotStoredDataReq(KIO::Job*,QByteArray&)));
+    connect(this, &TransferJob::data,
+            this, [this](KIO::Job *job, const QByteArray &data) { d_func()->slotStoredData(job, data); });
+    connect(this, &TransferJob::dataReq,
+            this, [this](KIO::Job *job, QByteArray &data) { d_func()->slotStoredDataReq(job, data); });
 }
 
 StoredTransferJob::~StoredTransferJob()

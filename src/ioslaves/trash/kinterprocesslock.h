@@ -25,8 +25,7 @@ class KInterProcessLockPrivate;
  * @code
  *
  * KInterProcessLock *lock = new KInterProcessLock("myresource");
- * connect(lock, SIGNAL(lockGranted(KInterProcessLock *)),
- *               this, SLOT(doCriticalTask(KInterProcessLock *)));
+ * connect(lock, KInterProcessLock::lockGranted, this, [this, lock] { doCriticalTask(lock); });
  * lock->lock();
  *
  * ...

@@ -23,8 +23,8 @@ public:
     {
         m_serviceName = QStringLiteral("org.kde.private.lock-%1").arg(m_resource);
 
-        q_ptr->connect(QDBusConnection::sessionBus().interface(), SIGNAL(serviceRegistered(QString)),
-                       q_ptr, SLOT(_k_serviceRegistered(QString)));
+        q_ptr->connect(QDBusConnection::sessionBus().interface(), &QDBusConnectionInterface::serviceRegistered,
+                       q_ptr, [this](const QString &service) { _k_serviceRegistered(service); });
     }
 
     ~KInterProcessLockPrivate()
