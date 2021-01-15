@@ -133,9 +133,6 @@ QAbstractListModel *ProvidersModel::createListModel()
     ProvidersListModel *pListModel = new ProvidersListModel(m_providers, this);
     connect(this, &QAbstractItemModel::modelAboutToBeReset, pListModel, &QAbstractItemModel::modelAboutToBeReset);
     connect(this, &QAbstractItemModel::modelReset, pListModel, &QAbstractItemModel::modelReset);
-    // TODO: next two are private signals, does this still work? and is this needed?
-    connect(this, SIGNAL(layoutAboutToBeChanged()), pListModel, SIGNAL(modelReset()));
-    connect(this, SIGNAL(layoutChanged()), pListModel, SIGNAL(modelReset()));
     connect(this, &QAbstractItemModel::dataChanged, pListModel, &ProvidersListModel::emitDataChanged);
     connect(this, &QAbstractItemModel::rowsAboutToBeInserted, pListModel, &ProvidersListModel::emitRowsAboutToBeInserted);
     connect(this, &QAbstractItemModel::rowsAboutToBeRemoved, pListModel, &ProvidersListModel::emitRowsAboutToBeRemoved);
