@@ -24,7 +24,7 @@
 namespace KDEPrivate
 {
 
-KUrlNavigatorPlacesSelector::KUrlNavigatorPlacesSelector(QWidget *parent, KFilePlacesModel *placesModel) :
+KUrlNavigatorPlacesSelector::KUrlNavigatorPlacesSelector(KUrlNavigator *parent, KFilePlacesModel *placesModel) :
     KUrlNavigatorButtonBase(parent),
     m_selectedItem(-1),
     m_placesModel(placesModel)

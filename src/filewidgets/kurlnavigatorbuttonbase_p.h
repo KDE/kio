@@ -14,6 +14,8 @@
 class QUrl;
 class QEvent;
 
+class KUrlNavigator;
+
 namespace KDEPrivate
 {
 
@@ -28,7 +30,7 @@ class KUrlNavigatorButtonBase : public QPushButton
     Q_OBJECT
 
 public:
-    explicit KUrlNavigatorButtonBase(QWidget *parent);
+    explicit KUrlNavigatorButtonBase(KUrlNavigator *parent);
     virtual ~KUrlNavigatorButtonBase();
 
     /**

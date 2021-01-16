@@ -8,6 +8,7 @@
 #include "kurlnavigatorbuttonbase_p.h"
 
 #include <KLocalizedString>
+#include <KUrlNavigator>
 
 #include <QStyle>
 #include <QStyleOptionViewItem>
@@ -15,7 +16,7 @@
 namespace KDEPrivate
 {
 
-KUrlNavigatorButtonBase::KUrlNavigatorButtonBase(QWidget *parent) :
+KUrlNavigatorButtonBase::KUrlNavigatorButtonBase(KUrlNavigator *parent) :
     QPushButton(parent),
     m_active(true),
     m_displayHint(0)
@@ -25,7 +26,7 @@ KUrlNavigatorButtonBase::KUrlNavigatorButtonBase(QWidget *parent) :
     setMinimumHeight(parent->minimumHeight());
     setAttribute(Qt::WA_LayoutUsesWidgetRect);
 
-    connect(this, SIGNAL(pressed()), parent, SLOT(requestActivation()));
+    connect(this, &KUrlNavigatorButtonBase::pressed, parent, &KUrlNavigator::requestActivation);
 }
 
 KUrlNavigatorButtonBase::~KUrlNavigatorButtonBase()

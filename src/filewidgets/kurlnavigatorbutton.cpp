@@ -28,7 +28,7 @@ namespace KDEPrivate
 
 QPointer<KUrlNavigatorMenu> KUrlNavigatorButton::m_subDirsMenu;
 
-KUrlNavigatorButton::KUrlNavigatorButton(const QUrl &url, QWidget *parent) :
+KUrlNavigatorButton::KUrlNavigatorButton(const QUrl &url, KUrlNavigator *parent) :
     KUrlNavigatorButtonBase(parent),
     m_hoverArrow(false),
     m_pendingTextChange(false),

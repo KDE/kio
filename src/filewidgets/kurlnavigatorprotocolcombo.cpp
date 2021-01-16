@@ -26,7 +26,7 @@ const int ArrowSize = 10;
 namespace KDEPrivate
 {
 
-KUrlNavigatorProtocolCombo::KUrlNavigatorProtocolCombo(const QString &protocol, QWidget *parent) :
+KUrlNavigatorProtocolCombo::KUrlNavigatorProtocolCombo(const QString &protocol, KUrlNavigator *parent) :
     KUrlNavigatorButtonBase(parent),
     m_menu(nullptr),
     m_protocols(),

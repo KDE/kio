@@ -14,7 +14,7 @@
 namespace KDEPrivate
 {
 
-KUrlNavigatorDropDownButton::KUrlNavigatorDropDownButton(QWidget *parent) :
+KUrlNavigatorDropDownButton::KUrlNavigatorDropDownButton(KUrlNavigator *parent) :
     KUrlNavigatorButtonBase(parent)
 {
 }

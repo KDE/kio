@@ -37,7 +37,7 @@ public:
      * @param parent Parent widget where the bookmark selector
      *               is embedded into.
      */
-    KUrlNavigatorPlacesSelector(QWidget *parent, KFilePlacesModel *placesModel);
+    KUrlNavigatorPlacesSelector(KUrlNavigator *parent, KFilePlacesModel *placesModel);
 
     ~KUrlNavigatorPlacesSelector() override;
 

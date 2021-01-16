@@ -9,6 +9,8 @@
 
 #include "kurlnavigatorbuttonbase_p.h"
 
+class KUrlNavigator;
+
 namespace KDEPrivate
 {
 
@@ -24,7 +26,7 @@ class KUrlNavigatorDropDownButton : public KUrlNavigatorButtonBase
     Q_OBJECT
 
 public:
-    explicit KUrlNavigatorDropDownButton(QWidget *parent);
+    explicit KUrlNavigatorDropDownButton(KUrlNavigator *parent);
     ~KUrlNavigatorDropDownButton() override;
 
     /** @see QWidget::sizeHint() */

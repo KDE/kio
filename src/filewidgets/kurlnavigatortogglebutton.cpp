@@ -15,7 +15,7 @@
 namespace KDEPrivate
 {
 
-KUrlNavigatorToggleButton::KUrlNavigatorToggleButton(QWidget *parent) :
+KUrlNavigatorToggleButton::KUrlNavigatorToggleButton(KUrlNavigator *parent) :
     KUrlNavigatorButtonBase(parent)
 {
     setCheckable(true);

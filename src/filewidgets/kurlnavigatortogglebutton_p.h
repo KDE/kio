@@ -24,7 +24,7 @@ class KUrlNavigatorToggleButton : public KUrlNavigatorButtonBase
     Q_OBJECT
 
 public:
-    explicit KUrlNavigatorToggleButton(QWidget *parent);
+    explicit KUrlNavigatorToggleButton(KUrlNavigator *parent);
     ~KUrlNavigatorToggleButton() override;
 
     /** @see QWidget::sizeHint() */
