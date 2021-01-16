@@ -75,7 +75,7 @@ public:
     enum InlinePreviewState {
         ForcedToFalse = 0,
         ForcedToTrue,
-        NotForced
+        NotForced,
     };
 
     // private methods

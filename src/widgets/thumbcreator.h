@@ -95,7 +95,7 @@ public:
 #if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 32)
         DrawFrame = 1, /**< \deprecated since 5.32. Used to paint a frame around the preview, but applications take care of that nowadays. */
 #endif
-        BlendIcon = 2  /**< The MIME type icon should be blended over the preview. */
+        BlendIcon = 2,  /**< The MIME type icon should be blended over the preview. */
     };
 
     /**

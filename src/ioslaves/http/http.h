@@ -63,7 +63,7 @@ public:
     enum CacheIOMode {
         NoCache = 0,
         ReadFromCache = 1,
-        WriteToCache = 2
+        WriteToCache = 2,
     };
 
     struct CacheTag {
@@ -78,7 +78,7 @@ public:
         enum CachePlan {
             UseCached = 0,
             ValidateCached,
-            IgnoreCached
+            IgnoreCached,
         };
         // int maxCacheAge refers to seconds
         CachePlan plan(int maxCacheAge) const;
@@ -514,7 +514,7 @@ protected:
         NoCredentials = 0,
         JobCredentials,
         CachedCredentials,
-        UserInputCredentials
+        UserInputCredentials,
     };
 
     HTTPServerState m_server;

@@ -41,7 +41,7 @@ public:
         CapacityBarRecommendedRole = 0x1548C5C4, /// Whether the place should have its free space displayed in a capacity bar.
         GroupRole = 0x0a5b64ee, ///< @since 5.40 /// The name of the group, for example "Remote" or "Devices".
         IconNameRole = 0x00a45c00, ///< @since 5.41 @see icon()
-        GroupHiddenRole = 0x21a4b936 ///< @since 5.42 @see isGroupHidden()
+        GroupHiddenRole = 0x21a4b936, ///< @since 5.42 @see isGroupHidden()
     };
 
     /// @since 5.42
@@ -53,7 +53,7 @@ public:
         DevicesType,
         RemovableDevicesType,
         UnknownType,
-        TagsType ///< @since 5.54
+        TagsType, ///< @since 5.54
     };
 
     explicit KFilePlacesModel(QObject *parent = nullptr);

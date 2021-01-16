@@ -4592,7 +4592,7 @@ struct BinaryCacheFileHeader {
 enum CacheCleanerCommandCode {
     InvalidCommand = 0,
     CreateFileNotificationCommand,
-    UpdateFileCommand
+    UpdateFileCommand,
 };
 
 // illustration for cache cleaner update "commands"

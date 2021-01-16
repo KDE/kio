@@ -18,7 +18,7 @@ public:
   enum StatusCode {
     SUCCEEDED=0,
     ALREADY_EXISTS,
-    DUPLICATE_ENTRY
+    DUPLICATE_ENTRY,
   };
 
   UserAgentInfo();

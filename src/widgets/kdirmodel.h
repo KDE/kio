@@ -151,7 +151,7 @@ public:
         Owner,
         Group,
         Type,
-        ColumnCount
+        ColumnCount,
     };
 
     /// Possible return value for data(ChildCountRole), meaning the item isn't a directory,
@@ -163,7 +163,7 @@ public:
         // to define additional roles.
         FileItemRole = 0x07A263FF,  ///< returns the KFileItem for a given index
         ChildCountRole = 0x2C4D0A40, ///< returns the number of items in a directory, or ChildCountUnknown
-        HasJobRole = 0x01E555A5  ///< returns whether or not there is a job on an item (file/directory)
+        HasJobRole = 0x01E555A5,  ///< returns whether or not there is a job on an item (file/directory)
     };
 
     /**
@@ -173,7 +173,7 @@ public:
         NoDrops = 0,
         DropOnDirectory = 1, ///< allow drops on any directory
         DropOnAnyFile = 2, ///< allow drops on any file
-        DropOnLocalExecutable = 4 ///< allow drops on local executables, shell scripts and desktop files. Can be used with DropOnDirectory.
+        DropOnLocalExecutable = 4, ///< allow drops on local executables, shell scripts and desktop files. Can be used with DropOnDirectory.
     };
     /**
      * Stores a combination of #DropsAllowedFlag values.

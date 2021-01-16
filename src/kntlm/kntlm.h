@@ -53,7 +53,7 @@ public:
         Negotiate_Target_Info     = 0x00800000,
         Negotiate_128             = 0x20000000,
         Negotiate_Key_Exchange    = 0x40000000,
-        Negotiate_56              = 0x80000000
+        Negotiate_56              = 0x80000000,
     };
 
     /**
@@ -62,7 +62,7 @@ public:
     enum AuthFlag {
         Force_V1 = 0x1,
         Force_V2 = 0x2,
-        Add_LM = 0x4
+        Add_LM = 0x4,
     };
 
     /**

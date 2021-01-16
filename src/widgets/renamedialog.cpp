@@ -80,7 +80,7 @@ static KSqueezedTextLabel *createSqueezedLabel(QWidget *parent, const QString &t
 enum CompareFilesResult {
     Identical,
     PartiallyIdentical,
-    Different
+    Different,
 };
 static CompareFilesResult compareFiles(const QString &filepath, const QString &secondFilePath)
 {

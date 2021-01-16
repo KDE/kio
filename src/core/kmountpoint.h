@@ -116,7 +116,7 @@ public:
     bool probablySlow() const;
 
     enum FileSystemFlag { SupportsChmod, SupportsChown, SupportsUTime,
-                          SupportsSymlinks, CaseInsensitive
+                          SupportsSymlinks, CaseInsensitive,
                         };
     /**
      * Checks the capabilities of the filesystem.

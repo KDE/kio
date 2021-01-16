@@ -76,7 +76,7 @@ public:
         ///< are kept for this KCoreDirLister). This is useful for e.g.
         ///< a treeview.
 
-        Reload = 0x2     ///< Indicates whether to use the cache or to reread
+        Reload = 0x2,     ///< Indicates whether to use the cache or to reread
                  ///< the directory from the disk.
                  ///< Use only when opening a dir not yet listed by this lister
                  ///< without using the cache. Otherwise use updateDirectory.
@@ -356,7 +356,7 @@ public:
      */
     enum WhichItems {
         AllItems = 0,
-        FilteredItems = 1
+        FilteredItems = 1,
     };
 
     /**

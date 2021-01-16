@@ -50,7 +50,7 @@ enum Info {
     INF_NETWORK_STATUS,
     INF_MESSAGEBOX,
     INF_POSITION,
-    INF_TRUNCATED
+    INF_TRUNCATED,
     // add new ones here once a release is done, to avoid breaking binary compatibility
 };
 
@@ -88,7 +88,7 @@ enum Message {
     MSG_WRITTEN,
     MSG_HOST_INFO_REQ,
     MSG_PRIVILEGE_EXEC,
-    MSG_SLAVE_STATUS_V2
+    MSG_SLAVE_STATUS_V2,
     // add new ones here once a release is done, to avoid breaking binary compatibility
 };
 

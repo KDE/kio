@@ -47,13 +47,13 @@ public:
         // warning: don't change without looking at the Private class
         ModificationTime = 0,
         AccessTime = 1,
-        CreationTime = 2
+        CreationTime = 2,
                        //ChangeTime
     };
 
     enum MimeTypeDetermination {
         NormalMimeTypeDetermination = 0,
-        SkipMimeTypeFromContent
+        SkipMimeTypeFromContent,
     };
 
     /**

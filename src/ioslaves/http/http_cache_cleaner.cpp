@@ -132,7 +132,7 @@ bool CacheFileInfoPtrLessThan(const CacheFileInfo *cf1, const CacheFileInfo *cf2
 enum OperationMode {
     CleanCache = 0,
     DeleteCache,
-    FileInfo
+    FileInfo,
 };
 
 static bool readBinaryHeader(const QByteArray &d, CacheFileInfo *fi)
@@ -237,7 +237,7 @@ static bool readTextHeader(QFile *file, CacheFileInfo *fi, OperationMode mode)
 enum CacheCleanerCommand {
     InvalidCommand = 0,
     CreateFileNotificationCommand,
-    UpdateFileCommand
+    UpdateFileCommand,
 };
 
 static bool readCacheFile(const QString &baseName, CacheFileInfo *fi, OperationMode mode)

@@ -260,7 +260,7 @@ private:
     enum Stage1State {
         Init = 0,
         SentNTLMv1,
-        SentNTLMv2
+        SentNTLMv2,
     };
     Stage1State m_stage1State;
 };

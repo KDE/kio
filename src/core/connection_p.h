@@ -35,7 +35,7 @@ class Connection : public QObject
 public:
     enum class ReadMode {
         Polled,  ///Any new tasks will be polled
-        EventDriven ///We need to emit signals when we have pending events. Requires a working QEventLoop
+        EventDriven, ///We need to emit signals when we have pending events. Requires a working QEventLoop
     };
     /**
      * Creates a new connection.

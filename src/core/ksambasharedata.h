@@ -30,7 +30,7 @@ class KIOCORE_EXPORT KSambaShareData
 public:
     enum GuestPermission {
         GuestsNotAllowed,
-        GuestsAllowed
+        GuestsAllowed,
     };
 
     enum UserShareError {
@@ -52,7 +52,7 @@ public:
         UserShareGuestsOk,
         UserShareGuestsInvalid,
         UserShareGuestsNotAllowed,
-        UserShareSystemError /* < A system error occurred; check KSambaShare::lastSystemErrorString */
+        UserShareSystemError, /* < A system error occurred; check KSambaShare::lastSystemErrorString */
     };
 
     KSambaShareData();

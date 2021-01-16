@@ -50,7 +50,7 @@ public:
          * the PreviewJob. The result will be cached for later use. Per default
          * ScaledAndCached is set.
          */
-        ScaledAndCached
+        ScaledAndCached,
     };
 
 #if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(4, 7)

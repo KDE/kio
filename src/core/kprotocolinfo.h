@@ -81,7 +81,7 @@ public:
     enum Type { T_STREAM, ///< stream of data (e.g. single file)
                 T_FILESYSTEM, ///< structured directory
                 T_NONE,   ///< no information about the type available
-                T_ERROR   ///< used to signal an error
+                T_ERROR,   ///< used to signal an error
               };
 
     /**

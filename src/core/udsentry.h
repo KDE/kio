@@ -341,7 +341,7 @@ public:
         /// Extra data (used only if you specified Columns/ColumnsTypes)
         /// NB: you cannot repeat this entry; use UDS_EXTRA + i
         /// until UDS_EXTRA_END.
-        UDS_EXTRA_END = 140 | UDS_STRING
+        UDS_EXTRA_END = 140 | UDS_STRING,
     };
 
 private:

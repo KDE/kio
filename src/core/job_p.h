@@ -51,7 +51,7 @@ public:
            EF_TransferJobNeedData = (1 << 1),
            EF_TransferJobDataSent = (1 << 2),
            EF_ListJobUnrestricted = (1 << 3),
-           EF_KillCalled          = (1 << 4)
+           EF_KillCalled          = (1 << 4),
          };
 
     enum FileOperationType {
@@ -63,7 +63,7 @@ public:
         Rename,
         Symlink,
         Transfer, // put() and get()
-        Other // if other file operation set message, caption inside the job.
+        Other, // if other file operation set message, caption inside the job.
     };
 
     // Maybe we could use the QObject parent/child mechanism instead

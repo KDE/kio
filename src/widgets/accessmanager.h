@@ -70,7 +70,7 @@ public:
      */
     enum Attribute {
         MetaData = QNetworkRequest::User, /** < Used to send KIO MetaData back and forth. type: QVariant::Map. */
-        KioError /**< Used to send KIO error codes that cannot be mapped into QNetworkReply::NetworkError. type: QVariant::Int */
+        KioError, /**< Used to send KIO error codes that cannot be mapped into QNetworkReply::NetworkError. type: QVariant::Int */
     };
 
     /**

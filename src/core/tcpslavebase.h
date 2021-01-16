@@ -54,7 +54,7 @@ protected:
         ResultOk = 1,
         ResultOverridden = 2,
         ResultFailed = 4,
-        ResultFailedEarly = 8
+        ResultFailedEarly = 8,
     };
     friend class QFlags<KIO::TCPSlaveBase::SslResultDetail>;
 public:

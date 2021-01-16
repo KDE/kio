@@ -270,7 +270,7 @@ public:
         Cancel = 2,
         Yes = 3,
         No = 4,
-        Continue = 5
+        Continue = 5,
     };
 
     /**

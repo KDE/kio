@@ -61,7 +61,7 @@ static QDir getOrCreateCookieJarDir()
 
 // Cookie field indexes
 enum CookieDetails { CF_DOMAIN = 0, CF_PATH, CF_NAME, CF_HOST,
-                     CF_VALUE, CF_EXPIRE, CF_PROVER, CF_SECURE
+                     CF_VALUE, CF_EXPIRE, CF_PROVER, CF_SECURE,
                    };
 
 class CookieRequest

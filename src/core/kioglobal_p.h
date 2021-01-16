@@ -97,7 +97,7 @@ namespace KIOPrivate {
     enum SymlinkType {
         GuessSymlinkType,
         FileSymlink,
-        DirectorySymlink
+        DirectorySymlink,
     };
 
     /** Creates a symbolic link at @p destination pointing to @p source

@@ -22,7 +22,7 @@ class KIOWIDGETS_EXPORT KSslCertificateBox : public QWidget
 public:
     enum CertificateParty {
         Subject = 0,
-        Issuer
+        Issuer,
     };
 
     explicit KSslCertificateBox(QWidget *parent = nullptr);

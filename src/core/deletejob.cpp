@@ -45,7 +45,7 @@ namespace KIO
 enum DeleteJobState {
     DELETEJOB_STATE_STATING,
     DELETEJOB_STATE_DELETING_FILES,
-    DELETEJOB_STATE_DELETING_DIRS
+    DELETEJOB_STATE_DELETING_DIRS,
 };
 
 class DeleteJobIOWorker : public QObject {

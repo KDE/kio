@@ -45,7 +45,7 @@ protected:
     enum DisplayHint {
         EnteredHint = 1,
         DraggedHint = 2,
-        PopupActiveHint = 4
+        PopupActiveHint = 4,
     };
 
     enum { BorderWidth = 2 };

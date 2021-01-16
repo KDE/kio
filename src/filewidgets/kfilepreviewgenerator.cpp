@@ -95,7 +95,7 @@ public:
 
     enum Tile { TopLeftCorner = 0, TopSide, TopRightCorner, LeftSide,
                 RightSide, BottomLeftCorner, BottomSide, BottomRightCorner,
-                NumTiles
+                NumTiles,
               };
 
     TileSet()

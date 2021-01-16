@@ -55,7 +55,7 @@ enum {
     M_MULTI = RenameDialog_MultipleItems,
     M_RESUME = RenameDialog_Resume,
     M_NORENAME = RenameDialog_NoRename,
-    M_ISDIR = RenameDialog_IsDirectory
+    M_ISDIR = RenameDialog_IsDirectory,
 };
 /**
  * @deprecated since 5.0, use RenameDialog_Options
@@ -71,7 +71,7 @@ typedef RenameDialog_Options RenameDialog_Mode;
  * @since 5.0
  */
 enum SkipDialog_Option {
-    SkipDialog_MultipleItems = 8
+    SkipDialog_MultipleItems = 8,
 };
 /**
  * Stores a combination of #SkipDialog_Option values.
@@ -117,7 +117,7 @@ enum RenameDialog_Result {
     S_CANCEL = Result_Cancel,
     S_SKIP = Result_Skip,
     S_AUTO_SKIP = Result_AutoSkip,
-    S_RETRY = Result_Retry
+    S_RETRY = Result_Retry,
 #endif
 };
 typedef RenameDialog_Result SkipDialog_Result;
@@ -258,7 +258,7 @@ public:
     enum ClipboardUpdaterMode {
         UpdateContent,
         OverwriteContent,
-        RemoveContent
+        RemoveContent,
     };
 
     /**

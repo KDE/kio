@@ -198,7 +198,7 @@ public:
         SearchFilterOptionNone = 0x0,
         RetrieveSearchProvidersOnly = 0x01,
         RetrievePreferredSearchProvidersOnly = 0x02,
-        RetrieveAvailableSearchProvidersOnly = (RetrievePreferredSearchProvidersOnly | RetrieveSearchProvidersOnly)
+        RetrieveAvailableSearchProvidersOnly = (RetrievePreferredSearchProvidersOnly | RetrieveSearchProvidersOnly),
     };
     /**
      * Stores a combination of #SearchFilterOption values.
@@ -863,7 +863,7 @@ public:
     */
     enum SearchFilterType {
         NormalTextFilter = 0x01,
-        WebShortcutFilter = 0x02
+        WebShortcutFilter = 0x02,
     };
     /**
      * Stores a combination of #SearchFilterType values.

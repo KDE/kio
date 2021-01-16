@@ -104,7 +104,7 @@ public:
         ViewActions =  2,
         NavActions  =  4,
         FileActions =  8,
-        AllActions  = 15
+        AllActions  = 15,
     };
 
     /**

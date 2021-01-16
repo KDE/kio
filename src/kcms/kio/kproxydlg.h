@@ -21,7 +21,7 @@ public:
         HideHttpUrlScheme = 0x01,
         HideHttpsUrlScheme = 0x02,
         HideFtpUrlScheme = 0x04,
-        HideSocksUrlScheme = 0x08
+        HideSocksUrlScheme = 0x08,
     };
     Q_DECLARE_FLAGS(DisplayUrlFlags, DisplayUrlFlag)
 

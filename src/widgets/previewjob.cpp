@@ -86,7 +86,7 @@ public:
 
     enum { STATE_STATORIG, // if the thumbnail exists
            STATE_GETORIG, // if we create it
-           STATE_CREATETHUMB // thumbnail:/ slave
+           STATE_CREATETHUMB, // thumbnail:/ slave
          } state;
 
     KFileItemList initialItems;

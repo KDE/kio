@@ -31,7 +31,7 @@ enum KCookieAdvice {
     KCookieAccept,
     KCookieAcceptForSession,
     KCookieReject,
-    KCookieAsk
+    KCookieAsk,
 };
 
 class KHttpCookie
@@ -410,7 +410,7 @@ public:
     enum KCookieDefaultPolicy {
         ApplyToShownCookiesOnly = 0,
         ApplyToCookiesFromDomain = 1,
-        ApplyToAllCookies = 2
+        ApplyToAllCookies = 2,
     };
     /** Returns the user's choice in the cookie window */
     KCookieDefaultPolicy preferredDefaultPolicy() const

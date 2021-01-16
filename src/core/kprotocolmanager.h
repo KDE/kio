@@ -184,7 +184,7 @@ public:
         ManualProxy,
         PACProxy,
         WPADProxy,
-        EnvVarProxy
+        EnvVarProxy,
     };
 
     /**
@@ -201,7 +201,7 @@ public:
      */
     enum ProxyAuthMode {
         Prompt,
-        Automatic
+        Automatic,
     };
 
     /**

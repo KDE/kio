@@ -100,13 +100,13 @@ public:
         PermissionsOnlyFiles = 0,
         PermissionsOnlyDirs = 1,
         PermissionsOnlyLinks = 2,
-        PermissionsMixed = 3
+        PermissionsMixed = 3,
     };
 
     enum PermissionsTarget {
         PermissionsOwner  = 0,
         PermissionsGroup  = 1,
-        PermissionsOthers = 2
+        PermissionsOthers = 2,
     };
 
     /**

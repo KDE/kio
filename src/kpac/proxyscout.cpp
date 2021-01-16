@@ -38,7 +38,7 @@ enum ProxyType {
     Unknown = -1,
     Proxy,
     Socks,
-    Direct
+    Direct,
 };
 
 static ProxyType proxyTypeFor(const QString &mode)

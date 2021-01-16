@@ -73,7 +73,7 @@ protected:
     // queuing methods
     /** identifiers of functions to be queued */
     enum QueueType { Queue_mimeType = 1, Queue_totalSize,
-                     Queue_sendMetaData, Queue_data, Queue_finished
+                     Queue_sendMetaData, Queue_data, Queue_finished,
                    };
     /** structure for queuing. It is very primitive, it doesn't
      * even try to conserve memory.

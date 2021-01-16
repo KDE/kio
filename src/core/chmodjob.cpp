@@ -32,7 +32,7 @@ struct ChmodInfo {
 
 enum ChmodJobState {
     CHMODJOB_STATE_LISTING,
-    CHMODJOB_STATE_CHMODING
+    CHMODJOB_STATE_CHMODING,
 };
 
 class ChmodJobPrivate: public KIO::JobPrivate

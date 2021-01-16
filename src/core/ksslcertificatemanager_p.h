@@ -27,7 +27,7 @@ public:
 struct KSslCaCertificate {
     enum Store {
         SystemStore = 0,
-        UserStore
+        UserStore,
     };
 
     // TODO see if we can get rid of the .toHex() for storage and comparison; requires

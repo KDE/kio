@@ -21,7 +21,8 @@ class ExecutableFileOpenDialog : public QDialog
 
 public:
     enum ReturnCode {
-        OpenFile = 42, ExecuteFile
+        OpenFile = 42,
+        ExecuteFile,
     };
 
 
@@ -33,7 +34,7 @@ public:
         // For *.exe files, open with WINE is like execute the file
         // In this case, openAsExecute is true, we hide "Open" button and connect
         // "Execute" button to OpenFile action.
-        OpenAsExecute
+        OpenAsExecute,
     };
 
     explicit ExecutableFileOpenDialog(Mode mode, QWidget* parent = nullptr);

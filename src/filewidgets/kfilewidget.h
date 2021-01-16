@@ -323,7 +323,7 @@ public:
      *         Directory    = 2,
      *         Files        = 4,
      *         ExistingOnly = 8,
-     *         LocalOnly    = 16
+     *         LocalOnly    = 16,
      *    };
      * \endcode
      * You can OR the values, e.g.

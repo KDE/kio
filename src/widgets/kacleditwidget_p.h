@@ -44,7 +44,7 @@ public:
         MASK_IDX,
         NAMED_USER_IDX,
         NAMED_GROUP_IDX,
-        LAST_IDX
+        LAST_IDX,
     };
     enum EntryType { User = 1,
                      Group = 2,
@@ -52,7 +52,7 @@ public:
                      Mask = 8,
                      NamedUser = 16,
                      NamedGroup = 32,
-                     AllTypes = 63
+                     AllTypes = 63,
                    };
 
     explicit KACLListView(QWidget *parent = nullptr);

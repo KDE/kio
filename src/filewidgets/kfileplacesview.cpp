@@ -521,7 +521,7 @@ public:
 
     enum FadeType {
         FadeIn = 0,
-        FadeOut
+        FadeOut,
     };
 
     void setCurrentIndex(const QModelIndex &index);

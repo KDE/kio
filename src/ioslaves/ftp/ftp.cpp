@@ -121,7 +121,7 @@ enum buffersizes {
     /**
      * recommended size of a data block passed to findBufferFileType()
      */
-    minimumMimeSize =     1024
+    minimumMimeSize =     1024,
 };
 
 // JPF: this helper was derived from write_all in file.cc (FileProtocol).

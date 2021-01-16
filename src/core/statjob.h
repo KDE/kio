@@ -31,7 +31,7 @@ class KIOCORE_EXPORT StatJob : public SimpleJob
 public:
     enum StatSide {
         SourceSide,
-        DestinationSide
+        DestinationSide,
     };
 
     ~StatJob() override;

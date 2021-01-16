@@ -27,7 +27,7 @@ public:
         Public = 0,    // HTTP with no ssl and no authentication needed
         Ssl = 1,       // HTTPS
         BasicAuth = 2,  // Requires authentication
-        Error404 = 4   // Return "404 not found"
+        Error404 = 4,   // Return "404 not found"
                    // bitfield, next item is 8
     };
     Q_DECLARE_FLAGS(Features, Feature)

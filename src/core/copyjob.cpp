@@ -77,7 +77,7 @@ enum DestinationState {
     DEST_NOT_STATED,
     DEST_IS_DIR,
     DEST_IS_FILE,
-    DEST_DOESNT_EXIST
+    DEST_DOESNT_EXIST,
 };
 
 /**
@@ -107,7 +107,7 @@ enum CopyJobState {
     STATE_COPYING_FILES,
     STATE_CONFLICT_COPYING_FILES,
     STATE_DELETING_DIRS,
-    STATE_SETTING_DIR_ATTRIBUTES
+    STATE_SETTING_DIR_ATTRIBUTES,
 };
 
 static QUrl addPathToUrl(const QUrl &url, const QString &relPath)

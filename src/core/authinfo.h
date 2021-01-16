@@ -229,7 +229,7 @@ public:
     enum FieldFlags {
         ExtraFieldNoFlags = 0,
         ExtraFieldReadOnly = 1 << 1,
-        ExtraFieldMandatory = 1 << 2
+        ExtraFieldMandatory = 1 << 2,
     };
 
     /**
@@ -311,7 +311,7 @@ public:
     enum LookUpModeFlag {
         exactOnly = 0x0002,
         defaultOnly = 0x0004,
-        presetOnly = 0x0008
+        presetOnly = 0x0008,
     };
     /**
      * Stores a combination of #LookUpModeFlag values.

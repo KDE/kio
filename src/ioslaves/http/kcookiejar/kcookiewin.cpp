@@ -34,7 +34,7 @@
 #include <KUserTimestamp>
 
 enum {
-    AcceptedForSession = QDialog::Accepted + 1
+    AcceptedForSession = QDialog::Accepted + 1,
 };
 
 KCookieWin::KCookieWin(QWidget *parent, KHttpCookieList cookieList,

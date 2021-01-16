@@ -24,7 +24,7 @@ namespace SslUi
 enum RulesStorage {
     RecallRules = 1, ///< apply stored certificate rules (typically ignored errors)
     StoreRules = 2, ///< make new ignore rules from the user's choice and store them
-    RecallAndStoreRules = 3 ///< apply stored rules and store new rules
+    RecallAndStoreRules = 3, ///< apply stored rules and store new rules
 };
 
 #if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 64)

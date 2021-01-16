@@ -40,7 +40,7 @@ class FtpInternal;
 enum class LoginMode {
     Deferred,
     Explicit,
-    Implicit
+    Implicit,
 };
 
 /**
@@ -527,7 +527,7 @@ private: // data members
         eprtUnknown = 0x04,
         epsvAllSent = 0x10,
         pasvUnknown = 0x20,
-        chmodUnknown = 0x100
+        chmodUnknown = 0x100,
     };
     int m_extControl;
 

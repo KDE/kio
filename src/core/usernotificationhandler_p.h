@@ -31,7 +31,7 @@ public:
         MSG_YES_BUTTON_ICON,
         MSG_NO_BUTTON_ICON,
         MSG_DONT_ASK_AGAIN,
-        MSG_META_DATA
+        MSG_META_DATA,
     };
 
     class Request

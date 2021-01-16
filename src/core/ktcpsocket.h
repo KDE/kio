@@ -38,11 +38,11 @@ public:
     enum Algorithm {
         Rsa = 0,
         Dsa,
-        Dh
+        Dh,
     };
     enum KeySecrecy {
         PublicKey,
-        PrivateKey
+        PrivateKey,
     };
 
     KSslKey();
@@ -112,7 +112,7 @@ public:
         UntrustedCertificate,
         NoPeerCertificate,
         HostNameMismatch,
-        PathLengthExceeded
+        PathLengthExceeded,
     };
 
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 63)
@@ -163,7 +163,7 @@ public:
         ConnectedState,
         BoundState,
         ListeningState,
-        ClosingState
+        ClosingState,
         //hmmm, do we need an SslNegotiatingState?
     };
     enum SslVersion {
@@ -178,7 +178,7 @@ public:
         TlsV1_1 = 0x40,
         TlsV1_2 = 0x80,
         TlsV1_3 = 0x100,
-        AnySslVersion = SslV2 | SslV3 | TlsV1
+        AnySslVersion = SslV2 | SslV3 | TlsV1,
     };
     Q_DECLARE_FLAGS(SslVersions, SslVersion)
 
@@ -192,7 +192,7 @@ public:
         SocketTimeoutError,
         NetworkError,
         UnsupportedSocketOperationError,
-        SslHandshakeFailedError                 ///< @since 4.10.5
+        SslHandshakeFailedError,                 ///< @since 4.10.5
     };
     /*
     The following is based on reading the OpenSSL interface code of both QSslSocket
@@ -229,13 +229,13 @@ public:
     enum EncryptionMode {
         UnencryptedMode = 0,
         SslClientMode,
-        SslServerMode //### not implemented
+        SslServerMode, //### not implemented
     };
     enum ProxyPolicy {
         /// Use the proxy that KProtocolManager suggests for the connection parameters given.
         AutoProxy = 0,
         /// Use the proxy set by setProxy(), if any; otherwise use no proxy.
-        ManualProxy
+        ManualProxy,
     };
 
     KTcpSocket(QObject *parent = nullptr);

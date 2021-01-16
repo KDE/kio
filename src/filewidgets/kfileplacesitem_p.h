@@ -39,7 +39,7 @@ public:
         SearchForType,
         DevicesType,
         RemovableDevicesType,
-        TagsType
+        TagsType,
     };
 
     KFilePlacesItem(KBookmarkManager *manager,

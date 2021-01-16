@@ -61,7 +61,7 @@ private:
         DevicesCategory,
         SubversionCategory,
         OtherCategory,
-        CategoryCount // mandatory last entry
+        CategoryCount, // mandatory last entry
     };
 
     QMenu *m_menu;
