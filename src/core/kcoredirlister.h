@@ -427,32 +427,80 @@ Q_SIGNALS:
      */
     void completed();
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 79)
     /**
      * Tell the view that the listing of the directory @p _url is finished.
      * There might be other running jobs left.
+     *
      * @param _url the directory URL
+     *
+     * @deprecated since 5.79, use KCoreDirLister::listingDirCompleted(const QUrl &)
      */
+    KIOCORE_DEPRECATED_VERSION(5, 79, "Use KCoreDirLister::listingDirCompleted(const QUrl &)")
     void completed(const QUrl &_url);
+#endif
+
+    /**
+     * Tell the view that the listing of the directory @p _url is finished.
+     * There might be other running jobs left.
+     *
+     * @param _url the directory URL
+     *
+     * @since 5.79
+     */
+    void listingDirCompleted(const QUrl &url);
 
     /**
      * Tell the view that the user canceled the listing. No running jobs are left.
      */
     void canceled();
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 79)
     /**
      * Tell the view that the listing of the directory @p _url was canceled.
      * There might be other running jobs left.
+     *
      * @param _url the directory URL
+     *
+     * @deprecated since 5.79, use KCoreDirLister::listingDirCanceled(const QUrl &)
      */
+    KIOCORE_DEPRECATED_VERSION(5, 79, "use KCoreDirLister::listingDirCanceled(const QUrl &)")
     void canceled(const QUrl &_url);
+#endif
+
+    /**
+     * Tell the view that the listing of the directory @p _url was canceled.
+     * There might be other running jobs left.
+     *
+     * @param _url the directory URL
+     *
+     * @since 5.79
+     */
+    void listingDirCanceled(const QUrl &_url);
+
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 79)
+    /**
+     * Signal a redirection.
+     * Only emitted if there's just one directory to list, i.e. most
+     * probably openUrl() has been called without OpenUrlFlag::Keep.
+     *
+     * @param _url the new URL
+     *
+     * @deprecated since 5.79, use singleUrlRedirection(const QUrl &)
+     */
+    KIOCORE_DEPRECATED_VERSION(5, 79, "Use singleUrlRedirection(const QUrl &)")
+    void redirection(const QUrl &_url);
+#endif
 
     /**
      * Signal a redirection.
      * Only emitted if there's just one directory to list, i.e. most
      * probably openUrl() has been called without OpenUrlFlag::Keep.
      * @param _url the new URL
+     *
+     * @since 5.79
      */
-    void redirection(const QUrl &_url);
+    void singleUrlRedirection(const QUrl &_url);
 
     /**
      * Signal a redirection.
@@ -462,17 +510,33 @@ Q_SIGNALS:
     void redirection(const QUrl &oldUrl, const QUrl &newUrl);
 
     /**
-     * Signal to clear all items.
-     * Make sure to connect to this signal to avoid doubled items.
+     * Emitted when all the directories are removed from the cache.
+     * Make sure to connect to this signal to avoid having duplicate items.
      */
     void clear();
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 79)
     /**
-     * Signal to empty the directory @p _url.
+     * Emitted when directory @p _url is removed from the cache.
      * It is only emitted if the lister is holding more than one directory.
-     * @param _url the directory that will be emptied
+     *
+     * @param _url the directory that was removed from the cache
+     *
+     * @deprecated since 5.79, use dirRemovedFromCache(const QUrl &)
      */
+    KIOCORE_DEPRECATED_VERSION(5, 79, "Use dirRemovedFromCache(const QUrl &)")
     void clear(const QUrl &_url);
+#endif
+
+    /**
+     * Emitted when directory @p _url is removed from the cache.
+     * It is only emitted if the lister is holding more than one directory.
+     *
+     * @param _url the directory that was removed from the cache
+     *
+     * @since 5.79
+     */
+    void dirRemovedFromCache(const QUrl &_url);
 
     /**
      * Signal new items.
@@ -624,4 +688,3 @@ private:
 Q_DECLARE_OPERATORS_FOR_FLAGS(KCoreDirLister::OpenUrlFlags)
 
 #endif
-

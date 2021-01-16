@@ -35,7 +35,15 @@ private Q_SLOTS:
     void retryPressed();
 
 Q_SIGNALS:
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 79)
+    /**
+     * This signal is overloaded in this class.
+     *
+     * @deprecated since 5.79, for lack of usage
+     */
+    KIOWIDGETS_DEPRECATED_VERSION(5, 79, "Deprecated for lack of usage")
     void result(SkipDialog *_this, int _button);
+#endif
 
 private:
     SkipDialogPrivate *const d;

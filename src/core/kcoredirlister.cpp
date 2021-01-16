@@ -298,7 +298,10 @@ bool KCoreDirListerPrivate::CachedItemsJob::doKill()
     qCDebug(KIO_CORE_DIRLISTER) << this;
     kDirListerCache()->forgetCachedItemsJob(this, m_lister, m_url);
     if (!property("_kdlc_silent").toBool()) {
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
         Q_EMIT m_lister->canceled(m_url);
+#endif
+        Q_EMIT m_lister->listingDirCanceled(m_url);
         Q_EMIT m_lister->canceled();
     }
     m_lister = nullptr;
@@ -337,7 +340,11 @@ void KCoreDirListerCache::emitItemsFromCache(KCoreDirListerPrivate::CachedItemsJ
     if (_emitCompleted) {
 
         lister->d->complete = true;
+
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
         Q_EMIT lister->completed(_url);
+#endif
+        Q_EMIT lister->listingDirCompleted(_url);
         Q_EMIT lister->completed();
 
         if (_reload) {
@@ -425,7 +432,10 @@ void KCoreDirListerCache::stopListingUrl(KCoreDirLister *lister, const QUrl &_u,
             dirData.listersCurrentlyListing.removeAll(lister);
             if (!silent) {
                 Q_EMIT lister->canceled();
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
                 Q_EMIT lister->canceled(url);
+#endif
+                Q_EMIT lister->listingDirCanceled(url);
             }
         }
     }
@@ -1278,7 +1288,10 @@ void KCoreDirListerCache::slotResult(KJob *j)
             }
             const bool silent = job->property("_kdlc_silent").toBool();
             if (!silent) {
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
                 Q_EMIT kdl->canceled(jobUrl);
+#endif
+                Q_EMIT kdl->listingDirCanceled(jobUrl);
             }
 
             if (kdl->d->numJobs() == 0) {
@@ -1295,7 +1308,10 @@ void KCoreDirListerCache::slotResult(KJob *j)
 
         for (KCoreDirLister *kdl : listers) {
             kdl->d->jobDone(job);
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
             Q_EMIT kdl->completed(jobUrl);
+#endif
+            Q_EMIT kdl->listingDirCompleted(jobUrl);
             if (kdl->d->numJobs() == 0) {
                 kdl->d->complete = true;
                 Q_EMIT kdl->completed();
@@ -1605,8 +1621,10 @@ void KCoreDirListerCache::emitRedirections(const QUrl &_oldUrl, const QUrl &_new
         if (job) {
             kdl->d->jobDone(job);
         }
-
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
         Q_EMIT kdl->canceled(oldUrl);
+#endif
+        Q_EMIT kdl->listingDirCanceled(oldUrl);
     }
     newDirData.listersCurrentlyListing += listers;
 
@@ -1679,7 +1697,10 @@ void KCoreDirListerCache::slotUpdateResult(KJob *j)
 
             const bool silent = job->property("_kdlc_silent").toBool();
             if (!silent) {
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
                 Q_EMIT kdl->canceled(jobUrl);
+#endif
+                Q_EMIT kdl->listingDirCanceled(jobUrl);
             }
             if (kdl->d->numJobs() == 0) {
                 kdl->d->complete = true;
@@ -1814,8 +1835,10 @@ void KCoreDirListerCache::slotUpdateResult(KJob *j)
         kdl->d->emitItems();
 
         kdl->d->jobDone(job);
-
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
         Q_EMIT kdl->completed(jobUrl);
+#endif
+        Q_EMIT kdl->listingDirCompleted(jobUrl);
         if (kdl->d->numJobs() == 0) {
             kdl->d->complete = true;
             Q_EMIT kdl->completed();
@@ -2690,7 +2713,12 @@ void KCoreDirListerPrivate::redirect(const QUrl &oldUrl, const QUrl &newUrl, boo
         if (!keepItems) {
             Q_EMIT q->clear();
         }
+
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
         Q_EMIT q->redirection(newUrl);
+#endif
+
+        Q_EMIT q->singleUrlRedirection(newUrl);
     } else {
         if (!keepItems) {
             Q_EMIT q->clear(oldUrl);

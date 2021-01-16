@@ -194,8 +194,13 @@ void JobRemoteTest::openFileWriting()
             this, &JobRemoteTest::slotFileJobWritten);
     connect(fileJob, &KIO::FileJob::position,
             this, &JobRemoteTest::slotFileJobPosition);
+
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
     connect(fileJob, QOverload<KIO::Job*>::of(&KIO::FileJob::close),
             this, &JobRemoteTest::slotFileJobClose);
+#endif
+    connect(fileJob, &KIO::FileJob::fileClosed, this, &JobRemoteTest::slotFileJobClose);
+
     m_result = -1;
     m_closeSignalCalled = false;
 
@@ -307,9 +312,14 @@ void JobRemoteTest::openFileReading()
             this, &JobRemoteTest::slotFileJob2Written);
     connect(fileJob, &KIO::FileJob::position,
             this, &JobRemoteTest::slotFileJob2Position);
+
     // Can reuse this slot (same for all tests).
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
     connect(fileJob, QOverload<KIO::Job*>::of(&KIO::FileJob::close),
             this, &JobRemoteTest::slotFileJobClose);
+#endif
+    connect(fileJob, &KIO::FileJob::fileClosed, this, &JobRemoteTest::slotFileJobClose);
+
     m_result = -1;
     m_closeSignalCalled = false;
 
@@ -411,9 +421,14 @@ void JobRemoteTest::openFileRead0Bytes()
             this, &JobRemoteTest::slotFileJob2Written);
     connect(fileJob, &KIO::FileJob::position,
             this, &JobRemoteTest::slotFileJob3Position);
+
     // Can reuse this as well.
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
     connect(fileJob, QOverload<KIO::Job*>::of(&KIO::FileJob::close),
             this, &JobRemoteTest::slotFileJobClose);
+#endif
+    connect(fileJob, &KIO::FileJob::fileClosed, this, &JobRemoteTest::slotFileJobClose);
+
     m_result = -1;
     m_closeSignalCalled = false;
 
@@ -477,9 +492,14 @@ void JobRemoteTest::openFileTruncating()
             this, &JobRemoteTest::slotFileJob4Open);
     connect(fileJob, &KIO::FileJob::truncated,
             this, &JobRemoteTest::slotFileJob4Truncated);
+
     // Can reuse this slot (same for all tests).
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
     connect(fileJob, QOverload<KIO::Job*>::of(&KIO::FileJob::close),
             this, &JobRemoteTest::slotFileJobClose);
+#endif
+    connect(fileJob, &KIO::FileJob::fileClosed, this, &JobRemoteTest::slotFileJobClose);
+
     m_result = -1;
     m_closeSignalCalled = false;
 

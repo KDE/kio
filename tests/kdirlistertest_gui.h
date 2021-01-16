@@ -34,7 +34,7 @@ public Q_SLOTS:
     {
         cout << "canceled()" << endl;
     }
-    void canceled(const QUrl &url)
+    void listingDirCanceled(const QUrl &url)
     {
         cout << "*** canceled( " << url.toDisplayString().toLocal8Bit().data() << " )" << endl;
     }
@@ -42,11 +42,11 @@ public Q_SLOTS:
     {
         cout << "*** completed()" << endl;
     }
-    void completed(const QUrl &url)
+    void listingDirCompleted(const QUrl &url)
     {
         cout << "*** completed( " << url.toDisplayString().toLocal8Bit().data() << " )" << endl;
     }
-    void redirection(const QUrl &url)
+    void singleUrlRedirection(const QUrl &url)
     {
         cout << "*** redirection( " << url.toDisplayString().toLocal8Bit().data() << " )" << endl;
     }

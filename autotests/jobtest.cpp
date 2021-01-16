@@ -2743,12 +2743,24 @@ void JobTest::multiGet()
 
     //qDebug() << file;
     KIO::MultiGetJob *job = KIO::multi_get(0, urls.at(0), KIO::MetaData()); // TODO: missing KIO::HideProgressInfo
+
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
     QSignalSpy spyData(job, &KIO::MultiGetJob::data);
+#else
+    QSignalSpy spyData(job, &KIO::MultiGetJob::dataReceived);
+#endif
+
 #if KIOCORE_BUILD_DEPRECATED_SINCE(5, 78)
     QSignalSpy spyMimeType(job, SIGNAL(mimetype(long,QString)));
 #endif
     QSignalSpy spyMimeTypeFound(job, &KIO::MultiGetJob::mimeTypeFound);
+
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
     QSignalSpy spyResultId(job, QOverload<long>::of(&KIO::MultiGetJob::result));
+#else
+    QSignalSpy spyResultId(job, &KIO::MultiGetJob::multiGetJobResult);
+#endif
+
     QSignalSpy spyResult(job, &KJob::result);
     job->setUiDelegate(nullptr);
 
