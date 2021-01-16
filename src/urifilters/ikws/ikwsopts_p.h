@@ -8,6 +8,7 @@
 #define IKWSOPTS_P_H
 
 #include <QAbstractTableModel>
+#include <QSet>
 
 class SearchProvider;
 
