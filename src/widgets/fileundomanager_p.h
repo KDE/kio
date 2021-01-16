@@ -104,6 +104,7 @@ public:
 
     void addDirToUpdate(const QUrl &url);
 
+    void startUndo();
     void stepMakingDirectories();
     void stepMovingFiles();
     void stepRemovingLinks();

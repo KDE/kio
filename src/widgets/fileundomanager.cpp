@@ -343,7 +343,7 @@ void FileUndoManager::undo()
     const CommandType commandType = cmd.m_type;
 
     // Note that m_opQueue is empty for simple operations like Mkdir.
-    auto &opQueue = d->m_current.m_opQueue;
+    const auto &opQueue = d->m_current.m_opQueue;
 
     // Let's first ask for confirmation if we need to delete any file (#99898)
     QList<QUrl> itemsToDelete;
@@ -371,46 +371,52 @@ void FileUndoManager::undo()
         return;
     }
 
-    d->slotPop();
-    d->slotLock();
+    d->startUndo();
+}
 
-    d->m_dirCleanupStack.clear();
-    d->m_dirStack.clear();
-    d->m_dirsToUpdate.clear();
+void FileUndoManagerPrivate::startUndo()
+{
+    slotPop();
+    slotLock();
 
-    d->m_undoState = MOVINGFILES;
+    m_dirCleanupStack.clear();
+    m_dirStack.clear();
+    m_dirsToUpdate.clear();
+
+    m_undoState = MOVINGFILES;
 
     // Let's have a look at the basic operations we need to undo.
-
+    auto &opQueue = m_current.m_opQueue;
     for (auto it = opQueue.rbegin(); it != opQueue.rend(); ++it) {
         const BasicOperation::Type type = (*it).m_type;
         if (type == BasicOperation::Directory && !(*it).m_renamed) {
             // If any directory has to be created/deleted, we'll start with that
-            d->m_undoState = MAKINGDIRS;
+            m_undoState = MAKINGDIRS;
             // Collect all the dirs that have to be created in case of a move undo.
-            if (d->m_current.isMoveCommand()) {
-                d->m_dirStack.push((*it).m_src);
+            if (m_current.isMoveCommand()) {
+                m_dirStack.push((*it).m_src);
             }
             // Collect all dirs that have to be deleted
             // from the destination in both cases (copy and move).
-            d->m_dirCleanupStack.prepend((*it).m_dst);
+            m_dirCleanupStack.prepend((*it).m_dst);
         } else if (type == BasicOperation::Link) {
-            d->m_fileCleanupStack.prepend((*it).m_dst);
+            m_fileCleanupStack.prepend((*it).m_dst);
         }
     }
     auto isBasicOperation = [this](const BasicOperation &op) {
         return (op.m_type == BasicOperation::Directory && !op.m_renamed)
-                || (op.m_type == BasicOperation::Link && !d->m_current.isMoveCommand());
+                || (op.m_type == BasicOperation::Link && !m_current.isMoveCommand());
     };
     opQueue.erase(std::remove_if(opQueue.begin(), opQueue.end(), isBasicOperation), opQueue.end());
 
+    const FileUndoManager::CommandType commandType = m_current.m_type;
     if (commandType == FileUndoManager::Put) {
-        d->m_fileCleanupStack.append(d->m_current.m_dst);
+        m_fileCleanupStack.append(m_current.m_dst);
     }
 
-    qCDebug(KIO_WIDGETS) << "starting with" << undoStateToString(d->m_undoState);
-    d->m_undoJob = new UndoJob(d->m_uiInterface->showProgressInfo());
-    QMetaObject::invokeMethod(d.get(), "undoStep", Qt::QueuedConnection);
+    qCDebug(KIO_WIDGETS) << "starting with" << undoStateToString(m_undoState);
+    m_undoJob = new UndoJob(m_uiInterface->showProgressInfo());
+    QMetaObject::invokeMethod(this, "undoStep", Qt::QueuedConnection);
 }
 
 void FileUndoManagerPrivate::stopUndo(bool step)
