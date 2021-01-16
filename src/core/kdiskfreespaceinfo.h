@@ -14,6 +14,8 @@
 #include "kiocore_export.h"
 #include <kio/global.h>
 
+class KDiskFreeSpaceInfoPrivate;
+
 /**
  * \class KDiskFreeSpaceInfo kdiskfreespaceinfo.h KDiskFreeSpaceInfo
  *
@@ -110,8 +112,7 @@ public:
 private:
     KDiskFreeSpaceInfo();
 
-    class Private;
-    QSharedDataPointer<Private> d;
+    QSharedDataPointer<KDiskFreeSpaceInfoPrivate> d;
 };
 
 #endif

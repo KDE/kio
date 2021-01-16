@@ -76,11 +76,11 @@ static const Qt::CaseSensitivity cs = Qt::CaseSensitive;
 #define FSTAB "/etc/fstab"
 #endif
 
-class Q_DECL_HIDDEN KMountPoint::Private
+class KMountPointPrivate
 {
 public:
-    void finalizePossibleMountPoint(DetailsNeededFlags infoNeeded);
-    void finalizeCurrentMountPoint(DetailsNeededFlags infoNeeded);
+    void finalizePossibleMountPoint(KMountPoint::DetailsNeededFlags infoNeeded);
+    void finalizeCurrentMountPoint(KMountPoint::DetailsNeededFlags infoNeeded);
 
     QString m_mountedFrom;
     QString m_device; // Only available when the NeedRealDeviceName flag was set.
@@ -90,14 +90,11 @@ public:
 };
 
 KMountPoint::KMountPoint()
-    : d(new Private)
+    : d(new KMountPointPrivate)
 {
 }
 
-KMountPoint::~KMountPoint()
-{
-    delete d;
-}
+KMountPoint::~KMountPoint() = default;
 
 // There are (at least) four kind of APIs:
 // setmntent + getmntent + struct mntent (linux...)
@@ -127,7 +124,7 @@ KMountPoint::~KMountPoint()
 #define FSNAME(var) var.mnt_special
 #endif
 
-void KMountPoint::Private::finalizePossibleMountPoint(DetailsNeededFlags infoNeeded)
+void KMountPointPrivate::finalizePossibleMountPoint(KMountPoint::DetailsNeededFlags infoNeeded)
 {
     if (m_mountedFrom.startsWith(QLatin1String("UUID="))) {
         const QStringRef uuid = m_mountedFrom.midRef(5);
@@ -144,7 +141,7 @@ void KMountPoint::Private::finalizePossibleMountPoint(DetailsNeededFlags infoNee
         }
     }
 
-    if (infoNeeded & NeedRealDeviceName) {
+    if (infoNeeded & KMountPoint::NeedRealDeviceName) {
         if (m_mountedFrom.startsWith(QLatin1Char('/'))) {
             m_device = QFileInfo(m_mountedFrom).canonicalFilePath();
         }
@@ -156,9 +153,9 @@ void KMountPoint::Private::finalizePossibleMountPoint(DetailsNeededFlags infoNee
     }
 }
 
-void KMountPoint::Private::finalizeCurrentMountPoint(DetailsNeededFlags infoNeeded)
+void KMountPointPrivate::finalizeCurrentMountPoint(KMountPoint::DetailsNeededFlags infoNeeded)
 {
-    if (infoNeeded & NeedRealDeviceName) {
+    if (infoNeeded & KMountPoint::NeedRealDeviceName) {
         if (m_mountedFrom.startsWith(QLatin1Char('/'))) {
             m_device = QFileInfo(m_mountedFrom).canonicalFilePath();
         }
@@ -481,4 +478,3 @@ bool KMountPoint::testFileSystemFlag(FileSystemFlag flag) const
     }
     return false;
 }
-

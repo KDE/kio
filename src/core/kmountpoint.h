@@ -10,9 +10,13 @@
 #define KMOUNTPOINT_H
 
 #include "kiocore_export.h"
-#include <QExplicitlySharedDataPointer>
 
+#include <QExplicitlySharedDataPointer>
 #include <QStringList>
+
+#include <memory>
+
+class KMountPointPrivate;
 
 /**
  * @class KMountPoint kmountpoint.h <KMountPoint>
@@ -149,8 +153,7 @@ private:
      */
     KMountPoint();
 
-    class Private;
-    Private *const d;
+    std::unique_ptr<KMountPointPrivate> d;
 };
 
 Q_DECLARE_OPERATORS_FOR_FLAGS(KMountPoint::DetailsNeededFlags)

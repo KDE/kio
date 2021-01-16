@@ -15,55 +15,50 @@
 #include <QEvent>
 #include <QLineEdit>
 
-class Q_DECL_HIDDEN KFileFilterCombo::Private
+class KFileFilterComboPrivate
 {
 public:
-    explicit Private(KFileFilterCombo *_parent)
-        : parent(_parent),
-          hasAllSupportedFiles(false),
-          isMimeFilter(false),
-          defaultFilter(i18n("*|All Files"))
+    explicit KFileFilterComboPrivate(KFileFilterCombo *qq)
+        : q(qq)
     {
     }
 
-    void _k_slotFilterChanged();
+    void slotFilterChanged();
 
-    KFileFilterCombo * const parent;
+    KFileFilterCombo *const q;
     // when we have more than 3 mimefilters and no default-filter,
     // we don't show the comments of all mimefilters in one line,
     // instead we show "All supported files". We have to translate
     // that back to the list of mimefilters in currentFilter() tho.
-    bool hasAllSupportedFiles;
+    bool m_hasAllSupportedFiles = false;
     // true when setMimeFilter was called
-    bool isMimeFilter;
-    QString lastFilter;
-    QString defaultFilter;
+    bool m_isMimeFilter = false;
+    QString m_lastFilter;
+    QString m_defaultFilter = i18nc("Default mime type filter that shows all file types", "*|All Files");
 
     QStringList m_filters;
     bool m_allTypes;
 };
 
 KFileFilterCombo::KFileFilterCombo(QWidget *parent)
-    : KComboBox(true, parent), d(new Private(this))
+    : KComboBox(true, parent)
+    , d(new KFileFilterComboPrivate(this))
 {
     setTrapReturnKey(true);
     setInsertPolicy(QComboBox::NoInsert);
     connect(this, QOverload<int>::of(&QComboBox::activated), this, &KFileFilterCombo::filterChanged);
     connect(this, QOverload<>::of(&KComboBox::returnPressed), this, &KFileFilterCombo::filterChanged);
-    connect(this, &KFileFilterCombo::filterChanged, this, [this]() { d->_k_slotFilterChanged(); });
+    connect(this, &KFileFilterCombo::filterChanged, this, [this]() { d->slotFilterChanged(); });
     d->m_allTypes = false;
 }
 
-KFileFilterCombo::~KFileFilterCombo()
-{
-    delete d;
-}
+KFileFilterCombo::~KFileFilterCombo() = default;
 
 void KFileFilterCombo::setFilter(const QString &filter)
 {
     clear();
     d->m_filters.clear();
-    d->hasAllSupportedFiles = false;
+    d->m_hasAllSupportedFiles = false;
 
     if (!filter.isEmpty()) {
         QString tmp = filter;
@@ -75,7 +70,7 @@ void KFileFilterCombo::setFilter(const QString &filter)
         }
         d->m_filters.append(tmp);
     } else {
-        d->m_filters.append(d->defaultFilter);
+        d->m_filters.append(d->m_defaultFilter);
     }
 
     QStringList::ConstIterator it;
@@ -86,8 +81,8 @@ void KFileFilterCombo::setFilter(const QString &filter)
                 (*it).mid(tab + 1));
     }
 
-    d->lastFilter = currentText();
-    d->isMimeFilter = false;
+    d->m_lastFilter = currentText();
+    d->m_isMimeFilter = false;
 }
 
 QString KFileFilterCombo::currentFilter() const
@@ -95,7 +90,7 @@ QString KFileFilterCombo::currentFilter() const
     QString f = currentText();
     if (f == itemText(currentIndex())) { // user didn't edit the text
         f = d->m_filters.value(currentIndex());
-        if (d->isMimeFilter || (currentIndex() == 0 && d->hasAllSupportedFiles)) {
+        if (d->m_isMimeFilter || (currentIndex() == 0 && d->m_hasAllSupportedFiles)) {
             return f; // we have a MIME type as filter
         }
     }
@@ -130,7 +125,7 @@ void KFileFilterCombo::setMimeFilter(const QStringList &types,
     clear();
     d->m_filters.clear();
     QString delim = QStringLiteral(", ");
-    d->hasAllSupportedFiles = false;
+    d->m_hasAllSupportedFiles = false;
     bool hasAllFilesFilter = false;
     QMimeDatabase db;
 
@@ -193,7 +188,7 @@ void KFileFilterCombo::setMimeFilter(const QStringList &types,
             insertItem(0, allComments);
         } else {
             insertItem(0, i18n("All Supported Files"));
-            d->hasAllSupportedFiles = true;
+            d->m_hasAllSupportedFiles = true;
         }
         setCurrentIndex(0);
 
@@ -205,19 +200,19 @@ void KFileFilterCombo::setMimeFilter(const QStringList &types,
         d->m_filters.append(QStringLiteral("application/octet-stream"));
     }
 
-    d->lastFilter = currentText();
-    d->isMimeFilter = true;
+    d->m_lastFilter = currentText();
+    d->m_isMimeFilter = true;
 }
 
-void KFileFilterCombo::Private::_k_slotFilterChanged()
+void KFileFilterComboPrivate::slotFilterChanged()
 {
-    lastFilter = parent->currentText();
+    m_lastFilter = q->currentText();
 }
 
 bool KFileFilterCombo::eventFilter(QObject *o, QEvent *e)
 {
     if (o == lineEdit() && e->type() == QEvent::FocusOut) {
-        if (currentText() != d->lastFilter) {
+        if (currentText() != d->m_lastFilter) {
             Q_EMIT filterChanged();
         }
     }
@@ -227,17 +222,17 @@ bool KFileFilterCombo::eventFilter(QObject *o, QEvent *e)
 
 void KFileFilterCombo::setDefaultFilter(const QString &filter)
 {
-    d->defaultFilter = filter;
+    d->m_defaultFilter = filter;
 }
 
 QString KFileFilterCombo::defaultFilter() const
 {
-    return d->defaultFilter;
+    return d->m_defaultFilter;
 }
 
 bool KFileFilterCombo::isMimeFilter() const
 {
-    return d->isMimeFilter;
+    return d->m_isMimeFilter;
 }
 
 #include "moc_kfilefiltercombo.cpp"

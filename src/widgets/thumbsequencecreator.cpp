@@ -7,32 +7,25 @@
 
 #include "thumbsequencecreator.h"
 
-class Q_DECL_HIDDEN ThumbSequenceCreator::Private
+class ThumbSequenceCreatorPrivate
 {
 public:
-    Private() : sequenceIndex(0)
-    {
-    }
-
-    float sequenceIndex;
+    float m_sequenceIndex = 0;
 };
 
 float ThumbSequenceCreator::sequenceIndex() const
 {
-    return d->sequenceIndex;
+    return d->m_sequenceIndex;
 }
 
 void ThumbSequenceCreator::setSequenceIndex(float index)
 {
-    d->sequenceIndex = index;
+    d->m_sequenceIndex = index;
 }
 
-ThumbSequenceCreator::ThumbSequenceCreator() : d(new Private)
+ThumbSequenceCreator::ThumbSequenceCreator()
+    : d(new ThumbSequenceCreatorPrivate)
 {
-
 }
 
-ThumbSequenceCreator::~ThumbSequenceCreator()
-{
-    delete d;
-}
+ThumbSequenceCreator::~ThumbSequenceCreator() = default;

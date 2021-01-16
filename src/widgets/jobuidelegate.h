@@ -21,6 +21,8 @@
 class KJob;
 namespace KIO
 {
+class JobUiDelegatePrivate;
+
 class Job;
 
 /**
@@ -162,8 +164,7 @@ public:
     void updateUrlInClipboard(const QUrl &src, const QUrl &dest) override;
 
 private:
-    class Private;
-    Private *const d;
+    std::unique_ptr<JobUiDelegatePrivate> const d;
 };
 }
 

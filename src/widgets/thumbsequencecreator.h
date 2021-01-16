@@ -12,6 +12,10 @@
 
 #include <qglobal.h>
 
+#include <memory>
+
+class ThumbSequenceCreatorPrivate;
+
 /**
  * @class ThumbSequenceCreator thumbsequencecreator.h <KIO/ThumbSequenceCreator>
  *
@@ -62,8 +66,7 @@ public:
     void setSequenceIndex(float index);
 
 private:
-    class Private;
-    Private *d;
+    std::unique_ptr<ThumbSequenceCreatorPrivate> d;
 };
 
 typedef ThumbCreator *(*newCreator)();

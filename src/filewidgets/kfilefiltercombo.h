@@ -14,6 +14,8 @@
 
 #include <KComboBox>
 
+class KFileFilterComboPrivate;
+
 /**
  * @class KFileFilterCombo kfilefiltercombo.h <KFileFilterCombo>
  *
@@ -103,10 +105,7 @@ Q_SIGNALS:
     void filterChanged();
 
 private:
-    class Private;
-    Private *const d;
-
-    Q_PRIVATE_SLOT(d, void _k_slotFilterChanged())
+    std::unique_ptr<KFileFilterComboPrivate> const d;
 };
 
 #endif

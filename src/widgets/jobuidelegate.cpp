@@ -36,10 +36,10 @@
 
 #include "kio/scheduler.h"
 
-class Q_DECL_HIDDEN KIO::JobUiDelegate::Private
+class KIO::JobUiDelegatePrivate
 {
 public:
-    Private(KIO::JobUiDelegate *q) {
+    JobUiDelegatePrivate(KIO::JobUiDelegate *q) {
         // Create extension objects. See KIO::delegateExtension<T>().
         new WidgetsUntrustedProgramHandler(q);
         new WidgetsOpenWithHandler(q);
@@ -49,14 +49,11 @@ public:
 };
 
 KIO::JobUiDelegate::JobUiDelegate()
-    : d(new Private(this))
+    : d(new JobUiDelegatePrivate(this))
 {
 }
 
-KIO::JobUiDelegate::~JobUiDelegate()
-{
-    delete d;
-}
+KIO::JobUiDelegate::~JobUiDelegate() = default;
 
 /*
   Returns the top most window associated with widget.
@@ -129,7 +126,7 @@ private:
 Q_GLOBAL_STATIC(JobUiDelegateStatic, s_static)
 
 KIO::JobUiDelegate::JobUiDelegate(KJobUiDelegate::Flags flags, QWidget *window)
-    : KDialogJobUiDelegate(flags, window), d(new Private(this))
+    : KDialogJobUiDelegate(flags, window), d(new JobUiDelegatePrivate(this))
 {
     s_static()->registerWindow(window);
 }
