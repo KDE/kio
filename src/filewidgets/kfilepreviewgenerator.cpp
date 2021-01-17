@@ -40,121 +40,17 @@
 #  include <X11/extensions/Xrender.h>
 #endif
 
-/**
- * If the passed item view is an instance of QListView, expensive
- * layout operations are blocked in the constructor and are unblocked
- * again in the destructor.
- *
- * This helper class is a workaround for the following huge performance
- * problem when having directories with several 1000 items:
- * - each change of an icon emits a dataChanged() signal from the model
- * - QListView iterates through all items on each dataChanged() signal
- *   and invokes QItemDelegate::sizeHint()
- * - the sizeHint() implementation of KFileItemDelegate is quite complex,
- *   invoking it 1000 times for each icon change might block the UI
- *
- * QListView does not invoke QItemDelegate::sizeHint() when the
- * uniformItemSize property has been set to true, so this property is
- * set before exchanging a block of icons.
- */
-class KFilePreviewGenerator::LayoutBlocker
+class KFilePreviewGeneratorPrivate
 {
+    class TileSet;
+    class LayoutBlocker;
+
 public:
-    LayoutBlocker(QAbstractItemView *view) :
-        m_uniformSizes(false),
-        m_view(qobject_cast<QListView *>(view))
-    {
-        if (m_view != nullptr) {
-            m_uniformSizes = m_view->uniformItemSizes();
-            m_view->setUniformItemSizes(true);
-        }
-    }
+    KFilePreviewGeneratorPrivate(KFilePreviewGenerator *qq,
+                                 KAbstractViewAdapter *viewAdapter,
+                                 QAbstractItemModel *model);
 
-    ~LayoutBlocker()
-    {
-        if (m_view != nullptr) {
-            m_view->setUniformItemSizes(m_uniformSizes);
-            /* The QListView did the layout with uniform item
-             * sizes, so trigger a relayout with the expected sizes. */
-            if (!m_uniformSizes) {
-                m_view->setGridSize(m_view->gridSize());
-            }
-        }
-    }
-
-private:
-    bool m_uniformSizes;
-    QListView *m_view;
-};
-
-/** Helper class for drawing frames for image previews. */
-class KFilePreviewGenerator::TileSet
-{
-public:
-    enum { LeftMargin = 3, TopMargin = 2, RightMargin = 3, BottomMargin = 4 };
-
-    enum Tile { TopLeftCorner = 0, TopSide, TopRightCorner, LeftSide,
-                RightSide, BottomLeftCorner, BottomSide, BottomRightCorner,
-                NumTiles,
-              };
-
-    TileSet()
-    {
-        QImage image(8 * 3, 8 * 3, QImage::Format_ARGB32_Premultiplied);
-
-        QPainter p(&image);
-        p.setCompositionMode(QPainter::CompositionMode_Source);
-        p.fillRect(image.rect(), Qt::transparent);
-        p.fillRect(image.rect().adjusted(3, 3, -3, -3), Qt::black);
-        p.end();
-
-        KIO::ImageFilter::shadowBlur(image, 3, Qt::black);
-
-        QPixmap pixmap = QPixmap::fromImage(image);
-        m_tiles[TopLeftCorner]     = pixmap.copy(0, 0, 8, 8);
-        m_tiles[TopSide]           = pixmap.copy(8, 0, 8, 8);
-        m_tiles[TopRightCorner]    = pixmap.copy(16, 0, 8, 8);
-        m_tiles[LeftSide]          = pixmap.copy(0, 8, 8, 8);
-        m_tiles[RightSide]         = pixmap.copy(16, 8, 8, 8);
-        m_tiles[BottomLeftCorner]  = pixmap.copy(0, 16, 8, 8);
-        m_tiles[BottomSide]        = pixmap.copy(8, 16, 8, 8);
-        m_tiles[BottomRightCorner] = pixmap.copy(16, 16, 8, 8);
-    }
-
-    void paint(QPainter *p, const QRect &r)
-    {
-        p->drawPixmap(r.topLeft(), m_tiles[TopLeftCorner]);
-        if (r.width() - 16 > 0) {
-            p->drawTiledPixmap(r.x() + 8, r.y(), r.width() - 16, 8, m_tiles[TopSide]);
-        }
-        p->drawPixmap(r.right() - 8 + 1, r.y(), m_tiles[TopRightCorner]);
-        if (r.height() - 16 > 0) {
-            p->drawTiledPixmap(r.x(), r.y() + 8, 8, r.height() - 16,  m_tiles[LeftSide]);
-            p->drawTiledPixmap(r.right() - 8 + 1, r.y() + 8, 8, r.height() - 16, m_tiles[RightSide]);
-        }
-        p->drawPixmap(r.x(), r.bottom() - 8 + 1, m_tiles[BottomLeftCorner]);
-        if (r.width() - 16 > 0) {
-            p->drawTiledPixmap(r.x() + 8, r.bottom() - 8 + 1, r.width() - 16, 8, m_tiles[BottomSide]);
-        }
-        p->drawPixmap(r.right() - 8 + 1, r.bottom() - 8 + 1, m_tiles[BottomRightCorner]);
-
-        const QRect contentRect = r.adjusted(LeftMargin + 1, TopMargin + 1,
-                                             -(RightMargin + 1), -(BottomMargin + 1));
-        p->fillRect(contentRect, Qt::transparent);
-    }
-
-private:
-    QPixmap m_tiles[NumTiles];
-};
-
-class Q_DECL_HIDDEN KFilePreviewGenerator::Private
-{
-public:
-    Private(KFilePreviewGenerator *parent,
-            KAbstractViewAdapter *viewAdapter,
-            QAbstractItemModel *model);
-    ~Private();
-
+    ~KFilePreviewGeneratorPrivate();
     /**
      * Requests a new icon for the item \a index.
      * @param sequenceIndex If this is zero, the standard icon is requested, else another one.
@@ -177,7 +73,7 @@ public:
      * queue and starts a timer which will dispatch the preview queue
      * later.
      */
-    void addToPreviewQueue(const KFileItem &item, const QPixmap &pixmap);
+    void addToPreviewQueue(const KFileItem &item, const QPixmap &pixmap, KIO::PreviewJob *job);
 
     /**
      * Is invoked when the preview job has been finished and
@@ -304,54 +200,58 @@ public:
     class DataChangeObtainer
     {
     public:
-        DataChangeObtainer(KFilePreviewGenerator::Private *generator) :
-            m_gen(generator)
+        DataChangeObtainer(KFilePreviewGeneratorPrivate *generator)
+            : m_gen(generator)
         {
             ++m_gen->m_internalDataChange;
         }
+
         ~DataChangeObtainer()
         {
             --m_gen->m_internalDataChange;
         }
+
     private:
-        KFilePreviewGenerator::Private *m_gen;
+        KFilePreviewGeneratorPrivate *m_gen;
     };
 
-    bool m_previewShown;
+    KFilePreviewGenerator *const q;
+
+    bool m_previewShown = true;
 
     /**
      * True, if m_pendingItems and m_dispatchedItems should be
      * cleared when the preview jobs have been finished.
      */
-    bool m_clearItemQueues;
+    bool m_clearItemQueues = true;
 
     /**
      * True if a selection has been done which should cut items.
      */
-    bool m_hasCutSelection;
+    bool m_hasCutSelection = false;
 
     /**
      * True if the updates of icons has been paused by pauseIconUpdates().
      * The value is reset by resumeIconUpdates().
      */
-    bool m_iconUpdatesPaused;
+    bool m_iconUpdatesPaused = false;
 
     /**
      * If the value is 0, the slot
      * updateIcons(const QModelIndex&, const QModelIndex&) has
      * been triggered by an external data change.
      */
-    int m_internalDataChange;
+    int m_internalDataChange = 0;
 
-    int m_pendingVisibleIconUpdates;
+    int m_pendingVisibleIconUpdates = 0;
 
-    KAbstractViewAdapter *m_viewAdapter;
-    QAbstractItemView *m_itemView;
-    QTimer *m_iconUpdateTimer;
-    QTimer *m_scrollAreaTimer;
+    KAbstractViewAdapter *m_viewAdapter = nullptr;
+    QAbstractItemView *m_itemView = nullptr;
+    QTimer *m_iconUpdateTimer = nullptr;
+    QTimer *m_scrollAreaTimer = nullptr;
     QList<KJob *> m_previewJobs;
     QPointer<KDirModel> m_dirModel;
-    QAbstractProxyModel *m_proxyModel;
+    QAbstractProxyModel *m_proxyModel = nullptr;
 
     /**
       * Set of all items that already have the 'cut' effect applied, together with the pixmap it was applied to
@@ -371,7 +271,7 @@ public:
      * at least 5 seconds.
      */
     QHash<QUrl, bool> m_changedItems;
-    QTimer *m_changedItemsTimer;
+    QTimer *m_changedItemsTimer = nullptr;
 
     /**
      * Contains all items where a preview must be generated, but
@@ -389,39 +289,128 @@ public:
 
     QStringList m_enabledPlugins;
 
-    TileSet *m_tileSet;
-
-private:
-    KFilePreviewGenerator *const q;
+    std::unique_ptr<TileSet> m_tileSet;
 
 };
 
-KFilePreviewGenerator::Private::Private(KFilePreviewGenerator *parent,
-                                        KAbstractViewAdapter *viewAdapter,
-                                        QAbstractItemModel *model) :
-    m_previewShown(true),
-    m_clearItemQueues(true),
-    m_hasCutSelection(false),
-    m_iconUpdatesPaused(false),
-    m_internalDataChange(0),
-    m_pendingVisibleIconUpdates(0),
-    m_viewAdapter(viewAdapter),
-    m_itemView(nullptr),
-    m_iconUpdateTimer(nullptr),
-    m_scrollAreaTimer(nullptr),
-    m_previewJobs(),
-    m_proxyModel(nullptr),
-    m_cutItemsCache(),
-    m_previews(),
-    m_sequenceIndices(),
-    m_changedItems(),
-    m_changedItemsTimer(nullptr),
-    m_pendingItems(),
-    m_dispatchedItems(),
-    m_resolvedMimeTypes(),
-    m_enabledPlugins(),
-    m_tileSet(nullptr),
-    q(parent)
+/**
+ * If the passed item view is an instance of QListView, expensive
+ * layout operations are blocked in the constructor and are unblocked
+ * again in the destructor.
+ *
+ * This helper class is a workaround for the following huge performance
+ * problem when having directories with several 1000 items:
+ * - each change of an icon emits a dataChanged() signal from the model
+ * - QListView iterates through all items on each dataChanged() signal
+ *   and invokes QItemDelegate::sizeHint()
+ * - the sizeHint() implementation of KFileItemDelegate is quite complex,
+ *   invoking it 1000 times for each icon change might block the UI
+ *
+ * QListView does not invoke QItemDelegate::sizeHint() when the
+ * uniformItemSize property has been set to true, so this property is
+ * set before exchanging a block of icons.
+ */
+class KFilePreviewGeneratorPrivate::LayoutBlocker
+{
+public:
+    explicit LayoutBlocker(QAbstractItemView *view)
+        : m_uniformSizes(false)
+        , m_view(qobject_cast<QListView *>(view))
+    {
+        if (m_view) {
+            m_uniformSizes = m_view->uniformItemSizes();
+            m_view->setUniformItemSizes(true);
+        }
+    }
+
+    ~LayoutBlocker()
+    {
+        if (m_view) {
+            m_view->setUniformItemSizes(m_uniformSizes);
+            /* The QListView did the layout with uniform item
+             * sizes, so trigger a relayout with the expected sizes. */
+            if (!m_uniformSizes) {
+                m_view->setGridSize(m_view->gridSize());
+            }
+        }
+    }
+
+private:
+    bool m_uniformSizes = false;
+    QListView *m_view = nullptr;
+};
+
+/** Helper class for drawing frames for image previews. */
+class KFilePreviewGeneratorPrivate::TileSet
+{
+public:
+    enum { LeftMargin = 3, TopMargin = 2, RightMargin = 3, BottomMargin = 4 };
+
+    enum Tile {
+        TopLeftCorner = 0,
+        TopSide,
+        TopRightCorner,
+        LeftSide,
+        RightSide,
+        BottomLeftCorner,
+        BottomSide,
+        BottomRightCorner,
+        NumTiles,
+    };
+
+    explicit TileSet()
+    {
+        QImage image(8 * 3, 8 * 3, QImage::Format_ARGB32_Premultiplied);
+
+        QPainter p(&image);
+        p.setCompositionMode(QPainter::CompositionMode_Source);
+        p.fillRect(image.rect(), Qt::transparent);
+        p.fillRect(image.rect().adjusted(3, 3, -3, -3), Qt::black);
+        p.end();
+
+        KIO::ImageFilter::shadowBlur(image, 3, Qt::black);
+
+        QPixmap pixmap = QPixmap::fromImage(image);
+        m_tiles[TopLeftCorner] = pixmap.copy(0, 0, 8, 8);
+        m_tiles[TopSide] = pixmap.copy(8, 0, 8, 8);
+        m_tiles[TopRightCorner] = pixmap.copy(16, 0, 8, 8);
+        m_tiles[LeftSide] = pixmap.copy(0, 8, 8, 8);
+        m_tiles[RightSide] = pixmap.copy(16, 8, 8, 8);
+        m_tiles[BottomLeftCorner] = pixmap.copy(0, 16, 8, 8);
+        m_tiles[BottomSide] = pixmap.copy(8, 16, 8, 8);
+        m_tiles[BottomRightCorner] = pixmap.copy(16, 16, 8, 8);
+    }
+
+    void paint(QPainter *p, const QRect &r)
+    {
+        p->drawPixmap(r.topLeft(), m_tiles[TopLeftCorner]);
+        if (r.width() - 16 > 0) {
+            p->drawTiledPixmap(r.x() + 8, r.y(), r.width() - 16, 8, m_tiles[TopSide]);
+        }
+        p->drawPixmap(r.right() - 8 + 1, r.y(), m_tiles[TopRightCorner]);
+        if (r.height() - 16 > 0) {
+            p->drawTiledPixmap(r.x(), r.y() + 8, 8, r.height() - 16, m_tiles[LeftSide]);
+            p->drawTiledPixmap(r.right() - 8 + 1, r.y() + 8, 8, r.height() - 16, m_tiles[RightSide]);
+        }
+        p->drawPixmap(r.x(), r.bottom() - 8 + 1, m_tiles[BottomLeftCorner]);
+        if (r.width() - 16 > 0) {
+            p->drawTiledPixmap(r.x() + 8, r.bottom() - 8 + 1, r.width() - 16, 8, m_tiles[BottomSide]);
+        }
+        p->drawPixmap(r.right() - 8 + 1, r.bottom() - 8 + 1, m_tiles[BottomRightCorner]);
+
+        const QRect contentRect = r.adjusted(LeftMargin + 1, TopMargin + 1, -(RightMargin + 1), -(BottomMargin + 1));
+        p->fillRect(contentRect, Qt::transparent);
+    }
+
+private:
+    QPixmap m_tiles[NumTiles];
+};
+
+KFilePreviewGeneratorPrivate::KFilePreviewGeneratorPrivate(KFilePreviewGenerator *qq,
+                                                           KAbstractViewAdapter *viewAdapter,
+                                                           QAbstractItemModel *model)
+    : q(qq)
+    , m_viewAdapter(viewAdapter)
 {
     if (!m_viewAdapter->iconSize().isValid()) {
         m_previewShown = false;
@@ -436,32 +425,32 @@ KFilePreviewGenerator::Private::Private(KFilePreviewGenerator *parent,
         m_previewShown = false;
     } else {
         KDirModel *dirModel = m_dirModel.data();
-        connect(dirModel->dirLister(), &KCoreDirLister::newItems,
-                q, [this](const KFileItemList &items) { updateIcons(items); });
+        q->connect(dirModel->dirLister(), &KCoreDirLister::newItems,
+                   q, [this](const KFileItemList &items) { updateIcons(items); });
 
-        connect(dirModel, &KDirModel::dataChanged,
-                q, [this](const QModelIndex &topLeft, const QModelIndex &bottomRight) {
+        q->connect(dirModel, &KDirModel::dataChanged,
+                   q, [this](const QModelIndex &topLeft, const QModelIndex &bottomRight) {
             updateIcons(topLeft, bottomRight);
         });
 
-        connect(dirModel, &KDirModel::needSequenceIcon,
-                q, [this](const QModelIndex &index, int sequenceIndex) {
+        q->connect(dirModel, &KDirModel::needSequenceIcon,
+                   q, [this](const QModelIndex &index, int sequenceIndex) {
             requestSequenceIcon(index, sequenceIndex);
         });
 
-        connect(dirModel, &KDirModel::rowsAboutToBeRemoved,
-                q, [this](const QModelIndex &parent, int first, int last) {
+        q->connect(dirModel, &KDirModel::rowsAboutToBeRemoved,
+                   q, [this](const QModelIndex &parent, int first, int last) {
             rowsAboutToBeRemoved(parent, first, last);
         });
     }
 
     QClipboard *clipboard = QApplication::clipboard();
-    connect(clipboard, &QClipboard::dataChanged, q, [this]() { updateCutItems(); });
+    q->connect(clipboard, &QClipboard::dataChanged, q, [this]() { updateCutItems(); });
 
     m_iconUpdateTimer = new QTimer(q);
     m_iconUpdateTimer->setSingleShot(true);
     m_iconUpdateTimer->setInterval(200);
-    connect(m_iconUpdateTimer, &QTimer::timeout, q, [this]() { dispatchIconUpdateQueue(); });
+    q->connect(m_iconUpdateTimer, &QTimer::timeout, q, [this]() { dispatchIconUpdateQueue(); });
 
     // Whenever the scrollbar values have been changed, the pending previews should
     // be reordered in a way that the previews for the visible items are generated
@@ -470,16 +459,14 @@ KFilePreviewGenerator::Private::Private(KFilePreviewGenerator *parent,
     m_scrollAreaTimer = new QTimer(q);
     m_scrollAreaTimer->setSingleShot(true);
     m_scrollAreaTimer->setInterval(200);
-    connect(m_scrollAreaTimer, &QTimer::timeout, q, [this]() { resumeIconUpdates(); });
-    m_viewAdapter->connect(KAbstractViewAdapter::IconSizeChanged,
-                           q, SLOT(updateIcons()));
-    m_viewAdapter->connect(KAbstractViewAdapter::ScrollBarValueChanged,
-                           q, SLOT(pauseIconUpdates()));
+    q->connect(m_scrollAreaTimer, &QTimer::timeout, q, [this]() { resumeIconUpdates(); });
+    m_viewAdapter->connect(KAbstractViewAdapter::IconSizeChanged, q, SLOT(updateIcons()));
+    m_viewAdapter->connect(KAbstractViewAdapter::ScrollBarValueChanged, q, SLOT(pauseIconUpdates()));
 
     m_changedItemsTimer = new QTimer(q);
     m_changedItemsTimer->setSingleShot(true);
     m_changedItemsTimer->setInterval(5000);
-    connect(m_changedItemsTimer, &QTimer::timeout, q, [this]() { delayedIconUpdate(); });
+    q->connect(m_changedItemsTimer, &QTimer::timeout, q, [this]() { delayedIconUpdate(); });
 
     KConfigGroup globalConfig(KSharedConfig::openConfig(QStringLiteral("dolphinrc")), "PreviewSettings");
     m_enabledPlugins = globalConfig.readEntry("Plugins", QStringList{
@@ -497,15 +484,14 @@ KFilePreviewGenerator::Private::Private(KFilePreviewGenerator *parent,
     }
 }
 
-KFilePreviewGenerator::Private::~Private()
+KFilePreviewGeneratorPrivate::~KFilePreviewGeneratorPrivate()
 {
     killPreviewJobs();
     m_pendingItems.clear();
     m_dispatchedItems.clear();
-    delete m_tileSet;
 }
 
-void KFilePreviewGenerator::Private::requestSequenceIcon(const QModelIndex &index,
+void KFilePreviewGeneratorPrivate::requestSequenceIcon(const QModelIndex &index,
         int sequenceIndex)
 {
     if (m_pendingItems.isEmpty() || (sequenceIndex == 0)) {
@@ -526,7 +512,7 @@ void KFilePreviewGenerator::Private::requestSequenceIcon(const QModelIndex &inde
     }
 }
 
-void KFilePreviewGenerator::Private::updateIcons(const KFileItemList &items)
+void KFilePreviewGeneratorPrivate::updateIcons(const KFileItemList &items)
 {
     if (items.isEmpty()) {
         return;
@@ -549,8 +535,7 @@ void KFilePreviewGenerator::Private::updateIcons(const KFileItemList &items)
     }
 }
 
-void KFilePreviewGenerator::Private::updateIcons(const QModelIndex &topLeft,
-        const QModelIndex &bottomRight)
+void KFilePreviewGeneratorPrivate::updateIcons(const QModelIndex &topLeft, const QModelIndex &bottomRight)
 {
     if (m_internalDataChange > 0) {
         // QAbstractItemModel::setData() has been invoked internally by the KFilePreviewGenerator.
@@ -597,16 +582,17 @@ void KFilePreviewGenerator::Private::updateIcons(const QModelIndex &topLeft,
     m_changedItemsTimer->start();
 }
 
-void KFilePreviewGenerator::Private::addToPreviewQueue(const KFileItem &item, const QPixmap &pixmap)
+void KFilePreviewGeneratorPrivate::addToPreviewQueue(const KFileItem &item,
+                                                     const QPixmap &pixmap,
+                                                     KIO::PreviewJob *job)
 {
-    KIO::PreviewJob *senderJob = qobject_cast<KIO::PreviewJob *>(q->sender());
-    Q_ASSERT(senderJob != nullptr);
-    if (senderJob != nullptr) {
+    Q_ASSERT(job);
+    if (job) {
         QMap<QUrl, int>::iterator it = m_sequenceIndices.find(item.url());
-        if (senderJob->sequenceIndex() && (it == m_sequenceIndices.end() || *it != senderJob->sequenceIndex())) {
+        if (job->sequenceIndex() && (it == m_sequenceIndices.end() || *it != job->sequenceIndex())) {
             return; // the sequence index does not match the one we want
         }
-        if (!senderJob->sequenceIndex() && it != m_sequenceIndices.end()) {
+        if (!job->sequenceIndex() && it != m_sequenceIndices.end()) {
             return; // the sequence index does not match the one we want
         }
 
@@ -670,7 +656,7 @@ void KFilePreviewGenerator::Private::addToPreviewQueue(const KFileItem &item, co
     m_dispatchedItems.append(item);
 }
 
-void KFilePreviewGenerator::Private::slotPreviewJobFinished(KJob *job)
+void KFilePreviewGeneratorPrivate::slotPreviewJobFinished(KJob *job)
 {
     const int index = m_previewJobs.indexOf(job);
     m_previewJobs.removeAt(index);
@@ -692,7 +678,7 @@ void KFilePreviewGenerator::Private::slotPreviewJobFinished(KJob *job)
     }
 }
 
-void KFilePreviewGenerator::Private::updateCutItems()
+void KFilePreviewGeneratorPrivate::updateCutItems()
 {
     KDirModel *dirModel = m_dirModel.data();
     if (!dirModel) {
@@ -712,7 +698,7 @@ void KFilePreviewGenerator::Private::updateCutItems()
     applyCutItemEffect(items);
 }
 
-void KFilePreviewGenerator::Private::clearCutItemsCache()
+void KFilePreviewGeneratorPrivate::clearCutItemsCache()
 {
     KDirModel *dirModel = m_dirModel.data();
     if (!dirModel) {
@@ -742,7 +728,7 @@ void KFilePreviewGenerator::Private::clearCutItemsCache()
     }
 }
 
-void KFilePreviewGenerator::Private::dispatchIconUpdateQueue()
+void KFilePreviewGeneratorPrivate::dispatchIconUpdateQueue()
 {
     KDirModel *dirModel = m_dirModel.data();
     if (!dirModel) {
@@ -786,17 +772,17 @@ void KFilePreviewGenerator::Private::dispatchIconUpdateQueue()
     }
 }
 
-void KFilePreviewGenerator::Private::pauseIconUpdates()
+void KFilePreviewGeneratorPrivate::pauseIconUpdates()
 {
     m_iconUpdatesPaused = true;
     for (KJob *job : qAsConst(m_previewJobs)) {
-        Q_ASSERT(job != nullptr);
+        Q_ASSERT(job);
         job->suspend();
     }
     m_scrollAreaTimer->start();
 }
 
-void KFilePreviewGenerator::Private::resumeIconUpdates()
+void KFilePreviewGeneratorPrivate::resumeIconUpdates()
 {
     m_iconUpdatesPaused = false;
 
@@ -840,13 +826,13 @@ void KFilePreviewGenerator::Private::resumeIconUpdates()
     }
 }
 
-void KFilePreviewGenerator::Private::startMimeTypeResolving()
+void KFilePreviewGeneratorPrivate::startMimeTypeResolving()
 {
     resolveMimeType();
     m_iconUpdateTimer->start();
 }
 
-void KFilePreviewGenerator::Private::resolveMimeType()
+void KFilePreviewGeneratorPrivate::resolveMimeType()
 {
     if (m_pendingItems.isEmpty()) {
         return;
@@ -886,14 +872,14 @@ void KFilePreviewGenerator::Private::resolveMimeType()
     }
 }
 
-bool KFilePreviewGenerator::Private::isCutItem(const KFileItem &item) const
+bool KFilePreviewGeneratorPrivate::isCutItem(const KFileItem &item) const
 {
     const QMimeData *mimeData = QApplication::clipboard()->mimeData();
     const QList<QUrl> cutUrls = KUrlMimeData::urlsFromMimeData(mimeData);
     return cutUrls.contains(item.url());
 }
 
-void KFilePreviewGenerator::Private::applyCutItemEffect(const KFileItemList &items)
+void KFilePreviewGeneratorPrivate::applyCutItemEffect(const KFileItemList &items)
 {
     const QMimeData *mimeData = QApplication::clipboard()->mimeData();
     m_hasCutSelection = mimeData && KIO::isClipboardDataCut(mimeData);
@@ -932,7 +918,7 @@ void KFilePreviewGenerator::Private::applyCutItemEffect(const KFileItemList &ite
     }
 }
 
-bool KFilePreviewGenerator::Private::applyImageFrame(QPixmap &icon)
+bool KFilePreviewGeneratorPrivate::applyImageFrame(QPixmap &icon)
 {
     const QSize maxSize = m_viewAdapter->iconSize();
     const bool applyFrame = (maxSize.width()  > KIconLoader::SizeSmallMedium) &&
@@ -948,8 +934,8 @@ bool KFilePreviewGenerator::Private::applyImageFrame(QPixmap &icon)
                      maxSize.height() - TileSet::TopMargin - TileSet::BottomMargin);
     limitToSize(icon, size);
 
-    if (m_tileSet == nullptr) {
-        m_tileSet = new TileSet();
+    if (!m_tileSet) {
+        m_tileSet.reset(new TileSet{});
     }
 
     QPixmap framedIcon(icon.size().width() + TileSet::LeftMargin + TileSet::RightMargin,
@@ -968,7 +954,7 @@ bool KFilePreviewGenerator::Private::applyImageFrame(QPixmap &icon)
     return true;
 }
 
-void KFilePreviewGenerator::Private::limitToSize(QPixmap &icon, const QSize &maxSize)
+void KFilePreviewGeneratorPrivate::limitToSize(QPixmap &icon, const QSize &maxSize)
 {
     if ((icon.width() > maxSize.width()) || (icon.height() > maxSize.height())) {
 #pragma message("Cannot use XRender with QPixmap anymore. Find equivalent with Qt API.")
@@ -1010,7 +996,7 @@ void KFilePreviewGenerator::Private::limitToSize(QPixmap &icon, const QSize &max
     }
 }
 
-void KFilePreviewGenerator::Private::createPreviews(const KFileItemList &items)
+void KFilePreviewGeneratorPrivate::createPreviews(const KFileItemList &items)
 {
     if (items.isEmpty()) {
         return;
@@ -1046,32 +1032,36 @@ void KFilePreviewGenerator::Private::createPreviews(const KFileItemList &items)
     m_iconUpdateTimer->start();
 }
 
-void KFilePreviewGenerator::Private::startPreviewJob(const KFileItemList &items, int width, int height)
+void KFilePreviewGeneratorPrivate::startPreviewJob(const KFileItemList &items, int width, int height)
 {
-    if (!items.isEmpty()) {
-        KIO::PreviewJob *job = KIO::filePreview(items, QSize(width, height), &m_enabledPlugins);
-
-        // Set the sequence index to the target. We only need to check if items.count() == 1,
-        // because requestSequenceIcon(..) creates exactly such a request.
-        if (!m_sequenceIndices.isEmpty() && (items.count() == 1)) {
-            QMap<QUrl, int>::iterator it = m_sequenceIndices.find(items[0].url());
-            if (it != m_sequenceIndices.end()) {
-                job->setSequenceIndex(*it);
-            }
-        }
-
-        connect(job, &KIO::PreviewJob::gotPreview,
-                q, [this](const KFileItem &item, const QPixmap &pixmap) { addToPreviewQueue(item, pixmap); });
-
-        connect(job, &KIO::PreviewJob::finished, q, [this, job]() { slotPreviewJobFinished(job); });
-        m_previewJobs.append(job);
+    if (items.isEmpty()) {
+        return;
     }
+
+    KIO::PreviewJob *job = KIO::filePreview(items, QSize(width, height), &m_enabledPlugins);
+
+    // Set the sequence index to the target. We only need to check if items.count() == 1,
+    // because requestSequenceIcon(..) creates exactly such a request.
+    if (!m_sequenceIndices.isEmpty() && (items.count() == 1)) {
+        const auto it = m_sequenceIndices.constFind(items[0].url());
+        if (it != m_sequenceIndices.cend()) {
+            job->setSequenceIndex(*it);
+        }
+    }
+
+    q->connect(job, &KIO::PreviewJob::gotPreview,
+                q, [this, job](const KFileItem &item, const QPixmap &pixmap) {
+        addToPreviewQueue(item, pixmap, job);
+    });
+
+    q->connect(job, &KIO::PreviewJob::finished, q, [this, job]() { slotPreviewJobFinished(job); });
+    m_previewJobs.append(job);
 }
 
-void KFilePreviewGenerator::Private::killPreviewJobs()
+void KFilePreviewGeneratorPrivate::killPreviewJobs()
 {
     for (KJob *job : qAsConst(m_previewJobs)) {
-        Q_ASSERT(job != nullptr);
+        Q_ASSERT(job);
         job->kill();
     }
     m_previewJobs.clear();
@@ -1082,7 +1072,7 @@ void KFilePreviewGenerator::Private::killPreviewJobs()
     m_changedItemsTimer->stop();
 }
 
-void KFilePreviewGenerator::Private::orderItems(KFileItemList &items)
+void KFilePreviewGeneratorPrivate::orderItems(KFileItemList &items)
 {
     KDirModel *dirModel = m_dirModel.data();
     if (!dirModel) {
@@ -1091,7 +1081,7 @@ void KFilePreviewGenerator::Private::orderItems(KFileItemList &items)
 
     // Order the items in a way that the preview for the visible items
     // is generated first, as this improves the felt performance a lot.
-    const bool hasProxy = (m_proxyModel != nullptr);
+    const bool hasProxy = m_proxyModel != nullptr;
     const int itemCount = items.count();
     const QRect visibleArea = m_viewAdapter->visibleArea();
 
@@ -1119,7 +1109,7 @@ void KFilePreviewGenerator::Private::orderItems(KFileItemList &items)
     }
 }
 
-void KFilePreviewGenerator::Private::addItemsToList(const QModelIndex &index, KFileItemList &list)
+void KFilePreviewGeneratorPrivate::addItemsToList(const QModelIndex &index, KFileItemList &list)
 {
     KDirModel *dirModel = m_dirModel.data();
     if (!dirModel) {
@@ -1139,7 +1129,7 @@ void KFilePreviewGenerator::Private::addItemsToList(const QModelIndex &index, KF
     }
 }
 
-void KFilePreviewGenerator::Private::delayedIconUpdate()
+void KFilePreviewGeneratorPrivate::delayedIconUpdate()
 {
     KDirModel *dirModel = m_dirModel.data();
     if (!dirModel) {
@@ -1167,7 +1157,7 @@ void KFilePreviewGenerator::Private::delayedIconUpdate()
     updateIcons(itemList);
 }
 
-void KFilePreviewGenerator::Private::rowsAboutToBeRemoved(const QModelIndex &parent, int start, int end)
+void KFilePreviewGeneratorPrivate::rowsAboutToBeRemoved(const QModelIndex &parent, int start, int end)
 {
     if (m_changedItems.isEmpty()) {
         return;
@@ -1192,23 +1182,20 @@ void KFilePreviewGenerator::Private::rowsAboutToBeRemoved(const QModelIndex &par
     }
 }
 
-KFilePreviewGenerator::KFilePreviewGenerator(QAbstractItemView *parent) :
-    QObject(parent),
-    d(new Private(this, new KIO::DefaultViewAdapter(parent, this), parent->model()))
+KFilePreviewGenerator::KFilePreviewGenerator(QAbstractItemView *parent)
+    : QObject(parent)
+    , d(new KFilePreviewGeneratorPrivate(this, new KIO::DefaultViewAdapter(parent, this), parent->model()))
 {
     d->m_itemView = parent;
 }
 
-KFilePreviewGenerator::KFilePreviewGenerator(KAbstractViewAdapter *parent, QAbstractProxyModel *model) :
-    QObject(parent),
-    d(new Private(this, parent, model))
+KFilePreviewGenerator::KFilePreviewGenerator(KAbstractViewAdapter *parent, QAbstractProxyModel *model)
+    : QObject(parent)
+    , d(new KFilePreviewGeneratorPrivate(this, parent, model))
 {
 }
 
-KFilePreviewGenerator::~KFilePreviewGenerator()
-{
-    delete d;
-}
+KFilePreviewGenerator::~KFilePreviewGenerator() = default;
 
 void KFilePreviewGenerator::setPreviewShown(bool show)
 {

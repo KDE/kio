@@ -11,10 +11,14 @@
 
 #include <QObject>
 
+#include <memory>
+
 class KAbstractViewAdapter;
 class KDirModel;
 class QAbstractItemView;
 class QAbstractProxyModel;
+
+class KFilePreviewGeneratorPrivate;
 
 /**
  * @class KFilePreviewGenerator kfilepreviewgenerator.h <KFilePreviewGenerator>
@@ -108,25 +112,10 @@ public Q_SLOTS:
     void cancelPreviews();
 
 private:
-    class Private;
-    Private *const d; /// @internal
-    class LayoutBlocker;
-    class TileSet;
+    friend class KFilePreviewGeneratorPrivate;
+    std::unique_ptr<KFilePreviewGeneratorPrivate> const d;
 
     Q_DISABLE_COPY(KFilePreviewGenerator)
-
-    Q_PRIVATE_SLOT(d, void updateIcons(const KFileItemList &))
-    Q_PRIVATE_SLOT(d, void updateIcons(const QModelIndex &, const QModelIndex &))
-    Q_PRIVATE_SLOT(d, void addToPreviewQueue(const KFileItem &, const QPixmap &))
-    Q_PRIVATE_SLOT(d, void slotPreviewJobFinished(KJob *))
-    Q_PRIVATE_SLOT(d, void updateCutItems())
-    Q_PRIVATE_SLOT(d, void dispatchIconUpdateQueue())
-    Q_PRIVATE_SLOT(d, void pauseIconUpdates())
-    Q_PRIVATE_SLOT(d, void resumeIconUpdates())
-    Q_PRIVATE_SLOT(d, void resolveMimeType())
-    Q_PRIVATE_SLOT(d, void requestSequenceIcon(const QModelIndex &, int))
-    Q_PRIVATE_SLOT(d, void delayedIconUpdate())
-    Q_PRIVATE_SLOT(d, void rowsAboutToBeRemoved(const QModelIndex &, int, int))
 };
 
 #endif
