@@ -900,7 +900,7 @@ void Scheduler::emitReparseSlaveConfiguration()
     schedulerPrivate()->slotReparseSlaveConfiguration(QString(), QDBusMessage());
 
     schedulerPrivate()->m_ignoreConfigReparse = true;
-    emit self()->reparseSlaveConfiguration(QString());
+    Q_EMIT self()->reparseSlaveConfiguration(QString());
 }
 
 void SchedulerPrivate::slotReparseSlaveConfiguration(const QString &proto, const QDBusMessage &)
@@ -1173,7 +1173,7 @@ void SchedulerPrivate::publishSlaveOnHold()
     }
 
     m_slaveOnHold->hold(m_urlOnHold);
-    emit q->slaveOnHoldListChanged();
+    Q_EMIT q->slaveOnHoldListChanged();
 }
 
 bool SchedulerPrivate::isSlaveOnHoldFor(const QUrl &url)
@@ -1265,7 +1265,7 @@ void SchedulerPrivate::slotSlaveConnected()
     Slave *slave = static_cast<Slave *>(q->sender());
     slave->setConnected(true);
     q->disconnect(slave, SIGNAL(connected()), q, SLOT(slotSlaveConnected()));
-    emit q->slaveConnected(slave);
+    Q_EMIT q->slaveConnected(slave);
 }
 
 void SchedulerPrivate::slotSlaveError(int errorNr, const QString &errorMsg)
@@ -1276,7 +1276,7 @@ void SchedulerPrivate::slotSlaveError(int errorNr, const QString &errorMsg)
     if (!slave->isConnected() || pq->m_connectedSlaveQueue.isIdle(slave)) {
         // Only forward to application if slave is idle or still connecting.
         // ### KDE5: can we remove this apparently arbitrary behavior and just always emit SlaveError?
-        emit q->slaveError(slave, errorNr, errorMsg);
+        Q_EMIT q->slaveError(slave, errorNr, errorMsg);
     }
 }
 

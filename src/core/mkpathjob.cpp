@@ -135,7 +135,7 @@ void MkpathJob::slotResult(KJob *job)
     }
     removeSubjob(job);
 
-    emit directoryCreated(d->m_url);
+    Q_EMIT directoryCreated(d->m_url);
 
     // Move on to next one
     ++d->m_pathIterator;

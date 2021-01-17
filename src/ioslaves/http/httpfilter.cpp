@@ -73,7 +73,7 @@ HTTPFilterChain::slotInput(const QByteArray &d)
     if (first) {
         first->slotInput(d);
     } else {
-        emit output(d);
+        Q_EMIT output(d);
     }
 }
 
@@ -91,7 +91,7 @@ void
 HTTPFilterMD5::slotInput(const QByteArray &d)
 {
     context.addData(d);
-    emit output(d);
+    Q_EMIT output(d);
 }
 
 HTTPFilterGZip::HTTPFilterGZip(bool deflate)
@@ -170,18 +170,18 @@ HTTPFilterGZip::slotInput(const QByteArray &d)
         case KFilterBase::End: {
             const int bytesOut = sizeof(buf) - m_gzipFilter->outBufferAvailable();
             if (bytesOut) {
-                emit output(QByteArray(buf, bytesOut));
+                Q_EMIT output(QByteArray(buf, bytesOut));
             }
             if (result == KFilterBase::End) {
                 //qDebug() << "done, bHasFinished=true";
-                emit output(QByteArray());
+                Q_EMIT output(QByteArray());
                 m_finished = true;
             }
             break;
         }
         case KFilterBase::Error:
             qCDebug(KIO_HTTP_FILTER) << "Error from KGZipFilter";
-            emit error(i18n("Receiving corrupt data."));
+            Q_EMIT error(i18n("Receiving corrupt data."));
             m_finished = true; // exit this while loop
             break;
         }

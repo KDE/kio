@@ -82,7 +82,7 @@ void KUrlNavigatorButton::setUrl(const QUrl &url)
         KIO::StatJob *job = KIO::stat(m_url, KIO::HideProgressInfo);
         connect(job, &KJob::result,
                 this, &KUrlNavigatorButton::statFinished);
-        emit startedTextResolving();
+        Q_EMIT startedTextResolving();
     } else {
         setText(m_url.fileName().replace(QLatin1Char('&'), QLatin1String("&&")));
     }
@@ -270,7 +270,7 @@ void KUrlNavigatorButton::keyPressEvent(QKeyEvent *event)
     switch (event->key()) {
     case Qt::Key_Enter:
     case Qt::Key_Return:
-        emit clicked(m_url, Qt::LeftButton, event->modifiers());
+        Q_EMIT clicked(m_url, Qt::LeftButton, event->modifiers());
         break;
     case Qt::Key_Down:
     case Qt::Key_Space:
@@ -286,7 +286,7 @@ void KUrlNavigatorButton::dropEvent(QDropEvent *event)
     if (event->mimeData()->hasUrls()) {
         setDisplayHintEnabled(DraggedHint, true);
 
-        emit urlsDropped(m_url, event);
+        Q_EMIT urlsDropped(m_url, event);
 
         setDisplayHintEnabled(DraggedHint, false);
         update();
@@ -353,7 +353,7 @@ void KUrlNavigatorButton::mouseReleaseEvent(QMouseEvent *event)
     if (!isAboveArrow(event->x()) || (event->button() != Qt::LeftButton)) {
         // the mouse has been released above the text area and not
         // above the [>] button
-        emit clicked(m_url, event->button(), event->modifiers());
+        Q_EMIT clicked(m_url, event->button(), event->modifiers());
         cancelSubDirsRequest();
     }
     KUrlNavigatorButtonBase::mouseReleaseEvent(event);
@@ -432,7 +432,7 @@ void KUrlNavigatorButton::urlsDropped(QAction *action, QDropEvent *event)
     const int result = action->data().toInt();
     QUrl url(m_url);
     url.setPath(concatPaths(url.path(), m_subDirs.at(result).first));
-    emit urlsDropped(url, event);
+    Q_EMIT urlsDropped(url, event);
 }
 
 void KUrlNavigatorButton::slotMenuActionClicked(QAction *action, Qt::MouseButton button)
@@ -440,7 +440,7 @@ void KUrlNavigatorButton::slotMenuActionClicked(QAction *action, Qt::MouseButton
     const int result = action->data().toInt();
     QUrl url(m_url);
     url.setPath(concatPaths(url.path(), m_subDirs.at(result).first));
-    emit clicked(url, button, Qt::NoModifier);
+    Q_EMIT clicked(url, button, Qt::NoModifier);
 }
 
 void KUrlNavigatorButton::statFinished(KJob *job)
@@ -455,7 +455,7 @@ void KUrlNavigatorButton::statFinished(KJob *job)
         }
         setText(name);
 
-        emit finishedTextResolving();
+        Q_EMIT finishedTextResolving();
     }
 }
 
@@ -560,7 +560,7 @@ void KUrlNavigatorButton::replaceButton(KJob *job)
 
     QUrl url(KIO::upUrl(m_url));
     url.setPath(concatPaths(url.path(), m_subDirs[targetIndex].first));
-    emit clicked(url, Qt::LeftButton, Qt::NoModifier);
+    Q_EMIT clicked(url, Qt::LeftButton, Qt::NoModifier);
 
     m_subDirs.clear();
 }

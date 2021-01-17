@@ -116,7 +116,7 @@ KCookiesPolicies::~KCookiesPolicies()
 void KCookiesPolicies::configChanged ()
 {
     //kDebug() << "KCookiesPolicies::configChanged...";
-    emit changed (true);
+    Q_EMIT changed (true);
 }
 
 void KCookiesPolicies::cookiesEnabled (bool enable)
@@ -390,7 +390,7 @@ void KCookiesPolicies::save()
 
     // Force running io-slave to reload configurations...
     KSaveIOConfig::updateRunningIOSlaves (this);
-    emit changed (false);
+    Q_EMIT changed (false);
 }
 
 

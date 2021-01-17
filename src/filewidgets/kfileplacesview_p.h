@@ -37,14 +37,14 @@ public Q_SLOTS:
     void currentIndexChanged(const QModelIndex &index)
     {
         if (m_focusedIndex.isValid() && m_focusedIndex != m_hoveredIndex) {
-            emit entryLeft(m_focusedIndex);
+            Q_EMIT entryLeft(m_focusedIndex);
         }
         if (index == m_hoveredIndex) {
             m_focusedIndex = m_hoveredIndex;
             return;
         }
         if (index.isValid()) {
-            emit entryEntered(index);
+            Q_EMIT entryEntered(index);
         }
         m_focusedIndex = index;
     }
@@ -58,10 +58,10 @@ protected:
             const QModelIndex index = view->indexAt(static_cast<QMouseEvent *>(event)->pos());
             if (index != m_hoveredIndex) {
                 if (m_hoveredIndex.isValid() && m_hoveredIndex != m_focusedIndex) {
-                    emit entryLeft(m_hoveredIndex);
+                    Q_EMIT entryLeft(m_hoveredIndex);
                 }
                 if (index.isValid() && index != m_focusedIndex) {
-                    emit entryEntered(index);
+                    Q_EMIT entryEntered(index);
                 }
                 m_hoveredIndex = index;
             }
@@ -69,7 +69,7 @@ protected:
         break;
         case QEvent::Leave:
             if (m_hoveredIndex.isValid() && m_hoveredIndex != m_focusedIndex) {
-                emit entryLeft(m_hoveredIndex);
+                Q_EMIT entryLeft(m_hoveredIndex);
             }
             m_hoveredIndex = QModelIndex();
             break;

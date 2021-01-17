@@ -172,7 +172,7 @@ void JobTest::slotGetResult(KJob *job)
 {
     m_result = job->error();
     m_data = static_cast<KIO::StoredTransferJob *>(job)->data();
-    emit exitLoop();
+    Q_EMIT exitLoop();
 }
 
 void JobTest::put()
@@ -219,7 +219,7 @@ void JobTest::slotDataReq(KIO::Job *, QByteArray &data)
 void JobTest::slotResult(KJob *job)
 {
     m_result = job->error();
-    emit exitLoop();
+    Q_EMIT exitLoop();
 }
 
 void JobTest::storedPut()

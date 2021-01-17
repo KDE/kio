@@ -450,7 +450,7 @@ void TransferJobPrivate::slotPostRedirection()
     Q_Q(TransferJob);
     //qDebug() << m_url;
     // Tell the user about the new url.
-    emit q->redirection(q, m_url);
+    Q_EMIT q->redirection(q, m_url);
 }
 
 TransferJob *KIO::put(const QUrl &url, int permissions, JobFlags flags)

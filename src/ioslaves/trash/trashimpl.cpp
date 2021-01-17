@@ -457,7 +457,7 @@ void TrashImpl::jobFinished(KJob *job)
     //qCDebug(KIO_TRASH) << "error=" << job->error() << job->errorText();
     error(job->error(), job->errorText());
 
-    emit leaveModality();
+    Q_EMIT leaveModality();
 }
 
 bool TrashImpl::copyToTrash(const QString &origPath, int trashId, const QString &fileId)

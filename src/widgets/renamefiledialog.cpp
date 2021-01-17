@@ -234,9 +234,9 @@ void RenameFileDialog::slotFileRenamed(const QUrl &oldUrl, const QUrl &newUrl)
 void RenameFileDialog::slotResult(KJob *job)
 {
     if (!job->error()) {
-        emit renamingFinished(d->renamedItems);
+        Q_EMIT renamingFinished(d->renamedItems);
     } else {
-        emit error(job);
+        Q_EMIT error(job);
     }
 }
 

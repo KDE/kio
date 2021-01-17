@@ -729,7 +729,7 @@ void KFilePlacesModel::Private::_k_itemChanged(const QString &id)
     for (int row = 0; row < items.size(); ++row) {
         if (items.at(row)->id() == id) {
             QModelIndex index = q->index(row, 0);
-            emit q->dataChanged(index, index);
+            Q_EMIT q->dataChanged(index, index);
         }
     }
 }
@@ -774,7 +774,7 @@ void KFilePlacesModel::Private::_k_reloadBookmarks()
             if (shouldEmit) {
                 int row = items.indexOf(*it_i);
                 QModelIndex idx = q->index(row, 0);
-                emit q->dataChanged(idx, idx);
+                Q_EMIT q->dataChanged(idx, idx);
             }
             ++it_i;
             ++it_c;
@@ -805,7 +805,7 @@ void KFilePlacesModel::Private::_k_reloadBookmarks()
     qDeleteAll(currentItems);
     currentItems.clear();
 
-    emit q->reloaded();
+    Q_EMIT q->reloaded();
 }
 
 bool KFilePlacesModel::Private::isBalooUrl(const QUrl &url) const
@@ -1194,7 +1194,7 @@ void KFilePlacesModel::editPlace(const QModelIndex &index, const QString &text, 
 
     if (changed) {
         refresh();
-        emit dataChanged(index, index);
+        Q_EMIT dataChanged(index, index);
     }
 }
 
@@ -1240,7 +1240,7 @@ void KFilePlacesModel::setPlaceHidden(const QModelIndex &index, bool hidden)
         item->setHidden(hidden);
 
         d->reloadAndSignal();
-        emit dataChanged(index, index);
+        Q_EMIT dataChanged(index, index);
     }
 }
 
@@ -1251,7 +1251,7 @@ void KFilePlacesModel::setGroupHidden(const GroupType type, bool hidden)
 
     d->bookmarkManager->root().setMetaDataItem(stateNameForGroupType(type), (hidden ? QStringLiteral("true") : QStringLiteral("false")));
     d->reloadAndSignal();
-    emit groupHiddenChanged(type, hidden);
+    Q_EMIT groupHiddenChanged(type, hidden);
 }
 
 bool KFilePlacesModel::movePlace(int itemRow, int row)
@@ -1413,7 +1413,7 @@ void KFilePlacesModel::requestEject(const QModelIndex &index)
     } else {
         QString label = data(index, Qt::DisplayRole).toString().replace(QLatin1Char('&'), QLatin1String("&&"));
         QString message = i18n("The device '%1' is not a disk and cannot be ejected.", label);
-        emit errorMessage(message);
+        Q_EMIT errorMessage(message);
     }
 }
 
@@ -1447,17 +1447,17 @@ void KFilePlacesModel::Private::_k_storageSetupDone(Solid::ErrorType error, cons
     }
 
     if (!error) {
-        emit q->setupDone(index, true);
+        Q_EMIT q->setupDone(index, true);
     } else {
         if (errorData.isValid()) {
-            emit q->errorMessage(i18n("An error occurred while accessing '%1', the system responded: %2",
+            Q_EMIT q->errorMessage(i18n("An error occurred while accessing '%1', the system responded: %2",
                                       q->text(index),
                                       errorData.toString()));
         } else {
-            emit q->errorMessage(i18n("An error occurred while accessing '%1'",
+            Q_EMIT q->errorMessage(i18n("An error occurred while accessing '%1'",
                                       q->text(index)));
         }
-        emit q->setupDone(index, false);
+        Q_EMIT q->setupDone(index, false);
     }
 
 }
@@ -1465,7 +1465,7 @@ void KFilePlacesModel::Private::_k_storageSetupDone(Solid::ErrorType error, cons
 void KFilePlacesModel::Private::_k_storageTeardownDone(Solid::ErrorType error, const QVariant &errorData)
 {
     if (error && errorData.isValid()) {
-        emit q->errorMessage(errorData.toString());
+        Q_EMIT q->errorMessage(errorData.toString());
     }
 }
 

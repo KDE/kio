@@ -1071,7 +1071,7 @@ class MyDirLister : public KDirLister
 public:
     void emitItemsDeleted(const KFileItemList &items)
     {
-        emit itemsDeleted(items);
+        Q_EMIT itemsDeleted(items);
     }
 };
 

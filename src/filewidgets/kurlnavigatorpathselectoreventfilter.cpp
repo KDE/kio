@@ -34,7 +34,7 @@ bool KUrlNavigatorPathSelectorEventFilter::eventFilter(QObject *watched, QEvent 
                     if (url.isValid()) {
                         menu->close();
 
-                        emit tabRequested(url);
+                        Q_EMIT tabRequested(url);
                         return true;
                     }
                 }

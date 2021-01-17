@@ -456,7 +456,7 @@ void KFilePlacesItem::onAccessibilityChanged(bool isAccessible)
     m_isCdrom = m_device.is<Solid::OpticalDrive>() || m_device.parent().is<Solid::OpticalDrive>();
     m_emblems = m_device.emblems();
 
-    emit itemChanged(id());
+    Q_EMIT itemChanged(id());
 }
 
 QString KFilePlacesItem::iconNameForBookmark(const KBookmark &bookmark) const

@@ -1123,7 +1123,7 @@ void KFilePlacesView::dropEvent(QDropEvent *event)
         if (!d->insertAbove(rect, pos) && !d->insertBelow(rect, pos)) {
             KFilePlacesModel *placesModel = qobject_cast<KFilePlacesModel *>(model());
             Q_ASSERT(placesModel != nullptr);
-            emit urlsDropped(placesModel->url(index), event, this);
+            Q_EMIT urlsDropped(placesModel->url(index), event, this);
             event->acceptProposedAction();
         }
     }
@@ -1271,7 +1271,7 @@ void KFilePlacesView::Private::setCurrentIndex(const QModelIndex &index)
     if (url.isValid()) {
         m_currentUrl = url;
         updateHiddenRows();
-        emit q->urlChanged(KFilePlacesModel::convertedUrl(url));
+        Q_EMIT q->urlChanged(KFilePlacesModel::convertedUrl(url));
         if (m_showAll) {
             q->setShowAll(false);
         }

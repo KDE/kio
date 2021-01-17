@@ -62,7 +62,7 @@ public Q_SLOTS:
      * The file must be a LocalFile
      */
     void rmfile(const QUrl& url, bool isLink) {
-        emit rmfileResult(QFile::remove(url.toLocalFile()), isLink);
+        Q_EMIT rmfileResult(QFile::remove(url.toLocalFile()), isLink);
     }
 
     /**
@@ -70,7 +70,7 @@ public Q_SLOTS:
      * The directory must be a LocalFile
      */
     void rmdir(const QUrl& url) {
-        emit rmddirResult(QDir().rmdir(url.toLocalFile()));
+        Q_EMIT rmddirResult(QDir().rmdir(url.toLocalFile()));
     }
 };
 
@@ -203,7 +203,7 @@ DeleteJobIOWorker* DeleteJobPrivate::worker()
 void DeleteJobPrivate::slotReport()
 {
     Q_Q(DeleteJob);
-    emit q->deleting(q, m_currentURL);
+    Q_EMIT q->deleting(q, m_currentURL);
 
     // TODO: maybe we could skip everything else when (flags & HideProgressInfo) ?
     JobPrivate::emitDeleting(q, m_currentURL);
@@ -266,7 +266,7 @@ void DeleteJobPrivate::statNextSrc()
         if (!KProtocolManager::supportsDeleting(m_currentURL)) {
             QPointer<DeleteJob> that = q;
             ++m_currentStat;
-            emit q->warning(q, buildErrorString(ERR_CANNOT_DELETE, m_currentURL.toDisplayString()));
+            Q_EMIT q->warning(q, buildErrorString(ERR_CANNOT_DELETE, m_currentURL.toDisplayString()));
             if (that) {
                 statNextSrc();
             }

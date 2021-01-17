@@ -177,7 +177,7 @@ void MultiGetJob::slotFinished()
     }
     if (d->m_redirectionURL.isEmpty()) {
         // No redirection, tell the world that we are finished.
-        emit result(d->m_currentEntry.id);
+        Q_EMIT result(d->m_currentEntry.id);
     }
     d->m_redirectionURL = QUrl();
     setError(0);
@@ -205,7 +205,7 @@ void MultiGetJob::slotData(const QByteArray &_data)
 {
     Q_D(MultiGetJob);
     if (d->m_redirectionURL.isEmpty() || !d->m_redirectionURL.isValid() || error()) {
-        emit data(d->m_currentEntry.id, _data);
+        Q_EMIT data(d->m_currentEntry.id, _data);
     }
 }
 
@@ -224,9 +224,9 @@ void MultiGetJob::slotMimetype(const QString &_mimetype)
         return;    // Error, unknown request!
     }
 #if KIOCORE_BUILD_DEPRECATED_SINCE(5, 78)
-    emit mimetype(d->m_currentEntry.id, _mimetype);
+    Q_EMIT mimetype(d->m_currentEntry.id, _mimetype);
 #endif
-    emit mimeTypeFound(d->m_currentEntry.id, _mimetype);
+    Q_EMIT mimeTypeFound(d->m_currentEntry.id, _mimetype);
 }
 
 MultiGetJob *KIO::multi_get(long id, const QUrl &url, const MetaData &metaData)

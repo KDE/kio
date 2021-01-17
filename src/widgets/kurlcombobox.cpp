@@ -298,7 +298,7 @@ void KUrlComboBoxPrivate::_k_slotActivated(int index)
 
     if (item) {
         m_parent->setUrl(item->url);
-        emit m_parent->urlActivated(item->url);
+        Q_EMIT m_parent->urlActivated(item->url);
     }
 }
 

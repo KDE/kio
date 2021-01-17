@@ -101,7 +101,7 @@ void KIO::ApplicationLauncherJob::start()
         d->showOpenWithDialog();
         return;
     }
-    emit description(this, i18nc("Launching application", "Launching %1", d->m_service->name()), {}, {});
+    Q_EMIT description(this, i18nc("Launching application", "Launching %1", d->m_service->name()), {}, {});
 
     // First, the security checks
     if (!KAuthorized::authorize(QStringLiteral("run_desktop_files"))) {

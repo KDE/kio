@@ -253,10 +253,10 @@ void KApplicationModel::fetchMore(const QModelIndex &parent)
         return;
     }
 
-    emit layoutAboutToBeChanged();
+    Q_EMIT layoutAboutToBeChanged();
     d->fillNode(node->entryPath, node);
     node->fetched = true;
-    emit layoutChanged();
+    Q_EMIT layoutChanged();
 }
 
 void KApplicationModel::fetchAll(const QModelIndex &parent)
@@ -464,7 +464,7 @@ void KApplicationView::currentChanged(const QModelIndex &current, const QModelIn
         if(!d->appModel->isDirectory(sourceCurrent)) {
             QString exec = d->appModel->execFor(sourceCurrent);
             if (!exec.isEmpty()) {
-                emit highlighted(d->appModel->entryPathFor(sourceCurrent), exec);
+                Q_EMIT highlighted(d->appModel->entryPathFor(sourceCurrent), exec);
             }
         }
     }
@@ -479,7 +479,7 @@ void KApplicationView::slotSelectionChanged(const QItemSelection &selected, cons
     const QModelIndexList indexes = sourceSelected.indexes();
     if (indexes.count() == 1) {
         QString exec = d->appModel->execFor(indexes.at(0));
-        emit this->selected(d->appModel->entryPathFor(indexes.at(0)), exec);
+        Q_EMIT this->selected(d->appModel->entryPathFor(indexes.at(0)), exec);
     }
 }
 

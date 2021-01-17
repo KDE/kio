@@ -85,7 +85,7 @@ void PasteJob::slotResult(KJob *job)
     }
     KIO::SimpleJob *simpleJob = qobject_cast<KIO::SimpleJob*>(job);
     if (simpleJob) {
-        emit itemCreated(simpleJob->url());
+        Q_EMIT itemCreated(simpleJob->url());
     }
 
     removeSubjob(job);

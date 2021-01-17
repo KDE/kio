@@ -275,9 +275,9 @@ void DataProtocol::get(const QUrl &url)
     }/*end if*/
 
     //qDebug() << "emit mimeType@"<<this;
-    emit mimeType(hdr.mime_type);
+    Q_EMIT mimeType(hdr.mime_type);
     //qDebug() << "emit totalSize@"<<this;
-    emit totalSize(outData.size());
+    Q_EMIT totalSize(outData.size());
 
     //qDebug() << "emit setMetaData@"<<this;
 #if defined(DATAKIOSLAVE)
@@ -293,7 +293,7 @@ void DataProtocol::get(const QUrl &url)
     sendMetaData();
 //qDebug() << "(1) queue size " << dispatchQueue.size();
     // empiric studies have shown that this shouldn't be queued & dispatched
-    emit data(outData);
+    Q_EMIT data(outData);
 //qDebug() << "(2) queue size " << dispatchQueue.size();
     DISPATCH(data(QByteArray()));
 //qDebug() << "(3) queue size " << dispatchQueue.size();
@@ -307,8 +307,8 @@ void DataProtocol::get(const QUrl &url)
 void DataProtocol::mimetype(const QUrl &url)
 {
     ref();
-    emit mimeType(parseDataHeader(url, true).mime_type);
-    emit finished();
+    Q_EMIT mimeType(parseDataHeader(url, true).mime_type);
+    Q_EMIT finished();
     deref();
 }
 

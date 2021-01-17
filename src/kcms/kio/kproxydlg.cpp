@@ -372,7 +372,7 @@ void KProxyDialog::save()
         KSaveIOConfig::updateProxyScout (this);
     }
 
-    emit changed (false);
+    Q_EMIT changed (false);
 }
 
 void KProxyDialog::defaults()
@@ -396,7 +396,7 @@ void KProxyDialog::defaults()
     mUi.systemProxyFtpEdit->clear();
     mUi.systemProxySocksEdit->clear();
 
-    emit changed (true);
+    Q_EMIT changed (true);
 }
 
 bool KProxyDialog::autoDetectSystemProxy(QLineEdit* edit, const QString& envVarStr, bool showValue)
@@ -431,7 +431,7 @@ void KProxyDialog::autoDetect()
     wasChanged |= autoDetectSystemProxy(mUi.systemNoProxyEdit, ENV_NO_PROXY, showValue);
 
     if (wasChanged)
-        emit changed (true);
+        Q_EMIT changed (true);
 }
 
 void KProxyDialog::syncProxies(const QString& text)
@@ -508,7 +508,7 @@ void KProxyDialog::setUseSameProxy(bool on)
 
 void KProxyDialog::slotChanged()
 {
-    emit changed(true);
+    Q_EMIT changed(true);
 }
 
 QString KProxyDialog::quickHelp() const

@@ -53,16 +53,16 @@ void MimetypeJob::slotFinished()
         //qDebug() << "It is in fact a directory!";
         d->m_mimetype = QStringLiteral("inode/directory");
 #if KIOCORE_BUILD_DEPRECATED_SINCE(5, 78)
-        emit TransferJob::mimetype(this, d->m_mimetype);
+        Q_EMIT TransferJob::mimetype(this, d->m_mimetype);
 #endif
-        emit TransferJob::mimeTypeFound(this, d->m_mimetype);
+        Q_EMIT TransferJob::mimeTypeFound(this, d->m_mimetype);
         setError(0);
     }
 
     if (!d->m_redirectionURL.isEmpty() && d->m_redirectionURL.isValid() && !error()) {
         //qDebug() << "Redirection to " << m_redirectionURL;
         if (queryMetaData(QStringLiteral("permanent-redirect")) == QLatin1String("true")) {
-            emit permanentRedirection(this, d->m_url, d->m_redirectionURL);
+            Q_EMIT permanentRedirection(this, d->m_url, d->m_redirectionURL);
         }
 
         if (d->m_redirectionHandlingEnabled) {

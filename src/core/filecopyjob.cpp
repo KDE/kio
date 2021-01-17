@@ -454,9 +454,9 @@ void FileCopyJobPrivate::slotMimetype(KIO::Job *, const QString &type)
 {
     Q_Q(FileCopyJob);
 #if KIOCORE_BUILD_DEPRECATED_SINCE(5, 78)
-    emit q->mimetype(q, type);
+    Q_EMIT q->mimetype(q, type);
 #endif
-    emit q->mimeTypeFound(q, type);
+    Q_EMIT q->mimeTypeFound(q, type);
 }
 
 void FileCopyJob::slotResult(KJob *job)

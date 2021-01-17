@@ -1027,7 +1027,7 @@ void KACLListView::slotAddEntry()
     // QTreeWidget doesn't seem to emit, in this case, and we need to update
     // the buttons...
     if (topLevelItemCount() == 1) {
-        emit currentItemChanged(item, item);
+        Q_EMIT currentItemChanged(item, item);
     }
 }
 

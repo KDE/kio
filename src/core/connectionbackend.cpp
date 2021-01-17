@@ -90,7 +90,7 @@ bool ConnectionBackend::connectToRemote(const QUrl &url)
 void ConnectionBackend::socketDisconnected()
 {
     state = Idle;
-    emit disconnected();
+    Q_EMIT disconnected();
 }
 
 bool ConnectionBackend::listenForRemote()
@@ -262,7 +262,7 @@ void ConnectionBackend::socketReadyRead()
             len = -1;
 
             signalEmitted = true;
-            emit commandReceived(task);
+            Q_EMIT commandReceived(task);
         } else if (len > StandardBufferSize) {
             qCDebug(KIO_CORE) << socket << "Jumbo packet of" << len << "bytes";
             // Calling setReadBufferSize from a readyRead slot leads to a bug in Qt, fixed in 13c246ee119

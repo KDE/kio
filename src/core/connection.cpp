@@ -29,7 +29,7 @@ void ConnectionPrivate::dequeue()
     outgoingTasks.clear();
 
     if (!incomingTasks.isEmpty()) {
-        emit q->readyRead();
+        Q_EMIT q->readyRead();
     }
 }
 

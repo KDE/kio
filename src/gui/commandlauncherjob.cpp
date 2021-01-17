@@ -83,7 +83,7 @@ void KIO::CommandLauncherJob::start()
     if (service) {
         displayName = service->name();
     }
-    emit description(this, i18nc("Launching application", "Launching %1", displayName), {}, {});
+    Q_EMIT description(this, i18nc("Launching application", "Launching %1", displayName), {}, {});
 
     if (d->m_iconName.isEmpty()) {
         d->m_iconName = d->m_executable;

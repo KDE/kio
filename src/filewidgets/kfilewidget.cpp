@@ -1034,7 +1034,7 @@ void KFileWidget::slotOk()
 
     // if we have reached this point and we didn't return before, that is because
     // we want this dialog to be accepted
-    emit accepted();
+    Q_EMIT accepted();
 }
 
 void KFileWidget::accept()
@@ -1079,7 +1079,7 @@ void KFileWidget::accept()
     d->addToRecentDocuments();
 
     if (!(mode() & KFile::Files)) { // single selection
-        emit fileSelected(d->m_url);
+        Q_EMIT fileSelected(d->m_url);
     }
 
     d->m_ops->close();
@@ -1108,10 +1108,10 @@ void KFileWidgetPrivate::fileHighlighted(const KFileItem &i)
             setLocationText(m_url);
         }
 
-        emit q->fileHighlighted(m_url);
+        Q_EMIT q->fileHighlighted(m_url);
     } else {
         multiSelectionChanged();
-        emit q->selectionChanged();
+        Q_EMIT q->selectionChanged();
     }
 
     m_locationEdit->lineEdit()->setModified(false);
@@ -1140,7 +1140,7 @@ void KFileWidgetPrivate::fileSelected(const KFileItem &i)
         setLocationText(i.url());
     } else {
         multiSelectionChanged();
-        emit q->selectionChanged();
+        Q_EMIT q->selectionChanged();
     }
 
     // Same as above in fileHighlighted(), but for single-click mode
@@ -1451,7 +1451,7 @@ void KFileWidgetPrivate::slotFilterChanged()
 
     m_ops->updateDir();
 
-    emit q->filterChanged(filter);
+    Q_EMIT q->filterChanged(filter);
 }
 
 void KFileWidget::setUrl(const QUrl &url, bool clearforward)

@@ -211,7 +211,7 @@ void KUrlNavigatorPlacesSelector::dropEvent(QDropEvent *event)
 void KUrlNavigatorPlacesSelector::mouseReleaseEvent(QMouseEvent *event)
 {
     if (event->button() == Qt::MiddleButton && geometry().contains(event->pos())) {
-        emit tabRequested(KFilePlacesModel::convertedUrl(m_placesModel->url(m_placesModel->index(m_selectedItem, 0))));
+        Q_EMIT tabRequested(KFilePlacesModel::convertedUrl(m_placesModel->url(m_placesModel->index(m_selectedItem, 0))));
         event->accept();
         return;
     }
@@ -243,7 +243,7 @@ void KUrlNavigatorPlacesSelector::activatePlace(QAction *action)
         m_selectedItem = index.row();
         setIcon(m_placesModel->icon(index));
         updateTeardownAction();
-        emit placeActivated(KFilePlacesModel::convertedUrl(m_placesModel->url(index)));
+        Q_EMIT placeActivated(KFilePlacesModel::convertedUrl(m_placesModel->url(index)));
     }
 }
 
@@ -254,7 +254,7 @@ void KUrlNavigatorPlacesSelector::onStorageSetupDone(const QModelIndex &index, b
             m_selectedItem = index.row();
             setIcon(m_placesModel->icon(index));
             updateTeardownAction();
-            emit placeActivated(KFilePlacesModel::convertedUrl(m_placesModel->url(index)));
+            Q_EMIT placeActivated(KFilePlacesModel::convertedUrl(m_placesModel->url(index)));
         }
         m_lastClickedIndex = QPersistentModelIndex();
     }
@@ -270,7 +270,7 @@ bool KUrlNavigatorPlacesSelector::eventFilter(QObject *watched, QEvent *event)
                     m_placesMenu->close(); // always close top menu
 
                     QModelIndex index = m_placesModel->index(action->data().toInt(), 0);
-                    emit tabRequested(KFilePlacesModel::convertedUrl(m_placesModel->url(index)));
+                    Q_EMIT tabRequested(KFilePlacesModel::convertedUrl(m_placesModel->url(index)));
                     return true;
                 }
             }

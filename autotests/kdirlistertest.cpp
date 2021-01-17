@@ -1243,7 +1243,7 @@ void KDirListerTest::slotNewItems2(const KFileItemList &lst)
 void KDirListerTest::slotRefreshItems(const QList<QPair<KFileItem, KFileItem> > &lst)
 {
     m_refreshedItems += lst;
-    emit refreshItemsReceived();
+    Q_EMIT refreshItemsReceived();
 }
 
 void KDirListerTest::slotRefreshItems2(const QList<QPair<KFileItem, KFileItem> > &lst)

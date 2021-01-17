@@ -179,7 +179,7 @@ void KCookiesManagement::save()
     mDeletedCookies.remove(cookiesDom.key());
   }
 
-  emit changed( false );
+  Q_EMIT changed( false );
 }
 
 void KCookiesManagement::defaults()
@@ -249,7 +249,7 @@ void KCookiesManagement::reload()
   // are there any cookies?
   mUi.deleteAllButton->setEnabled(mUi.cookiesTreeWidget->topLevelItemCount() > 0);
   mUi.cookiesTreeWidget->sortItems(0, Qt::AscendingOrder);
-  emit changed(false);
+  Q_EMIT changed(false);
 }
 
 Q_DECLARE_METATYPE( QList<int> )
@@ -405,13 +405,13 @@ void KCookiesManagement::deleteCurrent()
 
   mUi.deleteAllButton->setEnabled(mUi.cookiesTreeWidget->topLevelItemCount() > 0);
 
-  emit changed( true );
+  Q_EMIT changed( true );
 }
 
 void KCookiesManagement::deleteAll()
 {
   mDeleteAllFlag = true;
   reset(true);
-  emit changed(true);
+  Q_EMIT changed(true);
 }
 

@@ -445,10 +445,10 @@ void KUrlRequester::KUrlRequesterPrivate::_k_slotOpenDialog()
 
         if (newUrl.isValid()) {
             m_parent->setUrl(newUrl);
-            emit m_parent->urlSelected(url());
+            Q_EMIT m_parent->urlSelected(url());
         }
     } else {
-        emit m_parent->openFileDialog(m_parent);
+        Q_EMIT m_parent->openFileDialog(m_parent);
 
         if (((fileDialogMode & KFile::Directory) && (fileDialogMode & KFile::File)) || m_fileDialogModeWasDirAndFile) {
             QMenu *dirOrFileMenu = new QMenu();
@@ -489,7 +489,7 @@ void KUrlRequester::KUrlRequesterPrivate::_k_slotFileDialogAccepted()
     const QUrl newUrl = myFileDialog->selectedUrls().constFirst();
     if (newUrl.isValid()) {
         m_parent->setUrl(newUrl);
-        emit m_parent->urlSelected(url());
+        Q_EMIT m_parent->urlSelected(url());
         // remember url as defaultStartDir and update startdir for autocompletion
         if (newUrl.isLocalFile() && !m_startDirCustomized) {
             m_startDir = newUrl.adjusted(QUrl::RemoveFilename);

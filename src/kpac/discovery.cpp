@@ -104,7 +104,7 @@ void Discovery::failed()
     const bool firstQuery = m_domainName.isEmpty();
     if ((firstQuery && !initDomainName()) ||
             (!firstQuery && !checkDomain())) {
-        emit result(false);
+        Q_EMIT result(false);
         return;
     }
 
@@ -118,7 +118,7 @@ void Discovery::failed()
         return;
     }
 
-    emit result(false);
+    Q_EMIT result(false);
 }
 
 void Discovery::helperOutput()

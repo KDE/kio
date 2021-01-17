@@ -146,7 +146,7 @@ void KIOPreferences::load()
   KConfig config( QStringLiteral("kio_ftprc"), KConfig::NoGlobals );
   cb_ftpEnablePasv->setChecked( !config.group("").readEntry( "DisablePassiveMode", false ) );
   cb_ftpMarkPartial->setChecked( config.group("").readEntry( "MarkPartial", true ) );
-  emit changed( false );
+  Q_EMIT changed( false );
 }
 
 void KIOPreferences::save()
@@ -166,7 +166,7 @@ void KIOPreferences::save()
 
   KSaveIOConfig::updateRunningIOSlaves(this);
 
-  emit changed( false );
+  Q_EMIT changed( false );
 }
 
 void KIOPreferences::defaults()
@@ -181,7 +181,7 @@ void KIOPreferences::defaults()
   cb_ftpEnablePasv->setChecked( true );
   cb_ftpMarkPartial->setChecked( true );
 
-  emit changed(true);
+  Q_EMIT changed(true);
 }
 
 QString KIOPreferences::quickHelp() const

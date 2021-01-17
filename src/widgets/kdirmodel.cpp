@@ -331,7 +331,7 @@ KDirModelNode *KDirModelPrivate::expandAllParentsUntil(const QUrl &_url) const /
             return dirNode;
         }
 
-        emit q->expand(indexForNode(node));
+        Q_EMIT q->expand(indexForNode(node));
 
         //qDebug() << " nodeUrl=" << nodeUrl;
         if (nodeUrl == url) {
@@ -559,7 +559,7 @@ void KDirModelPrivate::_k_slotNewItems(const QUrl &directoryUrl, const KFileItem
     // Emit expand signal after rowsInserted signal has been emitted,
     // so that any proxy model will have updated its mapping already
     for (const QModelIndex &idx : qAsConst(emitExpandFor)) {
-        emit q->expand(idx);
+        Q_EMIT q->expand(idx);
     }
 }
 
@@ -705,7 +705,7 @@ void KDirModelPrivate::_k_slotRefreshItems(const QList<QPair<KFileItem, KFileIte
     }
     //qDebug() << "dataChanged(" << debugIndex(topLeft) << " - " << debugIndex(bottomRight);
     bottomRight = bottomRight.sibling(bottomRight.row(), q->columnCount(QModelIndex()) - 1);
-    emit q->dataChanged(topLeft, bottomRight);
+    Q_EMIT q->dataChanged(topLeft, bottomRight);
 }
 
 // Called when a kioslave redirects (e.g. smb:/Workgroup -> smb://workgroup)
@@ -759,7 +759,7 @@ void KDirModelPrivate::_k_slotJobUrlsChanged(const QStringList &urlList)
     for (const QString &dirtyUrl : qAsConst(dirtyUrls)) {
         if (KDirModelNode *node = nodeForUrl(QUrl(dirtyUrl))) {
             const QModelIndex idx = indexForNode(node);
-            emit q->dataChanged(idx, idx, {KDirModel::HasJobRole});
+            Q_EMIT q->dataChanged(idx, idx, {KDirModel::HasJobRole});
         }
     }
 }
@@ -778,7 +778,7 @@ void KDirModelPrivate::clearAllPreviews(KDirModelDirNode *dirNode)
             }
             lastNode = node;
         }
-        emit q->dataChanged(indexForNode(dirNode->m_childNodes.at(0), 0),  // O(1)
+        Q_EMIT q->dataChanged(indexForNode(dirNode->m_childNodes.at(0), 0),  // O(1)
                             indexForNode(lastNode, numRows - 1));          // O(1)
     }
 
@@ -800,7 +800,7 @@ void KDirModel::itemChanged(const QModelIndex &index)
     }
 
     qCDebug(category) << "dataChanged(" << debugIndex(index) << ")";
-    emit dataChanged(index, index);
+    Q_EMIT dataChanged(index, index);
 }
 
 int KDirModel::columnCount(const QModelIndex &) const
@@ -969,7 +969,7 @@ bool KDirModel::setData(const QModelIndex &index, const QVariant &value, int rol
             } else if (value.type() == QVariant::Pixmap) {
                 node->setPreview(qvariant_cast<QPixmap>(value));
             }
-            emit dataChanged(index, index);
+            Q_EMIT dataChanged(index, index);
             return true;
         }
         break;
@@ -1035,7 +1035,7 @@ QModelIndex KDirModel::sibling(int row, int column, const QModelIndex &index) co
 
 void KDirModel::requestSequenceIcon(const QModelIndex &index, int sequenceIndex)
 {
-    emit needSequenceIcon(index, sequenceIndex);
+    Q_EMIT needSequenceIcon(index, sequenceIndex);
 }
 
 void KDirModel::setJobTransfersVisible(bool show)

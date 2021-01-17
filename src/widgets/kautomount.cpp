@@ -57,7 +57,7 @@ KAutoMount::~KAutoMount()
 void KAutoMountPrivate::slotResult(KJob *job)
 {
     if (job->error()) {
-        emit q->error();
+        Q_EMIT q->error();
         job->uiDelegate()->showErrorMessage();
     } else {
         const KMountPoint::List mountPoints(KMountPoint::currentMountPoints());
@@ -91,7 +91,7 @@ void KAutoMountPrivate::slotResult(KJob *job)
         org::kde::KDirNotify::emitFilesChanged(QList<QUrl>() << QUrl::fromLocalFile(m_desktopFile));
         //KDirWatch::self()->setFileDirty( m_desktopFile );
 
-        emit q->finished();
+        Q_EMIT q->finished();
     }
     q->deleteLater();
 }
@@ -119,7 +119,7 @@ KAutoUnmount::KAutoUnmount(const QString &_mountpoint, const QString &_desktopFi
 void KAutoUnmountPrivate::slotResult(KJob *job)
 {
     if (job->error()) {
-        emit q->error();
+        Q_EMIT q->error();
         job->uiDelegate()->showErrorMessage();
     } else {
         // Update the desktop file which is used for mount/unmount (icon change)
@@ -134,7 +134,7 @@ void KAutoUnmountPrivate::slotResult(KJob *job)
         const QUrl mp = QUrl::fromLocalFile(m_mountpoint);
         org::kde::KDirNotify::emitFilesAdded(mp);
 
-        emit q->finished();
+        Q_EMIT q->finished();
     }
 
     q->deleteLater();

@@ -72,7 +72,7 @@ void KIO::WidgetsAskUserActionHandler::askUserRename(KJob *job,
     connect(dlg, &QDialog::finished, this, [this, job, dlg](const int exitCode) {
         KIO::RenameDialog_Result result = static_cast<RenameDialog_Result>(exitCode);
         const QUrl newUrl = result == Result_AutoRename ? dlg->autoDestUrl() : dlg->newDestUrl();
-        emit askUserRenameResult(result, newUrl, job);
+        Q_EMIT askUserRenameResult(result, newUrl, job);
     });
 
     dlg->show();
@@ -88,7 +88,7 @@ void KIO::WidgetsAskUserActionHandler::askUserSkip(KJob *job,
 
     connect(job, &KJob::finished, dlg, &QDialog::reject);
     connect(dlg, &QDialog::finished, this, [this, job](const int exitCode) {
-        emit askUserSkipResult(static_cast<KIO::SkipDialog_Result>(exitCode), job);
+        Q_EMIT askUserSkipResult(static_cast<KIO::SkipDialog_Result>(exitCode), job);
     });
 
     dlg->show();
@@ -126,7 +126,7 @@ void KIO::WidgetsAskUserActionHandler::askUserDelete(const QList<QUrl> &urls,
     }
 
     if (!ask) {
-        emit askUserDeleteResult(true, urls, deletionType, parent);
+        Q_EMIT askUserDeleteResult(true, urls, deletionType, parent);
         return;
     }
 
@@ -196,7 +196,7 @@ void KIO::WidgetsAskUserActionHandler::askUserDelete(const QList<QUrl> &urls,
     connect(dlg, &QDialog::finished, this, [=](const int buttonCode) {
         const bool isDelete = buttonCode == QDialogButtonBox::Yes;
 
-        emit askUserDeleteResult(isDelete, urls, deletionType, parent);
+        Q_EMIT askUserDeleteResult(isDelete, urls, deletionType, parent);
 
         if (isDelete) {
             KConfigGroup cg = kioConfig->group("Confirmations");
@@ -225,7 +225,7 @@ void KIO::WidgetsAskUserActionHandler::requestUserMessageBox(MessageDialogType t
     const bool ask = reqMsgConfig->group("Notification Messages").readEntry(dontAskAgainName, true);
 
     if (!ask) {
-        emit messageBoxResult(type == WarningContinueCancel ? KIO::SlaveBase::Continue : KIO::SlaveBase::Yes);
+        Q_EMIT messageBoxResult(type == WarningContinueCancel ? KIO::SlaveBase::Continue : KIO::SlaveBase::Yes);
         return;
     }
 
@@ -310,7 +310,7 @@ void KIO::WidgetsAskUserActionHandler::requestUserMessageBox(MessageDialogType t
             return;
         }
 
-        emit messageBoxResult(btnCode);
+        Q_EMIT messageBoxResult(btnCode);
 
         if (result != QDialogButtonBox::Cancel) {
             KConfigGroup cg = reqMsgConfig->group("Notification Messages");
@@ -355,7 +355,7 @@ void KIO::WidgetsAskUserActionHandlerPrivate::sslMessageBox(const QString &text,
 
         QObject::connect(ksslDlg, &QDialog::finished, q, [this]() {
             // KSslInfoDialog only has one button, QDialogButtonBox::Close
-            emit q->messageBoxResult(KIO::SlaveBase::Cancel);
+            Q_EMIT q->messageBoxResult(KIO::SlaveBase::Cancel);
         });
 
         ksslDlg->show();
@@ -374,7 +374,7 @@ void KIO::WidgetsAskUserActionHandlerPrivate::sslMessageBox(const QString &text,
     dialog->setButtons(KStandardGuiItem::ok());
 
     QObject::connect(dialog, &QDialog::finished, q, [this](const int result) {
-        emit q->messageBoxResult(result == QDialogButtonBox::Ok ? KIO::SlaveBase::Ok : KIO::SlaveBase::Cancel);
+        Q_EMIT q->messageBoxResult(result == QDialogButtonBox::Ok ? KIO::SlaveBase::Ok : KIO::SlaveBase::Cancel);
     });
 
     dialog->show();

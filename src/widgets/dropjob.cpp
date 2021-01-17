@@ -257,7 +257,7 @@ void DropJobPrivate::fillPopupMenu(KIO::DropMenu *popup)
     }
     const KFileItemListProperties itemProps(fileItems);
 
-    emit q->popupMenuAboutToShow(itemProps);
+    Q_EMIT q->popupMenuAboutToShow(itemProps);
 
     const bool sReading = itemProps.supportsReading();
     const bool sDeleting = itemProps.supportsDeleting();
@@ -534,14 +534,14 @@ void DropJobPrivate::doCopyToDirectory()
     job->setParentJob(q);
     job->setMetaData(m_metaData);
     QObject::connect(job, &KIO::CopyJob::copyingDone, q, [q](KIO::Job*, const QUrl &, const QUrl &to) {
-            emit q->itemCreated(to);
+            Q_EMIT q->itemCreated(to);
     });
     QObject::connect(job, &KIO::CopyJob::copyingLinkDone, q, [q](KIO::Job*, const QUrl&, const QString&, const QUrl &to) {
-            emit q->itemCreated(to);
+            Q_EMIT q->itemCreated(to);
     });
     q->addSubjob(job);
 
-    emit q->copyJobStarted(job);
+    Q_EMIT q->copyJobStarted(job);
 }
 
 void DropJobPrivate::handleDropToDesktopFile()

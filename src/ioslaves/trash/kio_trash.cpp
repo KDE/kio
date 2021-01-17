@@ -620,7 +620,7 @@ void TrashProtocol::jobFinished(KJob *job)
     } else {
         finished();
     }
-    emit leaveModality();
+    Q_EMIT leaveModality();
 }
 
 #if 0

@@ -346,7 +346,7 @@ public:
     void reemitSocketError(QAbstractSocket::SocketError e)
     {
         q->setErrorString(sock.errorString());
-        emit q->error(errorFromAbsSocket(e));
+        Q_EMIT q->error(errorFromAbsSocket(e));
     }
 
     void reemitSslErrors(const QList<QSslError> &errors)
@@ -358,17 +358,17 @@ public:
         for (const QSslError &e : errors) {
             kErrors.append(KSslError(e));
         }
-        emit q->sslErrors(kErrors);
+        Q_EMIT q->sslErrors(kErrors);
     }
 
     void reemitStateChanged(QAbstractSocket::SocketState s)
     {
-        emit q->stateChanged(state(s));
+        Q_EMIT q->stateChanged(state(s));
     }
 
     void reemitModeChanged(QSslSocket::SslMode m)
     {
-        emit q->encryptionModeChanged(encryptionMode(m));
+        Q_EMIT q->encryptionModeChanged(encryptionMode(m));
     }
 
     // This method is needed because we might emit readyRead() due to this QIODevice
@@ -378,7 +378,7 @@ public:
     {
         if (!emittedReadyRead) {
             emittedReadyRead = true;
-            emit q->readyRead();
+            Q_EMIT q->readyRead();
             emittedReadyRead = false;
         }
     }

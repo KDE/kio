@@ -115,7 +115,7 @@ void SlaveInterface::calcSpeed()
             d->times[0] = diff;
             d->sizes[0] = d->filesize - d->offset;
         }
-        emit speed(lspeed);
+        Q_EMIT speed(lspeed);
     }
 }
 
@@ -133,24 +133,24 @@ bool SlaveInterface::dispatch(int _cmd, const QByteArray &rawdata)
 
     switch (_cmd) {
     case MSG_DATA:
-        emit data(rawdata);
+        Q_EMIT data(rawdata);
         break;
     case MSG_DATA_REQ:
-        emit dataReq();
+        Q_EMIT dataReq();
         break;
     case MSG_OPENED:
-        emit open();
+        Q_EMIT open();
         break;
     case MSG_FINISHED:
         //qDebug() << "Finished [this = " << this << "]";
         d->offset = 0;
         d->speed_timer.stop();
-        emit finished();
+        Q_EMIT finished();
         break;
     case MSG_STAT_ENTRY: {
         UDSEntry entry;
         stream >> entry;
-        emit statEntry(entry);
+        Q_EMIT statEntry(entry);
         break;
     }
     case MSG_LIST_ENTRIES: {
@@ -162,22 +162,22 @@ bool SlaveInterface::dispatch(int _cmd, const QByteArray &rawdata)
             list.append(entry);
         }
 
-        emit listEntries(list);
+        Q_EMIT listEntries(list);
         break;
     }
     case MSG_RESUME: { // From the put job
         d->offset = readFilesize_t(stream);
-        emit canResume(d->offset);
+        Q_EMIT canResume(d->offset);
         break;
     }
     case MSG_CANRESUME: // From the get job
         d->filesize = d->offset;
-        emit canResume(0); // the arg doesn't matter
+        Q_EMIT canResume(0); // the arg doesn't matter
         break;
     case MSG_ERROR:
         stream >> i >> str1;
         //qDebug() << "error " << i << " " << str1;
-        emit error(i, str1);
+        Q_EMIT error(i, str1);
         break;
 #if KIOCORE_BUILD_DEPRECATED_SINCE(5, 45)
     case MSG_SLAVE_STATUS:
@@ -186,15 +186,15 @@ bool SlaveInterface::dispatch(int _cmd, const QByteArray &rawdata)
         qint64 pid;
         QByteArray protocol;
         stream >> pid >> protocol >> str1 >> b;
-        emit slaveStatus(pid, protocol, str1, (b != 0));
+        Q_EMIT slaveStatus(pid, protocol, str1, (b != 0));
         break;
     }
     case MSG_CONNECTED:
-        emit connected();
+        Q_EMIT connected();
         break;
     case MSG_WRITTEN: {
         KIO::filesize_t size = readFilesize_t(stream);
-        emit written(size);
+        Q_EMIT written(size);
         break;
     }
     case INF_TOTAL_SIZE: {
@@ -207,54 +207,54 @@ bool SlaveInterface::dispatch(int _cmd, const QByteArray &rawdata)
         d->nums = 1;
         d->speed_timer.start(1000);
         d->slave_calcs_speed = false;
-        emit totalSize(size);
+        Q_EMIT totalSize(size);
         break;
     }
     case INF_PROCESSED_SIZE: {
         KIO::filesize_t size = readFilesize_t(stream);
-        emit processedSize(size);
+        Q_EMIT processedSize(size);
         d->filesize = size;
         break;
     }
     case INF_POSITION: {
         KIO::filesize_t pos = readFilesize_t(stream);
-        emit position(pos);
+        Q_EMIT position(pos);
         break;
     }
     case INF_TRUNCATED: {
         KIO::filesize_t length = readFilesize_t(stream);
-        emit truncated(length);
+        Q_EMIT truncated(length);
         break;
     }
     case INF_SPEED:
         stream >> ul;
         d->slave_calcs_speed = true;
         d->speed_timer.stop();
-        emit speed(ul);
+        Q_EMIT speed(ul);
         break;
 #if KIOCORE_BUILD_DEPRECATED_SINCE(3, 0)
     case INF_GETTING_FILE:
         break;
 #endif
     case INF_ERROR_PAGE:
-        emit errorPage();
+        Q_EMIT errorPage();
         break;
     case INF_REDIRECTION: {
         QUrl url;
         stream >> url;
-        emit redirection(url);
+        Q_EMIT redirection(url);
         break;
     }
     case INF_MIME_TYPE:
         stream >> str1;
-        emit mimeType(str1);
+        Q_EMIT mimeType(str1);
         if (!d->connection->suspended()) {
             d->connection->sendnow(CMD_NONE, QByteArray());
         }
         break;
     case INF_WARNING:
         stream >> str1;
-        emit warning(str1);
+        Q_EMIT warning(str1);
         break;
     case INF_MESSAGEBOX: {
         //qDebug() << "needs a msg box";
@@ -272,7 +272,7 @@ bool SlaveInterface::dispatch(int _cmd, const QByteArray &rawdata)
     case INF_INFOMESSAGE: {
         QString msg;
         stream >> msg;
-        emit infoMessage(msg);
+        Q_EMIT infoMessage(msg);
         break;
     }
     case INF_META_DATA: {
@@ -292,7 +292,7 @@ bool SlaveInterface::dispatch(int _cmd, const QByteArray &rawdata)
         } else if (m.contains(QStringLiteral("privilege_conf_details"))) { // KF6 TODO Remove this conditional.
             d->privilegeConfMetaData = m;
         }
-        emit metaData(m);
+        Q_EMIT metaData(m);
         break;
     }
     case MSG_NET_REQUEST: {
@@ -310,7 +310,7 @@ bool SlaveInterface::dispatch(int _cmd, const QByteArray &rawdata)
         break;
     }
     case MSG_NEED_SUBURL_DATA: {
-        emit needSubUrlData();
+        Q_EMIT needSubUrlData();
         break;
     }
     case MSG_HOST_INFO_REQ: {
@@ -320,7 +320,7 @@ bool SlaveInterface::dispatch(int _cmd, const QByteArray &rawdata)
         break;
     }
     case MSG_PRIVILEGE_EXEC:
-        emit privilegeOperationRequested();
+        Q_EMIT privilegeOperationRequested();
         break;
     default:
         qCWarning(KIO_CORE) << "Slave sends unknown command (" << _cmd << "), dropping slave";

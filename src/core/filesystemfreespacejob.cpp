@@ -63,7 +63,7 @@ void FileSystemFreeSpaceJob::slotFinished()
     }
     const KIO::filesize_t total = totalStr.toULongLong();
     const KIO::filesize_t available = availableStr.toULongLong();
-    emit result(this, total, available);
+    Q_EMIT result(this, total, available);
 
     // Return slave to the scheduler
     SimpleJob::slotFinished();

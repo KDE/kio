@@ -60,7 +60,7 @@ void KUrlNavigatorDropDownButton::keyPressEvent(QKeyEvent *event)
     case Qt::Key_Enter:
     case Qt::Key_Return:
     case Qt::Key_Down:
-        emit clicked();
+        Q_EMIT clicked();
         break;
     default:
         KUrlNavigatorButtonBase::keyPressEvent(event);

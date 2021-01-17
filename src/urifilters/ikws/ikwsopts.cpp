@@ -66,7 +66,7 @@ bool ProvidersModel::setData(const QModelIndex &index, const QVariant &value, in
         } else {
             m_favoriteEngines.remove(m_providers.at(index.row())->desktopEntryName());
         }
-        emit dataModified();
+        Q_EMIT dataModified();
         return true;
     }
     return false;
@@ -148,7 +148,7 @@ void ProvidersModel::deleteProvider(SearchProvider *p)
     beginRemoveRows(QModelIndex(), row, row);
     m_favoriteEngines.remove(m_providers.takeAt(row)->desktopEntryName());
     endRemoveRows();
-    emit dataModified();
+    Q_EMIT dataModified();
 }
 
 void ProvidersModel::addProvider(SearchProvider *p)
@@ -156,14 +156,14 @@ void ProvidersModel::addProvider(SearchProvider *p)
     beginInsertRows(QModelIndex(), m_providers.size(), m_providers.size());
     m_providers.append(p);
     endInsertRows();
-    emit dataModified();
+    Q_EMIT dataModified();
 }
 
 void ProvidersModel::changeProvider(SearchProvider *p)
 {
     const int row = m_providers.indexOf(p);
-    emit dataChanged(index(row, 0), index(row, ColumnCount-1));
-    emit dataModified();
+    Q_EMIT dataChanged(index(row, 0), index(row, ColumnCount-1));
+    Q_EMIT dataModified();
 }
 
 QStringList ProvidersModel::favoriteEngines() const
@@ -389,7 +389,7 @@ void FilterOptions::save()
 
     config.sync();
 
-    emit changed(false);
+    Q_EMIT changed(false);
 
     // Update filters in running applications...
     QDBusMessage msg = QDBusMessage::createSignal(QStringLiteral("/"), QStringLiteral("org.kde.KUriFilterPlugin"), QStringLiteral("configure"));

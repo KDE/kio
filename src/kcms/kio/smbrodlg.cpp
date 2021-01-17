@@ -113,7 +113,7 @@ void SMBRoOptions::defaults()
 
 void SMBRoOptions::changed()
 {
-   emit KCModule::changed(true);
+   Q_EMIT KCModule::changed(true);
 }
 
 QString SMBRoOptions::quickHelp() const

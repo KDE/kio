@@ -47,7 +47,7 @@ void TransferJob::slotData(const QByteArray &_data)
     d->m_isMimetypeEmitted = true;
 
     if (d->m_redirectionURL.isEmpty() || !d->m_redirectionURL.isValid() || error()) {
-        emit data(this, _data);
+        Q_EMIT data(this, _data);
     }
 }
 
@@ -83,7 +83,7 @@ void TransferJob::slotRedirection(const QUrl &url)
             addMetaData(QStringLiteral("ssl_was_in_use"), QStringLiteral("FALSE"));
         }
         // Tell the user that we haven't finished yet
-        emit redirection(this, d->m_redirectionURL);
+        Q_EMIT redirection(this, d->m_redirectionURL);
     }
 }
 
@@ -96,7 +96,7 @@ void TransferJob::slotFinished()
 
         //qDebug() << "Redirection to" << m_redirectionURL;
         if (queryMetaData(QStringLiteral("permanent-redirect")) == QLatin1String("true")) {
-            emit permanentRedirection(this, d->m_url, d->m_redirectionURL);
+            Q_EMIT permanentRedirection(this, d->m_url, d->m_redirectionURL);
         }
 
         if (queryMetaData(QStringLiteral("redirect-to-get")) == QLatin1String("true")) {
@@ -226,7 +226,7 @@ void TransferJob::slotDataReq()
         dataForSlave = d->staticData;
         d->staticData.clear();
     } else {
-        emit dataReq(this, dataForSlave);
+        Q_EMIT dataReq(this, dataForSlave);
 
         if (d->m_extraFlags & JobPrivate::EF_TransferJobAsync) {
             return;
@@ -258,9 +258,9 @@ void TransferJob::slotMimetype(const QString &type)
     }
     d->m_isMimetypeEmitted = true;
 #if KIOCORE_BUILD_DEPRECATED_SINCE(5, 78)
-    emit mimetype(this, type);
+    Q_EMIT mimetype(this, type);
 #endif
-    emit mimeTypeFound(this, type);
+    Q_EMIT mimeTypeFound(this, type);
 }
 
 void TransferJobPrivate::internalSuspend()
@@ -342,7 +342,7 @@ void TransferJobPrivate::start(Slave *slave)
     });
 
     q->connect(slave, &SlaveInterface::canResume, q, [q](KIO::filesize_t offset) {
-        emit q->canResume(q, offset);
+        Q_EMIT q->canResume(q, offset);
     });
 
     if (slave->suspended()) {
@@ -407,7 +407,7 @@ void TransferJobPrivate::slotDataReqFromDevice()
     }
 
     if (dataForSlave.isEmpty()) {
-        emit q->dataReq(q, dataForSlave);
+        Q_EMIT q->dataReq(q, dataForSlave);
         if (!done && (m_extraFlags & JobPrivate::EF_TransferJobAsync)) {
             return;
         }

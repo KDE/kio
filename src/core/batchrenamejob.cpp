@@ -183,7 +183,7 @@ void BatchRenameJob::slotResult(KJob *job)
 
     removeSubjob(job);
 
-    emit fileRenamed(*d->m_listIterator, d->m_newUrl);
+    Q_EMIT fileRenamed(*d->m_listIterator, d->m_newUrl);
     ++d->m_listIterator;
     ++d->m_index;
     emitPercent(d->m_listIterator - d->m_srcList.constBegin(), d->m_srcList.count());

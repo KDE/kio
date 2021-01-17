@@ -44,7 +44,7 @@ void KUrlNavigatorMenu::dropEvent(QDropEvent *event)
 {
     QAction *action = actionAt(event->pos());
     if (action != nullptr) {
-        emit urlsDropped(action, event);
+        Q_EMIT urlsDropped(action, event);
     }
 }
 
@@ -71,7 +71,7 @@ void KUrlNavigatorMenu::mouseReleaseEvent(QMouseEvent *event)
     if (m_mouseMoved || (btn != Qt::LeftButton)) {
         QAction *action = actionAt(event->pos());
         if (action != nullptr) {
-            emit mouseButtonClicked(action, btn);
+            Q_EMIT mouseButtonClicked(action, btn);
 
             // Prevent QMenu default activation, in case
             // triggered signal is used

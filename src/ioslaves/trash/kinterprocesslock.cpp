@@ -34,7 +34,7 @@ public:
     void _k_serviceRegistered(const QString &service)
     {
         if (service == m_serviceName) {
-            emit q_ptr->lockGranted(q_ptr);
+            Q_EMIT q_ptr->lockGranted(q_ptr);
         }
     }
 

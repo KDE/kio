@@ -483,7 +483,7 @@ void KFileItemActionsPrivate::slotRunApplication(QAction *act)
 void KFileItemActionsPrivate::slotOpenWithDialog()
 {
     // The item 'Other...' or 'Open With...' has been selected
-    emit q->openWithDialogAboutToBeShown();
+    Q_EMIT q->openWithDialogAboutToBeShown();
     auto *job = new KIO::ApplicationLauncherJob();
     job->setUrls(m_props.urlList());
     job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, m_parentWidget));

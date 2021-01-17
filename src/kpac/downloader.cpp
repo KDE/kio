@@ -38,7 +38,7 @@ void Downloader::download(const QUrl &url)
 
 void Downloader::failed()
 {
-    emit result(false);
+    Q_EMIT result(false);
 }
 
 void Downloader::setError(const QString &error)
@@ -74,7 +74,7 @@ void Downloader::result(KJob *job)
             Q_ASSERT(codec);
         }
         m_script = codec->toUnicode(m_data);
-        emit result(true);
+        Q_EMIT result(true);
     } else {
         if (job->error())
             setError(i18n("Could not download the proxy configuration script:\n%1",

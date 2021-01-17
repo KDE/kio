@@ -679,10 +679,10 @@ void KRun::slotTimeout()
     }
 
     if (d->m_bFault) {
-        emit error();
+        Q_EMIT error();
     }
     if (d->m_bFinished) {
-        emit finished();
+        Q_EMIT finished();
     } else {
         if (d->m_bScanFile) {
             d->m_bScanFile = false;

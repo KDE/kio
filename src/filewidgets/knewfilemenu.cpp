@@ -1071,7 +1071,7 @@ void KNewFileMenuPrivate::_k_slotOtherDesktopFile()
 {
     // The properties dialog took care of the copying, so we're done
     KPropertiesDialog *dialog = qobject_cast<KPropertiesDialog *>(q->sender());
-    emit q->fileCreated(dialog->url());
+    Q_EMIT q->fileCreated(dialog->url());
 }
 
 void KNewFileMenuPrivate::_k_slotOtherDesktopFileClosed()
@@ -1505,7 +1505,7 @@ void KNewFileMenu::slotResult(KJob *job)
                 Q_ASSERT(d->m_selectDirWhenAlreadyExists);
                 const QUrl jobUrl = simpleJob->url();
                 // Select the existing dir
-                emit selectExistingDir(jobUrl);
+                Q_EMIT selectExistingDir(jobUrl);
             }
         } else { // All other errors
             static_cast<KIO::Job *>(job)->uiDelegate()->showErrorMessage();
@@ -1514,7 +1514,7 @@ void KNewFileMenu::slotResult(KJob *job)
         // Was this a copy or a mkdir?
         if (job->property("newDirectoryURL").isValid()) {
             QUrl newDirectoryURL = job->property("newDirectoryURL").toUrl();
-            emit directoryCreated(newDirectoryURL);
+            Q_EMIT directoryCreated(newDirectoryURL);
         } else {
             KIO::CopyJob *copyJob = ::qobject_cast<KIO::CopyJob *>(job);
             if (copyJob) {
@@ -1524,11 +1524,11 @@ void KNewFileMenu::slotResult(KJob *job)
                     // Normal (local) file. Need to "touch" it, kio_file copied the mtime.
                     (void) ::utime(QFile::encodeName(localUrl.toLocalFile()).constData(), nullptr);
                 }
-                emit fileCreated(destUrl);
+                Q_EMIT fileCreated(destUrl);
             } else if (KIO::SimpleJob *simpleJob = ::qobject_cast<KIO::SimpleJob *>(job)) {
                 // Called in the storedPut() case
                 org::kde::KDirNotify::emitFilesAdded(simpleJob->url().adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash));
-                emit fileCreated(simpleJob->url());
+                Q_EMIT fileCreated(simpleJob->url());
             }
         }
     }

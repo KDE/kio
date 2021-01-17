@@ -140,7 +140,7 @@ void ListJobPrivate::slotListEntries(const KIO::UDSEntryList &list)
     // exclusion of hidden files also requires the full sweep, but the case for full-listing
     // a single dir is probably common enough to justify the shortcut
     if (m_prefix.isNull() && includeHidden) {
-        emit q->entries(q, list);
+        Q_EMIT q->entries(q, list);
     } else {
         // cull the unwanted hidden dirs and/or parent dir references from the listing, then emit that
         UDSEntryList newlist;
@@ -167,7 +167,7 @@ void ListJobPrivate::slotListEntries(const KIO::UDSEntryList &list)
             }
         }
 
-        emit q->entries(q, newlist);
+        Q_EMIT q->entries(q, newlist);
     }
 }
 
@@ -175,13 +175,13 @@ void ListJobPrivate::gotEntries(KIO::Job *, const KIO::UDSEntryList &list)
 {
     // Forward entries received by subjob - faking we received them ourselves
     Q_Q(ListJob);
-    emit q->entries(q, list);
+    Q_EMIT q->entries(q, list);
 }
 
 void ListJobPrivate::slotSubError(KIO::ListJob* /*job*/, KIO::ListJob* subJob)
 {
     Q_Q(ListJob);
-    emit q->subError(q, subJob); // Let the signal of subError go up
+    Q_EMIT q->subError(q, subJob); // Let the signal of subError go up
 }
 
 void ListJob::slotResult(KJob *job)
@@ -192,7 +192,7 @@ void ListJob::slotResult(KJob *job)
         // This is why we override KCompositeJob::slotResult - to not set
         // an error on parent job.
         // Let's emit a signal about this though
-        emit subError(this, static_cast<KIO::ListJob *>(job));
+        Q_EMIT subError(this, static_cast<KIO::ListJob *>(job));
     }
     removeSubjob(job);
     if (!hasSubjobs() && !d->m_slave) { // if the main directory listing is still running, it will emit result in SimpleJob::slotFinished()
@@ -208,7 +208,7 @@ void ListJobPrivate::slotRedirection(const QUrl &url)
         return;
     }
     m_redirectionURL = url; // We'll remember that when the job finishes
-    emit q->redirection(q, m_redirectionURL);
+    Q_EMIT q->redirection(q, m_redirectionURL);
 }
 
 void ListJob::slotFinished()
@@ -219,7 +219,7 @@ void ListJob::slotFinished()
 
         //qDebug() << "Redirection to " << d->m_redirectionURL;
         if (queryMetaData(QStringLiteral("permanent-redirect")) == QLatin1String("true")) {
-            emit permanentRedirection(this, d->m_url, d->m_redirectionURL);
+            Q_EMIT permanentRedirection(this, d->m_url, d->m_redirectionURL);
         }
 
         if (d->m_redirectionHandlingEnabled) {

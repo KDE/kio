@@ -202,7 +202,7 @@ void KFileCopyToMainMenu::copyOrMoveTo(const QUrl &dest)
         job->uiDelegate()->setAutoErrorHandlingEnabled(d->m_autoErrorHandling);
     }
     connect(job, &KIO::CopyJob::result, this, [this](KJob * job) {
-        emit d->q->error(job->error(), job->errorString());
+        Q_EMIT d->q->error(job->error(), job->errorString());
     });
 }
 

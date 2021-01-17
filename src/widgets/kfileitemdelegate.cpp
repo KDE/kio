@@ -1507,8 +1507,8 @@ bool KFileItemDelegate::eventFilter(QObject *object, QEvent *event)
         switch (keyEvent->key()) {
         case Qt::Key_Tab:
         case Qt::Key_Backtab:
-            emit commitData(editor);
-            emit closeEditor(editor, NoHint);
+            Q_EMIT commitData(editor);
+            Q_EMIT closeEditor(editor, NoHint);
             return true;
 
         case Qt::Key_Enter:
@@ -1518,13 +1518,13 @@ bool KFileItemDelegate::eventFilter(QObject *object, QEvent *event)
                 return true;    // So a newline doesn't get inserted
             }
 
-            emit commitData(editor);
-            emit closeEditor(editor, SubmitModelCache);
+            Q_EMIT commitData(editor);
+            Q_EMIT closeEditor(editor, SubmitModelCache);
             return true;
         }
 
         case Qt::Key_Escape:
-            emit closeEditor(editor, RevertModelCache);
+            Q_EMIT closeEditor(editor, RevertModelCache);
             return true;
 
         default:
@@ -1535,8 +1535,8 @@ bool KFileItemDelegate::eventFilter(QObject *object, QEvent *event)
     case QEvent::FocusOut: {
         const QWidget *w = QApplication::activePopupWidget();
         if (!w || w->parent() != editor) {
-            emit commitData(editor);
-            emit closeEditor(editor, NoHint);
+            Q_EMIT commitData(editor);
+            Q_EMIT closeEditor(editor, NoHint);
             return true;
         } else {
             return false;

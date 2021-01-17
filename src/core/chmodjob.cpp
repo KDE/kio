@@ -192,7 +192,7 @@ void ChmodJobPrivate::_k_chmodNextFile()
             QString path = info.url.toLocalFile();
             if (!KIOPrivate::changeOwnership(path, m_newOwner, m_newGroup)) {
                 if (!m_uiDelegateExtension) {
-                    emit q->warning(q, i18n("Could not modify the ownership of file %1", path));
+                    Q_EMIT q->warning(q, i18n("Could not modify the ownership of file %1", path));
                 } else if (!m_bAutoSkipFiles) {
                     const QString errMsg = i18n("<qt>Could not modify the ownership of file <b>%1</b>. You have insufficient access to the file to perform the change.</qt>", path);
                     SkipDialog_Options options;

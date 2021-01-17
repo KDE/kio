@@ -130,7 +130,7 @@ void KUrlNavigatorProtocolCombo::setProtocol(QAction *action)
 {
     const QString protocol = action->data().toString();
     setText(protocol);
-    emit activated(protocol);
+    Q_EMIT activated(protocol);
 }
 
 void KUrlNavigatorProtocolCombo::updateMenu()

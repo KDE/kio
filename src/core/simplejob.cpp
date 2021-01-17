@@ -235,17 +235,17 @@ void SimpleJob::slotError(int err, const QString &errorText)
 
 void SimpleJob::slotWarning(const QString &errorText)
 {
-    emit warning(this, errorText);
+    Q_EMIT warning(this, errorText);
 }
 
 void SimpleJobPrivate::_k_slotSlaveInfoMessage(const QString &msg)
 {
-    emit q_func()->infoMessage(q_func(), msg);
+    Q_EMIT q_func()->infoMessage(q_func(), msg);
 }
 
 void SimpleJobPrivate::slotConnected()
 {
-    emit q_func()->connected(q_func());
+    Q_EMIT q_func()->connected(q_func());
 }
 
 void SimpleJobPrivate::slotTotalSize(KIO::filesize_t size)

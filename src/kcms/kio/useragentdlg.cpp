@@ -187,7 +187,7 @@ bool UserAgentDlg::handleDuplicate (const QString& site,
 
 void UserAgentDlg::configChanged (bool enable)
 {
-    emit changed (enable);
+    Q_EMIT changed (enable);
 }
 
 void UserAgentDlg::updateButtons()

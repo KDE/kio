@@ -322,7 +322,7 @@ qlonglong KPasswdServer::checkAuthInfoAsync(KIO::AuthInfo info, qlonglong window
         copyAuthInfo(result, info);
     }
 
-    emit checkAuthInfoAsyncResult(requestId, m_seqNr, info);
+    Q_EMIT checkAuthInfoAsyncResult(requestId, m_seqNr, info);
     return 0; // ignored
 }
 
@@ -855,7 +855,7 @@ void KPasswdServer::sendResponse(KPasswdServer::Request *request)
 
     qCDebug(category) << "key=" << request->key;
     if (request->isAsync) {
-        emit queryAuthInfoAsyncResult(request->requestId, m_seqNr, request->info);
+        Q_EMIT queryAuthInfoAsyncResult(request->requestId, m_seqNr, request->info);
     } else {
         QByteArray replyData;
         QDataStream stream2(&replyData, QIODevice::WriteOnly);
@@ -887,7 +887,7 @@ void KPasswdServer::sendResponse(KPasswdServer::Request *request)
             }
 
             if (waitRequest->isAsync) {
-                emit checkAuthInfoAsyncResult(waitRequest->requestId, m_seqNr, rcinfo);
+                Q_EMIT checkAuthInfoAsyncResult(waitRequest->requestId, m_seqNr, rcinfo);
             } else {
                 QDBusConnection::sessionBus().send(
                     waitRequest->transaction.createReply(QVariantList{QVariant(replyData), QVariant(m_seqNr)}));

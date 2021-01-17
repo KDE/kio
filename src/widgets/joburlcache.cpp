@@ -41,12 +41,12 @@ JobUrlCache::~JobUrlCache()
 void JobUrlCache::slotJobUrlsChanged(const QStringList &urlList)
 {
     m_destUrls = urlList;
-    emit jobUrlsChanged(urlList);
+    Q_EMIT jobUrlsChanged(urlList);
 }
 
 void JobUrlCache::requestJobUrlsChanged()
 {
-    emit jobUrlsChanged(m_destUrls);
+    Q_EMIT jobUrlsChanged(m_destUrls);
 }
 
 #include "moc_joburlcache_p.cpp"

@@ -92,7 +92,7 @@ void IdleSlave::gotInput()
         d->mConnected = (b != 0);
         d->mProtocol = QString::fromLatin1(protocol);
         d->mHost = host;
-        emit statusUpdate(this);
+        Q_EMIT statusUpdate(this);
     }
 }
 

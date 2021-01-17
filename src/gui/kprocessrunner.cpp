@@ -307,7 +307,7 @@ void KProcessRunner::emitDelayedError(const QString &errorMsg)
     terminateStartupNotification();
     // Use delayed invocation so the caller has time to connect to the signal
     QMetaObject::invokeMethod(this, [this, errorMsg]() {
-        emit error(errorMsg);
+        Q_EMIT error(errorMsg);
         deleteLater();
     }, Qt::QueuedConnection);
 }

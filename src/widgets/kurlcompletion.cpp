@@ -229,7 +229,7 @@ protected:
     {
         if (!terminationRequested()) {
             qCDebug(KIO_WIDGETS) << "done, emitting signal with" << m_matches.count() << "matches";
-            emit completionThreadDone(this, m_matches);
+            Q_EMIT completionThreadDone(this, m_matches);
         }
     }
 

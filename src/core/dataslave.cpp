@@ -29,7 +29,7 @@ using namespace KIO;
             dispatchQueue.push_back(q); \
             if (!timer->isActive()) timer->start(KIO_DATA_POLL_INTERVAL); \
         } else \
-            emit type(); \
+            Q_EMIT type(); \
     }
 
 // don't forget to sync DISPATCH_DECL1 in dataslave_p.h
@@ -41,7 +41,7 @@ using namespace KIO;
             dispatchQueue.push_back(q); \
             if (!timer->isActive()) timer->start(KIO_DATA_POLL_INTERVAL); \
         } else \
-            emit type(paramname); \
+            Q_EMIT type(paramname); \
     }
 
 DataSlave::DataSlave() :
@@ -102,11 +102,11 @@ void DataSlave::dispatchNext()
     const QueueStruct &q = dispatchQueue.front();
     //qDebug() << this << "dispatching" << q.type << dispatchQueue.size() << "left";
     switch (q.type) {
-    case Queue_mimeType:    emit mimeType(q.s); break;
-    case Queue_totalSize:   emit totalSize(q.size); break;
+    case Queue_mimeType:    Q_EMIT mimeType(q.s); break;
+    case Queue_totalSize:   Q_EMIT totalSize(q.size); break;
     case Queue_sendMetaData:    sendMetaData(); break;
-    case Queue_data:        emit data(q.ba); break;
-    case Queue_finished:    emit finished(); break;
+    case Queue_data:        Q_EMIT data(q.ba); break;
+    case Queue_finished:    Q_EMIT finished(); break;
     }/*end switch*/
 
     dispatchQueue.pop_front();
@@ -135,7 +135,7 @@ void DataSlave::send(int cmd, const QByteArray &arr)
     case CMD_SUBURL:
         break;
     default:
-        emit error(ERR_UNSUPPORTED_ACTION,
+        Q_EMIT error(ERR_UNSUPPORTED_ACTION,
                    unsupportedActionErrorString(QStringLiteral("data"), cmd));
     }/*end switch*/
 }
@@ -169,7 +169,7 @@ void DataSlave::setAllMetaData(const MetaData &md)
 
 void DataSlave::sendMetaData()
 {
-    emit metaData(meta_data);
+    Q_EMIT metaData(meta_data);
 }
 
 DISPATCH_IMPL1(mimeType, const QString &, s)

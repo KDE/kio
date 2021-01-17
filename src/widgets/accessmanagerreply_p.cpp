@@ -305,14 +305,14 @@ void AccessManagerReply::readHttpResponseHeaders(KIO::Job *job)
         if (isLocalRequest(url())) {
             setHeader(QNetworkRequest::ContentLengthHeader, job->totalAmount(KJob::Bytes));
             setAttribute(QNetworkRequest::HttpStatusCodeAttribute, QStringLiteral("200"));
-            emit metaDataChanged();
+            Q_EMIT metaDataChanged();
         }
         return;
     }
 
     setHeaderFromMetaData(metaData);
     m_metaDataRead = true;
-    emit metaDataChanged();
+    Q_EMIT metaDataChanged();
 }
 
 int AccessManagerReply::jobError(KJob *kJob)
@@ -404,7 +404,7 @@ void AccessManagerReply::slotData(KIO::Job *kioJob, const QByteArray &data)
 
     m_data += data;
 
-    emit readyRead();
+    Q_EMIT readyRead();
 }
 
 void AccessManagerReply::slotMimeType(KIO::Job *kioJob, const QString &mimeType)
@@ -413,7 +413,7 @@ void AccessManagerReply::slotMimeType(KIO::Job *kioJob, const QString &mimeType)
     setHeader(QNetworkRequest::ContentTypeHeader, mimeType.toUtf8());
     readHttpResponseHeaders(kioJob);
     if (m_emitReadyReadOnMetaDataChange) {
-        emit readyRead();
+        Q_EMIT readyRead();
     }
 }
 
@@ -427,9 +427,9 @@ void AccessManagerReply::slotResult(KJob *kJob)
         if (errcode && errcode != KIO::ERR_NO_CONTENT) {
             const auto networkError = error();
 #if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
-            emit error(networkError);
+            Q_EMIT error(networkError);
 #else
-            emit errorOccurred(networkError);
+            Q_EMIT errorOccurred(networkError);
 #endif
         }
     }
@@ -447,9 +447,9 @@ void AccessManagerReply::slotStatResult(KJob *kJob)
     if (jobError(kJob)) {
         const auto networkError = error();
 #if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
-        emit error(networkError);
+        Q_EMIT error(networkError);
 #else
-        emit errorOccurred(networkError);
+        Q_EMIT errorOccurred(networkError);
 #endif
         emitFinished(true);
         return;
@@ -478,9 +478,9 @@ void AccessManagerReply::slotRedirection(KIO::Job *job, const QUrl &u)
         setError(QNetworkReply::ContentAccessDenied, u.toString());
         const auto networkError = error();
 #if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
-        emit error(networkError);
+        Q_EMIT error(networkError);
 #else
-        emit errorOccurred(networkError);
+        Q_EMIT errorOccurred(networkError);
 #endif
         return;
     }
@@ -496,16 +496,16 @@ void AccessManagerReply::slotPercent(KJob *job, unsigned long percent)
     qulonglong bytesProcessed = (bytesTotal * percent) / 100;
     if (operation() == QNetworkAccessManager::PutOperation ||
             operation() == QNetworkAccessManager::PostOperation) {
-        emit uploadProgress(bytesProcessed, bytesTotal);
+        Q_EMIT uploadProgress(bytesProcessed, bytesTotal);
         return;
     }
-    emit downloadProgress(bytesProcessed, bytesTotal);
+    Q_EMIT downloadProgress(bytesProcessed, bytesTotal);
 }
 
 void AccessManagerReply::emitFinished(bool state, Qt::ConnectionType type)
 {
     setFinished(state);
-    emit QMetaObject::invokeMethod(this, "finished", type);
+    Q_EMIT QMetaObject::invokeMethod(this, "finished", type);
 }
 
 }

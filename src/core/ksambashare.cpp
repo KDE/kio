@@ -480,7 +480,7 @@ void KSambaSharePrivate::_k_slotFileChange(const QString &path)
     data = parse(getNetUserShareInfo());
     qCDebug(KIO_CORE) << "reloading data; path changed:" << path;
     Q_Q(KSambaShare);
-    emit q->changed();
+    Q_EMIT q->changed();
 }
 
 KSambaShare::KSambaShare()

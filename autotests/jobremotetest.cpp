@@ -148,7 +148,7 @@ void JobRemoteTest::slotGetResult(KJob *job)
 {
     m_result = job->error();
     m_data = static_cast<KIO::StoredTransferJob *>(job)->data();
-    emit exitLoop();
+    Q_EMIT exitLoop();
 }
 
 void JobRemoteTest::slotDataReq(KIO::Job *, QByteArray &data)
@@ -170,7 +170,7 @@ void JobRemoteTest::slotDataReq(KIO::Job *, QByteArray &data)
 void JobRemoteTest::slotResult(KJob *job)
 {
     m_result = job->error();
-    emit exitLoop();
+    Q_EMIT exitLoop();
 }
 
 ////

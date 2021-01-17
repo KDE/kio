@@ -121,7 +121,7 @@ QStringList KFileFilterCombo::filters() const
 void KFileFilterCombo::setCurrentFilter(const QString &filter)
 {
     setCurrentIndex(d->m_filters.indexOf(filter));
-    emit filterChanged();
+    Q_EMIT filterChanged();
 }
 
 void KFileFilterCombo::setMimeFilter(const QStringList &types,
@@ -218,7 +218,7 @@ bool KFileFilterCombo::eventFilter(QObject *o, QEvent *e)
 {
     if (o == lineEdit() && e->type() == QEvent::FocusOut) {
         if (currentText() != d->lastFilter) {
-            emit filterChanged();
+            Q_EMIT filterChanged();
         }
     }
 

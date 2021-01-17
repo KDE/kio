@@ -77,7 +77,7 @@ public:
 public Q_SLOTS:
     void emitDataChanged(const QModelIndex &start, const QModelIndex &end)
     {
-        emit dataChanged(index(start.row(), 0), index(end.row(), 0));
+        Q_EMIT dataChanged(index(start.row(), 0), index(end.row(), 0));
     }
 
     void emitRowsAboutToBeInserted(const QModelIndex &, int start, int end)

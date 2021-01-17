@@ -62,7 +62,7 @@ public:
         Q_UNUSED(mtimeDest)
 
         ++m_askUserRenameCalled;
-        emit askUserRenameResult(m_renameResult, m_newDestUrl, job);
+        Q_EMIT askUserRenameResult(m_renameResult, m_newDestUrl, job);
     }
 
     void askUserSkip(KJob *job,
@@ -73,7 +73,7 @@ public:
         Q_UNUSED(error_text)
 
         ++m_askUserSkipCalled;
-        emit askUserSkipResult(m_skipResult, job);
+        Q_EMIT askUserSkipResult(m_skipResult, job);
     }
 
     void askUserDelete(const QList<QUrl> &urls,
@@ -84,7 +84,7 @@ public:
         Q_UNUSED(confirmationType)
 
         ++m_askUserDeleteCalled;
-        emit askUserDeleteResult(m_deleteResult, urls, deletionType, parent);
+        Q_EMIT askUserDeleteResult(m_deleteResult, urls, deletionType, parent);
     }
 
     void requestUserMessageBox(MessageDialogType type,

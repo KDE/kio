@@ -341,7 +341,7 @@ void KUrlNavigator::Private::slotReturnPressed()
 {
     applyUncommittedUrl();
 
-    emit q->returnPressed();
+    Q_EMIT q->returnPressed();
 
     if (QApplication::keyboardModifiers() & Qt::ControlModifier) {
         // Pressing Ctrl+Return automatically switches back to the breadcrumb mode.
@@ -450,21 +450,21 @@ void KUrlNavigator::Private::switchView()
     }
 
     q->requestActivation();
-    emit q->editableStateChanged(m_editable);
+    Q_EMIT q->editableStateChanged(m_editable);
 }
 
 void KUrlNavigator::Private::dropUrls(const QUrl &destination, QDropEvent *event)
 {
     if (event->mimeData()->hasUrls()) {
         m_dropWidget = qobject_cast<QWidget*>(q->sender());
-        emit q->urlsDropped(destination, event);
+        Q_EMIT q->urlsDropped(destination, event);
     }
 }
 
 void KUrlNavigator::Private::slotNavigatorButtonClicked(const QUrl &url, Qt::MouseButton button, Qt::KeyboardModifiers modifiers)
 {
     if (button & Qt::MiddleButton || (button & Qt::LeftButton && modifiers & Qt::ControlModifier)) {
-        emit q->tabRequested(url);
+        Q_EMIT q->tabRequested(url);
     } else if (button & Qt::LeftButton) {
         q->setLocationUrl(url);
     }
@@ -922,13 +922,13 @@ bool KUrlNavigator::goBack()
     const int count = d->m_history.count();
     if (d->m_historyIndex < count - 1) {
         const QUrl newUrl = locationUrl(d->m_historyIndex + 1);
-        emit urlAboutToBeChanged(newUrl);
+        Q_EMIT urlAboutToBeChanged(newUrl);
 
         ++d->m_historyIndex;
         d->updateContent();
 
-        emit historyChanged();
-        emit urlChanged(locationUrl());
+        Q_EMIT historyChanged();
+        Q_EMIT urlChanged(locationUrl());
         return true;
     }
 
@@ -939,13 +939,13 @@ bool KUrlNavigator::goForward()
 {
     if (d->m_historyIndex > 0) {
         const QUrl newUrl = locationUrl(d->m_historyIndex - 1);
-        emit urlAboutToBeChanged(newUrl);
+        Q_EMIT urlAboutToBeChanged(newUrl);
 
         --d->m_historyIndex;
         d->updateContent();
 
-        emit historyChanged();
-        emit urlChanged(locationUrl());
+        Q_EMIT historyChanged();
+        Q_EMIT urlChanged(locationUrl());
         return true;
     }
 
@@ -1020,7 +1020,7 @@ void KUrlNavigator::setActive(bool active)
 
         update();
         if (active) {
-            emit activated();
+            Q_EMIT activated();
         }
     }
 }
@@ -1108,7 +1108,7 @@ void KUrlNavigator::setLocationUrl(const QUrl &newUrl)
         return;
     }
 
-    emit urlAboutToBeChanged(url);
+    Q_EMIT urlAboutToBeChanged(url);
 
     if (d->m_historyIndex > 0) {
         // If an URL is set when the history index is not at the end (= 0),
@@ -1134,8 +1134,8 @@ void KUrlNavigator::setLocationUrl(const QUrl &newUrl)
         d->m_history.erase(begin, end);
     }
 
-    emit historyChanged();
-    emit urlChanged(url);
+    Q_EMIT historyChanged();
+    Q_EMIT urlChanged(url);
 
     KUrlCompletion *urlCompletion = qobject_cast<KUrlCompletion *>(d->m_pathBox->completionObject());
     if (urlCompletion) {
@@ -1143,7 +1143,7 @@ void KUrlNavigator::setLocationUrl(const QUrl &newUrl)
     }
 
     if (firstChildUrl.isValid()) {
-        emit urlSelectionRequested(firstChildUrl);
+        Q_EMIT urlSelectionRequested(firstChildUrl);
     }
 
     d->updateContent();

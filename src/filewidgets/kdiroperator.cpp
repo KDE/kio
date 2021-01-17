@@ -951,7 +951,7 @@ void KDirOperator::setIconSize(int value)
     d->m_itemView->setIconSize(QSize(size, size));
     d->m_previewGenerator->updateIcons();
 
-    emit currentIconSizeChanged(size);
+    Q_EMIT currentIconSizeChanged(size);
 }
 
 void KDirOperator::close()
@@ -1019,7 +1019,7 @@ void KDirOperator::setUrl(const QUrl &_newurl, bool clearforward)
     d->m_currUrl = newurl;
 
     pathChanged();
-    emit urlEntered(newurl);
+    Q_EMIT urlEntered(newurl);
 
     // enable/disable actions
     QAction *forwardAction = d->m_actionCollection->action(QStringLiteral("forward"));
@@ -1162,7 +1162,7 @@ void KDirOperatorPrivate::slotRedirected(const QUrl &newURL)
     m_completion.clear();
     m_dirCompletion.clear();
     m_completeListDirty = true;
-    emit q->urlEntered(newURL);
+    Q_EMIT q->urlEntered(newURL);
 }
 
 // Code pinched from kfm then hacked
@@ -1297,7 +1297,7 @@ void KDirOperator::activatedMenu(const KFileItem &item, const QPoint &pos)
 
     d->m_actionCollection->action(QStringLiteral("new"))->setEnabled(item.isDir());
 
-    emit contextMenuAboutToShow(item, d->m_actionMenu->menu());
+    Q_EMIT contextMenuAboutToShow(item, d->m_actionMenu->menu());
 
     d->m_actionMenu->menu()->exec(pos);
 }
@@ -1468,7 +1468,7 @@ bool KDirOperator::eventFilter(QObject *watched, QEvent *event)
             // emit keyEnterReturnPressed
             // let activated event be emitted by subsequent QAbstractItemView::keyPress otherwise
             if (!d->m_itemView->currentIndex().isValid()) {
-                emit keyEnterReturnPressed();
+                Q_EMIT keyEnterReturnPressed();
                 evt->accept();
                 return true;
             }
@@ -1739,12 +1739,12 @@ void KDirOperator::setView(QAbstractItemView *view)
     d->slotChangeDecorationPosition();
     updateViewActions();
 
-    emit viewChanged(view);
+    Q_EMIT viewChanged(view);
 
     const int zoom = previewForcedToTrue ? KIconLoader::SizeHuge : d->iconSizeForViewType(view);
 
     // this will make d->m_iconSize be updated, since setIconSize slot will be called
-    emit currentIconSizeChanged(zoom);
+    Q_EMIT currentIconSizeChanged(zoom);
 }
 
 void KDirOperator::setDirLister(KDirLister *lister)
@@ -1803,7 +1803,7 @@ void KDirOperator::selectFile(const KFileItem &item)
 {
     QApplication::restoreOverrideCursor();
 
-    emit fileSelected(item);
+    Q_EMIT fileSelected(item);
 }
 
 void KDirOperator::highlightFile(const KFileItem &item)
@@ -1812,7 +1812,7 @@ void KDirOperator::highlightFile(const KFileItem &item)
         d->m_preview->showPreview(item.url());
     }
 
-    emit fileHighlighted(item);
+    Q_EMIT fileHighlighted(item);
 }
 
 void KDirOperator::setCurrentItem(const QUrl &url)
@@ -1942,7 +1942,7 @@ void KDirOperator::slotCompletionMatch(const QString &match)
         url = d->m_currUrl.resolved(url);
     }
     setCurrentItem(url);
-    emit completion(match);
+    Q_EMIT completion(match);
 }
 
 void KDirOperator::setupActions()
@@ -2505,7 +2505,7 @@ void KDirOperatorPrivate::slotIOFinished()
     m_progressDelayTimer->stop();
     slotProgress(100);
     m_progressBar->hide();
-    emit q->finishedLoading();
+    Q_EMIT q->finishedLoading();
     q->resetCursor();
 
     if (m_preview) {
@@ -2520,7 +2520,7 @@ void KDirOperatorPrivate::slotIOFinished()
 
 void KDirOperatorPrivate::slotCanceled()
 {
-    emit q->finishedLoading();
+    Q_EMIT q->finishedLoading();
     q->resetCursor();
 }
 

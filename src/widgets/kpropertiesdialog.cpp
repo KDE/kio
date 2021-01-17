@@ -534,8 +534,8 @@ void KPropertiesDialog::accept()
     }
 
     if (!d->m_aborted) {
-        emit applied();
-        emit propertiesClosed();
+        Q_EMIT applied();
+        Q_EMIT propertiesClosed();
         deleteLater(); // somewhat like Qt::WA_DeleteOnClose would do.
         KPageDialog::accept();
     } // else, keep dialog open for user to fix the problem.
@@ -548,8 +548,8 @@ void KPropertiesDialog::slotCancel()
 
 void KPropertiesDialog::reject()
 {
-    emit canceled();
-    emit propertiesClosed();
+    Q_EMIT canceled();
+    Q_EMIT propertiesClosed();
 
     deleteLater();
     KPageDialog::reject();
@@ -652,7 +652,7 @@ void KPropertiesDialog::updateUrl(const QUrl &_newUrl)
     Q_ASSERT(d->m_items.count() == 1);
     // qDebug() << "KPropertiesDialog::updateUrl (pre)" << _newUrl;
     QUrl newUrl = _newUrl;
-    emit saveAs(d->m_singleUrl, newUrl);
+    Q_EMIT saveAs(d->m_singleUrl, newUrl);
     // qDebug() << "KPropertiesDialog::updateUrl (post)" << newUrl;
 
     d->m_singleUrl = newUrl;
@@ -1339,13 +1339,13 @@ void KFilePropsPlugin::slotEditFileType()
 void KFilePropsPlugin::slotIconChanged()
 {
     d->bIconChanged = true;
-    emit changed();
+    Q_EMIT changed();
 }
 
 void KFilePropsPlugin::nameFileChanged(const QString &text)
 {
     properties->buttonBox()->button(QDialogButtonBox::Ok)->setEnabled(!text.isEmpty());
-    emit changed();
+    Q_EMIT changed();
 }
 
 static QString relativeAppsLocation(const QString &file)
@@ -1562,7 +1562,7 @@ void KFilePropsPlugin::slotCopyFinished(KJob *job)
     // qDebug() << "KFilePropsPlugin::slotCopyFinished";
     if (job) {
         // allow apply() to return
-        emit leaveModality();
+        Q_EMIT leaveModality();
         if (job->error()) {
             job->uiDelegate()->showErrorMessage();
             // Didn't work. Revert the URL to the old one
@@ -2345,7 +2345,7 @@ void KFilePermissionsPropsPlugin::slotShowAdvancedPermissions()
 #endif
 
     updateAccessControls();
-    emit changed();
+    Q_EMIT changed();
 }
 
 // QString KFilePermissionsPropsPlugin::tabName () const
@@ -2753,7 +2753,7 @@ void KFilePermissionsPropsPlugin::slotChmodResult(KJob *job)
         job->uiDelegate()->showErrorMessage();
     }
     // allow apply() to return
-    emit leaveModality();
+    Q_EMIT leaveModality();
 }
 
 class KChecksumsPlugin::KChecksumsPluginPrivate
@@ -3797,7 +3797,7 @@ void KDesktopPropsPlugin::slotAddFiletype()
             d->w->filetypeList->resizeColumnToContents(0);
         }
     }
-    emit changed();
+    Q_EMIT changed();
 }
 
 void KDesktopPropsPlugin::slotDelFiletype()
@@ -3805,7 +3805,7 @@ void KDesktopPropsPlugin::slotDelFiletype()
     QTreeWidgetItem *cur = d->w->filetypeList->currentItem();
     if (cur) {
         delete cur;
-        emit changed();
+        Q_EMIT changed();
     }
 }
 

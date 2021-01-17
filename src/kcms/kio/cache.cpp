@@ -63,7 +63,7 @@ void CacheConfigModule::load()
           this, &CacheConfigModule::configChanged);
   connect(ui.sbMaxCacheSize, QOverload<int>::of(&QSpinBox::valueChanged),
           this, &CacheConfigModule::configChanged);
-  emit changed( false );
+  Q_EMIT changed( false );
 }
 
 void CacheConfigModule::save()
@@ -85,7 +85,7 @@ void CacheConfigModule::save()
   // Update running io-slaves...
   KSaveIOConfig::updateRunningIOSlaves (this);
 
-  emit changed( false );
+  Q_EMIT changed( false );
 }
 
 void CacheConfigModule::defaults()
@@ -107,7 +107,7 @@ QString CacheConfigModule::quickHelp() const
 
 void CacheConfigModule::configChanged()
 {
-  emit changed( true );
+  Q_EMIT changed( true );
 }
 
 void CacheConfigModule::clearCache()

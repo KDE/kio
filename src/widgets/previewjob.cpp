@@ -360,7 +360,7 @@ void PreviewJobPrivate::startPreview()
                 }
             }
         } else {
-            emit q->failed(*kit);
+            Q_EMIT q->failed(*kit);
         }
     }
 
@@ -439,7 +439,7 @@ void PreviewJobPrivate::determineNextFile()
     Q_Q(PreviewJob);
     if (!currentItem.item.isNull()) {
         if (!succeeded) {
-            emit q->failed(currentItem.item);
+            Q_EMIT q->failed(currentItem.item);
         }
     }
     // No more items ?
@@ -751,7 +751,7 @@ void PreviewJobPrivate::emitPreview(const QImage &thumb)
     } else {
         pix = QPixmap::fromImage(thumb);
     }
-    emit q->gotPreview(currentItem.item, pix);
+    Q_EMIT q->gotPreview(currentItem.item, pix);
 }
 
 QStringList PreviewJob::availablePlugins()
