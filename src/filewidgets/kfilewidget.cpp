@@ -775,7 +775,7 @@ void KFileWidget::slotOk()
 
     const QString locationEditCurrentText(KShell::tildeExpand(d->locationEditCurrentText()));
 
-    const QList<QUrl> locationEditCurrentTextList(d->tokenize(locationEditCurrentText));
+    QList<QUrl> locationEditCurrentTextList(d->tokenize(locationEditCurrentText));
     KFile::Modes mode = d->m_ops->mode();
 
     // if there is nothing to do, just return from here
@@ -894,46 +894,56 @@ void KFileWidget::slotOk()
           */
     } else if (!locationEditCurrentTextList.isEmpty()) {
         // if we are on file or files mode, and we have an absolute url written by
-        // the user, convert it to relative
+        // the user:
+        //  * convert it to relative and call slotOk again if the protocol supports listing.
+        //  * use the full url if the protocol doesn't support listing
+        // This is because when using a protocol that supports listing we want to show the directory
+        // the user just opened/saved from the next time they open the dialog, it makes sense usability wise.
+        // If the protocol doesn't support listing (i.e. http:// ) the user would end up with the dialog
+        // showing an "empty directory" which is bad usability wise.
         if (!locationEditCurrentText.isEmpty() && !onlyDirectoryMode
             && (isAbsoluteLocalPath(locationEditCurrentText) || containsProtocolSection(locationEditCurrentText))) {
 
-            QString fileName;
             QUrl url = urlFromString(locationEditCurrentText);
-            if (d->m_operationMode == Opening) {
-                KIO::StatJob *statJob = KIO::stat(url, KIO::HideProgressInfo);
-                KJobWidgets::setWindow(statJob, this);
-                int res = statJob->exec();
-                if (res) {
-                    if (!statJob->statResult().isDir()) {
-                        fileName = url.fileName();
-                        url = url.adjusted(QUrl::RemoveFilename); // keeps trailing slash
-                    } else {
-                        if (!url.path().endsWith(QLatin1Char('/'))) {
-                            url.setPath(url.path() + QLatin1Char('/'));
+            if (KProtocolManager::supportsListing(url)) {
+                QString fileName;
+                if (d->m_operationMode == Opening) {
+                    KIO::StatJob *statJob = KIO::stat(url, KIO::HideProgressInfo);
+                    KJobWidgets::setWindow(statJob, this);
+                    int res = statJob->exec();
+                    if (res) {
+                        if (!statJob->statResult().isDir()) {
+                            fileName = url.fileName();
+                            url = url.adjusted(QUrl::RemoveFilename); // keeps trailing slash
+                        } else {
+                            if (!url.path().endsWith(QLatin1Char('/'))) {
+                                url.setPath(url.path() + QLatin1Char('/'));
+                            }
+                        }
+                    }
+                } else {
+                    const QUrl directory = url.adjusted(QUrl::RemoveFilename);
+                    //Check if the folder exists
+                    KIO::StatJob *statJob = KIO::stat(directory, KIO::HideProgressInfo);
+                    KJobWidgets::setWindow(statJob, this);
+                    int res = statJob->exec();
+                    if (res) {
+                        if (statJob->statResult().isDir()) {
+                            url = url.adjusted(QUrl::StripTrailingSlash);
+                            fileName = url.fileName();
+                            url = url.adjusted(QUrl::RemoveFilename);
                         }
                     }
                 }
+                d->m_ops->setUrl(url, true);
+                const bool signalsBlocked = d->m_locationEdit->lineEdit()->blockSignals(true);
+                d->m_locationEdit->lineEdit()->setText(fileName);
+                d->m_locationEdit->lineEdit()->blockSignals(signalsBlocked);
+                slotOk();
+                return;
             } else {
-                const QUrl directory = url.adjusted(QUrl::RemoveFilename);
-                //Check if the folder exists
-                KIO::StatJob *statJob = KIO::stat(directory, KIO::HideProgressInfo);
-                KJobWidgets::setWindow(statJob, this);
-                int res = statJob->exec();
-                if (res) {
-                    if (statJob->statResult().isDir()) {
-                        url = url.adjusted(QUrl::StripTrailingSlash);
-                        fileName = url.fileName();
-                        url = url.adjusted(QUrl::RemoveFilename);
-                    }
-                }
+                locationEditCurrentTextList = { url };
             }
-            d->m_ops->setUrl(url, true);
-            const bool signalsBlocked = d->m_locationEdit->lineEdit()->blockSignals(true);
-            d->m_locationEdit->lineEdit()->setText(fileName);
-            d->m_locationEdit->lineEdit()->blockSignals(signalsBlocked);
-            slotOk();
-            return;
         }
     }
 
