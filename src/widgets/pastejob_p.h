@@ -36,8 +36,8 @@ public:
     Q_DECLARE_PUBLIC(PasteJob)
 
     void slotStart();
-    void slotCopyingDone(KIO::Job*, const QUrl &, const QUrl &to) { emit q_func()->itemCreated(to); }
-    void slotCopyingLinkDone(KIO::Job*, const QUrl &, const QString &, const QUrl &to) { emit q_func()->itemCreated(to); }
+    void slotCopyingDone(KIO::Job*, const QUrl &, const QUrl &to) { Q_EMIT q_func()->itemCreated(to); }
+    void slotCopyingLinkDone(KIO::Job*, const QUrl &, const QString &, const QUrl &to) { Q_EMIT q_func()->itemCreated(to); }
 
     static inline PasteJob *newJob(const QMimeData *mimeData, const QUrl &destDir, JobFlags flags, bool clipboard)
     {

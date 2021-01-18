@@ -23,7 +23,7 @@ public:
     QString quickHelp() const override;
 
 protected Q_SLOTS:
-    void configChanged() { emit changed(true); }
+    void configChanged() { Q_EMIT changed(true); }
 
 private:
     QGroupBox* gb_Ftp;
