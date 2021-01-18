@@ -241,17 +241,14 @@ void FileUndoManagerTest::cleanupTestCase()
 void FileUndoManagerTest::doUndo()
 {
     QEventLoop eventLoop;
-    bool ok = connect(FileUndoManager::self(), &FileUndoManager::undoJobFinished,
-                      &eventLoop, &QEventLoop::quit);
-    QVERIFY(ok);
-
+    connect(FileUndoManager::self(), &FileUndoManager::undoJobFinished,
+            &eventLoop, &QEventLoop::quit);
     FileUndoManager::self()->undo();
     eventLoop.exec(QEventLoop::ExcludeUserInputEvents); // wait for undo job to finish
 }
 
 void FileUndoManagerTest::testCopyFiles()
 {
-    qDebug();
     // Initially inspired from JobTest::copyFileToSamePartition()
     const QString destdir = destDir();
     QList<QUrl> lst = sourceList();
@@ -265,8 +262,7 @@ void FileUndoManagerTest::testCopyFiles()
     QSignalSpy spyTextChanged(FileUndoManager::self(), &FileUndoManager::undoTextChanged);
     QVERIFY(spyTextChanged.isValid());
 
-    bool ok = job->exec();
-    QVERIFY(ok);
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
 
     QVERIFY(QFile::exists(destFile()));
 #ifndef Q_OS_WIN
@@ -308,7 +304,6 @@ void FileUndoManagerTest::testCopyFiles()
 
 void FileUndoManagerTest::testMoveFiles()
 {
-    qDebug();
     const QString destdir = destDir();
     QList<QUrl> lst = sourceList();
     const QUrl d = QUrl::fromLocalFile(destdir);
@@ -316,8 +311,7 @@ void FileUndoManagerTest::testMoveFiles()
     job->setUiDelegate(nullptr);
     FileUndoManager::self()->recordCopyJob(job);
 
-    bool ok = job->exec();
-    QVERIFY(ok);
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
 
     QVERIFY(!QFile::exists(srcFile()));     // the source moved
     QVERIFY(QFile::exists(destFile()));
@@ -346,8 +340,7 @@ void FileUndoManagerTest::testCopyDirectory()
     job->setUiDelegate(nullptr);
     FileUndoManager::self()->recordCopyJob(job);
 
-    bool ok = job->exec();
-    QVERIFY(ok);
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
 
     checkTestDirectory(srcSubDir());   // src untouched
     checkTestDirectory(destSubDir());
@@ -367,8 +360,7 @@ void FileUndoManagerTest::testMoveDirectory()
     job->setUiDelegate(nullptr);
     FileUndoManager::self()->recordCopyJob(job);
 
-    bool ok = job->exec();
-    QVERIFY(ok);
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
 
     QVERIFY(!QFile::exists(srcSubDir()));
     checkTestDirectory(destSubDir());
@@ -391,8 +383,7 @@ void FileUndoManagerTest::testRenameFile()
     job->setUiDelegate(nullptr);
     FileUndoManager::self()->recordJob(FileUndoManager::Rename, lst, newUrl, job);
 
-    bool ok = job->exec();
-    QVERIFY(ok);
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
 
     QVERIFY(!QFile::exists(srcFile()));
     QVERIFY(QFileInfo(newUrl.toLocalFile()).isFile());
@@ -414,8 +405,7 @@ void FileUndoManagerTest::testRenameDir()
     job->setUiDelegate(nullptr);
     FileUndoManager::self()->recordJob(FileUndoManager::Rename, lst, newUrl, job);
 
-    bool ok = job->exec();
-    QVERIFY(ok);
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
 
     QVERIFY(!QFile::exists(srcSubDir()));
     QVERIFY(QFileInfo(newUrl.toLocalFile()).isDir());
@@ -443,8 +433,7 @@ void FileUndoManagerTest::testCreateSymlink()
     KIO::CopyJob *job = KIO::link(target, link, KIO::HideProgressInfo);
     job->setUiDelegate(nullptr);
     FileUndoManager::self()->recordCopyJob(job);
-    bool ok = job->exec();
-    QVERIFY(ok);
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
     QVERIFY(QFile::exists(path));
     QVERIFY(QFileInfo(path).isSymLink());
 
@@ -463,8 +452,7 @@ void FileUndoManagerTest::testCreateDir()
     KIO::SimpleJob *job = KIO::mkdir(url);
     job->setUiDelegate(nullptr);
     FileUndoManager::self()->recordJob(FileUndoManager::Mkdir, QList<QUrl>(), url, job);
-    bool ok = job->exec();
-    QVERIFY(ok);
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
     QVERIFY(QFile::exists(path));
     QVERIFY(QFileInfo(path).isDir());
 
@@ -522,8 +510,7 @@ void FileUndoManagerTest::testTrashFiles()
     job->setUiDelegate(nullptr);
     FileUndoManager::self()->recordJob(FileUndoManager::Trash, lst, QUrl(QStringLiteral("trash:/")), job);
 
-    bool ok = job->exec();
-    QVERIFY(ok);
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
 
     // Check that things got removed
     QVERIFY(!QFile::exists(srcFile()));
@@ -571,8 +558,6 @@ void FileUndoManagerTest::testRestoreTrashedFiles()
         trashUrls.append(QUrl(it.value()));
     }
 
-    qDebug() << trashUrls;
-
     // Restore from trash
     KIO::RestoreJob *restoreJob = KIO::restoreFromTrash(trashUrls, KIO::HideProgressInfo);
     restoreJob->setUiDelegate(nullptr);
@@ -613,8 +598,7 @@ void FileUndoManagerTest::testModifyFileBeforeUndo()
     job->setUiDelegate(nullptr);
     FileUndoManager::self()->recordCopyJob(job);
 
-    bool ok = job->exec();
-    QVERIFY(ok);
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
 
     checkTestDirectory(srcSubDir());   // src untouched
     checkTestDirectory(destSubDir());
