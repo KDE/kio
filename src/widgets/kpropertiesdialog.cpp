@@ -610,7 +610,7 @@ void KPropertiesDialog::KPropertiesDialogPrivate::insertPages()
     }
 
     QString query = QStringLiteral(
-        "(((not exist [X-KDE-Protocol]) and (not exist [X-KDE-Protocols])) or ([X-KDE-Protocol] == '%1') or ('%1' in [X-KDE-Protocols]))"
+        "(exist [X-KDE-Protocol] and [X-KDE-Protocol] == '%1') or (exist [X-KDE-Protocols] and ('%1' in [X-KDE-Protocols]))"
     ).arg(item.url().scheme());
 
     // qDebug() << "trader query: " << query;
