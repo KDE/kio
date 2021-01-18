@@ -168,6 +168,8 @@ void KFilePlacesViewDelegate::paint(QPainter *painter, const QStyleOptionViewIte
 
     QStyleOptionViewItem opt = option;
 
+    const KFilePlacesModel *placesModel = static_cast<const KFilePlacesModel *>(index.model());
+
     // draw header when necessary
     if (indexIsSectionHeader(index)) {
         // If we are drawing the floating element used by drag/drop, do not draw the header
@@ -190,12 +192,15 @@ void KFilePlacesViewDelegate::paint(QPainter *painter, const QStyleOptionViewIte
         painter->setOpacity(m_disappearingOpacity);
     }
 
+    if (placesModel->isHidden(index)) {
+        painter->setOpacity(painter->opacity() * 0.6);
+    }
+
     if (!m_showHoverIndication) {
         opt.state &= ~QStyle::State_MouseOver;
     }
 
     QApplication::style()->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, painter);
-    const KFilePlacesModel *placesModel = static_cast<const KFilePlacesModel *>(index.model());
 
     bool isLTR = opt.direction == Qt::LeftToRight;
 
