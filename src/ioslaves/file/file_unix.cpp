@@ -1476,14 +1476,6 @@ PrivilegeOperationReturnValue FileProtocol::execWithElevatedPrivilege(ActionType
     }
 
     const QString operationDetails = actionDetails(action, args);
-    KIO::PrivilegeOperationStatus opStatus = requestPrivilegeOperation(operationDetails);
-    if (opStatus != KIO::OperationAllowed) {
-        if (opStatus == KIO::OperationCanceled) {
-            error(KIO::ERR_USER_CANCELED, QString());
-            return PrivilegeOperationReturnValue::canceled();
-        }
-        return PrivilegeOperationReturnValue::failure(errcode);
-    }
 
     const QUrl targetUrl = QUrl::fromLocalFile(args.first().toString()); // target is always the first item.
     const bool useParent = action != CHOWN && action != CHMOD && action != UTIME;
