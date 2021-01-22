@@ -640,7 +640,7 @@ void FileUndoManagerPrivate::slotLock()
 {
 //  Q_ASSERT(!m_lock);
     m_lock = true;
-    Q_EMIT q->undoAvailable(q->undoAvailable());
+    Q_EMIT q->undoAvailable(q->isUndoAvailable());
 }
 
 void FileUndoManagerPrivate::slotUnlock()
