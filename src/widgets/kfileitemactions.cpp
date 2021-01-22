@@ -216,15 +216,19 @@ void KFileItemActions::setItemListProperties(const KFileItemListProperties &item
     }
 }
 
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 79)
 int KFileItemActions::addServiceActionsTo(QMenu *mainMenu)
 {
     return d->addServiceActionsTo(mainMenu, {}, {}).first;
 }
+#endif
 
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 79)
 int KFileItemActions::addPluginActionsTo(QMenu *mainMenu)
 {
     return d->addPluginActionsTo(mainMenu, mainMenu, {});
 }
+#endif
 
 void KFileItemActions::addActionsTo(QMenu *menu,
                                     MenuActionSources sources,

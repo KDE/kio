@@ -146,6 +146,7 @@ public:
      */
     static KService::List associatedApplications(const QStringList &mimeTypeList, const QString &traderConstraint);
 
+# if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 79)
     /**
      * Generate the user-defined actions and submenus, and adds them to the @p menu.
      * User-defined actions include:
@@ -163,9 +164,13 @@ public:
      *
      * All actions are created as children of the menu.
      * @return the number of actions added
+     * @deprecated since 5.79, use addActionsTo(QMenu *menu, MenuActionSources, QList<QAction *> &, const QStringList &) instead
      */
+     KIOWIDGETS_DEPRECATED_VERSION(5, 79, "Use addActionsTo(QMenu *menu, MenuActionSources, QList<QAction *> &, const QStringList &) instead")
     int addServiceActionsTo(QMenu *menu);
+#endif
 
+# if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 79)
     /**
      * Add actions implemented by plugins.
      * These are defined in .desktop files or JSON in plugins using the KFileItemAction/Plugin service type,
@@ -175,8 +180,11 @@ public:
      * @return the number of actions added
      *
      * @since 5.27
+     * @deprecated since 5.79, use addActionsTo(QMenu *menu, MenuActionSources, QList<QAction *> &, const QStringList &) instead
      */
+    KIOWIDGETS_DEPRECATED_VERSION(5, 79, "Use addActionsTo(QMenu *menu, MenuActionSources, QList<QAction *> &, const QStringList &) instead")
     int addPluginActionsTo(QMenu *menu);
+#endif
 
     enum class MenuActionSource {
         Services = 0x1, // Add builtin actions, user defined actions and servicemenu actions
