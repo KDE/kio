@@ -6,6 +6,7 @@
 */
 
 #include "fileundomanagertest.h"
+#include "mockcoredelegateextensions.h"
 
 #include <QTest>
 #include <QSignalSpy>
@@ -157,7 +158,8 @@ static void createTestDirectory(const QString &path)
 class TestUiInterface : public FileUndoManager::UiInterface
 {
 public:
-    TestUiInterface() : FileUndoManager::UiInterface(), m_nextReplyToConfirmDeletion(true)
+    TestUiInterface() : FileUndoManager::UiInterface()
+      , m_mockAskUserInterface(new MockAskUserInterface)
     {
         setShowProgressInfo(false);
     }
@@ -172,17 +174,13 @@ public:
         Q_UNUSED(destTime);
         return true;
     }
-    bool confirmDeletion(const QList<QUrl> &files) override {
-        m_files = files;
-        return m_nextReplyToConfirmDeletion;
+    bool confirmDeletion(const QList<QUrl> &) override {
+        Q_ASSERT(false); // no longer called
+        return false;
     }
     void setNextReplyToConfirmDeletion(bool b)
     {
         m_nextReplyToConfirmDeletion = b;
-    }
-    QList<QUrl> files() const
-    {
-        return m_files;
     }
     QUrl dest() const
     {
@@ -195,14 +193,27 @@ public:
     void clear()
     {
         m_dest = QUrl();
-        m_files.clear();
         m_errorCode = 0;
+        m_mockAskUserInterface->clear();
     }
+    MockAskUserInterface* askUserMockInterface() const
+    {
+        return m_mockAskUserInterface.get();
+    }
+    void virtual_hook(int id, void *data) override
+    {
+        if (id == HookGetAskUserActionInterface) {
+            AskUserActionInterface** p = static_cast<AskUserActionInterface**>(data);
+            *p = m_mockAskUserInterface.get();
+            m_mockAskUserInterface->m_deleteResult = m_nextReplyToConfirmDeletion;
+        }
+    }
+
 private:
-    bool m_nextReplyToConfirmDeletion;
     QUrl m_dest;
-    QList<QUrl> m_files;
+    std::unique_ptr<MockAskUserInterface> m_mockAskUserInterface;
     int m_errorCode = 0;
+    bool m_nextReplyToConfirmDeletion = true;
 };
 
 void FileUndoManagerTest::initTestCase()
@@ -286,8 +297,8 @@ void FileUndoManagerTest::testCopyFiles()
 
     m_uiInterface->setNextReplyToConfirmDeletion(false);   // act like the user didn't confirm
     FileUndoManager::self()->undo();
-    QCOMPARE(m_uiInterface->files().count(), 1);   // confirmDeletion was called
-    QCOMPARE(m_uiInterface->files().constFirst().toString(), QUrl::fromLocalFile(destFile()).toString());
+    auto *lastMock = m_uiInterface->askUserMockInterface();
+    QCOMPARE(lastMock->m_askUserDeleteCalled, 1);
     QVERIFY(QFile::exists(destFile()));     // nothing happened yet
 
     // OK, now do it
@@ -298,8 +309,7 @@ void FileUndoManagerTest::testCopyFiles()
     QVERIFY(!FileUndoManager::self()->isUndoAvailable());
     QVERIFY(spyUndoAvailable.count() >= 2);   // it's in fact 3, due to lock/unlock emitting it as well
     QCOMPARE(spyTextChanged.count(), 2);
-    QCOMPARE(m_uiInterface->files().count(), 1);   // confirmDeletion was called
-    QCOMPARE(m_uiInterface->files().constFirst().toString(), QUrl::fromLocalFile(destFile()).toString());
+    QCOMPARE(m_uiInterface->askUserMockInterface()->m_askUserDeleteCalled, 1);
 
     // Check that undo worked
     QVERIFY(!QFile::exists(destFile()));
@@ -466,8 +476,7 @@ void FileUndoManagerTest::testCreateDir()
     m_uiInterface->clear();
     m_uiInterface->setNextReplyToConfirmDeletion(false);   // act like the user didn't confirm
     FileUndoManager::self()->undo();
-    QCOMPARE(m_uiInterface->files().count(), 1);   // confirmDeletion was called
-    QCOMPARE(m_uiInterface->files().constFirst().toString(), url.toString());
+    QCOMPARE(m_uiInterface->askUserMockInterface()->m_askUserDeleteCalled, 1);
     QVERIFY(QFile::exists(path));   // nothing happened yet
 
     // OK, now do it
@@ -496,10 +505,7 @@ void FileUndoManagerTest::testMkpath()
     doUndo();
 
     QVERIFY(!FileUndoManager::self()->isUndoAvailable());
-    const auto files = m_uiInterface->files();
-    QCOMPARE(files.count(), 2);   // confirmDeletion was called
-    QCOMPARE(files[0].toLocalFile(), path);
-    QCOMPARE(files[1].toLocalFile(), parent);
+    QCOMPARE(m_uiInterface->askUserMockInterface()->m_askUserDeleteCalled, 1);
 
     QVERIFY(!QFile::exists(path));
 }

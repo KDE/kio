@@ -130,7 +130,7 @@ public:
     QList<QUrl> m_dirsToUpdate;
     FileUndoManager::UiInterface *m_uiInterface;
 
-    UndoJob *m_undoJob;
+    UndoJob *m_undoJob = nullptr;
     quint64 m_nextCommandIndex;
 
     FileUndoManager * const q;
@@ -138,6 +138,7 @@ public:
     UndoCommand m_current;
     UndoState m_undoState;
     bool m_lock = false;
+    bool m_connectedToAskUserInterface = false;
 
     // DBUS interface
 Q_SIGNALS:

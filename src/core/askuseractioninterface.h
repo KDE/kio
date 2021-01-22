@@ -148,7 +148,7 @@ public:
     virtual void askUserDelete(const QList<QUrl> &urls,
                                DeletionType deletionType,
                                ConfirmationType confirmationType,
-                               QWidget *parent) = 0;
+                               QWidget *parent) = 0; // KF6 TODO: replace QWidget* with QWindow*
 
     enum MessageDialogType {
         QuestionYesNo = 1,

@@ -11,6 +11,7 @@
 
 #include <askuseractioninterface.h>
 #include <untrustedprogramhandlerinterface.h>
+#include <QUrl>
 
 class MockUntrustedProgramHandler : public KIO::UntrustedProgramHandlerInterface
 {
@@ -110,6 +111,14 @@ public:
         Q_UNUSED(details)
         Q_UNUSED(metaData)
         Q_UNUSED(parent)
+    }
+
+    void clear()
+    {
+        m_askUserRenameCalled = 0;
+        m_askUserSkipCalled = 0;
+        m_askUserDeleteCalled = 0;
+        m_messageBoxCalled = 0;
     }
 
     // yeah, public, for get and reset.

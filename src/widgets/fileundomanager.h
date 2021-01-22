@@ -20,6 +20,7 @@ class QDateTime;
 
 namespace KIO
 {
+
 class Job;
 class CopyJob;
 class FileUndoManagerPrivate;
@@ -47,7 +48,7 @@ public:
      * Interface for the gui handling of FileUndoManager.
      * This includes three events currently:
      * - error when undoing a job
-     * - confirm deletion before undoing a copy job
+     * - (until KF 5.78) confirm deletion before undoing a copy job
      * - confirm deletion when the copied file has been modified afterwards
      *
      * By default UiInterface shows message boxes in all three cases;
@@ -86,6 +87,7 @@ public:
         /**
          * Called when we are about to remove those files.
          * Return true if we should proceed with deleting them.
+         * Deprecated since 5.79, no longer called.
          */
         virtual bool confirmDeletion(const QList<QUrl> &files);
 
@@ -96,6 +98,10 @@ public:
          */
         virtual bool copiedFileWasModified(const QUrl &src, const QUrl &dest, const QDateTime &srcTime, const QDateTime &destTime);
 
+        // TODO KF6 replace hook with virtual AskUserActionInterface* askUserActionInterface(); // (does not take ownership)
+        enum {
+            HookGetAskUserActionInterface = 1
+        };
         /**
          * \internal, for future extensions
          */
@@ -186,7 +192,7 @@ public Q_SLOTS:
      * This operation is asynchronous.
      * undoJobFinished will be emitted once the undo is complete.
      */
-    void undo();
+    void undo(); // TODO pass QWindow*, for askUserInterface->askUserDelete and error handling etc.
 
 Q_SIGNALS:
     /// Emitted when the value of isUndoAvailable() changes

@@ -24,6 +24,7 @@
 #include <kio/jobuidelegate.h>
 #include <job_p.h>
 #include "kio_widgets_debug.h"
+#include "askuseractioninterface.h"
 
 #include <QDateTime>
 #include <QDBusConnection>
@@ -119,7 +120,7 @@ public:
     }
     ~UndoJob() override {}
 
-    virtual void kill(bool)
+    virtual void kill(bool) // TODO should be doKill
     {
         FileUndoManager::self()->d->stopUndo(true);
         KIO::Job::doKill();
@@ -218,7 +219,7 @@ FileUndoManager *FileUndoManager::self()
 // order of the undo items.
 FileUndoManagerPrivate::FileUndoManagerPrivate(FileUndoManager *qq)
     : m_uiInterface(new FileUndoManager::UiInterface()),
-      m_undoJob(nullptr), m_nextCommandIndex(1000), q(qq)
+      m_nextCommandIndex(1000), q(qq)
 {
     (void) new KIOFileUndoManagerAdaptor(this);
     const QString dbusPath = QStringLiteral("/FileUndoManager");
@@ -363,7 +364,23 @@ void FileUndoManager::undo()
         itemsToDelete.append(d->m_current.m_dst);
     }
     if (!itemsToDelete.isEmpty()) {
-        if (!d->m_uiInterface->confirmDeletion(itemsToDelete)) {
+        AskUserActionInterface *askUserInterface = nullptr;
+        d->m_uiInterface->virtual_hook(UiInterface::HookGetAskUserActionInterface, &askUserInterface);
+        if (askUserInterface) {
+            if (!d->m_connectedToAskUserInterface) {
+                d->m_connectedToAskUserInterface = true;
+                QObject::connect(askUserInterface, &KIO::AskUserActionInterface::askUserDeleteResult,
+                                 this, [=](bool allowDelete) {
+                    if (allowDelete) {
+                        d->startUndo();
+                    }
+                });
+            }
+
+            // Because undo can happen with an accidental Ctrl-Z, we want to always confirm.
+            askUserInterface->askUserDelete(itemsToDelete, KIO::AskUserActionInterface::Delete,
+                                            KIO::AskUserActionInterface::ForceConfirmation,
+                                            d->m_uiInterface->parentWidget());
             return;
         }
     } else if (commandType == FileUndoManager::Copy) {
@@ -741,8 +758,14 @@ bool FileUndoManager::UiInterface::showProgressInfo() const
     return d->m_showProgressInfo;
 }
 
-void FileUndoManager::UiInterface::virtual_hook(int, void *)
+void FileUndoManager::UiInterface::virtual_hook(int id, void *data)
 {
+    if (id == HookGetAskUserActionInterface) {
+        auto *p = static_cast<AskUserActionInterface**>(data);
+        static KJobUiDelegate *delegate = KIO::createDefaultJobUiDelegate();
+        static auto *askUserInterface = delegate ? delegate->findChild<AskUserActionInterface *>(QString(), Qt::FindDirectChildrenOnly) : nullptr;
+        *p = askUserInterface;
+    }
 }
 
 #include "moc_fileundomanager_p.cpp"
