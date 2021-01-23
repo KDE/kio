@@ -20,6 +20,7 @@ private Q_SLOTS:
     void testCopyFiles();
     void testMoveFiles();
     void testCopyDirectory();
+    void testCopyEmptyDirectory();
     void testMoveDirectory();
     void testRenameFile();
     void testRenameDir();

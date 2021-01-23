@@ -383,9 +383,6 @@ void FileUndoManager::undo()
                                             d->m_uiInterface->parentWidget());
             return;
         }
-    } else if (commandType == FileUndoManager::Copy) {
-        d->slotPop();
-        return;
     }
 
     d->startUndo();

@@ -368,6 +368,26 @@ void FileUndoManagerTest::testCopyDirectory()
     QVERIFY(!QFile::exists(destSubDir()));
 }
 
+void FileUndoManagerTest::testCopyEmptyDirectory()
+{
+    const QString src = srcSubDir() + "/.emptydir";
+    const QString destEmptyDir = destDir() + "/.emptydir";
+    QDir().mkpath(src);
+    KIO::CopyJob *job = KIO::copy({QUrl::fromLocalFile(src)}, QUrl::fromLocalFile(destEmptyDir), KIO::HideProgressInfo);
+    job->setUiDelegate(nullptr);
+    FileUndoManager::self()->recordCopyJob(job);
+
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
+
+    QVERIFY(QFileInfo(src).isDir()); // untouched
+    QVERIFY(QFileInfo(destEmptyDir).isDir());
+
+    doUndo();
+
+    QVERIFY(QFileInfo(src).isDir()); // untouched
+    QVERIFY(!QFile::exists(destEmptyDir));
+}
+
 void FileUndoManagerTest::testMoveDirectory()
 {
     const QString destdir = destDir();
@@ -719,9 +739,8 @@ void FileUndoManagerTest::testUndoCopyOfDeletedFile()
     QVERIFY(FileUndoManager::self()->isUndoAvailable());
     QSignalSpy spyUndoAvailable(FileUndoManager::self(), QOverload<bool>::of(&FileUndoManager::undoAvailable));
     QVERIFY(spyUndoAvailable.isValid());
-    // We can't use doUndo() because there is no UndoJob, so the nested event loop would never quit.
-    FileUndoManager::self()->undo();
-    QCOMPARE(spyUndoAvailable.count(), 1);
+    doUndo();
+    QVERIFY(spyUndoAvailable.count() >= 2);   // it's in fact 3, due to lock/unlock emitting it as well
     QVERIFY(!spyUndoAvailable.at(0).at(0).toBool());
     QVERIFY(!FileUndoManager::self()->isUndoAvailable());
 }
