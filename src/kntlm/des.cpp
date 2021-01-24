@@ -29,6 +29,8 @@
 #include <string.h>
 #include <qendian.h>
 
+#include <limits>
+
 static void permute_ip(unsigned char *inblock, DES_KEY *key, unsigned char *outblock);
 static void permute_fp(unsigned char *inblock, DES_KEY *key, unsigned char *outblock);
 static void perminit_ip(DES_KEY *key);
