@@ -46,6 +46,7 @@ public:
     bool hasTempAuthorization() const;
 
 Q_SIGNALS:
+    // TODO KF6: fix clazy wanring by using fully-qualified signal argument
     void statusUpdate(IdleSlave *);
 
 private Q_SLOTS:

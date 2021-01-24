@@ -48,6 +48,7 @@ private:
 
 Q_SIGNALS:
     void disconnected();
+    // TODO KF6: fix clazy wanring by using fully-qualified signal argument
     void commandReceived(const Task &task);
     void newConnection();
 
