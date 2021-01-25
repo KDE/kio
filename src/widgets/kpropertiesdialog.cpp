@@ -1534,7 +1534,7 @@ void KFilePropsPlugin::applyChanges()
             } else { // Copying a template
                 job = KIO::copyAs(oldurl, properties->url());
             }
-
+            KJobWidgets::setWindow(job, properties);
             connect(job, &KJob::result,
                     this, &KFilePropsPlugin::slotCopyFinished);
             connect(job, &KIO::CopyJob::renamed,
@@ -1543,7 +1543,7 @@ void KFilePropsPlugin::applyChanges()
             QEventLoop eventLoop;
             connect(this, &KFilePropsPlugin::leaveModality,
                     &eventLoop, &QEventLoop::quit);
-            eventLoop.exec(QEventLoop::ExcludeUserInputEvents);
+            eventLoop.exec();
             return;
         }
         properties->updateUrl(properties->url());
