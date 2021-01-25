@@ -16,9 +16,14 @@
 #include <QWidget>
 #include <QByteArray>
 
+#include <memory>
+
+class QMouseEvent;
+
 class KFilePlacesModel;
 class KUrlComboBox;
-class QMouseEvent;
+
+class KUrlNavigatorPrivate;
 
 /**
  * @class KUrlNavigator kurlnavigator.h <KUrlNavigator>
@@ -487,21 +492,8 @@ protected:
 #endif
 
 private:
-    Q_PRIVATE_SLOT(d, void slotReturnPressed())
-    Q_PRIVATE_SLOT(d, void slotProtocolChanged(const QString &protocol))
-    Q_PRIVATE_SLOT(d, void slotToggleEditableButtonPressed())
-    Q_PRIVATE_SLOT(d, void dropUrls(const QUrl &destination, QDropEvent *))
-    Q_PRIVATE_SLOT(d, void slotNavigatorButtonClicked(const QUrl &url, Qt::MouseButton button, Qt::KeyboardModifiers modifiers))
-    Q_PRIVATE_SLOT(d, void openContextMenu(QPoint))
-    Q_PRIVATE_SLOT(d, void openPathSelectorMenu())
-    Q_PRIVATE_SLOT(d, void updateButtonVisibility())
-    Q_PRIVATE_SLOT(d, void switchToBreadcrumbMode())
-    Q_PRIVATE_SLOT(d, void slotPathBoxChanged(const QString &text))
-    Q_PRIVATE_SLOT(d, void updateContent())
-
-private:
-    class Private;
-    Private *const d;
+    friend class KUrlNavigatorPrivate;
+    std::unique_ptr<KUrlNavigatorPrivate> const d;
 
     Q_DISABLE_COPY(KUrlNavigator)
 };
