@@ -391,9 +391,7 @@ void DeleteJobPrivate::deleteNextFile()
         // If local file, try do it directly
         if (m_currentURL.isLocalFile()) {
             // separate thread will do the work
-            QMetaObject::invokeMethod(worker(), "rmfile", Qt::QueuedConnection,
-                                      Q_ARG(const QUrl&, m_currentURL),
-                                      Q_ARG(bool, isLink));
+            QMetaObject::invokeMethod(worker(), "rmfile", Qt::QueuedConnection, Q_ARG(QUrl, m_currentURL), Q_ARG(bool, isLink));
         } else {
             // if remote, use a job
             deleteFileUsingJob(m_currentURL, isLink);
@@ -444,8 +442,7 @@ void DeleteJobPrivate::deleteNextDir()
         // If local dir, try to rmdir it directly
         if (m_currentURL.isLocalFile()) {
             // delete it on separate worker thread
-            QMetaObject::invokeMethod(worker(), "rmdir", Qt::QueuedConnection,
-                                      Q_ARG(const QUrl&, m_currentURL));
+            QMetaObject::invokeMethod(worker(), "rmdir", Qt::QueuedConnection, Q_ARG(QUrl, m_currentURL));
         } else {
             deleteDirUsingJob(m_currentURL);
         }

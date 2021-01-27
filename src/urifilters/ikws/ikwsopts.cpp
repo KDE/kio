@@ -291,7 +291,7 @@ void FilterOptions::load()
 
     int defaultProviderIndex = providers.size(); //default is "None", it is last in the list
 
-    for (SearchProvider *provider : providers) {
+    for (SearchProvider *provider : qAsConst(providers)) {
         if (defaultSearchEngine == provider->desktopEntryName()) {
             defaultProviderIndex = providers.indexOf(provider);
             break;

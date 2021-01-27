@@ -237,11 +237,13 @@ QString KURISearchFilterEngine::substituteQuery(const QString &url, SubstMap &ma
             }
 
             // TODO: strip whitespaces around commas
-            QStringList rl = rlstring.split(QLatin1Char(','), Qt::SkipEmptyParts);
-            int i = 0;
+            const QStringList refList = rlstring.split(QLatin1Char(','), Qt::SkipEmptyParts);
 
-            while ((i < rl.count()) && !found) {
-                const QString rlitem = rl.at(i);
+            for (const QString &rlitem : refList) {
+                if (found) {
+                    break;
+                }
+
                 const QRegularExpression rangeRe(QStringLiteral("([0-9]*)\\-([0-9]*)"));
                 const QRegularExpressionMatch rangeMatch = rangeRe.match(rlitem);
                 // Substitute a range of keywords
@@ -283,7 +285,7 @@ QString KURISearchFilterEngine::substituteQuery(const QString &url, SubstMap &ma
                     v = encodeString(map[rlitem], codec);
 
                     // Remove used value from ql (needed for \{@}):
-                    QString c = rlitem.left(1);
+                    const QChar c = rlitem.at(0); // rlitem can't be empty at this point
                     if (c == QLatin1Char('0')) {
                         // It's a numeric reference to '0'
                         for (QStringList::Iterator it = ql.begin(); it != ql.end(); ++it) {
@@ -310,8 +312,6 @@ QString KURISearchFilterEngine::substituteQuery(const QString &url, SubstMap &ma
                     v = QStringLiteral("\\@");
                     PDVAR("    v", v);
                 }
-
-                i++;
             }
 
             newurl.replace(match.capturedStart(0), match.capturedLength(0), v);

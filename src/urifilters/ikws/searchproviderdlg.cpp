@@ -109,15 +109,16 @@ void SearchProviderDialog::shortcutsChanged(const QString &newShorthands)
         }
     }
 
-    if (!contenders.isEmpty()) {
-        if (contenders.size() == 1) {
-            m_dlg.noteLabel->setText(i18n("The shortcut \"%1\" is already assigned to \"%2\". Please choose a different one.", contenders.keys().at(0), contenders.values().at(0)->name()));
+    const int contendersSize = contenders.size();
+    if (contendersSize != 0) {
+        if (contendersSize == 1) {
+            auto it = contenders.cbegin();
+            m_dlg.noteLabel->setText(i18n("The shortcut \"%1\" is already assigned to \"%2\". Please choose a different one.", it.key(), it.value()->name()));
         } else {
             QStringList contenderList;
-            QHash<QString, const SearchProvider *>::const_iterator i = contenders.constBegin();
-            while (i != contenders.constEnd()) {
-                contenderList.append(i18nc("- web short cut (e.g. gg): what it refers to (e.g. Google)", "- %1: \"%2\"", i.key(), i.value()->name()));
-                ++i;
+            contenderList.reserve(contendersSize);
+            for (auto it = contenders.cbegin(); it != contenders.cend(); ++it) {
+                contenderList.append(i18nc("- web short cut (e.g. gg): what it refers to (e.g. Google)", "- %1: \"%2\"", it.key(), it.value()->name()));
             }
 
             m_dlg.noteLabel->setText(i18n("The following shortcuts are already assigned. Please choose different ones.\n%1", contenderList.join(QLatin1Char('\n'))));

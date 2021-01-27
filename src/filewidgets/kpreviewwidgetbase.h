@@ -61,7 +61,8 @@ public Q_SLOTS:
      */
     virtual void clearPreview() = 0;
 
-    QStringList supportedMimeTypes() const;
+    // TODO KF6: make it a public method, it's not a slot
+    QStringList supportedMimeTypes() const; // clazy:exclude=const-signal-or-slot
 
 protected:
     void setSupportedMimeTypes(const QStringList &mimeTypes);

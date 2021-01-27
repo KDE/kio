@@ -117,19 +117,16 @@ void SystemdProcessRunner::startProcess()
         },
         {} // aux is currently unused and should be passed as empty array.
     );
-    connect(new QDBusPendingCallWatcher(startReply, this),
-        &QDBusPendingCallWatcher::finished,
-        [this](QDBusPendingCallWatcher *watcher) {
-            QDBusPendingReply<QDBusObjectPath> reply = *watcher;
-            watcher->deleteLater();
-            if (reply.isError()) {
-                qCWarning(KIO_GUI) << "Failed to launch process as service:" << m_serviceName << reply.error().name()
-                                   << reply.error().message();
-                return systemdError(reply.error().name());
-            }
-            qCDebug(KIO_GUI) << "Successfully asked systemd to launch process as service:" << m_serviceName;
-            m_jobPath = reply.argumentAt<0>().path();
-        });
+    connect(new QDBusPendingCallWatcher(startReply, this), &QDBusPendingCallWatcher::finished, this, [this](QDBusPendingCallWatcher *watcher) {
+        QDBusPendingReply<QDBusObjectPath> reply = *watcher;
+        watcher->deleteLater();
+        if (reply.isError()) {
+            qCWarning(KIO_GUI) << "Failed to launch process as service:" << m_serviceName << reply.error().name() << reply.error().message();
+            return systemdError(reply.error().name());
+        }
+        qCDebug(KIO_GUI) << "Successfully asked systemd to launch process as service:" << m_serviceName;
+        m_jobPath = reply.argumentAt<0>().path();
+    });
 }
 
 void SystemdProcessRunner::handleProperties(QDBusPendingCallWatcher *watcher)
@@ -156,7 +153,6 @@ void SystemdProcessRunner::handleProperties(QDBusPendingCallWatcher *watcher)
     }
     m_exited = true;
 
-    const auto result = properties[QStringLiteral("Result")].toString();
     // ExecMainCode/Status correspond to si_code/si_status in the siginfo_t structure
     // ExecMainCode is the signal code: CLD_EXITED (1) means normal exit
     // ExecMainStatus is the process exit code in case of normal exit, otherwise it is the signal number
@@ -169,18 +165,15 @@ void SystemdProcessRunner::handleProperties(QDBusPendingCallWatcher *watcher)
     deleteLater();
 
     systemd1::Unit unitInterface(systemdService, m_servicePath, QDBusConnection::sessionBus(), this);
-    connect(new QDBusPendingCallWatcher(unitInterface.Unref(), this),
-        &QDBusPendingCallWatcher::finished,
-        [this](QDBusPendingCallWatcher *watcher) {
-            QDBusPendingReply<> reply = *watcher;
-            watcher->deleteLater();
-            if (reply.isError()) {
-                qCWarning(KIO_GUI) << "Failed to unref service:" << m_serviceName << reply.error().name()
-                                   << reply.error().message();
-                return systemdError(reply.error().name());
-            }
-            qCDebug(KIO_GUI) << "Successfully unref'd service:" << m_serviceName;
-        });
+    connect(new QDBusPendingCallWatcher(unitInterface.Unref(), this), &QDBusPendingCallWatcher::finished, this, [this](QDBusPendingCallWatcher *watcher) {
+        QDBusPendingReply<> reply = *watcher;
+        watcher->deleteLater();
+        if (reply.isError()) {
+            qCWarning(KIO_GUI) << "Failed to unref service:" << m_serviceName << reply.error().name() << reply.error().message();
+            return systemdError(reply.error().name());
+        }
+        qCDebug(KIO_GUI) << "Successfully unref'd service:" << m_serviceName;
+    });
 }
 
 void SystemdProcessRunner::handleUnitNew(const QString &newName, const QDBusObjectPath &newPath)
@@ -200,7 +193,7 @@ void SystemdProcessRunner::handleUnitNew(const QString &newName, const QDBusObje
         &SystemdProcessRunner::handleProperties);
 
     // Watch for status change
-    connect(m_serviceProperties, &DBus::Properties::PropertiesChanged, [this]() {
+    connect(m_serviceProperties, &DBus::Properties::PropertiesChanged, this, [this]() {
         if (m_exited) {
             return;
         }

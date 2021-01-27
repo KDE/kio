@@ -2083,7 +2083,9 @@ void KDirOperator::setupActions()
     KToggleAction *shortAction = new KToggleAction(i18n("Short View"), this);
     d->m_actionCollection->addAction(QStringLiteral("short view"),  shortAction);
     shortAction->setIcon(QIcon::fromTheme(QStringLiteral("view-list-icons")));
-    connect(shortAction, &QAction::triggered, [this]() { d->slotSimpleView(); });
+    connect(shortAction, &QAction::triggered, this, [this]() {
+        d->slotSimpleView();
+    });
 
     KToggleAction *detailedAction = new KToggleAction(i18n("Detailed View"), this);
     d->m_actionCollection->addAction(QStringLiteral("detailed view"), detailedAction);

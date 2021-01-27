@@ -40,8 +40,6 @@ QLoggingCategory category("kf.kio.urifilters.shorturi", QtWarningMsg);
 
 typedef QMap<QString, QString> EntryMap;
 
-static QRegularExpression sEnvVarExp(QStringLiteral("\\$[a-zA-Z_][a-zA-Z0-9_]*"));
-
 static bool isPotentialShortURL(const QString &cmd)
 {
     // Host names and IPv4 address...
@@ -263,7 +261,8 @@ bool KShortUriFilter::filterUri(KUriFilterData &data) const
         expanded = true;
     } else if (path.startsWith(QLatin1Char('$'))) {
         // Environment variable expansion.
-        auto match = sEnvVarExp.match(path);
+        static const QRegularExpression envVarExp(QStringLiteral("\\$[a-zA-Z_][a-zA-Z0-9_]*"));
+        const auto match = envVarExp.match(path);
         if (match.hasMatch()) {
             const QByteArray exp = qgetenv(path.midRef(1, match.capturedLength() - 1).toLocal8Bit().data());
             if (!exp.isEmpty()) {

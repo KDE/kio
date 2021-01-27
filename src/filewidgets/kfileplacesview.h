@@ -53,7 +53,10 @@ public:
 public Q_SLOTS:
     void setUrl(const QUrl &url);
     void setShowAll(bool showAll);
-    QSize sizeHint() const override;
+
+    // TODO KF6: make it a public method, not a slot
+    QSize sizeHint() const override; // clazy:exclude=const-signal-or-slot
+
     void setModel(QAbstractItemModel *model) override;
 
 protected:

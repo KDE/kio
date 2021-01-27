@@ -448,7 +448,7 @@ void JobTest::asyncStoredPutReadyReadAfterFinish()
 
     bool jobFinished = false;
 
-    connect(job, &KJob::finished, [&jobFinished, &putDataBuffer] {
+    connect(job, &KJob::finished, this, [&jobFinished, &putDataBuffer] {
         putDataBuffer.readyRead();
         jobFinished = true;
     });

@@ -44,12 +44,20 @@ ExecutableFileOpenDialog::ExecutableFileOpenDialog(ExecutableFileOpenDialog::Mod
     layout->addWidget(buttonBox);
 
     if (mode == OnlyExecute) {
-        connect(executeButton, &QPushButton::clicked, [=]{done(ExecuteFile);});
+        connect(executeButton, &QPushButton::clicked, this, [=] {
+            done(ExecuteFile);
+        });
     } else if (mode == OpenAsExecute) {
-        connect(executeButton, &QPushButton::clicked, [=]{done(OpenFile);});
+        connect(executeButton, &QPushButton::clicked, this, [=] {
+            done(OpenFile);
+        });
     } else {
-        connect(openButton, &QPushButton::clicked, [=]{done(OpenFile);});
-        connect(executeButton, &QPushButton::clicked, [=]{done(ExecuteFile);});
+        connect(openButton, &QPushButton::clicked, this, [=] {
+            done(OpenFile);
+        });
+        connect(executeButton, &QPushButton::clicked, this, [=] {
+            done(ExecuteFile);
+        });
     }
     connect(buttonBox, &QDialogButtonBox::rejected, this, &ExecutableFileOpenDialog::reject);
 }

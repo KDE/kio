@@ -23,7 +23,7 @@ public Q_SLOTS:
     /**
      * Execute action with root privileges.
      **/
-    ActionReply exec(const QVariantMap &args);
+    KAuth::ActionReply exec(const QVariantMap &args);
 };
 
 #endif

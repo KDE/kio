@@ -910,16 +910,17 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
         if (!d->m_askUserHandler) {
             d->m_askUserHandler.reset(new KIO::WidgetsAskUserActionHandler{});
 
-            connect(d->m_askUserHandler.get(), &KIO::AskUserActionInterface::askUserDeleteResult,
-                    this, [this, parentWindow](bool allowDelete, const QList<QUrl> &,
-                                            KIO::AskUserActionInterface::DeletionType, QWidget *parent) {
-                if (parent != parentWindow || !allowDelete) {
-                    return;
-                }
+            connect(d->m_askUserHandler.get(),
+                    &KIO::AskUserActionInterface::askUserDeleteResult,
+                    this,
+                    [parentWindow](bool allowDelete, const QList<QUrl> &, KIO::AskUserActionInterface::DeletionType, QWidget *parent) {
+                        if (parent != parentWindow || !allowDelete) {
+                            return;
+                        }
 
-                KIO::Job *job = KIO::emptyTrash();
-                job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, parentWindow));
-            });
+                        KIO::Job *job = KIO::emptyTrash();
+                        job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, parentWindow));
+                    });
         }
 
         d->m_askUserHandler->askUserDelete(QList<QUrl>{}, KIO::AskUserActionInterface::EmptyTrash,
