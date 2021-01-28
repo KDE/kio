@@ -215,7 +215,7 @@ bool KIO::DesktopExecParser::isProtocolInSupportedList(const QUrl &url, const QS
     if (supportedProtocols.contains(QLatin1String("KIO"))) {
         return true;
     }
-    return url.isLocalFile() || supportedProtocols.contains(url.scheme().toLower());
+    return url.isLocalFile() || url.scheme().isEmpty() || supportedProtocols.contains(url.scheme().toLower());
 }
 
 // We have up to two sources of data, for protocols not handled by kioslaves (so called "helper") :
