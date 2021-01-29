@@ -427,24 +427,56 @@ Q_SIGNALS:
      */
     void completed();
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 79)
     /**
-     * Tell the view that the listing of the directory @p _url is finished.
+     * Tell the view that the listing of the directory @p dirUrl is finished.
      * There might be other running jobs left.
-     * @param _url the directory URL
+     *
+     * @param dirUrl the directory URL
+     *
+     * @deprecated since 5.79, use KCoreDirLister::listingDirCompleted(const QUrl &)
      */
-    void completed(const QUrl &_url);
+    KIOCORE_DEPRECATED_VERSION(5, 79, "Use KCoreDirLister::listingDirCompleted(const QUrl &)")
+    void completed(const QUrl &dirUrl);
+#endif
+
+    /**
+     * Tell the view that the listing of the directory @p dirUrl is finished.
+     * There might be other running jobs left.
+     *
+     * @param dirUrl the directory URL
+     *
+     * @since 5.79
+     */
+    void listingDirCompleted(const QUrl &dirUrl);
 
     /**
      * Tell the view that the user canceled the listing. No running jobs are left.
      */
     void canceled();
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 79)
     /**
-     * Tell the view that the listing of the directory @p _url was canceled.
+     * Tell the view that the listing of the directory @p dirUrl was canceled.
      * There might be other running jobs left.
-     * @param _url the directory URL
+     *
+     * @param dirUrl the directory URL
+     *
+     * @deprecated since 5.79, use KCoreDirLister::listingDirCanceled(const QUrl &)
      */
-    void canceled(const QUrl &_url);
+    KIOCORE_DEPRECATED_VERSION(5, 79, "use KCoreDirLister::listingDirCanceled(const QUrl &)")
+    void canceled(const QUrl &dirUrl);
+#endif
+
+    /**
+     * Tell the view that the listing of the directory @p dirUrl was canceled.
+     * There might be other running jobs left.
+     *
+     * @param dirUrl the directory URL
+     *
+     * @since 5.79
+     */
+    void listingDirCanceled(const QUrl &dirUrl);
 
     /**
      * Signal a redirection.

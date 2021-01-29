@@ -38,9 +38,14 @@ public:
 #endif
           spyClearDir(this, &KCoreDirLister::clearDir),
           spyCompleted(this, QOverload<>::of(&KCoreDirLister::completed)),
-          spyCompletedQUrl(this, QOverload<const QUrl &>::of(&KCoreDirLister::completed)),
           spyCanceled(this, QOverload<>::of(&KCoreDirLister::canceled)),
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
           spyCanceledQUrl(this, QOverload<const QUrl &>::of(&KCoreDirLister::canceled)),
+          spyCompletedQUrl(this, QOverload<const QUrl &>::of(&KCoreDirLister::completed)),
+#else
+          spyCanceledQUrl(this, &KCoreDirLister::listingDirCanceled),
+          spyCompletedQUrl(this, &KCoreDirLister::listingDirCompleted),
+#endif
           spyRedirection(this, QOverload<const QUrl &>::of(&KCoreDirLister::redirection)),
           spyItemsDeleted(this, &KCoreDirLister::itemsDeleted)
     {}

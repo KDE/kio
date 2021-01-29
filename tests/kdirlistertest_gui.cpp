@@ -41,13 +41,10 @@ KDirListerTest::KDirListerTest(QWidget *parent, const QUrl &initialUrl)
     connect(test, &QAbstractButton::clicked, this, &KDirListerTest::test);
 
     connect(lister, &KCoreDirLister::started, debug, &PrintSignals::started);
-    connect(lister, QOverload<>::of(&KDirLister::completed),
-            debug, QOverload<>::of(&PrintSignals::completed));
-    connect(lister, QOverload<const QUrl &>::of(&KDirLister::completed),
-            debug, QOverload<const QUrl &>::of(&PrintSignals::completed));
-    connect(lister, QOverload<>::of(&KDirLister::canceled), debug, QOverload<>::of(&PrintSignals::canceled));
-    connect(lister, QOverload<const QUrl &>::of(&KDirLister::canceled),
-            debug, QOverload<const QUrl &>::of(&PrintSignals::canceled));
+    connect(lister, QOverload<>::of(&KDirLister::completed), debug, &PrintSignals::completed);
+    connect(lister, &KCoreDirLister::listingDirCompleted, debug, &PrintSignals::listingDirCompleted);
+    connect(lister, QOverload<>::of(&KDirLister::canceled), debug, &PrintSignals::canceled);
+    connect(lister, &KCoreDirLister::listingDirCanceled, debug, &PrintSignals::listingDirCanceled);
     connect(lister, QOverload<const QUrl &>::of(&KDirLister::redirection),
             debug, QOverload<const QUrl &>::of(&PrintSignals::redirection));
     connect(lister, QOverload<const QUrl &, const QUrl &>::of(&KDirLister::redirection),

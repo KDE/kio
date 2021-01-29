@@ -424,8 +424,9 @@ void KDirModel::setDirLister(KDirLister *dirLister)
     d->m_dirLister->setParent(this);
     connect(d->m_dirLister, &KCoreDirLister::itemsAdded, this,
         [this](const QUrl &dirUrl, const KFileItemList &items){d->_k_slotNewItems(dirUrl, items);} );
-    connect(d->m_dirLister, static_cast<void (KCoreDirLister::*)(const QUrl&)>(&KCoreDirLister::completed), this,
-        [this](const QUrl &dirUrl){d->_k_slotCompleted(dirUrl);} );
+    connect(d->m_dirLister, &KCoreDirLister::listingDirCompleted, this, [this](const QUrl &dirUrl) {
+        d->_k_slotCompleted(dirUrl);
+    });
     connect(d->m_dirLister, &KCoreDirLister::itemsDeleted, this,
         [this](const KFileItemList &items){d->_k_slotDeleteItems(items);} );
     connect(d->m_dirLister, &KCoreDirLister::refreshItems, this,
