@@ -33,7 +33,10 @@ public:
     MyDirLister()
         : spyStarted(this, &KCoreDirLister::started),
           spyClear(this, QOverload<>::of(&KCoreDirLister::clear)),
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
           spyClearQUrl(this, QOverload<const QUrl &>::of(&KCoreDirLister::clear)),
+#endif
+          spyClearDir(this, &KCoreDirLister::clearDir),
           spyCompleted(this, QOverload<>::of(&KCoreDirLister::completed)),
           spyCompletedQUrl(this, QOverload<const QUrl &>::of(&KCoreDirLister::completed)),
           spyCanceled(this, QOverload<>::of(&KCoreDirLister::canceled)),
@@ -58,6 +61,7 @@ public:
     QSignalSpy spyStarted;
     QSignalSpy spyClear;
     QSignalSpy spyClearQUrl;
+    QSignalSpy spyClearDir;
     QSignalSpy spyCompleted;
     QSignalSpy spyCompletedQUrl;
     QSignalSpy spyCanceled;

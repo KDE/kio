@@ -545,7 +545,10 @@ void KCoreDirListerCache::forgetDirs(KCoreDirLister *lister, const QUrl &_url, b
 
         if (notify) {
             lister->d->lstDirs.removeAll(url);
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
             Q_EMIT lister->clear(url);
+#endif
+            Q_EMIT lister->clearDir(url);
         }
 
         insertIntoCache = item->complete;
@@ -2693,7 +2696,10 @@ void KCoreDirListerPrivate::redirect(const QUrl &oldUrl, const QUrl &newUrl, boo
         Q_EMIT q->redirection(newUrl);
     } else {
         if (!keepItems) {
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
             Q_EMIT q->clear(oldUrl);
+#endif
+            Q_EMIT q->clearDir(oldUrl);
         }
     }
     Q_EMIT q->redirection(oldUrl, newUrl);

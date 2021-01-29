@@ -82,7 +82,12 @@ void KDirListerTest::testOpenUrl()
     QCOMPARE(m_dirLister.spyCanceled.count(), 0);
     QCOMPARE(m_dirLister.spyCanceledQUrl.count(), 0);
     QCOMPARE(m_dirLister.spyClear.count(), 1);
+
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
     QCOMPARE(m_dirLister.spyClearQUrl.count(), 0);
+#endif
+    QCOMPARE(m_dirLister.spyClearDir.count(), 0);
+
     QCOMPARE(m_dirLister.spyRedirection.count(), 0);
     QCOMPARE(m_items.count(), 0);
     QVERIFY(!m_dirLister.isFinished());
@@ -95,7 +100,12 @@ void KDirListerTest::testOpenUrl()
     QCOMPARE(m_dirLister.spyCanceled.count(), 0);
     QCOMPARE(m_dirLister.spyCanceledQUrl.count(), 0);
     QCOMPARE(m_dirLister.spyClear.count(), 1);
+
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
     QCOMPARE(m_dirLister.spyClearQUrl.count(), 0);
+#endif
+    QCOMPARE(m_dirLister.spyClearDir.count(), 0);
+
     QCOMPARE(m_dirLister.spyRedirection.count(), 0);
     //qDebug() << m_items;
     //qDebug() << "In dir" << QDir(path).entryList( QDir::AllEntries | QDir::NoDotAndDotDot);
@@ -145,7 +155,12 @@ void KDirListerTest::testOpenUrlFromCache()
         QCOMPARE(secondDirLister.spyCanceled.count(), 0);
         QCOMPARE(secondDirLister.spyCanceledQUrl.count(), 0);
         QCOMPARE(secondDirLister.spyClear.count(), 1);
+
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
         QCOMPARE(secondDirLister.spyClearQUrl.count(), 0);
+#endif
+        QCOMPARE(secondDirLister.spyClearDir.count(), 0);
+
         QCOMPARE(m_items.count(), 0);
         QVERIFY(!secondDirLister.isFinished());
 
@@ -157,7 +172,12 @@ void KDirListerTest::testOpenUrlFromCache()
         QCOMPARE(secondDirLister.spyCanceled.count(), 0);
         QCOMPARE(secondDirLister.spyCanceledQUrl.count(), 0);
         QCOMPARE(secondDirLister.spyClear.count(), 1);
+
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
         QCOMPARE(secondDirLister.spyClearQUrl.count(), 0);
+#endif
+        QCOMPARE(secondDirLister.spyClearDir.count(), 0);
+
         QCOMPARE(m_items.count(), 4);
         QVERIFY(secondDirLister.isFinished());
     }
@@ -185,7 +205,12 @@ void KDirListerTest::testNewItem()
     QCOMPARE(m_dirLister.spyCanceled.count(), 0);
     QCOMPARE(m_dirLister.spyCanceledQUrl.count(), 0);
     QCOMPARE(m_dirLister.spyClear.count(), 0);
+
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
     QCOMPARE(m_dirLister.spyClearQUrl.count(), 0);
+#endif
+    QCOMPARE(m_dirLister.spyClearDir.count(), 0);
+
 
     const QUrl itemUrl = QUrl::fromLocalFile(path + fileName);
     KFileItem itemForUrl = KDirLister::cachedItemForUrl(itemUrl);
@@ -225,7 +250,12 @@ void KDirListerTest::testNewItems()
     QCOMPARE(m_dirLister.spyCanceled.count(), 0);
     QCOMPARE(m_dirLister.spyCanceledQUrl.count(), 0);
     QCOMPARE(m_dirLister.spyClear.count(), 0);
+
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
     QCOMPARE(m_dirLister.spyClearQUrl.count(), 0);
+#endif
+    QCOMPARE(m_dirLister.spyClearDir.count(), 0);
+
 
     const QUrl itemUrl = QUrl::fromLocalFile(path + fileName);
     KFileItem itemForUrl = KDirLister::cachedItemForUrl(itemUrl);
@@ -271,7 +301,12 @@ void KDirListerTest::testNewItemByCopy()
     QCOMPARE(m_dirLister.spyCanceled.count(), 0);
     QCOMPARE(m_dirLister.spyCanceledQUrl.count(), 0);
     QCOMPARE(m_dirLister.spyClear.count(), 0);
+
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
     QCOMPARE(m_dirLister.spyClearQUrl.count(), 0);
+#endif
+    QCOMPARE(m_dirLister.spyClearDir.count(), 0);
+
 
     // Give some time to KDirWatch
     QTest::qWait(1000);
@@ -375,7 +410,12 @@ void KDirListerTest::testRefreshItems()
     QCOMPARE(m_dirLister.spyCanceled.count(), 0);
     QCOMPARE(m_dirLister.spyCanceledQUrl.count(), 0);
     QCOMPARE(m_dirLister.spyClear.count(), 0);
+
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
     QCOMPARE(m_dirLister.spyClearQUrl.count(), 0);
+#endif
+    QCOMPARE(m_dirLister.spyClearDir.count(), 0);
+
     QCOMPARE(m_refreshedItems.count(), 1);
     QPair<KFileItem, KFileItem> entry = m_refreshedItems.first();
     QCOMPARE(entry.first.url().toLocalFile(), fileName);
@@ -423,7 +463,12 @@ void KDirListerTest::testRefreshRootItem()
     QCOMPARE(m_dirLister.spyCanceled.count(), 0);
     QCOMPARE(m_dirLister.spyCanceledQUrl.count(), 0);
     QCOMPARE(m_dirLister.spyClear.count(), 0);
+
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
     QCOMPARE(m_dirLister.spyClearQUrl.count(), 0);
+#endif
+    QCOMPARE(m_dirLister.spyClearDir.count(), 0);
+
     QCOMPARE(m_refreshedItems.count(), 1);
     QPair<KFileItem, KFileItem> entry = m_refreshedItems.first();
     QCOMPARE(entry.first.url().toLocalFile(), path);
@@ -627,7 +672,12 @@ void KDirListerTest::testConcurrentListing()
     QCOMPARE(m_dirLister.spyCanceled.count(), 0);
     QCOMPARE(m_dirLister.spyCanceledQUrl.count(), 0);
     QCOMPARE(m_dirLister.spyClear.count(), 1);
+
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
     QCOMPARE(m_dirLister.spyClearQUrl.count(), 0);
+#endif
+    QCOMPARE(m_dirLister.spyClearDir.count(), 0);
+
     QCOMPARE(m_items.count(), 0);
 
     QCOMPARE(dirLister2.spyStarted.count(), 1);
@@ -636,7 +686,12 @@ void KDirListerTest::testConcurrentListing()
     QCOMPARE(dirLister2.spyCanceled.count(), 0);
     QCOMPARE(dirLister2.spyCanceledQUrl.count(), 0);
     QCOMPARE(dirLister2.spyClear.count(), 1);
+
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
     QCOMPARE(dirLister2.spyClearQUrl.count(), 0);
+#endif
+    QCOMPARE(dirLister2.spyClearDir.count(), 0);
+
     QCOMPARE(m_items2.count(), 0);
     QVERIFY(!m_dirLister.isFinished());
     QVERIFY(!dirLister2.isFinished());
@@ -650,7 +705,12 @@ void KDirListerTest::testConcurrentListing()
     QCOMPARE(m_dirLister.spyCanceled.count(), 0);
     QCOMPARE(m_dirLister.spyCanceledQUrl.count(), 0);
     QCOMPARE(m_dirLister.spyClear.count(), 1);
+
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
     QCOMPARE(m_dirLister.spyClearQUrl.count(), 0);
+#endif
+    QCOMPARE(m_dirLister.spyClearDir.count(), 0);
+
     QCOMPARE(m_items.count(), 3);
 
     QTRY_COMPARE(dirLister2.spyStarted.count(), 1);
@@ -659,7 +719,12 @@ void KDirListerTest::testConcurrentListing()
     QCOMPARE(dirLister2.spyCanceled.count(), 0);
     QCOMPARE(dirLister2.spyCanceledQUrl.count(), 0);
     QCOMPARE(dirLister2.spyClear.count(), 1);
+
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
     QCOMPARE(dirLister2.spyClearQUrl.count(), 0);
+#endif
+    QCOMPARE(dirLister2.spyClearDir.count(), 0);
+
     QCOMPARE(m_items2.count(), origItemCount);
     if (!m_dirLister.isFinished()) { // false when an update is running because subdir is already in cache
         // TODO check why this fails QVERIFY(m_dirLister.spyCanceled.wait(1000));
@@ -707,7 +772,12 @@ void KDirListerTest::testConcurrentHoldingListing()
     QCOMPARE(dirLister2.spyCanceled.count(), 0);
     QCOMPARE(dirLister2.spyCanceledQUrl.count(), 0);
     QCOMPARE(dirLister2.spyClear.count(), 1);
+
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
     QCOMPARE(dirLister2.spyClearQUrl.count(), 0);
+#endif
+    QCOMPARE(dirLister2.spyClearDir.count(), 0);
+
     QCOMPARE(m_items2.count(), origItemCount);
 
     QTRY_COMPARE(m_dirLister.spyStarted.count(), 1);
@@ -716,7 +786,12 @@ void KDirListerTest::testConcurrentHoldingListing()
     QCOMPARE(m_dirLister.spyCanceled.count(), 0);
     QCOMPARE(m_dirLister.spyCanceledQUrl.count(), 0);
     QCOMPARE(m_dirLister.spyClear.count(), 1);
+
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
     QCOMPARE(m_dirLister.spyClearQUrl.count(), 0);
+#endif
+    QCOMPARE(m_dirLister.spyClearDir.count(), 0);
+
     QVERIFY(dirLister2.isFinished());
     QVERIFY(m_dirLister.isFinished());
     disconnect(&m_dirLister, nullptr, this, nullptr);
@@ -751,7 +826,12 @@ void KDirListerTest::testConcurrentListingAndStop()
     QCOMPARE(m_dirLister.spyCanceled.count(), 0);
     QCOMPARE(m_dirLister.spyCanceledQUrl.count(), 0);
     QCOMPARE(m_dirLister.spyClear.count(), 1);
+
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
     QCOMPARE(m_dirLister.spyClearQUrl.count(), 0);
+#endif
+    QCOMPARE(m_dirLister.spyClearDir.count(), 0);
+
     QCOMPARE(m_items.count(), 0);
 
     QCOMPARE(dirLister2.spyStarted.count(), 1);
@@ -760,7 +840,12 @@ void KDirListerTest::testConcurrentListingAndStop()
     QCOMPARE(dirLister2.spyCanceled.count(), 0);
     QCOMPARE(dirLister2.spyCanceledQUrl.count(), 0);
     QCOMPARE(dirLister2.spyClear.count(), 1);
+
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
     QCOMPARE(dirLister2.spyClearQUrl.count(), 0);
+#endif
+    QCOMPARE(dirLister2.spyClearDir.count(), 0);
+
     QCOMPARE(m_items2.count(), 0);
     QVERIFY(!m_dirLister.isFinished());
     QVERIFY(!dirLister2.isFinished());
@@ -773,7 +858,12 @@ void KDirListerTest::testConcurrentListingAndStop()
     QCOMPARE(dirLister2.spyCanceled.count(), 1);
     QCOMPARE(dirLister2.spyCanceledQUrl.count(), 1);
     QCOMPARE(dirLister2.spyClear.count(), 1);
+
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
     QCOMPARE(dirLister2.spyClearQUrl.count(), 0);
+#endif
+    QCOMPARE(dirLister2.spyClearDir.count(), 0);
+
     QCOMPARE(m_items2.count(), 0);
 
     // then wait for completed
@@ -788,7 +878,12 @@ void KDirListerTest::testConcurrentListingAndStop()
     QCOMPARE(m_dirLister.spyCanceled.count(), 0);
     QCOMPARE(m_dirLister.spyCanceledQUrl.count(), 0);
     QCOMPARE(m_dirLister.spyClear.count(), 1);
+
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
     QCOMPARE(m_dirLister.spyClearQUrl.count(), 0);
+#endif
+    QCOMPARE(m_dirLister.spyClearDir.count(), 0);
+
 
     disconnect(&m_dirLister, nullptr, this, nullptr);
 }
@@ -837,7 +932,12 @@ void KDirListerTest::testOpenUrlTwice()
     QCOMPARE(secondDirLister.spyCanceled.count(), 0); // should not be emitted, see next test
     QCOMPARE(secondDirLister.spyCanceledQUrl.count(), 0);
     QCOMPARE(secondDirLister.spyClear.count(), 2);
+
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
     QCOMPARE(secondDirLister.spyClearQUrl.count(), 0);
+#endif
+    QCOMPARE(secondDirLister.spyClearDir.count(), 0);
+
     if (origItemCount) { // 0 if running this test separately
         QCOMPARE(m_items.count(), origItemCount);
     }
@@ -874,7 +974,12 @@ void KDirListerTest::testOpenUrlTwiceWithKeep()
     QCOMPARE(secondDirLister.spyCanceled.count(), 0); // should not be emitted, it led to recursion
     QCOMPARE(secondDirLister.spyCanceledQUrl.count(), 0);
     QCOMPARE(secondDirLister.spyClear.count(), 1);
+
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
     QCOMPARE(secondDirLister.spyClearQUrl.count(), 1);
+#endif
+    QCOMPARE(secondDirLister.spyClearDir.count(), 1);
+
     QCOMPARE(m_items.count(), 0);
     QVERIFY(secondDirLister.isFinished());
     disconnect(&secondDirLister, nullptr, this, nullptr);
@@ -898,7 +1003,12 @@ void KDirListerTest::testOpenAndStop()
     QCOMPARE(m_dirLister.spyCanceled.count(), 1);
     QCOMPARE(m_dirLister.spyCanceledQUrl.count(), 1);
     QCOMPARE(m_dirLister.spyClear.count(), 1);
+
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
     QCOMPARE(m_dirLister.spyClearQUrl.count(), 0);
+#endif
+    QCOMPARE(m_dirLister.spyClearDir.count(), 0);
+
     QCOMPARE(m_items.count(), 0); // we had time to stop before the job even started
     QVERIFY(m_dirLister.isFinished());
     disconnect(&m_dirLister, nullptr, this, nullptr);
@@ -1046,7 +1156,12 @@ void KDirListerTest::testRedirection()
     QCOMPARE(m_dirLister.spyCanceled.count(), 0);
     QCOMPARE(m_dirLister.spyCanceledQUrl.count(), 0);
     QCOMPARE(m_dirLister.spyClear.count(), 1);
+
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
     QCOMPARE(m_dirLister.spyClearQUrl.count(), 0);
+#endif
+    QCOMPARE(m_dirLister.spyClearDir.count(), 0);
+
     QCOMPARE(m_dirLister.spyRedirection.count(), 0);
     QCOMPARE(m_items.count(), 0);
     QVERIFY(!m_dirLister.isFinished());
@@ -1059,7 +1174,12 @@ void KDirListerTest::testRedirection()
     QCOMPARE(m_dirLister.spyCanceled.count(), 0);
     QCOMPARE(m_dirLister.spyCanceledQUrl.count(), 0);
     QTRY_COMPARE(m_dirLister.spyClear.count(), 2); // redirection cleared a second time (just in case...)
+
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
     QCOMPARE(m_dirLister.spyClearQUrl.count(), 0);
+#endif
+    QCOMPARE(m_dirLister.spyClearDir.count(), 0);
+
     QTRY_COMPARE(m_dirLister.spyRedirection.count(), 1);
     QVERIFY(m_items.isEmpty());
     QVERIFY(!m_dirLister.isFinished());
@@ -1344,7 +1464,12 @@ void KDirListerTest::testDeleteCurrentDir()
     bool ok = job->exec();
     QVERIFY(ok);
     QTRY_COMPARE(m_dirLister.spyClear.count(), 1);
+
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
     QCOMPARE(m_dirLister.spyClearQUrl.count(), 0);
+#endif
+    QCOMPARE(m_dirLister.spyClearDir.count(), 0);
+
     QList<QUrl> deletedUrls;
     for (int i = 0; i < m_dirLister.spyItemsDeleted.count(); ++i) {
         deletedUrls += m_dirLister.spyItemsDeleted[i][0].value<KFileItemList>().urlList();

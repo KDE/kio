@@ -462,17 +462,35 @@ Q_SIGNALS:
     void redirection(const QUrl &oldUrl, const QUrl &newUrl);
 
     /**
-     * Signal to clear all items.
-     * Make sure to connect to this signal to avoid doubled items.
+     * Signals to the view to remove all items (when e.g. going from dirA to dirB).
+     * Make sure to connect to this signal to avoid having duplicate items in the view.
      */
     void clear();
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 79)
     /**
-     * Signal to empty the directory @p _url.
-     * It is only emitted if the lister is holding more than one directory.
-     * @param _url the directory that will be emptied
+     * Signals to the view to clear all items from directory @p dirUrl.
+     *
+     * This is only emitted if the lister is holding more than one directory.
+     *
+     * @param dirUrl the directory that the view should clear all items from
+     *
+     * @deprecated since 5.79, use clearDir(const QUrl &)
      */
-    void clear(const QUrl &_url);
+    KIOCORE_DEPRECATED_VERSION(5, 79, "Use clearDir(const QUrl &)")
+    void clear(const QUrl &dirUrl);
+#endif
+
+    /**
+     * Signals to the view to clear all items from directory @p dirUrl.
+     *
+     * This is only emitted if the lister is holding more than one directory.
+     *
+     * @param dirUrl the directory that the view should clear all items from
+     *
+     * @since 5.79
+     */
+    void clearDir(const QUrl &dirUrl);
 
     /**
      * Signal new items.
@@ -624,4 +642,3 @@ private:
 Q_DECLARE_OPERATORS_FOR_FLAGS(KCoreDirLister::OpenUrlFlags)
 
 #endif
-
