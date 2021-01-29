@@ -625,7 +625,7 @@ void KUrlNavigator::Private::updateButtons(int startIndex)
                 button = new KUrlNavigatorButton(buttonUrl(idx), q);
                 button->installEventFilter(q);
                 button->setForegroundRole(QPalette::WindowText);
-                connect(button, QOverload<const QUrl &, QDropEvent *>::of(&KUrlNavigatorButton::urlsDropped),
+                connect(button, &KUrlNavigatorButton::urlsDroppedOnNavButton,
                         q, [this](const QUrl &destination, QDropEvent *event) { dropUrls(destination, event); });
 
                 connect(button, &KUrlNavigatorButton::clicked,

@@ -49,7 +49,7 @@ protected:
     void paintEvent(QPaintEvent *event) override;
 
 private Q_SLOTS:
-    void setProtocol(QAction *action);
+    void setProtocolFromMenu(QAction *action);
 
 private:
     void updateMenu();

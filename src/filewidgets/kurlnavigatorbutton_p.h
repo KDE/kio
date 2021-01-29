@@ -73,10 +73,10 @@ public:
 
 Q_SIGNALS:
     /**
-     * Is emitted if URLs have been dropped
-     * to the destination \a destination.
+     * Emitted when URLs are dropped on the KUrlNavigatorButton associated with
+     * the URL @p destination.
      */
-    void urlsDropped(const QUrl &destination, QDropEvent *event);
+    void urlsDroppedOnNavButton(const QUrl &destination, QDropEvent *event);
 
     void clicked(const QUrl &url, Qt::MouseButton button, Qt::KeyboardModifiers modifiers);
 
@@ -142,7 +142,7 @@ private Q_SLOTS:
      */
     void replaceButton(KJob *job);
 
-    void urlsDropped(QAction *action, QDropEvent *event);
+    void slotUrlsDropped(QAction *action, QDropEvent *event);
 
     /**
      * Is called, if an action of a sub-menu has been triggered by

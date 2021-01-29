@@ -33,7 +33,7 @@ KUrlNavigatorProtocolCombo::KUrlNavigatorProtocolCombo(const QString &protocol, 
     m_categories()
 {
     m_menu = new QMenu(this);
-    connect(m_menu, &QMenu::triggered, this, QOverload<QAction*>::of(&KUrlNavigatorProtocolCombo::setProtocol));
+    connect(m_menu, &QMenu::triggered, this, &KUrlNavigatorProtocolCombo::setProtocolFromMenu);
     setText(protocol);
     setMenu(m_menu);
 }
@@ -126,7 +126,7 @@ void KUrlNavigatorProtocolCombo::paintEvent(QPaintEvent *event)
                           alignment, option.palette, isEnabled(), text());
 }
 
-void KUrlNavigatorProtocolCombo::setProtocol(QAction *action)
+void KUrlNavigatorProtocolCombo::setProtocolFromMenu(QAction *action)
 {
     const QString protocol = action->data().toString();
     setText(protocol);

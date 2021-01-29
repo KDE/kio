@@ -286,7 +286,7 @@ void KUrlNavigatorButton::dropEvent(QDropEvent *event)
     if (event->mimeData()->hasUrls()) {
         setDisplayHintEnabled(DraggedHint, true);
 
-        Q_EMIT urlsDropped(m_url, event);
+        Q_EMIT urlsDroppedOnNavButton(m_url, event);
 
         setDisplayHintEnabled(DraggedHint, false);
         update();
@@ -427,12 +427,12 @@ void KUrlNavigatorButton::addEntriesToSubDirs(KIO::Job *job, const KIO::UDSEntry
     }
 }
 
-void KUrlNavigatorButton::urlsDropped(QAction *action, QDropEvent *event)
+void KUrlNavigatorButton::slotUrlsDropped(QAction *action, QDropEvent *event)
 {
     const int result = action->data().toInt();
     QUrl url(m_url);
     url.setPath(concatPaths(url.path(), m_subDirs.at(result).first));
-    Q_EMIT urlsDropped(url, event);
+    Q_EMIT urlsDroppedOnNavButton(url, event);
 }
 
 void KUrlNavigatorButton::slotMenuActionClicked(QAction *action, Qt::MouseButton button)
@@ -655,8 +655,7 @@ void KUrlNavigatorButton::initMenu(KUrlNavigatorMenu *menu, int startIndex)
 {
     connect(menu, &KUrlNavigatorMenu::mouseButtonClicked,
             this, &KUrlNavigatorButton::slotMenuActionClicked);
-    connect(menu, &KUrlNavigatorMenu::urlsDropped,
-            this, QOverload<QAction*,QDropEvent*>::of(&KUrlNavigatorButton::urlsDropped));
+    connect(menu, &KUrlNavigatorMenu::urlsDropped, this, &KUrlNavigatorButton::slotUrlsDropped);
 
     // So that triggering a menu item with the keyboard works
     connect(menu, &QMenu::triggered, this, [this](QAction *act) {
