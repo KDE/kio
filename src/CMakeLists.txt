@@ -70,7 +70,7 @@ if (BUILD_QCH)
         KF5KIO_QCH
         NAME KIO
         BASE_NAME KF5KIO
-        VERSION ${KF5_VERSION}
+        VERSION ${KF_VERSION}
         ORG_DOMAIN org.kde
         SOURCES # using only public headers, to cover only public API
             ${KIONTLM_QCH_SOURCES}

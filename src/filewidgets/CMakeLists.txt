@@ -1,7 +1,7 @@
 project(KIOFileWidgets)
 
-find_package(KF5Bookmarks ${KF5_DEP_VERSION} REQUIRED)
-find_package(KF5XmlGui ${KF5_DEP_VERSION} REQUIRED)
+find_package(KF5Bookmarks ${KF_DEP_VERSION} REQUIRED)
+find_package(KF5XmlGui ${KF_DEP_VERSION} REQUIRED)
 
 configure_file(config-kiofilewidgets.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kiofilewidgets.h)
 
@@ -78,7 +78,7 @@ add_library(KF5::KIOFileWidgets ALIAS KF5KIOFileWidgets)
 ecm_generate_export_header(KF5KIOFileWidgets
     BASE_NAME KIOFileWidgets
     GROUP_BASE_NAME KF
-    VERSION ${KF5_VERSION}
+    VERSION ${KF_VERSION}
     DEPRECATED_BASE_VERSION 0
     DEPRECATION_VERSIONS 4.3 4.5 5.0 5.33 5.66 5.70 5.76 5.78
     EXCLUDE_DEPRECATED_BEFORE_AND_AT ${EXCLUDE_DEPRECATED_BEFORE_AND_AT}

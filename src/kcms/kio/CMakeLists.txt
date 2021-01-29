@@ -1,7 +1,7 @@
 
 add_subdirectory( uasproviders )
 
-find_package(KF5TextWidgets ${KF5_DEP_VERSION} REQUIRED)
+find_package(KF5TextWidgets ${KF_DEP_VERSION} REQUIRED)
 
 ########### next target ###############
 

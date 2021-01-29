@@ -1,4 +1,4 @@
-find_package(KF5Wallet ${KF5_DEP_VERSION})
+find_package(KF5Wallet ${KF_DEP_VERSION})
 
 # tell what is missing without wallet
 set_package_properties(KF5Wallet PROPERTIES DESCRIPTION "Safe desktop-wide storage for passwords"

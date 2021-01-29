@@ -1,9 +1,9 @@
 cmake_minimum_required(VERSION 3.5)
 
-set(KF5_VERSION "5.79.0") # handled by release scripts
-set(KF5_DEP_VERSION "5.79.0") # handled by release scripts
+set(KF_VERSION "5.79.0") # handled by release scripts
+set(KF_DEP_VERSION "5.79.0") # handled by release scripts
 
-project(KIO VERSION ${KF5_VERSION})
+project(KIO VERSION ${KF_VERSION})
 
 include(FeatureSummary)
 find_package(ECM 5.79.0 NO_MODULE)
@@ -54,25 +54,25 @@ add_feature_info(QCH ${BUILD_QCH} "API documentation in QCH format (for e.g. Qt 
 option(BUILD_DESIGNERPLUGIN "Build plugin for Qt Designer" ON)
 add_feature_info(DESIGNERPLUGIN ${BUILD_DESIGNERPLUGIN} "Build plugin for Qt Designer")
 
-find_package(KF5Archive ${KF5_DEP_VERSION} REQUIRED)
-find_package(KF5Config ${KF5_DEP_VERSION} REQUIRED)
-find_package(KF5CoreAddons ${KF5_DEP_VERSION} REQUIRED)
-find_package(KF5Crash ${KF5_DEP_VERSION} REQUIRED)
-find_package(KF5DBusAddons ${KF5_DEP_VERSION} REQUIRED)
-find_package(KF5I18n ${KF5_DEP_VERSION} REQUIRED)
-find_package(KF5Service ${KF5_DEP_VERSION} REQUIRED)
-find_package(KF5DocTools ${KF5_DEP_VERSION})
-find_package(KF5Solid ${KF5_DEP_VERSION} REQUIRED) # for kio_trash
+find_package(KF5Archive ${KF_DEP_VERSION} REQUIRED)
+find_package(KF5Config ${KF_DEP_VERSION} REQUIRED)
+find_package(KF5CoreAddons ${KF_DEP_VERSION} REQUIRED)
+find_package(KF5Crash ${KF_DEP_VERSION} REQUIRED)
+find_package(KF5DBusAddons ${KF_DEP_VERSION} REQUIRED)
+find_package(KF5I18n ${KF_DEP_VERSION} REQUIRED)
+find_package(KF5Service ${KF_DEP_VERSION} REQUIRED)
+find_package(KF5DocTools ${KF_DEP_VERSION})
+find_package(KF5Solid ${KF_DEP_VERSION} REQUIRED) # for kio_trash
 
 if (NOT KIOCORE_ONLY)
-find_package(KF5Bookmarks ${KF5_DEP_VERSION} REQUIRED)
-find_package(KF5Completion ${KF5_DEP_VERSION} REQUIRED)
-find_package(KF5ConfigWidgets ${KF5_DEP_VERSION} REQUIRED)
-find_package(KF5IconThemes ${KF5_DEP_VERSION} REQUIRED)
-find_package(KF5ItemViews ${KF5_DEP_VERSION} REQUIRED)
-find_package(KF5JobWidgets ${KF5_DEP_VERSION} REQUIRED)
-find_package(KF5WidgetsAddons ${KF5_DEP_VERSION} REQUIRED)
-find_package(KF5WindowSystem ${KF5_DEP_VERSION} REQUIRED)
+find_package(KF5Bookmarks ${KF_DEP_VERSION} REQUIRED)
+find_package(KF5Completion ${KF_DEP_VERSION} REQUIRED)
+find_package(KF5ConfigWidgets ${KF_DEP_VERSION} REQUIRED)
+find_package(KF5IconThemes ${KF_DEP_VERSION} REQUIRED)
+find_package(KF5ItemViews ${KF_DEP_VERSION} REQUIRED)
+find_package(KF5JobWidgets ${KF_DEP_VERSION} REQUIRED)
+find_package(KF5WidgetsAddons ${KF_DEP_VERSION} REQUIRED)
+find_package(KF5WindowSystem ${KF_DEP_VERSION} REQUIRED)
 
 find_package(KDED)
 set_package_properties(KDED PROPERTIES DESCRIPTION "Daemon providing session services"
@@ -82,7 +82,7 @@ set_package_properties(KDED PROPERTIES DESCRIPTION "Daemon providing session ser
 endif()
 
 if (UNIX)
-    find_package(KF5Auth ${KF5_DEP_VERSION} REQUIRED)
+    find_package(KF5Auth ${KF_DEP_VERSION} REQUIRED)
 endif()
 
 # tell what is missing without doctools

@@ -4,7 +4,7 @@ kde_enable_exceptions()
 include(ConfigureChecks.cmake)
 
 # needed for kpac notifications about problems
-find_package(KF5Notifications ${KF5_DEP_VERSION})
+find_package(KF5Notifications ${KF_DEP_VERSION})
 set_package_properties(KF5Notifications PROPERTIES
    DESCRIPTION "Notifications library"
    TYPE OPTIONAL

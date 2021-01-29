@@ -1,6 +1,6 @@
 find_package(Qt5Test REQUIRED)
 find_package(Qt5Widgets REQUIRED)
-find_package(KF5Archive ${KF5_DEP_VERSION} REQUIRED)
+find_package(KF5Archive ${KF_DEP_VERSION} REQUIRED)
 find_package(ZLIB)
 set_package_properties(ZLIB PROPERTIES DESCRIPTION "Support for gzip compressed files and data streams"
                        URL "http://www.zlib.net"
