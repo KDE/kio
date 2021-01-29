@@ -159,11 +159,26 @@ Q_SIGNALS:
      */
     void written(KIO::Job *job, KIO::filesize_t written);
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 79)
     /**
-     * File is closed and will accept no more commands
+     * Signals that the file is closed and will accept no more commands.
+     *
      * @param job the job that emitted this signal
+     *
+     * @deprecated since 5.79, use KIO::FileJob::fileClosed(KIO::Job *)
      */
+    KIOCORE_DEPRECATED_VERSION(5, 79, "Use KIO::FileJob::fileClosed(KIO::Job *)")
     void close(KIO::Job *job);
+#endif
+
+    /**
+     * Signals that the file is closed and will accept no more commands.
+     *
+     * @param job the job that emitted this signal
+     *
+     * @since 5.79
+     */
+    void fileClosed(KIO::Job *job);
 
     /**
      * The file has reached this position. Emitted after seek().
