@@ -1131,7 +1131,13 @@ void KDirListerTest::testRenameCurrentDirOpenUrl()
 
     //Connect the redirection to openURL, so that on a rename the new location is opened.
     //This matches usage in gwenview, and crashes
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 80)
     connect(&m_dirLister, QOverload<const QUrl&>::of(&KCoreDirLister::redirection), this, &KDirListerTest::slotOpenUrlOnRename);
+#else
+    connect(&m_dirLister, QOverload<const QUrl &, const QUrl &>::of(&KCoreDirLister::redirection),
+            this, [this](const QUrl &, const QUrl &newUrl) { slotOpenUrlOnRename(newUrl); });
+#endif
+
     QTRY_VERIFY(m_dirLister.isFinished());
     disconnect(&m_dirLister, nullptr, this, nullptr);
     QDir().rmdir(newPath);
@@ -1440,7 +1446,13 @@ void KDirListerTest::testRenameDirectory() // #401552
     QString currDir = dirW;
     KIO::SimpleJob *job = nullptr;
     //Connect the redirection to openURL, so that on a rename the new location is opened.
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 80)
     connect(&m_dirLister, QOverload<const QUrl&>::of(&KCoreDirLister::redirection), this, &KDirListerTest::slotOpenUrlOnRename);
+#else
+    connect(&m_dirLister, QOverload<const QUrl &, const QUrl &>::of(&KCoreDirLister::redirection),
+            this, [this](const QUrl &, const QUrl &newUrl) { slotOpenUrlOnRename(newUrl); });
+#endif
+
     for (int i=0; i < dirs.size(); i++) {
         // Wait for the listener to get all files
         QTRY_VERIFY(m_dirLister.isFinished());

@@ -497,20 +497,27 @@ Q_SIGNALS:
      */
     void listingDirCanceled(const QUrl &dirUrl);
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 80)
     /**
      * Signal a redirection.
      * Only emitted if there's just one directory to list, i.e. most
      * probably openUrl() has been called without OpenUrlFlag::Keep.
+     *
      * @param dirUrl the new URL
+     *
+     * @deprecated since 5.80, use redirection(const QUrl &, const QUrl &)
      */
-    void redirection(const QUrl &dirUrl);
+    KIOCORE_DEPRECATED_VERSION(5, 80, "Use redirection(const QUrl &, const QUrl &)")
+    void redirection(const QUrl &_url); // clazy:exclude=overloaded-signal
+#endif
 
     /**
-     * Signal a redirection.
+     * Signals a redirection.
+     *
      * @param oldUrl the original URL
      * @param newUrl the new URL
      */
-    void redirection(const QUrl &oldUrl, const QUrl &newUrl);
+    void redirection(const QUrl &oldUrl, const QUrl &newUrl); // clazy:exclude=overloaded-signal
 
     /**
      * Signals to the view to remove all items (when e.g. going from dirA to dirB).

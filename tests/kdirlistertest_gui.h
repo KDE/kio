@@ -46,10 +46,6 @@ public Q_SLOTS:
     {
         cout << "*** completed( " << url.toDisplayString().toLocal8Bit().data() << " )" << endl;
     }
-    void redirection(const QUrl &url)
-    {
-        cout << "*** redirection( " << url.toDisplayString().toLocal8Bit().data() << " )" << endl;
-    }
     void redirection(const QUrl &src, const QUrl &dest)
     {
         cout << "*** redirection( " << src.toDisplayString().toLocal8Bit().data() << ", "

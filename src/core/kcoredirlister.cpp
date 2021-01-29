@@ -2718,7 +2718,11 @@ void KCoreDirListerPrivate::redirect(const QUrl &oldUrl, const QUrl &newUrl, boo
         if (!keepItems) {
             Q_EMIT q->clear();
         }
+
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 80)
         Q_EMIT q->redirection(newUrl);
+#endif
+
     } else {
         if (!keepItems) {
 #if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
