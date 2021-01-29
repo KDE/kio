@@ -189,7 +189,12 @@ void FileJobPrivate::slotFinished()
     Q_Q(FileJob);
     //qDebug() << this << m_url;
     m_open = false;
+
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
     Q_EMIT q->close(q);
+#endif
+    Q_EMIT q->fileClosed(q);
+
     // Return slave to the scheduler
     slaveDone();
     // Scheduler::doJob(this);
