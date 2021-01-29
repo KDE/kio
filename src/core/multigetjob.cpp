@@ -177,7 +177,10 @@ void MultiGetJob::slotFinished()
     }
     if (d->m_redirectionURL.isEmpty()) {
         // No redirection, tell the world that we are finished.
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
         Q_EMIT result(d->m_currentEntry.id);
+#endif
+        Q_EMIT fileTransferred(d->m_currentEntry.id);
     }
     d->m_redirectionURL = QUrl();
     setError(0);
@@ -205,7 +208,10 @@ void MultiGetJob::slotData(const QByteArray &_data)
 {
     Q_D(MultiGetJob);
     if (d->m_redirectionURL.isEmpty() || !d->m_redirectionURL.isValid() || error()) {
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
         Q_EMIT data(d->m_currentEntry.id, _data);
+#endif
+        Q_EMIT dataReceived(d->m_currentEntry.id, _data);
     }
 }
 
