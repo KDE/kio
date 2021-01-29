@@ -40,13 +40,30 @@ public:
     void get(long id, const QUrl &url, const MetaData &metaData);
 
 Q_SIGNALS:
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 79)
     /**
      * Data from the slave has arrived.
+     *
      * @param id the id of the request
      * @param data data received from the slave.
      * End of data (EOD) has been reached if data.size() == 0
+     *
+     * @deprecated since 5.79, use KIO::MultiGetJob::dataReceived(long, const QByteArray &)
      */
+    KIOCORE_DEPRECATED_VERSION(5, 79, "Use KIO::MultiGetJob::dataReceived(long, const QByteArray &)")
     void data(long id, const QByteArray &data);
+#endif
+
+    /**
+     * Data from the slave has arrived.
+     *
+     * @param id the id of the request
+     * @param data data received from the slave.
+     * End of data (EOD) has been reached if data.size() == 0
+     *
+     * @since 5.79
+     */
+    void dataReceived(long id, const QByteArray &data);
 
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 78)
     /**
@@ -67,14 +84,30 @@ Q_SIGNALS:
      */
     void mimeTypeFound(long id, const QString &mimeType);
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 79)
     /**
      * File transfer completed.
      *
      * When all files have been processed, result(KJob *) gets
      * emitted.
      * @param id the id of the request
+     *
+     * @deprecated since 5.79, use KIO::MultiGetJob::fileTransferred(long)
      */
+    KIOCORE_DEPRECATED_VERSION(5, 79, "Use KIO::MultiGetJob::fileTransferred(long id)")
     void result(long id);
+#endif
+
+    /**
+     * File transfer completed.
+     *
+     * When all files have been processed, result(KJob *) gets emitted.
+     *
+     * @param id the id of the request
+     *
+     * @since 5.79
+     */
+    void fileTransferred(long id);
 
 protected Q_SLOTS:
     void slotRedirection(const QUrl &url) override;
