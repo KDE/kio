@@ -42,7 +42,7 @@ class QWidget;
  * add_library(foothumbnail MODULE ${foothumbnail_SRCS})
  * target_link_libraries(foothumbnail PRIVATE KF5::KIOWidgets)
  *
- * install(TARGETS foothumbnail DESTINATION ${PLUGIN_INSTALL_DIR})
+ * install(TARGETS foothumbnail DESTINATION ${KDE_INSTALL_PLUGINDIR})
  * \endcode
  *
  * You also need to create a desktop file describing the thumbnailer.  For
@@ -59,7 +59,7 @@ class QWidget;
  *
  * Of course, you will need to install it:
  * \code
- * install(FILES foothumbcreator.desktop DESTINATION ${SERVICES_INSTALL_DIR})
+ * install(FILES foothumbcreator.desktop DESTINATION ${KDE_INSTALL_KSERVICES5DIR})
  * \endcode
  *
  * Note that you can supply a comma-separated list of MIME types to the MimeTypes
