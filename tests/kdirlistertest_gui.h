@@ -112,7 +112,7 @@ class KDirListerTest : public QWidget
 {
     Q_OBJECT
 public:
-    KDirListerTest(QWidget *parent = nullptr);
+    KDirListerTest(QWidget *parent = nullptr, const QUrl &url = {});
     ~KDirListerTest();
 
 public Q_SLOTS:

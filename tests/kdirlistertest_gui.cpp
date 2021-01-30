@@ -11,12 +11,12 @@
 #include <QPushButton>
 #include <QDir>
 #include <QVBoxLayout>
-
+#include <QCommandLineParser>
 #include <QDebug>
 
 #include <cstdlib>
 
-KDirListerTest::KDirListerTest(QWidget *parent)
+KDirListerTest::KDirListerTest(QWidget *parent, const QUrl &initialUrl)
     : QWidget(parent)
 {
     lister = new KDirLister(this);
@@ -64,6 +64,10 @@ KDirListerTest::KDirListerTest(QWidget *parent)
     connect(lister, &KCoreDirLister::speed, debug, &PrintSignals::speed);
 
     connect(lister, QOverload<>::of(&KDirLister::completed), this, &KDirListerTest::completed);
+
+    if (initialUrl.isValid()) {
+        lister->openUrl(initialUrl, KDirLister::NoFlags);
+    }
 }
 
 KDirListerTest::~KDirListerTest()
@@ -131,7 +135,16 @@ int main(int argc, char *argv[])
     QApplication::setApplicationName(QStringLiteral("kdirlistertest"));
     QApplication app(argc, argv);
 
-    KDirListerTest *test = new KDirListerTest(nullptr);
+    QCommandLineParser parser;
+    parser.addHelpOption();
+    parser.addPositionalArgument(QStringLiteral("URL"), QStringLiteral("URL to a directory to list."), QStringLiteral("[URL...]"));
+    parser.process(app);
+    QUrl url;
+    if (!parser.positionalArguments().isEmpty()) {
+        url = QUrl::fromUserInput(parser.positionalArguments().at(0));
+    }
+
+    KDirListerTest *test = new KDirListerTest(nullptr, url);
     test->show();
     return app.exec();
 }
