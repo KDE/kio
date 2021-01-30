@@ -84,10 +84,10 @@ KCoreDirListerCache::~KCoreDirListerCache()
 
 // setting _reload to true will emit the old files and
 // call updateDirectory
-bool KCoreDirListerCache::listDir(KCoreDirLister *lister, const QUrl &_u,
+bool KCoreDirListerCache::listDir(KCoreDirLister *lister, const QUrl &dirUrl,
                                   bool _keep, bool _reload)
 {
-    QUrl _url(_u);
+    QUrl _url(dirUrl);
     _url.setPath(QDir::cleanPath(_url.path())); // kill consecutive slashes
 
     // like this we don't have to worry about trailing slashes any further
@@ -2141,14 +2141,14 @@ bool KCoreDirLister::autoUpdate() const
     return d->autoUpdate;
 }
 
-void KCoreDirLister::setAutoUpdate(bool _enable)
+void KCoreDirLister::setAutoUpdate(bool enable)
 {
-    if (d->autoUpdate == _enable) {
+    if (d->autoUpdate == enable) {
         return;
     }
 
-    d->autoUpdate = _enable;
-    kDirListerCache()->setAutoUpdate(this, _enable);
+    d->autoUpdate = enable;
+    kDirListerCache()->setAutoUpdate(this, enable);
 }
 
 bool KCoreDirLister::showingDotFiles() const
@@ -2156,14 +2156,14 @@ bool KCoreDirLister::showingDotFiles() const
     return d->settings.isShowingDotFiles;
 }
 
-void KCoreDirLister::setShowingDotFiles(bool _showDotFiles)
+void KCoreDirLister::setShowingDotFiles(bool showDotFiles)
 {
-    if (d->settings.isShowingDotFiles == _showDotFiles) {
+    if (d->settings.isShowingDotFiles == showDotFiles) {
         return;
     }
 
     d->prepareForSettingsChange();
-    d->settings.isShowingDotFiles = _showDotFiles;
+    d->settings.isShowingDotFiles = showDotFiles;
 }
 
 bool KCoreDirLister::dirOnlyMode() const
@@ -2171,14 +2171,14 @@ bool KCoreDirLister::dirOnlyMode() const
     return d->settings.dirOnlyMode;
 }
 
-void KCoreDirLister::setDirOnlyMode(bool _dirsOnly)
+void KCoreDirLister::setDirOnlyMode(bool dirsOnly)
 {
-    if (d->settings.dirOnlyMode == _dirsOnly) {
+    if (d->settings.dirOnlyMode == dirsOnly) {
         return;
     }
 
     d->prepareForSettingsChange();
-    d->settings.dirOnlyMode = _dirsOnly;
+    d->settings.dirOnlyMode = dirsOnly;
 }
 
 QUrl KCoreDirLister::url() const
@@ -2259,9 +2259,9 @@ void KCoreDirListerPrivate::emitChanges()
     oldSettings = settings;
 }
 
-void KCoreDirLister::updateDirectory(const QUrl &_u)
+void KCoreDirLister::updateDirectory(const QUrl &dirUrl)
 {
-    kDirListerCache()->updateDirectory(_u);
+    kDirListerCache()->updateDirectory(dirUrl);
 }
 
 bool KCoreDirLister::isFinished() const
@@ -2274,14 +2274,14 @@ KFileItem KCoreDirLister::rootItem() const
     return d->rootFileItem;
 }
 
-KFileItem KCoreDirLister::findByUrl(const QUrl &_url) const
+KFileItem KCoreDirLister::findByUrl(const QUrl &url) const
 {
-    return kDirListerCache()->findByUrl(this, _url);
+    return kDirListerCache()->findByUrl(this, url);
 }
 
-KFileItem KCoreDirLister::findByName(const QString &_name) const
+KFileItem KCoreDirLister::findByName(const QString &name) const
 {
-    return kDirListerCache()->findByName(this, _name);
+    return kDirListerCache()->findByName(this, name);
 }
 
 // ================ public filter methods ================ //
@@ -2521,9 +2521,9 @@ bool KCoreDirListerPrivate::isItemVisible(const KFileItem &item) const
            && q->matchesFilter(item);
 }
 
-void KCoreDirListerPrivate::emitItemsDeleted(const KFileItemList &_items)
+void KCoreDirListerPrivate::emitItemsDeleted(const KFileItemList &itemsList)
 {
-    KFileItemList items = _items;
+    KFileItemList items = itemsList;
     QMutableListIterator<KFileItem> it(items);
     while (it.hasNext()) {
         const KFileItem &item = it.next();

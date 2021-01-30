@@ -100,27 +100,30 @@ public:
     /**
      * Run the directory lister on the given url.
      *
-     * This method causes KCoreDirLister to emit _all_ the items of @p _url, in any case.
-     * Depending on _flags, either clear() or clear(const QUrl &) will be
-     * emitted first.
+     * This method causes KCoreDirLister to emit @em all the items of @p dirUrl, in any case.
+     * Depending on @p flags, either clear() or clearDir(const QUrl &) will be emitted first.
      *
-     * The newItems() signal may be emitted more than once to supply you
-     * with KFileItems, up until the signal completed() is emitted
-     * (and isFinished() returns true).
+     * The newItems() signal may be emitted more than once to supply you with KFileItems, up
+     * until the signal completed() is emitted (and isFinished() returns @c true).
      *
-     * @param _url     the directory URL.
-     * @param _flags   whether to keep previous directories, and whether to reload, see OpenUrlFlags
-     * @return true    if successful,
-     *         false   otherwise (e.g. invalid @p _url)
+     * @param dirUrl the directory URL.
+     * @param flags whether to keep previous directories, and whether to reload, see OpenUrlFlags
+     * @return @c true if successful, @c false otherwise (e.g. if @p dirUrl is invalid)
+     *
+     * @note clearDir(const QUrl &) is emitted since 5.79; before that it was clear(const QUrl &)
+     * which has been deprecated.
      */
-    virtual bool openUrl(const QUrl &_url, OpenUrlFlags _flags = NoFlags);
+    virtual bool openUrl(const QUrl &dirUrl, OpenUrlFlags flags = NoFlags);
 
     /**
      * Stop listing all directories currently being listed.
      *
      * Emits canceled() if there was at least one job running.
-     * Emits canceled( const QUrl& ) for each stopped job if
-     * there are at least two directories being watched by KCoreDirLister.
+     * Emits listingDirCanceled(const QUrl &) for each stopped job if there is more than one
+     * directory being watched by this KCoreDirLister.
+     *
+     * @note listingDirCanceled(const QUrl &) is emitted since 5.79; before that it was
+     * canceled(const QUrl &) which has been deprecated.
      */
     virtual void stop();
 
@@ -128,15 +131,20 @@ public:
      * Stop listing the given directory.
      *
      * Emits canceled() if the killed job was the last running one.
-     * Emits canceled( const QUrl& ) for the killed job if
-     * there are at least two directories being watched by KCoreDirLister.
-     * No signal is emitted if there was no job running for @p _url.
-     * @param _url the directory URL
+     * Emits listingDirCanceled(const QUrl &) for the killed job if there is more than one
+     * directory being watched by this KCoreDirLister.
+     *
+     * No signal is emitted if there was no job running for @p dirUrl.
+     *
+     * @param dirUrl the directory URL
+     *
+     * @note listingDirCanceled(const QUrl &) is emitted since 5.79; before that it was
+     * canceled(const QUrl &) which has been deprecated.
      */
-    virtual void stop(const QUrl &_url);
+    virtual void stop(const QUrl &dirUrl);
 
     /**
-     * @return true if the "delayed MIME types" feature was enabled
+     * @return @c true if the "delayed MIME types" feature was enabled
      * @see setDelayedMimeTypes
      */
     bool delayedMimeTypes() const;
@@ -154,59 +162,68 @@ public:
     /**
      * Checks whether KDirWatch will automatically update directories. This is
      * enabled by default.
-     * @return true if KDirWatch is used to automatically update directories.
+     *
+     * @return @c true if KDirWatch is used to automatically update directories
      */
     bool autoUpdate() const;
 
     /**
-     * Enable/disable automatic directory updating, when a directory changes
-     * (using KDirWatch).
-     * @param enable true to enable, false to disable
+     * Toggle automatic directory updating, when a directory changes (using KDirWatch).
+     *
+     * @param enable set to @c true to enable or @c false to disable
      */
     virtual void setAutoUpdate(bool enable);
 
     /**
-     * Checks whether hidden files (files beginning with a dot) will be
-     * shown.
-     * By default this option is disabled (hidden files will be not shown).
-     * @return true if dot files are shown, false otherwise
+     * Checks whether hidden files (files whose name start with '.') will be shown.
+     * By default this option is disabled (hidden files are not shown).
+     *
+     * @return @c true if dot files are shown, @c false otherwise
+     *
      * @see setShowingDotFiles()
      */
     bool showingDotFiles() const;
 
     /**
-     * Changes the "is viewing dot files" setting.
+     * Toggles whether hidden files (files whose name start with '.') are shown, by default
+     * hidden files are not shown.
+     *
      * You need to call emitChanges() afterwards.
-     * By default this option is disabled (hidden files will not be shown).
-     * @param _showDotFiles true to enable showing hidden files, false to
-     *        disable
+     *
+     * @param showDotFiles set to @c true/false to show/hide hidden files respectively
+     *
      * @see showingDotFiles()
      */
-    virtual void setShowingDotFiles(bool _showDotFiles);
+    virtual void setShowingDotFiles(bool showDotFiles);
 
     /**
-     * Checks whether the KCoreDirLister only lists directories or all
-     * files.
-     * By default this option is disabled (all files will be shown).
-     * @return true if setDirOnlyMode(true) was called
+     * Checks whether this KCoreDirLister only lists directories or all items (directories and
+     * files), by default all items are listed.
+     *
+     * @return @c true if only directories are listed, @c false otherwise
+     *
+     * @see setDirOnlyMode(bool)
      */
     bool dirOnlyMode() const;
 
     /**
-     * Call this to list only directories.
+     * Call this to list only directories (by default all items (directories and files)
+     * are listed).
+     *
      * You need to call emitChanges() afterwards.
-     * By default this option is disabled (all files will be shown).
-     * @param dirsOnly true to list only directories
+     *
+     * @param dirsOnly set to @c true to list only directories
      */
     virtual void setDirOnlyMode(bool dirsOnly);
 
     /**
      * Returns the top level URL that is listed by this KCoreDirLister.
+     *
      * It might be different from the one given with openUrl() if there was a
      * redirection. If you called openUrl() with OpenUrlFlag::Keep this is the
      * first url opened (e.g. in a treeview this is the root).
      *
-     * @return the url used by this instance to list the files.
+     * @return the url used by this instance to list the files
      */
     QUrl url() const;
 
@@ -216,7 +233,7 @@ public:
      * treeview, for example. (Note that the base url is included in the list
      * as well, of course.)
      *
-     * @return the list of all listed URLs
+     * @return a list of all listed URLs
      */
     QList<QUrl> directories() const;
 
@@ -227,21 +244,21 @@ public:
     virtual void emitChanges();
 
     /**
-     * Update the directory @p _dir. This method causes KCoreDirLister to _only_ emit
-     * the items of @p _dir that actually changed compared to the current state in the
-     * cache and updates the cache.
+     * Update the directory @p dirUrl. This method causes KCoreDirLister to @em only emit
+     * the items of @p dirUrl that actually changed compared to the current state in the
+     * cache, and updates the cache.
      *
-     * The current implementation calls updateDirectory automatically for
-     * local files, using KDirWatch (if autoUpdate() is true), but it might be
-     * useful to force an update manually.
+     * The current implementation calls updateDirectory automatically for local files, using
+     * KDirWatch (if autoUpdate() is @c true), but it might be useful to force an update manually.
      *
-     * @param _dir the directory URL
+     * @param dirUrl the directory URL
      */
-    virtual void updateDirectory(const QUrl &_dir);
+    virtual void updateDirectory(const QUrl &dirUrl);
 
     /**
-     * Returns true if no io operation is currently in progress.
-     * @return true if finished, false otherwise
+     * Returns @c true if no I/O operation is currently in progress.
+     *
+     * @return @c true if finished, @c false otherwise
      */
     bool isFinished() const;
 
@@ -255,10 +272,10 @@ public:
 
     /**
      * Find an item by its URL.
-     * @param _url the item URL
+     * @param url the item URL
      * @return the KFileItem
      */
-    virtual KFileItem findByUrl(const QUrl &_url) const;
+    virtual KFileItem findByUrl(const QUrl &url) const;
 
     /**
      * Find an item by its name.
@@ -335,17 +352,20 @@ public:
 
     /**
      * Checks whether @p name matches a filter in the list of name filters.
-     * @return true if @p name matches a filter in the list,
-     * otherwise false.
-     * @see setNameFilter
+     *
+     * @return @c true if @p name matches a filter in the list, otherwise @c false.
+     *
+     * @see setNameFilter()
      */
     bool matchesFilter(const QString &name) const;
 
     /**
-     * Checks whether @p mimeType matches a filter in the list of MIME types
-     * @param mimeType the MIME type to find in the filter list.
-     * @return true if @p mimeType matches a filter in the list,
-     * otherwise false.
+     * Checks whether @p mimeType matches a filter in the list of MIME types.
+     *
+     * @param mimeType the MIME type to find in the filter list
+     *
+     * @return @c true if @p mimeType matches a filter in the list, otherwise @c false
+     *
      * @see setMimeFilter.
      */
     bool matchesMimeFilter(const QString &mimeType) const;
@@ -361,66 +381,65 @@ public:
 
     /**
      * Returns the items listed for the current url().
-     * This method will NOT start listing a directory, you should only call
-     * this when receiving the finished() signal.
      *
-     * The items in the KFileItemList are copies of the items used
-     * by KCoreDirLister.
+     * This method will @em not start listing a directory, you should only call
+     * this in a slot connected to the finished() signal.
+     *
+     * The items in the KFileItemList are copies of the items used by KCoreDirLister.
      *
      * @param which specifies whether the returned list will contain all entries
      *              or only the ones that passed the nameFilter(), mimeFilter(),
      *              etc. Note that the latter causes iteration over all the
      *              items, filtering them. If this is too slow for you, use the
-     *              newItems() signal, sending out filtered items in chunks.
-     * @return the items listed for the current url().
+     *              newItems() signal, sending out filtered items in chunks
+     * @return the items listed for the current url()
      */
     KFileItemList items(WhichItems which = FilteredItems) const;
 
     /**
-     * Returns the items listed for the given @p dir.
-     * This method will NOT start listing @p dir, you should only call
-     * this when receiving the finished() signal.
+     * Returns the items listed for the given @p dirUrl.
+     * This method will @em not start listing @p dirUrl, you should only call
+     * this in a slot connected to the finished() signal.
      *
-     * The items in the KFileItemList are copies of the items used
-     * by KCoreDirLister.
+     * The items in the KFileItemList are copies of the items used by KCoreDirLister.
      *
-     * @param dir specifies the url for which the items should be returned. This
+     * @param dirUrl specifies the url for which the items should be returned. This
      *            is only useful if you use KCoreDirLister with multiple URLs
-     *            i.e. using bool OpenUrlFlag::Keep in openUrl().
+     *            i.e. using bool OpenUrlFlag::Keep in openUrl()
      * @param which specifies whether the returned list will contain all entries
      *              or only the ones that passed the nameFilter, mimeFilter, etc.
      *              Note that the latter causes iteration over all the items,
      *              filtering them. If this is too slow for you, use the
-     * newItems() signal, sending out filtered items in chunks.
-     * @return the items listed for @p dir.
+     * newItems() signal, sending out filtered items in chunks
+     *
+     * @return the items listed for @p dirUrl
      */
-    KFileItemList itemsForDir(const QUrl &dir,
+    KFileItemList itemsForDir(const QUrl &dirUrl,
                               WhichItems which = FilteredItems) const;
 
     /**
-     * Return the KFileItem for the given URL, if we listed it recently
-     * and it's still in the cache - which is always the case if a directory
-     * view is currently showing this item. If not, then it might be in the
-     * cache, or it might not, in which case you get a null KFileItem.
-     * If you really need a KFileItem for this URL in all cases, then use
-     * KIO::stat() instead.
+     * Return the KFileItem for the given URL, if it was listed recently and it's
+     * still in the cache, which is always the case if a directory view is currently
+     * showing this item. If not, then it might be in the cache; if not in the cache a
+     * a null KFileItem will be returned.
+     *
+     * If you really need a KFileItem for this URL in all cases, then use KIO::stat() instead.
      *
      * @since 4.2
      */
     static KFileItem cachedItemForUrl(const QUrl &url);
 
 Q_SIGNALS:
-
     /**
-     * Tell the view that we started to list @p _url. NOTE: this does _not_ imply that there
-     * is really a job running! I.e. KCoreDirLister::jobs() may return an empty list. In this case
-     * the items are taken from the cache.
+     * Tell the view that this KCoreDirLister has started to list @p dirUrl. Note that this
+     * does @em not imply that there is really a job running! I.e. KCoreDirLister::jobs()
+     * may return an empty list, in which case the items are taken from the cache.
      *
-     * The view knows that openUrl should start it, so it might seem useless,
-     * but the view also needs to know when an automatic update happens.
-     * @param _url the URL to list
+     * The view knows that openUrl should start it, so this might seem useless, but the view
+     * also needs to know when an automatic update happens.
+     * @param dirUrl the URL to list
      */
-    void started(const QUrl &_url);
+    void started(const QUrl &dirUrl);
 
     /**
      * Tell the view that listing is finished. There are no jobs running anymore.
@@ -482,9 +501,9 @@ Q_SIGNALS:
      * Signal a redirection.
      * Only emitted if there's just one directory to list, i.e. most
      * probably openUrl() has been called without OpenUrlFlag::Keep.
-     * @param _url the new URL
+     * @param dirUrl the new URL
      */
-    void redirection(const QUrl &_url);
+    void redirection(const QUrl &dirUrl);
 
     /**
      * Signal a redirection.
@@ -609,8 +628,8 @@ protected:
      * filtering.
      * The default implementation filters out ".." and everything not matching
      * the name filter(s)
-     * @return true if the item is "ok".
-     *         false if the item shall not be shown in a view, e.g.
+     * @return @c true if the item is "ok".
+     *         @c false if the item shall not be shown in a view, e.g.
      * files not matching a pattern *.cpp ( KFileItem::isHidden())
      * @see matchesFilter
      * @see setNameFilter
@@ -623,8 +642,8 @@ protected:
      * filtering.
      * The default implementation filters out ".." and everything not matching
      * the name filter(s)
-     * @return true if the item is "ok".
-     *         false if the item shall not be shown in a view, e.g.
+     * @return @c true if the item is "ok".
+     *         @c false if the item shall not be shown in a view, e.g.
      * files not matching a pattern *.cpp ( KFileItem::isHidden())
      * @see matchesMimeFilter
      * @see setMimeFilter
