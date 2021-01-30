@@ -35,8 +35,6 @@ private Q_SLOTS:
     void showOpenWithDialog_data();
     void showOpenWithDialog();
 
-    void checkStartupId();
-
 private:
     QString createTempService();
     void writeTempServiceDesktopFile(const QString &filePath);
