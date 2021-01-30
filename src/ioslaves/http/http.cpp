@@ -4957,7 +4957,7 @@ void HTTPProtocol::sendCacheCleanerCommand(const QByteArray &command)
             const QStringList searchPaths = QStringList()
                 << QCoreApplication::applicationDirPath() // then look where our application binary is located
                 << QLibraryInfo::location(QLibraryInfo::LibraryExecutablesPath) // look where libexec path is (can be set in qt.conf)
-                << QFile::decodeName(CMAKE_INSTALL_FULL_LIBEXECDIR_KF5); // look at our installation location
+                << QFile::decodeName(KDE_INSTALL_FULL_LIBEXECDIR_KF5); // look at our installation location
             const QString exe = QStandardPaths::findExecutable(QStringLiteral("kio_http_cache_cleaner"), searchPaths);
             if (exe.isEmpty()) {
                 qCWarning(KIO_HTTP) << "kio_http_cache_cleaner not found in" << searchPaths;

@@ -27,7 +27,7 @@
 #include <QDBusConnection>
 #include <QDBusReply>
 
-#include <config-kiocore.h> // CMAKE_INSTALL_FULL_LIBEXECDIR_KF5
+#include <config-kiocore.h> // KDE_INSTALL_FULL_LIBEXECDIR_KF5
 
 #include "kiocoredebug.h"
 
@@ -279,7 +279,7 @@ static const QString kioexecPath()
 {
     QString kioexec = QCoreApplication::applicationDirPath() + QLatin1String("/kioexec");
     if (!QFileInfo::exists(kioexec))
-        kioexec = QStringLiteral(CMAKE_INSTALL_FULL_LIBEXECDIR_KF5 "/kioexec");
+        kioexec = QStringLiteral(KDE_INSTALL_FULL_LIBEXECDIR_KF5 "/kioexec");
     Q_ASSERT(QFileInfo::exists(kioexec));
     return kioexec;
 }
@@ -328,7 +328,7 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
             // Too bad for commands that need a shell - they must reside in $PATH.
             executableFullPath = QStandardPaths::findExecutable(binary);
             if (executableFullPath.isEmpty()) {
-                executableFullPath = QFile::decodeName(CMAKE_INSTALL_FULL_LIBEXECDIR_KF5 "/") + binary;
+                executableFullPath = QFile::decodeName(KDE_INSTALL_FULL_LIBEXECDIR_KF5 "/") + binary;
             }
         } else {
             executableFullPath = binary;
@@ -510,7 +510,7 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
         if (d->service.terminal()) {
             result << QStringLiteral("su");
         } else {
-            QString kdesu = QFile::decodeName(CMAKE_INSTALL_FULL_LIBEXECDIR_KF5 "/kdesu");
+            QString kdesu = QFile::decodeName(KDE_INSTALL_FULL_LIBEXECDIR_KF5 "/kdesu");
             if (!QFile::exists(kdesu)) {
                 kdesu = QStandardPaths::findExecutable(QStringLiteral("kdesu"));
             }

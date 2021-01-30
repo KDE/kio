@@ -30,7 +30,7 @@
 #include "connectionserver.h"
 #include "kioglobal_p.h"
 #include <kprotocolinfo.h>
-#include <config-kiocore.h> // CMAKE_INSTALL_FULL_LIBEXECDIR_KF5
+#include <config-kiocore.h> // KDE_INSTALL_FULL_LIBEXECDIR_KF5
 
 #include "slaveinterface_p.h"
 #include "kiocoredebug.h"
@@ -500,7 +500,7 @@ Slave *Slave::createSlave(const QString &protocol, const QUrl &url, int &error, 
             << QCoreApplication::applicationDirPath() // then look where our application binary is located
             << qlibexec
             << qlibexecKF5
-            << QFile::decodeName(CMAKE_INSTALL_FULL_LIBEXECDIR_KF5); // look at our installation location
+            << QFile::decodeName(KDE_INSTALL_FULL_LIBEXECDIR_KF5); // look at our installation location
         QString kioslaveExecutable = QStandardPaths::findExecutable(QStringLiteral("kioslave5"), searchPaths);
         if (kioslaveExecutable.isEmpty()) {
             // Fallback to PATH. On win32 we install to bin/ which tests outside
