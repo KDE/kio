@@ -10,6 +10,7 @@
 
 #include <KBookmarkManager>
 #include <KBookmarkMenu>
+#include <KBookmarkOwner>
 
 class QMenu;
 class KFileWidget;
