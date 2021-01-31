@@ -67,6 +67,8 @@ public:
     virtual QPalette palette() const = 0;
     virtual QRect visibleArea() const = 0;
     virtual QRect visualRect(const QModelIndex &index) const = 0;
+
+    // TODO KF6 make this connect work with a PointerToMemberFunction/Functor
     virtual void connect(Signal signal, QObject *receiver, const char *slot) = 0;
 };
 

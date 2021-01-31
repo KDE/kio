@@ -672,7 +672,7 @@ void KFilePreviewGeneratorPrivate::slotPreviewJobFinished(KJob *job)
             m_pendingItems.clear();
             m_dispatchedItems.clear();
             m_pendingVisibleIconUpdates = 0;
-            QMetaObject::invokeMethod(q, "dispatchIconUpdateQueue", Qt::QueuedConnection);
+            QMetaObject::invokeMethod(q, [this]() { dispatchIconUpdateQueue(); }, Qt::QueuedConnection);
         }
         m_sequenceIndices.clear(); // just to be sure that we don't leak anything
     }
@@ -868,7 +868,7 @@ void KFilePreviewGeneratorPrivate::resolveMimeType()
     } else if (!m_iconUpdatesPaused) {
         // assure that the MIME type of the next
         // item will be resolved asynchronously
-        QMetaObject::invokeMethod(q, "resolveMimeType", Qt::QueuedConnection);
+        QMetaObject::invokeMethod(q, [this]() { resolveMimeType(); }, Qt::QueuedConnection);
     }
 }
 

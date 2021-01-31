@@ -116,6 +116,8 @@ private:
     std::unique_ptr<KFilePreviewGeneratorPrivate> const d;
 
     Q_DISABLE_COPY(KFilePreviewGenerator)
+
+    Q_PRIVATE_SLOT(d, void pauseIconUpdates())
 };
 
 #endif
