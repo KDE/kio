@@ -48,8 +48,8 @@ private:
 
 Q_SIGNALS:
     void disconnected();
-    // TODO KF6: fix clazy wanring by using fully-qualified signal argument
-    void commandReceived(const Task &task);
+    // TODO KF6: fix clazy warning by using fully-qualified signal argument
+    void commandReceived(const Task &task); // clazy:exclude=fully-qualified-moc-types
     void newConnection();
 
 public:

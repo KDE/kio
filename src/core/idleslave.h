@@ -47,7 +47,7 @@ public:
 
 Q_SIGNALS:
     // TODO KF6: fix clazy wanring by using fully-qualified signal argument
-    void statusUpdate(IdleSlave *);
+    void statusUpdate(IdleSlave *); // clazy:exclude=fully-qualified-moc-types
 
 private Q_SLOTS:
     void gotInput();

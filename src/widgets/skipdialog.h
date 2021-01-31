@@ -42,7 +42,7 @@ Q_SIGNALS:
      * @deprecated since 5.79, Use QDialog::finished(int result)
      */
     KIOWIDGETS_DEPRECATED_VERSION(5, 79, "Use QDialog::finished(int result)")
-    void result(SkipDialog *_this, int _button);
+    void result(SkipDialog *_this, int _button); // clazy:exclude=fully-qualified-moc-types
 #endif
 
 private:
