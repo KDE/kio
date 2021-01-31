@@ -54,7 +54,9 @@ public:
     {
         spyStarted.clear();
         spyClear.clear();
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
         spyClearQUrl.clear();
+#endif
         spyCompleted.clear();
         spyCompletedQUrl.clear();
         spyCanceled.clear();
@@ -65,7 +67,9 @@ public:
 
     QSignalSpy spyStarted;
     QSignalSpy spyClear;
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
     QSignalSpy spyClearQUrl;
+#endif
     QSignalSpy spyClearDir;
     QSignalSpy spyCompleted;
     QSignalSpy spyCompletedQUrl;
