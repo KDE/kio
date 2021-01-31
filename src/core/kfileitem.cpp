@@ -1182,6 +1182,7 @@ bool KFileItem::isWritable() const
 
     // Or if we can't write it - not network transparent
     if (d->m_bIsLocalUrl) {
+        // file protocol has supportsPrivilegeExecution so any local file is potentially writable
         return true;
     } else {
         return KProtocolManager::supportsWriting(d->m_url);
