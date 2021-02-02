@@ -1578,8 +1578,8 @@ void CopyJobPrivate::slotResultErrorCopyingFiles(KJob *job)
             QObject::connect(askUserActionInterface, &KIO::AskUserActionInterface::askUserSkipResult,
                              q, [=](SkipDialog_Result result, KJob *parentJob) {
                 Q_ASSERT(parentJob == q);
-                // Only receive askUserRenameResult once per rename dialog
-                QObject::disconnect(askUserActionInterface, &KIO::AskUserActionInterface::askUserRenameResult,
+                // Only receive askUserSkipResult once per skip dialog
+                QObject::disconnect(askUserActionInterface, &KIO::AskUserActionInterface::askUserSkipResult,
                                     q, nullptr);
                 processFileRenameDialogResult(it, result, QUrl() /* no new url in skip */, QDateTime{});
             });
