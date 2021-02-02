@@ -1245,12 +1245,11 @@ void CopyJobPrivate::slotResultConflictCreatingDirs(KJob *job)
 
     auto *askUserActionInterface = KIO::delegateExtension<KIO::AskUserActionInterface *>(q);
 
-    QObject::connect(askUserActionInterface, &KIO::AskUserActionInterface::askUserRenameResult,
-                     q, [=](RenameDialog_Result result, const QUrl &newUrl, KJob *parentJob) {
+    auto renameSignal = &KIO::AskUserActionInterface::askUserRenameResult;
+    QObject::connect(askUserActionInterface, renameSignal, q, [=](RenameDialog_Result result, const QUrl &newUrl, KJob *parentJob) {
         Q_ASSERT(parentJob == q);
         // Only receive askUserRenameResult once per rename dialog
-        QObject::disconnect(askUserActionInterface, &KIO::AskUserActionInterface::askUserRenameResult,
-                            q, nullptr);
+        QObject::disconnect(askUserActionInterface, renameSignal, q, nullptr);
 
         if (m_reportTimer) {
             m_reportTimer->start(REPORT_TIMEOUT);
@@ -1265,14 +1264,14 @@ void CopyJobPrivate::slotResultConflictCreatingDirs(KJob *job)
             return;
         case Result_AutoRename:
             m_bAutoRenameDirs = true;
-        // fall through
+            // fall through
             Q_FALLTHROUGH();
         case Result_Rename:
             renameDirectory(it, newUrl);
             break;
         case Result_AutoSkip:
             m_bAutoSkipDirs = true;
-        // fall through
+            // fall through
             Q_FALLTHROUGH();
         case Result_Skip:
             m_skipList.append(existingDest);
@@ -1547,12 +1546,12 @@ void CopyJobPrivate::slotResultErrorCopyingFiles(KJob *job)
             }
 
             const QString caption = !isDir ? i18n("File Already Exists") : i18n("Already Exists as Folder");
-            QObject::connect(askUserActionInterface, &KIO::AskUserActionInterface::askUserRenameResult,
-                             q, [=](RenameDialog_Result result, const QUrl &newUrl, KJob *parentJob) {
+
+            auto renameSignal = &KIO::AskUserActionInterface::askUserRenameResult;
+            QObject::connect(askUserActionInterface, renameSignal, q, [=](RenameDialog_Result result, const QUrl &newUrl, KJob *parentJob) {
                 Q_ASSERT(parentJob == q);
                 // Only receive askUserRenameResult once per rename dialog
-                QObject::disconnect(askUserActionInterface, &KIO::AskUserActionInterface::askUserRenameResult,
-                                    q, nullptr);
+                QObject::disconnect(askUserActionInterface, renameSignal, q, nullptr);
                 processFileRenameDialogResult(it, result, newUrl, destmtime);
             });
 
@@ -1575,12 +1574,11 @@ void CopyJobPrivate::slotResultErrorCopyingFiles(KJob *job)
                 options |= SkipDialog_MultipleItems;
             }
 
-            QObject::connect(askUserActionInterface, &KIO::AskUserActionInterface::askUserSkipResult,
-                             q, [=](SkipDialog_Result result, KJob *parentJob) {
+            auto skipSignal = &KIO::AskUserActionInterface::askUserSkipResult;
+            QObject::connect(askUserActionInterface, skipSignal, q, [=](SkipDialog_Result result, KJob *parentJob) {
                 Q_ASSERT(parentJob == q);
                 // Only receive askUserSkipResult once per skip dialog
-                QObject::disconnect(askUserActionInterface, &KIO::AskUserActionInterface::askUserSkipResult,
-                                    q, nullptr);
+                QObject::disconnect(askUserActionInterface, skipSignal, q, nullptr);
                 processFileRenameDialogResult(it, result, QUrl() /* no new url in skip */, QDateTime{});
             });
 
@@ -2130,12 +2128,11 @@ void CopyJobPrivate::slotResultRenaming(KJob *job)
                     processDirectRenamingConflictResult(r, isDir, destIsDir, mtimeSrc, mtimeDest, dest, QUrl{});
                     return;
                 } else {
-                    QObject::connect(askUserActionInterface, &KIO::AskUserActionInterface::askUserRenameResult,
-                                     q, [=](RenameDialog_Result result, const QUrl &newUrl, KJob *parentJob) {
+                    auto renameSignal = &KIO::AskUserActionInterface::askUserRenameResult;
+                    QObject::connect(askUserActionInterface, renameSignal, q, [=](RenameDialog_Result result, const QUrl &newUrl, KJob *parentJob) {
                         Q_ASSERT(parentJob == q);
                         // Only receive askUserRenameResult once per rename dialog
-                        QObject::disconnect(askUserActionInterface, &KIO::AskUserActionInterface::askUserRenameResult,
-                                            q, nullptr);
+                        QObject::disconnect(askUserActionInterface, renameSignal, q, nullptr);
 
                         processDirectRenamingConflictResult(result, isDir, destIsDir, mtimeSrc, mtimeDest, dest, newUrl);
                     });
