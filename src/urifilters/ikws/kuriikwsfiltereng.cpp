@@ -22,7 +22,7 @@
 #include <QLoggingCategory>
 
 namespace {
-QLoggingCategory category("kf.kio.urifilters.ikws", QtWarningMsg);
+Q_LOGGING_CATEGORY(category, "kf.kio.urifilters.ikws", QtWarningMsg)
 }
 
 #define PDVAR(n, v) qCDebug(category) << n << " = '" << v << "'"

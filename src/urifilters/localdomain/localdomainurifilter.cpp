@@ -20,7 +20,7 @@
 #define QL1S(x)   QLatin1String(x)
 
 namespace {
-QLoggingCategory category("kf.kio.urifilters.localdomain", QtWarningMsg);
+Q_LOGGING_CATEGORY(category, "kf.kio.urifilters.localdomain", QtWarningMsg)
 }
 
 /**

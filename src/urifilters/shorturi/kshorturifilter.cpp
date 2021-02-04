@@ -27,7 +27,7 @@
 #include <KUser>
 
 namespace {
-QLoggingCategory category("kf.kio.urifilters.shorturi", QtWarningMsg);
+Q_LOGGING_CATEGORY(category, "kf.kio.urifilters.shorturi", QtWarningMsg)
 }
 
 /**
