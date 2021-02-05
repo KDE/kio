@@ -36,7 +36,7 @@
 #include <qt_windows.h>
 #endif
 
-Q_LOGGING_CATEGORY(category, "kf.kio.widgets.kdirmodel", QtInfoMsg);
+Q_LOGGING_CATEGORY(category, "kf.kio.widgets.kdirmodel", QtInfoMsg)
 
 class KDirModelNode;
 class KDirModelDirNode;
