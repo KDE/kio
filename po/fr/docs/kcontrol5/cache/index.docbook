@@ -1,0 +1,75 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % French "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="cache" lang="&language;">
+<title
+>Cache</title>
+<articleinfo>
+
+<authorgroup>
+<author
+><firstname
+>Lauri</firstname
+><surname
+>Watts</surname
+></author>
+
+&traducteurLudovicGrossard; 
+</authorgroup>
+
+<date
+>10-11-2016</date>
+<releaseinfo
+>Environnements de développement 5.29</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Configuration du système</keyword>
+<keyword
+>Konqueror</keyword>
+<keyword
+>Cache</keyword>
+</keywordset>
+</articleinfo>
+
+<para
+>Ce module vous permet de contrôler la taille du dossier de cache local utilisé par &konqueror;. Veuillez noter que chaque compte utilisateur sur votre ordinateur possède un dossier de cache séparé. Ce dossier n'est pas partagé avec les autres navigateurs comme &firefox;.</para>
+
+<para
+>L'enregistrement local de copies de pages Web que vous avez visitées vous permet de recharger rapidement leur contenu lors de visites ultérieures. Il est seulement nécessaire de recharger le contenu du site original s'il a changé depuis votre dernière visite, ou si vous cliquez sur le bouton recharger de &konqueror;.</para>
+
+<para
+>Si vous ne voulez vraiment pas avoir de pages Web visitées enregistrées sur votre ordinateur, vous pouvez désactiver le cache disque de &konqueror; en décochant la case libellée <guilabel
+>Utiliser un cache</guilabel
+>.</para>
+
+<para
+>Vous pouvez régler ici avec quelle agressivité &konqueror; conserve le cache à jour. <guilabel
+>Assurer la synchronisation du cache</guilabel
+> signifie que &konqueror; cherchera dans le cache tous les objets, les téléchargeant s'ils n'y sont pas, puis affichera l'élément du cache. <guilabel
+>Utiliser le cache si possible</guilabel
+> signifie que &konqueror; essayera le cache et si un objet n'y est plus, il le téléchargera directement pour l'affichage. <guilabel
+>Navigation hors ligne</guilabel
+> signifie que &konqueror; essayera le cache et si l'objet n'y est pas, il ne tentera pas de le télécharger sur l'Internet.</para>
+
+<para
+>Vous pouvez contrôler la taille du cache en saisissant un nombre dans le champs de saisie textuel libellé <guilabel
+>Taille du cache disque</guilabel
+>. C'est la quantité moyenne en kilo-octets que le dossier de cache est autorisé à utiliser. Quand le cache devient trop grand, &konqueror; supprimera les fichiers les plus anciens pour réduire sa taille.</para>
+
+<para
+>Cependant c'est seulement une moyenne et pendant une session, le cache peut devenir nettement plus grand.</para>
+
+<para
+>Vous pouvez utiliser le bouton <guibutton
+>Vider le cache</guibutton
+> pour tout effacer à n'importe quel moment.</para>
+
+</article>
