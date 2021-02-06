@@ -13,6 +13,7 @@
 #define KIO_JOB_P_H
 
 #include "simplejob.h"
+#include "slave.h"
 #include "transferjob.h"
 #include "commands_p.h"
 #include <KJobTrackerInterface>
@@ -28,7 +29,6 @@
 
 namespace KIO
 {
-class Slave;
 
 // Exported for KIOWidgets jobs
 class KIOCORE_EXPORT JobPrivate
@@ -110,7 +110,7 @@ public:
     {
     }
 
-    Slave *m_slave;
+    QPointer<Slave> m_slave;
     QByteArray m_packedArgs;
     QUrl m_url;
     QUrl m_subUrl;
