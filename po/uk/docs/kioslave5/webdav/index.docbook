@@ -1,0 +1,97 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Ukrainian "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="webdav">
+<title
+>webdav / webdavs</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Hamish.Rodda; &Hamish.Rodda.mail;</author>
+<othercredit role="translator"
+><firstname
+>Юрій</firstname
+><surname
+>Чорноіван</surname
+><affiliation
+><address
+><email
+>yurchor@ukr.net</email
+></address
+></affiliation
+><contrib
+>Переклад українською</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>21 січня 2002 року</date>
+</articleinfo>
+<para
+><acronym
+>WebDAV</acronym
+> — це скорочення від <emphasis
+>D</emphasis
+>istributed <emphasis
+> A</emphasis
+>uthoring and <emphasis
+>V</emphasis
+>ersioning protocol for the World Wide Web (розподілений протокол для створення і контролю за версіями для всесвітньої мережі). Цей протокол полегшує керування документами і скриптами на сервері <ulink url="help:/kioslave/webdav.html"
+>&HTTP;</ulink
+> і містить додаткові можливості для спрощення керування версіями для об’єктів з декількома авторами.</para>
+
+<para
+>Користуватися цим протоколом просто. Введіть адресу, яку ви бажаєте переглянути, схожу на адресу &HTTP;, але з назвою протоколу webdav:// на початку. Прикладом є адреса <userinput
+>webdav://<replaceable
+>www.назва_вузла.com/шлях/</replaceable
+></userinput
+>. Якщо ви вказали назву теки, буде показано список файлів і тек, ви зможете працювати з цими файлами і теками точно так само, як ви це робите на будь-якій іншій файловій системі.</para>
+
+<variablelist>
+<title
+>Можливості WebDAV</title>
+<varlistentry>
+<term
+>Блокування</term>
+<listitem>
+<para
+>Блокування файлів надає користувачеві змогу заблокувати файл, таким чином повідомляючи інших, що в даний момент він працює з цим файлом. Таким чином, можна здійснювати редагування, не переймаючись тим, що інший користувач, який також редагує цей файл, перезапише ваші зміни.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+>Доступ до вихідного файла</term>
+<listitem>
+<para
+><acronym
+>WebDAV</acronym
+> надає доступ до скрипту, який викликається для створення певної сторінки, отже, ви зможете змінювати сам скрипт, а не результати його роботи.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+>Підтримка властивостей окремих документів</term>
+<listitem>
+<para
+>Для ідентифікації документа можна встановлювати довільні властивості, наприклад вказувати автора.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>Щоб скористатися цими додатковими можливостями, вам потрібна програма, що їх підтримує. Але зараз не існує програми, яка б підтримувала такі можливості за допомогою цього kioslave.</para>
+
+<para
+><acronym
+>WebDAVS</acronym
+> — це протокол <acronym
+>WebDAV</acronym
+> зашифрований за допомогою SSL.</para>
+
+</article>

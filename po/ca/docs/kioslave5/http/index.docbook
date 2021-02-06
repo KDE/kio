@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Catalan  "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="http">
+<title
+>http / https</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Lauri.Watts; &Lauri.Watts.mail;</author>
+&traductor.Antoni.Bella; 
+</authorgroup>
+</articleinfo>
+
+<para
+>&HTTP; és el <emphasis
+>H</emphasis
+>yper<emphasis
+>T</emphasis
+>ext <emphasis
+>T</emphasis
+>ransfer <emphasis
+>P</emphasis
+>rotocol.</para>
+
+<para
+>El kioslave http és utilitzat per totes les aplicacions &kde; per a gestionar les connexions a servidors &HTTP;, és a dir, a servidors web. L'ús més comú és visualitzar pàgines web en el navegador web &konqueror;.</para>
+
+<para
+>Podeu utilitzar el kioslave https en el &konqueror; introduint un &URL;. <userinput
+>https://<replaceable
+>www.kde.org</replaceable
+></userinput
+>.</para>
+
+<para
+>https és http encapsulat en un flux SSL/TLS.</para>
+<para
+>SSL és el protocol «Secure Sockets Layer» (Capa de Connexió Segura), un protocol de seguretat que proporciona privadesa de comunicacions a Internet. El protocol permet que les aplicacions client/servidor es comuniquin d'una forma que està dissenyada per a prevenir l'escolta, l'alteració i la falsificació de missatges. </para>
+<para
+>TLS són les inicials de «Transport Layer Security» (Seguretat de la Capa de Transport).</para>
+
+</article>

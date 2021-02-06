@@ -1,0 +1,83 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Ukrainian "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="data">
+<title
+>Адреси даних</title>
+
+<articleinfo>
+<authorgroup>
+<author
+><personname
+><firstname
+>Leo</firstname
+><surname
+>Savernik</surname
+></personname
+> <address
+><email
+>l.savernik@aon.at</email
+></address
+> </author>
+<othercredit role="translator"
+><firstname
+>Юрій</firstname
+><surname
+>Чорноіван</surname
+><affiliation
+><address
+><email
+>yurchor@ukr.net</email
+></address
+></affiliation
+><contrib
+>Переклад українською</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>6 березня 2003 року</date>
+<!--releaseinfo
+>2.20.00</releaseinfo-->
+
+</articleinfo>
+
+<para
+>URL з даними надають змогу включати невеличкі документи з даними до самого URL. Це буває корисно у дуже маленьких &HTML; для перевірки або інших випадках, коли створювати окремий документ недоцільно.</para>
+
+<para
+><userinput
+>data:,foobar</userinput
+> (зверніть увагу на кому після двокрапки) дасть нам текстовий документ, який міститиме лише текст <literal
+>foobar</literal
+>. </para>
+
+<para
+>У останньому прикладі було отримано текстовий документ. Щоб створити  документ &HTML;, слід вказати тип &MIME; <literal
+>text/html</literal
+>: <userinput
+>data:text/html,&lt;title&gt;Testcase&lt;/title&gt;&lt;p&gt;Тест&lt;/p&gt;</userinput
+>. Введення такого коду дасть точно той же результат, якого вдалося б досягти, якщо б вміст було завантажено напряму з самого документа. </para>
+
+<para
+>Крім того, можна вказати і інший набір символів (кодування) для документа. Зверніть увагу, що 8-бітові символи слід екранувати символом відсотків, після якого слід вказати двоцифровий шістнадцятковий код відповідного символу: <userinput
+>data:;charset=iso-8859-1,Gr%FC%DFe aus Schl%E4gl</userinput
+> дасть нам <literal
+>Gr&uuml;&szlig;e aus Schl&auml;gl</literal
+>, якщо ж пропустити атрибут набору символів, може вийти щось на зразок <literal
+>Gr??e aus Schl?gl</literal
+> </para>
+
+<para
+>Докладнішу інформацію можна знайти у <ulink url="https://www.ietf.org/rfc/rfc2397.txt"
+>IETF RFC2397</ulink
+>.</para>
+
+</article>
+

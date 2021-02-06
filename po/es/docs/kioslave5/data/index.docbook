@@ -1,0 +1,97 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Spanish "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="data">
+<title
+>&URL; de datos</title>
+
+<articleinfo>
+<authorgroup>
+<author
+><personname
+><firstname
+>Leo</firstname
+><surname
+>Savernik</surname
+></personname
+> <address
+><email
+>l.savernik@aon.at</email
+></address
+> </author>
+<othercredit role="translator"
+> <firstname
+>Marcos</firstname
+> <surname
+>Fouces Lago</surname
+> <affiliation
+><address
+><email
+>mfouces@yahoo.es</email
+></address
+></affiliation
+> <contrib
+>Traductor</contrib
+> </othercredit
+> <othercredit role="translator"
+> <firstname
+>Javier</firstname
+> <surname
+>Viñal</surname
+> <affiliation
+><address
+><email
+>fjvinal@gmail.com</email
+> </address
+></affiliation
+> <contrib
+>Traductor</contrib
+> </othercredit
+> 
+</authorgroup>
+
+<date
+>2003-02-06</date>
+<!--releaseinfo
+>2.20.00</releaseinfo-->
+
+</articleinfo>
+
+<para
+>Las URL de datos permiten incluir datos en la propia &URL;. Es útil para hacer sencillas pruebas con &HTML; para algún caso que no justifique la creación de un documento específico.</para>
+
+<para
+><userinput
+>data:,foobar</userinput
+> (observe la coma después de los dos puntos) enviará un documento de texto formado únicamente de la palabra <literal
+>foobar</literal
+>. </para>
+
+<para
+>Si lo que queremos es enviar un documento &HTML; (el ejemplo anterior era un simple documento de texto), será necesario especificar el tipo &MIME; <literal
+>text/html</literal
+>: «<userinput
+>data:text/html&lt;title&gt;prueba&lt;/title&gt;&lt;p&gt;Esto es una prueba&lt;/p&gt;</userinput
+>». Ocurrirá lo mismo que si se hubiese cargado el contenido desde un documento. </para>
+
+<para
+>También es posible especificar juegos de caracteres alternativos, pero recuerde que con los caracteres de 8 bits deben utilizar un símbolo de tanto por ciento y su código hexadecimal de dos dígitos: «<userinput
+>data:;charset=iso-8859-1,Gr%FC%DFe aus Schl%E4gl</userinput
+>», lo que dará como resultado «<literal
+>Gr&uuml;&szlig;e aus Schl&auml;gl</literal
+>», mientras que si no indica el juego de caracteres sería algo similar a «<literal
+>Gr??e aus Schl?gl</literal
+>». </para>
+
+<para
+><ulink url="https://www.ietf.org/rfc/rfc2397.txt"
+>IETF RFC2397</ulink
+> proporciona más información.</para>
+
+</article>
+

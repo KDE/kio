@@ -1,0 +1,89 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Serbian-Latin "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="webdav">
+<title
+>WebDAV i WebDAVs</title>
+<articleinfo>
+<authorgroup>
+<author
+><personname
+><firstname
+>Hamiš</firstname
+> <surname
+>Roda</surname
+></personname
+> &Hamish.Rodda.mail;</author>
+<othercredit role="translator"
+><firstname
+>Dragan</firstname
+><surname
+>Pantelić</surname
+><affiliation
+><address
+><email
+>falcon-10@gmx.de</email
+></address
+></affiliation
+><contrib
+>prevod</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>21. 1. 2002.</date>
+</articleinfo>
+<para
+>WebDAV je protokol za distribuiranu izradu i verzionisanje na Webu. Omogućava lako upravljanje dokumentima i skriptama na HTTP serveru, uz dodatne mogućnosti projektovane da pojednostave upravljanje verzijama između više autora.</para>
+
+<para
+>Korišćenje ovog protokola je prosto. Unesite lokaciju koju želite da pogledate, slično HTTP URL‑u osim što je početni deo, protokol, sada <literal
+>webdav://</literal
+>; npr. <userinput
+>webdav://<replaceable
+>www.imedomacina.com/putanja/</replaceable
+></userinput
+>. Ako zadate ime fascikle, dobićete spisak fajlova i fascikli kojima možete manipulisati kao u bilo kojem drugom fajl sistemu.</para>
+
+<variablelist>
+<title
+>Mogućnosti WebDAV‑a</title>
+<varlistentry>
+<term
+>Zaključavanje</term>
+<listitem>
+<para
+>Zaključavanje fajlova omogućava korisniku da zaključa fajl, informišući druge da trenutno radi na fajlu. Na taj način se fajl može uređivati bez bojazni da bi druga osoba, koja obrađuje isti dokument, mogla prebrisati izmene.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+>Pristup izvornom fajlu</term>
+<listitem>
+<para
+>WebDAV dozvoljava pristup skripti koja se poziva radi stvaranja određene stranice, kako bi se izmene mogle uneti u samu skriptu.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+>Podrška svojstava po dokumentu</term>
+<listitem>
+<para
+>Kao pomoć u identifikaciji dokumenata, mogu im se dodati proizvoljna svojstva (npr. ko je autor).</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>Da biste iskoristili ove dodatne sposobnosti, trebaće vam program koji ih podržava. Trenutno ih kroz ovaj U/I zahvat ne podržava nijedan.</para>
+
+<para
+>WebDAVs je protokol WebDAV šifrovan SSL‑om.</para>
+
+</article>

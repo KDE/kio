@@ -1,0 +1,63 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Italian "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="ftp">
+<title
+>&FTP;</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Lauri.Watts; &Lauri.Watts.mail;</author>
+<othercredit role="translator"
+><firstname
+>Luciano</firstname
+> <surname
+>Montanaro</surname
+> <affiliation
+><address
+><email
+>mikelima@cirulla.net</email
+></address
+></affiliation
+> <contrib
+>Traduzione del documento</contrib
+></othercredit
+> 
+</authorgroup>
+</articleinfo>
+
+<para
+>&FTP; è il servizio Internet usato per trasferire file di dati dal disco di un computer al disco di un altro in modo indipendente dal tipo di sistema operativo. </para>
+
+<para
+>Analogamente ad altre applicazioni Internet, &FTP; usa la metodologia client-sever &mdash; l'utente invoca un programma &FTP; su un computer, istruendolo a contattare un computer remoto, e poi richiede il trasferimento di uno o più file. Il programma &FTP; locale diventa un client che usa il protocollo <acronym
+>TCP</acronym
+> per contattare un server &FTP; sul computer remoto. Ogni volta che un utente richiede il trasferimento di un file, i programmi client e server cooperano per l'invio dei dati sulla rete.</para>
+
+<para
+>I server che permettono l'<quote
+>&FTP; anonimo</quote
+> permettono a chiunque, non solo agli utenti con un account sull'host, di fare ricerche negli archivi <quote
+>ftp</quote
+> e di scaricare file. Alcuni server &FTP; permettono anche agli utenti di inviare file.</para>
+
+<para
+>&FTP; è usato di solito per ottenere informazioni e programmi da siti di archiviazione &FTP; sparsi in tutto il mondo. </para>
+
+
+<para
+>Fonte: parafrasato da <ulink url="http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/ftpdef.htm"
+> http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/ftpdef.htm</ulink
+> </para>
+
+<para
+>Vedi anche il manuale: <ulink url="man:/ftp"
+>ftp</ulink
+>.</para>
+
+</article>
