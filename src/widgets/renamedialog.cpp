@@ -395,7 +395,7 @@ RenameDialog::RenameDialog(QWidget *parent, const QString &_caption,
 
         if (d->srcItem.size() != d->destItem.size()) {
             QString text;
-            int diff = 0;
+            KIO::filesize_t diff = 0;
             if (d->srcItem.size() > d->destItem.size()) {
                 diff = d->srcItem.size()  - d->destItem.size();
                 text = i18n("The destination is <b>smaller by %1</b>", KIO::convertSize(diff));
