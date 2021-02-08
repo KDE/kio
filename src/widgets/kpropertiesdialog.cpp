@@ -1040,6 +1040,7 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
         boxLayout->setContentsMargins(0, 0, 0, 0);
 
         l = new QLabel(mimeComment, box);
+        l->setToolTip(d->mimeType);
         l->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::TextSelectableByKeyboard);
         grid->addWidget(box, curRow++, 2);
 
