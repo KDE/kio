@@ -116,6 +116,9 @@ static QString actionDetails(ActionType actionType, const QVariantList &args)
     case UTIME:
         action = i18n("Change Timestamp");
         break;
+    case COPY:
+        action = i18n("Copy");
+        detail = i18n("From: %1, To: %1", args[0].toString(), args[1].toString());
     default:
         action = i18n("Unknown Action");
         break;
@@ -695,6 +698,21 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mode, JobF
         return;
     }
 
+    goto notAuth;
+
+auth: {
+    auto err = execWithElevatedPrivilege(COPY, {srcUrl, destUrl}, errno);
+    if (err) {
+        if (!err.wasCanceled()) {
+            error(KIO::ERR_UNKNOWN, QStringLiteral(""));
+        }
+    } else {
+        finished();
+    }
+    return;
+}
+notAuth:
+
     qCDebug(KIO_FILE) << "copy()" << srcUrl << "to" << destUrl << "mode=" << _mode;
 
     const QString src = srcUrl.toLocalFile();
@@ -766,6 +784,9 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mode, JobF
     QFile src_file(src);
     if (!src_file.open(QIODevice::ReadOnly)) {
         if (auto err = tryOpen(src_file, _src, O_RDONLY, S_IRUSR, errno)) {
+            if (err == EACCES) {
+                goto auth;
+            }
             if (!err.wasCanceled()) {
                 error(KIO::ERR_CANNOT_OPEN_FOR_READING, src);
             }
@@ -779,18 +800,7 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mode, JobF
 
     QFile dest_file(dest);
     if (!dest_file.open(QIODevice::Truncate | QIODevice::WriteOnly)) {
-        if (auto err = tryOpen(dest_file, _dest, O_WRONLY | O_TRUNC | O_CREAT, S_IRUSR | S_IWUSR, errno)) {
-            if (!err.wasCanceled()) {
-                // qDebug() << "###### COULD NOT WRITE " << dest;
-                if (err == EACCES) {
-                    error(KIO::ERR_WRITE_ACCESS_DENIED, dest);
-                } else {
-                    error(KIO::ERR_CANNOT_OPEN_FOR_WRITING, dest);
-                }
-            }
-            src_file.close();
-            return;
-        }
+        goto auth;
     }
 
     // nobody shall be allowed to peek into the file during creation
@@ -1517,6 +1527,7 @@ PrivilegeOperationReturnValue FileProtocol::execWithElevatedPrivilege(ActionType
         case ActionType::RMDIR:   return i18n("Authentication is required to delete this folder.");
         case ActionType::SYMLINK: return i18n("Authentication is required to create a symlink.");
         case ActionType::UTIME:   return i18n("Authentication is required to modify this file's last updated time.");
+        case ActionType::COPY:    return i18n("Authentication is required to copy this item.");
         case ActionType::UNKNOWN: return i18n("Authentication is required to perform this action.");
         }
         Q_UNREACHABLE();

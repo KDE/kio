@@ -19,6 +19,9 @@
 #include "../file_p.h"
 #include "fdsender.h"
 
+#include <QUrl>
+#include <QFileInfo>
+
 #ifndef O_PATH
 #define O_PATH O_RDONLY
 #endif
@@ -31,28 +34,18 @@ struct Privilege {
 static ActionType intToActionType(int action)
 {
     switch (action) {
-    case 1:
-        return CHMOD;
-    case 2:
-        return CHOWN;
-    case 3:
-        return DEL;
-    case 4:
-        return MKDIR;
-    case 5:
-        return OPEN;
-    case 6:
-        return OPENDIR;
-    case 7:
-        return RENAME;
-    case 8:
-        return RMDIR;
-    case 9:
-        return SYMLINK;
-    case 10:
-        return UTIME;
-    default:
-        return UNKNOWN;
+        case 1: return CHMOD;
+        case 2: return CHOWN;
+        case 3: return DEL;
+        case 4: return MKDIR;
+        case 5: return OPEN;
+        case 6: return OPENDIR;
+        case 7: return RENAME;
+        case 8: return RMDIR;
+        case 9: return SYMLINK;
+        case 10: return UTIME;
+        case 11: return COPY;
+        default: return UNKNOWN;
     }
 }
 
@@ -237,9 +230,60 @@ ActionReply FileHelper::exec(const QVariantMap &args)
             break;
         }
 
-        default:
-            reply.setError(ENOTSUP);
-            break;
+            case COPY: {
+                const auto src = arg1.toUrl();
+                const auto dest = arg2.toUrl();
+
+                QFileInfo srcFI(src.toLocalFile());
+                QFileInfo destFI(dest.toLocalFile());
+
+                if (!srcFI.exists()) {
+                    reply.setError(ENOENT);
+                    return reply;
+                }
+
+                if (!destFI.exists()) {
+                    if (dest.toLocalFile().endsWith(QStringLiteral("/"))) {
+                        reply.setError(ENOENT);
+                        return reply;
+                    } else {
+                        if (!QFile::copy(srcFI.absoluteFilePath(), dest.toLocalFile())) {
+                            reply.setError(EIO);
+                            return reply;
+                        }
+                    }
+                } else {
+                    if (srcFI.isFile() && destFI.isDir()) {
+                        if (!QFile::copy(srcFI.absoluteFilePath(), destFI.absoluteFilePath())) {
+                            reply.setError(EIO);
+                            return reply;
+                        }
+                    } else if (srcFI.isFile() && destFI.isFile()) {
+                        if (!QFile::remove(destFI.absoluteFilePath())) {
+                            reply.setError(EIO);
+                            return reply;
+                        }
+                        if (!QFile::copy(srcFI.absoluteFilePath(), destFI.absoluteFilePath())) {
+                            reply.setError(EIO);
+                            return reply;
+                        }
+                    } else if (srcFI.isDir() && destFI.isFile()) {
+                        reply.setError(EINVAL);
+                        return reply;
+                    } else if (srcFI.isDir() && destFI.isDir()) {
+                        if (!QFile::copy(srcFI.absoluteFilePath(), destFI.absoluteFilePath())) {
+                            reply.setError(EIO);
+                            return reply;
+                        }
+                    } else {
+                        Q_UNREACHABLE();
+                    }
+                }
+            }
+
+            default:
+                reply.setError(ENOTSUP);
+                break;
         }
         gainPrivilege(origPrivilege);
     } else {
