@@ -169,7 +169,7 @@ Q_SIGNALS:
      * @deprecated Since 5.78, use mimeTypeFound(KIO::Job *, const QString &)
      */
     KIOCORE_DEPRECATED_VERSION(5, 78, "Use KIO::TransferJob::mimeTypeFound(KIO::Job *, const QString &)")
-    void mimetype(KIO::Job *job, const QString &mimeType);
+    void mimetype(KIO::Job *job, const QString &mimeType); // clazy:exclude=overloaded-signal
 #endif
 
     /**

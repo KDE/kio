@@ -153,10 +153,10 @@ public:
     /**
      * @return true if undo is possible. Usually used for enabling/disabling the undo action.
      *
-     * @deprecated since 5.79, use isUndoAvailable()
+     * @deprecated since 5.79, use KIO::FileUndoManager::isUndoAvailable()
      */
-    KIOWIDGETS_DEPRECATED_VERSION(5, 79, "Use isUndoAvailable()")
-    bool undoAvailable() const;
+    KIOWIDGETS_DEPRECATED_VERSION(5, 79, "Use KIO::FileUndoManager::isUndoAvailable()")
+    bool undoAvailable() const; // clazy:exclude=overloaded-signal
 #endif
 
     /**
@@ -193,7 +193,7 @@ public Q_SLOTS:
 
 Q_SIGNALS:
     /// Emitted when the value of isUndoAvailable() changes
-    void undoAvailable(bool avail);
+    void undoAvailable(bool avail); // clazy:exclude=overloaded-signal
 
     /// Emitted when the value of undoText() changes
     void undoTextChanged(const QString &text);

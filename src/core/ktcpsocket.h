@@ -17,6 +17,9 @@
 #include <QSslConfiguration>
 #include <QSslSocket>
 
+// All classes here are deprecated, no need for clazy to bother
+// clazy:excludeall=overloaded-signal,fully-qualified-moc-types
+
 /*
   Notes on QCA::TLS compatibility
   In order to check for all validation problems as far as possible we need to use:

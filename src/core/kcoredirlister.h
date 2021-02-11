@@ -443,7 +443,7 @@ Q_SIGNALS:
     /**
      * Tell the view that listing is finished. There are no jobs running anymore.
      */
-    void completed();
+    void completed(); // clazy:exclude=overloaded-signal
 
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 79)
     /**
@@ -455,7 +455,7 @@ Q_SIGNALS:
      * @deprecated since 5.79, use KCoreDirLister::listingDirCompleted(const QUrl &)
      */
     KIOCORE_DEPRECATED_VERSION(5, 79, "Use KCoreDirLister::listingDirCompleted(const QUrl &)")
-    void completed(const QUrl &dirUrl);
+    void completed(const QUrl &dirUrl); // clazy:exclude=overloaded-signal
 #endif
 
     /**
@@ -471,7 +471,7 @@ Q_SIGNALS:
     /**
      * Tell the view that the user canceled the listing. No running jobs are left.
      */
-    void canceled();
+    void canceled(); // clazy:exclude=overloaded-signal
 
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 79)
     /**
@@ -483,7 +483,7 @@ Q_SIGNALS:
      * @deprecated since 5.79, use KCoreDirLister::listingDirCanceled(const QUrl &)
      */
     KIOCORE_DEPRECATED_VERSION(5, 79, "use KCoreDirLister::listingDirCanceled(const QUrl &)")
-    void canceled(const QUrl &dirUrl);
+    void canceled(const QUrl &dirUrl); // clazy:exclude=overloaded-signal
 #endif
 
     /**
@@ -522,7 +522,7 @@ Q_SIGNALS:
      * Signals to the view to remove all items (when e.g. going from dirA to dirB).
      * Make sure to connect to this signal to avoid having duplicate items in the view.
      */
-    void clear();
+    void clear(); // clazy:exclude=overloaded-signal
 
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 79)
     /**
@@ -535,7 +535,7 @@ Q_SIGNALS:
      * @deprecated since 5.79, use clearDir(const QUrl &)
      */
     KIOCORE_DEPRECATED_VERSION(5, 79, "Use clearDir(const QUrl &)")
-    void clear(const QUrl &dirUrl);
+    void clear(const QUrl &dirUrl); // clazy:exclude=overloaded-signal
 #endif
 
     /**

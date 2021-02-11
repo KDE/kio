@@ -133,7 +133,7 @@ Q_SIGNALS:
      * @deprecated Since 5.78, use mimeTypeFound(KIO::Job *, const QString &)
      */
     KIOCORE_DEPRECATED_VERSION(5, 78, "Use KIO::TransferJob::mimeTypeFound(KIO::Job *, const QString &)")
-    void mimetype(KIO::Job *job, const QString &mimeType);
+    void mimetype(KIO::Job *job, const QString &mimeType); // clazy:exclude=overloaded-signal
 #endif
 
     /**
@@ -167,7 +167,7 @@ Q_SIGNALS:
      * @deprecated since 5.79, use KIO::FileJob::fileClosed(KIO::Job *)
      */
     KIOCORE_DEPRECATED_VERSION(5, 79, "Use KIO::FileJob::fileClosed(KIO::Job *)")
-    void close(KIO::Job *job);
+    void close(KIO::Job *job); // clazy:exclude=overloaded-signal
 #endif
 
     /**

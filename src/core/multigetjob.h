@@ -50,7 +50,7 @@ Q_SIGNALS:
      * @deprecated since 5.79, use KIO::MultiGetJob::dataReceived(long, const QByteArray &)
      */
     KIOCORE_DEPRECATED_VERSION(5, 79, "Use KIO::MultiGetJob::dataReceived(long, const QByteArray &)")
-    void data(long id, const QByteArray &data);
+    void data(long id, const QByteArray &data); // clazy:exclude=overloaded-signal
 #endif
 
     /**
@@ -72,7 +72,7 @@ Q_SIGNALS:
      * @deprecated Since 5.78, use mimeTypeFound(KIO::Job *, const QString &)
      */
     KIOCORE_DEPRECATED_VERSION(5, 78, "Use KIO::MultiGetJob::mimeTypeFound(long id, const QString &)")
-    void mimetype(long id, const QString &mimeType);
+    void mimetype(long id, const QString &mimeType); // clazy:exclude=overloaded-signal
 #endif
 
     /**
@@ -94,7 +94,7 @@ Q_SIGNALS:
      * @deprecated since 5.79, use KIO::MultiGetJob::fileTransferred(long)
      */
     KIOCORE_DEPRECATED_VERSION(5, 79, "Use KIO::MultiGetJob::fileTransferred(long id)")
-    void result(long id);
+    void result(long id); // clazy:exclude=overloaded-signal
 #endif
 
     /**
