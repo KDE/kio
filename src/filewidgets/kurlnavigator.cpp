@@ -615,7 +615,7 @@ void KUrlNavigatorPrivate::updateButtons(int startIndex)
                     dropUrls(destination, event, button);
                 });
 
-                q->connect(button, &KUrlNavigatorButton::clicked, q, [this](const QUrl &url, Qt::MouseButton btn, Qt::KeyboardModifiers modifiers) {
+                q->connect(button, &KUrlNavigatorButton::navigatorButtonActivated, q, [this](const QUrl &url, Qt::MouseButton btn, Qt::KeyboardModifiers modifiers) {
                     slotNavigatorButtonClicked(url, btn, modifiers);
                 });
 

@@ -267,7 +267,7 @@ void KUrlNavigatorButton::keyPressEvent(QKeyEvent *event)
     switch (event->key()) {
     case Qt::Key_Enter:
     case Qt::Key_Return:
-        Q_EMIT clicked(m_url, Qt::LeftButton, event->modifiers());
+        Q_EMIT navigatorButtonActivated(m_url, Qt::LeftButton, event->modifiers());
         break;
     case Qt::Key_Down:
     case Qt::Key_Space:
@@ -350,7 +350,7 @@ void KUrlNavigatorButton::mouseReleaseEvent(QMouseEvent *event)
     if (!isAboveArrow(event->x()) || (event->button() != Qt::LeftButton)) {
         // the mouse has been released above the text area and not
         // above the [>] button
-        Q_EMIT clicked(m_url, event->button(), event->modifiers());
+        Q_EMIT navigatorButtonActivated(m_url, event->button(), event->modifiers());
         cancelSubDirsRequest();
     }
     KUrlNavigatorButtonBase::mouseReleaseEvent(event);
@@ -436,7 +436,7 @@ void KUrlNavigatorButton::slotMenuActionClicked(QAction *action, Qt::MouseButton
     const int result = action->data().toInt();
     QUrl url(m_url);
     url.setPath(concatPaths(url.path(), m_subDirs.at(result).first));
-    Q_EMIT clicked(url, button, Qt::NoModifier);
+    Q_EMIT navigatorButtonActivated(url, button, Qt::NoModifier);
 }
 
 void KUrlNavigatorButton::statFinished(KJob *job)
@@ -556,7 +556,7 @@ void KUrlNavigatorButton::replaceButton(KJob *job)
 
     QUrl url(KIO::upUrl(m_url));
     url.setPath(concatPaths(url.path(), m_subDirs[targetIndex].first));
-    Q_EMIT clicked(url, Qt::LeftButton, Qt::NoModifier);
+    Q_EMIT navigatorButtonActivated(url, Qt::LeftButton, Qt::NoModifier);
 
     m_subDirs.clear();
 }

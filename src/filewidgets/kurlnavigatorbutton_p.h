@@ -77,7 +77,7 @@ Q_SIGNALS:
      */
     void urlsDroppedOnNavButton(const QUrl &destination, QDropEvent *event);
 
-    void clicked(const QUrl &url, Qt::MouseButton button, Qt::KeyboardModifiers modifiers);
+    void navigatorButtonActivated(const QUrl &url, Qt::MouseButton button, Qt::KeyboardModifiers modifiers);
 
     /**
      * Is emitted, if KUrlNavigatorButton::setUrl() cannot resolve
