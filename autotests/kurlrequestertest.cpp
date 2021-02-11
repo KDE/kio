@@ -138,7 +138,10 @@ void KUrlRequesterTest::testComboRequester()
 
     QSignalSpy textSpy(&req, &KUrlComboRequester::textChanged);
     QSignalSpy editSpy(&req, &KUrlComboRequester::textEdited);
+
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 80)
     QSignalSpy returnSpy(&req, QOverload<>::of(&KUrlComboRequester::returnPressed));
+#endif
     QSignalSpy returnWithTextSpy(&req, QOverload<const QString &>::of(&KUrlComboRequester::returnPressed));
 
     QVERIFY(!req.comboBox()->isEditable());
@@ -152,10 +155,16 @@ void KUrlRequesterTest::testComboRequester()
         QCOMPARE(textSpy.last().first().toString(), text);
         QCOMPARE(editSpy.last().first().toString(), text);
 
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 80)
         QCOMPARE(returnSpy.size(), 0);
+#endif
         QCOMPARE(returnWithTextSpy.size(), 0);
+
         QTest::keyEvent(QTest::Click, req.comboBox(), Qt::Key_Return);
+
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 80)
         QCOMPARE(returnSpy.size(), 1);
+#endif
         QCOMPARE(returnWithTextSpy.size(), 1);
         QCOMPARE(returnWithTextSpy.last().first().toString(), text);
     } else {
@@ -174,7 +183,10 @@ void KUrlRequesterTest::testComboRequester()
 
         // only editable combo boxes get the edit and return signals emitted
         QCOMPARE(editSpy.size(), 0);
+
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 80)
         QCOMPARE(returnSpy.size(), 0);
+#endif
         QCOMPARE(returnWithTextSpy.size(), 0);
     }
 }

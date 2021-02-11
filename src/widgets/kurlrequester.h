@@ -324,16 +324,21 @@ Q_SIGNALS:
      */
     void textEdited(const QString &);
 
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 80)
     /**
      * Emitted when return or enter was pressed in the lineedit.
+     *
+     * @deprecated since 5.80, use KUrlRequester::returnPressed(const QString &) signal
      */
-    void returnPressed();
+    KIOWIDGETS_DEPRECATED_VERSION(5, 80, "Use KUrlRequester::returnPressed(const QString &) signal")
+    void returnPressed(); // clazy:exclude=overloaded-signal
+#endif
 
     /**
      * Emitted when return or enter was pressed in the lineedit.
      * The parameter contains the contents of the lineedit.
      */
-    void returnPressed(const QString &);
+    void returnPressed(const QString &text); // clazy:exclude=overloaded-signal
 
     /**
      * Emitted before the filedialog is going to open. Connect
