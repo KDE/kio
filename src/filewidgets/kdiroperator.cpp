@@ -214,6 +214,12 @@ public:
 
 KDirOperatorPrivate::~KDirOperatorPrivate()
 {
+    if (m_itemView) {
+        // fix libc++ crash: its unique_ptr implementation has already set 'd' to null
+        // and the event filter will get a QEvent::Leave event if we don't remove it.
+        m_itemView->removeEventFilter(q);
+    }
+
     delete m_itemView;
     m_itemView = nullptr;
 
