@@ -1849,33 +1849,35 @@ bool KFileWidget::eventFilter(QObject *watched, QEvent *event)
     const bool res = QWidget::eventFilter(watched, event);
 
     QKeyEvent *keyEvent = dynamic_cast<QKeyEvent *>(event);
-    if (watched == d->m_iconSizeSlider && keyEvent) {
-        if (keyEvent->key() == Qt::Key_Left || keyEvent->key() == Qt::Key_Up ||
-                keyEvent->key() == Qt::Key_Right || keyEvent->key() == Qt::Key_Down) {
-            d->slotIconSizeSliderMoved(d->m_iconSizeSlider->value());
-        }
-    } else if (watched == d->m_locationEdit && event->type() == QEvent::KeyPress) {
-        if (keyEvent->modifiers() & Qt::AltModifier) {
-            switch (keyEvent->key()) {
-            case Qt::Key_Up:
-                d->m_ops->actionCollection()->action(QStringLiteral("up"))->trigger();
-                break;
-            case Qt::Key_Left:
-                d->m_ops->actionCollection()->action(QStringLiteral("back"))->trigger();
-                break;
-            case Qt::Key_Right:
-                d->m_ops->actionCollection()->action(QStringLiteral("forward"))->trigger();
-                break;
-            default:
-                break;
+    if (keyEvent) {
+        if (watched == d->m_iconSizeSlider) {
+            if (keyEvent->key() == Qt::Key_Left || keyEvent->key() == Qt::Key_Up ||
+                    keyEvent->key() == Qt::Key_Right || keyEvent->key() == Qt::Key_Down) {
+                d->slotIconSizeSliderMoved(d->m_iconSizeSlider->value());
             }
+        } else if (watched == d->m_locationEdit && event->type() == QEvent::KeyPress) {
+            if (keyEvent->modifiers() & Qt::AltModifier) {
+                switch (keyEvent->key()) {
+                case Qt::Key_Up:
+                    d->m_ops->actionCollection()->action(QStringLiteral("up"))->trigger();
+                    break;
+                case Qt::Key_Left:
+                    d->m_ops->actionCollection()->action(QStringLiteral("back"))->trigger();
+                    break;
+                case Qt::Key_Right:
+                    d->m_ops->actionCollection()->action(QStringLiteral("forward"))->trigger();
+                    break;
+                default:
+                    break;
+                }
+            }
+        } else if (watched == d->m_ops && event->type() == QEvent::KeyPress &&
+                   (keyEvent->key() == Qt::Key_Return || keyEvent->key() == Qt::Key_Enter)) {
+            // ignore return events from the KDirOperator
+            // they are not needed, activated is used to handle this case
+            event->accept();
+            return true;
         }
-    } else if (watched == d->m_ops && event->type() == QEvent::KeyPress &&
-               (keyEvent->key() == Qt::Key_Return || keyEvent->key() == Qt::Key_Enter)) {
-        // ignore return events from the KDirOperator
-        // they are not needed, activated is used to handle this case
-        event->accept();
-        return true;
     }
 
     return res;
