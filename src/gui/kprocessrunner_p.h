@@ -26,7 +26,7 @@ bool KIOGUI_EXPORT checkStartupNotify(const KService *service, bool *silent_arg,
 }
 
 /**
- * @internal  (exported for KRun, currently)
+ * @internal  (exported for KIO GUI job unit tests)
  * This class runs a KService or a shell command, using QProcess internally.
  * It creates a startup notification and finishes it on success or on error (for the taskbar)
  * It also shows an error message if necessary (e.g. "program not found").
@@ -42,10 +42,15 @@ public:
      * @param urls the list of URLs, can be empty
      * @param flags various flags
      * @param suggestedFileName see KRun::setSuggestedFileName
-     * @param asn Application startup notification id, if any (otherwise "").
-
+     * @param asn Application startup notification id, if any (otherwise "")
+     * @param serviceEntryPath the KService entryPath(), passed as an argument
+     * because in some cases it could become an empty string, e.g. if an
+     * ApplicationLauncherJob is created from a @c KServiceAction, the
+     * ApplicationLauncherJob will call KService::setExec() which clears the
+     * entryPath() of the KService
      */
     static KProcessRunner *fromApplication(const KService::Ptr &service,
+                                           const QString &serviceEntryPath,
                                            const QList<QUrl> &urls,
                                            KIO::ApplicationLauncherJob::RunFlags flags = {},
                                            const QString &suggestedFileName = {},
@@ -107,8 +112,7 @@ protected:
 
 private:
     void emitDelayedError(const QString &errorMsg);
-    void init(const KService::Ptr &service, const QString &userVisibleName,
-              const QString &iconName, const QByteArray &asn);
+    void init(const KService::Ptr &service, const QString &serviceEntryPath, const QString &userVisibleName, const QString &iconName, const QByteArray &asn);
 
     KStartupInfoId m_startupId;
 

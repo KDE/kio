@@ -55,6 +55,7 @@ static KProcessRunner *makeInstance()
 }
 
 KProcessRunner *KProcessRunner::fromApplication(const KService::Ptr &service,
+                                                const QString &serviceEntryPath,
                                                 const QList<QUrl> &urls,
                                                 KIO::ApplicationLauncherJob::RunFlags flags,
                                                 const QString &suggestedFileName,
@@ -63,7 +64,7 @@ KProcessRunner *KProcessRunner::fromApplication(const KService::Ptr &service,
     auto instance = makeInstance();
 
     if (!service->isValid()) {
-        instance->emitDelayedError(i18n("The desktop entry file\n%1\nis not valid.", service->entryPath()));
+        instance->emitDelayedError(i18n("The desktop entry file\n%1\nis not valid.", serviceEntryPath));
         return instance;
     }
 
@@ -118,7 +119,7 @@ KProcessRunner *KProcessRunner::fromApplication(const KService::Ptr &service,
         }
     }
 
-    instance->init(service, service->name(), service->icon(), asn);
+    instance->init(service, serviceEntryPath, service->name(), service->icon(), asn);
     return instance;
 }
 
@@ -142,20 +143,22 @@ KProcessRunner *KProcessRunner::fromCommand(const QString &cmd,
             if (instance->m_executable.isEmpty()) {
                 instance->m_executable = KIO::DesktopExecParser::executablePath(service->exec());
             }
-            instance->init(service, service->name(), service->icon(), asn);
+            instance->init(service, service->entryPath(), service->name(), service->icon(), asn);
             return instance;
         }
     }
-    instance->init(KService::Ptr(), execName /*user-visible name*/, iconName, asn);
+    instance->init(KService::Ptr(), QString{}, execName /*user-visible name*/, iconName, asn);
     return instance;
 }
 
-
-void KProcessRunner::init(const KService::Ptr &service, const QString &userVisibleName, const QString &iconName, const QByteArray &asn)
+void KProcessRunner::init(const KService::Ptr &service,
+                          const QString &serviceEntryPath,
+                          const QString &userVisibleName,
+                          const QString &iconName,
+                          const QByteArray &asn)
 {
-    if (service && !service->entryPath().isEmpty()
-            && !KDesktopFile::isAuthorizedDesktopFile(service->entryPath())) {
-        qCWarning(KIO_GUI) << "No authorization to execute" << service->entryPath();
+    if (service && !serviceEntryPath.isEmpty() && !KDesktopFile::isAuthorizedDesktopFile(serviceEntryPath)) {
+        qCWarning(KIO_GUI) << "No authorization to execute" << serviceEntryPath;
         emitDelayedError(i18n("You are not authorized to execute this file."));
         return;
     }
@@ -193,8 +196,8 @@ void KProcessRunner::init(const KService::Ptr &service, const QString &userVisib
                 data.setSilent(KStartupInfoData::Yes);
             }
             data.setDesktop(KWindowSystem::currentDesktop());
-            if (service && !service->entryPath().isEmpty()) {
-                data.setApplicationId(service->entryPath());
+            if (service && !serviceEntryPath.isEmpty()) {
+                data.setApplicationId(serviceEntryPath);
             }
             KStartupInfo::sendStartup(m_startupId, data);
         }
@@ -214,7 +217,7 @@ void KProcessRunner::init(const KService::Ptr &service, const QString &userVisib
             // desktopEntryName is lowercase so this is only a fallback
             m_desktopName = service->desktopEntryName();
         }
-        m_desktopFilePath = QFileInfo(service->entryPath()).absoluteFilePath();
+        m_desktopFilePath = QFileInfo(serviceEntryPath).absoluteFilePath();
         m_description = service->name();
         if (!service->genericName().isEmpty()) {
             m_description.append(QStringLiteral(" - %1").arg(service->genericName()));

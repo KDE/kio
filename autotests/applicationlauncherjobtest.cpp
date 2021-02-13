@@ -37,7 +37,7 @@ void ApplicationLauncherJobTest::initTestCase()
 
 void ApplicationLauncherJobTest::cleanupTestCase()
 {
-    std::for_each(m_filesToRemove.begin(), m_filesToRemove.end(), [](const QString & f) {
+    std::for_each(m_filesToRemove.cbegin(), m_filesToRemove.cend(), [](const QString &f) {
         QFile::remove(f);
     });
 }
@@ -128,13 +128,22 @@ void ApplicationLauncherJobTest::shouldFailOnNonExecutableDesktopFile_data()
     QTest::addColumn<bool>("withHandler");
     QTest::addColumn<bool>("handlerRetVal");
     QTest::addColumn<bool>("useExec");
+    QTest::addColumn<bool>("serviceAction");
 
-    QTest::newRow("no_handler_exec") << false << false << true;
-    QTest::newRow("handler_false_exec") << true << false << true;
-    QTest::newRow("handler_true_exec") << true << true << true;
-    QTest::newRow("no_handler_waitForStarted") << false << false << false;
-    QTest::newRow("handler_false_waitForStarted") << true << false << false;
-    QTest::newRow("handler_true_waitForStarted") << true << true << false;
+    QTest::newRow("no_handler_exec") << false << false << true << false;
+    QTest::newRow("handler_false_exec") << true << false << true << false;
+    QTest::newRow("handler_true_exec") << true << true << true << false;
+    QTest::newRow("no_handler_waitForStarted") << false << false << false << false;
+    QTest::newRow("handler_false_waitForStarted") << true << false << false << false;
+    QTest::newRow("handler_true_waitForStarted") << true << true << false << false;
+
+    // Test the ctor that takes a KServiceAction
+    QTest::newRow("serviceaction_no_handler_exec") << false << false << true << true;
+    QTest::newRow("serviceaction_handler_false_exec") << true << false << true << true;
+    QTest::newRow("serviceaction_handler_true_exec") << true << true << true << true;
+    QTest::newRow("serviceaction_no_handler_waitForStarted") << false << false << false << true;
+    QTest::newRow("serviceaction_handler_false_waitForStarted") << true << false << false << true;
+    QTest::newRow("serviceaction_handler_true_waitForStarted") << true << true << false << true;
 }
 
 void ApplicationLauncherJobTest::shouldFailOnNonExecutableDesktopFile()
@@ -142,6 +151,7 @@ void ApplicationLauncherJobTest::shouldFailOnNonExecutableDesktopFile()
     QFETCH(bool, useExec);
     QFETCH(bool, withHandler);
     QFETCH(bool, handlerRetVal);
+    QFETCH(bool, serviceAction);
 
     // Given a .desktop file in a temporary directory (outside the trusted paths)
     QTemporaryDir tempDir;
@@ -155,7 +165,9 @@ void ApplicationLauncherJobTest::shouldFailOnNonExecutableDesktopFile()
     const QList<QUrl> urls{QUrl::fromLocalFile(srcFile)};
     KService::Ptr servicePtr(new KService(desktopFilePath));
 
-    KIO::ApplicationLauncherJob *job = new KIO::ApplicationLauncherJob(servicePtr, this);
+    KIO::ApplicationLauncherJob *job =
+        !serviceAction ? new KIO::ApplicationLauncherJob(servicePtr, this) : new KIO::ApplicationLauncherJob(servicePtr->actions().at(0), this);
+
     job->setUrls(urls);
     job->setUiDelegate(new KJobUiDelegate);
     MockUntrustedProgramHandler *handler = withHandler ? new MockUntrustedProgramHandler(job->uiDelegate()) : nullptr;
@@ -180,7 +192,7 @@ void ApplicationLauncherJobTest::shouldFailOnNonExecutableDesktopFile()
             QCOMPARE(handler->m_calls.count(), 1);
             QCOMPARE(handler->m_calls.at(0), QStringLiteral("KRunUnittestService"));
 
-            const QString dest = srcDir + "/dest_srcfile";
+            const QString dest = srcDir + (!serviceAction ? QLatin1String{"/dest_srcfile"} : QLatin1String{"/actionDest_srcfile"});
             QTRY_VERIFY2(QFile::exists(dest), qPrintable(dest));
 
             // The actual shell process will race against the deletion of the QTemporaryDir,
@@ -373,18 +385,32 @@ void ApplicationLauncherJobTest::showOpenWithDialog()
 
 void ApplicationLauncherJobTest::writeTempServiceDesktopFile(const QString &filePath)
 {
-    if (!QFile::exists(filePath)) {
-        KDesktopFile file(filePath);
-        KConfigGroup group = file.desktopGroup();
-        group.writeEntry("Name", "KRunUnittestService");
-        group.writeEntry("Type", "Service");
-#ifdef Q_OS_WIN
-        group.writeEntry("Exec", "copy.exe %f %d/dest_%n");
-#else
-        group.writeEntry("Exec", "cd %d ; cp %f %d/dest_%n"); // cd is just to show that we can't do QFile::exists(binary)
-#endif
-        file.sync();
+    if (QFile::exists(filePath)) {
+        return;
     }
+
+    KDesktopFile file(filePath);
+    KConfigGroup group = file.desktopGroup();
+    group.writeEntry("Name", "KRunUnittestService");
+    group.writeEntry("Type", "Service");
+#ifdef Q_OS_WIN
+    group.writeEntry("Exec", "copy.exe %f %d/dest_%n");
+#else
+    group.writeEntry("Exec", "cd %d ; cp %f %d/dest_%n"); // cd is just to show that we can't do QFile::exists(binary)
+#endif
+
+    // Add a desktop Action
+    group.writeEntry("Actions", "SubServiceAction");
+
+    KConfigGroup actGroup = file.actionGroup(QStringLiteral("SubServiceAction"));
+    actGroup.writeEntry("Name", "ServiceActionTest");
+#ifdef Q_OS_WIN
+    actGroup.writeEntry("Exec", "copy.exe %f %d/actionDest_%n");
+#else
+    actGroup.writeEntry("Exec", "cd %d ; cp %f %d/actionDest_%n"); // cd is just to show that we can't do QFile::exists(binary)
+#endif
+
+    file.sync();
 }
 
 QString ApplicationLauncherJobTest::createTempService()

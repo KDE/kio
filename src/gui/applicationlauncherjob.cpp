@@ -34,6 +34,7 @@ public:
     void showOpenWithDialog();
 
     KService::Ptr m_service;
+    QString m_serviceEntryPath;
     QList<QUrl> m_urls;
     KIO::ApplicationLauncherJob::RunFlags m_runFlags;
     QString m_suggestedFileName;
@@ -47,6 +48,8 @@ public:
 KIO::ApplicationLauncherJob::ApplicationLauncherJob(const KService::Ptr &service, QObject *parent)
     : KJob(parent), d(new ApplicationLauncherJobPrivate(this, service))
 {
+    // Cache entryPath() because we may call KService::setExec() which will clear entryPath()
+    d->m_serviceEntryPath = d->m_service->entryPath();
 }
 
 KIO::ApplicationLauncherJob::ApplicationLauncherJob(const KServiceAction &serviceAction, QObject *parent)
@@ -101,6 +104,7 @@ void KIO::ApplicationLauncherJob::start()
         d->showOpenWithDialog();
         return;
     }
+
     Q_EMIT description(this, i18nc("Launching application", "Launching %1", d->m_service->name()), {}, {});
 
     // First, the security checks
@@ -109,8 +113,8 @@ void KIO::ApplicationLauncherJob::start()
         emitUnauthorizedError();
         return;
     }
-    if (!d->m_service->entryPath().isEmpty() &&
-            !KDesktopFile::isAuthorizedDesktopFile(d->m_service->entryPath())) {
+
+    if (!d->m_serviceEntryPath.isEmpty() && !KDesktopFile::isAuthorizedDesktopFile(d->m_serviceEntryPath)) {
         // We can use QStandardPaths::findExecutable to resolve relative pathnames
         // but that gets rid of the command line arguments.
         QString program = QFileInfo(d->m_service->exec()).canonicalFilePath();
@@ -130,7 +134,7 @@ void KIO::ApplicationLauncherJob::start()
                 // and add the +x bit.
 
                 QString errorString;
-                if (untrustedProgramHandler->makeServiceFileExecutable(d->m_service->entryPath(), errorString)) {
+                if (untrustedProgramHandler->makeServiceFileExecutable(d->m_serviceEntryPath, errorString)) {
                     proceedAfterSecurityChecks();
                 } else {
                     QString serviceName = d->m_service->name();
@@ -163,8 +167,8 @@ void KIO::ApplicationLauncherJob::proceedAfterSecurityChecks()
         d->m_numProcessesPending = d->m_urls.count();
         d->m_processRunners.reserve(d->m_numProcessesPending);
         for (int i = 1; i < d->m_urls.count(); ++i) {
-            auto *processRunner = KProcessRunner::fromApplication(d->m_service, { d->m_urls.at(i) },
-                                                                  d->m_runFlags, d->m_suggestedFileName, QByteArray());
+            auto *processRunner =
+                KProcessRunner::fromApplication(d->m_service, d->m_serviceEntryPath, {d->m_urls.at(i)}, d->m_runFlags, d->m_suggestedFileName, QByteArray{});
             d->m_processRunners.push_back(processRunner);
             connect(processRunner, &KProcessRunner::processStarted, this, [this](qint64 pid) {
                 d->slotStarted(pid);
@@ -175,8 +179,8 @@ void KIO::ApplicationLauncherJob::proceedAfterSecurityChecks()
         d->m_numProcessesPending = 1;
     }
 
-    auto *processRunner = KProcessRunner::fromApplication(d->m_service, d->m_urls,
-                                                          d->m_runFlags, d->m_suggestedFileName, d->m_startupId);
+    auto *processRunner =
+        KProcessRunner::fromApplication(d->m_service, d->m_serviceEntryPath, d->m_urls, d->m_runFlags, d->m_suggestedFileName, d->m_startupId);
     d->m_processRunners.push_back(processRunner);
     connect(processRunner, &KProcessRunner::error, this, [this](const QString &errorText) {
         setError(KJob::UserDefinedError);
