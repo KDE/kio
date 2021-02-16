@@ -107,7 +107,7 @@ public:
      *
      * Example for errid == ERR_CANNOT_OPEN_FOR_READING:
      * \code
-     *   i18n( "Could not read\n%1" ).arg( errortext );
+     *   i18n("Could not read\n%1", errortext);
      * \endcode
      * Use this to display the error yourself, but for a dialog box
      * use uiDelegate()->showErrorMessage(). Do not call it if error()
