@@ -1156,23 +1156,24 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
         KMessageWidget* messageWidget = new KMessageWidget(d->m_frame);
         messageWidget->setWordWrap(true);
         messageWidget->setMessageType(KMessageWidget::Error);
-        messageWidget->setText(i18n("Invalid link target"));
         messageWidget->hide();
         grid->addWidget(messageWidget, curRow++, 0, 1, -1);
 
-        connect(goThereButton, &QPushButton::clicked,
-                this, [=]() {
-                    const QUrl targetLocation = QUrl::fromLocalFile(d->m_linkTargetLineEdit->text());
-                    KIO::StatJob *statJob = KIO::stat(targetLocation, KIO::HideProgressInfo);
-                    bool ok = statJob->exec();
-                    if (ok) {
-                        KIO::highlightInFileManager({targetLocation});
-                        _props->close();
-                        return;
-                    }
-                    // Show error message if the link destination doesn't exist
+        connect(goThereButton, &QPushButton::clicked, this, [this, messageWidget] {
+            const QUrl resolvedTargetLocation = properties->item().url().resolved(QUrl(d->m_linkTargetLineEdit->text()));
+
+            KIO::StatJob *statJob = KIO::stat(resolvedTargetLocation, KIO::StatJob::SourceSide, KIO::StatNoDetails, KIO::HideProgressInfo);
+            connect(statJob, &KJob::finished, this, [this, statJob, messageWidget] {
+                if (statJob->error()) {
+                    messageWidget->setText(statJob->errorString());
                     messageWidget->animatedShow();
-                });
+                    return;
+                }
+
+                KIO::highlightInFileManager({statJob->url()});
+                properties->close();
+            });
+        });
     }
 
     if (!d->bMultiple) { // Dates and extra fields for multiple don't make much sense...
