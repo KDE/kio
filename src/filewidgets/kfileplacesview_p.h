@@ -66,7 +66,8 @@ protected:
                 }
                 m_hoveredIndex = index;
             }
-        } break;
+            break;
+        }
         case QEvent::Leave:
             if (m_hoveredIndex.isValid() && m_hoveredIndex != m_focusedIndex) {
                 Q_EMIT entryLeft(m_hoveredIndex);
@@ -80,7 +81,8 @@ protected:
             if (!view->indexAt(static_cast<QMouseEvent *>(event)->pos()).isValid()) {
                 return true;
             }
-        } break;
+            break;
+        }
         default:
             return false;
         }

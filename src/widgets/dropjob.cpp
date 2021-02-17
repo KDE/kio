@@ -70,9 +70,7 @@ class KIO::DropJobPrivate : public KIO::JobPrivate
 public:
     DropJobPrivate(const QDropEvent *dropEvent, const QUrl &destUrl, DropJobFlags dropjobFlags, JobFlags flags)
         : JobPrivate()
-        ,
-        // Extract everything from the dropevent, since it will be deleted before the job starts
-        m_mimeData(dropEvent->mimeData())
+        , m_mimeData(dropEvent->mimeData()) // Extract everything from the dropevent, since it will be deleted before the job starts
         , m_urls(KUrlMimeData::urlsFromMimeData(m_mimeData, KUrlMimeData::PreferLocalUrls, &m_metaData))
         , m_dropAction(dropEvent->dropAction())
         , m_relativePos(dropEvent->pos())

@@ -18,11 +18,10 @@
 #include <QStringList>
 #include <QUrl>
 
-#define DEFAULT_PREFERRED_SEARCH_PROVIDERS                                                                                                                     \
-    QStringList                                                                                                                                                \
-    {                                                                                                                                                          \
-        QStringLiteral("google"), QStringLiteral("youtube"), QStringLiteral("yahoo"), QStringLiteral("wikipedia"), QStringLiteral("wikit")                     \
-    }
+/* clang-format off */
+#define DEFAULT_PREFERRED_SEARCH_PROVIDERS \
+    QStringList {QStringLiteral("google"), QStringLiteral("youtube"), QStringLiteral("yahoo"), QStringLiteral("wikipedia"), QStringLiteral("wikit")}
+/* clang-format on */
 
 class SearchProvider;
 

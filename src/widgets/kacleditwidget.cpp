@@ -266,7 +266,9 @@ void KACLListViewItem::calcEffectiveRights()
 
     // Do we need to worry about the mask entry? It applies to named users,
     // owning group, and named groups
-    if (m_pACLListView->hasMaskEntry() && (type == KACLListView::NamedUser || type == KACLListView::Group || type == KACLListView::NamedGroup) && !isDefault) {
+    if (m_pACLListView->hasMaskEntry() // clang-format off
+        && (type == KACLListView::NamedUser || type == KACLListView::Group || type == KACLListView::NamedGroup)
+        && !isDefault) { // clang-format on
         strEffective[0] = QLatin1Char((m_pACLListView->maskPermissions() & value & ACL_READ) ? 'r' : '-');
         strEffective[1] = QLatin1Char((m_pACLListView->maskPermissions() & value & ACL_WRITE) ? 'w' : '-');
         strEffective[2] = QLatin1Char((m_pACLListView->maskPermissions() & value & ACL_EXECUTE) ? 'x' : '-');
@@ -314,12 +316,23 @@ bool KACLListViewItem::isDeletable() const
             isMaskAndDeletable = true;
         }
     }
-    return type != KACLListView::User && type != KACLListView::Group && type != KACLListView::Others && (type != KACLListView::Mask || isMaskAndDeletable);
+
+    /* clang-format off */
+    return type != KACLListView::User
+        && type != KACLListView::Group
+        && type != KACLListView::Others
+        && (type != KACLListView::Mask || isMaskAndDeletable);
+    /* clang-format on */
 }
 
 bool KACLListViewItem::isAllowedToChangeType() const
 {
-    return type != KACLListView::User && type != KACLListView::Group && type != KACLListView::Others && type != KACLListView::Mask;
+    /* clang-format off */
+    return type != KACLListView::User
+        && type != KACLListView::Group
+        && type != KACLListView::Others
+        && type != KACLListView::Mask;
+    /* clang-format on */
 }
 
 void KACLListViewItem::togglePerm(acl_perm_t perm)

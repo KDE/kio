@@ -477,10 +477,14 @@ QString KPropertiesDialog::defaultName() const
 bool KPropertiesDialog::canDisplay(const KFileItemList &_items)
 {
     // TODO: cache the result of those calls. Currently we parse .desktop files far too many times
-    return KFilePropsPlugin::supports(_items) || KFilePermissionsPropsPlugin::supports(_items) || KDesktopPropsPlugin::supports(_items)
-        || KUrlPropsPlugin::supports(_items) || KDevicePropsPlugin::supports(_items) /* ||
-                                                 KPreviewPropsPlugin::supports( _items )*/
-        ;
+    /* clang-format off */
+    return KFilePropsPlugin::supports(_items)
+        || KFilePermissionsPropsPlugin::supports(_items)
+        || KDesktopPropsPlugin::supports(_items)
+        || KUrlPropsPlugin::supports(_items)
+        || KDevicePropsPlugin::supports(_items);
+        /* || KPreviewPropsPlugin::supports( _items )*/
+    /* clang-format on */
 }
 
 void KPropertiesDialog::slotOk()

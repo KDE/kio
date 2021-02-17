@@ -1156,7 +1156,8 @@ QString TrashImpl::trashForMountPoint(const QString &topdir, bool createIfNeeded
     if (QT_LSTAT(rootTrashDir_c.constData(), &buff) == 0) {
         if ((S_ISDIR(buff.st_mode)) // must be a dir
             && (!S_ISLNK(buff.st_mode)) // not a symlink
-            && ((buff.st_mode & requiredBits) == requiredBits) && (::access(rootTrashDir_c.constData(), W_OK) == 0) // must be user-writable
+            && ((buff.st_mode & requiredBits) == requiredBits) //
+            && (::access(rootTrashDir_c.constData(), W_OK) == 0) // must be user-writable
         ) {
 #ifndef Q_OS_OSX
             const QString trashDir = rootTrashDir + QLatin1Char('/') + QString::number(uid);

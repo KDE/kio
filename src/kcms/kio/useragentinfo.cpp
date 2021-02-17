@@ -40,15 +40,16 @@ UserAgentInfo::StatusCode UserAgentInfo::createNewUAProvider(const QString &uaSt
         split = uaStr.split(QStringLiteral("::"));
     }
 
-    if (m_lstIdentity.contains(split[1]))
+    if (m_lstIdentity.contains(split[1])) {
         return DUPLICATE_ENTRY;
-    else {
+    } else {
         int count = split.count();
         m_lstIdentity.append(split[1]);
-        if (count > 2)
+        if (count > 2) {
             m_lstAlias.append(split[2]);
-        else
+        } else {
             m_lstAlias.append(split[1]);
+        }
     }
 
     return SUCCEEDED;
@@ -97,16 +98,11 @@ void UserAgentInfo::parseDescription()
         m_lstIdentity << tmp;
 
         tmp = QStringLiteral("%1 %2").arg(UA_PTOS(QStringLiteral("X-KDE-UA-SYSNAME")), UA_PTOS(QStringLiteral("X-KDE-UA-SYSRELEASE")));
-        if (tmp.trimmed().isEmpty())
-            tmp = QStringLiteral("%1 %2").arg(UA_PTOS(QStringLiteral("X-KDE-UA-"
-                                                                     "NAME")),
-                                              UA_PTOS(QStringLiteral("X-KDE-UA-VERSION")));
-        else
-            tmp = QStringLiteral("%1 %2 on %3")
-                      .arg(UA_PTOS(QStringLiteral("X-KDE-UA-"
-                                                  "NAME")),
-                           (QStringLiteral("X-KDE-UA-VERSION")),
-                           tmp);
+        if (tmp.trimmed().isEmpty()) {
+            tmp = QStringLiteral("%1 %2").arg(UA_PTOS(QStringLiteral("X-KDE-UA-NAME")), UA_PTOS(QStringLiteral("X-KDE-UA-VERSION")));
+        } else {
+            tmp = QStringLiteral("%1 %2 on %3").arg(UA_PTOS(QStringLiteral("X-KDE-UA-NAME")), (QStringLiteral("X-KDE-UA-VERSION")), tmp);
+        }
 
         m_lstAlias << tmp;
     }
@@ -117,27 +113,30 @@ void UserAgentInfo::parseDescription()
 QString UserAgentInfo::aliasStr(const QString &name)
 {
     int id = userAgentStringList().indexOf(name);
-    if (id == -1)
+    if (id == -1) {
         return QString();
-    else
-        return m_lstAlias[id];
+    } else {
+        return m_lstAlias.at(id);
+    }
 }
 
 QString UserAgentInfo::agentStr(const QString &name)
 {
     int id = userAgentAliasList().indexOf(name);
-    if (id == -1)
+    if (id == -1) {
         return QString();
-    else
-        return m_lstIdentity[id];
+    } else {
+        return m_lstIdentity.at(id);
+    }
 }
 
 QStringList UserAgentInfo::userAgentStringList()
 {
     if (m_bIsDirty) {
         loadFromDesktopFiles();
-        if (m_providers.isEmpty())
+        if (m_providers.isEmpty()) {
             return QStringList();
+        }
         parseDescription();
     }
     return m_lstIdentity;
@@ -147,8 +146,9 @@ QStringList UserAgentInfo::userAgentAliasList()
 {
     if (m_bIsDirty) {
         loadFromDesktopFiles();
-        if (m_providers.isEmpty())
+        if (m_providers.isEmpty()) {
             return QStringList();
+        }
         parseDescription();
     }
     return m_lstAlias;

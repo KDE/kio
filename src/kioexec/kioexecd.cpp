@@ -81,12 +81,12 @@ void KIOExecd::slotDirty(const QString &path)
 
     const auto dest = m_watched.value(path);
 
-    if (KMessageBox::questionYesNo(nullptr,
-                                   i18n("The file %1\nhas been modified. Do you want to upload the changes?", dest.toDisplayString()),
-                                   i18n("File Changed"),
-                                   KGuiItem(i18n("Upload")),
-                                   KGuiItem(i18n("Do Not Upload")))
-        != KMessageBox::Yes) {
+    const auto result = KMessageBox::questionYesNo(nullptr,
+                                                   i18n("The file %1\nhas been modified. Do you want to upload the changes?", dest.toDisplayString()),
+                                                   i18n("File Changed"),
+                                                   KGuiItem(i18n("Upload")),
+                                                   KGuiItem(i18n("Do Not Upload")));
+    if (result != KMessageBox::Yes) {
         return;
     }
 

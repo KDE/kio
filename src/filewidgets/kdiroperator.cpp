@@ -1332,7 +1332,8 @@ bool KDirOperator::eventFilter(QObject *watched, QEvent *event)
                 }
             }
         }
-    } break;
+        break;
+    }
     case QEvent::Leave: {
         if (d->m_preview && !d->m_preview->isHidden()) {
             // when mouse leaves the view, show preview of selected file
@@ -1344,7 +1345,8 @@ bool KDirOperator::eventFilter(QObject *watched, QEvent *event)
                 }
             }
         }
-    } break;
+        break;
+    }
     case QEvent::MouseButtonRelease: {
         if (d->m_preview != nullptr && !d->m_preview->isHidden()) {
             const QModelIndex hoveredIndex = d->m_itemView->indexAt(d->m_itemView->viewport()->mapFromGlobal(QCursor::pos()));
@@ -1367,7 +1369,8 @@ bool KDirOperator::eventFilter(QObject *watched, QEvent *event)
                 break;
             }
         }
-    } break;
+        break;
+    }
     case QEvent::Wheel: {
         QWheelEvent *evt = static_cast<QWheelEvent *>(event);
         if (evt->modifiers() & Qt::ControlModifier) {
@@ -1378,7 +1381,8 @@ bool KDirOperator::eventFilter(QObject *watched, QEvent *event)
             }
             return true;
         }
-    } break;
+        break;
+    }
     case QEvent::DragEnter: {
         // Accepts drops of one file or folder only
         QDragEnterEvent *evt = static_cast<QDragEnterEvent *>(event);

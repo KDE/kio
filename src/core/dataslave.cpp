@@ -21,31 +21,34 @@ using namespace KIO;
 #define KIO_DATA_POLL_INTERVAL 0
 
 // don't forget to sync DISPATCH_DECL in dataslave_p.h
-#define DISPATCH_IMPL(type)                                                                                                                                    \
-    void DataSlave::dispatch_##type()                                                                                                                          \
-    {                                                                                                                                                          \
-        if (_suspended) {                                                                                                                                      \
-            QueueStruct q(Queue_##type);                                                                                                                       \
-            q.size = -1;                                                                                                                                       \
-            dispatchQueue.push_back(q);                                                                                                                        \
-            if (!timer->isActive())                                                                                                                            \
-                timer->start(KIO_DATA_POLL_INTERVAL);                                                                                                          \
-        } else                                                                                                                                                 \
-            Q_EMIT type();                                                                                                                                     \
+/* clang-format off */
+#define DISPATCH_IMPL(type) \
+    void DataSlave::dispatch_##type() \
+    { \
+        if (_suspended) { \
+            QueueStruct q(Queue_##type); \
+            q.size = -1; \
+            dispatchQueue.push_back(q); \
+            if (!timer->isActive()) { \
+                timer->start(KIO_DATA_POLL_INTERVAL); \
+            } \
+        } else \
+            Q_EMIT type(); \
     }
 
 // don't forget to sync DISPATCH_DECL1 in dataslave_p.h
-#define DISPATCH_IMPL1(type, paramtype, paramname)                                                                                                             \
-    void DataSlave::dispatch_##type(paramtype paramname)                                                                                                       \
-    {                                                                                                                                                          \
-        if (_suspended) {                                                                                                                                      \
-            QueueStruct q(Queue_##type);                                                                                                                       \
-            q.paramname = paramname;                                                                                                                           \
-            dispatchQueue.push_back(q);                                                                                                                        \
-            if (!timer->isActive())                                                                                                                            \
-                timer->start(KIO_DATA_POLL_INTERVAL);                                                                                                          \
-        } else                                                                                                                                                 \
-            Q_EMIT type(paramname);                                                                                                                            \
+#define DISPATCH_IMPL1(type, paramtype, paramname) \
+    void DataSlave::dispatch_##type(paramtype paramname) \
+    { \
+        if (_suspended) { \
+            QueueStruct q(Queue_##type); \
+            q.paramname = paramname; \
+            dispatchQueue.push_back(q); \
+            if (!timer->isActive()) { \
+                timer->start(KIO_DATA_POLL_INTERVAL); \
+            } \
+        } else \
+            Q_EMIT type(paramname); \
     }
 
 DataSlave::DataSlave()

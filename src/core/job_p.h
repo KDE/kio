@@ -25,10 +25,12 @@
 #include <kio/jobuidelegateextension.h>
 #include <kio/jobuidelegatefactory.h>
 
-#define KIO_ARGS                                                                                                                                               \
-    QByteArray packedArgs;                                                                                                                                     \
-    QDataStream stream(&packedArgs, QIODevice::WriteOnly);                                                                                                     \
+/* clang-format off */
+#define KIO_ARGS \
+    QByteArray packedArgs; \
+    QDataStream stream(&packedArgs, QIODevice::WriteOnly); \
     stream
+/* clang-format on */
 
 namespace KIO
 {

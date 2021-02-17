@@ -5562,7 +5562,8 @@ void HTTPProtocol::virtual_hook(int id, void *data)
     case SlaveBase::GetFileSystemFreeSpace: {
         QUrl *url = static_cast<QUrl *>(data);
         fileSystemFreeSpace(*url);
-    } break;
+        break;
+    }
     default:
         TCPSlaveBase::virtual_hook(id, data);
     }

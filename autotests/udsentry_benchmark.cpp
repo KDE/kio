@@ -174,10 +174,15 @@ void UDSEntryBenchmark::readFieldsFromSmallEntries()
 
         for (const KIO::UDSEntry &entry : qAsConst(m_smallEntries)) {
             entrySum += entry.count();
-            if (entry.stringValue(KIO::UDSEntry::UDS_NAME).toInt() == i && entry.numberValue(KIO::UDSEntry::UDS_FILE_TYPE) == i
-                && entry.numberValue(KIO::UDSEntry::UDS_ACCESS) == i && entry.numberValue(KIO::UDSEntry::UDS_SIZE) == i
-                && entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME) == i && entry.stringValue(KIO::UDSEntry::UDS_USER) == user
-                && entry.stringValue(KIO::UDSEntry::UDS_GROUP) == group && entry.numberValue(KIO::UDSEntry::UDS_ACCESS_TIME) == i) {
+            /* clang-format off */
+            if (entry.stringValue(KIO::UDSEntry::UDS_NAME).toInt() == i
+                && entry.numberValue(KIO::UDSEntry::UDS_FILE_TYPE) == i
+                && entry.numberValue(KIO::UDSEntry::UDS_ACCESS) == i
+                && entry.numberValue(KIO::UDSEntry::UDS_SIZE) == i
+                && entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME) == i
+                && entry.stringValue(KIO::UDSEntry::UDS_USER) == user
+                && entry.stringValue(KIO::UDSEntry::UDS_GROUP) == group
+                && entry.numberValue(KIO::UDSEntry::UDS_ACCESS_TIME) == i) { /* clang-format on */
                 ++i;
             }
         }

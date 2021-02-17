@@ -582,7 +582,8 @@ QStringList KProtocolManager::proxiesForUrl(const QUrl &url)
                 proxy = QL1S("socks://") + proxy.midRef(offset);
                 proxyList << proxy;
             }
-        } break;
+            break;
+        }
         case NoProxy:
             break;
         }
@@ -674,8 +675,11 @@ QString KProtocolManager::slaveProtocol(const QUrl &url, QStringList &proxyList)
 
     // The idea behind slave protocols is not applicable to http
     // and webdav protocols as well as protocols unknown to KDE.
-    if (!proxyList.isEmpty() && !protocol.startsWith(QLatin1String("http")) && !protocol.startsWith(QLatin1String("webdav"))
-        && KProtocolInfo::isKnownProtocol(protocol)) {
+    /* clang-format off */
+    if (!proxyList.isEmpty()
+        && !protocol.startsWith(QLatin1String("http"))
+        && !protocol.startsWith(QLatin1String("webdav"))
+        && KProtocolInfo::isKnownProtocol(protocol)) { /* clang-format on */
         for (const QString &proxy : qAsConst(proxyList)) {
             QUrl u(proxy);
             if (u.isValid() && KProtocolInfo::isKnownProtocol(u.scheme())) {
@@ -805,9 +809,8 @@ QString KProtocolManager::defaultUserAgent(const QString &_modifiers)
         }
 
         // Full format: Mozilla/5.0 (Linux
-        d->useragent = QL1S("Mozilla/5.0 (") + supp + QL1S(") KHTML/") + QString::number(KIO_VERSION_MAJOR) + QL1C('.') + QString::number(KIO_VERSION_MINOR)
-            + QL1C('.') + QString::number(KIO_VERSION_PATCH) + QL1S(" (like Gecko) Konqueror/") + QString::number(KIO_VERSION_MAJOR) + QL1S(" KIO/")
-            + QString::number(KIO_VERSION_MAJOR) + QL1C('.') + QString::number(KIO_VERSION_MINOR);
+        d->useragent = QLatin1String("Mozilla/5.0 (%1) KHTML/").arg(supp) + QLatin1String(KIO_VERSION_STRING)
+            + QLatin1String(" (like Gecko) Konqueror/%1 KIO/%1.%2").arg(QString::number(KIO_VERSION_MAJOR), QString::number(KIO_VERSION_MINOR));
     } else {
         QString appName = QCoreApplication::applicationName();
         if (appName.isEmpty() || appName.startsWith(QLatin1String("kcmshell"), Qt::CaseInsensitive)) {
@@ -816,7 +819,7 @@ QString KProtocolManager::defaultUserAgent(const QString &_modifiers)
 
         QString appVersion = QCoreApplication::applicationVersion();
         if (appVersion.isEmpty()) {
-            appVersion += QString::number(KIO_VERSION_MAJOR) + QL1C('.') + QString::number(KIO_VERSION_MINOR) + QL1C('.') + QString::number(KIO_VERSION_PATCH);
+            appVersion += QLatin1String(KIO_VERSION_STRING);
         }
 
         appName += QL1C('/') + appVersion;

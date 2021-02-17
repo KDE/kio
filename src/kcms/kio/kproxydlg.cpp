@@ -290,9 +290,12 @@ void KProxyDialog::load()
     const QString httpProxy(mUi.manualProxyHttpEdit->text());
     if (!httpProxy.isEmpty()) {
         const int httpProxyPort = mUi.manualProxyHttpSpinBox->value();
-        mUi.useSameProxyCheckBox->setChecked(httpProxy == mUi.manualProxyHttpsEdit->text() && httpProxy == mUi.manualProxyFtpEdit->text()
-                                             && httpProxy == mUi.manualProxySocksEdit->text() && httpProxyPort == mUi.manualProxyHttpsSpinBox->value()
-                                             && httpProxyPort == mUi.manualProxyFtpSpinBox->value() && httpProxyPort == mUi.manualProxySocksSpinBox->value());
+        mUi.useSameProxyCheckBox->setChecked(httpProxy == mUi.manualProxyHttpsEdit->text() /* clang-format off */
+                                             && httpProxy == mUi.manualProxyFtpEdit->text()
+                                             && httpProxy == mUi.manualProxySocksEdit->text()
+                                             && httpProxyPort == mUi.manualProxyHttpsSpinBox->value()
+                                             && httpProxyPort == mUi.manualProxyFtpSpinBox->value()
+                                             && httpProxyPort == mUi.manualProxySocksSpinBox->value()); /* clang-format on */
     }
 
     // Validate and Set the automatic proxy configuration script url.

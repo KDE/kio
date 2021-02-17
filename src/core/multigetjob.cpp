@@ -90,8 +90,10 @@ void MultiGetJobPrivate::flushQueue(RequestQueue &queue)
     auto wqIt = m_waitQueue.begin();
     while (wqIt != m_waitQueue.end()) {
         const GetRequest &entry = *wqIt;
-        if ((m_url.scheme() == entry.url.scheme()) && (m_url.host() == entry.url.host()) && (m_url.port() == entry.url.port())
-            && (m_url.userName() == entry.url.userName())) {
+        if (m_url.scheme() == entry.url.scheme() // clang-format off
+            && m_url.host() == entry.url.host()
+            && m_url.port() == entry.url.port()
+            && m_url.userName() == entry.url.userName()) { // clang-format on
             queue.push_back(entry);
             wqIt = m_waitQueue.erase(wqIt);
         } else {

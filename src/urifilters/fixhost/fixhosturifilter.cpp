@@ -29,8 +29,12 @@ FixHostUriFilter::FixHostUriFilter(QObject *parent, const QVariantList & /*args*
 
 static bool isHttpUrl(const QString &scheme)
 {
-    return scheme.compare(QL1S("http"), Qt::CaseInsensitive) == 0 || scheme.compare(QL1S("https"), Qt::CaseInsensitive) == 0
-        || scheme.compare(QL1S("webdav"), Qt::CaseInsensitive) == 0 || scheme.compare(QL1S("webdavs"), Qt::CaseInsensitive) == 0;
+    /* clang-format off */
+    return scheme.compare(QL1S("http"), Qt::CaseInsensitive) == 0
+        || scheme.compare(QL1S("https"), Qt::CaseInsensitive) == 0
+        || scheme.compare(QL1S("webdav"), Qt::CaseInsensitive) == 0
+        || scheme.compare(QL1S("webdavs"), Qt::CaseInsensitive) == 0;
+    /* clang-format on */
 }
 
 static bool hasCandidateHostName(const QString &host)

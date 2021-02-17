@@ -73,17 +73,31 @@ private Q_SLOTS:
         QTest::addColumn<QChar>("indexPlaceholder");
         QTest::addColumn<QStringList>("newFilenames");
 
-        QTest::newRow("different-extensions-single-placeholder") << (QStringList{"old_file_without_extension", "old_file.txt", "old_file.zip"}) << "#-new_name"
-                                                                 << 1 << QChar('#') << QStringList{"1-new_name", "2-new_name.txt", "3-new_name.zip"};
+        /* clang-format off */
+        QTest::newRow("different-extensions-single-placeholder") << (QStringList{"old_file_without_extension", "old_file.txt", "old_file.zip"})
+                                                                 << "#-new_name"
+                                                                 << 1
+                                                                 << QChar('#')
+                                                                 << QStringList{"1-new_name", "2-new_name.txt", "3-new_name.zip"};
 
-        QTest::newRow("same-extensions-placeholder-sequence") << (QStringList{"first_source.cpp", "second_source.cpp", "third_source.java"}) << "new_source###"
-                                                              << 8 << QChar('#') << QStringList{"new_source008.cpp", "new_source009.cpp", "new_source010.java"};
+        QTest::newRow("same-extensions-placeholder-sequence") << (QStringList{"first_source.cpp", "second_source.cpp", "third_source.java"})
+                                                              << "new_source###"
+                                                              << 8
+                                                              << QChar('#')
+                                                              << QStringList{"new_source008.cpp", "new_source009.cpp", "new_source010.java"};
 
-        QTest::newRow("different-extensions-invalid-placeholder")
-            << (QStringList{"audio.mp3", "video.mp4", "movie.mkv"}) << "me#d#ia" << 0 << QChar('#') << QStringList{"me#d#ia.mp3", "me#d#ia.mp4", "me#d#ia.mkv"};
+        QTest::newRow("different-extensions-invalid-placeholder") << (QStringList{"audio.mp3", "video.mp4", "movie.mkv"})
+                                                                  << "me#d#ia"
+                                                                  << 0
+                                                                  << QChar('#')
+                                                                  << QStringList{"me#d#ia.mp3", "me#d#ia.mp4", "me#d#ia.mkv"};
 
-        QTest::newRow("same-extensions-invalid-placeholder") << (QStringList{"random_headerfile.h", "another_headerfile.h", "random_sourcefile.c"}) << "##file#"
-                                                             << 4 << QChar('#') << QStringList{"##file#4.h", "##file#5.h", "##file#6.c"};
+        QTest::newRow("same-extensions-invalid-placeholder") << (QStringList{"random_headerfile.h", "another_headerfile.h", "random_sourcefile.c"})
+                                                             << "##file#"
+                                                             << 4
+                                                             << QChar('#')
+                                                             << QStringList{"##file#4.h", "##file#5.h", "##file#6.c"};
+        /* clang-format on */
     }
 
     void batchRenameJobTest()

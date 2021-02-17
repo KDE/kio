@@ -2762,7 +2762,8 @@ QUrl KFileWidget::getStartUrl(const QUrl &startDir, QString &recentDirClass, QSt
             // directory over it. We also prefer the homedir when our CWD is
             // different from our homedirectory or when the document dir
             // does not exist
-            if (lastDirectory()->adjusted(QUrl::StripTrailingSlash) == home.adjusted(QUrl::StripTrailingSlash) || QDir::currentPath() != QDir::homePath()
+            if (lastDirectory()->adjusted(QUrl::StripTrailingSlash) == home.adjusted(QUrl::StripTrailingSlash) //
+                || QDir::currentPath() != QDir::homePath() //
                 || !QDir(lastDirectory()->toLocalFile()).exists()) {
                 *lastDirectory() = QUrl::fromLocalFile(QDir::currentPath());
             }

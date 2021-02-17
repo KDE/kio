@@ -57,11 +57,7 @@ bool KDesktopFileActions::runWithStartup(const QUrl &u, bool _is_local, const QB
 
     KDesktopFile cfg(u.toLocalFile());
     if (!cfg.desktopGroup().hasKey("Type")) {
-        QString tmp = i18n(
-            "The desktop entry file %1 "
-            "has no Type=... entry.",
-            u.toLocalFile());
-        KMessageBox::error(nullptr, tmp);
+        KMessageBox::error(nullptr, i18n("The desktop entry file %1 has no Type=... entry.", u.toLocalFile()));
         return false;
     }
 

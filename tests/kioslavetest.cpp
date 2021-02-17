@@ -356,7 +356,8 @@ void KioslaveTest::printUDSEntry(const KIO::UDSEntry &entry)
             if ((mode & QT_STAT_MASK) == QT_STAT_LNK) {
                 qDebug() << "is a link";
             }
-        } break;
+            break;
+        }
         case KIO::UDSEntry::UDS_ACCESS:
             qDebug() << "Access permissions : " << (mode_t)(entry.numberValue(*it));
             break;
@@ -437,8 +438,21 @@ void KioslaveTest::slotData(KIO::Job *, const QByteArray &data)
 
 void KioslaveTest::slotDataReq(KIO::Job *, QByteArray &data)
 {
-    const char *fileDataArray[] =
-        {"Hello world\n", "This is a test file\n", "You can safely delete it.\n", "BIG\n", "BIG1\n", "BIG2\n", "BIG3\n", "BIG4\n", "BIG5\n", nullptr};
+    /* clang-format off */
+    const char *fileDataArray[] = {
+        "Hello world\n",
+        "This is a test file\n",
+        "You can safely delete it.\n",
+        "BIG\n",
+        "BIG1\n",
+        "BIG2\n",
+        "BIG3\n",
+        "BIG4\n",
+        "BIG5\n",
+        nullptr
+    };
+    /* clang-format on */
+
     const char *fileData = fileDataArray[putBuffer++];
 
     if (!fileData) {

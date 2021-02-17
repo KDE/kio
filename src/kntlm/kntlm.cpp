@@ -238,7 +238,8 @@ bool KNTLM::getAuth(QByteArray &auth,
     }
 
     if (!(authflags & Force_V1)
-        && ((authflags & Force_V2) || (!targetInfo.isEmpty() && (qFromLittleEndian(ch->flags) & Negotiate_Target_Info))) /* may support NTLMv2 */) {
+        && ((authflags & Force_V2) //
+            || (!targetInfo.isEmpty() && (qFromLittleEndian(ch->flags) & Negotiate_Target_Info))) /* may support NTLMv2 */) {
         bool ret = false;
 
         if (qFromLittleEndian(ch->flags) & Negotiate_NTLM) {

@@ -55,11 +55,13 @@ static bool isTopLevelEntry(const QUrl &url)
     return dir.length() <= 1;
 }
 
-#define INIT_IMPL                                                                                                                                              \
-    if (!impl.init()) {                                                                                                                                        \
-        error(impl.lastErrorCode(), impl.lastErrorMessage());                                                                                                  \
-        return;                                                                                                                                                \
+/* clang-format off */
+#define INIT_IMPL \
+    if (!impl.init()) { \
+        error(impl.lastErrorCode(), impl.lastErrorMessage()); \
+        return; \
     }
+/* clang-format on*/
 
 TrashProtocol::TrashProtocol(const QByteArray &protocol, const QByteArray &pool, const QByteArray &app)
     : SlaveBase(protocol, pool, app)
@@ -661,7 +663,8 @@ void TrashProtocol::virtual_hook(int id, void *data)
     case SlaveBase::GetFileSystemFreeSpace: {
         QUrl *url = static_cast<QUrl *>(data);
         fileSystemFreeSpace(*url);
-    } break;
+        break;
+    }
     default:
         SlaveBase::virtual_hook(id, data);
     }

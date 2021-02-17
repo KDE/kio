@@ -513,28 +513,18 @@ void KFileItemTest::testListProperties_data()
     QTest::addColumn<QString>("expectedMimeType");
     QTest::addColumn<QString>("expectedMimeGroup");
 
-    QTest::newRow("one file") << "f" << true << true << true << false << true << "text/plain"
-                              << "text";
-    QTest::newRow("one dir") << "d" << true << true << true << true << false << "inode/directory"
-                             << "inode";
-    QTest::newRow("root dir") << "/" << true << false << true << true << false << "inode/directory"
-                              << "inode";
-    QTest::newRow("file+dir") << "fd" << true << true << true << false << false << ""
-                              << "";
-    QTest::newRow("two dirs") << "dd" << true << true << true << true << false << "inode/directory"
-                              << "inode";
-    QTest::newRow("dir+root dir") << "d/" << true << false << true << true << false << "inode/directory"
-                                  << "inode";
-    QTest::newRow("two (text+html) files") << "ff" << true << true << true << false << true << ""
-                                           << "text";
-    QTest::newRow("three (text+html+empty) files") << "fff" << true << true << true << false << true << ""
-                                                   << "";
-    QTest::newRow("http url") << "h" << true << true /*says kio_http...*/
-                              << false << false << true << "application/octet-stream"
-                              << "application";
-    QTest::newRow("2 http urls") << "hh" << true << true /*says kio_http...*/
-                                 << false << false << true << "application/octet-stream"
-                                 << "application";
+    /* clang-format off */
+    QTest::newRow("one file") << "f" << true << true << true << false << true << "text/plain" << "text";
+    QTest::newRow("one dir") << "d" << true << true << true << true << false << "inode/directory" << "inode";
+    QTest::newRow("root dir") << "/" << true << false << true << true << false << "inode/directory" << "inode";
+    QTest::newRow("file+dir") << "fd" << true << true << true << false << false << "" << "";
+    QTest::newRow("two dirs") << "dd" << true << true << true << true << false << "inode/directory" << "inode";
+    QTest::newRow("dir+root dir") << "d/" << true << false << true << true << false << "inode/directory" << "inode";
+    QTest::newRow("two (text+html) files") << "ff" << true << true << true << false << true << "" << "text";
+    QTest::newRow("three (text+html+empty) files") << "fff" << true << true << true << false << true << "" << "";
+    QTest::newRow("http url") << "h" << true << true /*says kio_http...*/ << false << false << true << "application/octet-stream" << "application";
+    QTest::newRow("2 http urls") << "hh" << true << true /*says kio_http...*/ << false << false << true << "application/octet-stream" << "application";
+    /* clang-format on */
 }
 
 void KFileItemTest::testListProperties()
@@ -567,14 +557,16 @@ void KFileItemTest::testListProperties()
             } // i == 2: leave the file empty
             file.close();
             KFileItem item(QUrl::fromLocalFile(fileName), QString(), KFileItem::Unknown);
-            if (i == 0)
+            if (i == 0) {
                 QCOMPARE(item.mimetype(), "text/plain");
-            else if (i == 1)
+            } else if (i == 1) {
                 QCOMPARE(item.mimetype(), "text/html");
-            else if (i == 2)
+            } else if (i == 2) {
                 QCOMPARE(item.mimetype(), "application/x-zerosize");
+            }
             items.push_back(std::move(item));
-        } break;
+            break;
+        }
         case 'd':
             QVERIFY(baseDir.mkdir(fileName));
             items << KFileItem(QUrl::fromLocalFile(fileName), QString(), KFileItem::Unknown);

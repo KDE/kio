@@ -109,9 +109,14 @@ void KImageFilePreview::showPreview(const QUrl &url)
 
 void KImageFilePreview::showPreview(const QUrl &url, bool force)
 {
-    if (!url.isValid() || (d->lastShownURL.isValid() && url.matches(d->lastShownURL, QUrl::StripTrailingSlash) && d->currentURL.isValid())) {
+    /* clang-format off */
+    if (!url.isValid()
+        || (d->lastShownURL.isValid()
+            && url.matches(d->lastShownURL, QUrl::StripTrailingSlash)
+            && d->currentURL.isValid())) {
         return;
     }
+    /* clang-format on*/
 
     d->clear = false;
     d->currentURL = url;

@@ -274,14 +274,19 @@ KFilePlacesModel::KFilePlacesModel(const QString &alternativeApplicationName, QO
 
         const QList<QUrl> seenUrls = root.groupUrlList();
 
+        /* clang-format off */
         auto createSystemBookmark =
-            [this,
-             &seenUrls](const char *translationContext, const QByteArray &untranslatedLabel, const QUrl &url, const QString &iconName, const KBookmark &after) {
+            [this, &seenUrls](const char *translationContext,
+                              const QByteArray &untranslatedLabel,
+                              const QUrl &url,
+                              const QString &iconName,
+                              const KBookmark &after) {
                 if (!seenUrls.contains(url)) {
                     return KFilePlacesItem::createSystemBookmark(d->bookmarkManager, translationContext, untranslatedLabel, url, iconName, after);
                 }
                 return KBookmark();
             };
+        /* clang-format on */
 
         if (fileVersion < 2) {
             // NOTE: The context for these I18NC_NOOP calls has to be "KFile System Bookmarks".

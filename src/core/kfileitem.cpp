@@ -290,9 +290,8 @@ void KFileItemPrivate::readUDSEntry(bool _urlIsDirectory)
     m_iconName.clear();
 }
 
-inline // because it is used only in one place
-    KIO::filesize_t
-    KFileItemPrivate::size() const
+// Inlined because it is used only in one place
+inline KIO::filesize_t KFileItemPrivate::size() const
 {
     ensureInitialized();
 
@@ -360,9 +359,8 @@ QDateTime KFileItemPrivate::time(KFileItem::FileTimes mappedWhich) const
     return QDateTime();
 }
 
-inline // because it is used only in one place
-    bool
-    KFileItemPrivate::cmp(const KFileItemPrivate &item) const
+// Inlined because it is used only in one place
+inline bool KFileItemPrivate::cmp(const KFileItemPrivate &item) const
 {
     if (item.m_bInitCalled) {
         ensureInitialized();
@@ -387,23 +385,29 @@ inline // because it is used only in one place
     qDebug() << " ModificationTime" << m_entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME) << item.m_entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME);
     qDebug() << " UDS_ICON_NAME" << (m_entry.stringValue( KIO::UDSEntry::UDS_ICON_NAME ) == item.m_entry.stringValue( KIO::UDSEntry::UDS_ICON_NAME ));
 #endif
-    return (m_strName == item.m_strName && m_bIsLocalUrl == item.m_bIsLocalUrl && m_fileMode == item.m_fileMode && m_permissions == item.m_permissions
+
+    /* clang-format off */
+    return (m_strName == item.m_strName
+            && m_bIsLocalUrl == item.m_bIsLocalUrl
+            && m_fileMode == item.m_fileMode
+            && m_permissions == item.m_permissions
             && m_entry.stringValue(KIO::UDSEntry::UDS_EXTENDED_ACL) == item.m_entry.stringValue(KIO::UDSEntry::UDS_EXTENDED_ACL)
             && m_entry.stringValue(KIO::UDSEntry::UDS_ACL_STRING) == item.m_entry.stringValue(KIO::UDSEntry::UDS_ACL_STRING)
             && m_entry.stringValue(KIO::UDSEntry::UDS_DEFAULT_ACL_STRING) == item.m_entry.stringValue(KIO::UDSEntry::UDS_DEFAULT_ACL_STRING)
-            && m_bLink == item.m_bLink && m_hidden == item.m_hidden && size() == item.size()
+            && m_bLink == item.m_bLink
+            && m_hidden == item.m_hidden
+            && size() == item.size()
             && m_entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME) == item.m_entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME)
             && m_entry.stringValue(KIO::UDSEntry::UDS_ICON_NAME) == item.m_entry.stringValue(KIO::UDSEntry::UDS_ICON_NAME)
             && m_entry.stringValue(KIO::UDSEntry::UDS_TARGET_URL) == item.m_entry.stringValue(KIO::UDSEntry::UDS_TARGET_URL)
             && m_entry.stringValue(KIO::UDSEntry::UDS_LOCAL_PATH) == item.m_entry.stringValue(KIO::UDSEntry::UDS_LOCAL_PATH));
-
+    /* clang-format on */
     // Don't compare the MIME types here. They might not be known, and we don't want to
     // do the slow operation of determining them here.
 }
 
-inline // because it is used only in one place
-    QString
-    KFileItemPrivate::parsePermissions(mode_t perm) const
+// Inlined because it is used only in one place
+inline QString KFileItemPrivate::parsePermissions(mode_t perm) const
 {
     ensureInitialized();
 

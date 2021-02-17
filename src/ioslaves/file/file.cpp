@@ -767,8 +767,8 @@ void FileProtocol::special(const QByteArray &data)
         } else {
             mount(ro, fstype.toLatin1().constData(), dev, point);
         }
-
-    } break;
+        break;
+    }
     case 2: {
         QString point;
         stream >> point;
@@ -778,8 +778,8 @@ void FileProtocol::special(const QByteArray &data)
         } else {
             unmount(point);
         }
-    } break;
-
+        break;
+    }
     default:
         break;
     }
@@ -1178,14 +1178,17 @@ void FileProtocol::virtual_hook(int id, void *data)
     case SlaveBase::GetFileSystemFreeSpace: {
         QUrl *url = static_cast<QUrl *>(data);
         fileSystemFreeSpace(*url);
-    } break;
+        break;
+    }
     case SlaveBase::Truncate: {
         auto length = static_cast<KIO::filesize_t *>(data);
         truncate(*length);
-    } break;
+        break;
+    }
     default: {
         SlaveBase::virtual_hook(id, data);
-    } break;
+        break;
+    }
     }
 }
 

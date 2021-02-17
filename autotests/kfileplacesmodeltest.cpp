@@ -163,26 +163,28 @@ QStringList KFilePlacesModelTest::placesUrls(KFilePlacesModel *model) const
     return urls;
 }
 
-#define CHECK_PLACES_URLS(urls)                                                                                                                                \
-    if (placesUrls() != urls) {                                                                                                                                \
-        qDebug() << "Expected:" << urls;                                                                                                                       \
-        qDebug() << "Got:" << placesUrls();                                                                                                                    \
-        QCOMPARE(placesUrls(), urls);                                                                                                                          \
-    }                                                                                                                                                          \
-    for (int row = 0; row < urls.size(); ++row) {                                                                                                              \
-        QModelIndex index = m_places->index(row, 0);                                                                                                           \
-                                                                                                                                                               \
-        QCOMPARE(m_places->url(index).toString(), QUrl::fromUserInput(urls[row]).toString());                                                                  \
-        QCOMPARE(m_places->data(index, KFilePlacesModel::UrlRole).toUrl(), QUrl(m_places->url(index)));                                                        \
-                                                                                                                                                               \
-        index = m_places2->index(row, 0);                                                                                                                      \
-                                                                                                                                                               \
-        QCOMPARE(m_places2->url(index).toString(), QUrl::fromUserInput(urls[row]).toString());                                                                 \
-        QCOMPARE(m_places2->data(index, KFilePlacesModel::UrlRole).toUrl(), QUrl(m_places2->url(index)));                                                      \
-    }                                                                                                                                                          \
-                                                                                                                                                               \
-    QCOMPARE(urls.size(), m_places->rowCount());                                                                                                               \
+/* clang-format off */
+#define CHECK_PLACES_URLS(urls) \
+    if (placesUrls() != urls) { \
+        qDebug() << "Expected:" << urls; \
+        qDebug() << "Got:" << placesUrls(); \
+        QCOMPARE(placesUrls(), urls); \
+    } \
+    for (int row = 0; row < urls.size(); ++row) { \
+        QModelIndex index = m_places->index(row, 0); \
+        \
+        QCOMPARE(m_places->url(index).toString(), QUrl::fromUserInput(urls[row]).toString()); \
+        QCOMPARE(m_places->data(index, KFilePlacesModel::UrlRole).toUrl(), QUrl(m_places->url(index))); \
+        \
+        index = m_places2->index(row, 0);                                                               \
+        \
+        QCOMPARE(m_places2->url(index).toString(), QUrl::fromUserInput(urls[row]).toString()); \
+        QCOMPARE(m_places2->data(index, KFilePlacesModel::UrlRole).toUrl(), QUrl(m_places2->url(index))); \
+    } \
+    \
+    QCOMPARE(urls.size(), m_places->rowCount()); \
     QCOMPARE(urls.size(), m_places2->rowCount());
+/*clang-format on */
 
 QDBusInterface *KFilePlacesModelTest::fakeManager()
 {

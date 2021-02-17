@@ -117,6 +117,17 @@ static QUrl addPathToUrl(const QUrl &url, const QString &relPath)
     return u;
 }
 
+static bool compareUrls(const QUrl &srcUrl, const QUrl &destUrl)
+{
+    /* clang-format off */
+    return srcUrl.scheme() == destUrl.scheme()
+        && srcUrl.host() == destUrl.host()
+        && srcUrl.port() == destUrl.port()
+        && srcUrl.userName() == destUrl.userName()
+        && srcUrl.password() == destUrl.password();
+    /* clang-format on */
+}
+
 /** @internal */
 class KIO::CopyJobPrivate : public KIO::JobPrivate
 {
@@ -540,9 +551,9 @@ void CopyJobPrivate::sourceStated(const UDSEntry &entry, const QUrl &sourceUrl)
     m_currentDest = m_dest;
     m_bCurrentSrcIsDir = false;
 
-    if (isDir
-        // treat symlinks as files (no recursion)
-        && !entry.isLink() && m_mode != CopyJob::Link) { // No recursion in Link mode either.
+    if (isDir //
+        && !entry.isLink() // treat symlinks as files (no recursion)
+        && m_mode != CopyJob::Link) { // No recursion in Link mode either.
         qCDebug(KIO_COPYJOB_DEBUG) << "Source is a directory";
 
         if (srcurl.isLocalFile()) {
@@ -856,9 +867,7 @@ void CopyJobPrivate::statCurrentSrc()
             info.uDest = m_currentDest;
             // Append filename or dirname to destination URL, if allowed
             if (destinationState == DEST_IS_DIR && !m_asMethod) {
-                if ((m_currentSrcURL.scheme() == info.uDest.scheme()) && (m_currentSrcURL.host() == info.uDest.host())
-                    && (m_currentSrcURL.port() == info.uDest.port()) && (m_currentSrcURL.userName() == info.uDest.userName())
-                    && (m_currentSrcURL.password() == info.uDest.password())) {
+                if (compareUrls(m_currentSrcURL, info.uDest)) {
                     // This is the case of creating a real symlink
                     info.uDest = addPathToUrl(info.uDest, m_currentSrcURL.fileName());
                 } else {
@@ -890,14 +899,13 @@ void CopyJobPrivate::statCurrentSrc()
             }
         }
 
-        if (m_mode == CopyJob::Move
-            && (
-                // Don't go renaming right away if we need a stat() to find out the destination filename
-                KProtocolManager::fileNameUsedForCopying(m_currentSrcURL) == KProtocolInfo::FromUrl || destinationState != DEST_IS_DIR || m_asMethod)) {
+        // Don't go renaming right away if we need a stat() to find out the destination filename
+        const bool needStat =
+            KProtocolManager::fileNameUsedForCopying(m_currentSrcURL) == KProtocolInfo::FromUrl || destinationState != DEST_IS_DIR || m_asMethod;
+        if (m_mode == CopyJob::Move && needStat) {
             // If moving, before going for the full stat+[list+]copy+del thing, try to rename
             // The logic is pretty similar to FileCopyJobPrivate::slotStart()
-            if ((m_currentSrcURL.scheme() == m_dest.scheme()) && (m_currentSrcURL.host() == m_dest.host()) && (m_currentSrcURL.port() == m_dest.port())
-                && (m_currentSrcURL.userName() == m_dest.userName()) && (m_currentSrcURL.password() == m_dest.password())) {
+            if (compareUrls(m_currentSrcURL, m_dest)) {
                 startRenameJob(m_currentSrcURL);
                 return;
             } else if (m_currentSrcURL.isLocalFile() && KProtocolManager::canRenameFromFile(m_dest)) {
@@ -1132,7 +1140,8 @@ void CopyJobPrivate::slotResultCreatingDirs(KJob *job)
     // Was there an error creating a dir ?
     if (job->error()) {
         m_conflictError = job->error();
-        if ((m_conflictError == ERR_DIR_ALREADY_EXIST) || (m_conflictError == ERR_FILE_ALREADY_EXIST)) { // can't happen?
+        if (m_conflictError == ERR_DIR_ALREADY_EXIST //
+            || m_conflictError == ERR_FILE_ALREADY_EXIST) { // can't happen?
             QUrl oldURL = ((SimpleJob *)job)->url();
             // Should we skip automatically ?
             if (m_bAutoSkipDirs) {
@@ -1293,17 +1302,14 @@ void CopyJobPrivate::slotResultConflictCreatingDirs(KJob *job)
         createNextDir();
     });
 
-    askUserActionInterface->askUserRename(q,
-                                          i18n("Folder Already Exists"),
-                                          (*it).uSource,
-                                          (*it).uDest,
+    /* clang-format off */
+    askUserActionInterface->askUserRename(q, i18n("Folder Already Exists"),
+                                          (*it).uSource, (*it).uDest,
                                           options,
-                                          (*it).size,
-                                          destsize,
-                                          (*it).ctime,
-                                          destctime,
-                                          (*it).mtime,
-                                          destmtime);
+                                          (*it).size, destsize,
+                                          (*it).ctime, destctime,
+                                          (*it).mtime, destmtime);
+    /* clang-format on */
 }
 
 void CopyJobPrivate::createNextDir()
@@ -1371,7 +1377,9 @@ void CopyJobPrivate::slotResultCopyingFiles(KJob *job)
         } else {
             m_conflictError = job->error(); // save for later
             // Existing dest ?
-            if ((m_conflictError == ERR_FILE_ALREADY_EXIST) || (m_conflictError == ERR_DIR_ALREADY_EXIST) || (m_conflictError == ERR_IDENTICAL_FILES)) {
+            if (m_conflictError == ERR_FILE_ALREADY_EXIST //
+                || m_conflictError == ERR_DIR_ALREADY_EXIST //
+                || m_conflictError == ERR_IDENTICAL_FILES) {
                 if (m_bAutoRenameFiles) {
                     QUrl destDirectory = (*it).uDest.adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash);
                     const QString newName = KFileUtils::suggestName(destDirectory, (*it).uDest.fileName());
@@ -1424,7 +1432,9 @@ void CopyJobPrivate::slotResultCopyingFiles(KJob *job)
         }
     } else { // no error
         // Special case for moving links. That operation needs two jobs, unlike others.
-        if (m_bCurrentOperationIsLink && m_mode == CopyJob::Move && !qobject_cast<KIO::DeleteJob *>(job) // Deleting source not already done
+        if (m_bCurrentOperationIsLink //
+            && m_mode == CopyJob::Move //
+            && !qobject_cast<KIO::DeleteJob *>(job) // Deleting source not already done
         ) {
             q->removeSubjob(job);
             Q_ASSERT(!q->hasSubjobs());
@@ -1490,7 +1500,9 @@ void CopyJobPrivate::slotResultErrorCopyingFiles(KJob *job)
     Q_ASSERT(!q->hasSubjobs());
     auto *askUserActionInterface = KIO::delegateExtension<KIO::AskUserActionInterface *>(q);
 
-    if ((m_conflictError == ERR_FILE_ALREADY_EXIST) || (m_conflictError == ERR_DIR_ALREADY_EXIST) || (m_conflictError == ERR_IDENTICAL_FILES)) {
+    if (m_conflictError == ERR_FILE_ALREADY_EXIST //
+        || m_conflictError == ERR_DIR_ALREADY_EXIST //
+        || m_conflictError == ERR_IDENTICAL_FILES) {
         // Its modification time:
         const UDSEntry entry = static_cast<KIO::StatJob *>(job)->statResult();
 
@@ -1546,8 +1558,13 @@ void CopyJobPrivate::slotResultErrorCopyingFiles(KJob *job)
                 processFileRenameDialogResult(it, result, newUrl, destmtime);
             });
 
-            askUserActionInterface
-                ->askUserRename(q, caption, (*it).uSource, (*it).uDest, options, (*it).size, destsize, (*it).ctime, destctime, (*it).mtime, destmtime);
+            /* clang-format off */
+            askUserActionInterface->askUserRename(q, caption,
+                                                  (*it).uSource, (*it).uDest,
+                                                  options,
+                                                  (*it).size, destsize,
+                                                  (*it).ctime, destctime,
+                                                  (*it).mtime, destmtime); /* clang-format on */
             return;
         }
     } else {
@@ -1619,7 +1636,8 @@ void CopyJobPrivate::processFileRenameDialogResult(const QList<CopyInfo>::Iterat
         files.append(*it);
         Q_EMIT q->aboutToCreate(q, files);
 #endif
-    } break;
+        break;
+    }
     case Result_AutoSkip:
         m_bAutoSkipFiles = true;
         // fall through
@@ -1650,8 +1668,7 @@ void CopyJobPrivate::processFileRenameDialogResult(const QList<CopyInfo>::Iterat
 KIO::Job *CopyJobPrivate::linkNextFile(const QUrl &uSource, const QUrl &uDest, JobFlags flags)
 {
     qCDebug(KIO_COPYJOB_DEBUG) << "Linking";
-    if ((uSource.scheme() == uDest.scheme()) && (uSource.host() == uDest.host()) && (uSource.port() == uDest.port()) && (uSource.userName() == uDest.userName())
-        && (uSource.password() == uDest.password())) {
+    if (compareUrls(uSource, uDest)) {
         // This is the case of creating a real symlink
         KIO::SimpleJob *newJob = KIO::symlink(uSource.path(), uDest, flags | HideProgressInfo /*no GUI*/);
         newJob->setParentJob(q_func());
@@ -1785,8 +1802,7 @@ void CopyJobPrivate::copyNextFile()
             if (!newjob) {
                 return;
             }
-        } else if (!(*it).linkDest.isEmpty() && (uSource.scheme() == uDest.scheme()) && (uSource.host() == uDest.host()) && (uSource.port() == uDest.port())
-                   && (uSource.userName() == uDest.userName()) && (uSource.password() == uDest.password()))
+        } else if (!(*it).linkDest.isEmpty() && compareUrls(uSource, uDest))
         // Copying a symlink - only on the same protocol/host/etc. (#5601, downloading an FTP file through its link),
         {
             KIO::SimpleJob *newJob = KIO::symlink((*it).linkDest, uDest, flags | HideProgressInfo /*no GUI*/);
@@ -2115,8 +2131,14 @@ void CopyJobPrivate::slotResultRenaming(KJob *job)
 
                     const QString caption = err != ERR_DIR_ALREADY_EXIST ? i18n("File Already Exists") : i18n("Already Exists as Folder");
 
-                    askUserActionInterface
-                        ->askUserRename(q, caption, m_currentSrcURL, dest, options, sizeSrc, sizeDest, ctimeSrc, ctimeDest, mtimeSrc, mtimeDest);
+                    /* clang-format off */
+                    askUserActionInterface->askUserRename(q, caption,
+                                                          m_currentSrcURL, dest,
+                                                          options,
+                                                          sizeSrc, sizeDest,
+                                                          ctimeSrc, ctimeDest,
+                                                          mtimeSrc, mtimeDest);
+                    /* clang-format on */
 
                     return;
                 }

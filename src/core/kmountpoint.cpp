@@ -443,25 +443,35 @@ KMountPoint::Ptr KMountPoint::List::findByDevice(const QString &device) const
 
 bool KMountPoint::probablySlow() const
 {
-    return d->m_mountType == QLatin1String("nfs") || d->m_mountType == QLatin1String("nfs4") || d->m_mountType == QLatin1String("cifs")
+    /* clang-format off */
+    return d->m_mountType == QLatin1String("nfs")
+        || d->m_mountType == QLatin1String("nfs4")
+        || d->m_mountType == QLatin1String("cifs")
         || d->m_mountType == QLatin1String("autofs")
         || d->m_mountType == QLatin1String("subfs")
         // Technically KIOFUSe mounts local slaves as well,
         // such as recents:/, but better safe than sorry...
         || d->m_mountType == QLatin1String("fuse.kio-fuse");
+    /* clang-format on */
 }
 
 bool KMountPoint::testFileSystemFlag(FileSystemFlag flag) const
 {
-    const bool isMsDos = (d->m_mountType == QLatin1String("msdos") || d->m_mountType == QLatin1String("fat") || d->m_mountType == QLatin1String("vfat"));
+    /* clang-format off */
+    const bool isMsDos = d->m_mountType == QLatin1String("msdos")
+                         || d->m_mountType == QLatin1String("fat")
+                         || d->m_mountType == QLatin1String("vfat");
+
     const bool isNtfs = d->m_mountType.contains(QLatin1String("fuse.ntfs"))
-        || d->m_mountType.contains(QLatin1String("fuseblk.ntfs"))
-        // fuseblk could really be anything. But its most common use is for NTFS mounts, these days.
-        || d->m_mountType == QLatin1String("fuseblk");
+                        || d->m_mountType.contains(QLatin1String("fuseblk.ntfs"))
+                        // fuseblk could really be anything. But its most common use is for NTFS mounts, these days.
+                        || d->m_mountType == QLatin1String("fuseblk");
+
     const bool isSmb = d->m_mountType == QLatin1String("cifs")
-        || d->m_mountType == QLatin1String("smbfs")
-        // gvfs-fuse mounted SMB share
-        || d->m_mountType == QLatin1String("smb-share");
+                       || d->m_mountType == QLatin1String("smbfs")
+                       // gvfs-fuse mounted SMB share
+                       || d->m_mountType == QLatin1String("smb-share");
+    /* clang-format on */
 
     switch (flag) {
     case SupportsChmod:

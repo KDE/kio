@@ -729,9 +729,13 @@ void KUrlCompletionPrivate::setListedUrl(ComplType complType, const QString &dir
 
 bool KUrlCompletionPrivate::isListedUrl(ComplType complType, const QString &directory, const QString &filter, bool no_hidden)
 {
-    return last_compl_type == complType && (last_path_listed == directory || (directory.isEmpty() && last_path_listed.isEmpty()))
-        && (filter.startsWith(last_file_listed) || (filter.isEmpty() && last_file_listed.isEmpty())) && last_no_hidden == no_hidden
+    /* clang-format off */
+    return last_compl_type == complType
+        && (last_path_listed == directory || (directory.isEmpty() && last_path_listed.isEmpty()))
+        && (filter.startsWith(last_file_listed) || (filter.isEmpty() && last_file_listed.isEmpty()))
+        && last_no_hidden == no_hidden
         && last_prepend == prepend; // e.g. relative path vs absolute
+    /* clang-format on */
 }
 
 /*
@@ -741,8 +745,12 @@ bool KUrlCompletionPrivate::isListedUrl(ComplType complType, const QString &dire
  */
 bool KUrlCompletionPrivate::isAutoCompletion()
 {
-    return q->completionMode() == KCompletion::CompletionAuto || q->completionMode() == KCompletion::CompletionPopup
-        || q->completionMode() == KCompletion::CompletionMan || q->completionMode() == KCompletion::CompletionPopupAuto;
+    /* clang-format off */
+    return q->completionMode() == KCompletion::CompletionAuto
+        || q->completionMode() == KCompletion::CompletionPopup
+        || q->completionMode() == KCompletion::CompletionMan
+        || q->completionMode() == KCompletion::CompletionPopupAuto;
+    /* clang-format on */
 }
 //////////////////////////////////////////////////
 //////////////////////////////////////////////////

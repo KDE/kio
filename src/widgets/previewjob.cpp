@@ -689,8 +689,15 @@ void PreviewJobPrivate::createThumbnail(const QString &pixPath)
 void PreviewJobPrivate::slotThumbData(KIO::Job *, const QByteArray &data)
 {
     const bool isEncrypted = encryptedMountsList.findByPath(currentItem.item.url().toLocalFile());
-    bool save = bSave && !sequenceIndex && !isEncrypted && currentItem.plugin->property(QStringLiteral("CacheThumbnail")).toBool()
-        && (!currentItem.item.url().isLocalFile() || !currentItem.item.url().adjusted(QUrl::RemoveFilename).toLocalFile().startsWith(thumbRoot));
+    /* clang-format off */
+    const bool save = bSave
+                      && !sequenceIndex
+                      && !isEncrypted
+                      && currentItem.plugin->property(QStringLiteral("CacheThumbnail")).toBool()
+                      && (!currentItem.item.url().isLocalFile()
+                          || !currentItem.item.url().adjusted(QUrl::RemoveFilename).toLocalFile().startsWith(thumbRoot));
+    /* clang-format on */
+
     QImage thumb;
 #if WITH_SHM
     if (shmaddr) {

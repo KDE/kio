@@ -200,39 +200,59 @@ void HTTPAuthenticationTest::testAuthentication_data()
     QTest::addColumn<QByteArray>("cnonce");
 
     // Test cases from  RFC 2617...
-    QTest::newRow("rfc-2617-basic-example") << QByteArray("Basic realm=\"WallyWorld\"") << QByteArray("Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==")
-                                            << QByteArray("Aladdin") << QByteArray("open sesame") << QByteArray() << QByteArray();
-    QTest::newRow("rfc-2617-digest-example") << QByteArray(
-        "Digest realm=\"testrealm@host.com\", qop=\"auth,auth-int\", nonce=\"dcd98b7102dd2f0e8b11d0f600bfb0c093\", opaque=\"5ccc069c403ebaf9f0171e9517f40e41\"")
-                                             << QByteArray(
-                                                    "Digest username=\"Mufasa\", realm=\"testrealm@host.com\", nonce=\"dcd98b7102dd2f0e8b11d0f600bfb0c093\", "
-                                                    "uri=\"/dir/index.html\", algorithm=MD5, qop=auth, cnonce=\"0a4f113b\", nc=00000001, "
-                                                    "response=\"6629fae49393a05397450978507c4ef1\", opaque=\"5ccc069c403ebaf9f0171e9517f40e41\"")
-                                             << QByteArray("Mufasa") << QByteArray("Circle Of Life") << QByteArray("http://www.nowhere.org/dir/index.html")
-                                             << QByteArray("0a4f113b");
-    QTest::newRow("ntlm-negotiate-type1") << QByteArray("NTLM") << QByteArray("NTLM TlRMTVNTUAABAAAABQIAAAAAAAAAAAAAAAAAAAAAAAA=") << QByteArray()
-                                          << QByteArray() << QByteArray() << QByteArray();
+    /* clang-format off */
+    QTest::newRow("rfc-2617-basic-example") << QByteArray("Basic realm=\"WallyWorld\"")
+                                            << QByteArray("Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==")
+                                            << QByteArray("Aladdin")
+                                            << QByteArray("open sesame")
+                                            << QByteArray()
+                                            << QByteArray();
+
+    QTest::newRow("rfc-2617-digest-example")
+        << QByteArray("Digest realm=\"testrealm@host.com\", qop=\"auth,auth-int\", nonce=\"dcd98b7102dd2f0e8b11d0f600bfb0c093\","
+                      "opaque=\"5ccc069c403ebaf9f0171e9517f40e41\"")
+        << QByteArray("Digest username=\"Mufasa\", realm=\"testrealm@host.com\", nonce=\"dcd98b7102dd2f0e8b11d0f600bfb0c093\", "
+                      "uri=\"/dir/index.html\", algorithm=MD5, qop=auth, cnonce=\"0a4f113b\", nc=00000001, "
+                      "response=\"6629fae49393a05397450978507c4ef1\", opaque=\"5ccc069c403ebaf9f0171e9517f40e41\"")
+        << QByteArray("Mufasa")
+        << QByteArray("Circle Of Life")
+        << QByteArray("http://www.nowhere.org/dir/index.html")
+        << QByteArray("0a4f113b");
+
+    QTest::newRow("ntlm-negotiate-type1") << QByteArray("NTLM")
+                                          << QByteArray("NTLM TlRMTVNTUAABAAAABQIAAAAAAAAAAAAAAAAAAAAAAAA=")
+                                          << QByteArray()
+                                          << QByteArray()
+                                          << QByteArray()
+                                          << QByteArray();
+
     QTest::newRow("ntlm-challenge-type2")
         << QByteArray("NTLM TlRMTVNTUAACAAAAFAAUACgAAAABggAAU3J2Tm9uY2UAAAAAAAAAAFUAcgBzAGEALQBNAGEAagBvAHIA")
-        << QByteArray(
-               "NTLM "
-               "TlRMTVNTUAADAAAAGAAYAFgAAAAYABgAQAAAABQAFABwAAAADAAMAIQAAAAWABYAkAAAAAAAAAAAAAAAAYIAAODgDeMQShvyBT8Hx92oLTxImumJ4bAA062Hym3v40aFucQ8R3qMQtYAZn1"
-               "okufol1UAcgBzAGEALQBNAGkAbgBvAHIAWgBhAHAAaABvAGQAVwBPAFIASwBTAFQAQQBUAEkATwBOAA==")
-        << QByteArray("Ursa-Minor\\Zaphod") << QByteArray("Beeblebrox") << QByteArray() << QByteArray();
+        << QByteArray("NTLM "
+                      "TlRMTVNTUAADAAAAGAAYAFgAAAAYABgAQAAAABQAFABwAAAADAAMAIQAAAAWABYAkAAAAAAAAAAAAAAAAYIAAODgDeMQShvyBT8Hx92oLTxImumJ4bAA062Hym3v40aFucQ8R3qMQtYAZn1okufol1UAcgBzAGEALQBNAGkAbgBvAHIAWgBhAHAAaABvAGQAVwBPAFIASwBTAFQAQQBUAEkATwBOAA==")
+        << QByteArray("Ursa-Minor\\Zaphod")
+        << QByteArray("Beeblebrox")
+        << QByteArray()
+        << QByteArray();
+
     QTest::newRow("ntlm-challenge-type2-no-domain")
         << QByteArray("NTLM TlRMTVNTUAACAAAAFAAUACgAAAABggAAU3J2Tm9uY2UAAAAAAAAAAFUAcgBzAGEALQBNAGEAagBvAHIA")
-        << QByteArray(
-               "NTLM "
-               "TlRMTVNTUAADAAAAGAAYAFgAAAAYABgAQAAAABQAFABwAAAADAAMAIQAAAAWABYAkAAAAAAAAAAAAAAAAYIAAODgDeMQShvyBT8Hx92oLTxImumJ4bAA062Hym3v40aFucQ8R3qMQtYAZn1"
-               "okufol1UAcgBzAGEALQBNAGEAagBvAHIAWgBhAHAAaABvAGQAVwBPAFIASwBTAFQAQQBUAEkATwBOAA==")
-        << QByteArray("Zaphod") << QByteArray("Beeblebrox") << QByteArray() << QByteArray();
+        << QByteArray("NTLM "
+                      "TlRMTVNTUAADAAAAGAAYAFgAAAAYABgAQAAAABQAFABwAAAADAAMAIQAAAAWABYAkAAAAAAAAAAAAAAAAYIAAODgDeMQShvyBT8Hx92oLTxImumJ4bAA062Hym3v40aFucQ8R3qMQtYAZn1okufol1UAcgBzAGEALQBNAGEAagBvAHIAWgBhAHAAaABvAGQAVwBPAFIASwBTAFQAQQBUAEkATwBOAA==")
+        << QByteArray("Zaphod")
+        << QByteArray("Beeblebrox")
+        << QByteArray()
+        << QByteArray();
+
     QTest::newRow("ntlm-challenge-type2-empty-domain")
         << QByteArray("NTLM TlRMTVNTUAACAAAAFAAUACgAAAABggAAU3J2Tm9uY2UAAAAAAAAAAFUAcgBzAGEALQBNAGEAagBvAHIA")
-        << QByteArray(
-               "NTLM "
-               "TlRMTVNTUAADAAAAGAAYAFgAAAAYABgAQAAAAAAAAAAAAAAADAAMAHAAAAAWABYAfAAAAAAAAAAAAAAAAYIAAODgDeMQShvyBT8Hx92oLTxImumJ4bAA062Hym3v40aFucQ8R3qMQtYAZn1"
-               "okufol1oAYQBwAGgAbwBkAFcATwBSAEsAUwBUAEEAVABJAE8ATgA=")
-        << QByteArray("\\Zaphod") << QByteArray("Beeblebrox") << QByteArray() << QByteArray();
+        << QByteArray("NTLM "
+                      "TlRMTVNTUAADAAAAGAAYAFgAAAAYABgAQAAAAAAAAAAAAAAADAAMAHAAAAAWABYAfAAAAAAAAAAAAAAAAYIAAODgDeMQShvyBT8Hx92oLTxImumJ4bAA062Hym3v40aFucQ8R3qMQtYAZn1okufol1oAYQBwAGgAbwBkAFcATwBSAEsAUwBUAEEAVABJAE8ATgA=")
+        << QByteArray("\\Zaphod")
+        << QByteArray("Beeblebrox")
+        << QByteArray()
+        << QByteArray();
+    /* clang-format on */
 }
 
 void HTTPAuthenticationTest::testAuthentication()
@@ -259,16 +279,15 @@ void HTTPAuthenticationTest::testAuthentication()
 
 void HTTPAuthenticationTest::testAuthenticationNTLMv2()
 {
+    /* clang-format off */
     QByteArray input(
         "NTLM "
-        "TlRMTVNTUAACAAAABgAGADgAAAAFAokCT0wyUnb4OSQAAAAAAAAAAMYAxgA+"
-        "AAAABgGxHQAAAA9UAFMAVAACAAYAVABTAFQAAQASAEQAVgBHAFIASwBWAFEAUABEAAQAKgB0AHMAdAAuAGQAagBrAGgAcQBjAGkAaABtAGMAbwBmAGoALgBvAHIAZwADAD4ARABWAEcAUgBLAFYAUQ"
-        "BQAEQALgB0AHMAdAAuAGQAagBrAGgAcQBjAGkAaABtAGMAbwBmAGoALgBvAHIAZwAFACIAZABqAGsAaABxAGMAaQBoAG0AYwBvAGYAagAuAG8AcgBnAAcACABvb9jXZl7RAQAAAAA=");
+        "TlRMTVNTUAACAAAABgAGADgAAAAFAokCT0wyUnb4OSQAAAAAAAAAAMYAxgA+AAAABgGxHQAAAA9UAFMAVAACAAYAVABTAFQAAQASAEQAVgBHAFIASwBWAFEAUABEAAQAKgB0AHMAdAAuAGQAagBrAGgAcQBjAGkAaABtAGMAbwBmAGoALgBvAHIAZwADAD4ARABWAEcAUgBLAFYAUQBQAEQALgB0AHMAdAAuAGQAagBrAGgAcQBjAGkAaABtAGMAbwBmAGoALgBvAHIAZwAFACIAZABqAGsAaABxAGMAaQBoAG0AYwBvAGYAagAuAG8AcgBnAAcACABvb9jXZl7RAQAAAAA=");
+
     QByteArray expectedResponse(
-        "TlRMTVNTUAADAAAAGAAYADYBAAD2APYAQAAAAAYABgBOAQAABgAGAFQBAAAWABYAWgEAAAAAAAAAAAAABQKJArXyhsxZPveKcfcV21viIsUBAQAAAAAAAAC8GQxfX9EBTHOi1kJbHbQAAAAAAgAGAF"
-        "QAUwBUAAEAEgBEAFYARwBSAEsAVgBRAFAARAAEACoAdABzAHQALgBkAGoAawBoAHEAYwBpAGgAbQBjAG8AZgBqAC4AbwByAGcAAwA+"
-        "AEQAVgBHAFIASwBWAFEAUABEAC4AdABzAHQALgBkAGoAawBoAHEAYwBpAGgAbQBjAG8AZgBqAC4AbwByAGcABQAiAGQAagBrAGgAcQBjAGkAaABtAGMAbwBmAGoALgBvAHIAZwAHAAgAb2/"
-        "Y12Ze0QEAAAAAAAAAAOInN0N/15GHBtz3WXvvV159KG/2MbYk0FQAUwBUAGIAbwBiAFcATwBSAEsAUwBUAEEAVABJAE8ATgA=");
+        "TlRMTVNTUAADAAAAGAAYADYBAAD2APYAQAAAAAYABgBOAQAABgAGAFQBAAAWABYAWgEAAAAAAAAAAAAABQKJArXyhsxZPveKcfcV21viIsUBAQAAAAAAAAC8GQxfX9EBTHOi1kJbHbQAAAAAAgAGAFQAUwBUAAEAEgBEAFYARwBSAEsAVgBRAFAARAAEACoAdABzAHQALgBkAGoAawBoAHEAYwBpAGgAbQBjAG8AZgBqAC4AbwByAGcAAwA+AEQAVgBHAFIASwBWAFEAUABEAC4AdABzAHQALgBkAGoAawBoAHEAYwBpAGgAbQBjAG8AZgBqAC4AbwByAGcABQAiAGQAagBrAGgAcQBjAGkAaABtAGMAbwBmAGoALgBvAHIAZwAHAAgAb2/Y12Ze0QEAAAAAAAAAAOInN0N/15GHBtz3WXvvV159KG/2MbYk0FQAUwBUAGIAbwBiAFcATwBSAEsAUwBUAEEAVABJAE8ATgA=");
+    /* clang-format on */
+
     QString user("TST\\bob");
     QString pass("cacamas");
     QString target("TST");

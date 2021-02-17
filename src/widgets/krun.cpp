@@ -124,8 +124,10 @@ bool KRun::isExecutableFile(const QUrl &url, const QString &mimetype)
     // this method not returning true for application/x-desktop
     QMimeDatabase db;
     QMimeType mimeType = db.mimeTypeForName(mimetype);
-    if (!mimeType.inherits(QStringLiteral("application/x-executable")) && !mimeType.inherits(QStringLiteral("application/x-ms-dos-executable"))
-        && !mimeType.inherits(QStringLiteral("application/x-executable-script")) && !mimeType.inherits(QStringLiteral("application/x-sharedlib"))) {
+    if (!mimeType.inherits(QStringLiteral("application/x-executable")) /* clang-format off */
+        && !mimeType.inherits(QStringLiteral("application/x-ms-dos-executable"))
+        && !mimeType.inherits(QStringLiteral("application/x-executable-script"))
+        && !mimeType.inherits(QStringLiteral("application/x-sharedlib"))) { /* clang-format on */
         return false;
     }
 

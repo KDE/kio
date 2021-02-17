@@ -413,12 +413,14 @@ void KDirModelTest::testReload()
 }
 
 // We want more info than just "the values differ", if they do.
-#define COMPARE_INDEXES(a, b)                                                                                                                                  \
-    QCOMPARE(a.row(), b.row());                                                                                                                                \
-    QCOMPARE(a.column(), b.column());                                                                                                                          \
-    QCOMPARE(a.model(), b.model());                                                                                                                            \
-    QCOMPARE(a.parent().isValid(), b.parent().isValid());                                                                                                      \
+/* clang-format off */
+#define COMPARE_INDEXES(a, b) \
+    QCOMPARE(a.row(), b.row()); \
+    QCOMPARE(a.column(), b.column()); \
+    QCOMPARE(a.model(), b.model()); \
+    QCOMPARE(a.parent().isValid(), b.parent().isValid()); \
     QCOMPARE(a, b);
+/* clang-format on */
 
 void KDirModelTest::testModifyFile()
 {

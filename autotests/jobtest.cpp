@@ -1435,10 +1435,9 @@ void JobTest::deleteDirectory()
     // A broken symlink:
     createTestSymlink(dest + "/broken_symlink");
     // A symlink to a dir:
-    bool symlink_ok =
-        symlink(QFile::encodeName(QFileInfo(QFINDTESTDATA("jobtest.cpp")).absolutePath()).constData(), QFile::encodeName(dest + "/symlink_to_dir").constData())
-        == 0;
-    if (!symlink_ok) {
+    const auto srcFileName = QFile::encodeName(QFileInfo(QFINDTESTDATA("jobtest.cpp")).absolutePath()).constData();
+    const auto symLinkFileName = QFile::encodeName(dest + "/symlink_to_dir").constData();
+    if (symlink(srcFileName, symLinkFileName) != 0) {
         qFatal("couldn't create symlink: %s", strerror(errno));
     }
 #endif

@@ -226,21 +226,23 @@ void KIOExec::slotRunApp()
         const bool uploadChanges = !mUseDaemon && !dest.isLocalFile();
         if (info.exists() && (it->time != info.lastModified())) {
             if (mTempFiles) {
-                if (KMessageBox::questionYesNo(nullptr,
-                                               i18n("The supposedly temporary file\n%1\nhas been modified.\nDo you still want to delete it?",
-                                                    dest.toDisplayString(QUrl::PreferLocalFile)),
-                                               i18n("File Changed"),
-                                               KStandardGuiItem::del(),
-                                               KGuiItem(i18n("Do Not Delete")))
-                    != KMessageBox::Yes)
+                const auto result = KMessageBox::questionYesNo(
+                    nullptr,
+                    i18n("The supposedly temporary file\n%1\nhas been modified.\nDo you still want to delete it?", dest.toDisplayString(QUrl::PreferLocalFile)),
+                    i18n("File Changed"),
+                    KStandardGuiItem::del(),
+                    KGuiItem(i18n("Do Not Delete")));
+                if (result != KMessageBox::Yes) {
                     continue; // don't delete the temp file
+                }
             } else if (uploadChanges) { // no upload when it's already a local file or kioexecd already did it.
-                if (KMessageBox::questionYesNo(nullptr,
+                const auto result =
+                    KMessageBox::questionYesNo(nullptr,
                                                i18n("The file\n%1\nhas been modified.\nDo you want to upload the changes?", dest.toDisplayString()),
                                                i18n("File Changed"),
                                                KGuiItem(i18n("Upload")),
-                                               KGuiItem(i18n("Do Not Upload")))
-                    == KMessageBox::Yes) {
+                                               KGuiItem(i18n("Do Not Upload")));
+                if (result == KMessageBox::Yes) {
                     qDebug() << "src='" << src << "'  dest='" << dest << "'";
                     // Do it the synchronous way.
                     KIO::CopyJob *job = KIO::copy(QUrl::fromLocalFile(src), dest);
