@@ -26,8 +26,8 @@ public:
     virtual ~KDirOperatorDetailView();
 
     /**
-    * Displays either Detail, Tree or DetailTree modes.
-    */
+     * Displays either Detail, Tree or DetailTree modes.
+     */
     virtual bool setViewMode(KFile::FileView viewMode);
 
 protected:

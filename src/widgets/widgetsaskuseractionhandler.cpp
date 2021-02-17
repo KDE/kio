@@ -7,7 +7,6 @@
 
 #include "widgetsaskuseractionhandler.h"
 
-#include <kio_widgets_debug.h>
 #include <KConfig>
 #include <KConfigGroup>
 #include <KGuiItem>
@@ -19,6 +18,7 @@
 #include <KSharedConfig>
 #include <KSslInfoDialog>
 #include <KStandardGuiItem>
+#include <kio_widgets_debug.h>
 
 #include <QDialogButtonBox>
 #include <QRegularExpression>
@@ -39,7 +39,8 @@ public:
 };
 
 KIO::WidgetsAskUserActionHandler::WidgetsAskUserActionHandler(QObject *parent)
-    : KIO::AskUserActionInterface(parent), d(new WidgetsAskUserActionHandlerPrivate(this))
+    : KIO::AskUserActionInterface(parent)
+    , d(new WidgetsAskUserActionHandlerPrivate(this))
 {
 }
 
@@ -59,11 +60,7 @@ void KIO::WidgetsAskUserActionHandler::askUserRename(KJob *job,
                                                      const QDateTime &mtimeSrc,
                                                      const QDateTime &mtimeDest)
 {
-    auto *dlg = new KIO::RenameDialog(KJobWidgets::window(job), caption,
-                                      src, dest, options,
-                                      sizeSrc, sizeDest,
-                                      ctimeSrc, ctimeDest,
-                                      mtimeSrc, mtimeDest);
+    auto *dlg = new KIO::RenameDialog(KJobWidgets::window(job), caption, src, dest, options, sizeSrc, sizeDest, ctimeSrc, ctimeDest, mtimeSrc, mtimeDest);
 
     dlg->setAttribute(Qt::WA_DeleteOnClose);
     dlg->setWindowModality(Qt::WindowModal);
@@ -78,9 +75,7 @@ void KIO::WidgetsAskUserActionHandler::askUserRename(KJob *job,
     dlg->show();
 }
 
-void KIO::WidgetsAskUserActionHandler::askUserSkip(KJob *job,
-                                                   KIO::SkipDialog_Options options,
-                                                   const QString &errorText)
+void KIO::WidgetsAskUserActionHandler::askUserSkip(KJob *job, KIO::SkipDialog_Options options, const QString &errorText)
 {
     auto *dlg = new KIO::SkipDialog(KJobWidgets::window(job), options, errorText);
     dlg->setAttribute(Qt::WA_DeleteOnClose);
@@ -94,10 +89,7 @@ void KIO::WidgetsAskUserActionHandler::askUserSkip(KJob *job,
     dlg->show();
 }
 
-void KIO::WidgetsAskUserActionHandler::askUserDelete(const QList<QUrl> &urls,
-                                                     DeletionType deletionType,
-                                                     ConfirmationType confirmationType,
-                                                     QWidget *parent)
+void KIO::WidgetsAskUserActionHandler::askUserDelete(const QList<QUrl> &urls, DeletionType deletionType, ConfirmationType confirmationType, QWidget *parent)
 {
     KSharedConfigPtr kioConfig = KSharedConfig::openConfig(QStringLiteral("kiorc"), KConfig::NoGlobals);
 
@@ -150,27 +142,33 @@ void KIO::WidgetsAskUserActionHandler::askUserDelete(const QList<QUrl> &urls,
     QString text;
     QString caption = i18n("Delete Permanently");
 
-    switch(deletionType) {
+    switch (deletionType) {
     case Delete: {
-        text = xi18ncp("@info", "Do you really want to permanently delete this %1 item?<nl/><nl/>"
+        text = xi18ncp("@info",
+                       "Do you really want to permanently delete this %1 item?<nl/><nl/>"
                        "<emphasis strong='true'>This action cannot be undone.</emphasis>",
                        "Do you really want to permanently delete these %1 items?<nl/><nl/>"
-                       "<emphasis strong='true'>This action cannot be undone.</emphasis>", urlCount);
+                       "<emphasis strong='true'>This action cannot be undone.</emphasis>",
+                       urlCount);
         acceptButton = KStandardGuiItem::del();
         break;
     }
     case EmptyTrash: {
-        text = xi18nc("@info", "Do you want to permanently delete all items from the Trash?<nl/><nl/>"
+        text = xi18nc("@info",
+                      "Do you want to permanently delete all items from the Trash?<nl/><nl/>"
                       "<emphasis strong='true'>This action cannot be undone.</emphasis>");
         acceptButton = KGuiItem(i18nc("@action:button", "Empty Trash"), QStringLiteral("user-trash"));
         break;
     }
     case Trash: {
         if (urlCount == 1) {
-            text = xi18nc("@info", "Do you really want to move this item to the Trash?<nl/>"
-                          "<filename>%1</filename>", prettyList.at(0));
+            text = xi18nc("@info",
+                          "Do you really want to move this item to the Trash?<nl/>"
+                          "<filename>%1</filename>",
+                          prettyList.at(0));
         } else {
-            text = xi18ncp("@info", "Do you really want to move this %1 item to the Trash?", "Do you really want to move these %1 items to the Trash?", urlCount);
+            text =
+                xi18ncp("@info", "Do you really want to move this %1 item to the Trash?", "Do you really want to move these %1 items to the Trash?", urlCount);
         }
         caption = i18n("Move to Trash");
         acceptButton = KGuiItem(i18n("Move to Trash"), QStringLiteral("user-trash"));
@@ -322,12 +320,9 @@ void KIO::WidgetsAskUserActionHandler::requestUserMessageBox(MessageDialogType t
     dialog->show();
 }
 
-void KIO::WidgetsAskUserActionHandlerPrivate::sslMessageBox(const QString &text,
-                                                            const KIO::MetaData &metaData,
-                                                            QWidget *parent)
+void KIO::WidgetsAskUserActionHandlerPrivate::sslMessageBox(const QString &text, const KIO::MetaData &metaData, QWidget *parent)
 {
-    const QStringList sslList = metaData.value(QStringLiteral("ssl_peer_chain")).split(QLatin1Char('\x01'),
-                                          Qt::SkipEmptyParts);
+    const QStringList sslList = metaData.value(QStringLiteral("ssl_peer_chain")).split(QLatin1Char('\x01'), Qt::SkipEmptyParts);
 
     QList<QSslCertificate> certChain;
     bool decodedOk = true;
@@ -341,15 +336,14 @@ void KIO::WidgetsAskUserActionHandlerPrivate::sslMessageBox(const QString &text,
 
     if (decodedOk) { // Use KSslInfoDialog
         KSslInfoDialog *ksslDlg = new KSslInfoDialog(parent);
-        ksslDlg->setSslInfo(
-            certChain,
-            metaData.value(QStringLiteral("ssl_peer_ip")),
-            text, // The URL
-            metaData.value(QStringLiteral("ssl_protocol_version")),
-            metaData.value(QStringLiteral("ssl_cipher")),
-            metaData.value(QStringLiteral("ssl_cipher_used_bits")).toInt(),
-            metaData.value(QStringLiteral("ssl_cipher_bits")).toInt(),
-            KSslInfoDialog::certificateErrorsFromString(metaData.value(QStringLiteral("ssl_cert_errors"))));
+        ksslDlg->setSslInfo(certChain,
+                            metaData.value(QStringLiteral("ssl_peer_ip")),
+                            text, // The URL
+                            metaData.value(QStringLiteral("ssl_protocol_version")),
+                            metaData.value(QStringLiteral("ssl_cipher")),
+                            metaData.value(QStringLiteral("ssl_cipher_used_bits")).toInt(),
+                            metaData.value(QStringLiteral("ssl_cipher_bits")).toInt(),
+                            KSslInfoDialog::certificateErrorsFromString(metaData.value(QStringLiteral("ssl_cert_errors"))));
 
         // KSslInfoDialog deletes itself by setting Qt::WA_DeleteOnClose
 
@@ -363,9 +357,7 @@ void KIO::WidgetsAskUserActionHandlerPrivate::sslMessageBox(const QString &text,
     }
 
     // Fallback to a generic message box
-    auto *dialog = new KMessageDialog(KMessageDialog::Information,
-                                      i18n("The peer SSL certificate chain appears to be corrupt."),
-                                      parent);
+    auto *dialog = new KMessageDialog(KMessageDialog::Information, i18n("The peer SSL certificate chain appears to be corrupt."), parent);
 
     dialog->setAttribute(Qt::WA_DeleteOnClose);
     dialog->setCaption(i18n("SSL"));

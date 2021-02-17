@@ -7,27 +7,29 @@
 */
 
 #include "listjob.h"
+#include "../pathhelpers_p.h"
 #include "job_p.h"
 #include "scheduler.h"
-#include <kurlauthorized.h>
 #include "slave.h"
-#include "../pathhelpers_p.h"
 #include <QTimer>
+#include <kurlauthorized.h>
 
 #include <QDebug>
 
 using namespace KIO;
 
-class KIO::ListJobPrivate: public KIO::SimpleJobPrivate
+class KIO::ListJobPrivate : public KIO::SimpleJobPrivate
 {
 public:
-    ListJobPrivate(const QUrl &url, bool _recursive,
-                   const QString &prefix, const QString &displayPrefix,
-                   bool _includeHidden)
-        : SimpleJobPrivate(url, CMD_LISTDIR, QByteArray()),
-          recursive(_recursive), includeHidden(_includeHidden),
-          m_prefix(prefix), m_displayPrefix(displayPrefix), m_processedEntries(0)
-    {}
+    ListJobPrivate(const QUrl &url, bool _recursive, const QString &prefix, const QString &displayPrefix, bool _includeHidden)
+        : SimpleJobPrivate(url, CMD_LISTDIR, QByteArray())
+        , recursive(_recursive)
+        , includeHidden(_includeHidden)
+        , m_prefix(prefix)
+        , m_displayPrefix(displayPrefix)
+        , m_processedEntries(0)
+    {
+    }
     bool recursive;
     bool includeHidden;
     QString m_prefix;
@@ -46,13 +48,12 @@ public:
     void slotListEntries(const KIO::UDSEntryList &list);
     void slotRedirection(const QUrl &url);
     void gotEntries(KIO::Job *subjob, const KIO::UDSEntryList &list);
-    void slotSubError(ListJob* job, ListJob* subJob);
+    void slotSubError(ListJob *job, ListJob *subJob);
 
     Q_DECLARE_PUBLIC(ListJob)
 
-    static inline ListJob *newJob(const QUrl &u, bool _recursive,
-                                  const QString &prefix, const QString &displayPrefix,
-                                  bool _includeHidden, JobFlags flags = HideProgressInfo)
+    static inline ListJob *
+    newJob(const QUrl &u, bool _recursive, const QString &prefix, const QString &displayPrefix, bool _includeHidden, JobFlags flags = HideProgressInfo)
     {
         ListJob *job = new ListJob(*new ListJobPrivate(u, _recursive, prefix, displayPrefix, _includeHidden));
         job->setUiDelegate(KIO::createDefaultJobUiDelegate());
@@ -61,9 +62,7 @@ public:
         }
         return job;
     }
-    static inline ListJob *newJobNoUi(const QUrl &u, bool _recursive,
-                                      const QString &prefix, const QString &displayPrefix,
-                                      bool _includeHidden)
+    static inline ListJob *newJobNoUi(const QUrl &u, bool _recursive, const QString &prefix, const QString &displayPrefix, bool _includeHidden)
     {
         return new ListJob(*new ListJobPrivate(u, _recursive, prefix, displayPrefix, _includeHidden));
     }
@@ -95,7 +94,6 @@ void ListJobPrivate::slotListEntries(const KIO::UDSEntryList &list)
         const UDSEntryList::ConstIterator end = list.end();
 
         for (; it != end; ++it) {
-
             const UDSEntry &entry = *it;
 
             QUrl itemURL;
@@ -120,15 +118,17 @@ void ListJobPrivate::slotListEntries(const KIO::UDSEntryList &list)
                 // skip hidden dirs when listing if requested
                 if (filename != QLatin1String("..") && filename != QLatin1String(".") && (includeHidden || filename[0] != QLatin1Char('.'))) {
                     ListJob *job = ListJobPrivate::newJobNoUi(itemURL,
-                                   true /*recursive*/,
-                                   m_prefix + filename + QLatin1Char('/'),
-                                   m_displayPrefix + displayName + QLatin1Char('/'),
-                                   includeHidden);
+                                                              true /*recursive*/,
+                                                              m_prefix + filename + QLatin1Char('/'),
+                                                              m_displayPrefix + displayName + QLatin1Char('/'),
+                                                              includeHidden);
                     Scheduler::setJobPriority(job, 1);
-                    QObject::connect(job, &ListJob::entries, q,
-                        [this](KIO::Job *job, const KIO::UDSEntryList &list) {gotEntries(job, list);} );
-                    QObject::connect(job, &ListJob::subError, q,
-                        [this](KIO::ListJob *job, KIO::ListJob *ljob) {slotSubError(job, ljob);} );
+                    QObject::connect(job, &ListJob::entries, q, [this](KIO::Job *job, const KIO::UDSEntryList &list) {
+                        gotEntries(job, list);
+                    });
+                    QObject::connect(job, &ListJob::subError, q, [this](KIO::ListJob *job, KIO::ListJob *ljob) {
+                        slotSubError(job, ljob);
+                    });
 
                     q->addSubjob(job);
                 }
@@ -148,7 +148,6 @@ void ListJobPrivate::slotListEntries(const KIO::UDSEntryList &list)
         UDSEntryList::const_iterator it = list.begin();
         const UDSEntryList::const_iterator end = list.end();
         for (; it != end; ++it) {
-
             // Modify the name in the UDSEntry
             UDSEntry newone = *it;
             const QString filename = newone.stringValue(KIO::UDSEntry::UDS_NAME);
@@ -159,7 +158,7 @@ void ListJobPrivate::slotListEntries(const KIO::UDSEntryList &list)
             // Avoid returning entries like subdir/. and subdir/.., but include . and .. for
             // the toplevel dir, and skip hidden files/dirs if that was requested
             if ((m_prefix.isNull() || (filename != QLatin1String("..") && filename != QLatin1String(".")))
-                    && (includeHidden || (filename[0] != QLatin1Char('.')))) {
+                && (includeHidden || (filename[0] != QLatin1Char('.')))) {
                 // ## Didn't find a way to use the iterator instead of re-doing a key lookup
                 newone.replace(KIO::UDSEntry::UDS_NAME, m_prefix + filename);
                 newone.replace(KIO::UDSEntry::UDS_DISPLAY_NAME, m_displayPrefix + displayName);
@@ -178,7 +177,7 @@ void ListJobPrivate::gotEntries(KIO::Job *, const KIO::UDSEntryList &list)
     Q_EMIT q->entries(q, list);
 }
 
-void ListJobPrivate::slotSubError(KIO::ListJob* /*job*/, KIO::ListJob* subJob)
+void ListJobPrivate::slotSubError(KIO::ListJob * /*job*/, KIO::ListJob *subJob)
 {
     Q_Q(ListJob);
     Q_EMIT q->subError(q, subJob); // Let the signal of subError go up
@@ -216,8 +215,7 @@ void ListJob::slotFinished()
     Q_D(ListJob);
 
     if (!d->m_redirectionURL.isEmpty() && d->m_redirectionURL.isValid() && !error()) {
-
-        //qDebug() << "Redirection to " << d->m_redirectionURL;
+        // qDebug() << "Redirection to " << d->m_redirectionURL;
         if (queryMetaData(QStringLiteral("permanent-redirect")) == QLatin1String("true")) {
             Q_EMIT permanentRedirection(this, d->m_url, d->m_redirectionURL);
         }
@@ -266,21 +264,23 @@ void ListJob::setUnrestricted(bool unrestricted)
 void ListJobPrivate::start(Slave *slave)
 {
     Q_Q(ListJob);
-    if (!KUrlAuthorized::authorizeUrlAction(QStringLiteral("list"), m_url, m_url) &&
-            !(m_extraFlags & EF_ListJobUnrestricted)) {
+    if (!KUrlAuthorized::authorizeUrlAction(QStringLiteral("list"), m_url, m_url) && !(m_extraFlags & EF_ListJobUnrestricted)) {
         q->setError(ERR_ACCESS_DENIED);
         q->setErrorText(m_url.toDisplayString());
         QTimer::singleShot(0, q, &ListJob::slotFinished);
         return;
     }
-    QObject::connect(slave, &Slave::listEntries, q,
-        [this](const KIO::UDSEntryList &list){ slotListEntries(list);} );
+    QObject::connect(slave, &Slave::listEntries, q, [this](const KIO::UDSEntryList &list) {
+        slotListEntries(list);
+    });
 
-    QObject::connect(slave, &Slave::totalSize, q,
-        [this](KIO::filesize_t size){ slotTotalSize(size);} );
+    QObject::connect(slave, &Slave::totalSize, q, [this](KIO::filesize_t size) {
+        slotTotalSize(size);
+    });
 
-    QObject::connect(slave, &Slave::redirection, q,
-        [this](const QUrl &url){ slotRedirection(url);} );
+    QObject::connect(slave, &Slave::redirection, q, [this](const QUrl &url) {
+        slotRedirection(url);
+    });
 
     SimpleJobPrivate::start(slave);
 }

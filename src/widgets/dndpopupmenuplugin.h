@@ -8,8 +8,8 @@
 #define _KIO_DNDPOPUPMENUPLUGIN_H_
 
 #include "kiowidgets_export.h"
-#include <QObject>
 #include <QList>
+#include <QObject>
 
 class KFileItemListProperties;
 class QUrl;
@@ -36,11 +36,10 @@ class KIOWIDGETS_EXPORT DndPopupMenuPlugin : public QObject
 {
     Q_OBJECT
 public:
-
     /**
      * Constructor.
      */
-    DndPopupMenuPlugin(QObject* parent);
+    DndPopupMenuPlugin(QObject *parent);
     virtual ~DndPopupMenuPlugin();
 
     /**
@@ -52,8 +51,7 @@ public:
      * @param destination the URL to where the file(s) were dropped
      * @return a QList with the QActions that will be plugged into the menu.
      */
-    virtual QList<QAction *> setup(const KFileItemListProperties& popupMenuInfo,
-                                   const QUrl& destination) = 0;
+    virtual QList<QAction *> setup(const KFileItemListProperties &popupMenuInfo, const QUrl &destination) = 0;
 };
 
 }

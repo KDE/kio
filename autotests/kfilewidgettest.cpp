@@ -9,34 +9,32 @@
 
 #include <QLabel>
 #include <QLoggingCategory>
+#include <QSignalSpy>
+#include <QStandardPaths>
 #include <QTemporaryDir>
 #include <QTest>
-#include <QStandardPaths>
-#include <QSignalSpy>
 #include <QUrl>
 
+#include "kiotesthelper.h" // createTestFile
 #include <KDirLister>
-#include <kdiroperator.h>
 #include <KFileFilterCombo>
 #include <KLocalizedString>
-#include <kurlnavigator.h>
 #include <KUrlComboBox>
-#include "kiotesthelper.h" // createTestFile
+#include <kdiroperator.h>
+#include <kurlnavigator.h>
 
 #include <QAbstractItemView>
 #include <QDialog>
 #include <QDropEvent>
 #include <QLineEdit>
+#include <QList>
 #include <QMimeData>
 #include <QStringList>
 #include <QStringLiteral>
-#include <QList>
 #include <QUrl>
-
 
 Q_DECLARE_LOGGING_CATEGORY(KIO_KFILEWIDGETS_FW)
 Q_LOGGING_CATEGORY(KIO_KFILEWIDGETS_FW, "kf.kio.kfilewidgets.kfilewidget", QtInfoMsg)
-
 
 /**
  * Unit test for KFileWidget
@@ -66,11 +64,11 @@ private Q_SLOTS:
         fw.setOperationMode(KFileWidget::Saving);
         fw.setMode(KFile::File);
 
-        fw.setFilter(QStringLiteral(
-            "*.xml *.a|Word 2003 XML (.xml)\n"
-            "*.odt|ODF Text Document (.odt)\n"
-            "*.xml *.b|DocBook (.xml)\n"
-            "*|Raw (*)"));
+        fw.setFilter(
+            QStringLiteral("*.xml *.a|Word 2003 XML (.xml)\n"
+                           "*.odt|ODF Text Document (.odt)\n"
+                           "*.xml *.b|DocBook (.xml)\n"
+                           "*|Raw (*)"));
 
         // default filter is selected
         QCOMPARE(fw.currentFilter(), QStringLiteral("*.xml *.a"));
@@ -168,13 +166,13 @@ private Q_SLOTS:
         fw.activateWindow();
         QVERIFY(QTest::qWaitForWindowActive(&fw));
 
-        const QList<KUrlNavigator*> nav = fw.findChildren<KUrlNavigator*>();
+        const QList<KUrlNavigator *> nav = fw.findChildren<KUrlNavigator *>();
         QCOMPARE(nav.count(), 1);
         nav[0]->setFocus();
 
         fw.setUrl(QUrl::fromLocalFile(QDir::tempPath()));
 
-        const QList<KDirOperator*> ops = fw.findChildren<KDirOperator*>();
+        const QList<KDirOperator *> ops = fw.findChildren<KDirOperator *>();
         QCOMPARE(ops.count(), 1);
         QVERIFY(ops[0]->hasFocus());
     }
@@ -232,8 +230,8 @@ private Q_SLOTS:
 
         // THEN
         QCOMPARE(fw.baseUrl().adjusted(QUrl::StripTrailingSlash), expectedBaseUrl);
-        //if (QByteArray(QTest::currentDataTag()) == "filename") {
-            QEXPECT_FAIL("filename", "setSelection cannot work with filenames, bad API", Continue);
+        // if (QByteArray(QTest::currentDataTag()) == "filename") {
+        QEXPECT_FAIL("filename", "setSelection cannot work with filenames, bad API", Continue);
         //}
         QCOMPARE(fw.locationEdit()->currentText(), expectedCurrentText);
     }
@@ -343,43 +341,23 @@ private Q_SLOTS:
 
         const QString filter = QStringLiteral("*.txt|Text files\n*.HTML|HTML files");
 
-        QTest::newRow("some.txt")
-            << "some.txt"
-            << filter
-            << QStringLiteral("some.txt")
-            << QStringLiteral("some.txt");
+        QTest::newRow("some.txt") << "some.txt" << filter << QStringLiteral("some.txt") << QStringLiteral("some.txt");
 
         // If an application provides a name without extension, then the
         // displayed name will not receive an extension. It will however be
         // appended when the dialog is closed.
-        QTest::newRow("extensionless name")
-            << "some"
-            << filter
-            << QStringLiteral("some")
-            << QStringLiteral("some.txt");
+        QTest::newRow("extensionless name") << "some" << filter << QStringLiteral("some") << QStringLiteral("some.txt");
 
         // If the file literally exists, then no new extension will be appended.
-        QTest::newRow("existing file")
-            << "README"
-            << filter
-            << QStringLiteral("README")
-            << QStringLiteral("README");
+        QTest::newRow("existing file") << "README" << filter << QStringLiteral("README") << QStringLiteral("README");
 
         // XXX perhaps the "extension" should not be modified when it does not
         // match any of the existing types? Should "some.2019.txt" be expected?
-        QTest::newRow("some.2019")
-            << "some.2019"
-            << filter
-            << QStringLiteral("some.txt")
-            << QStringLiteral("some.txt");
+        QTest::newRow("some.2019") << "some.2019" << filter << QStringLiteral("some.txt") << QStringLiteral("some.txt");
 
         // XXX be smarter and do not change the extension if one of the other
         // filters match. Should "some.html" be expected?
-        QTest::newRow("some.html")
-            << "some.html"
-            << filter
-            << QStringLiteral("some.txt")
-            << QStringLiteral("some.txt");
+        QTest::newRow("some.html") << "some.html" << filter << QStringLiteral("some.txt") << QStringLiteral("some.txt");
     }
 
     void testSetFilterForSave()
@@ -451,15 +429,13 @@ private Q_SLOTS:
         QTest::addColumn<QString>("fileName");
         QTest::addColumn<QString>("expectedCurrentText");
 
-        QTest::newRow("some.txt")
-            << ""
-            << "some.txt"
-            << "some.txt";
+        QTest::newRow("some.txt") << ""
+                                  << "some.txt"
+                                  << "some.txt";
 
-        QTest::newRow("subdir/some.txt")
-            << "subdir"
-            << "subdir/some.txt"
-            << "some.txt";
+        QTest::newRow("subdir/some.txt") << "subdir"
+                                         << "subdir/some.txt"
+                                         << "some.txt";
     }
 
     void testDropFile()
@@ -523,7 +499,7 @@ private Q_SLOTS:
     void testCreateNestedNewFolders()
     {
         // when creating multiple nested new folders in the "save as" dialog, where folders are
-        //created and entered, kdirlister would hit an assert (in reinsert()), bug 408801
+        // created and entered, kdirlister would hit an assert (in reinsert()), bug 408801
         QTemporaryDir tempDir;
         QVERIFY(tempDir.isValid());
         const QString dir = tempDir.path();
@@ -565,59 +541,38 @@ private Q_SLOTS:
         QTest::newRow("simple") << QStringList{"test2"} << QString("test2");
 
         // When a single file with space is selected, it is _not_ quoted ...
-        QTest::newRow("space-single-file")
-            << QStringList{"test space"}
-            << QString("test space");
+        QTest::newRow("space-single-file") << QStringList{"test space"} << QString("test space");
 
         // However, when multiple files are selected, they are quoted
-        QTest::newRow("space-multi-file")
-            << QStringList{"test space", "test2"}
-            << QString("\"test space\" \"test2\"");
+        QTest::newRow("space-multi-file") << QStringList{"test space", "test2"} << QString("\"test space\" \"test2\"");
 
         // All quotes in names should be escaped, however since this is a single
         // file, the whole name will not be escaped.
-        QTest::newRow("quote-single-file")
-            << QStringList{"test\"quote"}
-            << QString("test\\\"quote");
+        QTest::newRow("quote-single-file") << QStringList{"test\"quote"} << QString("test\\\"quote");
 
         // Escape multiple files. Files should also be wrapped in ""
         // Note that we are also testing quote at the end of the name
-        QTest::newRow("quote-multi-file")
-            << QStringList{"test\"quote", "test2-quote\"", "test"}
-            << QString("\"test\\\"quote\" \"test2-quote\\\"\" \"test\"");
+        QTest::newRow("quote-multi-file") << QStringList{"test\"quote", "test2-quote\"", "test"} << QString("\"test\\\"quote\" \"test2-quote\\\"\" \"test\"");
 
         // Ok, enough with quotes... lets do some backslashes
         // Backslash literals in file names - Unix only case
-        QTest::newRow("backslash-single-file")
-            << QStringList{"test\\backslash"}
-            << QString("test\\\\backslash");
+        QTest::newRow("backslash-single-file") << QStringList{"test\\backslash"} << QString("test\\\\backslash");
 
-        QTest::newRow("backslash-multi-file")
-            << QStringList{"test\\back\\slash", "test"}
-            << QString("\"test\\\\back\\\\slash\" \"test\"");
+        QTest::newRow("backslash-multi-file") << QStringList{"test\\back\\slash", "test"} << QString("\"test\\\\back\\\\slash\" \"test\"");
 
-        QTest::newRow("double-backslash-multi-file")
-            << QStringList{"test\\\\back\\slash", "test"}
-            << QString("\"test\\\\\\\\back\\\\slash\" \"test\"");
+        QTest::newRow("double-backslash-multi-file") << QStringList{"test\\\\back\\slash", "test"} << QString("\"test\\\\\\\\back\\\\slash\" \"test\"");
 
-        QTest::newRow("double-backslash-end")
-            << QStringList{"test\\\\"}
-            << QString("test\\\\\\\\");
+        QTest::newRow("double-backslash-end") << QStringList{"test\\\\"} << QString("test\\\\\\\\");
 
-        QTest::newRow("single-backslash-end")
-            << QStringList{"some thing", "test\\"}
-            << QString("\"some thing\" \"test\\\\\"");
+        QTest::newRow("single-backslash-end") << QStringList{"some thing", "test\\"} << QString("\"some thing\" \"test\\\\\"");
 
-        QTest::newRow("sharp")
-            << QStringList{"some#thing"}
-            << QString("some#thing");
+        QTest::newRow("sharp") << QStringList{"some#thing"} << QString("some#thing");
 
         // Filenames beginning with ':'; QDir::isAbsolutePath() always returns true
         // in that case, #322837
         QTest::newRow("file-beginning-with-colon") << QStringList{":test2"} << QString{":test2"};
 
-        QTest::newRow("multiple-files-beginning-with-colon") << QStringList{":test space", ":test2"}
-                                                             << QString{"\":test space\" \":test2\""};
+        QTest::newRow("multiple-files-beginning-with-colon") << QStringList{":test space", ":test2"} << QString{"\":test space\" \":test2\""};
     }
 
     void testTokenize()
@@ -663,7 +618,7 @@ private Q_SLOTS:
 private:
     static QWidget *findLocationLabel(QWidget *parent)
     {
-        const QList<QLabel*> labels = parent->findChildren<QLabel*>();
+        const QList<QLabel *> labels = parent->findChildren<QLabel *>();
         for (QLabel *label : labels) {
             if (label->text() == i18n("&Name:") || label->text() == i18n("Name:"))
                 return label->buddy();
@@ -671,7 +626,6 @@ private:
         Q_ASSERT(false);
         return nullptr;
     }
-
 };
 
 QTEST_MAIN(KFileWidgetTest)

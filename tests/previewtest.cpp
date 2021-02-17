@@ -1,16 +1,16 @@
 
 #include "previewtest.h"
 
-#include <QLabel>
 #include <QApplication>
+#include <QLabel>
 #include <QLayout>
 #include <QLineEdit>
 #include <QPushButton>
 
-#include <QDebug>
 #include <KConfigGroup>
 #include <KIconLoader>
 #include <KSharedConfig>
+#include <QDebug>
 #include <kio/previewjob.h>
 
 PreviewTest::PreviewTest()
@@ -20,9 +20,7 @@ PreviewTest::PreviewTest()
     m_url = new QLineEdit(this);
 
     QString path;
-    KIconLoader().loadMimeTypeIcon(QStringLiteral("video-x-generic"), KIconLoader::Desktop, 256,
-                                   KIconLoader::DefaultState, QStringList(),
-                                   &path);
+    KIconLoader().loadMimeTypeIcon(QStringLiteral("video-x-generic"), KIconLoader::Desktop, 256, KIconLoader::DefaultState, QStringList(), &path);
 
     m_url->setText(path);
     layout->addWidget(m_url, 0, 0);
@@ -31,10 +29,9 @@ PreviewTest::PreviewTest()
     layout->addWidget(btn, 0, 1);
 
     const KConfigGroup globalConfig(KSharedConfig::openConfig(), "PreviewSettings");
-    const QStringList enabledPlugins = globalConfig.readEntry("Plugins", QStringList()
-                            << QStringLiteral("directorythumbnail")
-                            << QStringLiteral("imagethumbnail")
-                            << QStringLiteral("jpegthumbnail"));
+    const QStringList enabledPlugins =
+        globalConfig.readEntry("Plugins",
+                               QStringList() << QStringLiteral("directorythumbnail") << QStringLiteral("imagethumbnail") << QStringLiteral("jpegthumbnail"));
 
     m_plugins = new QLineEdit(this);
     layout->addWidget(m_plugins, 1, 0, 1, 2);
@@ -85,4 +82,3 @@ int main(int argc, char **argv)
     w->show();
     return app.exec();
 }
-

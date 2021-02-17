@@ -12,8 +12,8 @@
 #include <KDirWatch>
 #include <KIO/CopyJob>
 #include <KLocalizedString>
-#include <KPluginFactory>
 #include <KMessageBox>
+#include <KPluginFactory>
 
 #include <QDir>
 #include <QFileInfo>
@@ -82,8 +82,11 @@ void KIOExecd::slotDirty(const QString &path)
     const auto dest = m_watched.value(path);
 
     if (KMessageBox::questionYesNo(nullptr,
-                                   i18n("The file %1\nhas been modified. Do you want to upload the changes?" , dest.toDisplayString()),
-                                   i18n("File Changed"), KGuiItem(i18n("Upload")), KGuiItem(i18n("Do Not Upload"))) != KMessageBox::Yes) {
+                                   i18n("The file %1\nhas been modified. Do you want to upload the changes?", dest.toDisplayString()),
+                                   i18n("File Changed"),
+                                   KGuiItem(i18n("Upload")),
+                                   KGuiItem(i18n("Do Not Upload")))
+        != KMessageBox::Yes) {
         return;
     }
 
@@ -130,4 +133,3 @@ void KIOExecd::slotCheckDeletedFiles()
 }
 
 #include "kioexecd.moc"
-

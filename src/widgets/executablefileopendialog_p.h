@@ -25,7 +25,6 @@ public:
         ExecuteFile,
     };
 
-
     enum Mode {
         // For executable scripts
         OpenOrExecute,
@@ -37,8 +36,8 @@ public:
         OpenAsExecute,
     };
 
-    explicit ExecutableFileOpenDialog(Mode mode, QWidget* parent = nullptr);
-    explicit ExecutableFileOpenDialog(QWidget* parent = nullptr);
+    explicit ExecutableFileOpenDialog(Mode mode, QWidget *parent = nullptr);
+    explicit ExecutableFileOpenDialog(QWidget *parent = nullptr);
 
     bool isDontAskAgainChecked() const;
 

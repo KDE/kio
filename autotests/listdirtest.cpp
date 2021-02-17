@@ -6,11 +6,11 @@
 
 #include "listdirtest.h"
 
-#include <QTest>
 #include <QDir>
 #include <QFile>
-#include <QTemporaryDir>
 #include <QSignalSpy>
+#include <QTemporaryDir>
+#include <QTest>
 
 QTEST_MAIN(ListDirTest)
 

@@ -13,15 +13,14 @@
 
 #include <KConfigGroup>
 #include <KLocalizedString>
-#include <kprotocolmanager.h>
 #include <KSharedConfig>
+#include <kprotocolmanager.h>
 
-#include <kio/slaveconfig.h>
 #include "http_slave_defaults.h"
+#include <kio/slaveconfig.h>
 
 namespace KIO
 {
-
 /********************************* SessionData ****************************/
 
 class SessionData::SessionDataPrivate
@@ -49,11 +48,9 @@ SessionData::~SessionData()
     delete d;
 }
 
-void SessionData::configDataFor(MetaData &configData, const QString &proto,
-                                const QString &)
+void SessionData::configDataFor(MetaData &configData, const QString &proto, const QString &)
 {
-    if ((proto.startsWith(QLatin1String("http"), Qt::CaseInsensitive)) ||
-            (proto.startsWith(QLatin1String("webdav"), Qt::CaseInsensitive))) {
+    if ((proto.startsWith(QLatin1String("http"), Qt::CaseInsensitive)) || (proto.startsWith(QLatin1String("webdav"), Qt::CaseInsensitive))) {
         if (!d->initDone) {
             reset();
         }
@@ -85,9 +82,7 @@ void SessionData::reset()
 {
     d->initDone = true;
     // Get Cookie settings...
-    d->useCookie = KSharedConfig::openConfig(QStringLiteral("kcookiejarrc"), KConfig::NoGlobals)->
-                   group("Cookie Policy").
-                   readEntry("Cookies", true);
+    d->useCookie = KSharedConfig::openConfig(QStringLiteral("kcookiejarrc"), KConfig::NoGlobals)->group("Cookie Policy").readEntry("Cookies", true);
 
     d->language = KProtocolManager::acceptLanguagesHeader();
     d->charsets = QString::fromLatin1(QTextCodec::codecForLocale()->name()).toLower();

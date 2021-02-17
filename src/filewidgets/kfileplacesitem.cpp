@@ -11,30 +11,31 @@
 #include <QIcon>
 
 #include <KBookmarkManager>
-#include <KIconLoader>
-#include <KMountPoint>
-#include <KLocalizedString>
 #include <KConfig>
 #include <KConfigGroup>
+#include <KIconLoader>
+#include <KLocalizedString>
+#include <KMountPoint>
 #include <kprotocolinfo.h>
 #include <solid/block.h>
 #include <solid/networkshare.h>
 #include <solid/opticaldisc.h>
 #include <solid/opticaldrive.h>
-#include <solid/storageaccess.h>
-#include <solid/storagevolume.h>
-#include <solid/storagedrive.h>
 #include <solid/portablemediaplayer.h>
+#include <solid/storageaccess.h>
+#include <solid/storagedrive.h>
+#include <solid/storagevolume.h>
 
-static bool isTrash(const KBookmark &bk) {
+static bool isTrash(const KBookmark &bk)
+{
     return bk.url().toString() == QLatin1String("trash:/");
 }
 
-KFilePlacesItem::KFilePlacesItem(KBookmarkManager *manager,
-                                 const QString &address,
-                                 const QString &udi)
-    : m_manager(manager), m_folderIsEmpty(true), m_isCdrom(false),
-      m_isAccessible(false)
+KFilePlacesItem::KFilePlacesItem(KBookmarkManager *manager, const QString &address, const QString &udi)
+    : m_manager(manager)
+    , m_folderIsEmpty(true)
+    , m_isCdrom(false)
+    , m_isAccessible(false)
 {
     updateDeviceInfo(udi);
     setBookmark(m_manager->findByAddress(address));
@@ -166,8 +167,7 @@ QVariant KFilePlacesItem::data(int role) const
 {
     if (role == KFilePlacesModel::GroupRole) {
         return QVariant(m_groupName);
-    } else if (role != KFilePlacesModel::HiddenRole &&
-                role != Qt::BackgroundRole && isDevice()) {
+    } else if (role != KFilePlacesModel::HiddenRole && role != Qt::BackgroundRole && isDevice()) {
         return deviceData(role);
     } else {
         return bookmarkData(role);
@@ -178,8 +178,7 @@ KFilePlacesModel::GroupType KFilePlacesItem::groupType() const
 {
     if (!isDevice()) {
         const QString protocol = bookmark().url().scheme();
-        if (protocol == QLatin1String("timeline") ||
-            protocol == QLatin1String("recentlyused")) {
+        if (protocol == QLatin1String("timeline") || protocol == QLatin1String("recentlyused")) {
             return KFilePlacesModel::RecentlySavedType;
         }
 
@@ -187,9 +186,7 @@ KFilePlacesModel::GroupType KFilePlacesItem::groupType() const
             return KFilePlacesModel::SearchForType;
         }
 
-        if (protocol == QLatin1String("bluetooth") ||
-            protocol == QLatin1String("obexftp") ||
-            protocol == QLatin1String("kdeconnect")) {
+        if (protocol == QLatin1String("bluetooth") || protocol == QLatin1String("obexftp") || protocol == QLatin1String("kdeconnect")) {
             return KFilePlacesModel::DevicesType;
         }
 
@@ -197,8 +194,7 @@ KFilePlacesModel::GroupType KFilePlacesItem::groupType() const
             return KFilePlacesModel::TagsType;
         }
 
-        if (protocol == QLatin1String("remote") ||
-            KProtocolInfo::protocolClass(protocol) != QLatin1String(":local")) {
+        if (protocol == QLatin1String("remote") || KProtocolInfo::protocolClass(protocol) != QLatin1String(":local")) {
             return KFilePlacesModel::RemoteType;
         } else {
             return KFilePlacesModel::PlacesType;
@@ -320,11 +316,7 @@ QVariant KFilePlacesItem::deviceData(int role) const
     }
 }
 
-KBookmark KFilePlacesItem::createBookmark(KBookmarkManager *manager,
-        const QString &label,
-        const QUrl &url,
-        const QString &iconName,
-        KFilePlacesItem *after)
+KBookmark KFilePlacesItem::createBookmark(KBookmarkManager *manager, const QString &label, const QUrl &url, const QString &iconName, KFilePlacesItem *after)
 {
     KBookmarkGroup root = manager->root();
     if (root.isNull()) {
@@ -349,11 +341,11 @@ KBookmark KFilePlacesItem::createBookmark(KBookmarkManager *manager,
 }
 
 KBookmark KFilePlacesItem::createSystemBookmark(KBookmarkManager *manager,
-        const char *translationContext,
-        const QByteArray &untranslatedLabel,
-        const QUrl &url,
-        const QString &iconName,
-        const KBookmark &after)
+                                                const char *translationContext,
+                                                const QByteArray &untranslatedLabel,
+                                                const QUrl &url,
+                                                const QString &iconName,
+                                                const KBookmark &after)
 {
     Q_UNUSED(translationContext); // parameter is only necessary to force the caller
     // to provide a marked-for-translation string for the label, with context
@@ -368,8 +360,7 @@ KBookmark KFilePlacesItem::createSystemBookmark(KBookmarkManager *manager,
     return bookmark;
 }
 
-KBookmark KFilePlacesItem::createDeviceBookmark(KBookmarkManager *manager,
-        const QString &udi)
+KBookmark KFilePlacesItem::createDeviceBookmark(KBookmarkManager *manager, const QString &udi)
 {
     KBookmarkGroup root = manager->root();
     if (root.isNull()) {
@@ -381,8 +372,7 @@ KBookmark KFilePlacesItem::createDeviceBookmark(KBookmarkManager *manager,
     return bookmark;
 }
 
-KBookmark KFilePlacesItem::createTagBookmark(KBookmarkManager *manager,
-        const QString &tag)
+KBookmark KFilePlacesItem::createTagBookmark(KBookmarkManager *manager, const QString &tag)
 {
     KBookmark bookmark = createSystemBookmark(manager, tag.toUtf8().data(), tag.toUtf8(), QUrl(QLatin1String("tags:/") + tag), QLatin1String("tag"));
     bookmark.setMetaDataItem(QStringLiteral("tag"), tag);
@@ -395,13 +385,12 @@ QString KFilePlacesItem::generateNewId()
 {
     static int count = 0;
 
-//    return QString::number(count++);
+    //    return QString::number(count++);
 
-    return QString::number(QDateTime::currentSecsSinceEpoch())
-           + QLatin1Char('/') + QString::number(count++);
+    return QString::number(QDateTime::currentSecsSinceEpoch()) + QLatin1Char('/') + QString::number(count++);
 
-//    return QString::number(QDateTime::currentSecsSinceEpoch())
-//         + '/' + QString::number(qrand());
+    //    return QString::number(QDateTime::currentSecsSinceEpoch())
+    //         + '/' + QString::number(qrand());
 }
 
 bool KFilePlacesItem::updateDeviceInfo(const QString &udi)
@@ -432,8 +421,7 @@ bool KFilePlacesItem::updateDeviceInfo(const QString &udi)
         }
 
         if (m_access) {
-            connect(m_access.data(), &Solid::StorageAccess::accessibilityChanged,
-                    this, &KFilePlacesItem::onAccessibilityChanged);
+            connect(m_access.data(), &Solid::StorageAccess::accessibilityChanged, this, &KFilePlacesItem::onAccessibilityChanged);
             onAccessibilityChanged(m_access->isAccessible());
         }
     } else {

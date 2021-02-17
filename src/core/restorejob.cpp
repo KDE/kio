@@ -7,8 +7,8 @@
 
 #include "restorejob.h"
 
-#include "kiocoredebug.h"
 #include "job_p.h"
+#include "kiocoredebug.h"
 #include <kdirnotify.h>
 
 #include <QTimer>
@@ -19,11 +19,11 @@ class KIO::RestoreJobPrivate : public KIO::JobPrivate
 {
 public:
     RestoreJobPrivate(const QList<QUrl> &urls, JobFlags flags)
-        : JobPrivate(),
-        m_urls(urls),
-        m_urlsIterator(m_urls.constBegin()),
-        m_progress(0),
-        m_flags(flags)
+        : JobPrivate()
+        , m_urls(urls)
+        , m_urlsIterator(m_urls.constBegin())
+        , m_progress(0)
+        , m_flags(flags)
     {
     }
     QList<QUrl> m_urls;
@@ -43,7 +43,6 @@ public:
         }
         return job;
     }
-
 };
 
 RestoreJob::RestoreJob(RestoreJobPrivate &dd)
@@ -64,19 +63,18 @@ void RestoreJobPrivate::slotStart()
     }
 
     if (m_urlsIterator != m_urls.constEnd()) {
-        const QUrl& url = *m_urlsIterator;
+        const QUrl &url = *m_urlsIterator;
         Q_ASSERT(url.scheme() == QLatin1String("trash"));
         QByteArray packedArgs;
         QDataStream stream(&packedArgs, QIODevice::WriteOnly);
         stream << int(3) << url;
-        KIO::Job* job = KIO::special(url, packedArgs, m_flags);
+        KIO::Job *job = KIO::special(url, packedArgs, m_flags);
         q->addSubjob(job);
         q->setProcessedAmount(KJob::Files, q->processedAmount(KJob::Files) + 1);
     } else {
         org::kde::KDirNotify::emitFilesRemoved(m_urls);
         q->emitResult();
     }
-
 }
 
 void RestoreJob::slotResult(KJob *job)
@@ -94,7 +92,6 @@ void RestoreJob::slotResult(KJob *job)
     emitPercent(d->m_progress, d->m_urls.count());
     d->slotStart();
 }
-
 
 RestoreJob *KIO::restoreFromTrash(const QList<QUrl> &urls, JobFlags flags)
 {

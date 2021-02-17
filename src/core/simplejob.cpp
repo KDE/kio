@@ -8,12 +8,12 @@
 
 #include "simplejob.h"
 #include "job_p.h"
+#include "kprotocolinfo.h"
 #include "scheduler.h"
 #include "slave.h"
-#include "kprotocolinfo.h"
-#include <kdirnotify.h>
-#include <QTimer>
 #include <QDebug>
+#include <QTimer>
+#include <kdirnotify.h>
 
 using namespace KIO;
 
@@ -105,7 +105,7 @@ SimpleJob::~SimpleJob()
     Q_D(SimpleJob);
     // last chance to remove this job from the scheduler!
     if (d->m_schedSerial) {
-        //qDebug() << "Killing job" << this << "in destructor!"/* << qBacktrace()*/;
+        // qDebug() << "Killing job" << this << "in destructor!"/* << qBacktrace()*/;
         Scheduler::cancelJob(this);
     }
 }
@@ -126,24 +126,30 @@ void SimpleJobPrivate::start(Slave *slave)
 
     QObject::connect(slave, &Slave::finished, q, &SimpleJob::slotFinished);
 
-    QObject::connect(slave, &Slave::infoMessage, q,
-        [this](const QString& message){ _k_slotSlaveInfoMessage(message);} );
+    QObject::connect(slave, &Slave::infoMessage, q, [this](const QString &message) {
+        _k_slotSlaveInfoMessage(message);
+    });
 
-    QObject::connect(slave, &Slave::connected, q,
-        [this](){ slotConnected();} );
+    QObject::connect(slave, &Slave::connected, q, [this]() {
+        slotConnected();
+    });
 
-    QObject::connect(slave, &Slave::privilegeOperationRequested, q,
-        [this](){ slotPrivilegeOperationRequested();} );
+    QObject::connect(slave, &Slave::privilegeOperationRequested, q, [this]() {
+        slotPrivilegeOperationRequested();
+    });
 
     if ((m_extraFlags & EF_TransferJobDataSent) == 0) { // this is a "get" job
-        QObject::connect(slave, &Slave::totalSize, q,
-            [this](KIO::filesize_t size){ slotTotalSize(size);} );
+        QObject::connect(slave, &Slave::totalSize, q, [this](KIO::filesize_t size) {
+            slotTotalSize(size);
+        });
 
-        QObject::connect(slave, &Slave::processedSize, q,
-            [this](KIO::filesize_t size){ slotProcessedSize(size);} );
+        QObject::connect(slave, &Slave::processedSize, q, [this](KIO::filesize_t size) {
+            slotProcessedSize(size);
+        });
 
-        QObject::connect(slave, &Slave::speed, q,
-            [this](ulong speed){ slotSpeed(speed);} );
+        QObject::connect(slave, &Slave::speed, q, [this](ulong speed) {
+            slotSpeed(speed);
+        });
     }
 
     const QVariant windowIdProp = q->property("window-id"); // see KJobWidgets::setWindow
@@ -156,7 +162,7 @@ void SimpleJobPrivate::start(Slave *slave)
         m_outgoingMetaData.insert(QStringLiteral("user-timestamp"), QString::number(userTimestampProp.toULongLong()));
     }
 
-    if (q->uiDelegate() == nullptr) {            // not interactive
+    if (q->uiDelegate() == nullptr) { // not interactive
         m_outgoingMetaData.insert(QStringLiteral("no-auth-prompt"), QStringLiteral("true"));
     }
 
@@ -172,7 +178,7 @@ void SimpleJobPrivate::start(Slave *slave)
 
     slave->send(m_command, m_packedArgs);
     if (q->isSuspended()) {
-       slave->suspend();
+        slave->suspend();
     }
 }
 
@@ -259,13 +265,13 @@ void SimpleJobPrivate::slotTotalSize(KIO::filesize_t size)
 void SimpleJobPrivate::slotProcessedSize(KIO::filesize_t size)
 {
     Q_Q(SimpleJob);
-    //qDebug() << KIO::number(size);
+    // qDebug() << KIO::number(size);
     q->setProcessedAmount(KJob::Bytes, size);
 }
 
 void SimpleJobPrivate::slotSpeed(unsigned long speed)
 {
-    //qDebug() << speed;
+    // qDebug() << speed;
     q_func()->emitSpeed(speed);
 }
 
@@ -283,16 +289,19 @@ void SimpleJobPrivate::restartAfterRedirection(QUrl *redirectionUrl)
     }
 }
 
-int SimpleJobPrivate::requestMessageBox(int _type, const QString &text, const QString &caption,
-                                        const QString &buttonYes, const QString &buttonNo,
-                                        const QString &iconYes, const QString &iconNo,
+int SimpleJobPrivate::requestMessageBox(int _type,
+                                        const QString &text,
+                                        const QString &caption,
+                                        const QString &buttonYes,
+                                        const QString &buttonNo,
+                                        const QString &iconYes,
+                                        const QString &iconNo,
                                         const QString &dontAskAgainName,
                                         const KIO::MetaData &sslMetaData)
 {
     if (m_uiDelegateExtension) {
         const JobUiDelegateExtension::MessageBoxType type = static_cast<JobUiDelegateExtension::MessageBoxType>(_type);
-        return m_uiDelegateExtension->requestMessageBox(type, text, caption, buttonYes, buttonNo,
-                iconYes, iconNo, dontAskAgainName, sslMetaData);
+        return m_uiDelegateExtension->requestMessageBox(type, text, caption, buttonYes, buttonNo, iconYes, iconNo, dontAskAgainName, sslMetaData);
     }
     qCWarning(KIO_CORE) << "JobUiDelegate not set! Returning -1";
     return -1;
@@ -332,14 +341,14 @@ void SimpleJobPrivate::slotPrivilegeOperationRequested()
 //////////
 SimpleJob *KIO::rmdir(const QUrl &url)
 {
-    //qDebug() << "rmdir " << url;
+    // qDebug() << "rmdir " << url;
     KIO_ARGS << url << qint8(false); // isFile is false
     return SimpleJobPrivate::newJob(url, CMD_DEL, packedArgs);
 }
 
 SimpleJob *KIO::chmod(const QUrl &url, int permissions)
 {
-    //qDebug() << "chmod " << url;
+    // qDebug() << "chmod " << url;
     KIO_ARGS << url << permissions;
     return SimpleJobPrivate::newJob(url, CMD_CHMOD, packedArgs);
 }
@@ -352,35 +361,34 @@ SimpleJob *KIO::chown(const QUrl &url, const QString &owner, const QString &grou
 
 SimpleJob *KIO::setModificationTime(const QUrl &url, const QDateTime &mtime)
 {
-    //qDebug() << "setModificationTime " << url << " " << mtime;
+    // qDebug() << "setModificationTime " << url << " " << mtime;
     KIO_ARGS << url << mtime;
     return SimpleJobPrivate::newJobNoUi(url, CMD_SETMODIFICATIONTIME, packedArgs);
 }
 
 SimpleJob *KIO::rename(const QUrl &src, const QUrl &dest, JobFlags flags)
 {
-    //qDebug() << "rename " << src << " " << dest;
+    // qDebug() << "rename " << src << " " << dest;
     KIO_ARGS << src << dest << (qint8)(flags & Overwrite);
     return SimpleJobPrivate::newJob(src, CMD_RENAME, packedArgs, flags);
 }
 
 SimpleJob *KIO::symlink(const QString &target, const QUrl &dest, JobFlags flags)
 {
-    //qDebug() << "symlink target=" << target << " " << dest;
+    // qDebug() << "symlink target=" << target << " " << dest;
     KIO_ARGS << target << dest << (qint8)(flags & Overwrite);
     return SimpleJobPrivate::newJob(dest, CMD_SYMLINK, packedArgs, flags);
 }
 
 SimpleJob *KIO::special(const QUrl &url, const QByteArray &data, JobFlags flags)
 {
-    //qDebug() << "special " << url;
+    // qDebug() << "special " << url;
     return SimpleJobPrivate::newJob(url, CMD_SPECIAL, data, flags);
 }
 
 SimpleJob *KIO::mount(bool ro, const QByteArray &fstype, const QString &dev, const QString &point, JobFlags flags)
 {
-    KIO_ARGS << int(1) << qint8(ro ? 1 : 0)
-             << QString::fromLatin1(fstype) << dev << point;
+    KIO_ARGS << int(1) << qint8(ro ? 1 : 0) << QString::fromLatin1(fstype) << dev << point;
     SimpleJob *job = special(QUrl(QStringLiteral("file:///")), packedArgs, flags);
     if (!(flags & HideProgressInfo)) {
         KIO::JobPrivate::emitMounting(job, dev, point);

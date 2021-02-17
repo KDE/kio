@@ -11,13 +11,12 @@
 #include <config-kiocore.h>
 
 #if HAVE_POSIX_ACL
-#include <sys/acl.h>
 #include <acl/libacl.h>
+#include <sys/acl.h>
 #endif
+#include <QDataStream>
 #include <QHash>
 #include <QString>
-#include <QDataStream>
-
 
 #include <memory>
 
@@ -30,10 +29,13 @@ public:
 #if HAVE_POSIX_ACL
         : m_acl(nullptr)
 #endif
-    {}
+    {
+    }
 #if HAVE_POSIX_ACL
     explicit KACLPrivate(acl_t acl)
-        : m_acl(acl) {}
+        : m_acl(acl)
+    {
+    }
 #endif
 #if HAVE_POSIX_ACL
     ~KACLPrivate()
@@ -48,7 +50,7 @@ public:
     bool setMaskPermissions(unsigned short v);
     QString getUserName(uid_t uid) const;
     QString getGroupName(gid_t gid) const;
-    bool setAllUsersOrGroups(const QList< QPair<QString, unsigned short> > &list, acl_tag_t type);
+    bool setAllUsersOrGroups(const QList<QPair<QString, unsigned short>> &list, acl_tag_t type);
     bool setNamedUserOrGroupPermissions(const QString &name, unsigned short permissions, acl_tag_t type);
 
     acl_t m_acl;
@@ -159,9 +161,7 @@ static unsigned short entryToPermissions(acl_entry_t entry)
     if (acl_get_permset(entry, &permset) != 0) {
         return 0;
     }
-    return (acl_get_perm(permset, ACL_READ) << 2 |
-            acl_get_perm(permset, ACL_WRITE) << 1 |
-            acl_get_perm(permset, ACL_EXECUTE));
+    return (acl_get_perm(permset, ACL_READ) << 2 | acl_get_perm(permset, ACL_WRITE) << 1 | acl_get_perm(permset, ACL_EXECUTE));
 }
 
 static void permissionsToEntry(acl_entry_t entry, unsigned short v)
@@ -338,7 +338,7 @@ bool KACL::setMaskPermissions(unsigned short v)
 }
 
 #if HAVE_POSIX_ACL
-using unique_ptr_acl_free = std::unique_ptr<void, int(*)(void*)>;
+using unique_ptr_acl_free = std::unique_ptr<void, int (*)(void *)>;
 #endif
 
 /**************************
@@ -353,7 +353,7 @@ unsigned short KACL::namedUserPermissions(const QString &name, bool *exists) con
     while (ret == 1) {
         acl_tag_t currentTag;
         acl_get_tag_type(entry, &currentTag);
-        if (currentTag ==  ACL_USER) {
+        if (currentTag == ACL_USER) {
             const unique_ptr_acl_free idptr(acl_get_qualifier(entry), acl_free);
             const uid_t id = *(static_cast<uid_t *>(idptr.get()));
             if (d->getUserName(id) == name) {
@@ -384,7 +384,7 @@ bool KACL::KACLPrivate::setNamedUserOrGroupPermissions(const QString &name, unsi
         acl_get_tag_type(entry, &currentTag);
         if (currentTag == type) {
             const unique_ptr_acl_free idptr(acl_get_qualifier(entry), acl_free);
-            const int id = * (static_cast<int *>(idptr.get()));  // We assume that sizeof(uid_t) == sizeof(gid_t)
+            const int id = *(static_cast<int *>(idptr.get())); // We assume that sizeof(uid_t) == sizeof(gid_t)
             const QString entryName = type == ACL_USER ? getUserName(id) : getGroupName(id);
             if (entryName == name) {
                 // found him, update
@@ -399,7 +399,7 @@ bool KACL::KACLPrivate::setNamedUserOrGroupPermissions(const QString &name, unsi
         acl_create_entry(&newACL, &entry);
         acl_set_tag_type(entry, type);
         int id = type == ACL_USER ? getUidForName(name) : getGidForName(name);
-        if (id == -1 ||  acl_set_qualifier(entry, &id) != 0) {
+        if (id == -1 || acl_set_qualifier(entry, &id) != 0) {
             acl_delete_entry(newACL, entry);
             allIsWell = false;
         } else {
@@ -447,7 +447,7 @@ ACLUserPermissionsList KACL::allUserPermissions() const
     while (ret == 1) {
         acl_tag_t currentTag;
         acl_get_tag_type(entry, &currentTag);
-        if (currentTag ==  ACL_USER) {
+        if (currentTag == ACL_USER) {
             const unique_ptr_acl_free idptr(acl_get_qualifier(entry), acl_free);
             const uid_t id = *(static_cast<uid_t *>(idptr.get()));
             QString name = d->getUserName(id);
@@ -462,7 +462,7 @@ ACLUserPermissionsList KACL::allUserPermissions() const
 }
 
 #if HAVE_POSIX_ACL
-bool KACL::KACLPrivate::setAllUsersOrGroups(const QList< QPair<QString, unsigned short> > &list, acl_tag_t type)
+bool KACL::KACLPrivate::setAllUsersOrGroups(const QList<QPair<QString, unsigned short>> &list, acl_tag_t type)
 {
     bool allIsWell = true;
     bool atLeastOneUserOrGroup = false;
@@ -476,7 +476,7 @@ bool KACL::KACLPrivate::setAllUsersOrGroups(const QList< QPair<QString, unsigned
     while (ret == 1) {
         acl_tag_t currentTag;
         acl_get_tag_type(entry, &currentTag);
-        if (currentTag ==  type) {
+        if (currentTag == type) {
             acl_delete_entry(newACL, entry);
             // we have to start from the beginning, the iterator is
             // invalidated, on deletion
@@ -487,7 +487,7 @@ bool KACL::KACLPrivate::setAllUsersOrGroups(const QList< QPair<QString, unsigned
     }
 
     // now add the entries from the list
-    QList< QPair<QString, unsigned short> >::const_iterator it = list.constBegin();
+    QList<QPair<QString, unsigned short>>::const_iterator it = list.constBegin();
     while (it != list.constEnd()) {
         acl_create_entry(&newACL, &entry);
         acl_set_tag_type(entry, type);
@@ -544,7 +544,7 @@ unsigned short KACL::namedGroupPermissions(const QString &name, bool *exists) co
     while (ret == 1) {
         acl_tag_t currentTag;
         acl_get_tag_type(entry, &currentTag);
-        if (currentTag ==  ACL_GROUP) {
+        if (currentTag == ACL_GROUP) {
             const unique_ptr_acl_free idptr(acl_get_qualifier(entry), acl_free);
             const gid_t id = *(static_cast<gid_t *>(idptr.get()));
             if (d->getGroupName(id) == name) {
@@ -580,7 +580,7 @@ ACLGroupPermissionsList KACL::allGroupPermissions() const
     while (ret == 1) {
         acl_tag_t currentTag;
         acl_get_tag_type(entry, &currentTag);
-        if (currentTag ==  ACL_GROUP) {
+        if (currentTag == ACL_GROUP) {
             const unique_ptr_acl_free idptr(acl_get_qualifier(entry), acl_free);
             const gid_t id = *(static_cast<gid_t *>(idptr.get()));
             QString name = d->getGroupName(id);
@@ -679,17 +679,16 @@ void KACL::virtual_hook(int, void *)
     /*BASE::virtual_hook( id, data );*/
 }
 
-QDataStream &operator<< (QDataStream &s, const KACL &a)
+QDataStream &operator<<(QDataStream &s, const KACL &a)
 {
     s << a.asString();
     return s;
 }
 
-QDataStream &operator>> (QDataStream &s, KACL &a)
+QDataStream &operator>>(QDataStream &s, KACL &a)
 {
     QString str;
     s >> str;
     a.setACL(str);
     return s;
 }
-

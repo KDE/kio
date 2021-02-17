@@ -46,7 +46,8 @@ void PrivilegeJobTest::privilegeChmod()
     QVERIFY(newPerm != origPerm);
     // Remove search permission
     QVERIFY(QFile::setPermissions(homeTmpDir(), QFileDevice::ReadOwner));
-    KFileItemList items; items << item;
+    KFileItemList items;
+    items << item;
     KIO::Job *job = KIO::chmod(items, newPerm, S_IWGRP, QString(), QString(), false, KIO::HideProgressInfo);
     job->addMetaData("UnitTesting", "true");
     job->setUiDelegate(nullptr);

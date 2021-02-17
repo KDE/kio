@@ -10,33 +10,32 @@
 #include "accessmanagerreply_p.h"
 #include "accessmanager.h"
 #include "job.h"
-#include "scheduler.h"
 #include "kio_widgets_debug.h"
+#include "scheduler.h"
 
-#include <kurlauthorized.h>
-#include <kprotocolinfo.h>
 #include <QMimeDatabase>
+#include <kprotocolinfo.h>
+#include <kurlauthorized.h>
 
-#include <QtMath>
 #include <QSslConfiguration>
+#include <QtMath>
 
-#define QL1S(x)  QLatin1String(x)
-#define QL1C(x)  QLatin1Char(x)
+#define QL1S(x) QLatin1String(x)
+#define QL1C(x) QLatin1Char(x)
 
 namespace KDEPrivate
 {
-
 AccessManagerReply::AccessManagerReply(const QNetworkAccessManager::Operation op,
                                        const QNetworkRequest &request,
                                        KIO::SimpleJob *kioJob,
                                        bool emitReadyReadOnMetaDataChange,
                                        QObject *parent)
-    : QNetworkReply(parent),
-      m_offset(0),
-      m_metaDataRead(false),
-      m_ignoreContentDisposition(false),
-      m_emitReadyReadOnMetaDataChange(emitReadyReadOnMetaDataChange),
-      m_kioJob(kioJob)
+    : QNetworkReply(parent)
+    , m_offset(0)
+    , m_metaDataRead(false)
+    , m_ignoreContentDisposition(false)
+    , m_emitReadyReadOnMetaDataChange(emitReadyReadOnMetaDataChange)
+    , m_kioJob(kioJob)
 
 {
     setRequest(request);
@@ -49,17 +48,15 @@ AccessManagerReply::AccessManagerReply(const QNetworkAccessManager::Operation op
         setSslConfiguration(request.sslConfiguration());
     }
 
-    connect(kioJob, SIGNAL(redirection(KIO::Job*,QUrl)), SLOT(slotRedirection(KIO::Job*,QUrl)));
-    connect(kioJob, QOverload<KJob*,ulong>::of(&KJob::percent), this, &AccessManagerReply::slotPercent);
+    connect(kioJob, SIGNAL(redirection(KIO::Job *, QUrl)), SLOT(slotRedirection(KIO::Job *, QUrl)));
+    connect(kioJob, QOverload<KJob *, ulong>::of(&KJob::percent), this, &AccessManagerReply::slotPercent);
 
     if (qobject_cast<KIO::StatJob *>(kioJob)) {
         connect(kioJob, &KJob::result, this, &AccessManagerReply::slotStatResult);
     } else {
         connect(kioJob, &KJob::result, this, &AccessManagerReply::slotResult);
-        connect(kioJob, SIGNAL(data(KIO::Job*,QByteArray)),
-                SLOT(slotData(KIO::Job*,QByteArray)));
-        connect(kioJob, SIGNAL(mimeTypeFound(KIO::Job*,QString)),
-                SLOT(slotMimeType(KIO::Job*,QString)));
+        connect(kioJob, SIGNAL(data(KIO::Job *, QByteArray)), SLOT(slotData(KIO::Job *, QByteArray)));
+        connect(kioJob, SIGNAL(mimeTypeFound(KIO::Job *, QString)), SLOT(slotMimeType(KIO::Job *, QString)));
     }
 }
 
@@ -69,11 +66,11 @@ AccessManagerReply::AccessManagerReply(const QNetworkAccessManager::Operation op
                                        const QUrl &url,
                                        const KIO::MetaData &metaData,
                                        QObject *parent)
-    : QNetworkReply(parent),
-      m_data(data),
-      m_offset(0),
-      m_ignoreContentDisposition(false),
-      m_emitReadyReadOnMetaDataChange(false)
+    : QNetworkReply(parent)
+    , m_data(data)
+    , m_offset(0)
+    , m_ignoreContentDisposition(false)
+    , m_emitReadyReadOnMetaDataChange(false)
 {
     setRequest(request);
     setOpenMode(QIODevice::ReadOnly);
@@ -94,8 +91,8 @@ AccessManagerReply::AccessManagerReply(const QNetworkAccessManager::Operation op
                                        QNetworkReply::NetworkError errorCode,
                                        const QString &errorMessage,
                                        QObject *parent)
-    : QNetworkReply(parent),
-      m_offset(0)
+    : QNetworkReply(parent)
+    , m_offset(0)
 {
     setRequest(request);
     setOpenMode(QIODevice::ReadOnly);
@@ -191,7 +188,7 @@ void AccessManagerReply::setHeaderFromMetaData(const KIO::MetaData &_metaData)
         if (charSetIt != metaData.constEnd()) {
             QString mimeType = header(QNetworkRequest::ContentTypeHeader).toString();
             mimeType += QLatin1String(" ; charset=") + *charSetIt;
-            //qDebug() << "changed content-type to" << mimeType;
+            // qDebug() << "changed content-type to" << mimeType;
             setHeader(QNetworkRequest::ContentTypeHeader, mimeType.toUtf8());
         }
     } else {
@@ -225,15 +222,13 @@ void AccessManagerReply::setHeaderFromMetaData(const KIO::MetaData &_metaData)
                 continue;
             }
 
-            if (headerName.startsWith(QLatin1String("content-disposition"), Qt::CaseInsensitive) &&
-                    ignoreContentDisposition(metaData)) {
+            if (headerName.startsWith(QLatin1String("content-disposition"), Qt::CaseInsensitive) && ignoreContentDisposition(metaData)) {
                 continue;
             }
 
             // Without overriding the corrected mime-type sent by kio_http, add
             // back the "charset=" portion of the content-type header if present.
             if (headerName.startsWith(QLatin1String("content-type"), Qt::CaseInsensitive)) {
-
                 QString mimeType(header(QNetworkRequest::ContentTypeHeader).toString());
 
                 if (m_ignoreContentDisposition) {
@@ -256,7 +251,7 @@ void AccessManagerReply::setHeaderFromMetaData(const KIO::MetaData &_metaData)
                     } else {
                         headerValue.replace(0, index, mimeType);
                     }
-                    //qDebug() << "Changed mime-type from" << mimeType << "to" << headerValue;
+                    // qDebug() << "Changed mime-type from" << mimeType << "to" << headerValue;
                 }
             }
             setRawHeader(headerName.trimmed().toUtf8(), headerValue.trimmed().toUtf8());
@@ -269,7 +264,7 @@ void AccessManagerReply::setHeaderFromMetaData(const KIO::MetaData &_metaData)
 
 void AccessManagerReply::setIgnoreContentDisposition(bool on)
 {
-    //qDebug() << on;
+    // qDebug() << on;
     m_ignoreContentDisposition = on;
 }
 
@@ -279,7 +274,7 @@ void AccessManagerReply::putOnHold()
         return;
     }
 
-    //qDebug() << m_kioJob << m_data;
+    // qDebug() << m_kioJob << m_data;
     m_kioJob.data()->disconnect(this);
     m_kioJob.data()->putOnHold();
     m_kioJob.clear();
@@ -289,8 +284,7 @@ void AccessManagerReply::putOnHold()
 bool AccessManagerReply::isLocalRequest(const QUrl &url)
 {
     const QString scheme(url.scheme());
-    return (KProtocolInfo::isKnownProtocol(scheme) &&
-            KProtocolInfo::protocolClass(scheme).compare(QStringLiteral(":local"), Qt::CaseInsensitive) == 0);
+    return (KProtocolInfo::isKnownProtocol(scheme) && KProtocolInfo::protocolClass(scheme).compare(QStringLiteral(":local"), Qt::CaseInsensitive) == 0);
 }
 
 void AccessManagerReply::readHttpResponseHeaders(KIO::Job *job)
@@ -409,7 +403,7 @@ void AccessManagerReply::slotData(KIO::Job *kioJob, const QByteArray &data)
 
 void AccessManagerReply::slotMimeType(KIO::Job *kioJob, const QString &mimeType)
 {
-    //qDebug() << kioJob << mimeType;
+    // qDebug() << kioJob << mimeType;
     setHeader(QNetworkRequest::ContentTypeHeader, mimeType.toUtf8());
     readHttpResponseHeaders(kioJob);
     if (m_emitReadyReadOnMetaDataChange) {
@@ -458,7 +452,7 @@ void AccessManagerReply::slotStatResult(KJob *kJob)
     KIO::StatJob *statJob = qobject_cast<KIO::StatJob *>(kJob);
     Q_ASSERT(statJob);
 
-    KIO::UDSEntry entry =  statJob->statResult();
+    KIO::UDSEntry entry = statJob->statResult();
     QString mimeType = entry.stringValue(KIO::UDSEntry::UDS_MIME_TYPE);
     if (mimeType.isEmpty() && entry.isDir()) {
         mimeType = QStringLiteral("inode/directory");
@@ -494,8 +488,7 @@ void AccessManagerReply::slotPercent(KJob *job, unsigned long percent)
 {
     qulonglong bytesTotal = job->totalAmount(KJob::Bytes);
     qulonglong bytesProcessed = (bytesTotal * percent) / 100;
-    if (operation() == QNetworkAccessManager::PutOperation ||
-            operation() == QNetworkAccessManager::PostOperation) {
+    if (operation() == QNetworkAccessManager::PutOperation || operation() == QNetworkAccessManager::PostOperation) {
         Q_EMIT uploadProgress(bytesProcessed, bytesTotal);
         return;
     }
@@ -509,4 +502,3 @@ void AccessManagerReply::emitFinished(bool state, Qt::ConnectionType type)
 }
 
 }
-

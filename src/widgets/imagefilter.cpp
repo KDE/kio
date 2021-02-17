@@ -1,4 +1,4 @@
-//krazy:excludeall=copyright (email of Maxim is missing)
+// krazy:excludeall=copyright (email of Maxim is missing)
 /*
     This file is a part of the KDE project
 
@@ -15,9 +15,9 @@
 
 #include "imagefilter_p.h"
 
-#include <QPainter>
-#include <QImage>
 #include <QColor>
+#include <QImage>
+#include <QPainter>
 
 #include <cmath>
 #include <string.h>
@@ -25,42 +25,24 @@
 using namespace KIO;
 
 static const quint32 stack_blur8_mul[255] = {
-    512, 512, 456, 512, 328, 456, 335, 512, 405, 328, 271, 456, 388, 335, 292, 512,
-    454, 405, 364, 328, 298, 271, 496, 456, 420, 388, 360, 335, 312, 292, 273, 512,
-    482, 454, 428, 405, 383, 364, 345, 328, 312, 298, 284, 271, 259, 496, 475, 456,
-    437, 420, 404, 388, 374, 360, 347, 335, 323, 312, 302, 292, 282, 273, 265, 512,
-    497, 482, 468, 454, 441, 428, 417, 405, 394, 383, 373, 364, 354, 345, 337, 328,
-    320, 312, 305, 298, 291, 284, 278, 271, 265, 259, 507, 496, 485, 475, 465, 456,
-    446, 437, 428, 420, 412, 404, 396, 388, 381, 374, 367, 360, 354, 347, 341, 335,
-    329, 323, 318, 312, 307, 302, 297, 292, 287, 282, 278, 273, 269, 265, 261, 512,
-    505, 497, 489, 482, 475, 468, 461, 454, 447, 441, 435, 428, 422, 417, 411, 405,
-    399, 394, 389, 383, 378, 373, 368, 364, 359, 354, 350, 345, 341, 337, 332, 328,
-    324, 320, 316, 312, 309, 305, 301, 298, 294, 291, 287, 284, 281, 278, 274, 271,
-    268, 265, 262, 259, 257, 507, 501, 496, 491, 485, 480, 475, 470, 465, 460, 456,
-    451, 446, 442, 437, 433, 428, 424, 420, 416, 412, 408, 404, 400, 396, 392, 388,
-    385, 381, 377, 374, 370, 367, 363, 360, 357, 354, 350, 347, 344, 341, 338, 335,
-    332, 329, 326, 323, 320, 318, 315, 312, 310, 307, 304, 302, 299, 297, 294, 292,
-    289, 287, 285, 282, 280, 278, 275, 273, 271, 269, 267, 265, 263, 261, 259
-};
+    512, 512, 456, 512, 328, 456, 335, 512, 405, 328, 271, 456, 388, 335, 292, 512, 454, 405, 364, 328, 298, 271, 496, 456, 420, 388, 360, 335, 312,
+    292, 273, 512, 482, 454, 428, 405, 383, 364, 345, 328, 312, 298, 284, 271, 259, 496, 475, 456, 437, 420, 404, 388, 374, 360, 347, 335, 323, 312,
+    302, 292, 282, 273, 265, 512, 497, 482, 468, 454, 441, 428, 417, 405, 394, 383, 373, 364, 354, 345, 337, 328, 320, 312, 305, 298, 291, 284, 278,
+    271, 265, 259, 507, 496, 485, 475, 465, 456, 446, 437, 428, 420, 412, 404, 396, 388, 381, 374, 367, 360, 354, 347, 341, 335, 329, 323, 318, 312,
+    307, 302, 297, 292, 287, 282, 278, 273, 269, 265, 261, 512, 505, 497, 489, 482, 475, 468, 461, 454, 447, 441, 435, 428, 422, 417, 411, 405, 399,
+    394, 389, 383, 378, 373, 368, 364, 359, 354, 350, 345, 341, 337, 332, 328, 324, 320, 316, 312, 309, 305, 301, 298, 294, 291, 287, 284, 281, 278,
+    274, 271, 268, 265, 262, 259, 257, 507, 501, 496, 491, 485, 480, 475, 470, 465, 460, 456, 451, 446, 442, 437, 433, 428, 424, 420, 416, 412, 408,
+    404, 400, 396, 392, 388, 385, 381, 377, 374, 370, 367, 363, 360, 357, 354, 350, 347, 344, 341, 338, 335, 332, 329, 326, 323, 320, 318, 315, 312,
+    310, 307, 304, 302, 299, 297, 294, 292, 289, 287, 285, 282, 280, 278, 275, 273, 271, 269, 267, 265, 263, 261, 259};
 
 static const quint32 stack_blur8_shr[255] = {
-    9, 11, 12, 13, 13, 14, 14, 15, 15, 15, 15, 16, 16, 16, 16, 17,
-    17, 17, 17, 17, 17, 17, 18, 18, 18, 18, 18, 18, 18, 18, 18, 19,
-    19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 20, 20, 20,
-    20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 21,
-    21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21,
-    21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 22, 22, 22, 22, 22, 22,
-    22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22,
-    22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 23,
-    23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23,
-    23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23,
-    23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23,
-    23, 23, 23, 23, 23, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24,
-    24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24,
-    24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24,
-    24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24,
-    24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24
-};
+    9,  11, 12, 13, 13, 14, 14, 15, 15, 15, 15, 16, 16, 16, 16, 17, 17, 17, 17, 17, 17, 17, 18, 18, 18, 18, 18, 18, 18, 18, 18, 19, 19, 19, 19, 19, 19,
+    19, 19, 19, 19, 19, 19, 19, 19, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21,
+    21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22,
+    22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23,
+    23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 24, 24, 24, 24,
+    24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24,
+    24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24};
 
 inline static void blurHorizontal(QImage &image, unsigned int *stack, int div, int radius)
 {
@@ -80,8 +62,8 @@ inline static void blurHorizontal(QImage &image, unsigned int *stack, int div, i
     unsigned int sum, sum_in, sum_out;
 
     for (int y = 0; y < h; y++) {
-        sum     = 0;
-        sum_in  = 0;
+        sum = 0;
+        sum_in = 0;
         sum_out = 0;
 
         const int yw = y * w;
@@ -99,7 +81,7 @@ inline static void blurHorizontal(QImage &image, unsigned int *stack, int div, i
             unsigned int *stackpix = &stack[i + radius];
             *stackpix = qAlpha(pixel);
 
-            sum    += *stackpix * (radius + 1 - i);
+            sum += *stackpix * (radius + 1 - i);
             sum_in += *stackpix;
         }
 
@@ -123,7 +105,7 @@ inline static void blurHorizontal(QImage &image, unsigned int *stack, int div, i
             *stackpix = qAlpha(pixel);
 
             sum_in += *stackpix;
-            sum    += sum_in;
+            sum += sum_in;
 
             if (++stackindex >= div) {
                 stackindex = 0;
@@ -132,7 +114,7 @@ inline static void blurHorizontal(QImage &image, unsigned int *stack, int div, i
             stackpix = &stack[stackindex];
 
             sum_out += *stackpix;
-            sum_in  -= *stackpix;
+            sum_in -= *stackpix;
         } // for (x = 0, ...)
     } // for (y = 0, ...)
 }
@@ -155,8 +137,8 @@ inline static void blurVertical(QImage &image, unsigned int *stack, int div, int
     unsigned int sum, sum_in, sum_out;
 
     for (int x = 0; x < w; x++) {
-        sum     = 0;
-        sum_in  = 0;
+        sum = 0;
+        sum_in = 0;
         sum_out = 0;
 
         pixel = pixels[x];
@@ -173,7 +155,7 @@ inline static void blurVertical(QImage &image, unsigned int *stack, int div, int
             unsigned int *stackpix = &stack[i + radius];
             *stackpix = qAlpha(pixel);
 
-            sum    += *stackpix * (radius + 1 - i);
+            sum += *stackpix * (radius + 1 - i);
             sum_in += *stackpix;
         }
 
@@ -197,7 +179,7 @@ inline static void blurVertical(QImage &image, unsigned int *stack, int div, int
             *stackpix = qAlpha(pixel);
 
             sum_in += *stackpix;
-            sum    += sum_in;
+            sum += sum_in;
 
             if (++stackindex >= div) {
                 stackindex = 0;
@@ -206,7 +188,7 @@ inline static void blurVertical(QImage &image, unsigned int *stack, int div, int
             stackpix = &stack[stackindex];
 
             sum_out += *stackpix;
-            sum_in  -= *stackpix;
+            sum_in -= *stackpix;
         } // for (y = 0, ...)
     } // for (x = 0, ...)
 }
@@ -216,12 +198,12 @@ static void stackBlur(QImage &image, float radius)
     radius = qRound(radius);
 
     int div = int(radius * 2) + 1;
-    unsigned int *stack  = new unsigned int[div];
+    unsigned int *stack = new unsigned int[div];
 
     blurHorizontal(image, stack, div, radius);
     blurVertical(image, stack, div, radius);
 
-    delete [] stack;
+    delete[] stack;
 }
 
 void ImageFilter::shadowBlur(QImage &image, float radius, const QColor &color)
@@ -239,4 +221,3 @@ void ImageFilter::shadowBlur(QImage &image, float radius, const QColor &color)
     p.setCompositionMode(QPainter::CompositionMode_SourceIn);
     p.fillRect(image.rect(), color);
 }
-

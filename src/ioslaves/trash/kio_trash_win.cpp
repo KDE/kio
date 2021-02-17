@@ -9,12 +9,12 @@
 #define QT_NO_CAST_FROM_ASCII
 
 #include "kio_trash_win.h"
-#include "kiotrashdebug.h"
-#include "kioglobal_p.h"
 #include "kio/job.h"
+#include "kioglobal_p.h"
+#include "kiotrashdebug.h"
 
-#include <QDataStream>
 #include <QCoreApplication>
+#include <QDataStream>
 #include <QDateTime>
 
 #include <KConfigGroup>
@@ -30,37 +30,37 @@ class KIOPluginForMetaData : public QObject
 };
 
 extern "C" {
-    int Q_DECL_EXPORT kdemain(int argc, char **argv)
-    {
-        bool bNeedsUninit = (CoInitializeEx(NULL, COINIT_MULTITHREADED) == S_OK);
-        // necessary to use other kio slaves
-        QCoreApplication app(argc, argv);
+int Q_DECL_EXPORT kdemain(int argc, char **argv)
+{
+    bool bNeedsUninit = (CoInitializeEx(NULL, COINIT_MULTITHREADED) == S_OK);
+    // necessary to use other kio slaves
+    QCoreApplication app(argc, argv);
 
-        // start the slave
-        TrashProtocol slave(argv[1], argv[2], argv[3]);
-        slave.dispatchLoop();
+    // start the slave
+    TrashProtocol slave(argv[1], argv[2], argv[3]);
+    slave.dispatchLoop();
 
-        if (bNeedsUninit) {
-            CoUninitialize();
-        }
-        return 0;
+    if (bNeedsUninit) {
+        CoUninitialize();
     }
+    return 0;
+}
 }
 
-static const qint64 KDE_SECONDS_SINCE_1601 =  11644473600LL;
-static const qint64 KDE_USEC_IN_SEC        =      1000000LL;
-static const int WM_SHELLNOTIFY            = (WM_USER + 42);
+static const qint64 KDE_SECONDS_SINCE_1601 = 11644473600LL;
+static const qint64 KDE_USEC_IN_SEC = 1000000LL;
+static const int WM_SHELLNOTIFY = (WM_USER + 42);
 #ifndef SHCNRF_InterruptLevel
-static const int SHCNRF_InterruptLevel     =         0x0001;
-static const int SHCNRF_ShellLevel         =         0x0002;
-static const int SHCNRF_RecursiveInterrupt =         0x1000;
+static const int SHCNRF_InterruptLevel = 0x0001;
+static const int SHCNRF_ShellLevel = 0x0002;
+static const int SHCNRF_RecursiveInterrupt = 0x1000;
 #endif
 
 static inline time_t filetimeToTime_t(const FILETIME *time)
 {
     ULARGE_INTEGER i64;
-    i64.LowPart   = time->dwLowDateTime;
-    i64.HighPart  = time->dwHighDateTime;
+    i64.LowPart = time->dwLowDateTime;
+    i64.HighPart = time->dwHighDateTime;
     i64.QuadPart /= KDE_USEC_IN_SEC * 10;
     i64.QuadPart -= KDE_SECONDS_SINCE_1601;
     return i64.QuadPart;
@@ -88,18 +88,21 @@ TrashProtocol::TrashProtocol(const QByteArray &protocol, const QByteArray &pool,
     wc.hInstance = hi;
     wc.lpszClassName = (LPCWSTR)className.utf16();
     RegisterClass(&wc);
-    m_notificationWindow = CreateWindow(wc.lpszClassName,   // classname
-                                        wc.lpszClassName,  // window name
-                                        0,                 // style
-                                        0, 0, 0, 0,        // geometry
-                                        0,                 // parent
-                                        0,                 // menu handle
-                                        hi,                // application
-                                        0);                // windows creation data.
+    m_notificationWindow = CreateWindow(wc.lpszClassName, // classname
+                                        wc.lpszClassName, // window name
+                                        0, // style
+                                        0,
+                                        0,
+                                        0,
+                                        0, // geometry
+                                        0, // parent
+                                        0, // menu handle
+                                        hi, // application
+                                        0); // windows creation data.
     SetWindowLongPtr(m_notificationWindow, GWLP_USERDATA, (LONG_PTR)this);
 
     // get trash IShellFolder object
-    LPITEMIDLIST  iilTrash;
+    LPITEMIDLIST iilTrash;
     IShellFolder *isfDesktop;
     // we assume that this will always work - if not we've a bigger problem than a kio_trash crash...
     SHGetFolderLocation(NULL, CSIDL_BITBUCKET, 0, 0, &iilTrash);
@@ -147,7 +150,7 @@ TrashProtocol::~TrashProtocol()
 
 void TrashProtocol::restore(const QUrl &trashURL, const QUrl &destURL)
 {
-    LPITEMIDLIST  pidl = NULL;
+    LPITEMIDLIST pidl = NULL;
     LPCONTEXTMENU pCtxMenu = NULL;
 
     const QString path = trashURL.path().mid(1).replace(QLatin1Char('/'), QLatin1Char('\\'));
@@ -193,9 +196,9 @@ void TrashProtocol::restore(const QUrl &trashURL, const QUrl &destURL)
         CMINVOKECOMMANDINFO cmi;
 
         memset(&cmi, 0, sizeof(CMINVOKECOMMANDINFO));
-        cmi.cbSize       = sizeof(CMINVOKECOMMANDINFO);
-        cmi.lpVerb       = MAKEINTRESOURCEA(uiCommand);
-        cmi.fMask        = CMIC_MASK_FLAG_NO_UI;
+        cmi.cbSize = sizeof(CMINVOKECOMMANDINFO);
+        cmi.lpVerb = MAKEINTRESOURCEA(uiCommand);
+        cmi.fMask = CMIC_MASK_FLAG_NO_UI;
         res = pCtxMenu->InvokeCommand((CMINVOKECOMMANDINFO *)&cmi);
 
         bOk = translateError(res);
@@ -266,7 +269,7 @@ void TrashProtocol::stat(const QUrl &url)
     if (url.path() == QLatin1String("/")) {
         STRRET strret;
         IShellFolder *isfDesktop;
-        LPITEMIDLIST  iilTrash;
+        LPITEMIDLIST iilTrash;
 
         SHGetFolderLocation(NULL, CSIDL_BITBUCKET, 0, 0, &iilTrash);
         SHGetDesktopFolder(&isfDesktop);
@@ -275,8 +278,7 @@ void TrashProtocol::stat(const QUrl &url)
         isfDesktop->Release();
         ILFree(iilTrash);
 
-        entry.insert(KIO::UDSEntry::UDS_NAME,
-                     QString::fromUtf16((const unsigned short *) strret.pOleStr));
+        entry.insert(KIO::UDSEntry::UDS_NAME, QString::fromUtf16((const unsigned short *)strret.pOleStr));
         entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
         entry.insert(KIO::UDSEntry::UDS_ACCESS, 0700);
         entry.insert(KIO::UDSEntry::UDS_MIME_TYPE, QString::fromLatin1("inode/directory"));
@@ -318,25 +320,18 @@ void TrashProtocol::listRoot()
     WIN32_FIND_DATAW findData;
     while (l->Next(1, &i, NULL) == S_OK) {
         m_isfTrashFolder->GetDisplayNameOf(i, SHGDN_NORMAL, &strret);
-        entry.insert(KIO::UDSEntry::UDS_DISPLAY_NAME,
-                     QString::fromUtf16((const unsigned short *)strret.pOleStr));
+        entry.insert(KIO::UDSEntry::UDS_DISPLAY_NAME, QString::fromUtf16((const unsigned short *)strret.pOleStr));
         m_pMalloc->Free(strret.pOleStr);
         m_isfTrashFolder->GetDisplayNameOf(i, SHGDN_FORPARSING | SHGDN_INFOLDER, &strret);
-        entry.insert(KIO::UDSEntry::UDS_NAME,
-                     QString::fromUtf16((const unsigned short *)strret.pOleStr));
+        entry.insert(KIO::UDSEntry::UDS_NAME, QString::fromUtf16((const unsigned short *)strret.pOleStr));
         m_pMalloc->Free(strret.pOleStr);
         m_isfTrashFolder->GetAttributesOf(1, (LPCITEMIDLIST *)&i, &attribs);
         SHGetDataFromIDList(m_isfTrashFolder, i, SHGDFIL_FINDDATA, &findData, sizeof(findData));
-        entry.insert(KIO::UDSEntry::UDS_SIZE,
-                     ((quint64)findData.nFileSizeLow) + (((quint64)findData.nFileSizeHigh) << 32));
-        entry.insert(KIO::UDSEntry::UDS_MODIFICATION_TIME,
-                     filetimeToTime_t(&findData.ftLastWriteTime));
-        entry.insert(KIO::UDSEntry::UDS_ACCESS_TIME,
-                     filetimeToTime_t(&findData.ftLastAccessTime));
-        entry.insert(KIO::UDSEntry::UDS_CREATION_TIME,
-                     filetimeToTime_t(&findData.ftCreationTime));
-        entry.insert(KIO::UDSEntry::UDS_EXTRA,
-                     QString::fromUtf16((const unsigned short *)strret.pOleStr));
+        entry.insert(KIO::UDSEntry::UDS_SIZE, ((quint64)findData.nFileSizeLow) + (((quint64)findData.nFileSizeHigh) << 32));
+        entry.insert(KIO::UDSEntry::UDS_MODIFICATION_TIME, filetimeToTime_t(&findData.ftLastWriteTime));
+        entry.insert(KIO::UDSEntry::UDS_ACCESS_TIME, filetimeToTime_t(&findData.ftLastAccessTime));
+        entry.insert(KIO::UDSEntry::UDS_CREATION_TIME, filetimeToTime_t(&findData.ftCreationTime));
+        entry.insert(KIO::UDSEntry::UDS_EXTRA, QString::fromUtf16((const unsigned short *)strret.pOleStr));
         entry.insert(KIO::UDSEntry::UDS_EXTRA + 1, QDateTime().toString(Qt::ISODate));
         mode_t type = QT_STAT_REG;
         if ((attribs & SFGAO_FOLDER) == SFGAO_FOLDER) {

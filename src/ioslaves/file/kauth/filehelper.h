@@ -17,7 +17,7 @@ using namespace KAuth;
  */
 class FileHelper : public QObject
 {
-  Q_OBJECT
+    Q_OBJECT
 
 public Q_SLOTS:
     /**

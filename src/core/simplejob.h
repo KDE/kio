@@ -14,7 +14,6 @@
 
 namespace KIO
 {
-
 class SimpleJobPrivate;
 /**
  * @class KIO::SimpleJob simplejob.h <KIO/SimpleJob>
@@ -128,8 +127,8 @@ protected:
      * unless you create a new job that inherits from SimpleJob.
      */
     SimpleJob(SimpleJobPrivate &dd);
-private:
 
+private:
     Q_DECLARE_PRIVATE(SimpleJob)
 };
 

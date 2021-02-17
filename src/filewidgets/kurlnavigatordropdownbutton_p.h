@@ -13,7 +13,6 @@ class KUrlNavigator;
 
 namespace KDEPrivate
 {
-
 /**
  * @brief Button of the URL navigator which offers a drop down menu
  *        of hidden paths.

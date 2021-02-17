@@ -5,15 +5,15 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include <QApplication>
 #include <KFileWidget>
+#include <QApplication>
 #include <QUrl>
 
 int main(int argc, char **argv)
 {
     QApplication app(argc, argv);
 
-    KFileWidget* fileWidget = new KFileWidget(QUrl(QStringLiteral("kfiledialog:///OpenDialog")), nullptr);
+    KFileWidget *fileWidget = new KFileWidget(QUrl(QStringLiteral("kfiledialog:///OpenDialog")), nullptr);
     fileWidget->setMode(KFile::Files | KFile::ExistingOnly);
     fileWidget->setAttribute(Qt::WA_DeleteOnClose);
     fileWidget->show();
@@ -22,4 +22,3 @@ int main(int argc, char **argv)
 
     return app.exec();
 }
-

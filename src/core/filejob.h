@@ -13,7 +13,6 @@
 
 namespace KIO
 {
-
 class FileJobPrivate;
 /**
  * @class KIO::FileJob filejob.h <KIO/FileJob>

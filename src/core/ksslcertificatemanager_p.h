@@ -33,10 +33,12 @@ struct KSslCaCertificate {
     // TODO see if we can get rid of the .toHex() for storage and comparison; requires
     //      several changes in KSslCertificateManager and CaCertificatesPage!
     KSslCaCertificate(const QSslCertificate &c, Store s, bool _isBlacklisted)
-        : cert(c),
-          certHash(c.digest().toHex()),
-          store(s),
-          isBlacklisted(_isBlacklisted) { }
+        : cert(c)
+        , certHash(c.digest().toHex())
+        , store(s)
+        , isBlacklisted(_isBlacklisted)
+    {
+    }
 
     QSslCertificate cert;
     QByteArray certHash;
@@ -89,7 +91,6 @@ public:
 
 // don't export KSslCertificateManagerPrivate to avoid unnecessary symbols
 KIOCORE_EXPORT QList<KSslCaCertificate> _allKsslCaCertificates(KSslCertificateManager *cm);
-KIOCORE_EXPORT void _setAllKsslCaCertificates(KSslCertificateManager *cm,
-        const QList<KSslCaCertificate> &certsIn);
+KIOCORE_EXPORT void _setAllKsslCaCertificates(KSslCertificateManager *cm, const QList<KSslCaCertificate> &certsIn);
 
-#endif //KSSLCERTIFICATEMANAGER_P_H
+#endif // KSSLCERTIFICATEMANAGER_P_H

@@ -37,8 +37,7 @@
  *
  * @author Dominic Battre, Martin Pool and Peter Penz
  */
-class KIOFILEWIDGETS_EXPORT KDirSortFilterProxyModel
-    : public KCategorizedSortFilterProxyModel
+class KIOFILEWIDGETS_EXPORT KDirSortFilterProxyModel : public KCategorizedSortFilterProxyModel
 {
     Q_OBJECT
 
@@ -79,8 +78,8 @@ protected:
     /**
      * Reimplemented from KCategorizedSortFilterProxyModel.
      */
-    virtual bool subSortLessThan(const QModelIndex &left,
-                                 const QModelIndex &right) const override;
+    virtual bool subSortLessThan(const QModelIndex &left, const QModelIndex &right) const override;
+
 private:
     Q_PRIVATE_SLOT(d, void slotNaturalSortingChanged())
 

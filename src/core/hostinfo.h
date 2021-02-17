@@ -7,9 +7,9 @@
 #ifndef HOSTINFO_H_
 #define HOSTINFO_H_
 
-#include <QString>
-#include <QObject>
 #include "kiocore_export.h"
+#include <QObject>
+#include <QString>
 
 class QHostInfo;
 

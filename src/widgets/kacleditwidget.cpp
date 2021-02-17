@@ -11,30 +11,30 @@
 
 #if HAVE_POSIX_ACL
 
+#include <QButtonGroup>
+#include <QCheckBox>
+#include <QComboBox>
 #include <QDialog>
 #include <QDialogButtonBox>
+#include <QGroupBox>
+#include <QHeaderView>
+#include <QLabel>
+#include <QLayout>
+#include <QMouseEvent>
 #include <QPainter>
 #include <QPushButton>
-#include <QButtonGroup>
-#include <QGroupBox>
 #include <QRadioButton>
-#include <QComboBox>
-#include <QLabel>
-#include <QCheckBox>
-#include <QLayout>
 #include <QStackedWidget>
-#include <QMouseEvent>
-#include <QHeaderView>
 
 #include <KLocalizedString>
 #include <kfileitem.h>
 
 #if HAVE_ACL_LIBACL_H
-# include <acl/libacl.h>
+#include <acl/libacl.h>
 #endif
 extern "C" {
-#include <pwd.h>
 #include <grp.h>
+#include <pwd.h>
 }
 #include <assert.h>
 
@@ -55,14 +55,16 @@ public:
 };
 
 KACLEditWidget::KACLEditWidget(QWidget *parent)
-    : QWidget(parent), d(new KACLEditWidgetPrivate)
+    : QWidget(parent)
+    , d(new KACLEditWidgetPrivate)
 {
     QHBoxLayout *hbox = new QHBoxLayout(this);
     hbox->setContentsMargins(0, 0, 0, 0);
     d->m_listView = new KACLListView(this);
     hbox->addWidget(d->m_listView);
-    connect(d->m_listView->selectionModel(), &QItemSelectionModel::selectionChanged,
-            this, [this]() { d->_k_slotUpdateButtons(); });
+    connect(d->m_listView->selectionModel(), &QItemSelectionModel::selectionChanged, this, [this]() {
+        d->_k_slotUpdateButtons();
+    });
     QVBoxLayout *vbox = new QVBoxLayout();
     hbox->addLayout(vbox);
     d->m_AddBtn = new QPushButton(i18n("Add Entry..."), this);
@@ -132,21 +134,20 @@ void KACLEditWidget::setAllowDefaults(bool value)
     d->m_listView->setAllowDefaults(value);
 }
 
-KACLListViewItem::KACLListViewItem(QTreeWidget *parent,
-                                   KACLListView::EntryType _type,
-                                   unsigned short _value, bool defaults,
-                                   const QString &_qualifier)
-    : QTreeWidgetItem(parent),
-      type(_type), value(_value), isDefault(defaults),
-      qualifier(_qualifier), isPartial(false)
+KACLListViewItem::KACLListViewItem(QTreeWidget *parent, KACLListView::EntryType _type, unsigned short _value, bool defaults, const QString &_qualifier)
+    : QTreeWidgetItem(parent)
+    , type(_type)
+    , value(_value)
+    , isDefault(defaults)
+    , qualifier(_qualifier)
+    , isPartial(false)
 {
     m_pACLListView = qobject_cast<KACLListView *>(parent);
     repaint();
 }
 
-KACLListViewItem::~ KACLListViewItem()
+KACLListViewItem::~KACLListViewItem()
 {
-
 }
 
 QString KACLListViewItem::key() const
@@ -183,7 +184,7 @@ QString KACLListViewItem::key() const
     return key;
 }
 
-bool KACLListViewItem::operator< (const QTreeWidgetItem &other) const
+bool KACLListViewItem::operator<(const QTreeWidgetItem &other) const
 {
     return key() < static_cast<const KACLListViewItem &>(other).key();
 }
@@ -265,12 +266,7 @@ void KACLListViewItem::calcEffectiveRights()
 
     // Do we need to worry about the mask entry? It applies to named users,
     // owning group, and named groups
-    if (m_pACLListView->hasMaskEntry()
-            && (type == KACLListView::NamedUser
-                || type == KACLListView::Group
-                || type == KACLListView::NamedGroup)
-            && !isDefault) {
-
+    if (m_pACLListView->hasMaskEntry() && (type == KACLListView::NamedUser || type == KACLListView::Group || type == KACLListView::NamedGroup) && !isDefault) {
         strEffective[0] = QLatin1Char((m_pACLListView->maskPermissions() & value & ACL_READ) ? 'r' : '-');
         strEffective[1] = QLatin1Char((m_pACLListView->maskPermissions() & value & ACL_WRITE) ? 'w' : '-');
         strEffective[2] = QLatin1Char((m_pACLListView->maskPermissions() & value & ACL_EXECUTE) ? 'x' : '-');
@@ -312,24 +308,18 @@ bool KACLListViewItem::isDeletable() const
 {
     bool isMaskAndDeletable = false;
     if (type == KACLListView::Mask) {
-        if (!isDefault &&  m_pACLListView->maskCanBeDeleted()) {
+        if (!isDefault && m_pACLListView->maskCanBeDeleted()) {
             isMaskAndDeletable = true;
-        } else if (isDefault &&  m_pACLListView->defaultMaskCanBeDeleted()) {
+        } else if (isDefault && m_pACLListView->defaultMaskCanBeDeleted()) {
             isMaskAndDeletable = true;
         }
     }
-    return type != KACLListView::User &&
-           type != KACLListView::Group &&
-           type != KACLListView::Others &&
-           (type != KACLListView::Mask || isMaskAndDeletable);
+    return type != KACLListView::User && type != KACLListView::Group && type != KACLListView::Others && (type != KACLListView::Mask || isMaskAndDeletable);
 }
 
 bool KACLListViewItem::isAllowedToChangeType() const
 {
-    return type != KACLListView::User &&
-           type != KACLListView::Group &&
-           type != KACLListView::Others &&
-           type != KACLListView::Mask;
+    return type != KACLListView::User && type != KACLListView::Group && type != KACLListView::Others && type != KACLListView::Mask;
 }
 
 void KACLListViewItem::togglePerm(acl_perm_t perm)
@@ -358,18 +348,25 @@ void KACLListViewItem::togglePerm(acl_perm_t perm)
     */
 }
 
-EditACLEntryDialog::EditACLEntryDialog(KACLListView *listView, KACLListViewItem *item,
+EditACLEntryDialog::EditACLEntryDialog(KACLListView *listView,
+                                       KACLListViewItem *item,
                                        const QStringList &users,
                                        const QStringList &groups,
                                        const QStringList &defaultUsers,
                                        const QStringList &defaultGroups,
-                                       int allowedTypes, int allowedDefaultTypes,
+                                       int allowedTypes,
+                                       int allowedDefaultTypes,
                                        bool allowDefaults)
-    : QDialog(listView),
-      m_listView(listView), m_item(item), m_users(users), m_groups(groups),
-      m_defaultUsers(defaultUsers), m_defaultGroups(defaultGroups),
-      m_allowedTypes(allowedTypes), m_allowedDefaultTypes(allowedDefaultTypes),
-      m_defaultCB(nullptr)
+    : QDialog(listView)
+    , m_listView(listView)
+    , m_item(item)
+    , m_users(users)
+    , m_groups(groups)
+    , m_defaultUsers(defaultUsers)
+    , m_defaultGroups(defaultGroups)
+    , m_allowedTypes(allowedTypes)
+    , m_allowedDefaultTypes(allowedDefaultTypes)
+    , m_defaultCB(nullptr)
 {
     setObjectName(QStringLiteral("edit_entry_dialog"));
     setModal(true);
@@ -385,10 +382,8 @@ EditACLEntryDialog::EditACLEntryDialog(KACLListView *listView, KACLListViewItem 
         m_defaultCB = new QCheckBox(i18n("Default for new files in this folder"), this);
         m_defaultCB->setObjectName(QStringLiteral("defaultCB"));
         mainLayout->addWidget(m_defaultCB);
-        connect(m_defaultCB, &QAbstractButton::toggled,
-                this, &EditACLEntryDialog::slotUpdateAllowedUsersAndGroups);
-        connect(m_defaultCB, &QAbstractButton::toggled,
-                this, &EditACLEntryDialog::slotUpdateAllowedTypes);
+        connect(m_defaultCB, &QAbstractButton::toggled, this, &EditACLEntryDialog::slotUpdateAllowedUsersAndGroups);
+        connect(m_defaultCB, &QAbstractButton::toggled, this, &EditACLEntryDialog::slotUpdateAllowedTypes);
     }
 
     QRadioButton *ownerType = new QRadioButton(i18n("Owner"), gb);
@@ -424,8 +419,7 @@ EditACLEntryDialog::EditACLEntryDialog(KACLListView *listView, KACLListViewItem 
 
     mainLayout->addWidget(gb);
 
-    connect(m_buttonGroup, QOverload<QAbstractButton*>::of(&QButtonGroup::buttonClicked),
-            this, &EditACLEntryDialog::slotSelectionChanged);
+    connect(m_buttonGroup, QOverload<QAbstractButton *>::of(&QButtonGroup::buttonClicked), this, &EditACLEntryDialog::slotSelectionChanged);
 
     m_widgetStack = new QStackedWidget(this);
     mainLayout->addWidget(m_widgetStack);
@@ -559,7 +553,7 @@ void EditACLEntryDialog::slotOk()
 
 void EditACLEntryDialog::slotSelectionChanged(QAbstractButton *button)
 {
-    switch (m_buttonIds[ button ]) {
+    switch (m_buttonIds[button]) {
     case KACLListView::User:
     case KACLListView::Group:
     case KACLListView::Others:
@@ -580,12 +574,13 @@ void EditACLEntryDialog::slotSelectionChanged(QAbstractButton *button)
 }
 
 KACLListView::KACLListView(QWidget *parent)
-    : QTreeWidget(parent),
-      m_hasMask(false), m_allowDefaults(false)
+    : QTreeWidget(parent)
+    , m_hasMask(false)
+    , m_allowDefaults(false)
 {
     // Add the columns
     setColumnCount(6);
-    const QStringList headers {
+    const QStringList headers{
         i18n("Type"),
         i18n("Name"),
         i18nc("read permission", "r"),
@@ -617,11 +612,9 @@ KACLListView::KACLListView(QWidget *parent)
     m_allUsers.sort();
     m_allGroups.sort();
 
-    connect(this, &QTreeWidget::itemClicked,
-            this, &KACLListView::slotItemClicked);
+    connect(this, &QTreeWidget::itemClicked, this, &KACLListView::slotItemClicked);
 
-    connect(this, &KACLListView::itemDoubleClicked,
-            this, &KACLListView::slotItemDoubleClicked);
+    connect(this, &KACLListView::itemDoubleClicked, this, &KACLListView::slotItemDoubleClicked);
 }
 
 KACLListView::~KACLListView()
@@ -688,7 +681,7 @@ void KACLListView::fillItemsFromACL(const KACL &pACL, bool defaults)
     }
 
     // read all named user entries
-    const ACLUserPermissionsList &userList =  pACL.allUserPermissions();
+    const ACLUserPermissionsList &userList = pACL.allUserPermissions();
     ACLUserPermissionsConstIterator itu = userList.begin();
     while (itu != userList.end()) {
         new KACLListViewItem(this, NamedUser, (*itu).second, defaults, (*itu).first);
@@ -696,7 +689,7 @@ void KACLListView::fillItemsFromACL(const KACL &pACL, bool defaults)
     }
 
     // and now all named groups
-    const ACLUserPermissionsList &groupList =  pACL.allGroupPermissions();
+    const ACLUserPermissionsList &groupList = pACL.allGroupPermissions();
     ACLUserPermissionsConstIterator itg = groupList.begin();
     while (itg != groupList.end()) {
         new KACLListViewItem(this, NamedGroup, (*itg).second, defaults, (*itg).first);
@@ -823,7 +816,7 @@ void KACLListView::contentsMousePressEvent(QMouseEvent * /*e*/)
      */
 }
 
-void KACLListView::slotItemClicked(QTreeWidgetItem *pItem,  int col)
+void KACLListView::slotItemClicked(QTreeWidgetItem *pItem, int col)
 {
     if (!pItem) {
         return;
@@ -846,8 +839,7 @@ void KACLListView::slotItemClicked(QTreeWidgetItem *pItem,  int col)
             item->togglePerm(ACL_EXECUTE);
             break;
 
-        default:
-            ; // Do nothing
+        default:; // Do nothing
         }
     }
     /*
@@ -923,7 +915,7 @@ acl_perm_t KACLListView::maskPartialPermissions() const
 
 void KACLListView::setMaskPartialPermissions(acl_perm_t /*maskPartialPerms*/)
 {
-    //m_pMaskEntry->m_partialPerms = maskPartialPerms;
+    // m_pMaskEntry->m_partialPerms = maskPartialPerms;
     calculateEffectiveRights();
 }
 
@@ -973,19 +965,24 @@ void KACLListView::slotAddEntry()
     }
     int allowedDefaultTypes = NamedUser | NamedGroup;
     if (!findDefaultItemByType(Mask)) {
-        allowedDefaultTypes |=  Mask;
+        allowedDefaultTypes |= Mask;
     }
     if (!hasDefaultEntries()) {
         allowedDefaultTypes |= User | Group;
     }
-    EditACLEntryDialog dlg(this, nullptr,
-                           allowedUsers(false), allowedGroups(false),
-                           allowedUsers(true), allowedGroups(true),
-                           allowedTypes, allowedDefaultTypes, m_allowDefaults);
+    EditACLEntryDialog dlg(this,
+                           nullptr,
+                           allowedUsers(false),
+                           allowedGroups(false),
+                           allowedUsers(true),
+                           allowedGroups(true),
+                           allowedTypes,
+                           allowedDefaultTypes,
+                           m_allowDefaults);
     dlg.exec();
     KACLListViewItem *item = dlg.item();
     if (!item) {
-        return;    // canceled
+        return; // canceled
     }
     if (item->type == Mask && !item->isDefault) {
         m_hasMask = true;
@@ -1011,10 +1008,7 @@ void KACLListView::slotAddEntry()
         unsigned short v = calculateMaskValue(true);
         new KACLListViewItem(this, Mask, v, true);
     }
-    if (!item->isDefault && !m_hasMask &&
-            (item->type == Group
-             || item->type == NamedUser
-             || item->type == NamedGroup)) {
+    if (!item->isDefault && !m_hasMask && (item->type == Group || item->type == NamedUser || item->type == NamedGroup)) {
         // auto-add a mask entry
         unsigned short v = calculateMaskValue(false);
         new KACLListViewItem(this, Mask, v, false);
@@ -1045,16 +1039,21 @@ void KACLListView::slotEditEntry()
     }
     int allowedDefaultTypes = item->type | NamedUser | NamedGroup;
     if (!findDefaultItemByType(Mask)) {
-        allowedDefaultTypes |=  Mask;
+        allowedDefaultTypes |= Mask;
     }
     if (!hasDefaultEntries()) {
         allowedDefaultTypes |= User | Group;
     }
 
-    EditACLEntryDialog dlg(this, item,
-                           allowedUsers(false, item), allowedGroups(false, item),
-                           allowedUsers(true, item), allowedGroups(true, item),
-                           allowedTypes, allowedDefaultTypes, m_allowDefaults);
+    EditACLEntryDialog dlg(this,
+                           item,
+                           allowedUsers(false, item),
+                           allowedGroups(false, item),
+                           allowedUsers(true, item),
+                           allowedGroups(true, item),
+                           allowedTypes,
+                           allowedDefaultTypes,
+                           m_allowDefaults);
     dlg.exec();
     if (itemWasMask && item->type != Mask) {
         m_hasMask = false;
@@ -1094,10 +1093,7 @@ void KACLListView::slotRemoveEntry()
             }
         } else {
             // for the base permissions, disable them, which is what libacl does
-            if (!item->isDefault &&
-                    (item->type == User
-                     || item->type == Group
-                     || item->type == Others)) {
+            if (!item->isDefault && (item->type == User || item->type == Group || item->type == Others)) {
                 item->value = 0;
                 item->repaint();
             } else {

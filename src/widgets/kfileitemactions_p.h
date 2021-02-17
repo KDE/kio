@@ -8,11 +8,11 @@
 #ifndef KFILEITEMACTIONS_P_H
 #define KFILEITEMACTIONS_P_H
 
-#include <kfileitemlistproperties.h>
-#include <kfileitem.h>
-#include <KServiceAction>
-#include <KService>
 #include <KConfig>
+#include <KService>
+#include <KServiceAction>
+#include <kfileitem.h>
+#include <kfileitemlistproperties.h>
 
 #include <QActionGroup>
 #include <QObject>
@@ -25,6 +25,7 @@ class KFileItemActionsPrivate : public QObject
 {
     Q_OBJECT
     friend class KFileItemActions;
+
 public:
     explicit KFileItemActionsPrivate(KFileItemActions *qq);
     ~KFileItemActionsPrivate();
@@ -87,4 +88,3 @@ Q_DECLARE_METATYPE(KService::Ptr)
 Q_DECLARE_METATYPE(KServiceAction)
 
 #endif /* KFILEITEMACTIONS_P_H */
-

@@ -6,19 +6,19 @@
 */
 
 #include "global.h"
-#include "kioglobal_p.h"
 #include "faviconscache_p.h"
+#include "kioglobal_p.h"
 
-#include <kprotocolinfo.h>
 #include <KConfig>
 #include <KConfigGroup>
-#include <kfileitem.h>
+#include <KFileUtils>
+#include <KFormat>
 #include <KLocalizedString>
 #include <KSharedConfig>
-#include <KFormat>
-#include <KFileUtils>
 #include <QMimeDatabase>
 #include <QUrl>
+#include <kfileitem.h>
+#include <kprotocolinfo.h>
 
 #include "kiocoredebug.h"
 
@@ -59,8 +59,7 @@ KIOCORE_EXPORT QString KIO::number(KIO::filesize_t size)
     return QLatin1String(charbuf);
 }
 
-KIOCORE_EXPORT unsigned int KIO::calculateRemainingSeconds(KIO::filesize_t totalSize,
-        KIO::filesize_t processedSize, KIO::filesize_t speed)
+KIOCORE_EXPORT unsigned int KIO::calculateRemainingSeconds(KIO::filesize_t totalSize, KIO::filesize_t processedSize, KIO::filesize_t speed)
 {
     if ((speed != 0) && (totalSize != 0)) {
         return (totalSize - processedSize) / speed;
@@ -71,10 +70,10 @@ KIOCORE_EXPORT unsigned int KIO::calculateRemainingSeconds(KIO::filesize_t total
 
 KIOCORE_EXPORT QString KIO::convertSeconds(unsigned int seconds)
 {
-    unsigned int days  = seconds / 86400;
+    unsigned int days = seconds / 86400;
     unsigned int hours = (seconds - (days * 86400)) / 3600;
-    unsigned int mins  = (seconds - (days * 86400) - (hours * 3600)) / 60;
-    seconds            = (seconds - (days * 86400) - (hours * 3600) - (mins * 60));
+    unsigned int mins = (seconds - (days * 86400) - (hours * 3600)) / 60;
+    seconds = (seconds - (days * 86400) - (hours * 3600) - (mins * 60));
 
     const QTime time(hours, mins, seconds);
     const QString timeStr(time.toString(QStringLiteral("hh:mm:ss")));
@@ -121,9 +120,8 @@ KIOCORE_EXPORT QString KIO::itemsSummaryString(uint items, uint files, uint dirs
     const QString foldersText = i18np("1 Folder", "%1 Folders", dirs);
     const QString filesText = i18np("1 File", "%1 Files", files);
     if (files > 0 && dirs > 0) {
-        summary = showSize ?
-                  i18nc("folders, files (size)", "%1, %2 (%3)", foldersText, filesText, KIO::convertSize(size)) :
-                  i18nc("folders, files", "%1, %2", foldersText, filesText);
+        summary = showSize ? i18nc("folders, files (size)", "%1, %2 (%3)", foldersText, filesText, KIO::convertSize(size))
+                           : i18nc("folders, files", "%1, %2", foldersText, filesText);
     } else if (files > 0) {
         summary = showSize ? i18nc("files (size)", "%1 (%2)", filesText, KIO::convertSize(size)) : filesText;
     } else if (dirs > 0) {
@@ -204,8 +202,7 @@ QString KIO::getCacheControlString(KIO::CacheControl cacheControl)
 
 QString KIO::favIconForUrl(const QUrl &url)
 {
-    if (url.isLocalFile()
-        || !url.scheme().startsWith(QLatin1String("http"))) {
+    if (url.isLocalFile() || !url.scheme().startsWith(QLatin1String("http"))) {
         return QString();
     }
 
@@ -245,8 +242,7 @@ QString KIO::iconNameForUrl(const QUrl &url)
         else if (url.scheme() == QLatin1String("trash")) {
             if (url.path().length() <= 1) { // trash:/ itself
                 KConfig trashConfig(QStringLiteral("trashrc"), KConfig::SimpleConfig);
-                iconName = trashConfig.group("Status").readEntry("Empty", true) ?
-                           QStringLiteral("user-trash") : QStringLiteral("user-trash-full");
+                iconName = trashConfig.group("Status").readEntry("Empty", true) ? QStringLiteral("user-trash") : QStringLiteral("user-trash-full");
             } else { // url.path().length() > 1, it's a file/folder under trash:/
                 iconName = mt.iconName();
             }

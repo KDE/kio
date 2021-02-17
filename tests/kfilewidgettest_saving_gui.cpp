@@ -5,16 +5,16 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include <QApplication>
-#include <QCommandLineParser>
-#include <QCommandLineOption>
 #include <KFileWidget>
-#include <QUrl>
+#include <QApplication>
+#include <QCommandLineOption>
+#include <QCommandLineParser>
 #include <QDebug>
 #include <QPushButton>
+#include <QUrl>
 
 int main(int argc, char **argv)
-{ 
+{
     QApplication app(argc, argv);
 
     // Do some args
@@ -29,7 +29,7 @@ int main(int argc, char **argv)
         folder = QUrl::fromUserInput(posargs.at(0));
     }
     qDebug() << "Starting at" << folder;
-    KFileWidget* fileWidget = new KFileWidget(folder);
+    KFileWidget *fileWidget = new KFileWidget(folder);
     fileWidget->setOperationMode(KFileWidget::Saving);
     if (parser.isSet(QStringLiteral("multiple"))) {
         fileWidget->setMode(KFile::Files);
@@ -61,4 +61,3 @@ int main(int argc, char **argv)
 
     return app.exec();
 }
-

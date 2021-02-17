@@ -8,8 +8,8 @@
 #ifndef KIO_REMOTE_H
 #define KIO_REMOTE_H
 
-#include <KIO/SlaveBase>
 #include "remoteimpl.h"
+#include <KIO/SlaveBase>
 
 class RemoteProtocol : public KIO::SlaveBase
 {

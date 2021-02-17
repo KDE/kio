@@ -22,14 +22,14 @@
 
 #endif /* HAVE_LIBGSSAPI */
 
+#include <KConfigGroup>
 #include <KRandom>
 #include <QDebug>
-#include <KConfigGroup>
 #include <kio/authinfo.h>
 #include <kntlm.h>
 
-#include <QTextCodec>
 #include <QCryptographicHash>
+#include <QTextCodec>
 
 Q_LOGGING_CATEGORY(KIO_HTTP_AUTH, "kf.kio.slaves.http.auth")
 
@@ -107,7 +107,7 @@ static QList<QByteArray> parseChallenge(QByteArray &ba, QByteArray *scheme, QByt
             if (nextAuth) {
                 *nextAuth = QByteArray(b + start);
             }
-            break;  // break on start of next scheme.
+            break; // break on start of next scheme.
         }
         while (start < len && isWhiteSpaceOrComma(b[start])) {
             start++;
@@ -119,13 +119,13 @@ static QList<QByteArray> parseChallenge(QByteArray &ba, QByteArray *scheme, QByt
         }
 
         // parse value
-        start = end + 1;    //skip '='
+        start = end + 1; // skip '='
         while (start < len && isWhiteSpace(b[start])) {
             start++;
         }
 
         if (b[start] == '"') {
-            //quoted string
+            // quoted string
             bool hasBs = false;
             bool hasErr = false;
             end = ++start;
@@ -162,7 +162,7 @@ static QList<QByteArray> parseChallenge(QByteArray &ba, QByteArray *scheme, QByt
             values.append(value);
             end++;
         } else {
-            //unquoted string
+            // unquoted string
             end = start;
             while (end < len && b[end] != ',' && !isWhiteSpace(b[end])) {
                 end++;
@@ -170,7 +170,7 @@ static QList<QByteArray> parseChallenge(QByteArray &ba, QByteArray *scheme, QByt
             values.append(QByteArray(b + start, end - start));
         }
 
-        //the quoted string has ended, but only a comma ends a key-value pair
+        // the quoted string has ended, but only a comma ends a key-value pair
         while (end < len && isWhiteSpace(b[end])) {
             end++;
         }
@@ -201,7 +201,8 @@ static QByteArray valueForKey(const QList<QByteArray> &ba, const QByteArray &key
 }
 
 KAbstractHttpAuthentication::KAbstractHttpAuthentication(KConfigGroup *config)
-    : m_config(config), m_finalAuthStage(false)
+    : m_config(config)
+    , m_finalAuthStage(false)
 {
     reset();
 }
@@ -225,12 +226,12 @@ QByteArray KAbstractHttpAuthentication::bestOffer(const QList<QByteArray> &offer
         } else
 #endif
             if (scheme == "digest") { // krazy:exclude=strings
-                digestOffer = offer;
-            } else if (scheme == "ntlm") { // krazy:exclude=strings
-                ntlmOffer = offer;
-            } else if (scheme == "basic") { // krazy:exclude=strings
-                basicOffer = offer;
-            }
+            digestOffer = offer;
+        } else if (scheme == "ntlm") { // krazy:exclude=strings
+            ntlmOffer = offer;
+        } else if (scheme == "basic") { // krazy:exclude=strings
+            basicOffer = offer;
+        }
     }
 
     if (!negotiateOffer.isEmpty()) {
@@ -245,7 +246,7 @@ QByteArray KAbstractHttpAuthentication::bestOffer(const QList<QByteArray> &offer
         return ntlmOffer;
     }
 
-    return basicOffer;  //empty or not...
+    return basicOffer; // empty or not...
 }
 
 KAbstractHttpAuthentication *KAbstractHttpAuthentication::newAuth(const QByteArray &offer, KConfigGroup *config)
@@ -257,16 +258,16 @@ KAbstractHttpAuthentication *KAbstractHttpAuthentication::newAuth(const QByteArr
     } else
 #endif
         if (scheme == "digest") { // krazy:exclude=strings
-            return new KHttpDigestAuthentication();
-        } else if (scheme == "ntlm") { // krazy:exclude=strings
-            return new KHttpNtlmAuthentication(config);
-        } else if (scheme == "basic") { // krazy:exclude=strings
-            return new KHttpBasicAuthentication();
-        }
+        return new KHttpDigestAuthentication();
+    } else if (scheme == "ntlm") { // krazy:exclude=strings
+        return new KHttpNtlmAuthentication(config);
+    } else if (scheme == "basic") { // krazy:exclude=strings
+        return new KHttpBasicAuthentication();
+    }
     return nullptr;
 }
 
-QList< QByteArray > KAbstractHttpAuthentication::splitOffers(const QList< QByteArray > &offers)
+QList<QByteArray> KAbstractHttpAuthentication::splitOffers(const QList<QByteArray> &offers)
 {
     // first detect if one entry may contain multiple offers
     QList<QByteArray> alloffers;
@@ -304,8 +305,7 @@ void KAbstractHttpAuthentication::reset()
     m_password.clear();
 }
 
-void KAbstractHttpAuthentication::setChallenge(const QByteArray &c, const QUrl &resource,
-        const QByteArray &httpMethod)
+void KAbstractHttpAuthentication::setChallenge(const QByteArray &c, const QUrl &resource, const QByteArray &httpMethod)
 {
     reset();
     m_challengeText = c.trimmed();
@@ -320,7 +320,7 @@ QString KAbstractHttpAuthentication::realm() const
     const QByteArray realm = valueForKey(m_challenge, "realm");
     // TODO: Find out what this is supposed to address. The site mentioned below does not exist.
     if (QLocale().uiLanguages().contains(QLatin1String("ru"))) {
-        //for sites like lib.homelinux.org
+        // for sites like lib.homelinux.org
         return QTextCodec::codecForName("CP1251")->toUnicode(realm);
     }
     return QString::fromLatin1(realm.constData(), realm.length());
@@ -382,8 +382,7 @@ QByteArray KHttpDigestAuthentication::scheme() const
     return "Digest";
 }
 
-void KHttpDigestAuthentication::setChallenge(const QByteArray &c, const QUrl &resource,
-        const QByteArray &httpMethod)
+void KHttpDigestAuthentication::setChallenge(const QByteArray &c, const QUrl &resource, const QByteArray &httpMethod)
 {
     QString oldUsername;
     QString oldPassword;
@@ -421,7 +420,7 @@ struct DigestAuthInfo {
     QByteArray entityBody;
 };
 
-//calculateResponse() from the original HTTPProtocol
+// calculateResponse() from the original HTTPProtocol
 static QByteArray calculateResponse(const DigestAuthInfo &info, const QUrl &resource)
 {
     QCryptographicHash md(QCryptographicHash::Md5);
@@ -501,8 +500,8 @@ void KHttpDigestAuthentication::generateResponse(const QString &user, const QStr
 
     DigestAuthInfo info;
 
-    info.username = m_username.toLatin1();  //### charset breakage
-    info.password = m_password.toLatin1();  //###
+    info.username = m_username.toLatin1(); //### charset breakage
+    info.password = m_password.toLatin1(); //###
 
     // info.entityBody = p;  // FIXME: send digest of data for POST action ??
     info.realm = "";
@@ -676,8 +675,7 @@ QByteArray KHttpNtlmAuthentication::scheme() const
     return "NTLM";
 }
 
-void KHttpNtlmAuthentication::setChallenge(const QByteArray &c, const QUrl &resource,
-        const QByteArray &httpMethod)
+void KHttpNtlmAuthentication::setChallenge(const QByteArray &c, const QUrl &resource, const QByteArray &httpMethod)
 {
     QString oldUsername, oldPassword;
     if (!m_finalAuthStage && !m_username.isEmpty() && !m_password.isEmpty()) {
@@ -725,9 +723,11 @@ void KHttpNtlmAuthentication::generateResponse(const QString &_user, const QStri
             m_stage1State = SentNTLMv1;
             break;
         case SentNTLMv1:
-            if (!KNTLM::getNegotiate(buf, QString(), QString(), KNTLM::Negotiate_NTLM2_Key
-                                     | KNTLM::Negotiate_Always_Sign | KNTLM::Negotiate_Unicode
-                                     | KNTLM::Request_Target | KNTLM::Negotiate_NTLM)) {
+            if (!KNTLM::getNegotiate(buf,
+                                     QString(),
+                                     QString(),
+                                     KNTLM::Negotiate_NTLM2_Key | KNTLM::Negotiate_Always_Sign | KNTLM::Negotiate_Unicode | KNTLM::Request_Target
+                                         | KNTLM::Negotiate_NTLM)) {
                 qCWarning(KIO_HTTP_AUTH) << "Error while constructing Type 1 NTLMv2 authentication request";
                 m_isError = true;
                 return;
@@ -800,8 +800,7 @@ QByteArray KHttpNegotiateAuthentication::scheme() const
     return "Negotiate";
 }
 
-void KHttpNegotiateAuthentication::setChallenge(const QByteArray &c, const QUrl &resource,
-        const QByteArray &httpMethod)
+void KHttpNegotiateAuthentication::setChallenge(const QByteArray &c, const QUrl &resource, const QByteArray &httpMethod)
 {
     KAbstractHttpAuthentication::setChallenge(c, resource, httpMethod);
     // GSSAPI knows how to get the credentials on its own
@@ -828,8 +827,8 @@ void KHttpNegotiateAuthentication::generateResponse(const QString &user, const Q
     gss_name_t server;
     gss_ctx_id_t ctx;
     gss_OID mech_oid;
-    static gss_OID_desc krb5_oid_desc = {9, (void *) "\x2a\x86\x48\x86\xf7\x12\x01\x02\x02"};
-    static gss_OID_desc spnego_oid_desc = {6, (void *) "\x2b\x06\x01\x05\x05\x02"};
+    static gss_OID_desc krb5_oid_desc = {9, (void *)"\x2a\x86\x48\x86\xf7\x12\x01\x02\x02"};
+    static gss_OID_desc spnego_oid_desc = {6, (void *)"\x2b\x06\x01\x05\x05\x02"};
     gss_OID_set mech_set;
     gss_OID tmp_oid;
 
@@ -843,8 +842,7 @@ void KHttpNegotiateAuthentication::generateResponse(const QString &user, const Q
     } else {
         for (uint i = 0; i < mech_set->count; i++) {
             tmp_oid = &mech_set->elements[i];
-            if (tmp_oid->length == spnego_oid_desc.length &&
-                    !memcmp(tmp_oid->elements, spnego_oid_desc.elements, tmp_oid->length)) {
+            if (tmp_oid->length == spnego_oid_desc.length && !memcmp(tmp_oid->elements, spnego_oid_desc.elements, tmp_oid->length)) {
                 // qDebug() << "found SPNEGO mech";
                 mech_oid = &spnego_oid_desc;
                 break;
@@ -860,8 +858,7 @@ void KHttpNegotiateAuthentication::generateResponse(const QString &user, const Q
     input_token.value = (void *)servicename.data();
     input_token.length = servicename.length() + 1;
 
-    major_status = gss_import_name(&minor_status, &input_token,
-                                   GSS_C_NT_HOSTBASED_SERVICE, &server);
+    major_status = gss_import_name(&minor_status, &input_token, GSS_C_NT_HOSTBASED_SERVICE, &server);
 
     input_token.value = nullptr;
     input_token.length = 0;
@@ -880,12 +877,19 @@ void KHttpNegotiateAuthentication::generateResponse(const QString &user, const Q
     }
 
     // GSSAPI knows how to get the credentials its own way, so don't ask for any
-    major_status = gss_init_sec_context(&minor_status, GSS_C_NO_CREDENTIAL,
-                                        &ctx, server, mech_oid,
-                                        req_flags, GSS_C_INDEFINITE,
+    major_status = gss_init_sec_context(&minor_status,
+                                        GSS_C_NO_CREDENTIAL,
+                                        &ctx,
+                                        server,
+                                        mech_oid,
+                                        req_flags,
+                                        GSS_C_INDEFINITE,
                                         GSS_C_NO_CHANNEL_BINDINGS,
-                                        GSS_C_NO_BUFFER, nullptr, &output_token,
-                                        nullptr, nullptr);
+                                        GSS_C_NO_BUFFER,
+                                        nullptr,
+                                        &output_token,
+                                        nullptr,
+                                        nullptr);
 
     if (GSS_ERROR(major_status) || (output_token.length == 0)) {
         qCDebug(KIO_HTTP_AUTH) << "gss_init_sec_context failed:" << gssError(major_status, minor_status);
@@ -899,8 +903,7 @@ void KHttpNegotiateAuthentication::generateResponse(const QString &user, const Q
     }
 
     m_headerFragment = "Negotiate ";
-    m_headerFragment += QByteArray::fromRawData(static_cast<const char *>(output_token.value),
-                        output_token.length).toBase64();
+    m_headerFragment += QByteArray::fromRawData(static_cast<const char *>(output_token.value), output_token.length).toBase64();
     m_headerFragment += "\r\n";
 
     // free everything

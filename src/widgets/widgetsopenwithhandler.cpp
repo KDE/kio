@@ -5,9 +5,9 @@
     SPDX-License-Identifier: LGPL-2.0-only OR LGPL-3.0-only OR LicenseRef-KDE-Accepted-LGPL
 */
 
+#include "widgetsopenwithhandler.h"
 #include "kopenwithdialog.h"
 #include "openurljob.h"
-#include "widgetsopenwithhandler.h"
 
 #include <KConfigGroup>
 #include <KJobWidgets>
@@ -32,16 +32,16 @@ void KIO::WidgetsOpenWithHandler::promptUserForApplication(KJob *job, const QLis
     QWidget *parentWidget = job ? KJobWidgets::window(job) : qApp->activeWindow();
 
 #ifdef Q_OS_WIN
-        KConfigGroup cfgGroup(KSharedConfig::openConfig(), QStringLiteral("KOpenWithDialog Settings"));
-        if (cfgGroup.readEntry("Native", true)) {
-            // Implemented in applicationlauncherjob_win.cpp
-            if (displayNativeOpenWithDialog(urls, parentWidget)) {
-                Q_EMIT handled();
-                return;
-            } else {
-                // Some error happened with the Windows-specific code. Fallback to the KDE one...
-            }
+    KConfigGroup cfgGroup(KSharedConfig::openConfig(), QStringLiteral("KOpenWithDialog Settings"));
+    if (cfgGroup.readEntry("Native", true)) {
+        // Implemented in applicationlauncherjob_win.cpp
+        if (displayNativeOpenWithDialog(urls, parentWidget)) {
+            Q_EMIT handled();
+            return;
+        } else {
+            // Some error happened with the Windows-specific code. Fallback to the KDE one...
         }
+    }
 #endif
 
     KOpenWithDialog *dialog = new KOpenWithDialog(urls, mimeType, QString(), QString(), parentWidget);

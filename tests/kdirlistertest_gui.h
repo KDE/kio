@@ -8,9 +8,9 @@
 #ifndef _KDIRLISTERTEST_GUI_H_
 #define _KDIRLISTERTEST_GUI_H_
 
-#include <QWidget>
 #include <QString>
 #include <QUrl>
+#include <QWidget>
 
 #include <kdirlister.h>
 #include <kfileitem.h>
@@ -23,7 +23,10 @@ class PrintSignals : public QObject
 {
     Q_OBJECT
 public:
-    PrintSignals() : QObject() { }
+    PrintSignals()
+        : QObject()
+    {
+    }
 
 public Q_SLOTS:
     void started(const QUrl &url)
@@ -48,8 +51,7 @@ public Q_SLOTS:
     }
     void redirection(const QUrl &src, const QUrl &dest)
     {
-        cout << "*** redirection( " << src.toDisplayString().toLocal8Bit().data() << ", "
-             << dest.toDisplayString().toLocal8Bit().data() << " )" << endl;
+        cout << "*** redirection( " << src.toDisplayString().toLocal8Bit().data() << ", " << dest.toDisplayString().toLocal8Bit().data() << " )" << endl;
     }
     void clear()
     {
@@ -73,7 +75,7 @@ public Q_SLOTS:
         cout << "*** itemsFilteredByMime: " << endl;
         // TODO
     }
-    void refreshItems(const QList<QPair<KFileItem, KFileItem> > &)
+    void refreshItems(const QList<QPair<KFileItem, KFileItem>> &)
     {
         cout << "*** refreshItems: " << endl;
         // TODO

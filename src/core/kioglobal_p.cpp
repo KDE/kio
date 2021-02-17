@@ -11,22 +11,21 @@
 
 static QMap<QString, QString> standardLocationsMap()
 {
-    static const
-            struct { QStandardPaths::StandardLocation location;
-                     QString name; }
-                   mapping[] = {
-            { QStandardPaths::MusicLocation, QStringLiteral("folder-music") },
-            { QStandardPaths::MoviesLocation, QStringLiteral("folder-videos") },
-            { QStandardPaths::PicturesLocation, QStringLiteral("folder-pictures") },
-            { QStandardPaths::TempLocation, QStringLiteral("folder-temp") },
-            { QStandardPaths::DownloadLocation, QStringLiteral("folder-download") },
-            // Order matters here as paths can be reused for multiple purposes
-            // We essentially want more generic choices to trump more specific
-            // ones.
-            // home > desktop > documents > *.
-            { QStandardPaths::DocumentsLocation, QStringLiteral("folder-documents") },
-            { QStandardPaths::DesktopLocation, QStringLiteral("user-desktop") },
-            { QStandardPaths::HomeLocation, QStringLiteral("user-home") } };
+    static const struct {
+        QStandardPaths::StandardLocation location;
+        QString name;
+    } mapping[] = {{QStandardPaths::MusicLocation, QStringLiteral("folder-music")},
+                   {QStandardPaths::MoviesLocation, QStringLiteral("folder-videos")},
+                   {QStandardPaths::PicturesLocation, QStringLiteral("folder-pictures")},
+                   {QStandardPaths::TempLocation, QStringLiteral("folder-temp")},
+                   {QStandardPaths::DownloadLocation, QStringLiteral("folder-download")},
+                   // Order matters here as paths can be reused for multiple purposes
+                   // We essentially want more generic choices to trump more specific
+                   // ones.
+                   // home > desktop > documents > *.
+                   {QStandardPaths::DocumentsLocation, QStringLiteral("folder-documents")},
+                   {QStandardPaths::DesktopLocation, QStringLiteral("user-desktop")},
+                   {QStandardPaths::HomeLocation, QStringLiteral("user-home")}};
 
     QMap<QString, QString> map;
     for (const auto &row : mapping) {

@@ -28,12 +28,9 @@ void Downloader::download(const QUrl &url)
     m_scriptURL = url;
 
     KIO::TransferJob *job = KIO::get(url, KIO::NoReload, KIO::HideProgressInfo);
-    connect(job, &KIO::TransferJob::data,
-            this, &Downloader::data);
-    connect(job, &KIO::TransferJob::redirection,
-            this, &Downloader::redirection);
-    connect(job, &KJob::result,
-            this, QOverload<KJob*>::of(&Downloader::result));
+    connect(job, &KIO::TransferJob::data, this, &Downloader::data);
+    connect(job, &KIO::TransferJob::redirection, this, &Downloader::redirection);
+    connect(job, &KJob::result, this, QOverload<KJob *>::of(&Downloader::result));
 }
 
 void Downloader::failed()
@@ -77,13 +74,11 @@ void Downloader::result(KJob *job)
         Q_EMIT result(true);
     } else {
         if (job->error())
-            setError(i18n("Could not download the proxy configuration script:\n%1",
-                          job->errorString()));
+            setError(i18n("Could not download the proxy configuration script:\n%1", job->errorString()));
         else {
-            setError(i18n("Could not download the proxy configuration script"));    // error page
+            setError(i18n("Could not download the proxy configuration script")); // error page
         }
         failed();
     }
 }
 }
-

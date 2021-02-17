@@ -11,18 +11,18 @@
 #include "discspaceutil.h"
 #include "kiotrashdebug.h"
 
-#include <qplatformdefs.h> // QT_LSTAT, QT_STAT, QT_STATBUF
+#include <QDateTime>
 #include <QDir>
 #include <QDirIterator>
 #include <QFile>
-#include <QDateTime>
 #include <QSaveFile>
+#include <qplatformdefs.h> // QT_LSTAT, QT_STAT, QT_STATBUF
 
 TrashSizeCache::TrashSizeCache(const QString &path)
-    : mTrashSizeCachePath(path + QLatin1String("/directorysizes")),
-      mTrashPath(path)
+    : mTrashSizeCachePath(path + QLatin1String("/directorysizes"))
+    , mTrashPath(path)
 {
-    //qCDebug(KIO_TRASH) << "CACHE:" << mTrashSizeCachePath;
+    // qCDebug(KIO_TRASH) << "CACHE:" << mTrashSizeCachePath;
 }
 
 // Only the last part of the line: space, directory name, '\n'
@@ -34,7 +34,7 @@ static QByteArray spaceAndDirectoryAndNewline(const QString &directoryName)
 
 void TrashSizeCache::add(const QString &directoryName, qulonglong directorySize)
 {
-    //qCDebug(KIO_TRASH) << directoryName << directorySize;
+    // qCDebug(KIO_TRASH) << directoryName << directorySize;
     const QByteArray spaceAndDirAndNewline = spaceAndDirectoryAndNewline(directoryName);
     QFile file(mTrashSizeCachePath);
     QSaveFile out(mTrashSizeCachePath);
@@ -45,7 +45,7 @@ void TrashSizeCache::add(const QString &directoryName, qulonglong directorySize)
                 if (line.endsWith(spaceAndDirAndNewline)) {
                     // Already there!
                     out.cancelWriting();
-                    //qCDebug(KIO_TRASH) << "already there!";
+                    // qCDebug(KIO_TRASH) << "already there!";
                     return;
                 }
                 out.write(line);
@@ -57,12 +57,12 @@ void TrashSizeCache::add(const QString &directoryName, qulonglong directorySize)
         out.write(newLine);
         out.commit();
     }
-    //qCDebug(KIO_TRASH) << mTrashSizeCachePath << "exists:" << QFile::exists(mTrashSizeCachePath);
+    // qCDebug(KIO_TRASH) << mTrashSizeCachePath << "exists:" << QFile::exists(mTrashSizeCachePath);
 }
 
 void TrashSizeCache::remove(const QString &directoryName)
 {
-    //qCDebug(KIO_TRASH) << directoryName;
+    // qCDebug(KIO_TRASH) << directoryName;
     const QByteArray spaceAndDirAndNewline = spaceAndDirectoryAndNewline(directoryName);
     QFile file(mTrashSizeCachePath);
     QSaveFile out(mTrashSizeCachePath);
@@ -137,12 +137,12 @@ TrashSizeCache::SizeAndModTime TrashSizeCache::calculateSizeAndLatestModDate()
 
     qulonglong sum = 0;
     qint64 max_mtime = 0;
-    const auto checkMaxTime = [&max_mtime] (const qint64 lastModTime) {
+    const auto checkMaxTime = [&max_mtime](const qint64 lastModTime) {
         if (lastModTime > max_mtime) {
             max_mtime = lastModTime;
         }
     };
-    const auto checkLastModTime = [this, checkMaxTime] (const QString &fileName) {
+    const auto checkLastModTime = [this, checkMaxTime](const QString &fileName) {
         const auto trashFileInfo = getTrashFileInfo(fileName);
         if (!trashFileInfo.exists()) {
             return;

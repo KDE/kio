@@ -8,8 +8,8 @@
 #ifndef KPASSWDSERVERLOOP_P_H
 #define KPASSWDSERVERLOOP_P_H
 
-#include <kio/authinfo.h>
 #include <QEventLoop>
+#include <kio/authinfo.h>
 
 // Wait for the result of an asynchronous D-Bus request to KPasswdServer.
 // Objects of this class are one-way ie. as soon as they have received

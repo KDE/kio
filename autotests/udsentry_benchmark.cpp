@@ -36,7 +36,6 @@ const int numberOfSmallUDSEntries = 100 * 1000;
 const int numberOfLargeUDSEntries = 5 * 1000;
 const int extraFieldsForLargeUDSEntries = 40;
 
-
 class UDSEntryBenchmark : public QObject
 {
     Q_OBJECT
@@ -175,15 +174,10 @@ void UDSEntryBenchmark::readFieldsFromSmallEntries()
 
         for (const KIO::UDSEntry &entry : qAsConst(m_smallEntries)) {
             entrySum += entry.count();
-            if (entry.stringValue(KIO::UDSEntry::UDS_NAME).toInt() == i
-                && entry.numberValue(KIO::UDSEntry::UDS_FILE_TYPE) == i
-                && entry.numberValue(KIO::UDSEntry::UDS_ACCESS) == i
-                && entry.numberValue(KIO::UDSEntry::UDS_SIZE) == i
-                &&  entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME) == i
-                && entry.stringValue(KIO::UDSEntry::UDS_USER) == user
-                && entry.stringValue(KIO::UDSEntry::UDS_GROUP) == group
-                && entry.numberValue(KIO::UDSEntry::UDS_ACCESS_TIME) == i)
-            {
+            if (entry.stringValue(KIO::UDSEntry::UDS_NAME).toInt() == i && entry.numberValue(KIO::UDSEntry::UDS_FILE_TYPE) == i
+                && entry.numberValue(KIO::UDSEntry::UDS_ACCESS) == i && entry.numberValue(KIO::UDSEntry::UDS_SIZE) == i
+                && entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME) == i && entry.stringValue(KIO::UDSEntry::UDS_USER) == user
+                && entry.stringValue(KIO::UDSEntry::UDS_GROUP) == group && entry.numberValue(KIO::UDSEntry::UDS_ACCESS_TIME) == i) {
                 ++i;
             }
         }
@@ -283,7 +277,6 @@ void UDSEntryBenchmark::loadLargeEntries()
 
     QCOMPARE(entries, m_largeEntries);
 }
-
 
 QTEST_MAIN(UDSEntryBenchmark)
 

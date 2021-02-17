@@ -14,7 +14,6 @@
 
 namespace KIO
 {
-
 class MkdirJobPrivate;
 /**
  * @class KIO::MkdirJob mkdirjob.h <KIO/MkdirJob>
@@ -24,7 +23,6 @@ class MkdirJobPrivate;
  */
 class KIOCORE_EXPORT MkdirJob : public SimpleJob
 {
-
     Q_OBJECT
 
 public:

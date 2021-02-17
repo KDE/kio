@@ -8,8 +8,8 @@
 #define KFILECOPYTOMENU_P_H
 
 #include <KConfigGroup>
-#include <QMenu>
 #include <QActionGroup>
+#include <QMenu>
 #include <QUrl>
 
 class KFileCopyToMenuPrivate
@@ -17,7 +17,7 @@ class KFileCopyToMenuPrivate
 public:
     KFileCopyToMenuPrivate(KFileCopyToMenu *qq, QWidget *parentWidget);
 
-    KFileCopyToMenu * const q;
+    KFileCopyToMenu *const q;
     QList<QUrl> m_urls;
     QWidget *m_parentWidget;
     bool m_readOnly;
@@ -36,11 +36,11 @@ public:
 
     QActionGroup &actionGroup()
     {
-        return m_actionGroup;    // used by submenus
+        return m_actionGroup; // used by submenus
     }
     MenuType menuType() const
     {
-        return m_menuType;    // used by submenus
+        return m_menuType; // used by submenus
     }
 
 private Q_SLOTS:

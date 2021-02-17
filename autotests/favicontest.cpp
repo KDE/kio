@@ -5,16 +5,16 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include <QTest>
-#include <QStandardPaths>
-#include <KIO/Job>
 #include <KIO/FavIconRequestJob>
+#include <KIO/Job>
 #include <QDir>
 #include <QLoggingCategory>
+#include <QStandardPaths>
+#include <QTest>
 
 #include <QFutureSynchronizer>
-#include <QtConcurrentRun>
 #include <QThreadPool>
+#include <QtConcurrentRun>
 
 static const char s_hostUrl[] = "http://www.google.com/index.html";
 static const char s_pageUrl[] = "http://www.google.com/somepage.html";
@@ -107,7 +107,7 @@ void FavIconTest::hostJobShouldDownloadIconThenUseCache()
     QVERIFY2(QFile::exists(iconFile), qPrintable(iconFile));
     QVERIFY(!QIcon(iconFile).isNull()); // pass full path to QIcon
     // This requires https://codereview.qt-project.org/148444
-    //QVERIFY(!QIcon::fromTheme(iconFile).isNull()); // old code ported from kdelibs4 might do that, should work too
+    // QVERIFY(!QIcon::fromTheme(iconFile).isNull()); // old code ported from kdelibs4 might do that, should work too
 
     // Lookup should give the same result
     QCOMPARE(KIO::favIconForUrl(url), iconFile);
@@ -122,7 +122,7 @@ void FavIconTest::hostJobShouldDownloadIconThenUseCache()
     QString goticonFile;
     {
         KIO::FavIconRequestJob *job = new KIO::FavIconRequestJob(url);
-        connect(job, &KIO::FavIconRequestJob::result, this, [job, &goticonFile](KJob *){
+        connect(job, &KIO::FavIconRequestJob::result, this, [job, &goticonFile](KJob *) {
             if (!job->error()) {
                 goticonFile = job->iconFile();
             }

@@ -10,20 +10,19 @@
 #ifndef KIO_COPYJOB_H
 #define KIO_COPYJOB_H
 
+#include <QDateTime>
 #include <QObject>
 #include <QStringList>
-#include <QDateTime>
 #include <QUrl>
 
+#include "job_base.h"
 #include "kiocore_export.h"
 #include <kio/global.h> // filesize_t
-#include "job_base.h"
 
 class QTimer;
 
 namespace KIO
 {
-
 /// @internal
 /// KF6 TODO: move to .cpp and remove aboutToCreate signal
 struct CopyInfo {
@@ -53,7 +52,6 @@ class CopyJobPrivate;
  */
 class KIOCORE_EXPORT CopyJob : public Job
 {
-
     Q_OBJECT
 
 public:

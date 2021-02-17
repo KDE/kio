@@ -27,7 +27,6 @@ class QFileInfo;
 class TrashSizeCache
 {
 public:
-
     struct SizeAndModTime {
         qulonglong size;
         qint64 mtime;

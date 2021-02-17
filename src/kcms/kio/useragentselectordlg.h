@@ -21,22 +21,22 @@ class UserAgentSelectorDlg : public QDialog
     Q_OBJECT
 
 public:
-    explicit UserAgentSelectorDlg(UserAgentInfo* info, QWidget* parent = nullptr, Qt::WindowFlags f = Qt::WindowFlags());
+    explicit UserAgentSelectorDlg(UserAgentInfo *info, QWidget *parent = nullptr, Qt::WindowFlags f = Qt::WindowFlags());
     ~UserAgentSelectorDlg();
 
-    void setSiteName (const QString&);
-    void setIdentity (const QString&);
+    void setSiteName(const QString &);
+    void setIdentity(const QString &);
 
     QString siteName();
     QString identity();
     QString alias();
 
 protected Q_SLOTS:
-    void onHostNameChanged (const QString&);
-    void onAliasChanged (const QString&);
+    void onHostNameChanged(const QString &);
+    void onAliasChanged(const QString &);
 
 private:
-    UserAgentInfo* mUserAgentInfo;
+    UserAgentInfo *mUserAgentInfo;
     Ui::UserAgentSelectorUI mUi;
     QDialogButtonBox *mButtonBox;
 };

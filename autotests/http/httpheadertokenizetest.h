@@ -18,4 +18,4 @@ private Q_SLOTS:
     void testRedirectHeader();
 };
 
-#endif //HTTPHEADERTOKENIZETEST_H
+#endif // HTTPHEADERTOKENIZETEST_H

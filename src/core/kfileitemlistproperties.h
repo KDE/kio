@@ -12,8 +12,8 @@
 
 #include "kiocore_export.h"
 
-#include <QSharedDataPointer>
 #include <QList>
+#include <QSharedDataPointer>
 #include <QUrl>
 
 class KFileItemListPropertiesPrivate;
@@ -132,4 +132,3 @@ private:
 };
 
 #endif /* KFILEITEMLISTPROPERTIES_H */
-

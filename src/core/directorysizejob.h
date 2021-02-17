@@ -8,13 +8,12 @@
 #ifndef DIRECTORYSIZEJOB_H
 #define DIRECTORYSIZEJOB_H
 
-#include "kiocore_export.h"
 #include "job_base.h"
+#include "kiocore_export.h"
 #include <kfileitem.h>
 
 namespace KIO
 {
-
 class DirectorySizeJobPrivate;
 /**
  * @class KIO::DirectorySizeJob directorysizejob.h <KIO/DirectorySizeJob>

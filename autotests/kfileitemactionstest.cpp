@@ -7,12 +7,12 @@
 
 #include "kfileitemactionstest.h"
 
-#include <kfileitemlistproperties.h>
 #include <kfileitemactions.h>
+#include <kfileitemlistproperties.h>
 
 #include <QMenu>
-#include <QTest>
 #include <QStandardPaths>
+#include <QTest>
 
 /**
  * In KDE 4.x, calling KFileItemActions::setParentWidget(QWidget *widget) would

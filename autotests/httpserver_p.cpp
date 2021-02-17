@@ -54,7 +54,7 @@ static HeadersMap parseHeaders(const QByteArray &headerData)
         }
         const QByteArray header = line.left(pos);
         const QByteArray value = line.mid(pos + 1).trimmed(); // remove space before and \r\n after
-        //qDebug() << "HEADER" << header << "VALUE" << value;
+        // qDebug() << "HEADER" << header << "VALUE" << value;
         headersMap.insert(header, value);
     }
     return headersMap;
@@ -69,7 +69,7 @@ static void parseAuthLine(const QString &str, Method *method, QString *headerVal
     // is supposed to be run in a loop, apparently
     // (multiple WWW-Authenticate lines? multiple values in the line?)
 
-    //qDebug() << "parseAuthLine() " << str;
+    // qDebug() << "parseAuthLine() " << str;
     if (*method < Basic && str.startsWith(QLatin1String("Basic"), Qt::CaseInsensitive)) {
         *method = Basic;
         *headerVal = str.mid(6);
@@ -141,8 +141,7 @@ void HttpServerThread::run()
         if (doDebug) {
             qDebug() << "HttpServerThread: waiting for read";
         }
-        if (clientSocket->state() == QAbstractSocket::UnconnectedState ||
-                !clientSocket->waitForReadyRead(2000)) {
+        if (clientSocket->state() == QAbstractSocket::UnconnectedState || !clientSocket->waitForReadyRead(2000)) {
             if (clientSocket->state() == QAbstractSocket::UnconnectedState) {
                 delete clientSocket;
                 if (doDebug) {
@@ -166,7 +165,7 @@ void HttpServerThread::run()
         lock.relock();
         const bool splitOK = splitHeadersAndData(request, m_receivedHeaders, m_receivedData);
         if (!splitOK) {
-            //if (doDebug)
+            // if (doDebug)
             //    qDebug() << "Storing partial request" << request;
             m_partialRequest = request;
             continue;
@@ -175,7 +174,7 @@ void HttpServerThread::run()
         m_headers = parseHeaders(m_receivedHeaders);
 
         if (m_headers.value("Content-Length").toInt() > m_receivedData.size()) {
-            //if (doDebug)
+            // if (doDebug)
             //    qDebug() << "Storing partial request" << request;
             m_partialRequest = request;
             continue;
@@ -184,33 +183,33 @@ void HttpServerThread::run()
         m_partialRequest.clear();
 
         if (m_headers.value("_path").endsWith("terminateThread")) { // we're asked to exit
-            break;    // normal exit
+            break; // normal exit
         }
 
         lock.unlock();
 
-        //qDebug() << "headers received:" << m_receivedHeaders;
-        //qDebug() << headers;
-        //qDebug() << "data received:" << m_receivedData;
+        // qDebug() << "headers received:" << m_receivedHeaders;
+        // qDebug() << headers;
+        // qDebug() << "data received:" << m_receivedData;
 
         if (m_features & BasicAuth) {
             QByteArray authValue = m_headers.value("Authorization");
             if (authValue.isEmpty()) {
-                authValue = m_headers.value("authorization");    // as sent by Qt-4.5
+                authValue = m_headers.value("authorization"); // as sent by Qt-4.5
             }
             bool authOk = false;
             if (!authValue.isEmpty()) {
-                //qDebug() << "got authValue=" << authValue; // looks like "Basic <base64 of user:pass>"
+                // qDebug() << "got authValue=" << authValue; // looks like "Basic <base64 of user:pass>"
                 Method method;
                 QString headerVal;
                 parseAuthLine(QString::fromLatin1(authValue.data(), authValue.size()), &method, &headerVal);
-                //qDebug() << "method=" << method << "headerVal=" << headerVal;
+                // qDebug() << "method=" << method << "headerVal=" << headerVal;
                 switch (method) {
                 case None: // we want auth, so reject "None"
                     break;
                 case Basic: {
                     const QByteArray userPass = QByteArray::fromBase64(headerVal.toLatin1());
-                    //qDebug() << userPass;
+                    // qDebug() << userPass;
                     // TODO if (validateAuth(userPass)) {
                     if (userPass == ("kdab:testpass")) {
                         authOk = true;
@@ -252,23 +251,21 @@ void HttpServerThread::run()
     }
 }
 
-
 void BlockingHttpServer::incomingConnection(qintptr socketDescriptor)
 {
     if (doSsl) {
         QSslSocket *serverSocket = new QSslSocket;
         serverSocket->setParent(this);
         serverSocket->setSocketDescriptor(socketDescriptor);
-        connect(serverSocket, QOverload<const QList<QSslError>&>::of(&QSslSocket::sslErrors),
-                this, &BlockingHttpServer::slotSslErrors);
+        connect(serverSocket, QOverload<const QList<QSslError> &>::of(&QSslSocket::sslErrors), this, &BlockingHttpServer::slotSslErrors);
         // TODO setupSslServer(serverSocket);
-        //qDebug() << "Created QSslSocket, starting server encryption";
+        // qDebug() << "Created QSslSocket, starting server encryption";
         serverSocket->startServerEncryption();
         sslSocket = serverSocket;
         // If startServerEncryption fails internally [and waitForEncrypted hangs],
         // then this is how to debug it.
         // A way to catch such errors is really missing in Qt..
-        //qDebug() << "startServerEncryption said:" << sslSocket->errorString();
+        // qDebug() << "startServerEncryption said:" << sslSocket->errorString();
         bool ok = serverSocket->waitForEncrypted();
         Q_ASSERT(ok);
         Q_UNUSED(ok);

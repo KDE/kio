@@ -8,15 +8,15 @@
 #ifndef KIO_OPENURLJOB_H
 #define KIO_OPENURLJOB_H
 
-#include "kiogui_export.h"
 #include "applicationlauncherjob.h"
+#include "kiogui_export.h"
 #include <KCompositeJob>
 #include <QScopedPointer>
 
 class QUrl;
 
-namespace KIO {
-
+namespace KIO
+{
 class OpenUrlJobPrivate;
 
 /**

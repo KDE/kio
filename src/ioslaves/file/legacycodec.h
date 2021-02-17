@@ -12,35 +12,42 @@
 class LegacyCodec : public QTextCodec
 {
 public:
-    LegacyCodec() {
+    LegacyCodec()
+    {
         if (codecForLocale()->mibEnum() == 106) {
             setCodecForLocale(this);
         }
     }
 
-    ~LegacyCodec() override {
+    ~LegacyCodec() override
+    {
         setCodecForLocale(nullptr);
     }
 
-    QList<QByteArray> aliases() const override {
+    QList<QByteArray> aliases() const override
+    {
         return QList<QByteArray>();
     }
 
-    int mibEnum() const override {
+    int mibEnum() const override
+    {
         return 106;
     }
 
-    QByteArray name() const override {
+    QByteArray name() const override
+    {
         return QByteArray("UTF-8");
     }
 
 protected:
-    QByteArray convertFromUnicode(const QChar *input, int number, QTextCodec::ConverterState *state) const override {
+    QByteArray convertFromUnicode(const QChar *input, int number, QTextCodec::ConverterState *state) const override
+    {
         Q_UNUSED(state);
         return encodeFileNameUTF8(QString::fromRawData(input, number));
     }
 
-    QString convertToUnicode(const char *chars, int len, QTextCodec::ConverterState *state) const override {
+    QString convertToUnicode(const char *chars, int len, QTextCodec::ConverterState *state) const override
+    {
         Q_UNUSED(state);
         return decodeFileNameUTF8(QByteArray::fromRawData(chars, len));
     }

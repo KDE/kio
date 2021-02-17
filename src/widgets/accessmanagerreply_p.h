@@ -9,8 +9,8 @@
 #ifndef KIO_ACCESSMANAGERREPLY_P_H
 #define KIO_ACCESSMANAGERREPLY_P_H
 
-#include <QPointer>
 #include <QNetworkReply>
+#include <QPointer>
 
 namespace KIO
 {
@@ -23,7 +23,6 @@ class QUrl;
 
 namespace KDEPrivate
 {
-
 /**
  * Used for KIO::AccessManager; KDE implementation of QNetworkReply.
  *

@@ -21,7 +21,8 @@ class QSpinBox;
 class QPushButton;
 class KJob;
 
-namespace KIO {
+namespace KIO
+{
 class RenameFileDialogPrivate;
 
 /**

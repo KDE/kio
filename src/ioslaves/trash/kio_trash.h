@@ -8,8 +8,8 @@
 #ifndef KIO_TRASH_H
 #define KIO_TRASH_H
 
-#include <kio/slavebase.h>
 #include "trashimpl.h"
+#include <kio/slavebase.h>
 
 namespace KIO
 {
@@ -57,8 +57,11 @@ private:
     void copyOrMoveFromTrash(const QUrl &src, const QUrl &dest, bool overwrite, CopyOrMove action);
     void copyOrMoveToTrash(const QUrl &src, const QUrl &dest, CopyOrMove action);
     void createTopLevelDirEntry(KIO::UDSEntry &entry);
-    bool createUDSEntry(const QString &physicalPath, const QString &displayFileName, const QString &internalFileName,
-                        KIO::UDSEntry &entry, const TrashedFileInfo &info);
+    bool createUDSEntry(const QString &physicalPath,
+                        const QString &displayFileName,
+                        const QString &internalFileName,
+                        KIO::UDSEntry &entry,
+                        const TrashedFileInfo &info);
     void listRoot();
     void restore(const QUrl &trashURL);
     void enterLoop();

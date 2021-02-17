@@ -14,8 +14,8 @@
 class KRunPrivate; // KF6 REMOVE
 class CommandLauncherJobTest; // KF6 REMOVE
 
-namespace KIO {
-
+namespace KIO
+{
 class CommandLauncherJobPrivate;
 
 /**

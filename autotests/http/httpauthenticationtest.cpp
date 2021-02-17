@@ -9,8 +9,8 @@
 
 #include <QTest>
 
-#include <QList>
 #include <QByteArray>
+#include <QList>
 #include <QtEndian>
 
 #include <KConfigCore/KConfig>
@@ -21,10 +21,7 @@
 // QT5 TODO QTEST_GUILESS_MAIN(HTTPAuthenticationTest)
 QTEST_MAIN(HTTPAuthenticationTest)
 
-static void parseAuthHeader(const QByteArray &header,
-                            QByteArray *bestOffer,
-                            QByteArray *scheme,
-                            QList<QByteArray> *result)
+static void parseAuthHeader(const QByteArray &header, QByteArray *bestOffer, QByteArray *scheme, QList<QByteArray> *result)
 {
     const QList<QByteArray> authHeaders = KAbstractHttpAuthentication::splitOffers(QList<QByteArray>{header});
     QByteArray chosenHeader = KAbstractHttpAuthentication::bestOffer(authHeaders);
@@ -78,7 +75,7 @@ static QByteArray QString2UnicodeLE(const QString &target)
     QByteArray unicode(target.length() * 2, 0);
 
     for (int i = 0; i < target.length(); i++) {
-        ((quint16 *) unicode.data()) [ i ] = qToLittleEndian(target[i].unicode());
+        ((quint16 *)unicode.data())[i] = qToLittleEndian(target[i].unicode());
     }
 
     return unicode;
@@ -101,12 +98,16 @@ void HTTPAuthenticationTest::testHeaderParsing_data()
     QTest::newRow("greenbytes-simplebasicwsrealm") << QByteArray("Basic realm = \"foo\"") << QByteArray("Basic") << QByteArray("realm,foo");
     QTest::newRow("greenbytes-simplebasicrealmsqc") << QByteArray("Basic realm=\"\\f\\o\\o\"") << QByteArray("Basic") << QByteArray("realm,foo");
     QTest::newRow("greenbytes-simplebasicrealmsqc2") << QByteArray("Basic realm=\"\\\"foo\\\"\"") << QByteArray("Basic") << QByteArray("realm,\"foo\"");
-    QTest::newRow("greenbytes-simplebasicnewparam1") << QByteArray("Basic realm=\"foo\", bar=\"xyz\"") << QByteArray("Basic") << QByteArray("realm,foo,bar,xyz");
-    QTest::newRow("greenbytes-simplebasicnewparam2") << QByteArray("Basic bar=\"xyz\", realm=\"foo\"") << QByteArray("Basic") << QByteArray("bar,xyz,realm,foo");
+    QTest::newRow("greenbytes-simplebasicnewparam1") << QByteArray("Basic realm=\"foo\", bar=\"xyz\"") << QByteArray("Basic")
+                                                     << QByteArray("realm,foo,bar,xyz");
+    QTest::newRow("greenbytes-simplebasicnewparam2") << QByteArray("Basic bar=\"xyz\", realm=\"foo\"") << QByteArray("Basic")
+                                                     << QByteArray("bar,xyz,realm,foo");
     // a Basic challenge following an empty one
     QTest::newRow("greenbytes-multibasicempty") << QByteArray(",Basic realm=\"foo\"") << QByteArray("Basic") << QByteArray("realm,foo");
-    QTest::newRow("greenbytes-multibasicunknown") << QByteArray("Basic realm=\"basic\", Newauth realm=\"newauth\"") << QByteArray("Basic") << QByteArray("realm,basic");
-    QTest::newRow("greenbytes-multibasicunknown2") << QByteArray("Newauth realm=\"newauth\", Basic realm=\"basic\"") << QByteArray("Basic") << QByteArray("realm,basic");
+    QTest::newRow("greenbytes-multibasicunknown") << QByteArray("Basic realm=\"basic\", Newauth realm=\"newauth\"") << QByteArray("Basic")
+                                                  << QByteArray("realm,basic");
+    QTest::newRow("greenbytes-multibasicunknown2") << QByteArray("Newauth realm=\"newauth\", Basic realm=\"basic\"") << QByteArray("Basic")
+                                                   << QByteArray("realm,basic");
     QTest::newRow("greenbytes-unknown") << QByteArray("Newauth realm=\"newauth\"") << QByteArray() << QByteArray();
 
     // Misc. test cases
@@ -169,7 +170,8 @@ void HTTPAuthenticationTest::testAuthenticationSelection_data()
     QTest::newRow("ntlm-basic-unknown") << QByteArray("NTLM , Basic , NewAuth") << QByteArray("NTLM") << QByteArray("NTLM");
     QTest::newRow("basic-unknown") << QByteArray("Basic , NewAuth") << QByteArray("Basic") << QByteArray("Basic");
     QTest::newRow("ntlm-basic+param-ntlm") << QByteArray("NTLM   , Basic realm=foo, bar = baz, NTLM") << QByteArray("NTLM") << QByteArray("NTLM");
-    QTest::newRow("ntlm-with-type{2|3}") << QByteArray("NTLM VFlQRV8yX09SXzNfTUVTU0FHRQo=") << QByteArray("NTLM") << QByteArray("NTLM VFlQRV8yX09SXzNfTUVTU0FHRQo=");
+    QTest::newRow("ntlm-with-type{2|3}") << QByteArray("NTLM VFlQRV8yX09SXzNfTUVTU0FHRQo=") << QByteArray("NTLM")
+                                         << QByteArray("NTLM VFlQRV8yX09SXzNfTUVTU0FHRQo=");
 
     // Unknown schemes always return blank, i.e. auth request should be ignored
     QTest::newRow("unknown-param") << QByteArray("Newauth realm=\"newauth\"") << QByteArray() << QByteArray();
@@ -198,48 +200,39 @@ void HTTPAuthenticationTest::testAuthentication_data()
     QTest::addColumn<QByteArray>("cnonce");
 
     // Test cases from  RFC 2617...
-    QTest::newRow("rfc-2617-basic-example")
-            << QByteArray("Basic realm=\"WallyWorld\"")
-            << QByteArray("Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==")
-            << QByteArray("Aladdin")
-            << QByteArray("open sesame")
-            << QByteArray()
-            << QByteArray();
-    QTest::newRow("rfc-2617-digest-example")
-            << QByteArray("Digest realm=\"testrealm@host.com\", qop=\"auth,auth-int\", nonce=\"dcd98b7102dd2f0e8b11d0f600bfb0c093\", opaque=\"5ccc069c403ebaf9f0171e9517f40e41\"")
-            << QByteArray("Digest username=\"Mufasa\", realm=\"testrealm@host.com\", nonce=\"dcd98b7102dd2f0e8b11d0f600bfb0c093\", uri=\"/dir/index.html\", algorithm=MD5, qop=auth, cnonce=\"0a4f113b\", nc=00000001, response=\"6629fae49393a05397450978507c4ef1\", opaque=\"5ccc069c403ebaf9f0171e9517f40e41\"")
-            << QByteArray("Mufasa")
-            << QByteArray("Circle Of Life")
-            << QByteArray("http://www.nowhere.org/dir/index.html")
-            << QByteArray("0a4f113b");
-    QTest::newRow("ntlm-negotiate-type1")
-            << QByteArray("NTLM")
-            << QByteArray("NTLM TlRMTVNTUAABAAAABQIAAAAAAAAAAAAAAAAAAAAAAAA=")
-            << QByteArray()
-            << QByteArray()
-            << QByteArray()
-            << QByteArray();
+    QTest::newRow("rfc-2617-basic-example") << QByteArray("Basic realm=\"WallyWorld\"") << QByteArray("Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==")
+                                            << QByteArray("Aladdin") << QByteArray("open sesame") << QByteArray() << QByteArray();
+    QTest::newRow("rfc-2617-digest-example") << QByteArray(
+        "Digest realm=\"testrealm@host.com\", qop=\"auth,auth-int\", nonce=\"dcd98b7102dd2f0e8b11d0f600bfb0c093\", opaque=\"5ccc069c403ebaf9f0171e9517f40e41\"")
+                                             << QByteArray(
+                                                    "Digest username=\"Mufasa\", realm=\"testrealm@host.com\", nonce=\"dcd98b7102dd2f0e8b11d0f600bfb0c093\", "
+                                                    "uri=\"/dir/index.html\", algorithm=MD5, qop=auth, cnonce=\"0a4f113b\", nc=00000001, "
+                                                    "response=\"6629fae49393a05397450978507c4ef1\", opaque=\"5ccc069c403ebaf9f0171e9517f40e41\"")
+                                             << QByteArray("Mufasa") << QByteArray("Circle Of Life") << QByteArray("http://www.nowhere.org/dir/index.html")
+                                             << QByteArray("0a4f113b");
+    QTest::newRow("ntlm-negotiate-type1") << QByteArray("NTLM") << QByteArray("NTLM TlRMTVNTUAABAAAABQIAAAAAAAAAAAAAAAAAAAAAAAA=") << QByteArray()
+                                          << QByteArray() << QByteArray() << QByteArray();
     QTest::newRow("ntlm-challenge-type2")
-            << QByteArray("NTLM TlRMTVNTUAACAAAAFAAUACgAAAABggAAU3J2Tm9uY2UAAAAAAAAAAFUAcgBzAGEALQBNAGEAagBvAHIA")
-            << QByteArray("NTLM TlRMTVNTUAADAAAAGAAYAFgAAAAYABgAQAAAABQAFABwAAAADAAMAIQAAAAWABYAkAAAAAAAAAAAAAAAAYIAAODgDeMQShvyBT8Hx92oLTxImumJ4bAA062Hym3v40aFucQ8R3qMQtYAZn1okufol1UAcgBzAGEALQBNAGkAbgBvAHIAWgBhAHAAaABvAGQAVwBPAFIASwBTAFQAQQBUAEkATwBOAA==")
-            << QByteArray("Ursa-Minor\\Zaphod")
-            << QByteArray("Beeblebrox")
-            << QByteArray()
-            << QByteArray();
+        << QByteArray("NTLM TlRMTVNTUAACAAAAFAAUACgAAAABggAAU3J2Tm9uY2UAAAAAAAAAAFUAcgBzAGEALQBNAGEAagBvAHIA")
+        << QByteArray(
+               "NTLM "
+               "TlRMTVNTUAADAAAAGAAYAFgAAAAYABgAQAAAABQAFABwAAAADAAMAIQAAAAWABYAkAAAAAAAAAAAAAAAAYIAAODgDeMQShvyBT8Hx92oLTxImumJ4bAA062Hym3v40aFucQ8R3qMQtYAZn1"
+               "okufol1UAcgBzAGEALQBNAGkAbgBvAHIAWgBhAHAAaABvAGQAVwBPAFIASwBTAFQAQQBUAEkATwBOAA==")
+        << QByteArray("Ursa-Minor\\Zaphod") << QByteArray("Beeblebrox") << QByteArray() << QByteArray();
     QTest::newRow("ntlm-challenge-type2-no-domain")
-            << QByteArray("NTLM TlRMTVNTUAACAAAAFAAUACgAAAABggAAU3J2Tm9uY2UAAAAAAAAAAFUAcgBzAGEALQBNAGEAagBvAHIA")
-            << QByteArray("NTLM TlRMTVNTUAADAAAAGAAYAFgAAAAYABgAQAAAABQAFABwAAAADAAMAIQAAAAWABYAkAAAAAAAAAAAAAAAAYIAAODgDeMQShvyBT8Hx92oLTxImumJ4bAA062Hym3v40aFucQ8R3qMQtYAZn1okufol1UAcgBzAGEALQBNAGEAagBvAHIAWgBhAHAAaABvAGQAVwBPAFIASwBTAFQAQQBUAEkATwBOAA==")
-            << QByteArray("Zaphod")
-            << QByteArray("Beeblebrox")
-            << QByteArray()
-            << QByteArray();
+        << QByteArray("NTLM TlRMTVNTUAACAAAAFAAUACgAAAABggAAU3J2Tm9uY2UAAAAAAAAAAFUAcgBzAGEALQBNAGEAagBvAHIA")
+        << QByteArray(
+               "NTLM "
+               "TlRMTVNTUAADAAAAGAAYAFgAAAAYABgAQAAAABQAFABwAAAADAAMAIQAAAAWABYAkAAAAAAAAAAAAAAAAYIAAODgDeMQShvyBT8Hx92oLTxImumJ4bAA062Hym3v40aFucQ8R3qMQtYAZn1"
+               "okufol1UAcgBzAGEALQBNAGEAagBvAHIAWgBhAHAAaABvAGQAVwBPAFIASwBTAFQAQQBUAEkATwBOAA==")
+        << QByteArray("Zaphod") << QByteArray("Beeblebrox") << QByteArray() << QByteArray();
     QTest::newRow("ntlm-challenge-type2-empty-domain")
-            << QByteArray("NTLM TlRMTVNTUAACAAAAFAAUACgAAAABggAAU3J2Tm9uY2UAAAAAAAAAAFUAcgBzAGEALQBNAGEAagBvAHIA")
-            << QByteArray("NTLM TlRMTVNTUAADAAAAGAAYAFgAAAAYABgAQAAAAAAAAAAAAAAADAAMAHAAAAAWABYAfAAAAAAAAAAAAAAAAYIAAODgDeMQShvyBT8Hx92oLTxImumJ4bAA062Hym3v40aFucQ8R3qMQtYAZn1okufol1oAYQBwAGgAbwBkAFcATwBSAEsAUwBUAEEAVABJAE8ATgA=")
-            << QByteArray("\\Zaphod")
-            << QByteArray("Beeblebrox")
-            << QByteArray()
-            << QByteArray();
+        << QByteArray("NTLM TlRMTVNTUAACAAAAFAAUACgAAAABggAAU3J2Tm9uY2UAAAAAAAAAAFUAcgBzAGEALQBNAGEAagBvAHIA")
+        << QByteArray(
+               "NTLM "
+               "TlRMTVNTUAADAAAAGAAYAFgAAAAYABgAQAAAAAAAAAAAAAAADAAMAHAAAAAWABYAfAAAAAAAAAAAAAAAAYIAAODgDeMQShvyBT8Hx92oLTxImumJ4bAA062Hym3v40aFucQ8R3qMQtYAZn1"
+               "okufol1oAYQBwAGgAbwBkAFcATwBSAEsAUwBUAEEAVABJAE8ATgA=")
+        << QByteArray("\\Zaphod") << QByteArray("Beeblebrox") << QByteArray() << QByteArray();
 }
 
 void HTTPAuthenticationTest::testAuthentication()
@@ -266,8 +259,16 @@ void HTTPAuthenticationTest::testAuthentication()
 
 void HTTPAuthenticationTest::testAuthenticationNTLMv2()
 {
-    QByteArray input("NTLM TlRMTVNTUAACAAAABgAGADgAAAAFAokCT0wyUnb4OSQAAAAAAAAAAMYAxgA+AAAABgGxHQAAAA9UAFMAVAACAAYAVABTAFQAAQASAEQAVgBHAFIASwBWAFEAUABEAAQAKgB0AHMAdAAuAGQAagBrAGgAcQBjAGkAaABtAGMAbwBmAGoALgBvAHIAZwADAD4ARABWAEcAUgBLAFYAUQBQAEQALgB0AHMAdAAuAGQAagBrAGgAcQBjAGkAaABtAGMAbwBmAGoALgBvAHIAZwAFACIAZABqAGsAaABxAGMAaQBoAG0AYwBvAGYAagAuAG8AcgBnAAcACABvb9jXZl7RAQAAAAA=");
-    QByteArray expectedResponse("TlRMTVNTUAADAAAAGAAYADYBAAD2APYAQAAAAAYABgBOAQAABgAGAFQBAAAWABYAWgEAAAAAAAAAAAAABQKJArXyhsxZPveKcfcV21viIsUBAQAAAAAAAAC8GQxfX9EBTHOi1kJbHbQAAAAAAgAGAFQAUwBUAAEAEgBEAFYARwBSAEsAVgBRAFAARAAEACoAdABzAHQALgBkAGoAawBoAHEAYwBpAGgAbQBjAG8AZgBqAC4AbwByAGcAAwA+AEQAVgBHAFIASwBWAFEAUABEAC4AdABzAHQALgBkAGoAawBoAHEAYwBpAGgAbQBjAG8AZgBqAC4AbwByAGcABQAiAGQAagBrAGgAcQBjAGkAaABtAGMAbwBmAGoALgBvAHIAZwAHAAgAb2/Y12Ze0QEAAAAAAAAAAOInN0N/15GHBtz3WXvvV159KG/2MbYk0FQAUwBUAGIAbwBiAFcATwBSAEsAUwBUAEEAVABJAE8ATgA=");
+    QByteArray input(
+        "NTLM "
+        "TlRMTVNTUAACAAAABgAGADgAAAAFAokCT0wyUnb4OSQAAAAAAAAAAMYAxgA+"
+        "AAAABgGxHQAAAA9UAFMAVAACAAYAVABTAFQAAQASAEQAVgBHAFIASwBWAFEAUABEAAQAKgB0AHMAdAAuAGQAagBrAGgAcQBjAGkAaABtAGMAbwBmAGoALgBvAHIAZwADAD4ARABWAEcAUgBLAFYAUQ"
+        "BQAEQALgB0AHMAdAAuAGQAagBrAGgAcQBjAGkAaABtAGMAbwBmAGoALgBvAHIAZwAFACIAZABqAGsAaABxAGMAaQBoAG0AYwBvAGYAagAuAG8AcgBnAAcACABvb9jXZl7RAQAAAAA=");
+    QByteArray expectedResponse(
+        "TlRMTVNTUAADAAAAGAAYADYBAAD2APYAQAAAAAYABgBOAQAABgAGAFQBAAAWABYAWgEAAAAAAAAAAAAABQKJArXyhsxZPveKcfcV21viIsUBAQAAAAAAAAC8GQxfX9EBTHOi1kJbHbQAAAAAAgAGAF"
+        "QAUwBUAAEAEgBEAFYARwBSAEsAVgBRAFAARAAEACoAdABzAHQALgBkAGoAawBoAHEAYwBpAGgAbQBjAG8AZgBqAC4AbwByAGcAAwA+"
+        "AEQAVgBHAFIASwBWAFEAUABEAC4AdABzAHQALgBkAGoAawBoAHEAYwBpAGgAbQBjAG8AZgBqAC4AbwByAGcABQAiAGQAagBrAGgAcQBjAGkAaABtAGMAbwBmAGoALgBvAHIAZwAHAAgAb2/"
+        "Y12Ze0QEAAAAAAAAAAOInN0N/15GHBtz3WXvvV159KG/2MbYk0FQAUwBUAGIAbwBiAFcATwBSAEsAUwBUAEEAVABJAE8ATgA=");
     QString user("TST\\bob");
     QString pass("cacamas");
     QString target("TST");
@@ -309,8 +310,7 @@ void HTTPAuthenticationTest::testAuthenticationNTLMv2()
     QString username;
     if (i >= 0) {
         username = user.mid(i + 1);
-    }
-    else {
+    } else {
         username = user;
     }
 

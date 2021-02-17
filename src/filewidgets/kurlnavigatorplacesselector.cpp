@@ -7,27 +7,26 @@
 
 #include "kurlnavigatorplacesselector_p.h"
 
-#include <kfileplacesmodel.h>
 #include <KUrlMimeData>
+#include <kfileplacesmodel.h>
 
-#include <QMimeDatabase>
 #include <QDragEnterEvent>
 #include <QDragLeaveEvent>
 #include <QDropEvent>
 #include <QMenu>
+#include <QMimeData>
+#include <QMimeDatabase>
 #include <QMouseEvent>
 #include <QPainter>
 #include <QPixmap>
 #include <QStyle>
-#include <QMimeData>
 
 namespace KDEPrivate
 {
-
-KUrlNavigatorPlacesSelector::KUrlNavigatorPlacesSelector(KUrlNavigator *parent, KFilePlacesModel *placesModel) :
-    KUrlNavigatorButtonBase(parent),
-    m_selectedItem(-1),
-    m_placesModel(placesModel)
+KUrlNavigatorPlacesSelector::KUrlNavigatorPlacesSelector(KUrlNavigator *parent, KFilePlacesModel *placesModel)
+    : KUrlNavigatorButtonBase(parent)
+    , m_selectedItem(-1)
+    , m_placesModel(placesModel)
 {
     setFocusPolicy(Qt::NoFocus);
 
@@ -36,10 +35,8 @@ KUrlNavigatorPlacesSelector::KUrlNavigatorPlacesSelector(KUrlNavigator *parent, 
 
     updateMenu();
 
-    connect(m_placesModel, &KFilePlacesModel::reloaded,
-            this, &KUrlNavigatorPlacesSelector::updateMenu);
-    connect(m_placesMenu, &QMenu::triggered,
-            this, &KUrlNavigatorPlacesSelector::activatePlace);
+    connect(m_placesModel, &KFilePlacesModel::reloaded, this, &KUrlNavigatorPlacesSelector::updateMenu);
+    connect(m_placesMenu, &QMenu::triggered, this, &KUrlNavigatorPlacesSelector::activatePlace);
 
     setMenu(m_placesMenu);
 
@@ -55,8 +52,8 @@ void KUrlNavigatorPlacesSelector::updateMenu()
     m_placesMenu->clear();
 
     // Submenus have to be deleted explicitly (QTBUG-11070)
-    for(QObject *obj : QObjectList(m_placesMenu->children())) {
-        delete qobject_cast<QMenu*>(obj); // Noop for nullptr
+    for (QObject *obj : QObjectList(m_placesMenu->children())) {
+        delete qobject_cast<QMenu *>(obj); // Noop for nullptr
     }
 
     updateSelection(m_selectedUrl);
@@ -71,9 +68,7 @@ void KUrlNavigatorPlacesSelector::updateMenu()
             continue;
         }
 
-        QAction *placeAction = new QAction(m_placesModel->icon(index),
-                                      m_placesModel->text(index),
-                                      m_placesMenu);
+        QAction *placeAction = new QAction(m_placesModel->icon(index), m_placesModel->text(index), m_placesMenu);
         placeAction->setData(i);
 
         const QString &groupName = index.data(KFilePlacesModel::GroupRole).toString();
@@ -233,8 +228,7 @@ void KUrlNavigatorPlacesSelector::activatePlace(QAction *action)
     m_lastClickedIndex = QPersistentModelIndex();
 
     if (m_placesModel->setupNeeded(index)) {
-        connect(m_placesModel, &KFilePlacesModel::setupDone,
-                this, &KUrlNavigatorPlacesSelector::onStorageSetupDone);
+        connect(m_placesModel, &KFilePlacesModel::setupDone, this, &KUrlNavigatorPlacesSelector::onStorageSetupDone);
 
         m_lastClickedIndex = index;
         m_placesModel->requestSetup(index);
@@ -249,7 +243,7 @@ void KUrlNavigatorPlacesSelector::activatePlace(QAction *action)
 
 void KUrlNavigatorPlacesSelector::onStorageSetupDone(const QModelIndex &index, bool success)
 {
-    if (m_lastClickedIndex == index)  {
+    if (m_lastClickedIndex == index) {
         if (success) {
             m_selectedItem = index.row();
             setIcon(m_placesModel->icon(index));
@@ -283,4 +277,3 @@ bool KUrlNavigatorPlacesSelector::eventFilter(QObject *watched, QEvent *event)
 } // namespace KDEPrivate
 
 #include "moc_kurlnavigatorplacesselector_p.cpp"
-

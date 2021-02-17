@@ -9,10 +9,10 @@
 
 #if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 70)
 
-#include <QLabel>
-#include <QVBoxLayout>
 #include <KIconLoader>
 #include <KLocalizedString>
+#include <QLabel>
+#include <QVBoxLayout>
 
 #include <QIcon>
 #include <QNetworkConfigurationManager>
@@ -29,13 +29,13 @@ public:
     void initialize();
     void _k_networkStatusChanged(bool isOnline);
 
-    KStatusBarOfflineIndicator * const q;
+    KStatusBarOfflineIndicator *const q;
     QNetworkConfigurationManager *networkConfiguration;
 };
 
 KStatusBarOfflineIndicator::KStatusBarOfflineIndicator(QWidget *parent)
-    : QWidget(parent),
-      d(new KStatusBarOfflineIndicatorPrivate(this))
+    : QWidget(parent)
+    , d(new KStatusBarOfflineIndicatorPrivate(this))
 {
     QVBoxLayout *layout = new QVBoxLayout(this);
     layout->setContentsMargins(2, 2, 2, 2);
@@ -44,8 +44,9 @@ KStatusBarOfflineIndicator::KStatusBarOfflineIndicator(QWidget *parent)
     label->setToolTip(i18n("The desktop is offline"));
     layout->addWidget(label);
     d->initialize();
-    connect(d->networkConfiguration, &QNetworkConfigurationManager::onlineStateChanged,
-            this, [this](bool isOnline) { d->_k_networkStatusChanged(isOnline); });
+    connect(d->networkConfiguration, &QNetworkConfigurationManager::onlineStateChanged, this, [this](bool isOnline) {
+        d->_k_networkStatusChanged(isOnline);
+    });
 }
 
 KStatusBarOfflineIndicator::~KStatusBarOfflineIndicator()

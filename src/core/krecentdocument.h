@@ -33,7 +33,6 @@
 class KIOCORE_EXPORT KRecentDocument
 {
 public:
-
     /**
      *
      * Return a list of absolute paths to recent document .desktop files,

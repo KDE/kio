@@ -10,8 +10,8 @@
 #ifndef ksambashare_h
 #define ksambashare_h
 
-#include <QObject>
 #include "kiocore_export.h"
+#include <QObject>
 
 class KSambaShareData;
 class KSambaSharePrivate;

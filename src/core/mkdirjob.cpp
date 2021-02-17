@@ -9,18 +9,19 @@
 #include "mkdirjob.h"
 #include "job.h"
 #include "job_p.h"
-#include <slave.h>
-#include <kurlauthorized.h>
 #include "kiocoredebug.h"
+#include <kurlauthorized.h>
+#include <slave.h>
 
 using namespace KIO;
 
-class KIO::MkdirJobPrivate: public SimpleJobPrivate
+class KIO::MkdirJobPrivate : public SimpleJobPrivate
 {
 public:
     MkdirJobPrivate(const QUrl &url, int command, const QByteArray &packedArgs)
         : SimpleJobPrivate(url, command, packedArgs)
-    { }
+    {
+    }
     QUrl m_redirectionURL;
     void slotRedirection(const QUrl &url);
 
@@ -54,7 +55,9 @@ MkdirJob::~MkdirJob()
 void MkdirJobPrivate::start(Slave *slave)
 {
     Q_Q(MkdirJob);
-    q->connect(slave, &KIO::SlaveInterface::redirection, q, [this](const QUrl &url) { slotRedirection(url); });
+    q->connect(slave, &KIO::SlaveInterface::redirection, q, [this](const QUrl &url) {
+        slotRedirection(url);
+    });
 
     SimpleJobPrivate::start(slave);
 }
@@ -63,7 +66,7 @@ void MkdirJobPrivate::start(Slave *slave)
 void MkdirJobPrivate::slotRedirection(const QUrl &url)
 {
     Q_Q(MkdirJob);
-    //qDebug() << url;
+    // qDebug() << url;
     if (!KUrlAuthorized::authorizeUrlAction(QStringLiteral("redirect"), m_url, url)) {
         qCWarning(KIO_CORE) << "Redirection from" << m_url << "to" << url << "REJECTED!";
         q->setError(ERR_ACCESS_DENIED);
@@ -80,7 +83,7 @@ void MkdirJob::slotFinished()
     Q_D(MkdirJob);
 
     if (!d->m_redirectionURL.isEmpty() && d->m_redirectionURL.isValid()) {
-        //qDebug() << "MkdirJob: Redirection to " << m_redirectionURL;
+        // qDebug() << "MkdirJob: Redirection to " << m_redirectionURL;
         if (queryMetaData(QStringLiteral("permanent-redirect")) == QLatin1String("true")) {
             Q_EMIT permanentRedirection(this, d->m_url, d->m_redirectionURL);
         }
@@ -106,7 +109,7 @@ void MkdirJob::slotFinished()
 
 KIO::MkdirJob *KIO::mkdir(const QUrl &url, int permissions)
 {
-    //qDebug() << "mkdir " << url;
+    // qDebug() << "mkdir " << url;
     KIO_ARGS << url << permissions;
     return MkdirJobPrivate::newJob(url, CMD_MKDIR, packedArgs);
 }

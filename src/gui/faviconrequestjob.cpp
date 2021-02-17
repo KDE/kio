@@ -21,9 +21,9 @@
 #include <QFileInfo>
 #include <QImage>
 #include <QImageReader>
-#include <QUrl>
-#include <QStandardPaths>
 #include <QSaveFile>
+#include <QStandardPaths>
+#include <QUrl>
 
 using namespace KIO;
 
@@ -44,7 +44,10 @@ class KIO::FavIconRequestJobPrivate
 {
 public:
     FavIconRequestJobPrivate(const QUrl &hostUrl, KIO::LoadType reload)
-        : m_hostUrl(hostUrl), m_reload(reload) {}
+        : m_hostUrl(hostUrl)
+        , m_reload(reload)
+    {
+    }
 
     // slots
     void slotData(KIO::Job *job, const QByteArray &data);
@@ -56,9 +59,9 @@ public:
     KIO::LoadType m_reload;
 };
 
-
 FavIconRequestJob::FavIconRequestJob(const QUrl &hostUrl, LoadType reload, QObject *parent)
-    : KCompositeJob(parent), d(new FavIconRequestJobPrivate(hostUrl, reload))
+    : KCompositeJob(parent)
+    , d(new FavIconRequestJobPrivate(hostUrl, reload))
 {
     QMetaObject::invokeMethod(this, "doStart", Qt::QueuedConnection);
 }
@@ -121,8 +124,9 @@ void FavIconRequestJob::doStart()
     metaData.insert(QStringLiteral("no-www-auth"), QStringLiteral("true"));
     metaData.insert(QStringLiteral("errorPage"), QStringLiteral("false"));
     job->addMetaData(metaData);
-    QObject::connect(job, &KIO::TransferJob::data,
-                     this, [this](KIO::Job *job, const QByteArray &data) { d->slotData(job, data); });
+    QObject::connect(job, &KIO::TransferJob::data, this, [this](KIO::Job *job, const QByteArray &data) {
+        d->slotData(job, data);
+    });
     addSubjob(job);
 }
 
@@ -137,8 +141,7 @@ void FavIconRequestJob::slotResult(KJob *job)
         QImageReader ir(&buffer);
         QSize desired(16, 16);
         if (ir.canRead()) {
-            while (ir.imageCount() > 1
-                    && ir.currentImageRect() != QRect(0, 0, desired.width(), desired.height())) {
+            while (ir.imageCount() > 1 && ir.currentImageRect() != QRect(0, 0, desired.width(), desired.height())) {
                 if (!ir.jumpToNextImage()) {
                     break;
                 }
@@ -150,8 +153,7 @@ void FavIconRequestJob::slotResult(KJob *job)
                 const QString localPath = cache->cachePathForIconUrl(iconUrl);
                 qCDebug(FAVICONS_LOG) << "Saving image to" << localPath;
                 QSaveFile saveFile(localPath);
-                if (saveFile.open(QIODevice::WriteOnly) &&
-                        img.save(&saveFile, "PNG") && saveFile.commit()) {
+                if (saveFile.open(QIODevice::WriteOnly) && img.save(&saveFile, "PNG") && saveFile.commit()) {
                     d->m_iconFile = localPath;
                 } else {
                     setError(KIO::ERR_CANNOT_WRITE);

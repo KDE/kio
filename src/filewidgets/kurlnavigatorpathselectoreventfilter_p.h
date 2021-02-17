@@ -10,7 +10,6 @@
 
 namespace KDEPrivate
 {
-
 class KUrlNavigatorPathSelectorEventFilter : public QObject
 {
     Q_OBJECT
@@ -24,7 +23,6 @@ Q_SIGNALS:
 
 protected:
     bool eventFilter(QObject *watched, QEvent *event) override;
-
 };
 
 } // namespace KDEPrivate

@@ -9,15 +9,14 @@
 #ifndef KIO_CONNECTION_P_H
 #define KIO_CONNECTION_P_H
 
-#include <QUrl>
+#include "connectionbackend_p.h"
 #include <QObject>
 #include <QString>
+#include <QUrl>
 #include <QVector>
-#include "connectionbackend_p.h"
 
 namespace KIO
 {
-
 class ConnectionServer;
 class ConnectionPrivate;
 /**
@@ -34,8 +33,8 @@ class Connection : public QObject
 
 public:
     enum class ReadMode {
-        Polled,  ///Any new tasks will be polled
-        EventDriven, ///We need to emit signals when we have pending events. Requires a working QEventLoop
+        Polled, /// Any new tasks will be polled
+        EventDriven, /// We need to emit signals when we have pending events. Requires a working QEventLoop
     };
     /**
      * Creates a new connection.
@@ -58,14 +57,14 @@ public:
     bool isConnected() const;
 
     /**
-    * Checks whether the connection has been initialized.
+     * Checks whether the connection has been initialized.
      * @return true if the initialized
      * @see init()
      */
     bool inited() const;
 
     /**
-    * Sends/queues the given command to be sent.
+     * Sends/queues the given command to be sent.
      * @param cmd the command to set
      * @param arr the bytes to send
      * @return true if successful, false otherwise
@@ -73,7 +72,7 @@ public:
     bool send(int cmd, const QByteArray &arr = QByteArray());
 
     /**
-    * Sends the given command immediately.
+     * Sends the given command immediately.
      * @param _cmd the command to set
      * @param data the bytes to send
      * @return true if successful, false otherwise
@@ -118,8 +117,8 @@ public:
 
     /**
      * Returns status of connection.
-    * @return true if suspended, false otherwise
-           */
+     * @return true if suspended, false otherwise
+     */
     bool suspended() const;
 
     void setReadMode(ReadMode mode);
@@ -141,8 +140,12 @@ class ConnectionPrivate
 {
 public:
     inline ConnectionPrivate()
-        : backend(nullptr), q(nullptr), suspended(false), readMode(Connection::ReadMode::EventDriven)
-    { }
+        : backend(nullptr)
+        , q(nullptr)
+        , suspended(false)
+        , readMode(Connection::ReadMode::EventDriven)
+    {
+    }
 
     void dequeue();
     void commandReceived(const Task &task);

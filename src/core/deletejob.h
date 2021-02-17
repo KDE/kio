@@ -12,8 +12,8 @@
 
 #include <QStringList>
 
-#include "kiocore_export.h"
 #include "global.h"
+#include "kiocore_export.h"
 
 #include "job_base.h"
 
@@ -21,7 +21,6 @@ class QTimer;
 
 namespace KIO
 {
-
 class DeleteJobPrivate;
 /**
  * @class KIO::DeleteJob deletejob.h <KIO/DeleteJob>
@@ -47,33 +46,33 @@ public:
 Q_SIGNALS:
 
     /**
-    * Emitted when the total number of files is known.
+     * Emitted when the total number of files is known.
      * @param job the job that emitted this signal
      * @param files the total number of files
      */
     void totalFiles(KJob *job, unsigned long files);
     /**
-    * Emitted when the total number of directories is known.
+     * Emitted when the total number of directories is known.
      * @param job the job that emitted this signal
      * @param dirs the total number of directories
      */
     void totalDirs(KJob *job, unsigned long dirs);
 
     /**
-    * Sends the number of processed files.
+     * Sends the number of processed files.
      * @param job the job that emitted this signal
      * @param files the number of processed files
      */
     void processedFiles(KIO::Job *job, unsigned long files);
     /**
-    * Sends the number of processed directories.
+     * Sends the number of processed directories.
      * @param job the job that emitted this signal
      * @param dirs the number of processed dirs
      */
     void processedDirs(KIO::Job *job, unsigned long dirs);
 
     /**
-    * Sends the URL of the file that is currently being deleted.
+     * Sends the URL of the file that is currently being deleted.
      * @param job the job that emitted this signal
      * @param file the URL of the file or directory that is being
      *        deleted

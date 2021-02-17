@@ -8,14 +8,15 @@
 #ifndef OPENWITHHANDLERINTERFACE_H
 #define OPENWITHHANDLERINTERFACE_H
 
+#include <KService>
 #include <QObject>
 #include <kiogui_export.h>
-#include <KService>
 class QString;
 
 class KJob;
 
-namespace KIO {
+namespace KIO
+{
 class OpenWithHandlerInterfacePrivate;
 
 /**

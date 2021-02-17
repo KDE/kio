@@ -38,12 +38,10 @@ HTTPFilterBase::~HTTPFilterBase()
     delete last;
 }
 
-void
-HTTPFilterBase::chain(HTTPFilterBase *previous)
+void HTTPFilterBase::chain(HTTPFilterBase *previous)
 {
     last = previous;
-    connect(last, &HTTPFilterBase::output,
-            this, &HTTPFilterBase::slotInput);
+    connect(last, &HTTPFilterBase::output, this, &HTTPFilterBase::slotInput);
 }
 
 HTTPFilterChain::HTTPFilterChain()
@@ -51,8 +49,7 @@ HTTPFilterChain::HTTPFilterChain()
 {
 }
 
-void
-HTTPFilterChain::addFilter(HTTPFilterBase *filter)
+void HTTPFilterChain::addFilter(HTTPFilterBase *filter)
 {
     if (!last) {
         first = filter;
@@ -61,14 +58,11 @@ HTTPFilterChain::addFilter(HTTPFilterBase *filter)
         filter->chain(last);
     }
     last = filter;
-    connect(filter, &HTTPFilterBase::output,
-            this, &HTTPFilterBase::output);
-    connect(filter, &HTTPFilterBase::error,
-            this, &HTTPFilterBase::error);
+    connect(filter, &HTTPFilterBase::output, this, &HTTPFilterBase::output);
+    connect(filter, &HTTPFilterBase::error, this, &HTTPFilterBase::error);
 }
 
-void
-HTTPFilterChain::slotInput(const QByteArray &d)
+void HTTPFilterChain::slotInput(const QByteArray &d)
 {
     if (first) {
         first->slotInput(d);
@@ -77,27 +71,26 @@ HTTPFilterChain::slotInput(const QByteArray &d)
     }
 }
 
-HTTPFilterMD5::HTTPFilterMD5() : context(QCryptographicHash::Md5)
+HTTPFilterMD5::HTTPFilterMD5()
+    : context(QCryptographicHash::Md5)
 {
 }
 
-QString
-HTTPFilterMD5::md5()
+QString HTTPFilterMD5::md5()
 {
     return QString::fromLatin1(context.result().toBase64().constData());
 }
 
-void
-HTTPFilterMD5::slotInput(const QByteArray &d)
+void HTTPFilterMD5::slotInput(const QByteArray &d)
 {
     context.addData(d);
     Q_EMIT output(d);
 }
 
 HTTPFilterGZip::HTTPFilterGZip(bool deflate)
-    : m_deflateMode(deflate),
-      m_firstData(true),
-      m_finished(false)
+    : m_deflateMode(deflate)
+    , m_firstData(true)
+    , m_finished(false)
 {
     // We can't use KFilterDev because it assumes it can read as much data as necessary
     // from the underlying device. It's a pull strategy, while we have to do
@@ -109,7 +102,6 @@ HTTPFilterGZip::~HTTPFilterGZip()
 {
     m_gzipFilter->terminate();
     delete m_gzipFilter;
-
 }
 
 /*
@@ -120,14 +112,13 @@ HTTPFilterGZip::~HTTPFilterGZip()
   Use /usr/include/zlib.h as the primary source of documentation though.
 */
 
-void
-HTTPFilterGZip::slotInput(const QByteArray &d)
+void HTTPFilterGZip::slotInput(const QByteArray &d)
 {
     if (d.isEmpty()) {
         return;
     }
 
-    //qDebug() << "Got" << d.size() << "bytes as input";
+    // qDebug() << "Got" << d.size() << "bytes as input";
     if (m_firstData) {
         if (m_deflateMode) {
             bool zlibHeader = true;
@@ -143,7 +134,7 @@ HTTPFilterGZip::slotInput(const QByteArray &d)
                     zlibHeader = false;
                 }
             }
-            //if (!zlibHeader)
+            // if (!zlibHeader)
             //    qDebug() << "Bad webserver, uses raw-deflate instead of zlib-deflate...";
             if (zlibHeader) {
                 m_gzipFilter->setFilterFlags(KFilterBase::ZlibHeaders);
@@ -164,7 +155,7 @@ HTTPFilterGZip::slotInput(const QByteArray &d)
         char buf[8192];
         m_gzipFilter->setOutBuffer(buf, sizeof(buf));
         KFilterBase::Result result = m_gzipFilter->uncompress();
-        //qDebug() << "uncompress returned" << result;
+        // qDebug() << "uncompress returned" << result;
         switch (result) {
         case KFilterBase::Ok:
         case KFilterBase::End: {
@@ -173,7 +164,7 @@ HTTPFilterGZip::slotInput(const QByteArray &d)
                 Q_EMIT output(QByteArray(buf, bytesOut));
             }
             if (result == KFilterBase::End) {
-                //qDebug() << "done, bHasFinished=true";
+                // qDebug() << "done, bHasFinished=true";
                 Q_EMIT output(QByteArray());
                 m_finished = true;
             }

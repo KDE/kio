@@ -5,12 +5,12 @@
     SPDX-License-Identifier: LGPL-2.0-only
 */
 
-#include <QDebug>
 #include <QApplication>
-#include <QUrl>
+#include <QDebug>
 #include <QDir>
-#include <kio/job.h>
+#include <QUrl>
 #include <kio/global.h>
+#include <kio/job.h>
 #include <kio/udsentry.h>
 
 class KJob;
@@ -29,7 +29,6 @@ public:
 private Q_SLOTS:
     void entries(KIO::Job *, const KIO::UDSEntryList &);
     void finished(KJob *job);
-
 };
 
 using namespace KIO;
@@ -38,8 +37,7 @@ SpeedTest::SpeedTest(const QUrl &url)
     : QObject(nullptr)
 {
     Job *job = listRecursive(url);
-    connect(job, &KJob::result,
-            this, &SpeedTest::finished);
+    connect(job, &KJob::result, this, &SpeedTest::finished);
     /*connect(job, SIGNAL(entries(KIO::Job*,KIO::UDSEntryList)),
         SLOT(entries(KIO::Job*,KIO::UDSEntryList)));
     */
@@ -47,7 +45,6 @@ SpeedTest::SpeedTest(const QUrl &url)
 
 void SpeedTest::entries(KIO::Job *, const UDSEntryList &list)
 {
-
     UDSEntryList::ConstIterator it = list.begin();
     const UDSEntryList::ConstIterator end = list.end();
     for (; it != end; ++it) {
@@ -63,11 +60,10 @@ void SpeedTest::finished(KJob *)
 
 int main(int argc, char **argv)
 {
-
     // "A KIO::listRecursive testing tool"
 
-    //KCmdLineOptions options;
-    //options.add("+[URL]", qi18n("the URL to list"));
+    // KCmdLineOptions options;
+    // options.add("+[URL]", qi18n("the URL to list"));
 
     QApplication app(argc, argv);
 

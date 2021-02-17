@@ -22,7 +22,9 @@ public:
     {
     public:
         explicit Error(const QString &message)
-            : m_message(message) {}
+            : m_message(message)
+        {
+        }
         const QString &message() const
         {
             return m_message;
@@ -44,4 +46,3 @@ private:
 }
 
 #endif // KPAC_SCRIPT_H
-

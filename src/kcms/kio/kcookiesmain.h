@@ -23,7 +23,10 @@ public:
     KCookiesMain(QWidget *parent, const QVariantList &args);
     ~KCookiesMain();
 
-    KCookiesPolicies* policyDlg() { return policies; }
+    KCookiesPolicies *policyDlg()
+    {
+        return policies;
+    }
 
     void save() override;
     void load() override;
@@ -31,10 +34,9 @@ public:
     QString quickHelp() const override;
 
 private:
-
-    QTabWidget* tab;
-    KCookiesPolicies* policies;
-    KCookiesManagement* management;
+    QTabWidget *tab;
+    KCookiesPolicies *policies;
+    KCookiesManagement *management;
 };
 
 #endif // __KCOOKIESMAIN_H

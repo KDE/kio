@@ -34,14 +34,13 @@ class QByteArray;
 class QUrl;
 
 #if defined(DATAKIOSLAVE)
-#  include <kio/slavebase.h>
+#include <kio/slavebase.h>
 #elif !defined(TESTKIO)
-#  include "dataslave_p.h"
+#include "dataslave_p.h"
 #endif
 
 namespace KIO
 {
-
 /** This kioslave provides support of data urls as specified by rfc 2397
  * @see http://www.ietf.org/rfc/rfc2397.txt
  * @author Leo Savernik
@@ -74,6 +73,6 @@ public:
     virtual ~DataProtocol();
 };
 
-}/*end namespace*/
+} /*end namespace*/
 
 #endif

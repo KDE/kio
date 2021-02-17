@@ -38,4 +38,3 @@ void KIO::setDefaultJobUiDelegateExtension(JobUiDelegateExtension *extension)
 {
     s_extension = extension;
 }
-

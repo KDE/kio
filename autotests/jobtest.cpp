@@ -7,33 +7,33 @@
 
 #include "jobtest.h"
 
-#include <KLocalizedString>
 #include <KJobUiDelegate>
+#include <KLocalizedString>
 
-#include <QDebug>
-#include <QPointer>
-#include <QSignalSpy>
-#include <QFileInfo>
-#include <QEventLoop>
-#include <QDir>
-#include <QHash>
-#include <QVariant>
 #include <QBuffer>
+#include <QDebug>
+#include <QDir>
+#include <QElapsedTimer>
+#include <QEventLoop>
+#include <QFileInfo>
+#include <QHash>
+#include <QPointer>
+#include <QProcess>
+#include <QSignalSpy>
 #include <QTemporaryFile>
 #include <QTest>
 #include <QUrl>
-#include <QElapsedTimer>
-#include <QProcess>
+#include <QVariant>
 
-#include <kmountpoint.h>
-#include <kprotocolinfo.h>
-#include <kio/scheduler.h>
-#include <kio/directorysizejob.h>
+#include "kiotesthelper.h" // createTestFile etc.
+#include <kio/chmodjob.h>
 #include <kio/copyjob.h>
 #include <kio/deletejob.h>
-#include <kio/chmodjob.h>
+#include <kio/directorysizejob.h>
+#include <kio/scheduler.h>
 #include <kio/statjob.h>
-#include "kiotesthelper.h" // createTestFile etc.
+#include <kmountpoint.h>
+#include <kprotocolinfo.h>
 #ifndef Q_OS_WIN
 #include <unistd.h> // for readlink
 #endif
@@ -74,7 +74,7 @@ void JobTest::initTestCase()
     // to make sure io is not too fast
     qputenv("KIOSLAVE_FILE_ENABLE_TESTMODE", "1");
 
-    s_referenceTimeStamp = QDateTime::currentDateTime().addSecs(-30);   // 30 seconds ago
+    s_referenceTimeStamp = QDateTime::currentDateTime().addSecs(-30); // 30 seconds ago
 
     // Start with a clean base dir
     cleanupTestCase();
@@ -95,7 +95,7 @@ void JobTest::initTestCase()
     m_getXattrCmd = QStandardPaths::findExecutable("getfattr");
     if (m_getXattrCmd.endsWith("getfattr")) {
         m_setXattrCmd = QStandardPaths::findExecutable("setfattr");
-        m_setXattrFormatArgs = [](const QString& attrName, const QString& value, const QString& fileName) {
+        m_setXattrFormatArgs = [](const QString &attrName, const QString &value, const QString &fileName) {
             return QStringList{QLatin1String("-n"), attrName, QLatin1String("-v"), value, fileName};
         };
     } else {
@@ -105,12 +105,12 @@ void JobTest::initTestCase()
         m_getXattrCmd = QStandardPaths::findExecutable("lsextattr");
         if (m_getXattrCmd.endsWith("lsextattr")) {
             m_setXattrCmd = QStandardPaths::findExecutable("setextattr");
-            m_setXattrFormatArgs = [](const QString& attrName, const QString& value, const QString& fileName) {
+            m_setXattrFormatArgs = [](const QString &attrName, const QString &value, const QString &fileName) {
                 return QStringList{QLatin1String("user"), attrName, value, fileName};
             };
         } else {
             m_getXattrCmd = QStandardPaths::findExecutable("xattr");
-            m_setXattrFormatArgs = [](const QString& attrName, const QString& value, const QString& fileName) {
+            m_setXattrFormatArgs = [](const QString &attrName, const QString &value, const QString &fileName) {
                 return QStringList{QLatin1String("-w"), attrName, value, fileName};
             };
             if (!m_getXattrCmd.endsWith("xattr")) {
@@ -130,11 +130,17 @@ void JobTest::cleanupTestCase()
     QDir(otherTmpDir()).removeRecursively();
 }
 
-struct ScopedCleaner
-{
+struct ScopedCleaner {
     using Func = std::function<void()>;
-    ScopedCleaner(Func f) : m_f(std::move(f)) {}
-    ~ScopedCleaner() { m_f(); }
+    ScopedCleaner(Func f)
+        : m_f(std::move(f))
+    {
+    }
+    ~ScopedCleaner()
+    {
+        m_f();
+    }
+
 private:
     const Func m_f;
 };
@@ -142,8 +148,7 @@ private:
 void JobTest::enterLoop()
 {
     QEventLoop eventLoop;
-    connect(this, &JobTest::exitLoop,
-            &eventLoop, &QEventLoop::quit);
+    connect(this, &JobTest::exitLoop, &eventLoop, &QEventLoop::quit);
     eventLoop.exec(QEventLoop::ExcludeUserInputEvents);
 }
 
@@ -159,10 +164,9 @@ void JobTest::storedGet()
     QSignalSpy spyPercent(job, QOverload<KJob *, unsigned long>::of(&KJob::percent));
     QVERIFY(spyPercent.isValid());
     job->setUiDelegate(nullptr);
-    connect(job, &KJob::result,
-            this, &JobTest::slotGetResult);
+    connect(job, &KJob::result, this, &JobTest::slotGetResult);
     enterLoop();
-    QCOMPARE(m_result, 0);   // no error
+    QCOMPARE(m_result, 0); // no error
     QCOMPARE(m_data, QByteArray("Hello\0world", 11));
     QCOMPARE(m_data.size(), 11);
     QVERIFY(!spyPercent.isEmpty());
@@ -184,14 +188,12 @@ void JobTest::put()
     QDateTime mtime = QDateTime::fromSecsSinceEpoch(secsSinceEpoch - 30); // 30 seconds ago
     job->setModificationTime(mtime);
     job->setUiDelegate(nullptr);
-    connect(job, &KJob::result,
-            this, &JobTest::slotResult);
-    connect(job, &KIO::TransferJob::dataReq,
-            this, &JobTest::slotDataReq);
+    connect(job, &KJob::result, this, &JobTest::slotResult);
+    connect(job, &KIO::TransferJob::dataReq, this, &JobTest::slotDataReq);
     m_result = -1;
     m_dataReqCount = 0;
     enterLoop();
-    QVERIFY(m_result == 0);   // no error
+    QVERIFY(m_result == 0); // no error
 
     QFileInfo fileInfo(filePath);
     QVERIFY(fileInfo.exists());
@@ -373,13 +375,15 @@ void JobTest::storedPutIODeviceSlowDevice()
         const auto pos = putDataBuffer.pos();
         size += putDataBuffer.write(putDataContents);
         putDataBuffer.seek(pos);
-//         qDebug() << "written" << size;
+        //         qDebug() << "written" << size;
     };
 
     QTimer::singleShot(200, this, writeOnce);
     QTimer::singleShot(400, this, writeOnce);
     // Simulate the transfer is done
-    QTimer::singleShot(450, this, [&putDataBuffer](){ Q_EMIT putDataBuffer.readChannelFinished(); });
+    QTimer::singleShot(450, this, [&putDataBuffer]() {
+        Q_EMIT putDataBuffer.readChannelFinished();
+    });
 
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
     QCOMPARE(size, putDataContents.size() * 2);
@@ -416,12 +420,14 @@ void JobTest::storedPutIODeviceSlowDeviceBigChunk()
         const auto pos = putDataBuffer.pos();
         size += putDataBuffer.write(putDataContents);
         putDataBuffer.seek(pos);
-//         qDebug() << "written" << size;
+        //         qDebug() << "written" << size;
     };
 
     QTimer::singleShot(200, this, writeOnce);
     // Simulate the transfer is done
-    QTimer::singleShot(450, this, [&putDataBuffer](){ Q_EMIT putDataBuffer.readChannelFinished(); });
+    QTimer::singleShot(450, this, [&putDataBuffer]() {
+        Q_EMIT putDataBuffer.readChannelFinished();
+    });
 
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
     QCOMPARE(size, putDataContents.size());
@@ -494,7 +500,7 @@ bool JobTest::setXattr(const QString &dest)
         xattrWriter.start(m_setXattrCmd, arguments);
         xattrWriter.waitForStarted();
         xattrWriter.waitForFinished(-1);
-        if(xattrWriter.exitStatus() != QProcess::NormalExit) {
+        if (xattrWriter.exitStatus() != QProcess::NormalExit) {
             return false;
         }
         QList<QByteArray> resultdest = xattrWriter.readAllStandardOutput().split('\n');
@@ -517,16 +523,16 @@ QList<QByteArray> JobTest::readXattr(const QString &src)
     char outputSeparator = '\n';
     // Linux
     if (m_getXattrCmd.endsWith("getfattr")) {
-        arguments = QStringList {"-d", src};
+        arguments = QStringList{"-d", src};
     }
     // BSD
     else if (m_getXattrCmd.endsWith("lsextattr")) {
-        arguments = QStringList {"-q", "user", src};
+        arguments = QStringList{"-q", "user", src};
         outputSeparator = '\t';
     }
     // MacOS
     else {
-        arguments = QStringList {"-l", src };
+        arguments = QStringList{"-l", src};
     }
 
     xattrReader.start(m_getXattrCmd, arguments);
@@ -535,8 +541,7 @@ QList<QByteArray> JobTest::readXattr(const QString &src)
     if (m_getXattrCmd.endsWith("getfattr")) {
         // Line 1 is the file name
         result.removeAt(1);
-    }
-    else if (m_getXattrCmd.endsWith("lsextattr")) {
+    } else if (m_getXattrCmd.endsWith("lsextattr")) {
         // cut off trailing \n
         result.last().chop(1);
         // lsextattr does not sort its output
@@ -564,7 +569,7 @@ void JobTest::copyLocalFile(const QString &src, const QString &dest)
     job->setUiDelegate(nullptr);
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
     QVERIFY(QFile::exists(dest));
-    QVERIFY(QFile::exists(src));     // still there
+    QVERIFY(QFile::exists(src)); // still there
     QCOMPARE(int(QFileInfo(dest).permissions()), int(0x6666));
     compareXattr(src, dest);
 
@@ -576,8 +581,7 @@ void JobTest::copyLocalFile(const QString &src, const QString &dest)
         QFileInfo destInfo(dest);
 #ifdef Q_OS_WIN
         // win32 time may differs in msec part
-        QCOMPARE(srcInfo.lastModified().toString("dd.MM.yyyy hh:mm"),
-                 destInfo.lastModified().toString("dd.MM.yyyy hh:mm"));
+        QCOMPARE(srcInfo.lastModified().toString("dd.MM.yyyy hh:mm"), destInfo.lastModified().toString("dd.MM.yyyy hh:mm"));
 #else
         QCOMPARE(srcInfo.lastModified(), destInfo.lastModified());
 #endif
@@ -591,7 +595,7 @@ void JobTest::copyLocalFile(const QString &src, const QString &dest)
     copyjob->setUiDelegateExtension(nullptr);
     QVERIFY2(copyjob->exec(), qPrintable(copyjob->errorString()));
     QVERIFY(QFile::exists(dest));
-    QVERIFY(QFile::exists(src));     // still there
+    QVERIFY(QFile::exists(src)); // still there
     compareXattr(src, dest);
     {
         // check that the timestamp is the same (#24443)
@@ -599,8 +603,7 @@ void JobTest::copyLocalFile(const QString &src, const QString &dest)
         QFileInfo destInfo(dest);
 #ifdef Q_OS_WIN
         // win32 time may differs in msec part
-        QCOMPARE(srcInfo.lastModified().toString("dd.MM.yyyy hh:mm"),
-                 destInfo.lastModified().toString("dd.MM.yyyy hh:mm"));
+        QCOMPARE(srcInfo.lastModified().toString("dd.MM.yyyy hh:mm"), destInfo.lastModified().toString("dd.MM.yyyy hh:mm"));
 #else
         QCOMPARE(srcInfo.lastModified(), destInfo.lastModified());
 #endif
@@ -620,7 +623,7 @@ void JobTest::copyLocalFile(const QString &src, const QString &dest)
     job->setUiDelegateExtension(nullptr);
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
     QVERIFY(QFile::exists(dest));
-    QVERIFY(QFile::exists(src));     // still there
+    QVERIFY(QFile::exists(src)); // still there
     compareXattr(src, dest);
 
     // Do it again, with Overwrite.
@@ -629,7 +632,7 @@ void JobTest::copyLocalFile(const QString &src, const QString &dest)
     job->setUiDelegateExtension(nullptr);
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
     QVERIFY(QFile::exists(dest));
-    QVERIFY(QFile::exists(src));     // still there
+    QVERIFY(QFile::exists(src)); // still there
     compareXattr(src, dest);
 
     // Do it again, without Overwrite (should fail).
@@ -663,11 +666,11 @@ void JobTest::copyLocalDirectory(const QString &src, const QString &_dest, int f
     QVERIFY(QFile::exists(dest));
     QVERIFY(QFileInfo(dest).isDir());
     QVERIFY(QFileInfo(dest + "/testfile").isFile());
-    QVERIFY(QFile::exists(src));     // still there
+    QVERIFY(QFile::exists(src)); // still there
 
     if (flags & AlreadyExists) {
         dest += '/' + u.fileName();
-        //qDebug() << "Expecting dest=" << dest;
+        // qDebug() << "Expecting dest=" << dest;
     }
 
     // CopyJob::setNextDirAttribute isn't implemented for Windows currently.
@@ -794,10 +797,11 @@ void JobTest::copyDirectoryToExistingSymlinkedDirectory()
     job->setUiDelegate(nullptr);
     job->setUiDelegateExtension(nullptr);
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
-    QVERIFY(QFile::exists(src));     // still there
+    QVERIFY(QFile::exists(src)); // still there
 
     // file is visible in both places due to symlink
-    QVERIFY(QFileInfo(origSymlink + "/dirFromHome").isDir());;
+    QVERIFY(QFileInfo(origSymlink + "/dirFromHome").isDir());
+    ;
     QVERIFY(QFileInfo(targetSymlink + "/dirFromHome").isDir());
     QVERIFY(QDir(origSymlink).removeRecursively());
     QVERIFY(QFile::remove(targetSymlink));
@@ -872,9 +876,9 @@ void JobTest::copyFolderWithUnaccessibleSubfolder()
     createTestDirectory(inaccessible);
 
     QFile(inaccessible).setPermissions(QFile::Permissions()); // Make it inaccessible
-    //Copying should throw some warnings, as it cannot access some folders
+    // Copying should throw some warnings, as it cannot access some folders
 
-    ScopedCleaner cleaner( [&]{
+    ScopedCleaner cleaner([&] {
         QFile(inaccessible).setPermissions(QFile::Permissions(QFile::ReadOwner | QFile::WriteOwner | QFile::ExeOwner));
 
         KIO::DeleteJob *deljob1 = KIO::del(QUrl::fromLocalFile(src_dir), KIO::HideProgressInfo);
@@ -889,7 +893,7 @@ void JobTest::copyFolderWithUnaccessibleSubfolder()
     KIO::CopyJob *job = KIO::copy(QUrl::fromLocalFile(src_dir), QUrl::fromLocalFile(dst_dir), KIO::HideProgressInfo);
 
     QSignalSpy spy(job, &KJob::warning);
-    job->setUiDelegate(nullptr);   // no skip dialog, thanks
+    job->setUiDelegate(nullptr); // no skip dialog, thanks
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
 
     QCOMPARE(job->totalAmount(KJob::Files), 4); // testfile, testlink, folder1/testlink, folder1/testfile
@@ -965,7 +969,7 @@ void JobTest::moveLocalFile(const QString &src, const QString &dest)
     job->setUiDelegate(nullptr);
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
     QVERIFY(QFile::exists(dest));
-    QVERIFY(!QFile::exists(src));     // not there anymore
+    QVERIFY(!QFile::exists(src)); // not there anymore
     QCOMPARE(int(QFileInfo(dest).permissions()), int(0x6666));
 
     // move it back with KIO::move()
@@ -974,7 +978,7 @@ void JobTest::moveLocalFile(const QString &src, const QString &dest)
     job->setUiDelegateExtension(nullptr);
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
     QVERIFY(!QFile::exists(dest));
-    QVERIFY(QFile::exists(src));     // it's back
+    QVERIFY(QFile::exists(src)); // it's back
 }
 
 static void moveLocalSymlink(const QString &src, const QString &dest)
@@ -990,7 +994,7 @@ static void moveLocalSymlink(const QString &src, const QString &dest)
     job->setUiDelegateExtension(nullptr);
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
     QVERIFY(QT_LSTAT(QFile::encodeName(dest).constData(), &buf) == 0);
-    QVERIFY(!QFile::exists(src));     // not there anymore
+    QVERIFY(!QFile::exists(src)); // not there anymore
 
     // move it back with KIO::move()
     job = KIO::move(d, u, KIO::HideProgressInfo);
@@ -1020,7 +1024,7 @@ void JobTest::moveLocalDirectory(const QString &src, const QString &dest)
     QVERIFY(QFile::exists(dest));
     QVERIFY(QFileInfo(dest).isDir());
     QVERIFY(QFileInfo(dest + "/testfile").isFile());
-    QVERIFY(!QFile::exists(src));     // not there anymore
+    QVERIFY(!QFile::exists(src)); // not there anymore
 #ifndef Q_OS_WIN
     QVERIFY(QFileInfo(dest + "/testlink").isSymLink());
 #endif
@@ -1092,11 +1096,16 @@ void JobTest::moveDirectoryToOtherPartition()
 }
 
 struct CleanupInaccessibleSubdir {
-    explicit CleanupInaccessibleSubdir(const QString &subdir) : subdir(subdir) {}
-    ~CleanupInaccessibleSubdir() {
+    explicit CleanupInaccessibleSubdir(const QString &subdir)
+        : subdir(subdir)
+    {
+    }
+    ~CleanupInaccessibleSubdir()
+    {
         QVERIFY(QFile(subdir).setPermissions(QFile::Permissions(QFile::ReadOwner | QFile::WriteOwner | QFile::ExeOwner)));
         QVERIFY(QDir(subdir).removeRecursively());
     }
+
 private:
     const QString subdir;
 };
@@ -1248,22 +1257,22 @@ void JobTest::listRecursive()
 #endif
     KIO::ListJob *job = KIO::listRecursive(QUrl::fromLocalFile(src), KIO::HideProgressInfo);
     job->setUiDelegate(nullptr);
-    connect(job, &KIO::ListJob::entries,
-            this, &JobTest::slotEntries);
+    connect(job, &KIO::ListJob::entries, this, &JobTest::slotEntries);
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
     m_names.sort();
-    QByteArray ref_names = QByteArray(".,..,"
-                                      "dirFromHome,dirFromHome/testfile,"
-                                      "dirFromHome/testlink," // exists on Windows too, see createTestDirectory
-                                      "dirFromHome_copied,"
-                                      "dirFromHome_copied/dirFromHome,dirFromHome_copied/dirFromHome/testfile,"
-                                      "dirFromHome_copied/dirFromHome/testlink,"
-                                      "dirFromHome_copied/testfile,"
-                                      "dirFromHome_copied/testlink,"
+    QByteArray ref_names = QByteArray(
+        ".,..,"
+        "dirFromHome,dirFromHome/testfile,"
+        "dirFromHome/testlink," // exists on Windows too, see createTestDirectory
+        "dirFromHome_copied,"
+        "dirFromHome_copied/dirFromHome,dirFromHome_copied/dirFromHome/testfile,"
+        "dirFromHome_copied/dirFromHome/testlink,"
+        "dirFromHome_copied/testfile,"
+        "dirFromHome_copied/testlink,"
 #ifndef Q_OS_WIN
-                                      "dirFromHome_link,"
+        "dirFromHome_link,"
 #endif
-                                      "fileFromHome");
+        "fileFromHome");
 
     const QString joinedNames = m_names.join(QLatin1Char(','));
     if (joinedNames.toLatin1() != ref_names) {
@@ -1345,7 +1354,9 @@ void JobTest::directorySize()
 #else
     QCOMPARE(job->totalFiles(), 7ULL); // see expected result in listRecursive() above
     QCOMPARE(job->totalSubdirs(), 4ULL); // see expected result in listRecursive() above
-    QVERIFY2(job->totalSize() >= 60, qPrintable(QString("totalSize was %1").arg(job->totalSize()))); // size of subdir entries is filesystem dependent. E.g. this is 16428 with ext4 but only 272 with xfs, and 63 on FreeBSD
+    QVERIFY2(job->totalSize() >= 60,
+             qPrintable(QString("totalSize was %1").arg(job->totalSize()))); // size of subdir entries is filesystem dependent. E.g. this is 16428 with ext4 but
+                                                                             // only 272 with xfs, and 63 on FreeBSD
 #endif
 
     qApp->sendPostedEvents(nullptr, QEvent::DeferredDelete);
@@ -1363,7 +1374,7 @@ void JobTest::slotEntries(KIO::Job *, const KIO::UDSEntryList &lst)
 {
     for (KIO::UDSEntryList::ConstIterator it = lst.begin(); it != lst.end(); ++it) {
         QString displayName = (*it).stringValue(KIO::UDSEntry::UDS_NAME);
-        //QUrl url = (*it).stringValue( KIO::UDSEntry::UDS_URL );
+        // QUrl url = (*it).stringValue( KIO::UDSEntry::UDS_URL );
         m_names.append(displayName);
     }
 }
@@ -1392,7 +1403,7 @@ void JobTest::getInvalidUrl()
 
     KIO::Scheduler::setJobPriority(job, 1); // shouldn't crash (#135456)
 
-    QVERIFY(!job->exec());   // it should fail :)
+    QVERIFY(!job->exec()); // it should fail :)
 }
 
 void JobTest::slotMimetype(KIO::Job *job, const QString &type)
@@ -1424,8 +1435,9 @@ void JobTest::deleteDirectory()
     // A broken symlink:
     createTestSymlink(dest + "/broken_symlink");
     // A symlink to a dir:
-    bool symlink_ok = symlink(QFile::encodeName(QFileInfo(QFINDTESTDATA("jobtest.cpp")).absolutePath()).constData(),
-                              QFile::encodeName(dest + "/symlink_to_dir").constData()) == 0;
+    bool symlink_ok =
+        symlink(QFile::encodeName(QFileInfo(QFINDTESTDATA("jobtest.cpp")).absolutePath()).constData(), QFile::encodeName(dest + "/symlink_to_dir").constData())
+        == 0;
     if (!symlink_ok) {
         qFatal("couldn't create symlink: %s", strerror(errno));
     }
@@ -1532,7 +1544,7 @@ void JobTest::deleteManyFilesIndependently()
         const QUrl url = urls.at(i);
         const QString file = url.toLocalFile();
         QVERIFY(QFile::exists(file));
-        //qDebug() << file;
+        // qDebug() << file;
         KIO::Job *job = KIO::del(url, KIO::HideProgressInfo);
         job->setUiDelegate(nullptr);
         QVERIFY2(job->exec(), qPrintable(job->errorString()));
@@ -1553,7 +1565,7 @@ void JobTest::deleteManyFilesTogether(bool using_fast_path)
     const QList<QUrl> urls = createManyFiles(baseDir, numFiles);
     QCOMPARE(urls.count(), numFiles);
 
-    //qDebug() << file;
+    // qDebug() << file;
     KIO::Job *job = KIO::del(urls, KIO::HideProgressInfo);
     job->setUiDelegate(nullptr);
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
@@ -1607,7 +1619,7 @@ void JobTest::stat()
     QVERIFY(entry.contains(KIO::UDSEntry::UDS_FILE_TYPE));
     QVERIFY(entry.contains(KIO::UDSEntry::UDS_USER));
     QVERIFY(entry.contains(KIO::UDSEntry::UDS_GROUP));
-    //QVERIFY(entry.contains(KIO::UDSEntry::UDS_CREATION_TIME)); // only true if st_birthtime or statx is used
+    // QVERIFY(entry.contains(KIO::UDSEntry::UDS_CREATION_TIME)); // only true if st_birthtime or statx is used
     QVERIFY(entry.contains(KIO::UDSEntry::UDS_MODIFICATION_TIME));
     QVERIFY(entry.contains(KIO::UDSEntry::UDS_ACCESS_TIME));
     QCOMPARE(entry.count(), 8 + (entry.contains(KIO::UDSEntry::UDS_CREATION_TIME) ? 1 : 0));
@@ -1647,7 +1659,7 @@ void JobTest::statDetailsBasic()
     const QString filePath = homeTmpDir() + "fileFromHome";
     createTestFile(filePath);
     const QUrl url(QUrl::fromLocalFile(filePath));
-    KIO::StatJob *job = KIO::statDetails(url, KIO::StatJob::StatSide::SourceSide, KIO::StatBasic,  KIO::HideProgressInfo);
+    KIO::StatJob *job = KIO::statDetails(url, KIO::StatJob::StatSide::SourceSide, KIO::StatBasic, KIO::HideProgressInfo);
     QVERIFY(job);
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
     // TODO set setSide
@@ -1753,8 +1765,7 @@ void JobTest::statWithInode()
         // On the CI where the two tmp dirs are on the only parition available
         // in the LXC container, the device ID's would be identical
         QCOMPARE(device, otherDevice);
-    }
-    else {
+    } else {
         QVERIFY(device != otherDevice);
     }
 }
@@ -1770,7 +1781,8 @@ void JobTest::statSymlink()
     setTimeStamp(symlink, QDateTime::currentDateTime().addSecs(-20)); // differentiate link time and source file time
 
     const QUrl url(QUrl::fromLocalFile(symlink));
-    KIO::StatJob *job = KIO::statDetails(url, KIO::StatJob::StatSide::SourceSide,
+    KIO::StatJob *job = KIO::statDetails(url,
+                                         KIO::StatJob::StatSide::SourceSide,
                                          KIO::StatBasic | KIO::StatResolveSymlink | KIO::StatUser | KIO::StatTime,
                                          KIO::HideProgressInfo);
     QVERIFY(job);
@@ -1786,7 +1798,7 @@ void JobTest::statSymlink()
     QVERIFY(entry.contains(KIO::UDSEntry::UDS_LINK_DEST));
     QVERIFY(entry.contains(KIO::UDSEntry::UDS_USER));
     QVERIFY(entry.contains(KIO::UDSEntry::UDS_GROUP));
-    //QVERIFY(entry.contains(KIO::UDSEntry::UDS_CREATION_TIME)); // only true if st_birthtime or statx is used
+    // QVERIFY(entry.contains(KIO::UDSEntry::UDS_CREATION_TIME)); // only true if st_birthtime or statx is used
     QVERIFY(entry.contains(KIO::UDSEntry::UDS_MODIFICATION_TIME));
     QVERIFY(entry.contains(KIO::UDSEntry::UDS_ACCESS_TIME));
     QCOMPARE(entry.count(), 9 + (entry.contains(KIO::UDSEntry::UDS_CREATION_TIME) ? 1 : 0));
@@ -1826,21 +1838,21 @@ void JobTest::statTimeResolution()
 
     QFile dest_file(filePath);
     QVERIFY(dest_file.open(QIODevice::ReadOnly));
-    #if defined(Q_OS_LINUX) || defined(Q_OS_FREEBSD)
-        // with nano secs precision
-        struct timespec ut[2];
-        ut[0].tv_sec = early70sTime;
-        ut[0].tv_nsec = 123000000L; // 123 ms
-        ut[1] = ut[0];
-        // need to do this with the dest file still opened, or this fails
-        QCOMPARE(::futimens(dest_file.handle(), ut), 0);
-    #else
-        struct timeval ut[2];
-        ut[0].tv_sec = early70sTime;
-        ut[0].tv_usec = 123000;
-        ut[1] = ut[0];
-        QCOMPARE(::futimes(dest_file.handle(), ut), 0);
-    #endif
+#if defined(Q_OS_LINUX) || defined(Q_OS_FREEBSD)
+    // with nano secs precision
+    struct timespec ut[2];
+    ut[0].tv_sec = early70sTime;
+    ut[0].tv_nsec = 123000000L; // 123 ms
+    ut[1] = ut[0];
+    // need to do this with the dest file still opened, or this fails
+    QCOMPARE(::futimens(dest_file.handle(), ut), 0);
+#else
+    struct timeval ut[2];
+    ut[0].tv_sec = early70sTime;
+    ut[0].tv_usec = 123000;
+    ut[1] = ut[0];
+    QCOMPARE(::futimes(dest_file.handle(), ut), 0);
+#endif
     dest_file.close();
 
     // Check that the modification time is set with millisecond precision
@@ -1849,12 +1861,12 @@ void JobTest::statTimeResolution()
     QCOMPARE(d, early70sDate);
     QCOMPARE(d.time().msec(), 123);
 
-    #if defined(Q_OS_LINUX) || defined(Q_OS_FREEBSD)
-        QT_STATBUF buff_dest;
-        QCOMPARE(QT_STAT(filePath.toLocal8Bit().data(), &buff_dest), 0);
-        QCOMPARE(buff_dest.st_mtim.tv_sec, early70sTime);
-        QCOMPARE(buff_dest.st_mtim.tv_nsec, 123000000L);
-    #endif
+#if defined(Q_OS_LINUX) || defined(Q_OS_FREEBSD)
+    QT_STATBUF buff_dest;
+    QCOMPARE(QT_STAT(filePath.toLocal8Bit().data(), &buff_dest), 0);
+    QCOMPARE(buff_dest.st_mtim.tv_sec, early70sTime);
+    QCOMPARE(buff_dest.st_mtim.tv_nsec, 123000000L);
+#endif
 
     QCOMPARE(QFileInfo(filePath).lastModified(), early70sDate);
 }
@@ -1870,7 +1882,8 @@ void JobTest::mostLocalUrl()
     QCOMPARE(job->mostLocalUrl().toLocalFile(), filePath);
 }
 
-void JobTest::mostLocalUrlHttp() {
+void JobTest::mostLocalUrlHttp()
+{
     // the url is returned as-is, as an http url can't have a mostLocalUrl
     const QUrl url("http://www.google.com");
     KIO::StatJob *httpStat = KIO::mostLocalUrl(url, KIO::HideProgressInfo);
@@ -1887,7 +1900,8 @@ void JobTest::chmodFile()
     const mode_t origPerm = item.permissions();
     mode_t newPerm = origPerm ^ S_IWGRP;
     QVERIFY(newPerm != origPerm);
-    KFileItemList items; items << item;
+    KFileItemList items;
+    items << item;
     KIO::Job *job = KIO::chmod(items, newPerm, S_IWGRP /*TODO: QFile::WriteGroup*/, QString(), QString(), false, KIO::HideProgressInfo);
     job->setUiDelegate(nullptr);
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
@@ -1926,7 +1940,8 @@ void JobTest::chmodFileError()
     const mode_t origPerm = item.permissions();
     mode_t newPerm = origPerm ^ S_IWGRP;
     QVERIFY(newPerm != origPerm);
-    KFileItemList items; items << item;
+    KFileItemList items;
+    items << item;
     KIO::Job *job = KIO::chmod(items, newPerm, S_IWGRP /*TODO: QFile::WriteGroup*/, QStringLiteral("root"), QString(), false, KIO::HideProgressInfo);
     // Simulate the user pressing "Skip" in the dialog.
     PredefinedAnswerJobUiDelegate extension;
@@ -2176,11 +2191,11 @@ void JobTest::moveDestAlreadyExistsAutoRename(const QString &destDir, bool moveD
 
     QSignalSpy spyRenamed(job, &KIO::CopyJob::renamed);
 
-    //qDebug() << QDir(destDir).entryList();
+    // qDebug() << QDir(destDir).entryList();
 
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
 
-    //qDebug() << QDir(destDir).entryList();
+    // qDebug() << QDir(destDir).entryList();
     QVERIFY(!QFile::exists(file1)); // it was moved
     QVERIFY(!QFile::exists(file2)); // it was moved
 
@@ -2209,9 +2224,12 @@ void JobTest::moveDestAlreadyExistsAutoRename(const QString &destDir, bool moveD
         QCOMPARE(list.at(2).toUrl(), QUrl::fromLocalFile(file4));
     } else {
         // Remove all renamed signals about innerfiles
-        spyRenamed.erase(std::remove_if(spyRenamed.begin(), spyRenamed.end(), [](const QList<QVariant> &spy){
-            return spy.at(1).toUrl().path().contains("innerfile");
-        }), spyRenamed.end());
+        spyRenamed.erase(std::remove_if(spyRenamed.begin(),
+                                        spyRenamed.end(),
+                                        [](const QList<QVariant> &spy) {
+                                            return spy.at(1).toUrl().path().contains("innerfile");
+                                        }),
+                         spyRenamed.end());
 
         list = spyRenamed.takeFirst();
         QCOMPARE(list.at(1).toUrl(), QUrl::fromLocalFile(destDir + prefix + "(2)"));
@@ -2305,7 +2323,7 @@ void JobTest::copyFileAlreadyExistsRename()
     QUrl s = QUrl::fromLocalFile(sourceFile);
     QUrl d = QUrl::fromLocalFile(dest);
 
-    KIO::CopyJob* job = KIO::copy(s, d, KIO::HideProgressInfo);
+    KIO::CopyJob *job = KIO::copy(s, d, KIO::HideProgressInfo);
     // Simulate the user pressing "Rename" in the dialog and choosing another destination.
     job->setUiDelegate(new KJobUiDelegate);
     auto *askUserHandler = new MockAskUserInterface(job->uiDelegate());
@@ -2395,7 +2413,6 @@ void JobTest::overwriteOlderFiles_data()
 
 void JobTest::overwriteOlderFiles()
 {
-
     QFETCH(bool, destFileOlder);
     QFETCH(bool, moving);
     const QString srcDir = homeTmpDir() + "overwrite";
@@ -2422,7 +2439,7 @@ void JobTest::overwriteOlderFiles()
     QVERIFY(QFile::resize(srcFile3, srcSize));
     if (destFileOlder) {
         setTimeStamp(destFile, QFile(srcFile).fileTime(QFileDevice::FileModificationTime).addSecs(-2));
-        setTimeStamp(destFile2,  QFile(srcFile2).fileTime(QFileDevice::FileModificationTime).addSecs(-2));
+        setTimeStamp(destFile2, QFile(srcFile2).fileTime(QFileDevice::FileModificationTime).addSecs(-2));
 
         QVERIFY(QFile(destFile).fileTime(QFileDevice::FileModificationTime) <= QFile(srcFile).fileTime(QFileDevice::FileModificationTime));
         QVERIFY(QFile(destFile2).fileTime(QFileDevice::FileModificationTime) <= QFile(srcFile2).fileTime(QFileDevice::FileModificationTime));
@@ -2434,17 +2451,17 @@ void JobTest::overwriteOlderFiles()
         QVERIFY(QFile(destFile2).fileTime(QFileDevice::FileModificationTime) >= QFile(srcFile2).fileTime(QFileDevice::FileModificationTime));
     }
     // to have an always skipped file
-    setTimeStamp(destFile3,  QFile(srcFile3).fileTime(QFileDevice::FileModificationTime).addSecs(2));
+    setTimeStamp(destFile3, QFile(srcFile3).fileTime(QFileDevice::FileModificationTime).addSecs(2));
 
     KIO::CopyJob *job;
     if (moving) {
-        job = KIO::move(
-                {QUrl::fromLocalFile(srcFile), QUrl::fromLocalFile(srcFile2), QUrl::fromLocalFile(srcFile3)},
-                QUrl::fromLocalFile(destDir), KIO::HideProgressInfo);
+        job = KIO::move({QUrl::fromLocalFile(srcFile), QUrl::fromLocalFile(srcFile2), QUrl::fromLocalFile(srcFile3)},
+                        QUrl::fromLocalFile(destDir),
+                        KIO::HideProgressInfo);
     } else {
-        job = KIO::copy(
-                {QUrl::fromLocalFile(srcFile), QUrl::fromLocalFile(srcFile2), QUrl::fromLocalFile(srcFile3)},
-                QUrl::fromLocalFile(destDir), KIO::HideProgressInfo);
+        job = KIO::copy({QUrl::fromLocalFile(srcFile), QUrl::fromLocalFile(srcFile2), QUrl::fromLocalFile(srcFile3)},
+                        QUrl::fromLocalFile(destDir),
+                        KIO::HideProgressInfo);
     }
 
     job->setUiDelegate(new KJobUiDelegate);
@@ -2454,7 +2471,7 @@ void JobTest::overwriteOlderFiles()
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
     QCOMPARE(askUserHandler->m_askUserRenameCalled, 1);
     QVERIFY(!QFile::exists(destPartFile));
-    //QCOMPARE(spyTotalSize.count(), 1);
+    // QCOMPARE(spyTotalSize.count(), 1);
 
     // skipped file whose dest is always newer
     QVERIFY(QFile::exists(srcFile3)); // it was skipped
@@ -2476,10 +2493,8 @@ void JobTest::overwriteOlderFiles()
             QVERIFY(QFile::exists(srcFile)); // it was copied
             QVERIFY(QFile::exists(srcFile2)); // it was copied
 
-            QCOMPARE(QFile(destFile).fileTime(QFileDevice::FileModificationTime),
-                     QFile(srcFile).fileTime(QFileDevice::FileModificationTime));
-            QCOMPARE(QFile(destFile2).fileTime(QFileDevice::FileModificationTime),
-                     QFile(srcFile2).fileTime(QFileDevice::FileModificationTime));
+            QCOMPARE(QFile(destFile).fileTime(QFileDevice::FileModificationTime), QFile(srcFile).fileTime(QFileDevice::FileModificationTime));
+            QCOMPARE(QFile(destFile2).fileTime(QFileDevice::FileModificationTime), QFile(srcFile2).fileTime(QFileDevice::FileModificationTime));
         }
     } else {
         // files were skipped
@@ -2741,7 +2756,7 @@ void JobTest::multiGet()
     const QList<QUrl> urls = createManyFiles(baseDir, numFiles);
     QCOMPARE(urls.count(), numFiles);
 
-    //qDebug() << file;
+    // qDebug() << file;
     KIO::MultiGetJob *job = KIO::multi_get(0, urls.at(0), KIO::MetaData()); // TODO: missing KIO::HideProgressInfo
 
 #if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
@@ -2751,7 +2766,7 @@ void JobTest::multiGet()
 #endif
 
 #if KIOCORE_BUILD_DEPRECATED_SINCE(5, 78)
-    QSignalSpy spyMimeType(job, SIGNAL(mimetype(long,QString)));
+    QSignalSpy spyMimeType(job, SIGNAL(mimetype(long, QString)));
 #endif
     QSignalSpy spyMimeTypeFound(job, &KIO::MultiGetJob::mimeTypeFound);
 
@@ -2768,8 +2783,8 @@ void JobTest::multiGet()
         const QUrl url = urls.at(i);
         job->get(i, url, KIO::MetaData());
     }
-    //connect(job, &KIO::MultiGetJob::result, [=] (long id) { qDebug() << "ID I got" << id;});
-    //connect(job, &KJob::result, [this](KJob* ) {qDebug() << "END";});
+    // connect(job, &KIO::MultiGetJob::result, [=] (long id) { qDebug() << "ID I got" << id;});
+    // connect(job, &KJob::result, [this](KJob* ) {qDebug() << "END";});
 
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
 
@@ -2856,4 +2871,3 @@ void JobTest::cancelCopyAndCleanDest()
     // we need to give some time to the ioslave to finish the file cleaning
     QTRY_VERIFY2(!QFile::exists(destToCheck), qPrintable(destToCheck));
 }
-

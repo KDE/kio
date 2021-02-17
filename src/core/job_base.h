@@ -14,7 +14,6 @@
 
 namespace KIO
 {
-
 class JobUiDelegateExtension;
 
 class JobPrivate;
@@ -52,7 +51,9 @@ protected:
 
 public:
     virtual ~Job();
-    void start() override {} // Since KIO autostarts its jobs
+    void start() override
+    {
+    } // Since KIO autostarts its jobs
 
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 0)
     /**
@@ -128,8 +129,7 @@ public:
      * @return the following strings: caption, error + description,
      *         causes+solutions
      */
-    QStringList detailedErrorStrings(const QUrl *reqUrl = nullptr,
-                                     int method = -1) const;
+    QStringList detailedErrorStrings(const QUrl *reqUrl = nullptr, int method = -1) const;
 
     /**
      * Set the parent Job.
@@ -207,7 +207,6 @@ public:
     QString queryMetaData(const QString &key);
 
 protected:
-
 Q_SIGNALS:
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 0)
     /**

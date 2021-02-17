@@ -30,11 +30,10 @@ int main(int argc, char **argv)
         job->setUiDelegate(nullptr);
         job->addMetaData(QStringLiteral("statDetails"), QString::number(KIO::StatDefaultDetails));
 
-        QObject::connect(job, &KIO::ListJob::entries,
-                         [&entriesListed] (KIO::Job*, const KIO::UDSEntryList &entries) {
-                            entriesListed += entries.size();
-                            qDebug() << "Listed" << entriesListed << "files.";
-                         });
+        QObject::connect(job, &KIO::ListJob::entries, [&entriesListed](KIO::Job *, const KIO::UDSEntryList &entries) {
+            entriesListed += entries.size();
+            qDebug() << "Listed" << entriesListed << "files.";
+        });
     }
 
     return app.exec();

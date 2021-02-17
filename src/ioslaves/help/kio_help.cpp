@@ -19,14 +19,14 @@
 #include <QDebug>
 
 #include <QDir>
-#include <QFileInfo>
 #include <QFile>
+#include <QFileInfo>
 #include <QMimeDatabase>
 #include <QStandardPaths>
 #include <QUrl>
 
-#include <libxslt/xsltutils.h>
 #include <libxslt/transform.h>
+#include <libxslt/xsltutils.h>
 
 using namespace KIO;
 
@@ -60,7 +60,7 @@ QString HelpProtocol::langLookup(const QString &fname)
 
     // try to locate the file
     for (const QString &path : qAsConst(search)) {
-        //qDebug() << "Looking for help in: " << path;
+        // qDebug() << "Looking for help in: " << path;
 
         QFileInfo info(path);
         if (info.exists() && info.isFile() && info.isReadable()) {
@@ -69,7 +69,7 @@ QString HelpProtocol::langLookup(const QString &fname)
 
         if (path.endsWith(QLatin1String(".html"))) {
             const QString file = path.leftRef(path.lastIndexOf(QLatin1Char('/'))) + QLatin1String("/index.docbook");
-            //qDebug() << "Looking for help in: " << file;
+            // qDebug() << "Looking for help in: " << file;
             info.setFile(file);
             if (info.exists() && info.isFile() && info.isReadable()) {
                 return path;
@@ -80,8 +80,7 @@ QString HelpProtocol::langLookup(const QString &fname)
     return QString();
 }
 
-QString HelpProtocol::lookupFile(const QString &fname,
-                                 const QString &query, bool &redirect)
+QString HelpProtocol::lookupFile(const QString &fname, const QString &query, bool &redirect)
 {
     redirect = false;
 
@@ -96,7 +95,7 @@ QString HelpProtocol::lookupFile(const QString &fname,
             red.setPath(path + QLatin1String("/index.html"));
             red.setQuery(query);
             redirection(red);
-            //qDebug() << "redirect to " << red;
+            // qDebug() << "redirect to " << red;
             redirect = true;
         } else {
             const QString documentationNotFound = QStringLiteral("kioslave5/help/documentationnotfound/index.html");
@@ -113,7 +112,7 @@ QString HelpProtocol::lookupFile(const QString &fname,
             }
         }
     } else {
-        //qDebug() << "result " << result;
+        // qDebug() << "result " << result;
     }
 
     return result;
@@ -121,15 +120,16 @@ QString HelpProtocol::lookupFile(const QString &fname,
 
 void HelpProtocol::sendError(const QString &t)
 {
-    data(QStringLiteral(
-         "<html><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"></head>\n%1</html>").arg(t.toHtmlEscaped()).toUtf8());
-
+    data(QStringLiteral("<html><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"></head>\n%1</html>")
+             .arg(t.toHtmlEscaped())
+             .toUtf8());
 }
 
 HelpProtocol *slave = nullptr;
 
 HelpProtocol::HelpProtocol(bool ghelp, const QByteArray &pool, const QByteArray &app)
-    : SlaveBase(ghelp ? QByteArrayLiteral("ghelp") : QByteArrayLiteral("help"), pool, app), mGhelp(ghelp)
+    : SlaveBase(ghelp ? QByteArrayLiteral("ghelp") : QByteArrayLiteral("help"), pool, app)
+    , mGhelp(ghelp)
 {
     slave = this;
 }
@@ -178,7 +178,7 @@ void HelpProtocol::get(const QUrl &url)
         target.setFragment(url.fragment());
     }
 
-    //qDebug() << "target " << target;
+    // qDebug() << "target " << target;
 
     QString file = target.isLocalFile() ? target.toLocalFile() : target.path();
 
@@ -213,10 +213,10 @@ void HelpProtocol::get(const QUrl &url)
         QString xsl = QStringLiteral("customization/kde-nochunk.xsl");
         mParsed = KDocTools::transform(file, KDocTools::locateFileInDtdResource(xsl));
 
-        //qDebug() << "parsed " << mParsed.length();
+        // qDebug() << "parsed " << mParsed.length();
 
         if (mParsed.isEmpty()) {
-            sendError(i18n("The requested help file could not be parsed:<br />%1",  file));
+            sendError(i18n("The requested help file could not be parsed:<br />%1", file));
         } else {
             int pos1 = mParsed.indexOf(QLatin1String("charset="));
             if (pos1 > 0) {
@@ -228,12 +228,11 @@ void HelpProtocol::get(const QUrl &url)
             data(mParsed.toUtf8());
         }
     } else {
-
-        //qDebug() << "look for cache for " << file;
+        // qDebug() << "look for cache for " << file;
 
         mParsed = lookForCache(file);
 
-        //qDebug() << "cached parsed " << mParsed.length();
+        // qDebug() << "cached parsed " << mParsed.length();
 
         if (mParsed.isEmpty()) {
             mParsed = KDocTools::transform(file, KDocTools::locateFileInDtdResource(QStringLiteral("customization/kde-chunk.xsl")));
@@ -247,21 +246,23 @@ void HelpProtocol::get(const QUrl &url)
                 // when using usb sticks - this may affect unix/mac systems also
                 const QString installPath = KDocTools::documentationDirs().last();
 
-                QString cache = QLatin1Char('/') + fi.absolutePath().remove(installPath, Qt::CaseInsensitive).replace(QLatin1Char('/'), QLatin1Char('_')) + QLatin1Char('_') + fi.baseName() + QLatin1Char('.');
+                QString cache = QLatin1Char('/') + fi.absolutePath().remove(installPath, Qt::CaseInsensitive).replace(QLatin1Char('/'), QLatin1Char('_'))
+                    + QLatin1Char('_') + fi.baseName() + QLatin1Char('.');
 #else
                 QString cache = file.left(file.length() - 7);
 #endif
-                KDocTools::saveToCache(mParsed, QStandardPaths::writableLocation(QStandardPaths::GenericCacheLocation)
-                                       + QLatin1String("/kio_help") + cache + QLatin1String("cache.bz2"));
+                KDocTools::saveToCache(mParsed,
+                                       QStandardPaths::writableLocation(QStandardPaths::GenericCacheLocation) + QLatin1String("/kio_help") + cache
+                                           + QLatin1String("cache.bz2"));
             }
         } else {
             infoMessage(i18n("Using cached version"));
         }
 
-        //qDebug() << "parsed " << mParsed.length();
+        // qDebug() << "parsed " << mParsed.length();
 
         if (mParsed.isEmpty()) {
-            sendError(i18n("The requested help file could not be parsed:<br />%1",  file));
+            sendError(i18n("The requested help file could not be parsed:<br />%1", file));
         } else {
             QString anchor;
             QString query = url.query();
@@ -282,27 +283,25 @@ void HelpProtocol::get(const QUrl &url)
                 anchor = url.fragment();
             }
 
-            //qDebug() << "anchor: " << anchor;
+            // qDebug() << "anchor: " << anchor;
 
             if (!anchor.isEmpty()) {
                 int index = 0;
                 while (true) {
                     index = mParsed.indexOf(QStringLiteral("<a name="), index);
                     if (index == -1) {
-                        //qDebug() << "no anchor\n";
+                        // qDebug() << "no anchor\n";
                         break; // use whatever is the target, most likely index.html
                     }
 
-                    if (mParsed.mid(index, 11 + anchor.length()).toLower() ==
-                            QStringLiteral("<a name=\"%1\">").arg(anchor)) {
-                        index = mParsed.lastIndexOf(QLatin1String("<FILENAME filename="), index) +
-                                strlen("<FILENAME filename=\"");
+                    if (mParsed.mid(index, 11 + anchor.length()).toLower() == QStringLiteral("<a name=\"%1\">").arg(anchor)) {
+                        index = mParsed.lastIndexOf(QLatin1String("<FILENAME filename="), index) + strlen("<FILENAME filename=\"");
                         QString filename = mParsed.mid(index, 2000);
                         filename = filename.left(filename.indexOf(QLatin1Char('\"')));
                         QString path = target.path();
                         path = path.leftRef(path.lastIndexOf(QLatin1Char('/')) + 1) + filename;
                         target.setPath(path);
-                        //qDebug() << "anchor found in " << target;
+                        // qDebug() << "anchor found in " << target;
                         break;
                     }
                     index++;
@@ -339,11 +338,11 @@ void HelpProtocol::mimetype(const QUrl &)
 
 // Copied from kio_file to avoid redirects
 
-#define MAX_IPC_SIZE (1024*32)
+#define MAX_IPC_SIZE (1024 * 32)
 
 void HelpProtocol::get_file(const QString &path)
 {
-    //qDebug() << path;
+    // qDebug() << path;
 
     QFile f(path);
     if (!f.exists()) {
@@ -362,14 +361,12 @@ void HelpProtocol::get_file(const QString &path)
 
     Q_FOREVER {
         const qint64 n = f.read(array, sizeof(array));
-        if (n == -1)
-        {
+        if (n == -1) {
             error(KIO::ERR_CANNOT_READ, path);
             return;
         }
-        if (n == 0)
-        {
-            break;    // Finished
+        if (n == 0) {
+            break; // Finished
         }
 
         data(QByteArray::fromRawData(array, n));

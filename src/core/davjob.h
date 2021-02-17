@@ -9,22 +9,21 @@
 #ifndef KIO_DAVJOB_H
 #define KIO_DAVJOB_H
 
+#include <QDomDocument>
 #include <QObject>
+#include <QPointer>
 #include <QString>
 #include <QStringList>
-#include <QPointer>
-#include <QDomDocument>
 
-#include <sys/types.h>
 #include <sys/stat.h>
+#include <sys/types.h>
 
+#include "global.h"
 #include "kiocore_export.h"
 #include "transferjob.h"
-#include "global.h"
 
 namespace KIO
 {
-
 class Slave;
 
 class DavJobPrivate;
@@ -44,7 +43,7 @@ class KIOCORE_EXPORT DavJob : public TransferJob
     Q_OBJECT
 public:
     /**
-    * Returns the response as a QDomDocument.
+     * Returns the response as a QDomDocument.
      * @return the response document
      */
     QDomDocument &response();
@@ -55,6 +54,7 @@ protected Q_SLOTS:
 
 protected:
     DavJob(DavJobPrivate &dd, int, const QString &);
+
 private:
     Q_DECLARE_PRIVATE(DavJob)
 };
@@ -111,4 +111,3 @@ KIOCORE_EXPORT DavJob *davReport(const QUrl &url, const QString &report, const Q
 }
 
 #endif
-

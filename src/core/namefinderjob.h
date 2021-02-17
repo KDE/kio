@@ -15,7 +15,6 @@
 
 namespace KIO
 {
-
 class NameFinderJobPrivate;
 /**
  * @class KIO::NameFinderJob namefinderjob.h <KIO/NameFinderJob>

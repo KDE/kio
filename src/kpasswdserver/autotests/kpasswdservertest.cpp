@@ -6,11 +6,11 @@
     SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 */
 
+#include <KPasswordDialog>
 #include <QApplication>
 #include <QSignalSpy>
 #include <QTest>
 #include <kpasswdserver.h>
-#include <KPasswordDialog>
 
 static const char *sigQueryAuthInfoResult = SIGNAL(queryAuthInfoAsyncResult(qlonglong, qlonglong, KIO::AuthInfo));
 static const char *sigCheckAuthInfoResult = SIGNAL(checkAuthInfoAsyncResult(qlonglong, qlonglong, KIO::AuthInfo));
@@ -100,7 +100,7 @@ private Q_SLOTS:
         // Before it is processed, do a check, it will reply delayed.
         QSignalSpy spyCheck(&server, sigCheckAuthInfoResult);
         const qlonglong idCheck = server.checkAuthInfoAsync(info, windowId, 17 /*usertime*/);
-        QCOMPARE(idCheck, 0LL);        // always
+        QCOMPARE(idCheck, 0LL); // always
         QCOMPARE(spyCheck.count(), 0); // no reply yet
 
         // Wait for the query to be processed
@@ -182,8 +182,7 @@ private Q_SLOTS:
         // but cancel the retry dialog.
         info.password.clear();
         result = KIO::AuthInfo();
-        queryAuthWithDialog(server, info, filledInfo, result, s_buttonCancel,
-                            QDialog::Accepted /*unused*/, QStringLiteral("Invalid username or password"));
+        queryAuthWithDialog(server, info, filledInfo, result, s_buttonCancel, QDialog::Accepted /*unused*/, QStringLiteral("Invalid username or password"));
     }
 
     void testAcceptRetryDialog()
@@ -208,8 +207,7 @@ private Q_SLOTS:
         info.password.clear();
         result = KIO::AuthInfo();
 
-        queryAuthWithDialog(server, info, filledInfo, result, s_buttonYes,
-                            QDialog::Accepted, QStringLiteral("Invalid username or password"));
+        queryAuthWithDialog(server, info, filledInfo, result, s_buttonYes, QDialog::Accepted, QStringLiteral("Invalid username or password"));
     }
 
     void testUsernameMistmatch()
@@ -398,13 +396,16 @@ private:
 
         if (hasErrorMessage) {
             // Retry dialog only knows Yes/No
-            QMetaObject::invokeMethod(this, "checkRetryDialog", Qt::QueuedConnection,
-                                      Q_ARG(QDialogButtonBox::StandardButton, retryButton));
+            QMetaObject::invokeMethod(this, "checkRetryDialog", Qt::QueuedConnection, Q_ARG(QDialogButtonBox::StandardButton, retryButton));
         }
 
         if (!isCancelRetryDialogTest) {
-            QMetaObject::invokeMethod(this, "checkAndFillDialog", Qt::QueuedConnection, Q_ARG(KIO::AuthInfo, info),
-                                      Q_ARG(KIO::AuthInfo, filledInfo), Q_ARG(QDialog::DialogCode, code));
+            QMetaObject::invokeMethod(this,
+                                      "checkAndFillDialog",
+                                      Qt::QueuedConnection,
+                                      Q_ARG(KIO::AuthInfo, info),
+                                      Q_ARG(KIO::AuthInfo, filledInfo),
+                                      Q_ARG(QDialog::DialogCode, code));
         }
         // Force KPasswdServer to process the request now, otherwise the checkAndFillDialog needs a timer too...
         server.processRequest();
@@ -421,7 +422,11 @@ private:
         QCOMPARE(result.isModified(), retryButton == s_buttonYes && code == QDialog::Accepted);
     }
 
-    void concurrentQueryAuthWithDialog(KPasswdServer &server, const QList<KIO::AuthInfo> &infos, const KIO::AuthInfo &filledInfo, QList<KIO::AuthInfo> &results, QDialog::DialogCode code = QDialog::Accepted)
+    void concurrentQueryAuthWithDialog(KPasswdServer &server,
+                                       const QList<KIO::AuthInfo> &infos,
+                                       const KIO::AuthInfo &filledInfo,
+                                       QList<KIO::AuthInfo> &results,
+                                       QDialog::DialogCode code = QDialog::Accepted)
     {
         QSignalSpy spy(&server, sigQueryAuthInfoResult);
         const qlonglong windowId = 42;
@@ -435,7 +440,12 @@ private:
         }
 
         QVERIFY(spy.isEmpty());
-        QMetaObject::invokeMethod(this, "checkAndFillDialog", Qt::QueuedConnection, Q_ARG(KIO::AuthInfo, infos.first()), Q_ARG(KIO::AuthInfo, filledInfo), Q_ARG(QDialog::DialogCode, code));
+        QMetaObject::invokeMethod(this,
+                                  "checkAndFillDialog",
+                                  Qt::QueuedConnection,
+                                  Q_ARG(KIO::AuthInfo, infos.first()),
+                                  Q_ARG(KIO::AuthInfo, filledInfo),
+                                  Q_ARG(QDialog::DialogCode, code));
 
         // Force KPasswdServer to process the request now, otherwise the checkAndFillDialog needs a timer too...
         server.processRequest();
@@ -455,7 +465,11 @@ private:
         }
     }
 
-    void concurrentCheckAuthWithDialog(KPasswdServer &server, const QList<KIO::AuthInfo> &infos, const KIO::AuthInfo &filledInfo, QList<KIO::AuthInfo> &results, QDialog::DialogCode code = QDialog::Accepted)
+    void concurrentCheckAuthWithDialog(KPasswdServer &server,
+                                       const QList<KIO::AuthInfo> &infos,
+                                       const KIO::AuthInfo &filledInfo,
+                                       QList<KIO::AuthInfo> &results,
+                                       QDialog::DialogCode code = QDialog::Accepted)
     {
         QSignalSpy spy(&server, sigQueryAuthInfoResult);
         const qlonglong windowId = 42;
@@ -476,7 +490,12 @@ private:
         }
 
         QVERIFY(spy.isEmpty());
-        QMetaObject::invokeMethod(this, "checkAndFillDialog", Qt::QueuedConnection, Q_ARG(KIO::AuthInfo, infos.first()), Q_ARG(KIO::AuthInfo, filledInfo), Q_ARG(QDialog::DialogCode, code));
+        QMetaObject::invokeMethod(this,
+                                  "checkAndFillDialog",
+                                  Qt::QueuedConnection,
+                                  Q_ARG(KIO::AuthInfo, infos.first()),
+                                  Q_ARG(KIO::AuthInfo, filledInfo),
+                                  Q_ARG(QDialog::DialogCode, code));
 
         // Force KPasswdServer to process the request now, otherwise the checkAndFillDialog needs a timer too...
         server.processRequest();

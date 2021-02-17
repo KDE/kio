@@ -15,7 +15,6 @@
 
 namespace KIO
 {
-
 class FileSystemFreeSpaceJobPrivate;
 /**
  * @class KIO::FileSystemFreeSpaceJob filesystemfreespacejob.h <KIO/FileSystemFreeSpaceJob>
@@ -25,7 +24,6 @@ class FileSystemFreeSpaceJobPrivate;
  */
 class KIOCORE_EXPORT FileSystemFreeSpaceJob : public SimpleJob
 {
-
     Q_OBJECT
 
 public:

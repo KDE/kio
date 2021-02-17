@@ -8,15 +8,14 @@
 #ifndef KIO_PIXMAPLOADER_H
 #define KIO_PIXMAPLOADER_H
 
-#include <QPixmap>
-#include <KIconLoader>
 #include "kiowidgets_export.h"
+#include <KIconLoader>
+#include <QPixmap>
 
 class QUrl;
 
 namespace KIO
 {
-
 #if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 75)
 /**
  * Convenience method to find the pixmap for a URL.
@@ -38,11 +37,10 @@ namespace KIO
  * QIcon::fromTheme(name, QIcon::fromTheme(QStringLiteral("application-octet-stream")))
  */
 KIOWIDGETS_DEPRECATED_VERSION(5, 75, "Use KIO::iconNameForUrl")
-KIOWIDGETS_EXPORT QPixmap pixmapForUrl(const QUrl &url, int dummy = 0, KIconLoader::Group group = KIconLoader::Desktop,
-                                       int force_size = 0, int state = 0, QString *path = nullptr);
+KIOWIDGETS_EXPORT QPixmap
+pixmapForUrl(const QUrl &url, int dummy = 0, KIconLoader::Group group = KIconLoader::Desktop, int force_size = 0, int state = 0, QString *path = nullptr);
 
 #endif
 }
 
 #endif /* KIO_PIXMAPLOADER_H */
-

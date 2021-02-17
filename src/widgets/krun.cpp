@@ -10,67 +10,67 @@
 #include "krun.h"
 
 #if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 71)
-#include "krun_p.h"
 #include "kio_widgets_debug.h"
+#include "krun_p.h"
 
 #include <assert.h>
+#include <qplatformdefs.h>
 #include <string.h>
 #include <typeinfo>
-#include <qplatformdefs.h>
 
+#include <QApplication>
+#include <QDebug>
+#include <QDesktopServices>
+#include <QDesktopWidget>
 #include <QDialog>
 #include <QDialogButtonBox>
-#include <QWidget>
-#include <QApplication>
-#include <QDesktopWidget>
-#include <QMimeDatabase>
-#include <QDebug>
 #include <QHostInfo>
-#include <QDesktopServices>
+#include <QMimeDatabase>
+#include <QWidget>
 
-#include <KIconLoader>
-#include <KJobUiDelegate>
-#include <KApplicationTrader>
-#include "kio/job.h"
-#include "kio/global.h"
-#include "kio/scheduler.h"
-#include "kopenwithdialog.h"
-#include "krecentdocument.h"
-#include "kdesktopfileactions.h"
-#include <kio/desktopexecparser.h>
-#include "kprocessrunner_p.h" // for KIOGuiPrivate::checkStartupNotify
 #include "applicationlauncherjob.h"
 #include "jobuidelegate.h"
+#include "kdesktopfileactions.h"
+#include "kio/global.h"
+#include "kio/job.h"
+#include "kio/scheduler.h"
+#include "kopenwithdialog.h"
+#include "kprocessrunner_p.h" // for KIOGuiPrivate::checkStartupNotify
+#include "krecentdocument.h"
 #include "widgetsuntrustedprogramhandler.h"
+#include <KApplicationTrader>
+#include <KIconLoader>
+#include <KJobUiDelegate>
+#include <kio/desktopexecparser.h>
 
-#include <kurlauthorized.h>
-#include <KMessageBox>
-#include <KLocalizedString>
-#include <kprotocolmanager.h>
-#include <KProcess>
 #include <KJobWidgets>
+#include <KLocalizedString>
+#include <KMessageBox>
+#include <KProcess>
 #include <KSharedConfig>
 #include <commandlauncherjob.h>
+#include <kprotocolmanager.h>
+#include <kurlauthorized.h>
 
+#include <KConfigGroup>
+#include <KDesktopFile>
+#include <KGuiItem>
+#include <KShell>
+#include <KStandardGuiItem>
 #include <QFile>
 #include <QFileInfo>
-#include <KDesktopFile>
-#include <KShell>
-#include <KConfigGroup>
-#include <KStandardGuiItem>
-#include <KGuiItem>
 
+#include <KIO/JobUiDelegate>
 #include <KIO/OpenUrlJob>
 #include <QStandardPaths>
-#include <KIO/JobUiDelegate>
 
 #ifdef Q_OS_WIN
 #include "widgetsopenwithhandler_win.cpp" // displayNativeOpenWithDialog
 #endif
 
 KRunPrivate::KRunPrivate(KRun *parent)
-    : q(parent),
-      m_showingDialog(false)
+    : q(parent)
+    , m_showingDialog(false)
 {
 }
 
@@ -81,7 +81,6 @@ void KRunPrivate::startTimer()
 
 // ---------------------------------------------------------------------------
 
-
 static KService::Ptr schemeService(const QString &protocol)
 {
     return KApplicationTrader::preferredService(QLatin1String("x-scheme-handler/") + protocol);
@@ -89,9 +88,7 @@ static KService::Ptr schemeService(const QString &protocol)
 
 static bool checkNeedPortalSupport()
 {
-    return !QStandardPaths::locate(QStandardPaths::RuntimeLocation,
-                                   QLatin1String("flatpak-info")).isEmpty() ||
-            qEnvironmentVariableIsSet("SNAP");
+    return !QStandardPaths::locate(QStandardPaths::RuntimeLocation, QLatin1String("flatpak-info")).isEmpty() || qEnvironmentVariableIsSet("SNAP");
 }
 
 qint64 KRunPrivate::runCommandLauncherJob(KIO::CommandLauncherJob *job, QWidget *widget)
@@ -127,10 +124,8 @@ bool KRun::isExecutableFile(const QUrl &url, const QString &mimetype)
     // this method not returning true for application/x-desktop
     QMimeDatabase db;
     QMimeType mimeType = db.mimeTypeForName(mimetype);
-    if (!mimeType.inherits(QStringLiteral("application/x-executable"))
-            && !mimeType.inherits(QStringLiteral("application/x-ms-dos-executable"))
-            && !mimeType.inherits(QStringLiteral("application/x-executable-script"))
-            && !mimeType.inherits(QStringLiteral("application/x-sharedlib"))) {
+    if (!mimeType.inherits(QStringLiteral("application/x-executable")) && !mimeType.inherits(QStringLiteral("application/x-ms-dos-executable"))
+        && !mimeType.inherits(QStringLiteral("application/x-executable-script")) && !mimeType.inherits(QStringLiteral("application/x-sharedlib"))) {
         return false;
     }
 
@@ -160,7 +155,13 @@ void KRun::handleError(KJob *job)
 }
 
 #if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 31)
-bool KRun::runUrl(const QUrl &url, const QString &mimetype, QWidget *window, bool tempFile, bool runExecutables, const QString &suggestedFileName, const QByteArray &asn)
+bool KRun::runUrl(const QUrl &url,
+                  const QString &mimetype,
+                  QWidget *window,
+                  bool tempFile,
+                  bool runExecutables,
+                  const QString &suggestedFileName,
+                  const QByteArray &asn)
 {
     RunFlags flags = tempFile ? KRun::DeleteTemporaryFiles : RunFlags();
     if (runExecutables) {
@@ -190,12 +191,10 @@ bool KRun::runUrl(const QUrl &u, const QString &_mimetype, QWidget *window, RunF
 #endif
 
 #if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 71)
-bool KRun::displayOpenWithDialog(const QList<QUrl> &lst, QWidget *window, bool tempFiles,
-                                 const QString &suggestedFileName, const QByteArray &asn)
+bool KRun::displayOpenWithDialog(const QList<QUrl> &lst, QWidget *window, bool tempFiles, const QString &suggestedFileName, const QByteArray &asn)
 {
     if (!KAuthorized::authorizeAction(QStringLiteral("openwith"))) {
-        KMessageBox::sorry(window,
-                           i18n("You are not authorized to select an application to open this file."));
+        KMessageBox::sorry(window, i18n("You are not authorized to select an application to open this file."));
         return false;
     }
 
@@ -213,7 +212,7 @@ bool KRun::displayOpenWithDialog(const QList<QUrl> &lst, QWidget *window, bool t
     if (dialog.exec()) {
         KService::Ptr service = dialog.service();
         if (!service) {
-            //qDebug() << "No service set, running " << dialog.text();
+            // qDebug() << "No service set, running " << dialog.text();
             service = KService::Ptr(new KService(QString() /*name*/, dialog.text(), QString() /*icon*/));
         }
         const RunFlags flags = tempFiles ? KRun::DeleteTemporaryFiles : RunFlags();
@@ -261,8 +260,7 @@ bool KRun::checkStartupNotify(const QString & /*binName*/, const KService *servi
 }
 
 #if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 6)
-bool KRun::run(const KService &_service, const QList<QUrl> &_urls, QWidget *window,
-               bool tempFiles, const QString &suggestedFileName, const QByteArray &asn)
+bool KRun::run(const KService &_service, const QList<QUrl> &_urls, QWidget *window, bool tempFiles, const QString &suggestedFileName, const QByteArray &asn)
 {
     const RunFlags flags = tempFiles ? KRun::DeleteTemporaryFiles : RunFlags();
     return runApplication(_service, _urls, window, flags, suggestedFileName, asn) != 0;
@@ -270,9 +268,8 @@ bool KRun::run(const KService &_service, const QList<QUrl> &_urls, QWidget *wind
 #endif
 
 #if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 71)
-qint64 KRun::runApplication(const KService &service, const QList<QUrl> &urls, QWidget *window,
-                            RunFlags flags, const QString &suggestedFileName,
-                            const QByteArray &asn)
+qint64
+KRun::runApplication(const KService &service, const QList<QUrl> &urls, QWidget *window, RunFlags flags, const QString &suggestedFileName, const QByteArray &asn)
 {
     KService::Ptr servicePtr(new KService(service)); // clone
     // QTBUG-59017 Calling winId() on an embedded widget will break interaction
@@ -297,21 +294,15 @@ qint64 KRun::runApplication(const KService &service, const QList<QUrl> &urls, QW
 #endif
 
 #if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 71)
-qint64 KRun::runService(const KService &_service, const QList<QUrl> &_urls, QWidget *window,
-                      bool tempFiles, const QString &suggestedFileName, const QByteArray &asn)
+qint64
+KRun::runService(const KService &_service, const QList<QUrl> &_urls, QWidget *window, bool tempFiles, const QString &suggestedFileName, const QByteArray &asn)
 {
-    return runApplication(_service,
-                   _urls,
-                   window,
-                   tempFiles ? RunFlags(DeleteTemporaryFiles) : RunFlags(),
-                   suggestedFileName,
-                   asn);
+    return runApplication(_service, _urls, window, tempFiles ? RunFlags(DeleteTemporaryFiles) : RunFlags(), suggestedFileName, asn);
 }
 #endif
 
 #if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 71)
-bool KRun::run(const QString &_exec, const QList<QUrl> &_urls, QWidget *window, const QString &_name,
-               const QString &_icon, const QByteArray &asn)
+bool KRun::run(const QString &_exec, const QList<QUrl> &_urls, QWidget *window, const QString &_name, const QString &_icon, const QByteArray &asn)
 {
     KService::Ptr service(new KService(_name, _exec, _icon));
 
@@ -346,8 +337,12 @@ bool KRun::runCommand(const QString &cmd, const QString &execName, const QString
 #endif
 
 #if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 71)
-bool KRun::runCommand(const QString &cmd, const QString &execName, const QString &iconName,
-                      QWidget *window, const QByteArray &asn, const QString &workingDirectory)
+bool KRun::runCommand(const QString &cmd,
+                      const QString &execName,
+                      const QString &iconName,
+                      QWidget *window,
+                      const QByteArray &asn,
+                      const QString &workingDirectory)
 {
     auto *job = new KIO::CommandLauncherJob(cmd);
     job->setExecutable(execName);
@@ -362,8 +357,7 @@ bool KRun::runCommand(const QString &cmd, const QString &execName, const QString
 }
 #endif
 
-KRun::KRun(const QUrl &url, QWidget *window,
-           bool showProgressInfo, const QByteArray &asn)
+KRun::KRun(const QUrl &url, QWidget *window, bool showProgressInfo, const QByteArray &asn)
     : d(new KRunPrivate(this))
 {
     d->m_timer = new QTimer(this);
@@ -372,8 +366,7 @@ KRun::KRun(const QUrl &url, QWidget *window,
     d->init(url, window, showProgressInfo, asn);
 }
 
-void KRunPrivate::init(const QUrl &url, QWidget *window,
-                             bool showProgressInfo, const QByteArray &asn)
+void KRunPrivate::init(const QUrl &url, QWidget *window, bool showProgressInfo, const QByteArray &asn)
 {
     m_bFault = false;
     m_bAutoDelete = true;
@@ -396,12 +389,12 @@ void KRunPrivate::init(const QUrl &url, QWidget *window,
     m_bInit = true;
     q->connect(m_timer, &QTimer::timeout, q, &KRun::slotTimeout);
     startTimer();
-    //qDebug() << "new KRun" << q << url << "timer=" << m_timer;
+    // qDebug() << "new KRun" << q << url << "timer=" << m_timer;
 }
 
 void KRun::init()
 {
-    //qDebug() << "INIT called";
+    // qDebug() << "INIT called";
     if (!d->m_strURL.isValid() || d->m_strURL.scheme().isEmpty()) {
         const QString error = !d->m_strURL.isValid() ? d->m_strURL.errorString() : d->m_strURL.toString();
         handleInitError(KIO::ERR_MALFORMED_URL, i18n("Malformed URL\n%1", error));
@@ -432,10 +425,9 @@ void KRun::init()
         if (d->runExternalBrowser(d->m_externalBrowser)) {
             return;
         }
-    } else if (d->m_strURL.isLocalFile() &&
-               (d->m_strURL.host().isEmpty() ||
-                (d->m_strURL.host() == QLatin1String("localhost")) ||
-                (d->m_strURL.host().compare(QHostInfo::localHostName(), Qt::CaseInsensitive) == 0))) {
+    } else if (d->m_strURL.isLocalFile()
+               && (d->m_strURL.host().isEmpty() || (d->m_strURL.host() == QLatin1String("localhost"))
+                   || (d->m_strURL.host().compare(QHostInfo::localHostName(), Qt::CaseInsensitive) == 0))) {
         const QString localPath = d->m_strURL.toLocalFile();
         if (!QFile::exists(localPath)) {
             handleInitError(KIO::ERR_DOES_NOT_EXIST,
@@ -450,7 +442,7 @@ void KRun::init()
 
         QMimeDatabase db;
         QMimeType mime = db.mimeTypeForUrl(d->m_strURL);
-        //qDebug() << "MIME TYPE is " << mime.name();
+        // qDebug() << "MIME TYPE is " << mime.name();
         if (mime.isDefault() && !QFileInfo(localPath).isReadable()) {
             // Unknown MIME type because the file is unreadable, no point in showing an open-with dialog (#261002)
             const QString msg = KIO::buildErrorString(KIO::ERR_ACCESS_DENIED, localPath);
@@ -489,7 +481,6 @@ void KRun::init()
                 }
             }
         }
-
     }
 
     // Let's see whether it is a directory
@@ -509,24 +500,23 @@ void KRun::init()
         return;
     }
 
-    //qDebug() << "Testing directory (stating)";
+    // qDebug() << "Testing directory (stating)";
 
     // It may be a directory or a file, let's stat
     KIO::JobFlags flags = d->m_bProgressInfo ? KIO::DefaultFlags : KIO::HideProgressInfo;
     KIO::StatJob *job = KIO::statDetails(d->m_strURL, KIO::StatJob::SourceSide, KIO::StatBasic, flags);
     KJobWidgets::setWindow(job, d->m_window);
-    connect(job, &KJob::result,
-            this, &KRun::slotStatResult);
+    connect(job, &KJob::result, this, &KRun::slotStatResult);
     d->m_job = job;
-    //qDebug() << "Job" << job << "is about stating" << d->m_strURL;
+    // qDebug() << "Job" << job << "is about stating" << d->m_strURL;
 }
 
 KRun::~KRun()
 {
-    //qDebug() << this;
+    // qDebug() << this;
     d->m_timer->stop();
     killJob();
-    //qDebug() << this << "done";
+    // qDebug() << this << "done";
     delete d;
 }
 
@@ -557,8 +547,8 @@ void KRunPrivate::showPrompt()
 {
     ExecutableFileOpenDialog *dialog = new ExecutableFileOpenDialog(promptMode(), q->window());
     dialog->setAttribute(Qt::WA_DeleteOnClose);
-    QObject::connect(dialog, &ExecutableFileOpenDialog::finished, q, [this, dialog](int result){
-                         onDialogFinished(result, dialog->isDontAskAgainChecked());
+    QObject::connect(dialog, &ExecutableFileOpenDialog::finished, q, [this, dialog](int result) {
+        onDialogFinished(result, dialog->isDontAskAgainChecked());
     });
     dialog->show();
 }
@@ -571,8 +561,7 @@ bool KRunPrivate::isPromptNeeded()
     const QMimeDatabase db;
     const QMimeType mime = db.mimeTypeForUrl(m_strURL);
 
-    const bool isFileExecutable = (KRun::isExecutableFile(m_strURL, mime.name()) ||
-                                   mime.inherits(QStringLiteral("application/x-desktop")));
+    const bool isFileExecutable = (KRun::isExecutableFile(m_strURL, mime.name()) || mime.inherits(QStringLiteral("application/x-desktop")));
 
     if (isFileExecutable) {
         KConfigGroup cfgGroup(KSharedConfig::openConfig(QStringLiteral("kiorc")), "Executable scripts");
@@ -624,14 +613,14 @@ void KRunPrivate::onDialogFinished(int result, bool isDontAskAgainSet)
 
 void KRun::scanFile()
 {
-    //qDebug() << d->m_strURL;
+    // qDebug() << d->m_strURL;
     // First, let's check for well-known extensions
     // Not when there is a query in the URL, in any case.
     if (!d->m_strURL.hasQuery()) {
         QMimeDatabase db;
         QMimeType mime = db.mimeTypeForUrl(d->m_strURL);
         if (!mime.isDefault() || d->m_strURL.isLocalFile()) {
-            //qDebug() << "Scanfile: MIME TYPE is " << mime.name();
+            // qDebug() << "Scanfile: MIME TYPE is " << mime.name();
             mimeTypeDetermined(mime.name());
             return;
         }
@@ -648,17 +637,15 @@ void KRun::scanFile()
         d->startTimer();
         return;
     }
-    //qDebug() << this << "Scanning file" << d->m_strURL;
+    // qDebug() << this << "Scanning file" << d->m_strURL;
 
     KIO::JobFlags flags = d->m_bProgressInfo ? KIO::DefaultFlags : KIO::HideProgressInfo;
     KIO::TransferJob *job = KIO::get(d->m_strURL, KIO::NoReload /*reload*/, flags);
     KJobWidgets::setWindow(job, d->m_window);
-    connect(job, &KJob::result,
-            this, &KRun::slotScanFinished);
-    connect(job, &KIO::TransferJob::mimeTypeFound,
-            this, &KRun::slotScanMimeType);
+    connect(job, &KJob::result, this, &KRun::slotScanFinished);
+    connect(job, &KIO::TransferJob::mimeTypeFound, this, &KRun::slotScanMimeType);
     d->m_job = job;
-    //qDebug() << "Job" << job << "is about getting from" << d->m_strURL;
+    // qDebug() << "Job" << job << "is about getting from" << d->m_strURL;
 }
 
 // When arriving in that method there are 6 possible states:
@@ -711,7 +698,7 @@ void KRun::slotStatResult(KJob *job)
         if (errCode != KIO::ERR_NO_CONTENT) {
             qCWarning(KIO_WIDGETS) << this << "ERROR" << job->error() << job->errorString();
             handleError(job);
-            //qDebug() << this << " KRun returning from showErrorDialog, starting timer to delete us";
+            // qDebug() << this << " KRun returning from showErrorDialog, starting timer to delete us";
             d->m_bFault = true;
         }
 
@@ -720,7 +707,7 @@ void KRun::slotStatResult(KJob *job)
         // will emit the error and autodelete this
         d->startTimer();
     } else {
-        //qDebug() << "Finished";
+        // qDebug() << "Finished";
 
         KIO::StatJob *statJob = qobject_cast<KIO::StatJob *>(job);
         if (!statJob) {
@@ -804,7 +791,7 @@ void KRun::mimeTypeDetermined(const QString &mimeType)
 
 void KRun::foundMimeType(const QString &type)
 {
-    //qDebug() << "Resulting MIME type is " << type;
+    // qDebug() << "Resulting MIME type is " << type;
 
     QMimeDatabase db;
 
@@ -824,7 +811,7 @@ void KRun::foundMimeType(const QString &type)
 
     // Support for preferred service setting, see setPreferredService
     if (!d->m_preferredService.isEmpty()) {
-        //qDebug() << "Attempting to open with preferred service: " << d->m_preferredService;
+        // qDebug() << "Attempting to open with preferred service: " << d->m_preferredService;
         KService::Ptr serv = KService::serviceByDesktopName(d->m_preferredService);
         if (serv && serv->hasMimeType(type)) {
             QList<QUrl> lst;
@@ -861,7 +848,7 @@ void KRun::foundMimeType(const QString &type)
 void KRun::killJob()
 {
     if (d->m_job) {
-        //qDebug() << this << "m_job=" << d->m_job;
+        // qDebug() << this << "m_job=" << d->m_job;
         d->m_job->kill();
         d->m_job = nullptr;
     }
@@ -872,7 +859,7 @@ void KRun::abort()
     if (d->m_bFinished) {
         return;
     }
-    //qDebug() << this << "m_showingDialog=" << d->m_showingDialog;
+    // qDebug() << this << "m_showingDialog=" << d->m_showingDialog;
     killJob();
     // If we're showing an error message box, the rest will be done
     // after closing the msgbox -> don't autodelete nor emit signals now.
@@ -970,12 +957,10 @@ bool KRun::isExecutable(const QString &mimeTypeName)
 {
     QMimeDatabase db;
     QMimeType mimeType = db.mimeTypeForName(mimeTypeName);
-    return (mimeType.inherits(QStringLiteral("application/x-desktop")) ||
-            mimeType.inherits(QStringLiteral("application/x-executable")) ||
+    return (mimeType.inherits(QStringLiteral("application/x-desktop")) || mimeType.inherits(QStringLiteral("application/x-executable")) ||
             /* See https://bugs.freedesktop.org/show_bug.cgi?id=97226 */
-            mimeType.inherits(QStringLiteral("application/x-sharedlib")) ||
-            mimeType.inherits(QStringLiteral("application/x-ms-dos-executable")) ||
-            mimeType.inherits(QStringLiteral("application/x-shellscript")));
+            mimeType.inherits(QStringLiteral("application/x-sharedlib")) || mimeType.inherits(QStringLiteral("application/x-ms-dos-executable"))
+            || mimeType.inherits(QStringLiteral("application/x-shellscript")));
 }
 
 void KRun::setUrl(const QUrl &url)

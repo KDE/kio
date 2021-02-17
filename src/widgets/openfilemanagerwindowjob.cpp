@@ -8,8 +8,8 @@
 #include "openfilemanagerwindowjob.h"
 #include "openfilemanagerwindowjob_p.h"
 
-#include <QDBusMessage>
 #include <QDBusConnection>
+#include <QDBusMessage>
 #include <QDBusPendingCallWatcher>
 #include <QDBusPendingReply>
 
@@ -20,15 +20,13 @@
 
 namespace KIO
 {
-
 class OpenFileManagerWindowJobPrivate
 {
 public:
     OpenFileManagerWindowJobPrivate(OpenFileManagerWindowJob *qq)
-        : q(qq),
-          strategy(nullptr)
+        : q(qq)
+        , strategy(nullptr)
     {
-
     }
 
     ~OpenFileManagerWindowJobPrivate()
@@ -36,14 +34,14 @@ public:
         delete strategy;
     }
 
-    AbstractOpenFileManagerWindowStrategy* createDBusStrategy()
+    AbstractOpenFileManagerWindowStrategy *createDBusStrategy()
     {
         delete strategy;
         strategy = new OpenFileManagerWindowDBusStrategy(q);
         return strategy;
     }
 
-    AbstractOpenFileManagerWindowStrategy* createKRunStrategy()
+    AbstractOpenFileManagerWindowStrategy *createKRunStrategy()
     {
         delete strategy;
         strategy = new OpenFileManagerWindowKRunStrategy(q);

@@ -7,12 +7,12 @@
 */
 
 #include "mkpathjob.h"
+#include "../pathhelpers_p.h"
 #include "job_p.h"
 #include "mkdirjob.h"
-#include "../pathhelpers_p.h"
 
-#include <QTimer>
 #include <QFileInfo>
+#include <QTimer>
 
 using namespace KIO;
 
@@ -20,11 +20,11 @@ class KIO::MkpathJobPrivate : public KIO::JobPrivate
 {
 public:
     MkpathJobPrivate(const QUrl &url, const QUrl &baseUrl, JobFlags flags)
-        : JobPrivate(),
-          m_url(url),
-          m_pathComponents(url.path().split(QLatin1Char('/'), Qt::SkipEmptyParts)),
-          m_pathIterator(),
-          m_flags(flags)
+        : JobPrivate()
+        , m_url(url)
+        , m_pathComponents(url.path().split(QLatin1Char('/'), Qt::SkipEmptyParts))
+        , m_pathIterator()
+        , m_flags(flags)
     {
         const QStringList basePathComponents = baseUrl.path().split(QLatin1Char('/'), Qt::SkipEmptyParts);
 
@@ -94,7 +94,6 @@ public:
         }
         return job;
     }
-
 };
 
 MkpathJob::MkpathJob(MkpathJobPrivate &dd)
@@ -117,7 +116,7 @@ void MkpathJobPrivate::slotStart()
 
     if (m_pathIterator != m_pathComponents.constEnd()) {
         m_url.setPath(concatPaths(m_url.path(), *m_pathIterator));
-        KIO::Job* job = KIO::mkdir(m_url);
+        KIO::Job *job = KIO::mkdir(m_url);
         job->setParentJob(q);
         q->addSubjob(job);
         q->setProcessedAmount(KJob::Directories, q->processedAmount(KJob::Directories) + 1);
@@ -143,7 +142,7 @@ void MkpathJob::slotResult(KJob *job)
     d->slotStart();
 }
 
-MkpathJob * KIO::mkpath(const QUrl &url, const QUrl &baseUrl, KIO::JobFlags flags)
+MkpathJob *KIO::mkpath(const QUrl &url, const QUrl &baseUrl, KIO::JobFlags flags)
 {
     return MkpathJobPrivate::newJob(url, baseUrl, flags);
 }

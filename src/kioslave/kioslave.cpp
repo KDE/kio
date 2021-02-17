@@ -7,14 +7,14 @@
     SPDX-License-Identifier: LGPL-2.0-only
 */
 
-#include <stdlib.h>
-#include <stdio.h>
 #include <errno.h>
 #include <locale.h>
+#include <stdio.h>
+#include <stdlib.h>
 
-#include <QString>
-#include <QLibrary>
 #include <QFile>
+#include <QLibrary>
+#include <QString>
 
 #include <KPluginLoader>
 
@@ -26,8 +26,8 @@
 #include <QProcess>
 #include <QStringList>
 #ifdef Q_OS_WIN
-#include <qt_windows.h>
 #include <process.h>
+#include <qt_windows.h>
 #endif
 #endif
 
@@ -66,8 +66,7 @@ int main(int argc, char **argv)
 
     QLibrary lib(libpath);
     if (!lib.load()) {
-        fprintf(stderr, "could not open %s: %s\n", qPrintable(libname),
-                qPrintable(lib.errorString()));
+        fprintf(stderr, "could not open %s: %s\n", qPrintable(libname), qPrintable(lib.errorString()));
         return 1;
     }
 
@@ -81,10 +80,10 @@ int main(int argc, char **argv)
     // enter debugger in case debugging is activated
     QString slaveDebugWait(QString::fromLocal8Bit(qgetenv("KDE_SLAVE_DEBUG_WAIT")));
     if (slaveDebugWait == QLatin1String("all") || slaveDebugWait == QString::fromLocal8Bit(argv[2])) {
-# ifdef Q_CC_MSVC
+#ifdef Q_CC_MSVC
         // msvc debugger or windbg supports jit debugging, the latter requires setting up windbg jit with windbg -i
         DebugBreak();
-# else
+#else
         // gdb does not support win32 jit debug support, so implement it by ourself
         WCHAR buf[1024];
         GetModuleFileName(NULL, buf, 1024);
@@ -93,33 +92,34 @@ int main(int argc, char **argv)
         params << QString::number(GetCurrentProcessId());
         QProcess::startDetached(QStringLiteral("gdb"), params);
         Sleep(1000);
-# endif
+#endif
     }
-# if defined(Q_CC_MSVC) && !defined(_WIN32_WCE)
+#if defined(Q_CC_MSVC) && !defined(_WIN32_WCE)
     else {
         QString slaveDebugPopup(QString::fromLocal8Bit(qgetenv("KDE_SLAVE_DEBUG_POPUP")));
         if (slaveDebugPopup == QLatin1String("all") || slaveDebugPopup == QString::fromLocal8Bit(argv[2])) {
             // A workaround for OSes where DebugBreak() does not work in administrative mode (actually Vista with msvc 2k5)
             // - display a native message box so developer can attach the debugger to the KIO slave process and click OK.
-            MessageBoxA(NULL,
-                        QStringLiteral("Please attach the debugger to process #%1 (%2)").arg(getpid()).arg(QString::fromLocal8Bit(argv[0])).toLatin1().constData(),
-                        QStringLiteral("\"%1\" KIO Slave Debugging").arg(QString::fromLocal8Bit(argv[2])).toLatin1().constData(),
-                        MB_OK | MB_ICONINFORMATION | MB_TASKMODAL);
+            MessageBoxA(
+                NULL,
+                QStringLiteral("Please attach the debugger to process #%1 (%2)").arg(getpid()).arg(QString::fromLocal8Bit(argv[0])).toLatin1().constData(),
+                QStringLiteral("\"%1\" KIO Slave Debugging").arg(QString::fromLocal8Bit(argv[2])).toLatin1().constData(),
+                MB_OK | MB_ICONINFORMATION | MB_TASKMODAL);
         }
     }
-# endif
+#endif
 #endif // Q_OS_WIN
 
-    int (*func)(int, char *[]) = (int (*)(int, char *[])) sym;
+    int (*func)(int, char *[]) = (int (*)(int, char *[]))sym;
 
     // We need argv[0] to remain /path/to/kioslave5
     // so that applicationDirPath() is correct on non-Linux (no /proc)
     // and we want to skip argv[1] so the kioslave5 exe is transparent to kdemain.
     const int newArgc = argc - 1;
-    QVarLengthArray<char*, 5> newArgv(newArgc);
+    QVarLengthArray<char *, 5> newArgv(newArgc);
     newArgv[0] = argv[0];
     for (int i = 1; i < newArgc; ++i) {
-        newArgv[i] = argv[i+1];
+        newArgv[i] = argv[i + 1];
     }
 
     return func(newArgc, newArgv.data()); /* Launch! */

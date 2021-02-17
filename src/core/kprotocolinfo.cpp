@@ -12,10 +12,10 @@
 #include "kprotocolinfofactory_p.h"
 
 #include <KConfig>
-#include <KSharedConfig>
 #include <KConfigGroup>
-#include <QUrl>
 #include <KPluginMetaData>
+#include <KSharedConfig>
+#include <QUrl>
 
 //
 // Internal functions:

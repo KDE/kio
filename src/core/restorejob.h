@@ -11,12 +11,11 @@
 #include <QObject>
 #include <QUrl>
 
-#include "kiocore_export.h"
 #include "job_base.h"
+#include "kiocore_export.h"
 
 namespace KIO
 {
-
 class RestoreJobPrivate;
 /**
  * @class KIO::RestoreJob restorejob.h <KIO/RestoreJob>

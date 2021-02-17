@@ -15,7 +15,6 @@
 
 namespace KIO
 {
-
 class StatJobPrivate;
 /**
  * @class KIO::StatJob statjob.h <KIO/StatJob>
@@ -25,7 +24,6 @@ class StatJobPrivate;
  */
 class KIOCORE_EXPORT StatJob : public SimpleJob
 {
-
     Q_OBJECT
 
 public:
@@ -150,6 +148,7 @@ Q_SIGNALS:
 protected Q_SLOTS:
     void slotFinished() override;
     void slotMetaData(const KIO::MetaData &_metaData) override;
+
 protected:
     StatJob(StatJobPrivate &dd);
 
@@ -192,8 +191,8 @@ KIOCORE_EXPORT StatJob *stat(const QUrl &url, JobFlags flags = DefaultFlags);
  * @return the job handling the operation.
  * @since 5.69
  */
-KIOCORE_EXPORT StatJob *statDetails(const QUrl &url, KIO::StatJob::StatSide side,
-                             KIO::StatDetails details = KIO::StatDefaultDetails, JobFlags flags = DefaultFlags);
+KIOCORE_EXPORT StatJob *
+statDetails(const QUrl &url, KIO::StatJob::StatSide side, KIO::StatDetails details = KIO::StatDefaultDetails, JobFlags flags = DefaultFlags);
 
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 69)
 /**
@@ -225,8 +224,7 @@ KIOCORE_EXPORT StatJob *statDetails(const QUrl &url, KIO::StatJob::StatSide side
  * @deprecated since 5.69, use statDetails(const QUrl &, KIO::StatJob::StatSide, KIO::StatDetails, JobFlags)
  */
 KIOCORE_DEPRECATED_VERSION(5, 69, "Use KIO::statDetails(const QUrl &, KIO::StatJob::StatSide, KIO::StatDetails, JobFlags)")
-KIOCORE_EXPORT StatJob *stat(const QUrl &url, KIO::StatJob::StatSide side,
-                             short int details, JobFlags flags = DefaultFlags);
+KIOCORE_EXPORT StatJob *stat(const QUrl &url, KIO::StatJob::StatSide side, short int details, JobFlags flags = DefaultFlags);
 #endif
 
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 69)
@@ -270,8 +268,7 @@ KIOCORE_EXPORT KIO::StatDetails detailsToStatDetails(int details);
  * @deprecated Since 4.0, use stat(const QUrl &, KIO::StatJob::StatSide, short int, JobFlags)
  */
 KIOCORE_DEPRECATED_VERSION(4, 0, "Use KIO::stat(const QUrl &, KIO::StatJob::StatSide, short int, JobFlags)")
-KIOCORE_EXPORT StatJob *stat(const QUrl &url, bool sideIsSource,
-                             short int details, JobFlags flags = DefaultFlags);
+KIOCORE_EXPORT StatJob *stat(const QUrl &url, bool sideIsSource, short int details, JobFlags flags = DefaultFlags);
 #endif
 
 /**

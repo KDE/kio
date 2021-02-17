@@ -8,15 +8,16 @@
 #ifndef TRASHIMPL_H
 #define TRASHIMPL_H
 
-#include <kio/job.h>
 #include <KConfig>
+#include <kio/job.h>
 
 #include <QDateTime>
 #include <QMap>
 #include <assert.h>
 
-namespace Solid {
-    class Device;
+namespace Solid
+{
+class Device;
 }
 
 /**
@@ -58,7 +59,7 @@ public:
     bool moveInTrash(int trashId, const QString &oldFileId, const QString &newFileId);
 
     /// Create a top-level trashed directory
-    //bool mkdir( int trashId, const QString& fileId, int permissions );
+    // bool mkdir( int trashId, const QString& fileId, int permissions );
 
     /// Get rid of a trashed file
     bool del(int trashId, const QString &fileId);

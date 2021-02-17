@@ -14,12 +14,13 @@
 
 using namespace KIO;
 
-class KIO::FileSystemFreeSpaceJobPrivate: public SimpleJobPrivate
+class KIO::FileSystemFreeSpaceJobPrivate : public SimpleJobPrivate
 {
 public:
     FileSystemFreeSpaceJobPrivate(const QUrl &url, int command, const QByteArray &packedArgs)
         : SimpleJobPrivate(url, command, packedArgs)
-    { }
+    {
+    }
 
     /**
      * @internal

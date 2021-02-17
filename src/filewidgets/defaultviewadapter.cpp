@@ -11,10 +11,9 @@
 
 namespace KIO
 {
-
-DefaultViewAdapter::DefaultViewAdapter(QAbstractItemView *view, QObject *parent) :
-    KAbstractViewAdapter(parent),
-    m_view(view)
+DefaultViewAdapter::DefaultViewAdapter(QAbstractItemView *view, QObject *parent)
+    : KAbstractViewAdapter(parent)
+    , m_view(view)
 {
 }
 
@@ -52,4 +51,3 @@ void DefaultViewAdapter::connect(Signal signal, QObject *receiver, const char *s
 }
 
 }
-

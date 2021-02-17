@@ -13,7 +13,8 @@
 
 class KJob;
 
-namespace KIO {
+namespace KIO
+{
 class OpenOrExecuteFileInterfacePrivate;
 
 /**

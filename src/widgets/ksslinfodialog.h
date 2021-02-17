@@ -61,10 +61,13 @@ public:
      */
     KIOCORE_DEPRECATED_VERSION(5, 64, "use the QSslError variant")
     void setSslInfo(const QList<QSslCertificate> &certificateChain,
-                    const QString &ip, const QString &host,
-                    const QString &sslProtocol, const QString &cipher,
-                    int usedBits, int bits,
-                    const QList<QList<KSslError::Error> > &validationErrors); // TODO KF6 remove
+                    const QString &ip,
+                    const QString &host,
+                    const QString &sslProtocol,
+                    const QString &cipher,
+                    int usedBits,
+                    int bits,
+                    const QList<QList<KSslError::Error>> &validationErrors); // TODO KF6 remove
 #endif
 
     /**
@@ -82,9 +85,12 @@ public:
      *  @since 5.64
      */
     void setSslInfo(const QList<QSslCertificate> &certificateChain,
-                    const QString &ip, const QString &host,
-                    const QString &sslProtocol, const QString &cipher,
-                    int usedBits, int bits,
+                    const QString &ip,
+                    const QString &host,
+                    const QString &sslProtocol,
+                    const QString &cipher,
+                    int usedBits,
+                    int bits,
                     const QList<QList<QSslError::SslError>> &validationErrors);
 
     void setMainPartEncrypted(bool);
@@ -93,7 +99,7 @@ public:
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 65)
     /** @deprecated since 5.65, use certificateErrorsFromString */
     KIOCORE_DEPRECATED_VERSION(5, 65, "use the QSslError variant")
-    static QList<QList<KSslError::Error> > errorsFromString(const QString &s); // TODO KF6 remove
+    static QList<QList<KSslError::Error>> errorsFromString(const QString &s); // TODO KF6 remove
 #endif
     /**
      * Converts certificate errors as provided in the "ssl_cert_errors" meta data

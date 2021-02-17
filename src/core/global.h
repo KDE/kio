@@ -9,13 +9,13 @@
 
 #include "kiocore_export.h"
 
+#include <QFile> // for QFile::Permissions
 #include <QString>
-#include <QFile>  // for QFile::Permissions
 
 #include <KJob>
 
-#include "metadata.h" // for source compat
 #include "jobtracker.h" // for source compat
+#include "metadata.h" // for source compat
 
 class QUrl;
 
@@ -33,7 +33,6 @@ typedef SSIZE_T ssize_t;
  */
 namespace KIO
 {
-
 /// 64-bit file offset
 typedef qlonglong fileoffset_t;
 /// 64-bit file size
@@ -72,8 +71,7 @@ KIOCORE_EXPORT QString convertSizeFromKiB(KIO::filesize_t kibSize);
  * @param  speed          speed in bytes per second
  * @return calculated remaining time in seconds
  */
-KIOCORE_EXPORT unsigned int calculateRemainingSeconds(KIO::filesize_t totalSize,
-        KIO::filesize_t processedSize, KIO::filesize_t speed);
+KIOCORE_EXPORT unsigned int calculateRemainingSeconds(KIO::filesize_t totalSize, KIO::filesize_t processedSize, KIO::filesize_t speed);
 
 /**
  * Convert @p seconds to a string representing number of days, hours, minutes and seconds
@@ -273,7 +271,8 @@ enum Error {
     ERR_PASSWD_SERVER = KJob::UserDefinedError + 72, ///< returned by SlaveBase::openPasswordDialogV2, @since 5.24
     ERR_CANNOT_CREATE_SLAVE = KJob::UserDefinedError + 73, ///< used by Slave::createSlave, @since 5.30
     ERR_FILE_TOO_LARGE_FOR_FAT32 = KJob::UserDefinedError + 74, ///< @since 5.54
-    ERR_OWNER_DIED = KJob::UserDefinedError + 75, ///< Value used between kuiserver and views when the job owner disappears unexpectedly. It should not be emitted by slaves. @since 5.54
+    ERR_OWNER_DIED = KJob::UserDefinedError
+        + 75, ///< Value used between kuiserver and views when the job owner disappears unexpectedly. It should not be emitted by slaves. @since 5.54
     ERR_PRIVILEGE_NOT_REQUIRED = KJob::UserDefinedError + 76, ///< used by file ioslave, @since 5.60
     ERR_CANNOT_TRUNCATE = KJob::UserDefinedError + 77, // used by FileJob::truncate, @since 5.66
 };
@@ -285,17 +284,17 @@ enum Error {
  */
 enum CacheControl {
     CC_CacheOnly, ///< Fail request if not in cache
-    CC_Cache,     ///< Use cached entry if available
-    CC_Verify,    ///< Validate cached entry with remote site if expired
-    CC_Refresh,   ///< Always validate cached entry with remote site
-    CC_Reload,     ///< Always fetch from remote site.
+    CC_Cache, ///< Use cached entry if available
+    CC_Verify, ///< Validate cached entry with remote site if expired
+    CC_Refresh, ///< Always validate cached entry with remote site
+    CC_Reload, ///< Always fetch from remote site.
 };
 
 /**
  * Specifies privilege file operation status.
  * @since 5.43
  */
-enum  PrivilegeOperationStatus {
+enum PrivilegeOperationStatus {
     OperationAllowed = 1,
     OperationCanceled,
     OperationNotAllowed,

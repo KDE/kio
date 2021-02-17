@@ -11,8 +11,8 @@
 #ifndef _TCP_SLAVEBASE_H
 #define _TCP_SLAVEBASE_H
 
-#include <sys/types.h>
 #include <stdio.h>
+#include <sys/types.h>
 
 #include "kiocore_export.h"
 #include <kio/slavebase.h>
@@ -21,7 +21,6 @@ class QIODevice;
 
 namespace KIO
 {
-
 /**
  * @class KIO::TCPSlaveBase tcpslavebase.h <KIO/TCPSlaveBase>
  *
@@ -43,9 +42,7 @@ public:
      *                connecting. In the absence of errors the use of SSL will
      *                therefore be transparent to higher layers.
      */
-    TCPSlaveBase(const QByteArray &protocol,
-                 const QByteArray &poolSocket, const QByteArray &appSocket,
-                 bool autoSsl = false);
+    TCPSlaveBase(const QByteArray &protocol, const QByteArray &poolSocket, const QByteArray &appSocket, bool autoSsl = false);
 
     ~TCPSlaveBase() override;
 
@@ -57,10 +54,10 @@ protected:
         ResultFailedEarly = 8,
     };
     friend class QFlags<KIO::TCPSlaveBase::SslResultDetail>;
+
 public:
     Q_DECLARE_FLAGS(SslResult, SslResultDetail)
 protected:
-
     /**
      * Send data to the remote host.
      *
@@ -69,7 +66,7 @@ protected:
      *
      * @return the actual size of the data that was sent
      */
-    using SlaveBase::write; //Silence incompatible virtual override warning
+    using SlaveBase::write; // Silence incompatible virtual override warning
     ssize_t write(const char *data, ssize_t len);
 
     /**

@@ -9,12 +9,12 @@
 #include "transferjob.h"
 #include "job_p.h"
 #include "slave.h"
-#include <kurlauthorized.h>
 #include <QDebug>
+#include <kurlauthorized.h>
 
 using namespace KIO;
 
-static const int MAX_READ_BUF_SIZE = (64 * 1024);       // 64 KB at a time seems reasonable...
+static const int MAX_READ_BUF_SIZE = (64 * 1024); // 64 KB at a time seems reasonable...
 
 TransferJob::TransferJob(TransferJobPrivate &dd)
     : SimpleJob(dd)
@@ -25,10 +25,10 @@ TransferJob::TransferJob(TransferJobPrivate &dd)
     }
 
     if (d->m_outgoingDataSource) {
-        d->m_readChannelFinishedConnection = connect(d->m_outgoingDataSource, &QIODevice::readChannelFinished,
-                                            this, [this]() { d_func()->slotIODeviceClosedBeforeStart(); });
+        d->m_readChannelFinishedConnection = connect(d->m_outgoingDataSource, &QIODevice::readChannelFinished, this, [this]() {
+            d_func()->slotIODeviceClosedBeforeStart();
+        });
     }
-
 }
 
 TransferJob::~TransferJob()
@@ -40,8 +40,7 @@ void TransferJob::slotData(const QByteArray &_data)
 {
     Q_D(TransferJob);
     if (d->m_command == CMD_GET && !d->m_isMimetypeEmitted) {
-        qCWarning(KIO_CORE) << "mimeType() not emitted when sending first data!; job URL ="
-                   << d->m_url << "data size =" << _data.size();
+        qCWarning(KIO_CORE) << "mimeType() not emitted when sending first data!; job URL =" << d->m_url << "data size =" << _data.size();
     }
     // shut up the warning, HACK: downside is that it changes the meaning of the variable
     d->m_isMimetypeEmitted = true;
@@ -60,7 +59,7 @@ void KIO::TransferJob::setTotalSize(KIO::filesize_t bytes)
 void TransferJob::slotRedirection(const QUrl &url)
 {
     Q_D(TransferJob);
-    //qDebug() << url;
+    // qDebug() << url;
     if (!KUrlAuthorized::authorizeUrlAction(QStringLiteral("redirect"), d->m_url, url)) {
         qCWarning(KIO_CORE) << "Redirection from" << d->m_url << "to" << url << "REJECTED!";
         return;
@@ -70,7 +69,7 @@ void TransferJob::slotRedirection(const QUrl &url)
     // acts as the stage in a state-machine. We define "endless redirections"
     // as 5 redirections to the same URL.
     if (d->m_redirectionList.count(url) > 5) {
-        //qDebug() << "CYCLIC REDIRECTION!";
+        // qDebug() << "CYCLIC REDIRECTION!";
         setError(ERR_CYCLIC_LINK);
         setErrorText(d->m_url.toDisplayString());
     } else {
@@ -91,10 +90,9 @@ void TransferJob::slotFinished()
 {
     Q_D(TransferJob);
 
-    //qDebug() << d->m_url;
+    // qDebug() << d->m_url;
     if (!d->m_redirectionURL.isEmpty() && d->m_redirectionURL.isValid()) {
-
-        //qDebug() << "Redirection to" << m_redirectionURL;
+        // qDebug() << "Redirection to" << m_redirectionURL;
         if (queryMetaData(QStringLiteral("permanent-redirect")) == QLatin1String("true")) {
             Q_EMIT permanentRedirection(this, d->m_url, d->m_redirectionURL);
         }
@@ -235,8 +233,9 @@ void TransferJob::slotDataReq()
 
     static const int max_size = 14 * 1024 * 1024;
     if (dataForSlave.size() > max_size) {
-        //qDebug() << "send" << dataForSlave.size() / 1024 / 1024 << "MB of data in TransferJob::dataReq. This needs to be split, which requires a copy. Fix the application.";
-        d->staticData = QByteArray(dataForSlave.data() + max_size,  dataForSlave.size() - max_size);
+        // qDebug() << "send" << dataForSlave.size() / 1024 / 1024 << "MB of data in TransferJob::dataReq. This needs to be split, which requires a copy. Fix
+        // the application.";
+        d->staticData = QByteArray(dataForSlave.data() + max_size, dataForSlave.size() - max_size);
         dataForSlave.truncate(max_size);
     }
 
@@ -301,15 +300,16 @@ void TransferJobPrivate::start(Slave *slave)
     Q_Q(TransferJob);
     Q_ASSERT(slave);
     JobPrivate::emitTransferring(q, m_url);
-    q->connect(slave, &SlaveInterface::data,
-               q, &TransferJob::slotData);
+    q->connect(slave, &SlaveInterface::data, q, &TransferJob::slotData);
 
     if (m_outgoingDataSource) {
         if (m_extraFlags & JobPrivate::EF_TransferJobAsync) {
             q->connect(m_outgoingDataSource, &QIODevice::readyRead, q, [this]() {
                 slotDataReqFromDevice();
             });
-            q->connect(m_outgoingDataSource, &QIODevice::readChannelFinished, q, [this]() { slotIODeviceClosed(); });
+            q->connect(m_outgoingDataSource, &QIODevice::readChannelFinished, q, [this]() {
+                slotIODeviceClosed();
+            });
             // We don't really need to disconnect since we're never checking
             // m_closedBeforeStart again but it's the proper thing to do logically
             QObject::disconnect(m_readChannelFinishedConnection);
@@ -324,14 +324,11 @@ void TransferJobPrivate::start(Slave *slave)
             });
         }
     } else
-        q->connect(slave, &SlaveInterface::dataReq,
-                   q, &TransferJob::slotDataReq);
+        q->connect(slave, &SlaveInterface::dataReq, q, &TransferJob::slotDataReq);
 
-    q->connect(slave, &SlaveInterface::redirection,
-               q, &TransferJob::slotRedirection);
+    q->connect(slave, &SlaveInterface::redirection, q, &TransferJob::slotRedirection);
 
-    q->connect(slave, &SlaveInterface::mimeType,
-               q, &TransferJob::slotMimetype);
+    q->connect(slave, &SlaveInterface::mimeType, q, &TransferJob::slotMimetype);
 
     q->connect(slave, &SlaveInterface::errorPage, q, [this]() {
         m_errorPage = true;
@@ -396,7 +393,7 @@ void TransferJobPrivate::slotDataReqFromDevice()
     if (m_outgoingDataSource) {
         dataForSlave.resize(MAX_READ_BUF_SIZE);
 
-        //Code inspired in QNonContiguousByteDevice
+        // Code inspired in QNonContiguousByteDevice
         qint64 bytesRead = m_outgoingDataSource->read(dataForSlave.data(), MAX_READ_BUF_SIZE);
         if (bytesRead >= 0) {
             dataForSlave.resize(bytesRead);
@@ -438,7 +435,7 @@ void TransferJobPrivate::slotIODeviceClosed()
 
     m_extraFlags |= JobPrivate::EF_TransferJobNeedData;
 
-    //We send an empty data array to indicate the stream is over
+    // We send an empty data array to indicate the stream is over
     q->sendAsyncData(QByteArray());
 
     if (m_subJob) {
@@ -471,8 +468,7 @@ TransferJob *KIO::get(const QUrl &url, LoadType reload, JobFlags flags)
 {
     // Send decoded path and encoded query
     KIO_ARGS << url;
-    TransferJob *job = TransferJobPrivate::newJob(url, CMD_GET, packedArgs,
-                       QByteArray(), flags);
+    TransferJob *job = TransferJobPrivate::newJob(url, CMD_GET, packedArgs, QByteArray(), flags);
     if (reload == Reload) {
         job->addMetaData(QStringLiteral("cache"), QStringLiteral("reload"));
     }

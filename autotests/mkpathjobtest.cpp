@@ -5,11 +5,11 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include <QTest>
-#include <QSignalSpy>
 #include <QDir>
+#include <QSignalSpy>
 #include <QStandardPaths>
 #include <QTemporaryDir>
+#include <QTest>
 
 #include <KIO/MkpathJob>
 
@@ -132,4 +132,3 @@ private:
 QTEST_MAIN(MkpathJobTest)
 
 #include "mkpathjobtest.moc"
-

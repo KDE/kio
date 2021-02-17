@@ -13,7 +13,6 @@
 
 namespace KIO
 {
-
 class EmptyTrashJobPrivate;
 /**
  * @class KIO::EmptyTrashJob emptytrashjob.h <KIO/EmptyTrashJob>
@@ -25,7 +24,6 @@ class EmptyTrashJobPrivate;
  */
 class KIOCORE_EXPORT EmptyTrashJob : public SimpleJob
 {
-
     Q_OBJECT
 
 public:

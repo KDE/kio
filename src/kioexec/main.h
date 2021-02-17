@@ -7,16 +7,15 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
-
 #ifndef KIOEXEC_MAIN_H
 #define KIOEXEC_MAIN_H
 
+#include <QList>
 #include <QObject>
 #include <QString>
-#include <QList>
 
-#include <QUrl>
 #include <QDateTime>
+#include <QUrl>
 
 namespace KIO
 {

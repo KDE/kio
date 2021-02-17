@@ -8,22 +8,22 @@
 */
 
 #include "ksambashare.h"
+#include "kiocoredebug.h"
 #include "ksambashare_p.h"
 #include "ksambasharedata.h"
 #include "ksambasharedata_p.h"
-#include "kiocoredebug.h"
 
-#include <QMap>
+#include <QDebug>
 #include <QFile>
+#include <QFileInfo>
 #include <QHostInfo>
 #include <QLoggingCategory>
+#include <QMap>
+#include <QProcess>
 #include <QRegularExpression>
-#include <QFileInfo>
-#include <QTextStream>
 #include <QStandardPaths>
 #include <QStringList>
-#include <QProcess>
-#include <QDebug>
+#include <QTextStream>
 
 #include <KDirWatch>
 #include <KUser>
@@ -33,15 +33,13 @@ Q_LOGGING_CATEGORY(KIO_CORE_SAMBASHARE, "kf.kio.core.sambashare", QtWarningMsg)
 
 // Default smb.conf locations
 // sorted by priority, most priority first
-static const char *const DefaultSambaConfigFilePathList[] = {
-    "/etc/samba/smb.conf",
-    "/etc/smb.conf",
-    "/usr/local/etc/smb.conf",
-    "/usr/local/samba/lib/smb.conf",
-    "/usr/samba/lib/smb.conf",
-    "/usr/lib/smb.conf",
-    "/usr/local/lib/smb.conf"
-};
+static const char *const DefaultSambaConfigFilePathList[] = {"/etc/samba/smb.conf",
+                                                             "/etc/smb.conf",
+                                                             "/usr/local/etc/smb.conf",
+                                                             "/usr/local/samba/lib/smb.conf",
+                                                             "/usr/samba/lib/smb.conf",
+                                                             "/usr/lib/smb.conf",
+                                                             "/usr/local/lib/smb.conf"};
 
 KSambaSharePrivate::KSambaSharePrivate(KSambaShare *parent)
     : q_ptr(parent)
@@ -63,8 +61,7 @@ KSambaSharePrivate::~KSambaSharePrivate()
 bool KSambaSharePrivate::isSambaInstalled()
 {
     const bool daemonExists =
-        !QStandardPaths::findExecutable(QStringLiteral("smbd"),
-                                       {QStringLiteral("/usr/sbin/"), QStringLiteral("/usr/local/sbin/")}).isEmpty();
+        !QStandardPaths::findExecutable(QStringLiteral("smbd"), {QStringLiteral("/usr/sbin/"), QStringLiteral("/usr/local/sbin/")}).isEmpty();
     if (!daemonExists) {
         qCDebug(KIO_CORE_SAMBASHARE) << "KSambaShare: Could not find smbd";
     }
@@ -105,14 +102,13 @@ void KSambaSharePrivate::setUserSharePath()
     }
 }
 
-int KSambaSharePrivate::runProcess(const QString &progName, const QStringList &args,
-                                   QByteArray &stdOut, QByteArray &stdErr)
+int KSambaSharePrivate::runProcess(const QString &progName, const QStringList &args, QByteArray &stdOut, QByteArray &stdErr)
 {
     QProcess process;
 
     process.setProcessChannelMode(QProcess::SeparateChannels);
     process.start(progName, args);
-    //TODO: make it async in future
+    // TODO: make it async in future
     process.waitForFinished();
 
     stdOut = process.readAllStandardOutput();
@@ -138,7 +134,7 @@ QString KSambaSharePrivate::testparmParamValue(const QString &parameterName)
 
     runProcess(QStringLiteral("testparm"), args, stdOut, stdErr);
 
-    //TODO: parse and process error messages.
+    // TODO: parse and process error messages.
     // create a parser for the error output and
     // send error message somewhere
     if (!stdErr.isEmpty()) {
@@ -161,11 +157,12 @@ QString KSambaSharePrivate::testparmParamValue(const QString &parameterName)
             const QString defaultNetbiosName = QHostInfo::localHostName().append(QStringLiteral("-W"));
             if (defaultNetbiosName.length() > 14) {
                 qCDebug(KIO_CORE) << "Your samba 'netbios name' parameter was longer than the authorized 15 characters.\n"
-                                    << "It may be because your hostname is longer than 13 and samba default 'netbios name' defaults to 'hostname-W', here:" << defaultNetbiosName<< "\n"
-                                    << "If that it is the case simply define a 'netbios name' parameter in /etc/samba/smb.conf at most 15 characters long";
+                                  << "It may be because your hostname is longer than 13 and samba default 'netbios name' defaults to 'hostname-W', here:"
+                                  << defaultNetbiosName << "\n"
+                                  << "If that it is the case simply define a 'netbios name' parameter in /etc/samba/smb.conf at most 15 characters long";
             } else {
                 qCDebug(KIO_CORE) << "Your samba 'netbios name' parameter was longer than the authorized 15 characters."
-                                    << "Please define a 'netbios name' parameter in /etc/samba/smb.conf at most 15 characters long";
+                                  << "Please define a 'netbios name' parameter in /etc/samba/smb.conf at most 15 characters long";
             }
             err.removeFirst();
         }
@@ -203,7 +200,7 @@ QByteArray KSambaSharePrivate::getNetUserShareInfo()
         } else if (stdErr.contains("usershares are currently disabled")) {
             skipUserShare = true;
         } else {
-            //TODO: parse and process other error messages.
+            // TODO: parse and process other error messages.
             // create a parser for the error output and
             // send error message somewhere
             qCDebug(KIO_CORE) << "We got some errors while running 'net usershare info'";
@@ -296,8 +293,7 @@ KSambaShareData::UserShareError KSambaSharePrivate::isPathValid(const QString &p
     }
 
     // TODO: check if the user is root
-    if (KSambaSharePrivate::testparmParamValue(QStringLiteral("usershare owner only"))
-            == QLatin1String("Yes")) {
+    if (KSambaSharePrivate::testparmParamValue(QStringLiteral("usershare owner only")) == QLatin1String("Yes")) {
         if (!pathInfo.permission(QFile::ReadUser | QFile::WriteUser)) {
             return KSambaShareData::UserSharePathNotAllowed;
         }
@@ -310,11 +306,9 @@ KSambaShareData::UserShareError KSambaSharePrivate::isAclValid(const QString &ac
 {
     // NOTE: capital D is not missing from the regex net usershare will in fact refuse to consider it valid
     //   - verified 2020-08-20
-    const QRegularExpression aclRx(QRegularExpression::anchoredPattern(
-                                    QStringLiteral("(?:(?:(\\w(\\w|\\s)*)\\\\|)(\\w+\\s*):([fFrRd]{1})(?:,|))*")));
+    const QRegularExpression aclRx(QRegularExpression::anchoredPattern(QStringLiteral("(?:(?:(\\w(\\w|\\s)*)\\\\|)(\\w+\\s*):([fFrRd]{1})(?:,|))*")));
     // TODO: check if user is a valid smb user
-    return aclRx.match(acl).hasMatch() ? KSambaShareData::UserShareAclOk
-                                         : KSambaShareData::UserShareAclInvalid;
+    return aclRx.match(acl).hasMatch() ? KSambaShareData::UserShareAclOk : KSambaShareData::UserShareAclInvalid;
 }
 
 bool KSambaSharePrivate::areGuestsAllowed() const
@@ -322,8 +316,7 @@ bool KSambaSharePrivate::areGuestsAllowed() const
     return KSambaSharePrivate::testparmParamValue(QStringLiteral("usershare allow guests")) != QLatin1String("No");
 }
 
-KSambaShareData::UserShareError KSambaSharePrivate::guestsAllowed(const
-        KSambaShareData::GuestPermission &guestok) const
+KSambaShareData::UserShareError KSambaSharePrivate::guestsAllowed(const KSambaShareData::GuestPermission &guestok) const
 {
     if (guestok == KSambaShareData::GuestsAllowed && !areGuestsAllowed()) {
         return KSambaShareData::UserShareGuestsNotAllowed;
@@ -347,9 +340,8 @@ KSambaShareData::UserShareError KSambaSharePrivate::add(const KSambaShareData &s
         }
     }
 
-    QString guestok = QStringLiteral("guest_ok=%1").arg(
-                          (shareData.guestPermission() == KSambaShareData::GuestsNotAllowed)
-                          ? QStringLiteral("n") : QStringLiteral("y"));
+    QString guestok =
+        QStringLiteral("guest_ok=%1").arg((shareData.guestPermission() == KSambaShareData::GuestsNotAllowed) ? QStringLiteral("n") : QStringLiteral("y"));
 
     const QStringList args{
         QStringLiteral("usershare"),
@@ -364,7 +356,7 @@ KSambaShareData::UserShareError KSambaSharePrivate::add(const KSambaShareData &s
     QByteArray stdOut;
     int ret = runProcess(QStringLiteral("net"), args, stdOut, m_stdErr);
 
-    //TODO: parse and process error messages.
+    // TODO: parse and process error messages.
     if (!m_stdErr.isEmpty()) {
         // create a parser for the error output and
         // send error message somewhere
@@ -388,7 +380,6 @@ KSambaShareData::UserShareError KSambaSharePrivate::remove(const KSambaShareData
         return KSambaShareData::UserShareSystemError;
     }
 
-
     if (!data.contains(shareData.name())) {
         return KSambaShareData::UserShareNameInvalid;
     }
@@ -402,7 +393,7 @@ KSambaShareData::UserShareError KSambaSharePrivate::remove(const KSambaShareData
     QByteArray stdOut;
     int ret = runProcess(QStringLiteral("net"), args, stdOut, m_stdErr);
 
-    //TODO: parse and process error messages.
+    // TODO: parse and process error messages.
     if (!m_stdErr.isEmpty()) {
         // create a parser for the error output and
         // send error message somewhere
@@ -417,15 +408,15 @@ KSambaShareData::UserShareError KSambaSharePrivate::remove(const KSambaShareData
 
 QMap<QString, KSambaShareData> KSambaSharePrivate::parse(const QByteArray &usershareData)
 {
-    const QRegularExpression headerRx(QRegularExpression::anchoredPattern(
-                                        QStringLiteral("^\\s*\\["
-                                                       "([^%<>*\?|/+=;:\",]+)"
-                                                       "\\]")));
+    const QRegularExpression headerRx(
+        QRegularExpression::anchoredPattern(QStringLiteral("^\\s*\\["
+                                                           "([^%<>*\?|/+=;:\",]+)"
+                                                           "\\]")));
 
-    const QRegularExpression OptValRx(QRegularExpression::anchoredPattern(
-                                        QStringLiteral("^\\s*([\\w\\d\\s]+)"
-                                                       "="
-                                                       "(.*)$")));
+    const QRegularExpression OptValRx(
+        QRegularExpression::anchoredPattern(QStringLiteral("^\\s*([\\w\\d\\s]+)"
+                                                           "="
+                                                           "(.*)$")));
 
     QTextStream stream(usershareData);
     QString currentShare;
@@ -460,7 +451,7 @@ QMap<QString, KSambaShareData> KSambaSharePrivate::parse(const QByteArray &users
                 shareData.dd->guestPermission = value;
             } else {
                 qCWarning(KIO_CORE) << "Something nasty happen while parsing 'net usershare info'"
-                           << "share:" << currentShare << "key:" << key;
+                                    << "share:" << currentShare << "key:" << key;
             }
         } else if (line.trimmed().isEmpty()) {
             continue;

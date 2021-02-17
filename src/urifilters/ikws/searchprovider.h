@@ -12,7 +12,9 @@
 class SearchProvider : public KUriFilterSearchProvider
 {
 public:
-    SearchProvider() : m_dirty(false), m_isHidden(false)
+    SearchProvider()
+        : m_dirty(false)
+        , m_isHidden(false)
     {
     }
 
@@ -34,7 +36,8 @@ public:
         return m_dirty;
     }
 
-    bool isHidden() const {
+    bool isHidden() const
+    {
         return m_isHidden;
     }
 

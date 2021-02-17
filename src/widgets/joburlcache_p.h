@@ -20,13 +20,13 @@ public:
     void requestJobUrlsChanged();
 
 Q_SIGNALS:
-    void jobUrlsChanged(const QStringList&);
+    void jobUrlsChanged(const QStringList &);
 
 private Q_SLOTS:
     /**
-      * Connected to kuiserver's signal...
-      * @p urlList the dest url list
-      */
+     * Connected to kuiserver's signal...
+     * @p urlList the dest url list
+     */
     void slotJobUrlsChanged(const QStringList &urlList);
 
 private:

@@ -36,7 +36,7 @@ void KUriFilterSearchProviderActionsTest::shouldAddActionToMenu()
     KIO::KUriFilterSearchProviderActions shortcutManager;
     QMenu *menu = new QMenu(nullptr);
     shortcutManager.addWebShortcutsToMenu(menu);
-    //Empty when we don't have selected text
+    // Empty when we don't have selected text
     QVERIFY(menu->actions().isEmpty());
 
     const QString selectText = QStringLiteral("foo");

@@ -10,13 +10,13 @@
 #ifndef KIO_RENAMEDIALOG_H
 #define KIO_RENAMEDIALOG_H
 
-#include <kio/jobuidelegateextension.h>
+#include <QDateTime>
 #include <QDialog>
 #include <QString>
-#include <QDateTime>
+#include <kio/jobuidelegateextension.h>
 
-#include <kio/global.h>
 #include "kiowidgets_export.h"
+#include <kio/global.h>
 
 class QScrollArea;
 class QLabel;
@@ -26,7 +26,6 @@ class KSqueezedTextLabel;
 
 namespace KIO
 {
-
 /**
  * @class KIO::RenameDialog renamedialog.h <KIO/RenameDialog>
  *
@@ -54,8 +53,10 @@ public:
      * @param mtimeSrc modification time of source file
      * @param mtimeDest modification time of destination file
      */
-    RenameDialog(QWidget *parent, const QString &caption,
-                 const QUrl &src, const QUrl &dest,
+    RenameDialog(QWidget *parent,
+                 const QString &caption,
+                 const QUrl &src,
+                 const QUrl &dest,
                  RenameDialog_Options options,
                  KIO::filesize_t sizeSrc = KIO::filesize_t(-1),
                  KIO::filesize_t sizeDest = KIO::filesize_t(-1),
@@ -86,7 +87,10 @@ public:
      * The suggested file name is of the form "foo 1", "foo 2" etc.
      * @deprecated Since 5.0. Use KIO::suggestName, since 5.61, use KFileUtils::suggestName from KCoreAddons
      */
-    KIOWIDGETS_DEPRECATED_VERSION(5, 0, "Use KFileUtils::suggestName(const QUrl &, const QString &) from KCoreAddons >= 5.61, or KIO::suggestName(const QUrl &, const QString &)")
+    KIOWIDGETS_DEPRECATED_VERSION(
+        5,
+        0,
+        "Use KFileUtils::suggestName(const QUrl &, const QString &) from KCoreAddons >= 5.61, or KIO::suggestName(const QUrl &, const QString &)")
     static QString suggestName(const QUrl &baseURL, const QString &oldName);
 #endif
 

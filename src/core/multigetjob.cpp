@@ -14,16 +14,21 @@
 
 using namespace KIO;
 
-class KIO::MultiGetJobPrivate: public KIO::TransferJobPrivate
+class KIO::MultiGetJobPrivate : public KIO::TransferJobPrivate
 {
 public:
     explicit MultiGetJobPrivate(const QUrl &url)
-        : TransferJobPrivate(url, 0, QByteArray(), QByteArray()),
-          m_currentEntry(0, QUrl(), MetaData())
-    {}
+        : TransferJobPrivate(url, 0, QByteArray(), QByteArray())
+        , m_currentEntry(0, QUrl(), MetaData())
+    {
+    }
     struct GetRequest {
         GetRequest(long _id, const QUrl &_url, const MetaData &_metaData)
-            : id(_id), url(_url), metaData(_metaData) { }
+            : id(_id)
+            , url(_url)
+            , metaData(_metaData)
+        {
+        }
         long id;
         QUrl url;
         MetaData metaData;
@@ -85,10 +90,8 @@ void MultiGetJobPrivate::flushQueue(RequestQueue &queue)
     auto wqIt = m_waitQueue.begin();
     while (wqIt != m_waitQueue.end()) {
         const GetRequest &entry = *wqIt;
-        if ((m_url.scheme() == entry.url.scheme()) &&
-                (m_url.host() == entry.url.host()) &&
-                (m_url.port() == entry.url.port()) &&
-                (m_url.userName() == entry.url.userName())) {
+        if ((m_url.scheme() == entry.url.scheme()) && (m_url.host() == entry.url.host()) && (m_url.port() == entry.url.port())
+            && (m_url.userName() == entry.url.userName())) {
             queue.push_back(entry);
             wqIt = m_waitQueue.erase(wqIt);
         } else {
@@ -96,7 +99,7 @@ void MultiGetJobPrivate::flushQueue(RequestQueue &queue)
         }
     }
     // Send number of URLs, (URL, metadata)*
-    KIO_ARGS << (qint32) queue.size();
+    KIO_ARGS << (qint32)queue.size();
     for (const GetRequest &entry : queue) {
         stream << entry.url << entry.metaData;
     }
@@ -159,7 +162,7 @@ void MultiGetJob::slotRedirection(const QUrl &url)
 {
     Q_D(MultiGetJob);
     if (!d->findCurrentEntry()) {
-        return;    // Error
+        return; // Error
     }
     if (!KUrlAuthorized::authorizeUrlAction(QStringLiteral("redirect"), d->m_url, url)) {
         qCWarning(KIO_CORE) << "Redirection from" << d->m_currentEntry.url << "to" << url << "REJECTED!";
@@ -227,7 +230,7 @@ void MultiGetJob::slotMimetype(const QString &_mimetype)
         }
     }
     if (!d->findCurrentEntry()) {
-        return;    // Error, unknown request!
+        return; // Error, unknown request!
     }
 #if KIOCORE_BUILD_DEPRECATED_SINCE(5, 78)
     Q_EMIT mimetype(d->m_currentEntry.id, _mimetype);

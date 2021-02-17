@@ -10,9 +10,9 @@
 #define kprotocolinfofactory_h
 
 #include <QHash>
+#include <QMutex>
 #include <QString>
 #include <QStringList>
-#include <QMutex>
 
 class KProtocolInfoPrivate;
 

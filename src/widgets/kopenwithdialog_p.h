@@ -29,7 +29,7 @@ public:
     int columnCount(const QModelIndex &parent = QModelIndex()) const override;
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
     void fetchMore(const QModelIndex &parent) override;
-//        Qt::ItemFlags flags(const QModelIndex &index) const override;
+    //        Qt::ItemFlags flags(const QModelIndex &index) const override;
     bool hasChildren(const QModelIndex &parent = QModelIndex()) const override;
     QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const override;
     QModelIndex index(int row, int column, const QModelIndex &parent = QModelIndex()) const override;
@@ -53,7 +53,7 @@ private:
  */
 class QTreeViewProxyFilter : public QSortFilterProxyModel
 {
-     Q_OBJECT
+    Q_OBJECT
 
 public:
     explicit QTreeViewProxyFilter(QObject *parent = nullptr);
@@ -74,7 +74,7 @@ public:
     ~KApplicationView();
 
     void setModels(KApplicationModel *model, QSortFilterProxyModel *proxyModel);
-    QSortFilterProxyModel* proxyModel();
+    QSortFilterProxyModel *proxyModel();
 
     bool isDirSel() const;
 

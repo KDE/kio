@@ -6,14 +6,14 @@
 */
 
 #include <QApplication>
-#include <QHash>
-#include <QDBusMessage>
 #include <QDBusConnectionInterface>
+#include <QDBusMessage>
+#include <QHash>
 
 #include <KDBusService>
 #include <KDEDModule>
-#include <KPluginLoader>
 #include <KPluginFactory>
+#include <KPluginLoader>
 #include <KPluginMetaData>
 
 #include <QLoggingCategory>
@@ -77,7 +77,7 @@ static void messageFilter(const QDBusMessage &message)
     self()->loadModule(name);
 }
 
-extern Q_DBUS_EXPORT void qDBusAddSpyHook(void (*)(const QDBusMessage&));
+extern Q_DBUS_EXPORT void qDBusAddSpyHook(void (*)(const QDBusMessage &));
 
 int main(int argc, char *argv[])
 {

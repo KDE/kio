@@ -1,4 +1,4 @@
-//krazy:excludeall=license (it's a program, not a library)
+// krazy:excludeall=license (it's a program, not a library)
 /*
     SPDX-FileCopyrightText: 2001 Malte Starostik <malte@kde.org>
     based on kmailservice.cpp,
@@ -7,14 +7,14 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
-#include <QApplication>
-#include <KToolInvocation>
 #include <KAuthorized>
-#include <QMessageBox>
-#include <QDebug>
-#include <KLocalizedString>
 #include <KConfig>
 #include <KConfigGroup>
+#include <KLocalizedString>
+#include <KToolInvocation>
+#include <QApplication>
+#include <QDebug>
+#include <QMessageBox>
 #include <QUrl>
 
 int main(int argc, char **argv)
@@ -49,8 +49,7 @@ int main(int argc, char **argv)
     }
 
     if (!KAuthorized::authorize(QStringLiteral("shell_access"))) {
-        QMessageBox::critical(nullptr, i18n("Access denied"),
-                           i18n("You do not have permission to access the %1 protocol.", url.scheme()));
+        QMessageBox::critical(nullptr, i18n("Access denied"), i18n("You do not have permission to access the %1 protocol.", url.scheme()));
         return 3;
     }
 
@@ -61,9 +60,9 @@ int main(int argc, char **argv)
 
     QString host;
     if (!url.host().isEmpty()) {
-        host = url.host();    // telnet://host
+        host = url.host(); // telnet://host
     } else if (!url.path().isEmpty()) {
-        host = url.path();    // telnet:host
+        host = url.path(); // telnet:host
     }
 
     if (host.isEmpty() || host.startsWith(QLatin1Char('-'))) {

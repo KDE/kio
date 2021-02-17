@@ -7,8 +7,8 @@
 #ifndef ksambasharedata_h
 #define ksambasharedata_h
 
-#include <QExplicitlySharedDataPointer>
 #include "kiocore_export.h"
+#include <QExplicitlySharedDataPointer>
 
 class QString;
 class KSambaShare;
@@ -26,7 +26,6 @@ class KSambaShareDataPrivate;
  */
 class KIOCORE_EXPORT KSambaShareData
 {
-
 public:
     enum GuestPermission {
         GuestsNotAllowed,

@@ -9,13 +9,13 @@
 */
 
 #include "jobuidelegate.h"
-#include <kio/jobuidelegatefactory.h>
 #include "kio_widgets_debug.h"
 #include "kiogui_export.h"
-#include "widgetsuntrustedprogramhandler.h"
-#include "widgetsopenwithhandler.h"
-#include "widgetsopenorexecutefilehandler.h"
 #include "widgetsaskuseractionhandler.h"
+#include "widgetsopenorexecutefilehandler.h"
+#include "widgetsopenwithhandler.h"
+#include "widgetsuntrustedprogramhandler.h"
+#include <kio/jobuidelegatefactory.h>
 
 #include <KConfigGroup>
 #include <KJob>
@@ -23,23 +23,24 @@
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <KSharedConfig>
-#include <ksslinfodialog.h>
 #include <clipboardupdater_p.h>
+#include <ksslinfodialog.h>
 
 #include <QDBusInterface>
 #include <QGuiApplication>
-#include <QPointer>
-#include <QWidget>
 #include <QIcon>
+#include <QPointer>
 #include <QRegularExpression>
 #include <QUrl>
+#include <QWidget>
 
 #include "kio/scheduler.h"
 
 class KIO::JobUiDelegatePrivate
 {
 public:
-    JobUiDelegatePrivate(KIO::JobUiDelegate *q) {
+    JobUiDelegatePrivate(KIO::JobUiDelegate *q)
+    {
         // Create extension objects. See KIO::delegateExtension<T>().
         new WidgetsUntrustedProgramHandler(q);
         new WidgetsOpenWithHandler(q);
@@ -95,10 +96,9 @@ public:
             // access QWidget::winId() (already destructed)
             WId windowId = window->winId();
             m_windowList.insert(obj, windowId);
-            connect(window, &QObject::destroyed,
-                    this, &JobUiDelegateStatic::slotUnregisterWindow);
-            QDBusInterface(QStringLiteral("org.kde.kded5"), QStringLiteral("/kded"), QStringLiteral("org.kde.kded5")).
-            call(QDBus::NoBlock, QStringLiteral("registerWindowId"), qlonglong(windowId));
+            connect(window, &QObject::destroyed, this, &JobUiDelegateStatic::slotUnregisterWindow);
+            QDBusInterface(QStringLiteral("org.kde.kded5"), QStringLiteral("/kded"), QStringLiteral("org.kde.kded5"))
+                .call(QDBus::NoBlock, QStringLiteral("registerWindowId"), qlonglong(windowId));
         }
     }
 public Q_SLOTS:
@@ -113,12 +113,12 @@ public Q_SLOTS:
             return;
         }
         WId windowId = it.value();
-        disconnect(it.key(), &QObject::destroyed,
-                   this, &JobUiDelegateStatic::slotUnregisterWindow);
+        disconnect(it.key(), &QObject::destroyed, this, &JobUiDelegateStatic::slotUnregisterWindow);
         m_windowList.erase(it);
-        QDBusInterface(QStringLiteral("org.kde.kded5"), QStringLiteral("/kded"), QStringLiteral("org.kde.kded5")).
-        call(QDBus::NoBlock, QStringLiteral("unregisterWindowId"), qlonglong(windowId));
+        QDBusInterface(QStringLiteral("org.kde.kded5"), QStringLiteral("/kded"), QStringLiteral("org.kde.kded5"))
+            .call(QDBus::NoBlock, QStringLiteral("unregisterWindowId"), qlonglong(windowId));
     }
+
 private:
     QMap<QObject *, WId> m_windowList;
 };
@@ -126,7 +126,8 @@ private:
 Q_GLOBAL_STATIC(JobUiDelegateStatic, s_static)
 
 KIO::JobUiDelegate::JobUiDelegate(KJobUiDelegate::Flags flags, QWidget *window)
-    : KDialogJobUiDelegate(flags, window), d(new JobUiDelegatePrivate(this))
+    : KDialogJobUiDelegate(flags, window)
+    , d(new JobUiDelegatePrivate(this))
 {
     s_static()->registerWindow(window);
 }
@@ -143,25 +144,22 @@ void KIO::JobUiDelegate::unregisterWindow(QWidget *window)
 }
 
 KIO::RenameDialog_Result KIO::JobUiDelegate::askFileRename(KJob *job,
-        const QString &caption,
-        const QUrl &src,
-        const QUrl &dest,
-        KIO::RenameDialog_Options options,
-        QString &newDest,
-        KIO::filesize_t sizeSrc,
-        KIO::filesize_t sizeDest,
-        const QDateTime &ctimeSrc,
-        const QDateTime &ctimeDest,
-        const QDateTime &mtimeSrc,
-        const QDateTime &mtimeDest)
+                                                           const QString &caption,
+                                                           const QUrl &src,
+                                                           const QUrl &dest,
+                                                           KIO::RenameDialog_Options options,
+                                                           QString &newDest,
+                                                           KIO::filesize_t sizeSrc,
+                                                           KIO::filesize_t sizeDest,
+                                                           const QDateTime &ctimeSrc,
+                                                           const QDateTime &ctimeDest,
+                                                           const QDateTime &mtimeSrc,
+                                                           const QDateTime &mtimeDest)
 {
-    //qDebug() << "job=" << job;
+    // qDebug() << "job=" << job;
     // We now do it in process, so that opening the rename dialog
     // doesn't start uiserver for nothing if progressId=0 (e.g. F2 in konq)
-    KIO::RenameDialog dlg(KJobWidgets::window(job), caption, src, dest, options,
-                          sizeSrc, sizeDest,
-                          ctimeSrc, ctimeDest, mtimeSrc,
-                          mtimeDest);
+    KIO::RenameDialog dlg(KJobWidgets::window(job), caption, src, dest, options, sizeSrc, sizeDest, ctimeSrc, ctimeDest, mtimeSrc, mtimeDest);
     dlg.setWindowModality(Qt::WindowModal);
     connect(job, &KJob::finished, &dlg, &QDialog::reject); // #192976
     KIO::RenameDialog_Result res = static_cast<RenameDialog_Result>(dlg.exec());
@@ -173,9 +171,7 @@ KIO::RenameDialog_Result KIO::JobUiDelegate::askFileRename(KJob *job,
     return res;
 }
 
-KIO::SkipDialog_Result KIO::JobUiDelegate::askSkip(KJob *job,
-        KIO::SkipDialog_Options options,
-        const QString &error_text)
+KIO::SkipDialog_Result KIO::JobUiDelegate::askSkip(KJob *job, KIO::SkipDialog_Options options, const QString &error_text)
 {
     KIO::SkipDialog dlg(KJobWidgets::window(job), options, error_text);
     dlg.setWindowModality(Qt::WindowModal);
@@ -183,9 +179,7 @@ KIO::SkipDialog_Result KIO::JobUiDelegate::askSkip(KJob *job,
     return static_cast<KIO::SkipDialog_Result>(dlg.exec());
 }
 
-bool KIO::JobUiDelegate::askDeleteConfirmation(const QList<QUrl> &urls,
-        DeletionType deletionType,
-        ConfirmationType confirmationType)
+bool KIO::JobUiDelegate::askDeleteConfirmation(const QList<QUrl> &urls, DeletionType deletionType, ConfirmationType confirmationType)
 {
     QString keyName;
     bool ask = (confirmationType == ForceConfirmation);
@@ -234,52 +228,64 @@ bool KIO::JobUiDelegate::askDeleteConfirmation(const QList<QUrl> &urls,
         case Delete:
             if (prettyList.count() == 1) {
                 result = KMessageBox::warningContinueCancel(
-                            widget,
-                            xi18nc("@info", "Do you really want to permanently delete this item?<nl/><filename>%1</filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</emphasis>", prettyList.first()),
-                            i18n("Delete Permanently"),
-                            KStandardGuiItem::del(),
-                            KStandardGuiItem::cancel(),
-                            keyName, options);
+                    widget,
+                    xi18nc("@info",
+                           "Do you really want to permanently delete this item?<nl/><filename>%1</filename><nl/><nl/><emphasis strong='true'>This action "
+                           "cannot be undone.</emphasis>",
+                           prettyList.first()),
+                    i18n("Delete Permanently"),
+                    KStandardGuiItem::del(),
+                    KStandardGuiItem::cancel(),
+                    keyName,
+                    options);
             } else {
                 result = KMessageBox::warningContinueCancelList(
-                            widget,
-                            xi18ncp("@info", "Do you really want to permanently delete this item?<nl/><nl/><emphasis strong='true'>This action cannot be undone.</emphasis>", "Do you really want to permanently delete these %1 items?<nl/><nl/><emphasis strong='true'>This action cannot be undone.</emphasis>", prettyList.count()),
-                            prettyList,
-                            i18n("Delete Permanently"),
-                            KStandardGuiItem::del(),
-                            KStandardGuiItem::cancel(),
-                            keyName, options);
+                    widget,
+                    xi18ncp(
+                        "@info",
+                        "Do you really want to permanently delete this item?<nl/><nl/><emphasis strong='true'>This action cannot be undone.</emphasis>",
+                        "Do you really want to permanently delete these %1 items?<nl/><nl/><emphasis strong='true'>This action cannot be undone.</emphasis>",
+                        prettyList.count()),
+                    prettyList,
+                    i18n("Delete Permanently"),
+                    KStandardGuiItem::del(),
+                    KStandardGuiItem::cancel(),
+                    keyName,
+                    options);
             }
             break;
         case EmptyTrash:
             result = KMessageBox::warningContinueCancel(
-                         widget,
-                         xi18nc("@info", "Do you want to permanently delete all items from the Trash?<nl/><nl/><emphasis strong='true'>This action cannot be undone.</emphasis>"),
-                         i18n("Delete Permanently"),
-                         KGuiItem(i18nc("@action:button", "Empty Trash"),
-                                  QIcon::fromTheme(QStringLiteral("user-trash"))),
-                         KStandardGuiItem::cancel(),
-                         keyName, options);
+                widget,
+                xi18nc("@info",
+                       "Do you want to permanently delete all items from the Trash?<nl/><nl/><emphasis strong='true'>This action cannot be undone.</emphasis>"),
+                i18n("Delete Permanently"),
+                KGuiItem(i18nc("@action:button", "Empty Trash"), QIcon::fromTheme(QStringLiteral("user-trash"))),
+                KStandardGuiItem::cancel(),
+                keyName,
+                options);
             break;
         case Trash:
         default:
             if (prettyList.count() == 1) {
                 result = KMessageBox::warningContinueCancel(
-                            widget,
-                            xi18nc("@info", "Do you really want to move this item to the Trash?<nl/><filename>%1</filename>", prettyList.first()),
-                            i18n("Move to Trash"),
-                            KGuiItem(i18n("Move to Trash"), QStringLiteral("user-trash")),
-                            KStandardGuiItem::cancel(),
-                            keyName, options);
+                    widget,
+                    xi18nc("@info", "Do you really want to move this item to the Trash?<nl/><filename>%1</filename>", prettyList.first()),
+                    i18n("Move to Trash"),
+                    KGuiItem(i18n("Move to Trash"), QStringLiteral("user-trash")),
+                    KStandardGuiItem::cancel(),
+                    keyName,
+                    options);
             } else {
                 result = KMessageBox::warningContinueCancelList(
-                            widget,
-                            i18np("Do you really want to move this item to the Trash?", "Do you really want to move these %1 items to the Trash?", prettyList.count()),
-                            prettyList,
-                            i18n("Move to Trash"),
-                            KGuiItem(i18n("Move to Trash"), QStringLiteral("user-trash")),
-                            KStandardGuiItem::cancel(),
-                            keyName, options);
+                    widget,
+                    i18np("Do you really want to move this item to the Trash?", "Do you really want to move these %1 items to the Trash?", prettyList.count()),
+                    prettyList,
+                    i18n("Move to Trash"),
+                    KGuiItem(i18n("Move to Trash"), QStringLiteral("user-trash")),
+                    KStandardGuiItem::cancel(),
+                    keyName,
+                    options);
             }
         }
         if (!keyName.isEmpty()) {
@@ -300,15 +306,18 @@ bool KIO::JobUiDelegate::askDeleteConfirmation(const QList<QUrl> &urls,
 }
 
 int KIO::JobUiDelegate::requestMessageBox(KIO::JobUiDelegate::MessageBoxType type,
-        const QString &text, const QString &caption,
-        const QString &buttonYes, const QString &buttonNo,
-        const QString &iconYes, const QString &iconNo,
-        const QString &dontAskAgainName,
-        const KIO::MetaData &metaData)
+                                          const QString &text,
+                                          const QString &caption,
+                                          const QString &buttonYes,
+                                          const QString &buttonNo,
+                                          const QString &iconYes,
+                                          const QString &iconNo,
+                                          const QString &dontAskAgainName,
+                                          const KIO::MetaData &metaData)
 {
     int result = -1;
 
-    //qDebug() << type << text << "caption=" << caption;
+    // qDebug() << type << text << "caption=" << caption;
 
     KConfig config(QStringLiteral("kioslaverc"));
     KMessageBox::setDontShowAgainConfig(&config);
@@ -319,25 +328,16 @@ int KIO::JobUiDelegate::requestMessageBox(KIO::JobUiDelegate::MessageBoxType typ
 
     switch (type) {
     case QuestionYesNo:
-        result = KMessageBox::questionYesNo(
-                     window(), text, caption, buttonYesGui,
-                     buttonNoGui, dontAskAgainName, options);
+        result = KMessageBox::questionYesNo(window(), text, caption, buttonYesGui, buttonNoGui, dontAskAgainName, options);
         break;
     case WarningYesNo:
-        result = KMessageBox::warningYesNo(
-                     window(), text, caption, buttonYesGui,
-                     buttonNoGui, dontAskAgainName,
-                     options | KMessageBox::Dangerous);
+        result = KMessageBox::warningYesNo(window(), text, caption, buttonYesGui, buttonNoGui, dontAskAgainName, options | KMessageBox::Dangerous);
         break;
     case WarningYesNoCancel:
-        result = KMessageBox::warningYesNoCancel(
-                     window(), text, caption, buttonYesGui, buttonNoGui,
-                     KStandardGuiItem::cancel(), dontAskAgainName, options);
+        result = KMessageBox::warningYesNoCancel(window(), text, caption, buttonYesGui, buttonNoGui, KStandardGuiItem::cancel(), dontAskAgainName, options);
         break;
     case WarningContinueCancel:
-        result = KMessageBox::warningContinueCancel(
-                     window(), text, caption, buttonYesGui,
-                     KStandardGuiItem::cancel(), dontAskAgainName, options);
+        result = KMessageBox::warningContinueCancel(window(), text, caption, buttonYesGui, KStandardGuiItem::cancel(), dontAskAgainName, options);
         break;
     case Information:
         KMessageBox::information(window(), text, caption, dontAskAgainName, options);
@@ -350,7 +350,7 @@ int KIO::JobUiDelegate::requestMessageBox(KIO::JobUiDelegate::MessageBoxType typ
         QList<QSslCertificate> certChain;
         bool decodedOk = true;
         for (const QString &s : sl) {
-            certChain.append(QSslCertificate(s.toLatin1())); //or is it toLocal8Bit or whatever?
+            certChain.append(QSslCertificate(s.toLatin1())); // or is it toLocal8Bit or whatever?
             if (certChain.last().isNull()) {
                 decodedOk = false;
                 break;
@@ -370,9 +370,7 @@ int KIO::JobUiDelegate::requestMessageBox(KIO::JobUiDelegate::MessageBoxType typ
             kid->exec();
         } else {
             result = -1;
-            KMessageBox::information(window(),
-                                     i18n("The peer SSL certificate chain appears to be corrupt."),
-                                     i18n("SSL"), QString(), options);
+            KMessageBox::information(window(), i18n("The peer SSL certificate chain appears to be corrupt."), i18n("SSL"), QString(), options);
         }
         // KSslInfoDialog deletes itself (Qt::WA_DeleteOnClose).
         delete kid;
@@ -380,9 +378,14 @@ int KIO::JobUiDelegate::requestMessageBox(KIO::JobUiDelegate::MessageBoxType typ
     }
     case WarningContinueCancelDetailed: {
         const QString details = metaData.value(QStringLiteral("privilege_conf_details"));
-        result = KMessageBox::warningContinueCancelDetailed(
-                      window(), text, caption, KStandardGuiItem::cont(), KStandardGuiItem::cancel(),
-                      dontAskAgainName, options | KMessageBox::Dangerous, details);
+        result = KMessageBox::warningContinueCancelDetailed(window(),
+                                                            text,
+                                                            caption,
+                                                            KStandardGuiItem::cont(),
+                                                            KStandardGuiItem::cancel(),
+                                                            dontAskAgainName,
+                                                            options | KMessageBox::Dangerous,
+                                                            details);
         break;
     }
     default:

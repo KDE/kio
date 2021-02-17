@@ -9,8 +9,8 @@
 
 #include <QAction>
 #include <QMenu>
-#include <QPainter>
 #include <QPaintEvent>
+#include <QPainter>
 #include <QStyleOption>
 
 #include <KLocalizedString>
@@ -25,12 +25,11 @@ const int ArrowSize = 10;
 
 namespace KDEPrivate
 {
-
-KUrlNavigatorProtocolCombo::KUrlNavigatorProtocolCombo(const QString &protocol, KUrlNavigator *parent) :
-    KUrlNavigatorButtonBase(parent),
-    m_menu(nullptr),
-    m_protocols(),
-    m_categories()
+KUrlNavigatorProtocolCombo::KUrlNavigatorProtocolCombo(const QString &protocol, KUrlNavigator *parent)
+    : KUrlNavigatorButtonBase(parent)
+    , m_menu(nullptr)
+    , m_protocols()
+    , m_categories()
 {
     m_menu = new QMenu(this);
     connect(m_menu, &QMenu::triggered, this, &KUrlNavigatorProtocolCombo::setProtocolFromMenu);
@@ -96,7 +95,7 @@ void KUrlNavigatorProtocolCombo::paintEvent(QPaintEvent *event)
     Q_UNUSED(event);
 
     QPainter painter(this);
-    const int buttonWidth  = width();
+    const int buttonWidth = width();
     const int buttonHeight = height();
 
     drawHoverBackground(&painter);
@@ -122,8 +121,7 @@ void KUrlNavigatorProtocolCombo::paintEvent(QPaintEvent *event)
     if (!style()->styleHint(QStyle::SH_UnderlineShortcut, &option, this)) {
         alignment |= Qt::TextHideMnemonic;
     }
-    style()->drawItemText(&painter, QRect(BorderWidth, 0, textWidth, buttonHeight),
-                          alignment, option.palette, isEnabled(), text());
+    style()->drawItemText(&painter, QRect(BorderWidth, 0, textWidth, buttonHeight), alignment, option.palette, isEnabled(), text());
 }
 
 void KUrlNavigatorProtocolCombo::setProtocolFromMenu(QAction *action)

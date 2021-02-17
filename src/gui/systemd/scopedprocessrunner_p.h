@@ -4,7 +4,7 @@
 
 class ScopedProcessRunner : public ForkingProcessRunner
 {
-  Q_OBJECT
+    Q_OBJECT
 public:
     explicit ScopedProcessRunner();
 private Q_SLOTS:

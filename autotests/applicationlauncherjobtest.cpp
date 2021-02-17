@@ -13,10 +13,10 @@
 #include "mockcoredelegateextensions.h"
 #include "mockguidelegateextensions.h"
 
-#include <KService>
 #include <KConfigGroup>
 #include <KDesktopFile>
 #include <KJobUiDelegate>
+#include <KService>
 
 #ifdef Q_OS_UNIX
 #include <signal.h> // kill
@@ -221,7 +221,8 @@ void ApplicationLauncherJobTest::shouldFailOnNonExistingExecutable()
     QFETCH(bool, tempFile);
     QFETCH(bool, fullPath);
 
-    const QString desktopFilePath = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/kservices5/non_existing_executable.desktop");
+    const QString desktopFilePath =
+        QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/kservices5/non_existing_executable.desktop");
     KDesktopFile file(desktopFilePath);
     KConfigGroup group = file.desktopGroup();
     group.writeEntry("Name", "KRunUnittestService");
@@ -252,7 +253,8 @@ void ApplicationLauncherJobTest::shouldFailOnNonExistingExecutable()
 
 void ApplicationLauncherJobTest::shouldFailOnInvalidService()
 {
-    const QString desktopFilePath = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/kservices5/invalid_service.desktop");
+    const QString desktopFilePath =
+        QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/kservices5/invalid_service.desktop");
     KDesktopFile file(desktopFilePath);
     KConfigGroup group = file.desktopGroup();
     group.writeEntry("Name", "KRunUnittestService");
@@ -274,7 +276,8 @@ void ApplicationLauncherJobTest::shouldFailOnInvalidService()
 
 void ApplicationLauncherJobTest::shouldFailOnServiceWithNoExec()
 {
-    const QString desktopFilePath = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/kservices5/invalid_service.desktop");
+    const QString desktopFilePath =
+        QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/kservices5/invalid_service.desktop");
     KDesktopFile file(desktopFilePath);
     KConfigGroup group = file.desktopGroup();
     group.writeEntry("Name", "KRunUnittestServiceNoExec");
@@ -305,7 +308,8 @@ void ApplicationLauncherJobTest::shouldFailOnExecutableWithoutPermissions()
     scriptFile.close();
     // Note that it's missing executable permissions
 
-    const QString desktopFilePath = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/kservices5/invalid_service.desktop");
+    const QString desktopFilePath =
+        QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/kservices5/invalid_service.desktop");
     KDesktopFile file(desktopFilePath);
     KConfigGroup group = file.desktopGroup();
     group.writeEntry("Name", "KRunUnittestServiceNoPermission");
@@ -328,12 +332,12 @@ void ApplicationLauncherJobTest::shouldFailOnExecutableWithoutPermissions()
 
 void ApplicationLauncherJobTest::showOpenWithDialog_data()
 {
-     QTest::addColumn<bool>("withHandler");
-     QTest::addColumn<bool>("handlerRetVal");
+    QTest::addColumn<bool>("withHandler");
+    QTest::addColumn<bool>("handlerRetVal");
 
-     QTest::newRow("without_handler") << false << false;
-     QTest::newRow("false_canceled") << true << false;
-     QTest::newRow("true_service_selected") << true << true;
+    QTest::newRow("without_handler") << false << false;
+    QTest::newRow("false_canceled") << true << false;
+    QTest::newRow("true_service_selected") << true << true;
 }
 
 void ApplicationLauncherJobTest::showOpenWithDialog()

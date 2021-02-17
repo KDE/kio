@@ -12,8 +12,8 @@
 class KFilterBase;
 #include <QBuffer>
 
-#include <QObject>
 #include <QCryptographicHash>
+#include <QObject>
 
 #include <QLoggingCategory>
 Q_DECLARE_LOGGING_CATEGORY(KIO_HTTP_FILTER)

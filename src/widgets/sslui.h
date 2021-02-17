@@ -19,7 +19,6 @@ namespace KIO
 /** UI methods for handling SSL errors. */
 namespace SslUi
 {
-
 /** Error rule storage behavior. */
 enum RulesStorage {
     RecallRules = 1, ///< apply stored certificate rules (typically ignored errors)
@@ -32,8 +31,7 @@ enum RulesStorage {
  * @deprecated since 5.64 use the KSslErrorUiData variant instead.
  */
 KIOWIDGETS_DEPRECATED_VERSION(5, 64, "Use KIO::SslUi::askIgnoreSslErrors(const KSslErrorUiData &, RulesStorage)")
-bool KIOWIDGETS_EXPORT askIgnoreSslErrors(const KTcpSocket *socket,
-        RulesStorage storedRules = RecallAndStoreRules);
+bool KIOWIDGETS_EXPORT askIgnoreSslErrors(const KTcpSocket *socket, RulesStorage storedRules = RecallAndStoreRules);
 #endif
 
 /**
@@ -49,8 +47,7 @@ bool KIOWIDGETS_EXPORT askIgnoreSslErrors(const KTcpSocket *socket,
  *           encrypted connection
  * @p storedRules see RulesStorage Enum
  */
-bool KIOWIDGETS_EXPORT askIgnoreSslErrors(const KSslErrorUiData &uiData,
-        RulesStorage storedRules = RecallAndStoreRules);
+bool KIOWIDGETS_EXPORT askIgnoreSslErrors(const KSslErrorUiData &uiData, RulesStorage storedRules = RecallAndStoreRules);
 }
 }
 

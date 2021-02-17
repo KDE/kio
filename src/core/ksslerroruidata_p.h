@@ -10,9 +10,9 @@
 
 #include "ksslerroruidata.h"
 
-#include <QString>
-#include <QSslError>
 #include <QSslCertificate>
+#include <QSslError>
+#include <QString>
 
 class Q_DECL_HIDDEN KSslErrorUiData::Private
 {
@@ -23,7 +23,7 @@ public:
     }
 
     QList<QSslCertificate> certificateChain;
-    QList<QSslError> sslErrors;   // parallel list to certificateChain
+    QList<QSslError> sslErrors; // parallel list to certificateChain
     QString ip;
     QString host;
     QString sslProtocol;

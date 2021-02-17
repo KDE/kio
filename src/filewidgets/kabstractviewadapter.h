@@ -7,8 +7,8 @@
 #ifndef KABSTRACTVIEWADAPTER_H
 #define KABSTRACTVIEWADAPTER_H
 
-#include <QObject>
 #include "kiofilewidgets_export.h"
+#include <QObject>
 
 class QAbstractItemModel;
 class QModelIndex;
@@ -60,8 +60,13 @@ class KIOFILEWIDGETS_EXPORT KAbstractViewAdapter : public QObject
 public:
     enum Signal { ScrollBarValueChanged, IconSizeChanged };
 
-    KAbstractViewAdapter(QObject *parent) : QObject(parent) {}
-    virtual ~KAbstractViewAdapter() {}
+    KAbstractViewAdapter(QObject *parent)
+        : QObject(parent)
+    {
+    }
+    virtual ~KAbstractViewAdapter()
+    {
+    }
     virtual QAbstractItemModel *model() const = 0;
     virtual QSize iconSize() const = 0;
     virtual QPalette palette() const = 0;
@@ -73,4 +78,3 @@ public:
 };
 
 #endif
-

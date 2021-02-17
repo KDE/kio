@@ -9,13 +9,12 @@
 #ifndef KIO_SLAVE_CONFIG_H
 #define KIO_SLAVE_CONFIG_H
 
-#include <QObject>
 #include "kiocore_export.h"
 #include "metadata.h"
+#include <QObject>
 
 namespace KIO
 {
-
 class SlaveConfigPrivate;
 /**
  * @class KIO::SlaveConfig slaveconfig.h <KIO/SlaveConfig>
@@ -88,8 +87,10 @@ Q_SIGNALS:
      * host.
      */
     void configNeeded(const QString &protocol, const QString &host);
+
 protected:
     SlaveConfig();
+
 private:
     SlaveConfigPrivate *const d;
     friend class SlaveConfigSingleton;

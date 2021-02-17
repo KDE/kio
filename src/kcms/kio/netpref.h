@@ -23,20 +23,23 @@ public:
     QString quickHelp() const override;
 
 protected Q_SLOTS:
-    void configChanged() { Q_EMIT changed(true); }
+    void configChanged()
+    {
+        Q_EMIT changed(true);
+    }
 
 private:
-    QGroupBox* gb_Ftp;
-    QGroupBox* gb_Timeout;
-    QCheckBox* cb_globalMarkPartial;
-    KPluralHandlingSpinBox* sb_globalMinimumKeepSize;
-    QCheckBox* cb_ftpEnablePasv;
-    QCheckBox* cb_ftpMarkPartial;
+    QGroupBox *gb_Ftp;
+    QGroupBox *gb_Timeout;
+    QCheckBox *cb_globalMarkPartial;
+    KPluralHandlingSpinBox *sb_globalMinimumKeepSize;
+    QCheckBox *cb_ftpEnablePasv;
+    QCheckBox *cb_ftpMarkPartial;
 
-    KPluralHandlingSpinBox* sb_socketRead;
-    KPluralHandlingSpinBox* sb_proxyConnect;
-    KPluralHandlingSpinBox* sb_serverConnect;
-    KPluralHandlingSpinBox* sb_serverResponse;
+    KPluralHandlingSpinBox *sb_socketRead;
+    KPluralHandlingSpinBox *sb_proxyConnect;
+    KPluralHandlingSpinBox *sb_serverConnect;
+    KPluralHandlingSpinBox *sb_serverResponse;
 };
 
 #endif // NETPREF_H

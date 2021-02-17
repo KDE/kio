@@ -9,60 +9,60 @@
 */
 
 #include "kopenwithdialog.h"
-#include "kopenwithdialog_p.h"
 #include "kio_widgets_debug.h"
+#include "kopenwithdialog_p.h"
 
 #include <QApplication>
+#include <QCheckBox>
 #include <QDesktopWidget>
 #include <QDialogButtonBox>
-#include <QtAlgorithms>
-#include <QList>
 #include <QKeyEvent>
 #include <QLabel>
 #include <QLayout>
-#include <QCheckBox>
-#include <QStyle>
-#include <QStyleOptionButton>
-#include <QStandardPaths>
+#include <QList>
 #include <QMimeDatabase>
 #include <QScreen>
+#include <QStandardPaths>
+#include <QStyle>
+#include <QStyleOptionButton>
+#include <QtAlgorithms>
 
-#include <kurlauthorized.h>
-#include <KHistoryComboBox>
+#include <KCollapsibleGroupBox>
 #include <KDesktopFile>
+#include <KHistoryComboBox>
 #include <KLineEdit>
-#include <KSharedConfig>
 #include <KLocalizedString>
 #include <KMessageBox>
+#include <KServiceGroup>
+#include <KSharedConfig>
 #include <KShell>
-#include <kio/desktopexecparser.h>
 #include <KStringHandler>
+#include <QDebug>
+#include <kio/desktopexecparser.h>
+#include <kurlauthorized.h>
 #include <kurlcompletion.h>
 #include <kurlrequester.h>
-#include <KServiceGroup>
-#include <KCollapsibleGroupBox>
-#include <QDebug>
 
-#include <assert.h>
-#include <stdlib.h>
-#include <kbuildsycocaprogressdialog.h>
 #include <KConfigGroup>
+#include <assert.h>
+#include <kbuildsycocaprogressdialog.h>
+#include <stdlib.h>
 
-inline void writeEntry(KConfigGroup &group, const char *key,
-                       const KCompletion::CompletionMode &aValue,
-                       KConfigBase::WriteConfigFlags flags = KConfigBase::Normal)
+inline void
+writeEntry(KConfigGroup &group, const char *key, const KCompletion::CompletionMode &aValue, KConfigBase::WriteConfigFlags flags = KConfigBase::Normal)
 {
     group.writeEntry(key, int(aValue), flags);
 }
 
 namespace KDEPrivate
 {
-
 class AppNode
 {
 public:
     AppNode()
-        : isDir(false), parent(nullptr), fetched(false)
+        : isDir(false)
+        , parent(nullptr)
+        , fetched(false)
     {
     }
     ~AppNode()
@@ -108,7 +108,8 @@ class KApplicationModelPrivate
 {
 public:
     explicit KApplicationModelPrivate(KApplicationModel *qq)
-        : q(qq), root(new KDEPrivate::AppNode())
+        : q(qq)
+        , root(new KDEPrivate::AppNode())
     {
     }
     ~KApplicationModelPrivate()
@@ -118,7 +119,7 @@ public:
 
     void fillNode(const QString &entryPath, KDEPrivate::AppNode *node);
 
-    KApplicationModel * const q;
+    KApplicationModel *const q;
 
     KDEPrivate::AppNode *root;
 };
@@ -140,7 +141,7 @@ void KApplicationModelPrivate::fillNode(const QString &_entryPath, KDEPrivate::A
         QString exec;
         bool isDir = false;
         if (p->isType(KST_KService)) {
-            const KService::Ptr service(static_cast<KService*>(p.data()));
+            const KService::Ptr service(static_cast<KService *>(p.data()));
 
             if (service->noDisplay()) {
                 continue;
@@ -156,7 +157,7 @@ void KApplicationModelPrivate::fillNode(const QString &_entryPath, KDEPrivate::A
             exec = service->exec();
             entryPath = service->entryPath();
         } else if (p->isType(KST_KServiceGroup)) {
-            const KServiceGroup::Ptr serviceGroup(static_cast<KServiceGroup*>(p.data()));
+            const KServiceGroup::Ptr serviceGroup(static_cast<KServiceGroup *>(p.data()));
 
             if (serviceGroup->noDisplay() || serviceGroup->childCount() == 0) {
                 continue;
@@ -185,7 +186,8 @@ void KApplicationModelPrivate::fillNode(const QString &_entryPath, KDEPrivate::A
 }
 
 KApplicationModel::KApplicationModel(QObject *parent)
-    : QAbstractItemModel(parent), d(new KApplicationModelPrivate(this))
+    : QAbstractItemModel(parent)
+    , d(new KApplicationModelPrivate(this))
 {
     d->fillNode(QString(), d->root);
     const int nRows = rowCount();
@@ -236,8 +238,7 @@ QVariant KApplicationModel::data(const QModelIndex &index, int role) const
             return node->tooltip;
         }
         break;
-    default:
-        ;
+    default:;
     }
     return QVariant();
 }
@@ -377,7 +378,6 @@ bool KApplicationModel::isDirectory(const QModelIndex &index) const
     return node->isDir;
 }
 
-
 QTreeViewProxyFilter::QTreeViewProxyFilter(QObject *parent)
     : QSortFilterProxyModel(parent)
 {
@@ -403,8 +403,8 @@ class KApplicationViewPrivate
 {
 public:
     KApplicationViewPrivate()
-        : appModel(nullptr),
-          m_proxyModel(nullptr)
+        : appModel(nullptr)
+        , m_proxyModel(nullptr)
     {
     }
 
@@ -413,7 +413,8 @@ public:
 };
 
 KApplicationView::KApplicationView(QWidget *parent)
-    : QTreeView(parent), d(new KApplicationViewPrivate)
+    : QTreeView(parent)
+    , d(new KApplicationViewPrivate)
 {
     setHeaderHidden(true);
 }
@@ -426,8 +427,7 @@ KApplicationView::~KApplicationView()
 void KApplicationView::setModels(KApplicationModel *model, QSortFilterProxyModel *proxyModel)
 {
     if (d->appModel) {
-        disconnect(selectionModel(), &QItemSelectionModel::selectionChanged,
-                   this, &KApplicationView::slotSelectionChanged);
+        disconnect(selectionModel(), &QItemSelectionModel::selectionChanged, this, &KApplicationView::slotSelectionChanged);
     }
 
     QTreeView::setModel(proxyModel); // Here we set the proxy model
@@ -435,12 +435,11 @@ void KApplicationView::setModels(KApplicationModel *model, QSortFilterProxyModel
 
     d->appModel = model;
     if (d->appModel) {
-        connect(selectionModel(), &QItemSelectionModel::selectionChanged,
-                this, &KApplicationView::slotSelectionChanged);
+        connect(selectionModel(), &QItemSelectionModel::selectionChanged, this, &KApplicationView::slotSelectionChanged);
     }
 }
 
-QSortFilterProxyModel* KApplicationView::proxyModel()
+QSortFilterProxyModel *KApplicationView::proxyModel()
 {
     return d->m_proxyModel;
 }
@@ -461,7 +460,7 @@ void KApplicationView::currentChanged(const QModelIndex &current, const QModelIn
 
     if (d->appModel) {
         QModelIndex sourceCurrent = d->m_proxyModel->mapToSource(current);
-        if(!d->appModel->isDirectory(sourceCurrent)) {
+        if (!d->appModel->isDirectory(sourceCurrent)) {
             QString exec = d->appModel->execFor(sourceCurrent);
             if (!exec.isEmpty()) {
                 Q_EMIT highlighted(d->appModel->entryPathFor(sourceCurrent), exec);
@@ -492,11 +491,12 @@ class KOpenWithDialogPrivate
 {
 public:
     explicit KOpenWithDialogPrivate(KOpenWithDialog *qq)
-        : q(qq), saveNewApps(false)
+        : q(qq)
+        , saveNewApps(false)
     {
     }
 
-    KOpenWithDialog * const q;
+    KOpenWithDialog *const q;
 
     /**
      * Determine MIME type from URLs
@@ -548,7 +548,8 @@ public:
 };
 
 KOpenWithDialog::KOpenWithDialog(const QList<QUrl> &_urls, QWidget *parent)
-    : QDialog(parent), d(new KOpenWithDialogPrivate(this))
+    : QDialog(parent)
+    , d(new KOpenWithDialogPrivate(this))
 {
     setObjectName(QStringLiteral("openwith"));
     setModal(true);
@@ -556,11 +557,13 @@ KOpenWithDialog::KOpenWithDialog(const QList<QUrl> &_urls, QWidget *parent)
 
     QString text;
     if (_urls.count() == 1) {
-        text = i18n("<qt>Select the program that should be used to open <b>%1</b>. "
-                    "If the program is not listed, enter the name or click "
-                    "the browse button.</qt>",  _urls.first().fileName().toHtmlEscaped());
+        text = i18n(
+            "<qt>Select the program that should be used to open <b>%1</b>. "
+            "If the program is not listed, enter the name or click "
+            "the browse button.</qt>",
+            _urls.first().fileName().toHtmlEscaped());
     } else
-        // Should never happen ??
+    // Should never happen ??
     {
         text = i18n("Choose the name of the program with which to open the selected files.");
     }
@@ -568,16 +571,14 @@ KOpenWithDialog::KOpenWithDialog(const QList<QUrl> &_urls, QWidget *parent)
     d->init(text, QString());
 }
 
-KOpenWithDialog::KOpenWithDialog(const QList<QUrl> &_urls, const QString &_text,
-                                 const QString &_value, QWidget *parent)
+KOpenWithDialog::KOpenWithDialog(const QList<QUrl> &_urls, const QString &_text, const QString &_value, QWidget *parent)
     : KOpenWithDialog(_urls, QString(), _text, _value, parent)
 {
 }
 
-KOpenWithDialog::KOpenWithDialog(const QList<QUrl> &_urls, const QString &mimeType,
-                                 const QString &_text, const QString &_value,
-                                 QWidget *parent)
-    : QDialog(parent), d(new KOpenWithDialogPrivate(this))
+KOpenWithDialog::KOpenWithDialog(const QList<QUrl> &_urls, const QString &mimeType, const QString &_text, const QString &_value, QWidget *parent)
+    : QDialog(parent)
+    , d(new KOpenWithDialogPrivate(this))
 {
     setObjectName(QStringLiteral("openwith"));
     setModal(true);
@@ -588,7 +589,8 @@ KOpenWithDialog::KOpenWithDialog(const QList<QUrl> &_urls, const QString &mimeTy
             text = i18n("<qt>Select the program you want to use to open the file<br/>%1</qt>", fileName.toHtmlEscaped());
         } else {
             text = i18np("<qt>Select the program you want to use to open the file.</qt>",
-                         "<qt>Select the program you want to use to open the %1 files.</qt>", _urls.count());
+                         "<qt>Select the program you want to use to open the %1 files.</qt>",
+                         _urls.count());
         }
     }
     setWindowTitle(i18n("Choose Application"));
@@ -600,29 +602,33 @@ KOpenWithDialog::KOpenWithDialog(const QList<QUrl> &_urls, const QString &mimeTy
     d->init(text, _value);
 }
 
-KOpenWithDialog::KOpenWithDialog(const QString &mimeType, const QString &value,
-                                 QWidget *parent)
-    : QDialog(parent), d(new KOpenWithDialogPrivate(this))
+KOpenWithDialog::KOpenWithDialog(const QString &mimeType, const QString &value, QWidget *parent)
+    : QDialog(parent)
+    , d(new KOpenWithDialogPrivate(this))
 {
     setObjectName(QStringLiteral("openwith"));
     setModal(true);
     setWindowTitle(i18n("Choose Application for %1", mimeType));
-    QString text = i18n("<qt>Select the program for the file type: <b>%1</b>. "
-                        "If the program is not listed, enter the name or click "
-                        "the browse button.</qt>", mimeType);
+    QString text = i18n(
+        "<qt>Select the program for the file type: <b>%1</b>. "
+        "If the program is not listed, enter the name or click "
+        "the browse button.</qt>",
+        mimeType);
     d->setMimeType(mimeType);
     d->init(text, value);
 }
 
 KOpenWithDialog::KOpenWithDialog(QWidget *parent)
-    : QDialog(parent), d(new KOpenWithDialogPrivate(this))
+    : QDialog(parent)
+    , d(new KOpenWithDialogPrivate(this))
 {
     setObjectName(QStringLiteral("openwith"));
     setModal(true);
     setWindowTitle(i18n("Choose Application"));
-    QString text = i18n("<qt>Select a program. "
-                        "If the program is not listed, enter the name or click "
-                        "the browse button.</qt>");
+    QString text = i18n(
+        "<qt>Select a program. "
+        "If the program is not listed, enter the name or click "
+        "the browse button.</qt>");
     d->qMimeType.clear();
     d->init(text, QString());
 }
@@ -688,18 +694,18 @@ void KOpenWithDialogPrivate::init(const QString &_text, const QString &_value)
     }
 
     edit->setText(_value);
-    edit->setWhatsThis(i18n(
-                           "Following the command, you can have several place holders which will be replaced "
-                           "with the actual values when the actual program is run:\n"
-                           "%f - a single file name\n"
-                           "%F - a list of files; use for applications that can open several local files at once\n"
-                           "%u - a single URL\n"
-                           "%U - a list of URLs\n"
-                           "%d - the directory of the file to open\n"
-                           "%D - a list of directories\n"
-                           "%i - the icon\n"
-                           "%m - the mini-icon\n"
-                           "%c - the comment"));
+    edit->setWhatsThis(
+        i18n("Following the command, you can have several place holders which will be replaced "
+             "with the actual values when the actual program is run:\n"
+             "%f - a single file name\n"
+             "%F - a list of files; use for applications that can open several local files at once\n"
+             "%u - a single URL\n"
+             "%U - a list of URLs\n"
+             "%d - the directory of the file to open\n"
+             "%D - a list of directories\n"
+             "%i - the icon\n"
+             "%m - the mini-icon\n"
+             "%c - the comment"));
 
     topLayout->addWidget(edit);
 
@@ -710,7 +716,9 @@ void KOpenWithDialogPrivate::init(const QString &_text, const QString &_value)
     }
 
     QObject::connect(edit, &KUrlRequester::textChanged, q, &KOpenWithDialog::slotTextChanged);
-    QObject::connect(edit, &KUrlRequester::urlSelected, q, [this]() { _k_slotFileSelected(); });
+    QObject::connect(edit, &KUrlRequester::urlSelected, q, [this]() {
+        _k_slotFileSelected();
+    });
 
     view = new KApplicationView(q);
     QTreeViewProxyFilter *proxyModel = new QTreeViewProxyFilter(view);
@@ -725,7 +733,9 @@ void KOpenWithDialogPrivate::init(const QString &_text, const QString &_value)
 
     QObject::connect(view, &KApplicationView::selected, q, &KOpenWithDialog::slotSelected);
     QObject::connect(view, &KApplicationView::highlighted, q, &KOpenWithDialog::slotHighlighted);
-    QObject::connect(view, &KApplicationView::doubleClicked, q, [this]() { _k_slotDbClick(); });
+    QObject::connect(view, &KApplicationView::doubleClicked, q, [this]() {
+        _k_slotDbClick();
+    });
 
     if (!qMimeType.isNull()) {
         remember = new QCheckBox(i18n("&Remember application association for all files of type\n\"%1\" (%2)", qMimeTypeComment, qMimeType));
@@ -735,7 +745,7 @@ void KOpenWithDialogPrivate::init(const QString &_text, const QString &_value)
         remember = nullptr;
     }
 
-    //Advanced options
+    // Advanced options
     dialogExtension = new KCollapsibleGroupBox(q);
     dialogExtension->setTitle(i18n("Terminal options"));
 
@@ -785,10 +795,10 @@ void KOpenWithDialogPrivate::init(const QString &_text, const QString &_value)
     topLayout->addWidget(buttonBox);
 
     q->setMinimumSize(q->minimumSizeHint());
-    //edit->setText( _value );
+    // edit->setText( _value );
     // The resize is what caused "can't click on items before clicking on Name header" in previous versions.
     // Probably due to the resizeEvent handler using width().
-    q->resize( q->minimumWidth(), 0.6 * q->screen()->availableGeometry().height());
+    q->resize(q->minimumWidth(), 0.6 * q->screen()->availableGeometry().height());
     edit->setFocus();
     q->slotTextChanged();
 }
@@ -833,11 +843,11 @@ void KOpenWithDialog::slotTextChanged()
     }
     d->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(!d->edit->text().isEmpty() || d->curService);
 
-    //Update the filter regexp with the new text in the lineedit
+    // Update the filter regexp with the new text in the lineedit
     d->view->proxyModel()->setFilterFixedString(d->edit->text());
 
-    //Expand all the nodes when the search string is 3 characters long
-    //If the search string doesn't match anything there will be no nodes to expand
+    // Expand all the nodes when the search string is 3 characters long
+    // If the search string doesn't match anything there will be no nodes to expand
     if (d->edit->text().size() > 2) {
         d->view->expandAll();
         QAbstractItemModel *model = d->view->model();
@@ -1013,7 +1023,7 @@ bool KOpenWithDialogPrivate::checkAccept()
         // qDebug() << "Setting m_command to" << m_command;
     }
     if (m_pService && terminal->isChecked() != m_pService->terminal()) {
-        m_pService = nullptr;    // It's not exactly this service we're running
+        m_pService = nullptr; // It's not exactly this service we're running
     }
 
     const bool bRemember = remember && remember->isChecked();
@@ -1031,8 +1041,7 @@ bool KOpenWithDialogPrivate::checkAccept()
             if (configPath.isEmpty()) {
                 m_pService = new KService(initialServiceName, fullExec, QString());
             } else {
-                if (!typedExec.contains(QLatin1String("%u"), Qt::CaseInsensitive) &&
-                        !typedExec.contains(QLatin1String("%f"), Qt::CaseInsensitive)) {
+                if (!typedExec.contains(QLatin1String("%u"), Qt::CaseInsensitive) && !typedExec.contains(QLatin1String("%f"), Qt::CaseInsensitive)) {
                     int index = serviceExec.indexOf(QLatin1String("%u"), 0, Qt::CaseInsensitive);
                     if (index == -1) {
                         index = serviceExec.indexOf(QLatin1String("%f"), 0, Qt::CaseInsensitive);

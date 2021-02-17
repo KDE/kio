@@ -110,9 +110,7 @@ void CommandLauncherJobTest::startProcessWithArgs()
     const QString executable = "cp";
 #endif
 
-    auto *job = new KIO::CommandLauncherJob(executable, {
-        srcPath, destName
-    }, this);
+    auto *job = new KIO::CommandLauncherJob(executable, {srcPath, destName}, this);
     job->setWorkingDirectory(srcDir);
 
     job->start();
@@ -171,9 +169,7 @@ void CommandLauncherJobTest::startProcessWithSpacesInExecutablePath()
     const QString executable = srcDir + '/' + executableFileName;
     QVERIFY(QFile::copy(executablePath, executable));
 
-    auto *job = new KIO::CommandLauncherJob(executable, {
-        srcPath, destName
-    }, this);
+    auto *job = new KIO::CommandLauncherJob(executable, {srcPath, destName}, this);
     job->setWorkingDirectory(srcDir);
 
     job->start();

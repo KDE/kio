@@ -7,12 +7,12 @@
 
 #include "authinfo.h"
 
+#include <QDBusArgument>
+#include <QDBusMetaType>
+#include <QDataStream>
 #include <QDir>
 #include <QFile>
 #include <QTextStream>
-#include <QDataStream>
-#include <QDBusArgument>
-#include <QDBusMetaType>
 
 #include <QStandardPaths>
 
@@ -29,9 +29,9 @@ public:
     }
 
     ExtraField(const ExtraField &other)
-        : customTitle(other.customTitle),
-          flags(other.flags),
-          value(other.value)
+        : customTitle(other.customTitle)
+        , flags(other.flags)
+        , value(other.value)
     {
     }
 
@@ -49,7 +49,7 @@ public:
 };
 Q_DECLARE_METATYPE(ExtraField)
 
-static QDataStream &operator<< (QDataStream &s, const ExtraField &extraField)
+static QDataStream &operator<<(QDataStream &s, const ExtraField &extraField)
 {
     s << extraField.customTitle;
     s << static_cast<int>(extraField.flags);
@@ -57,7 +57,7 @@ static QDataStream &operator<< (QDataStream &s, const ExtraField &extraField)
     return s;
 }
 
-static QDataStream &operator>> (QDataStream &s, ExtraField &extraField)
+static QDataStream &operator>>(QDataStream &s, ExtraField &extraField)
 {
     s >> extraField.customTitle;
     int i;
@@ -70,8 +70,7 @@ static QDataStream &operator>> (QDataStream &s, ExtraField &extraField)
 static QDBusArgument &operator<<(QDBusArgument &argument, const ExtraField &extraField)
 {
     argument.beginStructure();
-    argument << extraField.customTitle << static_cast<int>(extraField.flags)
-             << QDBusVariant(extraField.value);
+    argument << extraField.customTitle << static_cast<int>(extraField.flags) << QDBusVariant(extraField.value);
     argument.endStructure();
     return argument;
 }
@@ -98,7 +97,8 @@ public:
 
 //////
 
-AuthInfo::AuthInfo() : d(new AuthInfoPrivate())
+AuthInfo::AuthInfo()
+    : d(new AuthInfoPrivate())
 {
     modified = false;
     readOnly = false;
@@ -107,7 +107,8 @@ AuthInfo::AuthInfo() : d(new AuthInfoPrivate())
     AuthInfo::registerMetaTypes();
 }
 
-AuthInfo::AuthInfo(const AuthInfo &info) : d(new AuthInfoPrivate())
+AuthInfo::AuthInfo(const AuthInfo &info)
+    : d(new AuthInfoPrivate())
 {
     (*this) = info;
     AuthInfo::registerMetaTypes();
@@ -118,7 +119,7 @@ AuthInfo::~AuthInfo()
     delete d;
 }
 
-AuthInfo &AuthInfo::operator= (const AuthInfo &info)
+AuthInfo &AuthInfo::operator=(const AuthInfo &info)
 {
     url = info.url;
     username = info.username;
@@ -187,35 +188,26 @@ void AuthInfo::registerMetaTypes()
 
 /////
 
-QDataStream &KIO::operator<< (QDataStream &s, const AuthInfo &a)
+QDataStream &KIO::operator<<(QDataStream &s, const AuthInfo &a)
 {
-    s << quint8(1)
-      << a.url << a.username << a.password << a.prompt << a.caption
-      << a.comment << a.commentLabel << a.realmValue << a.digestInfo
-      << a.verifyPath << a.readOnly << a.keepPassword << a.modified
-      << a.d->extraFields;
+    s << quint8(1) << a.url << a.username << a.password << a.prompt << a.caption << a.comment << a.commentLabel << a.realmValue << a.digestInfo << a.verifyPath
+      << a.readOnly << a.keepPassword << a.modified << a.d->extraFields;
     return s;
 }
 
-QDataStream &KIO::operator>> (QDataStream &s, AuthInfo &a)
+QDataStream &KIO::operator>>(QDataStream &s, AuthInfo &a)
 {
     quint8 version;
-    s >> version
-      >> a.url >> a.username >> a.password >> a.prompt >> a.caption
-      >> a.comment >> a.commentLabel >> a.realmValue >> a.digestInfo
-      >> a.verifyPath >> a.readOnly >> a.keepPassword >> a.modified
-      >> a.d->extraFields;
+    s >> version >> a.url >> a.username >> a.password >> a.prompt >> a.caption >> a.comment >> a.commentLabel >> a.realmValue >> a.digestInfo >> a.verifyPath
+        >> a.readOnly >> a.keepPassword >> a.modified >> a.d->extraFields;
     return s;
 }
 
 QDBusArgument &KIO::operator<<(QDBusArgument &argument, const AuthInfo &a)
 {
     argument.beginStructure();
-    argument << quint8(1)
-             << a.url.toString() << a.username << a.password << a.prompt << a.caption
-             << a.comment << a.commentLabel << a.realmValue << a.digestInfo
-             << a.verifyPath << a.readOnly << a.keepPassword << a.modified
-             << a.d->extraFields;
+    argument << quint8(1) << a.url.toString() << a.username << a.password << a.prompt << a.caption << a.comment << a.commentLabel << a.realmValue
+             << a.digestInfo << a.verifyPath << a.readOnly << a.keepPassword << a.modified << a.d->extraFields;
     argument.endStructure();
     return argument;
 }
@@ -226,11 +218,8 @@ const QDBusArgument &KIO::operator>>(const QDBusArgument &argument, AuthInfo &a)
     quint8 version;
 
     argument.beginStructure();
-    argument >> version
-             >> url >> a.username >> a.password >> a.prompt >> a.caption
-             >> a.comment >> a.commentLabel >> a.realmValue >> a.digestInfo
-             >> a.verifyPath >> a.readOnly >> a.keepPassword >> a.modified
-             >> a.d->extraFields;
+    argument >> version >> url >> a.username >> a.password >> a.prompt >> a.caption >> a.comment >> a.commentLabel >> a.realmValue >> a.digestInfo
+        >> a.verifyPath >> a.readOnly >> a.keepPassword >> a.modified >> a.d->extraFields;
     argument.endStructure();
 
     a.url = QUrl(url);
@@ -244,9 +233,10 @@ class Q_DECL_HIDDEN NetRC::NetRCPrivate
 {
 public:
     NetRCPrivate()
-        : isDirty(false),
-          index(-1)
-    {}
+        : isDirty(false)
+        , index(-1)
+    {
+    }
     QString extract(const QString &buf, const QString &key);
     void getMachinePart(const QString &line);
     void getMacdefPart(const QString &line);
@@ -280,10 +270,9 @@ NetRC *NetRC::self()
     return instance;
 }
 
-bool NetRC::lookup(const QUrl &url, AutoLogin &login, bool userealnetrc,
-                   const QString &_type, LookUpMode mode)
+bool NetRC::lookup(const QUrl &url, AutoLogin &login, bool userealnetrc, const QString &_type, LookUpMode mode)
 {
-    //qDebug() << "AutoLogin lookup for: " << url.host();
+    // qDebug() << "AutoLogin lookup for: " << url.host();
     if (!url.isValid()) {
         return false;
     }
@@ -300,7 +289,7 @@ bool NetRC::lookup(const QUrl &url, AutoLogin &login, bool userealnetrc,
         bool kionetrcStatus = parse(filename);
         bool netrcStatus = false;
         if (userealnetrc) {
-            filename =  QDir::homePath() + QLatin1String("/.netrc");
+            filename = QDir::homePath() + QLatin1String("/.netrc");
             netrcStatus = parse(filename);
         }
 
@@ -320,9 +309,7 @@ bool NetRC::lookup(const QUrl &url, AutoLogin &login, bool userealnetrc,
     }
 
     for (const AutoLogin &log : l) {
-        if ((mode & defaultOnly) == defaultOnly &&
-                log.machine == QLatin1String("default") &&
-                (login.login.isEmpty() || login.login == log.login)) {
+        if ((mode & defaultOnly) == defaultOnly && log.machine == QLatin1String("default") && (login.login.isEmpty() || login.login == log.login)) {
             login.type = log.type;
             login.machine = log.machine;
             login.login = log.login;
@@ -330,9 +317,7 @@ bool NetRC::lookup(const QUrl &url, AutoLogin &login, bool userealnetrc,
             login.macdef = log.macdef;
         }
 
-        if ((mode & presetOnly) == presetOnly &&
-                log.machine == QLatin1String("preset") &&
-                (login.login.isEmpty() || login.login == log.login)) {
+        if ((mode & presetOnly) == presetOnly && log.machine == QLatin1String("preset") && (login.login.isEmpty() || login.login == log.login)) {
             login.type = log.type;
             login.machine = log.machine;
             login.login = log.login;
@@ -340,9 +325,7 @@ bool NetRC::lookup(const QUrl &url, AutoLogin &login, bool userealnetrc,
             login.macdef = log.macdef;
         }
 
-        if ((mode & exactOnly) == exactOnly &&
-                log.machine == url.host() &&
-                (login.login.isEmpty() || login.login == log.login)) {
+        if ((mode & exactOnly) == exactOnly && log.machine == url.host() && (login.login.isEmpty() || login.login == log.login)) {
             login.type = log.type;
             login.machine = log.machine;
             login.login = log.login;
@@ -363,10 +346,8 @@ void NetRC::reload()
 bool NetRC::parse(const QString &fileName)
 {
     QFile file(fileName);
-    if (file.permissions() != (QFile::ReadOwner | QFile::WriteOwner
-                               | QFile::ReadUser | QFile::WriteUser)) {
+    if (file.permissions() != (QFile::ReadOwner | QFile::WriteOwner | QFile::ReadUser | QFile::WriteUser)) {
         return false;
-
     }
     if (!file.open(QIODevice::ReadOnly)) {
         return false;
@@ -386,9 +367,7 @@ bool NetRC::parse(const QString &fileName)
 
         // If line refers to a machine, maybe it is spread in more lines.
         // getMachinePart() will take care of getting all the info and putting it into loginMap.
-        if ((line.startsWith(QLatin1String("machine"))
-                || line.startsWith(QLatin1String("default"))
-                || line.startsWith(QLatin1String("preset")))) {
+        if ((line.startsWith(QLatin1String("machine")) || line.startsWith(QLatin1String("default")) || line.startsWith(QLatin1String("preset")))) {
             d->getMachinePart(line);
             continue;
         }

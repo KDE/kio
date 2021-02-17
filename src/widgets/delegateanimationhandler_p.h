@@ -13,20 +13,18 @@
 #include <QMap>
 #include <QPersistentModelIndex>
 #include <QStyle>
-#include <QTimeLine>
 #include <QTime>
+#include <QTimeLine>
 #include <QTimer>
 
 class QAbstractItemView;
 
 namespace KIO
 {
-
 class CachedRendering : public QObject
 {
     Q_OBJECT
 public:
-
     CachedRendering(QStyle::State state, const QSize &size, const QModelIndex &validityIndex, qreal devicePixelRatio = 1.0);
     bool checkValidity(QStyle::State current) const
     {
@@ -51,11 +49,11 @@ public:
     AnimationState(const AnimationState &) = delete;
     AnimationState &operator=(const AnimationState &) = delete;
 
-    //Progress of the mouse hovering animation
+    // Progress of the mouse hovering animation
     qreal hoverProgress() const;
-    //Progress of the icon fading animation
+    // Progress of the icon fading animation
     qreal fadeProgress() const;
-    //Angle of the painter, to paint the animation for a file job on an item
+    // Angle of the painter, to paint the animation for a file job on an item
     qreal jobAnimationAngle() const;
 
     void setJobAnimation(bool value);
@@ -65,15 +63,15 @@ public:
     {
         return renderCache;
     }
-    //The previous render-cache is deleted, if there was one
+    // The previous render-cache is deleted, if there was one
     void setCachedRendering(CachedRendering *rendering)
     {
         delete renderCache;
         renderCache = rendering;
     }
 
-    //Returns current cached rendering, and removes it from this state.
-    //The caller has the ownership.
+    // Returns current cached rendering, and removes it from this state.
+    // The caller has the ownership.
     CachedRendering *takeCachedRendering()
     {
         CachedRendering *ret = renderCache;
@@ -85,7 +83,7 @@ public:
     {
         return fadeFromRenderCache;
     }
-    //The previous render-cache is deleted, if there was one
+    // The previous render-cache is deleted, if there was one
     void setCachedRenderingFadeFrom(CachedRendering *rendering)
     {
         delete fadeFromRenderCache;
@@ -151,7 +149,7 @@ private:
     QMap<const QAbstractItemView *, AnimationList *> animationLists;
     QElapsedTimer fadeInAddTime;
     QBasicTimer timer;
-    //Icon sequence handling:
+    // Icon sequence handling:
     QPersistentModelIndex sequenceModelIndex;
     QTimer iconSequenceTimer;
     int currentSequenceIndex;

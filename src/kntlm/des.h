@@ -21,9 +21,7 @@ typedef struct des_key {
     char fperm[16][16][8];
 } DES_KEY;
 
-int
-ntlm_des_ecb_encrypt(const void *plaintext, int len, DES_KEY *akey, unsigned char output[8]);
-int
-ntlm_des_set_key(DES_KEY *dkey, char *user_key, int len);
+int ntlm_des_ecb_encrypt(const void *plaintext, int len, DES_KEY *akey, unsigned char output[8]);
+int ntlm_des_set_key(DES_KEY *dkey, char *user_key, int len);
 
 #endif /*  KNTLM_DES_H */

@@ -9,19 +9,19 @@
 
 #include <QtTestWidgets>
 
-#include "kiotesthelper.h"
 #include "clipboardupdater_p.h"
+#include "kiotesthelper.h"
 
+#include <kio/copyjob.h>
+#include <kio/deletejob.h>
 #include <kio/job.h>
 #include <kio/paste.h>
 #include <kio/pastejob.h>
-#include <kio/copyjob.h>
-#include <kio/deletejob.h>
 
-#include <QTemporaryDir>
-#include <QClipboard>
 #include <QApplication>
+#include <QClipboard>
 #include <QMimeData>
+#include <QTemporaryDir>
 
 QTEST_MAIN(ClipboardUpdaterTest)
 
@@ -162,4 +162,3 @@ void ClipboardUpdaterTest::testPasteAfterDeleteFiles()
     QVERIFY(!job->exec());
     QCOMPARE(job->error(), int(KIO::ERR_NO_CONTENT));
 }
-

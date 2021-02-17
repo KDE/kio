@@ -10,7 +10,8 @@
 
 using namespace KDEPrivate;
 
-KFileWidgetDockTitleBar::KFileWidgetDockTitleBar(QWidget *parent) : QWidget(parent)
+KFileWidgetDockTitleBar::KFileWidgetDockTitleBar(QWidget *parent)
+    : QWidget(parent)
 {
 }
 

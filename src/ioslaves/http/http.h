@@ -12,14 +12,14 @@
 #ifndef HTTP_H
 #define HTTP_H
 
-#include <QList>
-#include <QStringList>
 #include <QDateTime>
+#include <QList>
 #include <QLocalSocket>
+#include <QStringList>
 #include <QUrl>
 
-#include "kio/tcpslavebase.h"
 #include "httpmethod_p.h"
+#include "kio/tcpslavebase.h"
 
 class QDomNodeList;
 class QFile;
@@ -37,15 +37,14 @@ class HTTPProtocol : public QObject, public KIO::TCPSlaveBase
 {
     Q_OBJECT
 public:
-    HTTPProtocol(const QByteArray &protocol, const QByteArray &pool,
-                 const QByteArray &app);
+    HTTPProtocol(const QByteArray &protocol, const QByteArray &pool, const QByteArray &app);
     virtual ~HTTPProtocol();
 
     /** HTTP version **/
-    enum HTTP_REV    {HTTP_None, HTTP_Unknown, HTTP_10, HTTP_11, SHOUTCAST};
+    enum HTTP_REV { HTTP_None, HTTP_Unknown, HTTP_10, HTTP_11, SHOUTCAST };
 
     /** Authorization method used **/
-    enum AUTH_SCHEME   {AUTH_None, AUTH_Basic, AUTH_NTLM, AUTH_Digest, AUTH_Negotiate};
+    enum AUTH_SCHEME { AUTH_None, AUTH_Basic, AUTH_NTLM, AUTH_Digest, AUTH_Negotiate };
 
     /** DAV-specific request elements for the current connection **/
     struct DAVRequest {
@@ -86,7 +85,7 @@ public:
         QByteArray serialize() const;
         bool deserialize(const QByteArray &);
 
-        KIO::CacheControl policy;    // ### initialize in the constructor?
+        KIO::CacheControl policy; // ### initialize in the constructor?
         bool useCache; // Whether the cache should be used
         enum CacheIOMode ioMode; // Write to cache file, read from it, or don't use it.
         quint32 fileUseCount;
@@ -120,14 +119,14 @@ public:
         QString encoded_hostname; //### can be calculated on-the-fly
         // Persistent connections
         bool isKeepAlive;
-        int keepAliveTimeout;   // Timeout in seconds.
+        int keepAliveTimeout; // Timeout in seconds.
 
         KIO::HTTP_METHOD method;
-        QString methodStringOverride;     // Overrides method if non-empty.
-        QByteArray sentMethodString;      // Stores http method actually sent
+        QString methodStringOverride; // Overrides method if non-empty.
+        QByteArray sentMethodString; // Stores http method actually sent
         KIO::filesize_t offset;
         KIO::filesize_t endoffset;
-        QString windowId;                 // Window Id this request is related to.
+        QString windowId; // Window Id this request is related to.
         // Header fields
         QString referrer;
         QString charsets;
@@ -182,8 +181,7 @@ public:
                 url.setUserName(request.url.userName());
                 url.setPassword(request.url.password());
             }
-            if (proxyUrl.host() == request.proxyUrl.host() &&
-                    proxyUrl.port() == request.proxyUrl.port()) {
+            if (proxyUrl.host() == request.proxyUrl.host() && proxyUrl.port() == request.proxyUrl.port()) {
                 proxyUrl.setUserName(request.proxyUrl.userName());
                 proxyUrl.setPassword(request.proxyUrl.password());
             }
@@ -205,16 +203,15 @@ public:
         bool isPersistentProxyConnection;
     };
 
-//---------------------- Re-implemented methods ----------------
-    virtual void setHost(const QString &host, quint16 port, const QString &user,
-                         const QString &pass) override;
+    //---------------------- Re-implemented methods ----------------
+    virtual void setHost(const QString &host, quint16 port, const QString &user, const QString &pass) override;
 
     void slave_status() override;
 
     void get(const QUrl &url) override;
     void put(const QUrl &url, int _mode, KIO::JobFlags flags) override;
 
-//----------------- Re-implemented methods for WebDAV -----------
+    //----------------- Re-implemented methods for WebDAV -----------
     void listDir(const QUrl &url) override;
     void mkdir(const QUrl &url, int _permissions) override;
 
@@ -229,8 +226,7 @@ public:
     void davGeneric(const QUrl &url, KIO::HTTP_METHOD method, qint64 size = -1);
 
     // Send requests to lock and unlock resources
-    void davLock(const QUrl &url, const QString &scope,
-                 const QString &type, const QString &owner);
+    void davLock(const QUrl &url, const QString &scope, const QString &type, const QString &owner);
     void davUnlock(const QUrl &url);
 
     // Calls httpClose() and finished()
@@ -238,7 +234,7 @@ public:
 
     // Handle error conditions
     QString davError(int code = -1, const QString &url = QString());
-//---------------------------- End WebDAV -----------------------
+    //---------------------------- End WebDAV -----------------------
 
     /**
      * Special commands supported by this slave :
@@ -289,22 +285,22 @@ protected Q_SLOTS:
     void saveProxyAuthenticationForSocket();
 
 protected:
-    int readChunked();    ///< Read a chunk
-    int readLimited();    ///< Read maximum m_iSize bytes.
-    int readUnlimited();  ///< Read as much as possible.
+    int readChunked(); ///< Read a chunk
+    int readLimited(); ///< Read maximum m_iSize bytes.
+    int readUnlimited(); ///< Read as much as possible.
 
     /**
-      * A thin wrapper around TCPSlaveBase::write() that will retry writing as
-      * long as no error occurs.
-      */
+     * A thin wrapper around TCPSlaveBase::write() that will retry writing as
+     * long as no error occurs.
+     */
     ssize_t write(const void *buf, size_t nbytes);
     using SlaveBase::write;
 
     /**
-      * Add an encoding on to the appropriate stack this
-      * is necessary because transfer encodings and
-      * content encodings must be handled separately.
-      */
+     * Add an encoding on to the appropriate stack this
+     * is necessary because transfer encodings and
+     * content encodings must be handled separately.
+     */
     void addEncoding(const QString &, QStringList &);
 
     quint16 defaultPort() const;
@@ -373,8 +369,7 @@ protected:
     void davSetRequest(const QByteArray &requestXML);
     void davStatList(const QUrl &url, bool stat = true);
     void davParsePropstats(const QDomNodeList &propstats, KIO::UDSEntry &entry);
-    void davParseActiveLocks(const QDomNodeList &activeLocks,
-                             uint &lockCount);
+    void davParseActiveLocks(const QDomNodeList &activeLocks, uint &lockCount);
 
     /**
      * Parses a date & time string
@@ -488,13 +483,13 @@ protected:
     bool handleAuthenticationHeader(const HeaderTokenizer *tokenizer);
 
     /**
-      * Handles file -> webdav put requests.
-      */
-    void copyPut(const QUrl& src, const QUrl& dest, KIO::JobFlags flags);
+     * Handles file -> webdav put requests.
+     */
+    void copyPut(const QUrl &src, const QUrl &dest, KIO::JobFlags flags);
 
     /**
-      * Stats a remote DAV file and returns true if it already exists.
-      */
+     * Stats a remote DAV file and returns true if it already exists.
+     */
     bool davDestinationExists();
 
     void virtual_hook(int id, void *data) override;
@@ -509,8 +504,7 @@ protected:
      * are used (if any). In case of failure the credential cache is
      * queried and if this fails the user is asked to provide credentials
      * interactively (unless forbidden by metadata) */
-    enum TriedCredentials
-    {
+    enum TriedCredentials {
         NoCredentials = 0,
         JobCredentials,
         CachedCredentials,
@@ -534,7 +528,7 @@ protected:
     bool m_isEOF;
     bool m_isEOD;
 
-//--- Settings related to a single response only
+    //--- Settings related to a single response only
     bool m_isRedirection; ///< Indicates current request is a redirection
     QStringList m_responseHeaders; ///< All headers
 
@@ -544,14 +538,14 @@ protected:
     QString m_contentMD5;
     QString m_mimeType; // TODO QByteArray?
 
-//--- WebDAV
+    //--- WebDAV
     // Data structure to hold data which will be passed to an internal func.
     QByteArray m_webDavDataBuf;
     QStringList m_davCapabilities;
 
     bool m_davHostOk;
     bool m_davHostUnsupported;
-//----------
+    //----------
 
     // Mimetype determination
     bool m_cpMimeBuffer;

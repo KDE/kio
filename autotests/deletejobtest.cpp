@@ -6,12 +6,12 @@
 
 #include "deletejobtest.h"
 
-#include <QTest>
 #include <QDir>
 #include <QFile>
+#include <QSignalSpy>
 #include <QTemporaryDir>
 #include <QTemporaryFile>
-#include <QSignalSpy>
+#include <QTest>
 
 #include <kio/deletejob.h>
 

@@ -19,6 +19,7 @@ public:
     Server *server;
     KTcpSocketTest();
     ~KTcpSocketTest();
+
 private:
     void invokeOnServer(const char *);
 private Q_SLOTS:
@@ -31,8 +32,9 @@ private Q_SLOTS:
     void statesLocalHost();
     void statesManyHosts();
     void errors();
-public Q_SLOTS: //auxiliary slots to check signal emission from the socket
+public Q_SLOTS: // auxiliary slots to check signal emission from the socket
     void states_hostFound();
+
 private:
     QThread *m_thread;
 };
@@ -49,6 +51,7 @@ public:
     quint16 port;
     explicit Server(quint16 _port);
     ~Server();
+
 private:
     void cleanupSocket();
 

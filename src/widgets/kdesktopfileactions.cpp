@@ -11,16 +11,16 @@
 #include "../core/config-kmountpoint.h" // for HAVE_VOLMGT (yes I cheat a bit)
 #include "kio_widgets_debug.h"
 
-#include <KIO/ApplicationLauncherJob>
-#include "krun.h"
 #include "kautomount.h"
+#include "krun.h"
+#include <KDialogJobUiDelegate>
+#include <KIO/ApplicationLauncherJob>
 #include <KMessageBox>
 #include <kdirnotify.h>
-#include <KDialogJobUiDelegate>
 #include <kmountpoint.h>
 
-#include <KDesktopFile>
 #include <KConfigGroup>
+#include <KDesktopFile>
 #include <KLocalizedString>
 #include <KService>
 
@@ -57,13 +57,15 @@ bool KDesktopFileActions::runWithStartup(const QUrl &u, bool _is_local, const QB
 
     KDesktopFile cfg(u.toLocalFile());
     if (!cfg.desktopGroup().hasKey("Type")) {
-        QString tmp = i18n("The desktop entry file %1 "
-                           "has no Type=... entry.", u.toLocalFile());
+        QString tmp = i18n(
+            "The desktop entry file %1 "
+            "has no Type=... entry.",
+            u.toLocalFile());
         KMessageBox::error(nullptr, tmp);
         return false;
     }
 
-    //qDebug() << "TYPE = " << type.data();
+    // qDebug() << "TYPE = " << type.data();
 
     if (cfg.hasDeviceType()) {
         return runFSDevice(u, cfg, asn);
@@ -75,7 +77,7 @@ bool KDesktopFileActions::runWithStartup(const QUrl &u, bool _is_local, const QB
         return runLink(u, cfg, asn);
     }
 
-    QString tmp = i18n("The desktop entry of type\n%1\nis unknown.",  cfg.readType());
+    QString tmp = i18n("The desktop entry of type\n%1\nis unknown.", cfg.readType());
     KMessageBox::error(nullptr, tmp);
 
     return false;
@@ -90,7 +92,7 @@ static bool runFSDevice(const QUrl &_url, const KDesktopFile &cfg, const QByteAr
     QString dev = cfg.readDevice();
 
     if (dev.isEmpty()) {
-        QString tmp = i18n("The desktop entry file\n%1\nis of type FSDevice but has no Dev=... entry.",  _url.toLocalFile());
+        QString tmp = i18n("The desktop entry file\n%1\nis of type FSDevice but has no Dev=... entry.", _url.toLocalFile());
         KMessageBox::error(nullptr, tmp);
         return retval;
     }
@@ -110,7 +112,7 @@ static bool runFSDevice(const QUrl &_url, const KDesktopFile &cfg, const QByteAr
         }
         QString point = cg.readEntry("MountPoint");
 #ifndef Q_OS_WIN
-        (void) new KAutoMount(ro, fstype.toLatin1(), dev, point, _url.toLocalFile());
+        (void)new KAutoMount(ro, fstype.toLatin1(), dev, point, _url.toLocalFile());
 #endif
         retval = false;
     }
@@ -124,7 +126,7 @@ static bool runLink(const QUrl &_url, const KDesktopFile &cfg, const QByteArray 
 {
     QString u = cfg.readUrl();
     if (u.isEmpty()) {
-        QString tmp = i18n("The desktop entry file\n%1\nis of type Link but has no URL=... entry.",  _url.toString());
+        QString tmp = i18n("The desktop entry file\n%1\nis of type Link but has no URL=... entry.", _url.toString());
         KMessageBox::error(nullptr, tmp);
         return false;
     }
@@ -156,10 +158,10 @@ QList<KServiceAction> KDesktopFileActions::builtinServices(const QUrl &_url)
     bool offerUnmount = false;
 
     KDesktopFile cfg(_url.toLocalFile());
-    if (cfg.hasDeviceType()) {    // url to desktop file
+    if (cfg.hasDeviceType()) { // url to desktop file
         const QString dev = cfg.readDevice();
         if (dev.isEmpty()) {
-            QString tmp = i18n("The desktop entry file\n%1\nis of type FSDevice but has no Dev=... entry.",  _url.toLocalFile());
+            QString tmp = i18n("The desktop entry file\n%1\nis of type FSDevice but has no Dev=... entry.", _url.toLocalFile());
             KMessageBox::error(nullptr, tmp);
             return result;
         }
@@ -222,23 +224,22 @@ QList<KServiceAction> KDesktopFileActions::userDefinedServices(const KService &s
     if (!actionMenu.isEmpty()) {
         const QStringList dbuscall = actionMenu.split(QLatin1Char(' '));
         if (dbuscall.count() >= 4) {
-            const QString &app       = dbuscall.at(0);
-            const QString &object    = dbuscall.at(1);
+            const QString &app = dbuscall.at(0);
+            const QString &object = dbuscall.at(1);
             const QString &interface = dbuscall.at(2);
-            const QString &function  = dbuscall.at(3);
+            const QString &function = dbuscall.at(3);
 
             QDBusInterface remote(app, object, interface);
             // Do NOT use QDBus::BlockWithGui here. It runs a nested event loop,
             // in which timers can fire, leading to crashes like #149736.
             QDBusReply<QStringList> reply = remote.call(function, QUrl::toStringList(file_list));
-            keys = reply;               // ensures that the reply was a QStringList
+            keys = reply; // ensures that the reply was a QStringList
             if (keys.isEmpty()) {
                 return result;
             }
         } else {
-            qCWarning(KIO_WIDGETS) << "The desktop file" << service.entryPath()
-                       << "has an invalid X-KDE-GetActionMenu entry."
-                       << "Syntax is: app object interface function";
+            qCWarning(KIO_WIDGETS) << "The desktop file" << service.entryPath() << "has an invalid X-KDE-GetActionMenu entry."
+                                   << "Syntax is: app object interface function";
         }
     }
 
@@ -260,19 +261,19 @@ QList<KServiceAction> KDesktopFileActions::userDefinedServices(const KService &s
 // KF6 TODO remove this method and use ApplicationLauncherJob instead
 void KDesktopFileActions::executeService(const QList<QUrl> &urls, const KServiceAction &action)
 {
-    //qDebug() << "EXECUTING Service " << action.name();
+    // qDebug() << "EXECUTING Service " << action.name();
 
     int actionData = action.data().toInt();
     if (actionData == ST_MOUNT || actionData == ST_UNMOUNT) {
         Q_ASSERT(urls.count() == 1);
         const QString path = urls.first().toLocalFile();
-        //qDebug() << "MOUNT&UNMOUNT";
+        // qDebug() << "MOUNT&UNMOUNT";
 
         KDesktopFile cfg(path);
         if (cfg.hasDeviceType()) { // path to desktop file
             const QString dev = cfg.readDevice();
             if (dev.isEmpty()) {
-                QString tmp = i18n("The desktop entry file\n%1\nis of type FSDevice but has no Dev=... entry.",  path);
+                QString tmp = i18n("The desktop entry file\n%1\nis of type FSDevice but has no Dev=... entry.", path);
                 KMessageBox::error(nullptr /*TODO window*/, tmp);
                 return;
             }
@@ -281,7 +282,7 @@ void KDesktopFileActions::executeService(const QList<QUrl> &urls, const KService
             if (actionData == ST_MOUNT) {
                 // Already mounted? Strange, but who knows ...
                 if (mp) {
-                    //qDebug() << "ALREADY Mounted";
+                    // qDebug() << "ALREADY Mounted";
                     return;
                 }
 
@@ -310,11 +311,10 @@ void KDesktopFileActions::executeService(const QList<QUrl> &urls, const KService
         KIO::ApplicationLauncherJob *job = new KIO::ApplicationLauncherJob(action);
         job->setUrls(urls);
         QObject::connect(job, &KJob::result, qApp, [urls]() {
-                // The action may update the desktop file. Example: eject unmounts (#5129).
-                org::kde::KDirNotify::emitFilesChanged(urls);
-                });
+            // The action may update the desktop file. Example: eject unmounts (#5129).
+            org::kde::KDirNotify::emitFilesChanged(urls);
+        });
         job->setUiDelegate(new KDialogJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, nullptr /*TODO window*/));
         job->start();
     }
 }
-

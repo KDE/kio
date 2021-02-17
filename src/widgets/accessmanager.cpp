@@ -11,27 +11,27 @@
 
 #include "accessmanagerreply_p.h"
 #include "job.h"
-#include <KJobWidgets>
-#include "scheduler.h"
 #include "kio_widgets_debug.h"
+#include "scheduler.h"
 #include <KConfigGroup>
+#include <KJobWidgets>
+#include <KLocalizedString>
 #include <KSharedConfig>
 #include <kprotocolinfo.h>
-#include <KLocalizedString>
 
-#include <QUrl>
-#include <QNetworkCookie>
-#include <QPointer>
-#include <QWidget>
 #include <QDBusInterface>
 #include <QDBusReply>
+#include <QNetworkCookie>
 #include <QNetworkReply>
-#include <QSslCipher>
+#include <QPointer>
 #include <QSslCertificate>
+#include <QSslCipher>
 #include <QSslConfiguration>
+#include <QUrl>
+#include <QWidget>
 
-#define QL1S(x)   QLatin1String(x)
-#define QL1C(x)   QLatin1Char(x)
+#define QL1S(x) QLatin1String(x)
+#define QL1C(x) QLatin1Char(x)
 
 static const QNetworkRequest::Attribute gSynchronousNetworkRequestAttribute = QNetworkRequest::SynchronousRequestAttribute;
 
@@ -48,15 +48,15 @@ static qint64 sizeFromRequest(const QNetworkRequest &req)
 
 namespace KIO
 {
-
 class Q_DECL_HIDDEN AccessManager::AccessManagerPrivate
 {
 public:
     AccessManagerPrivate()
-        : externalContentAllowed(true),
-          emitReadyReadOnMetaDataChange(false),
-          window(nullptr)
-    {}
+        : externalContentAllowed(true)
+        , emitReadyReadOnMetaDataChange(false)
+        , window(nullptr)
+    {
+    }
 
     void setMetaDataForRequest(QNetworkRequest request, KIO::MetaData &metaData);
 
@@ -69,15 +69,15 @@ public:
 
 namespace Integration
 {
-
 class Q_DECL_HIDDEN CookieJar::CookieJarPrivate
 {
 public:
     CookieJarPrivate()
-        : windowId((WId) - 1),
-          isEnabled(true),
-          isStorageDisabled(false)
-    {}
+        : windowId((WId)-1)
+        , isEnabled(true)
+        , isStorageDisabled(false)
+    {
+    }
 
     WId windowId;
     bool isEnabled;
@@ -91,7 +91,8 @@ public:
 using namespace KIO;
 
 AccessManager::AccessManager(QObject *parent)
-    : QNetworkAccessManager(parent), d(new AccessManager::AccessManagerPrivate())
+    : QNetworkAccessManager(parent)
+    , d(new AccessManager::AccessManagerPrivate())
 {
     // KDE Cookiejar (KCookieJar) integration...
     setCookieJar(new KIO::Integration::CookieJar);
@@ -120,7 +121,7 @@ void AccessManager::setCookieJarWindowId(WId id)
         return;
     }
 
-    KIO::Integration::CookieJar *jar = qobject_cast<KIO::Integration::CookieJar *> (cookieJar());
+    KIO::Integration::CookieJar *jar = qobject_cast<KIO::Integration::CookieJar *>(cookieJar());
     if (jar) {
         jar->setWindowId(id);
     }
@@ -141,7 +142,7 @@ void AccessManager::setWindow(QWidget *widget)
         return;
     }
 
-    KIO::Integration::CookieJar *jar = qobject_cast<KIO::Integration::CookieJar *> (cookieJar());
+    KIO::Integration::CookieJar *jar = qobject_cast<KIO::Integration::CookieJar *>(cookieJar());
     if (jar) {
         jar->setWindowId(d->window->winId());
     }
@@ -150,7 +151,7 @@ void AccessManager::setWindow(QWidget *widget)
 #if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 0)
 WId AccessManager::cookieJarWindowid() const
 {
-    KIO::Integration::CookieJar *jar = qobject_cast<KIO::Integration::CookieJar *> (cookieJar());
+    KIO::Integration::CookieJar *jar = qobject_cast<KIO::Integration::CookieJar *>(cookieJar());
     if (jar) {
         return jar->windowId();
     }
@@ -193,10 +194,8 @@ QNetworkReply *AccessManager::createRequest(Operation op, const QNetworkRequest 
 {
     const QUrl reqUrl(req.url());
 
-    if (!d->externalContentAllowed &&
-            !KDEPrivate::AccessManagerReply::isLocalRequest(reqUrl) &&
-            reqUrl.scheme() != QL1S("data")) {
-        //qDebug() << "Blocked: " << reqUrl;
+    if (!d->externalContentAllowed && !KDEPrivate::AccessManagerReply::isLocalRequest(reqUrl) && reqUrl.scheme() != QL1S("data")) {
+        // qDebug() << "Blocked: " << reqUrl;
         return new KDEPrivate::AccessManagerReply(op, req, QNetworkReply::ContentAccessDenied, i18n("Blocked request."), this);
     }
 
@@ -211,12 +210,12 @@ QNetworkReply *AccessManager::createRequest(Operation op, const QNetworkRequest 
 
     switch (op) {
     case HeadOperation: {
-        //qDebug() << "HeadOperation:" << reqUrl;
+        // qDebug() << "HeadOperation:" << reqUrl;
         kioJob = KIO::mimetype(reqUrl, KIO::HideProgressInfo);
         break;
     }
     case GetOperation: {
-        //qDebug() << "GetOperation:" << reqUrl;
+        // qDebug() << "GetOperation:" << reqUrl;
         if (!reqUrl.path().isEmpty() || reqUrl.host().isEmpty()) {
             kioJob = KIO::storedGet(reqUrl, KIO::NoReload, KIO::HideProgressInfo);
         } else {
@@ -229,10 +228,10 @@ QNetworkReply *AccessManager::createRequest(Operation op, const QNetworkRequest 
         break;
     }
     case PutOperation: {
-        //qDebug() << "PutOperation:" << reqUrl;
+        // qDebug() << "PutOperation:" << reqUrl;
         if (outgoingData) {
             Q_ASSERT(outgoingData->isReadable());
-            StoredTransferJob* storedJob = KIO::storedPut(outgoingData, reqUrl, -1, KIO::HideProgressInfo);
+            StoredTransferJob *storedJob = KIO::storedPut(outgoingData, reqUrl, -1, KIO::HideProgressInfo);
             storedJob->setAsyncDataEnabled(outgoingData->isSequential());
 
             QVariant len = req.header(QNetworkRequest::ContentLengthHeader);
@@ -248,26 +247,24 @@ QNetworkReply *AccessManager::createRequest(Operation op, const QNetworkRequest 
     }
     case PostOperation: {
         kioJob = KIO::storedHttpPost(outgoingData, reqUrl, sizeFromRequest(req), KIO::HideProgressInfo);
-        if (!metaData.contains(QLatin1String("content-type")))  {
+        if (!metaData.contains(QLatin1String("content-type"))) {
             const QVariant header = req.header(QNetworkRequest::ContentTypeHeader);
             if (header.isValid()) {
-                metaData.insert(QStringLiteral("content-type"),
-                                (QStringLiteral("Content-Type: ") + header.toString()));
+                metaData.insert(QStringLiteral("content-type"), (QStringLiteral("Content-Type: ") + header.toString()));
             } else {
-                metaData.insert(QStringLiteral("content-type"),
-                                QStringLiteral("Content-Type: application/x-www-form-urlencoded"));
+                metaData.insert(QStringLiteral("content-type"), QStringLiteral("Content-Type: application/x-www-form-urlencoded"));
             }
         }
         break;
     }
     case DeleteOperation: {
-        //qDebug() << "DeleteOperation:" << reqUrl;
+        // qDebug() << "DeleteOperation:" << reqUrl;
         kioJob = KIO::http_delete(reqUrl, KIO::HideProgressInfo);
         break;
     }
     case CustomOperation: {
         const QByteArray &method = req.attribute(QNetworkRequest::CustomVerbAttribute).toByteArray();
-        //qDebug() << "CustomOperation:" << reqUrl << "method:" << method << "outgoing data:" << outgoingData;
+        // qDebug() << "CustomOperation:" << reqUrl << "method:" << method << "outgoing data:" << outgoingData;
 
         if (method.isEmpty()) {
             return new KDEPrivate::AccessManagerReply(op, req, QNetworkReply::ProtocolUnknownError, i18n("Unknown HTTP verb."), this);
@@ -320,11 +317,11 @@ QNetworkReply *AccessManager::createRequest(Operation op, const QNetworkRequest 
         kioJob->setRedirectionHandlingEnabled(true);
         if (kioJob->exec()) {
             QByteArray data;
-            if (StoredTransferJob *storedJob = qobject_cast< KIO::StoredTransferJob * >(kioJob)) {
+            if (StoredTransferJob *storedJob = qobject_cast<KIO::StoredTransferJob *>(kioJob)) {
                 data = storedJob->data();
             }
             reply = new KDEPrivate::AccessManagerReply(op, req, data, kioJob->url(), kioJob->metaData(), this);
-            //qDebug() << "Synchronous XHR:" << reply << reqUrl;
+            // qDebug() << "Synchronous XHR:" << reply << reqUrl;
         } else {
             qCWarning(KIO_WIDGETS) << "Failed to create a synchronous XHR for" << reqUrl;
             qCWarning(KIO_WIDGETS) << "REASON:" << kioJob->errorString();
@@ -356,19 +353,18 @@ QNetworkReply *AccessManager::createRequest(Operation op, const QNetworkRequest 
 
         // Create the reply...
         reply = new KDEPrivate::AccessManagerReply(op, req, kioJob, d->emitReadyReadOnMetaDataChange, this);
-        //qDebug() << reply << reqUrl;
+        // qDebug() << reply << reqUrl;
     }
 
     if (ignoreContentDisposition && reply) {
-        //qDebug() << "Content-Disposition WILL BE IGNORED!";
+        // qDebug() << "Content-Disposition WILL BE IGNORED!";
         reply->setIgnoreContentDisposition(ignoreContentDisposition);
     }
 
     return reply;
 }
 
-static inline
-void moveMetaData(KIO::MetaData &metaData, const QString &metaDataKey, QNetworkRequest &request, const QByteArray &requestKey)
+static inline void moveMetaData(KIO::MetaData &metaData, const QString &metaDataKey, QNetworkRequest &request, const QByteArray &requestKey)
 {
     if (request.hasRawHeader(requestKey)) {
         metaData.insert(metaDataKey, QString::fromUtf8(request.rawHeader(requestKey)));
@@ -386,11 +382,11 @@ void AccessManager::AccessManagerPrivate::setMetaDataForRequest(QNetworkRequest 
 
     metaData.insert(QStringLiteral("PropagateHttpHeader"), QStringLiteral("true"));
 
-    moveMetaData(metaData, QStringLiteral("UserAgent"),    request, QByteArrayLiteral("User-Agent"));
-    moveMetaData(metaData, QStringLiteral("accept"),       request, QByteArrayLiteral("Accept"));
-    moveMetaData(metaData, QStringLiteral("Charsets"),     request, QByteArrayLiteral("Accept-Charset"));
-    moveMetaData(metaData, QStringLiteral("Languages"),    request, QByteArrayLiteral("Accept-Language"));
-    moveMetaData(metaData, QStringLiteral("referrer"),     request, QByteArrayLiteral("Referer")); //Don't try to correct spelling!
+    moveMetaData(metaData, QStringLiteral("UserAgent"), request, QByteArrayLiteral("User-Agent"));
+    moveMetaData(metaData, QStringLiteral("accept"), request, QByteArrayLiteral("Accept"));
+    moveMetaData(metaData, QStringLiteral("Charsets"), request, QByteArrayLiteral("Accept-Charset"));
+    moveMetaData(metaData, QStringLiteral("Languages"), request, QByteArrayLiteral("Accept-Language"));
+    moveMetaData(metaData, QStringLiteral("referrer"), request, QByteArrayLiteral("Referer")); // Don't try to correct spelling!
     moveMetaData(metaData, QStringLiteral("content-type"), request, QByteArrayLiteral("Content-Type"));
 
     if (request.attribute(QNetworkRequest::AuthenticationReuseAttribute) == QNetworkRequest::Manual) {
@@ -466,7 +462,8 @@ bool KIO::Integration::sslConfigFromMetaData(const KIO::MetaData &metadata, QSsl
 }
 
 CookieJar::CookieJar(QObject *parent)
-    : QNetworkCookieJar(parent), d(new CookieJar::CookieJarPrivate)
+    : QNetworkCookieJar(parent)
+    , d(new CookieJar::CookieJarPrivate)
 {
     reparseConfiguration();
 }
@@ -508,7 +505,7 @@ QList<QNetworkCookie> CookieJar::cookiesForUrl(const QUrl &url) const
         const QStringRef name = cookie.leftRef(index);
         const QStringRef value = cookie.rightRef((cookie.length() - index - 1));
         cookieList << QNetworkCookie(name.toUtf8(), value.toUtf8());
-        //qDebug() << "cookie: name=" << name << ", value=" << value;
+        // qDebug() << "cookie: name=" << name << ", value=" << value;
     }
 
     return cookieList;
@@ -531,7 +528,7 @@ bool CookieJar::setCookiesFromUrl(const QList<QNetworkCookie> &cookieList, const
             cookieHeader += cookie.toRawForm();
         }
         kcookiejar.call(QStringLiteral("addCookies"), url.toString(QUrl::RemoveUserInfo), cookieHeader, (qlonglong)d->windowId);
-        //qDebug() << "[" << d->windowId << "]" << cookieHeader << " from " << url;
+        // qDebug() << "[" << d->windowId << "]" << cookieHeader << " from " << url;
     }
 
     return !kcookiejar.lastError().isValid();
@@ -552,4 +549,3 @@ void CookieJar::reparseConfiguration()
     KConfigGroup cfg = KSharedConfig::openConfig(QStringLiteral("kcookiejarrc"), KConfig::NoGlobals)->group("Cookie Policy");
     d->isEnabled = cfg.readEntry("Cookies", true);
 }
-

@@ -12,9 +12,9 @@
 #define NOMINMAX
 
 #include <kio/slavebase.h>
-#include <windows.h>
 #include <shellapi.h>
 #include <shlobj.h>
+#include <windows.h>
 
 #include <KConfig>
 
@@ -46,6 +46,7 @@ public:
     virtual void special(const QByteArray &data);
 
     void updateRecycleBin();
+
 private:
     typedef enum { Copy, Move } CopyOrMove;
     void copyOrMove(const QUrl &src, const QUrl &dest, bool overwrite, CopyOrMove action);

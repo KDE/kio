@@ -7,10 +7,10 @@
 #ifndef SLAVEBASE_H
 #define SLAVEBASE_H
 
+#include "job_base.h" // for KIO::JobFlags
+#include <kio/authinfo.h>
 #include <kio/global.h>
 #include <kio/udsentry.h>
-#include <kio/authinfo.h>
-#include "job_base.h" // for KIO::JobFlags
 
 #include <QByteArray>
 #include <QHostInfo>
@@ -21,7 +21,6 @@ class QUrl;
 
 namespace KIO
 {
-
 class Connection;
 class SlaveBasePrivate;
 
@@ -258,7 +257,7 @@ public:
         WarningYesNoCancel = 4,
         Information = 5,
         SSLMessageBox = 6,
-        //In KMessageBox::DialogType; Sorry = 7, Error = 8, QuestionYesNoCancel = 9
+        // In KMessageBox::DialogType; Sorry = 7, Error = 8, QuestionYesNoCancel = 9
         WarningContinueCancelDetailed = 10,
     };
 
@@ -286,7 +285,8 @@ public:
      *       and for Information, none is used.
      * @return a button code, as defined in ButtonCode, or 0 on communication error.
      */
-    int messageBox(MessageBoxType type, const QString &text,
+    int messageBox(MessageBoxType type,
+                   const QString &text,
                    const QString &caption = QString(),
                    const QString &buttonYes = QString(),
                    const QString &buttonNo = QString());
@@ -305,7 +305,8 @@ public:
      * @param dontAskAgainName the name used to store result from 'Do not ask again' checkbox.
      * @return a button code, as defined in ButtonCode, or 0 on communication error.
      */
-    int messageBox(const QString &text, MessageBoxType type,
+    int messageBox(const QString &text,
+                   MessageBoxType type,
                    const QString &caption = QString(),
                    const QString &buttonYes = QString(),
                    const QString &buttonNo = QString(),
@@ -988,13 +989,13 @@ public:
     void setKillFlag();
 
     /** Internally used
-      * @internal
-    */
+     * @internal
+     */
     void lookupHost(const QString &host);
 
     /** Internally used
-      * @internal
-    */
+     * @internal
+     */
     int waitForHostInfo(QHostInfo &info);
 
     /**
@@ -1006,12 +1007,12 @@ public:
     PrivilegeOperationStatus requestPrivilegeOperation(const QString &operationDetails);
 
     /**
-      * Adds @p action to the list of PolicyKit actions which the
-      * slave is authorized to perform.
-      *
-      * @param action the PolicyKit action
-      * @since 5.45
-      */
+     * Adds @p action to the list of PolicyKit actions which the
+     * slave is authorized to perform.
+     *
+     * @param action the PolicyKit action
+     * @since 5.45
+     */
     void addTemporaryAuthorization(const QString &action);
 
     /**
@@ -1027,13 +1028,13 @@ protected:
      * Name of the protocol supported by this slave
      */
     QByteArray mProtocol;
-    //Often used by TcpSlaveBase and unlikely to change
+    // Often used by TcpSlaveBase and unlikely to change
     MetaData mOutgoingMetaData;
     MetaData mIncomingMetaData;
 
     enum VirtualFunctionId {
         AppConnectionMade = 0,
-        GetFileSystemFreeSpace = 1,   // KF6 TODO: Turn into a virtual method
+        GetFileSystemFreeSpace = 1, // KF6 TODO: Turn into a virtual method
         Truncate = 2, // KF6 TODO: Turn into a virtual method
     };
     virtual void virtual_hook(int id, void *data);
@@ -1041,7 +1042,8 @@ protected:
 private:
     // Convenience function converting mProtocol to QString as unsupportedActionErrorString(), which
     // is used in many places in the code, takes a QString parameter
-    inline const QString protocolName() const {
+    inline const QString protocolName() const
+    {
         return QString::fromLatin1(mProtocol);
     }
 

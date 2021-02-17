@@ -8,12 +8,12 @@
 #include "kfilefiltercombo.h"
 #include "kfilefiltercombo_debug.h"
 
-#include <QDebug>
 #include <KLocalizedString>
-#include <QMimeDatabase>
-#include <config-kiofilewidgets.h>
+#include <QDebug>
 #include <QEvent>
 #include <QLineEdit>
+#include <QMimeDatabase>
+#include <config-kiofilewidgets.h>
 
 class KFileFilterComboPrivate
 {
@@ -48,7 +48,9 @@ KFileFilterCombo::KFileFilterCombo(QWidget *parent)
     setInsertPolicy(QComboBox::NoInsert);
     connect(this, QOverload<int>::of(&QComboBox::activated), this, &KFileFilterCombo::filterChanged);
     connect(this, QOverload<>::of(&KComboBox::returnPressed), this, &KFileFilterCombo::filterChanged);
-    connect(this, &KFileFilterCombo::filterChanged, this, [this]() { d->slotFilterChanged(); });
+    connect(this, &KFileFilterCombo::filterChanged, this, [this]() {
+        d->slotFilterChanged();
+    });
     d->m_allTypes = false;
 }
 
@@ -77,8 +79,7 @@ void KFileFilterCombo::setFilter(const QString &filter)
     QStringList::ConstIterator end(d->m_filters.constEnd());
     for (it = d->m_filters.constBegin(); it != end; ++it) {
         int tab = (*it).indexOf(QLatin1Char('|'));
-        addItem((tab < 0) ? *it :
-                (*it).mid(tab + 1));
+        addItem((tab < 0) ? *it : (*it).mid(tab + 1));
     }
 
     d->m_lastFilter = currentText();
@@ -119,8 +120,7 @@ void KFileFilterCombo::setCurrentFilter(const QString &filter)
     Q_EMIT filterChanged();
 }
 
-void KFileFilterCombo::setMimeFilter(const QStringList &types,
-                                     const QString &defaultType)
+void KFileFilterCombo::setMimeFilter(const QStringList &types, const QString &defaultType)
 {
     clear();
     d->m_filters.clear();

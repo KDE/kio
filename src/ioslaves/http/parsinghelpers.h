@@ -9,8 +9,8 @@
 #define PARSINGHELPERS_H
 
 #include <QList>
-#include <QPair>
 #include <QMap>
+#include <QPair>
 
 struct HeaderField {
     HeaderField(bool multiValued)
@@ -24,7 +24,7 @@ struct HeaderField {
     }
 
     bool isMultiValued;
-    QList<QPair<int, int> > beginEnd;
+    QList<QPair<int, int>> beginEnd;
 };
 
 class HeaderTokenizer;
@@ -44,13 +44,15 @@ public:
 
 private:
     friend class HeaderTokenizer;
-    QList<QPair<int, int> > m_tokens;
+    QList<QPair<int, int>> m_tokens;
     int m_currentToken;
     const char *m_buffer;
-    TokenIterator(const QList<QPair<int, int> > &tokens, const char *buffer)
-        : m_tokens(tokens),
-          m_currentToken(0),
-          m_buffer(buffer) {}
+    TokenIterator(const QList<QPair<int, int>> &tokens, const char *buffer)
+        : m_tokens(tokens)
+        , m_currentToken(0)
+        , m_buffer(buffer)
+    {
+    }
 };
 
 class HeaderTokenizer : public QHash<QByteArray, HeaderField>
@@ -66,13 +68,14 @@ public:
     // ask for a list of begin-end indexes in buffer for header values.
 
     TokenIterator iterator(const char *key) const;
+
 private:
     char *m_buffer;
     struct HeaderFieldTemplate {
         const char *name;
         bool isMultiValued;
     };
-    QList<QPair<int, int> > m_nullTokens;   //long-lived, allows us to pass out references.
+    QList<QPair<int, int>> m_nullTokens; // long-lived, allows us to pass out references.
 };
 
-#endif //PARSINGHELPERS_H
+#endif // PARSINGHELPERS_H

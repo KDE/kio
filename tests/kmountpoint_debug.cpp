@@ -5,11 +5,11 @@
     SPDX-License-Identifier: LGPL-2.0-only
 */
 
-#include <kmountpoint.h>
-#include <QDir>
-#include <QUrl>
 #include <QCoreApplication>
 #include <QDebug>
+#include <QDir>
+#include <QUrl>
+#include <kmountpoint.h>
 
 // This is a test program for KMountPoint
 
@@ -55,4 +55,3 @@ int main(int argc, char **argv)
 
     return 0;
 }
-

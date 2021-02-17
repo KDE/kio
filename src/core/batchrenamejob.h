@@ -8,12 +8,11 @@
 #ifndef BATCHRENAMEJOB_H
 #define BATCHRENAMEJOB_H
 
-#include "kiocore_export.h"
 #include "job_base.h"
+#include "kiocore_export.h"
 
 namespace KIO
 {
-
 class BatchRenameJobPrivate;
 
 /**
@@ -68,9 +67,7 @@ private:
  * @return A pointer to the job handling the operation.
  * @since 5.42
  */
-KIOCORE_EXPORT BatchRenameJob *batchRename(const QList<QUrl> &src, const QString &newName,
-                                           int index, QChar placeHolder,
-                                           JobFlags flags = DefaultFlags);
+KIOCORE_EXPORT BatchRenameJob *batchRename(const QList<QUrl> &src, const QString &newName, int index, QChar placeHolder, JobFlags flags = DefaultFlags);
 
 }
 

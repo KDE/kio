@@ -5,12 +5,12 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
+#include "kiotesthelper.h" // createTestFile etc.
 #include <QApplication>
 #include <QTest>
 #include <kio/copyjob.h>
-#include <kio/paste.h>
 #include <kio/deletejob.h>
-#include "kiotesthelper.h" // createTestFile etc.
+#include <kio/paste.h>
 
 #include <QClipboard>
 #include <QMimeData>
@@ -67,7 +67,7 @@ public Q_SLOTS:
         QVERIFY(ok);
 
         QVERIFY(QFile::exists(dest));
-        QVERIFY(QFile::exists(filePath));     // still there
+        QVERIFY(QFile::exists(filePath)); // still there
     }
 
 private:
@@ -77,7 +77,6 @@ private:
         job->setUiDelegate(nullptr);
         job->exec();
     }
-
 };
 
 QTEST_MAIN(JobGuiTest)

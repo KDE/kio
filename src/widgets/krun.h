@@ -81,9 +81,7 @@ public:
      *    job->start();
      * @endcode
      */
-    KRun(const QUrl &url, QWidget *window,
-         bool showProgressInfo = true,
-         const QByteArray &asn = QByteArray());
+    KRun(const QUrl &url, QWidget *window, bool showProgressInfo = true, const QByteArray &asn = QByteArray());
 
     /**
      * Destructor. Don't call it yourself, since a KRun object auto-deletes
@@ -223,8 +221,11 @@ public:
      * @endcode
      */
     KIOWIDGETS_DEPRECATED_VERSION(5, 6, "Use KIO::ApplicationLauncherJob, see API docs for a code sample")
-    static bool run(const KService &service, const QList<QUrl> &urls, QWidget *window,
-                    bool tempFiles = false, const QString &suggestedFileName = QString(),
+    static bool run(const KService &service,
+                    const QList<QUrl> &urls,
+                    QWidget *window,
+                    bool tempFiles = false,
+                    const QString &suggestedFileName = QString(),
                     const QByteArray &asn = QByteArray());
 #endif
 
@@ -260,8 +261,11 @@ public:
      * @endcode
      */
     KIOWIDGETS_DEPRECATED_VERSION(5, 71, "Use KIO::ApplicationLauncherJob, see API docs for a code sample")
-    static qint64 runService(const KService &service, const QList<QUrl> &urls, QWidget *window,
-                             bool tempFiles = false, const QString &suggestedFileName = QString(),
+    static qint64 runService(const KService &service,
+                             const QList<QUrl> &urls,
+                             QWidget *window,
+                             bool tempFiles = false,
+                             const QString &suggestedFileName = QString(),
                              const QByteArray &asn = QByteArray());
 #endif
 
@@ -271,7 +275,7 @@ public:
      */
     enum RunFlag {
         DeleteTemporaryFiles = 0x1, ///< the URLs passed to the service will be deleted when it exits (if the URLs are local files)
-        RunExecutables = 0x2,       ///< Whether to run URLs that are executable scripts or binaries @see isExecutableFile() @since 5.31
+        RunExecutables = 0x2, ///< Whether to run URLs that are executable scripts or binaries @see isExecutableFile() @since 5.31
     };
     /**
      * Stores a combination of #RunFlag values.
@@ -311,8 +315,11 @@ public:
      * @endcode
      */
     KIOWIDGETS_DEPRECATED_VERSION(5, 71, "Use KIO::ApplicationLauncherJob, see API docs for a code sample")
-    static qint64 runApplication(const KService &service, const QList<QUrl> &urls, QWidget *window,
-                                 RunFlags flags = RunFlags(), const QString &suggestedFileName = QString(),
+    static qint64 runApplication(const KService &service,
+                                 const QList<QUrl> &urls,
+                                 QWidget *window,
+                                 RunFlags flags = RunFlags(),
+                                 const QString &suggestedFileName = QString(),
                                  const QByteArray &asn = QByteArray());
 #endif
 
@@ -344,7 +351,9 @@ public:
      * @endcode
      */
     KIOWIDGETS_DEPRECATED_VERSION(5, 71, "Use KIO::ApplicationLauncherJob with a temporary KService, see API docs for a code sample")
-    static bool run(const QString &exec, const QList<QUrl> &urls, QWidget *window,
+    static bool run(const QString &exec,
+                    const QList<QUrl> &urls,
+                    QWidget *window,
                     const QString &name = QString(),
                     const QString &icon = QString(),
                     const QByteArray &asn = QByteArray());
@@ -380,9 +389,13 @@ public:
      * @endcode
      */
     KIOWIDGETS_DEPRECATED_VERSION(5, 31, "Use KIO::OpenUrlJob, see API docs for a code sample")
-    static bool runUrl(const QUrl &url, const QString &mimetype, QWidget *window,
-                       bool tempFile = false, bool runExecutables = true,
-                       const QString &suggestedFileName = QString(), const QByteArray &asn = QByteArray());
+    static bool runUrl(const QUrl &url,
+                       const QString &mimetype,
+                       QWidget *window,
+                       bool tempFile = false,
+                       bool runExecutables = true,
+                       const QString &suggestedFileName = QString(),
+                       const QByteArray &asn = QByteArray());
 #endif
 
 #if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 71)
@@ -412,8 +425,12 @@ public:
      * @endcode
      */
     KIOWIDGETS_DEPRECATED_VERSION(5, 71, "Use KIO::OpenUrlJob, see API docs for a code sample")
-    static bool runUrl(const QUrl &url, const QString &mimetype, QWidget *window, RunFlags flags,
-                       const QString &suggestedFileName = QString(), const QByteArray &asn = QByteArray());
+    static bool runUrl(const QUrl &url,
+                       const QString &mimetype,
+                       QWidget *window,
+                       RunFlags flags,
+                       const QString &suggestedFileName = QString(),
+                       const QByteArray &asn = QByteArray());
 #endif
 
 #if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 71)
@@ -468,8 +485,7 @@ public:
      * @endcode
      */
     KIOWIDGETS_DEPRECATED_VERSION(5, 71, "Use KIO::CommandLauncherJob, see API docs for a code sample")
-    static bool runCommand(const QString &cmd, const QString &execName,
-                           const QString &icon, QWidget *window, const QByteArray &asn = QByteArray());
+    static bool runCommand(const QString &cmd, const QString &execName, const QString &icon, QWidget *window, const QByteArray &asn = QByteArray());
 #endif
 
 #if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 71)
@@ -491,9 +507,8 @@ public:
      * @endcode
      */
     KIOWIDGETS_DEPRECATED_VERSION(5, 71, "Use KIO::CommandLauncherJob, see API docs for a code sample")
-    static bool runCommand(const QString &cmd, const QString &execName,
-                           const QString &icon, QWidget *window,
-                           const QByteArray &asn, const QString &workingDirectory);
+    static bool
+    runCommand(const QString &cmd, const QString &execName, const QString &icon, QWidget *window, const QByteArray &asn, const QString &workingDirectory);
 #endif
 
 #if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 71)
@@ -520,8 +535,10 @@ public:
      * @endcode
      */
     KIOWIDGETS_DEPRECATED_VERSION(5, 71, "Use KIO::ApplicationLauncherJob, see API docs for a code sample")
-    static bool displayOpenWithDialog(const QList<QUrl> &lst, QWidget *window,
-                                      bool tempFiles = false, const QString &suggestedFileName = QString(),
+    static bool displayOpenWithDialog(const QList<QUrl> &lst,
+                                      QWidget *window,
+                                      bool tempFiles = false,
+                                      const QString &suggestedFileName = QString(),
                                       const QByteArray &asn = QByteArray());
 #endif
 
@@ -553,9 +570,8 @@ public:
      * @deprecated since 5.0, use KIO::DesktopExecParser
      */
     KIOWIDGETS_DEPRECATED_VERSION(5, 0, "Use KIO::DesktopExecParser")
-    static QStringList processDesktopExec(const KService &_service, const QList<QUrl> &_urls,
-            bool tempFiles = false,
-            const QString &suggestedFileName = QString());
+    static QStringList
+    processDesktopExec(const KService &_service, const QList<QUrl> &_urls, bool tempFiles = false, const QString &suggestedFileName = QString());
 #endif
 
 #if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 0)
@@ -595,8 +611,7 @@ public:
     /**
      * @internal
      */
-    static bool checkStartupNotify(const QString &binName, const KService *service, bool *silent_arg,
-                                   QByteArray *wmclass_arg);
+    static bool checkStartupNotify(const QString &binName, const KService *service, bool *silent_arg, QByteArray *wmclass_arg);
 
 Q_SIGNALS:
     /**

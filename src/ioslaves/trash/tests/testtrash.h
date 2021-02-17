@@ -18,7 +18,9 @@ class TestTrash : public QObject
     Q_OBJECT
 
 public:
-    TestTrash() {}
+    TestTrash()
+    {
+    }
 
 private Q_SLOTS:
     void initTestCase();

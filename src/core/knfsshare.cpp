@@ -7,16 +7,16 @@
 
 #include "knfsshare.h"
 
+#include <QDebug>
+#include <QFile>
 #include <QFileInfo>
 #include <QSet>
-#include <QFile>
 #include <QTextStream>
-#include <QDebug>
 
-#include <KDirWatch>
+#include "kiocoredebug.h"
 #include <KConfig>
 #include <KConfigGroup>
-#include "kiocoredebug.h"
+#include <KDirWatch>
 
 class Q_DECL_HIDDEN KNFSShare::KNFSSharePrivate
 {
@@ -28,7 +28,7 @@ public:
     bool readExportsFile();
     bool findExportsFile();
 
-    KNFSShare * const q;
+    KNFSShare *const q;
     QSet<QString> sharedPaths;
     QString exportsFile;
 };
@@ -60,7 +60,7 @@ bool KNFSShare::KNFSSharePrivate::findExportsFile()
     if (QFile::exists(QStringLiteral("/etc/exports"))) {
         exportsFile = QStringLiteral("/etc/exports");
     } else {
-        //qDebug() << "Could not find exports file! /etc/exports doesn't exist. Configure it in share/config/knfsshare, [General], exportsFile=....";
+        // qDebug() << "Could not find exports file! /etc/exports doesn't exist. Configure it in share/config/knfsshare, [General], exportsFile=....";
         return false;
     }
 
@@ -76,7 +76,7 @@ bool KNFSShare::KNFSSharePrivate::readExportsFile()
 {
     QFile f(exportsFile);
 
-    //qDebug() << exportsFile;
+    // qDebug() << exportsFile;
 
     if (!f.open(QIODevice::ReadOnly)) {
         qCWarning(KIO_CORE) << "KNFSShare: Could not open" << exportsFile;
@@ -135,10 +135,9 @@ bool KNFSShare::KNFSSharePrivate::readExportsFile()
             } else {
                 path = completeLine.left(i);
             }
-
         }
 
-        //qDebug() << "KNFSShare: Found path: " << path;
+        // qDebug() << "KNFSShare: Found path: " << path;
 
         if (!path.isEmpty()) {
             // normalize path
@@ -158,14 +157,16 @@ KNFSShare::KNFSShare()
 {
     if (!d->exportsFile.isEmpty() && QFileInfo::exists(d->exportsFile)) {
         KDirWatch::self()->addFile(d->exportsFile);
-        connect(KDirWatch::self(), &KDirWatch::dirty, this, [this](const QString &path) { d->_k_slotFileChange(path); });
+        connect(KDirWatch::self(), &KDirWatch::dirty, this, [this](const QString &path) {
+            d->_k_slotFileChange(path);
+        });
     }
 }
 
 KNFSShare::~KNFSShare()
 {
     // This is not needed, we're exiting the process anyway, and KDirWatch is already deleted.
-    //if (QFile::exists(d->exportsFile)) {
+    // if (QFile::exists(d->exportsFile)) {
     //  KDirWatch::self()->removeFile(d->exportsFile);
     //}
     delete d;
@@ -217,4 +218,3 @@ KNFSShare *KNFSShare::instance()
 }
 
 #include "moc_knfsshare.cpp"
-

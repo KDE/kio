@@ -10,16 +10,16 @@
 #define KIO_JOBCLASSES_H
 
 // For source compatibility
-#include "simplejob.h"
-#include "statjob.h"
-#include "transferjob.h"
-#include "storedtransferjob.h"
-#include "multigetjob.h"
-#include "mimetypejob.h"
 #include "filecopyjob.h"
 #include "filejob.h"
-#include "specialjob.h"
 #include "listjob.h"
+#include "mimetypejob.h"
+#include "multigetjob.h"
+#include "simplejob.h"
+#include "specialjob.h"
+#include "statjob.h"
+#include "storedtransferjob.h"
+#include "transferjob.h"
 #include <kio/mkdirjob.h>
 
 #endif

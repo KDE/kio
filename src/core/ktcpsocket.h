@@ -14,9 +14,8 @@
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 65)
 #include "ksslerroruidata.h"
 
-#include <QSslSocket>
 #include <QSslConfiguration>
-
+#include <QSslSocket>
 
 /*
   Notes on QCA::TLS compatibility
@@ -55,6 +54,7 @@ public:
     bool isExportable() const;
     KeySecrecy secrecy() const;
     QByteArray toDer() const;
+
 private:
     KSslKeyPrivate *const d;
 };
@@ -133,18 +133,19 @@ public:
      * @since 5.63
      */
     QSslError sslError() const;
+
 private:
     KSslErrorPrivate *const d;
 };
 
-//consider killing more convenience functions with huge signatures
+// consider killing more convenience functions with huge signatures
 //### do we need setSession() / session() ?
 
-//BIG FAT TODO: do we keep openMode() up to date everywhere it can change?
+// BIG FAT TODO: do we keep openMode() up to date everywhere it can change?
 
-//other TODO: limit possible error strings?, SSL key stuff
+// other TODO: limit possible error strings?, SSL key stuff
 
-//TODO protocol (or maybe even application?) dependent automatic proxy choice
+// TODO protocol (or maybe even application?) dependent automatic proxy choice
 
 class KTcpSocketPrivate;
 class QHostAddress;
@@ -152,7 +153,7 @@ class QHostAddress;
 /** TCP socket.
  *  @deprecated since 5.65, use QSslSocket instead.
  */
-class KIOCORE_DEPRECATED_VERSION(5, 65, "Use QSslSocket") KIOCORE_EXPORT KTcpSocket: public QIODevice
+class KIOCORE_DEPRECATED_VERSION(5, 65, "Use QSslSocket") KIOCORE_EXPORT KTcpSocket : public QIODevice
 {
     Q_OBJECT
 public:
@@ -164,7 +165,7 @@ public:
         BoundState,
         ListeningState,
         ClosingState,
-        //hmmm, do we need an SslNegotiatingState?
+        // hmmm, do we need an SslNegotiatingState?
     };
     enum SslVersion {
         UnknownSslVersion = 0x01,
@@ -192,7 +193,7 @@ public:
         SocketTimeoutError,
         NetworkError,
         UnsupportedSocketOperationError,
-        SslHandshakeFailedError,                 ///< @since 4.10.5
+        SslHandshakeFailedError, ///< @since 4.10.5
     };
     /*
     The following is based on reading the OpenSSL interface code of both QSslSocket
@@ -241,8 +242,8 @@ public:
     KTcpSocket(QObject *parent = nullptr);
     ~KTcpSocket();
 
-    //from QIODevice
-    //reimplemented virtuals - the ones not reimplemented are OK for us
+    // from QIODevice
+    // reimplemented virtuals - the ones not reimplemented are OK for us
     bool atEnd() const override;
     qint64 bytesAvailable() const override;
     qint64 bytesToWrite() const override;
@@ -253,6 +254,7 @@ public:
     bool waitForBytesWritten(int msecs) override;
     //### Document that this actually tries to read *more* data
     bool waitForReadyRead(int msecs = 30000) override;
+
 protected:
     qint64 readData(char *data, qint64 maxSize) override;
     qint64 writeData(const char *data, qint64 maxSize) override;
@@ -260,8 +262,9 @@ Q_SIGNALS:
     /// @since 4.8.1
     /// Forwarded from QSslSocket
     void encryptedBytesWritten(qint64 written);
+
 public:
-    //from QAbstractSocket
+    // from QAbstractSocket
     void abort();
     void connectToHost(const QString &hostName, quint16 port, ProxyPolicy policy = AutoProxy);
     void connectToHost(const QHostAddress &hostAddress, quint16 port, ProxyPolicy policy = AutoProxy);
@@ -275,9 +278,9 @@ public:
     void connectToHost(const QUrl &url, ProxyPolicy policy = AutoProxy);
     void disconnectFromHost();
     Error error() const; //### QAbstractSocket's model is strange. error() should be related to the
-    //current state and *NOT* just report the last error if there was one.
+    // current state and *NOT* just report the last error if there was one.
     QList<KSslError> sslErrors() const; //### the errors returned can only have a subset of all
-    //possible QSslError::SslError enum values depending on backend
+    // possible QSslError::SslError enum values depending on backend
     bool flush();
     bool isValid() const;
     QHostAddress localAddress() const;
@@ -292,23 +295,23 @@ public:
      */
     QNetworkProxy proxy() const;
 #endif
-    qint64 readBufferSize() const; //probably hard to implement correctly
+    qint64 readBufferSize() const; // probably hard to implement correctly
 
 #ifndef QT_NO_NETWORKPROXY
     /**
      * @see: connectToHost()
      */
-    void setProxy(const QNetworkProxy &proxy); //people actually seem to need it
+    void setProxy(const QNetworkProxy &proxy); // people actually seem to need it
 #endif
     void setReadBufferSize(qint64 size);
     State state() const;
     bool waitForConnected(int msecs = 30000);
     bool waitForDisconnected(int msecs = 30000);
 
-    //from QSslSocket
+    // from QSslSocket
     void addCaCertificate(const QSslCertificate &certificate);
-//    bool addCaCertificates(const QString &path, QSsl::EncodingFormat format = QSsl::Pem,
-//                           QRegExp::PatternSyntax syntax = QRegExp::FixedString);
+    //    bool addCaCertificates(const QString &path, QSsl::EncodingFormat format = QSsl::Pem,
+    //                           QRegExp::PatternSyntax syntax = QRegExp::FixedString);
     void addCaCertificates(const QList<QSslCertificate> &certificates);
     QList<QSslCertificate> caCertificates() const;
     QList<KSslCipher> ciphers() const;
@@ -324,12 +327,13 @@ public:
     void setLocalCertificate(const QSslCertificate &certificate);
     void setLocalCertificate(const QString &fileName, QSsl::EncodingFormat format = QSsl::Pem);
     void setPrivateKey(const KSslKey &key);
-    void setPrivateKey(const QString &fileName, KSslKey::Algorithm algorithm = KSslKey::Rsa,
+    void setPrivateKey(const QString &fileName,
+                       KSslKey::Algorithm algorithm = KSslKey::Rsa,
                        QSsl::EncodingFormat format = QSsl::Pem,
                        const QByteArray &passPhrase = QByteArray());
     void setAdvertisedSslVersion(SslVersion version);
-    SslVersion advertisedSslVersion() const;    //always equal to last setSslAdvertisedVersion
-    SslVersion negotiatedSslVersion() const;     //negotiated version; downgrades are possible.
+    SslVersion advertisedSslVersion() const; // always equal to last setSslAdvertisedVersion
+    SslVersion negotiatedSslVersion() const; // negotiated version; downgrades are possible.
     QString negotiatedSslVersionName() const;
     bool waitForEncrypted(int msecs = 30000);
 
@@ -368,7 +372,7 @@ public:
     void setSslConfiguration(const QSslConfiguration &configuration);
 
 Q_SIGNALS:
-    //from QAbstractSocket
+    // from QAbstractSocket
     void connected();
     void disconnected();
     void error(KTcpSocket::Error);
@@ -379,7 +383,7 @@ Q_SIGNALS:
     // only for raw socket state, SSL is separate
     void stateChanged(KTcpSocket::State);
 
-    //from QSslSocket
+    // from QSslSocket
     void encrypted();
     void encryptionModeChanged(EncryptionMode);
     void sslErrors(const QList<KSslError> &errors);
@@ -395,7 +399,7 @@ private:
     Q_PRIVATE_SLOT(d, void reemitStateChanged(QAbstractSocket::SocketState))
     Q_PRIVATE_SLOT(d, void reemitModeChanged(QSslSocket::SslMode))
 
-//debugging H4X
+    // debugging H4X
     void showSslErrors();
 
     friend class KTcpSocketPrivate;

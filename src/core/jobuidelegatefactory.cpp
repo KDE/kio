@@ -34,4 +34,3 @@ void KIO::setDefaultJobUiDelegateFactory(JobUiDelegateFactory *factory)
 {
     s_factory = factory;
 }
-

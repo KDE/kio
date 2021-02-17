@@ -14,17 +14,15 @@
 #include <KUser>
 #include <QDebug>
 
-
-#include "listjob.h"
 #include "job_p.h"
 #include "jobuidelegatefactory.h"
 #include "kioglobal_p.h"
+#include "listjob.h"
 
 #include <stack>
 
 namespace KIO
 {
-
 struct ChmodInfo {
     QUrl url;
     int permissions;
@@ -35,11 +33,10 @@ enum ChmodJobState {
     CHMODJOB_STATE_CHMODING,
 };
 
-class ChmodJobPrivate: public KIO::JobPrivate
+class ChmodJobPrivate : public KIO::JobPrivate
 {
 public:
-    ChmodJobPrivate(const KFileItemList &lstItems, int permissions, int mask,
-                    KUserId newOwner, KGroupId newGroup, bool recursive)
+    ChmodJobPrivate(const KFileItemList &lstItems, int permissions, int mask, KUserId newOwner, KGroupId newGroup, bool recursive)
         : state(CHMODJOB_STATE_LISTING)
         , m_permissions(permissions)
         , m_mask(mask)
@@ -67,11 +64,10 @@ public:
 
     Q_DECLARE_PUBLIC(ChmodJob)
 
-    static inline ChmodJob *newJob(const KFileItemList &lstItems, int permissions, int mask,
-                                   KUserId newOwner, KGroupId newGroup, bool recursive, JobFlags flags)
+    static inline ChmodJob *
+    newJob(const KFileItemList &lstItems, int permissions, int mask, KUserId newOwner, KGroupId newGroup, bool recursive, JobFlags flags)
     {
-        ChmodJob *job = new ChmodJob(*new ChmodJobPrivate(lstItems, permissions, mask,
-                                     newOwner, newGroup, recursive));
+        ChmodJob *job = new ChmodJob(*new ChmodJobPrivate(lstItems, permissions, mask, newOwner, newGroup, recursive));
         job->setUiDelegate(KIO::createDefaultJobUiDelegate());
         if (!(flags & HideProgressInfo)) {
             KIO::getJobTracker()->registerJob(job);
@@ -117,20 +113,21 @@ void ChmodJobPrivate::_k_processList()
                           << "\n bits we keep =" << QString::number(permissions & ~m_mask,8)
                           << "\n new permissions = " << QString::number(info.permissions,8);*/
             m_infos.push(std::move(info));
-            //qDebug() << "processList : Adding info for " << info.url;
+            // qDebug() << "processList : Adding info for " << info.url;
             // Directory and recursive -> list
             if (item.isDir() && m_recursive) {
-                //qDebug() << "ChmodJob::processList dir -> listing";
+                // qDebug() << "ChmodJob::processList dir -> listing";
                 KIO::ListJob *listJob = KIO::listRecursive(item.url(), KIO::HideProgressInfo);
-                q->connect(listJob, &KIO::ListJob::entries,
-                           q, [this](KIO::Job *job, const KIO::UDSEntryList &entries) { _k_slotEntries(job, entries); });
+                q->connect(listJob, &KIO::ListJob::entries, q, [this](KIO::Job *job, const KIO::UDSEntryList &entries) {
+                    _k_slotEntries(job, entries);
+                });
                 q->addSubjob(listJob);
                 return; // we'll come back later, when this one's finished
             }
         }
         m_lstItems.removeFirst();
     }
-    //qDebug() << "ChmodJob::processList -> going to STATE_CHMODING";
+    // qDebug() << "ChmodJob::processList -> going to STATE_CHMODING";
     // We have finished, move on
     state = CHMODJOB_STATE_CHMODING;
     _k_chmodNextFile();
@@ -145,8 +142,7 @@ void ChmodJobPrivate::_k_slotEntries(KIO::Job *, const KIO::UDSEntryList &list)
         const bool isLink = !entry.stringValue(KIO::UDSEntry::UDS_LINK_DEST).isEmpty();
         const QString relativePath = entry.stringValue(KIO::UDSEntry::UDS_NAME);
         if (!isLink && relativePath != QLatin1String("..")) {
-            const mode_t permissions = entry.numberValue(KIO::UDSEntry::UDS_ACCESS)
-                                       & 0777; // get rid of "set gid" and other special flags
+            const mode_t permissions = entry.numberValue(KIO::UDSEntry::UDS_ACCESS) & 0777; // get rid of "set gid" and other special flags
 
             ChmodInfo info;
             info.url = m_lstItems.first().url(); // base directory
@@ -194,7 +190,9 @@ void ChmodJobPrivate::_k_chmodNextFile()
                 if (!m_uiDelegateExtension) {
                     Q_EMIT q->warning(q, i18n("Could not modify the ownership of file %1", path));
                 } else if (!m_bAutoSkipFiles) {
-                    const QString errMsg = i18n("<qt>Could not modify the ownership of file <b>%1</b>. You have insufficient access to the file to perform the change.</qt>", path);
+                    const QString errMsg =
+                        i18n("<qt>Could not modify the ownership of file <b>%1</b>. You have insufficient access to the file to perform the change.</qt>",
+                             path);
                     SkipDialog_Options options;
                     if (m_infos.size() > 1) {
                         options |= SkipDialog_MultipleItems;
@@ -203,7 +201,7 @@ void ChmodJobPrivate::_k_chmodNextFile()
                     switch (skipResult) {
                     case Result_AutoSkip:
                         m_bAutoSkipFiles = true;
-                    // fall through
+                        // fall through
                         Q_FALLTHROUGH();
                     case Result_Skip:
                         QMetaObject::invokeMethod(q, "_k_chmodNextFile", Qt::QueuedConnection);
@@ -237,7 +235,7 @@ void ChmodJobPrivate::_k_chmodNextFile()
         }
         q->addSubjob(job);
     } else
-        // We have finished
+    // We have finished
     {
         q->emitResult();
     }
@@ -253,15 +251,15 @@ void ChmodJob::slotResult(KJob *job)
         emitResult();
         return;
     }
-    //qDebug() << "d->m_lstItems:" << d->m_lstItems.count();
+    // qDebug() << "d->m_lstItems:" << d->m_lstItems.count();
     switch (d->state) {
     case CHMODJOB_STATE_LISTING:
         d->m_lstItems.removeFirst();
-        //qDebug() << "-> processList";
+        // qDebug() << "-> processList";
         d->_k_processList();
         return;
     case CHMODJOB_STATE_CHMODING:
-        //qDebug() << "-> chmodNextFile";
+        // qDebug() << "-> chmodNextFile";
         d->_k_chmodNextFile();
         return;
     default:
@@ -270,14 +268,11 @@ void ChmodJob::slotResult(KJob *job)
     }
 }
 
-ChmodJob *KIO::chmod(const KFileItemList &lstItems, int permissions, int mask,
-                     const QString &owner, const QString &group,
-                     bool recursive, JobFlags flags)
+ChmodJob *KIO::chmod(const KFileItemList &lstItems, int permissions, int mask, const QString &owner, const QString &group, bool recursive, JobFlags flags)
 {
     KUserId uid = KUserId::fromName(owner);
     KGroupId gid = KGroupId::fromName(group);
-    return ChmodJobPrivate::newJob(lstItems, permissions, mask, uid,
-                                   gid, recursive, flags);
+    return ChmodJobPrivate::newJob(lstItems, permissions, mask, uid, gid, recursive, flags);
 }
 
 #include "moc_chmodjob.cpp"

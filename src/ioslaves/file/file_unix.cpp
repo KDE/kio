@@ -13,15 +13,15 @@
 
 #include <config-kioslave-file.h>
 
-#include <QFile>
 #include <QDir>
-#include <qplatformdefs.h>
+#include <QFile>
 #include <QStandardPaths>
 #include <QThread>
+#include <qplatformdefs.h>
 
-#include <QDebug>
 #include <KConfigGroup>
 #include <KLocalizedString>
+#include <QDebug>
 #include <kmountpoint.h>
 
 #include <errno.h>
@@ -40,11 +40,11 @@
 #endif
 
 #ifdef Q_OS_LINUX
-#include <sys/ioctl.h>
 #include <linux/fs.h>
+#include <sys/ioctl.h>
 #endif
 
-//sendfile has different semantics in different platforms
+// sendfile has different semantics in different platforms
 #if HAVE_SENDFILE && defined Q_OS_LINUX
 #define USE_SENDFILE 1
 #include <sys/sendfile.h>
@@ -52,7 +52,7 @@
 
 #if HAVE_SYS_XATTR_H
 #include <sys/xattr.h>
-//BSD uses a different include
+// BSD uses a different include
 #elif HAVE_SYS_EXTATTR_H
 #include <sys/extattr.h>
 #endif
@@ -60,13 +60,11 @@
 using namespace KIO;
 
 /* 512 kB */
-#define MAX_IPC_SIZE (1024*512)
+#define MAX_IPC_SIZE (1024 * 512)
 
-static bool
-same_inode(const QT_STATBUF &src, const QT_STATBUF &dest)
+static bool same_inode(const QT_STATBUF &src, const QT_STATBUF &dest)
 {
-    if (src.st_ino == dest.st_ino &&
-            src.st_dev == dest.st_dev) {
+    if (src.st_ino == dest.st_ino && src.st_dev == dest.st_dev) {
         return true;
     }
 
@@ -123,16 +121,20 @@ static QString actionDetails(ActionType actionType, const QVariantList &args)
         break;
     }
 
-    const QString metadata = i18n("Action: %1\n"
-                                  "Source: %2\n"
-                                  "%3", action, args[0].toString(), detail);
+    const QString metadata = i18n(
+        "Action: %1\n"
+        "Source: %2\n"
+        "%3",
+        action,
+        args[0].toString(),
+        detail);
     return metadata;
 }
 
 bool FileProtocol::privilegeOperationUnitTestMode()
 {
     return (metaData(QStringLiteral("UnitTesting")) == QLatin1String("true"))
-            && (requestPrivilegeOperation(QStringLiteral("Test Call")) == KIO::OperationAllowed);
+        && (requestPrivilegeOperation(QStringLiteral("Test Call")) == KIO::OperationAllowed);
 }
 
 /*************************************
@@ -239,7 +241,8 @@ static QString getGroupName(KGroupId gid)
 
 #if HAVE_STATX
 // statx syscall is available
-inline int LSTAT(const char* path, struct statx * buff, KIO::StatDetails details) {
+inline int LSTAT(const char *path, struct statx *buff, KIO::StatDetails details)
+{
     uint32_t mask = 0;
     if (details & KIO::StatBasic) {
         // filename, access, type, size, linkdest
@@ -259,7 +262,8 @@ inline int LSTAT(const char* path, struct statx * buff, KIO::StatDetails details
     }
     return statx(AT_FDCWD, path, AT_SYMLINK_NOFOLLOW, mask, buff);
 }
-inline int STAT(const char* path, struct statx * buff, KIO::StatDetails details) {
+inline int STAT(const char *path, struct statx *buff, KIO::StatDetails details)
+{
     uint32_t mask = 0;
     // KIO::StatAcl needs type
     if (details & (KIO::StatBasic | KIO::StatAcl | KIO::StatResolveSymlink)) {
@@ -281,36 +285,85 @@ inline int STAT(const char* path, struct statx * buff, KIO::StatDetails details)
     // KIO::Inode is ignored as when STAT is called, the entry inode field has already been filled
     return statx(AT_FDCWD, path, AT_STATX_SYNC_AS_STAT, mask, buff);
 }
-inline static uint16_t stat_mode(struct statx &buf) { return buf.stx_mode; }
-inline static dev_t stat_dev(struct statx &buf) { return makedev(buf.stx_dev_major, buf.stx_dev_minor); }
-inline static uint64_t stat_ino(struct statx &buf) { return buf.stx_ino; }
-inline static uint64_t stat_size(struct statx &buf) { return buf.stx_size; }
-inline static uint32_t stat_uid(struct statx &buf) { return buf.stx_uid; }
-inline static uint32_t stat_gid(struct statx &buf) { return buf.stx_gid; }
-inline static int64_t stat_atime(struct statx &buf) { return buf.stx_atime.tv_sec; }
-inline static int64_t stat_mtime(struct statx &buf) { return buf.stx_mtime.tv_sec; }
+inline static uint16_t stat_mode(struct statx &buf)
+{
+    return buf.stx_mode;
+}
+inline static dev_t stat_dev(struct statx &buf)
+{
+    return makedev(buf.stx_dev_major, buf.stx_dev_minor);
+}
+inline static uint64_t stat_ino(struct statx &buf)
+{
+    return buf.stx_ino;
+}
+inline static uint64_t stat_size(struct statx &buf)
+{
+    return buf.stx_size;
+}
+inline static uint32_t stat_uid(struct statx &buf)
+{
+    return buf.stx_uid;
+}
+inline static uint32_t stat_gid(struct statx &buf)
+{
+    return buf.stx_gid;
+}
+inline static int64_t stat_atime(struct statx &buf)
+{
+    return buf.stx_atime.tv_sec;
+}
+inline static int64_t stat_mtime(struct statx &buf)
+{
+    return buf.stx_mtime.tv_sec;
+}
 #else
 // regular stat struct
-inline int LSTAT(const char* path, QT_STATBUF * buff, KIO::StatDetails details) {
+inline int LSTAT(const char *path, QT_STATBUF *buff, KIO::StatDetails details)
+{
     Q_UNUSED(details)
     return QT_LSTAT(path, buff);
 }
-inline int STAT(const char* path, QT_STATBUF * buff, KIO::StatDetails details) {
+inline int STAT(const char *path, QT_STATBUF *buff, KIO::StatDetails details)
+{
     Q_UNUSED(details)
     return QT_STAT(path, buff);
 }
-inline static mode_t stat_mode(QT_STATBUF &buf) { return buf.st_mode; }
-inline static dev_t stat_dev(QT_STATBUF &buf) { return buf.st_dev; }
-inline static ino_t stat_ino(QT_STATBUF &buf) { return buf.st_ino; }
-inline static off_t stat_size(QT_STATBUF &buf) { return buf.st_size; }
-inline static uid_t stat_uid(QT_STATBUF &buf) { return buf.st_uid; }
-inline static gid_t stat_gid(QT_STATBUF &buf) { return buf.st_gid; }
-inline static time_t stat_atime(QT_STATBUF &buf) { return buf.st_atime; }
-inline static time_t stat_mtime(QT_STATBUF &buf) { return buf.st_mtime; }
+inline static mode_t stat_mode(QT_STATBUF &buf)
+{
+    return buf.st_mode;
+}
+inline static dev_t stat_dev(QT_STATBUF &buf)
+{
+    return buf.st_dev;
+}
+inline static ino_t stat_ino(QT_STATBUF &buf)
+{
+    return buf.st_ino;
+}
+inline static off_t stat_size(QT_STATBUF &buf)
+{
+    return buf.st_size;
+}
+inline static uid_t stat_uid(QT_STATBUF &buf)
+{
+    return buf.st_uid;
+}
+inline static gid_t stat_gid(QT_STATBUF &buf)
+{
+    return buf.st_gid;
+}
+inline static time_t stat_atime(QT_STATBUF &buf)
+{
+    return buf.st_atime;
+}
+inline static time_t stat_mtime(QT_STATBUF &buf)
+{
+    return buf.st_mtime;
+}
 #endif
 
-static bool createUDSEntry(const QString &filename, const QByteArray &path, UDSEntry &entry,
-                                  KIO::StatDetails details)
+static bool createUDSEntry(const QString &filename, const QByteArray &path, UDSEntry &entry, KIO::StatDetails details)
 {
     assert(entry.count() == 0); // by contract :-)
     int entries = 0;
@@ -352,31 +405,28 @@ static bool createUDSEntry(const QString &filename, const QByteArray &path, UDSE
     QT_STATBUF buff;
 #endif
 
-    if (LSTAT(path.data(), &buff, details) == 0)  {
-
+    if (LSTAT(path.data(), &buff, details) == 0) {
         if ((stat_mode(buff) & QT_STAT_MASK) == QT_STAT_LNK) {
-
             QByteArray linkTargetBuffer;
-            if (details & (KIO::StatBasic|KIO::StatResolveSymlink)) {
-
-                // Use readlink on Unix because symLinkTarget turns relative targets into absolute (#352927)
-                #if HAVE_STATX
-                    size_t lowerBound = 256;
-                    size_t higherBound = 1024;
-                    uint64_t s = stat_size(buff);
-                    if (s > SIZE_MAX) {
-                        qCWarning(KIO_FILE) << "file size bigger than SIZE_MAX, too big for readlink use!" << path;
-                        return false;
-                    }
-                    size_t size = static_cast<size_t>(s);
-                    using SizeType = size_t;
-                #else
-                    off_t lowerBound = 256;
-                    off_t higherBound = 1024;
-                    off_t size = stat_size(buff);
-                    using SizeType = off_t;
-                #endif
-                SizeType bufferSize = qBound(lowerBound, size +1, higherBound);
+            if (details & (KIO::StatBasic | KIO::StatResolveSymlink)) {
+// Use readlink on Unix because symLinkTarget turns relative targets into absolute (#352927)
+#if HAVE_STATX
+                size_t lowerBound = 256;
+                size_t higherBound = 1024;
+                uint64_t s = stat_size(buff);
+                if (s > SIZE_MAX) {
+                    qCWarning(KIO_FILE) << "file size bigger than SIZE_MAX, too big for readlink use!" << path;
+                    return false;
+                }
+                size_t size = static_cast<size_t>(s);
+                using SizeType = size_t;
+#else
+                off_t lowerBound = 256;
+                off_t higherBound = 1024;
+                off_t size = stat_size(buff);
+                using SizeType = off_t;
+#endif
+                SizeType bufferSize = qBound(lowerBound, size + 1, higherBound);
                 linkTargetBuffer.resize(bufferSize);
                 while (true) {
                     ssize_t n = readlink(path.constData(), linkTargetBuffer.data(), bufferSize);
@@ -531,7 +581,6 @@ PrivilegeOperationReturnValue FileProtocol::tryChangeFileAttr(ActionType action,
     return PrivilegeOperationReturnValue::failure(errcode);
 }
 
-
 #if HAVE_SYS_XATTR_H || HAVE_SYS_EXTATTR_H
 bool FileProtocol::copyXattrs(const int src_fd, const int dest_fd)
 {
@@ -545,9 +594,7 @@ bool FileProtocol::copyXattrs(const int src_fd, const int dest_fd)
 #elif defined(Q_OS_MAC)
         listlen = flistxattr(src_fd, keylist.data(), listlen, 0);
 #elif HAVE_SYS_EXTATTR_H
-        listlen = extattr_list_fd(src_fd, EXTATTR_NAMESPACE_USER,
-                                  listlen == 0 ? nullptr : keylist.data(),
-                                  listlen);
+        listlen = extattr_list_fd(src_fd, EXTATTR_NAMESPACE_USER, listlen == 0 ? nullptr : keylist.data(), listlen);
 #endif
         if (listlen > 0 && keylist.size() == 0) {
             continue;
@@ -600,9 +647,7 @@ bool FileProtocol::copyXattrs(const int src_fd, const int dest_fd)
 #elif defined(Q_OS_MAC)
             valuelen = fgetxattr(src_fd, key.constData(), value.data(), valuelen, 0, 0);
 #elif HAVE_SYS_EXTATTR_H
-            valuelen = extattr_get_fd(src_fd, EXTATTR_NAMESPACE_USER, key.constData(),
-                                      valuelen == 0 ? nullptr : value.data(),
-                                      valuelen);
+            valuelen = extattr_get_fd(src_fd, EXTATTR_NAMESPACE_USER, key.constData(), valuelen == 0 ? nullptr : value.data(), valuelen);
 #endif
             if (valuelen > 0 && value.size() == 0) {
                 continue;
@@ -643,8 +688,7 @@ bool FileProtocol::copyXattrs(const int src_fd, const int dest_fd)
 }
 #endif // HAVE_SYS_XATTR_H || HAVE_SYS_EXTATTR_H
 
-void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl,
-                        int _mode, JobFlags _flags)
+void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mode, JobFlags _flags)
 {
     if (privilegeOperationUnitTestMode()) {
         finished();
@@ -699,7 +743,7 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl,
             // remove the symlink first to prevent the scenario where
             // the symlink actually points to current source!
             if ((buff_dest.st_mode & QT_STAT_MASK) == QT_STAT_LNK) {
-                //qDebug() << "copy(): LINK DESTINATION";
+                // qDebug() << "copy(): LINK DESTINATION";
                 if (!QFile::remove(dest)) {
                     if (auto err = execWithElevatedPrivilege(DEL, {_dest}, errno)) {
                         if (!err.wasCanceled()) {
@@ -769,21 +813,20 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl,
 
 #ifdef FICLONE
     // Share data blocks ("reflink") on supporting filesystems, like brfs and XFS
-    int ret = ::ioctl (dest_file.handle(), FICLONE, src_file.handle());
+    int ret = ::ioctl(dest_file.handle(), FICLONE, src_file.handle());
     if (ret != -1) {
         processedSize(src_file.size());
     } else {
         // if fs does not support reflinking, files are on different devices...
 #endif
         KIO::filesize_t processed_size = 0;
-        char buffer[ MAX_IPC_SIZE ];
+        char buffer[MAX_IPC_SIZE];
         ssize_t n = 0;
 #ifdef USE_SENDFILE
         bool use_sendfile = true;
 #endif
         bool existing_dest_delete_attempted = false;
         while (!wasKilled()) {
-
             if (testMode && dest_file.fileName().contains(QLatin1String("slow"))) {
                 QThread::msleep(50);
             }
@@ -793,7 +836,7 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl,
                 off_t sf = processed_size;
                 n = ::sendfile(dest_file.handle(), src_file.handle(), &sf, MAX_IPC_SIZE);
                 processed_size = sf;
-                if (n == -1 && (errno == EINVAL || errno == ENOSYS)) {     //not all filesystems support sendfile()
+                if (n == -1 && (errno == EINVAL || errno == ENOSYS)) { // not all filesystems support sendfile()
                     // qDebug() << "sendfile() not supported, falling back ";
                     use_sendfile = false;
                 }
@@ -817,9 +860,7 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl,
                         }
                         error(KIO::ERR_DISK_FULL, dest);
                     } else {
-                        error(KIO::ERR_SLAVE_DEFINED,
-                              i18n("Cannot copy file from %1 to %2. (Errno: %3)",
-                                   src, dest, errno));
+                        error(KIO::ERR_SLAVE_DEFINED, i18n("Cannot copy file from %1 to %2. (Errno: %3)", src, dest, errno));
                     }
                 } else
 #endif
@@ -831,19 +872,19 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl,
                     acl_free(acl);
                 }
 #endif
-                if (!QFile::remove(dest)) {  // don't keep partly copied file
+                if (!QFile::remove(dest)) { // don't keep partly copied file
                     execWithElevatedPrivilege(DEL, {_dest}, errno);
                 }
                 return;
             }
             if (n == 0) {
-                break;    // Finished
+                break; // Finished
             }
 #ifdef USE_SENDFILE
             if (!use_sendfile) {
 #endif
                 if (dest_file.write(buffer, n) != n) {
-                    if (dest_file.error() == QFileDevice::ResourceError) {  // disk full
+                    if (dest_file.error() == QFileDevice::ResourceError) { // disk full
                         if (!_dest_backup.isEmpty() && !existing_dest_delete_attempted) {
                             ::unlink(_dest_backup.constData());
                             existing_dest_delete_attempted = true;
@@ -859,7 +900,7 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl,
                         acl_free(acl);
                     }
 #endif
-                    if (!QFile::remove(dest)) {  // don't keep partly copied file
+                    if (!QFile::remove(dest)) { // don't keep partly copied file
                         execWithElevatedPrivilege(DEL, {_dest}, errno);
                     }
                     return;
@@ -887,21 +928,21 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl,
 
     // copy access and modification time
     if (!wasKilled()) {
-    #if defined(Q_OS_LINUX) || defined(Q_OS_FREEBSD)
+#if defined(Q_OS_LINUX) || defined(Q_OS_FREEBSD)
         // with nano secs precision
         struct timespec ut[2];
         ut[0] = buff_src.st_atim;
         ut[1] = buff_src.st_mtim;
         // need to do this with the dest file still opened, or this fails
         if (::futimens(dest_file.handle(), ut) != 0) {
-    #else
+#else
         struct timeval ut[2];
         ut[0].tv_sec = buff_src.st_atime;
         ut[0].tv_usec = 0;
         ut[1].tv_sec = buff_src.st_mtime;
         ut[1].tv_usec = 0;
         if (::futimes(dest_file.handle(), ut) != 0) {
-    #endif
+#endif
             if (tryChangeFileAttr(UTIME, {_dest, qint64(buff_src.st_atime), qint64(buff_src.st_mtime)}, errno)) {
                 qCWarning(KIO_FILE) << "Couldn't preserve access and modification time for" << dest;
             }
@@ -912,7 +953,7 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl,
 
     if (wasKilled()) {
         qCDebug(KIO_FILE) << "Clean dest file after ioslave was killed:" << dest;
-        if (!QFile::remove(dest)) {  // don't keep partly copied file
+        if (!QFile::remove(dest)) { // don't keep partly copied file
             execWithElevatedPrivilege(DEL, {_dest}, errno);
         }
         error(KIO::ERR_USER_CANCELED, dest);
@@ -927,7 +968,7 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl,
             acl_free(acl);
         }
 #endif
-        if (!QFile::remove(dest)) {  // don't keep partly copied file
+        if (!QFile::remove(dest)) { // don't keep partly copied file
             execWithElevatedPrivilege(DEL, {_dest}, errno);
         }
         return;
@@ -943,7 +984,7 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl,
 #if HAVE_POSIX_ACL
         || (acl && acl_set_file(_dest.data(), ACL_TYPE_ACCESS, acl) != 0)
 #endif
-       ) {
+    ) {
         const int errCode = errno;
         KMountPoint::Ptr mp = KMountPoint::currentMountPoints().findByPath(dest);
         // Eat the error if the filesystem apparently doesn't support chmod.
@@ -974,7 +1015,7 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl,
 
     if (!_dest_backup.isEmpty()) {
         if (::unlink(_dest_backup.constData()) == -1) {
-            qCWarning(KIO_FILE) << "Couldn't remove original dest" <<  _dest_backup << "(" << strerror(errno) << ")";
+            qCWarning(KIO_FILE) << "Couldn't remove original dest" << _dest_backup << "(" << strerror(errno) << ")";
         }
 
         if (::rename(_dest.constData(), _dest_backup.constData()) == -1) {
@@ -996,8 +1037,8 @@ static bool isLocalFileSameHost(const QUrl &url)
         return true;
     }
 
-    char hostname[ 256 ];
-    hostname[ 0 ] = '\0';
+    char hostname[256];
+    hostname[0] = '\0';
     if (!gethostname(hostname, 255)) {
         hostname[sizeof(hostname) - 1] = '\0';
     }
@@ -1034,7 +1075,6 @@ static bool isNtfsHidden(const QString &filename)
 }
 #endif
 
-
 void FileProtocol::listDir(const QUrl &url)
 {
     if (!isLocalFileSameHost(url)) {
@@ -1058,8 +1098,7 @@ void FileProtocol::listDir(const QUrl &url)
             break;
 #ifdef ENOMEDIUM
         case ENOMEDIUM:
-            error(ERR_SLAVE_DEFINED,
-                  i18n("No media in device for %1", path));
+            error(ERR_SLAVE_DEFINED, i18n("No media in device for %1", path));
             break;
 #endif
         default:
@@ -1084,7 +1123,7 @@ void FileProtocol::listDir(const QUrl &url)
     }
 
     const KIO::StatDetails details = getStatDetails();
-    //qDebug() << "========= LIST " << url << "details=" << details << " =========";
+    // qDebug() << "========= LIST " << url << "details=" << details << " =========";
     UDSEntry entry;
 
 #ifndef HAVE_DIRENT_D_TYPE
@@ -1109,16 +1148,14 @@ void FileProtocol::listDir(const QUrl &url)
         if (details == KIO::StatBasic) {
             entry.fastInsert(KIO::UDSEntry::UDS_NAME, filename);
 #ifdef HAVE_DIRENT_D_TYPE
-            entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE,
-                         (ep->d_type == DT_DIR) ? S_IFDIR : S_IFREG);
+            entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, (ep->d_type == DT_DIR) ? S_IFDIR : S_IFREG);
             const bool isSymLink = (ep->d_type == DT_LNK);
 #else
             // oops, no fast way, we need to stat (e.g. on Solaris)
             if (QT_LSTAT(ep->d_name, &st) == -1) {
                 continue; // how can stat fail?
             }
-            entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE,
-                         ((st.st_mode & QT_STAT_MASK) == QT_STAT_DIR) ? S_IFDIR : S_IFREG);
+            entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, ((st.st_mode & QT_STAT_MASK) == QT_STAT_DIR) ? S_IFDIR : S_IFREG);
             const bool isSymLink = ((st.st_mode & QT_STAT_MASK) == QT_STAT_LNK);
 #endif
             if (isSymLink) {
@@ -1161,10 +1198,10 @@ void FileProtocol::listDir(const QUrl &url)
     finished();
 }
 
-void FileProtocol::rename(const QUrl &srcUrl, const QUrl &destUrl,
-                          KIO::JobFlags _flags)
+void FileProtocol::rename(const QUrl &srcUrl, const QUrl &destUrl, KIO::JobFlags _flags)
 {
-    char off_t_should_be_64_bits[sizeof(off_t) >= 8 ? 1 : -1]; (void) off_t_should_be_64_bits;
+    char off_t_should_be_64_bits[sizeof(off_t) >= 8 ? 1 : -1];
+    (void)off_t_should_be_64_bits;
     const QString src = srcUrl.toLocalFile();
     const QString dest = destUrl.toLocalFile();
     const QByteArray _src(QFile::encodeName(src));
@@ -1288,7 +1325,7 @@ void FileProtocol::del(const QUrl &url, bool isfile)
         if (unlink(_path.data()) == -1) {
             if (auto err = execWithElevatedPrivilege(DEL, {_path}, errno)) {
                 if (!err.wasCanceled()) {
-                    if ((err == EACCES) || (err ==  EPERM)) {
+                    if ((err == EACCES) || (err == EPERM)) {
                         error(KIO::ERR_ACCESS_DENIED, path);
                     } else if (err == EISDIR) {
                         error(KIO::ERR_IS_DIRECTORY, path);
@@ -1300,7 +1337,6 @@ void FileProtocol::del(const QUrl &url, bool isfile)
             }
         }
     } else {
-
         /*****
          * Delete empty directory
          *****/
@@ -1340,9 +1376,8 @@ void FileProtocol::chown(const QUrl &url, const QString &owner, const QString &g
     {
         struct passwd *p = ::getpwnam(owner.toLocal8Bit().constData());
 
-        if (! p) {
-            error(KIO::ERR_SLAVE_DEFINED,
-                  i18n("Could not get user id for given user name %1", owner));
+        if (!p) {
+            error(KIO::ERR_SLAVE_DEFINED, i18n("Could not get user id for given user name %1", owner));
             return;
         }
 
@@ -1353,9 +1388,8 @@ void FileProtocol::chown(const QUrl &url, const QString &owner, const QString &g
     {
         struct group *p = ::getgrnam(group.toLocal8Bit().constData());
 
-        if (! p) {
-            error(KIO::ERR_SLAVE_DEFINED,
-                  i18n("Could not get group id for given group name %1", group));
+        if (!p) {
+            error(KIO::ERR_SLAVE_DEFINED, i18n("Could not get group id for given group name %1", group));
             return;
         }
 
@@ -1509,13 +1543,13 @@ int FileProtocol::setACL(const char *path, mode_t perm, bool directoryDefault)
             acl = acl_from_mode(perm);
         }
         acl = acl_from_text(ACLString.toLatin1().constData());
-        if (acl_valid(acl) == 0) {     // let's be safe
+        if (acl_valid(acl) == 0) { // let's be safe
             ret = acl_set_file(path, ACL_TYPE_ACCESS, acl);
             // qDebug() << "Set ACL on:" << path << "to:" << aclToText(acl);
         }
         acl_free(acl);
         if (ret != 0) {
-            return ret;    // better stop trying right away
+            return ret; // better stop trying right away
         }
     }
 
@@ -1525,7 +1559,7 @@ int FileProtocol::setACL(const char *path, mode_t perm, bool directoryDefault)
             ret += acl_delete_def_file(path);
         } else {
             acl_t acl = acl_from_text(defaultACLString.toLatin1().constData());
-            if (acl_valid(acl) == 0) {     // let's be safe
+            if (acl_valid(acl) == 0) { // let's be safe
                 ret += acl_set_file(path, ACL_TYPE_DEFAULT, acl);
                 // qDebug() << "Set Default ACL on:" << path << "to:" << aclToText(acl);
             }

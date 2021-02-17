@@ -10,29 +10,38 @@
 #define FILEUNDOMANAGER_P_H
 
 #include "fileundomanager.h"
-#include <QStack>
 #include <QDateTime>
 #include <QQueue>
+#include <QStack>
 
 class KJob;
 
 namespace KIO
 {
-
 class FileUndoManagerAdaptor;
 
 struct BasicOperation {
     enum Type { File, Link, Directory };
 
     // for QDataStream deserialization
-    BasicOperation() {}
-    BasicOperation(Type type, bool renamed, const QUrl& src, const QUrl &dst, const QDateTime &mtime, const QString &target = {})
-        : m_valid(true), m_renamed(renamed), m_type(type), m_src(src), m_dst(dst), m_target(target), m_mtime(mtime) {}
+    BasicOperation()
+    {
+    }
+    BasicOperation(Type type, bool renamed, const QUrl &src, const QUrl &dst, const QDateTime &mtime, const QString &target = {})
+        : m_valid(true)
+        , m_renamed(renamed)
+        , m_type(type)
+        , m_src(src)
+        , m_dst(dst)
+        , m_target(target)
+        , m_mtime(mtime)
+    {
+    }
 
     bool m_valid = false;
     bool m_renamed;
 
-    Type m_type: 2;
+    Type m_type : 2;
 
     QUrl m_src;
     QUrl m_dst;
@@ -45,11 +54,17 @@ class UndoCommand
 public:
     UndoCommand()
         : m_valid(false)
-    {}
+    {
+    }
 
     UndoCommand(FileUndoManager::CommandType type, const QList<QUrl> &src, const QUrl &dst, qint64 serialNumber)
-        : m_valid(true), m_type(type), m_src(src), m_dst(dst), m_serialNumber(serialNumber)
-    {}
+        : m_valid(true)
+        , m_type(type)
+        , m_src(src)
+        , m_dst(dst)
+        , m_serialNumber(serialNumber)
+    {
+    }
 
     // TODO: is ::TRASH missing?
     bool isMoveCommand() const
@@ -133,7 +148,7 @@ public:
     UndoJob *m_undoJob = nullptr;
     quint64 m_nextCommandIndex;
 
-    FileUndoManager * const q;
+    FileUndoManager *const q;
 
     UndoCommand m_current;
     UndoState m_undoState;

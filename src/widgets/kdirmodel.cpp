@@ -9,25 +9,25 @@
 #include "kdirlister.h"
 #include "kfileitem.h"
 
-#include <KLocalizedString>
+#include "joburlcache_p.h"
+#include <KIconLoader>
 #include <KJobUiDelegate>
+#include <KLocalizedString>
+#include <KUrlMimeData>
+#include <kio/fileundomanager.h>
 #include <kio/simplejob.h>
 #include <kio/statjob.h>
-#include <kio/fileundomanager.h>
-#include "joburlcache_p.h"
-#include <KUrlMimeData>
-#include <KIconLoader>
 
-#include <QLocale>
-#include <QMimeData>
 #include <QBitArray>
 #include <QDebug>
+#include <QDir>
 #include <QDirIterator>
 #include <QFile>
 #include <QFileInfo>
-#include <QDir>
 #include <QIcon>
+#include <QLocale>
 #include <QLoggingCategory>
+#include <QMimeData>
 #include <qplatformdefs.h>
 
 #include <algorithm>
@@ -56,10 +56,10 @@ static QUrl cleanupUrl(const QUrl &url)
 class KDirModelNode
 {
 public:
-    KDirModelNode(KDirModelDirNode *parent, const KFileItem &item) :
-        m_item(item),
-        m_parent(parent),
-        m_preview()
+    KDirModelNode(KDirModelDirNode *parent, const KFileItem &item)
+        : m_item(item)
+        , m_parent(parent)
+        , m_preview()
     {
     }
     virtual ~KDirModelNode()
@@ -106,11 +106,12 @@ class KDirModelDirNode : public KDirModelNode
 {
 public:
     KDirModelDirNode(KDirModelDirNode *parent, const KFileItem &item)
-        : KDirModelNode(parent, item),
-          m_childNodes(),
-          m_childCount(KDirModel::ChildCountUnknown),
-          m_populated(false)
-    {}
+        : KDirModelNode(parent, item)
+        , m_childNodes()
+        , m_childCount(KDirModel::ChildCountUnknown)
+        , m_populated(false)
+    {
+    }
     ~KDirModelDirNode() override
     {
         qDeleteAll(m_childNodes);
@@ -153,8 +154,8 @@ public:
     }
 
 private:
-    int m_childCount: 31;
-    bool m_populated: 1;
+    int m_childCount : 31;
+    bool m_populated : 1;
 };
 
 int KDirModelNode::rowNumber() const
@@ -171,9 +172,11 @@ class KDirModelPrivate
 {
 public:
     explicit KDirModelPrivate(KDirModel *model)
-        : q(model), m_dirLister(nullptr),
-          m_rootNode(new KDirModelDirNode(nullptr, KFileItem())),
-          m_dropsAllowed(KDirModel::NoDrops), m_jobTransfersVisible(false)
+        : q(model)
+        , m_dirLister(nullptr)
+        , m_rootNode(new KDirModelDirNode(nullptr, KFileItem()))
+        , m_dropsAllowed(KDirModel::NoDrops)
+        , m_jobTransfersVisible(false)
     {
     }
     ~KDirModelPrivate()
@@ -184,7 +187,7 @@ public:
     void _k_slotNewItems(const QUrl &directoryUrl, const KFileItemList &);
     void _k_slotCompleted(const QUrl &directoryUrl);
     void _k_slotDeleteItems(const KFileItemList &);
-    void _k_slotRefreshItems(const QList<QPair<KFileItem, KFileItem> > &);
+    void _k_slotRefreshItems(const QList<QPair<KFileItem, KFileItem>> &);
     void _k_slotClear();
     void _k_slotRedirection(const QUrl &oldUrl, const QUrl &newUrl);
     void _k_slotJobUrlsChanged(const QStringList &urlList);
@@ -204,10 +207,11 @@ public:
     KDirModelNode *nodeForIndex(const QModelIndex &index) const;
     QModelIndex indexForNode(KDirModelNode *node, int rowNumber = -1 /*unknown*/) const;
 
-    static QUrl rootParentOf(const QUrl &url) {
+    static QUrl rootParentOf(const QUrl &url)
+    {
         // <url> is what we listed, and which is visible at the root of the tree
         // Here we want the (invisible) parent of that url
-        QUrl parent(url.adjusted(QUrl::RemoveFilename|QUrl::StripTrailingSlash));
+        QUrl parent(url.adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash));
         if (url.path() == QLatin1String("/")) {
             parent.setPath(QString());
         }
@@ -245,7 +249,7 @@ public:
 #endif
     Q_DISABLE_COPY(KDirModelPrivate)
 
-    KDirModel * const q;
+    KDirModel *const q;
     KDirLister *m_dirLister;
     KDirModelDirNode *m_rootNode;
     KDirModel::DropsAllowed m_dropsAllowed;
@@ -253,9 +257,9 @@ public:
     bool m_showNodeForListedUrl = false;
     // key = current known parent node (always a KDirModelDirNode but KDirModelNode is more convenient),
     // value = final url[s] being fetched
-    QMap<KDirModelNode *, QList<QUrl> > m_urlsBeingFetched;
+    QMap<KDirModelNode *, QList<QUrl>> m_urlsBeingFetched;
     QHash<QUrl, KDirModelNode *> m_nodeHash; // global node hash: url -> node
-    QStringList m_allCurrentDestUrls; //list of all dest urls that have jobs on them (e.g. copy, download)
+    QStringList m_allCurrentDestUrls; // list of all dest urls that have jobs on them (e.g. copy, download)
 };
 
 KDirModelNode *KDirModelPrivate::nodeForUrl(const QUrl &_url) const // O(1), well, O(length of url as a string)
@@ -283,7 +287,7 @@ KDirModelNode *KDirModelPrivate::expandAllParentsUntil(const QUrl &_url) const /
 {
     QUrl url = cleanupUrl(_url);
 
-    //qDebug() << url;
+    // qDebug() << url;
     QUrl nodeUrl = urlForNode(m_rootNode);
     KDirModelDirNode *dirNode = m_rootNode;
     if (m_showNodeForListedUrl && !m_rootNode->m_childNodes.isEmpty()) {
@@ -315,7 +319,7 @@ KDirModelNode *KDirModelPrivate::expandAllParentsUntil(const QUrl &_url) const /
         }
         if (!pathStr.startsWith(nodePath)) {
             qCWarning(category) << "The kioslave for" << url.scheme() << "violates the hierarchy structure:"
-                       << "I arrived at node" << nodePath << ", but" << pathStr << "does not start with that path.";
+                                << "I arrived at node" << nodePath << ", but" << pathStr << "does not start with that path.";
             return nullptr;
         }
 
@@ -333,7 +337,7 @@ KDirModelNode *KDirModelPrivate::expandAllParentsUntil(const QUrl &_url) const /
 
         Q_EMIT q->expand(indexForNode(node));
 
-        //qDebug() << " nodeUrl=" << nodeUrl;
+        // qDebug() << " nodeUrl=" << nodeUrl;
         if (nodeUrl == url) {
             qCDebug(category) << "Found node" << node << "for" << url;
             return node;
@@ -343,7 +347,7 @@ KDirModelNode *KDirModelPrivate::expandAllParentsUntil(const QUrl &_url) const /
         dirNode = static_cast<KDirModelDirNode *>(node);
     }
     // NOTREACHED
-    //return 0;
+    // return 0;
 }
 
 #ifndef NDEBUG
@@ -372,9 +376,7 @@ QModelIndex KDirModelPrivate::indexForNode(KDirModelNode *node, int rowNumber) c
 // index -> node. O(1)
 KDirModelNode *KDirModelPrivate::nodeForIndex(const QModelIndex &index) const
 {
-    return index.isValid()
-           ? static_cast<KDirModelNode *>(index.internalPointer())
-           : m_rootNode;
+    return index.isValid() ? static_cast<KDirModelNode *>(index.internalPointer()) : m_rootNode;
 }
 
 /*
@@ -403,8 +405,8 @@ static QString debugIndex(const QModelIndex &index)
 }
 
 KDirModel::KDirModel(QObject *parent)
-    : QAbstractItemModel(parent),
-      d(new KDirModelPrivate(this))
+    : QAbstractItemModel(parent)
+    , d(new KDirModelPrivate(this))
 {
     setDirLister(new KDirLister(this));
 }
@@ -422,19 +424,24 @@ void KDirModel::setDirLister(KDirLister *dirLister)
     }
     d->m_dirLister = dirLister;
     d->m_dirLister->setParent(this);
-    connect(d->m_dirLister, &KCoreDirLister::itemsAdded, this,
-        [this](const QUrl &dirUrl, const KFileItemList &items){d->_k_slotNewItems(dirUrl, items);} );
+    connect(d->m_dirLister, &KCoreDirLister::itemsAdded, this, [this](const QUrl &dirUrl, const KFileItemList &items) {
+        d->_k_slotNewItems(dirUrl, items);
+    });
     connect(d->m_dirLister, &KCoreDirLister::listingDirCompleted, this, [this](const QUrl &dirUrl) {
         d->_k_slotCompleted(dirUrl);
     });
-    connect(d->m_dirLister, &KCoreDirLister::itemsDeleted, this,
-        [this](const KFileItemList &items){d->_k_slotDeleteItems(items);} );
-    connect(d->m_dirLister, &KCoreDirLister::refreshItems, this,
-        [this](const QList<QPair<KFileItem,KFileItem> > &items){d->_k_slotRefreshItems(items);} );
-    connect(d->m_dirLister, QOverload<>::of(&KCoreDirLister::clear), this,
-        [this](){d->_k_slotClear();} );
-    connect(d->m_dirLister, QOverload<const QUrl&, const QUrl&>::of(&KCoreDirLister::redirection), this,
-        [this](const QUrl &oldUrl, const QUrl &newUrl){d->_k_slotRedirection(oldUrl, newUrl);} );
+    connect(d->m_dirLister, &KCoreDirLister::itemsDeleted, this, [this](const KFileItemList &items) {
+        d->_k_slotDeleteItems(items);
+    });
+    connect(d->m_dirLister, &KCoreDirLister::refreshItems, this, [this](const QList<QPair<KFileItem, KFileItem>> &items) {
+        d->_k_slotRefreshItems(items);
+    });
+    connect(d->m_dirLister, QOverload<>::of(&KCoreDirLister::clear), this, [this]() {
+        d->_k_slotClear();
+    });
+    connect(d->m_dirLister, QOverload<const QUrl &, const QUrl &>::of(&KCoreDirLister::redirection), this, [this](const QUrl &oldUrl, const QUrl &newUrl) {
+        d->_k_slotRedirection(oldUrl, newUrl);
+    });
 }
 
 void KDirModel::openUrl(const QUrl &inputUrl, OpenUrlFlags flags)
@@ -471,7 +478,6 @@ Qt::DropActions KDirModel::supportedDropActions() const
     return Qt::CopyAction | Qt::MoveAction | Qt::LinkAction | Qt::IgnoreAction;
 }
 
-
 KDirLister *KDirModel::dirLister() const
 {
     return d->m_dirLister;
@@ -479,15 +485,14 @@ KDirLister *KDirModel::dirLister() const
 
 void KDirModelPrivate::_k_slotNewItems(const QUrl &directoryUrl, const KFileItemList &items)
 {
-    //qDebug() << "directoryUrl=" << directoryUrl;
+    // qDebug() << "directoryUrl=" << directoryUrl;
 
     KDirModelNode *result = nodeForUrl(directoryUrl); // O(depth)
     // If the directory containing the items wasn't found, then we have a big problem.
     // Are you calling KDirLister::openUrl(url,Keep)? Please use expandToUrl() instead.
     if (!result) {
-        qCWarning(category) << "Items emitted in directory" << directoryUrl
-                   << "but that directory isn't in KDirModel!"
-                   << "Root directory:" << urlForNode(m_rootNode);
+        qCWarning(category) << "Items emitted in directory" << directoryUrl << "but that directory isn't in KDirModel!"
+                            << "Root directory:" << urlForNode(m_rootNode);
         for (const KFileItem &item : items) {
             qDebug() << "Item:" << item.url();
         }
@@ -504,10 +509,9 @@ void KDirModelPrivate::_k_slotNewItems(const QUrl &directoryUrl, const KFileItem
     const int newItemsCount = items.count();
     const int newRowCount = dirNode->m_childNodes.count() + newItemsCount;
 
-    qCDebug(category) << items.count() << "in" << directoryUrl
-                      << "index=" << debugIndex(index) << "newRowCount=" << newRowCount;
+    qCDebug(category) << items.count() << "in" << directoryUrl << "index=" << debugIndex(index) << "newRowCount=" << newRowCount;
 
-    q->beginInsertRows(index, newRowCount - newItemsCount, newRowCount - 1);   // parent, first, last
+    q->beginInsertRows(index, newRowCount - newItemsCount, newRowCount - 1); // parent, first, last
 
     const QList<QUrl> urlsBeingFetched = m_urlsBeingFetched.value(dirNode);
     if (!urlsBeingFetched.isEmpty()) {
@@ -521,13 +525,11 @@ void KDirModelPrivate::_k_slotNewItems(const QUrl &directoryUrl, const KFileItem
     KFileItemList::const_iterator end = items.end();
     for (; it != end; ++it) {
         const bool isDir = it->isDir();
-        KDirModelNode *node = isDir
-                              ? new KDirModelDirNode(dirNode, *it)
-                              : new KDirModelNode(dirNode, *it);
+        KDirModelNode *node = isDir ? new KDirModelDirNode(dirNode, *it) : new KDirModelNode(dirNode, *it);
 #ifndef NDEBUG
         // Test code for possible duplication of items in the childnodes list,
         // not sure if/how it ever happened.
-        //if (dirNode->m_childNodes.count() &&
+        // if (dirNode->m_childNodes.count() &&
         //    dirNode->m_childNodes.last()->item().name() == (*it).name()) {
         //    qCWarning(category) << "Already having" << (*it).name() << "in" << directoryUrl
         //             << "url=" << dirNode->m_childNodes.last()->item().url();
@@ -542,7 +544,7 @@ void KDirModelPrivate::_k_slotNewItems(const QUrl &directoryUrl, const KFileItem
             const QUrl &dirUrl = url;
             for (const QUrl &urlFetched : qAsConst(urlsBeingFetched)) {
                 if (dirUrl.matches(urlFetched, QUrl::StripTrailingSlash) || dirUrl.isParentOf(urlFetched)) {
-                    //qDebug() << "Listing found" << dirUrl.url() << "which is a parent of fetched url" << urlFetched;
+                    // qDebug() << "Listing found" << dirUrl.url() << "which is a parent of fetched url" << urlFetched;
                     const QModelIndex parentIndex = indexForNode(node, dirNode->m_childNodes.count() - 1);
                     Q_ASSERT(parentIndex.isValid());
                     emitExpandFor.append(parentIndex);
@@ -635,14 +637,14 @@ void KDirModelPrivate::_k_slotDeleteItems(const KFileItemList &items)
         const bool val = rowNumbers.testBit(i);
         if (!lastVal && val) {
             end = i;
-            //qDebug() << "end=" << end;
+            // qDebug() << "end=" << end;
         }
         if ((lastVal && !val) || (i == 0 && val)) {
             start = val ? i : i + 1;
-            //qDebug() << "beginRemoveRows" << start << end;
+            // qDebug() << "beginRemoveRows" << start << end;
             q->beginRemoveRows(parentIndex, start, end);
             for (int r = end; r >= start; --r) { // reverse because takeAt changes indexes ;)
-                //qDebug() << "Removing from m_childNodes at" << r;
+                // qDebug() << "Removing from m_childNodes at" << r;
                 delete dirNode->m_childNodes.takeAt(r);
             }
             q->endRemoveRows();
@@ -651,19 +653,19 @@ void KDirModelPrivate::_k_slotDeleteItems(const KFileItemList &items)
     }
 }
 
-void KDirModelPrivate::_k_slotRefreshItems(const QList<QPair<KFileItem, KFileItem> > &items)
+void KDirModelPrivate::_k_slotRefreshItems(const QList<QPair<KFileItem, KFileItem>> &items)
 {
     QModelIndex topLeft, bottomRight;
 
     // Solution 1: we could emit dataChanged for one row (if items.size()==1) or all rows
     // Solution 2: more fine-grained, actually figure out the beginning and end rows.
-    for (QList<QPair<KFileItem, KFileItem> >::const_iterator fit = items.begin(), fend = items.end(); fit != fend; ++fit) {
+    for (QList<QPair<KFileItem, KFileItem>>::const_iterator fit = items.begin(), fend = items.end(); fit != fend; ++fit) {
         Q_ASSERT(!fit->first.isNull());
         Q_ASSERT(!fit->second.isNull());
         const QUrl oldUrl = fit->first.url();
         const QUrl newUrl = fit->second.url();
         KDirModelNode *node = nodeForUrl(oldUrl); // O(n); maybe we could look up to the parent only once
-        //qDebug() << "in model for" << m_dirLister->url() << ":" << oldUrl << "->" << newUrl << "node=" << node;
+        // qDebug() << "in model for" << m_dirLister->url() << ":" << oldUrl << "->" << newUrl << "node=" << node;
         if (!node) { // not found [can happen when renaming a dir, redirection was emitted already]
             continue;
         }
@@ -671,13 +673,12 @@ void KDirModelPrivate::_k_slotRefreshItems(const QList<QPair<KFileItem, KFileIte
             bool hasNewNode = false;
             // A file became directory (well, it was overwritten)
             if (fit->first.isDir() != fit->second.isDir()) {
-                //qDebug() << "DIR/FILE STATUS CHANGE";
+                // qDebug() << "DIR/FILE STATUS CHANGE";
                 const int r = node->rowNumber();
                 removeFromNodeHash(node, oldUrl);
                 KDirModelDirNode *dirNode = node->parent();
                 delete dirNode->m_childNodes.takeAt(r); // i.e. "delete node"
-                node = fit->second.isDir() ? new KDirModelDirNode(dirNode, fit->second)
-                       : new KDirModelNode(dirNode, fit->second);
+                node = fit->second.isDir() ? new KDirModelDirNode(dirNode, fit->second) : new KDirModelNode(dirNode, fit->second);
                 dirNode->m_childNodes.insert(r, node); // same position!
                 hasNewNode = true;
             } else {
@@ -686,7 +687,7 @@ void KDirModelPrivate::_k_slotRefreshItems(const QList<QPair<KFileItem, KFileIte
 
             if (oldUrl != newUrl || hasNewNode) {
                 // What if a renamed dir had children? -> kdirlister takes care of emitting for each item
-                //qDebug() << "Renaming" << oldUrl << "to" << newUrl << "in node hash";
+                // qDebug() << "Renaming" << oldUrl << "to" << newUrl << "in node hash";
                 m_nodeHash.remove(cleanupUrl(oldUrl));
                 m_nodeHash.insert(cleanupUrl(newUrl), node);
             }
@@ -704,7 +705,7 @@ void KDirModelPrivate::_k_slotRefreshItems(const QList<QPair<KFileItem, KFileIte
             }
         }
     }
-    //qDebug() << "dataChanged(" << debugIndex(topLeft) << " - " << debugIndex(bottomRight);
+    // qDebug() << "dataChanged(" << debugIndex(topLeft) << " - " << debugIndex(bottomRight);
     bottomRight = bottomRight.sibling(bottomRight.row(), q->columnCount(QModelIndex()) - 1);
     Q_EMIT q->dataChanged(topLeft, bottomRight);
 }
@@ -751,8 +752,10 @@ void KDirModelPrivate::_k_slotJobUrlsChanged(const QStringList &urlList)
 {
     QStringList dirtyUrls;
 
-    std::set_symmetric_difference(urlList.begin(), urlList.end(),
-                                  m_allCurrentDestUrls.constBegin(), m_allCurrentDestUrls.constEnd(),
+    std::set_symmetric_difference(urlList.begin(),
+                                  urlList.end(),
+                                  m_allCurrentDestUrls.constBegin(),
+                                  m_allCurrentDestUrls.constEnd(),
                                   std::back_inserter(dirtyUrls));
 
     m_allCurrentDestUrls = urlList;
@@ -772,17 +775,16 @@ void KDirModelPrivate::clearAllPreviews(KDirModelDirNode *dirNode)
         KDirModelNode *lastNode = nullptr;
         for (KDirModelNode *node : qAsConst(dirNode->m_childNodes)) {
             node->setPreview(QIcon());
-            //node->setPreview(QIcon::fromTheme(node->item().iconName()));
+            // node->setPreview(QIcon::fromTheme(node->item().iconName()));
             if (isDir(node)) {
                 // recurse into child dirs
                 clearAllPreviews(static_cast<KDirModelDirNode *>(node));
             }
             lastNode = node;
         }
-        Q_EMIT q->dataChanged(indexForNode(dirNode->m_childNodes.at(0), 0),  // O(1)
-                            indexForNode(lastNode, numRows - 1));          // O(1)
+        Q_EMIT q->dataChanged(indexForNode(dirNode->m_childNodes.at(0), 0), // O(1)
+                              indexForNode(lastNode, numRows - 1)); // O(1)
     }
-
 }
 
 void KDirModel::clearAllPreviews()
@@ -844,11 +846,11 @@ QVariant KDirModel::data(const QModelIndex &index, int role) const
         case Qt::DecorationRole:
             if (index.column() == Name) {
                 if (!node->preview().isNull()) {
-                    //qDebug() << item->url() << " preview found";
+                    // qDebug() << item->url() << " preview found";
                     return node->preview();
                 }
                 Q_ASSERT(!item.isNull());
-                //qDebug() << item->url() << " overlays=" << item->overlays();
+                // qDebug() << item->url() << " overlays=" << item->overlays();
                 return KDE::icon(item.iconName(), item.overlays());
             }
             break;
@@ -883,11 +885,8 @@ QVariant KDirModel::data(const QModelIndex &index, int role) const
                         HANDLE hFile = FindFirstFile((LPWSTR)s.utf16(), &findData);
                         if (hFile != INVALID_HANDLE_VALUE) {
                             do {
-                                if (!(findData.cFileName[0] == '.' &&
-                                        findData.cFileName[1] == '\0') &&
-                                        !(findData.cFileName[0] == '.' &&
-                                          findData.cFileName[1] == '.' &&
-                                          findData.cFileName[2] == '\0')) {
+                                if (!(findData.cFileName[0] == '.' && findData.cFileName[1] == '\0')
+                                    && !(findData.cFileName[0] == '.' && findData.cFileName[1] == '.' && findData.cFileName[2] == '\0')) {
                                     ++count;
                                 }
                             } while (FindNextFile(hFile, &findData) != 0);
@@ -912,7 +911,7 @@ QVariant KDirModel::data(const QModelIndex &index, int role) const
                             QT_CLOSEDIR(dir);
                         }
 #endif
-                        //qDebug() << "child count for " << path << ":" << count;
+                        // qDebug() << "child count for " << path << ":" << count;
                         dirNode->setChildCount(count);
                     }
                 }
@@ -922,7 +921,7 @@ QVariant KDirModel::data(const QModelIndex &index, int role) const
             if (d->m_jobTransfersVisible && d->m_allCurrentDestUrls.isEmpty() == false) {
                 KDirModelNode *node = d->nodeForIndex(index);
                 const QString url = node->item().url().toString();
-                //return whether or not there are job dest urls visible in the view, so the delegate knows which ones to paint.
+                // return whether or not there are job dest urls visible in the view, so the delegate knows which ones to paint.
                 return QVariant(d->m_allCurrentDestUrls.contains(url));
             }
         }
@@ -962,7 +961,7 @@ bool KDirModel::setData(const QModelIndex &index, const QVariant &value, int rol
             Q_ASSERT(index.isValid());
             // Set new pixmap - e.g. preview
             KDirModelNode *node = static_cast<KDirModelNode *>(index.internalPointer());
-            //qDebug() << "setting icon for " << node->item()->url();
+            // qDebug() << "setting icon for " << node->item()->url();
             Q_ASSERT(node);
             if (value.type() == QVariant::Icon) {
                 const QIcon icon(qvariant_cast<QIcon>(value));
@@ -1047,14 +1046,14 @@ void KDirModel::setJobTransfersVisible(bool show)
 
     d->m_jobTransfersVisible = show;
     if (show) {
-        connect(&JobUrlCache::instance(), &JobUrlCache::jobUrlsChanged,
-                this, [this](const QStringList &urlList) { d->_k_slotJobUrlsChanged(urlList); });
+        connect(&JobUrlCache::instance(), &JobUrlCache::jobUrlsChanged, this, [this](const QStringList &urlList) {
+            d->_k_slotJobUrlsChanged(urlList);
+        });
 
         JobUrlCache::instance().requestJobUrlsChanged();
     } else {
         disconnect(&JobUrlCache::instance(), &JobUrlCache::jobUrlsChanged, this, nullptr);
     }
-
 }
 
 bool KDirModel::jobTransfersVisible() const
@@ -1153,7 +1152,7 @@ QModelIndex KDirModel::indexForUrl(const QUrl &url) const
 {
     KDirModelNode *node = d->nodeForUrl(url); // O(depth)
     if (!node) {
-        //qDebug() << url << "not found";
+        // qDebug() << url << "not found";
         return QModelIndex();
     }
     return d->indexForNode(node); // O(n)
@@ -1226,7 +1225,7 @@ bool KDirModel::hasChildren(const QModelIndex &parent) const
             filters |= QDir::Hidden;
         }
 
-        QDirIterator it(parentItem.localPath(), filters,  QDirIterator::Subdirectories);
+        QDirIterator it(parentItem.localPath(), filters, QDirIterator::Subdirectories);
         return it.hasNext();
     }
     // Remote and not listed yet, we can't know; let the user click on it so we'll find out
@@ -1292,8 +1291,7 @@ bool KDirModel::canFetchMore(const QModelIndex &parent) const
 
     KDirModelNode *node = static_cast<KDirModelNode *>(parent.internalPointer());
     const KFileItem &item = node->item();
-    return item.isDir() && !static_cast<KDirModelDirNode *>(node)->isPopulated()
-           && static_cast<KDirModelDirNode *>(node)->m_childNodes.isEmpty();
+    return item.isDir() && !static_cast<KDirModelDirNode *>(node)->isPopulated() && static_cast<KDirModelDirNode *>(node)->m_childNodes.isEmpty();
 }
 
 void KDirModel::fetchMore(const QModelIndex &parent)

@@ -9,33 +9,33 @@
 
 #include "kurlnavigator.h"
 
+#include "kurlnavigatorbutton_p.h"
+#include "kurlnavigatordropdownbutton_p.h"
+#include "kurlnavigatorpathselectoreventfilter_p.h"
 #include "kurlnavigatorplacesselector_p.h"
 #include "kurlnavigatorprotocolcombo_p.h"
-#include "kurlnavigatordropdownbutton_p.h"
-#include "kurlnavigatorbutton_p.h"
 #include "kurlnavigatortogglebutton_p.h"
-#include "kurlnavigatorpathselectoreventfilter_p.h"
 #include "urlutil_p.h"
 
-#include <kfileitem.h>
-#include <kfileplacesmodel.h>
 #include <KIO/StatJob>
 #include <KLocalizedString>
+#include <kfileitem.h>
+#include <kfileplacesmodel.h>
 #include <kprotocolinfo.h>
+#include <kurifilter.h>
 #include <kurlcombobox.h>
 #include <kurlcompletion.h>
-#include <kurifilter.h>
 
-#include <QDir>
-#include <QTimer>
 #include <QApplication>
 #include <QClipboard>
+#include <QDir>
 #include <QDropEvent>
+#include <QHBoxLayout>
 #include <QKeyEvent>
 #include <QMenu>
-#include <QMimeDatabase>
 #include <QMimeData>
-#include <QHBoxLayout>
+#include <QMimeDatabase>
+#include <QTimer>
 
 using namespace KDEPrivate;
 
@@ -46,8 +46,8 @@ struct LocationData {
     }
 
     QUrl url;
-    QUrl rootUrl;      // KDE5: remove after the deprecated methods have been removed
-    QPoint pos;        // KDE5: remove after the deprecated methods have been removed
+    QUrl rootUrl; // KDE5: remove after the deprecated methods have been removed
+    QPoint pos; // KDE5: remove after the deprecated methods have been removed
     QByteArray state;
 };
 
@@ -265,7 +265,6 @@ void KUrlNavigatorPrivate::appendWidget(QWidget *widget, int stretch)
 void KUrlNavigatorPrivate::applyUncommittedUrl()
 {
     auto applyUrl = [this](QUrl url) {
-
         // Parts of the following code have been taken from the class KateFileSelector
         // located in kate/app/katefileselector.hpp of Kate.
         // SPDX-FileCopyrightText: 2001 Christoph Cullmann <cullmann@kde.org>
@@ -273,8 +272,7 @@ void KUrlNavigatorPrivate::applyUncommittedUrl()
         // SPDX-FileCopyrightText: 2001 Anders Lund <anders.lund@lund.tdcadsl.dk>
 
         // For example "desktop:/" _not_ "desktop:", see the comment in slotProtocolChanged()
-        if (!url.isEmpty() && url.path().isEmpty()
-            && KProtocolInfo::protocolClass(url.scheme()) == QLatin1String(":local")) {
+        if (!url.isEmpty() && url.path().isEmpty() && KProtocolInfo::protocolClass(url.scheme()) == QLatin1String(":local")) {
             url.setPath(QStringLiteral("/"));
         }
 
@@ -295,7 +293,7 @@ void KUrlNavigatorPrivate::applyUncommittedUrl()
     KUriFilterData filteredData(text);
     filteredData.setCheckForExecutables(false);
     // Using kshorturifilter to fix up e.g. "ftp.kde.org" ---> "ftp://ftp.kde.org"
-    const auto filtersList = QStringList{ QStringLiteral("kshorturifilter") };
+    const auto filtersList = QStringList{QStringLiteral("kshorturifilter")};
     if (KUriFilter::self()->filterUri(filteredData, filtersList)) {
         applyUrl(filteredData.uri()); // The text was filtered
         return;
@@ -310,7 +308,7 @@ void KUrlNavigatorPrivate::applyUncommittedUrl()
 
     // Dirs and symlinks to dirs
     constexpr auto details = KIO::StatBasic | KIO::StatResolveSymlink;
-    auto *job = KIO::statDetails(url,  KIO::StatJob::DestinationSide, details, KIO::HideProgressInfo);
+    auto *job = KIO::statDetails(url, KIO::StatJob::DestinationSide, details, KIO::HideProgressInfo);
     q->connect(job, &KJob::result, q, [job, text, applyUrl]() {
         // If there is a dir matching "text" relative to the current url, use that, e.g.
         // typing "bar" while at "/path/to/foo", the url becomes "/path/to/foo/bar/"
@@ -613,12 +611,9 @@ void KUrlNavigatorPrivate::updateButtons(int startIndex)
                 button = new KUrlNavigatorButton(buttonUrl(idx), q);
                 button->installEventFilter(q);
                 button->setForegroundRole(QPalette::WindowText);
-                q->connect(button,
-                           &KUrlNavigatorButton::urlsDroppedOnNavButton,
-                           q,
-                           [this, button](const QUrl &destination, QDropEvent *event) {
-                               dropUrls(destination, event, button);
-                           });
+                q->connect(button, &KUrlNavigatorButton::urlsDroppedOnNavButton, q, [this, button](const QUrl &destination, QDropEvent *event) {
+                    dropUrls(destination, event, button);
+                });
 
                 q->connect(button, &KUrlNavigatorButton::clicked, q, [this](const QUrl &url, Qt::MouseButton btn, Qt::KeyboardModifiers modifiers) {
                     slotNavigatorButtonClicked(url, btn, modifiers);
@@ -831,23 +826,16 @@ bool KUrlNavigatorPrivate::isCompressedPath(const QUrl &url) const
     QMimeDatabase db;
     const QMimeType mime = db.mimeTypeForUrl(QUrl(url.toString(QUrl::StripTrailingSlash)));
     // Note: this list of MIME types depends on the protocols implemented by kio_archive and krarc
-    return  mime.inherits(QStringLiteral("application/x-compressed-tar")) ||
-            mime.inherits(QStringLiteral("application/x-bzip-compressed-tar")) ||
-            mime.inherits(QStringLiteral("application/x-lzma-compressed-tar")) ||
-            mime.inherits(QStringLiteral("application/x-xz-compressed-tar")) ||
-            mime.inherits(QStringLiteral("application/x-tar")) ||
-            mime.inherits(QStringLiteral("application/x-tarz")) ||
-            mime.inherits(QStringLiteral("application/x-tzo")) || // (not sure KTar supports those?)
-            mime.inherits(QStringLiteral("application/zip")) ||
-            mime.inherits(QStringLiteral("application/x-archive")) ||
-            mime.inherits(QStringLiteral("application/x-7z-compressed")) || // the following depends on krarc
-            mime.inherits(QStringLiteral("application/x-rpm")) ||
-            mime.inherits(QStringLiteral("application/x-source-rpm")) ||
-            mime.inherits(QStringLiteral("application/vnd.rar")) ||
-            mime.inherits(QStringLiteral("application/x-ace")) ||
-            mime.inherits(QStringLiteral("application/x-arj")) ||
-            mime.inherits(QStringLiteral("application/x-cpio")) ||
-            mime.inherits(QStringLiteral("application/x-lha"));
+    return mime.inherits(QStringLiteral("application/x-compressed-tar")) || mime.inherits(QStringLiteral("application/x-bzip-compressed-tar"))
+        || mime.inherits(QStringLiteral("application/x-lzma-compressed-tar")) || mime.inherits(QStringLiteral("application/x-xz-compressed-tar"))
+        || mime.inherits(QStringLiteral("application/x-tar")) || mime.inherits(QStringLiteral("application/x-tarz"))
+        || mime.inherits(QStringLiteral("application/x-tzo")) || // (not sure KTar supports those?)
+        mime.inherits(QStringLiteral("application/zip")) || mime.inherits(QStringLiteral("application/x-archive"))
+        || mime.inherits(QStringLiteral("application/x-7z-compressed")) || // the following depends on krarc
+        mime.inherits(QStringLiteral("application/x-rpm")) || mime.inherits(QStringLiteral("application/x-source-rpm"))
+        || mime.inherits(QStringLiteral("application/vnd.rar")) || mime.inherits(QStringLiteral("application/x-ace"))
+        || mime.inherits(QStringLiteral("application/x-arj")) || mime.inherits(QStringLiteral("application/x-cpio"))
+        || mime.inherits(QStringLiteral("application/x-lha"));
 }
 
 void KUrlNavigatorPrivate::removeTrailingSlash(QString &url) const
@@ -1031,7 +1019,7 @@ void KUrlNavigator::setPlacesSelectorVisible(bool visible)
         return;
     }
 
-    if (visible  && (d->m_placesSelector == nullptr)) {
+    if (visible && (d->m_placesSelector == nullptr)) {
         // the places selector cannot get visible as no
         // places model is available
         return;
@@ -1050,7 +1038,7 @@ QUrl KUrlNavigator::uncommittedUrl() const
 {
     KUriFilterData filteredData(d->m_pathBox->currentText().trimmed());
     filteredData.setCheckForExecutables(false);
-    if (KUriFilter::self()->filterUri(filteredData, QStringList{ QStringLiteral("kshorturifilter") })) {
+    if (KUriFilter::self()->filterUri(filteredData, QStringList{QStringLiteral("kshorturifilter")})) {
         return filteredData.uri();
     } else {
         return QUrl::fromUserInput(filteredData.typedString());
@@ -1069,7 +1057,8 @@ void KUrlNavigator::setLocationUrl(const QUrl &newUrl)
     // code locationUrl() and url become the same URLs
     QUrl firstChildUrl = KIO::UrlUtil::firstChildUrl(locationUrl(), url);
 
-    if ((url.scheme() == QLatin1String("tar")) || (url.scheme() == QLatin1String("zip")) || (url.scheme() == QLatin1String("sevenz")) || (url.scheme() == QLatin1String("krarc"))) {
+    if ((url.scheme() == QLatin1String("tar")) || (url.scheme() == QLatin1String("zip")) || (url.scheme() == QLatin1String("sevenz"))
+        || (url.scheme() == QLatin1String("krarc"))) {
         // The URL represents a tar-, zip- or 7z-file, or an archive file supported by krarc.
         // Check whether the URL is really part of the archive file, otherwise
         // replace it by the local path again.
@@ -1097,8 +1086,7 @@ void KUrlNavigator::setLocationUrl(const QUrl &newUrl)
     // Check whether current history element has the same URL.
     // If this is the case, just ignore setting the URL.
     const LocationData &data = d->m_history.at(d->m_historyIndex);
-    const bool isUrlEqual = url.matches(locationUrl(), QUrl::StripTrailingSlash) ||
-                            (!url.isValid() && url.matches(data.url, QUrl::StripTrailingSlash));
+    const bool isUrlEqual = url.matches(locationUrl(), QUrl::StripTrailingSlash) || (!url.isValid() && url.matches(data.url, QUrl::StripTrailingSlash));
     if (isUrlEqual) {
         return;
     }

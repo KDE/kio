@@ -7,18 +7,16 @@
 */
 
 #include "ksslinfodialog.h"
-#include "ui_sslinfo.h"
 #include "ksslcertificatebox.h"
 #include "ksslerror_p.h"
-
+#include "ui_sslinfo.h"
 
 #include <QDialogButtonBox>
 
 #include <QSslCertificate>
 
-#include <KLocalizedString>
 #include <KIconLoader> // BarIcon
-
+#include <KLocalizedString>
 
 class Q_DECL_HIDDEN KSslInfoDialog::KSslInfoDialogPrivate
 {
@@ -35,8 +33,8 @@ public:
 };
 
 KSslInfoDialog::KSslInfoDialog(QWidget *parent)
-    : QDialog(parent),
-      d(new KSslInfoDialogPrivate)
+    : QDialog(parent)
+    , d(new KSslInfoDialogPrivate)
 {
     setWindowTitle(i18n("KDE SSL Information"));
     setAttribute(Qt::WA_DeleteOnClose);
@@ -84,24 +82,22 @@ void KSslInfoDialog::updateWhichPartsEncrypted()
 {
     if (d->isMainPartEncrypted) {
         if (d->auxPartsEncrypted) {
-            d->ui.encryptionIndicator->setPixmap(QIcon::fromTheme(QStringLiteral("security-high"))
-                .pixmap(KIconLoader::SizeSmallMedium));
+            d->ui.encryptionIndicator->setPixmap(QIcon::fromTheme(QStringLiteral("security-high")).pixmap(KIconLoader::SizeSmallMedium));
             d->ui.explanation->setText(i18n("Current connection is secured with SSL."));
         } else {
-            d->ui.encryptionIndicator->setPixmap(QIcon::fromTheme(QStringLiteral("security-medium"))
-                .pixmap(KIconLoader::SizeSmallMedium));
-            d->ui.explanation->setText(i18n("The main part of this document is secured "
-                                            "with SSL, but some parts are not."));
+            d->ui.encryptionIndicator->setPixmap(QIcon::fromTheme(QStringLiteral("security-medium")).pixmap(KIconLoader::SizeSmallMedium));
+            d->ui.explanation->setText(
+                i18n("The main part of this document is secured "
+                     "with SSL, but some parts are not."));
         }
     } else {
         if (d->auxPartsEncrypted) {
-            d->ui.encryptionIndicator->setPixmap(QIcon::fromTheme(QStringLiteral("security-medium"))
-                .pixmap(KIconLoader::SizeSmallMedium));
-            d->ui.explanation->setText(i18n("Some of this document is secured with SSL, "
-                                            "but the main part is not."));
+            d->ui.encryptionIndicator->setPixmap(QIcon::fromTheme(QStringLiteral("security-medium")).pixmap(KIconLoader::SizeSmallMedium));
+            d->ui.explanation->setText(
+                i18n("Some of this document is secured with SSL, "
+                     "but the main part is not."));
         } else {
-            d->ui.encryptionIndicator->setPixmap(QIcon::fromTheme(QStringLiteral("security-low"))
-                .pixmap(KIconLoader::SizeSmallMedium));
+            d->ui.encryptionIndicator->setPixmap(QIcon::fromTheme(QStringLiteral("security-low")).pixmap(KIconLoader::SizeSmallMedium));
             d->ui.explanation->setText(i18n("Current connection is not secured with SSL."));
         }
     }
@@ -109,10 +105,13 @@ void KSslInfoDialog::updateWhichPartsEncrypted()
 
 #if KIOCORE_BUILD_DEPRECATED_SINCE(5, 64)
 void KSslInfoDialog::setSslInfo(const QList<QSslCertificate> &certificateChain,
-                                const QString &ip, const QString &host,
-                                const QString &sslProtocol, const QString &cipher,
-                                int usedBits, int bits,
-                                const QList<QList<KSslError::Error> > &validationErrors)
+                                const QString &ip,
+                                const QString &host,
+                                const QString &sslProtocol,
+                                const QString &cipher,
+                                int usedBits,
+                                int bits,
+                                const QList<QList<KSslError::Error>> &validationErrors)
 {
     QList<QList<QSslError::SslError>> qValidationErrors;
     qValidationErrors.reserve(validationErrors.size());
@@ -129,25 +128,22 @@ void KSslInfoDialog::setSslInfo(const QList<QSslCertificate> &certificateChain,
 #endif
 
 void KSslInfoDialog::setSslInfo(const QList<QSslCertificate> &certificateChain,
-                                const QString &ip, const QString &host,
-                                const QString &sslProtocol, const QString &cipher,
-                                int usedBits, int bits,
+                                const QString &ip,
+                                const QString &host,
+                                const QString &sslProtocol,
+                                const QString &cipher,
+                                int usedBits,
+                                int bits,
                                 const QList<QList<QSslError::SslError>> &validationErrors)
 {
-
     d->certificateChain = certificateChain;
     d->certificateErrors = validationErrors;
 
     d->ui.certSelector->clear();
     for (const QSslCertificate &cert : certificateChain) {
         QString name;
-        static const QSslCertificate::SubjectInfo si[] = {
-            QSslCertificate::CommonName,
-            QSslCertificate::Organization,
-            QSslCertificate::OrganizationalUnitName
-        };
-        for (int j = 0; j < 3 && name.isEmpty(); j++)
-        {
+        static const QSslCertificate::SubjectInfo si[] = {QSslCertificate::CommonName, QSslCertificate::Organization, QSslCertificate::OrganizationalUnitName};
+        for (int j = 0; j < 3 && name.isEmpty(); j++) {
             name = cert.subjectInfo(si[j]).join(QLatin1String(", "));
         }
         d->ui.certSelector->addItem(name);
@@ -155,8 +151,7 @@ void KSslInfoDialog::setSslInfo(const QList<QSslCertificate> &certificateChain,
     if (certificateChain.size() < 2) {
         d->ui.certSelector->setEnabled(false);
     }
-    connect(d->ui.certSelector, QOverload<int>::of(&QComboBox::currentIndexChanged),
-            this, &KSslInfoDialog::displayFromChain);
+    connect(d->ui.certSelector, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &KSslInfoDialog::displayFromChain);
     if (d->certificateChain.isEmpty()) {
         d->certificateChain.append(QSslCertificate());
     }
@@ -168,14 +163,12 @@ void KSslInfoDialog::setSslInfo(const QList<QSslCertificate> &certificateChain,
 
     const QStringList cipherInfo = cipher.split(QLatin1Char('\n'), Qt::SkipEmptyParts);
     if (cipherInfo.size() >= 4) {
-        d->ui.encryption->setText(i18nc("%1, using %2 bits of a %3 bit key", "%1, %2 %3", cipherInfo[0],
-                                        i18ncp("Part of: %1, using %2 bits of a %3 bit key",
-                                               "using %1 bit", "using %1 bits", usedBits),
-                                        i18ncp("Part of: %1, using %2 bits of a %3 bit key",
-                                               "of a %1 bit key", "of a %1 bit key", bits)));
-        d->ui.details->setText(QStringLiteral("Auth = %1, Kx = %2, MAC = %3")
-                               .arg(cipherInfo[1], cipherInfo[2],
-                                    cipherInfo[3]));
+        d->ui.encryption->setText(i18nc("%1, using %2 bits of a %3 bit key",
+                                        "%1, %2 %3",
+                                        cipherInfo[0],
+                                        i18ncp("Part of: %1, using %2 bits of a %3 bit key", "using %1 bit", "using %1 bits", usedBits),
+                                        i18ncp("Part of: %1, using %2 bits of a %3 bit key", "of a %1 bit key", "of a %1 bit key", bits)));
+        d->ui.details->setText(QStringLiteral("Auth = %1, Kx = %2, MAC = %3").arg(cipherInfo[1], cipherInfo[2], cipherInfo[3]));
     } else {
         d->ui.encryption->setText(QString());
         d->ui.details->setText(QString());
@@ -199,9 +192,8 @@ void KSslInfoDialog::displayFromChain(int i)
     }
     d->ui.trusted->setText(trusted);
 
-    QString vp = i18nc("%1 is the effective date of the certificate, %2 is the expiry date", "%1 to %2",
-                       cert.effectiveDate().toString(),
-                       cert.expiryDate().toString());
+    QString vp =
+        i18nc("%1 is the effective date of the certificate, %2 is the expiry date", "%1 to %2", cert.effectiveDate().toString(), cert.expiryDate().toString());
     d->ui.validityPeriod->setText(vp);
 
     d->ui.serial->setText(QString::fromUtf8(cert.serialNumber()));
@@ -213,11 +205,11 @@ void KSslInfoDialog::displayFromChain(int i)
 }
 
 #if KIOCORE_BUILD_DEPRECATED_SINCE(5, 65)
-//static
-QList<QList<KSslError::Error> > KSslInfoDialog::errorsFromString(const QString &es)
+// static
+QList<QList<KSslError::Error>> KSslInfoDialog::errorsFromString(const QString &es)
 {
     const QStringList sl = es.split(QLatin1Char('\n'), Qt::KeepEmptyParts);
-    QList<QList<KSslError::Error> > ret;
+    QList<QList<KSslError::Error>> ret;
     ret.reserve(sl.size());
     for (const QString &s : sl) {
         QList<KSslError::Error> certErrors;
@@ -235,7 +227,7 @@ QList<QList<KSslError::Error> > KSslInfoDialog::errorsFromString(const QString &
 }
 #endif
 
-//static
+// static
 QList<QList<QSslError::SslError>> KSslInfoDialog::certificateErrorsFromString(const QString &errorsString)
 {
     const QStringList sl = errorsString.split(QLatin1Char('\n'), Qt::KeepEmptyParts);

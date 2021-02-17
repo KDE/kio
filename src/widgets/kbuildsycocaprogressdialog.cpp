@@ -5,13 +5,13 @@
     SPDX-License-Identifier: LGPL-2.0-only
 */
 #include "kbuildsycocaprogressdialog.h"
-#include <KSycoca>
-#include <QStandardPaths>
 #include <KLocalizedString>
+#include <KSycoca>
 #include <QDBusConnection>
 #include <QDBusInterface>
-#include <QProcess>
 #include <QDialogButtonBox>
+#include <QProcess>
+#include <QStandardPaths>
 
 class KBuildSycocaProgressDialogPrivate
 {
@@ -21,14 +21,12 @@ public:
     {
     }
 
-    KBuildSycocaProgressDialog * const m_parent;
+    KBuildSycocaProgressDialog *const m_parent;
 };
 
 void KBuildSycocaProgressDialog::rebuildKSycoca(QWidget *parent)
 {
-    KBuildSycocaProgressDialog dlg(parent,
-                                   i18n("Updating System Configuration"),
-                                   i18n("Updating system configuration."));
+    KBuildSycocaProgressDialog dlg(parent, i18n("Updating System Configuration"), i18n("Updating system configuration."));
 
     // FIXME HACK: kdelibs 4 doesn't evaluate mimeapps.list at query time; refresh
     // its cache as well.
@@ -41,14 +39,12 @@ void KBuildSycocaProgressDialog::rebuildKSycoca(QWidget *parent)
 
     QProcess *proc = new QProcess(&dlg);
     proc->start(QStringLiteral(KBUILDSYCOCA_EXENAME), QStringList());
-    QObject::connect(proc, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished),
-                     &dlg, &QWidget::close);
+    QObject::connect(proc, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished), &dlg, &QWidget::close);
 
     dlg.exec();
 }
 
-KBuildSycocaProgressDialog::KBuildSycocaProgressDialog(QWidget *_parent,
-        const QString &_caption, const QString &text)
+KBuildSycocaProgressDialog::KBuildSycocaProgressDialog(QWidget *_parent, const QString &_caption, const QString &text)
     : QProgressDialog(_parent)
     , d(new KBuildSycocaProgressDialogPrivate(this))
 {
@@ -57,7 +53,7 @@ KBuildSycocaProgressDialog::KBuildSycocaProgressDialog(QWidget *_parent,
     setLabelText(text);
     setRange(0, 0);
     setAutoClose(false);
-    QDialogButtonBox* dialogButtonBox = new QDialogButtonBox(QDialogButtonBox::Cancel, this);
+    QDialogButtonBox *dialogButtonBox = new QDialogButtonBox(QDialogButtonBox::Cancel, this);
     setCancelButton(dialogButtonBox->button(QDialogButtonBox::Cancel));
 }
 

@@ -15,4 +15,3 @@ KAbstractFileItemActionPlugin::KAbstractFileItemActionPlugin(QObject *parent)
 KAbstractFileItemActionPlugin::~KAbstractFileItemActionPlugin()
 {
 }
-

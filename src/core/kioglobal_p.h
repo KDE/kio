@@ -8,8 +8,8 @@
 #ifndef KIO_KIOGLOBAL_P_H
 #define KIO_KIOGLOBAL_P_H
 
-#include <qplatformdefs.h>
 #include "kiocore_export.h"
+#include <qplatformdefs.h>
 
 #include <KUser>
 
@@ -70,52 +70,53 @@ Q_STATIC_ASSERT(S_IRUSR == _S_IREAD && S_IWUSR == _S_IWRITE && S_IXUSR == _S_IEX
 
 // Windows does not have S_IFBLK and S_IFSOCK, just use the Linux values, they won't conflict
 #ifndef S_IFBLK
-#define S_IFBLK  0060000
+#define S_IFBLK 0060000
 #endif
 #ifndef S_IFSOCK
 #define S_IFSOCK 0140000
 #endif
 /** performs a QT_STAT and add QT_STAT_LNK to st_mode if the path is a symlink */
-KIOCORE_EXPORT int kio_windows_lstat(const char* path, QT_STATBUF* buffer);
+KIOCORE_EXPORT int kio_windows_lstat(const char *path, QT_STATBUF *buffer);
 
 #ifndef QT_LSTAT
 #define QT_LSTAT kio_windows_lstat
 #endif
 
 #ifndef QT_STAT_LNK
-#       define QT_STAT_LNK 0120000
+#define QT_STAT_LNK 0120000
 #endif // QT_STAT_LNK
 
-#endif //Q_OS_WIN
+#endif // Q_OS_WIN
 
-namespace KIOPrivate {
-    /** @return true if the process with given PID is currently running */
-    KIOCORE_EXPORT bool isProcessAlive(qint64 pid);
-    /** Send a terminate signal (SIGTERM on UNIX) to the process with given PID. */
-    KIOCORE_EXPORT void sendTerminateSignal(qint64 pid);
+namespace KIOPrivate
+{
+/** @return true if the process with given PID is currently running */
+KIOCORE_EXPORT bool isProcessAlive(qint64 pid);
+/** Send a terminate signal (SIGTERM on UNIX) to the process with given PID. */
+KIOCORE_EXPORT void sendTerminateSignal(qint64 pid);
 
-    enum SymlinkType {
-        GuessSymlinkType,
-        FileSymlink,
-        DirectorySymlink,
-    };
+enum SymlinkType {
+    GuessSymlinkType,
+    FileSymlink,
+    DirectorySymlink,
+};
 
-    /** Creates a symbolic link at @p destination pointing to @p source
-     * Unlike UNIX, Windows needs to know whether the symlink points to a file or a directory
-     * when creating the link. This information can be passed in @p type. If @p type is not given
-     * the windows code will guess the type based on the source file.
-     * @note On Windows this requires the current user to have the SeCreateSymbolicLink privilege which
-     * is usually only given to administrators.
-     * @return true on success, false on error
-     */
-    KIOCORE_EXPORT bool createSymlink(const QString &source, const QString &destination, SymlinkType type = GuessSymlinkType);
+/** Creates a symbolic link at @p destination pointing to @p source
+ * Unlike UNIX, Windows needs to know whether the symlink points to a file or a directory
+ * when creating the link. This information can be passed in @p type. If @p type is not given
+ * the windows code will guess the type based on the source file.
+ * @note On Windows this requires the current user to have the SeCreateSymbolicLink privilege which
+ * is usually only given to administrators.
+ * @return true on success, false on error
+ */
+KIOCORE_EXPORT bool createSymlink(const QString &source, const QString &destination, SymlinkType type = GuessSymlinkType);
 
-    /** Changes the ownership of @p file (like chown()) */
-    KIOCORE_EXPORT bool changeOwnership(const QString& file, KUserId newOwner, KGroupId newGroup);
+/** Changes the ownership of @p file (like chown()) */
+KIOCORE_EXPORT bool changeOwnership(const QString &file, KUserId newOwner, KGroupId newGroup);
 
-    /** Returns an icon name for a standard path,
-     * e.g. folder-pictures for any path in QStandardPaths::PicturesLocation */
-    QString iconForStandardPath(const QString &localDirectory);
+/** Returns an icon name for a standard path,
+ * e.g. folder-pictures for any path in QStandardPaths::PicturesLocation */
+QString iconForStandardPath(const QString &localDirectory);
 }
 
 #endif // KIO_KIOGLOBAL_P_H

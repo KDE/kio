@@ -7,8 +7,8 @@
     SPDX-License-Identifier: LGPL-2.0-only
 */
 
-#include "kprotocolinfofactory_p.h"
 #include "kprotocolinfo_p.h"
+#include "kprotocolinfofactory_p.h"
 
 #include <KPluginLoader>
 #include <KPluginMetaData>
@@ -115,7 +115,8 @@ bool KProtocolInfoFactory::fillCache()
     }
 
     // second: fallback to .protocol files
-    const QStringList serviceDirs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("kservices5"), QStandardPaths::LocateDirectory)
+    const QStringList serviceDirs =
+        QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("kservices5"), QStandardPaths::LocateDirectory)
         << QCoreApplication::applicationDirPath() + QLatin1String("/kservices5");
     for (const QString &serviceDir : serviceDirs) {
         QDirIterator it(serviceDir);

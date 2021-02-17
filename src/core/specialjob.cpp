@@ -11,13 +11,12 @@
 
 using namespace KIO;
 
-class KIO::SpecialJobPrivate: public TransferJobPrivate
+class KIO::SpecialJobPrivate : public TransferJobPrivate
 {
-    SpecialJobPrivate(const QUrl &url, int command,
-                      const QByteArray &packedArgs,
-                      const QByteArray &_staticData)
+    SpecialJobPrivate(const QUrl &url, int command, const QByteArray &packedArgs, const QByteArray &_staticData)
         : TransferJobPrivate(url, command, packedArgs, _staticData)
-    {}
+    {
+    }
 };
 
 SpecialJob::SpecialJob(const QUrl &url, const QByteArray &packedArgs)

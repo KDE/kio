@@ -11,22 +11,23 @@
 #include "kshorturifilter.h"
 #include "../pathhelpers_p.h" // concatPaths(), isAbsoluteLocalPath()
 
-#include <QDir>
 #include <QDBusConnection>
+#include <QDir>
 #include <QLoggingCategory>
 #include <qplatformdefs.h>
 
-#include <KLocalizedString>
-#include <KPluginFactory>
-#include <kprotocolinfo.h>
+#include <KApplicationTrader>
 #include <KConfig>
 #include <KConfigGroup>
-#include <KApplicationTrader>
+#include <KLocalizedString>
+#include <KPluginFactory>
 #include <KService>
-#include <kurlauthorized.h>
 #include <KUser>
+#include <kprotocolinfo.h>
+#include <kurlauthorized.h>
 
-namespace {
+namespace
+{
 Q_LOGGING_CATEGORY(category, "kf.kio.urifilters.shorturi", QtWarningMsg)
 }
 
@@ -45,8 +46,7 @@ static bool isPotentialShortURL(const QString &cmd)
     // Host names and IPv4 address...
     // Exclude ".." and paths starting with "../", these are used to go up in a filesystem
     // dir hierarchy
-    if (cmd != QLatin1String("..") && !cmd.startsWith(QLatin1String("../"))
-        && cmd.contains(QLatin1Char('.'))) {
+    if (cmd != QLatin1String("..") && !cmd.startsWith(QLatin1String("../")) && cmd.contains(QLatin1Char('.'))) {
         return true;
     }
 
@@ -67,7 +67,7 @@ static QString removeArgs(const QString &_cmd)
         int spacePos = 0;
 
         do {
-            spacePos = cmd.indexOf(QLatin1Char(' '), spacePos+1);
+            spacePos = cmd.indexOf(QLatin1Char(' '), spacePos + 1);
         } while (spacePos > 1 && cmd[spacePos - 1] == QLatin1Char('\\'));
 
         if (spacePos > 0) {
@@ -91,8 +91,8 @@ static bool isKnownProtocol(const QString &protocol)
 KShortUriFilter::KShortUriFilter(QObject *parent, const QVariantList & /*args*/)
     : KUriFilterPlugin(QStringLiteral("kshorturifilter"), parent)
 {
-    QDBusConnection::sessionBus().connect(QString(), QStringLiteral("/"), QStringLiteral("org.kde.KUriFilterPlugin"),
-                                          QStringLiteral("configure"), this, SLOT(configure()));
+    QDBusConnection::sessionBus()
+        .connect(QString(), QStringLiteral("/"), QStringLiteral("org.kde.KUriFilterPlugin"), QStringLiteral("configure"), this, SLOT(configure()));
     configure();
 }
 
@@ -111,7 +111,7 @@ bool KShortUriFilter::filterUri(KUriFilterData &data) const
      * hackable and is missing a config dialog.
      */
 
-    //QUrl url = data.uri();
+    // QUrl url = data.uri();
     QString cmd = data.typedString();
 
     int firstNonSlash = 0;
@@ -149,8 +149,7 @@ bool KShortUriFilter::filterUri(KUriFilterData &data) const
 
     // Fix misparsing of "foo:80", QUrl thinks "foo" is the protocol and "80" is the path.
     // However, be careful not to do that for valid hostless URLs, e.g. file:///foo!
-    if (!protocol.isEmpty() && url.host().isEmpty() && !url.path().isEmpty()
-        && cmd.contains(QLatin1Char(':')) && !isKnownProtocol(protocol)) {
+    if (!protocol.isEmpty() && url.host().isEmpty() && !url.path().isEmpty() && cmd.contains(QLatin1Char(':')) && !isKnownProtocol(protocol)) {
         protocol.clear();
     }
 
@@ -171,9 +170,7 @@ bool KShortUriFilter::filterUri(KUriFilterData &data) const
     // Handle MAN & INFO pages shortcuts...
     const QString man_proto = QStringLiteral("man:");
     const QString info_proto = QStringLiteral("info:");
-    if (cmd.startsWith(QLatin1Char('#'))
-        || cmd.indexOf(man_proto) == 0
-        || cmd.indexOf(info_proto) == 0) {
+    if (cmd.startsWith(QLatin1Char('#')) || cmd.indexOf(man_proto) == 0 || cmd.indexOf(info_proto) == 0) {
         if (cmd.leftRef(2) == QLatin1String("##")) {
             cmd = QLatin1String("info:/") + cmd.midRef(2);
         } else if (cmd.startsWith(QLatin1Char('#'))) {
@@ -214,8 +211,7 @@ bool KShortUriFilter::filterUri(KUriFilterData &data) const
             // Split path from ref/query
             // but not for "/tmp/a#b", if "a#b" is an existing file,
             // or for "/tmp/a?b" (#58990)
-            if ((url.hasFragment() || !url.query().isEmpty())
-                && !url.path().endsWith(QLatin1Char('/'))) { // /tmp/?foo is a namefilter, not a query
+            if ((url.hasFragment() || !url.query().isEmpty()) && !url.path().endsWith(QLatin1Char('/'))) { // /tmp/?foo is a namefilter, not a query
                 path = url.path();
                 ref = url.fragment();
                 qCDebug(category) << "isLocalFile set path to" << path << "and ref to" << ref;
@@ -242,7 +238,7 @@ bool KShortUriFilter::filterUri(KUriFilterData &data) const
         if (slashPos == 1) { // ~/
             path.replace(0, 1, QDir::homePath());
         } else { // ~username/
-            const QString userName(path.mid(1, slashPos-1));
+            const QString userName(path.mid(1, slashPos - 1));
             KUser user(userName);
             if (user.isValid() && !user.homeDir().isEmpty()) {
                 path.replace(0, slashPos, user.homeDir());
@@ -329,7 +325,8 @@ bool KShortUriFilter::filterUri(KUriFilterData &data) const
             // Support for name filter (/foo/*.txt), see also KonqMainWindow::detectNameFilter
             // If the app using this filter doesn't support it, well, it'll simply error out itself
             int lastSlash = path.lastIndexOf(QLatin1Char('/'));
-            if (lastSlash > -1 && path.indexOf(QLatin1Char(' '), lastSlash) == -1) { // no space after last slash, otherwise it's more likely command-line arguments
+            if (lastSlash > -1
+                && path.indexOf(QLatin1Char(' '), lastSlash) == -1) { // no space after last slash, otherwise it's more likely command-line arguments
                 QString fileName = path.mid(lastSlash + 1);
                 QString testPath = path.left(lastSlash);
                 if ((fileName.indexOf(QLatin1Char('*')) != -1 || fileName.indexOf(QLatin1Char('[')) != -1 || fileName.indexOf(QLatin1Char('?')) != -1)
@@ -483,12 +480,12 @@ bool KShortUriFilter::filterUri(KUriFilterData &data) const
 
 KCModule *KShortUriFilter::configModule(QWidget *, const char *) const
 {
-    return nullptr; //new KShortUriOptions( parent, name );
+    return nullptr; // new KShortUriOptions( parent, name );
 }
 
 QString KShortUriFilter::configName() const
 {
-//    return i18n("&ShortURLs"); we don't have a configModule so no need for a configName that confuses translators
+    //    return i18n("&ShortURLs"); we don't have a configModule so no need for a configName that confuses translators
     return KUriFilterPlugin::configName();
 }
 

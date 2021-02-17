@@ -14,8 +14,8 @@
 
 #include <QDir>
 #include <QFile>
-#include <QTextStream>
 #include <QFileInfo>
+#include <QTextStream>
 
 #ifdef Q_OS_WIN
 #include <qt_windows.h>
@@ -54,20 +54,20 @@ static const Qt::CaseSensitivity cs = Qt::CaseSensitive;
 #include <fstab.h>
 #endif
 
-#if ! HAVE_GETMNTINFO
-# ifdef _PATH_MOUNTED
+#if !HAVE_GETMNTINFO
+#ifdef _PATH_MOUNTED
 // On some Linux, MNTTAB points to /etc/fstab !
-#  undef MNTTAB
-#  define MNTTAB _PATH_MOUNTED
-# else
-#  ifndef MNTTAB
-#   ifdef MTAB_FILE
-#    define MNTTAB MTAB_FILE
-#   else
-#    define MNTTAB "/etc/mnttab"
-#   endif
-#  endif
-# endif
+#undef MNTTAB
+#define MNTTAB _PATH_MOUNTED
+#else
+#ifndef MNTTAB
+#ifdef MTAB_FILE
+#define MNTTAB MTAB_FILE
+#else
+#define MNTTAB "/etc/mnttab"
+#endif
+#endif
+#endif
 #endif
 
 #ifdef _OS_SOLARIS_
@@ -206,7 +206,7 @@ KMountPoint::List KMountPoint::possibleMountPoints(DetailsNeededFlags infoNeeded
     QTextStream t(&f);
     QString s;
 
-    while (! t.atEnd()) {
+    while (!t.atEnd()) {
         s = t.readLine().simplified();
         if (s.isEmpty() || (s[0] == QLatin1Char('#'))) {
             continue;
@@ -230,7 +230,7 @@ KMountPoint::List KMountPoint::possibleMountPoints(DetailsNeededFlags infoNeeded
         int i = 0;
         mp->d->m_mountedFrom = item[i++];
 #ifdef _OS_SOLARIS_
-        //device to fsck
+        // device to fsck
         i++;
 #endif
         mp->d->m_mountPoint = item[i++];
@@ -247,7 +247,7 @@ KMountPoint::List KMountPoint::possibleMountPoints(DetailsNeededFlags infoNeeded
         mp->d->finalizePossibleMountPoint(infoNeeded);
 
         result.append(mp);
-    } //while
+    } // while
 
     f.close();
 #endif
@@ -295,7 +295,7 @@ KMountPoint::List KMountPoint::currentMountPoints(DetailsNeededFlags infoNeeded)
     }
 
 #elif defined(Q_OS_WIN)
-    //nothing fancy with infoNeeded but it gets the job done
+    // nothing fancy with infoNeeded but it gets the job done
     DWORD bits = GetLogicalDrives();
     if (!bits) {
         return result;
@@ -408,9 +408,7 @@ KMountPoint::Ptr KMountPoint::List::findByPath(const QString &path) const
 #ifndef Q_OS_WIN
     /* If the path contains symlinks, get the real name */
     QFileInfo fileinfo(path);
-    const QString realname = fileinfo.exists()
-                             ? fileinfo.canonicalFilePath()
-                             : fileinfo.absolutePath(); //canonicalFilePath won't work unless file exists
+    const QString realname = fileinfo.exists() ? fileinfo.canonicalFilePath() : fileinfo.absolutePath(); // canonicalFilePath won't work unless file exists
 #else
     const QString realname = QDir::fromNativeSeparators(QDir(path).absolutePath());
 #endif
@@ -436,8 +434,7 @@ KMountPoint::Ptr KMountPoint::List::findByDevice(const QString &device) const
         return Ptr();
     }
     for (const KMountPoint::Ptr &mountPoint : *this) {
-        if (realDevice.compare(mountPoint->d->m_device, cs) == 0 ||
-                realDevice.compare(mountPoint->d->m_mountedFrom, cs) == 0) {
+        if (realDevice.compare(mountPoint->d->m_device, cs) == 0 || realDevice.compare(mountPoint->d->m_mountedFrom, cs) == 0) {
             return mountPoint;
         }
     }
@@ -446,9 +443,7 @@ KMountPoint::Ptr KMountPoint::List::findByDevice(const QString &device) const
 
 bool KMountPoint::probablySlow() const
 {
-    return d->m_mountType == QLatin1String("nfs")
-        || d->m_mountType == QLatin1String("nfs4")
-        || d->m_mountType == QLatin1String("cifs")
+    return d->m_mountType == QLatin1String("nfs") || d->m_mountType == QLatin1String("nfs4") || d->m_mountType == QLatin1String("cifs")
         || d->m_mountType == QLatin1String("autofs")
         || d->m_mountType == QLatin1String("subfs")
         // Technically KIOFUSe mounts local slaves as well,
@@ -459,15 +454,16 @@ bool KMountPoint::probablySlow() const
 bool KMountPoint::testFileSystemFlag(FileSystemFlag flag) const
 {
     const bool isMsDos = (d->m_mountType == QLatin1String("msdos") || d->m_mountType == QLatin1String("fat") || d->m_mountType == QLatin1String("vfat"));
-    const bool isNtfs = d->m_mountType.contains(QLatin1String("fuse.ntfs")) || d->m_mountType.contains(QLatin1String("fuseblk.ntfs"))
-                        // fuseblk could really be anything. But its most common use is for NTFS mounts, these days.
-                        || d->m_mountType == QLatin1String("fuseblk");
+    const bool isNtfs = d->m_mountType.contains(QLatin1String("fuse.ntfs"))
+        || d->m_mountType.contains(QLatin1String("fuseblk.ntfs"))
+        // fuseblk could really be anything. But its most common use is for NTFS mounts, these days.
+        || d->m_mountType == QLatin1String("fuseblk");
     const bool isSmb = d->m_mountType == QLatin1String("cifs")
-                    || d->m_mountType == QLatin1String("smbfs")
-                    // gvfs-fuse mounted SMB share
-                    || d->m_mountType == QLatin1String("smb-share");
+        || d->m_mountType == QLatin1String("smbfs")
+        // gvfs-fuse mounted SMB share
+        || d->m_mountType == QLatin1String("smb-share");
 
-    switch (flag)  {
+    switch (flag) {
     case SupportsChmod:
     case SupportsChown:
     case SupportsUTime:

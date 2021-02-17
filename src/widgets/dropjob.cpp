@@ -8,28 +8,28 @@
 #include "dropjob.h"
 
 #include "job_p.h"
-#include "pastejob.h"
-#include "pastejob_p.h"
 #include "jobuidelegate.h"
 #include "jobuidelegateextension.h"
 #include "kio_widgets_debug.h"
+#include "pastejob.h"
+#include "pastejob_p.h"
 
 #include <KConfigGroup>
 #include <KCoreDirLister>
 #include <KDesktopFile>
+#include <KFileItem>
+#include <KFileItemListProperties>
 #include <KIO/ApplicationLauncherJob>
 #include <KIO/CopyJob>
 #include <KIO/DndPopupMenuPlugin>
 #include <KIO/FileUndoManager>
-#include <KFileItem>
-#include <KFileItemListProperties>
 #include <KJobWidgets>
 #include <KLocalizedString>
-#include <KPluginMetaData>
 #include <KPluginLoader>
+#include <KPluginMetaData>
 #include <KProtocolManager>
-#include <KUrlMimeData>
 #include <KService>
+#include <KUrlMimeData>
 
 #include <QDropEvent>
 #include <QFileInfo>
@@ -42,7 +42,8 @@ using namespace KIO;
 
 Q_DECLARE_METATYPE(Qt::DropAction)
 
-namespace KIO {
+namespace KIO
+{
 class DropMenu;
 }
 
@@ -68,18 +69,19 @@ class KIO::DropJobPrivate : public KIO::JobPrivate
 {
 public:
     DropJobPrivate(const QDropEvent *dropEvent, const QUrl &destUrl, DropJobFlags dropjobFlags, JobFlags flags)
-        : JobPrivate(),
-          // Extract everything from the dropevent, since it will be deleted before the job starts
-          m_mimeData(dropEvent->mimeData()),
-          m_urls(KUrlMimeData::urlsFromMimeData(m_mimeData, KUrlMimeData::PreferLocalUrls, &m_metaData)),
-          m_dropAction(dropEvent->dropAction()),
-          m_relativePos(dropEvent->pos()),
-          m_keyboardModifiers(dropEvent->keyboardModifiers()),
-          m_destUrl(destUrl),
-          m_destItem(KCoreDirLister::cachedItemForUrl(destUrl)),
-          m_flags(flags),
-          m_dropjobFlags(dropjobFlags),
-          m_triggered(false)
+        : JobPrivate()
+        ,
+        // Extract everything from the dropevent, since it will be deleted before the job starts
+        m_mimeData(dropEvent->mimeData())
+        , m_urls(KUrlMimeData::urlsFromMimeData(m_mimeData, KUrlMimeData::PreferLocalUrls, &m_metaData))
+        , m_dropAction(dropEvent->dropAction())
+        , m_relativePos(dropEvent->pos())
+        , m_keyboardModifiers(dropEvent->keyboardModifiers())
+        , m_destUrl(destUrl)
+        , m_destItem(KCoreDirLister::cachedItemForUrl(destUrl))
+        , m_flags(flags)
+        , m_dropjobFlags(dropjobFlags)
+        , m_triggered(false)
     {
         // Check for the drop of a bookmark -> we want a Link action
         if (m_mimeData->hasFormat(QStringLiteral("application/x-xbel"))) {
@@ -138,7 +140,7 @@ public:
     const DropJobFlags m_dropjobFlags;
     QList<QAction *> m_appActions;
     QList<QAction *> m_pluginActions;
-    bool m_triggered;  // Tracks whether an action has been triggered in the popup menu.
+    bool m_triggered; // Tracks whether an action has been triggered in the popup menu.
     QSet<KIO::DropMenu *> m_menus;
 
     Q_DECLARE_PUBLIC(DropJob)
@@ -156,12 +158,11 @@ public:
         // the popup
         return job;
     }
-
 };
 
 DropMenu::DropMenu(QWidget *parent)
-    : QMenu(parent),
-      m_extraActionsSeparator(nullptr)
+    : QMenu(parent)
+    , m_extraActionsSeparator(nullptr)
 {
     m_cancelAction = new QAction(i18n("C&ancel") + QLatin1Char('\t') + QKeySequence(Qt::Key_Escape).toString(QKeySequence::NativeText), this);
     m_cancelAction->setIcon(QIcon::fromTheme(QStringLiteral("process-stop")));
@@ -266,17 +267,17 @@ void DropJobPrivate::fillPopupMenu(KIO::DropMenu *popup)
     const int separatorLength = QCoreApplication::translate("QShortcut", "+").size();
     QString seq = QKeySequence(Qt::ShiftModifier).toString(QKeySequence::NativeText);
     seq.chop(separatorLength); // chop superfluous '+'
-    QAction* popupMoveAction = new QAction(i18n("&Move Here") + QLatin1Char('\t') + seq, popup);
+    QAction *popupMoveAction = new QAction(i18n("&Move Here") + QLatin1Char('\t') + seq, popup);
     popupMoveAction->setIcon(QIcon::fromTheme(QStringLiteral("edit-move"), QIcon::fromTheme(QStringLiteral("go-jump"))));
     popupMoveAction->setData(QVariant::fromValue(Qt::MoveAction));
     seq = QKeySequence(Qt::ControlModifier).toString(QKeySequence::NativeText);
     seq.chop(separatorLength);
-    QAction* popupCopyAction = new QAction(i18n("&Copy Here") + QLatin1Char('\t') + seq, popup);
+    QAction *popupCopyAction = new QAction(i18n("&Copy Here") + QLatin1Char('\t') + seq, popup);
     popupCopyAction->setIcon(QIcon::fromTheme(QStringLiteral("edit-copy")));
     popupCopyAction->setData(QVariant::fromValue(Qt::CopyAction));
     seq = QKeySequence(Qt::ControlModifier | Qt::ShiftModifier).toString(QKeySequence::NativeText);
     seq.chop(separatorLength);
-    QAction* popupLinkAction = new QAction(i18n("&Link Here") + QLatin1Char('\t') + seq, popup);
+    QAction *popupLinkAction = new QAction(i18n("&Link Here") + QLatin1Char('\t') + seq, popup);
     popupLinkAction->setIcon(QIcon::fromTheme(QStringLiteral("edit-link")));
     popupLinkAction->setData(QVariant::fromValue(Qt::LinkAction));
 
@@ -332,7 +333,6 @@ void DropJob::setApplicationActions(const QList<QAction *> &actions)
     for (KIO::DropMenu *menu : qAsConst(d->m_menus)) {
         menu->addExtraActions(d->m_appActions, d->m_pluginActions);
     }
-
 }
 
 void DropJob::showMenu(const QPoint &p, QAction *atAction)
@@ -432,8 +432,7 @@ void DropJobPrivate::handleCopyToDirectory()
             return;
         }
 
-        QObject::connect(askUserInterface, &KIO::AskUserActionInterface::askUserDeleteResult,
-                         q, [this](bool allowDelete) {
+        QObject::connect(askUserInterface, &KIO::AskUserActionInterface::askUserDeleteResult, q, [this](bool allowDelete) {
             if (allowDelete) {
                 slotDropActionDetermined(KJob::NoError);
             } else {
@@ -441,9 +440,7 @@ void DropJobPrivate::handleCopyToDirectory()
             }
         });
 
-        askUserInterface->askUserDelete(m_urls, KIO::AskUserActionInterface::Trash,
-                                        KIO::AskUserActionInterface::DefaultConfirmation,
-                                        KJobWidgets::window(q));
+        askUserInterface->askUserDelete(m_urls, KIO::AskUserActionInterface::Trash, KIO::AskUserActionInterface::DefaultConfirmation, KJobWidgets::window(q));
         return;
     }
 
@@ -485,10 +482,12 @@ void DropJobPrivate::slotDropActionDetermined(int error)
         QObject::connect(menu, &QMenu::aboutToHide, menu, &QObject::deleteLater);
 
         // If the user clicks outside the menu, it will be destroyed without emitting the triggered signal.
-        QObject::connect(menu, &QMenu::aboutToHide, q, [this]() { slotAboutToHide(); });
+        QObject::connect(menu, &QMenu::aboutToHide, q, [this]() {
+            slotAboutToHide();
+        });
 
         fillPopupMenu(menu);
-        QObject::connect(menu, &QMenu::triggered, q, [this](QAction* action) {
+        QObject::connect(menu, &QMenu::triggered, q, [this](QAction *action) {
             m_triggered = true;
             slotTriggered(action);
         });
@@ -497,7 +496,9 @@ void DropJobPrivate::slotDropActionDetermined(int error)
             menu->popup(window ? window->mapToGlobal(m_relativePos) : QCursor::pos());
         }
         m_menus.insert(menu);
-        QObject::connect(menu, &QObject::destroyed, q, [this, menu]() { m_menus.remove(menu); });
+        QObject::connect(menu, &QObject::destroyed, q, [this, menu]() {
+            m_menus.remove(menu);
+        });
     } else {
         q->setError(error);
         q->emitResult();
@@ -507,13 +508,14 @@ void DropJobPrivate::slotDropActionDetermined(int error)
 void DropJobPrivate::doCopyToDirectory()
 {
     Q_Q(DropJob);
-    KIO::CopyJob * job = nullptr;
+    KIO::CopyJob *job = nullptr;
     switch (m_dropAction) {
     case Qt::MoveAction:
         job = KIO::move(m_urls, m_destUrl, m_flags);
-        KIO::FileUndoManager::self()->recordJob(
-            m_destUrl.scheme() == QLatin1String("trash") ? KIO::FileUndoManager::Trash : KIO::FileUndoManager::Move,
-            m_urls, m_destUrl, job);
+        KIO::FileUndoManager::self()->recordJob(m_destUrl.scheme() == QLatin1String("trash") ? KIO::FileUndoManager::Trash : KIO::FileUndoManager::Move,
+                                                m_urls,
+                                                m_destUrl,
+                                                job);
         break;
     case Qt::CopyAction:
         job = KIO::copy(m_urls, m_destUrl, m_flags);
@@ -533,11 +535,11 @@ void DropJobPrivate::doCopyToDirectory()
     job->setUiDelegate(q->uiDelegate());
     job->setParentJob(q);
     job->setMetaData(m_metaData);
-    QObject::connect(job, &KIO::CopyJob::copyingDone, q, [q](KIO::Job*, const QUrl &, const QUrl &to) {
-            Q_EMIT q->itemCreated(to);
+    QObject::connect(job, &KIO::CopyJob::copyingDone, q, [q](KIO::Job *, const QUrl &, const QUrl &to) {
+        Q_EMIT q->itemCreated(to);
     });
-    QObject::connect(job, &KIO::CopyJob::copyingLinkDone, q, [q](KIO::Job*, const QUrl&, const QString&, const QUrl &to) {
-            Q_EMIT q->itemCreated(to);
+    QObject::connect(job, &KIO::CopyJob::copyingLinkDone, q, [q](KIO::Job *, const QUrl &, const QString &, const QUrl &to) {
+        Q_EMIT q->itemCreated(to);
     });
     q->addSubjob(job);
 
@@ -604,15 +606,15 @@ void DropJob::slotResult(KJob *job)
     emitResult();
 }
 
-DropJob * KIO::drop(const QDropEvent *dropEvent, const QUrl &destUrl, JobFlags flags)
+DropJob *KIO::drop(const QDropEvent *dropEvent, const QUrl &destUrl, JobFlags flags)
 {
     return DropJobPrivate::newJob(dropEvent, destUrl, KIO::DropJobDefaultFlags, flags);
 }
 
-DropJob * KIO::drop(const QDropEvent *dropEvent, const QUrl &destUrl, DropJobFlags dropjobFlags, JobFlags flags)
+DropJob *KIO::drop(const QDropEvent *dropEvent, const QUrl &destUrl, DropJobFlags dropjobFlags, JobFlags flags)
 {
     return DropJobPrivate::newJob(dropEvent, destUrl, dropjobFlags, flags);
 }
 
-#include "moc_dropjob.cpp"
 #include "dropjob.moc"
+#include "moc_dropjob.cpp"

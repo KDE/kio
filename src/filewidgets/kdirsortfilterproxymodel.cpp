@@ -10,11 +10,11 @@
 
 #include "kdirsortfilterproxymodel.h"
 
+#include <KConfigGroup>
+#include <KLocalizedString>
+#include <KSharedConfig>
 #include <kdirmodel.h>
 #include <kfileitem.h>
-#include <KLocalizedString>
-#include <KConfigGroup>
-#include <KSharedConfig>
 
 #include <QCollator>
 
@@ -23,7 +23,7 @@ class Q_DECL_HIDDEN KDirSortFilterProxyModel::KDirSortFilterProxyModelPrivate
 public:
     KDirSortFilterProxyModelPrivate();
 
-    int compare(const QString &, const QString &, Qt::CaseSensitivity caseSensitivity  = Qt::CaseSensitive);
+    int compare(const QString &, const QString &, Qt::CaseSensitivity caseSensitivity = Qt::CaseSensitive);
     void slotNaturalSortingChanged();
 
     bool m_sortFoldersFirst;
@@ -31,15 +31,13 @@ public:
     QCollator m_collator;
 };
 
-KDirSortFilterProxyModel::KDirSortFilterProxyModelPrivate::KDirSortFilterProxyModelPrivate() :
-    m_sortFoldersFirst(true)
+KDirSortFilterProxyModel::KDirSortFilterProxyModelPrivate::KDirSortFilterProxyModelPrivate()
+    : m_sortFoldersFirst(true)
 {
     slotNaturalSortingChanged();
 }
 
-int KDirSortFilterProxyModel::KDirSortFilterProxyModelPrivate::compare(const QString &a,
-        const QString &b,
-        Qt::CaseSensitivity caseSensitivity)
+int KDirSortFilterProxyModel::KDirSortFilterProxyModelPrivate::compare(const QString &a, const QString &b, Qt::CaseSensitivity caseSensitivity)
 {
     int result;
 
@@ -68,14 +66,14 @@ void KDirSortFilterProxyModel::KDirSortFilterProxyModelPrivate::slotNaturalSorti
 }
 
 KDirSortFilterProxyModel::KDirSortFilterProxyModel(QObject *parent)
-    : KCategorizedSortFilterProxyModel(parent), d(new KDirSortFilterProxyModelPrivate)
+    : KCategorizedSortFilterProxyModel(parent)
+    , d(new KDirSortFilterProxyModelPrivate)
 {
     setDynamicSortFilter(true);
 
     // sort by the user visible string for now
     setSortCaseSensitivity(Qt::CaseInsensitive);
     sort(KDirModel::Name, Qt::AscendingOrder);
-
 }
 
 Qt::DropActions KDirSortFilterProxyModel::supportedDragOptions() const
@@ -104,16 +102,15 @@ int KDirSortFilterProxyModel::pointsForPermissions(const QFileInfo &info)
 {
     int points = 0;
 
-    const QFile::Permission permissionsCheck[] = { QFile::ReadUser,
-                                                   QFile::WriteUser,
-                                                   QFile::ExeUser,
-                                                   QFile::ReadGroup,
-                                                   QFile::WriteGroup,
-                                                   QFile::ExeGroup,
-                                                   QFile::ReadOther,
-                                                   QFile::WriteOther,
-                                                   QFile::ExeOther
-                                                 };
+    const QFile::Permission permissionsCheck[] = {QFile::ReadUser,
+                                                  QFile::WriteUser,
+                                                  QFile::ExeUser,
+                                                  QFile::ReadGroup,
+                                                  QFile::WriteGroup,
+                                                  QFile::ExeGroup,
+                                                  QFile::ReadOther,
+                                                  QFile::WriteOther,
+                                                  QFile::ExeOther};
 
     for (QFile::Permission perm : permissionsCheck) {
         points += info.permission(perm) ? 1 : 0;
@@ -132,19 +129,18 @@ bool KDirSortFilterProxyModel::sortFoldersFirst() const
     return d->m_sortFoldersFirst;
 }
 
-bool KDirSortFilterProxyModel::subSortLessThan(const QModelIndex &left,
-        const QModelIndex &right) const
+bool KDirSortFilterProxyModel::subSortLessThan(const QModelIndex &left, const QModelIndex &right) const
 {
     KDirModel *dirModel = static_cast<KDirModel *>(sourceModel());
 
-    const KFileItem leftFileItem  = dirModel->itemForIndex(left);
+    const KFileItem leftFileItem = dirModel->itemForIndex(left);
     const KFileItem rightFileItem = dirModel->itemForIndex(right);
 
     const bool isLessThan = (sortOrder() == Qt::AscendingOrder);
 
     // Folders go before files if the corresponding setting is set.
     if (d->m_sortFoldersFirst) {
-        const bool leftItemIsDir  = leftFileItem.isDir();
+        const bool leftItemIsDir = leftFileItem.isDir();
         const bool rightItemIsDir = rightFileItem.isDir();
         if (leftItemIsDir && !rightItemIsDir) {
             return isLessThan;
@@ -154,7 +150,7 @@ bool KDirSortFilterProxyModel::subSortLessThan(const QModelIndex &left,
     }
 
     // Hidden elements go before visible ones.
-    const bool leftItemIsHidden  = leftFileItem.isHidden();
+    const bool leftItemIsHidden = leftFileItem.isHidden();
     const bool rightItemIsHidden = rightFileItem.isHidden();
     if (leftItemIsHidden && !rightItemIsHidden) {
         return isLessThan;
@@ -269,7 +265,6 @@ bool KDirSortFilterProxyModel::subSortLessThan(const QModelIndex &left,
 
         return d->compare(leftFileItem.mimeComment(), rightFileItem.mimeComment()) < 0;
     }
-
     }
 
     // We have set a SortRole and trust the ProxyModel to do

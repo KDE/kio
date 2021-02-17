@@ -5,13 +5,13 @@
 */
 
 #include "kurifiltersearchprovideractions.h"
-#include <QDesktopServices>
-#include <KToolInvocation>
-#include <kurifilter.h>
-#include <KStringHandler>
 #include <KLocalizedString>
-#include <QMenu>
+#include <KStringHandler>
+#include <KToolInvocation>
+#include <QDesktopServices>
 #include <QIcon>
+#include <QMenu>
+#include <kurifilter.h>
 
 using namespace KIO;
 
@@ -20,17 +20,15 @@ class KIO::WebShortcutsMenuManagerPrivate
 public:
     WebShortcutsMenuManagerPrivate()
     {
-
     }
 
     QString mSelectedText;
 };
 
 KUriFilterSearchProviderActions::KUriFilterSearchProviderActions(QObject *parent)
-    : QObject(parent),
-      d(new KIO::WebShortcutsMenuManagerPrivate)
+    : QObject(parent)
+    , d(new KIO::WebShortcutsMenuManagerPrivate)
 {
-
 }
 
 KUriFilterSearchProviderActions::~KUriFilterSearchProviderActions()

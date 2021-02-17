@@ -9,9 +9,9 @@
 
 #include <KDEDModule>
 
-#include <QUrl>
-#include <QMap>
 #include <QDBusMessage>
+#include <QMap>
+#include <QUrl>
 
 class QFileSystemWatcher;
 class QNetworkConfiguration;
@@ -50,17 +50,19 @@ private:
     Script *m_script;
 
     struct QueuedRequest {
-        QueuedRequest() {}
+        QueuedRequest()
+        {
+        }
         QueuedRequest(const QDBusMessage &, const QUrl &, bool sendall = false);
 
         QDBusMessage transaction;
         QUrl url;
         bool sendAll;
     };
-    typedef QList< QueuedRequest > RequestQueue;
+    typedef QList<QueuedRequest> RequestQueue;
     RequestQueue m_requestQueue;
 
-    typedef QMap< QString, qint64 > BlackList;
+    typedef QMap<QString, qint64> BlackList;
     BlackList m_blackList;
     qint64 m_suspendTime;
     QFileSystemWatcher *m_watcher;
@@ -69,4 +71,3 @@ private:
 }
 
 #endif // KPAC_PROXYSCOUT_H
-

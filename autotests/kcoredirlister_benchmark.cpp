@@ -9,8 +9,8 @@
 
 #include <kfileitem.h>
 
-#include <QList>
 #include <QHash>
+#include <QList>
 #include <QMap>
 
 #include <algorithm>
@@ -19,7 +19,7 @@
 // BEGIN Global variables
 const QString fileNameArg = QLatin1String("/home/user/Folder1/SubFolder2/a%1.txt");
 // to check with 10, 100, 1000, ... KFileItem
-const int maxPowerOfTen=3;
+const int maxPowerOfTen = 3;
 // To use the same random list of names and url for all the tests
 QVector<int> randInt[maxPowerOfTen];
 // The same list of random integers for all the tests
@@ -36,18 +36,19 @@ class kcoreDirListerEntryBenchmark : public QObject
 {
     Q_OBJECT
 public:
-    kcoreDirListerEntryBenchmark() {
+    kcoreDirListerEntryBenchmark()
+    {
         // Fill randInt[i] with random numbers from 0 to (10^(i+1))-1
-        for (int i=0; i < maxPowerOfTen; ++i) {
-            std::uniform_int_distribution<int> distribution(0,pow(10,i+1)-1);
+        for (int i = 0; i < maxPowerOfTen; ++i) {
+            std::uniform_int_distribution<int> distribution(0, pow(10, i + 1) - 1);
 
             // Fill the vector with consecutive numbers
-            randInt[i].reserve(pow(10,i+1));
-            for (int j=0; j < pow(10,i+1); ++j) {
+            randInt[i].reserve(pow(10, i + 1));
+            for (int j = 0; j < pow(10, i + 1); ++j) {
                 randInt[i].append(j);
             }
             // And now scramble them a little bit
-            for (int j=0; j < pow(10,i+1); ++j) {
+            for (int j = 0; j < pow(10, i + 1); ++j) {
                 int rd1 = distribution(generator);
                 int rd2 = distribution(generator);
                 int swap = randInt[i].at(rd1);
@@ -95,15 +96,15 @@ private Q_SLOTS:
     void testFindByUrlAllFiles_Binary();
 };
 
+// BEGIN Implementations
 
-//BEGIN Implementations
-
-//BEGIN List
+// BEGIN List
 // List Implementation (without binary search)
 class ListImplementation
 {
 public:
     QList<KFileItem> lstItems;
+
 public:
     void reserve(int size)
     {
@@ -114,7 +115,7 @@ public:
     KFileItem findByName(const QString &fileName) const
     {
         const auto end = lstItems.cend();
-        for (auto it = lstItems.cbegin() ; it != end; ++it) {
+        for (auto it = lstItems.cbegin(); it != end; ++it) {
             if ((*it).name() == fileName) {
                 return *it;
             }
@@ -143,16 +144,16 @@ public:
 
     void insert(int powerOfTen)
     {
-        for (int x = 0; x < pow(10, powerOfTen+1); ++x) {
-            QUrl u = QUrl::fromLocalFile(fileNameArg.arg(randInt[powerOfTen].at(x) )).adjusted(QUrl::StripTrailingSlash);
+        for (int x = 0; x < pow(10, powerOfTen + 1); ++x) {
+            QUrl u = QUrl::fromLocalFile(fileNameArg.arg(randInt[powerOfTen].at(x))).adjusted(QUrl::StripTrailingSlash);
 
-            KFileItem kfi (u, QStringLiteral("text/text"));
+            KFileItem kfi(u, QStringLiteral("text/text"));
             lstItems.append(kfi);
         }
     }
 };
-//END List
-//BEGIN QMap
+// END List
+// BEGIN QMap
 // Proposed Implementation using QMap
 class QMapImplementation
 {
@@ -193,19 +194,20 @@ public:
 
     void insert(int powerOfTen)
     {
-        for (int x = 0; x < pow(10, powerOfTen+1); ++x) {
-            QUrl u = QUrl::fromLocalFile(fileNameArg.arg(randInt[powerOfTen].at(x) )).adjusted(QUrl::StripTrailingSlash);
+        for (int x = 0; x < pow(10, powerOfTen + 1); ++x) {
+            QUrl u = QUrl::fromLocalFile(fileNameArg.arg(randInt[powerOfTen].at(x))).adjusted(QUrl::StripTrailingSlash);
 
             KFileItem kfi(u, QStringLiteral("text/text"));
 
             lstItems.insert(u, kfi);
         }
     }
+
 public:
     QMap<QUrl, KFileItem> lstItems;
 };
-//END QMap
-//BEGIN QHash
+// END QMap
+// BEGIN QHash
 // Proposed Implementation using QHash
 class QHashImplementation
 {
@@ -245,24 +247,26 @@ public:
 
     void insert(int powerOfTen)
     {
-        for (int x = 0; x < pow(10, powerOfTen+1); ++x) {
-            QUrl u = QUrl::fromLocalFile(fileNameArg.arg(randInt[powerOfTen].at(x) )).adjusted(QUrl::StripTrailingSlash);
+        for (int x = 0; x < pow(10, powerOfTen + 1); ++x) {
+            QUrl u = QUrl::fromLocalFile(fileNameArg.arg(randInt[powerOfTen].at(x))).adjusted(QUrl::StripTrailingSlash);
 
             KFileItem kfi(u, QStringLiteral("text/text"));
 
             lstItems.insert(u, kfi);
         }
     }
+
 public:
     QHash<QUrl, KFileItem> lstItems;
 };
-//END QHash
-//BEGIN BinaryList
+// END QHash
+// BEGIN BinaryList
 // Proposed Implementation using QList with ordered insert and binary search
 class BinaryListImplementation
 {
 public:
     QList<KFileItem> lstItems;
+
 public:
     void reserve(int size)
     {
@@ -287,7 +291,7 @@ public:
 
         auto it = std::lower_bound(lstItems.cbegin(), lstItems.cend(), url);
         if (it != lstItems.cend() && (*it).url() == url) {
-                return *it;
+            return *it;
         }
         return KFileItem();
     }
@@ -300,8 +304,8 @@ public:
     // Add files in random order from the randInt vector
     void insert(int powerOfTen)
     {
-        for (int x = 0; x < pow(10, powerOfTen+1); ++x) {
-            QUrl u = QUrl::fromLocalFile(fileNameArg.arg(randInt[powerOfTen].at(x) )).adjusted(QUrl::StripTrailingSlash);
+        for (int x = 0; x < pow(10, powerOfTen + 1); ++x) {
+            QUrl u = QUrl::fromLocalFile(fileNameArg.arg(randInt[powerOfTen].at(x))).adjusted(QUrl::StripTrailingSlash);
 
             KFileItem kfi(u, QStringLiteral("text/text"));
             auto it = std::lower_bound(lstItems.begin(), lstItems.end(), u);
@@ -309,23 +313,26 @@ public:
         }
     }
 };
-//END BinaryList
-//END Implementations
+// END BinaryList
+// END Implementations
 
-//BEGIN templates
+// BEGIN templates
 
-template <class T> void fillNumberOfFiles() {
+template<class T>
+void fillNumberOfFiles()
+{
     QTest::addColumn<int>("numberOfFiles");
-    for (int i=0; i < maxPowerOfTen; ++i) {
+    for (int i = 0; i < maxPowerOfTen; ++i) {
         // it shows numberOfFiles: 10, 100 or 1000 but the data is the power of ten
-        QTest::newRow( QStringLiteral("%1").arg(pow(10, i+1)).toLatin1() ) << i;
+        QTest::newRow(QStringLiteral("%1").arg(pow(10, i + 1)).toLatin1()) << i;
     }
 }
 
-template <class T> void createFiles(int powerOfTen)
+template<class T>
+void createFiles(int powerOfTen)
 {
     T data;
-    const int numberOfFiles = pow(10, powerOfTen+1);
+    const int numberOfFiles = pow(10, powerOfTen + 1);
     data.reserve(numberOfFiles);
     QBENCHMARK {
         data.clear();
@@ -334,16 +341,17 @@ template <class T> void createFiles(int powerOfTen)
     QCOMPARE(data.lstItems.size(), numberOfFiles);
 }
 
-template <class T> void findByName(int powerOfTen)
+template<class T>
+void findByName(int powerOfTen)
 {
     T data;
     data.clear();
-    data.reserve(pow(10, powerOfTen+1));
+    data.reserve(pow(10, powerOfTen + 1));
     data.insert(powerOfTen);
 
     QBENCHMARK {
-        for (int i=0; i<powerOfTen; i++) {
-            QString randName = QStringLiteral("a%1.txt").arg(pow(10,i));
+        for (int i = 0; i < powerOfTen; i++) {
+            QString randName = QStringLiteral("a%1.txt").arg(pow(10, i));
             KFileItem item = data.findByName(randName);
             // QCOMPARE(item.name(), randName);
         }
@@ -351,14 +359,15 @@ template <class T> void findByName(int powerOfTen)
     QVERIFY(data.findByName(QLatin1String("b1.txt")).isNull());
 }
 
-template <class T> void findByUrl(int powerOfTen)
+template<class T>
+void findByUrl(int powerOfTen)
 {
     T data;
     data.clear();
-    data.reserve(pow(10, powerOfTen+1));
+    data.reserve(pow(10, powerOfTen + 1));
     data.insert(powerOfTen);
     QBENCHMARK {
-        for (int i=0; i<powerOfTen; i++) {
+        for (int i = 0; i < powerOfTen; i++) {
             QUrl randUrl = QUrl::fromLocalFile(fileNameArg.arg(pow(10, i)));
             KFileItem item = data.findByUrl(randUrl);
             // QCOMPARE(item.url(), randUrl);
@@ -367,23 +376,24 @@ template <class T> void findByUrl(int powerOfTen)
     QVERIFY(data.findByUrl(QUrl::fromLocalFile(QLatin1String("/home/user/Folder1/SubFolder1/b1.txt"))).isNull());
 }
 
-template <class T> void findByUrlAll(int powerOfTen)
+template<class T>
+void findByUrlAll(int powerOfTen)
 {
     T data;
     data.clear();
-    data.reserve(pow(10, powerOfTen+1));
+    data.reserve(pow(10, powerOfTen + 1));
     data.insert(powerOfTen);
     QBENCHMARK {
-        for (int i=0; i<pow(10, powerOfTen+1); i++) {
+        for (int i = 0; i < pow(10, powerOfTen + 1); i++) {
             QUrl u = QUrl::fromLocalFile(fileNameArg.arg(i)).adjusted(QUrl::StripTrailingSlash);
             data.findByUrl(u);
         }
     }
 }
 
-//END templates
+// END templates
 
-//BEGIN tests
+// BEGIN tests
 void kcoreDirListerEntryBenchmark::testCreateFiles_List_data()
 {
     fillNumberOfFiles<ListImplementation>();
@@ -532,7 +542,7 @@ void kcoreDirListerEntryBenchmark::testFindByUrlAllFiles_Binary()
     findByUrlAll<BinaryListImplementation>(numberOfFiles);
 }
 
-//END tests
+// END tests
 
 QTEST_MAIN(kcoreDirListerEntryBenchmark)
 

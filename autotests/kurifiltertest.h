@@ -7,15 +7,14 @@
 #ifndef KURIFILTERTEST_H
 #define KURIFILTERTEST_H
 
-#include <QObject>
 #include <QByteArray>
+#include <QObject>
 #include <QStringList>
 
 class KUriFilterTest : public QObject
 {
     Q_OBJECT
 public:
-
 private Q_SLOTS:
     void initTestCase();
     void pluginNames();
@@ -41,7 +40,6 @@ private:
     QByteArray qtdir;
     QByteArray home;
     QByteArray datahome;
-
 };
 
 #endif

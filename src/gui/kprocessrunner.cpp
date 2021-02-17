@@ -8,12 +8,12 @@
 #include "kprocessrunner_p.h"
 
 #if defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)
-#include "systemd/systemdprocessrunner_p.h"
 #include "systemd/scopedprocessrunner_p.h"
+#include "systemd/systemdprocessrunner_p.h"
 #endif
 
-#include "kiogui_debug.h"
 #include "config-kiogui.h"
+#include "kiogui_debug.h"
 
 #include "desktopexecparser.h"
 #include "krecentdocument.h"
@@ -34,7 +34,7 @@
 static int s_instanceCount = 0; // for the unittest
 
 KProcessRunner::KProcessRunner()
-    : m_process {new KProcess}
+    : m_process{new KProcess}
 {
     ++s_instanceCount;
 }
@@ -230,12 +230,9 @@ void KProcessRunner::init(const KService::Ptr &service,
 
 void ForkingProcessRunner::startProcess()
 {
-    connect(m_process.get(), QOverload<int,QProcess::ExitStatus>::of(&QProcess::finished),
-            this, &ForkingProcessRunner::slotProcessExited);
-    connect(m_process.get(), &QProcess::started,
-            this, &ForkingProcessRunner::slotProcessStarted, Qt::QueuedConnection);
-    connect(m_process.get(), &QProcess::errorOccurred,
-            this, &ForkingProcessRunner::slotProcessError);
+    connect(m_process.get(), QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished), this, &ForkingProcessRunner::slotProcessExited);
+    connect(m_process.get(), &QProcess::started, this, &ForkingProcessRunner::slotProcessStarted, Qt::QueuedConnection);
+    connect(m_process.get(), &QProcess::errorOccurred, this, &ForkingProcessRunner::slotProcessError);
 
     m_process->start();
 }
@@ -309,10 +306,13 @@ void KProcessRunner::emitDelayedError(const QString &errorMsg)
     qCWarning(KIO_GUI) << errorMsg;
     terminateStartupNotification();
     // Use delayed invocation so the caller has time to connect to the signal
-    QMetaObject::invokeMethod(this, [this, errorMsg]() {
-        Q_EMIT error(errorMsg);
-        deleteLater();
-    }, Qt::QueuedConnection);
+    QMetaObject::invokeMethod(
+        this,
+        [this, errorMsg]() {
+            Q_EMIT error(errorMsg);
+            deleteLater();
+        },
+        Qt::QueuedConnection);
 }
 
 void ForkingProcessRunner::slotProcessExited(int exitCode, QProcess::ExitStatus exitStatus)
@@ -347,8 +347,8 @@ bool KIOGuiPrivate::checkStartupNotify(const KService *service, bool *silent_arg
             // virtual desktop, and will get user timestamp from the ASN ID.
             wmclass = '0';
             silent = true;
-#else   // That unfortunately doesn't work, when the launched non-compliant application
-            // launches another one that is compliant and there is any delay inbetween (bnc:#343359)
+#else // That unfortunately doesn't work, when the launched non-compliant application
+      // launches another one that is compliant and there is any delay inbetween (bnc:#343359)
             return false;
 #endif
         }

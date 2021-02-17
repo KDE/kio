@@ -44,7 +44,7 @@ QString KRemoteEncoding::decode(const QByteArray &name) const
 
     QString result = d->m_codec->toUnicode(name);
     if (d->m_codec->fromUnicode(result) != name)
-        // fallback in case of decoding failure
+    // fallback in case of decoding failure
     {
         return QLatin1String(name);
     }
@@ -103,7 +103,7 @@ void KRemoteEncoding::setEncoding(const char *name)
     }
 
     if (d->m_codec == nullptr) {
-        d->m_codec = QTextCodec::codecForMib(106);    // fallback to UTF-8
+        d->m_codec = QTextCodec::codecForMib(106); // fallback to UTF-8
     }
 
     if (d->m_codec == nullptr) {

@@ -9,15 +9,15 @@
 #define KFILEITEM_H
 
 #include "kiocore_export.h"
-#include <kio/global.h>
-#include <kacl.h>
-#include <kio/udsentry.h>
 #include <QDateTime>
-#include <QUrl>
 #include <QFile>
+#include <QUrl>
+#include <kacl.h>
+#include <kio/global.h>
+#include <kio/udsentry.h>
 
-#include <QMimeType>
 #include <QList>
+#include <QMimeType>
 #include <qplatformdefs.h>
 
 class KFileItemPrivate;
@@ -48,7 +48,7 @@ public:
         ModificationTime = 0,
         AccessTime = 1,
         CreationTime = 2,
-                       //ChangeTime
+        // ChangeTime
     };
 
     enum MimeTypeDetermination {
@@ -76,9 +76,7 @@ public:
      * When creating KFileItems out of the UDSEntry emitted by a KIO list job,
      * use KFileItem(entry, listjob->url(), delayedMimeTypes, true);
      */
-    KFileItem(const KIO::UDSEntry &entry, const QUrl &itemOrDirUrl,
-              bool delayedMimeTypes = false,
-              bool urlIsDirectory = false);
+    KFileItem(const KIO::UDSEntry &entry, const QUrl &itemOrDirUrl, bool delayedMimeTypes = false, bool urlIsDirectory = false);
 
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 0)
     /**
@@ -97,8 +95,7 @@ public:
      * so just port to KFileItem(url) and setDelayedMimeTypes(true) if necessary.
      */
     KIOCORE_DEPRECATED_VERSION(5, 0, "See API docs")
-    KFileItem(mode_t mode, mode_t permissions, const QUrl &url,
-              bool delayedMimeTypes = false);
+    KFileItem(mode_t mode, mode_t permissions, const QUrl &url, bool delayedMimeTypes = false);
 #endif
 
     /**
@@ -126,7 +123,7 @@ public:
     /**
      * Copy constructor
      */
-    KFileItem(const KFileItem&);
+    KFileItem(const KFileItem &);
 
     /**
      * Destructor
@@ -137,18 +134,18 @@ public:
      * Move constructor
      * @since 5.43
      */
-    KFileItem(KFileItem&&);
+    KFileItem(KFileItem &&);
 
     /**
      * Copy assignment
      */
-    KFileItem& operator=(const KFileItem&);
+    KFileItem &operator=(const KFileItem &);
 
     /**
      * Move assignment
      * @since 5.43
      */
-    KFileItem& operator=(KFileItem&&);
+    KFileItem &operator=(KFileItem &&);
 
     /**
      * Throw away and re-read (for local files) all information about the file.
@@ -546,7 +543,10 @@ public:
      * @deprecated since 5.0 add '&' in front of your boolean argument
      */
     KIOCORE_DEPRECATED_VERSION(5, 0, "Use KFileItem::mostLocalUrl(bool *)")
-    QUrl mostLocalUrl(bool &local) const { return mostLocalUrl(&local); }
+    QUrl mostLocalUrl(bool &local) const
+    {
+        return mostLocalUrl(&local);
+    }
 #endif
 
     /**
@@ -563,8 +563,8 @@ private:
     void setHidden();
 
 private:
-    KIOCORE_EXPORT friend QDataStream &operator<< (QDataStream &s, const KFileItem &a);
-    KIOCORE_EXPORT friend QDataStream &operator>> (QDataStream &s, KFileItem &a);
+    KIOCORE_EXPORT friend QDataStream &operator<<(QDataStream &s, const KFileItem &a);
+    KIOCORE_EXPORT friend QDataStream &operator>>(QDataStream &s, KFileItem &a);
 
     friend class KFileItemTest;
     friend class KCoreDirListerCache;
@@ -621,8 +621,8 @@ public:
     // TODO KDE-5 add d pointer here so that we can merge KFileItemListProperties into KFileItemList
 };
 
-KIOCORE_EXPORT QDataStream &operator<< (QDataStream &s, const KFileItem &a);
-KIOCORE_EXPORT QDataStream &operator>> (QDataStream &s, KFileItem &a);
+KIOCORE_EXPORT QDataStream &operator<<(QDataStream &s, const KFileItem &a);
+KIOCORE_EXPORT QDataStream &operator>>(QDataStream &s, KFileItem &a);
 
 /**
  * Support for qDebug() << aFileItem

@@ -5,14 +5,14 @@
     SPDX-License-Identifier: LGPL-2.0-only OR LGPL-3.0-only OR LicenseRef-KDE-Accepted-LGPL
 */
 
-#include <QTest>
-#include <kdiroperator.h>
-#include <KDirLister>
 #include <KConfigGroup>
+#include <KDirLister>
 #include <KSharedConfig>
-#include <QTreeView>
-#include <QSignalSpy>
 #include <QDir>
+#include <QSignalSpy>
+#include <QTest>
+#include <QTreeView>
+#include <kdiroperator.h>
 
 /**
  * Unit test for KDirOperator
@@ -89,7 +89,7 @@ private Q_SLOTS:
         completedSpy.wait(1000);
         dirOp.setCurrentItem(QUrl(QStringLiteral("file:///")));
         dirOp.setCurrentItem(QUrl::fromLocalFile(QFINDTESTDATA("kdiroperatortest.cpp")));
-        //completedSpy.wait(1000);
+        // completedSpy.wait(1000);
         QTest::qWait(1000);
     }
 
@@ -101,7 +101,8 @@ private Q_SLOTS:
         QTest::newRow("with_host") << QUrl(QStringLiteral("ftp://foo.com/folder")) << QUrl(QStringLiteral("ftp://foo.com/folder/"));
         QTest::newRow("with_no_host") << QUrl(QStringLiteral("smb://")) << QUrl(QStringLiteral("smb://"));
         QTest::newRow("with_host_without_path") << QUrl(QStringLiteral("ftp://user@example.com")) << QUrl(QStringLiteral("ftp://user@example.com"));
-        QTest::newRow("with_trailing_slashs") << QUrl::fromLocalFile(QDir::tempPath() + QLatin1String("////////")) << QUrl::fromLocalFile(QDir::tempPath() + QLatin1Char('/'));
+        QTest::newRow("with_trailing_slashs") << QUrl::fromLocalFile(QDir::tempPath() + QLatin1String("////////"))
+                                              << QUrl::fromLocalFile(QDir::tempPath() + QLatin1Char('/'));
     }
 
     void testSetUrlPathAdjustment()

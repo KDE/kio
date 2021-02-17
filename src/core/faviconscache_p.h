@@ -12,8 +12,8 @@
 
 #include <kiocore_export.h>
 
-namespace KIO {
-
+namespace KIO
+{
 class FavIconsCachePrivate;
 
 /**
@@ -26,7 +26,7 @@ class KIOCORE_EXPORT FavIconsCache : public QObject
     Q_OBJECT
 
 public:
-    static FavIconsCache* instance();
+    static FavIconsCache *instance();
 
     // Fast cache lookup, used by KIO::favIconForUrl
     QString iconForUrl(const QUrl &url);
@@ -50,7 +50,7 @@ Q_SIGNALS:
 private:
     FavIconsCache();
     ~FavIconsCache();
-    FavIconsCachePrivate * const d;
+    FavIconsCachePrivate *const d;
 };
 
 }

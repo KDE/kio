@@ -13,15 +13,16 @@
 #include "kuriikwsfiltereng.h"
 #include "searchprovider.h"
 
-#include <KConfigGroup>
 #include <KConfig>
+#include <KConfigGroup>
 #include <kprotocolinfo.h>
 
+#include <QLoggingCategory>
 #include <QRegularExpression>
 #include <QTextCodec>
-#include <QLoggingCategory>
 
-namespace {
+namespace
+{
 Q_LOGGING_CATEGORY(category, "kf.kio.urifilters.ikws", QtWarningMsg)
 }
 
@@ -47,7 +48,7 @@ SearchProvider *KURISearchFilterEngine::webShortcutQuery(const QString &typedStr
 
     if (m_bWebShortcutsEnabled) {
         QString key;
-         if (typedString.contains(QLatin1Char('!'))) {
+        if (typedString.contains(QLatin1Char('!'))) {
             const static QRegularExpression bangRegex(QStringLiteral("!([^ ]+)"));
             const auto match = bangRegex.match(typedString);
             if (match.hasMatch() && match.lastCapturedIndex() == 1) {
@@ -59,10 +60,10 @@ SearchProvider *KURISearchFilterEngine::webShortcutQuery(const QString &typedStr
             const int pos = typedString.indexOf(QLatin1Char(m_cKeywordDelimiter));
             if (pos > -1) {
                 key = typedString.left(pos).toLower(); // #169801
-                searchTerm = typedString.mid(pos+1);
+                searchTerm = typedString.mid(pos + 1);
             } else if (!typedString.isEmpty() && m_cKeywordDelimiter == ' ') {
                 key = typedString;
-                searchTerm = typedString.mid(pos+1);
+                searchTerm = typedString.mid(pos + 1);
             }
         }
 
@@ -169,7 +170,7 @@ QStringList KURISearchFilterEngine::modifySubstitutionMap(SubstMap &map, const Q
         }
         // Add partial user query items to substitution map:
         else {
-            v = l[i-1];
+            v = l[i - 1];
         }
 
         // Insert partial queries (referenced by \1 ... \n) to map:
@@ -210,7 +211,7 @@ QString KURISearchFilterEngine::substituteQuery(const QString &url, SubstMap &ma
         if ((pos = newurl.indexOf(QLatin1String("\\1"))) >= 0) {
             qCWarning(category) << "WARNING: Using compatibility mode for newurl='" << newurl
                                 << "'. Please replace old style '\\1' with new style '\\{0}' "
-                "in the query definition.\n";
+                                   "in the query definition.\n";
             newurl.replace(pos, 2, QStringLiteral("\\{@}"));
         }
     }
@@ -225,7 +226,7 @@ QString KURISearchFilterEngine::substituteQuery(const QString &url, SubstMap &ma
         while ((match = reflistRe.match(newurl, start)).hasMatch()) {
             bool found = false;
 
-            //bool rest = false;
+            // bool rest = false;
             QString v;
             const QString rlstring = match.captured(1);
             PDVAR("  reference list", rlstring);
@@ -262,7 +263,7 @@ QString KURISearchFilterEngine::substituteQuery(const QString &url, SubstMap &ma
                     for (int i = first; i <= last; i++) {
                         v += map[QString::number(i)] + QLatin1Char(' ');
                         // Remove used value from ql (needed for \{@}):
-                        ql[i-1].clear();
+                        ql[i - 1].clear();
                     }
 
                     v = v.trimmed();
@@ -270,7 +271,8 @@ QString KURISearchFilterEngine::substituteQuery(const QString &url, SubstMap &ma
                         found = true;
                     }
 
-                    PDVAR(QLatin1String("    range"), QString::number(first) + QLatin1Char('-') + QString::number(last) + QLatin1String(" => '") + v + QLatin1Char('\''));
+                    PDVAR(QLatin1String("    range"),
+                          QString::number(first) + QLatin1Char('-') + QString::number(last) + QLatin1String(" => '") + v + QLatin1Char('\''));
                     v = encodeString(v, codec);
                 } else if (rlitem.startsWith(QLatin1Char('\"')) && rlitem.endsWith(QLatin1Char('\"'))) {
                     // Use default string from query definition:
@@ -294,7 +296,7 @@ QString KURISearchFilterEngine::substituteQuery(const QString &url, SubstMap &ma
                     } else if ((c >= QLatin1String("0")) && (c <= QLatin1String("9"))) { // krazy:excludeall=doublequote_chars
                         // It's a numeric reference > '0'
                         int n = rlitem.toInt();
-                        ql[n-1].clear();
+                        ql[n - 1].clear();
                     } else {
                         // It's a alphanumeric reference
                         QStringList::Iterator it = ql.begin();
@@ -341,7 +343,12 @@ QUrl KURISearchFilterEngine::formatResult(const QString &url, const QString &cse
     return formatResult(url, cset1, cset2, query, isMalformed, map);
 }
 
-QUrl KURISearchFilterEngine::formatResult(const QString &url, const QString &cset1, const QString &cset2, const QString &userquery, bool /* isMalformed */, SubstMap &map) const
+QUrl KURISearchFilterEngine::formatResult(const QString &url,
+                                          const QString &cset1,
+                                          const QString &cset2,
+                                          const QString &userquery,
+                                          bool /* isMalformed */,
+                                          SubstMap &map) const
 {
     // Return nothing if userquery is empty and it contains
     // substitution strings...

@@ -7,13 +7,13 @@
 
 #include <QTest>
 
-#include <QList>
-#include <QVector>
 #include <QHash>
+#include <QList>
 #include <QMap>
+#include <QVector>
 
-#include <kio/udsentry.h>
 #include <kio/global.h> // filesize_t
+#include <kio/udsentry.h>
 
 /*
    This is to compare the old list-of-lists API vs a QMap/QHash-based API
@@ -30,10 +30,11 @@ class UdsEntryBenchmark : public QObject
     Q_OBJECT
 public:
     UdsEntryBenchmark()
-        : nameStr(QStringLiteral("name")),
-          now(QDateTime::currentDateTime()),
-          now_time_t(now.toSecsSinceEpoch())
-    {}
+        : nameStr(QStringLiteral("name"))
+        , now(QDateTime::currentDateTime())
+        , now_time_t(now.toSecsSinceEpoch())
+    {
+    }
 private Q_SLOTS:
     void testKDE3Slave();
     void testKDE3App();
@@ -52,6 +53,7 @@ private Q_SLOTS:
     void testAnotherV2SlaveFill();
     void testAnotherV2SlaveCompare();
     void testAnotherV2App();
+
 private:
     const QString nameStr;
     const QDateTime now;
@@ -116,8 +118,7 @@ void UdsEntryBenchmark::testKDE3App()
 
     QBENCHMARK {
         OldUDSEntry::ConstIterator it2 = entry.constBegin();
-        for (; it2 != entry.constEnd(); it2++)
-        {
+        for (; it2 != entry.constEnd(); it2++) {
             switch ((*it2).m_uds) {
             case KIO::UDSEntry::UDS_NAME:
                 displayName = (*it2).m_str;
@@ -186,14 +187,12 @@ void UdsEntryBenchmark::testHashVariantApp()
         // For a field that might not be there
         UDSEntryHV::const_iterator it = entry.constFind(KIO::UDSEntry::UDS_URL);
         const UDSEntryHV::const_iterator end = entry.constEnd();
-        if (it != end)
-        {
+        if (it != end) {
             url = it.value().toString();
         }
 
         it = entry.constFind(KIO::UDSEntry::UDS_SIZE);
-        if (it != end)
-        {
+        if (it != end) {
             size = it.value().toULongLong();
         }
 
@@ -207,9 +206,17 @@ void UdsEntryBenchmark::testHashVariantApp()
 
 // Which one is used depends on UDS_STRING vs UDS_LONG
 struct UDSAtom4 { // can't be a union due to qstring...
-    UDSAtom4() {} // for QHash or QMap
-    UDSAtom4(const QString &s) : m_str(s) {}
-    UDSAtom4(long long l) : m_long(l) {}
+    UDSAtom4()
+    {
+    } // for QHash or QMap
+    UDSAtom4(const QString &s)
+        : m_str(s)
+    {
+    }
+    UDSAtom4(long long l)
+        : m_long(l)
+    {
+    }
 
     QString m_str;
     long long m_long;
@@ -255,14 +262,12 @@ void UdsEntryBenchmark::testHashStructApp()
         // For a field that might not be there
         UDSEntryHS::const_iterator it = entry.constFind(KIO::UDSEntry::UDS_URL);
         const UDSEntryHS::const_iterator end = entry.constEnd();
-        if (it != end)
-        {
+        if (it != end) {
             url = it.value().m_str;
         }
 
         it = entry.constFind(KIO::UDSEntry::UDS_SIZE);
-        if (it != end)
-        {
+        if (it != end) {
             size = it.value().m_long;
         }
         QCOMPARE(size, 123456ULL);
@@ -305,21 +310,18 @@ void UdsEntryBenchmark::testMapStructApp()
     QString url;
 
     QBENCHMARK {
-
         // For a field that we assume to always be there
         displayName = entry.value(KIO::UDSEntry::UDS_NAME).m_str;
 
         // For a field that might not be there
         UDSEntryMS::const_iterator it = entry.constFind(KIO::UDSEntry::UDS_URL);
         const UDSEntryMS::const_iterator end = entry.constEnd();
-        if (it != end)
-        {
+        if (it != end) {
             url = it.value().m_str;
         }
 
         it = entry.constFind(KIO::UDSEntry::UDS_SIZE);
-        if (it != end)
-        {
+        if (it != end) {
             size = it.value().m_long;
         }
 
@@ -336,8 +338,15 @@ public:
     class Field
     {
     public:
-        inline Field(const QString &value) : m_str(value), m_long(0) {}
-        inline Field(long long value = 0) : m_long(value) { }
+        inline Field(const QString &value)
+            : m_str(value)
+            , m_long(0)
+        {
+        }
+        inline Field(long long value = 0)
+            : m_long(value)
+        {
+        }
         QString m_str;
         long long m_long;
     };
@@ -402,7 +411,8 @@ public:
     }
 };
 
-template <class T> static void fillUDSEntries(T &entry, time_t now_time_t, const QString &nameStr)
+template<class T>
+static void fillUDSEntries(T &entry, time_t now_time_t, const QString &nameStr)
 {
     entry.reserve(8);
     // In random order of index
@@ -416,40 +426,43 @@ template <class T> static void fillUDSEntries(T &entry, time_t now_time_t, const
     entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFREG);
 }
 
-template <class T> void testFill(time_t now_time_t, const QString &nameStr)
+template<class T>
+void testFill(time_t now_time_t, const QString &nameStr)
 {
     QBENCHMARK {
         T entry;
-        fillUDSEntries<T> (entry, now_time_t, nameStr);
+        fillUDSEntries<T>(entry, now_time_t, nameStr);
         QCOMPARE(entry.count(), 8);
     }
 }
 
-template <class T> void testCompare(time_t now_time_t, const QString &nameStr)
+template<class T>
+void testCompare(time_t now_time_t, const QString &nameStr)
 {
     T entry;
     T entry2;
-    fillUDSEntries<T> (entry, now_time_t, nameStr);
-    fillUDSEntries<T> (entry2, now_time_t, nameStr);
+    fillUDSEntries<T>(entry, now_time_t, nameStr);
+    fillUDSEntries<T>(entry2, now_time_t, nameStr);
     QCOMPARE(entry.count(), 8);
     QCOMPARE(entry2.count(), 8);
     QBENCHMARK {
-        bool equal = entry.stringValue(KIO::UDSEntry::UDS_NAME) == entry2.stringValue(KIO::UDSEntry::UDS_NAME) &&
-        entry.numberValue(KIO::UDSEntry::UDS_SIZE) == entry2.numberValue(KIO::UDSEntry::UDS_SIZE) &&
-        entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME) == entry2.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME) &&
-        entry.numberValue(KIO::UDSEntry::UDS_ACCESS_TIME) == entry2.numberValue(KIO::UDSEntry::UDS_ACCESS_TIME) &&
-        entry.numberValue(KIO::UDSEntry::UDS_FILE_TYPE) == entry2.numberValue(KIO::UDSEntry::UDS_FILE_TYPE) &&
-        entry.numberValue(KIO::UDSEntry::UDS_ACCESS) == entry2.numberValue(KIO::UDSEntry::UDS_ACCESS) &&
-        entry.stringValue(KIO::UDSEntry::UDS_USER) == entry2.stringValue(KIO::UDSEntry::UDS_USER) &&
-        entry.stringValue(KIO::UDSEntry::UDS_GROUP) == entry2.stringValue(KIO::UDSEntry::UDS_GROUP);
+        bool equal = entry.stringValue(KIO::UDSEntry::UDS_NAME) == entry2.stringValue(KIO::UDSEntry::UDS_NAME)
+            && entry.numberValue(KIO::UDSEntry::UDS_SIZE) == entry2.numberValue(KIO::UDSEntry::UDS_SIZE)
+            && entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME) == entry2.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME)
+            && entry.numberValue(KIO::UDSEntry::UDS_ACCESS_TIME) == entry2.numberValue(KIO::UDSEntry::UDS_ACCESS_TIME)
+            && entry.numberValue(KIO::UDSEntry::UDS_FILE_TYPE) == entry2.numberValue(KIO::UDSEntry::UDS_FILE_TYPE)
+            && entry.numberValue(KIO::UDSEntry::UDS_ACCESS) == entry2.numberValue(KIO::UDSEntry::UDS_ACCESS)
+            && entry.stringValue(KIO::UDSEntry::UDS_USER) == entry2.stringValue(KIO::UDSEntry::UDS_USER)
+            && entry.stringValue(KIO::UDSEntry::UDS_GROUP) == entry2.stringValue(KIO::UDSEntry::UDS_GROUP);
         QVERIFY(equal);
     }
 }
 
-template <class T> void testApp(time_t now_time_t, const QString &nameStr)
+template<class T>
+void testApp(time_t now_time_t, const QString &nameStr)
 {
     T entry;
-    fillUDSEntries<T> (entry, now_time_t, nameStr);
+    fillUDSEntries<T>(entry, now_time_t, nameStr);
 
     QString displayName;
     KIO::filesize_t size;
@@ -478,18 +491,27 @@ void UdsEntryBenchmark::testTwoVectorsApp()
     testApp<FrankUDSEntry>(now_time_t, nameStr);
 }
 
-
 // Instead of two vectors, use only one
 class AnotherUDSEntry
 {
 private:
-    struct Field
-    {
-        inline Field() {}
-        inline Field(const uint index, const QString &value) : m_str(value), m_index(index) {}
-        inline Field(const uint index, long long value = 0) : m_long(value), m_index(index) {}
+    struct Field {
+        inline Field()
+        {
+        }
+        inline Field(const uint index, const QString &value)
+            : m_str(value)
+            , m_index(index)
+        {
+        }
+        inline Field(const uint index, long long value = 0)
+            : m_long(value)
+            , m_index(index)
+        {
+        }
         // This operator helps to gain 1ms just comparing the key
-        inline bool operator == (const Field &other) const {
+        inline bool operator==(const Field &other) const
+        {
             return m_index == other.m_index;
         }
 
@@ -498,6 +520,7 @@ private:
         uint m_index = 0;
     };
     std::vector<Field> storage;
+
 public:
     void reserve(int size)
     {
@@ -506,15 +529,20 @@ public:
     void insert(uint udsField, const QString &value)
     {
         Q_ASSERT(udsField & KIO::UDSEntry::UDS_STRING);
-        Q_ASSERT(std::find_if(storage.cbegin(), storage.cend(),
-                                  [udsField](const Field &entry) {return entry.m_index == udsField;}) == storage.cend());
+        Q_ASSERT(std::find_if(storage.cbegin(),
+                              storage.cend(),
+                              [udsField](const Field &entry) {
+                                  return entry.m_index == udsField;
+                              })
+                 == storage.cend());
         storage.emplace_back(udsField, value);
     }
     void replaceOrInsert(uint udsField, const QString &value)
     {
         Q_ASSERT(udsField & KIO::UDSEntry::UDS_STRING);
-        auto it = std::find_if(storage.begin(), storage.end(),
-                                  [udsField](const Field &entry) {return entry.m_index == udsField;});
+        auto it = std::find_if(storage.begin(), storage.end(), [udsField](const Field &entry) {
+            return entry.m_index == udsField;
+        });
         if (it != storage.end()) {
             it->m_str = value;
             return;
@@ -524,15 +552,20 @@ public:
     void insert(uint udsField, long long value)
     {
         Q_ASSERT(udsField & KIO::UDSEntry::UDS_NUMBER);
-        Q_ASSERT(std::find_if(storage.cbegin(), storage.cend(),
-                                  [udsField](const Field &entry) {return entry.m_index == udsField;}) == storage.cend());
+        Q_ASSERT(std::find_if(storage.cbegin(),
+                              storage.cend(),
+                              [udsField](const Field &entry) {
+                                  return entry.m_index == udsField;
+                              })
+                 == storage.cend());
         storage.emplace_back(udsField, value);
     }
     void replaceOrInsert(uint udsField, long long value)
     {
         Q_ASSERT(udsField & KIO::UDSEntry::UDS_NUMBER);
-        auto it = std::find_if(storage.begin(), storage.end(),
-                                  [udsField](const Field &entry) {return entry.m_index == udsField;});
+        auto it = std::find_if(storage.begin(), storage.end(), [udsField](const Field &entry) {
+            return entry.m_index == udsField;
+        });
         if (it != storage.end()) {
             it->m_long = value;
             return;
@@ -545,8 +578,9 @@ public:
     }
     QString stringValue(uint udsField) const
     {
-        auto it = std::find_if(storage.cbegin(), storage.cend(),
-                                  [udsField](const Field &entry) {return entry.m_index == udsField;});
+        auto it = std::find_if(storage.cbegin(), storage.cend(), [udsField](const Field &entry) {
+            return entry.m_index == udsField;
+        });
         if (it != storage.cend()) {
             return it->m_str;
         }
@@ -554,8 +588,9 @@ public:
     }
     long long numberValue(uint udsField, long long defaultValue = -1) const
     {
-        auto it = std::find_if(storage.cbegin(), storage.cend(),
-                                  [udsField](const Field &entry) {return entry.m_index == udsField;});
+        auto it = std::find_if(storage.cbegin(), storage.cend(), [udsField](const Field &entry) {
+            return entry.m_index == udsField;
+        });
         if (it != storage.cend()) {
             return it->m_long;
         }
@@ -581,13 +616,23 @@ void UdsEntryBenchmark::testAnotherApp()
 class AnotherV2UDSEntry
 {
 private:
-    struct Field
-    {
-        inline Field() {}
-        inline Field(const uint index, const QString &value) : m_str(value), m_index(index) {}
-        inline Field(const uint index, long long value = 0) : m_long(value), m_index(index) { }
+    struct Field {
+        inline Field()
+        {
+        }
+        inline Field(const uint index, const QString &value)
+            : m_str(value)
+            , m_index(index)
+        {
+        }
+        inline Field(const uint index, long long value = 0)
+            : m_long(value)
+            , m_index(index)
+        {
+        }
         // This operator helps to gain 1ms just comparing the key
-        inline bool operator == (const Field &other) const {
+        inline bool operator==(const Field &other) const
+        {
             return m_index == other.m_index;
         }
 
@@ -596,8 +641,10 @@ private:
         uint m_index = 0;
     };
     std::vector<Field> storage;
+
 private:
-    static inline bool less (const Field &other, const uint index) {
+    static inline bool less(const Field &other, const uint index)
+    {
         return other.m_index < index;
     }
 
@@ -617,7 +664,7 @@ public:
     {
         Q_ASSERT(udsField & KIO::UDSEntry::UDS_STRING);
         auto it = std::lower_bound(storage.begin(), storage.end(), udsField, less);
-        if (it != storage.end() && it->m_index == udsField ) {
+        if (it != storage.end() && it->m_index == udsField) {
             it->m_str = value;
             return;
         }
@@ -634,7 +681,7 @@ public:
     {
         Q_ASSERT(udsField & KIO::UDSEntry::UDS_NUMBER);
         auto it = std::lower_bound(storage.begin(), storage.end(), udsField, less);
-        if (it != storage.end() && it->m_index == udsField ) {
+        if (it != storage.end() && it->m_index == udsField) {
             it->m_long = value;
             return;
         }
@@ -647,7 +694,7 @@ public:
     QString stringValue(uint udsField) const
     {
         auto it = std::lower_bound(storage.cbegin(), storage.cend(), udsField, less);
-        if (it != storage.end() && it->m_index == udsField ) {
+        if (it != storage.end() && it->m_index == udsField) {
             return it->m_str;
         }
         return QString();
@@ -655,7 +702,7 @@ public:
     long long numberValue(uint udsField, long long defaultValue = -1) const
     {
         auto it = std::lower_bound(storage.cbegin(), storage.cend(), udsField, less);
-        if (it != storage.end() && it->m_index == udsField ) {
+        if (it != storage.end() && it->m_index == udsField) {
             return it->m_long;
         }
         return defaultValue;
@@ -675,7 +722,6 @@ void UdsEntryBenchmark::testAnotherV2App()
 {
     testApp<AnotherV2UDSEntry>(now_time_t, nameStr);
 }
-
 
 QTEST_MAIN(UdsEntryBenchmark)
 

@@ -5,25 +5,25 @@
     SPDX-License-Identifier: LGPL-2.0-only OR LGPL-3.0-only OR LicenseRef-KDE-Accepted-LGPL
 */
 
-#include <QTest>
-#include <QSignalSpy>
 #include <QDir>
 #include <QMenu>
 #include <QMimeData>
+#include <QSignalSpy>
 #include <QStandardPaths>
 #include <QTemporaryDir>
+#include <QTest>
 
 #include "kiotesthelper.h"
 
-#include <KIO/DropJob>
-#include <KIO/StatJob>
-#include <KIO/CopyJob>
-#include <KIO/DeleteJob>
+#include "mockcoredelegateextensions.h"
 #include <KConfigGroup>
 #include <KDesktopFile>
 #include <KFileItemListProperties>
+#include <KIO/CopyJob>
+#include <KIO/DeleteJob>
+#include <KIO/DropJob>
+#include <KIO/StatJob>
 #include <KJobUiDelegate>
-#include "mockcoredelegateextensions.h"
 
 Q_DECLARE_METATYPE(Qt::KeyboardModifiers)
 Q_DECLARE_METATYPE(Qt::DropAction)
@@ -38,17 +38,16 @@ void initLocale()
 Q_CONSTRUCTOR_FUNCTION(initLocale)
 #endif
 
-
 class JobSpy : public QObject
 {
     Q_OBJECT
 public:
     JobSpy(KIO::Job *job)
-        : QObject(nullptr),
-          m_spy(job, &KJob::result),
-          m_error(0)
+        : QObject(nullptr)
+        , m_spy(job, &KJob::result)
+        , m_error(0)
     {
-        connect(job, &KJob::result, this, [this](KJob * job) {
+        connect(job, &KJob::result, this, [this](KJob *job) {
             m_error = job->error();
         });
     }
@@ -98,12 +97,13 @@ private Q_SLOTS:
         m_srcFile = m_srcDir + "/srcfile";
         m_srcLink = m_srcDir + "/link";
 
-        qRegisterMetaType<KIO::CopyJob*>();
+        qRegisterMetaType<KIO::CopyJob *>();
     }
 
     void cleanupTestCase()
     {
-        QVERIFY(QFile(m_nonWritableTempDir.path()).setPermissions(QFile::ReadOwner | QFile::ReadUser | QFile::WriteOwner | QFile::WriteUser | QFile::ExeOwner | QFile::ExeUser));
+        QVERIFY(QFile(m_nonWritableTempDir.path())
+                    .setPermissions(QFile::ReadOwner | QFile::ReadUser | QFile::WriteOwner | QFile::WriteUser | QFile::ExeOwner | QFile::ExeUser));
     }
 
     // Before every test method, ensure the test file m_srcFile exists
@@ -170,16 +170,12 @@ private Q_SLOTS:
         QTest::addColumn<int>("expectedError");
         QTest::addColumn<bool>("shouldSourceStillExist");
 
-        QTest::newRow("Ctrl") << Qt::KeyboardModifiers(Qt::ControlModifier) << Qt::CopyAction << m_srcFile << QString()
-                              << 0 << true;
-        QTest::newRow("Shift") << Qt::KeyboardModifiers(Qt::ShiftModifier) << Qt::MoveAction << m_srcFile << QString()
-                               << 0 << false;
-        QTest::newRow("Ctrl_Shift") << Qt::KeyboardModifiers(Qt::ControlModifier | Qt::ShiftModifier) << Qt::LinkAction << m_srcFile << QString()
-                                    << 0 << true;
-        QTest::newRow("DropOnItself") << Qt::KeyboardModifiers() << Qt::CopyAction << m_srcDir << m_srcDir
-                                      << int(KIO::ERR_DROP_ON_ITSELF) << true;
-        QTest::newRow("DropDirOnFile") << Qt::KeyboardModifiers(Qt::ControlModifier) << Qt::CopyAction << m_srcDir << m_srcFile
-                                       << int(KIO::ERR_ACCESS_DENIED) << true;
+        QTest::newRow("Ctrl") << Qt::KeyboardModifiers(Qt::ControlModifier) << Qt::CopyAction << m_srcFile << QString() << 0 << true;
+        QTest::newRow("Shift") << Qt::KeyboardModifiers(Qt::ShiftModifier) << Qt::MoveAction << m_srcFile << QString() << 0 << false;
+        QTest::newRow("Ctrl_Shift") << Qt::KeyboardModifiers(Qt::ControlModifier | Qt::ShiftModifier) << Qt::LinkAction << m_srcFile << QString() << 0 << true;
+        QTest::newRow("DropOnItself") << Qt::KeyboardModifiers() << Qt::CopyAction << m_srcDir << m_srcDir << int(KIO::ERR_DROP_ON_ITSELF) << true;
+        QTest::newRow("DropDirOnFile") << Qt::KeyboardModifiers(Qt::ControlModifier) << Qt::CopyAction << m_srcDir << m_srcFile << int(KIO::ERR_ACCESS_DENIED)
+                                       << true;
         QTest::newRow("NonWritableDest") << Qt::KeyboardModifiers() << Qt::CopyAction << m_srcFile << m_nonWritableTempDir.path()
                                          << int(KIO::ERR_WRITE_ACCESS_DENIED) << true;
     }
@@ -367,7 +363,6 @@ private Q_SLOTS:
         QCOMPARE(job->error(), KIO::ERR_DROP_ON_ITSELF);
     }
 
-
     void shouldDropToDirectoryWithPopup_data()
     {
         QTest::addColumn<QString>("dest"); // empty for a temp dir
@@ -455,7 +450,8 @@ private Q_SLOTS:
         KIO::DropJob *job = KIO::drop(&dropEvent, destUrl, KIO::HideProgressInfo);
         QAction appAction1(QStringLiteral("action1"), this);
         QAction appAction2(QStringLiteral("action2"), this);
-        QList<QAction *> appActions; appActions << &appAction1 << &appAction2;
+        QList<QAction *> appActions;
+        appActions << &appAction1 << &appAction2;
         job->setUiDelegate(nullptr);
         job->setApplicationActions(appActions);
         JobSpy jobSpy(job);
@@ -514,4 +510,3 @@ private:
 QTEST_MAIN(DropJobTest)
 
 #include "dropjobtest.moc"
-

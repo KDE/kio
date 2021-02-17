@@ -12,11 +12,11 @@
 #include "sharefd_p.h"
 
 FdReceiver::FdReceiver(const std::string &path, QObject *parent)
-          : QObject(parent)
-          , m_readNotifier(nullptr)
-          , m_path(path)
-          , m_socketDes(-1)
-          , m_fileDes(-1)
+    : QObject(parent)
+    , m_readNotifier(nullptr)
+    , m_path(path)
+    , m_socketDes(-1)
+    , m_fileDes(-1)
 {
     const SocketAddress addr(m_path);
     if (!addr.address()) {
@@ -24,7 +24,7 @@ FdReceiver::FdReceiver(const std::string &path, QObject *parent)
         return;
     }
 
-    m_socketDes = ::socket(AF_LOCAL, SOCK_STREAM|SOCK_NONBLOCK, 0);
+    m_socketDes = ::socket(AF_LOCAL, SOCK_STREAM | SOCK_NONBLOCK, 0);
     if (m_socketDes == -1) {
         std::cerr << "socket error:" << strerror(errno) << std::endl;
         return;

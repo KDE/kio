@@ -9,8 +9,8 @@
 #ifndef kdirlister_h
 #define kdirlister_h
 
-#include <kcoredirlister.h>
 #include "kiowidgets_export.h"
+#include <kcoredirlister.h>
 
 class QWidget;
 class KDirListerPrivate;
@@ -94,4 +94,3 @@ private:
 };
 
 #endif
-

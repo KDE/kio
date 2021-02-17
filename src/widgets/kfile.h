@@ -34,12 +34,12 @@ public:
      * @see Modes
      */
     enum Mode {
-        File         = 1,
-        Directory    = 2,
-        Files        = 4,
+        File = 1,
+        Directory = 2,
+        Files = 4,
         ExistingOnly = 8,
-        LocalOnly    = 16,
-        ModeMax      = 65536,
+        LocalOnly = 16,
+        ModeMax = 65536,
     };
     /**
      * Stores a combination of #Mode values.
@@ -48,21 +48,21 @@ public:
     Q_FLAG(Modes)
 
     enum FileView {
-        Default         = 0,
-        Simple          = 1,
-        Detail          = 2,
-        SeparateDirs    = 4,
+        Default = 0,
+        Simple = 1,
+        Detail = 2,
+        SeparateDirs = 4,
         PreviewContents = 8,
-        PreviewInfo     = 16,
-        Tree            = 32,
-        DetailTree      = 64,
-        FileViewMax     = 65536,
+        PreviewInfo = 16,
+        Tree = 32,
+        DetailTree = 64,
+        FileViewMax = 65536,
     };
 
     enum SelectionMode {
-        Single      = 1,
-        Multi       = 2,
-        Extended    = 4,
+        Single = 1,
+        Multi = 2,
+        Extended = 4,
         NoSelection = 8,
     };
 

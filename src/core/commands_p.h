@@ -55,11 +55,10 @@ enum Command {
     CMD_HOST_INFO = 94,
     CMD_FILESYSTEMFREESPACE = 95,
     CMD_TRUNCATE = 96,
-                    // Add new ones here once a release is done, to avoid breaking binary compatibility.
-                    // Note that protocol-specific commands shouldn't be added here, but should use special.
+    // Add new ones here once a release is done, to avoid breaking binary compatibility.
+    // Note that protocol-specific commands shouldn't be added here, but should use special.
 };
 
 } // namespace
 
 #endif
-

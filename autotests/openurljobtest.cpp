@@ -7,17 +7,17 @@
 
 #include "openurljobtest.h"
 #include "openurljob.h"
-#include <kprocessrunner_p.h>
 #include <KApplicationTrader>
+#include <kprocessrunner_p.h>
 
 #include "kiotesthelper.h" // createTestFile etc.
 #include "mockcoredelegateextensions.h"
 #include "mockguidelegateextensions.h"
 
-#include <KService>
 #include <KConfigGroup>
 #include <KDesktopFile>
 #include <KJobUiDelegate>
+#include <KService>
 
 #ifdef Q_OS_UNIX
 #include <signal.h> // kill
@@ -59,7 +59,6 @@ void OpenUrlJobTest::initTestCase()
     grp.writeEntry("text/plain", s_tempServiceName);
     grp.writeEntry("text/html", s_tempServiceName);
     grp.sync();
-
 
     // "text/plain" encompasses all scripts (shell, python, perl)
     KService::Ptr preferredTextEditor = KApplicationTrader::preferredService(QStringLiteral("text/plain"));
@@ -104,12 +103,18 @@ void OpenUrlJobTest::startProcess_data()
     QTest::addColumn<QString>("fileName");
 
     // Known MIME type
-    QTest::newRow("text_file") << "text/plain" << "srcfile.txt";
-    QTest::newRow("directory_file") << "application/x-desktop" << ".directory";
-    QTest::newRow("desktop_file_link") << "application/x-desktop" << "srcfile.txt";
-    QTest::newRow("desktop_file_link_preferred_service") << "application/x-desktop" << "srcfile.html";
-    QTest::newRow("non_executable_script_running_not_allowed") << "application/x-shellscript" << "srcfile.sh";
-    QTest::newRow("executable_script_running_not_allowed") << "application/x-shellscript" << "srcfile.sh";
+    QTest::newRow("text_file") << "text/plain"
+                               << "srcfile.txt";
+    QTest::newRow("directory_file") << "application/x-desktop"
+                                    << ".directory";
+    QTest::newRow("desktop_file_link") << "application/x-desktop"
+                                       << "srcfile.txt";
+    QTest::newRow("desktop_file_link_preferred_service") << "application/x-desktop"
+                                                         << "srcfile.html";
+    QTest::newRow("non_executable_script_running_not_allowed") << "application/x-shellscript"
+                                                               << "srcfile.sh";
+    QTest::newRow("executable_script_running_not_allowed") << "application/x-shellscript"
+                                                           << "srcfile.sh";
 
     // Require MIME type determination
     QTest::newRow("text_file_no_mimetype") << QString() << "srcfile.txt";
@@ -196,12 +201,12 @@ void OpenUrlJobTest::refuseRunningNativeExecutables_data()
 
 void OpenUrlJobTest::refuseRunningNativeExecutables()
 {
-   QFETCH(QString, mimeType);
+    QFETCH(QString, mimeType);
 
-   KIO::OpenUrlJob *job = new KIO::OpenUrlJob(QUrl::fromLocalFile(QCoreApplication::applicationFilePath()), mimeType, this);
-   QVERIFY(!job->exec());
-   QCOMPARE(job->error(), KJob::UserDefinedError);
-   QVERIFY2(job->errorString().contains("For security reasons, launching executables is not allowed in this context."), qPrintable(job->errorString()));
+    KIO::OpenUrlJob *job = new KIO::OpenUrlJob(QUrl::fromLocalFile(QCoreApplication::applicationFilePath()), mimeType, this);
+    QVERIFY(!job->exec());
+    QCOMPARE(job->error(), KJob::UserDefinedError);
+    QVERIFY2(job->errorString().contains("For security reasons, launching executables is not allowed in this context."), qPrintable(job->errorString()));
 }
 
 void OpenUrlJobTest::refuseRunningRemoteNativeExecutables_data()
@@ -213,14 +218,13 @@ void OpenUrlJobTest::refuseRunningRemoteNativeExecutables_data()
 
 void OpenUrlJobTest::refuseRunningRemoteNativeExecutables()
 {
-   QFETCH(QString, mimeType);
+    QFETCH(QString, mimeType);
 
     KIO::OpenUrlJob *job = new KIO::OpenUrlJob(QUrl("protocol://host/path/exe"), mimeType, this);
     job->setRunExecutables(true); // even with this enabled, an error will occur
     QVERIFY(!job->exec());
     QCOMPARE(job->error(), KJob::UserDefinedError);
-    QVERIFY2(job->errorString().contains("is located on a remote filesystem. For safety reasons it will not be started"),
-             qPrintable(job->errorString()));
+    QVERIFY2(job->errorString().contains("is located on a remote filesystem. For safety reasons it will not be started"), qPrintable(job->errorString()));
 }
 
 KCONFIGCORE_EXPORT void loadUrlActionRestrictions(const KConfigGroup &cg);
@@ -294,7 +298,6 @@ void OpenUrlJobTest::runNativeExecutable_data()
     QTest::newRow("no_handler_x-executable") << "application/x-executable" << false << false;
     QTest::newRow("handler_false_x-executable") << "application/x-executable" << true << false;
     QTest::newRow("handler_true_x-executable") << "application/x-executable" << true << true;
-
 }
 
 void OpenUrlJobTest::runNativeExecutable()
@@ -415,7 +418,7 @@ void OpenUrlJobTest::openOrExecuteDesktop()
     const QString dir = tempDir.path();
     const QString desktopFile = dir + QLatin1String("/testopenorexecute.desktop");
     createSrcFile(dir + QLatin1String("/src"));
-    const QByteArray cmd("cp " + QFile::encodeName(dir) + "/src " + QFile::encodeName(dir) +  "/dest-open-or-execute-desktop");
+    const QByteArray cmd("cp " + QFile::encodeName(dir) + "/src " + QFile::encodeName(dir) + "/dest-open-or-execute-desktop");
     writeApplicationDesktopFile(desktopFile, cmd);
     QFile file(desktopFile);
     QVERIFY(file.setPermissions(QFile::ExeUser | file.permissions())); // otherwise we'll get the untrusted program warning
@@ -434,7 +437,8 @@ void OpenUrlJobTest::openOrExecuteDesktop()
         // TRY because CommandLineLauncherJob finishes immediately, and tempDir
         // will go out of scope and get deleted before the copy operation actually finishes
         QTRY_VERIFY(QFileInfo::exists(dir + QLatin1String("/dest-open-or-execute-desktop")));
-    } if (dialogResult == QLatin1String("execute_false")) {
+    }
+    if (dialogResult == QLatin1String("execute_false")) {
         job->setRunExecutables(true); // Overriden by the user's choice
         openOrExecuteFileHandler->setExecuteFile(false);
         QVERIFY2(job->exec(), qPrintable(job->errorString()));
@@ -541,8 +545,8 @@ void OpenUrlJobTest::takeOverAfterMimeTypeFound()
     KIO::OpenUrlJob *job = new KIO::OpenUrlJob(QUrl::fromLocalFile(srcFile), this);
     QString foundMime = QStringLiteral("NONE");
     connect(job, &KIO::OpenUrlJob::mimeTypeFound, this, [&](const QString &mimeType) {
-         foundMime = mimeType;
-         job->kill();
+        foundMime = mimeType;
+        job->kill();
     });
     QVERIFY(!job->exec());
     QCOMPARE(job->error(), KJob::KilledJobError);

@@ -16,7 +16,10 @@ private Q_SLOTS:
     void testFirstChildUrl();
 };
 
-static inline QUrl lUrl(const QString &path) { return QUrl::fromLocalFile(path); }
+static inline QUrl lUrl(const QString &path)
+{
+    return QUrl::fromLocalFile(path);
+}
 
 void UrlUtilTest::testFirstChildUrl()
 {

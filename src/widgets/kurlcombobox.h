@@ -10,10 +10,10 @@
 
 #include "kiowidgets_export.h"
 
+#include <QIcon>
 #include <QList>
 #include <QMap>
 #include <QStringList>
-#include <QIcon>
 
 #include <KComboBox>
 class QUrl;
@@ -151,8 +151,7 @@ public:
      * the pixmap parameter.
      * Default URLs will be inserted into the combobox by setDefaults()
      */
-    void addDefaultUrl(const QUrl &url, const QIcon &icon,
-                       const QString &text = QString());
+    void addDefaultUrl(const QUrl &url, const QIcon &icon, const QString &text = QString());
 
     /**
      * Clears all items and inserts the default urls into the combo. Will be

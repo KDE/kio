@@ -14,7 +14,6 @@
 
 namespace KIO
 {
-
 class ListJobPrivate;
 /**
  * @class KIO::ListJob listjob.h <KIO/ListJob>
@@ -54,7 +53,7 @@ Q_SIGNALS:
      * @param job the job that emitted this signal
      * @param list the list of UDSEntries
      */
-    void entries(KIO::Job *job, const KIO::UDSEntryList &list);  // TODO KDE5: use KIO::ListJob* argument to avoid casting
+    void entries(KIO::Job *job, const KIO::UDSEntryList &list); // TODO KDE5: use KIO::ListJob* argument to avoid casting
 
     /**
      * This signal is emitted when a sub-directory could not be listed.
@@ -107,8 +106,7 @@ protected:
  *                      files/dirs (whose names start with dot)
  * @return the job handling the operation.
  */
-KIOCORE_EXPORT ListJob *listDir(const QUrl &url, JobFlags flags = DefaultFlags,
-                                bool includeHidden = true);
+KIOCORE_EXPORT ListJob *listDir(const QUrl &url, JobFlags flags = DefaultFlags, bool includeHidden = true);
 
 /**
  * The same as the previous method, but recurses subdirectories.
@@ -123,8 +121,7 @@ KIOCORE_EXPORT ListJob *listDir(const QUrl &url, JobFlags flags = DefaultFlags,
  *                      files/dirs (whose names start with dot)
  * @return the job handling the operation.
  */
-KIOCORE_EXPORT ListJob *listRecursive(const QUrl &url, JobFlags flags = DefaultFlags,
-                                      bool includeHidden = true);
+KIOCORE_EXPORT ListJob *listRecursive(const QUrl &url, JobFlags flags = DefaultFlags, bool includeHidden = true);
 
 }
 

@@ -13,10 +13,10 @@
 #include <winsock2.h> // struct timeval
 #endif
 
-#include "global.h"
 #include "connection_p.h"
-#include <QTimer>
+#include "global.h"
 #include <QHostInfo>
+#include <QTimer>
 
 #include "kiocoredebug.h"
 
@@ -26,8 +26,13 @@ class KIO::SlaveInterfacePrivate
 {
 public:
     SlaveInterfacePrivate()
-        : connection(nullptr), filesize(0), offset(0), last_time(0), start_time(0),
-          nums(0), slave_calcs_speed(false)
+        : connection(nullptr)
+        , filesize(0)
+        , offset(0)
+        , last_time(0)
+        , start_time(0)
+        , nums(0)
+        , slave_calcs_speed(false)
     {
     }
     virtual ~SlaveInterfacePrivate()

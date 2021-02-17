@@ -7,11 +7,11 @@
 #include "knameandurlinputdialog.h"
 
 #include <KLineEdit>
-#include <kurlrequester.h>
-#include <kprotocolmanager.h>
 #include <QDialogButtonBox>
 #include <QFormLayout>
 #include <QVBoxLayout>
+#include <kprotocolmanager.h>
+#include <kurlrequester.h>
 
 class KNameAndUrlInputDialogPrivate
 {
@@ -19,7 +19,8 @@ public:
     explicit KNameAndUrlInputDialogPrivate(KNameAndUrlInputDialog *qq)
         : m_fileNameEdited(false)
         , q(qq)
-    {}
+    {
+    }
 
     void _k_slotNameTextChanged(const QString &);
     void _k_slotURLTextChanged(const QString &);
@@ -39,11 +40,12 @@ public:
 
     QDialogButtonBox *m_buttonBox;
 
-    KNameAndUrlInputDialog * const q;
+    KNameAndUrlInputDialog *const q;
 };
 
 KNameAndUrlInputDialog::KNameAndUrlInputDialog(const QString &nameLabel, const QString &urlLabel, const QUrl &startDir, QWidget *parent)
-    : QDialog(parent), d(new KNameAndUrlInputDialogPrivate(this))
+    : QDialog(parent)
+    , d(new KNameAndUrlInputDialogPrivate(this))
 {
     QVBoxLayout *topLayout = new QVBoxLayout(this);
 
@@ -54,8 +56,9 @@ KNameAndUrlInputDialog::KNameAndUrlInputDialog(const QString &nameLabel, const Q
     d->m_leName = new QLineEdit(this);
     d->m_leName->setMinimumWidth(d->m_leName->sizeHint().width() * 3);
     d->m_leName->setSelection(0, d->m_leName->text().length()); // autoselect
-    connect(d->m_leName, &QLineEdit::textChanged,
-            this, [this](const QString &text) { d->_k_slotNameTextChanged(text); });
+    connect(d->m_leName, &QLineEdit::textChanged, this, [this](const QString &text) {
+        d->_k_slotNameTextChanged(text);
+    });
     formLayout->addRow(nameLabel, d->m_leName);
 
     // Second line: url
@@ -64,8 +67,9 @@ KNameAndUrlInputDialog::KNameAndUrlInputDialog(const QString &nameLabel, const Q
     d->m_urlRequester->setMode(KFile::File | KFile::Directory);
 
     d->m_urlRequester->setMinimumWidth(d->m_urlRequester->sizeHint().width() * 3);
-    connect(d->m_urlRequester->lineEdit(), &QLineEdit::textChanged,
-            this, [this](const QString &text) { d->_k_slotURLTextChanged(text); });
+    connect(d->m_urlRequester->lineEdit(), &QLineEdit::textChanged, this, [this](const QString &text) {
+        d->_k_slotURLTextChanged(text);
+    });
     formLayout->addRow(urlLabel, d->m_urlRequester);
 
     topLayout->addLayout(formLayout);

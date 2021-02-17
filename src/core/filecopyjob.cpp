@@ -8,12 +8,12 @@
 
 #include "filecopyjob.h"
 #include "job_p.h"
-#include <QFile>
-#include <QTimer>
 #include "kprotocolmanager.h"
 #include "scheduler.h"
 #include "slave.h"
 #include <KLocalizedString>
+#include <QFile>
+#include <QTimer>
 
 using namespace KIO;
 
@@ -23,14 +23,24 @@ static inline Slave *jobSlave(SimpleJob *job)
 }
 
 /** @internal */
-class KIO::FileCopyJobPrivate: public KIO::JobPrivate
+class KIO::FileCopyJobPrivate : public KIO::JobPrivate
 {
 public:
-    FileCopyJobPrivate(const QUrl &src, const QUrl &dest, int permissions,
-                       bool move, JobFlags flags)
-        : m_sourceSize(filesize_t(-1)), m_src(src), m_dest(dest), m_moveJob(nullptr), m_copyJob(nullptr), m_delJob(nullptr),
-          m_chmodJob(nullptr), m_getJob(nullptr), m_putJob(nullptr), m_permissions(permissions),
-          m_move(move), m_mustChmod(0), m_bFileCopyInProgress(false), m_flags(flags)
+    FileCopyJobPrivate(const QUrl &src, const QUrl &dest, int permissions, bool move, JobFlags flags)
+        : m_sourceSize(filesize_t(-1))
+        , m_src(src)
+        , m_dest(dest)
+        , m_moveJob(nullptr)
+        , m_copyJob(nullptr)
+        , m_delJob(nullptr)
+        , m_chmodJob(nullptr)
+        , m_getJob(nullptr)
+        , m_putJob(nullptr)
+        , m_permissions(permissions)
+        , m_move(move)
+        , m_mustChmod(0)
+        , m_bFileCopyInProgress(false)
+        , m_flags(flags)
     {
     }
     KIO::filesize_t m_sourceSize;
@@ -45,11 +55,11 @@ public:
     TransferJob *m_getJob;
     TransferJob *m_putJob;
     int m_permissions;
-    bool m_move: 1;
-    bool m_canResume: 1;
-    bool m_resumeAnswerSent: 1;
-    bool m_mustChmod: 1;
-    bool m_bFileCopyInProgress: 1;
+    bool m_move : 1;
+    bool m_canResume : 1;
+    bool m_resumeAnswerSent : 1;
+    bool m_mustChmod : 1;
+    bool m_bFileCopyInProgress : 1;
     JobFlags m_flags;
 
     void startBestCopyMethod();
@@ -72,12 +82,10 @@ public:
 
     Q_DECLARE_PUBLIC(FileCopyJob)
 
-    static inline FileCopyJob *newJob(const QUrl &src, const QUrl &dest, int permissions, bool move,
-                                      JobFlags flags)
+    static inline FileCopyJob *newJob(const QUrl &src, const QUrl &dest, int permissions, bool move, JobFlags flags)
     {
-        //qDebug() << src << "->" << dest;
-        FileCopyJob *job = new FileCopyJob(
-            *new FileCopyJobPrivate(src, dest, permissions, move, flags));
+        // qDebug() << src << "->" << dest;
+        FileCopyJob *job = new FileCopyJob(*new FileCopyJobPrivate(src, dest, permissions, move, flags));
         job->setProperty("destUrl", dest.toString());
         job->setUiDelegate(KIO::createDefaultJobUiDelegate());
         if (!(flags & HideProgressInfo)) {
@@ -118,11 +126,8 @@ void FileCopyJobPrivate::slotStart()
 
     if (m_move) {
         // The if() below must be the same as the one in startBestCopyMethod
-        if ((m_src.scheme() == m_dest.scheme()) &&
-                (m_src.host() == m_dest.host()) &&
-                (m_src.port() == m_dest.port()) &&
-                (m_src.userName() == m_dest.userName()) &&
-                (m_src.password() == m_dest.password())) {
+        if ((m_src.scheme() == m_dest.scheme()) && (m_src.host() == m_dest.host()) && (m_src.port() == m_dest.port()) && (m_src.userName() == m_dest.userName())
+            && (m_src.password() == m_dest.password())) {
             startRenameJob(m_src);
             return;
         } else if (m_src.isLocalFile() && KProtocolManager::canRenameFromFile(m_dest)) {
@@ -139,16 +144,12 @@ void FileCopyJobPrivate::slotStart()
 
 void FileCopyJobPrivate::startBestCopyMethod()
 {
-    if ((m_src.scheme() == m_dest.scheme()) &&
-            (m_src.host() == m_dest.host()) &&
-            (m_src.port() == m_dest.port()) &&
-            (m_src.userName() == m_dest.userName()) &&
-            (m_src.password() == m_dest.password())) {
+    if ((m_src.scheme() == m_dest.scheme()) && (m_src.host() == m_dest.host()) && (m_src.port() == m_dest.port()) && (m_src.userName() == m_dest.userName())
+        && (m_src.password() == m_dest.password())) {
         startCopyJob();
     } else if (m_src.isLocalFile() && KProtocolManager::canCopyFromFile(m_dest)) {
         startCopyJob(m_dest);
-    } else if (m_dest.isLocalFile() && KProtocolManager::canCopyToFile(m_src) &&
-               !KIO::Scheduler::isSlaveOnHoldFor(m_src)) {
+    } else if (m_dest.isLocalFile() && KProtocolManager::canCopyToFile(m_src) && !KIO::Scheduler::isSlaveOnHoldFor(m_src)) {
         startCopyJob(m_src);
     } else {
         startDataPump();
@@ -163,7 +164,7 @@ void FileCopyJob::setSourceSize(KIO::filesize_t size)
 {
     Q_D(FileCopyJob);
     d->m_sourceSize = size;
-    if (size != (KIO::filesize_t) - 1) {
+    if (size != (KIO::filesize_t)-1) {
         setTotalAmount(KJob::Bytes, size);
     }
 }
@@ -192,13 +193,13 @@ void FileCopyJobPrivate::startCopyJob()
 void FileCopyJobPrivate::startCopyJob(const QUrl &slave_url)
 {
     Q_Q(FileCopyJob);
-    //qDebug();
+    // qDebug();
     KIO_ARGS << m_src << m_dest << m_permissions << (qint8)(m_flags & Overwrite);
     auto job = new DirectCopyJob(slave_url, packedArgs);
     m_copyJob = job;
     m_copyJob->setParentJob(q);
     if (m_modificationTime.isValid()) {
-        m_copyJob->addMetaData(QStringLiteral("modified"), m_modificationTime.toString(Qt::ISODate));     // #55804
+        m_copyJob->addMetaData(QStringLiteral("modified"), m_modificationTime.toString(Qt::ISODate)); // #55804
     }
     q->addSubjob(m_copyJob);
     connectSubjob(m_copyJob);
@@ -210,12 +211,12 @@ void FileCopyJobPrivate::startCopyJob(const QUrl &slave_url)
 void FileCopyJobPrivate::startRenameJob(const QUrl &slave_url)
 {
     Q_Q(FileCopyJob);
-    m_mustChmod = true;  // CMD_RENAME by itself doesn't change permissions
+    m_mustChmod = true; // CMD_RENAME by itself doesn't change permissions
     KIO_ARGS << m_src << m_dest << (qint8)(m_flags & Overwrite);
     m_moveJob = SimpleJobPrivate::newJobNoUi(slave_url, CMD_RENAME, packedArgs);
     m_moveJob->setParentJob(q);
     if (m_modificationTime.isValid()) {
-        m_moveJob->addMetaData(QStringLiteral("modified"), m_modificationTime.toString(Qt::ISODate));     // #55804
+        m_moveJob->addMetaData(QStringLiteral("modified"), m_modificationTime.toString(Qt::ISODate)); // #55804
     }
     q->addSubjob(m_moveJob);
     connectSubjob(m_moveJob);
@@ -238,7 +239,7 @@ void FileCopyJobPrivate::connectSubjob(SimpleJob *job)
         q->setProcessedAmount(KJob::Bytes, processedSize);
     });
 
-    q->connect(job, QOverload<KJob*,ulong>::of(&KJob::percent), q, [q](KJob *job, ulong percent) {
+    q->connect(job, QOverload<KJob *, ulong>::of(&KJob::percent), q, [q](KJob *job, ulong percent) {
         Q_UNUSED(job);
         if (percent > q->percent()) {
             q->setPercent(percent);
@@ -299,14 +300,14 @@ bool FileCopyJob::doResume()
 void FileCopyJobPrivate::startDataPump()
 {
     Q_Q(FileCopyJob);
-    //qDebug();
+    // qDebug();
 
     m_canResume = false;
     m_resumeAnswerSent = false;
     m_getJob = nullptr; // for now
     m_putJob = put(m_dest, m_permissions, (m_flags | HideProgressInfo) /* no GUI */);
     m_putJob->setParentJob(q);
-    //qDebug() << "m_putJob=" << m_putJob << "m_dest=" << m_dest;
+    // qDebug() << "m_putJob=" << m_putJob << "m_dest=" << m_dest;
     if (m_modificationTime.isValid()) {
         m_putJob->setModificationTime(m_modificationTime);
     }
@@ -326,7 +327,7 @@ void FileCopyJobPrivate::slotCanResume(KIO::Job *job, KIO::filesize_t offset)
 {
     Q_Q(FileCopyJob);
     if (job == m_putJob || job == m_copyJob) {
-        //qDebug() << "'can resume' from PUT job. offset=" << KIO::number(offset);
+        // qDebug() << "'can resume' from PUT job. offset=" << KIO::number(offset);
         if (offset) {
             RenameDialog_Result res = Result_Resume;
 
@@ -334,12 +335,14 @@ void FileCopyJobPrivate::slotCanResume(KIO::Job *job, KIO::filesize_t offset)
                 QString newPath;
                 KIO::Job *job = (q->parentJob()) ? q->parentJob() : q;
                 // Ask confirmation about resuming previous transfer
-                res = m_uiDelegateExtension->askFileRename(
-                          job, i18n("File Already Exists"),
-                          m_src,
-                          m_dest,
-                          RenameDialog_Options(RenameDialog_Overwrite | RenameDialog_Resume | RenameDialog_NoRename), newPath,
-                          m_sourceSize, offset);
+                res = m_uiDelegateExtension->askFileRename(job,
+                                                           i18n("File Already Exists"),
+                                                           m_src,
+                                                           m_dest,
+                                                           RenameDialog_Options(RenameDialog_Overwrite | RenameDialog_Resume | RenameDialog_NoRename),
+                                                           newPath,
+                                                           m_sourceSize,
+                                                           offset);
             }
 
             if (res == Result_Overwrite || (m_flags & Overwrite)) {
@@ -359,21 +362,21 @@ void FileCopyJobPrivate::slotCanResume(KIO::Job *job, KIO::filesize_t offset)
                 return;
             }
         } else {
-            m_resumeAnswerSent = true;    // No need for an answer
+            m_resumeAnswerSent = true; // No need for an answer
         }
 
         if (job == m_putJob) {
             m_getJob = KIO::get(m_src, NoReload, HideProgressInfo /* no GUI */);
             m_getJob->setParentJob(q);
-            //qDebug() << "m_getJob=" << m_getJob << m_src;
+            // qDebug() << "m_getJob=" << m_getJob << m_src;
             m_getJob->addMetaData(QStringLiteral("errorPage"), QStringLiteral("false"));
             m_getJob->addMetaData(QStringLiteral("AllowCompressedPage"), QStringLiteral("false"));
             // Set size in subjob. This helps if the slave doesn't emit totalSize.
-            if (m_sourceSize != (KIO::filesize_t) - 1) {
+            if (m_sourceSize != (KIO::filesize_t)-1) {
                 m_getJob->setTotalAmount(KJob::Bytes, m_sourceSize);
             }
             if (offset) {
-                //qDebug() << "Setting metadata for resume to" << (unsigned long) offset;
+                // qDebug() << "Setting metadata for resume to" << (unsigned long) offset;
                 m_getJob->addMetaData(QStringLiteral("range-start"), KIO::number(offset));
 
                 // Might or might not get emitted
@@ -385,7 +388,7 @@ void FileCopyJobPrivate::slotCanResume(KIO::Job *job, KIO::filesize_t offset)
 
             m_putJob->d_func()->internalSuspend();
             q->addSubjob(m_getJob);
-            connectSubjob(m_getJob);   // Progress info depends on get
+            connectSubjob(m_getJob); // Progress info depends on get
             m_getJob->d_func()->internalResume(); // Order a beer
 
             q->connect(m_getJob, &KIO::TransferJob::data, q, [this](KIO::Job *job, const QByteArray &data) {
@@ -400,7 +403,7 @@ void FileCopyJobPrivate::slotCanResume(KIO::Job *job, KIO::filesize_t offset)
     } else if (job == m_getJob) {
         // Cool, the get job said ok, we can resume
         m_canResume = true;
-        //qDebug() << "'can resume' from the GET job -> we can resume";
+        // qDebug() << "'can resume' from the GET job -> we can resume";
 
         jobSlave(m_getJob)->setOffset(jobSlave(m_putJob)->offset());
     } else {
@@ -410,10 +413,10 @@ void FileCopyJobPrivate::slotCanResume(KIO::Job *job, KIO::filesize_t offset)
 
 void FileCopyJobPrivate::slotData(KIO::Job *, const QByteArray &data)
 {
-    //qDebug() << "data size:" << data.size();
+    // qDebug() << "data size:" << data.size();
     Q_ASSERT(m_putJob);
     if (!m_putJob) {
-        return;    // Don't crash
+        return; // Don't crash
     }
     m_getJob->d_func()->internalSuspend();
     m_putJob->d_func()->internalResume(); // Drink the beer
@@ -423,7 +426,7 @@ void FileCopyJobPrivate::slotData(KIO::Job *, const QByteArray &data)
     // decision about resuming
     if (!m_resumeAnswerSent) {
         m_resumeAnswerSent = true;
-        //qDebug() << "(first time) -> send resume answer " << m_canResume;
+        // qDebug() << "(first time) -> send resume answer " << m_canResume;
         jobSlave(m_putJob)->sendResumeAnswer(m_canResume);
     }
 }
@@ -431,7 +434,7 @@ void FileCopyJobPrivate::slotData(KIO::Job *, const QByteArray &data)
 void FileCopyJobPrivate::slotDataReq(KIO::Job *, QByteArray &data)
 {
     Q_Q(FileCopyJob);
-    //qDebug();
+    // qDebug();
     if (!m_resumeAnswerSent && !m_getJob) {
         // This can't happen
         q->setError(ERR_INTERNAL);
@@ -462,7 +465,7 @@ void FileCopyJobPrivate::slotMimetype(KIO::Job *, const QString &type)
 void FileCopyJob::slotResult(KJob *job)
 {
     Q_D(FileCopyJob);
-    //qDebug() << "this=" << this << "job=" << job;
+    // qDebug() << "this=" << this << "job=" << job;
     removeSubjob(job);
 
     // If result comes from copyjob then we are not writing anymore.
@@ -527,13 +530,13 @@ void FileCopyJob::slotResult(KJob *job)
     if (job == d->m_copyJob) {
         d->m_copyJob = nullptr;
         if (d->m_move) {
-            d->m_delJob = file_delete(d->m_src, HideProgressInfo/*no GUI*/);   // Delete source
+            d->m_delJob = file_delete(d->m_src, HideProgressInfo /*no GUI*/); // Delete source
             addSubjob(d->m_delJob);
         }
     }
 
     if (job == d->m_getJob) {
-        //qDebug() << "m_getJob finished";
+        // qDebug() << "m_getJob finished";
         d->m_getJob = nullptr; // No action required
         if (d->m_putJob) {
             d->m_putJob->d_func()->internalResume();
@@ -541,7 +544,7 @@ void FileCopyJob::slotResult(KJob *job)
     }
 
     if (job == d->m_putJob) {
-        //qDebug() << "m_putJob finished";
+        // qDebug() << "m_putJob finished";
         d->m_putJob = nullptr;
         if (d->m_getJob) {
             // The get job is still running, probably after emitting data(QByteArray())
@@ -549,7 +552,7 @@ void FileCopyJob::slotResult(KJob *job)
             d->m_getJob->d_func()->internalResume();
         }
         if (d->m_move) {
-            d->m_delJob = file_delete(d->m_src, HideProgressInfo/*no GUI*/);   // Delete source
+            d->m_delJob = file_delete(d->m_src, HideProgressInfo /*no GUI*/); // Delete source
             addSubjob(d->m_delJob);
         }
     }
@@ -570,10 +573,10 @@ void FileCopyJob::slotResult(KJob *job)
 bool FileCopyJob::doKill()
 {
 #ifdef Q_OS_WIN
-//TODO Use SetConsoleCtrlHandler on Windows or similar behaviour.
-// https://stackoverflow.com/questions/2007516/is-there-a-posix-sigterm-alternative-on-windows-a-gentle-kill-for-console-ap
-// https://danielkaes.wordpress.com/2009/06/04/how-to-catch-kill-events-with-python/
-// https://phabricator.kde.org/D25117#566107
+    // TODO Use SetConsoleCtrlHandler on Windows or similar behaviour.
+    // https://stackoverflow.com/questions/2007516/is-there-a-posix-sigterm-alternative-on-windows-a-gentle-kill-for-console-ap
+    // https://danielkaes.wordpress.com/2009/06/04/how-to-catch-kill-events-with-python/
+    // https://phabricator.kde.org/D25117#566107
 
     Q_D(FileCopyJob);
 
@@ -593,14 +596,12 @@ bool FileCopyJob::doKill()
     return Job::doKill();
 }
 
-FileCopyJob *KIO::file_copy(const QUrl &src, const QUrl &dest, int permissions,
-                            JobFlags flags)
+FileCopyJob *KIO::file_copy(const QUrl &src, const QUrl &dest, int permissions, JobFlags flags)
 {
     return FileCopyJobPrivate::newJob(src, dest, permissions, false, flags);
 }
 
-FileCopyJob *KIO::file_move(const QUrl &src, const QUrl &dest, int permissions,
-                            JobFlags flags)
+FileCopyJob *KIO::file_move(const QUrl &src, const QUrl &dest, int permissions, JobFlags flags)
 {
     FileCopyJob *job = FileCopyJobPrivate::newJob(src, dest, permissions, true, flags);
     if (job->uiDelegateExtension()) {

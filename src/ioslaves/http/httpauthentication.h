@@ -11,8 +11,8 @@
 #include <config-gssapi.h>
 
 #include <QByteArray>
-#include <QString>
 #include <QList>
+#include <QString>
 #include <QUrl>
 
 #include <QLoggingCategory>
@@ -86,8 +86,7 @@ public:
     /**
      * what to do in response to challenge
      */
-    virtual void generateResponse(const QString &user,
-                                  const QString &password) = 0;
+    virtual void generateResponse(const QString &user, const QString &password) = 0;
 
     /**
      * returns true when the final stage of authentication is reached.
@@ -160,7 +159,9 @@ public:
 
 #ifdef ENABLE_HTTP_AUTH_NONCE_SETTER
     // NOTE: FOR USE in unit testing ONLY.
-    virtual void setDigestNonceValue(const QByteArray &) {}
+    virtual void setDigestNonceValue(const QByteArray &)
+    {
+    }
 #endif
 
 protected:
@@ -178,7 +179,7 @@ protected:
     void generateResponseCommon(const QString &user, const QString &password);
 
     KConfigGroup *m_config;
-    QByteArray m_scheme;    ///< this is parsed from the header and not necessarily == scheme().
+    QByteArray m_scheme; ///< this is parsed from the header and not necessarily == scheme().
     QByteArray m_challengeText;
     QList<QByteArray> m_challenge;
     QUrl m_resource;
@@ -206,15 +207,19 @@ public:
     {
         return true;
     }
+
 protected:
     QByteArray authDataToCache() const override
     {
         return m_challengeText;
     }
+
 private:
     friend class KAbstractHttpAuthentication;
     KHttpBasicAuthentication(KConfigGroup *config = nullptr)
-        : KAbstractHttpAuthentication(config) {}
+        : KAbstractHttpAuthentication(config)
+    {
+    }
 };
 
 class KHttpDigestAuthentication : public KAbstractHttpAuthentication
@@ -237,10 +242,13 @@ protected:
     {
         return m_challengeText;
     }
+
 private:
     friend class KAbstractHttpAuthentication;
     KHttpDigestAuthentication(KConfigGroup *config = nullptr)
-        : KAbstractHttpAuthentication(config) {}
+        : KAbstractHttpAuthentication(config)
+    {
+    }
 #ifdef ENABLE_HTTP_AUTH_NONCE_SETTER
     QByteArray m_nonce;
 #endif
@@ -253,10 +261,14 @@ public:
     void setChallenge(const QByteArray &c, const QUrl &resource, const QByteArray &httpMethod) override;
     void fillKioAuthInfo(KIO::AuthInfo *ai) const override;
     void generateResponse(const QString &user, const QString &password) override;
+
 private:
     friend class KAbstractHttpAuthentication;
     explicit KHttpNtlmAuthentication(KConfigGroup *config = nullptr)
-        : KAbstractHttpAuthentication(config), m_stage1State(Init) {}
+        : KAbstractHttpAuthentication(config)
+        , m_stage1State(Init)
+    {
+    }
     enum Stage1State {
         Init = 0,
         SentNTLMv1,
@@ -273,10 +285,13 @@ public:
     void setChallenge(const QByteArray &c, const QUrl &resource, const QByteArray &httpMethod) override;
     void fillKioAuthInfo(KIO::AuthInfo *ai) const override;
     void generateResponse(const QString &user, const QString &password) override;
+
 private:
     friend class KAbstractHttpAuthentication;
     explicit KHttpNegotiateAuthentication(KConfigGroup *config = nullptr)
-        : KAbstractHttpAuthentication(config) {}
+        : KAbstractHttpAuthentication(config)
+    {
+    }
 };
 #endif // HAVE_LIBGSSAPI
 

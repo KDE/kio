@@ -7,38 +7,37 @@
 
 #include "kurlnavigatorbutton_p.h"
 
+#include "../pathhelpers_p.h"
+#include "kdirsortfilterproxymodel.h"
 #include "kurlnavigator.h"
 #include "kurlnavigatormenu_p.h"
-#include "kdirsortfilterproxymodel.h"
-#include "../pathhelpers_p.h"
 
-#include <kio/job.h>
 #include <KLocalizedString>
 #include <KStringHandler>
+#include <kio/job.h>
 
-#include <QTimer>
-#include <QPainter>
-#include <QKeyEvent>
-#include <QStyleOption>
-#include <QMimeData>
 #include <QCollator>
+#include <QKeyEvent>
+#include <QMimeData>
+#include <QPainter>
+#include <QStyleOption>
+#include <QTimer>
 
 namespace KDEPrivate
 {
-
 QPointer<KUrlNavigatorMenu> KUrlNavigatorButton::m_subDirsMenu;
 
-KUrlNavigatorButton::KUrlNavigatorButton(const QUrl &url, KUrlNavigator *parent) :
-    KUrlNavigatorButtonBase(parent),
-    m_hoverArrow(false),
-    m_pendingTextChange(false),
-    m_replaceButton(false),
-    m_showMnemonic(false),
-    m_wheelSteps(0),
-    m_url(url),
-    m_subDir(),
-    m_openSubDirsTimer(nullptr),
-    m_subDirsJob(nullptr)
+KUrlNavigatorButton::KUrlNavigatorButton(const QUrl &url, KUrlNavigator *parent)
+    : KUrlNavigatorButtonBase(parent)
+    , m_hoverArrow(false)
+    , m_pendingTextChange(false)
+    , m_replaceButton(false)
+    , m_showMnemonic(false)
+    , m_wheelSteps(0)
+    , m_url(url)
+    , m_subDir()
+    , m_openSubDirsTimer(nullptr)
+    , m_subDirsJob(nullptr)
 {
     setAcceptDrops(true);
     setUrl(url);
@@ -74,14 +73,12 @@ void KUrlNavigatorButton::setUrl(const QUrl &url)
         QStringLiteral("mtp"),
     };
 
-    const bool startTextResolving = m_url.isValid() && !m_url.isLocalFile()
-                                && !protocolBlacklist.contains(m_url.scheme());
+    const bool startTextResolving = m_url.isValid() && !m_url.isLocalFile() && !protocolBlacklist.contains(m_url.scheme());
 
     if (startTextResolving) {
         m_pendingTextChange = true;
         KIO::StatJob *job = KIO::stat(m_url, KIO::HideProgressInfo);
-        connect(job, &KJob::result,
-                this, &KUrlNavigatorButton::statFinished);
+        connect(job, &KJob::result, this, &KUrlNavigatorButton::statFinished);
         Q_EMIT startedTextResolving();
     } else {
         setText(m_url.fileName().replace(QLatin1Char('&'), QLatin1String("&&")));
@@ -157,7 +154,7 @@ void KUrlNavigatorButton::paintEvent(QPaintEvent *event)
     adjustedFont.setBold(m_subDir.isEmpty());
     painter.setFont(adjustedFont);
 
-    int buttonWidth  = width();
+    int buttonWidth = width();
     int preferredWidth = sizeHint().width();
     if (preferredWidth < minimumWidth()) {
         preferredWidth = minimumWidth();
@@ -398,8 +395,7 @@ void KUrlNavigatorButton::startSubDirsJob()
     m_subDirsJob = KIO::listDir(url, KIO::HideProgressInfo, false /*no hidden files*/);
     m_subDirs.clear(); // just to be ++safe
 
-    connect(m_subDirsJob, &KIO::ListJob::entries,
-            this, &KUrlNavigatorButton::addEntriesToSubDirs);
+    connect(m_subDirsJob, &KIO::ListJob::entries, this, &KUrlNavigatorButton::addEntriesToSubDirs);
 
     if (m_replaceButton) {
         connect(m_subDirsJob, &KJob::result, this, &KUrlNavigatorButton::replaceButton);
@@ -506,7 +502,7 @@ void KUrlNavigatorButton::openSubDirsMenu(KJob *job)
 
     const bool leftToRight = (layoutDirection() == Qt::LeftToRight);
     const int popupX = leftToRight ? width() - arrowWidth() - BorderWidth : 0;
-    const QPoint popupPos  = parentWidget()->mapToGlobal(geometry().bottomLeft() + QPoint(popupX, 0));
+    const QPoint popupPos = parentWidget()->mapToGlobal(geometry().bottomLeft() + QPoint(popupX, 0));
 
     QPointer<QObject> guard(this);
 
@@ -653,8 +649,7 @@ void KUrlNavigatorButton::updateMinimumWidth()
 
 void KUrlNavigatorButton::initMenu(KUrlNavigatorMenu *menu, int startIndex)
 {
-    connect(menu, &KUrlNavigatorMenu::mouseButtonClicked,
-            this, &KUrlNavigatorButton::slotMenuActionClicked);
+    connect(menu, &KUrlNavigatorMenu::mouseButtonClicked, this, &KUrlNavigatorButton::slotMenuActionClicked);
     connect(menu, &KUrlNavigatorMenu::urlsDropped, this, &KUrlNavigatorButton::slotUrlsDropped);
 
     // So that triggering a menu item with the keyboard works
@@ -664,7 +659,7 @@ void KUrlNavigatorButton::initMenu(KUrlNavigatorMenu *menu, int startIndex)
 
     menu->setLayoutDirection(Qt::LeftToRight);
 
-    const int maxIndex = startIndex + 30;  // Don't show more than 30 items in a menu
+    const int maxIndex = startIndex + 30; // Don't show more than 30 items in a menu
     const int lastIndex = qMin(m_subDirs.count() - 1, maxIndex);
     for (int i = startIndex; i <= lastIndex; ++i) {
         const QString subDirName = m_subDirs[i].first;

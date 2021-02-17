@@ -19,15 +19,14 @@ int main(int argc, char **argv)
     dlg.setCustomWidget(lab);
     dlg.exec();
 
-
-    //Save dialog box
+    // Save dialog box
     KFileCustomDialog dlg2;
     dlg2.setOperationMode(KFileWidget::Saving);
     lab = new QLabel(QStringLiteral("Second"));
     dlg2.setCustomWidget(lab);
     dlg2.exec();
 
-    //Open dialog box
+    // Open dialog box
     KFileCustomDialog dlg3;
     dlg3.setOperationMode(KFileWidget::Opening);
     lab = new QLabel(QStringLiteral("Third"));

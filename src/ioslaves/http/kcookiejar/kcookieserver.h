@@ -10,10 +10,10 @@
 #ifndef KCOOKIESERVER_H
 #define KCOOKIESERVER_H
 
-#include <QStringList>
 #include <KDEDModule>
 #include <QDBusConnection>
 #include <QDBusContext>
+#include <QStringList>
 
 class KHttpCookieList;
 class KCookieJar;
@@ -67,8 +67,7 @@ public Q_SLOTS:
 
 public:
     bool cookiesPending(const QString &url, KHttpCookieList *cookieList = nullptr);
-    void addCookies(const QString &url, const QByteArray &cookieHeader,
-                    qlonglong windowId, bool useDOMFormat);
+    void addCookies(const QString &url, const QByteArray &cookieHeader, qlonglong windowId, bool useDOMFormat);
     void checkCookies(KHttpCookieList *cookieList);
     // TODO: KDE5 merge with above function and make all these public functions
     // private since they are not used externally.

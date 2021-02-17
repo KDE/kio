@@ -6,16 +6,15 @@
 
 #include "kmountpointtest.h"
 
-#include <QTest>
 #include "kmountpoint.h"
 #include <QDebug>
+#include <QTest>
 #include <qplatformdefs.h>
 
 QTEST_MAIN(KMountPointTest)
 
 void KMountPointTest::initTestCase()
 {
-
 }
 
 void KMountPointTest::testCurrentMountPoints()
@@ -27,9 +26,8 @@ void KMountPointTest::testCurrentMountPoints()
     }
     KMountPoint::Ptr mountWithDevice;
     for (KMountPoint::Ptr mountPoint : mountPoints) {
-        qDebug() << "Mount: " << mountPoint->mountedFrom()
-                 << " (" << mountPoint->realDeviceName() << ") "
-                 << mountPoint->mountPoint() << " " << mountPoint->mountType();
+        qDebug() << "Mount: " << mountPoint->mountedFrom() << " (" << mountPoint->realDeviceName() << ") " << mountPoint->mountPoint() << " "
+                 << mountPoint->mountType();
         QVERIFY(!mountPoint->mountedFrom().isEmpty());
         QVERIFY(!mountPoint->mountPoint().isEmpty());
         QVERIFY(!mountPoint->mountType().isEmpty());
@@ -70,7 +68,7 @@ void KMountPointTest::testCurrentMountPoints()
         bool sameDevice = rootStatBuff.st_dev == homeStatBuff.st_dev;
         const KMountPoint::Ptr homeMountPoint = mountPoints.findByPath(QStringLiteral("/home"));
         QVERIFY(homeMountPoint);
-        //qDebug() << "Checking the home mount point, sameDevice=" << sameDevice;
+        // qDebug() << "Checking the home mount point, sameDevice=" << sameDevice;
         if (sameDevice) {
             QCOMPARE(homeMountPoint->mountPoint(), QStringLiteral("/"));
         } else {
@@ -91,10 +89,8 @@ void KMountPointTest::testPossibleMountPoints()
     }
     KMountPoint::Ptr mountWithDevice;
     for (KMountPoint::Ptr mountPoint : mountPoints) {
-        qDebug() << "Possible mount: " << mountPoint->mountedFrom()
-                 << " (" << mountPoint->realDeviceName() << ") "
-                 << mountPoint->mountPoint() << " " << mountPoint->mountType()
-                 << " options:" << mountPoint->mountOptions();
+        qDebug() << "Possible mount: " << mountPoint->mountedFrom() << " (" << mountPoint->realDeviceName() << ") " << mountPoint->mountPoint() << " "
+                 << mountPoint->mountType() << " options:" << mountPoint->mountOptions();
         QVERIFY(!mountPoint->mountedFrom().isEmpty());
         QVERIFY(!mountPoint->mountPoint().isEmpty());
         QVERIFY(!mountPoint->mountType().isEmpty());
@@ -120,4 +116,3 @@ void KMountPointTest::testPossibleMountPoints()
     QVERIFY(!rootMountPoint->probablySlow());
 #endif
 }
-

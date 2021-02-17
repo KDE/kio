@@ -6,9 +6,9 @@
 */
 
 #include <QApplication>
+#include <QDebug>
 #include <kurlrequester.h>
 #include <kurlrequesterdialog.h>
-#include <QDebug>
 
 int main(int argc, char **argv)
 {

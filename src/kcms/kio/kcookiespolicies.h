@@ -14,8 +14,8 @@
 #ifndef KCOOKIESPOLICIES_H
 #define KCOOKIESPOLICIES_H
 
-#include <QMap>
 #include <KCModule>
+#include <QMap>
 
 #include "kcookiespolicyselectiondlg.h"
 #include "ui_kcookiespolicies.h"
@@ -35,10 +35,10 @@ public:
     void defaults() override;
     QString quickHelp() const override;
 
-    void setPolicy(const QString& domain);
+    void setPolicy(const QString &domain);
 
 protected Q_SLOTS:
-    void cookiesEnabled( bool );
+    void cookiesEnabled(bool);
     void configChanged();
 
     void selectionChanged();
@@ -48,19 +48,18 @@ protected Q_SLOTS:
     void deletePressed();
     void changePressed();
     void addPressed();
-    void changePressed(QTreeWidgetItem*, bool state = true);
-    void addPressed(const QString&, bool state = true);
+    void changePressed(QTreeWidgetItem *, bool state = true);
+    void addPressed(const QString &, bool state = true);
 
 private:
-    void updateDomainList(const QStringList& list);
-    bool handleDuplicate( const QString& domain, int );
-    void splitDomainAdvice (const QString& configStr, QString &domain,
-                            KCookieAdvice::Value &advice);
+    void updateDomainList(const QStringList &list);
+    bool handleDuplicate(const QString &domain, int);
+    void splitDomainAdvice(const QString &configStr, QString &domain, KCookieAdvice::Value &advice);
 
 private:
     quint64 mSelectedItemsCount;
     Ui::KCookiePoliciesUI mUi;
-    QMap<QString, const char*> mDomainPolicyMap;
+    QMap<QString, const char *> mDomainPolicyMap;
 };
 
 #endif // KCOOKIESPOLICIES_H

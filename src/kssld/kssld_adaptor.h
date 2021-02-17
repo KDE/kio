@@ -8,14 +8,14 @@
 #ifndef KSSLD_ADAPTOR_H
 #define KSSLD_ADAPTOR_H
 
-#include <QDBusInterface>
-#include <QDBusMetaType>
 #include <QDBusAbstractAdaptor>
 #include <QDBusArgument>
+#include <QDBusInterface>
+#include <QDBusMetaType>
 
 #include "kssld_dbusmetatypes.h"
 
-class KSSLDAdaptor: public QDBusAbstractAdaptor
+class KSSLDAdaptor : public QDBusAbstractAdaptor
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.kde.KSSLD")
@@ -56,4 +56,4 @@ public Q_SLOTS:
     }
 };
 
-#endif //KSSLD_ADAPTOR_H
+#endif // KSSLD_ADAPTOR_H

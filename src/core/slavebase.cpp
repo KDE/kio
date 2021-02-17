@@ -12,21 +12,21 @@
 
 #include <config-kiocore.h>
 
-#include <stdlib.h>
 #include <qplatformdefs.h>
 #include <signal.h>
+#include <stdlib.h>
 #ifdef Q_OS_WIN
 #include <process.h>
 #endif
 
-#include <QtGlobal>
-#include <QFile>
-#include <QList>
-#include <QDateTime>
-#include <QElapsedTimer>
 #include <QCoreApplication>
 #include <QDataStream>
+#include <QDateTime>
+#include <QElapsedTimer>
+#include <QFile>
+#include <QList>
 #include <QMap>
+#include <QtGlobal>
 
 #include <KConfig>
 #include <KConfigGroup>
@@ -35,13 +35,13 @@
 
 #include "kremoteencoding.h"
 
-#include "kioglobal_p.h"
-#include "connection_p.h"
 #include "commands_p.h"
+#include "connection_p.h"
 #include "ioslave_defaults.h"
-#include "slaveinterface.h"
-#include "kpasswdserverclient.h"
 #include "kiocoredebug.h"
+#include "kioglobal_p.h"
+#include "kpasswdserverclient.h"
+#include "slaveinterface.h"
 
 #ifdef Q_OS_UNIX
 #include <KAuth>
@@ -50,29 +50,35 @@
 #if KIO_ASSERT_SLAVE_STATES
 #define KIO_STATE_ASSERT(cond, where, what) Q_ASSERT_X(cond, where, what)
 #else
-#define KIO_STATE_ASSERT(cond, where, what) do { if (!(cond)) qCWarning(KIO_CORE) << what; } while (false)
+#define KIO_STATE_ASSERT(cond, where, what)                                                                                                                    \
+    do {                                                                                                                                                       \
+        if (!(cond))                                                                                                                                           \
+            qCWarning(KIO_CORE) << what;                                                                                                                       \
+    } while (false)
 #endif
 
 extern "C" {
-    static void sigpipe_handler(int sig);
+static void sigpipe_handler(int sig);
 }
 
 using namespace KIO;
 
 typedef QList<QByteArray> AuthKeysList;
 typedef QMap<QString, QByteArray> AuthKeysMap;
-#define KIO_DATA QByteArray data; QDataStream stream( &data, QIODevice::WriteOnly ); stream
+#define KIO_DATA                                                                                                                                               \
+    QByteArray data;                                                                                                                                           \
+    QDataStream stream(&data, QIODevice::WriteOnly);                                                                                                           \
+    stream
 #define KIO_FILESIZE_T(x) quint64(x)
 static const int KIO_MAX_ENTRIES_PER_BATCH = 200;
 static const int KIO_MAX_SEND_BATCH_TIME = 300;
 
 namespace KIO
 {
-
 class SlaveBasePrivate
 {
 public:
-    SlaveBase * const q;
+    SlaveBase *const q;
     explicit SlaveBasePrivate(SlaveBase *owner)
         : q(owner)
         , nextTimeoutMsecs(0)
@@ -98,12 +104,12 @@ public:
     bool isConnectedToApp;
 
     QString slaveid;
-    bool resume: 1;
-    bool needSendCanResume: 1;
-    bool onHold: 1;
-    bool wasKilled: 1;
-    bool inOpenLoop: 1;
-    bool exit_loop: 1;
+    bool resume : 1;
+    bool needSendCanResume : 1;
+    bool onHold : 1;
+    bool wasKilled : 1;
+    bool inOpenLoop : 1;
+    bool exit_loop : 1;
     MetaData configData;
     KConfig *config = nullptr;
     KConfigGroup *configGroup = nullptr;
@@ -181,8 +187,8 @@ public:
         KIO_STATE_ASSERT(finalState(),
                          Q_FUNC_INFO,
                          qUtf8Printable(QStringLiteral("%1 did not call finished() or error()! Please fix the %2 KIO slave")
-                                        .arg(QLatin1String(cmdName))
-                                        .arg(QCoreApplication::applicationName())));
+                                            .arg(QLatin1String(cmdName))
+                                            .arg(QCoreApplication::applicationName())));
         // Force the command into finished state. We'll not reach this for Debug builds
         // that fail the assertion. For Release builds we'll have made sure that the
         // command is actually finished after the verification regardless of what
@@ -197,8 +203,8 @@ public:
         KIO_STATE_ASSERT(!finalState(),
                          Q_FUNC_INFO,
                          qUtf8Printable(QStringLiteral("%1 called finished() or error(), but it's not supposed to! Please fix the %2 KIO slave")
-                                        .arg(QLatin1String(cmdName))
-                                        .arg(QCoreApplication::applicationName())));
+                                            .arg(QLatin1String(cmdName))
+                                            .arg(QCoreApplication::applicationName())));
     }
 
     KPasswdServerClient *passwdServerClient()
@@ -221,30 +227,28 @@ static const char *s_protocol;
 
 #ifdef Q_OS_UNIX
 extern "C" {
-    static void genericsig_handler(int sigNumber)
-    {
-        ::signal(sigNumber, SIG_IGN);
-        //WABA: Don't do anything that requires malloc, we can deadlock on it since
-        //a SIGTERM signal can come in while we are in malloc/free.
-        //qDebug()<<"kioslave : exiting due to signal "<<sigNumber;
-        //set the flag which will be checked in dispatchLoop() and which *should* be checked
-        //in lengthy operations in the various slaves
-        if (globalSlave != nullptr) {
-            globalSlave->setKillFlag();
-        }
-        ::signal(SIGALRM, SIG_DFL);
-        alarm(5);  //generate an alarm signal in 5 seconds, in this time the slave has to exit
+static void genericsig_handler(int sigNumber)
+{
+    ::signal(sigNumber, SIG_IGN);
+    // WABA: Don't do anything that requires malloc, we can deadlock on it since
+    // a SIGTERM signal can come in while we are in malloc/free.
+    // qDebug()<<"kioslave : exiting due to signal "<<sigNumber;
+    // set the flag which will be checked in dispatchLoop() and which *should* be checked
+    // in lengthy operations in the various slaves
+    if (globalSlave != nullptr) {
+        globalSlave->setKillFlag();
     }
+    ::signal(SIGALRM, SIG_DFL);
+    alarm(5); // generate an alarm signal in 5 seconds, in this time the slave has to exit
+}
 }
 #endif
 
 //////////////
 
-SlaveBase::SlaveBase(const QByteArray &protocol,
-                     const QByteArray &pool_socket,
-                     const QByteArray &app_socket)
-    : mProtocol(protocol),
-      d(new SlaveBasePrivate(this))
+SlaveBase::SlaveBase(const QByteArray &protocol, const QByteArray &pool_socket, const QByteArray &app_socket)
+    : mProtocol(protocol)
+    , d(new SlaveBasePrivate(this))
 
 {
     Q_ASSERT(!app_socket.isEmpty());
@@ -276,7 +280,7 @@ SlaveBase::SlaveBase(const QByteArray &protocol,
     d->mapConfig = QMap<QString, QVariant>();
     d->onHold = false;
     d->wasKilled = false;
-//    d->processed_size = 0;
+    //    d->processed_size = 0;
     d->totalSize = 0;
     connectSlave(QFile::decodeName(app_socket));
 
@@ -342,9 +346,9 @@ void SlaveBase::dispatchLoop()
             }
         }
 
-        //I think we get here when we were killed in dispatch() and not in select()
+        // I think we get here when we were killed in dispatch() and not in select()
         if (wasKilled()) {
-            //qDebug() << "slave was killed, returning";
+            // qDebug() << "slave was killed, returning";
             break;
         }
 
@@ -432,8 +436,7 @@ KConfigGroup *SlaveBase::config()
         d->configGroup = new KConfigGroup(d->config, QString());
 
         auto end = d->mapConfig.cend();
-        for (auto it = d->mapConfig.cbegin(); it != end; ++it)
-        {
+        for (auto it = d->mapConfig.cbegin(); it != end; ++it) {
             d->configGroup->writeEntry(it.key(), it->toString().toUtf8(), KConfigGroup::WriteConfigFlags());
         }
     }
@@ -474,7 +477,7 @@ void SlaveBase::data(const QByteArray &data)
 
 void SlaveBase::dataReq()
 {
-    //sendMetaData();
+    // sendMetaData();
     if (d->needSendCanResume) {
         canResume(0);
     }
@@ -490,22 +493,21 @@ void SlaveBase::opened()
 
 void SlaveBase::error(int _errid, const QString &_text)
 {
-    KIO_STATE_ASSERT(d->m_finalityCommand,
-                     Q_FUNC_INFO,
-                     qUtf8Printable(QStringLiteral("error() was called, but it's not supposed to! Please fix the %1 KIO slave")
-                                    .arg(QCoreApplication::applicationName())));
+    KIO_STATE_ASSERT(
+        d->m_finalityCommand,
+        Q_FUNC_INFO,
+        qUtf8Printable(QStringLiteral("error() was called, but it's not supposed to! Please fix the %1 KIO slave").arg(QCoreApplication::applicationName())));
 
     if (d->m_state == d->ErrorCalled) {
         KIO_STATE_ASSERT(false,
                          Q_FUNC_INFO,
-                         qUtf8Printable(QStringLiteral("error() called twice! Please fix the %1 KIO slave")
-                                        .arg(QCoreApplication::applicationName())));
+                         qUtf8Printable(QStringLiteral("error() called twice! Please fix the %1 KIO slave").arg(QCoreApplication::applicationName())));
         return;
     } else if (d->m_state == d->FinishedCalled) {
-        KIO_STATE_ASSERT(false,
-                         Q_FUNC_INFO,
-                         qUtf8Printable(QStringLiteral("error() called after finished()! Please fix the %1 KIO slave")
-                                        .arg(QCoreApplication::applicationName())));
+        KIO_STATE_ASSERT(
+            false,
+            Q_FUNC_INFO,
+            qUtf8Printable(QStringLiteral("error() called after finished()! Please fix the %1 KIO slave").arg(QCoreApplication::applicationName())));
         return;
     }
 
@@ -516,7 +518,7 @@ void SlaveBase::error(int _errid, const QString &_text)
     KIO_DATA << static_cast<qint32>(_errid) << _text;
 
     send(MSG_ERROR, data);
-    //reset
+    // reset
     d->totalSize = 0;
     d->inOpenLoop = false;
     d->m_confirmationAsked = false;
@@ -546,22 +548,22 @@ void SlaveBase::finished()
         d->pendingListEntries.clear();
     }
 
-    KIO_STATE_ASSERT(d->m_finalityCommand,
-                     Q_FUNC_INFO,
-                     qUtf8Printable(QStringLiteral("finished() was called, but it's not supposed to! Please fix the %2 KIO slave")
-                                    .arg(QCoreApplication::applicationName())));
+    KIO_STATE_ASSERT(
+        d->m_finalityCommand,
+        Q_FUNC_INFO,
+        qUtf8Printable(
+            QStringLiteral("finished() was called, but it's not supposed to! Please fix the %2 KIO slave").arg(QCoreApplication::applicationName())));
 
     if (d->m_state == d->FinishedCalled) {
         KIO_STATE_ASSERT(false,
                          Q_FUNC_INFO,
-                         qUtf8Printable(QStringLiteral("finished() called twice! Please fix the %1 KIO slave")
-                                        .arg(QCoreApplication::applicationName())));
+                         qUtf8Printable(QStringLiteral("finished() called twice! Please fix the %1 KIO slave").arg(QCoreApplication::applicationName())));
         return;
     } else if (d->m_state == d->ErrorCalled) {
-        KIO_STATE_ASSERT(false,
-                         Q_FUNC_INFO,
-                         qUtf8Printable(QStringLiteral("finished() called after error()! Please fix the %1 KIO slave")
-                                        .arg(QCoreApplication::applicationName())));
+        KIO_STATE_ASSERT(
+            false,
+            Q_FUNC_INFO,
+            qUtf8Printable(QStringLiteral("finished() called after error()! Please fix the %1 KIO slave").arg(QCoreApplication::applicationName())));
         return;
     }
 
@@ -602,7 +604,7 @@ void SlaveBase::totalSize(KIO::filesize_t _bytes)
     KIO_DATA << KIO_FILESIZE_T(_bytes);
     send(INF_TOTAL_SIZE, data);
 
-    //this one is usually called before the first item is listed in listDir()
+    // this one is usually called before the first item is listed in listDir()
     d->totalSize = _bytes;
 }
 
@@ -649,7 +651,7 @@ void SlaveBase::truncated(KIO::filesize_t _length)
 
 void SlaveBase::processedPercent(float /* percent */)
 {
-    //qDebug() << "STUB";
+    // qDebug() << "STUB";
 }
 
 void SlaveBase::speed(unsigned long _bytes_per_second)
@@ -671,24 +673,18 @@ void SlaveBase::errorPage()
 
 static bool isSubCommand(int cmd)
 {
-    return ((cmd == CMD_REPARSECONFIGURATION) ||
-            (cmd == CMD_META_DATA) ||
-            (cmd == CMD_CONFIG) ||
-            (cmd == CMD_SUBURL) ||
-            (cmd == CMD_SLAVE_STATUS) ||
-            (cmd == CMD_SLAVE_CONNECT) ||
-            (cmd == CMD_SLAVE_HOLD) ||
-            (cmd == CMD_MULTI_GET));
+    return ((cmd == CMD_REPARSECONFIGURATION) || (cmd == CMD_META_DATA) || (cmd == CMD_CONFIG) || (cmd == CMD_SUBURL) || (cmd == CMD_SLAVE_STATUS)
+            || (cmd == CMD_SLAVE_CONNECT) || (cmd == CMD_SLAVE_HOLD) || (cmd == CMD_MULTI_GET));
 }
 
 void SlaveBase::mimeType(const QString &_type)
 {
-    //qDebug() << _type;
+    // qDebug() << _type;
     int cmd;
     do {
         // Send the meta-data each time we send the MIME type.
         if (!mOutgoingMetaData.isEmpty()) {
-            //qDebug() << "emitting meta data";
+            // qDebug() << "emitting meta data";
             KIO_DATA << mOutgoingMetaData;
             send(INF_META_DATA, data);
         }
@@ -701,10 +697,10 @@ void SlaveBase::mimeType(const QString &_type)
                 ret = d->appConnection.read(&cmd, data);
             }
             if (ret == -1) {
-                //qDebug() << "read error";
+                // qDebug() << "read error";
                 exit();
             }
-            //qDebug() << "got" << cmd;
+            // qDebug() << "got" << cmd;
             if (cmd == CMD_HOST) { // Ignore.
                 continue;
             }
@@ -882,7 +878,7 @@ KIOCORE_EXPORT QString KIO::unsupportedActionErrorString(const QString &protocol
         return i18n("Opening files is not supported with protocol %1.", protocol);
     default:
         return i18n("Protocol %1 does not support action %2.", protocol, cmd);
-    }/*end switch*/
+    } /*end switch*/
 }
 
 void SlaveBase::openConnection()
@@ -890,7 +886,8 @@ void SlaveBase::openConnection()
     error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(protocolName(), CMD_CONNECT));
 }
 void SlaveBase::closeConnection()
-{ } // No response!
+{
+} // No response!
 void SlaveBase::stat(QUrl const &)
 {
     error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(protocolName(), CMD_STAT));
@@ -1026,42 +1023,44 @@ int SlaveBase::openPasswordDialogV2(AuthInfo &info, const QString &errorMsg)
     return errCode;
 }
 
-int SlaveBase::messageBox(MessageBoxType type, const QString &text, const QString &caption,
-                          const QString &buttonYes, const QString &buttonNo)
+int SlaveBase::messageBox(MessageBoxType type, const QString &text, const QString &caption, const QString &buttonYes, const QString &buttonNo)
 {
     return messageBox(text, type, caption, buttonYes, buttonNo, QString());
 }
 
-int SlaveBase::messageBox(const QString &text, MessageBoxType type, const QString &caption,
-                          const QString &_buttonYes, const QString &_buttonNo,
+int SlaveBase::messageBox(const QString &text,
+                          MessageBoxType type,
+                          const QString &caption,
+                          const QString &_buttonYes,
+                          const QString &_buttonNo,
                           const QString &dontAskAgainName)
 {
     QString buttonYes = _buttonYes.isNull() ? i18n("&Yes") : _buttonYes;
     QString buttonNo = _buttonNo.isNull() ? i18n("&No") : _buttonNo;
-    //qDebug() << "messageBox " << type << " " << text << " - " << caption << buttonYes << buttonNo;
+    // qDebug() << "messageBox " << type << " " << text << " - " << caption << buttonYes << buttonNo;
     KIO_DATA << static_cast<qint32>(type) << text << caption << buttonYes << buttonNo << dontAskAgainName;
     send(INF_MESSAGEBOX, data);
     if (waitForAnswer(CMD_MESSAGEBOXANSWER, 0, data) != -1) {
         QDataStream stream(data);
         int answer;
         stream >> answer;
-        //qDebug() << "got messagebox answer" << answer;
+        // qDebug() << "got messagebox answer" << answer;
         return answer;
     } else {
-        return 0;    // communication failure
+        return 0; // communication failure
     }
 }
 
 bool SlaveBase::canResume(KIO::filesize_t offset)
 {
-    //qDebug() << "offset=" << KIO::number(offset);
+    // qDebug() << "offset=" << KIO::number(offset);
     d->needSendCanResume = false;
     KIO_DATA << KIO_FILESIZE_T(offset);
     send(MSG_RESUME, data);
     if (offset) {
         int cmd;
         if (waitForAnswer(CMD_RESUMEANSWER, CMD_NONE, data, &cmd) != -1) {
-            //qDebug() << "returning" << (cmd == CMD_RESUMEANSWER);
+            // qDebug() << "returning" << (cmd == CMD_RESUMEANSWER);
             return cmd == CMD_RESUMEANSWER;
         } else {
             return false;
@@ -1080,7 +1079,7 @@ int SlaveBase::waitForAnswer(int expected1, int expected2, QByteArray &data, int
             result = d->appConnection.read(&cmd, data);
         }
         if (result == -1) {
-            //qDebug() << "read error.";
+            // qDebug() << "read error.";
             return -1;
         }
 
@@ -1101,20 +1100,20 @@ int SlaveBase::waitForAnswer(int expected1, int expected2, QByteArray &data, int
 int SlaveBase::readData(QByteArray &buffer)
 {
     int result = waitForAnswer(MSG_DATA, 0, buffer);
-    //qDebug() << "readData: length = " << result << " ";
+    // qDebug() << "readData: length = " << result << " ";
     return result;
 }
 
 void SlaveBase::setTimeoutSpecialCommand(int timeout, const QByteArray &data)
 {
     if (timeout > 0) {
-        d->nextTimeoutMsecs = timeout*1000; // from seconds to milliseconds
+        d->nextTimeoutMsecs = timeout * 1000; // from seconds to milliseconds
         d->nextTimeout.start();
     } else if (timeout == 0) {
-        d->nextTimeoutMsecs = 1000;  // Immediate timeout
+        d->nextTimeoutMsecs = 1000; // Immediate timeout
         d->nextTimeout.start();
     } else {
-        d->nextTimeout.invalidate();  // Canceled
+        d->nextTimeout.invalidate(); // Canceled
     }
 
     d->timeoutData = data;
@@ -1198,7 +1197,7 @@ void SlaveBase::dispatch(int command, const QByteArray &data)
         stream >> url >> i;
         QIODevice::OpenMode mode = QFlag(i);
         d->m_state = d->InsideMethod;
-        open(url, mode); //krazy:exclude=syscalls
+        open(url, mode); // krazy:exclude=syscalls
         d->m_state = d->Idle;
     } break;
     case CMD_PUT: {
@@ -1216,7 +1215,7 @@ void SlaveBase::dispatch(int command, const QByteArray &data)
         // Remember that we need to send canResume(), TransferJob is expecting
         // it. Well, in theory this shouldn't be done if resume is true.
         //   (the resume bool is currently unused)
-        d->needSendCanResume = true   /* !resume */;
+        d->needSendCanResume = true /* !resume */;
 
         d->m_state = d->InsideMethod;
         put(url, permissions, flags);
@@ -1226,7 +1225,7 @@ void SlaveBase::dispatch(int command, const QByteArray &data)
     case CMD_STAT: {
         stream >> url;
         d->m_state = d->InsideMethod;
-        stat(url);   //krazy:exclude=syscalls
+        stat(url); // krazy:exclude=syscalls
         d->verifyState("stat()");
         d->m_state = d->Idle;
     } break;
@@ -1247,7 +1246,7 @@ void SlaveBase::dispatch(int command, const QByteArray &data)
     case CMD_MKDIR: {
         stream >> url >> i;
         d->m_state = d->InsideMethod;
-        mkdir(url, i);   //krazy:exclude=syscalls
+        mkdir(url, i); // krazy:exclude=syscalls
         d->verifyState("mkdir()");
         d->m_state = d->Idle;
     } break;
@@ -1260,7 +1259,7 @@ void SlaveBase::dispatch(int command, const QByteArray &data)
             flags |= Overwrite;
         }
         d->m_state = d->InsideMethod;
-        rename(url, url2, flags);   //krazy:exclude=syscalls
+        rename(url, url2, flags); // krazy:exclude=syscalls
         d->verifyState("rename()");
         d->m_state = d->Idle;
     } break;
@@ -1329,7 +1328,7 @@ void SlaveBase::dispatch(int command, const QByteArray &data)
         d->m_state = d->Idle;
     } break;
     case CMD_META_DATA: {
-        //qDebug() << "(" << getpid() << ") Incoming meta-data...";
+        // qDebug() << "(" << getpid() << ") Incoming meta-data...";
         stream >> mIncomingMetaData;
         d->rebuildConfig();
     } break;
@@ -1369,8 +1368,7 @@ void SlaveBase::dispatch(int command, const QByteArray &data)
 bool SlaveBase::checkCachedAuthentication(AuthInfo &info)
 {
     KPasswdServerClient *passwdServerClient = d->passwdServerClient();
-    return (passwdServerClient->checkAuthInfo(&info, metaData(QStringLiteral("window-id")).toLong(),
-                                        metaData(QStringLiteral("user-timestamp")).toULong()));
+    return (passwdServerClient->checkAuthInfo(&info, metaData(QStringLiteral("window-id")).toLong(), metaData(QStringLiteral("user-timestamp")).toULong()));
 }
 
 void SlaveBase::dispatchOpenCommand(int command, const QByteArray &data)
@@ -1404,7 +1402,7 @@ void SlaveBase::dispatchOpenCommand(int command, const QByteArray &data)
     case CMD_NONE:
         break;
     case CMD_CLOSE:
-        close();                // must call finish(), which will set d->inOpenLoop=false
+        close(); // must call finish(), which will set d->inOpenLoop=false
         break;
     default:
         // Some command we don't understand.
@@ -1478,7 +1476,7 @@ void SlaveBase::send(int cmd, const QByteArray &arr)
 {
     slaveWriteError = false;
     if (!d->appConnection.send(cmd, arr))
-        // Note that slaveWriteError can also be set by sigpipe_handler
+    // Note that slaveWriteError can also be set by sigpipe_handler
     {
         slaveWriteError = true;
     }
@@ -1491,7 +1489,7 @@ void SlaveBase::virtual_hook(int id, void *data)
 {
     Q_UNUSED(data);
 
-    switch(id) {
+    switch (id) {
     case GetFileSystemFreeSpace: {
         error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(protocolName(), CMD_FILESYSTEMFREESPACE));
     } break;
@@ -1512,7 +1510,7 @@ int SlaveBase::waitForHostInfo(QHostInfo &info)
     QByteArray data;
     int result = waitForAnswer(CMD_HOST_INFO, 0, data);
 
-    if (result  == -1) {
+    if (result == -1) {
         info.setError(QHostInfo::UnknownError);
         info.setErrorString(i18n("Unknown Error"));
         return result;
@@ -1536,24 +1534,20 @@ int SlaveBase::waitForHostInfo(QHostInfo &info)
 
 PrivilegeOperationStatus SlaveBase::requestPrivilegeOperation(const QString &operationDetails)
 {
-
     if (d->m_privilegeOperationStatus == OperationNotAllowed) {
         QByteArray buffer;
         send(MSG_PRIVILEGE_EXEC);
         waitForAnswer(MSG_PRIVILEGE_EXEC, 0, buffer);
         QDataStream ds(buffer);
-        ds >> d->m_privilegeOperationStatus >> d->m_warningCaption >> d-> m_warningMessage;
+        ds >> d->m_privilegeOperationStatus >> d->m_warningCaption >> d->m_warningMessage;
     }
 
-    if (metaData(QStringLiteral("UnitTesting")) != QLatin1String("true") &&
-            d->m_privilegeOperationStatus == OperationAllowed &&
-            !d->m_confirmationAsked) {
-        //KF6 TODO Remove. We don't want to pass details as meta-data. Pass it as a parameter in messageBox().
+    if (metaData(QStringLiteral("UnitTesting")) != QLatin1String("true") && d->m_privilegeOperationStatus == OperationAllowed && !d->m_confirmationAsked) {
+        // KF6 TODO Remove. We don't want to pass details as meta-data. Pass it as a parameter in messageBox().
         setMetaData(QStringLiteral("privilege_conf_details"), operationDetails);
         sendMetaData();
 
-        int result = messageBox(d->m_warningMessage, WarningContinueCancelDetailed,
-                                d->m_warningCaption, QString(), QString(), QString());
+        int result = messageBox(d->m_warningMessage, WarningContinueCancelDetailed, d->m_warningCaption, QString(), QString(), QString());
         d->m_privilegeOperationStatus = result == Continue ? OperationAllowed : OperationCanceled;
         d->m_confirmationAsked = true;
     }
@@ -1569,6 +1563,6 @@ void SlaveBase::addTemporaryAuthorization(const QString &action)
 #if KIOCORE_BUILD_DEPRECATED_SINCE(5, 66)
 PrivilegeOperationStatus SlaveBase::requestPrivilegeOperation()
 {
-        return KIO::OperationNotAllowed;
+    return KIO::OperationNotAllowed;
 }
 #endif

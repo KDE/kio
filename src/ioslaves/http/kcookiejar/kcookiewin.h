@@ -11,10 +11,10 @@
 #ifndef KCOOKIEWIN_H
 #define KCOOKIEWIN_H
 
+#include "kcookiejar.h"
+#include <QDialog>
 #include <QGroupBox>
 #include <QRadioButton>
-#include <QDialog>
-#include "kcookiejar.h"
 
 class QLineEdit;
 class QPushButton;
@@ -33,12 +33,12 @@ private Q_SLOTS:
 private:
     void displayCookieDetails();
 
-    QLineEdit   *m_name;
-    QLineEdit   *m_value;
-    QLineEdit   *m_expires;
-    QLineEdit   *m_domain;
-    QLineEdit   *m_path;
-    QLineEdit   *m_secure;
+    QLineEdit *m_name;
+    QLineEdit *m_value;
+    QLineEdit *m_expires;
+    QLineEdit *m_domain;
+    QLineEdit *m_path;
+    QLineEdit *m_secure;
 
     KHttpCookieList m_cookieList;
     int m_cookieNumber;
@@ -48,9 +48,8 @@ class KCookieWin : public QDialog
 {
     Q_OBJECT
 
-public :
-    KCookieWin(QWidget *parent, KHttpCookieList cookieList, int defaultButton = 0,
-               bool showDetails = false);
+public:
+    KCookieWin(QWidget *parent, KHttpCookieList cookieList, int defaultButton = 0, bool showDetails = false);
     ~KCookieWin();
 
     KCookieAdvice advice(KCookieJar *cookiejar, const KHttpCookie &cookie);
@@ -59,7 +58,7 @@ private Q_SLOTS:
     void slotSessionOnlyClicked();
     void slotToggleDetails();
 
-private :
+private:
     QPushButton *m_detailsButton;
     QRadioButton *m_onlyCookies, *m_allCookies, *m_allCookiesDomain;
     KCookieDetail *m_detailView;

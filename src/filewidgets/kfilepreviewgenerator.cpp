@@ -7,24 +7,25 @@
 #include "kfilepreviewgenerator.h"
 
 #include "defaultviewadapter_p.h"
-#include <imagefilter_p.h> // from kiowidgets
-#include <config-kiofilewidgets.h> // for HAVE_XRENDER
 #include <KConfigGroup>
-#include <kfileitem.h>
 #include <KIconEffect>
-#include <kio/previewjob.h>
-#include <kio/paste.h>
-#include <kdirlister.h>
-#include <kdirmodel.h>
 #include <KIconLoader>
 #include <KSharedConfig>
 #include <KUrlMimeData>
+#include <config-kiofilewidgets.h> // for HAVE_XRENDER
+#include <imagefilter_p.h> // from kiowidgets
+#include <kdirlister.h>
+#include <kdirmodel.h>
+#include <kfileitem.h>
+#include <kio/paste.h>
+#include <kio/previewjob.h>
 
-#include <QApplication>
 #include <QAbstractItemView>
 #include <QAbstractProxyModel>
+#include <QApplication>
 #include <QClipboard>
 #include <QHash>
+#include <QIcon>
 #include <QList>
 #include <QListView>
 #include <QMimeData>
@@ -32,12 +33,11 @@
 #include <QPixmap>
 #include <QPointer>
 #include <QTimer>
-#include <QIcon>
 
 #if HAVE_X11 && HAVE_XRENDER
-#  include <QX11Info>
-#  include <X11/Xlib.h>
-#  include <X11/extensions/Xrender.h>
+#include <QX11Info>
+#include <X11/Xlib.h>
+#include <X11/extensions/Xrender.h>
 #endif
 
 class KFilePreviewGeneratorPrivate
@@ -46,9 +46,7 @@ class KFilePreviewGeneratorPrivate
     class LayoutBlocker;
 
 public:
-    KFilePreviewGeneratorPrivate(KFilePreviewGenerator *qq,
-                                 KAbstractViewAdapter *viewAdapter,
-                                 QAbstractItemModel *model);
+    KFilePreviewGeneratorPrivate(KFilePreviewGenerator *qq, KAbstractViewAdapter *viewAdapter, QAbstractItemModel *model);
 
     ~KFilePreviewGeneratorPrivate();
     /**
@@ -254,12 +252,12 @@ public:
     QAbstractProxyModel *m_proxyModel = nullptr;
 
     /**
-      * Set of all items that already have the 'cut' effect applied, together with the pixmap it was applied to
-      * This is used to make sure that the 'cut' effect is applied max. once for each pixmap
-      *
-      * Referencing the pixmaps here imposes no overhead, as they were also given to KDirModel::setData(),
-      * and thus are held anyway.
-      */
+     * Set of all items that already have the 'cut' effect applied, together with the pixmap it was applied to
+     * This is used to make sure that the 'cut' effect is applied max. once for each pixmap
+     *
+     * Referencing the pixmaps here imposes no overhead, as they were also given to KDirModel::setData(),
+     * and thus are held anyway.
+     */
     QHash<QUrl, QPixmap> m_cutItemsCache;
     QList<ItemInfo> m_previews;
     QMap<QUrl, int> m_sequenceIndices;
@@ -290,7 +288,6 @@ public:
     QStringList m_enabledPlugins;
 
     std::unique_ptr<TileSet> m_tileSet;
-
 };
 
 /**
@@ -406,9 +403,7 @@ private:
     QPixmap m_tiles[NumTiles];
 };
 
-KFilePreviewGeneratorPrivate::KFilePreviewGeneratorPrivate(KFilePreviewGenerator *qq,
-                                                           KAbstractViewAdapter *viewAdapter,
-                                                           QAbstractItemModel *model)
+KFilePreviewGeneratorPrivate::KFilePreviewGeneratorPrivate(KFilePreviewGenerator *qq, KAbstractViewAdapter *viewAdapter, QAbstractItemModel *model)
     : q(qq)
     , m_viewAdapter(viewAdapter)
 {
@@ -417,40 +412,40 @@ KFilePreviewGeneratorPrivate::KFilePreviewGeneratorPrivate(KFilePreviewGenerator
     }
 
     m_proxyModel = qobject_cast<QAbstractProxyModel *>(model);
-    m_dirModel = (m_proxyModel == nullptr) ?
-                 qobject_cast<KDirModel *>(model) :
-                 qobject_cast<KDirModel *>(m_proxyModel->sourceModel());
+    m_dirModel = (m_proxyModel == nullptr) ? qobject_cast<KDirModel *>(model) : qobject_cast<KDirModel *>(m_proxyModel->sourceModel());
     if (!m_dirModel) {
         // previews can only get generated for directory models
         m_previewShown = false;
     } else {
         KDirModel *dirModel = m_dirModel.data();
-        q->connect(dirModel->dirLister(), &KCoreDirLister::newItems,
-                   q, [this](const KFileItemList &items) { updateIcons(items); });
+        q->connect(dirModel->dirLister(), &KCoreDirLister::newItems, q, [this](const KFileItemList &items) {
+            updateIcons(items);
+        });
 
-        q->connect(dirModel, &KDirModel::dataChanged,
-                   q, [this](const QModelIndex &topLeft, const QModelIndex &bottomRight) {
+        q->connect(dirModel, &KDirModel::dataChanged, q, [this](const QModelIndex &topLeft, const QModelIndex &bottomRight) {
             updateIcons(topLeft, bottomRight);
         });
 
-        q->connect(dirModel, &KDirModel::needSequenceIcon,
-                   q, [this](const QModelIndex &index, int sequenceIndex) {
+        q->connect(dirModel, &KDirModel::needSequenceIcon, q, [this](const QModelIndex &index, int sequenceIndex) {
             requestSequenceIcon(index, sequenceIndex);
         });
 
-        q->connect(dirModel, &KDirModel::rowsAboutToBeRemoved,
-                   q, [this](const QModelIndex &parent, int first, int last) {
+        q->connect(dirModel, &KDirModel::rowsAboutToBeRemoved, q, [this](const QModelIndex &parent, int first, int last) {
             rowsAboutToBeRemoved(parent, first, last);
         });
     }
 
     QClipboard *clipboard = QApplication::clipboard();
-    q->connect(clipboard, &QClipboard::dataChanged, q, [this]() { updateCutItems(); });
+    q->connect(clipboard, &QClipboard::dataChanged, q, [this]() {
+        updateCutItems();
+    });
 
     m_iconUpdateTimer = new QTimer(q);
     m_iconUpdateTimer->setSingleShot(true);
     m_iconUpdateTimer->setInterval(200);
-    q->connect(m_iconUpdateTimer, &QTimer::timeout, q, [this]() { dispatchIconUpdateQueue(); });
+    q->connect(m_iconUpdateTimer, &QTimer::timeout, q, [this]() {
+        dispatchIconUpdateQueue();
+    });
 
     // Whenever the scrollbar values have been changed, the pending previews should
     // be reordered in a way that the previews for the visible items are generated
@@ -459,20 +454,22 @@ KFilePreviewGeneratorPrivate::KFilePreviewGeneratorPrivate(KFilePreviewGenerator
     m_scrollAreaTimer = new QTimer(q);
     m_scrollAreaTimer->setSingleShot(true);
     m_scrollAreaTimer->setInterval(200);
-    q->connect(m_scrollAreaTimer, &QTimer::timeout, q, [this]() { resumeIconUpdates(); });
+    q->connect(m_scrollAreaTimer, &QTimer::timeout, q, [this]() {
+        resumeIconUpdates();
+    });
     m_viewAdapter->connect(KAbstractViewAdapter::IconSizeChanged, q, SLOT(updateIcons()));
     m_viewAdapter->connect(KAbstractViewAdapter::ScrollBarValueChanged, q, SLOT(pauseIconUpdates()));
 
     m_changedItemsTimer = new QTimer(q);
     m_changedItemsTimer->setSingleShot(true);
     m_changedItemsTimer->setInterval(5000);
-    q->connect(m_changedItemsTimer, &QTimer::timeout, q, [this]() { delayedIconUpdate(); });
+    q->connect(m_changedItemsTimer, &QTimer::timeout, q, [this]() {
+        delayedIconUpdate();
+    });
 
     KConfigGroup globalConfig(KSharedConfig::openConfig(QStringLiteral("dolphinrc")), "PreviewSettings");
-    m_enabledPlugins = globalConfig.readEntry("Plugins", QStringList{
-                                                              QStringLiteral("directorythumbnail"),
-                                                              QStringLiteral("imagethumbnail"),
-                                                              QStringLiteral("jpegthumbnail")});
+    m_enabledPlugins =
+        globalConfig.readEntry("Plugins", QStringList{QStringLiteral("directorythumbnail"), QStringLiteral("imagethumbnail"), QStringLiteral("jpegthumbnail")});
 
     // Compatibility update: in 4.7, jpegrotatedthumbnail was merged into (or
     // replaced with?) jpegthumbnail
@@ -491,8 +488,7 @@ KFilePreviewGeneratorPrivate::~KFilePreviewGeneratorPrivate()
     m_dispatchedItems.clear();
 }
 
-void KFilePreviewGeneratorPrivate::requestSequenceIcon(const QModelIndex &index,
-        int sequenceIndex)
+void KFilePreviewGeneratorPrivate::requestSequenceIcon(const QModelIndex &index, int sequenceIndex)
 {
     if (m_pendingItems.isEmpty() || (sequenceIndex == 0)) {
         KDirModel *dirModel = m_dirModel.data();
@@ -582,9 +578,7 @@ void KFilePreviewGeneratorPrivate::updateIcons(const QModelIndex &topLeft, const
     m_changedItemsTimer->start();
 }
 
-void KFilePreviewGeneratorPrivate::addToPreviewQueue(const KFileItem &item,
-                                                     const QPixmap &pixmap,
-                                                     KIO::PreviewJob *job)
+void KFilePreviewGeneratorPrivate::addToPreviewQueue(const KFileItem &item, const QPixmap &pixmap, KIO::PreviewJob *job)
 {
     Q_ASSERT(job);
     if (job) {
@@ -672,7 +666,12 @@ void KFilePreviewGeneratorPrivate::slotPreviewJobFinished(KJob *job)
             m_pendingItems.clear();
             m_dispatchedItems.clear();
             m_pendingVisibleIconUpdates = 0;
-            QMetaObject::invokeMethod(q, [this]() { dispatchIconUpdateQueue(); }, Qt::QueuedConnection);
+            QMetaObject::invokeMethod(
+                q,
+                [this]() {
+                    dispatchIconUpdateQueue();
+                },
+                Qt::QueuedConnection);
         }
         m_sequenceIndices.clear(); // just to be sure that we don't leak anything
     }
@@ -794,7 +793,7 @@ void KFilePreviewGeneratorPrivate::resumeIconUpdates()
     // entered once in most cases.
     for (const KFileItem &item : qAsConst(m_dispatchedItems)) {
         KFileItemList::iterator begin = m_pendingItems.begin();
-        KFileItemList::iterator end   = m_pendingItems.end();
+        KFileItemList::iterator end = m_pendingItems.end();
         for (KFileItemList::iterator it = begin; it != end; ++it) {
             if ((*it).url() == item.url()) {
                 m_pendingItems.erase(it);
@@ -868,7 +867,12 @@ void KFilePreviewGeneratorPrivate::resolveMimeType()
     } else if (!m_iconUpdatesPaused) {
         // assure that the MIME type of the next
         // item will be resolved asynchronously
-        QMetaObject::invokeMethod(q, [this]() { resolveMimeType(); }, Qt::QueuedConnection);
+        QMetaObject::invokeMethod(
+            q,
+            [this]() {
+                resolveMimeType();
+            },
+            Qt::QueuedConnection);
     }
 }
 
@@ -921,25 +925,21 @@ void KFilePreviewGeneratorPrivate::applyCutItemEffect(const KFileItemList &items
 bool KFilePreviewGeneratorPrivate::applyImageFrame(QPixmap &icon)
 {
     const QSize maxSize = m_viewAdapter->iconSize();
-    const bool applyFrame = (maxSize.width()  > KIconLoader::SizeSmallMedium) &&
-                            (maxSize.height() > KIconLoader::SizeSmallMedium) &&
-                            !icon.hasAlpha();
+    const bool applyFrame = (maxSize.width() > KIconLoader::SizeSmallMedium) && (maxSize.height() > KIconLoader::SizeSmallMedium) && !icon.hasAlpha();
     if (!applyFrame) {
         // the maximum size or the image itself is too small for a frame
         return false;
     }
 
     // resize the icon to the maximum size minus the space required for the frame
-    const QSize size(maxSize.width() - TileSet::LeftMargin - TileSet::RightMargin,
-                     maxSize.height() - TileSet::TopMargin - TileSet::BottomMargin);
+    const QSize size(maxSize.width() - TileSet::LeftMargin - TileSet::RightMargin, maxSize.height() - TileSet::TopMargin - TileSet::BottomMargin);
     limitToSize(icon, size);
 
     if (!m_tileSet) {
         m_tileSet.reset(new TileSet{});
     }
 
-    QPixmap framedIcon(icon.size().width() + TileSet::LeftMargin + TileSet::RightMargin,
-                       icon.size().height() + TileSet::TopMargin + TileSet::BottomMargin);
+    QPixmap framedIcon(icon.size().width() + TileSet::LeftMargin + TileSet::RightMargin, icon.size().height() + TileSet::TopMargin + TileSet::BottomMargin);
     framedIcon.fill(Qt::transparent);
 
     QPainter painter;
@@ -959,7 +959,7 @@ void KFilePreviewGeneratorPrivate::limitToSize(QPixmap &icon, const QSize &maxSi
     if ((icon.width() > maxSize.width()) || (icon.height() > maxSize.height())) {
 #pragma message("Cannot use XRender with QPixmap anymore. Find equivalent with Qt API.")
 #if 0 // HAVE_X11 && HAVE_XRENDER
-        // Assume that the texture size limit is 2048x2048
+      // Assume that the texture size limit is 2048x2048
         if ((icon.width() <= 2048) && (icon.height() <= 2048) && icon.x11PictureHandle()) {
             QSize size = icon.size();
             size.scale(maxSize, Qt::KeepAspectRatio);
@@ -1049,12 +1049,13 @@ void KFilePreviewGeneratorPrivate::startPreviewJob(const KFileItemList &items, i
         }
     }
 
-    q->connect(job, &KIO::PreviewJob::gotPreview,
-                q, [this, job](const KFileItem &item, const QPixmap &pixmap) {
+    q->connect(job, &KIO::PreviewJob::gotPreview, q, [this, job](const KFileItem &item, const QPixmap &pixmap) {
         addToPreviewQueue(item, pixmap, job);
     });
 
-    q->connect(job, &KIO::PreviewJob::finished, q, [this, job]() { slotPreviewJobFinished(job); });
+    q->connect(job, &KIO::PreviewJob::finished, q, [this, job]() {
+        slotPreviewJobFinished(job);
+    });
     m_previewJobs.append(job);
 }
 

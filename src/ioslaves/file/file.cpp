@@ -10,7 +10,6 @@
 
 #include "file.h"
 
-
 #include <QDirIterator>
 
 #include <KDiskFreeSpaceInfo>
@@ -24,39 +23,38 @@
 #include <assert.h>
 #include <errno.h>
 #ifdef Q_OS_WIN
-#include <sys/utime.h>
 #include <qt_windows.h>
+#include <sys/utime.h>
 #include <winsock2.h> //struct timeval
 #else
 #include <utime.h>
 #endif
 
-
-#include <QDate>
-#include <QVarLengthArray>
 #include <QCoreApplication>
+#include <QDate>
 #include <QTemporaryFile>
+#include <QVarLengthArray>
 #ifdef Q_OS_WIN
 #include <QDir>
 #include <QFileInfo>
 #endif
 
-#include <QDebug>
 #include <KConfigGroup>
-#include <KShell>
-#include <kmountpoint.h>
 #include <KLocalizedString>
+#include <KShell>
+#include <QDataStream>
+#include <QDebug>
 #include <QMimeDatabase>
 #include <QStandardPaths>
-#include <QDataStream>
+#include <kmountpoint.h>
 
 #if HAVE_VOLMGT
-#include <volmgt.h>
 #include <sys/mnttab.h>
+#include <volmgt.h>
 #endif
 
-#include <kdirnotify.h>
 #include <ioslave_defaults.h>
+#include <kdirnotify.h>
 
 Q_LOGGING_CATEGORY(KIO_FILE, "kf.kio.slaves.file")
 
@@ -69,13 +67,13 @@ class KIOPluginForMetaData : public QObject
 
 using namespace KIO;
 
-#define MAX_IPC_SIZE (1024*32)
+#define MAX_IPC_SIZE (1024 * 32)
 
 static QString readLogFile(const QByteArray &_filename);
 
 extern "C" Q_DECL_EXPORT int kdemain(int argc, char **argv)
 {
-    QCoreApplication app(argc, argv);   // needed for QSocketNotifier
+    QCoreApplication app(argc, argv); // needed for QSocketNotifier
     app.setApplicationName(QStringLiteral("kio_file"));
 
     if (argc != 4) {
@@ -93,11 +91,11 @@ extern "C" Q_DECL_EXPORT int kdemain(int argc, char **argv)
     // Make sure the first kDebug is after the slave ctor (which sets a SIGPIPE handler)
     // This is useful in case kdeinit was autostarted by another app, which then exited and closed fd2
     // (e.g. ctest does that, or closing the terminal window would do that)
-    //qDebug() << "Starting" << getpid();
+    // qDebug() << "Starting" << getpid();
 
     slave.dispatchLoop();
 
-    //qDebug() << "Done";
+    // qDebug() << "Done";
     return 0;
 }
 
@@ -136,7 +134,8 @@ static QFile::Permissions modeToQFilePermissions(int mode)
 }
 
 FileProtocol::FileProtocol(const QByteArray &pool, const QByteArray &app)
-    : SlaveBase(QByteArrayLiteral("file"), pool, app), mFile(nullptr)
+    : SlaveBase(QByteArrayLiteral("file"), pool, app)
+    , mFile(nullptr)
 {
     testMode = !qEnvironmentVariableIsEmpty("KIOSLAVE_FILE_ENABLE_TESTMODE");
 }
@@ -156,9 +155,9 @@ void FileProtocol::chmod(const QUrl &url, int permissions)
 #else
     if (!QFile::setPermissions(path, modeToQFilePermissions(permissions)) ||
 #endif
-            (setACL(_path.data(), permissions, false) == -1) ||
-            /* if not a directory, cannot set default ACLs */
-            (setACL(_path.data(), permissions, true) == -1 && errno != ENOTDIR)) {
+        (setACL(_path.data(), permissions, false) == -1) ||
+        /* if not a directory, cannot set default ACLs */
+        (setACL(_path.data(), permissions, true) == -1 && errno != ENOTDIR)) {
         if (auto err = execWithElevatedPrivilege(CHMOD, {_path, permissions}, errno)) {
             if (!err.wasCanceled()) {
                 switch (err) {
@@ -166,11 +165,11 @@ void FileProtocol::chmod(const QUrl &url, int permissions)
                 case EACCES:
                     error(KIO::ERR_ACCESS_DENIED, path);
                     break;
-        #if defined(ENOTSUP)
+#if defined(ENOTSUP)
                 case ENOTSUP: // from setACL since chmod can't return ENOTSUP
                     error(KIO::ERR_UNSUPPORTED_ACTION, i18n("Setting ACL for %1", path));
                     break;
-        #endif
+#endif
                 case ENOSPC:
                     error(KIO::ERR_DISK_FULL, path);
                     break;
@@ -227,7 +226,7 @@ void FileProtocol::mkdir(const QUrl &url, int permissions)
         if (!dirCreated) {
             if (auto err = execWithElevatedPrivilege(MKDIR, {path}, errno)) {
                 if (!err.wasCanceled()) {
-                    //TODO: add access denied & disk full (or another reasons) handling (into Qt, possibly)
+                    // TODO: add access denied & disk full (or another reasons) handling (into Qt, possibly)
                     error(KIO::ERR_CANNOT_MKDIR, path);
                 }
                 return;
@@ -263,9 +262,8 @@ void FileProtocol::redirect(const QUrl &url)
     // DavWWWRoot "token" which in the Windows world tells win explorer to access
     // a webdav url
     // https://www.webdavsystem.com/server/access/windows
-    if ((redir.scheme() == QLatin1String("smb")) &&
-        redir.path().startsWith(QLatin1String("/DavWWWRoot/"))) {
-        redir.setPath(redir.path().mid(11));  // remove /DavWWWRoot
+    if ((redir.scheme() == QLatin1String("smb")) && redir.path().startsWith(QLatin1String("/DavWWWRoot/"))) {
+        redir.setPath(redir.path().mid(11)); // remove /DavWWWRoot
         redir.setScheme(QStringLiteral("webdav"));
     }
 
@@ -311,7 +309,7 @@ void FileProtocol::get(const QUrl &url)
     }
 
 #if HAVE_FADVISE
-    //TODO check return code
+    // TODO check return code
     posix_fadvise(f.handle(), 0, 0, POSIX_FADV_SEQUENTIAL);
 #endif
 
@@ -344,7 +342,7 @@ void FileProtocol::get(const QUrl &url)
         }
     }
 
-    char buffer[ MAX_IPC_SIZE ];
+    char buffer[MAX_IPC_SIZE];
     QByteArray array;
 
     while (1) {
@@ -358,7 +356,7 @@ void FileProtocol::get(const QUrl &url)
             return;
         }
         if (n == 0) {
-            break;    // Finished
+            break; // Finished
         }
 
         array = QByteArray::fromRawData(buffer, n);
@@ -368,7 +366,7 @@ void FileProtocol::get(const QUrl &url)
         processed_size += n;
         processedSize(processed_size);
 
-        //qDebug() << "Processed: " << KIO::number (processed_size);
+        // qDebug() << "Processed: " << KIO::number (processed_size);
     }
 
     data(QByteArray());
@@ -532,7 +530,8 @@ void FileProtocol::put(const QUrl &url, int _mode, KIO::JobFlags _flags)
         QT_STATBUF buff_part;
         bPartExists = (QT_LSTAT(QFile::encodeName(dest_part).constData(), &buff_part) != -1);
 
-        if (bPartExists && !(_flags & KIO::Resume) && !(_flags & KIO::Overwrite) && buff_part.st_size > 0 && ((buff_part.st_mode & QT_STAT_MASK) == QT_STAT_REG)) {
+        if (bPartExists && !(_flags & KIO::Resume) && !(_flags & KIO::Overwrite) && buff_part.st_size > 0
+            && ((buff_part.st_mode & QT_STAT_MASK) == QT_STAT_REG)) {
             // qDebug() << "calling canResume with" << KIO::number(buff_part.st_size);
 
             // Maybe we can use this partial file for resuming
@@ -658,7 +657,7 @@ void FileProtocol::put(const QUrl &url, int _mode, KIO::JobFlags _flags)
             QT_STATBUF buff;
             if (QT_STAT(QFile::encodeName(dest).constData(), &buff) == 0) {
                 int size = configValue(QStringLiteral("MinimumKeepSize"), DEFAULT_MINIMUM_KEEP_SIZE);
-                if (buff.st_size <  size) {
+                if (buff.st_size < size) {
                     QFile::remove(dest);
                 }
             }
@@ -681,8 +680,8 @@ void FileProtocol::put(const QUrl &url, int _mode, KIO::JobFlags _flags)
 
     // after full download rename the file back to original name
     if (bMarkPartial) {
-        //QFile::rename() never overwrites the destination file unlike ::remove,
-        //so we must remove it manually first
+        // QFile::rename() never overwrites the destination file unlike ::remove,
+        // so we must remove it manually first
         if (_flags & KIO::Overwrite) {
             if (!QFile::remove(dest_orig)) {
                 execWithElevatedPrivilege(DEL, {dest_orig}, errno);
@@ -708,7 +707,7 @@ void FileProtocol::put(const QUrl &url, int _mode, KIO::JobFlags _flags)
             KMountPoint::Ptr mp = KMountPoint::currentMountPoints().findByPath(dest_orig);
             if (mp && mp->testFileSystemFlag(KMountPoint::SupportsChmod)) {
                 if (tryChangeFileAttr(CHMOD, {dest_orig, _mode}, errno)) {
-                    warning(i18n("Could not change permissions for\n%1",  dest_orig));
+                    warning(i18n("Could not change permissions for\n%1", dest_orig));
                 }
             }
         }
@@ -740,7 +739,6 @@ void FileProtocol::put(const QUrl &url, int _mode, KIO::JobFlags _flags)
 #endif
             }
         }
-
     }
 
     // We have done our job => finish
@@ -770,8 +768,7 @@ void FileProtocol::special(const QByteArray &data)
             mount(ro, fstype.toLatin1().constData(), dev, point);
         }
 
-    }
-    break;
+    } break;
     case 2: {
         QString point;
         stream >> point;
@@ -781,8 +778,7 @@ void FileProtocol::special(const QByteArray &data)
         } else {
             unmount(point);
         }
-    }
-    break;
+    } break;
 
     default:
         break;
@@ -802,7 +798,7 @@ void FileProtocol::mount(bool _ro, const char *_fstype, const QString &_dev, con
     // qDebug() << "fstype=" << _fstype;
 
 #ifndef _WIN32_WCE
-#if  HAVE_VOLMGT
+#if HAVE_VOLMGT
     /*
      *  support for Solaris volume management
      */
@@ -810,7 +806,7 @@ void FileProtocol::mount(bool _ro, const char *_fstype, const QString &_dev, con
     QByteArray devname = QFile::encodeName(_dev);
 
     if (volmgt_running()) {
-//      qDebug() << "VOLMGT: vold ok.";
+        //      qDebug() << "VOLMGT: vold ok.";
         if (volmgt_check(devname.data()) == 0) {
             // qDebug() << "VOLMGT: no media in " << devname.data();
             err = i18n("No Media inserted or Media not recognized.");
@@ -836,12 +832,12 @@ void FileProtocol::mount(bool _ro, const char *_fstype, const QString &_dev, con
     QByteArray dev;
     if (_dev.startsWith(QLatin1String("LABEL="))) { // turn LABEL=foo into -L foo (#71430)
         QString labelName = _dev.mid(6);
-        dev = "-L " + QFile::encodeName(KShell::quoteArg(labelName));     // is it correct to assume same encoding as filesystem?
+        dev = "-L " + QFile::encodeName(KShell::quoteArg(labelName)); // is it correct to assume same encoding as filesystem?
     } else if (_dev.startsWith(QLatin1String("UUID="))) { // and UUID=bar into -U bar
         QString uuidName = _dev.mid(5);
         dev = "-U " + QFile::encodeName(KShell::quoteArg(uuidName));
     } else {
-        dev = QFile::encodeName(KShell::quoteArg(_dev));    // get those ready to be given to a shell
+        dev = QFile::encodeName(KShell::quoteArg(_dev)); // get those ready to be given to a shell
     }
 
     QByteArray point = QFile::encodeName(KShell::quoteArg(_point));
@@ -866,18 +862,18 @@ void FileProtocol::mount(bool _ro, const char *_fstype, const QString &_dev, con
         } else
             // Mount using the mountpoint, if no fstype nor device (impossible in first step)
             if (!_point.isEmpty() && dev.isEmpty() && fstype_empty) {
-                buffer += point;
-            } else
-                // mount giving device + mountpoint but no fstype
-                if (!_point.isEmpty() && !dev.isEmpty() && fstype_empty) {
-                    buffer += readonly + ' ' + dev + ' ' + point;
-                } else
-                    // mount giving device + mountpoint + fstype
+            buffer += point;
+        } else
+            // mount giving device + mountpoint but no fstype
+            if (!_point.isEmpty() && !dev.isEmpty() && fstype_empty) {
+            buffer += readonly + ' ' + dev + ' ' + point;
+        } else
+        // mount giving device + mountpoint + fstype
 #if defined(__svr4__) && defined(Q_OS_SOLARIS) // MARCO for Solaris 8 and I
-                    // believe this is true for SVR4 in general
-                    buffer += "-F " + fstype + ' ' + (_ro ? "-oro" : "") + ' ' + dev + ' ' + point;
+            // believe this is true for SVR4 in general
+            buffer += "-F " + fstype + ' ' + (_ro ? "-oro" : "") + ' ' + dev + ' ' + point;
 #else
-                    buffer += readonly + " -t " + fstype + ' ' + dev + ' ' + point;
+            buffer += readonly + " -t " + fstype + ' ' + dev + ' ' + point;
 #endif
         buffer += " 2>" + tmpFileName;
         // qDebug() << buffer;
@@ -925,7 +921,6 @@ void FileProtocol::mount(bool _ro, const char *_fstype, const QString &_dev, con
     err = i18n("mounting is not supported by wince.");
     error(KIO::ERR_CANNOT_MOUNT, err);
 #endif
-
 }
 
 void FileProtocol::unmount(const QString &_point)
@@ -950,7 +945,7 @@ void FileProtocol::unmount(const QString &_point)
 
     if (volmgt_running()) {
         // qDebug() << "VOLMGT: looking for "
-                << _point.toLocal8Bit();
+        << _point.toLocal8Bit();
 
         if ((mnttab = QT_FOPEN(MNTTAB, "r")) == nullptr) {
             err = QLatin1String("could not open mnttab");
@@ -978,8 +973,7 @@ void FileProtocol::unmount(const QString &_point)
         if (devname == nullptr) {
             err = QLatin1String("not in mnttab");
             // qDebug() << "VOLMGT: "
-                    << QFile::encodeName(_point).data()
-                    << ": " << err;
+            << QFile::encodeName(_point).data() << ": " << err;
             error(KIO::ERR_CANNOT_UNMOUNT, err);
             return;
         }
@@ -1064,8 +1058,7 @@ bool FileProtocol::pmount(const QString &dev)
         return false;
     }
 
-    QByteArray buffer = QFile::encodeName(pmountProg) + ' ' +
-                        QFile::encodeName(KShell::quoteArg(dev));
+    QByteArray buffer = QFile::encodeName(pmountProg) + ' ' + QFile::encodeName(KShell::quoteArg(dev));
 
     int res = system(buffer.constData());
 
@@ -1126,18 +1119,17 @@ static QString readLogFile(const QByteArray &_filename)
 // where exactly the deletion failed, in case of errors.
 bool FileProtocol::deleteRecursive(const QString &path)
 {
-    //qDebug() << path;
-    QDirIterator it(path, QDir::AllEntries | QDir::NoDotAndDotDot | QDir::System | QDir::Hidden,
-                    QDirIterator::Subdirectories);
+    // qDebug() << path;
+    QDirIterator it(path, QDir::AllEntries | QDir::NoDotAndDotDot | QDir::System | QDir::Hidden, QDirIterator::Subdirectories);
     QStringList dirsToDelete;
     while (it.hasNext()) {
         const QString itemPath = it.next();
-        //qDebug() << "itemPath=" << itemPath;
+        // qDebug() << "itemPath=" << itemPath;
         const QFileInfo info = it.fileInfo();
         if (info.isDir() && !info.isSymLink()) {
             dirsToDelete.prepend(itemPath);
         } else {
-            //qDebug() << "QFile::remove" << itemPath;
+            // qDebug() << "QFile::remove" << itemPath;
             if (!QFile::remove(itemPath)) {
                 if (auto err = execWithElevatedPrivilege(DEL, {itemPath}, errno)) {
                     if (!err.wasCanceled()) {
@@ -1150,7 +1142,7 @@ bool FileProtocol::deleteRecursive(const QString &path)
     }
     QDir dir;
     for (const QString &itemPath : qAsConst(dirsToDelete)) {
-        //qDebug() << "QDir::rmdir" << itemPath;
+        // qDebug() << "QDir::rmdir" << itemPath;
         if (!dir.rmdir(itemPath)) {
             if (auto err = execWithElevatedPrivilege(RMDIR, {itemPath}, errno)) {
                 if (!err.wasCanceled()) {
@@ -1182,7 +1174,7 @@ void FileProtocol::fileSystemFreeSpace(const QUrl &url)
 
 void FileProtocol::virtual_hook(int id, void *data)
 {
-    switch(id) {
+    switch (id) {
     case SlaveBase::GetFileSystemFreeSpace: {
         QUrl *url = static_cast<QUrl *>(data);
         fileSystemFreeSpace(*url);

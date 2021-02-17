@@ -6,19 +6,19 @@
 */
 
 #include "ktcpsocket.h"
-#include "ksslerror_p.h"
 #include "kiocoredebug.h"
+#include "ksslerror_p.h"
 
-#include <ksslcertificatemanager.h>
 #include <KLocalizedString>
+#include <ksslcertificatemanager.h>
 
 #include <QAbstractSocket>
-#include <QUrl>
-#include <QSslKey>
-#include <QSslCipher>
+#include <QAuthenticator>
 #include <QHostAddress>
 #include <QNetworkProxy>
-#include <QAuthenticator>
+#include <QSslCipher>
+#include <QSslKey>
+#include <QUrl>
 
 #if KIOCORE_BUILD_DEPRECATED_SINCE(5, 65)
 
@@ -54,7 +54,7 @@ static QSsl::SslProtocol qSslProtocolFromK(KTcpSocket::SslVersion sslVersion)
     if (sslVersion == KTcpSocket::AnySslVersion) {
         return QSsl::AnyProtocol;
     }
-    //does it contain any valid protocol?
+    // does it contain any valid protocol?
     KTcpSocket::SslVersions validVersions(KTcpSocket::SslV2 | KTcpSocket::SslV3 | KTcpSocket::TlsV1);
     validVersions |= KTcpSocket::TlsV1_1;
     validVersions |= KTcpSocket::TlsV1_2;
@@ -85,7 +85,7 @@ static QSsl::SslProtocol qSslProtocolFromK(KTcpSocket::SslVersion sslVersion)
         return QSsl::SecureProtocols;
 
     default:
-        //QSslSocket doesn't really take arbitrary combinations. It's one or all.
+        // QSslSocket doesn't really take arbitrary combinations. It's one or all.
         return QSsl::AnyProtocol;
     }
 }
@@ -106,11 +106,12 @@ static QString protocolString(QSsl::SslProtocol protocol)
     case QSsl::TlsV1_3:
         return QStringLiteral("TLSv1.3");
     default:
-        return QStringLiteral("Unknown");;
+        return QStringLiteral("Unknown");
+        ;
     }
 }
 
-//cipher class converter KSslCipher -> QSslCipher
+// cipher class converter KSslCipher -> QSslCipher
 class CipherCc
 {
 public:
@@ -181,35 +182,35 @@ KSslError::Error KSslErrorPrivate::errorFromQSslError(QSslError::SslError e)
 QSslError::SslError KSslErrorPrivate::errorFromKSslError(KSslError::Error e)
 {
     switch (e) {
-        case KSslError::NoError:
-            return QSslError::NoError;
-        case KSslError::InvalidCertificateAuthorityCertificate:
-            return QSslError::InvalidCaCertificate;
-        case KSslError::InvalidCertificate:
-            return QSslError::UnableToDecodeIssuerPublicKey;
-        case KSslError::CertificateSignatureFailed:
-            return QSslError::CertificateSignatureFailed;
-        case KSslError::SelfSignedCertificate:
-            return QSslError::SelfSignedCertificate;
-        case KSslError::ExpiredCertificate:
-            return QSslError::CertificateExpired;
-        case KSslError::RevokedCertificate:
-            return QSslError::CertificateRevoked;
-        case KSslError::InvalidCertificatePurpose:
-            return QSslError::InvalidPurpose;
-        case KSslError::RejectedCertificate:
-            return QSslError::CertificateRejected;
-        case KSslError::UntrustedCertificate:
-            return QSslError::CertificateUntrusted;
-        case KSslError::NoPeerCertificate:
-            return QSslError::NoPeerCertificate;
-        case KSslError::HostNameMismatch:
-            return QSslError::HostNameMismatch;
-        case KSslError::PathLengthExceeded:
-            return QSslError::PathLengthExceeded;
-        case KSslError::UnknownError:
-        default:
-            return QSslError::UnspecifiedError;
+    case KSslError::NoError:
+        return QSslError::NoError;
+    case KSslError::InvalidCertificateAuthorityCertificate:
+        return QSslError::InvalidCaCertificate;
+    case KSslError::InvalidCertificate:
+        return QSslError::UnableToDecodeIssuerPublicKey;
+    case KSslError::CertificateSignatureFailed:
+        return QSslError::CertificateSignatureFailed;
+    case KSslError::SelfSignedCertificate:
+        return QSslError::SelfSignedCertificate;
+    case KSslError::ExpiredCertificate:
+        return QSslError::CertificateExpired;
+    case KSslError::RevokedCertificate:
+        return QSslError::CertificateRevoked;
+    case KSslError::InvalidCertificatePurpose:
+        return QSslError::InvalidPurpose;
+    case KSslError::RejectedCertificate:
+        return QSslError::CertificateRejected;
+    case KSslError::UntrustedCertificate:
+        return QSslError::CertificateUntrusted;
+    case KSslError::NoPeerCertificate:
+        return QSslError::NoPeerCertificate;
+    case KSslError::HostNameMismatch:
+        return QSslError::HostNameMismatch;
+    case KSslError::PathLengthExceeded:
+        return QSslError::PathLengthExceeded;
+    case KSslError::UnknownError:
+    default:
+        return QSslError::UnspecifiedError;
     }
 }
 
@@ -267,9 +268,9 @@ class KTcpSocketPrivate
 {
 public:
     explicit KTcpSocketPrivate(KTcpSocket *qq)
-        : q(qq),
-          certificatesLoaded(false),
-          emittedReadyRead(false)
+        : q(qq)
+        , certificatesLoaded(false)
+        , emittedReadyRead(false)
     {
         // create the instance, which sets Qt's static internal cert set to empty.
         KSslCertificateManager::self();
@@ -292,7 +293,7 @@ public:
         case QAbstractSocket::ListeningState:
         //### these two are not relevant as long as this can't be a server socket
         default:
-            return KTcpSocket::UnconnectedState; //the closest to "error"
+            return KTcpSocket::UnconnectedState; // the closest to "error"
         }
     }
 
@@ -330,7 +331,7 @@ public:
         case QAbstractSocket::SslHandshakeFailedError:
             return KTcpSocket::SslHandshakeFailedError;
         case QAbstractSocket::DatagramTooLargeError:
-        //we don't do UDP
+        // we don't do UDP
         case QAbstractSocket::AddressInUseError:
         case QAbstractSocket::SocketAddressNotAvailableError:
         //### own values if/when we ever get server socket support
@@ -342,7 +343,7 @@ public:
         }
     }
 
-    //private slots
+    // private slots
     void reemitSocketError(QAbstractSocket::SocketError e)
     {
         q->setErrorString(sock.errorString());
@@ -352,7 +353,7 @@ public:
     void reemitSslErrors(const QList<QSslError> &errors)
     {
         q->setErrorString(sock.errorString());
-        q->showSslErrors(); //H4X
+        q->showSslErrors(); // H4X
         QList<KSslError> kErrors;
         kErrors.reserve(errors.size());
         for (const QSslError &e : errors) {
@@ -400,38 +401,44 @@ public:
 };
 
 KTcpSocket::KTcpSocket(QObject *parent)
-    : QIODevice(parent),
-      d(new KTcpSocketPrivate(this))
+    : QIODevice(parent)
+    , d(new KTcpSocketPrivate(this))
 {
     d->advertisedSslVersion = SslV3;
 
     connect(&d->sock, &QIODevice::aboutToClose, this, &QIODevice::aboutToClose);
     connect(&d->sock, &QIODevice::bytesWritten, this, &QIODevice::bytesWritten);
     connect(&d->sock, &QSslSocket::encryptedBytesWritten, this, &KTcpSocket::encryptedBytesWritten);
-    connect(&d->sock, &QSslSocket::readyRead, this, [this]() { d->reemitReadyRead(); });
+    connect(&d->sock, &QSslSocket::readyRead, this, [this]() {
+        d->reemitReadyRead();
+    });
     connect(&d->sock, &QAbstractSocket::connected, this, &KTcpSocket::connected);
     connect(&d->sock, &QSslSocket::encrypted, this, &KTcpSocket::encrypted);
     connect(&d->sock, &QAbstractSocket::disconnected, this, &KTcpSocket::disconnected);
 #ifndef QT_NO_NETWORKPROXY
-    connect(&d->sock, &QAbstractSocket::proxyAuthenticationRequired,
-            this, &KTcpSocket::proxyAuthenticationRequired);
+    connect(&d->sock, &QAbstractSocket::proxyAuthenticationRequired, this, &KTcpSocket::proxyAuthenticationRequired);
 #endif
 
 #if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
-    connect(&d->sock, QOverload<QAbstractSocket::SocketError>::of(&QSslSocket::error),
-            this, [this](QAbstractSocket::SocketError err) { d->reemitSocketError(err); });
+    connect(&d->sock, QOverload<QAbstractSocket::SocketError>::of(&QSslSocket::error), this, [this](QAbstractSocket::SocketError err) {
+        d->reemitSocketError(err);
+    });
 #else
-    connect(&d->sock, &QSslSocket::errorOccurred,
-            this, [this](QAbstractSocket::SocketError err) { d->reemitSocketError(err); });
+    connect(&d->sock, &QSslSocket::errorOccurred, this, [this](QAbstractSocket::SocketError err) {
+        d->reemitSocketError(err);
+    });
 #endif
 
-    connect(&d->sock, QOverload<const QList<QSslError> &>::of(&QSslSocket::sslErrors),
-            this, [this](const QList<QSslError> &errorList) { d->reemitSslErrors(errorList); });
+    connect(&d->sock, QOverload<const QList<QSslError> &>::of(&QSslSocket::sslErrors), this, [this](const QList<QSslError> &errorList) {
+        d->reemitSslErrors(errorList);
+    });
     connect(&d->sock, &QAbstractSocket::hostFound, this, &KTcpSocket::hostFound);
-    connect(&d->sock, &QSslSocket::stateChanged,
-            this, [this](QAbstractSocket::SocketState state) { d->reemitStateChanged(state); });
-    connect(&d->sock, &QSslSocket::modeChanged,
-            this, [this](QSslSocket::SslMode mode) { d->reemitModeChanged(mode); });
+    connect(&d->sock, &QSslSocket::stateChanged, this, [this](QAbstractSocket::SocketState state) {
+        d->reemitStateChanged(state);
+    });
+    connect(&d->sock, &QSslSocket::modeChanged, this, [this](QSslSocket::SslMode mode) {
+        d->reemitModeChanged(mode);
+    });
 }
 
 KTcpSocket::~KTcpSocket()
@@ -769,18 +776,14 @@ void KTcpSocket::setPrivateKey(const KSslKey &key)
     d->sock.setPrivateKey(_key);
 }
 
-void KTcpSocket::setPrivateKey(const QString &fileName, KSslKey::Algorithm algorithm,
-                               QSsl::EncodingFormat format, const QByteArray &passPhrase)
+void KTcpSocket::setPrivateKey(const QString &fileName, KSslKey::Algorithm algorithm, QSsl::EncodingFormat format, const QByteArray &passPhrase)
 {
     // We cannot map KSslKey::Algorithm:Dh to anything in QSsl::KeyAlgorithm.
     if (algorithm == KSslKey::Dh) {
         return;
     }
 
-    d->sock.setPrivateKey(fileName,
-                          (algorithm == KSslKey::Rsa) ? QSsl::Rsa : QSsl::Dsa,
-                          format,
-                          passPhrase);
+    d->sock.setPrivateKey(fileName, (algorithm == KSslKey::Rsa) ? QSsl::Rsa : QSsl::Dsa, format, passPhrase);
 }
 
 bool KTcpSocket::waitForEncrypted(int msecs)
@@ -813,13 +816,13 @@ void KTcpSocket::setSslConfiguration(const QSslConfiguration &configuration)
     d->sock.setSslConfiguration(configuration);
 }
 
-//slot
+// slot
 void KTcpSocket::ignoreSslErrors()
 {
     d->sock.ignoreSslErrors();
 }
 
-//slot
+// slot
 void KTcpSocket::startClientEncryption()
 {
     d->maybeLoadCertificates();
@@ -827,7 +830,7 @@ void KTcpSocket::startClientEncryption()
     d->sock.startClientEncryption();
 }
 
-//debugging H4X
+// debugging H4X
 void KTcpSocket::showSslErrors()
 {
 #if (QT_VERSION < QT_VERSION_CHECK(5, 15, 0))
@@ -945,11 +948,10 @@ QByteArray KSslKey::toDer() const
 
 ////////////////////////////// KSslCipher
 
-//nice-to-have: make implicitly shared
+// nice-to-have: make implicitly shared
 class KSslCipherPrivate
 {
 public:
-
     QString authenticationMethod;
     QString encryptionMethod;
     QString keyExchangeMethod;
@@ -978,8 +980,8 @@ KSslCipher::KSslCipher(const QSslCipher &qsc)
 {
     d->authenticationMethod = qsc.authenticationMethod();
     d->encryptionMethod = qsc.encryptionMethod();
-    //Qt likes to append the number of bits (usedBits?) to the algorithm,
-    //for example "AES(256)". We only want the pure algorithm name, though.
+    // Qt likes to append the number of bits (usedBits?) to the algorithm,
+    // for example "AES(256)". We only want the pure algorithm name, though.
     int parenIdx = d->encryptionMethod.indexOf(QLatin1Char('('));
     if (parenIdx > 0) {
         d->encryptionMethod.truncate(parenIdx);
@@ -1050,7 +1052,7 @@ int KSslCipher::usedBits() const
     return d->usedBits;
 }
 
-//static
+// static
 QList<KSslCipher> KSslCipher::supportedCiphers()
 {
     QList<KSslCipher> ret;

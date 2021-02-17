@@ -27,8 +27,7 @@ void RemoteImpl::listRoot(KIO::UDSEntryList &list) const
     qCDebug(KIOREMOTE_LOG) << "RemoteImpl::listRoot";
 
     QStringList names_found;
-    const QStringList dirList = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("remoteview"),
-                                                          QStandardPaths::LocateDirectory);
+    const QStringList dirList = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("remoteview"), QStandardPaths::LocateDirectory);
 
     for (const QString &dirpath : dirList) {
         QDir dir(dirpath);
@@ -36,8 +35,7 @@ void RemoteImpl::listRoot(KIO::UDSEntryList &list) const
             continue;
         }
 
-        const QStringList filenames = dir.entryList({QStringLiteral("*.desktop")},
-                                                    QDir::Files | QDir::Readable);
+        const QStringList filenames = dir.entryList({QStringLiteral("*.desktop")}, QDir::Files | QDir::Readable);
 
         KIO::UDSEntry entry;
         for (const QString &name : filenames) {
@@ -53,8 +51,7 @@ bool RemoteImpl::findDirectory(const QString &filename, QString &directory) cons
 {
     qCDebug(KIOREMOTE_LOG) << "RemoteImpl::findDirectory";
 
-    const QStringList dirList = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("remoteview"),
-                                                          QStandardPaths::LocateDirectory);
+    const QStringList dirList = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("remoteview"), QStandardPaths::LocateDirectory);
 
     for (const QString &dirpath : dirList) {
         if (QFileInfo::exists(dirpath + QLatin1Char('/') + filename)) {
@@ -106,8 +103,7 @@ void RemoteImpl::createTopLevelEntry(KIO::UDSEntry &entry) const
     entry.fastInsert(KIO::UDSEntry::UDS_GROUP, QStringLiteral("root"));
 }
 
-bool RemoteImpl::createEntry(KIO::UDSEntry &entry, const QString &directory,
-                             const QString &file) const
+bool RemoteImpl::createEntry(KIO::UDSEntry &entry, const QString &directory, const QString &file) const
 {
     qCDebug(KIOREMOTE_LOG) << "RemoteImpl::createEntry";
 
@@ -149,8 +145,7 @@ bool RemoteImpl::statNetworkFolder(KIO::UDSEntry &entry, const QString &filename
 
     QString directory;
     const QString desktopFileName = filename + QLatin1String(".desktop");
-    return findDirectory(desktopFileName, directory)
-        && createEntry(entry, directory, desktopFileName);
+    return findDirectory(desktopFileName, directory) && createEntry(entry, directory, desktopFileName);
 }
 
 bool RemoteImpl::deleteNetworkFolder(const QString &filename) const
@@ -169,8 +164,7 @@ bool RemoteImpl::deleteNetworkFolder(const QString &filename) const
 
 bool RemoteImpl::renameFolders(const QString &src, const QString &dest, bool overwrite) const
 {
-    qCDebug(KIOREMOTE_LOG) << "RemoteImpl::renameFolders: "
-                           << src << ", " << dest;
+    qCDebug(KIOREMOTE_LOG) << "RemoteImpl::renameFolders: " << src << ", " << dest;
 
     QString directory;
     const QString srcDesktopFileName = src + QLatin1String(".desktop");
@@ -196,8 +190,7 @@ bool RemoteImpl::renameFolders(const QString &src, const QString &dest, bool ove
 
 bool RemoteImpl::changeFolderTarget(const QString &src, const QString &target, bool overwrite) const
 {
-    qCDebug(KIOREMOTE_LOG) << "RemoteImpl::changeFolderTarget: "
-                           << src << ", " << target;
+    qCDebug(KIOREMOTE_LOG) << "RemoteImpl::changeFolderTarget: " << src << ", " << target;
 
     QString directory;
     const QString srcDesktopFileName = src + QLatin1String(".desktop");

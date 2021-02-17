@@ -44,4 +44,3 @@ private:
 };
 
 #endif /* APPLICATIONLAUNCHERJOBTEST_H */
-

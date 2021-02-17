@@ -7,15 +7,15 @@
 
 #include <QTest>
 
+#include <KActionCollection>
+#include <KIO/StoredTransferJob>
+#include <KShell>
 #include <QDialog>
 #include <QLineEdit>
 #include <QMenu>
 #include <knameandurlinputdialog.h>
-#include <kpropertiesdialog.h>
-#include <KActionCollection>
 #include <knewfilemenu.h>
-#include <KIO/StoredTransferJob>
-#include <KShell>
+#include <kpropertiesdialog.h>
 
 #include <QPushButton>
 #include <QSignalSpy>
@@ -23,8 +23,8 @@
 #include <QTemporaryDir>
 
 #ifdef Q_OS_UNIX
-#include <sys/types.h>
 #include <sys/stat.h>
+#include <sys/types.h>
 #endif
 
 #include <algorithm>
@@ -88,26 +88,66 @@ private Q_SLOTS:
         QTest::addColumn<QString>("typedFilename"); // what the user is typing
         QTest::addColumn<QString>("expectedFilename"); // the final file name
 
-        QTest::newRow("text file") << "Text File" << "Text File.txt" << "tmp_knewfilemenutest.txt" << "tmp_knewfilemenutest.txt";
-        QTest::newRow("text file with jpeg extension") << "Text File" << "Text File.txt" << "foo.jpg" << "foo.jpg.txt";
-        QTest::newRow("html file") << "HTML File" << "HTML File.html" << "foo.html" << "foo.html";
-        QTest::newRow("url desktop file") << "Link to Location " << "" << "tmp_link.desktop" << "tmp_link.desktop";
-        QTest::newRow("url desktop file no extension") << "Link to Location " << "" << "tmp_link" << "tmp_link";
-        QTest::newRow("url desktop file .pl extension") << "Link to Location " << "" << "tmp_link.pl" << "tmp_link.pl.desktop";
-        QTest::newRow("symlink") << "Basic Link" << "" << "thelink" << "thelink";
-        QTest::newRow("folder") << "Folder..." << "New Folder" << "folder1" << "folder1";
-        QTest::newRow("folder_named_tilde") << "Folder..." << "New Folder" << "~" << "~";
+        QTest::newRow("text file") << "Text File"
+                                   << "Text File.txt"
+                                   << "tmp_knewfilemenutest.txt"
+                                   << "tmp_knewfilemenutest.txt";
+        QTest::newRow("text file with jpeg extension") << "Text File"
+                                                       << "Text File.txt"
+                                                       << "foo.jpg"
+                                                       << "foo.jpg.txt";
+        QTest::newRow("html file") << "HTML File"
+                                   << "HTML File.html"
+                                   << "foo.html"
+                                   << "foo.html";
+        QTest::newRow("url desktop file") << "Link to Location "
+                                          << ""
+                                          << "tmp_link.desktop"
+                                          << "tmp_link.desktop";
+        QTest::newRow("url desktop file no extension") << "Link to Location "
+                                                       << ""
+                                                       << "tmp_link"
+                                                       << "tmp_link";
+        QTest::newRow("url desktop file .pl extension") << "Link to Location "
+                                                        << ""
+                                                        << "tmp_link.pl"
+                                                        << "tmp_link.pl.desktop";
+        QTest::newRow("symlink") << "Basic Link"
+                                 << ""
+                                 << "thelink"
+                                 << "thelink";
+        QTest::newRow("folder") << "Folder..."
+                                << "New Folder"
+                                << "folder1"
+                                << "folder1";
+        QTest::newRow("folder_named_tilde") << "Folder..."
+                                            << "New Folder"
+                                            << "~"
+                                            << "~";
 
         // ~/.qttest/share/folderTildeExpanded
-        const QString tildeDirPath = KShell::tildeCollapse(QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation)
-                                                           + QLatin1String("/folderTildeExpanded"));
+        const QString tildeDirPath =
+            KShell::tildeCollapse(QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/folderTildeExpanded"));
         QVERIFY(tildeDirPath.startsWith(QLatin1Char('~')));
-        QTest::newRow("folder_tilde_expanded") << "Folder..." << "New Folder" << tildeDirPath << "folderTildeExpanded";
+        QTest::newRow("folder_tilde_expanded") << "Folder..."
+                                               << "New Folder" << tildeDirPath << "folderTildeExpanded";
 
-        QTest::newRow("folder_default_name") << "Folder..." << "New Folder" << "New Folder" << "New Folder";
-        QTest::newRow("folder_with_suggested_name") << "Folder..." << "New Folder (1)" << "New Folder (1)" << "New Folder (1)";
-        QTest::newRow("folder_with_suggested_name_but_user_overrides") << "Folder..." << "New Folder (2)" << "New Folder" << "";
-        QTest::newRow("application") << "Link to Application..." << "Link to Application" << "app1" << "app1.desktop";
+        QTest::newRow("folder_default_name") << "Folder..."
+                                             << "New Folder"
+                                             << "New Folder"
+                                             << "New Folder";
+        QTest::newRow("folder_with_suggested_name") << "Folder..."
+                                                    << "New Folder (1)"
+                                                    << "New Folder (1)"
+                                                    << "New Folder (1)";
+        QTest::newRow("folder_with_suggested_name_but_user_overrides") << "Folder..."
+                                                                       << "New Folder (2)"
+                                                                       << "New Folder"
+                                                                       << "";
+        QTest::newRow("application") << "Link to Application..."
+                                     << "Link to Application"
+                                     << "app1"
+                                     << "app1.desktop";
     }
 
     void test()
@@ -188,8 +228,7 @@ private Q_SLOTS:
         okButton->click();
         QString path = m_tmpDir.path() + QLatin1Char('/') + expectedFilename;
         if (typedFilename.contains(QLatin1String("folderTildeExpanded"))) {
-            path = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation)
-                   + QLatin1Char('/') + QLatin1String("folderTildeExpanded");
+            path = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1Char('/') + QLatin1String("folderTildeExpanded");
         }
         if (actionText == QLatin1String("Folder...")) {
             if (expectedFilename.isEmpty()) {
@@ -218,6 +257,7 @@ private Q_SLOTS:
         }
         QCOMPARE(emittedUrl.toLocalFile(), path);
     }
+
 private:
     QTemporaryDir m_tmpDir;
 #ifdef Q_OS_UNIX

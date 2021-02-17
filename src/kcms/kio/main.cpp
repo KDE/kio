@@ -13,20 +13,17 @@
 #include <KPluginFactory>
 
 // Local
+#include "cache.h"
 #include "kcookiesmain.h"
+#include "kproxydlg.h"
 #include "netpref.h"
 #include "smbrodlg.h"
 #include "useragentdlg.h"
-#include "kproxydlg.h"
-#include "cache.h"
 
-K_PLUGIN_FACTORY(KioConfigFactory,
-        registerPlugin<UserAgentDlg>(QStringLiteral("useragent"));
-        registerPlugin<SMBRoOptions>(QStringLiteral("smb"));
-        registerPlugin<KIOPreferences>(QStringLiteral("netpref"));
-        registerPlugin<KProxyDialog>(QStringLiteral("proxy"));
-        registerPlugin<KCookiesMain>(QStringLiteral("cookie"));
-        registerPlugin<CacheConfigModule>(QStringLiteral("cache"));
-	)
+K_PLUGIN_FACTORY(KioConfigFactory, registerPlugin<UserAgentDlg>(QStringLiteral("useragent")); registerPlugin<SMBRoOptions>(QStringLiteral("smb"));
+                 registerPlugin<KIOPreferences>(QStringLiteral("netpref"));
+                 registerPlugin<KProxyDialog>(QStringLiteral("proxy"));
+                 registerPlugin<KCookiesMain>(QStringLiteral("cookie"));
+                 registerPlugin<CacheConfigModule>(QStringLiteral("cache"));)
 
 #include "main.moc"

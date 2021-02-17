@@ -11,8 +11,8 @@
 #include <config-kiocore.h>
 
 #if HAVE_POSIX_ACL
-#include <sys/types.h>
 #include <grp.h> // getgrnam()
+#include <sys/types.h>
 #endif
 
 // The code comes partly from kdebase/kioslave/trash/testtrash.cpp
@@ -29,12 +29,12 @@ void KACLTest::initTestCase()
     QSKIP("ACL support not compiled");
 #endif
 
-    m_testACL = QStringLiteral("user::rw-\n"
-                               "user:bin:rwx\n"
-                               "group::rw-\n"
-                               "mask::rwx\n"
-                               "other::r--\n");
-
+    m_testACL = QStringLiteral(
+        "user::rw-\n"
+        "user:bin:rwx\n"
+        "group::rw-\n"
+        "mask::rwx\n"
+        "other::r--\n");
 
     m_acl = KACL(m_testACL);
 
@@ -49,26 +49,34 @@ void KACLTest::initTestCase()
 
     QLatin1String orderedGroups;
     if (m_audioGid < m_usersGid) {
-        orderedGroups = QLatin1String{"group:audio:--x\n"
-                                      "group:users:r--\n"};
+        orderedGroups = QLatin1String{
+            "group:audio:--x\n"
+            "group:users:r--\n"};
     } else {
-        orderedGroups = QLatin1String{"group:users:r--\n"
-                                      "group:audio:--x\n"};
+        orderedGroups = QLatin1String{
+            "group:users:r--\n"
+            "group:audio:--x\n"};
     }
 
-    m_testACL2 = QLatin1String{"user::rwx\n"
-                               "user:bin:rwx\n"
-                               "group::rw-\n"}
-                + orderedGroups
-                + QLatin1String{"mask::r-x\n"
-                                "other::r--\n"};
+    m_testACL2 =
+        QLatin1String{
+            "user::rwx\n"
+            "user:bin:rwx\n"
+            "group::rw-\n"}
+        + orderedGroups
+        + QLatin1String{
+            "mask::r-x\n"
+            "other::r--\n"};
 
-    m_testACLEffective = QLatin1String{"user::rwx\n"
-                                       "user:bin:rwx    #effective:r-x\n"
-                                       "group::rw-      #effective:r--\n"}
-                         + orderedGroups
-                         + QLatin1String{"mask::r-x\n"
-                                         "other::r--\n"};
+    m_testACLEffective =
+        QLatin1String{
+            "user::rwx\n"
+            "user:bin:rwx    #effective:r-x\n"
+            "group::rw-      #effective:r--\n"}
+        + orderedGroups
+        + QLatin1String{
+            "mask::r-x\n"
+            "other::r--\n"};
 
     QVERIFY(m_acl2.setACL(m_testACL2));
 }
@@ -214,19 +222,24 @@ void KACLTest::testSettingExtended()
 
     QLatin1String orderedGroups;
     if (m_audioGid < m_usersGid) {
-        orderedGroups = QLatin1String{"group:audio:-wx\n"
-                                      "group:users:r--\n"};
+        orderedGroups = QLatin1String{
+            "group:audio:-wx\n"
+            "group:users:r--\n"};
     } else {
-        orderedGroups = QLatin1String{"group:users:r--\n"
-                                      "group:audio:-wx\n"};
+        orderedGroups = QLatin1String{
+            "group:users:r--\n"
+            "group:audio:-wx\n"};
     }
 
-    const QString expected2 = QLatin1String{"user::rw-\n"
-                                            "user:bin:rwx\n"
-                                            "group::rw-\n"}
-                              + orderedGroups
-                              + QLatin1String{"mask::rwx\n"
-                                              "other::r--\n"};
+    const QString expected2 =
+        QLatin1String{
+            "user::rw-\n"
+            "user:bin:rwx\n"
+            "group::rw-\n"}
+        + orderedGroups
+        + QLatin1String{
+            "mask::rwx\n"
+            "other::r--\n"};
 
     CharlesII.setACL(m_testACL); // reset
     ACLGroupPermissionsList groups;

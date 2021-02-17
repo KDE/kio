@@ -8,8 +8,8 @@
 #ifndef ASKUSERACTIONINTERFACE_H
 #define ASKUSERACTIONINTERFACE_H
 
-#include <kiocore_export.h>
 #include <kio/jobuidelegateextension.h> // RenameDialog_Result, SkipDialog_Result
+#include <kiocore_export.h>
 
 #include <QObject>
 
@@ -17,8 +17,8 @@
 
 class KJob;
 
-namespace KIO {
-
+namespace KIO
+{
 class AskUserActionInterfacePrivate;
 
 /**
@@ -101,9 +101,7 @@ public:
      * @param error_text the error text to show to the user (usually the string returned
      *               by KJob::errorText())
      */
-    virtual void askUserSkip(KJob *job,
-                             KIO::SkipDialog_Options options,
-                             const QString &errorText) = 0;
+    virtual void askUserSkip(KJob *job, KIO::SkipDialog_Options options, const QString &errorText) = 0;
 
     /**
      * The type of deletion.
@@ -111,8 +109,8 @@ public:
      * Used by askUserDelete().
      */
     enum DeletionType {
-        Delete,     /// Delete the files/directories directly, i.e. without moving them to Trash
-        Trash,      /// Move the files/directories to Trash
+        Delete, /// Delete the files/directories directly, i.e. without moving them to Trash
+        Trash, /// Move the files/directories to Trash
         EmptyTrash, /// Empty the Trash
     };
 
@@ -124,7 +122,7 @@ public:
     enum ConfirmationType {
         DefaultConfirmation, ///< Do not ask if the user has previously set the "Do not ask again"
                              ///< checkbox (which is is shown in the message dialog invoked by askUserDelete())
-        ForceConfirmation,   ///< Always ask the user for confirmation
+        ForceConfirmation, ///< Always ask the user for confirmation
     };
 
     /**
@@ -221,8 +219,7 @@ Q_SIGNALS:
      * @param deletionType the deletion type to use, one of KIO::AskUserActionInterface::DeletionType
      * @param parent the parent widget
      */
-    void askUserDeleteResult(bool allowDelete, const QList<QUrl> &urls,
-                             KIO::AskUserActionInterface::DeletionType deletionType, QWidget *parent);
+    void askUserDeleteResult(bool allowDelete, const QList<QUrl> &urls, KIO::AskUserActionInterface::DeletionType deletionType, QWidget *parent);
 
     /**
      * Implementations of this interface must emit this signal when the dialog invoked

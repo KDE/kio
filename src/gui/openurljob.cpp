@@ -6,15 +6,15 @@
 */
 
 #include "openurljob.h"
-#include "openwithhandlerinterface.h"
-#include "openorexecutefileinterface.h"
-#include "global.h"
-#include "job.h" // for buildErrorString
 #include "commandlauncherjob.h"
 #include "desktopexecparser.h"
-#include "untrustedprogramhandlerinterface.h"
+#include "global.h"
+#include "job.h" // for buildErrorString
 #include "jobuidelegatefactory.h"
 #include "kiogui_debug.h"
+#include "openorexecutefileinterface.h"
+#include "openwithhandlerinterface.h"
+#include "untrustedprogramhandlerinterface.h"
 
 #include <KApplicationTrader>
 #include <KAuthorized>
@@ -38,7 +38,8 @@ class KIO::OpenUrlJobPrivate
 {
 public:
     explicit OpenUrlJobPrivate(const QUrl &url, OpenUrlJob *qq)
-        : m_url(url), q(qq)
+        : m_url(url)
+        , q(qq)
     {
         q->setCapabilities(KJob::Killable);
     }
@@ -53,7 +54,7 @@ public:
     void scanFileWithGet();
 
     QUrl m_url;
-    KIO::OpenUrlJob * const q;
+    KIO::OpenUrlJob *const q;
     QString m_suggestedFileName;
     QByteArray m_startupId;
     QString m_mimeTypeName;
@@ -85,12 +86,14 @@ private:
 };
 
 KIO::OpenUrlJob::OpenUrlJob(const QUrl &url, QObject *parent)
-    : KCompositeJob(parent), d(new OpenUrlJobPrivate(url, this))
+    : KCompositeJob(parent)
+    , d(new OpenUrlJobPrivate(url, this))
 {
 }
 
 KIO::OpenUrlJob::OpenUrlJob(const QUrl &url, const QString &mimeType, QObject *parent)
-    : KCompositeJob(parent), d(new OpenUrlJobPrivate(url, this))
+    : KCompositeJob(parent)
+    , d(new OpenUrlJobPrivate(url, this))
 {
     d->m_mimeTypeName = mimeType;
 }
@@ -136,8 +139,7 @@ void KIO::OpenUrlJob::setFollowRedirections(bool b)
 
 static bool checkNeedPortalSupport()
 {
-    return !(QStandardPaths::locate(QStandardPaths::RuntimeLocation, QLatin1String("flatpak-info")).isEmpty()
-            || qEnvironmentVariableIsSet("SNAP"));
+    return !(QStandardPaths::locate(QStandardPaths::RuntimeLocation, QLatin1String("flatpak-info")).isEmpty() || qEnvironmentVariableIsSet("SNAP"));
 }
 
 void KIO::OpenUrlJob::start()
@@ -241,7 +243,7 @@ bool KIO::OpenUrlJobPrivate::runExternalBrowser(const QString &exec)
 void KIO::OpenUrlJobPrivate::useSchemeHandler()
 {
     // look for an application associated with x-scheme-handler/<protocol>
-   const KService::Ptr service = KApplicationTrader::preferredService(QLatin1String("x-scheme-handler/") + m_url.scheme());
+    const KService::Ptr service = KApplicationTrader::preferredService(QLatin1String("x-scheme-handler/") + m_url.scheme());
     if (service) {
         startService(service);
         return;
@@ -265,8 +267,7 @@ void KIO::OpenUrlJobPrivate::statFile()
 
     KIO::StatJob *job = KIO::statDetails(m_url, KIO::StatJob::SourceSide, KIO::StatBasic, KIO::HideProgressInfo);
     job->setUiDelegate(nullptr);
-    QObject::connect(job, &KJob::result,
-                     q, [=]() {
+    QObject::connect(job, &KJob::result, q, [=]() {
         const int errCode = job->error();
         if (errCode) {
             // ERR_NO_CONTENT is not an error, but an indication no further
@@ -303,7 +304,9 @@ void KIO::OpenUrlJobPrivate::statFile()
             // Start the timer. Once we get the timer event this
             // protocol server is back in the pool and we can reuse it.
             // This gives better performance than starting a new slave
-            QTimer::singleShot(0, q, [this] { scanFileWithGet(); });
+            QTimer::singleShot(0, q, [this] {
+                scanFileWithGet();
+            });
         }
     });
 }
@@ -340,7 +343,7 @@ void KIO::OpenUrlJobPrivate::scanFileWithGet()
         QMimeDatabase db;
         QMimeType mime = db.mimeTypeForUrl(m_url);
         if (!mime.isDefault()) {
-            //qDebug() << "Scanfile: MIME TYPE is " << mime.name();
+            // qDebug() << "Scanfile: MIME TYPE is " << mime.name();
             m_mimeTypeName = mime.name();
             runUrlWithMimeType();
             return;
@@ -358,25 +361,24 @@ void KIO::OpenUrlJobPrivate::scanFileWithGet()
         q->emitResult();
         return;
     }
-    //qDebug() << this << "Scanning file" << url;
+    // qDebug() << this << "Scanning file" << url;
 
     KIO::TransferJob *job = KIO::get(m_url, KIO::NoReload /*reload*/, KIO::HideProgressInfo);
     job->setUiDelegate(nullptr);
     QObject::connect(job, &KJob::result, q, [=]() {
         const int errCode = job->error();
         if (errCode) {
-             // ERR_NO_CONTENT is not an error, but an indication no further
-             // actions needs to be taken.
-             if (errCode != KIO::ERR_NO_CONTENT) {
-                 q->setError(errCode);
-                 q->setErrorText(job->errorText());
-             }
-             q->emitResult();
+            // ERR_NO_CONTENT is not an error, but an indication no further
+            // actions needs to be taken.
+            if (errCode != KIO::ERR_NO_CONTENT) {
+                q->setError(errCode);
+                q->setErrorText(job->errorText());
+            }
+            q->emitResult();
         }
         // if the job succeeded, we certainly hope it emitted mimetype()...
     });
-    QObject::connect(job, &KIO::TransferJob::mimeTypeFound,
-                     q, [=](KIO::Job *, const QString &mimetype) {
+    QObject::connect(job, &KIO::TransferJob::mimeTypeFound, q, [=](KIO::Job *, const QString &mimetype) {
         if (m_followRedirections) { // Update our URL in case of a redirection
             m_url = job->url();
         }
@@ -445,8 +447,7 @@ static bool isBinary(const QMimeType &mimeType)
     // - MIME types that inherit application/x-executable _and_ text/plain are scripts, these are
     //   handled by handleScripts()
 
-    return (mimeType.inherits(QStringLiteral("application/x-executable"))
-            || mimeType.inherits(QStringLiteral("application/x-sharedlib"))
+    return (mimeType.inherits(QStringLiteral("application/x-executable")) || mimeType.inherits(QStringLiteral("application/x-sharedlib"))
             || mimeType.inherits(QStringLiteral("application/x-ms-dos-executable")));
 }
 
@@ -454,8 +455,7 @@ static bool isBinary(const QMimeType &mimeType)
 // e.g. ".sh", ".csh", ".py", ".js"
 static bool isTextScript(const QMimeType &mimeType)
 {
-    return (mimeType.inherits(QStringLiteral("application/x-executable"))
-            && mimeType.inherits(QStringLiteral("text/plain")));
+    return (mimeType.inherits(QStringLiteral("application/x-executable")) && mimeType.inherits(QStringLiteral("text/plain")));
 }
 
 // Helper function that returns whether a file has the execute bit set or not.
@@ -476,8 +476,10 @@ void KIO::OpenUrlJobPrivate::handleBinaries(const QMimeType &mimeType)
     // Don't run remote executables
     if (!isLocal) {
         q->setError(KJob::UserDefinedError);
-        q->setErrorText(i18n("The executable file \"%1\" is located on a remote filesystem. "
-                             "For safety reasons it will not be started.", m_url.toDisplayString()));
+        q->setErrorText(
+            i18n("The executable file \"%1\" is located on a remote filesystem. "
+                 "For safety reasons it will not be started.",
+                 m_url.toDisplayString()));
         q->emitResult();
         return;
     }
@@ -593,7 +595,6 @@ void KIO::OpenUrlJobPrivate::runUrlWithMimeType()
         startService(m_preferredService);
         return;
     }
-
 
     // Scripts and executables
     QMimeDatabase db;
@@ -772,8 +773,7 @@ void KIO::OpenUrlJobPrivate::showOpenOrExecuteFileDialog(std::function<void(bool
     auto *openOrExecuteFileHandler = KIO::delegateExtension<KIO::OpenOrExecuteFileInterface *>(q);
     if (!openOrExecuteFileHandler) {
         // No way to ask the user whether to execute or open
-        if (isTextScript(mimeType)
-            || mimeType.inherits(QStringLiteral("application/x-desktop"))) { // Open text-based ones in the default app
+        if (isTextScript(mimeType) || mimeType.inherits(QStringLiteral("application/x-desktop"))) { // Open text-based ones in the default app
             openInPreferredApp();
         } else {
             q->setError(KJob::UserDefinedError);
@@ -788,8 +788,7 @@ void KIO::OpenUrlJobPrivate::showOpenOrExecuteFileDialog(std::function<void(bool
         q->emitResult();
     });
 
-    QObject::connect(openOrExecuteFileHandler, &KIO::OpenOrExecuteFileInterface::executeFile,
-                     q, [this, dialogFinished](bool shouldExecute) {
+    QObject::connect(openOrExecuteFileHandler, &KIO::OpenOrExecuteFileInterface::executeFile, q, [this, dialogFinished](bool shouldExecute) {
         m_runExecutables = shouldExecute;
         dialogFinished(shouldExecute);
     });

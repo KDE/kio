@@ -16,7 +16,6 @@ class QLabel;
 
 namespace KIO
 {
-
 /**
  * @internal
  * Internal class used by paste.h. DO NOT USE.
@@ -25,9 +24,7 @@ class PasteDialog : public QDialog
 {
     Q_OBJECT
 public:
-    PasteDialog(const QString &caption, const QString &label,
-                const QString &value, const QStringList &items,
-                QWidget *parent, bool clipboard);
+    PasteDialog(const QString &caption, const QString &label, const QString &value, const QStringList &items, QWidget *parent, bool clipboard);
 
     QString lineEditText() const;
     int comboItem() const;
@@ -49,4 +46,3 @@ private:
 } // namespace
 
 #endif /* PASTEDIALOG_H */
-

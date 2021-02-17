@@ -16,9 +16,12 @@ void KUrlComboBoxTest::testTextForItem_data()
     QTest::addColumn<QString>("url");
     QTest::addColumn<QString>("expectedText");
 
-    QTest::newRow("with_host") << "ftp://foo.com/folder" << "ftp://foo.com/folder/";
-    QTest::newRow("with_no_host") << "smb://" << "smb://";
-    QTest::newRow("with_host_without_path") << "ftp://user@example.com" << "ftp://user@example.com";
+    QTest::newRow("with_host") << "ftp://foo.com/folder"
+                               << "ftp://foo.com/folder/";
+    QTest::newRow("with_no_host") << "smb://"
+                                  << "smb://";
+    QTest::newRow("with_host_without_path") << "ftp://user@example.com"
+                                            << "ftp://user@example.com";
 }
 
 void KUrlComboBoxTest::testTextForItem()
@@ -30,7 +33,6 @@ void KUrlComboBoxTest::testTextForItem()
     combo.setUrl(QUrl(url));
 
     QCOMPARE(combo.itemText(0), expectedText);
-
 }
 
 void KUrlComboBoxTest::testSetUrlMultipleTimes()

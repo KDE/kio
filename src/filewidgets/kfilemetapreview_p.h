@@ -9,9 +9,9 @@
 #define KFILEMETAPREVIEW_H
 
 #include <QHash>
+#include <QMimeType>
 #include <QStackedWidget>
 #include <kpreviewwidgetbase.h>
-#include <QMimeType>
 
 // Internal, but exported for KDirOperator (kfile) and KPreviewProps (kdelibs4support)
 class KIOFILEWIDGETS_EXPORT KFileMetaPreview : public KPreviewWidgetBase
@@ -22,8 +22,7 @@ public:
     explicit KFileMetaPreview(QWidget *parent);
     ~KFileMetaPreview();
 
-    virtual void addPreviewProvider(const QString &mimeType,
-                                    KPreviewWidgetBase *provider);
+    virtual void addPreviewProvider(const QString &mimeType, KPreviewWidgetBase *provider);
     virtual void clearPreviewProviders();
 
 public Q_SLOTS:

@@ -7,7 +7,6 @@
 
 #include "ksslsettings.h"
 
-
 #include <KConfigGroup>
 
 #include <QStandardPaths>
@@ -15,15 +14,18 @@
 class CipherNode
 {
 public:
-    CipherNode(const char *_name, int _keylen) :
-        name(QString::fromUtf8(_name)), keylen(_keylen) {}
+    CipherNode(const char *_name, int _keylen)
+        : name(QString::fromUtf8(_name))
+        , keylen(_keylen)
+    {
+    }
     QString name;
     int keylen;
     inline int operator==(CipherNode &x)
     {
         return ((x.keylen == keylen) && (x.name == name));
     }
-    inline int operator< (CipherNode &x)
+    inline int operator<(CipherNode &x)
     {
         return keylen < x.keylen;
     }
@@ -31,7 +33,7 @@ public:
     {
         return keylen <= x.keylen;
     }
-    inline int operator> (CipherNode &x)
+    inline int operator>(CipherNode &x)
     {
         return keylen > x.keylen;
     }
@@ -49,7 +51,6 @@ public:
     }
     ~KSSLSettingsPrivate()
     {
-
     }
 
     bool m_bUseEGD;
@@ -64,7 +65,7 @@ public:
 
     QStringList m_v3ciphers;
     QStringList m_v3selectedciphers;
-    QList<int>  m_v3bits;
+    QList<int> m_v3bits;
 };
 
 //

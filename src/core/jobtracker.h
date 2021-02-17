@@ -28,4 +28,3 @@ KIOCORE_EXPORT void setJobTracker(KJobTrackerInterface *tracker);
 }
 
 #endif /* KIO_JOBTRACKER_H */
-

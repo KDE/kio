@@ -6,9 +6,9 @@
     SPDX-License-Identifier: LGPL-2.0-only
 */
 
-#include <KService>
 #include <KIO/ApplicationLauncherJob>
 #include <KIO/JobUiDelegate>
+#include <KService>
 #include <QApplication>
 #include <QDebug>
 

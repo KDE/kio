@@ -55,29 +55,26 @@ enum class LoginMode {
  * The Result is forwared all the way to the frontend API where it is
  * turned into an error() or finished() call.
  */
-struct Result
-{
+struct Result {
     bool success;
     int error;
     QString errorString;
 
-    inline static Result fail(int _error = KIO::ERR_UNKNOWN,
-                              const QString &_errorString = QString())
+    inline static Result fail(int _error = KIO::ERR_UNKNOWN, const QString &_errorString = QString())
     {
-        return Result { false, _error, _errorString };
+        return Result{false, _error, _errorString};
     }
 
     inline static Result pass()
     {
-        return Result { true, 0, QString() };
+        return Result{true, 0, QString()};
     }
 };
 
 /**
  * Special Result composite for errors during connection.
  */
-struct ConnectionResult
-{
+struct ConnectionResult {
     QTcpSocket *socket;
     Result result;
 };
@@ -204,7 +201,7 @@ public:
      */
     void closeConnection();
 
-    Q_REQUIRED_RESULT Result stat(const QUrl &url)    ;
+    Q_REQUIRED_RESULT Result stat(const QUrl &url);
 
     Result listDir(const QUrl &url);
     Q_REQUIRED_RESULT Result mkdir(const QUrl &url, int permissions);
@@ -214,7 +211,7 @@ public:
 
     Q_REQUIRED_RESULT Result get(const QUrl &url);
     Q_REQUIRED_RESULT Result put(const QUrl &url, int permissions, KIO::JobFlags flags);
-    //virtual void mimetype( const QUrl& url );
+    // virtual void mimetype( const QUrl& url );
 
     void slave_status();
 
@@ -297,8 +294,7 @@ public:
      *
      * @return true if the command was accepted by the server.
      */
-    Q_REQUIRED_RESULT Result ftpOpenCommand(const char *command, const QString &path, char mode,
-                        int errorcode, KIO::fileoffset_t offset = 0);
+    Q_REQUIRED_RESULT Result ftpOpenCommand(const char *command, const QString &path, char mode, int errorcode, KIO::fileoffset_t offset = 0);
 
     /**
      * The counterpart to openCommand.
@@ -316,7 +312,7 @@ public:
      */
     bool ftpDataMode(char cMode);
 
-    //void ftpAbortTransfer();
+    // void ftpAbortTransfer();
 
     /**
      * Used by ftpOpenCommand, return 0 on success or an error code
@@ -346,13 +342,13 @@ public:
     // used by listDir
     Q_REQUIRED_RESULT Result ftpOpenDir(const QString &path);
     /**
-      * Called to parse directory listings, call this until it returns false
-      */
+     * Called to parse directory listings, call this until it returns false
+     */
     bool ftpReadDir(FtpEntry &ftpEnt);
 
     /**
-      * Helper to fill an UDSEntry
-      */
+     * Helper to fill an UDSEntry
+     */
     void ftpCreateUDSEntry(const QString &filename, const FtpEntry &ftpEnt, KIO::UDSEntry &entry, bool isDir);
 
     void ftpShortStatAnswer(const QString &filename, bool isDir);
@@ -473,8 +469,8 @@ private: // data members
     QStringList m_proxyUrls;
 
     /**
-      * the current working directory - see ftpFolder
-      */
+     * the current working directory - see ftpFolder
+     */
     QString m_currentPath;
 
     /**
@@ -534,13 +530,13 @@ private: // data members
     /**
      * control connection socket, only set if openControl() succeeded
      */
-    QTcpSocket  *m_control = nullptr;
+    QTcpSocket *m_control = nullptr;
     QByteArray m_lastControlLine;
 
     /**
      * data connection socket
      */
-    QTcpSocket  *m_data = nullptr;
+    QTcpSocket *m_data = nullptr;
 
     /**
      * active mode server socket
@@ -548,6 +544,4 @@ private: // data members
     QTcpServer *m_server = nullptr;
 };
 
-
 #endif // KDELIBS_FTP_H
-

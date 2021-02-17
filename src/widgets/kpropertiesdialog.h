@@ -15,8 +15,8 @@
 #include <QUrl>
 
 #include "kiowidgets_export.h"
-#include <kfileitem.h>
 #include <KPageDialog>
+#include <kfileitem.h>
 
 class KPropertiesDialogPlugin;
 
@@ -54,7 +54,6 @@ class KIOWIDGETS_EXPORT KPropertiesDialog : public KPageDialog
     Q_OBJECT
 
 public:
-
     /**
      * Determine whether there are any property pages available for the
      * given file items.
@@ -73,8 +72,7 @@ public:
      * @param item file item whose properties should be displayed.
      * @param parent is the parent of the dialog widget.
      */
-    explicit KPropertiesDialog(const KFileItem &item,
-                               QWidget *parent = nullptr);
+    explicit KPropertiesDialog(const KFileItem &item, QWidget *parent = nullptr);
 
     /**
      * \overload
@@ -87,8 +85,7 @@ public:
      * @param _items list of file items whose properties should be displayed.
      * @param parent is the parent of the dialog widget.
      */
-    explicit KPropertiesDialog(const KFileItemList &_items,
-                               QWidget *parent = nullptr);
+    explicit KPropertiesDialog(const KFileItemList &_items, QWidget *parent = nullptr);
 
     /**
      * Brings up a Properties dialog. Convenience constructor for
@@ -101,8 +98,7 @@ public:
      * For local files with a known MIME type, simply create a KFileItem
      * and pass it to the other constructor.
      */
-    explicit KPropertiesDialog(const QUrl &url,
-                               QWidget *parent = nullptr);
+    explicit KPropertiesDialog(const QUrl &url, QWidget *parent = nullptr);
 
     /**
      * Brings up a Properties dialog. Convenience constructor for
@@ -118,8 +114,7 @@ public:
      *
      * @since 5.10
      */
-    explicit KPropertiesDialog(const QList<QUrl> &urls,
-                               QWidget *parent = nullptr);
+    explicit KPropertiesDialog(const QList<QUrl> &urls, QWidget *parent = nullptr);
 
     /**
      * Creates a properties dialog for a new .desktop file (whose name
@@ -132,9 +127,7 @@ public:
      * like mimetype.desktop
      * @param parent is the parent of the dialog widget.
      */
-    KPropertiesDialog(const QUrl &_tempUrl, const QUrl &_currentDir,
-                      const QString &_defaultName,
-                      QWidget *parent = nullptr);
+    KPropertiesDialog(const QUrl &_tempUrl, const QUrl &_currentDir, const QString &_defaultName, QWidget *parent = nullptr);
 
     /**
      * Creates an empty properties dialog (for applications that want use
@@ -143,8 +136,7 @@ public:
      * @param title is the string display as the "filename" in the caption of the dialog.
      * @param parent is the parent of the dialog widget.
      */
-    explicit KPropertiesDialog(const QString &title,
-                               QWidget *parent = nullptr);
+    explicit KPropertiesDialog(const QString &title, QWidget *parent = nullptr);
 
     /**
      * Cleans up the properties dialog and frees any associated resources,
@@ -161,8 +153,7 @@ public:
      *
      * @return true on successful dialog displaying (can be false on win32).
      */
-    static bool showDialog(const KFileItem &item, QWidget *parent = nullptr,
-                           bool modal = true);
+    static bool showDialog(const KFileItem &item, QWidget *parent = nullptr, bool modal = true);
 
     /**
      * Immediately displays a Properties dialog using constructor with
@@ -172,8 +163,7 @@ public:
      *
      * @return true on successful dialog displaying (can be false on win32).
      */
-    static bool showDialog(const QUrl &_url, QWidget *parent = nullptr,
-                           bool modal = true);
+    static bool showDialog(const QUrl &_url, QWidget *parent = nullptr, bool modal = true);
 
     /**
      * Immediately displays a Properties dialog using constructor with
@@ -184,8 +174,7 @@ public:
      *
      * @return true on successful dialog displaying (can be false on win32).
      */
-    static bool showDialog(const KFileItemList &_items, QWidget *parent = nullptr,
-                           bool modal = true);
+    static bool showDialog(const KFileItemList &_items, QWidget *parent = nullptr, bool modal = true);
 
     /**
      * Immediately displays a Properties dialog using constructor with
@@ -204,8 +193,7 @@ public:
      *
      * @since 5.10
      */
-    static bool showDialog(const QList<QUrl> &urls, QWidget *parent = nullptr,
-                           bool modal = true);
+    static bool showDialog(const QList<QUrl> &urls, QWidget *parent = nullptr, bool modal = true);
 
     /**
      * Adds a "3rd party" properties plugin to the dialog.  Useful
@@ -375,6 +363,7 @@ Q_SIGNALS:
 
 Q_SIGNALS:
     void leaveModality();
+
 private:
     class KPropertiesDialogPrivate;
     KPropertiesDialogPrivate *const d;
@@ -456,4 +445,3 @@ private:
 };
 
 #endif
-

@@ -5,16 +5,16 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
+#include "../pathhelpers_p.h"
 #include "clipboardupdater_p.h"
-#include "jobclasses.h"
 #include "copyjob.h"
 #include "deletejob.h"
+#include "jobclasses.h"
 #include <KUrlMimeData>
-#include "../pathhelpers_p.h"
 
+#include <QClipboard>
 #include <QGuiApplication>
 #include <QMimeData>
-#include <QClipboard>
 
 using namespace KIO;
 
@@ -173,8 +173,8 @@ void ClipboardUpdater::update(const QUrl &srcUrl, const QUrl &destUrl)
 }
 
 ClipboardUpdater::ClipboardUpdater(Job *job, JobUiDelegateExtension::ClipboardUpdaterMode mode)
-    : QObject(job),
-      m_mode(mode)
+    : QObject(job)
+    , m_mode(mode)
 {
     Q_ASSERT(job);
     connect(job, &KJob::result, this, &ClipboardUpdater::slotResult);

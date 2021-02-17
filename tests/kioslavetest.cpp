@@ -8,37 +8,36 @@
 #include "kioslavetest.h"
 
 #include <QApplication>
-#include <QLocale>
-#include <QLayout>
-#include <QMessageBox>
+#include <QDebug>
 #include <QDir>
 #include <QGroupBox>
+#include <QLayout>
+#include <QLocale>
+#include <QMessageBox>
 #include <QStatusBar>
-#include <QDebug>
-#include <QUrl>
 #include <QThread>
+#include <QUrl>
 
 #include <qplatformdefs.h>
 
 #include <KJobUiDelegate>
-#include <kio/job.h>
 #include <kio/copyjob.h>
 #include <kio/deletejob.h>
+#include <kio/job.h>
 #include <kprotocolinfo.h>
 
 // QT_STAT_LNK on Windows
 #include "kioglobal_p.h"
 
-#include <QTimer>
-#include <QCommandLineParser>
 #include <QCommandLineOption>
+#include <QCommandLineParser>
+#include <QTimer>
 
 using namespace KIO;
 
 KioslaveTest::KioslaveTest(QString src, QString dest, uint op, uint pr)
     : KMainWindow(nullptr)
 {
-
     job = nullptr;
 
     main_widget = new QWidget(this);
@@ -123,8 +122,7 @@ KioslaveTest::KioslaveTest(QString src, QString dest, uint op, uint pr)
     progressButtons = new QButtonGroup(main_widget);
     box = new QGroupBox(QStringLiteral("Progress dialog mode"), main_widget);
     topLayout->addWidget(box, 10);
-    connect(progressButtons, QOverload<QAbstractButton *>::of(&QButtonGroup::buttonClicked),
-            this, &KioslaveTest::changeProgressMode);
+    connect(progressButtons, QOverload<QAbstractButton *>::of(&QButtonGroup::buttonClicked), this, &KioslaveTest::changeProgressMode);
 
     hbLayout = new QHBoxLayout(box);
 
@@ -174,11 +172,9 @@ KioslaveTest::KioslaveTest(QString src, QString dest, uint op, uint pr)
     setCentralWidget(main_widget);
 
     slave = nullptr;
-//  slave = KIO::Scheduler::getConnectedSlave(QUrl("ftp://ftp.kde.org"));
-    KIO::Scheduler::connect(SIGNAL(slaveConnected(KIO::Slave*)),
-                            this, SLOT(slotSlaveConnected()));
-    KIO::Scheduler::connect(SIGNAL(slaveError(KIO::Slave*,int,QString)),
-                            this, SLOT(slotSlaveError()));
+    //  slave = KIO::Scheduler::getConnectedSlave(QUrl("ftp://ftp.kde.org"));
+    KIO::Scheduler::connect(SIGNAL(slaveConnected(KIO::Slave *)), this, SLOT(slotSlaveConnected()));
+    KIO::Scheduler::connect(SIGNAL(slaveError(KIO::Slave *, int, QString)), this, SLOT(slotSlaveError()));
 }
 
 void KioslaveTest::slotQuit()
@@ -221,10 +217,8 @@ void KioslaveTest::startJob()
     QString sDest(le_dest->text());
     QUrl dest = QUrl(sCurrent).resolved(QUrl(sDest));
 
-    if (!dest.isValid() &&
-            (selectedOperation == Copy || selectedOperation == Move)) {
-        QMessageBox::critical(this, QStringLiteral("Kioslave Error Message"),
-                              QStringLiteral("Destination URL is malformed"));
+    if (!dest.isValid() && (selectedOperation == Copy || selectedOperation == Move)) {
+        QMessageBox::critical(this, QStringLiteral("Kioslave Error Message"), QStringLiteral("Destination URL is malformed"));
         return;
     }
 
@@ -301,8 +295,7 @@ void KioslaveTest::startJob()
 
     statusBar()->addWidget(statusTracker->widget(job), 0);
 
-    connect(job, &KJob::result,
-            this, &KioslaveTest::slotResult);
+    connect(job, &KJob::result, this, &KioslaveTest::slotResult);
 
     if (progressMode == ProgressStatus) {
         statusTracker->registerJob(job);
@@ -329,7 +322,7 @@ void KioslaveTest::slotResult(KJob *_job)
     pbStart->setEnabled(true);
     pbStop->setEnabled(false);
 
-    //statusBar()->removeWidget( statusTracker->widget(job) );
+    // statusBar()->removeWidget( statusTracker->widget(job) );
 }
 
 void KioslaveTest::slotSlaveConnected()
@@ -363,8 +356,7 @@ void KioslaveTest::printUDSEntry(const KIO::UDSEntry &entry)
             if ((mode & QT_STAT_MASK) == QT_STAT_LNK) {
                 qDebug() << "is a link";
             }
-        }
-        break;
+        } break;
         case KIO::UDSEntry::UDS_ACCESS:
             qDebug() << "Access permissions : " << (mode_t)(entry.numberValue(*it));
             break;
@@ -376,7 +368,7 @@ void KioslaveTest::printUDSEntry(const KIO::UDSEntry &entry)
             break;
         case KIO::UDSEntry::UDS_NAME:
             qDebug() << "Name : " << (entry.stringValue(*it));
-            //m_strText = decodeFileName( it.value().toString() );
+            // m_strText = decodeFileName( it.value().toString() );
             break;
         case KIO::UDSEntry::UDS_URL:
             qDebug() << "URL : " << (entry.stringValue(*it));
@@ -408,7 +400,6 @@ void KioslaveTest::printUDSEntry(const KIO::UDSEntry &entry)
 
 void KioslaveTest::slotEntries(KIO::Job *job, const KIO::UDSEntryList &list)
 {
-
     QUrl url = static_cast<KIO::ListJob *>(job)->url();
     KProtocolInfo::ExtraFieldList extraFields = KProtocolInfo::extraFields(url);
     UDSEntryList::ConstIterator it = list.begin();
@@ -424,7 +415,7 @@ void KioslaveTest::slotEntries(KIO::Job *job, const KIO::UDSEntryList &list)
             if (*it2 >= UDSEntry::UDS_EXTRA && *it2 <= UDSEntry::UDS_EXTRA_END) {
                 if (extraFieldsIt != extraFields.end()) {
                     QString column = (*extraFieldsIt).name;
-                    //QString type = (*extraFieldsIt).type;
+                    // QString type = (*extraFieldsIt).type;
                     qDebug() << "  Extra data (" << column << ") :" << it->stringValue(*it2);
                     ++extraFieldsIt;
                 } else {
@@ -446,18 +437,8 @@ void KioslaveTest::slotData(KIO::Job *, const QByteArray &data)
 
 void KioslaveTest::slotDataReq(KIO::Job *, QByteArray &data)
 {
-    const char *fileDataArray[] = {
-        "Hello world\n",
-        "This is a test file\n",
-        "You can safely delete it.\n",
-        "BIG\n",
-        "BIG1\n",
-        "BIG2\n",
-        "BIG3\n",
-        "BIG4\n",
-        "BIG5\n",
-        nullptr
-    };
+    const char *fileDataArray[] =
+        {"Hello world\n", "This is a test file\n", "You can safely delete it.\n", "BIG\n", "BIG1\n", "BIG2\n", "BIG3\n", "BIG4\n", "BIG5\n", nullptr};
     const char *fileData = fileDataArray[putBuffer++];
 
     if (!fileData) {
@@ -485,8 +466,7 @@ void KioslaveTest::stopJob()
 
 int main(int argc, char **argv)
 {
-
-    const char version[] = "v0.0.0 0000";   // :-)
+    const char version[] = "v0.0.0 0000"; // :-)
 
     QApplication app(argc, argv);
     app.setApplicationVersion(version);
@@ -499,10 +479,17 @@ int main(int argc, char **argv)
         parser.addVersionOption();
         parser.setApplicationDescription(QStringLiteral("Test for kioslaves"));
         parser.addHelpOption();
-        parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("s") << QStringLiteral("src"), QStringLiteral("Source URL"), QStringLiteral("url")));
-        parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("d") << QStringLiteral("dest"), QStringLiteral("Destination URL"), QStringLiteral("url")));
-        parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("o") << QStringLiteral("operation"), QStringLiteral("Operation (list,listrecursive,stat,get,put,copy,move,del,mkdir)"), QStringLiteral("operation")));
-        parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("p") << QStringLiteral("progress"), QStringLiteral("Progress Type (none,default,status)"), QStringLiteral("progress"), QStringLiteral("default")));
+        parser.addOption(
+            QCommandLineOption(QStringList() << QStringLiteral("s") << QStringLiteral("src"), QStringLiteral("Source URL"), QStringLiteral("url")));
+        parser.addOption(
+            QCommandLineOption(QStringList() << QStringLiteral("d") << QStringLiteral("dest"), QStringLiteral("Destination URL"), QStringLiteral("url")));
+        parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("o") << QStringLiteral("operation"),
+                                            QStringLiteral("Operation (list,listrecursive,stat,get,put,copy,move,del,mkdir)"),
+                                            QStringLiteral("operation")));
+        parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("p") << QStringLiteral("progress"),
+                                            QStringLiteral("Progress Type (none,default,status)"),
+                                            QStringLiteral("progress"),
+                                            QStringLiteral("default")));
         parser.process(app);
 
         src = parser.value(QStringLiteral("src"));

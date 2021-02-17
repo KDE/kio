@@ -9,24 +9,24 @@
 
 #include "krununittest.h"
 
-#include <QTest>
 #include <QSignalSpy>
+#include <QTest>
 
 QTEST_GUILESS_MAIN(KRunUnitTest)
 
 #include <QStandardPaths>
 
+#include "kiotesthelper.h" // createTestFile etc.
 #include "krun.h"
-#include <desktopexecparser.h>
-#include <KShell>
-#include <KService>
 #include <KApplicationTrader>
 #include <KConfigGroup>
-#include <KSharedConfig>
-#include <KProcess>
-#include <kprotocolinfo.h>
 #include <KDesktopFile>
-#include "kiotesthelper.h" // createTestFile etc.
+#include <KProcess>
+#include <KService>
+#include <KSharedConfig>
+#include <KShell>
+#include <desktopexecparser.h>
+#include <kprotocolinfo.h>
 #ifdef Q_OS_UNIX
 #include <signal.h> // kill
 #endif
@@ -55,7 +55,7 @@ void KRunUnitTest::initTestCase()
 
 void KRunUnitTest::cleanupTestCase()
 {
-    std::for_each(m_filesToRemove.begin(), m_filesToRemove.end(), [](const QString & f) {
+    std::for_each(m_filesToRemove.begin(), m_filesToRemove.end(), [](const QString &f) {
         QFile::remove(f);
     });
 }
@@ -66,13 +66,27 @@ void KRunUnitTest::testExecutableName_data()
     QTest::addColumn<QString>("expectedPath");
     QTest::addColumn<QString>("expectedName");
 
-    QTest::newRow("/usr/bin/ls") << "/usr/bin/ls" << "/usr/bin/ls" << "ls";
-    QTest::newRow("/path/to/wine \"long argument with path\"") << "/path/to/wine \"long argument with path\"" << "/path/to/wine" << "wine";
-    QTest::newRow("/path/with/a/sp\\ ace/exe arg1 arg2") << "/path/with/a/sp\\ ace/exe arg1 arg2" << "/path/with/a/sp ace/exe" << "exe";
-    QTest::newRow("\"progname\" \"arg1\"") << "\"progname\" \"arg1\"" << "progname" << "progname";
-    QTest::newRow("'quoted' \"arg1\"") << "'quoted' \"arg1\"" << "quoted" << "quoted";
-    QTest::newRow(" 'leading space'   arg1") << " 'leading space'   arg1" << "leading space" << "leading space";
-    QTest::newRow("if_command") << "if test -e /tmp/foo; then kwrite ; else konsole ; fi" << "" << ""; // "if" isn't a known executable, so this is good...
+    QTest::newRow("/usr/bin/ls") << "/usr/bin/ls"
+                                 << "/usr/bin/ls"
+                                 << "ls";
+    QTest::newRow("/path/to/wine \"long argument with path\"") << "/path/to/wine \"long argument with path\""
+                                                               << "/path/to/wine"
+                                                               << "wine";
+    QTest::newRow("/path/with/a/sp\\ ace/exe arg1 arg2") << "/path/with/a/sp\\ ace/exe arg1 arg2"
+                                                         << "/path/with/a/sp ace/exe"
+                                                         << "exe";
+    QTest::newRow("\"progname\" \"arg1\"") << "\"progname\" \"arg1\""
+                                           << "progname"
+                                           << "progname";
+    QTest::newRow("'quoted' \"arg1\"") << "'quoted' \"arg1\""
+                                       << "quoted"
+                                       << "quoted";
+    QTest::newRow(" 'leading space'   arg1") << " 'leading space'   arg1"
+                                             << "leading space"
+                                             << "leading space";
+    QTest::newRow("if_command") << "if test -e /tmp/foo; then kwrite ; else konsole ; fi"
+                                << ""
+                                << ""; // "if" isn't a known executable, so this is good...
 }
 
 void KRunUnitTest::testExecutableName()
@@ -84,18 +98,18 @@ void KRunUnitTest::testExecutableName()
     QCOMPARE(KIO::DesktopExecParser::executablePath(execLine), expectedPath);
 }
 
-//static const char *bt(bool tr) { return tr?"true":"false"; }
-static void checkDesktopExecParser(const char *exec, const char *term, const char *sus,
-                                   const QList<QUrl> &urls, bool tf, const QString &b)
+// static const char *bt(bool tr) { return tr?"true":"false"; }
+static void checkDesktopExecParser(const char *exec, const char *term, const char *sus, const QList<QUrl> &urls, bool tf, const QString &b)
 {
     QFile out(QStringLiteral("kruntest.desktop"));
     if (!out.open(QIODevice::WriteOnly)) {
         abort();
     }
-    QByteArray str("[Desktop Entry]\n"
-                   "Type=Application\n"
-                   "Name=just_a_test\n"
-                   "Icon=~/icon.png\n");
+    QByteArray str(
+        "[Desktop Entry]\n"
+        "Type=Application\n"
+        "Name=just_a_test\n"
+        "Icon=~/icon.png\n");
     str += QByteArray(exec) + '\n';
     str += QByteArray(term) + '\n';
     str += QByteArray(sus) + '\n';
@@ -107,8 +121,8 @@ static void checkDesktopExecParser(const char *exec, const char *term, const cha
         "processDesktopExec( "
         "service = {\nexec = %s\nterminal = %s, terminalOptions = %s\nsubstituteUid = %s, user = %s },"
         "\nURLs = { %s },\ntemp_files = %s )",
-        service.exec().toLatin1().constData(), bt(service.terminal()), service.terminalOptions().toLatin1().constData(), bt(service.substituteUid()), service.username().toLatin1().constData(),
-        KShell::joinArgs(urls.toStringList()).toLatin1().constData(), bt(tf));
+        service.exec().toLatin1().constData(), bt(service.terminal()), service.terminalOptions().toLatin1().constData(), bt(service.substituteUid()),
+       service.username().toLatin1().constData(), KShell::joinArgs(urls.toStringList()).toLatin1().constData(), bt(tf));
     */
     KIO::DesktopExecParser parser(service, urls);
     parser.setUrlsAreTempFiles(tf);
@@ -120,9 +134,9 @@ static void checkDesktopExecParser(const char *exec, const char *term, const cha
 void KRunUnitTest::testProcessDesktopExec()
 {
     QList<QUrl> l0;
-    static const char *const execs[] = { "Exec=date -u", "Exec=echo $PWD" };
-    static const char *const terms[] = { "Terminal=false", "Terminal=true\nTerminalOptions=-T \"%f - %c\"" };
-    static const char *const sus[] = { "X-KDE-SubstituteUID=false", "X-KDE-SubstituteUID=true\nX-KDE-Username=sprallo" };
+    static const char *const execs[] = {"Exec=date -u", "Exec=echo $PWD"};
+    static const char *const terms[] = {"Terminal=false", "Terminal=true\nTerminalOptions=-T \"%f - %c\""};
+    static const char *const sus[] = {"X-KDE-SubstituteUID=false", "X-KDE-SubstituteUID=true\nX-KDE-Username=sprallo"};
     static const char *const results[] = {
         "/bin/date -u", // 0
         "/bin/sh -c 'echo $PWD '", // 1
@@ -155,9 +169,9 @@ void KRunUnitTest::testProcessDesktopExec()
                     }
                 }
                 const QString result = QString::fromLatin1(results[pt])
-                                       .replace(QLatin1String("/bin/true"), m_pseudoTerminalProgram)
-                                       .replace(QLatin1String("/bin/sh"), shellPath)
-                                       .replace(QLatin1String("/bin/date"), datePath);
+                                           .replace(QLatin1String("/bin/true"), m_pseudoTerminalProgram)
+                                           .replace(QLatin1String("/bin/sh"), shellPath)
+                                           .replace(QLatin1String("/bin/date"), datePath);
                 checkDesktopExecParser(execs[ex], terms[te], sus[su], l0, false, exe + result);
             }
 }
@@ -165,15 +179,19 @@ void KRunUnitTest::testProcessDesktopExec()
 void KRunUnitTest::testProcessDesktopExecNoFile_data()
 {
     QTest::addColumn<QString>("execLine");
-    QTest::addColumn<QList<QUrl> >("urls");
+    QTest::addColumn<QList<QUrl>>("urls");
     QTest::addColumn<bool>("tempfiles");
     QTest::addColumn<QString>("expected");
 
     QList<QUrl> l0;
-    QList<QUrl> l1; l1 << QUrl(QStringLiteral("file:/tmp"));
-    QList<QUrl> l2; l2 << QUrl(QStringLiteral("http://localhost/foo"));
-    QList<QUrl> l3; l3 << QUrl(QStringLiteral("file:/local/some file")) << QUrl(QStringLiteral("http://remotehost.org/bar"));
-    QList<QUrl> l4; l4 << QUrl(QStringLiteral("http://login:password@www.kde.org"));
+    QList<QUrl> l1;
+    l1 << QUrl(QStringLiteral("file:/tmp"));
+    QList<QUrl> l2;
+    l2 << QUrl(QStringLiteral("http://localhost/foo"));
+    QList<QUrl> l3;
+    l3 << QUrl(QStringLiteral("file:/local/some file")) << QUrl(QStringLiteral("http://remotehost.org/bar"));
+    QList<QUrl> l4;
+    l4 << QUrl(QStringLiteral("http://login:password@www.kde.org"));
 
     // A real-world use case would be kate.
     // But I picked ktrash5 since it's installed by kio
@@ -193,10 +211,10 @@ void KRunUnitTest::testProcessDesktopExecNoFile_data()
     QTest::newRow("%U l2") << "ktrash5 %U" << l2 << false << ktrashQuoted + " http://localhost/foo";
     QTest::newRow("%U l3") << "ktrash5 %U" << l3 << false << ktrashQuoted + " '/local/some file' http://remotehost.org/bar";
 
-    //QTest::newRow("%u l0") << "ktrash5 %u" << l0 << false << ktrashQuoted; // gives runtime warning
+    // QTest::newRow("%u l0") << "ktrash5 %u" << l0 << false << ktrashQuoted; // gives runtime warning
     QTest::newRow("%u l1") << "ktrash5 %u" << l1 << false << ktrashQuoted + " /tmp";
     QTest::newRow("%u l2") << "ktrash5 %u" << l2 << false << ktrashQuoted + " http://localhost/foo";
-    //QTest::newRow("%u l3") << "ktrash5 %u" << l3 << false << ktrashQuoted; // gives runtime warning
+    // QTest::newRow("%u l3") << "ktrash5 %u" << l3 << false << ktrashQuoted; // gives runtime warning
 
     QTest::newRow("%F l0") << "ktrash5 %F" << l0 << false << ktrashQuoted;
     QTest::newRow("%F l1") << "ktrash5 %F" << l1 << false << ktrashQuoted + " /tmp";
@@ -206,8 +224,7 @@ void KRunUnitTest::testProcessDesktopExecNoFile_data()
     QTest::newRow("%F l1 tempfile") << "ktrash5 %F" << l1 << true << kioexecQuoted + " --tempfiles 'ktrash5 %F' file:///tmp";
     QTest::newRow("%f l1 tempfile") << "ktrash5 %f" << l1 << true << kioexecQuoted + " --tempfiles 'ktrash5 %f' file:///tmp";
 
-    QTest::newRow("sh -c ktrash5 %F") << "sh -c \"ktrash5 \"'\\\"'\"%F\"'\\\"'"
-                                       << l1 << false << m_sh + " -c 'ktrash5 \\\"/tmp\\\"'";
+    QTest::newRow("sh -c ktrash5 %F") << "sh -c \"ktrash5 \"'\\\"'\"%F\"'\\\"'" << l1 << false << m_sh + " -c 'ktrash5 \\\"/tmp\\\"'";
 
     // This was originally with kmailservice5, but that relies on it being installed
     QTest::newRow("ktrash5 %u l1") << "ktrash5 %u" << l1 << false << ktrashQuoted + " /tmp";
@@ -263,8 +280,7 @@ void KRunUnitTest::testKtelnetservice()
 
         const QList<QUrl> urls({QUrl(QStringLiteral("%1://root@10.1.1.1").arg(protocol))});
         KIO::DesktopExecParser parser(*service, urls);
-        QCOMPARE(KShell::joinArgs(parser.resultingArguments()),
-                 QStringLiteral("%1 %2://root@10.1.1.1").arg(KShell::quoteArg(ktelnetExec), protocol));
+        QCOMPARE(KShell::joinArgs(parser.resultingArguments()), QStringLiteral("%1 %2://root@10.1.1.1").arg(KShell::quoteArg(ktelnetExec), protocol));
     }
 }
 
@@ -273,15 +289,20 @@ class KRunImpl : public KRun
 {
 public:
     KRunImpl(const QUrl &url)
-        : KRun(url, nullptr, false), m_errCode(-1) {}
+        : KRun(url, nullptr, false)
+        , m_errCode(-1)
+    {
+    }
 
-    void foundMimeType(const QString &type) override {
+    void foundMimeType(const QString &type) override
+    {
         m_mimeType = type;
         // don't call KRun::foundMimeType, we don't want to start an app ;-)
         setFinished(true);
     }
 
-    void handleInitError(int kioErrorCode, const QString &err) override {
+    void handleInitError(int kioErrorCode, const QString &err) override
+    {
         m_errCode = kioErrorCode;
         m_errText = err;
     }
@@ -387,8 +408,8 @@ void KRunUnitTest::KRunRunService()
 
     // Given a service desktop file and a source file
     const QString path = createTempService();
-    //KService::Ptr service = KService::serviceByDesktopPath(s_tempServiceName);
-    //QVERIFY(service);
+    // KService::Ptr service = KService::serviceByDesktopPath(s_tempServiceName);
+    // QVERIFY(service);
     KService service(path);
     QTemporaryDir tempDir;
     const QString srcDir = tempDir.path();
@@ -399,9 +420,8 @@ void KRunUnitTest::KRunRunService()
     urls.append(QUrl::fromLocalFile(srcFile));
 
     // When calling KRun::runService or KRun::runApplication
-    qint64 pid = useRunApplication
-        ? KRun::runApplication(service, urls, nullptr, tempFile ? KRun::RunFlags(KRun::DeleteTemporaryFiles) : KRun::RunFlags())
-        : KRun::runService(service, urls, nullptr, tempFile); // DEPRECATED
+    qint64 pid = useRunApplication ? KRun::runApplication(service, urls, nullptr, tempFile ? KRun::RunFlags(KRun::DeleteTemporaryFiles) : KRun::RunFlags())
+                                   : KRun::runService(service, urls, nullptr, tempFile); // DEPRECATED
 
     // Then the service should be executed (which copies the source file to "dest")
     QVERIFY(pid != 0);
@@ -420,10 +440,10 @@ QString KRunUnitTest::createTempService()
 {
     // fakeservice: deleted and recreated by testKSycocaUpdate, don't use in other tests
     const QString fileName = s_tempServiceName;
-    //bool mustUpdateKSycoca = !KService::serviceByDesktopPath(fileName);
+    // bool mustUpdateKSycoca = !KService::serviceByDesktopPath(fileName);
     const QString fakeService = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/kservices5/") + fileName;
     if (!QFile::exists(fakeService)) {
-        //mustUpdateKSycoca = true;
+        // mustUpdateKSycoca = true;
         KDesktopFile file(fakeService);
         KConfigGroup group = file.desktopGroup();
         group.writeEntry("Name", "KRunUnittestService");

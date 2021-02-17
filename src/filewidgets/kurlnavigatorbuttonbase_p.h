@@ -18,7 +18,6 @@ class KUrlNavigator;
 
 namespace KDEPrivate
 {
-
 /**
  * @brief Base class for buttons of the URL navigator.
  *

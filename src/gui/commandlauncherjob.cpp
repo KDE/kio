@@ -6,10 +6,10 @@
 */
 
 #include "commandlauncherjob.h"
-#include "kprocessrunner_p.h"
 #include "kiogui_debug.h"
-#include <KShell>
+#include "kprocessrunner_p.h"
 #include <KLocalizedString>
+#include <KShell>
 
 class KIO::CommandLauncherJobPrivate
 {
@@ -25,13 +25,15 @@ public:
 };
 
 KIO::CommandLauncherJob::CommandLauncherJob(const QString &command, QObject *parent)
-    : KJob(parent), d(new CommandLauncherJobPrivate())
+    : KJob(parent)
+    , d(new CommandLauncherJobPrivate())
 {
     d->m_command = command;
 }
 
 KIO::CommandLauncherJob::CommandLauncherJob(const QString &executable, const QStringList &args, QObject *parent)
-    : KJob(parent), d(new CommandLauncherJobPrivate())
+    : KJob(parent)
+    , d(new CommandLauncherJobPrivate())
 {
     d->m_executable = executable;
     d->m_command = KShell::quoteArg(executable) + QLatin1Char(' ') + KShell::joinArgs(args);
@@ -88,9 +90,7 @@ void KIO::CommandLauncherJob::start()
     if (d->m_iconName.isEmpty()) {
         d->m_iconName = d->m_executable;
     }
-    d->m_processRunner = KProcessRunner::fromCommand(d->m_command, d->m_desktopName, d->m_executable,
-                                                     d->m_iconName, d->m_startupId,
-                                                     d->m_workingDirectory);
+    d->m_processRunner = KProcessRunner::fromCommand(d->m_command, d->m_desktopName, d->m_executable, d->m_iconName, d->m_startupId, d->m_workingDirectory);
     connect(d->m_processRunner, &KProcessRunner::error, this, [this](const QString &errorText) {
         setError(KJob::UserDefinedError);
         setErrorText(errorText);

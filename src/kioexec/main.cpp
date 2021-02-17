@@ -11,25 +11,25 @@
 #include "kio_version.h"
 #include "kioexecdinterface.h"
 
-#include <QFile>
 #include <QDir>
+#include <QFile>
 
-#include <job.h>
-#include <copyjob.h>
-#include <desktopexecparser.h>
+#include <KAboutData>
+#include <KDBusService>
+#include <KLocalizedString>
+#include <KMessageBox>
+#include <KService>
 #include <QApplication>
 #include <QDebug>
-#include <KMessageBox>
-#include <KAboutData>
-#include <KService>
-#include <KLocalizedString>
-#include <KDBusService>
+#include <copyjob.h>
+#include <desktopexecparser.h>
+#include <job.h>
 
-#include <QCommandLineParser>
 #include <QCommandLineOption>
+#include <QCommandLineParser>
+#include <QFileInfo>
 #include <QStandardPaths>
 #include <QThread>
-#include <QFileInfo>
 
 #include <KStartupInfo>
 #include <config-kioexec.h>
@@ -37,9 +37,7 @@
 #include <QX11Info>
 #endif
 
-static const char description[] =
-    I18N_NOOP("KIO Exec - Opens remote files, watches modifications, asks for upload");
-
+static const char description[] = I18N_NOOP("KIO Exec - Opens remote files, watches modifications, asks for upload");
 
 KIOExec::KIOExec(const QStringList &args, bool tempFiles, const QString &suggestedFileName)
     : mExited(false)
@@ -58,7 +56,7 @@ KIOExec::KIOExec(const QStringList &args, bool tempFiles, const QString &suggest
             KMessageBox::error(nullptr, i18n("Invalid URL: %1", args.value(i)));
             exit(1);
         }
-        KIO::StatJob* mostlocal = KIO::mostLocalUrl(urlArg);
+        KIO::StatJob *mostlocal = KIO::mostLocalUrl(urlArg);
         bool b = mostlocal->exec();
         if (!b) {
             KMessageBox::error(nullptr, i18n("File not found: %1", urlArg.toDisplayString()));
@@ -67,7 +65,7 @@ KIOExec::KIOExec(const QStringList &args, bool tempFiles, const QString &suggest
         Q_ASSERT(b);
         const QUrl url = mostlocal->mostLocalUrl();
 
-        //kDebug() << "url=" << url.url() << " filename=" << url.fileName();
+        // kDebug() << "url=" << url.url() << " filename=" << url.fileName();
         // A local file, not an URL ?
         // => It is not encoded and not shell escaped, too.
         if (url.isLocalFile()) {
@@ -78,9 +76,9 @@ KIOExec::KIOExec(const QStringList &args, bool tempFiles, const QString &suggest
         } else {
             // It is an URL
             if (!url.isValid()) {
-                KMessageBox::error(nullptr, i18n("The URL %1\nis malformed" ,  url.url()));
+                KMessageBox::error(nullptr, i18n("The URL %1\nis malformed", url.url()));
             } else if (mTempFiles) {
-                KMessageBox::error(nullptr, i18n("Remote URL %1\nnot allowed with --tempfiles switch" ,  url.toDisplayString()));
+                KMessageBox::error(nullptr, i18n("Remote URL %1\nnot allowed with --tempfiles switch", url.toDisplayString()));
             } else {
                 // We must fetch the file
                 QString fileName = KIO::encodeFileName(url.fileName());
@@ -91,7 +89,8 @@ KIOExec::KIOExec(const QStringList &args, bool tempFiles, const QString &suggest
                 // Build the destination filename, in ~/.cache/kioexec/krun/
                 // Unlike KDE-1.1, we put the filename at the end so that the extension is kept
                 // (Some programs rely on it)
-                QString krun_writable = QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + QStringLiteral("/krun/%1_%2/").arg(QCoreApplication::applicationPid()).arg(jobCounter++);
+                QString krun_writable = QStandardPaths::writableLocation(QStandardPaths::CacheLocation)
+                    + QStringLiteral("/krun/%1_%2/").arg(QCoreApplication::applicationPid()).arg(jobCounter++);
                 QDir().mkpath(krun_writable); // error handling will be done by the job
                 QString tmp = krun_writable + fileName;
                 FileInfo file;
@@ -130,21 +129,20 @@ void KIOExec::slotResult(KJob *job)
 
         if (job->error()) {
             // That error dialog would be queued, i.e. not immediate...
-            //job->showErrorDialog();
+            // job->showErrorDialog();
             if (job->error() != KIO::ERR_USER_CANCELED) {
                 KMessageBox::error(nullptr, job->errorString());
             }
 
-            auto it = std::find_if(fileList.begin(), fileList.end(),
-                                   [&path](const FileInfo &i) { return i.path == path; });
+            auto it = std::find_if(fileList.begin(), fileList.end(), [&path](const FileInfo &i) {
+                return i.path == path;
+            });
             if (it != fileList.end()) {
                 fileList.erase(it);
             } else {
-                qDebug() <<  path << " not found in list";
+                qDebug() << path << " not found in list";
             }
-        }
-        else
-        {
+        } else {
             // Tell kioexecd to watch the file for changes.
             const QString dest = copyJob->srcUrl().toString();
             qDebug() << "Telling kioexecd to watch path" << path << "dest" << dest;
@@ -185,7 +183,7 @@ void KIOExec::slotRunApp()
     list.reserve(fileList.size());
     // Store modification times
     QList<FileInfo>::Iterator it = fileList.begin();
-    for (; it != fileList.end() ; ++it) {
+    for (; it != fileList.end(); ++it) {
         QFileInfo info(it->path);
         it->time = info.lastModified();
         QUrl url = QUrl::fromLocalFile(it->path);
@@ -229,16 +227,23 @@ void KIOExec::slotRunApp()
         if (info.exists() && (it->time != info.lastModified())) {
             if (mTempFiles) {
                 if (KMessageBox::questionYesNo(nullptr,
-                                               i18n("The supposedly temporary file\n%1\nhas been modified.\nDo you still want to delete it?", dest.toDisplayString(QUrl::PreferLocalFile)),
-                                               i18n("File Changed"), KStandardGuiItem::del(), KGuiItem(i18n("Do Not Delete"))) != KMessageBox::Yes)
+                                               i18n("The supposedly temporary file\n%1\nhas been modified.\nDo you still want to delete it?",
+                                                    dest.toDisplayString(QUrl::PreferLocalFile)),
+                                               i18n("File Changed"),
+                                               KStandardGuiItem::del(),
+                                               KGuiItem(i18n("Do Not Delete")))
+                    != KMessageBox::Yes)
                     continue; // don't delete the temp file
             } else if (uploadChanges) { // no upload when it's already a local file or kioexecd already did it.
                 if (KMessageBox::questionYesNo(nullptr,
-                                               i18n("The file\n%1\nhas been modified.\nDo you want to upload the changes?" , dest.toDisplayString()),
-                                               i18n("File Changed"), KGuiItem(i18n("Upload")), KGuiItem(i18n("Do Not Upload"))) == KMessageBox::Yes) {
+                                               i18n("The file\n%1\nhas been modified.\nDo you want to upload the changes?", dest.toDisplayString()),
+                                               i18n("File Changed"),
+                                               KGuiItem(i18n("Upload")),
+                                               KGuiItem(i18n("Do Not Upload")))
+                    == KMessageBox::Yes) {
                     qDebug() << "src='" << src << "'  dest='" << dest << "'";
                     // Do it the synchronous way.
-                    KIO::CopyJob* job = KIO::copy(QUrl::fromLocalFile(src), dest);
+                    KIO::CopyJob *job = KIO::copy(QUrl::fromLocalFile(src), dest);
                     if (!job->exec()) {
                         KMessageBox::error(nullptr, job->errorText());
                         continue; // don't delete the temp file
@@ -270,8 +275,11 @@ void KIOExec::slotRunApp()
 int main(int argc, char **argv)
 {
     QApplication app(argc, argv);
-    KAboutData aboutData(QStringLiteral("kioexec"), i18n("KIOExec"), QStringLiteral(KIO_VERSION_STRING),
-                         i18n(description), KAboutLicense::GPL,
+    KAboutData aboutData(QStringLiteral("kioexec"),
+                         i18n("KIOExec"),
+                         QStringLiteral(KIO_VERSION_STRING),
+                         i18n(description),
+                         KAboutLicense::GPL,
                          i18n("(c) 1998-2000,2003 The KFM/Konqueror Developers"));
     aboutData.addAuthor(i18n("David Faure"), QString(), QStringLiteral("faure@kde.org"));
     aboutData.addAuthor(i18n("Stephan Kulow"), QString(), QStringLiteral("coolo@kde.org"));
@@ -282,11 +290,9 @@ int main(int argc, char **argv)
     KDBusService service(KDBusService::Multiple);
 
     QCommandLineParser parser;
-    parser.addOption(QCommandLineOption(QStringList{QStringLiteral("tempfiles")},
-                                        i18n("Treat URLs as local files and delete them afterwards")));
-    parser.addOption(QCommandLineOption(QStringList{QStringLiteral("suggestedfilename")},
-                                        i18n("Suggested file name for the downloaded file"),
-                                        QStringLiteral("filename")));
+    parser.addOption(QCommandLineOption(QStringList{QStringLiteral("tempfiles")}, i18n("Treat URLs as local files and delete them afterwards")));
+    parser.addOption(
+        QCommandLineOption(QStringList{QStringLiteral("suggestedfilename")}, i18n("Suggested file name for the downloaded file"), QStringLiteral("filename")));
     parser.addPositionalArgument(QStringLiteral("command"), i18n("Command to execute"));
     parser.addPositionalArgument(QStringLiteral("urls"), i18n("URL(s) or local file(s) used for 'command'"));
 

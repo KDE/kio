@@ -6,10 +6,10 @@
 */
 
 #include "ktcpsockettest.h"
+#include "ktcpsocket.h"
 #include <QDebug>
 #include <QTcpServer>
 #include <QThread>
-#include "ktcpsocket.h"
 
 /* TODO items:
  - test errors including error strings
@@ -36,13 +36,13 @@ KTcpSocketTest::~KTcpSocketTest()
 void KTcpSocketTest::invokeOnServer(const char *method)
 {
     QMetaObject::invokeMethod(server, method, Qt::QueuedConnection);
-    QTest::qWait(1); //Enter the event loop
+    QTest::qWait(1); // Enter the event loop
 }
 
 Server::Server(quint16 _port)
-    : listener(new QTcpServer(this)),
-      socket(nullptr),
-      port(_port)
+    : listener(new QTcpServer(this))
+    , socket(nullptr)
+    , port(_port)
 {
     listener->listen(QHostAddress(QStringLiteral("127.0.0.1")), testPort);
 }
@@ -91,7 +91,7 @@ void KTcpSocketTest::connectDisconnect()
     QCOMPARE(s->state(), KTcpSocket::ConnectedState);
 
     s->waitForDisconnected(150);
-    //ClosingState occurs only when there is buffered data
+    // ClosingState occurs only when there is buffered data
     QCOMPARE(s->state(), KTcpSocket::UnconnectedState);
 
     s->deleteLater();
@@ -146,7 +146,7 @@ void KTcpSocketTest::write()
     s->write(TESTDATA);
     QCOMPARE((int)s->bytesToWrite(), TESTDATA.size());
     s->disconnectFromHost();
-    //Test closing with pending data to transmit (pending rx data comes later)
+    // Test closing with pending data to transmit (pending rx data comes later)
     QCOMPARE(s->state(), KTcpSocket::ClosingState);
     s->waitForDisconnected(150);
     QCOMPARE(s->state(), KTcpSocket::UnconnectedState);
@@ -160,7 +160,7 @@ void Server::write()
     socket = listener->nextPendingConnection();
 
     socket->waitForReadyRead(40);
-    socket->write(socket->readAll()); //echo
+    socket->write(socket->readAll()); // echo
     socket->waitForBytesWritten(150);
 
     socket->waitForReadyRead(40);
@@ -197,7 +197,7 @@ static QString stateToString(KTcpSocket::State state)
 void KTcpSocketTest::statesIana()
 {
     QSKIP("Too unreliable");
-    //A connection to a real internet host
+    // A connection to a real internet host
     KTcpSocket *s = new KTcpSocket(this);
     connect(s, &KTcpSocket::hostFound, this, &KTcpSocketTest::states_hostFound);
     QCOMPARE(s->state(), KTcpSocket::UnconnectedState);
@@ -239,7 +239,7 @@ void KTcpSocketTest::statesIana()
 
 void KTcpSocketTest::statesLocalHost()
 {
-    //Now again an internal connection
+    // Now again an internal connection
     invokeOnServer("states");
 
     KTcpSocket *s = new KTcpSocket(this);
@@ -251,7 +251,7 @@ void KTcpSocketTest::statesLocalHost()
 
     s->write(HTTPREQUEST);
     s->waitForReadyRead();
-    QCOMPARE((int)s->bytesAvailable(), HTTPREQUEST.size()); //for good measure...
+    QCOMPARE((int)s->bytesAvailable(), HTTPREQUEST.size()); // for good measure...
     QCOMPARE(s->state(), KTcpSocket::ConnectedState);
 
     s->waitForDisconnected(40);
@@ -264,19 +264,20 @@ void KTcpSocketTest::statesLocalHost()
 void KTcpSocketTest::statesManyHosts()
 {
     KTcpSocket *s = new KTcpSocket(this);
-    QByteArray requestProlog("GET /  HTTP/1.1\r\n"         //exact copy of a real HTTP query
-                             "Connection: Keep-Alive\r\n"  //not really...
-                             "User-Agent: Mozilla/5.0 (compatible; Konqueror/3.96; Linux) "
-                             "KHTML/3.96.0 (like Gecko)\r\n"
-                             "Pragma: no-cache\r\n"
-                             "Cache-control: no-cache\r\n"
-                             "Accept: text/html, image/jpeg, image/png, text/*, image/*, */*\r\n"
-                             "Accept-Encoding: x-gzip, x-deflate, gzip, deflate\r\n"
-                             "Accept-Charset: utf-8, utf-8;q=0.5, *;q=0.5\r\n"
-                             "Accept-Language: en-US, en\r\n"
-                             "Host: ");
+    QByteArray requestProlog(
+        "GET /  HTTP/1.1\r\n" // exact copy of a real HTTP query
+        "Connection: Keep-Alive\r\n" // not really...
+        "User-Agent: Mozilla/5.0 (compatible; Konqueror/3.96; Linux) "
+        "KHTML/3.96.0 (like Gecko)\r\n"
+        "Pragma: no-cache\r\n"
+        "Cache-control: no-cache\r\n"
+        "Accept: text/html, image/jpeg, image/png, text/*, image/*, */*\r\n"
+        "Accept-Encoding: x-gzip, x-deflate, gzip, deflate\r\n"
+        "Accept-Charset: utf-8, utf-8;q=0.5, *;q=0.5\r\n"
+        "Accept-Language: en-US, en\r\n"
+        "Host: ");
     QByteArray requestEpilog("\r\n\r\n");
-    //Test rapid connection and disconnection to different hosts
+    // Test rapid connection and disconnection to different hosts
     static const char *hosts[] = {"www.google.de", "www.spiegel.de", "www.stern.de", "www.google.com"};
     static const int numHosts = 4;
     for (int i = 0; i < numHosts * 5; i++) {
@@ -295,12 +296,11 @@ void KTcpSocketTest::statesManyHosts()
         if (!skip) {
             QCOMPARE(stateToString(s->state()), stateToString(expectedState));
         } else { // let's make sure it's at least one of the two expected states
-            QVERIFY(stateToString(s->state()) == stateToString(KTcpSocket::HostLookupState) ||
-                    stateToString(s->state()) == stateToString(KTcpSocket::ConnectingState));
-
+            QVERIFY(stateToString(s->state()) == stateToString(KTcpSocket::HostLookupState)
+                    || stateToString(s->state()) == stateToString(KTcpSocket::ConnectingState));
         }
 
-        //weave the host address into the HTTP request
+        // weave the host address into the HTTP request
         QByteArray request(requestProlog);
         request.append(hosts[i % numHosts]);
         request.append(requestEpilog);
@@ -330,8 +330,8 @@ void KTcpSocketTest::statesManyHosts()
             s->waitForDisconnected(-1);
         }
         if (i % 2) {
-            s->close();    //close() is not very well defined for sockets so just check that it
-                           //does no harm
+            s->close(); // close() is not very well defined for sockets so just check that it
+                        // does no harm
         }
     }
 
@@ -349,7 +349,7 @@ void Server::states()
     socket = listener->nextPendingConnection();
 
     socket->waitForReadyRead(40);
-    socket->write(socket->readAll()); //echo
+    socket->write(socket->readAll()); // echo
     socket->waitForBytesWritten(150);
 
     cleanupSocket();
@@ -357,7 +357,7 @@ void Server::states()
 
 void KTcpSocketTest::errors()
 {
-    //invokeOnServer("errors");
+    // invokeOnServer("errors");
 }
 
 void Server::errors()

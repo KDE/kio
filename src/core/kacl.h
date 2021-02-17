@@ -8,11 +8,11 @@
 #ifndef KACL_H
 #define KACL_H
 
-#include <qplatformdefs.h>
 #include "kiocore_export.h"
+#include <qplatformdefs.h>
 
-#include <QPair>
 #include <QList>
+#include <QPair>
 
 typedef QPair<QString, unsigned short> ACLUserPermissions;
 typedef QList<ACLUserPermissions> ACLUserPermissionsList;
@@ -180,14 +180,15 @@ public:
 
 protected:
     virtual void virtual_hook(int id, void *data);
+
 private:
     class KACLPrivate;
     KACLPrivate *const d;
-    KIOCORE_EXPORT friend QDataStream &operator<< (QDataStream &s, const KACL &a);
-    KIOCORE_EXPORT friend QDataStream &operator>> (QDataStream &s, KACL &a);
+    KIOCORE_EXPORT friend QDataStream &operator<<(QDataStream &s, const KACL &a);
+    KIOCORE_EXPORT friend QDataStream &operator>>(QDataStream &s, KACL &a);
 };
 
-KIOCORE_EXPORT QDataStream &operator<< (QDataStream &s, const KACL &a);
-KIOCORE_EXPORT QDataStream &operator>> (QDataStream &s, KACL &a);
+KIOCORE_EXPORT QDataStream &operator<<(QDataStream &s, const KACL &a);
+KIOCORE_EXPORT QDataStream &operator>>(QDataStream &s, KACL &a);
 
 #endif

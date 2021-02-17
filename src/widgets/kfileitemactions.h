@@ -8,9 +8,9 @@
 #ifndef KFILEITEMACTIONS_H
 #define KFILEITEMACTIONS_H
 
+#include "kiowidgets_export.h"
 #include <KService>
 #include <kfileitem.h>
-#include "kiowidgets_export.h"
 
 class KFileItemListProperties;
 class QAction;
@@ -146,7 +146,7 @@ public:
      */
     static KService::List associatedApplications(const QStringList &mimeTypeList, const QString &traderConstraint);
 
-# if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 79)
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 79)
     /**
      * Generate the user-defined actions and submenus, and adds them to the @p menu.
      * User-defined actions include:
@@ -166,11 +166,11 @@ public:
      * @return the number of actions added
      * @deprecated since 5.79, use addActionsTo(QMenu *menu, MenuActionSources, QList<QAction *> &, const QStringList &) instead
      */
-     KIOWIDGETS_DEPRECATED_VERSION(5, 79, "Use addActionsTo(QMenu *menu, MenuActionSources, QList<QAction *> &, const QStringList &) instead")
+    KIOWIDGETS_DEPRECATED_VERSION(5, 79, "Use addActionsTo(QMenu *menu, MenuActionSources, QList<QAction *> &, const QStringList &) instead")
     int addServiceActionsTo(QMenu *menu);
 #endif
 
-# if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 79)
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 79)
     /**
      * Add actions implemented by plugins.
      * These are defined in .desktop files or JSON in plugins using the KFileItemAction/Plugin service type,
@@ -231,4 +231,3 @@ private:
 Q_DECLARE_OPERATORS_FOR_FLAGS(KFileItemActions::MenuActionSources)
 
 #endif /* KFILEITEMACTIONS_H */
-

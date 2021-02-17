@@ -7,14 +7,15 @@
 
 #include "untrustedprogramhandlerinterface.h"
 
+#include "kiocoredebug.h"
 #include <QFile>
 #include <QSaveFile>
-#include "kiocoredebug.h"
 
 using namespace KIO;
 
 UntrustedProgramHandlerInterface::UntrustedProgramHandlerInterface(QObject *parent)
-    : QObject(parent), d(nullptr)
+    : QObject(parent)
+    , d(nullptr)
 {
 }
 
@@ -41,7 +42,7 @@ bool UntrustedProgramHandlerInterface::makeServiceFileExecutable(const QString &
         return false;
     }
 
-    QByteArray header = desktopFile.peek(2);   // First two chars of file
+    QByteArray header = desktopFile.peek(2); // First two chars of file
     if (header.size() == 0) {
         errorString = desktopFile.errorString();
         qCWarning(KIO_CORE) << "Error inspecting service" << fileName << errorString;

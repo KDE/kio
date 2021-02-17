@@ -11,8 +11,8 @@
 #define KIO_JOBUIDELEGATEEXTENSION_H
 
 #include "kiocore_export.h"
-#include <kio/global.h>
 #include <QDateTime>
+#include <kio/global.h>
 
 class KJob;
 namespace KIO
@@ -28,7 +28,8 @@ enum RenameDialog_Option {
     RenameDialog_Overwrite = 1, ///< We have an existing destination, show details about it and offer to overwrite it.
     RenameDialog_OverwriteItself = 2, ///< Warn that the current operation would overwrite a file with itself, which is not allowed.
     RenameDialog_Skip = 4, ///< Offer a "Skip" button, to skip other files too. Requires RenameDialog_MultipleItems.
-    RenameDialog_MultipleItems = 8, ///< Set if the current operation concerns multiple files, so it makes sense to offer buttons that apply the user's choice to all files/folders.
+    RenameDialog_MultipleItems =
+        8, ///< Set if the current operation concerns multiple files, so it makes sense to offer buttons that apply the user's choice to all files/folders.
     RenameDialog_Resume = 16, ///< Offer a "Resume" button (plus "Resume All" if RenameDialog_MultipleItems).
     RenameDialog_NoRename = 64, ///< Don't offer a "Rename" button.
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 78)
@@ -79,7 +80,6 @@ enum SkipDialog_Option {
 Q_DECLARE_FLAGS(SkipDialog_Options, SkipDialog_Option)
 Q_DECLARE_OPERATORS_FOR_FLAGS(SkipDialog_Options)
 
-
 /**
  * The result of a rename or skip dialog
  */
@@ -101,7 +101,7 @@ enum RenameDialog_Result {
      */
     Result_OverwriteWhenOlder = 10,
 
-    // @deprecated since 5.0, use the undeprecated enum values
+// @deprecated since 5.0, use the undeprecated enum values
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 0)
     R_CANCEL = Result_Cancel,
     R_RENAME = Result_Rename,
@@ -146,7 +146,6 @@ protected:
     virtual ~JobUiDelegateExtension();
 
 public:
-
     /**
      * \relates KIO::RenameDialog
      * Construct a modal, parent-less "rename" dialog, and return
@@ -167,25 +166,23 @@ public:
      * @return the result
      */
     virtual KIO::RenameDialog_Result askFileRename(KJob *job,
-            const QString &caption,
-            const QUrl &src,
-            const QUrl &dest,
-            KIO::RenameDialog_Options options,
-            QString &newDest,
-            KIO::filesize_t sizeSrc = KIO::filesize_t(-1),
-            KIO::filesize_t sizeDest = KIO::filesize_t(-1),
-            const QDateTime &ctimeSrc = QDateTime(),
-            const QDateTime &ctimeDest = QDateTime(),
-            const QDateTime &mtimeSrc = QDateTime(),
-            const QDateTime &mtimeDest = QDateTime()) = 0;
+                                                   const QString &caption,
+                                                   const QUrl &src,
+                                                   const QUrl &dest,
+                                                   KIO::RenameDialog_Options options,
+                                                   QString &newDest,
+                                                   KIO::filesize_t sizeSrc = KIO::filesize_t(-1),
+                                                   KIO::filesize_t sizeDest = KIO::filesize_t(-1),
+                                                   const QDateTime &ctimeSrc = QDateTime(),
+                                                   const QDateTime &ctimeDest = QDateTime(),
+                                                   const QDateTime &mtimeSrc = QDateTime(),
+                                                   const QDateTime &mtimeDest = QDateTime()) = 0;
 
     /**
      * @internal
      * See skipdialog.h
      */
-    virtual KIO::SkipDialog_Result askSkip(KJob *job,
-                                      KIO::SkipDialog_Options options,
-                                      const QString &error_text) = 0;
+    virtual KIO::SkipDialog_Result askSkip(KJob *job, KIO::SkipDialog_Options options, const QString &error_text) = 0;
 
     /**
      * The type of deletion: real deletion, moving the files to the trash
@@ -212,8 +209,7 @@ public:
      * Note: the window passed to setWindow is used as the parent for the message box.
      * @return true if confirmed
      */
-    virtual bool askDeleteConfirmation(const QList<QUrl> &urls, DeletionType deletionType,
-                                       ConfirmationType confirmationType) = 0;
+    virtual bool askDeleteConfirmation(const QList<QUrl> &urls, DeletionType deletionType, ConfirmationType confirmationType) = 0;
 
     /**
      * Message box types.
@@ -229,7 +225,7 @@ public:
         WarningYesNoCancel = 4,
         Information = 5,
         SSLMessageBox = 6,
-        //In KMessageBox::DialogType; Sorry = 7, Error = 8, QuestionYesNoCancel = 9
+        // In KMessageBox::DialogType; Sorry = 7, Error = 8, QuestionYesNoCancel = 9
         WarningContinueCancelDetailed = 10,
     };
 
@@ -246,7 +242,8 @@ public:
      * @param dontAskAgainName the name used to store result from 'Do not ask again' checkbox.
      * @param sslMetaData SSL information used by the SSLMessageBox.
      */
-    virtual int requestMessageBox(MessageBoxType type, const QString &text,
+    virtual int requestMessageBox(MessageBoxType type,
+                                  const QString &text,
                                   const QString &caption,
                                   const QString &buttonYes,
                                   const QString &buttonNo,

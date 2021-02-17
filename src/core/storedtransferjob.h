@@ -13,7 +13,6 @@
 
 namespace KIO
 {
-
 class StoredTransferJobPrivate;
 /**
  * @class KIO::StoredTransferJob storedtransferjob.h <KIO/StoredTransferJob>
@@ -57,6 +56,7 @@ public:
 
 protected:
     StoredTransferJob(StoredTransferJobPrivate &dd);
+
 private:
     Q_PRIVATE_SLOT(d_func(), void slotStoredData(KIO::Job *job, const QByteArray &data))
     Q_PRIVATE_SLOT(d_func(), void slotStoredDataReq(KIO::Job *job, QByteArray &data))
@@ -88,8 +88,7 @@ KIOCORE_EXPORT StoredTransferJob *storedGet(const QUrl &url, LoadType reload = N
  *
  * @since 5.10
  */
-KIOCORE_EXPORT StoredTransferJob *storedPut(QIODevice* input, const QUrl &url, int permissions,
-        JobFlags flags = DefaultFlags);
+KIOCORE_EXPORT StoredTransferJob *storedPut(QIODevice *input, const QUrl &url, int permissions, JobFlags flags = DefaultFlags);
 
 /**
  * Put (means: write) data from a single QByteArray.
@@ -102,8 +101,7 @@ KIOCORE_EXPORT StoredTransferJob *storedPut(QIODevice* input, const QUrl &url, i
  * Setting Resume means that the data will be appended to @p dest if @p dest exists.
  * @return the job handling the operation.
  */
-KIOCORE_EXPORT StoredTransferJob *storedPut(const QByteArray &arr, const QUrl &url, int permissions,
-        JobFlags flags = DefaultFlags);
+KIOCORE_EXPORT StoredTransferJob *storedPut(const QByteArray &arr, const QUrl &url, int permissions, JobFlags flags = DefaultFlags);
 
 /**
  * HTTP POST (means: write) data from a single QByteArray.
@@ -115,8 +113,7 @@ KIOCORE_EXPORT StoredTransferJob *storedPut(const QByteArray &arr, const QUrl &u
  * @return the job handling the operation.
  * @since 4.2
  */
-KIOCORE_EXPORT StoredTransferJob *storedHttpPost(const QByteArray &arr, const QUrl &url,
-        JobFlags flags = DefaultFlags);
+KIOCORE_EXPORT StoredTransferJob *storedHttpPost(const QByteArray &arr, const QUrl &url, JobFlags flags = DefaultFlags);
 /**
  * HTTP POST (means: write) data from the given IO device.
  * @see StoredTransferJob
@@ -129,8 +126,7 @@ KIOCORE_EXPORT StoredTransferJob *storedHttpPost(const QByteArray &arr, const QU
  *
  * @since 4.7
  */
-KIOCORE_EXPORT StoredTransferJob *storedHttpPost(QIODevice *device, const QUrl &url,
-        qint64 size = -1, JobFlags flags = DefaultFlags);
+KIOCORE_EXPORT StoredTransferJob *storedHttpPost(QIODevice *device, const QUrl &url, qint64 size = -1, JobFlags flags = DefaultFlags);
 
 }
 

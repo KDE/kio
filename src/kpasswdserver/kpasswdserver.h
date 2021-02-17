@@ -88,8 +88,8 @@ private:
     };
 
     struct Request {
-        bool isAsync;             // true for async requests
-        qlonglong requestId;      // set for async requests only
+        bool isAsync; // true for async requests
+        qlonglong requestId; // set for async requests only
         QDBusMessage transaction; // set for sync requests only
         QString key;
         KIO::AuthInfo info;

@@ -31,9 +31,9 @@ public:
     KSslCertificateRule rule(const QSslCertificate &cert, const QString &hostName) const;
 
 private:
-    //AFAICS we don't need the d-pointer technique here but it makes the code look
-    //more like the rest of kdelibs and it can be reused anywhere in kdelibs.
+    // AFAICS we don't need the d-pointer technique here but it makes the code look
+    // more like the rest of kdelibs and it can be reused anywhere in kdelibs.
     KSSLDPrivate *const d;
 };
 
-#endif //KSSLD_H
+#endif // KSSLD_H

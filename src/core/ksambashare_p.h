@@ -17,7 +17,6 @@ class KSambaShare;
 
 class KSambaSharePrivate
 {
-
 public:
     explicit KSambaSharePrivate(KSambaShare *parent);
     ~KSambaSharePrivate();
@@ -28,8 +27,7 @@ public:
 #endif
     void setUserSharePath();
 
-    static int runProcess(const QString &progName, const QStringList &args,
-                          QByteArray &stdOut, QByteArray &stdErr);
+    static int runProcess(const QString &progName, const QStringList &args, QByteArray &stdOut, QByteArray &stdErr);
     static QString testparmParamValue(const QString &parameterName);
 
     QByteArray getNetUserShareInfo();

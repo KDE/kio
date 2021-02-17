@@ -10,17 +10,14 @@
 #include <KLocalizedString>
 
 #include <QApplication>
+#include <QClipboard>
 #include <QComboBox>
 #include <QDialogButtonBox>
 #include <QLabel>
 #include <QLineEdit>
-#include <QClipboard>
 #include <QVBoxLayout>
 
-KIO::PasteDialog::PasteDialog(const QString &caption, const QString &label,
-                              const QString &value, const QStringList &items,
-                              QWidget *parent,
-                              bool clipboard)
+KIO::PasteDialog::PasteDialog(const QString &caption, const QString &label, const QString &value, const QStringList &items, QWidget *parent, bool clipboard)
     : QDialog(parent)
 {
     setWindowTitle(caption);
@@ -59,8 +56,7 @@ KIO::PasteDialog::PasteDialog(const QString &caption, const QString &label,
 
     m_clipboardChanged = false;
     if (clipboard)
-        connect(QApplication::clipboard(), &QClipboard::dataChanged,
-                this, &PasteDialog::slotClipboardDataChanged);
+        connect(QApplication::clipboard(), &QClipboard::dataChanged, this, &PasteDialog::slotClipboardDataChanged);
 }
 
 void KIO::PasteDialog::slotClipboardDataChanged()
@@ -77,4 +73,3 @@ int KIO::PasteDialog::comboItem() const
 {
     return m_comboBox->currentIndex();
 }
-

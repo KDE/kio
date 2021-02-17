@@ -6,13 +6,13 @@
 
 #include "searchprovider.h"
 
+#include <KConfigGroup>
+#include <KDesktopFile>
+#include <KIO/Global> // KIO::iconNameForUrl
 #include <KRandom>
 #include <KServiceTypeTrader>
-#include <QStandardPaths>
-#include <KIO/Global> // KIO::iconNameForUrl
 #include <QFileInfo>
-#include <KDesktopFile>
-#include <KConfigGroup>
+#include <QStandardPaths>
 
 SearchProvider::SearchProvider(const QString &servicePath)
     : m_dirty(false)
@@ -71,22 +71,23 @@ void SearchProvider::setKeys(const QStringList &keys)
     for (const QString &key : keys) {
         if (key.length() > name.length()) {
             // We should avoid hidden files and directory paths, BUG: 407944
-            name = key.toLower().remove(QLatin1Char('.')).remove(QLatin1Char('/'));;
+            name = key.toLower().remove(QLatin1Char('.')).remove(QLatin1Char('/'));
+            ;
         }
     }
 
     const QString path = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/kservices5/searchproviders/");
     bool firstRun = true;
 
-    while (true)
-    {
+    while (true) {
         QString check(name);
 
         if (!firstRun) {
             check += KRandom::randomString(4);
         }
 
-        const QString located = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("kservices5/searchproviders/") + check + QLatin1String(".desktop"));
+        const QString located =
+            QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("kservices5/searchproviders/") + check + QLatin1String(".desktop"));
         if (located.isEmpty()) {
             name = check;
             break;

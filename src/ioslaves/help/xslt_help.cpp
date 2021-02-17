@@ -2,25 +2,24 @@
 
 #include <docbookxslt.h>
 
-#include <libxslt/xsltconfig.h>
-#include <libxslt/xsltInternals.h>
-#include <libxslt/transform.h>
-#include <libxslt/xsltutils.h>
-#include <libxml/xmlIO.h>
-#include <libxml/parserInternals.h>
 #include <libxml/catalog.h>
+#include <libxml/parserInternals.h>
+#include <libxml/xmlIO.h>
+#include <libxslt/transform.h>
+#include <libxslt/xsltInternals.h>
+#include <libxslt/xsltconfig.h>
+#include <libxslt/xsltutils.h>
 
+#include <QDateTime>
 #include <QDir>
 #include <QStandardPaths>
-#include <QDateTime>
 
-#include <QDebug>
 #include <KFilterDev>
+#include <QDebug>
 
-static bool readCache(const QString &filename,
-                      const QString &cache, QString &output)
+static bool readCache(const QString &filename, const QString &cache, QString &output)
 {
-    //qDebug() << filename << cache;
+    // qDebug() << filename << cache;
     if (!compareTimeStamps(filename, cache)) {
         return false;
     }
@@ -28,7 +27,7 @@ static bool readCache(const QString &filename,
         return false;
     }
 
-    //qDebug() << "create filter";
+    // qDebug() << "create filter";
     KFilterDev fd(cache);
 
     if (!fd.open(QIODevice::ReadOnly)) {
@@ -36,7 +35,7 @@ static bool readCache(const QString &filename,
         return false;
     }
 
-    //qDebug() << "reading";
+    // qDebug() << "reading";
 
     char buffer[32000];
     int n;
@@ -46,7 +45,7 @@ static bool readCache(const QString &filename,
         buffer[n] = 0;
         text += buffer;
     }
-    //qDebug() << "read " << text.length();
+    // qDebug() << "read " << text.length();
     fd.close();
 
     output = QString::fromUtf8(text);
@@ -55,14 +54,14 @@ static bool readCache(const QString &filename,
         return false;
     }
 
-    //qDebug() << "finished ";
+    // qDebug() << "finished ";
 
     return true;
 }
 
 QString lookForCache(const QString &filename)
 {
-    //qDebug() << "lookForCache" << filename;
+    // qDebug() << "lookForCache" << filename;
     Q_ASSERT(filename.endsWith(QLatin1String(".docbook")));
     Q_ASSERT(QDir::isAbsolutePath(filename));
     QString cache = filename.left(filename.length() - 7);
@@ -77,10 +76,12 @@ QString lookForCache(const QString &filename)
     // Accessing user data under a different path is possible
     // when using usb sticks - this may affect unix/mac systems also
     const QString installPath = KDocTools::documentationDirs().last();
-    cache = QLatin1Char('/') + fi.absolutePath().remove(installPath, Qt::CaseInsensitive).replace(QLatin1Char('/'), QLatin1Char('_')) + QLatin1Char('_') + fi.baseName() + QLatin1Char('.');
+    cache = QLatin1Char('/') + fi.absolutePath().remove(installPath, Qt::CaseInsensitive).replace(QLatin1Char('/'), QLatin1Char('_')) + QLatin1Char('_')
+        + fi.baseName() + QLatin1Char('.');
 #endif
     if (readCache(filename,
-                  QStandardPaths::writableLocation(QStandardPaths::GenericCacheLocation) + QLatin1String("/kio_help") + cache + QLatin1String("cache.bz2"), output)) {
+                  QStandardPaths::writableLocation(QStandardPaths::GenericCacheLocation) + QLatin1String("/kio_help") + cache + QLatin1String("cache.bz2"),
+                  output)) {
         return output;
     }
 

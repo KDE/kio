@@ -14,7 +14,8 @@ public:
 };
 
 KPreviewWidgetBase::KPreviewWidgetBase(QWidget *parent)
-    : QWidget(parent), d(new KPreviewWidgetBasePrivate)
+    : QWidget(parent)
+    , d(new KPreviewWidgetBasePrivate)
 {
 }
 

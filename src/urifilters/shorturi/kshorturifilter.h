@@ -18,18 +18,17 @@
 #include <kurifilter.h>
 
 /**
-* This is short URL filter class.
-*
-* @short A filter that converts short URLs into fully qualified ones.
-*
-* @author Dawit Alemayehu <adawit@kde.org>
-* @author Malte Starostik <starosti@zedat.fu-berlin.de>
-*/
+ * This is short URL filter class.
+ *
+ * @short A filter that converts short URLs into fully qualified ones.
+ *
+ * @author Dawit Alemayehu <adawit@kde.org>
+ * @author Malte Starostik <starosti@zedat.fu-berlin.de>
+ */
 class KShortUriFilter : public KUriFilterPlugin
 {
     Q_OBJECT
 public:
-
     /**
      * Creates a Short URI filter object
      *
@@ -69,18 +68,16 @@ public:
     /**
      * Returns an instance of the module used to configure
      * this object.
-         *
-         * @return the config module
-         */
+     *
+     * @return the config module
+     */
     KCModule *configModule(QWidget *, const char *) const override;
 
 public Q_SLOTS:
     void configure();
 
 private:
-
-    struct URLHint
-    {
+    struct URLHint {
         URLHint()
         {
         }

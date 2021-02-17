@@ -15,7 +15,9 @@ class GlobalTest : public QObject
     Q_OBJECT
 
 public:
-    GlobalTest() {}
+    GlobalTest()
+    {
+    }
 
 private Q_SLOTS:
     void testUserPermissionConversion();

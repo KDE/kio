@@ -8,13 +8,12 @@
 #ifndef KIO_SESSIONDATA_P_H
 #define KIO_SESSIONDATA_P_H
 
-#include <QObject>
 #include "kiocore_export.h"
+#include <QObject>
 #include <kio/metadata.h>
 
 namespace KIO
 {
-
 /**
  * @internal
  */

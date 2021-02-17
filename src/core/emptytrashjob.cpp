@@ -12,12 +12,13 @@
 
 using namespace KIO;
 
-class KIO::EmptyTrashJobPrivate: public SimpleJobPrivate
+class KIO::EmptyTrashJobPrivate : public SimpleJobPrivate
 {
 public:
     EmptyTrashJobPrivate(int command, const QByteArray &packedArgs)
         : SimpleJobPrivate(QUrl(QStringLiteral("trash:/")), command, packedArgs)
-    { }
+    {
+    }
 
     Q_DECLARE_PUBLIC(EmptyTrashJob)
 

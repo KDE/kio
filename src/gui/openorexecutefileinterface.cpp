@@ -9,7 +9,9 @@
 
 using namespace KIO;
 
-class KIO::OpenOrExecuteFileInterfacePrivate {};
+class KIO::OpenOrExecuteFileInterfacePrivate
+{
+};
 
 OpenOrExecuteFileInterface::OpenOrExecuteFileInterface(QObject *parent)
     : QObject(parent)

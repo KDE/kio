@@ -18,4 +18,4 @@ private Q_SLOTS:
     void runAllTests_data();
 };
 
-#endif //HTTPHEADERDISPOSITIONTEST_H
+#endif // HTTPHEADERDISPOSITIONTEST_H

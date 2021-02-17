@@ -29,7 +29,6 @@ class Job;
 
 namespace KDEPrivate
 {
-
 /**
  * @brief Button of the URL navigator which contains one part of an URL.
  *
@@ -182,7 +181,7 @@ private:
     KIO::ListJob *m_subDirsJob;
 
     /// pair of name and display name
-    QList<QPair<QString, QString> > m_subDirs;
+    QList<QPair<QString, QString>> m_subDirs;
 
     static QPointer<KUrlNavigatorMenu> m_subDirsMenu;
 };

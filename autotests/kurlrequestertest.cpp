@@ -5,10 +5,10 @@
     SPDX-License-Identifier: LGPL-2.0-only OR LGPL-3.0-only OR LicenseRef-KDE-Accepted-LGPL
 */
 
-#include <kurlrequester.h>
-#include <kfilewidget.h>
-#include <kdiroperator.h>
 #include <KComboBox>
+#include <kdiroperator.h>
+#include <kfilewidget.h>
+#include <kurlrequester.h>
 
 #include <QLineEdit>
 #include <QSignalSpy>
@@ -32,7 +32,8 @@ private Q_SLOTS:
     void testComboRequester_data();
 
 private:
-    bool createTestFile(const QString &fileName) {
+    bool createTestFile(const QString &fileName)
+    {
         QFile file(fileName);
         if (!file.open(QIODevice::WriteOnly | QIODevice::Truncate)) {
             return false;
@@ -55,7 +56,6 @@ static KFileWidget *findFileWidget()
     }
     return (widgets.count() == 1) ? widgets.first() : nullptr;
 }
-
 
 void KUrlRequesterTest::initTestCase()
 {
@@ -112,7 +112,7 @@ void KUrlRequesterTest::testUrlRequester()
     QVERIFY(fileDialog);
     fw = findFileWidget();
     if (fw) { // no need to wait for dir listing again, but we need it to be visible at least (for Key_Return to accept)
-        //QVERIFY(QTest::qWaitForWindowExposed(fw->window())); // doesn't seem to be enough
+        // QVERIFY(QTest::qWaitForWindowExposed(fw->window())); // doesn't seem to be enough
         QTRY_VERIFY(fw->isVisible());
     }
 
@@ -139,7 +139,7 @@ void KUrlRequesterTest::testComboRequester()
     QSignalSpy textSpy(&req, &KUrlComboRequester::textChanged);
     QSignalSpy editSpy(&req, &KUrlComboRequester::textEdited);
     QSignalSpy returnSpy(&req, QOverload<>::of(&KUrlComboRequester::returnPressed));
-    QSignalSpy returnWithTextSpy(&req, QOverload<const QString&>::of(&KUrlComboRequester::returnPressed));
+    QSignalSpy returnWithTextSpy(&req, QOverload<const QString &>::of(&KUrlComboRequester::returnPressed));
 
     QVERIFY(!req.comboBox()->isEditable());
     if (editable) {

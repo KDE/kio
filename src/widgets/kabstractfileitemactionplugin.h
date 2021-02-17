@@ -97,8 +97,7 @@ public:
      * @return A list of actions to be added to a contextual menu for the file
      *         items.
      */
-    virtual QList<QAction *> actions(const KFileItemListProperties &fileItemInfos,
-                                     QWidget *parentWidget) = 0;
+    virtual QList<QAction *> actions(const KFileItemListProperties &fileItemInfos, QWidget *parentWidget) = 0;
 };
 
 #endif

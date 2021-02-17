@@ -28,8 +28,8 @@ class KFileItemList;
 class KFilePreviewGenerator;
 class KPreviewWidgetBase;
 
-#include <QStack> // SIC TODO KF6: Not used, remove
 #include <KToggleAction> // SIC TODO KF6: Not used, remove
+#include <QStack> // SIC TODO KF6: Not used, remove
 
 // SIC TODO KF6: forward-declaration is enough for these three
 #include <KCompletion>
@@ -100,11 +100,11 @@ public:
      * The various action types. These values can be or'd together
      */
     enum ActionType {
-        SortActions =  1,
-        ViewActions =  2,
-        NavActions  =  4,
-        FileActions =  8,
-        AllActions  = 15,
+        SortActions = 1,
+        ViewActions = 2,
+        NavActions = 4,
+        FileActions = 8,
+        AllActions = 15,
     };
 
     /**
@@ -114,7 +114,7 @@ public:
      *
      * This constructor doesn't start loading the url, setView will do it.
      */
-    explicit KDirOperator(const QUrl &urlName  = QUrl{}, QWidget *parent = nullptr);
+    explicit KDirOperator(const QUrl &urlName = QUrl{}, QWidget *parent = nullptr);
     /**
      * Destroys the KDirOperator.
      */
@@ -494,7 +494,7 @@ public:
     void setFollowNewDirectories(bool enable);
 
     /**
-     * @returns true if setUrl is called on newly created directories, false 
+     * @returns true if setUrl is called on newly created directories, false
      * otherwise. Enabled by default.
      * @since 5.62
      * @see setFollowNewDirectories
@@ -524,8 +524,10 @@ public:
      * to the user.
      * @returns true if the directory could be created.
      */
-    KIOFILEWIDGETS_DEPRECATED_VERSION(5, 78, "Deprecated for lack of usage; use the other"
-                                             " KDirOperator::mkdir() method instead.")
+    KIOFILEWIDGETS_DEPRECATED_VERSION(5,
+                                      78,
+                                      "Deprecated for lack of usage; use the other"
+                                      " KDirOperator::mkdir() method instead.")
     virtual bool mkdir(const QString &directory, bool enterDirectory = true);
 #endif
 
@@ -537,8 +539,7 @@ public:
      * @param ask specifies whether a confirmation dialog should be shown
      * @param showProgress passed to the DeleteJob to show a progress dialog
      */
-    virtual KIO::DeleteJob *del(const KFileItemList &items, QWidget *parent = nullptr,
-                                bool ask = true, bool showProgress = true);
+    virtual KIO::DeleteJob *del(const KFileItemList &items, QWidget *parent = nullptr, bool ask = true, bool showProgress = true);
 
     /**
      * Clears the forward and backward history.
@@ -603,13 +604,12 @@ public:
      * @param ask specifies whether a confirmation dialog should be shown
      * @param showProgress passed to the CopyJob to show a progress dialog
      */
-    virtual KIO::CopyJob *trash(const KFileItemList &items, QWidget *parent,
-                                bool ask = true, bool showProgress = true);
+    virtual KIO::CopyJob *trash(const KFileItemList &items, QWidget *parent, bool ask = true, bool showProgress = true);
 
     /**
-      * Returns the preview generator for the current view.
-      * @since 4.2
-      */
+     * Returns the preview generator for the current view.
+     * @since 4.2
+     */
     KFilePreviewGenerator *previewGenerator() const;
 
     /**

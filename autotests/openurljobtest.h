@@ -58,4 +58,3 @@ private:
 };
 
 #endif /* OPENURLJOBTEST_H */
-

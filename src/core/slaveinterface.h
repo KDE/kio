@@ -10,18 +10,17 @@
 
 #include <qplatformdefs.h>
 
-#include <QObject>
 #include <QHostInfo>
+#include <QObject>
 
+#include <kio/authinfo.h>
 #include <kio/global.h>
 #include <kio/udsentry.h>
-#include <kio/authinfo.h>
 
 class QUrl;
 
 namespace KIO
 {
-
 class Connection;
 // better there is one ...
 class SlaveInterfacePrivate;
@@ -107,8 +106,8 @@ class KIOCORE_EXPORT SlaveInterface : public QObject
 
 protected:
     SlaveInterface(SlaveInterfacePrivate &dd, QObject *parent = nullptr);
-public:
 
+public:
     virtual ~SlaveInterface();
 
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 0)
@@ -171,7 +170,7 @@ Q_SIGNALS:
     void mimeType(const QString &);
     void warning(const QString &);
     void infoMessage(const QString &);
-    //void connectFinished(); //it does not get emitted anywhere
+    // void connectFinished(); //it does not get emitted anywhere
 
 protected:
     /////////////////
@@ -181,12 +180,9 @@ protected:
     virtual bool dispatch();
     virtual bool dispatch(int _cmd, const QByteArray &data);
 
-    void messageBox(int type, const QString &text, const QString &caption,
-                    const QString &buttonYes, const QString &buttonNo);
+    void messageBox(int type, const QString &text, const QString &caption, const QString &buttonYes, const QString &buttonNo);
 
-    void messageBox(int type, const QString &text, const QString &caption,
-                    const QString &buttonYes, const QString &buttonNo,
-                    const QString &dontAskAgainName);
+    void messageBox(int type, const QString &text, const QString &caption, const QString &buttonYes, const QString &buttonNo, const QString &dontAskAgainName);
 
     // I need to identify the slaves
     void requestNetwork(const QString &, const QString &);
@@ -194,6 +190,7 @@ protected:
 
 protected Q_SLOTS:
     void calcSpeed();
+
 protected:
     SlaveInterfacePrivate *const d_ptr;
     Q_DECLARE_PRIVATE(SlaveInterface)

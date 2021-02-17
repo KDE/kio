@@ -6,12 +6,12 @@
 */
 
 #include "applicationlauncherjob.h"
-#include "kprocessrunner_p.h"
-#include "untrustedprogramhandlerinterface.h"
-#include "kiogui_debug.h"
-#include "openwithhandlerinterface.h"
-#include "jobuidelegatefactory.h"
 #include "../core/global.h"
+#include "jobuidelegatefactory.h"
+#include "kiogui_debug.h"
+#include "kprocessrunner_p.h"
+#include "openwithhandlerinterface.h"
+#include "untrustedprogramhandlerinterface.h"
 
 #include <KAuthorized>
 #include <KDesktopFile>
@@ -22,9 +22,13 @@ class KIO::ApplicationLauncherJobPrivate
 {
 public:
     explicit ApplicationLauncherJobPrivate(KIO::ApplicationLauncherJob *job, const KService::Ptr &service)
-        : m_service(service), q(job) {}
+        : m_service(service)
+        , q(job)
+    {
+    }
 
-    void slotStarted(qint64 pid) {
+    void slotStarted(qint64 pid)
+    {
         m_pids.append(pid);
         if (--m_numProcessesPending == 0) {
             q->emitResult();
@@ -46,7 +50,8 @@ public:
 };
 
 KIO::ApplicationLauncherJob::ApplicationLauncherJob(const KService::Ptr &service, QObject *parent)
-    : KJob(parent), d(new ApplicationLauncherJobPrivate(this, service))
+    : KJob(parent)
+    , d(new ApplicationLauncherJobPrivate(this, service))
 {
     // Cache entryPath() because we may call KService::setExec() which will clear entryPath()
     d->m_serviceEntryPath = d->m_service->entryPath();
@@ -61,7 +66,8 @@ KIO::ApplicationLauncherJob::ApplicationLauncherJob(const KServiceAction &servic
 }
 
 KIO::ApplicationLauncherJob::ApplicationLauncherJob(QObject *parent)
-    : KJob(parent), d(new ApplicationLauncherJobPrivate(this, {}))
+    : KJob(parent)
+    , d(new ApplicationLauncherJobPrivate(this, {}))
 {
 }
 
@@ -142,8 +148,7 @@ void KIO::ApplicationLauncherJob::start()
                         serviceName = d->m_service->genericName();
                     }
                     setError(KJob::UserDefinedError);
-                    setErrorText(i18n("Unable to make the service %1 executable, aborting execution.\n%2.",
-                                      serviceName, errorString));
+                    setErrorText(i18n("Unable to make the service %1 executable, aborting execution.\n%2.", serviceName, errorString));
                     emitResult();
                 }
             } else {
@@ -174,7 +179,7 @@ void KIO::ApplicationLauncherJob::proceedAfterSecurityChecks()
                 d->slotStarted(pid);
             });
         }
-        d->m_urls = { d->m_urls.at(0) };
+        d->m_urls = {d->m_urls.at(0)};
     } else {
         d->m_numProcessesPending = 1;
     }
@@ -214,9 +219,9 @@ bool KIO::ApplicationLauncherJob::waitForStarted()
         }
         return ret != KJob::NoError;
     }
-    const bool ret = std::all_of(d->m_processRunners.cbegin(),
-                                 d->m_processRunners.cend(),
-                                 [](QPointer<KProcessRunner> r) { return r.isNull() || r->waitForStarted(); });
+    const bool ret = std::all_of(d->m_processRunners.cbegin(), d->m_processRunners.cend(), [](QPointer<KProcessRunner> r) {
+        return r.isNull() || r->waitForStarted();
+    });
     for (const auto &r : qAsConst(d->m_processRunners)) {
         if (!r.isNull()) {
             qApp->sendPostedEvents(r); // so slotStarted gets called

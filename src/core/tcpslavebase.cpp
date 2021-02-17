@@ -14,9 +14,9 @@
 #include "kiocoredebug.h"
 
 #include <KConfigGroup>
+#include <KLocalizedString>
 #include <ksslcertificatemanager.h>
 #include <ksslsettings.h>
-#include <KLocalizedString>
 
 #include <QSslCipher>
 #include <QSslSocket>
@@ -24,27 +24,27 @@
 #include <QDBusConnection>
 
 using namespace KIO;
-//using namespace KNetwork;
+// using namespace KNetwork;
 
 namespace KIO
 {
 Q_DECLARE_OPERATORS_FOR_FLAGS(TCPSlaveBase::SslResult)
 }
 
-//TODO Proxy support whichever way works; KPAC reportedly does *not* work.
-//NOTE kded_proxyscout may or may not be interesting
+// TODO Proxy support whichever way works; KPAC reportedly does *not* work.
+// NOTE kded_proxyscout may or may not be interesting
 
-//TODO resurrect SSL session recycling; this means save the session on disconnect and look
-//for a reusable session on connect. Consider how HTTP persistent connections interact with that.
+// TODO resurrect SSL session recycling; this means save the session on disconnect and look
+// for a reusable session on connect. Consider how HTTP persistent connections interact with that.
 
-//TODO in case we support SSL-lessness we need static KTcpSocket::sslAvailable() and check it
-//in most places we ATM check for d->isSSL.
+// TODO in case we support SSL-lessness we need static KTcpSocket::sslAvailable() and check it
+// in most places we ATM check for d->isSSL.
 
-//TODO check if d->isBlocking is honored everywhere it makes sense
+// TODO check if d->isBlocking is honored everywhere it makes sense
 
-//TODO fold KSSLSetting and KSSLCertificateHome into KSslSettings and use that everywhere.
+// TODO fold KSSLSetting and KSSLCertificateHome into KSslSettings and use that everywhere.
 
-//TODO recognize partially encrypted websites as "somewhat safe"
+// TODO recognize partially encrypted websites as "somewhat safe"
 
 /* List of dialogs/messageboxes we need to use (current code location in parentheses)
    - Can the "dontAskAgainName" thing be improved?
@@ -68,7 +68,8 @@ class Q_DECL_HIDDEN TCPSlaveBase::TcpSlaveBasePrivate
 public:
     explicit TcpSlaveBasePrivate(TCPSlaveBase *qq)
         : q(qq)
-    {}
+    {
+    }
 
     void setSslMetaData()
     {
@@ -91,7 +92,7 @@ public:
 
         QString errorStr;
         // encode the two-dimensional numeric error list using '\n' and '\t' as outer and inner separators
-        for (const QSslCertificate &cert : peerCertificateChain ) {
+        for (const QSslCertificate &cert : peerCertificateChain) {
             for (const QSslError &error : qAsConst(sslErrors)) {
                 if (error.certificate() == cert) {
                     errorStr += QString::number(static_cast<int>(error.error())) + QLatin1Char('\t');
@@ -129,10 +130,9 @@ public:
         }
     }
 
-    SslResult startTLSInternal(QSsl::SslProtocol sslVersion,
-                               int waitForEncryptedTimeout = -1);
+    SslResult startTLSInternal(QSsl::SslProtocol sslVersion, int waitForEncryptedTimeout = -1);
 
-    TCPSlaveBase * const q;
+    TCPSlaveBase *const q;
 
     bool isBlocking;
 
@@ -159,12 +159,9 @@ QIODevice *TCPSlaveBase::socket() const
     return &d->socket;
 }
 
-TCPSlaveBase::TCPSlaveBase(const QByteArray &protocol,
-                           const QByteArray &poolSocket,
-                           const QByteArray &appSocket,
-                           bool autoSSL)
-    : SlaveBase(protocol, poolSocket, appSocket),
-      d(new TcpSlaveBasePrivate(this))
+TCPSlaveBase::TCPSlaveBase(const QByteArray &protocol, const QByteArray &poolSocket, const QByteArray &appSocket, bool autoSSL)
+    : SlaveBase(protocol, poolSocket, appSocket)
+    , d(new TcpSlaveBasePrivate(this))
 {
     d->isBlocking = true;
     d->port = 0;
@@ -202,7 +199,7 @@ ssize_t TCPSlaveBase::write(const char *data, ssize_t len)
         success = d->socket.waitForBytesWritten(0);
     }
 
-    d->socket.flush();  //this is supposed to get the data on the wire faster
+    d->socket.flush(); // this is supposed to get the data on the wire faster
 
     if (d->socket.state() != QAbstractSocket::ConnectedState || !success) {
         /*qDebug() << "Write failed, will return -1! Socket error is"
@@ -218,7 +215,7 @@ ssize_t TCPSlaveBase::read(char *data, ssize_t len)
 {
     if (d->usingSSL && (d->socket.mode() != QSslSocket::SslClientMode)) {
         d->clearSslMetaData();
-        //qDebug() << "lost SSL connection.";
+        // qDebug() << "lost SSL connection.";
         return -1;
     }
 
@@ -233,7 +230,7 @@ ssize_t TCPSlaveBase::readLine(char *data, ssize_t len)
 {
     if (d->usingSSL && (d->socket.mode() != QSslSocket::SslClientMode)) {
         d->clearSslMetaData();
-        //qDebug() << "lost SSL connection.";
+        // qDebug() << "lost SSL connection.";
         return -1;
     }
 
@@ -253,9 +250,7 @@ ssize_t TCPSlaveBase::readLine(char *data, ssize_t len)
     return readTotal;
 }
 
-bool TCPSlaveBase::connectToHost(const QString &/*protocol*/,
-                                 const QString &host,
-                                 quint16 port)
+bool TCPSlaveBase::connectToHost(const QString & /*protocol*/, const QString &host, quint16 port)
 {
     QString errorString;
     const int errCode = connectToHost(host, port, &errorString);
@@ -269,10 +264,10 @@ bool TCPSlaveBase::connectToHost(const QString &/*protocol*/,
 
 int TCPSlaveBase::connectToHost(const QString &host, quint16 port, QString *errorString)
 {
-    d->clearSslMetaData(); //We have separate connection and SSL setup phases
+    d->clearSslMetaData(); // We have separate connection and SSL setup phases
 
     if (errorString) {
-        errorString->clear();  // clear prior error messages.
+        errorString->clear(); // clear prior error messages.
     }
 
     d->socket.setPeerVerifyName(host); // Used for ssl certificate verification (SNI)
@@ -280,10 +275,9 @@ int TCPSlaveBase::connectToHost(const QString &host, quint16 port, QString *erro
     //  - leaving SSL - warn before we even connect
     //### see if it makes sense to move this into the HTTP ioslave which is the only
     //    user.
-    if (metaData(QStringLiteral("main_frame_request")) == QLatin1String("TRUE")  //### this looks *really* unreliable
-            && metaData(QStringLiteral("ssl_activate_warnings")) == QLatin1String("TRUE")
-            && metaData(QStringLiteral("ssl_was_in_use")) == QLatin1String("TRUE")
-            && !d->autoSSL) {
+    if (metaData(QStringLiteral("main_frame_request")) == QLatin1String("TRUE") //### this looks *really* unreliable
+        && metaData(QStringLiteral("ssl_activate_warnings")) == QLatin1String("TRUE") && metaData(QStringLiteral("ssl_was_in_use")) == QLatin1String("TRUE")
+        && !d->autoSSL) {
         if (d->sslSettings.warnOnLeave()) {
             int result = messageBox(i18n("You are about to leave secure "
                                          "mode. Transmissions will no "
@@ -292,7 +286,8 @@ int TCPSlaveBase::connectToHost(const QString &host, quint16 port, QString *erro
                                          "observe your data in transit."),
                                     WarningContinueCancel,
                                     i18n("Security Information"),
-                                    i18n("C&ontinue Loading"), QString(),
+                                    i18n("C&ontinue Loading"),
+                                    QString(),
                                     QStringLiteral("WarnOnLeaveSSLMode"));
 
             if (result == SlaveBase::Cancel) {
@@ -306,11 +301,11 @@ int TCPSlaveBase::connectToHost(const QString &host, quint16 port, QString *erro
 
     const int timeout = (connectTimeout() * 1000); // 20 sec timeout value
 
-    disconnectFromHost();  //Reset some state, even if we are already disconnected
+    disconnectFromHost(); // Reset some state, even if we are already disconnected
     d->host = host;
 
     d->socket.connectToHost(host, port);
-    /*const bool connectOk = */d->socket.waitForConnected(timeout > -1 ? timeout : -1);
+    /*const bool connectOk = */ d->socket.waitForConnected(timeout > -1 ? timeout : -1);
 
     /*qDebug() << "Socket: state=" << d->socket.state()
         << ", error=" << d->socket.error()
@@ -354,7 +349,7 @@ int TCPSlaveBase::connectToHost(const QString &host, quint16 port, QString *erro
 
 void TCPSlaveBase::disconnectFromHost()
 {
-    //qDebug();
+    // qDebug();
     d->host.clear();
     d->ip.clear();
     d->usingSSL = false;
@@ -371,9 +366,9 @@ void TCPSlaveBase::disconnectFromHost()
     //    we want to present that as KDE API. Not a big loss in any case.
     d->socket.disconnectFromHost();
     if (d->socket.state() != QAbstractSocket::UnconnectedState) {
-        d->socket.waitForDisconnected(-1);    // wait for unsent data to be sent
+        d->socket.waitForDisconnected(-1); // wait for unsent data to be sent
     }
-    d->socket.close(); //whatever that means on a socket
+    d->socket.close(); // whatever that means on a socket
 }
 
 bool TCPSlaveBase::isAutoSsl() const
@@ -404,10 +399,9 @@ bool TCPSlaveBase::startSsl()
     return d->startTLSInternal(QSsl::SecureProtocols) & ResultOk;
 }
 
-TCPSlaveBase::SslResult TCPSlaveBase::TcpSlaveBasePrivate::startTLSInternal(QSsl::SslProtocol sslVersion,
-                                                                            int waitForEncryptedTimeout)
+TCPSlaveBase::SslResult TCPSlaveBase::TcpSlaveBasePrivate::startTLSInternal(QSsl::SslProtocol sslVersion, int waitForEncryptedTimeout)
 {
-    //setMetaData("ssl_session_id", d->kssl->session()->toString());
+    // setMetaData("ssl_session_id", d->kssl->session()->toString());
     //### we don't support session reuse for now...
     usingSSL = true;
 
@@ -422,11 +416,11 @@ TCPSlaveBase::SslResult TCPSlaveBase::TcpSlaveBasePrivate::startTLSInternal(QSsl
     socket.startClientEncryption();
     const bool encryptionStarted = socket.waitForEncrypted(waitForEncryptedTimeout);
 
-    //Set metadata, among other things for the "SSL Details" dialog
+    // Set metadata, among other things for the "SSL Details" dialog
     QSslCipher cipher = socket.sessionCipher();
 
-    if (!encryptionStarted || socket.mode() != QSslSocket::SslClientMode
-            || cipher.isNull() || cipher.usedBits() == 0 || socket.peerCertificateChain().isEmpty()) {
+    if (!encryptionStarted || socket.mode() != QSslSocket::SslClientMode || cipher.isNull() || cipher.usedBits() == 0
+        || socket.peerCertificateChain().isEmpty()) {
         usingSSL = false;
         clearSslMetaData();
         /*qDebug() << "Initial SSL handshake failed. encryptionStarted is"
@@ -474,18 +468,16 @@ TCPSlaveBase::SslResult TCPSlaveBase::TcpSlaveBasePrivate::startTLSInternal(QSsl
     if (rc & ResultFailed) {
         usingSSL = false;
         clearSslMetaData();
-        //qDebug() << "server certificate verification failed.";
-        socket.disconnectFromHost();     //Make the connection fail (cf. ignoreSslErrors())
+        // qDebug() << "server certificate verification failed.";
+        socket.disconnectFromHost(); // Make the connection fail (cf. ignoreSslErrors())
         return ResultFailed;
     } else if (rc & ResultOverridden) {
-        //qDebug() << "server certificate verification failed but continuing at user's request.";
+        // qDebug() << "server certificate verification failed but continuing at user's request.";
     }
 
     //"warn" when starting SSL/TLS
-    if (q->metaData(QStringLiteral("ssl_activate_warnings")) == QLatin1String("TRUE")
-            && q->metaData(QStringLiteral("ssl_was_in_use")) == QLatin1String("FALSE")
-            && sslSettings.warnOnEnter()) {
-
+    if (q->metaData(QStringLiteral("ssl_activate_warnings")) == QLatin1String("TRUE") && q->metaData(QStringLiteral("ssl_was_in_use")) == QLatin1String("FALSE")
+        && sslSettings.warnOnEnter()) {
         int msgResult = q->messageBox(i18n("You are about to enter secure mode. "
                                            "All transmissions will be encrypted "
                                            "unless otherwise noted.\nThis means "
@@ -516,7 +508,7 @@ TCPSlaveBase::SslResult TCPSlaveBase::verifyServerCertificate()
 
     const QList<QSslError> fatalErrors = KSslCertificateManager::nonIgnorableErrors(d->sslErrors);
     if (!fatalErrors.isEmpty()) {
-        //TODO message "sorry, fatal error, you can't override it"
+        // TODO message "sorry, fatal error, you can't override it"
         return ResultFailed;
     }
     QList<QSslCertificate> peerCertificationChain = d->socket.peerCertificateChain();
@@ -526,7 +518,7 @@ TCPSlaveBase::SslResult TCPSlaveBase::verifyServerCertificate()
     // remove previously seen and acknowledged errors
     const QList<QSslError> remainingErrors = rule.filterErrors(d->sslErrors);
     if (remainingErrors.isEmpty()) {
-        //qDebug() << "Error list empty after removing errors to be ignored. Continuing.";
+        // qDebug() << "Error list empty after removing errors to be ignored. Continuing.";
         return ResultOk | ResultOverridden;
     }
 
@@ -541,29 +533,27 @@ TCPSlaveBase::SslResult TCPSlaveBase::verifyServerCertificate()
     int msgResult;
     QDateTime ruleExpiry = QDateTime::currentDateTime();
     do {
-        msgResult = messageBox(WarningYesNoCancel, message,
-                               i18n("Server Authentication"),
-                               i18n("&Details"), i18n("Co&ntinue"));
+        msgResult = messageBox(WarningYesNoCancel, message, i18n("Server Authentication"), i18n("&Details"), i18n("Co&ntinue"));
         switch (msgResult) {
         case SlaveBase::Yes:
-            //Details was chosen- show the certificate and error details
+            // Details was chosen- show the certificate and error details
             messageBox(SSLMessageBox /*the SSL info dialog*/, d->host);
             break;
         case SlaveBase::No: {
-                        //fall through on SlaveBase::No
+            // fall through on SlaveBase::No
             const int result = messageBox(WarningYesNoCancel,
-                                    i18n("Would you like to accept this "
-                                        "certificate forever without "
-                                        "being prompted?"),
-                                    i18n("Server Authentication"),
-                                    i18n("&Forever"),
-                                    i18n("&Current Session only"));
+                                          i18n("Would you like to accept this "
+                                               "certificate forever without "
+                                               "being prompted?"),
+                                          i18n("Server Authentication"),
+                                          i18n("&Forever"),
+                                          i18n("&Current Session only"));
             if (result == SlaveBase::Yes) {
-                //accept forever ("for a very long time")
+                // accept forever ("for a very long time")
                 ruleExpiry = ruleExpiry.addYears(1000);
             } else if (result == SlaveBase::No) {
-                //accept "for a short time", half an hour.
-                ruleExpiry = ruleExpiry.addSecs(30*60);
+                // accept "for a short time", half an hour.
+                ruleExpiry = ruleExpiry.addSecs(30 * 60);
             } else {
                 msgResult = SlaveBase::Yes;
             }
@@ -577,8 +567,8 @@ TCPSlaveBase::SslResult TCPSlaveBase::verifyServerCertificate()
         }
     } while (msgResult == SlaveBase::Yes);
 
-    //TODO special cases for wildcard domain name in the certificate!
-    //rule = KSslCertificateRule(d->socket.peerCertificateChain().first(), whatever);
+    // TODO special cases for wildcard domain name in the certificate!
+    // rule = KSslCertificateRule(d->socket.peerCertificateChain().first(), whatever);
 
     rule.setExpiryDateTime(ruleExpiry);
     rule.setIgnoredErrors(d->sslErrors);

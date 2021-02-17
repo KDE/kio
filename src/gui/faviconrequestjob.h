@@ -16,7 +16,6 @@ class QUrl;
 
 namespace KIO
 {
-
 class FavIconRequestJobPrivate;
 /**
  * @class FavIconRequestJob faviconrequestjob.h <KIO/FavIconRequestJob>
@@ -103,7 +102,9 @@ public:
      * @internal
      * Do not call start(), KIO jobs are autostarted
      */
-    void start() override {}
+    void start() override
+    {
+    }
 
 private Q_SLOTS:
     void doStart(); // not called start() so that exec() doesn't call it too

@@ -10,10 +10,10 @@
 #ifndef UDSENTRY_H
 #define UDSENTRY_H
 
-#include <QString>
 #include <QList>
-#include <QSharedData>
 #include <QMetaType>
+#include <QSharedData>
+#include <QString>
 #include <QtGlobal>
 #include <qplatformdefs.h>
 
@@ -24,8 +24,8 @@ namespace KIO
 class UDSEntry;
 }
 
-KIOCORE_EXPORT QDataStream &operator<< (QDataStream &s, const KIO::UDSEntry &a);
-KIOCORE_EXPORT QDataStream &operator>> (QDataStream &s, KIO::UDSEntry &a);
+KIOCORE_EXPORT QDataStream &operator<<(QDataStream &s, const KIO::UDSEntry &a);
+KIOCORE_EXPORT QDataStream &operator>>(QDataStream &s, KIO::UDSEntry &a);
 
 /**
  * Support for qDebug() << aUDSEntry
@@ -37,13 +37,13 @@ KIOCORE_EXPORT QDebug operator<<(QDebug stream, const KIO::UDSEntry &entry);
  * Returns true if the entry contains the same data as the other
  * @since 5.63
  */
-KIOCORE_EXPORT bool operator== (const KIO::UDSEntry &entry, const KIO::UDSEntry &other);
+KIOCORE_EXPORT bool operator==(const KIO::UDSEntry &entry, const KIO::UDSEntry &other);
 
 /**
  * Returns true if the entry does not contain the same data as the other
  * @since 5.63
  */
-KIOCORE_EXPORT bool operator!= (const KIO::UDSEntry &entry, const KIO::UDSEntry &other);
+KIOCORE_EXPORT bool operator!=(const KIO::UDSEntry &entry, const KIO::UDSEntry &other);
 
 namespace KIO
 {
@@ -77,7 +77,6 @@ class UDSEntryPrivate;
 class KIOCORE_EXPORT UDSEntry
 {
 public:
-
     UDSEntry();
 
     /**
@@ -91,7 +90,7 @@ public:
     /**
      * Copy constructor
      */
-    UDSEntry(const UDSEntry&);
+    UDSEntry(const UDSEntry &);
 
     /**
      * Destructor
@@ -102,18 +101,18 @@ public:
      * Move constructor
      * @since 5.44
      */
-    UDSEntry(UDSEntry&&);
+    UDSEntry(UDSEntry &&);
 
     /**
      * Copy assignment
      */
-    UDSEntry& operator=(const UDSEntry&);
+    UDSEntry &operator=(const UDSEntry &);
 
     /**
      * Move assignment
      * @since 5.44
      */
-    UDSEntry& operator=(UDSEntry&&);
+    UDSEntry &operator=(UDSEntry &&);
 
     /**
      * @return value of a textual field
@@ -221,9 +220,9 @@ public:
         /// Indicates that the field is a QString
         UDS_STRING = 0x01000000,
         /// Indicates that the field is a number (long long)
-        UDS_NUMBER   = 0x02000000,
+        UDS_NUMBER = 0x02000000,
         /// Indicates that the field represents a time, which is modelled by a long long
-        UDS_TIME   = 0x04000000 | UDS_NUMBER,
+        UDS_TIME = 0x04000000 | UDS_NUMBER,
 
         // The rest isn't a bit field
 
@@ -346,9 +345,9 @@ public:
 
 private:
     QSharedDataPointer<UDSEntryPrivate> d;
-    friend KIOCORE_EXPORT QDataStream& ::operator<< (QDataStream &s, const KIO::UDSEntry &a);
-    friend KIOCORE_EXPORT QDataStream& ::operator>> (QDataStream &s, KIO::UDSEntry &a);
-    friend KIOCORE_EXPORT QDebug (::operator<<) (QDebug stream, const KIO::UDSEntry &entry);
+    friend KIOCORE_EXPORT QDataStream & ::operator<<(QDataStream &s, const KIO::UDSEntry &a);
+    friend KIOCORE_EXPORT QDataStream & ::operator>>(QDataStream &s, KIO::UDSEntry &a);
+    friend KIOCORE_EXPORT QDebug(::operator<<)(QDebug stream, const KIO::UDSEntry &entry);
 
 public:
     /**
@@ -374,7 +373,6 @@ Q_DECLARE_TYPEINFO(KIO::UDSEntry, Q_MOVABLE_TYPE);
 
 namespace KIO
 {
-
 /**
  * A directory listing is a list of UDSEntry instances.
  *

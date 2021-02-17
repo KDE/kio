@@ -49,8 +49,7 @@ public:
      * @param text   Text of the label
      * @param parent The parent object of this widget.
      */
-    KUrlRequesterDialog(const QUrl &url, const QString &text,
-                        QWidget *parent);
+    KUrlRequesterDialog(const QUrl &url, const QString &text, QWidget *parent);
     /**
      * Destructs the dialog.
      */
@@ -68,8 +67,7 @@ public:
      * @param parent The widget the dialog will be centered on initially.
      * @param caption The caption to use for the dialog.
      */
-    static QUrl getUrl(const QUrl &url = QUrl(),
-                       QWidget *parent = nullptr, const QString &caption = QString());
+    static QUrl getUrl(const QUrl &url = QUrl(), QWidget *parent = nullptr, const QString &caption = QString());
 
 #if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 0)
     /**
@@ -95,4 +93,3 @@ private:
 };
 
 #endif // KURLREQUESTERDIALOG_H
-

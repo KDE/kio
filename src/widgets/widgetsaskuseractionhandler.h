@@ -9,13 +9,14 @@
 #define WIDGETSASKUSERACTIONHANDLER_H
 
 #include "kiowidgets_export.h"
-#include <kio/jobuidelegateextension.h>
 #include <kio/askuseractioninterface.h>
-#include <kio/skipdialog.h>
-#include <kio/renamedialog.h>
 #include <kio/global.h>
+#include <kio/jobuidelegateextension.h>
+#include <kio/renamedialog.h>
+#include <kio/skipdialog.h>
 
-namespace KIO {
+namespace KIO
+{
 // TODO KF6: Handle this the same way we end up handling WidgetsUntrustedProgramHandler.
 
 /**
@@ -56,17 +57,12 @@ public:
     /**
      * @copydoc KIO::AskUserActionInterface::askUserSkip()
      */
-    void askUserSkip(KJob *job,
-                     KIO::SkipDialog_Options options,
-                     const QString &error_text) override;
+    void askUserSkip(KJob *job, KIO::SkipDialog_Options options, const QString &error_text) override;
 
     /**
      * @copydoc KIO::AskUserActionInterface::askUserDelete()
      */
-    void askUserDelete(const QList<QUrl> &urls,
-                       DeletionType deletionType,
-                       ConfirmationType confirmationType,
-                       QWidget *parent = nullptr) override;
+    void askUserDelete(const QList<QUrl> &urls, DeletionType deletionType, ConfirmationType confirmationType, QWidget *parent = nullptr) override;
 
     /**
      * @copydoc KIO::AskUserActionInterface::requestUserMessageBox()

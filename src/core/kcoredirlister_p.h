@@ -10,18 +10,18 @@
 
 #include "kfileitem.h"
 
-#include <QMap>
-#include <QHash>
 #include <QCache>
-#include <QSet>
-#include <QTimer>
 #include <QCoreApplication>
 #include <QFileInfo>
+#include <QHash>
+#include <QMap>
+#include <QSet>
+#include <QTimer>
 #include <QUrl>
 #include <QVector>
 
-#include <kio/global.h>
 #include <KDirWatch>
+#include <kio/global.h>
 
 class QRegularExpression;
 class KCoreDirLister;
@@ -103,13 +103,13 @@ public:
     // toplevel URL
     QUrl url;
 
-    bool complete: 1;
+    bool complete : 1;
 
-    bool autoUpdate: 1;
+    bool autoUpdate : 1;
 
-    bool delayedMimeTypes: 1;
+    bool delayedMimeTypes : 1;
 
-    bool hasPendingChanges: 1; // i.e. settings != oldSettings
+    bool hasPendingChanges : 1; // i.e. settings != oldSettings
 
     struct JobData {
         long unsigned int percent, speed;
@@ -123,7 +123,7 @@ public:
 
     typedef QHash<QUrl, KFileItemList> NewItemsHash;
     NewItemsHash lstNewItems;
-    QList<QPair<KFileItem, KFileItem> > lstRefreshItems;
+    QList<QPair<KFileItem, KFileItem>> lstRefreshItems;
     KFileItemList lstMimeFilteredItems, lstRemoveItems;
 
     QList<CachedItemsJob *> m_cachedItemsJobs;
@@ -131,7 +131,11 @@ public:
     QString nameFilter; // parsed into lstFilters
 
     struct FilterSettings {
-        FilterSettings() : isShowingDotFiles(false), dirOnlyMode(false) {}
+        FilterSettings()
+            : isShowingDotFiles(false)
+            , dirOnlyMode(false)
+        {
+        }
         bool isShowingDotFiles;
         bool dirOnlyMode;
         QVector<QRegularExpression> lstFilters;
@@ -189,11 +193,9 @@ public:
 
     // Called by CachedItemsJob:
     // Emits the cached items, for this lister and this url
-    void emitItemsFromCache(KCoreDirListerPrivate::CachedItemsJob *job, KCoreDirLister *lister,
-                            const QUrl &_url, bool _reload, bool _emitCompleted);
+    void emitItemsFromCache(KCoreDirListerPrivate::CachedItemsJob *job, KCoreDirLister *lister, const QUrl &_url, bool _reload, bool _emitCompleted);
     // Called by CachedItemsJob:
-    void forgetCachedItemsJob(KCoreDirListerPrivate::CachedItemsJob *job, KCoreDirLister *lister,
-                              const QUrl &url);
+    void forgetCachedItemsJob(KCoreDirListerPrivate::CachedItemsJob *job, KCoreDirLister *lister, const QUrl &url);
 
 public Q_SLOTS:
     /**
@@ -262,7 +264,7 @@ private:
     // when there were items deleted from the filesystem all the listers holding
     // the parent directory need to be notified, the items have to be deleted
     // and removed from the cache including all the children.
-    void deleteUnmarkedItems(const QList<KCoreDirLister *>&, QList<KFileItem> &lstItems, const QHash<QString, KFileItem> &itemsToDelete);
+    void deleteUnmarkedItems(const QList<KCoreDirLister *> &, QList<KFileItem> &lstItems, const QHash<QString, KFileItem> &itemsToDelete);
 
     // Helper method called when we know that a list of items was deleted
     void itemsDeleted(const QList<KCoreDirLister *> &listers, const KFileItemList &deletedItems);
@@ -315,7 +317,7 @@ private:
      * @param dir path to the target directory.
      * @return names listed in the directory's ".hidden" file (empty if it doesn't exist).
      */
-    QSet<QString> filesInDotHiddenForDir(const QString& dir);
+    QSet<QString> filesInDotHiddenForDir(const QString &dir);
 
 #ifndef NDEBUG
     void printDebug();
@@ -325,7 +327,8 @@ private:
     {
     public:
         DirItem(const QUrl &dir, const QString &canonicalPath)
-            : url(dir), m_canonicalPath(canonicalPath)
+            : url(dir)
+            , m_canonicalPath(canonicalPath)
         {
             autoUpdates = 0;
             complete = false;
@@ -439,13 +442,16 @@ private:
 
     // definition of the cache of ".hidden" files
     struct CacheHiddenFile {
-        CacheHiddenFile(const QDateTime& mtime, const QSet<QString>& listedFiles)
-            : mtime(mtime), listedFiles(listedFiles) { }
+        CacheHiddenFile(const QDateTime &mtime, const QSet<QString> &listedFiles)
+            : mtime(mtime)
+            , listedFiles(listedFiles)
+        {
+        }
         QDateTime mtime;
         QSet<QString> listedFiles;
     };
 
-    //static const unsigned short MAX_JOBS_PER_LISTER;
+    // static const unsigned short MAX_JOBS_PER_LISTER;
 
     QMap<KIO::ListJob *, KIO::UDSEntryList> runningListJobs;
 
@@ -500,7 +506,7 @@ struct KCoreDirListerCacheDirectoryData {
     void moveListersWithoutCachedItemsJob(const QUrl &url);
 };
 
-//const unsigned short KCoreDirListerCache::MAX_JOBS_PER_LISTER = 5;
+// const unsigned short KCoreDirListerCache::MAX_JOBS_PER_LISTER = 5;
 
 // This job tells KCoreDirListerCache to emit cached items asynchronously from listDir()
 // to give the KCoreDirLister user enough time for connecting to its signals, and so

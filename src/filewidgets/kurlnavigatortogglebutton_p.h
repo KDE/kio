@@ -12,7 +12,6 @@
 
 namespace KDEPrivate
 {
-
 /**
  * @brief Represents the button of the URL navigator to switch to
  *        the editable mode.

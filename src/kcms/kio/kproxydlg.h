@@ -8,8 +8,8 @@
 #ifndef KPROXYDLG_H
 #define KPROXYDLG_H
 
-#include <KCModule>
 #include "ui_kproxydlg.h"
+#include <KCModule>
 
 class KProxyDialog : public KCModule
 {
@@ -25,7 +25,7 @@ public:
     };
     Q_DECLARE_FLAGS(DisplayUrlFlags, DisplayUrlFlag)
 
-    KProxyDialog(QWidget* parent, const QVariantList& args);
+    KProxyDialog(QWidget *parent, const QVariantList &args);
     ~KProxyDialog();
 
     void load() override;
@@ -37,19 +37,19 @@ private Q_SLOTS:
     void autoDetect();
     void showEnvValue(bool);
     void setUseSameProxy(bool);
-    void syncProxies(const QString&);
+    void syncProxies(const QString &);
     void syncProxyPorts(int);
 
     void slotChanged();
 
 private:
-    bool autoDetectSystemProxy(QLineEdit* edit, const QString& envVarStr, bool showValue);
+    bool autoDetectSystemProxy(QLineEdit *edit, const QString &envVarStr, bool showValue);
 
     Ui::ProxyDialogUI mUi;
     QStringList mNoProxyForList;
     QMap<QString, QString> mProxyMap;
 };
 
-Q_DECLARE_OPERATORS_FOR_FLAGS (KProxyDialog::DisplayUrlFlags)
+Q_DECLARE_OPERATORS_FOR_FLAGS(KProxyDialog::DisplayUrlFlags)
 
 #endif // KPROXYDLG_H

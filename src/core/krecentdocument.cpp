@@ -12,12 +12,12 @@
 #include <utime.h>
 #endif
 
-#include <QDebug>
-#include <kio/global.h>
 #include <KDesktopFile>
-#include <QDir>
 #include <QCoreApplication>
+#include <QDebug>
+#include <QDir>
 #include <QRegularExpression>
+#include <kio/global.h>
 #include <qplatformdefs.h>
 
 #include <KConfigGroup>
@@ -31,8 +31,7 @@ QString KRecentDocument::recentDocumentDirectory()
 
 QStringList KRecentDocument::recentDocuments()
 {
-    QDir d(recentDocumentDirectory(), QStringLiteral("*.desktop"), QDir::Time,
-           QDir::Files | QDir::Readable | QDir::Hidden);
+    QDir d(recentDocumentDirectory(), QStringLiteral("*.desktop"), QDir::Time, QDir::Files | QDir::Readable | QDir::Hidden);
 
     if (!d.exists()) {
         d.mkdir(recentDocumentDirectory());
@@ -75,11 +74,11 @@ void KRecentDocument::add(const QUrl &url)
 void KRecentDocument::add(const QUrl &url, const QString &desktopEntryName)
 {
     if (url.isLocalFile() && url.toLocalFile().startsWith(QDir::tempPath())) {
-        return;    // inside tmp resource, do not save
+        return; // inside tmp resource, do not save
     }
 
     QString openStr = url.toDisplayString();
-    openStr.replace(QRegularExpression(QStringLiteral("\\$")), QStringLiteral("$$"));   // Desktop files with type "Link" are $-variable expanded
+    openStr.replace(QRegularExpression(QStringLiteral("\\$")), QStringLiteral("$$")); // Desktop files with type "Link" are $-variable expanded
 
     // qDebug() << "KRecentDocument::add for " << openStr;
     KConfigGroup config = KSharedConfig::openConfig()->group(QByteArray("RecentDocuments"));
@@ -155,4 +154,3 @@ int KRecentDocument::maximumItems()
     KConfigGroup cg(KSharedConfig::openConfig(), QStringLiteral("RecentDocuments"));
     return cg.readEntry(QStringLiteral("MaxEntries"), 10);
 }
-

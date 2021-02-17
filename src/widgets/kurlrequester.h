@@ -119,9 +119,9 @@ public:
     void setMode(KFile::Modes m);
 
     /**
-    * Returns the current mode
-    * @see QFileDialog::fileMode()
-    */
+     * Returns the current mode
+     * @see QFileDialog::fileMode()
+     */
     KFile::Modes mode() const;
 
     /**
@@ -135,10 +135,10 @@ public:
     void setAcceptMode(QFileDialog::AcceptMode m);
 
     /**
-    * Returns the current open / save mode
-    * @see QFileDialog::acceptMode()
-    * @since 5.33
-    */
+     * Returns the current open / save mode
+     * @see QFileDialog::acceptMode()
+     * @since 5.33
+     */
     QFileDialog::AcceptMode acceptMode() const;
 
     /**
@@ -148,9 +148,9 @@ public:
     void setFilter(const QString &filter);
 
     /**
-    * Returns the filters for the file dialog, separated by \\n.
-    * @see QFileDialog::nameFilters()
-    */
+     * Returns the filters for the file dialog, separated by \\n.
+     * @see QFileDialog::nameFilters()
+     */
     QString filter() const;
 
     /**
@@ -240,7 +240,7 @@ public:
     /**
      * @return the message set with setPlaceholderText
      * @since 5.0
-    */
+     */
     QString placeholderText() const;
 
     /**
@@ -248,7 +248,7 @@ public:
      * the user didn't enter any text. It is often used as indication about
      * the purpose of the line edit.
      * @since 5.0
-    */
+     */
     void setPlaceholderText(const QString &msg);
 
     /**
@@ -367,7 +367,6 @@ private:
     Q_PRIVATE_SLOT(d, void _k_slotUpdateUrl())
     Q_PRIVATE_SLOT(d, void _k_slotOpenDialog())
     Q_PRIVATE_SLOT(d, void _k_slotFileDialogAccepted())
-
 };
 
 class KIOWIDGETS_EXPORT KUrlComboRequester : public KUrlRequester // krazy:exclude=dpointer (For use in Qt Designer)

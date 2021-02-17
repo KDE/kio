@@ -11,8 +11,7 @@
 #include <QDir>
 #include <QString>
 
-inline
-QString concatPaths(const QString &path1, const QString &path2)
+inline QString concatPaths(const QString &path1, const QString &path2)
 {
     Q_ASSERT(!path2.startsWith(QLatin1Char('/')));
 
@@ -25,8 +24,7 @@ QString concatPaths(const QString &path1, const QString &path2)
     }
 }
 
-inline
-bool isAbsoluteLocalPath(const QString &path)
+inline bool isAbsoluteLocalPath(const QString &path)
 {
     // QDir::isAbsolutePath() will return true if "path" starts with ':', the latter denotes a
     // Qt Resource (qrc).

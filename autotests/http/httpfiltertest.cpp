@@ -7,13 +7,13 @@
 #include <QSignalSpy>
 #include <QTest>
 
-#include <KFilterDev>
+#include "httpfilter.h"
 #include <KFilterBase>
-#include <QFile>
+#include <KFilterDev>
 #include <QDebug>
 #include <QDir>
+#include <QFile>
 #include <zlib.h>
-#include "httpfilter.h"
 
 class HTTPFilterTest : public QObject
 {
@@ -125,7 +125,7 @@ void HTTPFilterTest::test_httpFilterGzip()
         connect(&filter, &HTTPFilterBase::output, this, &HTTPFilterTest::slotFilterOutput);
         QSignalSpy spyError(&filter, &HTTPFilterBase::error);
         for (int i = 0; i < compressed.size(); ++i) {
-            //qDebug() << "sending byte number" << i << ":" << (uchar)compressed[i];
+            // qDebug() << "sending byte number" << i << ":" << (uchar)compressed[i];
             filter.slotInput(QByteArray(compressed.constData() + i, 1));
             QCOMPARE(spyError.count(), 0);
         }

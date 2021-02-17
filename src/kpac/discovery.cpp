@@ -31,24 +31,24 @@
 #include <resolv.h>
 #include <sys/utsname.h>
 
-#include <QTimer>
-#include <QProcess>
 #include <QHostInfo>
+#include <QProcess>
 #include <QStandardPaths>
+#include <QTimer>
 #include <QUrl>
 
-#include <KLocalizedString>
 #include "moc_discovery.cpp"
+#include <KLocalizedString>
 
 namespace KPAC
 {
 Discovery::Discovery(QObject *parent)
-    : Downloader(parent),
-      m_helper(new QProcess(this))
+    : Downloader(parent)
+    , m_helper(new QProcess(this))
 {
     m_helper->setProcessChannelMode(QProcess::SeparateChannels);
     connect(m_helper, &QProcess::readyReadStandardOutput, this, &Discovery::helperOutput);
-    connect(m_helper, QOverload<int,QProcess::ExitStatus>::of(&QProcess::finished), this, &Discovery::failed);
+    connect(m_helper, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished), this, &Discovery::failed);
     m_helper->start(QStringLiteral(KDE_INSTALL_FULL_LIBEXECDIR_KF5 "/kpac_dhcp_helper"), QStringList());
     if (!m_helper->waitForStarted()) {
         QTimer::singleShot(0, this, &Discovery::failed);
@@ -68,13 +68,11 @@ bool Discovery::checkDomain() const
     // Stick to old resolver interface for portability reasons.
     union {
         HEADER header;
-        unsigned char buf[ PACKETSZ ];
+        unsigned char buf[PACKETSZ];
     } response;
 
-    int len = res_query(m_domainName.toLocal8Bit().constData(), C_IN, T_SOA,
-                        response.buf, sizeof(response.buf));
-    if (len <= int(sizeof(response.header)) ||
-            ntohs(response.header.ancount) != 1) {
+    int len = res_query(m_domainName.toLocal8Bit().constData(), C_IN, T_SOA, response.buf, sizeof(response.buf));
+    if (len <= int(sizeof(response.header)) || ntohs(response.header.ancount) != 1) {
         return true;
     }
 
@@ -102,8 +100,7 @@ void Discovery::failed()
     // on failure. Otherwise abort if the current domain (which was already
     // queried for a host called "wpad" contains a SOA record)
     const bool firstQuery = m_domainName.isEmpty();
-    if ((firstQuery && !initDomainName()) ||
-            (!firstQuery && !checkDomain())) {
+    if ((firstQuery && !initDomainName()) || (!firstQuery && !checkDomain())) {
         Q_EMIT result(false);
         return;
     }
@@ -112,7 +109,7 @@ void Discovery::failed()
     if (dot > -1 || firstQuery) {
         const QString address = QLatin1String("http://wpad.") + m_domainName + QLatin1String("/wpad.dat");
         if (dot > -1) {
-            m_domainName.remove(0, dot + 1);    // remove one domain level
+            m_domainName.remove(0, dot + 1); // remove one domain level
         }
         download(QUrl(address));
         return;
@@ -129,4 +126,3 @@ void Discovery::helperOutput()
     download(url);
 }
 }
-

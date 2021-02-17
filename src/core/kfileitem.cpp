@@ -8,22 +8,22 @@
 
 #include "kfileitem.h"
 
-#include "kioglobal_p.h"
-#include "kiocoredebug.h"
 #include "../pathhelpers_p.h"
+#include "kiocoredebug.h"
+#include "kioglobal_p.h"
 
+#include <QDataStream>
 #include <QDate>
+#include <QDebug>
 #include <QDir>
 #include <QDirIterator>
-#include <QDataStream>
-#include <QMimeDatabase>
-#include <QDebug>
 #include <QLocale>
+#include <QMimeDatabase>
 
-#include <KLocalizedString>
-#include <KDesktopFile>
-#include <kmountpoint.h>
 #include <KConfigGroup>
+#include <KDesktopFile>
+#include <KLocalizedString>
+#include <kmountpoint.h>
 #ifndef Q_OS_WIN
 #include <knfsshare.h>
 #include <ksambashare.h>
@@ -35,29 +35,30 @@ class KFileItemPrivate : public QSharedData
 {
 public:
     KFileItemPrivate(const KIO::UDSEntry &entry,
-                     mode_t mode, mode_t permissions,
+                     mode_t mode,
+                     mode_t permissions,
                      const QUrl &itemOrDirUrl,
                      bool urlIsDirectory,
                      bool delayedMimeTypes,
                      KFileItem::MimeTypeDetermination mimeTypeDetermination)
-        : m_entry(entry),
-          m_url(itemOrDirUrl),
-          m_strName(),
-          m_strText(),
-          m_iconName(),
-          m_strLowerCaseName(),
-          m_mimeType(),
-          m_fileMode(mode),
-          m_permissions(permissions),
-          m_bLink(false),
-          m_bIsLocalUrl(itemOrDirUrl.isLocalFile()),
-          m_bMimeTypeKnown(false),
-          m_delayedMimeTypes(delayedMimeTypes),
-          m_useIconNameCache(false),
-          m_hidden(Auto),
-          m_slow(SlowUnknown),
-          m_bSkipMimeTypeFromContent(mimeTypeDetermination == KFileItem::SkipMimeTypeFromContent),
-          m_bInitCalled(false)
+        : m_entry(entry)
+        , m_url(itemOrDirUrl)
+        , m_strName()
+        , m_strText()
+        , m_iconName()
+        , m_strLowerCaseName()
+        , m_mimeType()
+        , m_fileMode(mode)
+        , m_permissions(permissions)
+        , m_bLink(false)
+        , m_bIsLocalUrl(itemOrDirUrl.isLocalFile())
+        , m_bMimeTypeKnown(false)
+        , m_delayedMimeTypes(delayedMimeTypes)
+        , m_useIconNameCache(false)
+        , m_hidden(Auto)
+        , m_slow(SlowUnknown)
+        , m_bSkipMimeTypeFromContent(mimeTypeDetermination == KFileItem::SkipMimeTypeFromContent)
+        , m_bInitCalled(false)
     {
         if (entry.count() != 0) {
             readUDSEntry(urlIsDirectory);
@@ -150,38 +151,37 @@ public:
     /**
      * Whether the file is a link
      */
-    mutable bool m_bLink: 1;
+    mutable bool m_bLink : 1;
     /**
      * True if local file
      */
-    bool m_bIsLocalUrl: 1;
+    bool m_bIsLocalUrl : 1;
 
-    mutable bool m_bMimeTypeKnown: 1;
-    mutable bool m_delayedMimeTypes: 1;
+    mutable bool m_bMimeTypeKnown : 1;
+    mutable bool m_delayedMimeTypes : 1;
 
     /** True if m_iconName should be used as cache. */
-    mutable bool m_useIconNameCache: 1;
+    mutable bool m_useIconNameCache : 1;
 
     // Auto: check leading dot.
-    enum { Auto, Hidden, Shown } m_hidden: 3;
+    enum { Auto, Hidden, Shown } m_hidden : 3;
 
     // Slow? (nfs/smb/ssh)
-    mutable enum { SlowUnknown, Fast, Slow } m_slow: 3;
+    mutable enum { SlowUnknown, Fast, Slow } m_slow : 3;
 
     /**
      * True if MIME type determination by content should be skipped
      */
-    bool m_bSkipMimeTypeFromContent: 1;
+    bool m_bSkipMimeTypeFromContent : 1;
 
     /**
      * True if init() was called on demand
      */
-    mutable bool m_bInitCalled: 1;
+    mutable bool m_bInitCalled : 1;
 
     // For special case like link to dirs over FTP
     QString m_guessedMimeType;
     mutable QString m_access;
-
 };
 
 void KFileItemPrivate::ensureInitialized() const
@@ -211,26 +211,26 @@ void KFileItemPrivate::init() const
             const QByteArray pathBA = QFile::encodeName(path);
             if (QT_LSTAT(pathBA.constData(), &buf) == 0) {
                 m_entry.reserve(9);
-                m_entry.replace(KIO::UDSEntry::UDS_DEVICE_ID,           buf.st_dev);
-                m_entry.replace(KIO::UDSEntry::UDS_INODE,               buf.st_ino);
+                m_entry.replace(KIO::UDSEntry::UDS_DEVICE_ID, buf.st_dev);
+                m_entry.replace(KIO::UDSEntry::UDS_INODE, buf.st_ino);
 
                 mode_t mode = buf.st_mode;
                 if ((buf.st_mode & QT_STAT_MASK) == QT_STAT_LNK) {
                     m_bLink = true;
                     if (QT_STAT(pathBA.constData(), &buf) == 0) {
                         mode = buf.st_mode;
-                    } else {// link pointing to nowhere (see FileProtocol::createUDSEntry() in ioslaves/file/file.cpp)
+                    } else { // link pointing to nowhere (see FileProtocol::createUDSEntry() in ioslaves/file/file.cpp)
                         mode = (QT_STAT_MASK - 1) | S_IRWXU | S_IRWXG | S_IRWXO;
                     }
                 }
-                m_entry.replace(KIO::UDSEntry::UDS_SIZE,      buf.st_size);
+                m_entry.replace(KIO::UDSEntry::UDS_SIZE, buf.st_size);
                 m_entry.replace(KIO::UDSEntry::UDS_FILE_TYPE, buf.st_mode & QT_STAT_MASK); // extract file type
-                m_entry.replace(KIO::UDSEntry::UDS_ACCESS,    buf.st_mode & 07777); // extract permissions
-                m_entry.replace(KIO::UDSEntry::UDS_MODIFICATION_TIME,   buf.st_mtime); // TODO: we could use msecs too...
-                m_entry.replace(KIO::UDSEntry::UDS_ACCESS_TIME,         buf.st_atime);
+                m_entry.replace(KIO::UDSEntry::UDS_ACCESS, buf.st_mode & 07777); // extract permissions
+                m_entry.replace(KIO::UDSEntry::UDS_MODIFICATION_TIME, buf.st_mtime); // TODO: we could use msecs too...
+                m_entry.replace(KIO::UDSEntry::UDS_ACCESS_TIME, buf.st_atime);
 #ifndef Q_OS_WIN
-                m_entry.replace(KIO::UDSEntry::UDS_USER,                KUser(buf.st_uid).loginName());
-                m_entry.replace(KIO::UDSEntry::UDS_GROUP,               KUserGroup(buf.st_gid).name());
+                m_entry.replace(KIO::UDSEntry::UDS_USER, KUser(buf.st_uid).loginName());
+                m_entry.replace(KIO::UDSEntry::UDS_GROUP, KUserGroup(buf.st_gid).name());
 #endif
 
                 // TODO: these can be removed, we can use UDS_FILE_TYPE and UDS_ACCESS everywhere
@@ -278,7 +278,7 @@ void KFileItemPrivate::readUDSEntry(bool _urlIsDirectory)
     }
 
     m_guessedMimeType = m_entry.stringValue(KIO::UDSEntry::UDS_GUESSED_MIME_TYPE);
-    m_bLink = !m_entry.stringValue(KIO::UDSEntry::UDS_LINK_DEST).isEmpty();   // we don't store the link dest
+    m_bLink = !m_entry.stringValue(KIO::UDSEntry::UDS_LINK_DEST).isEmpty(); // we don't store the link dest
 
     const int hiddenVal = m_entry.numberValue(KIO::UDSEntry::UDS_HIDDEN, -1);
     m_hidden = hiddenVal == 1 ? Hidden : (hiddenVal == 0 ? Shown : Auto);
@@ -290,8 +290,9 @@ void KFileItemPrivate::readUDSEntry(bool _urlIsDirectory)
     m_iconName.clear();
 }
 
-inline //because it is used only in one place
-KIO::filesize_t KFileItemPrivate::size() const
+inline // because it is used only in one place
+    KIO::filesize_t
+    KFileItemPrivate::size() const
 {
     ensureInitialized();
 
@@ -359,8 +360,9 @@ QDateTime KFileItemPrivate::time(KFileItem::FileTimes mappedWhich) const
     return QDateTime();
 }
 
-inline //because it is used only in one place
-bool KFileItemPrivate::cmp(const KFileItemPrivate &item) const
+inline // because it is used only in one place
+    bool
+    KFileItemPrivate::cmp(const KFileItemPrivate &item) const
 {
     if (item.m_bInitCalled) {
         ensureInitialized();
@@ -385,32 +387,27 @@ bool KFileItemPrivate::cmp(const KFileItemPrivate &item) const
     qDebug() << " ModificationTime" << m_entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME) << item.m_entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME);
     qDebug() << " UDS_ICON_NAME" << (m_entry.stringValue( KIO::UDSEntry::UDS_ICON_NAME ) == item.m_entry.stringValue( KIO::UDSEntry::UDS_ICON_NAME ));
 #endif
-    return (m_strName == item.m_strName
-            && m_bIsLocalUrl == item.m_bIsLocalUrl
-            && m_fileMode == item.m_fileMode
-            && m_permissions == item.m_permissions
+    return (m_strName == item.m_strName && m_bIsLocalUrl == item.m_bIsLocalUrl && m_fileMode == item.m_fileMode && m_permissions == item.m_permissions
             && m_entry.stringValue(KIO::UDSEntry::UDS_EXTENDED_ACL) == item.m_entry.stringValue(KIO::UDSEntry::UDS_EXTENDED_ACL)
             && m_entry.stringValue(KIO::UDSEntry::UDS_ACL_STRING) == item.m_entry.stringValue(KIO::UDSEntry::UDS_ACL_STRING)
             && m_entry.stringValue(KIO::UDSEntry::UDS_DEFAULT_ACL_STRING) == item.m_entry.stringValue(KIO::UDSEntry::UDS_DEFAULT_ACL_STRING)
-            && m_bLink == item.m_bLink
-            && m_hidden == item.m_hidden
-            && size() == item.size()
+            && m_bLink == item.m_bLink && m_hidden == item.m_hidden && size() == item.size()
             && m_entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME) == item.m_entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME)
             && m_entry.stringValue(KIO::UDSEntry::UDS_ICON_NAME) == item.m_entry.stringValue(KIO::UDSEntry::UDS_ICON_NAME)
             && m_entry.stringValue(KIO::UDSEntry::UDS_TARGET_URL) == item.m_entry.stringValue(KIO::UDSEntry::UDS_TARGET_URL)
-            && m_entry.stringValue(KIO::UDSEntry::UDS_LOCAL_PATH) == item.m_entry.stringValue(KIO::UDSEntry::UDS_LOCAL_PATH)
-           );
+            && m_entry.stringValue(KIO::UDSEntry::UDS_LOCAL_PATH) == item.m_entry.stringValue(KIO::UDSEntry::UDS_LOCAL_PATH));
 
     // Don't compare the MIME types here. They might not be known, and we don't want to
     // do the slow operation of determining them here.
 }
 
-inline //because it is used only in one place
-QString KFileItemPrivate::parsePermissions(mode_t perm) const
+inline // because it is used only in one place
+    QString
+    KFileItemPrivate::parsePermissions(mode_t perm) const
 {
     ensureInitialized();
 
-    static char buffer[ 12 ];
+    static char buffer[12];
 
     char uxbit, gxbit, oxbit;
 
@@ -511,23 +508,26 @@ KFileItem::KFileItem()
 {
 }
 
-KFileItem::KFileItem(const KIO::UDSEntry &entry, const QUrl &itemOrDirUrl,
-                     bool delayedMimeTypes, bool urlIsDirectory)
-    : d(new KFileItemPrivate(entry, KFileItem::Unknown, KFileItem::Unknown, itemOrDirUrl, urlIsDirectory, delayedMimeTypes, KFileItem::NormalMimeTypeDetermination))
+KFileItem::KFileItem(const KIO::UDSEntry &entry, const QUrl &itemOrDirUrl, bool delayedMimeTypes, bool urlIsDirectory)
+    : d(new KFileItemPrivate(entry,
+                             KFileItem::Unknown,
+                             KFileItem::Unknown,
+                             itemOrDirUrl,
+                             urlIsDirectory,
+                             delayedMimeTypes,
+                             KFileItem::NormalMimeTypeDetermination))
 {
 }
 
 #if KIOCORE_BUILD_DEPRECATED_SINCE(5, 0)
 KFileItem::KFileItem(mode_t mode, mode_t permissions, const QUrl &url, bool delayedMimeTypes)
-    : d(new KFileItemPrivate(KIO::UDSEntry(), mode, permissions,
-                             url, false, delayedMimeTypes, KFileItem::NormalMimeTypeDetermination))
+    : d(new KFileItemPrivate(KIO::UDSEntry(), mode, permissions, url, false, delayedMimeTypes, KFileItem::NormalMimeTypeDetermination))
 {
 }
 #endif
 
 KFileItem::KFileItem(const QUrl &url, const QString &mimeType, mode_t mode)
-    : d(new KFileItemPrivate(KIO::UDSEntry(), mode, KFileItem::Unknown,
-                             url, false, false, KFileItem::NormalMimeTypeDetermination))
+    : d(new KFileItemPrivate(KIO::UDSEntry(), mode, KFileItem::Unknown, url, false, false, KFileItem::NormalMimeTypeDetermination))
 {
     d->m_bMimeTypeKnown = !mimeType.isEmpty();
     if (d->m_bMimeTypeKnown) {
@@ -537,11 +537,9 @@ KFileItem::KFileItem(const QUrl &url, const QString &mimeType, mode_t mode)
 }
 
 KFileItem::KFileItem(const QUrl &url, KFileItem::MimeTypeDetermination mimeTypeDetermination)
-    : d(new KFileItemPrivate(KIO::UDSEntry(), KFileItem::Unknown, KFileItem::Unknown,
-                             url, false, false, mimeTypeDetermination))
+    : d(new KFileItemPrivate(KIO::UDSEntry(), KFileItem::Unknown, KFileItem::Unknown, url, false, false, mimeTypeDetermination))
 {
 }
-
 
 // Default implementations for:
 // - Copy constructor
@@ -550,11 +548,11 @@ KFileItem::KFileItem(const QUrl &url, KFileItem::MimeTypeDetermination mimeTypeD
 // - Move assignment
 // - Destructor
 // The compiler will now generate the content of those.
-KFileItem::KFileItem(const KFileItem&) = default;
+KFileItem::KFileItem(const KFileItem &) = default;
 KFileItem::~KFileItem() = default;
-KFileItem::KFileItem(KFileItem&&) = default;
-KFileItem& KFileItem::operator=(const KFileItem&) = default;
-KFileItem& KFileItem::operator=(KFileItem&&) = default;
+KFileItem::KFileItem(KFileItem &&) = default;
+KFileItem &KFileItem::operator=(const KFileItem &) = default;
+KFileItem &KFileItem::operator=(KFileItem &&) = default;
 
 void KFileItem::refresh()
 {
@@ -630,9 +628,8 @@ void KFileItem::setName(const QString &name)
         d->m_strText = KIO::decodeFileName(d->m_strName);
     }
     if (d->m_entry.contains(KIO::UDSEntry::UDS_NAME)) {
-        d->m_entry.replace(KIO::UDSEntry::UDS_NAME, d->m_strName);    // #195385
+        d->m_entry.replace(KIO::UDSEntry::UDS_NAME, d->m_strName); // #195385
     }
-
 }
 
 QString KFileItem::linkDest() const
@@ -816,7 +813,7 @@ QMimeType KFileItem::determineMimeType() const
             // was:  d->m_mimeType = KMimeType::findByUrl( url, d->m_fileMode, isLocalUrl );
             // => we are no longer using d->m_fileMode for remote URLs.
             Q_ASSERT(d->m_mimeType.isValid());
-            //qDebug() << d << "finding final MIME type for" << url << ":" << d->m_mimeType.name();
+            // qDebug() << d << "finding final MIME type for" << url << ":" << d->m_mimeType.name();
         }
         d->m_bMimeTypeKnown = true;
     }
@@ -906,7 +903,7 @@ QString KFileItem::mimeComment() const
     }
 
     const QString comment = mime.comment();
-    //qDebug() << "finding comment for " << url.url() << " : " << d->m_mimeType->name();
+    // qDebug() << "finding comment for " << url.url() << " : " << d->m_mimeType->name();
     if (!comment.isEmpty()) {
         return comment;
     } else {
@@ -1107,13 +1104,12 @@ QStringList KFileItem::overlays() const
         const QUrl url = mostLocalUrl(&isLocalUrl);
         if (isLocalUrl) {
             const QString path = url.toLocalFile();
-            if (KSambaShare::instance()->isDirectoryShared(path)
-                    || KNFSShare::instance()->isDirectoryShared(path)) {
+            if (KSambaShare::instance()->isDirectoryShared(path) || KNFSShare::instance()->isDirectoryShared(path)) {
                 names.append(QStringLiteral("emblem-shared"));
             }
         }
     }
-#endif  // Q_OS_WIN
+#endif // Q_OS_WIN
 
     return names;
 }
@@ -1211,7 +1207,7 @@ bool KFileItem::isHidden() const
     if (fileName.isEmpty()) { // e.g. "trash:/"
         fileName = d->m_strName;
     }
-    return fileName.length() > 1 && fileName[0] == QLatin1Char('.');  // Just "." is current directory, not hidden.
+    return fileName.length() > 1 && fileName[0] == QLatin1Char('.'); // Just "." is current directory, not hidden.
 }
 
 void KFileItem::setHidden()
@@ -1235,7 +1231,7 @@ bool KFileItem::isDir() const
 
     if (d->m_fileMode == KFileItem::Unknown) {
         // Probably the file was deleted already, and KDirLister hasn't told the world yet.
-        //qDebug() << d << url() << "can't say -> false";
+        // qDebug() << d << url() << "can't say -> false";
         return false; // can't say for sure, so no
     }
     return (d->m_fileMode & QT_STAT_MASK) == QT_STAT_DIR;
@@ -1428,7 +1424,7 @@ QUrl KFileItem::mostLocalUrl(bool *local) const
     }
 }
 
-QDataStream &operator<< (QDataStream &s, const KFileItem &a)
+QDataStream &operator<<(QDataStream &s, const KFileItem &a)
 {
     if (a.d) {
         // We don't need to save/restore anything that refresh() invalidates,
@@ -1445,7 +1441,7 @@ QDataStream &operator<< (QDataStream &s, const KFileItem &a)
     return s;
 }
 
-QDataStream &operator>> (QDataStream &s, KFileItem &a)
+QDataStream &operator>>(QDataStream &s, KFileItem &a)
 {
     QUrl url;
     QString strName, strText;

@@ -24,7 +24,8 @@
 #include <QVBoxLayout>
 
 KIO::WidgetsUntrustedProgramHandler::WidgetsUntrustedProgramHandler(QObject *parent)
-    : KIO::UntrustedProgramHandlerInterface(parent), d(nullptr)
+    : KIO::UntrustedProgramHandlerInterface(parent)
+    , d(nullptr)
 {
 }
 
@@ -38,7 +39,9 @@ class SecureMessageDialog : public QDialog
 {
     Q_OBJECT
 public:
-    SecureMessageDialog(QWidget *parent) : QDialog(parent), m_textEdit(nullptr)
+    SecureMessageDialog(QWidget *parent)
+        : QDialog(parent)
+        , m_textEdit(nullptr)
     {
     }
 
@@ -90,7 +93,6 @@ private:
     QPlainTextEdit *m_textEdit;
 };
 
-
 QDialog *KIO::WidgetsUntrustedProgramHandler::createDialog(QWidget *parentWidget, const QString &programName)
 {
     SecureMessageDialog *baseDialog = new SecureMessageDialog(parentWidget);
@@ -110,8 +112,7 @@ QDialog *KIO::WidgetsUntrustedProgramHandler::createDialog(QWidget *parentWidget
     iconLabel->setPixmap(warningIcon);
 
     QVBoxLayout *contentLayout = new QVBoxLayout;
-    QString warningMessage = i18nc("program name follows in a line edit below",
-                                   "This will start the program:");
+    QString warningMessage = i18nc("program name follows in a line edit below", "This will start the program:");
 
     QLabel *message = new QLabel(warningMessage, baseWidget);
     contentLayout->addWidget(message);
@@ -154,8 +155,12 @@ void KIO::WidgetsUntrustedProgramHandler::showUntrustedProgramWarning(KJob *job,
 {
     QWidget *parentWidget = job ? KJobWidgets::window(job) : qApp->activeWindow();
     QDialog *dialog = createDialog(parentWidget, programName);
-    connect(dialog, &QDialog::accepted, this, [this]() { Q_EMIT result(true); });
-    connect(dialog, &QDialog::rejected, this, [this]() { Q_EMIT result(false); });
+    connect(dialog, &QDialog::accepted, this, [this]() {
+        Q_EMIT result(true);
+    });
+    connect(dialog, &QDialog::rejected, this, [this]() {
+        Q_EMIT result(false);
+    });
     dialog->show();
 }
 
@@ -164,6 +169,5 @@ bool KIO::WidgetsUntrustedProgramHandler::execUntrustedProgramWarning(QWidget *w
     QDialog *dialog = createDialog(window, programName);
     return dialog->exec() == QDialog::Accepted;
 }
-
 
 #include "widgetsuntrustedprogramhandler.moc"

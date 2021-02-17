@@ -13,9 +13,9 @@
 #include <QMutex>
 
 #include <QCache>
-#include <QSet>
 #include <QDir>
 #include <QFile>
+#include <QSet>
 #include <QStandardPaths>
 #include <QUrl>
 
@@ -64,9 +64,10 @@ class KIO::FavIconsCachePrivate
 {
 public:
     FavIconsCachePrivate()
-    : cacheDir(QStandardPaths::writableLocation(QStandardPaths::GenericCacheLocation) + QStringLiteral("/favicons/")),
-      config(cacheDir + QStringLiteral("index"))
-    {}
+        : cacheDir(QStandardPaths::writableLocation(QStandardPaths::GenericCacheLocation) + QStringLiteral("/favicons/"))
+        , config(cacheDir + QStringLiteral("index"))
+    {
+    }
 
     QString cachedIconUrlForUrl(const QUrl &url);
 
@@ -76,7 +77,6 @@ public:
     QCache<QString, QString> faviconsCache;
     QSet<QUrl> failedDownloads;
 };
-
 
 QString FavIconsCachePrivate::cachedIconUrlForUrl(const QUrl &url)
 {
@@ -138,7 +138,7 @@ QUrl FavIconsCache::iconUrlForUrl(const QUrl &url)
     }
 }
 
-void FavIconsCache::setIconForUrl(const QUrl& url, const QUrl& iconUrl)
+void FavIconsCache::setIconForUrl(const QUrl &url, const QUrl &iconUrl)
 {
     QMutexLocker locker(&d->mutex);
     const QString simplifiedUrl = simplifyUrl(url);
@@ -152,7 +152,7 @@ QString FavIconsCache::cachePathForIconUrl(const QUrl &iconUrl) const
 {
     QMutexLocker locker(&d->mutex);
     const QString iconName = iconNameFromUrl(iconUrl);
-    return d->cacheDir + iconName  + QLatin1String(".png");
+    return d->cacheDir + iconName + QLatin1String(".png");
 }
 
 void FavIconsCache::ensureCacheExists()

@@ -13,42 +13,42 @@
 #include <QDialog>
 #include <QDialogButtonBox>
 #include <QDir>
-#include <QVBoxLayout>
-#include <QList>
 #include <QLabel>
 #include <QLineEdit>
+#include <QList>
 #include <QMenu>
 #include <QPushButton>
 #include <QStandardPaths>
+#include <QVBoxLayout>
 
-#include <QTemporaryFile>
 #include <KActionCollection>
 #include <KConfigGroup>
-#include <QDebug>
 #include <KDesktopFile>
-#include <KDirWatch>
-#include <kdirnotify.h>
 #include <KDirOperator>
+#include <KDirWatch>
+#include <KFileUtils>
+#include <KIO/NameFinderJob>
 #include <KJobWidgets>
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <KMessageWidget>
+#include <KShell>
+#include <QDebug>
+#include <QTemporaryFile>
+#include <QTimer>
+#include <kdirnotify.h>
+#include <kio/copyjob.h>
+#include <kio/fileundomanager.h>
+#include <kio/job.h>
+#include <kio/jobuidelegate.h>
+#include <kio/mkpathjob.h>
 #include <kprotocolinfo.h>
 #include <kprotocolmanager.h>
 #include <krun.h>
-#include <KShell>
-#include <kio/job.h>
-#include <kio/copyjob.h>
-#include <kio/jobuidelegate.h>
-#include <kio/fileundomanager.h>
-#include <kio/mkpathjob.h>
-#include <KIO/NameFinderJob>
 #include <kurifilter.h>
-#include <KFileUtils>
-#include <QTimer>
 
-#include <kpropertiesdialog.h>
 #include <QMimeDatabase>
+#include <kpropertiesdialog.h>
 #ifdef Q_OS_WIN
 #include <sys/utime.h>
 #else
@@ -75,10 +75,10 @@ class KNewFileMenuSingleton
 {
 public:
     KNewFileMenuSingleton()
-        : dirWatch(nullptr),
-          filesParsed(false),
-          templatesList(nullptr),
-          templatesVersion(0)
+        : dirWatch(nullptr)
+        , filesParsed(false)
+        , templatesList(nullptr)
+        , templatesVersion(0)
     {
     }
 
@@ -139,7 +139,7 @@ public:
 
 void KNewFileMenuSingleton::parseFiles()
 {
-    //qDebug();
+    // qDebug();
     filesParsed = true;
     QMutableListIterator<KNewFileMenuSingleton::Entry> templIter(*templatesList);
     while (templIter.hasNext()) {
@@ -168,7 +168,7 @@ void KNewFileMenuSingleton::parseFiles()
                         } else {
                             // A relative path, then (that's the default in the files we ship)
                             const QStringRef linkDir = filePath.leftRef(filePath.lastIndexOf(QLatin1Char('/')) + 1 /*keep / */);
-                            //qDebug() << "linkDir=" << linkDir;
+                            // qDebug() << "linkDir=" << linkDir;
                             templatePath = linkDir + templatePath;
                         }
                     }
@@ -181,7 +181,6 @@ void KNewFileMenuSingleton::parseFiles()
                     templ.entryType = KNewFileMenuSingleton::LinkToTemplate;
                     templ.templatePath = templatePath;
                 }
-
             }
             if (text.isEmpty()) {
                 text = QUrl(filePath).fileName();
@@ -234,9 +233,9 @@ class KNewFileMenuPrivate
 {
 public:
     explicit KNewFileMenuPrivate(KActionCollection *collection, KNewFileMenu *qq)
-        : m_actionCollection(collection),
-          q(qq),
-          m_delayedSlotTextChangedTimer(new QTimer(q))
+        : m_actionCollection(collection)
+        , q(qq)
+        , m_delayedSlotTextChangedTimer(new QTimer(q))
     {
         m_delayedSlotTextChangedTimer->setInterval(50);
         m_delayedSlotTextChangedTimer->setSingleShot(true);
@@ -245,28 +244,28 @@ public:
     bool checkSourceExists(const QString &src);
 
     /**
-      * The strategy used for other desktop files than Type=Link. Example: Application, Device.
-      */
+     * The strategy used for other desktop files than Type=Link. Example: Application, Device.
+     */
     void executeOtherDesktopFile(const KNewFileMenuSingleton::Entry &entry);
 
     /**
-      * The strategy used for "real files or directories" (the common case)
-      */
+     * The strategy used for "real files or directories" (the common case)
+     */
     void executeRealFileOrDir(const KNewFileMenuSingleton::Entry &entry);
 
     /**
-      * Actually performs file handling. Reads in m_copyData for needed data, that has been collected by execute*() before
-      */
+     * Actually performs file handling. Reads in m_copyData for needed data, that has been collected by execute*() before
+     */
     void executeStrategy();
 
     /**
-      * The strategy used when creating a symlink
-      */
+     * The strategy used when creating a symlink
+     */
     void executeSymLink(const KNewFileMenuSingleton::Entry &entry);
 
     /**
-      * The strategy used for "url" desktop files
-      */
+     * The strategy used for "url" desktop files
+     */
     void executeUrlDesktopFile(const KNewFileMenuSingleton::Entry &entry);
 
     /**
@@ -280,8 +279,8 @@ public:
     QUrl mostLocalUrl(const QUrl &url);
 
     /**
-      * Just clears the string buffer d->m_text, but I need a slot for this to occur
-      */
+     * Just clears the string buffer d->m_text, but I need a slot for this to occur
+     */
     void _k_slotAbortDialog();
 
     /**
@@ -311,8 +310,8 @@ public:
     void _k_slotFillTemplates();
 
     /**
-      * Called when accepting the KPropertiesDialog (for "other desktop files")
-      */
+     * Called when accepting the KPropertiesDialog (for "other desktop files")
+     */
     void _k_slotOtherDesktopFile();
 
     /**
@@ -321,32 +320,32 @@ public:
     void _k_slotOtherDesktopFileClosed();
 
     /**
-      * Callback in KNewFileMenu for the RealFile Dialog. Handles dialog input and gives over
-      * to executeStrategy()
-      */
+     * Callback in KNewFileMenu for the RealFile Dialog. Handles dialog input and gives over
+     * to executeStrategy()
+     */
     void _k_slotRealFileOrDir();
 
     /**
-      * Delay calls to _k_slotTextChanged
-      */
+     * Delay calls to _k_slotTextChanged
+     */
     void _k_delayedSlotTextChanged();
 
     /**
-      * Dialogs use this slot to write the changed string into KNewFile menu when the user
-      * changes touches them
-      */
+     * Dialogs use this slot to write the changed string into KNewFile menu when the user
+     * changes touches them
+     */
     void _k_slotTextChanged(const QString &text);
 
     /**
-      * Callback in KNewFileMenu for the Symlink Dialog. Handles dialog input and gives over
-      * to executeStrategy()
-      */
+     * Callback in KNewFileMenu for the Symlink Dialog. Handles dialog input and gives over
+     * to executeStrategy()
+     */
     void _k_slotSymLink();
 
     /**
-      * Callback in KNewFileMenu for the Url/Desktop Dialog. Handles dialog input and gives over
-      * to executeStrategy()
-      */
+     * Callback in KNewFileMenu for the Url/Desktop Dialog. Handles dialog input and gives over
+     * to executeStrategy()
+     */
     void _k_slotUrlDesktopFile();
 
     /**
@@ -368,10 +367,10 @@ public:
     int m_menuItemsVersion = 0;
     QAction *m_newDirAction = nullptr;
     QDialog *m_fileDialog = nullptr;
-    KMessageWidget* m_messageWidget = nullptr;
+    KMessageWidget *m_messageWidget = nullptr;
     QLabel *m_label = nullptr;
     QLineEdit *m_lineEdit = nullptr;
-    QDialogButtonBox* m_buttonBox = nullptr;
+    QDialogButtonBox *m_buttonBox = nullptr;
 
     // This is used to allow _k_slotTextChanged to know whether it's being used to
     // create a file or a directory without duplicating code across two functions
@@ -397,14 +396,14 @@ public:
 
     KNewFileMenuSingleton::Entry *m_firstFileEntry = nullptr;
 
-    KNewFileMenu * const q;
+    KNewFileMenu *const q;
 
     KNewFileMenuCopyData m_copyData;
 
     /**
      * Use to delay a bit feedback to user
      */
-    QTimer* m_delayedSlotTextChangedTimer;
+    QTimer *m_delayedSlotTextChangedTimer;
 
     QUrl m_baseUrl;
 
@@ -449,7 +448,9 @@ void KNewFileMenuPrivate::initDialog()
 
     m_buttonBox = new QDialogButtonBox(m_fileDialog);
     m_buttonBox->setStandardButtons(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
-    QObject::connect(m_buttonBox, &QDialogButtonBox::accepted, [this]() {_k_slotAccepted();});
+    QObject::connect(m_buttonBox, &QDialogButtonBox::accepted, [this]() {
+        _k_slotAccepted();
+    });
     QObject::connect(m_buttonBox, &QDialogButtonBox::rejected, m_fileDialog, &QDialog::reject);
 
     QVBoxLayout *layout = new QVBoxLayout(m_fileDialog);
@@ -476,9 +477,14 @@ bool KNewFileMenuPrivate::checkSourceExists(const QString &src)
         m_buttonBox = new QDialogButtonBox(dialog);
         m_buttonBox->setStandardButtons(QDialogButtonBox::Ok);
 
-        KMessageBox::createKMessageBox(dialog, m_buttonBox, QMessageBox::Warning,
+        KMessageBox::createKMessageBox(dialog,
+                                       m_buttonBox,
+                                       QMessageBox::Warning,
                                        i18n("<qt>The template file <b>%1</b> does not exist.</qt>", src),
-                                       QStringList(), QString(), nullptr, KMessageBox::NoExec);
+                                       QStringList(),
+                                       QString(),
+                                       nullptr,
+                                       KMessageBox::NoExec);
 
         dialog->show();
 
@@ -529,10 +535,13 @@ void KNewFileMenuPrivate::executeOtherDesktopFile(const KNewFileMenuSingleton::E
         KPropertiesDialog *dlg = new KPropertiesDialog(templateUrl, directory, text, m_parentWidget);
         dlg->setModal(q->isModal());
         dlg->setAttribute(Qt::WA_DeleteOnClose);
-        QObject::connect(dlg, &KPropertiesDialog::applied, q, [this]() { _k_slotOtherDesktopFile(); });
+        QObject::connect(dlg, &KPropertiesDialog::applied, q, [this]() {
+            _k_slotOtherDesktopFile();
+        });
         if (usingTemplate) {
-            QObject::connect(dlg, &KPropertiesDialog::propertiesClosed,
-                             q, [this]() { _k_slotOtherDesktopFileClosed(); });
+            QObject::connect(dlg, &KPropertiesDialog::propertiesClosed, q, [this]() {
+                _k_slotOtherDesktopFileClosed();
+            });
         }
         dlg->show();
     }
@@ -568,13 +577,19 @@ void KNewFileMenuPrivate::executeRealFileOrDir(const KNewFileMenuSingleton::Entr
 
     m_creatingDirectory = false;
     _k_slotTextChanged(text);
-    QObject::connect(m_lineEdit, &QLineEdit::textChanged, q, [this]() { _k_delayedSlotTextChanged(); });
+    QObject::connect(m_lineEdit, &QLineEdit::textChanged, q, [this]() {
+        _k_delayedSlotTextChanged();
+    });
     m_delayedSlotTextChangedTimer->callOnTimeout(m_lineEdit, [this]() {
         _k_slotTextChanged(m_lineEdit->text());
     });
 
-    QObject::connect(m_fileDialog, &QDialog::accepted, q, [this]() { _k_slotRealFileOrDir(); });
-    QObject::connect(m_fileDialog, &QDialog::rejected, q, [this]() { _k_slotAbortDialog(); });
+    QObject::connect(m_fileDialog, &QDialog::accepted, q, [this]() {
+        _k_slotRealFileOrDir();
+    });
+    QObject::connect(m_fileDialog, &QDialog::rejected, q, [this]() {
+        _k_slotAbortDialog();
+    });
 
     m_fileDialog->show();
     m_lineEdit->selectAll();
@@ -588,7 +603,9 @@ void KNewFileMenuPrivate::executeSymLink(const KNewFileMenuSingleton::Entry &ent
     dlg->setAttribute(Qt::WA_DeleteOnClose);
     dlg->setWindowTitle(i18n("Create Symlink"));
     m_fileDialog = dlg;
-    QObject::connect(dlg, &QDialog::accepted, q, [this]() { _k_slotSymLink(); });
+    QObject::connect(dlg, &QDialog::accepted, q, [this]() {
+        _k_slotSymLink();
+    });
     dlg->show();
 }
 
@@ -618,7 +635,7 @@ void KNewFileMenuPrivate::executeStrategy()
             QMimeDatabase db;
             QMimeType wantedMime = db.mimeTypeForUrl(uSrc);
             QMimeType mime = db.mimeTypeForFileNameAndData(m_copyData.m_chosenFileName, srcFile.read(1024));
-            //qDebug() << "mime=" << mime->name() << "wantedMime=" << wantedMime->name();
+            // qDebug() << "mime=" << mime->name() << "wantedMime=" << wantedMime->name();
             if (!mime.inherits(wantedMime.name()))
                 if (!wantedMime.preferredSuffix().isEmpty()) {
                     chosenFileName += QLatin1Char('.') + wantedMime.preferredSuffix();
@@ -647,11 +664,11 @@ void KNewFileMenuPrivate::executeStrategy()
             }
             // The QFile won't live long enough for the job, so let's buffer the contents
             const QByteArray srcBuf(srcFile.readAll());
-            KIO::StoredTransferJob* putJob = KIO::storedPut(srcBuf, dest, -1);
+            KIO::StoredTransferJob *putJob = KIO::storedPut(srcBuf, dest, -1);
             kjob = putJob;
             KIO::FileUndoManager::self()->recordJob(KIO::FileUndoManager::Put, QList<QUrl>(), dest, putJob);
         } else {
-            //qDebug() << "KIO::copyAs(" << uSrc.url() << "," << dest.url() << ")";
+            // qDebug() << "KIO::copyAs(" << uSrc.url() << "," << dest.url() << ")";
             KIO::CopyJob *job = KIO::copyAs(uSrc, dest);
             job->setDefaultPermissions(true);
             kjob = job;
@@ -670,7 +687,9 @@ void KNewFileMenuPrivate::executeUrlDesktopFile(const KNewFileMenuSingleton::Ent
     dlg->setAttribute(Qt::WA_DeleteOnClose);
     dlg->setWindowTitle(i18n("Create link to URL"));
     m_fileDialog = dlg;
-    QObject::connect(dlg, &QDialog::accepted, q, [this]() { _k_slotUrlDesktopFile(); });
+    QObject::connect(dlg, &QDialog::accepted, q, [this]() {
+        _k_slotUrlDesktopFile();
+    });
     dlg->show();
 }
 
@@ -706,7 +725,7 @@ void KNewFileMenuPrivate::fillMenu()
                 // qDebug() << "skipping" << entry.filePath;
             } else {
                 seenTexts.insert(entry.text);
-                //const KNewFileMenuSingleton::Entry entry = templatesList->at(i-1);
+                // const KNewFileMenuSingleton::Entry entry = templatesList->at(i-1);
 
                 const QString templatePath = entry.templatePath;
                 // The best way to identify the "Create Directory", "Link to Location", "Link to Application" was the template
@@ -743,13 +762,12 @@ void KNewFileMenuPrivate::fillMenu()
                         if (createSymlink) {
                             keep = true;
                         } else if (!KDesktopFile::isDesktopFile(entry.templatePath)) {
-
                             // Determine MIME type on demand
                             QMimeDatabase db;
                             QMimeType mime;
                             if (entry.mimeType.isEmpty()) {
                                 mime = db.mimeTypeForFile(entry.templatePath);
-                                //qDebug() << entry.templatePath << "is" << mime.name();
+                                // qDebug() << entry.templatePath << "is" << mime.name();
                                 entry.mimeType = mime.name();
                             } else {
                                 mime = db.mimeTypeForName(entry.mimeType);
@@ -763,7 +781,7 @@ void KNewFileMenuPrivate::fillMenu()
                         }
 
                         if (!keep) {
-                            //qDebug() << "Not keeping" << entry.templatePath;
+                            // qDebug() << "Not keeping" << entry.templatePath;
                             continue;
                         }
                     }
@@ -774,7 +792,7 @@ void KNewFileMenuPrivate::fillMenu()
                     act->setText(i18nc("@item:inmenu Create New", "%1", entry.text));
                     act->setActionGroup(m_newMenuGroup);
 
-                    //qDebug() << templatePath << entry.filePath;
+                    // qDebug() << templatePath << entry.filePath;
 
                     if (templatePath.endsWith(QLatin1String("/URL.desktop"))) {
                         linkURL = act;
@@ -881,7 +899,6 @@ void KNewFileMenuPrivate::_k_slotActionTriggered(QAction *action)
     } else {
         executeRealFileOrDir(entry);
     }
-
 }
 
 void KNewFileMenuPrivate::_k_slotCreateDirectory()
@@ -915,13 +932,18 @@ void KNewFileMenuPrivate::_k_slotCreateDirectory()
                 m_buttonBox->setStandardButtons(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
                 KGuiItem::assign(m_buttonBox->button(QDialogButtonBox::Ok), enterNewNameGuiItem);
 
-                KMessageBox::createKMessageBox(confirmDialog, m_buttonBox, QMessageBox::Critical,
-                                   xi18nc("@info", "Could not create a folder with the name <filename>%1</filename><nl/>because it is reserved for use by the operating system.", name),
-                                   QStringList(),
-                                   QString(),
-                                   nullptr,
-                                   KMessageBox::NoExec,
-                                   QString());
+                KMessageBox::createKMessageBox(
+                    confirmDialog,
+                    m_buttonBox,
+                    QMessageBox::Critical,
+                    xi18nc("@info",
+                           "Could not create a folder with the name <filename>%1</filename><nl/>because it is reserved for use by the operating system.",
+                           name),
+                    QStringList(),
+                    QString(),
+                    nullptr,
+                    KMessageBox::NoExec,
+                    QString());
 
                 m_creatingDirectory = true;
                 QObject::connect(m_buttonBox, &QDialogButtonBox::accepted, q, &KNewFileMenu::createDirectory);
@@ -970,42 +992,49 @@ struct EntryWithName {
 void KNewFileMenuPrivate::_k_slotFillTemplates()
 {
     KNewFileMenuSingleton *s = kNewMenuGlobals();
-    //qDebug();
+    // qDebug();
 
-    const QStringList qrcTemplates = { QStringLiteral(":/kio5/newfile-templates") };
-    QStringList installedTemplates = { QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("templates"), QStandardPaths::LocateDirectory) };
-    // Qt does not provide an easy way to receive the xdg dir for templates so we have to find it on our own
-    #ifdef Q_OS_UNIX
-        QString xdgUserDirs = QStandardPaths::locate(QStandardPaths::ConfigLocation, QStringLiteral("user-dirs.dirs"), QStandardPaths::LocateFile);
-        QFile xdgUserDirsFile(xdgUserDirs);
-        if (!xdgUserDirs.isEmpty() && xdgUserDirsFile.open(QIODevice::ReadOnly | QIODevice::Text)) {
-            QTextStream in(&xdgUserDirsFile);
-            while (!in.atEnd()) {
-                QString line = in.readLine();
-                if (line.startsWith(QLatin1String("XDG_TEMPLATES_DIR="))) {
-                    QString xdgTemplates = line.mid(19, line.size()-20);
-                    xdgTemplates.replace(QStringLiteral("$HOME"), QDir::homePath());
-                    QDir xdgTemplatesDir(xdgTemplates);
-                    if (xdgTemplatesDir.exists()) {
-                        installedTemplates << xdgTemplates;
-                    }
-                    break;
+    const QStringList qrcTemplates = {QStringLiteral(":/kio5/newfile-templates")};
+    QStringList installedTemplates = {
+        QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("templates"), QStandardPaths::LocateDirectory)};
+// Qt does not provide an easy way to receive the xdg dir for templates so we have to find it on our own
+#ifdef Q_OS_UNIX
+    QString xdgUserDirs = QStandardPaths::locate(QStandardPaths::ConfigLocation, QStringLiteral("user-dirs.dirs"), QStandardPaths::LocateFile);
+    QFile xdgUserDirsFile(xdgUserDirs);
+    if (!xdgUserDirs.isEmpty() && xdgUserDirsFile.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        QTextStream in(&xdgUserDirsFile);
+        while (!in.atEnd()) {
+            QString line = in.readLine();
+            if (line.startsWith(QLatin1String("XDG_TEMPLATES_DIR="))) {
+                QString xdgTemplates = line.mid(19, line.size() - 20);
+                xdgTemplates.replace(QStringLiteral("$HOME"), QDir::homePath());
+                QDir xdgTemplatesDir(xdgTemplates);
+                if (xdgTemplatesDir.exists()) {
+                    installedTemplates << xdgTemplates;
                 }
+                break;
             }
         }
-    #endif
+    }
+#endif
 
     const QStringList templates = qrcTemplates + installedTemplates;
 
     // Ensure any changes in the templates dir will call this
-    if (! s->dirWatch) {
+    if (!s->dirWatch) {
         s->dirWatch = new KDirWatch;
         for (const QString &dir : qAsConst(installedTemplates)) {
             s->dirWatch->addDir(dir);
         }
-        QObject::connect(s->dirWatch, &KDirWatch::dirty, q, [this]() { _k_slotFillTemplates(); });
-        QObject::connect(s->dirWatch, &KDirWatch::created, q, [this]() { _k_slotFillTemplates(); });
-        QObject::connect(s->dirWatch, &KDirWatch::deleted, q, [this]() { _k_slotFillTemplates(); });
+        QObject::connect(s->dirWatch, &KDirWatch::dirty, q, [this]() {
+            _k_slotFillTemplates();
+        });
+        QObject::connect(s->dirWatch, &KDirWatch::created, q, [this]() {
+            _k_slotFillTemplates();
+        });
+        QObject::connect(s->dirWatch, &KDirWatch::deleted, q, [this]() {
+            _k_slotFillTemplates();
+        });
         // Ok, this doesn't cope with new dirs in XDG_DATA_DIRS, but that's another story
     }
     ++s->templatesVersion;
@@ -1030,7 +1059,7 @@ void KNewFileMenuPrivate::_k_slotFillTemplates()
     QMap<QString, KNewFileMenuSingleton::Entry> slist; // used for sorting
     QMap<QString, EntryWithName> ulist; // entries with unique URLs
     for (const QString &file : qAsConst(files)) {
-        //qDebug() << file;
+        // qDebug() << file;
         if (file[0] != QLatin1Char('.')) {
             KNewFileMenuSingleton::Entry e;
             e.filePath = file;
@@ -1052,7 +1081,7 @@ void KNewFileMenuPrivate::_k_slotFillTemplates()
             } else {
                 key.prepend(QLatin1Char('3'));
             }
-            EntryWithName en = { key, e };
+            EntryWithName en = {key, e};
             if (ulist.contains(url)) {
                 ulist.remove(url);
             }
@@ -1123,7 +1152,8 @@ void KNewFileMenuPrivate::_k_slotTextChanged(const QString &text)
 
     // Don't allow creating folders that would mask . or ..
     else if (text == QLatin1Char('.') || text == QLatin1String("..")) {
-        m_messageWidget->setText(xi18nc("@info", "The name <filename>%1</filename> cannot be used because it is reserved for use by the operating system.", text));
+        m_messageWidget->setText(
+            xi18nc("@info", "The name <filename>%1</filename> cannot be used because it is reserved for use by the operating system.", text));
         m_messageWidget->setMessageType(KMessageWidget::Error);
         m_messageWidget->animatedShow();
         m_buttonBox->button(QDialogButtonBox::Ok)->setEnabled(false);
@@ -1138,11 +1168,13 @@ void KNewFileMenuPrivate::_k_slotTextChanged(const QString &text)
 
     // File or folder begins with a space; show warning
     else if (text.startsWith(QLatin1Char(' '))) {
-        m_messageWidget->setText(xi18nc("@info", "The name <filename>%1</filename> starts with a space, which will result in it being shown before other items when sorting alphabetically, among other potential oddities.", text));
+        m_messageWidget->setText(xi18nc("@info",
+                                        "The name <filename>%1</filename> starts with a space, which will result in it being shown before other items when "
+                                        "sorting alphabetically, among other potential oddities.",
+                                        text));
         m_messageWidget->setMessageType(KMessageWidget::Warning);
         m_messageWidget->animatedShow();
     }
-
 #ifndef Q_OS_WIN
     // Inform the user that slashes in folder names create a directory tree
     else if (text.contains(QLatin1Char('/'))) {
@@ -1181,8 +1213,7 @@ void KNewFileMenuPrivate::_k_slotTextChanged(const QString &text)
         m_messageWidget->setMessageType(KMessageWidget::Error);
         m_messageWidget->animatedShow();
         m_buttonBox->button(QDialogButtonBox::Ok)->setEnabled(false);
-    }
-    else if (text.contains(QLatin1Char('\\'))) {
+    } else if (text.contains(QLatin1Char('\\'))) {
         m_messageWidget->setText(i18n("Backslashes cannot be used in file and folder names."));
         m_messageWidget->setMessageType(KMessageWidget::Error);
         m_messageWidget->animatedShow();
@@ -1192,11 +1223,12 @@ void KNewFileMenuPrivate::_k_slotTextChanged(const QString &text)
 
     // Using a tilde to begin a file or folder name is not recommended
     else if (text.startsWith(QLatin1Char('~'))) {
-        m_messageWidget->setText(i18n("Starting a file or folder name with a tilde is not recommended because it may be confusing or dangerous when using the terminal to delete things."));
+        m_messageWidget->setText(
+            i18n("Starting a file or folder name with a tilde is not recommended because it may be confusing or dangerous when using the terminal to delete "
+                 "things."));
         m_messageWidget->setMessageType(KMessageWidget::Warning);
         m_messageWidget->animatedShow();
-    }
-    else {
+    } else {
         m_messageWidget->hide();
     }
 
@@ -1209,8 +1241,10 @@ void KNewFileMenuPrivate::_k_slotTextChanged(const QString &text)
         } else {
             url = QUrl(m_baseUrl.toString() + QLatin1Char('/') + text);
         }
-        KIO::StatJob* job = KIO::statDetails(url, KIO::StatJob::StatSide::SourceSide, KIO::StatDetail::StatBasic);
-        QObject::connect(job, &KJob::result, q, [this] (KJob *job) { _k_slotStatResult(job); });
+        KIO::StatJob *job = KIO::statDetails(url, KIO::StatJob::StatSide::SourceSide, KIO::StatDetail::StatBasic);
+        QObject::connect(job, &KJob::result, q, [this](KJob *job) {
+            _k_slotStatResult(job);
+        });
         job->start();
     }
 
@@ -1225,7 +1259,7 @@ void KNewFileMenu::setSelectDirWhenAlreadyExist(bool shouldSelectExistingDir)
 void KNewFileMenuPrivate::_k_slotStatResult(KJob *job)
 {
     m_statRunning = false;
-    KIO::StatJob* statJob = static_cast<KIO::StatJob*>(job);
+    KIO::StatJob *statJob = static_cast<KIO::StatJob *>(job);
     // ignore stat Result when the lineEdit has changed
     const QUrl url = statJob->url().adjusted(QUrl::StripTrailingSlash);
     if (m_creatingDirectory && m_lineEdit->text().startsWith(QLatin1Char('~'))) {
@@ -1251,16 +1285,16 @@ void KNewFileMenuPrivate::_k_slotStatResult(KJob *job)
         bool shouldEnable = false;
         KMessageWidget::MessageType messageType = KMessageWidget::Error;
 
-        const KIO::UDSEntry& entry = statJob->statResult();
+        const KIO::UDSEntry &entry = statJob->statResult();
         if (entry.isDir()) {
-            if (m_selectDirWhenAlreadyExists && m_creatingDirectory)  {
+            if (m_selectDirWhenAlreadyExists && m_creatingDirectory) {
                 // allow "overwrite" of dir
                 messageType = KMessageWidget::Information;
                 shouldEnable = true;
             }
             m_messageWidget->setText(xi18nc("@info", "A directory with name <filename>%1</filename> already exists.", m_text));
         } else {
-            m_messageWidget->setText(xi18nc("@info", "A file with name <filename>%1</filename> already exists.",  m_text));
+            m_messageWidget->setText(xi18nc("@info", "A file with name <filename>%1</filename> already exists.", m_text));
         }
         m_messageWidget->setMessageType(messageType);
         m_messageWidget->animatedShow();
@@ -1334,14 +1368,15 @@ void KNewFileMenuPrivate::_k_slotUrlDesktopFile()
 }
 
 KNewFileMenu::KNewFileMenu(KActionCollection *collection, const QString &name, QObject *parent)
-    : KActionMenu(QIcon::fromTheme(QStringLiteral("document-new")), i18n("Create New"), parent),
-      d(new KNewFileMenuPrivate(collection, this))
+    : KActionMenu(QIcon::fromTheme(QStringLiteral("document-new")), i18n("Create New"), parent)
+    , d(new KNewFileMenuPrivate(collection, this))
 {
     // Don't fill the menu yet
     // We'll do that in checkUpToDate (should be connected to aboutToShow)
     d->m_newMenuGroup = new QActionGroup(this);
-    connect(d->m_newMenuGroup, &QActionGroup::triggered,
-            this, [this](QAction *action) { d->_k_slotActionTriggered(action); });
+    connect(d->m_newMenuGroup, &QActionGroup::triggered, this, [this](QAction *action) {
+        d->_k_slotActionTriggered(action);
+    });
     d->m_parentWidget = qobject_cast<QWidget *>(parent);
     d->m_newDirAction = nullptr;
 
@@ -1354,17 +1389,17 @@ KNewFileMenu::KNewFileMenu(KActionCollection *collection, const QString &name, Q
 
 KNewFileMenu::~KNewFileMenu()
 {
-    //qDebug() << this;
+    // qDebug() << this;
     delete d;
 }
 
 void KNewFileMenu::checkUpToDate()
 {
     KNewFileMenuSingleton *s = kNewMenuGlobals();
-    //qDebug() << this << "m_menuItemsVersion=" << d->m_menuItemsVersion
+    // qDebug() << this << "m_menuItemsVersion=" << d->m_menuItemsVersion
     //              << "s->templatesVersion=" << s->templatesVersion;
     if (d->m_menuItemsVersion < s->templatesVersion || s->templatesVersion == 0) {
-        //qDebug() << "recreating actions";
+        // qDebug() << "recreating actions";
         // We need to clean up the action collection
         // We look for our actions using the group
         qDeleteAll(d->m_newMenuGroup->actions());
@@ -1393,8 +1428,7 @@ void KNewFileMenu::createDirectory()
         return;
     }
 
-    QString name = !d->m_text.isEmpty() ? d->m_text
-                                          : i18nc("Default name for a new folder", "New Folder");
+    QString name = !d->m_text.isEmpty() ? d->m_text : i18nc("Default name for a new folder", "New Folder");
 
     d->m_baseUrl = d->m_popupFiles.first();
 
@@ -1421,13 +1455,19 @@ void KNewFileMenuPrivate::showNewDirNameDlg(const QString &name)
 
     m_creatingDirectory = true;
     _k_slotTextChanged(name); // have to save string in m_text in case user does not touch dialog
-    QObject::connect(m_lineEdit, &QLineEdit::textChanged, q, [this]() { _k_delayedSlotTextChanged(); });
+    QObject::connect(m_lineEdit, &QLineEdit::textChanged, q, [this]() {
+        _k_delayedSlotTextChanged();
+    });
     m_delayedSlotTextChangedTimer->callOnTimeout(m_lineEdit, [this]() {
         _k_slotTextChanged(m_lineEdit->text());
     });
 
-    QObject::connect(m_fileDialog, &QDialog::accepted, q, [this]() { _k_slotCreateDirectory(); });
-    QObject::connect(m_fileDialog, &QDialog::rejected, q, [this]() { _k_slotAbortDialog(); });
+    QObject::connect(m_fileDialog, &QDialog::accepted, q, [this]() {
+        _k_slotCreateDirectory();
+    });
+    QObject::connect(m_fileDialog, &QDialog::rejected, q, [this]() {
+        _k_slotAbortDialog();
+    });
 
     m_fileDialog->show();
     m_lineEdit->selectAll();
@@ -1522,7 +1562,7 @@ void KNewFileMenu::slotResult(KJob *job)
                 const QUrl localUrl = d->mostLocalUrl(destUrl);
                 if (localUrl.isLocalFile()) {
                     // Normal (local) file. Need to "touch" it, kio_file copied the mtime.
-                    (void) ::utime(QFile::encodeName(localUrl.toLocalFile()).constData(), nullptr);
+                    (void)::utime(QFile::encodeName(localUrl.toLocalFile()).constData(), nullptr);
                 }
                 Q_EMIT fileCreated(destUrl);
             } else if (KIO::SimpleJob *simpleJob = ::qobject_cast<KIO::SimpleJob *>(job)) {
@@ -1543,4 +1583,3 @@ QStringList KNewFileMenu::supportedMimeTypes() const
 }
 
 #include "moc_knewfilemenu.cpp"
-

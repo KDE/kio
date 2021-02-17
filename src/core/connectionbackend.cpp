@@ -8,28 +8,28 @@
 */
 
 #include "connectionbackend_p.h"
-#include <errno.h>
-#include <QCoreApplication>
 #include <KLocalizedString>
-#include <QFile>
-#include <QStandardPaths>
-#include <QTemporaryFile>
-#include <QPointer>
+#include <QCoreApplication>
 #include <QElapsedTimer>
+#include <QFile>
 #include <QLocalServer>
 #include <QLocalSocket>
+#include <QPointer>
+#include <QStandardPaths>
+#include <QTemporaryFile>
+#include <errno.h>
 
 #include "kiocoredebug.h"
 
 using namespace KIO;
 
 ConnectionBackend::ConnectionBackend(QObject *parent)
-    : QObject(parent),
-      state(Idle),
-      socket(nullptr),
-      len(-1),
-      cmd(0),
-      signalEmitted(false)
+    : QObject(parent)
+    , state(Idle)
+    , socket(nullptr)
+    , len(-1)
+    , cmd(0)
+    , signalEmitted(false)
 {
     localServer = nullptr;
 }
@@ -44,13 +44,13 @@ void ConnectionBackend::setSuspended(bool enable)
         return;
     }
     Q_ASSERT(socket);
-    Q_ASSERT(!localServer);     // !tcpServer as well
+    Q_ASSERT(!localServer); // !tcpServer as well
 
     if (enable) {
-        //qCDebug(KIO_CORE) << socket << "suspending";
+        // qCDebug(KIO_CORE) << socket << "suspending";
         socket->setReadBufferSize(1);
     } else {
-        //qCDebug(KIO_CORE) << socket << "resuming";
+        // qCDebug(KIO_CORE) << socket << "resuming";
         // Calling setReadBufferSize from a readyRead slot leads to a bug in Qt, fixed in 13c246ee119
         socket->setReadBufferSize(StandardBufferSize);
         if (socket->bytesAvailable() >= HeaderSize) {
@@ -74,7 +74,7 @@ bool ConnectionBackend::connectToRemote(const QUrl &url)
 {
     Q_ASSERT(state == Idle);
     Q_ASSERT(!socket);
-    Q_ASSERT(!localServer);     // !tcpServer as well
+    Q_ASSERT(!localServer); // !tcpServer as well
 
     QLocalSocket *sock = new QLocalSocket(this);
     QString path = url.path();
@@ -97,7 +97,7 @@ bool ConnectionBackend::listenForRemote()
 {
     Q_ASSERT(state == Idle);
     Q_ASSERT(!socket);
-    Q_ASSERT(!localServer);     // !tcpServer as well
+    Q_ASSERT(!localServer); // !tcpServer as well
 
     const QString prefix = QStandardPaths::writableLocation(QStandardPaths::RuntimeLocation);
     static QBasicAtomicInt s_socketCounter = Q_BASIC_ATOMIC_INITIALIZER(1);
@@ -136,7 +136,7 @@ bool ConnectionBackend::waitForIncomingTask(int ms)
     Q_ASSERT(socket);
     if (socket->state() != QLocalSocket::LocalSocketState::ConnectedState) {
         state = Idle;
-        return false;           // socket has probably closed, what do we do?
+        return false; // socket has probably closed, what do we do?
     }
 
     signalEmitted = false;
@@ -144,15 +144,14 @@ bool ConnectionBackend::waitForIncomingTask(int ms)
         socketReadyRead();
     }
     if (signalEmitted) {
-        return true;    // there was enough data in the socket
+        return true; // there was enough data in the socket
     }
 
     // not enough data in the socket, so wait for more
     QElapsedTimer timer;
     timer.start();
 
-    while (socket->state() == QLocalSocket::LocalSocketState::ConnectedState && !signalEmitted &&
-            (ms == -1 || timer.elapsed() < ms))
+    while (socket->state() == QLocalSocket::LocalSocketState::ConnectedState && !signalEmitted && (ms == -1 || timer.elapsed() < ms))
         if (!socket->waitForReadyRead(ms == -1 ? -1 : ms - timer.elapsed())) {
             break;
         }
@@ -176,7 +175,7 @@ bool ConnectionBackend::sendCommand(int cmd, const QByteArray &data) const
     socket->write(buffer, HeaderSize);
     socket->write(data);
 
-    //qCDebug(KIO_CORE) << this << "Sending command" << hex << cmd << "of"
+    // qCDebug(KIO_CORE) << this << "Sending command" << hex << cmd << "of"
     //         << data.size() << "bytes (" << socket->bytesToWrite()
     //         << "bytes left to write )";
 
@@ -194,12 +193,12 @@ ConnectionBackend *ConnectionBackend::nextPendingConnection()
     Q_ASSERT(localServer);
     Q_ASSERT(!socket);
 
-    //qCDebug(KIO_CORE) << "Got a new connection";
+    // qCDebug(KIO_CORE) << "Got a new connection";
 
     QLocalSocket *newSocket = localServer->nextPendingConnection();
 
     if (!newSocket) {
-        return nullptr;    // there was no connection...
+        return nullptr; // there was no connection...
     }
 
     ConnectionBackend *result = new ConnectionBackend();
@@ -217,18 +216,18 @@ void ConnectionBackend::socketReadyRead()
     bool shouldReadAnother;
     do {
         if (!socket)
-            // might happen if the invokeMethods were delivered after we disconnected
+        // might happen if the invokeMethods were delivered after we disconnected
         {
             return;
         }
 
-        //qCDebug(KIO_CORE) << this << "Got" << socket->bytesAvailable() << "bytes";
+        // qCDebug(KIO_CORE) << this << "Got" << socket->bytesAvailable() << "bytes";
         if (len == -1) {
             // We have to read the header
             char buffer[HeaderSize];
 
             if (socket->bytesAvailable() < HeaderSize) {
-                return;             // wait for more data
+                return; // wait for more data
             }
 
             socket->read(buffer, sizeof buffer);
@@ -247,12 +246,12 @@ void ConnectionBackend::socketReadyRead()
             }
             cmd = strtol(p, nullptr, 16);
 
-            //qCDebug(KIO_CORE) << this << "Beginning of command" << hex << cmd << "of size" << len;
+            // qCDebug(KIO_CORE) << this << "Beginning of command" << hex << cmd << "of size" << len;
         }
 
         QPointer<ConnectionBackend> that = this;
 
-        //qCDebug(KIO_CORE) << socket << "Want to read" << len << "bytes";
+        // qCDebug(KIO_CORE) << socket << "Want to read" << len << "bytes";
         if (socket->bytesAvailable() >= len) {
             Task task;
             task.cmd = cmd;
@@ -282,4 +281,3 @@ void ConnectionBackend::socketReadyRead()
         }
     } while (shouldReadAnother);
 }
-

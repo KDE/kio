@@ -6,15 +6,15 @@
 */
 
 #include "kautomount.h"
-#include <KDirWatch>
 #include "kio/job.h"
+#include "kio_widgets_debug.h"
+#include <KDirWatch>
 #include <KIO/JobUiDelegate>
 #include <KIO/OpenUrlJob>
-#include "kio_widgets_debug.h"
-#include <kdirnotify.h>
 #include <KJobUiDelegate>
-#include <kmountpoint.h>
 #include <QDebug>
+#include <kdirnotify.h>
+#include <kmountpoint.h>
 
 /***********************************************************************
  *
@@ -25,11 +25,14 @@
 class KAutoMountPrivate
 {
 public:
-    KAutoMountPrivate(KAutoMount *qq, const QString &device, const QString &mountPoint,
-                      const QString &desktopFile, bool showFileManagerWindow)
-        : q(qq), m_strDevice(device), m_desktopFile(desktopFile), m_mountPoint(mountPoint),
-          m_bShowFilemanagerWindow(showFileManagerWindow)
-    { }
+    KAutoMountPrivate(KAutoMount *qq, const QString &device, const QString &mountPoint, const QString &desktopFile, bool showFileManagerWindow)
+        : q(qq)
+        , m_strDevice(device)
+        , m_desktopFile(desktopFile)
+        , m_mountPoint(mountPoint)
+        , m_bShowFilemanagerWindow(showFileManagerWindow)
+    {
+    }
 
     KAutoMount *q;
     QString m_strDevice;
@@ -40,13 +43,18 @@ public:
     void slotResult(KJob *);
 };
 
-KAutoMount::KAutoMount(bool _readonly, const QByteArray &_format, const QString &_device,
-                       const QString  &_mountpoint, const QString &_desktopFile,
+KAutoMount::KAutoMount(bool _readonly,
+                       const QByteArray &_format,
+                       const QString &_device,
+                       const QString &_mountpoint,
+                       const QString &_desktopFile,
                        bool _show_filemanager_window)
     : d(new KAutoMountPrivate(this, _device, _mountpoint, _desktopFile, _show_filemanager_window))
 {
     KIO::Job *job = KIO::mount(_readonly, _format, _device, _mountpoint);
-    connect(job, &KJob::result, this, [this, job]() { d->slotResult(job); });
+    connect(job, &KJob::result, this, [this, job]() {
+        d->slotResult(job);
+    });
 }
 
 KAutoMount::~KAutoMount()
@@ -71,11 +79,12 @@ void KAutoMountPrivate::slotResult(KJob *job)
         }
 
         if (!mp) {
-            qCWarning(KIO_WIDGETS) << m_strDevice << "was correctly mounted, but findByDevice() didn't find it."
-                       << "This looks like a bug, please report it on https://bugs.kde.org, together with your /etc/fstab and /etc/mtab lines for this device";
+            qCWarning(KIO_WIDGETS)
+                << m_strDevice << "was correctly mounted, but findByDevice() didn't find it."
+                << "This looks like a bug, please report it on https://bugs.kde.org, together with your /etc/fstab and /etc/mtab lines for this device";
         } else {
             const QUrl url = QUrl::fromLocalFile(mp->mountPoint());
-            //qDebug() << "KAutoMount: m_strDevice=" << m_strDevice << " -> mountpoint=" << mountpoint;
+            // qDebug() << "KAutoMount: m_strDevice=" << m_strDevice << " -> mountpoint=" << mountpoint;
             if (m_bShowFilemanagerWindow) {
                 KIO::OpenUrlJob *job = new KIO::OpenUrlJob(url, QStringLiteral("inode/directory"));
                 job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, nullptr /*TODO - window*/));
@@ -87,9 +96,9 @@ void KAutoMountPrivate::slotResult(KJob *job)
         }
 
         // Update the desktop file which is used for mount/unmount (icon change)
-        //qDebug() << " mount finished : updating " << m_desktopFile;
+        // qDebug() << " mount finished : updating " << m_desktopFile;
         org::kde::KDirNotify::emitFilesChanged(QList<QUrl>() << QUrl::fromLocalFile(m_desktopFile));
-        //KDirWatch::self()->setFileDirty( m_desktopFile );
+        // KDirWatch::self()->setFileDirty( m_desktopFile );
 
         Q_EMIT q->finished();
     }
@@ -100,9 +109,12 @@ class KAutoUnmountPrivate
 {
 public:
     KAutoUnmountPrivate(KAutoUnmount *qq, const QString &_mountpoint, const QString &_desktopFile)
-        : q(qq), m_desktopFile(_desktopFile), m_mountpoint(_mountpoint)
-    {}
-    KAutoUnmount * const q;
+        : q(qq)
+        , m_desktopFile(_desktopFile)
+        , m_mountpoint(_mountpoint)
+    {
+    }
+    KAutoUnmount *const q;
     QString m_desktopFile;
     QString m_mountpoint;
 
@@ -113,7 +125,9 @@ KAutoUnmount::KAutoUnmount(const QString &_mountpoint, const QString &_desktopFi
     : d(new KAutoUnmountPrivate(this, _mountpoint, _desktopFile))
 {
     KIO::Job *job = KIO::unmount(d->m_mountpoint);
-    connect(job, &KJob::result, this, [this, job]() { d->slotResult(job); });
+    connect(job, &KJob::result, this, [this, job]() {
+        d->slotResult(job);
+    });
 }
 
 void KAutoUnmountPrivate::slotResult(KJob *job)
@@ -123,9 +137,9 @@ void KAutoUnmountPrivate::slotResult(KJob *job)
         job->uiDelegate()->showErrorMessage();
     } else {
         // Update the desktop file which is used for mount/unmount (icon change)
-        //qDebug() << "unmount finished : updating " << m_desktopFile;
+        // qDebug() << "unmount finished : updating " << m_desktopFile;
         org::kde::KDirNotify::emitFilesChanged(QList<QUrl>() << QUrl::fromLocalFile(m_desktopFile));
-        //KDirWatch::self()->setFileDirty( m_desktopFile );
+        // KDirWatch::self()->setFileDirty( m_desktopFile );
 
         // Notify about the new stuff in that dir, in case of opened windows showing it
         // You may think we removed files, but this may have also readded some

@@ -11,12 +11,12 @@
 #include <config-kiowidgets.h>
 
 #if HAVE_POSIX_ACL || defined(Q_MOC_RUN)
-#include <sys/acl.h>
 #include <kacl.h>
+#include <sys/acl.h>
 
 #include <QDialog>
-#include <QTreeWidget>
 #include <QHash>
+#include <QTreeWidget>
 
 #include <QComboBox>
 #include <kfileitem.h>
@@ -36,6 +36,7 @@ class KACLListView : public QTreeWidget
 {
     Q_OBJECT
     friend class KACLListViewItem;
+
 public:
     enum Types {
         OWNER_IDX = 0,
@@ -46,14 +47,15 @@ public:
         NAMED_GROUP_IDX,
         LAST_IDX,
     };
-    enum EntryType { User = 1,
-                     Group = 2,
-                     Others = 4,
-                     Mask = 8,
-                     NamedUser = 16,
-                     NamedGroup = 32,
-                     AllTypes = 63,
-                   };
+    enum EntryType {
+        User = 1,
+        Group = 2,
+        Others = 4,
+        Mask = 8,
+        NamedUser = 16,
+        NamedGroup = 32,
+        AllTypes = 63,
+    };
 
     explicit KACLListView(QWidget *parent = nullptr);
     ~KACLListView();
@@ -80,8 +82,7 @@ public:
     bool defaultMaskCanBeDeleted() const;
 
     const KACLListViewItem *findDefaultItemByType(EntryType type) const;
-    const KACLListViewItem *findItemByType(EntryType type,
-                                           bool defaults = false) const;
+    const KACLListViewItem *findItemByType(EntryType type, bool defaults = false) const;
     unsigned short calculateMaskValue(bool defaults) const;
     void calculateEffectiveRights();
 
@@ -101,6 +102,7 @@ public Q_SLOTS:
 protected Q_SLOTS:
     void slotItemClicked(QTreeWidgetItem *pItem, int col);
     void slotItemDoubleClicked(QTreeWidgetItem *item, int col);
+
 protected:
     void contentsMousePressEvent(QMouseEvent *e);
 
@@ -121,7 +123,8 @@ class EditACLEntryDialog : public QDialog
 {
     Q_OBJECT
 public:
-    EditACLEntryDialog(KACLListView *listView, KACLListViewItem *item,
+    EditACLEntryDialog(KACLListView *listView,
+                       KACLListViewItem *item,
                        const QStringList &users,
                        const QStringList &groups,
                        const QStringList &defaultUsers,
@@ -139,6 +142,7 @@ public Q_SLOTS:
 private Q_SLOTS:
     void slotUpdateAllowedUsersAndGroups();
     void slotUpdateAllowedTypes();
+
 private:
     KACLListView *m_listView;
     KACLListViewItem *m_item;
@@ -159,13 +163,10 @@ private:
 class KACLListViewItem : public QTreeWidgetItem
 {
 public:
-    KACLListViewItem(QTreeWidget *parent, KACLListView::EntryType type,
-                     unsigned short value,
-                     bool defaultEntry,
-                     const QString &qualifier = QString());
+    KACLListViewItem(QTreeWidget *parent, KACLListView::EntryType type, unsigned short value, bool defaultEntry, const QString &qualifier = QString());
     virtual ~KACLListViewItem();
     QString key() const;
-    bool operator< (const QTreeWidgetItem &other) const override;
+    bool operator<(const QTreeWidgetItem &other) const override;
 
     void calcEffectiveRights();
 

@@ -7,16 +7,16 @@
 
 #include "kdiroperatoriconview_p.h"
 
+#include <QApplication>
 #include <QDragEnterEvent>
 #include <QMimeData>
 #include <QScrollBar>
-#include <QApplication>
 
-#include <KIconLoader>
 #include <KFileItemDelegate>
+#include <KIconLoader>
 
-KDirOperatorIconView::KDirOperatorIconView(QWidget *parent, QStyleOptionViewItem::Position aDecorationPosition) :
-    QListView(parent)
+KDirOperatorIconView::KDirOperatorIconView(QWidget *parent, QStyleOptionViewItem::Position aDecorationPosition)
+    : QListView(parent)
 {
     setViewMode(QListView::IconMode);
     setResizeMode(QListView::Adjust);
@@ -106,7 +106,8 @@ void KDirOperatorIconView::wheelEvent(QWheelEvent *event)
     }
 }
 
-void KDirOperatorIconView::updateLayout() {
+void KDirOperatorIconView::updateLayout()
+{
     if (decorationPosition == QStyleOptionViewItem::Position::Top) {
         // Icons view
         setFlow(QListView::LeftToRight);

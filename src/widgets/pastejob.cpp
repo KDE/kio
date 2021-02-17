@@ -21,9 +21,7 @@
 
 using namespace KIO;
 
-extern KIO::Job *pasteMimeDataImpl(const QMimeData *mimeData, const QUrl &destUrl,
-                                   const QString &dialogText, QWidget *widget,
-                                   bool clipboard);
+extern KIO::Job *pasteMimeDataImpl(const QMimeData *mimeData, const QUrl &destUrl, const QString &dialogText, QWidget *widget, bool clipboard);
 
 PasteJob::PasteJob(PasteJobPrivate &dd)
     : Job(dd)
@@ -49,13 +47,11 @@ void PasteJobPrivate::slotStart()
             } else {
                 copyJob = KIO::copy(urls, m_destDir, m_flags);
             }
-            QObject::connect(copyJob, &KIO::CopyJob::copyingDone,
-                             q, [this](KIO::Job* job, const QUrl &src, const QUrl &dest) {
+            QObject::connect(copyJob, &KIO::CopyJob::copyingDone, q, [this](KIO::Job *job, const QUrl &src, const QUrl &dest) {
                 slotCopyingDone(job, src, dest);
             });
 
-            QObject::connect(copyJob, &KIO::CopyJob::copyingLinkDone,
-                             q, [this](KIO::Job* job, const QUrl &from, const QString &target, const QUrl &to) {
+            QObject::connect(copyJob, &KIO::CopyJob::copyingLinkDone, q, [this](KIO::Job *job, const QUrl &from, const QString &target, const QUrl &to) {
                 slotCopyingLinkDone(job, from, target, to);
             });
 
@@ -65,7 +61,7 @@ void PasteJobPrivate::slotStart()
     } else {
         const QString dialogText = m_clipboard ? i18n("Filename for clipboard content:") : i18n("Filename for dropped contents:");
         job = pasteMimeDataImpl(m_mimeData, m_destDir, dialogText, KJobWidgets::window(q), m_clipboard);
-        if (KIO::SimpleJob* simpleJob = qobject_cast<KIO::SimpleJob *>(job)) {
+        if (KIO::SimpleJob *simpleJob = qobject_cast<KIO::SimpleJob *>(job)) {
             KIO::FileUndoManager::self()->recordJob(KIO::FileUndoManager::Put, QList<QUrl>(), simpleJob->url(), job);
         }
     }
@@ -83,7 +79,7 @@ void PasteJob::slotResult(KJob *job)
         KIO::Job::slotResult(job); // will set the error and emit result(this)
         return;
     }
-    KIO::SimpleJob *simpleJob = qobject_cast<KIO::SimpleJob*>(job);
+    KIO::SimpleJob *simpleJob = qobject_cast<KIO::SimpleJob *>(job);
     if (simpleJob) {
         Q_EMIT itemCreated(simpleJob->url());
     }
@@ -92,7 +88,7 @@ void PasteJob::slotResult(KJob *job)
     emitResult();
 }
 
-PasteJob * KIO::paste(const QMimeData *mimeData, const QUrl &destDir, JobFlags flags)
+PasteJob *KIO::paste(const QMimeData *mimeData, const QUrl &destDir, JobFlags flags)
 {
     return PasteJobPrivate::newJob(mimeData, destDir, flags, true /*clipboard*/);
 }

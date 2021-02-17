@@ -5,19 +5,19 @@
     SPDX-License-Identifier: GPL-2.0-only
 */
 
+#include <QFile>
 #include <QObject>
 #include <QStandardPaths>
-#include <QFile>
 #include <QTemporaryDir>
 
-#include <kfileplacesview.h>
-#include <kfileplacesmodel.h>
 #include <KConfig>
 #include <KConfigGroup>
 #include <KProtocolInfo>
+#include <kfileplacesmodel.h>
+#include <kfileplacesview.h>
 
-#include <QTest>
 #include <QSignalSpy>
+#include <QTest>
 
 static QString bookmarksFile()
 {
@@ -34,6 +34,7 @@ private Q_SLOTS:
 
     void testUrlChanged_data();
     void testUrlChanged();
+
 private:
     QTemporaryDir m_tmpHome;
 };

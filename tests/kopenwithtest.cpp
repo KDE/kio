@@ -7,9 +7,9 @@
 */
 
 #include <QApplication>
-#include <kopenwithdialog.h>
-#include <QUrl>
 #include <QDebug>
+#include <QUrl>
+#include <kopenwithdialog.h>
 
 int main(int argc, char **argv)
 {
@@ -50,4 +50,3 @@ int main(int argc, char **argv)
 
     return 0;
 }
-

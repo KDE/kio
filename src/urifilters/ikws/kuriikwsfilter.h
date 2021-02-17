@@ -10,8 +10,8 @@
 #ifndef KURIIKWSFILTER_H
 #define KURIIKWSFILTER_H
 
-#include <kurifilter.h>
 #include <QVariant>
+#include <kurifilter.h>
 
 class KAutoWebSearch : public KUriFilterPlugin
 {

@@ -9,9 +9,9 @@
 #ifndef KNEWFILEMENU_H
 #define KNEWFILEMENU_H
 
-#include <QUrl>
-#include <KActionMenu>
 #include "kiofilewidgets_export.h"
+#include <KActionMenu>
+#include <QUrl>
 
 class KJob;
 
@@ -204,7 +204,6 @@ private:
 
     friend class KNewFileMenuPrivate;
     KNewFileMenuPrivate *const d;
-
 };
 
 #endif

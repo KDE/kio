@@ -14,7 +14,6 @@
 #include <QUrl>
 namespace KIO
 {
-
 /**
  * Returns a translated error message for @p errorCode using the
  * additional error information provided by @p errorText.
@@ -40,8 +39,7 @@ KIOCORE_EXPORT QString buildErrorString(int errorCode, const QString &errorText)
  * @li QStringList causes - a list of possible causes of the error
  * @li QStringList solutions - a liso of solutions for the error
  */
-KIOCORE_EXPORT QByteArray rawErrorDetail(int errorCode, const QString &errorText,
-        const QUrl *reqUrl = nullptr, int method = -1);
+KIOCORE_EXPORT QByteArray rawErrorDetail(int errorCode, const QString &errorText, const QUrl *reqUrl = nullptr, int method = -1);
 }
 
 // kio/job.h is what apps include to get all jobs -> we include jobclasses.h to preserve SC

@@ -13,8 +13,8 @@
 class QDialog;
 class QWidget;
 
-namespace KIO {
-
+namespace KIO
+{
 // TODO KF6: Make KIO::JobUiDelegate inherit from WidgetsUntrustedProgramHandler
 // (or even merge the two classes)
 // so that setDelegate(new KIO::JobUiDelegate) provides both dialog boxes on error

@@ -10,12 +10,12 @@
 #ifndef HTTPSERVER_P_H
 #define HTTPSERVER_P_H
 
-#include <QThread>
 #include <QMutex>
 #include <QSemaphore>
+#include <QSslError>
 #include <QTcpServer>
 #include <QTcpSocket>
-#include <QSslError>
+#include <QThread>
 
 class BlockingHttpServer;
 
@@ -24,20 +24,20 @@ class HttpServerThread : public QThread
     Q_OBJECT
 public:
     enum Feature {
-        Public = 0,    // HTTP with no ssl and no authentication needed
-        Ssl = 1,       // HTTPS
-        BasicAuth = 2,  // Requires authentication
-        Error404 = 4,   // Return "404 not found"
-                   // bitfield, next item is 8
+        Public = 0, // HTTP with no ssl and no authentication needed
+        Ssl = 1, // HTTPS
+        BasicAuth = 2, // Requires authentication
+        Error404 = 4, // Return "404 not found"
+                      // bitfield, next item is 8
     };
     Q_DECLARE_FLAGS(Features, Feature)
 
     HttpServerThread(const QByteArray &dataToSend, Features features)
-        : m_dataToSend(dataToSend), m_features(features)
+        : m_dataToSend(dataToSend)
+        , m_features(features)
     {
         start();
         m_ready.acquire();
-
     }
     ~HttpServerThread()
     {
@@ -71,9 +71,7 @@ public:
     }
     QString endPoint() const
     {
-        return QString::fromLatin1("%1://127.0.0.1:%2/path")
-               .arg(QString::fromLatin1((m_features & Ssl) ? "https" : "http"))
-               .arg(serverPort());
+        return QString::fromLatin1("%1://127.0.0.1:%2/path").arg(QString::fromLatin1((m_features & Ssl) ? "https" : "http")).arg(serverPort());
     }
 
     void finish();
@@ -130,8 +128,14 @@ class BlockingHttpServer : public QTcpServer
 {
     Q_OBJECT
 public:
-    BlockingHttpServer(bool ssl) : doSsl(ssl), sslSocket(nullptr) {}
-    ~BlockingHttpServer() {}
+    BlockingHttpServer(bool ssl)
+        : doSsl(ssl)
+        , sslSocket(nullptr)
+    {
+    }
+    ~BlockingHttpServer()
+    {
+    }
 
     QTcpSocket *waitForNextConnectionSocket()
     {
@@ -142,7 +146,7 @@ public:
             Q_ASSERT(sslSocket);
             return sslSocket;
         } else {
-            //qDebug() << "returning nextPendingConnection";
+            // qDebug() << "returning nextPendingConnection";
             return nextPendingConnection();
         }
     }
@@ -159,6 +163,7 @@ private Q_SLOTS:
     {
         qDebug() << "server-side: slotSslErrors" << sslSocket->errorString() << errors;
     }
+
 private:
     bool doSsl;
     QTcpSocket *sslSocket;

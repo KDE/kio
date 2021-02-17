@@ -7,10 +7,10 @@
 
 #include "kshellcompletion.h"
 
-#include <stdlib.h>
-#include <QCharRef>
 #include <KCompletion>
 #include <KCompletionMatches>
+#include <QCharRef>
+#include <stdlib.h>
 
 class KShellCompletionPrivate
 {
@@ -37,8 +37,8 @@ public:
 };
 
 KShellCompletion::KShellCompletion()
-    : KUrlCompletion(),
-      d(new KShellCompletionPrivate)
+    : KUrlCompletion()
+    , d(new KShellCompletionPrivate)
 {
 }
 
@@ -100,9 +100,9 @@ void KShellCompletion::postProcessMatch(QString *match) const
     }
 
     if (match->endsWith(QLatin1Char('/'))) {
-        d->quoteText(match, false, true);    // don't quote the trailing '/'
+        d->quoteText(match, false, true); // don't quote the trailing '/'
     } else {
-        d->quoteText(match, false, false);    // quote the whole text
+        d->quoteText(match, false, false); // quote the whole text
     }
 
     match->prepend(d->m_text_start);
@@ -115,9 +115,9 @@ void KShellCompletion::postProcessMatches(QStringList *matches) const
     for (QString &match : *matches) {
         if (!match.isNull()) {
             if (match.endsWith(QLatin1Char('/'))) {
-                d->quoteText(&match, false, true);    // don't quote trailing '/'
+                d->quoteText(&match, false, true); // don't quote trailing '/'
             } else {
-                d->quoteText(&match, false, false);    // quote the whole text
+                d->quoteText(&match, false, false); // quote the whole text
             }
 
             match.prepend(d->m_text_start);
@@ -130,12 +130,12 @@ void KShellCompletion::postProcessMatches(KCompletionMatches *matches) const
     KUrlCompletion::postProcessMatches(matches);
 
     for (auto &match : *matches) {
-        QString& matchString = match.value();
+        QString &matchString = match.value();
         if (!matchString.isNull()) {
             if (matchString.endsWith(QLatin1Char('/'))) {
-                d->quoteText(&matchString, false, true);    // don't quote trailing '/'
+                d->quoteText(&matchString, false, true); // don't quote trailing '/'
             } else {
-                d->quoteText(&matchString, false, false);    // quote the whole text
+                d->quoteText(&matchString, false, false); // quote the whole text
             }
 
             matchString.prepend(d->m_text_start);
@@ -151,8 +151,7 @@ void KShellCompletion::postProcessMatches(KCompletionMatches *matches) const
  * text_start = [out] text at the left, including the space
  * text_compl = [out] text at the right
  */
-void KShellCompletionPrivate::splitText(const QString &text, QString &text_start,
-                                        QString &text_compl) const
+void KShellCompletionPrivate::splitText(const QString &text, QString &text_start, QString &text_compl) const
 {
     bool in_quote = false;
     bool escaped = false;
@@ -161,7 +160,6 @@ void KShellCompletionPrivate::splitText(const QString &text, QString &text_start
     int end_space_len = 0;
 
     for (int pos = 0; pos < text.length(); pos++) {
-
         end_space_len = 0;
 
         if (escaped) {
@@ -177,7 +175,6 @@ void KShellCompletionPrivate::splitText(const QString &text, QString &text_start
         } else if (text[pos] == m_escape_char) {
             escaped = true;
         } else if (!in_quote && text[pos] == m_word_break_char) {
-
             end_space_len = 1;
 
             while (pos + 1 < text.length() && text[pos + 1] == m_word_break_char) {
@@ -240,14 +237,11 @@ bool KShellCompletionPrivate::quoteText(QString *text, bool force, bool skip_las
     }
 
     if (force || (pos >= 0)) {
-
         // Escape \ in the string
-        text->replace(m_escape_char,
-                      QString(m_escape_char) + m_escape_char);
+        text->replace(m_escape_char, QString(m_escape_char) + m_escape_char);
 
         // Escape " in the string
-        text->replace(m_quote_char1,
-                      QString(m_escape_char) + m_quote_char1);
+        text->replace(m_quote_char1, QString(m_escape_char) + m_quote_char1);
 
         // " at the beginning
         text->insert(0, m_quote_char1);
@@ -279,7 +273,6 @@ QString KShellCompletionPrivate::unquote(const QString &text) const
     QString result;
 
     for (const QChar ch : text) {
-
         if (escaped) {
             escaped = false;
             result.insert(result.length(), ch);
@@ -297,9 +290,7 @@ QString KShellCompletionPrivate::unquote(const QString &text) const
         } else {
             result.insert(result.length(), ch);
         }
-
     }
 
     return result;
 }
-

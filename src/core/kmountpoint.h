@@ -54,6 +54,7 @@ public:
          */
         Ptr findByDevice(const QString &device) const;
     };
+
 public:
     /**
      * Flags that specify which additional details should be fetched for each mountpoint.
@@ -119,9 +120,13 @@ public:
      */
     bool probablySlow() const;
 
-    enum FileSystemFlag { SupportsChmod, SupportsChown, SupportsUTime,
-                          SupportsSymlinks, CaseInsensitive,
-                        };
+    enum FileSystemFlag {
+        SupportsChmod,
+        SupportsChown,
+        SupportsUTime,
+        SupportsSymlinks,
+        CaseInsensitive,
+    };
     /**
      * Checks the capabilities of the filesystem.
      * @param flag the flag to check
@@ -159,4 +164,3 @@ private:
 Q_DECLARE_OPERATORS_FOR_FLAGS(KMountPoint::DetailsNeededFlags)
 
 #endif // KMOUNTPOINT_H
-

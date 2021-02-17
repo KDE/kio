@@ -17,7 +17,6 @@ class KService;
 
 namespace KIO
 {
-
 class DesktopExecParserPrivate;
 
 /**

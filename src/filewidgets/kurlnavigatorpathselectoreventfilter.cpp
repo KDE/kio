@@ -15,12 +15,10 @@ using namespace KDEPrivate;
 KUrlNavigatorPathSelectorEventFilter::KUrlNavigatorPathSelectorEventFilter(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 KUrlNavigatorPathSelectorEventFilter::~KUrlNavigatorPathSelectorEventFilter()
 {
-
 }
 
 bool KUrlNavigatorPathSelectorEventFilter::eventFilter(QObject *watched, QEvent *event)

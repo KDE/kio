@@ -7,8 +7,8 @@
 #ifndef DEFAULTVIEWADAPTER_H
 #define DEFAULTVIEWADAPTER_H
 
-#include "kiofilewidgets_export.h"
 #include "kabstractviewadapter.h"
+#include "kiofilewidgets_export.h"
 
 class QAbstractItemView;
 

@@ -4,8 +4,8 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "kurlnavigatordropdownbutton_p.h"
 #include "kurlnavigator.h"
+#include "kurlnavigatordropdownbutton_p.h"
 
 #include <QKeyEvent>
 #include <QPainter>
@@ -13,9 +13,8 @@
 
 namespace KDEPrivate
 {
-
-KUrlNavigatorDropDownButton::KUrlNavigatorDropDownButton(KUrlNavigator *parent) :
-    KUrlNavigatorButtonBase(parent)
+KUrlNavigatorDropDownButton::KUrlNavigatorDropDownButton(KUrlNavigator *parent)
+    : KUrlNavigatorButtonBase(parent)
 {
 }
 

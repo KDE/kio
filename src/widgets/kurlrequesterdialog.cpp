@@ -8,14 +8,14 @@
 #include "kurlrequesterdialog.h"
 
 #include <QDialogButtonBox>
-#include <QLabel>
 #include <QFileDialog>
+#include <QLabel>
 #include <QVBoxLayout>
 
 #include <KLineEdit>
 #include <KLocalizedString>
-#include <krecentdocument.h>
 #include <KStandardGuiItem>
+#include <krecentdocument.h>
 #include <kurlrequester.h>
 
 class KUrlRequesterDialogPrivate
@@ -26,7 +26,7 @@ public:
     {
     }
 
-    KUrlRequesterDialog * const q;
+    KUrlRequesterDialog *const q;
 
     void initDialog(const QString &text, const QUrl &url);
 
@@ -38,13 +38,15 @@ public:
 };
 
 KUrlRequesterDialog::KUrlRequesterDialog(const QUrl &urlName, QWidget *parent)
-    : QDialog(parent), d(new KUrlRequesterDialogPrivate(this))
+    : QDialog(parent)
+    , d(new KUrlRequesterDialogPrivate(this))
 {
     d->initDialog(i18n("Location:"), urlName);
 }
 
 KUrlRequesterDialog::KUrlRequesterDialog(const QUrl &urlName, const QString &_text, QWidget *parent)
-    : QDialog(parent), d(new KUrlRequesterDialogPrivate(this))
+    : QDialog(parent)
+    , d(new KUrlRequesterDialogPrivate(this))
 {
     d->initDialog(_text, urlName);
 }
@@ -65,8 +67,9 @@ void KUrlRequesterDialogPrivate::initDialog(const QString &text, const QUrl &url
     urlRequester->setMinimumWidth(urlRequester->sizeHint().width() * 3);
     topLayout->addWidget(urlRequester);
     urlRequester->setFocus();
-    QObject::connect(urlRequester->lineEdit(), &KLineEdit::textChanged,
-                     q, [this](const QString &text) { _k_slotTextChanged(text); });
+    QObject::connect(urlRequester->lineEdit(), &KLineEdit::textChanged, q, [this](const QString &text) {
+        _k_slotTextChanged(text);
+    });
     /*
     KFile::Mode mode = static_cast<KFile::Mode>( KFile::File |
             KFile::ExistingOnly );
@@ -97,8 +100,7 @@ QUrl KUrlRequesterDialog::selectedUrl() const
     }
 }
 
-QUrl KUrlRequesterDialog::getUrl(const QUrl &dir, QWidget *parent,
-                                 const QString &caption)
+QUrl KUrlRequesterDialog::getUrl(const QUrl &dir, QWidget *parent, const QString &caption)
 {
     KUrlRequesterDialog dlg(dir, parent);
 
@@ -127,4 +129,3 @@ KUrlRequester *KUrlRequesterDialog::urlRequester()
 }
 
 #include "moc_kurlrequesterdialog.cpp"
-

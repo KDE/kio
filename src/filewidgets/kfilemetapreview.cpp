@@ -10,17 +10,17 @@
 #include <QLayout>
 #include <QMimeDatabase>
 
-#include <QDebug>
-#include <kio/previewjob.h>
-#include <KPluginLoader>
 #include <KPluginFactory>
+#include <KPluginLoader>
+#include <QDebug>
 #include <kimagefilepreview.h>
+#include <kio/previewjob.h>
 
 bool KFileMetaPreview::s_tryAudioPreview = true;
 
 KFileMetaPreview::KFileMetaPreview(QWidget *parent)
-    : KPreviewWidgetBase(parent),
-      haveAudioPreview(false)
+    : KPreviewWidgetBase(parent)
+    , haveAudioPreview(false)
 {
     QHBoxLayout *layout = new QHBoxLayout(this);
     layout->setContentsMargins(0, 0, 0, 0);
@@ -28,7 +28,7 @@ KFileMetaPreview::KFileMetaPreview(QWidget *parent)
     layout->addWidget(m_stack);
 
     // ###
-//     m_previewProviders.setAutoDelete( true );
+    //     m_previewProviders.setAutoDelete( true );
     initPreviewProviders();
 }
 
@@ -44,14 +44,14 @@ void KFileMetaPreview::initPreviewProviders()
 
     // image previews
     KImageFilePreview *imagePreview = new KImageFilePreview(m_stack);
-    (void) m_stack->addWidget(imagePreview);
+    (void)m_stack->addWidget(imagePreview);
     m_stack->setCurrentWidget(imagePreview);
     resize(imagePreview->sizeHint());
 
     const QStringList mimeTypes = imagePreview->supportedMimeTypes();
     QStringList::ConstIterator it = mimeTypes.begin();
     for (; it != mimeTypes.end(); ++it) {
-//         qDebug(".... %s", (*it).toLatin1().constData());
+        //         qDebug(".... %s", (*it).toLatin1().constData());
         m_previewProviders.insert(*it, imagePreview);
     }
 }
@@ -103,16 +103,14 @@ KPreviewWidgetBase *KFileMetaPreview::previewProviderFor(const QString &mimeType
         return provider;
     }
 
-//qDebug("#### didn't find anything for: %s", mimeType.toLatin1().constData());
+    // qDebug("#### didn't find anything for: %s", mimeType.toLatin1().constData());
 
-    if (s_tryAudioPreview &&
-            !mimeType.startsWith(QLatin1String("text/")) &&
-            !mimeType.startsWith(QLatin1String("image/"))) {
+    if (s_tryAudioPreview && !mimeType.startsWith(QLatin1String("text/")) && !mimeType.startsWith(QLatin1String("image/"))) {
         if (!haveAudioPreview) {
             KPreviewWidgetBase *audioPreview = createAudioPreview(m_stack);
             if (audioPreview) {
                 haveAudioPreview = true;
-                (void) m_stack->addWidget(audioPreview);
+                (void)m_stack->addWidget(audioPreview);
                 const QStringList mimeTypes = audioPreview->supportedMimeTypes();
                 QStringList::ConstIterator it = mimeTypes.begin();
                 for (; it != mimeTypes.end(); ++it) {
@@ -163,8 +161,7 @@ void KFileMetaPreview::clearPreview()
     }
 }
 
-void KFileMetaPreview::addPreviewProvider(const QString &mimeType,
-        KPreviewWidgetBase *provider)
+void KFileMetaPreview::addPreviewProvider(const QString &mimeType, KPreviewWidgetBase *provider)
 {
     m_previewProviders.insert(mimeType, provider);
 }

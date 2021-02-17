@@ -13,8 +13,8 @@
 
 #include "kiowidgets_export.h"
 
-#include <QObject>
 #include <QHash>
+#include <QObject>
 #include <QPair>
 #include <QStringList>
 #include <QUrl>
@@ -109,45 +109,45 @@ private:
 };
 
 /**
-* @class KUriFilterData kurifilter.h <KUriFilter>
-*
-* This class is a basic messaging class used to exchange filtering information
-* between the filter plugins and the application requesting the filtering
-* service.
-*
-* Use this object if you require a more detailed information about the URI you
-* want to filter. Any application can create an instance of this class and send
-* it to KUriFilter to have the plugins fill out all possible information about
-* the URI.
-*
-* On successful filtering you can use @ref uriType() to determine what type
-* of resource the request was filtered into. See @ref KUriFilter::UriTypes for
-* details. If an error is encountered, then @ref KUriFilter::Error is returned.
-* You can use @ref errorMsg to obtain the error information.
-*
-* The functions in this class are not reentrant.
-*
-* \b Example
-*
-* Here is a basic example of how this class is used with @ref KUriFilter:
-* \code
-*   KUriFilterData filterData (QLatin1String("kde.org"));
-*   bool filtered = KUriFilter::self()->filterUri(filterData);
-* \endcode
-*
-* If you are only interested in getting the list of preferred search providers,
-* then you can do the following:
-*
-* \code
-* KUriFilterData data;
-* data.setData("<text-to-search-for>");
-* data.setSearchFilteringOption(KUriFilterData::RetrievePreferredSearchProvidersOnly);
-* bool filtered = KUriFilter::self()->filterSearchUri(data, KUriFilter::NormalTextFilter);
-* \endcode
-*
-* @short A class for exchanging filtering information.
-* @author Dawit Alemayehu <adawit at kde.org>
-*/
+ * @class KUriFilterData kurifilter.h <KUriFilter>
+ *
+ * This class is a basic messaging class used to exchange filtering information
+ * between the filter plugins and the application requesting the filtering
+ * service.
+ *
+ * Use this object if you require a more detailed information about the URI you
+ * want to filter. Any application can create an instance of this class and send
+ * it to KUriFilter to have the plugins fill out all possible information about
+ * the URI.
+ *
+ * On successful filtering you can use @ref uriType() to determine what type
+ * of resource the request was filtered into. See @ref KUriFilter::UriTypes for
+ * details. If an error is encountered, then @ref KUriFilter::Error is returned.
+ * You can use @ref errorMsg to obtain the error information.
+ *
+ * The functions in this class are not reentrant.
+ *
+ * \b Example
+ *
+ * Here is a basic example of how this class is used with @ref KUriFilter:
+ * \code
+ *   KUriFilterData filterData (QLatin1String("kde.org"));
+ *   bool filtered = KUriFilter::self()->filterUri(filterData);
+ * \endcode
+ *
+ * If you are only interested in getting the list of preferred search providers,
+ * then you can do the following:
+ *
+ * \code
+ * KUriFilterData data;
+ * data.setData("<text-to-search-for>");
+ * data.setSearchFilteringOption(KUriFilterData::RetrievePreferredSearchProvidersOnly);
+ * bool filtered = KUriFilter::self()->filterSearchUri(data, KUriFilter::NormalTextFilter);
+ * \endcode
+ *
+ * @short A class for exchanging filtering information.
+ * @author Dawit Alemayehu <adawit at kde.org>
+ */
 
 class KIOWIDGETS_EXPORT KUriFilterData
 {
@@ -171,29 +171,29 @@ public:
     enum UriTypes { NetProtocol = 0, LocalFile, LocalDir, Executable, Help, Shell, Blocked, Error, Unknown };
 
     /**
-      * This enum describes the search filtering options to be used.
-      *
-      * @li SearchFilterOptionNone
-      *     No search filter options are set and normal filtering is performed
-      *     on the input data.
-      * @li RetrieveSearchProvidersOnly
-      *     If set, the list of all available search providers are returned without
-      *     any input filtering. This flag only applies when used in conjunction
-      *     with the @ref KUriFilter::NormalTextFilter flag.
-      * @li RetrievePreferredSearchProvidersOnly
-      *     If set, the list of preferred search providers are returned without
-      *     any input filtering. This flag only applies when used in conjunction
-      *     with the @ref KUriFilter::NormalTextFilter flag.
-      * @li RetrieveAvailableSearchProvidersOnly
-      *     Same as doing RetrievePreferredSearchProvidersOnly | RetrieveSearchProvidersOnly,
-      *     where all available search providers are returned if no preferred ones
-      *     ones are available. No input filtering will be performed.
-      *
-      * @see setSearchFilteringOptions
-      * @see KUriFilter::filterSearchUri
-      * @see SearchFilterOptions
-      * @since 4.6
-      */
+     * This enum describes the search filtering options to be used.
+     *
+     * @li SearchFilterOptionNone
+     *     No search filter options are set and normal filtering is performed
+     *     on the input data.
+     * @li RetrieveSearchProvidersOnly
+     *     If set, the list of all available search providers are returned without
+     *     any input filtering. This flag only applies when used in conjunction
+     *     with the @ref KUriFilter::NormalTextFilter flag.
+     * @li RetrievePreferredSearchProvidersOnly
+     *     If set, the list of preferred search providers are returned without
+     *     any input filtering. This flag only applies when used in conjunction
+     *     with the @ref KUriFilter::NormalTextFilter flag.
+     * @li RetrieveAvailableSearchProvidersOnly
+     *     Same as doing RetrievePreferredSearchProvidersOnly | RetrieveSearchProvidersOnly,
+     *     where all available search providers are returned if no preferred ones
+     *     ones are available. No input filtering will be performed.
+     *
+     * @see setSearchFilteringOptions
+     * @see KUriFilter::filterSearchUri
+     * @see SearchFilterOptions
+     * @since 4.6
+     */
     enum SearchFilterOption {
         SearchFilterOptionNone = 0x0,
         RetrieveSearchProvidersOnly = 0x01,
@@ -574,20 +574,20 @@ public:
     void setDefaultUrlScheme(const QString &);
 
     /**
-      * Sets the options used by search filter plugins to filter requests.
-      *
-      * The default search filter option is @ref SearchFilterOptionNone. See
-      * @ref SearchFilterOption for the description of the other flags.
-      *
-      * It is important to note that the options set through this function can
-      * prevent any filtering from being performed by search filter plugins.
-      * As such, @ref uriTypes can return KUriFilterData::Unknown and @ref uri
-      * can return an invalid url even though the filtering request returned
-      * a successful response.
-      *
-      * @see searchFilteringOptions
-      * @since 4.6
-      */
+     * Sets the options used by search filter plugins to filter requests.
+     *
+     * The default search filter option is @ref SearchFilterOptionNone. See
+     * @ref SearchFilterOption for the description of the other flags.
+     *
+     * It is important to note that the options set through this function can
+     * prevent any filtering from being performed by search filter plugins.
+     * As such, @ref uriTypes can return KUriFilterData::Unknown and @ref uri
+     * can return an invalid url even though the filtering request returned
+     * a successful response.
+     *
+     * @see searchFilteringOptions
+     * @since 4.6
+     */
     void setSearchFilteringOptions(SearchFilterOptions options);
 
     /**
@@ -643,7 +643,7 @@ public:
      * @deprecated Since 4.6, use @ref KUriFilterSearchProvider instead. See @ref setSearchProviders;
      */
     KIOWIDGETS_DEPRECATED_VERSION(4, 6, "Use KUriFilterSearchProvider")
-    typedef QHash<QString, QPair<QString, QString> > ProviderInfoList;
+    typedef QHash<QString, QPair<QString, QString>> ProviderInfoList;
 #endif
 
     /**
@@ -709,8 +709,7 @@ protected:
      *
      * @since 4.5
      */
-    void setSearchProvider(KUriFilterData &data, const QString &provider,
-                           const QString &term, const QChar &separator) const;
+    void setSearchProvider(KUriFilterData &data, const QString &provider, const QString &term, const QChar &separator) const;
 
     /**
      * Sets the information about the search @p providers in @p data.
@@ -854,13 +853,13 @@ class KIOWIDGETS_EXPORT KUriFilter
 {
 public:
     /**
-    * This enum describes the types of search plugin filters available.
-    *
-    * @li NormalTextFilter      The plugin used to filter normal text, e.g. "some term to search".
-    * @li WebShortcutFilter     The plugin used to filter web shortcuts, e.g. gg:KDE.
-    *
-    * @see SearchFilterTypes
-    */
+     * This enum describes the types of search plugin filters available.
+     *
+     * @li NormalTextFilter      The plugin used to filter normal text, e.g. "some term to search".
+     * @li WebShortcutFilter     The plugin used to filter web shortcuts, e.g. gg:KDE.
+     *
+     * @see SearchFilterTypes
+     */
     enum SearchFilterType {
         NormalTextFilter = 0x01,
         WebShortcutFilter = 0x02,
@@ -982,7 +981,6 @@ public:
     QStringList pluginNames() const;
 
 protected:
-
     /**
      * Constructor.
      *

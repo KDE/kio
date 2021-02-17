@@ -5,13 +5,13 @@
     SPDX-License-Identifier: LGPL-2.0-only OR LGPL-3.0-only OR LicenseRef-KDE-Accepted-LGPL
 */
 
+#include <QBuffer>
+#include <QNetworkReply>
+#include <QProcess>
+#include <QSignalSpy>
+#include <QStandardPaths>
 #include <QTest>
 #include <accessmanager.h>
-#include <QNetworkReply>
-#include <QSignalSpy>
-#include <QProcess>
-#include <QStandardPaths>
-#include <QBuffer>
 
 /**
  * Unit test for AccessManager
@@ -84,7 +84,7 @@ private Q_SLOTS:
         QVERIFY(f.open(QIODevice::ReadOnly));
 
         QByteArray cts = f.readAll();
-        cts.chop(1); //we remove the eof
+        cts.chop(1); // we remove the eof
         QCOMPARE(QString::fromUtf8(cts).size(), putDataContents.size());
         QCOMPARE(QString::fromUtf8(cts), putDataContents);
 

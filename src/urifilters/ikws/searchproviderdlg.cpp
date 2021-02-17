@@ -9,11 +9,11 @@
 
 #include <QClipboard>
 
+#include <KCharsets>
+#include <KLocalizedString>
+#include <KMessageBox>
 #include <QApplication>
 #include <QVBoxLayout>
-#include <KCharsets>
-#include <KMessageBox>
-#include <KLocalizedString>
 
 SearchProviderDialog::SearchProviderDialog(SearchProvider *provider, QList<SearchProvider *> &providers, QWidget *parent)
     : QDialog(parent)
@@ -21,7 +21,7 @@ SearchProviderDialog::SearchProviderDialog(SearchProvider *provider, QList<Searc
 {
     setModal(true);
 
-    m_buttons = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel, this);
+    m_buttons = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     connect(m_buttons, &QDialogButtonBox::accepted, this, &SearchProviderDialog::accept);
     connect(m_buttons, &QDialogButtonBox::rejected, this, &QDialog::reject);
 
@@ -57,7 +57,7 @@ SearchProviderDialog::SearchProviderDialog(SearchProvider *provider, QList<Searc
         setWindowTitle(i18n("New Web Shortcut"));
         m_dlg.leName->setFocus();
 
-        //If the clipboard contains a url copy it to the query lineedit
+        // If the clipboard contains a url copy it to the query lineedit
         const QClipboard *clipboard = QApplication::clipboard();
         const QString url = clipboard->text();
 
@@ -71,10 +71,9 @@ SearchProviderDialog::SearchProviderDialog(SearchProvider *provider, QList<Searc
 
 void SearchProviderDialog::slotChanged()
 {
-    m_buttons->button(QDialogButtonBox::Ok)->setEnabled(!(m_dlg.leName->text().isEmpty()
-                                                          || m_dlg.leShortcut->text().isEmpty()
-                                                          || m_dlg.leQuery->text().isEmpty())
-                                                          && m_dlg.noteLabel->text().isEmpty());
+    m_buttons->button(QDialogButtonBox::Ok)
+        ->setEnabled(!(m_dlg.leName->text().isEmpty() || m_dlg.leShortcut->text().isEmpty() || m_dlg.leQuery->text().isEmpty())
+                     && m_dlg.noteLabel->text().isEmpty());
 }
 
 // Check if the user wants to assign shorthands that are already assigned to
@@ -121,7 +120,8 @@ void SearchProviderDialog::shortcutsChanged(const QString &newShorthands)
                 contenderList.append(i18nc("- web short cut (e.g. gg): what it refers to (e.g. Google)", "- %1: \"%2\"", it.key(), it.value()->name()));
             }
 
-            m_dlg.noteLabel->setText(i18n("The following shortcuts are already assigned. Please choose different ones.\n%1", contenderList.join(QLatin1Char('\n'))));
+            m_dlg.noteLabel->setText(
+                i18n("The following shortcuts are already assigned. Please choose different ones.\n%1", contenderList.join(QLatin1Char('\n'))));
         }
         m_buttons->button(QDialogButtonBox::Ok)->setEnabled(false);
     } else {
@@ -137,7 +137,9 @@ void SearchProviderDialog::accept()
                                               i18n("The Shortcut URL does not contain a \\{...} placeholder for the user query.\n"
                                                    "This means that the same page is always going to be visited, "
                                                    "regardless of the text typed in with the shortcut."),
-                                              QString(), KGuiItem(i18n("Keep It"))) == KMessageBox::Cancel) {
+                                              QString(),
+                                              KGuiItem(i18n("Keep It")))
+            == KMessageBox::Cancel) {
         return;
     }
 
@@ -148,11 +150,10 @@ void SearchProviderDialog::accept()
     const QString name = m_dlg.leName->text().trimmed();
     const QString query = m_dlg.leQuery->text().trimmed();
     QStringList keys = m_dlg.leShortcut->text().trimmed().toLower().split(QLatin1Char(','), Qt::SkipEmptyParts);
-    keys.removeDuplicates();// #169801. Remove duplicates...
+    keys.removeDuplicates(); // #169801. Remove duplicates...
     const QString charset = (m_dlg.cbCharset->currentIndex() ? m_dlg.cbCharset->currentText().trimmed() : QString());
 
-    m_provider->setDirty((name != m_provider->name() || query != m_provider->query()
-                          || keys != m_provider->keys() || charset != m_provider->charset()));
+    m_provider->setDirty((name != m_provider->name() || query != m_provider->query() || keys != m_provider->keys() || charset != m_provider->charset()));
     m_provider->setName(name);
     m_provider->setQuery(query);
     m_provider->setKeys(keys);

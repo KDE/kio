@@ -9,8 +9,8 @@
 #define KIOPASTETEST_H
 
 #include <QObject>
-#include <QTemporaryDir>
 #include <QString>
+#include <QTemporaryDir>
 
 class KIOPasteTest : public QObject
 {

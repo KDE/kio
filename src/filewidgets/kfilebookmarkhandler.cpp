@@ -12,17 +12,17 @@
 
 #include <QMenu>
 
-#include <kbookmarkimporter.h>
 #include <KBookmarkDomBuilder>
-#include <kio/global.h>
 #include <QStandardPaths>
+#include <kbookmarkimporter.h>
+#include <kio/global.h>
 
 #include "kfilewidget.h"
 
 KFileBookmarkHandler::KFileBookmarkHandler(KFileWidget *widget)
-    : QObject(widget),
-      KBookmarkOwner(),
-      m_widget(widget)
+    : QObject(widget)
+    , KBookmarkOwner()
+    , m_widget(widget)
 {
     setObjectName(QStringLiteral("KFileBookmarkHandler"));
     m_menu = new QMenu(widget);

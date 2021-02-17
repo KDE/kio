@@ -8,8 +8,8 @@
 #ifndef KIO_CONNECTIONBACKEND_P_H
 #define KIO_CONNECTIONBACKEND_P_H
 
-#include <QUrl>
 #include <QObject>
+#include <QUrl>
 
 class QLocalServer;
 class QLocalSocket;
@@ -23,8 +23,7 @@ struct Task {
     QByteArray data;
 };
 
-
-class ConnectionBackend: public QObject
+class ConnectionBackend : public QObject
 {
     Q_OBJECT
 
@@ -34,7 +33,6 @@ public:
     QString errorString;
 
 private:
-
     QLocalSocket *socket;
     QLocalServer *localServer;
     long len;

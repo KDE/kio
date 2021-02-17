@@ -10,8 +10,8 @@
 #include <QTest>
 
 #include <QByteArray>
-#include <QHash>
 #include <QDebug>
+#include <QHash>
 
 #include <parsinghelpers.h>
 
@@ -41,9 +41,9 @@ QTEST_MAIN(HeaderTokenizeTest)
         {"location", false},
 */
 
-//no use testing many different headers, just a couple each of the multi-valued
-//and the single-valued group to make sure that corner cases work both if there
-//are already entries for the header and if there are no entries.
+// no use testing many different headers, just a couple each of the multi-valued
+// and the single-valued group to make sure that corner cases work both if there
+// are already entries for the header and if there are no entries.
 static const char messyHeader[] =
     "\n"
     "accept-ranges:foo\r\n"
@@ -58,16 +58,16 @@ static const char messyHeader[] =
     " :fi:ve\r\n"
     ":invalid stuff\r\n"
     "\tinvalid: connection:close\t\r"
-    "connection: Six, seven ,, , eight\r"   //one malformed newline...
-    "\n\r ";   //two malformed newlines; end of header. also observe the trailing space.
+    "connection: Six, seven ,, , eight\r" // one malformed newline...
+    "\n\r "; // two malformed newlines; end of header. also observe the trailing space.
 
-//tab separates values, newline separates header lines. the first word is the key.
+// tab separates values, newline separates header lines. the first word is the key.
 static const char messyResult[] =
     "accept-ranges\tfoo\t42\tmaybe   or not\n"
     "connection\tone   t_   wo\tthree\tfour\t:fi:ve\tSix\tseven\teight";
 
 static const char redirectHeader[] =
-//"HTTP/1.1 302 Moved Temporarily\r\n"
+    //"HTTP/1.1 302 Moved Temporarily\r\n"
     "Location: http://www.hertz.de/rentacar/index.jsp?bsc=t&targetPage=reservationOnHomepage.jsp\r\n"
     "Connection:close\r\n"
     "Cache-Control: no-cache\r\n"
@@ -85,7 +85,7 @@ char buffer[bufSize];
 
 void HeaderTokenizeTest::testMessyHeader()
 {
-    //Copy the header into a writable buffer
+    // Copy the header into a writable buffer
     for (int i = 0; i < bufSize; i++) {
         buffer[i] = 0;
     }
@@ -127,7 +127,7 @@ void HeaderTokenizeTest::testMessyHeader()
     }
     QCOMPARE(nValues2, nValues);
 
-    return; //comment out for parsed header dump to stdout
+    return; // comment out for parsed header dump to stdout
 
     it = tokenizer.constBegin();
     for (; it != tokenizer.constEnd(); ++it) {
@@ -142,7 +142,7 @@ void HeaderTokenizeTest::testMessyHeader()
 
 void HeaderTokenizeTest::testRedirectHeader()
 {
-    //Copy the header into a writable buffer
+    // Copy the header into a writable buffer
     for (int i = 0; i < bufSize; i++) {
         buffer[i] = 0;
     }

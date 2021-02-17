@@ -44,10 +44,15 @@ void KSambaSharePrivateTest::testParser_data()
     QTest::addColumn<QString>("path");
     QTest::addColumn<QString>("comment");
 
-    QTest::newRow("Valid share") << QByteArrayLiteral("[share]\npath=/some/path\ncomment=\nusershare_acl=Everyone:R,\nguest_ok=y")
-                                 << true << "share" << "/some/path" << "";
-    QTest::newRow("Valid share with slash") << QByteArrayLiteral("[share]\npath=/some/path/\ncomment=\nusershare_acl=Everyone:R,\nguest_ok=y")
-                                 << true << "share" << "/some/path" << "";
-    QTest::newRow("Valid share with comment") << QByteArrayLiteral("[share]\npath=/some/path\ncomment=Comment\nusershare_acl=Everyone:R,\nguest_ok=y")
-                                 << true << "share" << "/some/path" << "Comment";
+    QTest::newRow("Valid share") << QByteArrayLiteral("[share]\npath=/some/path\ncomment=\nusershare_acl=Everyone:R,\nguest_ok=y") << true << "share"
+                                 << "/some/path"
+                                 << "";
+    QTest::newRow("Valid share with slash") << QByteArrayLiteral("[share]\npath=/some/path/\ncomment=\nusershare_acl=Everyone:R,\nguest_ok=y") << true
+                                            << "share"
+                                            << "/some/path"
+                                            << "";
+    QTest::newRow("Valid share with comment") << QByteArrayLiteral("[share]\npath=/some/path\ncomment=Comment\nusershare_acl=Everyone:R,\nguest_ok=y") << true
+                                              << "share"
+                                              << "/some/path"
+                                              << "Comment";
 }

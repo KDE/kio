@@ -12,10 +12,10 @@
 #include "discovery.h"
 #include "script.h"
 
-#include <QDebug>
 #include <KLocalizedString>
-#include <kprotocolmanager.h>
 #include <KPluginFactory>
+#include <QDebug>
+#include <kprotocolmanager.h>
 
 #ifdef HAVE_KF5NOTIFICATIONS
 #include <KNotification>
@@ -23,15 +23,14 @@
 
 #include <QNetworkConfigurationManager>
 
-#include <QFileSystemWatcher>
 #include <QDBusConnection>
+#include <QFileSystemWatcher>
 
 #include <cstdlib>
 #include <ctime>
 
 namespace KPAC
 {
-
 K_PLUGIN_CLASS_WITH_JSON(ProxyScout, "proxyscout.json")
 
 enum ProxyType {
@@ -51,8 +50,7 @@ static ProxyType proxyTypeFor(const QString &mode)
         return Direct;
     }
 
-    if (mode.compare(QLatin1String("SOCKS"), Qt::CaseInsensitive) == 0 ||
-            mode.compare(QLatin1String("SOCKS5"), Qt::CaseInsensitive) == 0) {
+    if (mode.compare(QLatin1String("SOCKS"), Qt::CaseInsensitive) == 0 || mode.compare(QLatin1String("SOCKS5"), Qt::CaseInsensitive) == 0) {
         return Socks;
     }
 
@@ -60,21 +58,22 @@ static ProxyType proxyTypeFor(const QString &mode)
 }
 
 ProxyScout::QueuedRequest::QueuedRequest(const QDBusMessage &reply, const QUrl &u, bool sendall)
-    : transaction(reply), url(u), sendAll(sendall)
+    : transaction(reply)
+    , url(u)
+    , sendAll(sendall)
 {
 }
 
 ProxyScout::ProxyScout(QObject *parent, const QList<QVariant> &)
-    : KDEDModule(parent),
-      m_componentName(QStringLiteral("proxyscout")),
-      m_downloader(nullptr),
-      m_script(nullptr),
-      m_suspendTime(0),
-      m_watcher(nullptr),
-      m_networkConfig(new QNetworkConfigurationManager(this))
+    : KDEDModule(parent)
+    , m_componentName(QStringLiteral("proxyscout"))
+    , m_downloader(nullptr)
+    , m_script(nullptr)
+    , m_suspendTime(0)
+    , m_watcher(nullptr)
+    , m_networkConfig(new QNetworkConfigurationManager(this))
 {
-    connect(m_networkConfig, &QNetworkConfigurationManager::configurationChanged,
-            this, &ProxyScout::disconnectNetwork);
+    connect(m_networkConfig, &QNetworkConfigurationManager::configurationChanged, this, &ProxyScout::disconnectNetwork);
 }
 
 ProxyScout::~ProxyScout()
@@ -105,7 +104,7 @@ QStringList ProxyScout::proxiesForUrl(const QString &checkUrl, const QDBusMessag
     if (m_downloader || startDownload()) {
         msg.setDelayedReply(true);
         m_requestQueue.append(QueuedRequest(msg, url, true));
-        return QStringList();   // return value will be ignored
+        return QStringList(); // return value will be ignored
     }
 
     return QStringList(QStringLiteral("DIRECT"));
@@ -134,7 +133,7 @@ QString ProxyScout::proxyForUrl(const QString &checkUrl, const QDBusMessage &msg
     if (m_downloader || startDownload()) {
         msg.setDelayedReply(true);
         m_requestQueue.append(QueuedRequest(msg, url));
-        return QString();   // return value will be ignored
+        return QString(); // return value will be ignored
     }
 
     return QStringLiteral("DIRECT");
@@ -142,7 +141,7 @@ QString ProxyScout::proxyForUrl(const QString &checkUrl, const QDBusMessage &msg
 
 void ProxyScout::blackListProxy(const QString &proxy)
 {
-    m_blackList[ proxy ] = std::time(nullptr);
+    m_blackList[proxy] = std::time(nullptr);
 }
 
 void ProxyScout::reset()
@@ -205,8 +204,8 @@ bool ProxyScout::startDownload()
 void ProxyScout::disconnectNetwork(const QNetworkConfiguration &config)
 {
     // NOTE: We only care of Defined state because we only want
-    //to redo WPAD when a network interface is brought out of
-    //hibernation or restarted for whatever reason.
+    // to redo WPAD when a network interface is brought out of
+    // hibernation or restarted for whatever reason.
     if (config.state() == QNetworkConfiguration::Defined) {
         reset();
     }

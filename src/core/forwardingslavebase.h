@@ -8,16 +8,15 @@
 #ifndef _FORWARDING_SLAVE_BASE_H_
 #define _FORWARDING_SLAVE_BASE_H_
 
+#include "job_base.h" // JobFlags
 #include "kiocore_export.h"
 #include <kio/slavebase.h>
-#include "job_base.h" // JobFlags
 
-#include <QObject>
 #include <QEventLoop>
+#include <QObject>
 
 namespace KIO
 {
-
 class ForwardingSlaveBasePrivate;
 
 /**
@@ -80,15 +79,12 @@ class KIOCORE_EXPORT ForwardingSlaveBase : public QObject, public SlaveBase
 {
     Q_OBJECT
 public:
-    ForwardingSlaveBase(const QByteArray &protocol,
-                        const QByteArray &poolSocket,
-                        const QByteArray &appSocket);
+    ForwardingSlaveBase(const QByteArray &protocol, const QByteArray &poolSocket, const QByteArray &appSocket);
     ~ForwardingSlaveBase() override;
 
     void get(const QUrl &url) override;
 
-    void put(const QUrl &url, int permissions,
-                     JobFlags flags) override;
+    void put(const QUrl &url, int permissions, JobFlags flags) override;
 
     void stat(const QUrl &url) override;
 
@@ -100,15 +96,13 @@ public:
 
     void rename(const QUrl &src, const QUrl &dest, JobFlags flags) override;
 
-    void symlink(const QString &target, const QUrl &dest,
-                         JobFlags flags) override;
+    void symlink(const QString &target, const QUrl &dest, JobFlags flags) override;
 
     void chmod(const QUrl &url, int permissions) override;
 
     void setModificationTime(const QUrl &url, const QDateTime &mtime) override;
 
-    void copy(const QUrl &src, const QUrl &dest,
-                      int permissions, JobFlags flags) override;
+    void copy(const QUrl &src, const QUrl &dest, int permissions, JobFlags flags) override;
 
     void del(const QUrl &url, bool isfile) override;
 
@@ -137,8 +131,7 @@ protected:
      * @param listing indicate if this entry it created during a listDir
      *                operation
      */
-    virtual void prepareUDSEntry(KIO::UDSEntry &entry,
-                                 bool listing = false) const;
+    virtual void prepareUDSEntry(KIO::UDSEntry &entry, bool listing = false) const;
 
     /**
      * Return the URL being processed by the ioslave

@@ -12,32 +12,35 @@
 #ifndef KIO_JOB_P_H
 #define KIO_JOB_P_H
 
+#include "commands_p.h"
+#include "global.h"
+#include "kiocoredebug.h"
 #include "simplejob.h"
 #include "slave.h"
 #include "transferjob.h"
-#include "commands_p.h"
 #include <KJobTrackerInterface>
+#include <QDataStream>
+#include <QPointer>
+#include <QUrl>
 #include <kio/jobuidelegateextension.h>
 #include <kio/jobuidelegatefactory.h>
-#include <QUrl>
-#include <QPointer>
-#include <QDataStream>
-#include "kiocoredebug.h"
-#include "global.h"
 
-#define KIO_ARGS QByteArray packedArgs; QDataStream stream( &packedArgs, QIODevice::WriteOnly ); stream
+#define KIO_ARGS                                                                                                                                               \
+    QByteArray packedArgs;                                                                                                                                     \
+    QDataStream stream(&packedArgs, QIODevice::WriteOnly);                                                                                                     \
+    stream
 
 namespace KIO
 {
-
 // Exported for KIOWidgets jobs
 class KIOCORE_EXPORT JobPrivate
 {
 public:
     JobPrivate()
-        : m_parentJob(nullptr), m_extraFlags(0),
-          m_uiDelegateExtension(KIO::defaultJobUiDelegateExtension()),
-          m_privilegeExecutionEnabled(false)
+        : m_parentJob(nullptr)
+        , m_extraFlags(0)
+        , m_uiDelegateExtension(KIO::defaultJobUiDelegateExtension())
+        , m_privilegeExecutionEnabled(false)
     {
     }
 
@@ -47,12 +50,13 @@ public:
      * Some extra storage space for jobs that don't have their own
      * private d pointer.
      */
-    enum { EF_TransferJobAsync    = (1 << 0),
-           EF_TransferJobNeedData = (1 << 1),
-           EF_TransferJobDataSent = (1 << 2),
-           EF_ListJobUnrestricted = (1 << 3),
-           EF_KillCalled          = (1 << 4),
-         };
+    enum {
+        EF_TransferJobAsync = (1 << 0),
+        EF_TransferJobNeedData = (1 << 1),
+        EF_TransferJobDataSent = (1 << 2),
+        EF_ListJobUnrestricted = (1 << 3),
+        EF_KillCalled = (1 << 4),
+    };
 
     enum FileOperationType {
         ChangeAttr, // chmod(), chown(), setModificationTime()
@@ -95,7 +99,7 @@ public:
     Q_DECLARE_PUBLIC(Job)
 };
 
-class SimpleJobPrivate: public JobPrivate
+class SimpleJobPrivate : public JobPrivate
 {
 public:
     /**
@@ -105,8 +109,13 @@ public:
      * @param packedArgs the arguments
      */
     SimpleJobPrivate(const QUrl &url, int command, const QByteArray &packedArgs)
-        : m_slave(nullptr), m_packedArgs(packedArgs), m_url(url), m_command(command),
-          m_checkOnHold(false), m_schedSerial(0), m_redirectionHandlingEnabled(true)
+        : m_slave(nullptr)
+        , m_packedArgs(packedArgs)
+        , m_url(url)
+        , m_command(command)
+        , m_checkOnHold(false)
+        , m_schedSerial(0)
+        , m_redirectionHandlingEnabled(true)
     {
     }
 
@@ -199,7 +208,8 @@ public:
      * Request the ui delegate to show a message box.
      * @internal
      */
-    int requestMessageBox(int type, const QString &text,
+    int requestMessageBox(int type,
+                          const QString &text,
                           const QString &caption,
                           const QString &buttonYes,
                           const QString &buttonNo,
@@ -219,8 +229,7 @@ public:
         SimpleJob *job = new SimpleJob(*new SimpleJobPrivate(url, command, packedArgs));
         return job;
     }
-    static inline SimpleJob *newJob(const QUrl &url, int command, const QByteArray &packedArgs,
-                                    JobFlags flags = HideProgressInfo)
+    static inline SimpleJob *newJob(const QUrl &url, int command, const QByteArray &packedArgs, JobFlags flags = HideProgressInfo)
     {
         SimpleJob *job = new SimpleJob(*new SimpleJobPrivate(url, command, packedArgs));
         job->setUiDelegate(KIO::createDefaultJobUiDelegate());
@@ -250,24 +259,30 @@ public:
     }
 };
 
-class TransferJobPrivate: public SimpleJobPrivate
+class TransferJobPrivate : public SimpleJobPrivate
 {
 public:
-    inline TransferJobPrivate(const QUrl &url, int command, const QByteArray &packedArgs,
-                              const QByteArray &_staticData)
-        : SimpleJobPrivate(url, command, packedArgs),
-          m_internalSuspended(false), m_errorPage(false),
-          staticData(_staticData), m_isMimetypeEmitted(false),
-          m_closedBeforeStart(false), m_subJob(nullptr)
-    { }
+    inline TransferJobPrivate(const QUrl &url, int command, const QByteArray &packedArgs, const QByteArray &_staticData)
+        : SimpleJobPrivate(url, command, packedArgs)
+        , m_internalSuspended(false)
+        , m_errorPage(false)
+        , staticData(_staticData)
+        , m_isMimetypeEmitted(false)
+        , m_closedBeforeStart(false)
+        , m_subJob(nullptr)
+    {
+    }
 
-    inline TransferJobPrivate(const QUrl &url, int command, const QByteArray &packedArgs,
-                              QIODevice *ioDevice)
-        : SimpleJobPrivate(url, command, packedArgs),
-          m_internalSuspended(false), m_errorPage(false),
-          m_isMimetypeEmitted(false), m_closedBeforeStart(false), m_subJob(nullptr),
-          m_outgoingDataSource(QPointer<QIODevice>(ioDevice))
-    { }
+    inline TransferJobPrivate(const QUrl &url, int command, const QByteArray &packedArgs, QIODevice *ioDevice)
+        : SimpleJobPrivate(url, command, packedArgs)
+        , m_internalSuspended(false)
+        , m_errorPage(false)
+        , m_isMimetypeEmitted(false)
+        , m_closedBeforeStart(false)
+        , m_subJob(nullptr)
+        , m_outgoingDataSource(QPointer<QIODevice>(ioDevice))
+    {
+    }
 
     bool m_internalSuspended;
     bool m_errorPage;
@@ -310,10 +325,7 @@ public:
     void slotSubUrlData(KIO::Job *, const QByteArray &);
 
     Q_DECLARE_PUBLIC(TransferJob)
-    static inline TransferJob *newJob(const QUrl &url, int command,
-                                      const QByteArray &packedArgs,
-                                      const QByteArray &_staticData,
-                                      JobFlags flags)
+    static inline TransferJob *newJob(const QUrl &url, int command, const QByteArray &packedArgs, const QByteArray &_staticData, JobFlags flags)
     {
         TransferJob *job = new TransferJob(*new TransferJobPrivate(url, command, packedArgs, _staticData));
         job->setUiDelegate(KIO::createDefaultJobUiDelegate());
@@ -327,10 +339,7 @@ public:
         return job;
     }
 
-    static inline TransferJob *newJob(const QUrl &url, int command,
-                                      const QByteArray &packedArgs,
-                                      QIODevice *ioDevice,
-                                      JobFlags flags)
+    static inline TransferJob *newJob(const QUrl &url, int command, const QByteArray &packedArgs, QIODevice *ioDevice, JobFlags flags)
     {
         TransferJob *job = new TransferJob(*new TransferJobPrivate(url, command, packedArgs, ioDevice));
         job->setUiDelegate(KIO::createDefaultJobUiDelegate());

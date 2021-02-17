@@ -42,7 +42,6 @@ private Q_SLOTS:
 
     void testInitWithRedundantPathSeparators();
 
-
 private:
     KUrlNavigator *m_navigator;
 };

@@ -29,11 +29,11 @@ protected:
     void wheelEvent(QWheelEvent *event) override;
     void resizeEvent(QResizeEvent *event) override;
 
-protected Q_SLOT:
-    void updateLayout();
+protected
+    Q_SLOT : void updateLayout();
+
 private:
     QStyleOptionViewItem::Position decorationPosition;
 };
-
 
 #endif // KDIROPERATORICONVIEW_P_H

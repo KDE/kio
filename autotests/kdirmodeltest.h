@@ -7,12 +7,12 @@
 #ifndef KDIRMODELTEST_H
 #define KDIRMODELTEST_H
 
+#include <QEventLoop>
 #include <QObject>
 #include <QTemporaryDir>
-#include <kdirmodel.h>
-#include <QEventLoop>
 #include <QTest>
 #include <QTestEventLoop>
+#include <kdirmodel.h>
 
 // If you disable this, you need to change all exitLoop into quit in connect() statements...
 #define USE_QTESTEVENTLOOP

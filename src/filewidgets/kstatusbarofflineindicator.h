@@ -8,8 +8,8 @@
 #ifndef KDE_KSTATUSBAROFFLINEINDICATOR_H
 #define KDE_KSTATUSBAROFFLINEINDICATOR_H
 
-#include <QWidget>
 #include "kiofilewidgets_export.h"
+#include <QWidget>
 
 class KStatusBarOfflineIndicatorPrivate;
 
@@ -50,4 +50,3 @@ private:
 #endif
 
 #endif
-

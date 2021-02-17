@@ -11,7 +11,6 @@
 
 namespace KDEPrivate
 {
-
 /**
  * @brief An empty title bar for the Places dock widget
  */

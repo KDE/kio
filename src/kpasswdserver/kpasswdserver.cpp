@@ -142,8 +142,13 @@ static bool storeInWallet(KWallet::Wallet *wallet, const QString &key, const KIO
     return true;
 }
 
-static bool readFromWallet(KWallet::Wallet *wallet, const QString &key, const QString &realm, QString &username,
-                           QString &password, bool userReadOnly, QMap<QString, QString> &knownLogins)
+static bool readFromWallet(KWallet::Wallet *wallet,
+                           const QString &key,
+                           const QString &realm,
+                           QString &username,
+                           QString &password,
+                           bool userReadOnly,
+                           QMap<QString, QString> &knownLogins)
 {
     // qCDebug(category) << "key =" << key << " username =" << username << " password =" /*<< password*/
     //                   << " userReadOnly =" << userReadOnly << " realm =" << realm;
@@ -236,15 +241,11 @@ QByteArray KPasswdServer::checkAuthInfo(const QByteArray &data, qlonglong window
     const AuthInfoContainer *result = findAuthInfoItem(key, info);
     if (!result || result->isCanceled) {
 #ifdef HAVE_KF5WALLET
-        if (!result
-            && !m_walletDisabled
-            && (info.username.isEmpty() || info.password.isEmpty())
-            && !KWallet::Wallet::keyDoesNotExist(KWallet::Wallet::NetworkWallet(), KWallet::Wallet::PasswordFolder(),
-                                                 makeWalletKey(key, info.realmValue))) {
+        if (!result && !m_walletDisabled && (info.username.isEmpty() || info.password.isEmpty())
+            && !KWallet::Wallet::keyDoesNotExist(KWallet::Wallet::NetworkWallet(), KWallet::Wallet::PasswordFolder(), makeWalletKey(key, info.realmValue))) {
             QMap<QString, QString> knownLogins;
             if (openWallet(windowId)) {
-                if (readFromWallet(m_wallet, key, info.realmValue, info.username,
-                                   info.password, info.readOnly, knownLogins)) {
+                if (readFromWallet(m_wallet, key, info.realmValue, info.username, info.password, info.readOnly, knownLogins)) {
                     info.setModified(true);
                     // fall through
                 }
@@ -297,15 +298,11 @@ qlonglong KPasswdServer::checkAuthInfoAsync(KIO::AuthInfo info, qlonglong window
     const AuthInfoContainer *result = findAuthInfoItem(key, info);
     if (!result || result->isCanceled) {
 #ifdef HAVE_KF5WALLET
-        if (!result
-            && !m_walletDisabled
-            && (info.username.isEmpty() || info.password.isEmpty())
-            && !KWallet::Wallet::keyDoesNotExist(KWallet::Wallet::NetworkWallet(), KWallet::Wallet::PasswordFolder(),
-                                                 makeWalletKey(key, info.realmValue))) {
+        if (!result && !m_walletDisabled && (info.username.isEmpty() || info.password.isEmpty())
+            && !KWallet::Wallet::keyDoesNotExist(KWallet::Wallet::NetworkWallet(), KWallet::Wallet::PasswordFolder(), makeWalletKey(key, info.realmValue))) {
             QMap<QString, QString> knownLogins;
             if (openWallet(windowId)) {
-                if (readFromWallet(m_wallet, key, info.realmValue, info.username,
-                                   info.password, info.readOnly, knownLogins)) {
+                if (readFromWallet(m_wallet, key, info.realmValue, info.username, info.password, info.readOnly, knownLogins)) {
                     info.setModified(true);
                     // fall through
                 }
@@ -327,15 +324,13 @@ qlonglong KPasswdServer::checkAuthInfoAsync(KIO::AuthInfo info, qlonglong window
 }
 
 // deprecated method, not used anymore. TODO KF6: REMOVE
-QByteArray KPasswdServer::queryAuthInfo(const QByteArray &data, const QString &errorMsg,
-                                        qlonglong windowId, qlonglong seqNr, qlonglong usertime)
+QByteArray KPasswdServer::queryAuthInfo(const QByteArray &data, const QString &errorMsg, qlonglong windowId, qlonglong seqNr, qlonglong usertime)
 {
     KIO::AuthInfo info;
     QDataStream stream(data);
     stream >> info;
 
-    qCDebug(category) << "User =" << info.username << ", WindowId =" << windowId
-                      << "seqNr =" << seqNr << ", errorMsg =" << errorMsg;
+    qCDebug(category) << "User =" << info.username << ", WindowId =" << windowId << "seqNr =" << seqNr << ", errorMsg =" << errorMsg;
 
     if (!info.password.isEmpty()) { // should we really allow the caller to pre-fill the password?
         qCDebug(category) << "password was set by caller";
@@ -369,11 +364,9 @@ QByteArray KPasswdServer::queryAuthInfo(const QByteArray &data, const QString &e
     return QByteArray(); // return value is going to be ignored
 }
 
-qlonglong KPasswdServer::queryAuthInfoAsync(const KIO::AuthInfo &info, const QString &errorMsg,
-                                            qlonglong windowId,qlonglong seqNr, qlonglong usertime)
+qlonglong KPasswdServer::queryAuthInfoAsync(const KIO::AuthInfo &info, const QString &errorMsg, qlonglong windowId, qlonglong seqNr, qlonglong usertime)
 {
-    qCDebug(category) << "User =" << info.username << ", WindowId =" << windowId
-                      << "seqNr =" << seqNr << ", errorMsg =" << errorMsg;
+    qCDebug(category) << "User =" << info.username << ", WindowId =" << windowId << "seqNr =" << seqNr << ", errorMsg =" << errorMsg;
 
     if (!info.password.isEmpty()) {
         qCDebug(category) << "password was set by caller";
@@ -408,8 +401,7 @@ qlonglong KPasswdServer::queryAuthInfoAsync(const KIO::AuthInfo &info, const QSt
 
 void KPasswdServer::addAuthInfo(const KIO::AuthInfo &info, qlonglong windowId)
 {
-    qCDebug(category) << "User =" << info.username << ", Realm =" << info.realmValue
-                      << ", WindowId =" << windowId;
+    qCDebug(category) << "User =" << info.username << ", Realm =" << info.realmValue << ", WindowId =" << windowId;
     if (!info.keepPassword) {
         qWarning() << "This kioslave is caching a password in KWallet even though the user didn't ask for it!";
     }
@@ -455,11 +447,8 @@ void KPasswdServer::removeAuthInfo(const QString &host, const QString &protocol,
         }
 
         for (const AuthInfoContainer *current : *authList) {
-            qCDebug(category) << "Evaluating: " << current->info.url.scheme()
-                              << current->info.url.host() << current->info.username;
-            if (current->info.url.scheme() == protocol
-                && current->info.url.host() == host
-                && (current->info.username == user || user.isEmpty())) {
+            qCDebug(category) << "Evaluating: " << current->info.url.scheme() << current->info.url.host() << current->info.username;
+            if (current->info.url.scheme() == protocol && current->info.url.host() == host && (current->info.username == user || user.isEmpty())) {
                 qCDebug(category) << "Removing this entry";
                 removeAuthInfoItem(dictIterator.key(), current->info);
             }
@@ -511,9 +500,8 @@ void KPasswdServer::processRequest()
     const bool bypassCacheAndKWallet = info.getExtraField(AUTHINFO_EXTRAFIELD_BYPASS_CACHE_AND_KWALLET).toBool();
 
     const AuthInfoContainer *result = findAuthInfoItem(request->key, request->info);
-    qCDebug(category) << "key=" << request->key << ", user=" << info.username
-                      << "seqNr: request=" << request->seqNr
-                      <<", result=" << (result ? result->seqNr : -1);
+    qCDebug(category) << "key=" << request->key << ", user=" << info.username << "seqNr: request=" << request->seqNr
+                      << ", result=" << (result ? result->seqNr : -1);
 
     if (!bypassCacheAndKWallet && result && (request->seqNr < result->seqNr)) {
         qCDebug(category) << "auto retry!";
@@ -537,8 +525,14 @@ void KPasswdServer::processRequest()
             QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Yes | QDialogButtonBox::Cancel);
             buttonBox->button(QDialogButtonBox::Yes)->setText(i18nc("@action:button filter-continue", "Retry"));
 
-            KMessageBox::createKMessageBox(dlg, buttonBox, QMessageBox::Warning, prompt, QStringList(),
-                                           QString(), nullptr, (KMessageBox::Notify | KMessageBox::NoExec));
+            KMessageBox::createKMessageBox(dlg,
+                                           buttonBox,
+                                           QMessageBox::Warning,
+                                           prompt,
+                                           QStringList(),
+                                           QString(),
+                                           nullptr,
+                                           (KMessageBox::Notify | KMessageBox::NoExec));
 
             dlg->setAttribute(Qt::WA_NativeWindow, true);
             KWindowSystem::setMainWindow(dlg->windowHandle(), request->windowId);
@@ -602,8 +596,7 @@ const KPasswdServer::AuthInfoContainer *KPasswdServer::findAuthInfoItem(const QS
         auto it = authList->begin();
         while (it != authList->end()) {
             AuthInfoContainer *current = (*it);
-            if (current->expire == AuthInfoContainer::expTime
-                && static_cast<qulonglong>(time(nullptr)) > current->expireTime) {
+            if (current->expire == AuthInfoContainer::expTime && static_cast<qulonglong>(time(nullptr)) > current->expireTime) {
                 delete current;
                 it = authList->erase(it);
                 continue;
@@ -611,12 +604,10 @@ const KPasswdServer::AuthInfoContainer *KPasswdServer::findAuthInfoItem(const QS
 
             if (info.verifyPath) {
                 QString path1 = current->directory;
-                if (path2.startsWith(path1)
-                    && (info.username.isEmpty() || info.username == current->info.username))
+                if (path2.startsWith(path1) && (info.username.isEmpty() || info.username == current->info.username))
                     return current;
             } else {
-                if (current->info.realmValue == info.realmValue
-                    && (info.username.isEmpty() || info.username == current->info.username))
+                if (current->info.realmValue == info.realmValue && (info.username.isEmpty() || info.username == current->info.username))
                     return current; // TODO: Update directory info,
             }
 
@@ -646,11 +637,9 @@ void KPasswdServer::removeAuthInfoItem(const QString &key, const KIO::AuthInfo &
     }
 }
 
-void KPasswdServer::addAuthInfoItem(const QString &key, const KIO::AuthInfo &info,
-                                    qlonglong windowId, qlonglong seqNr, bool canceled)
+void KPasswdServer::addAuthInfoItem(const QString &key, const KIO::AuthInfo &info, qlonglong windowId, qlonglong seqNr, bool canceled)
 {
-    qCDebug(category) << "key=" << key << "window-id=" << windowId << "username=" << info.username
-                      << "realm=" << info.realmValue << "seqNr=" << seqNr
+    qCDebug(category) << "key=" << key << "window-id=" << windowId << "username=" << info.username << "realm=" << info.realmValue << "seqNr=" << seqNr
                       << "keepPassword?" << info.keepPassword << "canceled?" << canceled;
     AuthInfoContainerList *authList = m_authDict.value(key);
     if (!authList) {
@@ -687,14 +676,12 @@ void KPasswdServer::addAuthInfoItem(const QString &key, const KIO::AuthInfo &inf
     std::sort(authList->begin(), authList->end(), AuthInfoContainer::Sorter());
 }
 
-void KPasswdServer::updateAuthExpire(const QString &key, const AuthInfoContainer *auth,
-                                     qlonglong windowId, bool keep)
+void KPasswdServer::updateAuthExpire(const QString &key, const AuthInfoContainer *auth, qlonglong windowId, bool keep)
 {
     AuthInfoContainer *current = const_cast<AuthInfoContainer *>(auth);
     Q_ASSERT(current);
 
-    qCDebug(category) << "key=" << key << "expire=" << current->expire
-                      << "window-id=" << windowId << "keep=" << keep;
+    qCDebug(category) << "key=" << key << "expire=" << current->expire << "window-id=" << windowId << "keep=" << keep;
 
     if (keep && !windowId) {
         current->expire = AuthInfoContainer::expNever;
@@ -747,15 +734,13 @@ void KPasswdServer::showPasswordDialog(KPasswdServer::Request *request)
 
 #ifdef HAVE_KF5WALLET
     const bool bypassCacheAndKWallet = info.getExtraField(AUTHINFO_EXTRAFIELD_BYPASS_CACHE_AND_KWALLET).toBool();
-    if (!bypassCacheAndKWallet
-        && (username.isEmpty() || password.isEmpty())
-        && !m_walletDisabled
-        && !KWallet::Wallet::keyDoesNotExist(KWallet::Wallet::NetworkWallet(), KWallet::Wallet::PasswordFolder(),
+    if (!bypassCacheAndKWallet && (username.isEmpty() || password.isEmpty()) && !m_walletDisabled
+        && !KWallet::Wallet::keyDoesNotExist(KWallet::Wallet::NetworkWallet(),
+                                             KWallet::Wallet::PasswordFolder(),
                                              makeWalletKey(request->key, info.realmValue))) {
         // no login+pass provided, check if kwallet has one
         if (openWallet(request->windowId)) {
-            hasWalletData = readFromWallet(m_wallet, request->key, info.realmValue,
-                                           username, password, info.readOnly, knownLogins);
+            hasWalletData = readFromWallet(m_wallet, request->key, info.realmValue, username, password, info.readOnly, knownLogins);
         }
     }
 #endif
@@ -823,9 +808,7 @@ void KPasswdServer::showPasswordDialog(KPasswdServer::Request *request)
         dlg->setDomain(info.getExtraField(AUTHINFO_EXTRAFIELD_DOMAIN).toString());
     }
 
-    if (info.getExtraField(AUTHINFO_EXTRAFIELD_ANONYMOUS).isValid()
-        && password.isEmpty()
-        && username.isEmpty()) {
+    if (info.getExtraField(AUTHINFO_EXTRAFIELD_ANONYMOUS).isValid() && password.isEmpty() && username.isEmpty()) {
         dlg->setAnonymousMode(info.getExtraField(AUTHINFO_EXTRAFIELD_ANONYMOUS).toBool());
     }
 
@@ -860,8 +843,7 @@ void KPasswdServer::sendResponse(KPasswdServer::Request *request)
         QByteArray replyData;
         QDataStream stream2(&replyData, QIODevice::WriteOnly);
         stream2 << request->info;
-        QDBusConnection::sessionBus().send(
-            request->transaction.createReply(QVariantList{QVariant(replyData), QVariant(m_seqNr)}));
+        QDBusConnection::sessionBus().send(request->transaction.createReply(QVariantList{QVariant(replyData), QVariant(m_seqNr)}));
     }
 
     // Check all requests in the wait queue.
@@ -889,8 +871,7 @@ void KPasswdServer::sendResponse(KPasswdServer::Request *request)
             if (waitRequest->isAsync) {
                 Q_EMIT checkAuthInfoAsyncResult(waitRequest->requestId, m_seqNr, rcinfo);
             } else {
-                QDBusConnection::sessionBus().send(
-                    waitRequest->transaction.createReply(QVariantList{QVariant(replyData), QVariant(m_seqNr)}));
+                QDBusConnection::sessionBus().send(waitRequest->transaction.createReply(QVariantList{QVariant(replyData), QVariant(m_seqNr)}));
             }
 
             delete waitRequest;
@@ -1047,8 +1028,7 @@ void KPasswdServer::windowRemoved(WId id)
     }
 }
 
-void KPasswdServer::updateCachedRequestKey(QList<KPasswdServer::Request *> &list,
-                                           const QString &oldKey, const QString &newKey)
+void KPasswdServer::updateCachedRequestKey(QList<KPasswdServer::Request *> &list, const QString &oldKey, const QString &newKey)
 {
     QListIterator<Request *> it(list);
     while (it.hasNext()) {

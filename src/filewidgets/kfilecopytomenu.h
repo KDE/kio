@@ -7,8 +7,8 @@
 #ifndef KFILECOPYTOMENU_H
 #define KFILECOPYTOMENU_H
 
-#include <QUrl>
 #include <QObject>
+#include <QUrl>
 
 #include <kiofilewidgets_export.h>
 

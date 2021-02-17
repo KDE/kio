@@ -24,17 +24,15 @@
 
 using namespace KIO;
 
-static DWORD CALLBACK CopyProgressRoutine(
-    LARGE_INTEGER TotalFileSize,
-    LARGE_INTEGER TotalBytesTransferred,
-    LARGE_INTEGER StreamSize,
-    LARGE_INTEGER StreamBytesTransferred,
-    DWORD dwStreamNumber,
-    DWORD dwCallbackReason,
-    HANDLE hSourceFile,
-    HANDLE hDestinationFile,
-    LPVOID lpData
-)
+static DWORD CALLBACK CopyProgressRoutine(LARGE_INTEGER TotalFileSize,
+                                          LARGE_INTEGER TotalBytesTransferred,
+                                          LARGE_INTEGER StreamSize,
+                                          LARGE_INTEGER StreamBytesTransferred,
+                                          DWORD dwStreamNumber,
+                                          DWORD dwCallbackReason,
+                                          HANDLE hSourceFile,
+                                          HANDLE hDestinationFile,
+                                          LPVOID lpData)
 {
     FileProtocol *f = reinterpret_cast<FileProtocol *>(lpData);
     f->processedSize(TotalBytesTransferred.QuadPart);
@@ -95,8 +93,7 @@ static UDSEntry createUDSEntryWin(const QFileInfo &fileInfo)
     return entry;
 }
 
-void FileProtocol::copy(const QUrl &src, const QUrl &dest,
-                        int _mode, JobFlags _flags)
+void FileProtocol::copy(const QUrl &src, const QUrl &dest, int _mode, JobFlags _flags)
 {
     // qDebug() << "copy(): " << src << " -> " << dest << ", mode=" << _mode;
 
@@ -137,12 +134,7 @@ void FileProtocol::copy(const QUrl &src, const QUrl &dest,
         _dest.dir().mkdir(_dest.dir().absolutePath());
     }
 
-    if (CopyFileExW((LPCWSTR) _src.filePath().utf16(),
-                    (LPCWSTR) _dest.filePath().utf16(),
-                    CopyProgressRoutine,
-                    (LPVOID) this,
-                    FALSE,
-                    dwFlags) == 0) {
+    if (CopyFileExW((LPCWSTR)_src.filePath().utf16(), (LPCWSTR)_dest.filePath().utf16(), CopyProgressRoutine, (LPVOID)this, FALSE, dwFlags) == 0) {
         DWORD dwLastErr = GetLastError();
         if (dwLastErr == ERROR_FILE_NOT_FOUND) {
             error(KIO::ERR_DOES_NOT_EXIST, _src.filePath());
@@ -211,8 +203,7 @@ void FileProtocol::listDir(const QUrl &url)
     finished();
 }
 
-void FileProtocol::rename(const QUrl &src, const QUrl &dest,
-                          KIO::JobFlags _flags)
+void FileProtocol::rename(const QUrl &src, const QUrl &dest, KIO::JobFlags _flags)
 {
     // qDebug() << "rename(): " << src << " -> " << dest;
 
@@ -249,11 +240,9 @@ void FileProtocol::rename(const QUrl &src, const QUrl &dest,
 #ifndef _WIN32_WCE
     dwFlags |= MOVEFILE_COPY_ALLOWED;
 
-    if (MoveFileExW((LPCWSTR) _src.filePath().utf16(),
-                    (LPCWSTR) _dest.filePath().utf16(), dwFlags) == 0)
+    if (MoveFileExW((LPCWSTR)_src.filePath().utf16(), (LPCWSTR)_dest.filePath().utf16(), dwFlags) == 0)
 #else
-    if (MoveFileW((LPCWSTR) _src.filePath().utf16(),
-                  (LPCWSTR) _dest.filePath().utf16()) == 0)
+    if (MoveFileW((LPCWSTR)_src.filePath().utf16(), (LPCWSTR)_dest.filePath().utf16()) == 0)
 #endif
     {
         DWORD dwLastErr = GetLastError();
@@ -263,10 +252,7 @@ void FileProtocol::rename(const QUrl &src, const QUrl &dest,
             error(KIO::ERR_ACCESS_DENIED, _dest.filePath());
         } else {
             error(KIO::ERR_CANNOT_RENAME, _src.filePath());
-            qCDebug(KIO_FILE) <<  "Renaming file "
-                    << _src.filePath()
-                    << " failed ("
-                    << dwLastErr << ")";
+            qCDebug(KIO_FILE) << "Renaming file " << _src.filePath() << " failed (" << dwLastErr << ")";
         }
         return;
     }
@@ -277,7 +263,7 @@ void FileProtocol::rename(const QUrl &src, const QUrl &dest,
 void FileProtocol::symlink(const QString &target, const QUrl &dest, KIO::JobFlags flags)
 {
     QString localDest = dest.toLocalFile();
-    //TODO handle overwrite, etc
+    // TODO handle overwrite, etc
     if (!KIOPrivate::createSymlink(target, localDest)) {
         error(KIO::ERR_UNKNOWN, localDest);
     }
@@ -293,7 +279,7 @@ void FileProtocol::del(const QUrl &url, bool isfile)
     if (isfile) {
         // qDebug() << "Deleting file " << _path;
 
-        if (DeleteFileW((LPCWSTR) _path.utf16()) == 0) {
+        if (DeleteFileW((LPCWSTR)_path.utf16()) == 0) {
             DWORD dwLastErr = GetLastError();
             if (dwLastErr == ERROR_PATH_NOT_FOUND) {
                 error(KIO::ERR_DOES_NOT_EXIST, _path);
@@ -309,7 +295,7 @@ void FileProtocol::del(const QUrl &url, bool isfile)
         if (!deleteRecursive(_path)) {
             return;
         }
-        if (RemoveDirectoryW((LPCWSTR) _path.utf16()) == 0) {
+        if (RemoveDirectoryW((LPCWSTR)_path.utf16()) == 0) {
             DWORD dwLastErr = GetLastError();
             if (dwLastErr == ERROR_FILE_NOT_FOUND) {
                 error(KIO::ERR_DOES_NOT_EXIST, _path);
@@ -342,8 +328,7 @@ void FileProtocol::stat(const QUrl &url)
 
     const QString localFile = url.toLocalFile();
     QFileInfo fileInfo(localFile);
-    if (!fileInfo.exists())
-    {
+    if (!fileInfo.exists()) {
         error(KIO::ERR_DOES_NOT_EXIST, localFile);
         return;
     }
@@ -364,7 +349,7 @@ PrivilegeOperationReturnValue FileProtocol::execWithElevatedPrivilege(ActionType
 {
     return PrivilegeOperationReturnValue::failure(err);
 }
-PrivilegeOperationReturnValue FileProtocol::tryOpen(QFile &f, const QByteArray &, int , int, int err)
+PrivilegeOperationReturnValue FileProtocol::tryOpen(QFile &f, const QByteArray &, int, int, int err)
 {
     return PrivilegeOperationReturnValue::failure(err);
 }

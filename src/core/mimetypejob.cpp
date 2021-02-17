@@ -11,17 +11,17 @@
 
 using namespace KIO;
 
-class KIO::MimetypeJobPrivate: public KIO::TransferJobPrivate
+class KIO::MimetypeJobPrivate : public KIO::TransferJobPrivate
 {
 public:
     MimetypeJobPrivate(const QUrl &url, int command, const QByteArray &packedArgs)
         : TransferJobPrivate(url, command, packedArgs, QByteArray())
-    {}
+    {
+    }
 
     Q_DECLARE_PUBLIC(MimetypeJob)
 
-    static inline MimetypeJob *newJob(const QUrl &url, int command, const QByteArray &packedArgs,
-                                      JobFlags flags)
+    static inline MimetypeJob *newJob(const QUrl &url, int command, const QByteArray &packedArgs, JobFlags flags)
     {
         MimetypeJob *job = new MimetypeJob(*new MimetypeJobPrivate(url, command, packedArgs));
         job->setUiDelegate(KIO::createDefaultJobUiDelegate());
@@ -45,12 +45,12 @@ MimetypeJob::~MimetypeJob()
 void MimetypeJob::slotFinished()
 {
     Q_D(MimetypeJob);
-    //qDebug();
+    // qDebug();
     if (error() == KIO::ERR_IS_DIRECTORY) {
         // It is in fact a directory. This happens when HTTP redirects to FTP.
         // Due to the "protocol doesn't support listing" code in KRun, we
         // assumed it was a file.
-        //qDebug() << "It is in fact a directory!";
+        // qDebug() << "It is in fact a directory!";
         d->m_mimetype = QStringLiteral("inode/directory");
 #if KIOCORE_BUILD_DEPRECATED_SINCE(5, 78)
         Q_EMIT TransferJob::mimetype(this, d->m_mimetype);
@@ -60,7 +60,7 @@ void MimetypeJob::slotFinished()
     }
 
     if (!d->m_redirectionURL.isEmpty() && d->m_redirectionURL.isValid() && !error()) {
-        //qDebug() << "Redirection to " << m_redirectionURL;
+        // qDebug() << "Redirection to " << m_redirectionURL;
         if (queryMetaData(QStringLiteral("permanent-redirect")) == QLatin1String("true")) {
             Q_EMIT permanentRedirection(this, d->m_url, d->m_redirectionURL);
         }

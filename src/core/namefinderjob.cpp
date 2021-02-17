@@ -7,8 +7,8 @@
 
 #include "namefinderjob.h"
 
-#include "kiocoredebug.h"
 #include "../pathhelpers_p.h"
+#include "kiocoredebug.h"
 #include <KFileUtils>
 #include <KIO/StatJob>
 
@@ -18,7 +18,10 @@ class KIO::NameFinderJobPrivate
 {
 public:
     explicit NameFinderJobPrivate(const QUrl &baseUrl, const QString &name, NameFinderJob *qq)
-        : m_baseUrl(baseUrl), m_name(name), m_statJob(nullptr), q(qq)
+        : m_baseUrl(baseUrl)
+        , m_name(name)
+        , m_statJob(nullptr)
+        , q(qq)
     {
     }
 
@@ -35,7 +38,8 @@ public:
 };
 
 KIO::NameFinderJob::NameFinderJob(const QUrl &baseUrl, const QString &name, QObject *parent)
-    : KCompositeJob(parent), d(new NameFinderJobPrivate(baseUrl, name, this))
+    : KCompositeJob(parent)
+    , d(new NameFinderJobPrivate(baseUrl, name, this))
 {
 }
 
@@ -60,11 +64,14 @@ void KIO::NameFinderJobPrivate::statUrl()
     m_finalUrl = m_baseUrl;
     m_finalUrl.setPath(concatPaths(m_baseUrl.path(), m_name));
 
-    m_statJob = KIO::statDetails(m_finalUrl, KIO::StatJob::DestinationSide,
+    m_statJob = KIO::statDetails(m_finalUrl,
+                                 KIO::StatJob::DestinationSide,
                                  KIO::StatNoDetails, // Just checking if it exists
                                  KIO::HideProgressInfo);
 
-    QObject::connect(m_statJob, &KJob::result, q, [this]() { slotStatResult(); });
+    QObject::connect(m_statJob, &KJob::result, q, [this]() {
+        slotStatResult();
+    });
 }
 
 void KIO::NameFinderJobPrivate::slotStatResult()

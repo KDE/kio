@@ -5,14 +5,14 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
+#include <KIO/EmptyTrashJob>
+#include <KLocalizedString>
+#include <QCommandLineOption>
+#include <QCommandLineParser>
 #include <QCoreApplication>
+#include <QDataStream>
 #include <QDebug>
 #include <QUrl>
-#include <QCommandLineParser>
-#include <QCommandLineOption>
-#include <QDataStream>
-#include <KLocalizedString>
-#include <KIO/EmptyTrashJob>
 
 int main(int argc, char *argv[])
 {
@@ -24,14 +24,13 @@ int main(int argc, char *argv[])
     QCommandLineParser parser;
     parser.addVersionOption();
     parser.addHelpOption();
-    parser.setApplicationDescription(i18n("Helper program to handle the KDE trash can\n"
-                                          "Note: to move files to the trash, do not use ktrash, but \"kioclient move 'url' trash:/\""));
+    parser.setApplicationDescription(
+        i18n("Helper program to handle the KDE trash can\n"
+             "Note: to move files to the trash, do not use ktrash, but \"kioclient move 'url' trash:/\""));
 
-    parser.addOption(QCommandLineOption(QStringList{QStringLiteral("empty")},
-                                        i18n("Empty the contents of the trash")));
-    parser.addOption(QCommandLineOption(QStringList{QStringLiteral("restore")},
-                                        i18n("Restore a trashed file to its original location"),
-                                        QStringLiteral("file")));
+    parser.addOption(QCommandLineOption(QStringList{QStringLiteral("empty")}, i18n("Empty the contents of the trash")));
+    parser.addOption(
+        QCommandLineOption(QStringList{QStringLiteral("restore")}, i18n("Restore a trashed file to its original location"), QStringLiteral("file")));
 
     parser.process(app);
 
@@ -45,7 +44,6 @@ int main(int argc, char *argv[])
 
     QString restoreArg = parser.value(QStringLiteral("restore"));
     if (!restoreArg.isEmpty()) {
-
         if (restoreArg.indexOf(QLatin1String("system:/trash")) == 0) {
             restoreArg.replace(0, 13, QStringLiteral("trash:"));
         }

@@ -10,12 +10,12 @@
 #include <QDBusConnection>
 #include <QDBusServiceWatcher>
 
-KPasswdServerLoop::KPasswdServerLoop() : m_seqNr(-1)
+KPasswdServerLoop::KPasswdServerLoop()
+    : m_seqNr(-1)
 {
-    QDBusServiceWatcher *watcher = new QDBusServiceWatcher(QStringLiteral("org.kde.kpasswdserver"), QDBusConnection::sessionBus(),
-            QDBusServiceWatcher::WatchForUnregistration, this);
-    connect(watcher, &QDBusServiceWatcher::serviceUnregistered,
-            this, &KPasswdServerLoop::kdedServiceUnregistered);
+    QDBusServiceWatcher *watcher =
+        new QDBusServiceWatcher(QStringLiteral("org.kde.kpasswdserver"), QDBusConnection::sessionBus(), QDBusServiceWatcher::WatchForUnregistration, this);
+    connect(watcher, &QDBusServiceWatcher::serviceUnregistered, this, &KPasswdServerLoop::kdedServiceUnregistered);
 }
 
 KPasswdServerLoop::~KPasswdServerLoop()
@@ -40,8 +40,7 @@ const KIO::AuthInfo &KPasswdServerLoop::authInfo() const
     return m_authInfo;
 }
 
-void KPasswdServerLoop::slotQueryResult(qlonglong requestId, qlonglong seqNr,
-                                        const KIO::AuthInfo &authInfo)
+void KPasswdServerLoop::slotQueryResult(qlonglong requestId, qlonglong seqNr, const KIO::AuthInfo &authInfo)
 {
     if (m_requestId == requestId) {
         m_seqNr = seqNr;

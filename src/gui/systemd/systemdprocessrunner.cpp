@@ -5,8 +5,8 @@
     SPDX-License-Identifier: LGPL-2.0-only OR LGPL-3.0-only OR LicenseRef-KDE-Accepted-LGPL
 */
 
-#include "systemdprocessrunner_p.h"
 #include "kiogui_debug.h"
+#include "systemdprocessrunner_p.h"
 
 #include "managerinterface.h"
 #include "propertiesinterface.h"
@@ -76,9 +76,7 @@ bool SystemdProcessRunner::waitForStarted(int timeout)
 
 void SystemdProcessRunner::startProcess()
 {
-    m_serviceName = QStringLiteral("app-%1@%2.service")
-                        .arg(escapeUnitName(name()),
-                            QUuid::createUuid().toString(QUuid::Id128));
+    m_serviceName = QStringLiteral("app-%1@%2.service").arg(escapeUnitName(name()), QUuid::createUuid().toString(QUuid::Id128));
 
     // Watch for new services
     m_manager = new systemd1::Manager(systemdService, systemdPath, QDBusConnection::sessionBus(), this);
@@ -87,34 +85,34 @@ void SystemdProcessRunner::startProcess()
 
     // Watch for service creation job error
     connect(m_manager,
-        &systemd1::Manager::JobRemoved,
-        this,
-        [this](uint jobId, const QDBusObjectPath &jobPath, const QString &unitName, const QString &result) {
-            Q_UNUSED(jobId)
-            if (jobPath.path() == m_jobPath && unitName == m_serviceName && result != QLatin1String("done")) {
-                qCWarning(KIO_GUI) << "Failed to launch process as service:" << m_serviceName << ", result " << result;
-                // result=failed is not a fatal error, service is actually created in this case
-                if (result != QLatin1String("failed")) {
-                    systemdError(result);
+            &systemd1::Manager::JobRemoved,
+            this,
+            [this](uint jobId, const QDBusObjectPath &jobPath, const QString &unitName, const QString &result) {
+                Q_UNUSED(jobId)
+                if (jobPath.path() == m_jobPath && unitName == m_serviceName && result != QLatin1String("done")) {
+                    qCWarning(KIO_GUI) << "Failed to launch process as service:" << m_serviceName << ", result " << result;
+                    // result=failed is not a fatal error, service is actually created in this case
+                    if (result != QLatin1String("failed")) {
+                        systemdError(result);
+                    }
                 }
-            }
-        });
+            });
 
     // Ask systemd for a new transient service
-    const auto startReply = m_manager->StartTransientUnit(m_serviceName,
+    const auto startReply = m_manager->StartTransientUnit(
+        m_serviceName,
         QStringLiteral("fail"), // mode defines what to do in the case of a name conflict, in this case, just do nothing
-        { // Properties of the transient service unit
-            { QStringLiteral("Type"), QStringLiteral("oneshot") },
-            { QStringLiteral("Slice"), QStringLiteral("app.slice") },
-            { QStringLiteral("Description"), m_description },
-            { QStringLiteral("SourcePath"), m_desktopFilePath },
-            { QStringLiteral("AddRef"), true }, // Asks systemd to avoid garbage collecting the service if it immediately crashes,
-                                                // so we can be notified (see https://github.com/systemd/systemd/pull/3984)
-            { QStringLiteral("Environment"), m_process->environment() },
-            { QStringLiteral("WorkingDirectory"), m_process->workingDirectory() },
-            { QStringLiteral("ExecStart"), QVariant::fromValue(ExecCommandList { { m_process->program().first(), m_process->program(), false } }) },
-            { QStringLiteral("KillMode"), QStringLiteral("process")}
-        },
+        {// Properties of the transient service unit
+         {QStringLiteral("Type"), QStringLiteral("oneshot")},
+         {QStringLiteral("Slice"), QStringLiteral("app.slice")},
+         {QStringLiteral("Description"), m_description},
+         {QStringLiteral("SourcePath"), m_desktopFilePath},
+         {QStringLiteral("AddRef"), true}, // Asks systemd to avoid garbage collecting the service if it immediately crashes,
+                                           // so we can be notified (see https://github.com/systemd/systemd/pull/3984)
+         {QStringLiteral("Environment"), m_process->environment()},
+         {QStringLiteral("WorkingDirectory"), m_process->workingDirectory()},
+         {QStringLiteral("ExecStart"), QVariant::fromValue(ExecCommandList{{m_process->program().first(), m_process->program(), false}})},
+         {QStringLiteral("KillMode"), QStringLiteral("process")}},
         {} // aux is currently unused and should be passed as empty array.
     );
     connect(new QDBusPendingCallWatcher(startReply, this), &QDBusPendingCallWatcher::finished, this, [this](QDBusPendingCallWatcher *watcher) {
@@ -134,8 +132,7 @@ void SystemdProcessRunner::handleProperties(QDBusPendingCallWatcher *watcher)
     const QDBusPendingReply<QVariantMap> reply = *watcher;
     watcher->deleteLater();
     if (reply.isError()) {
-        qCWarning(KIO_GUI) << "Failed to get properties for service:" << m_serviceName << reply.error().name()
-                           << reply.error().message();
+        qCWarning(KIO_GUI) << "Failed to get properties for service:" << m_serviceName << reply.error().name() << reply.error().message();
         return systemdError(reply.error().name());
     }
     qCDebug(KIO_GUI) << "Successfully retrieved properties for service:" << m_serviceName;
@@ -187,10 +184,7 @@ void SystemdProcessRunner::handleUnitNew(const QString &newName, const QDBusObje
     m_servicePath = newPath.path();
     m_serviceProperties = new DBus::Properties(systemdService, m_servicePath, QDBusConnection::sessionBus(), this);
     auto propReply = m_serviceProperties->GetAll(QString());
-    connect(new QDBusPendingCallWatcher(propReply, this),
-        &QDBusPendingCallWatcher::finished,
-        this,
-        &SystemdProcessRunner::handleProperties);
+    connect(new QDBusPendingCallWatcher(propReply, this), &QDBusPendingCallWatcher::finished, this, &SystemdProcessRunner::handleProperties);
 
     // Watch for status change
     connect(m_serviceProperties, &DBus::Properties::PropertiesChanged, this, [this]() {
@@ -200,10 +194,7 @@ void SystemdProcessRunner::handleUnitNew(const QString &newName, const QDBusObje
         qCDebug(KIO_GUI) << "Got PropertiesChanged signal:" << m_serviceName;
         // We need to look at the full list of properties rather than only those which changed
         auto reply = m_serviceProperties->GetAll(QString());
-        connect(new QDBusPendingCallWatcher(reply, this),
-            &QDBusPendingCallWatcher::finished,
-            this,
-            &SystemdProcessRunner::handleProperties);
+        connect(new QDBusPendingCallWatcher(reply, this), &QDBusPendingCallWatcher::finished, this, &SystemdProcessRunner::handleProperties);
     });
 }
 

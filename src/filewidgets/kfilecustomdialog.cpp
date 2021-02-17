@@ -8,9 +8,9 @@
 
 #include "kfilecustomdialog.h"
 
+#include <QPushButton>
 #include <QUrl>
 #include <QVBoxLayout>
-#include <QPushButton>
 
 class KFileCustomDialogPrivate
 {
@@ -22,7 +22,7 @@ public:
     void init(const QUrl &startDir);
 
     KFileWidget *mFileWidget = nullptr;
-    KFileCustomDialog * const q;
+    KFileCustomDialog *const q;
 };
 
 void KFileCustomDialogPrivate::init(const QUrl &startDir)
@@ -35,25 +35,29 @@ void KFileCustomDialogPrivate::init(const QUrl &startDir)
     mainLayout->addWidget(mFileWidget);
 
     mFileWidget->okButton()->show();
-    q->connect(mFileWidget->okButton(), &QPushButton::clicked, q, [this]() { mFileWidget->slotOk(); });
+    q->connect(mFileWidget->okButton(), &QPushButton::clicked, q, [this]() {
+        mFileWidget->slotOk();
+    });
     mFileWidget->cancelButton()->show();
     q->connect(mFileWidget->cancelButton(), &QPushButton::clicked, q, [this]() {
         mFileWidget->slotCancel();
         q->reject();
     });
-    q->connect(mFileWidget, &KFileWidget::accepted, q, [this] { q->accept(); });
+    q->connect(mFileWidget, &KFileWidget::accepted, q, [this] {
+        q->accept();
+    });
 }
 
 KFileCustomDialog::KFileCustomDialog(QWidget *parent)
-    : QDialog(parent),
-      d(new KFileCustomDialogPrivate(this))
+    : QDialog(parent)
+    , d(new KFileCustomDialogPrivate(this))
 {
     d->init(QUrl());
 }
 
 KFileCustomDialog::KFileCustomDialog(const QUrl &startDir, QWidget *parent)
-    : QDialog(parent),
-      d(new KFileCustomDialogPrivate(this))
+    : QDialog(parent)
+    , d(new KFileCustomDialogPrivate(this))
 {
     d->init(startDir);
 }

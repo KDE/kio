@@ -9,12 +9,11 @@
 #ifndef KIO_MIMETYPEJOB_H
 #define KIO_MIMETYPEJOB_H
 
-#include <kio/global.h> // filesize_t
 #include "transferjob.h"
+#include <kio/global.h> // filesize_t
 
 namespace KIO
 {
-
 class MimetypeJobPrivate;
 /**
  * @class KIO::MimetypeJob mimetypejob.h <KIO/MimetypeJob>
@@ -33,8 +32,10 @@ public:
 
 protected Q_SLOTS:
     void slotFinished() override;
+
 protected:
     MimetypeJob(MimetypeJobPrivate &dd);
+
 private:
     Q_DECLARE_PRIVATE(MimetypeJob)
 };
@@ -50,8 +51,7 @@ private:
  * @param flags Can be HideProgressInfo here
  * @return the job handling the operation.
  */
-KIOCORE_EXPORT MimetypeJob *mimetype(const QUrl &url,
-                                     JobFlags flags = DefaultFlags);
+KIOCORE_EXPORT MimetypeJob *mimetype(const QUrl &url, JobFlags flags = DefaultFlags);
 
 }
 

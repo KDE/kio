@@ -12,20 +12,19 @@
 
 namespace KIO
 {
-
 class OpenFileManagerWindowJob;
 
 class AbstractOpenFileManagerWindowStrategy
 {
-
 public:
     explicit AbstractOpenFileManagerWindowStrategy(OpenFileManagerWindowJob *job)
         : m_job(job)
     {
-
     }
 
-    virtual ~AbstractOpenFileManagerWindowStrategy() {}
+    virtual ~AbstractOpenFileManagerWindowStrategy()
+    {
+    }
     virtual void start(const QList<QUrl> &urls, const QByteArray &asn) = 0;
 
     void emitResultProxy(int error = KJob::NoError)
@@ -36,25 +35,26 @@ public:
 
 protected:
     OpenFileManagerWindowJob *m_job;
-
 };
 
 class OpenFileManagerWindowDBusStrategy : public AbstractOpenFileManagerWindowStrategy
 {
-
 public:
-    explicit OpenFileManagerWindowDBusStrategy(OpenFileManagerWindowJob *job) : AbstractOpenFileManagerWindowStrategy(job) {}
+    explicit OpenFileManagerWindowDBusStrategy(OpenFileManagerWindowJob *job)
+        : AbstractOpenFileManagerWindowStrategy(job)
+    {
+    }
     void start(const QList<QUrl> &urls, const QByteArray &asn) override;
-
 };
 
 class OpenFileManagerWindowKRunStrategy : public AbstractOpenFileManagerWindowStrategy
 {
-
 public:
-    explicit OpenFileManagerWindowKRunStrategy(OpenFileManagerWindowJob *job) : AbstractOpenFileManagerWindowStrategy(job) {}
+    explicit OpenFileManagerWindowKRunStrategy(OpenFileManagerWindowJob *job)
+        : AbstractOpenFileManagerWindowStrategy(job)
+    {
+    }
     void start(const QList<QUrl> &urls, const QByteArray &asn) override;
-
 };
 
 }

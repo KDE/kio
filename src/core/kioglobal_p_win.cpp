@@ -12,7 +12,8 @@
 
 #include <qt_windows.h>
 
-KIOCORE_EXPORT bool KIOPrivate::isProcessAlive(qint64 pid) {
+KIOCORE_EXPORT bool KIOPrivate::isProcessAlive(qint64 pid)
+{
     HANDLE procHandle = OpenProcess(PROCESS_QUERY_LIMITED_INFORMATION, FALSE, pid);
     bool alive = false;
     if (procHandle != INVALID_HANDLE_VALUE) {
@@ -38,7 +39,7 @@ BOOL CALLBACK closeProcessCallback(HWND hwnd, LPARAM lParam)
 
 KIOCORE_EXPORT void KIOPrivate::sendTerminateSignal(qint64 pid)
 {
-    //no error checking whether kill succeeded, Linux code also just sends a SIGTERM without checking
+    // no error checking whether kill succeeded, Linux code also just sends a SIGTERM without checking
     HANDLE procHandle = OpenProcess(SYNCHRONIZE | PROCESS_TERMINATE, FALSE, pid);
     if (procHandle != INVALID_HANDLE_VALUE) {
         EnumWindows(&closeProcessCallback, (LPARAM)pid);
@@ -54,8 +55,7 @@ KIOCORE_EXPORT bool KIOPrivate::createSymlink(const QString &source, const QStri
         flag = SYMBOLIC_LINK_FLAG_DIRECTORY;
     } else if (type == KIOPrivate::FileSymlink) {
         flag = 0;
-    }
-    else {
+    } else {
         // Guess the type of the symlink based on the source path
         // If the source is a directory we set the flag SYMBOLIC_LINK_FLAG_DIRECTORY, for files
         // and non-existent paths we create a symlink to a file
@@ -78,7 +78,7 @@ KIOCORE_EXPORT bool KIOPrivate::createSymlink(const QString &source, const QStri
 #endif
 }
 
-KIOCORE_EXPORT int kio_windows_lstat(const char* path, QT_STATBUF* buffer)
+KIOCORE_EXPORT int kio_windows_lstat(const char *path, QT_STATBUF *buffer)
 {
     int result = QT_STAT(path, buffer);
     if (result != 0) {
@@ -87,14 +87,13 @@ KIOCORE_EXPORT int kio_windows_lstat(const char* path, QT_STATBUF* buffer)
     const QString pathStr = QFile::decodeName(path);
     // QFileInfo currently only checks for .lnk file in isSymlink() -> also check native win32 symlinks
     const DWORD fileAttrs = GetFileAttributesW((LPCWSTR)pathStr.utf16());
-    if (fileAttrs != INVALID_FILE_ATTRIBUTES && (fileAttrs & FILE_ATTRIBUTE_REPARSE_POINT)
-        || QFileInfo(pathStr).isSymLink()) {
+    if (fileAttrs != INVALID_FILE_ATTRIBUTES && (fileAttrs & FILE_ATTRIBUTE_REPARSE_POINT) || QFileInfo(pathStr).isSymLink()) {
         buffer->st_mode |= QT_STAT_LNK;
     }
     return result;
 }
 
-KIOCORE_EXPORT bool KIOPrivate::changeOwnership(const QString& file, KUserId newOwner, KGroupId newGroup)
+KIOCORE_EXPORT bool KIOPrivate::changeOwnership(const QString &file, KUserId newOwner, KGroupId newGroup)
 {
 #pragma message("TODO")
     qWarning("KIOPrivate::changeOwnership: not implemented yet");

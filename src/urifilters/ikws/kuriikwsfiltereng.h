@@ -13,20 +13,23 @@
 #ifndef KURIIKWSFILTERENG_H
 #define KURIIKWSFILTERENG_H
 
+#include "searchproviderregistry.h"
 #include <QMap>
 #include <QStringList>
 #include <QUrl>
-#include "searchproviderregistry.h"
 
-#define DEFAULT_PREFERRED_SEARCH_PROVIDERS \
-    QStringList{QStringLiteral("google"), QStringLiteral("youtube"), QStringLiteral("yahoo"), QStringLiteral("wikipedia"), QStringLiteral("wikit")}
+#define DEFAULT_PREFERRED_SEARCH_PROVIDERS                                                                                                                     \
+    QStringList                                                                                                                                                \
+    {                                                                                                                                                          \
+        QStringLiteral("google"), QStringLiteral("youtube"), QStringLiteral("yahoo"), QStringLiteral("wikipedia"), QStringLiteral("wikit")                     \
+    }
 
 class SearchProvider;
 
 class KURISearchFilterEngine
 {
 public:
-    typedef QMap <QString, QString> SubstMap;
+    typedef QMap<QString, QString> SubstMap;
 
     KURISearchFilterEngine();
     ~KURISearchFilterEngine();

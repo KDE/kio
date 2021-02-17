@@ -8,9 +8,9 @@
 #ifndef KFILEITEMDELEGATE_H
 #define KFILEITEMDELEGATE_H
 
+#include "kiowidgets_export.h"
 #include <QAbstractItemDelegate>
 #include <QTextOption>
-#include "kiowidgets_export.h"
 
 class QAbstractItemModel;
 class QAbstractItemView;
@@ -143,20 +143,20 @@ public:
      * @see information
      */
     enum Information {
-        NoInformation,     ///< No additional information will be shown for items.
-        Size,              ///< The file size for files, and the number of items for folders.
-        Permissions,       ///< A UNIX permissions string, e.g. -rwxr-xr-x.
-        OctalPermissions,  ///< The permissions as an octal value, e.g. 0644.
-        Owner,             ///< The user name of the file owner, e.g. root
-        OwnerAndGroup,     ///< The user and group that owns the file, e.g. root:root
-        CreationTime,      ///< The date and time the file/folder was created.
-        ModificationTime,  ///< The date and time the file/folder was last modified.
-        AccessTime,        ///< The date and time the file/folder was last accessed.
-        MimeType,          ///< The MIME type for the item, e.g. text/html.
-        FriendlyMimeType,  ///< The descriptive name for the MIME type, e.g. HTML Document.
-        LinkDest,          ///< The destination of a symbolic link. @since 4.5
-        LocalPathOrUrl,    ///< The local path to the file or the URL in case it is not a local file. @since 4.5
-        Comment,            ///< A simple comment that can be displayed to the user as is. @since 4.6
+        NoInformation, ///< No additional information will be shown for items.
+        Size, ///< The file size for files, and the number of items for folders.
+        Permissions, ///< A UNIX permissions string, e.g. -rwxr-xr-x.
+        OctalPermissions, ///< The permissions as an octal value, e.g. 0644.
+        Owner, ///< The user name of the file owner, e.g. root
+        OwnerAndGroup, ///< The user and group that owns the file, e.g. root:root
+        CreationTime, ///< The date and time the file/folder was created.
+        ModificationTime, ///< The date and time the file/folder was last modified.
+        AccessTime, ///< The date and time the file/folder was last accessed.
+        MimeType, ///< The MIME type for the item, e.g. text/html.
+        FriendlyMimeType, ///< The descriptive name for the MIME type, e.g. HTML Document.
+        LinkDest, ///< The destination of a symbolic link. @since 4.5
+        LocalPathOrUrl, ///< The local path to the file or the URL in case it is not a local file. @since 4.5
+        Comment, ///< A simple comment that can be displayed to the user as is. @since 4.6
     };
     Q_ENUM(Information)
 
@@ -421,9 +421,8 @@ public Q_SLOTS:
 
 private:
     class Private;
-    Private *const d;  /// @internal
+    Private *const d; /// @internal
     Q_DISABLE_COPY(KFileItemDelegate)
 };
 
 #endif // KFILEITEMDELEGATE_H
-

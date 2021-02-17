@@ -7,21 +7,22 @@
 
 #include "kio/skipdialog.h"
 
-#include <stdio.h>
 #include <assert.h>
+#include <stdio.h>
 
 #include <QDialogButtonBox>
-#include <QPushButton>
-#include <QWidget>
 #include <QLabel>
+#include <QPushButton>
 #include <QVBoxLayout>
+#include <QWidget>
 
 #include <KLocalizedString>
 
 using namespace KIO;
 
 SkipDialog::SkipDialog(QWidget *parent, KIO::SkipDialog_Options options, const QString &_error_text)
-    : QDialog(parent), d(nullptr)
+    : QDialog(parent)
+    , d(nullptr)
 {
     setWindowTitle(i18n("Information"));
 
@@ -75,4 +76,3 @@ void SkipDialog::retryPressed()
 {
     done(KIO::Result_Retry);
 }
-

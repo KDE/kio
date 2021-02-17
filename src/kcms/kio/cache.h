@@ -16,23 +16,23 @@
 
 class CacheConfigModule : public KCModule
 {
-  Q_OBJECT
+    Q_OBJECT
 
 public:
-  CacheConfigModule(QWidget *parent, const QVariantList &args);
-  ~CacheConfigModule();
+    CacheConfigModule(QWidget *parent, const QVariantList &args);
+    ~CacheConfigModule();
 
-  void load() override;
-  void save() override;
-  void defaults() override;
-  QString quickHelp() const override;
+    void load() override;
+    void save() override;
+    void defaults() override;
+    QString quickHelp() const override;
 
 private Q_SLOTS:
-  void configChanged();
-  void clearCache();
+    void configChanged();
+    void clearCache();
 
 private:
-  Ui::CacheConfigUI ui;
+    Ui::CacheConfigUI ui;
 };
 
 #endif // CACHE_H

@@ -14,8 +14,8 @@
 #include "searchproviderdlg.h"
 
 #include <KBuildSycocaProgressDialog>
-#include <KLocalizedString>
 #include <KConfigGroup>
+#include <KLocalizedString>
 #include <KSharedConfig>
 
 #include <QDBusConnection>
@@ -23,7 +23,7 @@
 #include <QFile>
 #include <QSortFilterProxyModel>
 
-//BEGIN ProvidersModel
+// BEGIN ProvidersModel
 
 ProvidersModel::~ProvidersModel()
 {
@@ -90,15 +90,16 @@ QVariant ProvidersModel::data(const QModelIndex &index, int role) const
 
         if (role == Qt::ToolTipRole || role == Qt::WhatsThisRole) {
             if (index.column() == Preferred) {
-                return xi18nc("@info:tooltip", "Check this box to select the highlighted web search keyword "
-                                               "as preferred.<nl/>Preferred web search keywords are used in "
-                                               "places where only a few select keywords can be shown "
-                                               "at one time.");
+                return xi18nc("@info:tooltip",
+                              "Check this box to select the highlighted web search keyword "
+                              "as preferred.<nl/>Preferred web search keywords are used in "
+                              "places where only a few select keywords can be shown "
+                              "at one time.");
             }
         }
 
         if (role == Qt::UserRole) {
-            return index.row();//a nice way to bypass proxymodel
+            return index.row(); // a nice way to bypass proxymodel
         }
     }
 
@@ -162,7 +163,7 @@ void ProvidersModel::addProvider(SearchProvider *p)
 void ProvidersModel::changeProvider(SearchProvider *p)
 {
     const int row = m_providers.indexOf(p);
-    Q_EMIT dataChanged(index(row, 0), index(row, ColumnCount-1));
+    Q_EMIT dataChanged(index(row, 0), index(row, ColumnCount - 1));
     Q_EMIT dataModified();
 }
 
@@ -171,9 +172,9 @@ QStringList ProvidersModel::favoriteEngines() const
     return QStringList(m_favoriteEngines.cbegin(), m_favoriteEngines.cend());
 }
 
-//END ProvidersModel
+// END ProvidersModel
 
-//BEGIN ProvidersListModel
+// BEGIN ProvidersListModel
 ProvidersListModel::ProvidersListModel(QList<SearchProvider *> &providers, QObject *parent)
     : QAbstractListModel(parent)
     , m_providers(providers)
@@ -208,7 +209,7 @@ int ProvidersListModel::rowCount(const QModelIndex &parent) const
     return m_providers.size() + 1;
 }
 
-//END ProvidersListModel
+// END ProvidersListModel
 
 static QSortFilterProxyModel *wrapInProxyModel(QAbstractItemModel *model)
 {
@@ -243,34 +244,34 @@ FilterOptions::FilterOptions(QWidget *parent)
     connect(m_dlg.pbNew, &QAbstractButton::clicked, this, &FilterOptions::addSearchProvider);
     connect(m_dlg.pbDelete, &QAbstractButton::clicked, this, &FilterOptions::deleteSearchProvider);
     connect(m_dlg.pbChange, &QAbstractButton::clicked, this, &FilterOptions::changeSearchProvider);
-    connect(m_dlg.lvSearchProviders->selectionModel(), &QItemSelectionModel::currentChanged,
-            this, &FilterOptions::updateSearchProviderEditingButons);
+    connect(m_dlg.lvSearchProviders->selectionModel(), &QItemSelectionModel::currentChanged, this, &FilterOptions::updateSearchProviderEditingButons);
     connect(m_dlg.lvSearchProviders, &QAbstractItemView::doubleClicked, this, &FilterOptions::changeSearchProvider);
     connect(m_dlg.searchLineEdit, &QLineEdit::textEdited, searchProviderModel, &QSortFilterProxyModel::setFilterFixedString);
 }
 
 QString FilterOptions::quickHelp() const
 {
-    return xi18nc("@info:whatsthis", "<para>In this module you can configure the web search keywords feature. "
-                                     "Web search keywords allow you to quickly search or lookup words on "
-                                     "the Internet. For example, to search for information about the "
-                                     "KDE project using the Google engine, you simply type <emphasis>gg:KDE</emphasis> "
-                                     "or <emphasis>google:KDE</emphasis>.</para>"
-                                     "<para>If you select a default search engine, then you can search for "
-                                     "normal words or phrases by simply typing them into the input widget "
-                                     "of applications that have built-in support for such a feature, e.g "
-                                     "Konqueror.</para>");
+    return xi18nc("@info:whatsthis",
+                  "<para>In this module you can configure the web search keywords feature. "
+                  "Web search keywords allow you to quickly search or lookup words on "
+                  "the Internet. For example, to search for information about the "
+                  "KDE project using the Google engine, you simply type <emphasis>gg:KDE</emphasis> "
+                  "or <emphasis>google:KDE</emphasis>.</para>"
+                  "<para>If you select a default search engine, then you can search for "
+                  "normal words or phrases by simply typing them into the input widget "
+                  "of applications that have built-in support for such a feature, e.g "
+                  "Konqueror.</para>");
 }
 
 void FilterOptions::setDefaultEngine(int index)
 {
     QSortFilterProxyModel *proxy = qobject_cast<QSortFilterProxyModel *>(m_dlg.cmbDefaultEngine->model());
     if (index == -1) {
-        index = proxy->rowCount()-1;//"None" is the last
+        index = proxy->rowCount() - 1; //"None" is the last
     }
     const QModelIndex modelIndex = proxy->mapFromSource(proxy->sourceModel()->index(index, 0));
     m_dlg.cmbDefaultEngine->setCurrentIndex(modelIndex.row());
-    m_dlg.cmbDefaultEngine->view()->setCurrentIndex(modelIndex); //TODO: remove this when Qt bug is fixed
+    m_dlg.cmbDefaultEngine->view()->setCurrentIndex(modelIndex); // TODO: remove this when Qt bug is fixed
 }
 
 void FilterOptions::load()
@@ -289,7 +290,7 @@ void FilterOptions::load()
         }
     }
 
-    int defaultProviderIndex = providers.size(); //default is "None", it is last in the list
+    int defaultProviderIndex = providers.size(); // default is "None", it is last in the list
 
     for (SearchProvider *provider : qAsConst(providers)) {
         if (defaultSearchEngine == provider->desktopEntryName()) {
@@ -356,7 +357,8 @@ void FilterOptions::save()
         service.writeEntry("Hidden", false); // we might be overwriting a hidden entry
     }
 
-    const QStringList servicesDirs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("kservices5/searchproviders/"), QStandardPaths::LocateDirectory);
+    const QStringList servicesDirs =
+        QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("kservices5/searchproviders/"), QStandardPaths::LocateDirectory);
     for (const QString &providerName : qAsConst(m_deletedProviders)) {
         QStringList matches;
         for (const QString &dir : servicesDirs) {
@@ -444,8 +446,7 @@ void FilterOptions::deleteSearchProvider()
 
 void FilterOptions::updateSearchProviderEditingButons()
 {
-    const bool enable = (m_dlg.cbEnableShortcuts->isChecked()
-                         && m_dlg.lvSearchProviders->currentIndex().isValid());
+    const bool enable = (m_dlg.cbEnableShortcuts->isChecked() && m_dlg.lvSearchProviders->currentIndex().isValid());
     m_dlg.pbChange->setEnabled(enable);
     m_dlg.pbDelete->setEnabled(enable);
 }

@@ -8,8 +8,8 @@
 #ifndef KDIRMODEL_H
 #define KDIRMODEL_H
 
-#include <QAbstractItemModel>
 #include "kiowidgets_export.h"
+#include <QAbstractItemModel>
 #include <kfileitem.h>
 
 class KDirLister;
@@ -53,12 +53,12 @@ public:
      * @since 5.69
      */
     enum OpenUrlFlag {
-        NoFlags = 0x0,   ///< No additional flags specified.
-        Reload = 0x1,    ///< Indicates whether to use the cache or to reread
-                         ///< the directory from the disk.
-                         ///< Use only when opening a dir not yet listed by our dirLister()
-                         ///< without using the cache. Otherwise use dirLister()->updateDirectory().
-        ShowRoot = 0x2,  ///< Display a root node for the URL being opened.
+        NoFlags = 0x0, ///< No additional flags specified.
+        Reload = 0x1, ///< Indicates whether to use the cache or to reread
+                      ///< the directory from the disk.
+                      ///< Use only when opening a dir not yet listed by our dirLister()
+                      ///< without using the cache. Otherwise use dirLister()->updateDirectory().
+        ShowRoot = 0x2, ///< Display a root node for the URL being opened.
     };
     /**
      * Stores a combination of #OpenUrlFlag values.
@@ -161,9 +161,9 @@ public:
     enum AdditionalRoles {
         // Note: use   printf "0x%08X\n" $(($RANDOM*$RANDOM))
         // to define additional roles.
-        FileItemRole = 0x07A263FF,  ///< returns the KFileItem for a given index
+        FileItemRole = 0x07A263FF, ///< returns the KFileItem for a given index
         ChildCountRole = 0x2C4D0A40, ///< returns the number of items in a directory, or ChildCountUnknown
-        HasJobRole = 0x01E555A5,  ///< returns whether or not there is a job on an item (file/directory)
+        HasJobRole = 0x01E555A5, ///< returns whether or not there is a job on an item (file/directory)
     };
 
     /**

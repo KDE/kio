@@ -14,8 +14,8 @@
 #ifndef JOBREMOTETEST_H
 #define JOBREMOTETEST_H
 
-#include <QString>
 #include <QObject>
+#include <QString>
 #include <kio/job.h>
 
 class JobRemoteTest : public QObject
@@ -23,7 +23,9 @@ class JobRemoteTest : public QObject
     Q_OBJECT
 
 public:
-    JobRemoteTest() {}
+    JobRemoteTest()
+    {
+    }
 
 private Q_SLOTS:
     void initTestCase();
@@ -36,13 +38,13 @@ private Q_SLOTS:
     void openFileRead0Bytes();
     void openFileTruncating();
 
-    //void calculateRemainingSeconds();
+    // void calculateRemainingSeconds();
 
 Q_SIGNALS:
     void exitLoop();
 
 protected Q_SLOTS:
-    //void slotEntries( KIO::Job*, const KIO::UDSEntryList& lst );
+    // void slotEntries( KIO::Job*, const KIO::UDSEntryList& lst );
     void slotGetResult(KJob *);
     void slotDataReq(KIO::Job *, QByteArray &);
     void slotResult(KJob *);

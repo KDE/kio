@@ -9,24 +9,25 @@
 #include "slaveinterface_p.h"
 #include "usernotificationhandler_p.h"
 
-#include "slavebase.h"
-#include "connection_p.h"
 #include "commands_p.h"
+#include "connection_p.h"
 #include "hostinfo.h"
-#include <signal.h>
+#include "slavebase.h"
 #include <KLocalizedString>
+#include <signal.h>
 #include <time.h>
 
-#include <QDebug>
-#include <QDateTime>
 #include <QDataStream>
+#include <QDateTime>
+#include <QDebug>
 
 using namespace KIO;
 
 Q_GLOBAL_STATIC(UserNotificationHandler, globalUserNotificationHandler)
 
 SlaveInterface::SlaveInterface(SlaveInterfacePrivate &dd, QObject *parent)
-    : QObject(parent), d_ptr(&dd)
+    : QObject(parent)
+    , d_ptr(&dd)
 {
     connect(&d_ptr->speed_timer, &QTimer::timeout, this, &SlaveInterface::calcSpeed);
 }
@@ -103,12 +104,12 @@ void SlaveInterface::calcSpeed()
 
         KIO::filesize_t lspeed = 1000 * (d->sizes[d->nums - 1] - d->sizes[0]) / (d->times[d->nums - 1] - d->times[0]);
 
-//qDebug() << (long)d->filesize << diff
-//          << long(d->sizes[d->nums-1] - d->sizes[0])
-//          << d->times[d->nums-1] - d->times[0]
-//          << long(lspeed) << double(d->filesize) / diff
-//          << convertSize(lspeed)
-//          << convertSize(long(double(d->filesize) / diff) * 1000);
+        // qDebug() << (long)d->filesize << diff
+        //          << long(d->sizes[d->nums-1] - d->sizes[0])
+        //          << d->times[d->nums-1] - d->times[0]
+        //          << long(lspeed) << double(d->filesize) / diff
+        //          << convertSize(lspeed)
+        //          << convertSize(long(double(d->filesize) / diff) * 1000);
 
         if (!lspeed) {
             d->nums = 1;
@@ -122,7 +123,7 @@ void SlaveInterface::calcSpeed()
 bool SlaveInterface::dispatch(int _cmd, const QByteArray &rawdata)
 {
     Q_D(SlaveInterface);
-    //qDebug() << "dispatch " << _cmd;
+    // qDebug() << "dispatch " << _cmd;
 
     QDataStream stream(rawdata);
 
@@ -142,7 +143,7 @@ bool SlaveInterface::dispatch(int _cmd, const QByteArray &rawdata)
         Q_EMIT open();
         break;
     case MSG_FINISHED:
-        //qDebug() << "Finished [this = " << this << "]";
+        // qDebug() << "Finished [this = " << this << "]";
         d->offset = 0;
         d->speed_timer.stop();
         Q_EMIT finished();
@@ -176,7 +177,7 @@ bool SlaveInterface::dispatch(int _cmd, const QByteArray &rawdata)
         break;
     case MSG_ERROR:
         stream >> i >> str1;
-        //qDebug() << "error " << i << " " << str1;
+        // qDebug() << "error " << i << " " << str1;
         Q_EMIT error(i, str1);
         break;
 #if KIOCORE_BUILD_DEPRECATED_SINCE(5, 45)
@@ -257,7 +258,7 @@ bool SlaveInterface::dispatch(int _cmd, const QByteArray &rawdata)
         Q_EMIT warning(str1);
         break;
     case INF_MESSAGEBOX: {
-        //qDebug() << "needs a msg box";
+        // qDebug() << "needs a msg box";
         QString text, caption, buttonYes, buttonNo, dontAskAgainName;
         int type;
         stream >> type >> text >> caption >> buttonYes >> buttonNo;
@@ -346,7 +347,7 @@ void SlaveInterface::requestNetwork(const QString &host, const QString &slaveid)
     Q_D(SlaveInterface);
     Q_UNUSED(host);
     Q_UNUSED(slaveid);
-    //qDebug() << "requestNetwork " << host << slaveid;
+    // qDebug() << "requestNetwork " << host << slaveid;
 
     // This is old stuff. We just always return true...
 
@@ -360,13 +361,13 @@ void SlaveInterface::dropNetwork(const QString &host, const QString &slaveid)
 {
     Q_UNUSED(host);
     Q_UNUSED(slaveid);
-    //qDebug() << "dropNetwork " << host << slaveid;
+    // qDebug() << "dropNetwork " << host << slaveid;
 }
 
 void SlaveInterface::sendResumeAnswer(bool resume)
 {
     Q_D(SlaveInterface);
-    //qDebug() << "ok for resuming:" << resume;
+    // qDebug() << "ok for resuming:" << resume;
     d->connection->sendnow(resume ? CMD_RESUMEANSWER : CMD_NONE, QByteArray());
 }
 
@@ -387,14 +388,17 @@ void SlaveInterface::sendMessageBoxAnswer(int result)
     // qDebug() << "message box answer" << result;
 }
 
-void SlaveInterface::messageBox(int type, const QString &text, const QString &_caption,
-                                const QString &buttonYes, const QString &buttonNo)
+void SlaveInterface::messageBox(int type, const QString &text, const QString &_caption, const QString &buttonYes, const QString &buttonNo)
 {
     messageBox(type, text, _caption, buttonYes, buttonNo, QString());
 }
 
-void SlaveInterface::messageBox(int type, const QString &text, const QString &caption,
-                                const QString &buttonYes, const QString &buttonNo, const QString &dontAskAgainName)
+void SlaveInterface::messageBox(int type,
+                                const QString &text,
+                                const QString &caption,
+                                const QString &buttonYes,
+                                const QString &buttonNo,
+                                const QString &dontAskAgainName)
 {
     Q_D(SlaveInterface);
     if (d->connection) {
@@ -435,7 +439,7 @@ void SlaveInterfacePrivate::slotHostInfo(const QHostInfo &info)
 {
     QByteArray data;
     QDataStream stream(&data, QIODevice::WriteOnly);
-    stream <<  info.hostName() << info.addresses() << info.error() << info.errorString();
+    stream << info.hostName() << info.addresses() << info.error() << info.errorString();
     connection->send(CMD_HOST_INFO, data);
 }
 

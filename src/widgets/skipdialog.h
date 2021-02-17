@@ -9,14 +9,13 @@
 #define KIO_SKIPDIALOG_H
 
 #include "kiowidgets_export.h"
-#include <kio/jobuidelegateextension.h>
 #include <QDialog>
+#include <kio/jobuidelegateextension.h>
 
 class QWidget;
 
 namespace KIO
 {
-
 class SkipDialogPrivate;
 /**
  * @internal

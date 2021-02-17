@@ -11,12 +11,11 @@
 
 #include <QUrl>
 
-#include "kiocore_export.h"
 #include "job_base.h"
+#include "kiocore_export.h"
 
 namespace KIO
 {
-
 class MkpathJobPrivate;
 /**
  * @class KIO::MkpathJob mkpathjob.h <KIO/MkpathJob>

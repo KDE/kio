@@ -10,8 +10,8 @@
 
 #include "kiocore_export.h"
 
-#include <QMap>
 #include <QList>
+#include <QMap>
 #include <QStringList>
 #include <QUrl>
 #include <QVariant> // Q_DECLARE_METATYPE
@@ -20,7 +20,6 @@ class QDBusArgument;
 
 namespace KIO
 {
-
 class AuthInfoPrivate;
 
 /**
@@ -47,14 +46,13 @@ class AuthInfoPrivate;
  */
 class KIOCORE_EXPORT AuthInfo
 {
-    KIOCORE_EXPORT friend QDataStream &operator<< (QDataStream &s, const AuthInfo &a);
-    KIOCORE_EXPORT friend QDataStream &operator>> (QDataStream &s, AuthInfo &a);
+    KIOCORE_EXPORT friend QDataStream &operator<<(QDataStream &s, const AuthInfo &a);
+    KIOCORE_EXPORT friend QDataStream &operator>>(QDataStream &s, AuthInfo &a);
 
     KIOCORE_EXPORT friend QDBusArgument &operator<<(QDBusArgument &argument, const AuthInfo &a);
     KIOCORE_EXPORT friend const QDBusArgument &operator>>(const QDBusArgument &argument, AuthInfo &a);
 
 public:
-
     /**
      * Default constructor.
      */
@@ -278,8 +276,8 @@ private:
     AuthInfoPrivate *const d;
 };
 
-KIOCORE_EXPORT QDataStream &operator<< (QDataStream &s, const AuthInfo &a);
-KIOCORE_EXPORT QDataStream &operator>> (QDataStream &s, AuthInfo &a);
+KIOCORE_EXPORT QDataStream &operator<<(QDataStream &s, const AuthInfo &a);
+KIOCORE_EXPORT QDataStream &operator>>(QDataStream &s, AuthInfo &a);
 
 KIOCORE_EXPORT QDBusArgument &operator<<(QDBusArgument &argument, const AuthInfo &a);
 KIOCORE_EXPORT const QDBusArgument &operator>>(const QDBusArgument &argument, AuthInfo &a);
@@ -296,7 +294,6 @@ KIOCORE_EXPORT const QDBusArgument &operator>>(const QDBusArgument &argument, Au
 class KIOCORE_EXPORT NetRC
 {
 public:
-
     /**
      * Specifies the mode to be used when searching for a
      * matching automatic login info for a given site :
@@ -346,7 +343,8 @@ public:
      *        will be taken
      * @param mode the LookUpMode flags (ORed) for the query
      */
-    bool lookup(const QUrl &url, AutoLogin &login,
+    bool lookup(const QUrl &url,
+                AutoLogin &login,
                 bool userealnetrc = false,
                 const QString &type = QString(),
                 LookUpMode mode = LookUpMode(exactOnly) | defaultOnly);
@@ -363,7 +361,7 @@ private:
     ~NetRC();
 
     NetRC(const NetRC &) = delete;
-    NetRC& operator=(const NetRC &) = delete;
+    NetRC &operator=(const NetRC &) = delete;
 
 private:
     static NetRC *instance;

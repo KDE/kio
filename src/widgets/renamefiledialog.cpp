@@ -22,14 +22,14 @@
 #include <QLineEdit>
 #include <QMimeDatabase>
 #include <QPushButton>
-#include <QSpinBox>
 #include <QShowEvent>
+#include <QSpinBox>
 
-namespace KIO {
+namespace KIO
+{
 class Q_DECL_HIDDEN RenameFileDialog::RenameFileDialogPrivate
 {
 public:
-
     RenameFileDialogPrivate(const KFileItemList &items)
         : lineEdit(nullptr)
         , items(items)
@@ -58,11 +58,8 @@ RenameFileDialog::RenameFileDialog(const KFileItemList &items, QWidget *parent)
     Q_ASSERT(itemCount >= 1);
     d->renameOneItem = (itemCount == 1);
 
-    setWindowTitle(d->renameOneItem
-                   ? i18nc("@title:window", "Rename Item")
-                   : i18nc("@title:window", "Rename Items"));
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(
-        QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
+    setWindowTitle(d->renameOneItem ? i18nc("@title:window", "Rename Item") : i18nc("@title:window", "Rename Items"));
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     d->okButton = buttonBox->button(QDialogButtonBox::Ok);
     d->okButton->setDefault(true);
@@ -72,9 +69,7 @@ RenameFileDialog::RenameFileDialog(const KFileItemList &items, QWidget *parent)
     connect(buttonBox, &QDialogButtonBox::rejected, this, &QObject::deleteLater);
     d->okButton->setDefault(true);
 
-    KGuiItem::assign(d->okButton,
-                     KGuiItem(i18nc("@action:button", "&Rename"),
-                              QStringLiteral("dialog-ok-apply")));
+    KGuiItem::assign(d->okButton, KGuiItem(i18nc("@action:button", "&Rename"), QStringLiteral("dialog-ok-apply")));
 
     QWidget *page = new QWidget(this);
     mainLayout->addWidget(page);
@@ -86,19 +81,11 @@ RenameFileDialog::RenameFileDialog(const KFileItemList &items, QWidget *parent)
     QString newName;
     if (d->renameOneItem) {
         newName = items.first().name();
-        editLabel
-            = new QLabel(xi18nc("@label:textbox", "Rename the item <filename>%1</filename> to:",
-                                newName),
-                         page);
+        editLabel = new QLabel(xi18nc("@label:textbox", "Rename the item <filename>%1</filename> to:", newName), page);
         editLabel->setTextFormat(Qt::PlainText);
     } else {
-        newName = i18nc(
-            "This a template for new filenames, # is replaced by a number later, must be the end character",
-            "New name #");
-        editLabel = new QLabel(i18ncp("@label:textbox",
-                                      "Rename the %1 selected item to:",
-                                      "Rename the %1 selected items to:", itemCount),
-                               page);
+        newName = i18nc("This a template for new filenames, # is replaced by a number later, must be the end character", "New name #");
+        editLabel = new QLabel(i18ncp("@label:textbox", "Rename the %1 selected item to:", "Rename the %1 selected items to:", itemCount), page);
     }
 
     d->lineEdit = new QLineEdit(page);
@@ -141,9 +128,7 @@ RenameFileDialog::RenameFileDialog(const KFileItemList &items, QWidget *parent)
             extensions.insert(extension);
         }
 
-        QLabel *infoLabel
-            = new QLabel(i18nc("@info",
-                               "# will be replaced by ascending numbers starting with:"), page);
+        QLabel *infoLabel = new QLabel(i18nc("@info", "# will be replaced by ascending numbers starting with:"), page);
         mainLayout->addWidget(infoLabel);
         d->spinBox = new QSpinBox(page);
         d->spinBox->setMaximum(10000);
@@ -190,14 +175,11 @@ void RenameFileDialog::slotAccepted()
         d->renamedItems.reserve(d->items.count());
         cmdType = KIO::FileUndoManager::BatchRename;
         job = KIO::batchRename(srcList, newName, d->spinBox->value(), QLatin1Char('#'));
-        connect(qobject_cast<KIO::BatchRenameJob *>(
-                    job), &KIO::BatchRenameJob::fileRenamed, this,
-                &RenameFileDialog::slotFileRenamed);
+        connect(qobject_cast<KIO::BatchRenameJob *>(job), &KIO::BatchRenameJob::fileRenamed, this, &RenameFileDialog::slotFileRenamed);
     }
 
     KJobWidgets::setWindow(job, widget);
-    const QUrl parentUrl
-        = srcList.first().adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash);
+    const QUrl parentUrl = srcList.first().adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash);
     KIO::FileUndoManager::self()->recordJob(cmdType, srcList, parentUrl, job);
 
     connect(job, &KJob::result, this, &RenameFileDialog::slotResult);
@@ -208,8 +190,7 @@ void RenameFileDialog::slotAccepted()
 
 void RenameFileDialog::slotTextChanged(const QString &newName)
 {
-    bool enable = !newName.isEmpty() && (newName != QLatin1String(".."))
-                  && (newName != QLatin1String("."));
+    bool enable = !newName.isEmpty() && (newName != QLatin1String("..")) && (newName != QLatin1String("."));
     if (enable && !d->renameOneItem) {
         const int count = newName.count(QLatin1Char('#'));
         if (count == 0) {

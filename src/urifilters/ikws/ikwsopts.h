@@ -14,8 +14,8 @@
 
 #include <KCModule>
 
-#include "ui_ikwsopts_ui.h"
 #include "searchproviderregistry.h"
+#include "ui_ikwsopts_ui.h"
 
 class SearchProvider;
 class ProvidersModel;

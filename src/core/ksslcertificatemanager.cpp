@@ -14,13 +14,13 @@
 #include <KConfigGroup>
 #include <KLocalizedString>
 
-#include <QDebug>
-#include <QStandardPaths>
-#include <QFile>
-#include <QDir>
 #include <QDBusConnection>
 #include <QDBusConnectionInterface>
+#include <QDebug>
+#include <QDir>
+#include <QFile>
 #include <QSslConfiguration>
+#include <QStandardPaths>
 
 #include "kssld_interface.h"
 
@@ -227,12 +227,10 @@ static QList<QSslCertificate> deduplicate(const QList<QSslCertificate> &certs)
 }
 
 KSslCertificateManagerPrivate::KSslCertificateManagerPrivate()
-    : config(QStringLiteral("ksslcertificatemanager"), KConfig::SimpleConfig),
-      iface(new org::kde::KSSLDInterface(QStringLiteral("org.kde.kssld5"),
-                                         QStringLiteral("/modules/kssld"),
-                                         QDBusConnection::sessionBus())),
-      isCertListLoaded(false),
-      userCertDir(QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QStringLiteral("/kssl/userCaCertificates/"))
+    : config(QStringLiteral("ksslcertificatemanager"), KConfig::SimpleConfig)
+    , iface(new org::kde::KSSLDInterface(QStringLiteral("org.kde.kssld5"), QStringLiteral("/modules/kssld"), QDBusConnection::sessionBus()))
+    , isCertListLoaded(false)
+    , userCertDir(QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QStringLiteral("/kssl/userCaCertificates/"))
 {
 }
 
@@ -252,11 +250,9 @@ void KSslCertificateManagerPrivate::loadDefaultCaCertificates()
     KConfigGroup group = config.group("Blacklist of CA Certificates");
 
 #if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
-    certs.append(QSslCertificate::fromPath(userCertDir + QLatin1Char('*'), QSsl::Pem,
-                                           QSslCertificate::PatternSyntax::Wildcard));
+    certs.append(QSslCertificate::fromPath(userCertDir + QLatin1Char('*'), QSsl::Pem, QSslCertificate::PatternSyntax::Wildcard));
 #else
-    certs.append(QSslCertificate::fromPath(userCertDir + QLatin1Char('*'), QSsl::Pem,
-                                           QRegExp::Wildcard));
+    certs.append(QSslCertificate::fromPath(userCertDir + QLatin1Char('*'), QSsl::Pem, QRegExp::Wildcard));
 #endif
     for (const QSslCertificate &cert : qAsConst(certs)) {
         const QByteArray digest = cert.digest().toHex();
@@ -270,7 +266,7 @@ void KSslCertificateManagerPrivate::loadDefaultCaCertificates()
 
 bool KSslCertificateManagerPrivate::addCertificate(const KSslCaCertificate &in)
 {
-    //qDebug() << Q_FUNC_INFO;
+    // qDebug() << Q_FUNC_INFO;
     // cannot add a certificate to the system store
     if (in.store == KSslCaCertificate::SystemStore) {
         Q_ASSERT(false);
@@ -302,7 +298,7 @@ bool KSslCertificateManagerPrivate::addCertificate(const KSslCaCertificate &in)
 
 bool KSslCertificateManagerPrivate::removeCertificate(const KSslCaCertificate &old)
 {
-    //qDebug() << Q_FUNC_INFO;
+    // qDebug() << Q_FUNC_INFO;
     // cannot remove a certificate from the system store
     if (old.store == KSslCaCertificate::SystemStore) {
         Q_ASSERT(false);
@@ -310,7 +306,6 @@ bool KSslCertificateManagerPrivate::removeCertificate(const KSslCaCertificate &o
     }
 
     if (!QFile::remove(userCertDir + QString::fromLatin1(old.certHash))) {
-
         // suppose somebody copied a certificate file into userCertDir without changing the
         // filename to the digest.
         // the rest of the code will work fine because it loads all certificate files from
@@ -406,7 +401,7 @@ void KSslCertificateManagerPrivate::setAllCertificates(const QList<KSslCaCertifi
 
 QList<KSslCaCertificate> KSslCertificateManagerPrivate::allCertificates() const
 {
-    //qDebug() << Q_FUNC_INFO;
+    // qDebug() << Q_FUNC_INFO;
     QList<KSslCaCertificate> ret;
     const QList<QSslCertificate> list = deduplicate(QSslConfiguration::systemCaCertificates());
     for (const QSslCertificate &cert : list) {
@@ -414,11 +409,9 @@ QList<KSslCaCertificate> KSslCertificateManagerPrivate::allCertificates() const
     }
 
 #if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
-    const QList<QSslCertificate> userList = QSslCertificate::fromPath(userCertDir + QLatin1Char('*'), QSsl::Pem,
-                                                                   QSslCertificate::PatternSyntax::Wildcard);
+    const QList<QSslCertificate> userList = QSslCertificate::fromPath(userCertDir + QLatin1Char('*'), QSsl::Pem, QSslCertificate::PatternSyntax::Wildcard);
 #else
-    const QList<QSslCertificate> userList = QSslCertificate::fromPath(userCertDir + QLatin1Char('*'), QSsl::Pem,
-                                                                   QRegExp::Wildcard);
+    const QList<QSslCertificate> userList = QSslCertificate::fromPath(userCertDir + QLatin1Char('*'), QSsl::Pem, QRegExp::Wildcard);
 #endif
     for (const QSslCertificate &cert : userList) {
         ret += KSslCaCertificate(cert, KSslCaCertificate::UserStore, false);
@@ -429,7 +422,7 @@ QList<KSslCaCertificate> KSslCertificateManagerPrivate::allCertificates() const
     for (KSslCaCertificate &cert : ret) {
         if (group.hasKey(cert.certHash.constData())) {
             cert.isBlacklisted = true;
-            //qDebug() << "is blacklisted";
+            // qDebug() << "is blacklisted";
         }
     }
 
@@ -441,10 +434,9 @@ bool KSslCertificateManagerPrivate::updateCertificateBlacklisted(const KSslCaCer
     return setCertificateBlacklisted(cert.certHash, cert.isBlacklisted);
 }
 
-bool KSslCertificateManagerPrivate::setCertificateBlacklisted(const QByteArray &certHash,
-        bool isBlacklisted)
+bool KSslCertificateManagerPrivate::setCertificateBlacklisted(const QByteArray &certHash, bool isBlacklisted)
 {
-    //qDebug() << Q_FUNC_INFO << isBlacklisted;
+    // qDebug() << Q_FUNC_INFO << isBlacklisted;
     KConfig config(QStringLiteral("ksslcablacklist"), KConfig::SimpleConfig);
     KConfigGroup group = config.group("Blacklist of CA Certificates");
     if (isBlacklisted) {
@@ -478,7 +470,7 @@ KSslCertificateManager::~KSslCertificateManager()
     delete d;
 }
 
-//static
+// static
 KSslCertificateManager *KSslCertificateManager::self()
 {
     return &g_instance()->sslCertificateManager;
@@ -499,8 +491,7 @@ void KSslCertificateManager::clearRule(const QSslCertificate &cert, const QStrin
     d->iface->clearRule(cert, hostName);
 }
 
-KSslCertificateRule KSslCertificateManager::rule(const QSslCertificate &cert,
-        const QString &hostName) const
+KSslCertificateRule KSslCertificateManager::rule(const QSslCertificate &cert, const QString &hostName) const
 {
     return d->iface->rule(cert, hostName);
 }
@@ -515,7 +506,7 @@ QList<QSslCertificate> KSslCertificateManager::caCertificates() const
 }
 
 #if KIOCORE_BUILD_DEPRECATED_SINCE(5, 64)
-//static
+// static
 QList<KSslError> KSslCertificateManager::nonIgnorableErrors(const QList<KSslError> &errors)
 {
     QList<KSslError> ret;
@@ -528,7 +519,7 @@ QList<KSslError> KSslCertificateManager::nonIgnorableErrors(const QList<KSslErro
 #endif
 
 #if KIOCORE_BUILD_DEPRECATED_SINCE(5, 64)
-//static
+// static
 QList<KSslError::Error> KSslCertificateManager::nonIgnorableErrors(const QList<KSslError::Error> &errors)
 {
     QList<KSslError::Error> ret;

@@ -8,9 +8,9 @@
 #ifndef USERNOTIFICATIONHANDLER_P_H
 #define USERNOTIFICATIONHANDLER_P_H
 
-#include <QObject>
-#include <QHash>
 #include <QCache>
+#include <QHash>
+#include <QObject>
 #include <QPointer>
 #include <QVariant>
 
@@ -36,7 +36,6 @@ public:
 
     class Request
     {
-
     public:
         QString key() const;
 

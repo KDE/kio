@@ -9,17 +9,17 @@
 #include <kdirlister.h>
 #include <kdirmodel.h>
 
-#include <QEvent>
-#include <QDragEnterEvent>
 #include <QApplication>
+#include <QDragEnterEvent>
+#include <QEvent>
 #include <QHeaderView>
 #include <QListView>
 #include <QMimeData>
 #include <QScrollBar>
 
-KDirOperatorDetailView::KDirOperatorDetailView(QWidget *parent) :
-    QTreeView(parent),
-    m_hideDetailColumns(false)
+KDirOperatorDetailView::KDirOperatorDetailView(QWidget *parent)
+    : QTreeView(parent)
+    , m_hideDetailColumns(false)
 {
     setRootIsDecorated(false);
     setSortingEnabled(true);

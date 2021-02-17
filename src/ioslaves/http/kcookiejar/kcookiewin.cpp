@@ -29,16 +29,15 @@
 #include <QStyle>
 #include <QUrl>
 
-#include <kwindowsystem.h>
 #include <KLocalizedString>
 #include <KUserTimestamp>
+#include <kwindowsystem.h>
 
 enum {
     AcceptedForSession = QDialog::Accepted + 1,
 };
 
-KCookieWin::KCookieWin(QWidget *parent, KHttpCookieList cookieList,
-                       int defaultButton, bool showDetails)
+KCookieWin::KCookieWin(QWidget *parent, KHttpCookieList cookieList, int defaultButton, bool showDetails)
     : QDialog(parent)
 {
     setModal(true);
@@ -155,24 +154,27 @@ KCookieWin::KCookieWin(QWidget *parent, KHttpCookieList cookieList,
     m_onlyCookies = new QRadioButton(txt, m_btnGrp);
     vbox->addWidget(m_onlyCookies);
 #ifndef QT_NO_WHATSTHIS
-    m_onlyCookies->setWhatsThis(i18n("Select this option to only accept or reject this cookie. "
-                                     "You will be prompted again if you receive another cookie."));
+    m_onlyCookies->setWhatsThis(
+        i18n("Select this option to only accept or reject this cookie. "
+             "You will be prompted again if you receive another cookie."));
 #endif
     m_allCookiesDomain = new QRadioButton(i18n("All cookies from this do&main"), m_btnGrp);
     vbox->addWidget(m_allCookiesDomain);
 #ifndef QT_NO_WHATSTHIS
-    m_allCookiesDomain->setWhatsThis(i18n("Select this option to accept or reject all cookies from "
-                                          "this site. Choosing this option will add a new policy for "
-                                          "the site this cookie originated from. This policy will be "
-                                          "permanent until you manually change it from the System Settings."));
+    m_allCookiesDomain->setWhatsThis(
+        i18n("Select this option to accept or reject all cookies from "
+             "this site. Choosing this option will add a new policy for "
+             "the site this cookie originated from. This policy will be "
+             "permanent until you manually change it from the System Settings."));
 #endif
     m_allCookies = new QRadioButton(i18n("All &cookies"), m_btnGrp);
     vbox->addWidget(m_allCookies);
 #ifndef QT_NO_WHATSTHIS
-    m_allCookies->setWhatsThis(i18n("Select this option to accept/reject all cookies from "
-                                    "anywhere. Choosing this option will change the global "
-                                    "cookie policy for all cookies until you manually change "
-                                    "it from the System Settings."));
+    m_allCookies->setWhatsThis(
+        i18n("Select this option to accept/reject all cookies from "
+             "anywhere. Choosing this option will change the global "
+             "cookie policy for all cookies until you manually change "
+             "it from the System Settings."));
 #endif
 
     switch (defaultButton) {
@@ -232,8 +234,7 @@ KCookieAdvice KCookieWin::advice(KCookieJar *cookiejar, const KHttpCookie &cooki
     return advice;
 }
 
-KCookieDetail::KCookieDetail(const KHttpCookieList &cookieList, int cookieCount,
-                             QWidget *parent)
+KCookieDetail::KCookieDetail(const KHttpCookieList &cookieList, int cookieCount, QWidget *parent)
     : QGroupBox(parent)
 {
     setTitle(i18n("Cookie Details"));
@@ -248,7 +249,7 @@ KCookieDetail::KCookieDetail(const KHttpCookieList &cookieList, int cookieCount,
     m_name->setMaximumWidth(fontMetrics().maxWidth() * 25);
     grid->addWidget(m_name, 1, 1);
 
-    //Add the value
+    // Add the value
     label = new QLabel(i18n("Value:"), this);
     grid->addWidget(label, 2, 0);
     m_value = new QLineEdit(this);

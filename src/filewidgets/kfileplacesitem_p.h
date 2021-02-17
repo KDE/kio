@@ -8,13 +8,13 @@
 #ifndef KFILEPLACESITEM_P_H
 #define KFILEPLACESITEM_P_H
 
+#include "kfileplacesmodel.h"
+#include <KBookmark>
 #include <QObject>
 #include <QPointer>
 #include <QStringList>
 #include <QUrl>
-#include <KBookmark>
 #include <solid/device.h>
-#include "kfileplacesmodel.h"
 
 class KDirLister;
 namespace Solid
@@ -31,8 +31,7 @@ class KFilePlacesItem : public QObject
 {
     Q_OBJECT
 public:
-    enum GroupType
-    {
+    enum GroupType {
         PlacesType,
         RemoteType,
         RecentlySavedType,
@@ -42,9 +41,7 @@ public:
         TagsType,
     };
 
-    KFilePlacesItem(KBookmarkManager *manager,
-                    const QString &address,
-                    const QString &udi = QString());
+    KFilePlacesItem(KBookmarkManager *manager, const QString &address, const QString &udi = QString());
     ~KFilePlacesItem();
 
     QString id() const;
@@ -60,21 +57,16 @@ public:
 
     bool hasSupportedScheme(const QStringList &schemes) const;
 
-    static KBookmark createBookmark(KBookmarkManager *manager,
-                                    const QString &label,
-                                    const QUrl &url,
-                                    const QString &iconName,
-                                    KFilePlacesItem *after = nullptr);
+    static KBookmark
+    createBookmark(KBookmarkManager *manager, const QString &label, const QUrl &url, const QString &iconName, KFilePlacesItem *after = nullptr);
     static KBookmark createSystemBookmark(KBookmarkManager *manager,
                                           const char *translationContext,
                                           const QByteArray &untranslatedLabel,
                                           const QUrl &url,
                                           const QString &iconName,
                                           const KBookmark &after = KBookmark());
-    static KBookmark createDeviceBookmark(KBookmarkManager *manager,
-                                          const QString &udi);
-    static KBookmark createTagBookmark(KBookmarkManager *manager,
-                                          const QString &tag);
+    static KBookmark createDeviceBookmark(KBookmarkManager *manager, const QString &udi);
+    static KBookmark createTagBookmark(KBookmarkManager *manager, const QString &tag);
 
 Q_SIGNALS:
     void itemChanged(const QString &id);

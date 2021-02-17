@@ -20,11 +20,12 @@ using namespace KIO;
 
 namespace KIO
 {
-
 class SlaveConfigProtocol
 {
 public:
-    SlaveConfigProtocol() {}
+    SlaveConfigProtocol()
+    {
+    }
     ~SlaveConfigProtocol()
     {
         delete configFile;
@@ -51,6 +52,7 @@ public:
     SlaveConfigProtocol *readProtocolConfig(const QString &_protocol);
     SlaveConfigProtocol *findProtocolConfig(const QString &_protocol);
     void readConfigProtocolHost(const QString &_protocol, SlaveConfigProtocol *scp, const QString &host);
+
 public:
     MetaData global;
     QHash<QString, SlaveConfigProtocol *> protocol;
@@ -127,8 +129,8 @@ public:
     SlaveConfig instance;
 };
 
-template <typename T>
-T * perThreadGlobalStatic()
+template<typename T>
+T *perThreadGlobalStatic()
 {
     static QThreadStorage<T *> s_storage;
     if (!s_storage.hasLocalData()) {
@@ -136,9 +138,11 @@ T * perThreadGlobalStatic()
     }
     return s_storage.localData();
 }
-//Q_GLOBAL_STATIC(SlaveConfigSingleton, _self)
-SlaveConfigSingleton *_self() { return perThreadGlobalStatic<SlaveConfigSingleton>(); }
-
+// Q_GLOBAL_STATIC(SlaveConfigSingleton, _self)
+SlaveConfigSingleton *_self()
+{
+    return perThreadGlobalStatic<SlaveConfigSingleton>();
+}
 
 SlaveConfig *SlaveConfig::self()
 {
@@ -157,10 +161,7 @@ SlaveConfig::~SlaveConfig()
     delete d;
 }
 
-void SlaveConfig::setConfigData(const QString &protocol,
-                                const QString &host,
-                                const QString &key,
-                                const QString &value)
+void SlaveConfig::setConfigData(const QString &protocol, const QString &host, const QString &key, const QString &value)
 {
     MetaData config;
     config.insert(key, value);
@@ -219,4 +220,3 @@ void SlaveConfig::reset()
 }
 
 }
-

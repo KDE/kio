@@ -9,9 +9,9 @@
 #include "kio_widgets_debug.h"
 #include "kuiserver_interface.h"
 
+#include <KJobTrackerInterface>
 #include <KUiServerJobTracker>
 #include <KWidgetJobTracker>
-#include <KJobTrackerInterface>
 #include <kio/jobtracker.h>
 
 #include <QApplication>
@@ -27,8 +27,9 @@ struct AllTrackers {
 class Q_DECL_HIDDEN KDynamicJobTracker::Private
 {
 public:
-    Private() : kuiserverTracker(nullptr),
-        widgetTracker(nullptr)
+    Private()
+        : kuiserverTracker(nullptr)
+        , widgetTracker(nullptr)
     {
     }
 
@@ -44,8 +45,8 @@ public:
 };
 
 KDynamicJobTracker::KDynamicJobTracker(QObject *parent)
-    : KJobTrackerInterface(parent),
-      d(new Private)
+    : KJobTrackerInterface(parent)
+    , d(new Private)
 {
 }
 
@@ -62,14 +63,13 @@ void KDynamicJobTracker::registerJob(KJob *job)
 
     // only interested in finished() signal,
     // so catching ourselves instead of using KJobTrackerInterface::registerJob()
-    connect(job, &KJob::finished,
-            this, &KDynamicJobTracker::unregisterJob);
+    connect(job, &KJob::finished, this, &KDynamicJobTracker::unregisterJob);
 
     const bool canHaveWidgets = (qobject_cast<QApplication *>(qApp) != nullptr);
 
     // always add an entry, even with no trackers used at all,
     // so unregisterJob() will work as normal
-    AllTrackers& trackers = d->trackers[job];
+    AllTrackers &trackers = d->trackers[job];
 
     // do not try to query kuiserver if dbus is not available
     if (!QDBusConnection::sessionBus().interface()) {
@@ -96,10 +96,7 @@ void KDynamicJobTracker::registerJob(KJob *job)
 
         trackers.widgetTracker = nullptr;
         if (canHaveWidgets) {
-            org::kde::kuiserver interface(QStringLiteral("org.kde.kuiserver"),
-                                          QStringLiteral("/JobViewServer"),
-                                          QDBusConnection::sessionBus(),
-                                          this);
+            org::kde::kuiserver interface(QStringLiteral("org.kde.kuiserver"), QStringLiteral("/JobViewServer"), QDBusConnection::sessionBus(), this);
             QDBusReply<bool> reply = interface.requiresJobTracker();
 
             // If kuiserver isn't available or it tells us a job tracker is required
@@ -119,14 +116,14 @@ void KDynamicJobTracker::unregisterJob(KJob *job)
 {
     job->disconnect(this);
 
-    QMap<KJob*, AllTrackers>::Iterator it = d->trackers.find(job);
+    QMap<KJob *, AllTrackers>::Iterator it = d->trackers.find(job);
 
     if (it == d->trackers.end()) {
         qCWarning(KIO_WIDGETS) << "Tried to unregister a kio job that hasn't been registered.";
         return;
     }
 
-    const AllTrackers& trackers = it.value();
+    const AllTrackers &trackers = it.value();
     KUiServerJobTracker *kuiserverTracker = trackers.kuiserverTracker;
     KWidgetJobTracker *widgetTracker = trackers.widgetTracker;
 

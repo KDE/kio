@@ -16,7 +16,6 @@ class QMenu;
 
 namespace KDEPrivate
 {
-
 /**
  * @brief A combobox listing available protocols.
  *

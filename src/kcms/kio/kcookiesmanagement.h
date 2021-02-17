@@ -10,13 +10,13 @@
 #ifndef KCOOKIESMANAGEMENT_H
 #define KCOOKIESMANAGEMENT_H
 
+#include <QHash>
 #include <QList>
 #include <QStringList>
 #include <QTreeWidget>
-#include <QHash>
 
-#include <KCModule>
 #include "ui_kcookiesmanagement.h"
+#include <KCModule>
 
 struct CookieProp;
 
@@ -27,16 +27,26 @@ public:
     CookieListViewItem(QTreeWidgetItem *parent, CookieProp *cookie);
     ~CookieListViewItem();
 
-    QString domain() const { return mDomain; }
-    CookieProp* cookie() const { return mCookie; }
-    CookieProp* leaveCookie();
-    void setCookiesLoaded() { mCookiesLoaded = true; }
-    bool cookiesLoaded() const { return mCookiesLoaded; }
+    QString domain() const
+    {
+        return mDomain;
+    }
+    CookieProp *cookie() const
+    {
+        return mCookie;
+    }
+    CookieProp *leaveCookie();
+    void setCookiesLoaded()
+    {
+        mCookiesLoaded = true;
+    }
+    bool cookiesLoaded() const
+    {
+        return mCookiesLoaded;
+    }
 
 private:
-    void init( CookieProp* cookie,
-               const QString &domain = QString(),
-               bool cookieLoaded=false );
+    void init(CookieProp *cookie, const QString &domain = QString(), bool cookieLoaded = false);
     CookieProp *mCookie;
     QString mDomain;
     bool mCookiesLoaded;
@@ -47,7 +57,7 @@ class KCookiesManagement : public KCModule
     Q_OBJECT
 
 public:
-    explicit KCookiesManagement(/*const KComponentData &componentData,*/ QWidget *parent );
+    explicit KCookiesManagement(/*const KComponentData &componentData,*/ QWidget *parent);
     ~KCookiesManagement();
 
     void load() override;
@@ -59,17 +69,17 @@ private Q_SLOTS:
     void deleteCurrent();
     void deleteAll();
     void reload();
-    void listCookiesForDomain(QTreeWidgetItem*);
-    void updateForItem(QTreeWidgetItem*);
+    void listCookiesForDomain(QTreeWidgetItem *);
+    void updateForItem(QTreeWidgetItem *);
     void showConfigPolicyDialog();
 
 private:
-    void reset (bool deleteAll = false);
+    void reset(bool deleteAll = false);
     bool cookieDetails(CookieProp *cookie);
     void clearCookieDetails();
-    
+
     bool mDeleteAllFlag;
-    QWidget* mMainWidget;
+    QWidget *mMainWidget;
     Ui::KCookiesManagementUI mUi;
 
     QStringList mDeletedDomains;

@@ -11,7 +11,6 @@
 
 namespace KDEPrivate
 {
-
 /**
  * @brief Provides drop-down menus for the URL navigator.
  *

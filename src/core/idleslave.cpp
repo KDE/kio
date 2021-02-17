@@ -7,8 +7,8 @@
 */
 
 #include "idleslave.h"
-#include "connection_p.h"
 #include "commands_p.h" // CMD_*
+#include "connection_p.h"
 #include "slaveinterface.h" // MSG_*
 
 #include <QDataStream>
@@ -30,7 +30,8 @@ public:
 };
 
 IdleSlave::IdleSlave(QObject *parent)
-    : QObject(parent), d(new IdleSlavePrivate)
+    : QObject(parent)
+    , d(new IdleSlavePrivate)
 {
     QObject::connect(&d->mConn, &Connection::readyRead, this, &IdleSlave::gotInput);
     // Send it a SLAVE_STATUS command.
@@ -51,15 +52,15 @@ void IdleSlave::gotInput()
     QByteArray data;
     if (d->mConn.read(&cmd, data) == -1) {
         // Communication problem with slave.
-        //qCritical() << "No communication with KIO slave.";
+        // qCritical() << "No communication with KIO slave.";
         deleteLater();
     } else if (cmd == MSG_SLAVE_ACK) {
         deleteLater();
     } else if (cmd != MSG_SLAVE_STATUS_V2
 #if KIOCORE_BUILD_DEPRECATED_SINCE(5, 45)
-        && cmd != MSG_SLAVE_STATUS
+               && cmd != MSG_SLAVE_STATUS
 #endif
-                                  ) {
+    ) {
         qCritical() << "Unexpected data from KIO slave.";
         deleteLater();
     } else {

@@ -15,16 +15,18 @@ class Receiver : public QWidget
     Q_OBJECT
 public:
     Receiver();
-    ~Receiver() {}
+    ~Receiver()
+    {
+    }
 public Q_SLOTS:
     void slotStart();
     void slotStop();
     void slotLaunchOne();
     void slotLaunchTest();
+
 private:
     QPushButton *start;
     QPushButton *stop;
-
 };
 
 #endif

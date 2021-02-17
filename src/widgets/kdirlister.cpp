@@ -9,9 +9,9 @@
 */
 
 #include "kdirlister.h"
-#include <kio/listjob.h>
-#include <KJobWidgets>
 #include <KJobUiDelegate>
+#include <KJobWidgets>
+#include <kio/listjob.h>
 
 #include <KMessageBox>
 #include <QWidget>
@@ -29,7 +29,8 @@ public:
 };
 
 KDirLister::KDirLister(QObject *parent)
-    : KCoreDirLister(parent), d(new KDirListerPrivate)
+    : KCoreDirLister(parent)
+    , d(new KDirListerPrivate)
 {
     setAutoErrorHandlingEnabled(true, nullptr);
 }

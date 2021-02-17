@@ -12,24 +12,25 @@
 
 #include <time.h>
 
-
 #include <KLocalizedString>
 #include <KStringHandler>
 
-#include <kio/jobuidelegateextension.h>
-#include "slave.h"
 #include "scheduler.h"
+#include "slave.h"
+#include <kio/jobuidelegateextension.h>
 
 using namespace KIO;
 
-Job::Job() : KCompositeJob(nullptr)
+Job::Job()
+    : KCompositeJob(nullptr)
     , d_ptr(new JobPrivate)
 {
     d_ptr->q_ptr = this;
     setCapabilities(KJob::Killable | KJob::Suspendable);
 }
 
-Job::Job(JobPrivate &dd) : KCompositeJob(nullptr)
+Job::Job(JobPrivate &dd)
+    : KCompositeJob(nullptr)
     , d_ptr(&dd)
 {
     d_ptr->q_ptr = this;
@@ -62,7 +63,7 @@ void Job::setUiDelegateExtension(JobUiDelegateExtension *extension)
 
 bool Job::addSubjob(KJob *jobBase)
 {
-    //qDebug() << "addSubjob(" << jobBase << ") this=" << this;
+    // qDebug() << "addSubjob(" << jobBase << ") this=" << this;
 
     bool ok = KCompositeJob::addSubjob(jobBase);
     KIO::Job *job = qobject_cast<KIO::Job *>(jobBase);
@@ -85,14 +86,13 @@ bool Job::addSubjob(KJob *jobBase)
 
 bool Job::removeSubjob(KJob *jobBase)
 {
-    //qDebug() << "removeSubjob(" << jobBase << ") this=" << this << "subjobs=" << subjobs().count();
+    // qDebug() << "removeSubjob(" << jobBase << ") this=" << this << "subjobs=" << subjobs().count();
     return KCompositeJob::removeSubjob(jobBase);
 }
 
-static QString url_description_string(const QUrl& url)
+static QString url_description_string(const QUrl &url)
 {
-    return url.scheme() == QLatin1String("data") ? QStringLiteral("data:[...]") :
-                                    KStringHandler::csqueeze(url.toDisplayString(QUrl::PreferLocalFile), 100);
+    return url.scheme() == QLatin1String("data") ? QStringLiteral("data:[...]") : KStringHandler::csqueeze(url.toDisplayString(QUrl::PreferLocalFile), 100);
 }
 
 KIO::JobPrivate::~JobPrivate()
@@ -104,9 +104,7 @@ void JobPrivate::emitMoving(KIO::Job *job, const QUrl &src, const QUrl &dest)
     static const QString s_title = i18nc("@title job", "Moving");
     static const QString s_source = i18nc("The source of a file operation", "Source");
     static const QString s_destination = i18nc("The destination of a file operation", "Destination");
-    Q_EMIT job->description(job, s_title,
-                          qMakePair(s_source, url_description_string(src)),
-                          qMakePair(s_destination, url_description_string(dest)));
+    Q_EMIT job->description(job, s_title, qMakePair(s_source, url_description_string(src)), qMakePair(s_destination, url_description_string(dest)));
 }
 
 void JobPrivate::emitCopying(KIO::Job *job, const QUrl &src, const QUrl &dest)
@@ -114,54 +112,45 @@ void JobPrivate::emitCopying(KIO::Job *job, const QUrl &src, const QUrl &dest)
     static const QString s_title = i18nc("@title job", "Copying");
     static const QString s_source = i18nc("The source of a file operation", "Source");
     static const QString s_destination = i18nc("The destination of a file operation", "Destination");
-    Q_EMIT job->description(job, s_title,
-                          qMakePair(s_source, url_description_string(src)),
-                          qMakePair(s_destination, url_description_string(dest)));
+    Q_EMIT job->description(job, s_title, qMakePair(s_source, url_description_string(src)), qMakePair(s_destination, url_description_string(dest)));
 }
 
 void JobPrivate::emitCreatingDir(KIO::Job *job, const QUrl &dir)
 {
     static const QString s_title = i18nc("@title job", "Creating directory");
     static const QString s_directory = i18n("Directory");
-    Q_EMIT job->description(job, s_title,
-                          qMakePair(s_directory, url_description_string(dir)));
+    Q_EMIT job->description(job, s_title, qMakePair(s_directory, url_description_string(dir)));
 }
 
 void JobPrivate::emitDeleting(KIO::Job *job, const QUrl &url)
 {
     static const QString s_title = i18nc("@title job", "Deleting");
     static const QString s_file = i18n("File");
-    Q_EMIT job->description(job, s_title,
-                          qMakePair(s_file, url_description_string(url)));
+    Q_EMIT job->description(job, s_title, qMakePair(s_file, url_description_string(url)));
 }
 
 void JobPrivate::emitStating(KIO::Job *job, const QUrl &url)
 {
     static const QString s_title = i18nc("@title job", "Examining");
     static const QString s_file = i18n("File");
-    Q_EMIT job->description(job, s_title,
-                          qMakePair(s_file, url_description_string(url)));
+    Q_EMIT job->description(job, s_title, qMakePair(s_file, url_description_string(url)));
 }
 
 void JobPrivate::emitTransferring(KIO::Job *job, const QUrl &url)
 {
     static const QString s_title = i18nc("@title job", "Transferring");
     static const QString s_source = i18nc("The source of a file operation", "Source");
-    Q_EMIT job->description(job, s_title,
-                          qMakePair(s_source, url_description_string(url)));
+    Q_EMIT job->description(job, s_title, qMakePair(s_source, url_description_string(url)));
 }
 
 void JobPrivate::emitMounting(KIO::Job *job, const QString &dev, const QString &point)
 {
-    Q_EMIT job->description(job, i18nc("@title job", "Mounting"),
-                          qMakePair(i18n("Device"), dev),
-                          qMakePair(i18n("Mountpoint"), point));
+    Q_EMIT job->description(job, i18nc("@title job", "Mounting"), qMakePair(i18n("Device"), dev), qMakePair(i18n("Mountpoint"), point));
 }
 
 void JobPrivate::emitUnmounting(KIO::Job *job, const QString &point)
 {
-    Q_EMIT job->description(job, i18nc("@title job", "Unmounting"),
-                          qMakePair(i18n("Mountpoint"), point));
+    Q_EMIT job->description(job, i18nc("@title job", "Unmounting"), qMakePair(i18n("Mountpoint"), point));
 }
 
 bool Job::doKill()
@@ -197,7 +186,7 @@ bool Job::doResume()
     return true;
 }
 
-//Job::errorString is implemented in job_error.cpp
+// Job::errorString is implemented in job_error.cpp
 
 void Job::setParentJob(Job *job)
 {
@@ -273,43 +262,51 @@ QByteArray JobPrivate::privilegeOperationData()
             switch (m_operationType) {
             case ChangeAttr:
                 m_caption = i18n("Change Attribute");
-                m_message = i18n("Root privileges are required to change file attributes. "
-                                 "Do you want to continue?");
+                m_message = i18n(
+                    "Root privileges are required to change file attributes. "
+                    "Do you want to continue?");
                 break;
             case Copy:
                 m_caption = i18n("Copy Files");
-                m_message = i18n("Root privileges are required to complete the copy operation. "
-                                 "Do you want to continue?");
+                m_message = i18n(
+                    "Root privileges are required to complete the copy operation. "
+                    "Do you want to continue?");
                 break;
             case Delete:
                 m_caption = i18n("Delete Files");
-                m_message = i18n("Root privileges are required to complete the delete operation. "
-                                 "However, doing so may damage your system. Do you want to continue?");
+                m_message = i18n(
+                    "Root privileges are required to complete the delete operation. "
+                    "However, doing so may damage your system. Do you want to continue?");
                 break;
             case MkDir:
                 m_caption = i18n("Create Folder");
-                m_message = i18n("Root privileges are required to create this folder. "
-                                 "Do you want to continue?");
+                m_message = i18n(
+                    "Root privileges are required to create this folder. "
+                    "Do you want to continue?");
                 break;
             case Move:
                 m_caption = i18n("Move Items");
-                m_message = i18n("Root privileges are required to complete the move operation. "
-                                 "Do you want to continue?");
+                m_message = i18n(
+                    "Root privileges are required to complete the move operation. "
+                    "Do you want to continue?");
                 break;
             case Rename:
                 m_caption = i18n("Rename");
-                m_message = i18n("Root privileges are required to complete renaming. "
-                                 "Do you want to continue?");
+                m_message = i18n(
+                    "Root privileges are required to complete renaming. "
+                    "Do you want to continue?");
                 break;
             case Symlink:
                 m_caption = i18n("Create Symlink");
-                m_message = i18n("Root privileges are required to create a symlink. "
-                                 "Do you want to continue?");
+                m_message = i18n(
+                    "Root privileges are required to create a symlink. "
+                    "Do you want to continue?");
                 break;
             case Transfer:
                 m_caption = i18n("Transfer data");
-                m_message = i18n("Root privileges are required to complete transferring data. "
-                                 "Do you want to continue?");
+                m_message = i18n(
+                    "Root privileges are required to complete transferring data. "
+                    "Do you want to continue?");
                 Q_FALLTHROUGH();
             default:
                 break;
@@ -330,12 +327,13 @@ QByteArray JobPrivate::privilegeOperationData()
 
 //////////////////////////
 
-class KIO::DirectCopyJobPrivate: public KIO::SimpleJobPrivate
+class KIO::DirectCopyJobPrivate : public KIO::SimpleJobPrivate
 {
 public:
     DirectCopyJobPrivate(const QUrl &url, int command, const QByteArray &packedArgs)
         : SimpleJobPrivate(url, command, packedArgs)
-    {}
+    {
+    }
 
     /**
      * @internal
@@ -361,8 +359,7 @@ DirectCopyJob::~DirectCopyJob()
 void DirectCopyJobPrivate::start(Slave *slave)
 {
     Q_Q(DirectCopyJob);
-    q->connect(slave, &SlaveInterface::canResume,
-               q, &DirectCopyJob::slotCanResume);
+    q->connect(slave, &SlaveInterface::canResume, q, &DirectCopyJob::slotCanResume);
     SimpleJobPrivate::start(slave);
 }
 

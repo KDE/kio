@@ -9,9 +9,7 @@
 
 bool KFile::isSortByName(const QDir::SortFlags &sort)
 {
-    return (sort & QDir::Time) != QDir::Time &&
-           (sort & QDir::Size) != QDir::Size &&
-           (sort & QDir::Type) != QDir::Type;
+    return (sort & QDir::Time) != QDir::Time && (sort & QDir::Size) != QDir::Size && (sort & QDir::Type) != QDir::Type;
 }
 
 bool KFile::isSortBySize(const QDir::SortFlags &sort)

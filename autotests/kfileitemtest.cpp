@@ -6,19 +6,19 @@
 */
 
 #include "kfileitemtest.h"
-#include <kfileitemlistproperties.h>
 #include <QTest>
 #include <kfileitem.h>
+#include <kfileitemlistproperties.h>
 
+#include "kiotesthelper.h"
+#include <KConfigGroup>
+#include <KDesktopFile>
+#include <KUser>
 #include <QTemporaryDir>
 #include <QTemporaryFile>
-#include <KUser>
-#include <KDesktopFile>
-#include <KConfigGroup>
-#include "kiotesthelper.h"
 
-#include <QMimeDatabase>
 #include <KProtocolInfo>
+#include <QMimeDatabase>
 
 QTEST_MAIN(KFileItemTest)
 
@@ -202,7 +202,7 @@ void KFileItemTest::testMimeTypeOnDemand()
         QVERIFY(fileItem.currentMimeType().isDefault());
         QVERIFY(!fileItem.isMimeTypeKnown());
         QVERIFY(!fileItem.isFinalIconKnown());
-        //qDebug() << fileItem.determineMimeType().name();
+        // qDebug() << fileItem.determineMimeType().name();
         QCOMPARE(fileItem.determineMimeType().name(), QStringLiteral("application/x-zerosize"));
         QCOMPARE(fileItem.mimetype(), QStringLiteral("application/x-zerosize"));
         QVERIFY(fileItem.isMimeTypeKnown());
@@ -313,7 +313,7 @@ void KFileItemTest::testCmpAndInit()
 void KFileItemTest::testCmpByUrl()
 {
     const QUrl nulUrl;
-    const QUrl url  = QUrl::fromLocalFile(QStringLiteral("1foo"));
+    const QUrl url = QUrl::fromLocalFile(QStringLiteral("1foo"));
     const QUrl url2 = QUrl::fromLocalFile(QStringLiteral("fo1"));
     const QUrl url3 = QUrl::fromLocalFile(QStringLiteral("foo"));
     KFileItem nulFileItem;
@@ -402,8 +402,7 @@ void KFileItemTest::testRefresh()
     // ...but it looks like the kernel rounds up when the msecs are .998 or .999,
     // so add a bit of tolerance
     auto expectedLastModified = lastModified;
-    if (fileItem.time(KFileItem::ModificationTime) != lastModified &&
-            fileItem.time(KFileItem::ModificationTime) == lastModified.addSecs(1)) {
+    if (fileItem.time(KFileItem::ModificationTime) != lastModified && fileItem.time(KFileItem::ModificationTime) == lastModified.addSecs(1)) {
         expectedLastModified = expectedLastModified.addSecs(1);
     }
     QCOMPARE(fileItem.time(KFileItem::ModificationTime), expectedLastModified);
@@ -472,7 +471,8 @@ void KFileItemTest::testDecodeFileName_data()
     QTest::addColumn<QString>("filename");
     QTest::addColumn<QString>("expectedText");
 
-    QTest::newRow("simple") << "filename" << "filename";
+    QTest::newRow("simple") << "filename"
+                            << "filename";
     QTest::newRow("/ at end") << QString(QStringLiteral("foo") + QChar(0x2044)) << QString(QStringLiteral("foo") + QChar(0x2044));
     QTest::newRow("/ at begin") << QString(QChar(0x2044)) << QString(QChar(0x2044));
 }
@@ -489,7 +489,8 @@ void KFileItemTest::testEncodeFileName_data()
     QTest::addColumn<QString>("text");
     QTest::addColumn<QString>("expectedFileName");
 
-    QTest::newRow("simple") << "filename" << "filename";
+    QTest::newRow("simple") << "filename"
+                            << "filename";
     QTest::newRow("/ at end") << "foo/" << QString(QStringLiteral("foo") + QChar(0x2044));
     QTest::newRow("/ at begin") << "/" << QString(QChar(0x2044));
 }
@@ -512,18 +513,28 @@ void KFileItemTest::testListProperties_data()
     QTest::addColumn<QString>("expectedMimeType");
     QTest::addColumn<QString>("expectedMimeGroup");
 
-    QTest::newRow("one file") << "f" << true << true << true << false << true << "text/plain" << "text";
-    QTest::newRow("one dir") << "d" << true << true << true << true << false << "inode/directory" << "inode";
-    QTest::newRow("root dir") << "/" << true << false << true << true << false << "inode/directory" << "inode";
-    QTest::newRow("file+dir") << "fd" << true << true << true << false << false << "" << "";
-    QTest::newRow("two dirs") << "dd" << true << true << true << true << false << "inode/directory" << "inode";
-    QTest::newRow("dir+root dir") << "d/" << true << false << true << true << false << "inode/directory" << "inode";
-    QTest::newRow("two (text+html) files") << "ff" << true << true << true << false << true << "" << "text";
-    QTest::newRow("three (text+html+empty) files") << "fff" << true << true << true << false << true << "" << "";
+    QTest::newRow("one file") << "f" << true << true << true << false << true << "text/plain"
+                              << "text";
+    QTest::newRow("one dir") << "d" << true << true << true << true << false << "inode/directory"
+                             << "inode";
+    QTest::newRow("root dir") << "/" << true << false << true << true << false << "inode/directory"
+                              << "inode";
+    QTest::newRow("file+dir") << "fd" << true << true << true << false << false << ""
+                              << "";
+    QTest::newRow("two dirs") << "dd" << true << true << true << true << false << "inode/directory"
+                              << "inode";
+    QTest::newRow("dir+root dir") << "d/" << true << false << true << true << false << "inode/directory"
+                                  << "inode";
+    QTest::newRow("two (text+html) files") << "ff" << true << true << true << false << true << ""
+                                           << "text";
+    QTest::newRow("three (text+html+empty) files") << "fff" << true << true << true << false << true << ""
+                                                   << "";
     QTest::newRow("http url") << "h" << true << true /*says kio_http...*/
-                              << false << false << true << "application/octet-stream" << "application";
+                              << false << false << true << "application/octet-stream"
+                              << "application";
     QTest::newRow("2 http urls") << "hh" << true << true /*says kio_http...*/
-                                 << false << false << true << "application/octet-stream" << "application";
+                                 << false << false << true << "application/octet-stream"
+                                 << "application";
 }
 
 void KFileItemTest::testListProperties()
@@ -563,8 +574,7 @@ void KFileItemTest::testListProperties()
             else if (i == 2)
                 QCOMPARE(item.mimetype(), "application/x-zerosize");
             items.push_back(std::move(item));
-        }
-        break;
+        } break;
         case 'd':
             QVERIFY(baseDir.mkdir(fileName));
             items << KFileItem(QUrl::fromLocalFile(fileName), QString(), KFileItem::Unknown);
@@ -754,8 +764,14 @@ class PermissionRestorer
 {
     Q_DISABLE_COPY(PermissionRestorer)
 public:
-    explicit PermissionRestorer(const QString& path) : m_path(path) {}
-    ~PermissionRestorer()  { restore(); }
+    explicit PermissionRestorer(const QString &path)
+        : m_path(path)
+    {
+    }
+    ~PermissionRestorer()
+    {
+        restore();
+    }
 
     inline void restore()
     {
@@ -767,6 +783,7 @@ public:
         file.remove();
 #endif
     }
+
 private:
     const QString m_path;
 };

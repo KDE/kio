@@ -8,14 +8,14 @@
 #include "kinterprocesslock.h"
 #include "kiotrashdebug.h"
 
-#include <QEventLoop>
 #include <QDBusConnectionInterface>
-
+#include <QEventLoop>
 
 class KInterProcessLockPrivate
 {
     Q_DECLARE_PUBLIC(KInterProcessLock)
-    KInterProcessLock * const q_ptr;
+    KInterProcessLock *const q_ptr;
+
 public:
     KInterProcessLockPrivate(const QString &resource, KInterProcessLock *q)
         : q_ptr(q)
@@ -23,8 +23,9 @@ public:
     {
         m_serviceName = QStringLiteral("org.kde.private.lock-%1").arg(m_resource);
 
-        q_ptr->connect(QDBusConnection::sessionBus().interface(), &QDBusConnectionInterface::serviceRegistered,
-                       q_ptr, [this](const QString &service) { _k_serviceRegistered(service); });
+        q_ptr->connect(QDBusConnection::sessionBus().interface(), &QDBusConnectionInterface::serviceRegistered, q_ptr, [this](const QString &service) {
+            _k_serviceRegistered(service);
+        });
     }
 
     ~KInterProcessLockPrivate()
@@ -60,8 +61,8 @@ QString KInterProcessLock::resource() const
 void KInterProcessLock::lock()
 {
     QDBusConnection::sessionBus().interface()->registerService(d_ptr->m_serviceName,
-            QDBusConnectionInterface::QueueService,
-            QDBusConnectionInterface::DontAllowReplacement);
+                                                               QDBusConnectionInterface::QueueService,
+                                                               QDBusConnectionInterface::DontAllowReplacement);
 }
 
 void KInterProcessLock::unlock()

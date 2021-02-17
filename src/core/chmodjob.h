@@ -16,7 +16,6 @@
 
 namespace KIO
 {
-
 class ChmodJobPrivate;
 /**
  * @class KIO::ChmodJob chmodjob.h <KIO/ChmodJob>
@@ -68,9 +67,13 @@ private:
  * @param flags We support HideProgressInfo here
  * @return The job handling the operation.
  */
-KIOCORE_EXPORT ChmodJob *chmod(const KFileItemList &lstItems, int permissions, int mask,
-                               const QString &newOwner, const QString &newGroup,
-                               bool recursive, JobFlags flags = DefaultFlags);
+KIOCORE_EXPORT ChmodJob *chmod(const KFileItemList &lstItems,
+                               int permissions,
+                               int mask,
+                               const QString &newOwner,
+                               const QString &newGroup,
+                               bool recursive,
+                               JobFlags flags = DefaultFlags);
 
 }
 

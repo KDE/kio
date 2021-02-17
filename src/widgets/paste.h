@@ -54,8 +54,7 @@ KIOWIDGETS_EXPORT Job *pasteClipboard(const QUrl &destURL, QWidget *widget, bool
  * @deprecated since 5.4, use KIO::paste() from <KIO/PasteJob> (which takes care of undo/redo too)
  */
 KIOWIDGETS_DEPRECATED_VERSION(5, 4, "Use KIO::paste(...) from <KIO/PasteJob>")
-KIOWIDGETS_EXPORT Job *pasteMimeData(const QMimeData *data, const QUrl &destUrl,
-                                     const QString &dialogText, QWidget *widget);
+KIOWIDGETS_EXPORT Job *pasteMimeData(const QMimeData *data, const QUrl &destUrl, const QString &dialogText, QWidget *widget);
 #endif
 
 /**
@@ -96,7 +95,7 @@ KIOWIDGETS_EXPORT QString pasteActionText(const QMimeData *mimeData, bool *enabl
  * @param cut if true, the user selected "cut" (saved as application/x-kde-cutselection in the mimedata).
  * @since 5.2
  */
-KIOWIDGETS_EXPORT void setClipboardDataCut(QMimeData* mimeData, bool cut);
+KIOWIDGETS_EXPORT void setClipboardDataCut(QMimeData *mimeData, bool cut);
 
 /**
  * Returns true if the URLs in @p mimeData were cut by the user.

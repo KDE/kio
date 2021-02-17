@@ -10,153 +10,147 @@
 #include "kfileplacesitem_p.h"
 
 #ifdef _WIN32_WCE
-#include "Windows.h"
 #include "WinBase.h"
+#include "Windows.h"
 #endif
 
+#include <QAction>
 #include <QCoreApplication>
 #include <QDir>
-#include <QMimeData>
-#include <QTimer>
 #include <QFile>
-#include <QAction>
+#include <QMimeData>
 #include <QMimeDatabase>
+#include <QTimer>
 
-#include <kfileitem.h>
 #include <KLocalizedString>
+#include <kfileitem.h>
 
-#include <QDebug>
 #include <KUrlMimeData>
+#include <QDebug>
 
 #include <KBookmarkManager>
 
+#include <KCoreDirLister>
 #include <kio/job.h>
 #include <kprotocolinfo.h>
-#include <KCoreDirLister>
 
 #include <KConfig>
 #include <KConfigGroup>
 
+#include <QStandardPaths>
 #include <solid/devicenotifier.h>
+#include <solid/opticaldisc.h>
+#include <solid/opticaldrive.h>
+#include <solid/portablemediaplayer.h>
+#include <solid/predicate.h>
 #include <solid/storageaccess.h>
 #include <solid/storagedrive.h>
 #include <solid/storagevolume.h>
-#include <solid/opticaldrive.h>
-#include <solid/opticaldisc.h>
-#include <solid/portablemediaplayer.h>
-#include <solid/predicate.h>
-#include <QStandardPaths>
 
-namespace {
-    QString stateNameForGroupType(KFilePlacesModel::GroupType type)
-    {
-        switch (type) {
-        case KFilePlacesModel::PlacesType:
-                return QStringLiteral("GroupState-Places-IsHidden");
-        case KFilePlacesModel::RemoteType:
-                return QStringLiteral("GroupState-Remote-IsHidden");
-        case KFilePlacesModel::RecentlySavedType:
-                return QStringLiteral("GroupState-RecentlySaved-IsHidden");
-        case KFilePlacesModel::SearchForType:
-                return QStringLiteral("GroupState-SearchFor-IsHidden");
-        case KFilePlacesModel::DevicesType:
-                return QStringLiteral("GroupState-Devices-IsHidden");
-        case KFilePlacesModel::RemovableDevicesType:
-                return QStringLiteral("GroupState-RemovableDevices-IsHidden");
-        case KFilePlacesModel::TagsType:
-                return QStringLiteral("GroupState-Tags-IsHidden");
-        default:
-            Q_UNREACHABLE();
+namespace
+{
+QString stateNameForGroupType(KFilePlacesModel::GroupType type)
+{
+    switch (type) {
+    case KFilePlacesModel::PlacesType:
+        return QStringLiteral("GroupState-Places-IsHidden");
+    case KFilePlacesModel::RemoteType:
+        return QStringLiteral("GroupState-Remote-IsHidden");
+    case KFilePlacesModel::RecentlySavedType:
+        return QStringLiteral("GroupState-RecentlySaved-IsHidden");
+    case KFilePlacesModel::SearchForType:
+        return QStringLiteral("GroupState-SearchFor-IsHidden");
+    case KFilePlacesModel::DevicesType:
+        return QStringLiteral("GroupState-Devices-IsHidden");
+    case KFilePlacesModel::RemovableDevicesType:
+        return QStringLiteral("GroupState-RemovableDevices-IsHidden");
+    case KFilePlacesModel::TagsType:
+        return QStringLiteral("GroupState-Tags-IsHidden");
+    default:
+        Q_UNREACHABLE();
+    }
+}
+
+static bool isFileIndexingEnabled()
+{
+    KConfig config(QStringLiteral("baloofilerc"));
+    KConfigGroup basicSettings = config.group("Basic Settings");
+    return basicSettings.readEntry("Indexing-Enabled", true);
+}
+
+static QString timelineDateString(int year, int month, int day = 0)
+{
+    const QString dateFormat = QStringLiteral("%1-%2");
+
+    QString date = dateFormat.arg(year).arg(month, 2, 10, QLatin1Char('0'));
+    if (day > 0) {
+        date += QStringLiteral("-%1").arg(day, 2, 10, QLatin1Char('0'));
+    }
+    return date;
+}
+
+static QUrl createTimelineUrl(const QUrl &url)
+{
+    // based on dolphin urls
+    const QString timelinePrefix = QLatin1String("timeline:") + QLatin1Char('/');
+    QUrl timelineUrl;
+
+    const QString path = url.toDisplayString(QUrl::PreferLocalFile);
+    if (path.endsWith(QLatin1String("/yesterday"))) {
+        const QDate date = QDate::currentDate().addDays(-1);
+        const int year = date.year();
+        const int month = date.month();
+        const int day = date.day();
+
+        timelineUrl = QUrl(timelinePrefix + timelineDateString(year, month) + QLatin1Char('/') + timelineDateString(year, month, day));
+    } else if (path.endsWith(QLatin1String("/thismonth"))) {
+        const QDate date = QDate::currentDate();
+        timelineUrl = QUrl(timelinePrefix + timelineDateString(date.year(), date.month()));
+    } else if (path.endsWith(QLatin1String("/lastmonth"))) {
+        const QDate date = QDate::currentDate().addMonths(-1);
+        timelineUrl = QUrl(timelinePrefix + timelineDateString(date.year(), date.month()));
+    } else {
+        Q_ASSERT(path.endsWith(QLatin1String("/today")));
+        timelineUrl = url;
+    }
+
+    return timelineUrl;
+}
+
+static QUrl createSearchUrl(const QUrl &url)
+{
+    QUrl searchUrl = url;
+
+    const QString path = url.toDisplayString(QUrl::PreferLocalFile);
+
+    const QStringList validSearchPaths = {QStringLiteral("/documents"), QStringLiteral("/images"), QStringLiteral("/audio"), QStringLiteral("/videos")};
+
+    for (const QString &validPath : validSearchPaths) {
+        if (path.endsWith(validPath)) {
+            searchUrl.setScheme(QStringLiteral("baloosearch"));
+            return searchUrl;
         }
     }
 
-    static bool isFileIndexingEnabled()
-    {
-        KConfig config(QStringLiteral("baloofilerc"));
-        KConfigGroup basicSettings = config.group("Basic Settings");
-        return basicSettings.readEntry("Indexing-Enabled", true);
-    }
+    qWarning() << "Invalid search url:" << url;
 
-    static QString timelineDateString(int year, int month, int day = 0)
-    {
-        const QString dateFormat = QStringLiteral("%1-%2");
-
-        QString date = dateFormat.arg(year).arg(month, 2, 10, QLatin1Char('0'));
-        if (day > 0) {
-            date += QStringLiteral("-%1").arg(day, 2, 10, QLatin1Char('0'));
-        }
-        return date;
-    }
-
-    static QUrl createTimelineUrl(const QUrl &url)
-    {
-        // based on dolphin urls
-        const QString timelinePrefix = QLatin1String("timeline:") + QLatin1Char('/');
-        QUrl timelineUrl;
-
-        const QString path = url.toDisplayString(QUrl::PreferLocalFile);
-        if (path.endsWith(QLatin1String("/yesterday"))) {
-            const QDate date = QDate::currentDate().addDays(-1);
-            const int year = date.year();
-            const int month = date.month();
-            const int day = date.day();
-
-            timelineUrl = QUrl(timelinePrefix + timelineDateString(year, month) +
-                  QLatin1Char('/') + timelineDateString(year, month, day));
-        } else if (path.endsWith(QLatin1String("/thismonth"))) {
-            const QDate date = QDate::currentDate();
-            timelineUrl = QUrl(timelinePrefix + timelineDateString(date.year(), date.month()));
-        } else if (path.endsWith(QLatin1String("/lastmonth"))) {
-            const QDate date = QDate::currentDate().addMonths(-1);
-            timelineUrl = QUrl(timelinePrefix + timelineDateString(date.year(), date.month()));
-        } else {
-            Q_ASSERT(path.endsWith(QLatin1String("/today")));
-            timelineUrl = url;
-        }
-
-        return timelineUrl;
-    }
-
-    static QUrl createSearchUrl(const QUrl &url)
-    {
-        QUrl searchUrl = url;
-
-        const QString path = url.toDisplayString(QUrl::PreferLocalFile);
-
-        const QStringList validSearchPaths = {
-            QStringLiteral("/documents"),
-            QStringLiteral("/images"),
-            QStringLiteral("/audio"),
-            QStringLiteral("/videos")
-        };
-
-        for (const QString &validPath : validSearchPaths) {
-            if (path.endsWith(validPath)) {
-                searchUrl.setScheme(QStringLiteral("baloosearch"));
-                return searchUrl;
-            }
-        }
-
-        qWarning() << "Invalid search url:" << url;
-
-        return searchUrl;
-    }
+    return searchUrl;
+}
 }
 
 class Q_DECL_HIDDEN KFilePlacesModel::Private
 {
 public:
     explicit Private(KFilePlacesModel *self)
-        : q(self),
-          bookmarkManager(nullptr),
-          fileIndexingEnabled(isFileIndexingEnabled()),
-          tags(),
-          tagsLister(new KCoreDirLister(q))
+        : q(self)
+        , bookmarkManager(nullptr)
+        , fileIndexingEnabled(isFileIndexingEnabled())
+        , tags()
+        , tagsLister(new KCoreDirLister(q))
     {
         if (KProtocolInfo::isKnownProtocol(QStringLiteral("tags"))) {
-            connect(tagsLister, &KCoreDirLister::itemsAdded, q, [this](const QUrl&, const KFileItemList& items) {
-
-                if(tags.isEmpty()) {
+            connect(tagsLister, &KCoreDirLister::itemsAdded, q, [this](const QUrl &, const KFileItemList &items) {
+                if (tags.isEmpty()) {
                     QList<QUrl> existingBookmarks;
 
                     KBookmarkGroup root = bookmarkManager->root();
@@ -168,24 +162,26 @@ public:
                     }
 
                     if (!existingBookmarks.contains(QUrl(tagsUrlBase))) {
-                        KBookmark alltags = KFilePlacesItem::createSystemBookmark(bookmarkManager, "All tags"
-                                                                                  , i18n("All tags").toUtf8().data()
-                                                                                  , QUrl(tagsUrlBase), QStringLiteral("tag"));
+                        KBookmark alltags = KFilePlacesItem::createSystemBookmark(bookmarkManager,
+                                                                                  "All tags",
+                                                                                  i18n("All tags").toUtf8().data(),
+                                                                                  QUrl(tagsUrlBase),
+                                                                                  QStringLiteral("tag"));
                     }
                 }
 
-                for (const KFileItem &item: items) {
+                for (const KFileItem &item : items) {
                     const QString name = item.name();
 
-                     if (!tags.contains(name)) {
-                         tags.append(name);
+                    if (!tags.contains(name)) {
+                        tags.append(name);
                     }
                 }
                 _k_reloadBookmarks();
             });
 
-            connect(tagsLister, &KCoreDirLister::itemsDeleted, q, [this](const KFileItemList& items) {
-                for (const KFileItem &item: items) {
+            connect(tagsLister, &KCoreDirLister::itemsDeleted, q, [this](const KFileItemList &items) {
+                for (const KFileItem &item : items) {
                     tags.removeAll(item.name());
                 }
                 _k_reloadBookmarks();
@@ -200,7 +196,7 @@ public:
         qDeleteAll(items);
     }
 
-    KFilePlacesModel * const q;
+    KFilePlacesModel *const q;
 
     QList<KFilePlacesItem *> items;
     QVector<QString> availableDevices;
@@ -220,7 +216,7 @@ public:
 
     QVector<QString> tags;
     const QString tagsUrlBase = QStringLiteral("tags:/");
-    KCoreDirLister* tagsLister;
+    KCoreDirLister *tagsLister;
 
     void _k_initDeviceList();
     void _k_deviceAdded(const QString &udi);
@@ -247,10 +243,14 @@ KBookmark KFilePlacesModel::bookmarkForUrl(const QUrl &searchUrl) const
     return KBookmark();
 }
 
-static inline QString versionKey() { return QStringLiteral("kde_places_version"); }
+static inline QString versionKey()
+{
+    return QStringLiteral("kde_places_version");
+}
 
 KFilePlacesModel::KFilePlacesModel(const QString &alternativeApplicationName, QObject *parent)
-    : QAbstractItemModel(parent), d(new Private(this))
+    : QAbstractItemModel(parent)
+    , d(new Private(this))
 {
     const QString file = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/user-places.xbel");
     d->bookmarkManager = KBookmarkManager::managerForExternalFile(file);
@@ -274,46 +274,50 @@ KFilePlacesModel::KFilePlacesModel(const QString &alternativeApplicationName, QO
 
         const QList<QUrl> seenUrls = root.groupUrlList();
 
-        auto createSystemBookmark = [this, &seenUrls](const char *translationContext,
-                const QByteArray &untranslatedLabel,
-                const QUrl &url,
-                const QString &iconName,
-                const KBookmark &after) {
-            if (!seenUrls.contains(url)) {
-                return KFilePlacesItem::createSystemBookmark(d->bookmarkManager, translationContext, untranslatedLabel, url, iconName, after);
-            }
-            return KBookmark();
-        };
+        auto createSystemBookmark =
+            [this,
+             &seenUrls](const char *translationContext, const QByteArray &untranslatedLabel, const QUrl &url, const QString &iconName, const KBookmark &after) {
+                if (!seenUrls.contains(url)) {
+                    return KFilePlacesItem::createSystemBookmark(d->bookmarkManager, translationContext, untranslatedLabel, url, iconName, after);
+                }
+                return KBookmark();
+            };
 
         if (fileVersion < 2) {
             // NOTE: The context for these I18NC_NOOP calls has to be "KFile System Bookmarks".
             // The real i18nc call is made later, with this context, so the two must match.
             // createSystemBookmark actually does nothing with its second argument, the context.
-            createSystemBookmark(I18NC_NOOP("KFile System Bookmarks", "Home"),
-                                 QUrl::fromLocalFile(QDir::homePath()), QStringLiteral("user-home"), KBookmark());
+            createSystemBookmark(I18NC_NOOP("KFile System Bookmarks", "Home"), QUrl::fromLocalFile(QDir::homePath()), QStringLiteral("user-home"), KBookmark());
 
             // Some distros may not create various standard XDG folders by default
             // so check for their existence before adding bookmarks for them
             const QString desktopFolder = QStandardPaths::writableLocation(QStandardPaths::DesktopLocation);
             if (QDir(desktopFolder).exists()) {
                 createSystemBookmark(I18NC_NOOP("KFile System Bookmarks", "Desktop"),
-                                     QUrl::fromLocalFile(desktopFolder), QStringLiteral("user-desktop"), KBookmark());
+                                     QUrl::fromLocalFile(desktopFolder),
+                                     QStringLiteral("user-desktop"),
+                                     KBookmark());
             }
             const QString documentsFolder = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);
             if (QDir(documentsFolder).exists()) {
                 createSystemBookmark(I18NC_NOOP("KFile System Bookmarks", "Documents"),
-                                     QUrl::fromLocalFile(documentsFolder), QStringLiteral("folder-documents"), KBookmark());
+                                     QUrl::fromLocalFile(documentsFolder),
+                                     QStringLiteral("folder-documents"),
+                                     KBookmark());
             }
             const QString downloadFolder = QStandardPaths::writableLocation(QStandardPaths::DownloadLocation);
             if (QDir(downloadFolder).exists()) {
                 createSystemBookmark(I18NC_NOOP("KFile System Bookmarks", "Downloads"),
-                                     QUrl::fromLocalFile(downloadFolder), QStringLiteral("folder-downloads"), KBookmark());
+                                     QUrl::fromLocalFile(downloadFolder),
+                                     QStringLiteral("folder-downloads"),
+                                     KBookmark());
             }
             createSystemBookmark(I18NC_NOOP("KFile System Bookmarks", "Network"),
-                                 QUrl(QStringLiteral("remote:/")), QStringLiteral("folder-network"), KBookmark());
+                                 QUrl(QStringLiteral("remote:/")),
+                                 QStringLiteral("folder-network"),
+                                 KBookmark());
 
-            createSystemBookmark(I18NC_NOOP("KFile System Bookmarks", "Trash"),
-                                 QUrl(QStringLiteral("trash:/")), QStringLiteral("user-trash"), KBookmark());
+            createSystemBookmark(I18NC_NOOP("KFile System Bookmarks", "Trash"), QUrl(QStringLiteral("trash:/")), QStringLiteral("user-trash"), KBookmark());
         }
 
         if (!newFile && fileVersion < 3) {
@@ -372,21 +376,26 @@ KFilePlacesModel::KFilePlacesModel(const QString &alternativeApplicationName, QO
             const QString musicFolder = QStandardPaths::writableLocation(QStandardPaths::MusicLocation);
             if (QDir(musicFolder).exists()) {
                 after = createSystemBookmark(I18NC_NOOP("KFile System Bookmarks", "Music"),
-                                             QUrl::fromLocalFile(musicFolder), QStringLiteral("folder-music"), after);
+                                             QUrl::fromLocalFile(musicFolder),
+                                             QStringLiteral("folder-music"),
+                                             after);
             }
             const QString pictureFolder = QStandardPaths::writableLocation(QStandardPaths::PicturesLocation);
             if (QDir(pictureFolder).exists()) {
                 after = createSystemBookmark(I18NC_NOOP("KFile System Bookmarks", "Pictures"),
-                                             QUrl::fromLocalFile(pictureFolder), QStringLiteral("folder-pictures"), after);
+                                             QUrl::fromLocalFile(pictureFolder),
+                                             QStringLiteral("folder-pictures"),
+                                             after);
             }
             // Choosing the name "Videos" instead of "Movies", since that is how the folder
             // is called normally on Linux: https://cgit.freedesktop.org/xdg/xdg-user-dirs/tree/user-dirs.defaults
             const QString videoFolder = QStandardPaths::writableLocation(QStandardPaths::MoviesLocation);
             if (QDir(videoFolder).exists()) {
                 after = createSystemBookmark(I18NC_NOOP("KFile System Bookmarks", "Videos"),
-                                             QUrl::fromLocalFile(videoFolder), QStringLiteral("folder-videos"), after);
+                                             QUrl::fromLocalFile(videoFolder),
+                                             QStringLiteral("folder-videos"),
+                                             after);
             }
-
         }
 
         if (newFile) {
@@ -404,18 +413,19 @@ KFilePlacesModel::KFilePlacesModel(const QString &alternativeApplicationName, QO
     }
 
     // Add a Recently Used entry if available (it comes from kio-extras)
-    if (qEnvironmentVariableIsSet("KDE_FULL_SESSION") && KProtocolInfo::isKnownProtocol(QStringLiteral("recentlyused")) &&
-             root.metaDataItem(QStringLiteral("withRecentlyUsed")) != QLatin1String("true")) {
-
+    if (qEnvironmentVariableIsSet("KDE_FULL_SESSION") && KProtocolInfo::isKnownProtocol(QStringLiteral("recentlyused"))
+        && root.metaDataItem(QStringLiteral("withRecentlyUsed")) != QLatin1String("true")) {
         root.setMetaDataItem(QStringLiteral("withRecentlyUsed"), QStringLiteral("true"));
 
         KBookmark recentFilesBookmark = KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
-                                            I18NC_NOOP("KFile System Bookmarks", "Recent Files"),
-                                            QUrl(QStringLiteral("recentlyused:/files")), QStringLiteral("document-open-recent"));
+                                                                              I18NC_NOOP("KFile System Bookmarks", "Recent Files"),
+                                                                              QUrl(QStringLiteral("recentlyused:/files")),
+                                                                              QStringLiteral("document-open-recent"));
 
         KBookmark recentDirectoriesBookmark = KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
-                                            I18NC_NOOP("KFile System Bookmarks", "Recent Locations"),
-                                            QUrl(QStringLiteral("recentlyused:/locations")), QStringLiteral("folder-open-recent"));
+                                                                                    I18NC_NOOP("KFile System Bookmarks", "Recent Locations"),
+                                                                                    QUrl(QStringLiteral("recentlyused:/locations")),
+                                                                                    QStringLiteral("folder-open-recent"));
 
         setDefaultMetadataItemForGroup(RecentlySavedType);
 
@@ -430,33 +440,37 @@ KFilePlacesModel::KFilePlacesModel(const QString &alternativeApplicationName, QO
     }
 
     // if baloo is enabled, add new urls even if the bookmark file is not empty
-    if (d->fileIndexingEnabled &&
-        root.metaDataItem(QStringLiteral("withBaloo")) != QLatin1String("true")) {
-
+    if (d->fileIndexingEnabled && root.metaDataItem(QStringLiteral("withBaloo")) != QLatin1String("true")) {
         root.setMetaDataItem(QStringLiteral("withBaloo"), QStringLiteral("true"));
 
         // don't add by default "Modified Today" and "Modified Yesterday" when recentlyused:/ is present
         if (root.metaDataItem(QStringLiteral("withRecentlyUsed")) != QLatin1String("true")) {
             KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
                                                   I18NC_NOOP("KFile System Bookmarks", "Modified Today"),
-                                                  QUrl(QStringLiteral("timeline:/today")),  QStringLiteral("go-jump-today"));
+                                                  QUrl(QStringLiteral("timeline:/today")),
+                                                  QStringLiteral("go-jump-today"));
             KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
                                                   I18NC_NOOP("KFile System Bookmarks", "Modified Yesterday"),
-                                                  QUrl(QStringLiteral("timeline:/yesterday")),  QStringLiteral("view-calendar-day"));
+                                                  QUrl(QStringLiteral("timeline:/yesterday")),
+                                                  QStringLiteral("view-calendar-day"));
         }
 
         KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
                                               I18NC_NOOP("KFile System Bookmarks", "Documents"),
-                                             QUrl(QStringLiteral("search:/documents")),  QStringLiteral("folder-text"));
+                                              QUrl(QStringLiteral("search:/documents")),
+                                              QStringLiteral("folder-text"));
         KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
                                               I18NC_NOOP("KFile System Bookmarks", "Images"),
-                                              QUrl(QStringLiteral("search:/images")),  QStringLiteral("folder-images"));
+                                              QUrl(QStringLiteral("search:/images")),
+                                              QStringLiteral("folder-images"));
         KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
                                               I18NC_NOOP("KFile System Bookmarks", "Audio"),
-                                              QUrl(QStringLiteral("search:/audio")),  QStringLiteral("folder-sound"));
+                                              QUrl(QStringLiteral("search:/audio")),
+                                              QStringLiteral("folder-sound"));
         KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
                                               I18NC_NOOP("KFile System Bookmarks", "Videos"),
-                                              QUrl(QStringLiteral("search:/videos")),  QStringLiteral("folder-videos"));
+                                              QUrl(QStringLiteral("search:/videos")),
+                                              QStringLiteral("folder-videos"));
 
         setDefaultMetadataItemForGroup(SearchForType);
         setDefaultMetadataItemForGroup(RecentlySavedType);
@@ -464,13 +478,14 @@ KFilePlacesModel::KFilePlacesModel(const QString &alternativeApplicationName, QO
         d->bookmarkManager->save();
     }
 
-    QString predicate(QString::fromLatin1("[[[[ StorageVolume.ignored == false AND [ StorageVolume.usage == 'FileSystem' OR StorageVolume.usage == 'Encrypted' ]]"
-                      " OR "
-                      "[ IS StorageAccess AND StorageDrive.driveType == 'Floppy' ]]"
-                      " OR "
-                      "OpticalDisc.availableContent & 'Audio' ]"
-                      " OR "
-                      "StorageAccess.ignored == false ]"));
+    QString predicate(
+        QString::fromLatin1("[[[[ StorageVolume.ignored == false AND [ StorageVolume.usage == 'FileSystem' OR StorageVolume.usage == 'Encrypted' ]]"
+                            " OR "
+                            "[ IS StorageAccess AND StorageDrive.driveType == 'Floppy' ]]"
+                            " OR "
+                            "OpticalDisc.availableContent & 'Audio' ]"
+                            " OR "
+                            "StorageAccess.ignored == false ]"));
 
     if (KProtocolInfo::isKnownProtocol(QStringLiteral("mtp"))) {
         predicate = QLatin1Char('[') + predicate + QLatin1String(" OR PortableMediaPlayer.supportedProtocols == 'mtp']");
@@ -483,11 +498,17 @@ KFilePlacesModel::KFilePlacesModel(const QString &alternativeApplicationName, QO
 
     Q_ASSERT(d->predicate.isValid());
 
-    connect(d->bookmarkManager, &KBookmarkManager::changed, this, [this]() { d->_k_reloadBookmarks(); });
-    connect(d->bookmarkManager, &KBookmarkManager::bookmarksChanged, this, [this]() { d->_k_reloadBookmarks(); });
+    connect(d->bookmarkManager, &KBookmarkManager::changed, this, [this]() {
+        d->_k_reloadBookmarks();
+    });
+    connect(d->bookmarkManager, &KBookmarkManager::bookmarksChanged, this, [this]() {
+        d->_k_reloadBookmarks();
+    });
 
     d->_k_reloadBookmarks();
-    QTimer::singleShot(0, this, [this]() { d->_k_initDeviceList(); });
+    QTimer::singleShot(0, this, [this]() {
+        d->_k_initDeviceList();
+    });
 }
 
 KFilePlacesModel::KFilePlacesModel(QObject *parent)
@@ -522,7 +543,7 @@ QString KFilePlacesModel::text(const QModelIndex &index) const
 
 bool KFilePlacesModel::isHidden(const QModelIndex &index) const
 {
-    //Note: we do not want to show an index if its parent is hidden
+    // Note: we do not want to show an index if its parent is hidden
     return data(index, HiddenRole).toBool() || isGroupHidden(index);
 }
 
@@ -596,7 +617,7 @@ QModelIndexList KFilePlacesModel::groupIndexes(const KFilePlacesModel::GroupType
 
     QModelIndexList indexes;
     const int rows = rowCount();
-    for (int row = 0; row < rows ; ++row) {
+    for (int row = 0; row < rows; ++row) {
         const QModelIndex current = index(row, 0);
         if (groupType(current) == type) {
             indexes << current;
@@ -692,8 +713,12 @@ void KFilePlacesModel::Private::_k_initDeviceList()
 {
     Solid::DeviceNotifier *notifier = Solid::DeviceNotifier::instance();
 
-    connect(notifier, &Solid::DeviceNotifier::deviceAdded, q, [this](const QString &device) { _k_deviceAdded(device); });
-    connect(notifier, &Solid::DeviceNotifier::deviceRemoved, q, [this](const QString &device) { _k_deviceRemoved(device); });
+    connect(notifier, &Solid::DeviceNotifier::deviceAdded, q, [this](const QString &device) {
+        _k_deviceAdded(device);
+    });
+    connect(notifier, &Solid::DeviceNotifier::deviceRemoved, q, [this](const QString &device) {
+        _k_deviceRemoved(device);
+    });
 
     const QList<Solid::Device> &deviceList = Solid::Device::listFromQuery(predicate);
 
@@ -811,8 +836,7 @@ void KFilePlacesModel::Private::_k_reloadBookmarks()
 bool KFilePlacesModel::Private::isBalooUrl(const QUrl &url) const
 {
     const QString scheme = url.scheme();
-    return ((scheme == QLatin1String("timeline")) ||
-            (scheme == QLatin1String("search")));
+    return ((scheme == QLatin1String("timeline")) || (scheme == QLatin1String("search")));
 }
 
 QList<KFilePlacesItem *> KFilePlacesModel::Private::loadBookmarkList()
@@ -839,9 +863,8 @@ QList<KFilePlacesItem *> KFilePlacesModel::Private::loadBookmarkList()
                     devices.erase(it);
                 }
 
-                bool allowedHere = appName.isEmpty() ||
-                        ((appName == QCoreApplication::instance()->applicationName()) ||
-                        (appName == alternativeApplicationName));
+                bool allowedHere =
+                    appName.isEmpty() || ((appName == QCoreApplication::instance()->applicationName()) || (appName == alternativeApplicationName));
                 bool isSupportedUrl = isBalooUrl(url) ? fileIndexingEnabled : true;
                 bool isSupportedScheme = supportedSchemes.isEmpty() || supportedSchemes.contains(url.scheme());
 
@@ -858,8 +881,9 @@ QList<KFilePlacesItem *> KFilePlacesModel::Private::loadBookmarkList()
                 }
 
                 if (item) {
-                    connect(item, &KFilePlacesItem::itemChanged,
-                            q, [this](const QString &id) { _k_itemChanged(id); });
+                    connect(item, &KFilePlacesItem::itemChanged, q, [this](const QString &id) {
+                        _k_itemChanged(id);
+                    });
 
                     items << item;
                 }
@@ -869,8 +893,9 @@ QList<KFilePlacesItem *> KFilePlacesModel::Private::loadBookmarkList()
                     tagsList.removeAll(tag);
                     KFilePlacesItem *item = new KFilePlacesItem(bookmarkManager, bookmark.address());
                     items << item;
-                    connect(item, &KFilePlacesItem::itemChanged,
-                            q, [this](const QString &id) { _k_itemChanged(id); });
+                    connect(item, &KFilePlacesItem::itemChanged, q, [this](const QString &id) {
+                        _k_itemChanged(id);
+                    });
                 }
             }
         }
@@ -882,30 +907,29 @@ QList<KFilePlacesItem *> KFilePlacesModel::Private::loadBookmarkList()
     for (const QString &udi : qAsConst(devices)) {
         bookmark = KFilePlacesItem::createDeviceBookmark(bookmarkManager, udi);
         if (!bookmark.isNull()) {
-            KFilePlacesItem *item = new KFilePlacesItem(bookmarkManager,
-                    bookmark.address(), udi);
-            connect(item, &KFilePlacesItem::itemChanged,
-                    q, [this](const QString &id) { _k_itemChanged(id); });
+            KFilePlacesItem *item = new KFilePlacesItem(bookmarkManager, bookmark.address(), udi);
+            connect(item, &KFilePlacesItem::itemChanged, q, [this](const QString &id) {
+                _k_itemChanged(id);
+            });
             // TODO: Update bookmark internal element
             items << item;
         }
     }
 
-    for (const QString& tag: tagsList) {
+    for (const QString &tag : tagsList) {
         bookmark = KFilePlacesItem::createTagBookmark(bookmarkManager, tag);
         if (!bookmark.isNull()) {
-            KFilePlacesItem *item = new KFilePlacesItem(bookmarkManager,
-                    bookmark.address(), tag);
-            connect(item, &KFilePlacesItem::itemChanged,
-                    q, [this](const QString &id) { _k_itemChanged(id); });
+            KFilePlacesItem *item = new KFilePlacesItem(bookmarkManager, bookmark.address(), tag);
+            connect(item, &KFilePlacesItem::itemChanged, q, [this](const QString &id) {
+                _k_itemChanged(id);
+            });
             items << item;
         }
     }
 
     // return a sorted list based on groups
-    std::stable_sort(items.begin(), items.end(),
-                [](KFilePlacesItem *itemA, KFilePlacesItem *itemB) {
-       return (itemA->groupType() < itemB->groupType());
+    std::stable_sort(items.begin(), items.end(), [](KFilePlacesItem *itemA, KFilePlacesItem *itemB) {
+        return (itemA->groupType() < itemB->groupType());
     });
 
     return items;
@@ -1011,8 +1035,7 @@ QMimeData *KFilePlacesModel::mimeData(const QModelIndexList &indexes) const
     return mimeData;
 }
 
-bool KFilePlacesModel::dropMimeData(const QMimeData *data, Qt::DropAction action,
-                                    int row, int column, const QModelIndex &parent)
+bool KFilePlacesModel::dropMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent)
 {
     if (action == Qt::IgnoreAction) {
         return true;
@@ -1091,9 +1114,7 @@ bool KFilePlacesModel::dropMimeData(const QMimeData *data, Qt::DropAction action
 
             KFileItem item(url, mimetype.name(), S_IFDIR);
 
-            KBookmark bookmark = KFilePlacesItem::createBookmark(d->bookmarkManager,
-                                 url.fileName(), url,
-                                 item.iconName());
+            KBookmark bookmark = KFilePlacesItem::createBookmark(d->bookmarkManager, url.fileName(), url, item.iconName());
             group.moveBookmark(bookmark, afterBookmark);
             afterBookmark = bookmark;
         }
@@ -1126,18 +1147,14 @@ QUrl KFilePlacesModel::convertedUrl(const QUrl &url)
     return newUrl;
 }
 
-void KFilePlacesModel::addPlace(const QString &text, const QUrl &url,
-                                const QString &iconName, const QString &appName)
+void KFilePlacesModel::addPlace(const QString &text, const QUrl &url, const QString &iconName, const QString &appName)
 {
     addPlace(text, url, iconName, appName, QModelIndex());
 }
 
-void KFilePlacesModel::addPlace(const QString &text, const QUrl &url,
-                                const QString &iconName, const QString &appName,
-                                const QModelIndex &after)
+void KFilePlacesModel::addPlace(const QString &text, const QUrl &url, const QString &iconName, const QString &appName, const QModelIndex &after)
 {
-    KBookmark bookmark = KFilePlacesItem::createBookmark(d->bookmarkManager,
-                         text, url, iconName);
+    KBookmark bookmark = KFilePlacesItem::createBookmark(d->bookmarkManager, text, url, iconName);
 
     if (!appName.isEmpty()) {
         bookmark.setMetaDataItem(QStringLiteral("OnlyInApp"), appName);
@@ -1151,8 +1168,7 @@ void KFilePlacesModel::addPlace(const QString &text, const QUrl &url,
     refresh();
 }
 
-void KFilePlacesModel::editPlace(const QModelIndex &index, const QString &text, const QUrl &url,
-                                 const QString &iconName, const QString &appName)
+void KFilePlacesModel::editPlace(const QModelIndex &index, const QString &text, const QUrl &url, const QString &iconName, const QString &appName)
 {
     if (!index.isValid()) {
         return;
@@ -1328,7 +1344,6 @@ QAction *KFilePlacesModel::teardownActionForIndex(const QModelIndex &index) cons
     Solid::Device device = deviceForIndex(index);
 
     if (device.is<Solid::StorageAccess>() && device.as<Solid::StorageAccess>()->isAccessible()) {
-
         Solid::StorageDrive *drive = device.as<Solid::StorageDrive>();
 
         if (drive == nullptr) {
@@ -1372,7 +1387,6 @@ QAction *KFilePlacesModel::ejectActionForIndex(const QModelIndex &index) const
     Solid::Device device = deviceForIndex(index);
 
     if (device.is<Solid::OpticalDisc>()) {
-
         QString label = data(index, Qt::DisplayRole).toString().replace(QLatin1Char('&'), QLatin1String("&&"));
         QString text = i18n("&Eject '%1'", label);
 
@@ -1388,8 +1402,7 @@ void KFilePlacesModel::requestTeardown(const QModelIndex &index)
     Solid::StorageAccess *access = device.as<Solid::StorageAccess>();
 
     if (access != nullptr) {
-        connect(access, &Solid::StorageAccess::teardownDone,
-                this, [this](Solid::ErrorType error, QVariant errorData) {
+        connect(access, &Solid::StorageAccess::teardownDone, this, [this](Solid::ErrorType error, QVariant errorData) {
             d->_k_storageTeardownDone(error, errorData);
         });
 
@@ -1404,8 +1417,7 @@ void KFilePlacesModel::requestEject(const QModelIndex &index)
     Solid::OpticalDrive *drive = device.parent().as<Solid::OpticalDrive>();
 
     if (drive != nullptr) {
-        connect(drive, &Solid::OpticalDrive::ejectDone,
-                this, [this](Solid::ErrorType error, QVariant errorData) {
+        connect(drive, &Solid::OpticalDrive::ejectDone, this, [this](Solid::ErrorType error, QVariant errorData) {
             d->_k_storageTeardownDone(error, errorData);
         });
 
@@ -1421,16 +1433,13 @@ void KFilePlacesModel::requestSetup(const QModelIndex &index)
 {
     Solid::Device device = deviceForIndex(index);
 
-    if (device.is<Solid::StorageAccess>()
-            && !d->setupInProgress.contains(device.as<Solid::StorageAccess>())
-            && !device.as<Solid::StorageAccess>()->isAccessible()) {
-
+    if (device.is<Solid::StorageAccess>() && !d->setupInProgress.contains(device.as<Solid::StorageAccess>())
+        && !device.as<Solid::StorageAccess>()->isAccessible()) {
         Solid::StorageAccess *access = device.as<Solid::StorageAccess>();
 
         d->setupInProgress[access] = index;
 
-        connect(access, &Solid::StorageAccess::setupDone,
-                this, [this](Solid::ErrorType error, QVariant errorData) {
+        connect(access, &Solid::StorageAccess::setupDone, this, [this](Solid::ErrorType error, QVariant errorData) {
             d->_k_storageSetupDone(error, errorData);
         });
 
@@ -1450,16 +1459,12 @@ void KFilePlacesModel::Private::_k_storageSetupDone(Solid::ErrorType error, cons
         Q_EMIT q->setupDone(index, true);
     } else {
         if (errorData.isValid()) {
-            Q_EMIT q->errorMessage(i18n("An error occurred while accessing '%1', the system responded: %2",
-                                      q->text(index),
-                                      errorData.toString()));
+            Q_EMIT q->errorMessage(i18n("An error occurred while accessing '%1', the system responded: %2", q->text(index), errorData.toString()));
         } else {
-            Q_EMIT q->errorMessage(i18n("An error occurred while accessing '%1'",
-                                      q->text(index)));
+            Q_EMIT q->errorMessage(i18n("An error occurred while accessing '%1'", q->text(index)));
         }
         Q_EMIT q->setupDone(index, false);
     }
-
 }
 
 void KFilePlacesModel::Private::_k_storageTeardownDone(Solid::ErrorType error, const QVariant &errorData)

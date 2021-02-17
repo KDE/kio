@@ -5,13 +5,13 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include <KIO/JobTracker>
-#include <KJobTrackerInterface>
-#include <KJob>
 #include <KFile>
+#include <KIO/JobTracker>
+#include <KJob>
+#include <KJobTrackerInterface>
 
-#include <QTest>
 #include <QEventLoop>
+#include <QTest>
 #include <QTimer>
 
 // widget is shown with hardcoded delay of 500 ms by KWidgetJobTracker
@@ -21,12 +21,17 @@ class TestJob : public KJob
 {
     Q_OBJECT
 public:
-    void start() override { QTimer::singleShot(testJobRunningTime, this, &TestJob::doEmit); }
+    void start() override
+    {
+        QTimer::singleShot(testJobRunningTime, this, &TestJob::doEmit);
+    }
 
 private Q_SLOTS:
-    void doEmit() { emitResult(); }
+    void doEmit()
+    {
+        emitResult();
+    }
 };
-
 
 class KDynamicJobTrackerTest : public QObject
 {
@@ -42,7 +47,7 @@ void KDynamicJobTrackerTest::testNoCrashWithoutQWidgetsPossible()
     KFile::isDefaultView(KFile::Default);
 
     // simply linking to KIOWidgets results in KDynamicJobTracker installing itself as KIO's jobtracker
-    KJobTrackerInterface* jobtracker = KIO::getJobTracker();
+    KJobTrackerInterface *jobtracker = KIO::getJobTracker();
     QCOMPARE(jobtracker->metaObject()->className(), "KDynamicJobTracker");
 
     TestJob *job = new TestJob;

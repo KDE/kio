@@ -22,5 +22,4 @@ private Q_SLOTS:
     void testSetMaxItems();
 };
 
-#endif //KURLCOMBOBOXTEST_H
-
+#endif // KURLCOMBOBOXTEST_H

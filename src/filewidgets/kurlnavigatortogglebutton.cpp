@@ -8,21 +8,18 @@
 
 #include <KLocalizedString>
 
-#include <QPainter>
 #include <QPaintEvent>
+#include <QPainter>
 #include <QStyle>
 
 namespace KDEPrivate
 {
-
-KUrlNavigatorToggleButton::KUrlNavigatorToggleButton(KUrlNavigator *parent) :
-    KUrlNavigatorButtonBase(parent)
+KUrlNavigatorToggleButton::KUrlNavigatorToggleButton(KUrlNavigator *parent)
+    : KUrlNavigatorButtonBase(parent)
 {
     setCheckable(true);
-    connect(this, &QAbstractButton::toggled,
-            this, &KUrlNavigatorToggleButton::updateToolTip);
-    connect(this, &QAbstractButton::clicked,
-            this, &KUrlNavigatorToggleButton::updateCursor);
+    connect(this, &QAbstractButton::toggled, this, &KUrlNavigatorToggleButton::updateToolTip);
+    connect(this, &QAbstractButton::clicked, this, &KUrlNavigatorToggleButton::updateCursor);
     m_pixmap = QIcon::fromTheme(QStringLiteral("dialog-ok")).pixmap(QSize(22, 22).expandedTo(iconSize()));
 
 #ifndef QT_NO_ACCESSIBILITY

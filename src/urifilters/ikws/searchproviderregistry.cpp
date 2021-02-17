@@ -8,8 +8,8 @@
 #include "searchproviderregistry.h"
 #include "searchprovider.h"
 
-#include <QStandardPaths>
 #include <QDir>
+#include <QStandardPaths>
 
 SearchProviderRegistry::SearchProviderRegistry()
 {
@@ -25,7 +25,7 @@ QStringList SearchProviderRegistry::directories() const
 {
     const QString testDir = QFile::decodeName(qgetenv("KIO_SEARCHPROVIDERS_DIR")); // for unittests
     if (!testDir.isEmpty()) {
-        return { testDir };
+        return {testDir};
     }
     return QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("kservices5/searchproviders/"), QStandardPaths::LocateDirectory);
 }

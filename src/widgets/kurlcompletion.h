@@ -13,10 +13,13 @@
 
 #include "kiowidgets_export.h"
 #include <KCompletion>
-#include <kio/udsentry.h>
 #include <QString>
+#include <kio/udsentry.h>
 
-namespace KIO { class Job; }
+namespace KIO
+{
+class Job;
+}
 
 class QStringList;
 class KUrlCompletionPrivate;
@@ -154,8 +157,7 @@ public:
     /**
      * @internal I'll let ossi add a real one to KShell :)
      */
-    static QString replacedPath(const QString &text,
-                                bool replaceHome, bool replaceEnv = true);
+    static QString replacedPath(const QString &text, bool replaceHome, bool replaceEnv = true);
 
     /**
      * Sets the MIME type filters for the file dialog.

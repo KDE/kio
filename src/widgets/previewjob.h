@@ -75,9 +75,7 @@ public:
      *             \p enabledPlugins has been slightly changed.
      */
     KIOWIDGETS_DEPRECATED_VERSION(4, 7, "Use PreviewJob(const KFileItemList&, const QSize&, const QStringList*)")
-    PreviewJob(const KFileItemList &items, int width, int height,
-               int iconSize, int iconAlpha, bool scale, bool save,
-               const QStringList *enabledPlugins);
+    PreviewJob(const KFileItemList &items, int width, int height, int iconSize, int iconAlpha, bool scale, bool save, const QStringList *enabledPlugins);
 #endif
 
     /**
@@ -89,9 +87,7 @@ public:
      *                       KConfigGroup "PreviewSettings" are used.
      * @since 4.7
      */
-    PreviewJob(const KFileItemList &items,
-               const QSize &size,
-               const QStringList *enabledPlugins = nullptr);
+    PreviewJob(const KFileItemList &items, const QSize &size, const QStringList *enabledPlugins = nullptr);
 
     virtual ~PreviewJob();
 
@@ -259,7 +255,14 @@ private:
  *             \p enabledPlugins has been slightly changed.
  */
 KIOWIDGETS_DEPRECATED_VERSION(4, 7, "Use KIO::filePreview(const KFileItemList &, const QSize &, const QStringList *")
-KIOWIDGETS_EXPORT PreviewJob *filePreview(const KFileItemList &items, int width, int height = 0, int iconSize = 0, int iconAlpha = 70, bool scale = true, bool save = true, const QStringList *enabledPlugins = nullptr);   // KDE5: use enums instead of bool scale + bool save
+KIOWIDGETS_EXPORT PreviewJob *filePreview(const KFileItemList &items,
+                                          int width,
+                                          int height = 0,
+                                          int iconSize = 0,
+                                          int iconAlpha = 70,
+                                          bool scale = true,
+                                          bool save = true,
+                                          const QStringList *enabledPlugins = nullptr); // KDE5: use enums instead of bool scale + bool save
 #endif
 
 #if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(4, 7)
@@ -287,7 +290,14 @@ KIOWIDGETS_EXPORT PreviewJob *filePreview(const KFileItemList &items, int width,
  *             \p enabledPlugins has been slightly changed.
  */
 KIOWIDGETS_DEPRECATED_VERSION(4, 7, "Use KIO::filePreview(const KFileItemList &, const QSize &, const QStringList *")
-KIOWIDGETS_EXPORT PreviewJob *filePreview(const QList<QUrl> &items, int width, int height = 0, int iconSize = 0, int iconAlpha = 70, bool scale = true, bool save = true, const QStringList *enabledPlugins = nullptr);
+KIOWIDGETS_EXPORT PreviewJob *filePreview(const QList<QUrl> &items,
+                                          int width,
+                                          int height = 0,
+                                          int iconSize = 0,
+                                          int iconAlpha = 70,
+                                          bool scale = true,
+                                          bool save = true,
+                                          const QStringList *enabledPlugins = nullptr);
 #endif
 
 /**

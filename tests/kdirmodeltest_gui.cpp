@@ -9,8 +9,8 @@
 #include <kdirmodel.h>
 
 #include <QApplication>
-#include <QTreeView>
 #include <QListView>
+#include <QTreeView>
 #include <kfileitemdelegate.h>
 
 // Test controller for making the view open up while expandToUrl lists subdirs
@@ -19,10 +19,11 @@ class TreeController : public QObject
     Q_OBJECT
 public:
     explicit TreeController(QTreeView *view, KDirModel *model)
-        : QObject(view), m_treeView(view), m_model(model)
+        : QObject(view)
+        , m_treeView(view)
+        , m_model(model)
     {
-        connect(model, &KDirModel::expand,
-                this, &TreeController::slotExpand);
+        connect(model, &KDirModel::expand, this, &TreeController::slotExpand);
     }
 private Q_SLOTS:
     void slotExpand(const QModelIndex &index)
@@ -35,6 +36,7 @@ private Q_SLOTS:
         // We probably need to delay this until everything's listed and layouted...
         m_treeView->scrollTo(index);
     }
+
 private:
     QTreeView *m_treeView;
     KDirModel *m_model;
@@ -42,7 +44,7 @@ private:
 
 int main(int argc, char **argv)
 {
-    //options.add("+[directory ...]", qi18n("Directory(ies) to model"));
+    // options.add("+[directory ...]", qi18n("Directory(ies) to model"));
 
     QApplication a(argc, argv);
 

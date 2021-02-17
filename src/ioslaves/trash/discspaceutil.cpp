@@ -15,8 +15,8 @@
 #include <qplatformdefs.h> // QT_LSTAT, QT_STAT, QT_STATBUF
 
 DiscSpaceUtil::DiscSpaceUtil(const QString &directory)
-    : mDirectory(directory),
-      mFullSize(0)
+    : mDirectory(directory)
+    , mFullSize(0)
 {
     calculateFullSize();
 }

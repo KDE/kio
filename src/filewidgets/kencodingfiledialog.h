@@ -66,10 +66,10 @@ public:
      * @param caption The name of the dialog widget.
      */
     static KIOFILEWIDGETS_EXPORT Result getOpenFileNameAndEncoding(const QString &encoding = QString(),
-            const QUrl &startDir = QUrl(),
-            const QString &filter = QString(),
-            QWidget *parent = nullptr,
-            const QString &caption = QString());
+                                                                   const QUrl &startDir = QUrl(),
+                                                                   const QString &filter = QString(),
+                                                                   QWidget *parent = nullptr,
+                                                                   const QString &caption = QString());
 
     /**
      * Creates a modal file dialog and returns the selected encoding and the selected
@@ -98,10 +98,10 @@ public:
      * @param caption The name of the dialog widget.
      */
     static KIOFILEWIDGETS_EXPORT Result getOpenFileNamesAndEncoding(const QString &encoding = QString(),
-            const QUrl &startDir = QUrl(),
-            const QString &filter = QString(),
-            QWidget *parent = nullptr,
-            const QString &caption = QString());
+                                                                    const QUrl &startDir = QUrl(),
+                                                                    const QString &filter = QString(),
+                                                                    QWidget *parent = nullptr,
+                                                                    const QString &caption = QString());
 
     /**
      * Creates a modal file dialog and returns the selected encoding and
@@ -130,10 +130,10 @@ public:
      * @param caption The name of the dialog widget.
      */
     static KIOFILEWIDGETS_EXPORT Result getOpenUrlAndEncoding(const QString &encoding = QString(),
-            const QUrl &startDir = QUrl(),
-            const QString &filter = QString(),
-            QWidget *parent = nullptr,
-            const QString &caption = QString());
+                                                              const QUrl &startDir = QUrl(),
+                                                              const QString &filter = QString(),
+                                                              QWidget *parent = nullptr,
+                                                              const QString &caption = QString());
 
     /**
      * Creates a modal file dialog and returns the selected encoding
@@ -162,10 +162,10 @@ public:
      * @param caption The name of the dialog widget.
      */
     static KIOFILEWIDGETS_EXPORT Result getOpenUrlsAndEncoding(const QString &encoding = QString(),
-            const QUrl &startDir = QUrl(),
-            const QString &filter = QString(),
-            QWidget *parent = nullptr,
-            const QString &caption = QString());
+                                                               const QUrl &startDir = QUrl(),
+                                                               const QString &filter = QString(),
+                                                               QWidget *parent = nullptr,
+                                                               const QString &caption = QString());
 
     /**
      * Creates a modal file dialog and returns the selected encoding and
@@ -196,10 +196,10 @@ public:
      * @param caption The name of the dialog widget.
      */
     static KIOFILEWIDGETS_EXPORT Result getSaveFileNameAndEncoding(const QString &encoding = QString(),
-            const QUrl &startDir = QUrl(),
-            const QString &filter = QString(),
-            QWidget *parent = nullptr,
-            const QString &caption = QString());
+                                                                   const QUrl &startDir = QUrl(),
+                                                                   const QString &filter = QString(),
+                                                                   QWidget *parent = nullptr,
+                                                                   const QString &caption = QString());
 
     /**
      * Creates a modal file dialog and returns the selected encoding and
@@ -230,10 +230,10 @@ public:
      * @param caption The name of the dialog widget.
      */
     static KIOFILEWIDGETS_EXPORT Result getSaveUrlAndEncoding(const QString &encoding = QString(),
-            const QUrl &startDir = QUrl(),
-            const QString &filter = QString(),
-            QWidget *parent = nullptr,
-            const QString &caption = QString());
+                                                              const QUrl &startDir = QUrl(),
+                                                              const QString &filter = QString(),
+                                                              QWidget *parent = nullptr,
+                                                              const QString &caption = QString());
 
     QSize sizeHint() const override;
 
@@ -289,8 +289,8 @@ private:
     ~KEncodingFileDialog();
 
     /**
-    * @returns The selected encoding if the constructor with the encoding parameter was used, otherwise QString().
-    */
+     * @returns The selected encoding if the constructor with the encoding parameter was used, otherwise QString().
+     */
     QString selectedEncoding() const;
 
     KEncodingFileDialogPrivate *const d;

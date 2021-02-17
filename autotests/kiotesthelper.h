@@ -7,13 +7,13 @@
 
 // This file can only be included once in a given binary
 
-#include <QTest>
 #include <QDateTime>
 #include <QDebug>
-#include <qglobal.h>
-#include <QStandardPaths>
-#include <qplatformdefs.h>
 #include <QDir>
+#include <QStandardPaths>
+#include <QTest>
+#include <qglobal.h>
+#include <qplatformdefs.h>
 #ifdef Q_OS_UNIX
 #include <utime.h>
 #else
@@ -45,7 +45,7 @@ static void setTimeStamp(const QString &path, const QDateTime &mtime)
     utbuf.actime = mtime.toSecsSinceEpoch();
     utbuf.modtime = utbuf.actime;
     utime(QFile::encodeName(path), &utbuf);
-    //qDebug( "Time changed for %s", qPrintable( path ) );
+    // qDebug( "Time changed for %s", qPrintable( path ) );
 #elif defined(Q_OS_WIN)
     struct _utimbuf utbuf;
     utbuf.actime = mtime.toSecsSinceEpoch();
@@ -71,14 +71,14 @@ static void createTestFile(const QString &path, bool plainText = false)
 static void createTestSymlink(const QString &path, const QByteArray &target = "/IDontExist")
 {
     QFile::remove(path);
-    bool ok = KIOPrivate::createSymlink(QString::fromLatin1(target), path);     // broken symlink
+    bool ok = KIOPrivate::createSymlink(QString::fromLatin1(target), path); // broken symlink
     if (!ok) {
         qFatal("couldn't create symlink: %s", strerror(errno));
     }
     QT_STATBUF buf;
     QVERIFY(QT_LSTAT(QFile::encodeName(path), &buf) == 0);
     QVERIFY((buf.st_mode & QT_STAT_MASK) == QT_STAT_LNK);
-    //qDebug( "symlink %s created", qPrintable( path ) );
+    // qDebug( "symlink %s created", qPrintable( path ) );
     QVERIFY(QFileInfo(path).isSymLink());
 }
 
@@ -108,7 +108,7 @@ static inline void createTestDirectory(const QString &path, CreateTestDirectoryO
         qFatal("Couldn't create %s", qPrintable(path));
     }
 
-    if((opt & Empty) == 0){
+    if ((opt & Empty) == 0) {
         createTestFile(path + QStringLiteral("/testfile"));
         if ((opt & NoSymlink) == 0) {
 #ifndef Q_OS_WIN
@@ -128,15 +128,15 @@ class PredefinedAnswerJobUiDelegate : public KIO::JobUiDelegateExtension
 {
 public:
     PredefinedAnswerJobUiDelegate()
-        : JobUiDelegateExtension(),
-          m_askFileRenameCalled(0),
-          m_askSkipCalled(0),
-          m_askDeleteCalled(0),
-          m_messageBoxCalled(0),
-          m_renameResult(KIO::Result_Skip),
-          m_skipResult(KIO::Result_Skip),
-          m_deleteResult(false),
-          m_messageBoxResult(0)
+        : JobUiDelegateExtension()
+        , m_askFileRenameCalled(0)
+        , m_askSkipCalled(0)
+        , m_askDeleteCalled(0)
+        , m_messageBoxCalled(0)
+        , m_renameResult(KIO::Result_Skip)
+        , m_skipResult(KIO::Result_Skip)
+        , m_deleteResult(false)
+        , m_messageBoxResult(0)
     {
     }
 
@@ -146,12 +146,13 @@ public:
                                            const QUrl &dest,
                                            KIO::RenameDialog_Options options,
                                            QString &newDest,
-                                           KIO::filesize_t = (KIO::filesize_t) - 1,
-                                           KIO::filesize_t = (KIO::filesize_t) - 1,
-                                           const QDateTime  & = QDateTime(),
-                                           const QDateTime  & = QDateTime(),
-                                           const QDateTime  & = QDateTime(),
-                                           const QDateTime  & = QDateTime()) override {
+                                           KIO::filesize_t = (KIO::filesize_t)-1,
+                                           KIO::filesize_t = (KIO::filesize_t)-1,
+                                           const QDateTime & = QDateTime(),
+                                           const QDateTime & = QDateTime(),
+                                           const QDateTime & = QDateTime(),
+                                           const QDateTime & = QDateTime()) override
+    {
         Q_UNUSED(job)
         Q_UNUSED(caption)
         Q_UNUSED(src)
@@ -162,9 +163,8 @@ public:
         return m_renameResult;
     }
 
-    KIO::SkipDialog_Result askSkip(KJob *job,
-                                   KIO::SkipDialog_Options options,
-                                   const QString &error_text) override {
+    KIO::SkipDialog_Result askSkip(KJob *job, KIO::SkipDialog_Options options, const QString &error_text) override
+    {
         Q_UNUSED(job)
         Q_UNUSED(options)
         Q_UNUSED(error_text)
@@ -172,8 +172,8 @@ public:
         return m_skipResult;
     }
 
-    bool askDeleteConfirmation(const QList<QUrl> &urls, DeletionType deletionType,
-                               ConfirmationType confirmationType) override {
+    bool askDeleteConfirmation(const QList<QUrl> &urls, DeletionType deletionType, ConfirmationType confirmationType) override
+    {
         Q_UNUSED(urls);
         Q_UNUSED(deletionType);
         Q_UNUSED(confirmationType);
@@ -181,14 +181,16 @@ public:
         return m_deleteResult;
     }
 
-    int requestMessageBox(MessageBoxType type, const QString &text,
+    int requestMessageBox(MessageBoxType type,
+                          const QString &text,
                           const QString &caption,
                           const QString &buttonYes,
                           const QString &buttonNo,
                           const QString &iconYes = QString(),
                           const QString &iconNo = QString(),
                           const QString &dontAskAgainName = QString(),
-                          const KIO::MetaData &metaData = KIO::MetaData()) override {
+                          const KIO::MetaData &metaData = KIO::MetaData()) override
+    {
         Q_UNUSED(type);
         Q_UNUSED(text);
         Q_UNUSED(caption);
@@ -214,4 +216,3 @@ public:
     int m_messageBoxResult;
     QString m_renamedest;
 };
-

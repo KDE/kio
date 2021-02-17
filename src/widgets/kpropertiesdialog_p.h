@@ -25,7 +25,6 @@ class QLabel;
 
 namespace KDEPrivate
 {
-
 /**
  * 'General' plugin
  *  This plugin displays the name of the file, its size and access times.
@@ -104,8 +103,8 @@ public:
     };
 
     enum PermissionsTarget {
-        PermissionsOwner  = 0,
-        PermissionsGroup  = 1,
+        PermissionsOwner = 0,
+        PermissionsGroup = 1,
         PermissionsOthers = 2,
     };
 
@@ -131,15 +130,11 @@ Q_SIGNALS:
     void leaveModality();
 
 private:
-    void setComboContent(QComboBox *combo, PermissionsTarget target,
-                         mode_t permissions, mode_t partial);
+    void setComboContent(QComboBox *combo, PermissionsTarget target, mode_t permissions, mode_t partial);
     bool isIrregular(mode_t permissions, bool isDir, bool isLink);
     void enableAccessControls(bool enable);
     void updateAccessControls();
-    void getPermissionMasks(mode_t &andFilePermissions,
-                            mode_t &andDirPermissions,
-                            mode_t &orFilePermissions,
-                            mode_t &orDirPermissions);
+    void getPermissionMasks(mode_t &andFilePermissions, mode_t &andDirPermissions, mode_t &orFilePermissions, mode_t &orDirPermissions);
 
     static const mode_t permissionsMasks[3];
     static const mode_t standardPermissions[4];
@@ -240,8 +235,7 @@ public:
 private Q_SLOTS:
     void slotActivated(int);
     void slotDeviceChanged();
-    void slotFoundMountPoint(const QString &mp, quint64 kibSize,
-                             quint64 kibUsed, quint64 kibAvail);
+    void slotFoundMountPoint(const QString &mp, quint64 kibSize, quint64 kibUsed, quint64 kibAvail);
 
 private:
     void updateInfo();

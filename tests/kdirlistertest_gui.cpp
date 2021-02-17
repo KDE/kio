@@ -8,11 +8,11 @@
 #include "kdirlistertest_gui.h"
 
 #include <QApplication>
-#include <QPushButton>
-#include <QDir>
-#include <QVBoxLayout>
 #include <QCommandLineParser>
 #include <QDebug>
+#include <QDir>
+#include <QPushButton>
+#include <QVBoxLayout>
 
 #include <cstdlib>
 
@@ -72,21 +72,21 @@ void KDirListerTest::startHome()
 {
     QUrl home = QUrl::fromLocalFile(QDir::homePath());
     lister->openUrl(home, KDirLister::NoFlags);
-//  lister->stop();
+    //  lister->stop();
 }
 
 void KDirListerTest::startRoot()
 {
     QUrl root = QUrl::fromLocalFile(QDir::rootPath());
     lister->openUrl(root, KDirLister::Keep | KDirLister::Reload);
-// lister->stop( root );
+    // lister->stop( root );
 }
 
 void KDirListerTest::startTar()
 {
     QUrl root = QUrl::fromLocalFile(QDir::homePath() + "/aclocal_1.tgz");
     lister->openUrl(root, KDirLister::Keep | KDirLister::Reload);
-// lister->stop( root );
+    // lister->stop( root );
 }
 
 void KDirListerTest::test()

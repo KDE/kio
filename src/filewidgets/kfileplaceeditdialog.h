@@ -11,9 +11,9 @@
 
 #include "kiofilewidgets_export.h"
 
+#include <KIconLoader>
 #include <QDialog>
 #include <QUrl>
-#include <KIconLoader>
 
 class QCheckBox;
 class QDialogButtonBox;
@@ -55,11 +55,8 @@ public:
      * If you leave the icon empty, the default icon for the given url will be
      * used (KMimeType::pixmapForUrl()).
      */
-    static bool getInformation(bool allowGlobal, QUrl &url,
-                               QString &label, QString &icon,
-                               bool isAddingNewPlace,
-                               bool &appLocal, int iconSize,
-                               QWidget *parent = nullptr);
+    static bool
+    getInformation(bool allowGlobal, QUrl &url, QString &label, QString &icon, bool isAddingNewPlace, bool &appLocal, int iconSize, QWidget *parent = nullptr);
 
     /**
      * Constructs a KFilePlaceEditDialog.
@@ -78,8 +75,10 @@ public:
      * If you leave the icon empty, the default icon for the given url will be
      * used (KMimeType::pixmapForUrl()).
      */
-    KFilePlaceEditDialog(bool allowGlobal, const QUrl &url,
-                         const QString &label, const QString &icon,
+    KFilePlaceEditDialog(bool allowGlobal,
+                         const QUrl &url,
+                         const QString &label,
+                         const QString &icon,
                          bool isAddingNewPlace,
                          bool appLocal = true,
                          int iconSize = KIconLoader::SizeMedium,
@@ -129,15 +128,15 @@ private:
     /**
      * The QLineEdit used for editing the label
      */
-    QLineEdit      *m_labelEdit;
+    QLineEdit *m_labelEdit;
     /**
      * The KIconButton to configure the icon
      */
-    KIconButton    *m_iconButton;
+    KIconButton *m_iconButton;
     /**
      * The QCheckBox to modify the local/global setting
      */
-    QCheckBox      *m_appLocal;
+    QCheckBox *m_appLocal;
 
     QDialogButtonBox *m_buttonBox;
 };

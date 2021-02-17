@@ -6,5 +6,3 @@
 #cmakedefine01 HAVE_POSIX_ACL
 /* Defined if acl/libacl.h exists */
 #cmakedefine01 HAVE_ACL_LIBACL_H
-
-

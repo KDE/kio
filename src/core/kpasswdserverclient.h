@@ -8,15 +8,15 @@
 #ifndef KPASSWDSERVERCLIENT_H
 #define KPASSWDSERVERCLIENT_H
 
-#include <qglobal.h>
 #include <kiocore_export.h>
+#include <qglobal.h>
 
 class QString;
 class OrgKdeKPasswdServerInterface;
 
 namespace KIO
 {
-    class AuthInfo;
+class AuthInfo;
 }
 
 class KPasswdServerClientPrivate;
@@ -42,7 +42,7 @@ public:
     ~KPasswdServerClient();
 
     KPasswdServerClient(const KPasswdServerClient &) = delete;
-    KPasswdServerClient& operator=(const KPasswdServerClient &) = delete;
+    KPasswdServerClient &operator=(const KPasswdServerClient &) = delete;
 
     /**
      * Check if kpasswdserver has cached authentication information regarding
@@ -56,8 +56,7 @@ public:
      * @remarks info will contain the results of the check. To see if
      *          information was retrieved, check info.isModified().
      */
-    bool checkAuthInfo(KIO::AuthInfo *info, qlonglong windowId,
-                       qlonglong usertime);
+    bool checkAuthInfo(KIO::AuthInfo *info, qlonglong windowId, qlonglong usertime);
 
     /**
      * Let kpasswdserver ask the user for authentication information.
@@ -71,8 +70,7 @@ public:
      *  or ERR_PASSWD_SERVER if we couldn't communicate with kpasswdserver.
      * @remarks If NoError is returned, then @p info will contain the authentication information that was retrieved.
      */
-    int queryAuthInfo(KIO::AuthInfo *info, const QString &errorMsg,
-                      qlonglong windowId, qlonglong usertime);
+    int queryAuthInfo(KIO::AuthInfo *info, const QString &errorMsg, qlonglong windowId, qlonglong usertime);
 
     /**
      * Manually add authentication information to kpasswdserver's cache.
@@ -87,8 +85,7 @@ public:
      * @param protocol protocol to remove information for
      * @param user username to remove information for
      */
-    void removeAuthInfo(const QString &host, const QString &protocol,
-                        const QString &user);
+    void removeAuthInfo(const QString &host, const QString &protocol, const QString &user);
 
 private:
     OrgKdeKPasswdServerInterface *m_interface;

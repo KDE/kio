@@ -7,13 +7,15 @@
 
 #include "openwithhandlerinterface.h"
 
+#include "kiocoredebug.h"
 #include <QFile>
 #include <QSaveFile>
-#include "kiocoredebug.h"
 
 using namespace KIO;
 
-class KIO::OpenWithHandlerInterfacePrivate {};
+class KIO::OpenWithHandlerInterfacePrivate
+{
+};
 
 OpenWithHandlerInterface::OpenWithHandlerInterface(QObject *parent)
     : QObject(parent)

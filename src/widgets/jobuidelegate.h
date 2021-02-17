@@ -12,11 +12,11 @@
 #define KIO_JOBUIDELEGATE_H
 
 #include <KDialogJobUiDelegate>
-#include <kio/jobuidelegateextension.h>
 #include <kio/askuseractioninterface.h>
-#include <kio/skipdialog.h>
-#include <kio/renamedialog.h>
 #include <kio/global.h>
+#include <kio/jobuidelegateextension.h>
+#include <kio/renamedialog.h>
+#include <kio/skipdialog.h>
 
 class KJob;
 namespace KIO
@@ -46,7 +46,9 @@ public:
      * @param window the window associated with this delegate, see setWindow.
      * @since 5.70
      */
-    explicit JobUiDelegate(KJobUiDelegate::Flags flags, QWidget *window); // KF6 TODO: merge with previous ctor using AutoHandlingDisabled and nullptr default values (same in KDialogJobUiDelegate)
+    explicit JobUiDelegate(
+        KJobUiDelegate::Flags flags,
+        QWidget *window); // KF6 TODO: merge with previous ctor using AutoHandlingDisabled and nullptr default values (same in KDialogJobUiDelegate)
 
     /**
      * Destroys the KIO Job UI delegate.
@@ -54,7 +56,6 @@ public:
     virtual ~JobUiDelegate();
 
 public:
-
     /**
      * Associate this job with a window given by @p window.
      * @param window the window to associate to
@@ -108,9 +109,7 @@ public:
      * @internal
      * See skipdialog.h
      */
-    SkipDialog_Result askSkip(KJob *job,
-                              KIO::SkipDialog_Options options,
-                              const QString &error_text) override;
+    SkipDialog_Result askSkip(KJob *job, KIO::SkipDialog_Options options, const QString &error_text) override;
 
     /**
      * Ask for confirmation before deleting/trashing @p urls.
@@ -124,28 +123,28 @@ public:
      * Note: the window passed to setWindow is used as the parent for the message box.
      * @return true if confirmed
      */
-    bool askDeleteConfirmation(const QList<QUrl> &urls, DeletionType deletionType,
-                               ConfirmationType confirmationType) override;
+    bool askDeleteConfirmation(const QList<QUrl> &urls, DeletionType deletionType, ConfirmationType confirmationType) override;
 
     /**
-    * This function allows for the delegation user prompts from the ioslaves.
-    *
-    * @param type the desired type of message box.
-    * @param text the message shown to the user.
-    * @param caption the caption of the message dialog box.
-    * @param buttonYes the text for the YES button.
-    * @param buttonNo the text for the NO button.
-    * @param iconYes the icon shown on the YES button.
-    * @param iconNo the icon shown on the NO button.
-    * @param dontAskAgainName the name used to store result from 'Do not ask again' checkbox.
-    * @param metaData SSL information used by the SSLMessageBox. Since 5.66 this is also used for privilege operation details.
-    *
-    * @since 4.11
-    *
-    * @internal
-    */
+     * This function allows for the delegation user prompts from the ioslaves.
+     *
+     * @param type the desired type of message box.
+     * @param text the message shown to the user.
+     * @param caption the caption of the message dialog box.
+     * @param buttonYes the text for the YES button.
+     * @param buttonNo the text for the NO button.
+     * @param iconYes the icon shown on the YES button.
+     * @param iconNo the icon shown on the NO button.
+     * @param dontAskAgainName the name used to store result from 'Do not ask again' checkbox.
+     * @param metaData SSL information used by the SSLMessageBox. Since 5.66 this is also used for privilege operation details.
+     *
+     * @since 4.11
+     *
+     * @internal
+     */
     // KF6 TODO Add a QString parameter for "details" and keep in sync with API in SlaveBase, SlaveInterface, and JobUiDelegateExtension.
-    int requestMessageBox(MessageBoxType type, const QString &text,
+    int requestMessageBox(MessageBoxType type,
+                          const QString &text,
                           const QString &caption,
                           const QString &buttonYes,
                           const QString &buttonNo,

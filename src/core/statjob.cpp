@@ -9,20 +9,23 @@
 #include "statjob.h"
 
 #include "job_p.h"
-#include "slave.h"
 #include "scheduler.h"
+#include "slave.h"
 #include <KProtocolInfo>
-#include <kurlauthorized.h>
 #include <QTimer>
+#include <kurlauthorized.h>
 
 using namespace KIO;
 
-class KIO::StatJobPrivate: public SimpleJobPrivate
+class KIO::StatJobPrivate : public SimpleJobPrivate
 {
 public:
     inline StatJobPrivate(const QUrl &url, int command, const QByteArray &packedArgs)
-        : SimpleJobPrivate(url, command, packedArgs), m_bSource(true), m_details(KIO::StatDefaultDetails)
-    {}
+        : SimpleJobPrivate(url, command, packedArgs)
+        , m_bSource(true)
+        , m_details(KIO::StatDefaultDetails)
+    {
+    }
 
     UDSEntry m_statResult;
     QUrl m_redirectionURL;
@@ -41,8 +44,7 @@ public:
 
     Q_DECLARE_PUBLIC(StatJob)
 
-    static inline StatJob *newJob(const QUrl &url, int command, const QByteArray &packedArgs,
-                                  JobFlags flags)
+    static inline StatJob *newJob(const QUrl &url, int command, const QByteArray &packedArgs, JobFlags flags)
     {
         StatJob *job = new StatJob(*new StatJobPrivate(url, command, packedArgs));
         job->setUiDelegate(KIO::createDefaultJobUiDelegate());
@@ -99,7 +101,7 @@ KIO::StatDetails KIO::detailsToStatDetails(int details)
         detailsFlag |= KIO::StatUser | KIO::StatTime;
     }
     if (details > 1) {
-         detailsFlag |= KIO::StatResolveSymlink | KIO::StatAcl;
+        detailsFlag |= KIO::StatResolveSymlink | KIO::StatAcl;
     }
     if (details > 2) {
         detailsFlag |= KIO::StatInode;
@@ -145,15 +147,19 @@ void StatJobPrivate::start(Slave *slave)
     m_outgoingMetaData.insert(QStringLiteral("statSide"), m_bSource ? QStringLiteral("source") : QStringLiteral("dest"));
     m_outgoingMetaData.insert(QStringLiteral("statDetails"), QString::number(m_details));
 
-    q->connect(slave, &KIO::SlaveInterface::statEntry, q, [this](const KIO::UDSEntry &entry) { slotStatEntry(entry); });
-    q->connect(slave, &KIO::SlaveInterface::redirection, q, [this](const QUrl &url) { slotRedirection(url); });
+    q->connect(slave, &KIO::SlaveInterface::statEntry, q, [this](const KIO::UDSEntry &entry) {
+        slotStatEntry(entry);
+    });
+    q->connect(slave, &KIO::SlaveInterface::redirection, q, [this](const QUrl &url) {
+        slotRedirection(url);
+    });
 
     SimpleJobPrivate::start(slave);
 }
 
 void StatJobPrivate::slotStatEntry(const KIO::UDSEntry &entry)
 {
-    //qCDebug(KIO_CORE);
+    // qCDebug(KIO_CORE);
     m_statResult = entry;
 }
 
@@ -161,7 +167,7 @@ void StatJobPrivate::slotStatEntry(const KIO::UDSEntry &entry)
 void StatJobPrivate::slotRedirection(const QUrl &url)
 {
     Q_Q(StatJob);
-    //qCDebug(KIO_CORE) << m_url << "->" << url;
+    // qCDebug(KIO_CORE) << m_url << "->" << url;
     if (!KUrlAuthorized::authorizeUrlAction(QStringLiteral("redirect"), m_url, url)) {
         qCWarning(KIO_CORE) << "Redirection from" << m_url << "to" << url << "REJECTED!";
         q->setError(ERR_ACCESS_DENIED);
@@ -178,7 +184,7 @@ void StatJob::slotFinished()
     Q_D(StatJob);
 
     if (!d->m_redirectionURL.isEmpty() && d->m_redirectionURL.isValid()) {
-        //qCDebug(KIO_CORE) << "StatJob: Redirection to " << m_redirectionURL;
+        // qCDebug(KIO_CORE) << "StatJob: Redirection to " << m_redirectionURL;
         if (queryMetaData(QStringLiteral("permanent-redirect")) == QLatin1String("true")) {
             Q_EMIT permanentRedirection(this, d->m_url, d->m_redirectionURL);
         }
@@ -243,7 +249,7 @@ StatJob *KIO::mostLocalUrl(const QUrl &url, JobFlags flags)
 #if KIOCORE_BUILD_DEPRECATED_SINCE(4, 0)
 StatJob *KIO::stat(const QUrl &url, bool sideIsSource, short int details, JobFlags flags)
 {
-    //qCDebug(KIO_CORE) << "stat" << url;
+    // qCDebug(KIO_CORE) << "stat" << url;
     KIO_ARGS << url;
     StatJob *job = StatJobPrivate::newJob(url, CMD_STAT, packedArgs, flags);
     job->setSide(sideIsSource ? StatJob::SourceSide : StatJob::DestinationSide);
@@ -255,7 +261,7 @@ StatJob *KIO::stat(const QUrl &url, bool sideIsSource, short int details, JobFla
 StatJob *KIO::statDetails(const QUrl &url, KIO::StatJob::StatSide side, KIO::StatDetails details, JobFlags flags)
 {
     // TODO KF6: rename to stat
-    //qCDebug(KIO_CORE) << "stat" << url;
+    // qCDebug(KIO_CORE) << "stat" << url;
     KIO_ARGS << url;
     StatJob *job = StatJobPrivate::newJob(url, CMD_STAT, packedArgs, flags);
     job->setSide(side);
@@ -266,7 +272,7 @@ StatJob *KIO::statDetails(const QUrl &url, KIO::StatJob::StatSide side, KIO::Sta
 #if KIOCORE_BUILD_DEPRECATED_SINCE(5, 69)
 StatJob *KIO::stat(const QUrl &url, KIO::StatJob::StatSide side, short int details, JobFlags flags)
 {
-    //qCDebug(KIO_CORE) << "stat" << url;
+    // qCDebug(KIO_CORE) << "stat" << url;
     KIO_ARGS << url;
     StatJob *job = StatJobPrivate::newJob(url, CMD_STAT, packedArgs, flags);
     job->setSide(side);

@@ -11,8 +11,8 @@
 #include <KDEDModule>
 
 #include <QMap>
-#include <QUrl>
 #include <QTimer>
+#include <QUrl>
 
 class KDirWatch;
 
@@ -22,7 +22,7 @@ class KIOExecd : public KDEDModule
     Q_CLASSINFO("D-Bus Interface", "org.kde.KIOExecd")
 
 public:
-    KIOExecd(QObject *parent, const QList<QVariant>&);
+    KIOExecd(QObject *parent, const QList<QVariant> &);
     virtual ~KIOExecd();
 
 public Q_SLOTS:
@@ -44,4 +44,3 @@ private:
 };
 
 #endif
-

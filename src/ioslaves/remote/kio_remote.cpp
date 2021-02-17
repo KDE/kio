@@ -32,8 +32,7 @@ int Q_DECL_EXPORT kdemain(int argc, char **argv)
 }
 }
 
-RemoteProtocol::RemoteProtocol(const QByteArray &protocol, const QByteArray &pool,
-                               const QByteArray &app)
+RemoteProtocol::RemoteProtocol(const QByteArray &protocol, const QByteArray &pool, const QByteArray &app)
     : SlaveBase(protocol, pool, app)
 {
 }
@@ -52,7 +51,7 @@ void RemoteProtocol::listDir(const QUrl &url)
     }
 
     int second_slash_idx = url.path().indexOf(QLatin1Char('/'), 1);
-    const QString root_dirname = url.path().mid(1, second_slash_idx-1);
+    const QString root_dirname = url.path().mid(1, second_slash_idx - 1);
 
     QUrl target = m_impl.findBaseURL(root_dirname);
     qCDebug(KIOREMOTE_LOG) << "possible redirection target : " << target;
@@ -80,7 +79,7 @@ void RemoteProtocol::listRoot()
     KIO::UDSEntryList remote_entries;
     m_impl.listRoot(remote_entries);
 
-    totalSize(remote_entries.count()+2);
+    totalSize(remote_entries.count() + 2);
 
     m_impl.createTopLevelEntry(entry);
     listEntry(entry);
@@ -110,9 +109,9 @@ void RemoteProtocol::stat(const QUrl &url)
     }
 
     int second_slash_idx = url.path().indexOf(QLatin1Char('/'), 1);
-    const QString root_dirname = url.path().mid(1, second_slash_idx-1);
+    const QString root_dirname = url.path().mid(1, second_slash_idx - 1);
 
-    if (second_slash_idx == -1 || ((int)url.path().length()) == second_slash_idx+1) {
+    if (second_slash_idx == -1 || ((int)url.path().length()) == second_slash_idx + 1) {
         KIO::UDSEntry entry;
         if (m_impl.statNetworkFolder(entry, root_dirname)) {
             statEntry(entry);

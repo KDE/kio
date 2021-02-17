@@ -8,36 +8,37 @@
 #include "kfilecopytomenu_p.h"
 #include <QAction>
 #include <QDir>
-#include <QIcon>
 #include <QFileDialog>
+#include <QIcon>
 #include <QMimeDatabase>
 #include <QMimeType>
 
-#include <KIO/FileUndoManager>
 #include <KIO/CopyJob>
+#include <KIO/FileUndoManager>
 #include <KIO/JobUiDelegate>
+#include <KJobWidgets>
 #include <KLocalizedString>
 #include <KSharedConfig>
 #include <KStringHandler>
-#include <KJobWidgets>
 
 #ifdef Q_OS_WIN
 #include "windows.h"
 #endif
 
 KFileCopyToMenuPrivate::KFileCopyToMenuPrivate(KFileCopyToMenu *qq, QWidget *parentWidget)
-    : q(qq),
-      m_urls(),
-      m_parentWidget(parentWidget),
-      m_readOnly(false),
-      m_autoErrorHandling(false)
+    : q(qq)
+    , m_urls()
+    , m_parentWidget(parentWidget)
+    , m_readOnly(false)
+    , m_autoErrorHandling(false)
 {
 }
 
 ////
 
 KFileCopyToMenu::KFileCopyToMenu(QWidget *parentWidget)
-    : QObject(parentWidget), d(new KFileCopyToMenuPrivate(this, parentWidget))
+    : QObject(parentWidget)
+    , d(new KFileCopyToMenuPrivate(this, parentWidget))
 {
 }
 
@@ -65,13 +66,13 @@ void KFileCopyToMenu::addActionsTo(QMenu *menu) const
 {
     QMenu *mainCopyMenu = new KFileCopyToMainMenu(menu, d, Copy);
     mainCopyMenu->setTitle(i18nc("@title:menu", "Copy To"));
-    mainCopyMenu->menuAction()->setObjectName(QStringLiteral("copyTo_submenu"));   // for the unittest
+    mainCopyMenu->menuAction()->setObjectName(QStringLiteral("copyTo_submenu")); // for the unittest
     menu->addMenu(mainCopyMenu);
 
     if (!d->m_readOnly) {
         QMenu *mainMoveMenu = new KFileCopyToMainMenu(menu, d, Move);
         mainMoveMenu->setTitle(i18nc("@title:menu", "Move To"));
-        mainMoveMenu->menuAction()->setObjectName(QStringLiteral("moveTo_submenu"));   // for the unittest
+        mainMoveMenu->menuAction()->setObjectName(QStringLiteral("moveTo_submenu")); // for the unittest
         menu->addMenu(mainMoveMenu);
     }
 }
@@ -79,10 +80,11 @@ void KFileCopyToMenu::addActionsTo(QMenu *menu) const
 ////
 
 KFileCopyToMainMenu::KFileCopyToMainMenu(QMenu *parent, KFileCopyToMenuPrivate *_d, MenuType menuType)
-    : QMenu(parent), m_menuType(menuType),
-      m_actionGroup(static_cast<QWidget *>(nullptr)),
-      d(_d),
-      m_recentDirsGroup(KSharedConfig::openConfig(), m_menuType == Copy ? "kuick-copy" : "kuick-move")
+    : QMenu(parent)
+    , m_menuType(menuType)
+    , m_actionGroup(static_cast<QWidget *>(nullptr))
+    , d(_d)
+    , m_recentDirsGroup(KSharedConfig::openConfig(), m_menuType == Copy ? "kuick-copy" : "kuick-move")
 {
     connect(this, &KFileCopyToMainMenu::aboutToShow, this, &KFileCopyToMainMenu::slotAboutToShow);
     connect(&m_actionGroup, &QActionGroup::triggered, this, &KFileCopyToMainMenu::slotTriggered);
@@ -201,7 +203,7 @@ void KFileCopyToMainMenu::copyOrMoveTo(const QUrl &dest)
     if (job->uiDelegate()) {
         job->uiDelegate()->setAutoErrorHandlingEnabled(d->m_autoErrorHandling);
     }
-    connect(job, &KIO::CopyJob::result, this, [this](KJob * job) {
+    connect(job, &KIO::CopyJob::result, this, [this](KJob *job) {
         Q_EMIT d->q->error(job->error(), job->errorString());
     });
 }
@@ -209,7 +211,9 @@ void KFileCopyToMainMenu::copyOrMoveTo(const QUrl &dest)
 ////
 
 KFileCopyToDirectoryMenu::KFileCopyToDirectoryMenu(QMenu *parent, KFileCopyToMainMenu *mainMenu, const QString &path)
-    : QMenu(parent), m_mainMenu(mainMenu), m_path(path)
+    : QMenu(parent)
+    , m_mainMenu(mainMenu)
+    , m_path(path)
 {
     if (!m_path.endsWith(QLatin1Char('/'))) {
         m_path.append(QLatin1Char('/'));
@@ -220,9 +224,7 @@ KFileCopyToDirectoryMenu::KFileCopyToDirectoryMenu(QMenu *parent, KFileCopyToMai
 void KFileCopyToDirectoryMenu::slotAboutToShow()
 {
     clear();
-    QAction *act = new QAction(m_mainMenu->menuType() == Copy
-                               ? i18nc("@title:menu", "Copy Here")
-                               : i18nc("@title:menu", "Move Here"), this);
+    QAction *act = new QAction(m_mainMenu->menuType() == Copy ? i18nc("@title:menu", "Copy Here") : i18nc("@title:menu", "Move Here"), this);
     act->setData(QUrl::fromLocalFile(m_path));
     act->setEnabled(QFileInfo(m_path).isWritable());
     m_mainMenu->actionGroup().addAction(act);

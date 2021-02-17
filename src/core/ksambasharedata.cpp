@@ -7,11 +7,10 @@
 #include "ksambasharedata.h"
 #include "ksambasharedata_p.h"
 
-
 #include "ksambashare.h"
 #include "ksambashare_p.h"
 
-//TODO: add support for this samba options
+// TODO: add support for this samba options
 // usershare allow guests=P_BOOL,FLAG_ADVANCED
 // usershare max shares=P_INTEGER,FLAG_ADVANCED
 // usershare owner only=P_BOOL,FLAG_ADVANCED

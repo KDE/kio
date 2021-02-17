@@ -41,7 +41,7 @@ public:
     ~KSSLSettings();
 
     KSSLSettings(const KSSLSettings &) = delete;
-    KSSLSettings& operator=(const KSSLSettings &) = delete;
+    KSSLSettings &operator=(const KSSLSettings &) = delete;
 
     /**
      *  Does the user want to be warned on entering SSL mode
@@ -149,4 +149,3 @@ private:
 };
 
 #endif
-

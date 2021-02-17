@@ -9,11 +9,11 @@
 #ifndef KDESKTOPFILEACTIONS_H
 #define KDESKTOPFILEACTIONS_H
 
-#include <KServiceAction>
 #include "kiowidgets_export.h"
+#include <KServiceAction>
+#include <QDebug>
 #include <QList>
 #include <QUrl>
-#include <QDebug>
 class KDesktopFile;
 class KService;
 
@@ -46,7 +46,8 @@ KIOWIDGETS_EXPORT QList<KServiceAction> userDefinedServices(const QString &path,
  * This allows for the menu to be changed depending on the exact files via
  * the X-KDE-GetActionMenu extension.
  */
-KIOWIDGETS_EXPORT QList<KServiceAction> userDefinedServices(const QString &path, const KDesktopFile &desktopFile, bool bLocalFiles, const QList<QUrl> &file_list = QList<QUrl>());
+KIOWIDGETS_EXPORT QList<KServiceAction>
+userDefinedServices(const QString &path, const KDesktopFile &desktopFile, bool bLocalFiles, const QList<QUrl> &file_list = QList<QUrl>());
 
 /**
  * Returns a list of services defined by the user as possible actions
@@ -65,10 +66,10 @@ KIOWIDGETS_EXPORT QList<KServiceAction> userDefinedServices(const QString &path,
 KIOWIDGETS_EXPORT QList<KServiceAction> userDefinedServices(const KService &service, bool bLocalFiles, const QList<QUrl> &file_list = QList<QUrl>());
 
 /**
-  * Execute @p service on the list of @p urls.
-  * @param urls the list of urls
-  * @param service the service to execute
-  */
+ * Execute @p service on the list of @p urls.
+ * @param urls the list of urls
+ * @param service the service to execute
+ */
 KIOWIDGETS_EXPORT void executeService(const QList<QUrl> &urls, const KServiceAction &service);
 
 #if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 71)

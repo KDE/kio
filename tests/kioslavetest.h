@@ -8,21 +8,22 @@
 #ifndef _KIOSLAVETEST_H
 #define _KIOSLAVETEST_H
 
+#include <QButtonGroup>
 #include <QLabel>
 #include <QLineEdit>
-#include <QRadioButton>
 #include <QPushButton>
-#include <QButtonGroup>
+#include <QRadioButton>
 #include <QWidget>
 
 #include <KMainWindow>
 
-#include "kio/job.h"
 #include "kio/global.h"
-#include <kio/scheduler.h>
+#include "kio/job.h"
 #include <KStatusBarJobTracker>
+#include <kio/scheduler.h>
 
-namespace KIO {
+namespace KIO
+{
 class Slave;
 }
 
@@ -36,7 +37,7 @@ public:
     ~KioslaveTest()
     {
         if (job) {
-            job->kill(KJob::Quietly);    // kill the job quietly
+            job->kill(KJob::Quietly); // kill the job quietly
         }
         if (slave) {
             KIO::Scheduler::disconnectSlave(slave);

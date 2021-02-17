@@ -19,34 +19,34 @@
 #include <limits>
 #include <qplatformdefs.h> // must be explicitly included for MacOSX
 
-#include <qdom.h>
-#include <QFile>
-#include <QLibraryInfo>
-#include <QRegularExpression>
-#include <QBuffer>
-#include <QIODevice>
-#include <QTemporaryFile>
-#include <QStandardPaths>
-#include <QMimeDatabase>
 #include <QAuthenticator>
-#include <QNetworkProxy>
-#include <QNetworkConfigurationManager>
-#include <QUrl>
+#include <QBuffer>
 #include <QCoreApplication>
 #include <QDataStream>
+#include <QFile>
+#include <QIODevice>
+#include <QLibraryInfo>
+#include <QMimeDatabase>
+#include <QNetworkConfigurationManager>
+#include <QNetworkProxy>
+#include <QRegularExpression>
+#include <QStandardPaths>
+#include <QTemporaryFile>
 #include <QThread>
+#include <QUrl>
+#include <qdom.h>
 
-#include <QDebug>
 #include <KConfig>
 #include <KConfigGroup>
 #include <KLocalizedString>
+#include <QDebug>
 
 #include <QDBusInterface>
 #include <QSslSocket>
 #include <kremoteencoding.h>
 
-#include <ioslave_defaults.h>
 #include <http_slave_defaults.h>
+#include <ioslave_defaults.h>
 
 #include <QDBusReply>
 #include <QProcess>
@@ -63,7 +63,7 @@ Q_LOGGING_CATEGORY(KIO_HTTP, "kf.kio.slaves.http", QtWarningMsg) // disable debu
 
 // HeaderTokenizer declarations
 #include "parsinghelpers.h"
-//string parsing helpers and HeaderTokenizer implementation
+// string parsing helpers and HeaderTokenizer implementation
 #include "parsinghelpers.cpp"
 
 // Pseudo plugin class to embed meta data
@@ -76,20 +76,19 @@ class KIOPluginForMetaData : public QObject
 static bool supportedProxyScheme(const QString &scheme)
 {
     // scheme is supposed to be lowercase
-    return (scheme.startsWith(QLatin1String("http"))
-            || scheme == QLatin1String("socks"));
+    return (scheme.startsWith(QLatin1String("http")) || scheme == QLatin1String("socks"));
 }
 
 // see filenameFromUrl(): a sha1 hash is 160 bits
-static const int s_hashedUrlBits = 160;   // this number should always be divisible by eight
+static const int s_hashedUrlBits = 160; // this number should always be divisible by eight
 static const int s_hashedUrlNibbles = s_hashedUrlBits / 4;
-static const int s_MaxInMemPostBufSize = 256 * 1024;   // Write anything over 256 KB to file...
+static const int s_MaxInMemPostBufSize = 256 * 1024; // Write anything over 256 KB to file...
 
 using namespace KIO;
 
 extern "C" Q_DECL_EXPORT int kdemain(int argc, char **argv)
 {
-    QCoreApplication app(argc, argv);   // needed for QSocketNotifier
+    QCoreApplication app(argc, argv); // needed for QSocketNotifier
     app.setApplicationName(QStringLiteral("kio_http"));
 
     if (argc != 4) {
@@ -111,7 +110,7 @@ static QString toQString(const QByteArray &value)
 
 static bool isCrossDomainRequest(const QString &fqdn, const QString &originURL)
 {
-    //TODO read the RFC
+    // TODO read the RFC
     if (originURL == QLatin1String("true")) { // Backwards compatibility
         return true;
     }
@@ -131,7 +130,7 @@ static bool isCrossDomainRequest(const QString &fqdn, const QString &originURL)
     QStringList lb = b.split(QLatin1Char('.'), Qt::SkipEmptyParts);
 
     if (qMin(la.count(), lb.count()) < 2) {
-        return true;  // better safe than sorry...
+        return true; // better safe than sorry...
     }
 
     while (la.count() > 2) {
@@ -155,11 +154,9 @@ static QString sanitizeCustomHTTPHeader(const QString &_header)
     for (const QStringRef &header : headers) {
         // Do not allow Request line to be specified and ignore
         // the other HTTP headers.
-        if (!header.contains(QLatin1Char(':')) ||
-                header.startsWith(QLatin1String("host"), Qt::CaseInsensitive) ||
-                header.startsWith(QLatin1String("proxy-authorization"), Qt::CaseInsensitive) ||
-                header.startsWith(QLatin1String("via"), Qt::CaseInsensitive) ||
-                header.startsWith(QLatin1String("depth"), Qt::CaseInsensitive)) {
+        if (!header.contains(QLatin1Char(':')) || header.startsWith(QLatin1String("host"), Qt::CaseInsensitive)
+            || header.startsWith(QLatin1String("proxy-authorization"), Qt::CaseInsensitive) || header.startsWith(QLatin1String("via"), Qt::CaseInsensitive)
+            || header.startsWith(QLatin1String("depth"), Qt::CaseInsensitive)) {
             continue;
         }
 
@@ -327,7 +324,7 @@ static bool isAuthenticationRequired(int responseCode)
     return (responseCode == 401) || (responseCode == 407);
 }
 
-static void changeProtocolToHttp(QUrl* url)
+static void changeProtocolToHttp(QUrl *url)
 {
     const QString protocol(url->scheme());
     if (protocol == QLatin1String("webdavs")) {
@@ -337,7 +334,7 @@ static void changeProtocolToHttp(QUrl* url)
     }
 }
 
-#define NO_SIZE ((KIO::filesize_t) -1)
+#define NO_SIZE ((KIO::filesize_t)-1)
 
 #if HAVE_STRTOLL
 #define STRTOLL strtoll
@@ -347,8 +344,7 @@ static void changeProtocolToHttp(QUrl* url)
 
 /************************************** HTTPProtocol **********************************************/
 
-HTTPProtocol::HTTPProtocol(const QByteArray &protocol, const QByteArray &pool,
-                           const QByteArray &app)
+HTTPProtocol::HTTPProtocol(const QByteArray &protocol, const QByteArray &pool, const QByteArray &app)
     : TCPSlaveBase(protocol, pool, app, isEncryptedHttpVariety(protocol))
     , m_iSize(NO_SIZE)
     , m_iPostDataSize(NO_SIZE)
@@ -370,8 +366,10 @@ HTTPProtocol::HTTPProtocol(const QByteArray &protocol, const QByteArray &pool,
 {
     reparseConfiguration();
     setBlocking(true);
-    connect(socket(), SIGNAL(proxyAuthenticationRequired(QNetworkProxy,QAuthenticator*)),
-            this, SLOT(proxyAuthenticationForSocket(QNetworkProxy,QAuthenticator*)));
+    connect(socket(),
+            SIGNAL(proxyAuthenticationRequired(QNetworkProxy, QAuthenticator *)),
+            this,
+            SLOT(proxyAuthenticationForSocket(QNetworkProxy, QAuthenticator *)));
 }
 
 HTTPProtocol::~HTTPProtocol()
@@ -387,7 +385,7 @@ void HTTPProtocol::reparseConfiguration()
     delete m_wwwAuth;
     m_proxyAuth = nullptr;
     m_wwwAuth = nullptr;
-    m_request.proxyUrl.clear(); //TODO revisit
+    m_request.proxyUrl.clear(); // TODO revisit
     m_request.proxyUrls.clear();
 
     TCPSlaveBase::reparseConfiguration();
@@ -449,8 +447,8 @@ void HTTPProtocol::resetSessionSettings()
     m_request.referrer.clear();
     // RFC 2616: do not send the referrer if the referrer page was served using SSL and
     //           the current page does not use SSL.
-    if (configValue(QStringLiteral("SendReferrer"), true) &&
-            (isEncryptedHttpVariety(m_protocol) || metaData(QStringLiteral("ssl_was_in_use")) != QLatin1String("TRUE"))) {
+    if (configValue(QStringLiteral("SendReferrer"), true)
+        && (isEncryptedHttpVariety(m_protocol) || metaData(QStringLiteral("ssl_was_in_use")) != QLatin1String("TRUE"))) {
         QUrl refUrl(metaData(QStringLiteral("referrer")));
         if (refUrl.isValid()) {
             // Sanitize
@@ -538,8 +536,7 @@ void HTTPProtocol::resetSessionSettings()
     m_iEOFRetryCount = 0;
 }
 
-void HTTPProtocol::setHost(const QString &host, quint16 port,
-                           const QString &user, const QString &pass)
+void HTTPProtocol::setHost(const QString &host, quint16 port, const QString &user, const QString &pass)
 {
     // Reset the webdav-capable flags for this host
     if (m_request.url.host() != host) {
@@ -551,12 +548,12 @@ void HTTPProtocol::setHost(const QString &host, quint16 port,
     // is it an IPv6 address?
     if (host.indexOf(QLatin1Char(':')) == -1) {
         m_request.encoded_hostname = toQString(QUrl::toAce(host));
-    } else  {
+    } else {
         int pos = host.indexOf(QLatin1Char('%'));
         if (pos == -1) {
             m_request.encoded_hostname = QLatin1Char('[') + host + QLatin1Char(']');
         } else
-            // don't send the scope-id in IPv6 addresses to the server
+        // don't send the scope-id in IPv6 addresses to the server
         {
             m_request.encoded_hostname = QLatin1Char('[') + host.leftRef(pos) + QLatin1Char(']');
         }
@@ -599,8 +596,7 @@ void HTTPProtocol::proceedUntilResponseContent(bool dataInternal /* = false */)
 {
     qCDebug(KIO_HTTP);
 
-    const bool status = proceedUntilResponseHeader() &&
-                        readBody(dataInternal || m_kioError);
+    const bool status = proceedUntilResponseHeader() && readBody(dataInternal || m_kioError);
 
     // If not an error condition or internal request, close
     // the connection based on the keep alive settings...
@@ -699,8 +695,8 @@ void HTTPProtocol::stat(const QUrl &url)
         UDSEntry entry;
         entry.reserve(3);
         entry.fastInsert(KIO::UDSEntry::UDS_NAME, url.fileName());
-        entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFREG);   // a file
-        entry.fastInsert(KIO::UDSEntry::UDS_ACCESS, S_IRUSR | S_IRGRP | S_IROTH);   // readable by everybody
+        entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFREG); // a file
+        entry.fastInsert(KIO::UDSEntry::UDS_ACCESS, S_IRUSR | S_IRGRP | S_IROTH); // readable by everybody
 
         statEntry(entry);
         finished();
@@ -744,34 +740,37 @@ void HTTPProtocol::davStatList(const QUrl &url, bool stat)
     if (!query.isEmpty()) {
         const QByteArray request =
             "<?xml version=\"1.0\"?>\r\n"
-            "<D:searchrequest xmlns:D=\"DAV:\">\r\n" + query.toUtf8() + "</D:searchrequest>\r\n";
+            "<D:searchrequest xmlns:D=\"DAV:\">\r\n"
+            + query.toUtf8() + "</D:searchrequest>\r\n";
 
         davSetRequest(request);
     } else {
         // We are only after certain features...
-        QByteArray request = QByteArrayLiteral("<?xml version=\"1.0\" encoding=\"utf-8\" ?>"
-                  "<D:propfind xmlns:D=\"DAV:\">");
+        QByteArray request = QByteArrayLiteral(
+            "<?xml version=\"1.0\" encoding=\"utf-8\" ?>"
+            "<D:propfind xmlns:D=\"DAV:\">");
 
         // insert additional XML request from the davRequestResponse metadata
         if (hasMetaData(QStringLiteral("davRequestResponse"))) {
             request += metaData(QStringLiteral("davRequestResponse")).toUtf8();
         } else {
             // No special request, ask for default properties
-            request += "<D:prop>"
-                       "<D:creationdate/>"
-                       "<D:getcontentlength/>"
-                       "<D:displayname/>"
-                       "<D:source/>"
-                       "<D:getcontentlanguage/>"
-                       "<D:getcontenttype/>"
-                       "<D:getlastmodified/>"
-                       "<D:getetag/>"
-                       "<D:supportedlock/>"
-                       "<D:lockdiscovery/>"
-                       "<D:resourcetype/>"
-                       "<D:quota-available-bytes/>"
-                       "<D:quota-used-bytes/>"
-                       "</D:prop>";
+            request +=
+                "<D:prop>"
+                "<D:creationdate/>"
+                "<D:getcontentlength/>"
+                "<D:displayname/>"
+                "<D:source/>"
+                "<D:getcontentlanguage/>"
+                "<D:getcontenttype/>"
+                "<D:getlastmodified/>"
+                "<D:getetag/>"
+                "<D:supportedlock/>"
+                "<D:lockdiscovery/>"
+                "<D:resourcetype/>"
+                "<D:quota-available-bytes/>"
+                "<D:quota-used-bytes/>"
+                "</D:prop>";
         }
         request += "</D:propfind>";
 
@@ -807,8 +806,7 @@ void HTTPProtocol::davStatList(const QUrl &url, bool stat)
 
     qCDebug(KIO_HTTP) << '\n' << multiResponse.toString(2);
 
-    for (QDomNode n = multiResponse.documentElement().firstChild();
-            !n.isNull(); n = n.nextSibling()) {
+    for (QDomNode n = multiResponse.documentElement().firstChild(); !n.isNull(); n = n.nextSibling()) {
         QDomElement thisResponse = n.toElement();
         if (thisResponse.isNull()) {
             continue;
@@ -843,8 +841,7 @@ void HTTPProtocol::davStatList(const QUrl &url, bool stat)
             // Since a lot of webdav servers seem not to send the content-type information
             // for the requested directory listings, we attempt to guess the MIME type from
             // the resource name so long as the resource is not a directory.
-            if (entry.stringValue(KIO::UDSEntry::UDS_MIME_TYPE).isEmpty() &&
-                    entry.numberValue(KIO::UDSEntry::UDS_FILE_TYPE) != S_IFDIR) {
+            if (entry.stringValue(KIO::UDSEntry::UDS_MIME_TYPE).isEmpty() && entry.numberValue(KIO::UDSEntry::UDS_FILE_TYPE) != S_IFDIR) {
                 QMimeType mime = db.mimeTypeForFile(thisURL.path(), QMimeDatabase::MatchExtension);
                 if (mime.isValid() && !mime.isDefault()) {
                     qCDebug(KIO_HTTP) << "Setting" << mime.name() << "as guessed MIME type for" << thisURL.path();
@@ -860,7 +857,7 @@ void HTTPProtocol::davStatList(const QUrl &url, bool stat)
             }
 
             listEntry(entry);
-        } else   {
+        } else {
             qCDebug(KIO_HTTP) << "Error: no URL contained in response to PROPFIND on" << url;
         }
     }
@@ -955,8 +952,7 @@ void HTTPProtocol::davParsePropstats(const QDomNodeList &propstats, UDSEntry &en
 
             if (property.tagName() == QLatin1String("creationdate")) {
                 // Resource creation date. Should be is ISO 8601 format.
-                entry.replace(KIO::UDSEntry::UDS_CREATION_TIME,
-                             parseDateTime(property.text(), property.attribute(QStringLiteral("dt"))).toSecsSinceEpoch());
+                entry.replace(KIO::UDSEntry::UDS_CREATION_TIME, parseDateTime(property.text(), property.attribute(QStringLiteral("dt"))).toSecsSinceEpoch());
             } else if (property.tagName() == QLatin1String("getcontentlength")) {
                 // Content length (file size)
                 entry.replace(KIO::UDSEntry::UDS_SIZE, property.text().toULong());
@@ -965,8 +961,7 @@ void HTTPProtocol::davParsePropstats(const QDomNodeList &propstats, UDSEntry &en
                 setMetaData(QStringLiteral("davDisplayName"), property.text());
             } else if (property.tagName() == QLatin1String("source")) {
                 // Source template location
-                QDomElement source = property.namedItem(QStringLiteral("link")).toElement()
-                                     .namedItem(QStringLiteral("dst")).toElement();
+                QDomElement source = property.namedItem(QStringLiteral("link")).toElement().namedItem(QStringLiteral("dst")).toElement();
                 if (!source.isNull()) {
                     setMetaData(QStringLiteral("davSource"), source.text());
                 }
@@ -993,7 +988,7 @@ void HTTPProtocol::davParsePropstats(const QDomNodeList &propstats, UDSEntry &en
             } else if (property.tagName() == QLatin1String("getlastmodified")) {
                 // Last modification date
                 entry.replace(KIO::UDSEntry::UDS_MODIFICATION_TIME,
-                             parseDateTime(property.text(), property.attribute(QStringLiteral("dt"))).toSecsSinceEpoch());
+                              parseDateTime(property.text(), property.attribute(QStringLiteral("dt"))).toSecsSinceEpoch());
             } else if (property.tagName() == QLatin1String("getetag")) {
                 // Entity tag
                 setMetaData(QStringLiteral("davEntityTag"), property.text());
@@ -1060,8 +1055,7 @@ void HTTPProtocol::davParsePropstats(const QDomNodeList &propstats, UDSEntry &en
     }
 }
 
-void HTTPProtocol::davParseActiveLocks(const QDomNodeList &activeLocks,
-                                       uint &lockCount)
+void HTTPProtocol::davParseActiveLocks(const QDomNodeList &activeLocks, uint &lockCount)
 {
     for (int i = 0; i < activeLocks.count(); i++) {
         const QDomElement activeLock = activeLocks.item(i).toElement();
@@ -1330,7 +1324,7 @@ void HTTPProtocol::copy(const QUrl &src, const QUrl &dest, int, KIO::JobFlags fl
         }
 
         // destination has to be "http(s)://..."
-        QUrl newDest (dest);
+        QUrl newDest(dest);
         changeProtocolToHttp(&newDest);
 
         m_request.method = DAV_COPY;
@@ -1411,7 +1405,7 @@ void HTTPProtocol::del(const QUrl &url, bool)
     m_request.method = HTTP_DELETE;
     m_request.cacheTag.policy = CC_Reload;
 
-    if (m_protocol.startsWith("webdav")) { //krazy:exclude=strings due to QByteArray
+    if (m_protocol.startsWith("webdav")) { // krazy:exclude=strings due to QByteArray
         m_request.url.setQuery(QString());
         if (!proceedUntilResponseHeader()) {
             return;
@@ -1447,8 +1441,7 @@ void HTTPProtocol::post(const QUrl &url, qint64 size)
     proceedUntilResponseContent();
 }
 
-void HTTPProtocol::davLock(const QUrl &url, const QString &scope,
-                           const QString &type, const QString &owner)
+void HTTPProtocol::davLock(const QUrl &url, const QString &scope, const QString &type, const QString &owner)
 {
     qCDebug(KIO_HTTP) << url;
 
@@ -1603,8 +1596,11 @@ QString HTTPProtocol::davError(int code /* = -1 */, const QString &_url)
     }
 
     // default error message if the following code fails
-    errorString = i18nc("%1: code, %2: request type", "An unexpected error (%1) occurred "
-                        "while attempting to %2.", code, action);
+    errorString = i18nc("%1: code, %2: request type",
+                        "An unexpected error (%1) occurred "
+                        "while attempting to %2.",
+                        code,
+                        action);
 
     switch (code) {
     case -2:
@@ -1614,60 +1610,62 @@ QString HTTPProtocol::davError(int code /* = -1 */, const QString &_url)
         break;
     case 207:
         // 207 Multi-status
-    {
-        // our error info is in the returned XML document.
-        // retrieve the XML document
+        {
+            // our error info is in the returned XML document.
+            // retrieve the XML document
 
-        // there was an error retrieving the XML document.
-        if (!readBody(true) && m_kioError) {
-            return QString();
-        }
-
-        QStringList errors;
-        QDomDocument multiResponse;
-
-        multiResponse.setContent(m_webDavDataBuf, true);
-
-        QDomElement multistatus = multiResponse.documentElement().namedItem(QStringLiteral("multistatus")).toElement();
-
-        QDomNodeList responses = multistatus.elementsByTagName(QStringLiteral("response"));
-
-        for (int i = 0; i < responses.count(); i++) {
-            int errCode;
-            QString errUrl;
-
-            QDomElement response = responses.item(i).toElement();
-            QDomElement code = response.namedItem(QStringLiteral("status")).toElement();
-
-            if (!code.isNull()) {
-                errCode = codeFromResponse(code.text());
-                QDomElement href = response.namedItem(QStringLiteral("href")).toElement();
-                if (!href.isNull()) {
-                    errUrl = href.text();
-                }
-                errors << davError(errCode, errUrl);
+            // there was an error retrieving the XML document.
+            if (!readBody(true) && m_kioError) {
+                return QString();
             }
+
+            QStringList errors;
+            QDomDocument multiResponse;
+
+            multiResponse.setContent(m_webDavDataBuf, true);
+
+            QDomElement multistatus = multiResponse.documentElement().namedItem(QStringLiteral("multistatus")).toElement();
+
+            QDomNodeList responses = multistatus.elementsByTagName(QStringLiteral("response"));
+
+            for (int i = 0; i < responses.count(); i++) {
+                int errCode;
+                QString errUrl;
+
+                QDomElement response = responses.item(i).toElement();
+                QDomElement code = response.namedItem(QStringLiteral("status")).toElement();
+
+                if (!code.isNull()) {
+                    errCode = codeFromResponse(code.text());
+                    QDomElement href = response.namedItem(QStringLiteral("href")).toElement();
+                    if (!href.isNull()) {
+                        errUrl = href.text();
+                    }
+                    errors << davError(errCode, errUrl);
+                }
+            }
+
+            // kError = ERR_SLAVE_DEFINED;
+            errorString = i18nc("%1: request type, %2: url",
+                                "An error occurred while attempting to %1, %2. A "
+                                "summary of the reasons is below.",
+                                action,
+                                url);
+
+            errorString += QLatin1String("<ul>");
+
+            for (const QString &error : qAsConst(errors)) {
+                errorString += QLatin1String("<li>") + error + QLatin1String("</li>");
+            }
+
+            errorString += QLatin1String("</ul>");
         }
-
-        //kError = ERR_SLAVE_DEFINED;
-        errorString = i18nc("%1: request type, %2: url",
-                            "An error occurred while attempting to %1, %2. A "
-                            "summary of the reasons is below.", action, url);
-
-        errorString += QLatin1String("<ul>");
-
-        for (const QString &error : qAsConst(errors)) {
-            errorString += QLatin1String("<li>") + error + QLatin1String("</li>");
-        }
-
-        errorString += QLatin1String("</ul>");
-    }
         break;
     case 403:
     case 500: // hack: Apache mod_dav returns this instead of 403 (!)
         // 403 Forbidden
         // ERR_ACCESS_DENIED
-        errorString = i18nc("%1: request type", "Access was denied while attempting to %1.",  action);
+        errorString = i18nc("%1: request type", "Access was denied while attempting to %1.", action);
         break;
     case 405:
         // 405 Method Not Allowed
@@ -1680,23 +1678,25 @@ QString HTTPProtocol::davError(int code /* = -1 */, const QString &_url)
     case 409:
         // 409 Conflict
         // ERR_ACCESS_DENIED
-        errorString = i18n("A resource cannot be created at the destination "
-                           "until one or more intermediate collections (folders) "
-                           "have been created.");
+        errorString = i18n(
+            "A resource cannot be created at the destination "
+            "until one or more intermediate collections (folders) "
+            "have been created.");
         break;
     case 412:
         // 412 Precondition failed
         if (m_request.method == DAV_COPY || m_request.method == DAV_MOVE) {
             // ERR_ACCESS_DENIED
-            errorString = i18n("The server was unable to maintain the liveness of "
-                               "the properties listed in the propertybehavior XML "
-                               "element\n or you attempted to overwrite a file while "
-                               "requesting that files are not overwritten.\n %1",
-                               ow);
+            errorString = i18n(
+                "The server was unable to maintain the liveness of "
+                "the properties listed in the propertybehavior XML "
+                "element\n or you attempted to overwrite a file while "
+                "requesting that files are not overwritten.\n %1",
+                ow);
 
         } else if (m_request.method == DAV_LOCK) {
             // ERR_ACCESS_DENIED
-            errorString = i18n("The requested lock could not be granted. %1",  ow);
+            errorString = i18n("The requested lock could not be granted. %1", ow);
         }
         break;
     case 415:
@@ -1707,7 +1707,7 @@ QString HTTPProtocol::davError(int code /* = -1 */, const QString &_url)
     case 423:
         // 423 Locked
         // ERR_ACCESS_DENIED
-        errorString = i18nc("%1: request type", "Unable to %1 because the resource is locked.",  action);
+        errorString = i18nc("%1: request type", "Unable to %1 because the resource is locked.", action);
         break;
     case 425:
         // 424 Failed Dependency
@@ -1717,23 +1717,26 @@ QString HTTPProtocol::davError(int code /* = -1 */, const QString &_url)
         // 502 Bad Gateway
         if (m_request.method == DAV_COPY || m_request.method == DAV_MOVE) {
             // ERR_WRITE_ACCESS_DENIED
-            errorString = i18nc("%1: request type", "Unable to %1 because the destination server refuses "
-                                "to accept the file or folder.",  action);
+            errorString = i18nc("%1: request type",
+                                "Unable to %1 because the destination server refuses "
+                                "to accept the file or folder.",
+                                action);
         }
         break;
     case 507:
         // 507 Insufficient Storage
         // ERR_DISK_FULL
-        errorString = i18n("The destination resource does not have sufficient space "
-                           "to record the state of the resource after the execution "
-                           "of this method.");
+        errorString = i18n(
+            "The destination resource does not have sufficient space "
+            "to record the state of the resource after the execution "
+            "of this method.");
         break;
     default:
         break;
     }
 
     // if ( kError != ERR_SLAVE_DEFINED )
-    //errorString += " (" + url + ')';
+    // errorString += " (" + url + ')';
 
     if (callError) {
         error(errorCode, errorString);
@@ -1774,9 +1777,7 @@ static int httpDelError(const HTTPProtocol::HTTPRequest &request, QString *error
         break;
     }
 
-    if (!errorCode
-            && (responseCode < 200 || responseCode > 400)
-            && responseCode != 404) {
+    if (!errorCode && (responseCode < 200 || responseCode > 400) && responseCode != 404) {
         errorCode = ERR_SLAVE_DEFINED;
         *errorString = i18n("The resource cannot be deleted.");
     }
@@ -1800,49 +1801,49 @@ static int httpPutError(const HTTPProtocol::HTTPRequest &request, QString *error
         // 403 Forbidden
         // 405 Method Not Allowed
         // ERR_ACCESS_DENIED
-        *errorString = i18nc("%1: request type", "Access was denied while attempting to %1.",  action);
+        *errorString = i18nc("%1: request type", "Access was denied while attempting to %1.", action);
         errorCode = ERR_SLAVE_DEFINED;
         break;
     case 409:
         // 409 Conflict
         // ERR_ACCESS_DENIED
-        *errorString = i18n("A resource cannot be created at the destination "
-                            "until one or more intermediate collections (folders) "
-                            "have been created.");
+        *errorString = i18n(
+            "A resource cannot be created at the destination "
+            "until one or more intermediate collections (folders) "
+            "have been created.");
         errorCode = ERR_SLAVE_DEFINED;
         break;
     case 423:
         // 423 Locked
         // ERR_ACCESS_DENIED
-        *errorString = i18nc("%1: request type", "Unable to %1 because the resource is locked.",  action);
+        *errorString = i18nc("%1: request type", "Unable to %1 because the resource is locked.", action);
         errorCode = ERR_SLAVE_DEFINED;
         break;
     case 502:
         // 502 Bad Gateway
         // ERR_WRITE_ACCESS_DENIED;
-        *errorString = i18nc("%1: request type", "Unable to %1 because the destination server refuses "
-                             "to accept the file or folder.",  action);
+        *errorString = i18nc("%1: request type",
+                             "Unable to %1 because the destination server refuses "
+                             "to accept the file or folder.",
+                             action);
         errorCode = ERR_SLAVE_DEFINED;
         break;
     case 507:
         // 507 Insufficient Storage
         // ERR_DISK_FULL
-        *errorString = i18n("The destination resource does not have sufficient space "
-                            "to record the state of the resource after the execution "
-                            "of this method.");
+        *errorString = i18n(
+            "The destination resource does not have sufficient space "
+            "to record the state of the resource after the execution "
+            "of this method.");
         errorCode = ERR_SLAVE_DEFINED;
         break;
     default:
         break;
     }
 
-    if (!errorCode
-            && (responseCode < 200 || responseCode > 400)
-            && responseCode != 404) {
+    if (!errorCode && (responseCode < 200 || responseCode > 400) && responseCode != 404) {
         errorCode = ERR_SLAVE_DEFINED;
-        *errorString = i18nc("%1: response code, %2: request type",
-                             "An unexpected error (%1) occurred while attempting to %2.",
-                             responseCode, action);
+        *errorString = i18nc("%1: response code, %2: request type", "An unexpected error (%1) occurred while attempting to %2.", responseCode, action);
     }
 
     return errorCode;
@@ -1932,7 +1933,7 @@ void HTTPProtocol::multiGet(const QByteArray &data)
         qCDebug(KIO_HTTP) << url;
 
         m_request.method = HTTP_GET;
-        m_request.isKeepAlive = true;   //readResponseHeader clears it if necessary
+        m_request.isKeepAlive = true; // readResponseHeader clears it if necessary
 
         QString tmp = metaData(QStringLiteral("cache"));
         if (!tmp.isEmpty()) {
@@ -1976,7 +1977,7 @@ void HTTPProtocol::multiGet(const QByteArray &data)
             // the "next job" signal for ParallelGetJob is data of size zero which
             // readBody() sends without our intervention.
             qCDebug(KIO_HTTP) << "check three: isKeepAlive =" << m_request.isKeepAlive;
-            httpClose(m_request.isKeepAlive);  //actually keep-alive is mandatory for pipelining
+            httpClose(m_request.isKeepAlive); // actually keep-alive is mandatory for pipelining
         }
 
         finished();
@@ -2019,7 +2020,7 @@ void HTTPProtocol::unread(char *buf, size_t size)
         m_unreadBuf.data()[newSize - i - 1] = buf[i];
     }
     if (size) {
-        //hey, we still have data, closed connection or not!
+        // hey, we still have data, closed connection or not!
         m_isEOF = false;
     }
 }
@@ -2062,13 +2063,13 @@ size_t HTTPProtocol::readBuffered(char *buf, size_t size, bool unlimited)
 bool HTTPProtocol::readDelimitedText(char *buf, int *idx, int end, int numNewlines)
 {
     Q_ASSERT(numNewlines >= 1 && numNewlines <= 2);
-    char mybuf[64]; //somewhere close to the usual line length to avoid unread()ing too much
+    char mybuf[64]; // somewhere close to the usual line length to avoid unread()ing too much
     int pos = *idx;
     while (pos < end && !m_isEOF) {
         int step = qMin((int)sizeof(mybuf), end - pos);
         if (m_isChunked) {
-            //we might be reading the end of the very last chunk after which there is no data.
-            //don't try to read any more bytes than there are because it causes stalls
+            // we might be reading the end of the very last chunk after which there is no data.
+            // don't try to read any more bytes than there are because it causes stalls
             //(yes, it shouldn't stall but it does)
             step = 1;
         }
@@ -2084,13 +2085,12 @@ bool HTTPProtocol::readDelimitedText(char *buf, int *idx, int end, int numNewlin
             // send \r\n (RFC compliant) or \n (broken) as delimiter...
             if (buf[pos] == '\n') {
                 bool found = numNewlines == 1;
-                if (!found) {   // looking for two newlines
+                if (!found) { // looking for two newlines
                     // Detect \n\n and \n\r\n. The other cases (\r\n\n, \r\n\r\n) are covered by the first two.
-                    found = ((pos >= 1 && buf[pos - 1] == '\n') ||
-                             (pos >= 2 && buf[pos - 2] == '\n' && buf[pos - 1] == '\r'));
+                    found = ((pos >= 1 && buf[pos - 1] == '\n') || (pos >= 2 && buf[pos - 2] == '\n' && buf[pos - 1] == '\r'));
                 }
                 if (found) {
-                    i++;    // unread bytes *after* CRLF
+                    i++; // unread bytes *after* CRLF
                     unread(&mybuf[i], bufferFill - i);
                     *idx = pos + 1;
                     return true;
@@ -2142,8 +2142,7 @@ bool HTTPProtocol::httpOpenConnection()
 
     // Only save proxy auth information after proxy authentication has
     // actually taken place, which will set up exactly this connection.
-    disconnect(socket(), SIGNAL(connected()),
-               this, SLOT(saveProxyAuthenticationForSocket()));
+    disconnect(socket(), SIGNAL(connected()), this, SLOT(saveProxyAuthenticationForSocket()));
 
     clearUnreadBuffer();
 
@@ -2167,7 +2166,7 @@ bool HTTPProtocol::httpOpenConnection()
                 QNetworkProxy::setApplicationProxy(QNetworkProxy::NoProxy);
                 connectError = connectToHost(m_request.url.host(), m_request.url.port(defaultPort()), &errorString);
                 if (connectError == 0) {
-                    //qDebug() << "Connected DIRECT: host=" << m_request.url.host() << "port=" << m_request.url.port(defaultPort());
+                    // qDebug() << "Connected DIRECT: host=" << m_request.url.host() << "port=" << m_request.url.port(defaultPort());
                     break;
                 } else {
                     continue;
@@ -2197,13 +2196,13 @@ bool HTTPProtocol::httpOpenConnection()
                 connectError = connectToHost(url.host(), url.port(), &errorString);
                 if (connectError == 0) {
                     m_request.proxyUrl = url;
-                    //qDebug() << "Connected to proxy: host=" << url.host() << "port=" << url.port();
+                    // qDebug() << "Connected to proxy: host=" << url.host() << "port=" << url.port();
                     break;
                 } else {
                     if (connectError == ERR_UNKNOWN_HOST) {
                         connectError = ERR_UNKNOWN_PROXY_HOST;
                     }
-                    //qDebug() << "Failed to connect to proxy:" << proxyUrl;
+                    // qDebug() << "Failed to connect to proxy:" << proxyUrl;
                     badProxyUrls << url;
                 }
             } else {
@@ -2225,7 +2224,7 @@ bool HTTPProtocol::httpOpenConnection()
         }
 
         if (!badProxyUrls.isEmpty()) {
-            //TODO: Notify the client of BAD proxy addresses (needed for PAC setups).
+            // TODO: Notify the client of BAD proxy addresses (needed for PAC setups).
         }
     }
 
@@ -2403,7 +2402,7 @@ bool HTTPProtocol::sendQuery()
             hasDavData = true;
             davHeader = QStringLiteral("Depth: ");
             if (hasMetaData(QStringLiteral("davDepth"))) {
-                qCDebug(KIO_HTTP) << "Reading DAV depth from metadata:" << metaData( QStringLiteral("davDepth") );
+                qCDebug(KIO_HTTP) << "Reading DAV depth from metadata:" << metaData(QStringLiteral("davDepth"));
                 davHeader += metaData(QStringLiteral("davDepth"));
             } else {
                 if (m_request.davData.depth == 2) {
@@ -2421,13 +2420,10 @@ bool HTTPProtocol::sendQuery()
             break;
         case DAV_COPY:
         case DAV_MOVE:
-            davHeader =
-                QLatin1String("Destination: ") + m_request.davData.desturl +
-            // infinity depth means copy recursively
-            // (optional for copy -> but is the desired action)
-                QLatin1String("\r\nDepth: infinity\r\nOverwrite: ") +
-                QLatin1Char(m_request.davData.overwrite ? 'T' : 'F') +
-                QLatin1String("\r\n");
+            davHeader = QLatin1String("Destination: ") + m_request.davData.desturl +
+                // infinity depth means copy recursively
+                // (optional for copy -> but is the desired action)
+                QLatin1String("\r\nDepth: infinity\r\nOverwrite: ") + QLatin1Char(m_request.davData.overwrite ? 'T' : 'F') + QLatin1String("\r\n");
             break;
         case DAV_LOCK:
             davHeader = QStringLiteral("Timeout: ");
@@ -2495,9 +2491,9 @@ bool HTTPProtocol::sendQuery()
         }
 
         if (m_request.endoffset > m_request.offset) {
-            header += QLatin1String("Range: bytes=") + KIO::number(m_request.offset) + QLatin1Char('-') +
-                KIO::number(m_request.endoffset) + QLatin1String("\r\n");
-            qCDebug(KIO_HTTP) << "kio_http : Range =" << KIO::number(m_request.offset) << "-"  << KIO::number(m_request.endoffset);
+            header +=
+                QLatin1String("Range: bytes=") + KIO::number(m_request.offset) + QLatin1Char('-') + KIO::number(m_request.endoffset) + QLatin1String("\r\n");
+            qCDebug(KIO_HTTP) << "kio_http : Range =" << KIO::number(m_request.offset) << "-" << KIO::number(m_request.endoffset);
         } else if (m_request.offset > 0 && m_request.endoffset == 0) {
             header += QLatin1String("Range: bytes=") + KIO::number(m_request.offset) + QLatin1String("-\r\n");
             qCDebug(KIO_HTTP) << "kio_http: Range =" << KIO::number(m_request.offset);
@@ -2621,11 +2617,10 @@ bool HTTPProtocol::sendQuery()
     // Send the data to the remote machine...
     const QByteArray headerBytes = header.toLatin1();
     ssize_t written = write(headerBytes.constData(), headerBytes.length());
-    bool sendOk = (written == (ssize_t) headerBytes.length());
+    bool sendOk = (written == (ssize_t)headerBytes.length());
     if (!sendOk) {
         qCDebug(KIO_HTTP) << "Connection broken! (" << m_request.url.host() << ")"
-                          << "  -- intended to write" << headerBytes.length()
-                          << "bytes but wrote" << (int)written << ".";
+                          << "  -- intended to write" << headerBytes.length() << "bytes but wrote" << (int)written << ".";
 
         // The server might have closed the connection due to a timeout, or maybe
         // some transport problem arose while the connection was idle.
@@ -2635,8 +2630,7 @@ bool HTTPProtocol::sendQuery()
         }
 
         qCDebug(KIO_HTTP) << "sendOk == false. Connection broken !"
-                          << "  -- intended to write" << headerBytes.length()
-                          << "bytes but wrote" << (int)written << ".";
+                          << "  -- intended to write" << headerBytes.length() << "bytes but wrote" << (int)written << ".";
         error(ERR_CONNECTION_BROKEN, m_request.url.host());
         return false;
     } else {
@@ -2727,15 +2721,13 @@ void HTTPProtocol::fixupResponseMimetype()
     }
 
     // Crypto ones....
-    else if (m_mimeType == QLatin1String("application/pkix-cert") ||
-             m_mimeType == QLatin1String("application/binary-certificate")) {
+    else if (m_mimeType == QLatin1String("application/pkix-cert") || m_mimeType == QLatin1String("application/binary-certificate")) {
         m_mimeType = QStringLiteral("application/x-x509-ca-cert");
     }
 
     // Prefer application/x-compressed-tar or x-gzpostscript over application/x-gzip.
     else if (m_mimeType == QLatin1String("application/x-gzip")) {
-        if ((m_request.url.path().endsWith(QLatin1String(".tar.gz"))) ||
-                (m_request.url.path().endsWith(QLatin1String(".tar")))) {
+        if ((m_request.url.path().endsWith(QLatin1String(".tar.gz"))) || (m_request.url.path().endsWith(QLatin1String(".tar")))) {
             m_mimeType = QStringLiteral("application/x-compressed-tar");
         }
         if ((m_request.url.path().endsWith(QLatin1String(".ps.gz")))) {
@@ -2746,8 +2738,7 @@ void HTTPProtocol::fixupResponseMimetype()
     // Prefer application/x-xz-compressed-tar over application/x-xz for LMZA compressed
     // tar files. Arch Linux AUR servers notoriously send the wrong MIME type for this.
     else if (m_mimeType == QLatin1String("application/x-xz")) {
-        if (m_request.url.path().endsWith(QLatin1String(".tar.xz")) ||
-                m_request.url.path().endsWith(QLatin1String(".txz"))) {
+        if (m_request.url.path().endsWith(QLatin1String(".tar.xz")) || m_request.url.path().endsWith(QLatin1String(".txz"))) {
             m_mimeType = QStringLiteral("application/x-xz-compressed-tar");
         }
     }
@@ -2790,14 +2781,11 @@ void HTTPProtocol::fixupResponseContentEncoding()
             // Could we use the mimelnk files instead of hardcoding all this?
             m_contentEncodings.removeLast();
             m_mimeType = QStringLiteral("application/x-gzpostscript");
-        } else if ((m_request.allowTransferCompression &&
-                    m_mimeType == QLatin1String("text/html"))
-                   ||
-                   (m_request.allowTransferCompression &&
-                    m_mimeType != QLatin1String("application/x-compressed-tar") &&
-                    m_mimeType != QLatin1String("application/x-tgz") && // deprecated name
-                    m_mimeType != QLatin1String("application/x-targz") && // deprecated name
-                    m_mimeType != QLatin1String("application/x-gzip"))) {
+        } else if ((m_request.allowTransferCompression && m_mimeType == QLatin1String("text/html"))
+                   || (m_request.allowTransferCompression && m_mimeType != QLatin1String("application/x-compressed-tar")
+                       && m_mimeType != QLatin1String("application/x-tgz") && // deprecated name
+                       m_mimeType != QLatin1String("application/x-targz") && // deprecated name
+                       m_mimeType != QLatin1String("application/x-gzip"))) {
             // Unzip!
         } else {
             m_contentEncodings.removeLast();
@@ -2819,12 +2807,15 @@ void HTTPProtocol::fixupResponseContentEncoding()
 
 #ifdef Q_CC_MSVC
 // strncasecmp does not exist on windows, have to use _strnicmp
-static inline int strncasecmp(const char *c1, const char* c2, size_t max) { return _strnicmp(c1, c2, max);  }
+static inline int strncasecmp(const char *c1, const char *c2, size_t max)
+{
+    return _strnicmp(c1, c2, max);
+}
 #endif
 
-//Return true if the term was found, false otherwise. Advance *pos.
-//If (*pos + strlen(term) >= end) just advance *pos to end and return false.
-//This means that users should always search for the shortest terms first.
+// Return true if the term was found, false otherwise. Advance *pos.
+// If (*pos + strlen(term) >= end) just advance *pos to end and return false.
+// This means that users should always search for the shortest terms first.
 static bool consume(const char input[], int *pos, int end, const char *term)
 {
     // note: gcc/g++ is quite good at optimizing away redundant strlen()s
@@ -2849,8 +2840,7 @@ static bool consume(const char input[], int *pos, int end, const char *term)
 bool HTTPProtocol::readResponseHeader()
 {
     resetResponseParsing();
-    if (m_request.cacheTag.ioMode == ReadFromCache &&
-            m_request.cacheTag.plan(m_maxCacheAge) == CacheTag::UseCached) {
+    if (m_request.cacheTag.ioMode == ReadFromCache && m_request.cacheTag.plan(m_maxCacheAge) == CacheTag::UseCached) {
         // parseHeaderFromCache replaces this method in case of cached content
         return parseHeaderFromCache();
     }
@@ -2858,7 +2848,7 @@ bool HTTPProtocol::readResponseHeader()
 try_again:
     qCDebug(KIO_HTTP);
 
-    bool upgradeRequired = false;   // Server demands that we upgrade to something
+    bool upgradeRequired = false; // Server demands that we upgrade to something
     // This is also true if we ask to upgrade and
     // the server accepts, since we are now
     // committed to doing so
@@ -2960,7 +2950,7 @@ try_again:
         m_request.prevResponseCode = m_request.responseCode;
     }
     skipSpace(buffer, &idx, bufPos);
-    //TODO saner handling of invalid response code strings
+    // TODO saner handling of invalid response code strings
     if (idx != bufPos) {
         m_request.responseCode = atoi(&buffer[idx]);
     } else {
@@ -2976,16 +2966,16 @@ try_again:
     // sites they had no intention of visiting.
     if (isPotentialSpoofingAttack(m_request, config())) {
         qCDebug(KIO_HTTP) << "**** POTENTIAL ADDRESS SPOOFING:" << m_request.url;
-        const int result =
-            messageBox(WarningYesNo,
-                       i18nc("@info Security check on url being accessed",
-                             "<p>You are about to log in to the site \"%1\" "
-                             "with the username \"%2\", but the website "
-                             "does not require authentication. "
-                             "This may be an attempt to trick you.</p>"
-                             "<p>Is \"%1\" the site you want to visit?</p>",
-                             m_request.url.host(), m_request.url.userName()),
-                       i18nc("@title:window", "Confirm Website Access"));
+        const int result = messageBox(WarningYesNo,
+                                      i18nc("@info Security check on url being accessed",
+                                            "<p>You are about to log in to the site \"%1\" "
+                                            "with the username \"%2\", but the website "
+                                            "does not require authentication. "
+                                            "This may be an attempt to trick you.</p>"
+                                            "<p>Is \"%1\" the site you want to visit?</p>",
+                                            m_request.url.host(),
+                                            m_request.url.userName()),
+                                      i18nc("@title:window", "Confirm Website Access"));
         if (result == SlaveBase::No) {
             error(ERR_USER_CANCELED, m_request.url.toDisplayString());
             return false;
@@ -3033,25 +3023,25 @@ try_again:
             // thing here. Otherwise, we loose compatibility and might not be
             // able to correctly retrieve sites that redirect.
             switch (m_request.responseCode) {
-              case 301: // Moved Permanently
+            case 301: // Moved Permanently
                 setMetaData(QStringLiteral("permanent-redirect"), QStringLiteral("true"));
                 // fall through
-              case 302: // Found
+            case 302: // Found
                 if (m_request.sentMethodString == "POST") {
                     m_request.method = HTTP_GET; // FORCE a GET
                     setMetaData(QStringLiteral("redirect-to-get"), QStringLiteral("true"));
                 }
                 break;
-              case 303: // See Other
+            case 303: // See Other
                 if (m_request.method != HTTP_HEAD) {
                     m_request.method = HTTP_GET; // FORCE a GET
                     setMetaData(QStringLiteral("redirect-to-get"), QStringLiteral("true"));
                 }
                 break;
-              case 308: // Permanent Redirect
+            case 308: // Permanent Redirect
                 setMetaData(QStringLiteral("permanent-redirect"), QStringLiteral("true"));
                 break;
-              default:
+            default:
                 break;
             }
         } else if (m_request.responseCode == 204) {
@@ -3091,8 +3081,7 @@ endParsing:
         const bool wasAuthError = isAuthenticationRequired(m_request.prevResponseCode);
         const bool isAuthError = isAuthenticationRequired(m_request.responseCode);
         const bool sameAuthError = (m_request.responseCode == m_request.prevResponseCode);
-        qCDebug(KIO_HTTP) << "wasAuthError=" << wasAuthError << "isAuthError=" << isAuthError
-                          << "sameAuthError=" << sameAuthError;
+        qCDebug(KIO_HTTP) << "wasAuthError=" << wasAuthError << "isAuthError=" << isAuthError << "sameAuthError=" << sameAuthError;
         // Not the same authorization error as before and no generic error?
         // -> save the successful credentials.
         if (wasAuthError && (m_request.responseCode < 400 || (isAuthError && !sameAuthError))) {
@@ -3106,10 +3095,10 @@ endParsing:
         foundDelimiter = readDelimitedText(buffer, &bufPos, maxHeaderSize, 2);
         qCDebug(KIO_HTTP) << " -- full response:\n" << QByteArray(buffer, bufPos).trimmed();
         // Use this to see newlines:
-        //qCDebug(KIO_HTTP) << " -- full response:" << endl << QByteArray(buffer, bufPos).replace("\r", "\\r").replace("\n", "\\n\n");
+        // qCDebug(KIO_HTTP) << " -- full response:" << endl << QByteArray(buffer, bufPos).replace("\r", "\\r").replace("\n", "\\n\n");
         Q_ASSERT(foundDelimiter);
 
-        //NOTE because tokenizer will overwrite newlines in case of line continuations in the header
+        // NOTE because tokenizer will overwrite newlines in case of line continuations in the header
         //     unread(buffer, bufSize) will not generally work anymore. we don't need it either.
         //     either we have a http response line -> try to parse the header, fail if it doesn't work
         //     or we have garbage -> fail.
@@ -3180,7 +3169,7 @@ endParsing:
                     mediaValue = toQString(statement.mid(index + 1));
                 }
                 mediaAttribute = mediaAttribute.trimmed();
-                mediaValue     = mediaValue.trimmed();
+                mediaValue = mediaValue.trimmed();
 
                 bool quoted = false;
                 if (mediaValue.startsWith(QLatin1Char('"'))) {
@@ -3201,8 +3190,7 @@ endParsing:
                 } else {
                     setMetaData(QLatin1String("media-") + mediaAttribute, mediaValue);
                     if (quoted) {
-                        setMetaData(QLatin1String("media-") + mediaAttribute + QLatin1String("-kio-quoted"),
-                                    QStringLiteral("true"));
+                        setMetaData(QLatin1String("media-") + mediaAttribute + QLatin1String("-kio-quoted"), QStringLiteral("true"));
                     }
                 }
             }
@@ -3271,8 +3259,7 @@ endParsing:
             // P3P privacy policy information
             QStringList policyrefs, compact;
             while (tIt.hasNext()) {
-                QStringList policy = toQString(tIt.next().simplified())
-                                     .split(QLatin1Char('='), Qt::SkipEmptyParts);
+                QStringList policy = toQString(tIt.next().simplified()).split(QLatin1Char('='), Qt::SkipEmptyParts);
                 if (policy.count() == 2) {
                     if (policy[0].toLower() == QLatin1String("policyref")) {
                         policyrefs << policy[1].remove(QRegularExpression(QStringLiteral("[\")\']"))).trimmed();
@@ -3311,7 +3298,7 @@ endParsing:
                     if (m_request.responseCode == 101) {
                         // Ok, an upgrade was accepted, now we must do it
                         upgradeRequired = true;
-                    } else if (upgradeRequired) {  // 426
+                    } else if (upgradeRequired) { // 426
                         // Nothing to do since we did it above already
                     }
                 }
@@ -3390,8 +3377,7 @@ endParsing:
             goto try_again;
         }
 
-        if (!m_isChunked && (m_iSize == NO_SIZE) && m_request.isKeepAlive &&
-                canHaveResponseBody(m_request.responseCode, m_request.method)) {
+        if (!m_isChunked && (m_iSize == NO_SIZE) && m_request.isKeepAlive && canHaveResponseBody(m_request.responseCode, m_request.method)) {
             qCDebug(KIO_HTTP) << "Ignoring keep-alive: otherwise unable to determine response body length.";
             m_request.isKeepAlive = false;
         }
@@ -3399,8 +3385,7 @@ endParsing:
         // TODO cache the proxy auth data (not doing this means a small performance regression for now)
 
         // we may need to send (Proxy or WWW) authorization data
-        if ((!m_request.doNotWWWAuthenticate && m_request.responseCode == 401) ||
-                (!m_request.doNotProxyAuthenticate && m_request.responseCode == 407)) {
+        if ((!m_request.doNotWWWAuthenticate && m_request.responseCode == 401) || (!m_request.doNotProxyAuthenticate && m_request.responseCode == 407)) {
             authRequiresAnotherRoundtrip = handleAuthenticationHeader(&tokenizer);
             if (m_kioError) {
                 // If error is set, then handleAuthenticationHeader failed.
@@ -3429,10 +3414,8 @@ endParsing:
             // if we got redirected to http://host/resource2, then we have to re-add
             // the fragment:
             // http to https redirection included
-            if (m_request.url.hasFragment() && !u.hasFragment() &&
-                    (m_request.url.host() == u.host()) &&
-                    (m_request.url.scheme() == u.scheme() ||
-                    (m_request.url.scheme() ==  QLatin1String("http") && u.scheme() == QLatin1String("https")))) {
+            if (m_request.url.hasFragment() && !u.hasFragment() && (m_request.url.host() == u.host())
+                && (m_request.url.scheme() == u.scheme() || (m_request.url.scheme() == QLatin1String("http") && u.scheme() == QLatin1String("https")))) {
                 u.setFragment(m_request.url.fragment());
             }
 
@@ -3465,7 +3448,7 @@ endParsing:
 
         // Inform the job that we can indeed resume...
         if (bCanResume && m_request.offset) {
-            //TODO turn off caching???
+            // TODO turn off caching???
             canResume();
         } else {
             m_request.offset = 0;
@@ -3483,8 +3466,7 @@ endParsing:
     }
 
     if (m_request.cacheTag.ioMode == ReadFromCache) {
-        if (m_request.cacheTag.policy == CC_Verify &&
-                m_request.cacheTag.plan(m_maxCacheAge) != CacheTag::UseCached) {
+        if (m_request.cacheTag.policy == CC_Verify && m_request.cacheTag.plan(m_maxCacheAge) != CacheTag::UseCached) {
             qCDebug(KIO_HTTP) << "Reading resource from cache even though the cache plan is not "
                                  "UseCached; the server is probably sending wrong expiry information.";
         }
@@ -3492,8 +3474,7 @@ endParsing:
         return parseHeaderFromCache();
     }
 
-    if (configValue(QStringLiteral("PropagateHttpHeader"), false) ||
-            m_request.cacheTag.ioMode == WriteToCache) {
+    if (configValue(QStringLiteral("PropagateHttpHeader"), false) || m_request.cacheTag.ioMode == WriteToCache) {
         // store header lines if they will be used; note that the tokenizer removing
         // line continuation special cases is probably more good than bad.
         int nextLinePos = 0;
@@ -3506,8 +3487,7 @@ endParsing:
                 prevLineEnd--;
             }
 
-            m_responseHeaders.append(QString::fromLatin1(&buffer[prevLinePos],
-                                     prevLineEnd - prevLinePos));
+            m_responseHeaders.append(QString::fromLatin1(&buffer[prevLinePos], prevLineEnd - prevLinePos));
             prevLinePos = nextLinePos;
         }
 
@@ -3521,10 +3501,8 @@ endParsing:
 
     // Let the app know about the MIME type iff this is not a redirection and
     // the mime-type string is not empty.
-    if (!m_isRedirection && m_request.responseCode != 204 &&
-            (!m_mimeType.isEmpty() || m_request.method == HTTP_HEAD) &&
-            !m_kioError &&
-            (m_isLoadingErrorPage || !authRequiresAnotherRoundtrip)) {
+    if (!m_isRedirection && m_request.responseCode != 204 && (!m_mimeType.isEmpty() || m_request.method == HTTP_HEAD) && !m_kioError
+        && (m_isLoadingErrorPage || !authRequiresAnotherRoundtrip)) {
         qCDebug(KIO_HTTP) << "Emitting mimetype " << m_mimeType;
         mimeType(m_mimeType);
     }
@@ -3564,7 +3542,7 @@ void HTTPProtocol::addEncoding(const QString &_encoding, QStringList &encs)
     } else if (encoding == QLatin1String("chunked")) {
         m_isChunked = true;
         // Anyone know of a better way to handle unknown sizes possibly/ideally with unsigned ints?
-        //if ( m_cmd != CMD_COPY )
+        // if ( m_cmd != CMD_COPY )
         m_iSize = NO_SIZE;
     } else if ((encoding == QLatin1String("x-gzip")) || (encoding == QLatin1String("gzip"))) {
         encs.append(QStringLiteral("gzip"));
@@ -3573,7 +3551,8 @@ void HTTPProtocol::addEncoding(const QString &_encoding, QStringList &encs)
     } else if ((encoding == QLatin1String("x-deflate")) || (encoding == QLatin1String("deflate"))) {
         encs.append(QStringLiteral("deflate"));
     } else {
-        qCDebug(KIO_HTTP) << "Unknown encoding encountered.  " << "Please write code. Encoding =" << encoding;
+        qCDebug(KIO_HTTP) << "Unknown encoding encountered.  "
+                          << "Please write code. Encoding =" << encoding;
     }
 }
 
@@ -3597,8 +3576,7 @@ void HTTPProtocol::cacheParseResponseHeader(const HeaderTokenizer &tokenizer)
 
     TokenIterator tIt = tokenizer.iterator("last-modified");
     if (tIt.hasNext()) {
-        m_request.cacheTag.lastModifiedDate =
-            QDateTime::fromString(toQString(tIt.next()), Qt::RFC2822Date);
+        m_request.cacheTag.lastModifiedDate = QDateTime::fromString(toQString(tIt.next()), Qt::RFC2822Date);
 
         //### might be good to canonicalize the date by using QDateTime::toString()
         if (m_request.cacheTag.lastModifiedDate.isValid()) {
@@ -3668,8 +3646,7 @@ void HTTPProtocol::cacheParseResponseHeader(const HeaderTokenizer &tokenizer)
             // heuristic expiration date
             if (m_request.cacheTag.lastModifiedDate.isValid()) {
                 // expAge is following the RFC 2616 suggestion for heuristic expiration
-                qint64 expAge =
-                    (m_request.cacheTag.lastModifiedDate.secsTo(m_request.cacheTag.servedDate)) / 10;
+                qint64 expAge = (m_request.cacheTag.lastModifiedDate.secsTo(m_request.cacheTag.servedDate)) / 10;
                 // not in the RFC: make sure not to have a huge heuristic cache lifetime
                 expAge = qMin(expAge, qint64(3600 * 24));
                 m_request.cacheTag.expireDate = m_request.cacheTag.servedDate.addSecs(expAge);
@@ -3679,7 +3656,7 @@ void HTTPProtocol::cacheParseResponseHeader(const HeaderTokenizer &tokenizer)
         }
         // make sure that no future clock monkey business causes the cache entry to un-expire
         if (m_request.cacheTag.expireDate < currentDate) {
-            m_request.cacheTag.expireDate.setMSecsSinceEpoch(0);  // January 1, 1970 :)
+            m_request.cacheTag.expireDate.setMSecsSinceEpoch(0); // January 1, 1970 :)
         }
     }
 
@@ -3695,8 +3672,8 @@ void HTTPProtocol::cacheParseResponseHeader(const HeaderTokenizer &tokenizer)
     // whoops.. we received a warning
     tIt = tokenizer.iterator("warning");
     if (tIt.hasNext()) {
-        //Don't use warning() here, no need to bother the user.
-        //Those warnings are mostly about caches.
+        // Don't use warning() here, no need to bother the user.
+        // Those warnings are mostly about caches.
         infoMessage(toQString(tIt.next()));
     }
 
@@ -3717,8 +3694,8 @@ void HTTPProtocol::cacheParseResponseHeader(const HeaderTokenizer &tokenizer)
     }
 
     // We don't cache certain text objects
-    if (m_mimeType.startsWith(QLatin1String("text/")) && (m_mimeType != QLatin1String("text/css")) &&
-            (m_mimeType != QLatin1String("text/x-javascript")) && !hasCacheDirective) {
+    if (m_mimeType.startsWith(QLatin1String("text/")) && (m_mimeType != QLatin1String("text/css")) && (m_mimeType != QLatin1String("text/x-javascript"))
+        && !hasCacheDirective) {
         // Do not cache secure pages or pages
         // originating from password protected sites
         // unless the webserver explicitly allows it.
@@ -3734,8 +3711,7 @@ void HTTPProtocol::cacheParseResponseHeader(const HeaderTokenizer &tokenizer)
             qCDebug(KIO_HTTP) << "...was revalidated by response code but not by updated expire times. "
                                  "We're going to set the expire date to 60 seconds in the future...";
             m_request.cacheTag.expireDate = currentDate.addSecs(60);
-            if (m_request.cacheTag.policy == CC_Verify &&
-                    m_request.cacheTag.plan(m_maxCacheAge) != CacheTag::UseCached) {
+            if (m_request.cacheTag.policy == CC_Verify && m_request.cacheTag.plan(m_maxCacheAge) != CacheTag::UseCached) {
                 // "apparently" because we /could/ have made an error ourselves, but the errors I
                 // witnessed were all the server's fault.
                 qCDebug(KIO_HTTP) << "this proxy or server apparently sends bogus expiry information.";
@@ -3784,17 +3760,18 @@ void HTTPProtocol::setCacheabilityMetadata(bool cachingAllowed)
 
 bool HTTPProtocol::sendCachedBody()
 {
-    infoMessage(i18n("Sending data to %1",  m_request.url.host()));
+    infoMessage(i18n("Sending data to %1", m_request.url.host()));
 
     const qint64 size = m_POSTbuf->size();
     const QByteArray cLength = "Content-Length: " + QByteArray::number(size) + "\r\n\r\n";
 
-    //qDebug() << "sending cached data (size=" << size << ")";
+    // qDebug() << "sending cached data (size=" << size << ")";
 
     // Send the content length...
-    bool sendOk = (write(cLength.data(), cLength.size()) == (ssize_t) cLength.size());
+    bool sendOk = (write(cLength.data(), cLength.size()) == (ssize_t)cLength.size());
     if (!sendOk) {
-        qCDebug(KIO_HTTP) << "Connection broken when sending " << "content length: (" << m_request.url.host() << ")";
+        qCDebug(KIO_HTTP) << "Connection broken when sending "
+                          << "content length: (" << m_request.url.host() << ")";
         error(ERR_CONNECTION_BROKEN, m_request.url.host());
         return false;
     }
@@ -3808,7 +3785,7 @@ bool HTTPProtocol::sendCachedBody()
     while (!m_POSTbuf->atEnd()) {
         const QByteArray buffer = m_POSTbuf->read(65536);
         const ssize_t bytesSent = write(buffer.data(), buffer.size());
-        if (bytesSent != static_cast<ssize_t>(buffer.size()))  {
+        if (bytesSent != static_cast<ssize_t>(buffer.size())) {
             qCDebug(KIO_HTTP) << "Connection broken when sending message body: (" << m_request.url.host() << ")";
             error(ERR_CONNECTION_BROKEN, m_request.url.host());
             return false;
@@ -3842,14 +3819,14 @@ bool HTTPProtocol::sendBody()
 
     qCDebug(KIO_HTTP) << "sending data (size=" << m_iPostDataSize << ")";
 
-    infoMessage(i18n("Sending data to %1",  m_request.url.host()));
+    infoMessage(i18n("Sending data to %1", m_request.url.host()));
 
     const QByteArray cLength = "Content-Length: " + QByteArray::number(m_iPostDataSize) + "\r\n\r\n";
 
     qCDebug(KIO_HTTP) << cLength.trimmed();
 
     // Send the content length...
-    bool sendOk = (write(cLength.data(), cLength.size()) == (ssize_t) cLength.size());
+    bool sendOk = (write(cLength.data(), cLength.size()) == (ssize_t)cLength.size());
     if (!sendOk) {
         // The server might have closed the connection due to a timeout, or maybe
         // some transport problem arose while the connection was idle.
@@ -3904,7 +3881,7 @@ bool HTTPProtocol::sendBody()
 
         if (write(buffer.data(), bytesRead) == static_cast<ssize_t>(bytesRead)) {
             bytesSent += bytesRead;
-            processedSize(bytesSent);  // Send update status...
+            processedSize(bytesSent); // Send update status...
             continue;
         }
 
@@ -4052,7 +4029,7 @@ void HTTPProtocol::special(const QByteArray &data)
         int method;
         qint64 size;
         stream >> url >> method >> size;
-        davGeneric(url, (KIO::HTTP_METHOD) method, size);
+        davGeneric(url, (KIO::HTTP_METHOD)method, size);
         break;
     }
     case 99: { // Close Connection
@@ -4105,7 +4082,7 @@ int HTTPProtocol::readChunked()
             // The last trailer line ends with CRLF and is followed by another CRLF
             // so we have CRLFCRLF like at the end of a standard HTTP header.
             // Do not miss a CRLFCRLF spread over two of our 4K blocks: keep three previous bytes.
-            //NOTE the CRLF after the chunksize also counts if there is no trailer. Copy it over.
+            // NOTE the CRLF after the chunksize also counts if there is no trailer. Copy it over.
             char trash[4096];
             trash[0] = m_receiveBuf.constData()[bufPos - 2];
             trash[1] = m_receiveBuf.constData()[bufPos - 1];
@@ -4155,7 +4132,7 @@ int HTTPProtocol::readLimited()
     const int bytesReceived = readBuffered(m_receiveBuf.data(), bytesToReceive, false);
 
     if (bytesReceived <= 0) {
-        return -1;    // Error: connection lost
+        return -1; // Error: connection lost
     }
 
     m_iBytesLeft -= bytesReceived;
@@ -4201,16 +4178,14 @@ void HTTPProtocol::slotData(const QByteArray &_d)
         // If a broken server does not send the mime-type,
         // we try to id it from the content before dealing
         // with the content itself.
-        if (m_mimeType.isEmpty() && !m_isRedirection &&
-                !(m_request.responseCode >= 300 && m_request.responseCode <= 399)) {
+        if (m_mimeType.isEmpty() && !m_isRedirection && !(m_request.responseCode >= 300 && m_request.responseCode <= 399)) {
             qCDebug(KIO_HTTP) << "Determining mime-type from content...";
             int old_size = m_mimeTypeBuffer.size();
             m_mimeTypeBuffer.resize(old_size + d.size());
             memcpy(m_mimeTypeBuffer.data() + old_size, d.data(), d.size());
-            if ((m_iBytesLeft != NO_SIZE) && (m_iBytesLeft > 0)
-                    && (m_mimeTypeBuffer.size() < 1024)) {
+            if ((m_iBytesLeft != NO_SIZE) && (m_iBytesLeft > 0) && (m_mimeTypeBuffer.size() < 1024)) {
                 m_cpMimeBuffer = true;
-                return;   // Do not send up the data since we do not yet know its MIME type!
+                return; // Do not send up the data since we do not yet know its MIME type!
             }
 
             qCDebug(KIO_HTTP) << "Mimetype buffer size:" << m_mimeTypeBuffer.size();
@@ -4224,7 +4199,7 @@ void HTTPProtocol::slotData(const QByteArray &_d)
 
             if (m_mimeType.isEmpty()) {
                 m_mimeType = QStringLiteral(DEFAULT_MIME_TYPE);
-                qCDebug(KIO_HTTP) << "Using default MIME type:" <<  m_mimeType;
+                qCDebug(KIO_HTTP) << "Using default MIME type:" << m_mimeType;
             }
 
             //### we could also open the cache file here
@@ -4238,7 +4213,7 @@ void HTTPProtocol::slotData(const QByteArray &_d)
             m_mimeTypeBuffer.resize(0);
         }
 
-        //qDebug() << "Sending data of size" << d.size();
+        // qDebug() << "Sending data of size" << d.size();
         data(d);
         if (m_request.cacheTag.ioMode == WriteToCache) {
             cacheFileWritePayload(d);
@@ -4262,9 +4237,8 @@ void HTTPProtocol::slotData(const QByteArray &_d)
 bool HTTPProtocol::readBody(bool dataInternal /* = false */)
 {
     // special case for reading cached body since we also do it in this function. oh well.
-    if (!canHaveResponseBody(m_request.responseCode, m_request.method) &&
-            !(m_request.cacheTag.ioMode == ReadFromCache && m_request.responseCode == 304 &&
-              m_request.method != HTTP_HEAD)) {
+    if (!canHaveResponseBody(m_request.responseCode, m_request.method)
+        && !(m_request.cacheTag.ioMode == ReadFromCache && m_request.responseCode == 304 && m_request.method != HTTP_HEAD)) {
         return true;
     }
 
@@ -4297,8 +4271,7 @@ bool HTTPProtocol::readBody(bool dataInternal /* = false */)
         if (!dataInternal) {
             if ((m_iSize > 0) && (m_iSize != NO_SIZE)) {
                 totalSize(m_iSize);
-                infoMessage(i18n("Retrieving %1 from %2...", KIO::convertSize(m_iSize),
-                                 m_request.url.host()));
+                infoMessage(i18n("Retrieving %1 from %2...", KIO::convertSize(m_iSize), m_request.url.host()));
             } else {
                 totalSize(0);
             }
@@ -4354,11 +4327,9 @@ bool HTTPProtocol::readBody(bool dataInternal /* = false */)
 
     // redirection ignores the body
     if (!m_isRedirection) {
-        QObject::connect(&chain, &HTTPFilterBase::output,
-                         this, &HTTPProtocol::slotData);
+        QObject::connect(&chain, &HTTPFilterBase::output, this, &HTTPProtocol::slotData);
     }
-    QObject::connect(&chain, &HTTPFilterBase::error,
-                     this, &HTTPProtocol::slotFilterError);
+    QObject::connect(&chain, &HTTPFilterBase::error, this, &HTTPProtocol::slotFilterError);
 
     // decode all of the transfer encodings
     while (!m_transferEncodings.isEmpty()) {
@@ -4411,9 +4382,8 @@ bool HTTPProtocol::readBody(bool dataInternal /* = false */)
         }
 
         // make sure that this wasn't an error, first
-        qCDebug(KIO_HTTP) << "bytesReceived:"
-                          << bytesReceived << " m_iSize:" << (int)m_iSize << " Chunked:"
-                          << m_isChunked << " BytesLeft:"<< (int)m_iBytesLeft;
+        qCDebug(KIO_HTTP) << "bytesReceived:" << bytesReceived << " m_iSize:" << (int)m_iSize << " Chunked:" << m_isChunked
+                          << " BytesLeft:" << (int)m_iBytesLeft;
         if (bytesReceived == -1) {
             if (m_iContentLeft == 0) {
                 // gzip'ed data sometimes reports a too long content-length.
@@ -4454,7 +4424,7 @@ bool HTTPProtocol::readBody(bool dataInternal /* = false */)
         }
 
         if (m_iBytesLeft == 0) {
-            qCDebug(KIO_HTTP) << "EOD received! Left ="<< KIO::number(m_iBytesLeft);
+            qCDebug(KIO_HTTP) << "EOD received! Left =" << KIO::number(m_iBytesLeft);
             break;
         }
     }
@@ -4464,8 +4434,7 @@ bool HTTPProtocol::readBody(bool dataInternal /* = false */)
         QString calculatedMD5 = md5Filter->md5();
 
         if (m_contentMD5 != calculatedMD5)
-            qCWarning(KIO_HTTP) << "MD5 checksum MISMATCH! Expected:"
-                       << calculatedMD5 << ", Got:" << m_contentMD5;
+            qCWarning(KIO_HTTP) << "MD5 checksum MISMATCH! Expected:" << calculatedMD5 << ", Got:" << m_contentMD5;
     }
 
     // Close cache entry
@@ -4477,8 +4446,7 @@ bool HTTPProtocol::readBody(bool dataInternal /* = false */)
         if (m_request.responseCode >= 500 && m_request.responseCode <= 599) {
             error(ERR_INTERNAL_SERVER, m_request.url.host());
             return false;
-        } else if (m_request.responseCode >= 400 && m_request.responseCode <= 499 &&
-                   !isAuthenticationRequired(m_request.responseCode)) {
+        } else if (m_request.responseCode >= 400 && m_request.responseCode <= 499 && !isAuthenticationRequired(m_request.responseCode)) {
             error(ERR_DOES_NOT_EXIST, m_request.url.host());
             return false;
         }
@@ -4522,8 +4490,7 @@ void HTTPProtocol::addCookies(const QString &url, const QByteArray &cookieHeader
 {
     qlonglong windowId = m_request.windowId.toLongLong();
     QDBusInterface kcookiejar(QStringLiteral("org.kde.kcookiejar5"), QStringLiteral("/modules/kcookiejar"), QStringLiteral("org.kde.KCookieServer"));
-    (void)kcookiejar.call(QDBus::NoBlock, QStringLiteral("addCookies"), url,
-                          cookieHeader, windowId);
+    (void)kcookiejar.call(QDBus::NoBlock, QStringLiteral("addCookies"), url, cookieHeader, windowId);
 }
 
 QString HTTPProtocol::findCookies(const QString &url)
@@ -4543,7 +4510,7 @@ QString HTTPProtocol::findCookies(const QString &url)
 
 HTTPProtocol::CacheTag::CachePlan HTTPProtocol::CacheTag::plan(int maxCacheAge) const
 {
-    //notable omission: we're not checking cache file presence or integrity
+    // notable omission: we're not checking cache file presence or integrity
     switch (policy) {
     case KIO::CC_Refresh:
         // Conditional GET requires the presence of either an ETag or
@@ -4563,8 +4530,7 @@ HTTPProtocol::CacheTag::CachePlan HTTPProtocol::CacheTag::plan(int maxCacheAge) 
 
     Q_ASSERT((policy == CC_Verify || policy == CC_Refresh));
     QDateTime currentDate = QDateTime::currentDateTime();
-    if ((servedDate.isValid() && (currentDate > servedDate.addSecs(maxCacheAge))) ||
-            (expireDate.isValid() && (currentDate > expireDate))) {
+    if ((servedDate.isValid() && (currentDate > servedDate.addSecs(maxCacheAge))) || (expireDate.isValid() && (currentDate > expireDate))) {
         return ValidateCached;
     }
     return UseCached;
@@ -4578,7 +4544,7 @@ HTTPProtocol::CacheTag::CachePlan HTTPProtocol::CacheTag::plan(int maxCacheAge) 
 struct BinaryCacheFileHeader {
     quint8 version[2];
     quint8 compression; // for now fixed to 0
-    quint8 reserved;    // for now; also alignment
+    quint8 reserved; // for now; also alignment
     qint32 useCount;
     qint64 servedDate;
     qint64 lastModifiedDate;
@@ -4847,7 +4813,7 @@ bool HTTPProtocol::cacheFileOpenWrite()
     file->open(QIODevice::WriteOnly);
 
     // if we have started a new file we have not initialized some variables from disk data.
-    m_request.cacheTag.fileUseCount = 0;  // the file has not been *read* yet
+    m_request.cacheTag.fileUseCount = 0; // the file has not been *read* yet
     m_request.cacheTag.bytesCached = 0;
 
     if ((file->openMode() & QIODevice::WriteOnly) == 0) {
@@ -4859,8 +4825,7 @@ bool HTTPProtocol::cacheFileOpenWrite()
     return true;
 }
 
-static QByteArray makeCacheCleanerCommand(const HTTPProtocol::CacheTag &cacheTag,
-        CacheCleanerCommandCode cmd)
+static QByteArray makeCacheCleanerCommand(const HTTPProtocol::CacheTag &cacheTag, CacheCleanerCommandCode cmd)
 {
     QByteArray ret = cacheTag.serialize();
     QDataStream stream(&ret, QIODevice::ReadWrite);
@@ -4921,7 +4886,7 @@ void HTTPProtocol::cacheFileClose()
                 //     should not even open a new file for writing in that case.
                 qCDebug(KIO_HTTP) << "Renaming temporary file failed, deleting it instead.";
                 QFile::remove(oldName);
-                ccCommand.clear();  // we have nothing of value to tell the cache cleaner
+                ccCommand.clear(); // we have nothing of value to tell the cache cleaner
             }
         } else {
             // oh, we've never written payload data to the cache file.
@@ -4966,7 +4931,7 @@ void HTTPProtocol::sendCacheCleanerCommand(const QByteArray &command)
             qCDebug(KIO_HTTP) << "starting" << exe;
             QProcess::startDetached(exe, QStringList());
 
-            for (int i = 0 ; i < 30 && m_cacheCleanerConnection.state() == QLocalSocket::UnconnectedState; ++i) {
+            for (int i = 0; i < 30 && m_cacheCleanerConnection.state() == QLocalSocket::UnconnectedState; ++i) {
                 // Server is not listening yet; let's hope it does so under 3 seconds
                 QThread::msleep(100);
                 m_cacheCleanerConnection.connectToServer(socketFileName, QIODevice::WriteOnly);
@@ -5023,7 +4988,7 @@ void HTTPProtocol::cacheFileWritePayload(const QByteArray &d)
         cacheFileClose();
     }
 
-    //TODO: abort if file grows too big!
+    // TODO: abort if file grows too big!
 
     // write the variable length text header as soon as we start writing to the file
     if (!m_request.cacheTag.bytesCached) {
@@ -5198,12 +5163,12 @@ void HTTPProtocol::proxyAuthenticationForSocket(const QNetworkProxy &proxy, QAut
     if (!haveCachedCredentials || retryAuth) {
         // Save authentication info if the connection succeeds. We need to disconnect
         // this after saving the auth data (or an error) so we won't save garbage afterwards!
-        connect(socket(), SIGNAL(connected()),
-                this, SLOT(saveProxyAuthenticationForSocket()));
+        connect(socket(), SIGNAL(connected()), this, SLOT(saveProxyAuthenticationForSocket()));
         //### fillPromptInfo(&info);
-        info.prompt = i18n("You need to supply a username and a password for "
-                           "the proxy server listed below before you are allowed "
-                           "to access any sites.");
+        info.prompt = i18n(
+            "You need to supply a username and a password for "
+            "the proxy server listed below before you are allowed "
+            "to access any sites.");
         info.keepPassword = true;
         info.commentLabel = i18n("Proxy:");
         info.comment = i18n("<b>%1</b> at <b>%2</b>", info.realmValue.toHtmlEscaped(), m_request.proxyUrl.host());
@@ -5237,8 +5202,7 @@ void HTTPProtocol::proxyAuthenticationForSocket(const QNetworkProxy &proxy, QAut
 void HTTPProtocol::saveProxyAuthenticationForSocket()
 {
     qCDebug(KIO_HTTP) << "Saving authenticator";
-    disconnect(socket(), SIGNAL(connected()),
-               this, SLOT(saveProxyAuthenticationForSocket()));
+    disconnect(socket(), SIGNAL(connected()), this, SLOT(saveProxyAuthenticationForSocket()));
     Q_ASSERT(m_socketProxyAuth);
     if (m_socketProxyAuth) {
         qCDebug(KIO_HTTP) << "realm:" << m_socketProxyAuth->realm() << "user:" << m_socketProxyAuth->user();
@@ -5320,8 +5284,9 @@ bool HTTPProtocol::handleAuthenticationHeader(const HeaderTokenizer *tokenizer)
         authTokens = tokenizer->iterator("www-authenticate").all();
         authinfo.url = m_request.url;
         authinfo.username = m_server.url.userName();
-        authinfo.prompt = i18n("You need to supply a username and a "
-                               "password to access this site.");
+        authinfo.prompt = i18n(
+            "You need to supply a username and a "
+            "password to access this site.");
         authinfo.commentLabel = i18n("Site:");
     } else {
         // make sure that the 407 header hasn't escaped a lower layer when it shouldn't.
@@ -5334,9 +5299,10 @@ bool HTTPProtocol::handleAuthenticationHeader(const HeaderTokenizer *tokenizer)
         authTokens = tokenizer->iterator("proxy-authenticate").all();
         authinfo.url = m_request.proxyUrl;
         authinfo.username = m_request.proxyUrl.userName();
-        authinfo.prompt = i18n("You need to supply a username and a password for "
-                               "the proxy server listed below before you are allowed "
-                               "to access any sites.");
+        authinfo.prompt = i18n(
+            "You need to supply a username and a password for "
+            "the proxy server listed below before you are allowed "
+            "to access any sites.");
         authinfo.commentLabel = i18n("Proxy:");
     }
 
@@ -5352,9 +5318,7 @@ bool HTTPProtocol::handleAuthenticationHeader(const HeaderTokenizer *tokenizer)
         if (m_request.responseCode == m_request.prevResponseCode && *auth) {
             // Authentication attempt failed. Retry...
             if ((*auth)->wasFinalStage()) {
-                errorMsg = (m_request.responseCode == 401 ?
-                            i18n("Authentication Failed.") :
-                            i18n("Proxy Authentication Failed."));
+                errorMsg = (m_request.responseCode == 401 ? i18n("Authentication Failed.") : i18n("Proxy Authentication Failed."));
                 // The authentication failed in its final stage. If the chosen method didn't use a password or
                 // if it failed with both the supplied and prompted password then blacklist this method and try
                 // again with another one if possible.
@@ -5365,7 +5329,7 @@ bool HTTPProtocol::handleAuthenticationHeader(const HeaderTokenizer *tokenizer)
                 }
                 delete *auth;
                 *auth = nullptr;
-            } else {     // Create authentication header
+            } else { // Create authentication header
                 //  WORKAROUND: The following piece of code prevents brain dead IIS
                 // servers that send back multiple "WWW-Authenticate" headers from
                 // screwing up our authentication logic during the challenge
@@ -5421,8 +5385,7 @@ bool HTTPProtocol::handleAuthenticationHeader(const HeaderTokenizer *tokenizer)
             bool generateAuthHeader = true;
             if ((*auth)->needCredentials()) {
                 // use credentials supplied by the application if available
-                if (!m_request.url.userName().isEmpty() && !m_request.url.password().isEmpty() &&
-                    *triedCredentials == NoCredentials) {
+                if (!m_request.url.userName().isEmpty() && !m_request.url.password().isEmpty() && *triedCredentials == NoCredentials) {
                     username = m_request.url.userName();
                     password = m_request.url.password();
                     // don't try this password any more
@@ -5443,8 +5406,7 @@ bool HTTPProtocol::handleAuthenticationHeader(const HeaderTokenizer *tokenizer)
                         // Reset url to the saved url...
                         authinfo.url = reqUrl;
                         authinfo.keepPassword = true;
-                        authinfo.comment = i18n("<b>%1</b> at <b>%2</b>",
-                                                authinfo.realmValue.toHtmlEscaped(), authinfo.url.host());
+                        authinfo.comment = i18n("<b>%1</b> at <b>%2</b>", authinfo.realmValue.toHtmlEscaped(), authinfo.url.host());
 
                         const int errorCode = openPasswordDialogV2(authinfo, errorMsg);
                         if (errorCode) {
@@ -5470,10 +5432,8 @@ bool HTTPProtocol::handleAuthenticationHeader(const HeaderTokenizer *tokenizer)
                 (*auth)->generateResponse(username, password);
                 (*auth)->setCachePasswordEnabled(authinfo.keepPassword);
 
-                qCDebug(KIO_HTTP) << "isError=" << (*auth)->isError()
-                                  << "needCredentials=" << (*auth)->needCredentials()
-                                  << "forceKeepAlive=" << (*auth)->forceKeepAlive()
-                                  << "forceDisconnect=" << (*auth)->forceDisconnect();
+                qCDebug(KIO_HTTP) << "isError=" << (*auth)->isError() << "needCredentials=" << (*auth)->needCredentials()
+                                  << "forceKeepAlive=" << (*auth)->forceKeepAlive() << "forceDisconnect=" << (*auth)->forceDisconnect();
 
                 if ((*auth)->isError()) {
                     QByteArray scheme((*auth)->scheme().trimmed());
@@ -5509,7 +5469,7 @@ bool HTTPProtocol::handleAuthenticationHeader(const HeaderTokenizer *tokenizer)
     return authRequiresAnotherRoundtrip;
 }
 
-void HTTPProtocol::copyPut(const QUrl& src, const QUrl& dest, JobFlags flags)
+void HTTPProtocol::copyPut(const QUrl &src, const QUrl &dest, JobFlags flags)
 {
     qCDebug(KIO_HTTP) << src << "->" << dest;
 
@@ -5532,7 +5492,7 @@ void HTTPProtocol::copyPut(const QUrl& src, const QUrl& dest, JobFlags flags)
         }
     }
 
-    m_POSTbuf = new QFile (src.toLocalFile());
+    m_POSTbuf = new QFile(src.toLocalFile());
     if (!m_POSTbuf->open(QFile::ReadOnly)) {
         error(KIO::ERR_CANNOT_OPEN_FOR_READING, src.fileName());
         return;
@@ -5546,13 +5506,14 @@ void HTTPProtocol::copyPut(const QUrl& src, const QUrl& dest, JobFlags flags)
 
 bool HTTPProtocol::davDestinationExists()
 {
-    const QByteArray request ("<?xml version=\"1.0\" encoding=\"utf-8\" ?>"
-                              "<D:propfind xmlns:D=\"DAV:\"><D:prop>"
-                              "<D:creationdate/>"
-                              "<D:getcontentlength/>"
-                              "<D:displayname/>"
-                              "<D:resourcetype/>"
-                              "</D:prop></D:propfind>");
+    const QByteArray request(
+        "<?xml version=\"1.0\" encoding=\"utf-8\" ?>"
+        "<D:propfind xmlns:D=\"DAV:\"><D:prop>"
+        "<D:creationdate/>"
+        "<D:getcontentlength/>"
+        "<D:displayname/>"
+        "<D:resourcetype/>"
+        "</D:prop></D:propfind>");
     davSetRequest(request);
 
     // WebDAV Stat or List...
@@ -5597,11 +5558,11 @@ void HTTPProtocol::fileSystemFreeSpace(const QUrl &url)
 
 void HTTPProtocol::virtual_hook(int id, void *data)
 {
-    switch(id) {
+    switch (id) {
     case SlaveBase::GetFileSystemFreeSpace: {
         QUrl *url = static_cast<QUrl *>(data);
         fileSystemFreeSpace(*url);
-    }   break;
+    } break;
     default:
         TCPSlaveBase::virtual_hook(id, data);
     }

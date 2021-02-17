@@ -9,17 +9,17 @@
 #ifndef KFILECUSTOMDIALOG_H
 #define KFILECUSTOMDIALOG_H
 
-#include "kiofilewidgets_export.h"
 #include "kfilewidget.h"
+#include "kiofilewidgets_export.h"
 #include <QDialog>
 class KFileWidget;
 class KFileCustomDialogPrivate;
 
 /**
-  * This class implement a custom file dialog.
-  * It uses a KFileWidget and allows the application to provide a custom widget.
-  * @since 5.42
-  */
+ * This class implement a custom file dialog.
+ * It uses a KFileWidget and allows the application to provide a custom widget.
+ * @since 5.42
+ */
 class KIOFILEWIDGETS_EXPORT KFileCustomDialog : public QDialog
 {
     Q_OBJECT

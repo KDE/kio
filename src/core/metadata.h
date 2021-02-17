@@ -7,14 +7,13 @@
 #ifndef KIO_METADATA_H
 #define KIO_METADATA_H
 
+#include "kiocore_export.h"
 #include <QMap>
 #include <QString>
 #include <QVariant>
-#include "kiocore_export.h"
 
 namespace KIO
 {
-
 /**
  * @class KIO::MetaData metadata.h <KIO/MetaData>
  *
@@ -26,12 +25,17 @@ public:
     /**
      * Creates an empty meta data map.
      */
-    MetaData() : QMap<QString, QString>() { }
+    MetaData()
+        : QMap<QString, QString>()
+    {
+    }
     /**
      * Copy constructor.
      */
-    MetaData(const QMap<QString, QString> &metaData) :
-        QMap<QString, QString>(metaData) { }
+    MetaData(const QMap<QString, QString> &metaData)
+        : QMap<QString, QString>(metaData)
+    {
+    }
 
     /**
      * Creates a meta data map from a QVaraint map.
@@ -44,10 +48,10 @@ public:
      * @param metaData the map to add
      * @return this map
      */
-    MetaData &operator += (const QMap<QString, QString> &metaData)
+    MetaData &operator+=(const QMap<QString, QString> &metaData)
     {
         QMap<QString, QString>::ConstIterator it;
-        for (it = metaData.constBegin(); it !=  metaData.constEnd(); ++it) {
+        for (it = metaData.constBegin(); it != metaData.constEnd(); ++it) {
             insert(it.key(), it.value());
         }
         return *this;
@@ -63,7 +67,7 @@ public:
      * @return this map
      * @since 4.3.1
      */
-    MetaData &operator += (const QMap<QString, QVariant> &metaData);
+    MetaData &operator+=(const QMap<QString, QVariant> &metaData);
 
     /**
      * Sets the given meta data map to this map.
@@ -71,7 +75,7 @@ public:
      * @return this map
      * @since 4.3.1
      */
-    MetaData &operator = (const QMap<QString, QVariant> &metaData);
+    MetaData &operator=(const QMap<QString, QVariant> &metaData);
 
     /**
      * Returns the contents of the map as a QVariant.
@@ -87,7 +91,7 @@ inline KIO::MetaData::MetaData(const QMap<QString, QVariant> &map)
     *this = map;
 }
 
-inline KIO::MetaData &KIO::MetaData::operator += (const QMap<QString, QVariant> &metaData)
+inline KIO::MetaData &KIO::MetaData::operator+=(const QMap<QString, QVariant> &metaData)
 {
     QMapIterator<QString, QVariant> it(metaData);
 
@@ -99,7 +103,7 @@ inline KIO::MetaData &KIO::MetaData::operator += (const QMap<QString, QVariant> 
     return *this;
 }
 
-inline KIO::MetaData &KIO::MetaData::operator = (const QMap<QString, QVariant> &metaData)
+inline KIO::MetaData &KIO::MetaData::operator=(const QMap<QString, QVariant> &metaData)
 {
     clear();
     return (*this += metaData);
@@ -108,7 +112,7 @@ inline KIO::MetaData &KIO::MetaData::operator = (const QMap<QString, QVariant> &
 inline QVariant KIO::MetaData::toVariant() const
 {
     QMap<QString, QVariant> map;
-    QMapIterator <QString, QString> it(*this);
+    QMapIterator<QString, QString> it(*this);
 
     while (it.hasNext()) {
         it.next();

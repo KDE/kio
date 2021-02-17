@@ -19,15 +19,13 @@ class KFileItemListProperties;
 
 namespace KIO
 {
-
 /**
-* Special flag of DropJob in addition to KIO::JobFlag
-*
-* @see DropJobFlags
-* @since 5.67
-*/
-enum DropJobFlag
-{
+ * Special flag of DropJob in addition to KIO::JobFlag
+ *
+ * @see DropJobFlags
+ * @since 5.67
+ */
+enum DropJobFlag {
     DropJobDefaultFlags = 0,
     ShowMenuManually = 1, ///< show the menu manually with DropJob::showMenu
 };
@@ -81,15 +79,15 @@ Q_SIGNALS:
     void itemCreated(const QUrl &url);
 
     /**
-    * Emitted when a copy job was started as subjob after user selection.
-    *
-    * You can use @p job to monitor the progress of the copy/move/link operation. Note that a
-    * CopyJob isn't always started by DropJob. For instance dropping files onto an executable will
-    * simply launch the executable.
-    *
-    * @param job the job started for moving, copying or symlinking files
-    * @since 5.30
-    */
+     * Emitted when a copy job was started as subjob after user selection.
+     *
+     * You can use @p job to monitor the progress of the copy/move/link operation. Note that a
+     * CopyJob isn't always started by DropJob. For instance dropping files onto an executable will
+     * simply launch the executable.
+     *
+     * @param job the job started for moving, copying or symlinking files
+     * @since 5.30
+     */
     void copyJobStarted(KIO::CopyJob *job);
 
     /**
@@ -152,7 +150,10 @@ KIOWIDGETS_EXPORT DropJob *drop(const QDropEvent *dropEvent, const QUrl &destUrl
  *
  * @since 5.67
  */
-KIOWIDGETS_EXPORT DropJob *drop(const QDropEvent *dropEvent, const QUrl &destUrl, DropJobFlags dropjobFlags, JobFlags flags = DefaultFlags); // TODO KF6: merge with DropJobFlags dropjobFlag = DropJobDefaultFlags
+KIOWIDGETS_EXPORT DropJob *drop(const QDropEvent *dropEvent,
+                                const QUrl &destUrl,
+                                DropJobFlags dropjobFlags,
+                                JobFlags flags = DefaultFlags); // TODO KF6: merge with DropJobFlags dropjobFlag = DropJobDefaultFlags
 
 }
 

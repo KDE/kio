@@ -11,24 +11,24 @@
 
 #define SAVE_DELAY 3 // Save after 3 minutes
 
-#include <QTimer>
 #include <QFile>
+#include <QTimer>
 
 #include <KConfig>
 #include <QDebug>
 
-#include <KPluginFactory>
 #include <KLocalizedString>
-#include <kwindowsystem.h>
-#include <QStandardPaths>
+#include <KPluginFactory>
 #include <QMessageBox>
+#include <QStandardPaths>
+#include <kwindowsystem.h>
 
 #include <QLoggingCategory>
 Q_DECLARE_LOGGING_CATEGORY(KIO_COOKIEJAR)
 
 #include "kcookiejar.h"
-#include "kcookiewin.h"
 #include "kcookieserveradaptor.h"
+#include "kcookiewin.h"
 
 K_PLUGIN_CLASS_WITH_JSON(KCookieServer, "kcookiejar.json")
 
@@ -46,8 +46,7 @@ static QDir getOrCreateCookieJarDir()
             if (!kcookieBogusFile.remove()) {
                 QMessageBox::warning(nullptr, i18n("Cannot Save Cookies"), i18n("Could not remove %1, check permissions", cookiejarDirInfo.absoluteFilePath()));
             }
-        }
-        else {
+        } else {
             return QDir(kcookiejarDirName);
         }
     }
@@ -60,9 +59,16 @@ static QDir getOrCreateCookieJarDir()
 }
 
 // Cookie field indexes
-enum CookieDetails { CF_DOMAIN = 0, CF_PATH, CF_NAME, CF_HOST,
-                     CF_VALUE, CF_EXPIRE, CF_PROVER, CF_SECURE,
-                   };
+enum CookieDetails {
+    CF_DOMAIN = 0,
+    CF_PATH,
+    CF_NAME,
+    CF_HOST,
+    CF_VALUE,
+    CF_EXPIRE,
+    CF_PROVER,
+    CF_SECURE,
+};
 
 class CookieRequest
 {
@@ -73,12 +79,15 @@ public:
     qlonglong windowId;
 };
 
-template class  QList<CookieRequest *>;
+template class QList<CookieRequest *>;
 
 class RequestList : public QList<CookieRequest *>
 {
 public:
-    RequestList() : QList<CookieRequest *>() { }
+    RequestList()
+        : QList<CookieRequest *>()
+    {
+    }
 };
 
 KCookieServer::KCookieServer(QObject *parent, const QList<QVariant> &)
@@ -96,8 +105,7 @@ KCookieServer::KCookieServer(QObject *parent, const QList<QVariant> &)
     mCookieJar->loadConfig(mConfig);
     mFilename = getOrCreateCookieJarDir().absoluteFilePath(QStringLiteral("cookies"));
     mCookieJar->loadCookies(mFilename);
-    connect(this, &KDEDModule::windowUnregistered,
-            this, &KCookieServer::slotDeleteSessionCookies);
+    connect(this, &KDEDModule::windowUnregistered, this, &KCookieServer::slotDeleteSessionCookies);
 }
 
 KCookieServer::~KCookieServer()
@@ -137,8 +145,7 @@ bool KCookieServer::cookiesPending(const QString &url, KHttpCookieList *cookieLi
     return cookieList->isEmpty();
 }
 
-void KCookieServer::addCookies(const QString &url, const QByteArray &cookieHeader,
-                               qlonglong windowId, bool useDOMFormat)
+void KCookieServer::addCookies(const QString &url, const QByteArray &cookieHeader, qlonglong windowId, bool useDOMFormat)
 {
     KHttpCookieList cookieList;
     if (useDOMFormat) {
@@ -203,7 +210,8 @@ void KCookieServer::checkCookies(KHttpCookieList *cookieList, qlonglong windowId
     KHttpCookieList currentList;
     currentList.append(currentCookie);
     const QString currentHost = currentCookie.host();
-    QList<int> shownCookies; shownCookies << 0;
+    QList<int> shownCookies;
+    shownCookies << 0;
     for (int i = 1 /*first already done*/; i < mPendingCookies->count(); ++i) {
         const KHttpCookie &cookie = (*mPendingCookies)[i];
         if (cookie.host() == currentHost) {
@@ -211,11 +219,9 @@ void KCookieServer::checkCookies(KHttpCookieList *cookieList, qlonglong windowId
             shownCookies << i;
         }
     }
-    //qDebug() << shownCookies;
+    // qDebug() << shownCookies;
 
-    KCookieWin *kw = new KCookieWin(nullptr, currentList,
-                                    mCookieJar->preferredDefaultPolicy(),
-                                    mCookieJar->showCookieDetails());
+    KCookieWin *kw = new KCookieWin(nullptr, currentList, mCookieJar->preferredDefaultPolicy(), mCookieJar->showCookieDetails());
     if (windowId > 0) {
         kw->setAttribute(Qt::WA_NativeWindow, true);
         KWindowSystem::setMainWindow(kw->windowHandle(), windowId);
@@ -236,8 +242,7 @@ void KCookieServer::checkCookies(KHttpCookieList *cookieList, qlonglong windowId
         if (cookie.host() != currentHost) {
             continue;
         }
-        if (mCookieJar->preferredDefaultPolicy() == KCookieJar::ApplyToShownCookiesOnly
-                && !shownCookies.contains(pendingCookieIndex)) {
+        if (mCookieJar->preferredDefaultPolicy() == KCookieJar::ApplyToShownCookiesOnly && !shownCookies.contains(pendingCookieIndex)) {
             // User chose "only those cookies", and this one was added while the dialog was up -> skip
             break;
         }
@@ -295,49 +300,44 @@ void KCookieServer::saveCookieJar()
     mTimer->start(1000 * 60 * SAVE_DELAY);
 }
 
-void KCookieServer::putCookie(QStringList &out, const KHttpCookie &cookie,
-                              const QList<int> &fields)
+void KCookieServer::putCookie(QStringList &out, const KHttpCookie &cookie, const QList<int> &fields)
 {
     for (int i : fields) {
         switch (i) {
-        case CF_DOMAIN :
+        case CF_DOMAIN:
             out << cookie.domain();
             break;
-        case CF_NAME :
+        case CF_NAME:
             out << cookie.name();
             break;
-        case CF_PATH :
+        case CF_PATH:
             out << cookie.path();
             break;
-        case CF_HOST :
+        case CF_HOST:
             out << cookie.host();
             break;
-        case CF_VALUE :
+        case CF_VALUE:
             out << cookie.value();
             break;
-        case CF_EXPIRE :
+        case CF_EXPIRE:
             out << QString::number(cookie.expireDate());
             break;
-        case CF_PROVER :
+        case CF_PROVER:
             out << QString::number(cookie.protocolVersion());
             break;
-        case CF_SECURE :
+        case CF_SECURE:
             out << QString::number(cookie.isSecure() ? 1 : 0);
             break;
-        default :
+        default:
             out << QString();
         }
     }
 }
 
-bool KCookieServer::cookieMatches(const KHttpCookie &c,
-                                  const QString &domain, const QString &fqdn,
-                                  const QString &path, const QString &name)
+bool KCookieServer::cookieMatches(const KHttpCookie &c, const QString &domain, const QString &fqdn, const QString &path, const QString &name)
 {
     const bool hasDomain = !domain.isEmpty();
-    return (((hasDomain && c.domain() == domain) || fqdn == c.host()) &&
-            (c.path() == path) && (c.name() == name) &&
-            (!c.isExpired()));
+    return (((hasDomain && c.domain() == domain) || fqdn == c.host()) && (c.path() == path) && (c.name() == name) && (!c.isExpired()));
 }
 
 // DBUS function
@@ -366,14 +366,13 @@ QString KCookieServer::findCookies(const QString &url, qlonglong windowId)
 }
 
 // DBUS function
-QStringList
-KCookieServer::findDomains()
+QStringList KCookieServer::findDomains()
 {
     QStringList result;
     for (const QString &domain : mCookieJar->getDomainList()) {
         // Ignore domains that have policy set for but contain
         // no cookies whatsoever...
-        const KHttpCookieList *list =  mCookieJar->getCookieList(domain, QString());
+        const KHttpCookieList *list = mCookieJar->getCookieList(domain, QString());
         if (list && !list->isEmpty()) {
             result << domain;
         }
@@ -382,12 +381,7 @@ KCookieServer::findDomains()
 }
 
 // DBUS function
-QStringList
-KCookieServer::findCookies(const QList<int> &fields,
-                           const QString &_domain,
-                           const QString &fqdn,
-                           const QString &path,
-                           const QString &name)
+QStringList KCookieServer::findCookies(const QList<int> &fields, const QString &_domain, const QString &fqdn, const QString &path, const QString &name)
 {
     QStringList result;
     const bool allCookies = name.isEmpty();
@@ -395,7 +389,7 @@ KCookieServer::findCookies(const QList<int> &fields,
 
     if (allCookies) {
         for (const QString &domain : domainList) {
-            const KHttpCookieList *list =  mCookieJar->getCookieList(domain, fqdn);
+            const KHttpCookieList *list = mCookieJar->getCookieList(domain, fqdn);
             if (!list) {
                 continue;
             }
@@ -408,7 +402,7 @@ KCookieServer::findCookies(const QList<int> &fields,
         }
     } else {
         for (const QString &domain : domainList) {
-            const KHttpCookieList *list =  mCookieJar->getCookieList(domain, fqdn);
+            const KHttpCookieList *list = mCookieJar->getCookieList(domain, fqdn);
             if (!list) {
                 continue;
             }
@@ -428,15 +422,13 @@ KCookieServer::findCookies(const QList<int> &fields,
 }
 
 // DBUS function
-QString
-KCookieServer::findDOMCookies(const QString &url)
+QString KCookieServer::findDOMCookies(const QString &url)
 {
     return findDOMCookies(url, 0);
 }
 
 // DBUS function
-QString
-KCookieServer::findDOMCookies(const QString &url, qlonglong windowId)
+QString KCookieServer::findDOMCookies(const QString &url, qlonglong windowId)
 {
     // We don't wait for pending cookies because it locks up konqueror
     // which can cause a deadlock if it happens to have a popup-menu up.
@@ -448,16 +440,13 @@ KCookieServer::findDOMCookies(const QString &url, qlonglong windowId)
 }
 
 // DBUS function
-void
-KCookieServer::addCookies(const QString &arg1, const QByteArray &arg2, qlonglong arg3)
+void KCookieServer::addCookies(const QString &arg1, const QByteArray &arg2, qlonglong arg3)
 {
     addCookies(arg1, arg2, arg3, false);
 }
 
 // DBUS function
-void
-KCookieServer::deleteCookie(const QString &domain, const QString &fqdn,
-                            const QString &path, const QString &name)
+void KCookieServer::deleteCookie(const QString &domain, const QString &fqdn, const QString &path, const QString &name)
 {
     KHttpCookieList *cookieList = mCookieJar->getCookieList(domain, fqdn);
     if (cookieList && !cookieList->isEmpty()) {
@@ -473,53 +462,46 @@ KCookieServer::deleteCookie(const QString &domain, const QString &fqdn,
 }
 
 // DBUS function
-void
-KCookieServer::deleteCookiesFromDomain(const QString &domain)
+void KCookieServer::deleteCookiesFromDomain(const QString &domain)
 {
     mCookieJar->eatCookiesForDomain(domain);
     saveCookieJar();
 }
 
 // Qt function
-void
-KCookieServer::slotDeleteSessionCookies(qlonglong windowId)
+void KCookieServer::slotDeleteSessionCookies(qlonglong windowId)
 {
     deleteSessionCookies(windowId);
 }
 
 // DBUS function
-void
-KCookieServer::deleteSessionCookies(qlonglong windowId)
+void KCookieServer::deleteSessionCookies(qlonglong windowId)
 {
     mCookieJar->eatSessionCookies(windowId);
     saveCookieJar();
 }
 
-void
-KCookieServer::deleteSessionCookiesFor(const QString &fqdn, qlonglong windowId)
+void KCookieServer::deleteSessionCookiesFor(const QString &fqdn, qlonglong windowId)
 {
     mCookieJar->eatSessionCookies(fqdn, windowId);
     saveCookieJar();
 }
 
 // DBUS function
-void
-KCookieServer::deleteAllCookies()
+void KCookieServer::deleteAllCookies()
 {
     mCookieJar->eatAllCookies();
     saveCookieJar();
 }
 
 // DBUS function
-void
-KCookieServer::addDOMCookies(const QString &url, const QByteArray &cookieHeader, qlonglong windowId)
+void KCookieServer::addDOMCookies(const QString &url, const QByteArray &cookieHeader, qlonglong windowId)
 {
     addCookies(url, cookieHeader, windowId, true);
 }
 
 // DBUS function
-bool
-KCookieServer::setDomainAdvice(const QString &url, const QString &advice)
+bool KCookieServer::setDomainAdvice(const QString &url, const QString &advice)
 {
     QString fqdn;
     QString dummy;
@@ -527,8 +509,7 @@ KCookieServer::setDomainAdvice(const QString &url, const QString &advice)
         QStringList domains;
         mCookieJar->extractDomains(fqdn, domains);
 
-        mCookieJar->setDomainAdvice(domains[domains.count() > 3 ? 3 : 0],
-                                    KCookieJar::strToAdvice(advice));
+        mCookieJar->setDomainAdvice(domains[domains.count() > 3 ? 3 : 0], KCookieJar::strToAdvice(advice));
         // Save the cookie config if it has changed
         mCookieJar->saveConfig(mConfig);
         return true;
@@ -537,8 +518,7 @@ KCookieServer::setDomainAdvice(const QString &url, const QString &advice)
 }
 
 // DBUS function
-QString
-KCookieServer::getDomainAdvice(const QString &url)
+QString KCookieServer::getDomainAdvice(const QString &url)
 {
     KCookieAdvice advice = KCookieDunno;
     QString fqdn;
@@ -565,18 +545,15 @@ KCookieServer::getDomainAdvice(const QString &url)
 }
 
 // DBUS function
-void
-KCookieServer::reloadPolicy()
+void KCookieServer::reloadPolicy()
 {
     mCookieJar->loadConfig(mConfig, true);
 }
 
 // DBUS function
-void
-KCookieServer::shutdown()
+void KCookieServer::shutdown()
 {
     deleteLater();
 }
 
 #include "kcookieserver.moc"
-

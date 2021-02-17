@@ -12,9 +12,9 @@
 
 #include "kiofilewidgets_export.h"
 
+#include <QByteArray>
 #include <QUrl>
 #include <QWidget>
-#include <QByteArray>
 
 #include <memory>
 

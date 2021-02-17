@@ -11,8 +11,8 @@
 #define KPROTOCOLINFO_H
 
 #include "kiocore_export.h"
-#include <QVariant>
 #include <QStringList>
+#include <QVariant>
 
 /**
  * \class KProtocolInfo kprotocolinfo.h <KProtocolInfo>
@@ -78,11 +78,12 @@ public:
      * and telnet:// doesn't output anything.
      * @see outputType
      */
-    enum Type { T_STREAM, ///< stream of data (e.g. single file)
-                T_FILESYSTEM, ///< structured directory
-                T_NONE,   ///< no information about the type available
-                T_ERROR,   ///< used to signal an error
-              };
+    enum Type {
+        T_STREAM, ///< stream of data (e.g. single file)
+        T_FILESYSTEM, ///< structured directory
+        T_NONE, ///< no information about the type available
+        T_ERROR, ///< used to signal an error
+    };
 
     /**
      * Definition of an extra field in the UDS entries, returned by a listDir operation.
@@ -93,12 +94,15 @@ public:
      * Currently supported types: "QString", "QDateTime" (ISO-8601 format)
      */
     struct ExtraField {
-
         enum Type { String = QVariant::String, DateTime = QVariant::DateTime, Invalid = QVariant::Invalid };
 
-        ExtraField() : type(Invalid) {}
+        ExtraField()
+            : type(Invalid)
+        {
+        }
         ExtraField(const QString &_name, Type _type)
-            : name(_name), type(_type)
+            : name(_name)
+            , type(_type)
         {
         }
         QString name;

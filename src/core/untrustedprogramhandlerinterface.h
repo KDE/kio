@@ -13,8 +13,8 @@
 class KJob;
 class QString;
 
-namespace KIO {
-
+namespace KIO
+{
 /**
  * @brief The UntrustedProgramHandlerInterface class allows ApplicationLauncherJob to
  * prompt the user about an untrusted executable or desktop file.
@@ -70,7 +70,7 @@ public:
      * Helper function that attempts to set execute bit for given file.
      * @param fileName the full path to the file
      * @param errorString output parameter so the method can return an error message
-    * @return true on success, false on error
+     * @return true on success, false on error
      */
     bool setExecuteBit(const QString &fileName, QString &errorString);
 

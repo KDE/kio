@@ -10,9 +10,9 @@
 
 #include "kiowidgets_export.h"
 
+#include <KService>
 #include <QDialog>
 #include <QUrl>
-#include <KService>
 
 class KOpenWithDialogPrivate;
 
@@ -34,7 +34,6 @@ class KIOWIDGETS_EXPORT KOpenWithDialog : public QDialog
 {
     Q_OBJECT
 public:
-
     /**
      * Create a dialog that asks for a application to open a given
      * URL(s) with.
@@ -54,8 +53,7 @@ public:
      * @param value  is the initial value of the line
      * @param parent parent widget
      */
-    KOpenWithDialog(const QList<QUrl> &urls, const QString &text, const QString &value,
-                    QWidget *parent = nullptr);
+    KOpenWithDialog(const QList<QUrl> &urls, const QString &text, const QString &value, QWidget *parent = nullptr);
 
     /**
      * Create a dialog to select a service for a given MIME type.
@@ -65,8 +63,7 @@ public:
      * @param value  is the initial value of the line
      * @param parent parent widget
      */
-    KOpenWithDialog(const QString &mimeType, const QString &value,
-                    QWidget *parent = nullptr);
+    KOpenWithDialog(const QString &mimeType, const QString &value, QWidget *parent = nullptr);
 
     /**
      * Create a dialog that asks for a application for opening a given
@@ -79,9 +76,7 @@ public:
      * @param parent parent widget
      * @since 5.71
      */
-    KOpenWithDialog(const QList<QUrl> &urls, const QString &mimeType,
-                    const QString &text, const QString &value,
-                    QWidget *parent = nullptr);
+    KOpenWithDialog(const QList<QUrl> &urls, const QString &mimeType, const QString &text, const QString &value, QWidget *parent = nullptr);
 
     /**
      * Create a dialog to select an application

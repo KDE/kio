@@ -7,30 +7,29 @@
 
 #include "batchrenamejob.h"
 
-#include "job_p.h"
 #include "copyjob.h"
+#include "job_p.h"
 
-#include <QTimer>
-#include <QSet>
 #include <QMimeDatabase>
+#include <QSet>
+#include <QTimer>
 
 using namespace KIO;
 
 class KIO::BatchRenameJobPrivate : public KIO::JobPrivate
 {
 public:
-    BatchRenameJobPrivate(const QList<QUrl> &src, const QString &newName,
-                          int index, QChar placeHolder, JobFlags flags)
-        : JobPrivate(),
-          m_srcList(src),
-          m_newName(newName),
-          m_index(index),
-          m_placeHolder(placeHolder),
-          m_listIterator(m_srcList.constBegin()),
-          m_allExtensionsDifferent(true),
-          m_useIndex(true),
-          m_appendIndex(false),
-          m_flags(flags)
+    BatchRenameJobPrivate(const QList<QUrl> &src, const QString &newName, int index, QChar placeHolder, JobFlags flags)
+        : JobPrivate()
+        , m_srcList(src)
+        , m_newName(newName)
+        , m_index(index)
+        , m_placeHolder(placeHolder)
+        , m_listIterator(m_srcList.constBegin())
+        , m_allExtensionsDifferent(true)
+        , m_useIndex(true)
+        , m_appendIndex(false)
+        , m_flags(flags)
     {
         // There occur four cases when renaming multiple files,
         // 1. All files have different extension and $newName contains a valid placeholder.
@@ -42,7 +41,6 @@ public:
         // In this case nothing is substituted and all files have the same $newName.
         // 4. At least two files have same extension and $newName contains an invalid placeholder.
         // In this case $index is appended to $newName.
-
 
         // Check for extensions.
         QSet<QString> extensions;
@@ -68,9 +66,9 @@ public:
 
         if (!validPlaceholder) {
             if (!m_allExtensionsDifferent) {
-               m_appendIndex = true;
+                m_appendIndex = true;
             } else {
-               m_useIndex = false;
+                m_useIndex = false;
             }
         }
     }
@@ -90,10 +88,9 @@ public:
 
     void slotStart();
 
-    QString indexedName(const QString& name, int index, QChar placeHolder) const;
+    QString indexedName(const QString &name, int index, QChar placeHolder) const;
 
-    static inline BatchRenameJob *newJob(const QList<QUrl> &src, const QString &newName,
-                                         int index, QChar placeHolder, JobFlags flags)
+    static inline BatchRenameJob *newJob(const QList<QUrl> &src, const QString &newName, int index, QChar placeHolder, JobFlags flags)
     {
         BatchRenameJob *job = new BatchRenameJob(*new BatchRenameJobPrivate(src, newName, index, placeHolder, flags));
         job->setUiDelegate(KIO::createDefaultJobUiDelegate());
@@ -106,7 +103,6 @@ public:
         }
         return job;
     }
-
 };
 
 BatchRenameJob::BatchRenameJob(BatchRenameJobPrivate &dd)
@@ -119,7 +115,7 @@ BatchRenameJob::~BatchRenameJob()
 {
 }
 
-QString BatchRenameJobPrivate::indexedName(const QString& name, int index, QChar placeHolder) const
+QString BatchRenameJobPrivate::indexedName(const QString &name, int index, QChar placeHolder) const
 {
     if (!m_useIndex) {
         return name;
@@ -164,7 +160,7 @@ void BatchRenameJobPrivate::slotStart()
         m_newUrl = oldUrl.adjusted(QUrl::RemoveFilename);
         m_newUrl.setPath(m_newUrl.path() + KIO::encodeFileName(newName));
 
-        KIO::Job * job = KIO::moveAs(oldUrl, m_newUrl, KIO::HideProgressInfo);
+        KIO::Job *job = KIO::moveAs(oldUrl, m_newUrl, KIO::HideProgressInfo);
         job->setParentJob(q);
         q->addSubjob(job);
         q->setProcessedAmount(KJob::Items, q->processedAmount(KJob::Items) + 1);
@@ -190,11 +186,9 @@ void BatchRenameJob::slotResult(KJob *job)
     d->slotStart();
 }
 
-BatchRenameJob * KIO::batchRename(const QList<QUrl> &src, const QString &newName,
-                                  int index, QChar placeHolder, KIO::JobFlags flags)
+BatchRenameJob *KIO::batchRename(const QList<QUrl> &src, const QString &newName, int index, QChar placeHolder, KIO::JobFlags flags)
 {
     return BatchRenameJobPrivate::newJob(src, newName, index, placeHolder, flags);
 }
-
 
 #include "moc_batchrenamejob.cpp"

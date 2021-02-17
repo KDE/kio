@@ -7,19 +7,21 @@
 
 #include "filejob.h"
 
-#include "slavebase.h"
 #include "scheduler.h"
 #include "slave.h"
-
+#include "slavebase.h"
 
 #include "job_p.h"
 
-class KIO::FileJobPrivate: public KIO::SimpleJobPrivate
+class KIO::FileJobPrivate : public KIO::SimpleJobPrivate
 {
 public:
     FileJobPrivate(const QUrl &url, const QByteArray &packedArgs)
-        : SimpleJobPrivate(url, CMD_OPEN, packedArgs), m_open(false), m_size(0)
-    {}
+        : SimpleJobPrivate(url, CMD_OPEN, packedArgs)
+        , m_open(false)
+        , m_size(0)
+    {
+    }
 
     bool m_open;
     QString m_mimetype;
@@ -138,7 +140,7 @@ void FileJobPrivate::slotData(const QByteArray &_data)
 void FileJobPrivate::slotRedirection(const QUrl &url)
 {
     Q_Q(FileJob);
-    //qDebug() << url;
+    // qDebug() << url;
     Q_EMIT q->redirection(q, url);
 }
 
@@ -187,7 +189,7 @@ void FileJobPrivate::slotWritten(KIO::filesize_t t_written)
 void FileJobPrivate::slotFinished()
 {
     Q_Q(FileJob);
-    //qDebug() << this << m_url;
+    // qDebug() << this << m_url;
     m_open = false;
 
 #if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
@@ -204,23 +206,41 @@ void FileJobPrivate::slotFinished()
 void FileJobPrivate::start(Slave *slave)
 {
     Q_Q(FileJob);
-    q->connect(slave, &KIO::SlaveInterface::data, q, [this](const QByteArray &ba) { slotData(ba); });
+    q->connect(slave, &KIO::SlaveInterface::data, q, [this](const QByteArray &ba) {
+        slotData(ba);
+    });
 
-    q->connect(slave, &KIO::SlaveInterface::redirection, q, [this](const QUrl &url) { slotRedirection(url); });
+    q->connect(slave, &KIO::SlaveInterface::redirection, q, [this](const QUrl &url) {
+        slotRedirection(url);
+    });
 
-    q->connect(slave, &KIO::SlaveInterface::mimeType, q, [this](const QString &mimeType) { slotMimetype(mimeType); });
+    q->connect(slave, &KIO::SlaveInterface::mimeType, q, [this](const QString &mimeType) {
+        slotMimetype(mimeType);
+    });
 
-    q->connect(slave, &KIO::SlaveInterface::open, q, [this]() { slotOpen(); });
+    q->connect(slave, &KIO::SlaveInterface::open, q, [this]() {
+        slotOpen();
+    });
 
-    q->connect(slave, &KIO::SlaveInterface::finished, q, [this]() { slotFinished(); });
+    q->connect(slave, &KIO::SlaveInterface::finished, q, [this]() {
+        slotFinished();
+    });
 
-    q->connect(slave, &KIO::SlaveInterface::position, q, [this](KIO::filesize_t pos) { slotPosition(pos); });
+    q->connect(slave, &KIO::SlaveInterface::position, q, [this](KIO::filesize_t pos) {
+        slotPosition(pos);
+    });
 
-    q->connect(slave, &KIO::SlaveInterface::truncated, q, [this](KIO::filesize_t length) { slotTruncated(length); });
+    q->connect(slave, &KIO::SlaveInterface::truncated, q, [this](KIO::filesize_t length) {
+        slotTruncated(length);
+    });
 
-    q->connect(slave, &KIO::SlaveInterface::written, q, [this](KIO::filesize_t dataWritten) { slotWritten(dataWritten); });
+    q->connect(slave, &KIO::SlaveInterface::written, q, [this](KIO::filesize_t dataWritten) {
+        slotWritten(dataWritten);
+    });
 
-    q->connect(slave, &KIO::SlaveInterface::totalSize, q, [this](KIO::filesize_t size) { slotTotalSize(size); });
+    q->connect(slave, &KIO::SlaveInterface::totalSize, q, [this](KIO::filesize_t size) {
+        slotTotalSize(size);
+    });
 
     SimpleJobPrivate::start(slave);
 }
@@ -233,4 +253,3 @@ FileJob *KIO::open(const QUrl &url, QIODevice::OpenMode mode)
 }
 
 #include "moc_filejob.cpp"
-

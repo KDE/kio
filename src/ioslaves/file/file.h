@@ -12,17 +12,17 @@
 #include <kio/global.h>
 #include <kio/slavebase.h>
 
-#include <QObject>
-#include <QHash>
-#include <QFile>
 #include <KUser>
+#include <QFile>
+#include <QHash>
+#include <QObject>
 
-#include <qplatformdefs.h> // mode_t
 #include <config-kioslave-file.h>
+#include <qplatformdefs.h> // mode_t
 
 #if HAVE_POSIX_ACL
-#include <sys/acl.h>
 #include <acl/libacl.h>
+#include <sys/acl.h>
 #endif
 
 #include "file_p.h"
@@ -38,14 +38,10 @@ public:
     virtual ~FileProtocol();
 
     void get(const QUrl &url) override;
-    virtual void put(const QUrl &url, int _mode,
-                     KIO::JobFlags _flags) override;
-    virtual void copy(const QUrl &src, const QUrl &dest,
-                      int mode, KIO::JobFlags flags) override;
-    virtual void rename(const QUrl &src, const QUrl &dest,
-                        KIO::JobFlags flags) override;
-    virtual void symlink(const QString &target, const QUrl &dest,
-                         KIO::JobFlags flags) override;
+    virtual void put(const QUrl &url, int _mode, KIO::JobFlags _flags) override;
+    virtual void copy(const QUrl &src, const QUrl &dest, int mode, KIO::JobFlags flags) override;
+    virtual void rename(const QUrl &src, const QUrl &dest, KIO::JobFlags flags) override;
+    virtual void symlink(const QString &target, const QUrl &dest, KIO::JobFlags flags) override;
 
     void stat(const QUrl &url) override;
     void listDir(const QUrl &url) override;
@@ -86,7 +82,7 @@ private:
     QString getGroupName(KGroupId gid) const;
     bool deleteRecursive(const QString &path);
 
-    void fileSystemFreeSpace(const QUrl &url);  // KF6 TODO: Turn into virtual method in SlaveBase
+    void fileSystemFreeSpace(const QUrl &url); // KF6 TODO: Turn into virtual method in SlaveBase
 
     bool privilegeOperationUnitTestMode();
     PrivilegeOperationReturnValue execWithElevatedPrivilege(ActionType action, const QVariantList &args, int errcode);

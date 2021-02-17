@@ -59,4 +59,3 @@ void KRecentDirs::add(const QString &fileClass, const QString &directory)
     config.writePathEntry(key, result);
     config.sync();
 }
-

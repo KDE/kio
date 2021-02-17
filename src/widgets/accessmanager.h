@@ -9,19 +9,18 @@
 #ifndef KIO_ACCESSMANAGER_H
 #define KIO_ACCESSMANAGER_H
 
-#include <kio/global.h>
 #include "kiowidgets_export.h"
+#include <kio/global.h>
 #include <qwindowdefs.h> // WId
 
 #include <QNetworkAccessManager>
-#include <QNetworkRequest>
 #include <QNetworkCookieJar>
+#include <QNetworkRequest>
 
 class QWidget;
 
 namespace KIO
 {
-
 /**
  * @class KIO::AccessManager accessmanager.h <KIO/AccessManager>
  *

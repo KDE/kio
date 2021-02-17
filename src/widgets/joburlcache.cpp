@@ -21,16 +21,16 @@ JobUrlCache &JobUrlCache::instance()
     return s_jobUrlCache()->instance;
 }
 
-JobUrlCache::JobUrlCache() : QObject(nullptr)
+JobUrlCache::JobUrlCache()
+    : QObject(nullptr)
 {
-    org::kde::kuiserver *interface = new
-    org::kde::kuiserver(QStringLiteral("org.kde.kuiserver"), QStringLiteral("/JobViewServer"), QDBusConnection::sessionBus(), this);
+    org::kde::kuiserver *interface =
+        new org::kde::kuiserver(QStringLiteral("org.kde.kuiserver"), QStringLiteral("/JobViewServer"), QDBusConnection::sessionBus(), this);
 
-    //connect to receive updates about the job urls
-    connect(interface, &OrgKdeKuiserverInterface::jobUrlsChanged,
-            this, &JobUrlCache::slotJobUrlsChanged);
+    // connect to receive updates about the job urls
+    connect(interface, &OrgKdeKuiserverInterface::jobUrlsChanged, this, &JobUrlCache::slotJobUrlsChanged);
 
-    //force signal emission
+    // force signal emission
     interface->emitJobUrlsChanged();
 }
 

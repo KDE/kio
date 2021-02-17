@@ -9,26 +9,26 @@
 
 #include "deletejob.h"
 
-#include "job.h" // buildErrorString
-#include "statjob.h"
-#include "listjob.h"
-#include "kcoredirlister.h"
-#include "scheduler.h"
-#include <KDirWatch>
-#include "kprotocolmanager.h"
-#include <kdirnotify.h>
 #include "../pathhelpers_p.h"
+#include "job.h" // buildErrorString
+#include "kcoredirlister.h"
+#include "kprotocolmanager.h"
+#include "listjob.h"
+#include "scheduler.h"
+#include "statjob.h"
+#include <KDirWatch>
+#include <kdirnotify.h>
 
 #include <KLocalizedString>
 #include <kio/jobuidelegatefactory.h>
 
-#include <QTimer>
+#include <QDir>
 #include <QFile>
 #include <QFileInfo>
-#include <QDir>
+#include <QMetaObject>
 #include <QPointer>
 #include <QThread>
-#include <QMetaObject>
+#include <QTimer>
 
 #include "job_p.h"
 
@@ -36,8 +36,7 @@ extern bool kio_resolve_local_urls; // from copyjob.cpp, abused here to save a s
 
 static bool isHttpProtocol(const QString &protocol)
 {
-    return (protocol.startsWith(QLatin1String("webdav"), Qt::CaseInsensitive) ||
-            protocol.startsWith(QLatin1String("http"), Qt::CaseInsensitive));
+    return (protocol.startsWith(QLatin1String("webdav"), Qt::CaseInsensitive) || protocol.startsWith(QLatin1String("http"), Qt::CaseInsensitive));
 }
 
 namespace KIO
@@ -48,7 +47,8 @@ enum DeleteJobState {
     DELETEJOB_STATE_DELETING_DIRS,
 };
 
-class DeleteJobIOWorker : public QObject {
+class DeleteJobIOWorker : public QObject
+{
     Q_OBJECT
 
 Q_SIGNALS:
@@ -61,7 +61,8 @@ public Q_SLOTS:
      * Deletes the file @p url points to
      * The file must be a LocalFile
      */
-    void rmfile(const QUrl& url, bool isLink) {
+    void rmfile(const QUrl &url, bool isLink)
+    {
         Q_EMIT rmfileResult(QFile::remove(url.toLocalFile()), isLink);
     }
 
@@ -69,12 +70,13 @@ public Q_SLOTS:
      * Deletes the directory @p url points to
      * The directory must be a LocalFile
      */
-    void rmdir(const QUrl& url) {
+    void rmdir(const QUrl &url)
+    {
         Q_EMIT rmddirResult(QDir().rmdir(url.toLocalFile()));
     }
 };
 
-class DeleteJobPrivate: public KIO::JobPrivate
+class DeleteJobPrivate : public KIO::JobPrivate
 {
 public:
     explicit DeleteJobPrivate(const QList<QUrl> &src)
@@ -103,7 +105,7 @@ public:
     QThread *m_thread = nullptr;
 
     void statNextSrc();
-    DeleteJobIOWorker* worker();
+    DeleteJobIOWorker *worker();
     void currentSourceStated(bool isDir, bool isLink);
     void finishedStatPhase();
     void deleteNextFile();
@@ -113,13 +115,12 @@ public:
     void slotStart();
     void slotEntries(KIO::Job *, const KIO::UDSEntryList &list);
 
-
     /// Callback of worker rmfile
     void rmFileResult(bool result, bool isLink);
     /// Callback of worker rmdir
     void rmdirResult(bool result);
-    void deleteFileUsingJob(const QUrl& url, bool isLink);
-    void deleteDirUsingJob(const QUrl& url);
+    void deleteFileUsingJob(const QUrl &url, bool isLink);
+    void deleteDirUsingJob(const QUrl &url);
 
     ~DeleteJobPrivate();
 
@@ -148,8 +149,10 @@ DeleteJob::DeleteJob(DeleteJobPrivate &dd)
     : Job(dd)
 {
     d_func()->m_reportTimer = new QTimer(this);
-    connect(d_func()->m_reportTimer, &QTimer::timeout, this, [this]() { d_func()->slotReport(); });
-    //this will update the report dialog with 5 Hz, I think this is fast enough, aleXXX
+    connect(d_func()->m_reportTimer, &QTimer::timeout, this, [this]() {
+        d_func()->slotReport();
+    });
+    // this will update the report dialog with 5 Hz, I think this is fast enough, aleXXX
     d_func()->m_reportTimer->start(200);
 
     QTimer::singleShot(0, this, SLOT(slotStart()));
@@ -178,7 +181,7 @@ void DeleteJobPrivate::slotStart()
     statNextSrc();
 }
 
-DeleteJobIOWorker* DeleteJobPrivate::worker()
+DeleteJobIOWorker *DeleteJobPrivate::worker()
 {
     Q_Q(DeleteJob);
 
@@ -188,10 +191,10 @@ DeleteJobIOWorker* DeleteJobPrivate::worker()
         m_ioworker = new DeleteJobIOWorker;
         m_ioworker->moveToThread(m_thread);
         QObject::connect(m_thread, &QThread::finished, m_ioworker, &QObject::deleteLater);
-        QObject::connect(m_ioworker, &DeleteJobIOWorker::rmfileResult, q, [=](bool result, bool isLink){
+        QObject::connect(m_ioworker, &DeleteJobIOWorker::rmfileResult, q, [=](bool result, bool isLink) {
             this->rmFileResult(result, isLink);
         });
-        QObject::connect(m_ioworker, &DeleteJobIOWorker::rmddirResult, q, [=](bool result){
+        QObject::connect(m_ioworker, &DeleteJobIOWorker::rmddirResult, q, [=](bool result) {
             this->rmdirResult(result);
         });
         m_thread->start();
@@ -243,7 +246,7 @@ void DeleteJobPrivate::slotEntries(KIO::Job *job, const UDSEntryList &list)
                 url.setPath(concatPaths(url.path(), displayName));
             }
 
-            //qDebug() << displayName << "(" << url << ")";
+            // qDebug() << displayName << "(" << url << ")";
             if (entry.isLink()) {
                 symlinks.append(url);
             } else if (entry.isDir()) {
@@ -258,7 +261,7 @@ void DeleteJobPrivate::slotEntries(KIO::Job *job, const UDSEntryList &list)
 void DeleteJobPrivate::statNextSrc()
 {
     Q_Q(DeleteJob);
-    //qDebug();
+    // qDebug();
     if (m_currentStat != m_srcList.end()) {
         m_currentURL = (*m_currentStat);
 
@@ -282,14 +285,13 @@ void DeleteJobPrivate::statNextSrc()
             if (cachedItem.isNull()) {
                 break;
             }
-            //qDebug() << "Found cached info about" << m_currentURL << "isDir=" << cachedItem.isDir() << "isLink=" << cachedItem.isLink();
+            // qDebug() << "Found cached info about" << m_currentURL << "isDir=" << cachedItem.isDir() << "isLink=" << cachedItem.isLink();
             currentSourceStated(cachedItem.isDir(), cachedItem.isLink());
             ++m_currentStat;
         }
 
         // Hook for unit test to disable the fast path.
         if (!kio_resolve_local_urls) {
-
             // Fast path for local files
             // (using a loop, instead of a huge recursion)
             while (m_currentStat != m_srcList.end() && (*m_currentStat).isLocalFile()) {
@@ -305,7 +307,7 @@ void DeleteJobPrivate::statNextSrc()
         } else {
             KIO::SimpleJob *job = KIO::statDetails(m_currentURL, StatJob::SourceSide, KIO::StatBasic, KIO::HideProgressInfo);
             Scheduler::setJobPriority(job, 1);
-            //qDebug() << "stat'ing" << m_currentURL;
+            // qDebug() << "stat'ing" << m_currentURL;
             q->addSubjob(job);
         }
     } else {
@@ -330,7 +332,6 @@ void DeleteJobPrivate::finishedStatPhase()
     state = DELETEJOB_STATE_DELETING_FILES;
     deleteNextFile();
 }
-
 
 void DeleteJobPrivate::rmFileResult(bool result, bool isLink)
 {
@@ -374,12 +375,11 @@ void DeleteJobPrivate::deleteFileUsingJob(const QUrl &url, bool isLink)
 
 void DeleteJobPrivate::deleteNextFile()
 {
-    //qDebug();
+    // qDebug();
 
     // if there is something else to delete
     // the loop is run using callbacks slotResult and rmFileResult
     if (!files.isEmpty() || !symlinks.isEmpty()) {
-
         // Take first file to delete out of list
         QList<QUrl>::iterator it = files.begin();
         const bool isLink = (it == files.end()); // No more files
@@ -454,7 +454,7 @@ void DeleteJobPrivate::deleteNextDir()
 
     // Finished - tell the world
     if (!m_srcList.isEmpty()) {
-        //qDebug() << "KDirNotify'ing FilesRemoved" << m_srcList;
+        // qDebug() << "KDirNotify'ing FilesRemoved" << m_srcList;
         org::kde::KDirNotify::emitFilesRemoved(m_srcList);
     }
     if (m_reportTimer != nullptr) {
@@ -490,7 +490,7 @@ void DeleteJobPrivate::currentSourceStated(bool isDir, bool isLink)
             KDirWatch::self()->stopDirScan(url.adjusted(QUrl::StripTrailingSlash).toLocalFile());
         }
         if (!KProtocolManager::canDeleteRecursive(url)) {
-            //qDebug() << url << "is a directory, let's list it";
+            // qDebug() << url << "is a directory, let's list it";
             ListJob *newjob = KIO::listRecursive(url, KIO::HideProgressInfo);
 #if KIOCORE_BUILD_DEPRECATED_SINCE(5, 69)
             // TODO KF6: remove legacy details code path
@@ -499,17 +499,18 @@ void DeleteJobPrivate::currentSourceStated(bool isDir, bool isLink)
             newjob->addMetaData(QStringLiteral("statDetails"), QString::number(KIO::StatBasic));
             newjob->setUnrestricted(true); // No KIOSK restrictions
             Scheduler::setJobPriority(newjob, 1);
-            QObject::connect(newjob, &KIO::ListJob::entries,
-                             q, [this](KIO::Job* job, const KIO::UDSEntryList &list) { slotEntries(job, list); });
+            QObject::connect(newjob, &KIO::ListJob::entries, q, [this](KIO::Job *job, const KIO::UDSEntryList &list) {
+                slotEntries(job, list);
+            });
             q->addSubjob(newjob);
             // Note that this listing job will happen in parallel with other stat jobs.
         }
     } else {
         if (isLink) {
-            //qDebug() << "Target is a symlink";
+            // qDebug() << "Target is a symlink";
             symlinks.append(url);
         } else {
-            //qDebug() << "Target is a file";
+            // qDebug() << "Target is a file";
             files.append(url);
         }
     }
@@ -560,7 +561,7 @@ void DeleteJob::slotResult(KJob *job)
         d->m_incomingMetaData = dynamic_cast<KIO::Job *>(job)->metaData();
 
         if (job->error()) {
-            Job::slotResult(job);   // will set the error and emit result(this)
+            Job::slotResult(job); // will set the error and emit result(this)
             d->restoreDirWatch();
             return;
         }
@@ -572,15 +573,15 @@ void DeleteJob::slotResult(KJob *job)
         break;
     case DELETEJOB_STATE_DELETING_DIRS:
         if (job->error()) {
-            Job::slotResult(job);   // will set the error and emit result(this)
+            Job::slotResult(job); // will set the error and emit result(this)
             d->restoreDirWatch();
             return;
         }
         removeSubjob(job);
         Q_ASSERT(!hasSubjobs());
         d->m_processedDirs++;
-        //emit processedAmount( this, KJob::Directories, d->m_processedDirs );
-        //emitPercent( d->m_processedFiles + d->m_processedDirs, d->m_totalFilesDirs );
+        // emit processedAmount( this, KJob::Directories, d->m_processedDirs );
+        // emitPercent( d->m_processedFiles + d->m_processedDirs, d->m_totalFilesDirs );
 
         d->deleteNextDir();
         break;

@@ -14,56 +14,53 @@ class QWidget;
 namespace KSaveIOConfig
 {
 int proxyDisplayUrlFlags();
-void setProxyDisplayUrlFlags (int);
+void setProxyDisplayUrlFlags(int);
 
 /* Reload config file (kioslaverc) */
 void reparseConfiguration();
 
 /** Timeout Settings */
-void setReadTimeout (int);
+void setReadTimeout(int);
 
-void setConnectTimeout (int);
+void setConnectTimeout(int);
 
-void setProxyConnectTimeout (int);
+void setProxyConnectTimeout(int);
 
-void setResponseTimeout (int);
-
+void setResponseTimeout(int);
 
 /** Cache Settings */
-void setMaxCacheAge (int);
+void setMaxCacheAge(int);
 
-void setUseCache (bool);
+void setUseCache(bool);
 
-void setMaxCacheSize (int);
+void setMaxCacheSize(int);
 
-void setCacheControl (KIO::CacheControl);
-
+void setCacheControl(KIO::CacheControl);
 
 /** Proxy Settings */
-void setUseReverseProxy (bool);
+void setUseReverseProxy(bool);
 
-void setProxyType (KProtocolManager::ProxyType);
+void setProxyType(KProtocolManager::ProxyType);
 
-void setProxyConfigScript (const QString&);
+void setProxyConfigScript(const QString &);
 
-void setProxyFor (const QString&, const QString&);
+void setProxyFor(const QString &, const QString &);
 
 QString noProxyFor();
-void setNoProxyFor (const QString&);
-
+void setNoProxyFor(const QString &);
 
 /** Miscellaneous Settings */
-void setMarkPartial (bool);
+void setMarkPartial(bool);
 
-void setMinimumKeepSize (int);
+void setMinimumKeepSize(int);
 
-void setAutoResume (bool);
+void setAutoResume(bool);
 
 /** Update all running io-slaves */
-void updateRunningIOSlaves (QWidget* parent = nullptr);
+void updateRunningIOSlaves(QWidget *parent = nullptr);
 
 /** Update proxy scout */
-void updateProxyScout (QWidget* parent = nullptr);
+void updateProxyScout(QWidget *parent = nullptr);
 }
 
 #endif

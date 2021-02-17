@@ -49,8 +49,12 @@ public:
      * @param show_filemanager_window if true, a file-manager window for that mountpoint is shown after
      * the mount, if successful.
      */
-    KAutoMount(bool readonly, const QByteArray &format, const QString &device, const QString &mountpoint,
-               const QString &desktopFile, bool show_filemanager_window = true);
+    KAutoMount(bool readonly,
+               const QByteArray &format,
+               const QString &device,
+               const QString &mountpoint,
+               const QString &desktopFile,
+               bool show_filemanager_window = true);
 
 Q_SIGNALS:
     /** Emitted when the directory has been mounted */
@@ -100,6 +104,6 @@ private:
     KAutoUnmountPrivate *const d;
 };
 
-#endif //Q_OS_UNIX
+#endif // Q_OS_UNIX
 
 #endif

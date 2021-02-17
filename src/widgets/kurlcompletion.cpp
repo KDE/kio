@@ -12,39 +12,39 @@
 #include "kurlcompletion.h"
 #include "../pathhelpers_p.h" // isAbsoluteLocalPath()
 
-#include <stdlib.h>
 #include <assert.h>
 #include <limits.h>
+#include <stdlib.h>
 
-#include <QMutex>
-#include <QRegularExpression>
+#include <QDebug>
 #include <QDir>
 #include <QDirIterator>
 #include <QFile>
+#include <QMimeDatabase>
+#include <QMutex>
+#include <QProcessEnvironment>
+#include <QRegularExpression>
 #include <QThread>
 #include <QUrl>
-#include <QDebug>
-#include <QMimeDatabase>
-#include <QProcessEnvironment>
 #include <qplatformdefs.h> // QT_LSTAT, QT_STAT, QT_STATBUF
 
-#include <kurlauthorized.h>
-#include <kio/job.h>
-#include <kprotocolmanager.h>
 #include <KConfig>
 #include <KSharedConfig>
-#include <kioglobal_p.h>
 #include <KUser>
+#include <kio/job.h>
 #include <kio_widgets_debug.h>
+#include <kioglobal_p.h>
+#include <kprotocolmanager.h>
+#include <kurlauthorized.h>
 
-#include <time.h>
 #include <KConfigGroup>
+#include <time.h>
 
 #ifdef Q_OS_WIN
 #include <qt_windows.h>
 #else
-#include <sys/param.h>
 #include <pwd.h>
+#include <sys/param.h>
 #endif
 
 static bool expandTilde(QString &);
@@ -57,7 +57,7 @@ static QString unescape(const QString &text);
 #define MODE_EXE (S_IXUSR | S_IXGRP | S_IXOTH)
 
 // Constants for types of completion
-enum ComplType {CTNone = 0, CTEnv, CTUser, CTMan, CTExe, CTFile, CTUrl, CTInfo};
+enum ComplType { CTNone = 0, CTEnv, CTUser, CTMan, CTExe, CTFile, CTUrl, CTInfo };
 
 class CompletionThread;
 
@@ -68,7 +68,6 @@ static QUrl addPathToUrl(const QUrl &url, const QString &relPath)
     u.setPath(concatPaths(url.path(), relPath));
     return u;
 }
-
 
 static QBasicAtomicInt s_waitDuration = Q_BASIC_ATOMIC_INITIALIZER(-1);
 
@@ -93,10 +92,10 @@ class KUrlCompletionPrivate
 {
 public:
     explicit KUrlCompletionPrivate(KUrlCompletion *parent)
-        : q(parent),
-          url_auto_completion(true),
-          userListThread(nullptr),
-          dirListThread(nullptr)
+        : q(parent)
+        , url_auto_completion(true)
+        , userListThread(nullptr)
+        , dirListThread(nullptr)
     {
     }
 
@@ -116,34 +115,20 @@ public:
     bool isAutoCompletion();
 
     // List the next dir in m_dirs
-    QString listDirectories(const QStringList &,
-                            const QString &,
-                            bool only_exe = false,
-                            bool only_dir = false,
-                            bool no_hidden = false,
-                            bool stat_files = true);
+    QString listDirectories(const QStringList &, const QString &, bool only_exe = false, bool only_dir = false, bool no_hidden = false, bool stat_files = true);
 
-    void listUrls(const QList<QUrl> &urls,
-                  const QString &filter = QString(),
-                  bool only_exe = false,
-                  bool no_hidden = false);
+    void listUrls(const QList<QUrl> &urls, const QString &filter = QString(), bool only_exe = false, bool no_hidden = false);
 
     void addMatches(const QStringList &);
     QString finished();
 
     void init();
 
-    void setListedUrl(ComplType compl_type,
-                      const QString &dir = QString(),
-                      const QString &filter = QString(),
-                      bool no_hidden = false);
+    void setListedUrl(ComplType compl_type, const QString &dir = QString(), const QString &filter = QString(), bool no_hidden = false);
 
-    bool isListedUrl(ComplType compl_type,
-                     const QString &dir = QString(),
-                     const QString &filter = QString(),
-                     bool no_hidden = false);
+    bool isListedUrl(ComplType compl_type, const QString &dir = QString(), const QString &filter = QString(), bool no_hidden = false);
 
-    KUrlCompletion * const q;
+    KUrlCompletion *const q;
     QList<QUrl> list_urls;
 
     bool onlyLocalProto;
@@ -189,12 +174,13 @@ class CompletionThread : public QThread
 {
     Q_OBJECT
 protected:
-    CompletionThread(KUrlCompletionPrivate *receiver) :
-        QThread(),
-        m_prepend(receiver->prepend),
-        m_complete_url(receiver->complete_url),
-        m_terminationRequested(false)
-    {}
+    CompletionThread(KUrlCompletionPrivate *receiver)
+        : QThread()
+        , m_prepend(receiver->prepend)
+        , m_complete_url(receiver->complete_url)
+        , m_terminationRequested(false)
+    {
+    }
 
 public:
     void requestTermination()
@@ -251,9 +237,10 @@ class UserListThread : public CompletionThread
 {
     Q_OBJECT
 public:
-    UserListThread(KUrlCompletionPrivate *receiver) :
-        CompletionThread(receiver)
-    {}
+    UserListThread(KUrlCompletionPrivate *receiver)
+        : CompletionThread(receiver)
+    {
+    }
 
 protected:
     void run() override
@@ -272,9 +259,9 @@ protected:
         }
         ::endpwent();
 #else
-        //currently terminationRequested is ignored on Windows
+        // currently terminationRequested is ignored on Windows
         const QStringList allUsers = KUser::allUserNames();
-        for (const QString& s : allUsers) {
+        for (const QString &s : allUsers) {
             addMatch(tilde + s);
         }
 #endif
@@ -295,16 +282,17 @@ public:
                         bool onlyExe,
                         bool onlyDir,
                         bool noHidden,
-                        bool appendSlashToDir) :
-        CompletionThread(receiver),
-        m_dirList(dirList),
-        m_filter(filter),
-        m_mimeTypeFilters(mimeTypeFilters),
-        m_onlyExe(onlyExe),
-        m_onlyDir(onlyDir),
-        m_noHidden(noHidden),
-        m_appendSlashToDir(appendSlashToDir)
-    {}
+                        bool appendSlashToDir)
+        : CompletionThread(receiver)
+        , m_dirList(dirList)
+        , m_filter(filter)
+        , m_mimeTypeFilters(mimeTypeFilters)
+        , m_onlyExe(onlyExe)
+        , m_onlyDir(onlyDir)
+        , m_noHidden(noHidden)
+        , m_appendSlashToDir(appendSlashToDir)
+    {
+    }
 
     void run() override;
 
@@ -320,7 +308,8 @@ private:
 
 void DirectoryListThread::run()
 {
-    //qDebug() << "Entered DirectoryListThread::run(), m_filter=" << m_filter << ", m_onlyExe=" << m_onlyExe << ", m_onlyDir=" << m_onlyDir << ", m_appendSlashToDir=" << m_appendSlashToDir << ", m_dirList.size()=" << m_dirList.size();
+    // qDebug() << "Entered DirectoryListThread::run(), m_filter=" << m_filter << ", m_onlyExe=" << m_onlyExe << ", m_onlyDir=" << m_onlyDir << ",
+    // m_appendSlashToDir=" << m_appendSlashToDir << ", m_dirList.size()=" << m_dirList.size();
 
     QDir::Filters iterator_filter = (m_noHidden ? QDir::Filter(0) : QDir::Hidden) | QDir::Readable | QDir::NoDotAndDotDot;
     if (m_onlyExe) {
@@ -334,10 +323,8 @@ void DirectoryListThread::run()
     QMimeDatabase mimeTypes;
 
     const QStringList::const_iterator end = m_dirList.constEnd();
-    for (QStringList::const_iterator it = m_dirList.constBegin();
-            it != end && !terminationRequested();
-            ++it) {
-        //qDebug() << "Scanning directory" << *it;
+    for (QStringList::const_iterator it = m_dirList.constBegin(); it != end && !terminationRequested(); ++it) {
+        // qDebug() << "Scanning directory" << *it;
 
         QDirIterator current_dir_iterator(*it, iterator_filter);
 
@@ -347,7 +334,7 @@ void DirectoryListThread::run()
             QFileInfo file_info = current_dir_iterator.fileInfo();
             const QString file_name = file_info.fileName();
 
-            //qDebug() << "Found" << file_name;
+            // qDebug() << "Found" << file_name;
 
             if (!m_filter.isEmpty() && !file_name.startsWith(m_filter)) {
                 continue;
@@ -479,9 +466,7 @@ void KUrlCompletionPrivate::MyURL::init(const QString &_url, const QUrl &cwd)
         m_isURL = true;
     } else { // relative path or ~ or $something
         m_isURL = false;
-        if (isAbsoluteLocalPath(url_copy) ||
-                url_copy.startsWith(QLatin1Char('~')) ||
-                url_copy.startsWith(QLatin1Char('$'))) {
+        if (isAbsoluteLocalPath(url_copy) || url_copy.startsWith(QLatin1Char('~')) || url_copy.startsWith(QLatin1Char('$'))) {
             m_kurl = QUrl::fromLocalFile(url_copy);
         } else {
             // Relative path
@@ -516,14 +501,16 @@ void KUrlCompletionPrivate::MyURL::filter(bool replace_user_dir, bool replace_en
 // KUrlCompletion
 //
 
-KUrlCompletion::KUrlCompletion() : KCompletion(), d(new KUrlCompletionPrivate(this))
+KUrlCompletion::KUrlCompletion()
+    : KCompletion()
+    , d(new KUrlCompletionPrivate(this))
 {
     d->init();
 }
 
 KUrlCompletion::KUrlCompletion(Mode _mode)
-    : KCompletion(),
-      d(new KUrlCompletionPrivate(this))
+    : KCompletion()
+    , d(new KUrlCompletionPrivate(this))
 {
     d->init();
     setMode(_mode);
@@ -640,7 +627,7 @@ QString KUrlCompletion::makeCompletion(const QString &text)
     // Replace user directories and variables
     url.filter(d->replace_home, d->replace_env);
 
-    //qDebug() << "Filtered: proto=" << url.scheme()
+    // qDebug() << "Filtered: proto=" << url.scheme()
     //          << ", dir=" << url.dir()
     //          << ", file=" << url.file()
     //          << ", kurl url=" << *url.kurl();
@@ -731,10 +718,7 @@ void KUrlCompletion::stop()
 /*
  * Keep track of the last listed directory
  */
-void KUrlCompletionPrivate::setListedUrl(ComplType complType,
-        const QString &directory,
-        const QString &filter,
-        bool no_hidden)
+void KUrlCompletionPrivate::setListedUrl(ComplType complType, const QString &directory, const QString &filter, bool no_hidden)
 {
     last_compl_type = complType;
     last_path_listed = directory;
@@ -743,18 +727,11 @@ void KUrlCompletionPrivate::setListedUrl(ComplType complType,
     last_prepend = prepend;
 }
 
-bool KUrlCompletionPrivate::isListedUrl(ComplType complType,
-                                        const QString &directory,
-                                        const QString &filter,
-                                        bool no_hidden)
+bool KUrlCompletionPrivate::isListedUrl(ComplType complType, const QString &directory, const QString &filter, bool no_hidden)
 {
-    return  last_compl_type == complType
-            && (last_path_listed == directory
-                || (directory.isEmpty() && last_path_listed.isEmpty()))
-            && (filter.startsWith(last_file_listed)
-                || (filter.isEmpty() && last_file_listed.isEmpty()))
-            && last_no_hidden == no_hidden
-            && last_prepend == prepend; // e.g. relative path vs absolute
+    return last_compl_type == complType && (last_path_listed == directory || (directory.isEmpty() && last_path_listed.isEmpty()))
+        && (filter.startsWith(last_file_listed) || (filter.isEmpty() && last_file_listed.isEmpty())) && last_no_hidden == no_hidden
+        && last_prepend == prepend; // e.g. relative path vs absolute
 }
 
 /*
@@ -764,10 +741,8 @@ bool KUrlCompletionPrivate::isListedUrl(ComplType complType,
  */
 bool KUrlCompletionPrivate::isAutoCompletion()
 {
-    return q->completionMode() == KCompletion::CompletionAuto
-           || q->completionMode() == KCompletion::CompletionPopup
-           || q->completionMode() == KCompletion::CompletionMan
-           || q->completionMode() == KCompletion::CompletionPopupAuto;
+    return q->completionMode() == KCompletion::CompletionAuto || q->completionMode() == KCompletion::CompletionPopup
+        || q->completionMode() == KCompletion::CompletionMan || q->completionMode() == KCompletion::CompletionPopupAuto;
 }
 //////////////////////////////////////////////////
 //////////////////////////////////////////////////
@@ -776,10 +751,7 @@ bool KUrlCompletionPrivate::isAutoCompletion()
 
 bool KUrlCompletionPrivate::userCompletion(const KUrlCompletionPrivate::MyURL &url, QString *pMatch)
 {
-    if (url.scheme() != QLatin1String("file")
-            || !url.dir().isEmpty()
-            || !url.file().startsWith(QLatin1Char('~'))
-            || !prepend.isEmpty()) {
+    if (url.scheme() != QLatin1String("file") || !url.dir().isEmpty() || !url.file().startsWith(QLatin1Char('~')) || !prepend.isEmpty()) {
         return false;
     }
 
@@ -790,8 +762,9 @@ bool KUrlCompletionPrivate::userCompletion(const KUrlCompletionPrivate::MyURL &u
 
         Q_ASSERT(!userListThread); // caller called stop()
         userListThread = new UserListThread(this);
-        QObject::connect(userListThread, &CompletionThread::completionThreadDone,
-                q, [this](QThread *thread, const QStringList &matches){ slotCompletionThreadDone(thread, matches); });
+        QObject::connect(userListThread, &CompletionThread::completionThreadDone, q, [this](QThread *thread, const QStringList &matches) {
+            slotCompletionThreadDone(thread, matches);
+        });
         userListThread->start();
 
         // If the thread finishes quickly make sure that the results
@@ -849,7 +822,7 @@ bool KUrlCompletionPrivate::exeCompletion(const KUrlCompletionPrivate::MyURL &ur
         return false;
     }
 
-    QString directory = unescape(url.dir());  // remove escapes
+    QString directory = unescape(url.dir()); // remove escapes
 
     // Find directories to search for completions, either
     //
@@ -862,8 +835,7 @@ bool KUrlCompletionPrivate::exeCompletion(const KUrlCompletionPrivate::MyURL &ur
 
     if (!url.file().isEmpty()) {
         // $PATH
-        dirList = QString::fromLocal8Bit(qgetenv("PATH")).split(
-                      QDir::listSeparator(), Qt::SkipEmptyParts);
+        dirList = QString::fromLocal8Bit(qgetenv("PATH")).split(QDir::listSeparator(), Qt::SkipEmptyParts);
 
         QStringList::Iterator it = dirList.begin();
 
@@ -915,7 +887,7 @@ bool KUrlCompletionPrivate::fileCompletion(const KUrlCompletionPrivate::MyURL &u
         return true;
     }
 
-    //qDebug() << "fileCompletion" << url << "dir=" << dir;
+    // qDebug() << "fileCompletion" << url << "dir=" << dir;
 
     // Find directories to search for completions, either
     //
@@ -952,14 +924,12 @@ bool KUrlCompletionPrivate::fileCompletion(const KUrlCompletionPrivate::MyURL &u
         setListedUrl(CTFile, directory, QString(), no_hidden_files);
 
         // Append '/' to directories in Popup mode?
-        bool append_slash = (popup_append_slash
-                             && (q->completionMode() == KCompletion::CompletionPopup ||
-                                 q->completionMode() == KCompletion::CompletionPopupAuto));
+        bool append_slash =
+            (popup_append_slash && (q->completionMode() == KCompletion::CompletionPopup || q->completionMode() == KCompletion::CompletionPopupAuto));
 
         bool only_dir = (mode == KUrlCompletion::DirCompletion);
 
-        *pMatch = listDirectories(dirList, QString(), false, only_dir, no_hidden_files,
-                                  append_slash);
+        *pMatch = listDirectories(dirList, QString(), false, only_dir, no_hidden_files, append_slash);
     } else {
         *pMatch = finished();
     }
@@ -979,7 +949,7 @@ static bool isLocalProtocol(const QString &protocol)
 
 bool KUrlCompletionPrivate::urlCompletion(const KUrlCompletionPrivate::MyURL &url, QString *pMatch)
 {
-    //qDebug() << *url.kurl();
+    // qDebug() << *url.kurl();
     if (onlyLocalProto && isLocalProtocol(url.scheme())) {
         return false;
     }
@@ -1073,18 +1043,16 @@ void KUrlCompletionPrivate::addMatches(const QStringList &matchList)
  * Returns the match if available, or QString() if
  * DirLister timed out or using kio
  */
-QString KUrlCompletionPrivate::listDirectories(
-    const QStringList &dirList,
-    const QString &filter,
-    bool only_exe,
-    bool only_dir,
-    bool no_hidden,
-    bool append_slash_to_dir)
+QString KUrlCompletionPrivate::listDirectories(const QStringList &dirList,
+                                               const QString &filter,
+                                               bool only_exe,
+                                               bool only_dir,
+                                               bool no_hidden,
+                                               bool append_slash_to_dir)
 {
     assert(!q->isRunning());
 
     if (qEnvironmentVariableIsEmpty("KURLCOMPLETION_LOCAL_KIO")) {
-
         qCDebug(KIO_WIDGETS) << "Listing directories:" << dirList << "with filter=" << filter << "using thread";
 
         // Don't use KIO
@@ -1092,9 +1060,7 @@ QString KUrlCompletionPrivate::listDirectories(
         QStringList dirs;
 
         QStringList::ConstIterator end = dirList.constEnd();
-        for (QStringList::ConstIterator it = dirList.constBegin();
-                it != end;
-                ++it) {
+        for (QStringList::ConstIterator it = dirList.constBegin(); it != end; ++it) {
             QUrl url = QUrl::fromLocalFile(*it);
             if (KUrlAuthorized::authorizeUrlAction(QStringLiteral("list"), QUrl(), url)) {
                 dirs.append(*it);
@@ -1102,11 +1068,10 @@ QString KUrlCompletionPrivate::listDirectories(
         }
 
         Q_ASSERT(!dirListThread); // caller called stop()
-        dirListThread = new DirectoryListThread(this, dirs, filter, mimeTypeFilters,
-                                                only_exe, only_dir, no_hidden,
-                                                append_slash_to_dir);
-        QObject::connect(dirListThread, &CompletionThread::completionThreadDone,
-                q, [this](QThread *thread, const QStringList &matches){ slotCompletionThreadDone(thread, matches); });
+        dirListThread = new DirectoryListThread(this, dirs, filter, mimeTypeFilters, only_exe, only_dir, no_hidden, append_slash_to_dir);
+        QObject::connect(dirListThread, &CompletionThread::completionThreadDone, q, [this](QThread *thread, const QStringList &matches) {
+            slotCompletionThreadDone(thread, matches);
+        });
         dirListThread->start();
         dirListThread->wait(initialWaitDuration());
         qCDebug(KIO_WIDGETS) << "Adding initial matches:" << dirListThread->matches();
@@ -1116,7 +1081,7 @@ QString KUrlCompletionPrivate::listDirectories(
     }
 
     // Use KIO
-    //qDebug() << "Listing (listDirectories):" << dirList << "with KIO";
+    // qDebug() << "Listing (listDirectories):" << dirList << "with KIO";
 
     QList<QUrl> url_list;
 
@@ -1142,11 +1107,7 @@ QString KUrlCompletionPrivate::listDirectories(
  * addMatches() is called with the listed files
  * finished() is called when the listing is done
  */
-void KUrlCompletionPrivate::listUrls(
-    const QList<QUrl> &urls,
-    const QString &filter,
-    bool only_exe,
-    bool no_hidden)
+void KUrlCompletionPrivate::listUrls(const QList<QUrl> &urls, const QString &filter, bool only_exe, bool no_hidden)
 {
     assert(list_urls.isEmpty());
     assert(list_job == nullptr);
@@ -1156,7 +1117,7 @@ void KUrlCompletionPrivate::listUrls(
     list_urls_only_exe = only_exe;
     list_urls_no_hidden = no_hidden;
 
-    //qDebug() << "Listing URLs:" << *urls[0] << ",...";
+    // qDebug() << "Listing URLs:" << *urls[0] << ",...";
 
     // Start it off by calling _k_slotIOFinished
     //
@@ -1190,7 +1151,7 @@ void KUrlCompletionPrivate::_k_slotEntries(KIO::Job *, const KIO::UDSEntryList &
 
         QString entry_name;
         if (!url.isEmpty()) {
-            //qDebug() << "url:" << url;
+            // qDebug() << "url:" << url;
             entry_name = QUrl(url).fileName();
         } else {
             entry_name = entry.stringValue(KIO::UDSEntry::UDS_NAME);
@@ -1203,10 +1164,8 @@ void KUrlCompletionPrivate::_k_slotEntries(KIO::Job *, const KIO::UDSEntryList &
             continue;
         }
 
-        if (entry_name.at(0) == QLatin1Char('.') &&
-                (list_urls_no_hidden ||
-                 entry_name.length() == 1 ||
-                 (entry_name.length() == 2 && entry_name.at(1) == QLatin1Char('.')))) {
+        if (entry_name.at(0) == QLatin1Char('.')
+            && (list_urls_no_hidden || entry_name.length() == 1 || (entry_name.length() == 2 && entry_name.at(1) == QLatin1Char('.')))) {
             continue;
         }
 
@@ -1220,8 +1179,7 @@ void KUrlCompletionPrivate::_k_slotEntries(KIO::Job *, const KIO::UDSEntryList &
             continue;
         }
 
-        if (!mimeTypeFilters.isEmpty() && !isDir &&
-            !mimeTypeFilters.contains(entry.stringValue(KIO::UDSEntry::UDS_MIME_TYPE))) {
+        if (!mimeTypeFilters.isEmpty() && !isDir && !mimeTypeFilters.contains(entry.stringValue(KIO::UDSEntry::UDS_MIME_TYPE))) {
             continue;
         }
 
@@ -1231,9 +1189,8 @@ void KUrlCompletionPrivate::_k_slotEntries(KIO::Job *, const KIO::UDSEntryList &
             toAppend.append(QLatin1Char('/'));
         }
 
-        if (!list_urls_only_exe ||
-                (entry.numberValue(KIO::UDSEntry::UDS_ACCESS) & MODE_EXE)  // true if executable
-            ) {
+        if (!list_urls_only_exe || (entry.numberValue(KIO::UDSEntry::UDS_ACCESS) & MODE_EXE) // true if executable
+        ) {
             if (complete_url) {
                 QUrl url(prepend);
                 url = addPathToUrl(url, toAppend);
@@ -1242,7 +1199,6 @@ void KUrlCompletionPrivate::_k_slotEntries(KIO::Job *, const KIO::UDSEntryList &
                 matchList.append(prepend + toAppend);
             }
         }
-
     }
 
     addMatches(matchList);
@@ -1258,31 +1214,33 @@ void KUrlCompletionPrivate::_k_slotEntries(KIO::Job *, const KIO::UDSEntryList &
  */
 void KUrlCompletionPrivate::_k_slotIOFinished(KJob *job)
 {
-    assert(job == list_job); Q_UNUSED(job)
+    assert(job == list_job);
+    Q_UNUSED(job)
 
     if (list_urls.isEmpty()) {
-
         list_job = nullptr;
 
         finished(); // will call KCompletion::makeCompletion()
 
     } else {
-
         QUrl kurl(list_urls.takeFirst());
 
-//      list_urls.removeAll( kurl );
+        //      list_urls.removeAll( kurl );
 
-//qDebug() << "Start KIO::listDir" << kurl;
+        // qDebug() << "Start KIO::listDir" << kurl;
 
         list_job = KIO::listDir(kurl, KIO::HideProgressInfo);
         list_job->addMetaData(QStringLiteral("no-auth-prompt"), QStringLiteral("true"));
 
         assert(list_job);
 
-        q->connect(list_job, &KJob::result, q, [this](KJob *job) { _k_slotIOFinished(job); });
+        q->connect(list_job, &KJob::result, q, [this](KJob *job) {
+            _k_slotIOFinished(job);
+        });
 
-        q->connect(list_job, &KIO::ListJob::entries,
-                   q, [this](KIO::Job *job, const KIO::UDSEntryList &list) { _k_slotEntries(job, list); });
+        q->connect(list_job, &KIO::ListJob::entries, q, [this](KIO::Job *job, const KIO::UDSEntryList &list) {
+            _k_slotEntries(job, list);
+        });
     }
 }
 
@@ -1299,14 +1257,12 @@ void KUrlCompletionPrivate::_k_slotIOFinished(KJob *job)
  */
 void KUrlCompletion::postProcessMatch(QString *pMatch) const
 {
-//qDebug() << *pMatch;
+    // qDebug() << *pMatch;
 
     if (!pMatch->isEmpty() && pMatch->startsWith(QLatin1String("file:"))) {
-
         // Add '/' to directories in file completion mode
         // unless it has already been done
-        if (d->last_compl_type == CTFile
-                && pMatch->at(pMatch->length() - 1) != QLatin1Char('/')) {
+        if (d->last_compl_type == CTFile && pMatch->at(pMatch->length() - 1) != QLatin1Char('/')) {
             QString copy = QUrl(*pMatch).toLocalFile();
             expandTilde(copy);
             expandEnv(copy);
@@ -1314,7 +1270,7 @@ void KUrlCompletion::postProcessMatch(QString *pMatch) const
                 copy.prepend(d->cwd.toLocalFile() + QLatin1Char('/'));
             }
 
-            //qDebug() << "stat'ing" << copy;
+            // qDebug() << "stat'ing" << copy;
 
             QByteArray file = QFile::encodeName(copy);
 
@@ -1324,7 +1280,7 @@ void KUrlCompletion::postProcessMatch(QString *pMatch) const
                     pMatch->append(QLatin1Char('/'));
                 }
             } else {
-                //qDebug() << "Could not stat file" << copy;
+                // qDebug() << "Could not stat file" << copy;
             }
         }
     }
@@ -1381,7 +1337,7 @@ QString KUrlCompletion::replacedPath(const QString &text, bool replaceHome, bool
         return text;
     }
 
-    KUrlCompletionPrivate::MyURL url(text, QUrl());  // no need to replace something of our current cwd
+    KUrlCompletionPrivate::MyURL url(text, QUrl()); // no need to replace something of our current cwd
     if (!url.kurl().isLocalFile()) {
         return text;
     }
@@ -1424,7 +1380,6 @@ static bool expandEnv(QString &text)
     bool expanded = false;
 
     while ((pos = text.indexOf(QLatin1Char('$'), pos)) != -1) {
-
         // Skip escaped '$'
         //
         if (pos > 0 && text.at(pos - 1) == QLatin1Char('\\')) {
@@ -1452,8 +1407,7 @@ static bool expandEnv(QString &text)
             if (pos2 >= 0) {
                 int len = pos2 - pos;
                 const QStringRef key = text.midRef(pos + 1, len - 1);
-                QString value =
-                    QString::fromLocal8Bit(qgetenv(key.toLocal8Bit().constData()));
+                QString value = QString::fromLocal8Bit(qgetenv(key.toLocal8Bit().constData()));
 
                 if (!value.isEmpty()) {
                     expanded = true;
@@ -1499,7 +1453,6 @@ static bool expandTilde(QString &text)
     // Replace ~user if the user name is terminated by '/' or ' '
     //
     if (pos2 >= 0) {
-
         QString userName = text.mid(1, pos2 - 1);
         QString dir;
 
@@ -1544,5 +1497,5 @@ static QString unescape(const QString &text)
     return result;
 }
 
-#include "moc_kurlcompletion.cpp"
 #include "kurlcompletion.moc"
+#include "moc_kurlcompletion.cpp"

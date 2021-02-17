@@ -11,8 +11,8 @@
 
 #include "kdiskfreespaceinfo.h"
 
-#include <QSharedData>
 #include <QFile>
+#include <QSharedData>
 
 #include <kmountpoint.h>
 
@@ -92,10 +92,7 @@ KDiskFreeSpaceInfo KDiskFreeSpaceInfo::freeSpaceInfo(const QString &path)
     QFileInfo fi(info.d->m_mountPoint);
     QString dir = QDir::toNativeSeparators(fi.absoluteDir().canonicalPath());
 
-    if (GetDiskFreeSpaceExW((LPCWSTR)dir.utf16(),
-                            (PULARGE_INTEGER)&availUser,
-                            (PULARGE_INTEGER)&info.d->m_size,
-                            (PULARGE_INTEGER)&info.d->m_available) != 0) {
+    if (GetDiskFreeSpaceExW((LPCWSTR)dir.utf16(), (PULARGE_INTEGER)&availUser, (PULARGE_INTEGER)&info.d->m_size, (PULARGE_INTEGER)&info.d->m_available) != 0) {
         info.d->m_valid = true;
     }
 #else

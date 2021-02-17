@@ -8,15 +8,15 @@
 #include "executablefileopendialog_p.h"
 
 #include <QCheckBox>
+#include <QDialogButtonBox>
 #include <QLabel>
 #include <QPushButton>
-#include <QDialogButtonBox>
 #include <QVBoxLayout>
 
 #include <KLocalizedString>
 
 ExecutableFileOpenDialog::ExecutableFileOpenDialog(ExecutableFileOpenDialog::Mode mode, QWidget *parent)
-  : QDialog(parent)
+    : QDialog(parent)
 {
     QLabel *label = new QLabel(i18n("What do you wish to do with this file?"), this);
 
@@ -62,11 +62,12 @@ ExecutableFileOpenDialog::ExecutableFileOpenDialog(ExecutableFileOpenDialog::Mod
     connect(buttonBox, &QDialogButtonBox::rejected, this, &ExecutableFileOpenDialog::reject);
 }
 
-ExecutableFileOpenDialog::ExecutableFileOpenDialog(QWidget *parent) :
-    ExecutableFileOpenDialog(ExecutableFileOpenDialog::OpenOrExecute, parent) { }
+ExecutableFileOpenDialog::ExecutableFileOpenDialog(QWidget *parent)
+    : ExecutableFileOpenDialog(ExecutableFileOpenDialog::OpenOrExecute, parent)
+{
+}
 
 bool ExecutableFileOpenDialog::isDontAskAgainChecked() const
 {
     return m_dontAskAgain->isChecked();
 }
-

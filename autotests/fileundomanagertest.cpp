@@ -8,41 +8,41 @@
 #include "fileundomanagertest.h"
 #include "mockcoredelegateextensions.h"
 
-#include <QTest>
-#include <QSignalSpy>
 #include <QDateTime>
 #include <QDir>
 #include <QFileInfo>
-#include <qplatformdefs.h>
+#include <QSignalSpy>
+#include <QTest>
 #include <kio/fileundomanager.h>
+#include <qplatformdefs.h>
 
+#include <KUrlMimeData>
+#include <kio/batchrenamejob.h>
 #include <kio/copyjob.h>
+#include <kio/deletejob.h>
 #include <kio/job.h>
 #include <kio/mkpathjob.h>
-#include <kio/deletejob.h>
 #include <kio/paste.h>
 #include <kio/pastejob.h>
 #include <kio/restorejob.h>
-#include <kio/batchrenamejob.h>
 #include <kioglobal_p.h>
 #include <kprotocolinfo.h>
-#include <KUrlMimeData>
 
-#include <QDebug>
 #include <KConfig>
 #include <KConfigGroup>
+#include <QDebug>
 
 #include <errno.h>
 #include <time.h>
 #ifdef Q_OS_WIN
 #include <sys/utime.h>
 #else
-#include <utime.h>
 #include <sys/time.h>
+#include <utime.h>
 #endif
 
-#include <QClipboard>
 #include <QApplication>
+#include <QClipboard>
 #include <QMimeData>
 
 QTEST_MAIN(FileUndoManagerTest)
@@ -158,23 +158,27 @@ static void createTestDirectory(const QString &path)
 class TestUiInterface : public FileUndoManager::UiInterface
 {
 public:
-    TestUiInterface() : FileUndoManager::UiInterface()
-      , m_mockAskUserInterface(new MockAskUserInterface)
+    TestUiInterface()
+        : FileUndoManager::UiInterface()
+        , m_mockAskUserInterface(new MockAskUserInterface)
     {
         setShowProgressInfo(false);
     }
-    void jobError(KIO::Job *job) override {
+    void jobError(KIO::Job *job) override
+    {
         m_errorCode = job->error();
         qWarning() << job->errorString();
     }
-    bool copiedFileWasModified(const QUrl &src, const QUrl &dest, const QDateTime &srcTime, const QDateTime &destTime) override {
+    bool copiedFileWasModified(const QUrl &src, const QUrl &dest, const QDateTime &srcTime, const QDateTime &destTime) override
+    {
         Q_UNUSED(src);
         m_dest = dest;
         Q_UNUSED(srcTime);
         Q_UNUSED(destTime);
         return true;
     }
-    bool confirmDeletion(const QList<QUrl> &) override {
+    bool confirmDeletion(const QList<QUrl> &) override
+    {
         Q_ASSERT(false); // no longer called
         return false;
     }
@@ -196,14 +200,14 @@ public:
         m_errorCode = 0;
         m_mockAskUserInterface->clear();
     }
-    MockAskUserInterface* askUserMockInterface() const
+    MockAskUserInterface *askUserMockInterface() const
     {
         return m_mockAskUserInterface.get();
     }
     void virtual_hook(int id, void *data) override
     {
         if (id == HookGetAskUserActionInterface) {
-            AskUserActionInterface** p = static_cast<AskUserActionInterface**>(data);
+            AskUserActionInterface **p = static_cast<AskUserActionInterface **>(data);
             *p = m_mockAskUserInterface.get();
             m_mockAskUserInterface->m_deleteResult = m_nextReplyToConfirmDeletion;
         }
@@ -259,8 +263,7 @@ void FileUndoManagerTest::cleanupTestCase()
 void FileUndoManagerTest::doUndo()
 {
     QEventLoop eventLoop;
-    connect(FileUndoManager::self(), &FileUndoManager::undoJobFinished,
-            &eventLoop, &QEventLoop::quit);
+    connect(FileUndoManager::self(), &FileUndoManager::undoJobFinished, &eventLoop, &QEventLoop::quit);
     FileUndoManager::self()->undo();
     eventLoop.exec(QEventLoop::ExcludeUserInputEvents); // wait for undo job to finish
 }
@@ -289,17 +292,17 @@ void FileUndoManagerTest::testCopyFiles()
 #endif
 
     // might have to wait for dbus signal here... but this is currently disabled.
-    //QTest::qWait( 20 );
+    // QTest::qWait( 20 );
     QVERIFY(FileUndoManager::self()->isUndoAvailable());
     QCOMPARE(spyUndoAvailable.count(), 1);
     QCOMPARE(spyTextChanged.count(), 1);
     m_uiInterface->clear();
 
-    m_uiInterface->setNextReplyToConfirmDeletion(false);   // act like the user didn't confirm
+    m_uiInterface->setNextReplyToConfirmDeletion(false); // act like the user didn't confirm
     FileUndoManager::self()->undo();
     auto *lastMock = m_uiInterface->askUserMockInterface();
     QCOMPARE(lastMock->m_askUserDeleteCalled, 1);
-    QVERIFY(QFile::exists(destFile()));     // nothing happened yet
+    QVERIFY(QFile::exists(destFile())); // nothing happened yet
 
     // OK, now do it
     m_uiInterface->clear();
@@ -307,7 +310,7 @@ void FileUndoManagerTest::testCopyFiles()
     doUndo();
 
     QVERIFY(!FileUndoManager::self()->isUndoAvailable());
-    QVERIFY(spyUndoAvailable.count() >= 2);   // it's in fact 3, due to lock/unlock emitting it as well
+    QVERIFY(spyUndoAvailable.count() >= 2); // it's in fact 3, due to lock/unlock emitting it as well
     QCOMPARE(spyTextChanged.count(), 2);
     QCOMPARE(m_uiInterface->askUserMockInterface()->m_askUserDeleteCalled, 1);
 
@@ -330,7 +333,7 @@ void FileUndoManagerTest::testMoveFiles()
 
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
 
-    QVERIFY(!QFile::exists(srcFile()));     // the source moved
+    QVERIFY(!QFile::exists(srcFile())); // the source moved
     QVERIFY(QFile::exists(destFile()));
 #ifndef Q_OS_WIN
     QVERIFY(!QFileInfo(srcLink()).isSymLink());
@@ -340,7 +343,7 @@ void FileUndoManagerTest::testMoveFiles()
 
     doUndo();
 
-    QVERIFY(QFile::exists(srcFile()));     // the source is back
+    QVERIFY(QFile::exists(srcFile())); // the source is back
     QVERIFY(!QFile::exists(destFile()));
 #ifndef Q_OS_WIN
     QVERIFY(QFileInfo(srcLink()).isSymLink());
@@ -351,7 +354,8 @@ void FileUndoManagerTest::testMoveFiles()
 void FileUndoManagerTest::testCopyDirectory()
 {
     const QString destdir = destDir();
-    QList<QUrl> lst; lst << QUrl::fromLocalFile(srcSubDir());
+    QList<QUrl> lst;
+    lst << QUrl::fromLocalFile(srcSubDir());
     const QUrl d = QUrl::fromLocalFile(destdir);
     KIO::CopyJob *job = KIO::copy(lst, d, KIO::HideProgressInfo);
     job->setUiDelegate(nullptr);
@@ -359,7 +363,7 @@ void FileUndoManagerTest::testCopyDirectory()
 
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
 
-    checkTestDirectory(srcSubDir());   // src untouched
+    checkTestDirectory(srcSubDir()); // src untouched
     checkTestDirectory(destSubDir());
 
     doUndo();
@@ -391,7 +395,8 @@ void FileUndoManagerTest::testCopyEmptyDirectory()
 void FileUndoManagerTest::testMoveDirectory()
 {
     const QString destdir = destDir();
-    QList<QUrl> lst; lst << QUrl::fromLocalFile(srcSubDir());
+    QList<QUrl> lst;
+    lst << QUrl::fromLocalFile(srcSubDir());
     const QUrl d = QUrl::fromLocalFile(destdir);
     KIO::CopyJob *job = KIO::move(lst, d, KIO::HideProgressInfo);
     job->setUiDelegate(nullptr);
@@ -494,10 +499,10 @@ void FileUndoManagerTest::testCreateDir()
     QVERIFY(QFileInfo(path).isDir());
 
     m_uiInterface->clear();
-    m_uiInterface->setNextReplyToConfirmDeletion(false);   // act like the user didn't confirm
+    m_uiInterface->setNextReplyToConfirmDeletion(false); // act like the user didn't confirm
     FileUndoManager::self()->undo();
     QCOMPARE(m_uiInterface->askUserMockInterface()->m_askUserDeleteCalled, 1);
-    QVERIFY(QFile::exists(path));   // nothing happened yet
+    QVERIFY(QFile::exists(path)); // nothing happened yet
 
     // OK, now do it
     m_uiInterface->clear();
@@ -625,7 +630,7 @@ void FileUndoManagerTest::testModifyFileBeforeUndo()
 {
     // based on testCopyDirectory (so that we check that it works for files in subdirs too)
     const QString destdir = destDir();
-    const QList<QUrl> lst{ QUrl::fromLocalFile(srcSubDir()) };
+    const QList<QUrl> lst{QUrl::fromLocalFile(srcSubDir())};
     const QUrl dest = QUrl::fromLocalFile(destdir);
     KIO::CopyJob *job = KIO::copy(lst, dest, KIO::HideProgressInfo);
     job->setUiDelegate(nullptr);
@@ -633,10 +638,10 @@ void FileUndoManagerTest::testModifyFileBeforeUndo()
 
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
 
-    checkTestDirectory(srcSubDir());   // src untouched
+    checkTestDirectory(srcSubDir()); // src untouched
     checkTestDirectory(destSubDir());
     const QString destFile = destSubDir() + "/fileindir";
-    setTimeStamp(destFile);   // simulate a modification of the file
+    setTimeStamp(destFile); // simulate a modification of the file
 
     doUndo();
 
@@ -740,7 +745,7 @@ void FileUndoManagerTest::testUndoCopyOfDeletedFile()
     QSignalSpy spyUndoAvailable(FileUndoManager::self(), QOverload<bool>::of(&FileUndoManager::undoAvailable));
     QVERIFY(spyUndoAvailable.isValid());
     doUndo();
-    QVERIFY(spyUndoAvailable.count() >= 2);   // it's in fact 3, due to lock/unlock emitting it as well
+    QVERIFY(spyUndoAvailable.count() >= 2); // it's in fact 3, due to lock/unlock emitting it as well
     QVERIFY(!spyUndoAvailable.at(0).at(0).toBool());
     QVERIFY(!FileUndoManager::self()->isUndoAvailable());
 }
@@ -748,14 +753,14 @@ void FileUndoManagerTest::testUndoCopyOfDeletedFile()
 void FileUndoManagerTest::testErrorDuringMoveUndo()
 {
     const QString destdir = destDir();
-    QList<QUrl> lst{ QUrl::fromLocalFile(srcFile()) };
+    QList<QUrl> lst{QUrl::fromLocalFile(srcFile())};
     KIO::CopyJob *job = KIO::move(lst, QUrl::fromLocalFile(destdir), KIO::HideProgressInfo);
     job->setUiDelegate(nullptr);
     FileUndoManager::self()->recordCopyJob(job);
 
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
 
-    QVERIFY(!QFile::exists(srcFile()));     // the source moved
+    QVERIFY(!QFile::exists(srcFile())); // the source moved
     QVERIFY(QFile::exists(destFile()));
     createTestFile(srcFile(), "I'm back");
 

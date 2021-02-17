@@ -20,7 +20,6 @@ class QDateTime;
 
 namespace KIO
 {
-
 class Job;
 class CopyJob;
 class FileUndoManagerPrivate;
@@ -99,9 +98,7 @@ public:
         virtual bool copiedFileWasModified(const QUrl &src, const QUrl &dest, const QDateTime &srcTime, const QDateTime &destTime);
 
         // TODO KF6 replace hook with virtual AskUserActionInterface* askUserActionInterface(); // (does not take ownership)
-        enum {
-            HookGetAskUserActionInterface = 1
-        };
+        enum { HookGetAskUserActionInterface = 1 };
         /**
          * \internal, for future extensions
          */

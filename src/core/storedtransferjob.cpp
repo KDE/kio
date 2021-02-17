@@ -10,26 +10,24 @@
 #include "job_p.h"
 #include <KConfig>
 #include <KConfigGroup>
-#include <kurlauthorized.h>
 #include <QTimer>
+#include <kurlauthorized.h>
 
 using namespace KIO;
 
-class KIO::StoredTransferJobPrivate: public TransferJobPrivate
+class KIO::StoredTransferJobPrivate : public TransferJobPrivate
 {
 public:
-    StoredTransferJobPrivate(const QUrl &url, int command,
-                             const QByteArray &packedArgs,
-                             const QByteArray &_staticData)
-        : TransferJobPrivate(url, command, packedArgs, _staticData),
-          m_uploadOffset(0)
-    {}
-    StoredTransferJobPrivate(const QUrl &url, int command,
-                             const QByteArray &packedArgs,
-                             QIODevice *ioDevice)
-        : TransferJobPrivate(url, command, packedArgs, ioDevice),
-          m_uploadOffset(0)
-    {}
+    StoredTransferJobPrivate(const QUrl &url, int command, const QByteArray &packedArgs, const QByteArray &_staticData)
+        : TransferJobPrivate(url, command, packedArgs, _staticData)
+        , m_uploadOffset(0)
+    {
+    }
+    StoredTransferJobPrivate(const QUrl &url, int command, const QByteArray &packedArgs, QIODevice *ioDevice)
+        : TransferJobPrivate(url, command, packedArgs, ioDevice)
+        , m_uploadOffset(0)
+    {
+    }
 
     QByteArray m_data;
     int m_uploadOffset;
@@ -39,12 +37,9 @@ public:
 
     Q_DECLARE_PUBLIC(StoredTransferJob)
 
-    static inline StoredTransferJob *newJob(const QUrl &url, int command,
-                                            const QByteArray &packedArgs,
-                                            const QByteArray &staticData, JobFlags flags)
+    static inline StoredTransferJob *newJob(const QUrl &url, int command, const QByteArray &packedArgs, const QByteArray &staticData, JobFlags flags)
     {
-        StoredTransferJob *job = new StoredTransferJob(
-            *new StoredTransferJobPrivate(url, command, packedArgs, staticData));
+        StoredTransferJob *job = new StoredTransferJob(*new StoredTransferJobPrivate(url, command, packedArgs, staticData));
         job->setUiDelegate(KIO::createDefaultJobUiDelegate());
         if (!(flags & HideProgressInfo)) {
             KIO::getJobTracker()->registerJob(job);
@@ -56,12 +51,9 @@ public:
         return job;
     }
 
-    static inline StoredTransferJob *newJob(const QUrl &url, int command,
-                                            const QByteArray &packedArgs,
-                                            QIODevice *ioDevice, JobFlags flags)
+    static inline StoredTransferJob *newJob(const QUrl &url, int command, const QByteArray &packedArgs, QIODevice *ioDevice, JobFlags flags)
     {
-        StoredTransferJob *job = new StoredTransferJob(
-            *new StoredTransferJobPrivate(url, command, packedArgs, ioDevice));
+        StoredTransferJob *job = new StoredTransferJob(*new StoredTransferJobPrivate(url, command, packedArgs, ioDevice));
         job->setUiDelegate(KIO::createDefaultJobUiDelegate());
         if (!(flags & HideProgressInfo)) {
             KIO::getJobTracker()->registerJob(job);
@@ -77,10 +69,12 @@ public:
 StoredTransferJob::StoredTransferJob(StoredTransferJobPrivate &dd)
     : TransferJob(dd)
 {
-    connect(this, &TransferJob::data,
-            this, [this](KIO::Job *job, const QByteArray &data) { d_func()->slotStoredData(job, data); });
-    connect(this, &TransferJob::dataReq,
-            this, [this](KIO::Job *job, QByteArray &data) { d_func()->slotStoredDataReq(job, data); });
+    connect(this, &TransferJob::data, this, [this](KIO::Job *job, const QByteArray &data) {
+        d_func()->slotStoredData(job, data);
+    });
+    connect(this, &TransferJob::dataReq, this, [this](KIO::Job *job, QByteArray &data) {
+        d_func()->slotStoredDataReq(job, data);
+    });
 }
 
 StoredTransferJob::~StoredTransferJob()
@@ -90,8 +84,8 @@ StoredTransferJob::~StoredTransferJob()
 void StoredTransferJob::setData(const QByteArray &arr)
 {
     Q_D(StoredTransferJob);
-    Q_ASSERT(d->m_data.isNull());   // check that we're only called once
-    Q_ASSERT(d->m_uploadOffset == 0);   // no upload started yet
+    Q_ASSERT(d->m_data.isNull()); // check that we're only called once
+    Q_ASSERT(d->m_uploadOffset == 0); // no upload started yet
     d->m_data = arr;
     setTotalSize(d->m_data.size());
 }
@@ -122,14 +116,14 @@ void StoredTransferJobPrivate::slotStoredDataReq(KIO::Job *, QByteArray &data)
         // send MAX_CHUNK_SIZE bytes to the receiver (deep copy)
         data = QByteArray(m_data.data() + m_uploadOffset, MAX_CHUNK_SIZE);
         m_uploadOffset += MAX_CHUNK_SIZE;
-        //qDebug() << "Sending " << MAX_CHUNK_SIZE << " bytes ("
+        // qDebug() << "Sending " << MAX_CHUNK_SIZE << " bytes ("
         //                << remainingBytes - MAX_CHUNK_SIZE << " bytes remain)\n";
     } else {
         // send the remaining bytes to the receiver (deep copy)
         data = QByteArray(m_data.data() + m_uploadOffset, remainingBytes);
         m_data = QByteArray();
         m_uploadOffset = 0;
-        //qDebug() << "Sending " << remainingBytes << " bytes\n";
+        // qDebug() << "Sending " << remainingBytes << " bytes\n";
     }
 }
 
@@ -144,8 +138,7 @@ StoredTransferJob *KIO::storedGet(const QUrl &url, LoadType reload, JobFlags fla
     return job;
 }
 
-StoredTransferJob *KIO::storedPut(const QByteArray &arr, const QUrl &url, int permissions,
-                                  JobFlags flags)
+StoredTransferJob *KIO::storedPut(const QByteArray &arr, const QUrl &url, int permissions, JobFlags flags)
 {
     KIO_ARGS << url << qint8((flags & Overwrite) ? 1 : 0) << qint8((flags & Resume) ? 1 : 0) << permissions;
     StoredTransferJob *job = StoredTransferJobPrivate::newJob(url, CMD_PUT, packedArgs, QByteArray(), flags);
@@ -153,8 +146,7 @@ StoredTransferJob *KIO::storedPut(const QByteArray &arr, const QUrl &url, int pe
     return job;
 }
 
-StoredTransferJob *KIO::storedPut(QIODevice* input, const QUrl &url, int permissions,
-                                  JobFlags flags)
+StoredTransferJob *KIO::storedPut(QIODevice *input, const QUrl &url, int permissions, JobFlags flags)
 {
     Q_ASSERT(input && input->isReadable());
     KIO_ARGS << url << qint8((flags & Overwrite) ? 1 : 0) << qint8((flags & Resume) ? 1 : 0) << permissions;
@@ -171,7 +163,6 @@ class PostErrorJob : public StoredTransferJob
 {
     Q_OBJECT
 public:
-
     PostErrorJob(int _error, const QString &url, const QByteArray &packedArgs, const QByteArray &postData)
         : StoredTransferJob(*new StoredTransferJobPrivate(QUrl(), CMD_SPECIAL, packedArgs, postData))
     {
@@ -193,69 +184,67 @@ static int isUrlPortBad(const QUrl &url)
     int _error = 0;
 
     // filter out some malicious ports
-    static const int bad_ports[] = {
-        1,   // tcpmux
-        7,   // echo
-        9,   // discard
-        11,   // systat
-        13,   // daytime
-        15,   // netstat
-        17,   // qotd
-        19,   // chargen
-        20,   // ftp-data
-        21,   // ftp-cntl
-        22,   // ssh
-        23,   // telnet
-        25,   // smtp
-        37,   // time
-        42,   // name
-        43,   // nicname
-        53,   // domain
-        77,   // priv-rjs
-        79,   // finger
-        87,   // ttylink
-        95,   // supdup
-        101,  // hostriame
-        102,  // iso-tsap
-        103,  // gppitnp
-        104,  // acr-nema
-        109,  // pop2
-        110,  // pop3
-        111,  // sunrpc
-        113,  // auth
-        115,  // sftp
-        117,  // uucp-path
-        119,  // nntp
-        123,  // NTP
-        135,  // loc-srv / epmap
-        139,  // netbios
-        143,  // imap2
-        179,  // BGP
-        389,  // ldap
-        512,  // print / exec
-        513,  // login
-        514,  // shell
-        515,  // printer
-        526,  // tempo
-        530,  // courier
-        531,  // Chat
-        532,  // netnews
-        540,  // uucp
-        556,  // remotefs
-        587,  // sendmail
-        601,  //
-        989,  // ftps data
-        990,  // ftps
-        992,  // telnets
-        993,  // imap/SSL
-        995,  // pop3/SSL
-        1080, // SOCKS
-        2049, // nfs
-        4045, // lockd
-        6000, // x11
-        6667, // irc
-        0
-    };
+    static const int bad_ports[] = {1, // tcpmux
+                                    7, // echo
+                                    9, // discard
+                                    11, // systat
+                                    13, // daytime
+                                    15, // netstat
+                                    17, // qotd
+                                    19, // chargen
+                                    20, // ftp-data
+                                    21, // ftp-cntl
+                                    22, // ssh
+                                    23, // telnet
+                                    25, // smtp
+                                    37, // time
+                                    42, // name
+                                    43, // nicname
+                                    53, // domain
+                                    77, // priv-rjs
+                                    79, // finger
+                                    87, // ttylink
+                                    95, // supdup
+                                    101, // hostriame
+                                    102, // iso-tsap
+                                    103, // gppitnp
+                                    104, // acr-nema
+                                    109, // pop2
+                                    110, // pop3
+                                    111, // sunrpc
+                                    113, // auth
+                                    115, // sftp
+                                    117, // uucp-path
+                                    119, // nntp
+                                    123, // NTP
+                                    135, // loc-srv / epmap
+                                    139, // netbios
+                                    143, // imap2
+                                    179, // BGP
+                                    389, // ldap
+                                    512, // print / exec
+                                    513, // login
+                                    514, // shell
+                                    515, // printer
+                                    526, // tempo
+                                    530, // courier
+                                    531, // Chat
+                                    532, // netnews
+                                    540, // uucp
+                                    556, // remotefs
+                                    587, // sendmail
+                                    601, //
+                                    989, // ftps data
+                                    990, // ftps
+                                    992, // telnets
+                                    993, // imap/SSL
+                                    995, // pop3/SSL
+                                    1080, // SOCKS
+                                    2049, // nfs
+                                    4045, // lockd
+                                    6000, // x11
+                                    6667, // irc
+                                    0};
     if (url.port() != 80) {
         const int port = url.port();
         for (int cnt = 0; bad_ports[cnt] && bad_ports[cnt] <= port; ++cnt)
@@ -267,16 +256,14 @@ static int isUrlPortBad(const QUrl &url)
 
     if (_error) {
         static bool override_loaded = false;
-        static QList< int > *overriden_ports = nullptr;
+        static QList<int> *overriden_ports = nullptr;
         if (!override_loaded) {
             KConfig cfg(QStringLiteral("kio_httprc"));
-            overriden_ports = new QList< int >;
+            overriden_ports = new QList<int>;
             *overriden_ports = cfg.group(QString()).readEntry("OverriddenPorts", QList<int>());
             override_loaded = true;
         }
-        for (QList< int >::ConstIterator it = overriden_ports->constBegin();
-                it != overriden_ports->constEnd();
-                ++it) {
+        for (QList<int>::ConstIterator it = overriden_ports->constBegin(); it != overriden_ports->constEnd(); ++it) {
             if (overriden_ports->contains(url.port())) {
                 _error = 0;
             }
@@ -394,8 +381,7 @@ TransferJob *KIO::http_delete(const QUrl &url, JobFlags flags)
 {
     // Send decoded path and encoded query
     KIO_ARGS << url;
-    TransferJob *job = TransferJobPrivate::newJob(url, CMD_DEL, packedArgs,
-                       QByteArray(), flags);
+    TransferJob *job = TransferJobPrivate::newJob(url, CMD_DEL, packedArgs, QByteArray(), flags);
     return job;
 }
 
@@ -448,7 +434,7 @@ StoredTransferJob *KIO::storedHttpPost(QIODevice *ioDevice, const QUrl &url, qin
 void TransferJobPrivate::slotPostRedirection()
 {
     Q_Q(TransferJob);
-    //qDebug() << m_url;
+    // qDebug() << m_url;
     // Tell the user about the new url.
     Q_EMIT q->redirection(q, m_url);
 }

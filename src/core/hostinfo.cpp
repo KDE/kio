@@ -6,28 +6,28 @@
 
 #include "hostinfo.h"
 
-#include <QHash>
 #include <QCache>
-#include <QMetaType>
-#include <QTime>
-#include <QTimer>
-#include <QList>
-#include <QPair>
-#include <QThread>
 #include <QFutureWatcher>
+#include <QHash>
+#include <QHostInfo>
+#include <QList>
+#include <QMetaType>
+#include <QPair>
 #include <QSemaphore>
 #include <QSharedPointer>
+#include <QThread>
+#include <QTime>
+#include <QTimer>
 #include <QtConcurrentRun>
-#include <QHostInfo>
 
 #ifdef Q_OS_UNIX
-# include <QFileInfo>
-# include <netinet/in.h>
-# include <arpa/nameser.h>
-# include <resolv.h>            // for _PATH_RESCONF
-# ifndef _PATH_RESCONF
-#  define _PATH_RESCONF         "/etc/resolv.conf"
-# endif
+#include <QFileInfo>
+#include <arpa/nameser.h>
+#include <netinet/in.h>
+#include <resolv.h> // for _PATH_RESCONF
+#ifndef _PATH_RESCONF
+#define _PATH_RESCONF "/etc/resolv.conf"
+#endif
 #endif
 
 #define TTL 300
@@ -39,7 +39,9 @@ class HostInfoAgentPrivate : public QObject
     Q_OBJECT
 public:
     explicit HostInfoAgentPrivate(int cacheSize = 100);
-    ~HostInfoAgentPrivate() override {}
+    ~HostInfoAgentPrivate() override
+    {
+    }
     void lookupHost(const QString &hostName, QObject *receiver, const char *member);
     QHostInfo lookupCachedHostInfoFor(const QString &hostName);
     void cacheLookup(const QHostInfo &);
@@ -53,12 +55,13 @@ public:
     }
 private Q_SLOTS:
     void queryFinished(const QHostInfo &);
+
 private:
     class Result;
     class Query;
 
     QHash<QString, Query *> openQueries;
-    QCache<QString, QPair<QHostInfo, QTime> > dnsCache;
+    QCache<QString, QPair<QHostInfo, QTime>> dnsCache;
     QDateTime resolvConfMTime;
     int ttl;
 };
@@ -68,6 +71,7 @@ class HostInfoAgentPrivate::Result : public QObject
     Q_OBJECT
 Q_SIGNALS:
     void result(const QHostInfo &);
+
 private:
     friend class HostInfoAgentPrivate;
 };
@@ -76,7 +80,9 @@ class HostInfoAgentPrivate::Query : public QObject
 {
     Q_OBJECT
 public:
-    Query(): m_watcher(), m_hostName()
+    Query()
+        : m_watcher()
+        , m_hostName()
     {
         connect(&m_watcher, &QFutureWatcher<QHostInfo>::finished, this, &Query::relayFinished);
     }
@@ -97,6 +103,7 @@ private Q_SLOTS:
     {
         Q_EMIT result(m_watcher.result());
     }
+
 private:
     QFutureWatcher<QHostInfo> m_watcher;
     QString m_hostName;
@@ -105,7 +112,8 @@ private:
 class NameLookupThreadRequest
 {
 public:
-    NameLookupThreadRequest(const QString &hostName) : m_hostName(hostName)
+    NameLookupThreadRequest(const QString &hostName)
+        : m_hostName(hostName)
     {
     }
 
@@ -152,7 +160,6 @@ Q_DECLARE_METATYPE(QSharedPointer<KIO::NameLookupThreadRequest>)
 
 namespace KIO
 {
-
 class NameLookUpThreadWorker : public QObject
 {
     Q_OBJECT
@@ -173,7 +180,7 @@ public Q_SLOTS:
 
     void lookupFinished(const QHostInfo &hostInfo)
     {
-        QMap<int, QSharedPointer<NameLookupThreadRequest> >::iterator it = m_lookups.find(hostInfo.lookupId());
+        QMap<int, QSharedPointer<NameLookupThreadRequest>>::iterator it = m_lookups.find(hostInfo.lookupId());
         if (it != m_lookups.end()) {
             (*it)->setResult(hostInfo);
             (*it)->semaphore()->release();
@@ -182,16 +189,17 @@ public Q_SLOTS:
     }
 
 private:
-    QMap<int, QSharedPointer<NameLookupThreadRequest> > m_lookups;
+    QMap<int, QSharedPointer<NameLookupThreadRequest>> m_lookups;
 };
 
 class NameLookUpThread : public QThread
 {
     Q_OBJECT
 public:
-    NameLookUpThread() : m_worker(nullptr)
+    NameLookUpThread()
+        : m_worker(nullptr)
     {
-        qRegisterMetaType< QSharedPointer<NameLookupThreadRequest> > ();
+        qRegisterMetaType<QSharedPointer<NameLookupThreadRequest>>();
         start();
     }
 
@@ -230,8 +238,7 @@ using namespace KIO;
 Q_GLOBAL_STATIC(HostInfoAgentPrivate, hostInfoAgentPrivate)
 Q_GLOBAL_STATIC(NameLookUpThread, nameLookUpThread)
 
-void HostInfo::lookupHost(const QString &hostName, QObject *receiver,
-                          const char *member)
+void HostInfo::lookupHost(const QString &hostName, QObject *receiver, const char *member)
 {
     hostInfoAgentPrivate()->lookupHost(hostName, receiver, member);
 }
@@ -265,10 +272,13 @@ QHostInfo HostInfo::lookupHost(const QString &hostName, unsigned long timeout)
             HostInfo::cacheLookup(hostInfo); // cache the look up...
         }
     } else {
-        QMetaObject::invokeMethod(nameLookUpThread()->worker(), "abortLookup", Qt::QueuedConnection, Q_ARG(QSharedPointer<KIO::NameLookupThreadRequest>, request));
+        QMetaObject::invokeMethod(nameLookUpThread()->worker(),
+                                  "abortLookup",
+                                  Qt::QueuedConnection,
+                                  Q_ARG(QSharedPointer<KIO::NameLookupThreadRequest>, request));
     }
 
-    //qDebug() << "Name look up succeeded for" << hostName;
+    // qDebug() << "Name look up succeeded for" << hostName;
     return hostInfo;
 }
 
@@ -298,15 +308,14 @@ void HostInfo::setTTL(int ttl)
 }
 
 HostInfoAgentPrivate::HostInfoAgentPrivate(int cacheSize)
-    : openQueries(),
-      dnsCache(cacheSize),
-      ttl(TTL)
+    : openQueries()
+    , dnsCache(cacheSize)
+    , ttl(TTL)
 {
     qRegisterMetaType<QHostInfo>();
 }
 
-void HostInfoAgentPrivate::lookupHost(const QString &hostName,
-                                      QObject *receiver, const char *member)
+void HostInfoAgentPrivate::lookupHost(const QString &hostName, QObject *receiver, const char *member)
 {
 #ifdef _PATH_RESCONF
     QFileInfo resolvConf(QFile::decodeName(_PATH_RESCONF));
@@ -375,11 +384,10 @@ void HostInfoAgentPrivate::cacheLookup(const QHostInfo &info)
 
 void HostInfoAgentPrivate::queryFinished(const QHostInfo &info)
 {
-    Query *query = static_cast<Query * >(sender());
+    Query *query = static_cast<Query *>(sender());
     openQueries.remove(query->hostName());
     if (info.error() == QHostInfo::NoError) {
-        dnsCache.insert(query->hostName(),
-                        new QPair<QHostInfo, QTime>(info, QTime::currentTime()));
+        dnsCache.insert(query->hostName(), new QPair<QHostInfo, QTime>(info, QTime::currentTime()));
     }
     query->deleteLater();
 }

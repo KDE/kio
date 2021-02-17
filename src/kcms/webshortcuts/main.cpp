@@ -12,21 +12,23 @@
 #include <QVBoxLayout>
 
 // KDE
-#include <kurifilter.h>
 #include <KAboutData>
 #include <KLocalizedString>
-#include <KPluginMetaData>
 #include <KPluginFactory>
 #include <KPluginLoader>
+#include <KPluginMetaData>
+#include <kurifilter.h>
 
 K_PLUGIN_FACTORY(KURIFilterModuleFactory, registerPlugin<KURIFilterModule>();)
 
 KURIFilterModule::KURIFilterModule(QWidget *parent, const QVariantList &args)
-    : KCModule(parent, args),
-      m_widget(nullptr)
+    : KCModule(parent, args)
+    , m_widget(nullptr)
 {
-    KAboutData *about = new KAboutData(QStringLiteral("kcm_webshortcuts"), i18n("Web Search Keywords"),
-                                       QStringLiteral("0.1"), i18n("Configure enhanced browsing features"),
+    KAboutData *about = new KAboutData(QStringLiteral("kcm_webshortcuts"),
+                                       i18n("Web Search Keywords"),
+                                       QStringLiteral("0.1"),
+                                       i18n("Configure enhanced browsing features"),
                                        KAboutLicense::GPL);
     setAboutData(about);
 
@@ -34,12 +36,13 @@ KURIFilterModule::KURIFilterModule(QWidget *parent, const QVariantList &args)
 
     filter = KUriFilter::self();
 
-    setQuickHelp(i18n("<h1>Enhanced Browsing</h1> In this module you can configure some enhanced browsing"
-                      " features of KDE. "
-                      "<h2>Web Search Keywords</h2>Web Search Keywords are a quick way of using Web search engines. For example, type \"duckduckgo:frobozz\""
-                      " or \"dd:frobozz\" and your web browser will do a search on DuckDuckGo for \"frobozz\"."
-                      " Even easier: just press Alt+F2 (if you have not"
-                      " changed this keyboard shortcut) and enter the shortcut in the Run Command dialog."));
+    setQuickHelp(
+        i18n("<h1>Enhanced Browsing</h1> In this module you can configure some enhanced browsing"
+             " features of KDE. "
+             "<h2>Web Search Keywords</h2>Web Search Keywords are a quick way of using Web search engines. For example, type \"duckduckgo:frobozz\""
+             " or \"dd:frobozz\" and your web browser will do a search on DuckDuckGo for \"frobozz\"."
+             " Even easier: just press Alt+F2 (if you have not"
+             " changed this keyboard shortcut) and enter the shortcut in the Run Command dialog."));
 
     QVBoxLayout *layout = new QVBoxLayout(this);
 
@@ -56,8 +59,7 @@ KURIFilterModule::KURIFilterModule(QWidget *parent, const QVariantList &args)
                 if (module) {
                     modules.append(module);
                     helper.insert(plugin->configName(), module);
-                    connect(module, QOverload<bool>::of(&KCModule::changed),
-                            this, QOverload<bool>::of(&KCModule::changed));
+                    connect(module, QOverload<bool>::of(&KCModule::changed), this, QOverload<bool>::of(&KCModule::changed));
                 }
             }
         }

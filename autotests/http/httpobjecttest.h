@@ -22,11 +22,10 @@ class TestHTTPProtocol : public HTTPProtocol
 {
     Q_OBJECT
 public:
-    TestHTTPProtocol(const QByteArray &protocol, const QByteArray &pool,
-                     const QByteArray &app);
+    TestHTTPProtocol(const QByteArray &protocol, const QByteArray &pool, const QByteArray &app);
     virtual ~TestHTTPProtocol();
 
     void testParseContentDisposition(const QString &disposition);
 };
 
-#endif //HTTPOBJECTTEST_H
+#endif // HTTPOBJECTTEST_H

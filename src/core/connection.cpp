@@ -8,12 +8,11 @@
 */
 
 #include "connection_p.h"
-#include <QDebug>
 #include "connectionbackend_p.h"
 #include "kiocoredebug.h"
+#include <QDebug>
 
 #include <errno.h>
-
 
 using namespace KIO;
 
@@ -35,7 +34,7 @@ void ConnectionPrivate::dequeue()
 
 void ConnectionPrivate::commandReceived(const Task &task)
 {
-    //qDebug() << this << "Command " << task.cmd << " added to the queue";
+    // qDebug() << this << "Command " << task.cmd << " added to the queue";
     if (!suspended && incomingTasks.isEmpty() && readMode == Connection::ReadMode::EventDriven) {
         QMetaObject::invokeMethod(q, "dequeue", Qt::QueuedConnection);
     }
@@ -55,14 +54,19 @@ void ConnectionPrivate::setBackend(ConnectionBackend *b)
     delete backend;
     backend = b;
     if (backend) {
-        q->connect(backend, &ConnectionBackend::commandReceived, q, [this](const Task &task) { commandReceived(task); });
-        q->connect(backend, &ConnectionBackend::disconnected, q, [this]() { disconnected(); });
+        q->connect(backend, &ConnectionBackend::commandReceived, q, [this](const Task &task) {
+            commandReceived(task);
+        });
+        q->connect(backend, &ConnectionBackend::disconnected, q, [this]() {
+            disconnected();
+        });
         backend->setSuspended(suspended);
     }
 }
 
 Connection::Connection(QObject *parent)
-    : QObject(parent), d(new ConnectionPrivate)
+    : QObject(parent)
+    , d(new ConnectionPrivate)
 {
     d->q = this;
 }
@@ -75,7 +79,7 @@ Connection::~Connection()
 
 void Connection::suspend()
 {
-    //qDebug() << this << "Suspended";
+    // qDebug() << this << "Suspended";
     d->suspended = true;
     if (d->backend) {
         d->backend->setSuspended(true);
@@ -89,7 +93,7 @@ void Connection::resume()
         QMetaObject::invokeMethod(this, "dequeue", Qt::QueuedConnection);
     }
 
-    //qDebug() << this << "Resumed";
+    // qDebug() << this << "Resumed";
     d->suspended = false;
     if (d->backend) {
         d->backend->setSuspended(false);
@@ -124,7 +128,7 @@ bool Connection::suspended() const
 
 void Connection::connectToRemote(const QUrl &address)
 {
-    //qDebug() << "Connection requested to " << address;
+    // qDebug() << "Connection requested to " << address;
     const QString scheme = address.scheme();
 
     if (scheme == QLatin1String("local")) {
@@ -137,7 +141,7 @@ void Connection::connectToRemote(const QUrl &address)
 
     // connection succeeded
     if (!d->backend->connectToRemote(address)) {
-        //kWarning(7017) << "could not connect to" << address << "using scheme" << scheme ;
+        // kWarning(7017) << "could not connect to" << address << "using scheme" << scheme ;
         delete d->backend;
         d->backend = nullptr;
         return;
@@ -173,7 +177,7 @@ bool Connection::sendnow(int cmd, const QByteArray &data)
         return false;
     }
 
-    //qDebug() << this << "Sending command " << _cmd << " of size " << data.size();
+    // qDebug() << this << "Sending command " << _cmd << " of size " << data.size();
     return d->backend->sendCommand(cmd, data);
 }
 
@@ -198,11 +202,11 @@ int Connection::read(int *_cmd, QByteArray &data)
 {
     // if it's still empty, then it's an error
     if (d->incomingTasks.isEmpty()) {
-        //kWarning() << this << "Task list is empty!";
+        // kWarning() << this << "Task list is empty!";
         return -1;
     }
-    const Task& task = d->incomingTasks.constFirst();
-    //qDebug() << this << "Command " << task.cmd << " removed from the queue (size "
+    const Task &task = d->incomingTasks.constFirst();
+    // qDebug() << this << "Command " << task.cmd << " removed from the queue (size "
     //         << task.data.size() << ")";
     *_cmd = task.cmd;
     data = task.data;

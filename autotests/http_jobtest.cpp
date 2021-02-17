@@ -7,9 +7,9 @@
 
 #include <kio/job.h>
 
-#include <QTest>
 #include <QSignalSpy>
 #include <QStandardPaths>
+#include <QTest>
 
 #include "httpserver_p.h"
 

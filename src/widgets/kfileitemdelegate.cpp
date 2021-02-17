@@ -12,27 +12,27 @@
 #include <config-kiowidgets.h> // was for HAVE_XRENDER
 
 #include <QApplication>
-#include <QStyle>
-#include <QModelIndex>
-#include <QPainter>
 #include <QCache>
 #include <QImage>
-#include <QLocale>
-#include <QPainterPath>
-#include <QTextLayout>
 #include <QListView>
-#include <QPaintEngine>
-#include <qmath.h>
+#include <QLocale>
 #include <QMimeDatabase>
+#include <QModelIndex>
+#include <QPaintEngine>
+#include <QPainter>
+#include <QPainterPath>
+#include <QStyle>
 #include <QTextEdit>
+#include <QTextLayout>
+#include <qmath.h>
 
-#include <KLocalizedString>
-#include <KIconLoader>
+#include <KColorScheme>
 #include <KIconEffect>
+#include <KIconLoader>
+#include <KLocalizedString>
+#include <KStringHandler>
 #include <kdirmodel.h>
 #include <kfileitem.h>
-#include <KColorScheme>
-#include <KStringHandler>
 
 #include "delegateanimationhandler_p.h"
 
@@ -46,15 +46,16 @@ public:
     enum MarginType { ItemMargin = 0, TextMargin, IconMargin, NMargins };
 
     explicit Private(KFileItemDelegate *parent);
-    ~Private() {}
+    ~Private()
+    {
+    }
 
     QSize decorationSizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const;
     QSize displaySizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const;
     QString replaceNewlines(const QString &string) const;
     inline KFileItem fileItem(const QModelIndex &index) const;
     QString elidedText(QTextLayout &layout, const QStyleOptionViewItem &option, const QSize &maxSize) const;
-    QSize layoutText(QTextLayout &layout, const QStyleOptionViewItem &option,
-                     const QString &text, const QSize &constraints) const;
+    QSize layoutText(QTextLayout &layout, const QStyleOptionViewItem &option, const QString &text, const QSize &constraints) const;
     QSize layoutText(QTextLayout &layout, const QString &text, int maxWidth) const;
     inline void setLayoutOptions(QTextLayout &layout, const QStyleOptionViewItem &options) const;
     inline bool verticalLayout(const QStyleOptionViewItem &option) const;
@@ -76,12 +77,13 @@ public:
     QIcon decoration(const QStyleOptionViewItem &option, const QModelIndex &index) const;
     QPoint iconPosition(const QStyleOptionViewItem &option) const;
     QRect labelRectangle(const QStyleOptionViewItem &option, const QModelIndex &index) const;
-    void layoutTextItems(const QStyleOptionViewItem &option, const QModelIndex &index,
-                         QTextLayout *labelLayout, QTextLayout *infoLayout, QRect *textBoundingRect) const;
-    void drawTextItems(QPainter *painter, const QTextLayout &labelLayout, const QTextLayout &infoLayout,
-                       const QRect &textBoundingRect) const;
-    KIO::AnimationState *animationState(const QStyleOptionViewItem &option, const QModelIndex &index,
-                                        const QAbstractItemView *view) const;
+    void layoutTextItems(const QStyleOptionViewItem &option,
+                         const QModelIndex &index,
+                         QTextLayout *labelLayout,
+                         QTextLayout *infoLayout,
+                         QRect *textBoundingRect) const;
+    void drawTextItems(QPainter *painter, const QTextLayout &labelLayout, const QTextLayout &infoLayout, const QRect &textBoundingRect) const;
+    KIO::AnimationState *animationState(const QStyleOptionViewItem &option, const QModelIndex &index, const QAbstractItemView *view) const;
     void restartAnimation(KIO::AnimationState *state);
     QPixmap applyHoverEffect(const QPixmap &icon) const;
     QPixmap transition(const QPixmap &from, const QPixmap &to, qreal amount) const;
@@ -111,31 +113,36 @@ private:
 };
 
 KFileItemDelegate::Private::Private(KFileItemDelegate *parent)
-    : shadowColor(Qt::transparent), shadowOffset(1, 1), shadowBlur(2), maximumSize(0, 0),
-      showToolTipWhenElided(true), wrapMode(QTextOption::WrapAtWordBoundaryOrAnywhere), jobTransfersVisible(false),
-      animationHandler(new KIO::DelegateAnimationHandler(parent)), activeMargins(nullptr)
+    : shadowColor(Qt::transparent)
+    , shadowOffset(1, 1)
+    , shadowBlur(2)
+    , maximumSize(0, 0)
+    , showToolTipWhenElided(true)
+    , wrapMode(QTextOption::WrapAtWordBoundaryOrAnywhere)
+    , jobTransfersVisible(false)
+    , animationHandler(new KIO::DelegateAnimationHandler(parent))
+    , activeMargins(nullptr)
 {
 }
 
 void KFileItemDelegate::Private::setActiveMargins(Qt::Orientation layout)
 {
-    activeMargins = (layout == Qt::Horizontal ?
-                     horizontalMargin : verticalMargin);
+    activeMargins = (layout == Qt::Horizontal ? horizontalMargin : verticalMargin);
 }
 
 void KFileItemDelegate::Private::setVerticalMargin(MarginType type, int left, int top, int right, int bottom)
 {
-    verticalMargin[type].left   = left;
-    verticalMargin[type].right  = right;
-    verticalMargin[type].top    = top;
+    verticalMargin[type].left = left;
+    verticalMargin[type].right = right;
+    verticalMargin[type].top = top;
     verticalMargin[type].bottom = bottom;
 }
 
 void KFileItemDelegate::Private::setHorizontalMargin(MarginType type, int left, int top, int right, int bottom)
 {
-    horizontalMargin[type].left   = left;
-    horizontalMargin[type].right  = right;
-    horizontalMargin[type].top    = top;
+    horizontalMargin[type].left = left;
+    horizontalMargin[type].right = right;
+    horizontalMargin[type].top = top;
     horizontalMargin[type].bottom = bottom;
 }
 
@@ -200,8 +207,7 @@ QString KFileItemDelegate::Private::itemSize(const QModelIndex &index, const KFi
 }
 
 // Returns the additional information string, if one should be shown, or an empty string otherwise
-QString KFileItemDelegate::Private::information(const QStyleOptionViewItem &option, const QModelIndex &index,
-        const KFileItem &item) const
+QString KFileItemDelegate::Private::information(const QStyleOptionViewItem &option, const QModelIndex &index, const KFileItem &item) const
 {
     QString string;
 
@@ -299,8 +305,7 @@ QString KFileItemDelegate::Private::replaceNewlines(const QString &text) const
 }
 
 // Lays the text out in a rectangle no larger than constraints, eliding it as necessary
-QSize KFileItemDelegate::Private::layoutText(QTextLayout &layout, const QStyleOptionViewItem &option,
-        const QString &text, const QSize &constraints) const
+QSize KFileItemDelegate::Private::layoutText(QTextLayout &layout, const QStyleOptionViewItem &option, const QString &text, const QSize &constraints) const
 {
     const QSize size = layoutText(layout, text, constraints.width());
 
@@ -316,8 +321,8 @@ QSize KFileItemDelegate::Private::layoutText(QTextLayout &layout, const QStyleOp
 QSize KFileItemDelegate::Private::layoutText(QTextLayout &layout, const QString &text, int maxWidth) const
 {
     QFontMetrics metrics(layout.font());
-    int leading     = metrics.leading();
-    int height      = 0;
+    int leading = metrics.leading();
+    int height = 0;
     qreal widthUsed = 0;
     QTextLine line;
 
@@ -340,14 +345,13 @@ QSize KFileItemDelegate::Private::layoutText(QTextLayout &layout, const QString 
 // or word breaking the line if it's wider than the max width, and finally adding an
 // ellipses at the end of the last line, if there are more lines than will fit within
 // the vertical size constraints.
-QString KFileItemDelegate::Private::elidedText(QTextLayout &layout, const QStyleOptionViewItem &option,
-        const QSize &size) const
+QString KFileItemDelegate::Private::elidedText(QTextLayout &layout, const QStyleOptionViewItem &option, const QSize &size) const
 {
     const QString text = layout.text();
-    int maxWidth       = size.width();
-    int maxHeight      = size.height();
-    qreal height       = 0;
-    bool wrapText      = (option.features & QStyleOptionViewItem::WrapText);
+    int maxWidth = size.width();
+    int maxHeight = size.height();
+    qreal height = 0;
+    bool wrapText = (option.features & QStyleOptionViewItem::WrapText);
 
     // If the string contains a single line of text that shouldn't be word wrapped
     if (!wrapText && text.indexOf(QChar::LineSeparator) == -1) {
@@ -360,7 +364,7 @@ QString KFileItemDelegate::Private::elidedText(QTextLayout &layout, const QStyle
 
     for (int i = 0; i < layout.lineCount(); i++) {
         QTextLine line = layout.lineAt(i);
-        int start  = line.textStart();
+        int start = line.textStart();
         int length = line.textLength();
 
         height += option.fontMetrics.leading();
@@ -399,20 +403,16 @@ void KFileItemDelegate::Private::setLayoutOptions(QTextLayout &layout, const QSt
     layout.setTextOption(textoption);
 }
 
-QSize KFileItemDelegate::Private::displaySizeHint(const QStyleOptionViewItem &option,
-        const QModelIndex &index) const
+QSize KFileItemDelegate::Private::displaySizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     QString label = option.text;
     int maxWidth = 0;
     if (maximumSize.isEmpty()) {
-        maxWidth = verticalLayout(option) && (option.features & QStyleOptionViewItem::WrapText)
-                   ? option.decorationSize.width() + 10 : 32757;
+        maxWidth = verticalLayout(option) && (option.features & QStyleOptionViewItem::WrapText) ? option.decorationSize.width() + 10 : 32757;
     } else {
         const Margin &itemMargin = activeMargins[ItemMargin];
         const Margin &textMargin = activeMargins[TextMargin];
-        maxWidth = maximumSize.width() -
-                   (itemMargin.left + itemMargin.right) -
-                   (textMargin.left + textMargin.right);
+        maxWidth = maximumSize.width() - (itemMargin.left + itemMargin.right) - (textMargin.left + textMargin.right);
     }
 
     KFileItem item = fileItem(index);
@@ -439,8 +439,7 @@ QSize KFileItemDelegate::Private::displaySizeHint(const QStyleOptionViewItem &op
     return addMargin(size, TextMargin);
 }
 
-QSize KFileItemDelegate::Private::decorationSizeHint(const QStyleOptionViewItem &option,
-        const QModelIndex &index) const
+QSize KFileItemDelegate::Private::decorationSizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     if (index.column() > 0) {
         return QSize(0, 0);
@@ -461,8 +460,7 @@ QSize KFileItemDelegate::Private::decorationSizeHint(const QStyleOptionViewItem 
 
 bool KFileItemDelegate::Private::verticalLayout(const QStyleOptionViewItem &option) const
 {
-    return (option.decorationPosition == QStyleOptionViewItem::Top ||
-            option.decorationPosition == QStyleOptionViewItem::Bottom);
+    return (option.decorationPosition == QStyleOptionViewItem::Top || option.decorationPosition == QStyleOptionViewItem::Bottom);
 }
 
 // Converts a QVariant of type Brush or Color to a QBrush
@@ -539,9 +537,8 @@ void KFileItemDelegate::Private::restartAnimation(KIO::AnimationState *state)
     animationHandler->restartAnimation(state);
 }
 
-KIO::AnimationState *KFileItemDelegate::Private::animationState(const QStyleOptionViewItem &option,
-        const QModelIndex &index,
-        const QAbstractItemView *view) const
+KIO::AnimationState *
+KFileItemDelegate::Private::animationState(const QStyleOptionViewItem &option, const QModelIndex &index, const QAbstractItemView *view) const
 {
     if (!option.widget->style()->styleHint(QStyle::SH_Widget_Animate, nullptr, option.widget)) {
         return nullptr;
@@ -573,14 +570,13 @@ QPixmap KFileItemDelegate::Private::transition(const QPixmap &from, const QPixma
 #if defined(Q_OS_MAC)
     const bool usePixmap = false;
 #else
-    const bool usePixmap = from.paintEngine()->hasFeature(QPaintEngine::PorterDuff) &&
-                           from.paintEngine()->hasFeature(QPaintEngine::BlendModes);
+    const bool usePixmap = from.paintEngine()->hasFeature(QPaintEngine::PorterDuff) && from.paintEngine()->hasFeature(QPaintEngine::BlendModes);
 #endif
 
     // If the native paint engine supports Porter/Duff compositing and CompositionMode_Plus
     if (usePixmap) {
         QPixmap under = from;
-        QPixmap over  = to;
+        QPixmap over = to;
 
         QPainter p;
         p.begin(&over);
@@ -599,7 +595,7 @@ QPixmap KFileItemDelegate::Private::transition(const QPixmap &from, const QPixma
     } else {
         // Fall back to using QRasterPaintEngine to do the transition.
         QImage under = from.toImage();
-        QImage over  = to.toImage();
+        QImage over = to.toImage();
 
         QPainter p;
         p.begin(&over);
@@ -618,22 +614,24 @@ QPixmap KFileItemDelegate::Private::transition(const QPixmap &from, const QPixma
     }
 }
 
-void KFileItemDelegate::Private::layoutTextItems(const QStyleOptionViewItem &option, const QModelIndex &index,
-        QTextLayout *labelLayout, QTextLayout *infoLayout,
-        QRect *textBoundingRect) const
+void KFileItemDelegate::Private::layoutTextItems(const QStyleOptionViewItem &option,
+                                                 const QModelIndex &index,
+                                                 QTextLayout *labelLayout,
+                                                 QTextLayout *infoLayout,
+                                                 QRect *textBoundingRect) const
 {
-    KFileItem item       = fileItem(index);
-    const QString info   = information(option, index, item);
+    KFileItem item = fileItem(index);
+    const QString info = information(option, index, item);
     bool showInformation = false;
 
     setLayoutOptions(*labelLayout, option);
 
     const QRect textArea = labelRectangle(option, index);
-    QRect textRect       = subtractMargin(textArea, Private::TextMargin);
+    QRect textRect = subtractMargin(textArea, Private::TextMargin);
 
     // Sizes and constraints for the different text parts
     QSize maxLabelSize = textRect.size();
-    QSize maxInfoSize  = textRect.size();
+    QSize maxInfoSize = textRect.size();
     QSize labelSize;
     QSize infoSize;
 
@@ -667,8 +665,10 @@ void KFileItemDelegate::Private::layoutTextItems(const QStyleOptionViewItem &opt
     infoLayout->setPosition(QPointF(textRect.x(), textBoundingRect->y() + labelSize.height()));
 }
 
-void KFileItemDelegate::Private::drawTextItems(QPainter *painter, const QTextLayout &labelLayout,
-        const QTextLayout &infoLayout, const QRect &boundingRect) const
+void KFileItemDelegate::Private::drawTextItems(QPainter *painter,
+                                               const QTextLayout &labelLayout,
+                                               const QTextLayout &infoLayout,
+                                               const QRect &boundingRect) const
 {
     if (shadowColor.alpha() > 0) {
         QPixmap pixmap(boundingRect.size());
@@ -718,8 +718,7 @@ void KFileItemDelegate::Private::drawTextItems(QPainter *painter, const QTextLay
     }
 }
 
-void KFileItemDelegate::Private::initStyleOption(QStyleOptionViewItem *option,
-        const QModelIndex &index) const
+void KFileItemDelegate::Private::initStyleOption(QStyleOptionViewItem *option, const QModelIndex &index) const
 {
     const KFileItem item = fileItem(index);
     bool updateFontMetrics = false;
@@ -772,11 +771,11 @@ void KFileItemDelegate::Private::paintJobTransfers(QPainter *painter, const qrea
     painter->save();
     QSize iconSize = opt.icon.actualSize(opt.decorationSize);
     QPixmap downArrow = downArrowIcon.pixmap(iconSize * 0.30);
-    //corner (less x and y than bottom-right corner) that we will center the painter around
+    // corner (less x and y than bottom-right corner) that we will center the painter around
     QPoint bottomRightCorner = QPoint(iconPos.x() + iconSize.width() * 0.75, iconPos.y() + iconSize.height() * 0.60);
 
     QPainter pixmapPainter(&downArrow);
-    //make the icon transparent and such
+    // make the icon transparent and such
     pixmapPainter.setCompositionMode(QPainter::CompositionMode_DestinationIn);
     pixmapPainter.fillRect(downArrow.rect(), QColor(255, 255, 255, 110));
 
@@ -784,7 +783,7 @@ void KFileItemDelegate::Private::paintJobTransfers(QPainter *painter, const qrea
 
     painter->drawPixmap(-downArrow.size().width() * .50, -downArrow.size().height() * .50, downArrow);
 
-    //animate the circles by rotating the painter around the center point..
+    // animate the circles by rotating the painter around the center point..
     painter->rotate(jobAnimationAngle);
     painter->setPen(QColor(20, 20, 20, 80));
     painter->setBrush(QColor(250, 250, 250, 90));
@@ -792,13 +791,13 @@ void KFileItemDelegate::Private::paintJobTransfers(QPainter *painter, const qrea
     int radius = iconSize.width() * 0.04;
     int spacing = radius * 4.5;
 
-    //left
+    // left
     painter->drawEllipse(QPoint(-spacing, 0), radius, radius);
-    //right
+    // right
     painter->drawEllipse(QPoint(spacing, 0), radius, radius);
-    //up
+    // up
     painter->drawEllipse(QPoint(0, -spacing), radius, radius);
-    //down
+    // down
     painter->drawEllipse(QPoint(0, spacing), radius, radius);
     painter->restore();
 }
@@ -806,7 +805,8 @@ void KFileItemDelegate::Private::paintJobTransfers(QPainter *painter, const qrea
 // ---------------------------------------------------------------------------
 
 KFileItemDelegate::KFileItemDelegate(QObject *parent)
-    : QAbstractItemDelegate(parent), d(new Private(this))
+    : QAbstractItemDelegate(parent)
+    , d(new Private(this))
 {
     int focusHMargin = QApplication::style()->pixelMetric(QStyle::PM_FocusFrameHMargin);
     int focusVMargin = QApplication::style()->pixelMetric(QStyle::PM_FocusFrameVMargin);
@@ -847,16 +847,16 @@ QSize KFileItemDelegate::sizeHint(const QStyleOptionViewItem &option, const QMod
     d->initStyleOption(&opt, index);
     d->setActiveMargins(d->verticalLayout(opt) ? Qt::Vertical : Qt::Horizontal);
 
-    const QSize displaySize    = d->displaySizeHint(opt, index);
+    const QSize displaySize = d->displaySizeHint(opt, index);
     const QSize decorationSize = d->decorationSizeHint(opt, index);
 
     QSize size;
 
     if (d->verticalLayout(opt)) {
-        size.rwidth()  = qMax(displaySize.width(), decorationSize.width());
+        size.rwidth() = qMax(displaySize.width(), decorationSize.width());
         size.rheight() = decorationSize.height() + displaySize.height() + 1;
     } else {
-        size.rwidth()  = decorationSize.width() + displaySize.width() + 1;
+        size.rwidth() = decorationSize.width() + displaySize.width() + 1;
         size.rheight() = qMax(decorationSize.height(), displaySize.height());
     }
 
@@ -1024,10 +1024,7 @@ QIcon KFileItemDelegate::Private::decoration(const QStyleOptionViewItem &option,
 
 QRect KFileItemDelegate::Private::labelRectangle(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-    const QSize decoSize =
-        (index.column() == 0)
-            ? addMargin(option.decorationSize, Private::IconMargin)
-            : QSize(0, 0);
+    const QSize decoSize = (index.column() == 0) ? addMargin(option.decorationSize, Private::IconMargin) : QSize(0, 0);
     const QRect itemRect = subtractMargin(option.rect, Private::ItemMargin);
     QRect textArea(QPoint(0, 0), itemRect.size());
 
@@ -1092,21 +1089,19 @@ QPoint KFileItemDelegate::Private::iconPosition(const QStyleOptionViewItem &opti
     return iconRect.topLeft();
 }
 
-void KFileItemDelegate::Private::drawFocusRect(QPainter *painter, const QStyleOptionViewItem &option,
-        const QRect &rect) const
+void KFileItemDelegate::Private::drawFocusRect(QPainter *painter, const QStyleOptionViewItem &option, const QRect &rect) const
 {
     if (!(option.state & QStyle::State_HasFocus)) {
         return;
     }
 
     QStyleOptionFocusRect opt;
-    opt.direction       = option.direction;
-    opt.fontMetrics     = option.fontMetrics;
-    opt.palette         = option.palette;
-    opt.rect            = rect;
-    opt.state           = option.state | QStyle::State_KeyboardFocusChange | QStyle::State_Item;
-    opt.backgroundColor = option.palette.color(option.state & QStyle::State_Selected ?
-                          QPalette::Highlight : QPalette::Base);
+    opt.direction = option.direction;
+    opt.fontMetrics = option.fontMetrics;
+    opt.palette = option.palette;
+    opt.rect = rect;
+    opt.state = option.state | QStyle::State_KeyboardFocusChange | QStyle::State_Item;
+    opt.backgroundColor = option.palette.color(option.state & QStyle::State_Selected ? QPalette::Highlight : QPalette::Base);
 
     // Apparently some widget styles expect this hint to not be set
     painter->setRenderHint(QPainter::Antialiasing, false);
@@ -1117,8 +1112,7 @@ void KFileItemDelegate::Private::drawFocusRect(QPainter *painter, const QStyleOp
     painter->setRenderHint(QPainter::Antialiasing);
 }
 
-void KFileItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option,
-                              const QModelIndex &index) const
+void KFileItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     if (!index.isValid()) {
         return;
@@ -1145,9 +1139,8 @@ void KFileItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
     // ========================================================================
     KIO::AnimationState *state = d->animationState(opt, index, view);
     KIO::CachedRendering *cache = nullptr;
-    qreal progress = ((opt.state & QStyle::State_MouseOver) &&
-                      index.column() == KDirModel::Name) ? 1.0 : 0.0;
-    const QPoint iconPos   = d->iconPosition(opt);
+    qreal progress = ((opt.state & QStyle::State_MouseOver) && index.column() == KDirModel::Name) ? 1.0 : 0.0;
+    const QPoint iconPos = d->iconPosition(opt);
     QIcon::Mode iconMode;
 
     if (!(option.state & QStyle::State_Enabled)) {
@@ -1159,10 +1152,10 @@ void KFileItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
     }
 
     QIcon::State iconState = option.state & QStyle::State_Open ? QIcon::On : QIcon::Off;
-    QPixmap icon           = opt.icon.pixmap(opt.decorationSize, iconMode, iconState);
+    QPixmap icon = opt.icon.pixmap(opt.decorationSize, iconMode, iconState);
 
     if (state && !state->hasJobAnimation()) {
-        cache    = state->cachedRendering();
+        cache = state->cachedRendering();
         progress = state->hoverProgress();
         // Clear the mouse over bit temporarily
         opt.state &= ~QStyle::State_MouseOver;
@@ -1209,7 +1202,7 @@ void KFileItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
 
     // Compute the metrics, and lay out the text items
     // ========================================================================
-    const QPen pen         = QPen(d->foregroundBrush(opt, index), 0);
+    const QPen pen = QPen(d->foregroundBrush(opt, index), 0);
 
     //### Apply the selection effect to the icon when the item is selected and
     //     showDecorationSelected is false.
@@ -1223,8 +1216,7 @@ void KFileItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
 
     int focusHMargin = style->pixelMetric(QStyle::PM_FocusFrameHMargin);
     int focusVMargin = style->pixelMetric(QStyle::PM_FocusFrameVMargin);
-    QRect focusRect = textBoundingRect.adjusted(-focusHMargin, -focusVMargin,
-                      +focusHMargin, +focusVMargin);
+    QRect focusRect = textBoundingRect.adjusted(-focusHMargin, -focusVMargin, +focusHMargin, +focusVMargin);
 
     // Create a new cached rendering of a hovered and an unhovered item.
     // We don't create a new cache for a fully hovered item, since we don't
@@ -1308,8 +1300,7 @@ void KFileItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
     painter->restore();
 }
 
-QWidget *KFileItemDelegate::createEditor(QWidget *parent, const QStyleOptionViewItem &option,
-        const QModelIndex &index) const
+QWidget *KFileItemDelegate::createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     QStyleOptionViewItem opt(option);
     d->initStyleOption(&opt, index);
@@ -1319,12 +1310,11 @@ QWidget *KFileItemDelegate::createEditor(QWidget *parent, const QStyleOptionView
     edit->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     edit->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     edit->setAlignment(opt.displayAlignment);
-    edit->setEnabled(false); //Disable the text-edit to mark it as un-initialized
+    edit->setEnabled(false); // Disable the text-edit to mark it as un-initialized
     return edit;
 }
 
-bool KFileItemDelegate::editorEvent(QEvent *event, QAbstractItemModel *model, const QStyleOptionViewItem &option,
-                                    const QModelIndex &index)
+bool KFileItemDelegate::editorEvent(QEvent *event, QAbstractItemModel *model, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
     Q_UNUSED(event)
     Q_UNUSED(model)
@@ -1339,13 +1329,13 @@ void KFileItemDelegate::setEditorData(QWidget *editor, const QModelIndex &index)
     QTextEdit *textedit = qobject_cast<QTextEdit *>(editor);
     Q_ASSERT(textedit != nullptr);
 
-    //Do not update existing text that the user may already have edited.
-    //The models will call setEditorData(..) whenever the icon has changed,
-    //and this makes the editing work correctly despite that.
+    // Do not update existing text that the user may already have edited.
+    // The models will call setEditorData(..) whenever the icon has changed,
+    // and this makes the editing work correctly despite that.
     if (textedit->isEnabled()) {
         return;
     }
-    textedit->setEnabled(true); //Enable the text-edit to mark it as initialized
+    textedit->setEnabled(true); // Enable the text-edit to mark it as initialized
 
     const QVariant value = index.data(Qt::EditRole);
     const QString text = value.toString();
@@ -1373,8 +1363,7 @@ void KFileItemDelegate::setModelData(QWidget *editor, QAbstractItemModel *model,
     model->setData(index, textedit->toPlainText(), Qt::EditRole);
 }
 
-void KFileItemDelegate::updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option,
-        const QModelIndex &index) const
+void KFileItemDelegate::updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     QStyleOptionViewItem opt(option);
     d->initStyleOption(&opt, index);
@@ -1409,8 +1398,7 @@ void KFileItemDelegate::updateEditorGeometry(QWidget *editor, const QStyleOption
     editor->setGeometry(r);
 }
 
-bool KFileItemDelegate::helpEvent(QHelpEvent *event, QAbstractItemView *view, const QStyleOptionViewItem &option,
-                                  const QModelIndex &index)
+bool KFileItemDelegate::helpEvent(QHelpEvent *event, QAbstractItemView *view, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
     Q_UNUSED(event)
     Q_UNUSED(view)
@@ -1515,7 +1503,7 @@ bool KFileItemDelegate::eventFilter(QObject *object, QEvent *event)
         case Qt::Key_Return: {
             const QString text = editor->toPlainText();
             if (text.isEmpty() || (text == QLatin1Char('.')) || (text == QLatin1String(".."))) {
-                return true;    // So a newline doesn't get inserted
+                return true; // So a newline doesn't get inserted
             }
 
             Q_EMIT commitData(editor);
@@ -1547,4 +1535,3 @@ bool KFileItemDelegate::eventFilter(QObject *object, QEvent *event)
         return false;
     } // switch (event->type())
 }
-

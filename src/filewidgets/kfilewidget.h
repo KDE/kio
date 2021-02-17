@@ -15,8 +15,8 @@
 #ifndef KFILEWIDGET_H
 #define KFILEWIDGET_H
 
-#include "kiofilewidgets_export.h"
 #include "kfile.h"
+#include "kiofilewidgets_export.h"
 #include <QWidget>
 
 #include <memory>
@@ -49,35 +49,35 @@ class KIOFILEWIDGETS_EXPORT KFileWidget : public QWidget
     Q_OBJECT
 public:
     /**
-      * Constructs a file selector widget.
-      *
-      * @param startDir This can either be:
-      *         @li An empty URL (QUrl()) to start in the current working directory,
-      *             or the last directory where a file has been selected.
-      *         @li The path or URL of a starting directory.
-      *         @li An initial file name to select, with the starting directory being
-      *             the current working directory or the last directory where a file
-      *             has been selected.
-      *         @li The path or URL of a file, specifying both the starting directory and
-      *             an initially selected file name.
-      *         @li A URL of the form @c kfiledialog:///&lt;keyword&gt; to start in the
-      *             directory last used by a filedialog in the same application that
-      *             specified the same keyword.
-      *         @li A URL of the form @c kfiledialog:///&lt;keyword&gt;/&lt;filename&gt;
-      *             to start in the directory last used by a filedialog in the same
-      *             application that specified the same keyword, and to initially
-      *             select the specified filename.
-      *         @li A URL of the form @c kfiledialog:///&lt;keyword&gt;?global to start
-      *             in the directory last used by a filedialog in any application that
-      *             specified the same keyword.
-      *         @li A URL of the form @c kfiledialog:///&lt;keyword&gt;/&lt;filename&gt;?global
-      *             to start in the directory last used by a filedialog in any
-      *             application that specified the same keyword, and to initially
-      *             select the specified filename.
-      *
-      * @param parent The parent widget of this widget
-      *
-      */
+     * Constructs a file selector widget.
+     *
+     * @param startDir This can either be:
+     *         @li An empty URL (QUrl()) to start in the current working directory,
+     *             or the last directory where a file has been selected.
+     *         @li The path or URL of a starting directory.
+     *         @li An initial file name to select, with the starting directory being
+     *             the current working directory or the last directory where a file
+     *             has been selected.
+     *         @li The path or URL of a file, specifying both the starting directory and
+     *             an initially selected file name.
+     *         @li A URL of the form @c kfiledialog:///&lt;keyword&gt; to start in the
+     *             directory last used by a filedialog in the same application that
+     *             specified the same keyword.
+     *         @li A URL of the form @c kfiledialog:///&lt;keyword&gt;/&lt;filename&gt;
+     *             to start in the directory last used by a filedialog in the same
+     *             application that specified the same keyword, and to initially
+     *             select the specified filename.
+     *         @li A URL of the form @c kfiledialog:///&lt;keyword&gt;?global to start
+     *             in the directory last used by a filedialog in any application that
+     *             specified the same keyword.
+     *         @li A URL of the form @c kfiledialog:///&lt;keyword&gt;/&lt;filename&gt;?global
+     *             to start in the directory last used by a filedialog in any
+     *             application that specified the same keyword, and to initially
+     *             select the specified filename.
+     *
+     * @param parent The parent widget of this widget
+     *
+     */
     explicit KFileWidget(const QUrl &startDir, QWidget *parent = nullptr);
 
     /**
@@ -163,7 +163,7 @@ public:
 
     /**
      * Sets a list of URLs as preselected
-     * 
+     *
      * @see setSelectedUrl
      * @since 5.75
      */
@@ -282,8 +282,7 @@ public:
      *
      * Do not use in conjunction with setFilter()
      */
-    void setMimeFilter(const QStringList &types,
-                       const QString &defaultType = QString());
+    void setMimeFilter(const QStringList &types, const QString &defaultType = QString());
 
     /**
      * The MIME type for the desired output format.
@@ -534,14 +533,14 @@ protected:
 
 Q_SIGNALS:
     /**
-      * Emitted when the user selects a file. It is only emitted in single-
-      * selection mode. The best way to get notified about selected file(s)
-      * is to connect to the okClicked() signal inherited from KDialog
-      * and call selectedFile(), selectedFiles(),
-      * selectedUrl() or selectedUrls().
-      *
-      * \since 4.4
-      */
+     * Emitted when the user selects a file. It is only emitted in single-
+     * selection mode. The best way to get notified about selected file(s)
+     * is to connect to the okClicked() signal inherited from KDialog
+     * and call selectedFile(), selectedFiles(),
+     * selectedUrl() or selectedUrls().
+     *
+     * \since 4.4
+     */
     void fileSelected(const QUrl &);
 
     /**

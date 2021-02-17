@@ -13,7 +13,6 @@
 
 namespace KIO
 {
-
 class SpecialJobPrivate;
 
 /**

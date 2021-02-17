@@ -63,10 +63,10 @@ static bool isValidPercentEncoding(const QByteArray &data)
         if (i >= last - 2) {
             return false;
         }
-        if (! isxdigit(d[i + 1])) {
+        if (!isxdigit(d[i + 1])) {
             return false;
         }
-        if (! isxdigit(d[i + 2])) {
+        if (!isxdigit(d[i + 2])) {
             return false;
         }
         i++;
@@ -78,17 +78,17 @@ static bool isValidPercentEncoding(const QByteArray &data)
 QByteArray TokenIterator::next()
 {
     QPair<int, int> token = m_tokens[m_currentToken++];
-    //fromRawData brings some speed advantage but also the requirement to keep the text buffer
-    //around. this together with implicit sharing (you don't know where copies end up)
-    //is dangerous!
-    //return QByteArray::fromRawData(&m_buffer[token.first], token.second - token.first);
+    // fromRawData brings some speed advantage but also the requirement to keep the text buffer
+    // around. this together with implicit sharing (you don't know where copies end up)
+    // is dangerous!
+    // return QByteArray::fromRawData(&m_buffer[token.first], token.second - token.first);
     return QByteArray(&m_buffer[token.first], token.second - token.first);
 }
 
 QByteArray TokenIterator::current() const
 {
     QPair<int, int> token = m_tokens[m_currentToken - 1];
-    //return QByteArray::fromRawData(&m_buffer[token.first], token.second - token.first);
+    // return QByteArray::fromRawData(&m_buffer[token.first], token.second - token.first);
     return QByteArray(&m_buffer[token.first], token.second - token.first);
 }
 
@@ -109,15 +109,15 @@ HeaderTokenizer::HeaderTokenizer(char *buffer)
     // add information about available headers and whether they have one or multiple,
     // comma-separated values.
 
-    //The following response header fields are from RFC 2616 unless otherwise specified.
-    //Hint: search the web for e.g. 'http "accept-ranges header"' to find information about
-    //a header field.
+    // The following response header fields are from RFC 2616 unless otherwise specified.
+    // Hint: search the web for e.g. 'http "accept-ranges header"' to find information about
+    // a header field.
     static const HeaderFieldTemplate headerFieldTemplates[] = {
         {"accept-ranges", false},
         {"age", false},
         {"cache-control", true},
         {"connection", true},
-        {"content-disposition", false}, //is multi-valued in a way, but with ";" separator!
+        {"content-disposition", false}, // is multi-valued in a way, but with ";" separator!
         {"content-encoding", true},
         {"content-language", true},
         {"content-length", false},
@@ -125,27 +125,27 @@ HeaderTokenizer::HeaderTokenizer(char *buffer)
         {"content-md5", false},
         {"content-type", false},
         {"date", false},
-        {"dav", true}, //RFC 2518
+        {"dav", true}, // RFC 2518
         {"etag", false},
         {"expires", false},
-        {"keep-alive", true}, //RFC 2068
+        {"keep-alive", true}, // RFC 2068
         {"last-modified", false},
-        {"link", false}, //RFC 2068, multi-valued with ";" separator
+        {"link", false}, // RFC 2068, multi-valued with ";" separator
         {"location", false},
         {"p3p", true}, // http://www.w3.org/TR/P3P/
         {"pragma", true},
-        {"proxy-authenticate", false}, //complicated multi-valuedness: quoted commas don't separate
-        //multiple values. we handle this at a higher level.
-        {"proxy-connection", true}, //inofficial but well-known; to avoid misunderstandings
-        //when using "connection" when talking to a proxy.
-        {"refresh", false}, //not sure, only found some mailing list posts mentioning it
-        {"set-cookie", false}, //RFC 2109; the multi-valuedness seems to be usually achieved
-        //by sending several instances of this field as opposed to
-        //usually comma-separated lists with maybe multiple instances.
+        {"proxy-authenticate", false}, // complicated multi-valuedness: quoted commas don't separate
+        // multiple values. we handle this at a higher level.
+        {"proxy-connection", true}, // inofficial but well-known; to avoid misunderstandings
+        // when using "connection" when talking to a proxy.
+        {"refresh", false}, // not sure, only found some mailing list posts mentioning it
+        {"set-cookie", false}, // RFC 2109; the multi-valuedness seems to be usually achieved
+        // by sending several instances of this field as opposed to
+        // usually comma-separated lists with maybe multiple instances.
         {"transfer-encoding", true},
         {"upgrade", true},
         {"warning", true},
-        {"www-authenticate", false} //see proxy-authenticate
+        {"www-authenticate", false} // see proxy-authenticate
     };
 
     for (const HeaderFieldTemplate &ft : headerFieldTemplates) {
@@ -155,14 +155,13 @@ HeaderTokenizer::HeaderTokenizer(char *buffer)
 
 int HeaderTokenizer::tokenize(int begin, int end)
 {
-    char *buf = m_buffer;  //keep line length in check :/
+    char *buf = m_buffer; // keep line length in check :/
     int idx = begin;
-    int startIdx = begin; //multi-purpose start of current token
-    bool multiValuedEndedWithComma = false; //did the last multi-valued line end with a comma?
+    int startIdx = begin; // multi-purpose start of current token
+    bool multiValuedEndedWithComma = false; // did the last multi-valued line end with a comma?
     QByteArray headerKey;
     do {
-
-        if (buf[idx] == ' ' || buf [idx] == '\t') {
+        if (buf[idx] == ' ' || buf[idx] == '\t') {
             // line continuation; preserve startIdx except (see below)
             if (headerKey.isEmpty()) {
                 continue;
@@ -201,13 +200,13 @@ int HeaderTokenizer::tokenize(int begin, int end)
                 idx++;
             }
             if (buf[idx] != ':') {
-                //malformed line: no colon
+                // malformed line: no colon
                 headerKey.clear();
                 continue;
             }
             headerKey = QByteArray(&buf[startIdx], idx - startIdx);
             if (!contains(headerKey)) {
-                //we don't recognize this header line
+                // we don't recognize this header line
                 headerKey.clear();
                 continue;
             }
@@ -219,7 +218,6 @@ int HeaderTokenizer::tokenize(int begin, int end)
 
         // we have the name/key of the field, now parse the value
         if (!operator[](headerKey).isMultiValued) {
-
             // scan to end of line
             while (idx < end && buf[idx] != '\r' && buf[idx] != '\n') {
                 idx++;
@@ -234,10 +232,9 @@ int HeaderTokenizer::tokenize(int begin, int end)
             operator[](headerKey).beginEnd.append(QPair<int, int>(startIdx, idx));
 
         } else {
-
             // comma-separated list
             while (true) {
-                //skip one value
+                // skip one value
                 while (idx < end && buf[idx] != '\r' && buf[idx] != '\n' && buf[idx] != ',') {
                     idx++;
                 }
@@ -245,16 +242,16 @@ int HeaderTokenizer::tokenize(int begin, int end)
                     operator[](headerKey).beginEnd.append(QPair<int, int>(startIdx, idx));
                 }
                 multiValuedEndedWithComma = buf[idx] == ',';
-                //skip comma(s) and leading whitespace, if any respectively
+                // skip comma(s) and leading whitespace, if any respectively
                 while (idx < end && buf[idx] == ',') {
                     idx++;
                 }
                 skipSpace(buf, &idx, end);
-                //next value or end-of-line / end of header?
+                // next value or end-of-line / end of header?
                 if (buf[idx] >= end || buf[idx] == '\r' || buf[idx] == '\n') {
                     break;
                 }
-                //next value
+                // next value
                 startIdx = idx;
             }
         }
@@ -280,9 +277,9 @@ static void skipLWS(const QString &str, int &pos)
 }
 
 // keep the common ending, this allows the compiler to join them
-static const char typeSpecials[] =  "{}*'%()<>@,;:\\\"/[]?=";
-static const char attrSpecials[] =     "'%()<>@,;:\\\"/[]?=";
-static const char valueSpecials[] =      "()<>@,;:\\\"/[]?=";
+static const char typeSpecials[] = "{}*'%()<>@,;:\\\"/[]?=";
+static const char attrSpecials[] = "'%()<>@,;:\\\"/[]?=";
+static const char valueSpecials[] = "()<>@,;:\\\"/[]?=";
 
 static bool specialChar(const QChar &ch, const char *specials)
 {
@@ -401,7 +398,7 @@ static QString extractMaybeQuotedUntil(const QString &str, int &pos)
             ++pos;
         }
 
-        if (pos < str.length()) {  // Stopped due to finding term
+        if (pos < str.length()) { // Stopped due to finding term
             ++pos;
         }
 
@@ -418,8 +415,8 @@ static QMap<QString, QString> contentDispositionParserInternal(const QString &di
     const QString strDisposition = extractUntil(disposition, QLatin1Char(';'), pos, typeSpecials).toLower();
 
     QMap<QString, QString> parameters;
-    QMap<QString, QString> contparams;   // all parameters that contain continuations
-    QMap<QString, QString> encparams;    // all parameters that have character encoding
+    QMap<QString, QString> contparams; // all parameters that contain continuations
+    QMap<QString, QString> encparams; // all parameters that have character encoding
 
     // the type is invalid, the complete header is junk
     if (strDisposition.isEmpty()) {
@@ -536,7 +533,7 @@ static QMap<QString, QString> contentDispositionParserInternal(const QString &di
         const QStringRef charset = val.leftRef(spos);
         const QByteArray encodedVal = val.midRef(npos + 1).toLatin1();
 
-        if (! isValidPercentEncoding(encodedVal)) {
+        if (!isValidPercentEncoding(encodedVal)) {
             continue;
         }
 

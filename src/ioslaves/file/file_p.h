@@ -41,14 +41,37 @@ if (!dir.rmdir(itemPath)) {
 class PrivilegeOperationReturnValue
 {
 public:
-    static PrivilegeOperationReturnValue success() { return PrivilegeOperationReturnValue{false, 0}; }
-    static PrivilegeOperationReturnValue canceled() { return PrivilegeOperationReturnValue{true, ECANCELED}; }
-    static PrivilegeOperationReturnValue failure(int error) { return PrivilegeOperationReturnValue{false, error}; }
-    operator int() const { return m_error; }
-    bool operator==(int error) const { return m_error == error; }
-    bool wasCanceled() const { return m_canceled; }
+    static PrivilegeOperationReturnValue success()
+    {
+        return PrivilegeOperationReturnValue{false, 0};
+    }
+    static PrivilegeOperationReturnValue canceled()
+    {
+        return PrivilegeOperationReturnValue{true, ECANCELED};
+    }
+    static PrivilegeOperationReturnValue failure(int error)
+    {
+        return PrivilegeOperationReturnValue{false, error};
+    }
+    operator int() const
+    {
+        return m_error;
+    }
+    bool operator==(int error) const
+    {
+        return m_error == error;
+    }
+    bool wasCanceled() const
+    {
+        return m_canceled;
+    }
+
 private:
-    PrivilegeOperationReturnValue(bool canceled, int error) : m_canceled(canceled), m_error(error) {}
+    PrivilegeOperationReturnValue(bool canceled, int error)
+        : m_canceled(canceled)
+        , m_error(error)
+    {
+    }
     const bool m_canceled;
     const int m_error;
 };

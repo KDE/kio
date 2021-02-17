@@ -18,14 +18,15 @@ class KFileItemListPropertiesPrivate : public QSharedData
 {
 public:
     KFileItemListPropertiesPrivate()
-        : m_isDirectory(false),
-          m_isFile(false),
-          m_supportsReading(false),
-          m_supportsDeleting(false),
-          m_supportsWriting(false),
-          m_supportsMoving(false),
-          m_isLocal(true)
-    { }
+        : m_isDirectory(false)
+        , m_isFile(false)
+        , m_supportsReading(false)
+        , m_supportsDeleting(false)
+        , m_supportsWriting(false)
+        , m_supportsMoving(false)
+        , m_isLocal(true)
+    {
+    }
     void setItems(const KFileItemList &items);
 
     void determineMimeTypeAndGroup() const;
@@ -77,10 +78,10 @@ void KFileItemListPropertiesPrivate::setItems(const KFileItemList &items)
         bool isLocal = false;
         const QUrl url = item.mostLocalUrl(&isLocal);
         m_isLocal = m_isLocal && isLocal;
-        m_supportsReading  = m_supportsReading  && KProtocolManager::supportsReading(url);
+        m_supportsReading = m_supportsReading && KProtocolManager::supportsReading(url);
         m_supportsDeleting = m_supportsDeleting && KProtocolManager::supportsDeleting(url);
-        m_supportsWriting  = m_supportsWriting  && KProtocolManager::supportsWriting(url) && item.isWritable();
-        m_supportsMoving   = m_supportsMoving   && KProtocolManager::supportsMoving(url);
+        m_supportsWriting = m_supportsWriting && KProtocolManager::supportsWriting(url) && item.isWritable();
+        m_supportsMoving = m_supportsMoving && KProtocolManager::supportsMoving(url);
 
         // For local files we can do better: check if we have write permission in parent directory
         // TODO: if we knew about the parent KFileItem, we could even do that for remote protocols too
@@ -113,7 +114,8 @@ void KFileItemListPropertiesPrivate::setItems(const KFileItemList &items)
 
 KFileItemListProperties::KFileItemListProperties(const KFileItemListProperties &other)
     : d(other.d)
-{ }
+{
+}
 
 KFileItemListProperties &KFileItemListProperties::operator=(const KFileItemListProperties &other)
 {

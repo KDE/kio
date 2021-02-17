@@ -10,8 +10,8 @@
 
 #include "openorexecutefileinterface.h"
 
-namespace KIO {
-
+namespace KIO
+{
 // TODO KF6: Make KIO::JobUiDelegate inherit from WidgetsOpenOrExecuteFileHandler
 // (or even merge the two classes)
 // so that setDelegate(new KIO::JobUiDelegate) invokes the dialog boxes on error

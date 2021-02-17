@@ -52,7 +52,6 @@ class SlaveConfigPrivate;
 class KIOCORE_EXPORT KProtocolManager
 {
 public:
-
     /*=========================== USER-AGENT SETTINGS ===========================*/
 
     /**
@@ -90,8 +89,7 @@ public:
      *
      * @since 4.1
      */
-    static QString userAgentForApplication(const QString &appName, const QString &appVersion,
-                                           const QStringList &extraInfo = QStringList());
+    static QString userAgentForApplication(const QString &appName, const QString &appVersion, const QStringList &extraInfo = QStringList());
 
     /**
      * Returns the user-agent string configured for the
@@ -118,8 +116,7 @@ public:
      *
      * @since 4.1
      */
-    static bool getSystemNameVersionAndMachine(
-        QString &systemName, QString &systemVersion, QString &machine);
+    static bool getSystemNameVersionAndMachine(QString &systemName, QString &systemVersion, QString &machine);
 
     /*=========================== TIMEOUT CONFIG ================================*/
 

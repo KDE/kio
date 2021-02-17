@@ -9,15 +9,15 @@
 #ifndef KDIRNOTIFY_H
 #define KDIRNOTIFY_H
 
-#include <QObject>
+#include "kiocore_export.h"
 #include <QByteArray>
+#include <QDBusAbstractInterface>
 #include <QList>
 #include <QMap>
+#include <QObject>
 #include <QString>
 #include <QStringList>
 #include <QVariant>
-#include <QDBusAbstractInterface>
-#include "kiocore_export.h"
 
 class QDBusConnection;
 
@@ -53,7 +53,7 @@ class QDBusConnection;
  * The second usage is to actually emit the signals. For that emitFileRenamed() and friends are
  * to be used.
  */
-class KIOCORE_EXPORT OrgKdeKDirNotifyInterface: public QDBusAbstractInterface
+class KIOCORE_EXPORT OrgKdeKDirNotifyInterface : public QDBusAbstractInterface
 {
     Q_OBJECT
 public:
@@ -73,7 +73,10 @@ public:
      * \param connection Typically QDBusConnection::sessionBus().
      * \param parent The parent QObject.
      */
-    OrgKdeKDirNotifyInterface(const QString &service, const QString &path, const QDBusConnection &connection = QDBusConnection::sessionBus(), QObject *parent = nullptr);
+    OrgKdeKDirNotifyInterface(const QString &service,
+                              const QString &path,
+                              const QDBusConnection &connection = QDBusConnection::sessionBus(),
+                              QObject *parent = nullptr);
 
     /**
      * Destructor.

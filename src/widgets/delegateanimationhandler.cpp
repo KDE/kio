@@ -8,19 +8,18 @@
 #include "delegateanimationhandler_p.h"
 
 #include <QAbstractItemView>
+#include <QDebug>
 #include <QPersistentModelIndex>
 #include <QTime>
-#include <QDebug>
 
-#include <cmath>
 #include "kdirmodel.h"
 #include <QAbstractProxyModel>
+#include <cmath>
 
 #include "moc_delegateanimationhandler_p.cpp"
 
 namespace KIO
 {
-
 // Needed because state() is a protected method
 class ProtectedAccessor : public QAbstractItemView
 {
@@ -33,13 +32,17 @@ public:
 };
 
 // Debug output is disabled by default, use kdebugdialog to enable it
-//static int animationDebugArea() { static int s_area = KDebug::registerArea("kio (delegateanimationhandler)", false);
+// static int animationDebugArea() { static int s_area = KDebug::registerArea("kio (delegateanimationhandler)", false);
 //                                  return s_area; }
 
 // ---------------------------------------------------------------------------
 
 CachedRendering::CachedRendering(QStyle::State state, const QSize &size, const QModelIndex &index, qreal devicePixelRatio)
-    : state(state), regular(QPixmap(size*devicePixelRatio)), hover(QPixmap(size*devicePixelRatio)), valid(true), validityIndex(index)
+    : state(state)
+    , regular(QPixmap(size * devicePixelRatio))
+    , hover(QPixmap(size * devicePixelRatio))
+    , valid(true)
+    , validityIndex(index)
 {
     regular.setDevicePixelRatio(devicePixelRatio);
     hover.setDevicePixelRatio(devicePixelRatio);
@@ -47,17 +50,15 @@ CachedRendering::CachedRendering(QStyle::State state, const QSize &size, const Q
     hover.fill(Qt::transparent);
 
     if (index.model()) {
-        connect(index.model(), &QAbstractItemModel::dataChanged,
-                this, &CachedRendering::dataChanged);
-        connect(index.model(), &QAbstractItemModel::modelReset,
-                this, &CachedRendering::modelReset);
+        connect(index.model(), &QAbstractItemModel::dataChanged, this, &CachedRendering::dataChanged);
+        connect(index.model(), &QAbstractItemModel::modelReset, this, &CachedRendering::modelReset);
     }
 }
 
 void CachedRendering::dataChanged(const QModelIndex &topLeft, const QModelIndex &bottomRight)
 {
-    if (validityIndex.row() >= topLeft.row() && validityIndex.column() >= topLeft.column() &&
-            validityIndex.row() <= bottomRight.row() && validityIndex.column() <= bottomRight.column()) {
+    if (validityIndex.row() >= topLeft.row() && validityIndex.column() >= topLeft.column() && validityIndex.row() <= bottomRight.row()
+        && validityIndex.column() <= bottomRight.column()) {
         valid = false;
     }
 }
@@ -70,9 +71,15 @@ void CachedRendering::modelReset()
 // ---------------------------------------------------------------------------
 
 AnimationState::AnimationState(const QModelIndex &index)
-    : index(index), direction(QTimeLine::Forward),
-      animating(false), jobAnimation(false), progress(0.0), m_fadeProgress(1.0),
-      m_jobAnimationAngle(0.0), renderCache(nullptr), fadeFromRenderCache(nullptr)
+    : index(index)
+    , direction(QTimeLine::Forward)
+    , animating(false)
+    , jobAnimation(false)
+    , progress(0.0)
+    , m_fadeProgress(1.0)
+    , m_jobAnimationAngle(0.0)
+    , renderCache(nullptr)
+    , fadeFromRenderCache(nullptr)
 {
     creationTime.start();
 }
@@ -98,7 +105,7 @@ bool AnimationState::update()
     }
 
     if (fadeFromRenderCache) {
-        //Icon fading goes always forwards
+        // Icon fading goes always forwards
         m_fadeProgress = qMin(qreal(1.0), m_fadeProgress + delta);
         animating |= (m_fadeProgress < 1.0);
         if (m_fadeProgress == 1) {
@@ -114,11 +121,11 @@ bool AnimationState::update()
 
         if (index.model()->data(index, KDirModel::HasJobRole).toBool()) {
             animating = true;
-            //there is a job here still...
+            // there is a job here still...
             return false;
         } else {
             animating = false;
-            //there's no job here anymore, return true so we stop painting this.
+            // there's no job here anymore, return true so we stop painting this.
             return true;
         }
     } else {
@@ -163,7 +170,8 @@ DelegateAnimationHandler::DelegateAnimationHandler(QObject *parent)
 {
     iconSequenceTimer.setSingleShot(true);
     iconSequenceTimer.setInterval(switchIconInterval);
-    connect(&iconSequenceTimer, &QTimer::timeout, this, &DelegateAnimationHandler::sequenceTimerTimeout);;
+    connect(&iconSequenceTimer, &QTimer::timeout, this, &DelegateAnimationHandler::sequenceTimerTimeout);
+    ;
 }
 
 DelegateAnimationHandler::~DelegateAnimationHandler()
@@ -192,7 +200,7 @@ void DelegateAnimationHandler::sequenceTimerTimeout()
 
     KDirModel *dirModel = dynamic_cast<KDirModel *>(model);
     if (dirModel) {
-        //qDebug() << "requesting" << currentSequenceIndex;
+        // qDebug() << "requesting" << currentSequenceIndex;
         dirModel->requestSequenceIcon(index, currentSequenceIndex);
         iconSequenceTimer.start(); // Some upper-bound interval is needed, in case items are not generated
     }
@@ -202,47 +210,45 @@ void DelegateAnimationHandler::gotNewIcon(const QModelIndex &index)
 {
     Q_UNUSED(index);
 
-    //qDebug() << currentSequenceIndex;
+    // qDebug() << currentSequenceIndex;
     if (sequenceModelIndex.isValid() && currentSequenceIndex) {
         iconSequenceTimer.start();
     }
-//   if(index ==sequenceModelIndex) //Leads to problems
+    //   if(index ==sequenceModelIndex) //Leads to problems
     ++currentSequenceIndex;
 }
 
 void DelegateAnimationHandler::setSequenceIndex(int sequenceIndex)
 {
-    //qDebug() << sequenceIndex;
+    // qDebug() << sequenceIndex;
 
     if (sequenceIndex > 0) {
         currentSequenceIndex = sequenceIndex;
         iconSequenceTimer.start();
     } else {
         currentSequenceIndex = 0;
-        sequenceTimerTimeout(); //Set the icon back to the standard one
-        currentSequenceIndex = 0; //currentSequenceIndex was incremented, set it back to 0
+        sequenceTimerTimeout(); // Set the icon back to the standard one
+        currentSequenceIndex = 0; // currentSequenceIndex was incremented, set it back to 0
         iconSequenceTimer.stop();
     }
 }
 
 void DelegateAnimationHandler::eventuallyStartIteration(const QModelIndex &index)
 {
-//      if (KGlobalSettings::graphicEffectsLevel() & KGlobalSettings::SimpleAnimationEffects) {
-    ///Think about it.
+    //      if (KGlobalSettings::graphicEffectsLevel() & KGlobalSettings::SimpleAnimationEffects) {
+    /// Think about it.
 
     if (sequenceModelIndex.isValid()) {
-        setSequenceIndex(0);    // Stop old iteration, and reset the icon for the old iteration
+        setSequenceIndex(0); // Stop old iteration, and reset the icon for the old iteration
     }
 
     // Start sequence iteration
     sequenceModelIndex = index;
     setSequenceIndex(1);
-//      }
+    //      }
 }
 
-AnimationState *DelegateAnimationHandler::animationState(const QStyleOption &option,
-        const QModelIndex &index,
-        const QAbstractItemView *view)
+AnimationState *DelegateAnimationHandler::animationState(const QStyleOption &option, const QModelIndex &index, const QAbstractItemView *view)
 {
     // We can't do animations reliably when an item is being dragged, since that
     // item will be drawn in two locations at the same time and hovered in one and
@@ -259,12 +265,11 @@ AnimationState *DelegateAnimationHandler::animationState(const QStyleOption &opt
         state = new AnimationState(index);
         addAnimationState(state, view);
 
-        if (!fadeInAddTime.isValid() ||
-                (fadeInAddTime.isValid() && fadeInAddTime.elapsed() > 300)) {
+        if (!fadeInAddTime.isValid() || (fadeInAddTime.isValid() && fadeInAddTime.elapsed() > 300)) {
             startAnimation(state);
         } else {
             state->animating = false;
-            state->progress  = 1.0;
+            state->progress = 1.0;
             state->direction = QTimeLine::Forward;
         }
 
@@ -310,8 +315,7 @@ AnimationState *DelegateAnimationHandler::animationState(const QStyleOption &opt
     return state;
 }
 
-AnimationState *DelegateAnimationHandler::findAnimationState(const QAbstractItemView *view,
-        const QModelIndex &index) const
+AnimationState *DelegateAnimationHandler::findAnimationState(const QAbstractItemView *view, const QModelIndex &index) const
 {
     // Try to find a list of animation states for the view
     const AnimationList *list = animationLists.value(view);
@@ -352,7 +356,7 @@ void DelegateAnimationHandler::startAnimation(AnimationState *state)
     state->animating = true;
 
     if (!timer.isActive()) {
-        timer.start(1000 / 30, this);    // 30 fps
+        timer.start(1000 / 30, this); // 30 fps
     }
 }
 

@@ -16,16 +16,13 @@
 class QTimer;
 
 // don't forget to sync DISPATCH_IMPL in dataslave_p.h
-#define DISPATCH_DECL(type) \
-    void dispatch_##type();
+#define DISPATCH_DECL(type) void dispatch_##type();
 
 // don't forget to sync DISPATCH_IMPL1 in dataslave_p.h
-#define DISPATCH_DECL1(type, paramtype, param) \
-    void dispatch_##type(paramtype param);
+#define DISPATCH_DECL1(type, paramtype, param) void dispatch_##type(paramtype param);
 
 namespace KIO
 {
-
 /**
  * This class provides a high performance implementation for the data
  * url scheme (rfc2397).
@@ -43,8 +40,7 @@ public:
 
     ~DataSlave() override;
 
-    virtual void setHost(const QString &host, quint16 port,
-                         const QString &user, const QString &passwd) override;
+    virtual void setHost(const QString &host, quint16 port, const QString &user, const QString &passwd) override;
     void setConfig(const MetaData &config) override;
 
     void suspend() override;
@@ -60,7 +56,7 @@ public:
 
 protected:
     /**
-    * Sets metadata
+     * Sets metadata
      * @internal
      */
     void setAllMetaData(const MetaData &);
@@ -72,9 +68,13 @@ protected:
 
     // queuing methods
     /** identifiers of functions to be queued */
-    enum QueueType { Queue_mimeType = 1, Queue_totalSize,
-                     Queue_sendMetaData, Queue_data, Queue_finished,
-                   };
+    enum QueueType {
+        Queue_mimeType = 1,
+        Queue_totalSize,
+        Queue_sendMetaData,
+        Queue_data,
+        Queue_finished,
+    };
     /** structure for queuing. It is very primitive, it doesn't
      * even try to conserve memory.
      */
@@ -84,8 +84,13 @@ protected:
         KIO::filesize_t size;
         QByteArray ba;
 
-        QueueStruct() {}
-        QueueStruct(QueueType type) : type(type) {}
+        QueueStruct()
+        {
+        }
+        QueueStruct(QueueType type)
+            : type(type)
+        {
+        }
     };
     typedef QList<QueueStruct> DispatchQueue;
     DispatchQueue dispatchQueue;
@@ -101,6 +106,7 @@ protected Q_SLOTS:
      * queued methods.
      */
     void dispatchNext();
+
 private:
     MetaData meta_data;
     bool _suspended;

@@ -6,9 +6,9 @@
 */
 
 #include <QApplication>
-#include <kencodingfiledialog.h>
-#include <QUrl>
 #include <QDebug>
+#include <QUrl>
+#include <kencodingfiledialog.h>
 
 int main(int argc, char **argv)
 {
@@ -19,4 +19,3 @@ int main(int argc, char **argv)
 
     return 0;
 }
-

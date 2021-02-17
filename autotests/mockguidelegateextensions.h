@@ -15,7 +15,10 @@
 class MockOpenOrExecuteHandler : public KIO::OpenOrExecuteFileInterface
 {
 public:
-    explicit MockOpenOrExecuteHandler(QObject *parent) : KIO::OpenOrExecuteFileInterface(parent) {}
+    explicit MockOpenOrExecuteHandler(QObject *parent)
+        : KIO::OpenOrExecuteFileInterface(parent)
+    {
+    }
     void promptUserOpenOrExecute(KJob *job, const QString &mimeType) override
     {
         Q_UNUSED(job)
@@ -29,8 +32,14 @@ public:
         Q_EMIT executeFile(m_executeFile);
     }
 
-    void setExecuteFile(bool b) { m_executeFile = b; }
-    void setCanceled() { m_cancelIt = true; }
+    void setExecuteFile(bool b)
+    {
+        m_executeFile = b;
+    }
+    void setCanceled()
+    {
+        m_cancelIt = true;
+    }
 
 private:
     bool m_executeFile = false;
@@ -40,7 +49,10 @@ private:
 class MockOpenWithHandler : public KIO::OpenWithHandlerInterface
 {
 public:
-    explicit MockOpenWithHandler(QObject *parent) : KIO::OpenWithHandlerInterface(parent) {}
+    explicit MockOpenWithHandler(QObject *parent)
+        : KIO::OpenWithHandlerInterface(parent)
+    {
+    }
     void promptUserForApplication(KJob *job, const QList<QUrl> &url, const QString &mimeType) override
     {
         Q_UNUSED(job);

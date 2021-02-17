@@ -12,11 +12,10 @@
 
 namespace KDEPrivate
 {
-
-KUrlNavigatorMenu::KUrlNavigatorMenu(QWidget *parent) :
-    QMenu(parent),
-    m_initialMousePosition(QCursor::pos()),
-    m_mouseMoved(false)
+KUrlNavigatorMenu::KUrlNavigatorMenu(QWidget *parent)
+    : QMenu(parent)
+    , m_initialMousePosition(QCursor::pos())
+    , m_mouseMoved(false)
 {
     setAcceptDrops(true);
     setMouseTracking(true);
@@ -35,8 +34,7 @@ void KUrlNavigatorMenu::dragEnterEvent(QDragEnterEvent *event)
 
 void KUrlNavigatorMenu::dragMoveEvent(QDragMoveEvent *event)
 {
-    QMouseEvent mouseEvent(QMouseEvent(QEvent::MouseMove, event->pos(),
-                                       Qt::LeftButton, event->mouseButtons(), event->keyboardModifiers()));
+    QMouseEvent mouseEvent(QMouseEvent(QEvent::MouseMove, event->pos(), Qt::LeftButton, event->mouseButtons(), event->keyboardModifiers()));
     mouseMoveEvent(&mouseEvent);
 }
 

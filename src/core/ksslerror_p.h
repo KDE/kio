@@ -5,7 +5,6 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-
 #ifndef KSSLERROR_P_H
 #define KSSLERROR_P_H
 

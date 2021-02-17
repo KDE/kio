@@ -8,20 +8,21 @@
 */
 
 #include "kuriikwsfilter.h"
+#include "ikwsopts.h"
 #include "kuriikwsfiltereng.h"
 #include "searchprovider.h"
-#include "ikwsopts.h"
 
-#include <KPluginFactory>
 #include <KLocalizedString>
+#include <KPluginFactory>
 
 #include <QDBusConnection>
 #include <QLoggingCategory>
 
-#define QL1S(x)  QLatin1String(x)
-#define QL1C(x)  QLatin1Char(x)
+#define QL1S(x) QLatin1String(x)
+#define QL1C(x) QLatin1Char(x)
 
-namespace {
+namespace
+{
 Q_LOGGING_CATEGORY(category, "kf.kio.urifilters.ikws", QtWarningMsg)
 }
 
@@ -35,8 +36,8 @@ K_PLUGIN_CLASS_WITH_JSON(KAutoWebSearch, "kuriikwsfilter.json")
 KAutoWebSearch::KAutoWebSearch(QObject *parent, const QVariantList &)
     : KUriFilterPlugin(QStringLiteral("kuriikwsfilter"), parent)
 {
-    QDBusConnection::sessionBus().connect(QString(), QStringLiteral("/"), QStringLiteral("org.kde.KUriFilterPlugin"),
-                                          QStringLiteral("configure"), this, SLOT(configure()));
+    QDBusConnection::sessionBus()
+        .connect(QString(), QStringLiteral("/"), QStringLiteral("org.kde.KUriFilterPlugin"), QStringLiteral("configure"), this, SLOT(configure()));
 }
 
 KAutoWebSearch::~KAutoWebSearch()
@@ -77,8 +78,7 @@ void KAutoWebSearch::populateProvidersList(QList<KUriFilterSearchProvider *> &se
         }
 
         QStringListIterator it(favEngines);
-        while (it.hasNext())
-        {
+        while (it.hasNext()) {
             SearchProvider *favProvider = filter->registry()->findByDesktopName(it.next());
             if (favProvider) {
                 providers << favProvider;
@@ -132,8 +132,7 @@ bool KAutoWebSearch::filterUri(KUriFilterData &data) const
         KURISearchFilterEngine *filter = KURISearchFilterEngine::self();
         SearchProvider *provider = filter->autoWebSearchQuery(data.typedString(), data.alternateDefaultSearchProvider());
         if (provider) {
-            const QUrl result = filter->formatResult(provider->query(), provider->charset(),
-                                                     QString(), data.typedString(), true);
+            const QUrl result = filter->formatResult(provider->query(), provider->charset(), QString(), data.typedString(), true);
             setFilteredUri(data, result);
             setUriType(data, KUriFilterData::NetProtocol);
             setSearchProvider(data, provider->name(), data.typedString(), QL1C(filter->keywordDelimiter()));

@@ -4,14 +4,14 @@
     SPDX-License-Identifier: LGPL-2.0-only
 */
 
-#include <QFile>
-#include <QUrl>
-#include <kprotocolmanager.h>
 #include <KConfig>
 #include <KConfigGroup>
 #include <QDebug>
-#include <QTest>
+#include <QFile>
 #include <QStandardPaths>
+#include <QTest>
+#include <QUrl>
+#include <kprotocolmanager.h>
 
 // Tests both KProtocolInfo and KProtocolManager
 
@@ -122,7 +122,7 @@ void KProtocolInfoTest::testCapabilities()
 {
     QStringList capabilities = KProtocolInfo::capabilities(QStringLiteral("imap"));
     qDebug() << "kio_imap capabilities: " << capabilities;
-    //QVERIFY(capabilities.contains("ACL"));
+    // QVERIFY(capabilities.contains("ACL"));
 }
 
 void KProtocolInfoTest::testProtocolForArchiveMimetype()
@@ -143,7 +143,7 @@ void KProtocolInfoTest::testHelperProtocols()
     QVERIFY(!KProtocolInfo::isHelperProtocol(QStringLiteral("unknown")));
     // Comes from ktelnetservice.desktop:MimeType=x-scheme-handler/telnet;x-scheme-handler/rlogin;x-scheme-handler/ssh;
     // TODO: this logic has moved to KRun. Should it be public API, so we can unittest it?
-    //QVERIFY(KProtocolInfo::isHelperProtocol("telnet"));
+    // QVERIFY(KProtocolInfo::isHelperProtocol("telnet"));
 
     // To test that compat still works
     if (KProtocolInfo::isKnownProtocol(QStringLiteral("tel"))) {

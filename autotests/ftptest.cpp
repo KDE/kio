@@ -33,7 +33,7 @@ private Q_SLOTS:
     {
         QVERIFY(remoteDir.isValid());
         proc.setProgram(RubyExe_EXECUTABLE);
-        proc.setArguments({ QFINDTESTDATA("ftpd"), QStringLiteral("0"), remoteDir.path() });
+        proc.setArguments({QFINDTESTDATA("ftpd"), QStringLiteral("0"), remoteDir.path()});
         proc.setProcessChannelMode(QProcess::ForwardedOutputChannel);
         qDebug() << proc.arguments();
         proc.start();
@@ -41,19 +41,21 @@ private Q_SLOTS:
         QCOMPARE(proc.state(), QProcess::Running);
         // Wait for the daemon to print its port. That tells us both where it's listening
         // and also that it is ready to move ahead with testing.
-        QVERIFY(QTest::qWaitFor([&]() -> bool {
-            const QString err = proc.readAllStandardError();
-            if (!err.isEmpty()) {
-                qDebug() << "STDERR:" << err;
-            }
-            if (!err.startsWith("port = ")) {
-                return false;
-            }
-            bool ok = false;
-            const int port = err.split(" = ").at(1).toInt(&ok);
-            url.setPort(port);
-            return ok;
-        }, 8000));
+        QVERIFY(QTest::qWaitFor(
+            [&]() -> bool {
+                const QString err = proc.readAllStandardError();
+                if (!err.isEmpty()) {
+                    qDebug() << "STDERR:" << err;
+                }
+                if (!err.startsWith("port = ")) {
+                    return false;
+                }
+                bool ok = false;
+                const int port = err.split(" = ").at(1).toInt(&ok);
+                url.setPort(port);
+                return ok;
+            },
+            8000));
     }
 
     void initTestCase()
@@ -67,8 +69,7 @@ private Q_SLOTS:
         runDaemon(m_daemonProc, m_url, m_remoteDir);
         // Once it's started we can simply forward the output. Possibly should do the
         // same for stdout so it has a prefix.
-        connect(&m_daemonProc, &QProcess::readyReadStandardError,
-                this, [this] {
+        connect(&m_daemonProc, &QProcess::readyReadStandardError, this, [this] {
             qDebug() << "ftpd STDERR:" << m_daemonProc.readAllStandardError();
         });
 
@@ -116,7 +117,7 @@ private Q_SLOTS:
         QFile::remove(remotePath);
         QFile::remove(partPath);
 
-        auto job = KIO::copy({ QUrl::fromLocalFile(QFINDTESTDATA("ftp/testCopy1")) }, url, KIO::DefaultFlags);
+        auto job = KIO::copy({QUrl::fromLocalFile(QFINDTESTDATA("ftp/testCopy1"))}, url, KIO::DefaultFlags);
         job->setUiDelegate(nullptr);
         QVERIFY2(job->exec(), qUtf8Printable(job->errorString()));
         QCOMPARE(job->error(), 0);
@@ -135,10 +136,9 @@ private Q_SLOTS:
 
         QFile::remove(remotePath);
         QFile::remove(partPath);
-        QVERIFY(QFile::copy(QFINDTESTDATA("ftp/testCopy1"),
-                            partPath));
+        QVERIFY(QFile::copy(QFINDTESTDATA("ftp/testCopy1"), partPath));
 
-        auto job = KIO::copy({ QUrl::fromLocalFile(QFINDTESTDATA("ftp/testCopy2")) }, url, KIO::Resume);
+        auto job = KIO::copy({QUrl::fromLocalFile(QFINDTESTDATA("ftp/testCopy2"))}, url, KIO::Resume);
         job->setUiDelegate(nullptr);
         QVERIFY2(job->exec(), qUtf8Printable(job->errorString()));
         QCOMPARE(job->error(), 0);
@@ -153,7 +153,7 @@ private Q_SLOTS:
         const QString inaccessiblePath("/testCopy.__inaccessiblePath__");
         auto inaccessibleUrl = this->url(inaccessiblePath);
 
-        auto job = KIO::copy({ QUrl::fromLocalFile(QFINDTESTDATA("ftp/testCopy1")) }, inaccessibleUrl, KIO::Resume);
+        auto job = KIO::copy({QUrl::fromLocalFile(QFINDTESTDATA("ftp/testCopy1"))}, inaccessibleUrl, KIO::Resume);
         job->setUiDelegate(nullptr);
         QVERIFY(!job->exec());
         QCOMPARE(job->error(), KIO::ERR_CANNOT_WRITE);
@@ -168,10 +168,9 @@ private Q_SLOTS:
         inaccessibleUrl.setUserInfo("user");
         inaccessibleUrl.setPassword("password");
         const QString remoteInaccessiblePath = m_remoteDir.path() + inaccessiblePath;
-        QVERIFY(QFile::copy(QFINDTESTDATA("ftp/testCopy1"),
-                            remoteInaccessiblePath + ".part"));
+        QVERIFY(QFile::copy(QFINDTESTDATA("ftp/testCopy1"), remoteInaccessiblePath + ".part"));
 
-        auto job = KIO::copy({ QUrl::fromLocalFile(QFINDTESTDATA("ftp/testCopy2")) }, inaccessibleUrl, KIO::Resume);
+        auto job = KIO::copy({QUrl::fromLocalFile(QFINDTESTDATA("ftp/testCopy2"))}, inaccessibleUrl, KIO::Resume);
         job->setUiDelegate(nullptr);
         QVERIFY(!job->exec());
         QCOMPARE(job->error(), KIO::ERR_CANNOT_WRITE);
@@ -185,11 +184,10 @@ private Q_SLOTS:
         const auto url = this->url(path);
 
         qDebug() << (m_remoteDir.path() + path);
-        QVERIFY(QFile::copy(QFINDTESTDATA("ftp/testOverwriteCopy1"),
-                            m_remoteDir.path() + path));
+        QVERIFY(QFile::copy(QFINDTESTDATA("ftp/testOverwriteCopy1"), m_remoteDir.path() + path));
 
         // File already exists, we expect it to be overwritten.
-        auto job = KIO::copy({ QUrl::fromLocalFile(QFINDTESTDATA("ftp/testOverwriteCopy2")) }, url, KIO::Overwrite);
+        auto job = KIO::copy({QUrl::fromLocalFile(QFINDTESTDATA("ftp/testOverwriteCopy2"))}, url, KIO::Overwrite);
         job->setUiDelegate(nullptr);
         QVERIFY2(job->exec(), qUtf8Printable(job->errorString()));
         QCOMPARE(job->error(), 0);
@@ -205,12 +203,11 @@ private Q_SLOTS:
         const auto url = this->url(path);
 
         qDebug() << (m_remoteDir.path() + path);
-        QVERIFY(QFile::copy(QFINDTESTDATA("ftp/testOverwriteCopy1"),
-                            m_remoteDir.path() + path));
+        QVERIFY(QFile::copy(QFINDTESTDATA("ftp/testOverwriteCopy1"), m_remoteDir.path() + path));
 
         // Without overwrite flag.
         // https://bugs.kde.org/show_bug.cgi?id=409954
-        auto job = KIO::copy({ QUrl::fromLocalFile(QFINDTESTDATA("ftp/testOverwriteCopy2")) }, url, KIO::DefaultFlags);
+        auto job = KIO::copy({QUrl::fromLocalFile(QFINDTESTDATA("ftp/testOverwriteCopy2"))}, url, KIO::DefaultFlags);
         job->setUiDelegate(nullptr);
         QVERIFY2(!job->exec(), qUtf8Printable(job->errorString()));
         QCOMPARE(job->error(), KIO::ERR_FILE_ALREADY_EXIST);

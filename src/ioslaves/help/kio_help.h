@@ -22,21 +22,20 @@
 class HelpProtocol : public KIO::SlaveBase
 {
 public:
-
     HelpProtocol(bool ghelp, const QByteArray &pool, const QByteArray &app);
-    virtual ~HelpProtocol() { }
+    virtual ~HelpProtocol()
+    {
+    }
 
     void get(const QUrl &url) override;
 
     void mimetype(const QUrl &url) override;
 
 private:
-
     QString langLookup(const QString &fname);
     void emitFile(const QUrl &url);
     void get_file(const QString &path);
-    QString lookupFile(const QString &fname, const QString &query,
-                       bool &redirect);
+    QString lookupFile(const QString &fname, const QString &query, bool &redirect);
 
     void sendError(const QString &t);
 

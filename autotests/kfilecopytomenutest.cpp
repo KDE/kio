@@ -5,16 +5,16 @@
     SPDX-License-Identifier: LGPL-2.0-only OR LGPL-3.0-only OR LicenseRef-KDE-Accepted-LGPL
 */
 
-#include <QTest>
-#include <QSignalSpy>
 #include <QMenu>
+#include <QSignalSpy>
 #include <QTemporaryDir>
+#include <QTest>
 
-#include <KConfigGroup>
-#include <KSharedConfig>
-#include <KFileCopyToMenu>
-#include "kiotesthelper.h"
 #include "jobuidelegatefactory.h"
+#include "kiotesthelper.h"
+#include <KConfigGroup>
+#include <KFileCopyToMenu>
+#include <KSharedConfig>
 
 #include <KIO/CopyJob>
 
@@ -42,10 +42,9 @@ private Q_SLOTS:
 
         // Set a recent dir
         KConfigGroup recentDirsGroup(KSharedConfig::openConfig(), "kuick-copy");
-        m_recentDirs
-                << m_destDir + QStringLiteral("/nonexistentsubdir") // will be action number count-3
-                << m_nonWritableTempDir.path() // will be action number count-2
-                << m_destDir; // will be action number count-1
+        m_recentDirs << m_destDir + QStringLiteral("/nonexistentsubdir") // will be action number count-3
+                     << m_nonWritableTempDir.path() // will be action number count-2
+                     << m_destDir; // will be action number count-1
         recentDirsGroup.writeEntry("Paths", m_recentDirs);
 
         m_lastActionCount = 0;
@@ -53,7 +52,8 @@ private Q_SLOTS:
 
     void cleanupTestCase()
     {
-        QVERIFY(QFile(m_nonWritableTempDir.path()).setPermissions(QFile::ReadOwner | QFile::ReadUser | QFile::WriteOwner | QFile::WriteUser | QFile::ExeOwner | QFile::ExeUser));
+        QVERIFY(QFile(m_nonWritableTempDir.path())
+                    .setPermissions(QFile::ReadOwner | QFile::ReadUser | QFile::WriteOwner | QFile::WriteUser | QFile::ExeOwner | QFile::ExeUser));
     }
 
     // Before every test method, ensure the test file m_srcFile exists
@@ -80,7 +80,8 @@ private Q_SLOTS:
         KFileCopyToMenu generator(&m_parentWidget);
         QMenu menu;
         generator.addActionsTo(&menu);
-        QList<QUrl> urls; urls << QUrl::fromLocalFile(m_srcFile);
+        QList<QUrl> urls;
+        urls << QUrl::fromLocalFile(m_srcFile);
         generator.setUrls(urls);
         QCOMPARE(extractActionNames(menu), QStringList() << QStringLiteral("copyTo_submenu") << QStringLiteral("moveTo_submenu"));
         QAction *copyMenuAction = menu.actions().at(0);
@@ -115,7 +116,8 @@ private Q_SLOTS:
 
         KFileCopyToMenu generator(&m_parentWidget);
         QMenu menu;
-        QList<QUrl> urls; urls << QUrl::fromLocalFile(m_srcFile);
+        QList<QUrl> urls;
+        urls << QUrl::fromLocalFile(m_srcFile);
         generator.setUrls(urls);
         generator.addActionsTo(&menu);
         QAction *copyMenuAction = menu.actions().at(0);
@@ -144,7 +146,6 @@ private Q_SLOTS:
     }
 
 private:
-
     static QStringList extractActionNames(const QMenu &menu)
     {
         QStringList ret;
@@ -169,4 +170,3 @@ private:
 QTEST_MAIN(KFileCopyToMenuTest)
 
 #include "kfilecopytomenutest.moc"
-

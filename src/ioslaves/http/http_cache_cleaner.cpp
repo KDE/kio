@@ -11,25 +11,25 @@
 #include <cstring>
 #include <stdlib.h>
 
+#include <QDBusConnection>
 #include <QDateTime>
 #include <QDir>
-#include <QString>
 #include <QElapsedTimer>
-#include <QDBusConnection>
 #include <QLocalServer>
 #include <QLocalSocket>
+#include <QString>
 
-#include <QDebug>
 #include <KLocalizedString>
+#include <QDebug>
 #include <kprotocolmanager.h>
 
-#include <qplatformdefs.h>
-#include <QStandardPaths>
-#include <QCommandLineParser>
 #include <QCommandLineOption>
+#include <QCommandLineParser>
 #include <QCryptographicHash>
 #include <QDBusError>
 #include <QDataStream>
+#include <QStandardPaths>
+#include <qplatformdefs.h>
 
 QDateTime g_currentDate;
 int g_maxCacheAge;
@@ -41,7 +41,7 @@ static const char appName[] = "kio_http_cache_cleaner";
 // !START OF SYNC!
 // Keep the following in sync with the cache code in http.cpp
 
-static const int s_hashedUrlBits = 160;   // this number should always be divisible by eight
+static const int s_hashedUrlBits = 160; // this number should always be divisible by eight
 static const int s_hashedUrlNibbles = s_hashedUrlBits / 4;
 static const int s_hashedUrlBytes = s_hashedUrlBits / 8;
 
@@ -49,10 +49,10 @@ static const char version[] = "A\n";
 
 // never instantiated, on-disk / wire format only
 struct SerializedCacheFileInfo {
-// from http.cpp
+    // from http.cpp
     quint8 version[2];
     quint8 compression; // for now fixed to 0
-    quint8 reserved;    // for now; also alignment
+    quint8 reserved; // for now; also alignment
     static const int useCountOffset = 4;
     qint32 useCount;
     qint64 servedDate;
@@ -68,9 +68,9 @@ struct SerializedCacheFileInfo {
 };
 
 struct MiniCacheFileInfo {
-// data from cache entry file, or from scoreboard file
+    // data from cache entry file, or from scoreboard file
     qint32 useCount;
-// from filesystem
+    // from filesystem
     QDateTime lastUsedDate;
     qint64 sizeOnDisk;
     // we want to delete the least "useful" files and we'll have to sort a list for that...
@@ -86,7 +86,7 @@ struct MiniCacheFileInfo {
 struct CacheFileInfo : MiniCacheFileInfo {
     quint8 version[2];
     quint8 compression; // for now fixed to 0
-    quint8 reserved;    // for now; also alignment
+    quint8 reserved; // for now; also alignment
 
     QDateTime servedDate;
     QDateTime lastModifiedDate;
@@ -157,9 +157,12 @@ static bool readBinaryHeader(const QByteArray &d, CacheFileInfo *fi)
 
     SerializedCacheFileInfo serialized;
 
-    stream >> serialized.servedDate; fi->servedDate.setSecsSinceEpoch(serialized.servedDate);
-    stream >> serialized.lastModifiedDate; fi->lastModifiedDate.setSecsSinceEpoch(serialized.lastModifiedDate);
-    stream >> serialized.expireDate; fi->expireDate.setSecsSinceEpoch(serialized.expireDate);
+    stream >> serialized.servedDate;
+    fi->servedDate.setSecsSinceEpoch(serialized.servedDate);
+    stream >> serialized.lastModifiedDate;
+    fi->lastModifiedDate.setSecsSinceEpoch(serialized.lastModifiedDate);
+    stream >> serialized.expireDate;
+    fi->expireDate.setSecsSinceEpoch(serialized.expireDate);
 
     stream >> fi->bytesCached;
     return true;
@@ -290,7 +293,7 @@ public:
                 // odd index
                 m_index[i >> 1] = translated;
                 translated = 0;
-            } else  {
+            } else {
                 translated = translated << 4;
             }
         }
@@ -367,11 +370,11 @@ static CacheCleanerCommand readCommand(const QByteArray &cmd, CacheFileInfo *fi)
 
 // never instantiated, on-disk format only
 struct ScoreboardEntry {
-// from scoreboard file
+    // from scoreboard file
     quint8 index[s_hashedUrlBytes];
     static const int indexSize = s_hashedUrlBytes;
     qint32 useCount;
-// from scoreboard file, but compared with filesystem to see if scoreboard has current data
+    // from scoreboard file, but compared with filesystem to see if scoreboard has current data
     qint64 lastUsedDate;
     qint32 sizeOnDisk;
     static const int size = 36;
@@ -425,8 +428,7 @@ public:
 
     bool fillInfo(const QString &baseName, MiniCacheFileInfo *mcfi)
     {
-        QHash<CacheIndex, MiniCacheFileInfo>::ConstIterator it =
-            m_scoreboard.constFind(CacheIndex(baseName));
+        QHash<CacheIndex, MiniCacheFileInfo>::ConstIterator it = m_scoreboard.constFind(CacheIndex(baseName));
         if (it == m_scoreboard.constEnd()) {
             return false;
         }
@@ -535,11 +537,13 @@ private:
         stream >> mcfi->useCount;
         // check those against filesystem
         qint64 lastUsedDate;
-        stream >> lastUsedDate; mcfi->lastUsedDate.setSecsSinceEpoch(lastUsedDate);
+        stream >> lastUsedDate;
+        mcfi->lastUsedDate.setSecsSinceEpoch(lastUsedDate);
 
         qint32 sizeOnDisk;
-        stream >> sizeOnDisk; mcfi->sizeOnDisk = sizeOnDisk;
-        //qDebug() << basename << "sizeOnDisk" << mcfi->sizeOnDisk;
+        stream >> sizeOnDisk;
+        mcfi->sizeOnDisk = sizeOnDisk;
+        // qDebug() << basename << "sizeOnDisk" << mcfi->sizeOnDisk;
 
         QFileInfo fileInfo(filePath(basename));
         if (!fileInfo.exists()) {
@@ -703,12 +707,10 @@ int main(int argc, char **argv)
     parser.addVersionOption();
     parser.setApplicationDescription(QCoreApplication::translate("main", "KDE HTTP cache maintenance tool"));
     parser.addHelpOption();
-    parser.addOption(QCommandLineOption(QStringList{QStringLiteral("clear-all")},
-                                        QCoreApplication::translate("main", "Empty the cache")));
-    parser.addOption(QCommandLineOption(
-        QStringList{QStringLiteral("file-info")},
-        QCoreApplication::translate("main", "Display information about cache file"),
-        QStringLiteral("filename")));
+    parser.addOption(QCommandLineOption(QStringList{QStringLiteral("clear-all")}, QCoreApplication::translate("main", "Empty the cache")));
+    parser.addOption(QCommandLineOption(QStringList{QStringLiteral("file-info")},
+                                        QCoreApplication::translate("main", "Display information about cache file"),
+                                        QStringLiteral("filename")));
     parser.process(app);
 
     OperationMode mode = CleanCache;
@@ -732,8 +734,7 @@ int main(int argc, char **argv)
     if (mode == CleanCache) {
         if (!QDBusConnection::sessionBus().isConnected()) {
             QDBusError error(QDBusConnection::sessionBus().lastError());
-            fprintf(stderr, "%s: Could not connect to D-Bus! (%s: %s)\n", appName,
-                    qPrintable(error.name()), qPrintable(error.message()));
+            fprintf(stderr, "%s: Could not connect to D-Bus! (%s: %s)\n", appName, qPrintable(error.name()), qPrintable(error.message()));
             return 1;
         }
 
@@ -761,7 +762,7 @@ int main(int argc, char **argv)
         QElapsedTimer t;
         t.start();
         cacheDir.refresh();
-        //qDebug() << "time to refresh the cacheDir QDir:" << t.elapsed();
+        // qDebug() << "time to refresh the cacheDir QDir:" << t.elapsed();
         CacheCleaner cleaner(cacheDir);
         while (!cleaner.processSlice()) { }
         QFile::remove(filePath(QStringLiteral("scoreboard")));
@@ -776,7 +777,7 @@ int main(int argc, char **argv)
         qWarning() << "Error listening on" << socketFileName;
     }
     QList<QLocalSocket *> sockets;
-    qint64 newBytesCounter = LLONG_MAX;  // force cleaner run on startup
+    qint64 newBytesCounter = LLONG_MAX; // force cleaner run on startup
 
     Scoreboard scoreboard;
     CacheCleaner *cleaner = nullptr;

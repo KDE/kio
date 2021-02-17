@@ -11,12 +11,11 @@
 
 #include "kiocore_export.h"
 
-#include <QUrl>
 #include <QObject>
+#include <QUrl>
 
 namespace KIO
 {
-
 class ConnectionServerPrivate;
 class Connection;
 

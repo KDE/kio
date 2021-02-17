@@ -11,9 +11,9 @@
 
 #include "kiofilewidgets_export.h"
 
+#include <KBookmark>
 #include <QAbstractItemModel>
 #include <QUrl>
-#include <KBookmark>
 
 #include <solid/device.h>
 
@@ -58,12 +58,12 @@ public:
 
     explicit KFilePlacesModel(QObject *parent = nullptr);
     /**
-    * @brief Construct a new KFilePlacesModel with an alternativeApplicationName
-    * @param alternativeApplicationName This value will be used to filter bookmarks in addition to the actual application name
-    * @param parent Parent object
-    * @since 5.43
-    * @todo kf6: merge constructors
-    */
+     * @brief Construct a new KFilePlacesModel with an alternativeApplicationName
+     * @param alternativeApplicationName This value will be used to filter bookmarks in addition to the actual application name
+     * @param parent Parent object
+     * @since 5.43
+     * @todo kf6: merge constructors
+     */
     KFilePlacesModel(const QString &alternativeApplicationName, QObject *parent = nullptr);
     ~KFilePlacesModel() override;
 
@@ -121,7 +121,7 @@ public:
      * If the index is not valid, a default KBookmark instance is returned.
      */
     KBookmark bookmarkForIndex(const QModelIndex &index) const;
-    
+
     /**
      * @return The KBookmark instance of the place with url @p searchUrl.
      * If the bookmark corresponding to searchUrl is not found, a default KBookmark instance is returned.
@@ -136,10 +136,10 @@ public:
     GroupType groupType(const QModelIndex &index) const;
 
     /**
-    * @return The list of model indexes that have @ type as their group type.
-    * @see groupType()
-    * @since 5.42
-    */
+     * @return The list of model indexes that have @ type as their group type.
+     * @see groupType()
+     * @since 5.42
+     */
     QModelIndexList groupIndexes(const GroupType type) const;
 
     /**
@@ -286,8 +286,7 @@ public:
     Qt::ItemFlags flags(const QModelIndex &index) const override;
     QStringList mimeTypes() const override;
     QMimeData *mimeData(const QModelIndexList &indexes) const override;
-    bool dropMimeData(const QMimeData *data, Qt::DropAction action,
-                      int row, int column, const QModelIndex &parent) override;
+    bool dropMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent) override;
 
     /**
      * @brief Reload bookmark information

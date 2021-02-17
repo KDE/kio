@@ -11,7 +11,8 @@
 
 #include <kiocore_export.h>
 
-template <typename T> class QList;
+template<typename T>
+class QList;
 class KTcpSocket;
 class QNetworkReply;
 class QSslError;
@@ -58,6 +59,7 @@ public:
     ~KSslErrorUiData();
 
     class Private;
+
 private:
     friend class Private;
     Private *const d;

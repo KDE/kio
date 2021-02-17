@@ -7,10 +7,9 @@
 
 #include "usernotificationhandler_p.h"
 
-#include "slave.h"
 #include "job_p.h"
 #include "kiocoredebug.h"
-
+#include "slave.h"
 
 #include <QTimer>
 

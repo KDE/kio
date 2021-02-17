@@ -13,7 +13,6 @@
 
 namespace KIO
 {
-
 // The slave keeper manages the list of idle slaves that can be reused
 class SlaveKeeper : public QObject
 {
@@ -75,14 +74,18 @@ public:
     bool removeJob(KIO::SimpleJob *job);
 
     QList<KIO::Slave *> allSlaves() const;
+
 private:
     QMap<int, KIO::SimpleJob *> m_queuedJobs;
     QSet<KIO::SimpleJob *> m_runningJobs;
 };
 
 struct PerSlaveQueue {
-    PerSlaveQueue() : runningJob(nullptr) {}
-    QList <SimpleJob *> waitingList;
+    PerSlaveQueue()
+        : runningJob(nullptr)
+    {
+    }
+    QList<SimpleJob *> waitingList;
     SimpleJob *runningJob;
 };
 
@@ -111,6 +114,7 @@ public:
 
 private Q_SLOTS:
     void startRunnableJobs();
+
 private:
     // note that connected slaves stay here when idle, they are not returned to SlaveKeeper
     QHash<KIO::Slave *, PerSlaveQueue> m_connectedSlaves;
@@ -125,7 +129,9 @@ class SerialPicker
 public:
     // note that serial number zero is the default value from job_p.h and invalid!
     SerialPicker()
-        : m_offset(1) {}
+        : m_offset(1)
+    {
+    }
 
     int next()
     {
@@ -140,6 +146,7 @@ public:
 private:
     static const uint m_jobsPerPriority = 100000000;
     uint m_offset;
+
 public:
     static const int maxSerial = m_jobsPerPriority * 20;
 };
@@ -176,4 +183,4 @@ private:
 
 } // namespace KIO
 
-#endif //SCHEDULER_P_H
+#endif // SCHEDULER_P_H

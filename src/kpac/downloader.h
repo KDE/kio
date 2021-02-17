@@ -60,4 +60,3 @@ private:
 }
 
 #endif // KPAC_DOWNLOADER_H
-

@@ -5,19 +5,19 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include <QCoreApplication>
 #include <QCommandLineParser>
+#include <QCoreApplication>
 #include <QDir>
 #include <QFile>
 #include <QFileInfo>
 #include <QJsonDocument>
-#include <QVariant>
 #include <QRegularExpression>
+#include <QVariant>
 
 #include <KConfig>
 #include <KConfigGroup>
 
-int main (int argc, char *argv[])
+int main(int argc, char *argv[])
 {
     // construct app and set some version
     QCoreApplication app(argc, argv);
@@ -53,21 +53,38 @@ int main (int argc, char *argv[])
     }
 
     // different attributes to copy
-    const QStringList stringAttributes(
-        {QStringLiteral("protocol"), QStringLiteral("exec"), QStringLiteral("fileNameUsedForCopying"),
-         QStringLiteral("defaultMimetype"), QStringLiteral("Icon"), QStringLiteral("config"),
-         QStringLiteral("input"), QStringLiteral("output"), QStringLiteral("X-DocPath"),
-         QStringLiteral("DocPath"), QStringLiteral("Class"), QStringLiteral("ProxiedBy")});
+    const QStringList stringAttributes({QStringLiteral("protocol"),
+                                        QStringLiteral("exec"),
+                                        QStringLiteral("fileNameUsedForCopying"),
+                                        QStringLiteral("defaultMimetype"),
+                                        QStringLiteral("Icon"),
+                                        QStringLiteral("config"),
+                                        QStringLiteral("input"),
+                                        QStringLiteral("output"),
+                                        QStringLiteral("X-DocPath"),
+                                        QStringLiteral("DocPath"),
+                                        QStringLiteral("Class"),
+                                        QStringLiteral("ProxiedBy")});
 
-    const QStringList stringListAttributes({QStringLiteral("listing"), QStringLiteral("archiveMimetype"),
-                                            QStringLiteral("ExtraTypes"), QStringLiteral("Capabilities")});
+    const QStringList stringListAttributes(
+        {QStringLiteral("listing"), QStringLiteral("archiveMimetype"), QStringLiteral("ExtraTypes"), QStringLiteral("Capabilities")});
 
-    const QStringList boolAttributes(
-        {QStringLiteral("source"), QStringLiteral("helper"), QStringLiteral("reading"), QStringLiteral("writing"),
-         QStringLiteral("makedir"),QStringLiteral("deleting"), QStringLiteral("linking"), QStringLiteral("moving"),
-         QStringLiteral("opening"), QStringLiteral("copyFromFile"), QStringLiteral("copyToFile"),
-         QStringLiteral("renameFromFile"), QStringLiteral("renameToFile"), QStringLiteral("deleteRecursive"),
-         QStringLiteral("determineMimetypeFromExtension"), QStringLiteral("ShowPreviews")});
+    const QStringList boolAttributes({QStringLiteral("source"),
+                                      QStringLiteral("helper"),
+                                      QStringLiteral("reading"),
+                                      QStringLiteral("writing"),
+                                      QStringLiteral("makedir"),
+                                      QStringLiteral("deleting"),
+                                      QStringLiteral("linking"),
+                                      QStringLiteral("moving"),
+                                      QStringLiteral("opening"),
+                                      QStringLiteral("copyFromFile"),
+                                      QStringLiteral("copyToFile"),
+                                      QStringLiteral("renameFromFile"),
+                                      QStringLiteral("renameToFile"),
+                                      QStringLiteral("deleteRecursive"),
+                                      QStringLiteral("determineMimetypeFromExtension"),
+                                      QStringLiteral("ShowPreviews")});
 
     const QStringList intAttributes({QStringLiteral("maxInstances"), QStringLiteral("maxInstancesPerHost")});
 
@@ -111,7 +128,7 @@ int main (int argc, char *argv[])
                 protocolData.insert(key, config.readEntry(key, bool(false)));
             }
         }
-        for (const QString& key : intAttributes) {
+        for (const QString &key : intAttributes) {
             if (config.hasKey(key)) {
                 protocolData.insert(key, config.readEntry(key, int(0)));
             }
@@ -145,7 +162,7 @@ int main (int argc, char *argv[])
         }
 
         // use basename of protocol for toplevel map in json, like it is done for .protocol files
-        const QString baseName(QFileInfo (fullFilePath).baseName());
+        const QString baseName(QFileInfo(fullFilePath).baseName());
         protocolsData.insert(baseName, protocolData);
     }
 

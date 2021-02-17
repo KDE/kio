@@ -7,17 +7,17 @@
 
 #include "pastetest.h"
 
-#include <QTest>
 #include <QDir>
 #include <QMimeData>
-#include <QStandardPaths>
-#include <QUrl>
 #include <QSignalSpy>
+#include <QStandardPaths>
+#include <QTest>
+#include <QUrl>
 
+#include <KFileItem>
 #include <KUrlMimeData>
 #include <kio/paste.h>
 #include <kio/pastejob.h>
-#include <KFileItem>
 
 QTEST_MAIN(KIOPasteTest)
 
@@ -39,8 +39,10 @@ void KIOPasteTest::testPopulate()
     // Those URLs don't have to exist.
     QUrl mediaURL(QStringLiteral("media:/hda1/tmp/Mat%C3%A9riel"));
     QUrl localURL(QStringLiteral("file:///tmp/Mat%C3%A9riel"));
-    QList<QUrl> kdeURLs; kdeURLs << mediaURL;
-    QList<QUrl> mostLocalURLs; mostLocalURLs << localURL;
+    QList<QUrl> kdeURLs;
+    kdeURLs << mediaURL;
+    QList<QUrl> mostLocalURLs;
+    mostLocalURLs << localURL;
 
     KUrlMimeData::setUrls(kdeURLs, mostLocalURLs, mimeData);
 
@@ -61,7 +63,8 @@ void KIOPasteTest::testCut()
 
     QUrl localURL1(QStringLiteral("file:///tmp/Mat%C3%A9riel"));
     QUrl localURL2(QStringLiteral("file:///tmp"));
-    QList<QUrl> localURLs; localURLs << localURL1 << localURL2;
+    QList<QUrl> localURLs;
+    localURLs << localURL1 << localURL2;
 
     KUrlMimeData::setUrls(QList<QUrl>(), localURLs, mimeData);
     KIO::setClipboardDataCut(mimeData, true);
@@ -80,7 +83,7 @@ void KIOPasteTest::testCut()
 
 void KIOPasteTest::testPasteActionText_data()
 {
-    QTest::addColumn<QList<QUrl> >("urls");
+    QTest::addColumn<QList<QUrl>>("urls");
     QTest::addColumn<bool>("data");
     QTest::addColumn<bool>("expectedEnabled");
     QTest::addColumn<QString>("expectedText");
@@ -143,7 +146,7 @@ static void createTestFile(const QString &path)
 
 void KIOPasteTest::testPasteJob_data()
 {
-    QTest::addColumn<QList<QUrl> >("urls");
+    QTest::addColumn<QList<QUrl>>("urls");
     QTest::addColumn<bool>("data");
     QTest::addColumn<bool>("cut");
     QTest::addColumn<QString>("expectedFileName");
@@ -161,7 +164,7 @@ void KIOPasteTest::testPasteJob_data()
     QTest::newRow("cut_one_dir") << urlDir << false << true << m_dir.section('/', -1);
 
     // Shows a dialog!
-    //QTest::newRow("data") << QList<QUrl>() << true << "output_file";
+    // QTest::newRow("data") << QList<QUrl>() << true << "output_file";
 }
 
 void KIOPasteTest::testPasteJob()

@@ -12,29 +12,29 @@
 
 #include "httpmethod_p.h"
 
-#include "jobclasses.h"
 #include "job.h"
 #include "job_p.h"
+#include "jobclasses.h"
 
 using namespace KIO;
 
 /** @internal */
-class KIO::DavJobPrivate: public KIO::TransferJobPrivate
+class KIO::DavJobPrivate : public KIO::TransferJobPrivate
 {
 public:
     explicit DavJobPrivate(const QUrl &url)
         : TransferJobPrivate(url, KIO::CMD_SPECIAL, QByteArray(), QByteArray())
-    {}
+    {
+    }
     QByteArray savedStaticData;
     QByteArray str_response;
     QDomDocument m_response;
-    //TransferJob *m_subJob;
-    //bool m_suspended;
+    // TransferJob *m_subJob;
+    // bool m_suspended;
 
     Q_DECLARE_PUBLIC(DavJob)
 
-    static inline DavJob *newJob(const QUrl &url, int method, const QString &request,
-                                 JobFlags flags)
+    static inline DavJob *newJob(const QUrl &url, int method, const QString &request, JobFlags flags)
     {
         DavJob *job = new DavJob(*new DavJobPrivate(url), method, request);
         job->setUiDelegate(KIO::createDefaultJobUiDelegate());
@@ -52,9 +52,9 @@ DavJob::DavJob(DavJobPrivate &dd, int method, const QString &request)
     // so do it now.
     Q_D(DavJob);
     QDataStream stream(&d->m_packedArgs, QIODevice::WriteOnly);
-    stream << (int) 7 << d->m_url << method;
+    stream << (int)7 << d->m_url << method;
     // Same for static data
-    if (! request.isEmpty()) {
+    if (!request.isEmpty()) {
         d->staticData = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n" + request.toUtf8();
         d->staticData.chop(1);
         d->savedStaticData = d->staticData;
@@ -82,9 +82,8 @@ void DavJob::slotData(const QByteArray &data)
 void DavJob::slotFinished()
 {
     Q_D(DavJob);
-    //qDebug() << d->str_response;
-    if (!d->m_redirectionURL.isEmpty() && d->m_redirectionURL.isValid() &&
-            (d->m_command == CMD_SPECIAL)) {
+    // qDebug() << d->str_response;
+    if (!d->m_redirectionURL.isEmpty() && d->m_redirectionURL.isValid() && (d->m_command == CMD_SPECIAL)) {
         QDataStream istream(d->m_packedArgs);
         int s_cmd, s_method;
         qint64 s_size;
@@ -99,7 +98,7 @@ void DavJob::slotFinished()
             QDataStream stream(&d->m_packedArgs, QIODevice::WriteOnly);
             stream << (int)7 << d->m_redirectionURL << (int)KIO::DAV_PROPFIND << s_size;
         }
-    } else if (! d->m_response.setContent(d->str_response, true)) {
+    } else if (!d->m_response.setContent(d->str_response, true)) {
         // An error occurred parsing the XML response
         QDomElement root = d->m_response.createElementNS(QStringLiteral("DAV:"), QStringLiteral("error-report"));
         d->m_response.appendChild(root);
@@ -109,7 +108,7 @@ void DavJob::slotFinished()
         el.appendChild(textnode);
         root.appendChild(el);
     }
-    //qDebug() << d->m_response.toString();
+    // qDebug() << d->m_response.toString();
     TransferJob::slotFinished();
     d->staticData = d->savedStaticData; // Need to send DAV request to this host too
 }
@@ -118,15 +117,14 @@ void DavJob::slotFinished()
 
 DavJob *KIO::davPropFind(const QUrl &url, const QDomDocument &properties, const QString &depth, JobFlags flags)
 {
-    DavJob *job = DavJobPrivate::newJob(url, (int) KIO::DAV_PROPFIND, properties.toString(), flags);
+    DavJob *job = DavJobPrivate::newJob(url, (int)KIO::DAV_PROPFIND, properties.toString(), flags);
     job->addMetaData(QStringLiteral("davDepth"), depth);
     return job;
 }
 
 DavJob *KIO::davPropPatch(const QUrl &url, const QDomDocument &properties, JobFlags flags)
 {
-    return DavJobPrivate::newJob(url, (int) KIO::DAV_PROPPATCH, properties.toString(),
-                                 flags);
+    return DavJobPrivate::newJob(url, (int)KIO::DAV_PROPPATCH, properties.toString(), flags);
 }
 
 DavJob *KIO::davSearch(const QUrl &url, const QString &nsURI, const QString &qName, const QString &query, JobFlags flags)
@@ -143,8 +141,7 @@ DavJob *KIO::davSearch(const QUrl &url, const QString &nsURI, const QString &qNa
 
 DavJob *KIO::davReport(const QUrl &url, const QString &report, const QString &depth, JobFlags flags)
 {
-    DavJob *job = DavJobPrivate::newJob(url, (int) KIO::DAV_REPORT, report, flags);
+    DavJob *job = DavJobPrivate::newJob(url, (int)KIO::DAV_REPORT, report, flags);
     job->addMetaData(QStringLiteral("davDepth"), depth);
     return job;
 }
-

@@ -15,46 +15,46 @@
 
 #include <config-kiocore.h>
 
-#include <string.h>
 #include <qplatformdefs.h>
+#include <string.h>
 #ifdef Q_OS_WIN
 #include <qt_windows.h>
-#undef interface //windows.h defines this, breaks QtDBus since it has parameters named interface
+#undef interface // windows.h defines this, breaks QtDBus since it has parameters named interface
 #else
 #include <sys/utsname.h>
 #endif
 
+#include <QCache>
 #include <QCoreApplication>
-#include <QUrl>
-#include <QSslSocket>
+#include <QDBusInterface>
+#include <QDBusReply>
 #include <QHostAddress>
 #include <QHostInfo>
-#include <QDBusReply>
-#include <QDBusInterface>
-#include <QCache>
 #include <QLocale>
-#include <QRegularExpression>
-#include <QStandardPaths>
 #include <QMimeDatabase>
+#include <QRegularExpression>
+#include <QSslSocket>
+#include <QStandardPaths>
+#include <QUrl>
 
-#if !defined(QT_NO_NETWORKPROXY) && (defined (Q_OS_WIN32) || defined(Q_OS_MAC))
+#if !defined(QT_NO_NETWORKPROXY) && (defined(Q_OS_WIN32) || defined(Q_OS_MAC))
 #include <QNetworkProxyFactory>
 #include <QNetworkProxyQuery>
 #endif
 
-#include <kio_version.h>
 #include <KConfigGroup>
 #include <KSharedConfig>
+#include <kio_version.h>
 
 #include <KMimeTypeTrader>
 #include <kprotocolinfofactory_p.h>
 
-#include "slaveconfig.h"
-#include "ioslave_defaults.h"
 #include "http_slave_defaults.h"
+#include "ioslave_defaults.h"
+#include "slaveconfig.h"
 
-#define QL1S(x)   QLatin1String(x)
-#define QL1C(x)   QLatin1Char(x)
+#define QL1S(x) QLatin1String(x)
+#define QL1C(x) QLatin1Char(x)
 
 typedef QPair<QHostAddress, int> SubnetPair;
 
@@ -78,10 +78,12 @@ static bool revmatch(const char *host, const char *nplist)
             hptr = shptr;
 
             // Try to find another domain or host in the list
-            while (--nptr >= nplist && *nptr != ',' && *nptr != ' ');
+            while (--nptr >= nplist && *nptr != ',' && *nptr != ' ')
+                ;
 
             // Strip out multiple spaces and commas
-            while (--nptr >= nplist && (*nptr == ',' || *nptr == ' '));
+            while (--nptr >= nplist && (*nptr == ',' || *nptr == ' '))
+                ;
         } else {
             if (nptr == nplist || nptr[-1] == ',' || nptr[-1] == ' ') {
                 return true;
@@ -185,7 +187,7 @@ bool KProtocolManagerPrivate::shouldIgnoreProxyFor(const QUrl &url)
                 it.remove();
             }
         }
-        noProxyFor =  noProxyForList.join(QLatin1Char(','));
+        noProxyFor = noProxyForList.join(QLatin1Char(','));
     }
 
     if (!noProxyFor.isEmpty()) {
@@ -218,7 +220,7 @@ bool KProtocolManagerPrivate::shouldIgnoreProxyFor(const QUrl &url)
         // If request url is not IP address, do a DNS lookup of the hostname.
         // TODO: Perhaps we should make configurable ?
         if (address.isNull()) {
-            //qDebug() << "Performing DNS lookup for" << host;
+            // qDebug() << "Performing DNS lookup for" << host;
             QHostInfo info = KIO::HostInfo::lookupHost(host, 2000);
             const QList<QHostAddress> addresses = info.addresses();
             if (!addresses.isEmpty()) {
@@ -250,8 +252,7 @@ void KProtocolManagerPrivate::sync()
     }
 }
 
-#define PRIVATE_DATA \
-    KProtocolManagerPrivate *d = kProtocolManagerPrivate()
+#define PRIVATE_DATA KProtocolManagerPrivate *d = kProtocolManagerPrivate()
 
 void KProtocolManager::reparseConfiguration()
 {
@@ -438,7 +439,7 @@ QString KProtocolManager::noProxyFor()
 
 static QString adjustProtocol(const QString &scheme)
 {
-if (scheme.compare(QL1S("webdav"), Qt::CaseInsensitive) == 0) {
+    if (scheme.compare(QL1S("webdav"), Qt::CaseInsensitive) == 0) {
         return QStringLiteral("http");
     }
 
@@ -462,7 +463,7 @@ QString KProtocolManagerPrivate::proxyFor(const QString &protocol)
     QString proxyStr(config()->group("Proxy Settings").readEntry(key));
     const int index = proxyStr.lastIndexOf(QL1C(' '));
 
-    if (index > -1)  {
+    if (index > -1) {
         bool ok = false;
         const QStringRef portStr(proxyStr.rightRef(proxyStr.length() - index - 1));
         portStr.toInt(&ok);
@@ -557,10 +558,9 @@ QStringList KProtocolManager::proxiesForUrl(const QUrl &url)
             u.setScheme(protocol);
 
             if (protocol.startsWith(QLatin1String("http")) || protocol.startsWith(QLatin1String("ftp"))) {
-                QDBusReply<QStringList> reply = QDBusInterface(QStringLiteral("org.kde.kded5"),
-                                                QStringLiteral("/modules/proxyscout"),
-                                                QStringLiteral("org.kde.KPAC.ProxyScout"))
-                                                .call(QStringLiteral("proxiesForUrl"), u.toString());
+                QDBusReply<QStringList> reply =
+                    QDBusInterface(QStringLiteral("org.kde.kded5"), QStringLiteral("/modules/proxyscout"), QStringLiteral("org.kde.KPAC.ProxyScout"))
+                        .call(QStringLiteral("proxiesForUrl"), u.toString());
                 proxyList = reply;
             }
             break;
@@ -582,8 +582,7 @@ QStringList KProtocolManager::proxiesForUrl(const QUrl &url)
                 proxy = QL1S("socks://") + proxy.midRef(offset);
                 proxyList << proxy;
             }
-        }
-        break;
+        } break;
         case NoProxy:
             break;
         }
@@ -598,8 +597,7 @@ QStringList KProtocolManager::proxiesForUrl(const QUrl &url)
 
 void KProtocolManager::badProxy(const QString &proxy)
 {
-    QDBusInterface(QStringLiteral("org.kde.kded5"), QStringLiteral("/modules/proxyscout"))
-    .asyncCall(QStringLiteral("blackListProxy"), proxy);
+    QDBusInterface(QStringLiteral("org.kde.kded5"), QStringLiteral("/modules/proxyscout")).asyncCall(QStringLiteral("blackListProxy"), proxy);
 
     PRIVATE_DATA;
     QMutexLocker lock(&d->mutex);
@@ -641,9 +639,7 @@ QString KProtocolManager::slaveProtocol(const QUrl &url, QStringList &proxyList)
     // Do not perform a proxy lookup for any url classified as a ":local" url or
     // one that does not have a host component or if proxy is disabled.
     QString protocol(url.scheme());
-    if (url.host().isEmpty()
-            || KProtocolInfo::protocolClass(protocol) == QL1S(":local")
-            || KProtocolManager::proxyType() == KProtocolManager::NoProxy) {
+    if (url.host().isEmpty() || KProtocolInfo::protocolClass(protocol) == QL1S(":local") || KProtocolManager::proxyType() == KProtocolManager::NoProxy) {
         return protocol;
     }
 
@@ -678,10 +674,8 @@ QString KProtocolManager::slaveProtocol(const QUrl &url, QStringList &proxyList)
 
     // The idea behind slave protocols is not applicable to http
     // and webdav protocols as well as protocols unknown to KDE.
-    if (!proxyList.isEmpty()
-            && !protocol.startsWith(QLatin1String("http"))
-            && !protocol.startsWith(QLatin1String("webdav"))
-            && KProtocolInfo::isKnownProtocol(protocol)) {
+    if (!proxyList.isEmpty() && !protocol.startsWith(QLatin1String("http")) && !protocol.startsWith(QLatin1String("webdav"))
+        && KProtocolInfo::isKnownProtocol(protocol)) {
         for (const QString &proxy : qAsConst(proxyList)) {
             QUrl u(proxy);
             if (u.isValid() && KProtocolInfo::isKnownProtocol(u.scheme())) {
@@ -728,11 +722,9 @@ static QString defaultUserAgentFromPreferredService()
     QString agentStr;
 
     // Check if the default COMPONENT contains a custom default UA string...
-    KService::Ptr service = KMimeTypeTrader::self()->preferredService(QStringLiteral("text/html"),
-                            QStringLiteral("KParts/ReadOnlyPart"));
+    KService::Ptr service = KMimeTypeTrader::self()->preferredService(QStringLiteral("text/html"), QStringLiteral("KParts/ReadOnlyPart"));
     if (service && service->showInCurrentDesktop())
-        agentStr = service->property(QStringLiteral("X-KDE-Default-UserAgent"),
-                                     QVariant::String).toString();
+        agentStr = service->property(QStringLiteral("X-KDE-Default-UserAgent"), QVariant::String).toString();
     return agentStr;
 }
 
@@ -813,21 +805,9 @@ QString KProtocolManager::defaultUserAgent(const QString &_modifiers)
         }
 
         // Full format: Mozilla/5.0 (Linux
-        d->useragent =
-            QL1S("Mozilla/5.0 (") +
-            supp +
-            QL1S(") KHTML/") +
-            QString::number(KIO_VERSION_MAJOR) +
-            QL1C('.') +
-            QString::number(KIO_VERSION_MINOR) +
-            QL1C('.') +
-            QString::number(KIO_VERSION_PATCH) +
-            QL1S(" (like Gecko) Konqueror/") +
-            QString::number(KIO_VERSION_MAJOR) +
-            QL1S(" KIO/") +
-            QString::number(KIO_VERSION_MAJOR) +
-            QL1C('.') +
-            QString::number(KIO_VERSION_MINOR);
+        d->useragent = QL1S("Mozilla/5.0 (") + supp + QL1S(") KHTML/") + QString::number(KIO_VERSION_MAJOR) + QL1C('.') + QString::number(KIO_VERSION_MINOR)
+            + QL1C('.') + QString::number(KIO_VERSION_PATCH) + QL1S(" (like Gecko) Konqueror/") + QString::number(KIO_VERSION_MAJOR) + QL1S(" KIO/")
+            + QString::number(KIO_VERSION_MAJOR) + QL1C('.') + QString::number(KIO_VERSION_MINOR);
     } else {
         QString appName = QCoreApplication::applicationName();
         if (appName.isEmpty() || appName.startsWith(QLatin1String("kcmshell"), Qt::CaseInsensitive)) {
@@ -836,12 +816,7 @@ QString KProtocolManager::defaultUserAgent(const QString &_modifiers)
 
         QString appVersion = QCoreApplication::applicationVersion();
         if (appVersion.isEmpty()) {
-            appVersion +=
-                QString::number(KIO_VERSION_MAJOR) +
-                QL1C('.') +
-                QString::number(KIO_VERSION_MINOR) +
-                QL1C('.') +
-                QString::number(KIO_VERSION_PATCH);
+            appVersion += QString::number(KIO_VERSION_MAJOR) + QL1C('.') + QString::number(KIO_VERSION_MINOR) + QL1C('.') + QString::number(KIO_VERSION_PATCH);
         }
 
         appName += QL1C('/') + appVersion;
@@ -904,12 +879,11 @@ QString KProtocolManager::defaultUserAgent(const QString &_modifiers)
         d->useragent = agentStr.simplified();
     }
 
-    //qDebug() << "USERAGENT STRING:" << d->useragent;
+    // qDebug() << "USERAGENT STRING:" << d->useragent;
     return d->useragent;
 }
 
-QString KProtocolManager::userAgentForApplication(const QString &appName, const QString &appVersion,
-        const QStringList &extraInfo)
+QString KProtocolManager::userAgentForApplication(const QString &appName, const QString &appVersion, const QStringList &extraInfo)
 {
     QString systemName, systemVersion, machine, info;
 
@@ -917,13 +891,7 @@ QString KProtocolManager::userAgentForApplication(const QString &appName, const 
         info += systemName + QL1C('/') + systemVersion + QL1S("; ");
     }
 
-    info +=
-        QL1S("KDE/") +
-        QString::number(KIO_VERSION_MAJOR) +
-        QL1C('.') +
-        QString::number(KIO_VERSION_MINOR) +
-        QL1C('.') +
-        QString::number(KIO_VERSION_PATCH);
+    info += QL1S("KDE/") + QString::number(KIO_VERSION_MAJOR) + QL1C('.') + QString::number(KIO_VERSION_MINOR) + QL1C('.') + QString::number(KIO_VERSION_PATCH);
 
     if (!machine.isEmpty()) {
         info += QL1S("; ") + machine;
@@ -934,8 +902,7 @@ QString KProtocolManager::userAgentForApplication(const QString &appName, const 
     return (appName + QL1C('/') + appVersion + QStringLiteral(" (") + info + QL1C(')'));
 }
 
-bool KProtocolManager::getSystemNameVersionAndMachine(
-    QString &systemName, QString &systemVersion, QString &machine)
+bool KProtocolManager::getSystemNameVersionAndMachine(QString &systemName, QString &systemVersion, QString &machine)
 {
 #if defined(Q_OS_WIN) && !defined(_WIN32_WCE)
     // we do not use unameBuf.sysname information constructed in kdewin32
@@ -945,14 +912,14 @@ bool KProtocolManager::getSystemNameVersionAndMachine(
     ZeroMemory(&versioninfo, sizeof(OSVERSIONINFOEX));
     // try calling GetVersionEx using the OSVERSIONINFOEX, if that fails, try using the OSVERSIONINFO
     versioninfo.dwOSVersionInfoSize = sizeof(OSVERSIONINFOEX);
-    bool ok = GetVersionEx((OSVERSIONINFO *) &versioninfo);
+    bool ok = GetVersionEx((OSVERSIONINFO *)&versioninfo);
     if (!ok) {
         versioninfo.dwOSVersionInfoSize = sizeof(OSVERSIONINFO);
-        ok = GetVersionEx((OSVERSIONINFO *) &versioninfo);
+        ok = GetVersionEx((OSVERSIONINFO *)&versioninfo);
     }
     if (ok) {
         systemVersion = QString::number(versioninfo.dwMajorVersion);
-        systemVersion +=  QL1C('.');
+        systemVersion += QL1C('.');
         systemVersion += QString::number(versioninfo.dwMinorVersion);
     }
 #else
@@ -1045,7 +1012,7 @@ int KProtocolManager::minimumKeepSize()
     PRIVATE_DATA;
     QMutexLocker lock(&d->mutex);
     return config()->group(QByteArray()).readEntry("MinimumKeepSize",
-            DEFAULT_MINIMUM_KEEP_SIZE);  // 5000 byte
+                                                   DEFAULT_MINIMUM_KEEP_SIZE); // 5000 byte
 }
 
 bool KProtocolManager::autoResume()
@@ -1314,6 +1281,5 @@ QString KProtocolManager::charsetFor(const QUrl &url)
 }
 
 #undef PRIVATE_DATA
-
 
 #include "kprotocolmanager.moc"

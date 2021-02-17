@@ -5,11 +5,11 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include <QApplication>
-#include <KUrlNavigator>
 #include <KFilePlacesModel>
-#include <QUrl>
+#include <KUrlNavigator>
+#include <QApplication>
 #include <QDir>
+#include <QUrl>
 
 int main(int argc, char **argv)
 {
@@ -22,4 +22,3 @@ int main(int argc, char **argv)
 
     return app.exec();
 }
-

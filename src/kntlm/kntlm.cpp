@@ -15,10 +15,10 @@
 
 #include <cstring>
 
-#include <QDate>
-#include <QtEndian>
 #include <QCryptographicHash>
+#include <QDate>
 #include <QRandomGenerator>
+#include <QtEndian>
 
 static const char NTLM_SIGNATURE[] = "NTLMSSP";
 
@@ -29,7 +29,7 @@ static QByteArray QString2UnicodeLE(const QString &target)
     QByteArray unicode(target.length() * 2, 0);
 
     for (int i = 0; i < target.length(); i++) {
-        ((quint16 *) unicode.data()) [ i ] = qToLittleEndian(target[i].unicode());
+        ((quint16 *)unicode.data())[i] = qToLittleEndian(target[i].unicode());
     }
 
     return unicode;
@@ -40,7 +40,7 @@ static QString UnicodeLE2QString(const QChar *data, uint len)
     QString ret;
 
     for (uint i = 0; i < len; i++) {
-        ret += qFromLittleEndian(data[ i ].unicode());
+        ret += qFromLittleEndian(data[i].unicode());
     }
 
     return ret;
@@ -51,8 +51,8 @@ static QByteArray getBuf(const QByteArray &buf, const KNTLM::SecBuf &secbuf)
     quint32 offset = qFromLittleEndian(secbuf.offset);
     quint16 len = qFromLittleEndian(secbuf.len);
 
-    //watch for buffer overflows
-    if (offset > (quint32) buf.size() || offset + len > (quint32) buf.size()) {
+    // watch for buffer overflows
+    if (offset > (quint32)buf.size() || offset + len > (quint32)buf.size()) {
         return QByteArray();
     }
 
@@ -65,7 +65,7 @@ static void addBuf(QByteArray &buf, KNTLM::SecBuf &secbuf, const QByteArray &dat
     quint16 len = data.size();
     quint16 maxlen = data.size();
 
-    secbuf.offset = qToLittleEndian((quint32) offset);
+    secbuf.offset = qToLittleEndian((quint32)offset);
     secbuf.len = qToLittleEndian(len);
     secbuf.maxlen = qToLittleEndian(maxlen);
     buf.resize(offset + len);
@@ -74,18 +74,18 @@ static void addBuf(QByteArray &buf, KNTLM::SecBuf &secbuf, const QByteArray &dat
 
 static QString getString(const QByteArray &buf, const KNTLM::SecBuf &secbuf, bool unicode)
 {
-    //watch for buffer overflows
-    quint32 offset = qFromLittleEndian((quint32) secbuf.offset);
+    // watch for buffer overflows
+    quint32 offset = qFromLittleEndian((quint32)secbuf.offset);
     quint16 len = qFromLittleEndian(secbuf.len);
 
-    if (offset > (quint32) buf.size() || offset + len > (quint32) buf.size()) {
+    if (offset > (quint32)buf.size() || offset + len > (quint32)buf.size()) {
         return QString();
     }
 
     const char *c = buf.data() + offset;
 
     if (unicode) {
-        return UnicodeLE2QString((QChar *) c, len >> 1);
+        return UnicodeLE2QString((QChar *)c, len >> 1);
     }
 
     return QString::fromLatin1(c, len);
@@ -102,9 +102,9 @@ static void addString(QByteArray &buf, KNTLM::SecBuf &secbuf, const QString &str
 }
 
 /*
-* turns a 56 bit key into the 64 bit, odd parity key and sets the key.
-* The key schedule ks is also set.
-*/
+ * turns a 56 bit key into the 64 bit, odd parity key and sets the key.
+ * The key schedule ks is also set.
+ */
 static void convertKey(unsigned char *key_56, void *ks)
 {
     unsigned char key[8];
@@ -128,7 +128,7 @@ static void convertKey(unsigned char *key_56, void *ks)
         }
     }
 
-    ntlm_des_set_key((DES_KEY *) ks, (char *) &key, sizeof(key));
+    ntlm_des_set_key((DES_KEY *)ks, (char *)&key, sizeof(key));
     memset(&key, 0, sizeof(key));
 }
 
@@ -136,11 +136,11 @@ static QByteArray createBlob(const QByteArray &targetinfo)
 {
     QByteArray blob(NTLM_BLOB_SIZE + 4 + targetinfo.size(), 0);
 
-    KNTLM::Blob *bl = (KNTLM::Blob *) blob.data();
-    bl->signature = qToBigEndian((quint32) 0x01010000);
+    KNTLM::Blob *bl = (KNTLM::Blob *)blob.data();
+    bl->signature = qToBigEndian((quint32)0x01010000);
     quint64 now = QDateTime::currentSecsSinceEpoch();
-    now += (quint64) 3600 * (quint64) 24 * (quint64) 134774;
-    now *= (quint64) 10000000;
+    now += (quint64)3600 * (quint64)24 * (quint64)134774;
+    now *= (quint64)10000000;
     bl->timestamp = qToLittleEndian(now);
 
     for (unsigned char &b : bl->challenge) {
@@ -182,35 +182,39 @@ bool KNTLM::getNegotiate(QByteArray &negotiate, const QString &domain, const QSt
     QByteArray rbuf(sizeof(Negotiate), 0);
 
     memcpy(rbuf.data(), NTLM_SIGNATURE, sizeof(NTLM_SIGNATURE));
-    ((Negotiate *) rbuf.data())->msgType = qToLittleEndian((quint32) 1);
+    ((Negotiate *)rbuf.data())->msgType = qToLittleEndian((quint32)1);
 
     if (!domain.isEmpty()) {
         flags |= Negotiate_Domain_Supplied;
-        addString(rbuf, ((Negotiate *) rbuf.data())->domain, domain);
+        addString(rbuf, ((Negotiate *)rbuf.data())->domain, domain);
     }
 
     if (!workstation.isEmpty()) {
         flags |= Negotiate_WS_Supplied;
-        addString(rbuf, ((Negotiate *) rbuf.data())->workstation, workstation);
+        addString(rbuf, ((Negotiate *)rbuf.data())->workstation, workstation);
     }
 
-    ((Negotiate *) rbuf.data())->flags = qToLittleEndian(flags);
+    ((Negotiate *)rbuf.data())->flags = qToLittleEndian(flags);
     negotiate = rbuf;
     return true;
 }
 
-bool KNTLM::getAuth(QByteArray &auth, const QByteArray &challenge,
-                    const QString &user, const QString &password, const QString &domain,
-                    const QString &workstation, AuthFlags authflags)
+bool KNTLM::getAuth(QByteArray &auth,
+                    const QByteArray &challenge,
+                    const QString &user,
+                    const QString &password,
+                    const QString &domain,
+                    const QString &workstation,
+                    AuthFlags authflags)
 {
     QByteArray rbuf(sizeof(Auth), 0);
-    Challenge *ch = (Challenge *) challenge.data();
+    Challenge *ch = (Challenge *)challenge.data();
     QByteArray response;
     const uint chsize = challenge.size();
     bool unicode = false;
     QString dom;
 
-    //challenge structure too small
+    // challenge structure too small
     if (chsize < 32) {
         return false;
     }
@@ -226,16 +230,15 @@ bool KNTLM::getAuth(QByteArray &auth, const QByteArray &challenge,
     }
 
     memcpy(rbuf.data(), NTLM_SIGNATURE, sizeof(NTLM_SIGNATURE));
-    ((Auth *) rbuf.data())->msgType = qToLittleEndian((quint32) 3);
-    ((Auth *) rbuf.data())->flags = ch->flags;
+    ((Auth *)rbuf.data())->msgType = qToLittleEndian((quint32)3);
+    ((Auth *)rbuf.data())->flags = ch->flags;
     QByteArray targetInfo;
     if (chsize >= sizeof(Challenge)) {
         targetInfo = getBuf(challenge, ch->targetInfo);
     }
 
-    if (!(authflags & Force_V1) &&
-            ((authflags & Force_V2) ||
-             (!targetInfo.isEmpty() && (qFromLittleEndian(ch->flags) & Negotiate_Target_Info))) /* may support NTLMv2 */) {
+    if (!(authflags & Force_V1)
+        && ((authflags & Force_V2) || (!targetInfo.isEmpty() && (qFromLittleEndian(ch->flags) & Negotiate_Target_Info))) /* may support NTLMv2 */) {
         bool ret = false;
 
         if (qFromLittleEndian(ch->flags) & Negotiate_NTLM) {
@@ -244,31 +247,31 @@ bool KNTLM::getAuth(QByteArray &auth, const QByteArray &challenge,
             }
 
             response = getNTLMv2Response(dom, user, password, targetInfo, ch->challengeData);
-            addBuf(rbuf, ((Auth *) rbuf.data())->ntResponse, response);
+            addBuf(rbuf, ((Auth *)rbuf.data())->ntResponse, response);
             ret = true;
         }
 
         if (authflags & Add_LM) {
             response = getLMv2Response(dom, user, password, ch->challengeData);
-            addBuf(rbuf, ((Auth *) rbuf.data())->lmResponse, response);
+            addBuf(rbuf, ((Auth *)rbuf.data())->lmResponse, response);
             ret = true;
         }
 
         if (!ret) {
             return false;
         }
-    } else { //if no targetinfo structure and NTLMv2 or LMv2 not forced, or v1 forced, try the older methods
+    } else { // if no targetinfo structure and NTLMv2 or LMv2 not forced, or v1 forced, try the older methods
         bool ret = false;
 
         if (qFromLittleEndian(ch->flags) & Negotiate_NTLM) {
             response = getNTLMResponse(password, ch->challengeData);
-            addBuf(rbuf, ((Auth *) rbuf.data())->ntResponse, response);
+            addBuf(rbuf, ((Auth *)rbuf.data())->ntResponse, response);
             ret = true;
         }
 
         if (authflags & Add_LM) {
             response = getLMResponse(password, ch->challengeData);
-            addBuf(rbuf, ((Auth *) rbuf.data())->lmResponse, response);
+            addBuf(rbuf, ((Auth *)rbuf.data())->lmResponse, response);
             ret = true;
         }
 
@@ -278,13 +281,13 @@ bool KNTLM::getAuth(QByteArray &auth, const QByteArray &challenge,
     }
 
     if (!dom.isEmpty()) {
-        addString(rbuf, ((Auth *) rbuf.data())->domain, dom, unicode);
+        addString(rbuf, ((Auth *)rbuf.data())->domain, dom, unicode);
     }
 
-    addString(rbuf, ((Auth *) rbuf.data())->user, user, unicode);
+    addString(rbuf, ((Auth *)rbuf.data())->user, user, unicode);
 
     if (!workstation.isEmpty()) {
-        addString(rbuf, ((Auth *) rbuf.data())->workstation, workstation, unicode);
+        addString(rbuf, ((Auth *)rbuf.data())->workstation, workstation, unicode);
     }
 
     auth = rbuf;
@@ -312,11 +315,11 @@ QByteArray KNTLM::lmHash(const QString &password)
 
     strncpy(keyBytes.data(), password.toUpper().toLocal8Bit().constData(), 14);
 
-    convertKey((unsigned char *) keyBytes.data(), &ks);
-    ntlm_des_ecb_encrypt(magic, 8, &ks, (unsigned char *) hash.data());
+    convertKey((unsigned char *)keyBytes.data(), &ks);
+    ntlm_des_ecb_encrypt(magic, 8, &ks, (unsigned char *)hash.data());
 
-    convertKey((unsigned char *) keyBytes.data() + 7, &ks);
-    ntlm_des_ecb_encrypt(magic, 8, &ks, (unsigned char *) hash.data() + 8);
+    convertKey((unsigned char *)keyBytes.data() + 7, &ks);
+    ntlm_des_ecb_encrypt(magic, 8, &ks, (unsigned char *)hash.data() + 8);
 
     keyBytes.fill(0);
     memset(&ks, 0, sizeof(ks));
@@ -329,14 +332,14 @@ QByteArray KNTLM::lmResponse(const QByteArray &hash, const unsigned char *challe
     DES_KEY ks;
     QByteArray answer(24, 0);
 
-    convertKey((unsigned char *) hash.data(), &ks);
-    ntlm_des_ecb_encrypt(challenge, 8, &ks, (unsigned char *) answer.data());
+    convertKey((unsigned char *)hash.data(), &ks);
+    ntlm_des_ecb_encrypt(challenge, 8, &ks, (unsigned char *)answer.data());
 
-    convertKey((unsigned char *) hash.data() + 7, &ks);
-    ntlm_des_ecb_encrypt(challenge, 8, &ks, (unsigned char *) answer.data() + 8);
+    convertKey((unsigned char *)hash.data() + 7, &ks);
+    ntlm_des_ecb_encrypt(challenge, 8, &ks, (unsigned char *)answer.data() + 8);
 
-    convertKey((unsigned char *) hash.data() + 14, &ks);
-    ntlm_des_ecb_encrypt(challenge, 8, &ks, (unsigned char *) answer.data() + 16);
+    convertKey((unsigned char *)hash.data() + 14, &ks);
+    ntlm_des_ecb_encrypt(challenge, 8, &ks, (unsigned char *)answer.data() + 16);
 
     memset(&ks, 0, sizeof(ks));
     return answer;
@@ -360,8 +363,10 @@ QByteArray KNTLM::ntlmHash(const QString &password)
     return QCryptographicHash::hash(unicode, QCryptographicHash::Md4);
 }
 
-QByteArray KNTLM::getNTLMv2Response(const QString &target, const QString &user,
-                                    const QString &password, const QByteArray &targetInformation,
+QByteArray KNTLM::getNTLMv2Response(const QString &target,
+                                    const QString &user,
+                                    const QString &password,
+                                    const QByteArray &targetInformation,
                                     const unsigned char *challenge)
 {
     QByteArray hash = ntlmv2Hash(target, user, password);
@@ -369,14 +374,13 @@ QByteArray KNTLM::getNTLMv2Response(const QString &target, const QString &user,
     return lmv2Response(hash, blob, challenge);
 }
 
-QByteArray KNTLM::getLMv2Response(const QString &target, const QString &user,
-                                  const QString &password, const unsigned char *challenge)
+QByteArray KNTLM::getLMv2Response(const QString &target, const QString &user, const QString &password, const unsigned char *challenge)
 {
     QByteArray hash = ntlmv2Hash(target, user, password);
     QByteArray clientChallenge(8, 0);
 
     for (uint i = 0; i < 8; i++) {
-        clientChallenge.data() [i] = QRandomGenerator::global()->bounded(0xff);
+        clientChallenge.data()[i] = QRandomGenerator::global()->bounded(0xff);
     }
 
     return lmv2Response(hash, clientChallenge, challenge);
@@ -389,8 +393,7 @@ QByteArray KNTLM::ntlmv2Hash(const QString &target, const QString &user, const Q
     return hmacMD5(key, hash);
 }
 
-QByteArray KNTLM::lmv2Response(const QByteArray &hash,
-                               const QByteArray &clientData, const unsigned char *challenge)
+QByteArray KNTLM::lmv2Response(const QByteArray &hash, const QByteArray &clientData, const unsigned char *challenge)
 {
     QByteArray data(8 + clientData.size(), 0);
     memcpy(data.data(), challenge, 8);

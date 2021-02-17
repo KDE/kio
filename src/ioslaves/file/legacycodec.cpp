@@ -151,7 +151,7 @@ error:
         if (ch < 128) {
             *qch++ = ushort(ch);
         } else {
-            uint uc = ch - 128 + 0x10FE00; //U+10FE00-U+10FE7F
+            uint uc = ch - 128 + 0x10FE00; // U+10FE00-U+10FE7F
             *qch++ = QChar::highSurrogate(uc);
             *qch++ = QChar::lowSurrogate(uc);
         }

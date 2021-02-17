@@ -10,22 +10,22 @@
 #include "desktopexecparser.h"
 #include "kiofuse_interface.h"
 
-#include <KMacroExpander>
-#include <KShell>
-#include <KSharedConfig>
-#include <KDesktopFile>
-#include <KService>
-#include <KConfigGroup>
-#include <kprotocolinfo.h>
 #include <KApplicationTrader>
+#include <KConfigGroup>
+#include <KDesktopFile>
 #include <KLocalizedString>
+#include <KMacroExpander>
+#include <KService>
+#include <KSharedConfig>
+#include <KShell>
+#include <kprotocolinfo.h>
 
-#include <QFile>
-#include <QDir>
-#include <QUrl>
-#include <QStandardPaths>
 #include <QDBusConnection>
 #include <QDBusReply>
+#include <QDir>
+#include <QFile>
+#include <QStandardPaths>
+#include <QUrl>
 
 #include <config-kiocore.h> // KDE_INSTALL_FULL_LIBEXECDIR_KF5
 
@@ -39,7 +39,8 @@ public:
         , hasUrls(false)
         , hasSpec(false)
         , service(_service)
-    {}
+    {
+    }
 
     bool hasUrls;
     bool hasSpec;
@@ -65,9 +66,8 @@ int KRunMX1::expandEscapedMacro(const QString &str, int pos, QStringList &ret)
         ret << QStringLiteral("--icon") << service.icon().replace(QLatin1Char('%'), QLatin1String("%%"));
         break;
     case 'm':
-//       ret << "-miniicon" << service.icon().replace( '%', "%%" );
-        qCWarning(KIO_CORE) << "-miniicon isn't supported anymore (service"
-                   << service.name() << ')';
+        //       ret << "-miniicon" << service.icon().replace( '%', "%%" );
+        qCWarning(KIO_CORE) << "-miniicon isn't supported anymore (service" << service.name() << ')';
         break;
     case 'u':
     case 'U':
@@ -95,9 +95,10 @@ class KRunMX2 : public KMacroExpanderBase
 public:
     explicit KRunMX2(const QList<QUrl> &_urls)
         : KMacroExpanderBase(QLatin1Char('%'))
-        , ignFile(false),
-        urls(_urls)
-    {}
+        , ignFile(false)
+        , urls(_urls)
+    {
+    }
 
     bool ignFile;
 
@@ -114,8 +115,7 @@ void KRunMX2::subst(int option, const QUrl &url, QStringList &ret)
 {
     switch (option) {
     case 'u':
-        ret << ((url.isLocalFile() && url.fragment().isNull() && url.query().isNull()) ?
-                QDir::toNativeSeparators(url.toLocalFile())  : url.toString());
+        ret << ((url.isLocalFile() && url.fragment().isNull() && url.query().isNull()) ? QDir::toNativeSeparators(url.toLocalFile()) : url.toString());
         break;
     case 'd':
         ret << url.adjusted(QUrl::RemoveFilename).path();
@@ -146,7 +146,7 @@ int KRunMX2::expandEscapedMacro(const QString &str, int pos, QStringList &ret)
     case 'v':
         if (urls.isEmpty()) {
             if (!ignFile) {
-                //qCDebug(KIO_CORE) << "No URLs supplied to single-URL service" << str;
+                // qCDebug(KIO_CORE) << "No URLs supplied to single-URL service" << str;
             }
         } else if (urls.count() > 1) {
             qCWarning(KIO_CORE) << urls.count() << "URLs supplied to single-URL service" << str;
@@ -186,9 +186,7 @@ QStringList KIO::DesktopExecParser::supportedProtocols(const KService &service)
         if (supportedProtocols.isEmpty()) {
             // compat mode: assume KIO if not set and it's a KDE app (or a KDE service)
             const QStringList categories = service.property(QStringLiteral("Categories")).toStringList();
-            if (categories.contains(QLatin1String("KDE"))
-                    || !service.isApplication()
-                    || service.entryPath().isEmpty() /*temp service*/) {
+            if (categories.contains(QLatin1String("KDE")) || !service.isApplication() || service.entryPath().isEmpty() /*temp service*/) {
                 supportedProtocols.append(QStringLiteral("KIO"));
             } else { // if no KDE app, be a bit over-generic
                 supportedProtocols.append(QStringLiteral("http"));
@@ -206,7 +204,7 @@ QStringList KIO::DesktopExecParser::supportedProtocols(const KService &service)
         }
     }
 
-    //qCDebug(KIO_CORE) << "supportedProtocols:" << supportedProtocols;
+    // qCDebug(KIO_CORE) << "supportedProtocols:" << supportedProtocols;
     return supportedProtocols;
 }
 
@@ -247,7 +245,11 @@ class KIO::DesktopExecParserPrivate
 {
 public:
     DesktopExecParserPrivate(const KService &_service, const QList<QUrl> &_urls)
-        : service(_service), urls(_urls), tempFiles(false) {}
+        : service(_service)
+        , urls(_urls)
+        , tempFiles(false)
+    {
+    }
 
     const KService &service;
     QList<QUrl> urls;
@@ -300,7 +302,8 @@ static QString findNonExecutableProgram(const QString &executable)
         const QFileInfo fileInfo(candidate);
         if (fileInfo.exists()) {
             if (fileInfo.isExecutable()) {
-                qWarning() << "Internal program error. QStandardPaths::findExecutable couldn't find" << executable << "but our own logic found it at" << candidate << ". Please report a bug at https://bugs.kde.org";
+                qWarning() << "Internal program error. QStandardPaths::findExecutable couldn't find" << executable << "but our own logic found it at"
+                           << candidate << ". Please report a bug at https://bugs.kde.org";
             } else {
                 return candidate;
             }
@@ -357,7 +360,7 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
     KRunMX1 mx1(d->service);
     KRunMX2 mx2(d->urls);
 
-    if (!mx1.expandMacrosShellQuote(exec)) {    // Error in shell syntax
+    if (!mx1.expandMacrosShellQuote(exec)) { // Error in shell syntax
         d->m_errorString = i18n("Syntax error in command %1 coming from %2", exec, d->service.entryPath());
         qCWarning(KIO_CORE) << "Syntax error in command" << d->service.exec() << ", service" << d->service.name();
         return QStringList();
@@ -385,14 +388,15 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
 
     // Check if we need kioexec, or KIOFuse
     bool useKioexec = false;
-    org::kde::KIOFuse::VFS kiofuse_iface(QStringLiteral("org.kde.KIOFuse"),
-                                         QStringLiteral("/org/kde/KIOFuse"),
-                                         QDBusConnection::sessionBus());
-    struct MountRequest { QDBusPendingReply<QString> reply; int urlIndex; };
+    org::kde::KIOFuse::VFS kiofuse_iface(QStringLiteral("org.kde.KIOFuse"), QStringLiteral("/org/kde/KIOFuse"), QDBusConnection::sessionBus());
+    struct MountRequest {
+        QDBusPendingReply<QString> reply;
+        int urlIndex;
+    };
     QVector<MountRequest> requests;
     requests.reserve(d->urls.count());
     const QStringList appSupportedProtocols = supportedProtocols(d->service);
-    for (int i = 0; i < d->urls.count(); ++i)  {
+    for (int i = 0; i < d->urls.count(); ++i) {
         const QUrl url = d->urls.at(i);
         const bool supported = mx1.hasUrls ? isProtocolInSupportedList(url, appSupportedProtocols) : url.isLocalFile();
         if (!supported) {
@@ -405,14 +409,16 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
         // @see https://pointieststick.com/2018/01/17/videos-on-samba-shares/
         // @see https://bugs.kde.org/show_bug.cgi?id=330192
         if (!supported || (!url.userName().isEmpty() && url.password().isEmpty() && isNonKIO())) {
-            requests.push_back({ kiofuse_iface.mountUrl(url.toString()), i });
+            requests.push_back({kiofuse_iface.mountUrl(url.toString()), i});
         }
     }
 
     for (auto &request : requests) {
         request.reply.waitForFinished();
     }
-    const bool fuseError = std::any_of(requests.cbegin(), requests.cend(), [](const MountRequest &request) { return request.reply.isError(); });
+    const bool fuseError = std::any_of(requests.cbegin(), requests.cend(), [](const MountRequest &request) {
+        return request.reply.isError();
+    });
 
     if (fuseError && useKioexec) {
         // We need to run the app through kioexec
@@ -449,7 +455,7 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
         mx2.ignFile = true;
     }
 
-    mx2.expandMacrosShellQuote(exec);   // syntax was already checked, so don't check return value
+    mx2.expandMacrosShellQuote(exec); // syntax was already checked, so don't check return value
 
     /*
      1 = need_shell, 2 = terminal, 4 = su
@@ -485,7 +491,7 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
                 terminal += QLatin1String(" --workdir ") + KShell::quoteArg(d->service.workingDirectory());
             }
             terminal += QLatin1String(" -qwindowtitle '%c'");
-            if(!d->service.icon().isEmpty()) {
+            if (!d->service.icon().isEmpty()) {
                 terminal += QLatin1String(" -qwindowicon ") + KShell::quoteArg(d->service.icon().replace(QLatin1Char('%'), QLatin1String("%%")));
             }
         }
@@ -496,7 +502,7 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
             return QStringList();
         }
         mx2.expandMacrosShellQuote(terminal);
-        result = KShell::splitArgs(terminal);   // assuming that the term spec never needs a shell!
+        result = KShell::splitArgs(terminal); // assuming that the term spec never needs a shell!
         result << QStringLiteral("-e");
     }
 
@@ -546,14 +552,14 @@ QString KIO::DesktopExecParser::errorMessage() const
     return d->m_errorString;
 }
 
-//static
+// static
 QString KIO::DesktopExecParser::executableName(const QString &execLine)
 {
     const QString bin = executablePath(execLine);
     return bin.mid(bin.lastIndexOf(QLatin1Char('/')) + 1);
 }
 
-//static
+// static
 QString KIO::DesktopExecParser::executablePath(const QString &execLine)
 {
     // Remove parameters and/or trailing spaces.
@@ -565,4 +571,3 @@ QString KIO::DesktopExecParser::executablePath(const QString &execLine)
     }
     return QString();
 }
-

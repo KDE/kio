@@ -15,11 +15,10 @@
 
 namespace KDEPrivate
 {
-
-KUrlNavigatorButtonBase::KUrlNavigatorButtonBase(KUrlNavigator *parent) :
-    QPushButton(parent),
-    m_active(true),
-    m_displayHint(0)
+KUrlNavigatorButtonBase::KUrlNavigatorButtonBase(KUrlNavigator *parent)
+    : QPushButton(parent)
+    , m_active(true)
+    , m_displayHint(0)
 {
     setFocusPolicy(Qt::TabFocus);
     setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Fixed);
@@ -46,8 +45,7 @@ bool KUrlNavigatorButtonBase::isActive() const
     return m_active;
 }
 
-void KUrlNavigatorButtonBase::setDisplayHintEnabled(DisplayHint hint,
-        bool enable)
+void KUrlNavigatorButtonBase::setDisplayHintEnabled(DisplayHint hint, bool enable)
 {
     if (enable) {
         m_displayHint = m_displayHint | hint;
@@ -90,9 +88,7 @@ void KUrlNavigatorButtonBase::leaveEvent(QEvent *event)
 
 void KUrlNavigatorButtonBase::drawHoverBackground(QPainter *painter)
 {
-    const bool isHighlighted = isDisplayHintEnabled(EnteredHint) ||
-                               isDisplayHintEnabled(DraggedHint) ||
-                               isDisplayHintEnabled(PopupActiveHint);
+    const bool isHighlighted = isDisplayHintEnabled(EnteredHint) || isDisplayHintEnabled(DraggedHint) || isDisplayHintEnabled(PopupActiveHint);
 
     QColor backgroundColor = isHighlighted ? palette().color(QPalette::Highlight) : Qt::transparent;
     if (!m_active && isHighlighted) {
@@ -111,9 +107,7 @@ void KUrlNavigatorButtonBase::drawHoverBackground(QPainter *painter)
 
 QColor KUrlNavigatorButtonBase::foregroundColor() const
 {
-    const bool isHighlighted = isDisplayHintEnabled(EnteredHint) ||
-                               isDisplayHintEnabled(DraggedHint) ||
-                               isDisplayHintEnabled(PopupActiveHint);
+    const bool isHighlighted = isDisplayHintEnabled(EnteredHint) || isDisplayHintEnabled(DraggedHint) || isDisplayHintEnabled(PopupActiveHint);
 
     QColor foregroundColor = palette().color(foregroundRole());
 

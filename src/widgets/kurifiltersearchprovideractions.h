@@ -7,9 +7,8 @@
 #ifndef KURIFILTERSEARCHPROVIDERACTIONS_H
 #define KURIFILTERSEARCHPROVIDERACTIONS_H
 
-#include <QObject>
 #include "kiowidgets_export.h"
-
+#include <QObject>
 
 class QMenu;
 class QAction;

@@ -14,8 +14,8 @@
 #include <KConfig>
 #include <KConfigGroup>
 
-#include <QDate>
 #include <KPluginFactory>
+#include <QDate>
 
 K_PLUGIN_CLASS_WITH_JSON(KSSLD, "kssld.json")
 
@@ -30,32 +30,30 @@ public:
             QSslError::SslError err;
         };
 
-        //hmmm, looks like these are all of the errors where it is possible to continue.
+        // hmmm, looks like these are all of the errors where it is possible to continue.
         // TODO for Qt > 5.14 QSslError::SslError is a Q_ENUM, and we can therefore replace this manual mapping table
-        const static strErr strError[] = {
-            {"NoError", QSslError::NoError},
-            {"UnknownError", QSslError::UnspecifiedError},
-            {"InvalidCertificateAuthority", QSslError::InvalidCaCertificate},
-            {"InvalidCertificate", QSslError::UnableToDecodeIssuerPublicKey},
-            {"CertificateSignatureFailed", QSslError::CertificateSignatureFailed},
-            {"SelfSignedCertificate", QSslError::SelfSignedCertificate},
-            {"RevokedCertificate", QSslError::CertificateRevoked},
-            {"InvalidCertificatePurpose", QSslError::InvalidPurpose},
-            {"RejectedCertificate", QSslError::CertificateRejected},
-            {"UntrustedCertificate", QSslError::CertificateUntrusted},
-            {"ExpiredCertificate", QSslError::CertificateExpired},
-            {"HostNameMismatch", QSslError::HostNameMismatch},
-            {"UnableToGetLocalIssuerCertificate", QSslError::UnableToGetLocalIssuerCertificate},
-            {"InvalidNotBeforeField", QSslError::InvalidNotBeforeField},
-            {"InvalidNotAfterField", QSslError::InvalidNotAfterField},
-            {"CertificateNotYetValid", QSslError::CertificateNotYetValid},
-            {"SubjectIssuerMismatch", QSslError::SubjectIssuerMismatch},
-            {"AuthorityIssuerSerialNumberMismatch", QSslError::AuthorityIssuerSerialNumberMismatch},
-            {"SelfSignedCertificateInChain", QSslError::SelfSignedCertificateInChain},
-            {"UnableToVerifyFirstCertificate", QSslError::UnableToVerifyFirstCertificate},
-            {"UnableToDecryptCertificateSignature", QSslError::UnableToDecryptCertificateSignature},
-            {"UnableToGetIssuerCertificate", QSslError::UnableToGetIssuerCertificate}
-        };
+        const static strErr strError[] = {{"NoError", QSslError::NoError},
+                                          {"UnknownError", QSslError::UnspecifiedError},
+                                          {"InvalidCertificateAuthority", QSslError::InvalidCaCertificate},
+                                          {"InvalidCertificate", QSslError::UnableToDecodeIssuerPublicKey},
+                                          {"CertificateSignatureFailed", QSslError::CertificateSignatureFailed},
+                                          {"SelfSignedCertificate", QSslError::SelfSignedCertificate},
+                                          {"RevokedCertificate", QSslError::CertificateRevoked},
+                                          {"InvalidCertificatePurpose", QSslError::InvalidPurpose},
+                                          {"RejectedCertificate", QSslError::CertificateRejected},
+                                          {"UntrustedCertificate", QSslError::CertificateUntrusted},
+                                          {"ExpiredCertificate", QSslError::CertificateExpired},
+                                          {"HostNameMismatch", QSslError::HostNameMismatch},
+                                          {"UnableToGetLocalIssuerCertificate", QSslError::UnableToGetLocalIssuerCertificate},
+                                          {"InvalidNotBeforeField", QSslError::InvalidNotBeforeField},
+                                          {"InvalidNotAfterField", QSslError::InvalidNotAfterField},
+                                          {"CertificateNotYetValid", QSslError::CertificateNotYetValid},
+                                          {"SubjectIssuerMismatch", QSslError::SubjectIssuerMismatch},
+                                          {"AuthorityIssuerSerialNumberMismatch", QSslError::AuthorityIssuerSerialNumberMismatch},
+                                          {"SelfSignedCertificateInChain", QSslError::SelfSignedCertificateInChain},
+                                          {"UnableToVerifyFirstCertificate", QSslError::UnableToVerifyFirstCertificate},
+                                          {"UnableToDecryptCertificateSignature", QSslError::UnableToDecryptCertificateSignature},
+                                          {"UnableToGetIssuerCertificate", QSslError::UnableToGetIssuerCertificate}};
 
         for (const strErr &row : strError) {
             QString s = QString::fromLatin1(row.str);
@@ -70,8 +68,8 @@ public:
 };
 
 KSSLD::KSSLD(QObject *parent, const QVariantList &)
-    : KDEDModule(parent),
-      d(new KSSLDPrivate())
+    : KDEDModule(parent)
+    , d(new KSSLDPrivate())
 {
     new KSSLDAdaptor(this);
     pruneExpiredRules();
@@ -212,16 +210,16 @@ KSslCertificateRule KSSLD::rule(const QSslCertificate &cert, const QString &host
                 foundHostName = true;
                 break;
             }
-            needle.remove(0, 2);    // remove "*."
+            needle.remove(0, 2); // remove "*."
         }
     }
 
     if (!foundHostName) {
-        //Don't make a rule with the failed wildcard pattern - use the original hostname.
+        // Don't make a rule with the failed wildcard pattern - use the original hostname.
         return KSslCertificateRule(cert, hostName);
     }
 
-    //parse entry of the format "ExpireUTC <date>, Reject" or
+    // parse entry of the format "ExpireUTC <date>, Reject" or
     //"ExpireUTC <date>, HostNameMismatch, ExpiredCertificate, ..."
     QStringList sl = group.readEntry(needle, QStringList());
 
@@ -230,15 +228,15 @@ KSslCertificateRule KSSLD::rule(const QSslCertificate &cert, const QString &host
     if (sl.size() >= 2) {
         QString dtString = sl.takeFirst();
         if (dtString.startsWith(QLatin1String("ExpireUTC "))) {
-            dtString.remove(0, 10/* length of "ExpireUTC " */);
+            dtString.remove(0, 10 /* length of "ExpireUTC " */);
             expiryDt = QDateTime::fromString(dtString, Qt::ISODate);
         }
     }
 
     if (!expiryDt.isValid() || expiryDt < QDateTime::currentDateTime()) {
-        //the entry is malformed or expired so we remove it
+        // the entry is malformed or expired so we remove it
         group.deleteEntry(needle);
-        //the group is useless once only the CertificatePEM entry left
+        // the group is useless once only the CertificatePEM entry left
         if (group.keyList().size() < 2) {
             group.deleteGroup();
         }
@@ -259,13 +257,13 @@ KSslCertificateRule KSSLD::rule(const QSslCertificate &cert, const QString &host
         ignoredErrors.append(d->stringToSslError.value(s));
     }
 
-    //Everything is checked and we can make ret valid
+    // Everything is checked and we can make ret valid
     ret.setExpiryDateTime(expiryDt);
     ret.setRejected(isRejected);
     ret.setIgnoredErrors(ignoredErrors);
     return ret;
 }
 
+#include "kssld.moc"
 #include "moc_kssld.cpp"
 #include "moc_kssld_adaptor.cpp"
-#include "kssld.moc"

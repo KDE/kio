@@ -13,7 +13,6 @@
 
 namespace KIO
 {
-
 class MultiGetJobPrivate;
 /**
  * @class KIO::MultiGetJob multigetjob.h <KIO/MultiGetJob>
@@ -117,6 +116,7 @@ protected Q_SLOTS:
 
 protected:
     MultiGetJob(MultiGetJobPrivate &dd);
+
 private:
     Q_DECLARE_PRIVATE(MultiGetJob)
 };

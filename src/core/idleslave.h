@@ -10,14 +10,13 @@
 #define IDLESLAVE_H
 
 #include "kiocore_export.h"
-#include <QObject>
 #include <QDateTime>
-#include <QUrl>
+#include <QObject>
 #include <QScopedPointer>
+#include <QUrl>
 
 namespace KIO
 {
-
 class IdleSlavePrivate;
 class Connection;
 

@@ -11,12 +11,11 @@
 #define _kio_scheduler_h
 
 #include "simplejob.h"
-#include <QTimer>
 #include <QMap>
+#include <QTimer>
 
 namespace KIO
 {
-
 class Slave;
 class SlaveConfig;
 
@@ -179,8 +178,7 @@ public:
      * @see assignJobToSlave()
      * @see disconnectSlave()
      */
-    static KIO::Slave *getConnectedSlave(const QUrl &url,
-                                         const KIO::MetaData &config = MetaData());
+    static KIO::Slave *getConnectedSlave(const QUrl &url, const KIO::MetaData &config = MetaData());
 
     /**
      * Uses @p slave to do @p job.
@@ -221,17 +219,13 @@ public:
      * @see slaveError()
      */
     // KDE5: those methods should probably be removed, ugly and only marginally useful
-    static bool connect(const char *signal, const QObject *receiver,
-                        const char *member);
+    static bool connect(const char *signal, const QObject *receiver, const char *member);
 
-    static bool connect(const QObject *sender, const char *signal,
-                        const QObject *receiver, const char *member);
+    static bool connect(const QObject *sender, const char *signal, const QObject *receiver, const char *member);
 
-    static bool disconnect(const QObject *sender, const char *signal,
-                           const QObject *receiver, const char *member);
+    static bool disconnect(const QObject *sender, const char *signal, const QObject *receiver, const char *member);
 
-    bool connect(const QObject *sender, const char *signal,
-                 const char *member);
+    bool connect(const QObject *sender, const char *signal, const char *member);
 
     /**
      * When true, the next job will check whether KLauncher has a slave
@@ -272,8 +266,7 @@ private:
     static Scheduler *self();
 
     Q_PRIVATE_SLOT(d_func(), void slotSlaveDied(KIO::Slave *slave))
-    Q_PRIVATE_SLOT(d_func(), void slotSlaveStatus(qint64 pid, const QByteArray &protocol,
-                   const QString &host, bool connected))
+    Q_PRIVATE_SLOT(d_func(), void slotSlaveStatus(qint64 pid, const QByteArray &protocol, const QString &host, bool connected))
 
     // connected to D-Bus signal:
     Q_PRIVATE_SLOT(d_func(), void slotReparseSlaveConfiguration(const QString &, const QDBusMessage &))

@@ -12,13 +12,12 @@
 
 #define KIO_SLAVE_EXPORT KIOCORE_EXPORT
 
-#include <QObject>
-#include <QDateTime>
 #include "kio/slaveinterface.h"
+#include <QDateTime>
+#include <QObject>
 
 namespace KIO
 {
-
 class SlavePrivate;
 class SlaveKeeper;
 class SimpleJob;
@@ -166,8 +165,7 @@ private:
      * @param user to login as
      * @param passwd to login with
      */
-    virtual void setHost(const QString &host, quint16 port,
-                         const QString &user, const QString &passwd);
+    virtual void setHost(const QString &host, quint16 port, const QString &user, const QString &passwd);
 
     /**
      * Clear host info.

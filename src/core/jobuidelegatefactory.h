@@ -9,13 +9,12 @@
 #define KIO_JOBUIDELEGATEFACTORY_H
 
 #include "kiocore_export.h"
-#include <kio/global.h>
 #include <KJobUiDelegate>
 #include <QDateTime>
+#include <kio/global.h>
 
 namespace KIO
 {
-
 /**
  * @class KIO::JobUiDelegateFactory jobuidelegatefactory.h <KIO/JobUiDelegateFactory>
  *
@@ -63,14 +62,14 @@ KIOCORE_EXPORT JobUiDelegateFactory *defaultJobUiDelegateFactory();
  */
 KIOCORE_EXPORT void setDefaultJobUiDelegateFactory(JobUiDelegateFactory *factory);
 
-
 /**
  * Returns the child of the job's uiDelegate() that implements the given extension,
  * or nullptr if none was found (or if the job had no uiDelegate).
  * @since 5.78
  */
-template <typename T>
-inline T delegateExtension(KJob *job) {
+template<typename T>
+inline T delegateExtension(KJob *job)
+{
     const KJobUiDelegate *ui = job->uiDelegate();
     return ui ? ui->findChild<T>(QString(), Qt::FindDirectChildrenOnly) : nullptr;
 }

@@ -9,8 +9,8 @@
 #define KREMOTEENCODING_H
 
 #include "kiocore_export.h"
-#include <QString>
 #include <QByteArray>
+#include <QString>
 class QUrl;
 
 class KRemoteEncodingPrivate;

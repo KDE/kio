@@ -7,12 +7,12 @@
 #ifndef SHAREFD_P_H
 #define SHAREFD_P_H
 
-#include <sys/un.h>
 #include <iostream>
-#include <unistd.h>
-#include <sys/socket.h>
-#include <string.h>
 #include <stddef.h>
+#include <string.h>
+#include <sys/socket.h>
+#include <sys/un.h>
+#include <unistd.h>
 
 // fix SOCK_NONBLOCK for e.g. macOS
 #ifndef SOCK_NONBLOCK
@@ -36,11 +36,11 @@ public:
     }
     const sockaddr *address() const
     {
-        return addr.sun_path[0] ? reinterpret_cast<const sockaddr*>(&addr) : nullptr;
+        return addr.sun_path[0] ? reinterpret_cast<const sockaddr *>(&addr) : nullptr;
     }
 
 private:
-    static sockaddr_un make_address(const std::string& path)
+    static sockaddr_un make_address(const std::string &path)
     {
         sockaddr_un a;
         memset(&a, 0, sizeof a);

@@ -73,7 +73,8 @@ KSslErrorUiData::KSslErrorUiData(const QNetworkReply *reply, const QList<QSslErr
 
 KSslErrorUiData::KSslErrorUiData(const KSslErrorUiData &other)
     : d(new Private(*other.d))
-{}
+{
+}
 
 KSslErrorUiData::~KSslErrorUiData()
 {
@@ -85,4 +86,3 @@ KSslErrorUiData &KSslErrorUiData::operator=(const KSslErrorUiData &other)
     *d = *other.d;
     return *this;
 }
-

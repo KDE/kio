@@ -8,9 +8,9 @@
 #ifndef KBUILDSYCOCAPROGRESSDIALOG_H
 #define KBUILDSYCOCAPROGRESSDIALOG_H
 
-#include <QTimer>
-#include <QProgressDialog>
 #include "kiowidgets_export.h"
+#include <QProgressDialog>
+#include <QTimer>
 
 class KBuildSycocaProgressDialogPrivate;
 /**
@@ -23,7 +23,6 @@ class KIOWIDGETS_EXPORT KBuildSycocaProgressDialog : public QProgressDialog
 {
     Q_OBJECT
 public:
-
     /**
      * Rebuild KSycoca and show a progress dialog while doing so.
      * @param parent Parent widget for the progress dialog
@@ -31,8 +30,7 @@ public:
     static void rebuildKSycoca(QWidget *parent);
 
 private:
-    KBuildSycocaProgressDialog(QWidget *parent,
-                               const QString &caption, const QString &text);
+    KBuildSycocaProgressDialog(QWidget *parent, const QString &caption, const QString &text);
     ~KBuildSycocaProgressDialog();
 
 private:

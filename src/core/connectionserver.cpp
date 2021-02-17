@@ -17,14 +17,16 @@ class KIO::ConnectionServerPrivate
 public:
     inline ConnectionServerPrivate()
         : backend(nullptr)
-    { }
+    {
+    }
 
     ConnectionServer *q;
     ConnectionBackend *backend;
 };
 
 ConnectionServer::ConnectionServer(QObject *parent)
-    : QObject(parent), d(new ConnectionServerPrivate)
+    : QObject(parent)
+    , d(new ConnectionServerPrivate)
 {
     d->q = this;
 }
@@ -44,7 +46,7 @@ void ConnectionServer::listenForRemote()
     }
 
     connect(d->backend, &ConnectionBackend::newConnection, this, &ConnectionServer::newConnection);
-    //qDebug() << "Listening on" << d->backend->address;
+    // qDebug() << "Listening on" << d->backend->address;
 }
 
 QUrl ConnectionServer::address() const
@@ -74,7 +76,7 @@ Connection *ConnectionServer::nextPendingConnection()
 
     ConnectionBackend *newBackend = d->backend->nextPendingConnection();
     if (!newBackend) {
-        return nullptr;    // no new backend...
+        return nullptr; // no new backend...
     }
 
     Connection *result = new Connection;

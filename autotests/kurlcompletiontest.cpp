@@ -4,15 +4,15 @@
     SPDX-License-Identifier: LGPL-2.0-only
 */
 
-#include <QTest>
-#include <QApplication>
-#include <kurlcompletion.h>
 #include <KUser>
+#include <QApplication>
 #include <QDebug>
 #include <QDir>
 #include <QFile>
 #include <QTemporaryDir>
+#include <QTest>
 #include <QThread>
+#include <kurlcompletion.h>
 #include <qplatformdefs.h>
 
 class KUrlCompletionTest : public QObject
@@ -22,7 +22,8 @@ private Q_SLOTS:
     void test();
 
 public:
-    KUrlCompletionTest() {
+    KUrlCompletionTest()
+    {
 #ifdef NO_WAIT // kurlcompletiontest-nowait sets this, to test what happens on slower systems (or systems with many dirs or users)
         qputenv("KURLCOMPLETION_WAIT", "1"); // 1ms, too short for a full listing of /usr/bin, but at least give a chance for a few items in the result
 #endif
@@ -381,7 +382,7 @@ void KUrlCompletionTest::testCancel()
     comp.makeCompletion(QStringLiteral("g"));
     const QStringList matchesG = comp.allMatches();
     // We get many matches in a normal run, and usually 0 matches when testing "no wait" (thread is sleeping) -> this is where this method can test cancelling
-    //qDebug() << "got" << matchesG.count() << "matches";
+    // qDebug() << "got" << matchesG.count() << "matches";
     bool done = !comp.isRunning();
 
     // Doing the same search again, should hopefully not restart everything from scratch
@@ -399,7 +400,7 @@ void KUrlCompletionTest::testCancel()
         QVERIFY(!comp.isRunning()); // it had no reason to restart
     }
     const QStringList matchesA = comp.allMatches();
-    //qDebug() << "got" << matchesA.count() << "matches";
+    // qDebug() << "got" << matchesA.count() << "matches";
     for (const QString &match : matchesA) {
         QVERIFY2(!match.startsWith(QLatin1Char('g')), qPrintable(match));
     }

@@ -14,7 +14,6 @@
 
 namespace KIO
 {
-
 class FileCopyJobPrivate;
 /**
  * @class KIO::FileCopyJob filecopyjob.h <KIO/FileCopyJob>
@@ -117,15 +116,14 @@ private:
  * Setting Resume means that the data will be appended to @p dest if @p dest exists.
  * @return the job handling the operation.
  */
-KIOCORE_EXPORT FileCopyJob *file_copy(const QUrl &src, const QUrl &dest, int permissions = -1,
-                                      JobFlags flags = DefaultFlags);
+KIOCORE_EXPORT FileCopyJob *file_copy(const QUrl &src, const QUrl &dest, int permissions = -1, JobFlags flags = DefaultFlags);
 
 /**
  * Overload for catching code mistakes. Do NOT call this method (it is not implemented),
  * insert a value for permissions (-1 by default) before the JobFlags.
  * @since 4.5
  */
-FileCopyJob *file_copy(const QUrl &src, const QUrl &dest, JobFlags flags) Q_DECL_EQ_DELETE;   // not implemented - on purpose.
+FileCopyJob *file_copy(const QUrl &src, const QUrl &dest, JobFlags flags) Q_DECL_EQ_DELETE; // not implemented - on purpose.
 
 /**
  * Move a single file.
@@ -139,15 +137,14 @@ FileCopyJob *file_copy(const QUrl &src, const QUrl &dest, JobFlags flags) Q_DECL
  * Setting Resume means that the data will be appended to @p dest if @p dest exists.
  * @return the job handling the operation.
  */
-KIOCORE_EXPORT FileCopyJob *file_move(const QUrl &src, const QUrl &dest, int permissions = -1,
-                                      JobFlags flags = DefaultFlags);
+KIOCORE_EXPORT FileCopyJob *file_move(const QUrl &src, const QUrl &dest, int permissions = -1, JobFlags flags = DefaultFlags);
 
 /**
  * Overload for catching code mistakes. Do NOT call this method (it is not implemented),
  * insert a value for permissions (-1 by default) before the JobFlags.
  * @since 4.3
  */
-FileCopyJob *file_move(const QUrl &src, const QUrl &dest, JobFlags flags) Q_DECL_EQ_DELETE;   // not implemented - on purpose.
+FileCopyJob *file_move(const QUrl &src, const QUrl &dest, JobFlags flags) Q_DECL_EQ_DELETE; // not implemented - on purpose.
 
 }
 

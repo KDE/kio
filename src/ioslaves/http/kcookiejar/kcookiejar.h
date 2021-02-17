@@ -10,10 +10,10 @@
 #ifndef KCOOKIEJAR_H
 #define KCOOKIEJAR_H
 
-#include <QString>
-#include <QStringList>
 #include <QHash>
 #include <QSet>
+#include <QString>
+#include <QStringList>
 #include <qwindowdefs.h> //WId
 
 #include <QLoggingCategory>
@@ -46,12 +46,12 @@ protected:
     QString mPath;
     QString mName;
     QString mValue;
-    qint64  mExpireDate;
-    int     mProtocolVersion;
-    bool    mSecure;
-    bool    mCrossDomain;
-    bool    mHttpOnly;
-    bool    mExplicitPath;
+    qint64 mExpireDate;
+    int mProtocolVersion;
+    bool mSecure;
+    bool mCrossDomain;
+    bool mHttpOnly;
+    bool mExplicitPath;
     QList<WId> mWindowIds;
     QList<int> mPorts;
     KCookieAdvice mUserSelectedAdvice;
@@ -152,9 +152,14 @@ QDebug operator<<(QDebug, const KHttpCookie &);
 class KHttpCookieList : public QList<KHttpCookie>
 {
 public:
-    KHttpCookieList() : QList<KHttpCookie>(), advice(KCookieDunno)
-    { }
-    virtual ~KHttpCookieList() { }
+    KHttpCookieList()
+        : QList<KHttpCookie>()
+        , advice(KCookieDunno)
+    {
+    }
+    virtual ~KHttpCookieList()
+    {
+    }
 
     KCookieAdvice getAdvice() const
     {
@@ -357,8 +362,7 @@ public:
     /**
      * Get a list of all cookies in the cookie jar originating from _domain.
      */
-    KHttpCookieList *getCookieList(const QString &_domain,
-                                   const QString &_fqdn);
+    KHttpCookieList *getCookieList(const QString &_domain, const QString &_fqdn);
 
     /**
      * Remove & delete a cookie from the jar.
@@ -401,8 +405,7 @@ public:
      * The list is sorted with the FQDN listed first and the top-most
      * domain listed last
      */
-    void extractDomains(const QString &_fqdn,
-                        QStringList &_domainList) const;
+    void extractDomains(const QString &_fqdn, QStringList &_domainList) const;
 
     static QString adviceToStr(KCookieAdvice _advice);
     static KCookieAdvice strToAdvice(const QString &_str);

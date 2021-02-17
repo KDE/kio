@@ -15,58 +15,58 @@
 #include <QTextCodec>
 
 #ifdef DATAKIOSLAVE
-#  include <kinstance.h>
-#  include <stdlib.h>
+#include <kinstance.h>
+#include <stdlib.h>
 #endif
 
 #if !defined(DATAKIOSLAVE)
-#  define DISPATCH(f) dispatch_##f
+#define DISPATCH(f) dispatch_##f
 #else
-#  define DISPATCH(f) f
+#define DISPATCH(f) f
 #endif
 
 using namespace KIO;
 #ifdef DATAKIOSLAVE
 extern "C" {
 
-    int kdemain(int argc, char **argv)
-    {
-        //qDebug() << "*** Starting kio_data ";
+int kdemain(int argc, char **argv)
+{
+    // qDebug() << "*** Starting kio_data ";
 
-        if (argc != 4) {
-            //qDebug() << "Usage: kio_data  protocol domain-socket1 domain-socket2";
-            exit(-1);
-        }
-
-        DataProtocol slave(argv[2], argv[3]);
-        slave.dispatchLoop();
-
-        //qDebug() << "*** kio_data Done";
-        return 0;
+    if (argc != 4) {
+        // qDebug() << "Usage: kio_data  protocol domain-socket1 domain-socket2";
+        exit(-1);
     }
+
+    DataProtocol slave(argv[2], argv[3]);
+    slave.dispatchLoop();
+
+    // qDebug() << "*** kio_data Done";
+    return 0;
+}
 }
 #endif
 
 /** structure containing header information */
 struct DataHeader {
-    QString mime_type;        // MIME type of content (lowercase)
-    MetaData attributes;      // attribute/value pairs (attribute lowercase,
+    QString mime_type; // MIME type of content (lowercase)
+    MetaData attributes; // attribute/value pairs (attribute lowercase,
     //  value unchanged)
-    bool is_base64;       // true if data is base64 encoded
-    QByteArray url;       // reference to decoded url
-    int data_offset;      // zero-indexed position within url
+    bool is_base64; // true if data is base64 encoded
+    QByteArray url; // reference to decoded url
+    int data_offset; // zero-indexed position within url
     // where the real data begins. May point beyond
     // the end to indicate that there is no data
 };
 
 /** returns the position of the first occurrence of any of the given
-  * characters @p c1 or comma (',') or semicolon (';') or buf.length()
-  * if none is contained.
-  *
-  * @param buf buffer where to look for c
-  * @param begin zero-indexed starting position
-  * @param c1 character to find or '\0' to ignore
-  */
+ * characters @p c1 or comma (',') or semicolon (';') or buf.length()
+ * if none is contained.
+ *
+ * @param buf buffer where to look for c
+ * @param begin zero-indexed starting position
+ * @param c1 character to find or '\0' to ignore
+ */
 static int find(const QByteArray &buf, int begin, const char c1)
 {
     static const char comma = ',';
@@ -79,7 +79,7 @@ static int find(const QByteArray &buf, int begin, const char c1)
             break;
         }
         pos++;
-    }/*wend*/
+    } /*wend*/
     return pos;
 }
 
@@ -91,8 +91,7 @@ static int find(const QByteArray &buf, int begin, const char c1)
  * @param pos zero-indexed position within buffer
  * @param c1 character to find or '\0' to ignore
  */
-static inline QString extract(const QByteArray &buf, int &pos,
-                              const char c1 = '\0')
+static inline QString extract(const QByteArray &buf, int &pos, const char c1 = '\0')
 {
     int oldpos = pos;
     pos = find(buf, oldpos, c1);
@@ -125,10 +124,10 @@ static QString parseQuotedString(const QByteArray &buf, int &pos)
 {
     int size = buf.length();
     QString res;
-    res.reserve(size);    // can't be larger than buf
-    pos++;        // jump over leading quote
+    res.reserve(size); // can't be larger than buf
+    pos++; // jump over leading quote
     bool escaped = false; // if true means next character is literal
-    bool parsing = true;  // true as long as end quote not found
+    bool parsing = true; // true as long as end quote not found
     while (parsing && pos < size) {
         const QChar ch = QLatin1Char(buf[pos++]);
         if (escaped) {
@@ -136,12 +135,18 @@ static QString parseQuotedString(const QByteArray &buf, int &pos)
             escaped = false;
         } else {
             switch (ch.unicode()) {
-            case '"': parsing = false; break;
-            case '\\': escaped = true; break;
-            default: res += ch; break;
-            }/*end switch*/
-        }/*end if*/
-    }/*wend*/
+            case '"':
+                parsing = false;
+                break;
+            case '\\':
+                escaped = true;
+                break;
+            default:
+                res += ch;
+                break;
+            } /*end switch*/
+        } /*end if*/
+    } /*wend*/
     res.squeeze();
     return res;
 }
@@ -191,8 +196,7 @@ static DataHeader parseDataHeader(const QUrl &url, const bool mimeOnly)
     while (!data_begin_reached && header_info.data_offset < raw_url_len) {
         // read attribute
         const QString attribute = extract(raw_url, header_info.data_offset, '=').trimmed();
-        if (header_info.data_offset >= raw_url_len
-                || raw_url[header_info.data_offset] != '=') {
+        if (header_info.data_offset >= raw_url_len || raw_url[header_info.data_offset] != '=') {
             // no assignment, must be base64 option
             if (attribute == QLatin1String("base64")) {
                 header_info.is_base64 = true;
@@ -217,13 +221,12 @@ static DataHeader parseDataHeader(const QUrl &url, const bool mimeOnly)
             // add attribute to map
             header_info.attributes[attribute.toLower()] = value;
 
-        }/*end if*/
-        if (header_info.data_offset < raw_url_len
-                && raw_url[header_info.data_offset] == ',') {
+        } /*end if*/
+        if (header_info.data_offset < raw_url_len && raw_url[header_info.data_offset] == ',') {
             data_begin_reached = true;
         }
         header_info.data_offset++; // jump over separator token
-    }/*wend*/
+    } /*wend*/
 
     return header_info;
 }
@@ -233,17 +236,16 @@ DataProtocol::DataProtocol(const QByteArray &pool_socket, const QByteArray &app_
     : SlaveBase("kio_data", pool_socket, app_socket)
 {
 #else
-DataProtocol::DataProtocol()
-{
+DataProtocol::DataProtocol(){
 #endif
-    //qDebug();
+    // qDebug();
 }
 
 /* --------------------------------------------------------------------- */
 
 DataProtocol::~DataProtocol()
 {
-    //qDebug();
+    // qDebug();
 }
 
 /* --------------------------------------------------------------------- */
@@ -251,7 +253,7 @@ DataProtocol::~DataProtocol()
 void DataProtocol::get(const QUrl &url)
 {
     ref();
-    //qDebug() << this;
+    // qDebug() << this;
 
     const DataHeader hdr = parseDataHeader(url, false);
 
@@ -271,34 +273,34 @@ void DataProtocol::get(const QUrl &url)
             outData = codec->toUnicode(url_data).toUtf8();
         } else {
             outData = url_data;
-        }/*end if*/
-    }/*end if*/
+        } /*end if*/
+    } /*end if*/
 
-    //qDebug() << "emit mimeType@"<<this;
+    // qDebug() << "emit mimeType@"<<this;
     Q_EMIT mimeType(hdr.mime_type);
-    //qDebug() << "emit totalSize@"<<this;
+    // qDebug() << "emit totalSize@"<<this;
     Q_EMIT totalSize(outData.size());
 
-    //qDebug() << "emit setMetaData@"<<this;
+    // qDebug() << "emit setMetaData@"<<this;
 #if defined(DATAKIOSLAVE)
     MetaData::ConstIterator it;
     for (it = hdr.attributes.constBegin(); it != hdr.attributes.constEnd(); ++it) {
         setMetaData(it.key(), it.value());
-    }/*next it*/
+    } /*next it*/
 #else
     setAllMetaData(hdr.attributes);
 #endif
 
-    //qDebug() << "emit sendMetaData@"<<this;
+    // qDebug() << "emit sendMetaData@"<<this;
     sendMetaData();
-//qDebug() << "(1) queue size " << dispatchQueue.size();
+    // qDebug() << "(1) queue size " << dispatchQueue.size();
     // empiric studies have shown that this shouldn't be queued & dispatched
     Q_EMIT data(outData);
-//qDebug() << "(2) queue size " << dispatchQueue.size();
+    // qDebug() << "(2) queue size " << dispatchQueue.size();
     DISPATCH(data(QByteArray()));
-//qDebug() << "(3) queue size " << dispatchQueue.size();
+    // qDebug() << "(3) queue size " << dispatchQueue.size();
     DISPATCH(finished());
-//qDebug() << "(4) queue size " << dispatchQueue.size();
+    // qDebug() << "(4) queue size " << dispatchQueue.size();
     deref();
 }
 

@@ -16,8 +16,9 @@ class ProvidersModel : public QAbstractTableModel
 {
     Q_OBJECT
 public:
-    enum {Name, Shortcuts, Preferred, ColumnCount};
-    explicit ProvidersModel(QObject *parent = nullptr) : QAbstractTableModel(parent)
+    enum { Name, Shortcuts, Preferred, ColumnCount };
+    explicit ProvidersModel(QObject *parent = nullptr)
+        : QAbstractTableModel(parent)
     {
     }
 
@@ -45,7 +46,7 @@ public:
         return m_providers;
     }
 
-    ///Creates new ProvidersListModel which directly uses data of this model.
+    /// Creates new ProvidersListModel which directly uses data of this model.
     QAbstractListModel *createListModel();
 
 Q_SIGNALS:
@@ -65,7 +66,7 @@ class ProvidersListModel : public QAbstractListModel
 {
     Q_OBJECT
 public:
-    enum {ShortNameRole = Qt::UserRole};
+    enum { ShortNameRole = Qt::UserRole };
 
 private:
     explicit ProvidersListModel(QList<SearchProvider *> &providers, QObject *parent = nullptr);

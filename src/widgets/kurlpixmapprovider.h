@@ -59,6 +59,7 @@ public:
      */
     KIOWIDGETS_DEPRECATED_VERSION(5, 66, "Use KIO::iconNameForUrl to get the icon name and use QIcon::fromTheme")
     QPixmap pixmapFor(const QString &url, int size = 0) override;
+
 protected:
     void virtual_hook(int id, void *data) override;
 

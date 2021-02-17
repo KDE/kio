@@ -14,7 +14,7 @@ Q_GLOBAL_STATIC(KJobTrackerInterface, globalDummyTracker)
 KJobTrackerInterface *KIO::getJobTracker()
 {
     if (!s_tracker) {
-        s_tracker = globalDummyTracker();    // don't return nullptr, caller doesn't expect that
+        s_tracker = globalDummyTracker(); // don't return nullptr, caller doesn't expect that
     }
     return s_tracker;
 }

@@ -10,9 +10,9 @@
 #include <QDate>
 #include <QString>
 
+#include <QStandardPaths>
 #include <QTest>
 #include <qplatformdefs.h>
-#include <QStandardPaths>
 
 #include "../../src/ioslaves/http/kcookiejar/kcookiejar.cpp"
 
@@ -109,14 +109,13 @@ static void processCookie(QString &line)
         FAIL(QStringLiteral("Failed to make cookies from: '%1'").arg(line));
     }
 
-    for (KHttpCookieList::iterator cookieIterator = list.begin();
-            cookieIterator != list.end(); ++cookieIterator) {
+    for (KHttpCookieList::iterator cookieIterator = list.begin(); cookieIterator != list.end(); ++cookieIterator) {
         KHttpCookie &cookie = *cookieIterator;
         const KCookieAdvice cookieAdvice = jar->cookieAdvice(cookie);
         if (cookieAdvice != expectedAdvice)
-            FAIL(urlStr + QStringLiteral("\n'%2'\nGot advice '%3' expected '%4'")
-                 .arg(line, KCookieJar::adviceToStr(cookieAdvice), KCookieJar::adviceToStr(expectedAdvice))
-                );
+            FAIL(urlStr
+                 + QStringLiteral("\n'%2'\nGot advice '%3' expected '%4'")
+                       .arg(line, KCookieJar::adviceToStr(cookieAdvice), KCookieJar::adviceToStr(expectedAdvice)));
         jar->addCookie(cookie);
     }
 }
@@ -137,8 +136,7 @@ static void processCheck(QString &line)
 
     QString cookies = jar->findCookies(urlStr, false, windowId, nullptr).trimmed();
     if (cookies != expectedCookies)
-        FAIL(urlStr + QStringLiteral("\nGot '%1' expected '%2'")
-             .arg(cookies, expectedCookies));
+        FAIL(urlStr + QStringLiteral("\nGot '%1' expected '%2'").arg(cookies, expectedCookies));
 }
 
 static void processClear(QString &line)
@@ -244,10 +242,14 @@ private Q_SLOTS:
         QTest::addColumn<bool>("expectedResult");
         QTest::addColumn<QString>("expectedFqdn");
         QTest::addColumn<QString>("expectedPath");
-        QTest::newRow("empty") << "" << false << "" << "";
-        QTest::newRow("url with no path") << "http://bugs.kde.org" << true << "bugs.kde.org" << "/";
-        QTest::newRow("url with path") << "http://bugs.kde.org/foo" << true << "bugs.kde.org" << "/foo";
-        QTest::newRow("just a host") << "bugs.kde.org" << false << "" << "";
+        QTest::newRow("empty") << "" << false << ""
+                               << "";
+        QTest::newRow("url with no path") << "http://bugs.kde.org" << true << "bugs.kde.org"
+                                          << "/";
+        QTest::newRow("url with path") << "http://bugs.kde.org/foo" << true << "bugs.kde.org"
+                                       << "/foo";
+        QTest::newRow("just a host") << "bugs.kde.org" << false << ""
+                                     << "";
     }
     void testParseUrl()
     {
@@ -270,8 +272,9 @@ private Q_SLOTS:
         QTest::newRow("empty") << "" << (QStringList() << QStringLiteral("localhost"));
         QTest::newRow("ipv4") << "1.2.3.4" << (QStringList() << QStringLiteral("1.2.3.4"));
         QTest::newRow("ipv6") << "[fe80::213:d3ff:fef4:8c92]" << (QStringList() << QStringLiteral("[fe80::213:d3ff:fef4:8c92]"));
-        QTest::newRow("bugs.kde.org") << "bugs.kde.org" << (QStringList() << QStringLiteral("bugs.kde.org") << QStringLiteral(".bugs.kde.org") << QStringLiteral("kde.org") << QStringLiteral(".kde.org"));
-
+        QTest::newRow("bugs.kde.org") << "bugs.kde.org"
+                                      << (QStringList() << QStringLiteral("bugs.kde.org") << QStringLiteral(".bugs.kde.org") << QStringLiteral("kde.org")
+                                                        << QStringLiteral(".kde.org"));
     }
     void testExtractDomains()
     {

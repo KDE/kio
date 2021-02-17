@@ -8,8 +8,8 @@
 #ifndef JOBTEST_H
 #define JOBTEST_H
 
-#include <QString>
 #include <QObject>
+#include <QString>
 #include <kio/job.h>
 
 class JobTest : public QObject
@@ -17,7 +17,9 @@ class JobTest : public QObject
     Q_OBJECT
 
 public:
-    JobTest() {}
+    JobTest()
+    {
+    }
 
 private Q_SLOTS:
     void initTestCase();
@@ -117,7 +119,7 @@ private Q_SLOTS:
     void cancelCopyAndCleanDest_data();
 
     // Remote tests
-    //void copyFileToSystem();
+    // void copyFileToSystem();
 
     void getInvalidUrl();
     void multiGet();
@@ -143,7 +145,7 @@ private:
     void copyLocalDirectory(const QString &src, const QString &dest, int flags = 0);
     void moveLocalFile(const QString &src, const QString &dest);
     void moveLocalDirectory(const QString &src, const QString &dest);
-    //void copyFileToSystem( bool resolve_local_urls );
+    // void copyFileToSystem( bool resolve_local_urls );
     void deleteSymlink(bool using_fast_path);
     void deleteManyDirs(bool using_fast_path);
     void deleteManyFilesTogether(bool using_fast_path);
@@ -156,7 +158,7 @@ private:
     QString m_mimetype;
     QString m_setXattrCmd;
     QString m_getXattrCmd;
-    std::function<QStringList(const QString&, const QString&, const QString&)> m_setXattrFormatArgs;
+    std::function<QStringList(const QString &, const QString &, const QString &)> m_setXattrFormatArgs;
 };
 
 #endif

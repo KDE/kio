@@ -37,25 +37,26 @@ private:
     {
         QVERIFY(remoteDir.isValid());
         proc.setProgram("wsgidav");
-        proc.setArguments({ QStringLiteral("--host=0.0.0.0"), QString("--port=%1").arg(port),
-            QString("--root=%1").arg(remoteDir.path()),
-            QStringLiteral("--auth=anonymous") });
+        proc.setArguments(
+            {QStringLiteral("--host=0.0.0.0"), QString("--port=%1").arg(port), QString("--root=%1").arg(remoteDir.path()), QStringLiteral("--auth=anonymous")});
         proc.setProcessChannelMode(QProcess::ForwardedErrorChannel);
         proc.start();
         QVERIFY(proc.waitForStarted());
         QCOMPARE(proc.state(), QProcess::Running);
         // Wait for the daemon to print its port. That tells us both where it's listening
         // and also that it is ready to move ahead with testing.
-        QVERIFY(QTest::qWaitFor([&]() -> bool {
-            const QString out = proc.readAllStandardOutput();
-            if (!out.isEmpty()) {
-                qDebug() << "STDERR:" << out;
-            }
-            if (!out.endsWith("Serving on http://0.0.0.0:30000 ...\n")) {
-                return false;
-            }
-            return true;
-        }, 5000));
+        QVERIFY(QTest::qWaitFor(
+            [&]() -> bool {
+                const QString out = proc.readAllStandardOutput();
+                if (!out.isEmpty()) {
+                    qDebug() << "STDERR:" << out;
+                }
+                if (!out.endsWith("Serving on http://0.0.0.0:30000 ...\n")) {
+                    return false;
+                }
+                return true;
+            },
+            5000));
     }
 
 private Q_SLOTS:
@@ -69,12 +70,10 @@ private Q_SLOTS:
         // Start the webdav server.
         runDaemon(m_daemonProc, m_remoteDir);
         // Put a prefix on the stderr and stdout from the server.
-        connect(&m_daemonProc, &QProcess::readyReadStandardError,
-                this, [this] {
+        connect(&m_daemonProc, &QProcess::readyReadStandardError, this, [this] {
             qDebug() << "wsgidav STDERR:" << m_daemonProc.readAllStandardError();
         });
-        connect(&m_daemonProc, &QProcess::readyReadStandardOutput,
-                this, [this] {
+        connect(&m_daemonProc, &QProcess::readyReadStandardOutput, this, [this] {
             qDebug() << "wsgidav STDOUT:" << m_daemonProc.readAllStandardOutput();
         });
 
@@ -124,7 +123,7 @@ private Q_SLOTS:
 
         const QString testCopy1 = QFINDTESTDATA("ftp/testCopy1");
         QVERIFY(!testCopy1.isEmpty());
-        auto job = KIO::copy({ QUrl::fromLocalFile(testCopy1) }, url, KIO::DefaultFlags);
+        auto job = KIO::copy({QUrl::fromLocalFile(testCopy1)}, url, KIO::DefaultFlags);
         job->setUiDelegate(nullptr);
         QVERIFY2(job->exec(), qUtf8Printable(job->errorString()));
         QFile file(remotePath);
@@ -143,12 +142,11 @@ private Q_SLOTS:
         QFile::remove(partPath);
         const QString testCopy1 = QFINDTESTDATA("ftp/testCopy1");
         QVERIFY(!testCopy1.isEmpty());
-        QVERIFY(QFile::copy(testCopy1,
-                            partPath));
+        QVERIFY(QFile::copy(testCopy1, partPath));
 
         const QString testCopy2 = QFINDTESTDATA("ftp/testCopy2");
         QVERIFY(!testCopy2.isEmpty());
-        auto job = KIO::copy({ QUrl::fromLocalFile(testCopy2) }, url, KIO::Resume);
+        auto job = KIO::copy({QUrl::fromLocalFile(testCopy2)}, url, KIO::Resume);
         job->setUiDelegate(nullptr);
         QVERIFY2(job->exec(), qUtf8Printable(job->errorString()));
         QFile file(remotePath);
@@ -167,7 +165,7 @@ private Q_SLOTS:
         // Create file
         const QString testCopy1 = QFINDTESTDATA("ftp/testCopy1");
         QVERIFY(!testCopy1.isEmpty());
-        auto job1 = KIO::copy({ QUrl::fromLocalFile(testCopy1) }, url, KIO::DefaultFlags);
+        auto job1 = KIO::copy({QUrl::fromLocalFile(testCopy1)}, url, KIO::DefaultFlags);
         job1->setUiDelegate(nullptr);
         QVERIFY2(job1->exec(), qUtf8Printable(job1->errorString()));
         QFile file(remotePath);
@@ -178,7 +176,7 @@ private Q_SLOTS:
         // File already exists, we expect it to be overwritten.
         const QString testOverwriteCopy2 = QFINDTESTDATA("ftp/testOverwriteCopy2");
         QVERIFY(!testOverwriteCopy2.isEmpty());
-        auto job2 = KIO::copy({ QUrl::fromLocalFile(testOverwriteCopy2) }, url, KIO::Overwrite);
+        auto job2 = KIO::copy({QUrl::fromLocalFile(testOverwriteCopy2)}, url, KIO::Overwrite);
         job2->setUiDelegate(nullptr);
         QVERIFY2(job2->exec(), qUtf8Printable(job2->errorString()));
         QVERIFY(file.open(QFile::ReadOnly));
@@ -193,13 +191,12 @@ private Q_SLOTS:
         qDebug() << (m_remoteDir.path() + path);
         const QString testOverwriteCopy1 = QFINDTESTDATA("ftp/testOverwriteCopy1");
         QVERIFY(!testOverwriteCopy1.isEmpty());
-        QVERIFY(QFile::copy(testOverwriteCopy1,
-                            m_remoteDir.path() + path));
+        QVERIFY(QFile::copy(testOverwriteCopy1, m_remoteDir.path() + path));
 
         // Without overwrite flag.
         const QString testOverwriteCopy2 = QFINDTESTDATA("ftp/testOverwriteCopy2");
         QVERIFY(!testOverwriteCopy2.isEmpty());
-        auto job = KIO::copy({ QUrl::fromLocalFile(testOverwriteCopy2) }, url, KIO::DefaultFlags);
+        auto job = KIO::copy({QUrl::fromLocalFile(testOverwriteCopy2)}, url, KIO::DefaultFlags);
         job->setUiDelegate(nullptr);
         QVERIFY2(!job->exec(), qUtf8Printable(job->errorString()));
         QCOMPARE(job->error(), KIO::ERR_FILE_ALREADY_EXIST);
@@ -219,8 +216,7 @@ private Q_SLOTS:
         qDebug() << (m_remoteDir.path() + path);
         const auto testOverwriteCopy1 = QFINDTESTDATA("ftp/testOverwriteCopy1");
         QVERIFY(!testOverwriteCopy1.isEmpty());
-        QVERIFY(QFile::copy(testOverwriteCopy1,
-                            m_remoteDir.path() + path));
+        QVERIFY(QFile::copy(testOverwriteCopy1, m_remoteDir.path() + path));
         QVERIFY(QDir(m_remoteDir.path()).mkdir("dir"));
 
         // First copy should work.

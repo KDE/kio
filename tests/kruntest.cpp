@@ -11,12 +11,12 @@
 #include <KIO/JobUiDelegate>
 #include <KIO/OpenUrlJob>
 
-#include <QLabel>
+#include <KService>
 #include <QApplication>
 #include <QDebug>
-#include <KService>
-#include <QPushButton>
+#include <QLabel>
 #include <QLayout>
+#include <QPushButton>
 #include <QTest> // QFINDTESTDATA
 
 #include <QDir>
@@ -34,16 +34,25 @@ static const struct {
     const char *exec;
     const char *url;
 } s_tests[] = {
-    { "run(kwrite, no url)", "should work normally", "kwrite", nullptr },
-    { "run(kwrite, file url)", "should work normally", "kwrite", testFile },
-    { "run(kwrite, remote url)", "should work normally", "kwrite", "http://www.kde.org" },
-    { "run(doesnotexit, no url)", "should show error message", "doesnotexist", nullptr },
-    { "run(doesnotexit, file url)", "should show error message", "doesnotexist", testFile },
-    { "run(doesnotexit, remote url)", "should use kioexec and show error message", "doesnotexist", "http://www.kde.org" },
-    { "run(not-executable-desktopfile)", "should ask for confirmation", "nonexec", nullptr },
-    { "run(missing lib, no url)", "should show error message (remove libqca-qt5.so.2 for this, e.g. by editing LD_LIBRARY_PATH if qca is in its own prefix)", "qcatool-qt5", nullptr },
-    { "run(missing lib, file url)", "should show error message (remove libqca-qt5.so.2 for this, e.g. by editing LD_LIBRARY_PATH if qca is in its own prefix)", "qcatool-qt5", testFile },
-    { "run(missing lib, remote url)", "should show error message (remove libqca-qt5.so.2 for this, e.g. by editing LD_LIBRARY_PATH if qca is in its own prefix)", "qcatool-qt5", "http://www.kde.org" },
+    {"run(kwrite, no url)", "should work normally", "kwrite", nullptr},
+    {"run(kwrite, file url)", "should work normally", "kwrite", testFile},
+    {"run(kwrite, remote url)", "should work normally", "kwrite", "http://www.kde.org"},
+    {"run(doesnotexit, no url)", "should show error message", "doesnotexist", nullptr},
+    {"run(doesnotexit, file url)", "should show error message", "doesnotexist", testFile},
+    {"run(doesnotexit, remote url)", "should use kioexec and show error message", "doesnotexist", "http://www.kde.org"},
+    {"run(not-executable-desktopfile)", "should ask for confirmation", "nonexec", nullptr},
+    {"run(missing lib, no url)",
+     "should show error message (remove libqca-qt5.so.2 for this, e.g. by editing LD_LIBRARY_PATH if qca is in its own prefix)",
+     "qcatool-qt5",
+     nullptr},
+    {"run(missing lib, file url)",
+     "should show error message (remove libqca-qt5.so.2 for this, e.g. by editing LD_LIBRARY_PATH if qca is in its own prefix)",
+     "qcatool-qt5",
+     testFile},
+    {"run(missing lib, remote url)",
+     "should show error message (remove libqca-qt5.so.2 for this, e.g. by editing LD_LIBRARY_PATH if qca is in its own prefix)",
+     "qcatool-qt5",
+     "http://www.kde.org"},
 };
 
 Receiver::Receiver()

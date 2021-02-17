@@ -10,11 +10,11 @@
 
 #include "ktcpsocket.h" // TODO KF6 remove include
 
+#include <QDate>
 #include <QSslCertificate>
 #include <QSslError>
 #include <QString>
 #include <QStringList>
-#include <QDate>
 
 class QDBusArgument;
 class QSslCertificate;
@@ -26,8 +26,7 @@ class KSslCertificateManagerPrivate;
 class KIOCORE_EXPORT KSslCertificateRule
 {
 public:
-    KSslCertificateRule(const QSslCertificate &cert = QSslCertificate(),
-                        const QString &hostName = QString());
+    KSslCertificateRule(const QSslCertificate &cert = QSslCertificate(), const QString &hostName = QString());
     KSslCertificateRule(const KSslCertificateRule &other);
     ~KSslCertificateRule();
     KSslCertificateRule &operator=(const KSslCertificateRule &other);
@@ -84,6 +83,7 @@ public:
      * @since 5.64
      */
     QList<QSslError> filterErrors(const QList<QSslError> &errors) const;
+
 private:
     friend QDBusArgument &operator<<(QDBusArgument &argument, const KSslCertificateRule &rule); // TODO KF6 remove
     friend class KSSLD; // TODO KF6 remove

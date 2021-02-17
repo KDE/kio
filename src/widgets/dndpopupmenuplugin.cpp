@@ -9,7 +9,7 @@
 
 using namespace KIO;
 
-DndPopupMenuPlugin::DndPopupMenuPlugin(QObject* parent)
+DndPopupMenuPlugin::DndPopupMenuPlugin(QObject *parent)
     : QObject(parent)
 {
 }

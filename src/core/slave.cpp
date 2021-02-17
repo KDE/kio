@@ -11,42 +11,42 @@
 #include <qplatformdefs.h>
 #include <stdio.h>
 
+#include <QElapsedTimer>
 #include <QFile>
+#include <QProcess>
 #include <QStandardPaths>
 #include <QTimer>
-#include <QProcess>
-#include <QElapsedTimer>
 
-#include <QDBusConnection>
 #include <KLocalizedString>
+#include <QDBusConnection>
 
 #include <KDEInitInterface>
-#include <klauncher_interface.h>
 #include <KPluginLoader>
+#include <klauncher_interface.h>
 
-#include "dataprotocol_p.h"
-#include "connection_p.h"
 #include "commands_p.h"
+#include "connection_p.h"
 #include "connectionserver.h"
+#include "dataprotocol_p.h"
 #include "kioglobal_p.h"
-#include <kprotocolinfo.h>
 #include <config-kiocore.h> // KDE_INSTALL_FULL_LIBEXECDIR_KF5
+#include <kprotocolinfo.h>
 
-#include "slaveinterface_p.h"
 #include "kiocoredebug.h"
+#include "slaveinterface_p.h"
 
 using namespace KIO;
 
-#define SLAVE_CONNECTION_TIMEOUT_MIN       2
+#define SLAVE_CONNECTION_TIMEOUT_MIN 2
 
 // Without debug info we consider it an error if the slave doesn't connect
 // within 10 seconds.
 // With debug info we give the slave an hour so that developers have a chance
 // to debug their slave.
 #ifdef NDEBUG
-#define SLAVE_CONNECTION_TIMEOUT_MAX      10
+#define SLAVE_CONNECTION_TIMEOUT_MAX 10
 #else
-#define SLAVE_CONNECTION_TIMEOUT_MAX    3600
+#define SLAVE_CONNECTION_TIMEOUT_MAX 3600
 #endif
 
 static QThreadStorage<org::kde::KSlaveLauncher *> s_kslaveLauncher;
@@ -55,9 +55,8 @@ static org::kde::KSlaveLauncher *klauncher()
 {
     KDEInitInterface::ensureKdeinitRunning();
     if (!s_kslaveLauncher.hasLocalData()) {
-        org::kde::KSlaveLauncher *launcher = new org::kde::KSlaveLauncher(QStringLiteral("org.kde.klauncher5"),
-                QStringLiteral("/KLauncher"),
-                QDBusConnection::sessionBus());
+        org::kde::KSlaveLauncher *launcher =
+            new org::kde::KSlaveLauncher(QStringLiteral("org.kde.klauncher5"), QStringLiteral("/KLauncher"), QDBusConnection::sessionBus());
         s_kslaveLauncher.setLocalData(launcher);
         return launcher;
     }
@@ -106,23 +105,22 @@ static bool forkSlaves()
 
 namespace KIO
 {
-
 /**
  * @internal
  */
-class SlavePrivate: public SlaveInterfacePrivate
+class SlavePrivate : public SlaveInterfacePrivate
 {
 public:
-    explicit SlavePrivate(const QString &protocol) :
-        m_protocol(protocol),
-        m_slaveProtocol(protocol),
-        slaveconnserver(new KIO::ConnectionServer),
-        m_job(nullptr),
-        m_pid(0),
-        m_port(0),
-        contacted(false),
-        dead(false),
-        m_refCount(1)
+    explicit SlavePrivate(const QString &protocol)
+        : m_protocol(protocol)
+        , m_slaveProtocol(protocol)
+        , slaveconnserver(new KIO::ConnectionServer)
+        , m_job(nullptr)
+        , m_pid(0)
+        , m_port(0)
+        , contacted(false)
+        , dead(false)
+        , m_refCount(1)
     {
         contact_started.start();
         slaveconnserver->listenForRemote();
@@ -165,7 +163,7 @@ void Slave::accept()
 void Slave::timeout()
 {
     Q_D(Slave);
-    if (d->dead) { //already dead? then slaveDied was emitted and we are done
+    if (d->dead) { // already dead? then slaveDied was emitted and we are done
         return;
     }
     if (d->connection->isConnected()) {
@@ -176,20 +174,20 @@ void Slave::timeout()
                  << " protocol=" << d->m_protocol;*/
     if (d->m_pid && KIOPrivate::isProcessAlive(d->m_pid)) {
         int delta_t = d->contact_started.elapsed() / 1000;
-        //qDebug() << "slave is slow... pid=" << d->m_pid << " t=" << delta_t;
+        // qDebug() << "slave is slow... pid=" << d->m_pid << " t=" << delta_t;
         if (delta_t < SLAVE_CONNECTION_TIMEOUT_MAX) {
             QTimer::singleShot(1000 * SLAVE_CONNECTION_TIMEOUT_MIN, this, &Slave::timeout);
             return;
         }
     }
-    //qDebug() << "Houston, we lost our slave, pid=" << d->m_pid;
+    // qDebug() << "Houston, we lost our slave, pid=" << d->m_pid;
     d->connection->close();
     d->dead = true;
     QString arg = d->m_protocol;
     if (!d->m_host.isEmpty()) {
         arg += QLatin1String("://") + d->m_host;
     }
-    //qDebug() << "slave died pid = " << d->m_pid;
+    // qDebug() << "slave died pid = " << d->m_pid;
 
     ref();
     // Tell the job about the problem.
@@ -211,8 +209,8 @@ Slave::Slave(const QString &protocol, QObject *parent)
 
 Slave::~Slave()
 {
-    //qDebug() << "destructing slave object pid = " << d->m_pid;
-    //delete d;
+    // qDebug() << "destructing slave object pid = " << d->m_pid;
+    // delete d;
 }
 
 QString Slave::protocol()
@@ -387,7 +385,7 @@ void Slave::send(int cmd, const QByteArray &arr)
 void Slave::gotInput()
 {
     Q_D(Slave);
-    if (d->dead) { //already dead? then slaveDied was emitted and we are done
+    if (d->dead) { // already dead? then slaveDied was emitted and we are done
         return;
     }
     ref();
@@ -398,7 +396,7 @@ void Slave::gotInput()
         if (!d->m_host.isEmpty()) {
             arg += QLatin1String("://") + d->m_host;
         }
-        //qDebug() << "slave died pid = " << d->m_pid;
+        // qDebug() << "slave died pid = " << d->m_pid;
         // Tell the job about the problem.
         Q_EMIT error(ERR_SLAVE_DIED, arg);
         // Tell the scheduler about the problem.
@@ -412,7 +410,7 @@ void Slave::kill()
 {
     Q_D(Slave);
     d->dead = true; // OO can be such simple.
-    //qDebug() << "killing slave pid" << d->m_pid
+    // qDebug() << "killing slave pid" << d->m_pid
     //         << "(" << d->m_protocol + QLatin1String("://") + d->m_host << ")";
     if (d->m_pid) {
         KIOPrivate::sendTerminateSignal(d->m_pid);
@@ -420,8 +418,7 @@ void Slave::kill()
     }
 }
 
-void Slave::setHost(const QString &host, quint16 port,
-                    const QString &user, const QString &passwd)
+void Slave::setHost(const QString &host, quint16 port, const QString &user, const QString &passwd)
 {
     Q_D(Slave);
     d->m_host = host;
@@ -454,7 +451,7 @@ void Slave::setConfig(const MetaData &config)
 
 Slave *Slave::createSlave(const QString &protocol, const QUrl &url, int &error, QString &error_text)
 {
-    //qDebug() << "createSlave" << protocol << "for" << url;
+    // qDebug() << "createSlave" << protocol << "for" << url;
     // Firstly take into account all special slaves
     if (protocol == QLatin1String("data")) {
         return new DataProtocol();
@@ -488,7 +485,7 @@ Slave *Slave::createSlave(const QString &protocol, const QUrl &url, int &error, 
         }
 
         const QStringList args = QStringList{lib_path, protocol, QString(), slaveAddress.toString()};
-        //qDebug() << "kioslave" << ", " << lib_path << ", " << protocol << ", " << QString() << ", " << slaveAddress;
+        // qDebug() << "kioslave" << ", " << lib_path << ", " << protocol << ", " << QString() << ", " << slaveAddress;
 
         // look where libexec path is (can be set in qt.conf)
         const QString qlibexec = QLibraryInfo::location(QLibraryInfo::LibraryExecutablesPath);
@@ -496,11 +493,9 @@ Slave *Slave::createSlave(const QString &protocol, const QUrl &url, int &error, 
         const QString qlibexecKF5 = QDir(qlibexec).filePath(QStringLiteral("kf5"));
 
         // search paths
-        const QStringList searchPaths = QStringList()
-            << QCoreApplication::applicationDirPath() // then look where our application binary is located
-            << qlibexec
-            << qlibexecKF5
-            << QFile::decodeName(KDE_INSTALL_FULL_LIBEXECDIR_KF5); // look at our installation location
+        const QStringList searchPaths = QStringList() << QCoreApplication::applicationDirPath() // then look where our application binary is located
+                                                      << qlibexec << qlibexecKF5
+                                                      << QFile::decodeName(KDE_INSTALL_FULL_LIBEXECDIR_KF5); // look at our installation location
         QString kioslaveExecutable = QStandardPaths::findExecutable(QStringLiteral("kioslave5"), searchPaths);
         if (kioslaveExecutable.isEmpty()) {
             // Fallback to PATH. On win32 we install to bin/ which tests outside
@@ -544,7 +539,7 @@ Slave *Slave::createSlave(const QString &protocol, const QUrl &url, int &error, 
 
 Slave *Slave::holdSlave(const QString &protocol, const QUrl &url)
 {
-    //qDebug() << "holdSlave" << protocol << "for" << url;
+    // qDebug() << "holdSlave" << protocol << "for" << url;
     // Firstly take into account all special slaves
     if (protocol == QLatin1String("data")) {
         return nullptr;
@@ -579,4 +574,3 @@ bool Slave::checkForHeldSlave(const QUrl &url)
 
     return klauncher()->checkForHeldSlave(url.toString());
 }
-

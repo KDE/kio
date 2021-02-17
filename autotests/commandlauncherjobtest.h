@@ -32,4 +32,3 @@ private Q_SLOTS:
 };
 
 #endif /* COMMANDLAUNCHERJOBTEST_H */
-

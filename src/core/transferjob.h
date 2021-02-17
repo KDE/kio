@@ -13,7 +13,6 @@
 
 namespace KIO
 {
-
 class TransferJobPrivate;
 /**
  * @class KIO::TransferJob transferjob.h <KIO/TransferJob>
@@ -200,6 +199,7 @@ protected Q_SLOTS:
 
 protected:
     TransferJob(TransferJobPrivate &dd);
+
 private:
     Q_PRIVATE_SLOT(d_func(), void slotPostRedirection())
     Q_PRIVATE_SLOT(d_func(), void slotIODeviceClosed())
@@ -247,8 +247,7 @@ KIOCORE_EXPORT TransferJob *get(const QUrl &url, LoadType reload = NoReload, Job
  * @return the job handling the operation.
  * @see multi_get()
  */
-KIOCORE_EXPORT TransferJob *put(const QUrl &url, int permissions,
-                                JobFlags flags = DefaultFlags);
+KIOCORE_EXPORT TransferJob *put(const QUrl &url, int permissions, JobFlags flags = DefaultFlags);
 
 /**
  * HTTP POST (for form data).
@@ -278,8 +277,7 @@ KIOCORE_EXPORT TransferJob *put(const QUrl &url, int permissions,
  * @param flags Can be HideProgressInfo here
  * @return the job handling the operation.
  */
-KIOCORE_EXPORT TransferJob *http_post(const QUrl &url, const QByteArray &postData,
-                                      JobFlags flags = DefaultFlags);
+KIOCORE_EXPORT TransferJob *http_post(const QUrl &url, const QByteArray &postData, JobFlags flags = DefaultFlags);
 
 /**
  * HTTP POST.
@@ -297,8 +295,7 @@ KIOCORE_EXPORT TransferJob *http_post(const QUrl &url, const QByteArray &postDat
  *
  * @since 4.7
  */
-KIOCORE_EXPORT TransferJob *http_post(const QUrl &url, QIODevice *device,
-                                      qint64 size = -1, JobFlags flags = DefaultFlags);
+KIOCORE_EXPORT TransferJob *http_post(const QUrl &url, QIODevice *device, qint64 size = -1, JobFlags flags = DefaultFlags);
 
 /**
  * HTTP DELETE.

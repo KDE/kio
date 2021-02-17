@@ -11,7 +11,7 @@
 #include <string.h>
 
 FdSender::FdSender(const std::string &path)
-        : m_socketDes(-1)
+    : m_socketDes(-1)
 {
     const SocketAddress addr(path);
     if (!addr.address()) {

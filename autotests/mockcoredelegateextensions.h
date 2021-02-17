@@ -9,21 +9,28 @@
 #ifndef MOCKDELEGATEEXTENSIONS_H
 #define MOCKDELEGATEEXTENSIONS_H
 
+#include <QUrl>
 #include <askuseractioninterface.h>
 #include <untrustedprogramhandlerinterface.h>
-#include <QUrl>
 
 class MockUntrustedProgramHandler : public KIO::UntrustedProgramHandlerInterface
 {
 public:
-    explicit MockUntrustedProgramHandler(QObject *parent) : KIO::UntrustedProgramHandlerInterface(parent) {}
-    void showUntrustedProgramWarning(KJob *job, const QString &programName) override {
+    explicit MockUntrustedProgramHandler(QObject *parent)
+        : KIO::UntrustedProgramHandlerInterface(parent)
+    {
+    }
+    void showUntrustedProgramWarning(KJob *job, const QString &programName) override
+    {
         Q_UNUSED(job)
         m_calls << programName;
         Q_EMIT result(m_retVal);
     }
 
-    void setRetVal(bool b) { m_retVal = b; }
+    void setRetVal(bool b)
+    {
+        m_retVal = b;
+    }
 
     QStringList m_calls;
 
@@ -66,9 +73,7 @@ public:
         Q_EMIT askUserRenameResult(m_renameResult, m_newDestUrl, job);
     }
 
-    void askUserSkip(KJob *job,
-                     KIO::SkipDialog_Options options,
-                     const QString &error_text) override
+    void askUserSkip(KJob *job, KIO::SkipDialog_Options options, const QString &error_text) override
     {
         Q_UNUSED(options)
         Q_UNUSED(error_text)
@@ -77,10 +82,7 @@ public:
         Q_EMIT askUserSkipResult(m_skipResult, job);
     }
 
-    void askUserDelete(const QList<QUrl> &urls,
-                       DeletionType deletionType,
-                       ConfirmationType confirmationType,
-                       QWidget *parent = nullptr) override
+    void askUserDelete(const QList<QUrl> &urls, DeletionType deletionType, ConfirmationType confirmationType, QWidget *parent = nullptr) override
     {
         Q_UNUSED(confirmationType)
 
@@ -135,4 +137,3 @@ public:
 };
 
 #endif // MOCKDELEGATEEXTENSIONS_H
-

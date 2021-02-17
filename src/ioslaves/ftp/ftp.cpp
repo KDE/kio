@@ -18,7 +18,7 @@
 
 #include <config-kioslave-ftp.h>
 
-#define  KIO_FTP_PRIVATE_INCLUDE
+#define KIO_FTP_PRIVATE_INCLUDE
 #include "ftp.h"
 
 #ifdef Q_OS_WIN
@@ -32,21 +32,21 @@
 #include <cstdlib>
 #include <cstring>
 
+#include <QAuthenticator>
 #include <QCoreApplication>
 #include <QDir>
 #include <QHostAddress>
-#include <QNetworkProxy>
-#include <QTcpSocket>
-#include <QTcpServer>
-#include <QSslSocket>
-#include <QAuthenticator>
 #include <QMimeDatabase>
+#include <QNetworkProxy>
+#include <QSslSocket>
+#include <QTcpServer>
+#include <QTcpSocket>
 
+#include <KConfigGroup>
+#include <KLocalizedString>
 #include <QDebug>
 #include <ioslave_defaults.h>
-#include <KLocalizedString>
 #include <kremoteencoding.h>
-#include <KConfigGroup>
 
 #include "kioglobal_p.h"
 
@@ -60,8 +60,8 @@ Q_LOGGING_CATEGORY(KIO_FTP, "kf.kio.slaves.ftp", QtWarningMsg)
 #define charToLongLong(a) strtol(a, nullptr, 10)
 #endif
 
-#define FTP_LOGIN   "anonymous"
-#define FTP_PASSWD  "anonymous@"
+#define FTP_LOGIN "anonymous"
+#define FTP_PASSWD "anonymous@"
 
 #define ENABLE_CAN_RESUME
 
@@ -74,9 +74,8 @@ class KIOPluginForMetaData : public QObject
 
 static QString ftpCleanPath(const QString &path)
 {
-    if (path.endsWith(QLatin1String(";type=A"), Qt::CaseInsensitive) ||
-            path.endsWith(QLatin1String(";type=I"), Qt::CaseInsensitive) ||
-            path.endsWith(QLatin1String(";type=D"), Qt::CaseInsensitive)) {
+    if (path.endsWith(QLatin1String(";type=A"), Qt::CaseInsensitive) || path.endsWith(QLatin1String(";type=I"), Qt::CaseInsensitive)
+        || path.endsWith(QLatin1String(";type=D"), Qt::CaseInsensitive)) {
         return path.left((path.length() - qstrlen(";type=X")));
     }
 
@@ -90,8 +89,7 @@ static char ftpModeFromPath(const QString &path, char defaultMode = '\0')
     if (index > -1 && (index + 6) < path.size()) {
         const QChar mode = path.at(index + 6);
         // kio_ftp supports only A (ASCII) and I(BINARY) modes.
-        if (mode == QLatin1Char('A') || mode == QLatin1Char('a') ||
-                mode == QLatin1Char('I') || mode == QLatin1Char('i')) {
+        if (mode == QLatin1Char('A') || mode == QLatin1Char('a') || mode == QLatin1Char('I') || mode == QLatin1Char('i')) {
             return mode.toUpper().toLatin1();
         }
     }
@@ -117,23 +115,24 @@ enum buffersizes {
      * this is a reasonable value for an initial read() that a KIO slave
      * can do to obtain data via a slow network connection.
      */
-    initialIpcSize =  2 * 1024,
+    initialIpcSize = 2 * 1024,
     /**
      * recommended size of a data block passed to findBufferFileType()
      */
-    minimumMimeSize =     1024,
+    minimumMimeSize = 1024,
 };
 
 // JPF: this helper was derived from write_all in file.cc (FileProtocol).
 static // JPF: in ftp.cc we make it static
-/**
- * This helper handles some special issues (blocking and interrupted
- * system call) when writing to a file handle.
- *
- * @return 0 on success or an error code on failure (ERR_CANNOT_WRITE,
- * ERR_DISK_FULL, ERR_CONNECTION_BROKEN).
- */
-int WriteToFile(int fd, const char *buf, size_t len)
+    /**
+     * This helper handles some special issues (blocking and interrupted
+     * system call) when writing to a file handle.
+     *
+     * @return 0 on success or an error code on failure (ERR_CANNOT_WRITE,
+     * ERR_DISK_FULL, ERR_CONNECTION_BROKEN).
+     */
+    int
+    WriteToFile(int fd, const char *buf, size_t len)
 {
     while (len > 0) {
         // JPF: shouldn't there be a KDE_write?
@@ -144,17 +143,21 @@ int WriteToFile(int fd, const char *buf, size_t len)
             continue;
         }
         switch (errno) {
-        case EINTR:   continue;
-        case EPIPE:   return ERR_CONNECTION_BROKEN;
-        case ENOSPC:  return ERR_DISK_FULL;
-        default:      return ERR_CANNOT_WRITE;
+        case EINTR:
+            continue;
+        case EPIPE:
+            return ERR_CONNECTION_BROKEN;
+        case ENOSPC:
+            return ERR_DISK_FULL;
+        default:
+            return ERR_CANNOT_WRITE;
         }
     }
     return 0;
 }
 }
 
-const KIO::filesize_t FtpInternal::UnknownSize = (KIO::filesize_t) - 1;
+const KIO::filesize_t FtpInternal::UnknownSize = (KIO::filesize_t)-1;
 
 using namespace KIO;
 
@@ -202,7 +205,7 @@ void FtpInternal::ftpCloseControlConnection()
     delete m_control;
     m_control = nullptr;
     m_cDataMode = 0;
-    m_bLoggedOn = false;    // logon needs control connection
+    m_bLoggedOn = false; // logon needs control connection
     m_bTextMode = false;
     m_bBusy = false;
 }
@@ -213,26 +216,26 @@ void FtpInternal::ftpCloseControlConnection()
  */
 const char *FtpInternal::ftpResponse(int iOffset)
 {
-    Q_ASSERT(m_control);    // must have control connection socket
+    Q_ASSERT(m_control); // must have control connection socket
     const char *pTxt = m_lastControlLine.data();
 
     // read the next line ...
     if (iOffset < 0) {
-        int  iMore = 0;
+        int iMore = 0;
         m_iRespCode = 0;
 
         if (!pTxt) {
-            return nullptr;    // avoid using a nullptr when calling atoi.
+            return nullptr; // avoid using a nullptr when calling atoi.
         }
 
         // If the server sends a multiline response starting with
         // "nnn-text" we loop here until a final "nnn text" line is
         // reached. Only data from the final line will be stored.
         do {
-            while (!m_control->canReadLine() && m_control->waitForReadyRead((q->readTimeout() * 1000))) {}
+            while (!m_control->canReadLine() && m_control->waitForReadyRead((q->readTimeout() * 1000))) { }
             m_lastControlLine = m_control->readLine();
             pTxt = m_lastControlLine.data();
-            int iCode  = atoi(pTxt);
+            int iCode = atoi(pTxt);
             if (iMore == 0) {
                 // first line
                 qCDebug(KIO_FTP) << "    > " << pTxt;
@@ -270,12 +273,12 @@ void FtpInternal::closeConnection()
     if (m_control || m_data)
         qCDebug(KIO_FTP) << "m_bLoggedOn=" << m_bLoggedOn << " m_bBusy=" << m_bBusy;
 
-        if (m_bBusy) {           // ftpCloseCommand not called
-            qCWarning(KIO_FTP) << "Abandoned data stream";
-            ftpCloseDataConnection();
-        }
+    if (m_bBusy) { // ftpCloseCommand not called
+        qCWarning(KIO_FTP) << "Abandoned data stream";
+        ftpCloseDataConnection();
+    }
 
-    if (m_bLoggedOn) {        // send quit
+    if (m_bLoggedOn) { // send quit
         if (!ftpSendCmd(QByteArrayLiteral("quit"), 0) || (m_iRespType != 2)) {
             qCWarning(KIO_FTP) << "QUIT returned error: " << m_iRespCode;
         }
@@ -299,8 +302,7 @@ FtpInternal::~FtpInternal()
     closeConnection();
 }
 
-void FtpInternal::setHost(const QString &_host, quint16 _port, const QString &_user,
-                  const QString &_pass)
+void FtpInternal::setHost(const QString &_host, quint16 _port, const QString &_user, const QString &_pass)
 {
     qCDebug(KIO_FTP) << _host << "port=" << _port << "user=" << _user;
 
@@ -309,8 +311,7 @@ void FtpInternal::setHost(const QString &_host, quint16 _port, const QString &_u
 
     qCDebug(KIO_FTP) << "proxy urls:" << m_proxyUrls;
 
-    if (m_host != _host || m_port != _port ||
-            m_user != _user || m_pass != _pass) {
+    if (m_host != _host || m_port != _port || m_user != _user || m_pass != _pass) {
         closeConnection();
     }
 
@@ -329,7 +330,7 @@ Result FtpInternal::ftpOpenConnection(LoginMode loginMode)
 {
     // check for implicit login if we are already logged on ...
     if (loginMode == LoginMode::Implicit && m_bLoggedOn) {
-        Q_ASSERT(m_control);    // must have control connection socket
+        Q_ASSERT(m_control); // must have control connection socket
         return Result::pass();
     }
 
@@ -441,7 +442,7 @@ Result FtpInternal::ftpOpenControlConnection(const QString &host, int port)
 
     // now connect to the server and read the login message ...
     if (port == 0) {
-        port = 21;    // default FTP port
+        port = 21; // default FTP port
     }
     const auto connectionResult = synchronousConnectToHost(host, port);
     m_control = connectionResult.socket;
@@ -473,10 +474,10 @@ Result FtpInternal::ftpOpenControlConnection(const QString &host, int port)
     }
 
     // if there was a problem - report it ...
-    if (iErrorCode == 0) {          // OK, return success
+    if (iErrorCode == 0) { // OK, return success
         return Result::pass();
     }
-    closeConnection();              // clean-up on error
+    closeConnection(); // clean-up on error
     return Result::fail(iErrorCode, sErrorMsg);
 }
 
@@ -516,8 +517,7 @@ Result FtpInternal::ftpLogin(bool *userChanged)
 
     // Check for cached authentication first and fallback to
     // anonymous login when no stored credentials are found.
-    if (!q->configValue(QStringLiteral("TryAnonymousLoginFirst"), false) &&
-            pass.isEmpty() && q->checkCachedAuthentication(info)) {
+    if (!q->configValue(QStringLiteral("TryAnonymousLoginFirst"), false) && pass.isEmpty() && q->checkCachedAuthentication(info)) {
         user = info.username;
         pass = info.password;
     }
@@ -547,21 +547,24 @@ Result FtpInternal::ftpLogin(bool *userChanged)
 
             // Ask user if we should retry after when login fails!
             if (failedAuth > 0 && promptForRetry) {
-                errorMsg = i18n("Message sent:\nLogin using username=%1 and "
-                                "password=[hidden]\n\nServer replied:\n%2\n\n"
-                                , user, lastServerResponse);
+                errorMsg = i18n(
+                    "Message sent:\nLogin using username=%1 and "
+                    "password=[hidden]\n\nServer replied:\n%2\n\n",
+                    user,
+                    lastServerResponse);
             }
 
             if (user != QLatin1String(FTP_LOGIN)) {
                 info.username = user;
             }
 
-            info.prompt = i18n("You need to supply a username and a password "
-                               "to access this site.");
+            info.prompt = i18n(
+                "You need to supply a username and a password "
+                "to access this site.");
             info.commentLabel = i18n("Site:");
-            info.comment = i18n("<b>%1</b>",  m_host);
+            info.comment = i18n("<b>%1</b>", m_host);
             info.keepPassword = true; // Prompt the user for persistence as well.
-            info.setModified(false);  // Default the modified flag since we reuse authinfo.
+            info.setModified(false); // Default the modified flag since we reuse authinfo.
 
             const bool disablePassDlg = q->configValue(QStringLiteral("DisablePassDlg"), false);
             if (disablePassDlg) {
@@ -601,12 +604,13 @@ Result FtpInternal::ftpLogin(bool *userChanged)
             lastServerResponse = QString::fromUtf8(ftpResponse(0));
             qCDebug(KIO_FTP) << "Login failed: " << lastServerResponse;
             ++failedAuth;
-            continue;  // Well we failed, prompt the user please!!
+            continue; // Well we failed, prompt the user please!!
         }
 
         if (needPass) {
             tempbuf = "PASS " + pass.toLatin1();
-            qCDebug(KIO_FTP) << "Sending Login password: " << "[protected]";
+            qCDebug(KIO_FTP) << "Sending Login password: "
+                             << "[protected]";
             loggedIn = (ftpSendCmd(tempbuf) && (m_iRespCode == 230));
         }
 
@@ -647,14 +651,14 @@ Result FtpInternal::ftpLogin(bool *userChanged)
     // Okay, we're logged in. If this is IIS 4, switch dir listing style to Unix:
     // Thanks to jk@soegaard.net (Jens Kristian Sgaard) for this hint
     if (ftpSendCmd(QByteArrayLiteral("SYST")) && (m_iRespType == 2)) {
-        if (!qstrncmp(ftpResponse(0), "215 Windows_NT", 14)) {  // should do for any version
-            (void) ftpSendCmd(QByteArrayLiteral("site dirstyle"));
+        if (!qstrncmp(ftpResponse(0), "215 Windows_NT", 14)) { // should do for any version
+            (void)ftpSendCmd(QByteArrayLiteral("site dirstyle"));
             // Check if it was already in Unix style
             // Patch from Keith Refson <Keith.Refson@earth.ox.ac.uk>
             if (!qstrncmp(ftpResponse(0), "200 MSDOS-like directory output is on", 37))
-                //It was in Unix style already!
+            // It was in Unix style already!
             {
-                (void) ftpSendCmd(QByteArrayLiteral("site dirstyle"));
+                (void)ftpSendCmd(QByteArrayLiteral("site dirstyle"));
             }
             // windows won't support chmod before KDE konquers their desktop...
             m_extControl |= chmodUnknown;
@@ -671,7 +675,7 @@ Result FtpInternal::ftpLogin(bool *userChanged)
     qCDebug(KIO_FTP) << "Searching for pwd";
     if (!ftpSendCmd(QByteArrayLiteral("PWD")) || (m_iRespType != 2)) {
         qCDebug(KIO_FTP) << "Couldn't issue pwd command";
-        return Result::fail(ERR_CANNOT_LOGIN, i18n("Could not login to %1.", m_host));   // or anything better ?
+        return Result::fail(ERR_CANNOT_LOGIN, i18n("Could not login to %1.", m_host)); // or anything better ?
     }
 
     QString sTmp = q->remoteEncoding()->decode(ftpResponse(3));
@@ -703,13 +707,13 @@ void FtpInternal::ftpAutoLoginMacro()
         if ((*it).startsWith(QLatin1String("init"))) {
             const QStringList list2 = macro.split(QLatin1Char('\\'), Qt::SkipEmptyParts);
             it = list2.begin();
-            ++it;  // ignore the macro name
+            ++it; // ignore the macro name
 
             for (; it != list2.end(); ++it) {
                 // TODO: Add support for arbitrary commands
                 // besides simply changing directory!!
                 if ((*it).startsWith(QLatin1String("cwd"))) {
-                    (void) ftpFolder((*it).mid(4));
+                    (void)ftpFolder((*it).mid(4));
                 }
             }
 
@@ -729,11 +733,10 @@ void FtpInternal::ftpAutoLoginMacro()
  */
 bool FtpInternal::ftpSendCmd(const QByteArray &cmd, int maxretries)
 {
-    Q_ASSERT(m_control);    // must have control connection socket
+    Q_ASSERT(m_control); // must have control connection socket
 
     if (cmd.indexOf('\r') != -1 || cmd.indexOf('\n') != -1) {
-        qCWarning(KIO_FTP) << "Invalid command received (contains CR or LF):"
-                   << cmd.data();
+        qCWarning(KIO_FTP) << "Invalid command received (contains CR or LF):" << cmd.data();
         return false;
     }
 
@@ -741,9 +744,9 @@ bool FtpInternal::ftpSendCmd(const QByteArray &cmd, int maxretries)
     bool isPassCmd = (cmd.left(4).toLower() == "pass");
 
     // Send the message...
-    const QByteArray buf = cmd + "\r\n";      // Yes, must use CR/LF - see http://cr.yp.to/ftp/request.html
+    const QByteArray buf = cmd + "\r\n"; // Yes, must use CR/LF - see http://cr.yp.to/ftp/request.html
     int num = m_control->write(buf);
-    while (m_control->bytesToWrite() && m_control->waitForBytesWritten()) {}
+    while (m_control->bytesToWrite() && m_control->waitForBytesWritten()) { }
 
     // If we were able to successfully send the command, then we will
     // attempt to read the response. Otherwise, take action to re-attempt
@@ -776,11 +779,10 @@ bool FtpInternal::ftpSendCmd(const QByteArray &cmd, int maxretries)
             if (maxretries < 1) {
                 return false;
             } else {
-                qCDebug(KIO_FTP) << "Was not able to communicate with " << m_host
-                                 << "Attempting to re-establish connection.";
+                qCDebug(KIO_FTP) << "Was not able to communicate with " << m_host << "Attempting to re-establish connection.";
 
                 closeConnection(); // Close the old connection...
-                const Result openResult = openConnection();  // Attempt to re-establish a new connection...
+                const Result openResult = openConnection(); // Attempt to re-establish a new connection...
 
                 if (!openResult.success) {
                     if (m_control) { // if openConnection succeeded ...
@@ -814,17 +816,17 @@ bool FtpInternal::ftpSendCmd(const QByteArray &cmd, int maxretries)
  */
 int FtpInternal::ftpOpenPASVDataConnection()
 {
-    Q_ASSERT(m_control);    // must have control connection socket
-    Q_ASSERT(!m_data);      // ... but no data connection
+    Q_ASSERT(m_control); // must have control connection socket
+    Q_ASSERT(!m_data); // ... but no data connection
 
     // Check that we can do PASV
     QHostAddress address = m_control->peerAddress();
     if (address.protocol() != QAbstractSocket::IPv4Protocol && !isSocksProxy()) {
-        return ERR_INTERNAL;    // no PASV for non-PF_INET connections
+        return ERR_INTERNAL; // no PASV for non-PF_INET connections
     }
 
     if (m_extControl & pasvUnknown) {
-        return ERR_INTERNAL;    // already tried and got "unknown command"
+        return ERR_INTERNAL; // already tried and got "unknown command"
     }
 
     m_bPasv = true;
@@ -847,9 +849,9 @@ int FtpInternal::ftpOpenPASVDataConnection()
     if (!start) {
         start = strchr(ftpResponse(3), '=');
     }
-    if (!start ||
-            (sscanf(start, "(%d,%d,%d,%d,%d,%d)", &i[0], &i[1], &i[2], &i[3], &i[4], &i[5]) != 6 &&
-             sscanf(start, "=%d,%d,%d,%d,%d,%d", &i[0], &i[1], &i[2], &i[3], &i[4], &i[5]) != 6)) {
+    if (!start
+        || (sscanf(start, "(%d,%d,%d,%d,%d,%d)", &i[0], &i[1], &i[2], &i[3], &i[4], &i[5]) != 6
+            && sscanf(start, "=%d,%d,%d,%d,%d,%d", &i[0], &i[1], &i[2], &i[3], &i[4], &i[5]) != 6)) {
         qCritical() << "parsing IP and port numbers failed. String parsed: " << start;
         return ERR_INTERNAL;
     }
@@ -875,8 +877,8 @@ int FtpInternal::ftpOpenPASVDataConnection()
  */
 int FtpInternal::ftpOpenEPSVDataConnection()
 {
-    Q_ASSERT(m_control);    // must have control connection socket
-    Q_ASSERT(!m_data);      // ... but no data connection
+    Q_ASSERT(m_control); // must have control connection socket
+    Q_ASSERT(!m_data); // ... but no data connection
 
     QHostAddress address = m_control->peerAddress();
     int portnum;
@@ -928,14 +930,14 @@ int FtpInternal::ftpOpenDataConnection()
     Q_ASSERT(m_bLoggedOn);
     ftpCloseDataConnection();
 
-    int  iErrCode = 0;
-    int  iErrCodePASV = 0;  // Remember error code from PASV
+    int iErrCode = 0;
+    int iErrCodePASV = 0; // Remember error code from PASV
 
     // First try passive (EPSV & PASV) modes
     if (!q->configValue(QStringLiteral("DisablePassiveMode"), false)) {
         iErrCode = ftpOpenPASVDataConnection();
         if (iErrCode == 0) {
-            return 0;    // success
+            return 0; // success
         }
         iErrCodePASV = iErrCode;
         ftpCloseDataConnection();
@@ -943,7 +945,7 @@ int FtpInternal::ftpOpenDataConnection()
         if (!q->configValue(QStringLiteral("DisableEPSV"), false)) {
             iErrCode = ftpOpenEPSVDataConnection();
             if (iErrCode == 0) {
-                return 0;    // success
+                return 0; // success
             }
             ftpCloseDataConnection();
         }
@@ -958,7 +960,7 @@ int FtpInternal::ftpOpenDataConnection()
     // fall back to port mode
     iErrCode = ftpOpenPortDataConnection();
     if (iErrCode == 0) {
-        return 0;    // success
+        return 0; // success
     }
 
     ftpCloseDataConnection();
@@ -974,8 +976,8 @@ int FtpInternal::ftpOpenDataConnection()
  */
 int FtpInternal::ftpOpenPortDataConnection()
 {
-    Q_ASSERT(m_control);    // must have control connection socket
-    Q_ASSERT(!m_data);      // ... but no data connection
+    Q_ASSERT(m_control); // must have control connection socket
+    Q_ASSERT(!m_data); // ... but no data connection
 
     m_bPasv = false;
     if (m_extControl & eprtUnknown) {
@@ -1020,8 +1022,7 @@ int FtpInternal::ftpOpenPortDataConnection()
     return ERR_INTERNAL;
 }
 
-Result FtpInternal::ftpOpenCommand(const char *_command, const QString &_path, char _mode,
-                         int errorcode, KIO::fileoffset_t _offset)
+Result FtpInternal::ftpOpenCommand(const char *_command, const QString &_path, char _mode, int errorcode, KIO::fileoffset_t _offset)
 {
     int errCode = 0;
     if (!ftpDataMode(ftpModeFromPath(_path, _mode))) {
@@ -1042,7 +1043,7 @@ Result FtpInternal::ftpOpenCommand(const char *_command, const QString &_path, c
             return Result::fail();
         }
         if (m_iRespType != 3) {
-            return Result::fail(ERR_CANNOT_RESUME, _path);   // should never happen
+            return Result::fail(ERR_CANNOT_RESUME, _path); // should never happen
         }
     }
 
@@ -1075,7 +1076,7 @@ Result FtpInternal::ftpOpenCommand(const char *_command, const QString &_path, c
 
         if (m_data) {
             qCDebug(KIO_FTP) << "connected with remote.";
-            m_bBusy = true;              // cleared in ftpCloseCommand
+            m_bBusy = true; // cleared in ftpCloseCommand
             return Result::pass();
         }
 
@@ -1128,7 +1129,7 @@ Result FtpInternal::mkdir(const QUrl &url, int permissions)
         if (ftpFolder(path)) {
             const QString &failedPath = path;
             // Change the directory back to what it was...
-            (void) ftpFolder(currentPath);
+            (void)ftpFolder(currentPath);
             return Result::fail(ERR_DIR_ALREADY_EXIST, failedPath);
         }
 
@@ -1137,7 +1138,7 @@ Result FtpInternal::mkdir(const QUrl &url, int permissions)
 
     if (permissions != -1) {
         // chmod the dir we just created, ignoring errors.
-        (void) ftpChmod(path, permissions);
+        (void)ftpChmod(path, permissions);
     }
 
     return Result::pass();
@@ -1200,7 +1201,7 @@ Result FtpInternal::del(const QUrl &url, bool isfile)
     // When deleting a directory, we must exit from it first
     // The last command probably went into it (to stat it)
     if (!isfile) {
-        (void) ftpFolder(q->remoteEncoding()->decode(q->remoteEncoding()->directory(url)));    // ignore errors
+        (void)ftpFolder(q->remoteEncoding()->decode(q->remoteEncoding()->directory(url))); // ignore errors
     }
 
     const QByteArray cmd = (isfile ? "DELE " : "RMD ") + q->remoteEncoding()->encode(url);
@@ -1216,13 +1217,13 @@ bool FtpInternal::ftpChmod(const QString &path, int permissions)
 {
     Q_ASSERT(m_bLoggedOn);
 
-    if (m_extControl & chmodUnknown) {   // previous errors?
+    if (m_extControl & chmodUnknown) { // previous errors?
         return false;
     }
 
     // we need to do bit AND 777 to get permissions, in case
     // we were sent a full mode (unlikely)
-    const QByteArray cmd = "SITE CHMOD " + QByteArray::number(permissions & 0777/*octal*/, 8 /*octal*/) + ' ' + q->remoteEncoding()->encode(path);
+    const QByteArray cmd = "SITE CHMOD " + QByteArray::number(permissions & 0777 /*octal*/, 8 /*octal*/) + ' ' + q->remoteEncoding()->encode(path);
 
     if (ftpSendCmd(cmd)) {
         qCDebug(KIO_FTP) << "ftpChmod: Failed to issue chmod";
@@ -1342,7 +1343,7 @@ Result FtpInternal::stat(const QUrl &url)
     if (path.isEmpty() || path == QLatin1String("/")) {
         UDSEntry entry;
         entry.reserve(6);
-        //entry.insert( KIO::UDSEntry::UDS_NAME, UDSField( QString() ) );
+        // entry.insert( KIO::UDSEntry::UDS_NAME, UDSField( QString() ) );
         entry.fastInsert(KIO::UDSEntry::UDS_NAME, QStringLiteral("."));
         entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
         entry.fastInsert(KIO::UDSEntry::UDS_MIME_TYPE, QStringLiteral("inode/directory"));
@@ -1356,7 +1357,7 @@ Result FtpInternal::stat(const QUrl &url)
     }
 
     QUrl tempurl(url);
-    tempurl.setPath(path);   // take the clean one
+    tempurl.setPath(path); // take the clean one
     QString listarg; // = tempurl.directory(QUrl::ObeyTrailingSlash);
     QString parentDir;
     const QString filename = tempurl.fileName();
@@ -1376,7 +1377,7 @@ Result FtpInternal::stat(const QUrl &url)
             return ftpStatAnswerNotFound(path, filename);
         }
         ftpShortStatAnswer(filename, isDir);
-        return Result::pass();   // successfully found a dir or a file -> done
+        return Result::pass(); // successfully found a dir or a file -> done
     }
 
     if (!isDir) {
@@ -1438,7 +1439,7 @@ Result FtpInternal::stat(const QUrl &url)
         }
     }
 
-    ftpCloseCommand();        // closes the data connection only
+    ftpCloseCommand(); // closes the data connection only
 
     if (!bFound) {
         return ftpStatAnswerNotFound(path, filename);
@@ -1451,7 +1452,8 @@ Result FtpInternal::stat(const QUrl &url)
         return FtpInternal::stat(linkURL);
     }
 
-    qCDebug(KIO_FTP) << "stat : finished successfully";;
+    qCDebug(KIO_FTP) << "stat : finished successfully";
+    ;
     return Result::pass();
 }
 
@@ -1503,25 +1505,25 @@ Result FtpInternal::listDir(const QUrl &url)
             return Result::fail(ERR_IS_FILE, path);
         }
         // not sure which to emit
-        //error( ERR_DOES_NOT_EXIST, path );
+        // error( ERR_DOES_NOT_EXIST, path );
         return Result::fail(ERR_CANNOT_ENTER_DIRECTORY, path);
     }
 
     UDSEntry entry;
-    FtpEntry  ftpEnt;
+    FtpEntry ftpEnt;
     QList<FtpEntry> ftpValidateEntList;
     while (ftpReadDir(ftpEnt)) {
         qCDebug(KIO_FTP) << ftpEnt.name;
-        //Q_ASSERT( !ftpEnt.name.isEmpty() );
+        // Q_ASSERT( !ftpEnt.name.isEmpty() );
         if (!ftpEnt.name.isEmpty()) {
             if (ftpEnt.name.at(0).isSpace()) {
                 ftpValidateEntList.append(ftpEnt);
                 continue;
             }
 
-            //if ( S_ISDIR( (mode_t)ftpEnt.type ) )
+            // if ( S_ISDIR( (mode_t)ftpEnt.type ) )
             //   qDebug() << "is a dir";
-            //if ( !ftpEnt.link.isEmpty() )
+            // if ( !ftpEnt.link.isEmpty() )
             //   qDebug() << "is a link to " << ftpEnt.link;
             ftpCreateUDSEntry(ftpEnt.name, ftpEnt, entry, false);
             q->listEntry(entry);
@@ -1537,19 +1539,20 @@ Result FtpInternal::listDir(const QUrl &url)
         entry.clear();
     }
 
-    ftpCloseCommand();        // closes the data connection only
+    ftpCloseCommand(); // closes the data connection only
     return Result::pass();
 }
 
 void FtpInternal::slave_status()
 {
-    qCDebug(KIO_FTP) << "Got slave_status host = " << (!m_host.toLatin1().isEmpty() ? m_host.toLatin1() : "[None]") << " [" << (m_bLoggedOn ? "Connected" : "Not connected") << "]";
+    qCDebug(KIO_FTP) << "Got slave_status host = " << (!m_host.toLatin1().isEmpty() ? m_host.toLatin1() : "[None]") << " ["
+                     << (m_bLoggedOn ? "Connected" : "Not connected") << "]";
     q->slaveStatus(m_host, m_bLoggedOn);
 }
 
 Result FtpInternal::ftpOpenDir(const QString &path)
 {
-    //QString path( _url.path(QUrl::RemoveTrailingSlash) );
+    // QString path( _url.path(QUrl::RemoveTrailingSlash) );
 
     // We try to change to this directory first to see whether it really is a directory.
     // (And also to follow symlinks)
@@ -1593,7 +1596,7 @@ bool FtpInternal::ftpReadDir(FtpEntry &de)
 
     // get a line from the data connection ...
     while (true) {
-        while (!m_data->canReadLine() && m_data->waitForReadyRead((q->readTimeout() * 1000))) {}
+        while (!m_data->canReadLine() && m_data->waitForReadyRead((q->readTimeout() * 1000))) { }
         QByteArray data = m_data->readLine();
         if (data.size() == 0) {
             break;
@@ -1602,7 +1605,7 @@ bool FtpInternal::ftpReadDir(FtpEntry &de)
         const char *buffer = data.data();
         qCDebug(KIO_FTP) << "dir > " << buffer;
 
-        //Normally the listing looks like
+        // Normally the listing looks like
         // -rw-r--r--   1 dfaure   dfaure        102 Nov  9 12:30 log
         // but on Netware servers like ftp://ci-1.ci.pwr.wroc.pl/ it looks like (#76442)
         // d [RWCEAFMS] Admin                     512 Oct 13  2004 PSI
@@ -1612,7 +1615,7 @@ bool FtpInternal::ftpReadDir(FtpEntry &de)
         if ((p_access = strtok((char *)buffer, " ")) == nullptr) {
             continue;
         }
-        if ((p_junk  = strtok(nullptr, " ")) == nullptr) {
+        if ((p_junk = strtok(nullptr, " ")) == nullptr) {
             continue;
         }
         if ((p_owner = strtok(nullptr, " ")) == nullptr) {
@@ -1621,14 +1624,14 @@ bool FtpInternal::ftpReadDir(FtpEntry &de)
         if ((p_group = strtok(nullptr, " ")) == nullptr) {
             continue;
         }
-        if ((p_size  = strtok(nullptr, " ")) == nullptr) {
+        if ((p_size = strtok(nullptr, " ")) == nullptr) {
             continue;
         }
 
         qCDebug(KIO_FTP) << "p_access=" << p_access << " p_junk=" << p_junk << " p_owner=" << p_owner << " p_group=" << p_group << " p_size=" << p_size;
 
         de.access = 0;
-        if (qstrlen(p_access) == 1 && p_junk[0] == '[') {     // Netware
+        if (qstrlen(p_access) == 1 && p_junk[0] == '[') { // Netware
             de.access = S_IRWXU | S_IRWXG | S_IRWXO; // unknown -> give all permissions
         }
 
@@ -1669,10 +1672,7 @@ bool FtpInternal::ftpReadDir(FtpEntry &de)
             qCDebug(KIO_FTP) << "Size has a digit -> ok. p_date_1=" << p_date_1;
         }
 
-        if (p_date_1 != nullptr &&
-                p_date_2 != nullptr &&
-                (p_date_3 = strtok(nullptr, " ")) != nullptr &&
-                (p_name = strtok(nullptr, "\r\n")) != nullptr) {
+        if (p_date_1 != nullptr && p_date_2 != nullptr && (p_date_3 = strtok(nullptr, " ")) != nullptr && (p_name = strtok(nullptr, "\r\n")) != nullptr) {
             {
                 QByteArray tmp(p_name);
                 if (p_access[0] == 'l') {
@@ -1692,10 +1692,10 @@ bool FtpInternal::ftpReadDir(FtpEntry &de)
                 }
 
                 if (tmp.indexOf('/') != -1) {
-                    continue;    // Don't trick us!
+                    continue; // Don't trick us!
                 }
 
-                de.name     = q->remoteEncoding()->decode(tmp);
+                de.name = q->remoteEncoding()->decode(tmp);
             }
 
             de.type = S_IFREG;
@@ -1757,9 +1757,9 @@ bool FtpInternal::ftpReadDir(FtpEntry &de)
                 de.access |= S_ISVTX;
             }
 
-            de.owner    = q->remoteEncoding()->decode(p_owner);
-            de.group    = q->remoteEncoding()->decode(p_group);
-            de.size     = charToLongLong(p_size);
+            de.owner = q->remoteEncoding()->decode(p_owner);
+            de.group = q->remoteEncoding()->decode(p_group);
+            de.size = charToLongLong(p_size);
 
             // Parsing the date is somewhat tricky
             // Examples : "Oct  6 22:49", "May 13  1999"
@@ -1780,10 +1780,8 @@ bool FtpInternal::ftpReadDir(FtpEntry &de)
             // NOTE : no, we don't want to use KLocale here
             // It seems all FTP servers use the English way
             qCDebug(KIO_FTP) << "Looking for month " << p_date_1;
-            static const char s_months[][4] = { "Jan", "Feb", "Mar", "Apr", "May", "Jun",
-                                                      "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
-                                                    };
-            for (int c = 0; c < 12; c ++)
+            static const char s_months[][4] = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
+            for (int c = 0; c < 12; c++)
                 if (!qstrcmp(p_date_1, s_months[c])) {
                     qCDebug(KIO_FTP) << "Found month " << c << " for " << p_date_1;
                     month = c + 1;
@@ -1831,7 +1829,7 @@ Result FtpInternal::get(const QUrl &url)
 {
     qCDebug(KIO_FTP) << url;
     const Result result = ftpGet(-1, QString(), url, 0);
-    ftpCloseCommand();                        // must close command!
+    ftpCloseCommand(); // must close command!
     return result;
 }
 
@@ -1847,8 +1845,7 @@ Result FtpInternal::ftpGet(int iCopyFile, const QString &sCopyFile, const QUrl &
     // or "not a plain file", check if it is a directory. If it is a
     // directory, return an error; otherwise simply try to retrieve
     // the request...
-    if (!ftpSize(url.path(), '?') && (m_iRespCode == 550) &&
-            ftpFolder(url.path())) {
+    if (!ftpSize(url.path(), '?') && (m_iRespCode == 550) && ftpFolder(url.path())) {
         // Ok it's a dir in fact
         qCDebug(KIO_FTP) << "it is a directory in fact";
         return Result::fail(ERR_IS_DIRECTORY);
@@ -1891,7 +1888,7 @@ Result FtpInternal::ftpGet(int iCopyFile, const QString &sCopyFile, const QUrl &
     KIO::filesize_t bytesLeft = 0;
     if (m_size != UnknownSize) {
         bytesLeft = m_size - llOffset;
-        q->totalSize(m_size);    // emit the total size...
+        q->totalSize(m_size); // emit the total size...
     }
 
     qCDebug(KIO_FTP) << "starting with offset=" << llOffset;
@@ -1956,8 +1953,8 @@ Result FtpInternal::ftpGet(int iCopyFile, const QString &sCopyFile, const QUrl &
     }
 
     qCDebug(KIO_FTP) << "done";
-    if (iCopyFile == -1) {       // must signal EOF to data pump ...
-        q->data(array);    // array is empty and must be empty!
+    if (iCopyFile == -1) { // must signal EOF to data pump ...
+        q->data(array); // array is empty and must be empty!
     }
 
     q->processedSize(m_size == UnknownSize ? processed_size : m_size);
@@ -1972,12 +1969,11 @@ Result FtpInternal::put(const QUrl &url, int permissions, KIO::JobFlags flags)
 {
     qCDebug(KIO_FTP) << url;
     const auto result = ftpPut(-1, url, permissions, flags);
-    ftpCloseCommand();                        // must close command!
+    ftpCloseCommand(); // must close command!
     return result;
 }
 
-Result FtpInternal::ftpPut(int iCopyFile, const QUrl &dest_url,
-                           int permissions, KIO::JobFlags flags)
+Result FtpInternal::ftpPut(int iCopyFile, const QUrl &dest_url, int permissions, KIO::JobFlags flags)
 {
     const auto openResult = ftpOpenConnection(LoginMode::Implicit);
     if (!openResult.success) {
@@ -2087,21 +2083,20 @@ Result FtpInternal::ftpPut(int iCopyFile, const QUrl &dest_url,
 
         if (result > 0) {
             m_data->write(buffer);
-            while (m_data->bytesToWrite() && m_data->waitForBytesWritten()) {}
+            while (m_data->bytesToWrite() && m_data->waitForBytesWritten()) { }
             processed_size += result;
             q->processedSize(processed_size);
         }
     } while (result > 0);
 
     if (result != 0) { // error
-        ftpCloseCommand();               // don't care about errors
+        ftpCloseCommand(); // don't care about errors
         qCDebug(KIO_FTP) << "Error during 'put'. Aborting.";
         if (bMarkPartial) {
             // Remove if smaller than minimum size
-            if (ftpSize(dest, 'I') &&
-                    (processed_size < q->configValue(QStringLiteral("MinimumKeepSize"), DEFAULT_MINIMUM_KEEP_SIZE))) {
+            if (ftpSize(dest, 'I') && (processed_size < q->configValue(QStringLiteral("MinimumKeepSize"), DEFAULT_MINIMUM_KEEP_SIZE))) {
                 const QByteArray cmd = "DELE " + q->remoteEncoding()->encode(dest);
-                (void) ftpSendCmd(cmd);
+                (void)ftpSendCmd(cmd);
             }
         }
         return Result::fail(writeError, dest_url.toString());
@@ -2124,12 +2119,12 @@ Result FtpInternal::ftpPut(int iCopyFile, const QUrl &dest_url,
     if (permissions != -1) {
         if (m_user == QLatin1String(FTP_LOGIN))
             qCDebug(KIO_FTP) << "Trying to chmod over anonymous FTP ???";
-            // chmod the file we just put
-            if (! ftpChmod(dest_orig, permissions)) {
-                // To be tested
-                //if ( m_user != FTP_LOGIN )
-                //    warning( i18n( "Could not change permissions for\n%1" ).arg( dest_orig ) );
-            }
+        // chmod the file we just put
+        if (!ftpChmod(dest_orig, permissions)) {
+            // To be tested
+            // if ( m_user != FTP_LOGIN )
+            //    warning( i18n( "Could not change permissions for\n%1" ).arg( dest_orig ) );
+        }
     }
 
     return Result::pass();
@@ -2219,10 +2214,10 @@ bool FtpInternal::ftpFolder(const QString &path)
 
     const QByteArray tmp = "cwd " + q->remoteEncoding()->encode(newPath);
     if (!ftpSendCmd(tmp)) {
-        return false;    // connection failure
+        return false; // connection failure
     }
     if (m_iRespType != 2) {
-        return false;                  // not a folder
+        return false; // not a folder
     }
     m_currentPath = newPath;
     return true;
@@ -2238,14 +2233,14 @@ Result FtpInternal::copy(const QUrl &src, const QUrl &dest, int permissions, KIO
     int iCopyFile = -1;
     bool bSrcLocal = src.isLocalFile();
     bool bDestLocal = dest.isLocalFile();
-    QString  sCopyFile;
+    QString sCopyFile;
 
     Result result = Result::pass();
-    if (bSrcLocal && !bDestLocal) {                 // File -> Ftp
+    if (bSrcLocal && !bDestLocal) { // File -> Ftp
         sCopyFile = src.toLocalFile();
         qCDebug(KIO_FTP) << "local file" << sCopyFile << "-> ftp" << dest.path();
         result = ftpCopyPut(iCopyFile, sCopyFile, dest, permissions, flags);
-    } else if (!bSrcLocal && bDestLocal) {          // Ftp -> File
+    } else if (!bSrcLocal && bDestLocal) { // Ftp -> File
         sCopyFile = dest.toLocalFile();
         qCDebug(KIO_FTP) << "ftp" << src.path() << "-> local file" << sCopyFile;
         result = ftpCopyGet(iCopyFile, sCopyFile, src, permissions, flags);
@@ -2257,7 +2252,7 @@ Result FtpInternal::copy(const QUrl &src, const QUrl &dest, int permissions, KIO
     if (iCopyFile != -1) {
         QT_CLOSE(iCopyFile);
     }
-    ftpCloseCommand();                        // must close command!
+    ftpCloseCommand(); // must close command!
 
     return result;
 }
@@ -2272,8 +2267,7 @@ bool FtpInternal::isSocksProxy() const
     return isSocksProxyScheme(m_proxyURL.scheme());
 }
 
-Result FtpInternal::ftpCopyPut(int &iCopyFile, const QString &sCopyFile,
-                               const QUrl &url, int permissions, KIO::JobFlags flags)
+Result FtpInternal::ftpCopyPut(int &iCopyFile, const QString &sCopyFile, const QUrl &url, int permissions, KIO::JobFlags flags)
 {
     // check if source is ok ...
     QFileInfo info(sCopyFile);
@@ -2293,15 +2287,14 @@ Result FtpInternal::ftpCopyPut(int &iCopyFile, const QString &sCopyFile,
 
     // delegate the real work (iError gets status) ...
     q->totalSize(info.size());
-#ifdef  ENABLE_CAN_RESUME
+#ifdef ENABLE_CAN_RESUME
     return ftpPut(iCopyFile, url, permissions, flags & ~KIO::Resume);
 #else
     return ftpPut(iCopyFile, url, permissions, flags | KIO::Resume);
 #endif
 }
 
-Result FtpInternal::ftpCopyGet(int &iCopyFile, const QString &sCopyFile,
-                               const QUrl &url, int permissions, KIO::JobFlags flags)
+Result FtpInternal::ftpCopyGet(int &iCopyFile, const QString &sCopyFile, const QUrl &url, int permissions, KIO::JobFlags flags)
 {
     // check if destination is ok ...
     QFileInfo info(sCopyFile);
@@ -2327,15 +2320,15 @@ Result FtpInternal::ftpCopyGet(int &iCopyFile, const QString &sCopyFile,
         if (sPartInfo.isDir()) {
             return Result::fail(ERR_DIR_ALREADY_EXIST);
         }
-        //doesn't work for copy? -> design flaw?
-#ifdef  ENABLE_CAN_RESUME
+        // doesn't work for copy? -> design flaw?
+#ifdef ENABLE_CAN_RESUME
         bResume = q->canResume(sPartInfo.size());
 #else
         bResume = true;
 #endif
     }
 
-    if (bPartExists && !bResume) {                // get rid of an unwanted ".part" file
+    if (bPartExists && !bResume) { // get rid of an unwanted ".part" file
         QFile::remove(sPart);
     }
 
@@ -2351,7 +2344,7 @@ Result FtpInternal::ftpCopyGet(int &iCopyFile, const QString &sCopyFile,
     // open the output file ...
     KIO::fileoffset_t hCopyOffset = 0;
     if (bResume) {
-        iCopyFile = QT_OPEN(QFile::encodeName(sPart).constData(), O_RDWR);  // append if resuming
+        iCopyFile = QT_OPEN(QFile::encodeName(sPart).constData(), O_RDWR); // append if resuming
         hCopyOffset = QT_LSEEK(iCopyFile, 0, SEEK_END);
         if (hCopyOffset < 0) {
             return Result::fail(ERR_CANNOT_RESUME);
@@ -2363,8 +2356,7 @@ Result FtpInternal::ftpCopyGet(int &iCopyFile, const QString &sCopyFile,
 
     if (iCopyFile == -1) {
         qCDebug(KIO_FTP) << "### COULD NOT WRITE " << sCopyFile;
-        const int error = (errno == EACCES) ? ERR_WRITE_ACCESS_DENIED
-                                            : ERR_CANNOT_OPEN_FOR_WRITING;
+        const int error = (errno == EACCES) ? ERR_WRITE_ACCESS_DENIED : ERR_CANNOT_OPEN_FOR_WRITING;
         return Result::fail(error);
     }
 
@@ -2502,11 +2494,7 @@ ConnectionResult FtpInternal::synchronousConnectToHost(const QString &host, quin
     const QUrl proxyUrl = m_proxyURL;
     QNetworkProxy proxy;
     if (!proxyUrl.isEmpty()) {
-        proxy = QNetworkProxy(QNetworkProxy::Socks5Proxy,
-                              proxyUrl.host(),
-                              static_cast<quint16>(proxyUrl.port(0)),
-                              proxyUrl.userName(),
-                              proxyUrl.password());
+        proxy = QNetworkProxy(QNetworkProxy::Socks5Proxy, proxyUrl.host(), static_cast<quint16>(proxyUrl.port(0)), proxyUrl.userName(), proxyUrl.password());
     }
 
     QTcpSocket *socket = new QSslSocket;
@@ -2514,15 +2502,16 @@ ConnectionResult FtpInternal::synchronousConnectToHost(const QString &host, quin
     socket->connectToHost(host, port);
     socket->waitForConnected(q->connectTimeout() * 1000);
     const auto socketError = socket->error();
-     if (socketError == QAbstractSocket::ProxyAuthenticationRequiredError) {
+    if (socketError == QAbstractSocket::ProxyAuthenticationRequiredError) {
         AuthInfo info;
         info.url = proxyUrl;
-        info.verifyPath = true;    //### whatever
+        info.verifyPath = true; //### whatever
 
         if (!q->checkCachedAuthentication(info)) {
-            info.prompt = i18n("You need to supply a username and a password for "
-                               "the proxy server listed below before you are allowed "
-                               "to access any sites.");
+            info.prompt = i18n(
+                "You need to supply a username and a password for "
+                "the proxy server listed below before you are allowed "
+                "to access any sites.");
             info.keepPassword = true;
             info.commentLabel = i18n("Proxy:");
             info.comment = i18n("<b>%1</b>", proxy.hostName());
@@ -2530,8 +2519,7 @@ ConnectionResult FtpInternal::synchronousConnectToHost(const QString &host, quin
             const int errorCode = q->openPasswordDialogV2(info, i18n("Proxy Authentication Failed."));
             if (errorCode != KJob::NoError) {
                 qCDebug(KIO_FTP) << "user canceled proxy authentication, or communication error." << errorCode;
-                return ConnectionResult { socket,
-                            Result::fail(errorCode, proxyUrl.toString()) };
+                return ConnectionResult{socket, Result::fail(errorCode, proxyUrl.toString())};
             }
         }
 
@@ -2553,7 +2541,7 @@ ConnectionResult FtpInternal::synchronousConnectToHost(const QString &host, quin
         }
     }
 
-    return ConnectionResult { socket, Result::pass() };
+    return ConnectionResult{socket, Result::pass()};
 }
 
 //===============================================================================
@@ -2652,10 +2640,7 @@ QDebug operator<<(QDebug dbg, const Result &r)
 {
     QDebugStateSaver saver(dbg);
     dbg.nospace() << "Result("
-                  << "success=" << r.success
-                  << ", err=" << r.error
-                  << ", str=" << r.errorString
-                  << ')';
+                  << "success=" << r.success << ", err=" << r.error << ", str=" << r.errorString << ')';
     return dbg;
 }
 

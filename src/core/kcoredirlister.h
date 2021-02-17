@@ -9,8 +9,8 @@
 #ifndef KCOREDIRLISTER_H
 #define KCOREDIRLISTER_H
 
-#include "kfileitem.h"
 #include "kdirnotify.h" // TODO SIC: remove
+#include "kfileitem.h"
 
 #include <QString>
 #include <QStringList>
@@ -69,17 +69,17 @@ public:
      * @see OpenUrlFlags
      */
     enum OpenUrlFlag {
-        NoFlags = 0x0,   ///< No additional flags specified.
+        NoFlags = 0x0, ///< No additional flags specified.
 
-        Keep = 0x1,      ///< Previous directories aren't forgotten
+        Keep = 0x1, ///< Previous directories aren't forgotten
         ///< (they are still watched by kdirwatch and their items
         ///< are kept for this KCoreDirLister). This is useful for e.g.
         ///< a treeview.
 
-        Reload = 0x2,     ///< Indicates whether to use the cache or to reread
-                 ///< the directory from the disk.
-                 ///< Use only when opening a dir not yet listed by this lister
-                 ///< without using the cache. Otherwise use updateDirectory.
+        Reload = 0x2, ///< Indicates whether to use the cache or to reread
+                      ///< the directory from the disk.
+                      ///< Use only when opening a dir not yet listed by this lister
+                      ///< without using the cache. Otherwise use updateDirectory.
     };
 
     /**
@@ -414,8 +414,7 @@ public:
      *
      * @return the items listed for @p dirUrl
      */
-    KFileItemList itemsForDir(const QUrl &dirUrl,
-                              WhichItems which = FilteredItems) const;
+    KFileItemList itemsForDir(const QUrl &dirUrl, WhichItems which = FilteredItems) const;
 
     /**
      * Return the KFileItem for the given URL, if it was listed recently and it's
@@ -589,7 +588,7 @@ Q_SIGNALS:
      * NEW item. This allows to track which item has changed, especially after
      * a renaming.
      */
-    void refreshItems(const QList<QPair<KFileItem, KFileItem> > &items);
+    void refreshItems(const QList<QPair<KFileItem, KFileItem>> &items);
 
     /**
      * Emitted to display information about running jobs.
