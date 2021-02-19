@@ -12,9 +12,11 @@
 #define NOMINMAX
 
 #include <kio/slavebase.h>
+
+#include <windows.h> // Must be included before shallapi.h, otherwise it fails to build on windows
+
 #include <shellapi.h>
 #include <shlobj.h>
-#include <windows.h>
 
 #include <KConfig>
 
