@@ -11,6 +11,7 @@ class ThumbSequenceCreatorPrivate
 {
 public:
     float m_sequenceIndex = 0;
+    float m_sequenceIndexWraparoundPoint = -1;
 };
 
 float ThumbSequenceCreator::sequenceIndex() const
@@ -21,6 +22,16 @@ float ThumbSequenceCreator::sequenceIndex() const
 void ThumbSequenceCreator::setSequenceIndex(float index)
 {
     d->m_sequenceIndex = index;
+}
+
+float ThumbSequenceCreator::sequenceIndexWraparoundPoint() const
+{
+    return d->m_sequenceIndexWraparoundPoint;
+}
+
+void ThumbSequenceCreator::setSequenceIndexWraparoundPoint(float wraparoundPoint)
+{
+    d->m_sequenceIndexWraparoundPoint = wraparoundPoint;
 }
 
 ThumbSequenceCreator::ThumbSequenceCreator()

@@ -171,6 +171,24 @@ public:
     int sequenceIndex() const;
 
     /**
+     * Returns the index at which the thumbs of a ThumbSequenceCreator start
+     * wrapping around ("looping"). Fractional values may be returned if the
+     * ThumbSequenceCreator supports sub-integer precision, but frontends
+     * supporting only integer sequence indices may choose to round it down.
+     *
+     * @see ThumbSequenceCreator::sequenceIndexWraparoundPoint()
+     * @since 5.80
+     */
+    float sequenceIndexWraparoundPoint() const;
+
+    /**
+     * Determines whether the ThumbCreator in use is a ThumbSequenceCreator.
+     *
+     * @since 5.80
+     */
+    bool handlesSequences() const;
+
+    /**
      * Returns a list of all available preview plugins. The list
      * contains the basenames of the plugins' .desktop files (no path,
      * no .desktop).

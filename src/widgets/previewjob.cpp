@@ -138,6 +138,8 @@ public:
     QString thumbRoot;
     // List of encrypted mount points for checking if we should save thumbnail
     KMountPoint::List encryptedMountsList;
+    // Metadata returned from the KIO thumbnail slave
+    QMap<QString, QString> thumbnailSlaveMetaData;
 
     void getOrCreateThumbnail();
     bool statResultThumbnail();
@@ -409,6 +411,18 @@ void KIO::PreviewJob::setSequenceIndex(int index)
 int KIO::PreviewJob::sequenceIndex() const
 {
     return d_func()->sequenceIndex;
+}
+
+float KIO::PreviewJob::sequenceIndexWraparoundPoint() const
+{
+    return d_func()->thumbnailSlaveMetaData.value(QStringLiteral("sequenceIndexWraparoundPoint"),
+            QStringLiteral("-1.0")).toFloat();
+}
+
+bool KIO::PreviewJob::handlesSequences() const
+{
+    return d_func()->thumbnailSlaveMetaData.value(QStringLiteral("handlesSequences"))
+            == QStringLiteral("1");
 }
 
 void PreviewJob::setIgnoreMaximumSize(bool ignoreSize)
@@ -686,8 +700,9 @@ void PreviewJobPrivate::createThumbnail(const QString &pixPath)
 #endif
 }
 
-void PreviewJobPrivate::slotThumbData(KIO::Job *, const QByteArray &data)
+void PreviewJobPrivate::slotThumbData(KIO::Job *job, const QByteArray &data)
 {
+    thumbnailSlaveMetaData = job->metaData();
     const bool isEncrypted = encryptedMountsList.findByPath(currentItem.item.url().toLocalFile());
     /* clang-format off */
     const bool save = bSave

@@ -65,6 +65,44 @@ public:
      */
     void setSequenceIndex(float index);
 
+    /**
+     * Returns the point at which this thumb-creator's sequence indices
+     * will wrap around (loop).
+     *
+     * Usually, the frontend will call setSequenceIndex() with indices
+     * that increase indefinitely with time, e.g. as long as the user
+     * keeps hovering a video file. Most thumb-creators however only
+     * want to display a finite sequence of thumbs, after which their
+     * sequence repeats.
+     *
+     * This method can return the sequence index at which this
+     * thumb-creator's sequence starts wrapping around to the start
+     * again ("looping"). The frontend may use this to generate only
+     * thumbs up to this index, and then use cached versions for the
+     * repeating sequence instead.
+     *
+     * Like sequenceIndex(), fractional values can be used if the
+     * wraparound does not happen at an integer position, but
+     * frontends handling only integer sequence indices may choose
+     * to round it down.
+     *
+     * By default, this method returns a negative index, which signals
+     * the frontend that it can't rely on this fixed-length sequence.
+     *
+     * @since 5.80
+     */
+    float sequenceIndexWraparoundPoint() const;
+
+protected:
+    /**
+     * Sets the point at which this thumb-creator's sequence indices
+     * will wrap around.
+     *
+     * @see sequenceIndexWraparoundPoint()
+     * @since 5.80
+     */
+    void setSequenceIndexWraparoundPoint(float wraparoundPoint);
+
 private:
     std::unique_ptr<ThumbSequenceCreatorPrivate> d;
 };
