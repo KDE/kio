@@ -30,9 +30,8 @@
 #include <QHostInfo>
 #include <QMimeDatabase>
 #include <QOperatingSystemVersion>
-#include <QTimer>
+#include <mimetypefinderjob.h>
 
-#include <kio/scheduler.h>
 
 class KIO::OpenUrlJobPrivate
 {
@@ -49,9 +48,6 @@ public:
     QString externalBrowser() const;
     bool runExternalBrowser(const QString &exe);
     void useSchemeHandler();
-    void determineLocalMimeType();
-    void statFile();
-    void scanFileWithGet();
 
     QUrl m_url;
     KIO::OpenUrlJob *const q;
@@ -184,14 +180,22 @@ void KIO::OpenUrlJob::start()
         return;
     }
 
-    if (!KProtocolManager::supportsListing(d->m_url)) {
-        // No support for listing => it can't be a directory (example: http)
-        d->scanFileWithGet();
-        return;
-    }
-
-    // It may be a directory or a file, let's use stat to find out
-    d->statFile();
+    auto *job = new KIO::MimeTypeFinderJob(d->m_url, this);
+    job->setFollowRedirections(d->m_followRedirections);
+    job->setSuggestedFileName(d->m_suggestedFileName);
+    connect(job, &KJob::result, this, [job, this]() {
+        const int errCode = job->error();
+        if (errCode) {
+            setError(errCode);
+            setErrorText(job->errorText());
+            emitResult();
+        } else {
+            d->m_suggestedFileName = job->suggestedFileName();
+            d->m_mimeTypeName = job->mimeType();
+            d->runUrlWithMimeType();
+        }
+    });
+    job->start();
 }
 
 bool KIO::OpenUrlJob::doKill()
@@ -261,56 +265,6 @@ void KIO::OpenUrlJobPrivate::useSchemeHandler()
     }
 }
 
-void KIO::OpenUrlJobPrivate::statFile()
-{
-    Q_ASSERT(m_mimeTypeName.isEmpty());
-
-    KIO::StatJob *job = KIO::statDetails(m_url, KIO::StatJob::SourceSide, KIO::StatBasic, KIO::HideProgressInfo);
-    job->setUiDelegate(nullptr);
-    QObject::connect(job, &KJob::result, q, [=]() {
-        const int errCode = job->error();
-        if (errCode) {
-            // ERR_NO_CONTENT is not an error, but an indication no further
-            // actions needs to be taken.
-            if (errCode != KIO::ERR_NO_CONTENT) {
-                q->setError(errCode);
-                q->setErrorText(KIO::buildErrorString(errCode, job->errorText()));
-            }
-            q->emitResult();
-            return;
-        }
-        if (m_followRedirections) { // Update our URL in case of a redirection
-            m_url = job->url();
-        }
-
-        const KIO::UDSEntry entry = job->statResult();
-
-        const QString localPath = entry.stringValue(KIO::UDSEntry::UDS_LOCAL_PATH);
-        if (!localPath.isEmpty()) {
-            m_url = QUrl::fromLocalFile(localPath);
-        }
-
-        // MIME type already known? (e.g. print:/manager)
-        m_mimeTypeName = entry.stringValue(KIO::UDSEntry::UDS_MIME_TYPE);
-        if (!m_mimeTypeName.isEmpty()) {
-            runUrlWithMimeType();
-            return;
-        }
-
-        if (entry.isDir()) {
-            m_mimeTypeName = QStringLiteral("inode/directory");
-            runUrlWithMimeType();
-        } else { // it's a file
-            // Start the timer. Once we get the timer event this
-            // protocol server is back in the pool and we can reuse it.
-            // This gives better performance than starting a new slave
-            QTimer::singleShot(0, q, [this] {
-                scanFileWithGet();
-            });
-        }
-    });
-}
-
 void KIO::OpenUrlJobPrivate::startService(const KService::Ptr &service, const QList<QUrl> &urls)
 {
     KIO::ApplicationLauncherJob *job = new KIO::ApplicationLauncherJob(service, q);
@@ -321,88 +275,6 @@ void KIO::OpenUrlJobPrivate::startService(const KService::Ptr &service, const QL
     job->setUiDelegate(q->uiDelegate());
     q->addSubjob(job);
     job->start();
-}
-
-static QMimeType fixupMimeType(const QString &mimeType, const QString &fileName)
-{
-    QMimeDatabase db;
-    QMimeType mime = db.mimeTypeForName(mimeType);
-    if ((!mime.isValid() || mime.isDefault()) && !fileName.isEmpty()) {
-        mime = db.mimeTypeForFile(fileName, QMimeDatabase::MatchExtension);
-    }
-    return mime;
-}
-
-void KIO::OpenUrlJobPrivate::scanFileWithGet()
-{
-    Q_ASSERT(m_mimeTypeName.isEmpty());
-
-    // First, let's check for well-known extensions
-    // Not over HTTP and not when there is a query in the URL, in any case.
-    if (!m_url.hasQuery() && !m_url.scheme().startsWith(QLatin1String("http"))) {
-        QMimeDatabase db;
-        QMimeType mime = db.mimeTypeForUrl(m_url);
-        if (!mime.isDefault()) {
-            // qDebug() << "Scanfile: MIME TYPE is " << mime.name();
-            m_mimeTypeName = mime.name();
-            runUrlWithMimeType();
-            return;
-        }
-    }
-
-    // No MIME type found, and the URL is not local  (or fast mode not allowed).
-    // We need to apply the 'KIO' method, i.e. either asking the server or
-    // getting some data out of the file, to know what MIME type it is.
-
-    if (!KProtocolManager::supportsReading(m_url)) {
-        qCWarning(KIO_GUI) << "#### NO SUPPORT FOR READING!";
-        q->setError(KIO::ERR_CANNOT_READ);
-        q->setErrorText(m_url.toDisplayString());
-        q->emitResult();
-        return;
-    }
-    // qDebug() << this << "Scanning file" << url;
-
-    KIO::TransferJob *job = KIO::get(m_url, KIO::NoReload /*reload*/, KIO::HideProgressInfo);
-    job->setUiDelegate(nullptr);
-    QObject::connect(job, &KJob::result, q, [=]() {
-        const int errCode = job->error();
-        if (errCode) {
-            // ERR_NO_CONTENT is not an error, but an indication no further
-            // actions needs to be taken.
-            if (errCode != KIO::ERR_NO_CONTENT) {
-                q->setError(errCode);
-                q->setErrorText(job->errorText());
-            }
-            q->emitResult();
-        }
-        // if the job succeeded, we certainly hope it emitted mimetype()...
-    });
-    QObject::connect(job, &KIO::TransferJob::mimeTypeFound, q, [=](KIO::Job *, const QString &mimetype) {
-        if (m_followRedirections) { // Update our URL in case of a redirection
-            m_url = job->url();
-        }
-        if (mimetype.isEmpty()) {
-            qCWarning(KIO_GUI) << "get() didn't emit a MIME type! Probably a kioslave bug, please check the implementation of" << m_url.scheme();
-        }
-        m_mimeTypeName = mimetype;
-
-        // If the current MIME type is the default MIME type, then attempt to
-        // determine the "real" MIME type from the file name (bug #279675)
-        const QMimeType mime = fixupMimeType(m_mimeTypeName, m_suggestedFileName.isEmpty() ? m_url.fileName() : m_suggestedFileName);
-        const QString mimeName = mime.name();
-        if (mime.isValid() && mimeName != m_mimeTypeName) {
-            m_mimeTypeName = mimeName;
-        }
-
-        if (m_suggestedFileName.isEmpty()) {
-            m_suggestedFileName = job->queryMetaData(QStringLiteral("content-disposition-filename"));
-        }
-
-        job->putOnHold();
-        KIO::Scheduler::publishSlaveOnHold();
-        runUrlWithMimeType();
-    });
 }
 
 void KIO::OpenUrlJobPrivate::runLink(const QString &filePath, const QString &urlStr, const QString &optionalServiceName)
@@ -802,6 +674,7 @@ void KIO::OpenUrlJob::slotResult(KJob *job)
     const int errCode = job->error();
     if (errCode) {
         setError(errCode);
+        // We're a KJob, not a KIO::Job, so build the error string here
         setErrorText(KIO::buildErrorString(errCode, job->errorText()));
     }
     emitResult();

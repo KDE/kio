@@ -33,6 +33,7 @@ ecm_add_tests(
  kprotocolinfotest.cpp
  ${ktcpsockettest_SRC}
  globaltest.cpp
+ mimetypefinderjobtest.cpp
  mkpathjobtest.cpp
  threadtest.cpp
  udsentrytest.cpp

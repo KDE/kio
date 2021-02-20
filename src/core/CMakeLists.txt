@@ -58,6 +58,7 @@ set(kiocore_SRCS
   filecopyjob.cpp
   listjob.cpp
   mimetypejob.cpp
+  mimetypefinderjob.cpp
   multigetjob.cpp
   restorejob.cpp
   simplejob.cpp
