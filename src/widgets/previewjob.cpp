@@ -570,8 +570,13 @@ bool PreviewJobPrivate::statResultThumbnail()
     }
 
     if (thumb.text(QStringLiteral("Thumb::URI")) != QString::fromUtf8(origName)
-        || thumb.text(QStringLiteral("Thumb::MTime")).toLongLong() != tOrig.toSecsSinceEpoch()
-        || thumb.text(QStringLiteral("Thumb::Size")).toULongLong() != currentItem.item.size()) {
+        || thumb.text(QStringLiteral("Thumb::MTime")).toLongLong() != tOrig.toSecsSinceEpoch()) {
+        return false;
+    }
+
+    const QString origSize = thumb.text(QStringLiteral("Thumb::Size"));
+    if (!origSize.isEmpty() && origSize.toULongLong() != currentItem.item.size()) {
+        // Thumb::Size is not required, but if it is set it should match
         return false;
     }
 
