@@ -13,10 +13,11 @@
 #include "kio_widgets_debug.h"
 #include "scheduler.h"
 
-#include <QMimeDatabase>
+#include <kcoreaddons_version.h>
 #include <kprotocolinfo.h>
 #include <kurlauthorized.h>
 
+#include <QMimeDatabase>
 #include <QSslConfiguration>
 #include <QtMath>
 
@@ -49,7 +50,7 @@ AccessManagerReply::AccessManagerReply(const QNetworkAccessManager::Operation op
     }
 
     connect(kioJob, SIGNAL(redirection(KIO::Job *, QUrl)), SLOT(slotRedirection(KIO::Job *, QUrl)));
-    connect(kioJob, QOverload<KJob *, ulong>::of(&KJob::percent), this, &AccessManagerReply::slotPercent);
+    connect(kioJob, &KJob::percentChanged, this, &AccessManagerReply::slotPercent);
 
     if (qobject_cast<KIO::StatJob *>(kioJob)) {
         connect(kioJob, &KJob::result, this, &AccessManagerReply::slotStatResult);

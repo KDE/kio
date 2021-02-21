@@ -11,7 +11,10 @@
 #include "kprotocolmanager.h"
 #include "scheduler.h"
 #include "slave.h"
+
 #include <KLocalizedString>
+#include <kcoreaddons_version.h>
+
 #include <QFile>
 #include <QTimer>
 
@@ -239,8 +242,7 @@ void FileCopyJobPrivate::connectSubjob(SimpleJob *job)
         q->setProcessedAmount(KJob::Bytes, processedSize);
     });
 
-    q->connect(job, QOverload<KJob *, ulong>::of(&KJob::percent), q, [q](KJob *job, ulong percent) {
-        Q_UNUSED(job);
+    q->connect(job, &KJob::percentChanged, q, [q](KJob *, ulong percent) {
         if (percent > q->percent()) {
             q->setPercent(percent);
         }

@@ -132,8 +132,14 @@ Q_SIGNALS:
      * Emitted when the total number of files is known.
      * @param job the job that emitted this signal
      * @param files the total number of files
+     *
+     * @deprecated since 5.72, up to Frameworks versions <= 5.79, use the KJob::totalAmount(KJob *, KJob::Unit, qulonglong)
+     * signal, starting from 5.80 use the KJob::totalAmountChanged(KJob *, KJob::Unit, qulonglong) signal instead.
      */
-    KIOCORE_DEPRECATED_VERSION(5, 72, "Use KJob::totalAmount instead. This one is not emitted")
+    KIOCORE_DEPRECATED_VERSION(5,
+                               72,
+                               "Up to Frameworks versions <= 5.79, use the KJob::totalAmount(KJob *, KJob::Unit, qulonglong) signal, starting from 5.80 use "
+                               "the KJob::totalAmountChanged(KJob *, KJob::Unit, qulonglong) signal instead.")
     QT_MOC_COMPAT void totalFiles(KJob *job, unsigned long files);
 #endif
 
@@ -142,8 +148,14 @@ Q_SIGNALS:
      * Emitted when the total number of directories is known.
      * @param job the job that emitted this signal
      * @param dirs the total number of directories
+     *
+     * @deprecated since 5.72, up to Frameworks versions <= 5.79, use the KJob::totalAmount(KJob *, KJob::Unit, qulonglong) signal, starting from 5.80 use
+     * KJob::totalAmountChanged(KJob *, KJob::Unit, qulonglong) signal instead.
      */
-    KIOCORE_DEPRECATED_VERSION(5, 72, "Use KJob::totalAmount instead. This one is not emitted")
+    KIOCORE_DEPRECATED_VERSION(5,
+                               72,
+                               "Up to Frameworks versions <= 5.79, use the KJob::totalAmount(KJob *, KJob::Unit, qulonglong) signal, starting from 5.80 use "
+                               "KJob::totalAmountChanged(KJob *, KJob::Unit, qulonglong) signal instead.")
     QT_MOC_COMPAT void totalDirs(KJob *job, unsigned long dirs);
 #endif
 

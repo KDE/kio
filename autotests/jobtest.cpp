@@ -9,6 +9,7 @@
 
 #include <KJobUiDelegate>
 #include <KLocalizedString>
+#include <kcoreaddons_version.h>
 
 #include <QBuffer>
 #include <QDebug>
@@ -161,7 +162,8 @@ void JobTest::storedGet()
     m_result = -1;
 
     KIO::StoredTransferJob *job = KIO::storedGet(u, KIO::NoReload, KIO::HideProgressInfo);
-    QSignalSpy spyPercent(job, QOverload<KJob *, unsigned long>::of(&KJob::percent));
+
+    QSignalSpy spyPercent(job, &KJob::percentChanged);
     QVERIFY(spyPercent.isValid());
     job->setUiDelegate(nullptr);
     connect(job, &KJob::result, this, &JobTest::slotGetResult);
@@ -230,7 +232,8 @@ void JobTest::storedPut()
     QUrl u = QUrl::fromLocalFile(filePath);
     QByteArray putData = "This is the put data";
     KIO::TransferJob *job = KIO::storedPut(putData, u, 0600, KIO::Overwrite | KIO::HideProgressInfo);
-    QSignalSpy spyPercent(job, QOverload<KJob *, unsigned long>::of(&KJob::percent));
+
+    QSignalSpy spyPercent(job, &KJob::percentChanged);
     QVERIFY(spyPercent.isValid());
     quint64 secsSinceEpoch = QDateTime::currentSecsSinceEpoch(); // Use second granularity, supported on all filesystems
     QDateTime mtime = QDateTime::fromSecsSinceEpoch(secsSinceEpoch - 30); // 30 seconds ago
@@ -252,7 +255,8 @@ void JobTest::storedPutIODevice()
     putData.setData("This is the put data");
     QVERIFY(putData.open(QIODevice::ReadOnly));
     KIO::TransferJob *job = KIO::storedPut(&putData, QUrl::fromLocalFile(filePath), 0600, KIO::Overwrite | KIO::HideProgressInfo);
-    QSignalSpy spyPercent(job, QOverload<KJob *, unsigned long>::of(&KJob::percent));
+
+    QSignalSpy spyPercent(job, &KJob::percentChanged);
     QVERIFY(spyPercent.isValid());
     quint64 secsSinceEpoch = QDateTime::currentSecsSinceEpoch(); // Use second granularity, supported on all filesystems
     QDateTime mtime = QDateTime::fromSecsSinceEpoch(secsSinceEpoch - 30); // 30 seconds ago
@@ -325,7 +329,8 @@ void JobTest::storedPutIODeviceFastDevice()
     QVERIFY(putDataBuffer.open(QIODevice::ReadWrite));
 
     KIO::StoredTransferJob *job = KIO::storedPut(&putDataBuffer, u, 0600, KIO::Overwrite | KIO::HideProgressInfo);
-    QSignalSpy spyPercent(job, QOverload<KJob *, unsigned long>::of(&KJob::percent));
+
+    QSignalSpy spyPercent(job, &KJob::percentChanged);
     QVERIFY(spyPercent.isValid());
     quint64 secsSinceEpoch = QDateTime::currentSecsSinceEpoch(); // Use second granularity, supported on all filesystems
     QDateTime mtime = QDateTime::fromSecsSinceEpoch(secsSinceEpoch - 30); // 30 seconds ago
@@ -361,7 +366,8 @@ void JobTest::storedPutIODeviceSlowDevice()
     QVERIFY(putDataBuffer.open(QIODevice::ReadWrite));
 
     KIO::StoredTransferJob *job = KIO::storedPut(&putDataBuffer, u, 0600, KIO::Overwrite | KIO::HideProgressInfo);
-    QSignalSpy spyPercent(job, QOverload<KJob *, unsigned long>::of(&KJob::percent));
+
+    QSignalSpy spyPercent(job, &KJob::percentChanged);
     QVERIFY(spyPercent.isValid());
     quint64 secsSinceEpoch = QDateTime::currentSecsSinceEpoch(); // Use second granularity, supported on all filesystems
     QDateTime mtime = QDateTime::fromSecsSinceEpoch(secsSinceEpoch - 30); // 30 seconds ago
@@ -406,7 +412,8 @@ void JobTest::storedPutIODeviceSlowDeviceBigChunk()
     QVERIFY(putDataBuffer.open(QIODevice::ReadWrite));
 
     KIO::StoredTransferJob *job = KIO::storedPut(&putDataBuffer, u, 0600, KIO::Overwrite | KIO::HideProgressInfo);
-    QSignalSpy spyPercent(job, QOverload<KJob *, unsigned long>::of(&KJob::percent));
+
+    QSignalSpy spyPercent(job, &KJob::percentChanged);
     QVERIFY(spyPercent.isValid());
     quint64 secsSinceEpoch = QDateTime::currentSecsSinceEpoch(); // Use second granularity, supported on all filesystems
     QDateTime mtime = QDateTime::fromSecsSinceEpoch(secsSinceEpoch - 30); // 30 seconds ago

@@ -15,8 +15,10 @@
 #include "kiocoredebug.h"
 #include "kmountpoint.h"
 #include "kprotocolmanager.h"
-#include <KLocalizedString>
 #include <kio/listjob.h>
+
+#include <KLocalizedString>
+#include <kcoreaddons_version.h>
 
 #include <QDir>
 #include <QFile>
@@ -2644,9 +2646,11 @@ void KCoreDirListerPrivate::connectJob(KIO::ListJob *job)
     q->connect(job, &KJob::infoMessage, q, [this](KJob *job, const QString &plain) {
         slotInfoMessage(job, plain);
     });
-    q->connect(job, QOverload<KJob *, ulong>::of(&KJob::percent), q, [this](KJob *job, ulong _percent) {
+
+    q->connect(job, &KJob::percentChanged, q, [this](KJob *job, ulong _percent) {
         slotPercent(job, _percent);
     });
+
     q->connect(job, &KJob::totalSize, q, [this](KJob *job, qulonglong _size) {
         slotTotalSize(job, _size);
     });
