@@ -1015,12 +1015,12 @@ public:
      */
     void addTemporaryAuthorization(const QString &action);
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 66)
     /**
      * @deprecated since 5.66, use requestPrivilegeOperation(QString)
      */
-
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 66)
-    KIOCORE_DEPRECATED_VERSION(5, 66, "Pass QString action to requestPrivilegeOperation") PrivilegeOperationStatus requestPrivilegeOperation();
+    KIOCORE_DEPRECATED_VERSION(5, 66, "Pass QString action to requestPrivilegeOperation")
+    PrivilegeOperationStatus requestPrivilegeOperation();
 #endif
 
 protected:
