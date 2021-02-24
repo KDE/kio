@@ -11,3 +11,7 @@ include(ECMAddTests)
 ecm_add_test(${kpasswdserver_test_SRCS}
              TEST_NAME kpasswdservertest
              LINK_LIBRARIES KF5::DBusAddons KF5::KIOCore KF5::WidgetsAddons KF5::WindowSystem KF5::I18n Qt5::Core Qt5::Test ${WALLET_LIB})
+ecm_generate_qloggingcategories_source(kpasswdservertest
+    HEADER kpasswdserver_debug.h
+    GROUP KPASSWDSERVER
+)

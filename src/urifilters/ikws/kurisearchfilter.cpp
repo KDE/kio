@@ -10,13 +10,13 @@
 #include "kurisearchfilter.h"
 #include "ikwsopts.h"
 #include "kuriikwsfiltereng.h"
+#include "kurisearchfilter_debug.h"
 #include "searchprovider.h"
 
 #include <KLocalizedString>
 #include <KPluginFactory>
 
 #include <QDBusConnection>
-#include <QLoggingCategory>
 
 /**
  * IMPORTANT: If you change anything here, make sure you run the kurifiltertest
@@ -24,11 +24,6 @@
  */
 
 K_PLUGIN_CLASS_WITH_JSON(KUriSearchFilter, "kurisearchfilter.json")
-
-namespace
-{
-Q_LOGGING_CATEGORY(category, "kf.kio.urifilters.ikws", QtWarningMsg)
-}
 
 KUriSearchFilter::KUriSearchFilter(QObject *parent, const QVariantList &)
     : KUriFilterPlugin(QStringLiteral("kurisearchfilter"), parent)

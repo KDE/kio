@@ -8,6 +8,7 @@
 #include "kdirmodel.h"
 #include "kdirlister.h"
 #include "kfileitem.h"
+#include "kio_widgets_debug.h"
 
 #include "joburlcache_p.h"
 #include <KIconLoader>
@@ -26,7 +27,6 @@
 #include <QFileInfo>
 #include <QIcon>
 #include <QLocale>
-#include <QLoggingCategory>
 #include <QMimeData>
 #include <qplatformdefs.h>
 
@@ -35,8 +35,6 @@
 #ifdef Q_OS_WIN
 #include <qt_windows.h>
 #endif
-
-Q_LOGGING_CATEGORY(category, "kf.kio.widgets.kdirmodel", QtInfoMsg)
 
 class KDirModelNode;
 class KDirModelDirNode;

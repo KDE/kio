@@ -50,9 +50,7 @@
 
 #include "kioglobal_p.h"
 
-#include <QLoggingCategory>
-Q_DECLARE_LOGGING_CATEGORY(KIO_FTP)
-Q_LOGGING_CATEGORY(KIO_FTP, "kf.kio.slaves.ftp", QtWarningMsg)
+#include "kio_ftp_debug.h"
 
 #if HAVE_STRTOLL
 #define charToLongLong(a) strtoll(a, nullptr, 10)

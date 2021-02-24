@@ -10,19 +10,15 @@
 
 #include "localdomainurifilter.h"
 
+#include "localdomainurifilter_debug.h"
+
 #include <KPluginFactory>
 #include <KProtocolInfo>
 
 #include <QHostInfo>
-#include <QLoggingCategory>
 
 #define QL1C(x) QLatin1Char(x)
 #define QL1S(x) QLatin1String(x)
-
-namespace
-{
-Q_LOGGING_CATEGORY(category, "kf.kio.urifilters.localdomain", QtWarningMsg)
-}
 
 /**
  * IMPORTANT: If you change anything here, make sure you run the kurifiltertest

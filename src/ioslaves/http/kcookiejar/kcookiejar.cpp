@@ -20,6 +20,8 @@
 
 #include "kcookiejar.h"
 
+#include "kcookiejar_debug.h"
+
 #include <KConfig>
 #include <KConfigGroup>
 #include <QDebug>
@@ -31,8 +33,6 @@
 #include <QString>
 #include <QTextStream>
 #include <QUrl>
-
-Q_LOGGING_CATEGORY(KIO_COOKIEJAR, "kf.kio.slaves.http.cookiejar")
 
 // BR87227
 // Waba: Should the number of cookies be limited?

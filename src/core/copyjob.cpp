@@ -56,10 +56,6 @@
 
 #include <list>
 
-#include <QLoggingCategory>
-Q_DECLARE_LOGGING_CATEGORY(KIO_COPYJOB_DEBUG)
-Q_LOGGING_CATEGORY(KIO_COPYJOB_DEBUG, "kf.kio.core.copyjob", QtWarningMsg)
-
 using namespace KIO;
 
 // this will update the report dialog with 5 Hz, I think this is fast enough, aleXXX

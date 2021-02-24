@@ -24,20 +24,16 @@ set(kded_kcookiejar_SRCS
    kcookiewin.cpp
 )
 
-ecm_qt_export_logging_category(
-    IDENTIFIER KIO_COOKIEJAR
-    CATEGORY_NAME kf.kio.slaves.http.cookiejar
-    OLD_CATEGORY_NAMES kf5.kio.cookiejar
-    DESCRIPTION "kcookiejar (KIO)"
-    EXPORT KIO
-)
-
 qt5_add_dbus_adaptor( kded_kcookiejar_SRCS ${CMAKE_CURRENT_BINARY_DIR}/org.kde.KCookieServer.xml kcookieserver.h KCookieServer )
 
 
 kcoreaddons_add_plugin(kded_kcookiejar INSTALL_NAMESPACE "kf5/kded" JSON kcookiejar.json SOURCES ${kded_kcookiejar_SRCS})
 set_target_properties(kded_kcookiejar PROPERTIES
     OUTPUT_NAME kcookiejar
+)
+ecm_generate_qloggingcategories_source(kded_kcookiejar
+    HEADER kcookiejar_debug.h
+    GROUP KCOOKIEJAR
 )
 
 target_link_libraries(kded_kcookiejar

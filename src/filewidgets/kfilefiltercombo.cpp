@@ -6,7 +6,7 @@
 */
 
 #include "kfilefiltercombo.h"
-#include "kfilefiltercombo_debug.h"
+#include "kio_filewidgets_debug.h"
 
 #include <KLocalizedString>
 #include <QDebug>

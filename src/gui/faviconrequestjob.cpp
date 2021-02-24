@@ -9,7 +9,7 @@
 #include "faviconrequestjob.h"
 #include <faviconscache_p.h>
 
-#include "favicons_debug.h"
+#include "kiogui_debug.h"
 
 #include <KConfig>
 #include <KIO/TransferJob>

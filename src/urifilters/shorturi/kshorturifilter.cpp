@@ -9,11 +9,12 @@
 */
 
 #include "kshorturifilter.h"
+
 #include "../pathhelpers_p.h" // concatPaths(), isAbsoluteLocalPath()
+#include "kshorturifilter_debug.h"
 
 #include <QDBusConnection>
 #include <QDir>
-#include <QLoggingCategory>
 #include <qplatformdefs.h>
 
 #include <KApplicationTrader>
@@ -25,11 +26,6 @@
 #include <KUser>
 #include <kprotocolinfo.h>
 #include <kurlauthorized.h>
-
-namespace
-{
-Q_LOGGING_CATEGORY(category, "kf.kio.urifilters.shorturi", QtWarningMsg)
-}
 
 /**
  * IMPORTANT: If you change anything here, make sure you run the kurifiltertest

@@ -11,20 +11,15 @@
 */
 
 #include "kuriikwsfiltereng.h"
+#include "kuriikwsfilter_debug.h"
 #include "searchprovider.h"
 
 #include <KConfig>
 #include <KConfigGroup>
 #include <kprotocolinfo.h>
 
-#include <QLoggingCategory>
 #include <QRegularExpression>
 #include <QTextCodec>
-
-namespace
-{
-Q_LOGGING_CATEGORY(category, "kf.kio.urifilters.ikws", QtWarningMsg)
-}
 
 #define PDVAR(n, v) qCDebug(category) << n << " = '" << v << "'"
 

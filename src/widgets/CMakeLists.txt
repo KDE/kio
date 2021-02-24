@@ -64,23 +64,6 @@ if (NOT WIN32)
   )
 endif()
 
-ecm_qt_declare_logging_category(kiowidgets_SRCS
-    HEADER kio_widgets_debug.h
-    IDENTIFIER KIO_WIDGETS
-    CATEGORY_NAME kf.kio.widgets
-    OLD_CATEGORY_NAMES kf5.kio.widgets
-    DESCRIPTION "KIOWidgets (KIO)"
-    EXPORT KIO
-)
-
-ecm_qt_export_logging_category(
-    IDENTIFIER category
-    CATEGORY_NAME kf.kio.widgets.kdirmodel
-    OLD_CATEGORY_NAMES kf5.kio.kdirmodel
-    DESCRIPTION "KDirModel (KIO)"
-    EXPORT KIO
-)
-
 qt5_add_dbus_adaptor(kiowidgets_SRCS org.kde.kio.FileUndoManager.xml fileundomanager_p.h KIO::FileUndoManagerPrivate fileundomanager_adaptor KIOFileUndoManagerAdaptor)
 
 qt5_add_dbus_interface(kiowidgets_SRCS org.kde.kuiserver.xml kuiserver_interface)
@@ -105,7 +88,10 @@ ecm_generate_export_header(KF5KIOWidgets
 )
 # TODO: add support for EXCLUDE_DEPRECATED_BEFORE_AND_AT to all KIO libs
 # needs fixing of undeprecated API being still implemented using own deprecated API
-
+ecm_generate_qloggingcategories_source(KF5KIOWidgets
+    HEADER kio_widgets_debug.h
+    GROUP KIOWIDGETS
+)
 target_include_directories(KF5KIOWidgets INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF5}/KIOWidgets>")
 
 target_link_libraries(KF5KIOWidgets

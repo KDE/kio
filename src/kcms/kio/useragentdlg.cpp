@@ -14,13 +14,13 @@
 #include "useragentdlg.h"
 
 // Local
+#include "kcm_kio_debug.h"
 #include "ksaveioconfig.h"
 #include "useragentinfo.h"
 #include "useragentselectordlg.h"
 
 // Qt
 #include <QCheckBox>
-#include <QLoggingCategory>
 #include <QPushButton>
 #include <QTreeWidget>
 
@@ -31,9 +31,6 @@
 #include <KMessageBox>
 #include <KPluginFactory>
 #include <http_slave_defaults.h>
-
-Q_DECLARE_LOGGING_CATEGORY(KIO_USERAGENTDLG)
-Q_LOGGING_CATEGORY(KIO_USERAGENTDLG, "kf.configwidgets.cms.kf.kio.useragentdlg")
 
 K_PLUGIN_FACTORY_DECLARATION(KioConfigFactory)
 

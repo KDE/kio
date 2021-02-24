@@ -41,8 +41,8 @@ endif()
 
 endif()
 
-ecm_qt_install_logging_categories(
-    EXPORT KIO
+ecm_install_qloggingcategories_metadata(
+    ALL_GROUPS
     FILE kio.categories
     DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR}
 )

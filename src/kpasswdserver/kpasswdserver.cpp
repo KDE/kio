@@ -12,6 +12,7 @@
 
 #include "kpasswdserver.h"
 
+#include "kpasswdserver_debug.h"
 #include "kpasswdserveradaptor.h"
 
 #include <KLocalizedString>
@@ -27,8 +28,6 @@
 #include <QPushButton>
 #include <QTimer>
 #include <ctime>
-
-Q_LOGGING_CATEGORY(category, "kf.kio.kpasswdserver", QtInfoMsg)
 
 #define AUTHINFO_EXTRAFIELD_DOMAIN QStringLiteral("domain")
 #define AUTHINFO_EXTRAFIELD_ANONYMOUS QStringLiteral("anonymous")

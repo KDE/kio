@@ -14,6 +14,7 @@
 
 #include <KDiskFreeSpaceInfo>
 
+#include "kio_file_debug.h"
 #include "kioglobal_p.h"
 
 #ifdef Q_OS_UNIX
@@ -55,8 +56,6 @@
 
 #include <ioslave_defaults.h>
 #include <kdirnotify.h>
-
-Q_LOGGING_CATEGORY(KIO_FILE, "kf.kio.slaves.file")
 
 // Pseudo plugin class to embed meta data
 class KIOPluginForMetaData : public QObject

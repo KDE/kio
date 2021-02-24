@@ -11,6 +11,7 @@
 
 #include "file.h"
 
+#include "kio_file_debug.h"
 #include <config-kioslave-file.h>
 
 #include <QDir>

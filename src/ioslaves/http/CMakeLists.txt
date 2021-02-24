@@ -60,31 +60,6 @@ set(kio_http_PART_SRCS
    httpfilter.cpp
    )
 
-ecm_qt_export_logging_category(
-    IDENTIFIER KIO_HTTP
-    CATEGORY_NAME kf.kio.slaves.http
-    OLD_CATEGORY_NAMES kf5.kio.kio_http
-    DEFAULT_SEVERITY Warning
-    DESCRIPTION "KIO HTTP slave (KIO)"
-    EXPORT KIO
-)
-
-ecm_qt_export_logging_category(
-    IDENTIFIER KIO_HTTP_AUTH
-    CATEGORY_NAME kf.kio.slaves.http.auth
-    OLD_CATEGORY_NAMES kf5.kio.kio_http.auth
-    DESCRIPTION "kio http auth (KIO)"
-    EXPORT KIO
-)
-
-ecm_qt_export_logging_category(
-    IDENTIFIER KIO_HTTP_FILTER
-    CATEGORY_NAME kf.kio.slaves.http.filter
-    OLD_CATEGORY_NAMES kf5.kio.kio_http.filter
-    DESCRIPTION "kio http filter (KIO)"
-    EXPORT KIO
-)
-
 add_library(kio_http MODULE ${kio_http_PART_SRCS})
 
 target_link_libraries(kio_http

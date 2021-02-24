@@ -10,6 +10,10 @@ ecm_add_test(kcookiejartest.cpp
     NAME_PREFIX "kioslave-"
     LINK_LIBRARIES  Qt5::Test Qt5::Gui KF5::KIOCore
 )
+ecm_generate_qloggingcategories_source(kcookiejartest
+    HEADER kcookiejar_debug.h
+    GROUP KCOOKIEJAR
+)
 
 ########### install files ###############
 

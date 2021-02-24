@@ -18,13 +18,9 @@ if(BUILD_TESTING)
 endif()
 
 ########### next target ###############
-ecm_qt_declare_logging_category(kio_trash_PART_DEBUG_SRCS
+ecm_generate_qloggingcategories_source(kio_trash_PART_DEBUG_SRCS
     HEADER kiotrashdebug.h
-    IDENTIFIER KIO_TRASH
-    CATEGORY_NAME kf.kio.slaves.trash
-    OLD_CATEGORY_NAMES kf5.kio.trash
-    DESCRIPTION "kio trash (KIO)"
-    EXPORT KIO
+    GROUP KIOTRASH
 )
 if(WIN32)
   set(kio_trash_PART_SRCS kio_trash_win.cpp ${kio_trash_PART_DEBUG_SRCS})

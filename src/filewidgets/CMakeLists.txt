@@ -44,33 +44,6 @@ set(kiofilewidgets_SRCS
 
 qt5_add_resources(kiofilewidgets_SRCS ../new_file_templates/templates.qrc)
 
-ecm_qt_export_logging_category(
-    IDENTIFIER KFILEWIDGETS_LOG
-    CATEGORY_NAME kf.kio.filewidgets
-    OLD_CATEGORY_NAMES kf5.kio.filewidgets
-    DESCRIPTION "KFileWidgets (KIO)"
-    EXPORT KIO
-)
-
-ecm_qt_export_logging_category(
-    IDENTIFIER KIO_KFILEWIDGETS_FW
-    CATEGORY_NAME kf.kio.filewidgets.kfilewidget
-    OLD_CATEGORY_NAMES kf5.kio.filewidgets.kfilewidget
-    DEFAULT_SEVERITY Info
-    DESCRIPTION "KFileWidgets (KIO)"
-    EXPORT KIO
-)
-
-ecm_qt_declare_logging_category(kiofilewidgets_SRCS
-    HEADER kfilefiltercombo_debug.h
-    IDENTIFIER KIO_KFILEWIDGETS_KFILEFILTERCOMBO
-    CATEGORY_NAME kf.kio.filewidgets.kfilefiltercombo
-    OLD_CATEGORY_NAMES kf5.kio.filewidgets.kfilefiltercombo
-    DEFAULT_SEVERITY Warning
-    DESCRIPTION "KFileFilterCombo (KIO)"
-    EXPORT KIO
-)
-
 add_library(KF5KIOFileWidgets ${kiofilewidgets_SRCS})
 add_library(KF5::KIOFileWidgets ALIAS KF5KIOFileWidgets)
 ecm_generate_export_header(KF5KIOFileWidgets
@@ -83,7 +56,10 @@ ecm_generate_export_header(KF5KIOFileWidgets
 )
 # TODO: add support for EXCLUDE_DEPRECATED_BEFORE_AND_AT to all KIO libs
 # needs fixing of undeprecated API being still implemented using own deprecated API
-
+ecm_generate_qloggingcategories_source(KF5KIOFileWidgets
+    HEADER kio_filewidgets_debug.h
+    GROUP KIOFILEWIDGETS
+)
 target_include_directories(KF5KIOFileWidgets INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF5}/KIOFileWidgets>")
 
 target_link_libraries(KF5KIOFileWidgets

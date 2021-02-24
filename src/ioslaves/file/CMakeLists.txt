@@ -12,15 +12,11 @@ check_include_files(sys/xattr.h HAVE_SYS_XATTR_H)
 
 configure_file(config-kioslave-file.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kioslave-file.h )
 
-ecm_qt_export_logging_category(
-    IDENTIFIER KIO_FILE
-    CATEGORY_NAME kf.kio.slaves.file
-    OLD_CATEGORY_NAMES kf5.kio.kio_file
-    DESCRIPTION "kiofile (KIO)"
-    EXPORT KIO
-)
-
 add_library(kio_file MODULE ${kio_file_PART_SRCS})
+ecm_generate_qloggingcategories_source(kio_file
+    HEADER kio_file_debug.h
+    GROUP KIOFILE
+)
 target_link_libraries(kio_file KF5::KIOCore KF5::I18n Qt5::DBus Qt5::Network)
 
 if(UNIX)

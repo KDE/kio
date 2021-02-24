@@ -20,6 +20,7 @@
 #include "kfileplacesview.h"
 #include "kfilepreviewgenerator.h"
 #include "kfilewidgetdocktitlebar_p.h"
+#include "kio_filewidgets_debug.h"
 #include "kurlcombobox.h"
 #include "kurlnavigator.h"
 #include <KActionCollection>
@@ -55,7 +56,6 @@
 #include <QLabel>
 #include <QLayout>
 #include <QLineEdit>
-#include <QLoggingCategory>
 #include <QMenu>
 #include <QMimeDatabase>
 #include <QPushButton>
@@ -71,9 +71,6 @@
 
 #include <algorithm>
 #include <array>
-
-Q_DECLARE_LOGGING_CATEGORY(KIO_KFILEWIDGETS_FW)
-Q_LOGGING_CATEGORY(KIO_KFILEWIDGETS_FW, "kf.kio.kfilewidgets.kfilewidget", QtInfoMsg)
 
 class KFileWidgetPrivate
 {

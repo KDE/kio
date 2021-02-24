@@ -17,7 +17,6 @@
 #include <QFile>
 #include <QFileInfo>
 #include <QHostInfo>
-#include <QLoggingCategory>
 #include <QMap>
 #include <QProcess>
 #include <QRegularExpression>
@@ -27,9 +26,6 @@
 
 #include <KDirWatch>
 #include <KUser>
-
-Q_DECLARE_LOGGING_CATEGORY(KIO_CORE_SAMBASHARE)
-Q_LOGGING_CATEGORY(KIO_CORE_SAMBASHARE, "kf.kio.core.sambashare", QtWarningMsg)
 
 // Default smb.conf locations
 // sorted by priority, most priority first

@@ -9,6 +9,7 @@
 
 #include "kuriikwsfilter.h"
 #include "ikwsopts.h"
+#include "kuriikwsfilter_debug.h"
 #include "kuriikwsfiltereng.h"
 #include "searchprovider.h"
 
@@ -16,15 +17,9 @@
 #include <KPluginFactory>
 
 #include <QDBusConnection>
-#include <QLoggingCategory>
 
 #define QL1S(x) QLatin1String(x)
 #define QL1C(x) QLatin1Char(x)
-
-namespace
-{
-Q_LOGGING_CATEGORY(category, "kf.kio.urifilters.ikws", QtWarningMsg)
-}
 
 /**
  * IMPORTANT: If you change anything here, make sure you run the kurifiltertest

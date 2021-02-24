@@ -16,9 +16,7 @@
 #include <KPluginLoader>
 #include <KPluginMetaData>
 
-#include <QLoggingCategory>
-Q_DECLARE_LOGGING_CATEGORY(KIOD_CATEGORY)
-Q_LOGGING_CATEGORY(KIOD_CATEGORY, "kf.kio.kiod")
+#include "kiod_debug.h"
 
 class KIOD : public QObject
 {

@@ -23,10 +23,8 @@
 #include <QStandardPaths>
 #include <kwindowsystem.h>
 
-#include <QLoggingCategory>
-Q_DECLARE_LOGGING_CATEGORY(KIO_COOKIEJAR)
-
 #include "kcookiejar.h"
+#include "kcookiejar_debug.h"
 #include "kcookieserveradaptor.h"
 #include "kcookiewin.h"
 

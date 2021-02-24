@@ -23,28 +23,13 @@ if (CMAKE_SYSTEM_NAME STREQUAL "Linux")
     list(APPEND kiogui_SRCS systemd/systemdprocessrunner.cpp systemd/scopedprocessrunner.cpp)
 endif ()
 
-ecm_qt_declare_logging_category(kiogui_SRCS
-    HEADER kiogui_debug.h
-    IDENTIFIER KIO_GUI
-    CATEGORY_NAME kf.kio.gui
-    OLD_CATEGORY_NAMES kf5.kio.gui
-    DESCRIPTION "KIOGui (KIO)"
-    EXPORT KIO
-)
-
-ecm_qt_declare_logging_category(kiogui_SRCS
-    HEADER favicons_debug.h
-    IDENTIFIER FAVICONS_LOG
-    CATEGORY_NAME kf.kio.gui.favicons
-    OLD_CATEGORY_NAMES kf5.kio.favicons
-    DESCRIPTION "FavIcons (KIO)"
-    EXPORT KIO
-)
-
 add_library(KF5KIOGui ${kiogui_SRCS})
 generate_export_header(KF5KIOGui BASE_NAME KIOGui)
 add_library(KF5::KIOGui ALIAS KF5KIOGui)
-
+ecm_generate_qloggingcategories_source(KF5KIOGui
+    HEADER kiogui_debug.h
+    GROUP KIOGUI
+)
 target_include_directories(KF5KIOGui INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF5}/KIOGui>")
 
 target_link_libraries(KF5KIOGui

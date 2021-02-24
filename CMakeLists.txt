@@ -24,7 +24,7 @@ include(ECMSetupVersion)
 include(ECMGenerateHeaders)
 include(ECMAddQch)
 include(ECMMarkNonGuiExecutable)
-include(ECMQtDeclareLoggingCategory)
+include(ECMQLoggingCategoryHelpers)
 include(ECMSourceVersionControl)
 
 ecm_setup_version(
@@ -140,6 +140,13 @@ endif()
 if (KF5DocTools_FOUND)
     add_subdirectory(docs)
 endif()
+
+include(QLoggingCategories.cmake)
+# Keep docs file up-to-date
+ecm_generate_qloggingcategories_mddoc(
+    FILE ${CMAKE_SOURCE_DIR}/docs/qloggingcategories.md
+    ALL_GROUPS
+)
 
 include(CheckLibraryExists)
 add_subdirectory(src)
