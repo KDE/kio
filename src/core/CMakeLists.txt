@@ -253,6 +253,7 @@ ecm_generate_headers(KIOCore_CamelCase_HEADERS
   FileCopyJob
   ListJob
   MimetypeJob
+  MimeTypeFinderJob
   MultiGetJob
   RestoreJob
   SimpleJob
