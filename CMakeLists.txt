@@ -16,6 +16,7 @@ include(KDEInstallDirs)
 include(KDEFrameworkCompilerSettings NO_POLICY_SCOPE)
 include(KDECMakeSettings)
 include(KDEGitCommitHooks)
+include(KDEPackageAppTemplates)
 
 include(ECMGenerateExportHeader)
 include(ECMMarkAsTest)
@@ -151,6 +152,7 @@ if(BUILD_TESTING)
 endif()
 
 add_subdirectory(kconf_update)
+add_subdirectory(templates)
 
 # create a Config.cmake and a ConfigVersion.cmake file and install them
 set(CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/KF5KIO")
