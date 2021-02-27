@@ -32,7 +32,6 @@
 #include <QOperatingSystemVersion>
 #include <mimetypefinderjob.h>
 
-
 class KIO::OpenUrlJobPrivate
 {
 public:

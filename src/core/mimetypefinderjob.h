@@ -14,8 +14,8 @@
 
 class QUrl;
 
-namespace KIO {
-
+namespace KIO
+{
 class MimeTypeFinderJobPrivate;
 
 /**

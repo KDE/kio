@@ -415,14 +415,12 @@ int KIO::PreviewJob::sequenceIndex() const
 
 float KIO::PreviewJob::sequenceIndexWraparoundPoint() const
 {
-    return d_func()->thumbnailSlaveMetaData.value(QStringLiteral("sequenceIndexWraparoundPoint"),
-            QStringLiteral("-1.0")).toFloat();
+    return d_func()->thumbnailSlaveMetaData.value(QStringLiteral("sequenceIndexWraparoundPoint"), QStringLiteral("-1.0")).toFloat();
 }
 
 bool KIO::PreviewJob::handlesSequences() const
 {
-    return d_func()->thumbnailSlaveMetaData.value(QStringLiteral("handlesSequences"))
-            == QStringLiteral("1");
+    return d_func()->thumbnailSlaveMetaData.value(QStringLiteral("handlesSequences")) == QStringLiteral("1");
 }
 
 void PreviewJob::setIgnoreMaximumSize(bool ignoreSize)

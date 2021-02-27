@@ -43,10 +43,12 @@ void MimeTypeFinderJobTest::determineMimeType_data()
     QTest::addColumn<QString>("mimeType");
     QTest::addColumn<QString>("fileName");
 
+    /* clang-format off */
     QTest::newRow("text_file") << "text/plain" << "srcfile.txt";
     QTest::newRow("text_file_no_extension") << "text/plain" << "srcfile";
     QTest::newRow("desktop_file") << "application/x-desktop" << "foo.desktop";
     QTest::newRow("script") << "application/x-shellscript" << "srcfile.sh";
+    /* clang-format on */
 }
 
 void MimeTypeFinderJobTest::determineMimeType()

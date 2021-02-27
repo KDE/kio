@@ -24,7 +24,8 @@ class KIO::MimeTypeFinderJobPrivate
 {
 public:
     explicit MimeTypeFinderJobPrivate(const QUrl &url, MimeTypeFinderJob *qq)
-        : m_url(url), q(qq)
+        : m_url(url)
+        , q(qq)
     {
         q->setCapabilities(KJob::Killable);
     }
@@ -33,14 +34,15 @@ public:
     void scanFileWithGet();
 
     QUrl m_url;
-    KIO::MimeTypeFinderJob * const q;
+    KIO::MimeTypeFinderJob *const q;
     QString m_mimeTypeName;
     QString m_suggestedFileName;
     bool m_followRedirections = true;
 };
 
 KIO::MimeTypeFinderJob::MimeTypeFinderJob(const QUrl &url, QObject *parent)
-    : KCompositeJob(parent), d(new MimeTypeFinderJobPrivate(url, this))
+    : KCompositeJob(parent)
+    , d(new MimeTypeFinderJobPrivate(url, this))
 {
 }
 
@@ -112,8 +114,7 @@ void KIO::MimeTypeFinderJobPrivate::statFile()
     KIO::StatJob *job = KIO::statDetails(m_url, KIO::StatJob::SourceSide, KIO::StatBasic, KIO::HideProgressInfo);
     job->setUiDelegate(nullptr);
     q->addSubjob(job);
-    QObject::connect(job, &KJob::result,
-                     q, [=]() {
+    QObject::connect(job, &KJob::result, q, [=]() {
         const int errCode = job->error();
         if (errCode) {
             // ERR_NO_CONTENT is not an error, but an indication no further
@@ -151,7 +152,9 @@ void KIO::MimeTypeFinderJobPrivate::statFile()
             // Start the timer. Once we get the timer event this
             // protocol server is back in the pool and we can reuse it.
             // This gives better performance than starting a new slave
-            QTimer::singleShot(0, q, [this] { scanFileWithGet(); });
+            QTimer::singleShot(0, q, [this] {
+                scanFileWithGet();
+            });
         }
     });
 }
@@ -177,7 +180,7 @@ void KIO::MimeTypeFinderJobPrivate::scanFileWithGet()
         q->emitResult();
         return;
     }
-    //qDebug() << this << "Scanning file" << url;
+    // qDebug() << this << "Scanning file" << url;
 
     KIO::TransferJob *job = KIO::get(m_url, KIO::NoReload /*reload*/, KIO::HideProgressInfo);
     job->setUiDelegate(nullptr);
@@ -185,13 +188,13 @@ void KIO::MimeTypeFinderJobPrivate::scanFileWithGet()
     QObject::connect(job, &KJob::result, q, [=]() {
         const int errCode = job->error();
         if (errCode) {
-             // ERR_NO_CONTENT is not an error, but an indication no further
-             // actions need to be taken.
-             if (errCode != KIO::ERR_NO_CONTENT) {
-                 q->setError(errCode);
-                 q->setErrorText(job->errorText());
-             }
-             q->emitResult();
+            // ERR_NO_CONTENT is not an error, but an indication no further
+            // actions need to be taken.
+            if (errCode != KIO::ERR_NO_CONTENT) {
+                q->setError(errCode);
+                q->setErrorText(job->errorText());
+            }
+            q->emitResult();
         }
         // if the job succeeded, we certainly hope it emitted mimeTypeFound()...
         if (m_mimeTypeName.isEmpty()) {
@@ -201,8 +204,7 @@ void KIO::MimeTypeFinderJobPrivate::scanFileWithGet()
             q->emitResult();
         }
     });
-    QObject::connect(job, &KIO::TransferJob::mimeTypeFound,
-                     q, [=](KIO::Job *, const QString &mimetype) {
+    QObject::connect(job, &KIO::TransferJob::mimeTypeFound, q, [=](KIO::Job *, const QString &mimetype) {
         if (m_followRedirections) { // Update our URL in case of a redirection
             m_url = job->url();
         }

@@ -31,4 +31,3 @@ private Q_SLOTS:
 };
 
 #endif /* MIMETYPEFINDERJOBTEST_H */
-
