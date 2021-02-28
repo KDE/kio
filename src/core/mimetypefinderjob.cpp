@@ -38,6 +38,7 @@ public:
     QString m_mimeTypeName;
     QString m_suggestedFileName;
     bool m_followRedirections = true;
+    bool m_authPrompts = true;
 };
 
 KIO::MimeTypeFinderJob::MimeTypeFinderJob(const QUrl &url, QObject *parent)
@@ -88,6 +89,16 @@ QString KIO::MimeTypeFinderJob::mimeType() const
     return d->m_mimeTypeName;
 }
 
+void KIO::MimeTypeFinderJob::setAuthenticationPromptEnabled(bool enable)
+{
+    d->m_authPrompts = enable;
+}
+
+bool KIO::MimeTypeFinderJob::isAuthenticationPromptEnabled() const
+{
+    return d->m_authPrompts;
+}
+
 bool KIO::MimeTypeFinderJob::doKill()
 {
     // This should really be in KCompositeJob...
@@ -112,6 +123,9 @@ void KIO::MimeTypeFinderJobPrivate::statFile()
     Q_ASSERT(m_mimeTypeName.isEmpty());
 
     KIO::StatJob *job = KIO::statDetails(m_url, KIO::StatJob::SourceSide, KIO::StatBasic, KIO::HideProgressInfo);
+    if (!m_authPrompts) {
+        job->addMetaData(QStringLiteral("no-auth-prompt"), QStringLiteral("true"));
+    }
     job->setUiDelegate(nullptr);
     q->addSubjob(job);
     QObject::connect(job, &KJob::result, q, [=]() {
@@ -183,6 +197,9 @@ void KIO::MimeTypeFinderJobPrivate::scanFileWithGet()
     // qDebug() << this << "Scanning file" << url;
 
     KIO::TransferJob *job = KIO::get(m_url, KIO::NoReload /*reload*/, KIO::HideProgressInfo);
+    if (!m_authPrompts) {
+        job->addMetaData(QStringLiteral("no-auth-prompt"), QStringLiteral("true"));
+    }
     job->setUiDelegate(nullptr);
     q->addSubjob(job);
     QObject::connect(job, &KJob::result, q, [=]() {

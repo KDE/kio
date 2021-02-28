@@ -66,6 +66,23 @@ public:
     QString suggestedFileName() const;
 
     /**
+     * Enable/disable authentication prompt, if the URL requires one.
+     * They are enabled by default.
+     * This method allows to disable such prompts for jobs that should
+     * fail rather than bother the user, if authentication is needed.
+     * Example: for starting the associated program (i.e. when OpenUrlJob
+     * uses MimeTypeFinderJob), we want auth prompts.
+     * But for using a nice icon in a notification, we don't.
+     */
+    void setAuthenticationPromptEnabled(bool enable);
+
+    /**
+     * Returns where authentication prompts are enabled or disabled.
+     * @see setAuthenticationPromptEnabled
+     */
+    bool isAuthenticationPromptEnabled() const;
+
+    /**
      * Starts the job.
      * You must call this, after having called all the needed setters.
      */
