@@ -276,7 +276,7 @@ bool KSambaSharePrivate::isShareNameAvailable(const QString &name) const
 
 KSambaShareData::UserShareError KSambaSharePrivate::isPathValid(const QString &path) const
 {
-    QFileInfo pathInfo = path;
+    QFileInfo pathInfo(path);
 
     if (!pathInfo.exists()) {
         return KSambaShareData::UserSharePathNotExists;
