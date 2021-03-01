@@ -10,6 +10,7 @@
 #include "../pathhelpers_p.h" // concatPaths(), isAbsoluteLocalPath()
 #include "knameandurlinputdialog.h"
 
+#include <QActionGroup>
 #include <QDialog>
 #include <QDialogButtonBox>
 #include <QDir>

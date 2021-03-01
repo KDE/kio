@@ -7,10 +7,11 @@
 #ifndef USERAGENTINFO_H
 #define USERAGENTINFO_H
 
+#include <QStringList>
+
 #include <KService>
 
 class QString;
-class QStringList;
 
 class UserAgentInfo
 {

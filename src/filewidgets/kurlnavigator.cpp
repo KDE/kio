@@ -26,6 +26,7 @@
 #include <kurlcombobox.h>
 #include <kurlcompletion.h>
 
+#include <QActionGroup>
 #include <QApplication>
 #include <QClipboard>
 #include <QDir>

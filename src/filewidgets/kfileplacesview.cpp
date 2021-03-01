@@ -10,6 +10,7 @@
 #include "kfileplacesview_p.h"
 
 #include <QAbstractItemDelegate>
+#include <QActionGroup>
 #include <QApplication>
 #include <QDir>
 #include <QKeyEvent>

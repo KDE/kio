@@ -9,7 +9,6 @@
 
 #include <KCompletion>
 #include <KCompletionMatches>
-#include <QCharRef>
 #include <stdlib.h>
 
 class KShellCompletionPrivate

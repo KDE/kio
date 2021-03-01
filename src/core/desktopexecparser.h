@@ -11,8 +11,9 @@
 
 #include <QList>
 #include <QScopedPointer>
+#include <QStringList>
+
 class QUrl;
-class QStringList;
 class KService;
 
 namespace KIO

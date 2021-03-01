@@ -8,9 +8,11 @@
 #include <KLocalizedString>
 #include <KStringHandler>
 #include <KToolInvocation>
+#include <QActionGroup>
 #include <QDesktopServices>
 #include <QIcon>
 #include <QMenu>
+#include <QStandardPaths>
 #include <kurifilter.h>
 
 using namespace KIO;

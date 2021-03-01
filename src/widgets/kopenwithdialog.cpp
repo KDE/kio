@@ -14,7 +14,6 @@
 
 #include <QApplication>
 #include <QCheckBox>
-#include <QDesktopWidget>
 #include <QDialogButtonBox>
 #include <QKeyEvent>
 #include <QLabel>

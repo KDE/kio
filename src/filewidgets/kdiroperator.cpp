@@ -41,6 +41,7 @@
 #include <kpropertiesdialog.h>
 #include <widgetsaskuseractionhandler.h>
 
+#include <QActionGroup>
 #include <QApplication>
 #include <QDebug>
 #include <QHeaderView>

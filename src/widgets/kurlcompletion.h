@@ -14,6 +14,7 @@
 #include "kiowidgets_export.h"
 #include <KCompletion>
 #include <QString>
+#include <QStringList>
 #include <kio/udsentry.h>
 
 namespace KIO
@@ -21,7 +22,6 @@ namespace KIO
 class Job;
 }
 
-class QStringList;
 class KUrlCompletionPrivate;
 
 /**
