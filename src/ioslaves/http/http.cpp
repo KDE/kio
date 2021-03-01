@@ -1898,7 +1898,12 @@ bool HTTPProtocol::sendErrorPageNotification()
 bool HTTPProtocol::isOffline()
 {
     if (!m_networkConfig) {
+        // Silence deprecation warnings as there is no Qt 5 substitute for QNetworkConfigurationManager
+        QT_WARNING_PUSH
+        QT_WARNING_DISABLE_CLANG("-Wdeprecated-declarations")
+        QT_WARNING_DISABLE_GCC("-Wdeprecated-declarations")
         m_networkConfig = new QNetworkConfigurationManager(this);
+        QT_WARNING_POP
     }
 
     return !m_networkConfig->isOnline();
