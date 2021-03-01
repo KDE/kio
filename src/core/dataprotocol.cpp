@@ -11,7 +11,6 @@
 #include "global.h"
 
 #include <QByteArray>
-#include <QCharRef>
 #include <QTextCodec>
 
 #ifdef DATAKIOSLAVE
