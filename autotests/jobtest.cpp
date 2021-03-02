@@ -9,7 +9,6 @@
 
 #include <KJobUiDelegate>
 #include <KLocalizedString>
-#include <kcoreaddons_version.h>
 
 #include <QBuffer>
 #include <QDebug>

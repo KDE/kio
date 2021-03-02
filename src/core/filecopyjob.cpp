@@ -13,7 +13,6 @@
 #include "slave.h"
 
 #include <KLocalizedString>
-#include <kcoreaddons_version.h>
 
 #include <QFile>
 #include <QTimer>

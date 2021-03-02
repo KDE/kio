@@ -13,7 +13,6 @@
 #include "kio_widgets_debug.h"
 #include "scheduler.h"
 
-#include <kcoreaddons_version.h>
 #include <kprotocolinfo.h>
 #include <kurlauthorized.h>
 

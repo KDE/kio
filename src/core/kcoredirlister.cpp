@@ -18,7 +18,6 @@
 #include <kio/listjob.h>
 
 #include <KLocalizedString>
-#include <kcoreaddons_version.h>
 
 #include <QDir>
 #include <QFile>
