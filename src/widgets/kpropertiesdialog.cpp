@@ -1151,7 +1151,7 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
         connect(goThereButton, &QPushButton::clicked, this, [this, messageWidget] {
             const QUrl resolvedTargetLocation = properties->item().url().resolved(QUrl(d->m_linkTargetLineEdit->text()));
 
-            KIO::StatJob *statJob = KIO::stat(resolvedTargetLocation, KIO::StatJob::SourceSide, KIO::StatNoDetails, KIO::HideProgressInfo);
+            KIO::StatJob *statJob = KIO::statDetails(resolvedTargetLocation, KIO::StatJob::SourceSide, KIO::StatNoDetails, KIO::HideProgressInfo);
             connect(statJob, &KJob::finished, this, [this, statJob, messageWidget] {
                 if (statJob->error()) {
                     messageWidget->setText(statJob->errorString());
