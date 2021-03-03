@@ -1,3 +1,5 @@
+include(FindSystemd)
+
 configure_file(config-kiogui.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kiogui.h)
 
 add_library(KF5KIOGui)
@@ -21,7 +23,9 @@ target_sources(KF5KIOGui PRIVATE
    kemailclientlauncherjob.cpp
 )
 
-if (CMAKE_SYSTEM_NAME STREQUAL "Linux")
+if (Systemd_FOUND)
+    add_compile_definitions(SYSTEMD_AVAILABLE)
+
     set(SYSTEMD_DBUS_XMLS
         systemd/org.freedesktop.systemd1.Manager.xml
         systemd/org.freedesktop.systemd1.Unit.xml
@@ -37,6 +41,12 @@ if (CMAKE_SYSTEM_NAME STREQUAL "Linux")
         systemd/systemdprocessrunner.cpp
         systemd/scopedprocessrunner.cpp
     )
+
+    if (Systemd_VERSION GREATER 249)
+        add_compile_definitions(SYSTEMD_HAS_EXIT_TYPE)
+    else()
+        message(WARNING "Systemd version ${Systemd_VERSION} <= 246, disabling running applications as .service")
+    endif ()
 endif ()
 
 ecm_qt_declare_logging_category(KF5KIOGui

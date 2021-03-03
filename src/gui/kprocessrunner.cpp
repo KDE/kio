@@ -7,7 +7,7 @@
 
 #include "kprocessrunner_p.h"
 
-#if defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)
+#ifdef SYSTEMD_AVAILABLE
 #include "systemd/scopedprocessrunner_p.h"
 #include "systemd/systemdprocessrunner_p.h"
 #endif
@@ -50,11 +50,13 @@ KProcessRunner::KProcessRunner()
 
 static KProcessRunner *makeInstance()
 {
-#if defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)
+#ifdef SYSTEMD_AVAILABLE
     if (SystemdProcessRunner::isAvailable()) {
+#ifdef SYSTEMD_HAS_EXIT_TYPE
         if (qEnvironmentVariableIntValue("KDE_APPLICATIONS_AS_SERVICE")) {
             return new SystemdProcessRunner();
         }
+#endif
         if (qEnvironmentVariableIntValue("KDE_APPLICATIONS_AS_SCOPE")) {
             return new ScopedProcessRunner();
         }
