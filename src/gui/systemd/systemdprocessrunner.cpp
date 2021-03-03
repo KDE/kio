@@ -104,8 +104,7 @@ void SystemdProcessRunner::startProcess()
     const auto startReply = m_manager->StartTransientUnit(m_serviceName,
         QStringLiteral("fail"), // mode defines what to do in the case of a name conflict, in this case, just do nothing
         { // Properties of the transient service unit
-            { QStringLiteral("Type"), QStringLiteral("forking") },
-            { QStringLiteral("RemainAfterExit"), true },
+            { QStringLiteral("Type"), QStringLiteral("any") },
             { QStringLiteral("Slice"), QStringLiteral("app.slice") },
             { QStringLiteral("Description"), m_description },
             { QStringLiteral("SourcePath"), m_desktopFilePath },
