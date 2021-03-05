@@ -2,6 +2,7 @@
 install( FILES
    data.protocol
    rtsp.protocol
+   mailto.protocol
    mms.protocol
    mmst.protocol
    mmsu.protocol
