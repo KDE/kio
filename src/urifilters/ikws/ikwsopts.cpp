@@ -222,10 +222,13 @@ static QSortFilterProxyModel *wrapInProxyModel(QAbstractItemModel *model)
     return proxyModel;
 }
 
-FilterOptions::FilterOptions(QWidget *parent)
-    : KCModule(parent)
+FilterOptions::FilterOptions(QWidget *parent, const QVariantList &args)
+    : KCModule(parent, args)
     , m_providersModel(new ProvidersModel(this))
 {
+    // Used for tab text in the KCM
+    setWindowTitle(i18n("Search F&ilters"));
+
     m_dlg.setupUi(this);
 
     QSortFilterProxyModel *searchProviderModel = wrapInProxyModel(m_providersModel);

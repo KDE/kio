@@ -478,11 +478,13 @@ bool KShortUriFilter::filterUri(KUriFilterData &data) const
     return false;
 }
 
+// TODO KF6: unused, remove
 KCModule *KShortUriFilter::configModule(QWidget *, const char *) const
 {
     return nullptr; // new KShortUriOptions( parent, name );
 }
 
+// TODO KF6: unused, remove
 QString KShortUriFilter::configName() const
 {
     //    return i18n("&ShortURLs"); we don't have a configModule so no need for a configName that confuses translators

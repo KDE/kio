@@ -53,14 +53,20 @@ KURIFilterModule::KURIFilterModule(QWidget *parent, const QVariantList &args)
     for (const KPluginMetaData &pluginMetaData : qAsConst(plugins)) {
         KPluginFactory *factory = qobject_cast<KPluginFactory *>(pluginMetaData.instantiate());
         if (factory) {
+            KCModule *module = nullptr;
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 82)
             KUriFilterPlugin *plugin = factory->create<KUriFilterPlugin>(nullptr);
             if (plugin) {
-                KCModule *module = plugin->configModule(this, nullptr);
-                if (module) {
-                    modules.append(module);
-                    helper.insert(plugin->configName(), module);
-                    connect(module, QOverload<bool>::of(&KCModule::changed), this, QOverload<bool>::of(&KCModule::changed));
-                }
+                module = plugin->configModule(this, nullptr);
+            }
+#endif
+            if (!module) {
+                module = factory->create<KCModule>(this);
+            }
+            if (module) {
+                modules.append(module);
+                helper.insert(module->windowTitle(), module);
+                connect(module, QOverload<bool>::of(&KCModule::changed), this, QOverload<bool>::of(&KCModule::changed));
             }
         }
     }

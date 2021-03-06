@@ -23,7 +23,7 @@
  * regression test (this should be included as part of "make test").
  */
 
-K_PLUGIN_CLASS_WITH_JSON(KUriSearchFilter, "kurisearchfilter.json")
+K_PLUGIN_FACTORY_WITH_JSON(KUriSearchFilterFactory, "kurisearchfilter.json", registerPlugin<KUriSearchFilter>(); registerPlugin<FilterOptions>();)
 
 namespace
 {
@@ -71,11 +71,13 @@ bool KUriSearchFilter::filterUri(KUriFilterData &data) const
     return true;
 }
 
-KCModule *KUriSearchFilter::configModule(QWidget *parent, const char *) const
+// TODO KF6: unused, remove
+KCModule *KUriSearchFilter::configModule(QWidget *, const char *) const
 {
-    return new FilterOptions(parent);
+    return nullptr;
 }
 
+// TODO KF6: unused, remove
 QString KUriSearchFilter::configName() const
 {
     return i18n("Search F&ilters");

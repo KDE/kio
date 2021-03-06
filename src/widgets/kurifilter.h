@@ -629,7 +629,7 @@ private:
  *
  * @short Abstract class for URI filter plugins.
  */
-class KIOWIDGETS_EXPORT KUriFilterPlugin : public QObject
+class KIOWIDGETS_EXPORT KUriFilterPlugin : public QObject // TODO KF6: move to separate header (maybe we don't need to install it then)
 {
     Q_OBJECT
 
@@ -672,14 +672,14 @@ public:
      *
      * @return A configuration module, or @c nullptr if the filter isn't configurable.
      */
-    virtual KCModule *configModule(QWidget *, const char *) const;
+    virtual KCModule *configModule(QWidget *, const char *) const; // TODO KF6: unused, remove
 
     /**
      * Returns the name of the configuration module for the filter.
      *
      * @return the name of a configuration module or QString() if none.
      */
-    virtual QString configName() const;
+    virtual QString configName() const; // TODO KF6: unused, remove
 
 protected:
     /**
