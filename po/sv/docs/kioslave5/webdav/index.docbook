@@ -1,0 +1,97 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Swedish "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="webdav">
+<title
+>webdav/webdavs</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Hamish.Rodda; &Hamish.Rodda.mail;</author>
+<othercredit role="translator"
+> <firstname
+>Stefan</firstname
+> <surname
+>Asserhäll</surname
+> <affiliation
+><address
+><email
+>stefan.asserhall@bredband.net</email
+></address
+></affiliation
+> <contrib
+>Översättare</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>2002-01-21</date>
+</articleinfo>
+<para
+><acronym
+>WebDAV</acronym
+> är ett protokoll för distribuerat författande och versionshantering (<emphasis
+>D</emphasis
+>istributed <emphasis
+>A</emphasis
+>uthoring and <emphasis
+>V</emphasis
+>ersioning) för webben. Det tillåter enkel hantering av dokument och skript på en <ulink url="help:/kioslave/webdav.html"
+>&HTTP;</ulink
+>-server, och har ytterligare funktioner som är konstruerade för att förenkla versionshantering för flera författare.</para>
+
+<para
+>Användning av protokollet är enkelt. Skriv in platsen som du vill titta på, på samma sätt som en &HTTP;-webbadress, förutom webdav:// protokollnamnet i början. Ett exempel är <userinput
+>webdav://<replaceable
+>www.värddatornamn.com/sökväg/</replaceable
+></userinput
+>. Om du anger ett katalognamn visas en lista med filer och kataloger, och du kan ändra dessa kataloger och filer precis som du skulle göra med vilket filsystem som helst.</para>
+
+<variablelist>
+<title
+>WebDAV funktioner</title>
+<varlistentry>
+<term
+>Låsning</term>
+<listitem>
+<para
+>Fillåsning låter användare låsa en fil, för att informera andra om att de för närvarande arbetar med filen. På det här sättet kan redigering göras utan rädsla för att ändringarna kan skrivas över av en annan person som också redigerar samma dokument.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+>Åtkomst av källfiler</term>
+<listitem>
+<para
+><acronym
+>WebDAV</acronym
+> tillåter åtkomst till skriptet som anropas för att skapa en viss sida, så att ändringar kan göras i själva skriptet.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+>Stöd för egenskaper för varje dokument</term>
+<listitem>
+<para
+>Godtyckliga egenskaper kan anges för att hjälpa till att identifiera dokument, som författare.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>För att dra nytta av dessa ytterligare möjligheter behöver du ett program som stöder dem. Inga program stöder för närvarande dem via den här I/O-slaven.</para>
+
+<para
+><acronym
+>WebDAVS</acronym
+> är <acronym
+>WebDAV</acronym
+>-protokollet krypterat via SSL.</para>
+
+</article>

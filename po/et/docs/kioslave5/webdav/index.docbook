@@ -1,0 +1,99 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Estonian  "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="webdav">
+<title
+>webdav / webdavs</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Hamish.Rodda; &Hamish.Rodda.mail;</author>
+<othercredit role="translator"
+><firstname
+>Marek</firstname
+><surname
+>Laane</surname
+><affiliation
+><address
+><email
+>bald@smail.ee</email
+></address
+></affiliation
+><contrib
+>Tõlge eesti keelde</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>2002-01-21</date>
+</articleinfo>
+<para
+><acronym
+>WebDAV</acronym
+> on veebi hajusloome- ja redigeerimisprotokoll (inglise keeles <emphasis
+>D</emphasis
+>istributed <emphasis
+>A</emphasis
+>uthoring and <emphasis
+>V</emphasis
+>ersioning protocol). See võimaldab hõlpsasti hallata dokumente ja skripte <ulink url="help:/kioslave/webdav.html"
+>http</ulink
+>-serveril ning selle lisaomadused peaksid lihtsustama erinevate autorite redigeerimisvõimalusi.</para>
+
+<para
+>Protokolli kasutamine on imelihtne. Sisesta asukoht, mida soovid näha, täpselt nagu tavaline <acronym
+>http</acronym
+>-URL, lisades ainult algusse protokolli nime webdav://. Näide: <userinput
+>webdav://<replaceable
+>www.server.ee/kataloog</replaceable
+></userinput
+>. Kui määrad kataloogi nime, näidatakse faile ja katalooge ning sa saad nendega talitada täpselt nii, nagu igas muus failisüsteemis.</para>
+
+<variablelist>
+<title
+>WebDAV-i omadused</title>
+<varlistentry>
+<term
+>Lukustamine</term>
+<listitem>
+<para
+>Faililukustus võimaldab kasutajal faili lukustada ja teisi teavitada, et see on parajasti kasutusel. Sel moel saab redigeerida ilma kartuseta, et sinu muudatused kirjutab üle keegi teine, kes samuti dokumenti redigeerib.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+>Ligipääs lähtefailile</term>
+<listitem>
+<para
+><acronym
+>WebDAV</acronym
+> võimaldab ligipääsu skriptile, mille väljakutsumine lubab luua konkreetse lehekülge, nii et muudatusi saab teha otse skripti.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+>Dokumendipõhiste omaduste tugi</term>
+<listitem>
+<para
+>Dokumendi tuvastamiseks on võimalik lisada mitmesuguseid omadusi, näiteks autori nimi.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>Kõigi nende lisavõimaluste kasutamiseks on vaja neid toetavat rakendust. KIO mooduli vahendusel ei toeta neid praegu teadaolevalt ükski rakendus.</para>
+
+<para
+><acronym
+>WebDAVS</acronym
+> on SSL-iga krüptitud <acronym
+>WebDAV</acronym
+>-i protokoll.</para>
+
+</article>

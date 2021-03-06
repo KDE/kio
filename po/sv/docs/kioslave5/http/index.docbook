@@ -1,0 +1,62 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Swedish "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="http">
+<title
+>http/https</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Lauri.Watts; &Lauri.Watts.mail;</author>
+<othercredit role="translator"
+> <firstname
+>Stefan</firstname
+> <surname
+>Asserhäll</surname
+> <affiliation
+><address
+><email
+>stefan.asserhall@bredband.net</email
+></address
+></affiliation
+> <contrib
+>Översättare</contrib
+></othercredit
+> 
+</authorgroup>
+</articleinfo>
+
+<para
+>&HTTP; är <emphasis
+>H</emphasis
+>yper<emphasis
+>T</emphasis
+>ext <emphasis
+>T</emphasis
+>ransfer <emphasis
+>P</emphasis
+>rotocol, hypertextöverföringsprotokoll.</para>
+
+<para
+>I/O-slaven http används av alla &kde;-program för att hantera anslutningar till &HTTP;-servrar, dvs. webbservrar. Den vanligaste användningen är att titta på webbsidor i webbläsaren &konqueror;.</para>
+
+<para
+>Du kan använda I/O-slaven https i &konqueror; genom att ge den en webbadress, <userinput
+>https://<replaceable
+>www.kde.org</replaceable
+></userinput
+>.</para>
+
+<para
+>Https är http inkapslat i en SSL/TLS-ström.</para>
+<para
+>SSL står för Secure Sockets Layer, ett säkert protokoll som tillhandahåller privat kommunikation via Internet. Protokollet låter klient/server-program kommunicera på ett sätt som är konstruerat för att förhindra tjuvlyssning, manipulation eller förfalskade meddelanden. </para>
+<para
+>TLS står för Transport Layer Security.</para>
+
+</article>

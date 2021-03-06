@@ -1,0 +1,161 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % German "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="netpref" lang="&language;">
+<articleinfo>
+<title
+>Verbindungseinstellungen</title>
+<authorgroup>
+<author
+>&Lauri.Watts; &Lauri.Watts.mail;</author>
+
+<othercredit role="translator"
+><firstname
+>Frank</firstname
+><surname
+>Schütte</surname
+><affiliation
+><address
+><email
+>F.Schuette@t-online.de</email
+></address
+></affiliation
+><contrib
+>Übersetzung</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>2016-11-10</date>
+<releaseinfo
+>Frameworks 5.29</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdebase</keyword>
+<keyword
+>Kontrollzentrum</keyword>
+<keyword
+>Netzwerk</keyword>
+<keyword
+>Zeitlimits</keyword>
+</keywordset>
+
+</articleinfo>
+
+<sect1 id="timeouts">
+
+<title
+>Verbindungseinstellungen</title>
+
+<para
+>Hier können Sie Werte für verschiedene Zeitlimits angeben. Bei langsamen Verbindungen können die Werte entsprechend angepasst werden. Die Standardwerte sollte allerdings für die allermeisten Fälle angemessen sein.</para>
+
+<para
+>Die <guilabel
+>Zeitlimit-Werte</guilabel
+> geben die Zeitspannen an, die eine Anwendung bei einem Netzwerkzugriff auf eine Antwort warten soll.</para>
+
+<para
+>Sie können die folgenden Zeitlimits festlegen:</para>
+
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>Socket-Daten:</guilabel
+></term>
+<listitem>
+<para
+>Einige Anwendungen verwenden <firstterm
+>Sockets</firstterm
+>, um miteinander zu kommunizieren. Sie können sich einen Socket wie einen Wasserhahn vorstellen. Solange er offen ist, fließt Wasser (oder Daten, wie in unserem Fall) ohne jede Wechselwirkung. Wird dieser Datenfluss gestoppt, wartet die Anwendung auf weitere Daten. Dies kann sehr lange dauern, aber Sie können die maximale Wartezeit angeben, die eine Anwendung auf neue Daten wartet.</para>
+<para
+>Diese Einstellung wirkt sich natürlich nur auf &kde;-Anwendungen aus.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Proxy-Verbindung:</guilabel
+></term>
+<listitem>
+<para
+>Legt fest, wie lange auf die Verbindung zum Proxy gewartet wird, falls ein Proxy eingerichtet ist. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Server-Verbindung:</guilabel
+></term>
+<listitem>
+<para
+>Legt die Wartezeit für den Verbindungsaufbau zu einem entfernten Server fest. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Server-Antwort:</guilabel
+></term>
+<listitem>
+<para
+>Legt die Wartezeit für die Antwort eines entfernten Servers fest. </para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+<para
+>Hier können Sie <guilabel
+>FTP-Optionen</guilabel
+> einrichten. Derzeit gibt es zwei Einstellmöglichkeit, nämlich <guilabel
+>Passiven Modus (PASV) aktivieren</guilabel
+> und <guilabel
+>Teilweise übertragene Dateien markieren</guilabel
+>.</para>
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>Passiven Modus (PASV) aktivieren</guilabel
+></term>
+<listitem
+><para
+>Passives &FTP; ist meist hinter einer Firewall notwendig. Viele Firewalls erlauben nur Verbindungen, die von <quote
+>innen nach außen</quote
+> gehen. Passives &FTP; wird vom Client kontrolliert, was die Verwendung hinter einer Firewall ermöglicht.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Teilweise übertragene Dateien markieren</guilabel
+></term>
+<listitem
+><para
+>Wenn diese Einstellung aktiviert ist, werden Dateien, die noch nicht vollständig übertragen sind, mit der Dateiendung <literal role="extension"
+>.part</literal
+> versehen. Sobald die Übertragung abgeschlossen ist, wird diese zusätzliche Endung automatisch entfernt.</para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+
+
+</sect1>
+</article>
