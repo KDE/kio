@@ -32,6 +32,8 @@ class KIOWIDGETS_EXPORT PreviewJob : public KIO::Job
 public:
     /**
      * Specifies the type of scaling that is applied to the generated preview.
+     * For HiDPI, pixel density scaling, @see setDevicePixelRatio
+     *
      * @since 4.7
      */
     enum ScaleType {
@@ -189,6 +191,15 @@ public:
     bool handlesSequences() const;
 
     /**
+     * Request preview to use the device pixel ratio @p dpr.
+     * The returned thumbnail may not respect the device pixel ratio requested.
+     * Use QPixmap::devicePixelRatio to check, or paint as neccesary.
+     *
+     * @since 5.80
+     */
+    void setDevicePixelRatio(int dpr);
+
+    /**
      * Returns a list of all available preview plugins. The list
      * contains the basenames of the plugins' .desktop files (no path,
      * no .desktop).
@@ -246,6 +257,17 @@ private:
     Q_PRIVATE_SLOT(d_func(), void startPreview())
     Q_PRIVATE_SLOT(d_func(), void slotThumbData(KIO::Job *, const QByteArray &))
     Q_DECLARE_PRIVATE(PreviewJob)
+
+public:
+    /**
+     * Sets a default device Pixel Ratio used for Previews
+     * @see setDevicePixelRatio
+     *
+     * Defaults to 1
+     *
+     * @since 5.80
+     */
+    static void setDefaultDevicePixelRatio(int devicePixelRatio);
 };
 
 #if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(4, 7)
