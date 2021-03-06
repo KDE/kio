@@ -1358,7 +1358,14 @@ void KNewFileMenuPrivate::_k_slotUrlDesktopFile()
 
     KDesktopFile df(tempFileName);
     KConfigGroup group = df.desktopGroup();
-    group.writeEntry("Icon", KProtocolInfo::icon(linkUrl.scheme()));
+
+    if (linkUrl.isLocalFile()) {
+        KFileItem fi(linkUrl);
+        group.writeEntry("Icon", fi.iconName());
+    } else {
+        group.writeEntry("Icon", KProtocolInfo::icon(linkUrl.scheme()));
+    }
+
     group.writePathEntry("URL", linkUrl.toDisplayString());
     df.sync();
 
