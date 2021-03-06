@@ -33,6 +33,7 @@ set(kiowidgets_SRCS
   kurlpixmapprovider.cpp
   pixmaploader.cpp
   thumbsequencecreator.cpp
+  thumbdevicepixelratiodependentcreator.cpp
   thumbcreator.cpp
   kshellcompletion.cpp
   kurlcompletion.cpp
@@ -171,6 +172,7 @@ ecm_generate_headers(KIOWidgets_CamelCase_HEADERS
   AccessManager
   SslUi
   ThumbSequenceCreator
+  ThumbDevicePixelRatioDependentCreator
   ThumbCreator
   DropJob
   DndPopupMenuPlugin

@@ -48,6 +48,10 @@
 
 #include "job_p.h"
 
+namespace  {
+    static int s_defaultDevicePixelRatio = 1;
+}
+
 namespace KIO
 {
 struct PreviewItem;
@@ -66,8 +70,7 @@ public:
         : initialItems(items)
         , width(size.width())
         , height(size.height())
-        , cacheWidth(width)
-        , cacheHeight(height)
+        , cacheSize(-1)
         , bScale(true)
         , bSave(true)
         , ignoreMaximumSize(false)
@@ -112,8 +115,7 @@ public:
     int width;
     int height;
     // Unscaled size of thumbnail (128 or 256 if cache is enabled)
-    int cacheWidth;
-    int cacheHeight;
+    int cacheSize;
     // Whether the thumbnail should be scaled
     bool bScale;
     // Whether we should save the thumbnail
@@ -140,6 +142,7 @@ public:
     KMountPoint::List encryptedMountsList;
     // Metadata returned from the KIO thumbnail slave
     QMap<QString, QString> thumbnailSlaveMetaData;
+    int devicePixelRatio = s_defaultDevicePixelRatio;
 
     void getOrCreateThumbnail();
     bool statResultThumbnail();
@@ -153,6 +156,11 @@ public:
 
     Q_DECLARE_PUBLIC(PreviewJob)
 };
+
+void PreviewJob::setDefaultDevicePixelRatio(int defaultDevicePixelRatio)
+{
+    s_defaultDevicePixelRatio = defaultDevicePixelRatio;
+}
 
 #if KIOWIDGETS_BUILD_DEPRECATED_SINCE(4, 7)
 PreviewJob::PreviewJob(const KFileItemList &items, int width, int height, int iconSize, int iconAlpha, bool scale, bool save, const QStringList *enabledPlugins)
@@ -362,12 +370,39 @@ void PreviewJobPrivate::startPreview()
     maximumRemoteSize = cg.readEntry("MaximumRemoteSize", 0);
 
     if (bNeedCache) {
+
         if (width <= 128 && height <= 128) {
-            cacheWidth = cacheHeight = 128;
+            cacheSize = 128;
+        } else if (width <= 256 && height <= 256) {
+            cacheSize = 256;
         } else {
-            cacheWidth = cacheHeight = 256;
+            cacheSize = 512;
         }
-        thumbPath = thumbRoot + QLatin1String(cacheWidth == 128 ? "normal/" : "large/");
+
+        struct CachePool {
+            QString path;
+            int minSize;
+        };
+
+        const static auto pools = {
+            CachePool{QStringLiteral("/normal/"), 128},
+            CachePool{QStringLiteral("/large/"), 256},
+            CachePool{QStringLiteral("/x-large/"), 512},
+            CachePool{QStringLiteral("/xx-large/"), 1024},
+        };
+
+        QString thumbDir;
+        int wants = devicePixelRatio * cacheSize;
+        for (const auto &p : pools) {
+            if (p.minSize < wants) {
+                continue;
+            } else {
+                thumbDir = p.path;
+                break;
+            }
+        }
+        thumbPath = thumbRoot + thumbDir;
+
         if (!QDir(thumbPath).exists()) {
             if (QDir().mkpath(thumbPath)) { // Qt5 TODO: mkpath(dirPath, permissions)
                 QFile f(thumbPath);
@@ -421,6 +456,11 @@ float KIO::PreviewJob::sequenceIndexWraparoundPoint() const
 bool KIO::PreviewJob::handlesSequences() const
 {
     return d_func()->thumbnailSlaveMetaData.value(QStringLiteral("handlesSequences")) == QStringLiteral("1");
+}
+
+void KIO::PreviewJob::setDevicePixelRatio(int dpr)
+{
+    d_func()->devicePixelRatio = dpr;
 }
 
 void PreviewJob::setIgnoreMaximumSize(bool ignoreSize)
@@ -578,6 +618,10 @@ bool PreviewJobPrivate::statResultThumbnail()
         return false;
     }
 
+    if (thumb.width() == width * devicePixelRatio || thumb.height() == height * devicePixelRatio) {
+        thumb.setDevicePixelRatio(devicePixelRatio);
+    }
+
     QString thumbnailerVersion = currentItem.plugin->property(QStringLiteral("ThumbnailerVersion"), QVariant::String).toString();
 
     if (!thumbnailerVersion.isEmpty() && thumb.text(QStringLiteral("Software")).startsWith(QLatin1String("KDE Thumbnail Generator"))) {
@@ -669,12 +713,13 @@ void PreviewJobPrivate::createThumbnail(const QString &pixPath)
 
     bool save = bSave && currentItem.plugin->property(QStringLiteral("CacheThumbnail")).toBool() && !sequenceIndex;
     job->addMetaData(QStringLiteral("mimeType"), currentItem.item.mimetype());
-    job->addMetaData(QStringLiteral("width"), QString().setNum(save ? cacheWidth : width));
-    job->addMetaData(QStringLiteral("height"), QString().setNum(save ? cacheHeight : height));
+    job->addMetaData(QStringLiteral("width"), QString().setNum(save ? cacheSize : width));
+    job->addMetaData(QStringLiteral("height"), QString().setNum(save ? cacheSize : height));
     job->addMetaData(QStringLiteral("iconSize"), QString().setNum(save ? 64 : iconSize));
     job->addMetaData(QStringLiteral("iconAlpha"), QString().setNum(iconAlpha));
     job->addMetaData(QStringLiteral("plugin"), currentItem.plugin->library());
     job->addMetaData(QStringLiteral("enabledPlugins"), enabledPlugins.join(QLatin1Char(',')));
+    job->addMetaData(QStringLiteral("devicePixelRatio"), QString::number(devicePixelRatio));
     if (sequenceIndex) {
         job->addMetaData(QStringLiteral("sequence-index"), QString().setNum(sequenceIndex));
     }
@@ -685,8 +730,8 @@ void PreviewJobPrivate::createThumbnail(const QString &pixPath)
             shmdt((char *)shmaddr);
             shmctl(shmid, IPC_RMID, nullptr);
         }
-        auto size = std::max(cacheWidth * cacheHeight, width * height);
-        shmid = shmget(IPC_PRIVATE, size * 4, IPC_CREAT | 0600);
+        auto size = std::max(cacheSize * cacheSize, width * height);
+        shmid = shmget(IPC_PRIVATE, size * 4 * devicePixelRatio * devicePixelRatio, IPC_CREAT | 0600);
         if (shmid != -1) {
             shmaddr = (uchar *)(shmat(shmid, nullptr, SHM_RDONLY));
             if (shmaddr == (uchar *)-1) {
@@ -724,9 +769,17 @@ void PreviewJobPrivate::slotThumbData(KIO::Job *job, const QByteArray &data)
         QDataStream str(data);
         int width, height;
         quint8 iFormat;
+        int imgDevicePixelRatio = 1;
+        // TODO KF6: add a version number as first parameter
         str >> width >> height >> iFormat;
+        if (iFormat & 0x80) {
+            // HACK to deduce if imgDevicePixelRatio is present
+            iFormat &= 0x7f;
+            str >> imgDevicePixelRatio;
+        }
         QImage::Format format = static_cast<QImage::Format>(iFormat);
         thumb = QImage(shmaddr, width, height, format).copy();
+        thumb.setDevicePixelRatio(imgDevicePixelRatio);
     } else
 #endif
         thumb.loadFromData(data);
@@ -762,11 +815,12 @@ void PreviewJobPrivate::emitPreview(const QImage &thumb)
 {
     Q_Q(PreviewJob);
     QPixmap pix;
-    if (thumb.width() > width || thumb.height() > height) {
-        pix = QPixmap::fromImage(thumb.scaled(QSize(width, height), Qt::KeepAspectRatio, Qt::SmoothTransformation));
+    if (thumb.width() > width * thumb.devicePixelRatio() || thumb.height() > height * thumb.devicePixelRatio()) {
+        pix = QPixmap::fromImage(thumb.scaled(QSize(width * thumb.devicePixelRatio(), height * thumb.devicePixelRatio()), Qt::KeepAspectRatio, Qt::SmoothTransformation));
     } else {
         pix = QPixmap::fromImage(thumb);
     }
+    pix.setDevicePixelRatio(thumb.devicePixelRatio());
     Q_EMIT q->gotPreview(currentItem.item, pix);
 }
 
