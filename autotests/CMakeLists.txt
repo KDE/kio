@@ -70,7 +70,7 @@ if(Gem_ftpd_FOUND)
 endif()
 
 find_package(WsgidavExe)
-set_package_properties(Gem_ftpd PROPERTIES
+set_package_properties(WsgidavExe PROPERTIES
     DESCRIPTION "wsgidav required for running the webdavtest.")
 if(WsgidavExe_FOUND)
     ecm_add_tests(
