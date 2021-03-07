@@ -2531,7 +2531,7 @@ void KFileWidgetPrivate::appendExtension(QUrl &url)
     const int dot = fileName.lastIndexOf(QLatin1Char('.'));
 
     const bool suppressExtension = (dot == len - 1);
-    const bool unspecifiedExtension = (dot <= 0);
+    const bool unspecifiedExtension = !fileName.endsWith(m_extension);
 
     // don't KIO::Stat if unnecessary
     if (!(suppressExtension || unspecifiedExtension)) {

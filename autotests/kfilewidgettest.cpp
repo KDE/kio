@@ -395,6 +395,65 @@ private Q_SLOTS:
         QCOMPARE(urls[0], expectedFileUrl);
     }
 
+    void testExtensionForSave_data()
+    {
+        QTest::addColumn<QString>("fileName");
+        QTest::addColumn<QString>("filter");
+        QTest::addColumn<QString>("expectedCurrentText");
+        QTest::addColumn<QString>("expectedSelectedFileName");
+
+        const QString filter = QStringLiteral("*.txt *.text|Text files\n*.HTML|HTML files");
+
+        QTest::newRow("some.txt") << "some.txt" << filter << QStringLiteral("some.txt") << QStringLiteral("some.txt");
+
+        // If an application provides a name without extension, then the
+        // displayed name will not receive an extension. It will however be
+        // appended when the dialog is closed.
+        QTest::newRow("extensionless name") << "some" << filter << QStringLiteral("some") << QStringLiteral("some.txt");
+        QTest::newRow("extensionless name") << "some.with_dot" << filter << QStringLiteral("some.with_dot") << QStringLiteral("some.with_dot.txt");
+        QTest::newRow("extensionless name") << "some.with.dots" << filter << QStringLiteral("some.with.dots") << QStringLiteral("some.with.dots.txt");
+
+        // If the file literally exists, then no new extension will be appended.
+        QTest::newRow("existing file") << "README" << filter << QStringLiteral("README") << QStringLiteral("README");
+    }
+
+    void testExtensionForSave()
+    {
+        QFETCH(QString, fileName);
+        QFETCH(QString, filter);
+        QFETCH(QString, expectedCurrentText);
+        QFETCH(QString, expectedSelectedFileName);
+
+        // Use a temporary directory since the presence of existing files
+        // influences whether an extension is automatically appended.
+        QTemporaryDir tempDir;
+        const QUrl dirUrl = QUrl::fromLocalFile(tempDir.path());
+        const QUrl fileUrl = QUrl::fromLocalFile(tempDir.filePath(fileName));
+        const QUrl expectedFileUrl = QUrl::fromLocalFile(tempDir.filePath(expectedSelectedFileName));
+        createTestFile(tempDir.filePath("README"));
+
+        KFileWidget fw(dirUrl);
+        fw.setOperationMode(KFileWidget::Saving);
+        // Calling setFilter has side-effects and changes the file name.
+        // The difference to testSetFilterForSave is that the filter is already set before the fileUrl
+        // is set, and will not be changed after.
+        fw.setFilter(filter);
+        fw.setSelectedUrl(fileUrl);
+
+        // Verify the expected populated name.
+        QCOMPARE(fw.baseUrl().adjusted(QUrl::StripTrailingSlash), dirUrl);
+        QCOMPARE(fw.locationEdit()->currentText(), expectedCurrentText);
+
+        // QFileDialog ends up calling KDEPlatformFileDialog::selectedFiles()
+        // which calls KFileWidget::selectedUrls().
+        // Accept the filename to ensure that a filename is selected.
+        connect(&fw, &KFileWidget::accepted, &fw, &KFileWidget::accept);
+        QTest::keyClick(fw.locationEdit(), Qt::Key_Return);
+        QList<QUrl> urls = fw.selectedUrls();
+        QCOMPARE(urls.size(), 1);
+        QCOMPARE(urls[0], expectedFileUrl);
+    }
+
     void testFilterChange()
     {
         QTemporaryDir tempDir;
