@@ -1,3 +1,5 @@
+include(FindSystemd)
+
 configure_file(config-kiogui.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kiogui.h)
 
 set(kiogui_SRCS
@@ -10,7 +12,7 @@ set(kiogui_SRCS
    kprocessrunner.cpp
 )
 
-if (CMAKE_SYSTEM_NAME STREQUAL "Linux")
+if (Systemd_FOUND)
     set(SYSTEMD_DBUS_XMLS
         systemd/org.freedesktop.systemd1.Manager.xml
         systemd/org.freedesktop.systemd1.Unit.xml
@@ -20,7 +22,11 @@ if (CMAKE_SYSTEM_NAME STREQUAL "Linux")
 
     qt5_add_dbus_interfaces(kiogui_SRCS ${SYSTEMD_DBUS_XMLS})
 
+    add_compile_definitions(SYSTEMD_AVAILABLE)
     list(APPEND kiogui_SRCS systemd/systemdprocessrunner.cpp systemd/scopedprocessrunner.cpp)
+    if (Systemd_VERSION GREATER 247)
+        add_compile_definitions(SYSTEMD_HAS_EXIT_TYPE)
+    endif ()
 endif ()
 
 ecm_qt_declare_logging_category(kiogui_SRCS
