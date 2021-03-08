@@ -141,6 +141,8 @@ protected:
     KService::Ptr m_service;
     QString m_serviceEntryPath;
     bool m_waitingForXdgToken = false;
+    QList<QUrl> m_urls;
+    KStartupInfoId m_startupId;
 
 private:
     void emitDelayedError(const QString &errorMsg);
@@ -151,8 +153,6 @@ private:
                              const QString &workingDirectory,
                              const QProcessEnvironment &environment);
     void init(const KService::Ptr &service, const QString &serviceEntryPath, const QString &userVisibleName, const QString &iconName, const QByteArray &asn);
-
-    KStartupInfoId m_startupId;
 
     Q_DISABLE_COPY(KProcessRunner)
 };

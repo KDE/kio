@@ -19,6 +19,7 @@ target_sources(KF5KIOGui PRIVATE
    kprocessrunner.cpp
    kterminallauncherjob.cpp
    kemailclientlauncherjob.cpp
+   dbusactivationrunner.cpp
 )
 
 if (CMAKE_SYSTEM_NAME STREQUAL "Linux")

@@ -13,6 +13,7 @@
 #endif
 
 #include "config-kiogui.h"
+#include "dbusactivationrunner_p.h"
 #include "kiogui_debug.h"
 
 #include "desktopexecparser.h"
@@ -71,13 +72,22 @@ KProcessRunner *KProcessRunner::fromApplication(const KService::Ptr &service,
                                                 const QString &suggestedFileName,
                                                 const QByteArray &asn)
 {
-    auto instance = makeInstance();
+    KProcessRunner *instance;
+    // special case for applicationlauncherjob
+    if (DBusActivationRunner::activationPossible(service, flags, suggestedFileName)) {
+        const auto actions = service->actions();
+        auto action = std::find_if(actions.cbegin(), actions.cend(), [service](const KServiceAction &action) {
+            return action.exec() == service->exec();
+        });
+        instance = new DBusActivationRunner(action != actions.cend() ? action->name() : QString());
+    } else {
+        instance = makeInstance();
+    }
 
     if (!service->isValid()) {
         instance->emitDelayedError(i18n("The desktop entry file\n%1\nis not valid.", serviceEntryPath));
         return instance;
     }
-
     instance->m_executable = KIO::DesktopExecParser::executablePath(service->exec());
 
     KIO::DesktopExecParser execParser(*service, urls);
