@@ -8,6 +8,7 @@ set(kiogui_SRCS
    openwithhandlerinterface.cpp
    openorexecutefileinterface.cpp
    kprocessrunner.cpp
+   dbusactivationrunner.cpp
 )
 
 if (CMAKE_SYSTEM_NAME STREQUAL "Linux")

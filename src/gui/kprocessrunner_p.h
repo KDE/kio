@@ -110,12 +110,12 @@ protected:
     QString m_desktopFilePath;
     QString m_description;
     qint64 m_pid = 0;
+    QList<QUrl> m_urls;
+    KStartupInfoId m_startupId;
 
 private:
     void emitDelayedError(const QString &errorMsg);
     void init(const KService::Ptr &service, const QString &serviceEntryPath, const QString &userVisibleName, const QString &iconName, const QByteArray &asn);
-
-    KStartupInfoId m_startupId;
 
     Q_DISABLE_COPY(KProcessRunner)
 };
