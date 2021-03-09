@@ -52,7 +52,7 @@ private:
     Private *d;
 };
 
-};
+}
 
 typedef ThumbCreator *(*newCreator)();
 
