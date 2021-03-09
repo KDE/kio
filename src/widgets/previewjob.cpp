@@ -618,9 +618,9 @@ bool PreviewJobPrivate::statResultThumbnail()
         return false;
     }
 
-    if (thumb.width() == width * devicePixelRatio || thumb.height() == height * devicePixelRatio) {
-        thumb.setDevicePixelRatio(devicePixelRatio);
-    }
+    // The DPR of the loaded thumbnail is unspecified (and typically irrelevant).
+    // When a thumbnail is DPR-invariant, use the DPR passed in the request.
+    thumb.setDevicePixelRatio(devicePixelRatio);
 
     QString thumbnailerVersion = currentItem.plugin->property(QStringLiteral("ThumbnailerVersion"), QVariant::String).toString();
 
