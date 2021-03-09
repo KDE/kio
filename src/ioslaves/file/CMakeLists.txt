@@ -1,6 +1,3 @@
-
-project(kioslave-file)
-
 include(ConfigureChecks.cmake)
 
 ########### next target ###############

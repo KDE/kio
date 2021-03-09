@@ -1,5 +1,3 @@
-project(KIOCore)
-
 include (ConfigureChecks.cmake)
 
 configure_file(config-kiocore.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kiocore.h )

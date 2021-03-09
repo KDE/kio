@@ -1,5 +1,3 @@
-project(KIONTLM)
-
 set(kntlm_LIB_SRCS kntlm.cpp des.cpp )
 
 add_library(KF5KIONTLM ${kntlm_LIB_SRCS})

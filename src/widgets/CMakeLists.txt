@@ -1,5 +1,3 @@
-project(KIOWidgets)
-
 #include (ConfigureChecks.cmake)
 
 set_package_properties(ACL PROPERTIES DESCRIPTION "LibACL" URL "ftp://oss.sgi.com/projects/xfs/cmd_tars"

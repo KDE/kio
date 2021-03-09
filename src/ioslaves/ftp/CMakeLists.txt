@@ -1,6 +1,3 @@
-
-project(kioslave-ftp)
-
 include(ConfigureChecks.cmake)
 configure_file(config-kioslave-ftp.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kioslave-ftp.h )
 

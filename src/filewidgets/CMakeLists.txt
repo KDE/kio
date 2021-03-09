@@ -1,5 +1,3 @@
-project(KIOFileWidgets)
-
 find_package(KF5Bookmarks ${KF_DEP_VERSION} REQUIRED)
 find_package(KF5XmlGui ${KF_DEP_VERSION} REQUIRED)
 

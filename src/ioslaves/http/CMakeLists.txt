@@ -1,5 +1,3 @@
-project(kioslave-http)
-
 include(ECMMarkNonGuiExecutable)
 
 include(ConfigureChecks.cmake)

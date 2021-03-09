@@ -1,5 +1,3 @@
-project(KIOProtocolToJson)
-
 include(ECMMarkNonGuiExecutable)
 
 # procotol to json converter

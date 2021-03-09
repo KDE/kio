@@ -1,8 +1,6 @@
 # kio_help only buildable if doc tools around
 if (KF5DocTools_FOUND)
 
-project(kioslave-help)
-
 find_package(KF5Archive ${KF_DEP_VERSION} REQUIRED)
 find_package(LibXslt)
 set_package_properties(LibXslt PROPERTIES
