@@ -20,7 +20,7 @@ QTEST_MAIN(KDirListerTest)
 #include <kio/jobuidelegateextension.h>
 #include <kprotocolinfo.h>
 
-#define WORKAROUND_BROKEN_INOTIFY 0
+static constexpr bool s_workaroundBrokenInotify = false;
 
 GlobalInits::GlobalInits()
 {
@@ -366,9 +366,10 @@ void KDirListerTest::testNewItemsInSymlink() // #213799
     const QString fileName = QStringLiteral("toplevelfile_newinlink");
     createSimpleFile(path + fileName);
 
-#if WORKAROUND_BROKEN_INOTIFY
-    org::kde::KDirNotify::emitFilesAdded(path);
-#endif
+    if (s_workaroundBrokenInotify) {
+        org::kde::KDirNotify::emitFilesAdded(QUrl::fromLocalFile(path));
+    }
+
     // Give time for KDirWatch to notify us
     QTRY_COMPARE(m_items2.count(), origItemCount + 1);
     QTRY_COMPARE(m_items.count(), origItemCount + 1);
@@ -620,9 +621,11 @@ void KDirListerTest::testRenameAndOverwrite() // has to be run after testRenameI
     const QString dirPath = m_tempDir.path() + '/';
     const QString path = dirPath + "toplevelfile_2";
     createTestFile(path);
-#if WORKAROUND_BROKEN_INOTIFY
-    org::kde::KDirNotify::emitFilesAdded(dirPath);
-#endif
+
+    if (s_workaroundBrokenInotify) {
+        org::kde::KDirNotify::emitFilesAdded(QUrl::fromLocalFile(dirPath));
+    }
+
     KFileItem existingItem;
     while (existingItem.isNull()) {
         QTest::qWait(100);

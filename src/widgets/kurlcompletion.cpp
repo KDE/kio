@@ -54,7 +54,7 @@ static QString unescape(const QString &text);
 
 // Permission mask for files that are executable by
 // user, group or other
-#define MODE_EXE (S_IXUSR | S_IXGRP | S_IXOTH)
+static constexpr mode_t s_modeExe = S_IXUSR | S_IXGRP | S_IXOTH;
 
 // Constants for types of completion
 enum ComplType { CTNone = 0, CTEnv, CTUser, CTMan, CTExe, CTFile, CTUrl, CTInfo };
@@ -1197,7 +1197,7 @@ void KUrlCompletionPrivate::_k_slotEntries(KIO::Job *, const KIO::UDSEntryList &
             toAppend.append(QLatin1Char('/'));
         }
 
-        if (!list_urls_only_exe || (entry.numberValue(KIO::UDSEntry::UDS_ACCESS) & MODE_EXE) // true if executable
+        if (!list_urls_only_exe || (entry.numberValue(KIO::UDSEntry::UDS_ACCESS) & s_modeExe) // true if executable
         ) {
             if (complete_url) {
                 QUrl url(prepend);

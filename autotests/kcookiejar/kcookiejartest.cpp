@@ -22,8 +22,6 @@ static QString *nextYear;
 static KConfig *config = nullptr;
 static int windowId = 1234; // random number to be used as windowId for test cookies
 
-#define FAIL(x) QFAIL(qPrintable(x))
-
 static void popArg(QString &command, QString &line)
 {
     int i = line.indexOf(' ');
@@ -87,17 +85,17 @@ static void processCookie(QString &line)
     popArg(policy, line);
     KCookieAdvice expectedAdvice = KCookieJar::strToAdvice(policy);
     if (expectedAdvice == KCookieDunno) {
-        FAIL(QStringLiteral("Unknown accept policy '%1'").arg(policy));
+        QFAIL(qPrintable(QStringLiteral("Unknown accept policy '%1'").arg(policy)));
     }
 
     QString urlStr;
     popArg(urlStr, line);
     QUrl url(urlStr);
     if (!url.isValid()) {
-        FAIL(QStringLiteral("Invalid URL '%1'").arg(urlStr));
+        QFAIL(qPrintable(QStringLiteral("Invalid URL '%1'").arg(urlStr)));
     }
     if (url.isEmpty()) {
-        FAIL(QStringLiteral("Missing URL"));
+        QFAIL(qPrintable(QStringLiteral("Missing URL")));
     }
 
     line.replace(QLatin1String("%LASTYEAR%"), *lastYear);
@@ -106,16 +104,16 @@ static void processCookie(QString &line)
     KHttpCookieList list = jar->makeCookies(urlStr, line.toUtf8(), windowId);
 
     if (list.isEmpty()) {
-        FAIL(QStringLiteral("Failed to make cookies from: '%1'").arg(line));
+        QFAIL(qPrintable(QStringLiteral("Failed to make cookies from: '%1'").arg(line)));
     }
 
     for (KHttpCookieList::iterator cookieIterator = list.begin(); cookieIterator != list.end(); ++cookieIterator) {
         KHttpCookie &cookie = *cookieIterator;
         const KCookieAdvice cookieAdvice = jar->cookieAdvice(cookie);
         if (cookieAdvice != expectedAdvice)
-            FAIL(urlStr
-                 + QStringLiteral("\n'%2'\nGot advice '%3' expected '%4'")
-                       .arg(line, KCookieJar::adviceToStr(cookieAdvice), KCookieJar::adviceToStr(expectedAdvice)));
+            QFAIL(qPrintable(urlStr
+                             + QStringLiteral("\n'%2'\nGot advice '%3' expected '%4'")
+                                   .arg(line, KCookieJar::adviceToStr(cookieAdvice), KCookieJar::adviceToStr(expectedAdvice))));
         jar->addCookie(cookie);
     }
 }
@@ -126,17 +124,17 @@ static void processCheck(QString &line)
     popArg(urlStr, line);
     QUrl url(urlStr);
     if (!url.isValid()) {
-        FAIL(QStringLiteral("Invalid URL '%1'").arg(urlStr));
+        QFAIL(qPrintable(QStringLiteral("Invalid URL '%1'").arg(urlStr)));
     }
     if (url.isEmpty()) {
-        FAIL(QStringLiteral("Missing URL"));
+        QFAIL(qPrintable(QStringLiteral("Missing URL")));
     }
 
     QString expectedCookies = line;
 
     QString cookies = jar->findCookies(urlStr, false, windowId, nullptr).trimmed();
     if (cookies != expectedCookies)
-        FAIL(urlStr + QStringLiteral("\nGot '%1' expected '%2'").arg(cookies, expectedCookies));
+        QFAIL(qPrintable(urlStr + QStringLiteral("\nGot '%1' expected '%2'").arg(cookies, expectedCookies)));
 }
 
 static void processClear(QString &line)
@@ -148,7 +146,7 @@ static void processClear(QString &line)
     } else if (line == QLatin1String("SESSIONCOOKIES")) {
         clearCookies(true);
     } else {
-        FAIL(QStringLiteral("Unknown command 'CLEAR %1'").arg(line));
+        QFAIL(qPrintable(QStringLiteral("Unknown command 'CLEAR %1'").arg(line)));
     }
 }
 
@@ -158,7 +156,7 @@ static void processConfig(QString &line)
     popArg(key, line);
 
     if (key.isEmpty()) {
-        FAIL(QStringLiteral("Missing Key"));
+        QFAIL(qPrintable(QStringLiteral("Missing Key")));
     }
 
     KConfigGroup cg(config, "Cookie Policy");
@@ -198,7 +196,7 @@ static void processLine(QString line)
     } else if (command == QLatin1String("ENDSESSION")) {
         endSession();
     } else {
-        FAIL(QStringLiteral("Unknown command '%1'").arg(command));
+        QFAIL(qPrintable(QStringLiteral("Unknown command '%1'").arg(command)));
     }
 }
 

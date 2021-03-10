@@ -53,6 +53,7 @@ private Q_SLOTS:
     void jobFinished(KJob *job);
 
 private:
+    bool initImpl();
     typedef enum { Copy, Move } CopyOrMove;
     void copyOrMoveFromTrash(const QUrl &src, const QUrl &dest, bool overwrite, CopyOrMove action);
     void copyOrMoveToTrash(const QUrl &src, const QUrl &dest, CopyOrMove action);

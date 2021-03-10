@@ -30,8 +30,6 @@
 #include <QUrl>
 #include <QWidget>
 
-#define QL1S(x) QLatin1String(x)
-#define QL1C(x) QLatin1Char(x)
 
 static const QNetworkRequest::Attribute gSynchronousNetworkRequestAttribute = QNetworkRequest::SynchronousRequestAttribute;
 
@@ -194,7 +192,7 @@ QNetworkReply *AccessManager::createRequest(Operation op, const QNetworkRequest 
 {
     const QUrl reqUrl(req.url());
 
-    if (!d->externalContentAllowed && !KDEPrivate::AccessManagerReply::isLocalRequest(reqUrl) && reqUrl.scheme() != QL1S("data")) {
+    if (!d->externalContentAllowed && !KDEPrivate::AccessManagerReply::isLocalRequest(reqUrl) && reqUrl.scheme() != QLatin1String("data")) {
         // qDebug() << "Blocked: " << reqUrl;
         return new KDEPrivate::AccessManagerReply(op, req, QNetworkReply::ContentAccessDenied, i18n("Blocked request."), this);
     }
@@ -506,7 +504,7 @@ QList<QNetworkCookie> CookieJar::cookiesForUrl(const QUrl &url) const
     const QString cookieStr = reply.value();
     const QStringList cookies = cookieStr.split(QStringLiteral("; "), Qt::SkipEmptyParts);
     for (const QString &cookie : cookies) {
-        const int index = cookie.indexOf(QL1C('='));
+        const int index = cookie.indexOf(QLatin1Char('='));
         const QStringRef name = cookie.leftRef(index);
         const QStringRef value = cookie.rightRef((cookie.length() - index - 1));
         cookieList << QNetworkCookie(name.toUtf8(), value.toUtf8());

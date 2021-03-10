@@ -22,7 +22,6 @@
 #include <KLocalizedString>
 #include <kio/hostinfo.h>
 
-#define QL1S(x) QLatin1String(x)
 
 namespace
 {

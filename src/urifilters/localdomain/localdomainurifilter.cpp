@@ -16,8 +16,6 @@
 #include <QHostInfo>
 #include <QLoggingCategory>
 
-#define QL1C(x) QLatin1Char(x)
-#define QL1S(x) QLatin1String(x)
 
 namespace
 {
@@ -43,8 +41,8 @@ bool LocalDomainUriFilter::filterUri(KUriFilterData &data) const
     // When checking for local domain just validate it is indeed a local domain,
     // but do not modify the hostname! See bug#
     if ((protocol.isEmpty() || !KProtocolInfo::isKnownProtocol(protocol)) && m_hostPortPattern.match(data.typedString()).hasMatch()) {
-        QString host(data.typedString().left(data.typedString().indexOf(QL1C('/'))));
-        const int pos = host.indexOf(QL1C(':'));
+        QString host(data.typedString().left(data.typedString().indexOf(QLatin1Char('/'))));
+        const int pos = host.indexOf(QLatin1Char(':'));
         if (pos > -1) {
             host.truncate(pos); // Remove port number
         }

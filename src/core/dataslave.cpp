@@ -18,7 +18,7 @@
 
 using namespace KIO;
 
-#define KIO_DATA_POLL_INTERVAL 0
+static constexpr int s_kioDataPollInterval = 0;
 
 // don't forget to sync DISPATCH_DECL in dataslave_p.h
 /* clang-format off */
@@ -30,7 +30,7 @@ using namespace KIO;
             q.size = -1; \
             dispatchQueue.push_back(q); \
             if (!timer->isActive()) { \
-                timer->start(KIO_DATA_POLL_INTERVAL); \
+                timer->start(s_kioDataPollInterval); \
             } \
         } else \
             Q_EMIT type(); \
@@ -45,7 +45,7 @@ using namespace KIO;
             q.paramname = paramname; \
             dispatchQueue.push_back(q); \
             if (!timer->isActive()) { \
-                timer->start(KIO_DATA_POLL_INTERVAL); \
+                timer->start(s_kioDataPollInterval); \
             } \
         } else \
             Q_EMIT type(paramname); \
@@ -84,7 +84,7 @@ void DataSlave::resume()
     // aarrrgh! This makes the once hyper fast and efficient data protocol
     // implementation slow as molasses. But it wouldn't work otherwise,
     // and I don't want to start messing around with threads
-    timer->start(KIO_DATA_POLL_INTERVAL);
+    timer->start(s_kioDataPollInterval);
 }
 
 // finished is a special case. If we emit it right away, then
@@ -95,7 +95,7 @@ void DataSlave::dispatch_finished()
     q.size = -1;
     dispatchQueue.push_back(q);
     if (!timer->isActive()) {
-        timer->start(KIO_DATA_POLL_INTERVAL);
+        timer->start(s_kioDataPollInterval);
     }
 }
 

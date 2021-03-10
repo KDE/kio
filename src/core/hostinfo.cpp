@@ -30,7 +30,7 @@
 #endif
 #endif
 
-#define TTL 300
+static constexpr int TTL = 300;
 
 namespace KIO
 {

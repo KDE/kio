@@ -55,14 +55,6 @@ static bool isTopLevelEntry(const QUrl &url)
     return dir.length() <= 1;
 }
 
-/* clang-format off */
-#define INIT_IMPL \
-    if (!impl.init()) { \
-        error(impl.lastErrorCode(), impl.lastErrorMessage()); \
-        return; \
-    }
-/* clang-format on*/
-
 TrashProtocol::TrashProtocol(const QByteArray &protocol, const QByteArray &pool, const QByteArray &app)
     : SlaveBase(protocol, pool, app)
 {
@@ -78,6 +70,16 @@ TrashProtocol::TrashProtocol(const QByteArray &protocol, const QByteArray &pool,
 
 TrashProtocol::~TrashProtocol()
 {
+}
+
+bool TrashProtocol::initImpl()
+{
+    if (!impl.init()) {
+        error(impl.lastErrorCode(), impl.lastErrorMessage());
+        return false;
+    }
+
+    return true;
 }
 
 void TrashProtocol::enterLoop()
@@ -124,7 +126,9 @@ void TrashProtocol::restore(const QUrl &trashURL)
 
 void TrashProtocol::rename(const QUrl &oldURL, const QUrl &newURL, KIO::JobFlags flags)
 {
-    INIT_IMPL;
+    if (!initImpl()) {
+        return;
+    }
 
     qCDebug(KIO_TRASH) << "TrashProtocol::rename(): old=" << oldURL << " new=" << newURL << " overwrite=" << (flags & KIO::Overwrite);
 
@@ -173,7 +177,9 @@ void TrashProtocol::rename(const QUrl &oldURL, const QUrl &newURL, KIO::JobFlags
 
 void TrashProtocol::copy(const QUrl &src, const QUrl &dest, int /*permissions*/, KIO::JobFlags flags)
 {
-    INIT_IMPL;
+    if (!initImpl()) {
+        return;
+    }
 
     qCDebug(KIO_TRASH) << "TrashProtocol::copy(): " << src << " " << dest;
 
@@ -306,7 +312,9 @@ KIO::StatDetails TrashProtocol::getStatDetails()
 
 void TrashProtocol::stat(const QUrl &url)
 {
-    INIT_IMPL;
+    if (!initImpl()) {
+        return;
+    }
     const QString path = url.path();
     if (path.isEmpty() || path == QLatin1String("/")) {
         // The root is "virtual" - it's not a single physical directory
@@ -366,7 +374,9 @@ void TrashProtocol::stat(const QUrl &url)
 
 void TrashProtocol::del(const QUrl &url, bool /*isfile*/)
 {
-    INIT_IMPL;
+    if (!initImpl()) {
+        return;
+    }
     int trashId;
     QString fileId, relativePath;
 
@@ -393,7 +403,9 @@ void TrashProtocol::del(const QUrl &url, bool /*isfile*/)
 
 void TrashProtocol::listDir(const QUrl &url)
 {
-    INIT_IMPL;
+    if (!initImpl()) {
+        return;
+    }
     qCDebug(KIO_TRASH) << "listdir: " << url;
     const QString path = url.path();
     if (path.isEmpty() || path == QLatin1String("/")) {
@@ -509,7 +521,9 @@ bool TrashProtocol::createUDSEntry(const QString &physicalPath,
 
 void TrashProtocol::listRoot()
 {
-    INIT_IMPL;
+    if (!initImpl()) {
+        return;
+    }
     const TrashedFileInfoList lst = impl.list();
     totalSize(lst.count());
     KIO::UDSEntry entry;
@@ -530,7 +544,9 @@ void TrashProtocol::listRoot()
 
 void TrashProtocol::special(const QByteArray &data)
 {
-    INIT_IMPL;
+    if (!initImpl()) {
+        return;
+    }
     QDataStream stream(data);
     int cmd;
     stream >> cmd;
@@ -562,7 +578,9 @@ void TrashProtocol::special(const QByteArray &data)
 
 void TrashProtocol::put(const QUrl &url, int /*permissions*/, KIO::JobFlags)
 {
-    INIT_IMPL;
+    if (!initImpl()) {
+        return;
+    }
     qCDebug(KIO_TRASH) << "put: " << url;
     // create deleted file. We need to get the mtime and original location from metadata...
     // Maybe we can find the info file for url.fileName(), in case ::rename() was called first, and failed...
@@ -571,7 +589,9 @@ void TrashProtocol::put(const QUrl &url, int /*permissions*/, KIO::JobFlags)
 
 void TrashProtocol::get(const QUrl &url)
 {
-    INIT_IMPL;
+    if (!initImpl()) {
+        return;
+    }
     qCDebug(KIO_TRASH) << "get() : " << url;
     if (!url.isValid()) {
         // qCDebug(KIO_TRASH) << kBacktrace();
@@ -629,7 +649,9 @@ void TrashProtocol::jobFinished(KJob *job)
 #if 0
 void TrashProtocol::mkdir(const QUrl &url, int /*permissions*/)
 {
-    INIT_IMPL;
+    if (!initImpl()) {
+        return;
+    }
     // create info about deleted dir
     // ############ Problem: we don't know the original path.
     // Let's try to avoid this case (we should get to copy() instead, for local files)
@@ -674,7 +696,9 @@ void TrashProtocol::fileSystemFreeSpace(const QUrl &url)
 {
     qCDebug(KIO_TRASH) << "fileSystemFreeSpace:" << url;
 
-    INIT_IMPL;
+    if (!initImpl()) {
+        return;
+    }
 
     TrashImpl::TrashSpaceInfo spaceInfo;
     if (!impl.trashSpaceInfo(url.path(), spaceInfo)) {

@@ -37,16 +37,16 @@
 
 using namespace KIO;
 
-#define SLAVE_CONNECTION_TIMEOUT_MIN 2
+static constexpr int s_slaveConnectionTimeoutMin = 2;
 
 // Without debug info we consider it an error if the slave doesn't connect
 // within 10 seconds.
 // With debug info we give the slave an hour so that developers have a chance
 // to debug their slave.
 #ifdef NDEBUG
-#define SLAVE_CONNECTION_TIMEOUT_MAX 10
+static constexpr int s_slaveConnectionTimeoutMax = 10;
 #else
-#define SLAVE_CONNECTION_TIMEOUT_MAX 3600
+static constexpr int s_slaveConnectionTimeoutMax = 3600;
 #endif
 
 static QThreadStorage<org::kde::KSlaveLauncher *> s_kslaveLauncher;
@@ -175,8 +175,8 @@ void Slave::timeout()
     if (d->m_pid && KIOPrivate::isProcessAlive(d->m_pid)) {
         int delta_t = d->contact_started.elapsed() / 1000;
         // qDebug() << "slave is slow... pid=" << d->m_pid << " t=" << delta_t;
-        if (delta_t < SLAVE_CONNECTION_TIMEOUT_MAX) {
-            QTimer::singleShot(1000 * SLAVE_CONNECTION_TIMEOUT_MIN, this, &Slave::timeout);
+        if (delta_t < s_slaveConnectionTimeoutMax) {
+            QTimer::singleShot(1000 * s_slaveConnectionTimeoutMin, this, &Slave::timeout);
             return;
         }
     }
@@ -533,7 +533,7 @@ Slave *Slave::createSlave(const QString &protocol, const QUrl &url, int &error, 
         return nullptr;
     }
     slave->setPID(pid);
-    QTimer::singleShot(1000 * SLAVE_CONNECTION_TIMEOUT_MIN, slave, &Slave::timeout);
+    QTimer::singleShot(1000 * s_slaveConnectionTimeoutMin, slave, &Slave::timeout);
     return slave;
 }
 
@@ -562,7 +562,7 @@ Slave *Slave::holdSlave(const QString &protocol, const QUrl &url)
         return nullptr;
     }
     slave->setPID(pid);
-    QTimer::singleShot(1000 * SLAVE_CONNECTION_TIMEOUT_MIN, slave, &Slave::timeout);
+    QTimer::singleShot(1000 * s_slaveConnectionTimeoutMin, slave, &Slave::timeout);
     return slave;
 }
 

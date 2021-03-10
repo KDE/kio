@@ -62,13 +62,13 @@ Q_LOGGING_CATEGORY(KIO_COPYJOB_DEBUG, "kf.kio.core.copyjob", QtWarningMsg)
 using namespace KIO;
 
 // this will update the report dialog with 5 Hz, I think this is fast enough, aleXXX
-#define REPORT_TIMEOUT 200
+static constexpr int s_reportTimeout = 200;
 
 #if !defined(NAME_MAX)
 #if defined(_MAX_FNAME)
-#define NAME_MAX _MAX_FNAME // For Windows
+static constexpr int NAME_MAX = _MAX_FNAME; // For Windows
 #else
-#define NAME_MAX 0
+static constexpr NAME_MAX = 0;
 #endif
 #endif
 
@@ -378,7 +378,7 @@ void CopyJobPrivate::slotStart()
     q->connect(m_reportTimer, &QTimer::timeout, q, [this]() {
         slotReport();
     });
-    m_reportTimer->start(REPORT_TIMEOUT);
+    m_reportTimer->start(s_reportTimeout);
 
     // Stat the dest
     state = STATE_STATING;
@@ -1237,7 +1237,7 @@ void CopyJobPrivate::slotResultConflictCreatingDirs(KJob *job)
         QObject::disconnect(askUserActionInterface, renameSignal, q, nullptr);
 
         if (m_reportTimer) {
-            m_reportTimer->start(REPORT_TIMEOUT);
+            m_reportTimer->start(s_reportTimeout);
         }
 
         const QString existingDest = (*it).uDest.path();
@@ -1587,7 +1587,7 @@ void CopyJobPrivate::processFileRenameDialogResult(const QList<CopyInfo>::Iterat
     Q_Q(CopyJob);
 
     if (m_reportTimer) {
-        m_reportTimer->start(REPORT_TIMEOUT);
+        m_reportTimer->start(s_reportTimeout);
     }
 
     if (result == Result_OverwriteWhenOlder) {
@@ -2168,7 +2168,7 @@ void CopyJobPrivate::processDirectRenamingConflictResult(RenameDialog_Result res
     Q_Q(CopyJob);
 
     if (m_reportTimer) {
-        m_reportTimer->start(REPORT_TIMEOUT);
+        m_reportTimer->start(s_reportTimeout);
     }
 
     if (result == Result_OverwriteWhenOlder) {

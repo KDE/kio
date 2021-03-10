@@ -30,12 +30,14 @@
 
 Q_LOGGING_CATEGORY(category, "kf.kio.kpasswdserver", QtInfoMsg)
 
-#define AUTHINFO_EXTRAFIELD_DOMAIN QStringLiteral("domain")
-#define AUTHINFO_EXTRAFIELD_ANONYMOUS QStringLiteral("anonymous")
-#define AUTHINFO_EXTRAFIELD_BYPASS_CACHE_AND_KWALLET QStringLiteral("bypass-cache-and-kwallet")
-#define AUTHINFO_EXTRAFIELD_SKIP_CACHING_ON_QUERY QStringLiteral("skip-caching-on-query")
-#define AUTHINFO_EXTRAFIELD_HIDE_USERNAME_INPUT QStringLiteral("hide-username-line")
-#define AUTHINFO_EXTRAFIELD_USERNAME_CONTEXT_HELP QStringLiteral("username-context-help")
+struct ExtraFields {
+    const char domain[] = "domain";
+    const char anonymous[] = "anonymous";
+    const char bypassCacheAndKwallet[] = "bypass-cache-and-kwallet";
+    const char skipCachingOnQuery[] = "skip-caching-on-query";
+    const char hideUsernameInput[] = "hide-username-line";
+    const char usernameContextHelp[] = "username-context-help";
+} extraFields;
 
 static qlonglong getRequestId()
 {
@@ -493,7 +495,7 @@ void KPasswdServer::processRequest()
     if (info.username.isEmpty() && !info.url.userName().isEmpty()) {
         info.username = info.url.userName();
     }
-    const bool bypassCacheAndKWallet = info.getExtraField(AUTHINFO_EXTRAFIELD_BYPASS_CACHE_AND_KWALLET).toBool();
+    const bool bypassCacheAndKWallet = info.getExtraField(QString::fromLatin1(extraFields.bypassCacheAndKwallet)).toBool();
 
     const AuthInfoContainer *result = findAuthInfoItem(request->key, request->info);
     qCDebug(category) << "key=" << request->key << ", user=" << info.username << "seqNr: request=" << request->seqNr
@@ -729,7 +731,7 @@ void KPasswdServer::showPasswordDialog(KPasswdServer::Request *request)
     QMap<QString, QString> knownLogins;
 
 #ifdef HAVE_KF5WALLET
-    const bool bypassCacheAndKWallet = info.getExtraField(AUTHINFO_EXTRAFIELD_BYPASS_CACHE_AND_KWALLET).toBool();
+    const bool bypassCacheAndKWallet = info.getExtraField(QString::fromLatin1(extraFields.bypassCacheAndKwallet)).toBool();
     if (!bypassCacheAndKWallet && (username.isEmpty() || password.isEmpty()) && !m_walletDisabled
         && !KWallet::Wallet::keyDoesNotExist(KWallet::Wallet::NetworkWallet(),
                                              KWallet::Wallet::PasswordFolder(),
@@ -744,18 +746,18 @@ void KPasswdServer::showPasswordDialog(KPasswdServer::Request *request)
     // assemble dialog-flags
     KPasswordDialog::KPasswordDialogFlags dialogFlags;
 
-    if (info.getExtraField(AUTHINFO_EXTRAFIELD_DOMAIN).isValid()) {
+    if (info.getExtraField(QString::fromLatin1(extraFields.domain)).isValid()) {
         dialogFlags |= KPasswordDialog::ShowDomainLine;
-        if (info.getExtraFieldFlags(AUTHINFO_EXTRAFIELD_DOMAIN) & KIO::AuthInfo::ExtraFieldReadOnly) {
+        if (info.getExtraFieldFlags(QString::fromLatin1(extraFields.domain)) & KIO::AuthInfo::ExtraFieldReadOnly) {
             dialogFlags |= KPasswordDialog::DomainReadOnly;
         }
     }
 
-    if (info.getExtraField(AUTHINFO_EXTRAFIELD_ANONYMOUS).isValid()) {
+    if (info.getExtraField(QString::fromLatin1(extraFields.anonymous)).isValid()) {
         dialogFlags |= KPasswordDialog::ShowAnonymousLoginCheckBox;
     }
 
-    if (!info.getExtraField(AUTHINFO_EXTRAFIELD_HIDE_USERNAME_INPUT).toBool()) {
+    if (!info.getExtraField(QString::fromLatin1(extraFields.hideUsernameInput)).toBool()) {
         dialogFlags |= KPasswordDialog::ShowUsernameLine;
     }
 
@@ -800,15 +802,15 @@ void KPasswdServer::showPasswordDialog(KPasswdServer::Request *request)
         dlg->setKeepPassword(true);
     }
 
-    if (info.getExtraField(AUTHINFO_EXTRAFIELD_DOMAIN).isValid()) {
-        dlg->setDomain(info.getExtraField(AUTHINFO_EXTRAFIELD_DOMAIN).toString());
+    if (info.getExtraField(QString::fromLatin1(extraFields.domain)).isValid()) {
+        dlg->setDomain(info.getExtraField(QString::fromLatin1(extraFields.domain)).toString());
     }
 
-    if (info.getExtraField(AUTHINFO_EXTRAFIELD_ANONYMOUS).isValid() && password.isEmpty() && username.isEmpty()) {
-        dlg->setAnonymousMode(info.getExtraField(AUTHINFO_EXTRAFIELD_ANONYMOUS).toBool());
+    if (info.getExtraField(QString::fromLatin1(extraFields.anonymous)).isValid() && password.isEmpty() && username.isEmpty()) {
+        dlg->setAnonymousMode(info.getExtraField(QString::fromLatin1(extraFields.anonymous)).toBool());
     }
 
-    const QVariant userContextHelp = info.getExtraField(AUTHINFO_EXTRAFIELD_USERNAME_CONTEXT_HELP);
+    const QVariant userContextHelp = info.getExtraField(QString::fromLatin1(extraFields.usernameContextHelp));
     if (userContextHelp.isValid()) {
         dlg->setUsernameContextHelp(userContextHelp.toString());
     }
@@ -894,7 +896,7 @@ void KPasswdServer::passwordDialogDone(int result)
 
     if (request) {
         KIO::AuthInfo &info = request->info;
-        const bool bypassCacheAndKWallet = info.getExtraField(AUTHINFO_EXTRAFIELD_BYPASS_CACHE_AND_KWALLET).toBool();
+        const bool bypassCacheAndKWallet = info.getExtraField(QString::fromLatin1(extraFields.bypassCacheAndKwallet)).toBool();
 
         qCDebug(category) << "dialog result=" << result << ", bypassCacheAndKWallet?" << bypassCacheAndKWallet;
         if (dlg && result == QDialog::Accepted) {
@@ -903,11 +905,11 @@ void KPasswdServer::passwordDialogDone(int result)
             info.password = dlg->password();
             info.keepPassword = dlg->keepPassword();
 
-            if (info.getExtraField(AUTHINFO_EXTRAFIELD_DOMAIN).isValid()) {
-                info.setExtraField(AUTHINFO_EXTRAFIELD_DOMAIN, dlg->domain());
+            if (info.getExtraField(QString::fromLatin1(extraFields.domain)).isValid()) {
+                info.setExtraField(QString::fromLatin1(extraFields.domain), dlg->domain());
             }
-            if (info.getExtraField(AUTHINFO_EXTRAFIELD_ANONYMOUS).isValid()) {
-                info.setExtraField(AUTHINFO_EXTRAFIELD_ANONYMOUS, dlg->anonymousMode());
+            if (info.getExtraField(QString::fromLatin1(extraFields.anonymous)).isValid()) {
+                info.setExtraField(QString::fromLatin1(extraFields.anonymous), dlg->anonymousMode());
             }
 
             // When the user checks "keep password", that means:
@@ -937,7 +939,7 @@ void KPasswdServer::passwordDialogDone(int result)
                 }
 
 #ifdef HAVE_KF5WALLET
-                const bool skipAutoCaching = info.getExtraField(AUTHINFO_EXTRAFIELD_SKIP_CACHING_ON_QUERY).toBool();
+                const bool skipAutoCaching = info.getExtraField(QString::fromLatin1(extraFields.skipCachingOnQuery)).toBool();
                 if (!skipAutoCaching && info.keepPassword && openWallet(request->windowId)) {
                     if (storeInWallet(m_wallet, request->key, info)) {
                         // password is in wallet, don't keep it in memory after window is closed

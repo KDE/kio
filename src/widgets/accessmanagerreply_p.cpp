@@ -20,8 +20,6 @@
 #include <QSslConfiguration>
 #include <QtMath>
 
-#define QL1S(x) QLatin1String(x)
-#define QL1C(x) QLatin1Char(x)
 
 namespace KDEPrivate
 {
@@ -182,7 +180,7 @@ void AccessManagerReply::setHeaderFromMetaData(const KIO::MetaData &_metaData)
     }
 
     // Set the raw header information...
-    const QStringList httpHeaders(metaData.value(QStringLiteral("HTTP-Headers")).split(QL1C('\n'), Qt::SkipEmptyParts));
+    const QStringList httpHeaders(metaData.value(QStringLiteral("HTTP-Headers")).split(QLatin1Char('\n'), Qt::SkipEmptyParts));
     if (httpHeaders.isEmpty()) {
         const auto charSetIt = metaData.constFind(QStringLiteral("charset"));
         if (charSetIt != metaData.constEnd()) {
@@ -193,7 +191,7 @@ void AccessManagerReply::setHeaderFromMetaData(const KIO::MetaData &_metaData)
         }
     } else {
         for (const QString &httpHeader : httpHeaders) {
-            int index = httpHeader.indexOf(QL1C(':'));
+            int index = httpHeader.indexOf(QLatin1Char(':'));
             // Handle HTTP status line...
             if (index == -1) {
                 // Except for the status line, all HTTP header must be an nvpair of
@@ -202,7 +200,7 @@ void AccessManagerReply::setHeaderFromMetaData(const KIO::MetaData &_metaData)
                     continue;
                 }
 
-                QStringList statusLineAttrs(httpHeader.split(QL1C(' '), Qt::SkipEmptyParts));
+                QStringList statusLineAttrs(httpHeader.split(QLatin1Char(' '), Qt::SkipEmptyParts));
                 if (statusLineAttrs.count() > 1) {
                     setAttribute(QNetworkRequest::HttpStatusCodeAttribute, statusLineAttrs.at(1));
                 }
@@ -245,7 +243,7 @@ void AccessManagerReply::setHeaderFromMetaData(const KIO::MetaData &_metaData)
                 }
 
                 if (!headerValue.contains(mimeType, Qt::CaseInsensitive)) {
-                    index = headerValue.indexOf(QL1C(';'));
+                    index = headerValue.indexOf(QLatin1Char(';'));
                     if (index == -1) {
                         headerValue = mimeType;
                     } else {
@@ -467,7 +465,7 @@ void AccessManagerReply::slotRedirection(KIO::Job *job, const QUrl &u)
         return;
     }
     setAttribute(QNetworkRequest::RedirectionTargetAttribute, QUrl(u));
-    if (job->queryMetaData(QStringLiteral("redirect-to-get")) == QL1S("true")) {
+    if (job->queryMetaData(QStringLiteral("redirect-to-get")) == QLatin1String("true")) {
         setOperation(QNetworkAccessManager::GetOperation);
     }
 }

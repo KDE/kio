@@ -67,7 +67,7 @@ class KIOPluginForMetaData : public QObject
 
 using namespace KIO;
 
-#define MAX_IPC_SIZE (1024 * 32)
+static constexpr int s_maxIPCSize = 1024 * 32;
 
 static QString readLogFile(const QByteArray &_filename);
 
@@ -342,11 +342,11 @@ void FileProtocol::get(const QUrl &url)
         }
     }
 
-    char buffer[MAX_IPC_SIZE];
+    char buffer[s_maxIPCSize];
     QByteArray array;
 
     while (1) {
-        int n = f.read(buffer, MAX_IPC_SIZE);
+        int n = f.read(buffer, s_maxIPCSize);
         if (n == -1) {
             if (errno == EINTR) {
                 continue;

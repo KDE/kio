@@ -46,8 +46,8 @@
 #include "kfileplaceeditdialog.h"
 #include "kfileplacesmodel.h"
 
-#define LATERAL_MARGIN 4
-#define CAPACITYBAR_HEIGHT 6
+static constexpr int s_lateralMargin = 4;
+static constexpr int s_capacitybarHeight = 6;
 
 struct PlaceFreeSpaceInfo {
     QDateTime lastUpdated;
@@ -201,7 +201,7 @@ void KFilePlacesViewDelegate::paint(QPainter *painter, const QStyleOptionViewIte
     QIcon icon = index.model()->data(index, Qt::DecorationRole).value<QIcon>();
     QPixmap pm =
         icon.pixmap(m_iconSize, m_iconSize, (opt.state & QStyle::State_Selected) && (opt.state & QStyle::State_Active) ? QIcon::Selected : QIcon::Normal);
-    QPoint point(isLTR ? opt.rect.left() + LATERAL_MARGIN : opt.rect.right() - LATERAL_MARGIN - m_iconSize,
+    QPoint point(isLTR ? opt.rect.left() + s_lateralMargin : opt.rect.right() - s_lateralMargin - m_iconSize,
                  opt.rect.top() + (opt.rect.height() - m_iconSize) / 2);
     painter->drawPixmap(point, pm);
 
@@ -229,15 +229,15 @@ void KFilePlacesViewDelegate::paint(QPainter *painter, const QStyleOptionViewIte
                 painter->save();
                 painter->setOpacity(painter->opacity() * contentsOpacity(index));
 
-                int height = opt.fontMetrics.height() + CAPACITYBAR_HEIGHT;
-                rectText = QRect(isLTR ? m_iconSize + LATERAL_MARGIN * 2 + opt.rect.left() : 0,
+                int height = opt.fontMetrics.height() + s_capacitybarHeight;
+                rectText = QRect(isLTR ? m_iconSize + s_lateralMargin * 2 + opt.rect.left() : 0,
                                  opt.rect.top() + (opt.rect.height() / 2 - height / 2),
-                                 opt.rect.width() - m_iconSize - LATERAL_MARGIN * 2,
+                                 opt.rect.width() - m_iconSize - s_lateralMargin * 2,
                                  opt.fontMetrics.height());
                 painter->drawText(rectText,
                                   Qt::AlignLeft | Qt::AlignTop,
                                   opt.fontMetrics.elidedText(index.model()->data(index).toString(), Qt::ElideRight, rectText.width()));
-                QRect capacityRect(isLTR ? rectText.x() : LATERAL_MARGIN, rectText.bottom() - 1, rectText.width() - LATERAL_MARGIN, CAPACITYBAR_HEIGHT);
+                QRect capacityRect(isLTR ? rectText.x() : s_lateralMargin, rectText.bottom() - 1, rectText.width() - s_lateralMargin, s_capacitybarHeight);
                 KCapacityBar capacityBar(KCapacityBar::DrawTextInline);
                 capacityBar.setValue((info.used * 100) / info.size);
                 capacityBar.drawCapacityBar(painter, capacityRect);
@@ -272,9 +272,9 @@ void KFilePlacesViewDelegate::paint(QPainter *painter, const QStyleOptionViewIte
         }
     }
 
-    rectText = QRect(isLTR ? m_iconSize + LATERAL_MARGIN * 2 + opt.rect.left() : 0,
+    rectText = QRect(isLTR ? m_iconSize + s_lateralMargin * 2 + opt.rect.left() : 0,
                      opt.rect.top(),
-                     opt.rect.width() - m_iconSize - LATERAL_MARGIN * 2,
+                     opt.rect.width() - m_iconSize - s_lateralMargin * 2,
                      opt.rect.height());
     painter->drawText(rectText,
                       Qt::AlignLeft | Qt::AlignVCenter,
@@ -1022,7 +1022,10 @@ void KFilePlacesView::Private::setupIconSizeSubMenu(QMenu *submenu)
     });
     submenu->addAction(autoAct);
 
-    constexpr KIconLoader::StdSizes iconSizes[] = {KIconLoader::SizeSmall, KIconLoader::SizeSmallMedium, KIconLoader::SizeMedium, KIconLoader::SizeLarge};
+    static constexpr KIconLoader::StdSizes iconSizes[] = {KIconLoader::SizeSmall,
+                                                          KIconLoader::SizeSmallMedium,
+                                                          KIconLoader::SizeMedium,
+                                                          KIconLoader::SizeLarge};
 
     for (const auto iconSize : iconSizes) {
         auto *act = new QAction(group);
@@ -1264,7 +1267,7 @@ QSize KFilePlacesView::sizeHint() const
         }
     }
 
-    const int iconSize = style()->pixelMetric(QStyle::PM_SmallIconSize) + 3 * LATERAL_MARGIN;
+    const int iconSize = style()->pixelMetric(QStyle::PM_SmallIconSize) + 3 * s_lateralMargin;
     return QSize(iconSize + textWidth + fm.height() / 2, height);
 }
 

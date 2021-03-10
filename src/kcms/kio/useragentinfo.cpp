@@ -17,9 +17,6 @@
 // KDE
 #include <KServiceTypeTrader>
 
-#define UA_PTOS(x) (*it)->property(x).toString()
-#define QFL(x) QLatin1String(x)
-
 UserAgentInfo::UserAgentInfo()
 {
     m_bIsDirty = true;
@@ -63,45 +60,48 @@ void UserAgentInfo::loadFromDesktopFiles()
 
 void UserAgentInfo::parseDescription()
 {
-    QString tmp;
+    auto propertyToString = [](const KService::Ptr &service, const QString &prop) {
+        return service->property(prop).toString();
+    };
 
-    KService::List::ConstIterator it = m_providers.constBegin();
-    KService::List::ConstIterator lastItem = m_providers.constEnd();
+    for (const auto &service : qAsConst(m_providers)) {
+        QString tmp = propertyToString(service, QStringLiteral("X-KDE-UA-FULL"));
 
-    for (; it != lastItem; ++it) {
-        tmp = UA_PTOS(QStringLiteral("X-KDE-UA-FULL"));
-
-        if ((*it)->property(QStringLiteral("X-KDE-UA-DYNAMIC-ENTRY")).toBool()) {
-            tmp.replace(QFL("appSysName"), QSysInfo::productType());
-            tmp.replace(QFL("appSysRelease"), QSysInfo::kernelVersion());
-            tmp.replace(QFL("appMachineType"), QSysInfo::currentCpuArchitecture());
+        if (service->property(QStringLiteral("X-KDE-UA-DYNAMIC-ENTRY")).toBool()) {
+            tmp.replace(QLatin1String("appSysName"), QSysInfo::productType());
+            tmp.replace(QLatin1String("appSysRelease"), QSysInfo::kernelVersion());
+            tmp.replace(QLatin1String("appMachineType"), QSysInfo::currentCpuArchitecture());
 
             QStringList languageList = QLocale().uiLanguages();
             if (!languageList.isEmpty()) {
                 int ind = languageList.indexOf(QLatin1String("C"));
                 if (ind >= 0) {
-                    if (languageList.contains(QLatin1String("en")))
+                    if (languageList.contains(QLatin1String("en"))) {
                         languageList.removeAt(ind);
-                    else
+                    } else {
                         languageList.value(ind) = QStringLiteral("en");
+                    }
                 }
             }
 
-            tmp.replace(QFL("appLanguage"), QStringLiteral("%1").arg(languageList.join(QStringLiteral(", "))));
-            tmp.replace(QFL("appPlatform"), QFL("X11"));
+            tmp.replace(QLatin1String("appLanguage"), languageList.join(QLatin1String(", ")));
+            tmp.replace(QLatin1String("appPlatform"), QLatin1String("X11"));
         }
 
         // Ignore dups...
-        if (m_lstIdentity.contains(tmp))
+        if (m_lstIdentity.contains(tmp)) {
             continue;
+        }
 
         m_lstIdentity << tmp;
 
-        tmp = QStringLiteral("%1 %2").arg(UA_PTOS(QStringLiteral("X-KDE-UA-SYSNAME")), UA_PTOS(QStringLiteral("X-KDE-UA-SYSRELEASE")));
+        tmp = QLatin1String("%1 %2").arg(propertyToString(service, QStringLiteral("X-KDE-UA-SYSNAME")),
+                                         propertyToString(service, QStringLiteral("X-KDE-UA-SYSRELEASE")));
         if (tmp.trimmed().isEmpty()) {
-            tmp = QStringLiteral("%1 %2").arg(UA_PTOS(QStringLiteral("X-KDE-UA-NAME")), UA_PTOS(QStringLiteral("X-KDE-UA-VERSION")));
+            tmp = QLatin1String("%1 %2").arg(propertyToString(service, QStringLiteral("X-KDE-UA-NAME")),
+                                             propertyToString(service, QStringLiteral("X-KDE-UA-VERSION")));
         } else {
-            tmp = QStringLiteral("%1 %2 on %3").arg(UA_PTOS(QStringLiteral("X-KDE-UA-NAME")), (QStringLiteral("X-KDE-UA-VERSION")), tmp);
+            tmp = QLatin1String("%1 %2 on %3").arg(propertyToString(service, QStringLiteral("X-KDE-UA-NAME")), (QStringLiteral("X-KDE-UA-VERSION")), tmp);
         }
 
         m_lstAlias << tmp;

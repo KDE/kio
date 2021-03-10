@@ -338,7 +338,7 @@ void HelpProtocol::mimetype(const QUrl &)
 
 // Copied from kio_file to avoid redirects
 
-#define MAX_IPC_SIZE (1024 * 32)
+static constexpr int s_maxIPCSize = 1024 * 32;
 
 void HelpProtocol::get_file(const QString &path)
 {
@@ -357,7 +357,7 @@ void HelpProtocol::get_file(const QString &path)
     int processed_size = 0;
     totalSize(f.size());
 
-    char array[MAX_IPC_SIZE];
+    char array[s_maxIPCSize];
 
     Q_FOREVER {
         const qint64 n = f.read(array, sizeof(array));

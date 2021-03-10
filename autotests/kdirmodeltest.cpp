@@ -34,11 +34,14 @@ QTEST_MAIN(KDirModelTest)
 #define exitLoop quit
 #endif
 
+static QString specialChars()
+{
 #ifndef Q_OS_WIN
-#define SPECIALCHARS " special chars%:.pdf"
+    return QStringLiteral(" special chars%:.pdf");
 #else
-#define SPECIALCHARS " special chars%.pdf"
+    return QStringLiteral(" special chars%.pdf");
 #endif
+}
 
 Q_DECLARE_METATYPE(KFileItemList)
 
@@ -54,7 +57,7 @@ void KDirModelTest::initTestCase()
     m_dirModel = nullptr;
     s_referenceTimeStamp = QDateTime::currentDateTime().addSecs(-30); // 30 seconds ago
     m_tempDir = nullptr;
-    m_topLevelFileNames << QStringLiteral("toplevelfile_1") << QStringLiteral("toplevelfile_2") << QStringLiteral("toplevelfile_3") << SPECIALCHARS;
+    m_topLevelFileNames << QStringLiteral("toplevelfile_1") << QStringLiteral("toplevelfile_2") << QStringLiteral("toplevelfile_3") << specialChars();
     recreateTestData();
 
     fillModel(false);
@@ -312,7 +315,7 @@ void KDirModelTest::testNames()
     QCOMPARE(fileName, QString("toplevelfile_1"));
 
     QString specialFileName = m_dirModel->data(m_specialFileIndex, Qt::DisplayRole).toString();
-    QCOMPARE(specialFileName, QString(SPECIALCHARS));
+    QCOMPARE(specialFileName, specialChars());
 
     QString dirName = m_dirModel->data(m_dirIndex, Qt::DisplayRole).toString();
     QCOMPARE(dirName, QString("subdir"));
@@ -1091,7 +1094,7 @@ void KDirModelTest::testDotHiddenFile_data()
     const QStringList allItems{QStringLiteral("toplevelfile_1"),
                                QStringLiteral("toplevelfile_2"),
                                QStringLiteral("toplevelfile_3"),
-                               SPECIALCHARS,
+                               specialChars(),
                                QStringLiteral("subdir")};
     QTest::newRow("empty_file") << (QStringList{}) << allItems;
 
@@ -1099,7 +1102,7 @@ void KDirModelTest::testDotHiddenFile_data()
 
     QStringList allButSpecialChars = allItems;
     allButSpecialChars.removeAt(3);
-    QTest::newRow("special_chars") << (QStringList{SPECIALCHARS}) << allButSpecialChars;
+    QTest::newRow("special_chars") << (QStringList{specialChars()}) << allButSpecialChars;
 
     QStringList allButSubdir = allItems;
     allButSubdir.removeAt(4);
@@ -1107,7 +1110,7 @@ void KDirModelTest::testDotHiddenFile_data()
 
     QTest::newRow("many_lines")
         << (QStringList{QStringLiteral("subdir"), QStringLiteral("toplevelfile_1"), QStringLiteral("toplevelfile_3"), QStringLiteral("toplevelfile_2")})
-        << QStringList{SPECIALCHARS};
+        << QStringList{specialChars()};
 }
 
 void KDirModelTest::testDotHiddenFile()

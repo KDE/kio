@@ -18,7 +18,7 @@
 // Local
 #include "ksaveioconfig.h"
 
-#define MAX_TIMEOUT_VALUE 3600
+static constexpr int s_maxTimeoutValue = 3600;
 
 K_PLUGIN_FACTORY_DECLARATION(KioConfigFactory)
 
@@ -37,7 +37,7 @@ KIOPreferences::KIOPreferences(QWidget *parent, const QVariantList &)
               "You might want to tweak them if your "
               "connection is very slow. The maximum "
               "allowed value is %1 seconds.",
-              MAX_TIMEOUT_VALUE));
+              s_maxTimeoutValue));
     mainLayout->addWidget(gb_Timeout);
 
     QFormLayout *timeoutLayout = new QFormLayout(gb_Timeout);
@@ -125,10 +125,10 @@ void KIOPreferences::load()
 {
     KProtocolManager proto;
 
-    sb_socketRead->setRange(MIN_TIMEOUT_VALUE, MAX_TIMEOUT_VALUE);
-    sb_serverResponse->setRange(MIN_TIMEOUT_VALUE, MAX_TIMEOUT_VALUE);
-    sb_serverConnect->setRange(MIN_TIMEOUT_VALUE, MAX_TIMEOUT_VALUE);
-    sb_proxyConnect->setRange(MIN_TIMEOUT_VALUE, MAX_TIMEOUT_VALUE);
+    sb_socketRead->setRange(MIN_TIMEOUT_VALUE, s_maxTimeoutValue);
+    sb_serverResponse->setRange(MIN_TIMEOUT_VALUE, s_maxTimeoutValue);
+    sb_serverConnect->setRange(MIN_TIMEOUT_VALUE, s_maxTimeoutValue);
+    sb_proxyConnect->setRange(MIN_TIMEOUT_VALUE, s_maxTimeoutValue);
 
     sb_socketRead->setValue(proto.readTimeout());
     sb_serverResponse->setValue(proto.responseTimeout());

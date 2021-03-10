@@ -9,7 +9,7 @@
 #include <KConfigGroup>
 #include <KSharedConfig>
 
-#define MAX_DIR_HISTORY 3
+static constexpr int s_maxDirHistory = 3;
 
 static KConfigGroup recentdirs_readList(QString &key, QStringList &result)
 {
@@ -53,7 +53,7 @@ void KRecentDirs::add(const QString &fileClass, const QString &directory)
     // make sure the dir is first in history
     result.removeAll(directory);
     result.prepend(directory);
-    while (result.count() > MAX_DIR_HISTORY) {
+    while (result.count() > s_maxDirHistory) {
         result.removeLast();
     }
     config.writePathEntry(key, result);

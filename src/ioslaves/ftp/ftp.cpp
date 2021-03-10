@@ -18,7 +18,6 @@
 
 #include <config-kioslave-ftp.h>
 
-#define KIO_FTP_PRIVATE_INCLUDE
 #include "ftp.h"
 
 #ifdef Q_OS_WIN
@@ -60,10 +59,10 @@ Q_LOGGING_CATEGORY(KIO_FTP, "kf.kio.slaves.ftp", QtWarningMsg)
 #define charToLongLong(a) strtol(a, nullptr, 10)
 #endif
 
-#define FTP_LOGIN "anonymous"
-#define FTP_PASSWD "anonymous@"
+static constexpr char s_ftpLogin[] = "anonymous";
+static constexpr char s_ftpPasswd[] = "anonymous@";
 
-#define ENABLE_CAN_RESUME
+static constexpr bool s_enableCanResume = true;
 
 // Pseudo plugin class to embed meta data
 class KIOPluginForMetaData : public QObject
@@ -369,10 +368,10 @@ Result FtpInternal::ftpOpenConnection(LoginMode loginMode)
     if (userNameChanged && m_bLoggedOn) {
         QUrl realURL;
         realURL.setScheme(QStringLiteral("ftp"));
-        if (m_user != QLatin1String(FTP_LOGIN)) {
+        if (m_user != QLatin1String(s_ftpLogin)) {
             realURL.setUserName(m_user);
         }
-        if (m_pass != QLatin1String(FTP_PASSWD)) {
+        if (m_pass != QLatin1String(s_ftpPasswd)) {
             realURL.setPassword(m_pass);
         }
         realURL.setHost(m_host);
@@ -525,8 +524,8 @@ Result FtpInternal::ftpLogin(bool *userChanged)
     // Try anonymous login if both username/password
     // information is blank.
     if (user.isEmpty() && pass.isEmpty()) {
-        user = QStringLiteral(FTP_LOGIN);
-        pass = QStringLiteral(FTP_PASSWD);
+        user = QString::fromLatin1(s_ftpLogin);
+        pass = QString::fromLatin1(s_ftpPasswd);
     }
 
     QByteArray tempbuf;
@@ -554,7 +553,7 @@ Result FtpInternal::ftpLogin(bool *userChanged)
                     lastServerResponse);
             }
 
-            if (user != QLatin1String(FTP_LOGIN)) {
+            if (user != QLatin1String(s_ftpLogin)) {
                 info.username = user;
             }
 
@@ -576,8 +575,8 @@ Result FtpInternal::ftpLogin(bool *userChanged)
             } else {
                 // User can decide go anonymous using checkbox
                 if (info.getExtraField(QStringLiteral("anonymous")).toBool()) {
-                    user = QStringLiteral(FTP_LOGIN);
-                    pass = QStringLiteral(FTP_PASSWD);
+                    user = QString::fromLatin1(s_ftpLogin);
+                    pass = QString::fromLatin1(s_ftpPasswd);
                 } else {
                     user = info.username;
                     pass = info.password;
@@ -621,7 +620,7 @@ Result FtpInternal::ftpLogin(bool *userChanged)
             }
 
             // Do not cache the default login!!
-            if (user != QLatin1String(FTP_LOGIN) && pass != QLatin1String(FTP_PASSWD)) {
+            if (user != QLatin1String(s_ftpLogin) && pass != QLatin1String(s_ftpPasswd)) {
                 // Update the username in case it was changed during login.
                 if (!m_user.isEmpty()) {
                     info.url.setUserName(user);
@@ -1983,7 +1982,7 @@ Result FtpInternal::ftpPut(int iCopyFile, const QUrl &dest_url, int permissions,
     // Don't use mark partial over anonymous FTP.
     // My incoming dir allows put but not rename...
     bool bMarkPartial;
-    if (m_user.isEmpty() || m_user == QLatin1String(FTP_LOGIN)) {
+    if (m_user.isEmpty() || m_user == QLatin1String(s_ftpLogin)) {
         bMarkPartial = false;
     } else {
         bMarkPartial = q->configValue(QStringLiteral("MarkPartial"), true);
@@ -2117,12 +2116,12 @@ Result FtpInternal::ftpPut(int iCopyFile, const QUrl &dest_url, int permissions,
 
     // set final permissions
     if (permissions != -1) {
-        if (m_user == QLatin1String(FTP_LOGIN))
+        if (m_user == QLatin1String(s_ftpLogin))
             qCDebug(KIO_FTP) << "Trying to chmod over anonymous FTP ???";
         // chmod the file we just put
         if (!ftpChmod(dest_orig, permissions)) {
             // To be tested
-            // if ( m_user != FTP_LOGIN )
+            // if ( m_user != s_ftpLogin )
             //    warning( i18n( "Could not change permissions for\n%1" ).arg( dest_orig ) );
         }
     }
@@ -2287,11 +2286,11 @@ Result FtpInternal::ftpCopyPut(int &iCopyFile, const QString &sCopyFile, const Q
 
     // delegate the real work (iError gets status) ...
     q->totalSize(info.size());
-#ifdef ENABLE_CAN_RESUME
-    return ftpPut(iCopyFile, url, permissions, flags & ~KIO::Resume);
-#else
-    return ftpPut(iCopyFile, url, permissions, flags | KIO::Resume);
-#endif
+    if (s_enableCanResume) {
+        return ftpPut(iCopyFile, url, permissions, flags & ~KIO::Resume);
+    } else {
+        return ftpPut(iCopyFile, url, permissions, flags | KIO::Resume);
+    }
 }
 
 Result FtpInternal::ftpCopyGet(int &iCopyFile, const QString &sCopyFile, const QUrl &url, int permissions, KIO::JobFlags flags)
@@ -2321,11 +2320,7 @@ Result FtpInternal::ftpCopyGet(int &iCopyFile, const QString &sCopyFile, const Q
             return Result::fail(ERR_DIR_ALREADY_EXIST);
         }
         // doesn't work for copy? -> design flaw?
-#ifdef ENABLE_CAN_RESUME
-        bResume = q->canResume(sPartInfo.size());
-#else
-        bResume = true;
-#endif
+        bResume = s_enableCanResume ? q->canResume(sPartInfo.size()) : true;
     }
 
     if (bPartExists && !bResume) { // get rid of an unwanted ".part" file

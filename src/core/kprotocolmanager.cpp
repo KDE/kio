@@ -52,10 +52,7 @@
 #include "ioslave_defaults.h"
 #include "slaveconfig.h"
 
-#define QL1S(x) QLatin1String(x)
-#define QL1C(x) QLatin1Char(x)
-
-typedef QPair<QHostAddress, int> SubnetPair;
+using SubnetPair = QPair<QHostAddress, int>;
 
 /*
     Domain suffix match. E.g. return true if host is "cuzco.inka.de" and
@@ -177,7 +174,7 @@ bool KProtocolManagerPrivate::shouldIgnoreProxyFor(const QUrl &url)
 
     // No proxy only applies to ManualProxy and EnvVarProxy types...
     if (useNoProxyList && noProxyFor.isEmpty()) {
-        QStringList noProxyForList(readNoProxyFor().split(QL1C(',')));
+        QStringList noProxyForList(readNoProxyFor().split(QLatin1Char(',')));
         QMutableStringListIterator it(noProxyForList);
         while (it.hasNext()) {
             SubnetPair subnet = QHostAddress::parseSubnet(it.next());
@@ -200,7 +197,7 @@ bool KProtocolManagerPrivate::shouldIgnoreProxyFor(const QUrl &url)
         // number, try the combination of "host:port". This allows
         // users to enter host:port in the No-proxy-For list.
         if (!isMatch && url.port() > 0) {
-            qhost += QL1C(':') + QString::number(url.port());
+            qhost += QLatin1Char(':') + QString::number(url.port());
             host = qhost.toLatin1();
             isMatch = revmatch(host.constData(), no_proxy.constData());
         }
@@ -438,11 +435,11 @@ QString KProtocolManager::noProxyFor()
 
 static QString adjustProtocol(const QString &scheme)
 {
-    if (scheme.compare(QL1S("webdav"), Qt::CaseInsensitive) == 0) {
+    if (scheme.compare(QLatin1String("webdav"), Qt::CaseInsensitive) == 0) {
         return QStringLiteral("http");
     }
 
-    if (scheme.compare(QL1S("webdavs"), Qt::CaseInsensitive) == 0) {
+    if (scheme.compare(QLatin1String("webdavs"), Qt::CaseInsensitive) == 0) {
         return QStringLiteral("https");
     }
 
@@ -458,16 +455,16 @@ QString KProtocolManager::proxyFor(const QString &protocol)
 
 QString KProtocolManagerPrivate::proxyFor(const QString &protocol)
 {
-    const QString key = adjustProtocol(protocol) + QL1S("Proxy");
+    const QString key = adjustProtocol(protocol) + QLatin1String("Proxy");
     QString proxyStr(config()->group("Proxy Settings").readEntry(key));
-    const int index = proxyStr.lastIndexOf(QL1C(' '));
+    const int index = proxyStr.lastIndexOf(QLatin1Char(' '));
 
     if (index > -1) {
         bool ok = false;
         const QStringRef portStr(proxyStr.rightRef(proxyStr.length() - index - 1));
         portStr.toInt(&ok);
         if (ok) {
-            proxyStr = proxyStr.leftRef(index) + QL1C(':') + portStr;
+            proxyStr = proxyStr.leftRef(index) + QLatin1Char(':') + portStr;
         } else {
             proxyStr.clear();
         }
@@ -499,16 +496,16 @@ QStringList KProtocolManagerPrivate::getSystemProxyFor(const QUrl &url)
         QUrl url;
         const QNetworkProxy::ProxyType type = proxy.type();
         if (type == QNetworkProxy::NoProxy || type == QNetworkProxy::DefaultProxy) {
-            proxies << QL1S("DIRECT");
+            proxies << QLatin1String("DIRECT");
             continue;
         }
 
         if (type == QNetworkProxy::HttpProxy || type == QNetworkProxy::HttpCachingProxy) {
-            url.setScheme(QL1S("http"));
+            url.setScheme(QLatin1String("http"));
         } else if (type == QNetworkProxy::Socks5Proxy) {
-            url.setScheme(QL1S("socks"));
+            url.setScheme(QLatin1String("socks"));
         } else if (type == QNetworkProxy::FtpCachingProxy) {
-            url.setScheme(QL1S("ftp"));
+            url.setScheme(QLatin1String("ftp"));
         }
 
         url.setHost(proxy.hostName());
@@ -531,9 +528,9 @@ QStringList KProtocolManagerPrivate::getSystemProxyFor(const QUrl &url)
     if (!proxyVar.isEmpty()) {
         QString proxy = QString::fromLocal8Bit(qgetenv(proxyVar.toLocal8Bit().constData())).trimmed();
         // Make sure the scheme of SOCKS proxy is always set to "socks://".
-        const int index = proxy.indexOf(QL1S("://"));
+        const int index = proxy.indexOf(QLatin1String("://"));
         const int offset = (index == -1) ? 0 : (index + 3);
-        proxy = QL1S("socks://") + proxy.midRef(offset);
+        proxy = QLatin1String("socks://") + proxy.midRef(offset);
         if (!proxy.isEmpty()) {
             proxies << proxy;
         }
@@ -576,9 +573,9 @@ QStringList KProtocolManager::proxiesForUrl(const QUrl &url)
             proxy = d->proxyFor(QStringLiteral("socks"));
             if (!proxy.isEmpty()) {
                 // Make sure the scheme of SOCKS proxy is always set to "socks://".
-                const int index = proxy.indexOf(QL1S("://"));
+                const int index = proxy.indexOf(QLatin1String("://"));
                 const int offset = (index == -1) ? 0 : (index + 3);
-                proxy = QL1S("socks://") + proxy.midRef(offset);
+                proxy = QLatin1String("socks://") + proxy.midRef(offset);
                 proxyList << proxy;
             }
             break;
@@ -639,7 +636,8 @@ QString KProtocolManager::slaveProtocol(const QUrl &url, QStringList &proxyList)
     // Do not perform a proxy lookup for any url classified as a ":local" url or
     // one that does not have a host component or if proxy is disabled.
     QString protocol(url.scheme());
-    if (url.host().isEmpty() || KProtocolInfo::protocolClass(protocol) == QL1S(":local") || KProtocolManager::proxyType() == KProtocolManager::NoProxy) {
+    if (url.host().isEmpty() || KProtocolInfo::protocolClass(protocol) == QLatin1String(":local")
+        || KProtocolManager::proxyType() == KProtocolManager::NoProxy) {
         return protocol;
     }
 
@@ -659,9 +657,9 @@ QString KProtocolManager::slaveProtocol(const QUrl &url, QStringList &proxyList)
     const QStringList proxies = proxiesForUrl(url);
     const int count = proxies.count();
 
-    if (count > 0 && !(count == 1 && proxies.first() == QL1S("DIRECT"))) {
+    if (count > 0 && !(count == 1 && proxies.first() == QLatin1String("DIRECT"))) {
         for (const QString &proxy : proxies) {
-            if (proxy == QL1S("DIRECT")) {
+            if (proxy == QLatin1String("DIRECT")) {
                 proxyList << proxy;
             } else {
                 QUrl u(proxy);
@@ -699,7 +697,7 @@ QString KProtocolManager::slaveProtocol(const QUrl &url, QStringList &proxyList)
 QString KProtocolManager::userAgentForHost(const QString &hostname)
 {
     const QString sendUserAgent = KIO::SlaveConfig::self()->configData(QStringLiteral("http"), hostname.toLower(), QStringLiteral("SendUserAgent")).toLower();
-    if (sendUserAgent == QL1S("false")) {
+    if (sendUserAgent == QLatin1String("false")) {
         return QString();
     }
 
@@ -755,19 +753,19 @@ QString KProtocolManager::defaultUserAgent(const QString &_modifiers)
     supp += platform();
 
     if (sysInfoFound) {
-        if (modifiers.contains(QL1C('o'))) {
-            supp += QL1S("; ") + systemName;
-            if (modifiers.contains(QL1C('v'))) {
-                supp += QL1C(' ') + systemVersion;
+        if (modifiers.contains(QLatin1Char('o'))) {
+            supp += QLatin1String("; ") + systemName;
+            if (modifiers.contains(QLatin1Char('v'))) {
+                supp += QLatin1Char(' ') + systemVersion;
             }
 
-            if (modifiers.contains(QL1C('m'))) {
-                supp += QL1C(' ') + machine;
+            if (modifiers.contains(QLatin1Char('m'))) {
+                supp += QLatin1Char(' ') + machine;
             }
         }
 
-        if (modifiers.contains(QL1C('l'))) {
-            supp += QL1S("; ") + QLocale::languageToString(QLocale().language());
+        if (modifiers.contains(QLatin1Char('l'))) {
+            supp += QLatin1String("; ") + QLocale::languageToString(QLocale().language());
         }
     }
 
@@ -793,18 +791,18 @@ QString KProtocolManager::userAgentForApplication(const QString &appName, const 
     QString systemName, systemVersion, machine, info;
 
     if (getSystemNameVersionAndMachine(systemName, systemVersion, machine)) {
-        info += systemName + QL1C('/') + systemVersion + QL1S("; ");
+        info += systemName + QLatin1Char('/') + systemVersion + QLatin1String("; ");
     }
 
-    info += QL1S("KDE/") + QStringLiteral(KIO_VERSION_STRING);
+    info += QLatin1String("KDE/") + QStringLiteral(KIO_VERSION_STRING);
 
     if (!machine.isEmpty()) {
-        info += QL1S("; ") + machine;
+        info += QLatin1String("; ") + machine;
     }
 
-    info += QL1S("; ") + extraInfo.join(QLatin1String("; "));
+    info += QLatin1String("; ") + extraInfo.join(QLatin1String("; "));
 
-    return (appName + QL1C('/') + appVersion + QStringLiteral(" (") + info + QL1C(')'));
+    return (appName + QLatin1Char('/') + appVersion + QStringLiteral(" (") + info + QLatin1Char(')'));
 }
 
 bool KProtocolManager::getSystemNameVersionAndMachine(QString &systemName, QString &systemVersion, QString &machine)
@@ -824,7 +822,7 @@ bool KProtocolManager::getSystemNameVersionAndMachine(QString &systemName, QStri
     }
     if (ok) {
         systemVersion = QString::number(versioninfo.dwMajorVersion);
-        systemVersion += QL1C('.');
+        systemVersion += QLatin1Char('.');
         systemVersion += QString::number(versioninfo.dwMinorVersion);
     }
 #else
@@ -884,10 +882,10 @@ QString KProtocolManager::acceptLanguagesHeader()
     for (const QString &lang : qAsConst(languageListFinal)) {
         header += lang;
         if (prio < 10) {
-            header += QL1S(";q=0.") + QString::number(prio);
+            header += QLatin1String(";q=0.") + QString::number(prio);
         }
         // do not add cosmetic whitespace in here : it is less compatible (#220677)
-        header += QL1C(',');
+        header += QLatin1Char(',');
         if (prio > 1) {
             --prio;
         }
@@ -897,8 +895,8 @@ QString KProtocolManager::acceptLanguagesHeader()
     // Some of the languages may have country specifier delimited by
     // underscore, or modifier delimited by at-sign.
     // The header should use dashes instead.
-    header.replace(QL1C('_'), QL1C('-'));
-    header.replace(QL1C('@'), QL1C('-'));
+    header.replace(QLatin1Char('_'), QLatin1Char('-'));
+    header.replace(QLatin1Char('@'), QLatin1Char('-'));
 
     return header;
 }

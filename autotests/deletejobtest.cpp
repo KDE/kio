@@ -17,7 +17,7 @@
 
 QTEST_MAIN(DeleteJobTest)
 
-#define KJOB_NO_ERROR static_cast<int>(KJob::NoError)
+static constexpr int KJOB_NO_ERROR = static_cast<int>(KJob::NoError);
 
 void DeleteJobTest::initTestCase()
 {

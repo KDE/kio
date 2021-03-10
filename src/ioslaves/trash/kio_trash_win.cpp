@@ -6,8 +6,6 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#define QT_NO_CAST_FROM_ASCII
-
 #include "kio_trash_win.h"
 #include "kio/job.h"
 #include "kioglobal_p.h"

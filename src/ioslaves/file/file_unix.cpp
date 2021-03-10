@@ -61,7 +61,7 @@
 using namespace KIO;
 
 /* 512 kB */
-#define MAX_IPC_SIZE (1024 * 512)
+static constexpr int s_maxIPCSize = 1024 * 512;
 
 static bool same_inode(const QT_STATBUF &src, const QT_STATBUF &dest)
 {
@@ -840,7 +840,7 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mode, JobF
         // if fs does not support reflinking, files are on different devices...
 #endif
         KIO::filesize_t processed_size = 0;
-        char buffer[MAX_IPC_SIZE];
+        char buffer[s_maxIPCSize];
         ssize_t n = 0;
 #ifdef USE_SENDFILE
         bool use_sendfile = true;
@@ -854,7 +854,7 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mode, JobF
 #ifdef USE_SENDFILE
             if (use_sendfile) {
                 off_t sf = processed_size;
-                n = ::sendfile(dest_file.handle(), src_file.handle(), &sf, MAX_IPC_SIZE);
+                n = ::sendfile(dest_file.handle(), src_file.handle(), &sf, s_maxIPCSize);
                 processed_size = sf;
                 if (n == -1 && (errno == EINVAL || errno == ENOSYS)) { // not all filesystems support sendfile()
                     // qDebug() << "sendfile() not supported, falling back ";
@@ -863,7 +863,7 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mode, JobF
             }
             if (!use_sendfile)
 #endif
-                n = ::read(src_file.handle(), buffer, MAX_IPC_SIZE);
+                n = ::read(src_file.handle(), buffer, s_maxIPCSize);
 
             if (n == -1) {
                 if (errno == EINTR) {

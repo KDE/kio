@@ -21,7 +21,7 @@
 QTEST_MAIN(KUriFilterTest)
 
 static const char *const s_uritypes[] = {"NetProtocol", "LOCAL_FILE", "LOCAL_DIR", "EXECUTABLE", "HELP", "SHELL", "BLOCKED", "ERROR", "UNKNOWN"};
-#define NO_FILTERING -2
+static constexpr int s_noFiltering = -2;
 
 static void setupColumns()
 {
@@ -62,9 +62,9 @@ static void runFilterTest(const QString &a,
     }
 
     if (KUriFilter::self()->filterUri(*filterData, list)) {
-        if (expectedUriType == NO_FILTERING) {
+        if (expectedUriType == s_noFiltering) {
             qCritical() << a << "Did not expect filtering. Got" << filterData->uri();
-            QVERIFY(expectedUriType != NO_FILTERING); // fail the test
+            QVERIFY(expectedUriType != s_noFiltering); // fail the test
         }
 
         // Copied from minicli...
@@ -117,7 +117,7 @@ static void runFilterTest(const QString &a,
             QCOMPARE(s_uritypes[filterData->uriType()], s_uritypes[expectedUriType]);
         }
     } else {
-        if (expectedUriType == NO_FILTERING) {
+        if (expectedUriType == s_noFiltering) {
             qDebug() << "*** No filtering required.";
         } else {
             qDebug() << "*** Could not be filtered.";
@@ -380,8 +380,8 @@ void KUriFilterTest::executables_data()
     // Executable tests - No IKWS in minicli
     addRow("cp", QStringLiteral("cp"), KUriFilterData::Executable, minicliFilters);
     addRow("kbuildsycoca5", QStringLiteral("kbuildsycoca5"), KUriFilterData::Executable, minicliFilters);
-    addRow("KDE", QStringLiteral("KDE"), NO_FILTERING, minicliFilters);
-    addRow("does/not/exist", QStringLiteral("does/not/exist"), NO_FILTERING, minicliFilters);
+    addRow("KDE", QStringLiteral("KDE"), s_noFiltering, minicliFilters);
+    addRow("does/not/exist", QStringLiteral("does/not/exist"), s_noFiltering, minicliFilters);
     addRow("/does/not/exist", QStringLiteral("/does/not/exist"), KUriFilterData::LocalFile, minicliFilters);
     addRow("/does/not/exist#a", QStringLiteral("/does/not/exist#a"), KUriFilterData::LocalFile, minicliFilters);
     addRow("kbuildsycoca5 --help", QStringLiteral("kbuildsycoca5 --help"), KUriFilterData::Executable, minicliFilters); // the args are in argsAndOptions()

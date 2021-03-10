@@ -9,7 +9,7 @@
 
 #include "kcookieserver.h"
 
-#define SAVE_DELAY 3 // Save after 3 minutes
+static constexpr int s_saveDelay = 3; // Save after 3 minutes
 
 #include <QFile>
 #include <QTimer>
@@ -297,7 +297,7 @@ void KCookieServer::saveCookieJar()
         return;
     }
 
-    mTimer->start(1000 * 60 * SAVE_DELAY);
+    mTimer->start(1000 * 60 * s_saveDelay);
 }
 
 void KCookieServer::putCookie(QStringList &out, const KHttpCookie &cookie, const QList<int> &fields)

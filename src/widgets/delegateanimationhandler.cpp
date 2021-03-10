@@ -133,17 +133,16 @@ bool AnimationState::update()
     }
 }
 
+static constexpr double s_mPI2 = 1.57079632679489661923;
+
 qreal AnimationState::hoverProgress() const
 {
-#ifndef M_PI_2
-#define M_PI_2 1.57079632679489661923
-#endif
-    return qRound(255.0 * std::sin(progress * M_PI_2)) / 255.0;
+    return qRound(255.0 * std::sin(progress * s_mPI2)) / 255.0;
 }
 
 qreal AnimationState::fadeProgress() const
 {
-    return qRound(255.0 * std::sin(m_fadeProgress * M_PI_2)) / 255.0;
+    return qRound(255.0 * std::sin(m_fadeProgress * s_mPI2)) / 255.0;
 }
 
 qreal AnimationState::jobAnimationAngle() const
