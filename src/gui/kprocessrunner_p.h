@@ -76,6 +76,25 @@ public:
                                        const QProcessEnvironment &environment);
 
     /**
+     * Run an executable with arguments (no shell involved)
+     * @param executable the name of (or full path to) the executable, mandatory
+     * @param args the arguments to pass to the executable
+     * @param desktopName name of the desktop file, if known.
+     * @param iconName icon for the startup notification
+     * @param asn Application startup notification id, if any (otherwise "").
+     * @param workingDirectory the working directory for the started process. The default
+     *                         (if passing an empty string) is the user's document path.
+     *                         This allows a command like "kwrite file.txt" to find file.txt from the right place.
+     */
+    static KProcessRunner *fromExecutable(const QString &executable,
+                                          const QStringList &args,
+                                          const QString &desktopName,
+                                          const QString &iconName,
+                                          const QByteArray &asn,
+                                          const QString &workingDirectory,
+                                          const QProcessEnvironment &environment);
+
+    /**
      * Blocks until the process has started. Only exists for KRun via Command/ApplicationLauncherJob, will disappear in KF6.
      */
     virtual bool waitForStarted(int timeout = 30000) = 0;
@@ -124,6 +143,12 @@ protected:
 
 private:
     void emitDelayedError(const QString &errorMsg);
+    void initFromDesktopName(const QString &desktopName,
+                             const QString &execName,
+                             const QString &iconName,
+                             const QByteArray &asn,
+                             const QString &workingDirectory,
+                             const QProcessEnvironment &environment);
     void init(const KService::Ptr &service, const QString &serviceEntryPath, const QString &userVisibleName, const QString &iconName, const QByteArray &asn);
 
     KStartupInfoId m_startupId;

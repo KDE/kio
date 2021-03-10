@@ -153,22 +153,49 @@ KProcessRunner *KProcessRunner::fromCommand(const QString &cmd,
     } else
 #endif
         instance->m_process->setShellCommand(cmd);
+
+    instance->initFromDesktopName(desktopName, execName, iconName, asn, workingDirectory, environment);
+    return instance;
+}
+
+KProcessRunner *KProcessRunner::fromExecutable(const QString &executable,
+                                               const QStringList &args,
+                                               const QString &desktopName,
+                                               const QString &iconName,
+                                               const QByteArray &asn,
+                                               const QString &workingDirectory,
+                                               const QProcessEnvironment &environment)
+{
+    auto instance = makeInstance();
+
+    instance->m_executable = KIO::DesktopExecParser::executablePath(executable);
+    instance->m_process->setProgram(executable, args);
+    instance->initFromDesktopName(desktopName, executable, iconName, asn, workingDirectory, environment);
+    return instance;
+}
+
+void KProcessRunner::initFromDesktopName(const QString &desktopName,
+                                         const QString &execName,
+                                         const QString &iconName,
+                                         const QByteArray &asn,
+                                         const QString &workingDirectory,
+                                         const QProcessEnvironment &environment)
+{
     if (!workingDirectory.isEmpty()) {
-        instance->m_process->setWorkingDirectory(workingDirectory);
+        m_process->setWorkingDirectory(workingDirectory);
     }
-    instance->m_process->setProcessEnvironment(environment);
+    m_process->setProcessEnvironment(environment);
     if (!desktopName.isEmpty()) {
         KService::Ptr service = KService::serviceByDesktopName(desktopName);
         if (service) {
-            if (instance->m_executable.isEmpty()) {
-                instance->m_executable = KIO::DesktopExecParser::executablePath(service->exec());
+            if (m_executable.isEmpty()) {
+                m_executable = KIO::DesktopExecParser::executablePath(service->exec());
             }
-            instance->init(service, service->entryPath(), service->name(), service->icon(), asn);
-            return instance;
+            init(service, service->entryPath(), service->name(), service->icon(), asn);
+            return;
         }
     }
-    instance->init(KService::Ptr(), QString{}, execName /*user-visible name*/, iconName, asn);
-    return instance;
+    init(KService::Ptr(), QString{}, execName /*user-visible name*/, iconName, asn);
 }
 
 void KProcessRunner::init(const KService::Ptr &service,
