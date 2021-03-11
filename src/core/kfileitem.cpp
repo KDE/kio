@@ -1576,13 +1576,12 @@ QUrl KFileItem::targetUrl() const
 
 QMimeType KFileItem::currentMimeType() const
 {
-    if (!d) {
+    if (!d || d->m_url.isEmpty()) {
         return QMimeType();
     }
 
     if (!d->m_mimeType.isValid()) {
         // On-demand fast (but not always accurate) MIME type determination
-        Q_ASSERT(!d->m_url.isEmpty());
         QMimeDatabase db;
         if (isDir()) {
             d->m_mimeType = db.mimeTypeForName(QStringLiteral("inode/directory"));
