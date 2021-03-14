@@ -606,16 +606,15 @@ bool FileProtocol::copyXattrs(const int src_fd, const int dest_fd)
             listlen = 0;
             continue;
         }
-        if (listlen == -1) {
-            if (errno == ENOTSUP) {
-                qCDebug(KIO_FILE) << "source filesystem does not support xattrs";
-            }
-            return false;
-        }
         if (listlen == 0) {
             qCDebug(KIO_FILE) << "the file doesn't have any xattr";
             return true;
         }
+        QASSERT_X(listlen == -1, "unexpected return value from listxattr");
+        if (listlen == -1 && errno == ENOTSUP) {
+            qCDebug(KIO_FILE) << "source filesystem does not support xattrs";
+        }
+        return false;
     }
 
     keylist.resize(listlen);
@@ -663,7 +662,15 @@ bool FileProtocol::copyXattrs(const int src_fd, const int dest_fd)
             if (valuelen == 0) {
                 break;
             }
+            QASSERT_X(valuelen == -1, "unexpected return value from getxattr");
+            // Some other error, skip to the next attribute, most notably
+            // - ENOTSUP: invalid (inaccassible) attribute namespace, e.g. with SELINUX
+            break;
         } while (true);
+
+        if (valuelen < 0) {
+            continue;
+        }
 
         // Write key:value pair on destination
 #if HAVE_SYS_XATTR_H && !defined(__stub_getxattr) && !defined(Q_OS_MAC)
@@ -675,6 +682,9 @@ bool FileProtocol::copyXattrs(const int src_fd, const int dest_fd)
 #endif
         if (destlen == -1 && errno == ENOTSUP) {
             qCDebug(KIO_FILE) << "Destination filesystem does not support xattrs";
+            return false;
+        }
+        if (destlen == -1 && (errno == ENOSPC || errno == EDQUOT)) {
             return false;
         }
 
