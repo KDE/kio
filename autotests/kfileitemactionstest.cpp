@@ -10,9 +10,24 @@
 #include <kfileitemactions.h>
 #include <kfileitemlistproperties.h>
 
+#include <KServiceTypeTrader>
+#include <KSycoca>
 #include <QMenu>
 #include <QStandardPaths>
 #include <QTest>
+
+void KFileItemActionsTest::initTestCase()
+{
+    QStandardPaths::setTestModeEnabled(true);
+    const QString dataLocation = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation);
+    QString appsPath = dataLocation + QDir::separator() + "kservices5";
+    QString servicesPath = dataLocation + QDir::separator() + "kservicetypes5/";
+    qputenv("XDG_DATA_DIRS", QFile::encodeName(dataLocation));
+    QDir(appsPath).removeRecursively();
+    QVERIFY(QDir().mkpath(appsPath));
+    QVERIFY(QDir().mkpath(servicesPath));
+    QFile::copy(QStringLiteral(SERVICE_FILE_PATH), servicesPath + "konqpopupmenuplugin.desktop");
+}
 
 /**
  * In KDE 4.x, calling KFileItemActions::setParentWidget(QWidget *widget) would
@@ -46,6 +61,34 @@ void KFileItemActionsTest::testSetParentWidget()
     // because they were children of the widget. We would then get a crash in the
     // destructor of fileItemActions because it tried to delete dangling pointers.
     delete widget;
+}
+
+void KFileItemActionsTest::testTopLevelServiceMenuActions()
+{
+    copyTestFile("servicemenu1.desktop");
+    KFileItemActions actions;
+    actions.setItemListProperties(KFileItemList({KFileItem(QUrl::fromLocalFile(QFINDTESTDATA("data")))}));
+
+    QMenu *menu = new QMenu();
+    actions.addActionsTo(menu, KFileItemActions::MenuActionSource::Services);
+    QCOMPARE(menu->actions().count(), 1);
+}
+
+void KFileItemActionsTest::cleanup()
+{
+    const QString servicesPath = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QDir::separator() + "kservices5";
+    const QStringList files = QDir(servicesPath).entryList(QDir::NoDotAndDotDot | QDir::Files);
+    for (const QString &file : files) {
+        QVERIFY(QFile::remove(servicesPath + QDir::separator() + file));
+    }
+}
+
+void KFileItemActionsTest::copyTestFile(const QString &fileName)
+{
+    QString source = QFINDTESTDATA("data") + QDir::separator() + fileName;
+    QString target = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QDir::separator() + "kservices5" + QDir::separator() + fileName;
+    QVERIFY2(QFile::copy(source, target), qPrintable(QStringLiteral("can't copy %1 => %2").arg(source, target)));
+    KSycoca::self()->ensureCacheValid();
 }
 
 QTEST_MAIN(KFileItemActionsTest)

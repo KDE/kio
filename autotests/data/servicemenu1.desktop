@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Service
+ServiceTypes=KonqPopupMenu/Plugin
+MimeType=inode/directory
+Actions=test1
+X-KDE-Priority=TopLevel
+X-KDE-StartupNotify=false
+Icon=template
+
+[Desktop Action test1]
+Name=test1
+Icon=template
+Exec=true

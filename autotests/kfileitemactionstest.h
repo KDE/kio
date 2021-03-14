@@ -13,9 +13,14 @@
 class KFileItemActionsTest : public QObject
 {
     Q_OBJECT
+private:
+    void copyTestFile(const QString &fileName);
 
 private Q_SLOTS:
+    void initTestCase();
+    void cleanup();
     void testSetParentWidget();
+    void testTopLevelServiceMenuActions();
 };
 
 #endif

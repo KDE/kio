@@ -145,6 +145,7 @@ ecm_add_tests(
  LINK_LIBRARIES KF5::KIOCore KF5::KIOWidgets Qt5::Test Qt5::DBus
 )
 set_target_properties(krununittest PROPERTIES COMPILE_FLAGS "-DKDE_INSTALL_FULL_LIBEXECDIR_KF5=\"\\\"${KDKE_INSTALL_FULL_LIBEXECDIR_KF5}\\\"\"")
+set_target_properties(kfileitemactionstest PROPERTIES COMPILE_FLAGS "-DSERVICE_FILE_PATH=\"\\\"${CMAKE_SOURCE_DIR}/src/widgets/konqpopupmenuplugin.desktop\\\"\"")
 
 set(URIFILTER_COLON_TEST kiowidgets-kurifiltertest-colon-separator)
 add_executable(${URIFILTER_COLON_TEST} kurifiltertest.cpp)

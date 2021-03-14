@@ -706,6 +706,7 @@ QPair<int, QMenu *> KFileItemActionsPrivate::addServiceActionsTo(QMenu *mainMenu
             const ServiceList userServices = KDesktopFileActions::userDefinedServices(*entry, isLocal, urlList);
             for (const KServiceAction &action : userServices) {
                 if (showGroup.readEntry(action.name(), true) && !excludeList.contains(action.name())) {
+                    qWarning() << entry->entryPath();
                     list += action;
                 }
             }
