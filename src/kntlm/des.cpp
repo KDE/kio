@@ -26,10 +26,10 @@
 
 #include "des.h"
 
+#include <limits> // This needs to be first with GCC 11
+
 #include <qendian.h>
 #include <string.h>
-
-#include <limits>
 
 static void permute_ip(unsigned char *inblock, DES_KEY *key, unsigned char *outblock);
 static void permute_fp(unsigned char *inblock, DES_KEY *key, unsigned char *outblock);
