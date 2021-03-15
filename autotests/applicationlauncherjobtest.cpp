@@ -334,10 +334,14 @@ void ApplicationLauncherJobTest::showOpenWithDialog_data()
 {
     QTest::addColumn<bool>("withHandler");
     QTest::addColumn<bool>("handlerRetVal");
+    QTest::addColumn<bool>("nullService");
 
-    QTest::newRow("without_handler") << false << false;
-    QTest::newRow("false_canceled") << true << false;
-    QTest::newRow("true_service_selected") << true << true;
+    for (bool nullService : {false, true}) {
+        const char *nullServiceStr = nullService ? "pass_null_service" : "default_ctor";
+        QTest::addRow("without_handler_%s", nullServiceStr) << false << false << nullService;
+        QTest::addRow("false_canceled_%s", nullServiceStr) << true << false << nullService;
+        QTest::addRow("true_service_selected_%s", nullServiceStr) << true << true << nullService;
+    }
 }
 
 void ApplicationLauncherJobTest::showOpenWithDialog()
@@ -345,6 +349,7 @@ void ApplicationLauncherJobTest::showOpenWithDialog()
 #ifdef Q_OS_UNIX
     QFETCH(bool, withHandler);
     QFETCH(bool, handlerRetVal);
+    QFETCH(bool, nullService);
 
     // Given a local text file (we could test multiple files, too...)
     QTemporaryDir tempDir;
@@ -352,7 +357,7 @@ void ApplicationLauncherJobTest::showOpenWithDialog()
     const QString srcFile = srcDir + QLatin1String("/file.txt");
     createSrcFile(srcFile);
 
-    KIO::ApplicationLauncherJob *job = new KIO::ApplicationLauncherJob(this);
+    KIO::ApplicationLauncherJob *job = nullService ? new KIO::ApplicationLauncherJob(KService::Ptr(), this) : new KIO::ApplicationLauncherJob(this);
     job->setUrls({QUrl::fromLocalFile(srcFile)});
     job->setUiDelegate(new KJobUiDelegate);
     MockOpenWithHandler *openWithHandler = withHandler ? new MockOpenWithHandler(job->uiDelegate()) : nullptr;

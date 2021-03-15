@@ -53,8 +53,10 @@ KIO::ApplicationLauncherJob::ApplicationLauncherJob(const KService::Ptr &service
     : KJob(parent)
     , d(new ApplicationLauncherJobPrivate(this, service))
 {
-    // Cache entryPath() because we may call KService::setExec() which will clear entryPath()
-    d->m_serviceEntryPath = d->m_service->entryPath();
+    if (d->m_service) {
+        // Cache entryPath() because we may call KService::setExec() which will clear entryPath()
+        d->m_serviceEntryPath = d->m_service->entryPath();
+    }
 }
 
 KIO::ApplicationLauncherJob::ApplicationLauncherJob(const KServiceAction &serviceAction, QObject *parent)
