@@ -323,6 +323,8 @@ enum StatDetail {
     StatInode = 0x20,
     /// recursive size @since 5.70
     StatRecursiveSize = 0x40,
+    /// mime type @since 5.82
+    StatMimeType = 0x80,
 
     /// Default value includes fields provided by other entries
     StatDefaultDetails = StatBasic | StatUser | StatTime | StatAcl | StatResolveSymlink,

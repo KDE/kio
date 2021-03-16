@@ -96,6 +96,7 @@ public:
     bool delayedMimeTypes = false;
     bool hasPendingChanges = false; // i.e. settings != oldSettings
     bool m_autoErrorHandling = true;
+    bool requestMimeTypeWhileListing = false;
 
     struct JobData {
         long unsigned int percent, speed;

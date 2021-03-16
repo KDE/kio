@@ -61,6 +61,7 @@ class KIOCORE_EXPORT KCoreDirLister : public QObject
     Q_PROPERTY(bool showingDotFiles READ showingDotFiles WRITE setShowingDotFiles)
     Q_PROPERTY(bool dirOnlyMode READ dirOnlyMode WRITE setDirOnlyMode)
     Q_PROPERTY(bool delayedMimeTypes READ delayedMimeTypes WRITE setDelayedMimeTypes)
+    Q_PROPERTY(bool requestMimeTypeWhileListing READ requestMimeTypeWhileListing WRITE setRequestMimeTypeWhileListing)
     Q_PROPERTY(QString nameFilter READ nameFilter WRITE setNameFilter)
     Q_PROPERTY(QStringList mimeFilter READ mimeFilters WRITE setMimeFilter RESET clearMimeFilter)
     Q_PROPERTY(bool autoErrorHandlingEnabled READ autoErrorHandlingEnabled WRITE setAutoErrorHandlingEnabled)
@@ -216,6 +217,39 @@ public:
      * @param dirsOnly set to @c true to list only directories
      */
     virtual void setDirOnlyMode(bool dirsOnly); // TODO KF6: remove virtual
+
+    /**
+     * Checks whether this KCoreDirLister requests the mime type of files from the slave.
+     *
+     * Enabling this will tell the slave used for listing that it should try to
+     * determine the mime type of entries while listing them. This potentially
+     * reduces the speed at which entries are listed but ensures mime types are
+     * immediately available when an entry is added, greatly speeding up things
+     * like mime type filtering.
+     *
+     * By default this is disabled.
+     *
+     * @return @c true if the slave is asked for mime types, @c false otherwise.
+     *
+     * @see setRequestMimeTypeWhileListing(bool)
+     *
+     * @since 5.82
+     */
+    bool requestMimeTypeWhileListing() const;
+
+    /**
+     * Toggles whether to request mime types from the slave or in-process.
+     *
+     * @param request set to @c true to request mime types from the slave.
+     *
+     * @note If this is changed while the lister is already listing a directory,
+     * it will only have an effect the next time openUrl() is called.
+     *
+     * @see requestMimeTypeWhileListing()
+     *
+     * @since 5.82
+     */
+    void setRequestMimeTypeWhileListing(bool request);
 
     /**
      * Returns the top level URL that is listed by this KCoreDirLister.

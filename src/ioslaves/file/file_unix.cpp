@@ -15,6 +15,7 @@
 
 #include <QDir>
 #include <QFile>
+#include <QMimeDatabase>
 #include <QStandardPaths>
 #include <QThread>
 #include <qplatformdefs.h>
@@ -387,6 +388,10 @@ static bool createUDSEntry(const QString &filename, const QByteArray &path, UDSE
         // dev, inode
         entries += 2;
     }
+    if (details & KIO::StatMimeType) {
+        // mimetype
+        entries += 1;
+    }
     entry.reserve(entries);
 
     if (details & KIO::StatBasic) {
@@ -530,6 +535,11 @@ static bool createUDSEntry(const QString &filename, const QByteArray &path, UDSE
     if (details & KIO::StatInode) {
         entry.fastInsert(KIO::UDSEntry::UDS_DEVICE_ID, stat_dev(buff));
         entry.fastInsert(KIO::UDSEntry::UDS_INODE, stat_ino(buff));
+    }
+
+    if (details & KIO::StatMimeType) {
+        QMimeDatabase db;
+        entry.fastInsert(KIO::UDSEntry::UDS_MIME_TYPE, db.mimeTypeForFile(filename).name());
     }
 
     return true;
