@@ -101,6 +101,17 @@ public:
     }
 };
 
+static bool isSrcDestSameSlaveProcess(const QUrl &src, const QUrl &dest)
+{
+    /* clang-format off */
+    return src.scheme() == dest.scheme()
+        && src.host() == dest.host()
+        && src.port() == dest.port()
+        && src.userName() == dest.userName()
+        && src.password() == dest.password();
+    /* clang-format on */
+}
+
 /*
  * The FileCopyJob works according to the famous Bavarian
  * 'Alternating Bitburger Protocol': we either drink a beer or we
@@ -128,8 +139,7 @@ void FileCopyJobPrivate::slotStart()
 
     if (m_move) {
         // The if() below must be the same as the one in startBestCopyMethod
-        if ((m_src.scheme() == m_dest.scheme()) && (m_src.host() == m_dest.host()) && (m_src.port() == m_dest.port()) && (m_src.userName() == m_dest.userName())
-            && (m_src.password() == m_dest.password())) {
+        if (isSrcDestSameSlaveProcess(m_src, m_dest)) {
             startRenameJob(m_src);
             return;
         } else if (m_src.isLocalFile() && KProtocolManager::canRenameFromFile(m_dest)) {
@@ -146,8 +156,7 @@ void FileCopyJobPrivate::slotStart()
 
 void FileCopyJobPrivate::startBestCopyMethod()
 {
-    if ((m_src.scheme() == m_dest.scheme()) && (m_src.host() == m_dest.host()) && (m_src.port() == m_dest.port()) && (m_src.userName() == m_dest.userName())
-        && (m_src.password() == m_dest.password())) {
+    if (isSrcDestSameSlaveProcess(m_src, m_dest)) {
         startCopyJob();
     } else if (m_src.isLocalFile() && KProtocolManager::canCopyFromFile(m_dest)) {
         startCopyJob(m_dest);
@@ -327,16 +336,28 @@ void FileCopyJobPrivate::startDataPump()
 void FileCopyJobPrivate::slotCanResume(KIO::Job *job, KIO::filesize_t offset)
 {
     Q_Q(FileCopyJob);
+
+    if (job == m_getJob) {
+        // Cool, the get job said ok, we can resume
+        m_canResume = true;
+        // qDebug() << "'can resume' from the GET job -> we can resume";
+
+        jobSlave(m_getJob)->setOffset(jobSlave(m_putJob)->offset());
+        return;
+    }
+
     if (job == m_putJob || job == m_copyJob) {
         // qDebug() << "'can resume' from PUT job. offset=" << KIO::number(offset);
-        if (offset) {
+        if (offset == 0) {
+            m_resumeAnswerSent = true; // No need for an answer
+        } else {
             RenameDialog_Result res = Result_Resume;
 
             if (!KProtocolManager::autoResume() && !(m_flags & Overwrite) && m_uiDelegateExtension) {
                 QString newPath;
-                KIO::Job *job = (q->parentJob()) ? q->parentJob() : q;
+                KIO::Job *kioJob = (q->parentJob()) ? q->parentJob() : q;
                 // Ask confirmation about resuming previous transfer
-                res = m_uiDelegateExtension->askFileRename(job,
+                res = m_uiDelegateExtension->askFileRename(kioJob,
                                                            i18n("File Already Exists"),
                                                            m_src,
                                                            m_dest,
@@ -362,8 +383,11 @@ void FileCopyJobPrivate::slotCanResume(KIO::Job *job, KIO::filesize_t offset)
                 q->emitResult();
                 return;
             }
-        } else {
-            m_resumeAnswerSent = true; // No need for an answer
+        }
+
+        if (job == m_copyJob) {
+            jobSlave(m_copyJob)->sendResumeAnswer(offset != 0);
+            return;
         }
 
         if (job == m_putJob) {
@@ -398,18 +422,12 @@ void FileCopyJobPrivate::slotCanResume(KIO::Job *job, KIO::filesize_t offset)
             q->connect(m_getJob, &KIO::TransferJob::mimeTypeFound, q, [this](KIO::Job *job, const QString &type) {
                 slotMimetype(job, type);
             });
-        } else { // copyjob
-            jobSlave(m_copyJob)->sendResumeAnswer(offset != 0);
         }
-    } else if (job == m_getJob) {
-        // Cool, the get job said ok, we can resume
-        m_canResume = true;
-        // qDebug() << "'can resume' from the GET job -> we can resume";
 
-        jobSlave(m_getJob)->setOffset(jobSlave(m_putJob)->offset());
-    } else {
-        qCWarning(KIO_CORE) << "unknown job=" << job << "m_getJob=" << m_getJob << "m_putJob=" << m_putJob;
+        return;
     }
+
+    qCWarning(KIO_CORE) << "unknown job=" << job << "m_getJob=" << m_getJob << "m_putJob=" << m_putJob;
 }
 
 void FileCopyJobPrivate::slotData(KIO::Job *, const QByteArray &data)
