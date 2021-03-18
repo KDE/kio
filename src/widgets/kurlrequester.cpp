@@ -123,7 +123,7 @@ public:
             connect(combo, &QComboBox::editTextChanged, receiver, &KUrlRequester::textEdited);
 
 #if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 80)
-            connect(combo, QOverload<>::of(&KComboBox::returnPressed), receiver, QOverload<>::of(&KUrlRequester::returnPressed));
+            connect(combo, QOverload<const QString &>::of(&KComboBox::returnPressed), receiver, QOverload<>::of(&KUrlRequester::returnPressed));
 #endif
             connect(combo, QOverload<const QString &>::of(&KComboBox::returnPressed), receiver, QOverload<const QString &>::of(&KUrlRequester::returnPressed));
         } else if (edit) {
@@ -138,10 +138,7 @@ public:
             });
 #endif
             if (auto kline = qobject_cast<KLineEdit *>(edit)) {
-                connect(kline,
-                        QOverload<const QString &>::of(&KLineEdit::returnPressed),
-                        receiver,
-                        QOverload<const QString &>::of(&KUrlRequester::returnPressed));
+                connect(kline, &KLineEdit::returnKeyPressed, receiver, QOverload<const QString &>::of(&KUrlRequester::returnPressed));
             }
         }
     }

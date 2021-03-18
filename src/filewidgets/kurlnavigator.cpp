@@ -227,7 +227,8 @@ KUrlNavigatorPrivate::KUrlNavigatorPrivate(KUrlNavigator *qq, KFilePlacesModel *
     m_pathBox->setCompletionObject(kurlCompletion);
     m_pathBox->setAutoDeleteCompletionObject(true);
 
-    q->connect(m_pathBox, QOverload<>::of(&KUrlComboBox::returnPressed), q, [this]() {
+    // TODO KF6: remove this QOverload, only KUrlComboBox::returnPressed(const QString &) will remain
+    q->connect(m_pathBox, QOverload<const QString &>::of(&KUrlComboBox::returnPressed), q, [this]() {
         slotReturnPressed();
     });
     q->connect(m_pathBox, &KUrlComboBox::urlActivated, q, &KUrlNavigator::setLocationUrl);
