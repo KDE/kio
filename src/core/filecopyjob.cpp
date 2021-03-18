@@ -7,10 +7,12 @@
 */
 
 #include "filecopyjob.h"
+#include "askuseractioninterface.h"
 #include "job_p.h"
 #include "kprotocolmanager.h"
 #include "scheduler.h"
 #include "slave.h"
+#include <kio/jobuidelegatefactory.h>
 
 #include <KLocalizedString>
 
@@ -81,6 +83,7 @@ public:
      * @param offset the offset to resume from
      */
     void slotCanResume(KIO::Job *job, KIO::filesize_t offset);
+    void processCanResumeResult(KIO::Job *job, RenameDialog_Result result, KIO::filesize_t offset);
 
     Q_DECLARE_PUBLIC(FileCopyJob)
 
@@ -351,83 +354,101 @@ void FileCopyJobPrivate::slotCanResume(KIO::Job *job, KIO::filesize_t offset)
         if (offset == 0) {
             m_resumeAnswerSent = true; // No need for an answer
         } else {
-            RenameDialog_Result res = Result_Resume;
+            KIO::Job *kioJob = q->parentJob() ? q->parentJob() : q;
+            auto *askUserActionInterface = KIO::delegateExtension<KIO::AskUserActionInterface *>(kioJob);
+            if (!KProtocolManager::autoResume() && !(m_flags & Overwrite) && askUserActionInterface) {
+                auto renameSignal = &AskUserActionInterface::askUserRenameResult;
 
-            if (!KProtocolManager::autoResume() && !(m_flags & Overwrite) && m_uiDelegateExtension) {
-                QString newPath;
-                KIO::Job *kioJob = (q->parentJob()) ? q->parentJob() : q;
+                q->connect(askUserActionInterface, renameSignal, q, [=](KIO::RenameDialog_Result result, const QUrl &, KJob *askJob) {
+                    Q_ASSERT(kioJob == askJob);
+
+                    // Only receive askUserRenameResult once per rename dialog
+                    QObject::disconnect(askUserActionInterface, renameSignal, q, nullptr);
+
+                    processCanResumeResult(job, result, offset);
+                });
+
                 // Ask confirmation about resuming previous transfer
-                res = m_uiDelegateExtension->askFileRename(kioJob,
-                                                           i18n("File Already Exists"),
-                                                           m_src,
-                                                           m_dest,
-                                                           RenameDialog_Options(RenameDialog_Overwrite | RenameDialog_Resume | RenameDialog_NoRename),
-                                                           newPath,
-                                                           m_sourceSize,
-                                                           offset);
-            }
-
-            if (res == Result_Overwrite || (m_flags & Overwrite)) {
-                offset = 0;
-            } else if (res == Result_Cancel) {
-                if (job == m_putJob) {
-                    m_putJob->kill(FileCopyJob::Quietly);
-                    q->removeSubjob(m_putJob);
-                    m_putJob = nullptr;
-                } else {
-                    m_copyJob->kill(FileCopyJob::Quietly);
-                    q->removeSubjob(m_copyJob);
-                    m_copyJob = nullptr;
-                }
-                q->setError(ERR_USER_CANCELED);
-                q->emitResult();
+                askUserActionInterface->askUserRename(kioJob,
+                                                      i18n("File Already Exists"),
+                                                      m_src,
+                                                      m_dest,
+                                                      RenameDialog_Options(RenameDialog_Overwrite | RenameDialog_Resume | RenameDialog_NoRename),
+                                                      m_sourceSize,
+                                                      offset);
                 return;
             }
-        }
 
-        if (job == m_copyJob) {
-            jobSlave(m_copyJob)->sendResumeAnswer(offset != 0);
-            return;
-        }
-
-        if (job == m_putJob) {
-            m_getJob = KIO::get(m_src, NoReload, HideProgressInfo /* no GUI */);
-            m_getJob->setParentJob(q);
-            // qDebug() << "m_getJob=" << m_getJob << m_src;
-            m_getJob->addMetaData(QStringLiteral("errorPage"), QStringLiteral("false"));
-            m_getJob->addMetaData(QStringLiteral("AllowCompressedPage"), QStringLiteral("false"));
-            // Set size in subjob. This helps if the slave doesn't emit totalSize.
-            if (m_sourceSize != (KIO::filesize_t)-1) {
-                m_getJob->setTotalAmount(KJob::Bytes, m_sourceSize);
-            }
-            if (offset) {
-                // qDebug() << "Setting metadata for resume to" << (unsigned long) offset;
-                m_getJob->addMetaData(QStringLiteral("range-start"), KIO::number(offset));
-
-                // Might or might not get emitted
-                q->connect(m_getJob, &KIO::TransferJob::canResume, q, [this](KIO::Job *job, KIO::filesize_t offset) {
-                    slotCanResume(job, offset);
-                });
-            }
-            jobSlave(m_putJob)->setOffset(offset);
-
-            m_putJob->d_func()->internalSuspend();
-            q->addSubjob(m_getJob);
-            connectSubjob(m_getJob); // Progress info depends on get
-            m_getJob->d_func()->internalResume(); // Order a beer
-
-            q->connect(m_getJob, &KIO::TransferJob::data, q, [this](KIO::Job *job, const QByteArray &data) {
-                slotData(job, data);
-            });
-            q->connect(m_getJob, &KIO::TransferJob::mimeTypeFound, q, [this](KIO::Job *job, const QString &type) {
-                slotMimetype(job, type);
-            });
+            processCanResumeResult(job, //
+                                   Result_Resume, // The default is to resume
+                                   offset);
         }
 
         return;
     }
 
     qCWarning(KIO_CORE) << "unknown job=" << job << "m_getJob=" << m_getJob << "m_putJob=" << m_putJob;
+}
+
+void FileCopyJobPrivate::processCanResumeResult(KIO::Job *job, RenameDialog_Result result, KIO::filesize_t offset)
+{
+    Q_Q(FileCopyJob);
+    if (result == Result_Overwrite || (m_flags & Overwrite)) {
+        offset = 0;
+    } else if (result == Result_Cancel) {
+        if (job == m_putJob) {
+            m_putJob->kill(FileCopyJob::Quietly);
+            q->removeSubjob(m_putJob);
+            m_putJob = nullptr;
+        } else {
+            m_copyJob->kill(FileCopyJob::Quietly);
+            q->removeSubjob(m_copyJob);
+            m_copyJob = nullptr;
+        }
+        q->setError(ERR_USER_CANCELED);
+        q->emitResult();
+        return;
+    }
+
+    if (job == m_copyJob) {
+        jobSlave(m_copyJob)->sendResumeAnswer(offset != 0);
+        return;
+    }
+
+    if (job == m_putJob) {
+        m_getJob = KIO::get(m_src, NoReload, HideProgressInfo /* no GUI */);
+        m_getJob->setParentJob(q);
+        // qDebug() << "m_getJob=" << m_getJob << m_src;
+        m_getJob->addMetaData(QStringLiteral("errorPage"), QStringLiteral("false"));
+        m_getJob->addMetaData(QStringLiteral("AllowCompressedPage"), QStringLiteral("false"));
+        // Set size in subjob. This helps if the slave doesn't emit totalSize.
+        if (m_sourceSize != (KIO::filesize_t)-1) {
+            m_getJob->setTotalAmount(KJob::Bytes, m_sourceSize);
+        }
+
+        if (offset) {
+            // qDebug() << "Setting metadata for resume to" << (unsigned long) offset;
+            m_getJob->addMetaData(QStringLiteral("range-start"), KIO::number(offset));
+
+            // Might or might not get emitted
+            q->connect(m_getJob, &KIO::TransferJob::canResume, q, [this](KIO::Job *job, KIO::filesize_t offset) {
+                slotCanResume(job, offset);
+            });
+        }
+        jobSlave(m_putJob)->setOffset(offset);
+
+        m_putJob->d_func()->internalSuspend();
+        q->addSubjob(m_getJob);
+        connectSubjob(m_getJob); // Progress info depends on get
+        m_getJob->d_func()->internalResume(); // Order a beer
+
+        q->connect(m_getJob, &KIO::TransferJob::data, q, [this](KIO::Job *job, const QByteArray &data) {
+            slotData(job, data);
+        });
+        q->connect(m_getJob, &KIO::TransferJob::mimeTypeFound, q, [this](KIO::Job *job, const QString &type) {
+            slotMimetype(job, type);
+        });
+    }
 }
 
 void FileCopyJobPrivate::slotData(KIO::Job *, const QByteArray &data)
