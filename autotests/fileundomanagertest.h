@@ -33,7 +33,7 @@ private Q_SLOTS:
     void testBatchRename();
     void testUndoCopyOfDeletedFile();
 
-    // TODO find tests that would lead to kio job errors
+    void testErrorDuringMoveUndo();
 
     // TODO test renaming during a CopyJob.
     // Doesn't seem possible though, requires user interaction...

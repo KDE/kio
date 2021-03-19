@@ -162,7 +162,8 @@ public:
         setShowProgressInfo(false);
     }
     void jobError(KIO::Job *job) override {
-        qFatal("%s", qPrintable(job->errorString()));
+        m_errorCode = job->error();
+        qWarning() << job->errorString();
     }
     bool copiedFileWasModified(const QUrl &src, const QUrl &dest, const QDateTime &srcTime, const QDateTime &destTime) override {
         Q_UNUSED(src);
@@ -187,15 +188,21 @@ public:
     {
         return m_dest;
     }
+    int errorCode() const
+    {
+        return m_errorCode;
+    }
     void clear()
     {
         m_dest = QUrl();
         m_files.clear();
+        m_errorCode = 0;
     }
 private:
     bool m_nextReplyToConfirmDeletion;
     QUrl m_dest;
     QList<QUrl> m_files;
+    int m_errorCode = 0;
 };
 
 void FileUndoManagerTest::initTestCase()
@@ -711,6 +718,26 @@ void FileUndoManagerTest::testUndoCopyOfDeletedFile()
     QCOMPARE(spyUndoAvailable.count(), 1);
     QVERIFY(!spyUndoAvailable.at(0).at(0).toBool());
     QVERIFY(!FileUndoManager::self()->isUndoAvailable());
+}
+
+void FileUndoManagerTest::testErrorDuringMoveUndo()
+{
+    const QString destdir = destDir();
+    QList<QUrl> lst{ QUrl::fromLocalFile(srcFile()) };
+    KIO::CopyJob *job = KIO::move(lst, QUrl::fromLocalFile(destdir), KIO::HideProgressInfo);
+    job->setUiDelegate(nullptr);
+    FileUndoManager::self()->recordCopyJob(job);
+
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
+
+    QVERIFY(!QFile::exists(srcFile()));     // the source moved
+    QVERIFY(QFile::exists(destFile()));
+    createTestFile(srcFile(), "I'm back");
+
+    doUndo();
+
+    QCOMPARE(m_uiInterface->errorCode(), KIO::ERR_FILE_ALREADY_EXIST);
+    QVERIFY(QFile::exists(destFile())); // still there
 }
 
 // TODO: add test (and fix bug) for  DND of remote urls / "Link here" (creates .desktop files) // Undo (doesn't do anything)
