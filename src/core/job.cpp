@@ -77,6 +77,7 @@ bool Job::addSubjob(KJob *jobBase)
             Q_UNUSED(job);
             emitSpeed(speed);
         });
+        job->setProperty("widget", property("widget")); // see KJobWidgets
         job->setProperty("window", property("window")); // see KJobWidgets
         job->setProperty("userTimestamp", property("userTimestamp")); // see KJobWidgets
         job->setUiDelegateExtension(d->m_uiDelegateExtension);
