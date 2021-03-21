@@ -70,7 +70,7 @@ public:
         : initialItems(items)
         , width(size.width())
         , height(size.height())
-        , cacheSize(-1)
+        , cacheSize(0)
         , bScale(true)
         , bSave(true)
         , ignoreMaximumSize(false)
@@ -114,8 +114,8 @@ public:
     // Size of thumbnail
     int width;
     int height;
-    // Unscaled size of thumbnail (128 or 256 if cache is enabled)
-    int cacheSize;
+    // Unscaled size of thumbnail (128, 256 or 512 if cache is enabled)
+    ushort cacheSize;
     // Whether the thumbnail should be scaled
     bool bScale;
     // Whether we should save the thumbnail
@@ -712,39 +712,49 @@ void PreviewJobPrivate::createThumbnail(const QString &pixPath)
     });
 
     bool save = bSave && currentItem.plugin->property(QStringLiteral("CacheThumbnail")).toBool() && !sequenceIndex;
+    int thumb_width = width;
+    int thumb_height = height;
+    int thumb_iconSize = iconSize;
+    if (save) {
+        thumb_width = thumb_height = cacheSize;
+        thumb_iconSize = 64;
+    }
+
     job->addMetaData(QStringLiteral("mimeType"), currentItem.item.mimetype());
-    job->addMetaData(QStringLiteral("width"), QString().setNum(save ? cacheSize : width));
-    job->addMetaData(QStringLiteral("height"), QString().setNum(save ? cacheSize : height));
-    job->addMetaData(QStringLiteral("iconSize"), QString().setNum(save ? 64 : iconSize));
-    job->addMetaData(QStringLiteral("iconAlpha"), QString().setNum(iconAlpha));
+    job->addMetaData(QStringLiteral("width"), QString::number(thumb_width));
+    job->addMetaData(QStringLiteral("height"), QString::number(thumb_height));
+    job->addMetaData(QStringLiteral("iconSize"), QString::number(thumb_iconSize));
+    job->addMetaData(QStringLiteral("iconAlpha"), QString::number(iconAlpha));
     job->addMetaData(QStringLiteral("plugin"), currentItem.plugin->library());
     job->addMetaData(QStringLiteral("enabledPlugins"), enabledPlugins.join(QLatin1Char(',')));
     job->addMetaData(QStringLiteral("devicePixelRatio"), QString::number(devicePixelRatio));
     if (sequenceIndex) {
-        job->addMetaData(QStringLiteral("sequence-index"), QString().setNum(sequenceIndex));
+        job->addMetaData(QStringLiteral("sequence-index"), QString::number(sequenceIndex));
     }
 
 #if WITH_SHM
     if (shmid == -1) {
         if (shmaddr) {
+            // clean previous shared memory segment
             shmdt((char *)shmaddr);
             shmctl(shmid, IPC_RMID, nullptr);
-        }
-        auto size = std::max(cacheSize * cacheSize, width * height);
-        shmid = shmget(IPC_PRIVATE, size * 4 * devicePixelRatio * devicePixelRatio, IPC_CREAT | 0600);
-        if (shmid != -1) {
-            shmaddr = (uchar *)(shmat(shmid, nullptr, SHM_RDONLY));
-            if (shmaddr == (uchar *)-1) {
-                shmctl(shmid, IPC_RMID, nullptr);
-                shmaddr = nullptr;
-                shmid = -1;
-            }
-        } else {
             shmaddr = nullptr;
+        }
+        auto size = thumb_width * thumb_height;
+        if (size > 0) {
+            shmid = shmget(IPC_PRIVATE, size * 4 * devicePixelRatio * devicePixelRatio, IPC_CREAT | 0600);
+            if (shmid != -1) {
+                shmaddr = (uchar *)(shmat(shmid, nullptr, SHM_RDONLY));
+                if (shmaddr == (uchar *)-1) {
+                    shmctl(shmid, IPC_RMID, nullptr);
+                    shmaddr = nullptr;
+                    shmid = -1;
+                }
+            }
         }
     }
     if (shmid != -1) {
-        job->addMetaData(QStringLiteral("shmid"), QString().setNum(shmid));
+        job->addMetaData(QStringLiteral("shmid"), QString::number(shmid));
     }
 #endif
 }
