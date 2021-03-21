@@ -84,10 +84,10 @@ public:
                                KIO::RenameDialog_Options options,
                                KIO::filesize_t sizeSrc,
                                KIO::filesize_t sizeDest,
-                               const QDateTime &ctimeSrc,
-                               const QDateTime &ctimeDest,
-                               const QDateTime &mtimeSrc,
-                               const QDateTime &mtimeDest) = 0;
+                               const QDateTime &ctimeSrc = {},
+                               const QDateTime &ctimeDest = {},
+                               const QDateTime &mtimeSrc = {},
+                               const QDateTime &mtimeDest = {}) = 0;
 
     /**
      * @relates KIO::SkipDialog
@@ -146,7 +146,7 @@ public:
     virtual void askUserDelete(const QList<QUrl> &urls,
                                DeletionType deletionType,
                                ConfirmationType confirmationType,
-                               QWidget *parent) = 0; // KF6 TODO: replace QWidget* with QWindow*
+                               QWidget *parent = nullptr) = 0; // KF6 TODO: replace QWidget* with QWindow*
 
     enum MessageDialogType {
         QuestionYesNo = 1,
@@ -181,12 +181,12 @@ public:
                                        const QString &caption,
                                        const QString &buttonYes,
                                        const QString &buttonNo,
-                                       const QString &iconYes,
-                                       const QString &iconNo,
-                                       const QString &dontAskAgainName,
-                                       const QString &details,
-                                       const KIO::MetaData &sslMetaData,
-                                       QWidget *parent) = 0;
+                                       const QString &iconYes = {},
+                                       const QString &iconNo = {},
+                                       const QString &dontAskAgainName = {},
+                                       const QString &details = {},
+                                       const KIO::MetaData &sslMetaData = {},
+                                       QWidget *parent = nullptr) = 0;
 
 Q_SIGNALS:
     /**
