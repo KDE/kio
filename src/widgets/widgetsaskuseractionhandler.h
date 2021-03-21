@@ -49,10 +49,10 @@ public:
                        KIO::RenameDialog_Options options,
                        KIO::filesize_t sizeSrc = KIO::filesize_t(-1),
                        KIO::filesize_t sizeDest = KIO::filesize_t(-1),
-                       const QDateTime &ctimeSrc = QDateTime(),
-                       const QDateTime &ctimeDest = QDateTime(),
-                       const QDateTime &mtimeSrc = QDateTime(),
-                       const QDateTime &mtimeDest = QDateTime()) override;
+                       const QDateTime &ctimeSrc = {},
+                       const QDateTime &ctimeDest = {},
+                       const QDateTime &mtimeSrc = {},
+                       const QDateTime &mtimeDest = {}) override;
 
     /**
      * @copydoc KIO::AskUserActionInterface::askUserSkip()
@@ -72,11 +72,11 @@ public:
                                const QString &caption,
                                const QString &buttonYes,
                                const QString &buttonNo,
-                               const QString &iconYes = QString(),
-                               const QString &iconNo = QString(),
-                               const QString &dontAskAgainName = QString(),
-                               const QString &details = QString(),
-                               const KIO::MetaData &metaData = KIO::MetaData(),
+                               const QString &iconYes = {},
+                               const QString &iconNo = {},
+                               const QString &dontAskAgainName = {},
+                               const QString &details = {},
+                               const KIO::MetaData &metaData = {},
                                QWidget *parent = nullptr) override;
 
 private:
