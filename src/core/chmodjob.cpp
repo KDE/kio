@@ -14,6 +14,7 @@
 #include <KUser>
 #include <QDebug>
 
+#include "askuseractioninterface.h"
 #include "job_p.h"
 #include "jobuidelegatefactory.h"
 #include "kioglobal_p.h"
@@ -183,45 +184,55 @@ void ChmodJobPrivate::_k_chmodNextFile()
         ChmodInfo info = m_infos.top();
         m_infos.pop();
         // First update group / owner (if local file)
-        // (permissions have to set after, in case of suid and sgid)
+        // (permissions have to be set after, in case of suid and sgid)
         if (info.url.isLocalFile() && (m_newOwner.isValid() || m_newGroup.isValid())) {
             QString path = info.url.toLocalFile();
             if (!KIOPrivate::changeOwnership(path, m_newOwner, m_newGroup)) {
-                if (!m_uiDelegateExtension) {
+                auto *askUserActionInterface = KIO::delegateExtension<AskUserActionInterface *>(q);
+                if (!askUserActionInterface) {
                     Q_EMIT q->warning(q, i18n("Could not modify the ownership of file %1", path));
                 } else if (!m_bAutoSkipFiles) {
-                    const QString errMsg =
-                        i18n("<qt>Could not modify the ownership of file <b>%1</b>. You have insufficient access to the file to perform the change.</qt>",
-                             path);
                     SkipDialog_Options options;
                     if (m_infos.size() > 1) {
                         options |= SkipDialog_MultipleItems;
                     }
-                    const SkipDialog_Result skipResult = m_uiDelegateExtension->askSkip(q, options, errMsg);
-                    switch (skipResult) {
-                    case Result_AutoSkip:
-                        m_bAutoSkipFiles = true;
-                        // fall through
-                        Q_FALLTHROUGH();
-                    case Result_Skip:
-                        QMetaObject::invokeMethod(q, "_k_chmodNextFile", Qt::QueuedConnection);
-                        return;
-                    case Result_Retry:
-                        m_infos.push(std::move(info));
-                        QMetaObject::invokeMethod(q, "_k_chmodNextFile", Qt::QueuedConnection);
-                        return;
-                    case Result_Cancel:
-                    default:
-                        q->setError(ERR_USER_CANCELED);
-                        q->emitResult();
-                        return;
-                    }
+
+                    auto skipSignal = &AskUserActionInterface::askUserSkipResult;
+                    q->connect(askUserActionInterface, skipSignal, q, [=](KIO::SkipDialog_Result result, KJob *parentJob) {
+                        Q_ASSERT(q != parentJob);
+                        q->disconnect(askUserActionInterface, skipSignal, q, nullptr);
+
+                        switch (result) {
+                        case Result_AutoSkip:
+                            m_bAutoSkipFiles = true;
+                            // fall through
+                            Q_FALLTHROUGH();
+                        case Result_Skip:
+                            QMetaObject::invokeMethod(q, "_k_chmodNextFile", Qt::QueuedConnection);
+                            return;
+                        case Result_Retry:
+                            m_infos.push(std::move(info));
+                            QMetaObject::invokeMethod(q, "_k_chmodNextFile", Qt::QueuedConnection);
+                            return;
+                        case Result_Cancel:
+                        default:
+                            q->setError(ERR_USER_CANCELED);
+                            q->emitResult();
+                            return;
+                        }
+                    });
+
+                    askUserActionInterface->askUserSkip(q,
+                                                        options,
+                                                        xi18n("Could not modify the ownership of file <filename>%1</filename>. You have "
+                                                              "insufficient access to the file to perform the change.",
+                                                              path));
+                    return;
                 }
             }
         }
 
-        /*qDebug() << "chmod'ing" << info.url
-                      << "to" << QString::number(info.permissions,8);*/
+        /*qDebug() << "chmod'ing" << info.url << "to" << QString::number(info.permissions,8);*/
         KIO::SimpleJob *job = KIO::chmod(info.url, info.permissions);
         job->setParentJob(q);
         // copy the metadata for acl and default acl
@@ -234,9 +245,7 @@ void ChmodJobPrivate::_k_chmodNextFile()
             job->addMetaData(QStringLiteral("DEFAULT_ACL_STRING"), defaultAclString);
         }
         q->addSubjob(job);
-    } else
-    // We have finished
-    {
+    } else { // We have finished
         q->emitResult();
     }
 }

@@ -1953,13 +1953,12 @@ void JobTest::chmodFileError()
     items << item;
     KIO::Job *job = KIO::chmod(items, newPerm, S_IWGRP /*TODO: QFile::WriteGroup*/, QStringLiteral("root"), QString(), false, KIO::HideProgressInfo);
     // Simulate the user pressing "Skip" in the dialog.
-    PredefinedAnswerJobUiDelegate extension;
-    extension.m_skipResult = KIO::Result_Skip;
-    job->setUiDelegateExtension(&extension);
+    job->setUiDelegate(new KJobUiDelegate);
+    auto *askUser = new MockAskUserInterface(job->uiDelegate());
 
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
 
-    QCOMPARE(extension.m_askSkipCalled, 1);
+    QCOMPARE(askUser->m_askUserSkipCalled, 1);
     KFileItem newItem(QUrl::fromLocalFile(filePath));
     // We skipped, so the chmod didn't happen.
     QCOMPARE(QString::number(newItem.permissions(), 8), QString::number(origPerm, 8));
