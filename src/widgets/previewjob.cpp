@@ -115,7 +115,7 @@ public:
     int width;
     int height;
     // Unscaled size of thumbnail (128, 256 or 512 if cache is enabled)
-    ushort cacheSize;
+    short cacheSize;
     // Whether the thumbnail should be scaled
     bool bScale;
     // Whether we should save the thumbnail
