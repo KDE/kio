@@ -82,7 +82,7 @@ private:
     void applyIconChanges();
 
     class KFilePropsPluginPrivate;
-    KFilePropsPluginPrivate *const d;
+    std::unique_ptr<KFilePropsPluginPrivate> d;
 };
 
 /**
@@ -143,7 +143,7 @@ private:
     static const mode_t fperm[3][4];
 
     class KFilePermissionsPropsPluginPrivate;
-    KFilePermissionsPropsPluginPrivate *const d;
+    std::unique_ptr<KFilePermissionsPropsPluginPrivate> d;
 };
 
 class KChecksumsPlugin : public KPropertiesDialogPlugin
@@ -185,7 +185,7 @@ private:
     void cacheChecksum(const QString &checksum, QCryptographicHash::Algorithm algorithm);
 
     class KChecksumsPluginPrivate;
-    KChecksumsPluginPrivate *const d;
+    std::unique_ptr<KChecksumsPluginPrivate> d;
 };
 
 /**
@@ -214,7 +214,7 @@ public:
 
 private:
     class KUrlPropsPluginPrivate;
-    KUrlPropsPluginPrivate *const d;
+    std::unique_ptr<KUrlPropsPluginPrivate> d;
 };
 
 /**
@@ -242,7 +242,7 @@ private:
 
 private:
     class KDevicePropsPluginPrivate;
-    KDevicePropsPluginPrivate *const d;
+    std::unique_ptr<KDevicePropsPluginPrivate> d;
 };
 
 /**
@@ -278,7 +278,7 @@ private:
 
 private:
     class KDesktopPropsPluginPrivate;
-    KDesktopPropsPluginPrivate *const d;
+    std::unique_ptr<KDesktopPropsPluginPrivate> d;
 };
 
 }

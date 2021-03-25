@@ -18,6 +18,9 @@
 #include <KPageDialog>
 #include <kfileitem.h>
 
+#include <memory>
+
+class KPropertiesDialogPrivate;
 class KPropertiesDialogPlugin;
 
 class KJob;
@@ -365,12 +368,12 @@ Q_SIGNALS:
     void leaveModality();
 
 private:
-    class KPropertiesDialogPrivate;
-    KPropertiesDialogPrivate *const d;
+    std::unique_ptr<KPropertiesDialogPrivate> d;
 
     Q_DISABLE_COPY(KPropertiesDialog)
 };
 
+class KPropertiesDialogPluginPrivate;
 /**
  * A Plugin in the Properties dialog
  * This is an abstract class. You must inherit from this class
@@ -440,8 +443,7 @@ protected:
     int fontHeight() const;
 
 private:
-    class KPropertiesDialogPluginPrivate;
-    KPropertiesDialogPluginPrivate *const d;
+    std::unique_ptr<KPropertiesDialogPluginPrivate> d;
 };
 
 #endif
