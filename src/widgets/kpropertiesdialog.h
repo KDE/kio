@@ -365,6 +365,7 @@ Q_SIGNALS:
     void saveAs(const QUrl &oldUrl, QUrl &newUrl);
 
 Q_SIGNALS:
+    // TODO KF6: remove this, not used anymore
     void leaveModality();
 
 private:

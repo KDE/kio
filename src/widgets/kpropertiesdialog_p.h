@@ -71,7 +71,8 @@ protected Q_SLOTS:
     void slotSizeDetails();
 
 Q_SIGNALS:
-    void leaveModality();
+    void changesApplied();
+
 private Q_SLOTS:
     void nameFileChanged(const QString &text);
     void slotIconChanged();
@@ -122,12 +123,10 @@ public:
     static bool supports(const KFileItemList &_items);
 
 private Q_SLOTS:
-
-    void slotChmodResult(KJob *);
     void slotShowAdvancedPermissions();
 
 Q_SIGNALS:
-    void leaveModality();
+    void changesApplied();
 
 private:
     void setComboContent(QComboBox *combo, PermissionsTarget target, mode_t permissions, mode_t partial);

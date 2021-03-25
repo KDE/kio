@@ -5,6 +5,7 @@
     SPDX-FileCopyrightText: 2000 Simon Hausmann <hausmann@kde.org>
     SPDX-FileCopyrightText: 2000 David Faure <faure@kde.org>
     SPDX-FileCopyrightText: 2003 Waldo Bastian <bastian@kde.org>
+    SPDX-FileCopyrightText: 2021 Ahmad Samir <a.samirh78@gmail.com>
 
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
@@ -499,44 +500,86 @@ void KPropertiesDialog::accept()
 {
     d->m_aborted = false;
 
+    auto acceptAndClose = [this]() {
+        Q_EMIT applied();
+        Q_EMIT propertiesClosed();
+        deleteLater(); // Somewhat like Qt::WA_DeleteOnClose would do.
+        KPageDialog::accept();
+    };
+
+    const bool isAnyDirty = std::any_of(d->m_pages.cbegin(), d->m_pages.cend(), [](const KPropertiesDialogPlugin *page) {
+        return page->isDirty();
+    });
+
+    if (!isAnyDirty) { // No point going further
+        acceptAndClose();
+        return;
+    }
+
     // If any page is dirty, then set the main one (KFilePropsPlugin) as
     // dirty too. This is what makes it possible to save changes to a global
     // desktop file into a local one. In other cases, it doesn't hurt.
     if (d->m_filePropsPlugin) {
-        const bool anyDirty = std::any_of(d->m_pages.cbegin(), d->m_pages.cend(), [](const KPropertiesDialogPlugin *page) {
-            return page->isDirty();
+        d->m_filePropsPlugin->setDirty(true);
+    }
+
+    // Changes are applied in the following order:
+    // - KFilePropsPlugin changes, this is because in case of renaming an item or saving changes
+    //   of a template or a .desktop file, the renaming or copying repectively, must be finished
+    //   first, before applying the rest of the changes
+    // - KFilePermissionsPropsPlugin changes, e.g. if the item was read-only and was changed to
+    //   read/write, this must be applied first for other changes to work
+    // - The rest of the changes from the other plugins/tabs
+    // - KFilePropsPlugin::postApplyChanges()
+
+    auto applyOtherChanges = [this, acceptAndClose]() {
+        Q_ASSERT(!d->m_filePropsPlugin->isDirty());
+        Q_ASSERT(!d->m_permissionsPropsPlugin->isDirty());
+
+        // Apply the changes for the rest of the plugins
+        for (auto *page : d->m_pages) {
+            if (d->m_aborted) {
+                break;
+            }
+
+            if (page->isDirty()) {
+                // qDebug() << "applying changes for " << page->metaObject()->className();
+                page->applyChanges();
+            }
+            /* else {
+                qDebug() << "skipping page " << page->metaObject()->className();
+            } */
+        }
+
+        if (!d->m_aborted && d->m_filePropsPlugin) {
+            d->m_filePropsPlugin->postApplyChanges();
+        }
+
+        if (!d->m_aborted) {
+            acceptAndClose();
+        } // Else, keep dialog open for user to fix the problem.
+    };
+
+    auto applyPermissionsChanges = [this, applyOtherChanges]() {
+        connect(d->m_permissionsPropsPlugin, &KFilePermissionsPropsPlugin::changesApplied, this, [applyOtherChanges]() {
+            applyOtherChanges();
         });
-        d->m_filePropsPlugin->setDirty(anyDirty);
+
+        d->m_permissionsPropsPlugin->applyChanges();
+    };
+
+    if (d->m_filePropsPlugin && d->m_filePropsPlugin->isDirty()) {
+        // changesApplied() is _not_ emitted if applying the changes was aborted
+        connect(d->m_filePropsPlugin, &KFilePropsPlugin::changesApplied, this, [this, applyPermissionsChanges, applyOtherChanges]() {
+            if (d->m_permissionsPropsPlugin && d->m_permissionsPropsPlugin->isDirty()) {
+                applyPermissionsChanges();
+            } else {
+                applyOtherChanges();
+            }
+        });
+
+        d->m_filePropsPlugin->applyChanges();
     }
-
-    // Apply the changes in the _normal_ order of the tabs now
-    // This is because in case of renaming a file, KFilePropsPlugin will call
-    // KPropertiesDialog::rename, so other tab will be ok with whatever order
-    // BUT for file copied from templates, we need to do the renaming first !
-    for (auto *page : d->m_pages) {
-        if (d->m_aborted) { // applyChanges may change d->m_aborted.
-            break;
-        }
-
-        if (page->isDirty()) {
-            // qDebug() << "applying changes for " << page->metaObject()->className();
-            page->applyChanges();
-        }
-        /* else {
-            qDebug() << "skipping page " << page->metaObject()->className();
-        } */
-    }
-
-    if (!d->m_aborted && d->m_filePropsPlugin) {
-        d->m_filePropsPlugin->postApplyChanges();
-    }
-
-    if (!d->m_aborted) {
-        Q_EMIT applied();
-        Q_EMIT propertiesClosed();
-        deleteLater(); // somewhat like Qt::WA_DeleteOnClose would do.
-        KPageDialog::accept();
-    } // else, keep dialog open for user to fix the problem.
 }
 
 void KPropertiesDialog::slotCancel()
@@ -1508,12 +1551,9 @@ void KFilePropsPlugin::applyChanges()
             KJobWidgets::setWindow(job, properties);
             connect(job, &KJob::result, this, &KFilePropsPlugin::slotCopyFinished);
             connect(job, &KIO::CopyJob::renamed, this, &KFilePropsPlugin::slotFileRenamed);
-            // wait for job
-            QEventLoop eventLoop;
-            connect(this, &KFilePropsPlugin::leaveModality, &eventLoop, &QEventLoop::quit);
-            eventLoop.exec();
             return;
         }
+
         properties->updateUrl(properties->url());
         // Update also relative path (for apps)
         if (!d->m_sRelativePath.isEmpty()) {
@@ -1529,8 +1569,6 @@ void KFilePropsPlugin::slotCopyFinished(KJob *job)
 {
     // qDebug() << "KFilePropsPlugin::slotCopyFinished";
     if (job) {
-        // allow apply() to return
-        Q_EMIT leaveModality();
         if (job->error()) {
             job->uiDelegate()->showErrorMessage();
             // Didn't work. Revert the URL to the old one
@@ -1601,6 +1639,9 @@ void KFilePropsPlugin::slotCopyFinished(KJob *job)
             chmodJob->exec();
         }
     }
+
+    setDirty(false);
+    Q_EMIT changesApplied();
 }
 
 void KFilePropsPlugin::applyIconChanges()
@@ -1650,10 +1691,10 @@ void KFilePropsPlugin::applyIconChanges()
 
             cfg.reparseConfiguration();
             if (cfg.desktopGroup().readEntry("Icon") != sIcon) {
+                properties->abortApplying();
+
                 KMessageBox::sorry(nullptr,
-                                   i18n("<qt>Could not save properties. You do not "
-                                        "have sufficient access to write to <b>%1</b>.</qt>",
-                                        path));
+                                   xi18nc("@info", "Could not save properties due to insufficient write access to:<nl/><filename>%1</filename>.", path));
             }
         }
     }
@@ -2646,45 +2687,58 @@ void KFilePermissionsPropsPlugin::applyChanges()
         return;
     }
 
-    KIO::Job *job;
+    auto processACLChanges = [this, ACLChange, defaultACLChange](KIO::ChmodJob *chmodJob) {
+        if (!d->fileSystemSupportsACLs) {
+            return;
+        }
+
+        if (ACLChange) {
+            chmodJob->addMetaData(QStringLiteral("ACL_STRING"), d->extendedACL.isValid() ? d->extendedACL.asString() : QStringLiteral("ACL_DELETE"));
+        }
+
+        if (defaultACLChange) {
+            chmodJob->addMetaData(QStringLiteral("DEFAULT_ACL_STRING"), d->defaultACL.isValid() ? d->defaultACL.asString() : QStringLiteral("ACL_DELETE"));
+        }
+    };
+
+    auto chmodDirs = [=]() {
+        if (dirs.isEmpty()) {
+            setDirty(false);
+            Q_EMIT changesApplied();
+            return;
+        }
+
+        auto *dirsJob = KIO::chmod(dirs, orDirPermissions, ~andDirPermissions, owner, group, recursive);
+        processACLChanges(dirsJob);
+
+        connect(dirsJob, &KJob::result, this, [this, dirsJob]() {
+            if (dirsJob->error()) {
+                dirsJob->uiDelegate()->showErrorMessage();
+            }
+
+            setDirty(false);
+            Q_EMIT changesApplied();
+        });
+    };
+
+    // Change permissions in two steps, first files, then dirs
+
     if (!files.isEmpty()) {
-        job = KIO::chmod(files, orFilePermissions, ~andFilePermissions, owner, group, false);
-        if (ACLChange && d->fileSystemSupportsACLs) {
-            job->addMetaData(QStringLiteral("ACL_STRING"), d->extendedACL.isValid() ? d->extendedACL.asString() : QStringLiteral("ACL_DELETE"));
-        }
-        if (defaultACLChange && d->fileSystemSupportsACLs) {
-            job->addMetaData(QStringLiteral("DEFAULT_ACL_STRING"), d->defaultACL.isValid() ? d->defaultACL.asString() : QStringLiteral("ACL_DELETE"));
-        }
+        auto *filesJob = KIO::chmod(files, orFilePermissions, ~andFilePermissions, owner, group, false);
+        processACLChanges(filesJob);
 
-        connect(job, &KJob::result, this, &KFilePermissionsPropsPlugin::slotChmodResult);
-        QEventLoop eventLoop;
-        connect(this, &KFilePermissionsPropsPlugin::leaveModality, &eventLoop, &QEventLoop::quit);
-        eventLoop.exec(QEventLoop::ExcludeUserInputEvents);
-    }
-    if (!dirs.isEmpty()) {
-        job = KIO::chmod(dirs, orDirPermissions, ~andDirPermissions, owner, group, recursive);
-        if (ACLChange && d->fileSystemSupportsACLs) {
-            job->addMetaData(QStringLiteral("ACL_STRING"), d->extendedACL.isValid() ? d->extendedACL.asString() : QStringLiteral("ACL_DELETE"));
-        }
-        if (defaultACLChange && d->fileSystemSupportsACLs) {
-            job->addMetaData(QStringLiteral("DEFAULT_ACL_STRING"), d->defaultACL.isValid() ? d->defaultACL.asString() : QStringLiteral("ACL_DELETE"));
-        }
+        connect(filesJob, &KJob::result, this, [=]() {
+            if (filesJob->error()) {
+                filesJob->uiDelegate()->showErrorMessage();
+            }
 
-        connect(job, &KJob::result, this, &KFilePermissionsPropsPlugin::slotChmodResult);
-        QEventLoop eventLoop;
-        connect(this, &KFilePermissionsPropsPlugin::leaveModality, &eventLoop, &QEventLoop::quit);
-        eventLoop.exec(QEventLoop::ExcludeUserInputEvents);
+            chmodDirs();
+        });
+        return;
     }
-}
 
-void KFilePermissionsPropsPlugin::slotChmodResult(KJob *job)
-{
-    // qDebug() << "KFilePermissionsPropsPlugin::slotChmodResult";
-    if (job->error()) {
-        job->uiDelegate()->showErrorMessage();
-    }
-    // allow apply() to return
-    Q_EMIT leaveModality();
+    // No files to change? OK, now process dirs (if any)
+    chmodDirs();
 }
 
 class KChecksumsPlugin::KChecksumsPluginPrivate
@@ -3203,6 +3257,8 @@ void KUrlPropsPlugin::applyChanges()
         dg.writeEntry("Name", nameStr);
         dg.writeEntry("Name", nameStr, KConfigBase::Persistent | KConfigBase::Localized);
     }
+
+    setDirty(false);
 }
 
 /* ----------------------------------------------------
@@ -3483,6 +3539,8 @@ void KDevicePropsPlugin::applyChanges()
     config.writeEntry("ReadOnly", d->readonly->isChecked());
 
     config.sync();
+
+    setDirty(false);
 }
 
 /* ----------------------------------------------------
@@ -3799,6 +3857,8 @@ void KDesktopPropsPlugin::applyChanges()
     if (updateNeeded) {
         KBuildSycocaProgressDialog::rebuildKSycoca(d->m_frame);
     }
+
+    setDirty(false);
 }
 
 void KDesktopPropsPlugin::slotBrowseExec()
