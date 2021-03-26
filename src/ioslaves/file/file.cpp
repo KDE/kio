@@ -917,9 +917,7 @@ void FileProtocol::mount(bool _ro, const char *_fstype, const QString &_dev, con
     }
 #endif /* ! HAVE_VOLMGT */
 #else
-    QString err;
-    err = i18n("mounting is not supported by wince.");
-    error(KIO::ERR_CANNOT_MOUNT, err);
+    error(KIO::ERR_CANNOT_MOUNT, i18n("mounting is not supported by Windows CE."));
 #endif
 }
 
