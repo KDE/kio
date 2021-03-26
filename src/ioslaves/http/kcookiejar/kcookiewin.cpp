@@ -278,7 +278,7 @@ KCookieDetail::KCookieDetail(const KHttpCookieList &cookieList, int cookieCount,
     m_domain->setMaximumWidth(fontMetrics().maxWidth() * 25);
     grid->addWidget(m_domain, 5, 1);
 
-    label = new QLabel(i18n("Exposure:"), this);
+    label = new QLabel(i18nc("@label a description string of how 'accessible' the cookie is (e.g. see exposure string in this file)", "Exposure:"), this);
     grid->addWidget(label, 6, 0);
     m_secure = new QLineEdit(this);
     m_secure->setReadOnly(true);
@@ -319,7 +319,7 @@ void KCookieDetail::displayCookieDetails()
     m_name->setText(cookie.name());
     m_value->setText((cookie.value()));
     if (cookie.domain().isEmpty()) {
-        m_domain->setText(i18n("Not specified"));
+        m_domain->setText(i18nc("@label cookie has no explicit 'Domain' value specified", "Not specified"));
     } else {
         m_domain->setText(cookie.domain());
     }
@@ -328,20 +328,20 @@ void KCookieDetail::displayCookieDetails()
     if (cookie.expireDate()) {
         m_expires->setText(cookiedate.toString());
     } else {
-        m_expires->setText(i18n("End of Session"));
+        m_expires->setText(i18nc("@label the cookie expires when the browser session ends", "End of Session"));
     }
     QString sec;
     if (cookie.isSecure()) {
         if (cookie.isHttpOnly()) {
-            sec = i18n("Secure servers only");
+            sec = i18nc("@label exposure string - the cookie may only be used by https servers", "Secure servers only");
         } else {
-            sec = i18n("Secure servers, page scripts");
+            sec = i18nc("@label exposure string - the cookie may be used by https servers AND client-side javascripts", "Secure servers, page scripts");
         }
     } else {
         if (cookie.isHttpOnly()) {
-            sec = i18n("Servers");
+            sec = i18nc("@label exposure string - the cookie may only be used by http servers", "Servers");
         } else {
-            sec = i18n("Servers, page scripts");
+            sec = i18nc("@label exposure string - the cookie may be used by http servers AND client-side javascripts", "Servers, page scripts");
         }
     }
     m_secure->setText(sec);
@@ -354,7 +354,9 @@ void KCookieWin::slotSessionOnlyClicked()
 
 void KCookieWin::slotToggleDetails()
 {
-    const QString baseText = i18n("Details");
+    const QString baseText = i18nc(
+        "@action:button show details about a cookie that needs approval. This string gets >> and << appended, to visualize if the dialog expands or compacts!",
+        "Details");
 
     if (!m_detailView->isHidden()) {
         m_detailsButton->setText(baseText + QLatin1String(" >>"));
