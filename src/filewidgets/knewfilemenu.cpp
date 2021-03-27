@@ -1242,7 +1242,7 @@ void KNewFileMenuPrivate::_k_slotTextChanged(const QString &text)
         } else {
             url = QUrl(m_baseUrl.toString() + QLatin1Char('/') + text);
         }
-        KIO::StatJob *job = KIO::statDetails(url, KIO::StatJob::StatSide::SourceSide, KIO::StatDetail::StatBasic);
+        KIO::StatJob *job = KIO::statDetails(url, KIO::StatJob::StatSide::DestinationSide, KIO::StatDetail::StatBasic);
         QObject::connect(job, &KJob::result, q, [this](KJob *job) {
             _k_slotStatResult(job);
         });
