@@ -46,7 +46,6 @@ target_link_libraries(kio_trash
   Qt5::Network
   KF5::I18n
   KF5::ConfigCore
-  KF5::ConfigGui
 )
 if(APPLE)
     target_link_libraries(kio_trash "-framework DiskArbitration -framework CoreFoundation")
@@ -65,7 +64,6 @@ target_link_libraries(ktrash5
   KF5::KIOCore
   KF5::I18n
   KF5::ConfigCore
-  KF5::ConfigGui
 )
 
 install(TARGETS ktrash5 ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
