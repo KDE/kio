@@ -14,6 +14,11 @@
 
 #include <QFileInfo>
 
+#ifndef Q_OS_WIN
+#include <KUser>
+#include <unistd.h>
+#endif
+
 class KFileItemListPropertiesPrivate : public QSharedData
 {
 public:
@@ -42,6 +47,7 @@ public:
     bool m_supportsMoving : 1;
     bool m_supportsPrivilegeExecution : 1;
     bool m_isLocal : 1;
+    bool m_isOwner : 1;
 };
 
 KFileItemListProperties::KFileItemListProperties()
@@ -70,6 +76,7 @@ void KFileItemListPropertiesPrivate::setItems(const KFileItemList &items)
     m_supportsMoving = initialValue;
     m_isDirectory = initialValue;
     m_isFile = initialValue;
+    m_isOwner = true;
     m_isLocal = true;
     m_mimeType.clear();
     m_mimeGroup.clear();
@@ -80,6 +87,9 @@ void KFileItemListPropertiesPrivate::setItems(const KFileItemList &items)
         const QUrl url = item.mostLocalUrl(&isLocal);
         m_isLocal = m_isLocal && isLocal;
         m_supportsPrivilegeExecution = KProtocolManager::supportsPrivilegeExecution(url);
+#ifndef Q_OS_WIN
+        m_isOwner = m_isOwner && (item.user() == KUser(getuid()).loginName());
+#endif
         m_supportsReading  = m_supportsReading  && KProtocolManager::supportsReading(url);
         m_supportsDeleting = m_supportsDeleting && KProtocolManager::supportsDeleting(url);
         m_supportsWriting  = m_supportsWriting  && KProtocolManager::supportsWriting(url) && (m_supportsPrivilegeExecution || item.isWritable());
@@ -132,6 +142,11 @@ KFileItemListProperties::~KFileItemListProperties()
 bool KFileItemListProperties::supportsReading() const
 {
     return d->m_supportsReading;
+}
+
+bool KFileItemListProperties::isOwner() const
+{
+    return d->m_isOwner;
 }
 
 bool KFileItemListProperties::supportsDeleting() const
