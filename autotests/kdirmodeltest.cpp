@@ -1279,6 +1279,13 @@ void KDirModelTest::testHasChildren()
     m_dirModel->dirLister()->setShowingDotFiles(false);
 }
 
+void KDirModelTest::testInvalidUrl()
+{
+    QSignalSpy completedSpy(m_dirModel->dirLister(), QOverload<>::of(&KCoreDirLister::completed));
+    m_dirModel->openUrl(QUrl(":/"));
+    // currently ends up in KCoreDirLister::handleError. TODO: add error signal to KDirModel
+}
+
 void KDirModelTest::testDeleteFile()
 {
     fillModel(true);

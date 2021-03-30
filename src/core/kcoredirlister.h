@@ -9,7 +9,7 @@
 #ifndef KCOREDIRLISTER_H
 #define KCOREDIRLISTER_H
 
-#include "kdirnotify.h" // TODO SIC: remove
+#include "kdirnotify.h" // TODO KF6: remove
 #include "kfileitem.h"
 
 #include <QString>
@@ -113,7 +113,7 @@ public:
      * @note clearDir(const QUrl &) is emitted since 5.79; before that it was clear(const QUrl &)
      * which has been deprecated.
      */
-    virtual bool openUrl(const QUrl &dirUrl, OpenUrlFlags flags = NoFlags);
+    virtual bool openUrl(const QUrl &dirUrl, OpenUrlFlags flags = NoFlags); // TODO KF6: remove virtual, change bool to void
 
     /**
      * Stop listing all directories currently being listed.
@@ -125,7 +125,7 @@ public:
      * @note listingDirCanceled(const QUrl &) is emitted since 5.79; before that it was
      * canceled(const QUrl &) which has been deprecated.
      */
-    virtual void stop();
+    virtual void stop(); // TODO KF6: remove virtual
 
     /**
      * Stop listing the given directory.
@@ -141,7 +141,7 @@ public:
      * @note listingDirCanceled(const QUrl &) is emitted since 5.79; before that it was
      * canceled(const QUrl &) which has been deprecated.
      */
-    virtual void stop(const QUrl &dirUrl);
+    virtual void stop(const QUrl &dirUrl); // TODO KF6: remove virtual
 
     /**
      * @return @c true if the "delayed MIME types" feature was enabled
@@ -172,7 +172,7 @@ public:
      *
      * @param enable set to @c true to enable or @c false to disable
      */
-    virtual void setAutoUpdate(bool enable);
+    virtual void setAutoUpdate(bool enable); // TODO KF6: remove virtual
 
     /**
      * Checks whether hidden files (files whose name start with '.') will be shown.
@@ -194,7 +194,7 @@ public:
      *
      * @see showingDotFiles()
      */
-    virtual void setShowingDotFiles(bool showDotFiles);
+    virtual void setShowingDotFiles(bool showDotFiles); // TODO KF6: remove virtual
 
     /**
      * Checks whether this KCoreDirLister only lists directories or all items (directories and
@@ -214,7 +214,7 @@ public:
      *
      * @param dirsOnly set to @c true to list only directories
      */
-    virtual void setDirOnlyMode(bool dirsOnly);
+    virtual void setDirOnlyMode(bool dirsOnly); // TODO KF6: remove virtual
 
     /**
      * Returns the top level URL that is listed by this KCoreDirLister.
@@ -241,7 +241,7 @@ public:
      * Actually emit the changes made with setShowingDotFiles, setDirOnlyMode,
      * setNameFilter and setMimeFilter.
      */
-    virtual void emitChanges();
+    virtual void emitChanges(); // TODO KF6: remove virtual
 
     /**
      * Update the directory @p dirUrl. This method causes KCoreDirLister to @em only emit
@@ -253,7 +253,7 @@ public:
      *
      * @param dirUrl the directory URL
      */
-    virtual void updateDirectory(const QUrl &dirUrl);
+    virtual void updateDirectory(const QUrl &dirUrl); // TODO KF6: remove virtual
 
     /**
      * Returns @c true if no I/O operation is currently in progress.
@@ -275,14 +275,14 @@ public:
      * @param url the item URL
      * @return the KFileItem
      */
-    virtual KFileItem findByUrl(const QUrl &url) const;
+    virtual KFileItem findByUrl(const QUrl &url) const; // TODO KF6: remove virtual
 
     /**
      * Find an item by its name.
      * @param name the item name
      * @return the KFileItem
      */
-    virtual KFileItem findByName(const QString &name) const;
+    virtual KFileItem findByName(const QString &name) const; // TODO KF6: remove virtual
 
     /**
      * Set a name filter to only list items matching this name, e.g. "*.cpp".
@@ -295,7 +295,7 @@ public:
      * @param filter the new filter, QString() to disable filtering
      * @see matchesFilter
      */
-    virtual void setNameFilter(const QString &filter);
+    virtual void setNameFilter(const QString &filter); // TODO KF6: remove virtual
 
     /**
      * Returns the current name filter, as set via setNameFilter()
@@ -317,7 +317,7 @@ public:
      * @see clearMimeFilter
      * @see matchesMimeFilter
      */
-    virtual void setMimeFilter(const QStringList &mimeList);
+    virtual void setMimeFilter(const QStringList &mimeList); // TODO KF6: remove virtual
 
     /**
      * Filtering should be done with KFileFilter. This will be implemented in a later
@@ -342,7 +342,7 @@ public:
      *
      * @see setMimeFilter
      */
-    virtual void clearMimeFilter();
+    virtual void clearMimeFilter(); // TODO KF6: remove virtual
 
     /**
      * Returns the list of MIME type based filters, as set via setMimeFilter().
@@ -680,11 +680,18 @@ protected:
      * Reimplement to customize error handling
      */
     virtual void handleError(KIO::Job *);
+
+    // Not _ENABLED_ because this is a virtual method
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 81)
     /**
      * Reimplement to customize error handling
-     * @since 5.0
+     * @deprecated since 5.81, handleError() is emitted instead for the two
+     * cases where handleErrorMessage was emitted (invalid URL, protocol not supporting listing).
      */
+    KIOCORE_DEPRECATED_VERSION(5, 81, "Use handleError() instead")
     virtual void handleErrorMessage(const QString &message);
+#endif
+
     /**
      * Reimplemented by KDirLister to associate windows with jobs
      * @since 5.0

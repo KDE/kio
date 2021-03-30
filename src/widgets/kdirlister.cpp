@@ -69,6 +69,7 @@ void KDirLister::handleError(KIO::Job *job)
     }
 }
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 81)
 void KDirLister::handleErrorMessage(const QString &message)
 {
     if (d->m_autoErrorHandling) {
@@ -77,6 +78,7 @@ void KDirLister::handleErrorMessage(const QString &message)
         KCoreDirLister::handleErrorMessage(message);
     }
 }
+#endif
 
 void KDirLister::jobStarted(KIO::ListJob *job)
 {

@@ -81,8 +81,14 @@ public:
     QSignalSpy spyCanceledQUrl;
     QSignalSpy spyRedirection;
 
+    void setErrorExpected();
+    int errorCode() const;
+
 protected:
     void handleError(KIO::Job *job) override;
+
+    bool m_errorExpected = false;
+    int m_errorCode = 0;
 };
 
 class KDirListerTest : public QObject
@@ -91,6 +97,8 @@ class KDirListerTest : public QObject
 private Q_SLOTS:
     void initTestCase();
     void cleanup();
+    void testInvalidUrl();
+    void testNonListableUrl();
     void testOpenUrl();
     void testOpenUrlFromCache();
     void testNewItem();

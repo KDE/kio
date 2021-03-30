@@ -21,11 +21,25 @@ QTEST_MAIN(KDirListerTest)
 
 #define WORKAROUND_BROKEN_INOTIFY 0
 
+void MyDirLister::setErrorExpected()
+{
+    m_errorExpected = true;
+}
+
+int MyDirLister::errorCode() const
+{
+    return m_errorCode;
+}
+
 void MyDirLister::handleError(KIO::Job *job)
 {
-    // Currently we don't expect any errors.
-    qCritical() << "KDirLister called handleError!" << job << job->error() << job->errorString();
-    qFatal("aborting");
+    if (!m_errorExpected) {
+        qCritical() << "KDirLister called handleError!" << job << job->error() << job->errorString();
+        qFatal("aborting");
+    } else {
+        m_errorCode = job->error();
+        m_errorExpected = false;
+    }
 }
 
 void KDirListerTest::initTestCase()
@@ -66,6 +80,26 @@ void KDirListerTest::cleanup()
 {
     m_dirLister.clearSpies();
     disconnect(&m_dirLister, nullptr, this, nullptr);
+}
+
+void KDirListerTest::testInvalidUrl()
+{
+    m_dirLister.setErrorExpected();
+    m_dirLister.openUrl(QUrl(":/"), KDirLister::NoFlags);
+    QCOMPARE(m_dirLister.spyStarted.count(), 1);
+    QTRY_COMPARE(m_dirLister.errorCode(), KIO::ERR_MALFORMED_URL);
+    QCOMPARE(m_dirLister.spyCompleted.count(), 0);
+    QVERIFY(m_dirLister.isFinished());
+}
+
+void KDirListerTest::testNonListableUrl()
+{
+    m_dirLister.setErrorExpected();
+    m_dirLister.openUrl(QUrl("data:foo"), KDirLister::NoFlags);
+    QCOMPARE(m_dirLister.spyStarted.count(), 1);
+    QTRY_COMPARE(m_dirLister.errorCode(), KIO::ERR_UNSUPPORTED_ACTION);
+    QCOMPARE(m_dirLister.spyCompleted.count(), 0);
+    QVERIFY(m_dirLister.isFinished());
 }
 
 void KDirListerTest::testOpenUrl()

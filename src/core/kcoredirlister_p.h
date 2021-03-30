@@ -243,8 +243,6 @@ private:
     class DirItem;
     DirItem *dirItemForUrl(const QUrl &dir) const;
 
-    bool validUrl(KCoreDirLister *lister, const QUrl &_url) const;
-
     void stopListJob(const QUrl &url, bool silent);
 
     KIO::ListJob *jobForUrl(const QUrl &url, KIO::ListJob *not_job = nullptr);

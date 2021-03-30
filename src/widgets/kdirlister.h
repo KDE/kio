@@ -76,11 +76,14 @@ protected:
      * @reimp
      */
     void handleError(KIO::Job *) override;
+
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 81)
     /**
      * Reimplemented to customize error handling
      * @reimp
      */
     void handleErrorMessage(const QString &message) override;
+#endif
 
     /**
      * Reimplemented to associate a window with new jobs

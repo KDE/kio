@@ -108,11 +108,6 @@ bool KCoreDirListerCache::listDir(KCoreDirLister *lister, const QUrl &dirUrl, bo
         // (the non-unicity of the stringlist gives us the refcounting, basically).
     }
 
-    if (!validUrl(lister, _url)) {
-        qCDebug(KIO_CORE_DIRLISTER) << lister << "url=" << _url << "not a valid url";
-        return false;
-    }
-
     qCDebug(KIO_CORE_DIRLISTER) << lister << "url=" << _url << "keep=" << _keep << "reload=" << _reload;
 #ifdef DEBUG_CACHE
     printDebug();
@@ -378,22 +373,6 @@ void KCoreDirListerCache::forgetCachedItemsJob(KCoreDirListerPrivate::CachedItem
     } else {
         qCDebug(KIO_CORE_DIRLISTER) << "Still having a listjob" << listJob << ", so not moving to currently-holding.";
     }
-}
-
-bool KCoreDirListerCache::validUrl(KCoreDirLister *lister, const QUrl &url) const
-{
-    if (!url.isValid()) {
-        qCWarning(KIO_CORE) << url.errorString();
-        lister->handleErrorMessage(i18n("Malformed URL\n%1", url.errorString()));
-        return false;
-    }
-
-    if (!KProtocolManager::supportsListing(url)) {
-        lister->handleErrorMessage(i18n("URL cannot be listed\n%1", url.toString()));
-        return false;
-    }
-
-    return true;
 }
 
 void KCoreDirListerCache::stop(KCoreDirLister *lister, bool silent)
@@ -2117,6 +2096,7 @@ KCoreDirLister::~KCoreDirLister()
     }
 }
 
+// TODO KF6: remove bool ret val, it's always true
 bool KCoreDirLister::openUrl(const QUrl &_url, OpenUrlFlags _flags)
 {
     // emit the current changes made to avoid an inconsistent treeview
@@ -2427,10 +2407,12 @@ void KCoreDirLister::handleError(KIO::Job *job)
     qCWarning(KIO_CORE) << job->errorString();
 }
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 81)
 void KCoreDirLister::handleErrorMessage(const QString &message)
 {
     qCWarning(KIO_CORE) << message;
 }
+#endif
 
 // ================= private methods ================= //
 

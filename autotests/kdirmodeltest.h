@@ -55,6 +55,7 @@ private Q_SLOTS:
     void testShowRootAndExpandToUrl();
     void testHasChildren_data();
     void testHasChildren();
+    void testInvalidUrl();
 
     // These tests must be done last
     void testDeleteFile();
