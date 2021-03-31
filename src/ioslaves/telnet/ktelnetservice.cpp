@@ -10,8 +10,8 @@
 #include <KAuthorized>
 #include <KConfig>
 #include <KConfigGroup>
+#include <KIO/CommandLauncherJob>
 #include <KLocalizedString>
-#include <KToolInvocation>
 #include <QApplication>
 #include <QDebug>
 #include <QMessageBox>
@@ -80,7 +80,8 @@ int main(int argc, char **argv)
         }
     }
 
-    KToolInvocation::kdeinitExec(terminal, cmd);
+    auto job = new KIO::CommandLauncherJob(terminal, cmd);
+    job->start();
 
     return 0;
 }
