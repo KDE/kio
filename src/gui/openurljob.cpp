@@ -501,8 +501,8 @@ void KIO::OpenUrlJobPrivate::handleDesktopFiles()
         return;
     }
 
-    if (m_url.fileName() == QLatin1String(".directory")) {
-        // We cannot execute a .directory file, open in the default app
+    if (m_url.fileName() == QLatin1String(".directory") || m_mimeTypeName == QLatin1String("application/x-theme")) {
+        // We cannot execute these files, open in the default app
         m_mimeTypeName = QStringLiteral("text/plain");
         openInPreferredApp();
         return;
