@@ -531,7 +531,8 @@ void OpenUrlJobTest::ftpUrlWithKIO()
     const QUrl url(QStringLiteral("ftp://localhost:2")); // unlikely that anything is running on that port
     KIO::OpenUrlJob *job = new KIO::OpenUrlJob(url, this);
     QVERIFY(!job->exec());
-    QCOMPARE(job->errorString(), "Could not connect to host localhost: Connection refused.");
+    QVERIFY(job->errorString() == QLatin1String("Could not connect to host localhost: Connection refused.")
+            || job->errorString() == QLatin1String("Could not connect to host localhost: Network unreachable."));
 }
 
 void OpenUrlJobTest::takeOverAfterMimeTypeFound()
