@@ -610,7 +610,7 @@ bool FileProtocol::copyXattrs(const int src_fd, const int dest_fd)
             qCDebug(KIO_FILE) << "the file doesn't have any xattr";
             return true;
         }
-        QASSERT_X(listlen == -1, "unexpected return value from listxattr");
+        Q_ASSERT_X(listlen == -1, "copyXattrs", "unexpected return value from listxattr");
         if (listlen == -1 && errno == ENOTSUP) {
             qCDebug(KIO_FILE) << "source filesystem does not support xattrs";
         }
@@ -662,7 +662,7 @@ bool FileProtocol::copyXattrs(const int src_fd, const int dest_fd)
             if (valuelen == 0) {
                 break;
             }
-            QASSERT_X(valuelen == -1, "unexpected return value from getxattr");
+            Q_ASSERT_X(valuelen == -1, "copyXattrs", "unexpected return value from getxattr");
             // Some other error, skip to the next attribute, most notably
             // - ENOTSUP: invalid (inaccassible) attribute namespace, e.g. with SELINUX
             break;
