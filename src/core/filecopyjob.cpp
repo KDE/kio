@@ -378,11 +378,11 @@ void FileCopyJobPrivate::slotCanResume(KIO::Job *job, KIO::filesize_t offset)
                                                       offset);
                 return;
             }
-
-            processCanResumeResult(job, //
-                                   Result_Resume, // The default is to resume
-                                   offset);
         }
+
+        processCanResumeResult(job, //
+                               Result_Resume, // The default is to resume
+                               offset);
 
         return;
     }

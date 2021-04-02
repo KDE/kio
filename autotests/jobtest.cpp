@@ -920,7 +920,9 @@ void JobTest::copyDataUrl()
     KIO::CopyJob *job = KIO::copy(QUrl("data:,Hello%2C%20World!"), QUrl::fromLocalFile(dst_dir), KIO::HideProgressInfo);
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
     // THEN
-    QVERIFY(QFileInfo(dst_dir + "/data").isFile());
+    const QFileInfo fileInfo(dst_dir + "/data");
+    QVERIFY(fileInfo.isFile());
+    QCOMPARE(fileInfo.size(), 13);
     QFile::remove(dst_dir + "/data");
 }
 
