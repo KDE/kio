@@ -10,7 +10,7 @@
 #include <KDesktopFile>
 #include <KIO/Global> // KIO::iconNameForUrl
 #include <KRandom>
-#include <KServiceTypeTrader>
+#include <KService>
 #include <QFileInfo>
 #include <QStandardPaths>
 
