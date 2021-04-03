@@ -5,9 +5,9 @@
 */
 
 #include "kurifiltersearchprovideractions.h"
+#include <KIO/CommandLauncherJob>
 #include <KLocalizedString>
 #include <KStringHandler>
-#include <KToolInvocation>
 #include <QActionGroup>
 #include <QDesktopServices>
 #include <QIcon>
@@ -50,7 +50,8 @@ void KUriFilterSearchProviderActions::setSelectedText(const QString &selectedTex
 
 void KUriFilterSearchProviderActions::slotConfigureWebShortcuts()
 {
-    KToolInvocation::kdeinitExec(QStringLiteral("kcmshell5"), QStringList() << QStringLiteral("webshortcuts"));
+    auto *job = new KIO::CommandLauncherJob(QStringLiteral("kcmshell5"), {QStringLiteral("webshortcuts")});
+    job->start();
 }
 
 void KUriFilterSearchProviderActions::addWebShortcutsToMenu(QMenu *menu)
