@@ -1551,8 +1551,9 @@ int FileProtocol::setACL(const char *path, mode_t perm, bool directoryDefault)
             // user told us to delete the extended ACL, so let's write only
             // the minimal (UNIX permission bits) part
             acl = acl_from_mode(perm);
+        } else {
+            acl = acl_from_text(ACLString.toLatin1().constData());
         }
-        acl = acl_from_text(ACLString.toLatin1().constData());
         if (acl_valid(acl) == 0) { // let's be safe
             ret = acl_set_file(path, ACL_TYPE_ACCESS, acl);
             // qDebug() << "Set ACL on:" << path << "to:" << aclToText(acl);
