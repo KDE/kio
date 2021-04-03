@@ -1,0 +1,64 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % German "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="http">
+<title
+>http / https</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Lauri.Watts; &Lauri.Watts.mail;</author>
+<othercredit role="translator"
+><firstname
+>Marco</firstname
+><surname
+>Wegner</surname
+><affiliation
+><address
+><email
+>mail@marcowegner.de</email
+></address
+></affiliation
+><contrib
+>Übersetzer</contrib
+></othercredit
+> 
+</authorgroup>
+</articleinfo>
+
+<para
+>&HTTP; ist das <emphasis
+>H</emphasis
+>yper<emphasis
+>T</emphasis
+>ext <emphasis
+>T</emphasis
+>ransfer <emphasis
+>P</emphasis
+>rotocol.</para>
+
+<para
+>Das http-Modul wird von allen &kde;-Anwendungen genutzt, um Verbindungen zu &HTTP;-Servern, also Webservern, zu verwalten. Die am weitesten verbreitete Anwendung ist das Betrachten von Webseiten im Webbrowser &konqueror;.</para>
+
+<para
+>Sie können das https-Modul im &konqueror; nutzen, indem Sie ihm eine &URL; übergeben: <userinput
+>http://<replaceable
+>www.kde.org</replaceable
+></userinput
+>.</para>
+
+<para
+>HTTPS ist HTTP, eingebunden in einen SSL/TLS-Datenstrom.</para>
+<para
+>SSL ist das <quote
+>Secure Socket Layer</quote
+>-Protokoll; ein Sicherheitsprotokoll, das sichere Verbindungen für die Internet-Kommunikation bietet. Das Protokoll ermöglicht Client/Server-Anwendungen in einer Weise zu kommunizieren, die das Abhören, Manipulieren oder Fälschen von Nachrichten verhindert. </para>
+<para
+>TLS steht für Transport Layer Security.</para>
+
+</article>

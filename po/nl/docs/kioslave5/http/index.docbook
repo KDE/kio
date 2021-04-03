@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Dutch "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="http">
+<title
+>http / https</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Lauri.Watts; &Lauri.Watts.mail;</author>
+&Otto.Bruggeman;&Rinse.Devries; 
+</authorgroup>
+</articleinfo>
+
+<para
+>&HTTP; is het <emphasis
+>H</emphasis
+>yper<emphasis
+>T</emphasis
+>ext <emphasis
+>T</emphasis
+>ransfer <emphasis
+>P</emphasis
+>rotocol.</para>
+
+<para
+>De io-slave http wordt door alle &kde;-toepassingen gebruikt voor het afhandelen van verbindingen met &HTTP;-servers, oftewel webservers. Deze io-slave wordt het meest gebruikt voor het tonen van webpagina's in het bladerprogramma &konqueror; Webbrowser.</para>
+
+<para
+>U kunt de https kioslave in &konqueror; gebruiken door een &URL; op te geven, zoals  <userinput
+>http://<replaceable
+>www.kde.nl</replaceable
+></userinput
+>.</para>
+
+<para
+>https is http in een SSL/TLS-stream.</para>
+<para
+>SSL is het Secure Sockets Layer protocol, een veiligheidsprotocol dat private communicatie op het internet toelaat. Het protocol laat client/server-programma's communiceren op een veilige manier. </para>
+<para
+>TLS staat voor Transport Layer Security.</para>
+
+</article>

@@ -1,0 +1,94 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Swedish "INCLUDE">
+]>
+<article id="documentationnotfound" lang="&language;">
+<title
+>Dokumentationen hittades inte</title>
+<articleinfo>
+<authorgroup>
+<author
+><firstname
+>Jack</firstname
+> <surname
+>Ostroff</surname
+> <affiliation
+> <address
+><email
+>ostroffjh@users.sourceforge.net</email
+></address>
+</affiliation>
+</author>
+<othercredit role="translator"
+> <firstname
+>Stefan</firstname
+> <surname
+>Asserhäll</surname
+> <affiliation
+><address
+><email
+>stefan.asserhall@bredband.net</email
+></address
+></affiliation
+> <contrib
+>Översättare</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>2020-09-08</date>
+<releaseinfo
+>Ramverk 5.73</releaseinfo>
+
+</articleinfo>
+
+<para
+>Den begärda dokumentationen  kunde inte hittas på datorn.</para>
+
+<para
+>Dokumentationen kanske inte finns, eller kanske inte installerades tillsammans med programmet.</para>
+
+<tip
+><para
+>Var vänlig skicka inte e-post till författaren av sidan för att hitta det saknade dokumentet. Han talar bara om för dig att följa instruktionerna på den här sidan. </para
+></tip>
+
+<simplesect>
+<title
+>Hur problemet kan lösas</title>
+
+<para
+>Om programmet är &kde;-programvara, använd först sökfunktionen i Hjälpcentralen. I vissa fall har dokumentationen ett annat namn än programvaran använde för att försöka hitta den. Om det inte fungerar, prova att söka på <ulink url="https://docs.kde.org/"
+>&kde;:s dokumentationsplats</ulink
+> efter den önskade dokumentationen. Om du hittar dokumentationen på den webbplatsen, kanske din distribution tillhandahåller separata paket för dokumentation (t.ex. kallad plasma-doc för dokumentation som har med &plasma; att göra). Använd distributionens pakethanterare för att finna och installera den saknade dokumentationen.</para>
+
+<para
+>Om du använder en distribution baserad på källkod, som Gentoo, försäkra dig om att det inte finns några konfigurationsinställningar (USE-flaggor i Gentoo) som kan ha inaktiverat installation av dokumentationen. </para>
+
+<para
+>Om du har gjort det, men den här sidan ändå visas istället för programmets handbok, har du troligen hittat ett fel i hjälpsystemet. Om så är fallet, rapportera det gärna med <ulink url="https://bugs.kde.org/"
+>&kde;:s felspårningssystem</ulink
+> under produktnamnet KIO. </para>
+
+<para
+>Om du inte hittar någon dokumentation på <ulink url="https://docs.kde.org/"
+>&kde;:s dokumentationsplats</ulink
+>, kanske inte programmet har lokal dokumentation. Rapportera det gärna med <ulink url="https://bugs.kde.org/"
+>&kde;:s felspårningssystem</ulink
+> under programmets produktnamn. </para>
+
+<para
+>Om programmet inte har lokal dokumentation, kan du använda webbresurserna <ulink url="https://userbase.kde.org/"
+>Användarbasens dokumentation</ulink
+> och <ulink url="https://forum.kde.org/"
+>&kde;:s gemenskapsforum</ulink
+> för att få hjälp. </para>
+
+<para
+>För andra program än &kde;-program, kontakta programmets upphovsman för att avgöra om det kan finnas separat dokumentation tillgänglig.</para>
+</simplesect>
+
+</article>

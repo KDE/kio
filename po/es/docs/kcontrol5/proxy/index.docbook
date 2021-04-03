@@ -1,0 +1,263 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Spanish "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="proxy" lang="&language;">
+<title
+>Proxy</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Krishna.Tateneni; &Krishna.Tateneni.mail;</author>
+<othercredit role="translator"
+> <firstname
+>Rocío</firstname
+> <surname
+>Gallego</surname
+> <affiliation
+><address
+><email
+>traducciones@rociogallego.com</email
+></address
+></affiliation
+> <contrib
+>Traducción</contrib
+> </othercredit
+><othercredit role="translator"
+> <firstname
+>Pablo</firstname
+> <surname
+>Pablo de Vicente</surname
+> <affiliation
+><address
+><email
+>pablo.devicente@gmail.com</email
+></address
+></affiliation
+> <contrib
+>Traductor</contrib
+> </othercredit
+><othercredit role="translator"
+> <firstname
+>Marcos</firstname
+> <surname
+>Fouces Lago</surname
+> <affiliation
+><address
+><email
+>mfouces@yahoo.es</email
+></address
+></affiliation
+> <contrib
+>Traductor</contrib
+> </othercredit
+> <othercredit role="translator"
+> <firstname
+>Santiago</firstname
+> <surname
+>Fernández Sancho</surname
+> <affiliation
+><address
+><email
+>santi@kde-es.org</email
+></address
+></affiliation
+> <contrib
+>Traductor</contrib
+> </othercredit
+> 
+</authorgroup>
+
+<date
+>2016-11-10</date>
+<releaseinfo
+>Frameworks 5.29</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Preferencias del sistema</keyword>
+<keyword
+>proxy</keyword>
+<keyword
+>proxys</keyword>
+</keywordset>
+
+</articleinfo>
+<sect1 id="proxies">
+<title
+>Proxys</title>
+
+<sect2 id="proxies-intro">
+
+<title
+>Introducción</title>
+
+<para
+>Los proxys son programas ejecutándose en una máquina que actúa de servidor en la red a la que está conectado (bien por módem o por otros medios). Estos programas reciben peticiones &HTTP; y &FTP;, descargan los archivos requeridos de Internet y los suministran a la máquina cliente que hizo la solicitud.</para>
+
+<para
+>Cuando se ha configurado un proxy, &HTTP; y/o &FTP; las peticiones son redirigidas a través de la máquina que está haciendo de servidor proxy. Sin embargo, también puede seleccionar máquinas específicas que deberían conectarse directamente, en lugar de hacerlo a través de un servidor proxy. Si está en una red de área local, por ejemplo, el acceso a las máquinas locales probablemente no necesita producirse a través del servidor proxy.</para>
+
+<para
+>Solo debería necesitar configurar un servidor proxy si su administrador de redes lo solicita (si es un usuario de línea telefónica, este sería su proveedor de servicios de Internet o <acronym
+>ISP</acronym
+>). En otro caso, especialmente si no tiene claro lo relativo a los proxys y su conexión a Internet parece funcionar correctamente, no necesitará cambiar nada.</para>
+
+<para
+>Advierta que el uso de servidores proxy es opcional, pero que tiene la ventaja de proporcionarnos acceso más rápido a los datos en Internet.</para>
+
+<para
+>Si no está seguro de si precisa o no un servidor proxy para conectarse a Internet, por favor consulte la guía de configuración de su proveedor de servicios de Internet o con el administrador de su sistema.</para>
+
+</sect2>
+
+<sect2 id="proxies-use">
+
+<title
+>Uso</title>
+
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>Ningún proxy</guilabel
+></term>
+<listitem>
+
+<para
+>Seleccione esta opción si <emphasis
+>no</emphasis
+> quiere utilizar un servidor proxy y conectarse a Internet directamente.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>Si ha decidido utilizar un proxy tiene varios métodos para configurar sus opciones.</para>
+
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>Detectar la configuración del proxy automáticamente</guilabel
+></term>
+<listitem>
+
+<para
+>Seleccione esta opción si desea que el arcivo de procedimientos de la configuración del proxy sea automáticamente detectado y descargado.</para>
+<para
+>Esta opción solo difiere de la siguiente elección en que <emphasis
+>no</emphasis
+> precisa que suministre la ubicación del script de configuración. En su lugar, se descargará automáticamente utilizando el protocolo «Descubrimiento automático de proxy web»  (<acronym
+>WAPD</acronym
+>).</para>
+
+<note
+><para
+>Si tiene algún problema con esta configuración, consulte la sección de preguntas frecuentes en <ulink url="https://www.konqueror.org"
+>https://www.konqueror.org</ulink
+> para obtener más información.</para
+></note>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Usar URL de configuración automática del proxy:</guilabel
+></term>
+<listitem>
+<para
+>Seleccione esta opción si su soporte para proxy es proporcionado por un archivo de procedimientos ubicado en una dirección especificada. Puede introducirla en el cuadro de texto de dirección, o utilice el icono <guiicon
+>carpeta</guiicon
+> para navegar hasta él.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Usar la configuración del proxy:</guilabel
+></term>
+<listitem>
+<para
+>Algunos sistemas están configurados con $<envar
+>HTTP_PROXY</envar
+> para permitir que aplicaciones gráficas y no gráficas compartan la misma información de configuración del proxy.</para>
+<para
+>Si sabe que esto le es aplicable, seleccione esta opción y pulse el botón <guibutton
+>Detectar automáticamente...</guibutton
+> para proporcionar los nombres de las variables de entorno utilizadas para configurar la dirección de los servidores proxy.</para>
+<!-- Exceptions fields are different for system proxy (envar) + manual proxy list of hosts/IPs? -->
+<para
+>En el campo <guilabel
+>Excepciones:</guilabel
+>, introduzca la variable de entorno, &eg;, $<envar
+>NO_PROXY</envar
+>, utilizada para guardar las direcciones de los sitios para los cuales no se debe utilizar el servidor proxy.</para>
+<para
+>Utilice <guilabel
+>Mostrar el valor de las variables de entorno</guilabel
+> para mostrar el valor de una variable de entorno en lugar de su nombre. Sin embargo, no es posible editar los valores de las variables de entorno en este módulo.</para>
+<!--
+How to enable Auto Detect button?
+-->
+
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+><guilabel
+>Utilizar la configuración del proxy especificada manualmente:</guilabel
+></term>
+<listitem>
+
+<para
+>La información completa de direccionamiento para el proxy incluye tanto la dirección de Internet como un número de puerto. Debería introducir estos valores en sus cuadros de texto correspondientes. Marque <guilabel
+>Utilizar este servidor proxy para todos los protocolos</guilabel
+> para copiar las direcciones y los puertos del servidor proxy de &HTTP; en todos los demás campos de proxy con el fin de ahorrarle tiempo al teclear.</para>
+
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>Excepciones:</guilabel
+></term>
+<listitem>
+<para
+>Introduzca una lista separada por comas de los nombres de servidor o direcciones IP que se deben excluir de las preferencias indicadas anteriormente para el proxy. Si quiere excluir todos los servidores para un dominio en particular, simplemente introduzca el nombre del dominio precedido por un punto. Por ejemplo, para excluir todos servidores para kde.org, introduzca <userinput
+>kde.org</userinput
+>. Los caracteres comodín como <userinput
+>*</userinput
+> o <userinput
+>?</userinput
+> no se admiten y no tendrán efecto. También puede introducir direcciones IP, como 127.0.0.1, y direcciones IP con una subred, como 192.168.0.1/24.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>También puede elegir <guilabel
+>Usar las preferencias del proxy solo para las direcciones de la lista de excepciones</guilabel
+>.</para>
+
+<para
+>Seleccione esta casilla para invertir el uso de la lista de excepción, &ie;, los servidores proxy solo se utilizarán cuando la &URL; solicitada concuerde con una de las direcciones listadas aquí.</para>
+
+<para
+>Esta propiedad es útil si todo lo que necesita es un proxy para acceder a unos pocos sitios específicos, por ejemplo, una intranet interna. Si precisa requisitos más complejos puede que desee un script de configuración.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+</sect2>
+
+</sect1>
+
+</article>

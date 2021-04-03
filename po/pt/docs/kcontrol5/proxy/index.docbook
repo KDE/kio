@@ -1,0 +1,225 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Portuguese "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="proxy" lang="&language;">
+<title
+>'Proxy'</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Krishna.Tateneni; &Krishna.Tateneni.mail;</author>
+<othercredit role="translator"
+><firstname
+>José</firstname
+><surname
+>Pires</surname
+><affiliation
+><address
+><email
+>zepires@gmail.com</email
+></address
+></affiliation
+><contrib
+>Tradução</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>2016-11-10</date>
+<releaseinfo
+>Plataformas 5.29</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Systemsettings</keyword>
+<keyword
+>'proxy'</keyword>
+<keyword
+>'proxies'</keyword>
+</keywordset>
+
+</articleinfo>
+<sect1 id="proxies">
+<title
+>'Proxies'</title>
+
+<sect2 id="proxies-intro">
+
+<title
+>Introdução</title>
+
+<para
+>Os 'proxies' são programas que correm num computador que actua como um servidor na rede à qual o utilizador está ligado (quer por modem ou através de outro meio). Estes programas recebem pedidos de &FTP; e &HTTP;, obtêm os ficheiros relevantes da Internet e passam-nos ao computador-cliente que fez os pedidos.</para>
+
+<para
+>Quando você tiver configurado um 'proxy', os pedidos de &HTTP; ou &FTP; são reencaminhados através do computador que está a actuar como servidor 'proxy'. Porém, também poderá seleccionar as máquinas específicas que devem ser contactadas directamente, em vez de ser através do servidor 'proxy'. Se estiver numa rede local, por exemplo, o acesso às máquinas locais provavelmente não terá de passar por um servidor 'proxy'.</para>
+
+<para
+>Só irá necessitar de configurar um servidor 'proxy' se o seu administrador de rede precisar de tal (se você for um utilizador de um ISP, por exemplo, este será o seu fornecedor de acesso à Internet ou <acronym
+>ISP</acronym
+>). Caso contrário, especialmente se se sentir um bocado confuso acerca deste assunto, mas tudo parece estar a funcionar com a sua ligação à Internet, não necessita de alterar nada.</para>
+
+<para
+>Repare que a utilização de servidores 'proxy' é opcional, mas tem a vantagem de lhe dar um acesso mais rápido aos dados na Internet.</para>
+
+<para
+>Se não tiver a certeza se precisa de usar um servidor 'proxy' para se ligar à Internet, consulte o manual de configuração do seu fornecedor de serviço da Internet ou o seu administrador de sistemas.</para>
+
+</sect2>
+
+<sect2 id="proxies-use">
+
+<title
+>Utilização</title>
+
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>Sem 'Proxy'</guilabel
+></term>
+<listitem>
+
+<para
+>Seleccione esta opção se <emphasis
+>não</emphasis
+> deseja usar um servidor 'proxy', ligando-se directamente à Internet.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>Se optou por utilizar um 'proxy', tem várias formas de configurar as opções para o mesmo.</para>
+
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>Detectar automaticamente a configuração do 'proxy'</guilabel
+></term>
+<listitem>
+
+<para
+>Seleccione esta opção se quiser que o 'script' de configuração do 'proxy' seja detectado e transferido automaticamente.</para>
+<para
+>Esta opção apenas difere da seguinte na medida em que <emphasis
+>não</emphasis
+> necessita que o utilizador indique a localização do ficheiro de configuração. Em vez disso, será automaticamente transferido usando o protocolo <quote
+>Web Access Protocol Discovery</quote
+> (<acronym
+>WAPD</acronym
+>).</para>
+
+<note
+><para
+>Se tiver algum problema ao usar esta configuração, consulte a secção de <acronym
+>FAQ</acronym
+> em <ulink url="http://www.konqueror.org"
+>http://www.konqueror.org</ulink
+> para mais informações.</para
+></note>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Usar o URL de configuração automática do 'proxy'</guilabel
+></term>
+<listitem>
+<para
+>Seleccione esta opção se o seu suporte de 'proxy' é oferecido através de um 'script' localizado num dado endereço. Poderá então indicar o endereço no campo de texto ou usar o ícone de <guiicon
+>pasta</guiicon
+> para o escolher.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Usar a configuração de sistema do 'proxy'</guilabel
+></term>
+<listitem>
+<para
+>Alguns sistemas são configurados com o $<envar
+>HTTP_PROXY</envar
+> para permitir às aplicações gráficas e não-gráficas partilharem a mesma informação de configuração do 'proxy'.</para>
+<para
+>Se souber que isto se aplica a si, seleccione esta opção e carregue no botão <guibutton
+>Detectar Automaticamente</guibutton
+> para indicar os nomes das variáveis de ambiente de onde se extrai o endereço do(s) servidor(es) 'proxy'.</para>
+<!-- Exceptions fields are different for system proxy (envar) + manual proxy list of hosts/IPs? -->
+<para
+>No campo de <guilabel
+>Excepções</guilabel
+>, indique a variável de ambiente, &eg; $<envar
+>NO_PROXY</envar
+>, que é usada para guardar os endereços das páginas onde não deverá ser usado o servidor 'proxy'.</para>
+<para
+>Use a opção <guilabel
+>Mostrar o valor das variáveis de ambiente</guilabel
+> para mostrar o valor de uma variável de ambiente, em vez do seu nome. Contudo, não é possível editar os valores das variáveis de ambiente neste módulo.</para>
+<!--
+How to enable Auto Detect button?
+-->
+
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+><guilabel
+>Usar a configuração do 'proxy' definida manualmente</guilabel
+></term>
+<listitem>
+
+<para
+>A informação completa do endereçamento para o 'proxy' inclui tanto o endereço Internet como o número do porto. Deverá indicar estes nos campos de texto relevantes. Assinale a opção <guilabel
+>Usar este servidor 'proxy' para todos os protocolos</guilabel
+> para copiar os endereços e portos do servidor 'proxy' de HTTP para todos os outros campos de 'proxies', para lhe poupar alguma escrita.</para>
+
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>Excepções</guilabel
+></term>
+<listitem>
+<para
+>Indique uma lista, separada por vírgulas, de nomes ou endereços IP das máquinas que deverão ser excluídas do uso da configuração acima indicada. Se quiser excluir todas as máquinas para um dado domínio, então basta indicar o nome do domínio antecedido de um ponto. Por exemplo, para excluir todas as máquinas em 'kde.org', indique <userinput
+>.kde.org</userinput
+>. Os caracteres especiais, como o <userinput
+>*</userinput
+> ou o <userinput
+>?</userinput
+>, não são suportados e não terão qualquer efeito. Para além disso, poderá indicar também endereços IP, p.ex. 127.0.0.1, e endereços IP com máscaras de rede, p.ex. 192.168.0.1/24.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>Também poderá escolher a opção <guilabel
+>Só usar o 'proxy' para os endereços na lista de Excepções</guilabel
+>.</para>
+
+<para
+>Seleccione esta opção para inverter o uso da lista de excepções, &ie; os servidores 'proxy' só serão usados quando o &URL; indicado corresponder a um dos endereços indicados aqui.</para>
+
+<para
+>Esta funcionalidade é útil se só precisa de um 'proxy' para aceder a alguns sítios específicos, como por exemplo uma 'intranet'. Se tiver requisitos mais complexos, poderá querer usar um programa de configuração.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+</sect2>
+
+</sect1>
+
+</article>

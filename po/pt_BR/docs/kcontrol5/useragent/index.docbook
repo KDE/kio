@@ -1,0 +1,140 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Brazilian-Portuguese "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="useragent" lang="&language;">
+<title
+>Identificação do navegador</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Krishna.Tateneni; &Krishna.Tateneni.mail;</author>
+<othercredit role="translator"
+><firstname
+>Lisiane</firstname
+> <surname
+>Sztoltz</surname
+><affiliation
+><address
+> <email
+>lisiane@conectiva.com.br</email
+></address
+></affiliation
+><contrib
+>Tradução</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>10/11/2016</date>
+<releaseinfo
+>Frameworks 5.29</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Configurações do Sistema</keyword>
+<keyword
+>identificação do navegador</keyword>
+<keyword
+>navegador</keyword>
+<keyword
+>Identificação</keyword>
+</keywordset>
+
+</articleinfo>
+
+<sect1 id="user-agent">
+<title
+>Identificação do navegador</title>
+
+
+<sect2 id="user-agent-intro">
+<title
+>Introdução</title>
+
+<para
+>Quando o &konqueror; conecta-se a um site para recuperar informação, algumas informações básicas de identificação são enviadas para o site na forma de uma cabeçalho de um <quote
+>Agente de usuário</quote
+>.</para>
+
+<para
+>Por causa das diferenças no modo como os navegadores funcionam, os sites que confiam muito em um único navegador podem, algumas vezes, não exibir o conteúdo como planejado, quando visualizado com outro navegador. Alguns sites são inteligentes o bastante para examinar o conteúdo do cabeçalho do Agente de usuário e incorporar esta informação no código &HTML;. Assim, o conteúdo é mostrado corretamente, seja qual for o navegador usado.</para>
+
+<para
+>No entanto, você pode encontrar sites que se recusam funcionar corretamente, a menos que você esteja usando um navegador reconhecido <quote
+>corretamente</quote
+> por aquele site. Nestes casos, você pode achar necessário enganar o site, fazendo com que o &konqueror; relate-se como sendo outro navegador, por meio do cabeçalho do agente de usuário.</para>
+
+</sect2>
+
+<sect2 id="user-agent-use">
+<title
+>Uso</title>
+
+<para
+>Neste módulo você pode configurar o tipo de navegador que o &konqueror; irá reportar-se (como irá se mostrar para o mundo), e pode controlar esta informação por site da Web. Geralmente, a lista chamada <guilabel
+> Identificação em sites específicos</guilabel
+> estará vazia e, assim, o &konqueror; sempre usará seu agente de usuário padrão.</para>
+
+<para
+>Você pode desabilitar completamente o envio de um agente de usuário desmarcando a opção <guilabel
+>Enviar identificação</guilabel
+>. Isto pode causar comportamentos estranhos em alguns sites, e pode até mesmo ocorrer a negação de acesso a alguns sites Web, portanto, desabilite isto com cuidado.</para>
+
+<para
+>Para configurar um novo agente, pressione o botão <guibutton
+>Novo..</guibutton
+> e digite o nome do servidor ou domínio na caixa de texto no topo do diálogo que surgir, chamada <guilabel
+>Ao navegar no seguinte site</guilabel
+>.</para>
+
+<para
+>Note que você <emphasis
+>não</emphasis
+> pode usar o caractere curinga <token
+>*</token
+> nesta caixa de texto. No entanto, o texto <userinput
+> kde.org</userinput
+> corresponderá com todos os hosts do domínio <systemitem
+>kde.org</systemitem
+></para>
+
+<para
+>Depois de digitar o nome do servidor, selecione o texto de identificação na próxima caixa de seleção chamada <guilabel
+>Usar a identificação a seguir:</guilabel
+>. A <guilabel
+>Identificação real</guilabel
+>, &ie;, os textos enviados para o servidor, aparece no campo respectivo.</para>
+
+<para
+>Você pode clicar em uma entrada existente na lista e então modificar o conteúdo das caixas de texto, clicando no botão <guibutton
+>Alterar...</guibutton
+>.</para>
+
+<para
+>O botão <guibutton
+>Excluir</guibutton
+> pode ser usado para excluir a entrada selecionada na lista. O botão <guibutton
+>Excluir tudo</guibutton
+> removerá todos os textos de agente de usuário configurados. Clique em <guibutton
+>Aplicar</guibutton
+> para que as mudanças tenham efeito.</para>
+
+<para
+>Você pode usar as caixas de verificação do topo da tela para construir um agente de usuário unicamente seu, escolhendo sua própria combinação contendo o nome do sistema operacional, versão, plataforma, tipo de processador e idioma.</para>
+
+<para
+>Em todos os casos, o agente de usuário que está sendo enviando por padrão é exibido no texto em negrito, no topo da página.</para>
+
+</sect2>
+
+</sect1>
+
+</article>

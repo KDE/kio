@@ -1,0 +1,146 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Swedish "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="mailto">
+<title
+>mailto</title>
+<articleinfo>
+<authorgroup>
+<author
+><firstname
+>Christopher</firstname
+> <surname
+>Yeleighton</surname
+> <email
+>giecrilj@stegny.2a.pl</email
+></author>
+
+<othercredit role="translator"
+> <firstname
+>Stefan</firstname
+> <surname
+>Asserhäll</surname
+> <affiliation
+><address
+><email
+>stefan.asserhall@bredband.net</email
+></address
+></affiliation
+> <contrib
+>Översättare</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>2018-08-20</date>
+<releaseinfo
+>Frameworks 5.50</releaseinfo>
+</articleinfo>
+<para
+>I/O-slaven mailto är ansvarig för att starta brevfönstret du har valt när en webbadress på formen mailto öppnas (<ulink url="https://tools.ietf.org/html/rfc6068"
+>RFC6068</ulink
+>). </para>
+
+<variablelist>
+<varlistentry>
+<term
+>Syntax</term>
+<listitem
+><para
+>Syntaxen av en mailto webbadress följer följande mönster:</para>
+
+<para
+>mailto:mottagare?förfrågan</para>
+
+<para
+>där mottagare utgör en lita av begränsade &SMTP; adresspecifikationer, och där förfrågan kan innehålla en eller flera av följande parametrar:</para>
+
+<variablelist>
+<varlistentry>
+<term
+>&amp;to=mottagare</term>
+<listitem
+><para
+>Anger ytterligare mottagare.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>&amp;cc=mottagare</term>
+<listitem
+><para
+>Anger ytterligare mottagare av kopior.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>&amp;bcc=mottagare</term>
+<listitem
+><para
+>Anger ytterligare mottagare av dolda kopior. Dessa mottagare kommer att ta emot brevet, men alla övriga mottagare vet inte om det.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>&amp;body=text</term>
+<listitem
+><para
+>Anger brevets text. Texten ska inte vara lång, eftersom det kan finnas hårda begränsningar för hur lång en webbadress kan vara.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>&amp;subject=text</term>
+<listitem
+><para
+>Anger brevets rubrik.</para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>Exempel</term>
+<listitem
+><para
+>   
+<literal
+>mailto:info@kde.org?cc=kde@kde.org&amp;subject=Thank%20you!&amp;body=KDE%20rockar!%20Hur%20kan%20jag%20bidra%3F</literal>
+</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>Inställning</term>
+<listitem
+><para
+>Välj program för att hantera lokaliseringar med mailto i systeminställningsmodulen <menuchoice
+><guimenu
+>Program</guimenu
+><guimenuitem
+>Standardprogram</guimenuitem
+></menuchoice
+> under kategorin <guilabel
+>Personlig information</guilabel
+>. </para
+></listitem>
+</varlistentry>
+
+</variablelist>
+  
+</article>
