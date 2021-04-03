@@ -1142,8 +1142,6 @@ QModelIndex KDirModel::indexForItem(const KFileItem *item) const
 
 QModelIndex KDirModel::indexForItem(const KFileItem &item) const
 {
-    // Note that we can only use the URL here, not the pointer.
-    // KFileItems can be copied.
     return indexForUrl(item.url()); // O(n)
 }
 
