@@ -146,7 +146,7 @@ public:
     virtual void askUserDelete(const QList<QUrl> &urls,
                                DeletionType deletionType,
                                ConfirmationType confirmationType,
-                               QWidget *parent = nullptr) = 0; // KF6 TODO: replace QWidget* with QWindow*
+                               QWidget *parent = nullptr) = 0; // TODO KF6: replace QWidget* with QObject*
 
     enum MessageDialogType {
         QuestionYesNo = 1,
@@ -186,7 +186,7 @@ public:
                                        const QString &dontAskAgainName = {},
                                        const QString &details = {},
                                        const KIO::MetaData &sslMetaData = {},
-                                       QWidget *parent = nullptr) = 0;
+                                       QWidget *parent = nullptr) = 0; // TODO KF6: replace QWidget* with QObject*, document "widget or window"
 
 Q_SIGNALS:
     /**
@@ -217,9 +217,12 @@ Q_SIGNALS:
      * set to false
      * @param urls a list of urls to delete/trash
      * @param deletionType the deletion type to use, one of KIO::AskUserActionInterface::DeletionType
-     * @param parent the parent widget
+     * @param parent the parent widget passed to askUserDelete(), for request identification
      */
-    void askUserDeleteResult(bool allowDelete, const QList<QUrl> &urls, KIO::AskUserActionInterface::DeletionType deletionType, QWidget *parent);
+    void askUserDeleteResult(bool allowDelete,
+                             const QList<QUrl> &urls,
+                             KIO::AskUserActionInterface::DeletionType deletionType,
+                             QWidget *parent); // TODO KF6: replace QWidget* with QObject*
 
     /**
      * Implementations of this interface must emit this signal when the dialog invoked
@@ -228,7 +231,7 @@ Q_SIGNALS:
      *
      * @param result the exit code of the dialog, one of KIO::SlaveBase::ButtonCode enum
      */
-    void messageBoxResult(int result);
+    void messageBoxResult(int result); // TODO KF6: add a QObject* to identify requests? Or return an int from the request method and pass it back here?
 
 private:
     std::unique_ptr<AskUserActionInterfacePrivate> d;
