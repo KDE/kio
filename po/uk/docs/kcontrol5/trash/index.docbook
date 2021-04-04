@@ -1,0 +1,98 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Ukrainian "INCLUDE">
+]>
+<article id="trash" lang="&language;">
+<title
+>Смітник</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Burkhard.Lueck;</author>
+<othercredit role="translator"
+><firstname
+>Юрій</firstname
+><surname
+>Чорноіван</surname
+><affiliation
+><address
+><email
+>yurchor@ukr.net</email
+></address
+></affiliation
+><contrib
+>Переклад українською</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>31 травня 2018 року</date>
+<releaseinfo
+>Frameworks 5.48</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Системні параметри</keyword>
+<keyword
+>смітник</keyword>
+</keywordset>
+</articleinfo>
+
+<para
+>За допомогою цього модуля ви зможете змінити параметри системного смітника. </para>
+
+<variablelist>
+<varlistentry
+><term
+><guilabel
+>Очищення:</guilabel
+></term>
+<listitem
+><para
+>Позначте цей пункт, щоб уможливити автоматично вилучення файлів, вік яких перевищуватиме вказане значення. Не позначайте цей пункт, якщо ви <emphasis
+>не</emphasis
+> бажаєте, щоб середовище автоматично вилучало всі елементи, старші за вказаний час. Вкажіть кількість днів, протягом яких файли зберігатимуться у смітнику. Всі файли, вік яких перевищить вказаний, автоматично вилучатимуться. </para
+></listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>Розмір:</guilabel
+></term>
+<listitem
+><para
+>Позначте цей пункт, щоб обмежити об’єм смітника значенням, яке ви вкажете. Якщо цей пункт не буде позначено, об’єм смітника не обмежуватиметься. </para
+></listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>Обмежити до</guilabel
+></term>
+<listitem
+><para
+>Це максимальний об’єм на диску у відсотках, який може бути використано смітником. Обчислений максимальний об’єм смітника у одиницях зберігання інформації буде показано праворуч від поля лічильника. </para
+></listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>Повний Смітник:</guilabel
+></term>
+<listitem
+><para
+>У разі перевищення вказаних обмежень буде виконано визначену вами дію: система може вилучити найстаріші або найбільші файли, а також показати вам вікно з попередженням. </para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+</article>

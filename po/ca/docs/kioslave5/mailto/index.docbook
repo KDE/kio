@@ -1,0 +1,132 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Catalan  "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="mailto">
+<title
+>mailto</title>
+<articleinfo>
+<authorgroup>
+<author
+><firstname
+>Christopher</firstname
+> <surname
+>Yeleighton</surname
+> <email
+>giecrilj@stegny.2a.pl</email
+></author>
+
+&traductor.Antoni.Bella; 
+</authorgroup>
+
+<date
+>20 d'agost de 2018</date>
+<releaseinfo
+>Frameworks 5.50</releaseinfo>
+</articleinfo>
+<para
+>L'esclau kio «mailto» és el responsable de llançar l'editor de correu de la vostra elecció quan obriu un &URL; en el seu esquema (<ulink url="https://tools.ietf.org/html/rfc6068"
+>RFC6068</ulink
+>). </para>
+
+<variablelist>
+<varlistentry>
+<term
+>Sintaxi</term>
+<listitem
+><para
+>La sintaxi d'un &URL; de mailto segueix el següent patró:</para>
+
+<para
+>mailto:destinataris?consulta</para>
+
+<para
+>on els destinataris formen una llista d'especificacions d'adreces &SMTP; restringides, i la part de consulta pot contenir un o més dels següents paràmetres:</para>
+
+<variablelist>
+<varlistentry>
+<term
+>&amp;to=destinataris</term>
+<listitem
+><para
+>Especifica els destinataris addicionals.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>&amp;cc=destinataris</term>
+<listitem
+><para
+>Especifica els destinataris addicionals de les còpies al carbó (carbon copies).</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>&amp;bcc=destinataris</term>
+<listitem
+><para
+>Especifica els destinataris addicionals de les còpies al carbó cegues (blind carbon copies). Aquests receptors rebran el missatge, però els altres no ho sabran.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>&amp;body=text</term>
+<listitem
+><para
+>Especifica el text del missatge. Aquest no ha de ser gaire llarg, atès que hi ha forts límits quant a la llargària d'un &URL;.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>&amp;subject=text</term>
+<listitem
+><para
+>Especifica l'assumpte del missatge.</para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>Exemple</term>
+<listitem
+><para
+>   
+<literal
+>mailto:info@kde.org?cc=kde@kde.org&amp;subject=Thank%20you!&amp;body=KDE%20rocks!%20How%20can%20I%20help%3F</literal>
+</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>Configuració</term>
+<listitem
+><para
+>Escolliu l'aplicació per a gestionar els localitzadors de mailto al mòdul d'&systemsettings; <menuchoice
+><guimenu
+>Aplicacions</guimenu
+><guimenuitem
+>Aplicacions predeterminades</guimenuitem
+></menuchoice
+> a la categoria <guilabel
+>Personalització</guilabel
+>. </para
+></listitem>
+</varlistentry>
+
+</variablelist>
+  
+</article>

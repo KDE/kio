@@ -1,0 +1,77 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Spanish "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="ftp">
+<title
+>&FTP;</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Lauri.Watts; &Lauri.Watts.mail;</author>
+<othercredit role="translator"
+> <firstname
+>Marcos</firstname
+> <surname
+>Fouces Lago</surname
+> <affiliation
+><address
+><email
+>mfouces@yahoo.es</email
+></address
+></affiliation
+> <contrib
+>Traductor</contrib
+> </othercredit
+> <othercredit role="translator"
+> <firstname
+>Javier</firstname
+> <surname
+>Viñal</surname
+> <affiliation
+><address
+><email
+>fjvinal@gmail.com</email
+> </address
+></affiliation
+> <contrib
+>Traductor</contrib
+> </othercredit
+> 
+</authorgroup>
+</articleinfo>
+
+<para
+>&FTP; es el servicio de Internet utilizado para transferir un archivo de datos desde el disco de un equipo al disco de otro independientemente del tipo de sistema operativo. </para>
+
+<para
+>Al igual que con otras aplicaciones de Internet, &FTP; utiliza la aproximación cliente-servidor &mdash; un usuario invoca un programa &FTP; en el equipo, le indica que contacte con un equipo remoto y después solicita la transferencia de uno o más archivos. El programa local de &FTP; se convierte en un cliente que utiliza <acronym
+>TCP</acronym
+> para contactar con un servidor &FTP; en el equipo remoto. Cada vez que un usuario solicita una transferencia de archivos, los programas cliente y servidor cooperan para enviar una copia de datos a través de Internet.</para>
+
+<para
+>Los servidores &FTP; que permiten <quote
+>&FTP; anónimo</quote
+> permiten que cualquier usuario, no solo usuarios con cuentas en la máquina, naveguen por los archivos comprimidos <quote
+>ftp</quote
+> y los descarguen. Algunos servidores &FTP; están configurados para permitir que los usuarios carguen archivos en ellos.</para>
+
+<para
+>El &FTP; se utiliza habitualmente para recuperar información y obtener software almacenado en sitios &FTP; de archivos comprimidos por todo el mundo. </para>
+
+
+<para
+>Fuente: Parafraseado de <ulink url="http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/ftpdef.htm"
+> http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/ftpdef.htm</ulink
+> </para>
+
+<para
+>Consulte el manual: <ulink url="man:/ftp"
+>ftp</ulink
+>.</para>
+
+</article>

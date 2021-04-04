@@ -1,0 +1,62 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Russian "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="http">
+<title
+>http / https</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Lauri.Watts; &Lauri.Watts.mail;</author>
+<othercredit role="translator"
+><firstname
+>Мария</firstname
+><surname
+>Шикунова</surname
+><affiliation
+><address
+><email
+>translation-team@basealt.ru</email
+></address
+></affiliation
+><contrib
+>Перевод на русский язык</contrib
+></othercredit
+> 
+</authorgroup>
+</articleinfo>
+
+<para
+>&HTTP; — это протокол передачи гипертекста (<emphasis
+>H</emphasis
+>yper<emphasis
+>T</emphasis
+>ext <emphasis
+>T</emphasis
+>ransfer <emphasis
+>P</emphasis
+>rotocol).</para>
+
+<para
+>Этот протокол используется всеми приложениями &kde; для работы с &HTTP;-серверами, или веб-серверами. Чаще всего этот протокол используется для просмотра веб-страниц в &konqueror;.</para>
+
+<para
+>Введите в &konqueror; &URL;-адрес, например, <userinput
+>https://<replaceable
+>www.kde.org</replaceable
+></userinput
+>, чтобы воспользоваться этим протоколом.</para>
+
+<para
+>https — это расширение протокола http, в котором для передачи http-данных в зашифрованном виде используются криптографические протоколы SSL/TLS.</para>
+<para
+>SSL (Secure Sockets Layer) — это криптографический протокол, обеспечивающий конфиденциальность передачи информации в Интернете. Протокол позволяет клиент-серверным приложениям защитить передаваемые данные от перехвата, фальсификации или подделки. </para>
+<para
+>TLS (Transport Layer Security) — это протокол защиты транспортного уровня.</para>
+
+</article>
