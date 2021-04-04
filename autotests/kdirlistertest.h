@@ -19,12 +19,7 @@ Q_DECLARE_METATYPE(KFileItemList)
 class GlobalInits
 {
 public:
-    GlobalInits()
-    {
-        // Must be done before the QSignalSpys connect
-        qRegisterMetaType<KFileItem>();
-        qRegisterMetaType<KFileItemList>();
-    }
+    GlobalInits();
 };
 
 class MyDirLister : public KDirLister, GlobalInits
@@ -50,6 +45,7 @@ public:
 #else
         , spyRedirection(this, QOverload<const QUrl &, const QUrl &>::of(&KCoreDirLister::redirection))
 #endif
+        , spyJobError(this, &KCoreDirLister::jobError)
     {
     }
 
@@ -66,6 +62,7 @@ public:
         spyCanceledQUrl.clear();
         spyRedirection.clear();
         spyItemsDeleted.clear();
+        spyJobError.clear();
     }
 
     QSignalSpy spyStarted;
@@ -80,15 +77,7 @@ public:
     QSignalSpy spyCompletedQUrl;
     QSignalSpy spyCanceledQUrl;
     QSignalSpy spyRedirection;
-
-    void setErrorExpected();
-    int errorCode() const;
-
-protected:
-    void handleError(KIO::Job *job) override;
-
-    bool m_errorExpected = false;
-    int m_errorCode = 0;
+    QSignalSpy spyJobError;
 };
 
 class KDirListerTest : public QObject

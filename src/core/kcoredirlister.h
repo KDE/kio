@@ -63,6 +63,7 @@ class KIOCORE_EXPORT KCoreDirLister : public QObject
     Q_PROPERTY(bool delayedMimeTypes READ delayedMimeTypes WRITE setDelayedMimeTypes)
     Q_PROPERTY(QString nameFilter READ nameFilter WRITE setNameFilter)
     Q_PROPERTY(QStringList mimeFilter READ mimeFilters WRITE setMimeFilter RESET clearMimeFilter)
+    Q_PROPERTY(bool autoErrorHandlingEnabled READ autoErrorHandlingEnabled WRITE setAutoErrorHandlingEnabled)
 
 public:
     /**
@@ -428,6 +429,29 @@ public:
      */
     static KFileItem cachedItemForUrl(const QUrl &url);
 
+    /**
+     * Checks whether auto error handling is enabled.
+     * If enabled, it will show an error dialog to the user when an
+     * error occurs (assuming the application links to KIOWidgets).
+     * It is turned on by default.
+     * @return @c true if auto error handling is enabled, @c false otherwise
+     * @see setAutoErrorHandlingEnabled()
+     * @since 5.82
+     */
+    bool autoErrorHandlingEnabled() const;
+
+    /**
+     * Enable or disable auto error handling.
+     * If enabled, it will show an error dialog to the user when an
+     * error occurs. It is turned on by default.
+     * @param enable true to enable auto error handling, false to disable
+     * @param parent the parent widget for the error dialogs, can be @c nullptr for
+     *               top-level
+     * @see autoErrorHandlingEnabled()
+     * @since 5.82
+     */
+    void setAutoErrorHandlingEnabled(bool enable);
+
 Q_SIGNALS:
     /**
      * Tell the view that this KCoreDirLister has started to list @p dirUrl. Note that this
@@ -622,6 +646,18 @@ Q_SIGNALS:
      */
     void speed(int bytes_per_second);
 
+    /**
+     * Emitted if listing a directory fails with an error.
+     * A typical implementation in a widgets-based application
+     * would show a message box by calling this in a slot connected to this signal:
+     * <tt>job->uiDelegate()->showErrorMessage()</tt>
+     * Many applications might prefer to embed the error message though
+     * (e.g. by using the KMessageWidget class, from the KWidgetsAddons Framework).
+     * @param the job with an error
+     * @since 5.82
+     */
+    void jobError(KIO::Job *job);
+
 protected:
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(4, 3)
     /// @deprecated Since 4.3, and unused, ignore this
@@ -676,19 +712,24 @@ protected:
     // TODO KF6 remove
     virtual bool doMimeFilter(const QString &mimeType, const QStringList &filters) const;
 
+    // Not _ENABLED_ because this is a virtual method
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 82)
     /**
      * Reimplement to customize error handling
+     * @deprecated since 5.82, connect to the jobError() signal instead
      */
+    KIOCORE_DEPRECATED_VERSION(5, 82, "Connect to the jobError() signal instead")
     virtual void handleError(KIO::Job *);
+#endif
 
     // Not _ENABLED_ because this is a virtual method
 #if KIOCORE_BUILD_DEPRECATED_SINCE(5, 81)
     /**
      * Reimplement to customize error handling
-     * @deprecated since 5.81, handleError() is emitted instead for the two
+     * @deprecated since 5.81, use handleError. Since 5.82, jobError() is emitted instead for the two
      * cases where handleErrorMessage was emitted (invalid URL, protocol not supporting listing).
      */
-    KIOCORE_DEPRECATED_VERSION(5, 81, "Use handleError() instead")
+    KIOCORE_DEPRECATED_VERSION(5, 81, "For 5.81 and older releases use handleError(); since 5.82 connect to the jobError() signal instead")
     virtual void handleErrorMessage(const QString &message);
 #endif
 

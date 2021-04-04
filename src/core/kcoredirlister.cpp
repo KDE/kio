@@ -15,6 +15,7 @@
 #include "kiocoredebug.h"
 #include "kmountpoint.h"
 #include "kprotocolmanager.h"
+#include <KJobUiDelegate>
 #include <kio/listjob.h>
 
 #include <KLocalizedString>
@@ -1266,10 +1267,18 @@ void KCoreDirListerCache::slotResult(KJob *j)
     dirData.moveListersWithoutCachedItemsJob(jobUrl);
 
     if (job->error()) {
+        bool errorShown = false;
         for (KCoreDirLister *kdl : listers) {
             kdl->d->jobDone(job);
             if (job->error() != KJob::KilledJobError) {
+                Q_EMIT kdl->jobError(job);
+                if (kdl->d->m_autoErrorHandling && !errorShown) {
+                    errorShown = true; // do it only once
+                    job->uiDelegate()->showErrorMessage();
+                }
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 82)
                 kdl->handleError(job);
+#endif
             }
             const bool silent = job->property("_kdlc_silent").toBool();
             if (!silent) {
@@ -1678,8 +1687,7 @@ void KCoreDirListerCache::slotUpdateResult(KJob *j)
         for (KCoreDirLister *kdl : listers) {
             kdl->d->jobDone(job);
 
-            // don't bother the user
-            // kdl->handleError( job );
+            // don't bother the user: no jobError signal emitted
 
             const bool silent = job->property("_kdlc_silent").toBool();
             if (!silent) {
@@ -2402,10 +2410,12 @@ bool KCoreDirListerPrivate::doMimeExcludeFilter(const QString &mime, const QStri
     });
 }
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 82)
 void KCoreDirLister::handleError(KIO::Job *job)
 {
     qCWarning(KIO_CORE) << job->errorString();
 }
+#endif
 
 #if KIOCORE_BUILD_DEPRECATED_SINCE(5, 81)
 void KCoreDirLister::handleErrorMessage(const QString &message)
@@ -2514,6 +2524,11 @@ void KCoreDirListerPrivate::emitItemsDeleted(const KFileItemList &itemsList)
     if (!items.isEmpty()) {
         Q_EMIT q->itemsDeleted(items);
     }
+}
+
+KCoreDirListerPrivate::KCoreDirListerPrivate(KCoreDirLister *qq)
+    : q(qq)
+{
 }
 
 // ================ private slots ================ //
@@ -2752,6 +2767,16 @@ KFileItem KCoreDirLister::cachedItemForUrl(const QUrl &url)
     } else {
         return {};
     }
+}
+
+bool KCoreDirLister::autoErrorHandlingEnabled() const
+{
+    return d->m_autoErrorHandling;
+}
+
+void KCoreDirLister::setAutoErrorHandlingEnabled(bool enable)
+{
+    d->m_autoErrorHandling = enable;
 }
 
 QSet<QString> KCoreDirListerCache::filesInDotHiddenForDir(const QString &dir)

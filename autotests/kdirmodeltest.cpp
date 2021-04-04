@@ -133,7 +133,7 @@ void KDirModelTest::fillModel(bool reload, bool expectAllIndexes)
     if (!m_dirModel) {
         m_dirModel = new KDirModel;
     }
-    m_dirModel->dirLister()->setAutoErrorHandlingEnabled(false, nullptr);
+    m_dirModel->dirLister()->setAutoErrorHandlingEnabled(false);
     const QString path = m_tempDir->path() + '/';
     KDirLister *dirLister = m_dirModel->dirLister();
     qDebug() << "Calling openUrl";

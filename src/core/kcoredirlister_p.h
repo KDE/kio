@@ -36,19 +36,7 @@ struct KCoreDirListerCacheDirectoryData;
 class KCoreDirListerPrivate
 {
 public:
-    explicit KCoreDirListerPrivate(KCoreDirLister *qq)
-        : q(qq)
-    {
-        complete = false;
-
-        autoUpdate = false;
-
-        delayedMimeTypes = false;
-
-        rootFileItem = KFileItem();
-
-        hasPendingChanges = false;
-    }
+    explicit KCoreDirListerPrivate(KCoreDirLister *qq);
 
     void emitCachedItems(const QUrl &, bool, bool);
     void slotInfoMessage(KJob *, const QString &);
@@ -103,13 +91,11 @@ public:
     // toplevel URL
     QUrl url;
 
-    bool complete : 1;
-
-    bool autoUpdate : 1;
-
-    bool delayedMimeTypes : 1;
-
-    bool hasPendingChanges : 1; // i.e. settings != oldSettings
+    bool complete = false;
+    bool autoUpdate = false;
+    bool delayedMimeTypes = false;
+    bool hasPendingChanges = false; // i.e. settings != oldSettings
+    bool m_autoErrorHandling = true;
 
     struct JobData {
         long unsigned int percent, speed;

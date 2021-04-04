@@ -24,7 +24,9 @@ class KDirListerPrivate;
 class KIOWIDGETS_EXPORT KDirLister : public KCoreDirLister
 {
     Q_OBJECT
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 82)
     Q_PROPERTY(bool autoErrorHandlingEnabled READ autoErrorHandlingEnabled)
+#endif
 
 public:
     /**
@@ -44,18 +46,23 @@ public:
      * @return true if auto error handling is enabled, false otherwise
      * @see setAutoErrorHandlingEnabled()
      */
-    bool autoErrorHandlingEnabled() const;
+    bool autoErrorHandlingEnabled() const; // KF6 remove, already provided by KCoreDirLister
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 82)
     /**
-     * Enable or disable auto error handling is enabled.
+     * Enable or disable auto error handling.
      * If enabled, it will show an error dialog to the user when an
      * error occurs. It is turned on by default.
      * @param enable true to enable auto error handling, false to disable
      * @param parent the parent widget for the error dialogs, can be @c nullptr for
      *               top-level
      * @see autoErrorHandlingEnabled()
+     * @deprecated since 5.82, connect to the jobError() signal instead
      */
+    KIOCORE_DEPRECATED_VERSION(5, 82, "Connect to the jobError() signal instead")
     void setAutoErrorHandlingEnabled(bool enable, QWidget *parent);
+    using KCoreDirLister::setAutoErrorHandlingEnabled;
+#endif
 
     /**
      * Pass the main window this object is associated with
@@ -71,11 +78,13 @@ public:
     QWidget *mainWindow();
 
 protected:
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 82)
     /**
      * Reimplemented to customize error handling
      * @reimp
      */
     void handleError(KIO::Job *) override;
+#endif
 
 #if KIOCORE_BUILD_DEPRECATED_SINCE(5, 81)
     /**
