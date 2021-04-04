@@ -92,7 +92,7 @@ set_package_properties(KF5DocTools PROPERTIES DESCRIPTION "Provides tools to gen
                        PURPOSE "Required to build help ioslave and documentation"
                       )
 
-set(REQUIRED_QT_VERSION 5.14.0)
+set(REQUIRED_QT_VERSION 5.15.0)
 find_package(Qt5 ${REQUIRED_QT_VERSION} CONFIG REQUIRED Widgets DBus Network Concurrent Xml Test)
 
 find_package(GSSAPI)
@@ -121,7 +121,7 @@ set_package_properties(ACL PROPERTIES DESCRIPTION "LibACL"
 
 # Qt 5.13 deprecated QComboBox::currentIndexChanged(QString) and Qt 5.14 undid that...
 if (NOT Qt5Widgets_VERSION VERSION_LESS 5.14.0)
-add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050e00)
+add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050f00)
 endif()
 add_definitions(-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x055000)
 # we use KPixmapProvider in public API
