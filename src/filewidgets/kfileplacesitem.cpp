@@ -52,11 +52,18 @@ KFilePlacesItem::KFilePlacesItem(KBookmarkManager *manager, const QString &addre
 
     // Hide SSHFS network device mounted by kdeconnect, since we already have the kdeconnect:// place.
     if (isDevice() && m_access && device().vendor() == QLatin1String("fuse.sshfs")) {
-        auto mountPoint = KMountPoint::currentMountPoints().findByPath(m_access->filePath());
-        if (mountPoint->mountedFrom().startsWith(QLatin1String("kdeconnect@"))) {
-            // Hide only if the user never set the "Hide" checkbox on the device.
-            if (m_bookmark.metaDataItem(QStringLiteral("IsHidden")).isEmpty()) {
-                setHidden(true);
+        // Not using findByPath() as it resolves symlinks, potentially blocking,
+        // but here we know we query for an existing actual mount point.
+        const auto mountPoints = KMountPoint::currentMountPoints();
+        for (const auto &mountPoint : mountPoints) {
+            if (mountPoint->mountPoint() == m_access->filePath()) {
+                if (mountPoint->mountedFrom().startsWith(QLatin1String("kdeconnect@"))) {
+                    // Hide only if the user never set the "Hide" checkbox on the device.
+                    if (m_bookmark.metaDataItem(QStringLiteral("IsHidden")).isEmpty()) {
+                        setHidden(true);
+                    }
+                }
+                break;
             }
         }
     }
