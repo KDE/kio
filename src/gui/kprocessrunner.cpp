@@ -203,7 +203,6 @@ void KProcessRunner::init(const KService::Ptr &service,
         }
     }
 #else
-    Q_UNUSED(bin);
     Q_UNUSED(userVisibleName);
     Q_UNUSED(iconName);
 #endif
