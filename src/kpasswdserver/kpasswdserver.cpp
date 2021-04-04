@@ -43,14 +43,10 @@ static qlonglong getRequestId()
     return nextRequestId++;
 }
 
-bool KPasswdServer::AuthInfoContainer::Sorter::operator()(AuthInfoContainer *n1, AuthInfoContainer *n2) const
+bool KPasswdServer::AuthInfoContainer::Sorter::operator()(const AuthInfoContainer &n1, const AuthInfoContainer &n2) const
 {
-    if (!n1 || !n2) {
-        return 0;
-    }
-
-    const int l1 = n1->directory.length();
-    const int l2 = n2->directory.length();
+    const int l1 = n1.directory.length();
+    const int l2 = n2.directory.length();
     return l1 < l2;
 }
 
@@ -446,11 +442,11 @@ void KPasswdServer::removeAuthInfo(const QString &host, const QString &protocol,
             continue;
         }
 
-        for (const AuthInfoContainer *current : *authList) {
-            qCDebug(category) << "Evaluating: " << current->info.url.scheme() << current->info.url.host() << current->info.username;
-            if (current->info.url.scheme() == protocol && current->info.url.host() == host && (current->info.username == user || user.isEmpty())) {
+        for (const AuthInfoContainer &current : *authList) {
+            qCDebug(category) << "Evaluating: " << current.info.url.scheme() << current.info.url.host() << current.info.username;
+            if (current.info.url.scheme() == protocol && current.info.url.host() == host && (current.info.username == user || user.isEmpty())) {
                 qCDebug(category) << "Removing this entry";
-                removeAuthInfoItem(dictIterator.key(), current->info);
+                removeAuthInfoItem(dictIterator.key(), current.info); // warning, this can modify m_authDict!
             }
         }
     }
@@ -595,20 +591,21 @@ const KPasswdServer::AuthInfoContainer *KPasswdServer::findAuthInfoItem(const QS
         QString path2 = info.url.path().left(info.url.path().indexOf(QLatin1Char('/')) + 1);
         auto it = authList->begin();
         while (it != authList->end()) {
-            AuthInfoContainer *current = (*it);
-            if (current->expire == AuthInfoContainer::expTime && static_cast<qulonglong>(time(nullptr)) > current->expireTime) {
-                delete current;
+            const AuthInfoContainer &current = (*it);
+            if (current.expire == AuthInfoContainer::expTime && static_cast<qulonglong>(time(nullptr)) > current.expireTime) {
                 it = authList->erase(it);
                 continue;
             }
 
             if (info.verifyPath) {
-                QString path1 = current->directory;
-                if (path2.startsWith(path1) && (info.username.isEmpty() || info.username == current->info.username))
-                    return current;
+                const QString path1 = current.directory;
+                if (path2.startsWith(path1) && (info.username.isEmpty() || info.username == current.info.username)) {
+                    return &current;
+                }
             } else {
-                if (current->info.realmValue == info.realmValue && (info.username.isEmpty() || info.username == current->info.username))
-                    return current; // TODO: Update directory info,
+                if (current.info.realmValue == info.realmValue && (info.username.isEmpty() || info.username == current.info.username)) {
+                    return &current; // TODO: Update directory info
+                }
             }
 
             ++it;
@@ -625,8 +622,7 @@ void KPasswdServer::removeAuthInfoItem(const QString &key, const KIO::AuthInfo &
 
     auto it = authList->begin();
     while (it != authList->end()) {
-        if ((*it)->info.realmValue == info.realmValue) {
-            delete (*it);
+        if ((*it).info.realmValue == info.realmValue) {
             it = authList->erase(it);
         } else {
             ++it;
@@ -646,30 +642,31 @@ void KPasswdServer::addAuthInfoItem(const QString &key, const KIO::AuthInfo &inf
         authList = new AuthInfoContainerList;
         m_authDict.insert(key, authList);
     }
-    AuthInfoContainer *authItem = nullptr;
+    bool found = false;
+    AuthInfoContainer authItem;
     auto it = authList->begin();
     while (it != authList->end()) {
-        if ((*it)->info.realmValue == info.realmValue) {
+        if ((*it).info.realmValue == info.realmValue) {
             authItem = (*it);
             it = authList->erase(it);
+            found = true;
             break;
         } else {
             ++it;
         }
     }
 
-    if (!authItem) {
+    if (!found) {
         qCDebug(category) << "Creating AuthInfoContainer";
-        authItem = new AuthInfoContainer;
-        authItem->expire = AuthInfoContainer::expTime;
+        authItem.expire = AuthInfoContainer::expTime;
     }
 
-    authItem->info = info;
-    authItem->directory = info.url.path().left(info.url.path().indexOf(QLatin1Char('/')) + 1);
-    authItem->seqNr = seqNr;
-    authItem->isCanceled = canceled;
+    authItem.info = info;
+    authItem.directory = info.url.path().left(info.url.path().indexOf(QLatin1Char('/')) + 1);
+    authItem.seqNr = seqNr;
+    authItem.isCanceled = canceled;
 
-    updateAuthExpire(key, authItem, windowId, (info.keepPassword && !canceled));
+    updateAuthExpire(key, &authItem, windowId, (info.keepPassword && !canceled));
 
     // Insert into list, keep the list sorted "longest path" first.
     authList->append(authItem);
@@ -711,12 +708,11 @@ void KPasswdServer::removeAuthForWindowId(qlonglong windowId)
             continue;
         }
 
-        QMutableListIterator<AuthInfoContainer *> it(*authList);
+        QMutableVectorIterator<AuthInfoContainer> it(*authList);
         while (it.hasNext()) {
-            AuthInfoContainer *current = it.next();
-            if (current->expire == AuthInfoContainer::expWindowClose) {
-                if (current->windowList.removeAll(windowId) && current->windowList.isEmpty()) {
-                    delete current;
+            AuthInfoContainer &current = it.next();
+            if (current.expire == AuthInfoContainer::expWindowClose) {
+                if (current.windowList.removeAll(windowId) && current.windowList.isEmpty()) {
                     it.remove();
                 }
             }

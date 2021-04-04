@@ -66,9 +66,6 @@ private Q_SLOTS:
 private:
     struct AuthInfoContainer {
         AuthInfoContainer()
-            : expire(expNever)
-            , seqNr(0)
-            , isCanceled(false)
         {
         }
 
@@ -77,13 +74,13 @@ private:
 
         enum { expNever, expWindowClose, expTime } expire;
         QList<qlonglong> windowList;
-        qulonglong expireTime;
-        qlonglong seqNr;
+        qulonglong expireTime = expNever;
+        qlonglong seqNr = 0;
 
-        bool isCanceled;
+        bool isCanceled = false;
 
         struct Sorter {
-            bool operator()(AuthInfoContainer *n1, AuthInfoContainer *n2) const;
+            bool operator()(const AuthInfoContainer &n1, const AuthInfoContainer &n2) const;
         };
     };
 
@@ -115,7 +112,7 @@ private:
     void showPasswordDialog(Request *request);
     void updateCachedRequestKey(QList<Request *> &, const QString &oldKey, const QString &newKey);
 
-    typedef QList<AuthInfoContainer *> AuthInfoContainerList;
+    using AuthInfoContainerList = QVector<AuthInfoContainer>;
     QHash<QString, AuthInfoContainerList *> m_authDict;
 
     QList<Request *> m_authPending;
