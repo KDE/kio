@@ -464,7 +464,7 @@ bool KPasswdServer::openWallet(qlonglong windowId)
         m_wallet = nullptr;
     }
     if (!m_wallet) {
-        m_wallet = KWallet::Wallet::openWallet(KWallet::Wallet::NetworkWallet(), (WId)(windowId));
+        m_wallet = KWallet::Wallet::openWallet(KWallet::Wallet::NetworkWallet(), static_cast<WId>(windowId));
     }
     return m_wallet != nullptr;
 }
@@ -995,7 +995,7 @@ void KPasswdServer::windowRemoved(WId id)
 {
     bool foundMatch = false;
     if (!m_authInProgress.isEmpty()) {
-        const qlonglong windowId = (qlonglong)(id);
+        const qlonglong windowId = static_cast<qlonglong>(id);
         QMutableHashIterator<QObject *, Request *> it(m_authInProgress);
         while (it.hasNext()) {
             it.next();
@@ -1013,7 +1013,7 @@ void KPasswdServer::windowRemoved(WId id)
     }
 
     if (!foundMatch && !m_authRetryInProgress.isEmpty()) {
-        const qlonglong windowId = (qlonglong)(id);
+        const qlonglong windowId = static_cast<qlonglong>(id);
         QMutableHashIterator<QObject *, Request *> it(m_authRetryInProgress);
         while (it.hasNext()) {
             it.next();
