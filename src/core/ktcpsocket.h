@@ -172,11 +172,11 @@ public:
     };
     enum SslVersion {
         UnknownSslVersion = 0x01,
-        SslV2 = 0x02,
-        SslV3 = 0x04,
+        SslV2 = 0x02, ///< Note: no-op in Qt for a long time
+        SslV3 = 0x04, ///< Note: no-op in Qt for a long time
         TlsV1 = 0x08,
         SslV3_1 = 0x08,
-        TlsV1SslV3 = 0x10,
+        TlsV1SslV3 = 0x10, ///< Note: same as TlsV1_0
         SecureProtocols = 0x20,
         TlsV1_0 = TlsV1,
         TlsV1_1 = 0x40,

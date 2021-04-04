@@ -427,18 +427,23 @@ void AccessManager::AccessManagerPrivate::setMetaDataForRequest(QNetworkRequest 
 
 using namespace KIO::Integration;
 
+// The strings come from qtbase/src/network/ssl (grep for protocolString)
 static QSsl::SslProtocol qSslProtocolFromString(const QString &str)
 {
-    if (str.compare(QStringLiteral("SSLv3"), Qt::CaseInsensitive) == 0) {
-        return QSsl::SslV3;
-    }
-
-    if (str.compare(QStringLiteral("SSLv2"), Qt::CaseInsensitive) == 0) {
-        return QSsl::SslV2;
-    }
-
     if (str.compare(QStringLiteral("TLSv1"), Qt::CaseInsensitive) == 0) {
         return QSsl::TlsV1_0;
+    }
+
+    if (str.compare(QStringLiteral("TLSv1.1"), Qt::CaseInsensitive) == 0) {
+        return QSsl::TlsV1_1;
+    }
+
+    if (str.compare(QStringLiteral("TLSv1.2"), Qt::CaseInsensitive) == 0) {
+        return QSsl::TlsV1_2;
+    }
+
+    if (str.compare(QStringLiteral("TLSv1.3"), Qt::CaseInsensitive) == 0) {
+        return QSsl::TlsV1_3;
     }
 
     return QSsl::AnyProtocol;

@@ -25,10 +25,6 @@
 static KTcpSocket::SslVersion kSslVersionFromQ(QSsl::SslProtocol protocol)
 {
     switch (protocol) {
-    case QSsl::SslV2:
-        return KTcpSocket::SslV2;
-    case QSsl::SslV3:
-        return KTcpSocket::SslV3;
     case QSsl::TlsV1_0:
         return KTcpSocket::TlsV1;
     case QSsl::TlsV1_1:
@@ -39,8 +35,6 @@ static KTcpSocket::SslVersion kSslVersionFromQ(QSsl::SslProtocol protocol)
         return KTcpSocket::TlsV1_3;
     case QSsl::AnyProtocol:
         return KTcpSocket::AnySslVersion;
-    case QSsl::TlsV1SslV3:
-        return KTcpSocket::TlsV1SslV3;
     case QSsl::SecureProtocols:
         return KTcpSocket::SecureProtocols;
     default:
@@ -55,11 +49,10 @@ static QSsl::SslProtocol qSslProtocolFromK(KTcpSocket::SslVersion sslVersion)
         return QSsl::AnyProtocol;
     }
     // does it contain any valid protocol?
-    KTcpSocket::SslVersions validVersions(KTcpSocket::SslV2 | KTcpSocket::SslV3 | KTcpSocket::TlsV1);
+    KTcpSocket::SslVersions validVersions(KTcpSocket::TlsV1);
     validVersions |= KTcpSocket::TlsV1_1;
     validVersions |= KTcpSocket::TlsV1_2;
     validVersions |= KTcpSocket::TlsV1_3;
-    validVersions |= KTcpSocket::TlsV1SslV3;
     validVersions |= KTcpSocket::SecureProtocols;
 
     if (!(sslVersion & validVersions)) {
@@ -67,10 +60,6 @@ static QSsl::SslProtocol qSslProtocolFromK(KTcpSocket::SslVersion sslVersion)
     }
 
     switch (sslVersion) {
-    case KTcpSocket::SslV2:
-        return QSsl::SslV2;
-    case KTcpSocket::SslV3:
-        return QSsl::SslV3;
     case KTcpSocket::TlsV1_0:
         return QSsl::TlsV1_0;
     case KTcpSocket::TlsV1_1:
@@ -79,8 +68,6 @@ static QSsl::SslProtocol qSslProtocolFromK(KTcpSocket::SslVersion sslVersion)
         return QSsl::TlsV1_2;
     case KTcpSocket::TlsV1_3:
         return QSsl::TlsV1_3;
-    case KTcpSocket::TlsV1SslV3:
-        return QSsl::TlsV1SslV3;
     case KTcpSocket::SecureProtocols:
         return QSsl::SecureProtocols;
 
@@ -93,10 +80,6 @@ static QSsl::SslProtocol qSslProtocolFromK(KTcpSocket::SslVersion sslVersion)
 static QString protocolString(QSsl::SslProtocol protocol)
 {
     switch (protocol) {
-    case QSsl::SslV2:
-        return QStringLiteral("SSLv2");
-    case QSsl::SslV3:
-        return QStringLiteral("SSLv3");
     case QSsl::TlsV1_0:
         return QStringLiteral("TLSv1.0");
     case QSsl::TlsV1_1:

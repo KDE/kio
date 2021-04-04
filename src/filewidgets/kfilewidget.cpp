@@ -546,7 +546,7 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
     // Properly let the dialog be resized (to smaller). Otherwise we could have
     // huge dialogs that can't be resized to smaller (it would be as big as the longest
     // item in this combo box). (ereslibre)
-    d->m_locationEdit->setSizeAdjustPolicy(QComboBox::AdjustToMinimumContentsLength);
+    d->m_locationEdit->setSizeAdjustPolicy(QComboBox::AdjustToContentsOnFirstShow);
     connect(d->m_locationEdit, &KUrlComboBox::editTextChanged, this, [this](const QString &text) {
         d->slotLocationChanged(text);
     });
@@ -572,7 +572,7 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
     // Properly let the dialog be resized (to smaller). Otherwise we could have
     // huge dialogs that can't be resized to smaller (it would be as big as the longest
     // item in this combo box). (ereslibre)
-    d->m_filterWidget->setSizeAdjustPolicy(QComboBox::AdjustToMinimumContentsLength);
+    d->m_filterWidget->setSizeAdjustPolicy(QComboBox::AdjustToContentsOnFirstShow);
     d->m_filterLabel->setBuddy(d->m_filterWidget);
     connect(d->m_filterWidget, &KFileFilterCombo::filterChanged, this, [this]() {
         d->slotFilterChanged();
@@ -588,7 +588,8 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
     // the Automatically Select Extension checkbox
     // (the text, visibility etc. is set in updateAutoSelectExtension(), which is called by readConfig())
     d->m_autoSelectExtCheckBox = new QCheckBox(this);
-    const int spacingHint = style()->pixelMetric(QStyle::PM_DefaultLayoutSpacing);
+    const int spacingHint = style()->pixelMetric(QStyle::PM_LayoutVerticalSpacing);
+    // ### Urgh, a Qt stylesheet. Why not just use QLayout API like addSpacing maybe?
     d->m_autoSelectExtCheckBox->setStyleSheet(QStringLiteral("QCheckBox { padding-top: %1px; }").arg(spacingHint));
     connect(d->m_autoSelectExtCheckBox, &QCheckBox::clicked, this, [this]() {
         d->slotAutoSelectExtClicked();
