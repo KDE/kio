@@ -5,6 +5,7 @@
 */
 
 #include "kurifiltersearchprovideractions.h"
+#include <KDialogJobUiDelegate>
 #include <KIO/CommandLauncherJob>
 #include <KLocalizedString>
 #include <KStringHandler>
@@ -51,6 +52,7 @@ void KUriFilterSearchProviderActions::setSelectedText(const QString &selectedTex
 void KUriFilterSearchProviderActions::slotConfigureWebShortcuts()
 {
     auto *job = new KIO::CommandLauncherJob(QStringLiteral("kcmshell5"), {QStringLiteral("webshortcuts")});
+    job->setUiDelegate(new KDialogJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, nullptr));
     job->start();
 }
 
