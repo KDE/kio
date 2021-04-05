@@ -24,7 +24,7 @@
 #include <QDebug>
 #include <kmountpoint.h>
 
-#include <errno.h>
+#include <cerrno>
 #include <stdint.h>
 #include <utime.h>
 

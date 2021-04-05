@@ -32,7 +32,7 @@
 #include <KConfigGroup>
 #include <QDebug>
 
-#include <errno.h>
+#include <cerrno>
 #include <time.h>
 #ifdef Q_OS_WIN
 #include <sys/utime.h>

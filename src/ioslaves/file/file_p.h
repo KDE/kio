@@ -7,7 +7,7 @@
 #ifndef FILE_P_H
 #define FILE_P_H
 
-#include <errno.h>
+#include <cerrno>
 
 enum ActionType {
     UNKNOWN,

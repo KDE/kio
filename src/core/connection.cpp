@@ -12,7 +12,7 @@
 #include "kiocoredebug.h"
 #include <QDebug>
 
-#include <errno.h>
+#include <cerrno>
 
 using namespace KIO;
 

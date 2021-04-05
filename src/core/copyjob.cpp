@@ -20,7 +20,7 @@
 #include "listjob.h"
 #include "mkdirjob.h"
 #include "statjob.h"
-#include <errno.h>
+#include <cerrno>
 
 #include <KConfigGroup>
 #include <KDesktopFile>

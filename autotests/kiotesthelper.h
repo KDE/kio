@@ -19,7 +19,7 @@
 #else
 #include <sys/utime.h>
 #endif
-#include <errno.h>
+#include <cerrno>
 
 #include "kioglobal_p.h"
 

@@ -6,7 +6,7 @@
 
 #include "filehelper.h"
 
-#include <errno.h>
+#include <cerrno>
 #include <fcntl.h>
 #include <grp.h>
 #include <libgen.h>

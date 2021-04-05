@@ -7,7 +7,7 @@
 #include "fdreceiver.h"
 
 #include <QSocketNotifier>
-#include <errno.h>
+#include <cerrno>
 
 #include "sharefd_p.h"
 

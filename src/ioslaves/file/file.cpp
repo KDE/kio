@@ -21,7 +21,7 @@
 #endif
 
 #include <assert.h>
-#include <errno.h>
+#include <cerrno>
 #ifdef Q_OS_WIN
 #include <qt_windows.h>
 #include <sys/utime.h>

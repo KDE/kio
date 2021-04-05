@@ -7,7 +7,7 @@
 #include "fdsender.h"
 
 #include "../sharefd_p.h"
-#include <errno.h>
+#include <cerrno>
 #include <string.h>
 
 FdSender::FdSender(const std::string &path)

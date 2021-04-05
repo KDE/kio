@@ -7,7 +7,7 @@
     SPDX-License-Identifier: LGPL-2.0-only
 */
 
-#include <errno.h>
+#include <cerrno>
 #include <locale.h>
 #include <stdio.h>
 #include <stdlib.h>

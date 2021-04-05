@@ -29,8 +29,8 @@
 #include <QEventLoop>
 #include <QFile>
 
+#include <cerrno>
 #include <dirent.h>
-#include <errno.h>
 #include <fcntl.h>
 #include <stdlib.h>
 #include <sys/param.h>

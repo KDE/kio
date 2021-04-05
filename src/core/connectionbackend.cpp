@@ -17,7 +17,7 @@
 #include <QPointer>
 #include <QStandardPaths>
 #include <QTemporaryFile>
-#include <errno.h>
+#include <cerrno>
 
 #include "kiocoredebug.h"
 

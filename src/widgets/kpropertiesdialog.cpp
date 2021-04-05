@@ -35,12 +35,11 @@
 
 #include <config-kiowidgets.h>
 
-#include <algorithm>
-#include <functional>
 #include <qplatformdefs.h>
 
 #include <QCheckBox>
 #include <QClipboard>
+#include <QComboBox>
 #include <QDBusConnection>
 #include <QDBusInterface>
 #include <QDBusReply>
@@ -65,13 +64,6 @@
 #include <QVector>
 #include <QtConcurrent>
 
-#if HAVE_POSIX_ACL
-extern "C" {
-#include <errno.h>
-#include <sys/xattr.h>
-}
-#endif
-
 #include <KAuthorized>
 #include <KCapacityBar>
 #include <KColorScheme>
@@ -89,6 +81,7 @@ extern "C" {
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <KMessageWidget>
+#include <KMimeTypeChooser>
 #include <KMimeTypeEditor>
 #include <KMimeTypeTrader>
 #include <KPluginMetaData>
@@ -99,6 +92,7 @@ extern "C" {
 #include <KSqueezedTextLabel>
 #include <KWindowConfig>
 #include <kacl.h>
+#include <kbuildsycocaprogressdialog.h>
 #include <kdirnotify.h>
 #include <kdiskfreespaceinfo.h>
 #include <kfileitemlistproperties.h>
@@ -118,14 +112,17 @@ extern "C" {
 #include "ui_checksumswidget.h"
 #include "ui_kpropertiesdesktopadvbase.h"
 #include "ui_kpropertiesdesktopbase.h"
+
+#include <algorithm>
+#include <cerrno>
+#include <functional>
+
 #if HAVE_POSIX_ACL
+extern "C" {
+#include <sys/xattr.h>
+}
 #include "kacleditwidget.h"
 #endif
-
-#include <KMimeTypeChooser>
-#include <kbuildsycocaprogressdialog.h>
-
-#include <QComboBox>
 
 #ifdef Q_OS_WIN
 #include <process.h>
