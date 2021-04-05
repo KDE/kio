@@ -8,6 +8,7 @@
 #include "kfileitemactions.h"
 #include "kfileitemactions_p.h"
 #include <KAbstractFileItemActionPlugin>
+#include <KAuthorized>
 #include <KConfigGroup>
 #include <KDesktopFile>
 #include <KIO/ApplicationLauncherJob>

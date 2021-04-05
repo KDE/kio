@@ -7,6 +7,7 @@
 
 #include "ksslsettings.h"
 
+#include <KConfig>
 #include <KConfigGroup>
 
 #include <QStandardPaths>

@@ -7,6 +7,7 @@
 */
 
 #include "kurlauthorized.h"
+#include <KConfig>
 #include <QUrl>
 #include <kprotocolinfo.h>
 

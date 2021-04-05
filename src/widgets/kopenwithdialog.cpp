@@ -26,6 +26,7 @@
 #include <QStyleOptionButton>
 #include <QtAlgorithms>
 
+#include <KAuthorized>
 #include <KCollapsibleGroupBox>
 #include <KDesktopFile>
 #include <KHistoryComboBox>

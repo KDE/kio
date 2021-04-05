@@ -43,6 +43,7 @@
 #include <KJobUiDelegate>
 #include <kio/desktopexecparser.h>
 
+#include <KAuthorized>
 #include <KJobWidgets>
 #include <KLocalizedString>
 #include <KMessageBox>
