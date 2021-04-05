@@ -21,7 +21,7 @@ ecm_qt_export_logging_category(
 )
 
 add_library(kio_file MODULE ${kio_file_PART_SRCS})
-target_link_libraries(kio_file KF5::KIOCore KF5::I18n Qt5::DBus Qt5::Network)
+target_link_libraries(kio_file KF5::KIOCore KF5::I18n KF5::ConfigCore Qt5::DBus Qt5::Network)
 
 if(UNIX)
   target_link_libraries(kio_file Qt5::Network KF5::AuthCore)

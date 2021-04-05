@@ -30,6 +30,7 @@ ecm_add_test(httpauthenticationtest.cpp
    Qt5::Network
    Qt5::Widgets
    KF5::I18n
+   KF5::ConfigCore
    KF5::KIOCore
    KF5::KIONTLM
 )
@@ -54,6 +55,7 @@ ecm_add_test(${httpobjecttest_SRCS}
    Qt5::Network # QLocalSocket
    Qt5::Xml # QDomElement
    KF5::I18n
+   KF5::ConfigCore
    KF5::KIOCore
    KF5::KIONTLM
    KF5::Archive

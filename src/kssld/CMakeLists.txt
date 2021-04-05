@@ -11,6 +11,7 @@ PUBLIC
    KF5::DBusAddons # kdedmodule
 PRIVATE
    KF5::CoreAddons  # kpluginfactory
+   KF5::ConfigCore
    Qt5::Network
    Qt5::DBus
 )

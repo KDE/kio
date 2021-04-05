@@ -21,7 +21,7 @@ include(ECMAddTests)
 
 ecm_add_test(${testtrash_SRCS}
     TEST_NAME testtrash
-    LINK_LIBRARIES KF5::I18n Qt5::DBus KF5::KIOCore KF5::Solid Qt5::Test Qt5::Network
+    LINK_LIBRARIES KF5::ConfigCore KF5::I18n Qt5::DBus KF5::KIOCore KF5::Solid Qt5::Test Qt5::Network
 )
 
 if(APPLE)

@@ -40,6 +40,7 @@ endif()
 add_library(kio_trash MODULE ${kio_trash_PART_SRCS})
 
 target_link_libraries(kio_trash
+  KF5::ConfigCore
   KF5::Solid
   KF5::KIOCore
   Qt5::DBus

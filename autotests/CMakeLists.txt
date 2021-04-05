@@ -42,7 +42,7 @@ ecm_add_tests(
  batchrenamejobtest.cpp
  ksambasharetest.cpp
  NAME_PREFIX "kiocore-"
- LINK_LIBRARIES KF5::KIOCore KF5::I18n Qt5::Test Qt5::Network
+ LINK_LIBRARIES KF5::KIOCore KF5::I18n KF5::ConfigCore Qt5::Test Qt5::Network
 )
 
 target_link_libraries(threadtest Qt5::Concurrent)

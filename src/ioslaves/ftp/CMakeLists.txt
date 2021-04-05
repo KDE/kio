@@ -17,7 +17,7 @@ ecm_qt_export_logging_category(
 )
 
 add_library(kio_ftp MODULE ${kio_ftp_PART_SRCS})
-target_link_libraries(kio_ftp Qt5::Network KF5::KIOCore KF5::I18n)
+target_link_libraries(kio_ftp Qt5::Network KF5::KIOCore KF5::I18n KF5::ConfigCore)
 
 set_target_properties(kio_ftp PROPERTIES OUTPUT_NAME "ftp")
 set_target_properties(kio_ftp PROPERTIES LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin/kf5/kio")
