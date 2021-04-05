@@ -46,7 +46,6 @@
 #include <KSharedConfig>
 #include <kio_version.h>
 
-#include <KMimeTypeTrader>
 #include <kprotocolinfofactory_p.h>
 
 #include "http_slave_defaults.h"
@@ -721,17 +720,6 @@ QString KProtocolManager::defaultUserAgent()
     return defaultUserAgent(modifiers);
 }
 
-static QString defaultUserAgentFromPreferredService()
-{
-    QString agentStr;
-
-    // Check if the default COMPONENT contains a custom default UA string...
-    KService::Ptr service = KMimeTypeTrader::self()->preferredService(QStringLiteral("text/html"), QStringLiteral("KParts/ReadOnlyPart"));
-    if (service && service->showInCurrentDesktop())
-        agentStr = service->property(QStringLiteral("X-KDE-Default-UserAgent"), QVariant::String).toString();
-    return agentStr;
-}
-
 // This is not the OS, but the windowing system, e.g. X11 on Unix/Linux.
 static QString platform()
 {
@@ -761,126 +749,40 @@ QString KProtocolManager::defaultUserAgent(const QString &_modifiers)
 
     d->modifiers = modifiers;
 
-    /*
-       The following code attempts to determine the default user agent string
-       from the 'X-KDE-Default-UserAgent' property of the desktop file
-       for the preferred service that was configured to handle the 'text/html'
-       MIME type. If the preferred service's desktop file does not specify this
-       property, the long standing default user agent string will be used.
-       The following keyword placeholders are automatically converted when the
-       user agent string is read from the property:
-
-       %SECURITY%      Expands to"N" when SSL is not supported, otherwise it is ignored.
-       %OSNAME%        Expands to operating system name, e.g. Linux.
-       %OSVERSION%     Expands to operating system version, e.g. 2.6.32
-       %SYSTYPE%       Expands to machine or system type, e.g. i386
-       %PLATFORM%      Expands to windowing system, e.g. X11 on Unix/Linux.
-       %LANGUAGE%      Expands to default language in use, e.g. en-US.
-       %APPVERSION%    Expands to QCoreApplication applicationName()/applicationVerison(),
-                       e.g. Konqueror/4.5.0. If application name and/or application version
-                       number are not set, then "KDE" and the runtime KDE version numbers
-                       are used respectively.
-
-       All of the keywords are handled case-insensitively.
-    */
-
     QString systemName, systemVersion, machine, supp;
     const bool sysInfoFound = getSystemNameVersionAndMachine(systemName, systemVersion, machine);
-    QString agentStr = defaultUserAgentFromPreferredService();
 
-    if (agentStr.isEmpty()) {
-        supp += platform();
+    supp += platform();
 
-        if (sysInfoFound) {
-            if (modifiers.contains(QL1C('o'))) {
-                supp += QL1S("; ") + systemName;
-                if (modifiers.contains(QL1C('v'))) {
-                    supp += QL1C(' ') + systemVersion;
-                }
-
-                if (modifiers.contains(QL1C('m'))) {
-                    supp += QL1C(' ') + machine;
-                }
+    if (sysInfoFound) {
+        if (modifiers.contains(QL1C('o'))) {
+            supp += QL1S("; ") + systemName;
+            if (modifiers.contains(QL1C('v'))) {
+                supp += QL1C(' ') + systemVersion;
             }
 
-            if (modifiers.contains(QL1C('l'))) {
-                supp += QL1S("; ") + QLocale::languageToString(QLocale().language());
+            if (modifiers.contains(QL1C('m'))) {
+                supp += QL1C(' ') + machine;
             }
         }
 
-        // Full format: Mozilla/5.0 (Linux
-        d->useragent = QLatin1String("Mozilla/5.0 (%1) KHTML/").arg(supp) + QLatin1String(KIO_VERSION_STRING)
-            + QLatin1String(" (like Gecko) Konqueror/%1 KIO/%1.%2").arg(QString::number(KIO_VERSION_MAJOR), QString::number(KIO_VERSION_MINOR));
-    } else {
-        QString appName = QCoreApplication::applicationName();
-        if (appName.isEmpty() || appName.startsWith(QLatin1String("kcmshell"), Qt::CaseInsensitive)) {
-            appName = QStringLiteral("KDE");
+        if (modifiers.contains(QL1C('l'))) {
+            supp += QL1S("; ") + QLocale::languageToString(QLocale().language());
         }
-
-        QString appVersion = QCoreApplication::applicationVersion();
-        if (appVersion.isEmpty()) {
-            appVersion += QLatin1String(KIO_VERSION_STRING);
-        }
-
-        appName += QL1C('/') + appVersion;
-
-        agentStr.replace(QL1S("%appversion%"), appName, Qt::CaseInsensitive);
-
-        if (!QSslSocket::supportsSsl()) {
-            agentStr.replace(QLatin1String("%security%"), QL1S("N"), Qt::CaseInsensitive);
-        } else {
-            agentStr.remove(QStringLiteral("%security%"), Qt::CaseInsensitive);
-        }
-
-        if (sysInfoFound) {
-            // Platform (e.g. X11). It is no longer configurable from UI.
-            agentStr.replace(QL1S("%platform%"), platform(), Qt::CaseInsensitive);
-
-            // Operating system (e.g. Linux)
-            if (modifiers.contains(QL1C('o'))) {
-                agentStr.replace(QL1S("%osname%"), systemName, Qt::CaseInsensitive);
-
-                // OS version (e.g. 2.6.36)
-                if (modifiers.contains(QL1C('v'))) {
-                    agentStr.replace(QL1S("%osversion%"), systemVersion, Qt::CaseInsensitive);
-                } else {
-                    agentStr.remove(QStringLiteral("%osversion%"), Qt::CaseInsensitive);
-                }
-
-                // Machine type (i686, x86-64, etc.)
-                if (modifiers.contains(QL1C('m'))) {
-                    agentStr.replace(QL1S("%systype%"), machine, Qt::CaseInsensitive);
-                } else {
-                    agentStr.remove(QStringLiteral("%systype%"), Qt::CaseInsensitive);
-                }
-            } else {
-                agentStr.remove(QStringLiteral("%osname%"), Qt::CaseInsensitive);
-                agentStr.remove(QStringLiteral("%osversion%"), Qt::CaseInsensitive);
-                agentStr.remove(QStringLiteral("%systype%"), Qt::CaseInsensitive);
-            }
-
-            // Language (e.g. en_US)
-            if (modifiers.contains(QL1C('l'))) {
-                agentStr.replace(QL1S("%language%"), QLocale::languageToString(QLocale().language()), Qt::CaseInsensitive);
-            } else {
-                agentStr.remove(QStringLiteral("%language%"), Qt::CaseInsensitive);
-            }
-
-            // Clean up unnecessary separators that could be left over from the
-            // possible keyword removal above...
-            agentStr.replace(QRegularExpression(QStringLiteral("[(]\\s*[;]\\s*")), QStringLiteral("("));
-            agentStr.replace(QRegularExpression(QStringLiteral("[;]\\s*[;]\\s*")), QStringLiteral("; "));
-            agentStr.replace(QRegularExpression(QStringLiteral("\\s*[;]\\s*[)]")), QStringLiteral(")"));
-        } else {
-            agentStr.remove(QStringLiteral("%osname%"));
-            agentStr.remove(QStringLiteral("%osversion%"));
-            agentStr.remove(QStringLiteral("%platform%"));
-            agentStr.remove(QStringLiteral("%systype%"));
-            agentStr.remove(QStringLiteral("%language%"));
-        }
-
-        d->useragent = agentStr.simplified();
     }
+
+    QString appName = QCoreApplication::applicationName();
+    if (appName.isEmpty() || appName.startsWith(QLatin1String("kcmshell"), Qt::CaseInsensitive)) {
+        appName = QStringLiteral("KDE");
+    }
+    QString appVersion = QCoreApplication::applicationVersion();
+    if (appVersion.isEmpty()) {
+        appVersion += QLatin1String(KIO_VERSION_STRING);
+    }
+
+    d->useragent = QLatin1String("Mozilla/5.0 (%1) ").arg(supp)
+        + QLatin1String("KIO/%1.%2 ").arg(QString::number(KIO_VERSION_MAJOR), QString::number(KIO_VERSION_MINOR))
+        + QLatin1String("%1/%2").arg(appName, appVersion);
 
     // qDebug() << "USERAGENT STRING:" << d->useragent;
     return d->useragent;
@@ -894,7 +796,7 @@ QString KProtocolManager::userAgentForApplication(const QString &appName, const 
         info += systemName + QL1C('/') + systemVersion + QL1S("; ");
     }
 
-    info += QL1S("KDE/") + QString::number(KIO_VERSION_MAJOR) + QL1C('.') + QString::number(KIO_VERSION_MINOR) + QL1C('.') + QString::number(KIO_VERSION_PATCH);
+    info += QL1S("KDE/") + QStringLiteral(KIO_VERSION_STRING);
 
     if (!machine.isEmpty()) {
         info += QL1S("; ") + machine;
