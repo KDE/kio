@@ -186,7 +186,7 @@ target_include_directories(KF5KIOCore INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTA
 target_link_libraries(KF5KIOCore
 PUBLIC
  KF5::CoreAddons   # KJob
- KF5::Service
+ KF5::Service # TODO KF6 move to PRIVATE
  Qt5::Network
  Qt5::Concurrent            # QtConcurrentRun in hostinfo.cpp
  Qt5::DBus
