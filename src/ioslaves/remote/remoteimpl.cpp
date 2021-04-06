@@ -11,7 +11,6 @@
 #include <KConfigGroup>
 #include <KDesktopFile>
 #include <KLocalizedString>
-#include <KService>
 
 #include <QDir>
 #include <QFile>
