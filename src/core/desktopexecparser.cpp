@@ -18,7 +18,7 @@
 #include <KService>
 #include <KSharedConfig>
 #include <KShell>
-#include <kprotocolinfo.h>
+#include <kprotocolinfo.h> // KF6 TODO remove after moving hasSchemeHandler to OpenUrlJob
 
 #include <QDBusConnection>
 #include <QDBusReply>
@@ -226,7 +226,7 @@ bool KIO::DesktopExecParser::isProtocolInSupportedList(const QUrl &url, const QS
 //     firefox or chromium saying x-scheme-handler/http. Gnome people want to send all HTTP urls
 //     to a webbrowser, but we want MIME-type-determination-in-calling-application by default
 //     (the user can configure a BrowserApplication though)
-bool KIO::DesktopExecParser::hasSchemeHandler(const QUrl &url)
+bool KIO::DesktopExecParser::hasSchemeHandler(const QUrl &url) // KF6 TODO move to OpenUrlJob
 {
     if (KProtocolInfo::isHelperProtocol(url)) {
         return true;

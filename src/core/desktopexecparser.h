@@ -91,7 +91,7 @@ public:
      * Returns true if @p protocol should be opened by a "handler" application, i.e. an application
      * associated to _all_ URLs using this protocol (a.k.a. scheme).
      */
-    static bool hasSchemeHandler(const QUrl &url);
+    static bool hasSchemeHandler(const QUrl &url); // KF6 TODO move to OpenUrlJob
 
     /**
      * Given a full command line (e.g. the Exec= line from a .desktop file),
