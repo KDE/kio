@@ -2626,6 +2626,7 @@ void KFilePermissionsPropsPlugin::applyChanges()
     mode_t andDirPermissions;
 
     if (!d->canChangePermissions) {
+        properties->abortApplying();
         return;
     }
 
@@ -3231,6 +3232,7 @@ void KUrlPropsPlugin::applyChanges()
 
     if (!url.isLocalFile()) {
         KMessageBox::sorry(nullptr, i18n("Could not save properties. Only entries on local file systems are supported."));
+        properties->abortApplying();
         return;
     }
 
@@ -3241,6 +3243,7 @@ void KUrlPropsPlugin::applyChanges()
                            i18n("<qt>Could not save properties. You do not have "
                                 "sufficient access to write to <b>%1</b>.</qt>",
                                 path));
+        properties->abortApplying();
         return;
     }
     f.close();
@@ -3516,6 +3519,7 @@ void KDevicePropsPlugin::applyChanges()
     const QUrl url = job->mostLocalUrl();
 
     if (!url.isLocalFile()) {
+        properties->abortApplying();
         return;
     }
     const QString path = url.toLocalFile();
@@ -3525,6 +3529,7 @@ void KDevicePropsPlugin::applyChanges()
                            i18n("<qt>Could not save properties. You do not have sufficient "
                                 "access to write to <b>%1</b>.</qt>",
                                 path));
+        properties->abortApplying();
         return;
     }
     f.close();
@@ -3787,6 +3792,7 @@ void KDesktopPropsPlugin::applyChanges()
 
     if (!url.isLocalFile()) {
         KMessageBox::sorry(nullptr, i18n("Could not save properties. Only entries on local file systems are supported."));
+        properties->abortApplying();
         return;
     }
 
@@ -3800,6 +3806,7 @@ void KDesktopPropsPlugin::applyChanges()
                            i18n("<qt>Could not save properties. You do not have "
                                 "sufficient access to write to <b>%1</b>.</qt>",
                                 path));
+        properties->abortApplying();
         return;
     }
     f.close();
