@@ -155,6 +155,10 @@ constexpr mode_t KFilePermissionsPropsPlugin::fperm[3][4] = {{S_IRUSR, S_IWUSR, 
                                                              {S_IRGRP, S_IWGRP, S_IXGRP, S_ISGID},
                                                              {S_IROTH, S_IWOTH, S_IXOTH, S_ISVTX}};
 
+static QString couldNotSaveMsg(const QString &path)
+{
+    return xi18nc("@info", "Could not save properties due to insufficient write access to:<nl/><filename>%1</filename>.", path);
+}
 
 class KPropertiesDialogPrivate
 {
@@ -1693,8 +1697,7 @@ void KFilePropsPlugin::applyIconChanges()
             if (cfg.desktopGroup().readEntry("Icon") != sIcon) {
                 properties->abortApplying();
 
-                KMessageBox::sorry(nullptr,
-                                   xi18nc("@info", "Could not save properties due to insufficient write access to:<nl/><filename>%1</filename>.", path));
+                KMessageBox::sorry(nullptr, couldNotSaveMsg(path));
             }
         }
     }
@@ -3178,7 +3181,6 @@ KUrlPropsPlugin::KUrlPropsPlugin(KPropertiesDialog *_props)
         if (!f.open(QIODevice::ReadOnly)) {
             return;
         }
-        f.close();
 
         KDesktopFile config(path);
         const KConfigGroup dg = config.desktopGroup();
@@ -3239,14 +3241,10 @@ void KUrlPropsPlugin::applyChanges()
     QString path = url.toLocalFile();
     QFile f(path);
     if (!f.open(QIODevice::ReadWrite)) {
-        KMessageBox::sorry(nullptr,
-                           i18n("<qt>Could not save properties. You do not have "
-                                "sufficient access to write to <b>%1</b>.</qt>",
-                                path));
+        KMessageBox::sorry(nullptr, couldNotSaveMsg(path));
         properties->abortApplying();
         return;
     }
-    f.close();
 
     KDesktopFile config(path);
     KConfigGroup dg = config.desktopGroup();
@@ -3396,7 +3394,6 @@ KDevicePropsPlugin::KDevicePropsPlugin(KPropertiesDialog *_props)
     if (!f.open(QIODevice::ReadOnly)) {
         return;
     }
-    f.close();
 
     const KDesktopFile _config(path);
     const KConfigGroup config = _config.desktopGroup();
@@ -3525,14 +3522,10 @@ void KDevicePropsPlugin::applyChanges()
     const QString path = url.toLocalFile();
     QFile f(path);
     if (!f.open(QIODevice::ReadWrite)) {
-        KMessageBox::sorry(nullptr,
-                           i18n("<qt>Could not save properties. You do not have sufficient "
-                                "access to write to <b>%1</b>.</qt>",
-                                path));
+        KMessageBox::sorry(nullptr, couldNotSaveMsg(path));
         properties->abortApplying();
         return;
     }
-    f.close();
 
     KDesktopFile _config(path);
     KConfigGroup config = _config.desktopGroup();
@@ -3653,7 +3646,6 @@ KDesktopPropsPlugin::KDesktopPropsPlugin(KPropertiesDialog *_props)
     if (!f.open(QIODevice::ReadOnly)) {
         return;
     }
-    f.close();
 
     KDesktopFile _config(d->m_origDesktopFile);
     KConfigGroup config = _config.desktopGroup();
@@ -3802,14 +3794,10 @@ void KDesktopPropsPlugin::applyChanges()
     QDir().mkpath(QFileInfo(path).absolutePath());
     QFile f(path);
     if (!f.open(QIODevice::ReadWrite)) {
-        KMessageBox::sorry(nullptr,
-                           i18n("<qt>Could not save properties. You do not have "
-                                "sufficient access to write to <b>%1</b>.</qt>",
-                                path));
+        KMessageBox::sorry(nullptr, couldNotSaveMsg(path));
         properties->abortApplying();
         return;
     }
-    f.close();
 
     // If the command is changed we reset certain settings that are strongly
     // coupled to the command.
