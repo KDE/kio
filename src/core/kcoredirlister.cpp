@@ -2198,6 +2198,12 @@ void KCoreDirLister::setRequestMimeTypeWhileListing(bool fromSlave)
     }
 
     d->requestMimeTypeWhileListing = fromSlave;
+    if (d->requestMimeTypeWhileListing) {
+        // Changing from request off to on, clear any cached items associated
+        // with this lister so we re-request them and get the mimetype as well.
+        // If we do not, we risk caching items that have no mime type.
+        kDirListerCache()->forgetDirs(this);
+    }
 }
 
 QUrl KCoreDirLister::url() const
