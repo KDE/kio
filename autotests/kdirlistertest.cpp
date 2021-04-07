@@ -1481,6 +1481,34 @@ void KDirListerTest::testRenameDirectory() // #401552
     disconnect(&m_dirLister, nullptr, this, nullptr);
 }
 
+void KDirListerTest::testRequestMimeType()
+{
+    MyDirLister lister;
+    // Explicitly set requestMimeTypeWhileListing to false so we know what state
+    // it is in.
+    lister.setRequestMimeTypeWhileListing(false);
+    lister.openUrl(QUrl::fromLocalFile(path()), KDirLister::NoFlags);
+
+    QTRY_VERIFY(lister.isFinished());
+
+    auto items = lister.items();
+    for (auto item : qAsConst(items)) {
+        QVERIFY(!item.isMimeTypeKnown());
+    }
+
+    lister.setRequestMimeTypeWhileListing(true);
+    lister.openUrl(QUrl::fromLocalFile(path()), KDirLister::Reload);
+
+    QTRY_VERIFY(lister.isFinished());
+
+    // If requestMimeTypeWhileListing is on, we should know the mime type of
+    // items when they have been listed.
+    items = lister.items();
+    for (auto item : qAsConst(items)) {
+        QVERIFY(item.isMimeTypeKnown());
+    }
+}
+
 void KDirListerTest::testDeleteCurrentDir()
 {
     // ensure m_dirLister holds the items.
