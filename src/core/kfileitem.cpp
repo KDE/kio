@@ -376,6 +376,8 @@ inline bool KFileItemPrivate::cmp(const KFileItemPrivate &item) const
     qDebug() << " local" << (m_bIsLocalUrl == item.m_bIsLocalUrl);
     qDebug() << " mode" << (m_fileMode == item.m_fileMode);
     qDebug() << " perm" << (m_permissions == item.m_permissions);
+    qDebug() << " group" << (m_entry.stringValue(KIO::UDSEntry::UDS_GROUP) == item.m_entry.stringValue(KIO::UDSEntry::UDS_GROUP));
+    qDebug() << " user" << (m_entry.stringValue(KIO::UDSEntry::UDS_USER) == item.m_entry.stringValue(KIO::UDSEntry::UDS_USER));
     qDebug() << " UDS_EXTENDED_ACL" << (m_entry.stringValue( KIO::UDSEntry::UDS_EXTENDED_ACL ) == item.m_entry.stringValue( KIO::UDSEntry::UDS_EXTENDED_ACL ));
     qDebug() << " UDS_ACL_STRING" << (m_entry.stringValue( KIO::UDSEntry::UDS_ACL_STRING ) == item.m_entry.stringValue( KIO::UDSEntry::UDS_ACL_STRING ));
     qDebug() << " UDS_DEFAULT_ACL_STRING" << (m_entry.stringValue( KIO::UDSEntry::UDS_DEFAULT_ACL_STRING ) == item.m_entry.stringValue( KIO::UDSEntry::UDS_DEFAULT_ACL_STRING ));
@@ -391,6 +393,8 @@ inline bool KFileItemPrivate::cmp(const KFileItemPrivate &item) const
             && m_bIsLocalUrl == item.m_bIsLocalUrl
             && m_fileMode == item.m_fileMode
             && m_permissions == item.m_permissions
+            && m_entry.stringValue(KIO::UDSEntry::UDS_GROUP) == item.m_entry.stringValue(KIO::UDSEntry::UDS_GROUP)
+            && m_entry.stringValue(KIO::UDSEntry::UDS_USER) == item.m_entry.stringValue(KIO::UDSEntry::UDS_USER)
             && m_entry.stringValue(KIO::UDSEntry::UDS_EXTENDED_ACL) == item.m_entry.stringValue(KIO::UDSEntry::UDS_EXTENDED_ACL)
             && m_entry.stringValue(KIO::UDSEntry::UDS_ACL_STRING) == item.m_entry.stringValue(KIO::UDSEntry::UDS_ACL_STRING)
             && m_entry.stringValue(KIO::UDSEntry::UDS_DEFAULT_ACL_STRING) == item.m_entry.stringValue(KIO::UDSEntry::UDS_DEFAULT_ACL_STRING)
