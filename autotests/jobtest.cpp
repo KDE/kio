@@ -545,8 +545,10 @@ QList<QByteArray> JobTest::readXattr(const QString &src)
     xattrReader.waitForFinished();
     QList<QByteArray> result = xattrReader.readAllStandardOutput().split(outputSeparator);
     if (m_getXattrCmd.endsWith("getfattr")) {
-        // Line 1 is the file name
-        result.removeAt(1);
+        if (result.size() > 1) {
+            // Line 1 is the file name
+            result.removeAt(1);
+        }
     } else if (m_getXattrCmd.endsWith("lsextattr")) {
         // cut off trailing \n
         result.last().chop(1);
