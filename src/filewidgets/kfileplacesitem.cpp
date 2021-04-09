@@ -271,7 +271,7 @@ QVariant KFilePlacesItem::deviceData(int role) const
         case Qt::DisplayRole:
             return d.displayName();
         case Qt::DecorationRole:
-            return KDE::icon(m_iconPath, m_emblems);
+            return KDE::icon(m_deviceIconName, m_emblems);
         case KFilePlacesModel::UrlRole:
             if (m_access) {
                 const QString path = m_access->filePath();
@@ -313,7 +313,7 @@ QVariant KFilePlacesItem::deviceData(int role) const
             return m_isAccessible && !m_isCdrom;
 
         case KFilePlacesModel::IconNameRole:
-            return m_iconPath;
+            return m_deviceIconName;
 
         default:
             return QVariant();
@@ -417,7 +417,7 @@ bool KFilePlacesItem::updateDeviceInfo(const QString &udi)
         m_disc = m_device.as<Solid::OpticalDisc>();
         m_player = m_device.as<Solid::PortableMediaPlayer>();
         m_networkShare = m_device.as<Solid::NetworkShare>();
-        m_iconPath = m_device.icon();
+        m_deviceIconName = m_device.icon();
         m_emblems = m_device.emblems();
 
         m_drive = nullptr;
@@ -438,7 +438,7 @@ bool KFilePlacesItem::updateDeviceInfo(const QString &udi)
         m_player = nullptr;
         m_drive = nullptr;
         m_networkShare = nullptr;
-        m_iconPath.clear();
+        m_deviceIconName.clear();
         m_emblems.clear();
     }
 

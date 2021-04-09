@@ -96,7 +96,7 @@ private:
     QPointer<Solid::OpticalDisc> m_disc;
     QPointer<Solid::PortableMediaPlayer> m_player;
     QPointer<Solid::NetworkShare> m_networkShare;
-    QString m_iconPath;
+    QString m_deviceIconName;
     QStringList m_emblems;
     QString m_groupName;
 };
