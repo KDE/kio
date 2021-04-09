@@ -1191,8 +1191,10 @@ void SlaveBase::dispatch(int command, const QByteArray &data)
         d->onHold = true;
         disconnectSlave();
         d->isConnectedToApp = false;
-        // Do not close connection!
-        connectSlave(d->poolSocket);
+        if (!d->poolSocket.isEmpty()) {
+            // Do not close connection!
+            connectSlave(d->poolSocket);
+        }
         break;
     }
     case CMD_REPARSECONFIGURATION: {
