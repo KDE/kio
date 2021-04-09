@@ -94,6 +94,7 @@ target_link_libraries(KF5KIOFileWidgets
     KF5::XmlGui        # for KActionCollection, used by KFileWidget/KDirOperator
     KF5::Solid         # KFilePlacesModel/KFilePlacesView
   PRIVATE
+    KF5::GuiAddons    # KIconUtils
     KF5::IconThemes   # KIconLoader
     KF5::I18n
 )

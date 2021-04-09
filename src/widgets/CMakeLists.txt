@@ -121,6 +121,7 @@ target_link_libraries(KF5KIOWidgets
     Qt5::Concurrent
     Qt5::DBus
     KF5::I18n
+    KF5::GuiAddons # KIconUtils
     KF5::IconThemes   # KIconLoader
     KF5::WindowSystem # KStartupInfo
     KF5::ConfigWidgets # KColorScheme

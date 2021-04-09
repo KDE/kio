@@ -13,7 +13,7 @@
 #include <KBookmarkManager>
 #include <KConfig>
 #include <KConfigGroup>
-#include <KIconLoader>
+#include <KIconUtils>
 #include <KLocalizedString>
 #include <KMountPoint>
 #include <kprotocolinfo.h>
@@ -271,7 +271,8 @@ QVariant KFilePlacesItem::deviceData(int role) const
         case Qt::DisplayRole:
             return d.displayName();
         case Qt::DecorationRole:
-            return KDE::icon(m_deviceIconName, m_emblems);
+            // qDebug() << "adding emblems" << m_emblems << "to device icon" << m_deviceIconName;
+            return KIconUtils::addOverlays(m_deviceIconName, m_emblems);
         case KFilePlacesModel::UrlRole:
             if (m_access) {
                 const QString path = m_access->filePath();

@@ -10,7 +10,7 @@
 #include "kfileitem.h"
 
 #include "joburlcache_p.h"
-#include <KIconLoader>
+#include <KIconUtils>
 #include <KJobUiDelegate>
 #include <KLocalizedString>
 #include <KUrlMimeData>
@@ -851,7 +851,7 @@ QVariant KDirModel::data(const QModelIndex &index, int role) const
                 }
                 Q_ASSERT(!item.isNull());
                 // qDebug() << item->url() << " overlays=" << item->overlays();
-                return KDE::icon(item.iconName(), item.overlays());
+                return KIconUtils::addOverlays(item.iconName(), item.overlays());
             }
             break;
         case Qt::TextAlignmentRole:
