@@ -148,13 +148,16 @@ void OpenUrlJobTest::startProcess()
     if (QByteArray(QTest::currentDataTag()).startsWith("executable")) {
         QFile file(srcFile);
         QVERIFY(file.setPermissions(QFile::ExeUser | file.permissions()));
+        // Note however that running executables is not allowed by the OpenUrlJob below
+        // so this will end up opening it as a text file anyway.
     }
 
     // When running a OpenUrlJob
     KIO::OpenUrlJob *job = new KIO::OpenUrlJob(url, mimeType, this);
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
 
-    // Then the service should be executed (which writes to "dest")
+    // Then m_fakeService should be executed, since it's associated with text/plain
+    // We can find out that it was executed because it writes to "dest".
     const QString dest = m_tempDir.path() + "/dest";
     QTRY_VERIFY2(QFile::exists(dest), qPrintable(dest));
     QCOMPARE(readFile(dest), srcFile);
@@ -189,7 +192,7 @@ void OpenUrlJobTest::invalidUrl()
     QCOMPARE(job2->errorString(), QStringLiteral("Malformed URL\n/pathonly"));
 }
 
-void OpenUrlJobTest::refuseRunningNativeExecutables_data()
+void OpenUrlJobTest::refuseRunningLocalBinaries_data()
 {
     QTest::addColumn<QString>("mimeType");
 
@@ -197,9 +200,11 @@ void OpenUrlJobTest::refuseRunningNativeExecutables_data()
     // see https://gitlab.freedesktop.org/xdg/shared-mime-info/-/issues/11
     QTest::newRow("x-sharedlib") << "application/x-sharedlib";
     QTest::newRow("x-executable") << "application/x-executable";
+
+    QTest::newRow("msdos_executable") << "application/x-ms-dos-executable";
 }
 
-void OpenUrlJobTest::refuseRunningNativeExecutables()
+void OpenUrlJobTest::refuseRunningLocalBinaries()
 {
     QFETCH(QString, mimeType);
 
@@ -277,7 +282,7 @@ void OpenUrlJobTest::runScript()
 
     // When using OpenUrlJob to run the script
     KIO::OpenUrlJob *job = new KIO::OpenUrlJob(QUrl::fromLocalFile(scriptFile), mimeType, this);
-    job->setRunExecutables(true); // startProcess tests the case where this isn't set
+    job->setRunExecutables(true); // startProcess and refuseRunningLocalBinaries test the case where this isn't set
 
     // Then it works :-)
     QVERIFY2(job->exec(), qPrintable(job->errorString()));

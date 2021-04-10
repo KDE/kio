@@ -382,14 +382,6 @@ void KIO::OpenUrlJobPrivate::handleBinaries(const QMimeType &mimeType)
 
 void KIO::OpenUrlJobPrivate::handleBinariesHelper(const QString &localPath, bool isNativeBinary)
 {
-    // For local .exe files, open in the default app (e.g. WINE)
-    if (!isNativeBinary) {
-        openInPreferredApp();
-        return;
-    }
-
-    // Native binaries
-
     if (!m_runExecutables) {
         q->setError(KJob::UserDefinedError);
         q->setErrorText(i18n("For security reasons, launching executables is not allowed in this context."));
@@ -397,6 +389,13 @@ void KIO::OpenUrlJobPrivate::handleBinariesHelper(const QString &localPath, bool
         return;
     }
 
+    // For local .exe files, open in the default app (e.g. WINE)
+    if (!isNativeBinary) {
+        openInPreferredApp();
+        return;
+    }
+
+    // Native binaries
     if (!hasExecuteBit(localPath)) {
         // Show untrustedProgram dialog for local, native executables without the execute bit
         showUntrustedProgramWarningDialog(localPath);
