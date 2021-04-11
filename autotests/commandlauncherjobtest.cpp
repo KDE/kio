@@ -190,6 +190,35 @@ void CommandLauncherJobTest::startProcessWithSpacesInExecutablePath()
     QTRY_COMPARE(KProcessRunner::instanceCount(), 0);
 }
 
+void CommandLauncherJobTest::startProcessWithEnvironmentVariables()
+{
+    // Given an env var and a command that uses it
+    QProcessEnvironment env;
+    env.insert("MYVAR", "myvalue");
+#ifdef Q_OS_WIN
+    const QString command = "echo myvar=%MYVAR% > destfile";
+#else
+    const QString command = "echo myvar=$MYVAR > destfile";
+#endif
+    QTemporaryDir tempDir;
+    const QString srcDir = tempDir.path();
+    const QString srcFile = srcDir + "/srcfile";
+    createSrcFile(srcFile);
+
+    // When running a CommandLauncherJob
+    KIO::CommandLauncherJob *job = new KIO::CommandLauncherJob(command, this);
+    job->setWorkingDirectory(srcDir);
+    job->setProcessEnvironment(env);
+    QVERIFY(job->exec());
+
+    // Then the env var was visible
+    QFile destFile(srcDir + "/destfile");
+    QTRY_VERIFY(QFileInfo(destFile).size() > 0);
+    QVERIFY(destFile.open(QIODevice::ReadOnly));
+    const QByteArray data = destFile.readAll().trimmed();
+    QCOMPARE(data, "myvar=myvalue");
+}
+
 void CommandLauncherJobTest::doesNotFailOnNonExistingExecutable()
 {
     // Given a command that uses an executable that doesn't exist

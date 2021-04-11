@@ -128,7 +128,8 @@ KProcessRunner *KProcessRunner::fromCommand(const QString &cmd,
                                             const QString &execName,
                                             const QString &iconName,
                                             const QByteArray &asn,
-                                            const QString &workingDirectory)
+                                            const QString &workingDirectory,
+                                            const QProcessEnvironment &environment)
 {
     auto instance = makeInstance();
 
@@ -137,6 +138,7 @@ KProcessRunner *KProcessRunner::fromCommand(const QString &cmd,
     if (!workingDirectory.isEmpty()) {
         instance->m_process->setWorkingDirectory(workingDirectory);
     }
+    instance->m_process->setProcessEnvironment(environment);
     if (!desktopName.isEmpty()) {
         KService::Ptr service = KService::serviceByDesktopName(desktopName);
         if (service) {

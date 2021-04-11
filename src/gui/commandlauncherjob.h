@@ -14,6 +14,7 @@
 class KRunPrivate; // KF6 REMOVE
 class CommandLauncherJobTest; // KF6 REMOVE
 
+class QProcessEnvironment;
 namespace KIO
 {
 class CommandLauncherJobPrivate;
@@ -106,6 +107,15 @@ public:
      * @param workingDirectory path of a local directory
      */
     void setWorkingDirectory(const QString &workingDirectory);
+
+    /**
+     * Sets the environment that will be passed to the child process.
+     * Can be used to pass environment variables to the child process.
+     * @param environment set of environment variables to pass to the child process
+     * @see QProcessEnvironment
+     * @since 5.82
+     */
+    void setProcessEnvironment(const QProcessEnvironment &environment);
 
     /**
      * Starts the job.

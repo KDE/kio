@@ -27,6 +27,8 @@ private Q_SLOTS:
     void startProcessWithSpacesInExecutablePath_data();
     void startProcessWithSpacesInExecutablePath();
 
+    void startProcessWithEnvironmentVariables();
+
     void doesNotFailOnNonExistingExecutable();
     void shouldDoNothingOnEmptyCommand();
 };

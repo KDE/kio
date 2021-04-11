@@ -71,8 +71,9 @@ public:
                                        const QString &desktopName,
                                        const QString &execName,
                                        const QString &iconName,
-                                       const QByteArray &asn = {},
-                                       const QString &workingDirectory = {});
+                                       const QByteArray &asn,
+                                       const QString &workingDirectory,
+                                       const QProcessEnvironment &environment);
 
     /**
      * Blocks until the process has started. Only exists for KRun via Command/ApplicationLauncherJob, will disappear in KF6.

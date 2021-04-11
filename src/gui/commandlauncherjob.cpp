@@ -21,6 +21,7 @@ public:
     QString m_workingDirectory;
     QByteArray m_startupId;
     QPointer<KProcessRunner> m_processRunner;
+    QProcessEnvironment m_environment;
     qint64 m_pid = 0;
 };
 
@@ -70,6 +71,11 @@ void KIO::CommandLauncherJob::setWorkingDirectory(const QString &workingDirector
     d->m_workingDirectory = workingDirectory;
 }
 
+void KIO::CommandLauncherJob::setProcessEnvironment(const QProcessEnvironment &environment)
+{
+    d->m_environment = environment;
+}
+
 void KIO::CommandLauncherJob::start()
 {
     // Some fallback for lazy callers, not 100% accurate though
@@ -90,7 +96,8 @@ void KIO::CommandLauncherJob::start()
     if (d->m_iconName.isEmpty()) {
         d->m_iconName = d->m_executable;
     }
-    d->m_processRunner = KProcessRunner::fromCommand(d->m_command, d->m_desktopName, d->m_executable, d->m_iconName, d->m_startupId, d->m_workingDirectory);
+    d->m_processRunner =
+        KProcessRunner::fromCommand(d->m_command, d->m_desktopName, d->m_executable, d->m_iconName, d->m_startupId, d->m_workingDirectory, d->m_environment);
     connect(d->m_processRunner, &KProcessRunner::error, this, [this](const QString &errorText) {
         setError(KJob::UserDefinedError);
         setErrorText(errorText);
