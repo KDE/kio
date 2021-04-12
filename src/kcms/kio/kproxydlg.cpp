@@ -22,15 +22,6 @@
 #include <QSpinBox>
 #include <QUrl>
 
-#define QL1C(x) QLatin1Char(x)
-#define QL1S(x) QLatin1String(x)
-
-#define ENV_HTTP_PROXY QStringLiteral("HTTP_PROXY,http_proxy,HTTPPROXY,httpproxy,PROXY,proxy")
-#define ENV_HTTPS_PROXY QStringLiteral("HTTPS_PROXY,https_proxy,HTTPSPROXY,httpsproxy,PROXY,proxy")
-#define ENV_FTP_PROXY QStringLiteral("FTP_PROXY,ftp_proxy,FTPPROXY,ftpproxy,PROXY,proxy")
-#define ENV_SOCKS_PROXY QStringLiteral("SOCKS_PROXY,socks_proxy,SOCKSPROXY,socksproxy,PROXY,proxy")
-#define ENV_NO_PROXY QStringLiteral("NO_PROXY,no_proxy")
-
 K_PLUGIN_FACTORY_DECLARATION(KioConfigFactory)
 
 class InputValidator : public QValidator
@@ -95,7 +86,7 @@ static QString proxyUrlFromInput(KProxyDialog::DisplayUrlFlags *flags,
     if (edit->text().isEmpty())
         return proxyStr;
 
-    if (flags && !edit->text().contains(QL1S("://"))) {
+    if (flags && !edit->text().contains(QLatin1String("://"))) {
         *flags |= flag;
     }
 
@@ -113,12 +104,12 @@ static QString proxyUrlFromInput(KProxyDialog::DisplayUrlFlags *flags,
 
         proxyStr = url.url();
         if (portNum > -1) {
-            proxyStr += QL1C(' ') + QString::number(portNum);
+            proxyStr += QLatin1Char(' ') + QString::number(portNum);
         }
     } else {
         proxyStr = edit->text();
         if (spinBox->value() > 0) {
-            proxyStr += QL1C(' ') + QString::number(spinBox->value());
+            proxyStr += QLatin1Char(' ') + QString::number(spinBox->value());
         }
     }
 
@@ -133,7 +124,8 @@ static void setProxyInformation(const QString &value,
                                 const QString &defaultScheme,
                                 KProxyDialog::DisplayUrlFlag flag)
 {
-    const bool isSysProxy = (!value.contains(QL1C(' ')) && !value.contains(QL1C('.')) && !value.contains(QL1C(',')) && !value.contains(QL1C(':')));
+    const bool isSysProxy =
+        !value.contains(QLatin1Char(' ')) && !value.contains(QLatin1Char('.')) && !value.contains(QLatin1Char(',')) && !value.contains(QLatin1Char(':'));
 
     if (proxyType == KProtocolManager::EnvVarProxy || isSysProxy) {
 #if defined(Q_OS_LINUX) || defined(Q_OS_UNIX)
@@ -177,9 +169,9 @@ KProxyDialog::KProxyDialog(QWidget *parent, const QVariantList &args)
     Q_UNUSED(args);
     mUi.setupUi(this);
 
-    connect(mUi.autoDetectButton, &QAbstractButton::clicked, this, &KProxyDialog::autoDetect);
+    connect(mUi.autoDetectButton, &QPushButton::clicked, this, &KProxyDialog::autoDetect);
     connect(mUi.showEnvValueCheckBox, &QAbstractButton::toggled, this, &KProxyDialog::showEnvValue);
-    connect(mUi.useSameProxyCheckBox, &QAbstractButton::clicked, this, &KProxyDialog::setUseSameProxy);
+    connect(mUi.useSameProxyCheckBox, &QPushButton::clicked, this, &KProxyDialog::setUseSameProxy);
     connect(mUi.manualProxyHttpEdit, &QLineEdit::textChanged, this, [this](const QString &text) {
         mUi.useSameProxyCheckBox->setEnabled(!text.isEmpty());
     });
@@ -203,13 +195,13 @@ KProxyDialog::KProxyDialog(QWidget *parent, const QVariantList &args)
     mUi.manualNoProxyEdit->setValidator(v);
 
     // Signals and slots connections
-    connect(mUi.noProxyRadioButton, &QAbstractButton::clicked, this, &KProxyDialog::slotChanged);
-    connect(mUi.autoDiscoverProxyRadioButton, &QAbstractButton::clicked, this, &KProxyDialog::slotChanged);
-    connect(mUi.autoScriptProxyRadioButton, &QAbstractButton::clicked, this, &KProxyDialog::slotChanged);
-    connect(mUi.manualProxyRadioButton, &QAbstractButton::clicked, this, &KProxyDialog::slotChanged);
-    connect(mUi.noProxyRadioButton, &QAbstractButton::clicked, this, &KProxyDialog::slotChanged);
-    connect(mUi.useReverseProxyCheckBox, &QAbstractButton::clicked, this, &KProxyDialog::slotChanged);
-    connect(mUi.useSameProxyCheckBox, &QAbstractButton::clicked, this, &KProxyDialog::slotChanged);
+    connect(mUi.noProxyRadioButton, &QPushButton::clicked, this, &KProxyDialog::slotChanged);
+    connect(mUi.autoDiscoverProxyRadioButton, &QPushButton::clicked, this, &KProxyDialog::slotChanged);
+    connect(mUi.autoScriptProxyRadioButton, &QPushButton::clicked, this, &KProxyDialog::slotChanged);
+    connect(mUi.manualProxyRadioButton, &QPushButton::clicked, this, &KProxyDialog::slotChanged);
+    connect(mUi.noProxyRadioButton, &QPushButton::clicked, this, &KProxyDialog::slotChanged);
+    connect(mUi.useReverseProxyCheckBox, &QPushButton::clicked, this, &KProxyDialog::slotChanged);
+    connect(mUi.useSameProxyCheckBox, &QPushButton::clicked, this, &KProxyDialog::slotChanged);
 
     connect(mUi.proxyScriptUrlRequester, &KUrlRequester::textChanged, this, &KProxyDialog::slotChanged);
 
@@ -235,7 +227,7 @@ KProxyDialog::KProxyDialog(QWidget *parent, const QVariantList &args)
 #else
     mUi.autoDetectButton->setVisible(false);
 #endif
-    connect(mUi.systemProxyRadioButton, &QAbstractButton::clicked, this, &KProxyDialog::slotChanged);
+    connect(mUi.systemProxyRadioButton, &QPushButton::clicked, this, &KProxyDialog::slotChanged);
 }
 
 KProxyDialog::~KProxyDialog()
@@ -244,12 +236,12 @@ KProxyDialog::~KProxyDialog()
 
 void KProxyDialog::load()
 {
-    mProxyMap[QStringLiteral("HttpProxy")] = KProtocolManager::proxyFor(QStringLiteral("http"));
-    mProxyMap[QStringLiteral("HttpsProxy")] = KProtocolManager::proxyFor(QStringLiteral("https"));
-    mProxyMap[QStringLiteral("FtpProxy")] = KProtocolManager::proxyFor(QStringLiteral("ftp"));
-    mProxyMap[QStringLiteral("SocksProxy")] = KProtocolManager::proxyFor(QStringLiteral("socks"));
-    mProxyMap[QStringLiteral("ProxyScript")] = KProtocolManager::proxyConfigScript();
-    mProxyMap[QStringLiteral("NoProxy")] = KSaveIOConfig::noProxyFor();
+    mProxyMap.insert(QStringLiteral("HttpProxy"), KProtocolManager::proxyFor(QStringLiteral("http")));
+    mProxyMap.insert(QStringLiteral("HttpsProxy"), KProtocolManager::proxyFor(QStringLiteral("https")));
+    mProxyMap.insert(QStringLiteral("FtpProxy"), KProtocolManager::proxyFor(QStringLiteral("ftp")));
+    mProxyMap.insert(QStringLiteral("SocksProxy"), KProtocolManager::proxyFor(QStringLiteral("socks")));
+    mProxyMap.insert(QStringLiteral("ProxyScript"), KProtocolManager::proxyConfigScript());
+    mProxyMap.insert(QStringLiteral("NoProxy"), KSaveIOConfig::noProxyFor());
 
     const int proxyType = KProtocolManager::proxyType();
 
@@ -422,7 +414,7 @@ void KProxyDialog::defaults()
 
 bool KProxyDialog::autoDetectSystemProxy(QLineEdit *edit, const QString &envVarStr, bool showValue)
 {
-    const QStringList envVars = envVarStr.split(QL1C(','), Qt::SkipEmptyParts);
+    const QStringList envVars = envVarStr.split(QLatin1Char(','), Qt::SkipEmptyParts);
     for (const QString &envVar : envVars) {
         const QByteArray envVarUtf8(envVar.toUtf8());
         const QByteArray envVarValue = qgetenv(envVarUtf8.constData());
@@ -445,11 +437,11 @@ void KProxyDialog::autoDetect()
     const bool showValue = mUi.showEnvValueCheckBox->isChecked();
     bool wasChanged = false;
 
-    wasChanged |= autoDetectSystemProxy(mUi.systemProxyHttpEdit, ENV_HTTP_PROXY, showValue);
-    wasChanged |= autoDetectSystemProxy(mUi.systemProxyHttpsEdit, ENV_HTTPS_PROXY, showValue);
-    wasChanged |= autoDetectSystemProxy(mUi.systemProxyFtpEdit, ENV_FTP_PROXY, showValue);
-    wasChanged |= autoDetectSystemProxy(mUi.systemProxySocksEdit, ENV_SOCKS_PROXY, showValue);
-    wasChanged |= autoDetectSystemProxy(mUi.systemNoProxyEdit, ENV_NO_PROXY, showValue);
+    wasChanged |= autoDetectSystemProxy(mUi.systemProxyHttpEdit, QStringLiteral("HTTP_PROXY,http_proxy,HTTPPROXY,httpproxy,PROXY,proxy"), showValue);
+    wasChanged |= autoDetectSystemProxy(mUi.systemProxyHttpsEdit, QStringLiteral("HTTPS_PROXY,https_proxy,HTTPSPROXY,httpsproxy,PROXY,proxy"), showValue);
+    wasChanged |= autoDetectSystemProxy(mUi.systemProxyFtpEdit, QStringLiteral("FTP_PROXY,ftp_proxy,FTPPROXY,ftpproxy,PROXY,proxy"), showValue);
+    wasChanged |= autoDetectSystemProxy(mUi.systemProxySocksEdit, QStringLiteral("SOCKS_PROXY,socks_proxy,SOCKSPROXY,socksproxy,PROXY,proxy"), showValue);
+    wasChanged |= autoDetectSystemProxy(mUi.systemNoProxyEdit, QStringLiteral("NO_PROXY,no_proxy"), showValue);
 
     if (wasChanged)
         Q_EMIT changed(true);
@@ -503,9 +495,9 @@ void KProxyDialog::showEnvValue(bool on)
 void KProxyDialog::setUseSameProxy(bool on)
 {
     if (on) {
-        mProxyMap[QStringLiteral("ManProxyHttps")] = manualProxyToText(mUi.manualProxyHttpsEdit, mUi.manualProxyHttpsSpinBox, QL1C(' '));
-        mProxyMap[QStringLiteral("ManProxyFtp")] = manualProxyToText(mUi.manualProxyFtpEdit, mUi.manualProxyFtpSpinBox, QL1C(' '));
-        mProxyMap[QStringLiteral("ManProxySocks")] = manualProxyToText(mUi.manualProxySocksEdit, mUi.manualProxySocksSpinBox, QL1C(' '));
+        mProxyMap[QStringLiteral("ManProxyHttps")] = manualProxyToText(mUi.manualProxyHttpsEdit, mUi.manualProxyHttpsSpinBox, QLatin1Char(' '));
+        mProxyMap[QStringLiteral("ManProxyFtp")] = manualProxyToText(mUi.manualProxyFtpEdit, mUi.manualProxyFtpSpinBox, QLatin1Char(' '));
+        mProxyMap[QStringLiteral("ManProxySocks")] = manualProxyToText(mUi.manualProxySocksEdit, mUi.manualProxySocksSpinBox, QLatin1Char(' '));
 
         const QString &httpProxy = mUi.manualProxyHttpEdit->text();
         if (!httpProxy.isEmpty()) {
