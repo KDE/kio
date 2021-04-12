@@ -12,7 +12,7 @@
 #include "ksaveioconfig.h"
 
 // KDE
-#include <KLineEdit>
+#include <KLineEdit> // Needed for KUrlRequester::lineEdit()
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <KPluginFactory>

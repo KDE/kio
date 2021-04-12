@@ -45,7 +45,6 @@ target_link_libraries(kcm_kio
     KF5::ConfigCore
     KF5::ConfigGui
     KF5::ConfigWidgets
-    KF5::Completion
     KF5::KIOCore
     KF5::KIOWidgets
     KF5::IconThemes

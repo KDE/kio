@@ -169,7 +169,7 @@ Alternatively, you can click on the &lt;b&gt;&quot;Auto Detect&quot;&lt;/b&gt; b
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="KLineEdit" name="systemProxyHttpEdit">
+       <widget class="QLineEdit" name="systemProxyHttpEdit">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -204,7 +204,7 @@ Alternatively, you can click on the &lt;b&gt;&quot;Auto Detect&quot;&lt;/b&gt; b
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="KLineEdit" name="systemProxyHttpsEdit">
+       <widget class="QLineEdit" name="systemProxyHttpsEdit">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -239,7 +239,7 @@ Alternatively, you can click on the &lt;b&gt;&quot;Auto Detect&quot;&lt;/b&gt; b
        </widget>
       </item>
       <item row="2" column="1">
-       <widget class="KLineEdit" name="systemProxyFtpEdit">
+       <widget class="QLineEdit" name="systemProxyFtpEdit">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -274,7 +274,7 @@ Alternatively, you can click on the &lt;b&gt;&quot;Auto Detect&quot;&lt;/b&gt; b
        </widget>
       </item>
       <item row="3" column="1">
-       <widget class="KLineEdit" name="systemProxySocksEdit">
+       <widget class="QLineEdit" name="systemProxySocksEdit">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -306,7 +306,7 @@ Alternatively, you can click on the &lt;b&gt;&quot;Auto Detect&quot;&lt;/b&gt; b
        </widget>
       </item>
       <item row="4" column="1">
-       <widget class="KLineEdit" name="systemNoProxyEdit">
+       <widget class="QLineEdit" name="systemNoProxyEdit">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -393,7 +393,7 @@ Alternatively, you can click on the &lt;b&gt;&quot;Auto Detect&quot;&lt;/b&gt; b
       <item row="0" column="1">
        <layout class="QHBoxLayout" name="horizontalLayout_4">
         <item>
-         <widget class="KLineEdit" name="manualProxyHttpEdit">
+         <widget class="QLineEdit" name="manualProxyHttpEdit">
           <property name="whatsThis">
            <string>Enter the address of the HTTP proxy server.</string>
           </property>
@@ -459,7 +459,7 @@ Alternatively, you can click on the &lt;b&gt;&quot;Auto Detect&quot;&lt;/b&gt; b
       <item row="2" column="1">
        <layout class="QHBoxLayout" name="horizontalLayout_3">
         <item>
-         <widget class="KLineEdit" name="manualProxyHttpsEdit">
+         <widget class="QLineEdit" name="manualProxyHttpsEdit">
           <property name="whatsThis">
            <string>Enter the address of the HTTPS proxy server.</string>
           </property>
@@ -512,7 +512,7 @@ Alternatively, you can click on the &lt;b&gt;&quot;Auto Detect&quot;&lt;/b&gt; b
       <item row="3" column="1">
        <layout class="QHBoxLayout" name="horizontalLayout_2">
         <item>
-         <widget class="KLineEdit" name="manualProxyFtpEdit">
+         <widget class="QLineEdit" name="manualProxyFtpEdit">
           <property name="whatsThis">
            <string>Enter the address of the FTP proxy server.</string>
           </property>
@@ -562,7 +562,7 @@ Alternatively, you can click on the &lt;b&gt;&quot;Auto Detect&quot;&lt;/b&gt; b
       <item row="4" column="1">
        <layout class="QHBoxLayout" name="horizontalLayout">
         <item>
-         <widget class="KLineEdit" name="manualProxySocksEdit">
+         <widget class="QLineEdit" name="manualProxySocksEdit">
           <property name="whatsThis">
            <string>Enter the address of the SOCKS proxy server.</string>
           </property>
@@ -613,7 +613,7 @@ Alternatively, you can click on the &lt;b&gt;&quot;Auto Detect&quot;&lt;/b&gt; b
        </widget>
       </item>
       <item row="5" column="1">
-       <widget class="KLineEdit" name="manualNoProxyEdit">
+       <widget class="QLineEdit" name="manualNoProxyEdit">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -665,11 +665,6 @@ Check this box if you want the above proxy settings to apply only to the address
   </layout>
  </widget>
  <customwidgets>
-  <customwidget>
-   <class>KLineEdit</class>
-   <extends>QLineEdit</extends>
-   <header>klineedit.h</header>
-  </customwidget>
   <customwidget>
    <class>KUrlRequester</class>
    <extends>QFrame</extends>
