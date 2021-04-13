@@ -52,7 +52,6 @@
 #include <KFileSystemType>
 #include <KFileUtils>
 #include <KIO/FileSystemFreeSpaceJob>
-#include <kdiskfreespaceinfo.h>
 
 #include <list>
 
@@ -480,37 +479,22 @@ void CopyJobPrivate::slotResultStating(KJob *job)
 
         // In copy-as mode, we want to check the directory to which we're
         // copying. The target file or directory does not exist yet, which
-        // might confuse KDiskFreeSpaceInfo/FileSystemFreeSpaceJob.
+        // might confuse FileSystemFreeSpaceJob.
         const QUrl existingDest = m_asMethod ? m_dest.adjusted(QUrl::RemoveFilename) : m_dest;
-        if (m_dest.isLocalFile()) {
-            const QString path = existingDest.toLocalFile();
-            // Check available free space for local urls
-            KDiskFreeSpaceInfo freeSpaceInfo = KDiskFreeSpaceInfo::freeSpaceInfo(path);
-            if (freeSpaceInfo.isValid()) {
-                m_freeSpace = freeSpaceInfo.available();
-            } else {
-                qCDebug(KIO_COPYJOB_DEBUG) << "Couldn't determine free space information for" << path;
-            }
-        } else {
-            // Check available free space for remote urls
-            KIO::FileSystemFreeSpaceJob *spaceJob = KIO::fileSystemFreeSpace(existingDest);
-            q->connect(spaceJob,
-                       &KIO::FileSystemFreeSpaceJob::result,
-                       q,
-                       [this, existingDest](KIO::Job *spaceJob, KIO::filesize_t size, KIO::filesize_t available) {
-                           Q_UNUSED(size)
-                           if (!spaceJob->error()) {
-                               m_freeSpace = available;
-                           } else {
-                               qCDebug(KIO_COPYJOB_DEBUG) << "Couldn't determine free space information for" << existingDest;
-                           }
-                           statCurrentSrc();
-                       });
-            return;
-        }
-
-        // After knowing what the dest is, we can start stat'ing the first src.
-        statCurrentSrc();
+        KIO::FileSystemFreeSpaceJob *spaceJob = KIO::fileSystemFreeSpace(existingDest);
+        q->connect(spaceJob,
+                   &KIO::FileSystemFreeSpaceJob::result,
+                   q,
+                   [this, existingDest](KIO::Job *spaceJob, KIO::filesize_t /*size*/, KIO::filesize_t available) {
+                       if (!spaceJob->error()) {
+                           m_freeSpace = available;
+                       } else {
+                           qCDebug(KIO_COPYJOB_DEBUG) << "Couldn't determine free space information for" << existingDest;
+                       }
+                       // After knowing what the dest is, we can start stat'ing the first src.
+                       statCurrentSrc();
+                   });
+        return;
     } else {
         sourceStated(entry, static_cast<SimpleJob *>(job)->url());
         q->removeSubjob(job);
