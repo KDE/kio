@@ -12,7 +12,7 @@
 
 #include <QDirIterator>
 
-#include <KDiskFreeSpaceInfo>
+#include <QStorageInfo>
 
 #include "kioglobal_p.h"
 
@@ -1156,10 +1156,10 @@ bool FileProtocol::deleteRecursive(const QString &path)
 void FileProtocol::fileSystemFreeSpace(const QUrl &url)
 {
     if (url.isLocalFile()) {
-        const KDiskFreeSpaceInfo spaceInfo = KDiskFreeSpaceInfo::freeSpaceInfo(url.toLocalFile());
-        if (spaceInfo.isValid()) {
-            setMetaData(QStringLiteral("total"), QString::number(spaceInfo.size()));
-            setMetaData(QStringLiteral("available"), QString::number(spaceInfo.available()));
+        QStorageInfo storageInfo(url.toLocalFile());
+        if (storageInfo.isValid() && storageInfo.isReady()) {
+            setMetaData(QStringLiteral("total"), QString::number(storageInfo.bytesTotal()));
+            setMetaData(QStringLiteral("available"), QString::number(storageInfo.bytesAvailable()));
 
             finished();
         } else {
