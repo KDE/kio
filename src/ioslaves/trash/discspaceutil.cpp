@@ -10,8 +10,8 @@
 
 #include <QDirIterator>
 #include <QFileInfo>
+#include <QStorageInfo>
 
-#include <kdiskfreespaceinfo.h>
 #include <qplatformdefs.h> // QT_LSTAT, QT_STAT, QT_STATBUF
 
 DiscSpaceUtil::DiscSpaceUtil(const QString &directory)
@@ -61,7 +61,7 @@ double DiscSpaceUtil::usage(qulonglong size) const
     return (((double)size * 100) / (double)mFullSize);
 }
 
-qulonglong DiscSpaceUtil::size() const
+qlonglong DiscSpaceUtil::size() const
 {
     return mFullSize;
 }
@@ -73,9 +73,9 @@ QString DiscSpaceUtil::mountPoint() const
 
 void DiscSpaceUtil::calculateFullSize()
 {
-    KDiskFreeSpaceInfo info = KDiskFreeSpaceInfo::freeSpaceInfo(mDirectory);
-    if (info.isValid()) {
-        mFullSize = info.size();
-        mMountPoint = info.mountPoint();
+    QStorageInfo storageInfo(mDirectory);
+    if (storageInfo.isValid() && storageInfo.isReady()) {
+        mFullSize = storageInfo.bytesTotal();
+        mMountPoint = storageInfo.rootPath();
     }
 }

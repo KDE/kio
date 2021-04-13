@@ -35,7 +35,7 @@ public:
     /**
      * Returns the size of the partition in bytes.
      */
-    qulonglong size() const;
+    qlonglong size() const;
 
     /**
      * Returns the mount point of the directory.
@@ -51,7 +51,7 @@ private:
     void calculateFullSize();
 
     QString mDirectory;
-    qulonglong mFullSize;
+    qlonglong mFullSize;
     QString mMountPoint;
 };
 
