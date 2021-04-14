@@ -217,34 +217,6 @@ private:
 };
 
 /**
- * Properties plugin for device .desktop files
- * @internal
- */
-class KDevicePropsPlugin : public KPropertiesDialogPlugin
-{
-    Q_OBJECT
-public:
-    explicit KDevicePropsPlugin(KPropertiesDialog *_props);
-    virtual ~KDevicePropsPlugin();
-
-    void applyChanges() override;
-
-    static bool supports(const KFileItemList &_items);
-
-private Q_SLOTS:
-    void slotActivated(int);
-    void slotDeviceChanged();
-    void slotFoundMountPoint(const QString &mp, quint64 kibSize, quint64 kibUsed, quint64 kibAvail);
-
-private:
-    void updateInfo();
-
-private:
-    class KDevicePropsPluginPrivate;
-    std::unique_ptr<KDevicePropsPluginPrivate> d;
-};
-
-/**
  * Used to edit the files containing
  * [Desktop Entry]
  * Type=Application
