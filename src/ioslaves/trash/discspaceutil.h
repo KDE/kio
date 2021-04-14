@@ -48,9 +48,6 @@ public:
     static qint64 sizeOfPath(const QString &path);
 
 private:
-    void calculateFullSize();
-
-    QString mDirectory;
     qint64 mFullSize;
     QString mMountPoint;
 };

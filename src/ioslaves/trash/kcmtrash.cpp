@@ -90,7 +90,7 @@ void TrashConfigModule::percentChanged(double percent)
     DiscSpaceUtil util(mCurrentTrash);
 
     qint64 partitionSize = util.size();
-    double size = ((double)(partitionSize / 100)) * percent;
+    double size = static_cast<double>(partitionSize / 100) * percent;
 
     KFormat format;
     mSizeLabel->setText(QLatin1Char('(') + format.formatByteSize(size, 2) + QLatin1Char(')'));

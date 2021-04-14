@@ -15,10 +15,13 @@
 #include <qplatformdefs.h> // QT_LSTAT, QT_STAT, QT_STATBUF
 
 DiscSpaceUtil::DiscSpaceUtil(const QString &directory)
-    : mDirectory(directory)
-    , mFullSize(0)
+    : mFullSize(0)
 {
-    calculateFullSize();
+    QStorageInfo storageInfo(directory);
+    if (storageInfo.isValid() && storageInfo.isReady()) {
+        mFullSize = storageInfo.bytesTotal();
+        mMountPoint = storageInfo.rootPath();
+    }
 }
 
 qint64 DiscSpaceUtil::sizeOfPath(const QString &path)
@@ -32,9 +35,13 @@ qint64 DiscSpaceUtil::sizeOfPath(const QString &path)
         // QFileInfo::size does not return the actual size of a symlink. #253776
         QT_STATBUF buff;
         return QT_LSTAT(QFile::encodeName(path).constData(), &buff) == 0 ? buff.st_size : 0;
-    } else if (info.isFile()) {
+    }
+
+    if (info.isFile()) {
         return info.size();
-    } else if (info.isDir()) {
+    }
+
+    if (info.isDir()) {
         QDirIterator it(path, QDirIterator::NoIteratorFlags);
 
         qint64 sum = 0;
@@ -47,9 +54,9 @@ qint64 DiscSpaceUtil::sizeOfPath(const QString &path)
         }
 
         return sum;
-    } else {
-        return 0;
     }
+
+    return 0;
 }
 
 double DiscSpaceUtil::usage(qint64 size) const
@@ -58,7 +65,7 @@ double DiscSpaceUtil::usage(qint64 size) const
         return 0;
     }
 
-    return (((double)size * 100) / (double)mFullSize);
+    return (static_cast<double>(size) * 100) / static_cast<double>(mFullSize);
 }
 
 qint64 DiscSpaceUtil::size() const
@@ -69,13 +76,4 @@ qint64 DiscSpaceUtil::size() const
 QString DiscSpaceUtil::mountPoint() const
 {
     return mMountPoint;
-}
-
-void DiscSpaceUtil::calculateFullSize()
-{
-    QStorageInfo storageInfo(mDirectory);
-    if (storageInfo.isValid() && storageInfo.isReady()) {
-        mFullSize = storageInfo.bytesTotal();
-        mMountPoint = storageInfo.rootPath();
-    }
 }
