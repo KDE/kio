@@ -30,12 +30,12 @@ public:
      *
      * @param size The current size of the directory.
      */
-    double usage(qulonglong size) const;
+    double usage(qint64 size) const;
 
     /**
      * Returns the size of the partition in bytes.
      */
-    qlonglong size() const;
+    qint64 size() const;
 
     /**
      * Returns the mount point of the directory.
@@ -45,13 +45,13 @@ public:
     /**
      * Returns the size of the given path in bytes.
      */
-    static qulonglong sizeOfPath(const QString &path);
+    static qint64 sizeOfPath(const QString &path);
 
 private:
     void calculateFullSize();
 
     QString mDirectory;
-    qlonglong mFullSize;
+    qint64 mFullSize;
     QString mMountPoint;
 };
 

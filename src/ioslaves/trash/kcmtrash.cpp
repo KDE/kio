@@ -89,7 +89,7 @@ void TrashConfigModule::percentChanged(double percent)
 {
     DiscSpaceUtil util(mCurrentTrash);
 
-    qulonglong partitionSize = util.size();
+    qint64 partitionSize = util.size();
     double size = ((double)(partitionSize / 100)) * percent;
 
     KFormat format;

@@ -403,7 +403,7 @@ bool TrashImpl::moveToTrash(const QString &origPath, int trashId, const QString 
 
     if (QFileInfo(dest).isDir()) {
         TrashSizeCache trashSize(trashDirectoryPath(trashId));
-        const qulonglong pathSize = DiscSpaceUtil::sizeOfPath(dest);
+        const qint64 pathSize = DiscSpaceUtil::sizeOfPath(dest);
         trashSize.add(fileId, pathSize);
     }
 
@@ -476,7 +476,7 @@ bool TrashImpl::copyToTrash(const QString &origPath, int trashId, const QString 
 
     if (QFileInfo(dest).isDir()) {
         TrashSizeCache trashSize(trashDirectoryPath(trashId));
-        const qulonglong pathSize = DiscSpaceUtil::sizeOfPath(dest);
+        const qint64 pathSize = DiscSpaceUtil::sizeOfPath(dest);
         trashSize.add(fileId, pathSize);
     }
 
@@ -787,13 +787,13 @@ bool TrashImpl::trashSpaceInfo(const QString &path, TrashSpaceInfo &info)
     const double percent = group.readEntry("Percent", 10.0);
 
     DiscSpaceUtil util(trashPath + QLatin1String("/files/"));
-    qulonglong total = util.size();
+    qint64 total = util.size();
     if (useSizeLimit) {
         total *= percent / 100.0;
     }
 
     TrashSizeCache trashSize(trashPath);
-    const qulonglong used = trashSize.calculateSize();
+    const qint64 used = trashSize.calculateSize();
 
     info.totalSize = total;
     info.availableSize = total - used;
@@ -1348,7 +1348,7 @@ bool TrashImpl::adaptTrashSize(const QString &origPath, int trashId)
     if (useSizeLimit) { // check if size limit exceeded
 
         // calculate size of the files to be put into the trash
-        qulonglong additionalSize = DiscSpaceUtil::sizeOfPath(origPath);
+        qint64 additionalSize = DiscSpaceUtil::sizeOfPath(origPath);
 
 #ifdef Q_OS_OSX
         createTrashInfrastructure(trashId);
@@ -1359,7 +1359,7 @@ bool TrashImpl::adaptTrashSize(const QString &origPath, int trashId)
             // before we start to remove any files from the trash,
             // check whether the new file will fit into the trash
             // at all...
-            qulonglong partitionSize = util.size();
+            qint64 partitionSize = util.size();
 
             if ((((double)additionalSize / (double)partitionSize) * 100) >= percent) {
                 m_lastErrorCode = KIO::ERR_SLAVE_DEFINED;

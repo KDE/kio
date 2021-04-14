@@ -28,7 +28,7 @@ class TrashSizeCache
 {
 public:
     struct SizeAndModTime {
-        qulonglong size;
+        qint64 size;
         qint64 mtime;
     };
 
@@ -42,7 +42,7 @@ public:
      * @param directoryName fileId of the directory
      * @param directorySize size in bytes
      */
-    void add(const QString &directoryName, qulonglong directorySize);
+    void add(const QString &directoryName, qint64 directorySize);
 
     /**
      * Removes a directory from the cache.
@@ -62,7 +62,7 @@ public:
     /**
      * Calculates and returns the current trash size.
      */
-    qulonglong calculateSize();
+    qint64 calculateSize();
 
     /**
      * Calculates and returns the current trash size and its last modification date

@@ -32,7 +32,7 @@ static QByteArray spaceAndDirectoryAndNewline(const QString &directoryName)
     return ' ' + encodedDir + '\n';
 }
 
-void TrashSizeCache::add(const QString &directoryName, qulonglong directorySize)
+void TrashSizeCache::add(const QString &directoryName, qint64 directorySize)
 {
     // qCDebug(KIO_TRASH) << directoryName << directorySize;
     const QByteArray spaceAndDirAndNewline = spaceAndDirectoryAndNewline(directoryName);
@@ -102,7 +102,7 @@ void TrashSizeCache::clear()
     QFile::remove(mTrashSizeCachePath);
 }
 
-qulonglong TrashSizeCache::calculateSize()
+qint64 TrashSizeCache::calculateSize()
 {
     return this->calculateSizeAndLatestModDate().size;
 }
@@ -125,7 +125,7 @@ TrashSizeCache::SizeAndModTime TrashSizeCache::calculateSizeAndLatestModDate()
             const int firstSpace = line.indexOf(' ');
             const int secondSpace = line.indexOf(' ', firstSpace + 1);
             SizeAndModTime data;
-            data.size = line.left(firstSpace).toULongLong();
+            data.size = line.left(firstSpace).toLongLong();
             // "012 4567 name" -> firstSpace=3, secondSpace=8, we want mid(4,4)
             data.mtime = line.mid(firstSpace + 1, secondSpace - firstSpace - 1).toLongLong();
             dirCache.insert(line.mid(secondSpace + 1), data);
@@ -135,7 +135,7 @@ TrashSizeCache::SizeAndModTime TrashSizeCache::calculateSizeAndLatestModDate()
     // Orphan items (no .fileinfo) still take space.
     QDirIterator it(mTrashPath + QLatin1String("/files/"), QDirIterator::NoIteratorFlags);
 
-    qulonglong sum = 0;
+    qint64 sum = 0;
     qint64 max_mtime = 0;
     const auto checkMaxTime = [&max_mtime](const qint64 lastModTime) {
         if (lastModTime > max_mtime) {
@@ -180,7 +180,7 @@ TrashSizeCache::SizeAndModTime TrashSizeCache::calculateSizeAndLatestModDate()
             }
             if (!usableCache) {
                 // directories with no cache data (or outdated)
-                const qulonglong size = DiscSpaceUtil::sizeOfPath(fileInfo.absoluteFilePath());
+                const qint64 size = DiscSpaceUtil::sizeOfPath(fileInfo.absoluteFilePath());
                 sum += size;
                 // NOTE: this does not take into account the directory content modification date
                 checkMaxTime(QFileInfo(fileInfo.absolutePath()).lastModified().toMSecsSinceEpoch());

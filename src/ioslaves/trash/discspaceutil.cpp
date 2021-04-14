@@ -21,7 +21,7 @@ DiscSpaceUtil::DiscSpaceUtil(const QString &directory)
     calculateFullSize();
 }
 
-qulonglong DiscSpaceUtil::sizeOfPath(const QString &path)
+qint64 DiscSpaceUtil::sizeOfPath(const QString &path)
 {
     QFileInfo info(path);
     if (!info.exists()) {
@@ -31,13 +31,13 @@ qulonglong DiscSpaceUtil::sizeOfPath(const QString &path)
     if (info.isSymLink()) {
         // QFileInfo::size does not return the actual size of a symlink. #253776
         QT_STATBUF buff;
-        return static_cast<qulonglong>(QT_LSTAT(QFile::encodeName(path).constData(), &buff) == 0 ? buff.st_size : 0);
+        return QT_LSTAT(QFile::encodeName(path).constData(), &buff) == 0 ? buff.st_size : 0;
     } else if (info.isFile()) {
         return info.size();
     } else if (info.isDir()) {
         QDirIterator it(path, QDirIterator::NoIteratorFlags);
 
-        qulonglong sum = 0;
+        qint64 sum = 0;
         while (it.hasNext()) {
             const QFileInfo info = it.next();
 
@@ -52,7 +52,7 @@ qulonglong DiscSpaceUtil::sizeOfPath(const QString &path)
     }
 }
 
-double DiscSpaceUtil::usage(qulonglong size) const
+double DiscSpaceUtil::usage(qint64 size) const
 {
     if (mFullSize == 0) {
         return 0;
@@ -61,7 +61,7 @@ double DiscSpaceUtil::usage(qulonglong size) const
     return (((double)size * 100) / (double)mFullSize);
 }
 
-qlonglong DiscSpaceUtil::size() const
+qint64 DiscSpaceUtil::size() const
 {
     return mFullSize;
 }

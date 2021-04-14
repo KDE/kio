@@ -87,8 +87,8 @@ public:
     bool infoForFile(int trashId, const QString &fileId, TrashedFileInfo &info);
 
     struct TrashSpaceInfo {
-        qulonglong totalSize; // total trash size in bytes
-        qulonglong availableSize; // available trash space in bytes
+        qint64 totalSize; // total trash size in bytes
+        qint64 availableSize; // available trash space in bytes
     };
     /// Get the space info for a given trash path
     /// Space information is only valid if trashSpaceInfo returns true
