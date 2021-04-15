@@ -1483,11 +1483,20 @@ void KDirListerTest::testRenameDirectory() // #401552
 
 void KDirListerTest::testRequestMimeType()
 {
+    // Use a new tempdir and lister instance for this test, so that we don't use any cache at all.
+    QTemporaryDir tempDir;
+    QString path = tempDir.path() + QLatin1Char('/');
+
+    createTestFile(path + "/file_1");
+    createTestFile(path + "/file_2.txt");
+    createTestFile(path + "/file_3.cpp");
+    createTestFile(path + "/file_3.md");
+
     MyDirLister lister;
     // Explicitly set requestMimeTypeWhileListing to false so we know what state
     // it is in.
     lister.setRequestMimeTypeWhileListing(false);
-    lister.openUrl(QUrl::fromLocalFile(path()), KDirLister::NoFlags);
+    lister.openUrl(QUrl::fromLocalFile(path), KDirLister::NoFlags);
 
     QTRY_VERIFY(lister.isFinished());
 
@@ -1496,8 +1505,14 @@ void KDirListerTest::testRequestMimeType()
         QVERIFY(!item.isMimeTypeKnown());
     }
 
+    // Verify that the mime types are what we expect them to be
+    QCOMPARE(items[0].mimetype(), QStringLiteral("application/octet-stream"));
+    QCOMPARE(items[1].mimetype(), QStringLiteral("text/plain"));
+    QCOMPARE(items[2].mimetype(), QStringLiteral("text/x-c++src"));
+    QCOMPARE(items[3].mimetype(), QStringLiteral("text/markdown"));
+
     lister.setRequestMimeTypeWhileListing(true);
-    lister.openUrl(QUrl::fromLocalFile(path()), KDirLister::Reload);
+    lister.openUrl(QUrl::fromLocalFile(path), KDirLister::Reload);
 
     QTRY_VERIFY(lister.isFinished());
 
@@ -1507,6 +1522,12 @@ void KDirListerTest::testRequestMimeType()
     for (auto item : qAsConst(items)) {
         QVERIFY(item.isMimeTypeKnown());
     }
+
+    // Verify that the mime types are what we expect them to be
+    QCOMPARE(items[0].mimetype(), QStringLiteral("application/octet-stream"));
+    QCOMPARE(items[1].mimetype(), QStringLiteral("text/plain"));
+    QCOMPARE(items[2].mimetype(), QStringLiteral("text/x-c++src"));
+    QCOMPARE(items[3].mimetype(), QStringLiteral("text/markdown"));
 }
 
 void KDirListerTest::testDeleteCurrentDir()
