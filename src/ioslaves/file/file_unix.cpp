@@ -364,7 +364,18 @@ inline static time_t stat_mtime(QT_STATBUF &buf)
 }
 #endif
 
-static bool createUDSEntry(const QString &filename, const QByteArray &path, UDSEntry &entry, KIO::StatDetails details)
+static bool isVirtualFs(const QString &fullpath)
+{
+    /* clang-format off */
+    return fullpath.startsWith(QLatin1String{"/dev"})
+        || fullpath.startsWith(QLatin1String{"/proc"})
+        || fullpath.startsWith(QLatin1String{"/sys"});
+    /* clang-format on */
+}
+
+// fullpath arg is needed here because of the optimization in listDir()
+// where the path is set to the current dir
+static bool createUDSEntry(const QString &filename, const QByteArray &path, const QString &fullpath, UDSEntry &entry, KIO::StatDetails details)
 {
     assert(entry.count() == 0); // by contract :-)
     int entries = 0;
@@ -488,7 +499,11 @@ static bool createUDSEntry(const QString &filename, const QByteArray &path, UDSE
         if (details & KIO::StatBasic) {
             entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, type);
             entry.fastInsert(KIO::UDSEntry::UDS_ACCESS, access);
-            entry.fastInsert(KIO::UDSEntry::UDS_SIZE, size);
+            // Always set size to 0 for virtual filesystems (/proc, /dev/, /sys)
+            // this also avoids the stat() system call that reports a huge size for
+            // "/proc/kcore", which may be technically corrent, but not useful for
+            // the user bug#298133
+            entry.fastInsert(KIO::UDSEntry::UDS_SIZE, !isVirtualFs(fullpath) ? size : 0);
         }
 
 #if HAVE_POSIX_ACL
@@ -1186,7 +1201,7 @@ void FileProtocol::listDir(const QUrl &url)
             listEntry(entry);
 
         } else {
-            if (createUDSEntry(filename, QByteArray(ep->d_name), entry, details)) {
+            if (createUDSEntry(filename, QByteArray(ep->d_name), path, entry, details)) {
 #if HAVE_SYS_XATTR_H
                 if (isNtfsHidden(filename)) {
                     bool ntfsHidden = true;
@@ -1476,7 +1491,7 @@ void FileProtocol::stat(const QUrl &url)
     const KIO::StatDetails details = getStatDetails();
 
     UDSEntry entry;
-    if (!createUDSEntry(url.fileName(), _path, entry, details)) {
+    if (!createUDSEntry(url.fileName(), _path, path, entry, details)) {
         error(KIO::ERR_DOES_NOT_EXIST, path);
         return;
     }

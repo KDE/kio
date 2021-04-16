@@ -301,7 +301,7 @@ inline KIO::filesize_t KFileItemPrivate::size() const
         return fieldVal;
     }
 
-    // If not in the KIO::UDSEntry, or if UDSEntry empty, use stat() [if local URL]
+    // If not in the KIO::UDSEntry, or if UDSEntry empty, use stat() system call [if local URL]
     if (m_bIsLocalUrl) {
         return QFileInfo(m_url.toLocalFile()).size();
     }
