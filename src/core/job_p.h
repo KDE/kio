@@ -34,6 +34,8 @@
 
 namespace KIO
 {
+static constexpr filesize_t invalidFilesize = static_cast<KIO::filesize_t>(-1);
+
 // Exported for KIOWidgets jobs
 class KIOCORE_EXPORT JobPrivate
 {

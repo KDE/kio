@@ -408,7 +408,7 @@ void CopyJobPrivate::slotResultStating(KJob *job)
             Q_ASSERT(!q->hasSubjobs()); // We should have only one job at a time ...
             struct CopyInfo info;
             info.permissions = (mode_t)-1;
-            info.size = (KIO::filesize_t)-1;
+            info.size = KIO::invalidFilesize;
             info.uSource = srcurl;
             info.uDest = m_dest;
             // Append filename or dirname to destination URL, if allowed
@@ -712,7 +712,7 @@ void CopyJobPrivate::addCopyInfoFromUDSEntry(const UDSEntry &entry, const QUrl &
     info.size = static_cast<KIO::filesize_t>(entry.numberValue(KIO::UDSEntry::UDS_SIZE, -1));
     const bool isDir = entry.isDir();
 
-    if (!isDir && info.size != (KIO::filesize_t)-1) {
+    if (!isDir && info.size != KIO::invalidFilesize) {
         m_totalSize += info.size;
     }
 
@@ -846,7 +846,7 @@ void CopyJobPrivate::statCurrentSrc()
             m_currentDest = m_dest;
             struct CopyInfo info;
             info.permissions = -1;
-            info.size = (KIO::filesize_t)-1;
+            info.size = KIO::invalidFilesize;
             info.uSource = m_currentSrcURL;
             info.uDest = m_currentDest;
             // Append filename or dirname to destination URL, if allowed
@@ -987,7 +987,7 @@ void CopyJobPrivate::startRenameJob(const QUrl &slave_url)
 
     struct CopyInfo info;
     info.permissions = -1;
-    info.size = (KIO::filesize_t)-1;
+    info.size = KIO::invalidFilesize;
     info.uSource = m_currentSrcURL;
     info.uDest = dest;
 #if KIOCORE_BUILD_DEPRECATED_SINCE(5, 2)
@@ -1443,7 +1443,7 @@ void CopyJobPrivate::slotResultCopyingFiles(KJob *job)
                 org::kde::KDirNotify::emitFileMoved((*it).uSource, finalUrl);
             }
             m_successSrcList.append((*it).uSource);
-            if (m_freeSpace != (KIO::filesize_t)-1 && (*it).size != (KIO::filesize_t)-1) {
+            if (m_freeSpace != KIO::invalidFilesize && (*it).size != KIO::invalidFilesize) {
                 m_freeSpace -= (*it).size;
             }
         }
@@ -1749,7 +1749,7 @@ void CopyJobPrivate::copyNextFile()
 
     if (bCopyFile) { // any file to create, finally ?
         qCDebug(KIO_COPYJOB_DEBUG) << "preparing to copy" << (*it).uSource << (*it).size << m_freeSpace;
-        if (m_freeSpace != (KIO::filesize_t)-1 && (*it).size != (KIO::filesize_t)-1) {
+        if (m_freeSpace != KIO::invalidFilesize && (*it).size != KIO::invalidFilesize) {
             if (m_freeSpace < (*it).size) {
                 q->setError(ERR_DISK_FULL);
                 q->emitResult();
@@ -2041,8 +2041,8 @@ void CopyJobPrivate::slotResultRenaming(KJob *job)
                 // we lack mtime info for both the src (not stated)
                 // and the dest (stated but this info wasn't stored)
                 // Let's do it for local files, at least
-                KIO::filesize_t sizeSrc = (KIO::filesize_t)-1;
-                KIO::filesize_t sizeDest = (KIO::filesize_t)-1;
+                KIO::filesize_t sizeSrc = KIO::invalidFilesize;
+                KIO::filesize_t sizeDest = KIO::invalidFilesize;
                 QDateTime ctimeSrc;
                 QDateTime ctimeDest;
                 QDateTime mtimeSrc;
