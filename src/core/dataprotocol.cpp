@@ -13,38 +13,7 @@
 #include <QByteArray>
 #include <QTextCodec>
 
-#ifdef DATAKIOSLAVE
-#include <kinstance.h>
-#include <stdlib.h>
-#endif
-
-#if !defined(DATAKIOSLAVE)
-#define DISPATCH(f) dispatch_##f
-#else
-#define DISPATCH(f) f
-#endif
-
 using namespace KIO;
-#ifdef DATAKIOSLAVE
-extern "C" {
-
-int kdemain(int argc, char **argv)
-{
-    // qDebug() << "*** Starting kio_data ";
-
-    if (argc != 4) {
-        // qDebug() << "Usage: kio_data  protocol domain-socket1 domain-socket2";
-        exit(-1);
-    }
-
-    DataProtocol slave(argv[2], argv[3]);
-    slave.dispatchLoop();
-
-    // qDebug() << "*** kio_data Done";
-    return 0;
-}
-}
-#endif
 
 /** structure containing header information */
 struct DataHeader {
@@ -230,24 +199,11 @@ static DataHeader parseDataHeader(const QUrl &url, const bool mimeOnly)
     return header_info;
 }
 
-#ifdef DATAKIOSLAVE
-DataProtocol::DataProtocol(const QByteArray &pool_socket, const QByteArray &app_socket)
-    : SlaveBase("kio_data", pool_socket, app_socket)
+DataProtocol::DataProtocol()
 {
-#else
-DataProtocol::DataProtocol(){
-#endif
-    // qDebug();
 }
 
-/* --------------------------------------------------------------------- */
-
-DataProtocol::~DataProtocol()
-{
-    // qDebug();
-}
-
-/* --------------------------------------------------------------------- */
+DataProtocol::~DataProtocol() = default;
 
 void DataProtocol::get(const QUrl &url)
 {
@@ -281,14 +237,7 @@ void DataProtocol::get(const QUrl &url)
     Q_EMIT totalSize(outData.size());
 
     // qDebug() << "emit setMetaData@"<<this;
-#if defined(DATAKIOSLAVE)
-    MetaData::ConstIterator it;
-    for (it = hdr.attributes.constBegin(); it != hdr.attributes.constEnd(); ++it) {
-        setMetaData(it.key(), it.value());
-    } /*next it*/
-#else
     setAllMetaData(hdr.attributes);
-#endif
 
     // qDebug() << "emit sendMetaData@"<<this;
     sendMetaData();
@@ -296,9 +245,9 @@ void DataProtocol::get(const QUrl &url)
     // empiric studies have shown that this shouldn't be queued & dispatched
     Q_EMIT data(outData);
     // qDebug() << "(2) queue size " << dispatchQueue.size();
-    DISPATCH(data(QByteArray()));
+    dispatch_data(QByteArray{});
     // qDebug() << "(3) queue size " << dispatchQueue.size();
-    DISPATCH(finished());
+    dispatch_finished();
     // qDebug() << "(4) queue size " << dispatchQueue.size();
     deref();
 }

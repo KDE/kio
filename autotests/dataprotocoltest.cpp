@@ -3,9 +3,6 @@
     SPDX-FileCopyrightText: 2012 Rolf Eike Beer <kde@opensource.sf-tec.de>
 */
 
-#ifdef DATAKIOSLAVE
-#undef DATAKIOSLAVE
-#endif
 #ifndef TESTKIO
 #define TESTKIO
 #endif
