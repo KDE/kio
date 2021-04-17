@@ -248,11 +248,9 @@ void KProtocolManagerPrivate::sync()
     }
 }
 
-#define PRIVATE_DATA KProtocolManagerPrivate *d = kProtocolManagerPrivate()
-
 void KProtocolManager::reparseConfiguration()
 {
-    PRIVATE_DATA;
+    KProtocolManagerPrivate *d = kProtocolManagerPrivate();
     QMutexLocker lock(&d->mutex);
     if (d->http_config) {
         d->http_config->reparseConfiguration();
@@ -272,7 +270,7 @@ void KProtocolManager::reparseConfiguration()
 
 static KSharedConfig::Ptr config()
 {
-    PRIVATE_DATA;
+    KProtocolManagerPrivate *d = kProtocolManagerPrivate();
     Q_ASSERT(!d->mutex.tryLock()); // the caller must have locked the mutex
     if (!d->configPtr) {
         d->configPtr = KSharedConfig::openConfig(QStringLiteral("kioslaverc"), KConfig::NoGlobals);
@@ -303,14 +301,14 @@ QString KProtocolManagerPrivate::readNoProxyFor()
 
 QMap<QString, QString> KProtocolManager::entryMap(const QString &group)
 {
-    PRIVATE_DATA;
+    KProtocolManagerPrivate *d = kProtocolManagerPrivate();
     QMutexLocker lock(&d->mutex);
     return config()->entryMap(group);
 }
 
 static KConfigGroup http_config()
 {
-    PRIVATE_DATA;
+    KProtocolManagerPrivate *d = kProtocolManagerPrivate();
     Q_ASSERT(!d->mutex.tryLock()); // the caller must have locked the mutex
     if (!d->http_config) {
         d->http_config = KSharedConfig::openConfig(QStringLiteral("kio_httprc"), KConfig::NoGlobals);
@@ -322,7 +320,7 @@ static KConfigGroup http_config()
 
 int KProtocolManager::readTimeout()
 {
-    PRIVATE_DATA;
+    KProtocolManagerPrivate *d = kProtocolManagerPrivate();
     QMutexLocker lock(&d->mutex);
     KConfigGroup cg(config(), QString());
     int val = cg.readEntry("ReadTimeout", DEFAULT_READ_TIMEOUT);
@@ -331,7 +329,7 @@ int KProtocolManager::readTimeout()
 
 int KProtocolManager::connectTimeout()
 {
-    PRIVATE_DATA;
+    KProtocolManagerPrivate *d = kProtocolManagerPrivate();
     QMutexLocker lock(&d->mutex);
     KConfigGroup cg(config(), QString());
     int val = cg.readEntry("ConnectTimeout", DEFAULT_CONNECT_TIMEOUT);
@@ -340,7 +338,7 @@ int KProtocolManager::connectTimeout()
 
 int KProtocolManager::proxyConnectTimeout()
 {
-    PRIVATE_DATA;
+    KProtocolManagerPrivate *d = kProtocolManagerPrivate();
     QMutexLocker lock(&d->mutex);
     KConfigGroup cg(config(), QString());
     int val = cg.readEntry("ProxyConnectTimeout", DEFAULT_PROXY_CONNECT_TIMEOUT);
@@ -349,7 +347,7 @@ int KProtocolManager::proxyConnectTimeout()
 
 int KProtocolManager::responseTimeout()
 {
-    PRIVATE_DATA;
+    KProtocolManagerPrivate *d = kProtocolManagerPrivate();
     QMutexLocker lock(&d->mutex);
     KConfigGroup cg(config(), QString());
     int val = cg.readEntry("ResponseTimeout", DEFAULT_RESPONSE_TIMEOUT);
@@ -365,21 +363,21 @@ bool KProtocolManager::useProxy()
 
 bool KProtocolManager::useReverseProxy()
 {
-    PRIVATE_DATA;
+    KProtocolManagerPrivate *d = kProtocolManagerPrivate();
     QMutexLocker lock(&d->mutex);
     return d->useReverseProxy();
 }
 
 KProtocolManager::ProxyType KProtocolManager::proxyType()
 {
-    PRIVATE_DATA;
+    KProtocolManagerPrivate *d = kProtocolManagerPrivate();
     QMutexLocker lock(&d->mutex);
     return d->proxyType();
 }
 
 KProtocolManager::ProxyAuthMode KProtocolManager::proxyAuthMode()
 {
-    PRIVATE_DATA;
+    KProtocolManagerPrivate *d = kProtocolManagerPrivate();
     QMutexLocker lock(&d->mutex);
     KConfigGroup cg(config(), "Proxy Settings");
     return static_cast<ProxyAuthMode>(cg.readEntry("AuthMode", 0));
@@ -389,14 +387,14 @@ KProtocolManager::ProxyAuthMode KProtocolManager::proxyAuthMode()
 
 bool KProtocolManager::useCache()
 {
-    PRIVATE_DATA;
+    KProtocolManagerPrivate *d = kProtocolManagerPrivate();
     QMutexLocker lock(&d->mutex);
     return http_config().readEntry("UseCache", true);
 }
 
 KIO::CacheControl KProtocolManager::cacheControl()
 {
-    PRIVATE_DATA;
+    KProtocolManagerPrivate *d = kProtocolManagerPrivate();
     QMutexLocker lock(&d->mutex);
     QString tmp = http_config().readEntry("cache");
     if (tmp.isEmpty()) {
@@ -407,28 +405,28 @@ KIO::CacheControl KProtocolManager::cacheControl()
 
 QString KProtocolManager::cacheDir()
 {
-    PRIVATE_DATA;
+    KProtocolManagerPrivate *d = kProtocolManagerPrivate();
     QMutexLocker lock(&d->mutex);
     return http_config().readPathEntry("CacheDir", QStandardPaths::writableLocation(QStandardPaths::GenericCacheLocation) + QLatin1String("/kio_http"));
 }
 
 int KProtocolManager::maxCacheAge()
 {
-    PRIVATE_DATA;
+    KProtocolManagerPrivate *d = kProtocolManagerPrivate();
     QMutexLocker lock(&d->mutex);
     return http_config().readEntry("MaxCacheAge", DEFAULT_MAX_CACHE_AGE);
 }
 
 int KProtocolManager::maxCacheSize()
 {
-    PRIVATE_DATA;
+    KProtocolManagerPrivate *d = kProtocolManagerPrivate();
     QMutexLocker lock(&d->mutex);
     return http_config().readEntry("MaxCacheSize", DEFAULT_MAX_CACHE_SIZE);
 }
 
 QString KProtocolManager::noProxyFor()
 {
-    PRIVATE_DATA;
+    KProtocolManagerPrivate *d = kProtocolManagerPrivate();
     QMutexLocker lock(&d->mutex);
     return d->readNoProxyFor();
 }
@@ -448,7 +446,7 @@ static QString adjustProtocol(const QString &scheme)
 
 QString KProtocolManager::proxyFor(const QString &protocol)
 {
-    PRIVATE_DATA;
+    KProtocolManagerPrivate *d = kProtocolManagerPrivate();
     QMutexLocker lock(&d->mutex);
     return d->proxyFor(protocol);
 }
@@ -543,7 +541,7 @@ QStringList KProtocolManager::proxiesForUrl(const QUrl &url)
 {
     QStringList proxyList;
 
-    PRIVATE_DATA;
+    KProtocolManagerPrivate *d = kProtocolManagerPrivate();
     QMutexLocker lock(&d->mutex);
     if (!d->shouldIgnoreProxyFor(url)) {
         switch (d->proxyType()) {
@@ -596,7 +594,7 @@ void KProtocolManager::badProxy(const QString &proxy)
 {
     QDBusInterface(QStringLiteral("org.kde.kded5"), QStringLiteral("/modules/proxyscout")).asyncCall(QStringLiteral("blackListProxy"), proxy);
 
-    PRIVATE_DATA;
+    KProtocolManagerPrivate *d = kProtocolManagerPrivate();
     QMutexLocker lock(&d->mutex);
     const QStringList keys(d->cachedProxyData.keys());
     for (const QString &key : keys) {
@@ -644,7 +642,7 @@ QString KProtocolManager::slaveProtocol(const QUrl &url, QStringList &proxyList)
     QString proxyCacheKey;
     extractProxyCacheKeyFromUrl(url, &proxyCacheKey);
 
-    PRIVATE_DATA;
+    KProtocolManagerPrivate *d = kProtocolManagerPrivate();
     QMutexLocker lock(&d->mutex);
     // Look for cached proxy information to avoid more work.
     if (d->cachedProxyData.contains(proxyCacheKey)) {
@@ -734,11 +732,11 @@ static QString platform()
 
 QString KProtocolManager::defaultUserAgent(const QString &_modifiers)
 {
-    PRIVATE_DATA;
+    KProtocolManagerPrivate *d = kProtocolManagerPrivate();
     QMutexLocker lock(&d->mutex);
     QString modifiers = _modifiers.toLower();
     if (modifiers.isEmpty()) {
-        modifiers = QStringLiteral(DEFAULT_USER_AGENT_KEYS);
+        modifiers = QString::fromLatin1(DEFAULT_USER_AGENT_KEYS);
     }
 
     if (d->modifiers == modifiers && !d->useragent.isEmpty()) {
@@ -905,14 +903,14 @@ QString KProtocolManager::acceptLanguagesHeader()
 
 bool KProtocolManager::markPartial()
 {
-    PRIVATE_DATA;
+    KProtocolManagerPrivate *d = kProtocolManagerPrivate();
     QMutexLocker lock(&d->mutex);
     return config()->group(QByteArray()).readEntry("MarkPartial", true);
 }
 
 int KProtocolManager::minimumKeepSize()
 {
-    PRIVATE_DATA;
+    KProtocolManagerPrivate *d = kProtocolManagerPrivate();
     QMutexLocker lock(&d->mutex);
     return config()->group(QByteArray()).readEntry("MinimumKeepSize",
                                                    DEFAULT_MINIMUM_KEEP_SIZE); // 5000 byte
@@ -920,28 +918,28 @@ int KProtocolManager::minimumKeepSize()
 
 bool KProtocolManager::autoResume()
 {
-    PRIVATE_DATA;
+    KProtocolManagerPrivate *d = kProtocolManagerPrivate();
     QMutexLocker lock(&d->mutex);
     return config()->group(QByteArray()).readEntry("AutoResume", false);
 }
 
 bool KProtocolManager::persistentConnections()
 {
-    PRIVATE_DATA;
+    KProtocolManagerPrivate *d = kProtocolManagerPrivate();
     QMutexLocker lock(&d->mutex);
     return config()->group(QByteArray()).readEntry("PersistentConnections", true);
 }
 
 bool KProtocolManager::persistentProxyConnection()
 {
-    PRIVATE_DATA;
+    KProtocolManagerPrivate *d = kProtocolManagerPrivate();
     QMutexLocker lock(&d->mutex);
     return config()->group(QByteArray()).readEntry("PersistentProxyConnection", false);
 }
 
 QString KProtocolManager::proxyConfigScript()
 {
-    PRIVATE_DATA;
+    KProtocolManagerPrivate *d = kProtocolManagerPrivate();
     QMutexLocker lock(&d->mutex);
     return config()->group("Proxy Settings").readEntry("Proxy Config Script");
 }
@@ -1164,7 +1162,7 @@ QString KProtocolManager::defaultMimetype(const QUrl &url)
 
 QString KProtocolManager::protocolForArchiveMimetype(const QString &mimeType)
 {
-    PRIVATE_DATA;
+    KProtocolManagerPrivate *d = kProtocolManagerPrivate();
     QMutexLocker lock(&d->mutex);
     if (d->protocolForArchiveMimetypes.isEmpty()) {
         const QList<KProtocolInfoPrivate *> allProtocols = KProtocolInfoFactory::self()->allProtocols();

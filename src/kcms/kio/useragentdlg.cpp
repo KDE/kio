@@ -248,7 +248,7 @@ void UserAgentDlg::load()
 void UserAgentDlg::defaults()
 {
     ui.sitePolicyTreeWidget->clear();
-    m_ua_keys = QStringLiteral(DEFAULT_USER_AGENT_KEYS);
+    m_ua_keys = QString::fromLatin1(DEFAULT_USER_AGENT_KEYS);
     ui.defaultIdLineEdit->setText(KProtocolManager::defaultUserAgent(m_ua_keys));
     ui.osNameCheckBox->setChecked(m_ua_keys.contains(QLatin1Char('o')));
     ui.osVersionCheckBox->setChecked(m_ua_keys.contains(QLatin1Char('v')));

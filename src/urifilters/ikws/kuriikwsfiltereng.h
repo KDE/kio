@@ -18,11 +18,6 @@
 #include <QStringList>
 #include <QUrl>
 
-/* clang-format off */
-#define DEFAULT_PREFERRED_SEARCH_PROVIDERS \
-    QStringList {QStringLiteral("google"), QStringLiteral("youtube"), QStringLiteral("yahoo"), QStringLiteral("wikipedia"), QStringLiteral("wikit")}
-/* clang-format on */
-
 class SearchProvider;
 
 class KURISearchFilterEngine
@@ -45,6 +40,8 @@ public:
 
     static KURISearchFilterEngine *self();
     void loadConfig();
+
+    static QStringList defaultSearchProviders();
 
 protected:
     QUrl formatResult(const QString &url, const QString &cset1, const QString &cset2, const QString &query, bool isMalformed, SubstMap &map) const;

@@ -465,11 +465,11 @@ void HTTPProtocol::resetSessionSettings()
     }
 
     if (configValue(QStringLiteral("SendLanguageSettings"), true)) {
-        m_request.charsets = configValue(QStringLiteral("Charsets"), QStringLiteral(DEFAULT_PARTIAL_CHARSET_HEADER));
+        m_request.charsets = configValue(QStringLiteral("Charsets"), QString::fromLatin1(DEFAULT_PARTIAL_CHARSET_HEADER));
         if (!m_request.charsets.contains(QLatin1String("*;"), Qt::CaseInsensitive)) {
             m_request.charsets += QLatin1String(",*;q=0.5");
         }
-        m_request.languages = configValue(QStringLiteral("Languages"), QStringLiteral(DEFAULT_LANGUAGE_HEADER));
+        m_request.languages = configValue(QStringLiteral("Languages"), QString::fromLatin1(DEFAULT_LANGUAGE_HEADER));
     } else {
         m_request.charsets.clear();
         m_request.languages.clear();
@@ -2889,7 +2889,7 @@ try_again:
             // We compensate for their failure to properly implement the HTTP standard
             // by assuming that they will be sending html.
             qCDebug(KIO_HTTP) << "HEAD -> returned MIME type:" << DEFAULT_MIME_TYPE;
-            mimeType(QStringLiteral(DEFAULT_MIME_TYPE));
+            mimeType(QString::fromLatin1(DEFAULT_MIME_TYPE));
             return true;
         }
 
@@ -4203,7 +4203,7 @@ void HTTPProtocol::slotData(const QByteArray &_d)
             }
 
             if (m_mimeType.isEmpty()) {
-                m_mimeType = QStringLiteral(DEFAULT_MIME_TYPE);
+                m_mimeType = QString::fromLatin1(DEFAULT_MIME_TYPE);
                 qCDebug(KIO_HTTP) << "Using default MIME type:" << m_mimeType;
             }
 

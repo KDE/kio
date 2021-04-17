@@ -76,9 +76,8 @@ typedef QMap<QString, QByteArray> AuthKeysMap;
     stream
 /* clang-format on */
 
-#define KIO_FILESIZE_T(x) quint64(x)
-static const int KIO_MAX_ENTRIES_PER_BATCH = 200;
-static const int KIO_MAX_SEND_BATCH_TIME = 300;
+static constexpr int KIO_MAX_ENTRIES_PER_BATCH = 200;
+static constexpr int KIO_MAX_SEND_BATCH_TIME = 300;
 
 namespace KIO
 {
@@ -608,7 +607,7 @@ void SlaveBase::canResume()
 
 void SlaveBase::totalSize(KIO::filesize_t _bytes)
 {
-    KIO_DATA << KIO_FILESIZE_T(_bytes);
+    KIO_DATA << static_cast<quint64>(_bytes);
     send(INF_TOTAL_SIZE, data);
 
     // this one is usually called before the first item is listed in listDir()
@@ -630,7 +629,7 @@ void SlaveBase::processedSize(KIO::filesize_t _bytes)
     }
 
     if (emitSignal) {
-        KIO_DATA << KIO_FILESIZE_T(_bytes);
+        KIO_DATA << static_cast<quint64>(_bytes);
         send(INF_PROCESSED_SIZE, data);
         d->lastTimeout.start();
     }
@@ -640,19 +639,19 @@ void SlaveBase::processedSize(KIO::filesize_t _bytes)
 
 void SlaveBase::written(KIO::filesize_t _bytes)
 {
-    KIO_DATA << KIO_FILESIZE_T(_bytes);
+    KIO_DATA << static_cast<quint64>(_bytes);
     send(MSG_WRITTEN, data);
 }
 
 void SlaveBase::position(KIO::filesize_t _pos)
 {
-    KIO_DATA << KIO_FILESIZE_T(_pos);
+    KIO_DATA << static_cast<quint64>(_pos);
     send(INF_POSITION, data);
 }
 
 void SlaveBase::truncated(KIO::filesize_t _length)
 {
-    KIO_DATA << KIO_FILESIZE_T(_length);
+    KIO_DATA << static_cast<quint64>(_length);
     send(INF_TRUNCATED, data);
 }
 
@@ -1070,7 +1069,7 @@ bool SlaveBase::canResume(KIO::filesize_t offset)
 {
     // qDebug() << "offset=" << KIO::number(offset);
     d->needSendCanResume = false;
-    KIO_DATA << KIO_FILESIZE_T(offset);
+    KIO_DATA << static_cast<quint64>(offset);
     send(MSG_RESUME, data);
     if (offset) {
         int cmd;

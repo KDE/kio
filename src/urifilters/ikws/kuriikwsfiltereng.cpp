@@ -45,6 +45,17 @@ KURISearchFilterEngine::~KURISearchFilterEngine()
 {
 }
 
+// static
+QStringList KURISearchFilterEngine::defaultSearchProviders()
+{
+    static const QStringList defaultProviders{QStringLiteral("google"),
+                                              QStringLiteral("youtube"),
+                                              QStringLiteral("yahoo"),
+                                              QStringLiteral("wikipedia"),
+                                              QStringLiteral("wikit")};
+    return defaultProviders;
+}
+
 SearchProvider *KURISearchFilterEngine::webShortcutQuery(const QString &typedString, QString &searchTerm) const
 {
     SearchProvider *provider = nullptr;
@@ -414,7 +425,7 @@ void KURISearchFilterEngine::loadConfig()
 
     QStringList defaultPreferredShortcuts;
     if (!group.hasKey("PreferredWebShortcuts")) {
-        defaultPreferredShortcuts = DEFAULT_PREFERRED_SEARCH_PROVIDERS;
+        defaultPreferredShortcuts = KURISearchFilterEngine::defaultSearchProviders();
     }
     m_preferredWebShortcuts = group.readEntry("PreferredWebShortcuts", defaultPreferredShortcuts);
 

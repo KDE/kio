@@ -283,7 +283,7 @@ void FilterOptions::load()
     KConfigGroup group = config.group("General");
 
     const QString defaultSearchEngine = group.readEntry("DefaultWebShortcut");
-    const QStringList favoriteEngines = group.readEntry("PreferredWebShortcuts", DEFAULT_PREFERRED_SEARCH_PROVIDERS);
+    const QStringList favoriteEngines = group.readEntry("PreferredWebShortcuts", KURISearchFilterEngine::defaultSearchProviders());
 
     const QList<SearchProvider *> allProviders = m_registry.findAll();
     QList<SearchProvider *> providers;
@@ -410,7 +410,7 @@ void FilterOptions::defaults()
 {
     m_dlg.cbEnableShortcuts->setChecked(true);
     m_dlg.cbUseSelectedShortcutsOnly->setChecked(false);
-    m_providersModel->setFavoriteProviders(DEFAULT_PREFERRED_SEARCH_PROVIDERS);
+    m_providersModel->setFavoriteProviders(KURISearchFilterEngine::defaultSearchProviders());
     setDelimiter(':');
     setDefaultEngine(-1);
 }
