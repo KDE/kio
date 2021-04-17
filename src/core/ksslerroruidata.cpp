@@ -43,11 +43,7 @@ KSslErrorUiData::KSslErrorUiData(const QSslSocket *socket)
     : d(new Private())
 {
     d->certificateChain = socket->peerCertificateChain();
-#if (QT_VERSION < QT_VERSION_CHECK(5, 15, 0))
-    d->sslErrors = socket->sslErrors();
-#else
     d->sslErrors = socket->sslHandshakeErrors();
-#endif
     d->ip = socket->peerAddress().toString();
     d->host = socket->peerName();
     if (socket->isEncrypted()) {

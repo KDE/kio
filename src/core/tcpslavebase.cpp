@@ -446,11 +446,7 @@ TCPSlaveBase::SslResult TCPSlaveBase::TcpSlaveBasePrivate::startTLSInternal(QSsl
       << " supportedBits:" << cipher.supportedBits()
       << " usedBits:" << cipher.usedBits();*/
 
-#if (QT_VERSION < QT_VERSION_CHECK(5, 15, 0))
-    sslErrors = socket.sslErrors();
-#else
     sslErrors = socket.sslHandshakeErrors();
-#endif
 
     // TODO: review / rewrite / remove the comment
     // The app side needs the metadata now for the SSL error dialog (if any) but
