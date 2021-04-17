@@ -215,6 +215,12 @@ Q_SIGNALS:
      */
     void openWithDialogAboutToBeShown();
 
+    /**
+     * Forwards the errors from the KAbstractFileItemActionPlugin instances
+     * @since 5.82
+     */
+    void error(const QString &errorMessage);
+
 public Q_SLOTS:
     /**
      * Slot used to execute a list of files in their respective preferred application.

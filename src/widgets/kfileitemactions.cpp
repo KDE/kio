@@ -747,6 +747,7 @@ int KFileItemActionsPrivate::addPluginActionsTo(QMenu *mainMenu, QMenu *actionsM
         auto *abstractPlugin = service->createInstance<KAbstractFileItemActionPlugin>();
         if (abstractPlugin) {
             abstractPlugin->setParent(mainMenu);
+            connect(abstractPlugin, &KAbstractFileItemActionPlugin::error, q, &KFileItemActions::error);
             auto actions = abstractPlugin->actions(m_props, m_parentWidget);
             itemCount += actions.count();
             mainMenu->addActions(actions);
@@ -786,6 +787,7 @@ int KFileItemActionsPrivate::addPluginActionsTo(QMenu *mainMenu, QMenu *actionsM
         auto *abstractPlugin = factory->create<KAbstractFileItemActionPlugin>();
         if (abstractPlugin) {
             abstractPlugin->setParent(this);
+            connect(abstractPlugin, &KAbstractFileItemActionPlugin::error, q, &KFileItemActions::error);
             const QList<QAction *> actions = abstractPlugin->actions(m_props, m_parentWidget);
             itemCount += actions.count();
             const QString showInSubmenu = jsonMetadata.value(QStringLiteral("X-KDE-Show-In-Submenu"));

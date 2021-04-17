@@ -92,12 +92,19 @@ public:
      * as their parent.
      *
      * @param fileItemInfos  Information about the selected file items.
-     * @param parentWidget   To be used as parent for the returned QActions and error messages or the like.
+     * @param parentWidget   To be used as parent for the returned QActions
      *
      * @return A list of actions to be added to a contextual menu for the file
      *         items.
      */
     virtual QList<QAction *> actions(const KFileItemListProperties &fileItemInfos, QWidget *parentWidget) = 0;
+
+Q_SIGNALS:
+    /**
+     * Emits an error which will be displayed to the user
+     * @since 5.82
+     */
+    void error(const QString &errorMessage);
 };
 
 #endif
