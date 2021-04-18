@@ -24,12 +24,11 @@ class KFileItemActionsPrivate;
  *
  * This includes:
  * @li "open with <application>" actions, but also
- * @li builtin services like mount/unmount for old-style device desktop files
  * @li user-defined actions for a .desktop file, defined in the file itself (see the desktop entry standard)
  * @li servicemenus actions, defined in .desktop files and selected based on the MIME type of the url
  *
  * KFileItemActions respects Kiosk-based restrictions (see the KAuthorized
- * namespace in the KConfig framework).  In particular, the "action/openwith"
+ * namespace in the KConfig framework). In particular, the "action/openwith"
  * action is checked when determining actions for opening files (see
  * addOpenWithActionsTo()) and service-specific actions are checked before
  * adding service actions to a menu (see addServiceActionsTo()).
@@ -38,6 +37,11 @@ class KFileItemActionsPrivate;
  * can be used to determine which actions are checked before the user-defined
  * action is allowed.  The action is ignored if any of the listed actions are
  * not authorized.
+ *
+ * @note: The builtin services like mount/unmount for old-style device desktop
+ * files (which mainly concerns CDROM and Floppy drives) have been deprecated
+ * since 5.82; those menu entries were hidden long before that, since the FSDevice
+ * .desktop template file hadn't been installed for quite a while.
  *
  * @since 4.3
  */
@@ -187,8 +191,9 @@ public:
 #endif
 
     enum class MenuActionSource {
-        Services = 0x1, // Add builtin actions, user defined actions and servicemenu actions
-        Plugins = 0x2, // Add actions implemented by plugins. See KAbstractFileItemActionPlugin base class.
+        Services = 0x1, ///< Add user defined actions and servicemenu actions (this used to include builtin
+                        ///< actions, which have been deprecated since 5.82 see class API documentation)
+        Plugins = 0x2, ///< Add actions implemented by plugins. See KAbstractFileItemActionPlugin base class.
         All = Services | Plugins,
     };
     Q_DECLARE_FLAGS(MenuActionSources, MenuActionSource)

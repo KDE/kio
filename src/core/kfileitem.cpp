@@ -1092,6 +1092,7 @@ QStringList KFileItem::overlays() const
             names.append(QStringLiteral("emblem-important"));
         }
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 82)
         if (cfg.hasDeviceType()) {
             const QString dev = cfg.readDevice();
             if (!dev.isEmpty()) {
@@ -1101,6 +1102,7 @@ QStringList KFileItem::overlays() const
                 }
             }
         }
+#endif
     }
 
     if (isHidden()) {

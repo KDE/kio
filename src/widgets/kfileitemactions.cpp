@@ -81,9 +81,17 @@ class PopupServices
 public:
     ServiceList &selectList(const QString &priority, const QString &submenuName);
 
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 82)
     ServiceList builtin;
-    ServiceList user, userToplevel, userPriority;
-    QMap<QString, ServiceList> userSubmenus, userToplevelSubmenus, userPrioritySubmenus;
+#endif
+
+    ServiceList user;
+    ServiceList userToplevel;
+    ServiceList userPriority;
+
+    QMap<QString, ServiceList> userSubmenus;
+    QMap<QString, ServiceList> userToplevelSubmenus;
+    QMap<QString, ServiceList> userPrioritySubmenus;
 };
 
 ServiceList &PopupServices::selectList(const QString &priority, const QString &submenuName)
@@ -639,11 +647,14 @@ QPair<int, QMenu *> KFileItemActionsPrivate::addServiceActionsTo(QMenu *mainMenu
 
     KIO::PopupServices s;
 
+    // TODO KF6 remove mention of "builtin" (deprecated)
     // 1 - Look for builtin and user-defined services
     if (isSingleLocal && m_props.mimeType() == QLatin1String("application/x-desktop")) {
-        // get builtin services, like mount/unmount
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 82)
+        // Get builtin services, like mount/unmount
+        s.builtin = KDesktopFileActions::builtinServices(QUrl::fromLocalFile(firstItem.localPath()));
+#endif
         const QString path = firstItem.localPath();
-        s.builtin = KDesktopFileActions::builtinServices(QUrl::fromLocalFile(path));
         const KDesktopFile desktopFile(path);
         const KConfigGroup cfg = desktopFile.desktopGroup();
         const QString priority = cfg.readEntry("X-KDE-Priority");
@@ -719,7 +730,11 @@ QPair<int, QMenu *> KFileItemActionsPrivate::addServiceActionsTo(QMenu *mainMenu
     userItemCount += insertServices(s.userPriority, actionMenu, false);
     userItemCount += insertServicesSubmenus(s.userSubmenus, actionMenu, false);
     userItemCount += insertServices(s.user, actionMenu, false);
+
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 82)
     userItemCount += insertServices(s.builtin, mainMenu, true);
+#endif
+
     userItemCount += insertServicesSubmenus(s.userToplevelSubmenus, mainMenu, false);
     userItemCount += insertServices(s.userToplevel, mainMenu, false);
 

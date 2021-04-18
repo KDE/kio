@@ -22,12 +22,18 @@ class KService;
  */
 namespace KDesktopFileActions
 {
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 82)
 /**
  * Returns a list of services for the given .desktop file that are handled
- * by kio itself. Namely mount/unmount for FSDevice files.
+ * by KIO itself. Namely mount/unmount for FSDevice files.
  * @return the list of services
+ *
+ * @deprecated since 5.82, FSDevice .desktop file template hasn't been installed
+ * for a long time. And users don't seem to mount devices using that method any more.
  */
+KIOWIDGETS_DEPRECATED_VERSION(5, 82, "For lack of usage.");
 KIOWIDGETS_EXPORT QList<KServiceAction> builtinServices(const QUrl &url);
+#endif
 
 /**
  * Returns a list of services defined by the user as possible actions

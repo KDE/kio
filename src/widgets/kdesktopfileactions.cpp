@@ -142,6 +142,7 @@ static bool runLink(const QUrl &_url, const KDesktopFile &cfg, const QByteArray 
 }
 #endif
 
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 82)
 QList<KServiceAction> KDesktopFileActions::builtinServices(const QUrl &_url)
 {
     QList<KServiceAction> result;
@@ -193,6 +194,7 @@ QList<KServiceAction> KDesktopFileActions::builtinServices(const QUrl &_url)
 
     return result;
 }
+#endif
 
 QList<KServiceAction> KDesktopFileActions::userDefinedServices(const QString &path, bool bLocalFiles)
 {
