@@ -50,10 +50,11 @@ public:
     }
 
     QStringList listMimeTypes(const KFileItemList &items);
-    QStringList listPreferredServiceIds(const QStringList &mimeTypeList, const QString &traderConstraint);
+    QStringList listPreferredServiceIds(const QStringList &mimeTypeList, const QStringList &excludedDesktopEntryNames, const QString &traderConstraint);
 
     QPair<int, QMenu *> addServiceActionsTo(QMenu *mainMenu, const QList<QAction *> &additionalActions, const QStringList &excludeList);
     int addPluginActionsTo(QMenu *mainMenu, QMenu *actionsMenu, const QStringList &excludeList);
+    void insertOpenWithActionsTo(QAction *before, QMenu *topMenu, const QStringList &excludedDesktopEntryNames, const QString &traderConstraint);
 
 public Q_SLOTS:
     void slotRunPreferredApplications();

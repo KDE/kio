@@ -313,120 +313,46 @@ KService::List KFileItemActions::associatedApplications(const QStringList &mimeT
 }
 
 // KMimeTypeTrader::preferredService doesn't take a constraint
-static KService::Ptr preferredService(const QString &mimeType, const QString &constraint)
+static KService::Ptr preferredService(const QString &mimeType, const QStringList &excludedDesktopEntryNames, const QString &constraint)
 {
     const KService::List services = KMimeTypeTrader::self()->query(mimeType, QStringLiteral("Application"), constraint);
-    return !services.isEmpty() ? services.first() : KService::Ptr();
+    for (const auto &service : services) {
+        if (!excludedDesktopEntryNames.contains(service->desktopEntryName())) {
+            return service;
+        }
+    }
+    return KService::Ptr();
 }
 
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 82)
 void KFileItemActions::addOpenWithActionsTo(QMenu *topMenu, const QString &traderConstraint)
 {
-    insertOpenWithActionsTo(nullptr /* append actions */, topMenu, traderConstraint);
+    d->insertOpenWithActionsTo(nullptr, topMenu, QStringList(), traderConstraint);
 }
+#endif
 
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 82)
 void KFileItemActions::insertOpenWithActionsTo(QAction *before, QMenu *topMenu, const QString &traderConstraint)
 {
-    if (!KAuthorized::authorizeAction(QStringLiteral("openwith"))) {
-        return;
-    }
+    d->insertOpenWithActionsTo(before, topMenu, QStringList(), traderConstraint);
+}
+#endif
 
-    d->m_traderConstraint = traderConstraint;
-    KService::List offers = associatedApplications(d->m_mimeTypeList, traderConstraint);
-
-    //// Ok, we have everything, now insert
-
-    const KFileItemList items = d->m_props.items();
-    const KFileItem &firstItem = items.first();
-    const bool isLocal = firstItem.url().isLocalFile();
-    const bool isDir = d->m_props.isDirectory();
-    // "Open With..." for folders is really not very useful, especially for remote folders.
-    // (media:/something, or trash:/, or ftp://...).
-    // Don't show "open with" actions for remote dirs only
-    if (isDir && !isLocal) {
-        return;
-    }
-
-    const QStringList serviceIdList = d->listPreferredServiceIds(d->m_mimeTypeList, traderConstraint);
-
-    // When selecting files with multiple MIME types, offer either "open with <app for all>"
-    // or a generic <open> (if there are any apps associated).
-    if (d->m_mimeTypeList.count() > 1 && !serviceIdList.isEmpty()
-        && !(serviceIdList.count() == 1 && serviceIdList.first().isEmpty())) { // empty means "no apps associated"
-
-        QAction *runAct = new QAction(this);
-        if (serviceIdList.count() == 1) {
-            const KService::Ptr app = preferredService(d->m_mimeTypeList.first(), traderConstraint);
-            runAct->setText(i18n("&Open with %1", app->name()));
-            runAct->setIcon(QIcon::fromTheme(app->icon()));
-
-            // Remove that app from the offers list (#242731)
-            for (int i = 0; i < offers.count(); ++i) {
-                if (offers[i]->storageId() == app->storageId()) {
-                    offers.removeAt(i);
-                    break;
-                }
-            }
-        } else {
-            runAct->setText(i18n("&Open"));
-        }
-
-        QObject::connect(runAct, &QAction::triggered, d, &KFileItemActionsPrivate::slotRunPreferredApplications);
-        topMenu->insertAction(before, runAct);
-
-        d->m_traderConstraint = traderConstraint;
-        d->m_fileOpenList = d->m_props.items();
-    }
-
-    QAction *openWithAct = new QAction(this);
-    openWithAct->setText(i18nc("@title:menu", "&Open With..."));
-    openWithAct->setObjectName(QStringLiteral("openwith_browse")); // For the unittest
-    QObject::connect(openWithAct, &QAction::triggered, d, &KFileItemActionsPrivate::slotOpenWithDialog);
-
-    if (!offers.isEmpty()) {
-        // Show the top app inline for files, but not folders
-        if (!isDir) {
-            QAction *act = d->createAppAction(offers.takeFirst(), true);
-            topMenu->insertAction(before, act);
-        }
-
-        // If there are still more apps, show them in a sub-menu
-        if (!offers.isEmpty()) { // submenu 'open with'
-            QMenu *subMenu = new QMenu(i18nc("@title:menu", "&Open With"), topMenu);
-            subMenu->setIcon(QIcon::fromTheme(QStringLiteral("system-run")));
-            subMenu->menuAction()->setObjectName(QStringLiteral("openWith_submenu")); // For the unittest
-            // Add other apps to the sub-menu
-            for (const KServicePtr &service : qAsConst(offers)) {
-                QAction *act = d->createAppAction(service, false);
-                subMenu->addAction(act);
-            }
-
-            subMenu->addSeparator();
-
-            openWithAct->setText(i18nc("@action:inmenu Open With", "&Other Application..."));
-            subMenu->addAction(openWithAct);
-
-            topMenu->insertMenu(before, subMenu);
-            topMenu->insertSeparator(before);
-        } else { // No other apps
-            topMenu->insertAction(before, openWithAct);
-        }
-    } else { // no app offers -> Open With...
-        openWithAct->setIcon(QIcon::fromTheme(QStringLiteral("system-run")));
-        openWithAct->setObjectName(QStringLiteral("openwith")); // For the unittest
-        topMenu->insertAction(before, openWithAct);
-    }
+void KFileItemActions::insertOpenWithActionsTo(QAction *before, QMenu *topMenu, const QStringList &excludedDesktopEntryNames)
+{
+    d->insertOpenWithActionsTo(before, topMenu, excludedDesktopEntryNames, QString());
 }
 
 void KFileItemActionsPrivate::slotRunPreferredApplications()
 {
     const KFileItemList fileItems = m_fileOpenList;
     const QStringList mimeTypeList = listMimeTypes(fileItems);
-    const QStringList serviceIdList = listPreferredServiceIds(mimeTypeList, m_traderConstraint);
+    const QStringList serviceIdList = listPreferredServiceIds(mimeTypeList, QStringList(), m_traderConstraint);
 
     for (const QString &serviceId : serviceIdList) {
         KFileItemList serviceItems;
         for (const KFileItem &item : fileItems) {
-            const KService::Ptr serv = preferredService(item.mimetype(), m_traderConstraint);
+            const KService::Ptr serv = preferredService(item.mimetype(), QStringList(), m_traderConstraint);
             const QString preferredServiceId = serv ? serv->storageId() : QString();
             if (preferredServiceId == serviceId) {
                 serviceItems << item;
@@ -503,14 +429,18 @@ QStringList KFileItemActionsPrivate::listMimeTypes(const KFileItemList &items)
     return mimeTypeList;
 }
 
-QStringList KFileItemActionsPrivate::listPreferredServiceIds(const QStringList &mimeTypeList, const QString &traderConstraint)
+QStringList
+KFileItemActionsPrivate::listPreferredServiceIds(const QStringList &mimeTypeList, const QStringList &excludedDesktopEntryNames, const QString &traderConstraint)
 {
     QStringList serviceIdList;
     serviceIdList.reserve(mimeTypeList.size());
     for (const QString &mimeType : mimeTypeList) {
-        const KService::Ptr serv = preferredService(mimeType, traderConstraint);
-        const QString newOffer = serv ? serv->storageId() : QString();
-        serviceIdList << newOffer;
+        const KService::Ptr serv = preferredService(mimeType, QStringList(), traderConstraint);
+        if (serv && !excludedDesktopEntryNames.contains(serv->desktopEntryName())) {
+            serviceIdList << serv->storageId();
+        } else {
+            serviceIdList << QString();
+        }
     }
     serviceIdList.removeDuplicates();
     return serviceIdList;
@@ -828,6 +758,109 @@ int KFileItemActionsPrivate::addPluginActionsTo(QMenu *mainMenu, QMenu *actionsM
 #endif
 
     return itemCount;
+}
+
+void KFileItemActionsPrivate::insertOpenWithActionsTo(QAction *before,
+                                                      QMenu *topMenu,
+                                                      const QStringList &excludedDesktopEntryNames,
+                                                      const QString &traderConstraint)
+{
+    if (!KAuthorized::authorizeAction(QStringLiteral("openwith"))) {
+        return;
+    }
+
+    m_traderConstraint = traderConstraint;
+    // TODO Overload with excludedDesktopEntryNames, but this method in public API and will be handled in a new MR
+    const KService::List _offers = q->associatedApplications(m_mimeTypeList, traderConstraint);
+    KService::List offers;
+    for (const auto &service : _offers) {
+        if (!excludedDesktopEntryNames.contains(service->desktopEntryName())) {
+            offers << service;
+        }
+    }
+
+    //// Ok, we have everything, now insert
+
+    const KFileItemList items = m_props.items();
+    const KFileItem &firstItem = items.first();
+    const bool isLocal = firstItem.url().isLocalFile();
+    const bool isDir = m_props.isDirectory();
+    // "Open With..." for folders is really not very useful, especially for remote folders.
+    // (media:/something, or trash:/, or ftp://...).
+    // Don't show "open with" actions for remote dirs only
+    if (isDir && !isLocal) {
+        return;
+    }
+
+    QStringList serviceIdList = listPreferredServiceIds(m_mimeTypeList, excludedDesktopEntryNames, traderConstraint);
+
+    // When selecting files with multiple MIME types, offer either "open with <app for all>"
+    // or a generic <open> (if there are any apps associated).
+    if (m_mimeTypeList.count() > 1 && !serviceIdList.isEmpty()
+        && !(serviceIdList.count() == 1 && serviceIdList.first().isEmpty())) { // empty means "no apps associated"
+
+        QAction *runAct = new QAction(this);
+        if (serviceIdList.count() == 1) {
+            const KService::Ptr app = preferredService(m_mimeTypeList.first(), excludedDesktopEntryNames, traderConstraint);
+            runAct->setText(i18n("&Open with %1", app->name()));
+            runAct->setIcon(QIcon::fromTheme(app->icon()));
+
+            // Remove that app from the offers list (#242731)
+            for (int i = 0; i < offers.count(); ++i) {
+                if (offers[i]->storageId() == app->storageId()) {
+                    offers.removeAt(i);
+                    break;
+                }
+            }
+        } else {
+            runAct->setText(i18n("&Open"));
+        }
+
+        QObject::connect(runAct, &QAction::triggered, this, &KFileItemActionsPrivate::slotRunPreferredApplications);
+        topMenu->insertAction(before, runAct);
+
+        m_traderConstraint = traderConstraint;
+        m_fileOpenList = m_props.items();
+    }
+
+    QAction *openWithAct = new QAction(this);
+    openWithAct->setText(i18nc("@title:menu", "&Open With..."));
+    openWithAct->setObjectName(QStringLiteral("openwith_browse")); // For the unittest
+    QObject::connect(openWithAct, &QAction::triggered, this, &KFileItemActionsPrivate::slotOpenWithDialog);
+
+    if (!offers.isEmpty()) {
+        // Show the top app inline for files, but not folders
+        if (!isDir) {
+            QAction *act = createAppAction(offers.takeFirst(), true);
+            topMenu->insertAction(before, act);
+        }
+
+        // If there are still more apps, show them in a sub-menu
+        if (!offers.isEmpty()) { // submenu 'open with'
+            QMenu *subMenu = new QMenu(i18nc("@title:menu", "&Open With"), topMenu);
+            subMenu->setIcon(QIcon::fromTheme(QStringLiteral("system-run")));
+            subMenu->menuAction()->setObjectName(QStringLiteral("openWith_submenu")); // For the unittest
+            // Add other apps to the sub-menu
+            for (const KServicePtr &service : qAsConst(offers)) {
+                QAction *act = createAppAction(service, false);
+                subMenu->addAction(act);
+            }
+
+            subMenu->addSeparator();
+
+            openWithAct->setText(i18nc("@action:inmenu Open With", "&Other Application..."));
+            subMenu->addAction(openWithAct);
+
+            topMenu->insertMenu(before, subMenu);
+            topMenu->insertSeparator(before);
+        } else { // No other apps
+            topMenu->insertAction(before, openWithAct);
+        }
+    } else { // no app offers -> Open With...
+        openWithAct->setIcon(QIcon::fromTheme(QStringLiteral("system-run")));
+        openWithAct->setObjectName(QStringLiteral("openwith")); // For the unittest
+        topMenu->insertAction(before, openWithAct);
+    }
 }
 
 QAction *KFileItemActions::preferredOpenWithAction(const QString &traderConstraint)

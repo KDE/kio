@@ -77,6 +77,7 @@ public:
      */
     void setParentWidget(QWidget *widget);
 
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 82)
     /**
      * Generates the "Open With <Application>" actions, and appends them to @p menu.
      * All actions are created as children of the menu.
@@ -89,9 +90,17 @@ public:
      * from the "open with" list. Example: "DesktopEntryName != 'kfmclient'".
      *
      * @sa insertOpenWithActionsTo()
+     * @deprecated Since 5.82, use insertOpenWithActionsTo(QAction *before, QMenu *topMenu, const QStringList &excludedDesktopEntryNames) instead and pass in a
+     * nullptr for the before parameter
      */
+    KIOWIDGETS_DEPRECATED_VERSION(5,
+                                  82,
+                                  "use insertOpenWithActionsTo(QAction *before, QMenu *topMenu, const QStringList &excludedDesktopEntryNames) instead and pass "
+                                  "in a nullptr for the before parameter")
     void addOpenWithActionsTo(QMenu *menu, const QString &traderConstraint = QString());
+#endif
 
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 82)
     /**
      * Generates the "Open With <Application>" actions, and inserts them in @p menu,
      * before action @p before. If @p before is nullptr or doesn't exist in the menu
@@ -109,8 +118,30 @@ public:
      * from the "open with" list. Example: "DesktopEntryName != 'kfmclient'".
      *
      * @since 5.78
+     * @deprecated Since 5.82, use insertOpenWithActionsTo(QAction *before, QMenu *topMenu, const QStringList &excludedDesktopEntryNames) instead
      */
+    KIOWIDGETS_DEPRECATED_VERSION(5, 82, "use insertOpenWithActionsTo(QAction *before, QMenu *topMenu, const QStringList &excludedDesktopEntryNames) instead")
     void insertOpenWithActionsTo(QAction *before, QMenu *topMenu, const QString &traderConstraint);
+#endif
+
+    /**
+     * Generates the "Open With <Application>" actions, and inserts them in @p menu,
+     * before action @p before. If @p before is nullptr or doesn't exist in the menu
+     * the actions will be appended to the menu.
+     *
+     * All actions are created as children of the menu.
+     *
+     * No actions will be added if the "openwith" Kiosk action is not authorized
+     * (see KAuthorized::authorize()).
+     *
+     * @param before the "open with" actions will be inserted before this action; if this action
+     * is nullptr or isn't available in @p topMenu, the "open with" actions will be appended
+     * @param menu the QMenu where the actions will be added
+     * @param excludedDesktopEntryNames list of desktop entry names that will not be shown
+     *
+     * @since 5.82
+     */
+    void insertOpenWithActionsTo(QAction *before, QMenu *topMenu, const QStringList &excludedDesktopEntryNames);
 
     /**
      * Returns an action for the preferred application only.
