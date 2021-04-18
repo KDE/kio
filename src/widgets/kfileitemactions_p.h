@@ -8,6 +8,7 @@
 #ifndef KFILEITEMACTIONS_P_H
 #define KFILEITEMACTIONS_P_H
 
+#include "kabstractfileitemactionplugin.h"
 #include <KConfig>
 #include <KService>
 #include <KServiceAction>
@@ -82,6 +83,7 @@ public:
     QActionGroup m_runApplicationActionGroup;
     QWidget *m_parentWidget;
     KConfig m_config;
+    QHash<QString, KAbstractFileItemActionPlugin *> m_loadedPlugins;
 };
 
 Q_DECLARE_METATYPE(KService::Ptr)

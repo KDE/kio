@@ -1,6 +1,7 @@
 /*
     This file is part of the KDE project
     SPDX-FileCopyrightText: 1998-2009 David Faure <faure@kde.org>
+    SPDX-FileCopyrightText: 2021 Alexander Lohnau <alexander.lohnau@gmx.de>
 
     SPDX-License-Identifier: LGPL-2.0-only OR LGPL-3.0-only OR LicenseRef-KDE-Accepted-LGPL
 */
@@ -744,10 +745,13 @@ int KFileItemActionsPrivate::addPluginActionsTo(QMenu *mainMenu, QMenu *actionsM
             continue;
         }
 
-        auto *abstractPlugin = service->createInstance<KAbstractFileItemActionPlugin>();
-        if (abstractPlugin) {
-            abstractPlugin->setParent(mainMenu);
+        KAbstractFileItemActionPlugin *abstractPlugin = m_loadedPlugins.value(service->desktopEntryName());
+        if (!abstractPlugin) {
+            abstractPlugin = service->createInstance<KAbstractFileItemActionPlugin>(this);
             connect(abstractPlugin, &KAbstractFileItemActionPlugin::error, q, &KFileItemActions::error);
+            m_loadedPlugins.insert(service->desktopEntryName(), abstractPlugin);
+        }
+        if (abstractPlugin) {
             auto actions = abstractPlugin->actions(m_props, m_parentWidget);
             itemCount += actions.count();
             mainMenu->addActions(actions);
@@ -784,9 +788,13 @@ int KFileItemActionsPrivate::addPluginActionsTo(QMenu *mainMenu, QMenu *actionsM
         if (!factory) {
             continue;
         }
-        auto *abstractPlugin = factory->create<KAbstractFileItemActionPlugin>();
+        KAbstractFileItemActionPlugin *abstractPlugin = m_loadedPlugins.value(pluginId);
+        if (!abstractPlugin) {
+            abstractPlugin = factory->create<KAbstractFileItemActionPlugin>(this);
+            connect(abstractPlugin, &KAbstractFileItemActionPlugin::error, q, &KFileItemActions::error);
+            m_loadedPlugins.insert(pluginId, abstractPlugin);
+        }
         if (abstractPlugin) {
-            abstractPlugin->setParent(this);
             connect(abstractPlugin, &KAbstractFileItemActionPlugin::error, q, &KFileItemActions::error);
             const QList<QAction *> actions = abstractPlugin->actions(m_props, m_parentWidget);
             itemCount += actions.count();
