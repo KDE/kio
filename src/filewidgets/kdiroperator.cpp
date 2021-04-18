@@ -249,7 +249,8 @@ KDirOperatorPrivate::~KDirOperatorPrivate()
 
 QPoint KDirOperatorPrivate::progressBarPos() const
 {
-    return QPoint(2, q->height() - m_progressBar->height() - 2);
+    const int frameWidth = q->style()->pixelMetric(QStyle::PM_DefaultFrameWidth);
+    return QPoint(frameWidth, q->height() - m_progressBar->height() - frameWidth);
 }
 
 KDirOperator::KDirOperator(const QUrl &_url, QWidget *parent)
@@ -295,7 +296,8 @@ KDirOperator::KDirOperator(const QUrl &_url, QWidget *parent)
     d->m_progressBar = new QProgressBar(this);
     d->m_progressBar->setObjectName(QStringLiteral("d->m_progressBar"));
     d->m_progressBar->adjustSize();
-    d->m_progressBar->move(2, height() - d->m_progressBar->height() - 2);
+    const int frameWidth = style()->pixelMetric(QStyle::PM_DefaultFrameWidth);
+    d->m_progressBar->move(frameWidth, height() - d->m_progressBar->height() - frameWidth);
 
     d->m_progressDelayTimer = new QTimer(this);
     d->m_progressDelayTimer->setObjectName(QStringLiteral("d->m_progressBar delay timer"));
@@ -2520,8 +2522,9 @@ void KDirOperator::resizeEvent(QResizeEvent *)
     }
 
     if (d->m_progressBar->parent() == this) {
-        // might be reparented into a statusbar
-        d->m_progressBar->move(2, height() - d->m_progressBar->height() - 2);
+        // Might be reparented into a statusbar
+        const int frameWidth = style()->pixelMetric(QStyle::PM_DefaultFrameWidth);
+        d->m_progressBar->move(frameWidth, height() - d->m_progressBar->height() - frameWidth);
     }
 }
 
