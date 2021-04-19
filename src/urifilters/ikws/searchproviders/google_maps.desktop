@@ -58,6 +58,7 @@ Name[sr@ijekavian]=Гугл‑карте
 Name[sr@ijekavianlatin]=Google-karte
 Name[sr@latin]=Google-karte
 Name[sv]=Google kartor
+Name[ta]=கூகுள் மேப்ஸ்
 Name[tg]=Харитаҳои Google
 Name[th]=ดูแผนที่ต่าง ๆ ด้วยกูเกิล
 Name[tr]=Google Maps
@@ -118,6 +119,7 @@ Query[sr@ijekavian]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[sr@ijekavianlatin]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[sr@latin]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[sv]=https://maps.google.se/maps?q=\\{@}&ie=UTF8&iwloc=addr
+Query[ta]=https://maps.google.com/maps?hl=ta&q=\\{@}&ie=UTF8&iwloc=addr
 Query[tg]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[tr]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[ug]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr

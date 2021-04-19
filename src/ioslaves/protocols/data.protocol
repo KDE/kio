@@ -47,6 +47,7 @@ Description[sr@ijekavian]=У/И захват за УРИ‑је података
 Description[sr@ijekavianlatin]=U/I zahvat za URI‑je podataka (RFC 2397)
 Description[sr@latin]=U/I zahvat za URI‑je podataka (RFC 2397)
 Description[sv]=En I/O-slav för datawebbadresser (RFC 2397)
+Description[ta]=தரவு URI-களுக்கான kioslave (rfc2397)
 Description[tg]=Вазифаи kioslave барои иттилооти URI (rfc2397)
 Description[tr]=Veri adresleri için bir kioslave (rfc2397)
 Description[tt]=URI файлы өчен kioslave (rfc2397)

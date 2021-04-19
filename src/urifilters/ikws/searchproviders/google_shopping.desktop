@@ -105,6 +105,7 @@ Query[sr@ijekavian]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[sr@ijekavianlatin]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[sr@latin]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[sv]=https://www.google.se/search?hl=en&tbm=shop&q=\\{@}
+Query[ta]=https://www.google.com/search?hl=ta&tbm=shop&q=\\{@}
 Query[tg]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[tr]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[ug]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}

@@ -75,7 +75,7 @@ Name[sr@ijekavian]=Гугл (из прве руке)
 Name[sr@ijekavianlatin]=Google (iz prve ruke)
 Name[sr@latin]=Google (iz prve ruke)
 Name[sv]=Google (Jag har tur)
-Name[ta]=கூகுல் (நான் அதிர்ஷ்டசாலியாக உணர்கிறேன்)
+Name[ta]=கூகுள் (அதிர்ஷ்டம் என் பக்கம்)
 Name[te]=Google (నెరుగా వెబ్ లొ ప్రవేశించు)
 Name[tg]=Google (Корам барор мегирад!)
 Name[th]=กูเกิล (ดีใจจัง ค้นแล้วเจอเลย)
@@ -140,6 +140,7 @@ Query[sr@ijekavian]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Luc
 Query[sr@ijekavianlatin]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
 Query[sr@latin]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
 Query[sv]=https://www.google.se/search?q=\\{@}&btnI=Jag+har+tur&ie=UTF-8&oe=UTF-8
+Query[ta]=https://www.google.com/search?hl=ta&q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
 Query[tg]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
 Query[tr]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
 Query[ug]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8

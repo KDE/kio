@@ -76,7 +76,6 @@ Name[sr@ijekavian]=ЦТАН‑ов каталог
 Name[sr@ijekavianlatin]=CTAN‑ov katalog
 Name[sr@latin]=CTAN‑ov katalog
 Name[sv]=CTAN-katalog
-Name[ta]=CTAN வகை
 Name[te]=CTAN పట్టీ
 Name[tg]=Феҳристи CTAN
 Name[th]=แคทตาล็อก CTAN
@@ -159,7 +158,6 @@ Query[sr@ijekavian]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&m
 Query[sr@ijekavianlatin]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search
 Query[sr@latin]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search
 Query[sv]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search
-Query[ta]= 
 Query[te]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search
 Query[tg]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search
 Query[th]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search

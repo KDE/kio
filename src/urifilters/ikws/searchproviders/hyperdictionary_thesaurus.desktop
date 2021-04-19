@@ -76,7 +76,6 @@ Name[sr@ijekavian]=Хиперрјечник (синонимар)
 Name[sr@ijekavianlatin]=Hiperrječnik (sinonimar)
 Name[sr@latin]=Hiperrečnik (sinonimar)
 Name[sv]=HyperDictionary.com synonymordlista
-Name[ta]=HyperDictionary.com  சொற்களஞ்சியம்
 Name[te]=HyperDictionary.com థెసారెస్
 Name[tg]=Донишномаи HyperDictionary.com
 Name[th]=พจนานุกรมคำพ้อง HyperDictionary.com
@@ -168,7 +167,6 @@ Query[sr@ijekavian]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{
 Query[sr@ijekavianlatin]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
 Query[sr@latin]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
 Query[sv]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
-Query[ta]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
 Query[te]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
 Query[tg]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
 Query[th]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}

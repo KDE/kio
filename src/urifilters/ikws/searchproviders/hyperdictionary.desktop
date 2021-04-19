@@ -78,7 +78,6 @@ Name[sr@ijekavian]=Хиперрјечник
 Name[sr@ijekavianlatin]=Hiperrječnik
 Name[sr@latin]=Hiperrečnik
 Name[sv]=HyperDictionary.com
-Name[ta]=திறந்த அடைவு
 Name[te]=HyperDictionary.com
 Name[tg]=HyperDictionary.com
 Name[th]=HyperDictionary.com
@@ -170,7 +169,6 @@ Query[sr@ijekavian]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[sr@ijekavianlatin]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[sr@latin]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[sv]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
-Query[ta]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[te]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[tg]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[th]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
