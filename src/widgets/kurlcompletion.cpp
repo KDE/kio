@@ -250,7 +250,6 @@ protected:
 
         // we don't need to handle prepend here, right? ~user is always at pos 0
         assert(m_prepend.isEmpty());
-#pragma message("TODO: add KUser::allUserNames() with a std::function<bool()> shouldTerminate parameter")
 #ifndef Q_OS_WIN
         struct passwd *pw;
         ::setpwent();
@@ -259,6 +258,7 @@ protected:
         }
         ::endpwent();
 #else
+        // TODO: add KUser::allUserNames() with a std::function<bool()> shouldTerminate parameter
         // currently terminationRequested is ignored on Windows
         const QStringList allUsers = KUser::allUserNames();
         for (const QString &s : allUsers) {
