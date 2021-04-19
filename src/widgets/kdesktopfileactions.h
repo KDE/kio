@@ -31,7 +31,7 @@ namespace KDesktopFileActions
  * @deprecated since 5.82, FSDevice .desktop file template hasn't been installed
  * for a long time. And users don't seem to mount devices using that method any more.
  */
-KIOWIDGETS_DEPRECATED_VERSION(5, 82, "For lack of usage.");
+KIOWIDGETS_DEPRECATED_VERSION(5, 82, "For lack of usage.")
 KIOWIDGETS_EXPORT QList<KServiceAction> builtinServices(const QUrl &url);
 #endif
 
