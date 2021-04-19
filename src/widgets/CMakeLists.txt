@@ -209,12 +209,16 @@ install(FILES
   DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}/KIOWidgets COMPONENT Devel)
 
 install(FILES
-  kfileitemactionplugin.desktop
   kpropertiesdialogplugin.desktop
   kurifilterplugin.desktop
   konqpopupmenuplugin.desktop
   kiodndpopupmenuplugin.desktop
    DESTINATION  ${KDE_INSTALL_KSERVICETYPES5DIR} )
+
+if(NOT EXCLUDE_DEPRECATED_BEFORE_AND_AT STREQUAL "CURRENT" AND EXCLUDE_DEPRECATED_BEFORE_AND_AT VERSION_LESS 5.82.0)
+  install(FILES kfileitemactionplugin.desktop DESTINATION ${KDE_INSTALL_KSERVICETYPES5DIR})
+endif()
+
 
 # make available to ecm_add_qch in parent folder
 set(KIOWidgets_QCH_SOURCES ${KIOWidgets_HEADERS} ${KIO_namespaced_widgets_HEADERS} PARENT_SCOPE)

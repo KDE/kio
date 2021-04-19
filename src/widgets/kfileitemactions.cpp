@@ -752,34 +752,9 @@ int KFileItemActionsPrivate::addPluginActionsTo(QMenu *mainMenu, QMenu *actionsM
     int itemCount = 0;
 
     const KConfigGroup showGroup = m_config.group("Show");
-    const KService::List fileItemPlugins =
-        KMimeTypeTrader::self()->query(commonMimeType, QStringLiteral("KFileItemAction/Plugin"), QStringLiteral("exist Library"));
-    for (const auto &service : fileItemPlugins) {
-        if (!showGroup.readEntry(service->desktopEntryName(), true)) {
-            // The plugin has been disabled
-            continue;
-        }
-
-        KAbstractFileItemActionPlugin *abstractPlugin = m_loadedPlugins.value(service->desktopEntryName());
-        if (!abstractPlugin) {
-            abstractPlugin = service->createInstance<KAbstractFileItemActionPlugin>(this);
-            connect(abstractPlugin, &KAbstractFileItemActionPlugin::error, q, &KFileItemActions::error);
-            m_loadedPlugins.insert(service->desktopEntryName(), abstractPlugin);
-        }
-        if (abstractPlugin) {
-            auto actions = abstractPlugin->actions(m_props, m_parentWidget);
-            itemCount += actions.count();
-            mainMenu->addActions(actions);
-            addedPlugins.append(service->desktopEntryName());
-        }
-    }
 
     const QMimeDatabase db;
     const auto jsonPlugins = KPluginLoader::findPlugins(QStringLiteral("kf5/kfileitemaction"), [&db, commonMimeType](const KPluginMetaData &metaData) {
-        if (!metaData.serviceTypes().contains(QLatin1String("KFileItemAction/Plugin"))) {
-            return false;
-        }
-
         auto mimeType = db.mimeTypeForName(commonMimeType);
         const QStringList list = metaData.mimeTypes();
         return std::any_of(list.constBegin(), list.constEnd(), [mimeType](const QString &supportedMimeType) {
@@ -791,11 +766,6 @@ int KFileItemActionsPrivate::addPluginActionsTo(QMenu *mainMenu, QMenu *actionsM
         // The plugin has been disabled
         const QString pluginId = jsonMetadata.pluginId();
         if (!showGroup.readEntry(pluginId, true) || excludeList.contains(pluginId)) {
-            continue;
-        }
-
-        // The plugin also has a .desktop file and has already been added.
-        if (addedPlugins.contains(jsonMetadata.pluginId())) {
             continue;
         }
 
@@ -822,6 +792,40 @@ int KFileItemActionsPrivate::addPluginActionsTo(QMenu *mainMenu, QMenu *actionsM
             addedPlugins.append(jsonMetadata.pluginId());
         }
     }
+
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 82)
+    const KService::List fileItemPlugins =
+        KMimeTypeTrader::self()->query(commonMimeType, QStringLiteral("KFileItemAction/Plugin"), QStringLiteral("exist Library"));
+    for (const auto &service : fileItemPlugins) {
+        if (!showGroup.readEntry(service->desktopEntryName(), true)) {
+            // The plugin has been disabled
+            continue;
+        }
+
+        // The plugin also has a JSON metadata and has already been added.
+        if (addedPlugins.contains(service->desktopEntryName())) {
+            continue;
+        }
+
+        KAbstractFileItemActionPlugin *abstractPlugin = m_loadedPlugins.value(service->desktopEntryName());
+        if (!abstractPlugin) {
+            abstractPlugin = service->createInstance<KAbstractFileItemActionPlugin>(this);
+            connect(abstractPlugin, &KAbstractFileItemActionPlugin::error, q, &KFileItemActions::error);
+            m_loadedPlugins.insert(service->desktopEntryName(), abstractPlugin);
+            if (abstractPlugin) {
+                qCWarning(KIO_WIDGETS) << "The" << service->name()
+                                       << "plugin still installs the desktop file for plugin loading. Please use JSON metadata instead, see "
+                                          "KAbstractFileItemActionPlugin class docs for instructions.";
+            }
+        }
+        if (abstractPlugin) {
+            auto actions = abstractPlugin->actions(m_props, m_parentWidget);
+            itemCount += actions.count();
+            mainMenu->addActions(actions);
+            addedPlugins.append(service->desktopEntryName());
+        }
+    }
+#endif
 
     return itemCount;
 }
