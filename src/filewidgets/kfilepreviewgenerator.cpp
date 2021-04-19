@@ -12,7 +12,6 @@
 #include <KIconLoader>
 #include <KSharedConfig>
 #include <KUrlMimeData>
-#include <config-kiofilewidgets.h> // for HAVE_XRENDER
 #include <imagefilter_p.h> // from kiowidgets
 #include <kdirlister.h>
 #include <kdirmodel.h>
@@ -33,12 +32,6 @@
 #include <QPixmap>
 #include <QPointer>
 #include <QTimer>
-
-#if HAVE_X11 && HAVE_XRENDER
-#include <QX11Info>
-#include <X11/Xlib.h>
-#include <X11/extensions/Xrender.h>
-#endif
 
 class KFilePreviewGeneratorPrivate
 {
@@ -957,42 +950,7 @@ bool KFilePreviewGeneratorPrivate::applyImageFrame(QPixmap &icon)
 void KFilePreviewGeneratorPrivate::limitToSize(QPixmap &icon, const QSize &maxSize)
 {
     if ((icon.width() > maxSize.width()) || (icon.height() > maxSize.height())) {
-#pragma message("Cannot use XRender with QPixmap anymore. Find equivalent with Qt API.")
-#if 0 // HAVE_X11 && HAVE_XRENDER
-      // Assume that the texture size limit is 2048x2048
-        if ((icon.width() <= 2048) && (icon.height() <= 2048) && icon.x11PictureHandle()) {
-            QSize size = icon.size();
-            size.scale(maxSize, Qt::KeepAspectRatio);
-
-            const qreal factor = size.width() / qreal(icon.width());
-
-            XTransform xform = {{
-                    { XDoubleToFixed(1 / factor), 0, 0 },
-                    { 0, XDoubleToFixed(1 / factor), 0 },
-                    { 0, 0, XDoubleToFixed(1) }
-                }
-            };
-
-            QPixmap pixmap(size);
-            pixmap.fill(Qt::transparent);
-
-            Display *dpy = QX11Info::display();
-
-            XRenderPictureAttributes attr;
-            attr.repeat = RepeatPad;
-            XRenderChangePicture(dpy, icon.x11PictureHandle(), CPRepeat, &attr);
-
-            XRenderSetPictureFilter(dpy, icon.x11PictureHandle(), FilterBilinear, 0, 0);
-            XRenderSetPictureTransform(dpy, icon.x11PictureHandle(), &xform);
-            XRenderComposite(dpy, PictOpOver, icon.x11PictureHandle(), None, pixmap.x11PictureHandle(),
-                             0, 0, 0, 0, 0, 0, pixmap.width(), pixmap.height());
-            icon = pixmap;
-        } else {
-            icon = icon.scaled(maxSize, Qt::KeepAspectRatio, Qt::FastTransformation);
-        }
-#else
         icon = icon.scaled(maxSize, Qt::KeepAspectRatio, Qt::SmoothTransformation);
-#endif
     }
 }
 

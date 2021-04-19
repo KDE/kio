@@ -9,8 +9,6 @@
 #include "kfileitemdelegate.h"
 #include "imagefilter_p.h"
 
-#include <config-kiowidgets.h> // was for HAVE_XRENDER
-
 #include <QApplication>
 #include <QCache>
 #include <QImage>

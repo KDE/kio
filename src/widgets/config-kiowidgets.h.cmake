@@ -1,5 +1,3 @@
-#cmakedefine01 HAVE_X11
-
 #cmakedefine01 HAVE_GETGROUPLIST
 
 /* Defined if system has POSIX ACL support. */
