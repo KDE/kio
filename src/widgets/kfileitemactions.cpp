@@ -863,6 +863,7 @@ void KFileItemActionsPrivate::insertOpenWithActionsTo(QAction *before,
     }
 }
 
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 82)
 QAction *KFileItemActions::preferredOpenWithAction(const QString &traderConstraint)
 {
     const KService::List offers = associatedApplications(d->m_mimeTypeList, traderConstraint);
@@ -871,6 +872,7 @@ QAction *KFileItemActions::preferredOpenWithAction(const QString &traderConstrai
     }
     return d->createAppAction(offers.first(), true);
 }
+#endif
 
 void KFileItemActions::setParentWidget(QWidget *widget)
 {

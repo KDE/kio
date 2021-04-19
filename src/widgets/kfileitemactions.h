@@ -143,13 +143,17 @@ public:
      */
     void insertOpenWithActionsTo(QAction *before, QMenu *topMenu, const QStringList &excludedDesktopEntryNames);
 
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 82)
     /**
      * Returns an action for the preferred application only.
      * @param traderConstraint this constraint allows to exclude the current application
      * from the "open with" list. Example: "DesktopEntryName != 'kfmclient'".
      * @return the action - or @c nullptr if no application was found.
+     * @deprecated Since 5.82, use first entry of associatedApplications to create the action instead
      */
+    KIOWIDGETS_DEPRECATED_VERSION(5, 82, "use first entry of associatedApplications to create the action instead")
     QAction *preferredOpenWithAction(const QString &traderConstraint);
+#endif
 
     /**
      * Returns the applications associated with all the given MIME types.
