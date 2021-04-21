@@ -53,6 +53,7 @@ void KIO::WidgetsOpenOrExecuteFileHandler::promptUserOpenOrExecute(KJob *job, co
 
     ExecutableFileOpenDialog *dialog = new ExecutableFileOpenDialog(promptMode(mime), parentWidget);
     dialog->setAttribute(Qt::WA_DeleteOnClose);
+    dialog->setModal(true);
 
     connect(dialog, &QDialog::finished, this, [this, dialog, mime](const int result) {
         if (result == ExecutableFileOpenDialog::Rejected) {
