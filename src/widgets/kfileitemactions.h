@@ -91,7 +91,7 @@ public:
      *
      * @sa insertOpenWithActionsTo()
      * @deprecated Since 5.82, use insertOpenWithActionsTo(QAction *before, QMenu *topMenu, const QStringList &excludedDesktopEntryNames) instead and pass in a
-     * nullptr for the before parameter
+     * nullptr for the @c before parameter
      */
     KIOWIDGETS_DEPRECATED_VERSION(5,
                                   82,
@@ -149,7 +149,7 @@ public:
      * @param traderConstraint this constraint allows to exclude the current application
      * from the "open with" list. Example: "DesktopEntryName != 'kfmclient'".
      * @return the action - or @c nullptr if no application was found.
-     * @deprecated Since 5.82, use first entry of associatedApplications to create the action instead
+     * @deprecated Since 5.82, use the first use first entry of @c associatedApplications() to create the action instead
      */
     KIOWIDGETS_DEPRECATED_VERSION(5, 82, "use first entry of associatedApplications to create the action instead")
     QAction *preferredOpenWithAction(const QString &traderConstraint);

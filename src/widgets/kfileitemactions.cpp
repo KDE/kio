@@ -439,7 +439,7 @@ KFileItemActionsPrivate::listPreferredServiceIds(const QStringList &mimeTypeList
         if (serv && !excludedDesktopEntryNames.contains(serv->desktopEntryName())) {
             serviceIdList << serv->storageId();
         } else {
-            serviceIdList << QString();
+            serviceIdList << QString(); // empty string means mimetype has no associated apps
         }
     }
     serviceIdList.removeDuplicates();
