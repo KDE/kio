@@ -94,7 +94,7 @@ enum RenameDialog_Result {
     Result_ResumeAll = 7,
     Result_AutoRename = 8,
     Result_Retry = 9,
-    /*
+    /**
      * Can be returned only when multiple files are passed, Option overwrite is passed
      * And files modification times are valid
      * @since 5.77
