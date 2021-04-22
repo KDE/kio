@@ -33,7 +33,8 @@ enum RenameDialog_Option {
     RenameDialog_Resume = 16, ///< Offer a "Resume" button (plus "Resume All" if RenameDialog_MultipleItems).
     RenameDialog_NoRename = 64, ///< Don't offer a "Rename" button.
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 78)
-    RenameDialog_IsDirectory = 128, ///< @deprecated since 5.78, use RenameDialog_DestIsDirectory instead.
+    RenameDialog_IsDirectory KIOCORE_ENUMERATOR_DEPRECATED_VERSION_BELATED(5, 82, 5, 78, "Use RenameDialog_DestIsDirectory.") =
+        128, ///< @deprecated since 5.78, use RenameDialog_DestIsDirectory instead.
 #endif
     RenameDialog_DestIsDirectory = 128, ///< @since 5.78. The destination is a directory, the dialog updates labels and tooltips accordingly.
     RenameDialog_SourceIsDirectory = 256, ///< @since 5.78. The source is a directory, the dialog updates labels and tooltips accordingly.
@@ -50,13 +51,13 @@ Q_DECLARE_OPERATORS_FOR_FLAGS(RenameDialog_Options)
  * @deprecated since 5.0, use the RenameDialog_Option enum values
  */
 enum {
-    M_OVERWRITE = RenameDialog_Overwrite,
-    M_OVERWRITE_ITSELF = RenameDialog_OverwriteItself,
-    M_SKIP = RenameDialog_Skip,
-    M_MULTI = RenameDialog_MultipleItems,
-    M_RESUME = RenameDialog_Resume,
-    M_NORENAME = RenameDialog_NoRename,
-    M_ISDIR = RenameDialog_IsDirectory,
+    M_OVERWRITE KIOCORE_ENUMERATOR_DEPRECATED_VERSION_BELATED(5, 82, 5, 0, "Use RenameDialog_Overwrite.") = RenameDialog_Overwrite,
+    M_OVERWRITE_ITSELF KIOCORE_ENUMERATOR_DEPRECATED_VERSION_BELATED(5, 82, 5, 0, "Use RenameDialog_OverwriteItself.") = RenameDialog_OverwriteItself,
+    M_SKIP KIOCORE_ENUMERATOR_DEPRECATED_VERSION_BELATED(5, 82, 5, 0, "Use RenameDialog_Skip.") = RenameDialog_Skip,
+    M_MULTI KIOCORE_ENUMERATOR_DEPRECATED_VERSION_BELATED(5, 82, 5, 0, "Use RenameDialog_MultipleItems.") = RenameDialog_MultipleItems,
+    M_RESUME KIOCORE_ENUMERATOR_DEPRECATED_VERSION_BELATED(5, 82, 5, 0, "Use RenameDialog_Resume.") = RenameDialog_Resume,
+    M_NORENAME KIOCORE_ENUMERATOR_DEPRECATED_VERSION_BELATED(5, 82, 5, 0, "Use RenameDialog_NoRename.") = RenameDialog_NoRename,
+    M_ISDIR KIOCORE_ENUMERATOR_DEPRECATED_VERSION_BELATED(5, 82, 5, 0, "Use RenameDialog_IsDirectory.") = RenameDialog_IsDirectory,
 };
 /**
  * @deprecated since 5.0, use RenameDialog_Options
@@ -103,21 +104,21 @@ enum RenameDialog_Result {
 
 // @deprecated since 5.0, use the undeprecated enum values
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 0)
-    R_CANCEL = Result_Cancel,
-    R_RENAME = Result_Rename,
-    R_SKIP = Result_Skip,
-    R_AUTO_SKIP = Result_AutoSkip,
-    R_OVERWRITE = Result_Overwrite,
-    R_OVERWRITE_ALL = Result_OverwriteAll,
-    R_RESUME = Result_Resume,
-    R_RESUME_ALL = Result_ResumeAll,
-    R_AUTO_RENAME = Result_AutoRename,
-    R_RETRY = Result_Retry,
+    R_CANCEL KIOCORE_ENUMERATOR_DEPRECATED_VERSION_BELATED(5, 82, 5, 0, "Use Result_Cancel.") = Result_Cancel,
+    R_RENAME KIOCORE_ENUMERATOR_DEPRECATED_VERSION_BELATED(5, 82, 5, 0, "Use Result_Rename.") = Result_Rename,
+    R_SKIP KIOCORE_ENUMERATOR_DEPRECATED_VERSION_BELATED(5, 82, 5, 0, "Use Result_Skip.") = Result_Skip,
+    R_AUTO_SKIP KIOCORE_ENUMERATOR_DEPRECATED_VERSION_BELATED(5, 82, 5, 0, "Use Result_AutoSkip.") = Result_AutoSkip,
+    R_OVERWRITE KIOCORE_ENUMERATOR_DEPRECATED_VERSION_BELATED(5, 82, 5, 0, "Use Result_Overwrite.") = Result_Overwrite,
+    R_OVERWRITE_ALL KIOCORE_ENUMERATOR_DEPRECATED_VERSION_BELATED(5, 82, 5, 0, "Use Result_OverwriteAll.") = Result_OverwriteAll,
+    R_RESUME KIOCORE_ENUMERATOR_DEPRECATED_VERSION_BELATED(5, 82, 5, 0, "Use Result_Resume.") = Result_Resume,
+    R_RESUME_ALL KIOCORE_ENUMERATOR_DEPRECATED_VERSION_BELATED(5, 82, 5, 0, "Use Result_ResumeAll.") = Result_ResumeAll,
+    R_AUTO_RENAME KIOCORE_ENUMERATOR_DEPRECATED_VERSION_BELATED(5, 82, 5, 0, "Use Result_AutoRename.") = Result_AutoRename,
+    R_RETRY KIOCORE_ENUMERATOR_DEPRECATED_VERSION_BELATED(5, 82, 5, 0, "Use Result_Retry.") = Result_Retry,
 
-    S_CANCEL = Result_Cancel,
-    S_SKIP = Result_Skip,
-    S_AUTO_SKIP = Result_AutoSkip,
-    S_RETRY = Result_Retry,
+    S_CANCEL KIOCORE_ENUMERATOR_DEPRECATED_VERSION_BELATED(5, 82, 5, 0, "Use Result_Cancel.") = Result_Cancel,
+    S_SKIP KIOCORE_ENUMERATOR_DEPRECATED_VERSION_BELATED(5, 82, 5, 0, "Use Result_Skip.") = Result_Skip,
+    S_AUTO_SKIP KIOCORE_ENUMERATOR_DEPRECATED_VERSION_BELATED(5, 82, 5, 0, "Use Result_AutoSkip.") = Result_AutoSkip,
+    S_RETRY KIOCORE_ENUMERATOR_DEPRECATED_VERSION_BELATED(5, 82, 5, 0, "Use Result_Retry.") = Result_Retry,
 #endif
 };
 typedef RenameDialog_Result SkipDialog_Result;

@@ -39,7 +39,8 @@ enum Info {
     INF_ERROR_PAGE = 22,
     INF_WARNING = 23,
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(3, 0)
-    INF_GETTING_FILE, ///< @deprecated Since 3.0
+    INF_GETTING_FILE ///< @deprecated Since 3.0
+        KIOCORE_ENUMERATOR_DEPRECATED_VERSION_BELATED(5, 82, 3, 0, "No known users."),
 #else
     INF_GETTING_FILE_DEPRECATED_DO_NOT_USE,
 #endif
@@ -67,7 +68,8 @@ enum Message {
     MSG_RENAMED, ///< unused
     MSG_RESUME,
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 45)
-    MSG_SLAVE_STATUS, ///< @deprecated Since 5.45, use MSG_SLAVE_STATUS_V2
+    MSG_SLAVE_STATUS ///< @deprecated Since 5.45, use MSG_SLAVE_STATUS_V2
+        KIOCORE_ENUMERATOR_DEPRECATED_VERSION_BELATED(5, 82, 5, 45, "Use MSG_SLAVE_STATUS_V2."),
 #else
     MSG_SLAVE_STATUS_DEPRECATED_DO_NOT_USE,
 #endif
@@ -77,8 +79,10 @@ enum Message {
     MSG_NEED_SUBURL_DATA,
     MSG_CANRESUME,
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(3, 1)
-    MSG_AUTH_KEY, ///< @deprecated Since 3.1
-    MSG_DEL_AUTH_KEY, ///< @deprecated Since 3.1
+    MSG_AUTH_KEY ///< @deprecated Since 3.1
+        KIOCORE_ENUMERATOR_DEPRECATED_VERSION_BELATED(5, 82, 3, 1, "No known users."),
+    MSG_DEL_AUTH_KEY ///< @deprecated Since 3.1
+        KIOCORE_ENUMERATOR_DEPRECATED_VERSION_BELATED(5, 82, 3, 1, "No known users."),
 #else
     MSG_AUTH_KEY_DEPRECATED_DO_NOT_USE,
     MSG_DEL_AUTH_KEY_DEPRECATED_DO_NOT_USE,

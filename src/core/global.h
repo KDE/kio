@@ -162,61 +162,75 @@ enum Error {
     ERR_USER_CANCELED = KJob::KilledJobError,
     ERR_CYCLIC_COPY = KJob::UserDefinedError + 21,
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 0)
-    ERR_COULD_NOT_CREATE_SOCKET = KJob::UserDefinedError + 22, ///< @deprecated Since 5.0, use ERR_CANNOT_CREATE_SOCKET
+    ERR_COULD_NOT_CREATE_SOCKET KIOCORE_ENUMERATOR_DEPRECATED_VERSION_BELATED(5, 82, 5, 0, "Use ERR_CANNOT_CREATE_SOCKET.") =
+        KJob::UserDefinedError + 22, ///< @deprecated Since 5.0, use ERR_CANNOT_CREATE_SOCKET
 #endif
     ERR_CANNOT_CREATE_SOCKET = KJob::UserDefinedError + 22,
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 0)
-    ERR_COULD_NOT_CONNECT = KJob::UserDefinedError + 23, ///< @deprecated Since 5.0, use ERR_CANNOT_CONNECT
+    ERR_COULD_NOT_CONNECT KIOCORE_ENUMERATOR_DEPRECATED_VERSION_BELATED(5, 82, 5, 0, "Use ERR_CANNOT_CONNECT.") =
+        KJob::UserDefinedError + 23, ///< @deprecated Since 5.0, use ERR_CANNOT_CONNECT
 #endif
     ERR_CANNOT_CONNECT = KJob::UserDefinedError + 23,
     ERR_CONNECTION_BROKEN = KJob::UserDefinedError + 24,
     ERR_NOT_FILTER_PROTOCOL = KJob::UserDefinedError + 25,
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 0)
-    ERR_COULD_NOT_MOUNT = KJob::UserDefinedError + 26, ///< @deprecated Since 5.0, use ERR_CANNOT_MOUNT
+    ERR_COULD_NOT_MOUNT KIOCORE_ENUMERATOR_DEPRECATED_VERSION_BELATED(5, 82, 5, 0, "Use ERR_CANNOT_MOUNT.") =
+        KJob::UserDefinedError + 26, ///< @deprecated Since 5.0, use ERR_CANNOT_MOUNT
 #endif
     ERR_CANNOT_MOUNT = KJob::UserDefinedError + 26,
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 0)
-    ERR_COULD_NOT_UNMOUNT = KJob::UserDefinedError + 27, ///< @deprecated Since 5.0, use ERR_CANNOT_UNMOUNT
+    ERR_COULD_NOT_UNMOUNT KIOCORE_ENUMERATOR_DEPRECATED_VERSION_BELATED(5, 82, 5, 0, "Use ERR_CANNOT_UNMOUNT.") =
+        KJob::UserDefinedError + 27, ///< @deprecated Since 5.0, use ERR_CANNOT_UNMOUNT
 #endif
     ERR_CANNOT_UNMOUNT = KJob::UserDefinedError + 27,
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 0)
-    ERR_COULD_NOT_READ = KJob::UserDefinedError + 28, ///< @deprecated Since 5.0, use ERR_CANNOT_READ
+    ERR_COULD_NOT_READ KIOCORE_ENUMERATOR_DEPRECATED_VERSION_BELATED(5, 82, 5, 0, "Use ERR_CANNOT_READ.") =
+        KJob::UserDefinedError + 28, ///< @deprecated Since 5.0, use ERR_CANNOT_READ
 #endif
     ERR_CANNOT_READ = KJob::UserDefinedError + 28,
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 0)
-    ERR_COULD_NOT_WRITE = KJob::UserDefinedError + 29, ///< @deprecated Since 5.0, use ERR_CANNOT_WRITE
+    ERR_COULD_NOT_WRITE KIOCORE_ENUMERATOR_DEPRECATED_VERSION_BELATED(5, 82, 5, 0, "Use ERR_CANNOT_WRITE.") =
+        KJob::UserDefinedError + 29, ///< @deprecated Since 5.0, use ERR_CANNOT_WRITE
 #endif
     ERR_CANNOT_WRITE = KJob::UserDefinedError + 29,
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 0)
-    ERR_COULD_NOT_BIND = KJob::UserDefinedError + 30, ///< @deprecated Since 5.0, use ERR_CANNOT_BIND
+    ERR_COULD_NOT_BIND KIOCORE_ENUMERATOR_DEPRECATED_VERSION_BELATED(5, 82, 5, 0, "Use ERR_CANNOT_BIND.") =
+        KJob::UserDefinedError + 30, ///< @deprecated Since 5.0, use ERR_CANNOT_BIND
 #endif
     ERR_CANNOT_BIND = KJob::UserDefinedError + 30,
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 0)
-    ERR_COULD_NOT_LISTEN = KJob::UserDefinedError + 31, ///< @deprecated Since 5.0, use ERR_CANNOT_LISTEN
+    ERR_COULD_NOT_LISTEN KIOCORE_ENUMERATOR_DEPRECATED_VERSION_BELATED(5, 82, 5, 0, "Use ERR_CANNOT_LISTEN.") =
+        KJob::UserDefinedError + 31, ///< @deprecated Since 5.0, use ERR_CANNOT_LISTEN
 #endif
     ERR_CANNOT_LISTEN = KJob::UserDefinedError + 31,
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 0)
-    ERR_COULD_NOT_ACCEPT = KJob::UserDefinedError + 32, ///< @deprecated Since 5.0, use ERR_CANNOT_ACCEPT
+    ERR_COULD_NOT_ACCEPT KIOCORE_ENUMERATOR_DEPRECATED_VERSION_BELATED(5, 82, 5, 0, "Use ERR_CANNOT_ACCEPT.") =
+        KJob::UserDefinedError + 32, ///< @deprecated Since 5.0, use ERR_CANNOT_ACCEPT
 #endif
     ERR_CANNOT_ACCEPT = KJob::UserDefinedError + 32,
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 0)
-    ERR_COULD_NOT_LOGIN = KJob::UserDefinedError + 33, ///< @deprecated Since 5.0, use ERR_CANNOT_LOGIN
+    ERR_COULD_NOT_LOGIN KIOCORE_ENUMERATOR_DEPRECATED_VERSION_BELATED(5, 82, 5, 0, "Use ERR_CANNOT_LOGIN.") =
+        KJob::UserDefinedError + 33, ///< @deprecated Since 5.0, use ERR_CANNOT_LOGIN
 #endif
     ERR_CANNOT_LOGIN = KJob::UserDefinedError + 33,
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 0)
-    ERR_COULD_NOT_STAT = KJob::UserDefinedError + 34, ///< @deprecated Since 5.0, use ERR_CANNOT_STAT
+    ERR_COULD_NOT_STAT KIOCORE_ENUMERATOR_DEPRECATED_VERSION_BELATED(5, 82, 5, 0, "Use ERR_CANNOT_STAT.") =
+        KJob::UserDefinedError + 34, ///< @deprecated Since 5.0, use ERR_CANNOT_STAT
 #endif
     ERR_CANNOT_STAT = KJob::UserDefinedError + 34,
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 0)
-    ERR_COULD_NOT_CLOSEDIR = KJob::UserDefinedError + 35, ///< @deprecated Since 5.0, use ERR_CANNOT_CLOSEDIR
+    ERR_COULD_NOT_CLOSEDIR KIOCORE_ENUMERATOR_DEPRECATED_VERSION_BELATED(5, 82, 5, 0, "Use ERR_CANNOT_CLOSEDIR.") =
+        KJob::UserDefinedError + 35, ///< @deprecated Since 5.0, use ERR_CANNOT_CLOSEDIR
 #endif
     ERR_CANNOT_CLOSEDIR = KJob::UserDefinedError + 35,
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 0)
-    ERR_COULD_NOT_MKDIR = KJob::UserDefinedError + 37, ///< @deprecated Since 5.0, use ERR_CANNOT_MKDIR
+    ERR_COULD_NOT_MKDIR KIOCORE_ENUMERATOR_DEPRECATED_VERSION_BELATED(5, 82, 5, 0, "Use ERR_CANNOT_AUTHENTICATE.") =
+        KJob::UserDefinedError + 37, ///< @deprecated Since 5.0, use ERR_CANNOT_MKDIR
 #endif
     ERR_CANNOT_MKDIR = KJob::UserDefinedError + 37,
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 0)
-    ERR_COULD_NOT_RMDIR = KJob::UserDefinedError + 38, ///< @deprecated Since 5.0, use ERR_CANNOT_RMDIR
+    ERR_COULD_NOT_RMDIR KIOCORE_ENUMERATOR_DEPRECATED_VERSION_BELATED(5, 82, 5, 0, "Use ERR_CANNOT_RMDIR.") =
+        KJob::UserDefinedError + 38, ///< @deprecated Since 5.0, use ERR_CANNOT_RMDIR
 #endif
     ERR_CANNOT_RMDIR = KJob::UserDefinedError + 38,
     ERR_CANNOT_RESUME = KJob::UserDefinedError + 39,
@@ -229,7 +243,8 @@ enum Error {
     ERR_OUT_OF_MEMORY = KJob::UserDefinedError + 44,
     ERR_UNKNOWN_PROXY_HOST = KJob::UserDefinedError + 45,
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 0)
-    ERR_COULD_NOT_AUTHENTICATE = KJob::UserDefinedError + 46, ///< @deprecated Since 5.0, use ERR_CANNOT_AUTHENTICATE
+    ERR_COULD_NOT_AUTHENTICATE KIOCORE_ENUMERATOR_DEPRECATED_VERSION_BELATED(5, 82, 5, 0, "Use ERR_CANNOT_AUTHENTICATE.") =
+        KJob::UserDefinedError + 46, ///< @deprecated Since 5.0, use ERR_CANNOT_AUTHENTICATE
 #endif
     ERR_CANNOT_AUTHENTICATE = KJob::UserDefinedError + 46,
     ERR_ABORTED = KJob::UserDefinedError + 47, ///< Action got aborted from application side
@@ -259,7 +274,8 @@ enum Error {
     ///< the server in order to continue.
     ERR_POST_DENIED = KJob::UserDefinedError + 65, ///< Issued when trying to POST data to a certain Ports
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 0)
-    ERR_COULD_NOT_SEEK = KJob::UserDefinedError + 66, ///< @deprecated Since 5.0, use ERR_CANNOT_SEEK
+    ERR_COULD_NOT_SEEK KIOCORE_ENUMERATOR_DEPRECATED_VERSION_BELATED(5, 82, 5, 0, "Use ERR_CANNOT_SEEK.") =
+        KJob::UserDefinedError + 66, ///< @deprecated Since 5.0, use ERR_CANNOT_SEEK
 #endif
     // see job.cpp
     ERR_CANNOT_SEEK = KJob::UserDefinedError + 66,

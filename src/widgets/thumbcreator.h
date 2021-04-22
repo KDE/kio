@@ -93,7 +93,8 @@ public:
     enum Flags {
         None = 0, /**< No hints. */
 #if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 32)
-        DrawFrame = 1, /**< \deprecated since 5.32. Used to paint a frame around the preview, but applications take care of that nowadays. */
+        DrawFrame KIOWIDGETS_ENUMERATOR_DEPRECATED_VERSION_BELATED(5, 82, 5, 32, "See API dox") =
+            1, /**< \deprecated since 5.32. Used to paint a frame around the preview, but applications take care of that nowadays. */
 #endif
         BlendIcon = 2, /**< The MIME type icon should be blended over the preview. */
     };
