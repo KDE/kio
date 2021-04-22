@@ -9,7 +9,6 @@
 
 #include "kiofilewidgets_export.h"
 #include <QDialog>
-class KLineEdit;
 class KUrlRequester;
 class KNameAndUrlInputDialogPrivate;
 class QUrl;
