@@ -198,12 +198,26 @@ void KFilePlacesViewDelegate::paint(QPainter *painter, const QStyleOptionViewIte
 
     bool isLTR = opt.direction == Qt::LeftToRight;
 
+    const QPalette activePalette = KIconLoader::global()->customPalette();
+    const bool changePalette = activePalette != opt.palette;
+    if (changePalette) {
+        KIconLoader::global()->setCustomPalette(opt.palette);
+    }
+
     QIcon icon = index.model()->data(index, Qt::DecorationRole).value<QIcon>();
     QPixmap pm =
         icon.pixmap(m_iconSize, m_iconSize, (opt.state & QStyle::State_Selected) && (opt.state & QStyle::State_Active) ? QIcon::Selected : QIcon::Normal);
     QPoint point(isLTR ? opt.rect.left() + s_lateralMargin : opt.rect.right() - s_lateralMargin - m_iconSize,
                  opt.rect.top() + (opt.rect.height() - m_iconSize) / 2);
     painter->drawPixmap(point, pm);
+
+    if (changePalette) {
+        if (activePalette == QPalette()) {
+            KIconLoader::global()->resetPalette();
+        } else {
+            KIconLoader::global()->setCustomPalette(activePalette);
+        }
+    }
 
     if (opt.state & QStyle::State_Selected) {
         QPalette::ColorGroup cg = QPalette::Active;
