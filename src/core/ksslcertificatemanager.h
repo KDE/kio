@@ -17,7 +17,6 @@
 #include <QStringList>
 
 class QDBusArgument;
-class QSslCertificate;
 class KSslCertificateRulePrivate;
 class KSslCertificateManagerPrivate;
 

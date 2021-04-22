@@ -23,7 +23,6 @@ class KLineEdit;
 class KUrlCompletion;
 
 class QEvent;
-class QPushButton;
 class QString;
 
 /**
