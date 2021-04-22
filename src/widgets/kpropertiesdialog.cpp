@@ -804,7 +804,7 @@ public:
     KCapacityBar *m_capacityBar = nullptr;
     QString mimeType;
     QString oldFileName;
-    KLineEdit *m_lined = nullptr;
+    QLineEdit *m_lined = nullptr;
     QLabel *m_fileNameLabel = nullptr;
     QGridLayout *m_grid = nullptr;
 
@@ -816,7 +816,7 @@ public:
     QPushButton *m_sizeStopButton = nullptr;
     QPushButton *m_sizeDetailsButton = nullptr;
 
-    KLineEdit *m_linkTargetLineEdit = nullptr;
+    QLineEdit *m_linkTargetLineEdit = nullptr;
 
     QString m_sRelativePath;
     bool m_bFromTemplate;
@@ -1028,7 +1028,7 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
         }
 
     } else {
-        d->m_lined = new KLineEdit(d->m_frame);
+        d->m_lined = new QLineEdit(d->m_frame);
         d->m_lined->setObjectName(QStringLiteral("KFilePropsPlugin::nameLineEdit"));
         d->m_lined->setText(filename);
         d->m_lined->setFocus();
@@ -1163,7 +1163,7 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
         l = new QLabel(i18n("Points to:"), d->m_frame);
         grid->addWidget(l, curRow, 0, Qt::AlignRight);
 
-        d->m_linkTargetLineEdit = new KLineEdit(firstItem.linkDest(), d->m_frame);
+        d->m_linkTargetLineEdit = new QLineEdit(firstItem.linkDest(), d->m_frame);
         connect(d->m_linkTargetLineEdit, &QLineEdit::textChanged, this, QOverload<>::of(&KFilePropsPlugin::setDirty));
 
         QPushButton *goThereButton = new QPushButton(d->m_frame);

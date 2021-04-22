@@ -6,7 +6,7 @@
 
 #include "knameandurlinputdialog.h"
 
-#include <KLineEdit>
+#include <KLineEdit> // For KUrlRequester::lineEdit()
 #include <QDialogButtonBox>
 #include <QFormLayout>
 #include <QVBoxLayout>

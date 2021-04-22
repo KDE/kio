@@ -22,7 +22,7 @@
       </widget>
      </item>
      <item row="0" column="1">
-      <widget class="KLineEdit" name="nameEdit">
+      <widget class="QLineEdit" name="nameEdit">
        <property name="whatsThis">
         <string>Type the name you want to give to this application here. This application will appear under this name in the applications menu and in the panel.</string>
        </property>
@@ -42,7 +42,7 @@
       </widget>
      </item>
      <item row="1" column="1">
-      <widget class="KLineEdit" name="genNameEdit">
+      <widget class="QLineEdit" name="genNameEdit">
        <property name="whatsThis">
         <string>Type the description of this application, based on its use, here. Examples: a dial up application (KPPP) would be &quot;Dial up tool&quot;.</string>
        </property>
@@ -62,7 +62,7 @@
       </widget>
      </item>
      <item row="2" column="1">
-      <widget class="KLineEdit" name="commentEdit">
+      <widget class="QLineEdit" name="commentEdit">
        <property name="whatsThis">
         <string>Type any comment you think is useful here.</string>
        </property>
@@ -94,7 +94,7 @@ Following the command, you can have several placeholders which will be replaced 
      <item row="3" column="1">
       <layout class="QHBoxLayout" name="horizontalLayout">
        <item>
-        <widget class="KLineEdit" name="commandEdit">
+        <widget class="QLineEdit" name="commandEdit">
          <property name="whatsThis">
           <string>Type the command to start this application here.
 
@@ -254,11 +254,6 @@ Following the command, you can have several placeholders which will be replaced 
    <extends>QFrame</extends>
    <header>kurlrequester.h</header>
    <container>1</container>
-  </customwidget>
-  <customwidget>
-   <class>KLineEdit</class>
-   <extends>QLineEdit</extends>
-   <header>klineedit.h</header>
   </customwidget>
   <customwidget>
    <class>KSeparator</class>

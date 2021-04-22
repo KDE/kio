@@ -11,7 +11,7 @@
 #include <KAboutData>
 #include <KConfig>
 #include <KIconButton>
-#include <KLineEdit>
+#include <KLineEdit> // For KUrlRequester::lineEdit()
 #include <KLocalizedString>
 #include <kio/global.h>
 #include <kprotocolinfo.h>

@@ -32,7 +32,7 @@
     </widget>
    </item>
    <item row="2" column="0">
-    <widget class="KLineEdit" name="searchLineEdit">
+    <widget class="QLineEdit" name="searchLineEdit">
      <property name="placeholderText">
       <string>Search for web search keywords</string>
      </property>
@@ -219,13 +219,6 @@ Select the search engine to use for input boxes that provide automatic lookup se
    </item>
   </layout>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>KLineEdit</class>
-   <extends>QLineEdit</extends>
-   <header>klineedit.h</header>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections>
   <connection>

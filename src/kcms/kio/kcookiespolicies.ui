@@ -221,11 +221,6 @@ List of sites for which you have set a specific cookie policy. Specific policies
  </widget>
  <customwidgets>
   <customwidget>
-   <class>QLineEdit</class>
-   <extends>QLineEdit</extends>
-   <header>klineedit.h</header>
-  </customwidget>
-  <customwidget>
    <class>KTreeWidgetSearchLine</class>
    <extends>QLineEdit</extends>
    <header>ktreewidgetsearchline.h</header>

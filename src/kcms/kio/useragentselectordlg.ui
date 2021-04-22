@@ -112,11 +112,6 @@ The actual browser identification text that will be sent to the remote machine.
   </layout>
  </widget>
  <customwidgets>
-  <customwidget>
-   <class>QLineEdit</class>
-   <extends>QLineEdit</extends>
-   <header>klineedit.h</header>
-  </customwidget>
  </customwidgets>
  <resources/>
  <connections/>

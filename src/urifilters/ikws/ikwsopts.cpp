@@ -21,6 +21,7 @@
 #include <QDBusConnection>
 #include <QDBusMessage>
 #include <QFile>
+#include <QPointer>
 #include <QSortFilterProxyModel>
 
 // BEGIN ProvidersModel
