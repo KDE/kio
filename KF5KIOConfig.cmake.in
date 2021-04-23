@@ -21,7 +21,9 @@ find_dependency(KF5WindowSystem "@KF_DEP_VERSION@")
 endif()
 
 find_dependency(Qt5Network "@REQUIRED_QT_VERSION@")
+if (NOT @KIO_NO_PUBLIC_QTCONCURRENT@)
 find_dependency(Qt5Concurrent "@REQUIRED_QT_VERSION@")
+endif()
 find_dependency(Qt5DBus "@REQUIRED_QT_VERSION@")
 
 include("${CMAKE_CURRENT_LIST_DIR}/KF5KIOTargets.cmake")

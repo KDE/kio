@@ -201,7 +201,6 @@ PUBLIC
  KF5::CoreAddons   # KJob
  KF5::Service # TODO KF6 move to PRIVATE
  Qt5::Network
- Qt5::Concurrent            # QtConcurrentRun in hostinfo.cpp # TODO KF6 move to PRIVATE
  Qt5::DBus
 PRIVATE
  Qt5::Xml                   # davjob.cpp uses QDom
@@ -210,6 +209,12 @@ PRIVATE
  KF5::Crash
  KF5::DBusAddons            # KDEInitInterface
 )
+
+if(KIO_NO_PUBLIC_QTCONCURRENT)
+  target_link_libraries(KF5KIOCore PRIVATE Qt5::Concurrent) # QtConcurrentRun in hostinfo.cpp
+else()
+  target_link_libraries(KF5KIOCore PUBLIC Qt5::Concurrent) # TODO KF6: remove
+endif()
 
 if (UNIX)
   target_link_libraries(KF5KIOCore PRIVATE KF5::AuthCore)   #SlaveBase uses KAuth::Action

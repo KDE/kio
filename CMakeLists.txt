@@ -49,6 +49,9 @@ option(KIO_ASSERT_SLAVE_STATES
     "Used to control whether slave state assertions are enabled. When not enabled only warnings are generated."
     ${ASSERT_SLAVE_STATES_DEFAULT})
 
+# TODO KF6: remove
+option(KIO_NO_PUBLIC_QTCONCURRENT "Privatize QtConcurrent linking, so KIO does not provide the target to revdeps.")
+
 option(BUILD_QCH "Build API documentation in QCH format (for e.g. Qt Assistant, Qt Creator & KDevelop)" OFF)
 add_feature_info(QCH ${BUILD_QCH} "API documentation in QCH format (for e.g. Qt Assistant, Qt Creator & KDevelop)")
 
