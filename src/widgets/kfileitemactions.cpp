@@ -9,6 +9,7 @@
 #include "kfileitemactions.h"
 #include "kfileitemactions_p.h"
 #include <KAbstractFileItemActionPlugin>
+#include <KApplicationTrader>
 #include <KAuthorized>
 #include <KConfigGroup>
 #include <KDesktopFile>
@@ -312,16 +313,22 @@ KService::List KFileItemActions::associatedApplications(const QStringList &mimeT
     return result;
 }
 
-// KMimeTypeTrader::preferredService doesn't take a constraint
 static KService::Ptr preferredService(const QString &mimeType, const QStringList &excludedDesktopEntryNames, const QString &constraint)
 {
-    const KService::List services = KMimeTypeTrader::self()->query(mimeType, QStringLiteral("Application"), constraint);
-    for (const auto &service : services) {
-        if (!excludedDesktopEntryNames.contains(service->desktopEntryName())) {
-            return service;
-        }
+    KService::List services;
+    if (constraint.isEmpty()) {
+        services = KApplicationTrader::queryByMimeType(mimeType, [&](const KService::Ptr &serv) {
+            return !excludedDesktopEntryNames.contains(serv->desktopEntryName());
+        });
     }
-    return KService::Ptr();
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 82)
+    else {
+        Q_ASSERT(excludedDesktopEntryNames.isEmpty());
+        // KMimeTypeTrader::preferredService doesn't take a constraint
+        services = KMimeTypeTrader::self()->query(mimeType, QStringLiteral("Application"), constraint);
+    }
+#endif
+    return services.isEmpty() ? KService::Ptr() : services.first();
 }
 
 #if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 82)
@@ -435,12 +442,8 @@ KFileItemActionsPrivate::listPreferredServiceIds(const QStringList &mimeTypeList
     QStringList serviceIdList;
     serviceIdList.reserve(mimeTypeList.size());
     for (const QString &mimeType : mimeTypeList) {
-        const KService::Ptr serv = preferredService(mimeType, QStringList(), traderConstraint);
-        if (serv && !excludedDesktopEntryNames.contains(serv->desktopEntryName())) {
-            serviceIdList << serv->storageId();
-        } else {
-            serviceIdList << QString(); // empty string means mimetype has no associated apps
-        }
+        const KService::Ptr serv = preferredService(mimeType, excludedDesktopEntryNames, traderConstraint);
+        serviceIdList << (serv ? serv->storageId() : QString()); // empty string means mimetype has no associated apps
     }
     serviceIdList.removeDuplicates();
     return serviceIdList;
