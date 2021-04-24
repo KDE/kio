@@ -13,6 +13,8 @@
 #include <QDateTime>
 #include <kio/global.h>
 
+#include <KCompositeJob>
+
 namespace KIO
 {
 /**
@@ -70,7 +72,18 @@ KIOCORE_EXPORT void setDefaultJobUiDelegateFactory(JobUiDelegateFactory *factory
 template<typename T>
 inline T delegateExtension(KJob *job)
 {
-    const KJobUiDelegate *ui = job->uiDelegate();
+    KJobUiDelegate *ui = job->uiDelegate();
+
+    // Try the ui delegate of the parent(s)
+    while (!ui) {
+        job = qobject_cast<KCompositeJob *>(job->parent());
+        if (job) {
+            ui = job->uiDelegate();
+        } else {
+            break;
+        }
+    }
+
     return ui ? ui->findChild<T>(QString(), Qt::FindDirectChildrenOnly) : nullptr;
 }
 
