@@ -17,6 +17,7 @@ QTEST_MAIN(KDirListerTest)
 #include <kio/copyjob.h>
 #include <kio/deletejob.h>
 #include <kio/job.h>
+#include <kio/jobuidelegateextension.h>
 #include <kprotocolinfo.h>
 
 #define WORKAROUND_BROKEN_INOTIFY 0

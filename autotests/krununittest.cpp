@@ -26,6 +26,7 @@ QTEST_GUILESS_MAIN(KRunUnitTest)
 #include <KSharedConfig>
 #include <KShell>
 #include <desktopexecparser.h>
+#include <global.h>
 #include <kprotocolinfo.h>
 #ifdef Q_OS_UNIX
 #include <signal.h> // kill
