@@ -120,10 +120,7 @@ set_package_properties(ACL PROPERTIES DESCRIPTION "LibACL"
                        TYPE RECOMMENDED
                        PURPOSE "Support for manipulating access control lists")
 
-# Qt 5.13 deprecated QComboBox::currentIndexChanged(QString) and Qt 5.14 undid that...
-if (NOT Qt5Widgets_VERSION VERSION_LESS 5.14.0)
 add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050f00)
-endif()
 add_definitions(-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x055100)
 # we use KPixmapProvider in public API
 add_definitions(-DKCOMPLETION_DISABLE_DEPRECATED_BEFORE_AND_AT=0x054100)
