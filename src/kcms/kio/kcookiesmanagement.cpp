@@ -17,7 +17,6 @@
 #include <QPushButton>
 
 // KDE
-#include <KIconLoader>
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <QDateTime>

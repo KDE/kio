@@ -27,7 +27,6 @@
 // KDE
 #include <KConfig>
 #include <KConfigGroup>
-#include <KIconLoader>
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <QUrl>

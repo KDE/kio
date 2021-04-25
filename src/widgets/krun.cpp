@@ -39,7 +39,6 @@
 #include "krecentdocument.h"
 #include "widgetsuntrustedprogramhandler.h"
 #include <KApplicationTrader>
-#include <KIconLoader>
 #include <KJobUiDelegate>
 #include <kio/desktopexecparser.h>
 
