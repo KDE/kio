@@ -126,16 +126,14 @@ KMountPoint::~KMountPoint() = default;
 
 void KMountPointPrivate::finalizePossibleMountPoint(KMountPoint::DetailsNeededFlags infoNeeded)
 {
+    const QStringView strView{m_mountedFrom};
     if (m_mountedFrom.startsWith(QLatin1String("UUID="))) {
-        const QStringRef uuid = m_mountedFrom.midRef(5);
-        const QString potentialDevice = QFile::symLinkTarget(QLatin1String("/dev/disk/by-uuid/") + uuid);
+        const QString potentialDevice = QFile::symLinkTarget(QLatin1String("/dev/disk/by-uuid/") + strView.mid(5));
         if (QFile::exists(potentialDevice)) {
             m_mountedFrom = potentialDevice;
         }
-    }
-    if (m_mountedFrom.startsWith(QLatin1String("LABEL="))) {
-        const QStringRef label = m_mountedFrom.midRef(6);
-        const QString potentialDevice = QFile::symLinkTarget(QLatin1String("/dev/disk/by-label/") + label);
+    } else if (m_mountedFrom.startsWith(QLatin1String("LABEL="))) {
+        const QString potentialDevice = QFile::symLinkTarget(QLatin1String("/dev/disk/by-label/") + strView.mid(6));
         if (QFile::exists(potentialDevice)) {
             m_mountedFrom = potentialDevice;
         }
