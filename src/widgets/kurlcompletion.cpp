@@ -1414,8 +1414,8 @@ static bool expandEnv(QString &text)
             //
             if (pos2 >= 0) {
                 int len = pos2 - pos;
-                const QStringRef key = text.midRef(pos + 1, len - 1);
-                QString value = QString::fromLocal8Bit(qgetenv(key.toLocal8Bit().constData()));
+                const QStringView key = QStringView(text).mid(pos + 1, len - 1);
+                const QString value = QString::fromLocal8Bit(qgetenv(key.toLocal8Bit().constData()));
 
                 if (!value.isEmpty()) {
                     expanded = true;

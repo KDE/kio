@@ -58,20 +58,23 @@ QString HelpProtocol::langLookup(const QString &fname)
         }
     }
 
+    auto isFileExistsReadable = [](const QString &str) {
+        QFileInfo info(str);
+        return info.exists() && info.isFile() && info.isReadable();
+    };
+
     // try to locate the file
     for (const QString &path : qAsConst(search)) {
         // qDebug() << "Looking for help in: " << path;
 
-        QFileInfo info(path);
-        if (info.exists() && info.isFile() && info.isReadable()) {
+        if (isFileExistsReadable(path)) {
             return path;
         }
 
         if (path.endsWith(QLatin1String(".html"))) {
-            const QString file = path.leftRef(path.lastIndexOf(QLatin1Char('/'))) + QLatin1String("/index.docbook");
+            const QString file = QStringView(path).left(path.lastIndexOf(QLatin1Char('/'))) + QLatin1String("/index.docbook");
             // qDebug() << "Looking for help in: " << file;
-            info.setFile(file);
-            if (info.exists() && info.isFile() && info.isReadable()) {
+            if (isFileExistsReadable(file)) {
                 return path;
             }
         }
@@ -188,13 +191,13 @@ void HelpProtocol::get(const QUrl &url)
             return;
         }
     } else {
-        const QString docbook_file = file.leftRef(file.lastIndexOf(QLatin1Char('/'))) + QLatin1String("/index.docbook");
+        const QString docbook_file = QStringView(file).left(file.lastIndexOf(QLatin1Char('/'))) + QLatin1String("/index.docbook");
         if (!QFile::exists(file)) {
             file = docbook_file;
         } else {
             QFileInfo fi(file);
             if (fi.isDir()) {
-                file = file + QLatin1String("/index.docbook");
+                file += QLatin1String("/index.docbook");
             } else {
                 if (!file.endsWith(QLatin1String(".html")) || !compareTimeStamps(file, docbook_file)) {
                     get_file(file);
@@ -299,12 +302,12 @@ void HelpProtocol::get(const QUrl &url)
                         QString filename = mParsed.mid(index, 2000);
                         filename = filename.left(filename.indexOf(QLatin1Char('\"')));
                         QString path = target.path();
-                        path = path.leftRef(path.lastIndexOf(QLatin1Char('/')) + 1) + filename;
+                        path = QStringView(path).left(path.lastIndexOf(QLatin1Char('/')) + 1) + filename;
                         target.setPath(path);
                         // qDebug() << "anchor found in " << target;
                         break;
                     }
-                    index++;
+                    ++index;
                 }
             }
             emitFile(target);

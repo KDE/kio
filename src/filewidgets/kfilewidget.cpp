@@ -2401,14 +2401,15 @@ void KFileWidgetPrivate::updateLocationEditExtension(const QString &lastExtensio
         return;
     }
 
-    QString urlStr = locationEditCurrentText();
+    const QString urlStr = locationEditCurrentText();
     if (urlStr.isEmpty()) {
         return;
     }
 
-    QUrl url = getCompleteUrl(urlStr);
+    const QUrl url = getCompleteUrl(urlStr);
     //     qDebug() << "updateLocationEditExtension (" << url << ")";
 
+    const QStringView urlStrView{urlStr};
     const int fileNameOffset = urlStr.lastIndexOf(QLatin1Char('/')) + 1;
     QString fileName = urlStr.mid(fileNameOffset);
 
@@ -2442,14 +2443,12 @@ void KFileWidgetPrivate::updateLocationEditExtension(const QString &lastExtensio
             fileName.chop(lastExtension.length());
         } else if (m_extension.length() && fileName.endsWith(m_extension)) {
             fileName.chop(m_extension.length());
-        }
-        // can only handle "single extensions"
-        else {
+        } else { // can only handle "single extensions"
             fileName.truncate(dot);
         }
 
         // add extension
-        const QString newText = urlStr.leftRef(fileNameOffset) + fileName + m_extension;
+        const QString newText = urlStrView.left(fileNameOffset) + fileName + m_extension;
         if (newText != locationEditCurrentText()) {
             m_locationEdit->setItemText(m_locationEdit->currentIndex(), newText);
             m_locationEdit->lineEdit()->setModified(true);

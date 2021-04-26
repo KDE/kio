@@ -1299,7 +1299,14 @@ bool TrashImpl::parseURL(const QUrl &url, int &trashId, QString &fileId, QString
         return false;
     }
     bool ok = false;
+
+    // QStringView::toInt() implementation in Qt5 isn't tuned for performance
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    trashId = QStringView(path).mid(start, slashPos - start).toInt(&ok);
+#else
     trashId = path.midRef(start, slashPos - start).toInt(&ok);
+#endif
+
     Q_ASSERT(ok);
     if (!ok) {
         return false;

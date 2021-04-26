@@ -504,7 +504,7 @@ bool KFileItemActionsPrivate::shouldDisplayServiceMenu(const KConfigGroup &cfg, 
     if (cfg.hasKey("X-KDE-Protocol")) {
         const QString theProtocol = cfg.readEntry("X-KDE-Protocol");
         if (theProtocol.startsWith(QLatin1Char('!'))) {
-            const QStringRef excludedProtocol = theProtocol.midRef(1);
+            const QStringView excludedProtocol{QStringView(theProtocol).mid(1)};
             if (excludedProtocol == protocol) {
                 return false;
             }

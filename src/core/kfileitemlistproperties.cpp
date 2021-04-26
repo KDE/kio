@@ -199,7 +199,8 @@ void KFileItemListPropertiesPrivate::determineMimeTypeAndGroup() const
         // Determine if common MIME type among all items
         if (m_mimeType != itemMimeType) {
             m_mimeType.clear();
-            if (m_mimeGroup != itemMimeType.leftRef(itemMimeType.indexOf(QLatin1Char('/')))) {
+            const auto type = QStringView(itemMimeType).left(itemMimeType.indexOf(QLatin1Char('/')));
+            if (m_mimeGroup != type) {
                 m_mimeGroup.clear(); // MIME type groups are different as well!
             }
         }

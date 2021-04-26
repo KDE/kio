@@ -136,10 +136,8 @@ bool KShortUriFilter::filterUri(KUriFilterData &data) const
     if (cmd.count(QLatin1Char('@')) > 1) {
         const int lastIndex = cmd.lastIndexOf(QLatin1Char('@'));
         // Percent encode all but the last '@'.
-        QString encodedCmd = QString::fromUtf8(QUrl::toPercentEncoding(cmd.left(lastIndex), QByteArrayLiteral(":/")));
-        encodedCmd += cmd.midRef(lastIndex);
-        cmd = encodedCmd;
-        url.setUrl(encodedCmd);
+        cmd = QString::fromUtf8(QUrl::toPercentEncoding(cmd.left(lastIndex), QByteArrayLiteral(":/"))) + QStringView(cmd).mid(lastIndex);
+        url.setUrl(cmd);
     }
 
     const bool isMalformed = !url.isValid();
@@ -171,11 +169,11 @@ bool KShortUriFilter::filterUri(KUriFilterData &data) const
     const QString man_proto = QStringLiteral("man:");
     const QString info_proto = QStringLiteral("info:");
     if (cmd.startsWith(QLatin1Char('#')) || cmd.indexOf(man_proto) == 0 || cmd.indexOf(info_proto) == 0) {
-        if (cmd.leftRef(2) == QLatin1String("##")) {
-            cmd = QLatin1String("info:/") + cmd.midRef(2);
+        if (QStringView(cmd).left(2) == QLatin1String("##")) {
+            cmd = QLatin1String("info:/") + QStringView(cmd).mid(2);
         } else if (cmd.startsWith(QLatin1Char('#'))) {
-            cmd = QLatin1String("man:/") + cmd.midRef(1);
-        } else if ((cmd == info_proto) || (cmd == man_proto)) {
+            cmd = QLatin1String("man:/") + QStringView(cmd).mid(1);
+        } else if (cmd == info_proto || cmd == man_proto) {
             cmd += QLatin1Char('/');
         }
 
@@ -260,7 +258,7 @@ bool KShortUriFilter::filterUri(KUriFilterData &data) const
         static const QRegularExpression envVarExp(QStringLiteral("\\$[a-zA-Z_][a-zA-Z0-9_]*"));
         const auto match = envVarExp.match(path);
         if (match.hasMatch()) {
-            const QByteArray exp = qgetenv(path.midRef(1, match.capturedLength() - 1).toLocal8Bit().data());
+            const QByteArray exp = qgetenv(QStringView(path).mid(1, match.capturedLength() - 1).toLocal8Bit().constData());
             if (!exp.isEmpty()) {
                 path.replace(0, match.capturedLength(), QFile::decodeName(exp));
                 expanded = true;

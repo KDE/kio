@@ -225,8 +225,8 @@ public:
 
         for (QString &qFilter : qFilters) {
             int sep = qFilter.indexOf(QLatin1Char('|'));
-            const QStringRef globs = qFilter.leftRef(sep);
-            const QStringRef desc = qFilter.midRef(sep + 1);
+            const auto globs = QStringView(qFilter).left(sep);
+            const auto desc = QStringView(qFilter).mid(sep + 1);
             qFilter = desc + QLatin1String(" (") + globs + QLatin1Char(')');
         }
 
