@@ -137,19 +137,15 @@ static void translateMountOptions(QStringList &list, uint64_t flags)
 
 void KMountPointPrivate::finalizePossibleMountPoint(KMountPoint::DetailsNeededFlags infoNeeded)
 {
-    if (m_mountedFrom.startsWith(QLatin1String("UUID="))) {
-        const QStringRef uuid = m_mountedFrom.midRef(5);
-        const QString potentialDevice = QFile::symLinkTarget(QLatin1String("/dev/disk/by-uuid/") + uuid);
-        if (QFile::exists(potentialDevice)) {
-            m_mountedFrom = potentialDevice;
-        }
+    QString potentialDevice;
+    if (const auto tag = QLatin1String("UUID="); m_mountedFrom.startsWith(tag)) {
+        potentialDevice = QFile::symLinkTarget(QLatin1String("/dev/disk/by-uuid/") + QStringView(m_mountedFrom).mid(tag.size()));
+    } else if (const auto tag = QLatin1String("LABEL="); m_mountedFrom.startsWith(tag)) {
+        potentialDevice = QFile::symLinkTarget(QLatin1String("/dev/disk/by-label/") + QStringView(m_mountedFrom).mid(tag.size()));
     }
-    if (m_mountedFrom.startsWith(QLatin1String("LABEL="))) {
-        const QStringRef label = m_mountedFrom.midRef(6);
-        const QString potentialDevice = QFile::symLinkTarget(QLatin1String("/dev/disk/by-label/") + label);
-        if (QFile::exists(potentialDevice)) {
-            m_mountedFrom = potentialDevice;
-        }
+
+    if (QFile::exists(potentialDevice)) {
+        m_mountedFrom = potentialDevice;
     }
 
     if (infoNeeded & KMountPoint::NeedRealDeviceName) {
