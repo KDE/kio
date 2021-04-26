@@ -44,30 +44,24 @@ static bool KIOSKAuthorizedAction(const KConfigGroup &cfg)
 
 static bool mimeTypeListContains(const QStringList &list, const KFileItem &item)
 {
-    const QString itemMimeType = item.mimetype();
-    return std::any_of(list.constBegin(), list.constEnd(), [itemMimeType, item](const QString &i) {
-        if (i == itemMimeType || i == QLatin1String("all/all")) {
-            return true;
-        }
-        if (item.isFile() && (i == QLatin1String("allfiles") || i == QLatin1String("all/allfiles") || i == QLatin1String("application/octet-stream"))) {
+    return std::any_of(list.cbegin(), list.cend(), [item](const QString &mimeType) {
+        const QString itemMimeType = item.mimetype();
+        if (mimeType == itemMimeType || mimeType == QLatin1String("all/all")) {
             return true;
         }
 
-        if (item.currentMimeType().inherits(i)) {
+        if (item.isFile() //
+            && (mimeType == QLatin1String("allfiles") || mimeType == QLatin1String("all/allfiles") || mimeType == QLatin1String("application/octet-stream"))) {
             return true;
         }
 
-        const int iSlashPos = i.indexOf(QLatin1Char(QLatin1Char('/')));
-        Q_ASSERT(iSlashPos > 0);
-        const QStringRef iSubType = i.midRef(iSlashPos + 1);
+        if (item.currentMimeType().inherits(mimeType)) {
+            return true;
+        }
 
-        if (iSubType == QLatin1String("*")) {
-            const int itemSlashPos = itemMimeType.indexOf(QLatin1Char('/'));
-            Q_ASSERT(itemSlashPos > 0);
-            const QStringRef iTopLevelType = i.midRef(0, iSlashPos);
-            const QStringRef itemTopLevelType = itemMimeType.midRef(0, itemSlashPos);
-
-            return itemTopLevelType == iTopLevelType;
+        if (mimeType.endsWith(QLatin1String("/*"))) {
+            const int slashPos = mimeType.indexOf(QLatin1Char('/'));
+            return itemMimeType.startsWith(QStringView(mimeType).mid(0, slashPos));
         }
         return false;
     });

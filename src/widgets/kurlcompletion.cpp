@@ -1144,36 +1144,30 @@ void KUrlCompletionPrivate::_k_slotEntries(KIO::Job *, const KIO::UDSEntryList &
 {
     QStringList matchList;
 
-    KIO::UDSEntryList::ConstIterator it = entries.constBegin();
-    const KIO::UDSEntryList::ConstIterator end = entries.constEnd();
-
-    QString filter = list_urls_filter;
-
-    int filter_len = filter.length();
+    const QString filter = list_urls_filter;
+    const int filterLength = filter.length();
 
     // Iterate over all files
-    //
-    for (; it != end; ++it) {
-        const KIO::UDSEntry &entry = *it;
+    for (const auto &entry : entries) {
         const QString url = entry.stringValue(KIO::UDSEntry::UDS_URL);
 
-        QString entry_name;
+        QString entryName;
         if (!url.isEmpty()) {
             // qDebug() << "url:" << url;
-            entry_name = QUrl(url).fileName();
+            entryName = QUrl(url).fileName();
         } else {
-            entry_name = entry.stringValue(KIO::UDSEntry::UDS_NAME);
+            entryName = entry.stringValue(KIO::UDSEntry::UDS_NAME);
         }
 
         // This can happen with kdeconnect://deviceId as a completion for kdeconnect:/,
         // there's no fileName [and the UDS_NAME is unrelated, can't use that].
         // This code doesn't support completing hostnames anyway (see addPathToUrl below).
-        if (entry_name.isEmpty()) {
+        if (entryName.isEmpty()) {
             continue;
         }
 
-        if (entry_name.at(0) == QLatin1Char('.')
-            && (list_urls_no_hidden || entry_name.length() == 1 || (entry_name.length() == 2 && entry_name.at(1) == QLatin1Char('.')))) {
+        if (entryName.at(0) == QLatin1Char('.')
+            && (list_urls_no_hidden || entryName.length() == 1 || (entryName.length() == 2 && entryName.at(1) == QLatin1Char('.')))) {
             continue;
         }
 
@@ -1183,7 +1177,7 @@ void KUrlCompletionPrivate::_k_slotEntries(KIO::Job *, const KIO::UDSEntryList &
             continue;
         }
 
-        if (filter_len != 0 && entry_name.leftRef(filter_len) != filter) {
+        if (filterLength != 0 && QStringView(entryName).left(filterLength) != filter) {
             continue;
         }
 
@@ -1191,7 +1185,7 @@ void KUrlCompletionPrivate::_k_slotEntries(KIO::Job *, const KIO::UDSEntryList &
             continue;
         }
 
-        QString toAppend = entry_name;
+        QString toAppend = entryName;
 
         if (isDir) {
             toAppend.append(QLatin1Char('/'));
