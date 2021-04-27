@@ -155,6 +155,7 @@ public:
     QAction *preferredOpenWithAction(const QString &traderConstraint);
 #endif
 
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 83)
     /**
      * Returns the applications associated with all the given MIME types.
      *
@@ -182,8 +183,35 @@ public:
      * from the "open with" list. Example: "DesktopEntryName != 'kfmclient'".
      * @return the sorted list of services.
      * @since 4.4
+     * @deprecated Since 5.83, use associatedApplications(const QStringList &) instead
      */
+    KIOWIDGETS_DEPRECATED_VERSION(5, 83, "use associatedApplications(const QStringList &) instead")
     static KService::List associatedApplications(const QStringList &mimeTypeList, const QString &traderConstraint);
+#endif
+
+    /**
+     * Returns the applications associated with all the given MIME types.
+     *
+     * This is basically a KApplicationTrader::query, but it supports multiple MIME types, and
+     * also cleans up "apparent" duplicates, such as different versions of the same
+     * application installed in parallel.
+     *
+     * The list is sorted according to the user preferences for the given MIME type(s).
+     * In case multiple MIME types appear in the URL list, the logic is:
+     * applications that on average appear earlier on the associated applications
+     * list for the given MIME types also appear earlier on the final applications list.
+     *
+     * Note that for a single MIME type there is no need to use this, you should use
+     * KApplicationTrader instead, e.g. query() or preferredService().
+     *
+     * This will return an empty list if the "openwith" Kiosk action is not
+     * authorized (see @c KAuthorized::authorize()).
+     *
+     * @param mimeTypeList the MIME types
+     * @return the sorted list of services.
+     * @since 5.83
+     */
+    static KService::List associatedApplications(const QStringList &mimeTypeList);
 
 #if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 79)
     /**

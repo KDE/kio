@@ -55,6 +55,8 @@ public:
     QPair<int, QMenu *> addServiceActionsTo(QMenu *mainMenu, const QList<QAction *> &additionalActions, const QStringList &excludeList);
     int addPluginActionsTo(QMenu *mainMenu, QMenu *actionsMenu, const QStringList &excludeList);
     void insertOpenWithActionsTo(QAction *before, QMenu *topMenu, const QStringList &excludedDesktopEntryNames, const QString &traderConstraint);
+    static KService::List
+    associatedApplications(const QStringList &mimeTypeList, const QString &traderConstraint, const QStringList &excludedDesktopEntryNames);
 
 public Q_SLOTS:
     void slotRunPreferredApplications();

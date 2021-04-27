@@ -19,6 +19,7 @@
 #include <KMimeTypeTrader>
 #include <KPluginMetaData>
 #include <KServiceTypeTrader>
+#include <kapplicationtrader.h>
 #include <kdesktopfileactions.h>
 #include <kurlauthorized.h>
 
@@ -250,68 +251,19 @@ void KFileItemActions::addActionsTo(QMenu *menu, MenuActionSources sources, cons
 }
 
 // static
+KService::List KFileItemActions::associatedApplications(const QStringList &mimeTypeList)
+{
+    return KFileItemActionsPrivate::associatedApplications(mimeTypeList, QString(), QStringList{});
+}
+
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 83)
+// static
 KService::List KFileItemActions::associatedApplications(const QStringList &mimeTypeList, const QString &traderConstraint)
 {
-    if (!KAuthorized::authorizeAction(QStringLiteral("openwith")) || mimeTypeList.isEmpty()) {
-        return KService::List();
-    }
-
-    const KService::List firstOffers = KMimeTypeTrader::self()->query(mimeTypeList.first(), QStringLiteral("Application"), traderConstraint);
-
-    QList<KFileItemActionsPrivate::ServiceRank> rankings;
-    QStringList serviceList;
-
-    // This section does two things.  First, it determines which services are common to all the given MIME types.
-    // Second, it ranks them based on their preference level in the associated applications list.
-    // The more often a service appear near the front of the list, the LOWER its score.
-
-    rankings.reserve(firstOffers.count());
-    serviceList.reserve(firstOffers.count());
-    for (int i = 0; i < firstOffers.count(); ++i) {
-        KFileItemActionsPrivate::ServiceRank tempRank;
-        tempRank.service = firstOffers[i];
-        tempRank.score = i;
-        rankings << tempRank;
-        serviceList << tempRank.service->storageId();
-    }
-
-    for (int j = 1; j < mimeTypeList.count(); ++j) {
-        QStringList subservice; // list of services that support this MIME type
-        const KService::List offers = KMimeTypeTrader::self()->query(mimeTypeList[j], QStringLiteral("Application"), traderConstraint);
-        subservice.reserve(offers.count());
-        for (int i = 0; i != offers.count(); ++i) {
-            const QString serviceId = offers[i]->storageId();
-            subservice << serviceId;
-            const int idPos = serviceList.indexOf(serviceId);
-            if (idPos != -1) {
-                rankings[idPos].score += i;
-            } // else: we ignore the services that didn't support the previous MIME types
-        }
-
-        // Remove services which supported the previous MIME types but don't support this one
-        for (int i = 0; i < serviceList.count(); ++i) {
-            if (!subservice.contains(serviceList[i])) {
-                serviceList.removeAt(i);
-                rankings.removeAt(i);
-                --i;
-            }
-        }
-        // Nothing left -> there is no common application for these MIME types
-        if (rankings.isEmpty()) {
-            return KService::List();
-        }
-    }
-
-    std::sort(rankings.begin(), rankings.end(), KFileItemActionsPrivate::lessRank);
-
-    KService::List result;
-    result.reserve(rankings.size());
-    for (const KFileItemActionsPrivate::ServiceRank &tempRank : qAsConst(rankings)) {
-        result << tempRank.service;
-    }
-
-    return result;
+    return KFileItemActionsPrivate::associatedApplications(mimeTypeList, traderConstraint, QStringList{});
 }
+
+#endif
 
 static KService::Ptr preferredService(const QString &mimeType, const QStringList &excludedDesktopEntryNames, const QString &constraint)
 {
@@ -763,6 +715,81 @@ int KFileItemActionsPrivate::addPluginActionsTo(QMenu *mainMenu, QMenu *actionsM
     return itemCount;
 }
 
+KService::List
+KFileItemActionsPrivate::associatedApplications(const QStringList &mimeTypeList, const QString &traderConstraint, const QStringList &excludedDesktopEntryNames)
+{
+    if (!KAuthorized::authorizeAction(QStringLiteral("openwith")) || mimeTypeList.isEmpty()) {
+        return KService::List();
+    }
+
+    KService::List firstOffers;
+    if (traderConstraint.isEmpty()) {
+        firstOffers = KApplicationTrader::queryByMimeType(mimeTypeList.first(), [excludedDesktopEntryNames](const KService::Ptr &service) {
+            return !excludedDesktopEntryNames.contains(service->desktopEntryName());
+        });
+    }
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 82)
+    else {
+        Q_ASSERT(excludedDesktopEntryNames.isEmpty());
+        firstOffers = KMimeTypeTrader::self()->query(mimeTypeList.first(), QStringLiteral("Application"), traderConstraint);
+    }
+#endif
+
+    QList<KFileItemActionsPrivate::ServiceRank> rankings;
+    QStringList serviceList;
+
+    // This section does two things.  First, it determines which services are common to all the given MIME types.
+    // Second, it ranks them based on their preference level in the associated applications list.
+    // The more often a service appear near the front of the list, the LOWER its score.
+
+    rankings.reserve(firstOffers.count());
+    serviceList.reserve(firstOffers.count());
+    for (int i = 0; i < firstOffers.count(); ++i) {
+        KFileItemActionsPrivate::ServiceRank tempRank;
+        tempRank.service = firstOffers[i];
+        tempRank.score = i;
+        rankings << tempRank;
+        serviceList << tempRank.service->storageId();
+    }
+
+    for (int j = 1; j < mimeTypeList.count(); ++j) {
+        QStringList subservice; // list of services that support this MIME type
+        const KService::List offers = KMimeTypeTrader::self()->query(mimeTypeList[j], QStringLiteral("Application"), traderConstraint);
+        subservice.reserve(offers.count());
+        for (int i = 0; i != offers.count(); ++i) {
+            const QString serviceId = offers[i]->storageId();
+            subservice << serviceId;
+            const int idPos = serviceList.indexOf(serviceId);
+            if (idPos != -1) {
+                rankings[idPos].score += i;
+            } // else: we ignore the services that didn't support the previous MIME types
+        }
+
+        // Remove services which supported the previous MIME types but don't support this one
+        for (int i = 0; i < serviceList.count(); ++i) {
+            if (!subservice.contains(serviceList[i])) {
+                serviceList.removeAt(i);
+                rankings.removeAt(i);
+                --i;
+            }
+        }
+        // Nothing left -> there is no common application for these MIME types
+        if (rankings.isEmpty()) {
+            return KService::List();
+        }
+    }
+
+    std::sort(rankings.begin(), rankings.end(), KFileItemActionsPrivate::lessRank);
+
+    KService::List result;
+    result.reserve(rankings.size());
+    for (const KFileItemActionsPrivate::ServiceRank &tempRank : qAsConst(rankings)) {
+        result << tempRank.service;
+    }
+
+    return result;
+}
+
 void KFileItemActionsPrivate::insertOpenWithActionsTo(QAction *before,
                                                       QMenu *topMenu,
                                                       const QStringList &excludedDesktopEntryNames,
@@ -774,13 +801,7 @@ void KFileItemActionsPrivate::insertOpenWithActionsTo(QAction *before,
 
     m_traderConstraint = traderConstraint;
     // TODO Overload with excludedDesktopEntryNames, but this method in public API and will be handled in a new MR
-    const KService::List _offers = q->associatedApplications(m_mimeTypeList, traderConstraint);
-    KService::List offers;
-    for (const auto &service : _offers) {
-        if (!excludedDesktopEntryNames.contains(service->desktopEntryName())) {
-            offers << service;
-        }
-    }
+    KService::List offers = associatedApplications(m_mimeTypeList, traderConstraint, excludedDesktopEntryNames);
 
     //// Ok, we have everything, now insert
 
