@@ -75,33 +75,35 @@ bool ProvidersModel::setData(const QModelIndex &index, const QVariant &value, in
 
 QVariant ProvidersModel::data(const QModelIndex &index, int role) const
 {
-    if (index.isValid()) {
-        if (role == Qt::CheckStateRole && index.column() == Preferred) {
-            return m_favoriteEngines.contains(m_providers.at(index.row())->desktopEntryName()) ? Qt::Checked : Qt::Unchecked;
-        }
+    if (!index.isValid()) {
+        return QVariant();
+    }
 
-        if (role == Qt::DisplayRole) {
-            if (index.column() == Name) {
-                return m_providers.at(index.row())->name();
-            }
-            if (index.column() == Shortcuts) {
-                return m_providers.at(index.row())->keys().join(QLatin1Char(','));
-            }
-        }
+    if (role == Qt::CheckStateRole && index.column() == Preferred) {
+        return m_favoriteEngines.contains(m_providers.at(index.row())->desktopEntryName()) ? Qt::Checked : Qt::Unchecked;
+    }
 
-        if (role == Qt::ToolTipRole || role == Qt::WhatsThisRole) {
-            if (index.column() == Preferred) {
-                return xi18nc("@info:tooltip",
-                              "Check this box to select the highlighted web search keyword "
-                              "as preferred.<nl/>Preferred web search keywords are used in "
-                              "places where only a few select keywords can be shown "
-                              "at one time.");
-            }
+    if (role == Qt::DisplayRole) {
+        if (index.column() == Name) {
+            return m_providers.at(index.row())->name();
         }
+        if (index.column() == Shortcuts) {
+            return m_providers.at(index.row())->keys().join(QLatin1Char(','));
+        }
+    }
 
-        if (role == Qt::UserRole) {
-            return index.row(); // a nice way to bypass proxymodel
+    if (role == Qt::ToolTipRole || role == Qt::WhatsThisRole) {
+        if (index.column() == Preferred) {
+            return xi18nc("@info:tooltip",
+                          "Check this box to select the highlighted web search keyword "
+                          "as preferred.<nl/>Preferred web search keywords are used in "
+                          "places where only a few select keywords can be shown "
+                          "at one time.");
         }
+    }
+
+    if (role == Qt::UserRole) {
+        return index.row(); // a nice way to bypass proxymodel
     }
 
     return QVariant();
@@ -184,21 +186,26 @@ ProvidersListModel::ProvidersListModel(QList<SearchProvider *> &providers, QObje
 
 QVariant ProvidersListModel::data(const QModelIndex &index, int role) const
 {
-    if (index.isValid()) {
-        if (role == Qt::DisplayRole) {
-            if (index.row() == m_providers.size()) {
-                return i18nc("@item:inlistbox No default web search keyword", "None");
-            }
-            return m_providers.at(index.row())->name();
-        }
-
-        if (role == ShortNameRole) {
-            if (index.row() == m_providers.size()) {
-                return QString();
-            }
-            return m_providers.at(index.row())->desktopEntryName();
-        }
+    if (!index.isValid()) {
+        return QVariant();
     }
+
+    const int row = index.row();
+    const bool noProvider = (row == m_providers.size()); // `None` is the last item
+
+    switch (role) {
+    case Qt::DisplayRole:
+        if (noProvider) {
+            return i18nc("@item:inlistbox No default web search keyword", "None");
+        }
+        return m_providers.at(index.row())->name();
+    case ShortNameRole:
+        if (noProvider) {
+            return QString();
+        }
+        return m_providers.at(index.row())->desktopEntryName();
+    }
+
     return QVariant();
 }
 
