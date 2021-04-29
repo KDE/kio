@@ -83,6 +83,10 @@ QVariant ProvidersModel::data(const QModelIndex &index, int role) const
         return m_favoriteEngines.contains(m_providers.at(index.row())->desktopEntryName()) ? Qt::Checked : Qt::Unchecked;
     }
 
+    if (role == Qt::DecorationRole && index.column() == Name) {
+        return QIcon::fromTheme(m_providers.at(index.row())->iconName());
+    }
+
     if (role == Qt::DisplayRole) {
         if (index.column() == Name) {
             return m_providers.at(index.row())->name();
@@ -204,6 +208,11 @@ QVariant ProvidersListModel::data(const QModelIndex &index, int role) const
             return QString();
         }
         return m_providers.at(index.row())->desktopEntryName();
+    case Qt::DecorationRole:
+        if (noProvider) {
+            return QIcon::fromTheme(QStringLiteral("empty"));
+        }
+        return QIcon::fromTheme(m_providers.at(index.row())->iconName());
     }
 
     return QVariant();
