@@ -496,7 +496,7 @@ void KShortUriFilter::configure()
     KConfig config(objectName() + QStringLiteral("rc"), KConfig::NoGlobals);
     KConfigGroup cg(config.group(""));
 
-    m_strDefaultUrlScheme = cg.readEntry("DefaultProtocol", QStringLiteral("http://"));
+    m_strDefaultUrlScheme = cg.readEntry("DefaultProtocol", QStringLiteral("https://"));
     const EntryMap patterns = config.entryMap(QStringLiteral("Pattern"));
     const EntryMap protocols = config.entryMap(QStringLiteral("Protocol"));
     KConfigGroup typeGroup(&config, "Type");

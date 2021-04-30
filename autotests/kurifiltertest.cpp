@@ -303,42 +303,42 @@ void KUriFilterTest::shortUris_data()
     addRow("ftp://username@ftp.kde.org:500", QStringLiteral("ftp://username@ftp.kde.org:500"), KUriFilterData::NetProtocol);
 
     // ShortURI/LocalDomain filter tests.
-    addRow("linuxtoday.com", QStringLiteral("http://linuxtoday.com"), KUriFilterData::NetProtocol);
-    addRow("LINUXTODAY.COM", QStringLiteral("http://linuxtoday.com"), KUriFilterData::NetProtocol);
-    addRow("kde.org", QStringLiteral("http://kde.org"), KUriFilterData::NetProtocol);
+    addRow("linuxtoday.com", QStringLiteral("https://linuxtoday.com"), KUriFilterData::NetProtocol);
+    addRow("LINUXTODAY.COM", QStringLiteral("https://linuxtoday.com"), KUriFilterData::NetProtocol);
+    addRow("kde.org", QStringLiteral("https://kde.org"), KUriFilterData::NetProtocol);
     addRow("ftp.kde.org", QStringLiteral("ftp://ftp.kde.org"), KUriFilterData::NetProtocol);
     addRow("ftp.kde.org:21", QStringLiteral("ftp://ftp.kde.org:21"), KUriFilterData::NetProtocol);
-    addRow("cr.yp.to", QStringLiteral("http://cr.yp.to"), KUriFilterData::NetProtocol);
-    addRow("www.kde.org:21", QStringLiteral("http://www.kde.org:21"), KUriFilterData::NetProtocol);
+    addRow("cr.yp.to", QStringLiteral("https://cr.yp.to"), KUriFilterData::NetProtocol);
+    addRow("www.kde.org:21", QStringLiteral("https://www.kde.org:21"), KUriFilterData::NetProtocol);
     // This one passes but the DNS lookup takes 5 seconds to fail
-    // addRow("foobar.local:8000", QStringLiteral("http://foobar.local:8000"), KUriFilterData::NetProtocol);
+    // addRow("foobar.local:8000", QStringLiteral("https://foobar.local:8000"), KUriFilterData::NetProtocol);
     addRow("foo@bar.com", QStringLiteral("mailto:foo@bar.com"), KUriFilterData::NetProtocol);
     addRow("firstname.lastname@x.foo.bar", QStringLiteral("mailto:firstname.lastname@x.foo.bar"), KUriFilterData::NetProtocol);
     addRow("mailto:foo@bar.com", QStringLiteral("mailto:foo@bar.com"), KUriFilterData::NetProtocol);
-    addRow("www.123.foo", QStringLiteral("http://www.123.foo"), KUriFilterData::NetProtocol);
-    addRow("user@www.123.foo:3128", QStringLiteral("http://user@www.123.foo:3128"), KUriFilterData::NetProtocol);
+    addRow("www.123.foo", QStringLiteral("https://www.123.foo"), KUriFilterData::NetProtocol);
+    addRow("user@www.123.foo:3128", QStringLiteral("https://user@www.123.foo:3128"), KUriFilterData::NetProtocol);
     addRow("ftp://user@user@www.123.foo:3128", QStringLiteral("ftp://user%40user@www.123.foo:3128"), KUriFilterData::NetProtocol);
-    addRow("user@user@www.123.foo:3128", QStringLiteral("http://user%40user@www.123.foo:3128"), KUriFilterData::NetProtocol);
+    addRow("user@user@www.123.foo:3128", QStringLiteral("https://user%40user@www.123.foo:3128"), KUriFilterData::NetProtocol);
 
     // IPv4 address formats...
-    addRow("user@192.168.1.0:3128", QStringLiteral("http://user@192.168.1.0:3128"), KUriFilterData::NetProtocol);
-    addRow("127.0.0.1", QStringLiteral("http://127.0.0.1"), KUriFilterData::NetProtocol);
-    addRow("127.0.0.1:3128", QStringLiteral("http://127.0.0.1:3128"), KUriFilterData::NetProtocol);
-    addRow("127.1", QStringLiteral("http://127.0.0.1"), KUriFilterData::NetProtocol); // Qt5: QUrl resolves to 127.0.0.1
-    addRow("127.0.1", QStringLiteral("http://127.0.0.1"), KUriFilterData::NetProtocol); // Qt5: QUrl resolves to 127.0.0.1
+    addRow("user@192.168.1.0:3128", QStringLiteral("https://user@192.168.1.0:3128"), KUriFilterData::NetProtocol);
+    addRow("127.0.0.1", QStringLiteral("https://127.0.0.1"), KUriFilterData::NetProtocol);
+    addRow("127.0.0.1:3128", QStringLiteral("https://127.0.0.1:3128"), KUriFilterData::NetProtocol);
+    addRow("127.1", QStringLiteral("https://127.0.0.1"), KUriFilterData::NetProtocol); // Qt5: QUrl resolves to 127.0.0.1
+    addRow("127.0.1", QStringLiteral("https://127.0.0.1"), KUriFilterData::NetProtocol); // Qt5: QUrl resolves to 127.0.0.1
 
     // IPv6 address formats (taken from RFC 2732)...
     addRow("[FEDC:BA98:7654:3210:FEDC:BA98:7654:3210]:80/index.html",
-           QStringLiteral("http://[fedc:ba98:7654:3210:fedc:ba98:7654:3210]:80/index.html"),
+           QStringLiteral("https://[fedc:ba98:7654:3210:fedc:ba98:7654:3210]:80/index.html"),
            KUriFilterData::NetProtocol);
     addRow("[1080:0:0:0:8:800:200C:417A]/index.html",
-           QStringLiteral("http://[1080::8:800:200c:417a]/index.html"),
+           QStringLiteral("https://[1080::8:800:200c:417a]/index.html"),
            KUriFilterData::NetProtocol); // Qt5 QUrl change
-    addRow("[3ffe:2a00:100:7031::1]", QStringLiteral("http://[3ffe:2a00:100:7031::1]"), KUriFilterData::NetProtocol);
-    addRow("[1080::8:800:200C:417A]/foo", QStringLiteral("http://[1080::8:800:200c:417a]/foo"), KUriFilterData::NetProtocol);
-    addRow("[::192.9.5.5]/ipng", QStringLiteral("http://[::192.9.5.5]/ipng"), KUriFilterData::NetProtocol);
-    addRow("[::FFFF:129.144.52.38]:80/index.html", QStringLiteral("http://[::ffff:129.144.52.38]:80/index.html"), KUriFilterData::NetProtocol);
-    addRow("[2010:836B:4179::836B:4179]", QStringLiteral("http://[2010:836b:4179::836b:4179]"), KUriFilterData::NetProtocol);
+    addRow("[3ffe:2a00:100:7031::1]", QStringLiteral("https://[3ffe:2a00:100:7031::1]"), KUriFilterData::NetProtocol);
+    addRow("[1080::8:800:200C:417A]/foo", QStringLiteral("https://[1080::8:800:200c:417a]/foo"), KUriFilterData::NetProtocol);
+    addRow("[::192.9.5.5]/ipng", QStringLiteral("https://[::192.9.5.5]/ipng"), KUriFilterData::NetProtocol);
+    addRow("[::FFFF:129.144.52.38]:80/index.html", QStringLiteral("https://[::ffff:129.144.52.38]:80/index.html"), KUriFilterData::NetProtocol);
+    addRow("[2010:836B:4179::836B:4179]", QStringLiteral("https://[2010:836b:4179::836b:4179]"), KUriFilterData::NetProtocol);
 
     // Local domain filter - If you uncomment these test, make sure you
     // you adjust it based on the localhost entry in your /etc/hosts file.
