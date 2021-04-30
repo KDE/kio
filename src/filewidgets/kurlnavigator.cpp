@@ -37,6 +37,7 @@
 #include <QMimeData>
 #include <QMimeDatabase>
 #include <QTimer>
+#include <QUrlQuery>
 
 using namespace KDEPrivate;
 
@@ -739,7 +740,9 @@ void KUrlNavigatorPrivate::updateButtonVisibility()
     } else {
         // Check whether going upwards is possible. If this is the case, show the drop-down button.
         QUrl url(m_navButtons.front()->url());
-        const bool visible = !url.matches(KIO::upUrl(url), QUrl::StripTrailingSlash) && (url.scheme() != QLatin1String("nepomuksearch"));
+        const bool visible = !url.matches(KIO::upUrl(url), QUrl::StripTrailingSlash)
+                && url.scheme() != QLatin1String("baloosearch")
+                && url.scheme() != QLatin1String("filenamesearch");
         m_dropDownButton->setVisible(visible);
     }
 }
@@ -754,19 +757,29 @@ QString KUrlNavigatorPrivate::firstButtonText() const
         text = m_placesSelector->selectedPlaceText();
     }
 
+    const QUrl currentUrl = q->locationUrl();
+
     if (text.isEmpty()) {
-        const QUrl currentUrl = q->locationUrl();
         if (currentUrl.isLocalFile()) {
 #ifdef Q_OS_WIN
             text = currentUrl.path().length() > 1 ? currentUrl.path().left(2) : QDir::rootPath();
 #else
             text = m_showFullPath ? QStringLiteral("/") : i18n("Custom Path");
 #endif
-        } else {
-            text = currentUrl.scheme() + QLatin1Char(':');
-            if (!currentUrl.host().isEmpty()) {
-                text += QLatin1Char(' ') + currentUrl.host();
-            }
+        }
+    }
+
+    if (text.isEmpty()) {
+        if (currentUrl.path().isEmpty() || currentUrl.path() == QLatin1Char('/')) {
+            QUrlQuery query(currentUrl);
+            text = query.queryItemValue(QStringLiteral("title"));
+        }
+    }
+
+    if (text.isEmpty()) {
+        text = currentUrl.scheme() + QLatin1Char(':');
+        if (!currentUrl.host().isEmpty()) {
+            text += QLatin1Char(' ') + currentUrl.host();
         }
     }
 
