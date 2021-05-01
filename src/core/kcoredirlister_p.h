@@ -417,6 +417,20 @@ private:
             lstItems.insert(it, item);
         }
 
+        // Insert the already sorted items in the sorted list
+        void insertSortedItems(const KFileItemList &items)
+        {
+            if (items.isEmpty()) {
+                return;
+            }
+            lstItems.reserve(lstItems.size() + items.size());
+            auto it = lstItems.begin();
+            for (const auto &item : items) {
+                it = std::lower_bound(it, lstItems.end(), item.url());
+                it = lstItems.insert(it, item);
+            }
+        }
+
         // number of KCoreDirListers using autoUpdate for this dir
         short autoUpdates;
 

@@ -1179,6 +1179,7 @@ void KCoreDirListerCache::slotEntries(KIO::Job *job, const KIO::UDSEntryList &en
 
     CacheHiddenFile *cachedHidden = nullptr;
     bool dotHiddenChecked = false;
+    KFileItemList newItems;
     for (const auto &entry : entries) {
         const QString name = entry.stringValue(KIO::UDSEntry::UDS_NAME);
 
@@ -1225,13 +1226,18 @@ void KCoreDirListerCache::slotEntries(KIO::Job *job, const KIO::UDSEntryList &en
             }
 
             qCDebug(KIO_CORE_DIRLISTER) << "Adding item: " << item.url();
-            // Add the items sorted by url, needed by findByUrl
-            dir->insert(item);
-
-            for (KCoreDirLister *kdl : listers) {
-                kdl->d->addNewItem(url, item);
-            }
+            newItems.append(item);
         }
+    }
+
+    // sort by url using KFileItem::operator<
+    std::sort(newItems.begin(), newItems.end());
+
+    // Add the items sorted by url, needed by findByUrl
+    dir->insertSortedItems(newItems);
+
+    for (KCoreDirLister *kdl : listers) {
+        kdl->d->addNewItems(url, newItems);
     }
 
     for (KCoreDirLister *kdl : listers) {
@@ -1751,6 +1757,7 @@ void KCoreDirListerCache::slotUpdateResult(KJob *j)
     CacheHiddenFile *cachedHidden = nullptr;
     bool dotHiddenChecked = false;
     const KIO::UDSEntryList &buf = runningListJobs.value(job);
+    KFileItemList newItems;
     for (const auto &entry : buf) {
         // Form the complete url
         KFileItem item(entry, jobUrl, delayedMimeTypes, true);
@@ -1818,12 +1825,18 @@ void KCoreDirListerCache::slotUpdateResult(KJob *j)
             fileItems.erase(fiit);
         } else { // this is a new file
             qCDebug(KIO_CORE_DIRLISTER) << "new file:" << name;
-            dir->insert(item);
-
-            for (KCoreDirLister *kdl : listers) {
-                kdl->d->addNewItem(jobUrl, item);
-            }
+            newItems.append(item);
         }
+    }
+
+    // sort by url using KFileItem::operator<
+    std::sort(newItems.begin(), newItems.end());
+
+    // Add the items sorted by url, needed by findByUrl
+    dir->insertSortedItems(newItems);
+
+    for (KCoreDirLister *kdl : listers) {
+        kdl->d->addNewItems(jobUrl, newItems);
     }
 
     runningListJobs.remove(job);
