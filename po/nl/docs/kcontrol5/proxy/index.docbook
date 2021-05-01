@@ -1,0 +1,211 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Dutch "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="proxy" lang="&language;">
+<title
+>Proxy</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Krishna.Tateneni; &Krishna.Tateneni.mail;</author>
+&Niels.Reedijk;&Natalie.Koning; 
+</authorgroup>
+
+<date
+>2016-11-10</date>
+<releaseinfo
+>Frameworks 5.29</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Systeeminstellingen</keyword>
+<keyword
+>proxy</keyword>
+<keyword
+>proxies</keyword>
+</keywordset>
+
+</articleinfo>
+<sect1 id="proxies">
+<title
+>Proxies</title>
+
+<sect2 id="proxies-intro">
+
+<title
+>Inleiding</title>
+
+<para
+>Proxies zijn programma's die op een server op het netwerk, waarmee u verbonden bent, (door een modem of iets anders) draaien. Deze programma's ontvangen &HTTP; en &FTP; verzoeken, halen de relevante bestanden van het internet op en geven die door aan de client-computer dat het verzoek had ingediend.</para>
+
+<para
+>Wanneer u een proxy hebt ingesteld, worden &HTTP; en of &FTP; verzoeken omgeleid naar de computer die als proxy dienst doet. U kunt echter ook specifieke hosts opgeven die direct benaderd moeten worden in plaats van via de proxyserver. Als u op een lokaal netwerk aangesloten bent, is het bijvoorbeeld niet nodig om lokale hosts via de proxy te benaderen.</para>
+
+<para
+>U hoeft alleen maar een proxy in te stellen als uw netwerkbeheerder dit van u eist (als u een modem gebruikt, is dit uw internetserviceprovider of <acronym
+>ISP</acronym
+>). Anders, helemaal als u dit gedoe met proxies een beetje verwarrend vindt, maar alles toch naar behoren werkt met uw internetverbinding, hoeft u niets te veranderen.</para>
+
+<para
+>Merk op dat het gebruik van proxyservers optioneel is, maar dat het het voordeel heeft van snellere toegang tot gegevens op het internet.</para>
+
+<para
+>Als u op dit moment niet zeker weet of u een proxyserver moet instellen om verbinding te maken met het internet, raadpleeg dan de handleiding van uw internetprovider of vraag het aan uw systeembeheerder.</para>
+
+</sect2>
+
+<sect2 id="proxies-use">
+
+<title
+>Gebruik</title>
+
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>Geen proxy</guilabel
+></term>
+<listitem>
+
+<para
+>Selecteer deze optie als u <emphasis
+>geen</emphasis
+> proxyserver wilt gebruiken en direct verbinding hebt met het internet.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>Als u besloten hebt een proxy te gebruiken, hebt u verschillende mogelijkheden om de instellingen ervoor te wijzigen.</para>
+
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>Proxyconfiguratie automatisch detecteren</guilabel
+></term>
+<listitem>
+
+<para
+>Selecteer deze optie als u wilt dat het configuratiebestand automatisch moet worden gedetecteerd en gedownload.</para>
+<para
+>Deze optie verschilt alleen van de volgende optie in het feit dat deze optie u <emphasis
+>niet</emphasis
+> verplicht om de locatie van het proxyconfiguratiebestand op te geven. Het zal juist proberen om het automatisch te downloaden door gebruik te maken van het <quote
+>Web Proxy Auto-Discovery</quote
+> (<acronym
+>WAPD</acronym
+>) protocol.</para>
+
+<note
+><para
+>Als u problemen hebt met deze instellingen, raadpleeg dan de <acronym
+>VVV</acronym
+> sectie op <ulink url="http://www.konqueror.org"
+>https://www.konqueror.org</ulink
+> voor meer informatie.</para
+></note>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>URL voor de automatische proxyconfiguratie gebruiken:</guilabel
+></term>
+<listitem>
+<para
+>Selecteer deze optie als uw proxy-ondersteuning wordt geleverd door een scriptbestand op een specifieke locatie. U kunt het adres in het tekstveld invoeren of bladeren door op het <guiicon
+>map</guiicon
+>-pictogram te klikken. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>De systeemproxyconfiguratie gebruiken:</guilabel
+></term>
+<listitem>
+<para
+>Sommige systemen zijn geconfigureerd met $<envar
+>HTTP_PROXY</envar
+> om zowel grafische als niet-grafische toepassingen dezelfde proxyconfiguratie-informatie te bieden.</para>
+<para
+>Als u weet dat dit voor u ook zo is, selecteert u deze optie en klikt u op de knop <guibutton
+>Automatisch detecteren</guibutton
+> om de namen van de omgevingsvariabele op te geven die gebruikt worden om het adres van de proxyserver(s) in te stellen.</para>
+<!-- Exceptions fields are different for system proxy (envar) + manual proxy list of hosts/IPs? -->
+<para
+>In het veld <guilabel
+>Uitzonderingen:</guilabel
+> voert u de omgevingsvariabele in, &eg; $<envar
+>NO_PROXY</envar
+>, die gebruikt wordt om de adressen op te slaan van sites waarvoor de proxyserver niet moet worden gebruikt.</para>
+<para
+>Gebruik <guilabel
+>De waarden van de omgevingsvariabelen tonen</guilabel
+> om de waarde van een omgevingsvariabele te tonen in plaats van zijn naam. Het is echter niet mogelijk om de waarden van de omgevingsvariabelen in deze module te bewerken.</para>
+<!--
+How to enable Auto Detect button?
+-->
+
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+><guilabel
+>Handmatige gespecificeerde proxyconfiguratie gebruiken:</guilabel
+></term>
+<listitem>
+
+<para
+>De complete adresseringsinformatie voor de proxy omvat zowel het internetadres als een poortnummer. U moet deze in de relevante tekstvelden invullen. Activeer <guibutton
+>Deze proxyserver voor alle protocollen gebruiken</guibutton
+> om alle adressen en poorten te kopiëren van de &HTTP;-proxyserver naar alle andere proxy-velden om u wat typwerk te besparen.</para>
+
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>Uitzonderingen:</guilabel
+></term>
+<listitem>
+<para
+>Voer een kommagesscheiden lijst met hostnamen of IP-adressen in die moeten worden uitgesloten van het gebruik van de hierboven gebruikte proxy-instellingen. Als u alle hosts voor een gegeven domein wilt uitsluiten, dan voert u eenvoudig de domeinnaam in voorafgegaan door een punt. Om bijvoorbeeld alle hostnamen voor kde.org uit te sluiten, voert u in <userinput
+>.kde.org</userinput
+>. Jokertekens zoals <userinput
+>*</userinput
+> of <userinput
+>?</userinput
+> worden niet ondersteund en hebben geen effect. U kunt ook IP-adressen invoeren, &eg; 127.0.0.1 en IP-adressen met een subnet, &eg; 192.168.0.1/24.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>U kunt ook <guilabel
+>Proxy-instellingen alleen gebruiken voor adressen in de uitzonderingenlijst</guilabel
+> kiezen.</para>
+
+<para
+>Selecteer deze optie als het gebruik van de exceptielijst wilt omkeren, dat wil zeggen dat de proxy servers alleen worden gebruikt wanneer de gevraagde &URL; overeenkomt met een van de adressen die in de lijst staan.</para>
+
+<para
+>Deze mogelijkheid is nuttig als u alleen een proxy nodig hebt voor een paar specifieke sites, bijvoorbeeld voor een intern intranet. Als u meer complexe eisen hebt, is het misschien verstandig om een configuratiescript te gebruiken.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+</sect2>
+
+</sect1>
+
+</article>

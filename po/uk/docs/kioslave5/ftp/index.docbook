@@ -1,0 +1,63 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Ukrainian "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="ftp">
+<title
+>&FTP;</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Lauri.Watts; &Lauri.Watts.mail;</author>
+<othercredit role="translator"
+><firstname
+>Юрій</firstname
+><surname
+>Чорноіван</surname
+><affiliation
+><address
+><email
+>yurchor@ukr.net</email
+></address
+></affiliation
+><contrib
+>Переклад українською</contrib
+></othercredit
+> 
+</authorgroup>
+</articleinfo>
+
+<para
+>&FTP; — це служба у інтернет, яку використовують для передавання файлів даних з диска одного комп’ютера на диск іншого, незалежно від типу операційних систем на цих комп’ютерах. </para>
+
+<para
+>Подібно до інших програм, пов’язаних з інтернетом, &FTP; використовує клієнт-серверний підхід — користувач запускає програму &FTP; на своєму комп’ютері, наказує їй з’єднатися з віддаленим комп’ютером і надіслати запити на передавання одного або декількох файлів. Таким чином, локальна програма &FTP; стає клієнтом, який використовує <acronym
+>TCP</acronym
+> для зв’язку з програмою-сервером &FTP; на віддаленому комп’ютері. Кожного разу, коли користувач надсилає запит на передачу файла, клієнтська і серверна програми взаємодіють з метою надсилання копії даних інтернетом.</para>
+
+<para
+>Сервери &FTP;, які дозволяють <quote
+>анонімне &FTP;</quote
+>, надають кожному користувачеві, а не лише користувачам, які мають облікові записи на вузлі, можливість переглядати архіви <quote
+>ftp</quote
+> і отримувати файли. Деякі з серверів &FTP; налаштовано так, щоб дозволити користувачам вивантажувати на них файли.</para>
+
+<para
+>&FTP; зазвичай використовується для отримання інформації та програмного забезпечення, яке зберігається у файлах на архівних сайтах &FTP; по всьому світу. </para>
+
+
+<para
+>Джерело: Переказ інформації з <ulink url="http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/ftpdef.htm"
+> http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/ftpdef.htm</ulink
+> </para>
+
+<para
+>Дивіться довідку: <ulink url="man:/ftp"
+>ftp</ulink
+>.</para>
+
+</article>

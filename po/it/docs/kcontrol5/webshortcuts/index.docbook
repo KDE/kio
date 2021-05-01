@@ -1,0 +1,245 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Italian "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="ebrowsing" lang="&language;">
+<articleinfo>
+<title
+>Scorciatoie del Web</title>
+<authorgroup>
+<author
+>&Krishna.Tateneni; &Krishna.Tateneni.mail;</author>
+<author
+>&Yves.Arrouye; &Yves.Arrouye.mail;</author>
+<othercredit role="translator"
+><firstname
+>Luciano</firstname
+><surname
+>Montanaro</surname
+><contrib
+>Traduzione</contrib
+></othercredit
+><othercredit role="translator"
+><firstname
+>Federico</firstname
+><surname
+>Zenith</surname
+><affiliation
+><address
+><email
+>federico.zenith@member.fsf.org</email
+></address
+></affiliation
+><contrib
+>Manutenzione della traduzione</contrib
+></othercredit
+><othercredit role="translator"
+><firstname
+>Paolo</firstname
+><surname
+>Zamponi</surname
+><affiliation
+><address
+><email
+>zapaolo@email.it</email
+></address
+></affiliation
+><contrib
+>Manutenzione del documento</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>10/11/2016</date>
+<releaseinfo
+>Frameworks 5.29</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Impostazioni di sistema</keyword>
+<keyword
+>navigazione migliorata</keyword>
+<keyword
+>scorciatoie del web</keyword>
+<keyword
+>navigazione</keyword>
+</keywordset>
+
+</articleinfo>
+<sect1 id="ebrowse">
+
+<title
+>Scorciatoie del Web</title>
+
+<sect2 id="ebrowse-intro">
+
+<title
+>Introduzione</title>
+
+<para
+>&konqueror; ha delle funzioni per migliorare la tua navigazione in Internet; fra queste ci sono le <emphasis
+>scorciatoie del Web</emphasis
+>.</para>
+
+<para
+>Avrai già notato che &kde; è ben predisposto con Internet. Ad esempio, puoi fare clic sulla voce del menu <guimenuitem
+>Esegui comando</guimenuitem
+> o digitare la scorciatoia da tastiera associata (<keycombo action="simul"
+>&Alt;<keycap
+>F2</keycap
+></keycombo
+> o <keycombo action="simul"
+>&Alt;&Space;</keycombo
+>, se non l'hai cambiata) ed inserire un &URI;. <footnote
+><para
+>Uniform Resource Identifier (identificatore uniforme di risorsa): un modo standard di riferirsi alle risorse come un file su un computer, un indirizzo Web, un indirizzo di posta, &etc;.</para
+></footnote
+></para>
+
+<para
+>D'altro canto, le scorciatoie del Web ti permettono di creare nuovi schemi pseudo-&URL;, o scorciatoie, che in sostanza ti permettono di <emphasis
+>parametrizzare</emphasis
+> le &URI; di uso comune. Ad esempio, se ti piace il motore di ricerca Google, puoi configurare &kde; in modo che uno pseudo-&URL; come <emphasis
+>gg</emphasis
+> faccia scattare una ricerca su Google. In questo modo, scrivere <userinput
+>gg:<replaceable
+>domanda</replaceable
+></userinput
+> farà sì che <replaceable
+>domanda</replaceable
+> verrà cercata su Google.</para>
+
+<note
+><para
+>Li chiamiamo <quote
+>pseudo-&URL;</quote
+>, perché sono usati come se fossero &URL; pur se non seguono esattamente la codifica; quindi puoi scrivere <userinput
+>google:kde apps</userinput
+> al posto di <userinput
+><replaceable
+>google:kde+apps</replaceable
+></userinput
+>.</para
+></note>
+
+<para
+>Puoi usare le scorciatoie del Web ovunque usi un &URI;. Le scorciatoie per molti motori di ricerca dovrebbero già essere configurate sul sistema, ma puoi aggiungere nuove parole chiave e cambiare od eliminare le esistenti in questo modulo.</para>
+
+</sect2>
+
+<sect2 id="ebrowse-use">
+
+<title
+>Parole chiave per ricerca web</title>
+
+<para
+>I nomi descrittivi delle scorciatoie del Web sono mostrati in una lista. Come per le altre liste di &kde;, puoi fare clic sull'intestazione di una colonna per cambiare l'ordine delle voci fra ascendente e discendente; inoltre puoi cambiare la dimensione di tutte le colonne.</para>
+
+<para
+>In fondo alla lista si deve segnare l'opzione <guilabel
+>Abilita le parole chiave per ricerca web</guilabel
+> per abilitare questa funzionalità. Usa i pulsanti a destra per creare, modificare o eliminare le scorciatoie.</para>
+
+<para
+>Se è abilitato <guilabel
+>Usa solo le parole chiave preferite</guilabel
+>, si useranno solo le parole chiave del Web segnate come preferite nella seconda colonna dell'elenco nei luoghi dove si possono mostrare solo alcune scorciatoie alla volta. </para>
+ 
+<para
+>Sotto l'elenco puoi trovare altre due opzioni:</para>
+<variablelist>
+<varlistentry
+><term
+><guilabel
+>Parola chiave predefinita per ricerca web:</guilabel
+></term>
+<listitem>
+<para
+>Seleziona il motore di ricerca da usare per le caselle di testo che forniscono servizi di ricerca automatica quando scrivi delle parole e frasi normali invece di un &URL;. Per disabilitare questa funzionalità seleziona <guilabel
+>Nessuno</guilabel
+> dall'elenco. </para
+></listitem>
+</varlistentry>
+<varlistentry
+><term
+><guilabel
+>Delimitatore delle parole chiave:</guilabel
+></term>
+<listitem>
+<para
+>Scegli il delimitatore che separa la parola chiave dalla frase o parola da cercare.</para
+></listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>Se fai doppio clic su una voce specifica della lista dei fornitori di servizi di ricerca o fai clic sul pulsante <guibutton
+>Cambia...</guibutton
+>, i dettagli della voce appaiono in una finestra. Oltre al nome descrittivo della voce puoi anche vedere l'&URI; usato e le scorciatoie associate che si possono usare in tutte le parti di &kde; dove si possono inserire &URI;. Un solo fornitore può avere più scorciatoie, separate da virgole.</para>
+
+<para
+>Le caselle di testo si usano non solo per mostrare informazioni sulle voci nella lista delle scorciatoie del Web, ma anche per modificare o aggiungere nuove voci.</para>
+
+<para
+>Puoi cambiare i contenuti sia della casella <guilabel
+>URL della scorciatoia:</guilabel
+> che di <guilabel
+>Scorciatoie:</guilabel
+>. Per memorizzare le modifiche, premi <guibutton
+>OK</guibutton
+>, oppure <guibutton
+>Annulla</guibutton
+> per uscire dalla finestra senza applicare le modifiche.</para>
+
+<para
+>Esaminando il contenuto delle caselle di testo <guilabel
+>URL della scorciatoia</guilabel
+>, vedrai che la maggior parte delle voci, se non tutte, contengono la sequenza di caratteri <option
+>\{@}</option
+>. Questa sequenza di quattro caratteri ha la funzione di parametro, cioè viene sostituita da quello che scrivi dopo il segno di due punti che separa la scorciatoia dal suo parametro. Per aggiungere questa sequenza all'&URL; di una scorciatoia, fai clic sul pulsante a destra della casella di testo. Esaminiamo qualche esempio per chiarire come usare le scorciatoie del Web.</para>
+
+<para
+>Supponi che l'&URI; sia <userinput
+>https://www.google.com/search?q=\{@}</userinput
+>, e che <userinput
+>gg</userinput
+> sia la sua scorciatoia. In questo caso, scrivere <userinput
+>gg:<replaceable
+>alfa</replaceable
+></userinput
+> è equivalente a <userinput
+>https://www.google.com/search?q=<replaceable
+>alfa</replaceable
+></userinput
+>. Puoi scrivere quello che vuoi dopo il carattere <userinput
+>:</userinput
+>; quello che scriverai sostituirà i caratteri <option
+>\{@}</option
+>, dopo essere stato convertito all'insieme di caratteri appropriato per il motore di ricerca e successivamente codificato come &URL;. Viene toccata solo la parte <option
+>\{@}</option
+> dell'&URI; di ricerca, il resto è considerato già codificato come un &URL; corretto e si lascia invariato.</para>
+
+<para
+>Puoi anche avere scorciatoie senza parametri. Ad esempio, supponi che l'&URI; sia <emphasis
+>file:/home/io/documenti/calligra/words</emphasis
+> e la scorciatoia sia <emphasis
+>mieparole</emphasis
+>. Scrivere <userinput
+>mieparole:</userinput
+> è lo stesso che inserire l'&URI; completo. Nota che non c'è niente dopo i due punti della scorciatoia, ma questi sono necessari lo stesso per far riconoscere la scorciatoia al sistema.</para>
+
+<para
+>Ormai avrai capito che, anche se queste scorciatoie sono chiamate scorciatoie del Web, in realtà sono scorciatoie ad &URI; parametrizzati, che possono puntare non solo a siti Web come i motori di ricerca, ma anche a qualsiasi altra cosa che può essere indicata da un &URI;. Le scorciatoie del Web sono una funzione di navigazione di &kde; molto potente.</para>
+
+</sect2>
+
+</sect1>
+
+</article>

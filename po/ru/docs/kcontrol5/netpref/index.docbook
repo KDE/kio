@@ -1,0 +1,175 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Russian "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="netpref" lang="&language;">
+<articleinfo>
+<title
+>Параметры сети</title>
+<authorgroup>
+<author
+>&Lauri.Watts; &Lauri.Watts.mail;</author>
+
+<othercredit role="translator"
+><firstname
+>Екатерина</firstname
+><surname
+>Пыжова</surname
+><affiliation
+><address
+><email
+>haleth@yandex.ru</email
+></address
+></affiliation
+> <contrib
+>Перевод на русский</contrib
+></othercredit
+> <othercredit role="translator"
+><firstname
+>Мария</firstname
+><surname
+>Шикунова</surname
+> <affiliation
+><address
+><email
+>translation-team@basealt.ru</email
+></address
+></affiliation
+> <contrib
+>Обновление перевода на русский</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>10 ноября 2016 г.</date>
+<releaseinfo
+>Frameworks 5.29</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdebase</keyword>
+<keyword
+>параметры системы</keyword>
+<keyword
+>сеть</keyword>
+<keyword
+>задержки</keyword>
+</keywordset>
+
+</articleinfo>
+
+<sect1 id="timeouts">
+
+<title
+>Параметры сети</title>
+
+<para
+>Параметры сети позволяют установить значения задержек. Возможно, потребуется скорректировать их, если соединение медленное, но значения по умолчанию обычно оптимальны для большинства пользователей.</para>
+
+<para
+><guilabel
+>Значения задержек</guilabel
+> &mdash; периоды времени, в течение которых приложение должно ждать отклика при сетевой операции.</para>
+
+<para
+>Возможно настроить такие задержки:</para>
+
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>Чтение из сокета:</guilabel
+></term>
+<listitem>
+<para
+>Некоторые приложения используют <firstterm
+>сокеты</firstterm
+> для работы в сети. В качестве аналогии можно привести водяной кран: когда он открыт, вода (в нашем случае данные) вытекает без всяких помех. Если что-либо останавливает поток данных, приложение будет ожидать продолжения. Это может занимать много времени, но этот параметр позволяет определить максимальный период ожидания.</para>
+<para
+>Этот параметр применим только для приложений &kde;.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Соединение с прокси:</guilabel
+></term>
+<listitem>
+<para
+>Определяет время ожидания соединения с прокси-сервером (если он используется). </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Соединение с сервером:</guilabel
+></term>
+<listitem>
+<para
+>Определяет время ожидания соединения с удалённым сервером. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Ответ сервера:</guilabel
+></term>
+<listitem>
+<para
+>Определяет время ожидания отклика от удалённого сервера. </para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+<para
+>Возможно включить или отключить следующие два <guilabel
+>параметра FTP</guilabel
+>: <guilabel
+>Использовать пассивный режим (PASV)</guilabel
+> и <guilabel
+>Помечать частично загруженные файлы</guilabel
+>.</para>
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>Использовать пассивный режим (PASV)</guilabel
+></term>
+<listitem
+><para
+>Пассивный режим &FTP; обычно требуется при расположении за сетевым экраном. Большинство сетевых экранов допускает только те соединения, которые были инициированы клиентом <quote
+>за ними</quote
+>. Пассивный режим &FTP; контролируется клиентом, что даёт возможность пользоваться им через сетевой экран.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Помечать частично загруженные файлы</guilabel
+></term>
+<listitem
+><para
+>При выборе данной функции, в конце имён частично загруженных файлов будет добавляться расширение <literal role="extension"
+>.part</literal
+>. Данное расширение удаляется по окончании загрузки.</para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+
+
+</sect1>
+</article>

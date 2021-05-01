@@ -1,0 +1,132 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % French "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="useragent" lang="&language;">
+<title
+>Identification du navigateur</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Krishna.Tateneni; &Krishna.Tateneni.mail;</author>
+&traducteurJoelleCornavin; &traducteurThibautCousin; &traducteurGerardDelafond;&traducteurYvesDessertine; &relecteurPierreBuard; &traducteurXavierBesnard; 
+</authorgroup>
+
+<date
+>10-11-2016</date>
+<releaseinfo
+>Environnement de développement 5.29</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Configuration du système</keyword>
+<keyword
+>identité du navigateur</keyword>
+<keyword
+>navigateur</keyword>
+<keyword
+>identification</keyword>
+</keywordset>
+
+</articleinfo>
+
+<sect1 id="user-agent">
+<title
+>Identification du navigateur</title>
+
+
+<sect2 id="user-agent-intro">
+<title
+>Introduction</title>
+
+<para
+>Lorsque &konqueror; se connecte à un site web pour réceptionner des données, il doit s'identifier auprès de ce site en envoyant certaines informations générales sous la forme d'un en-tête <quote
+>User agent</quote
+>.</para>
+
+<para
+>En raison de quelques différences de fonctionnement d'un navigateur à l'autre, les sites dépendants trop d'un navigateur donné peuvent ne pas s'afficher d'une manière tout à fait identique dans un autre. Certains sites web sont suffisamment bien conçus pour être capables de vérifier l'en-tête <quote
+>User Agent</quote
+> et d'utiliser ces informations dans le code &HTML; de façon à ce que leur contenu soit correctement affiché quel que soit le navigateur employé.</para>
+
+<para
+>Malheureusement, certains sites web refusent de fonctionner correctement si vous n'utilisez pas un navigateur qu'ils reconnaissent comme <quote
+>habilité</quote
+>. Il peut alors s'avérer nécessaire de duper le site en demandant à &konqueror; de se faire passer pour un autre navigateur au moyen de l'en-tête <quote
+>user agent</quote
+>.</para>
+
+</sect2>
+
+<sect2 id="user-agent-use">
+<title
+>Utilisation</title>
+
+<para
+>Ce module permet de décider du type d'imposture employée par &konqueror;. La configuration peut s'effectuer séparément pour chaque site web. Habituellement, la liste <guilabel
+>Identification spécifique de site</guilabel
+> sera vide, de sorte que &konqueror; utilisera toujours sa chaîne d'identification par défaut.</para>
+
+<para
+>Vous pouvez désactiver entièrement l'envoi de l'identification en décochant la case correspondante : <guilabel
+>Envoyer l'identification</guilabel
+>. Comme il peut s'ensuivre un comportement étrange sur certains sites, inclue l'impossibilité d'y accéder, soyez prudent en décochant cette case.</para>
+
+<para
+>Pour configurer l'ajout d'une nouvelle identité, cliquez sur le bouton <guibutton
+>Nouveau...</guibutton
+> et saisissez le nom du serveur ou d'un domaine dans le champ texte en haut de la boîte de dialogue <guilabel
+>En se connectant sur le site suivant</guilabel
+>.</para>
+
+<para
+>Remarquez que vous <emphasis
+>ne</emphasis
+> pouvez <emphasis
+>pas</emphasis
+> utiliser le caractère joker <token
+>*</token
+> dans ce champ. Cependant, la chaîne <userinput
+>kde.org</userinput
+> correspondra à tous les hôtes du domaine <systemitem
+>kde.org</systemitem
+>.</para>
+
+<para
+>Après saisie du nom du serveur, sélectionnez la chaîne d'identification dans le champ textuel intitulé <guilabel
+>Utiliser l'identification suivante :</guilabel
+>. L'<guilabel
+>Identification réelle</guilabel
+> &cad; les chaînes envoyées au serveur, est affichée dans ce champ.</para>
+
+<para
+>Vous pouvez cliquer sur un élément existant de la liste pour modifier le contenu des champs texte, en cliquant sur <guibutton
+>Changer...</guibutton
+>.</para>
+
+<para
+>Le bouton <guibutton
+>Supprimer</guibutton
+> retirera l'élément sélectionné de la liste d'identités. Le bouton <guibutton
+>Tout supprimer</guibutton
+> effacera toutes les chaînes d'identification configurées. Cliquez sur <guibutton
+>Appliquer</guibutton
+> pour que vos modifications entrent en vigueur.</para>
+
+<para
+>Utilisez les cases à cocher en haut de l'écran pour construire une identité vous étant propre, en choisissant votre combinaison comportant : nom et version du système d'exploitation, plate-forme, type de machine et langue.</para>
+
+<para
+>Dans tous les cas, l'identification envoyée par défaut est affichée en gras en haut de la page.</para>
+
+</sect2>
+
+</sect1>
+
+</article>

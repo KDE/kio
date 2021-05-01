@@ -1,0 +1,49 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Dutch "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="ftp">
+<title
+>&FTP;</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Lauri.Watts; &Lauri.Watts.mail;</author>
+&Freek.de.Kruijf; 
+</authorgroup>
+</articleinfo>
+
+<para
+>&FTP; is de Internetservice die gebruikt wordt om bestanden van de harde schijf van de ene computer naar de harde schijf van de andere computer te verplaatsen, ongeacht het onderliggende besturingssysteem. </para>
+
+<para
+>Net als bij andere Internettoepassingen gebruikt &FTP; de client-server aanpak &mdash; een gebruiker voert het &FTP;-programma op zijn computer uit, laat het verbinding maken met een andere computer en verzoekt het programma vervolgens om een of meerdere bestanden over te zetten. Het lokale &FTP;-programma wordt dan de client die van <acronym
+>TCP</acronym
+>-protocol gebruik maakt om het &FTP;-server op de andere machine te benaderen. Telkens als de gebruiker een bestand overzet werken de server en de client samen om een kopie van de data over het Internet te versturen.</para>
+
+<para
+>&FTP;-servers die <quote
+>anonieme &FTP;</quote
+> toestaan bieden  elke gebruiker, dus niet alleen aan gebruikers met een account op die computer, de mogelijkheid om de <quote
+>FTP</quote
+>-archieven door te bladeren en bestanden te downloaden. Sommige &FTP;-servers staan ook het uploaden van bestanden door gebruikers toe.</para>
+
+<para
+>&FTP; wordt over het algemeen gebruikt om informatie en software  op te halen van &FTP;-sites verspreid over de hele wereld. </para>
+
+
+<para
+>Bron: <ulink url="http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/ftpdef.htm"
+> http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/ftpdef.htm</ulink
+> </para>
+
+<para
+>Zie ook de man-pagina: <ulink url="man:/ftp"
+>ftp</ulink
+>.</para>
+
+</article>

@@ -1,0 +1,99 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Galician  "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="webdav">
+<title
+>webdav / webdavs</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Hamish.Rodda; &Hamish.Rodda.mail;</author>
+<othercredit role="translator"
+><firstname
+>Marce</firstname
+><surname
+>Villarino</surname
+><affiliation
+><address
+><email
+>mvillarino@users.sourceforge.net</email
+></address
+></affiliation
+><contrib
+>Tradutor do proxecto Trasno</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>2002-01-21</date>
+</articleinfo>
+<para
+><acronym
+>WebDAV</acronym
+> é un protocolo <emphasis
+>D</emphasis
+>istribuido de <emphasis
+>A</emphasis
+>utoría e <emphasis
+>V</emphasis
+>ersións para a Worl Wide Web. Permítelle xestionar dun xeito sinxelo os documentos e scripts dun servidor <ulink url="help:/kioslave/webdav.html"
+>http</ulink
+>, e ten funcionalidades adicionais deseñadas para simplificar a xestión de versións entre múltiplos autores.</para>
+
+<para
+>Empregar este protocolo é sinxelo. Escriba o lugar que quere ver, de xeito similar a un URL <acronym
+>http</acronym
+> excepto en que o nome do protocolo webdav:// irá ao comezo. Por exemplo <userinput
+>webdav://<replaceable
+>www.servidor.com/ruta</replaceable
+></userinput
+>. Se indica un nome de cartafol, mostrarase unha lista de ficheiros e cartafoles, e poderá manipular eses cartafoles e ficheiros como faría en calquera outro sistema de ficheiros.</para>
+
+<variablelist>
+<title
+>Funcionalidade de WebDAV</title>
+<varlistentry>
+<term
+>Bloqueo</term>
+<listitem>
+<para
+>O bloqueo de ficheiros permítelle aos usuarios trancar un ficheiro, informando aos outros que estean a traballar nel. Deste xeito, pode editar sen temer que os cambios sexan sobrescritos por outras persoa que tamén estea a editar o mesmo documento.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+>Acceso a ficheiros fonte</term>
+<listitem>
+<para
+><acronym
+>WebDAV</acronym
+> permítelle accedes ao script que se chama para producir unha páxina específica, polo que poderá facer cambios no script en si.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+>Funcionalidade de propiedades para cada documento</term>
+<listitem>
+<para
+>Pode estabelecer propiedades arbitrarias para axudar á identificación dun documento, por exemplo o autor.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>Para beneficiarse destas funcionalidades adicionais, precisará dun aplicativo que as forneza. Actualmente non hai ningún aplicativo que as forneza mediante este kioslave.</para>
+
+<para
+><acronym
+>WebDAVS</acronym
+> é o protocolo <acronym
+>WebDAV</acronym
+> cifrado mediante SSL.</para>
+
+</article>

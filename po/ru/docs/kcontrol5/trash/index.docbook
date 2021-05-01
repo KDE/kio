@@ -1,0 +1,98 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Russian "INCLUDE">
+]>
+<article id="trash" lang="&language;">
+<title
+>Корзина</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Burkhard.Lueck;</author>
+<othercredit role="translator"
+><firstname
+>Мария</firstname
+><surname
+>Шикунова</surname
+><affiliation
+><address
+><email
+>translation-team@basealt.ru</email
+></address
+></affiliation
+><contrib
+>Перевод на русский</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>31 мая 2018 г.</date>
+<releaseinfo
+>Frameworks 5.48</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Параметры системы</keyword>
+<keyword
+>корзина</keyword>
+</keywordset>
+</articleinfo>
+
+<para
+>Этот модуль позволяет настроить параметры корзины. </para>
+
+<variablelist>
+<varlistentry
+><term
+><guilabel
+>Очистка</guilabel
+></term>
+<listitem
+><para
+>Этот параметр включает автоматическую очистку устаревших файлов в корзине. Оставьте параметр выключенным для <emphasis
+>отмены</emphasis
+> автоматического удаления файлов, которые старее указанного периода. Установите количество дней, по истечению которых файлы должны быть удалены. Все файлы, срок хранения которых больше указанного времени, будут автоматически удалены. </para
+></listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>Размер</guilabel
+></term>
+<listitem
+><para
+>Этот параметр устанавливает максимальный размер дискового пространства, выделяемого под корзину. Если флажок не установлен, дисковое пространство под корзину не ограничено. </para
+></listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>Ограничить до</guilabel
+></term>
+<listitem
+><para
+>Доля в процентах от дискового пространства, выделяемого под корзину. Рассчитанный объём дискового пространства, выделенный для корзины, отображается справа от счётчика. </para
+></listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>При полной корзине</guilabel
+></term>
+<listitem
+><para
+>Когда будет достигнут предел указанного размера, будет выполнено выбранной действие: автоматически будут удалены самые старые или самые большие файлы, либо будет показано предупреждение. </para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+</article>
