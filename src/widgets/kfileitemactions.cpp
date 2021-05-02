@@ -331,10 +331,19 @@ void KFileItemActionsPrivate::slotRunPreferredApplications()
     }
 }
 
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 83)
 void KFileItemActions::runPreferredApplications(const KFileItemList &fileOpenList, const QString &traderConstraint)
 {
     d->m_fileOpenList = fileOpenList;
     d->m_traderConstraint = traderConstraint;
+    d->slotRunPreferredApplications();
+}
+#endif
+
+void KFileItemActions::runPreferredApplications(const KFileItemList &fileOpenList)
+{
+    d->m_fileOpenList = fileOpenList;
+    d->m_traderConstraint = QString();
     d->slotRunPreferredApplications();
 }
 

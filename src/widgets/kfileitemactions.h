@@ -290,13 +290,24 @@ Q_SIGNALS:
     void error(const QString &errorMessage);
 
 public Q_SLOTS:
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 79)
     /**
      * Slot used to execute a list of files in their respective preferred application.
      * @param fileOpenList the list of KFileItems to open.
      * @param traderConstraint this optional constraint allows to exclude the current application
      * @since 4.5
+     * @deprecated Since 5.83, use use runPreferredApplications(const KFileItemList &) instead
      */
+    KIOWIDGETS_DEPRECATED_VERSION(5, 83, "use runPreferredApplications(const KFileItemList &) instead")
     void runPreferredApplications(const KFileItemList &fileOpenList, const QString &traderConstraint);
+#endif
+
+    /**
+     * Slot used to execute a list of files in their respective preferred application.
+     * @param fileOpenList the list of KFileItems to open.
+     * @since 5.83
+     */
+    void runPreferredApplications(const KFileItemList &fileOpenList);
 
 private:
     KFileItemActionsPrivate *const d;
