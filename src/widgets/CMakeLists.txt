@@ -131,7 +131,7 @@ if(ACL_FOUND)
    target_link_libraries(KF5KIOWidgets PRIVATE ${ACL_LIBS})
 endif()
 
-set_target_properties(KF5KIOWidgets PROPERTIES VERSION ${KIO_VERSION_STRING}
+set_target_properties(KF5KIOWidgets PROPERTIES VERSION ${KIO_VERSION}
                                                SOVERSION ${KIO_SOVERSION}
                                                EXPORT_NAME KIOWidgets
 )

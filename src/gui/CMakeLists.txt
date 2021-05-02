@@ -57,7 +57,7 @@ target_link_libraries(KF5KIOGui
     KF5::I18n
 )
 
-set_target_properties(KF5KIOGui PROPERTIES VERSION ${KIO_VERSION_STRING}
+set_target_properties(KF5KIOGui PROPERTIES VERSION ${KIO_VERSION}
                                                SOVERSION ${KIO_SOVERSION}
                                                EXPORT_NAME KIOGui
 )

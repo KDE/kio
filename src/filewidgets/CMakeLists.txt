@@ -99,7 +99,7 @@ target_link_libraries(KF5KIOFileWidgets
     KF5::I18n
 )
 
-set_target_properties(KF5KIOFileWidgets PROPERTIES VERSION ${KIO_VERSION_STRING}
+set_target_properties(KF5KIOFileWidgets PROPERTIES VERSION ${KIO_VERSION}
                                                    SOVERSION ${KIO_SOVERSION}
                                                    EXPORT_NAME KIOFileWidgets
 )

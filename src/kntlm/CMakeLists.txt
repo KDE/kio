@@ -6,7 +6,7 @@ add_library(KF5::KIONTLM ALIAS KF5KIONTLM)
 
 target_link_libraries(KF5KIONTLM KF5::CoreAddons)
 
-set_target_properties(KF5KIONTLM PROPERTIES VERSION ${KIO_VERSION_STRING}
+set_target_properties(KF5KIONTLM PROPERTIES VERSION ${KIO_VERSION}
                                             SOVERSION ${KIO_SOVERSION}
                                             EXPORT_NAME KIONTLM
                                             )

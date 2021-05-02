@@ -206,7 +206,7 @@ if(ACL_FOUND)
   target_link_libraries(KF5KIOCore PRIVATE ${ACL_LIBS})
 endif()
 
-set_target_properties(KF5KIOCore PROPERTIES VERSION ${KIO_VERSION_STRING}
+set_target_properties(KF5KIOCore PROPERTIES VERSION ${KIO_VERSION}
                                             SOVERSION ${KIO_SOVERSION}
                                             EXPORT_NAME KIOCore
 )
