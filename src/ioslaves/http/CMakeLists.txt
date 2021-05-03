@@ -23,8 +23,6 @@ endif()
 
 configure_file(config-gssapi.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-gssapi.h )
 
-include_directories(${ZLIB_INCLUDE_DIR})
-
 if (NOT KIOCORE_ONLY)
 add_subdirectory( kcookiejar )
 endif()
@@ -44,7 +42,6 @@ ecm_mark_nongui_executable(kio_http_cache_cleaner)
 target_link_libraries(kio_http_cache_cleaner
    Qt5::DBus
    Qt5::Network # QLocalSocket
-   ${ZLIB_LIBRARY}
    KF5::KIOCore # KProtocolManager
    KF5::I18n)
 
@@ -95,7 +92,6 @@ target_link_libraries(kio_http
    KF5::KIOCore
    KF5::KIONTLM
    KF5::Archive
-   ${ZLIB_LIBRARY}
    KF5::I18n
 )
 if(GSSAPI_FOUND)
