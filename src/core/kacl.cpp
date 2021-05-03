@@ -7,16 +7,8 @@
 // $Id: kacl.cpp 424977 2005-06-13 15:13:22Z tilladam $
 
 #include "kacl.h"
+#include "acl_portability.h"
 
-#include <config-kiocore.h>
-
-#include <sys/types.h>
-#if HAVE_SYS_ACL_H
-#include <sys/acl.h>
-#endif
-#if HAVE_ACL_LIBACL_H
-#include <acl/libacl.h>
-#endif
 #include <QDataStream>
 #include <QHash>
 #include <QString>
@@ -24,6 +16,8 @@
 #include <memory>
 
 #include "kiocoredebug.h"
+
+using namespace KIO;
 
 class Q_DECL_HIDDEN KACL::KACLPrivate
 {
@@ -70,7 +64,7 @@ KACL::KACL(const QString &aclString)
 
 KACL::KACL(mode_t basePermissions)
 #if HAVE_POSIX_ACL
-    : d(new KACLPrivate(acl_from_mode(basePermissions)))
+    : d(new KACLPrivate(ACLPortability::acl_from_mode(basePermissions)))
 #else
     : d(new KACLPrivate)
 #endif
@@ -107,7 +101,7 @@ KACL &KACL::operator=(const KACL &rhs)
 bool KACL::operator==(const KACL &rhs) const
 {
 #if HAVE_POSIX_ACL
-    return (acl_cmp(d->m_acl, rhs.d->m_acl) == 0);
+    return (ACLPortability::acl_cmp(d->m_acl, rhs.d->m_acl) == 0);
 #else
     Q_UNUSED(rhs);
     return true;
@@ -133,7 +127,7 @@ bool KACL::isValid() const
 bool KACL::isExtended() const
 {
 #if HAVE_POSIX_ACL
-    return (acl_equiv_mode(d->m_acl, nullptr) != 0);
+    return (ACLPortability::acl_equiv_mode(d->m_acl, nullptr) != 0);
 #else
     return false;
 #endif
@@ -164,7 +158,9 @@ static unsigned short entryToPermissions(acl_entry_t entry)
     if (acl_get_permset(entry, &permset) != 0) {
         return 0;
     }
-    return (acl_get_perm(permset, ACL_READ) << 2 | acl_get_perm(permset, ACL_WRITE) << 1 | acl_get_perm(permset, ACL_EXECUTE));
+    return (ACLPortability::acl_get_perm(permset, ACL_READ) << 2
+          | ACLPortability::acl_get_perm(permset, ACL_WRITE) << 1
+          | ACLPortability::acl_get_perm(permset, ACL_EXECUTE));
 }
 
 static void permissionsToEntry(acl_entry_t entry, unsigned short v)

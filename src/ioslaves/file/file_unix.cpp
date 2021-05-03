@@ -59,6 +59,10 @@
 #include <sys/extattr.h>
 #endif
 
+#if HAVE_POSIX_ACL
+#include "acl_portability.h"
+#endif
+
 using namespace KIO;
 
 /* 512 kB */
@@ -158,13 +162,13 @@ static QString aclToText(acl_t acl)
 
 bool FileProtocol::isExtendedACL(acl_t acl)
 {
-    return (acl_equiv_mode(acl, nullptr) != 0);
+    return (ACLPortability::acl_equiv_mode(acl, nullptr) != 0);
 }
 
 static void appendACLAtoms(const QByteArray &path, UDSEntry &entry, mode_t type)
 {
     // first check for a noop
-    if (acl_extended_file(path.data()) == 0) {
+    if (ACLPortability::acl_extended_file(path.data()) == 0) {
         return;
     }
 
@@ -1598,7 +1602,7 @@ int FileProtocol::setACL(const char *path, mode_t perm, bool directoryDefault)
         if (ACLString == QLatin1String("ACL_DELETE")) {
             // user told us to delete the extended ACL, so let's write only
             // the minimal (UNIX permission bits) part
-            acl = acl_from_mode(perm);
+            acl = ACLPortability::acl_from_mode(perm);
         }
         acl = acl_from_text(ACLString.toLatin1().constData());
         if (acl_valid(acl) == 0) { // let's be safe
