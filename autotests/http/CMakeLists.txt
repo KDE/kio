@@ -66,6 +66,4 @@ endif()
 
 ecm_add_test(httpfiltertest.cpp ${kioslave-http_SOURCE_DIR}/httpfilter.cpp
              TEST_NAME httpfiltertest
-             LINK_LIBRARIES Qt5::Test KF5::I18n KF5::Archive ${ZLIB_LIBRARY})
-target_include_directories(httpfiltertest PRIVATE ${ZLIB_INCLUDE_DIRS})
-
+             LINK_LIBRARIES Qt5::Test KF5::I18n KF5::Archive ZLIB::ZLIB)
