@@ -28,6 +28,9 @@ void KACLTest::initTestCase()
 #if !HAVE_POSIX_ACL
     QSKIP("ACL support not compiled");
 #endif
+#ifdef Q_OS_FREEBSD
+    QSKIP("The test is not adapted for FreeBSD yet");
+#endif
 
     m_testACL = QStringLiteral(
         "user::rw-\n"
