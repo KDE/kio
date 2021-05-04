@@ -136,6 +136,8 @@ public:
     int shmid;
     // And the data area
     uchar *shmaddr;
+    // Size of the shm segment
+    size_t shmsize;
     // Root of thumbnail cache
     QString thumbRoot;
     // List of encrypted mount points for checking if we should save thumbnail
@@ -733,17 +735,19 @@ void PreviewJobPrivate::createThumbnail(const QString &pixPath)
     }
 
 #if WITH_SHM
-    if (shmid == -1) {
+    size_t requiredSize = thumb_width * devicePixelRatio * thumb_height * devicePixelRatio * 4;
+    if (shmid == -1 || shmsize < requiredSize) {
         if (shmaddr) {
             // clean previous shared memory segment
             shmdt((char *)shmaddr);
-            shmctl(shmid, IPC_RMID, nullptr);
             shmaddr = nullptr;
+            shmctl(shmid, IPC_RMID, nullptr);
+            shmid = -1;
         }
-        auto size = thumb_width * thumb_height;
-        if (size > 0) {
-            shmid = shmget(IPC_PRIVATE, size * 4 * devicePixelRatio * devicePixelRatio, IPC_CREAT | 0600);
+        if (requiredSize > 0) {
+            shmid = shmget(IPC_PRIVATE, requiredSize, IPC_CREAT | 0600);
             if (shmid != -1) {
+                shmsize = requiredSize;
                 shmaddr = (uchar *)(shmat(shmid, nullptr, SHM_RDONLY));
                 if (shmaddr == (uchar *)-1) {
                     shmctl(shmid, IPC_RMID, nullptr);
