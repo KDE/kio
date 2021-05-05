@@ -18,10 +18,8 @@
 #include "kproxydlg.h"
 #include "netpref.h"
 #include "smbrodlg.h"
-#include "useragentdlg.h"
 
-K_PLUGIN_FACTORY(KioConfigFactory, registerPlugin<UserAgentDlg>(QStringLiteral("useragent")); registerPlugin<SMBRoOptions>(QStringLiteral("smb"));
-                 registerPlugin<KIOPreferences>(QStringLiteral("netpref"));
+K_PLUGIN_FACTORY(KioConfigFactory, registerPlugin<SMBRoOptions>(QStringLiteral("smb")); registerPlugin<KIOPreferences>(QStringLiteral("netpref"));
                  registerPlugin<KProxyDialog>(QStringLiteral("proxy"));
                  registerPlugin<KCookiesMain>(QStringLiteral("cookie"));
                  registerPlugin<CacheConfigModule>(QStringLiteral("cache"));)
