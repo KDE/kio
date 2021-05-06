@@ -12,11 +12,9 @@ set(kcm_kio_PART_SRCS
     smbrodlg.cpp
     kproxydlg.cpp
     netpref.cpp
-    cache.cpp
     ksaveioconfig.cpp)
 
 ki18n_wrap_ui(kcm_kio_PART_SRCS
-    cache.ui
     kproxydlg.ui
     kcookiespolicies.ui
     kcookiesmanagement.ui
@@ -41,5 +39,5 @@ install(TARGETS kcm_kio  DESTINATION ${KDE_INSTALL_PLUGINDIR} )
 
 ########### install files ###############
 
-install( FILES smb.desktop cookies.desktop cache.desktop
+install( FILES smb.desktop cookies.desktop
     netpref.desktop proxy.desktop  DESTINATION  ${KDE_INSTALL_KSERVICES5DIR} )

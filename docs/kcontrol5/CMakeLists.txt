@@ -1,4 +1,3 @@
-add_subdirectory(cache)
 add_subdirectory(cookies)
 add_subdirectory(netpref)
 add_subdirectory(proxy)

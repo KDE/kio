@@ -13,7 +13,6 @@
 #include <KPluginFactory>
 
 // Local
-#include "cache.h"
 #include "kcookiesmain.h"
 #include "kproxydlg.h"
 #include "netpref.h"
@@ -21,7 +20,6 @@
 
 K_PLUGIN_FACTORY(KioConfigFactory, registerPlugin<SMBRoOptions>(QStringLiteral("smb")); registerPlugin<KIOPreferences>(QStringLiteral("netpref"));
                  registerPlugin<KProxyDialog>(QStringLiteral("proxy"));
-                 registerPlugin<KCookiesMain>(QStringLiteral("cookie"));
-                 registerPlugin<CacheConfigModule>(QStringLiteral("cache"));)
+                 registerPlugin<KCookiesMain>(QStringLiteral("cookie"));)
 
 #include "main.moc"
