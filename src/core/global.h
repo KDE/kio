@@ -91,8 +91,9 @@ KIOCORE_EXPORT QString convertSeconds(unsigned int seconds);
  * @return calculated remaining time
  * @deprecated Since 3.4, use calculateRemainingSeconds() instead, as QTime is limited to 23:59:59
  */
+KIOCORE_EXPORT
 KIOCORE_DEPRECATED_VERSION(3, 4, "Use KIO::calculateRemainingSeconds(KIO::filesize_t, KIO::filesize_t, KIO::filesize_t")
-KIOCORE_EXPORT QTime calculateRemaining(KIO::filesize_t totalSize, KIO::filesize_t processedSize, KIO::filesize_t speed);
+QTime calculateRemaining(KIO::filesize_t totalSize, KIO::filesize_t processedSize, KIO::filesize_t speed);
 #endif
 
 /**
@@ -132,8 +133,9 @@ KIOCORE_EXPORT QString decodeFileName(const QString &str);
  * @since 5.0
  * @deprecated since 5.61, use KFileUtils::suggestName() from KCoreAddons
  */
+KIOCORE_EXPORT
 KIOCORE_DEPRECATED_VERSION(5, 61, "Use KFileUtils::suggestName(const QUrl &, const QString &) from KCoreAddons")
-KIOCORE_EXPORT QString suggestName(const QUrl &baseURL, const QString &oldName);
+QString suggestName(const QUrl &baseURL, const QString &oldName);
 #endif
 
 /**

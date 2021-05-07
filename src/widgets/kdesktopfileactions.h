@@ -31,8 +31,9 @@ namespace KDesktopFileActions
  * @deprecated since 5.82, FSDevice .desktop file template hasn't been installed
  * for a long time. And users don't seem to mount devices using that method any more.
  */
+KIOWIDGETS_EXPORT
 KIOWIDGETS_DEPRECATED_VERSION(5, 82, "For lack of usage.")
-KIOWIDGETS_EXPORT QList<KServiceAction> builtinServices(const QUrl &url);
+QList<KServiceAction> builtinServices(const QUrl &url);
 #endif
 
 /**
@@ -91,8 +92,9 @@ KIOWIDGETS_EXPORT void executeService(const QList<QUrl> &urls, const KServiceAct
  * @see KRun::runUrl
  * @deprecated since 5.71, use OpenUrlJob instead
  */
+KIOWIDGETS_EXPORT
 KIOWIDGETS_DEPRECATED_VERSION(5, 71, "Use KIO::OpenUrlJob instead")
-KIOWIDGETS_EXPORT bool run(const QUrl &_url, bool _is_local);
+bool run(const QUrl &_url, bool _is_local);
 #endif
 
 #if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 71)
@@ -112,8 +114,9 @@ KIOWIDGETS_EXPORT bool run(const QUrl &_url, bool _is_local);
  * @since 5.5
  * @deprecated since 5.71, use OpenUrlJob instead
  */
+KIOWIDGETS_EXPORT
 KIOWIDGETS_DEPRECATED_VERSION(5, 71, "Use KIO::OpenUrlJob instead")
-KIOWIDGETS_EXPORT bool runWithStartup(const QUrl &_url, bool _is_local, const QByteArray &asn);
+bool runWithStartup(const QUrl &_url, bool _is_local, const QByteArray &asn);
 #endif
 }
 

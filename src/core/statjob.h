@@ -223,8 +223,9 @@ statDetails(const QUrl &url, KIO::StatJob::StatSide side, KIO::StatDetails detai
  * @return the job handling the operation.
  * @deprecated since 5.69, use statDetails(const QUrl &, KIO::StatJob::StatSide, KIO::StatDetails, JobFlags)
  */
+KIOCORE_EXPORT
 KIOCORE_DEPRECATED_VERSION(5, 69, "Use KIO::statDetails(const QUrl &, KIO::StatJob::StatSide, KIO::StatDetails, JobFlags)")
-KIOCORE_EXPORT StatJob *stat(const QUrl &url, KIO::StatJob::StatSide side, short int details, JobFlags flags = DefaultFlags);
+StatJob *stat(const QUrl &url, KIO::StatJob::StatSide side, short int details, JobFlags flags = DefaultFlags);
 #endif
 
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 69)
@@ -234,8 +235,9 @@ KIOCORE_EXPORT StatJob *stat(const QUrl &url, KIO::StatJob::StatSide side, short
  * @since 5.69
  * @deprecated since 5.69, use directly KIO::StatDetails
  */
+KIOCORE_EXPORT
 KIOCORE_DEPRECATED_VERSION(5, 69, "Use directly KIO::StatDetails")
-KIOCORE_EXPORT KIO::StatDetails detailsToStatDetails(int details);
+KIO::StatDetails detailsToStatDetails(int details);
 #endif
 
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(4, 0)
@@ -267,8 +269,9 @@ KIOCORE_EXPORT KIO::StatDetails detailsToStatDetails(int details);
  * @return the job handling the operation.
  * @deprecated Since 4.0, use stat(const QUrl &, KIO::StatJob::StatSide, short int, JobFlags)
  */
+KIOCORE_EXPORT
 KIOCORE_DEPRECATED_VERSION(4, 0, "Use KIO::stat(const QUrl &, KIO::StatJob::StatSide, short int, JobFlags)")
-KIOCORE_EXPORT StatJob *stat(const QUrl &url, bool sideIsSource, short int details, JobFlags flags = DefaultFlags);
+StatJob *stat(const QUrl &url, bool sideIsSource, short int details, JobFlags flags = DefaultFlags);
 #endif
 
 /**

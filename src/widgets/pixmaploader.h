@@ -36,8 +36,9 @@ namespace KIO
  * icon name and
  * QIcon::fromTheme(name, QIcon::fromTheme(QStringLiteral("application-octet-stream")))
  */
+KIOWIDGETS_EXPORT
 KIOWIDGETS_DEPRECATED_VERSION(5, 75, "Use KIO::iconNameForUrl")
-KIOWIDGETS_EXPORT QPixmap
+QPixmap
 pixmapForUrl(const QUrl &url, int dummy = 0, KIconLoader::Group group = KIconLoader::Desktop, int force_size = 0, int state = 0, QString *path = nullptr);
 
 #endif

@@ -165,7 +165,7 @@ public:
  * @since 4.7
  * @deprecated since 5.0, use ThumbCreator
  */
-class KIOWIDGETS_DEPRECATED_VERSION(5, 0, "Use ThumbCreator") KIOWIDGETS_EXPORT ThumbCreatorV2 : public ThumbCreator
+class KIOWIDGETS_EXPORT KIOWIDGETS_DEPRECATED_VERSION(5, 0, "Use ThumbCreator") ThumbCreatorV2 : public ThumbCreator
 {
 public:
     virtual ~ThumbCreatorV2();

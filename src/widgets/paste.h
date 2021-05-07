@@ -33,8 +33,9 @@ class CopyJob;
  * @return the job that handles the operation
  * @deprecated since 5.4, use KIO::paste() from <KIO/PasteJob> (which takes care of undo/redo too)
  */
+KIOWIDGETS_EXPORT
 KIOWIDGETS_DEPRECATED_VERSION(5, 4, "Use KIO::paste(...) from <KIO/PasteJob>")
-KIOWIDGETS_EXPORT Job *pasteClipboard(const QUrl &destURL, QWidget *widget, bool move = false);
+Job *pasteClipboard(const QUrl &destURL, QWidget *widget, bool move = false);
 #endif
 
 #if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 4)
@@ -53,8 +54,9 @@ KIOWIDGETS_EXPORT Job *pasteClipboard(const QUrl &destURL, QWidget *widget, bool
  * @see pasteClipboard()
  * @deprecated since 5.4, use KIO::paste() from <KIO/PasteJob> (which takes care of undo/redo too)
  */
+KIOWIDGETS_EXPORT
 KIOWIDGETS_DEPRECATED_VERSION(5, 4, "Use KIO::paste(...) from <KIO/PasteJob>")
-KIOWIDGETS_EXPORT Job *pasteMimeData(const QMimeData *data, const QUrl &destUrl, const QString &dialogText, QWidget *widget);
+Job *pasteMimeData(const QMimeData *data, const QUrl &destUrl, const QString &dialogText, QWidget *widget);
 #endif
 
 /**
@@ -72,8 +74,9 @@ KIOWIDGETS_EXPORT bool canPasteMimeData(const QMimeData *data);
  * isn't possible right now.
  * @deprecated since 5.4, use pasteActionText(const QMimeData *, bool*, const KFileItem &)
  */
+KIOWIDGETS_EXPORT
 KIOWIDGETS_DEPRECATED_VERSION(5, 4, "Use KIO::pasteActionText(const QMimeData *, bool*, const KFileItem &)")
-KIOWIDGETS_EXPORT QString pasteActionText();
+QString pasteActionText();
 #endif
 
 /**
