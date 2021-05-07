@@ -774,12 +774,23 @@ KFileItemActionsPrivate::associatedApplications(const QStringList &mimeTypeList,
     }
 
     for (int j = 1; j < mimeTypeList.count(); ++j) {
+        KService::List offers;
         QStringList subservice; // list of services that support this MIME type
-        QT_WARNING_PUSH
-        QT_WARNING_DISABLE_CLANG("-Wdeprecated-declarations")
-        QT_WARNING_DISABLE_GCC("-Wdeprecated-declarations")
-        const KService::List offers = KMimeTypeTrader::self()->query(mimeTypeList[j], QStringLiteral("Application"), traderConstraint);
-        QT_WARNING_POP
+        if (traderConstraint.isEmpty()) {
+            offers = KApplicationTrader::queryByMimeType(mimeTypeList[j], [excludedDesktopEntryNames](const KService::Ptr &service) {
+                return !excludedDesktopEntryNames.contains(service->desktopEntryName());
+            });
+        }
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 82)
+        else {
+            QT_WARNING_PUSH
+            QT_WARNING_DISABLE_CLANG("-Wdeprecated-declarations")
+            QT_WARNING_DISABLE_GCC("-Wdeprecated-declarations")
+            Q_ASSERT(excludedDesktopEntryNames.isEmpty());
+            offers = KMimeTypeTrader::self()->query(mimeTypeList[j], QStringLiteral("Application"), traderConstraint);
+            QT_WARNING_POP
+        }
+#endif
         subservice.reserve(offers.count());
         for (int i = 0; i != offers.count(); ++i) {
             const QString serviceId = offers[i]->storageId();
