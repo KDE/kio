@@ -40,7 +40,7 @@ void KFileItemActionsTest::testSetParentWidget()
 
     // Create the "Open With" actions and add them to a menu.
     QMenu menu;
-    fileItemActions.addOpenWithActionsTo(&menu);
+    fileItemActions.addActionsTo(&menu);
 
     // Delete the widget. In KDE 4.x, this would also delete the "Open With" actions
     // because they were children of the widget. We would then get a crash in the
