@@ -660,8 +660,12 @@ void KPropertiesDialogPrivate::insertPages()
         }
     }
 
-    // TODO KF6 - Remove once we drop loading of C++ plugins without JSON metadata.
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 83)
+    QT_WARNING_PUSH
+    QT_WARNING_DISABLE_CLANG("-Wdeprecated-declarations")
+    QT_WARNING_DISABLE_GCC("-Wdeprecated-declarations")
     const KService::List offers = KMimeTypeTrader::self()->query(mimetype, QStringLiteral("KPropertiesDialog/Plugin"), query);
+    QT_WARNING_POP
     for (const KService::Ptr &ptr : offers) {
         if (addedPlugins.contains(ptr->desktopEntryName())) {
             continue;
@@ -676,6 +680,7 @@ void KPropertiesDialogPrivate::insertPages()
         q->insertPlugin(plugin);
         addedPlugins.append(ptr->desktopEntryName());
     }
+#endif
 }
 
 void KPropertiesDialog::updateUrl(const QUrl &_newUrl)

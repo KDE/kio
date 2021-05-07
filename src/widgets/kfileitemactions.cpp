@@ -277,7 +277,11 @@ static KService::Ptr preferredService(const QString &mimeType, const QStringList
     else {
         Q_ASSERT(excludedDesktopEntryNames.isEmpty());
         // KMimeTypeTrader::preferredService doesn't take a constraint
+        QT_WARNING_PUSH
+        QT_WARNING_DISABLE_CLANG("-Wdeprecated-declarations")
+        QT_WARNING_DISABLE_GCC("-Wdeprecated-declarations")
         services = KMimeTypeTrader::self()->query(mimeType, QStringLiteral("Application"), constraint);
+        QT_WARNING_POP
     }
 #endif
     return services.isEmpty() ? KService::Ptr() : services.first();
@@ -688,8 +692,12 @@ int KFileItemActionsPrivate::addPluginActionsTo(QMenu *mainMenu, QMenu *actionsM
     }
 
 #if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 82)
+    QT_WARNING_PUSH
+    QT_WARNING_DISABLE_CLANG("-Wdeprecated-declarations")
+    QT_WARNING_DISABLE_GCC("-Wdeprecated-declarations")
     const KService::List fileItemPlugins =
         KMimeTypeTrader::self()->query(commonMimeType, QStringLiteral("KFileItemAction/Plugin"), QStringLiteral("exist Library"));
+    QT_WARNING_POP
     for (const auto &service : fileItemPlugins) {
         if (!showGroup.readEntry(service->desktopEntryName(), true)) {
             // The plugin has been disabled
@@ -740,7 +748,11 @@ KFileItemActionsPrivate::associatedApplications(const QStringList &mimeTypeList,
 #if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 82)
     else {
         Q_ASSERT(excludedDesktopEntryNames.isEmpty());
+        QT_WARNING_PUSH
+        QT_WARNING_DISABLE_CLANG("-Wdeprecated-declarations")
+        QT_WARNING_DISABLE_GCC("-Wdeprecated-declarations")
         firstOffers = KMimeTypeTrader::self()->query(mimeTypeList.first(), QStringLiteral("Application"), traderConstraint);
+        QT_WARNING_POP
     }
 #endif
 
@@ -763,7 +775,11 @@ KFileItemActionsPrivate::associatedApplications(const QStringList &mimeTypeList,
 
     for (int j = 1; j < mimeTypeList.count(); ++j) {
         QStringList subservice; // list of services that support this MIME type
+        QT_WARNING_PUSH
+        QT_WARNING_DISABLE_CLANG("-Wdeprecated-declarations")
+        QT_WARNING_DISABLE_GCC("-Wdeprecated-declarations")
         const KService::List offers = KMimeTypeTrader::self()->query(mimeTypeList[j], QStringLiteral("Application"), traderConstraint);
+        QT_WARNING_POP
         subservice.reserve(offers.count());
         for (int i = 0; i != offers.count(); ++i) {
             const QString serviceId = offers[i]->storageId();
