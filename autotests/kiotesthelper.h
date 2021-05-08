@@ -59,7 +59,7 @@ static void createTestFile(const QString &path, bool plainText = false)
     QDir().mkpath(QFileInfo(path).absolutePath());
     QFile f(path);
     if (!f.open(QIODevice::WriteOnly)) {
-        qFatal("Couldn't create %s", qPrintable(path));
+        qFatal("Couldn't create %s: %s", qPrintable(path), qPrintable(f.errorString()));
     }
     QByteArray data(plainText ? "Hello world" : "Hello\0world", 11);
     QCOMPARE(data.size(), 11);
