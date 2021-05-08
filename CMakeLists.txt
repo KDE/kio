@@ -127,12 +127,10 @@ add_definitions(-DKCOMPLETION_DISABLE_DEPRECATED_BEFORE_AND_AT=0x054100)
 add_definitions(-DQT_NO_FOREACH)
 
 add_definitions(-DTRANSLATION_DOMAIN=\"kio5\")
-if (IS_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/po")
-    ki18n_install(po)
+ki18n_install(po)
 
-    if (KF5DocTools_FOUND)
-        kdoctools_install(po)
-    endif()
+if (KF5DocTools_FOUND)
+    kdoctools_install(po)
 endif()
 
 if (KF5DocTools_FOUND)
