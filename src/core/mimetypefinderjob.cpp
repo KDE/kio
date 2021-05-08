@@ -122,7 +122,7 @@ void KIO::MimeTypeFinderJobPrivate::statFile()
 {
     Q_ASSERT(m_mimeTypeName.isEmpty());
 
-    KIO::StatJob *job = KIO::statDetails(m_url, KIO::StatJob::SourceSide, KIO::StatBasic, KIO::HideProgressInfo);
+    KIO::StatJob *job = KIO::statDetails(m_url, KIO::StatJob::SourceSide, KIO::StatBasic | KIO::StatResolveSymlink, KIO::HideProgressInfo);
     if (!m_authPrompts) {
         job->addMetaData(QStringLiteral("no-auth-prompt"), QStringLiteral("true"));
     }
