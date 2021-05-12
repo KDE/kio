@@ -20,6 +20,9 @@
 #include <KDEDModule>
 #include <kio/authinfo.h>
 
+class KMessageDialog;
+class KPasswordDialog;
+
 namespace KWallet
 {
 class Wallet;
@@ -59,8 +62,8 @@ Q_SIGNALS:
     void queryAuthInfoAsyncResult(qlonglong requestId, qlonglong seqNr, const KIO::AuthInfo &);
 
 private Q_SLOTS:
-    void passwordDialogDone(int);
-    void retryDialogDone(int);
+    void passwordDialogDone(int result, KPasswordDialog *sender);
+    void retryDialogDone(int result, KMessageDialog *sender);
     void windowRemoved(WId);
 
 private:

@@ -16,6 +16,7 @@
 
 #include <KLocalizedString>
 #include <KMessageBox>
+#include <KMessageDialog>
 #include <KPasswordDialog>
 #include <KUserTimestamp>
 #include <kwindowsystem.h>
@@ -512,23 +513,18 @@ void KPasswdServer::processRequest()
         if (result && !request->errorMsg.isEmpty()) {
             const QString prompt = request->errorMsg.trimmed() + QLatin1Char('\n') + i18n("Do you want to retry?");
 
-            QDialog *dlg = new QDialog;
-            connect(dlg, &QDialog::finished, this, &KPasswdServer::retryDialogDone);
-            connect(this, &QObject::destroyed, dlg, &QObject::deleteLater);
+            KMessageDialog *dlg = new KMessageDialog(KMessageDialog::WarningContinueCancel, prompt, nullptr);
+            dlg->setAttribute(Qt::WA_DeleteOnClose);
             dlg->setWindowTitle(i18n("Retry Authentication"));
             dlg->setWindowIcon(QIcon::fromTheme(QStringLiteral("dialog-password")));
             dlg->setObjectName(QStringLiteral("warningOKCancel"));
-            QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Yes | QDialogButtonBox::Cancel);
-            buttonBox->button(QDialogButtonBox::Yes)->setText(i18nc("@action:button filter-continue", "Retry"));
+            KGuiItem retryButton(i18nc("@action:button filter-continue", "Retry"));
 
-            KMessageBox::createKMessageBox(dlg,
-                                           buttonBox,
-                                           QMessageBox::Warning,
-                                           prompt,
-                                           QStringList(),
-                                           QString(),
-                                           nullptr,
-                                           (KMessageBox::Notify | KMessageBox::NoExec));
+            dlg->setButtons(retryButton);
+
+            connect(dlg, &QDialog::finished, this, [this, dlg](int result) {
+                retryDialogDone(result, dlg);
+            });
 
             dlg->setAttribute(Qt::WA_NativeWindow, true);
             KWindowSystem::setMainWindow(dlg->windowHandle(), request->windowId);
@@ -771,8 +767,11 @@ void KPasswdServer::showPasswordDialog(KPasswdServer::Request *request)
     qCDebug(category) << "Widget for" << request->windowId << QWidget::find(request->windowId);
 
     KPasswordDialog *dlg = new KPasswordDialog(nullptr, dialogFlags);
-    connect(dlg, &QDialog::finished, this, &KPasswdServer::passwordDialogDone);
-    connect(this, &QObject::destroyed, dlg, &QObject::deleteLater);
+    dlg->setAttribute(Qt::WA_DeleteOnClose);
+
+    connect(dlg, &QDialog::finished, this, [this, dlg](int result) {
+        passwordDialogDone(result, dlg);
+    });
 
     dlg->setPrompt(info.prompt);
     dlg->setUsername(username);
@@ -884,12 +883,9 @@ void KPasswdServer::sendResponse(KPasswdServer::Request *request)
     }
 }
 
-void KPasswdServer::passwordDialogDone(int result)
+void KPasswdServer::passwordDialogDone(int result, KPasswordDialog *sender)
 {
-    KPasswordDialog *dlg = qobject_cast<KPasswordDialog *>(sender());
-    Q_ASSERT(dlg);
-
-    QScopedPointer<Request> request(m_authInProgress.take(dlg));
+    QScopedPointer<Request> request(m_authInProgress.take(sender));
     Q_ASSERT(request); // request should never be nullptr.
 
     if (request) {
@@ -897,17 +893,16 @@ void KPasswdServer::passwordDialogDone(int result)
         const bool bypassCacheAndKWallet = info.getExtraField(QString::fromLatin1(s_bypassCacheAndKwallet)).toBool();
 
         qCDebug(category) << "dialog result=" << result << ", bypassCacheAndKWallet?" << bypassCacheAndKWallet;
-        if (dlg && result == QDialog::Accepted) {
-            Q_ASSERT(dlg);
-            info.username = dlg->username();
-            info.password = dlg->password();
-            info.keepPassword = dlg->keepPassword();
+        if (sender && result == QDialog::Accepted) {
+            info.username = sender->username();
+            info.password = sender->password();
+            info.keepPassword = sender->keepPassword();
 
             if (info.getExtraField(QString::fromLatin1(s_domain)).isValid()) {
-                info.setExtraField(QString::fromLatin1(s_domain), dlg->domain());
+                info.setExtraField(QString::fromLatin1(s_domain), sender->domain());
             }
             if (info.getExtraField(QString::fromLatin1(s_anonymous)).isValid()) {
-                info.setExtraField(QString::fromLatin1(s_anonymous), dlg->anonymousMode());
+                info.setExtraField(QString::fromLatin1(s_anonymous), sender->anonymousMode());
             }
 
             // When the user checks "keep password", that means:
@@ -957,16 +952,11 @@ void KPasswdServer::passwordDialogDone(int result)
 
         sendResponse(request.data());
     }
-
-    dlg->deleteLater();
 }
 
-void KPasswdServer::retryDialogDone(int result)
+void KPasswdServer::retryDialogDone(int result, KMessageDialog *sender)
 {
-    QDialog *dlg = qobject_cast<QDialog *>(sender());
-    Q_ASSERT(dlg);
-
-    QScopedPointer<Request> request(m_authRetryInProgress.take(dlg));
+    QScopedPointer<Request> request(m_authRetryInProgress.take(sender));
     Q_ASSERT(request);
 
     if (request) {
