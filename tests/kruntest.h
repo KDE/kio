@@ -22,7 +22,7 @@ public Q_SLOTS:
     void slotStart();
     void slotStop();
     void slotLaunchOne();
-    void slotLaunchTest();
+    void slotLaunchTest(QPushButton *sender);
 
 private:
     QPushButton *start;

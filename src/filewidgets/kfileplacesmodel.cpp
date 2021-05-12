@@ -223,7 +223,7 @@ public:
     void _k_deviceRemoved(const QString &udi);
     void _k_itemChanged(const QString &udi);
     void _k_reloadBookmarks();
-    void _k_storageSetupDone(Solid::ErrorType error, const QVariant &errorData);
+    void _k_storageSetupDone(Solid::ErrorType error, const QVariant &errorData, Solid::StorageAccess *sender);
     void _k_storageTeardownDone(Solid::ErrorType error, const QVariant &errorData);
 
 private:
@@ -1444,17 +1444,17 @@ void KFilePlacesModel::requestSetup(const QModelIndex &index)
 
         d->setupInProgress[access] = index;
 
-        connect(access, &Solid::StorageAccess::setupDone, this, [this](Solid::ErrorType error, QVariant errorData) {
-            d->_k_storageSetupDone(error, errorData);
+        connect(access, &Solid::StorageAccess::setupDone, this, [this, access](Solid::ErrorType error, QVariant errorData) {
+            d->_k_storageSetupDone(error, errorData, access);
         });
 
         access->setup();
     }
 }
 
-void KFilePlacesModel::Private::_k_storageSetupDone(Solid::ErrorType error, const QVariant &errorData)
+void KFilePlacesModel::Private::_k_storageSetupDone(Solid::ErrorType error, const QVariant &errorData, Solid::StorageAccess *sender)
 {
-    QPersistentModelIndex index = setupInProgress.take(q->sender());
+    QPersistentModelIndex index = setupInProgress.take(sender);
 
     if (!index.isValid()) {
         return;

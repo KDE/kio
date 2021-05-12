@@ -97,7 +97,6 @@ private:
     Q_PRIVATE_SLOT(d, void _k_itemAppearUpdate(qreal))
     Q_PRIVATE_SLOT(d, void _k_itemDisappearUpdate(qreal))
     Q_PRIVATE_SLOT(d, void _k_enableSmoothItemResizing())
-    Q_PRIVATE_SLOT(d, void _k_capacityBarFadeValueChanged())
     Q_PRIVATE_SLOT(d, void _k_triggerDevicePolling())
 
     class Private;

@@ -313,7 +313,7 @@ public:
     /**
      * Called when accepting the KPropertiesDialog (for "other desktop files")
      */
-    void _k_slotOtherDesktopFile();
+    void _k_slotOtherDesktopFile(KPropertiesDialog *sender);
 
     /**
      * Called when closing the KPropertiesDialog is closed (whichever way, accepted and rejected)
@@ -536,8 +536,8 @@ void KNewFileMenuPrivate::executeOtherDesktopFile(const KNewFileMenuSingleton::E
         KPropertiesDialog *dlg = new KPropertiesDialog(templateUrl, directory, text, m_parentWidget);
         dlg->setModal(q->isModal());
         dlg->setAttribute(Qt::WA_DeleteOnClose);
-        QObject::connect(dlg, &KPropertiesDialog::applied, q, [this]() {
-            _k_slotOtherDesktopFile();
+        QObject::connect(dlg, &KPropertiesDialog::applied, q, [this, dlg]() {
+            _k_slotOtherDesktopFile(dlg);
         });
         if (usingTemplate) {
             QObject::connect(dlg, &KPropertiesDialog::propertiesClosed, q, [this]() {
@@ -1097,11 +1097,10 @@ void KNewFileMenuPrivate::_k_slotFillTemplates()
     (*s->templatesList) += slist.values();
 }
 
-void KNewFileMenuPrivate::_k_slotOtherDesktopFile()
+void KNewFileMenuPrivate::_k_slotOtherDesktopFile(KPropertiesDialog *sender)
 {
     // The properties dialog took care of the copying, so we're done
-    KPropertiesDialog *dialog = qobject_cast<KPropertiesDialog *>(q->sender());
-    Q_EMIT q->fileCreated(dialog->url());
+    Q_EMIT q->fileCreated(sender->url());
 }
 
 void KNewFileMenuPrivate::_k_slotOtherDesktopFileClosed()

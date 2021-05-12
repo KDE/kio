@@ -83,7 +83,9 @@ Receiver::Receiver()
         hbox->addWidget(button);
         QLabel *label = new QLabel(s_tests[i].expectedResult, this);
         hbox->addWidget(label);
-        connect(button, &QAbstractButton::clicked, this, &Receiver::slotLaunchTest);
+        connect(button, &QAbstractButton::clicked, this, [this, button]() {
+            slotLaunchTest(button);
+        });
         hbox->addStretch();
     }
 
@@ -91,11 +93,9 @@ Receiver::Receiver()
     show();
 }
 
-void Receiver::slotLaunchTest()
+void Receiver::slotLaunchTest(QPushButton *sender)
 {
-    QPushButton *button = qobject_cast<QPushButton *>(sender());
-    Q_ASSERT(button);
-    const int testNumber = button->property("testNumber").toInt();
+    const int testNumber = sender->property("testNumber").toInt();
     QList<QUrl> urls;
     if (s_tests[testNumber].url) {
         QString urlStr(s_tests[testNumber].url);

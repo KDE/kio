@@ -579,7 +579,7 @@ public:
     void _k_itemAppearUpdate(qreal value);
     void _k_itemDisappearUpdate(qreal value);
     void _k_enableSmoothItemResizing();
-    void _k_capacityBarFadeValueChanged();
+    void _k_capacityBarFadeValueChanged(QTimeLine *sender);
     void _k_triggerDevicePolling();
 
     KFilePlacesView *const q;
@@ -1457,8 +1457,8 @@ void KFilePlacesView::Private::fadeCapacityBar(const QModelIndex &index, FadeTyp
     delete timeLine;
     m_delegate->removeFadeAnimation(index);
     timeLine = new QTimeLine(250, q);
-    connect(timeLine, &QTimeLine::valueChanged, q, [this]() {
-        _k_capacityBarFadeValueChanged();
+    connect(timeLine, &QTimeLine::valueChanged, q, [this, timeLine]() {
+        _k_capacityBarFadeValueChanged(timeLine);
     });
     if (fadeType == FadeIn) {
         timeLine->setDirection(QTimeLine::Forward);
@@ -1600,9 +1600,9 @@ void KFilePlacesView::Private::_k_enableSmoothItemResizing()
     m_smoothItemResizing = true;
 }
 
-void KFilePlacesView::Private::_k_capacityBarFadeValueChanged()
+void KFilePlacesView::Private::_k_capacityBarFadeValueChanged(QTimeLine *sender)
 {
-    const QModelIndex index = m_delegate->indexForFadeAnimation(static_cast<QTimeLine *>(q->sender()));
+    const QModelIndex index = m_delegate->indexForFadeAnimation(sender);
     if (!index.isValid()) {
         return;
     }

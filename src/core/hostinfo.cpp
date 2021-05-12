@@ -37,6 +37,9 @@ namespace KIO
 class HostInfoAgentPrivate : public QObject
 {
     Q_OBJECT
+
+    class Query;
+
 public:
     explicit HostInfoAgentPrivate(int cacheSize = 100);
     ~HostInfoAgentPrivate() override
@@ -54,11 +57,10 @@ public:
         ttl = _ttl;
     }
 private Q_SLOTS:
-    void queryFinished(const QHostInfo &);
+    void queryFinished(const QHostInfo &info, Query *sender);
 
 private:
     class Result;
-    class Query;
 
     QHash<QString, Query *> openQueries;
     QCache<QString, QPair<QHostInfo, QTime>> dnsCache;
@@ -349,7 +351,9 @@ void HostInfoAgentPrivate::lookupHost(const QString &hostName, QObject *receiver
 
     Query *query = new Query();
     openQueries.insert(hostName, query);
-    connect(query, &Query::result, this, &HostInfoAgentPrivate::queryFinished);
+    connect(query, &Query::result, this, [this, query](const QHostInfo &info) {
+        queryFinished(info, query);
+    });
     if (receiver) {
         connect(query, SIGNAL(result(QHostInfo)), receiver, member);
     }
@@ -382,14 +386,14 @@ void HostInfoAgentPrivate::cacheLookup(const QHostInfo &info)
     dnsCache.insert(info.hostName(), new QPair<QHostInfo, QTime>(info, QTime::currentTime()));
 }
 
-void HostInfoAgentPrivate::queryFinished(const QHostInfo &info)
+void HostInfoAgentPrivate::queryFinished(const QHostInfo &info, Query *sender)
 {
-    Query *query = static_cast<Query *>(sender());
-    openQueries.remove(query->hostName());
+    const auto host = sender->hostName();
+    openQueries.remove(host);
     if (info.error() == QHostInfo::NoError) {
-        dnsCache.insert(query->hostName(), new QPair<QHostInfo, QTime>(info, QTime::currentTime()));
+        dnsCache.insert(host, new QPair<QHostInfo, QTime>(info, QTime::currentTime()));
     }
-    query->deleteLater();
+    sender->deleteLater();
 }
 
 #include "hostinfo.moc"
