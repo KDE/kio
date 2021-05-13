@@ -282,12 +282,12 @@ public:
     /**
      * Just clears the string buffer d->m_text, but I need a slot for this to occur
      */
-    void _k_slotAbortDialog();
+    void slotAbortDialog();
 
     /**
      * Called when New->* is clicked
      */
-    void _k_slotActionTriggered(QAction *action);
+    void slotActionTriggered(QAction *action);
 
     /**
      * Shows a dialog asking the user to enter a name when creating a new folder.
@@ -297,18 +297,18 @@ public:
     /**
      * Callback function that reads in directory name from dialog and processes it
      */
-    void _k_slotCreateDirectory();
+    void slotCreateDirectory();
 
     /**
      * Callback function that reads in directory name from dialog and processes it. This will wirte
      * a hidden directory without further questions
      */
-    void _k_slotCreateHiddenDirectory();
+    void slotCreateHiddenDirectory();
 
     /**
      * Fills the templates list.
      */
-    void _k_slotFillTemplates();
+    void slotFillTemplates();
 
     /**
      * Called when accepting the KPropertiesDialog (for "other desktop files")
@@ -318,13 +318,13 @@ public:
     /**
      * Called when closing the KPropertiesDialog is closed (whichever way, accepted and rejected)
      */
-    void _k_slotOtherDesktopFileClosed();
+    void slotOtherDesktopFileClosed();
 
     /**
      * Callback in KNewFileMenu for the RealFile Dialog. Handles dialog input and gives over
      * to executeStrategy()
      */
-    void _k_slotRealFileOrDir();
+    void slotRealFileOrDir();
 
     /**
      * Delay calls to _k_slotTextChanged
@@ -341,13 +341,13 @@ public:
      * Callback in KNewFileMenu for the Symlink Dialog. Handles dialog input and gives over
      * to executeStrategy()
      */
-    void _k_slotSymLink();
+    void slotSymLink();
 
     /**
      * Callback in KNewFileMenu for the Url/Desktop Dialog. Handles dialog input and gives over
      * to executeStrategy()
      */
-    void _k_slotUrlDesktopFile();
+    void slotUrlDesktopFile();
 
     /**
      * Callback to check if a file/directory with the same name as the one being created, exists
@@ -541,7 +541,7 @@ void KNewFileMenuPrivate::executeOtherDesktopFile(const KNewFileMenuSingleton::E
         });
         if (usingTemplate) {
             QObject::connect(dlg, &KPropertiesDialog::propertiesClosed, q, [this]() {
-                _k_slotOtherDesktopFileClosed();
+                slotOtherDesktopFileClosed();
             });
         }
         dlg->show();
@@ -586,10 +586,10 @@ void KNewFileMenuPrivate::executeRealFileOrDir(const KNewFileMenuSingleton::Entr
     });
 
     QObject::connect(m_fileDialog, &QDialog::accepted, q, [this]() {
-        _k_slotRealFileOrDir();
+        slotRealFileOrDir();
     });
     QObject::connect(m_fileDialog, &QDialog::rejected, q, [this]() {
-        _k_slotAbortDialog();
+        slotAbortDialog();
     });
 
     m_fileDialog->show();
@@ -605,7 +605,7 @@ void KNewFileMenuPrivate::executeSymLink(const KNewFileMenuSingleton::Entry &ent
     dlg->setWindowTitle(i18n("Create Symlink"));
     m_fileDialog = dlg;
     QObject::connect(dlg, &QDialog::accepted, q, [this]() {
-        _k_slotSymLink();
+        slotSymLink();
     });
     dlg->show();
 }
@@ -689,7 +689,7 @@ void KNewFileMenuPrivate::executeUrlDesktopFile(const KNewFileMenuSingleton::Ent
     dlg->setWindowTitle(i18n("Create link to URL"));
     m_fileDialog = dlg;
     QObject::connect(dlg, &QDialog::accepted, q, [this]() {
-        _k_slotUrlDesktopFile();
+        slotUrlDesktopFile();
     });
     dlg->show();
 }
@@ -864,12 +864,12 @@ QUrl KNewFileMenuPrivate::mostLocalUrl(const QUrl &url)
     return job->exec() ? job->mostLocalUrl() : url;
 }
 
-void KNewFileMenuPrivate::_k_slotAbortDialog()
+void KNewFileMenuPrivate::slotAbortDialog()
 {
     m_text = QString();
 }
 
-void KNewFileMenuPrivate::_k_slotActionTriggered(QAction *action)
+void KNewFileMenuPrivate::slotActionTriggered(QAction *action)
 {
     q->trigger(); // was for kdesktop's slotNewMenuActivated() in kde3 times. Can't hurt to keep it...
 
@@ -902,7 +902,7 @@ void KNewFileMenuPrivate::_k_slotActionTriggered(QAction *action)
     }
 }
 
-void KNewFileMenuPrivate::_k_slotCreateDirectory()
+void KNewFileMenuPrivate::slotCreateDirectory()
 {
     // Automatically trim trailing spaces since they're pretty much always
     // unintentional and can cause issues on Windows in shared environments
@@ -950,7 +950,7 @@ void KNewFileMenuPrivate::_k_slotCreateDirectory()
                 QObject::connect(m_buttonBox, &QDialogButtonBox::accepted, q, &KNewFileMenu::createDirectory);
                 m_fileDialog = confirmDialog;
                 confirmDialog->show();
-                _k_slotAbortDialog();
+                slotAbortDialog();
                 return;
             }
             url = baseUrl;
@@ -977,12 +977,12 @@ void KNewFileMenuPrivate::_k_slotCreateDirectory()
         job->uiDelegate()->setAutoErrorHandlingEnabled(false);
         QObject::connect(job, &KJob::result, q, &KNewFileMenu::slotResult);
     }
-    _k_slotAbortDialog();
+    slotAbortDialog();
 }
 
-void KNewFileMenuPrivate::_k_slotCreateHiddenDirectory()
+void KNewFileMenuPrivate::slotCreateHiddenDirectory()
 {
-    _k_slotCreateDirectory();
+    slotCreateDirectory();
 }
 
 struct EntryWithName {
@@ -990,7 +990,7 @@ struct EntryWithName {
     KNewFileMenuSingleton::Entry entry;
 };
 
-void KNewFileMenuPrivate::_k_slotFillTemplates()
+void KNewFileMenuPrivate::slotFillTemplates()
 {
     KNewFileMenuSingleton *s = kNewMenuGlobals();
     // qDebug();
@@ -1028,13 +1028,13 @@ void KNewFileMenuPrivate::_k_slotFillTemplates()
             s->dirWatch->addDir(dir);
         }
         QObject::connect(s->dirWatch, &KDirWatch::dirty, q, [this]() {
-            _k_slotFillTemplates();
+            slotFillTemplates();
         });
         QObject::connect(s->dirWatch, &KDirWatch::created, q, [this]() {
-            _k_slotFillTemplates();
+            slotFillTemplates();
         });
         QObject::connect(s->dirWatch, &KDirWatch::deleted, q, [this]() {
-            _k_slotFillTemplates();
+            slotFillTemplates();
         });
         // Ok, this doesn't cope with new dirs in XDG_DATA_DIRS, but that's another story
     }
@@ -1103,12 +1103,12 @@ void KNewFileMenuPrivate::_k_slotOtherDesktopFile(KPropertiesDialog *sender)
     Q_EMIT q->fileCreated(sender->url());
 }
 
-void KNewFileMenuPrivate::_k_slotOtherDesktopFileClosed()
+void KNewFileMenuPrivate::slotOtherDesktopFileClosed()
 {
     QFile::remove(m_tempFileToDelete);
 }
 
-void KNewFileMenuPrivate::_k_slotRealFileOrDir()
+void KNewFileMenuPrivate::slotRealFileOrDir()
 {
     // Automatically trim trailing spaces since they're pretty much always
     // unintentional and can cause issues on Windows in shared environments
@@ -1116,11 +1116,11 @@ void KNewFileMenuPrivate::_k_slotRealFileOrDir()
         m_text.chop(1);
     }
     m_copyData.m_chosenFileName = m_text;
-    _k_slotAbortDialog();
+    slotAbortDialog();
     executeStrategy();
 }
 
-void KNewFileMenuPrivate::_k_slotSymLink()
+void KNewFileMenuPrivate::slotSymLink()
 {
     KNameAndUrlInputDialog *dlg = static_cast<KNameAndUrlInputDialog *>(m_fileDialog);
 
@@ -1306,7 +1306,7 @@ void KNewFileMenuPrivate::_k_slotStatResult(KJob *job)
     }
 }
 
-void KNewFileMenuPrivate::_k_slotUrlDesktopFile()
+void KNewFileMenuPrivate::slotUrlDesktopFile()
 {
     KNameAndUrlInputDialog *dlg = static_cast<KNameAndUrlInputDialog *>(m_fileDialog);
 
@@ -1382,7 +1382,7 @@ KNewFileMenu::KNewFileMenu(KActionCollection *collection, const QString &name, Q
     // We'll do that in checkUpToDate (should be connected to aboutToShow)
     d->m_newMenuGroup = new QActionGroup(this);
     connect(d->m_newMenuGroup, &QActionGroup::triggered, this, [this](QAction *action) {
-        d->_k_slotActionTriggered(action);
+        d->slotActionTriggered(action);
     });
     d->m_parentWidget = qobject_cast<QWidget *>(parent);
     d->m_newDirAction = nullptr;
@@ -1413,7 +1413,7 @@ void KNewFileMenu::checkUpToDate()
 
         if (!s->templatesList) { // No templates list up to now
             s->templatesList = new KNewFileMenuSingleton::EntryList;
-            d->_k_slotFillTemplates();
+            d->slotFillTemplates();
             s->parseFiles();
         }
 
@@ -1470,10 +1470,10 @@ void KNewFileMenuPrivate::showNewDirNameDlg(const QString &name)
     });
 
     QObject::connect(m_fileDialog, &QDialog::accepted, q, [this]() {
-        _k_slotCreateDirectory();
+        slotCreateDirectory();
     });
     QObject::connect(m_fileDialog, &QDialog::rejected, q, [this]() {
-        _k_slotAbortDialog();
+        slotAbortDialog();
     });
 
     m_fileDialog->show();

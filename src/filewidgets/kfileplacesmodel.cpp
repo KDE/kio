@@ -177,14 +177,14 @@ public:
                         tags.append(name);
                     }
                 }
-                _k_reloadBookmarks();
+                reloadBookmarks();
             });
 
             connect(tagsLister, &KCoreDirLister::itemsDeleted, q, [this](const KFileItemList &items) {
                 for (const KFileItem &item : items) {
                     tags.removeAll(item.name());
                 }
-                _k_reloadBookmarks();
+                reloadBookmarks();
             });
 
             tagsLister->openUrl(QUrl(tagsUrlBase), KCoreDirLister::OpenUrlFlag::Reload);
@@ -218,13 +218,13 @@ public:
     const QString tagsUrlBase = QStringLiteral("tags:/");
     KCoreDirLister *tagsLister;
 
-    void _k_initDeviceList();
-    void _k_deviceAdded(const QString &udi);
-    void _k_deviceRemoved(const QString &udi);
-    void _k_itemChanged(const QString &udi);
-    void _k_reloadBookmarks();
-    void _k_storageSetupDone(Solid::ErrorType error, const QVariant &errorData, Solid::StorageAccess *sender);
-    void _k_storageTeardownDone(Solid::ErrorType error, const QVariant &errorData);
+    void initDeviceList();
+    void deviceAdded(const QString &udi);
+    void deviceRemoved(const QString &udi);
+    void itemChanged(const QString &udi);
+    void reloadBookmarks();
+    void storageSetupDone(Solid::ErrorType error, const QVariant &errorData, Solid::StorageAccess *sender);
+    void storageTeardownDone(Solid::ErrorType error, const QVariant &errorData);
 
 private:
     bool isBalooUrl(const QUrl &url) const;
@@ -504,15 +504,15 @@ KFilePlacesModel::KFilePlacesModel(const QString &alternativeApplicationName, QO
     Q_ASSERT(d->predicate.isValid());
 
     connect(d->bookmarkManager, &KBookmarkManager::changed, this, [this]() {
-        d->_k_reloadBookmarks();
+        d->reloadBookmarks();
     });
     connect(d->bookmarkManager, &KBookmarkManager::bookmarksChanged, this, [this]() {
-        d->_k_reloadBookmarks();
+        d->reloadBookmarks();
     });
 
-    d->_k_reloadBookmarks();
+    d->reloadBookmarks();
     QTimer::singleShot(0, this, [this]() {
-        d->_k_initDeviceList();
+        d->initDeviceList();
     });
 }
 
@@ -714,15 +714,15 @@ QModelIndex KFilePlacesModel::closestItem(const QUrl &url) const
     }
 }
 
-void KFilePlacesModel::Private::_k_initDeviceList()
+void KFilePlacesModel::Private::initDeviceList()
 {
     Solid::DeviceNotifier *notifier = Solid::DeviceNotifier::instance();
 
     connect(notifier, &Solid::DeviceNotifier::deviceAdded, q, [this](const QString &device) {
-        _k_deviceAdded(device);
+        deviceAdded(device);
     });
     connect(notifier, &Solid::DeviceNotifier::deviceRemoved, q, [this](const QString &device) {
-        _k_deviceRemoved(device);
+        deviceRemoved(device);
     });
 
     const QList<Solid::Device> &deviceList = Solid::Device::listFromQuery(predicate);
@@ -732,29 +732,29 @@ void KFilePlacesModel::Private::_k_initDeviceList()
         availableDevices << device.udi();
     }
 
-    _k_reloadBookmarks();
+    reloadBookmarks();
 }
 
-void KFilePlacesModel::Private::_k_deviceAdded(const QString &udi)
+void KFilePlacesModel::Private::deviceAdded(const QString &udi)
 {
     Solid::Device d(udi);
 
     if (predicate.matches(d)) {
         availableDevices << udi;
-        _k_reloadBookmarks();
+        reloadBookmarks();
     }
 }
 
-void KFilePlacesModel::Private::_k_deviceRemoved(const QString &udi)
+void KFilePlacesModel::Private::deviceRemoved(const QString &udi)
 {
     auto it = std::find(availableDevices.begin(), availableDevices.end(), udi);
     if (it != availableDevices.end()) {
         availableDevices.erase(it);
-        _k_reloadBookmarks();
+        reloadBookmarks();
     }
 }
 
-void KFilePlacesModel::Private::_k_itemChanged(const QString &id)
+void KFilePlacesModel::Private::itemChanged(const QString &id)
 {
     for (int row = 0; row < items.size(); ++row) {
         if (items.at(row)->id() == id) {
@@ -764,7 +764,7 @@ void KFilePlacesModel::Private::_k_itemChanged(const QString &id)
     }
 }
 
-void KFilePlacesModel::Private::_k_reloadBookmarks()
+void KFilePlacesModel::Private::reloadBookmarks()
 {
     QList<KFilePlacesItem *> currentItems = loadBookmarkList();
 
@@ -887,7 +887,7 @@ QList<KFilePlacesItem *> KFilePlacesModel::Private::loadBookmarkList()
 
                 if (item) {
                     connect(item, &KFilePlacesItem::itemChanged, q, [this](const QString &id) {
-                        _k_itemChanged(id);
+                        itemChanged(id);
                     });
 
                     items << item;
@@ -899,7 +899,7 @@ QList<KFilePlacesItem *> KFilePlacesModel::Private::loadBookmarkList()
                     KFilePlacesItem *item = new KFilePlacesItem(bookmarkManager, bookmark.address());
                     items << item;
                     connect(item, &KFilePlacesItem::itemChanged, q, [this](const QString &id) {
-                        _k_itemChanged(id);
+                        itemChanged(id);
                     });
                 }
             }
@@ -914,7 +914,7 @@ QList<KFilePlacesItem *> KFilePlacesModel::Private::loadBookmarkList()
         if (!bookmark.isNull()) {
             KFilePlacesItem *item = new KFilePlacesItem(bookmarkManager, bookmark.address(), udi);
             connect(item, &KFilePlacesItem::itemChanged, q, [this](const QString &id) {
-                _k_itemChanged(id);
+                itemChanged(id);
             });
             // TODO: Update bookmark internal element
             items << item;
@@ -926,7 +926,7 @@ QList<KFilePlacesItem *> KFilePlacesModel::Private::loadBookmarkList()
         if (!bookmark.isNull()) {
             KFilePlacesItem *item = new KFilePlacesItem(bookmarkManager, bookmark.address(), tag);
             connect(item, &KFilePlacesItem::itemChanged, q, [this](const QString &id) {
-                _k_itemChanged(id);
+                itemChanged(id);
             });
             items << item;
         }
@@ -1317,7 +1317,7 @@ bool KFilePlacesModel::movePlace(int itemRow, int row)
 
     beginMoveRows(QModelIndex(), itemRow, itemRow, QModelIndex(), destRow);
     d->bookmarkManager->root().moveBookmark(bookmark, afterBookmark);
-    // Move item ourselves so that _k_reloadBookmarks() does not consider
+    // Move item ourselves so that reloadBookmarks() does not consider
     // the move as a remove + insert.
     //
     // 2nd argument of QList::move() expects the final destination index,
@@ -1408,7 +1408,7 @@ void KFilePlacesModel::requestTeardown(const QModelIndex &index)
 
     if (access != nullptr) {
         connect(access, &Solid::StorageAccess::teardownDone, this, [this](Solid::ErrorType error, QVariant errorData) {
-            d->_k_storageTeardownDone(error, errorData);
+            d->storageTeardownDone(error, errorData);
         });
 
         access->teardown();
@@ -1423,7 +1423,7 @@ void KFilePlacesModel::requestEject(const QModelIndex &index)
 
     if (drive != nullptr) {
         connect(drive, &Solid::OpticalDrive::ejectDone, this, [this](Solid::ErrorType error, QVariant errorData) {
-            d->_k_storageTeardownDone(error, errorData);
+            d->storageTeardownDone(error, errorData);
         });
 
         drive->eject();
@@ -1445,14 +1445,14 @@ void KFilePlacesModel::requestSetup(const QModelIndex &index)
         d->setupInProgress[access] = index;
 
         connect(access, &Solid::StorageAccess::setupDone, this, [this, access](Solid::ErrorType error, QVariant errorData) {
-            d->_k_storageSetupDone(error, errorData, access);
+            d->storageSetupDone(error, errorData, access);
         });
 
         access->setup();
     }
 }
 
-void KFilePlacesModel::Private::_k_storageSetupDone(Solid::ErrorType error, const QVariant &errorData, Solid::StorageAccess *sender)
+void KFilePlacesModel::Private::storageSetupDone(Solid::ErrorType error, const QVariant &errorData, Solid::StorageAccess *sender)
 {
     QPersistentModelIndex index = setupInProgress.take(sender);
 
@@ -1472,7 +1472,7 @@ void KFilePlacesModel::Private::_k_storageSetupDone(Solid::ErrorType error, cons
     }
 }
 
-void KFilePlacesModel::Private::_k_storageTeardownDone(Solid::ErrorType error, const QVariant &errorData)
+void KFilePlacesModel::Private::storageTeardownDone(Solid::ErrorType error, const QVariant &errorData)
 {
     if (error && errorData.isValid()) {
         Q_EMIT q->errorMessage(errorData.toString());
@@ -1482,7 +1482,7 @@ void KFilePlacesModel::Private::_k_storageTeardownDone(Solid::ErrorType error, c
 void KFilePlacesModel::setSupportedSchemes(const QStringList &schemes)
 {
     d->supportedSchemes = schemes;
-    d->_k_reloadBookmarks();
+    d->reloadBookmarks();
 }
 
 QStringList KFilePlacesModel::supportedSchemes() const

@@ -356,13 +356,6 @@ Q_SIGNALS:
     void reloaded();
 
 private:
-    Q_PRIVATE_SLOT(d, void _k_initDeviceList())
-    Q_PRIVATE_SLOT(d, void _k_deviceAdded(const QString &))
-    Q_PRIVATE_SLOT(d, void _k_deviceRemoved(const QString &))
-    Q_PRIVATE_SLOT(d, void _k_itemChanged(const QString &))
-    Q_PRIVATE_SLOT(d, void _k_reloadBookmarks())
-    Q_PRIVATE_SLOT(d, void _k_storageTeardownDone(Solid::ErrorType, const QVariant &))
-
     class Private;
     Private *const d;
     friend class Private;

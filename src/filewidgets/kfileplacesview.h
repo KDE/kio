@@ -88,17 +88,6 @@ Q_SIGNALS:
     void urlsDropped(const QUrl &dest, QDropEvent *event, QWidget *parent);
 
 private:
-    Q_PRIVATE_SLOT(d, void adaptItemSize())
-    Q_PRIVATE_SLOT(d, void _k_placeClicked(const QModelIndex &))
-    Q_PRIVATE_SLOT(d, void _k_placeEntered(const QModelIndex &))
-    Q_PRIVATE_SLOT(d, void _k_placeLeft(const QModelIndex &))
-    Q_PRIVATE_SLOT(d, void _k_storageSetupDone(const QModelIndex &, bool))
-    Q_PRIVATE_SLOT(d, void _k_adaptItemsUpdate(qreal))
-    Q_PRIVATE_SLOT(d, void _k_itemAppearUpdate(qreal))
-    Q_PRIVATE_SLOT(d, void _k_itemDisappearUpdate(qreal))
-    Q_PRIVATE_SLOT(d, void _k_enableSmoothItemResizing())
-    Q_PRIVATE_SLOT(d, void _k_triggerDevicePolling())
-
     class Private;
     Private *const d;
     friend class Private;
