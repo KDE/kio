@@ -335,16 +335,19 @@ enum StatDetail {
     StatTime = 0x4,
     /// Resolve symlinks
     StatResolveSymlink = 0x8,
-    /// acl Data
+    /// ACL data
     StatAcl = 0x10,
     /// dev, inode
     StatInode = 0x20,
-    /// recursive size @since 5.70
+    /// Recursive size
+    /// @since 5.70
     StatRecursiveSize = 0x40,
-    /// mime type @since 5.82
+    /// Mime Type
+    /// @since 5.82
     StatMimeType = 0x80,
 
-    /// Default value includes fields provided by other entries
+    /// Default StatDetail flag when creating a @c StatJob.
+    /// Equivalent to setting <tt>StatBasic | StatUser | StatTime | StatAcl | StatResolveSymlink</tt>
     StatDefaultDetails = StatBasic | StatUser | StatTime | StatAcl | StatResolveSymlink,
 };
 /**
