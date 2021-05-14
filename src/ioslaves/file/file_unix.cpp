@@ -364,7 +364,7 @@ inline static time_t stat_mtime(QT_STATBUF &buf)
 }
 #endif
 
-static bool createUDSEntry(const QString &filename, const QByteArray &path, UDSEntry &entry, KIO::StatDetails details, const QUrl &url)
+static bool createUDSEntry(const QString &filename, const QByteArray &path, UDSEntry &entry, KIO::StatDetails details, const QString &fullPath)
 {
     assert(entry.count() == 0); // by contract :-)
     int entries = 0;
@@ -539,7 +539,7 @@ static bool createUDSEntry(const QString &filename, const QByteArray &path, UDSE
 
     if (details & KIO::StatMimeType) {
         QMimeDatabase db;
-        entry.fastInsert(KIO::UDSEntry::UDS_MIME_TYPE, db.mimeTypeForFile(url.toLocalFile()).name());
+        entry.fastInsert(KIO::UDSEntry::UDS_MIME_TYPE, db.mimeTypeForFile(fullPath).name());
     }
 
     return true;
@@ -1186,7 +1186,13 @@ void FileProtocol::listDir(const QUrl &url)
             listEntry(entry);
 
         } else {
-            if (createUDSEntry(filename, QByteArray(ep->d_name), entry, details, url)) {
+            QString fullPath(path);
+            if (!fullPath.endsWith(QLatin1Char('/'))) {
+                fullPath += QLatin1Char('/');
+            }
+            fullPath += filename;
+
+            if (createUDSEntry(filename, QByteArray(ep->d_name), entry, details, fullPath)) {
 #if HAVE_SYS_XATTR_H
                 if (isNtfsHidden(filename)) {
                     bool ntfsHidden = true;
@@ -1476,7 +1482,7 @@ void FileProtocol::stat(const QUrl &url)
     const KIO::StatDetails details = getStatDetails();
 
     UDSEntry entry;
-    if (!createUDSEntry(url.fileName(), _path, entry, details, url)) {
+    if (!createUDSEntry(url.fileName(), _path, entry, details, path)) {
         error(KIO::ERR_DOES_NOT_EXIST, path);
         return;
     }
