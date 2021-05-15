@@ -1131,7 +1131,11 @@ void KFileWidget::accept()
 
 void KFileWidgetPrivate::fileHighlighted(const KFileItem &i)
 {
-    if ((!i.isNull() && i.isDir()) || (m_locationEdit->hasFocus() && !m_locationEdit->currentText().isEmpty())) { // don't disturb
+    if ((m_locationEdit->hasFocus() && !m_locationEdit->currentText().isEmpty())) { // don't disturb
+        return;
+    }
+
+    if (!i.isNull() && i.isDir() && !(m_ops->mode() & KFile::Directory)) {
         return;
     }
 
