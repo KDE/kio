@@ -366,10 +366,7 @@ HTTPProtocol::HTTPProtocol(const QByteArray &protocol, const QByteArray &pool, c
 {
     reparseConfiguration();
     setBlocking(true);
-    connect(socket(),
-            SIGNAL(proxyAuthenticationRequired(QNetworkProxy, QAuthenticator *)),
-            this,
-            SLOT(proxyAuthenticationForSocket(QNetworkProxy, QAuthenticator *)));
+    connect(tcpSocket(), &QAbstractSocket::proxyAuthenticationRequired, this, &HTTPProtocol::proxyAuthenticationForSocket);
 }
 
 HTTPProtocol::~HTTPProtocol()
@@ -2147,7 +2144,7 @@ bool HTTPProtocol::httpOpenConnection()
 
     // Only save proxy auth information after proxy authentication has
     // actually taken place, which will set up exactly this connection.
-    disconnect(socket(), SIGNAL(connected()), this, SLOT(saveProxyAuthenticationForSocket()));
+    disconnect(tcpSocket(), &QAbstractSocket::connected, this, &HTTPProtocol::saveProxyAuthenticationForSocket);
 
     clearUnreadBuffer();
 
@@ -2239,11 +2236,8 @@ bool HTTPProtocol::httpOpenConnection()
     }
 
     // Disable Nagle's algorithm, i.e turn on TCP_NODELAY.
-    QSslSocket *sock = qobject_cast<QSslSocket *>(socket());
-    if (sock) {
-        qCDebug(KIO_HTTP) << "TCP_NODELAY:" << sock->socketOption(QAbstractSocket::LowDelayOption);
-        sock->setSocketOption(QAbstractSocket::LowDelayOption, 1);
-    }
+    qCDebug(KIO_HTTP) << "TCP_NODELAY:" << tcpSocket()->socketOption(QAbstractSocket::LowDelayOption);
+    tcpSocket()->setSocketOption(QAbstractSocket::LowDelayOption, 1);
 
     m_server.initFrom(m_request);
     connected();
@@ -5168,7 +5162,7 @@ void HTTPProtocol::proxyAuthenticationForSocket(const QNetworkProxy &proxy, QAut
     if (!haveCachedCredentials || retryAuth) {
         // Save authentication info if the connection succeeds. We need to disconnect
         // this after saving the auth data (or an error) so we won't save garbage afterwards!
-        connect(socket(), SIGNAL(connected()), this, SLOT(saveProxyAuthenticationForSocket()));
+        connect(tcpSocket(), &QAbstractSocket::connected, this, &HTTPProtocol::saveProxyAuthenticationForSocket);
         //### fillPromptInfo(&info);
         info.prompt = i18n(
             "You need to supply a username and a password for "
@@ -5207,7 +5201,7 @@ void HTTPProtocol::proxyAuthenticationForSocket(const QNetworkProxy &proxy, QAut
 void HTTPProtocol::saveProxyAuthenticationForSocket()
 {
     qCDebug(KIO_HTTP) << "Saving authenticator";
-    disconnect(socket(), SIGNAL(connected()), this, SLOT(saveProxyAuthenticationForSocket()));
+    disconnect(tcpSocket(), &QAbstractSocket::connected, this, &HTTPProtocol::saveProxyAuthenticationForSocket);
     Q_ASSERT(m_socketProxyAuth);
     if (m_socketProxyAuth) {
         qCDebug(KIO_HTTP) << "realm:" << m_socketProxyAuth->realm() << "user:" << m_socketProxyAuth->user();

@@ -153,8 +153,14 @@ public:
     MetaData sslMetaData;
 };
 
-//### uh, is this a good idea??
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 83)
 QIODevice *TCPSlaveBase::socket() const
+{
+    return &d->socket;
+}
+#endif
+
+QAbstractSocket *TCPSlaveBase::tcpSocket() const
 {
     return &d->socket;
 }
