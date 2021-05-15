@@ -6,14 +6,13 @@
     SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 */
 
+#include <kpasswdserver.h>
+
 #include <KPasswordDialog>
+
 #include <QApplication>
 #include <QSignalSpy>
 #include <QTest>
-#include <kpasswdserver.h>
-
-static const char *sigQueryAuthInfoResult = SIGNAL(queryAuthInfoAsyncResult(qlonglong, qlonglong, KIO::AuthInfo));
-static const char *sigCheckAuthInfoResult = SIGNAL(checkAuthInfoAsyncResult(qlonglong, qlonglong, KIO::AuthInfo));
 
 // For the retry dialog (and only that one)
 static QDialogButtonBox::StandardButton s_buttonYes = QDialogButtonBox::Yes;
@@ -88,7 +87,7 @@ private Q_SLOTS:
         info.url = QUrl(QStringLiteral("http://www.kde.org"));
 
         // Start a query
-        QSignalSpy spyQuery(&server, sigQueryAuthInfoResult);
+        QSignalSpy spyQuery(&server, &KPasswdServer::queryAuthInfoAsyncResult);
         const qlonglong windowId = 42;
         const qlonglong seqNr = 2;
         const qlonglong id = server.queryAuthInfoAsync(info,
@@ -98,13 +97,13 @@ private Q_SLOTS:
                                                        16 /*usertime*/);
 
         // Before it is processed, do a check, it will reply delayed.
-        QSignalSpy spyCheck(&server, sigCheckAuthInfoResult);
+        QSignalSpy spyCheck(&server, &KPasswdServer::checkAuthInfoAsyncResult);
         const qlonglong idCheck = server.checkAuthInfoAsync(info, windowId, 17 /*usertime*/);
         QCOMPARE(idCheck, 0LL); // always
         QCOMPARE(spyCheck.count(), 0); // no reply yet
 
         // Wait for the query to be processed
-        QVERIFY(QSignalSpy(&server, sigQueryAuthInfoResult).wait(1000));
+        QVERIFY(QSignalSpy(&server, &KPasswdServer::queryAuthInfoAsyncResult).wait(1000));
         QCOMPARE(spyQuery.count(), 1);
         QCOMPARE(spyQuery[0][0].toLongLong(), id);
         KIO::AuthInfo result = spyQuery[0][2].value<KIO::AuthInfo>();
@@ -343,12 +342,12 @@ private:
 
     void checkAuth(KPasswdServer &server, const KIO::AuthInfo &info, KIO::AuthInfo &result)
     {
-        QSignalSpy spy(&server, sigCheckAuthInfoResult);
+        QSignalSpy spy(&server, &KPasswdServer::checkAuthInfoAsyncResult);
         const qlonglong windowId = 42;
         const qlonglong id = server.checkAuthInfoAsync(info, windowId, 17 /*usertime*/);
         QCOMPARE(id, 0LL); // always
         if (spy.isEmpty()) {
-            QVERIFY(QSignalSpy(&server, sigCheckAuthInfoResult).wait(1000));
+            QVERIFY(QSignalSpy(&server, &KPasswdServer::checkAuthInfoAsyncResult).wait(1000));
         }
         QCOMPARE(spy.count(), 1);
         // kpasswdserver emits a requestId via dbus, we can't get that id here
@@ -359,7 +358,7 @@ private:
 
     void queryAuth(KPasswdServer &server, const KIO::AuthInfo &info, KIO::AuthInfo &result)
     {
-        QSignalSpy spy(&server, sigQueryAuthInfoResult);
+        QSignalSpy spy(&server, &KPasswdServer::queryAuthInfoAsyncResult);
         const qlonglong windowId = 42;
         const qlonglong seqNr = 2;
         const qlonglong id = server.queryAuthInfoAsync(info,
@@ -369,7 +368,7 @@ private:
                                                        16 /*usertime*/);
         QVERIFY(id >= 0); // requestId, ever increasing
         if (spy.isEmpty())
-            QVERIFY(QSignalSpy(&server, sigQueryAuthInfoResult).wait(1000));
+            QVERIFY(QSignalSpy(&server, &KPasswdServer::queryAuthInfoAsyncResult).wait(1000));
         QCOMPARE(spy.count(), 1);
         QCOMPARE(spy[0][0].toLongLong(), id);
         // QCOMPARE(spy[0][1].toLongLong(), 3LL); // seqNr
@@ -384,7 +383,7 @@ private:
                              QDialog::DialogCode code = QDialog::Accepted,
                              const QString &errMsg = QString())
     {
-        QSignalSpy spy(&server, sigQueryAuthInfoResult);
+        QSignalSpy spy(&server, &KPasswdServer::queryAuthInfoAsyncResult);
         const qlonglong windowId = 42;
         const qlonglong seqNr = 2;
         const qlonglong id = server.queryAuthInfoAsync(info, errMsg, windowId, seqNr, 16 /*usertime*/);
@@ -410,7 +409,7 @@ private:
         // Force KPasswdServer to process the request now, otherwise the checkAndFillDialog needs a timer too...
         server.processRequest();
         if (spy.isEmpty())
-            QVERIFY(QSignalSpy(&server, sigQueryAuthInfoResult).wait(1000));
+            QVERIFY(QSignalSpy(&server, &KPasswdServer::queryAuthInfoAsyncResult).wait(1000));
         QCOMPARE(spy.count(), 1);
         QCOMPARE(spy[0][0].toLongLong(), id);
         // QCOMPARE(spy[0][1].toLongLong(), 3LL); // seqNr
@@ -428,7 +427,7 @@ private:
                                        QList<KIO::AuthInfo> &results,
                                        QDialog::DialogCode code = QDialog::Accepted)
     {
-        QSignalSpy spy(&server, sigQueryAuthInfoResult);
+        QSignalSpy spy(&server, &KPasswdServer::queryAuthInfoAsyncResult);
         const qlonglong windowId = 42;
         qlonglong seqNr = 0;
         QList<qlonglong> idList;
@@ -450,7 +449,7 @@ private:
         // Force KPasswdServer to process the request now, otherwise the checkAndFillDialog needs a timer too...
         server.processRequest();
         while (spy.count() < infos.count())
-            QVERIFY(QSignalSpy(&server, sigQueryAuthInfoResult).wait(1000));
+            QVERIFY(QSignalSpy(&server, &KPasswdServer::queryAuthInfoAsyncResult).wait(1000));
 
         QCOMPARE(spy.count(), infos.count());
 
@@ -471,7 +470,7 @@ private:
                                        QList<KIO::AuthInfo> &results,
                                        QDialog::DialogCode code = QDialog::Accepted)
     {
-        QSignalSpy spy(&server, sigQueryAuthInfoResult);
+        QSignalSpy spy(&server, &KPasswdServer::queryAuthInfoAsyncResult);
         const qlonglong windowId = 42;
         qlonglong seqNr = 0;
         QList<qlonglong> idList;
@@ -500,11 +499,11 @@ private:
         // Force KPasswdServer to process the request now, otherwise the checkAndFillDialog needs a timer too...
         server.processRequest();
         if (spy.isEmpty()) {
-            QVERIFY(QSignalSpy(&server, sigQueryAuthInfoResult).wait(1000));
+            QVERIFY(QSignalSpy(&server, &KPasswdServer::queryAuthInfoAsyncResult).wait(1000));
         }
 
         while ((spy.count() - 1) < infos.count()) {
-            QVERIFY(QSignalSpy(&server, sigCheckAuthInfoResult).wait(1000));
+            QVERIFY(QSignalSpy(&server, &KPasswdServer::checkAuthInfoAsyncResult).wait(1000));
         }
 
         for (int i = 0, count = spy.count(); i < count; ++i) {

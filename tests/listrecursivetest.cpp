@@ -38,9 +38,7 @@ SpeedTest::SpeedTest(const QUrl &url)
 {
     Job *job = listRecursive(url);
     connect(job, &KJob::result, this, &SpeedTest::finished);
-    /*connect(job, SIGNAL(entries(KIO::Job*,KIO::UDSEntryList)),
-        SLOT(entries(KIO::Job*,KIO::UDSEntryList)));
-    */
+    // connect(job, &KIO::ListJob::entries, this, &SpeedTest::entries);
 }
 
 void SpeedTest::entries(KIO::Job *, const UDSEntryList &list)

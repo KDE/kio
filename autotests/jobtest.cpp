@@ -2774,7 +2774,7 @@ void JobTest::multiGet()
 #endif
 
 #if KIOCORE_BUILD_DEPRECATED_SINCE(5, 78)
-    QSignalSpy spyMimeType(job, SIGNAL(mimetype(long, QString)));
+    QSignalSpy spyMimeType(job, &KIO::MultiGetJob::mimetype);
 #endif
     QSignalSpy spyMimeTypeFound(job, &KIO::MultiGetJob::mimeTypeFound);
 
