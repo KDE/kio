@@ -46,15 +46,18 @@ AccessManagerReply::AccessManagerReply(const QNetworkAccessManager::Operation op
         setSslConfiguration(request.sslConfiguration());
     }
 
-    connect(kioJob, SIGNAL(redirection(KIO::Job *, QUrl)), SLOT(slotRedirection(KIO::Job *, QUrl)));
     connect(kioJob, &KJob::percentChanged, this, &AccessManagerReply::slotPercent);
 
-    if (qobject_cast<KIO::StatJob *>(kioJob)) {
-        connect(kioJob, &KJob::result, this, &AccessManagerReply::slotStatResult);
+    if (auto *statJob = qobject_cast<KIO::StatJob *>(kioJob)) {
+        connect(statJob, &KIO::StatJob::redirection, this, &AccessManagerReply::slotRedirection);
+        connect(statJob, &KJob::result, this, &AccessManagerReply::slotStatResult);
+    } else if (auto *tJob = qobject_cast<KIO::TransferJob *>(kioJob)) {
+        connect(tJob, &KJob::result, this, &AccessManagerReply::slotResult);
+        connect(tJob, &KIO::TransferJob::redirection, this, &AccessManagerReply::slotRedirection);
+        connect(tJob, &KIO::TransferJob::data, this, &AccessManagerReply::slotData);
+        connect(tJob, &KIO::TransferJob::mimeTypeFound, this, &AccessManagerReply::slotMimeType);
     } else {
         connect(kioJob, &KJob::result, this, &AccessManagerReply::slotResult);
-        connect(kioJob, SIGNAL(data(KIO::Job *, QByteArray)), SLOT(slotData(KIO::Job *, QByteArray)));
-        connect(kioJob, SIGNAL(mimeTypeFound(KIO::Job *, QString)), SLOT(slotMimeType(KIO::Job *, QString)));
     }
 }
 
