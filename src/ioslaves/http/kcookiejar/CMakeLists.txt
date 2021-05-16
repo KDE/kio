@@ -1,8 +1,8 @@
 ####### kcookiejar: command line tool for talking to the kded kcookiejar module #######
-qt5_generate_dbus_interface(${CMAKE_CURRENT_SOURCE_DIR}/kcookieserver.h org.kde.KCookieServer.xml)
+qt_generate_dbus_interface(${CMAKE_CURRENT_SOURCE_DIR}/kcookieserver.h org.kde.KCookieServer.xml)
 set(kcookieserver_xml ${CMAKE_CURRENT_BINARY_DIR}/org.kde.KCookieServer.xml)
 set_source_files_properties(${kcookieserver_xml} PROPERTIES INCLUDE "kcookiejar_include.h")
-qt5_add_dbus_interfaces(kcookiejar_SRCS ${kcookieserver_xml})
+qt_add_dbus_interfaces(kcookiejar_SRCS ${kcookieserver_xml})
 
 set(kcookiejar_SRCS ${kcookiejar_SRCS} main.cpp)
 add_executable( kcookiejar5 ${kcookiejar_SRCS})
@@ -32,7 +32,7 @@ ecm_qt_export_logging_category(
     EXPORT KIO
 )
 
-qt5_add_dbus_adaptor( kded_kcookiejar_SRCS ${CMAKE_CURRENT_BINARY_DIR}/org.kde.KCookieServer.xml kcookieserver.h KCookieServer )
+qt_add_dbus_adaptor( kded_kcookiejar_SRCS ${CMAKE_CURRENT_BINARY_DIR}/org.kde.KCookieServer.xml kcookieserver.h KCookieServer )
 
 
 kcoreaddons_add_plugin(kded_kcookiejar INSTALL_NAMESPACE "kf5/kded" JSON kcookiejar.json SOURCES ${kded_kcookiejar_SRCS})

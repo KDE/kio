@@ -81,9 +81,9 @@ ecm_qt_export_logging_category(
     EXPORT KIO
 )
 
-qt5_add_dbus_adaptor(kiowidgets_SRCS org.kde.kio.FileUndoManager.xml fileundomanager_p.h KIO::FileUndoManagerPrivate fileundomanager_adaptor KIOFileUndoManagerAdaptor)
+qt_add_dbus_adaptor(kiowidgets_SRCS org.kde.kio.FileUndoManager.xml fileundomanager_p.h KIO::FileUndoManagerPrivate fileundomanager_adaptor KIOFileUndoManagerAdaptor)
 
-qt5_add_dbus_interface(kiowidgets_SRCS org.kde.kuiserver.xml kuiserver_interface)
+qt_add_dbus_interface(kiowidgets_SRCS org.kde.kuiserver.xml kuiserver_interface)
 
 ki18n_wrap_ui(kiowidgets_SRCS
   checksumswidget.ui

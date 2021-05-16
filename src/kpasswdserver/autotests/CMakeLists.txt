@@ -4,7 +4,7 @@ set (kpasswdserver_test_SRCS
  kpasswdservertest.cpp
  ../kpasswdserver.cpp
 )
-qt5_add_dbus_adaptor(kpasswdserver_test_SRCS ../../core/org.kde.KPasswdServer.xml kpasswdserver.h KPasswdServer)
+qt_add_dbus_adaptor(kpasswdserver_test_SRCS ../../core/org.kde.KPasswdServer.xml kpasswdserver.h KPasswdServer)
 
 include(ECMAddTests)
 

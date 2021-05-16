@@ -18,7 +18,7 @@ if (CMAKE_SYSTEM_NAME STREQUAL "Linux")
 
     set_source_files_properties(${SYSTEMD_DBUS_XMLS} PROPERTIES INCLUDE systemd/dbustypes.h)
 
-    qt5_add_dbus_interfaces(kiogui_SRCS ${SYSTEMD_DBUS_XMLS})
+    qt_add_dbus_interfaces(kiogui_SRCS ${SYSTEMD_DBUS_XMLS})
 
     list(APPEND kiogui_SRCS systemd/systemdprocessrunner.cpp systemd/scopedprocessrunner.cpp)
 endif ()

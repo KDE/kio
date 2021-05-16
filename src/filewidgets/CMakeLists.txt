@@ -42,7 +42,7 @@ set(kiofilewidgets_SRCS
 
 )
 
-qt5_add_resources(kiofilewidgets_SRCS ../new_file_templates/templates.qrc)
+qt_add_resources(kiofilewidgets_SRCS ../new_file_templates/templates.qrc)
 
 ecm_qt_export_logging_category(
     IDENTIFIER KFILEWIDGETS_LOG

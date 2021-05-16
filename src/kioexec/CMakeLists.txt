@@ -1,7 +1,7 @@
 set(kioexecd_SRCS kioexecd.cpp)
 
-qt5_generate_dbus_interface(${CMAKE_CURRENT_SOURCE_DIR}/kioexecd.h org.kde.KIOExecd.xml)
-qt5_add_dbus_adaptor(kioexecd_SRCS ${CMAKE_CURRENT_BINARY_DIR}/org.kde.KIOExecd.xml kioexecd.h KIOExecd)
+qt_generate_dbus_interface(${CMAKE_CURRENT_SOURCE_DIR}/kioexecd.h org.kde.KIOExecd.xml)
+qt_add_dbus_adaptor(kioexecd_SRCS ${CMAKE_CURRENT_BINARY_DIR}/org.kde.KIOExecd.xml kioexecd.h KIOExecd)
 
 
 ecm_qt_declare_logging_category(kioexecd_SRCS
@@ -25,7 +25,7 @@ kdbusaddons_generate_dbus_service_file(kiod5 org.kde.kioexecd ${KDE_INSTALL_FULL
 # next target
 
 set(kioexec_SRCS main.cpp)
-qt5_add_dbus_interface(kioexec_SRCS ${CMAKE_CURRENT_BINARY_DIR}/org.kde.KIOExecd.xml kioexecdinterface)
+qt_add_dbus_interface(kioexec_SRCS ${CMAKE_CURRENT_BINARY_DIR}/org.kde.KIOExecd.xml kioexecdinterface)
 
 add_executable(kioexec ${kioexec_SRCS})
 
