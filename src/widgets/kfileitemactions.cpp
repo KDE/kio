@@ -711,12 +711,12 @@ int KFileItemActionsPrivate::addPluginActionsTo(QMenu *mainMenu, QMenu *actionsM
         KAbstractFileItemActionPlugin *abstractPlugin = m_loadedPlugins.value(service->desktopEntryName());
         if (!abstractPlugin) {
             abstractPlugin = service->createInstance<KAbstractFileItemActionPlugin>(this);
+            if (abstractPlugin) {
             connect(abstractPlugin, &KAbstractFileItemActionPlugin::error, q, &KFileItemActions::error);
             m_loadedPlugins.insert(service->desktopEntryName(), abstractPlugin);
-            if (abstractPlugin) {
-                qCWarning(KIO_WIDGETS) << "The" << service->name()
-                                       << "plugin still installs the desktop file for plugin loading. Please use JSON metadata instead, see "
-                                          "KAbstractFileItemActionPlugin class docs for instructions.";
+            qCWarning(KIO_WIDGETS) << "The" << service->name()
+                                   << "plugin still installs the desktop file for plugin loading. Please use JSON metadata instead, see "
+                                   << "KAbstractFileItemActionPlugin class docs for instructions.";
             }
         }
         if (abstractPlugin) {
