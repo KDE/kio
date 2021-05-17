@@ -112,7 +112,7 @@ private Q_SLOTS:
                                                         << ""
                                                         << "tmp_link.pl"
                                                         << "tmp_link.pl.desktop";
-        QTest::newRow("symlink") << "Basic Link"
+        QTest::newRow("symlink") << "Link to File"
                                  << ""
                                  << "thelink"
                                  << "thelink";
@@ -246,7 +246,7 @@ private Q_SLOTS:
             }
             emittedUrl = spy.at(0).at(0).toUrl();
             QVERIFY(QFile::exists(path));
-            if (actionText != QLatin1String("Basic Link")) {
+            if (actionText != QLatin1String("Link to File")) {
                 QFile file(path);
                 QVERIFY(file.open(QIODevice::ReadOnly));
                 const QByteArray contents = file.readAll();
