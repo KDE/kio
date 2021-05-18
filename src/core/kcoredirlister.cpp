@@ -1288,7 +1288,9 @@ void KCoreDirListerCache::slotResult(KJob *j)
                 Q_EMIT kdl->jobError(job);
                 if (kdl->d->m_autoErrorHandling && !errorShown) {
                     errorShown = true; // do it only once
-                    job->uiDelegate()->showErrorMessage();
+                    if (job->uiDelegate()) {
+                        job->uiDelegate()->showErrorMessage();
+                    }
                 }
 #if KIOCORE_BUILD_DEPRECATED_SINCE(5, 82)
                 kdl->handleError(job);
