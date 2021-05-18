@@ -1,5 +1,3 @@
-cmake_minimum_required(VERSION 3.5)
-
 project(%{APPNAMELC})
 
 set(QT_MIN_VERSION "5.12.0")
