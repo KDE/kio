@@ -132,6 +132,7 @@ QUrl FavIconsCache::iconUrlForUrl(const QUrl &url)
         QUrl iconUrl;
         iconUrl.setScheme(url.scheme());
         iconUrl.setHost(url.host());
+        iconUrl.setPort(url.port());
         iconUrl.setPath(QStringLiteral("/favicon.ico"));
         iconUrl.setUserInfo(url.userInfo());
         return iconUrl;
