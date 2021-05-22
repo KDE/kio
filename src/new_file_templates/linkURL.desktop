@@ -85,6 +85,7 @@ Name[x-test]=xxLink to Location (URL)...xx
 Name[zh_CN]=链接到地址(URL)...
 Name[zh_TW]=連結到網址...
 Comment=URL location to link to:
+Comment[az]=Buraya keçid üçün URL yeri:
 Comment[ca]=URL per a enllaçar:
 Comment[de]=URL (Adresse) für die Verknüpfung:
 Comment[es]=Ubicación URL a la que enlazar:
