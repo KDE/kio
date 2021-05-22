@@ -355,7 +355,6 @@ void FilterOptions::save()
     group.writeEntry("PreferredWebShortcuts", m_providersModel->favoriteEngines());
     group.writeEntry("UsePreferredWebShortcutsOnly", m_dlg.cbUseSelectedShortcutsOnly->isChecked());
 
-    int changedProviderCount = 0;
     const QList<SearchProvider *> providers = m_providersModel->providers();
     const QString path = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/kservices5/searchproviders/");
 
@@ -363,8 +362,6 @@ void FilterOptions::save()
         if (!provider->isDirty()) {
             continue;
         }
-
-        changedProviderCount++;
 
         KConfig _service(path + provider->desktopEntryName() + QLatin1String(".desktop"), KConfig::SimpleConfig);
         KConfigGroup service(&_service, "Desktop Entry");
@@ -392,8 +389,6 @@ void FilterOptions::save()
             continue;
         }
 
-        changedProviderCount++;
-
         if (matches.size() == 1 && matches.first().startsWith(path)) {
             // If only the local copy existed, unlink it
             // TODO: error handling
@@ -414,11 +409,6 @@ void FilterOptions::save()
     // Update filters in running applications...
     QDBusMessage msg = QDBusMessage::createSignal(QStringLiteral("/"), QStringLiteral("org.kde.KUriFilterPlugin"), QStringLiteral("configure"));
     QDBusConnection::sessionBus().send(msg);
-
-    // If the providers changed, tell sycoca to rebuild its database...
-    if (changedProviderCount) {
-        KBuildSycocaProgressDialog::rebuildKSycoca(this);
-    }
 }
 
 void FilterOptions::defaults()
