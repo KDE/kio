@@ -126,5 +126,4 @@ Query[vi]=https://dx.doi.org/\\{@}
 Query[x-test]=xxhttps://dx.doi.org/\\{@}xx
 Query[zh_CN]=https://dx.doi.org/\\{@}
 Query[zh_TW]=https://dx.doi.org/\\{@}
-X-KDE-ServiceTypes=SearchProvider
 Type=Service

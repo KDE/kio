@@ -126,5 +126,4 @@ Query[wa]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[x-test]=xxhttps://duckduckgo.com/?q=\\{@}&v=r&t=kdexx
 Query[zh_CN]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[zh_TW]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
-X-KDE-ServiceTypes=SearchProvider
 Type=Service

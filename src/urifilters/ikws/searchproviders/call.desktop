@@ -125,5 +125,4 @@ Query[vi]=https://www.qrz.com/db/\\{@}
 Query[x-test]=xxhttps://www.qrz.com/db/\\{@}xx
 Query[zh_CN]=https://www.qrz.com/db/\\{@}
 Query[zh_TW]=https://www.qrz.com/db/\\{@}
-X-KDE-ServiceTypes=SearchProvider
 Type=Service

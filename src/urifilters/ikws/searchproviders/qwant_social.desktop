@@ -77,5 +77,4 @@ Query[uk]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[vi]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[x-test]=xxhttps://www.qwant.com/?q=\\{@}&client=kde&t=socialxx
 Query[zh_CN]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
-X-KDE-ServiceTypes=SearchProvider
 Type=Service

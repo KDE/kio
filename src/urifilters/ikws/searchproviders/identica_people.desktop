@@ -127,5 +127,4 @@ Query[wa]=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[x-test]=xxhttps://identi.ca/search/people?q=\\{@}&search=Searchxx
 Query[zh_CN]= http://identi.ca/search/people?q=\\{@}&search=Search
 Query[zh_TW]=https://identi.ca/search/people?q=\\{@}&search=Search
-X-KDE-ServiceTypes=SearchProvider
 Type=Service

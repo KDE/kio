@@ -84,7 +84,6 @@ Name[wa]=Multitran - Ratoûne inte l' Espagnol eyet l' Russe
 Name[x-test]=xxMultitran - Translate Between Spanish and Russianxx
 Name[zh_CN]=Multitran - 在西班牙语和俄语之间互译
 Name[zh_TW]=Multitran - 翻譯西班牙語和俄語
-X-KDE-ServiceTypes=SearchProvider
 Keys=mt,mtde
 Query=https://multitran.ru/c/m.exe?l1=5&s=\\{@}
 Query[ast]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}

@@ -89,7 +89,6 @@ Name[xh]=Ask Jeeves
 Name[x-test]=xxAsk Jeevesxx
 Name[zh_CN]=Ask Jeeves
 Name[zh_TW]=Ask Jeeves
-X-KDE-ServiceTypes=SearchProvider
 Keys=ask,jeeves
 Query=https://www.ask.com/main/askJeeves.asp?origin=0&qSource=4&site_name=Jeeves&metasearch=yes&ask=\\{@}
 Query[ast]=https://www.ask.com/main/askJeeves.asp?origin=0&qSource=4&site_name=Jeeves&metasearch=yes&ask=\\{@}

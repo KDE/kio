@@ -85,7 +85,6 @@ Name[wa]=Tags Technocrati
 Name[x-test]=xxTechnorati Tagsxx
 Name[zh_CN]=Technorati 标签
 Name[zh_TW]=Technorati Tags
-X-KDE-ServiceTypes=SearchProvider
 Keys=tags,tag,technoratitags
 Query=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[ast]=https://technorati.com/tag/\\{@}?sourceid=kde-search

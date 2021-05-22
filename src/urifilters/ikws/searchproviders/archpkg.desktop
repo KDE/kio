@@ -83,5 +83,4 @@ Query[vi]=https://www.archlinux.org/packages/?q=\\{@}
 Query[x-test]=xxhttps://www.archlinux.org/packages/?q=\\{@}xx
 Query[zh_CN]=https://www.archlinux.org/packages/?q=\\{@}
 Query[zh_TW]=https://www.archlinux.org/packages/?q=\\{@}
-X-KDE-ServiceTypes=SearchProvider
 Type=Service

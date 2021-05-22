@@ -87,7 +87,6 @@ Name[x-test]=xxTeletekst Search Providerxx
 Name[zh_CN]=Teletekst 搜索提供者
 Name[zh_TW]=Teletekst 搜尋提供者
 Type=Service
-X-KDE-ServiceTypes=SearchProvider
 Keys=tt,teletekst
 Query=https://nos.nl/teletekst#\\{@}
 Query[ast]=https://nos.nl/teletekst#\\{@}

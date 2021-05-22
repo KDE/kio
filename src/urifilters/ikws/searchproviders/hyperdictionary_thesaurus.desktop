@@ -89,7 +89,6 @@ Name[wa]=Motî HyperDictionary.com
 Name[x-test]=xxHyperDictionary.com Thesaurusxx
 Name[zh_CN]=HyperDictionary.com 宝藏
 Name[zh_TW]=HyperDictionary.com 辭典
-X-KDE-ServiceTypes=SearchProvider
 Keys=hdt,hd-ths,hd-thesaurus
 Query=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
 Query[af]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}

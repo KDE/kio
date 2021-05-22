@@ -92,7 +92,6 @@ Name[xh]=Uphendlo Lomfanekiso we Google
 Name[x-test]=xxGoogle Image Searchxx
 Name[zh_CN]=Google 图像搜索
 Name[zh_TW]=Google 圖片搜尋
-X-KDE-ServiceTypes=SearchProvider
 Keys=ggi,images
 Query=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[ar]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}

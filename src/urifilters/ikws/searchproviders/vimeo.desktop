@@ -109,5 +109,4 @@ Query[vi]=https://vimeo.com/search?q=\\{@}
 Query[x-test]=xxhttps://vimeo.com/search?q=\\{@}xx
 Query[zh_CN]=https://vimeo.com/search?q=\\{@}
 Query[zh_TW]=https://vimeo.com/search?q=\\{@}
-X-KDE-ServiceTypes=SearchProvider
 Type=Service

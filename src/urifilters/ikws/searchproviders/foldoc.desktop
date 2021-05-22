@@ -88,7 +88,6 @@ Name[wa]=Diccionaire infôrmatike libe so les fyis
 Name[x-test]=xxFree On-Line Dictionary of Computingxx
 Name[zh_CN]=免费计算机在线词典
 Name[zh_TW]=免費的線上電腦辭典
-X-KDE-ServiceTypes=SearchProvider
 Keys=fd,foldoc
 Query=https://foldoc.org/\\{@}
 Query[ast]=https://foldoc.org/\\{@}

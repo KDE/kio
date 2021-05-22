@@ -68,5 +68,4 @@ Query[uk]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[vi]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[x-test]=xxhttps://wiki.archlinux.org/index.php?search=\\{@}xx
 Query[zh_CN]=https://wiki.archlinux.org/index.php?search=\\{@}
-X-KDE-ServiceTypes=SearchProvider
 Type=Service

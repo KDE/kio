@@ -91,7 +91,6 @@ Name[wa]=Google News
 Name[x-test]=xxGoogle Newsxx
 Name[zh_CN]=Google 新闻
 Name[zh_TW]=Google 新聞
-X-KDE-ServiceTypes=SearchProvider
 Keys=ggn,googlenews
 Query=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[ar]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8

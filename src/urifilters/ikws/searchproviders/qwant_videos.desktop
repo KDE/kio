@@ -78,5 +78,4 @@ Query[uk]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[vi]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[x-test]=xxhttps://www.qwant.com/?q=\\{@}&client=kde&t=videosxx
 Query[zh_CN]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
-X-KDE-ServiceTypes=SearchProvider
 Type=Service

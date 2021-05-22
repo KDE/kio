@@ -90,7 +90,6 @@ Name[xh]=Indawo ye Ruby yokugcina Isicelo
 Name[x-test]=xxRuby Application Archivexx
 Name[zh_CN]=Ruby 应用程序档案
 Name[zh_TW]=Ruby 應用程式檔案庫
-X-KDE-ServiceTypes=SearchProvider
 Keys=raa
 Query=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[ast]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}

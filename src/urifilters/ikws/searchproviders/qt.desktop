@@ -132,5 +132,4 @@ Query[vi]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[x-test]=xxhttps://doc.qt.io/qt-5/search-results.html?q=\\{@}xx
 Query[zh_CN]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[zh_TW]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
-X-KDE-ServiceTypes=SearchProvider
 Type=Service

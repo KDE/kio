@@ -90,7 +90,6 @@ Name[wa]=FreeDB
 Name[x-test]=xxFreeDBxx
 Name[zh_CN]=FreeDB
 Name[zh_TW]=FreeDB
-X-KDE-ServiceTypes=SearchProvider
 Keys=fdb,freedb
 Query=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[af]=http://www.freedb.org/freedb_search.php?words=\\{@}

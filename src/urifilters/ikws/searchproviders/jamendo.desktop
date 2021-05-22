@@ -111,5 +111,4 @@ Query[vi]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[x-test]=xxhttps://www.jamendo.com/en/search?qs=q=\\{@}xx
 Query[zh_CN]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[zh_TW]=https://www.jamendo.com/en/search?qs=q=\\{@}
-X-KDE-ServiceTypes=SearchProvider
 Type=Service

@@ -57,7 +57,6 @@ Name[wa]=Documintåcion di Qt4
 Name[x-test]=xxQt4 Documentationxx
 Name[zh_CN]=Qt4 文档
 Name[zh_TW]=Qt4 文件
-X-KDE-ServiceTypes=SearchProvider
 Keys=qt4
 Query=https://doc.qt.io/archives/qt-4.8/search-results.html?q=\\{@}
 Query[ast]=https://doc.qt.io/archives/qt-4.8/search-results.html?q=\\{@}

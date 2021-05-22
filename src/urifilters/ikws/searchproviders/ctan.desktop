@@ -127,5 +127,4 @@ Query[vi]=https://ctan.org/search?phrase=\\{@}
 Query[x-test]=xxhttps://ctan.org/search?phrase=\\{@}xx
 Query[zh_CN]=https://ctan.org/search?phrase=\\{@}
 Query[zh_TW]=https://ctan.org/search?phrase=\\{@}
-X-KDE-ServiceTypes=SearchProvider
 Type=Service

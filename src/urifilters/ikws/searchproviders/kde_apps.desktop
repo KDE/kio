@@ -91,7 +91,6 @@ Name[xh]=Uphendlo lwe KDE App
 Name[x-test]=xxKDE App Searchxx
 Name[zh_CN]=KDE 应用程序搜索
 Name[zh_TW]=KDE 程式搜尋
-X-KDE-ServiceTypes=SearchProvider
 Keys=apps,appsy
 Query=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[ast]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}

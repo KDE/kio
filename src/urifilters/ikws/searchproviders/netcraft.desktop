@@ -90,7 +90,6 @@ Name[wa]=Netcraft
 Name[x-test]=xxNetcraftxx
 Name[zh_CN]=Netcraft
 Name[zh_TW]=Netcraft
-X-KDE-ServiceTypes=SearchProvider
 Keys=nc,netcraft
 Query=https://uptime.netcraft.com/up/graph?site=\\{@}
 Query[ast]=https://uptime.netcraft.com/up/graph?site=\\{@}

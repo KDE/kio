@@ -127,5 +127,4 @@ Query[vi]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[x-test]=xxhttps://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}xx
 Query[zh_CN]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[zh_TW]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
-X-KDE-ServiceTypes=SearchProvider
 Type=Service

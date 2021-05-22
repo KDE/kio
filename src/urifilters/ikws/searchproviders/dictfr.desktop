@@ -72,7 +72,6 @@ Name[wa]=Motî francès CNRTL/TILF
 Name[x-test]=xxCNRTL/TILF French dictionaryxx
 Name[zh_CN]=CNRTL/TILF 法语词典
 Name[zh_TW]=CNRTL/TILF 法語字典
-X-KDE-ServiceTypes=SearchProvider
 Keys=dictfr
 Query=https://www.cnrtl.fr/definition/\\{@}
 Query[ast]=https://www.cnrtl.fr/definition/\\{@}

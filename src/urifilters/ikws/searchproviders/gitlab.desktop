@@ -78,4 +78,3 @@ Query[vi]=https://gitlab.com/search?search=\\{@}
 Query[x-test]=xxhttps://gitlab.com/search?search=\\{@}xx
 Query[zh_CN]=https://gitlab.com/search?search=\\{@}
 Query[zh_TW]=https://gitlab.com/search?search=\\{@}
-X-KDE-ServiceTypes=SearchProvider

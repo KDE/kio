@@ -88,7 +88,6 @@ Name[wa]=L' esplicant motî do walon so Wikipedia
 Name[x-test]=xxWiktionary - The Free Dictionaryxx
 Name[zh_CN]=维基字典 - 免费的字典
 Name[zh_TW]=Wiktionary - 免費的字典
-X-KDE-ServiceTypes=SearchProvider
 Keys=wt,wikt
 Query=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[ar]=https://ar.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go

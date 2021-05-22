@@ -86,7 +86,6 @@ Name[wa]=LEO - Ratoûne inte l' Almand eyet l' Francès
 Name[x-test]=xxLEO - Translate Between German and Frenchxx
 Name[zh_CN]=LEO - 在德语和法语之间互译
 Name[zh_TW]=LEO - 翻譯德語和法語
-X-KDE-ServiceTypes=SearchProvider
 Keys=de2fr
 Query=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[ast]=https://dict.leo.org/?lp=frde&search=\\{@}

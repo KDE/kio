@@ -90,7 +90,6 @@ Name[xh]= Dikshinari ye Merriam-Webster
 Name[x-test]=xxMerriam-Webster Dictionaryxx
 Name[zh_CN]=韦氏词典
 Name[zh_TW]=韋氏詞典
-X-KDE-ServiceTypes=SearchProvider
 Keys=dict,webster
 Query=https://www.merriam-webster.com/dictionary/\\{@}
 Query[ast]=https://www.merriam-webster.com/dictionary/\\{@}

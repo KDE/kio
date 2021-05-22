@@ -91,7 +91,6 @@ Name[wa]=HyperDictionary.com
 Name[x-test]=xxHyperDictionary.comxx
 Name[zh_CN]=HyperDictionary.com
 Name[zh_TW]=HyperDictionary.com
-X-KDE-ServiceTypes=SearchProvider
 Keys=hd,hyperdict
 Query=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[af]=http://www.hyperdictionary.com/search.aspx?define=\\{@}

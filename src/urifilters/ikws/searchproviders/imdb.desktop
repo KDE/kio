@@ -90,7 +90,6 @@ Name[wa]=Båze di dnêyes des films sol daegntoele
 Name[x-test]=xxInternet Movie Databasexx
 Name[zh_CN]=互联网电影数据库
 Name[zh_TW]=Internet 電影資料庫
-X-KDE-ServiceTypes=SearchProvider
 Keys=imdb
 Query=https://imdb.com/find?s=all&q=\\{@}
 Query[ast]=https://imdb.com/find?s=all&q=\\{@}

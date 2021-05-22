@@ -69,7 +69,6 @@ Name[wa]=Baidu
 Name[x-test]=xxBaiduxx
 Name[zh_CN]=百度
 Name[zh_TW]=百度
-X-KDE-ServiceTypes=SearchProvider
 Keys=baidu
 Query=https://www.baidu.com/s?wd=\\{@}
 Query[ast]=https://www.baidu.com/s?wd=\\{@}

@@ -63,5 +63,4 @@ Query[uk]=https://www.deepl.com/translator#any/any/\\{@}
 Query[vi]=https://www.deepl.com/translator#any/any/\\{@}
 Query[x-test]=xxhttps://www.deepl.com/translator#any/any/\\{@}xx
 Query[zh_CN]=https://www.deepl.com/translator#any/any/\\{@}
-X-KDE-ServiceTypes=SearchProvider
 Type=Service

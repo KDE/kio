@@ -92,7 +92,6 @@ Name[xh]=Voila
 Name[x-test]=xxVoilaxx
 Name[zh_CN]=Voila
 Name[zh_TW]=Voila
-X-KDE-ServiceTypes=SearchProvider
 Keys=voila
 Query=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
 Query[ast]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*

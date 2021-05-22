@@ -148,5 +148,4 @@ Query[wa]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Se
 Query[x-test]=xxhttps://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.orgxx
 Query[zh_CN]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
 Query[zh_TW]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
-X-KDE-ServiceTypes=SearchProvider
 Type=Service

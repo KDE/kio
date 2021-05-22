@@ -110,5 +110,4 @@ Query[vi]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=S
 Query[x-test]=xxhttps://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Searchxx
 Query[zh_CN]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[zh_TW]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
-X-KDE-ServiceTypes=SearchProvider
 Type=Service

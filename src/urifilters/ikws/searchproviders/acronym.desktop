@@ -87,7 +87,6 @@ Name[xh]=Isiseko sedata Segama elenziwe ngonoobumba bamanye amagama
 Name[x-test]=xxAcronym Databasexx
 Name[zh_CN]=首字母缩写数据库
 Name[zh_TW]=Acronym 資料庫
-X-KDE-ServiceTypes=SearchProvider
 Keys=ad,acro,acronym
 Query=https://www.abbreviations.com/\\{@}
 Query[ast]=https://www.abbreviations.com/\\{@}

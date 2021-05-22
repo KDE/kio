@@ -128,5 +128,4 @@ Query[vi]=https://www.wordreference.com/fr/en/translation.asp?fren=\\{@}
 Query[x-test]=xxhttps://www.wordreference.com/fr/en/translation.asp?fren=\\{@}xx
 Query[zh_CN]=https://www.wordreference.com/fr/en/translation.asp?fren=\\{@}
 Query[zh_TW]=https://www.wordreference.com/fr/en/translation.asp?fren=\\{@}
-X-KDE-ServiceTypes=SearchProvider
 Type=Service

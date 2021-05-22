@@ -122,5 +122,4 @@ Query[vi]=https://tools.ietf.org/id/\\{@}
 Query[x-test]=xxhttps://tools.ietf.org/id/\\{@}xx
 Query[zh_CN]=https://tools.ietf.org/id/\\{@}
 Query[zh_TW]=https://tools.ietf.org/id/\\{@}
-X-KDE-ServiceTypes=SearchProvider
 Type=Service

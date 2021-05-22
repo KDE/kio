@@ -109,5 +109,4 @@ Query[vi]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@
 Query[x-test]=xxhttps://www.opendesktop.org/content/search.php?search=Search&name=\\{@}xx
 Query[zh_CN]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
 Query[zh_TW]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
-X-KDE-ServiceTypes=SearchProvider
 Type=Service

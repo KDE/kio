@@ -84,7 +84,6 @@ Name[wa]=Multitran - Ratoûne inte l' Itålyin eyet l' Russe
 Name[x-test]=xxMultitran - Translate Between Italian and Russianxx
 Name[zh_CN]=Multitran - 在意大利语和俄语之间互译
 Name[zh_TW]=Multitran - 翻譯義大利語和俄語
-X-KDE-ServiceTypes=SearchProvider
 Keys=mt,mtde
 Query=https://multitran.ru/c/m.exe?l1=23&s=\\{@}
 Query[ast]=https://multitran.ru/c/m.exe?l1=23&s=\\{@}

@@ -89,7 +89,6 @@ Name[xh]=Uphendlo Womsebenzi womnatha Wombhekisi phambili we Microsoft
 Name[x-test]=xxMicrosoft Developer Network Searchxx
 Name[zh_CN]=MSDN 微软开发者网络搜索
 Name[zh_TW]=微軟開發者網路搜尋
-X-KDE-ServiceTypes=SearchProvider
 Keys=msdn
 Query=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
 Query[ar]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}

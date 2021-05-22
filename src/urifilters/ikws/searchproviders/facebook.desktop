@@ -129,5 +129,4 @@ Query[wa]=https://www.facebook.com/search/?q=\\{@}&init=quick
 Query[x-test]=xxhttps://www.facebook.com/search/?q=\\{@}&init=quickxx
 Query[zh_CN]=https://www.facebook.com/search/?q=\\{@}&init=quick
 Query[zh_TW]=https://www.facebook.com/search/?q=\\{@}&init=quick
-X-KDE-ServiceTypes=SearchProvider
 Type=Service

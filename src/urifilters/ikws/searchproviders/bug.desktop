@@ -88,5 +88,4 @@ Query[wa]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[x-test]=xxhttps://bugs.kde.org/buglist.cgi?quicksearch=\\{@}xx
 Query[zh_CN]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[zh_TW]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
-X-KDE-ServiceTypes=SearchProvider
 Type=Service

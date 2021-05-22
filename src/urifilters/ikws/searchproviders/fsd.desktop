@@ -86,7 +86,6 @@ Name[wa]=Indecse des libes programes FSF/UNESCO
 Name[x-test]=xxFSF/UNESCO Free Software Directoryxx
 Name[zh_CN]=FSF/UNESCO 自由软件目录
 Name[zh_TW]=FSF/UNESCO 自由軟體目錄
-X-KDE-ServiceTypes=SearchProvider
 Keys=fsd
 Query=https://directory.fsf.org/search/?query=\\{@}
 Query[ast]=https://directory.fsf.org/search/?query=\\{@}

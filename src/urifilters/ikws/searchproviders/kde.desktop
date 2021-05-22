@@ -131,5 +131,4 @@ Query[vi]=https://api.kde.org/classmapper.php?class=\\{@}
 Query[x-test]=xxhttps://api.kde.org/classmapper.php?class=\\{@}xx
 Query[zh_CN]=https://api.kde.org/classmapper.php?class=\\{@}
 Query[zh_TW]=https://api.kde.org/classmapper.php?class=\\{@}
-X-KDE-ServiceTypes=SearchProvider
 Type=Service

@@ -77,5 +77,4 @@ Query[uk]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[vi]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[x-test]=xxhttps://www.qwant.com/?q=\\{@}&client=kde&t=imagesxx
 Query[zh_CN]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
-X-KDE-ServiceTypes=SearchProvider
 Type=Service
