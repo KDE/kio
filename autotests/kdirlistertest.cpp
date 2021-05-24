@@ -6,19 +6,21 @@
 */
 
 #include "kdirlistertest.h"
-#include <QTemporaryFile>
-#include <QTest>
 
-QTEST_MAIN(KDirListerTest)
-
+#include "jobuidelegatefactory.h"
 #include "kiotesthelper.h"
 #include <KDirWatch>
-#include <QDebug>
 #include <kio/copyjob.h>
 #include <kio/deletejob.h>
 #include <kio/job.h>
 #include <kio/jobuidelegateextension.h>
 #include <kprotocolinfo.h>
+
+#include <QDebug>
+#include <QTemporaryFile>
+#include <QTest>
+
+QTEST_MAIN(KDirListerTest)
 
 static constexpr bool s_workaroundBrokenInotify = false;
 
@@ -38,7 +40,9 @@ void KDirListerTest::initTestCase()
     // To avoid failing on broken locally defined MIME types
     QStandardPaths::setTestModeEnabled(true);
 
-    KIO::setDefaultJobUiDelegateExtension(nullptr); // no "skip" dialogs
+    // No message dialogs
+    KIO::setDefaultJobUiDelegateExtension(nullptr);
+    KIO::setDefaultJobUiDelegateFactory(nullptr);
 
     m_exitCount = 1;
 
