@@ -96,7 +96,7 @@ if (TARGET KF5::KIOGui)
     LINK_LIBRARIES KF5::KIOCore KF5::KIOGui Qt5::Test
   )
 
-  foreach(_kprocessrunnerTest applicationlauncherjob commandlauncherjob)
+  foreach(_kprocessrunnerTest applicationlauncherjob commandlauncherjob kterminallauncherjob)
     foreach(_systemd "" "SCOPE" "SERVICE")
       set(_scope 0)
       set(_service 0)

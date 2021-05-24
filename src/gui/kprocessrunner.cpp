@@ -27,9 +27,16 @@
 #include <QDir>
 #include <QFileInfo>
 #include <QGuiApplication>
+#include <QProcess>
 #include <QStandardPaths>
 #include <QString>
 #include <QUuid>
+
+#ifdef Q_OS_WIN
+#include "windows.h"
+
+#include "shellapi.h" // Must be included after "windows.h"
+#endif
 
 static int s_instanceCount = 0; // for the unittest
 
@@ -134,7 +141,18 @@ KProcessRunner *KProcessRunner::fromCommand(const QString &cmd,
     auto instance = makeInstance();
 
     instance->m_executable = KIO::DesktopExecParser::executablePath(execName);
-    instance->m_process->setShellCommand(cmd);
+#ifdef Q_OS_WIN
+    if (cmd.startsWith(QLatin1String("wt.exe")) || cmd.startsWith(QLatin1String("pwsh.exe")) || cmd.startsWith(QLatin1String("powershell.exe"))) {
+        instance->m_process->setCreateProcessArgumentsModifier([](QProcess::CreateProcessArguments *args) {
+            args->flags |= CREATE_NEW_CONSOLE;
+            args->startupInfo->dwFlags &= ~STARTF_USESTDHANDLES;
+        });
+        const int firstSpace = cmd.indexOf(QLatin1Char(' '));
+        instance->m_process->setProgram(cmd.left(firstSpace));
+        instance->m_process->setNativeArguments(cmd.mid(firstSpace + 1));
+    } else
+#endif
+        instance->m_process->setShellCommand(cmd);
     if (!workingDirectory.isEmpty()) {
         instance->m_process->setWorkingDirectory(workingDirectory);
     }

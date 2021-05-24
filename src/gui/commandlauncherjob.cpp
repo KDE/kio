@@ -46,6 +46,16 @@ KIO::CommandLauncherJob::~CommandLauncherJob()
     // We need it to keep running so it can terminate startup notification on process exit.
 }
 
+void KIO::CommandLauncherJob::setCommand(const QString &command)
+{
+    d->m_command = command;
+}
+
+QString KIO::CommandLauncherJob::command() const
+{
+    return d->m_command;
+}
+
 void KIO::CommandLauncherJob::setExecutable(const QString &executable)
 {
     d->m_executable = executable;
@@ -69,6 +79,11 @@ void KIO::CommandLauncherJob::setStartupId(const QByteArray &startupId)
 void KIO::CommandLauncherJob::setWorkingDirectory(const QString &workingDirectory)
 {
     d->m_workingDirectory = workingDirectory;
+}
+
+QString KIO::CommandLauncherJob::workingDirectory() const
+{
+    return d->m_workingDirectory;
 }
 
 void KIO::CommandLauncherJob::setProcessEnvironment(const QProcessEnvironment &environment)

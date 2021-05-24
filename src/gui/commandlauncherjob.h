@@ -72,6 +72,18 @@ public:
     ~CommandLauncherJob() override;
 
     /**
+     * Sets the command to execute, this will change the command that was set by any of the constructors.
+     * @since 5.83
+     */
+    void setCommand(const QString &command);
+
+    /**
+     * Returns the command executed by this job.
+     * @since 5.83
+     */
+    QString command() const;
+
+    /**
      * Sets the name of the executable, used in the startup notification
      * (see KStartupInfoData::setBin()).
      * @param executable executable name, with or without a path
@@ -109,7 +121,12 @@ public:
     void setWorkingDirectory(const QString &workingDirectory);
 
     /**
-     * Sets the environment that will be passed to the child process.
+     * Returns the working directory, which was previously set with @c setWorkingDirectory().
+     * @since 5.83
+     */
+    QString workingDirectory() const;
+
+    /**
      * Can be used to pass environment variables to the child process.
      * @param environment set of environment variables to pass to the child process
      * @see QProcessEnvironment
@@ -119,7 +136,7 @@ public:
 
     /**
      * Starts the job.
-     * You must call this, after having done all the setters.
+     * You must call this, after having called all the necessary setters.
      */
     void start() override;
 

@@ -10,6 +10,7 @@ macro(KIOWIDGETS_EXECUTABLE_TESTS)
     add_executable(${_testname} ${_testname}.cpp)
     target_link_libraries(${_testname}
        KF5::KIOCore
+       KF5::KIOGui
        KF5::KIOWidgets
        KF5::KIOFileWidgets
        Qt5::Test
@@ -46,5 +47,6 @@ KIOWIDGETS_EXECUTABLE_TESTS(
   kfilewidgettest_gui
   kfilewidgettest_saving_gui
   openfilemanagerwindowtest
+  kterminallauncherjobtest_gui
   ${runapplication_EXE}
 )

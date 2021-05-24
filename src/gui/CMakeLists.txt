@@ -8,6 +8,7 @@ set(kiogui_SRCS
    openwithhandlerinterface.cpp
    openorexecutefileinterface.cpp
    kprocessrunner.cpp
+   kterminallauncherjob.cpp
 )
 
 if (CMAKE_SYSTEM_NAME STREQUAL "Linux")
@@ -73,6 +74,15 @@ ecm_generate_headers(KIOGui_CamelCase_HEADERS
   PREFIX KIO
   REQUIRED_HEADERS KIO_namespaced_gui_HEADERS
 )
+
+# Headers not prefixed with KIO/
+ecm_generate_headers(KIOGui_HEADERS
+  HEADER_NAMES
+  KTerminalLauncherJob
+
+  REQUIRED_HEADERS KIOGui_HEADERS
+)
+
 install(FILES ${KIOGui_CamelCase_HEADERS} DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}/KIOGui/KIO COMPONENT Devel)
 
 install(TARGETS KF5KIOGui EXPORT KF5KIOTargets ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})

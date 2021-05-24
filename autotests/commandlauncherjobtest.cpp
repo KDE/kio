@@ -10,10 +10,6 @@
 
 #include "kiotesthelper.h" // createTestFile etc.
 
-#ifdef Q_OS_UNIX
-#include <signal.h> // kill
-#endif
-
 #include <QStandardPaths>
 #include <QTemporaryDir>
 #include <QTest>
