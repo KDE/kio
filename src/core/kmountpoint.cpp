@@ -27,12 +27,6 @@ static const Qt::CaseSensitivity cs = Qt::CaseInsensitive;
 static const Qt::CaseSensitivity cs = Qt::CaseSensitive;
 #endif
 
-#if HAVE_VOLMGT
-#include <volmgt.h>
-#endif
-#if HAVE_SYS_MNTTAB_H
-#include <sys/mnttab.h>
-#endif
 #if HAVE_MNTENT_H
 #include <mntent.h>
 #elif HAVE_SYS_MNTENT_H
@@ -70,11 +64,7 @@ static const Qt::CaseSensitivity cs = Qt::CaseSensitive;
 #endif
 #endif
 
-#ifdef _OS_SOLARIS_
-#define FSTAB "/etc/vfstab"
-#else
 #define FSTAB "/etc/fstab"
-#endif
 
 class KMountPointPrivate
 {
@@ -215,24 +205,14 @@ KMountPoint::List KMountPoint::possibleMountPoints(DetailsNeededFlags infoNeeded
         // not empty or commented out by '#'
         const QStringList item = s.split(QLatin1Char(' '));
 
-#ifdef _OS_SOLARIS_
-        if (item.count() < 5) {
-            continue;
-        }
-#else
         if (item.count() < 4) {
             continue;
         }
-#endif
 
         Ptr mp(new KMountPoint);
 
         int i = 0;
         mp->d->m_mountedFrom = item[i++];
-#ifdef _OS_SOLARIS_
-        // device to fsck
-        i++;
-#endif
         mp->d->m_mountPoint = item[i++];
         mp->d->m_mountType = item[i++];
         if (mp->d->m_mountType == QLatin1String("swap")) {
@@ -272,12 +252,7 @@ KMountPoint::List KMountPoint::currentMountPoints(DetailsNeededFlags infoNeeded)
         Ptr mp(new KMountPoint);
         mp->d->m_mountedFrom = QFile::decodeName(mounted[i].f_mntfromname);
         mp->d->m_mountPoint = QFile::decodeName(mounted[i].f_mntonname);
-
-#ifdef __osf__
-        mp->d->m_mountType = QFile::decodeName(mnt_names[mounted[i].f_type]);
-#else
         mp->d->m_mountType = QFile::decodeName(mounted[i].f_fstypename);
-#endif
 
         if (infoNeeded & NeedMountOptions) {
             struct fstab *ft = getfsfile(mounted[i].f_mntonname);
