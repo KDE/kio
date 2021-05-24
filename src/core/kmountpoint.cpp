@@ -69,6 +69,7 @@ static const Qt::CaseSensitivity cs = Qt::CaseSensitive;
 class KMountPointPrivate
 {
 public:
+    void resolveGvfsMountPoints(KMountPoint::List &result);
     void finalizePossibleMountPoint(KMountPoint::DetailsNeededFlags infoNeeded);
     void finalizeCurrentMountPoint(KMountPoint::DetailsNeededFlags infoNeeded);
 
@@ -234,6 +235,27 @@ KMountPoint::List KMountPoint::possibleMountPoints(DetailsNeededFlags infoNeeded
     return result;
 }
 
+void KMountPointPrivate::resolveGvfsMountPoints(KMountPoint::List &result)
+{
+    // Resolve gvfs mountpoints
+    if (m_mountedFrom == QLatin1String("gvfsd-fuse")) {
+        const QDir gvfsDir(m_mountPoint);
+        const QStringList mountDirs = gvfsDir.entryList(QDir::Dirs | QDir::NoDotAndDotDot);
+        for (const QString &mountDir : mountDirs) {
+            const QString type = mountDir.section(QLatin1Char(':'), 0, 0);
+            if (type.isEmpty()) {
+                continue;
+            }
+
+            KMountPoint::Ptr gvfsmp(new KMountPoint);
+            gvfsmp->d->m_mountedFrom = m_mountedFrom;
+            gvfsmp->d->m_mountPoint = m_mountPoint + QLatin1Char('/') + mountDir;
+            gvfsmp->d->m_mountType = type;
+            result.append(gvfsmp);
+        }
+    }
+}
+
 KMountPoint::List KMountPoint::currentMountPoints(DetailsNeededFlags infoNeeded)
 {
     KMountPoint::List result;
@@ -303,24 +325,7 @@ KMountPoint::List KMountPoint::currentMountPoints(DetailsNeededFlags infoNeeded)
             mp->d->m_mountOptions = options.split(QLatin1Char(','));
         }
 
-        // Resolve gvfs mountpoints
-        if (mp->d->m_mountedFrom == QLatin1String("gvfsd-fuse")) {
-            const QDir gvfsDir(mp->d->m_mountPoint);
-            const QStringList mountDirs = gvfsDir.entryList(QDir::Dirs | QDir::NoDotAndDotDot);
-            for (const QString &mountDir : mountDirs) {
-                const QString type = mountDir.section(QLatin1Char(':'), 0, 0);
-                if (type.isEmpty()) {
-                    continue;
-                }
-
-                Ptr gvfsmp(new KMountPoint);
-                gvfsmp->d->m_mountedFrom = mp->d->m_mountedFrom;
-                gvfsmp->d->m_mountPoint = mp->d->m_mountPoint + QLatin1Char('/') + mountDir;
-                gvfsmp->d->m_mountType = type;
-                result.append(gvfsmp);
-            }
-        }
-
+        mp->d->resolveGvfsMountPoints(result);
         mp->d->finalizeCurrentMountPoint(infoNeeded);
 
         result.append(mp);

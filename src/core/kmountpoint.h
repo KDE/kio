@@ -157,7 +157,7 @@ private:
      * Constructor
      */
     KMountPoint();
-
+    friend KMountPointPrivate;
     std::unique_ptr<KMountPointPrivate> d;
 };
 
