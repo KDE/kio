@@ -9,11 +9,7 @@ check_struct_has_member("struct sockaddr" sa_len "sys/types.h;sys/socket.h" HAVE
 ### KMountPoint
 
 check_function_exists(getmntinfo  HAVE_GETMNTINFO)
-check_function_exists(setmntent   HAVE_SETMNTENT)
 
-check_include_files(mntent.h      HAVE_MNTENT_H)
-check_include_files("stdio.h;sys/mnttab.h"  HAVE_SYS_MNTTAB_H)
-check_include_files(sys/mntent.h  HAVE_SYS_MNTENT_H)
 check_include_files("sys/param.h;sys/mount.h"  HAVE_SYS_MOUNT_H)
 
 check_include_files(sys/types.h   HAVE_SYS_TYPES_H)

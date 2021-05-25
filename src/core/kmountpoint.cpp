@@ -7,7 +7,6 @@
 */
 
 #include "kmountpoint.h"
-
 #include <stdlib.h>
 
 #include <config-kmountpoint.h>
@@ -19,18 +18,9 @@
 
 #ifdef Q_OS_WIN
 #include <qt_windows.h>
-#endif
-
-#ifdef Q_OS_WIN
 static const Qt::CaseSensitivity cs = Qt::CaseInsensitive;
 #else
 static const Qt::CaseSensitivity cs = Qt::CaseSensitive;
-#endif
-
-#if HAVE_MNTENT_H
-#include <mntent.h>
-#elif HAVE_SYS_MNTENT_H
-#include <sys/mntent.h>
 #endif
 
 // This is the *BSD branch
@@ -48,23 +38,11 @@ static const Qt::CaseSensitivity cs = Qt::CaseSensitive;
 #include <fstab.h>
 #endif
 
-#if !HAVE_GETMNTINFO
-#ifdef _PATH_MOUNTED
-// On some Linux, MNTTAB points to /etc/fstab !
-#undef MNTTAB
-#define MNTTAB _PATH_MOUNTED
-#else
-#ifndef MNTTAB
-#ifdef MTAB_FILE
-#define MNTTAB MTAB_FILE
-#else
-#define MNTTAB "/etc/mnttab"
+// Linux
+#if HAVE_LIBS_MOUNT_AND_BLKID
+#include <libmount/libmount.h>
+#include <blkid/blkid.h>
 #endif
-#endif
-#endif
-#endif
-
-#define FSTAB "/etc/fstab"
 
 class KMountPointPrivate
 {
@@ -86,34 +64,6 @@ KMountPoint::KMountPoint()
 }
 
 KMountPoint::~KMountPoint() = default;
-
-// There are (at least) four kind of APIs:
-// setmntent + getmntent + struct mntent (linux...)
-//             getmntent + struct mnttab
-// getmntinfo + struct statfs&flags (BSD 4.4 and friends)
-// getfsent + char* (BSD 4.3 and friends)
-
-#if HAVE_SETMNTENT
-#define SETMNTENT setmntent
-#define ENDMNTENT endmntent
-#define STRUCT_MNTENT struct mntent *
-#define STRUCT_SETMNTENT FILE *
-#define GETMNTENT(file, var) ((var = getmntent(file)) != nullptr)
-#define MOUNTPOINT(var) var->mnt_dir
-#define MOUNTTYPE(var) var->mnt_type
-#define MOUNTOPTIONS(var) var->mnt_opts
-#define FSNAME(var) var->mnt_fsname
-#else
-#define SETMNTENT fopen
-#define ENDMNTENT fclose
-#define STRUCT_MNTENT struct mnttab
-#define STRUCT_SETMNTENT FILE *
-#define GETMNTENT(file, var) (getmntent(file, &var) == nullptr)
-#define MOUNTPOINT(var) var.mnt_mountp
-#define MOUNTTYPE(var) var.mnt_fstype
-#define MOUNTOPTIONS(var) var.mnt_mntopts
-#define FSNAME(var) var.mnt_special
-#endif
 
 void KMountPointPrivate::finalizePossibleMountPoint(KMountPoint::DetailsNeededFlags infoNeeded)
 {
@@ -161,34 +111,53 @@ KMountPoint::List KMountPoint::possibleMountPoints(DetailsNeededFlags infoNeeded
 
     KMountPoint::List result;
 
-#if HAVE_SETMNTENT
-    STRUCT_SETMNTENT fstab;
-    if ((fstab = SETMNTENT(FSTAB, "r")) == nullptr) {
-        return result;
-    }
+#if HAVE_LIBS_MOUNT_AND_BLKID
+    if (struct libmnt_table *table = mnt_new_table()) {
+        // By default parses "/etc/fstab"
+        if (mnt_table_parse_fstab(table, nullptr) == 0) {
+            struct libmnt_iter *itr = mnt_new_iter(MNT_ITER_FORWARD);
+            struct libmnt_fs *fs;
 
-    STRUCT_MNTENT fe;
-    while (GETMNTENT(fstab, fe)) {
-        if (QByteArray(MOUNTTYPE(fe)) == "swap") {
-            continue;
+            while (mnt_table_next_fs(table, itr, &fs) == 0) {
+                const char *fsType = mnt_fs_get_fstype(fs);
+                if (strcmp(fsType, "swap") == 0) {
+                    continue;
+                }
+
+                Ptr mp(new KMountPoint);
+                mp->d->m_mountType = QFile::decodeName(fsType);
+                mp->d->m_mountPoint = QFile::decodeName(mnt_fs_get_target(fs));
+
+                // First field in /etc/fstab, e.g. /dev/sdXY, LABEL=, UUID=, /some/bind/mount/dir
+                // or some network mount
+                if (const char *source = mnt_fs_get_source(fs)) {
+                    mp->d->m_mountedFrom = QFile::decodeName(source);
+                    if (mp->d->m_mountedFrom.startsWith(QLatin1String("UUID")) || mp->d->m_mountedFrom.startsWith(QLatin1String("LABEL"))) {
+                        // Use blkid to resolve UUID/LABEL to the device file
+                        if (char *blkSource = blkid_evaluate_spec(source, nullptr)) {
+                            mp->d->m_mountedFrom = QFile::decodeName(blkSource);
+                            free(blkSource);
+                            if ((infoNeeded & KMountPoint::NeedRealDeviceName) //
+                                && mp->d->m_mountedFrom.startsWith(QLatin1String("/dev/"))) {
+                                mp->d->m_device = mp->d->m_mountedFrom;
+                            }
+                        }
+                    }
+                }
+
+                if (infoNeeded & NeedMountOptions) {
+                    mp->d->m_mountOptions = QFile::decodeName(mnt_fs_get_options(fs)).split(QLatin1Char(','));
+                }
+
+                result.append(mp);
+            }
+            mnt_free_iter(itr);
         }
-        Ptr mp(new KMountPoint);
-        mp->d->m_mountedFrom = QFile::decodeName(FSNAME(fe));
 
-        mp->d->m_mountPoint = QFile::decodeName(MOUNTPOINT(fe));
-        mp->d->m_mountType = QFile::decodeName(MOUNTTYPE(fe));
-
-        if (infoNeeded & NeedMountOptions) {
-            QString options = QFile::decodeName(MOUNTOPTIONS(fe));
-            mp->d->m_mountOptions = options.split(QLatin1Char(','));
-        }
-
-        mp->d->finalizePossibleMountPoint(infoNeeded);
-
-        result.append(mp);
+        mnt_free_table(table);
     }
-    ENDMNTENT(fstab);
 #else
+
     QFile f(QLatin1String(FSTAB));
     if (!f.open(QIODevice::ReadOnly)) {
         return result;
@@ -232,12 +201,12 @@ KMountPoint::List KMountPoint::possibleMountPoints(DetailsNeededFlags infoNeeded
 
     f.close();
 #endif
+
     return result;
 }
 
 void KMountPointPrivate::resolveGvfsMountPoints(KMountPoint::List &result)
 {
-    // Resolve gvfs mountpoints
     if (m_mountedFrom == QLatin1String("gvfsd-fuse")) {
         const QDir gvfsDir(m_mountPoint);
         const QStringList mountDirs = gvfsDir.entryList(QDir::Dirs | QDir::NoDotAndDotDot);
@@ -306,32 +275,41 @@ KMountPoint::List KMountPoint::currentMountPoints(DetailsNeededFlags infoNeeded)
         }
     }
 
-#elif !defined(Q_OS_ANDROID)
-    STRUCT_SETMNTENT mnttab;
-    if ((mnttab = SETMNTENT(MNTTAB, "r")) == nullptr) {
-        return result;
-    }
+#elif HAVE_LIBS_MOUNT_AND_BLKID
+    if (struct libmnt_table *table = mnt_new_table()) {
+        // By default, parses "/proc/self/mountinfo"
+        if (mnt_table_parse_mtab(table, nullptr) == 0) {
+            struct libmnt_iter *itr = mnt_new_iter(MNT_ITER_FORWARD);
+            struct libmnt_fs *fs;
 
-    STRUCT_MNTENT fe;
-    while (GETMNTENT(mnttab, fe)) {
-        Ptr mp(new KMountPoint);
-        mp->d->m_mountedFrom = QFile::decodeName(FSNAME(fe));
+            while (mnt_table_next_fs(table, itr, &fs) == 0) {
+                Ptr mp(new KMountPoint);
+                mp->d->m_mountedFrom = QFile::decodeName(mnt_fs_get_source(fs));
+                mp->d->m_mountPoint = QFile::decodeName(mnt_fs_get_target(fs));
+                mp->d->m_mountType = QFile::decodeName(mnt_fs_get_fstype(fs));
 
-        mp->d->m_mountPoint = QFile::decodeName(MOUNTPOINT(fe));
-        mp->d->m_mountType = QFile::decodeName(MOUNTTYPE(fe));
+                if (infoNeeded & NeedMountOptions) {
+                    mp->d->m_mountOptions = QFile::decodeName(mnt_fs_get_options(fs)).split(QLatin1Char(','));
+                }
 
-        if (infoNeeded & NeedMountOptions) {
-            QString options = QFile::decodeName(MOUNTOPTIONS(fe));
-            mp->d->m_mountOptions = options.split(QLatin1Char(','));
+                if (infoNeeded & NeedRealDeviceName) {
+                    if (mp->d->m_mountedFrom.startsWith(QLatin1Char('/'))) {
+                        mp->d->m_device = mp->d->m_mountedFrom;
+                    }
+                }
+
+                mp->d->resolveGvfsMountPoints(result);
+
+                result.push_back(mp);
+            }
+
+            mnt_free_iter(itr);
         }
 
-        mp->d->resolveGvfsMountPoints(result);
-        mp->d->finalizeCurrentMountPoint(infoNeeded);
-
-        result.append(mp);
+        mnt_free_table(table);
     }
-    ENDMNTENT(mnttab);
 #endif
+
     return result;
 }
 

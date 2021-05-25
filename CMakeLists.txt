@@ -123,6 +123,13 @@ set_package_properties(ACL PROPERTIES DESCRIPTION "LibACL"
                        TYPE RECOMMENDED
                        PURPOSE "Support for manipulating access control lists")
 
+# Used by KMountPoint
+if (CMAKE_SYSTEM_NAME MATCHES "Linux")
+    find_package(LibMount REQUIRED)
+    find_package(Blkid REQUIRED)
+    set(HAVE_LIBS_MOUNT_AND_BLKID ${LibMount_FOUND} AND ${Blkid_FOUND})
+endif()
+
 add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050f00)
 add_definitions(-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x055100)
 # we use KPixmapProvider in public API

@@ -224,6 +224,11 @@ if(ACL_FOUND)
   target_link_libraries(KF5KIOCore PRIVATE ${ACL_LIBS})
 endif()
 
+if(HAVE_LIBS_MOUNT_AND_BLKID)
+  # libmount links against blkid anyway
+  target_link_libraries(KF5KIOCore PRIVATE LibMount::LibMount Blkid::Blkid)
+endif()
+
 # this should be done by cmake, see bug 371721
 if(CMAKE_CXX_COMPILER_ID STREQUAL "Clang" OR CMAKE_CXX_COMPILER_ID STREQUAL "GNU" AND Qt5Core_VERSION VERSION_GREATER 5.8.0)
     add_custom_command(
