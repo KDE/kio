@@ -8,6 +8,7 @@
 #ifndef KIO_JOBUIDELEGATEFACTORY_H
 #define KIO_JOBUIDELEGATEFACTORY_H
 
+#include "job_base.h"
 #include "kiocore_export.h"
 #include <KJobUiDelegate>
 #include <QDateTime>
@@ -74,7 +75,17 @@ inline T delegateExtension(KJob *job)
 {
     KJobUiDelegate *ui = job->uiDelegate();
 
-    // Try the ui delegate of the parent(s)
+    // If setParentJob() was used, try the uiDelegate of parentJob first
+    if (!ui) {
+        if (KIO::Job *kiojob = qobject_cast<KIO::Job *>(job)) {
+            if (KJob *parentJob = kiojob->parentJob()) {
+                ui = parentJob->uiDelegate();
+            }
+        }
+    }
+
+    // Still nothing? if compositeJob->addSubjob(job) was used, try the ui delegate
+    // of compositeJob
     while (!ui) {
         job = qobject_cast<KCompositeJob *>(job->parent());
         if (job) {

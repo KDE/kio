@@ -271,7 +271,6 @@ void KIO::OpenUrlJobPrivate::startService(const KService::Ptr &service, const QL
     job->setRunFlags(m_deleteTemporaryFile ? KIO::ApplicationLauncherJob::DeleteTemporaryFiles : KIO::ApplicationLauncherJob::RunFlags{});
     job->setSuggestedFileName(m_suggestedFileName);
     job->setStartupId(m_startupId);
-    job->setUiDelegate(q->uiDelegate());
     q->addSubjob(job);
     job->start();
 }
@@ -440,7 +439,6 @@ void KIO::OpenUrlJobPrivate::executeCommand()
 {
     // Execute the URL as a command. This is how we start scripts and executables
     KIO::CommandLauncherJob *job = new KIO::CommandLauncherJob(m_url.toLocalFile(), QStringList());
-    job->setUiDelegate(q->uiDelegate());
     job->setStartupId(m_startupId);
     job->setWorkingDirectory(m_url.adjusted(QUrl::RemoveFilename).toLocalFile());
     q->addSubjob(job);

@@ -13,8 +13,8 @@
 #include <QTemporaryDir>
 #include <QTest>
 
+#include "jobuidelegatefactory.h"
 #include "kiotesthelper.h"
-
 #include "mockcoredelegateextensions.h"
 #include <KConfigGroup>
 #include <KDesktopFile>
@@ -86,6 +86,9 @@ private Q_SLOTS:
         // To avoid a runtime dependency on klauncher
         qputenv("KDE_FORK_SLAVES", "yes");
 
+        KIO::setDefaultJobUiDelegateFactory(nullptr);
+        KIO::setDefaultJobUiDelegateExtension(nullptr);
+
         const QString trashDir = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/Trash");
         QDir(trashDir).removeRecursively();
 
@@ -147,7 +150,6 @@ private Q_SLOTS:
         QUrl destUrl = QUrl::fromLocalFile(desktopPath);
         QDropEvent dropEvent(QPoint(10, 10), Qt::CopyAction, &m_mimeData, Qt::LeftButton, Qt::NoModifier);
         KIO::DropJob *job = KIO::drop(&dropEvent, destUrl, KIO::HideProgressInfo);
-        job->setUiDelegate(nullptr);
         QSignalSpy spy(job, &KIO::DropJob::itemCreated);
 
         // Then the application is run with the source file as argument
@@ -201,8 +203,6 @@ private Q_SLOTS:
         m_mimeData.setUrls(QList<QUrl>{QUrl::fromLocalFile(srcFile)});
         QDropEvent dropEvent(QPoint(10, 10), dropAction, &m_mimeData, Qt::LeftButton, modifiers);
         KIO::DropJob *job = KIO::drop(&dropEvent, destUrl, KIO::HideProgressInfo | KIO::NoPrivilegeExecution);
-        job->setUiDelegate(nullptr);
-        job->setUiDelegateExtension(nullptr);
         JobSpy jobSpy(job);
         QSignalSpy copyJobSpy(job, &KIO::DropJob::copyJobStarted);
         QSignalSpy itemCreatedSpy(job, &KIO::DropJob::itemCreated);
@@ -296,7 +296,6 @@ private Q_SLOTS:
         m_mimeData.setUrls(QList<QUrl>{trashUrl});
         QDropEvent dropEvent(QPoint(10, 10), Qt::CopyAction, &m_mimeData, Qt::LeftButton, Qt::NoModifier);
         KIO::DropJob *job = KIO::drop(&dropEvent, QUrl::fromLocalFile(m_srcDir), KIO::HideProgressInfo);
-        job->setUiDelegate(nullptr);
         QSignalSpy copyJobSpy(job, &KIO::DropJob::copyJobStarted);
         QSignalSpy spy(job, &KIO::DropJob::itemCreated);
 
@@ -328,7 +327,6 @@ private Q_SLOTS:
         m_mimeData.setUrls(QList<QUrl>{trashUrl});
         QDropEvent dropEvent(QPoint(10, 10), Qt::CopyAction, &m_mimeData, Qt::LeftButton, Qt::NoModifier);
         KIO::DropJob *job = KIO::drop(&dropEvent, destUrl, KIO::HideProgressInfo);
-        job->setUiDelegate(nullptr);
         QSignalSpy copyJobSpy(job, &KIO::DropJob::copyJobStarted);
         QVERIFY2(job->exec(), qPrintable(job->errorString()));
 
@@ -354,7 +352,6 @@ private Q_SLOTS:
         m_mimeData.setUrls(QList<QUrl>{trashUrl});
         QDropEvent dropEvent(QPoint(10, 10), Qt::CopyAction, &m_mimeData, Qt::LeftButton, Qt::NoModifier);
         KIO::DropJob *job = KIO::drop(&dropEvent, QUrl(QStringLiteral("trash:/")), KIO::HideProgressInfo);
-        job->setUiDelegate(nullptr);
         QSignalSpy copyJobSpy(job, &KIO::DropJob::copyJobStarted);
         QSignalSpy spy(job, &KIO::DropJob::itemCreated);
 
@@ -402,8 +399,6 @@ private Q_SLOTS:
         QUrl destUrl = QUrl::fromLocalFile(dest);
         QDropEvent dropEvent(QPoint(10, 10), Qt::CopyAction /*unused*/, &m_mimeData, Qt::LeftButton, Qt::NoModifier);
         KIO::DropJob *job = KIO::drop(&dropEvent, destUrl, KIO::HideProgressInfo);
-        job->setUiDelegate(nullptr);
-        job->setUiDelegateExtension(nullptr); // no rename dialog
         JobSpy jobSpy(job);
         qRegisterMetaType<KFileItemListProperties>();
         QSignalSpy spyShow(job, &KIO::DropJob::popupMenuAboutToShow);
@@ -452,7 +447,6 @@ private Q_SLOTS:
         QAction appAction2(QStringLiteral("action2"), this);
         QList<QAction *> appActions;
         appActions << &appAction1 << &appAction2;
-        job->setUiDelegate(nullptr);
         job->setApplicationActions(appActions);
         JobSpy jobSpy(job);
 

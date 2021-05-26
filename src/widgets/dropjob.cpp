@@ -530,7 +530,6 @@ void DropJobPrivate::doCopyToDirectory()
         return;
     }
     Q_ASSERT(job);
-    job->setUiDelegate(q->uiDelegate());
     job->setParentJob(q);
     job->setMetaData(m_metaData);
     QObject::connect(job, &KIO::CopyJob::copyingDone, q, [q](KIO::Job *, const QUrl &, const QUrl &to) {
@@ -554,10 +553,10 @@ void DropJobPrivate::handleDropToDesktopFile()
     if (desktopFile.hasApplicationType()) {
         // Drop to application -> start app with urls as argument
         KService::Ptr service(new KService(destFile));
-        KIO::ApplicationLauncherJob *job = new KIO::ApplicationLauncherJob(service);
+        // Can't use setParentJob() because ApplicationLauncherJob isn't a KIO::Job,
+        // intead pass q as parent so that KIO::delegateExtension() can find a delegate
+        KIO::ApplicationLauncherJob *job = new KIO::ApplicationLauncherJob(service, q);
         job->setUrls(m_urls);
-        job->setUiDelegate(q->uiDelegate());
-        job->start();
         QObject::connect(job, &KJob::result, q, [=]() {
             if (job->error()) {
                 q->setError(KIO::ERR_CANNOT_LAUNCH_PROCESS);
@@ -565,6 +564,7 @@ void DropJobPrivate::handleDropToDesktopFile()
             }
             q->emitResult();
         });
+        job->start();
     } else if (desktopFile.hasLinkType() && desktopGroup.hasKey(urlKey)) {
         // Drop to link -> adjust destination directory
         m_destUrl = QUrl::fromUserInput(desktopGroup.readPathEntry(urlKey, QString()));
