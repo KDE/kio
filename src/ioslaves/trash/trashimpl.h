@@ -8,12 +8,12 @@
 #ifndef TRASHIMPL_H
 #define TRASHIMPL_H
 
-#include <KConfig>
 #include <kio/job.h>
+
+#include <KConfig>
 
 #include <QDateTime>
 #include <QMap>
-#include <assert.h>
 
 namespace Solid
 {
@@ -21,7 +21,7 @@ class Device;
 }
 
 /**
- * Implementation of all low-level operations done by kio_trash
+ * Implementation of all low-level operations done by kio_trash.
  * The structure of the trash directory follows the freedesktop.org standard:
  * https://specifications.freedesktop.org/trash-spec/trashspec-1.0.html
  */
@@ -59,9 +59,6 @@ public:
     /// Renaming a file or directory in the trash.
     bool moveInTrash(int trashId, const QString &oldFileId, const QString &newFileId);
 
-    /// Create a top-level trashed directory
-    // bool mkdir( int trashId, const QString& fileId, int permissions );
-
     /// Get rid of a trashed file
     bool del(int trashId, const QString &fileId);
 
@@ -79,7 +76,8 @@ public:
         QDateTime deletionDate; // from info file
     };
     /// List trashed files
-    typedef QList<TrashedFileInfo> TrashedFileInfoList;
+    using TrashedFileInfoList = QList<TrashedFileInfo>;
+
     /// Returns the TrashedFileInfo of all files in all trashes
     /// uses scanTrashDirectories() to refresh m_trashDirectories
     TrashedFileInfoList list();
@@ -120,7 +118,7 @@ public:
     static QUrl makeURL(int trashId, const QString &fileId, const QString &relativePath);
     static bool parseURL(const QUrl &url, int &trashId, QString &fileId, QString &relativePath);
 
-    typedef QMap<int, QString> TrashDirMap;
+    using TrashDirMap = QMap<int, QString>;
     /// @internal This method is for TestTrash only. Home trash is included (id 0).
     TrashDirMap trashDirectories() const;
     /// @internal This method is for TestTrash only. No entry with id 0.
@@ -187,6 +185,9 @@ private:
     // to recreate it on OS X.
     bool createTrashInfrastructure(int trashId, const QString &path = QString());
 
+    // Inserts a newly found @p trashDir, under @p topdir with @p id
+    void insertTrashDir(int id, const QString &trashDir, const QString &topdir) const;
+
     /// Last error code stored in class to simplify API.
     /// Note that this means almost no method can be const.
     int m_lastErrorCode;
@@ -195,8 +196,8 @@ private:
     enum { InitToBeDone, InitOK, InitError } m_initStatus;
 
     // A "trash directory" is a physical directory on disk,
-    // e.g. $HOME/.local/share/Trash/$uid or /mnt/foo/.Trash/$uid
-    // It has an id (number) and a path.
+    // e.g. $HOME/.local/share/Trash or /mnt/foo/.Trash-$uid
+    // It has an id (int) and a path.
     // The home trash has id 0.
     mutable TrashDirMap m_trashDirectories; // id -> path of trash directory
     mutable TrashDirMap m_topDirectories; // id -> $topdir of partition
