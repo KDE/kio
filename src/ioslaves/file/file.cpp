@@ -48,11 +48,6 @@
 #include <QStandardPaths>
 #include <kmountpoint.h>
 
-#if HAVE_VOLMGT
-#include <sys/mnttab.h>
-#include <volmgt.h>
-#endif
-
 #include <ioslave_defaults.h>
 #include <kdirnotify.h>
 
@@ -797,33 +792,10 @@ void FileProtocol::mount(bool _ro, const char *_fstype, const QString &_dev, con
 {
     // qDebug() << "fstype=" << _fstype;
 
-#ifndef _WIN32_WCE
-#if HAVE_VOLMGT
-    /*
-     *  support for Solaris volume management
-     */
-    QString err;
-    QByteArray devname = QFile::encodeName(_dev);
-
-    if (volmgt_running()) {
-        //      qDebug() << "VOLMGT: vold ok.";
-        if (volmgt_check(devname.data()) == 0) {
-            // qDebug() << "VOLMGT: no media in " << devname.data();
-            err = i18n("No Media inserted or Media not recognized.");
-            error(KIO::ERR_CANNOT_MOUNT, err);
-            return;
-        } else {
-            // qDebug() << "VOLMGT: " << devname.data() << ": media ok";
-            finished();
-            return;
-        }
-    } else {
-        err = i18n("\"vold\" is not running.");
-        // qDebug() << "VOLMGT: " << err;
-        error(KIO::ERR_CANNOT_MOUNT, err);
-        return;
-    }
-#else
+#ifdef _WIN32_WCE
+    error(KIO::ERR_CANNOT_MOUNT, i18n("mounting is not supported by Windows CE."));
+    return;
+#endif
 
     QTemporaryFile tmpFile;
     tmpFile.setAutoRemove(false);
@@ -859,22 +831,15 @@ void FileProtocol::mount(bool _ro, const char *_fstype, const QString &_dev, con
         // Mount using device only if no fstype nor mountpoint (KDE-1.x like)
         if (!dev.isEmpty() && _point.isEmpty() && fstype_empty) {
             buffer += dev;
-        } else
+        } else if (!_point.isEmpty() && dev.isEmpty() && fstype_empty) {
             // Mount using the mountpoint, if no fstype nor device (impossible in first step)
-            if (!_point.isEmpty() && dev.isEmpty() && fstype_empty) {
             buffer += point;
-        } else
-            // mount giving device + mountpoint but no fstype
-            if (!_point.isEmpty() && !dev.isEmpty() && fstype_empty) {
+        } else if (!_point.isEmpty() && !dev.isEmpty() && fstype_empty) { // mount giving device + mountpoint but no fstype
             buffer += readonly + ' ' + dev + ' ' + point;
-        } else
-        // mount giving device + mountpoint + fstype
-#if defined(__svr4__) && defined(Q_OS_SOLARIS) // MARCO for Solaris 8 and I
-            // believe this is true for SVR4 in general
-            buffer += "-F " + fstype + ' ' + (_ro ? "-oro" : "") + ' ' + dev + ' ' + point;
-#else
+        } else { // mount giving device + mountpoint + fstype
             buffer += readonly + " -t " + fstype + ' ' + dev + ' ' + point;
-#endif
+        }
+
         buffer += " 2>" + tmpFileName;
         // qDebug() << buffer;
 
@@ -915,105 +880,21 @@ void FileProtocol::mount(bool _ro, const char *_fstype, const QString &_dev, con
             }
         }
     }
-#endif /* ! HAVE_VOLMGT */
-#else
-    error(KIO::ERR_CANNOT_MOUNT, i18n("mounting is not supported by Windows CE."));
-#endif
 }
 
 void FileProtocol::unmount(const QString &_point)
 {
-#ifndef _WIN32_WCE
+#ifdef _WIN32_WCE
+    error(KIO::ERR_CANNOT_MOUNT, i18n("unmounting is not supported by Windows CE."));
+    return;
+#endif
+
     QByteArray buffer;
 
     QTemporaryFile tmpFile;
     tmpFile.setAutoRemove(false);
     tmpFile.open();
-    QByteArray tmpFileName = QFile::encodeName(tmpFile.fileName());
-    QString err;
 
-#if HAVE_VOLMGT
-    /*
-     *  support for Solaris volume management
-     */
-    char *devname;
-    char *ptr;
-    FILE *mnttab;
-    struct mnttab mnt;
-
-    if (volmgt_running()) {
-        // qDebug() << "VOLMGT: looking for "
-        << _point.toLocal8Bit();
-
-        if ((mnttab = QT_FOPEN(MNTTAB, "r")) == nullptr) {
-            err = QLatin1String("could not open mnttab");
-            // qDebug() << "VOLMGT: " << err;
-            error(KIO::ERR_CANNOT_UNMOUNT, err);
-            return;
-        }
-
-        /*
-         *  since there's no way to derive the device name from
-         *  the mount point through the volmgt library (and
-         *  media_findname() won't work in this case), we have to
-         *  look ourselves...
-         */
-        devname = nullptr;
-        rewind(mnttab);
-        while (getmntent(mnttab, &mnt) == nullptr) {
-            if (strcmp(_point.toLocal8Bit(), mnt.mnt_mountp) == 0) {
-                devname = mnt.mnt_special;
-                break;
-            }
-        }
-        fclose(mnttab);
-
-        if (devname == nullptr) {
-            err = QLatin1String("not in mnttab");
-            // qDebug() << "VOLMGT: "
-            << QFile::encodeName(_point).data() << ": " << err;
-            error(KIO::ERR_CANNOT_UNMOUNT, err);
-            return;
-        }
-
-        /*
-         *  strip off the directory name (volume name)
-         *  the eject(1) command will handle unmounting and
-         *  physically eject the media (if possible)
-         */
-        ptr = strrchr(devname, '/');
-        *ptr = '\0';
-        QByteArray qdevname(QFile::encodeName(KShell::quoteArg(QFile::decodeName(QByteArray(devname)))).data());
-        buffer = "/usr/bin/eject " + qdevname + " 2>" + tmpFileName;
-        // qDebug() << "VOLMGT: eject " << qdevname;
-
-        /*
-         *  from eject(1): exit status == 0 => need to manually eject
-         *                 exit status == 4 => media was ejected
-         */
-        if (WEXITSTATUS(system(buffer.constData())) == 4) {
-            /*
-             *  this is not an error, so skip "readLogFile()"
-             *  to avoid wrong/confusing error popup. The
-             *  temporary file is removed by QTemporaryFile's
-             *  destructor, so don't do that manually.
-             */
-            finished();
-            return;
-        }
-    } else {
-        /*
-         *  eject(1) should do its job without vold(1M) running,
-         *  so we probably could call eject anyway, but since the
-         *  media is mounted now, vold must've died for some reason
-         *  during the user's session, so it should be restarted...
-         */
-        err = i18n("\"vold\" is not running.");
-        // qDebug() << "VOLMGT: " << err;
-        error(KIO::ERR_CANNOT_UNMOUNT, err);
-        return;
-    }
-#else
     QByteArray umountProg = QStandardPaths::findExecutable(QStringLiteral("umount")).toLocal8Bit();
     if (umountProg.isEmpty()) {
         umountProg = QStandardPaths::findExecutable(QStringLiteral("umount"), fallbackSystemPath()).toLocal8Bit();
@@ -1022,21 +903,18 @@ void FileProtocol::unmount(const QString &_point)
         error(KIO::ERR_CANNOT_UNMOUNT, i18n("Could not find program \"umount\""));
         return;
     }
+
+    QByteArray tmpFileName = QFile::encodeName(tmpFile.fileName());
+
     buffer = umountProg + ' ' + QFile::encodeName(KShell::quoteArg(_point)) + " 2>" + tmpFileName;
     system(buffer.constData());
-#endif /* HAVE_VOLMGT */
 
-    err = readLogFile(tmpFileName);
+    QString err = readLogFile(tmpFileName);
     if (err.isEmpty()) {
         finished();
     } else {
         error(KIO::ERR_CANNOT_UNMOUNT, err);
     }
-#else
-    QString err;
-    err = i18n("unmounting is not supported by wince.");
-    error(KIO::ERR_CANNOT_MOUNT, err);
-#endif
 }
 
 /*************************************

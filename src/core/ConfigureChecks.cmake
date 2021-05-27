@@ -20,8 +20,6 @@ check_include_files(sys/types.h   HAVE_SYS_TYPES_H)
 check_include_files(fstab.h       HAVE_FSTAB_H)
 check_include_files(sys/param.h   HAVE_SYS_PARAM_H)
 
-check_library_exists(volmgt volmgt_running "" HAVE_VOLMGT)
-
 check_cxx_source_compiles("
   #include <sys/types.h>
   #include <sys/statvfs.h>
@@ -31,7 +29,3 @@ check_cxx_source_compiles("
     return getmntinfo(&mntbufp, flags);
   }
 " GETMNTINFO_USES_STATVFS )
-
-###
-
-

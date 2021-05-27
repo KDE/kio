@@ -16,8 +16,6 @@ check_function_exists(sendfile    HAVE_SENDFILE)
 
 check_function_exists(posix_fadvise    HAVE_FADVISE)                  # kioslave
 
-check_library_exists(volmgt volmgt_running "" HAVE_VOLMGT)
-
 check_struct_has_member("struct dirent" d_type dirent.h HAVE_DIRENT_D_TYPE LANGUAGE CXX)
 
 check_symbol_exists("__GLIBC__" "stdlib.h" LIBC_IS_GLIBC)

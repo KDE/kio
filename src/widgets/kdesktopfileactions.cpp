@@ -8,7 +8,6 @@
 
 #include "kdesktopfileactions.h"
 
-#include "../core/config-kmountpoint.h" // for HAVE_VOLMGT (yes I cheat a bit)
 #include "kio_widgets_debug.h"
 
 #include "kautomount.h"
@@ -178,16 +177,7 @@ QList<KServiceAction> KDesktopFileActions::builtinServices(const QUrl &_url)
     }
 
     if (offerUnmount) {
-        QString text;
-#ifdef HAVE_VOLMGT
-        /*
-         *  Solaris' volume management can only umount+eject
-         */
-        text = i18n("Eject");
-#else
-        text = i18n("Unmount");
-#endif
-        KServiceAction unmount(QStringLiteral("unmount"), text, QString(), QString(), false, {});
+        KServiceAction unmount(QStringLiteral("unmount"), i18n("Unmount"), QString(), QString(), false, {});
         unmount.setData(QVariant(ST_UNMOUNT));
         result.append(unmount);
     }
