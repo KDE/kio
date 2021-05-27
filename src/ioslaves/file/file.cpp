@@ -756,23 +756,13 @@ void FileProtocol::special(const QByteArray &data)
         bool ro = (iRo != 0);
 
         // qDebug() << "MOUNTING fstype=" << fstype << " dev=" << dev << " point=" << point << " ro=" << ro;
-        bool ok = pmount(dev);
-        if (ok) {
-            finished();
-        } else {
-            mount(ro, fstype.toLatin1().constData(), dev, point);
-        }
+        mount(ro, fstype.toLatin1().constData(), dev, point);
         break;
     }
     case 2: {
         QString point;
         stream >> point;
-        bool ok = pumount(point);
-        if (ok) {
-            finished();
-        } else {
-            unmount(point);
-        }
+        unmount(point);
         break;
     }
     default:
@@ -915,63 +905,6 @@ void FileProtocol::unmount(const QString &_point)
     } else {
         error(KIO::ERR_CANNOT_UNMOUNT, err);
     }
-}
-
-/*************************************
- *
- * pmount handling
- *
- *************************************/
-
-bool FileProtocol::pmount(const QString &dev)
-{
-#ifndef _WIN32_WCE
-    QString pmountProg = QStandardPaths::findExecutable(QStringLiteral("pmount"));
-    if (pmountProg.isEmpty()) {
-        pmountProg = QStandardPaths::findExecutable(QStringLiteral("pmount"), fallbackSystemPath());
-    }
-    if (pmountProg.isEmpty()) {
-        return false;
-    }
-
-    QByteArray buffer = QFile::encodeName(pmountProg) + ' ' + QFile::encodeName(KShell::quoteArg(dev));
-
-    int res = system(buffer.constData());
-
-    return res == 0;
-#else
-    return false;
-#endif
-}
-
-bool FileProtocol::pumount(const QString &point)
-{
-#ifndef _WIN32_WCE
-    KMountPoint::Ptr mp = KMountPoint::currentMountPoints(KMountPoint::NeedRealDeviceName).findByPath(point);
-    if (!mp) {
-        return false;
-    }
-    QString dev = mp->realDeviceName();
-    if (dev.isEmpty()) {
-        return false;
-    }
-
-    QString pumountProg = QStandardPaths::findExecutable(QStringLiteral("pumount"));
-    if (pumountProg.isEmpty()) {
-        pumountProg = QStandardPaths::findExecutable(QStringLiteral("pumount"), fallbackSystemPath());
-    }
-    if (pumountProg.isEmpty()) {
-        return false;
-    }
-
-    const QByteArray buffer = QFile::encodeName(pumountProg) + ' ' + QFile::encodeName(KShell::quoteArg(dev));
-
-    int res = system(buffer.data());
-
-    return res == 0;
-#else
-    return false;
-#endif
 }
 
 /*************************************

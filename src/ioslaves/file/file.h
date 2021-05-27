@@ -66,8 +66,6 @@ public:
     void special(const QByteArray &data) override;
     void unmount(const QString &point);
     void mount(bool _ro, const char *_fstype, const QString &dev, const QString &point);
-    bool pumount(const QString &point);
-    bool pmount(const QString &dev);
 
 #if HAVE_POSIX_ACL
     static bool isExtendedACL(acl_t acl);
