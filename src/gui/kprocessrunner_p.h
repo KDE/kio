@@ -97,6 +97,15 @@ Q_SIGNALS:
      */
     void processStarted(qint64 pid);
 
+    /**
+     * Notifies about having received the token were waiting for.
+     *
+     * It only gets emitted when on Wayland.
+     *
+     * @see m_waitingForXdgToken
+     */
+    void xdgActivationTokenArrived();
+
 protected:
     KProcessRunner();
     virtual void startProcess() = 0;
@@ -110,6 +119,8 @@ protected:
     QString m_desktopFilePath;
     QString m_description;
     qint64 m_pid = 0;
+    KService::Ptr m_service;
+    QString m_serviceEntryPath;
 
 private:
     void emitDelayedError(const QString &errorMsg);
