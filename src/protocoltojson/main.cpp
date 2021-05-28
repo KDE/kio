@@ -138,7 +138,10 @@ int main(int argc, char *argv[])
         for (const QString &key : translatedStringListAttributes) {
             // read untranslated entry first in any case!
             sconfig.setLocale(QString());
-            protocolData.insert(key, config.readEntry(key, QStringList()));
+            const QStringList untranslatedValues = config.readEntry(key, QStringList());
+            if (!untranslatedValues.isEmpty()) {
+                protocolData.insert(key, untranslatedValues);
+            }
 
             // collect all locales for this key
             QFile f(fullFilePath);
