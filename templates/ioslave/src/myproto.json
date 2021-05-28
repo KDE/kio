@@ -1,0 +1,19 @@
+{
+    "KDE-KIO-Protocols": {
+        "myproto": {
+            "ExtraNames": [
+            ],
+            "exec": "kf5/kio/myproto",
+            "input": "none",
+            "listing": [
+                "Name",
+                "Type",
+                "Size",
+                "Access"
+            ],
+            "output": "filesystem",
+            "protocol": "myproto",
+            "reading": true
+        }
+    }
+}

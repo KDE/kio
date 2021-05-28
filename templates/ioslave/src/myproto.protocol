@@ -1,7 +1,0 @@
-[Protocol]
-exec=kf5/kio/myproto
-protocol=myproto
-input=none
-output=filesystem
-reading=true
-listing=Name,Type,Size,Access

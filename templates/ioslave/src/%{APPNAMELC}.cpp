@@ -14,6 +14,12 @@
 // Qt
 #include <QCoreApplication>
 
+// Pseudo plugin class to embed meta data
+class KIOPluginForMetaData : public QObject
+{
+    Q_OBJECT
+    Q_PLUGIN_METADATA(IID "org.kde.kio.slave.myproto" FILE "myproto.json")
+};
 
 extern "C" {
 int Q_DECL_EXPORT kdemain(int argc, char **argv);
