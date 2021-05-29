@@ -43,6 +43,8 @@
 #include <QMimeDatabase>
 #include <QStandardPaths>
 #include <kprotocolinfo.h>
+#include <Solid/Device>
+#include <Solid/StorageAccess>
 
 #include <algorithm>
 
@@ -91,6 +93,7 @@ public:
         STATE_STATORIG, // if the thumbnail exists
         STATE_GETORIG, // if we create it
         STATE_CREATETHUMB, // thumbnail:/ slave
+        STATE_DEVICE_INFO, // additional state check to get needed device ids
     } state;
 
     KFileItemList initialItems;
@@ -140,11 +143,15 @@ public:
     size_t shmsize;
     // Root of thumbnail cache
     QString thumbRoot;
-    // List of encrypted mount points for checking if we should save thumbnail
-    KMountPoint::List encryptedMountsList;
     // Metadata returned from the KIO thumbnail slave
     QMap<QString, QString> thumbnailSlaveMetaData;
     int devicePixelRatio = s_defaultDevicePixelRatio;
+    static const int idUnknown = -1;
+    // Id of a device storing currently processed file
+    int currentDeviceId = 0;
+    // Device ID for each file. Stored while in STATE_DEVICE_INFO state, used later on.
+    QMap<QString, int> deviceIdMap;
+    enum CachePolicy { Prevent, Allow, Unknown } currentDeviceCachePolicy = Unknown;
 
     void getOrCreateThumbnail();
     bool statResultThumbnail();
@@ -155,6 +162,9 @@ public:
 
     void startPreview();
     void slotThumbData(KIO::Job *, const QByteArray &);
+    // Checks if thumbnail is on encrypted partition different than thumbRoot
+    CachePolicy canBeCached(const QString &path);
+    int getDeviceId(const QString &path);
 
     Q_DECLARE_PUBLIC(PreviewJob)
 };
@@ -300,13 +310,6 @@ void PreviewJobPrivate::startPreview()
             }
         }
     }
-
-    // Prepare encryptedMountsList which will be used in ::slotThumbData
-    const auto mountsList = KMountPoint::currentMountPoints();
-    const auto thumbRootMount = mountsList.findByPath(thumbRoot);
-    std::copy_if(mountsList.begin(), mountsList.end(), std::back_inserter(encryptedMountsList), [&thumbRootMount](KMountPoint::Ptr mount) {
-        return (thumbRootMount != mount) && (mount->mountType() == QLatin1String("fuse.cryfs") || mount->mountType() == QLatin1String("fuse.encfs"));
-    });
 
     // Look for images and store the items in our todo list :)
     bool bNeedCache = false;
@@ -497,7 +500,7 @@ void PreviewJobPrivate::determineNextFile()
         currentItem = items.front();
         items.pop_front();
         succeeded = false;
-        KIO::Job *job = KIO::stat(currentItem.item.url(), KIO::HideProgressInfo);
+        KIO::Job *job = KIO::statDetails(currentItem.item.url(), StatJob::SourceSide, KIO::StatDefaultDetails | KIO::StatInode, KIO::HideProgressInfo);
         job->addMetaData(QStringLiteral("thumbnail"), QStringLiteral("1"));
         job->addMetaData(QStringLiteral("no-auth-prompt"), QStringLiteral("true"));
         q->addSubjob(job);
@@ -517,11 +520,12 @@ void PreviewJob::slotResult(KJob *job)
             d->determineNextFile();
             return;
         }
-        const KIO::UDSEntry entry = static_cast<KIO::StatJob *>(job)->statResult();
-        d->tOrig = QDateTime::fromSecsSinceEpoch(entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME, 0));
+        const KIO::UDSEntry statResult = static_cast<KIO::StatJob *>(job)->statResult();
+        d->currentDeviceId = statResult.numberValue(KIO::UDSEntry::UDS_DEVICE_ID, 0);
+        d->tOrig = QDateTime::fromSecsSinceEpoch(statResult.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME, 0));
 
         bool skipCurrentItem = false;
-        const KIO::filesize_t size = (KIO::filesize_t)entry.numberValue(KIO::UDSEntry::UDS_SIZE, 0);
+        const KIO::filesize_t size = (KIO::filesize_t)statResult.numberValue(KIO::UDSEntry::UDS_SIZE, 0);
         const QUrl itemUrl = d->currentItem.item.mostLocalUrl();
 
         if (itemUrl.isLocalFile() || KProtocolInfo::protocolClass(itemUrl.scheme()) == QLatin1String(":local")) {
@@ -558,6 +562,21 @@ void PreviewJob::slotResult(KJob *job)
         }
 
         d->getOrCreateThumbnail();
+        return;
+    }
+    case PreviewJobPrivate::STATE_DEVICE_INFO: {
+        KIO::StatJob *statJob = static_cast<KIO::StatJob *>(job);
+        int id;
+        QString path = statJob->url().toLocalFile();
+        if (job->error()) {
+            // We set id to 0 to know we tried getting it
+            qCWarning(KIO_WIDGETS) << "Cannot read information about filesystem under path" << path;
+            id = 0;
+        } else {
+            id = statJob->statResult().numberValue(KIO::UDSEntry::UDS_DEVICE_ID, 0);
+        }
+        d->deviceIdMap[path] = id;
+        d->createThumbnail(d->currentItem.item.url().toLocalFile());
         return;
     }
     case PreviewJobPrivate::STATE_GETORIG: {
@@ -700,6 +719,71 @@ void PreviewJobPrivate::getOrCreateThumbnail()
     }
 }
 
+PreviewJobPrivate::CachePolicy PreviewJobPrivate::canBeCached(const QString &path)
+{
+    // If checked file is directory on a different filesystem than its parent, we need to check it separately
+    int separatorIndex = path.lastIndexOf(QLatin1Char('/'));
+    QString parentDirPath = path.left(separatorIndex);
+
+    int parentId = getDeviceId(parentDirPath);
+    if (parentId == idUnknown) {
+        return CachePolicy::Unknown;
+    }
+
+    bool isDifferentSystem = !parentId || parentId != currentDeviceId;
+    if (!isDifferentSystem && currentDeviceCachePolicy != CachePolicy::Unknown) {
+        return currentDeviceCachePolicy;
+    }
+    int checkedId;
+    QString checkedPath;
+    if (isDifferentSystem) {
+        checkedId = currentDeviceId;
+        checkedPath = path;
+    } else {
+        checkedId = getDeviceId(parentDirPath);
+        checkedPath = parentDirPath;
+        if (checkedId == idUnknown) {
+            return CachePolicy::Unknown;
+        }
+    }
+    // If we're checking different filesystem or haven't checked yet see if filesystem matches thumbRoot
+    int thumbRootId = getDeviceId(thumbRoot);
+    if (thumbRootId == idUnknown) {
+        return CachePolicy::Unknown;
+    }
+    bool shouldAllow = !checkedId && checkedId == thumbRootId;
+    if (!shouldAllow) {
+        Solid::Device device = Solid::Device::storageAccessFromPath(checkedPath);
+        if (device.isValid()) {
+            shouldAllow = !device.as<Solid::StorageAccess>()->isEncrypted();
+        }
+    }
+    if (!isDifferentSystem) {
+        currentDeviceCachePolicy = shouldAllow ? CachePolicy::Allow : CachePolicy::Prevent;
+    }
+    return shouldAllow ? CachePolicy::Allow : CachePolicy::Prevent;
+}
+
+int PreviewJobPrivate::getDeviceId(const QString &path)
+{
+    Q_Q(PreviewJob);
+    auto iter = deviceIdMap.find(path);
+    if (iter != deviceIdMap.end()) {
+        return iter.value();
+    }
+    QUrl url = QUrl::fromLocalFile(path);
+    if (!url.isValid()) {
+        qCWarning(KIO_WIDGETS) << "Invalid url" << path;
+        return 0;
+    }
+    state = PreviewJobPrivate::STATE_DEVICE_INFO;
+    KIO::Job *job = KIO::statDetails(url, StatJob::SourceSide, KIO::StatDefaultDetails | KIO::StatInode, KIO::HideProgressInfo);
+    job->addMetaData(QStringLiteral("no-auth-prompt"), QStringLiteral("true"));
+    q->addSubjob(job);
+
+    return idUnknown;
+}
+
 void PreviewJobPrivate::createThumbnail(const QString &pixPath)
 {
     Q_Q(PreviewJob);
@@ -707,13 +791,23 @@ void PreviewJobPrivate::createThumbnail(const QString &pixPath)
     QUrl thumbURL;
     thumbURL.setScheme(QStringLiteral("thumbnail"));
     thumbURL.setPath(pixPath);
+
+    bool save = bSave && currentItem.plugin->property(QStringLiteral("CacheThumbnail")).toBool() && !sequenceIndex;
+
+    bool isRemoteProtocol = currentItem.item.localPath().isEmpty();
+    CachePolicy cachePolicy = isRemoteProtocol ? CachePolicy::Prevent : canBeCached(pixPath);
+
+    if (cachePolicy == CachePolicy::Unknown) {
+        // If Unknown is returned, creating thumbnail should be called again by slotResult
+        return;
+    }
+
     KIO::TransferJob *job = KIO::get(thumbURL, NoReload, HideProgressInfo);
     q->addSubjob(job);
     q->connect(job, &KIO::TransferJob::data, q, [this](KIO::Job *job, const QByteArray &data) {
         slotThumbData(job, data);
     });
 
-    bool save = bSave && currentItem.plugin->property(QStringLiteral("CacheThumbnail")).toBool() && !sequenceIndex;
     int thumb_width = width;
     int thumb_height = height;
     int thumb_iconSize = iconSize;
@@ -730,6 +824,7 @@ void PreviewJobPrivate::createThumbnail(const QString &pixPath)
     job->addMetaData(QStringLiteral("plugin"), currentItem.plugin->library());
     job->addMetaData(QStringLiteral("enabledPlugins"), enabledPlugins.join(QLatin1Char(',')));
     job->addMetaData(QStringLiteral("devicePixelRatio"), QString::number(devicePixelRatio));
+    job->addMetaData(QStringLiteral("cache"), QString::number(cachePolicy == CachePolicy::Allow));
     if (sequenceIndex) {
         job->addMetaData(QStringLiteral("sequence-index"), QString::number(sequenceIndex));
     }
@@ -766,11 +861,10 @@ void PreviewJobPrivate::createThumbnail(const QString &pixPath)
 void PreviewJobPrivate::slotThumbData(KIO::Job *job, const QByteArray &data)
 {
     thumbnailSlaveMetaData = job->metaData();
-    const bool isEncrypted = encryptedMountsList.findByPath(currentItem.item.url().toLocalFile());
     /* clang-format off */
     const bool save = bSave
                       && !sequenceIndex
-                      && !isEncrypted
+                      && currentDeviceCachePolicy == CachePolicy::Allow
                       && currentItem.plugin->property(QStringLiteral("CacheThumbnail")).toBool()
                       && (!currentItem.item.url().isLocalFile()
                           || !currentItem.item.url().adjusted(QUrl::RemoveFilename).toLocalFile().startsWith(thumbRoot));
