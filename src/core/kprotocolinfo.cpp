@@ -190,7 +190,7 @@ KProtocolInfoPrivate::KProtocolInfoPrivate(const QString &name, const QString &e
     }
 
     m_protClass = json.value(QStringLiteral("Class")).toString().toLower();
-    if (m_protClass[0] != QLatin1Char(':')) {
+    if (!m_protClass.startsWith(QLatin1Char(':'))) {
         m_protClass.prepend(QLatin1Char(':'));
     }
 
