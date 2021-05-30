@@ -104,6 +104,9 @@ void KMountPointTest::testPossibleMountPoints()
         }
     }
 
+    if (!mountWithDevice) {
+        qDebug() << "No mountpoint (" << mountPoints.size() << "checked ) has a non-empty real-device-name";
+    }
     QVERIFY(mountWithDevice);
 
     // BSD CI runs in a container without '/' in fstab, so skip this
