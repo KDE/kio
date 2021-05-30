@@ -113,6 +113,10 @@ void KMountPointTest::testCurrentMountPointOptions()
     } else {
         // A ZFS mount doesn't have a "real device" because it comes from a pool
         QVERIFY(anyZfsMount->realDeviceName().isEmpty());
+        // But it does always have a "local" option
+        QVERIFY(!anyZfsMount->mountOptions().isEmpty());
+        QVERIFY(anyZfsMount->mountOptions().contains(QStringLiteral("local")));
+        qDebug() << "ZFS mount options" << anyZfsMount->mountOptions();
     }
 
     if (!mountWithDevice) {
@@ -120,12 +124,14 @@ void KMountPointTest::testCurrentMountPointOptions()
     } else {
         // Double-check
         QVERIFY(!mountWithDevice->realDeviceName().isEmpty());
+        qDebug() << "Device mount options" << mountWithDevice->mountOptions();
     }
     
     if (!mountWithOptions) {
         qDebug() << "No mount with options, skipping test";
     } else {
         QVERIFY(mountWithOptions->mountOptions().length() > 0);
+        qDebug() << "Options mount options" << mountWithOptions->mountOptions();
     }
 }
 
