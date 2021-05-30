@@ -31,7 +31,16 @@ static const Qt::CaseSensitivity cs = Qt::CaseSensitive;
 #if HAVE_SYS_PARAM_H
 #include <sys/param.h>
 #endif
+#ifdef Q_OS_FREEBSD
+// FreeBSD has a table of names of mount-options in mount.h,
+// which is only defined if _WANT_MNTOPTNAMES is defined;
+#define _WANT_MNTOPTNAMES
 #include <sys/mount.h>
+#undef _WANT_MNTOPTNAMES
+#define HAVE_MNTOPTNAMES
+#else
+#include <sys/mount.h>
+#endif
 #endif
 
 #if HAVE_FSTAB_H
@@ -64,6 +73,32 @@ KMountPoint::KMountPoint()
 }
 
 KMountPoint::~KMountPoint() = default;
+
+#ifdef HAVE_MNTOPTNAMES
+static struct mntoptnames bsdOptionNames[] = {
+    MNTOPT_NAMES
+};
+
+/** Appends all positive options found in @p flags to the @p list
+ * 
+ * This is roughly paraphrased from FreeBSD's mount.c, prmount().
+ */
+static void translateMountOptions(QStringList& list, uint64_t flags)
+{
+    const struct mntoptnames* optionInfo = bsdOptionNames;
+
+    // Not all 64 bits are useful option names
+    flags = flags & MNT_VISFLAGMASK;
+    // Chew up options as long as we're in the table and there
+    // are any flags left. 
+    for (; flags != 0 && optionInfo->o_opt != 0; optionInfo++) {
+        if (flags & optionInfo->o_opt) {
+            list.append(QString::fromLatin1(optionInfo->o_name));
+            flags &= ~optionInfo->o_opt;
+        }
+    }
+}
+#endif
 
 void KMountPointPrivate::finalizePossibleMountPoint(KMountPoint::DetailsNeededFlags infoNeeded)
 {
@@ -251,6 +286,9 @@ KMountPoint::List KMountPoint::currentMountPoints(DetailsNeededFlags infoNeeded)
                 mp->d->m_mountOptions = options.split(QLatin1Char(','));
             } else {
                 // TODO: get mount options if not mounted via fstab, see mounted[i].f_flags
+#ifdef HAVE_MNTOPTNAMES
+                translateMountOptions(mp->d->m_mountOptions, mounted[i].f_flags);
+#endif
             }
         }
 
