@@ -80,6 +80,55 @@ void KMountPointTest::testCurrentMountPoints()
 #endif
 }
 
+void KMountPointTest::testCurrentMountPointOptions()
+{
+    const KMountPoint::List mountPoints = KMountPoint::currentMountPoints(KMountPoint::NeedRealDeviceName | KMountPoint::NeedMountOptions);
+    if (mountPoints.isEmpty()) { // can happen in chroot jails
+        QSKIP("No mountpoints available.");
+        return;
+    }
+        
+    KMountPoint::Ptr anyZfsMount;
+    KMountPoint::Ptr mountWithDevice;
+    KMountPoint::Ptr mountWithOptions;
+    for (KMountPoint::Ptr mountPoint : mountPoints) {
+        // keep one (first) mountpoint with a device name
+        if (!mountWithDevice && !mountPoint->realDeviceName().isEmpty()) {
+            mountWithDevice = mountPoint;
+        }
+
+        // keep one (first) ZFS mountpoint
+        if (!anyZfsMount && mountPoint->mountType() == QStringLiteral("zfs")) {
+            anyZfsMount = mountPoint;
+        }
+        
+        // keep one (first) mountpoint with any options
+        if (!mountWithOptions && !mountPoint->mountOptions().empty()) {
+            mountWithOptions = mountPoint;
+        }
+    }
+        
+    if (!anyZfsMount) {
+        qDebug() << "No ZFS mounts, skipping test";
+    } else {
+        // A ZFS mount doesn't have a "real device" because it comes from a pool
+        QVERIFY(anyZfsMount->realDeviceName().isEmpty());
+    }
+
+    if (!mountWithDevice) {
+        qDebug() << "No mountpoint from real device, skipping test";
+    } else {
+        // Double-check
+        QVERIFY(!mountWithDevice->realDeviceName().isEmpty());
+    }
+    
+    if (!mountWithOptions) {
+        qDebug() << "No mount with options, skipping test";
+    } else {
+        QVERIFY(mountWithOptions->mountOptions().length() > 0);
+    }
+}
+
 void KMountPointTest::testPossibleMountPoints()
 {
     const KMountPoint::List mountPoints = KMountPoint::possibleMountPoints(KMountPoint::NeedRealDeviceName | KMountPoint::NeedMountOptions);

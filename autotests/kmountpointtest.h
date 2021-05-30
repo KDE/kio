@@ -16,6 +16,7 @@ private Q_SLOTS:
     void initTestCase();
 
     void testCurrentMountPoints();
+    void testCurrentMountPointOptions();
     void testPossibleMountPoints();
 
 private:
