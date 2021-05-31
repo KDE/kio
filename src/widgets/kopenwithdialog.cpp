@@ -1006,7 +1006,15 @@ bool KOpenWithDialogPrivate::checkAccept()
         // qDebug() << "binaryName=" << binaryName;
         // Ensure that the typed binary name actually exists (#81190)
         if (QStandardPaths::findExecutable(binaryName).isEmpty()) {
-            KMessageBox::error(q, i18n("'%1' not found, please type a valid program name.", binaryName));
+            // QStandardPaths::findExecutable does not find non-executable files.
+            // Give a better error message for the case of a existing but non-executable file.
+            // https://bugs.kde.org/show_bug.cgi?id=437880
+            if (QFileInfo::exists(binaryName)) {
+                KMessageBox::error(q, i18n("'%1' is not an executable file.", binaryName));
+            } else {
+                KMessageBox::error(q, i18n("'%1' not found, please type a valid program name.", binaryName));
+            }
+
             return false;
         }
     }
