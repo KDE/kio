@@ -56,6 +56,7 @@ public:
     QString m_mountPoint;
     QString m_mountType;
     QStringList m_mountOptions;
+    int m_mountId = 0;
 };
 
 KMountPoint::KMountPoint()
@@ -284,6 +285,7 @@ KMountPoint::List KMountPoint::currentMountPoints(DetailsNeededFlags infoNeeded)
             while (mnt_table_next_fs(table, itr, &fs) == 0) {
                 Ptr mp(new KMountPoint);
                 mp->d->m_mountedFrom = QFile::decodeName(mnt_fs_get_source(fs));
+                mp->d->m_mountId = mnt_fs_get_id(fs); // 1st field in /proc/self/mountinfo
                 mp->d->m_mountPoint = QFile::decodeName(mnt_fs_get_target(fs));
                 mp->d->m_mountType = QFile::decodeName(mnt_fs_get_fstype(fs));
 
@@ -315,6 +317,11 @@ KMountPoint::List KMountPoint::currentMountPoints(DetailsNeededFlags infoNeeded)
 QString KMountPoint::mountedFrom() const
 {
     return d->m_mountedFrom;
+}
+
+int KMountPoint::mountId() const
+{
+    return d->m_mountId;
 }
 
 QString KMountPoint::realDeviceName() const
