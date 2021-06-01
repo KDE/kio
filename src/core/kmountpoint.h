@@ -29,7 +29,8 @@ class KMountPointPrivate;
 class KIOCORE_EXPORT KMountPoint : public QSharedData
 {
 public:
-    typedef QExplicitlySharedDataPointer<KMountPoint> Ptr;
+    using Ptr = QExplicitlySharedDataPointer<KMountPoint>;
+
     /**
      * List of mount points.
      */
@@ -77,11 +78,12 @@ public:
     static List possibleMountPoints(DetailsNeededFlags infoNeeded = BasicInfoNeeded);
 
     /**
-     * This function gives a list of all currently used mountpoints. (mtab)
+     * Returns a list of all current mountpoints.
+     *
      * @param infoNeeded Flags that specify which additional information
      * should be fetched.
      *
-     * @note this method will return an empty list on Android
+     * @note This method will return an empty list on @c Android
      */
     static List currentMountPoints(DetailsNeededFlags infoNeeded = BasicInfoNeeded);
 
@@ -99,7 +101,8 @@ public:
     QString realDeviceName() const;
 
     /**
-     * Path where the filesystem is mounted or can be mounted.
+     * Path where the filesystem is mounted (if you used @ref currentMountPoints()),
+     * or can be mounted (if you used @ref possibleMountPoints()).
      */
     QString mountPoint() const;
 
@@ -110,13 +113,13 @@ public:
 
     /**
      * Options used to mount the filesystem.
-     * Only available when the NeedMountOptions flag was set.
+     * Only available if the @ref NeedMountOptions flag was set.
      */
     QStringList mountOptions() const;
 
     /**
-     * Checks if the filesystem that is probably slow (network mounts).
-     * @return true if the filesystem is probably slow
+     * Returns @c true if the filesystem is "probably" slow, e.g. a network mount,
+     * @c false otherwise.
      */
     bool probablySlow() const;
 
@@ -127,6 +130,7 @@ public:
         SupportsSymlinks,
         CaseInsensitive,
     };
+
     /**
      * Checks the capabilities of the filesystem.
      * @param flag the flag to check
@@ -142,7 +146,7 @@ public:
      * @li SupportsSymlinks: returns true if the filesystems supports symlinks
      * (e.g. msdos filesystems return false)
      * @li CaseInsensitive: returns true if the filesystem treats
-     * "foo" and "FOO" as being the same file (true for msdos systems)
+     * "foo" and "FOO" as being the same file (true for msdos filesystems)
      *
      */
     bool testFileSystemFlag(FileSystemFlag flag) const;
@@ -157,6 +161,7 @@ private:
      * Constructor
      */
     KMountPoint();
+
     friend KMountPointPrivate;
     std::unique_ptr<KMountPointPrivate> d;
 };

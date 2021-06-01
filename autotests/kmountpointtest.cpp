@@ -26,8 +26,8 @@ void KMountPointTest::testCurrentMountPoints()
     }
     KMountPoint::Ptr mountWithDevice;
     for (KMountPoint::Ptr mountPoint : mountPoints) {
-        qDebug() << "Mount: " << mountPoint->mountedFrom() << " (" << mountPoint->realDeviceName() << ") " << mountPoint->mountPoint() << " "
-                 << mountPoint->mountType();
+        qDebug().nospace() << "Mounted from: " << mountPoint->mountedFrom() << ", device name: " << mountPoint->realDeviceName()
+                           << ", mount point: " << mountPoint->mountPoint() << ", mount type: " << mountPoint->mountType();
         QVERIFY(!mountPoint->mountedFrom().isEmpty());
         QVERIFY(!mountPoint->mountPoint().isEmpty());
         QVERIFY(!mountPoint->mountType().isEmpty());
