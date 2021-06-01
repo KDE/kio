@@ -105,6 +105,14 @@ public:
     int mountId() const;
 
     /**
+     * Returns @c true if this mount point represents a network filesystem (e.g. nfs,
+     * cifs ...etc), otherwise returns @c false.
+     *
+     * @since 5.85
+     */
+    bool isNetworkFs() const;
+
+    /**
      * Canonical name of the device where the filesystem got mounted from.
      * (Or empty, if not a device)
      * Only available when the NeedRealDeviceName flag was set.

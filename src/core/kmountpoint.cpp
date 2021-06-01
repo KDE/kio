@@ -44,6 +44,28 @@ static const Qt::CaseSensitivity cs = Qt::CaseSensitive;
 #include <blkid/blkid.h>
 #endif
 
+static bool isNetfs(const QString &mountType)
+{
+    // List copied from util-linux/libmount/src/utils.c
+    static const std::vector<QLatin1String> netfsList{
+        QLatin1String("cifs"),
+        QLatin1String("smb3"),
+        QLatin1String("smbfs"),
+        QLatin1String("nfs"),
+        QLatin1String("nfs3"),
+        QLatin1String("nfs4"),
+        QLatin1String("afs"),
+        QLatin1String("ncpfs"),
+        QLatin1String("fuse.curlftpfs"),
+        QLatin1String("fuse.sshfs"),
+        QLatin1String("9p"),
+    };
+
+    return std::any_of(netfsList.cbegin(), netfsList.cend(), [mountType](const QLatin1String netfs) {
+        return mountType == netfs;
+    });
+}
+
 class KMountPointPrivate
 {
 public:
@@ -57,6 +79,7 @@ public:
     QString m_mountType;
     QStringList m_mountOptions;
     int m_mountId = 0;
+    bool m_isNetFs = false;
 };
 
 KMountPoint::KMountPoint()
@@ -288,6 +311,7 @@ KMountPoint::List KMountPoint::currentMountPoints(DetailsNeededFlags infoNeeded)
                 mp->d->m_mountId = mnt_fs_get_id(fs); // 1st field in /proc/self/mountinfo
                 mp->d->m_mountPoint = QFile::decodeName(mnt_fs_get_target(fs));
                 mp->d->m_mountType = QFile::decodeName(mnt_fs_get_fstype(fs));
+                mp->d->m_isNetFs = mnt_fs_is_netfs(fs) == 1;
 
                 if (infoNeeded & NeedMountOptions) {
                     mp->d->m_mountOptions = QFile::decodeName(mnt_fs_get_options(fs)).split(QLatin1Char(','));
@@ -322,6 +346,11 @@ QString KMountPoint::mountedFrom() const
 int KMountPoint::mountId() const
 {
     return d->m_mountId;
+}
+
+bool KMountPoint::isNetworkFs() const
+{
+    return d->m_isNetFs || isNetfs(d->m_mountType);
 }
 
 QString KMountPoint::realDeviceName() const
@@ -408,9 +437,8 @@ KMountPoint::Ptr KMountPoint::List::findByDevice(const QString &device) const
 bool KMountPoint::probablySlow() const
 {
     /* clang-format off */
-    return d->m_mountType == QLatin1String("nfs")
-        || d->m_mountType == QLatin1String("nfs4")
-        || d->m_mountType == QLatin1String("cifs")
+    return d->m_isNetFs
+        || isNetfs(d->m_mountType)
         || d->m_mountType == QLatin1String("autofs")
         || d->m_mountType == QLatin1String("subfs")
         // Technically KIOFUSe mounts local slaves as well,
@@ -432,6 +460,7 @@ bool KMountPoint::testFileSystemFlag(FileSystemFlag flag) const
                         || d->m_mountType == QLatin1String("fuseblk");
 
     const bool isSmb = d->m_mountType == QLatin1String("cifs")
+                       || d->m_mountType == QLatin1String("smb3")
                        || d->m_mountType == QLatin1String("smbfs")
                        // gvfs-fuse mounted SMB share
                        || d->m_mountType == QLatin1String("smb-share");
