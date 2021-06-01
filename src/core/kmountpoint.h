@@ -94,6 +94,14 @@ public:
     QString mountedFrom() const;
 
     /**
+     * Returns @c true if this mount point represents a network filesystem (e.g. nfs,
+     * cifs ...etc), otherwise returns @c false.
+     *
+     * @since 5.86
+     */
+    bool isOnNetwork() const;
+
+    /**
      * Canonical name of the device where the filesystem got mounted from.
      * (Or empty, if not a device)
      * Only available when the NeedRealDeviceName flag was set.
