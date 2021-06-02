@@ -42,6 +42,7 @@
 #include <stdlib.h>
 #include <sys/param.h>
 #include <sys/stat.h>
+#include <sys/sysmacros.h> // major(dev_t), minor(dev_t)
 #include <sys/types.h>
 #include <unistd.h>
 
@@ -908,45 +909,6 @@ int TrashImpl::idForMountPoint(const QString &mountPoint) const
 
 #else
 
-int TrashImpl::idForDevice(const Solid::Device &device) const
-{
-    const Solid::Block *block = device.as<Solid::Block>();
-    if (block) {
-        // qCDebug(KIO_TRASH) << "major=" << block->deviceMajor() << "minor=" << block->deviceMinor();
-        return block->deviceMajor() * 1000 + block->deviceMinor();
-    } else {
-        const Solid::NetworkShare *netshare = device.as<Solid::NetworkShare>();
-
-        if (netshare) {
-            QString url = netshare->url().url();
-
-            QLockFile configLock(QStandardPaths::writableLocation(QStandardPaths::GenericConfigLocation) + QStringLiteral("/trashrc.nextid.lock"));
-
-            if (!configLock.lock()) {
-                return -1;
-            }
-
-            m_config.reparseConfiguration();
-            KConfigGroup group = m_config.group("NetworkShares");
-            int id = group.readEntry(url, -1);
-
-            if (id == -1) {
-                id = group.readEntry("NextID", 0);
-                // qCDebug(KIO_TRASH) << "new share=" << url << " id=" << id;
-
-                group.writeEntry(url, id);
-                group.writeEntry("NextID", id + 1);
-                group.sync();
-            }
-
-            return 6000000 + id;
-        }
-
-        // Not a block device nor a network share
-        return -1;
-    }
-}
-
 void TrashImpl::refreshDevices() const
 {
     // this is needed because Solid's fstab backend uses QSocketNotifier
@@ -963,16 +925,37 @@ void TrashImpl::insertTrashDir(int id, const QString &trashDir, const QString &t
     m_topDirectories.insert(id, !topdir.endsWith(QLatin1Char('/')) ? topdir + QLatin1Char('/') : topdir);
 }
 
+static bool isBlockDevice(const KMountPoint::Ptr mp)
+{
+    const QString devName = mp->realDeviceName();
+    if (devName.startsWith(QLatin1String("/dev/"))) {
+        const QByteArray devName_c = QFile::encodeName(devName);
+        QT_STATBUF buff;
+        if (QT_LSTAT(devName_c.constData(), &buff) == 0) {
+            return S_ISBLK(buff.st_mode);
+        }
+    }
+
+    return false;
+}
+
+static int uniqueTrashDirId(dev_t devId, const QString &mountPoint)
+{
+    // Using qHash() to differentiate between bind mounts
+    return (major(devId) * 1000) + minor(devId) + qHash(mountPoint);
+}
+
 int TrashImpl::findTrashDirectory(const QString &origPath)
 {
     // qCDebug(KIO_TRASH) << origPath;
     // Check if it's on the same device as $HOME
+    const char *origPath_c = QFile::encodeName(origPath).constData();
     QT_STATBUF buff;
-    if (QT_LSTAT(QFile::encodeName(origPath).constData(), &buff) == 0 && buff.st_dev == m_homeDevice) {
+    if (QT_LSTAT(origPath_c, &buff) == 0 && buff.st_dev == m_homeDevice) {
         return 0;
     }
 
-    KMountPoint::Ptr mp = KMountPoint::currentMountPoints().findByPath(origPath);
+    KMountPoint::Ptr mp = KMountPoint::currentMountPoints(KMountPoint::NeedRealDeviceName).findByPath(origPath);
     if (!mp) {
         // qCDebug(KIO_TRASH) << "KMountPoint found no mount point for" << origPath;
         return 0;
@@ -997,17 +980,10 @@ int TrashImpl::findTrashDirectory(const QString &origPath)
 #ifdef Q_OS_OSX
     id = idForMountPoint(mountPoint);
 #else
-    refreshDevices();
-    const QString query = QLatin1String("[StorageAccess.accessible == true AND StorageAccess.filePath == '%1']").arg(mountPoint);
-    const QList<Solid::Device> lst = Solid::Device::listFromQuery(query);
-    qCDebug(KIO_TRASH) << "Queried Solid with" << query << "got" << lst.count() << "devices";
-    if (lst.isEmpty()) { // not a device. Maybe some tmpfs mount for instance.
-        return 0;
+    // Handle block devices, e.g. /dev/sdXY; and network mounts
+    if (isBlockDevice(mp) || mp->isOnNetwork()) {
+        id = uniqueTrashDirId(buff.st_dev, mp->mountPoint());
     }
-
-    // Pretend we got exactly one...
-    const Solid::Device device = lst.at(0);
-    id = idForDevice(device);
 #endif
     if (id == -1) {
         return 0;
@@ -1046,12 +1022,22 @@ KIO::UDSEntry TrashImpl::trashUDSEntry(KIO::StatDetails details)
     return entry;
 }
 
-void TrashImpl::scanTrashDirectories() const
+static bool isNetworkFs(const QString mountType)
 {
-#ifndef Q_OS_OSX
-    refreshDevices();
-#endif
+    static const std::vector<QLatin1String> fsList{QLatin1String("cifs"),
+                                                   QLatin1String("smb3"),
+                                                   QLatin1String("smbfs"),
+                                                   QLatin1String("nfs3"),
+                                                   QLatin1String("nfs4")};
 
+    return std::any_of(fsList.cbegin(), fsList.cend(), [mountType](const QLatin1String netfs) {
+        return mountType == netfs;
+    });
+}
+
+#ifdef Q_OS_OSX
+void TrashImpl::scanTrashDirectories_OSX() const
+{
     const QList<Solid::Device> lst = Solid::Device::listFromQuery(QStringLiteral("StorageAccess.accessible == true"));
     for (const Solid::Device &device : lst) {
         QString topdir = device.as<Solid::StorageAccess>()->filePath();
@@ -1061,11 +1047,7 @@ void TrashImpl::scanTrashDirectories() const
             int trashId = idForTrashDirectory(trashDir);
             if (trashId == -1) {
                 // new trash dir found, register it
-#ifdef Q_OS_OSX
                 trashId = idForMountPoint(topdir);
-#else
-                trashId = idForDevice(device);
-#endif
                 if (trashId == -1) {
                     continue;
                 }
@@ -1074,6 +1056,48 @@ void TrashImpl::scanTrashDirectories() const
             }
         }
     }
+
+    m_trashDirectoriesScanned = true;
+}
+#endif
+
+void TrashImpl::scanTrashDirectories() const
+{
+#ifdef Q_OS_OSX
+    scanTrashDirectories_OSX();
+    return;
+#endif
+
+    const KMountPoint::List mpList = KMountPoint::currentMountPoints(KMountPoint::NeedRealDeviceName);
+    for (const auto &mp : mpList) {
+        if (!mp) {
+            continue;
+        }
+
+        const QString mountPoint = mp->mountPoint();
+        const QString trashDir = trashForMountPoint(mountPoint, false);
+        if (trashDir.isEmpty()) {
+            continue;
+        }
+
+        // Valid trash directory, make sure it's registered
+        int trashId = idForTrashDirectory(trashDir);
+        if (trashId == -1) { // New trash dir found, register it
+            // TODO: handle more network mount types? Solid::NetworkShare fstab backend
+            // only handles samba and nfs
+
+            // Block devices (e.g. /dev/sdXY) or network mounts
+            const char *realName_c = QFile::encodeName(mp->realDeviceName()).constData();
+            QT_STATBUF buff;
+            if ((QT_LSTAT(realName_c, &buff) == 0 && S_ISBLK(buff.st_mode)) //
+                || isNetworkFs(mp->mountType())) {
+                const dev_t devId = mp->deviceId();
+                trashId = uniqueTrashDirId(devId, mp->mountPoint());
+                insertTrashDir(trashId, trashDir, mountPoint);
+            }
+        }
+    }
+
     m_trashDirectoriesScanned = true;
 }
 

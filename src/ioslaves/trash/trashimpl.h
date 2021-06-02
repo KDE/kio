@@ -150,8 +150,6 @@ private:
 
 #ifdef Q_OS_OSX
     int idForMountPoint(const QString &mountPoint) const;
-#else
-    int idForDevice(const Solid::Device &device) const;
 #endif
     void refreshDevices() const;
 
@@ -177,12 +175,13 @@ private Q_SLOTS:
     void jobFinished(KJob *job);
 
 private:
-    // delete the files and info subdirectories from all known trash directories
+    /// @internal
+    void scanTrashDirectories_OSX() const;
+    // Delete the files and info subdirectories from all known trash directories
     // (supposed to be empty!) to make sure OS X sees the trash as empty too.
     // Stub except on OS X.
     void deleteEmptyTrashInfrastructure();
-    // create the trash infrastructure; also called
-    // to recreate it on OS X.
+    // Create the trash infrastructure; also called to recreate it on OS X.
     bool createTrashInfrastructure(int trashId, const QString &path = QString());
 
     // Inserts a newly found @p trashDir, under @p topdir with @p id
