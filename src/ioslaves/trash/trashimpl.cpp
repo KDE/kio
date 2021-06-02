@@ -1102,30 +1102,23 @@ QString TrashImpl::trashForMountPoint(const QString &topdir, bool createIfNeeded
 #else
     const QString rootTrashDir = topdir + QLatin1String("/.Trashes");
 #endif
+
     const QByteArray rootTrashDir_c = QFile::encodeName(rootTrashDir);
     // Can't use QFileInfo here since we need to test for the sticky bit
-    uid_t uid = getuid();
+    const uid_t uid = getuid();
     QT_STATBUF buff;
-    const unsigned int requiredBits = S_ISVTX; // Sticky bit required
     if (QT_LSTAT(rootTrashDir_c.constData(), &buff) == 0) {
         if ((S_ISDIR(buff.st_mode)) // must be a dir
             && (!S_ISLNK(buff.st_mode)) // not a symlink
-            && ((buff.st_mode & requiredBits) == requiredBits) //
-            && (::access(rootTrashDir_c.constData(), W_OK) == 0) // must be user-writable
+            && ((buff.st_mode & S_ISVTX) == S_ISVTX) // Sticky bit required
         ) {
-            if (buff.st_dev == m_homeDevice) // bind mount, maybe
-                return QString();
-#ifndef Q_OS_OSX
-            const QString trashDir = rootTrashDir + QLatin1Char('/') + QString::number(uid);
-#else
             QString trashDir = rootTrashDir + QLatin1Char('/') + QString::number(uid);
-#endif
             const QByteArray trashDir_c = QFile::encodeName(trashDir);
             if (QT_LSTAT(trashDir_c.constData(), &buff) == 0) {
                 if ((buff.st_uid == uid) // must be owned by user
                     && (S_ISDIR(buff.st_mode)) // must be a dir
                     && (!S_ISLNK(buff.st_mode)) // not a symlink
-                    && (buff.st_mode & 0777) == 0700) { // rwx for user
+                    && (buff.st_mode & 0777) == 0700) { // 'rwx' only for user
 #ifdef Q_OS_OSX
                     trashDir += QStringLiteral("/KDE.trash");
 #endif
@@ -1148,10 +1141,8 @@ QString TrashImpl::trashForMountPoint(const QString &topdir, bool createIfNeeded
         if ((buff.st_uid == uid) // must be owned by user
             && S_ISDIR(buff.st_mode) // must be a dir
             && !S_ISLNK(buff.st_mode) // not a symlink
-            && ((buff.st_mode & 0700) == 0700)) { // and we need write access to it
+            && ((buff.st_mode & 0700) == 0700)) { // 'rwx' for user
 
-            if (buff.st_dev == m_homeDevice) // bind mount, maybe
-                return QString();
             if (checkTrashSubdirs(trashDir_c)) {
                 return trashDir;
             }
