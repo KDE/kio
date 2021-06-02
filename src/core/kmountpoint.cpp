@@ -16,6 +16,8 @@
 #include <QFileInfo>
 #include <QTextStream>
 
+#include <qplatformdefs.h>
+
 #ifdef Q_OS_WIN
 #include <qt_windows.h>
 static const Qt::CaseSensitivity cs = Qt::CaseInsensitive;
@@ -82,6 +84,7 @@ public:
     QString m_mountPoint;
     QString m_mountType;
     QStringList m_mountOptions;
+    dev_t m_deviceId = 0;
     bool m_isNetFs = false;
 };
 
@@ -193,7 +196,12 @@ KMountPoint::List KMountPoint::possibleMountPoints(DetailsNeededFlags infoNeeded
 
                 Ptr mp(new KMountPoint);
                 mp->d->m_mountType = QFile::decodeName(fsType);
-                mp->d->m_mountPoint = QFile::decodeName(mnt_fs_get_target(fs));
+                const char *target = mnt_fs_get_target(fs);
+                mp->d->m_mountPoint = QFile::decodeName(target);
+
+                if (QT_STATBUF buff; QT_LSTAT(target, &buff) == 0) {
+                    mp->d->m_deviceId = buff.st_dev;
+                }
 
                 // First field in /etc/fstab, e.g. /dev/sdXY, LABEL=, UUID=, /some/bind/mount/dir
                 // or some network mount
@@ -314,6 +322,10 @@ KMountPoint::List KMountPoint::currentMountPoints(DetailsNeededFlags infoNeeded)
         mp->d->m_mountPoint = QFile::decodeName(mounted[i].f_mntonname);
         mp->d->m_mountType = QFile::decodeName(mounted[i].f_fstypename);
 
+        if (QT_STATBUF buff; QT_LSTAT(mounted[i].f_mntonname, &buff) == 0) {
+            mp->d->m_deviceId = buff.st_dev;
+        }
+
         if (infoNeeded & NeedMountOptions) {
             struct fstab *ft = getfsfile(mounted[i].f_mntonname);
             if (ft != nullptr) {
@@ -357,6 +369,7 @@ KMountPoint::List KMountPoint::currentMountPoints(DetailsNeededFlags infoNeeded)
                 mp->d->m_mountPoint = QFile::decodeName(mnt_fs_get_target(fs));
                 mp->d->m_mountType = QFile::decodeName(mnt_fs_get_fstype(fs));
                 mp->d->m_isNetFs = mnt_fs_is_netfs(fs) == 1;
+                mp->d->m_deviceId = mnt_fs_get_devno(fs);
 
                 if (infoNeeded & NeedMountOptions) {
                     mp->d->m_mountOptions = QFile::decodeName(mnt_fs_get_options(fs)).split(QLatin1Char(','));
@@ -389,6 +402,11 @@ QString KMountPoint::mountedFrom() const
     return d->m_mountedFrom;
 }
 
+dev_t KMountPoint::deviceId() const
+{
+    return d->m_deviceId;
+}
+
 bool KMountPoint::isOnNetwork() const
 {
     return d->m_isNetFs || isNetfs(d->m_mountType);
@@ -419,45 +437,23 @@ KMountPoint::List::List()
 {
 }
 
-static bool pathsAreParentAndChildOrEqual(const QString &parent, const QString &child)
-{
-    const QLatin1Char slash('/');
-    if (child.startsWith(parent, cs)) {
-        // Check if either
-        // (a) both paths are equal, or
-        // (b) parent ends with '/', or
-        // (c) the first character of child that is not shared with parent is '/'.
-        //     Note that child is guaranteed to be longer than parent if (a) is false.
-        //
-        // This prevents that we incorrectly consider "/books" a child of "/book".
-        return parent.compare(child, cs) == 0 || parent.endsWith(slash) || child.at(parent.length()) == slash;
-    } else {
-        // Note that "/books" is a child of "/books/".
-        return parent.endsWith(slash) && (parent.length() == child.length() + 1) && parent.startsWith(child, cs);
-    }
-}
-
 KMountPoint::Ptr KMountPoint::List::findByPath(const QString &path) const
 {
-#ifndef Q_OS_WIN
-    /* If the path contains symlinks, get the real name */
-    QFileInfo fileinfo(path);
-    const QString realname = fileinfo.exists() ? fileinfo.canonicalFilePath() : fileinfo.absolutePath(); // canonicalFilePath won't work unless file exists
-#else
-    const QString realname = QDir::fromNativeSeparators(QDir(path).absolutePath());
-#endif
-
-    int max = 0;
     KMountPoint::Ptr result;
-    for (const KMountPoint::Ptr &mp : *this) {
-        const QString mountpoint = mp->d->m_mountPoint;
-        const int length = mountpoint.length();
-        if (length > max && pathsAreParentAndChildOrEqual(mountpoint, realname)) {
-            max = length;
-            result = mp;
-            // keep iterating to check for a better match (bigger max)
+
+    if (QT_STATBUF buff; QT_LSTAT(QFile::encodeName(path).constData(), &buff) == 0) {
+        auto it = std::find_if(this->cbegin(), this->cend(), [&buff, &path](const KMountPoint::Ptr &mountPtr) {
+            // For a bind mount, the deviceId() is that of the base mount point, e.g. /mnt/foo,
+            // however the path we're looking for, e.g. /home/user/bar, doesn't start with the
+            // mount point of the base device, so we go on searching
+            return mountPtr->deviceId() == buff.st_dev && path.startsWith(mountPtr->mountPoint());
+        });
+
+        if (it != this->cend()) {
+            result = *it;
         }
     }
+
     return result;
 }
 

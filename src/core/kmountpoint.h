@@ -102,6 +102,14 @@ public:
     bool isOnNetwork() const;
 
     /**
+     * Returns the device ID (dev_t, major, minor) of this mount point. This
+     * ID is unique per device (including network mounts).
+     *
+     * @since 5.86
+     */
+    dev_t deviceId() const;
+
+    /**
      * Canonical name of the device where the filesystem got mounted from.
      * (Or empty, if not a device)
      * Only available when the NeedRealDeviceName flag was set.
