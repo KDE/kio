@@ -458,13 +458,17 @@ void KApplicationView::currentChanged(const QModelIndex &current, const QModelIn
 {
     QTreeView::currentChanged(current, previous);
 
-    if (d->appModel) {
-        QModelIndex sourceCurrent = d->m_proxyModel->mapToSource(current);
-        if (!d->appModel->isDirectory(sourceCurrent)) {
-            QString exec = d->appModel->execFor(sourceCurrent);
-            if (!exec.isEmpty()) {
-                Q_EMIT highlighted(d->appModel->entryPathFor(sourceCurrent), exec);
-            }
+    if (!d->appModel) {
+        return;
+    }
+
+    QModelIndex sourceCurrent = d->m_proxyModel->mapToSource(current);
+    if (d->appModel->isDirectory(sourceCurrent)) {
+        expand(current);
+    } else {
+        const QString exec = d->appModel->execFor(sourceCurrent);
+        if (!exec.isEmpty()) {
+            Q_EMIT highlighted(d->appModel->entryPathFor(sourceCurrent), exec);
         }
     }
 }
