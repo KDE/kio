@@ -58,6 +58,8 @@ public:
     static KService::List
     associatedApplications(const QStringList &mimeTypeList, const QString &traderConstraint, const QStringList &excludedDesktopEntryNames);
 
+    QStringList serviceMenuFilePaths();
+
 public Q_SLOTS:
     void slotRunPreferredApplications();
 

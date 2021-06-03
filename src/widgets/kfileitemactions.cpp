@@ -13,6 +13,7 @@
 #include <KAuthorized>
 #include <KConfigGroup>
 #include <KDesktopFile>
+#include <KFileUtils>
 #include <KIO/ApplicationLauncherJob>
 #include <KIO/JobUiDelegate>
 #include <KLocalizedString>
@@ -582,9 +583,8 @@ QPair<int, QMenu *> KFileItemActionsPrivate::addServiceActionsTo(QMenu *mainMenu
     const KConfigGroup showGroup = m_config.group("Show");
 
     const QMimeDatabase db;
-    const KService::List entries = KServiceTypeTrader::self()->query(QStringLiteral("KonqPopupMenu/Plugin"));
-    for (const KServicePtr &entry : entries) {
-        QString file = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("kservices5/") + entry->entryPath());
+    const QStringList files = serviceMenuFilePaths();
+    for (const QString &file : files) {
         const KDesktopFile desktopFile(file);
         const KConfigGroup cfg = desktopFile.desktopGroup();
 
@@ -601,7 +601,7 @@ QPair<int, QMenu *> KFileItemActionsPrivate::addServiceActionsTo(QMenu *mainMenu
             const QString submenuName = cfg.readEntry("X-KDE-Submenu");
 
             ServiceList &list = s.selectList(priority, submenuName);
-            const ServiceList userServices = KDesktopFileActions::userDefinedServices(*entry, isLocal, urlList);
+            const ServiceList userServices = KDesktopFileActions::userDefinedServices(file, desktopFile, isLocal, urlList);
             for (const KServiceAction &action : userServices) {
                 if (showGroup.readEntry(action.name(), true) && !excludeList.contains(action.name())) {
                     list += action;
@@ -920,6 +920,24 @@ void KFileItemActionsPrivate::insertOpenWithActionsTo(QAction *before,
         openWithAct->setObjectName(QStringLiteral("openwith")); // For the unittest
         topMenu->insertAction(before, openWithAct);
     }
+}
+
+QStringList KFileItemActionsPrivate::serviceMenuFilePaths()
+{
+    QStringList filePaths;
+
+    // Use old KServiceTypeTrader code path
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 85)
+    const KService::List entries = KServiceTypeTrader::self()->query(QStringLiteral("KonqPopupMenu/Plugin"));
+    for (const KServicePtr &entry : entries) {
+        filePaths << QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("kservices5/") + entry->entryPath());
+    }
+#endif
+    // Load servicemenus from new install location
+    const QStringList paths =
+        QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("kio/servicemenus"), QStandardPaths::LocateDirectory);
+    filePaths << KFileUtils::findAllUniqueFiles(paths, QStringList(QStringLiteral("*.desktop")));
+    return filePaths;
 }
 
 #if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 82)
