@@ -1,0 +1,108 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Spanish "INCLUDE">
+]>
+<article id="documentationnotfound" lang="&language;">
+<title
+>Documentación no encontrada</title>
+<articleinfo>
+<authorgroup>
+<author
+><firstname
+>Jack</firstname
+> <surname
+>Ostroff</surname
+> <affiliation
+> <address
+><email
+>ostroffjh@users.sourceforge.net</email
+></address>
+</affiliation>
+</author>
+<othercredit role="translator"
+><firstname
+>Rocío</firstname
+><surname
+>Gallego</surname
+><affiliation
+><address
+><email
+>traducciones@rociogallego.com</email
+></address
+></affiliation
+><contrib
+>Traducción</contrib
+></othercredit
+><othercredit role="translator"
+><firstname
+>Cristina Yenyxe</firstname
+><surname
+>González García</surname
+><affiliation
+><address
+><email
+>the.blue.valkyrie@gmail.com</email
+></address
+></affiliation
+><contrib
+>Traductor</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>2020-09-08</date>
+<releaseinfo
+>Frameworks 5.73</releaseinfo>
+
+</articleinfo>
+
+<para
+>La documentación solicitada no se ha encontrado en su equipo.</para>
+
+<para
+>Puede que la documentación no exista o que no se haya instalado con la aplicación.</para>
+
+<tip
+><para
+>Por favor, no envíe un mensaje de correo electrónico al autor de esta página para encontrar el documento que falta, ya que solo le dirá que siga las instrucciones de esta página. </para
+></tip>
+
+<simplesect>
+<title
+>Cómo resolver este problema</title>
+
+<para
+>Si la aplicación es software de &kde;, use primero la función de búsqueda en &khelpcenter;. En algunos casos, la documentación tiene un nombre distinto al que el software está usando para encontrarla. Si esto no funciona, pruebe a buscar en el <ulink url="https://docs.kde.org/"
+>sitio web de documentación de &kde;</ulink
+>. Si encuentra la documentación en ese sitio, es muy posible que su distribución disponga de un paquete aparte para la documentación (por ejemplo, llamado plasma-doc para todas las aplicaciones relacionadas con &plasma;). Utilice el gestor de paquetes de su distribución para encontrar e instalar la documentación que falte.</para>
+
+<para
+>Si utiliza una distribución basada en código fuente, tal como Gentoo, asegúrese de que no hay ninguna configuración de las preferencias (indicadores USE en Gentoo) que pudiera haber desactivado la instalación de la documentación. </para>
+
+<para
+>Si lo ha hecho, pero aún se le muestra esta página en lugar del manual de la aplicación, probablemente haya encontrado un fallo en el sistema de ayuda de &kde;. En este caso, informe de ello en el <ulink url="https://bugs.kde.org/"
+>sistema de seguimiento de fallos de &kde;</ulink
+> en el correspondiente producto KIO. </para>
+
+<para
+>Si no ha encontrado ninguna documentación en el <ulink url="https://docs.kde.org/"
+>sitio web de documentación de &kde;</ulink
+>, puede que la aplicación no disponga de documentación fuera de línea. Informe de ello en el <ulink url="https://bugs.kde.org/"
+>sistema de seguimiento de fallos de &kde;</ulink
+> en el correspondiente producto de la aplicación. </para>
+
+<para
+>En el caso de que la aplicación no tenga documentación fuera de línea, debería utilizar los recursos en línea <ulink url="https://userbase.kde.org/"
+>documentación de la base de usuarios</ulink
+> y los <ulink url="https://forum.kde.org/"
+>foros de la comunidad &kde;</ulink
+> para obtener ayuda. </para>
+
+<para
+>Para las aplicaciones que no son &kde;, póngase en contacto con el autor de la aplicación para determinar si debería existir documentación disponible fuera de línea.</para>
+</simplesect>
+
+</article>

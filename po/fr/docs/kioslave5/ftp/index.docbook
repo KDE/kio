@@ -1,0 +1,49 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % French "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="ftp">
+<title
+>&FTP;</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Lauri.Watts; &Lauri.Watts.mail;</author>
+&traducteurEquipeKDE; 
+</authorgroup>
+</articleinfo>
+
+<para
+>&FTP; est un service internet utilisé pour transférer des données depuis le disque d'un ordinateur vers le disque d'un autre, quels que soient les systèmes d'exploitation. </para>
+
+<para
+>De manière similaire à d'autres applications internet, &FTP; utilise une approche client-serveur. L'utilisateur invoque un programme &FTP; sur son ordinateur, lui demande de contacter un ordinateur distant, et enfin demande le transfert d'un ou plusieurs fichiers. Le programme de &FTP; local devient un client qui utilise <acronym
+>TCP</acronym
+> pour contacter un programme serveur &FTP; sur l'ordinateur distant. Chaque fois que l'utilisateur demande un transfert de fichier, les programmes client et serveur coopèrent pour envoyer une copie des données par internet.</para>
+
+<para
+>Les serveurs &FTP; qui gèrent le <quote
+>&FTP; anonyme</quote
+> permettent à n'importe quel utilisateur, pas uniquement ceux disposant d'un compte sur la machine hôte, de naviguer dans les archives <quote
+>ftp</quote
+> et de télécharger des fichiers. Certains serveurs &FTP; sont configurés afin de permettre aux utilisateurs d'envoyer des fichiers.</para>
+
+<para
+>Le &FTP; est couramment utilisé pour retrouver une information et obtenir des logiciels slockés sur des sites &FTP; d'archives partout dans le monde. </para>
+
+
+<para
+>Source : <ulink url="http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/ftpdef.htm"
+> http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/ftpdef.htm</ulink
+> </para>
+
+<para
+>Voir le manuel : <ulink url="man:/ftp"
+>ftp</ulink
+>.</para>
+
+</article>

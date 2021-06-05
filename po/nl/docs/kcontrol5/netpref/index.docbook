@@ -1,0 +1,143 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Dutch "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="netpref" lang="&language;">
+<articleinfo>
+<title
+>Verbindingsvoorkeuren</title>
+<authorgroup>
+<author
+>&Lauri.Watts; &Lauri.Watts.mail;</author>
+
+&Niels.Reedijk;&Sander.Koning; 
+</authorgroup>
+
+<date
+>2016-11-10</date>
+<releaseinfo
+>Frameworks 5.29</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdebase</keyword>
+<keyword
+>kcontrol</keyword>
+<keyword
+>netwerk</keyword>
+<keyword
+>verlooptijd</keyword>
+</keywordset>
+
+</articleinfo>
+
+<sect1 id="timeouts">
+
+<title
+>Verbindingsvoorkeuren</title>
+
+<para
+>Hier kunt u vervaltijden instellen. U wilt deze waarden misschien aanpassen als uw verbinding erg langzaam is, echter de standaard waarden zijngeschikt voor de meeste gebruikers.</para>
+
+<para
+>Hier zijn <guilabel
+>Tijdslimietwaarden</guilabel
+> de tijdsduren die een toepassing moet wachten op een antwoord van een netwerkoperatie.</para>
+
+<para
+>U kunt de volgende limieten instellen:</para>
+
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>Lezen van een socket</guilabel
+></term>
+<listitem>
+<para
+>Sommige toepassingen gebruiken <firstterm
+>sockets</firstterm
+> om te communiceren. U kunt zich een socket voorstellen als een waterkraan: zolang deze open is komt er water (of hier gegevens) uit, zonder interactie. Als iets de gegevenstroom onderbreekt, wacht de toepaing op meer. Dit kan erg lang duren, maar u kunt een maximale tijd instellen die een toepassing mag wachten.</para>
+<para
+>Deze instelling is uiteraard alleen op &kde;-toepassingen van toepassing.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Proxyverbinding</guilabel
+></term>
+<listitem>
+<para
+>Deze optie bepaalt hoe lang er op een verbinding met een proxyserver moet worden gewacht als er een proxy is geconfigureerd. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Serververbinding</guilabel
+></term>
+<listitem>
+<para
+>Deze optie bepaalt hoe lang er moet worden gewacht op een verbinding met een server. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Serverreactie</guilabel
+></term>
+<listitem>
+<para
+>Deze optie bepaalt hoe lang er moet worden gewacht op een antwoord van een server. </para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+<para
+>U kunt hier de <guilabel
+>FTP-opties</guilabel
+> instellen. Op dit moment zijn er twee opties:</para>
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>Passieve mode (PASV) inschakelen.</guilabel
+></term>
+<listitem
+><para
+>Passieve &FTP; is vaak vereist als uw computer achter een firewall zit. Vele firewalls staan alleen verbindingen toe die zijn geinitieerd <quote
+>van binnen</quote
+>. Passieve &FTP; wordt geregeld vanuit de client zodat &FTP; mogelijk is door firewalls.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Gedeeltelijk verzonden bestanden markeren</guilabel
+></term>
+<listitem
+><para
+>Als deze optie ingeschakeld is, worden gedeeltelijk verzonden bestanden voorzien van een extensie <literal role="extension"
+>.part</literal
+> aan het einde van de bestandsnaam. Deze wordt verwijderd zodra de overdracht voltooid is.</para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+
+
+</sect1>
+</article>
