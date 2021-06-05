@@ -47,9 +47,8 @@ void KProtocolInfoTest::testBasic()
 
     QCOMPARE(KProtocolInfo::protocolClass(QStringLiteral("http")), QStringLiteral(":internet"));
 
-    QCOMPARE(KProtocolInfo::defaultMimetype(QStringLiteral("ftp")), QString());
-    QCOMPARE(KProtocolInfo::defaultMimetype(QStringLiteral("rtsp")), QString("audio/x-pn-realaudio"));
-    QCOMPARE(KProtocolInfo::defaultMimetype(QStringLiteral("data")), QString("application/octet-stream"));
+    QCOMPARE(KProtocolInfo::defaultMimetype(QStringLiteral("help")), QString("text/html"));
+    QCOMPARE(KProtocolInfo::defaultMimetype(QStringLiteral("http")), QString("application/octet-stream"));
 
     QVERIFY(KProtocolManager::supportsListing(QUrl(QStringLiteral("ftp://10.1.1.10"))));
 
