@@ -18,6 +18,7 @@
 #include <KSharedConfig>
 #include <QUrl>
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 84)
 //
 // Internal functions:
 //
@@ -110,6 +111,7 @@ KProtocolInfoPrivate::KProtocolInfoPrivate(const QString &path)
 
     m_proxyProtocol = config.readEntry("ProxiedBy");
 }
+#endif
 
 KProtocolInfoPrivate::KProtocolInfoPrivate(const QString &name, const QString &exec, const QJsonObject &json)
     : m_name(name)
