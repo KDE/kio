@@ -98,7 +98,7 @@ void KMountPointTest::testCurrentMountPointOptions()
         }
 
         // keep one (first) ZFS mountpoint
-        if (!anyZfsMount && mountPoint->mountType() == QStringLiteral("zfs")) {
+        if (!anyZfsMount && mountPoint->mountType() == QLatin1String("zfs")) {
             anyZfsMount = mountPoint;
         }
         
@@ -115,7 +115,7 @@ void KMountPointTest::testCurrentMountPointOptions()
         QVERIFY(anyZfsMount->realDeviceName().isEmpty());
         // But it does always have a "local" option
         QVERIFY(!anyZfsMount->mountOptions().isEmpty());
-        QVERIFY(anyZfsMount->mountOptions().contains(QStringLiteral("local")));
+        QVERIFY(anyZfsMount->mountOptions().contains(QLatin1String("local")));
         qDebug() << "ZFS mount options" << anyZfsMount->mountOptions();
     }
 
@@ -130,7 +130,7 @@ void KMountPointTest::testCurrentMountPointOptions()
     if (!mountWithOptions) {
         qDebug() << "No mount with options, skipping test";
     } else {
-        QVERIFY(mountWithOptions->mountOptions().length() > 0);
+        QVERIFY(!mountWithOptions->mountOptions().isEmpty());
         qDebug() << "Options mount options" << mountWithOptions->mountOptions();
     }
 }

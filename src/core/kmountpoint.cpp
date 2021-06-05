@@ -83,7 +83,7 @@ static struct mntoptnames bsdOptionNames[] = {
  * 
  * This is roughly paraphrased from FreeBSD's mount.c, prmount().
  */
-static void translateMountOptions(QStringList& list, uint64_t flags)
+static void translateMountOptions(QStringList &list, uint64_t flags)
 {
     const struct mntoptnames* optionInfo = bsdOptionNames;
 
@@ -91,7 +91,7 @@ static void translateMountOptions(QStringList& list, uint64_t flags)
     flags = flags & MNT_VISFLAGMASK;
     // Chew up options as long as we're in the table and there
     // are any flags left. 
-    for (; flags != 0 && optionInfo->o_opt != 0; optionInfo++) {
+    for (; flags != 0 && optionInfo->o_opt != 0; ++optionInfo) {
         if (flags & optionInfo->o_opt) {
             list.append(QString::fromLatin1(optionInfo->o_name));
             flags &= ~optionInfo->o_opt;
@@ -285,7 +285,6 @@ KMountPoint::List KMountPoint::currentMountPoints(DetailsNeededFlags infoNeeded)
                 QString options = QFile::decodeName(ft->fs_mntops);
                 mp->d->m_mountOptions = options.split(QLatin1Char(','));
             } else {
-                // TODO: get mount options if not mounted via fstab, see mounted[i].f_flags
 #ifdef HAVE_MNTOPTNAMES
                 translateMountOptions(mp->d->m_mountOptions, mounted[i].f_flags);
 #endif
