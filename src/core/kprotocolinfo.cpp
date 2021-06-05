@@ -11,6 +11,7 @@
 #include "kprotocolinfo_p.h"
 #include "kprotocolinfofactory_p.h"
 
+#include <KApplicationTrader>
 #include <KConfig>
 #include <KConfigGroup>
 #include <KPluginMetaData>
@@ -241,7 +242,11 @@ QString KProtocolInfo::icon(const QString &_protocol)
     // We call the findProtocol directly (not via KProtocolManager) to bypass any proxy settings.
     KProtocolInfoPrivate *prot = KProtocolInfoFactory::self()->findProtocol(_protocol);
     if (!prot) {
-        return QString();
+        if (auto service = KApplicationTrader::preferredService(QLatin1String("x-scheme-handler/") + _protocol)) {
+            return service->icon();
+        } else {
+            return QString();
+        }
     }
 
     return prot->m_icon;
