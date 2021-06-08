@@ -98,6 +98,7 @@ Query[es]=https://dle.rae.es/\{@}
 Query[ko]=https://dle.rae.es/\{@}
 Query[nl]=https://dle.rae.es/\{@}
 Query[pl]=https://dle.rae.es/\{@}
+Query[sl]=https://dle.rae.es/\{@}
 Query[uk]=https://dle.rae.es/\{@}
 Query[x-test]=xxhttps://dle.rae.es/\{@}xx
 Type=Service
