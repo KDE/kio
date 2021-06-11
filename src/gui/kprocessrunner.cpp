@@ -270,6 +270,9 @@ void ForkingProcessRunner::startProcess()
             if (window) {
                 const int launchedSerial = KWindowSystem::lastInputSerial(window);
                 waitingForXdgToken = true;
+                connect(this, &ForkingProcessRunner::xdgActivationTokenArrived, m_process.get(), [this] {
+                    m_process->start();
+                });
                 connect(KWindowSystem::self(),
                         &KWindowSystem::xdgActivationTokenArrived,
                         m_process.get(),
@@ -284,11 +287,7 @@ void ForkingProcessRunner::startProcess()
         }
     }
 
-    if (waitingForXdgToken) {
-        connect(this, &ForkingProcessRunner::xdgActivationTokenArrived, m_process.get(), [this] {
-            m_process->start();
-        });
-    } else {
+    if (!waitingForXdgToken) {
         m_process->start();
     }
 }
