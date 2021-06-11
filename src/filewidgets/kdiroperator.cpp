@@ -20,9 +20,7 @@
 #include "knewfilemenu.h"
 #include "kpreviewwidgetbase.h"
 #include <KActionCollection>
-#include <KCompletion>
 #include <KConfigGroup>
-#include <KDirLister>
 #include <KIO/OpenFileManagerWindowJob>
 #include <KIO/RenameFileDialog>
 #include <KIconLoader>
@@ -52,7 +50,6 @@
 #include <QRegularExpression>
 #include <QScrollBar>
 #include <QSplitter>
-#include <QStack>
 #include <QTimer>
 #include <QWheelEvent>
 

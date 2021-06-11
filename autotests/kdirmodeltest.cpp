@@ -19,7 +19,6 @@
 #include <QDebug>
 #include <QMimeData>
 #include <QSignalSpy>
-#include <QTest>
 #include <QUrl>
 
 #ifdef Q_OS_UNIX
