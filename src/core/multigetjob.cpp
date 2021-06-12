@@ -12,6 +12,8 @@
 #include "slave.h"
 #include <kurlauthorized.h>
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 84)
+
 using namespace KIO;
 
 class KIO::MultiGetJobPrivate : public KIO::TransferJobPrivate
@@ -248,3 +250,5 @@ MultiGetJob *KIO::multi_get(long id, const QUrl &url, const MetaData &metaData)
 }
 
 #include "moc_multigetjob.cpp"
+
+#endif // Deprecated since 5.84

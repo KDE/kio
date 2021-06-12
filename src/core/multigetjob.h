@@ -9,6 +9,10 @@
 #ifndef MULTIGETJOB_H
 #define MULTIGETJOB_H
 
+#include "kiocore_export.h"
+
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 84)
+
 #include "transferjob.h"
 
 namespace KIO
@@ -135,4 +139,6 @@ KIOCORE_EXPORT MultiGetJob *multi_get(long id, const QUrl &url, const MetaData &
 
 }
 
-#endif
+#endif // Deprecated since 5.84
+
+#endif // MULTIGETJOB_H

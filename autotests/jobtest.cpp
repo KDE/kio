@@ -2757,6 +2757,7 @@ void JobTest::createBrokenSymlink()
     QVERIFY(QFile::remove(dest));
 }
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 84)
 void JobTest::multiGet()
 {
     const int numFiles = 10;
@@ -2817,6 +2818,7 @@ void JobTest::multiGet()
         QCOMPARE(QString(spyData.at(i * 2 + 1).at(1).toByteArray()), QLatin1String(""));
     }
 }
+#endif // Deprecated since 5.84
 
 void JobTest::cancelCopyAndCleanDest_data()
 {
