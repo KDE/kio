@@ -39,7 +39,6 @@ KIOWIDGETS_EXECUTABLE_TESTS(
   kpropertiesdialogtest
   kmountpoint_debug
   listjobtest
-  listrecursivetest
   kionetrctest
   ksycocaupdatetest
   kurlnavigatortest_gui
