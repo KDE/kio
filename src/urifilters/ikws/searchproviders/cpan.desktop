@@ -90,6 +90,7 @@ Name[x-test]=xxCPAN - Comprehensive Perl Archive Networkxx
 Name[zh_CN]=CPAN - 综合性 Perl 档案网络
 Name[zh_TW]=CPAN - 全面的 Perl 收集網路
 Query=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
+Query[ar]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[ast]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[az]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[ca]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}

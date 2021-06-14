@@ -1,6 +1,7 @@
 [Desktop Entry]
 Keys=qwsh
 Name=Qwant Shopping
+Name[ar]=تسوّق Qwant
 Name[az]=Qwant Alış-Veriş
 Name[ca]=Compres de Qwant
 Name[ca@valencia]=Compres de Qwant
@@ -46,6 +47,7 @@ Name[x-test]=xxQwant Shoppingxx
 Name[zh_CN]=Qwant 购物
 Name[zh_TW]=Qwant Shopping
 Query=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
+Query[ar]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[ast]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[az]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[ca]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping

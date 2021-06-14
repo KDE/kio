@@ -92,6 +92,7 @@ Name[zh_CN]=韦氏词典
 Name[zh_TW]=韋氏詞典
 Keys=dict,webster
 Query=https://www.merriam-webster.com/dictionary/\\{@}
+Query[ar]=https://www.merriam-webster.com/dictionary/\\{@}
 Query[ast]=https://www.merriam-webster.com/dictionary/\\{@}
 Query[az]=https://www.merriam-webster.com/dictionary/\\{@}
 Query[ca]=https://www.merriam-webster.com/dictionary/\\{@}

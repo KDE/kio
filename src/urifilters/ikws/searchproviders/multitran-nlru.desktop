@@ -86,6 +86,7 @@ Name[zh_CN]=Multitran - 在荷兰语和俄语之间互译
 Name[zh_TW]=Multitran - 翻譯荷蘭語和俄語
 Keys=mt,mtde
 Query=https://multitran.ru/c/m.exe?l1=24&s=\\{@}
+Query[ar]=https://multitran.ru/c/m.exe?l1=24&s=\\{@}
 Query[ast]=https://multitran.ru/c/m.exe?l1=24&s=\\{@}
 Query[az]=https://multitran.ru/c/m.exe?l1=24&s=\\{@}
 Query[ca]=https://multitran.ru/c/m.exe?l1=24&s=\\{@}

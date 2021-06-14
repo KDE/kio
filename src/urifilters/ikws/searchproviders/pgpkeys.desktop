@@ -2,6 +2,7 @@
 Keys=pgp,pgpkeys
 Name=OpenPGP Key Search
 Name[af]=OpenPGP Sleutel Soektog
+Name[ar]=بحث عن مفتاح OpenPGP
 Name[as]=OpenPGP চাবিৰ অনুসন্ধান
 Name[az]=OpenPGP Açar Axtarışı
 Name[be]=Пошук ключа OpenPGP
@@ -89,6 +90,7 @@ Name[x-test]=xxOpenPGP Key Searchxx
 Name[zh_CN]=OpenPGP 密钥搜索
 Name[zh_TW]=OpenPGP 金鑰搜尋
 Query=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
+Query[ar]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[ast]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[az]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[ca]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex

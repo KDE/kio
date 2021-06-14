@@ -92,6 +92,7 @@ Name[zh_CN]=Netcraft
 Name[zh_TW]=Netcraft
 Keys=nc,netcraft
 Query=https://uptime.netcraft.com/up/graph?site=\\{@}
+Query[ar]=https://uptime.netcraft.com/up/graph?site=\\{@}
 Query[ast]=https://uptime.netcraft.com/up/graph?site=\\{@}
 Query[az]=https://uptime.netcraft.com/up/graph?site=\\{@}
 Query[ca]=https://uptime.netcraft.com/up/graph?site=\\{@}

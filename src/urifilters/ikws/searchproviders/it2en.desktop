@@ -91,6 +91,7 @@ Name[x-test]=xxWordReference.com Translation: Italian to Englishxx
 Name[zh_CN]=WordReference.com 翻译：意大利语译英语
 Name[zh_TW]=WordReference.com 翻譯: 義大利文至英文
 Query=https://www.wordreference.com/it/en/translation.asp?iten=\\{@}
+Query[ar]=https://www.wordreference.com/it/en/translation.asp?iten=\\{@}
 Query[ast]=https://www.wordreference.com/it/en/translation.asp?iten=\\{@}
 Query[az]=https://www.wordreference.com/it/en/translation.asp?iten=\\{@}
 Query[ca]=https://www.wordreference.com/it/en/translation.asp?iten=\\{@}

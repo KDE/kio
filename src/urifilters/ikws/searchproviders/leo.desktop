@@ -91,6 +91,7 @@ Name[zh_CN]=LEO-Translate
 Name[zh_TW]=LEO-Translate
 Keys=leo
 Query=https://dict.leo.org/?search=\\{@}
+Query[ar]=https://dict.leo.org/?search=\\{@}
 Query[ast]=https://dict.leo.org/?search=\\{@}
 Query[az]=https://dict.leo.org/?search=\\{@}
 Query[ca]=https://dict.leo.org/?search=\\{@}

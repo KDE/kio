@@ -91,6 +91,7 @@ Name[zh_CN]=Ask Jeeves
 Name[zh_TW]=Ask Jeeves
 Keys=ask,jeeves
 Query=https://www.ask.com/main/askJeeves.asp?origin=0&qSource=4&site_name=Jeeves&metasearch=yes&ask=\\{@}
+Query[ar]=https://www.ask.com/main/askJeeves.asp?origin=0&qSource=4&site_name=Jeeves&metasearch=yes&ask=\\{@}
 Query[ast]=https://www.ask.com/main/askJeeves.asp?origin=0&qSource=4&site_name=Jeeves&metasearch=yes&ask=\\{@}
 Query[az]=https://www.ask.com/main/askJeeves.asp?origin=0&qSource=4&site_name=Jeeves&metasearch=yes&ask=\\{@}
 Query[ca]=https://www.ask.com/main/askJeeves.asp?origin=0&qSource=4&site_name=Jeeves&metasearch=yes&ask=\\{@}

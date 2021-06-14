@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=Telephonebook Search Provider
 Name[af]=Telefoonbok soektog verskaffer
+Name[ar]=مزود بحث Telephonebook
 Name[as]=Telephonebook Search Provider
 Name[az]=Telefon kitabçası axtarış təminatçısı
 Name[be]=Пошук тэлефонаў
@@ -87,6 +88,7 @@ Name[zh_TW]=電話號碼簿搜尋提供者
 Type=Service
 Keys=telnl,telefoon
 Query=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
+Query[ar]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
 Query[ast]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
 Query[az]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
 Query[ca]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}

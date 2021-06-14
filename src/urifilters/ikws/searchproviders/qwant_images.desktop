@@ -1,6 +1,7 @@
 [Desktop Entry]
 Keys=qwi
 Name=Qwant Images
+Name[ar]=صور Qwant
 Name[az]=Qwant Şəkillər
 Name[ca]=Imatges a Qwant
 Name[ca@valencia]=Imatges a Qwant
@@ -46,6 +47,7 @@ Name[x-test]=xxQwant Imagesxx
 Name[zh_CN]=Qwant 图像
 Name[zh_TW]=Qwant Images
 Query=https://www.qwant.com/?q=\\{@}&client=kde&t=images
+Query[ar]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[ast]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[az]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[ca]=https://www.qwant.com/?q=\\{@}&client=kde&t=images

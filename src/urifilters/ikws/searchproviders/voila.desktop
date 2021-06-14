@@ -94,6 +94,7 @@ Name[zh_CN]=Voila
 Name[zh_TW]=Voila
 Keys=voila
 Query=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
+Query[ar]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
 Query[ast]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
 Query[az]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
 Query[ca]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*

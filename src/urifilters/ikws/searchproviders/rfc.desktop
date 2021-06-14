@@ -2,6 +2,7 @@
 Keys=rfc,rfcs
 Name=IETF Requests for Comments
 Name[af]=IETF Versoeke vir Kommentaar
+Name[ar]=طلبات IETF للتعليق
 Name[as]=IETF Requests for Comments
 Name[az]=IETF üçün şərhlər
 Name[be]=Запыты каментараў IETF
@@ -86,6 +87,7 @@ Name[x-test]=xxIETF Requests for Commentsxx
 Name[zh_CN]=IETF 评论请求
 Name[zh_TW]=IETF RFC 文件
 Query=https://tools.ietf.org/id/\\{@}
+Query[ar]=https://tools.ietf.org/id/\\{@}
 Query[ast]=https://tools.ietf.org/id/\\{@}
 Query[az]=https://tools.ietf.org/id/\\{@}
 Query[ca]=https://tools.ietf.org/id/\\{@}

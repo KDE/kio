@@ -11,6 +11,7 @@ X-KDE-System-Settings-Parent-Category=search
 X-KDE-Weight=70
 
 Name=Web Search Keywords
+Name[ar]=كلمات بحث الويب
 Name[az]=İnternetdə axtarış üçün açar sözlər
 Name[ca]=Paraules clau de cerca a la web
 Name[cs]=Klíčová slova pro hledání na webu
@@ -44,6 +45,7 @@ Name[x-test]=xxWeb Search Keywordsxx
 Name[zh_CN]=网页搜索关键字
 
 Comment=Configure web search keywords
+Comment[ar]=اضبط بحث الوبّ
 Comment[az]=İnternetdə axtarış açar sözlərini ayarlamaq
 Comment[ca]=Configura les paraules clau de cerca a la web
 Comment[cs]=Nastavit klíčová slova pro hledání na webu
@@ -77,6 +79,7 @@ Comment[x-test]=xxConfigure web search keywordsxx
 Comment[zh_CN]=配置网页搜索关键字
 
 X-KDE-Keywords=Web Search Keywords,Web Search,Search,Keyword,Web Shortcuts,Browsing,WWW,Internet,Internet Filters,Network,Search Engines,Shortcuts
+X-KDE-Keywords[ar]=الكلمات الأساسية لبحث الويب,بحث الويب,البحث,الكلمات الرئيسية,اختصارات الويب,التصفح,WWW ,الإنترنت,مصفيات الإنترنت,الشبكة,محركات البحث,الاختصارات
 X-KDE-Keywords[az]=Web Shortcuts,Browsing,WWW,Internet,Internet Filters,Network,Search Engines,Shortcuts İnternetdə axtarış açar sözləri, Tarama, WWW, İnternet, İnternet Filtrləri, Şəbəkə, Axtarış motorları,Qısa yollar
 X-KDE-Keywords[ca]=Paraules clau de cerca a la web,Cerca a la web,Cerca,Paraules clau,Dreceres web,Navegació,WWW,Internet,Filtres d'internet,Xarxa,Motors de cerca,Dreceres
 X-KDE-Keywords[cs]=Klíčová slova pro hledání na webu,Hledání na webu,Hledání,Klíčové slovo,Webové zkratky, Prohlížení,WWW,Internet,Internetové filtry,Síť,Vyhledávací nástroje,Zkratky

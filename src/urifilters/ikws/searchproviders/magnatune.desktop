@@ -73,6 +73,7 @@ Name[x-test]=xxMagnatunexx
 Name[zh_CN]=Magnatune
 Name[zh_TW]=Magnatune
 Query=https://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
+Query[ar]=https://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
 Query[ast]=https://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
 Query[az]=https://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
 Query[ca]=https://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0

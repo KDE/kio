@@ -72,6 +72,7 @@ Name[x-test]=xxUrban Dictionaryxx
 Name[zh_CN]=都市词典
 Name[zh_TW]=Urban Dictionary
 Query=https://www.urbandictionary.com/define.php?term=\\{@}
+Query[ar]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[ast]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[az]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[ca]=https://www.urbandictionary.com/define.php?term=\\{@}

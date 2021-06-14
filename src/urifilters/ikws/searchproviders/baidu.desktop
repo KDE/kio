@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Service
 Name=Baidu
-Name[ar]=Baidu
+Name[ar]=بايدو
 Name[ast]=Baidu
 Name[az]=Baidu
 Name[bg]=Търсене в Baidu
@@ -71,6 +71,7 @@ Name[zh_CN]=百度
 Name[zh_TW]=百度
 Keys=baidu
 Query=https://www.baidu.com/s?wd=\\{@}
+Query[ar]=https://www.baidu.com/s?wd=\\{@}
 Query[ast]=https://www.baidu.com/s?wd=\\{@}
 Query[az]=https://www.baidu.com/s?wd=\\{@}
 Query[ca]=https://www.baidu.com/s?wd=\\{@}

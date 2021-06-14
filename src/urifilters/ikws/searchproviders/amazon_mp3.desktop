@@ -73,6 +73,7 @@ Name[x-test]=xxAmazon MP3xx
 Name[zh_CN]=Amazon MP3
 Name[zh_TW]=Amazon MP3
 Query=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=digital-music&field-keywords=\\{@}&x=0&y=0
+Query[ar]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=digital-music&field-keywords=\\{@}&x=0&y=0
 Query[ast]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=digital-music&field-keywords=\\{@}&x=0&y=0
 Query[az]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=digital-music&field-keywords=\\{@}&x=0&y=0
 Query[ca]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=digital-music&field-keywords=\\{@}&x=0&y=0

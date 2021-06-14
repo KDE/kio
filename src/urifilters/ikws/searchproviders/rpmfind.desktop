@@ -2,7 +2,7 @@
 Type=Service
 Name=RPM-Find
 Name[af]=RPM-Vind
-Name[ar]=RPM-Find
+Name[ar]=بحث حزم RPM
 Name[as]=RPM-Find
 Name[ast]=RPM-Find
 Name[az]=RPM-Find
@@ -93,6 +93,7 @@ Name[zh_CN]=RPM-Find
 Name[zh_TW]=RPM-Find
 Keys=rf,rpmfind
 Query=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
+Query[ar]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[ast]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[az]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[ca]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}

@@ -93,6 +93,7 @@ Name[zh_CN]=KDE 应用程序搜索
 Name[zh_TW]=KDE 程式搜尋
 Keys=apps,appsy
 Query=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
+Query[ar]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[ast]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[az]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[ca]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}

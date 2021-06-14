@@ -91,6 +91,7 @@ Name[zh_CN]=韦氏辞典
 Name[zh_TW]=韋氏辭典
 Keys=ths,thesaurus
 Query=https://www.merriam-webster.com/thesaurus/\\{@}
+Query[ar]=https://www.merriam-webster.com/thesaurus/\\{@}
 Query[ast]=https://www.merriam-webster.com/thesaurus/\\{@}
 Query[az]=https://www.merriam-webster.com/thesaurus/\\{@}
 Query[ca]=https://www.merriam-webster.com/thesaurus/\\{@}

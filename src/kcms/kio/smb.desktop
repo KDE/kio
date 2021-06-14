@@ -96,6 +96,7 @@ Name[zh_CN]=Windows 共享
 Name[zh_TW]=Windows 資源共享
 
 Comment=Credentials used to access SMB shares
+Comment[ar]=معلومات الصلاحيات المستخدمة للوصول إلى ملفات سامبا الشبكية
 Comment[az]=SMB (Windows) paylaşımlarını əldə etmək üçün sənədlər
 Comment[ca]=Credencials usades per a accedir a les comparticions SMB
 Comment[ca@valencia]=Credencials usades per accedir a les comparticions SMB
@@ -139,6 +140,7 @@ Comment[zh_CN]=访问 SMB 共享的凭证
 Comment[zh_TW]=用於存取 SMB 分享的憑證
 
 X-KDE-Keywords=SMB,SAMBA,SMB client,Windows network,LAN,Network,neighborhood,Server,Broadcast,WINS,Share,Login,Passwords
+X-KDE-Keywords[ar]=SMB,سامبا,زبون سامبا,شبكة ويندز,شبكة محلية,شبكة,الجوار,خادم,نشر,ويندوز,مشاركة,ولوج,كلمات سر
 X-KDE-Keywords[az]=SMB,SAMBA,SMB client,Windows network,LAN,Network,neighborhood,Server,Broadcast,WINS,Share,Login,Passwords SMB, SAMBA, SMB müştəri, Windows şəbəkəsi, LAN, Şəbəkə, qonşuluq, Server,Yayım, WINS, Paylaş, Giriş, Şifrələr
 X-KDE-Keywords[ca]=SMB,SAMBA,Client SMB,Xarxa Windows,LAN,Xarxa,veïnat,Servidor,Difusió,WINS,Compartició,Connexió,Contrasenyes
 X-KDE-Keywords[ca@valencia]=SMB,SAMBA,Client SMB,Xarxa Windows,LAN,Xarxa,veïnat,Servidor,Difusió,WINS,Compartició,Connexió,Contrasenyes

@@ -1,5 +1,6 @@
 [org.kde.kio.file.exec]
 Name=Execute action as root.
+Name[ar]=نفذ الإجراء كجذر
 Name[az]=Root kimi icra edin
 Name[ca]=Executa l'acció com a administrador.
 Name[ca@valencia]=Executa l'acció com a administrador.
@@ -39,6 +40,7 @@ Name[x-test]=xxExecute action as root.xx
 Name[zh_CN]=以 Root 身份执行操作。
 Name[zh_TW]=以 root 身份執行動作。
 Description=Root privileges are required to complete the action.
+Description[ar]=صلاحيات الجذر مطلوبة لإستكمال الإجراء.
 Description[ast]=Ríquense los privilexos de root pa completar l'aición.
 Description[az]=Hərəkəti başa çatdırmaq üçün Root imtiyazları tələb olunur.
 Description[ca]=Es requereixen privilegis d'administrador per a completar l'acció.

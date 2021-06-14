@@ -89,6 +89,7 @@ Name[zh_CN]=首字母缩写数据库
 Name[zh_TW]=Acronym 資料庫
 Keys=ad,acro,acronym
 Query=https://www.abbreviations.com/\\{@}
+Query[ar]=https://www.abbreviations.com/\\{@}
 Query[ast]=https://www.abbreviations.com/\\{@}
 Query[az]=https://www.abbreviations.com/\\{@}
 Query[ca]=https://www.abbreviations.com/\\{@}

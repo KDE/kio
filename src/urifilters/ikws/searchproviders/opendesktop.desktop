@@ -72,6 +72,7 @@ Name[x-test]=xxopenDesktop.orgxx
 Name[zh_CN]=openDesktop.org
 Name[zh_TW]=openDesktop.org
 Query=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
+Query[ar]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
 Query[ast]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
 Query[az]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
 Query[ca]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}

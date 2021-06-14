@@ -89,6 +89,7 @@ Name[x-test]=xxdict.cc Translation: German to Englishxx
 Name[zh_CN]=dict.cc 翻译：德语译英语
 Name[zh_TW]=dict.cc 翻譯: 德文至英文
 Query=https://www.dict.cc/?s=\\{@}
+Query[ar]=https://www.dict.cc/?s=\\{@}
 Query[ast]=https://www.dict.cc/?s=\\{@}
 Query[az]=https://www.dict.cc/?s=\\{@}
 Query[ca]=https://www.dict.cc/?s=\\{@}

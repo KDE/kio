@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Service
 Name=Bing
-Name[ar]=Bing
+Name[ar]=بنج
 Name[ast]=Bing
 Name[az]=Bing
 Name[bg]=Bing
@@ -71,6 +71,7 @@ Name[zh_CN]=必应
 Name[zh_TW]=Bing
 Keys=bing
 Query=https://www.bing.com/search?q=\\{@}
+Query[ar]=https://www.bing.com/search?q=\\{@}
 Query[ast]=https://www.bing.com/search?q=\\{@}
 Query[az]=https://www.bing.com/search?q=\\{@}
 Query[ca]=https://www.bing.com/search?q=\\{@}

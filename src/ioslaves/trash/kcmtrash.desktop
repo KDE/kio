@@ -334,6 +334,7 @@ Comment[x-test]=xxConfigure trash settingsxx
 Comment[zh_CN]=配置回收站设置
 Comment[zh_TW]=設定垃圾桶
 X-KDE-Keywords=trash
+X-KDE-Keywords[ar]=مهملات
 X-KDE-Keywords[ast]=papelera
 X-KDE-Keywords[az]=səbət
 X-KDE-Keywords[bg]=trash,кошче

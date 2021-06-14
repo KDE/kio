@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=Teletekst Search Provider
 Name[af]=Teleteks soektog verskaffer
+Name[ar]=مزود بحث Teletekst
 Name[as]=Teletekst Search Provider
 Name[az]=Teletext Axtarış Təminatçısı
 Name[be]=Пошук тэлетэксту
@@ -89,6 +90,7 @@ Name[zh_TW]=Teletekst 搜尋提供者
 Type=Service
 Keys=tt,teletekst
 Query=https://nos.nl/teletekst#\\{@}
+Query[ar]=https://nos.nl/teletekst#\\{@}
 Query[ast]=https://nos.nl/teletekst#\\{@}
 Query[az]=https://nos.nl/teletekst#\\{@}
 Query[ca]=https://nos.nl/teletekst#\\{@}

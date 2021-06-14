@@ -59,6 +59,7 @@ Name[zh_CN]=Qt4 文档
 Name[zh_TW]=Qt4 文件
 Keys=qt4
 Query=https://doc.qt.io/archives/qt-4.8/search-results.html?q=\\{@}
+Query[ar]=https://doc.qt.io/archives/qt-4.8/search-results.html?q=\\{@}
 Query[ast]=https://doc.qt.io/archives/qt-4.8/search-results.html?q=\\{@}
 Query[az]=https://doc.qt.io/archives/qt-4.8/search-results.html?q=\\{@}
 Query[ca]=https://doc.qt.io/archives/qt-4.8/search-results.html?q=\\{@}

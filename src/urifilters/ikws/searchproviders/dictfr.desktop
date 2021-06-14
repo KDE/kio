@@ -74,6 +74,7 @@ Name[zh_CN]=CNRTL/TILF 法语词典
 Name[zh_TW]=CNRTL/TILF 法語字典
 Keys=dictfr
 Query=https://www.cnrtl.fr/definition/\\{@}
+Query[ar]=https://www.cnrtl.fr/definition/\\{@}
 Query[ast]=https://www.cnrtl.fr/definition/\\{@}
 Query[az]=https://www.cnrtl.fr/definition/\\{@}
 Query[ca]=https://www.cnrtl.fr/definition/\\{@}

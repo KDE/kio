@@ -1,6 +1,7 @@
 [Desktop Entry]
 Keys=qwn
 Name=Qwant News
+Name[ar]=أخبار Qwant
 Name[az]=Qwant Xəbərlər
 Name[ca]=Notícies a Qwant
 Name[ca@valencia]=Notícies a Qwant
@@ -46,6 +47,7 @@ Name[x-test]=xxQwant Newsxx
 Name[zh_CN]=Qwant 新闻
 Name[zh_TW]=Qwant News
 Query=https://www.qwant.com/?q=\\{@}&client=kde&t=news
+Query[ar]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[ast]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[az]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[ca]=https://www.qwant.com/?q=\\{@}&client=kde&t=news

@@ -72,6 +72,7 @@ Name[zh_CN]=Ecosia 搜索引擎
 Name[zh_TW]=Ecosia 搜索引擎
 Keys=ec,et,ethicle
 Query=https://ecosia.org/search.php?q=\\{@}&meta=normal
+Query[ar]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[ast]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[az]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[ca]=https://ecosia.org/search.php?q=\\{@}&meta=normal

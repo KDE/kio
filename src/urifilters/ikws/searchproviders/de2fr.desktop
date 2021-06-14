@@ -88,6 +88,7 @@ Name[zh_CN]=LEO - 在德语和法语之间互译
 Name[zh_TW]=LEO - 翻譯德語和法語
 Keys=de2fr
 Query=https://dict.leo.org/?lp=frde&search=\\{@}
+Query[ar]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[ast]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[az]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[ca]=https://dict.leo.org/?lp=frde&search=\\{@}

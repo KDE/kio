@@ -90,6 +90,7 @@ Name[zh_CN]=免费计算机在线词典
 Name[zh_TW]=免費的線上電腦辭典
 Keys=fd,foldoc
 Query=https://foldoc.org/\\{@}
+Query[ar]=https://foldoc.org/\\{@}
 Query[ast]=https://foldoc.org/\\{@}
 Query[az]=https://foldoc.org/\\{@}
 Query[ca]=https://foldoc.org/\\{@}

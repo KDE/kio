@@ -91,6 +91,7 @@ Name[x-test]=xxWordReference.com Translation: Spanish to Englishxx
 Name[zh_CN]=WordReference.com 翻译：西班牙语译英语
 Name[zh_TW]=WordReference.com 翻譯: 西班牙文至英文
 Query=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
+Query[ar]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[ast]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[az]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[ca]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}

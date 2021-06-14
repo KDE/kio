@@ -91,6 +91,7 @@ Name[x-test]=xxTV Tomexx
 Name[zh_CN]=TV Tome
 Name[zh_TW]=TV Tome
 Query=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
+Query[ar]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[ast]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[az]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[ca]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
