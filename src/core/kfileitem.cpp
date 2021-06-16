@@ -1437,6 +1437,20 @@ QUrl KFileItem::mostLocalUrl(bool *local) const
     }
 }
 
+KFileItem::MostLocalUrlResult KFileItem::isMostLocalUrl() const
+{
+    if (!d) {
+        return {QUrl(), false};
+    }
+
+    const QString local_path = localPath();
+    if (!local_path.isEmpty()) {
+        return {QUrl::fromLocalFile(local_path), true};
+    } else {
+        return {d->m_url, d->m_bIsLocalUrl};
+    }
+}
+
 QDataStream &operator<<(QDataStream &s, const KFileItem &a)
 {
     if (a.d) {

@@ -538,6 +538,20 @@ public:
      */
     QUrl mostLocalUrl(bool *local = nullptr) const;
 
+    struct MostLocalUrlResult {
+        QUrl url;
+        bool local;
+    };
+
+    /**
+     * Returns a MostLocalUrlResult, with the local Url for this item if possible
+     * (otherwise an empty Url), and a bool that is set to @c true if this Url
+     * does represent a local file otherwise @c false.
+     *
+     * @since 5.84
+     */
+    MostLocalUrlResult isMostLocalUrl() const;
+
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 0)
     /**
      * @deprecated since 5.0 add '&' in front of your boolean argument
