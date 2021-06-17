@@ -1094,7 +1094,10 @@ QStringList KFileItem::overlays() const
 
 #if KIOCORE_BUILD_DEPRECATED_SINCE(5, 82)
         if (cfg.hasDeviceType()) {
+            QT_WARNING_PUSH
+            QT_WARNING_DISABLE_DEPRECATED
             const QString dev = cfg.readDevice();
+            QT_WARNING_POP
             if (!dev.isEmpty()) {
                 KMountPoint::Ptr mountPoint = KMountPoint::currentMountPoints().findByDevice(dev);
                 if (mountPoint) { // mounted?

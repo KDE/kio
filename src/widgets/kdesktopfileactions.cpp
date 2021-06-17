@@ -84,7 +84,10 @@ static bool runFSDevice(const QUrl &_url, const KDesktopFile &cfg, const QByteAr
 {
     bool retval = false;
 
+    QT_WARNING_PUSH
+    QT_WARNING_DISABLE_DEPRECATED
     QString dev = cfg.readDevice();
+    QT_WARNING_POP
 
     if (dev.isEmpty()) {
         QString tmp = i18n("The desktop entry file\n%1\nis of type FSDevice but has no Dev=... entry.", _url.toLocalFile());
@@ -155,7 +158,12 @@ QList<KServiceAction> KDesktopFileActions::builtinServices(const QUrl &_url)
 
     KDesktopFile cfg(_url.toLocalFile());
     if (cfg.hasDeviceType()) { // url to desktop file
+
+        QT_WARNING_PUSH
+        QT_WARNING_DISABLE_DEPRECATED
         const QString dev = cfg.readDevice();
+        QT_WARNING_POP
+
         if (dev.isEmpty()) {
             QString tmp = i18n("The desktop entry file\n%1\nis of type FSDevice but has no Dev=... entry.", _url.toLocalFile());
             KMessageBox::error(nullptr, tmp);
@@ -260,7 +268,11 @@ void KDesktopFileActions::executeService(const QList<QUrl> &urls, const KService
 
         KDesktopFile cfg(path);
         if (cfg.hasDeviceType()) { // path to desktop file
+            QT_WARNING_PUSH
+            QT_WARNING_DISABLE_DEPRECATED
             const QString dev = cfg.readDevice();
+            QT_WARNING_POP
+
             if (dev.isEmpty()) {
                 QString tmp = i18n("The desktop entry file\n%1\nis of type FSDevice but has no Dev=... entry.", path);
                 KMessageBox::error(nullptr /*TODO window*/, tmp);
