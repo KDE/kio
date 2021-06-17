@@ -246,7 +246,7 @@ QList<KServiceAction> KDesktopFileActions::userDefinedServices(const KService &s
     return result;
 }
 
-// KF6 TODO remove this method and use ApplicationLauncherJob instead
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 84)
 void KDesktopFileActions::executeService(const QList<QUrl> &urls, const KServiceAction &action)
 {
     // qDebug() << "EXECUTING Service " << action.name();
@@ -308,3 +308,4 @@ void KDesktopFileActions::executeService(const QList<QUrl> &urls, const KService
         job->start();
     }
 }
+#endif

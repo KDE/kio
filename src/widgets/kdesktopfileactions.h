@@ -72,12 +72,30 @@ userDefinedServices(const QString &path, const KDesktopFile &desktopFile, bool b
  */
 KIOWIDGETS_EXPORT QList<KServiceAction> userDefinedServices(const KService &service, bool bLocalFiles, const QList<QUrl> &file_list = QList<QUrl>());
 
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 84)
 /**
  * Execute @p service on the list of @p urls.
+ *
  * @param urls the list of urls
  * @param service the service to execute
+ *
+ * @deprecated Since 5.84, use KIO::ApplicationLauncherJob instead; for example:
+ *
+ * @code
+ * KIO::ApplicationLauncherJob *job = new KIO::ApplicationLauncherJob(action);
+ * job->setUrls(urls);
+ * QObject::connect(job, &KJob::result, qApp, [urls]() {
+ *     // The action may update the desktop file. Example: eject unmounts
+ *     org::kde::KDirNotify::emitFilesChanged(urls);
+ * });
+ * job->setUiDelegate(new KDialogJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, parent));
+ * job->start();
+ * @endcode
  */
-KIOWIDGETS_EXPORT void executeService(const QList<QUrl> &urls, const KServiceAction &service);
+KIOWIDGETS_EXPORT
+KIOWIDGETS_DEPRECATED_VERSION(5, 84, "Use KIO::ApplicationLauncherJob instead, see the API docs for a code example.")
+void executeService(const QList<QUrl> &urls, const KServiceAction &service);
+#endif
 
 #if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 71)
 /**
