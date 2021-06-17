@@ -253,6 +253,7 @@ void KDesktopFileActions::executeService(const QList<QUrl> &urls, const KService
 
     int actionData = action.data().toInt();
     if (actionData == ST_MOUNT || actionData == ST_UNMOUNT) {
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 82)
         Q_ASSERT(urls.count() == 1);
         const QString path = urls.first().toLocalFile();
         // qDebug() << "MOUNT&UNMOUNT";
@@ -295,6 +296,7 @@ void KDesktopFileActions::executeService(const QList<QUrl> &urls, const KService
 #endif
             }
         }
+#endif // deprecated since 5.82
     } else {
         KIO::ApplicationLauncherJob *job = new KIO::ApplicationLauncherJob(action);
         job->setUrls(urls);
