@@ -588,9 +588,6 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
     // the Automatically Select Extension checkbox
     // (the text, visibility etc. is set in updateAutoSelectExtension(), which is called by readConfig())
     d->m_autoSelectExtCheckBox = new QCheckBox(this);
-    const int spacingHint = style()->pixelMetric(QStyle::PM_LayoutVerticalSpacing);
-    // ### Urgh, a Qt stylesheet. Why not just use QLayout API like addSpacing maybe?
-    d->m_autoSelectExtCheckBox->setStyleSheet(QStringLiteral("QCheckBox { padding-top: %1px; }").arg(spacingHint));
     connect(d->m_autoSelectExtCheckBox, &QCheckBox::clicked, this, [this]() {
         d->slotAutoSelectExtClicked();
     });
@@ -1461,7 +1458,9 @@ void KFileWidgetPrivate::initGUI()
 
     m_vbox->addLayout(m_lafBox);
 
-    // add the Automatically Select Extension checkbox
+    // Add the "Automatically Select Extension" checkbox
+    const int spacingHint = q->style()->pixelMetric(QStyle::PM_LayoutVerticalSpacing);
+    m_vbox->addSpacing(spacingHint);
     m_vbox->addWidget(m_autoSelectExtCheckBox);
 
     q->setTabOrder(m_ops, m_autoSelectExtCheckBox);
