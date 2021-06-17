@@ -66,7 +66,8 @@ KProcessRunner *KProcessRunner::fromApplication(const KService::Ptr &service,
                                                 const QList<QUrl> &urls,
                                                 KIO::ApplicationLauncherJob::RunFlags flags,
                                                 const QString &suggestedFileName,
-                                                const QByteArray &asn)
+                                                const QByteArray &asn,
+                                                const QString &xdgActivationToken)
 {
     auto instance = makeInstance();
 
@@ -111,6 +112,10 @@ KProcessRunner *KProcessRunner::fromApplication(const KService::Ptr &service,
 
     if (service->runOnDiscreteGpu() && s_gpuCheck == Present) {
         instance->m_process->setEnv(QStringLiteral("DRI_PRIME"), QStringLiteral("1"));
+    }
+
+    if (!xdgActivationToken.isEmpty()) {
+        instance->m_process->setEnv(QStringLiteral("XDG_ACTIVATION_TOKEN"), xdgActivationToken);
     }
 
     QString workingDir(service->workingDirectory());

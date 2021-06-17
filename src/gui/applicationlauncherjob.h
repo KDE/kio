@@ -124,6 +124,15 @@ public:
     void setStartupId(const QByteArray &startupId);
 
     /**
+     * Sets the token according to the xdg_activation_v1 wayland protocol
+     *
+     * @param token
+     *
+     * @since 5.84
+     */
+    void setXdgActivationToken(const QString &token);
+
+    /**
      * Starts the job.
      * You must call this, after having done all the setters.
      * This is (potentially) a GUI job, never use exec(), it would block user interaction.

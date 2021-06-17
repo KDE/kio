@@ -44,6 +44,7 @@ public:
      * @param suggestedFileName see KRun::setSuggestedFileName
      * @param asn Application startup notification id, if any (otherwise "")
      * @param serviceEntryPath the KService entryPath(), passed as an argument
+     * @param xdgActivationToken xdg_activation_token to pass when using Wayland
      * because in some cases it could become an empty string, e.g. if an
      * ApplicationLauncherJob is created from a @c KServiceAction, the
      * ApplicationLauncherJob will call KService::setExec() which clears the
@@ -54,7 +55,8 @@ public:
                                            const QList<QUrl> &urls,
                                            KIO::ApplicationLauncherJob::RunFlags flags = {},
                                            const QString &suggestedFileName = {},
-                                           const QByteArray &asn = {});
+                                           const QByteArray &asn = {},
+                                           const QString &xdgActivationToken = {});
 
     /**
      * Run a shell command

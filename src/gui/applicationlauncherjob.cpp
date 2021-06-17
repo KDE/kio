@@ -43,6 +43,7 @@ public:
     KIO::ApplicationLauncherJob::RunFlags m_runFlags;
     QString m_suggestedFileName;
     QByteArray m_startupId;
+    QString m_token;
     QVector<qint64> m_pids;
     QVector<QPointer<KProcessRunner>> m_processRunners;
     int m_numProcessesPending = 0;
@@ -97,6 +98,11 @@ void KIO::ApplicationLauncherJob::setSuggestedFileName(const QString &suggestedF
 void KIO::ApplicationLauncherJob::setStartupId(const QByteArray &startupId)
 {
     d->m_startupId = startupId;
+}
+
+void KIO::ApplicationLauncherJob::setXdgActivationToken(const QString &token)
+{
+    d->m_token = token;
 }
 
 void KIO::ApplicationLauncherJob::emitUnauthorizedError()
@@ -187,7 +193,7 @@ void KIO::ApplicationLauncherJob::proceedAfterSecurityChecks()
     }
 
     auto *processRunner =
-        KProcessRunner::fromApplication(d->m_service, d->m_serviceEntryPath, d->m_urls, d->m_runFlags, d->m_suggestedFileName, d->m_startupId);
+        KProcessRunner::fromApplication(d->m_service, d->m_serviceEntryPath, d->m_urls, d->m_runFlags, d->m_suggestedFileName, d->m_startupId, d->m_token);
     d->m_processRunners.push_back(processRunner);
     connect(processRunner, &KProcessRunner::error, this, [this](const QString &errorText) {
         setError(KJob::UserDefinedError);
