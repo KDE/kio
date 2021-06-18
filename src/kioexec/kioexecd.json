@@ -45,6 +45,7 @@
         "Description[zh_CN]": "监视缓存的远程文件修改",
         "Description[zh_TW]": "監視已快取的遠端檔案變更",
         "Name": "KIOExec Daemon",
+        "Name[ar]": "عفريت KIOExec",
         "Name[az]": "KIOExec Xidməti",
         "Name[ca@valencia]": "Dimoni KIOExec",
         "Name[ca]": "Dimoni KIOExec",
