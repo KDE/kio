@@ -228,6 +228,40 @@ void KProcessRunner::init(const KService::Ptr &service,
     Q_UNUSED(iconName);
 #endif
 
+    bool waitingForXdgToken = false;
+    if (KWindowSystem::isPlatformWayland()) {
+        if (!asn.isEmpty()) {
+            m_process->setEnv(QStringLiteral("XDG_ACTIVATION_TOKEN"), QString::fromUtf8(asn));
+        } else {
+            bool silent;
+            QByteArray wmclass;
+            const bool startup_notify = m_service && KIOGuiPrivate::checkStartupNotify(m_service.data(), &silent, &wmclass);
+            if (startup_notify && !silent) {
+                auto window = qGuiApp->focusWindow();
+                if (!window && !qGuiApp->allWindows().isEmpty()) {
+                    window = qGuiApp->allWindows().constFirst();
+                }
+                if (window) {
+                    const int launchedSerial = KWindowSystem::lastInputSerial(window);
+                    waitingForXdgToken = true;
+                    connect(this, &KProcessRunner::xdgActivationTokenArrived, m_process.get(), [this] {
+                        startProcess();
+                    });
+                    connect(KWindowSystem::self(),
+                            &KWindowSystem::xdgActivationTokenArrived,
+                            m_process.get(),
+                            [this, launchedSerial](int tokenSerial, const QString &token) {
+                                if (tokenSerial == launchedSerial) {
+                                    m_process->setEnv(QStringLiteral("XDG_ACTIVATION_TOKEN"), token);
+                                    Q_EMIT xdgActivationTokenArrived();
+                                }
+                            });
+                    KWindowSystem::requestXdgActivationToken(window, launchedSerial, QFileInfo(m_serviceEntryPath).completeBaseName());
+                }
+            }
+        }
+    }
+
     if (service) {
         m_service = service;
         // Store the desktop name, used by debug output and for the systemd unit name
@@ -247,7 +281,10 @@ void KProcessRunner::init(const KService::Ptr &service,
     } else {
         m_description = userVisibleName;
     }
-    startProcess();
+
+    if (!waitingForXdgToken) {
+        startProcess();
+    }
 }
 
 void ForkingProcessRunner::startProcess()
@@ -255,41 +292,7 @@ void ForkingProcessRunner::startProcess()
     connect(m_process.get(), QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished), this, &ForkingProcessRunner::slotProcessExited);
     connect(m_process.get(), &QProcess::started, this, &ForkingProcessRunner::slotProcessStarted, Qt::QueuedConnection);
     connect(m_process.get(), &QProcess::errorOccurred, this, &ForkingProcessRunner::slotProcessError);
-
-    bool waitingForXdgToken = false;
-    if (KWindowSystem::isPlatformWayland() && m_service) {
-        bool silent;
-        QByteArray wmclass;
-        const bool startup_notify = KIOGuiPrivate::checkStartupNotify(m_service.data(), &silent, &wmclass);
-        if (startup_notify && !silent) {
-            auto window = qGuiApp->focusWindow();
-            if (!window && !qGuiApp->allWindows().isEmpty()) {
-                window = qGuiApp->allWindows().constFirst();
-            }
-
-            if (window) {
-                const int launchedSerial = KWindowSystem::lastInputSerial(window);
-                waitingForXdgToken = true;
-                connect(this, &ForkingProcessRunner::xdgActivationTokenArrived, m_process.get(), [this] {
-                    m_process->start();
-                });
-                connect(KWindowSystem::self(),
-                        &KWindowSystem::xdgActivationTokenArrived,
-                        m_process.get(),
-                        [this, launchedSerial](int tokenSerial, const QString &token) {
-                            if (tokenSerial == launchedSerial) {
-                                m_process->setEnv(QStringLiteral("XDG_ACTIVATION_TOKEN"), token);
-                                Q_EMIT xdgActivationTokenArrived();
-                            }
-                        });
-                KWindowSystem::requestXdgActivationToken(window, launchedSerial, QFileInfo(m_serviceEntryPath).completeBaseName());
-            }
-        }
-    }
-
-    if (!waitingForXdgToken) {
-        m_process->start();
-    }
+    m_process->start();
 }
 
 bool ForkingProcessRunner::waitForStarted(int timeout)
