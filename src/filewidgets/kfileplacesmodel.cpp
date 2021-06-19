@@ -692,7 +692,7 @@ QModelIndex KFilePlacesModel::closestItem(const QUrl &url) const
     for (int row = 0; row < d->items.size(); ++row) {
         KFilePlacesItem *item = d->items[row];
 
-        if (item->isHidden()) {
+        if (item->isHidden() || isGroupHidden(item->groupType())) {
             continue;
         }
 
