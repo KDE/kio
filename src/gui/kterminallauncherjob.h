@@ -8,7 +8,7 @@
 #ifndef KTERMINALLAUNCHERJOB_H
 #define KTERMINALLAUNCHERJOB_H
 
-#include "commandlauncherjob.h"
+#include <KIO/CommandLauncherJob>
 #include <memory>
 
 class KTerminalLauncherJobPrivate;
