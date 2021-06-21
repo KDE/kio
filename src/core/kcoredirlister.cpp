@@ -197,28 +197,21 @@ bool KCoreDirListerCache::listDir(KCoreDirLister *lister, const QUrl &dirUrl, bo
                 itemU->incAutoUpdate();
             }
 
-            //        // we have a limit of MAX_JOBS_PER_LISTER concurrently running jobs
-            //        if ( lister->d->numJobs() >= MAX_JOBS_PER_LISTER )
-            //        {
-            //          pendingUpdates.insert( _url );
-            //        }
-            //        else
-            {
-                KIO::ListJob *job = KIO::listDir(_url, KIO::HideProgressInfo);
-                if (lister->requestMimeTypeWhileListing()) {
-                    job->addMetaData(QStringLiteral("statDetails"), QString::number(KIO::StatDefaultDetails | KIO::StatMimeType));
-                }
-                runningListJobs.insert(job, KIO::UDSEntryList());
-
-                lister->jobStarted(job);
-                lister->d->connectJob(job);
-
-                connect(job, &KIO::ListJob::entries, this, &KCoreDirListerCache::slotEntries);
-                connect(job, &KJob::result, this, &KCoreDirListerCache::slotResult);
-                connect(job, &KIO::ListJob::redirection, this, &KCoreDirListerCache::slotRedirection);
-
-                Q_EMIT lister->started(_url);
+            KIO::ListJob *job = KIO::listDir(_url, KIO::HideProgressInfo);
+            if (lister->requestMimeTypeWhileListing()) {
+                job->addMetaData(QStringLiteral("statDetails"), QString::number(KIO::StatDefaultDetails | KIO::StatMimeType));
             }
+            runningListJobs.insert(job, KIO::UDSEntryList());
+
+            lister->jobStarted(job);
+            lister->d->connectJob(job);
+
+            connect(job, &KIO::ListJob::entries, this, &KCoreDirListerCache::slotEntries);
+            connect(job, &KJob::result, this, &KCoreDirListerCache::slotResult);
+            connect(job, &KIO::ListJob::redirection, this, &KCoreDirListerCache::slotRedirection);
+
+            Q_EMIT lister->started(_url);
+
             qCDebug(KIO_CORE_DIRLISTER) << "Entry now being listed by" << dirData.listersCurrentlyListing;
         }
     } else {

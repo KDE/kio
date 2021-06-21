@@ -436,8 +436,6 @@ private:
         QSet<QString> listedFiles;
     };
 
-    // static const unsigned short MAX_JOBS_PER_LISTER;
-
     QMap<KIO::ListJob *, KIO::UDSEntryList> runningListJobs;
 
     // an item is a complete directory
@@ -490,8 +488,6 @@ struct KCoreDirListerCacheDirectoryData {
 
     void moveListersWithoutCachedItemsJob(const QUrl &url);
 };
-
-// const unsigned short KCoreDirListerCache::MAX_JOBS_PER_LISTER = 5;
 
 // This job tells KCoreDirListerCache to emit cached items asynchronously from listDir()
 // to give the KCoreDirLister user enough time for connecting to its signals, and so
