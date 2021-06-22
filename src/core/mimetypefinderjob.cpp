@@ -122,7 +122,7 @@ void KIO::MimeTypeFinderJobPrivate::statFile()
 {
     Q_ASSERT(m_mimeTypeName.isEmpty());
 
-    static constexpr auto statFlags = KIO::StatBasic | KIO::StatResolveSymlink | KIO::StatMimeType;
+    constexpr auto statFlags = KIO::StatBasic | KIO::StatResolveSymlink | KIO::StatMimeType;
 
     KIO::StatJob *job = KIO::statDetails(m_url, KIO::StatJob::SourceSide, statFlags, KIO::HideProgressInfo);
     if (!m_authPrompts) {
