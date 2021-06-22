@@ -1530,12 +1530,6 @@ struct KCoreDirListerCache::ItemInUseChange {
 void KCoreDirListerCache::renameDir(const QUrl &oldUrl, const QUrl &newUrl)
 {
     qCDebug(KIO_CORE_DIRLISTER) << oldUrl << "->" << newUrl;
-    // const QString oldUrlStr = oldUrl.url(KUrl::RemoveTrailingSlash);
-    // const QString newUrlStr = newUrl.url(KUrl::RemoveTrailingSlash);
-
-    // Not enough. Also need to look at any child dir, even sub-sub-sub-dir.
-    // DirItem *dir = itemsInUse.take( oldUrlStr );
-    // emitRedirections( oldUrl, url );
 
     std::vector<ItemInUseChange> itemsToChange;
     QSet<KCoreDirLister *> listers;
