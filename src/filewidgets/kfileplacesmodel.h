@@ -163,7 +163,7 @@ public:
     void requestTeardown(const QModelIndex &index);
 
     /**
-     * Ejects the place at index @p index by triggering the ejetc functionality of its Solid device.
+     * Ejects the place at index @p index by triggering the eject functionality of its Solid device.
      * @see deviceForIndex()
      */
     void requestEject(const QModelIndex &index);
