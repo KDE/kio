@@ -39,14 +39,11 @@ if(GSSAPI_FOUND)
   target_link_libraries(httpauthenticationtest ${GSSAPI_LIBS})
 endif()
 
-set(httpobjecttest_SRCS
+ecm_add_test(
    httpobjecttest.cpp
    ${kioslave-http_SOURCE_DIR}/http.cpp
    ${kioslave-http_SOURCE_DIR}/httpauthentication.cpp
    ${kioslave-http_SOURCE_DIR}/httpfilter.cpp
-)
-
-ecm_add_test(${httpobjecttest_SRCS}
    TEST_NAME "httpobjecttest" NAME_PREFIX "kioslave-"
    LINK_LIBRARIES
    Qt5::Test
