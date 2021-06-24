@@ -114,18 +114,31 @@ void DavJob::slotFinished()
 }
 
 /* Convenience methods */
-
-DavJob *KIO::davPropFind(const QUrl &url, const QDomDocument &properties, const QString &depth, JobFlags flags)
+DavJob *KIO::davPropFind(const QUrl &url, const QString &properties, const QString &depth, JobFlags flags)
 {
-    DavJob *job = DavJobPrivate::newJob(url, (int)KIO::DAV_PROPFIND, properties.toString(), flags);
+    DavJob *job = DavJobPrivate::newJob(url, (int)KIO::DAV_PROPFIND, properties, flags);
     job->addMetaData(QStringLiteral("davDepth"), depth);
     return job;
 }
 
+DavJob *KIO::davPropPatch(const QUrl &url, const QString &properties, JobFlags flags)
+{
+    return DavJobPrivate::newJob(url, (int)KIO::DAV_PROPPATCH, properties, flags);
+}
+
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 84)
+DavJob *KIO::davPropFind(const QUrl &url, const QDomDocument &properties, const QString &depth, JobFlags flags)
+{
+    return davPropFind(url, properties.toString(), depth, flags);
+}
+#endif
+
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 84)
 DavJob *KIO::davPropPatch(const QUrl &url, const QDomDocument &properties, JobFlags flags)
 {
-    return DavJobPrivate::newJob(url, (int)KIO::DAV_PROPPATCH, properties.toString(), flags);
+    return davPropPatch(url, properties.toString(), flags);
 }
+#endif
 
 DavJob *KIO::davSearch(const QUrl &url, const QString &nsURI, const QString &qName, const QString &query, JobFlags flags)
 {

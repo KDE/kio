@@ -69,8 +69,9 @@ private:
  * @param depth the depth of the request. Can be "0", "1" or "infinity"
  * @param flags We support HideProgressInfo here
  * @return the new DavJob
+ * @since 5.84
  */
-KIOCORE_EXPORT DavJob *davPropFind(const QUrl &url, const QDomDocument &properties, const QString &depth, JobFlags flags = DefaultFlags);
+KIOCORE_EXPORT DavJob *davPropFind(const QUrl &url, const QString &properties, const QString &depth, JobFlags flags = DefaultFlags);
 
 /**
  * Creates a new DavJob that issues a PROPPATCH command. PROPPATCH sets
@@ -81,8 +82,46 @@ KIOCORE_EXPORT DavJob *davPropFind(const QUrl &url, const QDomDocument &properti
  *        should be modified and its new values
  * @param flags We support HideProgressInfo here
  * @return the new DavJob
+ * @since 5.84
  */
-KIOCORE_EXPORT DavJob *davPropPatch(const QUrl &url, const QDomDocument &properties, JobFlags flags = DefaultFlags);
+KIOCORE_EXPORT DavJob *davPropPatch(const QUrl &url, const QString &properties, JobFlags flags = DefaultFlags);
+
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 84)
+/**
+ * Creates a new DavJob that issues a PROPFIND command. PROPFIND retrieves
+ * the properties of the resource identified by the given @p url.
+ *
+ * @param url the URL of the resource
+ * @param properties a propfind document that describes the properties that
+ *        should be retrieved
+ * @param depth the depth of the request. Can be "0", "1" or "infinity"
+ * @param flags We support HideProgressInfo here
+ * @return the new DavJob
+ * @deprecated since 5.84, use the overload taking a @c QString @p properties argument instead.
+ * This can typically be done by replacing the properties argument with <tt>properties.toString()</tt>.
+ */
+KIOCORE_EXPORT
+KIOCORE_DEPRECATED_VERSION(5, 84, "Use davPropFind(const QUrl &, const QString &, const QString &, JobFlags) instead.")
+DavJob *davPropFind(const QUrl &url, const QDomDocument &properties, const QString &depth, JobFlags flags = DefaultFlags);
+#endif
+
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 84)
+/**
+ * Creates a new DavJob that issues a PROPPATCH command. PROPPATCH sets
+ * the properties of the resource identified by the given @p url.
+ *
+ * @param url the URL of the resource
+ * @param properties a PROPPACTCH document that describes the properties that
+ *        should be modified and its new values
+ * @param flags We support HideProgressInfo here
+ * @return the new DavJob
+ * @deprecated since 5.84, use the overload taking a @c QString @p properties argument instead.
+ * This can typically be done by replacing the properties argument with <tt>properties.toString()</tt>.
+ */
+KIOCORE_EXPORT
+KIOCORE_DEPRECATED_VERSION(5, 84, "Use davPropPatch(const QUrl &, const QString &, JobFlags) instead.")
+DavJob *davPropPatch(const QUrl &url, const QDomDocument &properties, JobFlags flags = DefaultFlags);
+#endif
 
 /**
  * Creates a new DavJob that issues a SEARCH command.
