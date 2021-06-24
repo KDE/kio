@@ -1,15 +1,20 @@
-set(kntlm_LIB_SRCS kntlm.cpp des.cpp )
-
-add_library(KF5KIONTLM ${kntlm_LIB_SRCS})
-generate_export_header(KF5KIONTLM BASE_NAME KNTLM)
+add_library(KF5KIONTLM)
 add_library(KF5::KIONTLM ALIAS KF5KIONTLM)
 
-target_link_libraries(KF5KIONTLM KF5::CoreAddons)
+set_target_properties(KF5KIONTLM PROPERTIES
+    VERSION     ${KIO_VERSION}
+    SOVERSION   ${KIO_SOVERSION}
+    EXPORT_NAME KIONTLM
+)
 
-set_target_properties(KF5KIONTLM PROPERTIES VERSION ${KIO_VERSION}
-                                            SOVERSION ${KIO_SOVERSION}
-                                            EXPORT_NAME KIONTLM
-                                            )
+target_sources(KF5KIONTLM PRIVATE
+    kntlm.cpp
+    des.cpp
+)
+
+generate_export_header(KF5KIONTLM BASE_NAME KNTLM)
+
+target_link_libraries(KF5KIONTLM KF5::CoreAddons)
 
 install(TARGETS KF5KIONTLM EXPORT KF5KIOTargets  ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
 

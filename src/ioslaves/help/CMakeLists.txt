@@ -31,14 +31,18 @@ find_package(Qt5Core ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE)
 
 ########### next target ###############
 
-set(kio_help_PART_SRCS
+add_library(kio_help MODULE)
+
+set_target_properties(kio_help PROPERTIES
+    OUTPUT_NAME "help"
+    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin/kf5/kio"
+)
+
+target_sources(kio_help PRIVATE
     kio_help.cpp
     main.cpp
     xslt_help.cpp
 )
-
-
-add_library(kio_help MODULE ${kio_help_PART_SRCS})
 
 target_link_libraries(kio_help
    Qt5::Gui # QTextDocument
@@ -52,17 +56,23 @@ target_link_libraries(kio_help
    ${LIBXSLT_EXSLT_LIBRARIES}
 )
 
-set_target_properties(kio_help PROPERTIES OUTPUT_NAME "help")
-set_target_properties(kio_help PROPERTIES LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin/kf5/kio")
 install(TARGETS kio_help  DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf5/kio)
 
 
 ########### next target ###############
 
-set(kio_ghelp_PART_SRCS kio_help.cpp main_ghelp.cpp xslt_help.cpp)
+add_library(kio_ghelp MODULE)
 
+set_target_properties(kio_ghelp PROPERTIES
+    OUTPUT_NAME "ghelp"
+    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin/kf5/kio"
+)
 
-add_library(kio_ghelp MODULE ${kio_ghelp_PART_SRCS})
+target_sources(kio_ghelp PRIVATE
+    kio_help.cpp
+    main_ghelp.cpp
+    xslt_help.cpp
+)
 
 target_link_libraries(kio_ghelp
    Qt5::Gui # QTextDocument
@@ -80,8 +90,7 @@ if(WIN32)
     target_compile_definitions(kio_help PRIVATE NOMINMAX)
     target_compile_definitions(kio_ghelp PRIVATE NOMINMAX)
 endif()
-set_target_properties(kio_ghelp PROPERTIES OUTPUT_NAME "ghelp")
-set_target_properties(kio_ghelp PROPERTIES LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin/kf5/kio")
+
 install(TARGETS kio_ghelp  DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf5/kio)
 
 endif()

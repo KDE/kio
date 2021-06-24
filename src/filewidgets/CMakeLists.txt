@@ -3,7 +3,16 @@ find_package(KF5XmlGui ${KF_DEP_VERSION} REQUIRED)
 
 configure_file(config-kiofilewidgets.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kiofilewidgets.h)
 
-set(kiofilewidgets_SRCS
+add_library(KF5KIOFileWidgets)
+add_library(KF5::KIOFileWidgets ALIAS KF5KIOFileWidgets)
+
+set_target_properties(KF5KIOFileWidgets PROPERTIES
+    VERSION     ${KIO_VERSION}
+    SOVERSION   ${KIO_SOVERSION}
+    EXPORT_NAME KIOFileWidgets
+)
+
+target_sources(KF5KIOFileWidgets PRIVATE
   kstatusbarofflineindicator.cpp
   kfilemetapreview.cpp
   kimagefilepreview.cpp
@@ -39,10 +48,9 @@ set(kiofilewidgets_SRCS
   kurlnavigatormenu.cpp
   kurlnavigatorpathselectoreventfilter.cpp
 
-
+  ../new_file_templates/templates.qrc
 )
 
-qt_add_resources(kiofilewidgets_SRCS ../new_file_templates/templates.qrc)
 
 ecm_qt_export_logging_category(
     IDENTIFIER KFILEWIDGETS_LOG
@@ -61,7 +69,7 @@ ecm_qt_export_logging_category(
     EXPORT KIO
 )
 
-ecm_qt_declare_logging_category(kiofilewidgets_SRCS
+ecm_qt_declare_logging_category(KF5KIOFileWidgets
     HEADER kfilefiltercombo_debug.h
     IDENTIFIER KIO_KFILEWIDGETS_KFILEFILTERCOMBO
     CATEGORY_NAME kf.kio.filewidgets.kfilefiltercombo
@@ -71,8 +79,6 @@ ecm_qt_declare_logging_category(kiofilewidgets_SRCS
     EXPORT KIO
 )
 
-add_library(KF5KIOFileWidgets ${kiofilewidgets_SRCS})
-add_library(KF5::KIOFileWidgets ALIAS KF5KIOFileWidgets)
 ecm_generate_export_header(KF5KIOFileWidgets
     BASE_NAME KIOFileWidgets
     GROUP_BASE_NAME KF
@@ -97,11 +103,6 @@ target_link_libraries(KF5KIOFileWidgets
     KF5::GuiAddons    # KIconUtils
     KF5::IconThemes   # KIconLoader
     KF5::I18n
-)
-
-set_target_properties(KF5KIOFileWidgets PROPERTIES VERSION ${KIO_VERSION}
-                                                   SOVERSION ${KIO_SOVERSION}
-                                                   EXPORT_NAME KIOFileWidgets
 )
 
 ecm_generate_headers(KIOFileWidgets_HEADERS

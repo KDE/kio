@@ -2,14 +2,22 @@ add_subdirectory(searchproviders)
 
 ####
 
-set(kuriikwsfilter_SRCS
+kcoreaddons_add_plugin(kuriikwsfilter
+    INSTALL_NAMESPACE "kf5/urifilters"
+    JSON kuriikwsfilter.json
+)
+
+target_sources(kuriikwsfilter PRIVATE
    kuriikwsfiltereng.cpp
    kuriikwsfilter.cpp
    searchprovider.cpp
    searchproviderregistry.cpp
 )
 
-ki18n_wrap_ui(kuriikwsfilter_SRCS ikwsopts_ui.ui searchproviderdlg_ui.ui)
+ki18n_wrap_ui(kuriikwsfilter
+    ikwsopts_ui.ui
+    searchproviderdlg_ui.ui
+)
 
 ecm_qt_export_logging_category(
     IDENTIFIER category
@@ -20,8 +28,6 @@ ecm_qt_export_logging_category(
     EXPORT KIO
 )
 
-kcoreaddons_add_plugin(kuriikwsfilter INSTALL_NAMESPACE "kf5/urifilters" JSON kuriikwsfilter.json SOURCES ${kuriikwsfilter_SRCS})
-
 target_link_libraries(kuriikwsfilter
    KF5::ConfigWidgets  # KCModule
    KF5::KIOWidgets     # KUriFilter
@@ -31,7 +37,12 @@ target_link_libraries(kuriikwsfilter
 
 #####
 
-set(kurisearchfilter_SRCS
+kcoreaddons_add_plugin(kurisearchfilter
+    INSTALL_NAMESPACE "kf5/urifilters"
+    JSON kurisearchfilter.json
+)
+
+target_sources(kurisearchfilter PRIVATE
    kurisearchfilter.cpp
    kuriikwsfiltereng.cpp
    ikwsopts.cpp
@@ -40,9 +51,7 @@ set(kurisearchfilter_SRCS
    searchproviderregistry.cpp
 )
 
-ki18n_wrap_ui(kurisearchfilter_SRCS ikwsopts_ui.ui searchproviderdlg_ui.ui)
-
-kcoreaddons_add_plugin(kurisearchfilter INSTALL_NAMESPACE "kf5/urifilters" JSON kurisearchfilter.json SOURCES ${kurisearchfilter_SRCS})
+ki18n_wrap_ui(kurisearchfilter ikwsopts_ui.ui searchproviderdlg_ui.ui)
 
 target_link_libraries(kurisearchfilter
    KF5::ConfigWidgets  # KCModule

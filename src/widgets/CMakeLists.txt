@@ -4,7 +4,21 @@ set_package_properties(ACL PROPERTIES DESCRIPTION "LibACL" URL "ftp://oss.sgi.co
                        TYPE RECOMMENDED PURPOSE "Support for manipulating access control lists")
 configure_file(config-kiowidgets.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kiowidgets.h)
 
-set(kiowidgets_SRCS
+add_library(KF5KIOWidgets)
+add_library(KF5::KIOWidgets ALIAS KF5KIOWidgets)
+
+set_target_properties(KF5KIOWidgets PROPERTIES
+    VERSION     ${KIO_VERSION}
+    SOVERSION   ${KIO_SOVERSION}
+    EXPORT_NAME KIOWidgets
+)
+
+set(kiowidgets_dbus_SRCS)
+qt_add_dbus_adaptor(kiowidgets_dbus_SRCS org.kde.kio.FileUndoManager.xml fileundomanager_p.h KIO::FileUndoManagerPrivate fileundomanager_adaptor KIOFileUndoManagerAdaptor)
+qt_add_dbus_interface(kiowidgets_dbus_SRCS org.kde.kuiserver.xml kuiserver_interface)
+
+target_sources(KF5KIOWidgets PRIVATE
+  ${kiowidgets_dbus_SRCS}
   accessmanager.cpp
   accessmanagerreply_p.cpp
   fileundomanager.cpp
@@ -59,12 +73,12 @@ set(kiowidgets_SRCS
   widgetsaskuseractionhandler.cpp
 )
 if (NOT WIN32)
-  list(APPEND kiowidgets_SRCS
-    kautomount.cpp
-  )
+    target_sources(KF5KIOWidgets PRIVATE
+        kautomount.cpp
+    )
 endif()
 
-ecm_qt_declare_logging_category(kiowidgets_SRCS
+ecm_qt_declare_logging_category(KF5KIOWidgets
     HEADER kio_widgets_debug.h
     IDENTIFIER KIO_WIDGETS
     CATEGORY_NAME kf.kio.widgets
@@ -81,11 +95,7 @@ ecm_qt_export_logging_category(
     EXPORT KIO
 )
 
-qt_add_dbus_adaptor(kiowidgets_SRCS org.kde.kio.FileUndoManager.xml fileundomanager_p.h KIO::FileUndoManagerPrivate fileundomanager_adaptor KIOFileUndoManagerAdaptor)
-
-qt_add_dbus_interface(kiowidgets_SRCS org.kde.kuiserver.xml kuiserver_interface)
-
-ki18n_wrap_ui(kiowidgets_SRCS
+ki18n_wrap_ui(KF5KIOWidgets
   checksumswidget.ui
   certificateparty.ui
   sslinfo.ui
@@ -93,8 +103,6 @@ ki18n_wrap_ui(kiowidgets_SRCS
   kpropertiesdesktopbase.ui
 )
 
-add_library(KF5KIOWidgets ${kiowidgets_SRCS})
-add_library(KF5::KIOWidgets ALIAS KF5KIOWidgets)
 ecm_generate_export_header(KF5KIOWidgets
     BASE_NAME KIOWidgets
     GROUP_BASE_NAME KF
@@ -131,11 +139,6 @@ target_link_libraries(KF5KIOWidgets
 if(ACL_FOUND)
    target_link_libraries(KF5KIOWidgets PRIVATE ${ACL_LIBS})
 endif()
-
-set_target_properties(KF5KIOWidgets PROPERTIES VERSION ${KIO_VERSION}
-                                               SOVERSION ${KIO_SOVERSION}
-                                               EXPORT_NAME KIOWidgets
-)
 
 # Headers not prefixed with KIO/
 ecm_generate_headers(KIOWidgets_HEADERS

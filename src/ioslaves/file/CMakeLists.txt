@@ -1,11 +1,24 @@
 include(ConfigureChecks.cmake)
 
-########### next target ###############
+add_library(kio_file MODULE)
+
+set_target_properties(kio_file PROPERTIES
+    OUTPUT_NAME "file"
+    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin/kf5/kio"
+)
 
 if(WIN32)
-  set(kio_file_PART_SRCS file.cpp file_win.cpp )
+    target_sources(kio_file PRIVATE
+        file.cpp
+        file_win.cpp
+    )
 else()
-  set(kio_file_PART_SRCS file.cpp file_unix.cpp fdreceiver.cpp legacycodec.cpp )
+    target_sources(kio_file PRIVATE
+        file.cpp
+        file_unix.cpp
+        fdreceiver.cpp
+        legacycodec.cpp
+    )
 endif()
 
 check_include_files(sys/xattr.h HAVE_SYS_XATTR_H)
@@ -20,7 +33,6 @@ ecm_qt_export_logging_category(
     EXPORT KIO
 )
 
-add_library(kio_file MODULE ${kio_file_PART_SRCS})
 target_link_libraries(kio_file KF5::KIOCore KF5::I18n KF5::ConfigCore Qt5::DBus Qt5::Network)
 
 if(UNIX)
@@ -31,8 +43,6 @@ if(ACL_FOUND)
    target_link_libraries(kio_file ${ACL_LIBS})
 endif()
 
-set_target_properties(kio_file PROPERTIES OUTPUT_NAME "file")
-set_target_properties(kio_file PROPERTIES LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin/kf5/kio")
 install(TARGETS kio_file  DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf5/kio)
 
 if (UNIX)

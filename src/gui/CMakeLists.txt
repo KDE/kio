@@ -1,6 +1,15 @@
 configure_file(config-kiogui.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kiogui.h)
 
-set(kiogui_SRCS
+add_library(KF5KIOGui)
+add_library(KF5::KIOGui ALIAS KF5KIOGui)
+
+set_target_properties(KF5KIOGui PROPERTIES
+    VERSION     ${KIO_VERSION}
+    SOVERSION   ${KIO_SOVERSION}
+    EXPORT_NAME KIOGui
+)
+
+target_sources(KF5KIOGui PRIVATE
    applicationlauncherjob.cpp
    commandlauncherjob.cpp
    faviconrequestjob.cpp
@@ -19,12 +28,17 @@ if (CMAKE_SYSTEM_NAME STREQUAL "Linux")
 
     set_source_files_properties(${SYSTEMD_DBUS_XMLS} PROPERTIES INCLUDE systemd/dbustypes.h)
 
-    qt_add_dbus_interfaces(kiogui_SRCS ${SYSTEMD_DBUS_XMLS})
+    set(kiogui_dbus_SRCS)
+    qt_add_dbus_interfaces(kiogui_dbus_SRCS ${SYSTEMD_DBUS_XMLS})
 
-    list(APPEND kiogui_SRCS systemd/systemdprocessrunner.cpp systemd/scopedprocessrunner.cpp)
+    target_sources(KF5KIOGui PRIVATE
+        ${kiogui_dbus_SRCS}
+        systemd/systemdprocessrunner.cpp
+        systemd/scopedprocessrunner.cpp
+    )
 endif ()
 
-ecm_qt_declare_logging_category(kiogui_SRCS
+ecm_qt_declare_logging_category(KF5KIOGui
     HEADER kiogui_debug.h
     IDENTIFIER KIO_GUI
     CATEGORY_NAME kf.kio.gui
@@ -33,7 +47,7 @@ ecm_qt_declare_logging_category(kiogui_SRCS
     EXPORT KIO
 )
 
-ecm_qt_declare_logging_category(kiogui_SRCS
+ecm_qt_declare_logging_category(KF5KIOGui
     HEADER favicons_debug.h
     IDENTIFIER FAVICONS_LOG
     CATEGORY_NAME kf.kio.gui.favicons
@@ -42,9 +56,7 @@ ecm_qt_declare_logging_category(kiogui_SRCS
     EXPORT KIO
 )
 
-add_library(KF5KIOGui ${kiogui_SRCS})
 generate_export_header(KF5KIOGui BASE_NAME KIOGui)
-add_library(KF5::KIOGui ALIAS KF5KIOGui)
 
 target_include_directories(KF5KIOGui INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF5}/KIOGui>")
 
@@ -56,11 +68,6 @@ target_link_libraries(KF5KIOGui
     Qt5::Gui
   PRIVATE
     KF5::I18n
-)
-
-set_target_properties(KF5KIOGui PROPERTIES VERSION ${KIO_VERSION}
-                                               SOVERSION ${KIO_SOVERSION}
-                                               EXPORT_NAME KIOGui
 )
 
 # Headers prefixed with KIO/

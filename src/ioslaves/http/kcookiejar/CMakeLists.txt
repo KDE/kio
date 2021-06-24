@@ -1,12 +1,17 @@
 ####### kcookiejar: command line tool for talking to the kded kcookiejar module #######
+add_executable( kcookiejar5)
+ecm_mark_nongui_executable(kcookiejar5)
+
 qt_generate_dbus_interface(${CMAKE_CURRENT_SOURCE_DIR}/kcookieserver.h org.kde.KCookieServer.xml)
 set(kcookieserver_xml ${CMAKE_CURRENT_BINARY_DIR}/org.kde.KCookieServer.xml)
 set_source_files_properties(${kcookieserver_xml} PROPERTIES INCLUDE "kcookiejar_include.h")
-qt_add_dbus_interfaces(kcookiejar_SRCS ${kcookieserver_xml})
+set(kcookiejar_dbus_SRCS)
+qt_add_dbus_interfaces(kcookiejar_dbus_SRCS ${kcookieserver_xml})
 
-set(kcookiejar_SRCS ${kcookiejar_SRCS} main.cpp)
-add_executable( kcookiejar5 ${kcookiejar_SRCS})
-ecm_mark_nongui_executable(kcookiejar5)
+target_sources(kcookiejar5 PRIVATE
+    ${kcookiejar_dbus_SRCS}
+    main.cpp
+)
 
 target_link_libraries( kcookiejar5
    Qt5::DBus
@@ -18,7 +23,19 @@ install(TARGETS kcookiejar5 ${KF5_INSTALL_TARGETS_DEFAULT_ARGS} )
 
 ########### kded kcookiejar module ###############
 
-set(kded_kcookiejar_SRCS
+kcoreaddons_add_plugin(kded_kcookiejar
+    INSTALL_NAMESPACE "kf5/kded"
+    JSON kcookiejar.json
+)
+set_target_properties(kded_kcookiejar PROPERTIES
+    OUTPUT_NAME kcookiejar
+)
+
+set(kded_kcookiejar_dbus_SRCS)
+qt_add_dbus_adaptor(kded_kcookiejar_dbus_SRCS ${CMAKE_CURRENT_BINARY_DIR}/org.kde.KCookieServer.xml kcookieserver.h KCookieServer)
+
+target_sources(kded_kcookiejar PRIVATE
+   ${kded_kcookiejar_dbus_SRCS}
    kcookiejar.cpp
    kcookieserver.cpp
    kcookiewin.cpp
@@ -30,14 +47,6 @@ ecm_qt_export_logging_category(
     OLD_CATEGORY_NAMES kf5.kio.cookiejar
     DESCRIPTION "kcookiejar (KIO)"
     EXPORT KIO
-)
-
-qt_add_dbus_adaptor( kded_kcookiejar_SRCS ${CMAKE_CURRENT_BINARY_DIR}/org.kde.KCookieServer.xml kcookieserver.h KCookieServer )
-
-
-kcoreaddons_add_plugin(kded_kcookiejar INSTALL_NAMESPACE "kf5/kded" JSON kcookiejar.json SOURCES ${kded_kcookiejar_SRCS})
-set_target_properties(kded_kcookiejar PROPERTIES
-    OUTPUT_NAME kcookiejar
 )
 
 target_link_libraries(kded_kcookiejar

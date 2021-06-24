@@ -26,18 +26,34 @@ ecm_qt_declare_logging_category(kio_trash_PART_DEBUG_SRCS
     DESCRIPTION "kio trash (KIO)"
     EXPORT KIO
 )
+
+add_library(kio_trash MODULE)
+set_target_properties(kio_trash PROPERTIES
+    OUTPUT_NAME "trash"
+    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin/kf5/kio"
+)
+
 if(WIN32)
-  set(kio_trash_PART_SRCS kio_trash_win.cpp ${kio_trash_PART_DEBUG_SRCS})
-else()
-  # Files that are shared with the KCM. Unix specific.
-  set (trashcommon_unix_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/trashimpl.cpp
-                             ${CMAKE_CURRENT_SOURCE_DIR}/discspaceutil.cpp
-                             ${CMAKE_CURRENT_SOURCE_DIR}/trashsizecache.cpp
-                             ${CMAKE_CURRENT_SOURCE_DIR}/kinterprocesslock.cpp
+    target_sources(kio_trash PRIVATE
+        kio_trash_win.cpp
+        ${kio_trash_PART_DEBUG_SRCS}
     )
-  set(kio_trash_PART_SRCS kio_trash.cpp ${trashcommon_unix_SRCS} ${kio_trash_PART_DEBUG_SRCS})
+else()
+    # Files that are shared with the KCM. Unix specific.
+    add_library(trash_common_unix INTERFACE)
+    target_sources(trash_common_unix INTERFACE
+        ${CMAKE_CURRENT_SOURCE_DIR}/trashimpl.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/discspaceutil.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/trashsizecache.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/kinterprocesslock.cpp
+        ${kio_trash_PART_DEBUG_SRCS}
+    )
+    target_link_libraries(kio_trash trash_common_unix)
+
+    target_sources(kio_trash PRIVATE
+        kio_trash.cpp
+    )
 endif()
-add_library(kio_trash MODULE ${kio_trash_PART_SRCS})
 
 target_link_libraries(kio_trash
   KF5::ConfigCore
@@ -51,15 +67,18 @@ target_link_libraries(kio_trash
 if(APPLE)
     target_link_libraries(kio_trash "-framework DiskArbitration -framework CoreFoundation")
 endif(APPLE)
-set_target_properties(kio_trash PROPERTIES OUTPUT_NAME "trash")
-set_target_properties(kio_trash PROPERTIES LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin/kf5/kio")
+
 install(TARGETS kio_trash  DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf5/kio )
 
-set(ktrash_SRCS ktrash.cpp )
 
-add_executable(ktrash5 ${ktrash_SRCS})
-target_compile_definitions(ktrash5 PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
+add_executable(ktrash5)
 ecm_mark_nongui_executable(ktrash5)
+
+target_sources(ktrash5 PRIVATE
+    ktrash.cpp
+)
+
+target_compile_definitions(ktrash5 PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
 
 target_link_libraries(ktrash5
   KF5::KIOCore
@@ -73,9 +92,12 @@ install(TARGETS ktrash5 ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
 
 # currently not on win32, TODO!
 if(NOT WIN32 AND NOT KIOCORE_ONLY)
-    set(kcm_trash_PART_SRCS kcmtrash.cpp ${trashcommon_unix_SRCS} ${kio_trash_PART_DEBUG_SRCS})
-    add_library(kcm_trash MODULE ${kcm_trash_PART_SRCS})
+    add_library(kcm_trash MODULE)
+    target_sources(kcm_trash PRIVATE
+        kcmtrash.cpp
+    )
     target_link_libraries(kcm_trash
+       trash_common_unix
        Qt5::DBus
        KF5::I18n
        KF5::ConfigWidgets

@@ -1,6 +1,4 @@
-set(kcm_webshortcuts_PART_SRCS main.cpp )
-
-add_library(kcm_webshortcuts MODULE ${kcm_webshortcuts_PART_SRCS})
+add_library(kcm_webshortcuts MODULE main.cpp)
 
 target_link_libraries(kcm_webshortcuts
   PUBLIC

@@ -1,8 +1,15 @@
 include(ECMMarkNonGuiExecutable)
 
-set(kiod_SRCS kiod_main.cpp)
+add_executable(kiod5)
+
+target_sources(kiod5 PRIVATE
+    kiod_main.cpp
+)
+
 if (APPLE)
-    set(kiod_SRCS ${kiod_SRCS} kiod_agent.mm)
+    target_sources(kiod5 PRIVATE
+        kiod_agent.mm
+    )
 endif()
 
 ecm_qt_export_logging_category(
@@ -12,8 +19,6 @@ ecm_qt_export_logging_category(
     DESCRIPTION "KIO Daemon (KIO)"
     EXPORT KIO
 )
-
-add_executable(kiod5 ${kiod_SRCS})
 
 target_link_libraries(kiod5
    KF5::KIOCore     # ksslcertificatemanager

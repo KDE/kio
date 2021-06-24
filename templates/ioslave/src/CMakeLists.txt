@@ -1,11 +1,14 @@
 add_definitions(-DTRANSLATION_DOMAIN=\"%{APPNAMELC}\")
 
-set(%{APPNAMELC}_SRCS
+add_library(%{APPNAMELC} MODULE)
+set_target_properties(%{APPNAMELC} PROPERTIES OUTPUT_NAME "myproto")
+
+target_sources(%{APPNAMELC} PRIVATE
     mydatasystem.cpp
     %{APPNAMELC}.cpp
 )
 
-ecm_qt_declare_logging_category(%{APPNAMELC}_SRCS
+ecm_qt_declare_logging_category(%{APPNAMELC}
     HEADER %{APPNAMELC}_log.h
     IDENTIFIER %{APPNAMEUC}_LOG
     CATEGORY_NAME kf.kio.slave.%{APPNAMELC}
@@ -13,9 +16,6 @@ ecm_qt_declare_logging_category(%{APPNAMELC}_SRCS
     DEFAULT_SEVERITY Debug # Change "Debug" to "Info" once doing first releases
     EXPORT %{APPNAMEUC}
 )
-
-add_library(%{APPNAMELC} MODULE ${%{APPNAMELC}_SRCS})
-set_target_properties(%{APPNAMELC} PROPERTIES OUTPUT_NAME "myproto")
 
 target_link_libraries(%{APPNAMELC}
     KF5::KIOCore

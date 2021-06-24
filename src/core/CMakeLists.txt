@@ -16,7 +16,16 @@ configure_file(config-kmountpoint.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kmo
 #   include_directories(${OPENSSL_INCLUDE_DIR})
 #endif()
 
-set(kiocore_SRCS
+add_library(KF5KIOCore)
+add_library(KF5::KIOCore ALIAS KF5KIOCore)
+
+set_target_properties(KF5KIOCore PROPERTIES
+    VERSION     ${KIO_VERSION}
+    SOVERSION   ${KIO_SOVERSION}
+    EXPORT_NAME KIOCore
+)
+
+target_sources(KF5KIOCore PRIVATE
   idleslave.cpp
   connectionbackend.cpp
   connection.cpp
@@ -96,7 +105,7 @@ set(kiocore_SRCS
   batchrenamejob.cpp
 )
 
-ecm_qt_declare_logging_category(kiocore_SRCS
+ecm_qt_declare_logging_category(KF5KIOCore
     HEADER kiocoredebug.h
     IDENTIFIER KIO_CORE
     CATEGORY_NAME kf.kio.core
@@ -133,23 +142,29 @@ ecm_qt_export_logging_category(
 )
 
 if (UNIX)
-   set(kiocore_SRCS ${kiocore_SRCS}
+   target_sources(KF5KIOCore PRIVATE
       kioglobal_p_unix.cpp
    )
 endif()
 if (WIN32)
-   set(kiocore_SRCS ${kiocore_SRCS}
+   target_sources(KF5KIOCore PRIVATE
       kioglobal_p_win.cpp
    )
 endif()
 
-qt_add_dbus_interface(kiocore_SRCS org.kde.KSlaveLauncher.xml klauncher_interface)
-qt_add_dbus_interface(kiocore_SRCS org.kde.KIOFuse.VFS.xml kiofuse_interface)
+set(kiocore_dbus_SRCS)
+qt_add_dbus_interface(kiocore_dbus_SRCS org.kde.KSlaveLauncher.xml klauncher_interface)
+qt_add_dbus_interface(kiocore_dbus_SRCS org.kde.KIOFuse.VFS.xml kiofuse_interface)
 
 set_source_files_properties(org.kde.KPasswdServer.xml
         PROPERTIES INCLUDE authinfo.h
 )
-qt_add_dbus_interface(kiocore_SRCS org.kde.KPasswdServer.xml kpasswdserver_interface)
+qt_add_dbus_interface(kiocore_dbus_SRCS org.kde.KPasswdServer.xml kpasswdserver_interface)
+
+target_sources(KF5KIOCore PRIVATE
+    ${kiocore_dbus_SRCS}
+)
+
 install(FILES
    org.kde.KDirNotify.xml
    DESTINATION ${KDE_INSTALL_DBUSINTERFACEDIR}
@@ -163,8 +178,6 @@ install(FILES
    DESTINATION ${KDE_INSTALL_DBUSINTERFACEDIR}
    RENAME kf5_org.kde.KSlaveLauncher.xml)
 
-add_library(KF5KIOCore ${kiocore_SRCS})
-add_library(KF5::KIOCore ALIAS KF5KIOCore)
 ecm_generate_export_header(KF5KIOCore
     BASE_NAME KIOCore
     GROUP_BASE_NAME KF
@@ -205,11 +218,6 @@ endif()
 if(ACL_FOUND)
   target_link_libraries(KF5KIOCore PRIVATE ${ACL_LIBS})
 endif()
-
-set_target_properties(KF5KIOCore PROPERTIES VERSION ${KIO_VERSION}
-                                            SOVERSION ${KIO_SOVERSION}
-                                            EXPORT_NAME KIOCore
-)
 
 # this should be done by cmake, see bug 371721
 if(CMAKE_CXX_COMPILER_ID STREQUAL "Clang" OR CMAKE_CXX_COMPILER_ID STREQUAL "GNU" AND Qt5Core_VERSION VERSION_GREATER 5.8.0)

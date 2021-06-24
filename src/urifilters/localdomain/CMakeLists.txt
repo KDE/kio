@@ -1,4 +1,11 @@
-set(localdomainurifilter_SRCS localdomainurifilter.cpp )
+kcoreaddons_add_plugin(localdomainurifilter
+    INSTALL_NAMESPACE "kf5/urifilters"
+    JSON localdomainurifilter.json
+)
+
+target_sources(localdomainurifilter PRIVATE
+    localdomainurifilter.cpp
+)
 
 ecm_qt_export_logging_category(
     IDENTIFIER category
@@ -8,8 +15,6 @@ ecm_qt_export_logging_category(
     DESCRIPTION "KUriFilter Local Domain (KIO)"
     EXPORT KIO
 )
-
-kcoreaddons_add_plugin(localdomainurifilter INSTALL_NAMESPACE "kf5/urifilters" JSON localdomainurifilter.json SOURCES ${localdomainurifilter_SRCS})
 
 target_link_libraries(localdomainurifilter KF5::KIOWidgets)
 

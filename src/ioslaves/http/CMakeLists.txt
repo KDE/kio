@@ -29,15 +29,13 @@ endif()
 
 ########### next target ###############
 
-set(kio_http_cache_cleaner_SRCS
-   http_cache_cleaner.cpp
-   )
-
-
-add_executable(kio_http_cache_cleaner ${kio_http_cache_cleaner_SRCS})
-
+add_executable(kio_http_cache_cleaner)
 # Mark it as non-gui so we won't create an app bundle on Mac OS X
 ecm_mark_nongui_executable(kio_http_cache_cleaner)
+
+target_sources(kio_http_cache_cleaner PRIVATE
+    http_cache_cleaner.cpp
+)
 
 target_link_libraries(kio_http_cache_cleaner
    Qt5::DBus
@@ -51,7 +49,14 @@ install(TARGETS kio_http_cache_cleaner DESTINATION ${KDE_INSTALL_LIBEXECDIR_KF5}
 
 # kio/httpfilter/Makefile.am: httpfilter
 
-set(kio_http_PART_SRCS
+add_library(kio_http MODULE)
+
+set_target_properties(kio_http PROPERTIES
+    OUTPUT_NAME "http"
+    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin/kf5/kio"
+)
+
+target_sources(kio_http PRIVATE
    http.cpp
    httpauthentication.cpp
    httpfilter.cpp
@@ -82,8 +87,6 @@ ecm_qt_export_logging_category(
     EXPORT KIO
 )
 
-add_library(kio_http MODULE ${kio_http_PART_SRCS})
-
 target_link_libraries(kio_http
    Qt5::DBus
    Qt5::Network # QLocalSocket etc.
@@ -98,8 +101,6 @@ if(GSSAPI_FOUND)
   target_link_libraries(kio_http ${GSSAPI_LIBS} )
 endif()
 
-set_target_properties(kio_http PROPERTIES OUTPUT_NAME "http")
-set_target_properties(kio_http PROPERTIES LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin/kf5/kio")
 install(TARGETS kio_http  DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf5/kio)
 
 

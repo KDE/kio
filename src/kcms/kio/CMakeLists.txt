@@ -1,9 +1,9 @@
 
 find_package(KF5TextWidgets ${KF_DEP_VERSION} REQUIRED)
 
-########### next target ###############
+add_library(kcm_kio MODULE)
 
-set(kcm_kio_PART_SRCS
+target_sources(kcm_kio PRIVATE
     main.cpp
     kcookiesmain.cpp
     kcookiespolicies.cpp
@@ -14,13 +14,11 @@ set(kcm_kio_PART_SRCS
     netpref.cpp
     ksaveioconfig.cpp)
 
-ki18n_wrap_ui(kcm_kio_PART_SRCS
+ki18n_wrap_ui(kcm_kio
     kproxydlg.ui
     kcookiespolicies.ui
     kcookiesmanagement.ui
     kcookiespolicyselectiondlg.ui)
-
-add_library(kcm_kio MODULE ${kcm_kio_PART_SRCS})
 
 target_link_libraries(kcm_kio
   PUBLIC

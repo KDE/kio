@@ -1,9 +1,14 @@
 
 ########### kssld kiod module ###############
 
-set(kssld_SRCS kssld.cpp )
+kcoreaddons_add_plugin(kssld
+    INSTALL_NAMESPACE "kf5/kiod"
+    JSON kssld.json
+)
 
-kcoreaddons_add_plugin(kssld INSTALL_NAMESPACE "kf5/kiod" JSON kssld.json SOURCES ${kssld_SRCS})
+target_sources(kssld PRIVATE
+    kssld.cpp
+)
 
 target_link_libraries(kssld
 PUBLIC

@@ -21,17 +21,21 @@ find_package(Qt5Qml ${REQUIRED_QT_VERSION})
 
 if (Qt5Qml_FOUND)
 
-    set(kded_proxyscout_PART_SRCS
+    kcoreaddons_add_plugin(kded_proxyscout
+        INSTALL_NAMESPACE "kf5/kded"
+        JSON proxyscout.json
+    )
+    set_target_properties(kded_proxyscout PROPERTIES
+        OUTPUT_NAME proxyscout
+    )
+
+    target_sources(kded_proxyscout PRIVATE
       proxyscout.cpp
       script.cpp
       downloader.cpp
       discovery.cpp
     )
 
-    kcoreaddons_add_plugin(kded_proxyscout INSTALL_NAMESPACE "kf5/kded" JSON proxyscout.json SOURCES ${kded_proxyscout_PART_SRCS})
-    set_target_properties(kded_proxyscout PROPERTIES
-        OUTPUT_NAME proxyscout
-    )
     target_link_libraries(kded_proxyscout
        Qt5::Network
        Qt5::Qml
@@ -57,8 +61,12 @@ set_package_properties(Qt5Qml PROPERTIES DESCRIPTION "QtQml, one of the Qt5 modu
 
 ########### next target ###############
 
-add_executable(kpac_dhcp_helper kpac_dhcp_helper.c)
+add_executable(kpac_dhcp_helper)
 ecm_mark_nongui_executable(kpac_dhcp_helper)
+
+target_sources(kpac_dhcp_helper PRIVATE
+    kpac_dhcp_helper.c
+)
 
 if (HAVE_NSL_LIBRARY)
   # Assume Solaris
