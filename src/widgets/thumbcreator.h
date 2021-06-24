@@ -38,8 +38,7 @@ class QWidget;
  * Compile your ThumbCreator as a module; for example, the relevant CMake code
  * for a thumbnailer for the "foo" filetype might look like
  * \code
- * set(foothumbnail_SRCS foothumbnail.cpp)
- * add_library(foothumbnail MODULE ${foothumbnail_SRCS})
+ * add_library(foothumbnail MODULE foothumbnail.cpp)
  * target_link_libraries(foothumbnail PRIVATE KF5::KIOWidgets)
  *
  * install(TARGETS foothumbnail DESTINATION ${KDE_INSTALL_PLUGINDIR})
