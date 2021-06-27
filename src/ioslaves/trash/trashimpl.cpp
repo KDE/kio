@@ -10,12 +10,6 @@
 #include "kiotrashdebug.h"
 #include "trashsizecache.h"
 
-#include <KConfigGroup>
-#include <KFileUtils>
-#include <KLocalizedString>
-#include <KSharedConfig>
-#include <QDebug>
-#include <QUrl>
 #include <kdirnotify.h>
 #include <kfileitem.h>
 #include <kio/chmodjob.h>
@@ -23,11 +17,24 @@
 #include <kio/deletejob.h>
 #include <kmountpoint.h>
 
+#include <KConfigGroup>
+#include <KFileUtils>
 #include <KJobUiDelegate>
+#include <KLocalizedString>
+#include <KSharedConfig>
+#include <solid/block.h>
+#include <solid/device.h>
+#include <solid/networkshare.h>
+#include <solid/storageaccess.h>
+
 #include <QCoreApplication>
+#include <QDebug>
 #include <QDir>
 #include <QEventLoop>
 #include <QFile>
+#include <QLockFile>
+#include <QStandardPaths>
+#include <QUrl>
 
 #include <cerrno>
 #include <dirent.h>
@@ -37,13 +44,6 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <unistd.h>
-
-#include <QLockFile>
-#include <QStandardPaths>
-#include <solid/block.h>
-#include <solid/device.h>
-#include <solid/networkshare.h>
-#include <solid/storageaccess.h>
 
 TrashImpl::TrashImpl()
     : QObject()

@@ -6,22 +6,21 @@
 */
 
 #include <QDBusInterface>
+#include <QDebug>
 #include <QObject>
 #include <QSignalSpy>
 #include <QTemporaryDir>
+#include <QTest>
 
 #include <KBookmark>
 #include <KBookmarkManager>
 #include <KConfig>
 #include <KConfigGroup>
 #include <KProtocolInfo>
-#include <QDebug>
+#include <QStandardPaths>
 #include <kfileplacesmodel.h>
 #include <solid/device.h>
 
-#include <QTest>
-
-#include <QStandardPaths>
 #include <stdlib.h>
 
 Q_DECLARE_METATYPE(KFilePlacesModel::GroupType)
