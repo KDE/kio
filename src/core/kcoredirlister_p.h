@@ -15,13 +15,14 @@
 #include <QFileInfo>
 #include <QHash>
 #include <QMap>
-#include <QSet>
 #include <QTimer>
 #include <QUrl>
 #include <QVector>
 
 #include <KDirWatch>
 #include <kio/global.h>
+
+#include <set>
 
 class QRegularExpression;
 class KCoreDirLister;
@@ -268,7 +269,7 @@ private:
      * The caller has to remember to call emitItems in the set of dirlisters returned
      * (but this allows to buffer change notifications)
      */
-    QSet<KCoreDirLister *> emitRefreshItem(const KFileItem &oldItem, const KFileItem &fileitem);
+    std::set<KCoreDirLister *> emitRefreshItem(const KFileItem &oldItem, const KFileItem &fileitem);
 
     /**
      * Remove the item from the sorted by url list matching @p oldUrl,
@@ -302,7 +303,7 @@ private:
      * @param dir path to the target directory.
      * @return names listed in the directory's ".hidden" file (empty if it doesn't exist).
      */
-    QSet<QString> filesInDotHiddenForDir(const QString &dir);
+    std::set<QString> filesInDotHiddenForDir(const QString &dir);
 
 #ifndef NDEBUG
     void printDebug();
@@ -427,13 +428,13 @@ private:
 
     // definition of the cache of ".hidden" files
     struct CacheHiddenFile {
-        CacheHiddenFile(const QDateTime &mtime, const QSet<QString> &listedFiles)
+        CacheHiddenFile(const QDateTime &mtime, const std::set<QString> &listedFilesParam)
             : mtime(mtime)
-            , listedFiles(listedFiles)
+            , listedFiles(listedFilesParam)
         {
         }
         QDateTime mtime;
-        QSet<QString> listedFiles;
+        std::set<QString> listedFiles;
     };
 
     QMap<KIO::ListJob *, KIO::UDSEntryList> runningListJobs;
@@ -455,8 +456,8 @@ private:
 
     // Set of local files that we have changed recently (according to KDirWatch)
     // We temporize the notifications by keeping them 500ms in this list.
-    QSet<QString /*path*/> pendingUpdates;
-    QSet<QString /*path*/> pendingDirectoryUpdates;
+    std::set<QString /*path*/> pendingUpdates;
+    std::set<QString /*path*/> pendingDirectoryUpdates;
     // The timer for doing the delayed updates
     QTimer pendingUpdateTimer;
 
@@ -464,7 +465,7 @@ private:
     // changes yet, we need to wait for the "update" directory listing.
     // The cmp() call can't differ MIME types since they are determined on demand,
     // this is why we need to remember those files here.
-    QSet<KFileItem> pendingRemoteUpdates;
+    std::set<KFileItem> pendingRemoteUpdates;
 
     // the KDirNotify signals
     OrgKdeKDirNotifyInterface *kdirnotify;
