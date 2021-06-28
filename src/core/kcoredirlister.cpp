@@ -104,7 +104,7 @@ bool KCoreDirListerCache::listDir(KCoreDirLister *lister, const QUrl &dirUrl, bo
             canonicalUrls[QUrl::fromLocalFile(resolved)].append(_url);
         }
         // TODO: remove entry from canonicalUrls again in forgetDirs
-        // Note: this is why we use a QStringList value in there rather than a QSet:
+        // Note: this is why we use a QStringList value in there rather than a std::set:
         // we can just remove one entry and not have to worry about other dirlisters
         // (the non-unicity of the stringlist gives us the refcounting, basically).
     }
@@ -954,7 +954,7 @@ void KCoreDirListerCache::slotFileRenamed(const QString &_src, const QString &_d
         fileitem.determineMimeType();
         reinsert(fileitem, itemOldUrl);
 
-        const QSet<KCoreDirLister *> listers = emitRefreshItem(oldItem, fileitem);
+        const std::set<KCoreDirLister *> listers = emitRefreshItem(oldItem, fileitem);
         for (KCoreDirLister *kdl : listers) {
             kdl->d->emitItems();
         }
@@ -965,7 +965,7 @@ void KCoreDirListerCache::slotFileRenamed(const QString &_src, const QString &_d
 #endif
 }
 
-QSet<KCoreDirLister *> KCoreDirListerCache::emitRefreshItem(const KFileItem &oldItem, const KFileItem &fileitem)
+std::set<KCoreDirLister *> KCoreDirListerCache::emitRefreshItem(const KFileItem &oldItem, const KFileItem &fileitem)
 {
     qCDebug(KIO_CORE_DIRLISTER) << "old:" << oldItem.name() << oldItem.url() << "new:" << fileitem.name() << fileitem.url();
     // Look whether this item was shown in any view, i.e. held by any dirlister
@@ -983,7 +983,7 @@ QSet<KCoreDirLister *> KCoreDirListerCache::emitRefreshItem(const KFileItem &old
             listers += (*dit).listersCurrentlyHolding + (*dit).listersCurrentlyListing;
         }
     }
-    QSet<KCoreDirLister *> listersToRefresh;
+    std::set<KCoreDirLister *> listersToRefresh;
     for (KCoreDirLister *kdl : qAsConst(listers)) {
         // For a directory, look for dirlisters where it's the root item.
         QUrl directoryUrl(oldItem.url());
@@ -1068,19 +1068,21 @@ void KCoreDirListerCache::handleDirDirty(const QUrl &url)
     if (!dirPath.endsWith(QLatin1Char('/'))) {
         dirPath += QLatin1Char('/');
     }
-    QMutableSetIterator<QString> pendingIt(pendingUpdates);
-    while (pendingIt.hasNext()) {
-        const QString updPath = pendingIt.next();
+
+    for (auto pendingIt = pendingUpdates.cbegin(); pendingIt != pendingUpdates.cend(); /* */) {
+        const QString updPath = *pendingIt;
         qCDebug(KIO_CORE_DIRLISTER) << "had pending update" << updPath;
         if (updPath.startsWith(dirPath) && updPath.indexOf(QLatin1Char('/'), dirPath.length()) == -1) { // direct child item
             qCDebug(KIO_CORE_DIRLISTER) << "forgetting about individual update to" << updPath;
-            pendingIt.remove();
+            pendingIt = pendingUpdates.erase(pendingIt);
+        } else {
+            ++pendingIt;
         }
     }
 
-    if (checkUpdate(url) && !pendingDirectoryUpdates.contains(dir)) {
-        pendingDirectoryUpdates.insert(dir);
-        if (!pendingUpdateTimer.isActive()) {
+    if (checkUpdate(url)) {
+        const auto [it, isInserted] = pendingDirectoryUpdates.insert(dir);
+        if (isInserted && !pendingUpdateTimer.isActive()) {
             pendingUpdateTimer.start(200);
         }
     }
@@ -1099,9 +1101,9 @@ void KCoreDirListerCache::handleFileDirty(const QUrl &url)
     }
 
     // Delay updating the file, FAM is flooding us with events
-    if (checkUpdate(dir) && !pendingUpdates.contains(filePath)) {
-        pendingUpdates.insert(filePath);
-        if (!pendingUpdateTimer.isActive()) {
+    if (checkUpdate(dir)) {
+        const auto [it, isInserted] = pendingUpdates.insert(filePath);
+        if (isInserted && !pendingUpdateTimer.isActive()) {
             pendingUpdateTimer.start(200);
         }
     }
@@ -1168,7 +1170,7 @@ void KCoreDirListerCache::slotEntries(KIO::Job *job, const KIO::UDSEntryList &en
         delayedMimeTypes &= kdl->d->delayedMimeTypes;
     }
 
-    QSet<QString> filesToHide;
+    std::set<QString> filesToHide;
     bool dotHiddenChecked = false;
     KIO::UDSEntryList::const_iterator it = entries.begin();
     const KIO::UDSEntryList::const_iterator end = entries.end();
@@ -1213,7 +1215,7 @@ void KCoreDirListerCache::slotEntries(KIO::Job *job, const KIO::UDSEntryList &en
             }
 
             // hide file if listed in ".hidden"
-            if (filesToHide.contains(name)) {
+            if (filesToHide.find(name) != filesToHide.cend()) {
                 item.setHidden();
             }
 
@@ -1532,7 +1534,7 @@ void KCoreDirListerCache::renameDir(const QUrl &oldUrl, const QUrl &newUrl)
     qCDebug(KIO_CORE_DIRLISTER) << oldUrl << "->" << newUrl;
 
     std::vector<ItemInUseChange> itemsToChange;
-    QSet<KCoreDirLister *> listers;
+    std::set<KCoreDirLister *> listers;
 
     // Look at all dirs being listed/shown
     for (auto itu = itemsInUse.begin(), ituend = itemsInUse.end(); itu != ituend; ++itu) {
@@ -1566,14 +1568,14 @@ void KCoreDirListerCache::renameDir(const QUrl &oldUrl, const QUrl &newUrl)
                 qCDebug(KIO_CORE_DIRLISTER) << "renaming" << oldItemUrl << "to" << newItemUrl;
                 newItem.setUrl(newItemUrl);
 
-                listers |= emitRefreshItem(oldItem, newItem);
+                listers.merge(emitRefreshItem(oldItem, newItem));
                 // Change the item
                 item.setUrl(newItemUrl);
             }
         }
     }
 
-    for (KCoreDirLister *kdl : qAsConst(listers)) {
+    for (KCoreDirLister *kdl : listers) {
         kdl->d->emitItems();
     }
 
@@ -1741,7 +1743,7 @@ void KCoreDirListerCache::slotUpdateResult(KJob *j)
         fileItems.insert(item.name(), item);
     }
 
-    QSet<QString> filesToHide;
+    std::set<QString> filesToHide;
     bool dotHiddenChecked = false;
     const KIO::UDSEntryList &buf = runningListJobs.value(job);
     KIO::UDSEntryList::const_iterator it = buf.constBegin();
@@ -1785,7 +1787,7 @@ void KCoreDirListerCache::slotUpdateResult(KJob *j)
         }
 
         // hide file if listed in ".hidden"
-        if (filesToHide.contains(name)) {
+        if (filesToHide.find(name) != filesToHide.cend()) {
             item.setHidden();
         }
 
@@ -1793,8 +1795,8 @@ void KCoreDirListerCache::slotUpdateResult(KJob *j)
         FileItemHash::iterator fiit = fileItems.find(item.name());
         if (fiit != fileItems.end()) {
             const KFileItem tmp = fiit.value();
-            QSet<KFileItem>::iterator pru_it = pendingRemoteUpdates.find(tmp);
-            const bool inPendingRemoteUpdates = (pru_it != pendingRemoteUpdates.end());
+            auto pru_it = pendingRemoteUpdates.find(tmp);
+            const bool inPendingRemoteUpdates = pru_it != pendingRemoteUpdates.end();
 
             // check if something changed for this file, using KFileItem::cmp()
             if (!tmp.cmp(item) || inPendingRemoteUpdates) {
@@ -1991,8 +1993,8 @@ void KCoreDirListerCache::deleteDir(const QUrl &_dirUrl)
 // delayed updating of files, FAM is flooding us with events
 void KCoreDirListerCache::processPendingUpdates()
 {
-    QSet<KCoreDirLister *> listers;
-    for (const QString &file : qAsConst(pendingUpdates)) { // always a local path
+    std::set<KCoreDirLister *> listers;
+    for (const QString &file : pendingUpdates) { // always a local path
         qCDebug(KIO_CORE_DIRLISTER) << file;
         QUrl u = QUrl::fromLocalFile(file);
         KFileItem item = findByUrl(nullptr, u); // search all items
@@ -2003,17 +2005,17 @@ void KCoreDirListerCache::processPendingUpdates()
 
             if (!oldItem.cmp(item)) {
                 reinsert(item, oldItem.url());
-                listers |= emitRefreshItem(oldItem, item);
+                listers.merge(emitRefreshItem(oldItem, item));
             }
         }
     }
     pendingUpdates.clear();
-    for (KCoreDirLister *kdl : qAsConst(listers)) {
+    for (KCoreDirLister *kdl : listers) {
         kdl->d->emitItems();
     }
 
     // Directories in need of updating
-    for (const QString &dir : qAsConst(pendingDirectoryUpdates)) {
+    for (const QString &dir : pendingDirectoryUpdates) {
         updateDirectory(QUrl::fromLocalFile(dir));
     }
     pendingDirectoryUpdates.clear();
@@ -2224,7 +2226,7 @@ void KCoreDirListerPrivate::emitChanges()
     settings = oldSettings; // temporarily
 
     // Fill hash with all items that are currently visible
-    QSet<QString> oldVisibleItems;
+    std::set<QString> oldVisibleItems;
     for (const QUrl &dir : qAsConst(lstDirs)) {
         const QList<KFileItem> *itemList = kDirListerCache()->itemsForDir(dir);
         if (!itemList) {
@@ -2257,7 +2259,7 @@ void KCoreDirListerPrivate::emitChanges()
             if (text == QLatin1Char('.') || text == QLatin1String("..")) {
                 continue;
             }
-            const bool wasVisible = oldVisibleItems.contains(item.name());
+            const bool wasVisible = oldVisibleItems.find(item.name()) != oldVisibleItems.cend();
             const bool nowVisible = isItemVisible(item) && q->matchesMimeFilter(item);
             if (nowVisible && !wasVisible) {
                 addNewItem(dir, item); // takes care of emitting newItem or itemsFilteredByMime
@@ -2802,7 +2804,7 @@ void KCoreDirLister::setAutoErrorHandlingEnabled(bool enable)
     d->m_autoErrorHandling = enable;
 }
 
-QSet<QString> KCoreDirListerCache::filesInDotHiddenForDir(const QString &dir)
+std::set<QString> KCoreDirListerCache::filesInDotHiddenForDir(const QString &dir)
 {
     const QString path = dir + QLatin1String("/.hidden");
     QFile dotHiddenFile(path);
@@ -2818,7 +2820,7 @@ QSet<QString> KCoreDirListerCache::filesInDotHiddenForDir(const QString &dir)
         } else {
             // read the ".hidden" file, then cache it and return it
             if (dotHiddenFile.open(QIODevice::ReadOnly | QIODevice::Text)) {
-                QSet<QString> filesToHide;
+                std::set<QString> filesToHide;
                 QTextStream stream(&dotHiddenFile);
                 while (!stream.atEnd()) {
                     QString name = stream.readLine();
@@ -2832,7 +2834,7 @@ QSet<QString> KCoreDirListerCache::filesInDotHiddenForDir(const QString &dir)
         }
     }
 
-    return QSet<QString>();
+    return {};
 }
 
 #include "moc_kcoredirlister.cpp"
