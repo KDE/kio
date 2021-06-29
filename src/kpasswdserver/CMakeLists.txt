@@ -17,7 +17,6 @@ endif()
 
 kcoreaddons_add_plugin(kiod_kpasswdserver
     INSTALL_NAMESPACE "kf5/kiod"
-    JSON kpasswdserver.json
 )
 set_target_properties(kiod_kpasswdserver PROPERTIES
     OUTPUT_NAME kpasswdserver

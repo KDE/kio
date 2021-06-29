@@ -1,6 +1,5 @@
 kcoreaddons_add_plugin(localdomainurifilter
     INSTALL_NAMESPACE "kf5/urifilters"
-    JSON localdomainurifilter.json
 )
 
 target_sources(localdomainurifilter PRIVATE

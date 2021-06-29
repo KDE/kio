@@ -3,7 +3,6 @@
 
 kcoreaddons_add_plugin(kssld
     INSTALL_NAMESPACE "kf5/kiod"
-    JSON kssld.json
 )
 
 target_sources(kssld PRIVATE

@@ -1,5 +1,4 @@
 kcoreaddons_add_plugin(kioexecd
-    JSON kioexecd.json
     INSTALL_NAMESPACE "kf5/kiod")
 
 set(kioexecd_dbus_SRCS)

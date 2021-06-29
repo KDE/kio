@@ -1,6 +1,5 @@
 kcoreaddons_add_plugin(kshorturifilter
     INSTALL_NAMESPACE "kf5/urifilters"
-    JSON kshorturifilter.json
     SERVICETYPES ${CMAKE_SOURCE_DIR}/src/widgets/kurifilterplugin.desktop
 )
 

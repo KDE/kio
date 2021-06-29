@@ -4,7 +4,6 @@ add_subdirectory(searchproviders)
 
 kcoreaddons_add_plugin(kuriikwsfilter
     INSTALL_NAMESPACE "kf5/urifilters"
-    JSON kuriikwsfilter.json
 )
 
 target_sources(kuriikwsfilter PRIVATE
@@ -39,7 +38,6 @@ target_link_libraries(kuriikwsfilter
 
 kcoreaddons_add_plugin(kurisearchfilter
     INSTALL_NAMESPACE "kf5/urifilters"
-    JSON kurisearchfilter.json
 )
 
 target_sources(kurisearchfilter PRIVATE

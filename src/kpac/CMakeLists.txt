@@ -23,7 +23,6 @@ if (Qt5Qml_FOUND)
 
     kcoreaddons_add_plugin(kded_proxyscout
         INSTALL_NAMESPACE "kf5/kded"
-        JSON proxyscout.json
     )
     set_target_properties(kded_proxyscout PROPERTIES
         OUTPUT_NAME proxyscout

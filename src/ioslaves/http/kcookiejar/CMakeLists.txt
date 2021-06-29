@@ -25,7 +25,6 @@ install(TARGETS kcookiejar5 ${KF5_INSTALL_TARGETS_DEFAULT_ARGS} )
 
 kcoreaddons_add_plugin(kded_kcookiejar
     INSTALL_NAMESPACE "kf5/kded"
-    JSON kcookiejar.json
 )
 set_target_properties(kded_kcookiejar PROPERTIES
     OUTPUT_NAME kcookiejar
