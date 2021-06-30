@@ -104,6 +104,7 @@ Query[ko]=https://dle.rae.es/\\{@}
 Query[nl]=https://dle.rae.es/\\{@}
 Query[pl]=https://dle.rae.es/\\{@}
 Query[pt]=https://dle.rae.es/\\{@}
+Query[pt_BR]=https://dle.rae.es/\\{@}
 Query[sl]=https://dle.rae.es/\\{@}
 Query[sv]=https://dle.rae.es/\\{@}
 Query[uk]=https://dle.rae.es/\\{@}
