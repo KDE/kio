@@ -31,12 +31,7 @@ find_package(Qt5Core ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE)
 
 ########### next target ###############
 
-add_library(kio_help MODULE)
-
-set_target_properties(kio_help PROPERTIES
-    OUTPUT_NAME "help"
-    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin/kf5/kio"
-)
+kcoreaddons_add_plugin(kio_help INSTALL_NAMESPACE "kf5/kio")
 
 target_sources(kio_help PRIVATE
     kio_help.cpp
@@ -61,12 +56,7 @@ install(TARGETS kio_help  DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf5/kio)
 
 ########### next target ###############
 
-add_library(kio_ghelp MODULE)
-
-set_target_properties(kio_ghelp PROPERTIES
-    OUTPUT_NAME "ghelp"
-    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin/kf5/kio"
-)
+kcoreaddons_add_plugin(kio_ghelp INSTALL_NAMESPACE "kf5/kio")
 
 target_sources(kio_ghelp PRIVATE
     kio_help.cpp
@@ -90,7 +80,5 @@ if(WIN32)
     target_compile_definitions(kio_help PRIVATE NOMINMAX)
     target_compile_definitions(kio_ghelp PRIVATE NOMINMAX)
 endif()
-
-install(TARGETS kio_ghelp  DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf5/kio)
 
 endif()

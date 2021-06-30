@@ -1,11 +1,6 @@
 include(ConfigureChecks.cmake)
 
-add_library(kio_file MODULE)
-
-set_target_properties(kio_file PROPERTIES
-    OUTPUT_NAME "file"
-    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin/kf5/kio"
-)
+kcoreaddons_add_plugin(kio_file INSTALL_NAMESPACE "kf5/kio")
 
 if(WIN32)
     target_sources(kio_file PRIVATE
@@ -42,8 +37,6 @@ endif()
 if(ACL_FOUND)
    target_link_libraries(kio_file ${ACL_LIBS})
 endif()
-
-install(TARGETS kio_file  DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf5/kio)
 
 if (UNIX)
   add_subdirectory(kauth)

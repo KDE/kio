@@ -49,12 +49,7 @@ install(TARGETS kio_http_cache_cleaner DESTINATION ${KDE_INSTALL_LIBEXECDIR_KF5}
 
 # kio/httpfilter/Makefile.am: httpfilter
 
-add_library(kio_http MODULE)
-
-set_target_properties(kio_http PROPERTIES
-    OUTPUT_NAME "http"
-    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin/kf5/kio"
-)
+kcoreaddons_add_plugin(kio_http INSTALL_NAMESPACE "kf5/kio")
 
 target_sources(kio_http PRIVATE
    http.cpp
@@ -100,8 +95,6 @@ target_link_libraries(kio_http
 if(GSSAPI_FOUND)
   target_link_libraries(kio_http ${GSSAPI_LIBS} )
 endif()
-
-install(TARGETS kio_http  DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf5/kio)
 
 
 ########### install files ###############

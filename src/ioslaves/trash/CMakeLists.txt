@@ -27,11 +27,7 @@ ecm_qt_declare_logging_category(kio_trash_PART_DEBUG_SRCS
     EXPORT KIO
 )
 
-add_library(kio_trash MODULE)
-set_target_properties(kio_trash PROPERTIES
-    OUTPUT_NAME "trash"
-    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin/kf5/kio"
-)
+kcoreaddons_add_plugin(kio_trash INSTALL_NAMESPACE "kf5/kio")
 
 if(WIN32)
     target_sources(kio_trash PRIVATE
@@ -67,8 +63,6 @@ target_link_libraries(kio_trash
 if(APPLE)
     target_link_libraries(kio_trash "-framework DiskArbitration -framework CoreFoundation")
 endif(APPLE)
-
-install(TARGETS kio_trash  DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf5/kio )
 
 
 add_executable(ktrash5)

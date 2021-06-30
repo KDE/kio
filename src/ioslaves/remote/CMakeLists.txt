@@ -4,8 +4,6 @@ kcoreaddons_add_plugin(kio_remote
     INSTALL_NAMESPACE kf5/kio
 )
 
-set_target_properties(kio_remote PROPERTIES OUTPUT_NAME "remote")
-
 target_sources(kio_remote PRIVATE
     kio_remote.cpp
     remoteimpl.cpp
