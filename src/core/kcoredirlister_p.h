@@ -295,6 +295,17 @@ private:
      */
     QList<QUrl> directoriesForCanonicalPath(const QUrl &dir) const;
 
+    // Definition of the cache of ".hidden" files
+    struct CacheHiddenFile {
+        CacheHiddenFile(const QDateTime &mtime, std::set<QString> &&listedFilesParam)
+            : mtime(mtime)
+            , listedFiles(std::move(listedFilesParam))
+        {
+        }
+        QDateTime mtime;
+        std::set<QString> listedFiles;
+    };
+
     /**
      * Returns the names listed in dir's ".hidden" file, if it exists.
      * If a file named ".hidden" exists in the @p dir directory, this method
@@ -303,7 +314,7 @@ private:
      * @param dir path to the target directory.
      * @return names listed in the directory's ".hidden" file (empty if it doesn't exist).
      */
-    std::set<QString> filesInDotHiddenForDir(const QString &dir);
+    CacheHiddenFile *cachedDotHiddenForDir(const QString &dir);
 
 #ifndef NDEBUG
     void printDebug();
@@ -424,17 +435,6 @@ private:
         // the list, so they give no root item
         KFileItem rootItem;
         QList<KFileItem> lstItems;
-    };
-
-    // definition of the cache of ".hidden" files
-    struct CacheHiddenFile {
-        CacheHiddenFile(const QDateTime &mtime, const std::set<QString> &listedFilesParam)
-            : mtime(mtime)
-            , listedFiles(listedFilesParam)
-        {
-        }
-        QDateTime mtime;
-        std::set<QString> listedFiles;
     };
 
     QMap<KIO::ListJob *, KIO::UDSEntryList> runningListJobs;
