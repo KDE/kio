@@ -190,14 +190,27 @@ public:
      */
     bool handlesSequences() const;
 
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 84)
     /**
      * Request preview to use the device pixel ratio @p dpr.
      * The returned thumbnail may not respect the device pixel ratio requested.
-     * Use QPixmap::devicePixelRatio to check, or paint as neccesary.
+     * Use QPixmap::devicePixelRatio to check, or paint as necessary.
      *
      * @since 5.80
+     * @deprecated Since 5.84, use setDevicePixelRatio(qreal dpr) instead
      */
+    KIOWIDGETS_DEPRECATED_VERSION(5, 84, "Use setDevicePixelRatio(qreal dpr)")
     void setDevicePixelRatio(int dpr);
+#endif
+
+    /**
+     * Request preview to use the device pixel ratio @p dpr.
+     * The returned thumbnail may not respect the device pixel ratio requested.
+     * Use QPixmap::devicePixelRatio to check, or paint as necessary.
+     *
+     * @since 5.84
+     */
+    void setDevicePixelRatio(qreal dpr);
 
     /**
      * Returns a list of all available preview plugins. The list
@@ -268,6 +281,20 @@ public:
      * @since 5.80
      */
     static void setDefaultDevicePixelRatio(int devicePixelRatio);
+
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 84)
+    /**
+     * Sets a default device Pixel Ratio used for Previews
+     * @see setDevicePixelRatio
+     *
+     * Defaults to 1
+     *
+     * @since 5.84
+     * @deprecated Since 5.84, use setDefaultDevicePixelRatio(qreal dpr) instead
+     */
+    KIOWIDGETS_DEPRECATED_VERSION(5, 84, "Use setDefaultDevicePixelRatio(qreal dpr)")
+    static void setDefaultDevicePixelRatio(qreal devicePixelRatio);
+#endif
 };
 
 #if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(4, 7)

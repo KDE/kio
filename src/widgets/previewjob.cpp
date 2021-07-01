@@ -47,6 +47,7 @@
 #include <Solid/StorageAccess>
 
 #include <algorithm>
+#include <math.h>
 
 #include "job_p.h"
 
@@ -169,9 +170,16 @@ public:
     Q_DECLARE_PUBLIC(PreviewJob)
 };
 
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 84)
 void PreviewJob::setDefaultDevicePixelRatio(int defaultDevicePixelRatio)
 {
     s_defaultDevicePixelRatio = defaultDevicePixelRatio;
+}
+#endif
+
+void PreviewJob::setDefaultDevicePixelRatio(qreal defaultDevicePixelRatio)
+{
+    s_defaultDevicePixelRatio = std::ceil(defaultDevicePixelRatio);
 }
 
 #if KIOWIDGETS_BUILD_DEPRECATED_SINCE(4, 7)
@@ -463,9 +471,16 @@ bool KIO::PreviewJob::handlesSequences() const
     return d_func()->thumbnailSlaveMetaData.value(QStringLiteral("handlesSequences")) == QStringLiteral("1");
 }
 
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 84)
 void KIO::PreviewJob::setDevicePixelRatio(int dpr)
 {
     d_func()->devicePixelRatio = dpr;
+}
+#endif
+
+void KIO::PreviewJob::setDevicePixelRatio(qreal dpr)
+{
+    d_func()->devicePixelRatio = std::ceil(dpr);
 }
 
 void PreviewJob::setIgnoreMaximumSize(bool ignoreSize)
