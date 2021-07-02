@@ -10,6 +10,8 @@
 
     <entry name="webShortcutsEnabled" key="EnableWebShortcuts" type="Bool">
       <default>true</default>
+      <label>Enable Web search keywords</label>
+      <tooltip>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable or disable web search keywords. &lt;/p&gt;&lt;p&gt;Web search keywords allow you to quickly access or search for information located online or on your hard drive. &lt;/p&gt;&lt;p&gt;KDE comes with many predefined keywords. One such keyword can be used to perform a the Google (TM) search; to use it, you simply type the keyword 'gg' followed by the keyword delimiter and the search term, e.g. &lt;span style=&quot; font-weight:600;&quot;&gt;gg:KDE&lt;/span&gt;.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</tooltip>
     </entry>
 
     <entry name="favoritesOnly" key="UsePreferredWebShortcutsOnly" type="Bool">

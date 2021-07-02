@@ -256,9 +256,7 @@ FilterOptions::FilterOptions(QWidget *parent, const QVariantList &args)
     addConfig(m_settings, this);
 
     // Connect all the signals/slots...
-    connect(m_dlg.cbEnableShortcuts, &QAbstractButton::toggled, this, &FilterOptions::markAsChanged);
-    connect(m_dlg.cbEnableShortcuts, &QAbstractButton::toggled, this, &FilterOptions::updateSearchProviderEditingButons);
-    connect(m_dlg.cbUseSelectedShortcutsOnly, &QAbstractButton::toggled, this, &FilterOptions::markAsChanged);
+    connect(m_dlg.kcfg_webShortcutsEnabled, &QAbstractButton::toggled, this, &FilterOptions::updateSearchProviderEditingButons);
 
     connect(m_providersModel, &ProvidersModel::dataModified, this, [this]() {
         m_settings->setFavoriteProviders(m_providersModel->favoriteEngines());
@@ -320,6 +318,8 @@ void FilterOptions::setDefaultEngine(const QString &engine)
 
 void FilterOptions::load()
 {
+    KCModule::load();
+
     m_providersModel->setProviders(m_registry.findAllActive());
 
     m_settings->load();
@@ -348,8 +348,8 @@ void FilterOptions::setDelimiter(char sep)
 
 void FilterOptions::save()
 {
-    m_settings->setWebShortcutsEnabled(m_dlg.cbEnableShortcuts->isChecked());
-    m_settings->setFavoritesOnly(m_dlg.cbUseSelectedShortcutsOnly->isChecked());
+    KCModule::save();
+
     m_settings->save();
 
     const QList<SearchProvider *> providers = m_providersModel->providers();
@@ -408,6 +408,7 @@ void FilterOptions::save()
 
 void FilterOptions::defaults()
 {
+    KCModule::defaults();
     m_settings->setDefaults();
 
     setDelimiter(m_settings->keywordDelimiter().at(0).toLatin1());

@@ -2,3 +2,6 @@ File=ikwsconfig.kcfg
 ClassName=WebShortcutsSettings
 Mutators=true
 ParentInConstructor=true
+SetUserTexts=true
+TranslationSystem=kde
+TranslationDomain=kio

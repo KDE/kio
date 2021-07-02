@@ -12,7 +12,7 @@
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
-    <widget class="QCheckBox" name="cbEnableShortcuts">
+    <widget class="QCheckBox" name="kcfg_webShortcutsEnabled">
      <property name="toolTip">
       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable or disable web search keywords. &lt;/p&gt;&lt;p&gt;Web search keywords allow you to quickly access or search for information located online or on your hard drive. &lt;/p&gt;&lt;p&gt;KDE comes with many predefined keywords. One such keyword can be used to perform a the Google (TM) search; to use it, you simply type the keyword 'gg' followed by the keyword delimiter and the search term, e.g. &lt;span style=&quot; font-weight:600;&quot;&gt;gg:KDE&lt;/span&gt;.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
@@ -22,7 +22,7 @@
     </widget>
    </item>
    <item row="1" column="0">
-    <widget class="QCheckBox" name="cbUseSelectedShortcutsOnly">
+    <widget class="QCheckBox" name="kcfg_favoritesOnly">
      <property name="enabled">
       <bool>false</bool>
      </property>
@@ -222,9 +222,9 @@ Select the search engine to use for input boxes that provide automatic lookup se
  <resources/>
  <connections>
   <connection>
-   <sender>cbEnableShortcuts</sender>
+   <sender>kcfg_webShortcutsEnabled</sender>
    <signal>toggled(bool)</signal>
-   <receiver>cbUseSelectedShortcutsOnly</receiver>
+   <receiver>kcfg_favoritesOnly</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -238,7 +238,7 @@ Select the search engine to use for input boxes that provide automatic lookup se
    </hints>
   </connection>
   <connection>
-   <sender>cbEnableShortcuts</sender>
+   <sender>kcfg_webShortcutsEnabled</sender>
    <signal>toggled(bool)</signal>
    <receiver>lvSearchProviders</receiver>
    <slot>setEnabled(bool)</slot>
@@ -254,7 +254,7 @@ Select the search engine to use for input boxes that provide automatic lookup se
    </hints>
   </connection>
   <connection>
-   <sender>cbEnableShortcuts</sender>
+   <sender>kcfg_webShortcutsEnabled</sender>
    <signal>toggled(bool)</signal>
    <receiver>pbNew</receiver>
    <slot>setEnabled(bool)</slot>
