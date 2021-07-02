@@ -2188,8 +2188,10 @@ void KFilePermissionsPropsPlugin::slotShowAdvancedPermissions()
         stickyWhatsThis = i18n(
             "The Sticky flag on a file is ignored on Linux, but may "
             "be used on some systems");
-    mode_t aPermissions, aPartialPermissions;
-    mode_t dummy1, dummy2;
+    mode_t aPermissions = 0;
+    mode_t aPartialPermissions = 0;
+    mode_t dummy1 = 0;
+    mode_t dummy2 = 0;
 
     if (!d->isIrregular) {
         switch (d->pmode) {
@@ -2202,7 +2204,6 @@ void KFilePermissionsPropsPlugin::slotShowAdvancedPermissions()
             break;
         case PermissionsOnlyLinks:
             aPermissions = UniRead | UniWrite | UniExec | UniSpecial;
-            aPartialPermissions = 0;
             break;
         }
     } else {
