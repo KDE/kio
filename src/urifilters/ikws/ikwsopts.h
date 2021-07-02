@@ -38,13 +38,14 @@ private Q_SLOTS:
     void addSearchProvider();
     void changeSearchProvider();
     void deleteSearchProvider();
+    void updateUnmanagedState();
 
 private:
     void setDelimiter(char);
     char delimiter();
     void setDefaultEngine(const QString &engine);
-    void applySettings();
 
+private:
     // The names of the providers that the user deleted,
     // these are marked as deleted in the user's homedirectory
     // on save if a global service file exists for it.

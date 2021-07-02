@@ -260,9 +260,18 @@ FilterOptions::FilterOptions(QWidget *parent, const QVariantList &args)
     connect(m_dlg.cbEnableShortcuts, &QAbstractButton::toggled, this, &FilterOptions::updateSearchProviderEditingButons);
     connect(m_dlg.cbUseSelectedShortcutsOnly, &QAbstractButton::toggled, this, &FilterOptions::markAsChanged);
 
-    connect(m_providersModel, &ProvidersModel::dataModified, this, &FilterOptions::markAsChanged);
-    connect(m_dlg.cmbDefaultEngine, qOverload<int>(&QComboBox::currentIndexChanged), this, &FilterOptions::markAsChanged);
-    connect(m_dlg.cmbDelimiter, qOverload<int>(&QComboBox::currentIndexChanged), this, &FilterOptions::markAsChanged);
+    connect(m_providersModel, &ProvidersModel::dataModified, this, [this]() {
+        m_settings->setFavoriteProviders(m_providersModel->favoriteEngines());
+        updateUnmanagedState();
+    });
+    connect(m_dlg.cmbDefaultEngine, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [this]() {
+        m_settings->setDefaultProvider(m_dlg.cmbDefaultEngine->view()->currentIndex().data(ProvidersListModel::ShortNameRole).toString());
+        updateUnmanagedState();
+    });
+    connect(m_dlg.cmbDelimiter, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [this]() {
+        m_settings->setKeywordDelimiter(QString(QLatin1Char(delimiter())));
+        updateUnmanagedState();
+    });
 
     connect(m_dlg.pbNew, &QAbstractButton::clicked, this, &FilterOptions::addSearchProvider);
     connect(m_dlg.pbDelete, &QAbstractButton::clicked, this, &FilterOptions::deleteSearchProvider);
@@ -270,6 +279,13 @@ FilterOptions::FilterOptions(QWidget *parent, const QVariantList &args)
     connect(m_dlg.lvSearchProviders->selectionModel(), &QItemSelectionModel::currentChanged, this, &FilterOptions::updateSearchProviderEditingButons);
     connect(m_dlg.lvSearchProviders, &QAbstractItemView::doubleClicked, this, &FilterOptions::changeSearchProvider);
     connect(m_dlg.searchLineEdit, &QLineEdit::textEdited, searchProviderModel, &QSortFilterProxyModel::setFilterFixedString);
+}
+
+void FilterOptions::updateUnmanagedState()
+{
+    // Some of the settings are not directly managed by controls
+    unmanagedWidgetDefaultState(m_settings->isDefaults());
+    unmanagedWidgetChangeState(m_settings->isSaveNeeded());
 }
 
 QString FilterOptions::quickHelp() const
@@ -314,22 +330,15 @@ void FilterOptions::load()
     m_providersModel->setProviders(providers);
 
     m_settings->load();
-    applySettings();
+    setDelimiter(m_settings->keywordDelimiter().at(0).toLatin1());
+    setDefaultEngine(m_settings->defaultProvider());
+    m_providersModel->setFavoriteProviders(m_settings->favoriteProviders());
+    updateUnmanagedState();
 
     m_dlg.lvSearchProviders->setColumnWidth(0, 200);
     m_dlg.lvSearchProviders->resizeColumnToContents(1);
     m_dlg.lvSearchProviders->sortByColumn(0, Qt::AscendingOrder);
     m_dlg.cmbDefaultEngine->model()->sort(0, Qt::AscendingOrder);
-}
-
-void FilterOptions::applySettings()
-{
-    m_providersModel->setFavoriteProviders(m_settings->favoriteProviders());
-    m_dlg.cbEnableShortcuts->setChecked(m_settings->webShortcutsEnabled());
-    m_dlg.cbUseSelectedShortcutsOnly->setChecked(m_settings->favoritesOnly());
-
-    setDelimiter(m_settings->keywordDelimiter().at(0).toLatin1());
-    setDefaultEngine(m_settings->defaultProvider());
 }
 
 char FilterOptions::delimiter()
@@ -346,9 +355,6 @@ void FilterOptions::setDelimiter(char sep)
 void FilterOptions::save()
 {
     m_settings->setWebShortcutsEnabled(m_dlg.cbEnableShortcuts->isChecked());
-    m_settings->setKeywordDelimiter(QString(QLatin1Char(delimiter())));
-    m_settings->setDefaultProvider(m_dlg.cmbDefaultEngine->view()->currentIndex().data(ProvidersListModel::ShortNameRole).toString());
-    m_settings->setFavoriteProviders(m_providersModel->favoriteEngines());
     m_settings->setFavoritesOnly(m_dlg.cbUseSelectedShortcutsOnly->isChecked());
     m_settings->save();
 
@@ -409,7 +415,12 @@ void FilterOptions::save()
 void FilterOptions::defaults()
 {
     m_settings->setDefaults();
-    applySettings();
+
+    setDelimiter(m_settings->keywordDelimiter().at(0).toLatin1());
+    setDefaultEngine(m_settings->defaultProvider());
+    m_providersModel->setFavoriteProviders(m_settings->favoriteProviders());
+
+    updateUnmanagedState();
 }
 
 void FilterOptions::addSearchProvider()
@@ -446,7 +457,7 @@ void FilterOptions::deleteSearchProvider()
 
 void FilterOptions::updateSearchProviderEditingButons()
 {
-    const bool enable = (m_dlg.cbEnableShortcuts->isChecked() && m_dlg.lvSearchProviders->currentIndex().isValid());
+    const bool enable = (m_settings->webShortcutsEnabled() && m_dlg.lvSearchProviders->currentIndex().isValid());
     m_dlg.pbChange->setEnabled(enable);
     m_dlg.pbDelete->setEnabled(enable);
 }
