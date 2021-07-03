@@ -14,7 +14,7 @@
 #include <QDir>
 #include <QStandardPaths>
 
-#include <KFilterDev>
+#include <KCompressionDevice>
 #include <QDebug>
 
 static bool readCache(const QString &filename, const QString &cache, QString &output)
@@ -28,7 +28,7 @@ static bool readCache(const QString &filename, const QString &cache, QString &ou
     }
 
     // qDebug() << "create filter";
-    KFilterDev fd(cache);
+    KCompressionDevice fd(cache);
 
     if (!fd.open(QIODevice::ReadOnly)) {
         QFile::remove(cache);

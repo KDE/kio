@@ -8,8 +8,8 @@
 #include <QTest>
 
 #include "httpfilter.h"
+#include <KCompressionDevice>
 #include <KFilterBase>
-#include <KFilterDev>
 #include <QDebug>
 #include <QDir>
 #include <QFile>
@@ -52,7 +52,7 @@ void HTTPFilterTest::initTestCase()
 
     // Create the gz file
 
-    KFilterDev dev(pathgz);
+    KCompressionDevice dev(pathgz);
     QVERIFY(dev.open(QIODevice::WriteOnly));
     const int ret = dev.write(testData);
     QCOMPARE(ret, testData.size());
