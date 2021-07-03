@@ -101,6 +101,7 @@ ki18n_wrap_ui(KF5KIOWidgets
   sslinfo.ui
   kpropertiesdesktopadvbase.ui
   kpropertiesdesktopbase.ui
+  kfilepropspluginwidget.ui
 )
 
 ecm_generate_export_header(KF5KIOWidgets

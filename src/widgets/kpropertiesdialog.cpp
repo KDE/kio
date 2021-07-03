@@ -110,6 +110,7 @@
 #include <kurlrequester.h>
 
 #include "ui_checksumswidget.h"
+#include "ui_kfilepropspluginwidget.h"
 #include "ui_kpropertiesdesktopadvbase.h"
 #include "ui_kpropertiesdesktopbase.h"
 
@@ -790,8 +791,11 @@ class KFilePropsPlugin::KFilePropsPluginPrivate
 {
 public:
     KFilePropsPluginPrivate()
+        : m_ui(new Ui_KFilePropsPluginWidget())
     {
+        m_ui->setupUi(&m_mainWidget);
     }
+
     ~KFilePropsPluginPrivate()
     {
         if (dirSizeJob) {
@@ -799,29 +803,28 @@ public:
         }
     }
 
+    void hideMountPointLabels()
+    {
+        m_ui->fsLabel_Left->hide();
+        m_ui->fsLabel->hide();
+
+        m_ui->mountPointLabel_Left->hide();
+        m_ui->mountPointLabel->hide();
+
+        m_ui->mountSrcLabel_Left->hide();
+        m_ui->mountSrcLabel->hide();
+    }
+
+    QWidget m_mainWidget;
+    Ui_KFilePropsPluginWidget *m_ui = nullptr;
     KIO::DirectorySizeJob *dirSizeJob = nullptr;
     QTimer *dirSizeUpdateTimer = nullptr;
-    QFrame *m_frame = nullptr;
     bool bMultiple;
     bool bIconChanged;
     bool bKDesktopMode;
     bool bDesktopFile;
-    KCapacityBar *m_capacityBar = nullptr;
     QString mimeType;
     QString oldFileName;
-    QLineEdit *m_lined = nullptr;
-    QLabel *m_fileNameLabel = nullptr;
-    QGridLayout *m_grid = nullptr;
-
-    QWidget *iconArea = nullptr;
-
-    QLabel *m_sizeLabel = nullptr;
-
-    QPushButton *m_sizeDetermineButton = nullptr;
-    QPushButton *m_sizeStopButton = nullptr;
-    QPushButton *m_sizeDetailsButton = nullptr;
-
-    QLineEdit *m_linkTargetLineEdit = nullptr;
 
     QString m_sRelativePath;
     bool m_bFromTemplate;
@@ -882,21 +885,9 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
     uint iDirCount = hasDirs ? 1 : 0;
     uint iFileCount = 1 - iDirCount;
 
-    d->m_frame = new QFrame();
-    properties->addPage(d->m_frame, i18nc("@title:tab File properties", "&General"));
+    properties->addPage(&d->m_mainWidget, i18nc("@title:tab File properties", "&General"));
 
-    QVBoxLayout *vbl = new QVBoxLayout(d->m_frame);
-    vbl->setContentsMargins(0, 0, 0, 0);
-    vbl->setObjectName(QStringLiteral("vbl"));
-    QGridLayout *grid = new QGridLayout(); // unknown rows
-    d->m_grid = grid;
-    grid->setColumnStretch(0, 0);
-    grid->setColumnStretch(1, 0);
-    grid->setColumnStretch(2, 1);
-    const int horizontalSpacing = d->m_frame->style()->pixelMetric(QStyle::PM_LayoutHorizontalSpacing);
-    grid->addItem(new QSpacerItem(horizontalSpacing, 0), 0, 1);
-    vbl->addLayout(grid);
-    int curRow = 0;
+    d->m_ui->symlinkTargetMessageWidget->hide();
 
     if (!d->bMultiple) {
         QString path;
@@ -991,209 +982,142 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
         directory += QLatin1String(" (") + protocol + QLatin1Char(')');
     }
 
-    /* clang-format off */
-    if (!isTrash
-        && (bDesktopFile || ((mode & QT_STAT_MASK) == QT_STAT_DIR))
+    if (!isTrash //
+        && (bDesktopFile || ((mode & QT_STAT_MASK) == QT_STAT_DIR)) //
         && !d->bMultiple // not implemented for multiple
-        && enableIconButton()) // #56857
-    { /* clang-format on */
-        KIconButton *iconButton = new KIconButton(d->m_frame);
-        int bsize = 66 + 2 * iconButton->style()->pixelMetric(QStyle::PM_ButtonMargin);
-        iconButton->setFixedSize(bsize, bsize);
-        iconButton->setIconSize(48);
-        iconButton->setStrictIconSize(false);
+        && enableIconButton()) {
+        d->m_ui->iconLabel->hide();
+
+        const int bsize = 66 + (2 * d->m_ui->iconButton->style()->pixelMetric(QStyle::PM_ButtonMargin));
+        d->m_ui->iconButton->setFixedSize(bsize, bsize);
+        d->m_ui->iconButton->setIconSize(48);
+        d->m_ui->iconButton->setStrictIconSize(false);
         if (bDesktopFile && isLocal) {
             const KDesktopFile config(url.toLocalFile());
             if (config.hasDeviceType()) {
-                iconButton->setIconType(KIconLoader::Desktop, KIconLoader::Device);
+                d->m_ui->iconButton->setIconType(KIconLoader::Desktop, KIconLoader::Device);
             } else {
-                iconButton->setIconType(KIconLoader::Desktop, KIconLoader::Application);
+                d->m_ui->iconButton->setIconType(KIconLoader::Desktop, KIconLoader::Application);
             }
         } else {
-            iconButton->setIconType(KIconLoader::Desktop, KIconLoader::Place);
+            d->m_ui->iconButton->setIconType(KIconLoader::Desktop, KIconLoader::Place);
         }
-        iconButton->setIcon(iconStr);
-        d->iconArea = iconButton;
-        connect(iconButton, &KIconButton::iconChanged, this, &KFilePropsPlugin::slotIconChanged);
+
+        d->m_ui->iconButton->setIcon(iconStr);
+        connect(d->m_ui->iconButton, &KIconButton::iconChanged, this, &KFilePropsPlugin::slotIconChanged);
     } else {
-        QLabel *iconLabel = new QLabel(d->m_frame);
-        iconLabel->setAlignment(Qt::AlignCenter);
-        int bsize = 66 + 2 * iconLabel->style()->pixelMetric(QStyle::PM_ButtonMargin);
-        iconLabel->setFixedSize(bsize, bsize);
-        iconLabel->setPixmap(QIcon::fromTheme(iconStr).pixmap(48));
-        d->iconArea = iconLabel;
+        d->m_ui->iconButton->hide();
+
+        const int bsize = 66 + (2 * d->m_ui->iconLabel->style()->pixelMetric(QStyle::PM_ButtonMargin));
+        d->m_ui->iconLabel->setFixedSize(bsize, bsize);
+        d->m_ui->iconLabel->setPixmap(QIcon::fromTheme(iconStr).pixmap(48));
     }
-    grid->addWidget(d->iconArea, curRow, 0, Qt::AlignCenter);
 
     KFileItemListProperties itemList(KFileItemList{firstItem});
     if (d->bMultiple || isTrash || hasRoot || !(d->m_bFromTemplate || itemList.supportsMoving())) {
+        d->m_ui->fileNameLineEdit->hide();
         setFileNameReadOnly(true);
         if (d->bMultiple) {
-            d->m_fileNameLabel->setText(KIO::itemsSummaryString(iFileCount + iDirCount, iFileCount, iDirCount, 0, false));
+            d->m_ui->fileNameLabel->setText(KIO::itemsSummaryString(iFileCount + iDirCount, iFileCount, iDirCount, 0, false));
         }
-
     } else {
-        d->m_lined = new QLineEdit(d->m_frame);
-        d->m_lined->setObjectName(QStringLiteral("KFilePropsPlugin::nameLineEdit"));
-        d->m_lined->setText(filename);
-        d->m_lined->setFocus();
+        d->m_ui->fileNameLabel->hide();
+
+        d->m_ui->fileNameLineEdit->setText(filename);
+        d->m_ui->fileNameLineEdit->setFocus();
 
         // Enhanced rename: Don't highlight the file extension.
         QString extension = db.suffixForFileName(filename);
         if (!extension.isEmpty()) {
-            d->m_lined->setSelection(0, filename.length() - extension.length() - 1);
+            d->m_ui->fileNameLineEdit->setSelection(0, filename.length() - extension.length() - 1);
         } else {
             int lastDot = filename.lastIndexOf(QLatin1Char('.'));
             if (lastDot > 0) {
-                d->m_lined->setSelection(0, lastDot);
+                d->m_ui->fileNameLineEdit->setSelection(0, lastDot);
             }
         }
 
-        connect(d->m_lined, &QLineEdit::textChanged, this, &KFilePropsPlugin::nameFileChanged);
-        grid->addWidget(d->m_lined, curRow, 2);
+        connect(d->m_ui->fileNameLineEdit, &QLineEdit::textChanged, this, &KFilePropsPlugin::nameFileChanged);
     }
-    ++curRow;
 
-    KSeparator *sep = new KSeparator(Qt::Horizontal, d->m_frame);
-    grid->addWidget(sep, curRow, 0, 1, 3);
-    ++curRow;
-
-    QLabel *l;
+    // Mimetype widgets
     if (!mimeComment.isEmpty() && !isTrash) {
-        l = new QLabel(i18n("Type:"), d->m_frame);
-        grid->addWidget(l, curRow, 0, Qt::AlignRight | Qt::AlignTop);
+        d->m_ui->mimeCommentLabel->setText(mimeComment);
+        d->m_ui->mimeCommentLabel->setToolTip(d->mimeType);
 
-        QFrame *box = new QFrame(d->m_frame);
-        QVBoxLayout *boxLayout = new QVBoxLayout(box);
-        boxLayout->setSpacing(2); // without that spacing the button literally “sticks” to the label ;)
-        boxLayout->setContentsMargins(0, 0, 0, 0);
+        const bool isGeneric = d->mimeType == QLatin1String("application/octet-stream");
+        d->m_ui->configureMimeBtn->setText(isGeneric ? i18n("Create New File Type") : i18n("File Type Options"));
 
-        l = new QLabel(mimeComment, box);
-        l->setToolTip(d->mimeType);
-        l->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::TextSelectableByKeyboard);
-        grid->addWidget(box, curRow++, 2);
-
-        QPushButton *button = new QPushButton(box);
-        button->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed); // Minimum still makes the button grow to the entire layout width
-        button->setIcon(QIcon::fromTheme(QStringLiteral("configure")));
-
-        boxLayout->addWidget(l);
-        boxLayout->addWidget(button);
-
-        if (d->mimeType == QLatin1String("application/octet-stream")) {
-            button->setText(i18n("Create New File Type"));
-        } else {
-            button->setText(i18n("File Type Options"));
-        }
-
-        connect(button, &QAbstractButton::clicked, this, &KFilePropsPlugin::slotEditFileType);
+        connect(d->m_ui->configureMimeBtn, &QAbstractButton::clicked, this, &KFilePropsPlugin::slotEditFileType);
 
         if (!KAuthorized::authorizeAction(QStringLiteral("editfiletype"))) {
-            button->hide();
+            d->m_ui->configureMimeBtn->hide();
         }
+    } else {
+        d->m_ui->typeLabel->hide();
+        d->m_ui->mimeCommentLabel->hide();
     }
 
     if (!magicMimeComment.isEmpty() && magicMimeComment != mimeComment) {
-        l = new QLabel(i18n("Contents:"), d->m_frame);
-        grid->addWidget(l, curRow, 0, Qt::AlignRight);
-
-        l = new QLabel(magicMimeComment, d->m_frame);
-        grid->addWidget(l, curRow++, 2);
+        d->m_ui->magicMimeCommentLabel->setText(magicMimeComment);
+    } else {
+        d->m_ui->contentLabel->hide();
+        d->m_ui->magicMimeCommentLabel->hide();
     }
 
+    d->m_ui->configureMimeBtn->setVisible(!d->m_ui->typeLabel->isHidden() || !d->m_ui->contentLabel->isHidden());
+
+    // Location:
     if (!directory.isEmpty()) {
-        l = new QLabel(i18n("Location:"), d->m_frame);
-        grid->addWidget(l, curRow, 0, Qt::AlignRight);
+        d->m_ui->locationLabel->setText(directory);
 
-        l = new KSqueezedTextLabel(directory, d->m_frame);
-        // force the layout direction to be always LTR
-        l->setLayoutDirection(Qt::LeftToRight);
-        // but if we are in RTL mode, align the text to the right
-        // otherwise the text is on the wrong side of the dialog
+        // Layout direction for this label is always LTR; but if we are in RTL mode,
+        // align the text to the right, otherwise the text is on the wrong side of the dialog
         if (properties->layoutDirection() == Qt::RightToLeft) {
-            l->setAlignment(Qt::AlignRight);
+            d->m_ui->locationLabel->setAlignment(Qt::AlignRight);
         }
-        l->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::TextSelectableByKeyboard);
-        grid->addWidget(l, curRow++, 2);
     }
 
-    l = new QLabel(i18n("Size:"), d->m_frame);
-    grid->addWidget(l, curRow, 0, Qt::AlignRight | Qt::AlignTop);
-
-    d->m_sizeLabel = new QLabel(d->m_frame);
-    d->m_sizeLabel->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::TextSelectableByKeyboard);
-    grid->addWidget(d->m_sizeLabel, curRow++, 2);
-
+    // Size widgets
     if (!hasDirs) { // Only files [and symlinks]
-        d->m_sizeLabel->setText(QStringLiteral("%1 (%2)").arg(KIO::convertSize(totalSize), QLocale().toString(totalSize)));
-        d->m_sizeDetermineButton = nullptr;
-        d->m_sizeStopButton = nullptr;
-        d->m_sizeDetailsButton = nullptr;
+        d->m_ui->sizeLabel->setText(QStringLiteral("%1 (%2)").arg(KIO::convertSize(totalSize), QLocale().toString(totalSize)));
+        d->m_ui->calculateSizeBtn->hide();
+        d->m_ui->stopCalculateSizeBtn->hide();
+        d->m_ui->sizeDetailsBtn->hide();
     } else { // Directory
-        QHBoxLayout *sizelay = new QHBoxLayout();
-        grid->addLayout(sizelay, curRow++, 2);
-
-        // buttons
-        d->m_sizeDetermineButton = new QPushButton(i18n("Calculate"), d->m_frame);
-        d->m_sizeStopButton = new QPushButton(i18n("Stop"), d->m_frame);
-
-        d->m_sizeDetermineButton->setIcon(QIcon::fromTheme(QStringLiteral("view-refresh")));
-        d->m_sizeStopButton->setIcon(QIcon::fromTheme(QStringLiteral("dialog-cancel")));
-
-        connect(d->m_sizeDetermineButton, &QAbstractButton::clicked, this, &KFilePropsPlugin::slotSizeDetermine);
-        connect(d->m_sizeStopButton, &QAbstractButton::clicked, this, &KFilePropsPlugin::slotSizeStop);
-
-        sizelay->addWidget(d->m_sizeDetermineButton, 0);
-        sizelay->addWidget(d->m_sizeStopButton, 0);
+        connect(d->m_ui->calculateSizeBtn, &QAbstractButton::clicked, this, &KFilePropsPlugin::slotSizeDetermine);
+        connect(d->m_ui->stopCalculateSizeBtn, &QAbstractButton::clicked, this, &KFilePropsPlugin::slotSizeStop);
 
         if (KService::serviceByDesktopName(QStringLiteral("org.kde.filelight"))) {
-            d->m_sizeDetailsButton = new QPushButton(i18n("Explore in Filelight"), d->m_frame);
-            d->m_sizeDetailsButton->setIcon(QIcon::fromTheme(QStringLiteral("filelight")));
-            connect(d->m_sizeDetailsButton, &QPushButton::clicked, this, &KFilePropsPlugin::slotSizeDetails);
-            sizelay->addWidget(d->m_sizeDetailsButton, 0);
+            connect(d->m_ui->sizeDetailsBtn, &QPushButton::clicked, this, &KFilePropsPlugin::slotSizeDetails);
+        } else {
+            d->m_ui->sizeDetailsBtn->hide();
         }
 
-        sizelay->addStretch(10); // so that the buttons don't grow horizontally
+        //         sizelay->addStretch(10); // so that the buttons don't grow horizontally
 
         // auto-launch for local dirs only, and not for '/'
         if (isLocal && !hasRoot) {
-            d->m_sizeDetermineButton->setText(i18n("Refresh"));
+            d->m_ui->calculateSizeBtn->setText(i18n("Refresh"));
             slotSizeDetermine();
         } else {
-            d->m_sizeStopButton->setEnabled(false);
+            d->m_ui->stopCalculateSizeBtn->setEnabled(false);
         }
     }
 
+    // Symlink widgets
     if (!d->bMultiple && firstItem.isLink()) {
-        l = new QLabel(i18n("Points to:"), d->m_frame);
-        grid->addWidget(l, curRow, 0, Qt::AlignRight);
+        d->m_ui->symlinkTargetEdit->setText(firstItem.linkDest());
+        connect(d->m_ui->symlinkTargetEdit, &QLineEdit::textChanged, this, QOverload<>::of(&KFilePropsPlugin::setDirty));
 
-        d->m_linkTargetLineEdit = new QLineEdit(firstItem.linkDest(), d->m_frame);
-        connect(d->m_linkTargetLineEdit, &QLineEdit::textChanged, this, QOverload<>::of(&KFilePropsPlugin::setDirty));
-
-        QPushButton *goThereButton = new QPushButton(d->m_frame);
-        goThereButton->setIcon(QIcon::fromTheme(QStringLiteral("go-jump")));
-
-        QHBoxLayout *row = new QHBoxLayout();
-        row->setContentsMargins(0, 0, 0, 0);
-        row->addWidget(d->m_linkTargetLineEdit);
-        row->addWidget(goThereButton);
-        grid->addLayout(row, curRow++, 2);
-
-        KMessageWidget *messageWidget = new KMessageWidget(d->m_frame);
-        messageWidget->setWordWrap(true);
-        messageWidget->setMessageType(KMessageWidget::Error);
-        messageWidget->hide();
-        grid->addWidget(messageWidget, curRow++, 0, 1, -1);
-
-        connect(goThereButton, &QPushButton::clicked, this, [this, messageWidget] {
-            const QUrl resolvedTargetLocation = properties->item().url().resolved(QUrl(d->m_linkTargetLineEdit->text()));
+        connect(d->m_ui->symlinkTargetOpenDir, &QPushButton::clicked, this, [this] {
+            const QUrl resolvedTargetLocation = properties->item().url().resolved(QUrl(d->m_ui->symlinkTargetEdit->text()));
 
             KIO::StatJob *statJob = KIO::statDetails(resolvedTargetLocation, KIO::StatJob::SourceSide, KIO::StatNoDetails, KIO::HideProgressInfo);
-            connect(statJob, &KJob::finished, this, [this, statJob, messageWidget] {
+            connect(statJob, &KJob::finished, this, [this, statJob] {
                 if (statJob->error()) {
-                    messageWidget->setText(statJob->errorString());
-                    messageWidget->animatedShow();
+                    d->m_ui->symlinkTargetMessageWidget->setText(statJob->errorString());
+                    d->m_ui->symlinkTargetMessageWidget->animatedShow();
                     return;
                 }
 
@@ -1201,117 +1125,95 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
                 properties->close();
             });
         });
+    } else {
+        d->m_ui->symlinkTargetLabel->hide();
+        d->m_ui->symlinkTargetEdit->hide();
+        d->m_ui->symlinkTargetOpenDir->hide();
     }
 
-    if (!d->bMultiple) { // Dates and extra fields for multiple don't make much sense...
+    // Time widgets
+    if (!d->bMultiple) {
         QLocale locale;
-        const auto extraFields = KProtocolInfo::extraFields(url);
-        for (int i = 0; i < extraFields.count(); ++i) {
-            const auto &field = extraFields.at(i);
-
-            QString label = firstItem.entry().stringValue(KIO::UDSEntry::UDS_EXTRA + i);
-            if (field.type == KProtocolInfo::ExtraField::Invalid || label.isEmpty()) {
-                continue;
-            }
-
-            if (field.type == KProtocolInfo::ExtraField::DateTime) {
-                const QDateTime date = QDateTime::fromString(label, Qt::ISODate);
-                if (!date.isValid()) {
-                    continue;
-                }
-
-                label = locale.toString(date, QLocale::LongFormat);
-            }
-
-            l = new QLabel(i18n("%1:", field.name), d->m_frame);
-            grid->addWidget(l, curRow, 0, Qt::AlignRight);
-
-            l = new KSqueezedTextLabel(label, d->m_frame);
-            if (properties->layoutDirection() == Qt::RightToLeft) {
-                l->setAlignment(Qt::AlignRight);
-            } else {
-                l->setLayoutDirection(Qt::LeftToRight);
-            }
-            grid->addWidget(l, curRow++, 2);
-            l->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::TextSelectableByKeyboard);
+        if (const QDateTime dt = firstItem.time(KFileItem::CreationTime); !dt.isNull()) {
+            d->m_ui->createdTimeLabel->setText(locale.toString(dt, QLocale::LongFormat));
+        } else {
+            d->m_ui->createdTimeLabel->hide();
         }
 
-        QDateTime dt = firstItem.time(KFileItem::CreationTime);
-        if (!dt.isNull()) {
-            l = new QLabel(i18n("Created:"), d->m_frame);
-            grid->addWidget(l, curRow, 0, Qt::AlignRight);
-
-            l = new QLabel(locale.toString(dt, QLocale::LongFormat), d->m_frame);
-            grid->addWidget(l, curRow++, 2);
-            l->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::TextSelectableByKeyboard);
+        if (const QDateTime dt = firstItem.time(KFileItem::ModificationTime); !dt.isNull()) {
+            d->m_ui->modifiedTimeLabel->setText(locale.toString(dt, QLocale::LongFormat));
+        } else {
+            d->m_ui->modifiedTimeLabel->hide();
         }
 
-        dt = firstItem.time(KFileItem::ModificationTime);
-        if (!dt.isNull()) {
-            l = new QLabel(i18n("Modified:"), d->m_frame);
-            grid->addWidget(l, curRow, 0, Qt::AlignRight);
-
-            l = new QLabel(locale.toString(dt, QLocale::LongFormat), d->m_frame);
-            l->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::TextSelectableByKeyboard);
-            grid->addWidget(l, curRow++, 2);
-        }
-
-        dt = firstItem.time(KFileItem::AccessTime);
-        if (!dt.isNull()) {
-            l = new QLabel(i18n("Accessed:"), d->m_frame);
-            grid->addWidget(l, curRow, 0, Qt::AlignRight);
-
-            l = new QLabel(locale.toString(dt, QLocale::LongFormat), d->m_frame);
-            l->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::TextSelectableByKeyboard);
-            grid->addWidget(l, curRow++, 2);
+        if (const QDateTime dt = firstItem.time(KFileItem::AccessTime); !dt.isNull()) {
+            d->m_ui->accessTimeLabel->setText(locale.toString(dt, QLocale::LongFormat));
+        } else {
+            d->m_ui->accessTimeLabel->hide();
         }
     }
 
+    // File system and mount point widgets
     if (hasDirs) { // only for directories
-        sep = new KSeparator(Qt::Horizontal, d->m_frame);
-        grid->addWidget(sep, curRow, 0, 1, 3);
-        ++curRow;
-
         if (isLocal) {
             KMountPoint::Ptr mp = KMountPoint::currentMountPoints().findByPath(url.toLocalFile());
 
             if (mp) {
-                l = new QLabel(i18n("File System:"), d->m_frame);
-                grid->addWidget(l, curRow, 0, Qt::AlignRight);
-
-                l = new QLabel(d->m_frame);
-                grid->addWidget(l, curRow++, 2);
-                l->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::TextSelectableByKeyboard);
-                l->setText(mp->mountType());
-
-                l = new QLabel(i18n("Mounted on:"), d->m_frame);
-                grid->addWidget(l, curRow, 0, Qt::AlignRight);
-
-                l = new KSqueezedTextLabel(mp->mountPoint(), d->m_frame);
-                l->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::TextSelectableByKeyboard);
-                grid->addWidget(l, curRow++, 2);
-
-                l = new QLabel(i18n("Mounted from:"), d->m_frame);
-                grid->addWidget(l, curRow, 0, Qt::AlignRight);
-
-                l = new QLabel(mp->mountedFrom(), d->m_frame);
-                grid->addWidget(l, curRow++, 2);
-                l->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::TextSelectableByKeyboard);
+                d->m_ui->fsLabel->setText(mp->mountType());
+                d->m_ui->mountPointLabel->setText(mp->mountPoint());
+                d->m_ui->mountSrcLabel->setText(mp->mountedFrom());
             }
+        } else {
+            d->hideMountPointLabels();
         }
-
-        l = new QLabel(i18nc("Amount of used and available space on this device or partition", "Free space:"), d->m_frame);
-        grid->addWidget(l, curRow, 0, Qt::AlignRight);
-
-        d->m_capacityBar = new KCapacityBar(KCapacityBar::DrawTextOutline, d->m_frame);
-        d->m_capacityBar->setText(i18nc("@info:status", "Unknown size"));
-        grid->addWidget(d->m_capacityBar, curRow++, 2);
 
         KIO::FileSystemFreeSpaceJob *job = KIO::fileSystemFreeSpace(url);
         connect(job, &KIO::FileSystemFreeSpaceJob::result, this, &KFilePropsPlugin::slotFreeSpaceResult);
+    } else {
+        d->m_ui->fsSeparator->hide();
+        d->m_ui->freespaceLabel->hide();
+        d->m_ui->capacityBar->hide();
+        d->hideMountPointLabels();
     }
 
-    vbl->addStretch(1);
+    // UDSEntry extra fields
+    if (const auto extraFields = KProtocolInfo::extraFields(url); !d->bMultiple && !extraFields.isEmpty()) {
+        int curRow = d->m_ui->gridLayout->rowCount();
+        KSeparator *sep = new KSeparator(Qt::Horizontal, &d->m_mainWidget);
+        d->m_ui->gridLayout->addWidget(sep, curRow++, 0, 1, 3);
+
+        QLocale locale;
+        for (int i = 0; i < extraFields.count(); ++i) {
+            const auto &field = extraFields.at(i);
+
+            QString text = firstItem.entry().stringValue(KIO::UDSEntry::UDS_EXTRA + i);
+            if (field.type == KProtocolInfo::ExtraField::Invalid || text.isEmpty()) {
+                continue;
+            }
+
+            if (field.type == KProtocolInfo::ExtraField::DateTime) {
+                const QDateTime date = QDateTime::fromString(text, Qt::ISODate);
+                if (!date.isValid()) {
+                    continue;
+                }
+
+                text = locale.toString(date, QLocale::LongFormat);
+            }
+
+            auto *label = new QLabel(i18n("%1:", field.name), &d->m_mainWidget);
+            d->m_ui->gridLayout->addWidget(label, curRow, 0, Qt::AlignRight);
+
+            auto *squeezedLabel = new KSqueezedTextLabel(text, &d->m_mainWidget);
+            if (properties->layoutDirection() == Qt::RightToLeft) {
+                squeezedLabel->setAlignment(Qt::AlignRight);
+            } else {
+                squeezedLabel->setLayoutDirection(Qt::LeftToRight);
+            }
+
+            d->m_ui->gridLayout->addWidget(squeezedLabel, curRow++, 2);
+            squeezedLabel->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::TextSelectableByKeyboard);
+        }
+    }
 }
 
 bool KFilePropsPlugin::enableIconButton() const
@@ -1333,14 +1235,13 @@ bool KFilePropsPlugin::enableIconButton() const
 void KFilePropsPlugin::setFileNameReadOnly(bool ro)
 {
     Q_ASSERT(ro); // false isn't supported
-    if (ro && !d->m_fileNameLabel) {
+    if (ro && d->m_ui->fileNameLabel->isHidden()) {
         Q_ASSERT(!d->m_bFromTemplate);
-        delete d->m_lined;
-        d->m_lined = nullptr;
-        d->m_fileNameLabel = new QLabel(d->m_frame);
-        d->m_fileNameLabel->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::TextSelectableByKeyboard);
-        d->m_fileNameLabel->setText(d->oldName); // will get overwritten if d->bMultiple
-        d->m_grid->addWidget(d->m_fileNameLabel, 0, 2);
+        d->m_ui->fileNameLineEdit->setText(QString());
+        d->m_ui->fileNameLineEdit->hide();
+
+        d->m_ui->fileNameLabel->show();
+        d->m_ui->fileNameLabel->setText(d->oldName); // will get overwritten if d->bMultiple
     }
 }
 
@@ -1397,16 +1298,16 @@ void KFilePropsPlugin::slotFreeSpaceResult(KIO::Job *job, KIO::filesize_t size, 
         const quint64 used = size - available;
         const int percentUsed = qRound(100.0 * qreal(used) / qreal(size));
 
-        d->m_capacityBar->setText(i18nc("Available space out of total partition size (percent used)",
-                                        "%1 free of %2 (%3% used)",
-                                        KIO::convertSize(available),
-                                        KIO::convertSize(size),
-                                        percentUsed));
+        d->m_ui->capacityBar->setText(i18nc("Available space out of total partition size (percent used)",
+                                            "%1 free of %2 (%3% used)",
+                                            KIO::convertSize(available),
+                                            KIO::convertSize(size),
+                                            percentUsed));
 
-        d->m_capacityBar->setValue(percentUsed);
+        d->m_ui->capacityBar->setValue(percentUsed);
     } else {
-        d->m_capacityBar->setText(i18nc("@info:status", "Unknown size"));
-        d->m_capacityBar->setValue(0);
+        d->m_ui->capacityBar->setText(i18nc("@info:status", "Unknown size"));
+        d->m_ui->capacityBar->setValue(0);
     }
 }
 
@@ -1415,31 +1316,31 @@ void KFilePropsPlugin::slotDirSizeUpdate()
     KIO::filesize_t totalSize = d->dirSizeJob->totalSize();
     KIO::filesize_t totalFiles = d->dirSizeJob->totalFiles();
     KIO::filesize_t totalSubdirs = d->dirSizeJob->totalSubdirs();
-    d->m_sizeLabel->setText(i18n("Calculating... %1 (%2)\n%3, %4",
-                                 KIO::convertSize(totalSize),
-                                 QLocale().toString(totalSize),
-                                 i18np("1 file", "%1 files", totalFiles),
-                                 i18np("1 sub-folder", "%1 sub-folders", totalSubdirs)));
+    d->m_ui->sizeLabel->setText(i18n("Calculating... %1 (%2)\n%3, %4",
+                                     KIO::convertSize(totalSize),
+                                     QLocale().toString(totalSize),
+                                     i18np("1 file", "%1 files", totalFiles),
+                                     i18np("1 sub-folder", "%1 sub-folders", totalSubdirs)));
 }
 
 void KFilePropsPlugin::slotDirSizeFinished(KJob *job)
 {
     if (job->error()) {
-        d->m_sizeLabel->setText(job->errorString());
+        d->m_ui->sizeLabel->setText(job->errorString());
     } else {
         KIO::filesize_t totalSize = d->dirSizeJob->totalSize();
         KIO::filesize_t totalFiles = d->dirSizeJob->totalFiles();
         KIO::filesize_t totalSubdirs = d->dirSizeJob->totalSubdirs();
-        d->m_sizeLabel->setText(QStringLiteral("%1 (%2)\n%3, %4")
-                                    .arg(KIO::convertSize(totalSize),
-                                         QLocale().toString(totalSize),
-                                         i18np("1 file", "%1 files", totalFiles),
-                                         i18np("1 sub-folder", "%1 sub-folders", totalSubdirs)));
+        d->m_ui->sizeLabel->setText(QStringLiteral("%1 (%2)\n%3, %4")
+                                        .arg(KIO::convertSize(totalSize),
+                                             QLocale().toString(totalSize),
+                                             i18np("1 file", "%1 files", totalFiles),
+                                             i18np("1 sub-folder", "%1 sub-folders", totalSubdirs)));
     }
-    d->m_sizeStopButton->setEnabled(false);
+    d->m_ui->stopCalculateSizeBtn->setEnabled(false);
     // just in case you change something and try again :)
-    d->m_sizeDetermineButton->setText(i18n("Refresh"));
-    d->m_sizeDetermineButton->setEnabled(true);
+    d->m_ui->calculateSizeBtn->setText(i18n("Refresh"));
+    d->m_ui->calculateSizeBtn->setEnabled(true);
     d->dirSizeJob = nullptr;
     delete d->dirSizeUpdateTimer;
     d->dirSizeUpdateTimer = nullptr;
@@ -1447,7 +1348,7 @@ void KFilePropsPlugin::slotDirSizeFinished(KJob *job)
 
 void KFilePropsPlugin::slotSizeDetermine()
 {
-    d->m_sizeLabel->setText(i18n("Calculating..."));
+    d->m_ui->sizeLabel->setText(i18n("Calculating..."));
     // qDebug() << "properties->item()=" << properties->item() << "URL=" << properties->item().url();
 
     d->dirSizeJob = KIO::directorySize(properties->items());
@@ -1455,11 +1356,11 @@ void KFilePropsPlugin::slotSizeDetermine()
     connect(d->dirSizeUpdateTimer, &QTimer::timeout, this, &KFilePropsPlugin::slotDirSizeUpdate);
     d->dirSizeUpdateTimer->start(500);
     connect(d->dirSizeJob, &KJob::result, this, &KFilePropsPlugin::slotDirSizeFinished);
-    d->m_sizeStopButton->setEnabled(true);
-    d->m_sizeDetermineButton->setEnabled(false);
+    d->m_ui->stopCalculateSizeBtn->setEnabled(true);
+    d->m_ui->calculateSizeBtn->setEnabled(false);
 
     // also update the "Free disk space" display
-    if (d->m_capacityBar) {
+    if (!d->m_ui->capacityBar->isHidden()) {
         const KFileItem item = properties->item();
         KIO::FileSystemFreeSpaceJob *job = KIO::fileSystemFreeSpace(item.url());
         connect(job, &KIO::FileSystemFreeSpaceJob::result, this, &KFilePropsPlugin::slotFreeSpaceResult);
@@ -1470,7 +1371,7 @@ void KFilePropsPlugin::slotSizeStop()
 {
     if (d->dirSizeJob) {
         KIO::filesize_t totalSize = d->dirSizeJob->totalSize();
-        d->m_sizeLabel->setText(i18n("At least %1", KIO::convertSize(totalSize)));
+        d->m_ui->sizeLabel->setText(i18n("At least %1", KIO::convertSize(totalSize)));
         d->dirSizeJob->kill();
         d->dirSizeJob = nullptr;
     }
@@ -1478,8 +1379,8 @@ void KFilePropsPlugin::slotSizeStop()
         d->dirSizeUpdateTimer->stop();
     }
 
-    d->m_sizeStopButton->setEnabled(false);
-    d->m_sizeDetermineButton->setEnabled(true);
+    d->m_ui->stopCalculateSizeBtn->setEnabled(false);
+    d->m_ui->calculateSizeBtn->setEnabled(true);
 }
 
 void KFilePropsPlugin::slotSizeDetails()
@@ -1509,8 +1410,8 @@ void KFilePropsPlugin::applyChanges()
 
     // qDebug() << "KFilePropsPlugin::applyChanges";
 
-    if (d->m_lined) {
-        QString n = d->m_lined->text();
+    if (!d->m_ui->fileNameLineEdit->isHidden()) {
+        QString n = d->m_ui->fileNameLineEdit->text();
         // Remove trailing spaces (#4345)
         while (!n.isEmpty() && n[n.length() - 1].isSpace()) {
             n.chop(1);
@@ -1610,9 +1511,9 @@ void KFilePropsPlugin::slotCopyFinished(KJob *job)
         }
     }
 
-    if (d->m_linkTargetLineEdit && !d->bMultiple) {
+    if (!d->m_ui->symlinkTargetEdit->isHidden() && !d->bMultiple) {
         const KFileItem item = properties->item();
-        const QString newTarget = d->m_linkTargetLineEdit->text();
+        const QString newTarget = d->m_ui->symlinkTargetEdit->text();
         if (newTarget != item.linkDest()) {
             // qDebug() << "Updating target of symlink to" << newTarget;
             KIO::Job *job = KIO::symlink(newTarget, item.url(), KIO::Overwrite);
@@ -1648,8 +1549,7 @@ void KFilePropsPlugin::slotCopyFinished(KJob *job)
 
 void KFilePropsPlugin::applyIconChanges()
 {
-    KIconButton *iconButton = qobject_cast<KIconButton *>(d->iconArea);
-    if (!iconButton || !d->bIconChanged) {
+    if (d->m_ui->iconButton->isHidden() || !d->bIconChanged) {
         return;
     }
     // handle icon changes - only local files (or pseudo-local) for now
@@ -1673,11 +1573,11 @@ void KFilePropsPlugin::applyIconChanges()
 
         // Get the default image
         QMimeDatabase db;
-        QString str = db.mimeTypeForFile(url.toLocalFile(), QMimeDatabase::MatchExtension).iconName();
+        const QString str = db.mimeTypeForFile(url.toLocalFile(), QMimeDatabase::MatchExtension).iconName();
         // Is it another one than the default ?
         QString sIcon;
-        if (str != iconButton->icon()) {
-            sIcon = iconButton->icon();
+        if (const QString currIcon = d->m_ui->iconButton->icon(); str != currIcon) {
+            sIcon = currIcon;
         }
         // (otherwise write empty value)
 
