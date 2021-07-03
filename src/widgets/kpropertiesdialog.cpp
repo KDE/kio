@@ -1024,19 +1024,6 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
         d->m_ui->fileNameLabel->hide();
 
         d->m_ui->fileNameLineEdit->setText(filename);
-        d->m_ui->fileNameLineEdit->setFocus();
-
-        // Enhanced rename: Don't highlight the file extension.
-        QString extension = db.suffixForFileName(filename);
-        if (!extension.isEmpty()) {
-            d->m_ui->fileNameLineEdit->setSelection(0, filename.length() - extension.length() - 1);
-        } else {
-            int lastDot = filename.lastIndexOf(QLatin1Char('.'));
-            if (lastDot > 0) {
-                d->m_ui->fileNameLineEdit->setSelection(0, lastDot);
-            }
-        }
-
         connect(d->m_ui->fileNameLineEdit, &QLineEdit::textChanged, this, &KFilePropsPlugin::nameFileChanged);
     }
 
