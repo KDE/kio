@@ -1,0 +1,91 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Italian "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="data">
+<title
+>&URL; data</title>
+
+<articleinfo>
+<authorgroup>
+<author
+><personname
+><firstname
+>Leo</firstname
+><surname
+>Savernik</surname
+></personname
+> <address
+><email
+>l.savernik@aon.at</email
+></address
+> </author>
+<othercredit role="translator"
+><firstname
+>Luciano</firstname
+> <surname
+>Montanaro</surname
+> <affiliation
+><address
+><email
+>mikelima@cirulla.net</email
+></address
+></affiliation
+> <contrib
+>Traduzione del documento</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>2003-02-06</date>
+<!--releaseinfo
+>2.20.00</releaseinfo-->
+
+</articleinfo>
+
+<para
+>Gli URL data permettono di includere i dati di documenti di piccole dimensioni nell'&URL; stesso. Questo è utile per casi di test &HTML; molto piccoli o in altre occasioni nelle quali l'utilizzo di un documento separato non sia giustificato.</para>
+
+<para
+><userinput
+>data:,pippo</userinput
+> (nota la virgola dopo i due punti) fornirà un documento di testo che non contiene altro che <literal
+>pippo</literal
+> </para>
+
+<para
+>L'ultimo esempio era un documento di testo. Per i documenti &HTML; bisogna specificare il tipo &MIME; <literal
+>text/html</literal
+>: <quote
+><userinput
+>data:text/html,&lt;title&gt;Testcase&lt;/title&gt;&lt;p&gt;This is a testcase&lt;/p&gt;</userinput
+></quote
+>. Questo produrrà esattamente lo stesso output del caso in cui il contenuto fosse in un documento separato. </para>
+
+<para
+>È anche possibile specificare insiemi di caratteri alternativi. Nota che i caratteri ad otto bit devono essere sostituiti da un segno di percento e da due cifre esadecimali: <quote
+><userinput
+>data:;charset=iso-8859-1,Gr%FC%DFe aus Schl%E4gl</userinput
+></quote
+> genera <quote
+><literal
+>Gr&uuml;&szlig;e aus Schl&auml;gl</literal
+></quote
+>, mentre omettendo l'attributo charset si otterrà qualcosa come <quote
+><literal
+>Gr??e aus Schl?gl</literal
+></quote
+>. </para>
+
+<para
+><ulink url="https://www.ietf.org/rfc/rfc2397.txt"
+>L'RFC2397 dell'IETF</ulink
+> fornisce maggiori informazioni.</para>
+
+</article>
+

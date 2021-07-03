@@ -1,0 +1,223 @@
+<?xml version="1.0" ?>
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % Dutch "INCLUDE"
+><!-- change language only here -->
+]>
+
+<refentry lang="&language;">
+
+<refentryinfo>
+<title
+>kcookiejar5-gebruikershandleiding</title>
+<author
+><firstname
+>Waldo</firstname
+> <surname
+> Bastian</surname
+> <affiliation
+> <address
+><email
+>bastian@kde.org</email
+></address>
+</affiliation>
+</author>
+
+<author
+><firstname
+>Dawit</firstname
+> <surname
+>Alemayehu</surname
+> <affiliation
+> <address
+><email
+>adawit@kde.org</email
+></address>
+</affiliation>
+</author>
+
+<date
+>2015-07-31</date>
+<releaseinfo
+>Frameworks 5.13</releaseinfo>
+
+</refentryinfo>
+
+<refmeta>
+<refentrytitle
+><command
+>kcookiejar5</command
+></refentrytitle>
+<manvolnum
+>8</manvolnum>
+</refmeta>
+
+<refnamediv>
+<refname
+><command
+>kcookiejar5</command
+></refname>
+<refpurpose
+>Commandoregel-interface naar de &HTTP;-cookie-daemon van &kde;</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv>
+<title
+>Samenvatting</title>
+
+<cmdsynopsis
+><command
+>kcookiejar5</command
+> <arg choice="opt"
+>-h, --help</arg
+> <arg choice="opt"
+>-v, --version</arg
+> <arg choice="opt"
+>--shutdown</arg
+> <arg choice="opt"
+>--remove<replaceable
+> domein</replaceable
+></arg
+> <arg choice="opt"
+>--remove-all</arg
+> <arg choice="opt"
+>--reload-config</arg
+> </cmdsynopsis>
+</refsynopsisdiv>
+
+<refsect1>
+<title
+>Beschrijving</title>
+
+<para
+><command
+>kcookiejar5</command
+> is een commandoregel-interface naar de opslag van &HTTP;-cookies van &kde;, een &DBus; service om cookies op te slaan/op te halen/ en te wissen. </para>
+</refsect1>
+
+<refsect1>
+<title
+>Opties</title>
+
+<variablelist>
+
+<varlistentry>
+<term
+><option
+>-h</option
+><option
+>--help</option
+></term>
+<listitem>
+<para
+>Hulp over de opties tonen.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><option
+>-v</option
+><option
+>--version</option
+></term>
+<listitem>
+<para
+>Versie-informatie tonen</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><option
+>--shutdown</option
+></term>
+<listitem>
+<para
+>Cookiedepot afsluiten en de &DBus;-service. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><option
+>--remove</option
+> <parameter
+>domein</parameter
+></term>
+<listitem>
+<para
+>Verwijdert cookies voor <parameter
+>domein</parameter
+> uit het cookiedepot. </para>
+</listitem>
+</varlistentry>
+
+
+<varlistentry>
+<term
+><option
+>--remove-all</option
+></term>
+<listitem>
+<para
+>Verwijdert alle cookies uit het cookiedepot.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><option
+>--reaload-config</option
+></term>
+<listitem>
+<para
+>Herlaadt het configuratiebestand. </para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+</refsect1>
+
+<refsect1>
+<title
+>Gebruik</title>
+<para
+><command
+>kcookiejar5</command
+> is een commandoregel hulpmiddel om toegang te krijgen tot de kded-module die cookies beheert in &konqueror; en andere toepassingen van &kde;.</para>
+<para
+>Bij starten zonder parameters laadt het de kded-module voor het bieden van het &DBus;-interface om cookies op te slaan. </para>
+<para
+>Wanneer <command
+>kcookiejar5</command
+> wordt gestart met enige parameters, dan doet het additionele taken met het cookiedepot, zoals verwijderen van de cookies van een <parameter
+>domein</parameter
+>. </para>
+
+</refsect1>
+
+<refsect1>
+<title
+>Zie ook</title>
+<para
+><replaceable
+>kf5options</replaceable
+>(7), <replaceable
+>qt5options</replaceable
+>(7) </para>
+</refsect1>
+
+<refsect1>
+<title
+>Fouten/bugs</title>
+<para
+>Gebruik <ulink url="https://bugskde.org"
+>De volger van bugs van &kde;</ulink
+> om ze te rapporteren.</para>
+</refsect1>
+
+</refentry>
+
+
+

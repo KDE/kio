@@ -1,0 +1,63 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Galician  "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="ftp">
+<title
+>&FTP;</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Lauri.Watts; &Lauri.Watts.mail;</author>
+<othercredit role="translator"
+><firstname
+>Marce</firstname
+><surname
+>Villarino</surname
+><affiliation
+><address
+><email
+>mvillarino@users.sourceforge.net</email
+></address
+></affiliation
+><contrib
+>Tradutor do proxecto Trasno</contrib
+></othercredit
+> 
+</authorgroup>
+</articleinfo>
+
+<para
+>&FTP; é o servizo de internet empregado para transferir ficheiros de datos desde o disco dun computador ao doutro, con independencia do sistema operativo. </para>
+
+<para
+>Ao igual que outros aplicativos de internet, &FTP; emprega a arquitectura cliente-servidor, un usuario chama a un programa de &FTP; no computador, ordénalle contactar cun computador remoto, e logo pide a transferencia dun ou máis ficheiros. O programa local de &FTP; convértese nun cliente que emprega <acronym
+>TCP</acronym
+> para contactar cun programa servidor de &FTP; no computador remoto. Cada vez que o usuario pide unha transferencia, o os programas cliente e o servidor cooperan para enviar unha copia dos datos através de internet. </para>
+
+<para
+>Os servidores de &FTP; que admiten <quote
+>&FTP; anónimo</quote
+> permiten que calquera usuario, non só os que teñan conta no servidor, examinen os arquivod <quote
+>ftp</quote
+> e descarguen ficheiros. Algúns servidores &FTP; están configurados para permitir que os usuarios envíen ficheiros. </para>
+
+<para
+>&FTP; é empregado con frecuencia para recuperar información e obter software gardado en ficheiros en sitios de arquivo &FTP; por todo o mundo. </para>
+
+
+<para
+>Fonte: Adaptado de <ulink url="http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/ftpdef.htm"
+>http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/ftpdef.htm</ulink
+> </para>
+
+<para
+>Consulte o manual: <ulink url="man:/ftp"
+>ftp</ulink
+>.</para>
+
+</article>

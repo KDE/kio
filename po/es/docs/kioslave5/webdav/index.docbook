@@ -1,0 +1,97 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Spanish "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="webdav">
+<title
+>webdav / webdavs</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Hamish.Rodda; &Hamish.Rodda.mail;</author>
+<othercredit role="translator"
+> <firstname
+>Marcos</firstname
+> <surname
+>Fouces Lago</surname
+> <affiliation
+><address
+><email
+>mfouces@yahoo.es</email
+></address
+></affiliation
+> <contrib
+>Traductor</contrib
+> </othercredit
+> 
+</authorgroup>
+
+<date
+>2002-01-21</date>
+</articleinfo>
+<para
+><acronym
+>WebDAV</acronym
+> es un protocolo de Versiones y Autoría distribuido (<emphasis
+>D</emphasis
+>istributed <emphasis
+>A</emphasis
+>uthoring and <emphasis
+>V</emphasis
+>ersioning) para la Web. Le permite la administración sencilla de documentos y procedimientos (scripts) en un servidor <ulink url="help:/kioslave/webdav.html"
+>&HTTP;</ulink
+> y tiene características diseñadas para simplificar la administración de versiones entre varios autores.</para>
+
+<para
+>Su uso es sencillo. Teclee la dirección que desea visualizar, similar a una &URL; &HTTP;, excepto por el prefijo del nombre del protocolo webdav:// al inicio. Por ejemplo, <userinput
+>webdav://<replaceable
+>www.nombre-de-servidor.com/ruta/</replaceable
+></userinput
+>. Si especifica un nombre de carpeta, se le mostrará una lista de archivos y carpetas y podrá manipular dichas carpetas y archivos como podría hacerlo con cualquier otro sistema de archivos.</para>
+
+<variablelist>
+<title
+>Características de WebDAV</title>
+<varlistentry>
+<term
+>Bloqueo</term>
+<listitem>
+<para
+>El bloqueo de archivos permite a los usuarios bloquear un archivo, informando al resto de que usted está trabajando en dicho archivo. De este modo, la edición se puede hacer sin miedo a que los cambios puedan ser sobreescritos por otra persona que también edita el mismo documento.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+>Acceso a la fuente del archivo</term>
+<listitem>
+<para
+><acronym
+>WebDAV</acronym
+> le permite acceso al guion que se invoca para producir una página específica, de modo que se pueden realizar cambios al propio guion.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+>Reconocimiento de propiedades por documento</term>
+<listitem>
+<para
+>Se pueden configurar propiedades arbitrarias para facilitar la identificación de un documento, como por ejemplo, el autor.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>Para hacer uso de estas capacidades adicionales, usted necesitará una aplicación que las implemente. Ninguna aplicación las implementa actualmente a través de este kioslave.</para>
+
+<para
+><acronym
+>WebDAVS</acronym
+> es el protocolo <acronym
+>WebDAV</acronym
+> cifrado vía SSL.</para>
+
+</article>

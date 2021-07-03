@@ -1,0 +1,33 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Continental-Chinese "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="telnet">
+<title
+>telnet</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Ferdinand.Gassauer; &Ferdinand.Gassauer.mail;</author>
+<author
+><firstname
+>Funda</firstname
+> <surname
+>Wang</surname
+></author
+> 
+</authorgroup>
+</articleinfo>
+<para
+>网络终端协议 (TELNET) 允许用户登录网络上支持 TELNET 的的任何其他计算机。 </para>
+
+<para
+>参见手册：<ulink url="man:/telnet"
+>telnet</ulink
+>。 </para>
+
+</article>

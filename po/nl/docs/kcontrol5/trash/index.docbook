@@ -1,0 +1,84 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Dutch "INCLUDE">
+]>
+<article id="trash" lang="&language;">
+<title
+>Prullenbak</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Burkhard.Lueck;</author>
+&Freek.de.Kruijf; 
+</authorgroup>
+
+<date
+>2018-05-31</date>
+<releaseinfo
+>Frameworks 5.48</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Systeeminstellingen</keyword>
+<keyword
+>prullenbak</keyword>
+</keywordset>
+</articleinfo>
+
+<para
+>Met deze module kunt u uw instellingen voor de prullenbak configureren. </para>
+
+<variablelist>
+<varlistentry
+><term
+><guilabel
+>Opschonen:</guilabel
+></term>
+<listitem
+><para
+>Activeer dit vakje om automatische verwijdering van bestanden toe te staan die ouder zijn dan de gespecificeerde waarde. Laat deze uitgeschakeld om automatische verwijdering van elk item na een bepaalde tijdspanne <emphasis
+>niet</emphasis
+> te doen. Stel het aantal dagen in dat bestanden in de prullenbak mogen verblijven . Elk bestand ouder dan dit zal automatisch worden verwijderd. </para
+></listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>Grootte:</guilabel
+></term>
+<listitem
+><para
+>Activeer dit vakje om een limiet te stellen aan de maximum hoeveelheid schijfruimte voor de prullenbak die u kunt specificeren. Anders is deze onbeperkt. </para
+></listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>Beperken tot</guilabel
+></term>
+<listitem
+><para
+>Dit is het maximum percentage schijfruimte dat zal worden gebruikt voor de prullenbak. De berekende hoeveelheid schijfruimte die zal worden toegestaan voor de prullenbak wordt getoond rechts van het spinvak. </para
+></listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>Volle prullenbak:</guilabel
+></term>
+<listitem
+><para
+>Bij het bereiken van de limiet voor de grootte wordt de geselecteerde actie uitgevoerd,ofwel de oudste of grootste bestanden zullen automatisch worden verwijderd of u zal worden gewaarschuwd. </para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+</article>

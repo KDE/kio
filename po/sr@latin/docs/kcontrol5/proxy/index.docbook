@@ -1,0 +1,229 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Serbian-Latin "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="proxy" lang="&language;">
+<title
+>Proksi</title>
+<articleinfo>
+<authorgroup>
+<author
+><personname
+><firstname
+>Krišna</firstname
+> <surname
+>Tateneni</surname
+></personname
+> &Krishna.Tateneni.mail;</author>
+<othercredit role="translator"
+><firstname
+>Dragan</firstname
+><surname
+>Pantelić</surname
+><affiliation
+><address
+><email
+>falcon-10@gmx.de</email
+></address
+></affiliation
+><contrib
+>prevod</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>11. 10. 2016.</date>
+<releaseinfo
+>Radni okviri KDE‑a 5.29</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Sistemske postavke</keyword>
+<keyword
+>proksi</keyword>
+<keyword
+>proksiji</keyword>
+</keywordset>
+
+</articleinfo>
+<sect1 id="proxies">
+<title
+>Proksiji</title>
+
+<sect2 id="proxies-intro">
+
+<title
+>Uvod</title>
+
+<para
+>Proksiji su programi koji rade na računaru u ulozi servera, na mreži na koju ste (modemom ili drugojačije) povezani. Ti programi primaju HTTP i FTP zahteve, dobavljaju tražene fajlove sa Interneta i prosleđuju ih klijentskom računaru koji je zahtev podneo.</para>
+
+<para
+>Kad ste podesili proksi, HTTP i FTP zahtevi preusmeravaju se kroz računar koji služi kao proksi server. Međutim, možete izabrati i određene domaćine koje treba direktno kontaktirati, radije nego kroz proksi server. Na primer, ako ste na lokalnoj mreži, pristup lokalnim domaćinima verovatno ne mora da se odvija kroz proksi server.</para>
+
+<para
+>Proksi server treba da podesite samo ako to zahteva vaš administrator mreže (ako ste umreženi preko telefona, to će biti vaš internet provajder). Inače, naročito ako ste pomalo zbunjeni oko ovoga sa proksijima a čini vam se da je s internet vezom sve u redu, ne treba ništa da menjate.</para>
+
+<para
+>Imajte u vidu da je korišćenje proksi servera opciono, ali ima tu prednost da vam pruža brži pristup podacima na Internetu.</para>
+
+<para
+>Ako ste niste sigurni treba li da koristite proksi server za povezivanje na Internet, konsultujte uputstva koja ste dobili od internet provajdera, ili se obratite svom sistem-administratoru.</para>
+
+</sect2>
+
+<sect2 id="proxies-use">
+
+<title
+>Upotreba</title>
+
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>Bez proksija</guilabel
+></term>
+<listitem>
+
+<para
+>Izaberite ovu opciju ako <emphasis
+>ne</emphasis
+> želite da koristite proksi server, već da se direktno povezujete na Internet.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>Ako ste odlučili da koristite proksi, imate nekoliko načina da podesite njegove postavke.</para>
+
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>Automatski otkrij postavu proksija</guilabel
+></term>
+<listitem>
+
+<para
+>Izaberite ovu opciju ako želite da se automatski otkriva i preuzima fajl skripte za postavu proksija.</para>
+<para
+>Ovo se razlikuje od sledećeg izbora po tome što od vas <emphasis
+>ne</emphasis
+> zahteva da zadate lokaciju fajla postavne skripte. Umesto toga, ona će biti automatski preuzeta preko protokola WPAD‑a (engl. skr. od „automatsko otkrivanje veb proksi“).</para>
+
+<note
+><para
+>Ako imate problema sa ovom postavkom, za više informacija pogledajte ČPP na <ulink url="http://www.konqueror.org"
+>domaćoj stranici <application
+>K‑osvajača</application
+></ulink
+>.</para
+></note>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>URL za automatsko podešavanje proksija:</guilabel
+></term>
+<listitem>
+<para
+>Ovu opciju izaberite ako podršku za proksi obezbeđuje fajl skripte smešten na određenoj adresi. Adresu možete neposredno uneti u polje lokacije, ili kliknuti na ikonicu fascikle da pregledate okolo. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Sistemska postava proksija:</guilabel
+></term>
+<listitem>
+<para
+>Na nekim sistemima postavljena je $<envar
+>HTTP_PROXY</envar
+>, tako da i grafički i negrafički programi mogu deliti iste podatke o postavi proksija.</para>
+<para
+>Ako ovo važi u vašem slučaju, izaberite ovu opciju i kliknite na dugme <guibutton
+>Otkrij automatski</guibutton
+> da zadate imena promenljivih okruženja prema kojim će se postaviti adresa proksi servera.</para>
+<!-- Exceptions fields are different for system proxy (envar) + manual proxy list of hosts/IPs? -->
+<para
+>U polje <guilabel
+>Izuzeci:</guilabel
+> unesite promenljivu okruženja, npr. $<envar
+>NO_PROXY</envar
+>, koja sadrži adrese sajtova za koje ne treba koristiti proksi server.</para>
+<para
+>Upotrebite <guilabel
+>Prikaži vrednosti promenljivih okruženja</guilabel
+> da prikažete vrednost promenljive okruženja mesto njenog imena. Međutim, nije moguće uređivati vrednosti promenljivih okruženja kroz ovaj modul.</para>
+<!--
+How to enable Auto Detect button?
+-->
+
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+><guilabel
+>Koristi ručno zadatu postavu proksija:</guilabel
+></term>
+<listitem>
+
+<para
+>Potpune adresne podatke za proksi čine internet adresa i broj porta, koje treba da unesete u odgovarajuća polja. Radi male uštede u kucanju, popunite <guilabel
+>Ovaj proksi server važi za sve protokole</guilabel
+> da kopirate adrese i port HTTP proksi servera u sva ostala polja proksija.</para>
+
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>Izuzeci:</guilabel
+></term>
+<listitem>
+<para
+>Unesite zapetama razdvojen spisak imena domaćina ili IP adresa nad kojima ne treba primeniti gornje postavke proksija. Ako želite da izostavite sve domaćine u datom domenu, jednostavno unesite ime domena sa tačkom ispred. Na primer, da izostavite sva imena domaćina pod <literal
+>kde.org</literal
+>, unesite <userinput
+>.kde.org</userinput
+>. Džokerski znakovi poput <userinput
+>*</userinput
+> i <userinput
+>?</userinput
+> nisu podržani i nemaju nikakvog efekta. Takođe možete unositi IP adrese, npr. <userinput
+>127.0.0.1</userinput
+>, i IP adrese sa podmrežom, npr. <userinput
+>192.168.0.1/24</userinput
+>.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>Možete izabrati i <guilabel
+>Postavke proksija važe samo za adrese na spisku izuzetaka</guilabel
+>.</para>
+
+<para
+>Popunite ovu kućicu da obrnete spisak izuzetaka, tj. da se proksi serveri koriste samo ako traženi URL poklapa jednu od ovde navedenih adresa.</para>
+
+<para
+>Ova mogućnost je korisna ako vam proksi treba samo za pristup nekolicini određenih sajtova, na primer, na intranetu. Ako imate složenije zahteve, možete se okrenuti postavnoj skripti.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+</sect2>
+
+</sect1>
+
+</article>

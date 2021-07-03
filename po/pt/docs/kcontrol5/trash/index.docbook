@@ -1,0 +1,98 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Portuguese "INCLUDE">
+]>
+<article id="trash" lang="&language;">
+<title
+>Lixo</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Burkhard.Lueck;</author>
+<othercredit role="translator"
+><firstname
+>José</firstname
+><surname
+>Pires</surname
+><affiliation
+><address
+><email
+>zepires@gmail.com</email
+></address
+></affiliation
+><contrib
+>Tradução</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>2016-11-10</date>
+<releaseinfo
+>Plataformas 5.29</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Systemsettings</keyword>
+<keyword
+>lixo</keyword>
+</keywordset>
+</articleinfo>
+
+<para
+>Este módulo permite-lhe configurar as opções do caixote do lixo. </para>
+
+<variablelist>
+<varlistentry
+><term
+><guilabel
+>Apagar os ficheiros mais antigos que</guilabel
+></term>
+<listitem
+><para
+>Assina esta opção para permitir a remoção automática dos ficheiros anteriores ao valor indicado. Deixe esta opção desactivada para <emphasis
+>não</emphasis
+> apagar automaticamente os ficheiros que ultrapassem um dado período de tempo. Indique o número de dias em que os ficheiros poderão permanecer no lixo. Todos os ficheiros anteriores a isto serão apagados automaticamente. </para
+></listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>Limitar ao tamanho máximo</guilabel
+></term>
+<listitem
+><para
+>Assinale esta opção para limiar o lixo ao tamanho máximo de espaço em disco que indicar em baixo. Caso contrário, este valor será ilimitado. </para
+></listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>Tamanho máximo</guilabel
+></term>
+<listitem
+><para
+>Esta é a percentagem máxima de espaço em disco que será usada para o lixo. O valor calculado para o espaço em disco permitido será apresentado à direita do campo incremental. </para
+></listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>Quando atingir o limite</guilabel
+></term>
+<listitem
+><para
+>Quando o limite de tamanho for atingido, será efectuada a acção seleccionada, sendo apagados os ficheiros mais antigos ou os maiores ou ainda avisá-lo desse facto. </para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+</article>

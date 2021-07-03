@@ -1,0 +1,223 @@
+<?xml version="1.0" ?>
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % Swedish "INCLUDE"
+><!-- change language only here -->
+]>
+
+<refentry lang="&language;">
+
+<refentryinfo>
+<title
+>kcookiejar5 användarhandbok</title>
+<author
+><firstname
+>Waldo</firstname
+> <surname
+> Bastian</surname
+> <affiliation
+> <address
+><email
+>bastian@kde.org</email
+></address>
+</affiliation>
+</author>
+
+<author
+><firstname
+>Dawit</firstname
+> <surname
+>Alemayehu</surname
+> <affiliation
+> <address
+><email
+>adawit@kde.org</email
+></address>
+</affiliation>
+</author>
+
+<date
+>2015-07-31</date>
+<releaseinfo
+>Frameworks 5.13</releaseinfo>
+
+</refentryinfo>
+
+<refmeta>
+<refentrytitle
+><command
+>kcookiejar5</command
+></refentrytitle>
+<manvolnum
+>8</manvolnum>
+</refmeta>
+
+<refnamediv>
+<refname
+><command
+>kcookiejar5</command
+></refname>
+<refpurpose
+>Kommandoradsgränssnitt för &kde;:s &HTTP;-kakdemon</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv>
+<title
+>Översikt</title>
+
+<cmdsynopsis
+><command
+>kcookiejar5</command
+> <arg choice="opt"
+>-h, --help</arg
+> <arg choice="opt"
+>-v, --version</arg
+> <arg choice="opt"
+>--shutdown</arg
+> <arg choice="opt"
+>--remove<replaceable
+> domän</replaceable
+></arg
+> <arg choice="opt"
+>--remove-all</arg
+> <arg choice="opt"
+>--reload-config</arg
+> </cmdsynopsis>
+</refsynopsisdiv>
+
+<refsect1>
+<title
+>Beskrivning</title>
+
+<para
+><command
+>kcookiejar5</command
+> är ett kommandoradsgränssnitt för den &HTTP;-kaklagring som används av &kde;, en &DBus; tjänst för att lagra, hämta och rensa kakor. </para>
+</refsect1>
+
+<refsect1>
+<title
+>Väljare</title>
+
+<variablelist>
+
+<varlistentry>
+<term
+><option
+>-h</option
+><option
+>--help</option
+></term>
+<listitem>
+<para
+>Visa hjälp om väljare.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><option
+>-v</option
+><option
+>--version</option
+></term>
+<listitem>
+<para
+>Visa versionsinformation.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><option
+>--shutdown</option
+></term>
+<listitem>
+<para
+>Stäng av kakburken och &DBus; tjänsten. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><option
+>--remove</option
+> <parameter
+>domän</parameter
+></term>
+<listitem>
+<para
+>Tar bort kakor för <parameter
+>domän</parameter
+> från kakburken. </para>
+</listitem>
+</varlistentry>
+
+
+<varlistentry>
+<term
+><option
+>--remove-all</option
+></term>
+<listitem>
+<para
+>Tar bort alla kakor från kakburken.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><option
+>--reaload-config</option
+></term>
+<listitem>
+<para
+>Laddar om inställningsfilen. </para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+</refsect1>
+
+<refsect1>
+<title
+>Användning</title>
+<para
+><command
+>kcookiejar5</command
+> är ett kommandoradsverktyg för att komma åt kded-modulen som hanterar kakor i &konqueror; och andra &kde;-program.</para>
+<para
+>När det startas utan parametrar laddas kded-modulen för att tillhandahålla &DBus; gränssnittet för att lagra kakor. </para>
+<para
+>När <command
+>kcookiejar5</command
+> startas med några väljare utför det ytterligare åtgärder med kakburken det tillhandahåller, som att ta bort kakorna från en <parameter
+>domän</parameter
+>. </para>
+
+</refsect1>
+
+<refsect1>
+<title
+>Se också</title>
+<para
+><replaceable
+>kf5options</replaceable
+>(7), <replaceable
+>qt5options</replaceable
+>(7) </para>
+</refsect1>
+
+<refsect1>
+<title
+>Fel</title>
+<para
+>Använd <ulink url="https://bugs.kde.org"
+>&kde;:s felspårningssystem</ulink
+> för att rapportera fel.</para>
+</refsect1>
+
+</refentry>
+
+
+
