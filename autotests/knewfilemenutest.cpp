@@ -202,7 +202,7 @@ private Q_SLOTS:
             nauiDialog->setSuggestedName(typedFilename);
             nauiDialog->setSuggestedUrl(QUrl(QStringLiteral("file:///etc")));
         } else if (KPropertiesDialog *propsDialog = qobject_cast<KPropertiesDialog *>(dialog)) {
-            QLineEdit *lineEdit = propsDialog->findChild<QLineEdit *>(QStringLiteral("KFilePropsPlugin::nameLineEdit"));
+            QLineEdit *lineEdit = propsDialog->findChild<QLineEdit *>(QStringLiteral("fileNameLineEdit"));
             QVERIFY(lineEdit);
             QCOMPARE(lineEdit->text(), expectedDefaultFilename);
             lineEdit->setText(typedFilename);
