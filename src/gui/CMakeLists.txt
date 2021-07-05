@@ -18,6 +18,7 @@ target_sources(KF5KIOGui PRIVATE
    openorexecutefileinterface.cpp
    kprocessrunner.cpp
    kterminallauncherjob.cpp
+   kmailclientlauncherjob.cpp
 )
 
 if (CMAKE_SYSTEM_NAME STREQUAL "Linux")
@@ -85,6 +86,7 @@ ecm_generate_headers(KIOGui_CamelCase_HEADERS
 # Headers not prefixed with KIO/
 ecm_generate_headers(KIOGui_HEADERS
   HEADER_NAMES
+  KMailClientLauncherJob
   KTerminalLauncherJob
 
   REQUIRED_HEADERS KIOGui_HEADERS

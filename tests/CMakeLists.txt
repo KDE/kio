@@ -46,6 +46,7 @@ KIOWIDGETS_EXECUTABLE_TESTS(
   kfilewidgettest_gui
   kfilewidgettest_saving_gui
   openfilemanagerwindowtest
+  kmailclientlauncherjobtest_gui
   kterminallauncherjobtest_gui
   ${runapplication_EXE}
 )
