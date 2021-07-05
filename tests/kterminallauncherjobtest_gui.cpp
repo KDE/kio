@@ -32,9 +32,11 @@ int main(int argc, char *argv[])
 
     QObject::connect(job, &KJob::result, &app, [&]() {
         if (job->error()) {
+            qWarning() << job->errorString();
             app.exit(1);
         } else {
-            qDebug() << "Started";
+            qDebug() << "Successfully started";
+            app.exit(0);
         }
     });
 
