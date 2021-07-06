@@ -84,7 +84,7 @@ QByteArray LegacyCodec::encodeFileNameUTF8(const QString &fileName)
 QString LegacyCodec::decodeFileNameUTF8(const QByteArray &localFileName)
 {
     const char *chars = localFileName.constData();
-    int len = qstrlen(chars);
+    const int len = localFileName.size();
     int need = 0;
     uint uc = 0;
     uint min_uc = 0;
