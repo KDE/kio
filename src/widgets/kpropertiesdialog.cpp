@@ -2273,7 +2273,7 @@ void KFilePermissionsPropsPlugin::slotShowAdvancedPermissions()
         d->fileSystemSupportsACLs = fileSystemSupportsACL(path);
     }
     if (d->fileSystemSupportsACLs) {
-        std::for_each(theNotSpecials.begin(), theNotSpecials.end(), std::mem_fun(&QWidget::hide));
+        std::for_each(theNotSpecials.begin(), theNotSpecials.end(), std::mem_fn(&QWidget::hide));
         extendedACLs = new KACLEditWidget(&dlg);
         extendedACLs->setEnabled(d->canChangePermissions);
         vbox->addWidget(extendedACLs);
