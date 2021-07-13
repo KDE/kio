@@ -47,7 +47,7 @@
 #include <Solid/StorageAccess>
 
 #include <algorithm>
-#include <math.h>
+#include <cmath>
 
 #include "job_p.h"
 
