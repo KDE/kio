@@ -1088,6 +1088,14 @@ bool KOpenWithDialogPrivate::checkAccept()
             KConfigGroup cg = desktopFile.desktopGroup();
             cg.writeEntry("Type", "Application");
             cg.writeEntry("Name", initialServiceName);
+
+            // if we select a binary for a scheme handler, then it's safe to assume it can handle URLs
+            if (qMimeType.startsWith(QLatin1String("x-scheme-handler/"))) {
+                if (!typedExec.contains(QLatin1String("%u"), Qt::CaseInsensitive) && !typedExec.contains(QLatin1String("%f"), Qt::CaseInsensitive)) {
+                    fullExec += QStringLiteral(" %u");
+                }
+            }
+
             cg.writeEntry("Exec", fullExec);
             cg.writeEntry("NoDisplay", true); // don't make it appear in the K menu
             if (terminal->isChecked()) {
