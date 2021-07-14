@@ -1066,30 +1066,33 @@ void KUrlNavigator::setLocationUrl(const QUrl &newUrl)
     // code locationUrl() and url become the same URLs
     QUrl firstChildUrl = KIO::UrlUtil::firstChildUrl(locationUrl(), url);
 
-    // Check if the URL represents a tar-, zip- or 7z-file, or an archive file supported by krarc.
-    const QStringList archiveMimetypes = KProtocolInfo::archiveMimetypes(url.scheme());
+    const QString scheme = url.scheme();
+    if (!scheme.isEmpty()) {
+        // Check if the URL represents a tar-, zip- or 7z-file, or an archive file supported by krarc.
+        const QStringList archiveMimetypes = KProtocolInfo::archiveMimetypes(scheme);
 
-    if (!archiveMimetypes.isEmpty()) {
-        // Check whether the URL is really part of the archive file, otherwise
-        // replace it by the local path again.
-        bool insideCompressedPath = d->isCompressedPath(url, archiveMimetypes);
-        if (!insideCompressedPath) {
-            QUrl prevUrl = url;
-            QUrl parentUrl = KIO::upUrl(url);
-            while (parentUrl != prevUrl) {
-                if (d->isCompressedPath(parentUrl, archiveMimetypes)) {
-                    insideCompressedPath = true;
-                    break;
+        if (!archiveMimetypes.isEmpty()) {
+            // Check whether the URL is really part of the archive file, otherwise
+            // replace it by the local path again.
+            bool insideCompressedPath = d->isCompressedPath(url, archiveMimetypes);
+            if (!insideCompressedPath) {
+                QUrl prevUrl = url;
+                QUrl parentUrl = KIO::upUrl(url);
+                while (parentUrl != prevUrl) {
+                    if (d->isCompressedPath(parentUrl, archiveMimetypes)) {
+                        insideCompressedPath = true;
+                        break;
+                    }
+                    prevUrl = parentUrl;
+                    parentUrl = KIO::upUrl(parentUrl);
                 }
-                prevUrl = parentUrl;
-                parentUrl = KIO::upUrl(parentUrl);
             }
-        }
-        if (!insideCompressedPath) {
-            // drop the tar:, zip:, sevenz: or krarc: protocol since we are not
-            // inside the compressed path
-            url.setScheme(QStringLiteral("file"));
-            firstChildUrl.setScheme(QStringLiteral("file"));
+            if (!insideCompressedPath) {
+                // drop the tar:, zip:, sevenz: or krarc: protocol since we are not
+                // inside the compressed path
+                url.setScheme(QStringLiteral("file"));
+                firstChildUrl.setScheme(QStringLiteral("file"));
+            }
         }
     }
 
