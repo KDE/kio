@@ -2,7 +2,7 @@ METADATA
 ========
 
 Applications can provide "metadata" to the slaves. Metadata can influence
-the behavior of a slave and is usally protocol dependent. MetaData consists
+the behavior of a slave and is usually protocol dependent. MetaData consists
 of two strings: a "key" and a "value".
 
 Any meta data whose "key" starts with the keywords {internal~currenthost} and

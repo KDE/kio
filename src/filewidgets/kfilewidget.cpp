@@ -1528,7 +1528,7 @@ void KFileWidgetPrivate::urlEntered(const QUrl &url)
 
     m_urlNavigator->setLocationUrl(url);
 
-    // is trigged in ctor before completion object is set
+    // is triggered in ctor before completion object is set
     KUrlCompletion *completion = dynamic_cast<KUrlCompletion *>(m_locationEdit->completionObject());
     if (completion) {
         completion->setDir(url);
@@ -2476,7 +2476,7 @@ QString KFileWidgetPrivate::findMatchingFilter(const QString &filter, const QStr
 }
 
 // Updates the filter if the extension of the filename specified in d->m_locationEdit is changed
-// (this prevents you from accidently saving "file.kwd" as RTF, for example)
+// (this prevents you from accidentally saving "file.kwd" as RTF, for example)
 void KFileWidgetPrivate::updateFilter()
 {
     //     qDebug();

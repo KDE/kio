@@ -938,7 +938,7 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mode, JobF
     // Copy Extended attributes
 #if HAVE_SYS_XATTR_H || HAVE_SYS_EXTATTR_H
     if (!copyXattrs(src_file.handle(), dest_file.handle())) {
-        qCDebug(KIO_FILE) << "cant copy Extended attributes";
+        qCDebug(KIO_FILE) << "can't copy Extended attributes";
     }
 #endif
 

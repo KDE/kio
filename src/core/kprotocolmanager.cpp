@@ -843,7 +843,7 @@ QString KProtocolManager::acceptLanguagesHeader()
     QStringList languageList = QLocale().uiLanguages();
 
     // Replace possible "C" in the language list with "en", unless "en" is
-    // already pressent. This is to keep user's priorities in order.
+    // already present. This is to keep user's priorities in order.
     // If afterwards "en" is still not present, append it.
     int idx = languageList.indexOf(QLatin1String("C"));
     if (idx != -1) {

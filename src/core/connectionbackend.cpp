@@ -60,7 +60,7 @@ void ConnectionBackend::setSuspended(bool enable)
 
         // We read all bytes here, but we don't use readAll() because we need
         // to read at least one byte (even if there isn't any) so that the
-        // socket notifier is reenabled
+        // socket notifier is re-enabled
         QByteArray data = socket->read(socket->bytesAvailable() + 1);
         for (int i = data.size(); --i >= 0;) {
             socket->ungetChar(data[i]);

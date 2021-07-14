@@ -533,7 +533,7 @@ void KDirListerTest::testRefreshRootItem()
 
 void KDirListerTest::testDeleteItem()
 {
-    testOpenUrl(); // ensure m_items is uptodate
+    testOpenUrl(); // ensure m_items is up-to-date
 
     const int origItemCount = m_items.count();
     QCOMPARE(fileCount(), origItemCount);
@@ -562,7 +562,7 @@ void KDirListerTest::testDeleteItem()
 
 void KDirListerTest::testDeleteItems()
 {
-    testOpenUrl(); // ensure m_items is uptodate
+    testOpenUrl(); // ensure m_items is up-to-date
 
     const int origItemCount = m_items.count();
     QCOMPARE(fileCount(), origItemCount);

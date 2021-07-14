@@ -156,7 +156,7 @@ public:
     bool setNamedGroupPermissions(const QString &name, unsigned short);
 
     /** Returns the list of all group permission entries. Each entry consists
-     * of a name/permissions pair. This is a QPair, therefor access is provided
+     * of a name/permissions pair. This is a QPair, therefore access is provided
      * via the .first and .next members.
      * @return the list of all group permission entries. */
 

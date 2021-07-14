@@ -173,7 +173,7 @@ Q_SIGNALS:
 
     /**
      * Emitted when trying to create a new directory that has the same name as
-     * an existing one, so that KDirOperator can select the exisiting item in
+     * an existing one, so that KDirOperator can select the existing item in
      * the view (in case the user wants to use that directory instead of creating
      * a new one).
      *

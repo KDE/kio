@@ -554,7 +554,7 @@ void DropJobPrivate::handleDropToDesktopFile()
         // Drop to application -> start app with urls as argument
         KService::Ptr service(new KService(destFile));
         // Can't use setParentJob() because ApplicationLauncherJob isn't a KIO::Job,
-        // intead pass q as parent so that KIO::delegateExtension() can find a delegate
+        // instead pass q as parent so that KIO::delegateExtension() can find a delegate
         KIO::ApplicationLauncherJob *job = new KIO::ApplicationLauncherJob(service, q);
         job->setUrls(m_urls);
         QObject::connect(job, &KJob::result, q, [=]() {

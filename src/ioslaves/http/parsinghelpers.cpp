@@ -136,7 +136,7 @@ HeaderTokenizer::HeaderTokenizer(char *buffer)
         {"pragma", true},
         {"proxy-authenticate", false}, // complicated multi-valuedness: quoted commas don't separate
         // multiple values. we handle this at a higher level.
-        {"proxy-connection", true}, // inofficial but well-known; to avoid misunderstandings
+        {"proxy-connection", true}, // unofficial but well-known; to avoid misunderstandings
         // when using "connection" when talking to a proxy.
         {"refresh", false}, // not sure, only found some mailing list posts mentioning it
         {"set-cookie", false}, // RFC 2109; the multi-valuedness seems to be usually achieved

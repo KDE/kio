@@ -24,7 +24,7 @@ it asks kpasswdserver and sends along the last seqnr it received. If
 this seqnr is older (lower) than the seq nr of the login/pw
 combination stored in kpasswdserver then apparently the user has
 already been prompted for a new login/pw combination since the last
-time this slave asked for a login/pw and therefor it is not necessary
+time this slave asked for a login/pw and therefore it is not necessary
 to prompt the user again but kpassword will send the io-slave this
 new login/pw combination. If this new combination fails as well the
 user is being prompted for a new login/pw combo since the one stored

@@ -207,7 +207,7 @@ private Q_SLOTS:
 
     void testOverwriteCopyWithoutFlagFromRemote()
     {
-        // This excercises a different code path than testOverwriteCopyWithoutFlagFromLocal
+        // This exercises a different code path than testOverwriteCopyWithoutFlagFromLocal
         const QString path("/testOverwriteCopyWithoutFlagRemote");
         const QString dir_path("/dir");
         const auto url = this->url(path);

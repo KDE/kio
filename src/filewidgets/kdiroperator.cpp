@@ -1478,7 +1478,7 @@ bool KDirOperator::eventFilter(QObject *watched, QEvent *event)
         /* clang-format off */
         if (watched == d->m_itemView->viewport()
             && d->m_itemView->horizontalScrollBar()
-            && d->m_progressBar->parent() == this /* it could have been reparented to a statubar */) { /* clang-format on */
+            && d->m_progressBar->parent() == this /* it could have been reparented to a statusbar */) { /* clang-format on */
             if (d->m_itemView->horizontalScrollBar()->isVisible()) {
                 // Show the progress bar above the horizontal scrollbar that may be visible
                 // in compact view
@@ -1517,7 +1517,7 @@ bool KDirOperatorPrivate::checkPreviewInternal() const
 
         if (!mimeTypes.isEmpty()) {
             for (const QString &str : supported) {
-                // wilcard matching because the "mimetype" can be "image/*"
+                // wildcard matching because the "mimetype" can be "image/*"
                 re.setPattern(QRegularExpression::wildcardToRegularExpression(str));
 
                 if (mimeTypes.indexOf(re) != -1) { // matches! -> we want previews

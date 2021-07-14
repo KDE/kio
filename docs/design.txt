@@ -160,11 +160,11 @@ del: deletes a file or directory, recursively if the latter
 Resuming
 --------
 If a .part file exists, KIO offers to resume the download.
-This requires negociation between the kioslave that reads
+This requires negotiation between the kioslave that reads
 (handled by the get job) and the kioslave that writes
 (handled by the put job).
 
-Here's how the negociation goes.
+Here's how the negotiation goes.
 (PJ=put-job, GJ=get-job)
 
 PJ can't resume:

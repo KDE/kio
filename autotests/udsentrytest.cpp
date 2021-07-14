@@ -265,7 +265,7 @@ void UDSEntryTest::testEquality()
     entry2.fastInsert(KIO::UDSEntry::UDS_DEVICE_ID, 2);
     entry2.fastInsert(KIO::UDSEntry::UDS_INODE, 56);
 
-    // 3nd entry: different user.
+    // 3rd entry: different user.
     KIO::UDSEntry entry3;
     entry3.fastInsert(KIO::UDSEntry::UDS_SIZE, 1);
     entry3.fastInsert(KIO::UDSEntry::UDS_USER, QStringLiteral("other user"));

@@ -2040,7 +2040,7 @@ size_t HTTPProtocol::readBuffered(char *buf, size_t size, bool unlimited)
         m_unreadBuf.chop(bytesRead);
 
         // If we have an unread buffer and the size of the content returned by the
-        // server is unknown, e.g. chuncked transfer, return the bytes read here since
+        // server is unknown, e.g. chunked transfer, return the bytes read here since
         // we may already have enough data to complete the response and don't want to
         // wait for more. See BR# 180631.
         if (unlimited) {
@@ -3208,7 +3208,7 @@ endParsing:
             // content have been applied to the entity body, and thus what decoding
             // mechanism must be applied to obtain the media-type referenced by the
             // Content-Type header field.  Content-Encoding is primarily used to allow
-            // a document to be compressed without loosing the identity of its underlying
+            // a document to be compressed without losing the identity of its underlying
             // media type.  Simply put if it is specified, this is the actual MIME type
             // we should use when we pull the resource !!!
             addEncoding(toQString(tIt.next()), m_contentEncodings);

@@ -74,7 +74,7 @@ KCookiesPolicies::KCookiesPolicies(QWidget *parent)
     mUi.pbDelete->setIcon(QIcon::fromTheme(QStringLiteral("list-remove")));
     mUi.pbDeleteAll->setIcon(QIcon::fromTheme(QStringLiteral("edit-delete")));
 
-    // Connect the main swicth :) Enable/disable cookie support
+    // Connect the main switch :) Enable/disable cookie support
     connect(mUi.cbEnableCookies, &QAbstractButton::toggled, this, &KCookiesPolicies::cookiesEnabled);
     connect(mUi.cbEnableCookies, &QAbstractButton::toggled, this, &KCookiesPolicies::configChanged);
 

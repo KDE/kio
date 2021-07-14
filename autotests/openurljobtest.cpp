@@ -384,14 +384,14 @@ void OpenUrlJobTest::openOrExecuteScript()
 
     // Then --- it depends on what the user says via the handler
     if (dialogResult == QLatin1String("execute_true")) {
-        job->setRunExecutables(false); // Overriden by the user's choice
+        job->setRunExecutables(false); // Overridden by the user's choice
         openOrExecuteFileHandler->setExecuteFile(true);
         QVERIFY(job->exec());
         // TRY because CommandLineLauncherJob finishes immediately, and tempDir
         // will go out of scope and get deleted before the copy operation actually finishes
         QTRY_VERIFY(QFileInfo::exists(dir + QLatin1String("/dest")));
     } else if (dialogResult == QLatin1String("execute_false")) {
-        job->setRunExecutables(true); // Overriden by the user's choice
+        job->setRunExecutables(true); // Overridden by the user's choice
         openOrExecuteFileHandler->setExecuteFile(false);
         QVERIFY(job->exec());
         const QString testOpen = m_tempDir.path() + QLatin1String("/dest"); // see the .desktop file in writeApplicationDesktopFile
@@ -436,7 +436,7 @@ void OpenUrlJobTest::openOrExecuteDesktop()
 
     // Then --- it depends on what the user says via the handler
     if (dialogResult == QLatin1String("execute_true")) {
-        job->setRunExecutables(false); // Overriden by the user's choice
+        job->setRunExecutables(false); // Overridden by the user's choice
         openOrExecuteFileHandler->setExecuteFile(true);
         QVERIFY2(job->exec(), qPrintable(job->errorString()));
         // TRY because CommandLineLauncherJob finishes immediately, and tempDir
@@ -444,7 +444,7 @@ void OpenUrlJobTest::openOrExecuteDesktop()
         QTRY_VERIFY(QFileInfo::exists(dir + QLatin1String("/dest-open-or-execute-desktop")));
     }
     if (dialogResult == QLatin1String("execute_false")) {
-        job->setRunExecutables(true); // Overriden by the user's choice
+        job->setRunExecutables(true); // Overridden by the user's choice
         openOrExecuteFileHandler->setExecuteFile(false);
         QVERIFY2(job->exec(), qPrintable(job->errorString()));
         const QString testOpen = m_tempDir.path() + QLatin1String("/dest"); // see the .desktop file in writeApplicationDesktopFile

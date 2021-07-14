@@ -41,7 +41,7 @@ class KIOWIDGETS_EXPORT RenameFileDialog : public QDialog
 
 public:
     /**
-     * Contructs the Dialog to rename file(s)
+     * Constructs the Dialog to rename file(s)
      *
      * @param parent the parent QWidget
      * @param items a non-empty list of items to rename

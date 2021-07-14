@@ -300,7 +300,7 @@ public:
     void slotCreateDirectory();
 
     /**
-     * Callback function that reads in directory name from dialog and processes it. This will wirte
+     * Callback function that reads in directory name from dialog and processes it. This will write
      * a hidden directory without further questions
      */
     void slotCreateHiddenDirectory();

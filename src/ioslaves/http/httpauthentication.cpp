@@ -526,7 +526,7 @@ void KHttpDigestAuthentication::generateResponse(const QString &user, const QStr
 
     info.algorithm = valueForKey(m_challenge, "algorithm");
     if (info.algorithm.isEmpty()) {
-        info.algorithm = valueForKey(m_challenge, "algorith");
+        info.algorithm = valueForKey(m_challenge, "algorithm");
     }
     if (info.algorithm.isEmpty()) {
         info.algorithm = "MD5";

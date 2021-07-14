@@ -1153,7 +1153,7 @@ QString TrashImpl::trashForMountPoint(const QString &topdir, bool createIfNeeded
             }
         }
         qCWarning(KIO_TRASH) << "Directory" << trashDir << "exists but didn't pass the security checks, can't use it";
-        // Exists, but not useable
+        // Exists, but not usable
         return QString();
     }
     if (createIfNeeded && initTrashDirectory(trashDir_c)) {

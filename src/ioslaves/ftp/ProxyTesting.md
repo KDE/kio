@@ -14,7 +14,7 @@ internal: br0 port = 1080
 external: 192.168.100.106
 ```
 
-For easy authentication against the unix user database the additonal is necessary:
+For easy authentication against the unix user database the additional is necessary:
 
 ```
 socksmethod: username

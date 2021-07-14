@@ -367,7 +367,7 @@ KSambaShareData::UserShareError KSambaSharePrivate::add(const KSambaShareData &s
     if (ret == 0 && !data.contains(shareData.name())) {
         // It needs to be added in this function explicitly, otherwise another instance of
         // KSambaShareDataPrivate will be created and added to data when the share
-        // definiton changes on-disk and we re-parse the data.
+        // definition changes on-disk and we re-parse the data.
         data.insert(shareData.name(), shareData);
     }
 

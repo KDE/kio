@@ -527,7 +527,7 @@ void KPropertiesDialog::accept()
 
     // Changes are applied in the following order:
     // - KFilePropsPlugin changes, this is because in case of renaming an item or saving changes
-    //   of a template or a .desktop file, the renaming or copying repectively, must be finished
+    //   of a template or a .desktop file, the renaming or copying respectively, must be finished
     //   first, before applying the rest of the changes
     // - KFilePermissionsPropsPlugin changes, e.g. if the item was read-only and was changed to
     //   read/write, this must be applied first for other changes to work
@@ -2391,7 +2391,7 @@ void KFilePermissionsPropsPlugin::setComboContent(QComboBox *combo, PermissionsT
     }
 }
 
-// permissions are irregular if they cant be displayed in a combo box.
+// permissions are irregular if they can't be displayed in a combo box.
 bool KFilePermissionsPropsPlugin::isIrregular(mode_t permissions, bool isDir, bool isLink)
 {
     if (isLink) { // links are always ok

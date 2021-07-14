@@ -3,7 +3,7 @@ properties etc.) to your webdav-aware application.
 Author: Hamish Rodda, rodda@kde.org
 Version: 0.3
 
-Compatable with (tested on):
+Compatible with (tested on):
 Apache + mod_dav version 1 and 2
 Zope
 Silverstream webdav server
@@ -62,7 +62,7 @@ metadata required:
 davLockToken - the lock token to remove
 
 and, of course, any other lock information as below required for the operation
-to suceed.
+to succeed.
 
 === SETTING LOCK INFORMATION ===
 To provide lock data so that urls can be accessed, you need to pass the following metadata:

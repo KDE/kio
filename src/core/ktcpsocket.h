@@ -26,7 +26,7 @@
   Validity QCA::TLS::peerCertificateValidity()
   TLS::IdentityResult QCA::TLS::peerIdentityResult()
   CertificateChain QCA::TLS::peerCertificateChain().validate() - to find the failing cert!
-  TLS::Error QCA::TLS::errorCode() - for more generic (but stil SSL) errors
+  TLS::Error QCA::TLS::errorCode() - for more generic (but still SSL) errors
  */
 
 class KSslKeyPrivate;

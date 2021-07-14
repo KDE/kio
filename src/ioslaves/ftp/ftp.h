@@ -52,7 +52,7 @@ enum class LoginMode {
  * inside the function. When using the Result type always mark the
  * function Q_REQUIRED_RESULT to enforce handling of the Result.
  *
- * The Result is forwared all the way to the frontend API where it is
+ * The Result is forwarded all the way to the frontend API where it is
  * turned into an error() or finished() call.
  */
 struct Result {

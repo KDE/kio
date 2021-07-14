@@ -965,7 +965,7 @@ const KACLListViewItem *KACLListView::findItemByType(EntryType type, bool defaul
 
 unsigned short KACLListView::calculateMaskValue(bool defaults) const
 {
-    // KACL auto-adds the relevant maks entries, so we can simply query
+    // KACL auto-adds the relevant mask entries, so we can simply query
     bool dummy;
     return itemsToACL(defaults).maskPermissions(dummy);
 }

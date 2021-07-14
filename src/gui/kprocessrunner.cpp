@@ -406,7 +406,7 @@ bool KIOGuiPrivate::checkStartupNotify(const KService *service, bool *silent_arg
             wmclass = '0';
             silent = true;
 #else // That unfortunately doesn't work, when the launched non-compliant application
-      // launches another one that is compliant and there is any delay inbetween (bnc:#343359)
+      // launches another one that is compliant and there is any delay in between (bnc:#343359)
             return false;
 #endif
         }

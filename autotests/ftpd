@@ -45,7 +45,7 @@ module Ftpd
   end
 end
 
-# Add some simulation capabilities to the file sytem
+# Add some simulation capabilities to the file system
 class MangledDiskFileSystem < Ftpd::DiskFileSystem
   def accessible?(path, *args)
     return false if path.include?('__inaccessiblePath__')

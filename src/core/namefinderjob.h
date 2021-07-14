@@ -112,7 +112,7 @@ public:
 
     /**
      * Call this to get the suggested new folder/file name. Typically you should call this in a
-     * slot connected to the result() signal and after making sure no errors occured.
+     * slot connected to the result() signal and after making sure no errors occurred.
      */
     QString finalName() const;
 

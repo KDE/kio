@@ -13,7 +13,7 @@ existing slave will be re-used and the request resumed.
 * When the client is an external process, the on-hold-slave should be 
 removed from the job-scheduler and should connect itself with
 klauncher. This is hard because it must ensure that the external 
-program does not request the slave before it has been transfered to
+program does not request the slave before it has been transferred to
 klauncher.
 
 * When a slave is on hold but not used for a certain period of time, 

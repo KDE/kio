@@ -1,7 +1,7 @@
 The following is a list of items that are currently missing or partially implemented
 in kio_http:
 
-- HTTP/1.1 Persistant Connections:
+- HTTP/1.1 Persistent Connections:
 The header often specifies the timeout value used for connections.
 Close the connection ourselves when the timeout has expired. That way
 we don't loose time sending stuff to an already closed connection.
@@ -24,7 +24,7 @@ application level.  A khtml plugin in kdeaddons to do this might be a nice idea.
 
 - P3P support:
 This can also be implemented as a plugin to konqueror and does
-not need any speical support in HTTP except perhaps sending a
+not need any special support in HTTP except perhaps sending a
 flag that indicates that the web page provides some P3P information.
 This is something that can be added as a plugin to kdeaddons.
 

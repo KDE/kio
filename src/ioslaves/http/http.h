@@ -552,7 +552,7 @@ protected:
     QByteArray m_mimeTypeBuffer;
 
     // Holds the POST data so it won't get lost on if we
-    // happenned to get a 401/407 response when submitting
+    // happened to get a 401/407 response when submitting
     // a form.
     QIODevice *m_POSTbuf;
 

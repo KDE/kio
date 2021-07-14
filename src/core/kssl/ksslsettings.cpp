@@ -84,7 +84,7 @@ KSSLSettings::KSSLSettings(bool readConfig)
     }
 }
 
-// we don't save settings incase it was a temporary object
+// we don't save settings in case it was a temporary object
 KSSLSettings::~KSSLSettings()
 {
     delete d->m_cfg;

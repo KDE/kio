@@ -1771,7 +1771,7 @@ void JobTest::statWithInode()
 
     // this test doesn't make sense on the CI as it's an LXC container with one partition
     if (otherTmpDirIsOnSamePartition()) {
-        // On the CI where the two tmp dirs are on the only parition available
+        // On the CI where the two tmp dirs are on the only partition available
         // in the LXC container, the device ID's would be identical
         QCOMPARE(device, otherDevice);
     } else {
