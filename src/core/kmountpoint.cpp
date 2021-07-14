@@ -105,13 +105,12 @@ void KMountPointPrivate::finalizeCurrentMountPoint(KMountPoint::DetailsNeededFla
 
 KMountPoint::List KMountPoint::possibleMountPoints(DetailsNeededFlags infoNeeded)
 {
-#ifdef Q_OS_WIN
-    return KMountPoint::currentMountPoints(infoNeeded);
-#endif
-
     KMountPoint::List result;
 
-#if HAVE_LIBS_MOUNT_AND_BLKID
+#ifdef Q_OS_WIN
+    result = KMountPoint::currentMountPoints(infoNeeded);
+
+#elif HAVE_LIBS_MOUNT_AND_BLKID
     if (struct libmnt_table *table = mnt_new_table()) {
         // By default parses "/etc/fstab"
         if (mnt_table_parse_fstab(table, nullptr) == 0) {
