@@ -387,9 +387,9 @@ KMountPoint::Ptr KMountPoint::List::findByPath(const QString &path) const
 
 KMountPoint::Ptr KMountPoint::List::findByDevice(const QString &device) const
 {
-    const QString realDevice = QFileInfo(device).canonicalFilePath();
-    if (realDevice.isEmpty()) { // d->m_device can be empty in the loop below, don't match empty with it
-        return Ptr();
+    QString realDevice = QFileInfo(device).canonicalFilePath();
+    if (realDevice.isEmpty()) {
+        realDevice = device;
     }
     for (const KMountPoint::Ptr &mountPoint : *this) {
         if (realDevice.compare(mountPoint->d->m_device, cs) == 0 || realDevice.compare(mountPoint->d->m_mountedFrom, cs) == 0) {
