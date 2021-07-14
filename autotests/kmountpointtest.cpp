@@ -37,7 +37,9 @@ void KMountPointTest::testCurrentMountPoints()
         }
 
         // keep one (any) mountpoint with a device name for the test below
-        if (!mountPoint->realDeviceName().isEmpty() && !mountWithDevice) {
+        const QString realDev = mountPoint->realDeviceName();
+        // Execlude /dev/mapper/ as that is what's on build.kde.org, see comment below about LXC
+        if (!realDev.isEmpty() && !realDev.startsWith("/dev/mapper/") && !mountWithDevice) {
             mountWithDevice = mountPoint;
         }
     }
