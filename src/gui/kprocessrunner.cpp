@@ -235,7 +235,7 @@ void KProcessRunner::init(const KService::Ptr &service,
         } else {
             bool silent;
             QByteArray wmclass;
-            const bool startup_notify = m_service && KIOGuiPrivate::checkStartupNotify(m_service.data(), &silent, &wmclass);
+            const bool startup_notify = service && KIOGuiPrivate::checkStartupNotify(service.data(), &silent, &wmclass);
             if (startup_notify && !silent) {
                 auto window = qGuiApp->focusWindow();
                 if (!window && !qGuiApp->allWindows().isEmpty()) {
