@@ -157,7 +157,7 @@ KMountPoint::List KMountPoint::possibleMountPoints(DetailsNeededFlags infoNeeded
     }
 #else
 
-    QFile f(QLatin1String(FSTAB));
+    QFile f{QLatin1String(FSTAB)};
     if (!f.open(QIODevice::ReadOnly)) {
         return result;
     }
