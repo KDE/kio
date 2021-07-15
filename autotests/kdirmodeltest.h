@@ -7,12 +7,15 @@
 #ifndef KDIRMODELTEST_H
 #define KDIRMODELTEST_H
 
+#include <kdirmodel.h>
+
 #include <QEventLoop>
 #include <QObject>
 #include <QTemporaryDir>
 #include <QTest>
 #include <QTestEventLoop>
-#include <kdirmodel.h>
+
+#include <memory>
 
 // If you disable this, you need to change all exitLoop into quit in connect() statements...
 #define USE_QTESTEVENTLOOP
@@ -89,7 +92,7 @@ private:
 #else
     QEventLoop m_eventLoop;
 #endif
-    QTemporaryDir *m_tempDir;
+    std::unique_ptr<QTemporaryDir> m_tempDir;
     KDirModel *m_dirModel;
     QModelIndex m_fileIndex;
     QModelIndex m_specialFileIndex;

@@ -50,12 +50,13 @@ void KDirModelTest::initTestCase()
     // To avoid a runtime dependency on klauncher
     qputenv("KDE_FORK_SLAVES", "yes");
 
+    QStandardPaths::setTestModeEnabled(true);
+
     qRegisterMetaType<KFileItemList>("KFileItemList");
 
     m_dirModelForExpand = nullptr;
     m_dirModel = nullptr;
     s_referenceTimeStamp = QDateTime::currentDateTime().addSecs(-30); // 30 seconds ago
-    m_tempDir = nullptr;
     m_topLevelFileNames << QStringLiteral("toplevelfile_1") << QStringLiteral("toplevelfile_2") << QStringLiteral("toplevelfile_3") << specialChars();
     recreateTestData();
 
@@ -66,11 +67,11 @@ void KDirModelTest::recreateTestData()
 {
     if (m_tempDir) {
         qDebug() << "Deleting old tempdir" << m_tempDir->path();
-        delete m_tempDir;
+        m_tempDir.reset();
         qApp->processEvents(); // process inotify events so they don't pollute us later on
     }
 
-    m_tempDir = new QTemporaryDir;
+    m_tempDir = std::make_unique<QTemporaryDir>(homeTmpDir());
     qDebug() << "new tmp dir:" << m_tempDir->path();
     // Create test data:
     /*
@@ -122,10 +123,11 @@ void KDirModelTest::recreateTestData()
 
 void KDirModelTest::cleanupTestCase()
 {
-    delete m_tempDir;
-    m_tempDir = nullptr;
+    m_tempDir.reset();
+
     delete m_dirModel;
     m_dirModel = nullptr;
+
     delete m_dirModelForExpand;
     m_dirModelForExpand = nullptr;
 }
@@ -505,7 +507,7 @@ void KDirModelTest::testMoveDirectory(const QString &dir /*just a dir name, no s
     const QString path = m_tempDir->path() + '/';
     const QString srcdir = path + dir;
     QVERIFY(QDir(srcdir).exists());
-    QTemporaryDir destDir;
+    QTemporaryDir destDir(homeTmpDir());
     const QString dest = destDir.path() + '/';
     QVERIFY(QDir(dest).exists());
 
@@ -666,9 +668,7 @@ void KDirModelTest::testChmodDirectory() // #53397
     // QVERIFY(origPerm & QFile::ReadOwner);
     // const QFile::Permissions newPerm = origPerm ^ QFile::WriteGroup;
     QVERIFY(newPerm != origPerm);
-    KFileItemList items;
-    items << rootItem;
-    KIO::Job *job = KIO::chmod(items, newPerm, S_IWGRP /*TODO: QFile::WriteGroup*/, QString(), QString(), false, KIO::HideProgressInfo);
+    KIO::Job *job = KIO::chmod({rootItem}, newPerm, S_IWGRP /*TODO: QFile::WriteGroup*/, QString(), QString(), false, KIO::HideProgressInfo);
     job->setUiDelegate(nullptr);
     QVERIFY(job->exec());
     // ChmodJob doesn't talk to KDirNotify, kpropertiesdialog does.

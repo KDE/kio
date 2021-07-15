@@ -14,6 +14,8 @@
 #include <QTemporaryDir>
 #include <kdirlister.h>
 
+#include <memory>
+
 Q_DECLARE_METATYPE(KFileItemList)
 
 class GlobalInits
@@ -133,10 +135,7 @@ Q_SIGNALS:
 
 private:
     int fileCount() const;
-    QString path() const
-    {
-        return m_tempDir.path() + '/';
-    }
+    QString tempPath() const;
     void createSimpleFile(const QString &fileName);
     void fillDirLister2(MyDirLister &lister, const QString &path);
     void waitUntilMTimeChange(const QString &path);
@@ -145,7 +144,7 @@ private:
 private:
     int m_exitCount;
     QEventLoop m_eventLoop;
-    QTemporaryDir m_tempDir;
+    std::unique_ptr<QTemporaryDir> m_tempDir;
     MyDirLister m_dirLister;
     KFileItemList m_items;
     KFileItemList m_items2;
