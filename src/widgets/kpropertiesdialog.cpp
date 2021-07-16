@@ -2555,7 +2555,7 @@ void KFilePermissionsPropsPlugin::applyChanges()
         const auto perms = item.permissions();
         if (item.isDir()) {
             dirs.append(item);
-            if (perms != ((perms & andDirPermissions) | orDirPermissions)) {
+            if (!permissionChange && (recursive || perms != ((perms & andDirPermissions) | orDirPermissions))) {
                 permissionChange = true;
             }
             continue;
@@ -2563,7 +2563,7 @@ void KFilePermissionsPropsPlugin::applyChanges()
 
         if (item.isFile()) {
             files.append(item);
-            if (perms != ((perms & andFilePermissions) | orFilePermissions)) {
+            if (!permissionChange && perms != ((perms & andFilePermissions) | orFilePermissions)) {
                 permissionChange = true;
             }
         }
