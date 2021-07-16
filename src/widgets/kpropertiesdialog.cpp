@@ -2534,15 +2534,18 @@ void KFilePermissionsPropsPlugin::applyChanges()
         group = d->grpCombo->currentText();
     }
 
-    if (owner == d->strOwner) {
-        owner.clear(); // no change
-    }
-
-    if (group == d->strGroup) {
-        group.clear();
-    }
-
     const bool recursive = d->cbRecursive && d->cbRecursive->isChecked();
+
+    if (!recursive) {
+        if (owner == d->strOwner) {
+            owner.clear();
+        }
+
+        if (group == d->strGroup) {
+            group.clear();
+        }
+    }
+
     bool permissionChange = false;
 
     const KFileItemList items = properties->items();
