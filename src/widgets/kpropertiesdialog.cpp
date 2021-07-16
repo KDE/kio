@@ -1668,10 +1668,6 @@ KFilePermissionsPropsPlugin::KFilePermissionsPropsPlugin(KPropertiesDialog *_pro
     : KPropertiesDialogPlugin(_props)
     , d(new KFilePermissionsPropsPluginPrivate)
 {
-    d->cbRecursive = nullptr;
-    d->grpCombo = nullptr;
-    d->grpEdit = nullptr;
-    d->usrEdit = nullptr;
     bool isLocal = properties->url().isLocalFile();
     bool isTrash = (properties->url().scheme() == QLatin1String("trash"));
     KUser myself(KUser::UseEffectiveUID);
