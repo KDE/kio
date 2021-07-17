@@ -155,7 +155,7 @@ KMountPoint::List KMountPoint::possibleMountPoints(DetailsNeededFlags infoNeeded
 
         mnt_free_table(table);
     }
-#else
+#elif HAVE_FSTAB_H
 
     QFile f{QLatin1String(FSTAB)};
     if (!f.open(QIODevice::ReadOnly)) {
