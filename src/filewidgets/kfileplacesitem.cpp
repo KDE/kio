@@ -449,7 +449,8 @@ bool KFilePlacesItem::updateDeviceInfo(const QString &udi)
 void KFilePlacesItem::onAccessibilityChanged(bool isAccessible)
 {
     m_isAccessible = isAccessible;
-    m_isCdrom = m_device.is<Solid::OpticalDrive>() || m_device.parent().is<Solid::OpticalDrive>();
+    m_isCdrom =
+        m_device.is<Solid::OpticalDrive>() || m_device.parent().is<Solid::OpticalDrive>() || (m_volume && m_volume->fsType() == QLatin1String("iso9660"));
     m_emblems = m_device.emblems();
 
     Q_EMIT itemChanged(id());
