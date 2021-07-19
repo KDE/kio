@@ -31,16 +31,11 @@ static const Qt::CaseSensitivity cs = Qt::CaseSensitive;
 #if HAVE_SYS_PARAM_H
 #include <sys/param.h>
 #endif
-#ifdef Q_OS_FREEBSD
-// FreeBSD has a table of names of mount-options in mount.h,
-// which is only defined if _WANT_MNTOPTNAMES is defined;
+// FreeBSD has a table of names of mount-options in mount.h, which is only 
+// defined (as MNTOPT_NAMES) if _WANT_MNTOPTNAMES is defined.
 #define _WANT_MNTOPTNAMES
 #include <sys/mount.h>
 #undef _WANT_MNTOPTNAMES
-#define HAVE_MNTOPTNAMES
-#else
-#include <sys/mount.h>
-#endif
 #endif
 
 #if HAVE_FSTAB_H
@@ -74,13 +69,14 @@ KMountPoint::KMountPoint()
 
 KMountPoint::~KMountPoint() = default;
 
-#ifdef HAVE_MNTOPTNAMES
+#ifdef MNTOPT_NAMES
 static struct mntoptnames bsdOptionNames[] = {
     MNTOPT_NAMES
 };
 
-/** Appends all positive options found in @p flags to the @p list
+/** @brief Get mount options from @p flags and puts human-readable version in @p list
  * 
+ * Appends all positive options found in @p flags to the @p list
  * This is roughly paraphrased from FreeBSD's mount.c, prmount().
  */
 static void translateMountOptions(QStringList &list, uint64_t flags)
@@ -97,6 +93,16 @@ static void translateMountOptions(QStringList &list, uint64_t flags)
             flags &= ~optionInfo->o_opt;
         }
     }
+}
+#else
+/** @brief Get mount options from @p flags and puts human-readable version in @p list
+ * 
+ * This default version just puts the hex representation of @p flags
+ * in the list, because there is no human-readable version.
+ */
+static void translateMountOptions(QStringList &list, uint64_t flags)
+{
+    list.append(QStringLiteral("0x%1").arg(QString::number(flags, 16)));
 }
 #endif
 
@@ -285,9 +291,7 @@ KMountPoint::List KMountPoint::currentMountPoints(DetailsNeededFlags infoNeeded)
                 QString options = QFile::decodeName(ft->fs_mntops);
                 mp->d->m_mountOptions = options.split(QLatin1Char(','));
             } else {
-#ifdef HAVE_MNTOPTNAMES
                 translateMountOptions(mp->d->m_mountOptions, mounted[i].f_flags);
-#endif
             }
         }
 
