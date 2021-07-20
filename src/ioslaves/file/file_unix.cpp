@@ -1298,6 +1298,22 @@ void FileProtocol::rename(const QUrl &srcUrl, const QUrl &destUrl, KIO::JobFlags
 void FileProtocol::symlink(const QString &target, const QUrl &destUrl, KIO::JobFlags flags)
 {
     const QString dest = destUrl.toLocalFile();
+
+    KMountPoint::Ptr mountPtr = KMountPoint::currentMountPoints().findByPath(dest);
+    if (mountPtr) {
+        if (!mountPtr->testFileSystemFlag(KMountPoint::SupportsSymlinks)) {
+            const QString msg =
+                i18nc("The first arg is the path to the symlink that couldn't be created, the second arg is the filesystem type (e.g. vfat, ntfs)",
+                      "Could not create symlink \"%1\".\n"
+                      "The destination filesystem (%2), doesn't support symlinks.",
+                      dest,
+                      mountPtr->mountType());
+            error(KIO::ERR_SLAVE_DEFINED, msg);
+        }
+
+        return;
+    }
+
     // Assume dest is local too (wouldn't be here otherwise)
     if (::symlink(QFile::encodeName(target).constData(), QFile::encodeName(dest).constData()) == -1) {
         // Does the destination already exist ?
