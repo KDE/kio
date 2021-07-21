@@ -4,7 +4,8 @@
             "Class": ":local", 
             "ExtraNames": [
                 "Original Path", 
-                "Deletion Date"
+                "Deletion Date",
+                "Actual Location"
             ], 
             "ExtraNames[ca@valencia]": [
                 "Camí original", 
@@ -96,7 +97,8 @@
             ], 
             "ExtraTypes": [
                 "QString", 
-                "QDateTime"
+                "QDateTime",
+                "QString"
             ], 
             "Icon": "user-trash-full", 
             "copyFromFile": true, 
