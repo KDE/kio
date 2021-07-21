@@ -59,8 +59,8 @@ static QByteArray tolerantToAce(const QString &_domain)
     return ret;
 }
 
-KCookiesPolicies::KCookiesPolicies(QWidget *parent)
-    : KCModule(parent)
+KCookiesPolicies::KCookiesPolicies(QWidget *parent, const QVariantList &args)
+    : KCModule(parent, args)
     , mSelectedItemsCount(0)
 {
     mUi.setupUi(this);

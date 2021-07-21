@@ -84,8 +84,8 @@ CookieProp *CookieListViewItem::leaveCookie()
     return ret;
 }
 
-KCookiesManagement::KCookiesManagement(QWidget *parent)
-    : KCModule(parent)
+KCookiesManagement::KCookiesManagement(QWidget *parent, const QVariantList &args)
+    : KCModule(parent, args)
     , mDeleteAllFlag(false)
     , mMainWidget(parent)
 {
