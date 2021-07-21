@@ -160,7 +160,7 @@ KMountPoint::List KMountPoint::possibleMountPoints(DetailsNeededFlags infoNeeded
 
             while (mnt_table_next_fs(table, itr, &fs) == 0) {
                 const char *fsType = mnt_fs_get_fstype(fs);
-                if (strcmp(fsType, "swap") == 0) {
+                if (qstrcmp(fsType, "swap") == 0) {
                     continue;
                 }
 
