@@ -847,14 +847,13 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
 
     // We set this data from the first item, and we'll
     // check that the other items match against it, resetting when not.
-    bool isLocal;
     const KFileItem firstItem = properties->item();
-    QUrl url = firstItem.mostLocalUrl(&isLocal);
+    auto [mostLocalUrl, isLocal] = firstItem.isMostLocalUrl();
     bool isReallyLocal = firstItem.url().isLocalFile();
     bool bDesktopFile = firstItem.isDesktopFile();
     mode_t mode = firstItem.mode();
     bool hasDirs = firstItem.isDir() && !firstItem.isLink();
-    bool hasRoot = url.path() == QLatin1String("/");
+    bool hasRoot = mostLocalUrl.path() == QLatin1String("/");
     QString iconStr = firstItem.iconName();
     QString directory = properties->url().adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash).path();
     QString protocol = properties->url().scheme();
@@ -865,7 +864,7 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
     QString magicMimeComment;
     QMimeDatabase db;
     if (isLocal) {
-        QMimeType magicMimeType = db.mimeTypeForFile(url.toLocalFile(), QMimeDatabase::MatchContent);
+        QMimeType magicMimeType = db.mimeTypeForFile(mostLocalUrl.toLocalFile(), QMimeDatabase::MatchContent);
         if (magicMimeType.isValid() && !magicMimeType.isDefault()) {
             magicMimeComment = magicMimeType.comment();
         }
@@ -919,7 +918,7 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
         filename = nameFromFileName(filename);
 
         if (d->bKDesktopMode && d->bDesktopFile) {
-            KDesktopFile config(url.toLocalFile());
+            KDesktopFile config(mostLocalUrl.toLocalFile());
             if (config.desktopGroup().hasKey("Name")) {
                 filename = config.readName();
             }
@@ -993,7 +992,7 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
         d->m_ui->iconButton->setIconSize(48);
         d->m_ui->iconButton->setStrictIconSize(false);
         if (bDesktopFile && isLocal) {
-            const KDesktopFile config(url.toLocalFile());
+            const KDesktopFile config(mostLocalUrl.toLocalFile());
             if (config.hasDeviceType()) {
                 d->m_ui->iconButton->setIconType(KIconLoader::Desktop, KIconLoader::Device);
             } else {
@@ -1143,7 +1142,7 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
     // File system and mount point widgets
     if (hasDirs) { // only for directories
         if (isLocal) {
-            KMountPoint::Ptr mp = KMountPoint::currentMountPoints().findByPath(url.toLocalFile());
+            KMountPoint::Ptr mp = KMountPoint::currentMountPoints().findByPath(mostLocalUrl.toLocalFile());
 
             if (mp) {
                 d->m_ui->fsLabel->setText(mp->mountType());
@@ -1154,7 +1153,7 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
             d->hideMountPointLabels();
         }
 
-        KIO::FileSystemFreeSpaceJob *job = KIO::fileSystemFreeSpace(url);
+        KIO::FileSystemFreeSpaceJob *job = KIO::fileSystemFreeSpace(mostLocalUrl);
         connect(job, &KIO::FileSystemFreeSpaceJob::result, this, &KFilePropsPlugin::slotFreeSpaceResult);
     } else {
         d->m_ui->fsSeparator->hide();
@@ -1164,7 +1163,7 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
     }
 
     // UDSEntry extra fields
-    if (const auto extraFields = KProtocolInfo::extraFields(url); !d->bMultiple && !extraFields.isEmpty()) {
+    if (const auto extraFields = KProtocolInfo::extraFields(mostLocalUrl); !d->bMultiple && !extraFields.isEmpty()) {
         int curRow = d->m_ui->gridLayout->rowCount();
         KSeparator *sep = new KSeparator(Qt::Horizontal, &d->m_mainWidget);
         d->m_ui->gridLayout->addWidget(sep, curRow++, 0, 1, 3);
