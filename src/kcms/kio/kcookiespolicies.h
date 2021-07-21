@@ -27,7 +27,7 @@ class KCookiesPolicies : public KCModule
     Q_OBJECT
 
 public:
-    explicit KCookiesPolicies(QWidget *parent);
+    explicit KCookiesPolicies(QWidget *parent, const QVariantList &args);
     ~KCookiesPolicies();
 
     void load() override;
