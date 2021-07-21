@@ -28,8 +28,7 @@
 K_PLUGIN_FACTORY(KCMTrashConfigFactory, registerPlugin<TrashConfigModule>(QStringLiteral("trash"));)
 
 TrashConfigModule::TrashConfigModule(QWidget *parent, const QVariantList &)
-    : KCModule( // KCMTrashConfigFactory::componentData(),
-        parent)
+    : KCModule(parent)
     , trashInitialize(false)
 {
     mTrashImpl = new TrashImpl();

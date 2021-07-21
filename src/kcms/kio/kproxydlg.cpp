@@ -164,7 +164,7 @@ static void setProxyInformation(const QString &value,
 }
 
 KProxyDialog::KProxyDialog(QWidget *parent, const QVariantList &args)
-    : KCModule(/*KioConfigFactory::componentData(),*/ parent)
+    : KCModule(parent)
 {
     Q_UNUSED(args);
     mUi.setupUi(this);
