@@ -1058,6 +1058,8 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
         if (properties->layoutDirection() == Qt::RightToLeft) {
             d->m_ui->locationLabel->setAlignment(Qt::AlignRight);
         }
+    } else {
+        d->m_ui->locationLabel->hide();
     }
 
     // Size widgets
