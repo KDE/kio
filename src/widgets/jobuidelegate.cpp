@@ -322,8 +322,22 @@ int KIO::JobUiDelegate::requestMessageBox(KIO::JobUiDelegate::MessageBoxType typ
     KConfig config(QStringLiteral("kioslaverc"));
     KMessageBox::setDontShowAgainConfig(&config);
 
-    const KGuiItem buttonYesGui(buttonYes, iconYes);
-    const KGuiItem buttonNoGui(buttonNo, iconNo);
+    KGuiItem buttonYesGui = KStandardGuiItem::yes();
+    if (!buttonYes.isNull()) {
+        buttonYesGui.setText(buttonYes);
+    }
+    if (!iconYes.isNull()) {
+        buttonYesGui.setIconName(iconYes);
+    }
+
+    KGuiItem buttonNoGui = KStandardGuiItem::no();
+    if (!buttonNo.isNull()) {
+        buttonNoGui.setText(buttonNo);
+    }
+    if (!iconNo.isNull()) {
+        buttonNoGui.setIconName(iconNo);
+    }
+
     KMessageBox::Options options(KMessageBox::Notify | KMessageBox::WindowModal);
 
     switch (type) {
