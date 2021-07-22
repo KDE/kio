@@ -69,6 +69,8 @@ KMountPoint::KMountPoint()
 
 KMountPoint::~KMountPoint() = default;
 
+#if HAVE_GETMNTINFO
+
 #ifdef MNTOPT_NAMES
 static struct mntoptnames bsdOptionNames[] = {
     MNTOPT_NAMES
@@ -105,6 +107,8 @@ static void translateMountOptions(QStringList &list, uint64_t flags)
     list.append(QStringLiteral("0x%1").arg(QString::number(flags, 16)));
 }
 #endif
+
+#endif // HAVE_GETMNTINFO
 
 void KMountPointPrivate::finalizePossibleMountPoint(KMountPoint::DetailsNeededFlags infoNeeded)
 {
