@@ -13,6 +13,8 @@
 #include <QEvent>
 #include <QLineEdit>
 #include <QMimeDatabase>
+#include <QStandardItemModel>
+
 #include <config-kiofilewidgets.h>
 
 class KFileFilterComboPrivate
@@ -132,7 +134,8 @@ void KFileFilterCombo::setMimeFilter(const QStringList &types, const QString &de
 
     d->m_allTypes = defaultType.isEmpty() && (types.count() > 1);
 
-    QString allComments, allTypes;
+    QString allComments;
+    QString allTypes;
 
     // If there's MIME types that have the same comment, we will show the extension
     // in addition to the MIME type comment
@@ -155,7 +158,10 @@ void KFileFilterCombo::setMimeFilter(const QStringList &types, const QString &de
             continue;
         }
 
-        if (type.name().startsWith(QLatin1String("all/")) || type.isDefault()) {
+        const QString comment = type.comment();
+        const QString name = type.name();
+
+        if (name.startsWith(QLatin1String("all/")) || type.isDefault()) {
             hasAllFilesFilter = true;
             continue;
         }
@@ -165,19 +171,30 @@ void KFileFilterCombo::setMimeFilter(const QStringList &types, const QString &de
             allTypes += QLatin1Char(' ');
         }
 
-        d->m_filters.append(type.name());
         if (d->m_allTypes) {
-            allTypes += type.name();
-            allComments += type.comment();
+            allTypes += name;
+            allComments += comment;
         }
-        if (allTypeComments.value(type.comment()) > 1) {
-            addItem(i18nc("%1 is the mimetype name, %2 is the extensions", "%1 (%2)", type.comment(), type.suffixes().join(QStringLiteral(", "))));
+
+        if (allTypeComments.value(comment) > 1) {
+            const QString s = i18nc("%1 is the mimetype name, %2 is the extensions", "%1 (%2)", comment, type.suffixes().join(QStringLiteral(", ")));
+            addItem(s, name);
         } else {
-            addItem(type.comment());
+            addItem(comment, name);
         }
-        if (type.name() == defaultType) {
-            setCurrentIndex(count() - 1);
+    }
+
+    if (auto *itemModel = qobject_cast<QStandardItemModel *>(model())) {
+        itemModel->sort(0);
+    }
+
+    const int rows = count();
+    for (int i = 0; i < rows; ++i) {
+        if (itemText(i) == defaultType) {
+            setCurrentIndex(i);
         }
+
+        d->m_filters.append(itemData(i).toString());
     }
 
     if (count() == 1) {
