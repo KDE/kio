@@ -283,6 +283,8 @@ KMountPoint::List KMountPoint::currentMountPoints(DetailsNeededFlags infoNeeded)
 
     int num_fs = getmntinfo(&mounted, MNT_NOWAIT);
 
+    result.reserve(num_fs);
+
     for (int i = 0; i < num_fs; i++) {
         Ptr mp(new KMountPoint);
         mp->d->m_mountedFrom = QFile::decodeName(mounted[i].f_mntfromname);
