@@ -9,7 +9,7 @@
 #include "kproxydlg.h"
 
 // Local
-#include "ksaveioconfig.h"
+#include "../ksaveioconfig.h"
 
 // KDE
 #include <KLineEdit> // Needed for KUrlRequester::lineEdit()
@@ -22,7 +22,7 @@
 #include <QSpinBox>
 #include <QUrl>
 
-K_PLUGIN_FACTORY_DECLARATION(KioConfigFactory)
+K_PLUGIN_FACTORY(KProxyDialogFactory, registerPlugin<KProxyDialog>();)
 
 class InputValidator : public QValidator
 {
@@ -549,3 +549,5 @@ QString KProxyDialog::quickHelp() const
         "want to block.</p>"
         "<p><u>Note:</u> Some proxy servers provide both services.</p>");
 }
+
+#include "kproxydlg.moc"

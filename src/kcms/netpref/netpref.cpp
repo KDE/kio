@@ -16,11 +16,11 @@
 #include <ioslave_defaults.h>
 
 // Local
-#include "ksaveioconfig.h"
+#include "../ksaveioconfig.h"
 
 static constexpr int s_maxTimeoutValue = 3600;
 
-K_PLUGIN_FACTORY_DECLARATION(KioConfigFactory)
+K_PLUGIN_FACTORY(KIOPreferencesFactory, registerPlugin<KIOPreferences>();)
 
 KIOPreferences::KIOPreferences(QWidget *parent, const QVariantList &)
     : KCModule(parent)
@@ -189,3 +189,5 @@ QString KIOPreferences::quickHelp() const
         " or use a modem to connect to the Internet, you might"
         " want to adjust these settings.");
 }
+
+#include "netpref.moc"

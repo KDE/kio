@@ -22,7 +22,7 @@
 #include <KMessageBox>
 #include <KPluginFactory>
 
-K_PLUGIN_FACTORY_DECLARATION(KioConfigFactory)
+K_PLUGIN_FACTORY(KCookiesMainFactory, registerPlugin<KCookiesMain>();)
 
 KCookiesMain::KCookiesMain(QWidget *parent, const QVariantList &args)
     : KCModule(parent, args)
@@ -91,3 +91,5 @@ QString KCookiesMain::quickHelp() const
         " want to set the policy to accept, then you can access the web sites without being prompted"
         " every time a cookie is received.</p>");
 }
+
+#include "kcookiesmain.moc"

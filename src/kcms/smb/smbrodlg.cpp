@@ -18,7 +18,7 @@
 #include <KLocalizedString>
 #include <KPluginFactory>
 
-K_PLUGIN_FACTORY_DECLARATION(KioConfigFactory)
+K_PLUGIN_FACTORY(SMBRoOptionsFactory, registerPlugin<SMBRoOptions>();)
 
 SMBRoOptions::SMBRoOptions(QWidget *parent, const QVariantList &args)
     : KCModule(parent, args)
@@ -127,3 +127,5 @@ QString SMBRoOptions::quickHelp() const
         "unreadable to the human eye. For security reasons, you may not want to "
         "do that, as entries with passwords are clearly indicated as such.</p>");
 }
+
+#include "smbrodlg.moc"

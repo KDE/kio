@@ -16,7 +16,7 @@
 #include "kcookiespolicies.h"
 
 // Local
-#include "ksaveioconfig.h"
+#include "../ksaveioconfig.h"
 
 // Qt
 #include <QCheckBox>
