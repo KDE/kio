@@ -1343,7 +1343,7 @@ void KFilePropsPlugin::slotDirSizeFinished(KJob *job)
 
 void KFilePropsPlugin::slotSizeDetermine()
 {
-    d->m_ui->sizeLabel->setText(i18n("Calculating..."));
+    d->m_ui->sizeLabel->setText(i18n("Calculating...\n"));
     // qDebug() << "properties->item()=" << properties->item() << "URL=" << properties->item().url();
 
     d->dirSizeJob = KIO::directorySize(properties->items());
