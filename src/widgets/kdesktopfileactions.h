@@ -48,13 +48,17 @@ QList<KServiceAction> builtinServices(const QUrl &url);
  */
 KIOWIDGETS_EXPORT QList<KServiceAction> userDefinedServices(const QString &path, bool bLocalFiles);
 
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 86)
 /**
  * Overload of userDefinedServices but also allows you to pass a list of urls for this file.
  * This allows for the menu to be changed depending on the exact files via
  * the X-KDE-GetActionMenu extension.
+ * @deprecated Since 5.86, use userDefinedServices(KService, bool, QList<QUrl>) instead
  */
+KIOWIDGETS_DEPRECATED_VERSION(5, 86, "Use userDefinedServices(KService, bool, QList<QUrl>) instead")
 KIOWIDGETS_EXPORT QList<KServiceAction>
 userDefinedServices(const QString &path, const KDesktopFile &desktopFile, bool bLocalFiles, const QList<QUrl> &file_list = QList<QUrl>());
+#endif
 
 /**
  * Returns a list of services defined by the user as possible actions

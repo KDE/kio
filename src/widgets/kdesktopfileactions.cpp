@@ -196,16 +196,18 @@ QList<KServiceAction> KDesktopFileActions::builtinServices(const QUrl &_url)
 
 QList<KServiceAction> KDesktopFileActions::userDefinedServices(const QString &path, bool bLocalFiles)
 {
-    KDesktopFile cfg(path);
-    return userDefinedServices(path, cfg, bLocalFiles);
+    KService service(path);
+    return userDefinedServices(service, bLocalFiles);
 }
 
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 86)
 QList<KServiceAction> KDesktopFileActions::userDefinedServices(const QString &path, const KDesktopFile &cfg, bool bLocalFiles, const QList<QUrl> &file_list)
 {
     Q_UNUSED(path); // this was just for debugging; we use service.entryPath() now.
     KService service(&cfg);
     return userDefinedServices(service, bLocalFiles, file_list);
 }
+#endif
 
 QList<KServiceAction> KDesktopFileActions::userDefinedServices(const KService &service, bool bLocalFiles, const QList<QUrl> &file_list)
 {
