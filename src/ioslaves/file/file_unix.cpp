@@ -21,6 +21,7 @@
 #include <qplatformdefs.h>
 
 #include <KConfigGroup>
+#include <KFileSystemType>
 #include <KLocalizedString>
 #include <QDebug>
 #include <kmountpoint.h>
@@ -1334,14 +1335,32 @@ void FileProtocol::symlink(const QString &target, const QUrl &destUrl, KIO::JobF
         }
     }
 
-    {
-        auto res = execWithElevatedPrivilege(SYMLINK, {dest, target}, errno);
-        if (res == PrivilegeOperationReturnValue::success()) {
-            finished();
-        } else if (!res.wasCanceled()) {
-            // Some error occurred while we tried to symlink
-            error(KIO::ERR_CANNOT_SYMLINK, dest);
+    // Permission error, could be that the filesystem doesn't support symlinks
+    if (errno == EPERM) {
+        // "dest" doesn't exist, get the filesystem type of the parent dir
+        const QString parentDir = destUrl.adjusted(QUrl::StripTrailingSlash | QUrl::RemoveFilename).toLocalFile();
+        const KFileSystemType::Type fsType = KFileSystemType::fileSystemType(parentDir);
+
+        if (fsType == KFileSystemType::Fat || fsType == KFileSystemType::Exfat) {
+            const QString msg = i18nc(
+                "The first arg is the path to the symlink that couldn't be created, the second"
+                "arg is the filesystem type (e.g. vfat, exfat)",
+                "Could not create symlink \"%1\".\n"
+                "The destination filesystem (%2) doesn't support symlinks.",
+                dest,
+                KFileSystemType::fileSystemName(fsType));
+
+            error(KIO::ERR_SLAVE_DEFINED, msg);
+            return;
         }
+    }
+
+    auto res = execWithElevatedPrivilege(SYMLINK, {dest, target}, errno);
+    if (res == PrivilegeOperationReturnValue::success()) {
+        finished();
+    } else if (!res.wasCanceled()) {
+        // Some error occurred while we tried to symlink
+        error(KIO::ERR_CANNOT_SYMLINK, dest);
     }
 }
 
