@@ -36,6 +36,7 @@ KIOWIDGETS_DEPRECATED_VERSION(5, 82, "For lack of usage.")
 QList<KServiceAction> builtinServices(const QUrl &url);
 #endif
 
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 86)
 /**
  * Returns a list of services defined by the user as possible actions
  * on the given .desktop file. May include separators (see KServiceAction::isSeparator)
@@ -45,8 +46,11 @@ QList<KServiceAction> builtinServices(const QUrl &url);
  * @param bLocalFiles true if those services are to be applied to local files only
  * (if false, services that don't have %u or %U in the Exec line won't be taken into account).
  * @return the list of user defined actions
+ * @deprecated Since 5.86, use userDefinedServices(KService, bool, QList<QUrl>) instead
  */
+KIOWIDGETS_DEPRECATED_VERSION(5, 86, "Use userDefinedServices(KService, bool, QList<QUrl>) instead")
 KIOWIDGETS_EXPORT QList<KServiceAction> userDefinedServices(const QString &path, bool bLocalFiles);
+#endif
 
 #if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 86)
 /**

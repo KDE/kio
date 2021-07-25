@@ -22,6 +22,7 @@
 #include <KServiceTypeTrader>
 #include <kapplicationtrader.h>
 #include <kdesktopfileactions.h>
+#include <kdirnotify.h>
 #include <kurlauthorized.h>
 
 #include <QFile>
@@ -559,7 +560,7 @@ QPair<int, QMenu *> KFileItemActionsPrivate::addServiceActionsTo(QMenu *mainMenu
         const QString priority = cfg.readEntry("X-KDE-Priority");
         const QString submenuName = cfg.readEntry("X-KDE-Submenu");
         ServiceList &list = s.selectList(priority, submenuName);
-        list = KDesktopFileActions::userDefinedServices(path, desktopFile, true /*isLocal*/);
+        list = KDesktopFileActions::userDefinedServices(KService(path), true /*isLocal*/);
     }
 
     // 2 - Look for "servicemenus" bindings (user-defined services)
@@ -575,7 +576,7 @@ QPair<int, QMenu *> KFileItemActionsPrivate::addServiceActionsTo(QMenu *mainMenu
                 const QString priority = cfg.readEntry("X-KDE-Priority");
                 const QString submenuName = cfg.readEntry("X-KDE-Submenu");
                 ServiceList &list = s.selectList(priority, submenuName);
-                list += KDesktopFileActions::userDefinedServices(dotDirectoryFile, desktopFile, true);
+                list += KDesktopFileActions::userDefinedServices(KService(dotDirectoryFile), true);
             }
         }
     }
@@ -601,7 +602,7 @@ QPair<int, QMenu *> KFileItemActionsPrivate::addServiceActionsTo(QMenu *mainMenu
             const QString submenuName = cfg.readEntry("X-KDE-Submenu");
 
             ServiceList &list = s.selectList(priority, submenuName);
-            const ServiceList userServices = KDesktopFileActions::userDefinedServices(file, desktopFile, isLocal, urlList);
+            const ServiceList userServices = KDesktopFileActions::userDefinedServices(KService(file), isLocal, urlList);
             for (const KServiceAction &action : userServices) {
                 if (showGroup.readEntry(action.name(), true) && !excludeList.contains(action.name())) {
                     list += action;

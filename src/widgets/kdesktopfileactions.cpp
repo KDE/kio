@@ -194,11 +194,13 @@ QList<KServiceAction> KDesktopFileActions::builtinServices(const QUrl &_url)
 }
 #endif
 
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 86)
 QList<KServiceAction> KDesktopFileActions::userDefinedServices(const QString &path, bool bLocalFiles)
 {
     KService service(path);
     return userDefinedServices(service, bLocalFiles);
 }
+#endif
 
 #if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 86)
 QList<KServiceAction> KDesktopFileActions::userDefinedServices(const QString &path, const KDesktopFile &cfg, bool bLocalFiles, const QList<QUrl> &file_list)
