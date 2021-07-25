@@ -170,7 +170,7 @@ public:
     Q_DECLARE_PUBLIC(PreviewJob)
 };
 
-#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 84)
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 86)
 void PreviewJob::setDefaultDevicePixelRatio(int defaultDevicePixelRatio)
 {
     s_defaultDevicePixelRatio = defaultDevicePixelRatio;
@@ -471,7 +471,7 @@ bool KIO::PreviewJob::handlesSequences() const
     return d_func()->thumbnailSlaveMetaData.value(QStringLiteral("handlesSequences")) == QStringLiteral("1");
 }
 
-#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 84)
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 86)
 void KIO::PreviewJob::setDevicePixelRatio(int dpr)
 {
     d_func()->devicePixelRatio = dpr;
