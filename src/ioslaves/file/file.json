@@ -7,7 +7,7 @@
             "X-DocPath": "kioslave5/file/index.html", 
             "deleteRecursive": true, 
             "deleting": true, 
-            "exec": "kf5/kio/file", 
+            "exec": "kf5/kio/kio_file", 
             "input": "none", 
             "linking": true, 
             "listing": [

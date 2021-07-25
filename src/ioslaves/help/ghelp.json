@@ -4,7 +4,7 @@
             "Class": ":local", 
             "Icon": "help", 
             "defaultMimetype": "text/html", 
-            "exec": "kf5/kio/ghelp", 
+            "exec": "kf5/kio/kio_ghelp", 
             "input": "none", 
             "output": "filesystem", 
             "protocol": "ghelp", 
