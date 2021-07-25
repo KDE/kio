@@ -194,7 +194,10 @@ void KFileItemActionsPrivate::slotExecuteService(QAction *act)
 {
     const KServiceAction serviceAction = act->data().value<KServiceAction>();
     if (KAuthorized::authorizeAction(serviceAction.name())) {
-        KDesktopFileActions::executeService(m_props.urlList(), serviceAction);
+        auto *job = new KIO::ApplicationLauncherJob(serviceAction);
+        job->setUrls(m_props.urlList());
+        job->setUiDelegate(new KDialogJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, nullptr));
+        job->start();
     }
 }
 
