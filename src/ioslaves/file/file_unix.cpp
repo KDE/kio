@@ -736,7 +736,7 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mode, JobF
         return;
     }
 
-    if ((buff_src.st_mode & QT_STAT_MASK) == QT_STAT_DIR) {
+    if (S_ISDIR(buff_src.st_mode)) {
         error(KIO::ERR_IS_DIRECTORY, src);
         return;
     }
@@ -753,7 +753,7 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mode, JobF
             return;
         }
 
-        if ((buff_dest.st_mode & QT_STAT_MASK) == QT_STAT_DIR) {
+        if (S_ISDIR(buff_dest.st_mode)) {
             error(KIO::ERR_DIR_ALREADY_EXIST, dest);
             return;
         }
@@ -762,7 +762,7 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mode, JobF
             // If the destination is a symlink and overwrite is TRUE,
             // remove the symlink first to prevent the scenario where
             // the symlink actually points to current source!
-            if ((buff_dest.st_mode & QT_STAT_MASK) == QT_STAT_LNK) {
+            if (S_ISLNK(buff_dest.st_mode)) {
                 // qDebug() << "copy(): LINK DESTINATION";
                 if (!QFile::remove(dest)) {
                     if (auto err = execWithElevatedPrivilege(DEL, {_dest}, errno)) {
@@ -772,7 +772,7 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mode, JobF
                         return;
                     }
                 }
-            } else if ((buff_dest.st_mode & QT_STAT_MASK) == QT_STAT_REG) {
+            } else if (S_ISREG(buff_dest.st_mode)) {
                 _dest_backup = _dest;
                 dest.append(QStringLiteral(".part"));
                 _dest = QFile::encodeName(dest);
@@ -1175,8 +1175,8 @@ void FileProtocol::listDir(const QUrl &url)
             if (QT_LSTAT(ep->d_name, &st) == -1) {
                 continue; // how can stat fail?
             }
-            entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, ((st.st_mode & QT_STAT_MASK) == QT_STAT_DIR) ? S_IFDIR : S_IFREG);
-            const bool isSymLink = ((st.st_mode & QT_STAT_MASK) == QT_STAT_LNK);
+            entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, S_ISDIR(st.st_mode) ? S_IFDIR : S_IFREG);
+            const bool isSymLink = S_ISLNK(st.st_mode);
 #endif
             if (isSymLink) {
                 // for symlinks obey the UDSEntry contract and provide UDS_LINK_DEST
@@ -1264,7 +1264,7 @@ void FileProtocol::rename(const QUrl &srcUrl, const QUrl &destUrl, KIO::JobFlags
             return;
         }
 
-        if ((buff_dest.st_mode & QT_STAT_MASK) == QT_STAT_DIR) {
+        if (S_ISDIR(buff_dest.st_mode)) {
             error(KIO::ERR_DIR_ALREADY_EXIST, dest);
             return;
         }
@@ -1297,44 +1297,52 @@ void FileProtocol::rename(const QUrl &srcUrl, const QUrl &destUrl, KIO::JobFlags
 
 void FileProtocol::symlink(const QString &target, const QUrl &destUrl, KIO::JobFlags flags)
 {
-    const QString dest = destUrl.toLocalFile();
     // Assume dest is local too (wouldn't be here otherwise)
-    if (::symlink(QFile::encodeName(target).constData(), QFile::encodeName(dest).constData()) == -1) {
-        // Does the destination already exist ?
-        if (errno == EEXIST) {
-            if ((flags & KIO::Overwrite)) {
-                // Try to delete the destination
-                if (unlink(QFile::encodeName(dest).constData()) != 0) {
-                    if (auto err = execWithElevatedPrivilege(DEL, {dest}, errno)) {
-                        if (!err.wasCanceled()) {
-                            error(KIO::ERR_CANNOT_DELETE, dest);
-                        }
-                        return;
+    const QString dest = destUrl.toLocalFile();
+    const QByteArray dest_c = QFile::encodeName(dest);
+
+    if (::symlink(QFile::encodeName(target).constData(), dest_c.constData()) == 0) {
+        finished();
+        return;
+    }
+
+    // Does the destination already exist ?
+    if (errno == EEXIST) {
+        if (flags & KIO::Overwrite) {
+            // Try to delete the destination
+            if (unlink(dest_c.constData()) != 0) {
+                if (auto err = execWithElevatedPrivilege(DEL, {dest}, errno)) {
+                    if (!err.wasCanceled()) {
+                        error(KIO::ERR_CANNOT_DELETE, dest);
                     }
+
+                    return;
                 }
-                // Try again - this won't loop forever since unlink succeeded
-                symlink(target, destUrl, flags);
-                return;
-            } else {
-                QT_STATBUF buff_dest;
-                if (QT_LSTAT(QFile::encodeName(dest).constData(), &buff_dest) == 0 && ((buff_dest.st_mode & QT_STAT_MASK) == QT_STAT_DIR)) {
-                    error(KIO::ERR_DIR_ALREADY_EXIST, dest);
-                } else {
-                    error(KIO::ERR_FILE_ALREADY_EXIST, dest);
-                }
-                return;
             }
+
+            // Try again - this won't loop forever since unlink succeeded
+            symlink(target, destUrl, flags);
+            return;
         } else {
-            if (auto err = execWithElevatedPrivilege(SYMLINK, {dest, target}, errno)) {
-                if (!err.wasCanceled()) {
-                    // Some error occurred while we tried to symlink
-                    error(KIO::ERR_CANNOT_SYMLINK, dest);
-                }
-                return;
+            if (QT_STATBUF buff_dest; QT_LSTAT(dest_c.constData(), &buff_dest) == 0) {
+                error(S_ISDIR(buff_dest.st_mode) ? KIO::ERR_DIR_ALREADY_EXIST : KIO::ERR_FILE_ALREADY_EXIST, dest);
+            } else { // Can't happen, we already know "dest" exists
+                error(KIO::ERR_CANNOT_SYMLINK, dest);
             }
+
+            return;
         }
     }
-    finished();
+
+    {
+        auto res = execWithElevatedPrivilege(SYMLINK, {dest, target}, errno);
+        if (res == PrivilegeOperationReturnValue::success()) {
+            finished();
+        } else if (!res.wasCanceled()) {
+            // Some error occurred while we tried to symlink
+            error(KIO::ERR_CANNOT_SYMLINK, dest);
+        }
+    }
 }
 
 void FileProtocol::del(const QUrl &url, bool isfile)
