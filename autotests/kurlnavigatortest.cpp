@@ -15,6 +15,7 @@
 #include "kiotesthelper.h" // createTestDirectory(), createTestSymlink()
 #include "kurlcombobox.h"
 #include "kurlnavigator.h"
+#include <kprotocolinfo.h>
 
 QTEST_MAIN(KUrlNavigatorTest)
 
@@ -166,6 +167,12 @@ void KUrlNavigatorTest::testHistoryInsert()
 
 void KUrlNavigatorTest::bug251553_goUpFromArchive()
 {
+    // TODO: write a dummy archive protocol handler to mock things in the test
+    // or consider making kio_archive not a "kio-extra", but a default kio plugin
+    if (!KProtocolInfo::isKnownProtocol(QStringLiteral("zip"))) {
+        QSKIP("No zip protocol support installed (e.g. kio_archive or kio_krarc)");
+    }
+
     m_navigator->setLocationUrl(QUrl(QStringLiteral("zip:/test/archive.zip")));
     QCOMPARE(m_navigator->locationUrl().path(), QLatin1String("/test/archive.zip"));
     QCOMPARE(m_navigator->locationUrl().scheme(), QLatin1String("zip"));
