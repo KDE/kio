@@ -11,7 +11,6 @@
 #include <QMimeDatabase>
 
 #include <KPluginFactory>
-#include <KPluginLoader>
 #include <QDebug>
 #include <kimagefilepreview.h>
 #include <kio/previewjob.h>
@@ -180,16 +179,12 @@ void KFileMetaPreview::clearPreviewProviders()
 // static
 KPreviewWidgetBase *KFileMetaPreview::createAudioPreview(QWidget *parent)
 {
-    KPluginLoader loader(QStringLiteral("kfileaudiopreview"));
-    KPluginFactory *factory = loader.factory();
-    if (!factory) {
-        qWarning() << "Couldn't load kfileaudiopreview" << loader.errorString();
+    KPluginMetaData data(QStringLiteral("kfileaudiopreview"));
+    if (auto plugin = KPluginFactory::instantiatePlugin<KPreviewWidgetBase>(data, parent).plugin) {
+        plugin->setObjectName(QStringLiteral("kfileaudiopreview"));
+        return plugin;
+    } else {
         s_tryAudioPreview = false;
         return nullptr;
     }
-    KPreviewWidgetBase *w = factory->create<KPreviewWidgetBase>(parent);
-    if (w) {
-        w->setObjectName(QStringLiteral("kfileaudiopreview"));
-    }
-    return w;
 }

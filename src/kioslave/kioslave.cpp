@@ -14,9 +14,8 @@
 
 #include <QFile>
 #include <QLibrary>
+#include <QPluginLoader>
 #include <QString>
-
-#include <KPluginLoader>
 
 #if defined(Q_OS_WIN) || defined(Q_OS_MAC)
 #define USE_KPROCESS_FOR_KIOSLAVES
@@ -56,9 +55,9 @@ int main(int argc, char **argv)
         return 1;
     }
 
-    // Use KPluginLoader to locate the library when using a relative path
+    // Use QPluginLoader to locate the library when using a relative path
     // But we need to use QLibrary to actually load it, because of resolve()!
-    QString libpath = KPluginLoader::findPlugin(libname);
+    QString libpath = QPluginLoader(libname).fileName();
     if (libpath.isEmpty()) {
         fprintf(stderr, "could not locate %s, check QT_PLUGIN_PATH\n", qPrintable(libname));
         return 1;

@@ -661,7 +661,7 @@ QStringList KUriFilter::pluginNames() const
 
 void KUriFilter::loadPlugins()
 {
-    QVector<KPluginMetaData> plugins = KPluginLoader::findPlugins(QStringLiteral("kf5/urifilters"));
+    QVector<KPluginMetaData> plugins = KPluginMetaData::findPlugins(QStringLiteral("kf5/urifilters"));
     const QString prefKey = QStringLiteral("X-KDE-InitialPreference");
     // Sort the plugins by order of priority
     std::sort(plugins.begin(), plugins.end(), [prefKey](const KPluginMetaData &a, const KPluginMetaData &b) {
@@ -675,12 +675,8 @@ void KUriFilter::loadPlugins()
         const QString fileName = pluginMetaData.fileName().section(QLatin1Char('/'), -1);
         if (!pluginNames.contains(fileName)) {
             pluginNames << fileName;
-            KPluginFactory *factory = qobject_cast<KPluginFactory *>(pluginMetaData.instantiate());
-            if (factory) {
-                KUriFilterPlugin *plugin = factory->create<KUriFilterPlugin>(nullptr);
-                if (plugin) {
-                    d->pluginList << plugin;
-                }
+            if (auto plugin = KPluginFactory::instantiatePlugin<KUriFilterPlugin>(pluginMetaData).plugin) {
+                d->pluginList << plugin;
             }
         }
     }

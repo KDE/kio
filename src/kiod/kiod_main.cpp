@@ -13,7 +13,6 @@
 #include <KDBusService>
 #include <KDEDModule>
 #include <KPluginFactory>
-#include <KPluginLoader>
 #include <KPluginMetaData>
 
 #include <QLoggingCategory>
@@ -44,17 +43,14 @@ void KIOD::loadModule(const QString &name)
     }
 
     qCDebug(KIOD_CATEGORY) << "loadModule" << name;
-    KPluginLoader loader(QLatin1String("kf5/kiod/") + name);
-    KPluginFactory *factory = loader.factory();
-    if (factory) {
-        module = factory->create<KDEDModule>();
+    auto result = KPluginFactory::instantiatePlugin<KDEDModule>(KPluginMetaData(QLatin1String("kf5/kiod/") + name));
+    if (result) {
+        module = result.plugin;
+        module->setModuleName(name); // makes it register to DBus
+        m_modules.insert(name, module);
+    } else {
+        qCWarning(KIOD_CATEGORY) << "Error loading plugin:" << result.errorText;
     }
-    if (!module) {
-        qCWarning(KIOD_CATEGORY) << "Error loading plugin:" << loader.errorString();
-        return;
-    }
-    module->setModuleName(name); // makes it register to DBus
-    m_modules.insert(name, module);
 }
 
 KIOD::~KIOD()
@@ -98,7 +94,7 @@ int main(int argc, char *argv[])
     QDBusConnectionInterface *bus = QDBusConnection::sessionBus().interface();
     // Also register as all the names we should respond to (org.kde.kssld, org.kde.kcookiejar, etc.)
     // so that the calling code is independent from the physical "location" of the service.
-    const QVector<KPluginMetaData> plugins = KPluginLoader::findPlugins(QStringLiteral("kf5/kiod"));
+    const QVector<KPluginMetaData> plugins = KPluginMetaData::findPlugins(QStringLiteral("kf5/kiod"));
     for (const KPluginMetaData &metaData : plugins) {
         const QString serviceName = metaData.rawData().value(QStringLiteral("X-KDE-DBus-ServiceName")).toString();
         if (serviceName.isEmpty()) {

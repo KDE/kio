@@ -21,7 +21,6 @@
 #include <QDBusConnection>
 
 #include <KDEInitInterface>
-#include <KPluginLoader>
 #include <klauncher_interface.h>
 
 #include "commands_p.h"
@@ -473,10 +472,11 @@ Slave *Slave::createSlave(const QString &protocol, const QUrl &url, int &error, 
             delete slave;
             return nullptr;
         }
-        // find the kioslave using KPluginLoader; kioslave would do this
+        // find the kioslave using QPluginLoader; kioslave would do this
         // anyway, but if it doesn't exist, we want to be able to return
         // a useful error message immediately
-        QString lib_path = KPluginLoader::findPlugin(_name);
+        QPluginLoader loader(_name);
+        QString lib_path = loader.fileName();
         if (lib_path.isEmpty()) {
             error_text = i18n("Can not find io-slave for protocol '%1'.", protocol);
             error = KIO::ERR_CANNOT_CREATE_SLAVE;

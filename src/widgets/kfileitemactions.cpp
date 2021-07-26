@@ -652,7 +652,7 @@ int KFileItemActionsPrivate::addPluginActionsTo(QMenu *mainMenu, QMenu *actionsM
     const KConfigGroup showGroup = m_config.group("Show");
 
     const QMimeDatabase db;
-    const auto jsonPlugins = KPluginLoader::findPlugins(QStringLiteral("kf5/kfileitemaction"), [&db, commonMimeType](const KPluginMetaData &metaData) {
+    const auto jsonPlugins = KPluginMetaData::findPlugins(QStringLiteral("kf5/kfileitemaction"), [&db, commonMimeType](const KPluginMetaData &metaData) {
         auto mimeType = db.mimeTypeForName(commonMimeType);
         const QStringList list = metaData.mimeTypes();
         return std::any_of(list.constBegin(), list.constEnd(), [mimeType](const QString &supportedMimeType) {
@@ -667,13 +667,9 @@ int KFileItemActionsPrivate::addPluginActionsTo(QMenu *mainMenu, QMenu *actionsM
             continue;
         }
 
-        KPluginFactory *factory = KPluginLoader(jsonMetadata.fileName()).factory();
-        if (!factory) {
-            continue;
-        }
         KAbstractFileItemActionPlugin *abstractPlugin = m_loadedPlugins.value(pluginId);
         if (!abstractPlugin) {
-            abstractPlugin = factory->create<KAbstractFileItemActionPlugin>(this);
+            abstractPlugin = KPluginFactory::instantiatePlugin<KAbstractFileItemActionPlugin>(jsonMetadata, this).plugin;
             m_loadedPlugins.insert(pluginId, abstractPlugin);
         }
         if (abstractPlugin) {

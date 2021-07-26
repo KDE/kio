@@ -25,7 +25,7 @@
 #include <KIO/FileUndoManager>
 #include <KJobWidgets>
 #include <KLocalizedString>
-#include <KPluginLoader>
+#include <KPluginFactory>
 #include <KPluginMetaData>
 #include <KProtocolManager>
 #include <KService>
@@ -304,18 +304,14 @@ void DropJobPrivate::fillPopupMenu(KIO::DropMenu *popup)
 
 void DropJobPrivate::addPluginActions(KIO::DropMenu *popup, const KFileItemListProperties &itemProps)
 {
-    const QVector<KPluginMetaData> plugin_offers = KPluginLoader::findPlugins(QStringLiteral("kf5/kio_dnd"));
-    for (const KPluginMetaData &service : plugin_offers) {
-        KPluginFactory *factory = KPluginLoader(service.fileName()).factory();
-        if (factory) {
-            KIO::DndPopupMenuPlugin *plugin = factory->create<KIO::DndPopupMenuPlugin>();
-            if (plugin) {
-                const auto actions = plugin->setup(itemProps, m_destUrl);
-                for (auto action : actions) {
-                    action->setParent(popup);
-                }
-                m_pluginActions += actions;
+    const QVector<KPluginMetaData> plugin_offers = KPluginMetaData::findPlugins(QStringLiteral("kf5/kio_dnd"));
+    for (const KPluginMetaData &data : plugin_offers) {
+        if (auto plugin = KPluginFactory::instantiatePlugin<KIO::DndPopupMenuPlugin>(data).plugin) {
+            const auto actions = plugin->setup(itemProps, m_destUrl);
+            for (auto action : actions) {
+                action->setParent(popup);
             }
+            m_pluginActions += actions;
         }
     }
 

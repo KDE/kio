@@ -15,7 +15,6 @@
 #include <KAboutData>
 #include <KLocalizedString>
 #include <KPluginFactory>
-#include <KPluginLoader>
 #include <KPluginMetaData>
 #include <kurifilter.h>
 
@@ -49,10 +48,9 @@ KURIFilterModule::KURIFilterModule(QWidget *parent, const QVariantList &args)
     QMap<QString, KCModule *> helper;
     // Load the plugins. This saves a public method in KUriFilter just for this.
 
-    QVector<KPluginMetaData> plugins = KPluginLoader::findPlugins(QStringLiteral("kf5/urifilters"));
-    for (const KPluginMetaData &pluginMetaData : qAsConst(plugins)) {
-        KPluginFactory *factory = qobject_cast<KPluginFactory *>(pluginMetaData.instantiate());
-        if (factory) {
+    const QVector<KPluginMetaData> plugins = KPluginMetaData::findPlugins(QStringLiteral("kf5/urifilters"));
+    for (const KPluginMetaData &pluginMetaData : plugins) {
+        if (auto factory = KPluginFactory::loadFactory(pluginMetaData).plugin) {
             KCModule *module = nullptr;
 #if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 82)
             KUriFilterPlugin *plugin = factory->create<KUriFilterPlugin>(nullptr);
