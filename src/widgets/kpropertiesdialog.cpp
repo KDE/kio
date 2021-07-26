@@ -849,13 +849,12 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
     // check that the other items match against it, resetting when not.
     const KFileItem firstItem = properties->item();
     auto [mostLocalUrl, isLocal] = firstItem.isMostLocalUrl();
-    bool isReallyLocal = firstItem.url().isLocalFile();
     bool bDesktopFile = firstItem.isDesktopFile();
     mode_t mode = firstItem.mode();
     bool hasDirs = firstItem.isDir() && !firstItem.isLink();
     bool hasRoot = mostLocalUrl.path() == QLatin1String("/");
     QString iconStr = firstItem.iconName();
-    QString directory = properties->url().adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash).path();
+    QString directory = properties->url().adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash).toDisplayString(QUrl::PreferLocalFile);
     QString protocol = properties->url().scheme();
     d->bKDesktopMode = protocol == QLatin1String("desktop") || properties->currentDir().scheme() == QLatin1String("desktop");
     QString mimeComment = firstItem.mimeComment();
@@ -870,7 +869,7 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
         }
     }
 #ifdef Q_OS_WIN
-    if (isReallyLocal) {
+    if (firstItem.isLocalFile()) {
         directory = QDir::toNativeSeparators(directory.mid(1));
     }
 #endif
@@ -892,6 +891,7 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
         QString path;
         if (!d->m_bFromTemplate) {
             isTrash = (properties->url().scheme() == QLatin1String("trash"));
+
             // Extract the full name, but without file: for local files
             path = properties->url().toDisplayString(QUrl::PreferLocalFile);
         } else {
@@ -975,11 +975,7 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
                 totalSize += item.size();
             }
         }
-    }
-
-    if (!isReallyLocal && !protocol.isEmpty()) {
-        directory += QLatin1String(" (") + protocol + QLatin1Char(')');
-    }
+    } // Multiple items
 
     if (!isTrash //
         && (bDesktopFile || ((mode & QT_STAT_MASK) == QT_STAT_DIR)) //
