@@ -766,7 +766,7 @@ PreviewJobPrivate::CachePolicy PreviewJobPrivate::canBeCached(const QString &pat
     if (thumbRootId == idUnknown) {
         return CachePolicy::Unknown;
     }
-    bool shouldAllow = !checkedId && checkedId == thumbRootId;
+    bool shouldAllow = checkedId && checkedId == thumbRootId;
     if (!shouldAllow) {
         Solid::Device device = Solid::Device::storageAccessFromPath(checkedPath);
         if (device.isValid()) {
