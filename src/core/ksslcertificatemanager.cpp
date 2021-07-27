@@ -9,7 +9,9 @@
 #include "ksslcertificatemanager_p.h"
 #include "ksslerror_p.h"
 
+#include "kssld_interface.h"
 #include "ksslerroruidata_p.h"
+
 #include <KConfig>
 #include <KConfigGroup>
 #include <KLocalizedString>
@@ -22,7 +24,7 @@
 #include <QSslConfiguration>
 #include <QStandardPaths>
 
-#include "kssld_interface.h"
+#include <set>
 
 /*
   Config file format:
@@ -214,12 +216,12 @@ QList<QSslError> KSslCertificateRule::filterErrors(const QList<QSslError> &error
 
 static QList<QSslCertificate> deduplicate(const QList<QSslCertificate> &certs)
 {
-    QSet<QByteArray> digests;
+    std::set<QByteArray> digests;
     QList<QSslCertificate> ret;
     for (const QSslCertificate &cert : certs) {
         QByteArray digest = cert.digest();
-        if (!digests.contains(digest)) {
-            digests.insert(digest);
+        const auto [it, isInserted] = digests.insert(digest);
+        if (isInserted) {
             ret.append(cert);
         }
     }

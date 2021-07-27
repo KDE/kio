@@ -11,8 +11,9 @@
 #include "job_p.h"
 
 #include <QMimeDatabase>
-#include <QSet>
 #include <QTimer>
+
+#include <set>
 
 using namespace KIO;
 
@@ -43,16 +44,15 @@ public:
         // In this case $index is appended to $newName.
 
         // Check for extensions.
-        QSet<QString> extensions;
+        std::set<QString> extensions;
         QMimeDatabase db;
         for (const QUrl &url : qAsConst(m_srcList)) {
             const QString extension = db.suffixForFileName(url.path());
-            if (extensions.contains(extension)) {
+            const auto [it, isInserted] = extensions.insert(extension);
+            if (!isInserted) {
                 m_allExtensionsDifferent = false;
                 break;
             }
-
-            extensions.insert(extension);
         }
 
         // Check for exactly one placeholder character or exactly one sequence of placeholders.

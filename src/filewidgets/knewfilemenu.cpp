@@ -56,6 +56,8 @@
 #include <utime.h>
 #endif
 
+#include <set>
+
 static QString expandTilde(const QString &name, bool isfile = false)
 {
     if (name.isEmpty() || name == QLatin1Char('~')) {
@@ -701,7 +703,7 @@ void KNewFileMenuPrivate::fillMenu()
     m_menuDev->menu()->clear();
     m_newDirAction = nullptr;
 
-    QSet<QString> seenTexts;
+    std::set<QString> seenTexts;
     QString lastTemplatePath;
     // these shall be put at special positions
     QAction *linkURL = nullptr;
@@ -720,12 +722,8 @@ void KNewFileMenuPrivate::fillMenu()
 
             // In fact, we skip any second item that has the same text as another one.
             // Duplicates in a menu look bad in any case.
-
-            const bool bSkip = seenTexts.contains(entry.text);
-            if (bSkip) {
-                // qDebug() << "skipping" << entry.filePath;
-            } else {
-                seenTexts.insert(entry.text);
+            const auto [it, isInserted] = seenTexts.insert(entry.text);
+            if (isInserted) {
                 // const KNewFileMenuSingleton::Entry entry = templatesList->at(i-1);
 
                 const QString templatePath = entry.templatePath;

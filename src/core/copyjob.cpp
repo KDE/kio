@@ -54,6 +54,7 @@
 #include <KIO/FileSystemFreeSpaceJob>
 
 #include <list>
+#include <set>
 
 #include <QLoggingCategory>
 Q_DECLARE_LOGGING_CATEGORY(KIO_COPYJOB_DEBUG)
@@ -225,7 +226,7 @@ public:
     QUrl m_currentSrcURL;
     QUrl m_currentDestURL;
 
-    QSet<QString> m_parentDirs;
+    std::set<QString> m_parentDirs;
 
     void statCurrentSrc();
     void statNextSrc();
@@ -967,9 +968,9 @@ void CopyJobPrivate::startRenameJob(const QUrl &slave_url)
     // Silence KDirWatch notifications, otherwise performance is horrible
     if (m_currentSrcURL.isLocalFile()) {
         const QString parentDir = m_currentSrcURL.adjusted(QUrl::RemoveFilename).path();
-        if (!m_parentDirs.contains(parentDir)) {
+        const auto [it, isInserted] = m_parentDirs.insert(parentDir);
+        if (isInserted) {
             KDirWatch::self()->stopDirScan(parentDir);
-            m_parentDirs.insert(parentDir);
         }
     }
 
@@ -1334,10 +1335,10 @@ void CopyJobPrivate::createNextDir()
         if (m_mode == CopyJob::Move) {
             // Now we know which dirs hold the files we're going to delete.
             // To speed things up and prevent double-notification, we disable KDirWatch
-            // on those dirs temporarily (using KDirWatch::self, that's the instanced
+            // on those dirs temporarily (using KDirWatch::self, that's the instance
             // used by e.g. kdirlister).
-            for (QSet<QString>::const_iterator it = m_parentDirs.constBegin(); it != m_parentDirs.constEnd(); ++it) {
-                KDirWatch::self()->stopDirScan(*it);
+            for (const auto &dir : m_parentDirs) {
+                KDirWatch::self()->stopDirScan(dir);
             }
         }
 

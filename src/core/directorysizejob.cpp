@@ -14,6 +14,8 @@
 
 #include "job_p.h"
 
+#include <set>
+
 namespace KIO
 {
 class DirectorySizeJobPrivate : public KIO::JobPrivate
@@ -39,7 +41,7 @@ public:
     KIO::filesize_t m_totalSubdirs;
     KFileItemList m_lstItems;
     int m_currentItem;
-    QHash<long, QSet<long>> m_visitedInodes; // device -> set of inodes
+    QHash<long, std::set<long>> m_visitedInodes; // device -> set of inodes
 
     void startNextJob(const QUrl &url);
     void slotEntries(KIO::Job *, const KIO::UDSEntryList &);
@@ -145,11 +147,11 @@ void DirectorySizeJobPrivate::slotEntries(KIO::Job *, const KIO::UDSEntryList &l
         if (device && !entry.isLink()) {
             // Hard-link detection (#67939)
             const long inode = entry.numberValue(KIO::UDSEntry::UDS_INODE, 0);
-            QSet<long> &visitedInodes = m_visitedInodes[device]; // find or insert
-            if (visitedInodes.contains(inode)) {
+            std::set<long> &visitedInodes = m_visitedInodes[device]; // find or insert
+            const auto [it, isNewInode] = visitedInodes.insert(inode);
+            if (!isNewInode) {
                 continue;
             }
-            visitedInodes.insert(inode);
         }
         const KIO::filesize_t size = entry.numberValue(KIO::UDSEntry::UDS_SIZE, 0);
         const QString name = entry.stringValue(KIO::UDSEntry::UDS_NAME);
