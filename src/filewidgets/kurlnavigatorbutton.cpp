@@ -8,7 +8,6 @@
 #include "kurlnavigatorbutton_p.h"
 
 #include "../pathhelpers_p.h"
-#include "kdirsortfilterproxymodel.h"
 #include "kurlnavigator.h"
 #include "kurlnavigatormenu_p.h"
 
