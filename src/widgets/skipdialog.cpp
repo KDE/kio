@@ -35,11 +35,29 @@ SkipDialog::SkipDialog(QWidget *parent, KIO::SkipDialog_Options options, const Q
     QDialogButtonBox *buttonBox = new QDialogButtonBox(this);
     layout->addWidget(buttonBox);
 
-    QPushButton *retryButton = new QPushButton(i18n("Retry"));
-    connect(retryButton, &QAbstractButton::clicked, this, &SkipDialog::retryPressed);
-    buttonBox->addButton(retryButton, QDialogButtonBox::ActionRole);
+    // Retrying to e.g. copy a file with "*" in the name to a fat32
+    // partition will always fail
+    if (options & SkipDialog_Replace_Invalid_Chars) {
+        QPushButton *replaceCharButton = new QPushButton(i18n("Replace"));
+        connect(replaceCharButton, &QAbstractButton::clicked, this, [this]() {
+            done(KIO::Result_ReplaceInvalidChars);
+        });
+        buttonBox->addButton(replaceCharButton, QDialogButtonBox::ActionRole);
+    } else {
+        QPushButton *retryButton = new QPushButton(i18n("Retry"));
+        connect(retryButton, &QAbstractButton::clicked, this, &SkipDialog::retryPressed);
+        buttonBox->addButton(retryButton, QDialogButtonBox::ActionRole);
+    }
 
     if (options & SkipDialog_MultipleItems) {
+        if (options & SkipDialog_Replace_Invalid_Chars) {
+            QPushButton *autoReplaceButton = new QPushButton(i18n("Replace All"));
+            connect(autoReplaceButton, &QAbstractButton::clicked, this, [this]() {
+                done(KIO::Result_ReplaceAllInvalidChars);
+            });
+            buttonBox->addButton(autoReplaceButton, QDialogButtonBox::ActionRole);
+        }
+
         QPushButton *skipButton = new QPushButton(i18n("Skip"));
         connect(skipButton, &QAbstractButton::clicked, this, &SkipDialog::skipPressed);
         buttonBox->addButton(skipButton, QDialogButtonBox::ActionRole);

@@ -67,13 +67,27 @@ typedef RenameDialog_Options RenameDialog_Mode;
 #endif
 
 /**
- * SkipDialog_MultipleItems: Set if the current operation concerns multiple files, so it makes sense
- *  to offer buttons that apply the user's choice to all files/folders.
  * @see SkipDialog_Options
  * @since 5.0
  */
 enum SkipDialog_Option {
+    /**
+     * Set if the current operation concerns multiple files, so it makes sense
+     * to offer buttons that apply the user's choice to all files/folders.
+     */
     SkipDialog_MultipleItems = 8,
+    /**
+     * Set if the current operation involves copying files/folders with certain
+     * characters in their names that are not supported by the destination
+     * filesystem (e.g. VFAT and NTFS disallow "*" in file/folder names).
+     *
+     * This will make the SkipDialog show a "Replace" button that can be used
+     * to instruct the underlying job to replace any problematic character with
+     * an underscore "_".
+     *
+     * @since 5.86
+     */
+    SkipDialog_Replace_Invalid_Chars = 16,
 };
 /**
  * Stores a combination of #SkipDialog_Option values.
@@ -101,6 +115,23 @@ enum RenameDialog_Result {
      * @since 5.77
      */
     Result_OverwriteWhenOlder = 10,
+    /**
+     * Can be returned if the user selects to replace any character disallowed
+     * by the destination filesystem with an underscore "_".
+     *
+     * See @ref SkipDialog_Option::SkipDialog_Replace_Invalid_Chars
+     *
+     * @since 5.86
+     */
+    Result_ReplaceInvalidChars = 11,
+    /**
+     * The same as @c Result_ReplaceInvalidChars, but the user selected to
+     * automatically replace any invalid character, without being asked about
+     * every file/folder.
+     *
+     * @since 5.86
+     */
+    Result_ReplaceAllInvalidChars = 12,
 
 // @deprecated since 5.0, use the undeprecated enum values
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 0)
