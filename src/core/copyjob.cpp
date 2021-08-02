@@ -46,6 +46,7 @@
 #include <QPointer>
 #include <QTemporaryFile>
 #include <QTimer>
+
 #include <sys/stat.h> // mode_t
 
 #include "job_p.h"
@@ -128,6 +129,28 @@ static bool compareUrls(const QUrl &srcUrl, const QUrl &destUrl)
     /* clang-format on */
 }
 
+// https://docs.microsoft.com/en-us/windows/win32/fileio/naming-a-file#naming-conventions
+static const char s_msdosInvalidChars[] = R"(<>:"/\|?*)";
+
+static bool hasInvalidChars(const QString &dest)
+{
+    return std::any_of(std::begin(s_msdosInvalidChars), std::end(s_msdosInvalidChars), [=](const char c) {
+        return dest.contains(QLatin1Char(c));
+    });
+}
+
+static void cleanMsdosDestName(QString &name)
+{
+    for (const char c : s_msdosInvalidChars) {
+        name.replace(QLatin1Char(c), QLatin1String("_"));
+    }
+}
+
+static bool isMsdosFs(KFileSystemType::Type fsType)
+{
+    return fsType == KFileSystemType::Fat || fsType == KFileSystemType::Ntfs || fsType == KFileSystemType::Exfat;
+}
+
 /** @internal */
 class KIO::CopyJobPrivate : public KIO::JobPrivate
 {
@@ -197,6 +220,7 @@ public:
     int m_processedDirs;
     QList<CopyInfo> files;
     QList<CopyInfo> dirs;
+    // List of dirs that will be copied then deleted when CopyMode is Move
     QList<QUrl> dirsToRemove;
     QList<QUrl> m_srcList;
     QList<QUrl> m_successSrcList; // Entries in m_srcList that have successfully been moved
@@ -217,6 +241,11 @@ public:
     bool m_bOverwriteAllFiles;
     bool m_bOverwriteAllDirs;
     bool m_bOverwriteWhenOlder;
+
+    bool m_autoSkipDirsWithInvalidChars = false;
+    bool m_autoSkipFilesWithInvalidChars = false;
+    bool m_autoReplaceInvalidChars = false;
+
     int m_conflictError;
 
     QTimer *m_reportTimer;
@@ -238,6 +267,7 @@ public:
     void slotResultCreatingDirs(KJob *job);
     void slotResultConflictCreatingDirs(KJob *job);
     void createNextDir();
+    void processCreateNextDir(const QList<CopyInfo>::Iterator &it, int result);
 
     void slotResultCopyingFiles(KJob *job);
     void slotResultErrorCopyingFiles(KJob *job);
@@ -246,10 +276,12 @@ public:
     //     KIO::Job* linkNextFile( const QUrl& uSource, const QUrl& uDest, bool overwrite );
     KIO::Job *linkNextFile(const QUrl &uSource, const QUrl &uDest, JobFlags flags);
     void copyNextFile();
+    void processCopyNextFile(const QList<CopyInfo>::Iterator &it, int result);
 
     void slotResultDeletingDirs(KJob *job);
     void deleteNextDir();
     void sourceStated(const UDSEntry &entry, const QUrl &sourceUrl);
+    // Removes a dir from the "dirsToRemove" list
     void skip(const QUrl &sourceURL, bool isDir);
 
     void slotResultRenaming(KJob *job);
@@ -1300,35 +1332,72 @@ void CopyJobPrivate::slotResultConflictCreatingDirs(KJob *job)
 void CopyJobPrivate::createNextDir()
 {
     Q_Q(CopyJob);
-    QUrl udir;
-    if (!dirs.isEmpty()) {
-        // Take first dir to create out of list
-        QList<CopyInfo>::Iterator it = dirs.begin();
-        // Is this URL on the skip list or the overwrite list ?
-        while (it != dirs.end() && udir.isEmpty()) {
-            const QString dir = (*it).uDest.path();
-            if (shouldSkip(dir)) {
-                it = dirs.erase(it);
-            } else {
-                udir = (*it).uDest;
-            }
+
+    // Take first dir to create out of list
+    QList<CopyInfo>::Iterator it = dirs.begin();
+    // Is this URL on the skip list or the overwrite list ?
+    while (it != dirs.end()) {
+        const QString dir = it->uDest.path();
+        if (shouldSkip(dir)) {
+            it = dirs.erase(it);
+        } else {
+            break;
         }
     }
-    if (!udir.isEmpty()) { // any dir to create, finally ?
-        // Create the directory - with default permissions so that we can put files into it
-        // TODO : change permissions once all is finished; but for stuff coming from CDROM it sucks...
-        KIO::SimpleJob *newjob = KIO::mkdir(udir, -1);
-        newjob->setParentJob(q);
-        Scheduler::setJobPriority(newjob, 1);
-        if (shouldOverwriteFile(udir.path())) { // if we are overwriting an existing file or symlink
-            newjob->addMetaData(QStringLiteral("overwrite"), QStringLiteral("true"));
+
+    if (it != dirs.end()) { // any dir to create, finally ?
+        if (it->uDest.isLocalFile()) {
+            // uDest doesn't exist yet, check the filesystem of the parent dir
+            const auto destFileSystem = KFileSystemType::fileSystemType(it->uDest.adjusted(QUrl::StripTrailingSlash | QUrl::RemoveFilename).toLocalFile());
+            if (isMsdosFs(destFileSystem)) {
+                const QString dirName = it->uDest.adjusted(QUrl::StripTrailingSlash).fileName();
+                if (hasInvalidChars(dirName)) {
+                    // We already asked the user?
+                    if (m_autoReplaceInvalidChars) {
+                        processCreateNextDir(it, KIO::Result_ReplaceInvalidChars);
+                        return;
+                    } else if (m_autoSkipDirsWithInvalidChars) {
+                        processCreateNextDir(it, KIO::Result_Skip);
+                        return;
+                    }
+
+                    const QString msg = i18n(
+                        "Could not create \"%1\".\n"
+                        "The destination filesystem (%2) disallows the following characters in folder names: %3\n"
+                        "Selecting Replace will replace any invalid characters (in the destination folder name) with an underscore \"_\".",
+                        it->uDest.toDisplayString(QUrl::PreferLocalFile),
+                        KFileSystemType::fileSystemName(destFileSystem),
+                        QLatin1String(s_msdosInvalidChars));
+
+                    if (auto *askUserActionInterface = KIO::delegateExtension<KIO::AskUserActionInterface *>(q)) {
+                        SkipDialog_Options options = KIO::SkipDialog_Replace_Invalid_Chars;
+                        if (dirs.size() > 1) {
+                            options |= SkipDialog_MultipleItems;
+                        }
+
+                        auto skipSignal = &KIO::AskUserActionInterface::askUserSkipResult;
+                        QObject::connect(askUserActionInterface, skipSignal, q, [=](SkipDialog_Result result, KJob *parentJob) {
+                            Q_ASSERT(parentJob == q);
+
+                            // Only receive askUserSkipResult once per skip dialog
+                            QObject::disconnect(askUserActionInterface, skipSignal, q, nullptr);
+
+                            processCreateNextDir(it, result);
+                        });
+
+                        askUserActionInterface->askUserSkip(q, options, msg);
+
+                        return;
+                    } else { // No Job Ui delegate
+                        qCWarning(KIO_COPYJOB_DEBUG) << msg;
+                        q->emitResult();
+                        return;
+                    }
+                }
+            }
         }
 
-        m_currentDestURL = udir;
-        m_bURLDirty = true;
-
-        q->addSubjob(newjob);
-        return;
+        processCreateNextDir(it, -1);
     } else { // we have finished creating dirs
         q->setProcessedAmount(KJob::Directories, m_processedDirs); // make sure final number appears
 
@@ -1346,6 +1415,57 @@ void CopyJobPrivate::createNextDir()
         ++m_processedFiles; // Ralf wants it to start at 1, not 0
         copyNextFile();
     }
+}
+
+void CopyJobPrivate::processCreateNextDir(const QList<CopyInfo>::Iterator &it, int result)
+{
+    Q_Q(CopyJob);
+
+    switch (result) {
+    case Result_Cancel:
+        q->setError(ERR_USER_CANCELED);
+        q->emitResult();
+        return;
+    case KIO::Result_ReplaceAllInvalidChars:
+        m_autoReplaceInvalidChars = true;
+        Q_FALLTHROUGH();
+    case KIO::Result_ReplaceInvalidChars: {
+        it->uDest = it->uDest.adjusted(QUrl::StripTrailingSlash);
+        QString dirName = it->uDest.fileName();
+        const int len = dirName.size();
+        cleanMsdosDestName(dirName);
+        QString path = it->uDest.path();
+        path.replace(path.size() - len, len, dirName);
+        it->uDest.setPath(path);
+        break;
+    }
+    case KIO::Result_AutoSkip:
+        m_autoSkipDirsWithInvalidChars = true;
+        Q_FALLTHROUGH();
+    case KIO::Result_Skip:
+        m_skipList.append(it->uDest.path());
+        skip(it->uSource, true);
+        dirs.erase(it); // Move on to next dir
+        ++m_processedDirs;
+        createNextDir();
+        return;
+    default:
+        break;
+    }
+
+    // Create the directory - with default permissions so that we can put files into it
+    // TODO : change permissions once all is finished; but for stuff coming from CDROM it sucks...
+    KIO::SimpleJob *newjob = KIO::mkdir(it->uDest, -1);
+    newjob->setParentJob(q);
+    Scheduler::setJobPriority(newjob, 1);
+    if (shouldOverwriteFile(it->uDest.path())) { // if we are overwriting an existing file or symlink
+        newjob->addMetaData(QStringLiteral("overwrite"), QStringLiteral("true"));
+    }
+
+    m_currentDestURL = it->uDest;
+    m_bURLDirty = true;
+
+    q->addSubjob(newjob);
 }
 
 void CopyJobPrivate::slotResultCopyingFiles(KJob *job)
@@ -1727,6 +1847,9 @@ void CopyJobPrivate::copyNextFile()
     Q_Q(CopyJob);
     bool bCopyFile = false;
     qCDebug(KIO_COPYJOB_DEBUG);
+
+    bool isDestLocal = m_globalDest.isLocalFile();
+
     // Take the first file in the list
     QList<CopyInfo>::Iterator it = files.begin();
     // Is this URL on the skip list ?
@@ -1737,9 +1860,9 @@ void CopyJobPrivate::copyNextFile()
             it = files.erase(it);
         }
 
-        if (it != files.end() && (*it).size > 0xFFFFFFFF) { // 4GB-1
-            const auto fileSystem = KFileSystemType::fileSystemType(m_globalDest.toLocalFile());
-            if (fileSystem == KFileSystemType::Fat) {
+        if (it != files.end() && isDestLocal && (*it).size > 0xFFFFFFFF) { // 4GB-1
+            const auto destFileSystem = KFileSystemType::fileSystemType(m_globalDest.toLocalFile());
+            if (destFileSystem == KFileSystemType::Fat) {
                 q->setError(ERR_FILE_TOO_LARGE_FOR_FAT32);
                 q->setErrorText((*it).uDest.toDisplayString());
                 q->emitResult();
@@ -1749,89 +1872,53 @@ void CopyJobPrivate::copyNextFile()
     }
 
     if (bCopyFile) { // any file to create, finally ?
-        qCDebug(KIO_COPYJOB_DEBUG) << "preparing to copy" << (*it).uSource << (*it).size << m_freeSpace;
-        if (m_freeSpace != KIO::invalidFilesize && (*it).size != KIO::invalidFilesize) {
-            if (m_freeSpace < (*it).size) {
-                q->setError(ERR_DISK_FULL);
-                q->emitResult();
-                return;
+        if (isDestLocal) {
+            const auto destFileSystem = KFileSystemType::fileSystemType(m_globalDest.toLocalFile());
+            if (isMsdosFs(destFileSystem) && hasInvalidChars(it->uDest.fileName())) {
+                // Have we already asked the user?
+                if (m_autoReplaceInvalidChars) {
+                    processCopyNextFile(it, KIO::Result_ReplaceInvalidChars);
+                    return;
+                } else if (m_autoSkipFilesWithInvalidChars) {
+                    processCopyNextFile(it, KIO::Result_Skip);
+                    return;
+                }
+
+                const QString msg = i18n(
+                    "Could not create \"%1\".\n"
+                    "The destination filesystem (%2) disallows the following characters in file names: %3\n"
+                    "Selecting Replace will replace any invalid characters (in the destination file name) with an underscore \"_\".",
+                    it->uDest.toDisplayString(QUrl::PreferLocalFile),
+                    KFileSystemType::fileSystemName(destFileSystem),
+                    QLatin1String(s_msdosInvalidChars));
+
+                if (auto *askUserActionInterface = KIO::delegateExtension<KIO::AskUserActionInterface *>(q)) {
+                    SkipDialog_Options options = KIO::SkipDialog_Replace_Invalid_Chars;
+                    if (files.size() > 1) {
+                        options |= SkipDialog_MultipleItems;
+                    }
+
+                    auto skipSignal = &KIO::AskUserActionInterface::askUserSkipResult;
+                    QObject::connect(askUserActionInterface, skipSignal, q, [=](SkipDialog_Result result, KJob *parentJob) {
+                        Q_ASSERT(parentJob == q);
+                        // Only receive askUserSkipResult once per skip dialog
+                        QObject::disconnect(askUserActionInterface, skipSignal, q, nullptr);
+
+                        processCopyNextFile(it, result);
+                    });
+
+                    askUserActionInterface->askUserSkip(q, options, msg);
+
+                    return;
+                } else { // No Job Ui delegate
+                    qCWarning(KIO_COPYJOB_DEBUG) << msg;
+                    q->emitResult();
+                    return;
+                }
             }
         }
 
-        const QUrl &uSource = (*it).uSource;
-        const QUrl &uDest = (*it).uDest;
-        // Do we set overwrite ?
-        bool bOverwrite;
-        const QString destFile = uDest.path();
-        qCDebug(KIO_COPYJOB_DEBUG) << "copying" << destFile;
-        if (uDest == uSource) {
-            bOverwrite = false;
-        } else {
-            bOverwrite = shouldOverwriteFile(destFile);
-        }
-
-        // If source isn't local and target is local, we ignore the original permissions
-        // Otherwise, files downloaded from HTTP end up with -r--r--r--
-        const bool remoteSource = !KProtocolManager::supportsListing(uSource) || uSource.scheme() == QLatin1String("trash");
-        int permissions = (*it).permissions;
-        if (m_defaultPermissions || (remoteSource && uDest.isLocalFile())) {
-            permissions = -1;
-        }
-        const JobFlags flags = bOverwrite ? Overwrite : DefaultFlags;
-
-        m_bCurrentOperationIsLink = false;
-        KIO::Job *newjob = nullptr;
-        if (m_mode == CopyJob::Link) {
-            // User requested that a symlink be made
-            newjob = linkNextFile(uSource, uDest, flags);
-            if (!newjob) {
-                return;
-            }
-        } else if (!(*it).linkDest.isEmpty() && compareUrls(uSource, uDest))
-        // Copying a symlink - only on the same protocol/host/etc. (#5601, downloading an FTP file through its link),
-        {
-            KIO::SimpleJob *newJob = KIO::symlink((*it).linkDest, uDest, flags | HideProgressInfo /*no GUI*/);
-            newJob->setParentJob(q);
-            Scheduler::setJobPriority(newJob, 1);
-            newjob = newJob;
-            qCDebug(KIO_COPYJOB_DEBUG) << "Linking target=" << (*it).linkDest << "link=" << uDest;
-            m_currentSrcURL = QUrl::fromUserInput((*it).linkDest);
-            m_currentDestURL = uDest;
-            m_bURLDirty = true;
-            // emit linking( this, (*it).linkDest, uDest );
-            // Observer::self()->slotCopying( this, m_currentSrcURL, uDest ); // should be slotLinking perhaps
-            m_bCurrentOperationIsLink = true;
-            // NOTE: if we are moving stuff, the deletion of the source will be done in slotResultCopyingFiles
-        } else if (m_mode == CopyJob::Move) { // Moving a file
-            KIO::FileCopyJob *moveJob = KIO::file_move(uSource, uDest, permissions, flags | HideProgressInfo /*no GUI*/);
-            moveJob->setParentJob(q);
-            moveJob->setSourceSize((*it).size);
-            moveJob->setModificationTime((*it).mtime); // #55804
-            newjob = moveJob;
-            qCDebug(KIO_COPYJOB_DEBUG) << "Moving" << uSource << "to" << uDest;
-            // emit moving( this, uSource, uDest );
-            m_currentSrcURL = uSource;
-            m_currentDestURL = uDest;
-            m_bURLDirty = true;
-            // Observer::self()->slotMoving( this, uSource, uDest );
-        } else { // Copying a file
-            KIO::FileCopyJob *copyJob = KIO::file_copy(uSource, uDest, permissions, flags | HideProgressInfo /*no GUI*/);
-            copyJob->setParentJob(q); // in case of rename dialog
-            copyJob->setSourceSize((*it).size);
-            copyJob->setModificationTime((*it).mtime);
-            newjob = copyJob;
-            qCDebug(KIO_COPYJOB_DEBUG) << "Copying" << uSource << "to" << uDest;
-            m_currentSrcURL = uSource;
-            m_currentDestURL = uDest;
-            m_bURLDirty = true;
-        }
-        q->addSubjob(newjob);
-        q->connect(newjob, &Job::processedSize, q, [this](KJob *job, qulonglong processedSize) {
-            slotProcessedSize(job, processedSize);
-        });
-        q->connect(newjob, &Job::totalSize, q, [this](KJob *job, qulonglong totalSize) {
-            slotTotalSize(job, totalSize);
-        });
+        processCopyNextFile(it, -1);
     } else {
         // We're done
         qCDebug(KIO_COPYJOB_DEBUG) << "copyNextFile finished";
@@ -1840,6 +1927,124 @@ void CopyJobPrivate::copyNextFile()
 
         deleteNextDir();
     }
+}
+
+void CopyJobPrivate::processCopyNextFile(const QList<CopyInfo>::Iterator &it, int result)
+{
+    Q_Q(CopyJob);
+
+    switch (result) {
+    case Result_Cancel:
+        q->setError(ERR_USER_CANCELED);
+        q->emitResult();
+        return;
+    case KIO::Result_ReplaceAllInvalidChars:
+        m_autoReplaceInvalidChars = true;
+        Q_FALLTHROUGH();
+    case KIO::Result_ReplaceInvalidChars: {
+        QString fileName = it->uDest.fileName();
+        const int len = fileName.size();
+        cleanMsdosDestName(fileName);
+        QString path = it->uDest.path();
+        path.replace(path.size() - len, len, fileName);
+        it->uDest.setPath(path);
+        break;
+    }
+    case KIO::Result_AutoSkip:
+        m_autoSkipFilesWithInvalidChars = true;
+        Q_FALLTHROUGH();
+    case KIO::Result_Skip:
+        // Move on the next file
+        files.erase(it);
+        copyNextFile();
+        return;
+    default:
+        break;
+    }
+
+    qCDebug(KIO_COPYJOB_DEBUG) << "preparing to copy" << (*it).uSource << (*it).size << m_freeSpace;
+    if (m_freeSpace != KIO::invalidFilesize && (*it).size != KIO::invalidFilesize) {
+        if (m_freeSpace < (*it).size) {
+            q->setError(ERR_DISK_FULL);
+            q->emitResult();
+            return;
+        }
+    }
+
+    const QUrl &uSource = (*it).uSource;
+    const QUrl &uDest = (*it).uDest;
+    // Do we set overwrite ?
+    bool bOverwrite;
+    const QString destFile = uDest.path();
+    qCDebug(KIO_COPYJOB_DEBUG) << "copying" << destFile;
+    if (uDest == uSource) {
+        bOverwrite = false;
+    } else {
+        bOverwrite = shouldOverwriteFile(destFile);
+    }
+
+    // If source isn't local and target is local, we ignore the original permissions
+    // Otherwise, files downloaded from HTTP end up with -r--r--r--
+    const bool remoteSource = !KProtocolManager::supportsListing(uSource) || uSource.scheme() == QLatin1String("trash");
+    int permissions = (*it).permissions;
+    if (m_defaultPermissions || (remoteSource && uDest.isLocalFile())) {
+        permissions = -1;
+    }
+    const JobFlags flags = bOverwrite ? Overwrite : DefaultFlags;
+
+    m_bCurrentOperationIsLink = false;
+    KIO::Job *newjob = nullptr;
+    if (m_mode == CopyJob::Link) {
+        // User requested that a symlink be made
+        newjob = linkNextFile(uSource, uDest, flags);
+        if (!newjob) {
+            return;
+        }
+    } else if (!(*it).linkDest.isEmpty() && compareUrls(uSource, uDest))
+    // Copying a symlink - only on the same protocol/host/etc. (#5601, downloading an FTP file through its link),
+    {
+        KIO::SimpleJob *newJob = KIO::symlink((*it).linkDest, uDest, flags | HideProgressInfo /*no GUI*/);
+        newJob->setParentJob(q);
+        Scheduler::setJobPriority(newJob, 1);
+        newjob = newJob;
+        qCDebug(KIO_COPYJOB_DEBUG) << "Linking target=" << (*it).linkDest << "link=" << uDest;
+        m_currentSrcURL = QUrl::fromUserInput((*it).linkDest);
+        m_currentDestURL = uDest;
+        m_bURLDirty = true;
+        // emit linking( this, (*it).linkDest, uDest );
+        // Observer::self()->slotCopying( this, m_currentSrcURL, uDest ); // should be slotLinking perhaps
+        m_bCurrentOperationIsLink = true;
+        // NOTE: if we are moving stuff, the deletion of the source will be done in slotResultCopyingFiles
+    } else if (m_mode == CopyJob::Move) { // Moving a file
+        KIO::FileCopyJob *moveJob = KIO::file_move(uSource, uDest, permissions, flags | HideProgressInfo /*no GUI*/);
+        moveJob->setParentJob(q);
+        moveJob->setSourceSize((*it).size);
+        moveJob->setModificationTime((*it).mtime); // #55804
+        newjob = moveJob;
+        qCDebug(KIO_COPYJOB_DEBUG) << "Moving" << uSource << "to" << uDest;
+        // emit moving( this, uSource, uDest );
+        m_currentSrcURL = uSource;
+        m_currentDestURL = uDest;
+        m_bURLDirty = true;
+        // Observer::self()->slotMoving( this, uSource, uDest );
+    } else { // Copying a file
+        KIO::FileCopyJob *copyJob = KIO::file_copy(uSource, uDest, permissions, flags | HideProgressInfo /*no GUI*/);
+        copyJob->setParentJob(q); // in case of rename dialog
+        copyJob->setSourceSize((*it).size);
+        copyJob->setModificationTime((*it).mtime);
+        newjob = copyJob;
+        qCDebug(KIO_COPYJOB_DEBUG) << "Copying" << uSource << "to" << uDest;
+        m_currentSrcURL = uSource;
+        m_currentDestURL = uDest;
+        m_bURLDirty = true;
+    }
+    q->addSubjob(newjob);
+    q->connect(newjob, &Job::processedSize, q, [this](KJob *job, qulonglong processedSize) {
+        slotProcessedSize(job, processedSize);
+    });
+    q->connect(newjob, &Job::totalSize, q, [this](KJob *job, qulonglong totalSize) {
+        slotTotalSize(job, totalSize);
+    });
 }
 
 void CopyJobPrivate::deleteNextDir()
