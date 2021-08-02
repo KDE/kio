@@ -31,6 +31,7 @@ KIO::PasteDialog::PasteDialog(const QString &caption, const QString &label, cons
     QVBoxLayout *layout = new QVBoxLayout(frame);
 
     m_label = new QLabel(label, frame);
+    m_label->setWordWrap(true);
     layout->addWidget(m_label);
 
     m_lineEdit = new QLineEdit(value, frame);

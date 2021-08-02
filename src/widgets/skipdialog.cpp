@@ -28,7 +28,9 @@ SkipDialog::SkipDialog(QWidget *parent, KIO::SkipDialog_Options options, const Q
 
     QVBoxLayout *layout = new QVBoxLayout(this);
 
-    layout->addWidget(new QLabel(_error_text, this));
+    auto *label = new QLabel(_error_text, this);
+    label->setWordWrap(true);
+    layout->addWidget(label);
 
     QDialogButtonBox *buttonBox = new QDialogButtonBox(this);
     layout->addWidget(buttonBox);
