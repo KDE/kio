@@ -591,7 +591,7 @@ void PreviewJob::slotResult(KJob *job)
             id = statJob->statResult().numberValue(KIO::UDSEntry::UDS_DEVICE_ID, 0);
         }
         d->deviceIdMap[path] = id;
-        d->createThumbnail(d->currentItem.item.url().toLocalFile());
+        d->createThumbnail(d->currentItem.item.localPath());
         return;
     }
     case PreviewJobPrivate::STATE_GETORIG: {
