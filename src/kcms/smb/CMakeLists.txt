@@ -6,6 +6,7 @@ target_sources(kcm_smb PRIVATE
 
 target_link_libraries(kcm_smb PRIVATE
     Qt5::Widgets
+    KF5::CoreAddons
     KF5::ConfigCore
     KF5::I18n
     KF5::ConfigWidgets

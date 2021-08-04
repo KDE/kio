@@ -15,7 +15,9 @@ target_link_libraries(kcm_netpref
     KF5::KIOCore
     KF5::TextWidgets # KPluralHandlingSpinBox
   PRIVATE
-    KF5::I18n)
+    KF5::I18n
+    KF5::CoreAddons
+)
 
 install(TARGETS kcm_netpref  DESTINATION ${KDE_INSTALL_PLUGINDIR})
 

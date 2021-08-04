@@ -11,6 +11,7 @@ ki18n_wrap_ui(kcm_proxy
 
 target_link_libraries(kcm_proxy PRIVATE
     Qt5::Widgets
+    KF5::CoreAddons
     KF5::ConfigCore
     KF5::I18n
     KF5::ConfigWidgets

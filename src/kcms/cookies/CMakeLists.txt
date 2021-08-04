@@ -17,6 +17,7 @@ ki18n_wrap_ui(kcm_cookies
 target_link_libraries(kcm_cookies PRIVATE
     Qt5::Widgets
     Qt5::DBus
+    KF5::CoreAddons
     KF5::ConfigCore
     KF5::I18n
     KF5::ItemViews
