@@ -344,6 +344,7 @@ KMountPoint::List KMountPoint::currentMountPoints(DetailsNeededFlags infoNeeded)
 
                 mp->d->resolveGvfsMountPoints(result);
 
+                mp->d->finalizeCurrentMountPoint(infoNeeded);
                 result.push_back(mp);
             }
 
