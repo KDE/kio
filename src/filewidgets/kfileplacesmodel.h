@@ -17,6 +17,10 @@
 
 #include <solid/device.h>
 
+#include <memory>
+
+class KFilePlacesModelPrivate;
+
 class QMimeData;
 class QAction;
 
@@ -356,9 +360,8 @@ Q_SIGNALS:
     void reloaded();
 
 private:
-    class Private;
-    Private *const d;
-    friend class Private;
+    friend class KFilePlacesModelPrivate;
+    std::unique_ptr<KFilePlacesModelPrivate> d;
 };
 
 #endif
