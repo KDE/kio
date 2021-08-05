@@ -41,7 +41,7 @@ public:
         TagsType,
     };
 
-    KFilePlacesItem(KBookmarkManager *manager, const QString &address, const QString &udi = QString());
+    KFilePlacesItem(KBookmarkManager *manager, const QString &address, const QString &udi, KFilePlacesModel *parent);
     ~KFilePlacesItem();
 
     QString id() const;

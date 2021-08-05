@@ -31,8 +31,9 @@ static bool isTrash(const KBookmark &bk)
     return bk.url().toString() == QLatin1String("trash:/");
 }
 
-KFilePlacesItem::KFilePlacesItem(KBookmarkManager *manager, const QString &address, const QString &udi)
-    : m_manager(manager)
+KFilePlacesItem::KFilePlacesItem(KBookmarkManager *manager, const QString &address, const QString &udi, KFilePlacesModel *parent)
+    : QObject(static_cast<QObject *>(parent))
+    , m_manager(manager)
     , m_folderIsEmpty(true)
     , m_isCdrom(false)
     , m_isAccessible(false)

@@ -191,11 +191,6 @@ public:
         }
     }
 
-    ~KFilePlacesModelPrivate()
-    {
-        qDeleteAll(items);
-    }
-
     KFilePlacesModel *const q;
 
     QList<KFilePlacesItem *> items;
@@ -872,14 +867,14 @@ QList<KFilePlacesItem *> KFilePlacesModelPrivate::loadBookmarkList()
 
                 KFilePlacesItem *item = nullptr;
                 if (deviceAvailable) {
-                    item = new KFilePlacesItem(bookmarkManager, bookmark.address(), udi);
+                    item = new KFilePlacesItem(bookmarkManager, bookmark.address(), udi, q);
                     if (!item->hasSupportedScheme(supportedSchemes)) {
                         delete item;
                         item = nullptr;
                     }
                 } else if (isSupportedScheme && isSupportedUrl && udi.isEmpty() && allowedHere) {
                     // TODO: Update bookmark internal element
-                    item = new KFilePlacesItem(bookmarkManager, bookmark.address());
+                    item = new KFilePlacesItem(bookmarkManager, bookmark.address(), QString(), q);
                 }
 
                 if (item) {
@@ -893,7 +888,7 @@ QList<KFilePlacesItem *> KFilePlacesModelPrivate::loadBookmarkList()
                 auto it = std::find(tagsList.begin(), tagsList.end(), tag);
                 if (it != tagsList.end()) {
                     tagsList.removeAll(tag);
-                    KFilePlacesItem *item = new KFilePlacesItem(bookmarkManager, bookmark.address());
+                    KFilePlacesItem *item = new KFilePlacesItem(bookmarkManager, bookmark.address(), QString(), q);
                     items << item;
                     QObject::connect(item, &KFilePlacesItem::itemChanged, q, [this](const QString &id) {
                         itemChanged(id);
@@ -909,7 +904,7 @@ QList<KFilePlacesItem *> KFilePlacesModelPrivate::loadBookmarkList()
     for (const QString &udi : qAsConst(devices)) {
         bookmark = KFilePlacesItem::createDeviceBookmark(bookmarkManager, udi);
         if (!bookmark.isNull()) {
-            KFilePlacesItem *item = new KFilePlacesItem(bookmarkManager, bookmark.address(), udi);
+            KFilePlacesItem *item = new KFilePlacesItem(bookmarkManager, bookmark.address(), udi, q);
             QObject::connect(item, &KFilePlacesItem::itemChanged, q, [this](const QString &id) {
                 itemChanged(id);
             });
@@ -921,7 +916,7 @@ QList<KFilePlacesItem *> KFilePlacesModelPrivate::loadBookmarkList()
     for (const QString &tag : tagsList) {
         bookmark = KFilePlacesItem::createTagBookmark(bookmarkManager, tag);
         if (!bookmark.isNull()) {
-            KFilePlacesItem *item = new KFilePlacesItem(bookmarkManager, bookmark.address(), tag);
+            KFilePlacesItem *item = new KFilePlacesItem(bookmarkManager, bookmark.address(), tag, q);
             QObject::connect(item, &KFilePlacesItem::itemChanged, q, [this](const QString &id) {
                 itemChanged(id);
             });
