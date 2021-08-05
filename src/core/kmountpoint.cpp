@@ -436,7 +436,8 @@ KMountPoint::Ptr KMountPoint::List::findByDevice(const QString &device) const
         return Ptr();
     }
     for (const KMountPoint::Ptr &mountPoint : *this) {
-        if (realDevice.compare(mountPoint->d->m_device, cs) == 0 || realDevice.compare(mountPoint->d->m_mountedFrom, cs) == 0) {
+        if (realDevice.compare(mountPoint->d->m_device, cs) == 0 || device.compare(mountPoint->d->m_device, cs) == 0
+            || realDevice.compare(mountPoint->d->m_mountedFrom, cs) == 0 || device.compare(mountPoint->d->m_mountedFrom, cs) == 0) {
             return mountPoint;
         }
     }
