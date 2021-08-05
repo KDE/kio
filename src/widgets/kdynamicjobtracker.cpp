@@ -24,36 +24,31 @@ struct AllTrackers {
     KWidgetJobTracker *widgetTracker;
 };
 
-class Q_DECL_HIDDEN KDynamicJobTracker::Private
+class KDynamicJobTrackerPrivate
 {
 public:
-    Private()
-        : kuiserverTracker(nullptr)
-        , widgetTracker(nullptr)
+    KDynamicJobTrackerPrivate()
     {
     }
 
-    ~Private()
+    ~KDynamicJobTrackerPrivate()
     {
         delete kuiserverTracker;
         delete widgetTracker;
     }
 
-    KUiServerJobTracker *kuiserverTracker;
-    KWidgetJobTracker *widgetTracker;
+    KUiServerJobTracker *kuiserverTracker = nullptr;
+    KWidgetJobTracker *widgetTracker = nullptr;
     QMap<KJob *, AllTrackers> trackers;
 };
 
 KDynamicJobTracker::KDynamicJobTracker(QObject *parent)
     : KJobTrackerInterface(parent)
-    , d(new Private)
+    , d(new KDynamicJobTrackerPrivate)
 {
 }
 
-KDynamicJobTracker::~KDynamicJobTracker()
-{
-    delete d;
-}
+KDynamicJobTracker::~KDynamicJobTracker() = default;
 
 void KDynamicJobTracker::registerJob(KJob *job)
 {

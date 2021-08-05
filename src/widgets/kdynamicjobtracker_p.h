@@ -9,6 +9,10 @@
 
 #include <KJobTrackerInterface>
 
+#include <memory>
+
+class KDynamicJobTrackerPrivate;
+
 /**
  * This class implements a simple job tracker which registers any job to the KWidgetJobTracker if a
  * kuiserver isn't available on the DBus, or to the KUiServerJobTracker, if a kuiserver is
@@ -49,8 +53,7 @@ public Q_SLOTS:
     void unregisterJob(KJob *job) override;
 
 private:
-    class Private;
-    Private *const d;
+    std::unique_ptr<KDynamicJobTrackerPrivate> const d;
 };
 
 #endif
