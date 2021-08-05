@@ -11,11 +11,14 @@
 #include "kiofilewidgets_export.h"
 
 #include <QListView>
-
 #include <QUrl>
+
+#include <memory>
 
 class QResizeEvent;
 class QContextMenuEvent;
+
+class KFilePlacesViewPrivate;
 
 /**
  * @class KFilePlacesView kfileplacesview.h <KFilePlacesView>
@@ -88,9 +91,8 @@ Q_SIGNALS:
     void urlsDropped(const QUrl &dest, QDropEvent *event, QWidget *parent);
 
 private:
-    class Private;
-    Private *const d;
-    friend class Private;
+    friend class KFilePlacesViewPrivate;
+    std::unique_ptr<KFilePlacesViewPrivate> const d;
 };
 
 #endif
