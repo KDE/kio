@@ -1,0 +1,98 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Brazilian-Portuguese "INCLUDE">
+]>
+<article id="trash" lang="&language;">
+<title
+>Lixeira</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Burkhard.Lueck;</author>
+<othercredit role="translator"
+><firstname
+>Marcus</firstname
+><surname
+>Gama</surname
+><affiliation
+><address
+><email
+>marcus.gama@gmail.com</email
+></address
+></affiliation
+><contrib
+>Tradução</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>31/05/2018</date>
+<releaseinfo
+>Frameworks 5.48</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Configurações do Sistema</keyword>
+<keyword
+>lixeira</keyword>
+</keywordset>
+</articleinfo>
+
+<para
+>Este módulo permite-lhe configurar as opções da Lixeira. </para>
+
+<variablelist>
+<varlistentry
+><term
+><guilabel
+>Limpeza</guilabel
+></term>
+<listitem
+><para
+>Assine esta opção para permitir a remoção automática dos arquivos anteriores ao valor indicado. Deixe esta opção desativada para <emphasis
+>não</emphasis
+> apagar automaticamente os arquivos que ultrapassem um determinado período de tempo. Indique o número de dias em que os arquivos poderão permanecer na Lixeira. Todos os arquivos anteriores a isto serão excluídos automaticamente. </para
+></listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>Tamanho</guilabel
+></term>
+<listitem
+><para
+>Assinale esta opção para limitar a Lixeira ao tamanho máximo de espaço em disco que você indicar. Caso contrário, este valor será ilimitado. </para
+></listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>Limitar a</guilabel
+></term>
+<listitem
+><para
+>Esta é a percentagem máxima de espaço em disco que será usada para a Lixeira. O valor calculado para o espaço em disco permitido será apresentado à direita do campo incremental. </para
+></listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>Lixeira cheia</guilabel
+></term>
+<listitem
+><para
+>Quando o limite de tamanho for atingido, será efetuada a ação selecionada, seja excluir os arquivos mais antigos ou os maiores, ou ainda avisá-lo desse fato. </para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+</article>

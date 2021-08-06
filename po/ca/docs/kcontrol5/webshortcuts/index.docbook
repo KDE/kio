@@ -1,0 +1,205 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Catalan  "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="ebrowsing" lang="&language;">
+<articleinfo>
+<title
+>Dreceres web</title>
+<authorgroup>
+<author
+>&Krishna.Tateneni; &Krishna.Tateneni.mail;</author>
+<author
+>&Yves.Arrouye; &Yves.Arrouye.mail;</author>
+&traductor.Antoni.Bella; 
+</authorgroup>
+
+<date
+>10 de novembre de 2016</date>
+<releaseinfo
+>Frameworks 5.29</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Arranjament del sistema</keyword>
+<keyword
+>navegació millorada</keyword>
+<keyword
+>dreceres web</keyword>
+<keyword
+>navegant</keyword>
+</keywordset>
+
+</articleinfo>
+<sect1 id="ebrowse">
+
+<title
+>Dreceres web</title>
+
+<sect2 id="ebrowse-intro">
+
+<title
+>Introducció</title>
+
+<para
+>El &konqueror; ofereix algunes característiques per a augmentar la vostra experiència de navegació. En l'actualitat, una d'aquestes característiques són les <emphasis
+>Dreceres web</emphasis
+>.</para>
+
+<para
+>Ja haureu notat que el &kde; és molt fàcil d'emprar amb Internet. Per exemple, podeu fer clic a sobre de l'element de menú <guimenuitem
+>Executa</guimenuitem
+> o introduir la drecera del teclat per a aquesta ordre (<keycombo action="simul"
+>&Alt;<keycap
+>F2</keycap
+></keycombo
+> o <keycombo action="simul"
+>&Alt;&Space;</keycombo
+>, a menys que l'hàgiu canviat) i introduir un &URI;. <footnote
+><para
+>Identificador uniforme de recursos (URI -Uniform Resource Identifier-). Un mode estàndard de referir-se a un recurs tal com un fitxer al vostre ordinador, una adreça a la web mundial, una adreça de correu, &etc;</para
+></footnote
+></para>
+
+<para
+>D'altra banda, les dreceres web us permeten utilitzar nous esquemes de pseudo &URL; o dreceres, que bàsicament permeten indicar <emphasis
+>paràmetres</emphasis
+> als &URI; d'ús freqüent. Per exemple, si us agrada el motor de cerca de Google, podeu configurar el &kde; de manera que un pseudo &URL; com <emphasis
+>gg:</emphasis
+> activi una cerca a Google. D'aquesta manera, introduint <userinput
+>gg:<replaceable
+>la meva cerca</replaceable
+></userinput
+> se cercarà <replaceable
+>la meva cerca</replaceable
+> a Google.</para>
+
+<note
+><para
+>Un mateix pot veure perquè s'anomenen esquemes de pseudo &URL;. S'utilitzen com a un esquema d'&URL;, però l'entrada no està codificada com a tal, de manera que s'escriurà <userinput
+>google:kde apps</userinput
+> i no <userinput
+>google:kde+apps</userinput
+>.</para
+></note>
+
+<para
+>Podeu emprar dreceres web a on normalment utilitzaríeu els &URI;. Les dreceres per a diversos motors de cerca haurien d'estar ja configurades al vostre sistema, però en aquest mòdul podeu afegir noves paraules clau i canviar o suprimir algunes d'existents.</para>
+
+</sect2>
+
+<sect2 id="ebrowse-use">
+
+<title
+>Paraules clau de cerca a la web</title>
+
+<para
+>Els noms descriptius de les dreceres web es mostren en un quadre de llista. Com en altres llistes del &kde;, podeu fer clic a sobre de la capçalera en una columna per a canviar l'ordre entre ascendent i descendent, com també podeu redimensionar les columnes.</para>
+
+<para
+>A la part inferior de la llista, l'opció <guilabel
+>Activa les paraules clau de cerca a la web</guilabel
+> ha d'estar marcada per a activar aquesta característica. Utilitzeu els botons de la dreta per a crear, modificar o suprimir les dreceres.</para>
+
+<para
+>Si <guilabel
+>Usa només les paraules clau preferides</guilabel
+> està marcada, sols les paraules clau marcades com a preferides a la segona columna de la llista s'utilitzaran en llocs on sols unes poques i selectes dreceres es puguin mostrar a la vegada. </para>
+ 
+<para
+>Sota la llista es troben dues opcions addicionals:</para>
+<variablelist>
+<varlistentry
+><term
+><guilabel
+>Paraula clau de cerca a la web predeterminada:</guilabel
+></term>
+<listitem>
+<para
+>Seleccioneu el motor de cerca a utilitzar en els quadres d'entrada que proporcionin el servei de cerca automàtica quan teclegeu paraules normals o frases en lloc d'un &URL;. Per a desactivar aquesta característica seleccioneu <guilabel
+>Cap</guilabel
+> a la llista. </para
+></listitem>
+</varlistentry>
+<varlistentry
+><term
+><guilabel
+>Delimitador de la paraula clau:</guilabel
+></term>
+<listitem>
+<para
+>Seleccioneu el delimitador que separa la paraula clau de la frase o paraula a cercar.</para
+></listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>Si feu doble clic a sobre d'una entrada específica de la llista de proveïdors de cerca o feu clic sobre el botó <guibutton
+>Canvia...</guibutton
+>, es mostraran els detalls d'aquesta entrada en un diàleg emergent. A més del nom descriptiu per a l'element, també podeu veure l'&URI; emprat, així com la drecera associada que podreu escriure a qualsevol lloc del &kde; a on s'esperi un &URI;. Un proveïdor de cerca pot tenir múltiples dreceres, separades per una coma.</para>
+
+<para
+>Els quadres de text no tan sols s'utilitzen per a mostrar informació sobre un element a la llista de dreceres web, sinó també per a modificar o afegir elements nous.</para>
+
+<para
+>Podeu canviar els continguts dels quadres de text <guilabel
+>URL de la drecera:</guilabel
+> o <guilabel
+>Dreceres</guilabel
+>. Feu clic a <guibutton
+>D'acord</guibutton
+> per a desar els vostres canvis i a <guibutton
+>Cancel·la</guibutton
+> per a sortir del diàleg sense els canvis.</para>
+
+<para
+>Si examineu el contingut del quadre de text <guilabel
+>URL de la drecera:</guilabel
+>, trobareu que la majoria de les entrades, si no totes, tenen un <option
+>\{@}</option
+>. Aquesta seqüència de quatre caràcters actua com a paràmetre, indicant que serà substituïda per qualsevol cosa que introduïu després dels dos punts que estan entre la drecera i el seu paràmetre. Per a afegir aquest text variable de consulta a un &URL; de drecera, feu clic sobre el botó a la dreta del quadre de text. Vegem alguns exemples per a aclarir com utilitzar les dreceres web.</para>
+
+<para
+>Suposem que l'&URI; és <userinput
+>https://www.google.com/search?q=\{@}</userinput
+> i que <userinput
+>gg</userinput
+> és la drecera a aquest &URI;. Llavors, escriure <userinput
+>gg:<replaceable
+>alpha</replaceable
+></userinput
+> és l'equivalent a <userinput
+>https://www.google.com/search?q=<replaceable
+>alpha</replaceable
+></userinput
+>. Després de <userinput
+>:</userinput
+> podríeu introduir qualsevol cosa; el que hi escriviu simplement substituirà als caràcters <option
+>\{@}</option
+>, després de ser transformats al joc de caràcters apropiat per al proveïdor de cerca i codificat adequadament com a &URL;. Tan sols es modificarà la part <option
+>\{@}</option
+> de l'&URI; de cerca, la resta se suposa que ja està codificada adequadament com a &URL; i es deixa tal qual.</para>
+
+<para
+>També podeu tenir dreceres sense paràmetres. Suposem que l'&URI; fora <emphasis
+>file:/home/jo/la_meva_doc/calligra/words</emphasis
+> i la drecera <emphasis
+>meu_words</emphasis
+>. Aleshores, escriure <userinput
+>meu_words:</userinput
+> és el mateix que introduir l'&URI; complet. Cal tenir present que no hi ha res després dels dos punts en escriure la drecera, però els dos punts són necessaris perquè la drecera sigui reconeguda com a tal.</para>
+
+<para
+>Ara ja haureu comprès que encara que aquestes dreceres s'anomenin dreceres web, en realitat són dreceres a &URI; amb paràmetres, que poden apuntar no tan sols a llocs web sinó a qualsevol adreça a la qual es pugui apuntar amb un &URI;. Les dreceres web són una característica molt potent de la navegació en el &kde;.</para>
+
+</sect2>
+
+</sect1>
+
+</article>
