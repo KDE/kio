@@ -1871,7 +1871,7 @@ void KDirOperator::setCurrentItem(const QUrl &url)
     if (d->m_shouldFetchForItems && item.isNull()) {
         d->m_itemsToBeSetAsCurrent << url;
 
-        if (KFile::isDetailTreeView(d->m_viewKind)) {
+        if (d->m_viewKind == KFile::DetailTree) {
             d->m_dirModel->expandToUrl(url);
         }
 
@@ -1914,7 +1914,7 @@ void KDirOperator::setCurrentItems(const QList<QUrl> &urls)
         if (d->m_shouldFetchForItems && item.isNull()) {
             d->m_itemsToBeSetAsCurrent << url;
 
-            if (KFile::isDetailTreeView(d->m_viewKind)) {
+            if (d->m_viewKind == KFile::DetailTree) {
                 d->m_dirModel->expandToUrl(url);
             }
 
