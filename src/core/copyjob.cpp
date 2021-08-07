@@ -1910,8 +1910,8 @@ void CopyJob::emitResult()
 
     // Re-enable watching on the dirs that held the deleted/moved files
     if (d->m_mode == CopyJob::Move) {
-        for (QSet<QString>::const_iterator it = d->m_parentDirs.constBegin(); it != d->m_parentDirs.constEnd(); ++it) {
-            KDirWatch::self()->restartDirScan(*it);
+        for (const auto &dir : d->m_parentDirs) {
+            KDirWatch::self()->restartDirScan(dir);
         }
     }
     Job::emitResult();
