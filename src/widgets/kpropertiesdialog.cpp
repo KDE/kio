@@ -1206,6 +1206,14 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
 bool KFilePropsPlugin::enableIconButton() const
 {
     const KFileItem item = properties->item();
+
+    // desktop files are special, files in /usr/share/applications can be
+    // edited by overlaying them in .local/share/applications
+    // https://bugs.kde.org/show_bug.cgi?id=429613
+    if (item.isDesktopFile()) {
+        return true;
+    }
+
     // If the current item is a directory, check if it's writable,
     // so we can create/update a .directory
     // Current item is a file, same thing: check if it is writable
