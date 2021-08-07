@@ -2302,6 +2302,22 @@ KFileItem KCoreDirLister::findByName(const QString &name) const
 
 // ================ public filter methods ================ //
 
+static QString unanchoredPattern(const QString &filter)
+{
+    const QLatin1String prefix("\\A(?:");
+    const QLatin1String suffix(")\\z");
+
+    // TODO KF6: QRegularExpression::wildcardToRegularExpression() has an
+    // option to return an unanchored pattern
+    QString pattern = QRegularExpression::wildcardToRegularExpression(filter);
+    if (pattern.startsWith(prefix) && pattern.endsWith(suffix)) {
+        pattern.remove(0, prefix.size());
+        pattern.chop(suffix.size());
+    }
+
+    return pattern;
+}
+
 void KCoreDirLister::setNameFilter(const QString &nameFilter)
 {
     if (d->nameFilter == nameFilter) {
@@ -2315,7 +2331,7 @@ void KCoreDirLister::setNameFilter(const QString &nameFilter)
     // Split on white space
     const QStringList list = nameFilter.split(QLatin1Char(' '), Qt::SkipEmptyParts);
     for (const QString &filter : list) {
-        d->settings.lstFilters.append(QRegularExpression(QRegularExpression::wildcardToRegularExpression(filter), QRegularExpression::CaseInsensitiveOption));
+        d->settings.lstFilters.append(QRegularExpression(unanchoredPattern(filter), QRegularExpression::CaseInsensitiveOption));
     }
 }
 

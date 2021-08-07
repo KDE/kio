@@ -914,6 +914,48 @@ void KDirModelTest::testFilter()
     fillModel(true);
 }
 
+void KDirModelTest::testFilterPatterns()
+{
+    QVERIFY(m_dirIndex.isValid());
+
+    const int oldTopLevelRowCount = m_dirModel->rowCount();
+    const int oldSubdirRowCount = m_dirModel->rowCount(m_dirIndex);
+
+    m_dirModel->dirLister()->setNameFilter(QStringLiteral("toplevel"));
+    QCOMPARE(m_dirModel->rowCount(), oldTopLevelRowCount); // no change yet
+    QCOMPARE(m_dirModel->rowCount(m_dirIndex), oldSubdirRowCount); // no change yet
+    m_dirModel->dirLister()->emitChanges();
+
+    QCOMPARE(m_dirModel->rowCount(), 4); // 3 files, one subdir with "toplevel" in the name
+    QCOMPARE(m_dirModel->rowCount(m_dirIndex), 2); // the files get filtered out, subsubdir and hasChildren are remaining
+
+    // Reset the filter
+    m_dirModel->dirLister()->setNameFilter(QString());
+    m_dirModel->dirLister()->emitChanges();
+
+    // Back to original state
+    QCOMPARE(m_dirModel->rowCount(), oldTopLevelRowCount);
+    QCOMPARE(m_dirModel->rowCount(m_dirIndex), oldSubdirRowCount);
+
+    m_dirModel->dirLister()->setNameFilter(QStringLiteral("toplevel*")); // Matching with a wildcard
+    QCOMPARE(m_dirModel->rowCount(), oldTopLevelRowCount); // no change yet
+    QCOMPARE(m_dirModel->rowCount(m_dirIndex), oldSubdirRowCount); // no change yet
+    m_dirModel->dirLister()->emitChanges();
+
+    QCOMPARE(m_dirModel->rowCount(), 4); // 3 files, one subdir with "toplevel*" in the name
+    QCOMPARE(m_dirModel->rowCount(m_dirIndex), 2); // the files get filtered out, subsubdir and hasChildren are remaining
+
+    m_dirModel->dirLister()->setNameFilter(QString());
+    m_dirModel->dirLister()->emitChanges();
+
+    QCOMPARE(m_dirModel->rowCount(), oldTopLevelRowCount);
+    QCOMPARE(m_dirModel->rowCount(m_dirIndex), oldSubdirRowCount);
+
+    // The order of things changed because of filtering.
+    // Fill again, so that m_fileIndex etc. are correct again.
+    fillModel(true);
+}
+
 void KDirModelTest::testMimeFilter()
 {
     QVERIFY(m_dirIndex.isValid());
