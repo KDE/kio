@@ -48,4 +48,43 @@ void KFileItemActionsTest::testSetParentWidget()
     delete widget;
 }
 
+void KFileItemActionsTest::testTopLevelServiceMenuActions()
+{
+#ifdef Q_OS_WIN
+    QSKIP("Test skipped on Windows");
+#endif
+    QStandardPaths::setTestModeEnabled(true);
+
+    qputenv("XDG_DATA_DIRS", QFINDTESTDATA("servicemenu_protocol_mime_test_data").toLocal8Bit());
+    KFileItemActions actions;
+
+    {
+        // only one menu should show up for the inode/directory mime type
+        actions.setItemListProperties(KFileItemList({KFileItem(QUrl::fromLocalFile(QFINDTESTDATA("servicemenu_protocol_mime_test_data")))}));
+        QMenu menu;
+        actions.addActionsTo(&menu, KFileItemActions::MenuActionSource::Services);
+        QCOMPARE(menu.actions().count(), 1);
+        QCOMPARE(menu.actions().constFirst()->text(), "dir_service_menu");
+    }
+    {
+        // The two actions should show up
+        actions.setItemListProperties(KFileItemList({KFileItem(QUrl(QStringLiteral("smb://somefile.txt")))}));
+        QMenu menu;
+        actions.addActionsTo(&menu, KFileItemActions::MenuActionSource::Services);
+        const auto resultiongActions = menu.actions();
+        QCOMPARE(resultiongActions.count(), 2);
+        QCOMPARE(resultiongActions.at(0)->text(), "smb");
+        QCOMPARE(resultiongActions.at(1)->text(), "no_file");
+    }
+    {
+        // Only the menu which handles URLs
+        actions.setItemListProperties(KFileItemList({KFileItem(QUrl(QStringLiteral("someweirdscheme://somefile.txt")))}));
+        QMenu menu;
+        actions.addActionsTo(&menu, KFileItemActions::MenuActionSource::Services);
+        const auto resultiongActions = menu.actions();
+        QCOMPARE(resultiongActions.count(), 1);
+        QCOMPARE(resultiongActions.at(0)->text(), "no_file");
+    }
+}
+
 QTEST_MAIN(KFileItemActionsTest)

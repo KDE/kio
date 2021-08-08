@@ -16,6 +16,7 @@ class KFileItemActionsTest : public QObject
 
 private Q_SLOTS:
     void testSetParentWidget();
+    void testTopLevelServiceMenuActions();
 };
 
 #endif

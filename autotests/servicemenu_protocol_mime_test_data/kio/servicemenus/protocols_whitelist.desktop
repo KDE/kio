@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Service
+MimeType=all/all
+Actions=test1
+X-KDE-Priority=TopLevel
+X-KDE-StartupNotify=false
+X-KDE-Protocols=smb
+Icon=template
+
+[Desktop Action test1]
+Name=smb
+Icon=template
+Exec=true %u
