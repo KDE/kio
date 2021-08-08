@@ -9,6 +9,7 @@
 #include "davjob.h"
 
 #include <QDataStream>
+#include <QDomDocument>
 
 #include "httpmethod_p.h"
 
@@ -28,7 +29,9 @@ public:
     }
     QByteArray savedStaticData;
     QByteArray str_response;
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 86)
     QDomDocument m_response;
+#endif
     // TransferJob *m_subJob;
     // bool m_suspended;
 
@@ -64,10 +67,17 @@ DavJob::DavJob(DavJobPrivate &dd, int method, const QString &request)
     }
 }
 
+QByteArray DavJob::responseData() const
+{
+    return d_func()->str_response;
+}
+
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 86)
 QDomDocument &DavJob::response()
 {
     return d_func()->m_response;
 }
+#endif
 
 void DavJob::slotData(const QByteArray &data)
 {
@@ -98,7 +108,9 @@ void DavJob::slotFinished()
             QDataStream stream(&d->m_packedArgs, QIODevice::WriteOnly);
             stream << (int)7 << d->m_redirectionURL << (int)KIO::DAV_PROPFIND << s_size;
         }
-    } else if (!d->m_response.setContent(d->str_response, true)) {
+    }
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 86)
+    else if (!d->m_response.setContent(d->str_response, true)) {
         // An error occurred parsing the XML response
         QDomElement root = d->m_response.createElementNS(QStringLiteral("DAV:"), QStringLiteral("error-report"));
         d->m_response.appendChild(root);
@@ -109,6 +121,7 @@ void DavJob::slotFinished()
         root.appendChild(el);
     }
     // qDebug() << d->m_response.toString();
+#endif
     TransferJob::slotFinished();
     d->staticData = d->savedStaticData; // Need to send DAV request to this host too
 }

@@ -9,7 +9,13 @@
 #ifndef KIO_DAVJOB_H
 #define KIO_DAVJOB_H
 
+#include "global.h"
+#include "kiocore_export.h"
+#include "transferjob.h"
+
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 86)
 #include <QDomDocument>
+#endif
 #include <QObject>
 #include <QPointer>
 #include <QString>
@@ -17,10 +23,6 @@
 
 #include <sys/stat.h>
 #include <sys/types.h>
-
-#include "global.h"
-#include "kiocore_export.h"
-#include "transferjob.h"
 
 namespace KIO
 {
@@ -43,10 +45,23 @@ class KIOCORE_EXPORT DavJob : public TransferJob
     Q_OBJECT
 public:
     /**
+     * Returns the reponse data.
+     *  @since 5.86
+     */
+    QByteArray responseData() const;
+
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 86)
+    /**
      * Returns the response as a QDomDocument.
      * @return the response document
+     * @deprecated Since 5.86. Use QDomDocument::setContent(job->responseData()) if you need
+     * a QDomDocument of the resonse, but be aware that you need to handle the case that
+     * responseData() doesn't return valid XML if that is a relevant error scenario for you
+     * (response() does wrap such data into a DAV error XML structure).
      */
+    KIOCORE_DEPRECATED_VERSION(5, 86, "Use responseData() instead.")
     QDomDocument &response();
+#endif
 
 protected Q_SLOTS:
     void slotFinished() override;
