@@ -92,10 +92,6 @@ KIOWIDGETS_EXPORT QList<KServiceAction> userDefinedServices(const KService &serv
  * @code
  * KIO::ApplicationLauncherJob *job = new KIO::ApplicationLauncherJob(action);
  * job->setUrls(urls);
- * QObject::connect(job, &KJob::result, qApp, [urls]() {
- *     // The action may update the desktop file. Example: eject unmounts
- *     org::kde::KDirNotify::emitFilesChanged(urls);
- * });
  * job->setUiDelegate(new KDialogJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, parent));
  * job->start();
  * @endcode
