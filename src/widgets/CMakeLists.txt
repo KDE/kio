@@ -56,7 +56,6 @@ target_sources(KF5KIOWidgets PRIVATE
   previewjob.cpp
   renamedialog.cpp
   ksslcertificatebox.cpp
-  kdynamicjobtracker.cpp
   ksslinfodialog.cpp
   joburlcache.cpp
   skipdialog.cpp
@@ -72,6 +71,11 @@ target_sources(KF5KIOWidgets PRIVATE
   widgetsopenorexecutefilehandler.cpp
   widgetsaskuseractionhandler.cpp
 )
+if (NOT ANDROID)
+    target_sources(KF5KIOWidgets PRIVATE
+        kdynamicjobtracker.cpp
+    )
+endif()
 if (NOT WIN32)
     target_sources(KF5KIOWidgets PRIVATE
         kautomount.cpp
