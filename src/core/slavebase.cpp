@@ -88,7 +88,6 @@ public:
     explicit SlaveBasePrivate(SlaveBase *owner)
         : q(owner)
         , nextTimeoutMsecs(0)
-        , m_passwdServerClient(nullptr)
         , m_confirmationAsked(false)
         , m_privilegeOperationStatus(OperationNotAllowed)
     {
@@ -98,10 +97,7 @@ public:
         pendingListEntries.reserve(KIO_MAX_ENTRIES_PER_BATCH);
         appConnection.setReadMode(Connection::ReadMode::Polled);
     }
-    ~SlaveBasePrivate()
-    {
-        delete m_passwdServerClient;
-    }
+    ~SlaveBasePrivate() = default;
 
     UDSEntryList pendingListEntries;
     QElapsedTimer m_timeSinceLastBatch;
@@ -131,7 +127,7 @@ public:
     bool m_finalityCommand = true; // whether finished() or error() may/must be called
     QByteArray timeoutData;
 
-    KPasswdServerClient *m_passwdServerClient = nullptr;
+    std::unique_ptr<KPasswdServerClient> m_passwdServerClient;
     bool m_rootEntryListed = false;
 
     bool m_confirmationAsked;
@@ -216,10 +212,10 @@ public:
     KPasswdServerClient *passwdServerClient()
     {
         if (!m_passwdServerClient) {
-            m_passwdServerClient = new KPasswdServerClient;
+            m_passwdServerClient = std::make_unique<KPasswdServerClient>();
         }
 
-        return m_passwdServerClient;
+        return m_passwdServerClient.get();
     }
 };
 
