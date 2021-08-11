@@ -7,14 +7,21 @@
 
 #include "kioglobal_p.h"
 
+#include <QDir>
 #include <QStandardPaths>
+#include <QTextStream>
 
 static QMap<QString, QString> standardLocationsMap()
 {
     static const struct {
         QStandardPaths::StandardLocation location;
         QString name;
-    } mapping[] = {{QStandardPaths::MusicLocation, QStringLiteral("folder-music")},
+    } mapping[] = {
+#if QT_VERSION >= 0x060300
+                   {QStandardPaths::TemplatesLocations, QStringLiteral("folder-templates")},
+                   {QStandardPaths::PublicShareLocation, QStringLiteral("folder-public")},
+#endif
+                   {QStandardPaths::MusicLocation, QStringLiteral("folder-music")},
                    {QStandardPaths::MoviesLocation, QStringLiteral("folder-videos")},
                    {QStandardPaths::PicturesLocation, QStringLiteral("folder-pictures")},
                    {QStandardPaths::TempLocation, QStringLiteral("folder-temp")},
@@ -33,6 +40,30 @@ static QMap<QString, QString> standardLocationsMap()
         for (const QString &location : locations) {
             map.insert(location, row.name);
         }
+        // Qt does not provide an easy way to receive the xdg dir for the templates and public directory so we have to find it on our own (QTBUG-86106 and QTBUG-78092)
+#if QT_VERSION < 0x060300
+#ifdef Q_OS_UNIX
+        const QString xdgUserDirs = QStandardPaths::locate(QStandardPaths::ConfigLocation, QStringLiteral("user-dirs.dirs"), QStandardPaths::LocateFile);
+        QFile xdgUserDirsFile(xdgUserDirs);
+        if (!xdgUserDirs.isEmpty() && xdgUserDirsFile.open(QIODevice::ReadOnly | QIODevice::Text)) {
+            QTextStream in(&xdgUserDirsFile);
+            const QLatin1String templatesLine("XDG_TEMPLATES_DIR=\"");
+            const QLatin1String publicShareLine("XDG_PUBLICSHARE_DIR=\"");
+            while (!in.atEnd()) {
+                const QString line = in.readLine();
+                if (line.startsWith(templatesLine)) {
+                    QString xdgTemplates = line.mid(templatesLine.size()).chopped(1);
+                    xdgTemplates.replace(QStringLiteral("$HOME"), QDir::homePath());
+                    map.insert(xdgTemplates, QStringLiteral("folder-templates"));
+                } else if (line.startsWith(publicShareLine)) {
+                    QString xdgPublicShare = line.mid(publicShareLine.size()).chopped(1);
+                    xdgPublicShare.replace(QStringLiteral("$HOME"), QDir::homePath());
+                    map.insert(xdgPublicShare, QStringLiteral("folder-public"));
+                }
+            }
+        }
+#endif
+#endif
     }
     return map;
 }
