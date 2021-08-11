@@ -76,7 +76,7 @@ if (NOT ANDROID)
         kdynamicjobtracker.cpp
     )
 endif()
-if (NOT WIN32)
+if (NOT WIN32 AND NOT ANDROID)
     target_sources(KF5KIOWidgets PRIVATE
         kautomount.cpp
     )

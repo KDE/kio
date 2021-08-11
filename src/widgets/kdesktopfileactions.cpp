@@ -109,7 +109,7 @@ static bool runFSDevice(const QUrl &_url, const KDesktopFile &cfg, const QByteAr
             fstype.clear();
         }
         QString point = cg.readEntry("MountPoint");
-#ifndef Q_OS_WIN
+#if !defined(Q_OS_WIN) && !defined(Q_OS_ANDROID)
         (void)new KAutoMount(ro, fstype.toLatin1(), dev, point, _url.toLocalFile());
 #endif
         retval = false;
@@ -294,7 +294,7 @@ void KDesktopFileActions::executeService(const QList<QUrl> &urls, const KService
                     fstype.clear();
                 }
                 QString point = group.readEntry("MountPoint");
-#ifndef Q_OS_WIN
+#if !defined(Q_OS_WIN) && !defined(Q_OS_ANDROID)
                 (void)new KAutoMount(ro, fstype.toLatin1(), dev, point, path, false);
 #endif
             } else if (actionData == ST_UNMOUNT) {
@@ -303,7 +303,7 @@ void KDesktopFileActions::executeService(const QList<QUrl> &urls, const KService
                     return;
                 }
 
-#ifndef Q_OS_WIN
+#if !defined(Q_OS_WIN) && !defined(Q_OS_ANDROID)
                 (void)new KAutoUnmount(mp->mountPoint(), path);
 #endif
             }
