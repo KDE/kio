@@ -3,7 +3,9 @@ remove_definitions(-DQT_NO_CAST_FROM_BYTEARRAY)
 
 include(ECMAddTests)
 
-add_subdirectory(http)
+if(NOT ANDROID)
+    add_subdirectory(http)
+endif()
 add_subdirectory(kcookiejar)
 
 find_package(Qt5Widgets REQUIRED)
@@ -127,6 +129,7 @@ if(NOT EXCLUDE_DEPRECATED_BEFORE_AND_AT STREQUAL "CURRENT" AND
     set(jobguitest_SRC jobguitest.cpp)
 endif()
 
+if (NOT ANDROID)
 ecm_add_tests(
  clipboardupdatertest.cpp
  dropjobtest.cpp
@@ -159,6 +162,7 @@ target_link_libraries(${URIFILTER_SPACE_TEST} KF5::KIOCore KF5::KIOWidgets Qt5::
 ecm_mark_as_test(${URIFILTER_SPACE_TEST})
 add_test(NAME ${URIFILTER_SPACE_TEST} COMMAND ${URIFILTER_SPACE_TEST})
 target_compile_definitions(${URIFILTER_SPACE_TEST} PUBLIC "-DWEBSHORTCUT_SEPARATOR=' '")
+endif()
 
 # Same as accessmanagertest, but using QNetworkAccessManager, to make sure we
 # behave the same

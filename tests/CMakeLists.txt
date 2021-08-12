@@ -25,6 +25,7 @@ if(NOT EXCLUDE_DEPRECATED_BEFORE_AND_AT STREQUAL "CURRENT" AND
     set(runapplication_EXE runapplication)
 endif()
 
+if (NOT ANDROID)
 KIOWIDGETS_EXECUTABLE_TESTS(
   getalltest
   kruntest
@@ -49,3 +50,4 @@ KIOWIDGETS_EXECUTABLE_TESTS(
   kterminallauncherjobtest_gui
   ${runapplication_EXE}
 )
+endif()

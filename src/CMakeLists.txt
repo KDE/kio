@@ -3,19 +3,23 @@ add_subdirectory(core)
 # KIOCore-only executables
 add_subdirectory(protocoltojson)
 add_subdirectory(kntlm)
-add_subdirectory(ioslaves)
-add_subdirectory(kiod)
-add_subdirectory(kssld)
+if (NOT ANDROID)
+    add_subdirectory(ioslaves)
+    add_subdirectory(kiod)
+    add_subdirectory(kssld)
+endif()
 add_subdirectory(kioslave)
 
 if (NOT KIOCORE_ONLY)
-add_subdirectory(kpasswdserver)
 add_subdirectory(gui)
 add_subdirectory(widgets)
 add_subdirectory(filewidgets)
-add_subdirectory(kioexec)
-add_subdirectory(urifilters)
-add_subdirectory(kcms)
+if (NOT ANDROID)
+    add_subdirectory(kpasswdserver)
+    add_subdirectory(kioexec)
+    add_subdirectory(urifilters)
+    add_subdirectory(kcms)
+endif()
 
 if(NOT WIN32 AND NOT ANDROID)
   # arpa/nameser.h
@@ -35,7 +39,7 @@ set(NON_KIOCORE_LINK_QCHS
     KF5WindowSystem_QCH
 )
 
-if(BUILD_DESIGNERPLUGIN)
+if(BUILD_DESIGNERPLUGIN AND NOT ANDROID)
     add_subdirectory(designer)
 endif()
 
