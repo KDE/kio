@@ -88,7 +88,7 @@ set_package_properties(KDED PROPERTIES DESCRIPTION "Daemon providing session ser
                       )
 endif()
 
-if (UNIX)
+if (UNIX AND NOT ANDROID)
     find_package(KF5Auth ${KF_DEP_VERSION} REQUIRED)
 endif()
 

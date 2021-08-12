@@ -216,7 +216,7 @@ else()
   target_link_libraries(KF5KIOCore PUBLIC Qt5::Concurrent) # TODO KF6: remove
 endif()
 
-if (UNIX)
+if (TARGET KF5::AuthCore)
   target_link_libraries(KF5KIOCore PRIVATE KF5::AuthCore)   #SlaveBase uses KAuth::Action
 endif()
 

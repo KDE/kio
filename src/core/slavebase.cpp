@@ -43,7 +43,7 @@
 #include "kpasswdserverclient.h"
 #include "slaveinterface.h"
 
-#ifdef Q_OS_UNIX
+#if defined(Q_OS_UNIX) && !defined(Q_OS_ANDROID)
 #include <KAuth>
 #endif
 
@@ -138,7 +138,7 @@ public:
 
     void updateTempAuthStatus()
     {
-#ifdef Q_OS_UNIX
+#if defined(Q_OS_UNIX) && !defined(Q_OS_ANDROID)
         QSet<QString>::iterator it = m_tempAuths.begin();
         while (it != m_tempAuths.end()) {
             KAuth::Action action(*it);
