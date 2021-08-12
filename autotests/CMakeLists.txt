@@ -123,13 +123,13 @@ if (TARGET KF5::KIOGui)
   target_link_libraries(favicontest Qt5::Concurrent)
 endif()
 
+if (NOT ANDROID)
 if (TARGET KF5::KIOWidgets)
 if(NOT EXCLUDE_DEPRECATED_BEFORE_AND_AT STREQUAL "CURRENT" AND
    EXCLUDE_DEPRECATED_BEFORE_AND_AT VERSION_LESS 5.4.0)
     set(jobguitest_SRC jobguitest.cpp)
 endif()
 
-if (NOT ANDROID)
 ecm_add_tests(
  clipboardupdatertest.cpp
  dropjobtest.cpp
@@ -162,7 +162,6 @@ target_link_libraries(${URIFILTER_SPACE_TEST} KF5::KIOCore KF5::KIOWidgets Qt5::
 ecm_mark_as_test(${URIFILTER_SPACE_TEST})
 add_test(NAME ${URIFILTER_SPACE_TEST} COMMAND ${URIFILTER_SPACE_TEST})
 target_compile_definitions(${URIFILTER_SPACE_TEST} PUBLIC "-DWEBSHORTCUT_SEPARATOR=' '")
-endif()
 
 # Same as accessmanagertest, but using QNetworkAccessManager, to make sure we
 # behave the same
@@ -219,6 +218,7 @@ endif()
 set_tests_properties(kiofilewidgets-kfileplacesmodeltest PROPERTIES RUN_SERIAL TRUE)
 set_tests_properties(kiofilewidgets-kfileplacesviewtest PROPERTIES RUN_SERIAL TRUE)
 set_tests_properties(kiowidgets-kurifiltertest-space-separator PROPERTIES RUN_SERIAL TRUE)
+endif()
 endif()
 
 # this should be done by cmake, see bug 371721
