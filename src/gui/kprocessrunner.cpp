@@ -21,9 +21,11 @@
 #include <KLocalizedString>
 #include <KWindowSystem>
 
+#ifndef Q_OS_ANDROID
 #include <QDBusConnection>
 #include <QDBusInterface>
 #include <QDBusReply>
+#endif
 #include <QDir>
 #include <QFileInfo>
 #include <QGuiApplication>
@@ -89,6 +91,7 @@ KProcessRunner *KProcessRunner::fromApplication(const KService::Ptr &service,
     qCDebug(KIO_GUI) << "Starting process:" << args;
     *instance->m_process << args;
 
+#ifndef Q_OS_ANDROID
     enum DiscreteGpuCheck { NotChecked, Present, Absent };
     static DiscreteGpuCheck s_gpuCheck = NotChecked;
 
@@ -112,6 +115,7 @@ KProcessRunner *KProcessRunner::fromApplication(const KService::Ptr &service,
     if (service->runOnDiscreteGpu() && s_gpuCheck == Present) {
         instance->m_process->setEnv(QStringLiteral("DRI_PRIME"), QStringLiteral("1"));
     }
+#endif
 
     QString workingDir(service->workingDirectory());
     if (workingDir.isEmpty() && !urls.isEmpty() && urls.first().isLocalFile()) {
