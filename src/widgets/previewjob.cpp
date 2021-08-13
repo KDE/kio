@@ -905,9 +905,11 @@ void PreviewJobPrivate::slotThumbData(KIO::Job *job, const QByteArray &data)
         thumb = QImage(shmaddr, width, height, format).copy();
         thumb.setDevicePixelRatio(imgDevicePixelRatio);
     } else {
-#endif
         thumb.loadFromData(data);
     }
+#else
+    thumb.loadFromData(data);
+#endif
 
     if (thumb.isNull()) {
         QDataStream s(data);
