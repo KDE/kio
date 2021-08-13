@@ -65,6 +65,10 @@ void OpenUrlJobTest::initTestCase()
     QVERIFY(preferredTextEditor);
     QCOMPARE(preferredTextEditor->entryPath(), m_fakeService);
 
+    preferredTextEditor = KApplicationTrader::preferredService(QStringLiteral("x-scheme-handler/http"));
+    QVERIFY(preferredTextEditor);
+    QCOMPARE(preferredTextEditor->entryPath(), m_fakeService);
+
     // As used for preferredService
     QVERIFY(KService::serviceByDesktopName("openurljobtest_service"));
 
@@ -575,8 +579,9 @@ void OpenUrlJobTest::writeApplicationDesktopFile(const QString &filePath, const 
     KDesktopFile file(filePath);
     KConfigGroup group = file.desktopGroup();
     group.writeEntry("Name", "KRunUnittestService");
-    group.writeEntry("MimeType", "text/plain;application/x-shellscript;x-scheme-handler/scheme");
+    group.writeEntry("MimeType", "text/plain;application/x-shellscript;x-scheme-handler/scheme;x-scheme-handler/http;x-scheme-handler/https");
     group.writeEntry("Type", "Application");
     group.writeEntry("Exec", command);
+    group.writeEntry("InitialPreference", 100);
     QVERIFY(file.sync());
 }
