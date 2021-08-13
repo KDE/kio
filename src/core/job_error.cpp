@@ -258,15 +258,22 @@ KIOCORE_EXPORT QString KIO::buildErrorString(int errorCode, const QString &error
 
 QStringList KIO::Job::detailedErrorStrings(const QUrl *reqUrl /*= 0*/, int method /*= -1*/) const
 {
-    QString errorName, techName, description, ret2;
-    QStringList causes, solutions, ret;
+    QString errorName;
+    QString techName;
+    QString description;
+    QString ret2;
+    QStringList causes;
+    QStringList solutions;
+    QStringList ret;
 
     QByteArray raw = rawErrorDetail(error(), errorText(), reqUrl, method);
     QDataStream stream(raw);
 
     stream >> errorName >> techName >> description >> causes >> solutions;
 
-    QString url, protocol, datetime;
+    QString url;
+    QString protocol;
+    QString datetime;
     if (reqUrl) {
         QString prettyUrl;
         prettyUrl = reqUrl->toDisplayString();
@@ -282,8 +289,9 @@ QStringList KIO::Job::detailedErrorStrings(const QUrl *reqUrl /*= 0*/, int metho
     ret << i18nc("@info %1 error name, %2 description", "<qt><p><b>%1</b></p><p>%2</p></qt>", errorName, description);
 
     ret2 = QStringLiteral("<qt>");
-    if (!techName.isEmpty())
+    if (!techName.isEmpty()) {
         ret2 += QLatin1String("<p>") + i18n("<b>Technical reason</b>: ") + techName + QLatin1String("</p>");
+    }
     ret2 += QLatin1String("<p>") + i18n("<b>Details of the request</b>:") + QLatin1String("</p><ul>") + i18n("<li>URL: %1</li>", url);
     if (!protocol.isEmpty()) {
         ret2 += i18n("<li>Protocol: %1</li>", protocol);
@@ -305,7 +313,13 @@ QStringList KIO::Job::detailedErrorStrings(const QUrl *reqUrl /*= 0*/, int metho
 
 KIOCORE_EXPORT QByteArray KIO::rawErrorDetail(int errorCode, const QString &errorText, const QUrl *reqUrl /*= 0*/, int /*method = -1*/)
 {
-    QString url, host, protocol, datetime, domain, path, filename;
+    QString url;
+    QString host;
+    QString protocol;
+    QString datetime;
+    QString domain;
+    QString path;
+    QString filename;
     bool isSlaveNetwork = false;
     if (reqUrl) {
         url = reqUrl->toDisplayString();
@@ -336,8 +350,11 @@ KIOCORE_EXPORT QByteArray KIO::rawErrorDetail(int errorCode, const QString &erro
 
     datetime = QLocale().toString(QDateTime::currentDateTime(), QLocale::LongFormat);
 
-    QString errorName, techName, description;
-    QStringList causes, solutions;
+    QString errorName;
+    QString techName;
+    QString description;
+    QStringList causes;
+    QStringList solutions;
 
     // c == cause, s == solution
     QString sSysadmin = i18n(

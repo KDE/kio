@@ -37,8 +37,9 @@ QString tolerantFromAce(const QByteArray &_domain)
 {
     QByteArray domain(_domain);
     const bool hasDot = domain.startsWith('.');
-    if (hasDot)
+    if (hasDot) {
         domain.remove(0, 1);
+    }
     QString ret = QUrl::fromAce(domain);
     if (hasDot) {
         ret.prepend(QLatin1Char('.'));
@@ -50,8 +51,9 @@ static QByteArray tolerantToAce(const QString &_domain)
 {
     QString domain(_domain);
     const bool hasDot = domain.startsWith(QLatin1Char('.'));
-    if (hasDot)
+    if (hasDot) {
         domain.remove(0, 1);
+    }
     QByteArray ret = QUrl::toAce(domain);
     if (hasDot) {
         ret.prepend('.');
@@ -171,10 +173,11 @@ void KCookiesPolicies::addPressed(const QString &domain, bool state)
     pdlg.setWindowTitle(i18nc("@title:window", "New Cookie Policy"));
     pdlg.setEnableHostEdit(state, domain);
 
-    if (mUi.rbPolicyAccept->isChecked())
+    if (mUi.rbPolicyAccept->isChecked()) {
         pdlg.setPolicy(KCookieAdvice::Reject);
-    else
+    } else {
         pdlg.setPolicy(KCookieAdvice::Accept);
+    }
 
     if (pdlg.exec() && !pdlg.domain().isEmpty()) {
         const QString domain = tolerantFromAce(pdlg.domain().toLatin1());
@@ -212,8 +215,9 @@ bool KCookiesPolicies::handleDuplicate(const QString &domain, int advice)
                 item->setText(1, i18n(mDomainPolicyMap.value(domain)));
                 configChanged();
                 return true;
-            } else
+            } else {
                 return true; // User Cancelled!!
+            }
         }
         item = mUi.policyTreeWidget->itemBelow(item);
     }
@@ -227,15 +231,17 @@ void KCookiesPolicies::deletePressed()
     const QList<QTreeWidgetItem *> selectedItems = mUi.policyTreeWidget->selectedItems();
     for (const QTreeWidgetItem *item : selectedItems) {
         nextItem = mUi.policyTreeWidget->itemBelow(item);
-        if (!nextItem)
+        if (!nextItem) {
             nextItem = mUi.policyTreeWidget->itemAbove(item);
+        }
 
         mDomainPolicyMap.remove(item->text(0));
         delete item;
     }
 
-    if (nextItem)
+    if (nextItem) {
         nextItem->setSelected(true);
+    }
 
     updateButtons();
     configChanged();
@@ -376,11 +382,12 @@ void KCookiesPolicies::save()
                             QStringLiteral("org.kde.KCookieServer"),
                             QDBusConnection::sessionBus());
         QDBusReply<void> reply = kded.call(QStringLiteral("reloadPolicy"));
-        if (!reply.isValid())
+        if (!reply.isValid()) {
             KMessageBox::sorry(nullptr,
                                i18n("Unable to communicate with the cookie handler service.\n"
                                     "Any changes you made will not take effect until the service "
                                     "is restarted."));
+        }
     }
 
     // Force running io-slave to reload configurations...
@@ -409,8 +416,9 @@ void KCookiesPolicies::splitDomainAdvice(const QString &cfg, QString &domain, KC
     int sepPos = cfg.lastIndexOf(QLatin1Char(':'));
 
     // Ignore any policy that does not contain a domain...
-    if (sepPos <= 0)
+    if (sepPos <= 0) {
         return;
+    }
 
     domain = cfg.left(sepPos);
     advice = KCookieAdvice::strToAdvice(cfg.mid(sepPos + 1));

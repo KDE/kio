@@ -196,8 +196,9 @@ void KImageFilePreview::KImageFilePreviewPrivate::_k_slotFailed(const KFileItem 
 {
     if (item.isDir()) {
         imageLabel->clear();
-    } else if (item.url() == currentURL) // should always be the case
+    } else if (item.url() == currentURL) { // should always be the case
         imageLabel->setPixmap(QIcon::fromTheme(QStringLiteral("image-missing")).pixmap(KIconLoader::SizeLarge, QIcon::Disabled));
+    }
 }
 
 void KImageFilePreview::KImageFilePreviewPrivate::_k_slotResult(KJob *job)
@@ -218,9 +219,10 @@ void KImageFilePreview::KImageFilePreviewPrivate::_k_slotStepAnimation(int frame
     p.setOpacity(m_pmCurrentOpacity);
 
     // If we have a current pixmap
-    if (!m_pmCurrent.isNull())
+    if (!m_pmCurrent.isNull()) {
         p.drawPixmap(QPoint(((float)pm.size().width() - m_pmCurrent.size().width()) / 2.0, ((float)pm.size().height() - m_pmCurrent.size().height()) / 2.0),
                      m_pmCurrent);
+    }
     if (!m_pmTransition.isNull()) {
         p.setOpacity(m_pmTransitionOpacity);
         p.drawPixmap(

@@ -1651,10 +1651,11 @@ void KFileWidgetPrivate::slotLoadingFinished()
 
     m_ops->blockSignals(true);
     QUrl u(m_ops->url());
-    if (currentText.startsWith(QLatin1Char('/')))
+    if (currentText.startsWith(QLatin1Char('/'))) {
         u.setPath(currentText);
-    else
+    } else {
         u.setPath(concatPaths(m_ops->url().path(), currentText));
+    }
     m_ops->setCurrentItem(u);
     m_ops->blockSignals(false);
 }

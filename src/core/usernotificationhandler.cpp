@@ -67,10 +67,12 @@ void UserNotificationHandler::processRequest()
             result = *(m_cachedResults[key]);
         } else {
             JobUiDelegateExtension *delegateExtension = nullptr;
-            if (r->slave->job())
+            if (r->slave->job()) {
                 delegateExtension = SimpleJobPrivate::get(r->slave->job())->m_uiDelegateExtension;
-            if (!delegateExtension)
+            }
+            if (!delegateExtension) {
                 delegateExtension = KIO::defaultJobUiDelegateExtension();
+            }
             if (delegateExtension) {
                 const JobUiDelegateExtension::MessageBoxType type = static_cast<JobUiDelegateExtension::MessageBoxType>(r->type);
                 result = delegateExtension->requestMessageBox(type,

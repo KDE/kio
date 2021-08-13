@@ -29,12 +29,14 @@ class InputValidator : public QValidator
 public:
     State validate(QString &input, int &pos) const override
     {
-        if (input.isEmpty())
+        if (input.isEmpty()) {
             return Acceptable;
+        }
 
         const QChar ch = input.at((pos > 0 ? pos - 1 : pos));
-        if (ch.isSpace())
+        if (ch.isSpace()) {
             return Invalid;
+        }
 
         return Acceptable;
     }
@@ -49,8 +51,9 @@ static QString manualProxyToText(const QLineEdit *edit, const QSpinBox *spinBox,
 
 static void setManualProxyFromText(const QString &value, QLineEdit *edit, QSpinBox *spinBox)
 {
-    if (value.isEmpty())
+    if (value.isEmpty()) {
         return;
+    }
 
     const QStringList values = value.split(QLatin1Char(' '));
     edit->setText(values.at(0));
@@ -83,8 +86,9 @@ static QString proxyUrlFromInput(KProxyDialog::DisplayUrlFlags *flags,
 
     QString proxyStr;
 
-    if (edit->text().isEmpty())
+    if (edit->text().isEmpty()) {
         return proxyStr;
+    }
 
     if (flags && !edit->text().contains(QLatin1String("://"))) {
         *flags |= flag;
@@ -451,8 +455,9 @@ void KProxyDialog::autoDetect()
     wasChanged |= autoDetectSystemProxy(mUi.systemProxySocksEdit, QStringLiteral("SOCKS_PROXY,socks_proxy,SOCKSPROXY,socksproxy,PROXY,proxy"), showValue);
     wasChanged |= autoDetectSystemProxy(mUi.systemNoProxyEdit, QStringLiteral("NO_PROXY,no_proxy"), showValue);
 
-    if (wasChanged)
+    if (wasChanged) {
         Q_EMIT changed(true);
+    }
 }
 
 void KProxyDialog::syncProxies(const QString &text)

@@ -655,7 +655,8 @@ void KDirModelPrivate::_k_slotDeleteItems(const KFileItemList &items)
 
 void KDirModelPrivate::_k_slotRefreshItems(const QList<QPair<KFileItem, KFileItem>> &items)
 {
-    QModelIndex topLeft, bottomRight;
+    QModelIndex topLeft;
+    QModelIndex bottomRight;
 
     // Solution 1: we could emit dataChanged for one row (if items.size()==1) or all rows
     // Solution 2: more fine-grained, actually figure out the beginning and end rows.
@@ -1092,7 +1093,8 @@ QStringList KDirModel::mimeTypes() const
 
 QMimeData *KDirModel::mimeData(const QModelIndexList &indexes) const
 {
-    QList<QUrl> urls, mostLocalUrls;
+    QList<QUrl> urls;
+    QList<QUrl> mostLocalUrls;
     urls.reserve(indexes.size());
     mostLocalUrls.reserve(indexes.size());
     bool canUseMostLocalUrls = true;

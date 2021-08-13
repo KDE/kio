@@ -487,7 +487,9 @@ int main(int argc, char **argv)
 
     uint op = KioslaveTest::Copy;
     uint pr = 0;
-    QString src, dest, operation;
+    QString src;
+    QString dest;
+    QString operation;
     {
         QCommandLineParser parser;
         parser.addVersionOption();

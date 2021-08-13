@@ -168,10 +168,11 @@ void TrashConfigModule::writeConfig()
 
     // first delete all existing groups
     const QStringList groups = config.groupList();
-    for (int i = 0; i < groups.count(); ++i)
+    for (int i = 0; i < groups.count(); ++i) {
         if (groups[i].startsWith(QLatin1Char('/'))) {
             config.deleteGroup(groups[i]);
         }
+    }
 
     QMapIterator<QString, ConfigEntry> it(mConfigMap);
     while (it.hasNext()) {

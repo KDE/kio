@@ -639,10 +639,11 @@ void KNewFileMenuPrivate::executeStrategy()
             QMimeType wantedMime = db.mimeTypeForUrl(uSrc);
             QMimeType mime = db.mimeTypeForFileNameAndData(m_copyData.m_chosenFileName, srcFile.read(1024));
             // qDebug() << "mime=" << mime->name() << "wantedMime=" << wantedMime->name();
-            if (!mime.inherits(wantedMime.name()))
+            if (!mime.inherits(wantedMime.name())) {
                 if (!wantedMime.preferredSuffix().isEmpty()) {
                     chosenFileName += QLatin1Char('.') + wantedMime.preferredSuffix();
                 }
+            }
         }
     }
 

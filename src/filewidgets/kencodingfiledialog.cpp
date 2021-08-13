@@ -79,7 +79,8 @@ KEncodingFileDialog::KEncodingFileDialog(const QUrl &startDir,
     }
 
     const QStringList encodings(KCharsets::charsets()->availableEncodingNames());
-    int insert = 0, system = 0;
+    int insert = 0;
+    int system = 0;
     bool foundRequested = false;
     for (const QString &encoding : encodings) {
         bool found = false;

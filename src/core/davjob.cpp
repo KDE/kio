@@ -95,7 +95,8 @@ void DavJob::slotFinished()
     // qDebug() << d->str_response;
     if (!d->m_redirectionURL.isEmpty() && d->m_redirectionURL.isValid() && (d->m_command == CMD_SPECIAL)) {
         QDataStream istream(d->m_packedArgs);
-        int s_cmd, s_method;
+        int s_cmd;
+        int s_method;
         qint64 s_size;
         QUrl s_url;
         istream >> s_cmd;

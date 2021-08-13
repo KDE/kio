@@ -115,7 +115,10 @@ ActionReply FileHelper::exec(const QVariantMap &args)
     QByteArray data = args[QStringLiteral("arguments")].toByteArray();
     QDataStream in(data);
     int act;
-    QVariant arg1, arg2, arg3, arg4;
+    QVariant arg1;
+    QVariant arg2;
+    QVariant arg3;
+    QVariant arg4;
     in >> act >> arg1 >> arg2 >> arg3 >> arg4; // act=action, arg1=source file, arg$n=dest file, mode, uid, gid, etc.
     ActionType action = intToActionType(act);
 
@@ -128,11 +131,13 @@ ActionReply FileHelper::exec(const QVariantMap &args)
         return reply;
     }
 
-    QByteArray tempPath1, tempPath2;
+    QByteArray tempPath1;
+    QByteArray tempPath2;
     tempPath1 = tempPath2 = arg1.toByteArray();
     const QByteArray parentDir = dirname(tempPath1.data());
     const QByteArray baseName = basename(tempPath2.data());
-    int parent_fd = -1, base_fd = -1;
+    int parent_fd = -1;
+    int base_fd = -1;
 
     if ((parent_fd = open(parentDir.data(), O_DIRECTORY | O_PATH | O_NOFOLLOW)) == -1) {
         reply.setError(errno);

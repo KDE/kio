@@ -249,10 +249,11 @@ bool KHttpCookie::match(const QString &fqdn, const QStringList &domains, const Q
 
         // Maybe the domain needs an extra dot.
         const QString domain = QLatin1Char('.') + mDomain;
-        if (!domains.contains(domain))
+        if (!domains.contains(domain)) {
             if (fqdn != mDomain) {
                 return false;
             }
+        }
     } else if (mProtocolVersion != 0 && port != -1 && !mPorts.isEmpty() && !mPorts.contains(port)) {
         return false;
     }
@@ -348,7 +349,9 @@ static void removeDuplicateFromList(KHttpCookieList *list, KHttpCookie &cookiePt
 //
 QString KCookieJar::findCookies(const QString &_url, bool useDOMFormat, WId windowId, KHttpCookieList *pendingCookies)
 {
-    QString cookieStr, fqdn, path;
+    QString cookieStr;
+    QString fqdn;
+    QString path;
     QStringList domains;
     int port = -1;
 
@@ -664,14 +667,17 @@ void KCookieJar::extractDomains(const QString &_fqdn, QStringList &_domains) con
 //
 KHttpCookieList KCookieJar::makeCookies(const QString &_url, const QByteArray &cookie_headers, WId windowId)
 {
-    QString fqdn, path;
+    QString fqdn;
+    QString path;
 
     if (!parseUrl(_url, fqdn, path)) {
         return KHttpCookieList(); // Error parsing _url
     }
 
-    QString Name, Value;
-    KHttpCookieList cookieList, cookieList2;
+    QString Name;
+    QString Value;
+    KHttpCookieList cookieList;
+    KHttpCookieList cookieList2;
 
     bool isRFC2965 = false;
     bool crossDomain = false;

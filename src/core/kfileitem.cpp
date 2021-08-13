@@ -417,7 +417,9 @@ inline QString KFileItemPrivate::parsePermissions(mode_t perm) const
 
     static char buffer[12];
 
-    char uxbit, gxbit, oxbit;
+    char uxbit;
+    char gxbit;
+    char oxbit;
 
     if ((perm & (S_IXUSR | S_ISUID)) == (S_IXUSR | S_ISUID)) {
         uxbit = 's';
@@ -500,10 +502,11 @@ void KFileItemPrivate::determineMimeTypeHelper(const QUrl &url) const
     QMimeDatabase db;
     if (m_bSkipMimeTypeFromContent) {
         const QString scheme = url.scheme();
-        if (scheme.startsWith(QLatin1String("http")) || scheme == QLatin1String("mailto"))
+        if (scheme.startsWith(QLatin1String("http")) || scheme == QLatin1String("mailto")) {
             m_mimeType = db.mimeTypeForName(QLatin1String("application/octet-stream"));
-        else
+        } else {
             m_mimeType = db.mimeTypeForFile(url.path(), QMimeDatabase::MatchMode::MatchExtension);
+        }
     } else {
         m_mimeType = db.mimeTypeForUrl(url);
     }
@@ -1471,7 +1474,8 @@ QDataStream &operator<<(QDataStream &s, const KFileItem &a)
 QDataStream &operator>>(QDataStream &s, KFileItem &a)
 {
     QUrl url;
-    QString strName, strText;
+    QString strName;
+    QString strText;
 
     s >> url;
     s >> strName;

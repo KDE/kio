@@ -117,8 +117,9 @@ bool RemoteImpl::createEntry(KIO::UDSEntry &entry, const QString &directory, con
 
     entry.clear();
 
-    if (desktop.readName().isEmpty())
+    if (desktop.readName().isEmpty()) {
         return false;
+    }
 
     QString new_filename = file;
     new_filename.chop(8);

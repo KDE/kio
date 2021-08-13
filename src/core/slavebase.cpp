@@ -1141,7 +1141,8 @@ void SlaveBase::dispatch(int command, const QByteArray &data)
     switch (command) {
     case CMD_HOST: {
         QString passwd;
-        QString host, user;
+        QString host;
+        QString user;
         quint16 port;
         stream >> host >> port >> user >> passwd;
         d->m_state = d->InsideMethod;
@@ -1224,7 +1225,8 @@ void SlaveBase::dispatch(int command, const QByteArray &data)
     }
     case CMD_PUT: {
         int permissions;
-        qint8 iOverwrite, iResume;
+        qint8 iOverwrite;
+        qint8 iResume;
         stream >> url >> iOverwrite >> iResume >> permissions;
         JobFlags flags;
         if (iOverwrite != 0) {
@@ -1338,7 +1340,8 @@ void SlaveBase::dispatch(int command, const QByteArray &data)
         break;
     }
     case CMD_CHOWN: {
-        QString owner, group;
+        QString owner;
+        QString group;
         stream >> url >> owner >> group;
         d->m_state = d->InsideMethod;
         chown(url, owner, group);

@@ -1788,10 +1788,10 @@ KFilePermissionsPropsPlugin::KFilePermissionsPropsPlugin(KPropertiesDialog *_pro
     gl->setColumnStretch(1, 1);
 
     l = d->explanationLabel = new QLabel(gb);
-    if (isLink)
+    if (isLink) {
         d->explanationLabel->setText(
             i18np("This file is a link and does not have permissions.", "All files are links and do not have permissions.", properties->items().count()));
-    else if (!d->canChangePermissions) {
+    } else if (!d->canChangePermissions) {
         d->explanationLabel->setText(i18n("Only the owner can change permissions."));
     }
     gl->addWidget(l, 0, 0, 1, 2);
@@ -1969,7 +1969,8 @@ void KFilePermissionsPropsPlugin::slotShowAdvancedPermissions()
     dlg.setModal(true);
     dlg.setWindowTitle(i18n("Advanced Permissions"));
 
-    QLabel *l, *cl[3];
+    QLabel *l;
+    QLabel *cl[3];
     QGroupBox *gb;
     QGridLayout *gl;
 
@@ -2027,14 +2028,15 @@ void KFilePermissionsPropsPlugin::slotShowAdvancedPermissions()
     l = new QLabel(i18n("Special"), gb);
     gl->addWidget(l, 1, 4, 1, 1);
     QString specialWhatsThis;
-    if (isDir)
+    if (isDir) {
         specialWhatsThis = i18n(
             "Special flag. Valid for the whole folder, the exact "
             "meaning of the flag can be seen in the right hand column.");
-    else
+    } else {
         specialWhatsThis = i18n(
             "Special flag. The exact meaning of the flag can be seen "
             "in the right hand column.");
+    }
     l->setWhatsThis(specialWhatsThis);
 
     cl[0] = new QLabel(i18n("User"), gb);
@@ -2050,35 +2052,38 @@ void KFilePermissionsPropsPlugin::slotShowAdvancedPermissions()
     theNotSpecials.append(cl[2]);
 
     QString setUidWhatsThis;
-    if (isDir)
+    if (isDir) {
         setUidWhatsThis = i18n(
             "If this flag is set, the owner of this folder will be "
             "the owner of all new files.");
-    else
+    } else {
         setUidWhatsThis = i18n(
             "If this file is an executable and the flag is set, it will "
             "be executed with the permissions of the owner.");
+    }
 
     QString setGidWhatsThis;
-    if (isDir)
+    if (isDir) {
         setGidWhatsThis = i18n(
             "If this flag is set, the group of this folder will be "
             "set for all new files.");
-    else
+    } else {
         setGidWhatsThis = i18n(
             "If this file is an executable and the flag is set, it will "
             "be executed with the permissions of the group.");
+    }
 
     QString stickyWhatsThis;
-    if (isDir)
+    if (isDir) {
         stickyWhatsThis = i18n(
             "If the Sticky flag is set on a folder, only the owner "
             "and root can delete or rename files. Otherwise everybody "
             "with write permissions can do this.");
-    else
+    } else {
         stickyWhatsThis = i18n(
             "The Sticky flag on a file is ignored on Linux, but may "
             "be used on some systems");
+    }
     mode_t aPermissions = 0;
     mode_t aPartialPermissions = 0;
     mode_t dummy1 = 0;
@@ -2196,7 +2201,7 @@ void KFilePermissionsPropsPlugin::slotShowAdvancedPermissions()
 
     mode_t andPermissions = mode_t(~0);
     mode_t orPermissions = 0;
-    for (int row = 0; row < 3; ++row)
+    for (int row = 0; row < 3; ++row) {
         for (int col = 0; col < 4; ++col) {
             switch (cba[row][col]->checkState()) {
             case Qt::Checked:
@@ -2209,6 +2214,7 @@ void KFilePermissionsPropsPlugin::slotShowAdvancedPermissions()
                 break;
             }
         }
+    }
 
     d->isIrregular = false;
     const KFileItemList items = properties->items();
@@ -2383,11 +2389,12 @@ void KFilePermissionsPropsPlugin::updateAccessControls()
         break;
     case PermissionsOnlyFiles:
         enableAccessControls(d->canChangePermissions && !d->isIrregular && !d->hasExtendedACL);
-        if (d->canChangePermissions)
+        if (d->canChangePermissions) {
             d->explanationLabel->setText(
                 d->isIrregular || d->hasExtendedACL
                     ? i18np("This file uses advanced permissions", "These files use advanced permissions.", properties->items().count())
                     : QString());
+        }
         if (d->partialPermissions & UniExec) {
             d->extraCheckbox->setTristate();
             d->extraCheckbox->setCheckState(Qt::PartiallyChecked);
@@ -2404,11 +2411,12 @@ void KFilePermissionsPropsPlugin::updateAccessControls()
             d->cbRecursive->setEnabled(d->canChangePermissions && !d->isIrregular);
         }
 
-        if (d->canChangePermissions)
+        if (d->canChangePermissions) {
             d->explanationLabel->setText(
                 d->isIrregular || d->hasExtendedACL
                     ? i18np("This folder uses advanced permissions.", "These folders use advanced permissions.", properties->items().count())
                     : QString());
+        }
         if (d->partialPermissions & S_ISVTX) {
             d->extraCheckbox->setTristate();
             d->extraCheckbox->setCheckState(Qt::PartiallyChecked);
@@ -2419,8 +2427,9 @@ void KFilePermissionsPropsPlugin::updateAccessControls()
         break;
     case PermissionsMixed:
         enableAccessControls(d->canChangePermissions && !d->isIrregular && !d->hasExtendedACL);
-        if (d->canChangePermissions)
+        if (d->canChangePermissions) {
             d->explanationLabel->setText(d->isIrregular || d->hasExtendedACL ? i18n("These files use advanced permissions.") : QString());
+        }
         if (d->partialPermissions & S_ISVTX) {
             d->extraCheckbox->setTristate();
             d->extraCheckbox->setCheckState(Qt::PartiallyChecked);
@@ -2523,16 +2532,17 @@ void KFilePermissionsPropsPlugin::applyChanges()
         return;
     }
 
-    if (!d->isIrregular)
+    if (!d->isIrregular) {
         getPermissionMasks(andFilePermissions, andDirPermissions, orFilePermissions, orDirPermissions);
-    else {
+    } else {
         orFilePermissions = d->permissions;
         andFilePermissions = d->partialPermissions;
         orDirPermissions = d->permissions;
         andDirPermissions = d->partialPermissions;
     }
 
-    QString owner, group;
+    QString owner;
+    QString group;
     if (d->usrEdit) {
         owner = d->usrEdit->text();
     }

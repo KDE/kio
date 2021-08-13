@@ -297,7 +297,8 @@ bool KNTLM::getAuth(QByteArray &auth,
 
 QByteArray KNTLM::getLMResponse(const QString &password, const unsigned char *challenge)
 {
-    QByteArray hash, answer;
+    QByteArray hash;
+    QByteArray answer;
 
     hash = lmHash(password);
     hash.resize(21);

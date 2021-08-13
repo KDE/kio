@@ -128,7 +128,8 @@ void TransferJob::slotFinished()
             }
             case CMD_PUT: {
                 int permissions;
-                qint8 iOverwrite, iResume;
+                qint8 iOverwrite;
+                qint8 iResume;
                 istream >> dummyUrl >> iOverwrite >> iResume >> permissions;
                 d->m_packedArgs.truncate(0);
                 QDataStream stream(&d->m_packedArgs, QIODevice::WriteOnly);
@@ -323,8 +324,9 @@ void TransferJobPrivate::start(Slave *slave)
                 slotDataReqFromDevice();
             });
         }
-    } else
+    } else {
         q->connect(slave, &SlaveInterface::dataReq, q, &TransferJob::slotDataReq);
+    }
 
     q->connect(slave, &SlaveInterface::redirection, q, &TransferJob::slotRedirection);
 

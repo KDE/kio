@@ -56,8 +56,9 @@ KIO::PasteDialog::PasteDialog(const QString &caption, const QString &label, cons
     setMinimumWidth(350);
 
     m_clipboardChanged = false;
-    if (clipboard)
+    if (clipboard) {
         connect(QApplication::clipboard(), &QClipboard::dataChanged, this, &PasteDialog::slotClipboardDataChanged);
+    }
 }
 
 void KIO::PasteDialog::slotClipboardDataChanged()

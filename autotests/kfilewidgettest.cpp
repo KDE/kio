@@ -679,8 +679,9 @@ private:
     {
         const QList<QLabel *> labels = parent->findChildren<QLabel *>();
         for (QLabel *label : labels) {
-            if (label->text() == i18n("&Name:") || label->text() == i18n("Name:"))
+            if (label->text() == i18n("&Name:") || label->text() == i18n("Name:")) {
                 return label->buddy();
+            }
         }
         Q_ASSERT(false);
         return nullptr;

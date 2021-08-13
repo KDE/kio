@@ -82,10 +82,12 @@ KIOExec::KIOExec(const QStringList &args, bool tempFiles, const QString &suggest
             } else {
                 // We must fetch the file
                 QString fileName = KIO::encodeFileName(url.fileName());
-                if (!suggestedFileName.isEmpty())
+                if (!suggestedFileName.isEmpty()) {
                     fileName = suggestedFileName;
-                if (fileName.isEmpty())
+                }
+                if (fileName.isEmpty()) {
                     fileName = QStringLiteral("unnamed");
+                }
                 // Build the destination filename, in ~/.cache/kioexec/krun/
                 // Unlike KDE-1.1, we put the filename at the end so that the extension is kept
                 // (Some programs rely on it)

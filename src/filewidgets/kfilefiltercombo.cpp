@@ -132,7 +132,8 @@ void KFileFilterCombo::setMimeFilter(const QStringList &types, const QString &de
 
     d->m_allTypes = defaultType.isEmpty() && (types.count() > 1);
 
-    QString allComments, allTypes;
+    QString allComments;
+    QString allTypes;
 
     // If there's MIME types that have the same comment, we will show the extension
     // in addition to the MIME type comment

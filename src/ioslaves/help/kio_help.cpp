@@ -268,7 +268,7 @@ void HelpProtocol::get(const QUrl &url)
             QString query = url.query();
 
             // if we have a query, look if it contains an anchor
-            if (!query.isEmpty())
+            if (!query.isEmpty()) {
                 if (query.startsWith(QLatin1String("?anchor="))) {
                     anchor = query.mid(8).toLower();
 
@@ -279,6 +279,7 @@ void HelpProtocol::get(const QUrl &url)
                     finished();
                     return;
                 }
+            }
             if (anchor.isEmpty() && url.hasFragment()) {
                 anchor = url.fragment();
             }

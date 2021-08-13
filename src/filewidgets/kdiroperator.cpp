@@ -994,8 +994,9 @@ void KDirOperator::setUrl(const QUrl &_newurl, bool clearforward)
         return;
     }
 
-    if (!d->isSchemeSupported(newurl.scheme()))
+    if (!d->isSchemeSupported(newurl.scheme())) {
         return;
+    }
 
     if (!d->isReadable(newurl)) {
         // maybe newurl is a file? check its parent directory

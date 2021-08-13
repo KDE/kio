@@ -247,11 +247,12 @@ static int isUrlPortBad(const QUrl &url)
                                     0};
     if (url.port() != 80) {
         const int port = url.port();
-        for (int cnt = 0; bad_ports[cnt] && bad_ports[cnt] <= port; ++cnt)
+        for (int cnt = 0; bad_ports[cnt] && bad_ports[cnt] <= port; ++cnt) {
             if (port == bad_ports[cnt]) {
                 _error = KIO::ERR_POST_DENIED;
                 break;
             }
+        }
     }
 
     if (_error) {

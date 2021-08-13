@@ -81,7 +81,8 @@ static const QString socketPath()
 
 static QString actionDetails(ActionType actionType, const QVariantList &args)
 {
-    QString action, detail;
+    QString action;
+    QString detail;
     switch (actionType) {
     case CHMOD:
         action = i18n("Change File Permissions");
@@ -862,9 +863,10 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mode, JobF
                     use_sendfile = false;
                 }
             }
-            if (!use_sendfile)
+            if (!use_sendfile) {
 #endif
                 n = ::read(src_file.handle(), buffer, s_maxIPCSize);
+            }
 
             if (n == -1) {
                 if (errno == EINTR) {
@@ -883,9 +885,10 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mode, JobF
                     } else {
                         error(KIO::ERR_SLAVE_DEFINED, i18n("Cannot copy file from %1 to %2. (Errno: %3)", src, dest, errno));
                     }
-                } else
+                } else {
 #endif
                     error(KIO::ERR_CANNOT_READ, src);
+                }
                 src_file.close();
                 dest_file.close();
 #if HAVE_POSIX_ACL

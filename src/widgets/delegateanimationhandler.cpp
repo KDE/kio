@@ -320,10 +320,11 @@ AnimationState *DelegateAnimationHandler::findAnimationState(const QAbstractItem
     const AnimationList *list = animationLists.value(view);
 
     if (list) {
-        for (AnimationState *state : *list)
+        for (AnimationState *state : *list) {
             if (state->index == index) {
                 return state;
             }
+        }
     }
 
     return nullptr;

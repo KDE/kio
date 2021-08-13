@@ -92,7 +92,8 @@ void TrashProtocol::enterLoop()
 void TrashProtocol::restore(const QUrl &trashURL)
 {
     int trashId;
-    QString fileId, relativePath;
+    QString fileId;
+    QString relativePath;
     bool ok = TrashImpl::parseURL(trashURL, trashId, fileId, relativePath);
     if (!ok) {
         error(KIO::ERR_SLAVE_DEFINED, i18n("Malformed URL %1", trashURL.toString()));
@@ -138,7 +139,8 @@ void TrashProtocol::rename(const QUrl &oldURL, const QUrl &newURL, KIO::JobFlags
             return;
         }
         int oldTrashId;
-        QString oldFileId, oldRelativePath;
+        QString oldFileId;
+        QString oldRelativePath;
         bool oldOk = TrashImpl::parseURL(oldURL, oldTrashId, oldFileId, oldRelativePath);
         if (!oldOk) {
             error(KIO::ERR_SLAVE_DEFINED, i18n("Malformed URL %1", oldURL.toString()));
@@ -201,7 +203,8 @@ void TrashProtocol::copyOrMoveFromTrash(const QUrl &src, const QUrl &dest, bool 
 {
     // Extracting (e.g. via dnd). Ignore original location stored in info file.
     int trashId;
-    QString fileId, relativePath;
+    QString fileId;
+    QString relativePath;
     bool ok = TrashImpl::parseURL(src, trashId, fileId, relativePath);
     if (!ok) {
         error(KIO::ERR_SLAVE_DEFINED, i18n("Malformed URL %1", src.toString()));
@@ -324,7 +327,8 @@ void TrashProtocol::stat(const QUrl &url)
         finished();
     } else {
         int trashId;
-        QString fileId, relativePath;
+        QString fileId;
+        QString relativePath;
 
         bool ok = TrashImpl::parseURL(url, trashId, fileId, relativePath);
 
@@ -378,7 +382,8 @@ void TrashProtocol::del(const QUrl &url, bool /*isfile*/)
         return;
     }
     int trashId;
-    QString fileId, relativePath;
+    QString fileId;
+    QString relativePath;
 
     bool ok = TrashImpl::parseURL(url, trashId, fileId, relativePath);
     if (!ok) {

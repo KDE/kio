@@ -134,7 +134,9 @@ int ntlm_des_set_key(DES_KEY *dkey, char *user_key, int /*len*/)
 {
     char pc1m[56]; /* place to modify pc1 into */
     char pcr[56]; /* place to rotate pc1 into */
-    int i, j, l;
+    int i;
+    int j;
+    int l;
     int m;
 
     memset(dkey, 0, sizeof(DES_KEY));
@@ -173,7 +175,8 @@ int ntlm_des_set_key(DES_KEY *dkey, char *user_key, int /*len*/)
 /* In-place encryption of 64-bit block */
 static void ntlm_des_encrypt(DES_KEY *key, unsigned char *block)
 {
-    quint32 left, right;
+    quint32 left;
+    quint32 right;
     char *knp;
     quint32 work[2]; /* Working data storage */
 
@@ -229,8 +232,10 @@ static void ntlm_des_encrypt(DES_KEY *key, unsigned char *block)
 /* Permute inblock with perm */
 static void permute_ip(unsigned char *inblock, DES_KEY *key, unsigned char *outblock)
 {
-    unsigned char *ib, *ob; /* ptr to input or output block */
-    char *p, *q;
+    unsigned char *ib;
+    unsigned char *ob; /* ptr to input or output block */
+    char *p;
+    char *q;
     int j;
 
     /* Clear output block */
@@ -257,8 +262,10 @@ static void permute_ip(unsigned char *inblock, DES_KEY *key, unsigned char *outb
 /* Permute inblock with perm */
 static void permute_fp(unsigned char *inblock, DES_KEY *key, unsigned char *outblock)
 {
-    unsigned char *ib, *ob; /* ptr to input or output block */
-    char *p, *q;
+    unsigned char *ib;
+    unsigned char *ob; /* ptr to input or output block */
+    char *p;
+    char *q;
     int j;
 
     /* Clear output block */
@@ -286,7 +293,8 @@ static void permute_fp(unsigned char *inblock, DES_KEY *key, unsigned char *outb
 static quint32 f(DES_KEY *key, quint32 r, char *subkey)
 {
     quint32 *spp;
-    quint32 rval, rt;
+    quint32 rval;
+    quint32 rt;
     int er;
 
 #ifdef TRACE
@@ -334,14 +342,17 @@ static quint32 f(DES_KEY *key, quint32 r, char *subkey)
 /* initialize a perm array */
 static void perminit_ip(DES_KEY *key)
 {
-    int l, j, k;
-    int i, m;
+    int l;
+    int j;
+    int k;
+    int i;
+    int m;
 
     /* Clear the permutation array */
     memset(key->iperm, 0, 16 * 16 * 8);
 
-    for (i = 0; i < 16; ++i) /* each input nibble position */
-        for (j = 0; j < 16; ++j) /* each possible input nibble */
+    for (i = 0; i < 16; ++i) { /* each input nibble position */
+        for (j = 0; j < 16; ++j) { /* each possible input nibble */
             for (k = 0; k < 64; ++k) {
                 /* each output bit position */
                 l = ip[k] - 1; /* where does this bit come from */
@@ -354,18 +365,23 @@ static void perminit_ip(DES_KEY *key)
                 m = k & 07; /* which bit is this in the byte */
                 key->iperm[i][j][k >> 3] |= bytebit[m];
             }
+        }
+    }
 }
 
 static void perminit_fp(DES_KEY *key)
 {
-    int l, j, k;
-    int i, m;
+    int l;
+    int j;
+    int k;
+    int i;
+    int m;
 
     /* Clear the permutation array */
     memset(key->fperm, 0, 16 * 16 * 8);
 
-    for (i = 0; i < 16; ++i) /* each input nibble position */
-        for (j = 0; j < 16; ++j) /* each possible input nibble */
+    for (i = 0; i < 16; ++i) { /* each input nibble position */
+        for (j = 0; j < 16; ++j) { /* each possible input nibble */
             for (k = 0; k < 64; ++k) {
                 /* each output bit position */
                 l = fp[k] - 1; /* where does this bit come from */
@@ -378,13 +394,19 @@ static void perminit_fp(DES_KEY *key)
                 m = k & 07; /* which bit is this in the byte */
                 key->fperm[i][j][k >> 3] |= bytebit[m];
             }
+        }
+    }
 }
 
 /* Initialize the lookup table for the combined S and P boxes */
 static void spinit(DES_KEY *key)
 {
     char pbox[32];
-    int p, i, s, j, rowcol;
+    int p;
+    int i;
+    int s;
+    int j;
+    int rowcol;
     quint32 val;
 
     /* Compute pbox, the inverse of p32i.

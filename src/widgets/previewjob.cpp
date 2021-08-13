@@ -890,7 +890,8 @@ void PreviewJobPrivate::slotThumbData(KIO::Job *job, const QByteArray &data)
     if (shmaddr) {
         // Keep this in sync with kdebase/kioslave/thumbnail.cpp
         QDataStream str(data);
-        int width, height;
+        int width;
+        int height;
         quint8 iFormat;
         int imgDevicePixelRatio = 1;
         // TODO KF6: add a version number as first parameter
@@ -903,9 +904,10 @@ void PreviewJobPrivate::slotThumbData(KIO::Job *job, const QByteArray &data)
         QImage::Format format = static_cast<QImage::Format>(iFormat);
         thumb = QImage(shmaddr, width, height, format).copy();
         thumb.setDevicePixelRatio(imgDevicePixelRatio);
-    } else
+    } else {
 #endif
         thumb.loadFromData(data);
+    }
 
     if (thumb.isNull()) {
         QDataStream s(data);

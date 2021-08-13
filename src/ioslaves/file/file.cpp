@@ -748,7 +748,9 @@ void FileProtocol::special(const QByteArray &data)
     stream >> tmp;
     switch (tmp) {
     case 1: {
-        QString fstype, dev, point;
+        QString fstype;
+        QString dev;
+        QString point;
         qint8 iRo;
 
         stream >> iRo >> fstype >> dev >> point;

@@ -1205,7 +1205,8 @@ void KFileItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
     //### Apply the selection effect to the icon when the item is selected and
     //     showDecorationSelected is false.
 
-    QTextLayout labelLayout, infoLayout;
+    QTextLayout labelLayout;
+    QTextLayout infoLayout;
     QRect textBoundingRect;
 
     d->layoutTextItems(opt, index, &labelLayout, &infoLayout, &textBoundingRect);

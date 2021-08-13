@@ -613,8 +613,9 @@ const KPasswdServer::AuthInfoContainer *KPasswdServer::findAuthInfoItem(const QS
 void KPasswdServer::removeAuthInfoItem(const QString &key, const KIO::AuthInfo &info)
 {
     AuthInfoContainerList *authList = m_authDict.value(key);
-    if (!authList)
+    if (!authList) {
         return;
+    }
 
     auto it = authList->begin();
     while (it != authList->end()) {
@@ -690,8 +691,9 @@ void KPasswdServer::updateAuthExpire(const QString &key, const AuthInfoContainer
     // Update mWindowIdList
     if (windowId) {
         QStringList &keysChanged = mWindowIdList[windowId]; // find or insert
-        if (!keysChanged.contains(key))
+        if (!keysChanged.contains(key)) {
             keysChanged.append(key);
+        }
     }
 }
 

@@ -151,10 +151,11 @@ bool ConnectionBackend::waitForIncomingTask(int ms)
     QElapsedTimer timer;
     timer.start();
 
-    while (socket->state() == QLocalSocket::LocalSocketState::ConnectedState && !signalEmitted && (ms == -1 || timer.elapsed() < ms))
+    while (socket->state() == QLocalSocket::LocalSocketState::ConnectedState && !signalEmitted && (ms == -1 || timer.elapsed() < ms)) {
         if (!socket->waitForReadyRead(ms == -1 ? -1 : ms - timer.elapsed())) {
             break;
         }
+    }
 
     if (signalEmitted) {
         return true;

@@ -68,7 +68,10 @@ static QList<QByteArray> parseChallenge(QByteArray &ba, QByteArray *scheme, QByt
     QList<QByteArray> values;
     const char *b = ba.constData();
     int len = ba.count();
-    int start = 0, end = 0, pos = 0, pos2 = 0;
+    int start = 0;
+    int end = 0;
+    int pos = 0;
+    int pos2 = 0;
 
     // parse scheme
     while (start < len && isWhiteSpaceOrComma(b[start])) {
@@ -272,7 +275,8 @@ QList<QByteArray> KAbstractHttpAuthentication::splitOffers(const QList<QByteArra
     // first detect if one entry may contain multiple offers
     QList<QByteArray> alloffers;
     for (QByteArray offer : offers) {
-        QByteArray scheme, cont;
+        QByteArray scheme;
+        QByteArray cont;
 
         parseChallenge(offer, &scheme, &cont);
 
@@ -677,7 +681,8 @@ QByteArray KHttpNtlmAuthentication::scheme() const
 
 void KHttpNtlmAuthentication::setChallenge(const QByteArray &c, const QUrl &resource, const QByteArray &httpMethod)
 {
-    QString oldUsername, oldPassword;
+    QString oldUsername;
+    QString oldPassword;
     if (!m_finalAuthStage && !m_username.isEmpty() && !m_password.isEmpty()) {
         oldUsername = m_username;
         oldPassword = m_password;
@@ -742,7 +747,8 @@ void KHttpNtlmAuthentication::generateResponse(const QString &_user, const QStri
     } else {
         m_finalAuthStage = true;
         // we've (hopefully) received a valid type 2 message: send type 3 message as last step
-        QString user, domain;
+        QString user;
+        QString domain;
         if (m_username.contains(QLatin1Char('\\'))) {
             domain = m_username.section(QLatin1Char('\\'), 0, 0);
             user = m_username.section(QLatin1Char('\\'), 1);
@@ -821,7 +827,8 @@ void KHttpNegotiateAuthentication::generateResponse(const QString &user, const Q
         return;
     }
 
-    OM_uint32 major_status, minor_status;
+    OM_uint32 major_status;
+    OM_uint32 minor_status;
     gss_buffer_desc input_token = GSS_C_EMPTY_BUFFER;
     gss_buffer_desc output_token = GSS_C_EMPTY_BUFFER;
     gss_name_t server;

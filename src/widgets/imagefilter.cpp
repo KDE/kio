@@ -59,7 +59,9 @@ inline static void blurHorizontal(QImage &image, unsigned int *stack, int div, i
     unsigned int mul_sum = stack_blur8_mul[radius];
     unsigned int shr_sum = stack_blur8_shr[radius];
 
-    unsigned int sum, sum_in, sum_out;
+    unsigned int sum;
+    unsigned int sum_in;
+    unsigned int sum_out;
 
     for (int y = 0; y < h; y++) {
         sum = 0;
@@ -134,7 +136,9 @@ inline static void blurVertical(QImage &image, unsigned int *stack, int div, int
     int mul_sum = stack_blur8_mul[radius];
     int shr_sum = stack_blur8_shr[radius];
 
-    unsigned int sum, sum_in, sum_out;
+    unsigned int sum;
+    unsigned int sum_in;
+    unsigned int sum_out;
 
     for (int x = 0; x < w; x++) {
         sum = 0;

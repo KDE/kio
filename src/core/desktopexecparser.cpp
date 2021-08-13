@@ -270,8 +270,9 @@ void KIO::DesktopExecParser::setSuggestedFileName(const QString &suggestedFileNa
 static const QString kioexecPath()
 {
     QString kioexec = QCoreApplication::applicationDirPath() + QLatin1String("/kioexec");
-    if (!QFileInfo::exists(kioexec))
+    if (!QFileInfo::exists(kioexec)) {
         kioexec = QStringLiteral(KDE_INSTALL_FULL_LIBEXECDIR_KF5 "/kioexec");
+    }
     Q_ASSERT(QFileInfo::exists(kioexec));
     return kioexec;
 }

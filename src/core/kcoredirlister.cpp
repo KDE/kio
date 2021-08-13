@@ -564,10 +564,11 @@ void KCoreDirListerCache::forgetDirs(KCoreDirLister *lister, const QUrl &_url, b
                     // I hope this isn't too slow
                     auto kit = item->lstItems.constBegin();
                     const auto kend = item->lstItems.constEnd();
-                    for (; kit != kend && !containsManuallyMounted; ++kit)
+                    for (; kit != kend && !containsManuallyMounted; ++kit) {
                         if ((*kit).isDir() && manually_mounted((*kit).url().toLocalFile(), possibleMountPoints)) {
                             containsManuallyMounted = true;
                         }
+                    }
                 }
             }
 

@@ -74,12 +74,14 @@ static bool revmatch(const char *host, const char *nplist)
             hptr = shptr;
 
             // Try to find another domain or host in the list
-            while (--nptr >= nplist && *nptr != ',' && *nptr != ' ')
+            while (--nptr >= nplist && *nptr != ',' && *nptr != ' ') {
                 ;
+            }
 
             // Strip out multiple spaces and commas
-            while (--nptr >= nplist && (*nptr == ',' || *nptr == ' '))
+            while (--nptr >= nplist && (*nptr == ',' || *nptr == ' ')) {
                 ;
+            }
         } else {
             if (nptr == nplist || nptr[-1] == ',' || nptr[-1] == ' ') {
                 return true;
@@ -147,8 +149,9 @@ Q_GLOBAL_STATIC(KProtocolManagerPrivate, kProtocolManagerPrivate)
 
 static void syncOnExit()
 {
-    if (kProtocolManagerPrivate.exists())
+    if (kProtocolManagerPrivate.exists()) {
         kProtocolManagerPrivate()->sync();
+    }
 }
 
 KProtocolManagerPrivate::KProtocolManagerPrivate()
@@ -745,7 +748,10 @@ QString KProtocolManager::defaultUserAgent(const QString &_modifiers)
 
     d->modifiers = modifiers;
 
-    QString systemName, systemVersion, machine, supp;
+    QString systemName;
+    QString systemVersion;
+    QString machine;
+    QString supp;
     const bool sysInfoFound = getSystemNameVersionAndMachine(systemName, systemVersion, machine);
 
     supp += platform();
@@ -786,7 +792,10 @@ QString KProtocolManager::defaultUserAgent(const QString &_modifiers)
 
 QString KProtocolManager::userAgentForApplication(const QString &appName, const QString &appVersion, const QStringList &extraInfo)
 {
-    QString systemName, systemVersion, machine, info;
+    QString systemName;
+    QString systemVersion;
+    QString machine;
+    QString info;
 
     if (getSystemNameVersionAndMachine(systemName, systemVersion, machine)) {
         info += systemName + QLatin1Char('/') + systemVersion + QLatin1String("; ");

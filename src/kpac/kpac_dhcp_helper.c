@@ -154,7 +154,8 @@ static struct response send_request_for(int sock, const char *hostname)
 static uint32_t send_request(int sock)
 {
     char hostname[NI_MAXHOST];
-    struct ifaddrs *ifaddr, *ifa;
+    struct ifaddrs *ifaddr;
+    struct ifaddrs *ifa;
     int status = -1;
 
     if (getifaddrs(&ifaddr) == -1) {

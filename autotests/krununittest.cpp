@@ -157,8 +157,8 @@ void KRunUnitTest::testProcessDesktopExec()
     // Arch moved /bin/date to /usr/bin/date...
     const QString datePath = QStandardPaths::findExecutable(QStringLiteral("date"));
 
-    for (int su = 0; su < 2; su++)
-        for (int te = 0; te < 2; te++)
+    for (int su = 0; su < 2; su++) {
+        for (int te = 0; te < 2; te++) {
             for (int ex = 0; ex < 2; ex++) {
                 int pt = ex + te * 2 + su * 4;
                 QString exe;
@@ -175,6 +175,8 @@ void KRunUnitTest::testProcessDesktopExec()
                                            .replace(QLatin1String("/bin/date"), datePath);
                 checkDesktopExecParser(execs[ex], terms[te], sus[su], l0, false, exe + result);
             }
+        }
+    }
 }
 
 void KRunUnitTest::testProcessDesktopExecNoFile_data()

@@ -91,8 +91,9 @@ void KCookiesPolicySelectionDlg::setPolicy(int policy)
         mOldPolicy = policy;
     }
 
-    if (!mUi.leDomain->isEnabled())
+    if (!mUi.leDomain->isEnabled()) {
         mUi.cbPolicy->setFocus();
+    }
 }
 
 int KCookiesPolicySelectionDlg::advice() const

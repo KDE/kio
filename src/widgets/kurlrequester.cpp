@@ -177,10 +177,11 @@ public:
         }
 
         QString enteredPath;
-        if (comp)
+        if (comp) {
             enteredPath = comp->replacedPath(txt);
-        else
+        } else {
             enteredPath = txt;
+        }
 
         if (isAbsoluteLocalPath(enteredPath)) {
             return QUrl::fromLocalFile(enteredPath);
@@ -427,13 +428,14 @@ QString KUrlRequester::text() const
 
 void KUrlRequester::KUrlRequesterPrivate::_k_slotOpenDialog()
 {
-    if (myFileDialog)
+    if (myFileDialog) {
         if (myFileDialog->isVisible()) {
             // The file dialog is already being shown, raise it and exit
             myFileDialog->raise();
             myFileDialog->activateWindow();
             return;
         }
+    }
 
     if (!m_fileDialogModeWasDirAndFile
         && (((fileDialogMode & KFile::Directory) && !(fileDialogMode & KFile::File)) ||

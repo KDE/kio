@@ -73,9 +73,9 @@ void Downloader::result(KJob *job)
         m_script = codec->toUnicode(m_data);
         Q_EMIT result(true);
     } else {
-        if (job->error())
+        if (job->error()) {
             setError(i18n("Could not download the proxy configuration script:\n%1", job->errorString()));
-        else {
+        } else {
             setError(i18n("Could not download the proxy configuration script")); // error page
         }
         failed();

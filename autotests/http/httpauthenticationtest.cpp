@@ -150,7 +150,8 @@ void HTTPAuthenticationTest::testHeaderParsing()
     QFETCH(QByteArray, resultScheme);
     QFETCH(QByteArray, resultValues);
 
-    QByteArray chosenHeader, chosenScheme;
+    QByteArray chosenHeader;
+    QByteArray chosenScheme;
     QList<QByteArray> parsingResult;
     parseAuthHeader(header, &chosenHeader, &chosenScheme, &parsingResult);
     QCOMPARE(chosenScheme, resultScheme);
@@ -184,7 +185,8 @@ void HTTPAuthenticationTest::testAuthenticationSelection()
     QFETCH(QByteArray, expectedScheme);
     QFETCH(QByteArray, expectedOffer);
 
-    QByteArray scheme, offer;
+    QByteArray scheme;
+    QByteArray offer;
     parseAuthHeader(input, &offer, &scheme, nullptr);
     QCOMPARE(scheme, expectedScheme);
     QCOMPARE(offer, expectedOffer);

@@ -62,17 +62,19 @@ void CookieListViewItem::init(CookieProp *cookie, const QString &domain, bool co
     mCookiesLoaded = cookieLoaded;
 
     if (mCookie) {
-        if (mDomain.isEmpty())
+        if (mDomain.isEmpty()) {
             setText(0, tolerantFromAce(mCookie->host.toLatin1()));
-        else
+        } else {
             setText(0, tolerantFromAce(mDomain.toLatin1()));
+        }
         setText(1, mCookie->name);
     } else {
         QString siteName;
-        if (mDomain.startsWith(QLatin1Char('.')))
+        if (mDomain.startsWith(QLatin1Char('.'))) {
             siteName = mDomain.mid(1);
-        else
+        } else {
             siteName = mDomain;
+        }
         setText(0, tolerantFromAce(siteName.toLatin1()));
     }
 }
@@ -167,8 +169,9 @@ void KCookiesManagement::save()
             list.removeOne(cookie);
         }
 
-        if (!success)
+        if (!success) {
             break;
+        }
 
         mDeletedCookies.remove(cookiesDom.key());
     }
@@ -184,8 +187,9 @@ void KCookiesManagement::defaults()
 
 void KCookiesManagement::reset(bool deleteAll)
 {
-    if (!deleteAll)
+    if (!deleteAll) {
         mDeleteAllFlag = false;
+    }
 
     clearCookieDetails();
     mDeletedDomains.clear();
@@ -229,8 +233,9 @@ void KCookiesManagement::reload()
         return;
     }
 
-    if (mUi.cookiesTreeWidget->topLevelItemCount() > 0)
+    if (mUi.cookiesTreeWidget->topLevelItemCount() > 0) {
         reset();
+    }
 
     CookieListViewItem *dom;
     const QStringList domains(reply.value());
@@ -253,8 +258,9 @@ Q_DECLARE_METATYPE(QList<int>)
 void KCookiesManagement::listCookiesForDomain(QTreeWidgetItem *item)
 {
     CookieListViewItem *cookieDom = static_cast<CookieListViewItem *>(item);
-    if (!cookieDom || cookieDom->cookiesLoaded())
+    if (!cookieDom || cookieDom->cookiesLoaded()) {
         return;
+    }
 
     QStringList cookies;
     const QList<int> fields{0, 1, 2, 3};
@@ -265,8 +271,9 @@ void KCookiesManagement::listCookiesForDomain(QTreeWidgetItem *item)
                         QStringLiteral("org.kde.KCookieServer"),
                         QDBusConnection::sessionBus());
     QDBusReply<QStringList> reply = kded.call(QStringLiteral("findCookies"), QVariant::fromValue(fields), domain, QString(), QString(), QString());
-    if (reply.isValid())
+    if (reply.isValid()) {
         cookies.append(reply.value());
+    }
 
     QStringListIterator it(cookies);
     while (it.hasNext()) {
@@ -295,22 +302,24 @@ bool KCookiesManagement::cookieDetails(CookieProp *cookie)
                         QDBusConnection::sessionBus());
     QDBusReply<QStringList> reply =
         kded.call(QStringLiteral("findCookies"), QVariant::fromValue(fields), cookie->domain, cookie->host, cookie->path, cookie->name);
-    if (!reply.isValid())
+    if (!reply.isValid()) {
         return false;
+    }
 
     const QStringList fieldVal = reply.value();
 
     QStringList::const_iterator c = fieldVal.begin();
-    if (c == fieldVal.end()) // empty list, do not crash
+    if (c == fieldVal.end()) { // empty list, do not crash
         return false;
+    }
 
     bool ok;
     cookie->value = *c++;
     qint64 tmp = (*c++).toLongLong(&ok);
 
-    if (!ok || tmp == 0)
+    if (!ok || tmp == 0) {
         cookie->expireDate = i18n("End of session");
-    else {
+    } else {
         QDateTime expDate = QDateTime::fromSecsSinceEpoch(tmp);
         cookie->expireDate = QLocale().toString((expDate), QLocale::ShortFormat);
     }
@@ -379,8 +388,9 @@ void KCookiesManagement::deleteCurrent()
         list.append(item->leaveCookie());
         mDeletedCookies.insert(parent->domain(), list);
         delete item;
-        if (parent->childCount() == 0)
+        if (parent->childCount() == 0) {
             delete parent;
+        }
     } else {
         mDeletedDomains.append(item->domain());
         delete item;
@@ -389,8 +399,9 @@ void KCookiesManagement::deleteCurrent()
     currentItem = mUi.cookiesTreeWidget->currentItem();
     if (currentItem) {
         mUi.cookiesTreeWidget->setCurrentItem(currentItem);
-    } else
+    } else {
         clearCookieDetails();
+    }
 
     mUi.deleteAllButton->setEnabled(mUi.cookiesTreeWidget->topLevelItemCount() > 0);
 

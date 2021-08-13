@@ -298,7 +298,8 @@ QStringList ProxyScout::handleRequest(const QUrl &url)
         const int size = proxies.count();
 
         for (int i = 0; i < size; ++i) {
-            QString mode, address;
+            QString mode;
+            QString address;
             const QString proxy = proxies.at(i).trimmed();
             const int index = proxy.indexOf(QLatin1Char(' '));
             if (index == -1) { // Only "DIRECT" should match this!

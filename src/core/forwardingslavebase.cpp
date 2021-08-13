@@ -224,7 +224,8 @@ void ForwardingSlaveBase::rename(const QUrl &src, const QUrl &dest, JobFlags fla
 {
     qCDebug(KIO_CORE) << "rename" << src << dest;
 
-    QUrl new_src, new_dest;
+    QUrl new_src;
+    QUrl new_dest;
     if (!d->internalRewriteUrl(src, new_src)) {
         error(KIO::ERR_DOES_NOT_EXIST, src.toDisplayString());
     } else if (d->internalRewriteUrl(dest, new_dest)) {
@@ -282,7 +283,8 @@ void ForwardingSlaveBase::copy(const QUrl &src, const QUrl &dest, int permission
 {
     qCDebug(KIO_CORE) << "copy" << src << dest;
 
-    QUrl new_src, new_dest;
+    QUrl new_src;
+    QUrl new_dest;
     if (!d->internalRewriteUrl(src, new_src)) {
         error(KIO::ERR_DOES_NOT_EXIST, src.toDisplayString());
     } else if (d->internalRewriteUrl(dest, new_dest)) {

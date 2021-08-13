@@ -357,14 +357,16 @@ public:
             int value = -1;
             if (it.value().isNumber()) {
                 value = it.value().toInt();
-                if (onlySeenNumbers)
+                if (onlySeenNumbers) {
                     initialNumbers++;
+                }
             } else {
                 onlySeenNumbers = false;
                 // QDate starts counting months from 1, so we add 1 here.
                 value = findString(it.value().toString(), months) + 1;
-                if (value <= 0)
+                if (value <= 0) {
                     tz = it.value().toString();
+                }
             }
 
             if (value > 0) {
@@ -374,12 +376,14 @@ public:
             }
         }
         // Our variable args calling indirection means argument.length was appended
-        if (values.count() == initialNumbers)
+        if (values.count() == initialNumbers) {
             --initialNumbers;
+        }
         values.resize(values.size() - 1);
 
-        if (values.count() < 1 || values.count() > 7)
+        if (values.count() < 1 || values.count() > 7) {
             return QJSValue::UndefinedValue;
+        }
 
         const QDate now = getTime(tz).date();
 
@@ -565,7 +569,8 @@ public:
     Q_INVOKABLE QJSValue SortIpAddressList(QString ipAddressListStr)
     {
         QHash<QString, QString> actualEntryMap;
-        QList<QHostAddress> ipV4List, ipV6List;
+        QList<QHostAddress> ipV4List;
+        QList<QHostAddress> ipV6List;
         const QStringList ipAddressList = ipAddressListStr.split(QLatin1Char(';'));
 
         for (const QString &ipAddress : ipAddressList) {

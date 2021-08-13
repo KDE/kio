@@ -43,16 +43,18 @@ KSaveIOConfigPrivate::~KSaveIOConfigPrivate()
 
 static KConfig *config()
 {
-    if (!d->config)
+    if (!d->config) {
         d->config = new KConfig(QStringLiteral("kioslaverc"), KConfig::NoGlobals);
+    }
 
     return d->config;
 }
 
 static KConfig *http_config()
 {
-    if (!d->http_config)
+    if (!d->http_config) {
         d->http_config = new KConfig(QStringLiteral("kio_httprc"), KConfig::NoGlobals);
+    }
 
     return d->http_config;
 }

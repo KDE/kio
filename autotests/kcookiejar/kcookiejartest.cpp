@@ -110,10 +110,11 @@ static void processCookie(QString &line)
     for (KHttpCookieList::iterator cookieIterator = list.begin(); cookieIterator != list.end(); ++cookieIterator) {
         KHttpCookie &cookie = *cookieIterator;
         const KCookieAdvice cookieAdvice = jar->cookieAdvice(cookie);
-        if (cookieAdvice != expectedAdvice)
+        if (cookieAdvice != expectedAdvice) {
             QFAIL(qPrintable(urlStr
                              + QStringLiteral("\n'%2'\nGot advice '%3' expected '%4'")
                                    .arg(line, KCookieJar::adviceToStr(cookieAdvice), KCookieJar::adviceToStr(expectedAdvice))));
+        }
         jar->addCookie(cookie);
     }
 }
@@ -133,8 +134,9 @@ static void processCheck(QString &line)
     QString expectedCookies = line;
 
     QString cookies = jar->findCookies(urlStr, false, windowId, nullptr).trimmed();
-    if (cookies != expectedCookies)
+    if (cookies != expectedCookies) {
         QFAIL(qPrintable(urlStr + QStringLiteral("\nGot '%1' expected '%2'").arg(cookies, expectedCookies)));
+    }
 }
 
 static void processClear(QString &line)

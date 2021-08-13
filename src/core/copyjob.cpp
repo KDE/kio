@@ -391,8 +391,9 @@ void CopyJobPrivate::slotStart()
         for (const QUrl &url : qAsConst(m_srcList)) {
             if (m_dest.scheme() == url.scheme() && m_dest.host() == url.host()) {
                 QString srcPath = url.path();
-                if (!srcPath.endsWith(QLatin1Char('/')))
+                if (!srcPath.endsWith(QLatin1Char('/'))) {
                     srcPath += QLatin1Char('/');
+                }
                 if (m_dest.path().startsWith(srcPath)) {
                     q->setError(KIO::ERR_CANNOT_MOVE_INTO_ITSELF);
                     q->emitResult();
@@ -1233,7 +1234,8 @@ void CopyJobPrivate::slotResultConflictCreatingDirs(KJob *job)
 
     const UDSEntry entry = ((KIO::StatJob *)job)->statResult();
 
-    QDateTime destmtime, destctime;
+    QDateTime destmtime;
+    QDateTime destctime;
     const KIO::filesize_t destsize = entry.numberValue(KIO::UDSEntry::UDS_SIZE);
     const QString linkDest = entry.stringValue(KIO::UDSEntry::UDS_LINK_DEST);
 
@@ -1611,7 +1613,8 @@ void CopyJobPrivate::slotResultErrorCopyingFiles(KJob *job)
         // Its modification time:
         const UDSEntry entry = static_cast<KIO::StatJob *>(job)->statResult();
 
-        QDateTime destmtime, destctime;
+        QDateTime destmtime;
+        QDateTime destctime;
         const KIO::filesize_t destsize = entry.numberValue(KIO::UDSEntry::UDS_SIZE);
         const QString linkDest = entry.stringValue(KIO::UDSEntry::UDS_LINK_DEST);
 

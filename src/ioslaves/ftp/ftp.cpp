@@ -269,8 +269,9 @@ const char *FtpInternal::ftpResponse(int iOffset)
 
 void FtpInternal::closeConnection()
 {
-    if (m_control || m_data)
+    if (m_control || m_data) {
         qCDebug(KIO_FTP) << "m_bLoggedOn=" << m_bLoggedOn << " m_bBusy=" << m_bBusy;
+    }
 
     if (m_bBusy) { // ftpCloseCommand not called
         qCWarning(KIO_FTP) << "Abandoned data stream";
@@ -1610,7 +1611,11 @@ bool FtpInternal::ftpReadDir(FtpEntry &de)
         // d [RWCEAFMS] Admin                     512 Oct 13  2004 PSI
 
         // we should always get the following 5 fields ...
-        const char *p_access, *p_junk, *p_owner, *p_group, *p_size;
+        const char *p_access;
+        const char *p_junk;
+        const char *p_owner;
+        const char *p_group;
+        const char *p_size;
         if ((p_access = strtok((char *)buffer, " ")) == nullptr) {
             continue;
         }
@@ -1634,7 +1639,10 @@ bool FtpInternal::ftpReadDir(FtpEntry &de)
             de.access = S_IRWXU | S_IRWXG | S_IRWXO; // unknown -> give all permissions
         }
 
-        const char *p_date_1, *p_date_2, *p_date_3, *p_name;
+        const char *p_date_1;
+        const char *p_date_2;
+        const char *p_date_3;
+        const char *p_name;
 
         // A special hack for "/dev". A listing may look like this:
         // crw-rw-rw-   1 root     root       1,   5 Jun 29  1997 zero
@@ -1780,12 +1788,13 @@ bool FtpInternal::ftpReadDir(FtpEntry &de)
             // It seems all FTP servers use the English way
             qCDebug(KIO_FTP) << "Looking for month " << p_date_1;
             static const char s_months[][4] = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
-            for (int c = 0; c < 12; c++)
+            for (int c = 0; c < 12; c++) {
                 if (!qstrcmp(p_date_1, s_months[c])) {
                     qCDebug(KIO_FTP) << "Found month " << c << " for " << p_date_1;
                     month = c + 1;
                     break;
                 }
+            }
 
             // Parse third field
             if (p_date_3 && !strchr(p_date_3, ':')) { // No colon, looks like a year
@@ -2116,8 +2125,9 @@ Result FtpInternal::ftpPut(int iCopyFile, const QUrl &dest_url, int permissions,
 
     // set final permissions
     if (permissions != -1) {
-        if (m_user == QLatin1String(s_ftpLogin))
+        if (m_user == QLatin1String(s_ftpLogin)) {
             qCDebug(KIO_FTP) << "Trying to chmod over anonymous FTP ???";
+        }
         // chmod the file we just put
         if (!ftpChmod(dest_orig, permissions)) {
             // To be tested

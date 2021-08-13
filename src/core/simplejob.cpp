@@ -209,7 +209,8 @@ void SimpleJob::slotFinished()
                 const QUrl urlDir = url().adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash);
                 org::kde::KDirNotify::emitFilesAdded(urlDir);
             } else { /*if ( m_command == CMD_RENAME )*/
-                QUrl src, dst;
+                QUrl src;
+                QUrl dst;
                 QDataStream str(d->m_packedArgs);
                 str >> src >> dst;
                 if (src.adjusted(QUrl::RemoveFilename) == dst.adjusted(QUrl::RemoveFilename) // For the user, moving isn't renaming. Only renaming is.

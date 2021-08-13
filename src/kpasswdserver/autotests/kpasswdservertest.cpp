@@ -367,8 +367,9 @@ private:
                                                        seqNr,
                                                        16 /*usertime*/);
         QVERIFY(id >= 0); // requestId, ever increasing
-        if (spy.isEmpty())
+        if (spy.isEmpty()) {
             QVERIFY(QSignalSpy(&server, &KPasswdServer::queryAuthInfoAsyncResult).wait(1000));
+        }
         QCOMPARE(spy.count(), 1);
         QCOMPARE(spy[0][0].toLongLong(), id);
         // QCOMPARE(spy[0][1].toLongLong(), 3LL); // seqNr
@@ -408,8 +409,9 @@ private:
         }
         // Force KPasswdServer to process the request now, otherwise the checkAndFillDialog needs a timer too...
         server.processRequest();
-        if (spy.isEmpty())
+        if (spy.isEmpty()) {
             QVERIFY(QSignalSpy(&server, &KPasswdServer::queryAuthInfoAsyncResult).wait(1000));
+        }
         QCOMPARE(spy.count(), 1);
         QCOMPARE(spy[0][0].toLongLong(), id);
         // QCOMPARE(spy[0][1].toLongLong(), 3LL); // seqNr
@@ -448,8 +450,9 @@ private:
 
         // Force KPasswdServer to process the request now, otherwise the checkAndFillDialog needs a timer too...
         server.processRequest();
-        while (spy.count() < infos.count())
+        while (spy.count() < infos.count()) {
             QVERIFY(QSignalSpy(&server, &KPasswdServer::queryAuthInfoAsyncResult).wait(1000));
+        }
 
         QCOMPARE(spy.count(), infos.count());
 

@@ -259,7 +259,11 @@ bool SlaveInterface::dispatch(int _cmd, const QByteArray &rawdata)
         break;
     case INF_MESSAGEBOX: {
         // qDebug() << "needs a msg box";
-        QString text, caption, buttonYes, buttonNo, dontAskAgainName;
+        QString text;
+        QString caption;
+        QString buttonYes;
+        QString buttonNo;
+        QString dontAskAgainName;
         int type;
         stream >> type >> text >> caption >> buttonYes >> buttonNo;
         if (stream.atEnd()) {

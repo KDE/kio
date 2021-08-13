@@ -236,11 +236,12 @@ void Job::mergeMetaData(const QMap<QString, QString> &values)
 {
     Q_D(Job);
     QMap<QString, QString>::const_iterator it = values.begin();
-    for (; it != values.end(); ++it)
+    for (; it != values.end(); ++it) {
         // there's probably a faster way
         if (!d->m_outgoingMetaData.contains(it.key())) {
             d->m_outgoingMetaData.insert(it.key(), it.value());
         }
+    }
 }
 
 MetaData Job::outgoingMetaData() const

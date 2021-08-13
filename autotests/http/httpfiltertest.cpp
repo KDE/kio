@@ -71,7 +71,8 @@ static void getCompressedData(QByteArray &data, QByteArray &compressedData)
 
 void HTTPFilterTest::test_deflateWithZlibHeader()
 {
-    QByteArray data, deflatedData;
+    QByteArray data;
+    QByteArray deflatedData;
     getCompressedData(data, deflatedData);
 
     {

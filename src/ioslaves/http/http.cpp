@@ -1541,7 +1541,8 @@ QString HTTPProtocol::davError(int code /* = -1 */, const QString &_url)
         url = m_request.url.toDisplayString();
     }
 
-    QString action, errorString;
+    QString action;
+    QString errorString;
     int errorCode = ERR_SLAVE_DEFINED;
 
     // for 412 Precondition Failed
@@ -3256,7 +3257,8 @@ endParsing:
         tIt = tokenizer.iterator("p3p");
         if (tIt.hasNext()) {
             // P3P privacy policy information
-            QStringList policyrefs, compact;
+            QStringList policyrefs;
+            QStringList compact;
             while (tIt.hasNext()) {
                 QStringList policy = toQString(tIt.next().simplified()).split(QLatin1Char('='), Qt::SkipEmptyParts);
                 if (policy.count() == 2) {
@@ -4012,7 +4014,9 @@ void HTTPProtocol::special(const QByteArray &data)
     }
     case 5: { // WebDAV lock
         QUrl url;
-        QString scope, type, owner;
+        QString scope;
+        QString type;
+        QString owner;
         stream >> url >> scope >> type >> owner;
         davLock(url, scope, type, owner);
         break;
@@ -4432,8 +4436,9 @@ bool HTTPProtocol::readBody(bool dataInternal /* = false */)
     if (useMD5) {
         QString calculatedMD5 = md5Filter->md5();
 
-        if (m_contentMD5 != calculatedMD5)
+        if (m_contentMD5 != calculatedMD5) {
             qCWarning(KIO_HTTP) << "MD5 checksum MISMATCH! Expected:" << calculatedMD5 << ", Got:" << m_contentMD5;
+        }
     }
 
     // Close cache entry
@@ -4906,8 +4911,9 @@ void HTTPProtocol::cacheFileClose()
 void HTTPProtocol::sendCacheCleanerCommand(const QByteArray &command)
 {
     qCDebug(KIO_HTTP);
-    if (!qEnvironmentVariableIsEmpty("KIO_DISABLE_CACHE_CLEANER")) // for autotests
+    if (!qEnvironmentVariableIsEmpty("KIO_DISABLE_CACHE_CLEANER")) { // for autotests
         return;
+    }
     Q_ASSERT(command.size() == BinaryCacheFileHeader::size + s_hashedUrlNibbles + sizeof(quint32));
     if (m_cacheCleanerConnection.state() != QLocalSocket::ConnectedState) {
         QString socketFileName = QStandardPaths::writableLocation(QStandardPaths::RuntimeLocation) + QLatin1Char('/') + QLatin1String("kio_http_cache_cleaner");
@@ -5380,7 +5386,8 @@ bool HTTPProtocol::handleAuthenticationHeader(const HeaderTokenizer *tokenizer)
             // remove trailing space from the method string, or digest auth will fail
             (*auth)->setChallenge(bestOffer, authinfo.url, m_request.sentMethodString);
 
-            QString username, password;
+            QString username;
+            QString password;
             bool generateAuthHeader = true;
             if ((*auth)->needCredentials()) {
                 // use credentials supplied by the application if available

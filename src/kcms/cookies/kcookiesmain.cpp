@@ -52,25 +52,28 @@ KCookiesMain::~KCookiesMain()
 void KCookiesMain::save()
 {
     policies->save();
-    if (management)
+    if (management) {
         management->save();
+    }
 }
 
 void KCookiesMain::load()
 {
     policies->load();
-    if (management)
+    if (management) {
         management->load();
+    }
 }
 
 void KCookiesMain::defaults()
 {
     KCModule *module = static_cast<KCModule *>(tab->currentWidget());
 
-    if (module == policies)
+    if (module == policies) {
         policies->defaults();
-    else if (management)
+    } else if (management) {
         management->defaults();
+    }
 }
 
 QString KCookiesMain::quickHelp() const

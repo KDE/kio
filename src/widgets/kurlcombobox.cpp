@@ -136,10 +136,11 @@ QStringList KUrlComboBox::urls() const
     for (int i = static_cast<int>(d->defaultList.size()); i < count(); i++) {
         url = itemText(i);
         if (!url.isEmpty()) {
-            if (isAbsoluteLocalPath(url))
+            if (isAbsoluteLocalPath(url)) {
                 list.append(QUrl::fromLocalFile(url).toString());
-            else
+            } else {
                 list.append(url);
+            }
         }
     }
 
