@@ -8,7 +8,9 @@
 */
 
 #include "desktopexecparser.h"
+#ifndef Q_OS_ANDROID
 #include "kiofuse_interface.h"
+#endif
 
 #include <KApplicationTrader>
 #include <KConfigGroup>
@@ -20,8 +22,10 @@
 #include <KShell>
 #include <kprotocolinfo.h> // KF6 TODO remove after moving hasSchemeHandler to OpenUrlJob
 
+#ifndef Q_OS_ANDROID
 #include <QDBusConnection>
 #include <QDBusReply>
+#endif
 #include <QDir>
 #include <QFile>
 #include <QStandardPaths>
@@ -379,6 +383,7 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
 
     // Check if we need kioexec, or KIOFuse
     bool useKioexec = false;
+#ifndef Q_OS_ANDROID
     org::kde::KIOFuse::VFS kiofuse_iface(QStringLiteral("org.kde.KIOFuse"), QStringLiteral("/org/kde/KIOFuse"), QDBusConnection::sessionBus());
     struct MountRequest {
         QDBusPendingReply<QString> reply;
@@ -433,6 +438,7 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
             d->urls[request.urlIndex] = QUrl::fromLocalFile(request.reply.value());
         }
     }
+#endif
 
     if (appHasTempFileOption) {
         exec += QLatin1String(" --tempfile");
