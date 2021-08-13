@@ -103,22 +103,25 @@ KFilePlaceEditDialog::KFilePlaceEditDialog(bool allowGlobal,
     // Room for at least 40 chars (average char width is half of height)
     m_urlEdit->setMinimumWidth(m_urlEdit->fontMetrics().height() * (40 / 2));
 
+    whatsThisText = i18n(
+        "<qt>This is the icon that will appear in the Places panel.<br /><br />"
+        "Click on the button to select a different icon.</qt>");
+    m_iconButton = new KIconButton(this);
+    m_iconButton->setObjectName(QStringLiteral("icon button"));
+    m_iconButton->setIconSize(iconSize);
+    m_iconButton->setIconType(KIconLoader::NoGroup, KIconLoader::Place);
+    if (icon.isEmpty()) {
+        m_iconButton->setIcon(KIO::iconNameForUrl(url));
+    } else {
+        m_iconButton->setIcon(icon);
+    }
+    m_iconButton->setWhatsThis(whatsThisText);
+
     if (isIconEditable()) {
-        whatsThisText = i18n(
-            "<qt>This is the icon that will appear in the Places panel.<br /><br />"
-            "Click on the button to select a different icon.</qt>");
-        m_iconButton = new KIconButton(this);
         layout->addRow(i18n("Choose an &icon:"), m_iconButton);
-        m_iconButton->setObjectName(QStringLiteral("icon button"));
-        m_iconButton->setIconSize(iconSize);
-        m_iconButton->setIconType(KIconLoader::NoGroup, KIconLoader::Place);
-        if (icon.isEmpty()) {
-            m_iconButton->setIcon(KIO::iconNameForUrl(url));
-        } else {
-            m_iconButton->setIcon(icon);
-        }
-        m_iconButton->setWhatsThis(whatsThisText);
         layout->labelForField(m_iconButton)->setWhatsThis(whatsThisText);
+    } else {
+        m_iconButton->hide();
     }
 
     if (allowGlobal) {
@@ -188,10 +191,6 @@ QString KFilePlaceEditDialog::label() const
 
 QString KFilePlaceEditDialog::icon() const
 {
-    if (!isIconEditable()) {
-        return QString();
-    }
-
     return m_iconButton->icon();
 }
 
