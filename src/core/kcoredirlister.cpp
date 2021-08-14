@@ -2499,6 +2499,12 @@ void KCoreDirListerPrivate::addNewItems(const QUrl &directoryUrl, const QList<KF
 
 void KCoreDirListerPrivate::addRefreshItem(const QUrl &directoryUrl, const KFileItem &oldItem, const KFileItem &item)
 {
+    // Refreshing the root item "." of a dirlister
+    if (directoryUrl == item.url()) {
+        lstRefreshItems.append({oldItem, item});
+        return;
+    }
+
     const bool refreshItemWasFiltered = !isItemVisible(oldItem) || !q->matchesMimeFilter(oldItem);
     if (isItemVisible(item) && q->matchesMimeFilter(item)) {
         if (refreshItemWasFiltered) {

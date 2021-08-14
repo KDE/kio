@@ -680,7 +680,7 @@ void KDirModelTest::testChmodDirectory() // #53397
     // If we come here, then dataChanged() was emitted - all good.
     QCOMPARE(spyDataChanged.count(), 1);
     QModelIndex receivedIndex = spyDataChanged[0][0].value<QModelIndex>();
-    qDebug() << receivedIndex;
+    qDebug() << "receivedIndex" << receivedIndex;
     QVERIFY(!receivedIndex.isValid());
 
     const KFileItem newRootItem = m_dirModel->itemForIndex(QModelIndex());
