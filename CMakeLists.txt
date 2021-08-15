@@ -98,7 +98,7 @@ set_package_properties(KF5DocTools PROPERTIES DESCRIPTION "Provides tools to gen
                        PURPOSE "Required to build help ioslave and documentation"
                       )
 
-set(REQUIRED_QT_VERSION 5.15.0)
+set(REQUIRED_QT_VERSION 5.15.2)
 find_package(Qt5 ${REQUIRED_QT_VERSION} CONFIG REQUIRED Widgets DBus Network Concurrent Xml Test)
 
 find_package(GSSAPI)
@@ -132,7 +132,7 @@ if (CMAKE_SYSTEM_NAME MATCHES "Linux")
     set(HAVE_LIBS_MOUNT_AND_BLKID ${LibMount_FOUND} AND ${Blkid_FOUND})
 endif()
 
-add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050f00)
+add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050f02)
 add_definitions(-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x055100)
 # we use KPixmapProvider in public API
 add_definitions(-DKCOMPLETION_DISABLE_DEPRECATED_BEFORE_AND_AT=0x054100)
