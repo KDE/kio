@@ -60,6 +60,8 @@
 #include <sys/xattr.h>
 // BSD uses a different include
 #elif HAVE_SYS_EXTATTR_H
+#include <sys/types.h> // For FreeBSD, this must be before sys/extattr.h
+
 #include <sys/extattr.h>
 #endif
 

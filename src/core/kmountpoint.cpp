@@ -29,9 +29,6 @@ static const Qt::CaseSensitivity cs = Qt::CaseSensitive;
 
 // This is the *BSD branch
 #if HAVE_SYS_MOUNT_H
-#if HAVE_SYS_TYPES_H
-#include <sys/types.h>
-#endif
 #if HAVE_SYS_PARAM_H
 #include <sys/param.h>
 #endif

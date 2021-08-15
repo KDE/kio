@@ -13,8 +13,9 @@
 
 #include <QExplicitlySharedDataPointer>
 #include <QStringList>
+
 #include <memory>
-#include <sys/types.h>
+#include <sys/types.h> // dev_t among other definitions
 
 class KMountPointPrivate;
 

@@ -3,10 +3,9 @@ include(CheckLibraryExists)
 include(CheckLibraryExists)
 
 check_include_files(sys/param.h   HAVE_SYS_PARAM_H)
-check_include_files(sys/types.h   HAVE_SYS_TYPES_H)
 check_include_files(arpa/nameser_compat.h HAVE_ARPA_NAMESER_COMPAT_H)
 check_include_files(arpa/nameser8_compat.h HAVE_ARPA_NAMESER8_COMPAT_H)
-check_include_files("sys/types.h;netinet/in.h"  HAVE_NETINET_IN_H)
+check_include_files("netinet/in.h"  HAVE_NETINET_IN_H)
 check_include_files(stdint.h      HAVE_STDINT_H) 
 
 # Check for libresolv
