@@ -57,11 +57,13 @@ KCoreDirListerCache::KCoreDirListerCache()
     connect(KDirWatch::self(), &KDirWatch::created, this, &KCoreDirListerCache::slotFileCreated);
     connect(KDirWatch::self(), &KDirWatch::deleted, this, &KCoreDirListerCache::slotFileDeleted);
 
+#ifndef KIO_ANDROID_STUB
     kdirnotify = new org::kde::KDirNotify(QString(), QString(), QDBusConnection::sessionBus(), this);
     connect(kdirnotify, &org::kde::KDirNotify::FileRenamedWithLocalPath, this, &KCoreDirListerCache::slotFileRenamed);
     connect(kdirnotify, &org::kde::KDirNotify::FilesAdded, this, &KCoreDirListerCache::slotFilesAdded);
     connect(kdirnotify, &org::kde::KDirNotify::FilesChanged, this, &KCoreDirListerCache::slotFilesChanged);
     connect(kdirnotify, &org::kde::KDirNotify::FilesRemoved, this, QOverload<const QStringList &>::of(&KCoreDirListerCache::slotFilesRemoved));
+#endif
 
     // Probably not needed in KF5 anymore:
     // The use of KUrl::url() in ~DirItem (sendSignal) crashes if the static for QRegExpEngine got deleted already,

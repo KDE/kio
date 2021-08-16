@@ -127,7 +127,9 @@ public:
     bool m_finalityCommand = true; // whether finished() or error() may/must be called
     QByteArray timeoutData;
 
+#ifndef KIO_ANDROID_STUB
     std::unique_ptr<KPasswdServerClient> m_passwdServerClient;
+#endif
     bool m_rootEntryListed = false;
 
     bool m_confirmationAsked;
@@ -209,6 +211,7 @@ public:
                                             .arg(QCoreApplication::applicationName())));
     }
 
+#ifndef KIO_ANDROID_STUB
     KPasswdServerClient *passwdServerClient()
     {
         if (!m_passwdServerClient) {
@@ -217,6 +220,7 @@ public:
 
         return m_passwdServerClient.get();
     }
+#endif
 };
 
 }
@@ -1025,12 +1029,16 @@ int SlaveBase::openPasswordDialogV2(AuthInfo &info, const QString &errorMsg)
     // it to ensure it is valid.
     dlgInfo.setExtraField(QStringLiteral("skip-caching-on-query"), true);
 
+#ifndef KIO_ANDROID_STUB
     KPasswdServerClient *passwdServerClient = d->passwdServerClient();
     const int errCode = passwdServerClient->queryAuthInfo(&dlgInfo, errorMessage, windowId, userTimestamp);
     if (errCode == KJob::NoError) {
         info = dlgInfo;
     }
     return errCode;
+#else
+    return KJob::NoError;
+#endif
 }
 
 int SlaveBase::messageBox(MessageBoxType type, const QString &text, const QString &caption, const QString &buttonYes, const QString &buttonNo)
@@ -1411,8 +1419,12 @@ void SlaveBase::dispatch(int command, const QByteArray &data)
 
 bool SlaveBase::checkCachedAuthentication(AuthInfo &info)
 {
+#ifndef KIO_ANDROID_STUB
     KPasswdServerClient *passwdServerClient = d->passwdServerClient();
     return (passwdServerClient->checkAuthInfo(&info, metaData(QStringLiteral("window-id")).toLong(), metaData(QStringLiteral("user-timestamp")).toULong()));
+#else
+    return false;
+#endif
 }
 
 void SlaveBase::dispatchOpenCommand(int command, const QByteArray &data)
@@ -1457,8 +1469,10 @@ void SlaveBase::dispatchOpenCommand(int command, const QByteArray &data)
 
 bool SlaveBase::cacheAuthentication(const AuthInfo &info)
 {
+#ifndef KIO_ANDROID_STUB
     KPasswdServerClient *passwdServerClient = d->passwdServerClient();
     passwdServerClient->addAuthInfo(info, metaData(QStringLiteral("window-id")).toLongLong());
+#endif
     return true;
 }
 

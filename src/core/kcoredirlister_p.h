@@ -355,11 +355,13 @@ private:
         {
             // Note that "entering" means "start watching", and "leaving" means "stop watching"
             // (i.e. it's not when the user leaves the directory, it's when the directory is removed from the cache)
+#ifndef KIO_ANDROID_STUB
             if (entering) {
                 org::kde::KDirNotify::emitEnteredDirectory(url);
             } else {
                 org::kde::KDirNotify::emitLeftDirectory(url);
             }
+#endif
         }
 
         void redirect(const QUrl &newUrl)

@@ -23,8 +23,10 @@
 #include <KLocalizedString>
 #include <KService>
 
+#ifndef KIO_ANDROID_STUB
 #include <QDBusInterface>
 #include <QDBusReply>
+#endif
 
 enum BuiltinServiceType { ST_MOUNT = 0x0E1B05B0, ST_UNMOUNT = 0x0E1B05B1 }; // random numbers
 
@@ -229,6 +231,7 @@ QList<KServiceAction> KDesktopFileActions::userDefinedServices(const KService &s
             const QString &interface = dbuscall.at(2);
             const QString &function = dbuscall.at(3);
 
+#ifndef KIO_ANDROID_STUB
             QDBusInterface remote(app, object, interface);
             // Do NOT use QDBus::BlockWithGui here. It runs a nested event loop,
             // in which timers can fire, leading to crashes like #149736.
@@ -237,6 +240,7 @@ QList<KServiceAction> KDesktopFileActions::userDefinedServices(const KService &s
             if (keys.isEmpty()) {
                 return result;
             }
+#endif
         } else {
             qCWarning(KIO_WIDGETS) << "The desktop file" << service.entryPath() << "has an invalid X-KDE-GetActionMenu entry."
                                    << "Syntax is: app object interface function";
@@ -318,7 +322,9 @@ void KDesktopFileActions::executeService(const QList<QUrl> &urls, const KService
         job->setUrls(urls);
         QObject::connect(job, &KJob::result, qApp, [urls]() {
             // The action may update the desktop file. Example: eject unmounts (#5129).
+#ifndef KIO_ANDROID_STUB
             org::kde::KDirNotify::emitFilesChanged(urls);
+#endif
         });
         job->setUiDelegate(new KDialogJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, nullptr /*TODO window*/));
         job->start();

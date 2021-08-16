@@ -26,7 +26,9 @@
 #include <clipboardupdater_p.h>
 #include <ksslinfodialog.h>
 
+#ifndef KIO_ANDROID_STUB
 #include <QDBusInterface>
+#endif
 #include <QGuiApplication>
 #include <QIcon>
 #include <QPointer>
@@ -97,8 +99,10 @@ public:
             WId windowId = window->winId();
             m_windowList.insert(obj, windowId);
             connect(window, &QObject::destroyed, this, &JobUiDelegateStatic::slotUnregisterWindow);
+#ifndef KIO_ANDROID_STUB
             QDBusInterface(QStringLiteral("org.kde.kded5"), QStringLiteral("/kded"), QStringLiteral("org.kde.kded5"))
                 .call(QDBus::NoBlock, QStringLiteral("registerWindowId"), qlonglong(windowId));
+#endif
         }
     }
 public Q_SLOTS:
@@ -115,8 +119,10 @@ public Q_SLOTS:
         WId windowId = it.value();
         disconnect(it.key(), &QObject::destroyed, this, &JobUiDelegateStatic::slotUnregisterWindow);
         m_windowList.erase(it);
+#ifndef KIO_ANDROID_STUB
         QDBusInterface(QStringLiteral("org.kde.kded5"), QStringLiteral("/kded"), QStringLiteral("org.kde.kded5"))
             .call(QDBus::NoBlock, QStringLiteral("unregisterWindowId"), qlonglong(windowId));
+#endif
     }
 
 private:

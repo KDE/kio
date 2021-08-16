@@ -45,7 +45,9 @@
 
 #include <KConfigGroup>
 #include <assert.h>
+#ifndef KIO_ANDROID_STUB
 #include <kbuildsycocaprogressdialog.h>
+#endif
 #include <stdlib.h>
 
 inline void
@@ -937,7 +939,9 @@ void KOpenWithDialogPrivate::addToMimeAppsList(const QString &serviceId /*menu i
     // qDebug() << "rebuilding ksycoca...";
 
     // kbuildsycoca is the one reading mimeapps.list, so we need to run it now
+#ifndef KIO_ANDROID_STUB
     KBuildSycocaProgressDialog::rebuildKSycoca(q);
+#endif
 
     // could be nullptr if the user canceled the dialog...
     m_pService = KService::serviceByStorageId(serviceId);

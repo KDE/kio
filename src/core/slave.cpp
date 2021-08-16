@@ -11,17 +11,24 @@
 #include <qplatformdefs.h>
 #include <stdio.h>
 
+#include <QCoreApplication>
+#include <QDataStream>
+#include <QDir>
 #include <QElapsedTimer>
 #include <QFile>
+#include <QLibraryInfo>
 #include <QProcess>
 #include <QStandardPaths>
 #include <QTimer>
 
 #include <KLocalizedString>
+#ifndef KIO_ANDROID_STUB
 #include <QDBusConnection>
-
 #include <KDEInitInterface>
 #include <klauncher_interface.h>
+#endif
+
+#include <KPluginLoader>
 
 #include "commands_p.h"
 #include "connection_p.h"
@@ -48,6 +55,7 @@ static constexpr int s_slaveConnectionTimeoutMax = 10;
 static constexpr int s_slaveConnectionTimeoutMax = 3600;
 #endif
 
+#ifndef KIO_ANDROID_STUB
 static QThreadStorage<org::kde::KSlaveLauncher *> s_kslaveLauncher;
 
 static org::kde::KSlaveLauncher *klauncher()
@@ -61,6 +69,7 @@ static org::kde::KSlaveLauncher *klauncher()
     }
     return s_kslaveLauncher.localData();
 }
+#endif
 
 // In such case we start the slave via QProcess.
 // It's possible to force this by setting the env. variable
@@ -81,6 +90,7 @@ static bool forkSlaves()
         bool fork = qEnvironmentVariableIsSet("KDE_FORK_SLAVES");
 
         // no dbus? => fork slaves as we can't talk to klauncher
+#ifndef KIO_ANDROID_STUB
         if (!fork) {
             fork = !QDBusConnection::sessionBus().interface();
         }
@@ -95,6 +105,7 @@ static bool forkSlaves()
                 fork = true;
             }
         }
+#endif
 #endif
 
         bForkSlaves.testAndSetRelaxed(-1, fork ? 1 : 0);
@@ -353,7 +364,9 @@ void Slave::hold(const QUrl &url)
     deref();
     // Call KSlaveLauncher::waitForSlave(pid);
     {
+#ifndef KIO_ANDROID_STUB
         klauncher()->waitForSlave(d->m_pid);
+#endif
     }
 }
 
@@ -518,6 +531,7 @@ Slave *Slave::createSlave(const QString &protocol, const QUrl &url, int &error, 
     }
 
     QString errorStr;
+#ifndef KIO_ANDROID_STUB
     QDBusReply<int> reply = klauncher()->requestSlave(protocol, url.host(), slaveAddress.toString(), errorStr);
     if (!reply.isValid()) {
         error_text = i18n("Cannot talk to klauncher: %1", klauncher()->lastError().message());
@@ -533,6 +547,7 @@ Slave *Slave::createSlave(const QString &protocol, const QUrl &url, int &error, 
         return nullptr;
     }
     slave->setPID(pid);
+#endif
     QTimer::singleShot(1000 * s_slaveConnectionTimeoutMin, slave, &Slave::timeout);
     return slave;
 }
@@ -551,6 +566,7 @@ Slave *Slave::holdSlave(const QString &protocol, const QUrl &url)
 
     Slave *slave = new Slave(protocol);
     QUrl slaveAddress = slave->d_func()->slaveconnserver->address();
+#ifndef KIO_ANDROID_STUB
     QDBusReply<int> reply = klauncher()->requestHoldSlave(url.toString(), slaveAddress.toString());
     if (!reply.isValid()) {
         delete slave;
@@ -562,6 +578,7 @@ Slave *Slave::holdSlave(const QString &protocol, const QUrl &url)
         return nullptr;
     }
     slave->setPID(pid);
+#endif
     QTimer::singleShot(1000 * s_slaveConnectionTimeoutMin, slave, &Slave::timeout);
     return slave;
 }
@@ -572,5 +589,9 @@ bool Slave::checkForHeldSlave(const QUrl &url)
         return false;
     }
 
+#ifndef KIO_ANDROID_STUB
     return klauncher()->checkForHeldSlave(url.toString());
+#else
+    return false;
+#endif
 }

@@ -26,8 +26,10 @@
 
 #include <QCache>
 #include <QCoreApplication>
+#ifndef KIO_ANDROID_STUB
 #include <QDBusInterface>
 #include <QDBusReply>
+#endif
 #include <QHostAddress>
 #include <QHostInfo>
 #include <QLocale>
@@ -554,12 +556,14 @@ QStringList KProtocolManager::proxiesForUrl(const QUrl &url)
             const QString protocol = adjustProtocol(u.scheme());
             u.setScheme(protocol);
 
+#ifndef KIO_ANDROID_STUB
             if (protocol.startsWith(QLatin1String("http")) || protocol.startsWith(QLatin1String("ftp"))) {
                 QDBusReply<QStringList> reply =
                     QDBusInterface(QStringLiteral("org.kde.kded5"), QStringLiteral("/modules/proxyscout"), QStringLiteral("org.kde.KPAC.ProxyScout"))
                         .call(QStringLiteral("proxiesForUrl"), u.toString());
                 proxyList = reply;
             }
+#endif
             break;
         }
         case EnvVarProxy:
@@ -595,7 +599,9 @@ QStringList KProtocolManager::proxiesForUrl(const QUrl &url)
 
 void KProtocolManager::badProxy(const QString &proxy)
 {
+#ifndef KIO_ANDROID_STUB
     QDBusInterface(QStringLiteral("org.kde.kded5"), QStringLiteral("/modules/proxyscout")).asyncCall(QStringLiteral("blackListProxy"), proxy);
+#endif
 
     KProtocolManagerPrivate *d = kProtocolManagerPrivate();
     QMutexLocker lock(&d->mutex);

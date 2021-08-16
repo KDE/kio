@@ -64,11 +64,13 @@ find_package(KF5Archive ${KF_DEP_VERSION} REQUIRED)
 find_package(KF5Config ${KF_DEP_VERSION} REQUIRED)
 find_package(KF5CoreAddons ${KF_DEP_VERSION} REQUIRED)
 find_package(KF5Crash ${KF_DEP_VERSION} REQUIRED)
-find_package(KF5DBusAddons ${KF_DEP_VERSION} REQUIRED)
 find_package(KF5I18n ${KF_DEP_VERSION} REQUIRED)
 find_package(KF5Service ${KF_DEP_VERSION} REQUIRED)
 find_package(KF5DocTools ${KF_DEP_VERSION})
 find_package(KF5Solid ${KF_DEP_VERSION} REQUIRED) # for kio_trash
+if (NOT ANDROID)
+    find_package(KF5DBusAddons ${KF_DEP_VERSION} REQUIRED)
+endif()
 
 if (NOT KIOCORE_ONLY)
 find_package(KF5Bookmarks ${KF_DEP_VERSION} REQUIRED)
@@ -99,7 +101,10 @@ set_package_properties(KF5DocTools PROPERTIES DESCRIPTION "Provides tools to gen
                       )
 
 set(REQUIRED_QT_VERSION 5.15.2)
-find_package(Qt5 ${REQUIRED_QT_VERSION} CONFIG REQUIRED Widgets DBus Network Concurrent Xml Test)
+find_package(Qt5 ${REQUIRED_QT_VERSION} CONFIG REQUIRED Widgets Network Concurrent Xml Test)
+if (NOT ANDROID)
+    find_package(Qt5 ${REQUIRED_QT_VERSION} CONFIG REQUIRED DBus)
+endif()
 
 find_package(GSSAPI)
 set_package_properties(GSSAPI PROPERTIES DESCRIPTION "Allows KIO to make use of certain HTTP authentication services"
@@ -132,6 +137,11 @@ if (CMAKE_SYSTEM_NAME MATCHES "Linux")
     set(HAVE_LIBS_MOUNT_AND_BLKID ${LibMount_FOUND} AND ${Blkid_FOUND})
 endif()
 
+if (ANDROID)
+    # used to mark code that is just stubbed out on Android for now
+    # and that would still need a decision on how to deal with that
+    add_definitions(-DKIO_ANDROID_STUB)
+endif()
 add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050f02)
 add_definitions(-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x055100)
 # we use KPixmapProvider in public API

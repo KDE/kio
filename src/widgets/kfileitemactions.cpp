@@ -30,10 +30,12 @@
 #include <QMimeDatabase>
 #include <QtAlgorithms>
 
+#ifndef KIO_ANDROID_STUB
 #include <QDBusConnection>
 #include <QDBusConnectionInterface>
 #include <QDBusInterface>
 #include <QDBusMessage>
+#endif
 #include <algorithm>
 #include <kio_widgets_debug.h>
 
@@ -443,7 +445,7 @@ bool KFileItemActionsPrivate::shouldDisplayServiceMenu(const KConfigGroup &cfg, 
     if (!KIOSKAuthorizedAction(cfg)) {
         return false;
     }
-#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 76)
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 76) && !defined(KIO_ANDROID_STUB)
     if (cfg.hasKey("X-KDE-ShowIfRunning")) {
         qCWarning(KIO_WIDGETS) << "The property X-KDE-ShowIfRunning is deprecated and will be removed in future releases";
         const QString app = cfg.readEntry("X-KDE-ShowIfRunning");

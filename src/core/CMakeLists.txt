@@ -32,9 +32,7 @@ target_sources(KF5KIOCore PRIVATE
   connectionserver.cpp
   krecentdocument.cpp
   kfileitemlistproperties.cpp
-  tcpslavebase.cpp
   directorysizejob.cpp
-  forwardingslavebase.cpp
   chmodjob.cpp
   kdiskfreespaceinfo.cpp
   usernotificationhandler.cpp
@@ -48,8 +46,6 @@ target_sources(KF5KIOCore PRIVATE
   filejob.cpp
   mkdirjob.cpp
   mkpathjob.cpp
-  kpasswdserverloop.cpp
-  kpasswdserverclient.cpp
   kremoteencoding.cpp
   sessiondata.cpp
   slavebase.cpp
@@ -79,7 +75,6 @@ target_sources(KF5KIOCore PRIVATE
   slaveconfig.cpp
   kprotocolmanager.cpp
   hostinfo.cpp
-  kdirnotify.cpp
   kurlauthorized.cpp
   kacl.cpp
   udsentry.cpp
@@ -96,14 +91,24 @@ target_sources(KF5KIOCore PRIVATE
   faviconscache.cpp
   untrustedprogramhandlerinterface.cpp
 
+  kioglobal_p.cpp
+  batchrenamejob.cpp
+)
+
+if (NOT ANDROID)
+target_sources(KF5KIOCore PRIVATE
+  tcpslavebase.cpp
+  forwardingslavebase.cpp
+  kpasswdserverloop.cpp
+  kpasswdserverclient.cpp
+  kdirnotify.cpp
+
   ksslcertificatemanager.cpp
   ksslerroruidata.cpp
   ktcpsocket.cpp
   kssl/ksslsettings.cpp
-
-  kioglobal_p.cpp
-  batchrenamejob.cpp
 )
+endif()
 
 ecm_qt_declare_logging_category(KF5KIOCore
     HEADER kiocoredebug.h
@@ -153,13 +158,15 @@ if (WIN32)
 endif()
 
 set(kiocore_dbus_SRCS)
-qt_add_dbus_interface(kiocore_dbus_SRCS org.kde.KSlaveLauncher.xml klauncher_interface)
-qt_add_dbus_interface(kiocore_dbus_SRCS org.kde.KIOFuse.VFS.xml kiofuse_interface)
+if (TARGET Qt5::DBus)
+    qt_add_dbus_interface(kiocore_dbus_SRCS org.kde.KSlaveLauncher.xml klauncher_interface)
+    qt_add_dbus_interface(kiocore_dbus_SRCS org.kde.KIOFuse.VFS.xml kiofuse_interface)
 
-set_source_files_properties(org.kde.KPasswdServer.xml
-        PROPERTIES INCLUDE authinfo.h
-)
-qt_add_dbus_interface(kiocore_dbus_SRCS org.kde.KPasswdServer.xml kpasswdserver_interface)
+    set_source_files_properties(org.kde.KPasswdServer.xml
+            PROPERTIES INCLUDE authinfo.h
+    )
+    qt_add_dbus_interface(kiocore_dbus_SRCS org.kde.KPasswdServer.xml kpasswdserver_interface)
+endif()
 
 target_sources(KF5KIOCore PRIVATE
     ${kiocore_dbus_SRCS}
@@ -201,14 +208,20 @@ PUBLIC
  KF5::CoreAddons   # KJob
  KF5::Service # TODO KF6 move to PRIVATE
  Qt5::Network
- Qt5::DBus
 PRIVATE
  Qt5::Xml                   # davjob.cpp uses QDom
  KF5::ConfigCore
  KF5::I18n
  KF5::Crash
- KF5::DBusAddons            # KDEInitInterface
 )
+if (TARGET Qt5::DBus)
+    target_link_libraries(KF5KIOCore
+    PUBLIC
+        Qt5::DBus
+    PRIVATE
+        KF5::DBusAddons            # KDEInitInterface
+    )
+endif()
 
 if(KIO_NO_PUBLIC_QTCONCURRENT)
   target_link_libraries(KF5KIOCore PRIVATE Qt5::Concurrent) # QtConcurrentRun in hostinfo.cpp

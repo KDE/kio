@@ -103,6 +103,7 @@ void KSslInfoDialog::updateWhichPartsEncrypted()
     }
 }
 
+#ifndef KIO_ANDROID_STUB
 #if KIOCORE_BUILD_DEPRECATED_SINCE(5, 64)
 void KSslInfoDialog::setSslInfo(const QList<QSslCertificate> &certificateChain,
                                 const QString &ip,
@@ -125,6 +126,7 @@ void KSslInfoDialog::setSslInfo(const QList<QSslCertificate> &certificateChain,
     }
     setSslInfo(certificateChain, ip, host, sslProtocol, cipher, usedBits, bits, qValidationErrors);
 }
+#endif
 #endif
 
 void KSslInfoDialog::setSslInfo(const QList<QSslCertificate> &certificateChain,
@@ -204,6 +206,7 @@ void KSslInfoDialog::displayFromChain(int i)
     d->issuer->setCertificate(cert, KSslCertificateBox::Issuer);
 }
 
+#ifndef KIO_ANDROID_STUB
 #if KIOCORE_BUILD_DEPRECATED_SINCE(5, 65)
 // static
 QList<QList<KSslError::Error>> KSslInfoDialog::errorsFromString(const QString &es)
@@ -225,6 +228,7 @@ QList<QList<KSslError::Error>> KSslInfoDialog::errorsFromString(const QString &e
     }
     return ret;
 }
+#endif
 #endif
 
 // static

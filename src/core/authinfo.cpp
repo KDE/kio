@@ -7,8 +7,10 @@
 
 #include "authinfo.h"
 
+#ifndef KIO_ANDROID_STUB
 #include <QDBusArgument>
 #include <QDBusMetaType>
+#endif
 #include <QDataStream>
 #include <QDir>
 #include <QFile>
@@ -67,6 +69,7 @@ static QDataStream &operator>>(QDataStream &s, ExtraField &extraField)
     return s;
 }
 
+#ifndef KIO_ANDROID_STUB
 static QDBusArgument &operator<<(QDBusArgument &argument, const ExtraField &extraField)
 {
     argument.beginStructure();
@@ -88,6 +91,7 @@ static const QDBusArgument &operator>>(const QDBusArgument &argument, ExtraField
     extraField.flags = KIO::AuthInfo::FieldFlags(flag);
     return argument;
 }
+#endif
 
 class KIO::AuthInfoPrivate
 {
@@ -182,8 +186,10 @@ void AuthInfo::registerMetaTypes()
 {
     qRegisterMetaType<ExtraField>();
     qRegisterMetaType<KIO::AuthInfo>();
+#ifndef KIO_ANDROID_STUB
     qDBusRegisterMetaType<ExtraField>();
     qDBusRegisterMetaType<KIO::AuthInfo>();
+#endif
 }
 
 /////
@@ -203,6 +209,7 @@ QDataStream &KIO::operator>>(QDataStream &s, AuthInfo &a)
     return s;
 }
 
+#ifndef KIO_ANDROID_STUB
 QDBusArgument &KIO::operator<<(QDBusArgument &argument, const AuthInfo &a)
 {
     argument.beginStructure();
@@ -225,6 +232,7 @@ const QDBusArgument &KIO::operator>>(const QDBusArgument &argument, AuthInfo &a)
     a.url = QUrl(url);
     return argument;
 }
+#endif
 
 typedef QList<NetRC::AutoLogin> LoginList;
 typedef QMap<QString, LoginList> LoginMap;

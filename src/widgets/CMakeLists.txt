@@ -14,34 +14,27 @@ set_target_properties(KF5KIOWidgets PROPERTIES
 )
 
 set(kiowidgets_dbus_SRCS)
-qt_add_dbus_adaptor(kiowidgets_dbus_SRCS org.kde.kio.FileUndoManager.xml fileundomanager_p.h KIO::FileUndoManagerPrivate fileundomanager_adaptor KIOFileUndoManagerAdaptor)
-qt_add_dbus_interface(kiowidgets_dbus_SRCS org.kde.kuiserver.xml kuiserver_interface)
+if(TARGET Qt5::DBus)
+    qt_add_dbus_adaptor(kiowidgets_dbus_SRCS org.kde.kio.FileUndoManager.xml fileundomanager_p.h KIO::FileUndoManagerPrivate fileundomanager_adaptor KIOFileUndoManagerAdaptor)
+    qt_add_dbus_interface(kiowidgets_dbus_SRCS org.kde.kuiserver.xml kuiserver_interface)
+endif()
+
 
 target_sources(KF5KIOWidgets PRIVATE
-  ${kiowidgets_dbus_SRCS}
-  accessmanager.cpp
-  accessmanagerreply_p.cpp
-  fileundomanager.cpp
   kacleditwidget.cpp
-  kpropertiesdialog.cpp
   kurlrequesterdialog.cpp
   kurlcombobox.cpp
   kfileitemactions.cpp
-  delegateanimationhandler.cpp
   imagefilter.cpp
-  kfileitemdelegate.cpp
   kdesktopfileactions.cpp
   kopenwithdialog.cpp
   kfile.cpp
   pastedialog.cpp
-  paste.cpp
   clipboardupdater.cpp
   kabstractfileitemactionplugin.cpp
   koverlayiconplugin.cpp
-  kbuildsycocaprogressdialog.cpp
   kurlrequester.cpp
   krun.cpp
-  sslui.cpp
   kurlpixmapprovider.cpp
   pixmaploader.cpp
   thumbsequencecreator.cpp
@@ -50,27 +43,42 @@ target_sources(KF5KIOWidgets PRIVATE
   kshellcompletion.cpp
   kurlcompletion.cpp
   kurifilter.cpp
-  dropjob.cpp
-  openfilemanagerwindowjob.cpp
-  pastejob.cpp
   previewjob.cpp
   renamedialog.cpp
   ksslcertificatebox.cpp
   ksslinfodialog.cpp
-  joburlcache.cpp
   skipdialog.cpp
   jobuidelegate.cpp
   kdirlister.cpp
-  kdirmodel.cpp
   executablefileopendialog.cpp
   dndpopupmenuplugin.cpp
   kurifiltersearchprovideractions.cpp
-  renamefiledialog.cpp
   widgetsuntrustedprogramhandler.cpp
   widgetsopenwithhandler.cpp
   widgetsopenorexecutefilehandler.cpp
   widgetsaskuseractionhandler.cpp
 )
+
+if(NOT ANDROID)
+target_sources(KF5KIOWidgets PRIVATE
+  ${kiowidgets_dbus_SRCS}
+  accessmanager.cpp
+  accessmanagerreply_p.cpp
+  fileundomanager.cpp
+  kpropertiesdialog.cpp
+  delegateanimationhandler.cpp
+  kfileitemdelegate.cpp
+  paste.cpp
+  kbuildsycocaprogressdialog.cpp
+  sslui.cpp
+  dropjob.cpp
+  openfilemanagerwindowjob.cpp
+  pastejob.cpp
+  joburlcache.cpp
+  kdirmodel.cpp
+  renamefiledialog.cpp
+)
+endif()
 if (NOT ANDROID)
     target_sources(KF5KIOWidgets PRIVATE
         kdynamicjobtracker.cpp
@@ -133,13 +141,18 @@ target_link_libraries(KF5KIOWidgets
     KF5::WidgetsAddons # keditlistwidget
   PRIVATE
     Qt5::Concurrent
-    Qt5::DBus
     KF5::I18n
     KF5::GuiAddons # KIconUtils
     KF5::IconThemes   # KIconLoader
     KF5::WindowSystem # KStartupInfo
     KF5::ConfigWidgets # KColorScheme
 )
+if (TARGET Qt5::DBus)
+    target_link_libraries(KF5KIOWidgets
+        PRIVATE
+            Qt5::DBus
+    )
+endif()
 
 if(ACL_FOUND)
    target_link_libraries(KF5KIOWidgets PRIVATE ${ACL_LIBS})

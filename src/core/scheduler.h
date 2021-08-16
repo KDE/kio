@@ -269,7 +269,9 @@ private:
     Q_PRIVATE_SLOT(d_func(), void slotSlaveStatus(qint64 pid, const QByteArray &protocol, const QString &host, bool connected))
 
     // connected to D-Bus signal:
+#ifndef KIO_ANDROID_STUB
     Q_PRIVATE_SLOT(d_func(), void slotReparseSlaveConfiguration(const QString &, const QDBusMessage &))
+#endif
     Q_PRIVATE_SLOT(d_func(), void slotSlaveOnHoldListChanged())
 
     Q_PRIVATE_SLOT(d_func(), void slotSlaveConnected())

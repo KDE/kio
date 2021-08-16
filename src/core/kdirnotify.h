@@ -11,6 +11,7 @@
 
 #include "kiocore_export.h"
 #include <QByteArray>
+#ifdef QT_DBUS_LIB
 #include <QDBusAbstractInterface>
 #include <QList>
 #include <QMap>
@@ -119,4 +120,5 @@ namespace kde
 typedef ::OrgKdeKDirNotifyInterface KDirNotify;
 }
 }
+#endif
 #endif

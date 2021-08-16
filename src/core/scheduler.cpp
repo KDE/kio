@@ -20,8 +20,10 @@
 #include <kprotocolmanager.h>
 //#include <KJobWidgets>
 
+#ifndef KIO_ANDROID_STUB
 #include <QDBusConnection>
 #include <QDBusMessage>
+#endif
 #include <QHash>
 #include <QThread>
 #include <QThreadStorage>
@@ -709,7 +711,9 @@ public:
     void slotSlaveDied(KIO::Slave *slave);
     void slotSlaveStatus(qint64 pid, const QByteArray &protocol, const QString &host, bool connected);
 
+#ifndef KIO_ANDROID_STUB
     void slotReparseSlaveConfiguration(const QString &, const QDBusMessage &);
+#endif
     void slotSlaveOnHoldListChanged();
 
     void slotSlaveConnected();
@@ -779,6 +783,7 @@ Scheduler::Scheduler()
 {
     setObjectName(QStringLiteral("scheduler"));
 
+#ifndef KIO_ANDROID_STUB
     const QString dbusPath = QStringLiteral("/KIO/Scheduler");
     const QString dbusInterface = QStringLiteral("org.kde.KIO.Scheduler");
     QDBusConnection dbus = QDBusConnection::sessionBus();
@@ -792,6 +797,7 @@ Scheduler::Scheduler()
                  this,
                  SLOT(slotReparseSlaveConfiguration(QString, QDBusMessage)));
     dbus.connect(QString(), dbusPath, dbusInterface, QStringLiteral("slaveOnHoldListChanged"), this, SLOT(slotSlaveOnHoldListChanged()));
+#endif
 }
 
 Scheduler::~Scheduler()
@@ -892,14 +898,17 @@ void Scheduler::checkSlaveOnHold(bool b)
 
 void Scheduler::emitReparseSlaveConfiguration()
 {
+#ifndef KIO_ANDROID_STUB
     // Do it immediately in this process, otherwise we might send a request before reparsing
     // (e.g. when changing useragent in the plugin)
     schedulerPrivate()->slotReparseSlaveConfiguration(QString(), QDBusMessage());
+#endif
 
     schedulerPrivate()->m_ignoreConfigReparse = true;
     Q_EMIT self()->reparseSlaveConfiguration(QString());
 }
 
+#ifndef KIO_ANDROID_STUB
 void SchedulerPrivate::slotReparseSlaveConfiguration(const QString &proto, const QDBusMessage &)
 {
     if (m_ignoreConfigReparse) {
@@ -935,6 +944,7 @@ void SchedulerPrivate::slotReparseSlaveConfiguration(const QString &proto, const
         }
     }
 }
+#endif
 
 void SchedulerPrivate::slotSlaveOnHoldListChanged()
 {
