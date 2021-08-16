@@ -13,8 +13,8 @@
 
 #include <QExplicitlySharedDataPointer>
 #include <QStringList>
-
 #include <memory>
+#include <sys/types.h>
 
 class KMountPointPrivate;
 
