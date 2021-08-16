@@ -1956,8 +1956,11 @@ static bool fileSystemSupportsACL(const QByteArray &path)
 {
     bool fileSystemSupportsACLs = false;
 #ifdef Q_OS_FREEBSD
-    struct statfs buf;
-    fileSystemSupportsACLs = (statfs(path.data(), &buf) == 0) && (buf.f_flags & MNT_ACLS);
+    // FIXME: unbreak and enable this
+    // Maybe use pathconf(2) to perform this check?
+    // struct statfs buf;
+    // fileSystemSupportsACLs = (statfs(path.data(), &buf) == 0) && (buf.f_flags & MNT_ACLS);
+    Q_UNUSED(path);
 #elif defined Q_OS_MACOS
     fileSystemSupportsACLs = getxattr(path.data(), "system.posix_acl_access", nullptr, 0, 0, XATTR_NOFOLLOW) >= 0 || errno == ENODATA;
 #else
