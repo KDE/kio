@@ -60,12 +60,22 @@ public:
 public:
     /**
      * Flags that specify which additional details should be fetched for each mountpoint.
-     * BasicInfoNeeded: only the basic details: mountedFrom, mountPoint, mountType.
-     * NeedMountOptions: also fetch the options used when mounting, see mountOptions.
-     * NeedRealDeviceName: also fetch the device name (with symlinks resolved), see realDeviceName.
      * @see DetailsNeededFlags
      */
-    enum DetailsNeededFlag { BasicInfoNeeded = 0, NeedMountOptions = 1, NeedRealDeviceName = 2 };
+    enum DetailsNeededFlag {
+        /**
+         * Only the basic details: mountedFrom, mountPoint, mountType.
+         */
+        BasicInfoNeeded = 0,
+        /**
+         * Also fetch the options used when mounting, see KMountPoint::mountOptions().
+         */
+        NeedMountOptions = 1,
+        /**
+         * Also fetch the device name (with symlinks resolved), see KMountPoint::realDeviceName().
+         */
+        NeedRealDeviceName = 2,
+    };
     /**
      * Stores a combination of #DetailsNeededFlag values.
      */
