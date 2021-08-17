@@ -7,9 +7,11 @@
 */
 
 #include "kmountpoint.h"
+
 #include <stdlib.h>
 
 #include <config-kmountpoint.h>
+#include <kioglobal_p.h> // Defines QT_LSTAT on windows to kio_windows_lstat
 
 #include <QDir>
 #include <QFile>
