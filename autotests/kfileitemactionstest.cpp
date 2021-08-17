@@ -71,19 +71,19 @@ void KFileItemActionsTest::testTopLevelServiceMenuActions()
         actions.setItemListProperties(KFileItemList({KFileItem(QUrl(QStringLiteral("smb://somefile.txt")))}));
         QMenu menu;
         actions.addActionsTo(&menu, KFileItemActions::MenuActionSource::Services);
-        const auto resultiongActions = menu.actions();
-        QCOMPARE(resultiongActions.count(), 2);
-        QCOMPARE(resultiongActions.at(0)->text(), "smb");
-        QCOMPARE(resultiongActions.at(1)->text(), "no_file");
+        const auto resultingActions = menu.actions();
+        QCOMPARE(resultingActions.count(), 2);
+        QCOMPARE(resultingActions.at(0)->text(), "smb");
+        QCOMPARE(resultingActions.at(1)->text(), "no_file");
     }
     {
         // Only the menu which handles URLs
         actions.setItemListProperties(KFileItemList({KFileItem(QUrl(QStringLiteral("someweirdscheme://somefile.txt")))}));
         QMenu menu;
         actions.addActionsTo(&menu, KFileItemActions::MenuActionSource::Services);
-        const auto resultiongActions = menu.actions();
-        QCOMPARE(resultiongActions.count(), 1);
-        QCOMPARE(resultiongActions.at(0)->text(), "no_file");
+        const auto resultingActions = menu.actions();
+        QCOMPARE(resultingActions.count(), 1);
+        QCOMPARE(resultingActions.at(0)->text(), "no_file");
     }
 }
 
