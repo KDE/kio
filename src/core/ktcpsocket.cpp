@@ -402,15 +402,9 @@ KTcpSocket::KTcpSocket(QObject *parent)
     connect(&d->sock, &QAbstractSocket::proxyAuthenticationRequired, this, &KTcpSocket::proxyAuthenticationRequired);
 #endif
 
-#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
-    connect(&d->sock, QOverload<QAbstractSocket::SocketError>::of(&QSslSocket::error), this, [this](QAbstractSocket::SocketError err) {
-        d->reemitSocketError(err);
-    });
-#else
     connect(&d->sock, &QSslSocket::errorOccurred, this, [this](QAbstractSocket::SocketError err) {
         d->reemitSocketError(err);
     });
-#endif
 
     connect(&d->sock, QOverload<const QList<QSslError> &>::of(&QSslSocket::sslErrors), this, [this](const QList<QSslError> &errorList) {
         d->reemitSslErrors(errorList);
@@ -546,11 +540,7 @@ QList<KSslError> KTcpSocket::sslErrors() const
     //### pretty slow; also consider throwing out duplicate error codes. We may get
     //    duplicates even though there were none in the original list because KSslError
     //    has a smallest common denominator range of SSL error codes.
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     const auto qsslErrors = d->sock.sslHandshakeErrors();
-#else
-    const auto qsslErrors = d->sock.sslErrors();
-#endif
     QList<KSslError> ret;
     ret.reserve(qsslErrors.size());
     for (const QSslError &e : qsslErrors) {
@@ -643,11 +633,7 @@ bool KTcpSocket::waitForDisconnected(int msecs)
 void KTcpSocket::addCaCertificate(const QSslCertificate &certificate)
 {
     d->maybeLoadCertificates();
-#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
-    d->sock.addCaCertificate(certificate);
-#else
     d->sock.sslConfiguration().addCaCertificate(certificate);
-#endif
 }
 
 /*
@@ -662,11 +648,7 @@ bool KTcpSocket::addCaCertificates(const QString &path, QSsl::EncodingFormat for
 void KTcpSocket::addCaCertificates(const QList<QSslCertificate> &certificates)
 {
     d->maybeLoadCertificates();
-#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
-    d->sock.addCaCertificates(certificates);
-#else
     d->sock.sslConfiguration().addCaCertificates(certificates);
-#endif
 }
 
 QList<QSslCertificate> KTcpSocket::caCertificates() const
@@ -816,11 +798,7 @@ void KTcpSocket::startClientEncryption()
 // debugging H4X
 void KTcpSocket::showSslErrors()
 {
-#if (QT_VERSION < QT_VERSION_CHECK(5, 15, 0))
-    const QList<QSslError> list = d->sock.sslErrors();
-#else
     const QList<QSslError> list = d->sock.sslHandshakeErrors();
-#endif
     for (const QSslError &e : list) {
         qCDebug(KIO_CORE) << e.errorString();
     }
