@@ -40,9 +40,7 @@ bool KFilePlaceEditDialog::getInformation(bool allowGlobal,
         // set the return parameters
         url = dialog->url();
         label = dialog->label();
-        if (dialog->isIconEditable()) {
-            icon = dialog->icon();
-        }
+        icon = dialog->icon();
         appLocal = dialog->applicationLocal();
 
         delete dialog;
@@ -117,11 +115,16 @@ KFilePlaceEditDialog::KFilePlaceEditDialog(bool allowGlobal,
     }
     m_iconButton->setWhatsThis(whatsThisText);
 
-    if (isIconEditable()) {
+    if (url.scheme() == QLatin1String("trash")) {
+        // Since there are separate trash icons when it is empty/non-empty,
+        // the trash item's icon is made non-editable for simplicity
+        m_iconButton->hide();
+        // making the trash item's url editable misleads users into
+        // thinking that the actual trash location is configurable here
+        m_urlEdit->setDisabled(true);
+    } else {
         layout->addRow(i18n("Choose an &icon:"), m_iconButton);
         layout->labelForField(m_iconButton)->setWhatsThis(whatsThisText);
-    } else {
-        m_iconButton->hide();
     }
 
     if (allowGlobal) {
@@ -203,7 +206,9 @@ bool KFilePlaceEditDialog::applicationLocal() const
     return m_appLocal->isChecked();
 }
 
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 86)
 bool KFilePlaceEditDialog::isIconEditable() const
 {
     return url().scheme() != QLatin1String("trash");
 }
+#endif

@@ -103,12 +103,16 @@ public:
      */
     QString icon() const;
 
+#if KIOFILEWIDGETS_ENABLE_DEPRECATED_SINCE(5, 86)
     /**
      * @returns whether the item's icon is editable, because all icons are not
      * (e.g. the Trash can display two icons, representing its full and empty states, and
      * it is simpler to make these icons non-editable rather than to provide an interface to edit them both)
+     * @deprecated Since 5.86. It was not used anywhere outside KFilePlaceEditDialog
      */
+    KIOFILEWIDGETS_DEPRECATED_VERSION(5, 86, "Removed since it was never used outside KFilePlaceEditDialog")
     bool isIconEditable() const;
+#endif
 
     /**
      * @returns whether the item should be local to the application or global.
