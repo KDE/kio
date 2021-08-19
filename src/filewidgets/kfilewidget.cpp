@@ -377,6 +377,7 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
     d->m_ops->setObjectName(QStringLiteral("KFileWidget::ops"));
     d->m_ops->setIsSaving(d->m_operationMode == Saving);
     d->m_ops->setNewFileMenuSelectDirWhenAlreadyExist(true);
+    d->m_ops->showOpenWithActions(true);
     opsWidgetLayout->addWidget(d->m_ops);
     connect(d->m_ops, &KDirOperator::urlEntered, this, [this](const QUrl &url) {
         d->urlEntered(url);

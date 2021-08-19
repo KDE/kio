@@ -21,6 +21,8 @@
 #include "kpreviewwidgetbase.h"
 #include <KActionCollection>
 #include <KConfigGroup>
+#include <KFileItemActions>
+#include <KFileItemListProperties>
 #include <KIO/OpenFileManagerWindowJob>
 #include <KIO/RenameFileDialog>
 #include <KIconLoader>
@@ -148,6 +150,8 @@ public:
     void writeIconZoomSettingsIfNeeded();
     ZoomSettingsForView zoomSettingsForViewForView() const;
 
+    QList<QAction *> insertOpenWithActions();
+
     // private members
     KDirOperator *const q;
     QStack<QUrl *> m_backStack; ///< Contains all URLs you can reach with the back button.
@@ -197,6 +201,7 @@ public:
     KFilePreviewGenerator *m_previewGenerator = nullptr;
     KActionMenu *m_decorationMenu = nullptr;
     KToggleAction *m_leftAction = nullptr;
+    KFileItemActions *m_itemActions = nullptr;
 
     int m_dropOptions = 0;
     int m_iconSize = KIconLoader::SizeSmall;
@@ -205,6 +210,7 @@ public:
     bool m_showPreviews = false;
     bool m_shouldFetchForItems = false;
     bool m_isSaving = false;
+    bool m_showOpenWithActions = false;
 
     QList<QUrl> m_itemsToBeSetAsCurrent;
     QStringList m_supportedSchemes;
@@ -1307,7 +1313,47 @@ void KDirOperator::activatedMenu(const KFileItem &item, const QPoint &pos)
 
     Q_EMIT contextMenuAboutToShow(item, d->m_actionMenu->menu());
 
+    // Must be right before we call QMenu::exec(), otherwise we might remove
+    // other non-related actions along with the open-with ones
+    const QList<QAction *> openWithActions = d->insertOpenWithActions();
+
     d->m_actionMenu->menu()->exec(pos);
+
+    // Remove the open-with actions, otherwise they would accumulate in the menu
+    for (auto *action : openWithActions) {
+        d->m_actionMenu->menu()->removeAction(action);
+    }
+}
+
+QList<QAction *> KDirOperatorPrivate::insertOpenWithActions()
+{
+    if (!m_showOpenWithActions) {
+        return {};
+    }
+
+    const QList<QAction *> beforeOpenWith = m_actionMenu->menu()->actions();
+
+    const KFileItemList items = q->selectedItems();
+    if (!items.isEmpty()) {
+        m_itemActions->setItemListProperties(KFileItemListProperties(items));
+        const QList<QAction *> actions = m_actionMenu->menu()->actions();
+        QAction *before = !actions.isEmpty() ? actions.at(0) : nullptr;
+        m_itemActions->insertOpenWithActionsTo(before, m_actionMenu->menu(), QStringList());
+    }
+
+    // Get the list of the added open-with actions
+    QList<QAction *> toRemove = m_actionMenu->menu()->actions();
+    auto it = std::remove_if(toRemove.begin(), toRemove.end(), [beforeOpenWith](QAction *a) {
+        return beforeOpenWith.contains(a);
+    });
+    toRemove.erase(it, toRemove.end());
+
+    return toRemove;
+}
+
+void KDirOperator::showOpenWithActions(bool enable)
+{
+    d->m_showOpenWithActions = enable;
 }
 
 void KDirOperator::changeEvent(QEvent *event)
@@ -2246,6 +2292,8 @@ void KDirOperator::setupActions()
     viewMenu->addAction(detailedTreeAction);
     // TODO: QAbstractItemView does not offer an action collection. Provide
     // an interface to add a custom action collection.
+
+    d->m_itemActions = new KFileItemActions(this);
 
     d->m_newFileMenu = new KNewFileMenu(d->m_actionCollection, QStringLiteral("new"), this);
     connect(d->m_newFileMenu, &KNewFileMenu::directoryCreated, this, [this](const QUrl &url) {

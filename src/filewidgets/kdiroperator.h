@@ -682,6 +682,16 @@ public:
      */
     QStringList supportedSchemes() const;
 
+    /**
+     * Call with @c true to add open-with actions to items in the view.
+     * This can be useful when you're attaching an image or text file to
+     * an email or uploading an image to some online service, and need to
+     * check the contents before going forward.
+     *
+     * @since 5.87
+     */
+    void showOpenWithActions(bool enable);
+
 protected:
     /**
      * A view factory for creating predefined fileviews. Called internally by setView,
