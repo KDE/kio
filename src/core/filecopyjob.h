@@ -109,15 +109,17 @@ private:
  *
  * Uses either SlaveBase::copy() if the slave supports that
  * or get() and put() otherwise.
- * @param src Where to get the file.
- * @param dest Where to put the file.
+ *
+ * @param src Where to get the file
+ * @param dest Where to put the file
  * @param permissions the file mode permissions to set on @p dest; if this is -1
  * (the default), the permissions of @p src are preserved, i.e. @p dest will have
  * the same permissions as @p src if possible (this depends on what the destination
  * filesystem actually supports)
- * @param flags Can be HideProgressInfo, Overwrite and Resume here. WARNING:
- * Setting Resume means that the data will be appended to @p dest if @p dest exists.
- * @return the job handling the operation.
+ * @param flags Can be @ref JobFlag::HideProgressInfo, Overwrite and Resume here
+ * WARNING: Setting @ref JobFlag::Resume means that the data will be appended to
+ * @p dest if @p dest exists
+ * @return the job handling the operation
  */
 KIOCORE_EXPORT FileCopyJob *file_copy(const QUrl &src, const QUrl &dest, int permissions = -1, JobFlags flags = DefaultFlags);
 
@@ -133,15 +135,17 @@ FileCopyJob *file_copy(const QUrl &src, const QUrl &dest, JobFlags flags) Q_DECL
  *
  * Use either SlaveBase::rename() if the slave supports that,
  * or copy() and del() otherwise, or eventually get() & put() & del()
- * @param src Where to get the file.
- * @param dest Where to put the file.
+ *
+ * @param src Where to get the file
+ * @param dest Where to put the file
  * @param permissions the file mode permissions to set on @p dest; if this is -1
  * (the default), the permissions of @p src are preserved, i.e. @p dest will have
  * the same permissions as @p src if possible (this depends on what the destination
  * filesystem actually supports)
- * @param flags Can be HideProgressInfo, Overwrite and Resume here. WARNING:
- * Setting Resume means that the data will be appended to @p dest if @p dest exists.
- * @return the job handling the operation.
+ * @param flags Can be HideProgressInfo, Overwrite and Resume here
+ * WARNING: Setting @ref JobFlag::Resume means that the data will be appended to
+ * @p dest if @p dest exists
+ * @return the job handling the operation
  */
 KIOCORE_EXPORT FileCopyJob *file_move(const QUrl &src, const QUrl &dest, int permissions = -1, JobFlags flags = DefaultFlags);
 
