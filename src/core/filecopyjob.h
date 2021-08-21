@@ -111,7 +111,10 @@ private:
  * or get() and put() otherwise.
  * @param src Where to get the file.
  * @param dest Where to put the file.
- * @param permissions May be -1. In this case no special permission mode is set.
+ * @param permissions the file mode permissions to set on @p dest; if this is -1
+ * (the default), the permissions of @p src are preserved, i.e. @p dest will have
+ * the same permissions as @p src if possible (this depends on what the destination
+ * filesystem actually supports)
  * @param flags Can be HideProgressInfo, Overwrite and Resume here. WARNING:
  * Setting Resume means that the data will be appended to @p dest if @p dest exists.
  * @return the job handling the operation.
@@ -132,7 +135,10 @@ FileCopyJob *file_copy(const QUrl &src, const QUrl &dest, JobFlags flags) Q_DECL
  * or copy() and del() otherwise, or eventually get() & put() & del()
  * @param src Where to get the file.
  * @param dest Where to put the file.
- * @param permissions May be -1. In this case no special permission mode is set.
+ * @param permissions the file mode permissions to set on @p dest; if this is -1
+ * (the default), the permissions of @p src are preserved, i.e. @p dest will have
+ * the same permissions as @p src if possible (this depends on what the destination
+ * filesystem actually supports)
  * @param flags Can be HideProgressInfo, Overwrite and Resume here. WARNING:
  * Setting Resume means that the data will be appended to @p dest if @p dest exists.
  * @return the job handling the operation.
