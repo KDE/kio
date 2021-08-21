@@ -1002,11 +1002,7 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mode, JobF
         _mode = buff_src.st_mode;
     }
 
-    if ((::chmod(_dest.data(), _mode) != 0)
-#if HAVE_POSIX_ACL
-        || (acl && acl_set_file(_dest.data(), ACL_TYPE_ACCESS, acl) != 0)
-#endif
-    ) {
+    if (::chmod(_dest.data(), _mode) != 0) {
         const int errCode = errno;
         KMountPoint::Ptr mp = KMountPoint::currentMountPoints().findByPath(dest);
         // Eat the error if the filesystem apparently doesn't support chmod.
@@ -1018,7 +1014,15 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mode, JobF
             }
         }
     }
+
 #if HAVE_POSIX_ACL
+    // If no special mode is given, preserve the ACL attributes from the source file
+    if (_mode == -1) {
+        if (acl && acl_set_file(_dest.data(), ACL_TYPE_ACCESS, acl) != 0) {
+            qCWarning(KIO_FILE) << "Could not set ACL permissions for" << dest;
+        }
+    }
+
     if (acl) {
         acl_free(acl);
     }
