@@ -12,8 +12,10 @@
 #include <QDBusMessage>
 #include <QDBusPendingCallWatcher>
 #include <QDBusPendingReply>
+#include <QGuiApplication>
 
 #include <KJobWidgets>
+#include <KWindowSystem>
 
 #include <KIO/JobUiDelegate>
 #include <KIO/OpenUrlJob>
@@ -106,8 +108,25 @@ OpenFileManagerWindowJob *highlightInFileManager(const QList<QUrl> &urls, const 
 {
     auto *job = new OpenFileManagerWindowJob();
     job->setHighlightUrls(urls);
-    job->setStartupId(asn);
-    job->start();
+
+    if (asn.isNull()){
+        auto window = qGuiApp->focusWindow();
+        if (!window && !qGuiApp->allWindows().isEmpty()) {
+            window = qGuiApp->allWindows().constFirst();
+        }
+        const int launchedSerial = KWindowSystem::lastInputSerial(window);
+        QObject::connect(KWindowSystem::self(), &KWindowSystem::xdgActivationTokenArrived, job, [launchedSerial, job](int serial, const QString &token) {
+            if (serial == launchedSerial) {
+                job->setStartupId(token.toLatin1());
+                job->start();
+            }
+        });
+        KWindowSystem::requestXdgActivationToken(window, launchedSerial, {});
+    } else {
+        job->setStartupId(asn);
+        job->start();
+    }
+
     return job;
 }
 
