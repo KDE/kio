@@ -831,6 +831,67 @@ void JobTest::copyFileToOtherPartition()
     copyLocalFile(filePath, dest);
 }
 
+// Same partition doesn't matter as much as copying to the same filesystem type
+// to be sure it supports the same permissions
+void JobTest::testCopyFilePermissionsToSamePartition()
+{
+#if defined(Q_OS_UNIX)
+    const QString homeDir = homeTmpDir();
+    const QString src = homeDir + "fileFromHome";
+    const QUrl u = QUrl::fromLocalFile(src);
+    createTestFile(src);
+
+    const QByteArray src_c = QFile::encodeName(src).constData();
+    QT_STATBUF src_buff;
+    QCOMPARE(QT_LSTAT(src_c.constData(), &src_buff), 0); // Exists
+    // Default system permissions for newly created files, umask et al.
+    const mode_t systemDefaultPerms = src_buff.st_mode;
+
+    const QString dest = homeDir + "fileFromHome_copied";
+    const QUrl d = QUrl::fromLocalFile(dest);
+
+    const QByteArray dest_c = QFile::encodeName(dest).constData();
+    QT_STATBUF dest_buff;
+
+    // Copy the file, with -1 permissions (i.e. don't touch dest permissions)
+    auto copyStat = [&](const mode_t perms) {
+        KIO::Job *job = KIO::file_copy(u, d, perms, KIO::HideProgressInfo);
+        job->setUiDelegate(nullptr);
+        QVERIFY2(job->exec(), qPrintable(job->errorString()));
+        QCOMPARE(QT_LSTAT(dest_c.constData(), &dest_buff), 0);
+    };
+
+    copyStat(-1);
+    // dest should have system default permissions
+    QCOMPARE(dest_buff.st_mode, systemDefaultPerms);
+
+    QVERIFY(QFile::remove(dest));
+    // Change src permissions to non-default
+    QCOMPARE(::chmod(src_c.constData(), S_IRUSR), 0);
+    // Copy the file again, permissions -1 (i.e. don't touch dest permissions)
+    copyStat(-1);
+    // dest should have system default permissions, not src's ones
+    QCOMPARE(dest_buff.st_mode, systemDefaultPerms);
+
+    QVERIFY(QFile::remove(dest));
+    // Copy the file again, explicitly setting the permissions to the src ones
+    copyStat(src_buff.st_mode);
+    // dest should have same permissions as src
+    QCOMPARE(dest_buff.st_mode, dest_buff.st_mode);
+
+    QVERIFY(QFile::remove(dest));
+    // Copy the file again, explicitly setting some other permissions
+    copyStat(S_IWUSR);
+    // dest should have S_IWUSR
+    QCOMPARE(dest_buff.st_mode & 0777, S_IWUSR);
+#endif
+
+    // Clean up, the weird permissions used above mess with the next
+    // unit tests
+    QVERIFY(QFile::remove(dest));
+    QVERIFY(QFile::remove(src));
+}
+
 void JobTest::copyDirectoryToOtherPartition()
 {
     // qDebug();
