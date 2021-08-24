@@ -22,7 +22,7 @@
 
 static const char NTLM_SIGNATURE[] = "NTLMSSP";
 
-static Q_CONSTEXPR int NTLM_BLOB_SIZE = 28;
+static constexpr int NTLM_BLOB_SIZE = 28;
 
 static QByteArray QString2UnicodeLE(const QString &target)
 {
