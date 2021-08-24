@@ -113,9 +113,8 @@ private:
  * @param src Where to get the file
  * @param dest Where to put the file
  * @param permissions the file mode permissions to set on @p dest; if this is -1
- * (the default), the permissions of @p src are preserved, i.e. @p dest will have
- * the same permissions as @p src if possible (this depends on what the destination
- * filesystem actually supports)
+ * (the default) no special permissions will be set on @p dest, i.e. it'll have
+ * the default system permissions for newly created files.
  * @param flags Can be @ref JobFlag::HideProgressInfo, Overwrite and Resume here
  * WARNING: Setting @ref JobFlag::Resume means that the data will be appended to
  * @p dest if @p dest exists
@@ -139,9 +138,8 @@ FileCopyJob *file_copy(const QUrl &src, const QUrl &dest, JobFlags flags) Q_DECL
  * @param src Where to get the file
  * @param dest Where to put the file
  * @param permissions the file mode permissions to set on @p dest; if this is -1
- * (the default), the permissions of @p src are preserved, i.e. @p dest will have
- * the same permissions as @p src if possible (this depends on what the destination
- * filesystem actually supports)
+ * (the default), no special permissions are set on @p dest, i.e. it'll have
+ * the default system permissions for newly created files.
  * @param flags Can be HideProgressInfo, Overwrite and Resume here
  * WARNING: Setting @ref JobFlag::Resume means that the data will be appended to
  * @p dest if @p dest exists

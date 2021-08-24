@@ -765,9 +765,21 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mode, JobF
         }
     }
 
-    // nobody shall be allowed to peek into the file during creation
-    // Note that error handling is omitted for this call, we don't want to error on e.g. VFAT
-    dest_file.setPermissions(QFileDevice::ReadOwner | QFileDevice::WriteOwner);
+    // _mode == -1 means don't touch dest permissions, leave it with the system default ones
+    if (_mode != -1) {
+        if (::chmod(_dest.constData(), _mode) == -1) {
+            const int errCode = errno;
+            KMountPoint::Ptr mp = KMountPoint::currentMountPoints().findByPath(dest);
+            // Eat the error if the filesystem apparently doesn't support chmod.
+            // This test isn't fullproof though, vboxsf (VirtualBox shared folder) supports
+            // chmod if the host is Linux, and doesn't if the host is Windows. Hard to detect.
+            if (mp && mp->testFileSystemFlag(KMountPoint::SupportsChmod)) {
+                if (tryChangeFileAttr(CHMOD, {_dest, _mode}, errCode)) {
+                    qCWarning(KIO_FILE) << "Could not change permissions for" << dest;
+                }
+            }
+        }
+    }
 
 #if HAVE_FADVISE
     posix_fadvise(dest_file.handle(), 0, 0, POSIX_FADV_SEQUENTIAL);
@@ -944,25 +956,6 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mode, JobF
             execWithElevatedPrivilege(DEL, {_dest}, errno);
         }
         return;
-    }
-
-    // set final permissions
-    // if no special mode given, preserve the mode from the sourcefile
-    if (_mode == -1) {
-        _mode = buff_src.st_mode;
-    }
-
-    if (::chmod(_dest.data(), _mode) != 0) {
-        const int errCode = errno;
-        KMountPoint::Ptr mp = KMountPoint::currentMountPoints().findByPath(dest);
-        // Eat the error if the filesystem apparently doesn't support chmod.
-        // This test isn't fullproof though, vboxsf (VirtualBox shared folder) supports
-        // chmod if the host is Linux, and doesn't if the host is Windows. Hard to detect.
-        if (mp && mp->testFileSystemFlag(KMountPoint::SupportsChmod)) {
-            if (tryChangeFileAttr(CHMOD, {_dest, _mode}, errCode)) {
-                qCWarning(KIO_FILE) << "Could not change permissions for" << dest;
-            }
-        }
     }
 
 #if HAVE_POSIX_ACL
