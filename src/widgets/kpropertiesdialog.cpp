@@ -3497,9 +3497,16 @@ void KDesktopPropsPlugin::slotAdvanced()
 {
     auto *dlg = new QDialog(d->m_frame);
     dlg->setObjectName(QStringLiteral("KPropertiesDesktopAdv"));
-    dlg->setModal(true);
     dlg->setAttribute(Qt::WA_DeleteOnClose);
     dlg->setWindowTitle(i18n("Advanced Options for %1", properties->url().fileName()));
+
+    // Making the dialog modal blocks access to the parent KPropertiesDialog, _and_
+    // the parent app that launched KPropertiesDialog (e.g. Dolphin, or plasmashell)
+    dlg->setModal(false);
+    d->w->advancedButton->setEnabled(false);
+    QObject::connect(dlg, &QDialog::finished, d->w->advancedButton, [this]() {
+        d->w->advancedButton->setEnabled(true);
+    });
 
     d->m_uiAdvanced.reset(new Ui_KPropertiesDesktopAdvBase);
     QWidget *mainWidget = new QWidget(dlg);
