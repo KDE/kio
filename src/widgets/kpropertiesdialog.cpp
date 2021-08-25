@@ -1960,28 +1960,27 @@ static bool fileSystemSupportsACL(const QByteArray &path)
 void KFilePermissionsPropsPlugin::slotShowAdvancedPermissions()
 {
     bool isDir = (d->pmode == PermissionsOnlyDirs) || (d->pmode == PermissionsMixed);
-    QDialog dlg(properties);
-    dlg.setModal(true);
-    dlg.setWindowTitle(i18n("Advanced Permissions"));
+    auto *dlg = new QDialog(properties);
+    dlg->setModal(true);
+    dlg->setWindowTitle(i18n("Advanced Permissions"));
+    dlg->setAttribute(Qt::WA_DeleteOnClose);
 
-    QLabel *l;
-    QLabel *cl[3];
-    QGroupBox *gb;
-    QGridLayout *gl;
+    QGroupBox *groupBox;
+    QGridLayout *gridLayout;
 
-    QVBoxLayout *vbox = new QVBoxLayout(&dlg);
+    QVBoxLayout *vbox = new QVBoxLayout(dlg);
     // Group: Access Permissions
-    gb = new QGroupBox(i18n("Access Permissions"), &dlg);
-    vbox->addWidget(gb);
+    groupBox = new QGroupBox(i18n("Access Permissions"), dlg);
+    vbox->addWidget(groupBox);
 
-    gl = new QGridLayout(gb);
-    gl->addItem(new QSpacerItem(0, 10), 0, 0);
+    gridLayout = new QGridLayout(groupBox);
+    gridLayout->addItem(new QSpacerItem(0, 10), 0, 0);
 
     QVector<QWidget *> theNotSpecials;
 
-    l = new QLabel(i18n("Class"), gb);
-    gl->addWidget(l, 1, 0);
-    theNotSpecials.append(l);
+    QLabel *label = new QLabel(i18n("Class"), groupBox);
+    gridLayout->addWidget(label, 1, 0);
+    theNotSpecials.append(label);
 
     QString readWhatsThis;
     QString readLabel;
@@ -2015,13 +2014,13 @@ void KFilePermissionsPropsPlugin::slotShowAdvancedPermissions()
         execWhatsThis = i18n("Enable this flag to allow executing the file as a program.");
     }
     // GJ: Add space between normal and special modes
-    QSize size = l->sizeHint();
+    QSize size = label->sizeHint();
     size.setWidth(size.width() + 15);
-    l->setFixedSize(size);
-    gl->addWidget(l, 1, 3);
+    label->setFixedSize(size);
+    gridLayout->addWidget(label, 1, 3);
 
-    l = new QLabel(i18n("Special"), gb);
-    gl->addWidget(l, 1, 4, 1, 1);
+    label = new QLabel(i18n("Special"), groupBox);
+    gridLayout->addWidget(label, 1, 4, 1, 1);
     QString specialWhatsThis;
     if (isDir) {
         specialWhatsThis = i18n(
@@ -2032,19 +2031,19 @@ void KFilePermissionsPropsPlugin::slotShowAdvancedPermissions()
             "Special flag. The exact meaning of the flag can be seen "
             "in the right hand column.");
     }
-    l->setWhatsThis(specialWhatsThis);
+    label->setWhatsThis(specialWhatsThis);
 
-    cl[0] = new QLabel(i18n("User"), gb);
-    gl->addWidget(cl[0], 2, 0);
-    theNotSpecials.append(cl[0]);
+    label = new QLabel(i18n("User"), groupBox);
+    gridLayout->addWidget(label, 2, 0);
+    theNotSpecials.append(label);
 
-    cl[1] = new QLabel(i18n("Group"), gb);
-    gl->addWidget(cl[1], 3, 0);
-    theNotSpecials.append(cl[1]);
+    label = new QLabel(i18n("Group"), groupBox);
+    gridLayout->addWidget(label, 3, 0);
+    theNotSpecials.append(label);
 
-    cl[2] = new QLabel(i18n("Others"), gb);
-    gl->addWidget(cl[2], 4, 0);
-    theNotSpecials.append(cl[2]);
+    label = new QLabel(i18n("Others"), groupBox);
+    gridLayout->addWidget(label, 4, 0);
+    theNotSpecials.append(label);
 
     QString setUidWhatsThis;
     if (isDir) {
@@ -2106,7 +2105,7 @@ void KFilePermissionsPropsPlugin::slotShowAdvancedPermissions()
     QCheckBox *cba[3][4];
     for (int row = 0; row < 3; ++row) {
         for (int col = 0; col < 4; ++col) {
-            QCheckBox *cb = new QCheckBox(gb);
+            QCheckBox *cb = new QCheckBox(groupBox);
             if (col != 3) {
                 theNotSpecials.append(cb);
             }
@@ -2120,7 +2119,7 @@ void KFilePermissionsPropsPlugin::slotShowAdvancedPermissions()
             }
 
             cb->setEnabled(d->canChangePermissions);
-            gl->addWidget(cb, row + 2, col + 1);
+            gridLayout->addWidget(cb, row + 2, col + 1);
             switch (col) {
             case 0:
                 cb->setText(readLabel);
@@ -2153,7 +2152,7 @@ void KFilePermissionsPropsPlugin::slotShowAdvancedPermissions()
             }
         }
     }
-    gl->setColumnStretch(6, 10);
+    gridLayout->setColumnStretch(6, 10);
 
 #if HAVE_POSIX_ACL
     KACLEditWidget *extendedACLs = nullptr;
@@ -2165,7 +2164,7 @@ void KFilePermissionsPropsPlugin::slotShowAdvancedPermissions()
     }
     if (d->fileSystemSupportsACLs) {
         std::for_each(theNotSpecials.begin(), theNotSpecials.end(), std::mem_fn(&QWidget::hide));
-        extendedACLs = new KACLEditWidget(&dlg);
+        extendedACLs = new KACLEditWidget(dlg);
         extendedACLs->setEnabled(d->canChangePermissions);
         vbox->addWidget(extendedACLs);
         if (d->extendedACL.isValid() && d->extendedACL.isExtended()) {
@@ -2184,60 +2183,60 @@ void KFilePermissionsPropsPlugin::slotShowAdvancedPermissions()
     }
 #endif
 
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(&dlg);
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(dlg);
     buttonBox->setStandardButtons(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
-    connect(buttonBox, &QDialogButtonBox::accepted, &dlg, &QDialog::accept);
-    connect(buttonBox, &QDialogButtonBox::rejected, &dlg, &QDialog::reject);
+    connect(buttonBox, &QDialogButtonBox::accepted, dlg, &QDialog::accept);
+    connect(buttonBox, &QDialogButtonBox::rejected, dlg, &QDialog::reject);
     vbox->addWidget(buttonBox);
 
-    if (dlg.exec() != QDialog::Accepted) {
-        return;
-    }
+    QObject::connect(dlg, &QDialog::accepted, this, [this, extendedACLs, cba]() {
+        mode_t andPermissions = mode_t(~0);
+        mode_t orPermissions = 0;
+        for (int row = 0; row < 3; ++row) {
+            for (int col = 0; col < 4; ++col) {
+                switch (cba[row][col]->checkState()) {
+                case Qt::Checked:
+                    orPermissions |= fperm[row][col];
+                // fall through
+                case Qt::Unchecked:
+                    andPermissions &= ~fperm[row][col];
+                    break;
+                case Qt::PartiallyChecked:
+                    break;
+                }
+            }
+        }
 
-    mode_t andPermissions = mode_t(~0);
-    mode_t orPermissions = 0;
-    for (int row = 0; row < 3; ++row) {
-        for (int col = 0; col < 4; ++col) {
-            switch (cba[row][col]->checkState()) {
-            case Qt::Checked:
-                orPermissions |= fperm[row][col];
-            // fall through
-            case Qt::Unchecked:
-                andPermissions &= ~fperm[row][col];
-                break;
-            case Qt::PartiallyChecked:
+        d->isIrregular = false;
+        const KFileItemList items = properties->items();
+        KFileItemList::const_iterator it = items.begin();
+        const KFileItemList::const_iterator kend = items.end();
+        for (; it != kend; ++it) {
+            if (isIrregular(((*it).permissions() & andPermissions) | orPermissions, (*it).isDir(), (*it).isLink())) {
+                d->isIrregular = true;
                 break;
             }
         }
-    }
 
-    d->isIrregular = false;
-    const KFileItemList items = properties->items();
-    KFileItemList::const_iterator it = items.begin();
-    const KFileItemList::const_iterator kend = items.end();
-    for (; it != kend; ++it) {
-        if (isIrregular(((*it).permissions() & andPermissions) | orPermissions, (*it).isDir(), (*it).isLink())) {
-            d->isIrregular = true;
-            break;
+        d->permissions = orPermissions;
+        d->partialPermissions = andPermissions;
+
+    #if HAVE_POSIX_ACL
+        // override with the acls, if present
+        if (extendedACLs) {
+            d->extendedACL = extendedACLs->getACL();
+            d->defaultACL = extendedACLs->getDefaultACL();
+            d->hasExtendedACL = d->extendedACL.isExtended() || d->defaultACL.isValid();
+            d->permissions = d->extendedACL.basePermissions();
+            d->permissions |= (andPermissions | orPermissions) & (S_ISUID | S_ISGID | S_ISVTX);
         }
-    }
+    #endif
 
-    d->permissions = orPermissions;
-    d->partialPermissions = andPermissions;
+        updateAccessControls();
+        Q_EMIT changed();
+    });
 
-#if HAVE_POSIX_ACL
-    // override with the acls, if present
-    if (extendedACLs) {
-        d->extendedACL = extendedACLs->getACL();
-        d->defaultACL = extendedACLs->getDefaultACL();
-        d->hasExtendedACL = d->extendedACL.isExtended() || d->defaultACL.isValid();
-        d->permissions = d->extendedACL.basePermissions();
-        d->permissions |= (andPermissions | orPermissions) & (S_ISUID | S_ISGID | S_ISVTX);
-    }
-#endif
-
-    updateAccessControls();
-    Q_EMIT changed();
+    dlg->show();
 }
 
 KFilePermissionsPropsPlugin::~KFilePermissionsPropsPlugin() = default;
