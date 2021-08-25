@@ -123,7 +123,7 @@ public:
     static bool supports(const KFileItemList &_items);
 
 private Q_SLOTS:
-    void slotShowAdvancedPermissions();
+    void slotShowAdvancedPermissions(QPushButton *advButton);
 
 Q_SIGNALS:
     void changesApplied();

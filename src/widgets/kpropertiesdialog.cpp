@@ -1834,7 +1834,9 @@ KFilePermissionsPropsPlugin::KFilePermissionsPropsPlugin(KPropertiesDialog *_pro
 
         pbAdvancedPerm = new QPushButton(i18n("A&dvanced Permissions"), gb);
         gl->addWidget(pbAdvancedPerm, 6, 0, 1, 2, Qt::AlignRight);
-        connect(pbAdvancedPerm, &QAbstractButton::clicked, this, &KFilePermissionsPropsPlugin::slotShowAdvancedPermissions);
+        connect(pbAdvancedPerm, &QAbstractButton::clicked, this, [this, pbAdvancedPerm]() {
+            slotShowAdvancedPermissions(pbAdvancedPerm);
+        });
     } else {
         d->extraCheckbox = nullptr;
     }
@@ -1957,13 +1959,20 @@ static bool fileSystemSupportsACL(const QByteArray &path)
 }
 #endif
 
-void KFilePermissionsPropsPlugin::slotShowAdvancedPermissions()
+void KFilePermissionsPropsPlugin::slotShowAdvancedPermissions(QPushButton *advButton)
 {
     bool isDir = (d->pmode == PermissionsOnlyDirs) || (d->pmode == PermissionsMixed);
     auto *dlg = new QDialog(properties);
-    dlg->setModal(true);
     dlg->setWindowTitle(i18n("Advanced Permissions"));
     dlg->setAttribute(Qt::WA_DeleteOnClose);
+
+    // Making the dialog modal blocks access to the parent KPropertiesDialog, _and_
+    // the parent app that launched KPropertiesDialog (e.g. Dolphin, or plasmashell)
+    dlg->setModal(false);
+    advButton->setEnabled(false);
+    QObject::connect(dlg, &QDialog::finished, advButton, [advButton]() {
+        advButton->setEnabled(true);
+    });
 
     QGroupBox *groupBox;
     QGridLayout *gridLayout;
