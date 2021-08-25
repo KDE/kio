@@ -3189,6 +3189,7 @@ public:
     }
     Ui_KPropertiesDesktopBase *w;
     QWidget *m_frame = nullptr;
+    std::unique_ptr<Ui_KPropertiesDesktopAdvBase> m_uiAdvanced;
 
     QString m_origCommandStr;
     QString m_terminalOptionStr;
@@ -3513,21 +3514,22 @@ void KDesktopPropsPlugin::slotBrowseExec()
 
 void KDesktopPropsPlugin::slotAdvanced()
 {
-    QDialog dlg(d->m_frame);
-    dlg.setObjectName(QStringLiteral("KPropertiesDesktopAdv"));
-    dlg.setModal(true);
-    dlg.setWindowTitle(i18n("Advanced Options for %1", properties->url().fileName()));
+    auto *dlg = new QDialog(d->m_frame);
+    dlg->setObjectName(QStringLiteral("KPropertiesDesktopAdv"));
+    dlg->setModal(true);
+    dlg->setAttribute(Qt::WA_DeleteOnClose);
+    dlg->setWindowTitle(i18n("Advanced Options for %1", properties->url().fileName()));
 
-    Ui_KPropertiesDesktopAdvBase w;
-    QWidget *mainWidget = new QWidget(&dlg);
-    w.setupUi(mainWidget);
+    d->m_uiAdvanced.reset(new Ui_KPropertiesDesktopAdvBase);
+    QWidget *mainWidget = new QWidget(dlg);
+    d->m_uiAdvanced->setupUi(mainWidget);
 
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(&dlg);
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(dlg);
     buttonBox->setStandardButtons(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
-    connect(buttonBox, &QDialogButtonBox::accepted, &dlg, &QDialog::accept);
-    connect(buttonBox, &QDialogButtonBox::rejected, &dlg, &QDialog::reject);
+    connect(buttonBox, &QDialogButtonBox::accepted, dlg, &QDialog::accept);
+    connect(buttonBox, &QDialogButtonBox::rejected, dlg, &QDialog::reject);
 
-    QVBoxLayout *layout = new QVBoxLayout(&dlg);
+    QVBoxLayout *layout = new QVBoxLayout(dlg);
     layout->addWidget(mainWidget);
     layout->addWidget(buttonBox);
 
@@ -3544,39 +3546,39 @@ void KDesktopPropsPlugin::slotAdvanced()
 
     if (preferredTerminal == QLatin1String("konsole")) {
         terminalCloseBool = d->m_terminalOptionStr.contains(QLatin1String("--noclose"));
-        w.terminalCloseCheck->setChecked(terminalCloseBool);
+        d->m_uiAdvanced->terminalCloseCheck->setChecked(terminalCloseBool);
         d->m_terminalOptionStr.remove(QStringLiteral("--noclose"));
     } else {
-        w.terminalCloseCheck->hide();
+        d->m_uiAdvanced->terminalCloseCheck->hide();
     }
 
-    w.terminalCheck->setChecked(d->m_terminalBool);
-    w.terminalEdit->setText(d->m_terminalOptionStr);
-    w.terminalCloseCheck->setEnabled(d->m_terminalBool);
-    w.terminalEdit->setEnabled(d->m_terminalBool);
-    w.terminalEditLabel->setEnabled(d->m_terminalBool);
+    d->m_uiAdvanced->terminalCheck->setChecked(d->m_terminalBool);
+    d->m_uiAdvanced->terminalEdit->setText(d->m_terminalOptionStr);
+    d->m_uiAdvanced->terminalCloseCheck->setEnabled(d->m_terminalBool);
+    d->m_uiAdvanced->terminalEdit->setEnabled(d->m_terminalBool);
+    d->m_uiAdvanced->terminalEditLabel->setEnabled(d->m_terminalBool);
 
-    w.suidCheck->setChecked(d->m_suidBool);
-    w.suidEdit->setText(d->m_suidUserStr);
-    w.suidEdit->setEnabled(d->m_suidBool);
-    w.suidEditLabel->setEnabled(d->m_suidBool);
+    d->m_uiAdvanced->suidCheck->setChecked(d->m_suidBool);
+    d->m_uiAdvanced->suidEdit->setText(d->m_suidUserStr);
+    d->m_uiAdvanced->suidEdit->setEnabled(d->m_suidBool);
+    d->m_uiAdvanced->suidEditLabel->setEnabled(d->m_suidBool);
 
     if (d->m_hasDiscreteGpuBool) {
-        w.discreteGpuCheck->setChecked(d->m_runOnDiscreteGpuBool);
+        d->m_uiAdvanced->discreteGpuCheck->setChecked(d->m_runOnDiscreteGpuBool);
     } else {
-        w.discreteGpuGroupBox->hide();
+        d->m_uiAdvanced->discreteGpuGroupBox->hide();
     }
 
-    w.startupInfoCheck->setChecked(d->m_startupBool);
+    d->m_uiAdvanced->startupInfoCheck->setChecked(d->m_startupBool);
 
     if (d->m_dbusStartupType == QLatin1String("unique")) {
-        w.dbusCombo->setCurrentIndex(2);
+        d->m_uiAdvanced->dbusCombo->setCurrentIndex(2);
     } else if (d->m_dbusStartupType == QLatin1String("multi")) {
-        w.dbusCombo->setCurrentIndex(1);
+        d->m_uiAdvanced->dbusCombo->setCurrentIndex(1);
     } else if (d->m_dbusStartupType == QLatin1String("wait")) {
-        w.dbusCombo->setCurrentIndex(3);
+        d->m_uiAdvanced->dbusCombo->setCurrentIndex(3);
     } else {
-        w.dbusCombo->setCurrentIndex(0);
+        d->m_uiAdvanced->dbusCombo->setCurrentIndex(0);
     }
 
     // Provide username completion up to 1000 users.
@@ -3585,36 +3587,36 @@ void KDesktopPropsPlugin::slotAdvanced()
     if (userNames.size() < maxEntries) {
         KCompletion *kcom = new KCompletion;
         kcom->setOrder(KCompletion::Sorted);
-        w.suidEdit->setCompletionObject(kcom, true);
-        w.suidEdit->setAutoDeleteCompletionObject(true);
-        w.suidEdit->setCompletionMode(KCompletion::CompletionAuto);
+        d->m_uiAdvanced->suidEdit->setCompletionObject(kcom, true);
+        d->m_uiAdvanced->suidEdit->setAutoDeleteCompletionObject(true);
+        d->m_uiAdvanced->suidEdit->setCompletionMode(KCompletion::CompletionAuto);
         kcom->setItems(userNames);
     }
 
-    connect(w.terminalEdit, &QLineEdit::textChanged, this, &KPropertiesDialogPlugin::changed);
-    connect(w.terminalCloseCheck, &QAbstractButton::toggled, this, &KPropertiesDialogPlugin::changed);
-    connect(w.terminalCheck, &QAbstractButton::toggled, this, &KPropertiesDialogPlugin::changed);
-    connect(w.suidCheck, &QAbstractButton::toggled, this, &KPropertiesDialogPlugin::changed);
-    connect(w.suidEdit, &QLineEdit::textChanged, this, &KPropertiesDialogPlugin::changed);
-    connect(w.discreteGpuCheck, &QAbstractButton::toggled, this, &KPropertiesDialogPlugin::changed);
-    connect(w.startupInfoCheck, &QAbstractButton::toggled, this, &KPropertiesDialogPlugin::changed);
-    connect(w.dbusCombo, qOverload<int>(&QComboBox::activated), this, &KPropertiesDialogPlugin::changed);
+    connect(d->m_uiAdvanced->terminalEdit, &QLineEdit::textChanged, this, &KPropertiesDialogPlugin::changed);
+    connect(d->m_uiAdvanced->terminalCloseCheck, &QAbstractButton::toggled, this, &KPropertiesDialogPlugin::changed);
+    connect(d->m_uiAdvanced->terminalCheck, &QAbstractButton::toggled, this, &KPropertiesDialogPlugin::changed);
+    connect(d->m_uiAdvanced->suidCheck, &QAbstractButton::toggled, this, &KPropertiesDialogPlugin::changed);
+    connect(d->m_uiAdvanced->suidEdit, &QLineEdit::textChanged, this, &KPropertiesDialogPlugin::changed);
+    connect(d->m_uiAdvanced->discreteGpuCheck, &QAbstractButton::toggled, this, &KPropertiesDialogPlugin::changed);
+    connect(d->m_uiAdvanced->startupInfoCheck, &QAbstractButton::toggled, this, &KPropertiesDialogPlugin::changed);
+    connect(d->m_uiAdvanced->dbusCombo, qOverload<int>(&QComboBox::activated), this, &KPropertiesDialogPlugin::changed);
 
-    if (dlg.exec() == QDialog::Accepted) {
-        d->m_terminalOptionStr = w.terminalEdit->text().trimmed();
-        d->m_terminalBool = w.terminalCheck->isChecked();
-        d->m_suidBool = w.suidCheck->isChecked();
-        d->m_suidUserStr = w.suidEdit->text().trimmed();
+    QObject::connect(dlg, &QDialog::accepted, this, [this]() {
+        d->m_terminalOptionStr = d->m_uiAdvanced->terminalEdit->text().trimmed();
+        d->m_terminalBool = d->m_uiAdvanced->terminalCheck->isChecked();
+        d->m_suidBool = d->m_uiAdvanced->suidCheck->isChecked();
+        d->m_suidUserStr = d->m_uiAdvanced->suidEdit->text().trimmed();
         if (d->m_hasDiscreteGpuBool) {
-            d->m_runOnDiscreteGpuBool = w.discreteGpuCheck->isChecked();
+            d->m_runOnDiscreteGpuBool = d->m_uiAdvanced->discreteGpuCheck->isChecked();
         }
-        d->m_startupBool = w.startupInfoCheck->isChecked();
+        d->m_startupBool = d->m_uiAdvanced->startupInfoCheck->isChecked();
 
-        if (w.terminalCloseCheck->isChecked()) {
+        if (d->m_uiAdvanced->terminalCloseCheck->isChecked()) {
             d->m_terminalOptionStr.append(QLatin1String(" --noclose"));
         }
 
-        switch (w.dbusCombo->currentIndex()) {
+        switch (d->m_uiAdvanced->dbusCombo->currentIndex()) {
         case 1:
             d->m_dbusStartupType = QStringLiteral("multi");
             break;
@@ -3628,7 +3630,9 @@ void KDesktopPropsPlugin::slotAdvanced()
             d->m_dbusStartupType = QStringLiteral("none");
             break;
         }
-    }
+    });
+
+    dlg->show();
 }
 
 bool KDesktopPropsPlugin::supports(const KFileItemList &_items)
