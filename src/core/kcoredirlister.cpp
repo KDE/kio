@@ -852,7 +852,7 @@ void KCoreDirListerCache::slotFilesRemoved(const QList<QUrl> &fileList)
         }
     }
 
-    for (const QUrl &url : qAsConst(deletedSubdirs)) {
+    for (const QUrl &url : std::as_const(deletedSubdirs)) {
         // in case of a dir, check if we have any known children, there's much to do in that case
         // (stopping jobs, removing dirs from cache etc.)
         deleteDir(url);
@@ -883,7 +883,7 @@ void KCoreDirListerCache::slotFilesChanged(const QStringList &fileList) // from 
         }
     }
 
-    for (const QUrl &dirUrl : qAsConst(dirsToUpdate)) {
+    for (const QUrl &dirUrl : std::as_const(dirsToUpdate)) {
         updateDirectory(dirUrl);
     }
     // ## TODO problems with current jobs listing/updating that dir
@@ -987,7 +987,7 @@ std::set<KCoreDirLister *> KCoreDirListerCache::emitRefreshItem(const KFileItem 
         }
     }
     std::set<KCoreDirLister *> listersToRefresh;
-    for (KCoreDirLister *kdl : qAsConst(listers)) {
+    for (KCoreDirLister *kdl : std::as_const(listers)) {
         // For a directory, look for dirlisters where it's the root item.
         QUrl directoryUrl(oldItem.url());
         if (oldItem.isDir() && kdl->d->rootFileItem == oldItem) {
@@ -1423,7 +1423,7 @@ void KCoreDirListerCache::slotRedirection(KIO::Job *j, const QUrl &url)
 
             Q_ASSERT(oldJob); // ?!
 
-            for (KCoreDirLister *kdl : qAsConst(curListers)) { // listers of newUrl
+            for (KCoreDirLister *kdl : std::as_const(curListers)) { // listers of newUrl
                 kdl->d->jobDone(oldJob);
 
                 kdl->jobStarted(job);
@@ -1447,7 +1447,7 @@ void KCoreDirListerCache::slotRedirection(KIO::Job *j, const QUrl &url)
         if (!curHolders.isEmpty()) {
             qCDebug(KIO_CORE_DIRLISTER) << "and it is currently held.";
 
-            for (KCoreDirLister *kdl : qAsConst(curHolders)) { // holders of newUrl
+            for (KCoreDirLister *kdl : std::as_const(curHolders)) { // holders of newUrl
                 kdl->jobStarted(job);
                 Q_EMIT kdl->started(newUrl);
             }
@@ -1742,7 +1742,7 @@ void KCoreDirListerCache::slotUpdateResult(KJob *j)
 
     // Fill the hash from the old list of items. We'll remove entries as we see them
     // in the new listing, and the resulting hash entries will be the deleted items.
-    for (const KFileItem &item : qAsConst(dir->lstItems)) {
+    for (const KFileItem &item : std::as_const(dir->lstItems)) {
         fileItems.insert(item.name(), item);
     }
 
@@ -1945,7 +1945,7 @@ void KCoreDirListerCache::deleteDir(const QUrl &_dirUrl)
         }
     }
 
-    for (const QUrl &deletedUrl : qAsConst(affectedItems)) {
+    for (const QUrl &deletedUrl : std::as_const(affectedItems)) {
         // stop all jobs for deletedUrlStr
         DirectoryDataHash::iterator dit = directoryData.find(deletedUrl);
         if (dit != directoryData.end()) {
@@ -2081,7 +2081,7 @@ void KCoreDirListerCache::printDebug()
     }
 
     // Abort on listers without jobs -after- showing the full dump. Easier debugging.
-    for (KCoreDirLister *listit : qAsConst(listersWithoutJob)) {
+    for (KCoreDirLister *listit : std::as_const(listersWithoutJob)) {
         qCWarning(KIO_CORE) << "Fatal Error: HUH? Lister" << listit << "is supposed to be listing, but has no job!";
         abort();
     }
@@ -2230,7 +2230,7 @@ void KCoreDirListerPrivate::emitChanges()
 
     // Fill hash with all items that are currently visible
     std::set<QString> oldVisibleItems;
-    for (const QUrl &dir : qAsConst(lstDirs)) {
+    for (const QUrl &dir : std::as_const(lstDirs)) {
         const QList<KFileItem> *itemList = kDirListerCache()->itemsForDir(dir);
         if (!itemList) {
             continue;

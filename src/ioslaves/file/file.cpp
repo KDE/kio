@@ -952,7 +952,7 @@ bool FileProtocol::deleteRecursive(const QString &path)
         }
     }
     QDir dir;
-    for (const QString &itemPath : qAsConst(dirsToDelete)) {
+    for (const QString &itemPath : std::as_const(dirsToDelete)) {
         // qDebug() << "QDir::rmdir" << itemPath;
         if (!dir.rmdir(itemPath)) {
             if (auto err = execWithElevatedPrivilege(RMDIR, {itemPath}, errno)) {

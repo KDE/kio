@@ -190,7 +190,7 @@ static bool readFromWallet(KWallet::Wallet *wallet,
 bool KPasswdServer::hasPendingQuery(const QString &key, const KIO::AuthInfo &info)
 {
     const QString path2(info.url.path().left(info.url.path().indexOf(QLatin1Char('/')) + 1));
-    for (const Request *request : qAsConst(m_authPending)) {
+    for (const Request *request : std::as_const(m_authPending)) {
         if (request->key != key) {
             continue;
         }

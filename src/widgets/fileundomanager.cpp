@@ -611,7 +611,7 @@ void FileUndoManagerPrivate::stepRemovingDirectories()
             m_undoJob->emitResult();
             m_undoJob = nullptr;
         }
-        for (const QUrl &url : qAsConst(m_dirsToUpdate)) {
+        for (const QUrl &url : std::as_const(m_dirsToUpdate)) {
             // qDebug() << "Notifying FilesAdded for " << url;
             org::kde::KDirNotify::emitFilesAdded(url);
         }

@@ -404,7 +404,7 @@ Result FtpInternal::ftpOpenControlConnection()
 
     Result result = Result::fail();
 
-    for (const QString &proxyUrl : qAsConst(m_proxyUrls)) {
+    for (const QString &proxyUrl : std::as_const(m_proxyUrls)) {
         const QUrl url(proxyUrl);
         const QString scheme(url.scheme());
 

@@ -295,7 +295,7 @@ void PreviewJobPrivate::startPreview()
         if (!p.isEmpty()) {
             protocols.append(p);
         }
-        for (const QString &protocol : qAsConst(protocols)) {
+        for (const QString &protocol : std::as_const(protocols)) {
             // We cannot use mimeTypes() here, it doesn't support groups such as: text/*
             const QStringList mtypes = (*it)->serviceTypes();
             // Add supported MIME type for this protocol

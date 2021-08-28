@@ -820,7 +820,7 @@ KFileItemActionsPrivate::associatedApplications(const QStringList &mimeTypeList,
 
     KService::List result;
     result.reserve(rankings.size());
-    for (const KFileItemActionsPrivate::ServiceRank &tempRank : qAsConst(rankings)) {
+    for (const KFileItemActionsPrivate::ServiceRank &tempRank : std::as_const(rankings)) {
         result << tempRank.service;
     }
 
@@ -902,7 +902,7 @@ void KFileItemActionsPrivate::insertOpenWithActionsTo(QAction *before,
             subMenu->setIcon(QIcon::fromTheme(QStringLiteral("system-run")));
             subMenu->menuAction()->setObjectName(QStringLiteral("openWith_submenu")); // For the unittest
             // Add other apps to the sub-menu
-            for (const KServicePtr &service : qAsConst(offers)) {
+            for (const KServicePtr &service : std::as_const(offers)) {
                 QAction *act = createAppAction(service, false);
                 subMenu->addAction(act);
             }

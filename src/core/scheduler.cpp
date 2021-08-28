@@ -665,7 +665,7 @@ public:
     {
         delete q;
         q = nullptr;
-        for (ProtoQueue *p : qAsConst(m_protocols)) {
+        for (ProtoQueue *p : std::as_const(m_protocols)) {
             const QList<KIO::Slave *> list = p->allSlaves();
             for (Slave *slave : list) {
                 slave->kill();

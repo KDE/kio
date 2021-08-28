@@ -1025,7 +1025,7 @@ KIO::UDSEntry TrashImpl::trashUDSEntry(KIO::StatDetails details)
         KIO::filesize_t size = 0;
         long latestModifiedDate = 0;
 
-        for (const QString &trashPath : qAsConst(m_trashDirectories)) {
+        for (const QString &trashPath : std::as_const(m_trashDirectories)) {
             TrashSizeCache trashSize(trashPath);
             TrashSizeCache::SizeAndModTime res = trashSize.calculateSizeAndLatestModDate();
             size += res.size;

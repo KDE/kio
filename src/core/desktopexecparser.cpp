@@ -433,7 +433,7 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
 
     // At this point we know we're not using kioexec, so feel free to replace
     // KIO URLs with their KIOFuse local path.
-    for (const auto &request : qAsConst(requests)) {
+    for (const auto &request : std::as_const(requests)) {
         if (!request.reply.isError()) {
             d->urls[request.urlIndex] = QUrl::fromLocalFile(request.reply.value());
         }

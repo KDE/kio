@@ -253,7 +253,7 @@ void KSslCertificateManagerPrivate::loadDefaultCaCertificates()
 
     certs.append(QSslCertificate::fromPath(userCertDir + QLatin1Char('*'), QSsl::Pem, QSslCertificate::PatternSyntax::Wildcard));
 
-    for (const QSslCertificate &cert : qAsConst(certs)) {
+    for (const QSslCertificate &cert : std::as_const(certs)) {
         const QByteArray digest = cert.digest().toHex();
         if (!group.hasKey(digest.constData())) {
             defaultCaCertificates += cert;

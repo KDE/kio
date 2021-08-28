@@ -388,7 +388,7 @@ void CopyJobPrivate::slotStart()
         return;
     }
     if (m_mode == CopyJob::CopyMode::Move) {
-        for (const QUrl &url : qAsConst(m_srcList)) {
+        for (const QUrl &url : std::as_const(m_srcList)) {
             if (m_dest.scheme() == url.scheme() && m_dest.host() == url.host()) {
                 QString srcPath = url.path();
                 if (!srcPath.endsWith(QLatin1Char('/'))) {
@@ -1088,7 +1088,7 @@ bool CopyJobPrivate::shouldOverwriteFile(const QString &path) const
 
 bool CopyJobPrivate::shouldSkip(const QString &path) const
 {
-    for (const QString &skipPath : qAsConst(m_skipList)) {
+    for (const QString &skipPath : std::as_const(m_skipList)) {
         if (path.startsWith(skipPath)) {
             return true;
         }

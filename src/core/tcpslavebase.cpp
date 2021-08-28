@@ -93,7 +93,7 @@ public:
         QString errorStr;
         // encode the two-dimensional numeric error list using '\n' and '\t' as outer and inner separators
         for (const QSslCertificate &cert : peerCertificateChain) {
-            for (const QSslError &error : qAsConst(sslErrors)) {
+            for (const QSslError &error : std::as_const(sslErrors)) {
                 if (error.certificate() == cert) {
                     errorStr += QString::number(static_cast<int>(error.error())) + QLatin1Char('\t');
                 }
@@ -527,7 +527,7 @@ TCPSlaveBase::SslResult TCPSlaveBase::verifyServerCertificate()
     //### We don't ask to permanently reject the certificate
 
     QString message = i18n("The server failed the authenticity check (%1).\n\n", d->host);
-    for (const QSslError &err : qAsConst(d->sslErrors)) {
+    for (const QSslError &err : std::as_const(d->sslErrors)) {
         message += err.errorString() + QLatin1Char('\n');
     }
     message = message.trimmed();

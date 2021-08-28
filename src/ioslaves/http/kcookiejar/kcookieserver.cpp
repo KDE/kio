@@ -131,7 +131,7 @@ bool KCookieServer::cookiesPending(const QString &url, KHttpCookieList *cookieLi
 
     QStringList domains;
     mCookieJar->extractDomains(fqdn, domains);
-    for (const KHttpCookie &cookie : qAsConst(*mPendingCookies)) {
+    for (const KHttpCookie &cookie : std::as_const(*mPendingCookies)) {
         if (cookie.match(fqdn, domains, path)) {
             if (!cookieList) {
                 return true;

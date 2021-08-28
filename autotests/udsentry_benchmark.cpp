@@ -144,7 +144,7 @@ void UDSEntryBenchmark::createLargeEntries()
         for (int i = 0; i < numberOfLargeUDSEntries; ++i) {
             KIO::UDSEntry entry;
             entry.reserve(m_fieldsForLargeEntries.count());
-            for (uint field : qAsConst(m_fieldsForLargeEntries)) {
+            for (uint field : std::as_const(m_fieldsForLargeEntries)) {
                 if (field & KIO::UDSEntry::UDS_STRING) {
                     entry.fastInsert(field, names[i]);
                 } else {
@@ -172,7 +172,7 @@ void UDSEntryBenchmark::readFieldsFromSmallEntries()
         long long i = 0;
         long long entrySum = 0;
 
-        for (const KIO::UDSEntry &entry : qAsConst(m_smallEntries)) {
+        for (const KIO::UDSEntry &entry : std::as_const(m_smallEntries)) {
             entrySum += entry.count();
             /* clang-format off */
             if (entry.stringValue(KIO::UDSEntry::UDS_NAME).toInt() == i
@@ -203,8 +203,8 @@ void UDSEntryBenchmark::readFieldsFromLargeEntries()
         long long i = 0;
         long long fieldSum = 0;
 
-        for (const KIO::UDSEntry &entry : qAsConst(m_largeEntries)) {
-            for (uint field : qAsConst(m_fieldsForLargeEntries)) {
+        for (const KIO::UDSEntry &entry : std::as_const(m_largeEntries)) {
+            for (uint field : std::as_const(m_fieldsForLargeEntries)) {
                 if (field & KIO::UDSEntry::UDS_STRING) {
                     if (entry.stringValue(field).toInt() == i) {
                         ++fieldSum;

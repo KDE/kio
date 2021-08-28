@@ -901,7 +901,7 @@ QList<KFilePlacesItem *> KFilePlacesModelPrivate::loadBookmarkList()
     }
 
     // Add bookmarks for the remaining devices, they were previously unknown
-    for (const QString &udi : qAsConst(devices)) {
+    for (const QString &udi : std::as_const(devices)) {
         bookmark = KFilePlacesItem::createDeviceBookmark(bookmarkManager, udi);
         if (!bookmark.isNull()) {
             KFilePlacesItem *item = new KFilePlacesItem(bookmarkManager, bookmark.address(), udi, q);
@@ -1013,7 +1013,7 @@ QMimeData *KFilePlacesModel::mimeData(const QModelIndexList &indexes) const
 
     QDataStream stream(&itemData, QIODevice::WriteOnly);
 
-    for (const QModelIndex &index : qAsConst(indexes)) {
+    for (const QModelIndex &index : std::as_const(indexes)) {
         QUrl itemUrl = url(index);
         if (itemUrl.isValid()) {
             urls << itemUrl;

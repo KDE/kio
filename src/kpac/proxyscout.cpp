@@ -248,7 +248,7 @@ void ProxyScout::downloadResult(bool success)
     }
 
     if (success) {
-        for (const QueuedRequest &request : qAsConst(m_requestQueue)) {
+        for (const QueuedRequest &request : std::as_const(m_requestQueue)) {
             if (request.sendAll) {
                 const QVariant result(handleRequest(request.url));
                 QDBusConnection::sessionBus().send(request.transaction.createReply(result));
@@ -258,7 +258,7 @@ void ProxyScout::downloadResult(bool success)
             }
         }
     } else {
-        for (const QueuedRequest &request : qAsConst(m_requestQueue)) {
+        for (const QueuedRequest &request : std::as_const(m_requestQueue)) {
             QDBusConnection::sessionBus().send(request.transaction.createReply(QLatin1String("DIRECT")));
         }
     }

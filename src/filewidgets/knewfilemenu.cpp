@@ -772,7 +772,7 @@ void KNewFileMenuPrivate::fillMenu()
                             } else {
                                 mime = db.mimeTypeForName(entry.mimeType);
                             }
-                            for (const QString &supportedMime : qAsConst(m_supportedMimeTypes)) {
+                            for (const QString &supportedMime : std::as_const(m_supportedMimeTypes)) {
                                 if (mime.inherits(supportedMime)) {
                                     keep = true;
                                     break;
@@ -1023,7 +1023,7 @@ void KNewFileMenuPrivate::slotFillTemplates()
     // Ensure any changes in the templates dir will call this
     if (!s->dirWatch) {
         s->dirWatch = new KDirWatch;
-        for (const QString &dir : qAsConst(installedTemplates)) {
+        for (const QString &dir : std::as_const(installedTemplates)) {
             s->dirWatch->addDir(dir);
         }
         QObject::connect(s->dirWatch, &KDirWatch::dirty, q, [this]() {
@@ -1058,7 +1058,7 @@ void KNewFileMenuPrivate::slotFillTemplates()
 
     QMap<QString, KNewFileMenuSingleton::Entry> slist; // used for sorting
     QMap<QString, EntryWithName> ulist; // entries with unique URLs
-    for (const QString &file : qAsConst(files)) {
+    for (const QString &file : std::as_const(files)) {
         // qDebug() << file;
         if (file[0] != QLatin1Char('.')) {
             KNewFileMenuSingleton::Entry e;
@@ -1188,7 +1188,7 @@ void KNewFileMenuPrivate::_k_slotTextChanged(const QString &text)
             if (folders.count() > 1) {
                 label = i18n("Using slashes in folder names will create sub-folders, like so:");
                 QString indentation = QString();
-                for (const QString &folder : qAsConst(folders)) {
+                for (const QString &folder : std::as_const(folders)) {
                     label.append(QLatin1Char('\n'));
                     label.append(indentation);
                     label.append(folder);

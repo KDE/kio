@@ -179,10 +179,10 @@ void DropMenu::addExtraActions(const QList<QAction *> &appActions, const QList<Q
     removeAction(m_cancelAction);
 
     removeAction(m_extraActionsSeparator);
-    for (QAction *action : qAsConst(m_appActions)) {
+    for (QAction *action : std::as_const(m_appActions)) {
         removeAction(action);
     }
-    for (QAction *action : qAsConst(m_pluginActions)) {
+    for (QAction *action : std::as_const(m_pluginActions)) {
         removeAction(action);
     }
 
@@ -324,7 +324,7 @@ void DropJob::setApplicationActions(const QList<QAction *> &actions)
 
     d->m_appActions = actions;
 
-    for (KIO::DropMenu *menu : qAsConst(d->m_menus)) {
+    for (KIO::DropMenu *menu : std::as_const(d->m_menus)) {
         menu->addExtraActions(d->m_appActions, d->m_pluginActions);
     }
 }
@@ -337,7 +337,7 @@ void DropJob::showMenu(const QPoint &p, QAction *atAction)
         return;
     }
 
-    for (KIO::DropMenu *menu : qAsConst(d->m_menus)) {
+    for (KIO::DropMenu *menu : std::as_const(d->m_menus)) {
         menu->popup(p, atAction);
     }
 }
@@ -583,7 +583,7 @@ void DropJobPrivate::handleDropToExecutable()
     // Launch executable for each of the files
     QStringList args;
     args.reserve(m_urls.size());
-    for (const QUrl &url : qAsConst(m_urls)) {
+    for (const QUrl &url : std::as_const(m_urls)) {
         args << url.toLocalFile(); // assume local files
     }
     QProcess::startDetached(m_destUrl.toLocalFile(), args);

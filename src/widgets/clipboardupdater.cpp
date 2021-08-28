@@ -119,7 +119,7 @@ static void removeUrlsFromClipboard(KJob *job)
     QList<QUrl> clipboardUrls = KUrlMimeData::urlsFromMimeData(mimeData);
     quint32 removedCount = 0;
 
-    for (const QUrl &url : qAsConst(deletedUrls)) {
+    for (const QUrl &url : std::as_const(deletedUrls)) {
         removedCount += clipboardUrls.removeAll(url);
     }
 

@@ -117,7 +117,7 @@ RenameFileDialog::RenameFileDialog(const KFileItemList &items, QWidget *parent)
     if (!d->renameOneItem) {
         QMimeDatabase db;
         QSet<QString> extensions;
-        for (const KFileItem &item : qAsConst(d->items)) {
+        for (const KFileItem &item : std::as_const(d->items)) {
             const QString extension = db.suffixForFileName(item.name());
 
             if (extensions.contains(extension)) {

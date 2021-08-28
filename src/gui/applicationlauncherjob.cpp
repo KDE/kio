@@ -224,7 +224,7 @@ bool KIO::ApplicationLauncherJob::waitForStarted()
     const bool ret = std::all_of(d->m_processRunners.cbegin(), d->m_processRunners.cend(), [](QPointer<KProcessRunner> r) {
         return r.isNull() || r->waitForStarted();
     });
-    for (const auto &r : qAsConst(d->m_processRunners)) {
+    for (const auto &r : std::as_const(d->m_processRunners)) {
         if (!r.isNull()) {
             qApp->sendPostedEvents(r); // so slotStarted gets called
         }

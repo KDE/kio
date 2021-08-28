@@ -138,7 +138,7 @@ void KUrlNavigatorProtocolCombo::updateMenu()
 
     // move all protocols into the corresponding category of 'items'
     QList<QString> items[CategoryCount];
-    for (const QString &protocol : qAsConst(m_protocols)) {
+    for (const QString &protocol : std::as_const(m_protocols)) {
         if (m_categories.contains(protocol)) {
             const ProtocolCategory category = m_categories.value(protocol);
             items[category].append(protocol);
@@ -172,7 +172,7 @@ void KUrlNavigatorProtocolCombo::updateMenu()
                 break;
             }
 
-            for (const QString &protocol : qAsConst(items[category])) {
+            for (const QString &protocol : std::as_const(items[category])) {
                 QAction *action = menu->addAction(protocol);
                 action->setData(protocol);
             }

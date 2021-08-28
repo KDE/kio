@@ -479,7 +479,7 @@ void KUrlNavigatorPrivate::openContextMenu(const QPoint &p)
     // We are checking for receivers because it's odd to have a tab entry even
     // if it's not supported, like in the case of the open dialog
     if (q->receivers(SIGNAL(tabRequested(QUrl))) > 0) {
-        for (auto button : qAsConst(m_navButtons)) {
+        for (auto button : std::as_const(m_navButtons)) {
             if (button->geometry().contains(p)) {
                 const auto url = button->url();
                 QAction *openInTab = popup->addAction(QIcon::fromTheme(QStringLiteral("tab-new")), i18n("Open %1 in tab", button->text()));
@@ -695,7 +695,7 @@ void KUrlNavigatorPrivate::updateButtonVisibility()
 
     // Check whether buttons must be hidden at all...
     int requiredButtonWidth = 0;
-    for (const KUrlNavigatorButton *button : qAsConst(m_navButtons)) {
+    for (const KUrlNavigatorButton *button : std::as_const(m_navButtons)) {
         requiredButtonWidth += button->minimumWidth();
     }
 
@@ -733,7 +733,7 @@ void KUrlNavigatorPrivate::updateButtonVisibility()
 
     // All buttons have the correct activation state and
     // can be shown now
-    for (KUrlNavigatorButton *button : qAsConst(buttonsToShow)) {
+    for (KUrlNavigatorButton *button : std::as_const(buttonsToShow)) {
         button->show();
     }
 
@@ -824,7 +824,7 @@ void KUrlNavigatorPrivate::switchToBreadcrumbMode()
 
 void KUrlNavigatorPrivate::deleteButtons()
 {
-    for (KUrlNavigatorButton *button : qAsConst(m_navButtons)) {
+    for (KUrlNavigatorButton *button : std::as_const(m_navButtons)) {
         button->hide();
         button->deleteLater();
     }
@@ -1006,7 +1006,7 @@ void KUrlNavigator::setActive(bool active)
         d->m_active = active;
 
         d->m_dropDownButton->setActive(active);
-        for (KUrlNavigatorButton *button : qAsConst(d->m_navButtons)) {
+        for (KUrlNavigatorButton *button : std::as_const(d->m_navButtons)) {
             button->setActive(active);
         }
 
@@ -1246,13 +1246,13 @@ bool KUrlNavigator::eventFilter(QObject *watched, QEvent *event)
             requestActivation();
             setFocus();
         }
-        for (KUrlNavigatorButton *button : qAsConst(d->m_navButtons)) {
+        for (KUrlNavigatorButton *button : std::as_const(d->m_navButtons)) {
             button->setShowMnemonic(true);
         }
         break;
 
     case QEvent::FocusOut:
-        for (KUrlNavigatorButton *button : qAsConst(d->m_navButtons)) {
+        for (KUrlNavigatorButton *button : std::as_const(d->m_navButtons)) {
             button->setShowMnemonic(false);
         }
         break;

@@ -580,7 +580,7 @@ bool KUriFilter::filterUri(KUriFilterData &data, const QStringList &filters)
 {
     bool filtered = false;
 
-    for (KUriFilterPlugin *plugin : qAsConst(d->pluginList)) {
+    for (KUriFilterPlugin *plugin : std::as_const(d->pluginList)) {
         // If no specific filters were requested, iterate through all the plugins.
         // Otherwise, only use available filters.
         if (filters.isEmpty() || filters.contains(plugin->objectName())) {
@@ -671,7 +671,7 @@ void KUriFilter::loadPlugins()
     QStringList pluginNames;
     pluginNames.reserve(plugins.count());
 
-    for (const KPluginMetaData &pluginMetaData : qAsConst(plugins)) {
+    for (const KPluginMetaData &pluginMetaData : std::as_const(plugins)) {
         const QString fileName = pluginMetaData.fileName().section(QLatin1Char('/'), -1);
         if (!pluginNames.contains(fileName)) {
             pluginNames << fileName;

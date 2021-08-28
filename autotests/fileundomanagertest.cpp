@@ -590,7 +590,7 @@ void FileUndoManagerTest::testRestoreTrashedFiles()
 
     const QMap<QString, QString> metaData = job->metaData();
     QList<QUrl> trashUrls;
-    for (const QUrl &src : qAsConst(lst)) {
+    for (const QUrl &src : std::as_const(lst)) {
         QMap<QString, QString>::ConstIterator it = metaData.find("trashURL-" + src.path());
         QVERIFY(it != metaData.constEnd());
         trashUrls.append(QUrl(it.value()));

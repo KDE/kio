@@ -312,7 +312,7 @@ void FilterOptions::load()
 
     int defaultProviderIndex = providers.size(); // default is "None", it is last in the list
 
-    for (SearchProvider *provider : qAsConst(providers)) {
+    for (SearchProvider *provider : std::as_const(providers)) {
         if (defaultSearchEngine == provider->desktopEntryName()) {
             defaultProviderIndex = providers.indexOf(provider);
             break;
@@ -375,7 +375,7 @@ void FilterOptions::save()
 
     const QStringList servicesDirs =
         QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("kservices5/searchproviders/"), QStandardPaths::LocateDirectory);
-    for (const QString &providerName : qAsConst(m_deletedProviders)) {
+    for (const QString &providerName : std::as_const(m_deletedProviders)) {
         QStringList matches;
         for (const QString &dir : servicesDirs) {
             QString current = dir + QLatin1Char('/') + providerName + QLatin1String(".desktop");

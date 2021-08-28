@@ -98,7 +98,7 @@ void KDirModelTest::recreateTestData()
      * PATH/subdir/hasChildren/pipeDir/pipe
      */
     const QString path = m_tempDir->path() + '/';
-    for (const QString &f : qAsConst(m_topLevelFileNames)) {
+    for (const QString &f : std::as_const(m_topLevelFileNames)) {
         createTestFile(path + f);
     }
     createTestFile(path + ".hiddenfile");

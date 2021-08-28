@@ -22,7 +22,7 @@ void ConnectionPrivate::dequeue()
         return;
     }
 
-    for (const Task &task : qAsConst(outgoingTasks)) {
+    for (const Task &task : std::as_const(outgoingTasks)) {
         q->sendnow(task.cmd, task.data);
     }
     outgoingTasks.clear();

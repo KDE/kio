@@ -230,7 +230,7 @@ bool KProtocolManagerPrivate::shouldIgnoreProxyFor(const QUrl &url)
         }
 
         if (!address.isNull()) {
-            for (const SubnetPair &subnet : qAsConst(noProxySubnets)) {
+            for (const SubnetPair &subnet : std::as_const(noProxySubnets)) {
                 if (address.isInSubnet(subnet)) {
                     isMatch = true;
                     break;
@@ -684,7 +684,7 @@ QString KProtocolManager::slaveProtocol(const QUrl &url, QStringList &proxyList)
         && !protocol.startsWith(QLatin1String("http"))
         && !protocol.startsWith(QLatin1String("webdav"))
         && KProtocolInfo::isKnownProtocol(protocol)) { /* clang-format on */
-        for (const QString &proxy : qAsConst(proxyList)) {
+        for (const QString &proxy : std::as_const(proxyList)) {
             QUrl u(proxy);
             if (u.isValid() && KProtocolInfo::isKnownProtocol(u.scheme())) {
                 protocol = u.scheme();
@@ -877,7 +877,7 @@ QString KProtocolManager::acceptLanguagesHeader()
     KConfig acclangConf(QStringLiteral("accept-languages.codes"), KConfig::NoGlobals);
     KConfigGroup replacementCodes(&acclangConf, "ReplacementCodes");
     QStringList languageListFinal;
-    for (const QString &lang : qAsConst(languageList)) {
+    for (const QString &lang : std::as_const(languageList)) {
         const QStringList langs = replacementCodes.readEntry(lang, QStringList());
         if (langs.isEmpty()) {
             languageListFinal += lang;
@@ -892,7 +892,7 @@ QString KProtocolManager::acceptLanguagesHeader()
     // the value evenly
     int prio = 10;
     QString header;
-    for (const QString &lang : qAsConst(languageListFinal)) {
+    for (const QString &lang : std::as_const(languageListFinal)) {
         header += lang;
         if (prio < 10) {
             header += QLatin1String(";q=0.") + QString::number(prio);

@@ -103,21 +103,21 @@ void KURIFilterModule::load()
         return;
     }
 
-    for (KCModule *module : qAsConst(modules)) {
+    for (KCModule *module : std::as_const(modules)) {
         module->load();
     }
 }
 
 void KURIFilterModule::save()
 {
-    for (KCModule *module : qAsConst(modules)) {
+    for (KCModule *module : std::as_const(modules)) {
         module->save();
     }
 }
 
 void KURIFilterModule::defaults()
 {
-    for (KCModule *module : qAsConst(modules)) {
+    for (KCModule *module : std::as_const(modules)) {
         module->defaults();
     }
 }

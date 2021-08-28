@@ -97,7 +97,7 @@ void KSSLD::setRule(const KSslCertificateRule &rule)
         sl.append(QStringLiteral("Reject"));
     } else {
 #if KIOCORE_BUILD_DEPRECATED_SINCE(5, 64)
-        for (QSslError::SslError e : qAsConst(rule.d->ignoredErrors)) {
+        for (QSslError::SslError e : std::as_const(rule.d->ignoredErrors)) {
 #else
         const auto ignoredErrors = rule.ignoredErrors();
         for (QSslError::SslError e : ignoredErrors) {
@@ -245,7 +245,7 @@ KSslCertificateRule KSSLD::rule(const QSslCertificate &cert, const QString &host
 
     QList<QSslError::SslError> ignoredErrors;
     bool isRejected = false;
-    for (const QString &s : qAsConst(sl)) {
+    for (const QString &s : std::as_const(sl)) {
         if (s == QLatin1String("Reject")) {
             isRejected = true;
             ignoredErrors.clear();

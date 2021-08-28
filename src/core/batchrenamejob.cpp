@@ -46,7 +46,7 @@ public:
         // Check for extensions.
         std::set<QString> extensions;
         QMimeDatabase db;
-        for (const QUrl &url : qAsConst(m_srcList)) {
+        for (const QUrl &url : std::as_const(m_srcList)) {
             const QString extension = db.suffixForFileName(url.path());
             const auto [it, isInserted] = extensions.insert(extension);
             if (!isInserted) {

@@ -27,7 +27,7 @@ static void runTest(const QString &header, const QByteArray &result)
         results.clear();
     }
 
-    for (const QByteArray &ba : qAsConst(results)) {
+    for (const QByteArray &ba : std::as_const(results)) {
         QList<QByteArray> values = ba.split('\t');
         const QString key(QString::fromLatin1(values.takeFirst()));
 

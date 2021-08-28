@@ -588,7 +588,7 @@ void KHttpDigestAuthentication::generateResponse(const QString &user, const QStr
             requestPath = QLatin1Char('/');
         }
 
-        for (const QUrl &u : qAsConst(info.digestURIs)) {
+        for (const QUrl &u : std::as_const(info.digestURIs)) {
             send &= (m_resource.scheme().toLower() == u.scheme().toLower());
             send &= (m_resource.host().toLower() == u.host().toLower());
 

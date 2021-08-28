@@ -276,7 +276,7 @@ void KDirModelPrivate::removeFromNodeHash(KDirModelNode *node, const QUrl &url)
     if (node->item().isDir()) {
         QList<QUrl> urls;
         static_cast<KDirModelDirNode *>(node)->collectAllChildUrls(urls);
-        for (const QUrl &u : qAsConst(urls)) {
+        for (const QUrl &u : std::as_const(urls)) {
             m_nodeHash.remove(u);
         }
     }
@@ -542,7 +542,7 @@ void KDirModelPrivate::_k_slotNewItems(const QUrl &directoryUrl, const KFileItem
 
         if (!urlsBeingFetched.isEmpty()) {
             const QUrl &dirUrl = url;
-            for (const QUrl &urlFetched : qAsConst(urlsBeingFetched)) {
+            for (const QUrl &urlFetched : std::as_const(urlsBeingFetched)) {
                 if (dirUrl.matches(urlFetched, QUrl::StripTrailingSlash) || dirUrl.isParentOf(urlFetched)) {
                     // qDebug() << "Listing found" << dirUrl.url() << "which is a parent of fetched url" << urlFetched;
                     const QModelIndex parentIndex = indexForNode(node, dirNode->m_childNodes.count() - 1);
@@ -561,7 +561,7 @@ void KDirModelPrivate::_k_slotNewItems(const QUrl &directoryUrl, const KFileItem
 
     // Emit expand signal after rowsInserted signal has been emitted,
     // so that any proxy model will have updated its mapping already
-    for (const QModelIndex &idx : qAsConst(emitExpandFor)) {
+    for (const QModelIndex &idx : std::as_const(emitExpandFor)) {
         Q_EMIT q->expand(idx);
     }
 }
@@ -761,7 +761,7 @@ void KDirModelPrivate::_k_slotJobUrlsChanged(const QStringList &urlList)
 
     m_allCurrentDestUrls = urlList;
 
-    for (const QString &dirtyUrl : qAsConst(dirtyUrls)) {
+    for (const QString &dirtyUrl : std::as_const(dirtyUrls)) {
         if (KDirModelNode *node = nodeForUrl(QUrl(dirtyUrl))) {
             const QModelIndex idx = indexForNode(node);
             Q_EMIT q->dataChanged(idx, idx, {KDirModel::HasJobRole});
@@ -774,7 +774,7 @@ void KDirModelPrivate::clearAllPreviews(KDirModelDirNode *dirNode)
     const int numRows = dirNode->m_childNodes.count();
     if (numRows > 0) {
         KDirModelNode *lastNode = nullptr;
-        for (KDirModelNode *node : qAsConst(dirNode->m_childNodes)) {
+        for (KDirModelNode *node : std::as_const(dirNode->m_childNodes)) {
             node->setPreview(QIcon());
             // node->setPreview(QIcon::fromTheme(node->item().iconName()));
             if (isDir(node)) {

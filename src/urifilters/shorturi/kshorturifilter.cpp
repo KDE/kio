@@ -419,7 +419,7 @@ bool KShortUriFilter::filterUri(KUriFilterData &data) const
     if (!cmd.contains(QLatin1Char(' '))) {
         // Okay this is the code that allows users to supply custom matches for specific
         // URLs using Qt's QRegularExpression class.
-        for (const URLHint &hint : qAsConst(m_urlHints)) {
+        for (const URLHint &hint : std::as_const(m_urlHints)) {
             qCDebug(category) << "testing regexp for" << hint.prepend;
             if (hint.hintRe.match(cmd).capturedStart() == 0) {
                 const QString cmdStr = hint.prepend + cmd;

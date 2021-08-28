@@ -223,7 +223,7 @@ QString KHttpCookie::cookieStr(bool useDOMFormat) const
                 result += QLatin1String("; $Port");
             } else {
                 QString portNums;
-                for (int port : qAsConst(mPorts)) {
+                for (int port : std::as_const(mPorts)) {
                     portNums += QString::number(port) + QLatin1Char(' ');
                 }
                 result += QLatin1String("; $Port=\"") + portNums.trimmed() + QLatin1Char('"');
@@ -434,7 +434,7 @@ QString KCookieJar::findCookies(const QString &_url, bool useDOMFormat, WId wind
     }
 
     int protVersion = 0;
-    for (const KHttpCookie &cookie : qAsConst(allCookies)) {
+    for (const KHttpCookie &cookie : std::as_const(allCookies)) {
         if (cookie.protocolVersion() > protVersion) {
             protVersion = cookie.protocolVersion();
         }
@@ -449,7 +449,7 @@ QString KCookieJar::findCookies(const QString &_url, bool useDOMFormat, WId wind
             cookieStr = cookieStr + QLatin1String("$Version=") + QString::number(protVersion) + QLatin1String("; ");
         }
 
-        for (const KHttpCookie &cookie : qAsConst(allCookies)) {
+        for (const KHttpCookie &cookie : std::as_const(allCookies)) {
             cookieStr = cookieStr + cookie.cookieStr(useDOMFormat) + QStringLiteral("; ");
         }
 
@@ -938,7 +938,7 @@ void KCookieJar::addCookie(KHttpCookie &cookie)
         }
     }
 
-    for (const QString &key : qAsConst(domains)) {
+    for (const QString &key : std::as_const(domains)) {
         KHttpCookieList *list;
 
         if (key.isNull()) {
@@ -1195,7 +1195,7 @@ void KCookieJar::eatSessionCookies(long windowId)
         return;
     }
 
-    for (const QString &domain : qAsConst(m_domainList)) {
+    for (const QString &domain : std::as_const(m_domainList)) {
         eatSessionCookies(domain, windowId, false);
     }
 }
@@ -1284,7 +1284,7 @@ bool KCookieJar::saveCookies(const QString &_filename)
         QString::asprintf("%-20s %-20s %-12s %-10s %-4s %-20s %-4s %s\n", "# Host", "Domain", "Path", "Exp.date", "Prot", "Name", "Sec", "Value");
     ts << str;
 
-    for (const QString &domainName : qAsConst(m_domainList)) {
+    for (const QString &domainName : std::as_const(m_domainList)) {
         bool domainPrinted = false;
 
         KHttpCookieList *cookieList = m_cookieDomains.value(domainName);
@@ -1512,7 +1512,7 @@ void KCookieJar::saveConfig(KConfig *_config)
     policyGroup.writeEntry("CookieGlobalAdvice", adviceToStr(m_globalAdvice));
 
     QStringList domainSettings;
-    for (const QString &domain : qAsConst(m_domainList)) {
+    for (const QString &domain : std::as_const(m_domainList)) {
         KCookieAdvice advice = getDomainAdvice(domain);
         if (advice != KCookieDunno) {
             const QString value = domain + QLatin1Char(':') + adviceToStr(advice);

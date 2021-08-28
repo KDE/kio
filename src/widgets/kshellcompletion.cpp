@@ -66,7 +66,7 @@ QString KShellCompletion::makeCompletion(const QString &text)
     //
     bool is_exe_completion = true;
 
-    for (const QChar ch : qAsConst(d->m_text_start)) {
+    for (const QChar ch : std::as_const(d->m_text_start)) {
         if (ch != d->m_word_break_char) {
             is_exe_completion = false;
             break;

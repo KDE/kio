@@ -194,7 +194,7 @@ void KFileItemListPropertiesPrivate::determineMimeTypeAndGroup() const
         m_mimeType = m_items.first().mimetype();
         m_mimeGroup = m_mimeType.left(m_mimeType.indexOf(QLatin1Char('/')));
     }
-    for (const KFileItem &item : qAsConst(m_items)) {
+    for (const KFileItem &item : std::as_const(m_items)) {
         const QString itemMimeType = item.mimetype();
         // Determine if common MIME type among all items
         if (m_mimeType != itemMimeType) {

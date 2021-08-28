@@ -53,13 +53,13 @@ QString HelpProtocol::langLookup(const QString &fname)
     int ldCount = localDoc.count();
     search.reserve(ldCount * langs.size());
     for (int id = 0; id < ldCount; id++) {
-        for (const QString &lang : qAsConst(langs)) {
+        for (const QString &lang : std::as_const(langs)) {
             search.append(QStringLiteral("%1/%2/%3").arg(localDoc[id], lang, fname));
         }
     }
 
     // try to locate the file
-    for (const QString &path : qAsConst(search)) {
+    for (const QString &path : std::as_const(search)) {
         // qDebug() << "Looking for help in: " << path;
 
         QFileInfo info(path);

@@ -513,7 +513,7 @@ void KFilePreviewGeneratorPrivate::updateIcons(const KFileItemList &items)
     orderItems(orderedItems);
 
     m_pendingItems.reserve(m_pendingItems.size() + orderedItems.size());
-    for (const KFileItem &item : qAsConst(orderedItems)) {
+    for (const KFileItem &item : std::as_const(orderedItems)) {
         m_pendingItems.append(item);
     }
 
@@ -649,7 +649,7 @@ void KFilePreviewGeneratorPrivate::slotPreviewJobFinished(KJob *job)
     m_previewJobs.removeAt(index);
 
     if (m_previewJobs.isEmpty()) {
-        for (const KFileItem &item : qAsConst(m_pendingItems)) {
+        for (const KFileItem &item : std::as_const(m_pendingItems)) {
             if (item.isMimeTypeKnown()) {
                 m_resolvedMimeTypes.append(item);
             }
@@ -734,7 +734,7 @@ void KFilePreviewGeneratorPrivate::dispatchIconUpdateQueue()
 
         if (m_previewShown) {
             // dispatch preview queue
-            for (const ItemInfo &preview : qAsConst(m_previews)) {
+            for (const ItemInfo &preview : std::as_const(m_previews)) {
                 const QModelIndex idx = dirModel->indexForUrl(preview.url);
                 if (idx.isValid() && (idx.column() == 0)) {
                     dirModel->setData(idx, QIcon(preview.pixmap), Qt::DecorationRole);
@@ -744,7 +744,7 @@ void KFilePreviewGeneratorPrivate::dispatchIconUpdateQueue()
         }
 
         // dispatch MIME type queue
-        for (const KFileItem &item : qAsConst(m_resolvedMimeTypes)) {
+        for (const KFileItem &item : std::as_const(m_resolvedMimeTypes)) {
             const QModelIndex idx = dirModel->indexForItem(item);
             dirModel->itemChanged(idx);
         }
@@ -767,7 +767,7 @@ void KFilePreviewGeneratorPrivate::dispatchIconUpdateQueue()
 void KFilePreviewGeneratorPrivate::pauseIconUpdates()
 {
     m_iconUpdatesPaused = true;
-    for (KJob *job : qAsConst(m_previewJobs)) {
+    for (KJob *job : std::as_const(m_previewJobs)) {
         Q_ASSERT(job);
         job->suspend();
     }
@@ -784,7 +784,7 @@ void KFilePreviewGeneratorPrivate::resumeIconUpdates()
     // queue is usually equal. So even when having a lot of elements the
     // nested loop is no performance bottle neck, as the inner loop is only
     // entered once in most cases.
-    for (const KFileItem &item : qAsConst(m_dispatchedItems)) {
+    for (const KFileItem &item : std::as_const(m_dispatchedItems)) {
         KFileItemList::iterator begin = m_pendingItems.begin();
         KFileItemList::iterator end = m_pendingItems.end();
         for (KFileItemList::iterator it = begin; it != end; ++it) {
@@ -1019,7 +1019,7 @@ void KFilePreviewGeneratorPrivate::startPreviewJob(const KFileItemList &items, i
 
 void KFilePreviewGeneratorPrivate::killPreviewJobs()
 {
-    for (KJob *job : qAsConst(m_previewJobs)) {
+    for (KJob *job : std::as_const(m_previewJobs)) {
         Q_ASSERT(job);
         job->kill();
     }

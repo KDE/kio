@@ -1652,7 +1652,7 @@ QString HTTPProtocol::davError(int code /* = -1 */, const QString &_url)
 
             errorString += QLatin1String("<ul>");
 
-            for (const QString &error : qAsConst(errors)) {
+            for (const QString &error : std::as_const(errors)) {
                 errorString += QLatin1String("<li>") + error + QLatin1String("</li>");
             }
 
@@ -1969,7 +1969,7 @@ void HTTPProtocol::multiGet(const QByteArray &data)
         //### for the moment we use a hack: instead of saving and restoring request-id
         //    we just count up like ParallelGetJobs does.
         int requestId = 0;
-        for (const HTTPRequest &r : qAsConst(m_requestQueue)) {
+        for (const HTTPRequest &r : std::as_const(m_requestQueue)) {
             m_request = r;
             qCDebug(KIO_HTTP) << "check two: isKeepAlive =" << m_request.isKeepAlive;
             setMetaData(QStringLiteral("request-id"), QString::number(requestId++));
@@ -2125,7 +2125,7 @@ bool HTTPProtocol::httpShouldCloseConnection()
     }
 
     if (!m_request.proxyUrls.isEmpty() && !isAutoSsl()) {
-        for (const QString &url : qAsConst(m_request.proxyUrls)) {
+        for (const QString &url : std::as_const(m_request.proxyUrls)) {
             if (url != QLatin1String("DIRECT")) {
                 if (isCompatibleNextUrl(m_server.proxyUrl, QUrl(url))) {
                     return false;
@@ -2164,7 +2164,7 @@ bool HTTPProtocol::httpOpenConnection()
         connectError = connectToHost(m_request.url.host(), m_request.url.port(defaultPort()), &errorString);
     } else {
         QList<QUrl> badProxyUrls;
-        for (const QString &proxyUrl : qAsConst(m_request.proxyUrls)) {
+        for (const QString &proxyUrl : std::as_const(m_request.proxyUrls)) {
             if (proxyUrl == QLatin1String("DIRECT")) {
                 QNetworkProxy::setApplicationProxy(QNetworkProxy::NoProxy);
                 connectError = connectToHost(m_request.url.host(), m_request.url.port(defaultPort()), &errorString);
@@ -2668,7 +2668,7 @@ bool HTTPProtocol::parseHeaderFromCache()
         return false;
     }
 
-    for (const QString &str : qAsConst(m_responseHeaders)) {
+    for (const QString &str : std::as_const(m_responseHeaders)) {
         const QString header = str.trimmed();
         if (header.startsWith(QLatin1String("content-type:"), Qt::CaseInsensitive)) {
             int pos = header.indexOf(QLatin1String("charset="), Qt::CaseInsensitive);
@@ -3160,7 +3160,7 @@ endParsing:
 
             // If we still have text, then it means we have a MIME type with a
             // parameter (eg: charset=iso-8851) ; so let's get that...
-            for (const QByteArray &statement : qAsConst(l)) {
+            for (const QByteArray &statement : std::as_const(l)) {
                 const int index = statement.indexOf('=');
                 if (index <= 0) {
                     mediaAttribute = toQString(statement.mid(0, index));
@@ -3336,7 +3336,7 @@ endParsing:
             QString offered = toQString(tIt.next());
             upgradeOffers = offered.split(QRegularExpression(QStringLiteral("[ \n,\r\t]")), Qt::SkipEmptyParts);
         }
-        for (const QString &opt : qAsConst(upgradeOffers)) {
+        for (const QString &opt : std::as_const(upgradeOffers)) {
             if (opt == QLatin1String("TLS/1.0")) {
                 if (!startSsl() && upgradeRequired) {
                     error(ERR_UPGRADE_REQUIRED, opt);

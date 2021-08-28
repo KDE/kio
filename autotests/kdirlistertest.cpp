@@ -1515,7 +1515,7 @@ void KDirListerTest::testRequestMimeType()
     QTRY_VERIFY(lister.isFinished());
 
     auto items = lister.items();
-    for (auto item : qAsConst(items)) {
+    for (auto item : std::as_const(items)) {
         QVERIFY(!item.isMimeTypeKnown());
     }
 
@@ -1533,7 +1533,7 @@ void KDirListerTest::testRequestMimeType()
     // If requestMimeTypeWhileListing is on, we should know the mime type of
     // items when they have been listed.
     items = lister.items();
-    for (auto item : qAsConst(items)) {
+    for (auto item : std::as_const(items)) {
         QVERIFY(item.isMimeTypeKnown());
     }
 

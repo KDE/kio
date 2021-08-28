@@ -1240,7 +1240,7 @@ void JobTest::moveDirectoryToReadonlyFilesystem()
     job->setUiDelegate(nullptr);
     QVERIFY(!job->exec());
     QCOMPARE(job->error(), expectedErrorCode);
-    for (const QUrl &srcUrl : qAsConst(sources)) {
+    for (const QUrl &srcUrl : std::as_const(sources)) {
         QVERIFY(QFileInfo::exists(srcUrl.toLocalFile())); // no moving happened
     }
 
@@ -1250,7 +1250,7 @@ void JobTest::moveDirectoryToReadonlyFilesystem()
     if (job2->error() != KIO::ERR_CANNOT_MKDIR) { // This can happen when moving between partitions, but on CI it's the same partition so allow both
         QCOMPARE(job2->error(), expectedErrorCode);
     }
-    for (const QUrl &srcUrl : qAsConst(sources)) {
+    for (const QUrl &srcUrl : std::as_const(sources)) {
         QVERIFY(QFileInfo::exists(srcUrl.toLocalFile())); // no moving happened
     }
 }
@@ -1509,7 +1509,7 @@ void JobTest::deleteManyDirs(bool using_fast_path)
     KIO::Job *job = KIO::del(dirs, KIO::HideProgressInfo);
     job->setUiDelegate(nullptr);
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
-    for (const QUrl &dir : qAsConst(dirs)) {
+    for (const QUrl &dir : std::as_const(dirs)) {
         QVERIFY(!QFile::exists(dir.toLocalFile()));
     }
 
