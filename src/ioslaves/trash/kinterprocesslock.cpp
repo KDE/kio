@@ -17,8 +17,8 @@ class KInterProcessLockPrivate
     KInterProcessLock *const q_ptr;
 
 public:
-    KInterProcessLockPrivate(const QString &resource, KInterProcessLock *q)
-        : q_ptr(q)
+    KInterProcessLockPrivate(const QString &resource, KInterProcessLock *qq)
+        : q_ptr(qq)
         , m_resource(resource)
     {
         m_serviceName = QStringLiteral("org.kde.private.lock-%1").arg(m_resource);

@@ -41,13 +41,13 @@
 class KIO::JobUiDelegatePrivate
 {
 public:
-    JobUiDelegatePrivate(KIO::JobUiDelegate *q)
+    JobUiDelegatePrivate(KIO::JobUiDelegate *qq)
     {
         // Create extension objects. See KIO::delegateExtension<T>().
-        new WidgetsUntrustedProgramHandler(q);
-        new WidgetsOpenWithHandler(q);
-        new WidgetsOpenOrExecuteFileHandler(q);
-        new WidgetsAskUserActionHandler(q);
+        new WidgetsUntrustedProgramHandler(qq);
+        new WidgetsOpenWithHandler(qq);
+        new WidgetsOpenOrExecuteFileHandler(qq);
+        new WidgetsAskUserActionHandler(qq);
     }
 };
 
