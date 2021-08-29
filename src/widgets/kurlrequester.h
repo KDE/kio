@@ -33,12 +33,16 @@ class QString;
  * This class is a widget showing a lineedit and a button, which invokes a
  * filedialog. File name completion is available in the lineedit.
  *
- * The defaults for the filedialog are to ask for one existing local file.
- * The default filter is "*", i.e. show all files, and the start directory is
- * the current working directory, or the last directory where a file has been
- * selected.
+ * The default for the filedialog is to ask for one existing local file, i.e.
+ * the default mode is 'KFile::File | KFile::ExistingOnly | KFile::LocalOnly',
+ * which you can change by using setMode().
  *
- * You can change this behavior by using setMode(), setFilter() and setStartDir().
+ * The default filter is "*", i.e. show all files, which you can change by
+ * using setFilter().
+ *
+ * By default the start directory is the current working directory, or the
+ * last directory where a file has been selected previously, you can change
+ * this behavior by calling setStartDir().
  *
  * The default window modality for the file dialog is Qt::ApplicationModal
  *
@@ -110,14 +114,19 @@ public:
 
     /**
      * Sets the mode of the file dialog.
-     * Note: you can only select one file with the filedialog,
-     * so KFile::Files doesn't make much sense.
      *
-     * The default is KFile::File | KFile::ExistingOnly | KFile::LocalOnly.
+     * The default mode of the file dialog is 'KFile::File | KFile::ExistingOnly | KFile::LocalOnly',
+     * which you can change using this method.
+     *
+     * @note You can only select one file from the file dialog invoked
+     * by KUrlRequester, hence setting KFile::Files doesn't make
+     * much sense here.
+     *
+     * @param mode an OR'ed combination of KFile::Modes flags
      *
      * @see QFileDialog::setFileMode()
      */
-    void setMode(KFile::Modes m);
+    void setMode(KFile::Modes mode);
 
     /**
      * Returns the current mode
