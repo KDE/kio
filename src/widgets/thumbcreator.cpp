@@ -24,6 +24,7 @@ ThumbCreatorV2::~ThumbCreatorV2()
 }
 #endif
 
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 87)
 QWidget *ThumbCreator::createConfigurationWidget()
 {
     return nullptr;
@@ -33,3 +34,4 @@ void ThumbCreator::writeConfiguration(const QWidget *configurationWidget)
 {
     Q_UNUSED(configurationWidget);
 }
+#endif

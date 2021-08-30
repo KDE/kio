@@ -131,6 +131,7 @@ public:
      */
     virtual Flags flags() const;
 
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 87)
     /**
      * Create a widget for configuring the thumb creator.
      *
@@ -146,16 +147,24 @@ public:
      * \endcode
      *
      * @return A QWidget instance, which the caller takes ownership of, or @c nullptr.
+     * @deprecated Since 5.87, deprecated for lack of usage and only being used for niche usecases.
+     * Instead use sane defaults and keep reading the config if it exists.
      */
+    KIOWIDGETS_DEPRECATED_VERSION(5, 87, "See API docs")
     virtual QWidget *createConfigurationWidget();
+#endif
 
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 87)
     /**
      * Write the updated configuration.
      *
      * @param configurationWidget  An object returned by
      *                             createConfigurationWidget().
+     * @deprecated Since 5.87, see API docs of @p createConfigurationWidget
      */
+    KIOWIDGETS_DEPRECATED_VERSION(5, 87, "See API docs of createConfigurationWidget")
     virtual void writeConfiguration(const QWidget *configurationWidget);
+#endif
 };
 
 #if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 0)
