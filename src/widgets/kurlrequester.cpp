@@ -123,22 +123,22 @@ public:
             connect(combo, &QComboBox::editTextChanged, receiver, &KUrlRequester::textEdited);
 
 #if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 80)
-            connect(combo, QOverload<const QString &>::of(&KComboBox::returnPressed), receiver, QOverload<>::of(&KUrlRequester::returnPressed));
+            connect(combo, qOverload<const QString &>(&KComboBox::returnPressed), receiver, qOverload<>(&KUrlRequester::returnPressed));
 #endif
-            connect(combo, QOverload<const QString &>::of(&KComboBox::returnPressed), receiver, QOverload<const QString &>::of(&KUrlRequester::returnPressed));
+            connect(combo, qOverload<const QString &>(&KComboBox::returnPressed), receiver, qOverload<const QString &>(&KUrlRequester::returnPressed));
         } else if (edit) {
             connect(edit, &QLineEdit::textChanged, receiver, &KUrlRequester::textChanged);
             connect(edit, &QLineEdit::textEdited, receiver, &KUrlRequester::textEdited);
 
 #if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 80)
-            connect(edit, QOverload<>::of(&QLineEdit::returnPressed), receiver, QOverload<>::of(&KUrlRequester::returnPressed));
+            connect(edit, qOverload<>(&QLineEdit::returnPressed), receiver, qOverload<>(&KUrlRequester::returnPressed));
 #else
-            connect(edit, QOverload<>::of(&QLineEdit::returnPressed), receiver, [this]() {
+            connect(edit, qOverload<>(&QLineEdit::returnPressed), receiver, [this]() {
                 m_parent->Q_EMIT returnPressed(QString{});
             });
 #endif
             if (auto kline = qobject_cast<KLineEdit *>(edit)) {
-                connect(kline, &KLineEdit::returnKeyPressed, receiver, QOverload<const QString &>::of(&KUrlRequester::returnPressed));
+                connect(kline, &KLineEdit::returnKeyPressed, receiver, qOverload<const QString &>(&KUrlRequester::returnPressed));
             }
         }
     }

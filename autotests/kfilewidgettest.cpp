@@ -523,7 +523,7 @@ private Q_SLOTS:
         mimeData->setUrls(QList<QUrl>() << fileUrl);
 
         KDirLister *dirLister = fileWidget.dirOperator()->dirLister();
-        QSignalSpy spy(dirLister, QOverload<>::of(&KCoreDirLister::completed));
+        QSignalSpy spy(dirLister, qOverload<>(&KCoreDirLister::completed));
 
         QAbstractItemView *view = fileWidget.dirOperator()->view();
         QVERIFY(view);

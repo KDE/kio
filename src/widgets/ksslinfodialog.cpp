@@ -153,7 +153,7 @@ void KSslInfoDialog::setSslInfo(const QList<QSslCertificate> &certificateChain,
     if (certificateChain.size() < 2) {
         d->ui.certSelector->setEnabled(false);
     }
-    connect(d->ui.certSelector, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &KSslInfoDialog::displayFromChain);
+    connect(d->ui.certSelector, qOverload<int>(&QComboBox::currentIndexChanged), this, &KSslInfoDialog::displayFromChain);
     if (d->certificateChain.isEmpty()) {
         d->certificateChain.append(QSslCertificate());
     }

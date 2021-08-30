@@ -323,7 +323,7 @@ void KProcessRunner::init(const KService::Ptr &service,
 
 void ForkingProcessRunner::startProcess()
 {
-    connect(m_process.get(), QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished), this, &ForkingProcessRunner::slotProcessExited);
+    connect(m_process.get(), qOverload<int, QProcess::ExitStatus>(&QProcess::finished), this, &ForkingProcessRunner::slotProcessExited);
     connect(m_process.get(), &QProcess::started, this, &ForkingProcessRunner::slotProcessStarted, Qt::QueuedConnection);
     connect(m_process.get(), &QProcess::errorOccurred, this, &ForkingProcessRunner::slotProcessError);
     m_process->start();

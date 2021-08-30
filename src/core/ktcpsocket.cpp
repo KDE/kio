@@ -406,7 +406,7 @@ KTcpSocket::KTcpSocket(QObject *parent)
         d->reemitSocketError(err);
     });
 
-    connect(&d->sock, QOverload<const QList<QSslError> &>::of(&QSslSocket::sslErrors), this, [this](const QList<QSslError> &errorList) {
+    connect(&d->sock, qOverload<const QList<QSslError> &>(&QSslSocket::sslErrors), this, [this](const QList<QSslError> &errorList) {
         d->reemitSslErrors(errorList);
     });
     connect(&d->sock, &QAbstractSocket::hostFound, this, &KTcpSocket::hostFound);

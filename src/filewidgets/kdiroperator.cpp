@@ -1820,13 +1820,13 @@ void KDirOperator::setDirLister(KDirLister *lister)
     connect(d->m_dirLister, &KCoreDirLister::started, this, [this]() {
         d->slotStarted();
     });
-    connect(d->m_dirLister, QOverload<>::of(&KCoreDirLister::completed), this, [this]() {
+    connect(d->m_dirLister, qOverload<>(&KCoreDirLister::completed), this, [this]() {
         d->slotIOFinished();
     });
-    connect(d->m_dirLister, QOverload<>::of(&KCoreDirLister::canceled), this, [this]() {
+    connect(d->m_dirLister, qOverload<>(&KCoreDirLister::canceled), this, [this]() {
         d->slotCanceled();
     });
-    connect(d->m_dirLister, QOverload<const QUrl &, const QUrl &>::of(&KCoreDirLister::redirection), this, [this](const QUrl &, const QUrl &newUrl) {
+    connect(d->m_dirLister, qOverload<const QUrl &, const QUrl &>(&KCoreDirLister::redirection), this, [this](const QUrl &, const QUrl &newUrl) {
         d->slotRedirected(newUrl);
     });
     connect(d->m_dirLister, &KCoreDirLister::newItems, this, [this]() {
@@ -1838,7 +1838,7 @@ void KDirOperator::setDirLister(KDirLister *lister)
     connect(d->m_dirLister, &KCoreDirLister::itemsFilteredByMime, this, [this]() {
         d->slotItemsChanged();
     });
-    connect(d->m_dirLister, QOverload<>::of(&KCoreDirLister::clear), this, [this]() {
+    connect(d->m_dirLister, qOverload<>(&KCoreDirLister::clear), this, [this]() {
         d->slotItemsChanged();
     });
 }

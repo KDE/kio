@@ -90,11 +90,11 @@ KCookiesPolicies::KCookiesPolicies(QWidget *parent, const QVariantList &args)
     connect(mUi.rbPolicyReject, &QAbstractButton::toggled, this, &KCookiesPolicies::configChanged);
     // Connect signals from the domain specific policy listview.
     connect(mUi.policyTreeWidget, &QTreeWidget::itemSelectionChanged, this, &KCookiesPolicies::selectionChanged);
-    connect(mUi.policyTreeWidget, &QTreeWidget::itemDoubleClicked, this, QOverload<>::of(&KCookiesPolicies::changePressed));
+    connect(mUi.policyTreeWidget, &QTreeWidget::itemDoubleClicked, this, qOverload<>(&KCookiesPolicies::changePressed));
 
     // Connect the buttons...
-    connect(mUi.pbNew, &QAbstractButton::clicked, this, QOverload<>::of(&KCookiesPolicies::addPressed));
-    connect(mUi.pbChange, &QAbstractButton::clicked, this, QOverload<>::of(&KCookiesPolicies::changePressed));
+    connect(mUi.pbNew, &QAbstractButton::clicked, this, qOverload<>(&KCookiesPolicies::addPressed));
+    connect(mUi.pbChange, &QAbstractButton::clicked, this, qOverload<>(&KCookiesPolicies::changePressed));
     connect(mUi.pbDelete, &QAbstractButton::clicked, this, &KCookiesPolicies::deletePressed);
     connect(mUi.pbDeleteAll, &QAbstractButton::clicked, this, &KCookiesPolicies::deleteAllPressed);
 }

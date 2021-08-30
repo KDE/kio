@@ -172,7 +172,7 @@ bool ProxyScout::startDownload()
         }
         if (!m_downloader) {
             m_downloader = new Discovery(this);
-            connect(m_downloader, QOverload<bool>::of(&Downloader::result), this, &ProxyScout::downloadResult);
+            connect(m_downloader, qOverload<bool>(&Downloader::result), this, &ProxyScout::downloadResult);
         }
         break;
     case KProtocolManager::PACProxy: {
@@ -182,7 +182,7 @@ bool ProxyScout::startDownload()
         }
         if (!m_downloader) {
             m_downloader = new Downloader(this);
-            connect(m_downloader, QOverload<bool>::of(&Downloader::result), this, &ProxyScout::downloadResult);
+            connect(m_downloader, qOverload<bool>(&Downloader::result), this, &ProxyScout::downloadResult);
         }
 
         const QUrl url(KProtocolManager::proxyConfigScript());

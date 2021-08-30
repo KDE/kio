@@ -64,7 +64,7 @@ KURIFilterModule::KURIFilterModule(QWidget *parent, const QVariantList &args)
             if (module) {
                 modules.append(module);
                 helper.insert(module->windowTitle(), module);
-                connect(module, QOverload<bool>::of(&KCModule::changed), this, QOverload<bool>::of(&KCModule::changed));
+                connect(module, qOverload<bool>(&KCModule::changed), this, qOverload<bool>(&KCModule::changed));
             }
         }
     }

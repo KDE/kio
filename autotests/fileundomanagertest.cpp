@@ -278,7 +278,7 @@ void FileUndoManagerTest::testCopyFiles()
     job->setUiDelegate(nullptr);
     FileUndoManager::self()->recordCopyJob(job);
 
-    QSignalSpy spyUndoAvailable(FileUndoManager::self(), QOverload<bool>::of(&FileUndoManager::undoAvailable));
+    QSignalSpy spyUndoAvailable(FileUndoManager::self(), qOverload<bool>(&FileUndoManager::undoAvailable));
     QVERIFY(spyUndoAvailable.isValid());
     QSignalSpy spyTextChanged(FileUndoManager::self(), &FileUndoManager::undoTextChanged);
     QVERIFY(spyTextChanged.isValid());
@@ -419,7 +419,7 @@ void FileUndoManagerTest::testRenameFile()
     const QUrl newUrl = QUrl::fromLocalFile(srcFile() + ".new");
     QList<QUrl> lst;
     lst.append(oldUrl);
-    QSignalSpy spyUndoAvailable(FileUndoManager::self(), QOverload<bool>::of(&FileUndoManager::undoAvailable));
+    QSignalSpy spyUndoAvailable(FileUndoManager::self(), qOverload<bool>(&FileUndoManager::undoAvailable));
     QVERIFY(spyUndoAvailable.isValid());
     KIO::Job *job = KIO::moveAs(oldUrl, newUrl, KIO::HideProgressInfo);
     job->setUiDelegate(nullptr);
@@ -742,7 +742,7 @@ void FileUndoManagerTest::testUndoCopyOfDeletedFile()
     }
 
     QVERIFY(FileUndoManager::self()->isUndoAvailable());
-    QSignalSpy spyUndoAvailable(FileUndoManager::self(), QOverload<bool>::of(&FileUndoManager::undoAvailable));
+    QSignalSpy spyUndoAvailable(FileUndoManager::self(), qOverload<bool>(&FileUndoManager::undoAvailable));
     QVERIFY(spyUndoAvailable.isValid());
     doUndo();
     QVERIFY(spyUndoAvailable.count() >= 2); // it's in fact 3, due to lock/unlock emitting it as well

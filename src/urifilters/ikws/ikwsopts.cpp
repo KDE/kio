@@ -258,8 +258,8 @@ FilterOptions::FilterOptions(QWidget *parent, const QVariantList &args)
     connect(m_dlg.cbUseSelectedShortcutsOnly, &QAbstractButton::toggled, this, &FilterOptions::markAsChanged);
 
     connect(m_providersModel, &ProvidersModel::dataModified, this, &FilterOptions::markAsChanged);
-    connect(m_dlg.cmbDefaultEngine, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &FilterOptions::markAsChanged);
-    connect(m_dlg.cmbDelimiter, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &FilterOptions::markAsChanged);
+    connect(m_dlg.cmbDefaultEngine, qOverload<int>(&QComboBox::currentIndexChanged), this, &FilterOptions::markAsChanged);
+    connect(m_dlg.cmbDelimiter, qOverload<int>(&QComboBox::currentIndexChanged), this, &FilterOptions::markAsChanged);
 
     connect(m_dlg.pbNew, &QAbstractButton::clicked, this, &FilterOptions::addSearchProvider);
     connect(m_dlg.pbDelete, &QAbstractButton::clicked, this, &FilterOptions::deleteSearchProvider);

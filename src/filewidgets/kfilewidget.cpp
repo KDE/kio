@@ -537,7 +537,7 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
     connect(d->m_urlNavigator, &KUrlNavigator::urlChanged, this, [this](const QUrl &url) {
         d->enterUrl(url);
     });
-    connect(d->m_urlNavigator, &KUrlNavigator::returnPressed, d->m_ops, QOverload<>::of(&QWidget::setFocus));
+    connect(d->m_urlNavigator, &KUrlNavigator::returnPressed, d->m_ops, qOverload<>(&QWidget::setFocus));
 
     // the Location label/edit
     d->m_locationLabel = new QLabel(i18n("&Name:"), this);
@@ -561,7 +561,7 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
         d->fileCompletion(match);
     });
 
-    connect(d->m_locationEdit, QOverload<const QString &>::of(&KUrlComboBox::returnPressed), this, [this](const QString &text) {
+    connect(d->m_locationEdit, qOverload<const QString &>(&KUrlComboBox::returnPressed), this, [this](const QString &text) {
         d->locationAccepted(text);
     });
 
@@ -580,7 +580,7 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
 
     d->m_filterDelayTimer.setSingleShot(true);
     d->m_filterDelayTimer.setInterval(300);
-    connect(d->m_filterWidget, &QComboBox::editTextChanged, &d->m_filterDelayTimer, QOverload<>::of(&QTimer::start));
+    connect(d->m_filterWidget, &QComboBox::editTextChanged, &d->m_filterDelayTimer, qOverload<>(&QTimer::start));
     connect(&d->m_filterDelayTimer, &QTimer::timeout, this, [this]() {
         d->slotFilterChanged();
     });

@@ -42,12 +42,12 @@ TrashConfigModule::TrashConfigModule(QWidget *parent, const QVariantList &args)
 
     connect(mUseTimeLimit, &QAbstractButton::toggled, this, &TrashConfigModule::markAsChanged);
     connect(mUseTimeLimit, &QAbstractButton::toggled, this, &TrashConfigModule::useTypeChanged);
-    connect(mDays, QOverload<int>::of(&QSpinBox::valueChanged), this, &TrashConfigModule::markAsChanged);
+    connect(mDays, qOverload<int>(&QSpinBox::valueChanged), this, &TrashConfigModule::markAsChanged);
     connect(mUseSizeLimit, &QAbstractButton::toggled, this, &TrashConfigModule::markAsChanged);
     connect(mUseSizeLimit, &QAbstractButton::toggled, this, &TrashConfigModule::useTypeChanged);
-    connect(mPercent, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &TrashConfigModule::percentChanged);
-    connect(mPercent, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &TrashConfigModule::markAsChanged);
-    connect(mLimitReachedAction, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &TrashConfigModule::markAsChanged);
+    connect(mPercent, qOverload<double>(&QDoubleSpinBox::valueChanged), this, &TrashConfigModule::percentChanged);
+    connect(mPercent, qOverload<double>(&QDoubleSpinBox::valueChanged), this, &TrashConfigModule::markAsChanged);
+    connect(mLimitReachedAction, qOverload<int>(&QComboBox::currentIndexChanged), this, &TrashConfigModule::markAsChanged);
 
     trashChanged(0);
     trashInitialize = true;
@@ -220,7 +220,7 @@ void TrashConfigModule::setupGui()
 
         mountPoints->setCurrentRow(0);
 
-        connect(mountPoints, &QListWidget::currentItemChanged, this, QOverload<QListWidgetItem *>::of(&TrashConfigModule::trashChanged));
+        connect(mountPoints, &QListWidget::currentItemChanged, this, qOverload<QListWidgetItem *>(&TrashConfigModule::trashChanged));
     } else {
         mCurrentTrash = map.value(0);
     }

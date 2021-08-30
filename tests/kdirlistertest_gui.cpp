@@ -41,12 +41,12 @@ KDirListerTest::KDirListerTest(QWidget *parent, const QUrl &initialUrl)
     connect(test, &QAbstractButton::clicked, this, &KDirListerTest::test);
 
     connect(lister, &KCoreDirLister::started, debug, &PrintSignals::started);
-    connect(lister, QOverload<>::of(&KDirLister::completed), debug, &PrintSignals::completed);
+    connect(lister, qOverload<>(&KDirLister::completed), debug, &PrintSignals::completed);
     connect(lister, &KCoreDirLister::listingDirCompleted, debug, &PrintSignals::listingDirCompleted);
-    connect(lister, QOverload<>::of(&KDirLister::canceled), debug, &PrintSignals::canceled);
+    connect(lister, qOverload<>(&KDirLister::canceled), debug, &PrintSignals::canceled);
     connect(lister, &KCoreDirLister::listingDirCanceled, debug, &PrintSignals::listingDirCanceled);
-    connect(lister, QOverload<const QUrl &, const QUrl &>::of(&KDirLister::redirection), debug, &PrintSignals::redirection);
-    connect(lister, QOverload<>::of(&KDirLister::clear), debug, &PrintSignals::clear);
+    connect(lister, qOverload<const QUrl &, const QUrl &>(&KDirLister::redirection), debug, &PrintSignals::redirection);
+    connect(lister, qOverload<>(&KDirLister::clear), debug, &PrintSignals::clear);
     connect(lister, &KCoreDirLister::newItems, debug, &PrintSignals::newItems);
     connect(lister, &KCoreDirLister::itemsFilteredByMime, debug, &PrintSignals::itemsFilteredByMime);
     connect(lister, &KCoreDirLister::itemsDeleted, debug, &PrintSignals::itemsDeleted);
@@ -57,7 +57,7 @@ KDirListerTest::KDirListerTest(QWidget *parent, const QUrl &initialUrl)
     connect(lister, &KCoreDirLister::processedSize, debug, &PrintSignals::processedSize);
     connect(lister, &KCoreDirLister::speed, debug, &PrintSignals::speed);
 
-    connect(lister, QOverload<>::of(&KDirLister::completed), this, &KDirListerTest::completed);
+    connect(lister, qOverload<>(&KDirLister::completed), this, &KDirListerTest::completed);
 
     if (initialUrl.isValid()) {
         lister->openUrl(initialUrl, KDirLister::NoFlags);

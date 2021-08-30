@@ -142,14 +142,14 @@ void KDirModelTest::fillModel(bool reload, bool expectAllIndexes)
     KDirLister *dirLister = m_dirModel->dirLister();
     qDebug() << "Calling openUrl";
     m_dirModel->openUrl(QUrl::fromLocalFile(path), reload ? KDirModel::Reload : KDirModel::NoFlags);
-    connect(dirLister, QOverload<>::of(&KCoreDirLister::completed), this, &KDirModelTest::slotListingCompleted);
+    connect(dirLister, qOverload<>(&KCoreDirLister::completed), this, &KDirModelTest::slotListingCompleted);
     qDebug() << "enterLoop, waiting for completed()";
     enterLoop();
 
     if (expectAllIndexes) {
         collectKnownIndexes();
     }
-    disconnect(dirLister, QOverload<>::of(&KCoreDirLister::completed), this, &KDirModelTest::slotListingCompleted);
+    disconnect(dirLister, qOverload<>(&KCoreDirLister::completed), this, &KDirModelTest::slotListingCompleted);
 }
 
 // Called after test function
@@ -557,7 +557,7 @@ void KDirModelTest::testRenameDirectory() // #172945, #174703, (and #180156)
     delete m_dirModelForExpand;
     m_dirModelForExpand = new KDirModel;
     KDirLister *dirListerForExpand = m_dirModelForExpand->dirLister();
-    connect(dirListerForExpand, QOverload<>::of(&KDirLister::completed), this, &KDirModelTest::slotListingCompleted);
+    connect(dirListerForExpand, qOverload<>(&KDirLister::completed), this, &KDirModelTest::slotListingCompleted);
     dirListerForExpand->openUrl(url); // async
     enterLoop();
 
@@ -756,13 +756,13 @@ void KDirModelTest::testExpandToUrl()
     if (flags & CacheSubdir) {
         // This way, the listDir for subdir will find items in cache, and will schedule a CachedItemsJob
         m_dirModel->dirLister()->openUrl(QUrl::fromLocalFile(path + "subdir"));
-        QSignalSpy completedSpy(m_dirModel->dirLister(), QOverload<>::of(&KCoreDirLister::completed));
+        QSignalSpy completedSpy(m_dirModel->dirLister(), qOverload<>(&KCoreDirLister::completed));
         QVERIFY(completedSpy.wait(2000));
     }
     if (flags & ListFinalDir) {
         // This way, the last listDir will find items in cache, and will schedule a CachedItemsJob
         m_dirModel->dirLister()->openUrl(QUrl::fromLocalFile(path + "subdir/subsubdir"));
-        QSignalSpy completedSpy(m_dirModel->dirLister(), QOverload<>::of(&KCoreDirLister::completed));
+        QSignalSpy completedSpy(m_dirModel->dirLister(), qOverload<>(&KCoreDirLister::completed));
         QVERIFY(completedSpy.wait(2000));
     }
 
@@ -1042,12 +1042,12 @@ void KDirModelTest::testUrlWithRef() // #171117
     url.setFragment(QStringLiteral("ref"));
     QVERIFY(url.url().endsWith(QLatin1String("#ref")));
     dirLister->openUrl(url, KDirLister::NoFlags);
-    connect(dirLister, QOverload<>::of(&KCoreDirLister::completed), this, &KDirModelTest::slotListingCompleted);
+    connect(dirLister, qOverload<>(&KCoreDirLister::completed), this, &KDirModelTest::slotListingCompleted);
     enterLoop();
 
     QCOMPARE(dirLister->url().toString(), url.toString(QUrl::StripTrailingSlash));
     collectKnownIndexes();
-    disconnect(dirLister, QOverload<>::of(&KCoreDirLister::completed), this, &KDirModelTest::slotListingCompleted);
+    disconnect(dirLister, qOverload<>(&KCoreDirLister::completed), this, &KDirModelTest::slotListingCompleted);
 }
 
 // void KDirModelTest::testFontUrlWithHost() // #160057 --> moved to kio_fonts (kfontinst/kio/autotests)
@@ -1060,7 +1060,7 @@ void KDirModelTest::testRemoteUrlWithHost() // #178416
     QUrl url(QStringLiteral("remote://foo"));
     KDirLister *dirLister = m_dirModel->dirLister();
     dirLister->openUrl(url, KDirLister::NoFlags);
-    connect(dirLister, QOverload<>::of(&KCoreDirLister::completed), this, &KDirModelTest::slotListingCompleted);
+    connect(dirLister, qOverload<>(&KCoreDirLister::completed), this, &KDirModelTest::slotListingCompleted);
     enterLoop();
 
     QCOMPARE(dirLister->url().toString(), QString("remote://foo"));
@@ -1071,9 +1071,9 @@ void KDirModelTest::testZipFile() // # 171721
     const QString path = QFileInfo(QFINDTESTDATA("wronglocalsizes.zip")).absolutePath();
     KDirLister *dirLister = m_dirModel->dirLister();
     dirLister->openUrl(QUrl::fromLocalFile(path), KDirLister::NoFlags);
-    connect(dirLister, QOverload<>::of(&KCoreDirLister::completed), this, &KDirModelTest::slotListingCompleted);
+    connect(dirLister, qOverload<>(&KCoreDirLister::completed), this, &KDirModelTest::slotListingCompleted);
     enterLoop();
-    disconnect(dirLister, QOverload<>::of(&KCoreDirLister::completed), this, &KDirModelTest::slotListingCompleted);
+    disconnect(dirLister, qOverload<>(&KCoreDirLister::completed), this, &KDirModelTest::slotListingCompleted);
 
     QUrl zipUrl(QUrl::fromLocalFile(path));
     zipUrl.setPath(zipUrl.path() + "/wronglocalsizes.zip"); // just a zip file lying here for other reasons
@@ -1281,7 +1281,7 @@ void KDirModelTest::testHasChildren()
     QVERIFY(m_dirModel->hasChildren(m_dirIndex));
 
     auto listDir = [this](const QModelIndex &index) {
-        QSignalSpy completedSpy(m_dirModel->dirLister(), QOverload<>::of(&KDirLister::completed));
+        QSignalSpy completedSpy(m_dirModel->dirLister(), qOverload<>(&KDirLister::completed));
         m_dirModel->fetchMore(index);
         return completedSpy.wait();
     };
@@ -1325,7 +1325,7 @@ void KDirModelTest::testHasChildren()
 
 void KDirModelTest::testInvalidUrl()
 {
-    QSignalSpy completedSpy(m_dirModel->dirLister(), QOverload<>::of(&KCoreDirLister::completed));
+    QSignalSpy completedSpy(m_dirModel->dirLister(), qOverload<>(&KCoreDirLister::completed));
     m_dirModel->openUrl(QUrl(":/"));
     // currently ends up in KCoreDirLister::handleError. TODO: add error signal to KDirModel
 }
@@ -1380,8 +1380,8 @@ void KDirModelTest::testDeleteFileWhileListing() // doesn't really test that yet
     const QUrl url = QUrl::fromLocalFile(file);
 
     KDirLister *dirLister = m_dirModel->dirLister();
-    QSignalSpy spyCompleted(dirLister, QOverload<>::of(&KCoreDirLister::completed));
-    connect(dirLister, QOverload<>::of(&KCoreDirLister::completed), this, &KDirModelTest::slotListingCompleted);
+    QSignalSpy spyCompleted(dirLister, qOverload<>(&KCoreDirLister::completed));
+    connect(dirLister, qOverload<>(&KCoreDirLister::completed), this, &KDirModelTest::slotListingCompleted);
     dirLister->openUrl(QUrl::fromLocalFile(path), KDirLister::NoFlags);
     if (!spyCompleted.isEmpty()) {
         QSKIP("listing completed too early");

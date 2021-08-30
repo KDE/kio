@@ -453,7 +453,7 @@ KPropertiesDialog::~KPropertiesDialog()
 
 void KPropertiesDialog::insertPlugin(KPropertiesDialogPlugin *plugin)
 {
-    connect(plugin, &KPropertiesDialogPlugin::changed, plugin, QOverload<>::of(&KPropertiesDialogPlugin::setDirty));
+    connect(plugin, &KPropertiesDialogPlugin::changed, plugin, qOverload<>(&KPropertiesDialogPlugin::setDirty));
 
     d->m_pages.push_back(plugin);
 }
@@ -1090,7 +1090,7 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
     // Symlink widgets
     if (!d->bMultiple && firstItem.isLink()) {
         d->m_ui->symlinkTargetEdit->setText(firstItem.linkDest());
-        connect(d->m_ui->symlinkTargetEdit, &QLineEdit::textChanged, this, QOverload<>::of(&KFilePropsPlugin::setDirty));
+        connect(d->m_ui->symlinkTargetEdit, &QLineEdit::textChanged, this, qOverload<>(&KFilePropsPlugin::setDirty));
 
         connect(d->m_ui->symlinkTargetOpenDir, &QPushButton::clicked, this, [this] {
             const QUrl resolvedTargetLocation = properties->item().url().resolved(QUrl(d->m_ui->symlinkTargetEdit->text()));
@@ -1796,7 +1796,7 @@ KFilePermissionsPropsPlugin::KFilePermissionsPropsPlugin(KPropertiesDialog *_pro
     l = d->ownerPermCombo = new QComboBox(gb);
     lbl->setBuddy(l);
     gl->addWidget(l, 1, 1);
-    connect(d->ownerPermCombo, QOverload<int>::of(&QComboBox::activated), this, &KPropertiesDialogPlugin::changed);
+    connect(d->ownerPermCombo, qOverload<int>(&QComboBox::activated), this, &KPropertiesDialogPlugin::changed);
     l->setWhatsThis(i18n("Specifies the actions that the owner is allowed to do."));
 
     lbl = new QLabel(i18n("Gro&up:"), gb);
@@ -1804,7 +1804,7 @@ KFilePermissionsPropsPlugin::KFilePermissionsPropsPlugin(KPropertiesDialog *_pro
     l = d->groupPermCombo = new QComboBox(gb);
     lbl->setBuddy(l);
     gl->addWidget(l, 2, 1);
-    connect(d->groupPermCombo, QOverload<int>::of(&QComboBox::activated), this, &KPropertiesDialogPlugin::changed);
+    connect(d->groupPermCombo, qOverload<int>(&QComboBox::activated), this, &KPropertiesDialogPlugin::changed);
     l->setWhatsThis(i18n("Specifies the actions that the members of the group are allowed to do."));
 
     lbl = new QLabel(i18n("O&thers:"), gb);
@@ -1812,7 +1812,7 @@ KFilePermissionsPropsPlugin::KFilePermissionsPropsPlugin(KPropertiesDialog *_pro
     l = d->othersPermCombo = new QComboBox(gb);
     lbl->setBuddy(l);
     gl->addWidget(l, 3, 1);
-    connect(d->othersPermCombo, QOverload<int>::of(&QComboBox::activated), this, &KPropertiesDialogPlugin::changed);
+    connect(d->othersPermCombo, qOverload<int>(&QComboBox::activated), this, &KPropertiesDialogPlugin::changed);
     l->setWhatsThis(
         i18n("Specifies the actions that all users, who are neither "
              "owner nor in the group, are allowed to do."));
@@ -1913,7 +1913,7 @@ KFilePermissionsPropsPlugin::KFilePermissionsPropsPlugin(KPropertiesDialog *_pro
         d->grpCombo->addItems(groupList);
         d->grpCombo->setCurrentIndex(groupList.indexOf(d->strGroup));
         gl->addWidget(d->grpCombo, 2, 1);
-        connect(d->grpCombo, QOverload<int>::of(&QComboBox::activated), this, &KPropertiesDialogPlugin::changed);
+        connect(d->grpCombo, qOverload<int>(&QComboBox::activated), this, &KPropertiesDialogPlugin::changed);
     } else {
         l = new QLabel(d->strGroup, gb);
         gl->addWidget(l, 2, 1);
@@ -3589,7 +3589,7 @@ void KDesktopPropsPlugin::slotAdvanced()
     connect(w.suidEdit, &QLineEdit::textChanged, this, &KPropertiesDialogPlugin::changed);
     connect(w.discreteGpuCheck, &QAbstractButton::toggled, this, &KPropertiesDialogPlugin::changed);
     connect(w.startupInfoCheck, &QAbstractButton::toggled, this, &KPropertiesDialogPlugin::changed);
-    connect(w.dbusCombo, QOverload<int>::of(&QComboBox::activated), this, &KPropertiesDialogPlugin::changed);
+    connect(w.dbusCombo, qOverload<int>(&QComboBox::activated), this, &KPropertiesDialogPlugin::changed);
 
     if (dlg.exec() == QDialog::Accepted) {
         d->m_terminalOptionStr = w.terminalEdit->text().trimmed();

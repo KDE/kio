@@ -70,7 +70,7 @@ KioslaveTest::KioslaveTest(QString src, QString dest, uint op, uint pr)
     opButtons = new QButtonGroup(main_widget);
     QGroupBox *box = new QGroupBox(QStringLiteral("Operation"), main_widget);
     topLayout->addWidget(box, 10);
-    connect(opButtons, QOverload<QAbstractButton *>::of(&QButtonGroup::buttonClicked), this, &KioslaveTest::changeOperation);
+    connect(opButtons, qOverload<QAbstractButton *>(&QButtonGroup::buttonClicked), this, &KioslaveTest::changeOperation);
 
     QBoxLayout *hbLayout = new QHBoxLayout(box);
 
@@ -122,7 +122,7 @@ KioslaveTest::KioslaveTest(QString src, QString dest, uint op, uint pr)
     progressButtons = new QButtonGroup(main_widget);
     box = new QGroupBox(QStringLiteral("Progress dialog mode"), main_widget);
     topLayout->addWidget(box, 10);
-    connect(progressButtons, QOverload<QAbstractButton *>::of(&QButtonGroup::buttonClicked), this, &KioslaveTest::changeProgressMode);
+    connect(progressButtons, qOverload<QAbstractButton *>(&QButtonGroup::buttonClicked), this, &KioslaveTest::changeProgressMode);
 
     hbLayout = new QHBoxLayout(box);
 

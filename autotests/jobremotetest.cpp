@@ -187,7 +187,7 @@ void JobRemoteTest::openFileWriting()
     connect(fileJob, &KIO::FileJob::position, this, &JobRemoteTest::slotFileJobPosition);
 
 #if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
-    connect(fileJob, QOverload<KIO::Job *>::of(&KIO::FileJob::close), this, &JobRemoteTest::slotFileJobClose);
+    connect(fileJob, qOverload<KIO::Job *>(&KIO::FileJob::close), this, &JobRemoteTest::slotFileJobClose);
 #else
     connect(fileJob, &KIO::FileJob::fileClosed, this, &JobRemoteTest::slotFileJobClose);
 #endif
@@ -294,7 +294,7 @@ void JobRemoteTest::openFileReading()
 
     // Can reuse this slot (same for all tests).
 #if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
-    connect(fileJob, QOverload<KIO::Job *>::of(&KIO::FileJob::close), this, &JobRemoteTest::slotFileJobClose);
+    connect(fileJob, qOverload<KIO::Job *>(&KIO::FileJob::close), this, &JobRemoteTest::slotFileJobClose);
 #else
     connect(fileJob, &KIO::FileJob::fileClosed, this, &JobRemoteTest::slotFileJobClose);
 #endif
@@ -393,7 +393,7 @@ void JobRemoteTest::openFileRead0Bytes()
 
     // Can reuse this as well.
 #if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
-    connect(fileJob, QOverload<KIO::Job *>::of(&KIO::FileJob::close), this, &JobRemoteTest::slotFileJobClose);
+    connect(fileJob, qOverload<KIO::Job *>(&KIO::FileJob::close), this, &JobRemoteTest::slotFileJobClose);
 #else
     connect(fileJob, &KIO::FileJob::fileClosed, this, &JobRemoteTest::slotFileJobClose);
 #endif
@@ -457,7 +457,7 @@ void JobRemoteTest::openFileTruncating()
 
     // Can reuse this slot (same for all tests).
 #if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
-    connect(fileJob, QOverload<KIO::Job *>::of(&KIO::FileJob::close), this, &JobRemoteTest::slotFileJobClose);
+    connect(fileJob, qOverload<KIO::Job *>(&KIO::FileJob::close), this, &JobRemoteTest::slotFileJobClose);
 #else
     connect(fileJob, &KIO::FileJob::fileClosed, this, &JobRemoteTest::slotFileJobClose);
 #endif

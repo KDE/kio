@@ -46,9 +46,9 @@ KFileFilterCombo::KFileFilterCombo(QWidget *parent)
 {
     setTrapReturnKey(true);
     setInsertPolicy(QComboBox::NoInsert);
-    connect(this, QOverload<int>::of(&QComboBox::activated), this, &KFileFilterCombo::filterChanged);
+    connect(this, qOverload<int>(&QComboBox::activated), this, &KFileFilterCombo::filterChanged);
     // TODO KF6: remove this QOverload, only KUrlComboBox::returnPressed(const QString &) will remain
-    connect(this, QOverload<const QString &>::of(&KComboBox::returnPressed), this, &KFileFilterCombo::filterChanged);
+    connect(this, qOverload<const QString &>(&KComboBox::returnPressed), this, &KFileFilterCombo::filterChanged);
     connect(this, &KFileFilterCombo::filterChanged, this, [this]() {
         d->slotFilterChanged();
     });

@@ -1973,7 +1973,7 @@ void JobTest::mimeType()
     KIO::MimetypeJob *job = KIO::mimetype(QUrl::fromLocalFile(filePath), KIO::HideProgressInfo);
     QVERIFY(job);
 #if KIOCORE_BUILD_DEPRECATED_SINCE(5, 78)
-    QSignalSpy spyMimeType(job, QOverload<KIO::Job *, const QString &>::of(&KIO::MimetypeJob::mimetype));
+    QSignalSpy spyMimeType(job, qOverload<KIO::Job *, const QString &>(&KIO::MimetypeJob::mimetype));
 #endif
     QSignalSpy spyMimeTypeFound(job, &KIO::TransferJob::mimeTypeFound);
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
@@ -1990,7 +1990,7 @@ void JobTest::mimeType()
     KIO::MimetypeJob *job = KIO::mimetype(QUrl("http://www.kde.org"), KIO::HideProgressInfo);
     QVERIFY(job);
 #if KIOCORE_BUILD_DEPRECATED_SINCE(5, 78)
-    QSignalSpy spyMimeType(job, QOverload<KIO::Job *, const QString &>::of(&KIO::MimetypeJob::mimetype));
+    QSignalSpy spyMimeType(job, qOverload<KIO::Job *, const QString &>(&KIO::MimetypeJob::mimetype));
 #endif
     QSignalSpy spyMimeTypeFound(job, &KIO::TransferJob::mimeTypeFound);
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
@@ -2012,7 +2012,7 @@ void JobTest::mimeTypeError()
     KIO::MimetypeJob *job = KIO::mimetype(QUrl::fromLocalFile(filePath), KIO::HideProgressInfo);
     QVERIFY(job);
 #if KIOCORE_BUILD_DEPRECATED_SINCE(5, 78)
-    QSignalSpy spyMimeType(job, QOverload<KIO::Job *, const QString &>::of(&KIO::MimetypeJob::mimetype));
+    QSignalSpy spyMimeType(job, qOverload<KIO::Job *, const QString &>(&KIO::MimetypeJob::mimetype));
 #endif
     QSignalSpy spyMimeTypeFound(job, &KIO::TransferJob::mimeTypeFound);
     QSignalSpy spyResult(job, &KJob::result);
@@ -2780,7 +2780,7 @@ void JobTest::multiGet()
     QSignalSpy spyMimeTypeFound(job, &KIO::MultiGetJob::mimeTypeFound);
 
 #if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
-    QSignalSpy spyResultId(job, QOverload<long>::of(&KIO::MultiGetJob::result));
+    QSignalSpy spyResultId(job, qOverload<long>(&KIO::MultiGetJob::result));
 #else
     QSignalSpy spyResultId(job, &KIO::MultiGetJob::fileTransferred);
 #endif

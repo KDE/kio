@@ -62,7 +62,7 @@ KCoreDirListerCache::KCoreDirListerCache()
     connect(kdirnotify, &org::kde::KDirNotify::FileRenamedWithLocalPath, this, &KCoreDirListerCache::slotFileRenamed);
     connect(kdirnotify, &org::kde::KDirNotify::FilesAdded, this, &KCoreDirListerCache::slotFilesAdded);
     connect(kdirnotify, &org::kde::KDirNotify::FilesChanged, this, &KCoreDirListerCache::slotFilesChanged);
-    connect(kdirnotify, &org::kde::KDirNotify::FilesRemoved, this, QOverload<const QStringList &>::of(&KCoreDirListerCache::slotFilesRemoved));
+    connect(kdirnotify, &org::kde::KDirNotify::FilesRemoved, this, qOverload<const QStringList &>(&KCoreDirListerCache::slotFilesRemoved));
 #endif
 
     // Probably not needed in KF5 anymore:

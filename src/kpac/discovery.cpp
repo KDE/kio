@@ -48,7 +48,7 @@ Discovery::Discovery(QObject *parent)
 {
     m_helper->setProcessChannelMode(QProcess::SeparateChannels);
     connect(m_helper, &QProcess::readyReadStandardOutput, this, &Discovery::helperOutput);
-    connect(m_helper, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished), this, &Discovery::failed);
+    connect(m_helper, qOverload<int, QProcess::ExitStatus>(&QProcess::finished), this, &Discovery::failed);
     m_helper->start(QStringLiteral(KDE_INSTALL_FULL_LIBEXECDIR_KF5 "/kpac_dhcp_helper"), QStringList());
     if (!m_helper->waitForStarted()) {
         QTimer::singleShot(0, this, &Discovery::failed);

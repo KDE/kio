@@ -182,7 +182,7 @@ KProxyDialog::KProxyDialog(QWidget *parent, const QVariantList &args)
         mUi.useReverseProxyCheckBox->setEnabled(!text.isEmpty());
     });
     connect(mUi.manualProxyHttpEdit, &QLineEdit::textEdited, this, &KProxyDialog::syncProxies);
-    connect(mUi.manualProxyHttpSpinBox, QOverload<int>::of(&QSpinBox::valueChanged), this, &KProxyDialog::syncProxyPorts);
+    connect(mUi.manualProxyHttpSpinBox, qOverload<int>(&QSpinBox::valueChanged), this, &KProxyDialog::syncProxyPorts);
 
     mUi.systemProxyGroupBox->setVisible(false);
     mUi.manualProxyGroupBox->setVisible(false);
@@ -223,10 +223,10 @@ these settings. Some applications may allow the proxy to be configured in their 
     connect(mUi.manualProxySocksEdit, &QLineEdit::textChanged, this, &KProxyDialog::slotChanged);
     connect(mUi.manualNoProxyEdit, &QLineEdit::textChanged, this, &KProxyDialog::slotChanged);
 
-    connect(mUi.manualProxyHttpSpinBox, QOverload<int>::of(&QSpinBox::valueChanged), this, &KProxyDialog::slotChanged);
-    connect(mUi.manualProxyHttpsSpinBox, QOverload<int>::of(&QSpinBox::valueChanged), this, &KProxyDialog::slotChanged);
-    connect(mUi.manualProxyFtpSpinBox, QOverload<int>::of(&QSpinBox::valueChanged), this, &KProxyDialog::slotChanged);
-    connect(mUi.manualProxySocksSpinBox, QOverload<int>::of(&QSpinBox::valueChanged), this, &KProxyDialog::slotChanged);
+    connect(mUi.manualProxyHttpSpinBox, qOverload<int>(&QSpinBox::valueChanged), this, &KProxyDialog::slotChanged);
+    connect(mUi.manualProxyHttpsSpinBox, qOverload<int>(&QSpinBox::valueChanged), this, &KProxyDialog::slotChanged);
+    connect(mUi.manualProxyFtpSpinBox, qOverload<int>(&QSpinBox::valueChanged), this, &KProxyDialog::slotChanged);
+    connect(mUi.manualProxySocksSpinBox, qOverload<int>(&QSpinBox::valueChanged), this, &KProxyDialog::slotChanged);
 
     connect(mUi.systemProxyHttpEdit, &QLineEdit::textEdited, this, &KProxyDialog::slotChanged);
     connect(mUi.systemProxyHttpsEdit, &QLineEdit::textEdited, this, &KProxyDialog::slotChanged);

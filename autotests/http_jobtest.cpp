@@ -73,7 +73,7 @@ void HTTPJobTest::testErrorPage()
     job = KIO::storedGet(QUrl(server.endPoint()));
     job->setUiDelegate(nullptr);
 #if KIOCORE_BUILD_DEPRECATED_SINCE(5, 78)
-    QSignalSpy mimeTypeSpy(job, QOverload<KIO::Job *, const QString &>::of(&KIO::TransferJob::mimetype));
+    QSignalSpy mimeTypeSpy(job, qOverload<KIO::Job *, const QString &>(&KIO::TransferJob::mimetype));
 #endif
     QSignalSpy mimeTypeFoundSpy(job, &KIO::TransferJob::mimeTypeFound);
     QVERIFY(job->exec());
@@ -94,7 +94,7 @@ void HTTPJobTest::testMimeTypeDetermination()
     KIO::StoredTransferJob *job = KIO::storedGet(QUrl(server.endPoint() + '/'));
     job->setUiDelegate(nullptr);
 #if KIOCORE_BUILD_DEPRECATED_SINCE(5, 78)
-    QSignalSpy mimeTypeSpy(job, QOverload<KIO::Job *, const QString &>::of(&KIO::TransferJob::mimetype));
+    QSignalSpy mimeTypeSpy(job, qOverload<KIO::Job *, const QString &>(&KIO::TransferJob::mimetype));
 #endif
     QSignalSpy mimeTypeFoundSpy(job, &KIO::TransferJob::mimeTypeFound);
     QVERIFY(job->exec());

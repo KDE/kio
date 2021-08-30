@@ -140,9 +140,9 @@ void KUrlRequesterTest::testComboRequester()
     QSignalSpy editSpy(&req, &KUrlComboRequester::textEdited);
 
 #if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 80)
-    QSignalSpy returnSpy(&req, QOverload<>::of(&KUrlComboRequester::returnPressed));
+    QSignalSpy returnSpy(&req, qOverload<>(&KUrlComboRequester::returnPressed));
 #endif
-    QSignalSpy returnWithTextSpy(&req, QOverload<const QString &>::of(&KUrlComboRequester::returnPressed));
+    QSignalSpy returnWithTextSpy(&req, qOverload<const QString &>(&KUrlComboRequester::returnPressed));
 
     QVERIFY(!req.comboBox()->isEditable());
     if (editable) {

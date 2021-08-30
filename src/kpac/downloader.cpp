@@ -30,7 +30,7 @@ void Downloader::download(const QUrl &url)
     KIO::TransferJob *job = KIO::get(url, KIO::NoReload, KIO::HideProgressInfo);
     connect(job, &KIO::TransferJob::data, this, &Downloader::data);
     connect(job, &KIO::TransferJob::redirection, this, &Downloader::redirection);
-    connect(job, &KJob::result, this, QOverload<KJob *>::of(&Downloader::result));
+    connect(job, &KJob::result, this, qOverload<KJob *>(&Downloader::result));
 }
 
 void Downloader::failed()
