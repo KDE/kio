@@ -257,16 +257,16 @@ KPropertiesDialog::KPropertiesDialog(const QUrl &_url, QWidget *parent)
     : KPageDialog(parent)
     , d(new KPropertiesDialogPrivate(this))
 {
-    setWindowTitle(i18n("Properties for %1", KIO::decodeFileName(_url.fileName())));
+    d->m_singleUrl = _url.adjusted(QUrl::StripTrailingSlash);
 
-    d->m_singleUrl = _url;
+    setWindowTitle(i18n("Properties for %1", KIO::decodeFileName(d->m_singleUrl.fileName())));
 
-    KIO::StatJob *job = KIO::stat(_url);
+    KIO::StatJob *job = KIO::stat(d->m_singleUrl);
     KJobWidgets::setWindow(job, parent);
     job->exec();
     KIO::UDSEntry entry = job->statResult();
 
-    d->m_items.append(KFileItem(entry, _url));
+    d->m_items.append(KFileItem(entry, d->m_singleUrl));
     d->init();
 }
 
