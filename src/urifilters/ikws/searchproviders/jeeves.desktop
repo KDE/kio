@@ -55,6 +55,7 @@ Name[mk]=Прашајте го Jeeves
 Name[ml]=ആസ്ക് ജീവ്സ്
 Name[mr]=आस्क जीव्स
 Name[ms]=Ask Jeeves
+Name[my]=ဂျီစ်ကိုမေးရန်
 Name[nb]=Ask Jeeves
 Name[nds]=Fraag Jeeves
 Name[ne]=आस्क जीभेज
@@ -113,6 +114,7 @@ Query[id]=https://www.ask.com/main/askJeeves.asp?origin=0&qSource=4&site_name=Je
 Query[it]=https://www.ask.com/main/askJeeves.asp?origin=0&qSource=4&site_name=Jeeves&metasearch=yes&ask=\\{@}
 Query[ko]=https://www.ask.com/main/askJeeves.asp?origin=0&qSource=4&site_name=Jeeves&metasearch=yes&ask=\\{@}
 Query[lt]=https://www.ask.com/main/askJeeves.asp?origin=0&qSource=4&site_name=Jeeves&metasearch=yes&ask=\\{@}
+Query[my]=https://www.ask.com/main/askJeeves.asp?origin=0&qSource=4&site_name=Jeeves&metasearch=yes&ask=\\{@}
 Query[nl]=https://www.ask.com/main/askJeeves.asp?origin=0&qSource=4&site_name=Jeeves&metasearch=yes&ask=\\{@}
 Query[nn]=https://www.ask.com/main/askJeeves.asp?origin=0&qSource=4&site_name=Jeeves&metasearch=yes&ask=\\{@}
 Query[pl]=https://www.ask.com/main/askJeeves.asp?origin=0&qSource=4&site_name=Jeeves&metasearch=yes&ask=\\{@}

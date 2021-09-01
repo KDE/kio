@@ -43,6 +43,7 @@ Name[lv]=YouTube
 Name[mai]=YouTube
 Name[ml]=യുട്യൂബ്
 Name[mr]=यूट्यूब
+Name[my]=ယူကျုဘ်
 Name[nb]=YouTube
 Name[nds]=YouTube
 Name[nl]=YouTube
@@ -102,6 +103,7 @@ Query[kk]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
 Query[ko]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
 Query[lt]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
 Query[mr]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
+Query[my]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
 Query[nb]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
 Query[nds]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
 Query[nl]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f

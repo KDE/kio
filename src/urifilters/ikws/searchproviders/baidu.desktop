@@ -42,6 +42,7 @@ Name[lv]=Baidu
 Name[mai]=बैडू
 Name[ml]=ബൈഡു
 Name[mr]=बैदु
+Name[my]=ဘိုင်ဒူ
 Name[nb]=Baidu
 Name[nds]=Baidu
 Name[nl]=Baidu
@@ -94,6 +95,7 @@ Query[id]=https://www.baidu.com/s?wd=\\{@}
 Query[it]=https://www.baidu.com/s?wd=\\{@}
 Query[ko]=https://www.baidu.com/s?wd=\\{@}
 Query[lt]=https://www.baidu.com/s?wd=\\{@}
+Query[my]=https://www.baidu.com/s?wd=\\{@}
 Query[nl]=https://www.baidu.com/s?wd=\\{@}
 Query[nn]=https://www.baidu.com/s?wd=\\{@}
 Query[pl]=https://www.baidu.com/s?wd=\\{@}

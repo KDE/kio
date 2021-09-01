@@ -43,6 +43,7 @@ Name[lt]=openDesktop.org
 Name[lv]=openDesktop.org
 Name[mai]=openDesktop.org
 Name[mr]=ओपन डेस्कटॉप.org
+Name[my]=အိုးပန်းဒက်စ်တော့ပ် ဒေါ့ အိုအာဂျီ
 Name[nb]=openDesktop.org
 Name[nds]=openDesktop.org
 Name[nl]=openDesktop.org
@@ -94,6 +95,7 @@ Query[id]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@
 Query[it]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
 Query[ko]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
 Query[lt]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
+Query[my]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
 Query[nl]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
 Query[nn]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
 Query[pl]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}

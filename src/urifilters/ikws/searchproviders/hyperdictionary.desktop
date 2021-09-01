@@ -56,6 +56,7 @@ Name[mk]=HyperDictionary.com
 Name[ml]=HyperDictionary.com
 Name[mr]=HyperDictionary.com
 Name[ms]=HyperDictionary.com
+Name[my]=ဟိုက်ပါဒစ်ရှင်နရီ ဒေါ့ ကွန်း
 Name[nb]=HyperDictionary.com
 Name[nds]=HyperDictionary.com
 Name[ne]=HyperDictionary.com
@@ -146,6 +147,7 @@ Query[mai]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[ml]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[mr]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[ms]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
+Query[my]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[nb]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[nds]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[ne]=http://www.hyperdictionary.com/search.aspx?define=\\{@}

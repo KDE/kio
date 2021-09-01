@@ -43,6 +43,7 @@ Name[lv]=KDE izskats
 Name[mai]=KDE लुक
 Name[ml]=കെഡിഇ ലുക്ക്
 Name[mr]=केडीई लूक
+Name[my]=ကေဒီအီး အသွင်အပြင်
 Name[nb]=KDE utseende
 Name[nds]=KDE-Utsehn
 Name[nl]=KDE Look
@@ -94,6 +95,7 @@ Query[id]=https://www.kde-look.org/content/search.php?search=Search&name=\\{@}
 Query[it]=https://www.kde-look.org/content/search.php?search=Search&name=\\{@}
 Query[ko]=https://www.kde-look.org/content/search.php?search=Search&name=\\{@}
 Query[lt]=https://www.kde-look.org/content/search.php?search=Search&name=\\{@}
+Query[my]=https://www.kde-look.org/content/search.php?search=Search&name=\\{@}
 Query[nl]=https://www.kde-look.org/content/search.php?search=Search&name=\\{@}
 Query[nn]=https://www.kde-look.org/content/search.php?search=Search&name=\\{@}
 Query[pl]=https://www.kde-look.org/content/search.php?search=Search&name=\\{@}

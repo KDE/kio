@@ -56,6 +56,7 @@ Name[mk]=MetaCrawler
 Name[ml]=മെറ്റാക്രോളര്‍
 Name[mr]=मेटा क्राउलर
 Name[ms]=MetaCrawler
+Name[my]=မတ်တာခရောလ်လာ
 Name[nb]=MetaCrawler
 Name[nds]=MetaCrawler
 Name[ne]=मेटा क्रवलर
@@ -115,6 +116,7 @@ Query[id]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[it]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[ko]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[lt]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
+Query[my]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[nl]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[nn]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[pl]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}

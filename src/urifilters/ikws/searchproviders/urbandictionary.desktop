@@ -43,6 +43,7 @@ Name[lt]=Urban Dictionary
 Name[lv]=Urban Dictionary
 Name[ml]=അര്‍ബന്‍ നിഘണ്ടു
 Name[mr]=अर्बन शब्दकोश
+Name[my]=မြို့ပြ ဒစ်ရှင်နာရီ
 Name[nb]=Urban ordbok
 Name[nds]=Urban Dictionary
 Name[nl]=Urban woordenboek
@@ -94,6 +95,7 @@ Query[id]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[it]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[ko]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[lt]=https://www.urbandictionary.com/define.php?term=\\{@}
+Query[my]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[nl]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[nn]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[pl]=https://www.urbandictionary.com/define.php?term=\\{@}

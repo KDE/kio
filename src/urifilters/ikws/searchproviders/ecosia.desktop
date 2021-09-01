@@ -42,6 +42,7 @@ Name[lv]=Ecosia meklēšanas dzinējs
 Name[mai]=इकोसिया खोज इंजिन
 Name[ml]=എക്കോഷ്യ തെരച്ചില്‍ എഞ്ചിന്‍
 Name[mr]=एकोसिआ शोध इंजिन
+Name[my]=အီကိုးရှား ရှာဖွေအင်ဂျင်
 Name[nb]=Ecosia søkemotor
 Name[nds]=Ecosia-Söökmaschien
 Name[nl]=Ecosia zoekmachine
@@ -94,6 +95,7 @@ Query[id]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[it]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[ko]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[lt]=https://ecosia.org/search.php?q=\\{@}&meta=normal
+Query[my]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[nl]=https://www.ethicle.com/search.php?q=\\{@}
 Query[nn]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[pl]=https://ecosia.org/search.php?q=\\{@}&meta=normal

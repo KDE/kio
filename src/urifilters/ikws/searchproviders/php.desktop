@@ -55,6 +55,7 @@ Name[mk]=Пребарување за PHP
 Name[ml]=പിഎച്പി (PHP) തെരച്ചില്‍
 Name[mr]=PHP शोध
 Name[ms]=Carian PHP
+Name[my]=ပီအိပ့်ချ်ပီ ရှာရန်
 Name[nb]=PHP-søk
 Name[nds]=PHP-Söök
 Name[ne]=PHP खोजी
@@ -113,6 +114,7 @@ Query[id]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[it]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[ko]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[lt]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
+Query[my]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[nl]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[nn]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[pl]=https://secure.php.net/manual-lookup.php?pattern=\\{@}

@@ -44,6 +44,7 @@ Name[lv]=7Digital
 Name[mai]=7Digital
 Name[ml]=7ഡിജിറ്റല്‍
 Name[mr]=7डिजिटल
+Name[my]=၇ဒီဂျစ်တယ်
 Name[nb]=7Digital
 Name[nds]=7Digital
 Name[nl]=7Digital
@@ -95,6 +96,7 @@ Query[id]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=S
 Query[it]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[ko]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[lt]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
+Query[my]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[nl]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[nn]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[pl]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search

@@ -40,6 +40,7 @@ Name[lt]=Google žemėlapiai
 Name[lv]=Google Maps
 Name[mai]=गूगल नक्सा
 Name[mr]=गूगल नकाशे
+Name[my]=ဂူးဂယ်မြေပုံများ
 Name[nb]=Google Maps
 Name[nds]=Google.de-Koorten
 Name[nl]=Google Maps
@@ -101,6 +102,7 @@ Query[kk]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[ko]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[lt]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[mr]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
+Query[my]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[nb]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[nds]=https://maps.google.de/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[nl]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr

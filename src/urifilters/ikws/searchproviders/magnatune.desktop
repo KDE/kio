@@ -44,6 +44,7 @@ Name[lv]=Magnatune
 Name[mai]=Magnatune
 Name[ml]=മാഗ്നാട്യൂണ്‍
 Name[mr]=मेग्नाट्युन
+Name[my]=မတ်ဂနက်ကျွန်း
 Name[nb]=Magnatune
 Name[nds]=Magnatune
 Name[nl]=Magnatune
@@ -93,6 +94,7 @@ Query[id]=https://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
 Query[it]=https://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
 Query[ko]=https://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
 Query[lt]=https://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
+Query[my]=https://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
 Query[nl]=https://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
 Query[nn]=https://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
 Query[pl]=https://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0

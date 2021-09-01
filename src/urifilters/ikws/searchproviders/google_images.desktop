@@ -55,6 +55,7 @@ Name[mk]=Google - пребарување на слики
 Name[ml]=ഗൂഗിൾ ചിത്ര തിരയൽ
 Name[mr]=Google प्रतिमा शोध
 Name[ms]=Carian Imej Google
+Name[my]=ဂူးဂယ်ပုံရှာဖွေမှု
 Name[nb]=Bildesøk i Google
 Name[nds]=Google.de sien Biller-Söök
 Name[ne]=गुगल छवि खोजी
@@ -124,6 +125,7 @@ Query[kk]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[ko]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[lt]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[mr]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
+Query[my]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[nb]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[nds]=https://www.google.de/search?site=imghp&tbm=isch&q=\\{@}
 Query[nl]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}

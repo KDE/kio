@@ -43,6 +43,7 @@ Name[lv]=Duck Duck Go iepirkšanās
 Name[mai]=डक डक गो शापिंग
 Name[ml]=ഡക്ക് ഡക്ക് ഗോ ഷോപ്പിംഗ്
 Name[mr]=डक डक गो खरेदी
+Name[my]=ဒက်ဒက်ဂိုးစျေးဝယ်ထွက်မည်
 Name[nb]=Duck Duck Go Shopping
 Name[nds]=Duck Duck Go - Inköpen
 Name[nl]=Duck Duck Go Shopping
@@ -101,6 +102,7 @@ Query[kk]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[ko]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[lt]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[mr]=http://duckduckgo.com/?q=\\{@}&v=s&t=kde
+Query[my]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[nb]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[nds]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[nl]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde

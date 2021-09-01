@@ -24,6 +24,7 @@ Name[id]=Pencarian Paket Arch Linux
 Name[it]=Ricerca di pacchetti Arch Linux
 Name[ko]=Arch Linux 패키지 검색
 Name[lt]=Arch Linux paketų paieška
+Name[my]=အာ့ချ်လင်းနက်စ် ပတ်ကေ့ ရှာဖွေရန်
 Name[nb]=Søk etter pakker for Arch Linux
 Name[nl]=Arch Linux Package Search
 Name[nn]=Søk etter Arch Linux-pakkar
@@ -69,6 +70,7 @@ Query[id]=https://www.archlinux.org/packages/?q=\\{@}
 Query[it]=https://www.archlinux.org/packages/?q=\\{@}
 Query[ko]=https://www.archlinux.org/packages/?q=\\{@}
 Query[lt]=https://www.archlinux.org/packages/?q=\\{@}
+Query[my]=https://www.archlinux.org/packages/?q=\\{@}
 Query[nl]=https://www.archlinux.org/packages/?q=\\{@}
 Query[nn]=https://www.archlinux.org/packages/?q=\\{@}
 Query[pl]=https://www.archlinux.org/packages/?q=\\{@}

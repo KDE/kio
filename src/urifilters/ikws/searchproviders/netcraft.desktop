@@ -56,6 +56,7 @@ Name[mk]=Netcraft
 Name[ml]=നെറ്റ്ക്രാഫ്റ്റ്
 Name[mr]=नेटक्राफ्ट
 Name[ms]=Netcraft
+Name[my]=နက်ခရက်ဖ်
 Name[nb]=Netcraft
 Name[nds]=Netcraft
 Name[ne]=नेटक्राफ्ट
@@ -114,6 +115,7 @@ Query[id]=https://uptime.netcraft.com/up/graph?site=\\{@}
 Query[it]=https://uptime.netcraft.com/up/graph?site=\\{@}
 Query[ko]=https://uptime.netcraft.com/up/graph?site=\\{@}
 Query[lt]=https://uptime.netcraft.com/up/graph?site=\\{@}
+Query[my]=https://uptime.netcraft.com/up/graph?site=\\{@}
 Query[nl]=https://uptime.netcraft.com/up/graph?site=\\{@}
 Query[nn]=https://uptime.netcraft.com/up/graph?site=\\{@}
 Query[pl]=https://uptime.netcraft.com/up/graph?site=\\{@}

@@ -26,6 +26,7 @@ Name[it]=GitLab
 Name[ko]=GitLab
 Name[lt]=GitLab
 Name[ml]=ഗിറ്റ്ലാബ്
+Name[my]=ဂစ်လပ်ဘ်
 Name[nl]=GitLab
 Name[nn]=GitLab
 Name[pl]=GitLab
@@ -65,6 +66,7 @@ Query[id]=https://gitlab.com/search?search=\\{@}
 Query[it]=https://gitlab.com/search?search=\\{@}
 Query[ko]=https://gitlab.com/search?search=\\{@}
 Query[lt]=https://gitlab.com/search?search=\\{@}
+Query[my]=https://gitlab.com/search?search=\\{@}
 Query[nl]=https://gitlab.com/search?search=\\{@}
 Query[nn]=https://gitlab.com/search?search=\\{@}
 Query[pl]=https://gitlab.com/search?search=\\{@}

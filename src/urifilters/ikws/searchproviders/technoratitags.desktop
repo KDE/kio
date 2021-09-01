@@ -53,6 +53,7 @@ Name[mai]=टेक्नोराती टैग्स
 Name[mk]=Technorati Tags
 Name[ml]=ടെക്നോരാറ്റി ടാഗുകള്‍
 Name[mr]=टेक्नोराती टैग्स
+Name[my]=တက့်ချ်နိုရာတီ တပ်ဂ်များ
 Name[nb]=Technorati-tagger
 Name[nds]=Technorati-Slötelwöör
 Name[ne]=टेक्नोरती ट्याग
@@ -109,6 +110,7 @@ Query[id]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[it]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[ko]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[lt]=https://technorati.com/tag/\\{@}?sourceid=kde-search
+Query[my]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[nl]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[nn]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[pl]=https://technorati.com/tag/\\{@}?sourceid=kde-search

@@ -20,6 +20,7 @@ Name[ia]=ArchWiki
 Name[it]=ArchWiki
 Name[ko]=ArchWiki
 Name[lt]=ArchWiki
+Name[my]=အာ့ချ်ဝစ်ကီ
 Name[nl]=ArchWiki
 Name[nn]=ArchWiki
 Name[pl]=ArchWiki
@@ -55,6 +56,7 @@ Query[ia]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[it]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[ko]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[lt]=https://wiki.archlinux.org/index.php?search=\\{@}
+Query[my]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[nl]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[nn]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[pl]=https://wiki.archlinux.org/index.php?search=\\{@}

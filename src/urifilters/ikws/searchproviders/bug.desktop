@@ -19,6 +19,7 @@ Name[ia]=KDE Bugs
 Name[it]=Bug di KDE
 Name[ko]=KDE 버그
 Name[lt]=KDE klaidos
+Name[my]=ခေဒီအီးဆိုင်ရာ ဆော့ဖ်လ်ဝဲလ်ပြစ်ချက်များ
 Name[nl]=KDE-bugs
 Name[nn]=KDE-feil
 Name[pl]=Błędy KDE
@@ -64,6 +65,7 @@ Query[kk]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[ko]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[lt]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[mr]=http://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
+Query[my]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[nb]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[nds]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[nl]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}

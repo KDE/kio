@@ -30,6 +30,7 @@ Name[kk]=Freecode
 Name[ko]=Freecode
 Name[lt]=Freecode
 Name[mr]=फ्रीकोड
+Name[my]=ဖရီးကုတ်
 Name[nb]=Freecode
 Name[nds]=Freecode
 Name[nl]=Freecode
@@ -88,6 +89,7 @@ Query[kk]=http://freecode.com/search?q=\\{@}
 Query[ko]=http://freecode.com/search?q=\\{@}
 Query[lt]=http://freecode.com/search?q=\\{@}
 Query[mr]=http://freecode.com/search?q=\\{@}
+Query[my]=http://freecode.com/search?q=\\{@}
 Query[nb]=http://freecode.com/search?q=\\{@}
 Query[nds]=http://freecode.com/search?q=\\{@}
 Query[nl]=https://freecode.com/search?q=\\{@}

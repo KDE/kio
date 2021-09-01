@@ -56,6 +56,7 @@ Name[mai]=WordReference.com अनुवादः स्पेनी सँ अ�
 Name[mk]=WordReference.com превод: од шпански на англиски
 Name[ml]=WordReference.com പരിഭാഷ: സ്പാനിഷില്‍ നിന്നും ഇംഗ്ലീഷിലേയ്ക്കു്
 Name[mr]=WordReference.com अनुवादः स्पेनी ते अंग्रेजी
+Name[my]=ဝါ့ဒ်ရပ်ဖ်ဖရမ့် ဒေါ့ ကွန်း ဘာသာပြန်ခြင်း - စပိန်မှ အင်္ဂလိပ်သို့
 Name[nb]=WordReference.com – oversettelse fra spansk til engelsk
 Name[nds]=WordReference.com Översetten: Spaansch na Engelsch
 Name[ne]=WordReference.com Translation: स्पेनिसलाई अङ्ग्रेजीमा
@@ -113,6 +114,7 @@ Query[id]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[it]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[ko]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[lt]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
+Query[my]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[nl]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[nn]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[pl]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}

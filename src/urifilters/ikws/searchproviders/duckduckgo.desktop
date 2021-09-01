@@ -43,6 +43,7 @@ Name[lt]=Duck Duck Go
 Name[lv]=Duck Duck Go
 Name[ml]=ഡക്ക് ഡക്ക് ഗോ
 Name[mr]=डक डक गो
+Name[my]=ဒက်ဒက်ဂိုး
 Name[nb]=Duck Duck Go
 Name[nds]=Duck Duck Go
 Name[nl]=Duck Duck Go
@@ -101,6 +102,7 @@ Query[kk]=https://duckduckgo.com/?q=\\{@}&t=kde
 Query[ko]=https://duckduckgo.com/?q=\\{@}&t=kde
 Query[lt]=https://duckduckgo.com/?q=\\{@}&t=kde
 Query[mr]=http://duckduckgo.com/?q=\\{@}&t=kde
+Query[my]=https://duckduckgo.com/?q=\\{@}&t=kde
 Query[nb]=https://duckduckgo.com/?q=\\{@}&t=kde
 Query[nds]=https://duckduckgo.com/?q=\\{@}&t=kde
 Query[nl]=https://duckduckgo.com/?q=\\{@}&t=kde

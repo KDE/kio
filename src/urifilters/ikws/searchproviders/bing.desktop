@@ -41,6 +41,7 @@ Name[lt]=Bing
 Name[lv]=Bing
 Name[mai]=बिंग
 Name[mr]=बिंग
+Name[my]=ဘင်
 Name[nb]=Bing
 Name[nds]=Bing
 Name[nl]=Bing
@@ -93,6 +94,7 @@ Query[id]=https://www.bing.com/search?q=\\{@}
 Query[it]=https://www.bing.com/search?q=\\{@}
 Query[ko]=https://www.bing.com/search?q=\\{@}
 Query[lt]=https://www.bing.com/search?q=\\{@}
+Query[my]=https://www.bing.com/search?q=\\{@}
 Query[nl]=https://www.bing.com/search?q=\\{@}
 Query[nn]=https://www.bing.com/search?q=\\{@}
 Query[pl]=https://www.bing.com/search?q=\\{@}

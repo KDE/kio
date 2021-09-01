@@ -55,6 +55,7 @@ Name[mk]=Пребарување за KDE-апликации
 Name[ml]=കെഡിഇയുടെ പ്രയോഗങ്ങള്‍ക്കുള്ള തെരച്ചില്‍
 Name[mr]=केडीई अनुप्रयोग शोध
 Name[ms]=Carian Aplikasi KDE
+Name[my]=ကေဒီအီး အပ်ရှာဖွေရန်
 Name[nb]=KDE programsøk
 Name[nds]=KDE Programmsöök
 Name[ne]=केडीई अनुप्रयोग खोजी
@@ -115,6 +116,7 @@ Query[id]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[it]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[ko]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[lt]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
+Query[my]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[nl]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[nn]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[pl]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}

@@ -52,6 +52,7 @@ Name[mai]=लिओ - फ्रांसीसी आओर जर्मनी �
 Name[mk]=LEO - превод меѓу француски и германски
 Name[ml]=ലിയോ - ഫ്രഞ്ചും ജര്‍മനും തമ്മില്‍ പരിഭാഷപ്പെടുത്തുക
 Name[mr]=लिओ - फ्रांसीसी व जर्मनी अंतर्गत अनुवाद
+Name[my]=လီယို - ပြင်သစ်နှင့်ဂျာမန်ကြား ဘာသာပြန်
 Name[nb]=LEO – Oversettelse mellom fransk og tysk
 Name[nds]=LEO - Översetten twischen Franzöösch un Hoochdüütsch
 Name[ne]=LEO - फ्रेन्च र जर्मनमा अनुवाद गर्नुहोस्
@@ -110,6 +111,7 @@ Query[id]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[it]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[ko]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[lt]=https://dict.leo.org/?lp=frde&search=\\{@}
+Query[my]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[nl]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[nn]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[pl]=https://dict.leo.org/?lp=frde&search=\\{@}

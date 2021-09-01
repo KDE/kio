@@ -52,6 +52,7 @@ Name[mai]=Multitran - Translate Between French and Russian
 Name[mk]=Multitran - превод меѓу француски и руски
 Name[ml]=മള്‍ട്ടിട്രാന്‍ - ഫ്രഞ്ചും റഷ്യനും തമ്മില്‍ പരിഭാഷപ്പെടുത്തുക
 Name[mr]=मल्टिट्रान - फ्रेंच व रशियन भाषांतर करा
+Name[my]=မာလ်တိုင်ထရန် - ပြင်သစ်နှင့်ရုရှားကြား ဘာသာပြန်
 Name[nb]=Multitran – Oversett mellom fransk og russisk
 Name[nds]=Multitran - Översetten twischen Franzöösch un Russ'sch
 Name[nl]=Multitran - vertaal van Frans naar Russisch
@@ -108,6 +109,7 @@ Query[id]=https://multitran.ru/c/m.exe?l1=4&s=\\{@}
 Query[it]=https://multitran.ru/c/m.exe?l1=4&s=\\{@}
 Query[ko]=https://multitran.ru/c/m.exe?l1=4&s=\\{@}
 Query[lt]=https://multitran.ru/c/m.exe?l1=4&s=\\{@}
+Query[my]=https://multitran.ru/c/m.exe?l1=4&s=\\{@}
 Query[nl]=https://multitran.ru/c/m.exe?l1=4&s=\\{@}
 Query[nn]=https://multitran.ru/c/m.exe?l1=4&s=\\{@}
 Query[pl]=https://multitran.ru/c/m.exe?l1=4&s=\\{@}

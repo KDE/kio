@@ -59,6 +59,7 @@ Name[mk]=KDE API документација
 Name[ml]=കെഡിഇ എപിഐ വിവരണം
 Name[mr]=केडीई API दस्तऐवजीकरण
 Name[ms]=Dokumentasi API KDE
+Name[my]=ကေဒီအီး အေပီအိုင် ဒိုကူမန်တေးရှင်း
 Name[nb]=KDE API-dokumentasjon
 Name[nds]=KDE-API-Dokmentatschoon
 Name[ne]=केडीई एपीआई मिसिलिकरण
@@ -116,6 +117,7 @@ Query[id]=https://api.kde.org/classmapper.php?class=\\{@}
 Query[it]=https://api.kde.org/classmapper.php?class=\\{@}
 Query[ko]=https://api.kde.org/classmapper.php?class=\\{@}
 Query[lt]=https://api.kde.org/classmapper.php?class=\\{@}
+Query[my]=https://api.kde.org/classmapper.php?class=\\{@}
 Query[nl]=https://api.kde.org/classmapper.php?class=\\{@}
 Query[nn]=https://api.kde.org/classmapper.php?class=\\{@}
 Query[pl]=https://api.kde.org/classmapper.php?class=\\{@}

@@ -56,6 +56,7 @@ Name[mk]=Последната Qt-документација на мрежа
 Name[ml]=ഏറ്റവും പുതിയ ക്യുടി ഓൺലൈൻ വിവരണം
 Name[mr]=नवीनतम Qt ऑनलाइन दस्तऐवज
 Name[ms]=Dokumentasi Dalam Talian Kuantiti Terakhir
+Name[my]=ကျူတီ၏ နောက်ဆုံးပေါ်အွန်လိုင်းဒိုကူမန်တေးရှင်း
 Name[nb]=Nyeste QT-dokumentasjon på nett
 Name[nds]=Niegst Online-Dokmentatschoon vun Qt
 Name[ne]=नवीनतम Qt अनलाइन मिसिलीकरण
@@ -113,6 +114,7 @@ Query[id]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[it]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[ko]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[lt]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
+Query[my]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[nl]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[nn]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[pl]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}

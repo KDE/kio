@@ -43,6 +43,7 @@ Name[lt]=Amazon
 Name[lv]=Amazon
 Name[mai]=अमेजन
 Name[mr]=अमेझोन
+Name[my]=အမေဇုန်
 Name[nb]=Amazon
 Name[nds]=Amazon.de
 Name[nl]=Amazon
@@ -94,6 +95,7 @@ Query[id]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=aps&field-key
 Query[it]=https://www.amazon.it/s/ref=nb_sb_noss?url=search-alias=aps&field-keywords=\\{@}&x=0&y=0
 Query[ko]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=aps&field-keywords=\\{@}&x=0&y=0
 Query[lt]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=aps&field-keywords=\\{@}&x=0&y=0
+Query[my]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=aps&field-keywords=\\{@}&x=0&y=0
 Query[nl]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=aps&field-keywords=\\{@}&x=0&y=0
 Query[nn]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=aps&field-keywords=\\{@}&x=0&y=0
 Query[pl]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=aps&field-keywords=\\{@}&x=0&y=0

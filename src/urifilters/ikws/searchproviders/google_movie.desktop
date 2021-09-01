@@ -54,6 +54,7 @@ Name[mk]=Google - филмови
 Name[ml]=ഗൂഗിള്‍ ചലചിത്രങ്ങള്‍
 Name[mr]=गूगल सिनेमा
 Name[ms]=Wayang Google
+Name[my]=ဂူးဂယ်ရုပ်ရှင်များ
 Name[nb]=Filmsøk i Google
 Name[nds]=Google-Filmen
 Name[ne]=गुगल चलचित्र
@@ -114,6 +115,7 @@ Query[id]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[it]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[ko]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[lt]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
+Query[my]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[nl]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[nn]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[pl]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8

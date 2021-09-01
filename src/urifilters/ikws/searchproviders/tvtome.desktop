@@ -56,6 +56,7 @@ Name[mk]=TV Tome
 Name[ml]=ടി.വി ടോം
 Name[mr]=टीवी टोम
 Name[ms]=TV Tome
+Name[my]=တီဗီကျမ်းစာအုပ်
 Name[nb]=TV Tome
 Name[nds]=TV Tome
 Name[ne]=टीभी टोम
@@ -113,6 +114,7 @@ Query[id]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[it]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[ko]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[lt]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
+Query[my]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[nl]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[nn]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[pl]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0

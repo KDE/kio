@@ -56,6 +56,7 @@ Name[mk]=SourceForge
 Name[ml]=സോഴ്സ്ഫോര്‍ജ്
 Name[mr]=सोर्सफोर्ज
 Name[ms]=SourceForge
+Name[my]=စို့ဖေါ့ဂျ်
 Name[nb]=SourceForge
 Name[nds]=SourceForge
 Name[ne]=सोर्स फर्ज
@@ -114,6 +115,7 @@ Query[id]=https://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\
 Query[it]=https://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}
 Query[ko]=https://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}
 Query[lt]=https://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}
+Query[my]=https://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}
 Query[nl]=https://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}
 Query[nn]=https://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}
 Query[pl]=https://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}

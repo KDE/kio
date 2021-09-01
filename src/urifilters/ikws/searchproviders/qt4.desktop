@@ -31,6 +31,7 @@ Name[kk]=Qt4 құжаттамасы
 Name[ko]=Qt4 문서
 Name[lt]=Qt4 dokumentacija
 Name[mr]=Qt4 दस्तऐवज
+Name[my]=ကျူတီ၄ ဒိုကူမန်တေးရှင်း
 Name[nb]=Qt4-dokumentasjon
 Name[nds]=Qt4-Dokmentatschoon
 Name[nl]=Qt4-documentatie
@@ -81,6 +82,7 @@ Query[id]=https://doc.qt.io/archives/qt-4.8/search-results.html?q=\\{@}
 Query[it]=https://doc.qt.io/archives/qt-4.8/search-results.html?q=\\{@}
 Query[ko]=https://doc.qt.io/archives/qt-4.8/search-results.html?q=\\{@}
 Query[lt]=https://doc.qt.io/archives/qt-4.8/search-results.html?q=\\{@}
+Query[my]=https://doc.qt.io/archives/qt-4.8/search-results.html?q=\\{@}
 Query[nl]=https://doc.qt.io/archives/qt-4.8/search-results.html?q=\\{@}
 Query[nn]=https://doc.qt.io/archives/qt-4.8/search-results.html?q=\\{@}
 Query[pl]=https://doc.qt.io/archives/qt-4.8/search-results.html?q=\\{@}
