@@ -1,0 +1,66 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Estonian  "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="http">
+<title
+>http / https</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Lauri.Watts; &Lauri.Watts.mail;</author>
+<othercredit role="translator"
+><firstname
+>Marek</firstname
+><surname
+>Laane</surname
+><affiliation
+><address
+><email
+>bald@smail.ee</email
+></address
+></affiliation
+><contrib
+>Tõlge eesti keelde</contrib
+></othercredit
+> 
+</authorgroup>
+</articleinfo>
+
+<para
+><acronym
+>http</acronym
+> tähendab hüperteksti edastusprotokoll (inglise keeles <emphasis
+>H</emphasis
+>yper<emphasis
+>T</emphasis
+>ext <emphasis
+>T</emphasis
+>ransfer <emphasis
+>P</emphasis
+>rotocol).</para>
+
+<para
+>KIO moodulit http kasutavad kõik &kde; rakendused http-serverite ehk veebiserveritega loodava ühenduse käsitlemiseks. Kõige tavalisem viis veebilehekülgi vaadata on kasutada veebilehitsejat &konqueror;.</para>
+
+<para
+>KIO moodulit http saad kasutada &konqueror;is <acronym
+>URL</acronym
+>i sisestades, näiteks <userinput
+>http://<replaceable
+>www.kde.org</replaceable
+></userinput
+>.</para>
+
+<para
+>https on SSL/TLS-voogu kapseldatud http.</para>
+<para
+>SSL tähendab turvasoklite kiht (Secure Sockets Layer). See on turbeprotokoll, mis võimaldab internetis privaatset suhtlemist. Protokoll lubab klient/server-rakendustel suhelda moel, mis peaks välistama pealtkuulamise või sõnumite võltsimise. </para>
+<para
+>TLS tähendab transpordikihi turvalisus (Transport Layer Secyrity).</para>
+
+</article>

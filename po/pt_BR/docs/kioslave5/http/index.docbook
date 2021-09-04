@@ -1,0 +1,66 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Brazilian-Portuguese "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="http">
+<title
+>http / https</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Lauri.Watts; &Lauri.Watts.mail;</author>
+<othercredit role="translator"
+><firstname
+>Lisiane</firstname
+> <surname
+>Sztoltz</surname
+><affiliation
+><address
+> <email
+>lisiane@conectiva.com.br</email
+></address
+></affiliation
+><contrib
+>Tradução</contrib
+></othercredit
+> 
+</authorgroup>
+</articleinfo>
+
+<para
+><acronym
+>http</acronym
+> significa <emphasis
+>H</emphasis
+>yper <emphasis
+>T</emphasis
+>ext <emphasis
+>T</emphasis
+>ransfer <emphasis
+>P</emphasis
+>rotocol ou: Protocolo de Transferência de HiperTexto.</para>
+
+<para
+>O 'kioslave' http é usado por todos os aplicativos do &kde; para manipular conexões para os servidores http, isto é, servidores web. O uso mais comum é para visualizar páginas web no navegador &konqueror;.</para>
+
+<para
+>Você pode usar o 'kioslave' http no &konqueror; fornecendo a ele uma <acronym
+>URL</acronym
+>: <userinput
+>http://<replaceable
+>www.kde.org</replaceable
+></userinput
+>.</para>
+
+<para
+>https é um http encapsulado num fluxo SSL/TLS.</para>
+<para
+>SSL é o protocolo 'Secure Sockets Layer' (Camada de 'Sockets' Seguros), um protocolo de segurança que oferece privacidade nas comunicações pela Internet. O protocolo permite aos aplicativos cliente/servidor se comunicarem de forma a evitar a intercepção, desvio ou falsificação de mensagens. </para>
+<para
+>TLS significa 'Transport Layer Security' (Segurança a Nível do Transporte).</para>
+
+</article>

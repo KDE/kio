@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Swedish "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="file">
+<title
+>file</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Ferdinand.Gassauer; &Ferdinand.Gassauer.mail;</author>
+<othercredit role="translator"
+> <firstname
+>Stefan</firstname
+> <surname
+>Asserhäll</surname
+> <affiliation
+><address
+><email
+>stefan.asserhall@bredband.net</email
+></address
+></affiliation
+> <contrib
+>Översättare</contrib
+></othercredit
+> 
+</authorgroup>
+</articleinfo>
+
+<para
+>Protokollet <emphasis
+>file</emphasis
+> används av alla &kde;-program för att visa filer som är lokalt tillgängliga. </para>
+<para
+>Att skriva in <userinput
+><command
+>file:/katalognamn</command
+></userinput
+> i &konqueror; listar filerna i katalogen. </para>
+
+</article>

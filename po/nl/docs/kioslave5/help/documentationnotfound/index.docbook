@@ -1,0 +1,80 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Dutch "INCLUDE">
+]>
+<article id="documentationnotfound" lang="&language;">
+<title
+>Documentatie niet gevonden</title>
+<articleinfo>
+<authorgroup>
+<author
+><firstname
+>Jack</firstname
+> <surname
+>Ostroff</surname
+> <affiliation
+> <address
+><email
+>ostroffjh@users.sourceforge.net</email
+></address>
+</affiliation>
+</author>
+&Freek.de.Kruijf; 
+</authorgroup>
+
+<date
+>2020-09-08</date>
+<releaseinfo
+>Frameworks 5.73</releaseinfo>
+
+</articleinfo>
+
+<para
+>De gevraagde documentatie werd niet aangetroffen op uw computer.</para>
+
+<para
+>De documentatie kan niet bestaan of het kan niet zijn geïnstalleerd met de toepassing.</para>
+
+<tip
+><para
+>Stuur aub geen e-mail naar de auteur van deze pagina om het ontbrekende document te vinden. Hij zal u gewoon vertellen om de instructies op deze pagina te volgen. </para
+></tip>
+
+<simplesect>
+<title
+>Hoe kunt u dit probleem oplossen</title>
+
+<para
+>Als de toepassing &kde;-software is, start dan met de zoekfunctie in &khelpcenter;. In sommige gevallen heeft de documentatie een andere naam dan de software gebruikte om het te vinden. Als dat niet werkt, probeer dan te zoeken op de <ulink url="https://docs.kde.org/"
+>&kde; Documentatiesite</ulink
+> naar de gevraagde documentatie. Als u de documentatie op die site vindt, dan kan uw distributie het als een apart pakket voor documentatie leveren (&eg; met de naam plasma-doc voor documentatie gerelateerd aan &plasma;). Gebruik dan de pakketbeheerder van uw distributie om het te vinden en installeer de ontbrekende documentatie.</para>
+
+<para
+>Als u een op broncode gebaseerde distributie gebruikt, zoals Gentoo, kijk dan of er geen configuratie-instellingen (USE-flags in Gentoo) worden gebruikt die de installatie van de documentatie uitschakelen. </para>
+
+<para
+>Als u dit hebt gedaan, maar nog steeds deze pagina getoond krijgt in plaats van het handbook van de toepassing, dan hebt u mogelijk een bug in het helpsysteem gevonden. In dat geval kunt u een bugrapport indienen op het <ulink url="https://bugs.kde.org/"
+>&kde; Bug-volgsysteem</ulink
+> onder het KIO-product. </para>
+
+<para
+>Als u geen enkele documentatie hebt gevonden op de <ulink url="https://docs.kde.org/"
+>&kde; Documentatiesite</ulink
+>, dan heeft de toepassing waarschijnlijk geen offline documentatie. Rapporteer dit op het <ulink url="https://bugs.kde.org/"
+>&kde; Bug-volgsysteem</ulink
+> onder het product van de toepassing. </para>
+
+<para
+>In het geval dat de toepassing geen offline documentatie heeft zou u de online hulpbronnen <ulink url="http://userbase.kde.org/"
+>UserBase Documentatie</ulink
+> en <ulink url="https://forum.kde.org/"
+>&kde; forums van de gemeenschap</ulink
+> kunnen gebruiken om hulp te verkrijgen. </para>
+
+<para
+>Voor niet-&kde; toepassingen neemt u beste contact op met de auteur van de toepassing om te bepalen of er offline documentatie beschikbaar zou moeten zijn.</para>
+</simplesect>
+
+</article>

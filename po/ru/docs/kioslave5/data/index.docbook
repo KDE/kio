@@ -1,0 +1,83 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Russian "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="data">
+<title
+>URL данных</title>
+
+<articleinfo>
+<authorgroup>
+<author
+><personname
+><firstname
+>Leo</firstname
+><surname
+>Savernik</surname
+></personname
+> <address
+><email
+>l.savernik@aon.at</email
+></address
+> </author>
+<othercredit role="translator"
+><firstname
+>Григорий</firstname
+><surname
+>Мохин</surname
+><affiliation
+><address
+><email
+>mok@kde.ru</email
+></address
+></affiliation
+><contrib
+>Перевод на русский</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>6 февраля 2003 г.</date>
+<!--releaseinfo
+>2.20.00</releaseinfo-->
+
+</articleinfo>
+
+<para
+>URL данных позволяют включать небольшие фрагменты данных непосредственно в URL. Это оправдано для небольших тестовых фрагментов HTML или в других случаях, когда создавать отдельный документ нецелесообразно.</para>
+
+<para
+><userinput
+>data:,фрагментик</userinput
+> (обратите внимание на запятую после двоеточия) выдаст текстовый документ, содержащий текст <literal
+>фрагментик</literal
+> </para>
+
+<para
+>Так можно задать текстовый документ. Для документов HTML требуется указать тип MIME <literal
+>text/html</literal
+>: <userinput
+>data:text/html,&lt;title&gt;Testcase&lt;/title&gt;&lt;p&gt;Тест&lt;/p&gt;</userinput
+>. В итоге будет выдано содержание точно такое же, как если бы это был отдельный документ. </para>
+
+<para
+>Можно задавать различные кодировки. Восьмибитные символы следует передавать в виде шестнадцатеричных символов со знаком процента: <userinput
+>data:;charset=iso-8859-1,Gr%FC%DFe aus Schl%E4gl</userinput
+>, что будет показано как <literal
+>Gr&uuml;&szlig;e aus Schl&auml;gl</literal
+>/ Если же не указать атрибут кодировки, то будет показано что-то наподобие <literal
+>Gr??e aus Schl?gl</literal
+> </para>
+
+<para
+>Подробная информация приведена в документе <ulink url="http://www.ietf.org/rfc/rfc2397.txt"
+>IETF RFC2397</ulink
+>.</para>
+
+</article>
+

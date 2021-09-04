@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % French "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="file">
+<title
+>file</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Ferdinand.Gassauer; &Ferdinand.Gassauer.mail;</author>
+&traducteurEquipeKDE; 
+</authorgroup>
+</articleinfo>
+
+<para
+>Le protocole <emphasis
+>file</emphasis
+> est utilisé par toutes les applications &kde; pour afficher les fichiers disponibles en local. </para>
+<para
+>Saisissez <userinput
+><command
+>file:/nom_du_dossier</command
+></userinput
+> dans &konqueror; pour lister les dossiers et les fichiers. </para>
+
+</article>
