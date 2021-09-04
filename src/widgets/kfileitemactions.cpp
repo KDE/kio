@@ -162,8 +162,12 @@ int KFileItemActionsPrivate::insertServicesSubmenus(const QMap<QString, ServiceL
 
 int KFileItemActionsPrivate::insertServices(const ServiceList &list, QMenu *menu, bool isBuiltin)
 {
+    ServiceList sortedList = list;
+    std::sort(sortedList.begin(), sortedList.end(), [](const KServiceAction &a1, const KServiceAction &a2) {
+        return a1.name() < a2.name();
+    });
     int count = 0;
-    for (const KServiceAction &serviceAction : list) {
+    for (const KServiceAction &serviceAction : std::as_const(sortedList)) {
         if (serviceAction.isSeparator()) {
             const QList<QAction *> actions = menu->actions();
             if (!actions.isEmpty() && !actions.last()->isSeparator()) {

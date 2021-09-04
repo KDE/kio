@@ -1,13 +1,13 @@
 [Desktop Entry]
 Type=Service
 MimeType=all/all
-Actions=test1
+Actions=no_file_test
 X-KDE-Priority=TopLevel
 X-KDE-StartupNotify=false
 X-KDE-Protocol=!file
 Icon=template
 
-[Desktop Action test1]
+[Desktop Action no_file_test]
 Name=no_file
 Icon=template
 Exec=true %u

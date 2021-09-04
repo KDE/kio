@@ -73,8 +73,8 @@ void KFileItemActionsTest::testTopLevelServiceMenuActions()
         actions.addActionsTo(&menu, KFileItemActions::MenuActionSource::Services);
         const auto resultingActions = menu.actions();
         QCOMPARE(resultingActions.count(), 2);
-        QCOMPARE(resultingActions.at(0)->text(), "smb");
-        QCOMPARE(resultingActions.at(1)->text(), "no_file");
+        QCOMPARE(resultingActions.at(0)->text(), "no_file");
+        QCOMPARE(resultingActions.at(1)->text(), "smb");
     }
     {
         // Only the menu which handles URLs
