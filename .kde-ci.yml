@@ -1,0 +1,29 @@
+Dependencies:
+- 'on': ['Linux', 'FreeBSD', 'Windows', 'macOS']
+  'require':
+    'frameworks/extra-cmake-modules': '@same'
+    'frameworks/kdbusaddons' : '@same'
+    'frameworks/ki18n' : '@same'
+    'frameworks/kguiaddons' : '@same'
+    'frameworks/kconfigwidgets' : '@same'
+    'frameworks/kitemviews' : '@same'
+    'frameworks/kcoreaddons' : '@same'
+    'frameworks/kwidgetsaddons' : '@same'
+    'frameworks/kservice' : '@same'
+    'frameworks/karchive' : '@same'
+    'frameworks/solid' : '@same'
+    'frameworks/kjobwidgets' : '@same'
+    'frameworks/kiconthemes' : '@same'
+    'frameworks/kwindowsystem' : '@same'
+    'frameworks/kcrash' : '@same'
+    'frameworks/kcompletion' : '@same'
+    'frameworks/kdoctools' : '@same'
+    'frameworks/ktextwidgets' : '@same'
+    'frameworks/kxmlgui' : '@same'
+    'frameworks/kbookmarks' : '@same'
+    'frameworks/knotifications' : '@same'
+    'frameworks/kconfig' : '@same'
+    'frameworks/kwallet' : '@same'
+
+Options:
+  test-before-installing: True
