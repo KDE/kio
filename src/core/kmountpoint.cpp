@@ -441,14 +441,23 @@ KMountPoint::List::List()
 
 KMountPoint::Ptr KMountPoint::List::findByPath(const QString &path) const
 {
+#ifdef Q_OS_WIN
+    const QString realPath = QDir::fromNativeSeparators(QDir(path).absolutePath());
+#else
+    /* If the path contains symlinks, get the real name */
+    QFileInfo fileinfo(path);
+    // canonicalFilePath won't work unless file exists
+    const QString realPath = fileinfo.exists() ? fileinfo.canonicalFilePath() : fileinfo.absolutePath();
+#endif
+
     KMountPoint::Ptr result;
 
-    if (QT_STATBUF buff; QT_LSTAT(QFile::encodeName(path).constData(), &buff) == 0) {
-        auto it = std::find_if(this->cbegin(), this->cend(), [&buff, &path](const KMountPoint::Ptr &mountPtr) {
+    if (QT_STATBUF buff; QT_LSTAT(QFile::encodeName(realPath).constData(), &buff) == 0) {
+        auto it = std::find_if(this->cbegin(), this->cend(), [&buff, &realPath](const KMountPoint::Ptr &mountPtr) {
             // For a bind mount, the deviceId() is that of the base mount point, e.g. /mnt/foo,
             // however the path we're looking for, e.g. /home/user/bar, doesn't start with the
             // mount point of the base device, so we go on searching
-            return mountPtr->deviceId() == buff.st_dev && path.startsWith(mountPtr->mountPoint());
+            return mountPtr->deviceId() == buff.st_dev && realPath.startsWith(mountPtr->mountPoint());
         });
 
         if (it != this->cend()) {
