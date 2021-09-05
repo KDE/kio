@@ -521,6 +521,7 @@ void OpenUrlJobTest::httpUrlWithKIO()
     // This tests the scanFileWithGet() code path
     const QUrl url(QStringLiteral("http://www.google.com/"));
     KIO::OpenUrlJob *job = new KIO::OpenUrlJob(url, this);
+    job->setEnableExternalBrowser(false);
     job->setFollowRedirections(false);
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
 

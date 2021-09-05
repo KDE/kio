@@ -168,15 +168,18 @@ void KIO::OpenUrlJob::start()
         return;
     }
 
-    if (d->m_externalBrowserEnabled && d->m_url.scheme().startsWith(QLatin1String("http"))) {
-        const QString externalBrowser = d->externalBrowser();
-        if (!externalBrowser.isEmpty() && d->runExternalBrowser(externalBrowser)) {
+    if (d->m_url.scheme().startsWith(QLatin1String("http"))) {
+        if (d->m_externalBrowserEnabled) {
+            const QString externalBrowser = d->externalBrowser();
+            if (!externalBrowser.isEmpty() && d->runExternalBrowser(externalBrowser)) {
+                return;
+            }
+        }
+    } else {
+        if (KIO::DesktopExecParser::hasSchemeHandler(d->m_url)) {
+            d->useSchemeHandler();
             return;
         }
-    }
-    if (KIO::DesktopExecParser::hasSchemeHandler(d->m_url)) {
-        d->useSchemeHandler();
-        return;
     }
 
     auto *job = new KIO::MimeTypeFinderJob(d->m_url, this);
