@@ -1183,20 +1183,25 @@ void KFilePlacesModel::editPlace(const QModelIndex &index, const QString &text, 
         return;
     }
 
+    QVector<int> changedRoles;
     bool changed = false;
+
     if (text != bookmark.fullText()) {
         bookmark.setFullText(text);
         changed = true;
+        changedRoles << Qt::DisplayRole;
     }
 
     if (url != bookmark.url()) {
         bookmark.setUrl(url);
         changed = true;
+        changedRoles << KFilePlacesModel::UrlRole;
     }
 
     if (iconName != bookmark.icon()) {
         bookmark.setIcon(iconName);
         changed = true;
+        changedRoles << Qt::DecorationRole;
     }
 
     const QString onlyInApp = bookmark.metaDataItem(QStringLiteral("OnlyInApp"));
@@ -1207,7 +1212,7 @@ void KFilePlacesModel::editPlace(const QModelIndex &index, const QString &text, 
 
     if (changed) {
         refresh();
-        Q_EMIT dataChanged(index, index);
+        Q_EMIT dataChanged(index, index, changedRoles);
     }
 }
 
@@ -1253,7 +1258,7 @@ void KFilePlacesModel::setPlaceHidden(const QModelIndex &index, bool hidden)
         item->setHidden(hidden);
 
         d->reloadAndSignal();
-        Q_EMIT dataChanged(index, index);
+        Q_EMIT dataChanged(index, index, { KFilePlacesModel::HiddenRole });
     }
 }
 
