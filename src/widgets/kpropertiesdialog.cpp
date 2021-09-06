@@ -925,14 +925,6 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
 
         // Make it human-readable
         filename = nameFromFileName(filename);
-
-        if (d->bKDesktopMode && d->bDesktopFile) {
-            KDesktopFile config(url.toLocalFile());
-            if (config.desktopGroup().hasKey("Name")) {
-                filename = config.readName();
-            }
-        }
-
         d->oldName = filename;
     } else {
         // Multiple items: see what they have in common
@@ -3261,12 +3253,6 @@ KDesktopPropsPlugin::KDesktopPropsPlugin(KPropertiesDialog *_props)
 
     bool bKDesktopMode = properties->url().scheme() == QLatin1String("desktop") || properties->currentDir().scheme() == QLatin1String("desktop");
 
-    if (bKDesktopMode) {
-        // Hide Name entry
-        d->w->nameEdit->hide();
-        d->w->nameLabel->hide();
-    }
-
     d->w->pathEdit->setMode(KFile::Directory | KFile::LocalOnly);
     d->w->pathEdit->lineEdit()->setAcceptDrops(false);
 
@@ -3359,10 +3345,7 @@ KDesktopPropsPlugin::KDesktopPropsPlugin(KPropertiesDialog *_props)
         // But let's do it in apply, not here, so that we pick up the right name.
         setDirty();
     }
-    if (!bKDesktopMode) {
-        d->w->nameEdit->setText(nameStr);
-    }
-
+    d->w->nameEdit->setText(nameStr);
     d->w->genNameEdit->setText(genNameStr);
     d->w->commentEdit->setText(commentStr);
     d->w->commandEdit->setText(commandStr);
