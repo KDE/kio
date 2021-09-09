@@ -831,6 +831,9 @@ void FileProtocol::mount(bool _ro, const char *_fstype, const QString &_dev, con
         } else { // mount giving device + mountpoint + fstype
             buffer += readonly + " -t " + fstype + ' ' + dev + ' ' + point;
         }
+        if (fstype == "ext2" || fstype == "ext3" || fstype == "ext4") {
+            buffer += " -o errors=remount-ro";
+        }
 
         buffer += " 2>" + tmpFileName;
         // qDebug() << buffer;
