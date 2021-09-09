@@ -595,9 +595,11 @@ bool FileProtocol::copyXattrs(const int src_fd, const int dest_fd)
         // Get size of the key
 #if HAVE_SYS_XATTR_H
         keyLen = strlen(keyPtr);
+        auto next_key = [&]() { keyPtr += keyLen + 1; };
 #elif HAVE_SYS_EXTATTR_H
         keyLen = static_cast<unsigned char>(*keyPtr);
         keyPtr++;
+        auto next_key = [&]() { keyPtr += keyLen; };
 #endif
         QByteArray key(keyPtr, keyLen);
 
@@ -633,6 +635,8 @@ bool FileProtocol::copyXattrs(const int src_fd, const int dest_fd)
         } while (true);
 
         if (valuelen < 0) {
+            // Skip to next attribute.
+            next_key();
             continue;
         }
 
@@ -652,11 +656,7 @@ bool FileProtocol::copyXattrs(const int src_fd, const int dest_fd)
             return false;
         }
 
-#if HAVE_SYS_XATTR_H
-        keyPtr += keyLen + 1;
-#elif HAVE_SYS_EXTATTR_H
-        keyPtr += keyLen;
-#endif
+        next_key();
     }
     return true;
 }
