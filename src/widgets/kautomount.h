@@ -23,6 +23,8 @@ namespace KIO
 class Job;
 }
 
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 88)
+
 class KAutoMountPrivate;
 /**
  * @class KAutoMount kautomount.h <KAutoMount>
@@ -33,6 +35,8 @@ class KAutoMountPrivate;
  * used by KDesktopFileActions.
  *
  * @short This class implements synchronous mounting of devices.
+ *
+ * @deprecated Since 5.88. There's no direct replacement, Solid::StorageAccess::setup may help
  */
 class KIOWIDGETS_EXPORT KAutoMount : public QObject
 {
@@ -49,6 +53,7 @@ public:
      * @param show_filemanager_window if true, a file-manager window for that mountpoint is shown after
      * the mount, if successful.
      */
+    KIOWIDGETS_DEPRECATED_VERSION(5, 88, "For lack of usage.")
     KAutoMount(bool readonly,
                const QByteArray &format,
                const QString &device,
@@ -77,6 +82,8 @@ class KAutoUnmountPrivate;
  * used by KDesktopFileActions.
  *
  * @short This class implements synchronous unmounting of devices,
+ *
+ * @deprecated Since 5.88. There's no direct replacement, Solid::StorageAccess::teardown may help
  */
 class KIOWIDGETS_EXPORT KAutoUnmount : public QObject
 {
@@ -88,6 +95,7 @@ public:
      * @param desktopFile the file the user clicked on - to notify KDirWatch of the fact that
      * it should emit fileDirty for it (to have the icon change)
      */
+    KIOWIDGETS_DEPRECATED_VERSION(5, 88, "For lack of usage.")
     KAutoUnmount(const QString &mountpoint, const QString &desktopFile);
 
 Q_SIGNALS:
@@ -103,6 +111,7 @@ private:
     friend class KAutoUnmountPrivate;
     KAutoUnmountPrivate *const d;
 };
+#endif
 
 #endif // Q_OS_UNIX
 

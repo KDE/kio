@@ -16,6 +16,8 @@
 #include <kdirnotify.h>
 #include <kmountpoint.h>
 
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 88)
+
 /***********************************************************************
  *
  * Utility classes
@@ -160,3 +162,5 @@ KAutoUnmount::~KAutoUnmount()
 }
 
 #include "moc_kautomount.cpp"
+
+#endif
