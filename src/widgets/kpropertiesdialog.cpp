@@ -1232,11 +1232,13 @@ bool KFilePropsPlugin::enableIconButton() const
     return false;
 }
 
-void KFilePropsPlugin::setFileNameReadOnly(bool ro)
+void KFilePropsPlugin::setFileNameReadOnly(bool readOnly)
 {
-    Q_ASSERT(ro); // false isn't supported
-    if (ro && d->m_ui->fileNameLabel->isHidden()) {
+    Q_ASSERT(readOnly); // false isn't supported
+
+    if (readOnly) {
         Q_ASSERT(!d->m_bFromTemplate);
+
         d->m_ui->fileNameLineEdit->setText(QString());
         d->m_ui->fileNameLineEdit->hide();
 
