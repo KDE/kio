@@ -2661,8 +2661,10 @@ void KDirOperatorPrivate::slotProperties()
 
     const KFileItemList list = q->selectedItems();
     if (!list.isEmpty()) {
-        KPropertiesDialog dialog(list, q);
-        dialog.exec();
+        auto *dialog = new KPropertiesDialog(list, q);
+        dialog->setAttribute(Qt::WA_DeleteOnClose);
+        dialog->setModal(true);
+        dialog->show();
     }
 }
 
