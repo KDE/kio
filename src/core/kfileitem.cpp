@@ -31,6 +31,8 @@
 #include <KFileSystemType>
 #include <KProtocolManager>
 
+#define KFILEITEM_DEBUG 0
+
 class KFileItemPrivate : public QSharedData
 {
 public:
@@ -86,6 +88,7 @@ public:
     void setTime(KFileItem::FileTimes which, uint time_t_val) const;
     void setTime(KFileItem::FileTimes which, const QDateTime &val) const;
     bool cmp(const KFileItemPrivate &item) const;
+    void printCompareDebug(const KFileItemPrivate &item) const;
     bool isSlow() const;
 
     /**
@@ -359,6 +362,39 @@ QDateTime KFileItemPrivate::time(KFileItem::FileTimes mappedWhich) const
     return QDateTime();
 }
 
+void KFileItemPrivate::printCompareDebug(const KFileItemPrivate &item) const
+{
+    Q_UNUSED(item);
+
+#if KFILEITEM_DEBUG
+    const KIO::UDSEntry &otherEntry = item.m_entry;
+
+    qDebug() << "Comparing" << m_url << "and" << item.m_url;
+    qDebug() << " name" << (m_strName == item.m_strName);
+    qDebug() << " local" << (m_bIsLocalUrl == item.m_bIsLocalUrl);
+
+    qDebug() << " mode" << (m_fileMode == item.m_fileMode);
+    qDebug() << " perm" << (m_permissions == item.m_permissions);
+    qDebug() << " group" << (m_entry.stringValue(KIO::UDSEntry::UDS_GROUP) == otherEntry.stringValue(KIO::UDSEntry::UDS_GROUP));
+    qDebug() << " user" << (m_entry.stringValue(KIO::UDSEntry::UDS_USER) == otherEntry.stringValue(KIO::UDSEntry::UDS_USER));
+
+    qDebug() << " UDS_EXTENDED_ACL" << (m_entry.stringValue(KIO::UDSEntry::UDS_EXTENDED_ACL) == otherEntry.stringValue(KIO::UDSEntry::UDS_EXTENDED_ACL));
+    qDebug() << " UDS_ACL_STRING" << (m_entry.stringValue(KIO::UDSEntry::UDS_ACL_STRING) == otherEntry.stringValue(KIO::UDSEntry::UDS_ACL_STRING));
+    qDebug() << " UDS_DEFAULT_ACL_STRING"
+             << (m_entry.stringValue(KIO::UDSEntry::UDS_DEFAULT_ACL_STRING) == otherEntry.stringValue(KIO::UDSEntry::UDS_DEFAULT_ACL_STRING));
+
+    qDebug() << " m_bLink" << (m_bLink == item.m_bLink);
+    qDebug() << " m_hidden" << (m_hidden == item.m_hidden);
+
+    qDebug() << " size" << (size() == item.size());
+
+    qDebug() << " ModificationTime" << m_entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME)
+             << otherEntry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME);
+
+    qDebug() << " UDS_ICON_NAME" << (m_entry.stringValue(KIO::UDSEntry::UDS_ICON_NAME) == otherEntry.stringValue(KIO::UDSEntry::UDS_ICON_NAME));
+#endif
+}
+
 // Inlined because it is used only in one place
 inline bool KFileItemPrivate::cmp(const KFileItemPrivate &item) const
 {
@@ -370,22 +406,8 @@ inline bool KFileItemPrivate::cmp(const KFileItemPrivate &item) const
         item.ensureInitialized();
     }
 
-#if 0
-    qDebug() << "Comparing" << m_url << "and" << item.m_url;
-    qDebug() << " name" << (m_strName == item.m_strName);
-    qDebug() << " local" << (m_bIsLocalUrl == item.m_bIsLocalUrl);
-    qDebug() << " mode" << (m_fileMode == item.m_fileMode);
-    qDebug() << " perm" << (m_permissions == item.m_permissions);
-    qDebug() << " group" << (m_entry.stringValue(KIO::UDSEntry::UDS_GROUP) == item.m_entry.stringValue(KIO::UDSEntry::UDS_GROUP));
-    qDebug() << " user" << (m_entry.stringValue(KIO::UDSEntry::UDS_USER) == item.m_entry.stringValue(KIO::UDSEntry::UDS_USER));
-    qDebug() << " UDS_EXTENDED_ACL" << (m_entry.stringValue( KIO::UDSEntry::UDS_EXTENDED_ACL ) == item.m_entry.stringValue( KIO::UDSEntry::UDS_EXTENDED_ACL ));
-    qDebug() << " UDS_ACL_STRING" << (m_entry.stringValue( KIO::UDSEntry::UDS_ACL_STRING ) == item.m_entry.stringValue( KIO::UDSEntry::UDS_ACL_STRING ));
-    qDebug() << " UDS_DEFAULT_ACL_STRING" << (m_entry.stringValue( KIO::UDSEntry::UDS_DEFAULT_ACL_STRING ) == item.m_entry.stringValue( KIO::UDSEntry::UDS_DEFAULT_ACL_STRING ));
-    qDebug() << " m_bLink" << (m_bLink == item.m_bLink);
-    qDebug() << " m_hidden" << (m_hidden == item.m_hidden);
-    qDebug() << " size" << (size() == item.size());
-    qDebug() << " ModificationTime" << m_entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME) << item.m_entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME);
-    qDebug() << " UDS_ICON_NAME" << (m_entry.stringValue( KIO::UDSEntry::UDS_ICON_NAME ) == item.m_entry.stringValue( KIO::UDSEntry::UDS_ICON_NAME ));
+#if KFILEITEM_DEBUG
+    printCompareDebug(item);
 #endif
 
     /* clang-format off */
