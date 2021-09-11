@@ -660,11 +660,11 @@ void KDirModelPrivate::_k_slotRefreshItems(const QList<QPair<KFileItem, KFileIte
 
     // Solution 1: we could emit dataChanged for one row (if items.size()==1) or all rows
     // Solution 2: more fine-grained, actually figure out the beginning and end rows.
-    for (QList<QPair<KFileItem, KFileItem>>::const_iterator fit = items.begin(), fend = items.end(); fit != fend; ++fit) {
-        Q_ASSERT(!fit->first.isNull());
-        Q_ASSERT(!fit->second.isNull());
-        const QUrl oldUrl = fit->first.url();
-        const QUrl newUrl = fit->second.url();
+    for (const auto &[oldItem, newItem] : items) {
+        Q_ASSERT(!oldItem.isNull());
+        Q_ASSERT(!newItem.isNull());
+        const QUrl oldUrl = oldItem.url();
+        const QUrl newUrl = newItem.url();
         KDirModelNode *node = nodeForUrl(oldUrl); // O(n); maybe we could look up to the parent only once
         // qDebug() << "in model for" << m_dirLister->url() << ":" << oldUrl << "->" << newUrl << "node=" << node;
         if (!node) { // not found [can happen when renaming a dir, redirection was emitted already]
@@ -673,17 +673,17 @@ void KDirModelPrivate::_k_slotRefreshItems(const QList<QPair<KFileItem, KFileIte
         if (node != m_rootNode) { // we never set an item in the rootnode, we use m_dirLister->rootItem instead.
             bool hasNewNode = false;
             // A file became directory (well, it was overwritten)
-            if (fit->first.isDir() != fit->second.isDir()) {
+            if (oldItem.isDir() != newItem.isDir()) {
                 // qDebug() << "DIR/FILE STATUS CHANGE";
                 const int r = node->rowNumber();
                 removeFromNodeHash(node, oldUrl);
                 KDirModelDirNode *dirNode = node->parent();
                 delete dirNode->m_childNodes.takeAt(r); // i.e. "delete node"
-                node = fit->second.isDir() ? new KDirModelDirNode(dirNode, fit->second) : new KDirModelNode(dirNode, fit->second);
+                node = newItem.isDir() ? new KDirModelDirNode(dirNode, newItem) : new KDirModelNode(dirNode, newItem);
                 dirNode->m_childNodes.insert(r, node); // same position!
                 hasNewNode = true;
             } else {
-                node->setItem(fit->second);
+                node->setItem(newItem);
             }
 
             if (oldUrl != newUrl || hasNewNode) {
@@ -693,7 +693,7 @@ void KDirModelPrivate::_k_slotRefreshItems(const QList<QPair<KFileItem, KFileIte
                 m_nodeHash.insert(cleanupUrl(newUrl), node);
             }
             // MIME type changed -> forget cached icon (e.g. from "cut", #164185 comment #13)
-            if (fit->first.determineMimeType().name() != fit->second.determineMimeType().name()) {
+            if (oldItem.determineMimeType().name() != newItem.determineMimeType().name()) {
                 node->setPreview(QIcon());
             }
 
