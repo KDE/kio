@@ -99,6 +99,8 @@ public Q_SLOTS:
     void setACL(const KACL &anACL);
     void setDefaultACL(const KACL &anACL);
 
+    QSize sizeHint() const override;
+
 protected Q_SLOTS:
     void slotItemClicked(QTreeWidgetItem *pItem, int col);
     void slotItemDoubleClicked(QTreeWidgetItem *item, int col);

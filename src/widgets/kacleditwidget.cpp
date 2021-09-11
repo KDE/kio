@@ -24,6 +24,7 @@
 #include <QPainter>
 #include <QPushButton>
 #include <QRadioButton>
+#include <QScrollBar>
 #include <QStackedWidget>
 
 #include <KLocalizedString>
@@ -632,6 +633,13 @@ KACLListView::KACLListView(QWidget *parent)
 
 KACLListView::~KACLListView()
 {
+}
+
+QSize KACLListView::sizeHint() const
+{
+    const int width = header()->length() + verticalScrollBar()->width();
+    const int height = 7 * rowHeight(model()->index(0, 0, QModelIndex()));
+    return {width, height};
 }
 
 QStringList KACLListView::allowedUsers(bool defaults, KACLListViewItem *allowedItem)
