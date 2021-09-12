@@ -200,49 +200,51 @@ void KFileItemPrivate::init() const
     //  metaInfo = KFileMetaInfo();
 
     // stat() local files if needed
-    if (m_fileMode == KFileItem::Unknown || m_permissions == KFileItem::Unknown || m_entry.count() == 0) {
-        if (m_url.isLocalFile()) {
-            /* directories may not have a slash at the end if
-             * we want to stat() them; it requires that we
-             * change into it .. which may not be allowed
-             * stat("/is/unaccessible")  -> rwx------
-             * stat("/is/unaccessible/") -> EPERM            H.Z.
-             * This is the reason for the StripTrailingSlash
-             */
-            QT_STATBUF buf;
-            const QString path = m_url.adjusted(QUrl::StripTrailingSlash).toLocalFile();
-            const QByteArray pathBA = QFile::encodeName(path);
-            if (QT_LSTAT(pathBA.constData(), &buf) == 0) {
-                m_entry.reserve(9);
-                m_entry.replace(KIO::UDSEntry::UDS_DEVICE_ID, buf.st_dev);
-                m_entry.replace(KIO::UDSEntry::UDS_INODE, buf.st_ino);
+    const bool shouldStat = (m_fileMode == KFileItem::Unknown || m_permissions == KFileItem::Unknown || m_entry.count() == 0) && m_url.isLocalFile();
+    if (shouldStat) {
+        /* directories may not have a slash at the end if we want to stat()
+         * them; it requires that we change into it .. which may not be allowed
+         * stat("/is/unaccessible")  -> rwx------
+         * stat("/is/unaccessible/") -> EPERM            H.Z.
+         * This is the reason for the StripTrailingSlash
+         */
+        QT_STATBUF buf;
+        const QString path = m_url.adjusted(QUrl::StripTrailingSlash).toLocalFile();
+        const QByteArray pathBA = QFile::encodeName(path);
+        if (QT_LSTAT(pathBA.constData(), &buf) == 0) {
+            m_entry.reserve(9);
+            m_entry.replace(KIO::UDSEntry::UDS_DEVICE_ID, buf.st_dev);
+            m_entry.replace(KIO::UDSEntry::UDS_INODE, buf.st_ino);
 
-                mode_t mode = buf.st_mode;
-                if ((buf.st_mode & QT_STAT_MASK) == QT_STAT_LNK) {
-                    m_bLink = true;
-                    if (QT_STAT(pathBA.constData(), &buf) == 0) {
-                        mode = buf.st_mode;
-                    } else { // link pointing to nowhere (see FileProtocol::createUDSEntry() in ioslaves/file/file.cpp)
-                        mode = (QT_STAT_MASK - 1) | S_IRWXU | S_IRWXG | S_IRWXO;
-                    }
+            mode_t mode = buf.st_mode;
+            if ((buf.st_mode & QT_STAT_MASK) == QT_STAT_LNK) {
+                m_bLink = true;
+                if (QT_STAT(pathBA.constData(), &buf) == 0) {
+                    mode = buf.st_mode;
+                } else { // link pointing to nowhere (see FileProtocol::createUDSEntry() in ioslaves/file/file.cpp)
+                    mode = (QT_STAT_MASK - 1) | S_IRWXU | S_IRWXG | S_IRWXO;
                 }
-                m_entry.replace(KIO::UDSEntry::UDS_SIZE, buf.st_size);
-                m_entry.replace(KIO::UDSEntry::UDS_FILE_TYPE, buf.st_mode & QT_STAT_MASK); // extract file type
-                m_entry.replace(KIO::UDSEntry::UDS_ACCESS, buf.st_mode & 07777); // extract permissions
-                m_entry.replace(KIO::UDSEntry::UDS_MODIFICATION_TIME, buf.st_mtime); // TODO: we could use msecs too...
-                m_entry.replace(KIO::UDSEntry::UDS_ACCESS_TIME, buf.st_atime);
+            }
+
+            const mode_t type = mode & QT_STAT_MASK;
+
+            m_entry.replace(KIO::UDSEntry::UDS_SIZE, buf.st_size);
+            m_entry.replace(KIO::UDSEntry::UDS_FILE_TYPE, type); // extract file type
+            m_entry.replace(KIO::UDSEntry::UDS_ACCESS, mode & 07777); // extract permissions
+            m_entry.replace(KIO::UDSEntry::UDS_MODIFICATION_TIME, buf.st_mtime); // TODO: we could use msecs too...
+            m_entry.replace(KIO::UDSEntry::UDS_ACCESS_TIME, buf.st_atime);
 #ifndef Q_OS_WIN
-                m_entry.replace(KIO::UDSEntry::UDS_USER, KUser(buf.st_uid).loginName());
-                m_entry.replace(KIO::UDSEntry::UDS_GROUP, KUserGroup(buf.st_gid).name());
+            m_entry.replace(KIO::UDSEntry::UDS_USER, KUser(buf.st_uid).loginName());
+            m_entry.replace(KIO::UDSEntry::UDS_GROUP, KUserGroup(buf.st_gid).name());
 #endif
 
-                // TODO: these can be removed, we can use UDS_FILE_TYPE and UDS_ACCESS everywhere
-                if (m_fileMode == KFileItem::Unknown) {
-                    m_fileMode = mode & QT_STAT_MASK; // extract file type
-                }
-                if (m_permissions == KFileItem::Unknown) {
-                    m_permissions = mode & 07777; // extract permissions
-                }
+            // TODO: these can be removed, we can use UDS_FILE_TYPE and UDS_ACCESS everywhere
+            if (m_fileMode == KFileItem::Unknown) {
+                m_fileMode = type; // extract file type
+            }
+            if (m_permissions == KFileItem::Unknown) {
+                m_permissions = mode & 07777; // extract permissions
+            }
             }
         }
     }
