@@ -7,14 +7,11 @@
 #ifndef ACLHELPERS_P_H
 #define ACLHELPERS_P_H
 
-#include "../core/config-kiocore.h" // HAVE_POSIX_ACL
-
 /*************************************
  *
  * ACL handling helpers
  *
  *************************************/
-#if HAVE_POSIX_ACL
 
 #include <KIO/UDSEntry>
 
@@ -76,6 +73,5 @@ static void appendACLAtoms(const QByteArray &path, KIO::UDSEntry &entry, mode_t 
         }
     }
 }
-#endif
 
 #endif // ACLHELPERS_P_H

@@ -8,6 +8,12 @@
 
 #include "kfileitem.h"
 
+#include "config-kiocore.h"
+
+#if HAVE_POSIX_ACL
+#include "../aclhelpers_p.h"
+#endif
+
 #include "../pathhelpers_p.h"
 #include "kiocoredebug.h"
 #include "kioglobal_p.h"
@@ -52,6 +58,7 @@ public:
         , m_mimeType()
         , m_fileMode(mode)
         , m_permissions(permissions)
+        , m_addACL(false)
         , m_bLink(false)
         , m_bIsLocalUrl(itemOrDirUrl.isLocalFile())
         , m_bMimeTypeKnown(false)
@@ -152,6 +159,11 @@ public:
     mutable mode_t m_permissions;
 
     /**
+     * Whether the UDSEntry ACL fields should be added to m_entry.
+     */
+    mutable bool m_addACL : 1;
+
+    /**
      * Whether the file is a link
      */
     mutable bool m_bLink : 1;
@@ -245,7 +257,12 @@ void KFileItemPrivate::init() const
             if (m_permissions == KFileItem::Unknown) {
                 m_permissions = mode & 07777; // extract permissions
             }
+
+#if HAVE_POSIX_ACL
+            if (m_addACL) {
+                appendACLAtoms(pathBA, m_entry, type);
             }
+#endif
         }
     }
 
@@ -600,6 +617,11 @@ void KFileItem::refresh()
     d->m_permissions = KFileItem::Unknown;
     d->m_hidden = KFileItemPrivate::Auto;
     refreshMimeType();
+
+#if HAVE_POSIX_ACL
+    // If the item had ACL, re-add them in init()
+    d->m_addACL = !d->m_entry.stringValue(KIO::UDSEntry::UDS_ACL_STRING).isEmpty();
+#endif
 
     // Basically, we can't trust any information we got while listing.
     // Everything could have changed...
