@@ -73,18 +73,15 @@ void KUrlNavigatorProtocolCombo::showEvent(QShowEvent *event)
     KUrlNavigatorButtonBase::showEvent(event);
     if (!event->spontaneous() && m_protocols.isEmpty()) {
         m_protocols = KProtocolInfo::protocols();
-        std::sort(m_protocols.begin(), m_protocols.end());
 
-        QStringList::iterator it = m_protocols.begin();
-        while (it != m_protocols.end()) {
+        auto it = std::remove_if(m_protocols.begin(), m_protocols.end(), [](const QString &s) {
             QUrl url;
-            url.setScheme(*it);
-            if (!KProtocolManager::supportsListing(url)) {
-                it = m_protocols.erase(it);
-            } else {
-                ++it;
-            }
-        }
+            url.setScheme(s);
+            return !KProtocolManager::supportsListing(url);
+        });
+        m_protocols.erase(it, m_protocols.end());
+
+        std::sort(m_protocols.begin(), m_protocols.end());
 
         updateMenu();
     }

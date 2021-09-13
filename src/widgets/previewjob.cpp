@@ -432,13 +432,11 @@ void PreviewJob::removeItem(const QUrl &url)
 {
     Q_D(PreviewJob);
 
-    auto it = d->items.cbegin();
-    while (it != d->items.cend()) {
-        if ((*it).item.url() == url) {
-            d->items.erase(it);
-            break;
-        }
-        ++it;
+    auto it = std::find_if(d->items.cbegin(), d->items.cend(), [&url](const PreviewItem &pItem) {
+        return url == pItem.item.url();
+    });
+    if (it != d->items.cend()) {
+        d->items.erase(it);
     }
 
     if (d->currentItem.item.url() == url) {

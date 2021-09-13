@@ -143,6 +143,23 @@ private Q_SLOTS:
         } else {
             QTRY_VERIFY(QFile::exists(m_destDir + QStringLiteral("/srcfile")));
         }
+
+        if (actionNumber == 1) { // This part only makes sense if the copy is going to work
+            QFile::remove(m_destDir + QStringLiteral("/srcfile"));
+            // Remove the recent dirs entry for m_destDir from the config
+            KConfigGroup group(KSharedConfig::openConfig(), "kuick-copy");
+            auto list = group.readEntry("Paths", QStringList{});
+            list.removeOne(m_destDir);
+            group.writeEntry("Paths", list);
+            group.sync();
+            // Triggering the action again, should insert a recent dirs corresponding
+            // to m_destDir, which calls KFileCopyToMainMenu::copyOrMoveTo(), which
+            // trims the recent dirs config to 10 urls, and _shouldn't_ crash
+            copyAction->trigger();
+
+            // Back to normal for the next tests to pass
+            group.writeEntry("Paths", m_recentDirs);
+        }
     }
 
 private:

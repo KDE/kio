@@ -25,6 +25,8 @@
 #include "windows.h"
 #endif
 
+static constexpr int s_maxRecentDirs = 10; // Hardcoded max size
+
 KFileCopyToMenuPrivate::KFileCopyToMenuPrivate(KFileCopyToMenu *qq, QWidget *parentWidget)
     : q(qq)
     , m_urls()
@@ -182,8 +184,8 @@ void KFileCopyToMainMenu::copyOrMoveTo(const QUrl &dest)
     const QString niceDest = dest.toDisplayString(QUrl::PreferLocalFile);
     if (!recentDirs.contains(niceDest)) { // don't change position if already there, moving stuff is bad usability
         recentDirs.prepend(niceDest);
-        while (recentDirs.size() > 10) { // hardcoded max size
-            recentDirs.removeLast();
+        if (recentDirs.size() > s_maxRecentDirs) {
+            recentDirs.erase(recentDirs.begin() + s_maxRecentDirs, recentDirs.end());
         }
         m_recentDirsGroup.writePathEntry("Paths", recentDirs);
     }

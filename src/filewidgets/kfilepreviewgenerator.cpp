@@ -785,15 +785,12 @@ void KFilePreviewGeneratorPrivate::resumeIconUpdates()
     // nested loop is no performance bottle neck, as the inner loop is only
     // entered once in most cases.
     for (const KFileItem &item : std::as_const(m_dispatchedItems)) {
-        KFileItemList::iterator begin = m_pendingItems.begin();
-        KFileItemList::iterator end = m_pendingItems.end();
-        for (KFileItemList::iterator it = begin; it != end; ++it) {
-            if ((*it).url() == item.url()) {
-                m_pendingItems.erase(it);
-                break;
-            }
-        }
+        auto it = std::remove_if(m_pendingItems.begin(), m_pendingItems.end(), [&item](const KFileItem &pending) {
+            return pending.url() == item.url();
+        });
+        m_pendingItems.erase(it, m_pendingItems.end());
     }
+
     m_dispatchedItems.clear();
 
     m_pendingVisibleIconUpdates = 0;

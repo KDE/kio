@@ -84,8 +84,8 @@ void KAutoWebSearch::populateProvidersList(QList<KUriFilterSearchProvider *> &se
         }
     }
 
-    for (int i = 0, count = providers.count(); i < count; ++i) {
-        searchProviders << providers[i];
+    for (SearchProvider *p : std::as_const(providers)) {
+        searchProviders << p;
     }
 }
 

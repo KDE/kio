@@ -53,9 +53,10 @@ void KRecentDirs::add(const QString &fileClass, const QString &directory)
     // make sure the dir is first in history
     result.removeAll(directory);
     result.prepend(directory);
-    while (result.count() > s_maxDirHistory) {
-        result.removeLast();
+    if (result.size() > s_maxDirHistory) {
+        result.erase(result.begin() + s_maxDirHistory, result.end());
     }
+
     config.writePathEntry(key, result);
     config.sync();
 }

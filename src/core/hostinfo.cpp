@@ -182,7 +182,7 @@ public Q_SLOTS:
 
     void lookupFinished(const QHostInfo &hostInfo)
     {
-        QMap<int, QSharedPointer<NameLookupThreadRequest>>::iterator it = m_lookups.find(hostInfo.lookupId());
+        auto it = m_lookups.find(hostInfo.lookupId());
         if (it != m_lookups.end()) {
             (*it)->setResult(hostInfo);
             (*it)->semaphore()->release();
