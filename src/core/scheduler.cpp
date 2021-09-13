@@ -1039,9 +1039,8 @@ void SchedulerPrivate::jobFinished(SimpleJob *job, Slave *slave)
             // qDebug() << "Updating ioslaves with new internal metadata information";
             ProtoQueue *queue = m_protocols.value(slave->protocol());
             if (queue) {
-                QListIterator<Slave *> it(queue->allSlaves());
-                while (it.hasNext()) {
-                    Slave *runningSlave = it.next();
+                const QList<Slave *> slaves = queue->allSlaves();
+                for (auto *runningSlave : slaves) {
                     if (slave->host() == runningSlave->host()) {
                         slave->setConfig(metaDataFor(slave->protocol(), jobPriv->m_proxyList, job->url()));
                         /*qDebug() << "Updated configuration of" << slave->protocol()

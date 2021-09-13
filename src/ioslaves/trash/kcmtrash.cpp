@@ -147,9 +147,9 @@ void TrashConfigModule::readConfig()
     mConfigMap.clear();
 
     const QStringList groups = config.groupList();
-    for (int i = 0; i < groups.count(); ++i) {
-        if (groups[i].startsWith(QLatin1Char('/'))) {
-            const KConfigGroup group = config.group(groups[i]);
+    for (const auto &name : groups) {
+        if (name.startsWith(QLatin1Char('/'))) {
+            const KConfigGroup group = config.group(name);
 
             ConfigEntry entry;
             entry.useTimeLimit = group.readEntry("UseTimeLimit", false);
@@ -157,7 +157,7 @@ void TrashConfigModule::readConfig()
             entry.useSizeLimit = group.readEntry("UseSizeLimit", true);
             entry.percent = group.readEntry("Percent", 10.0);
             entry.actionType = group.readEntry("LimitReachedAction", 0);
-            mConfigMap.insert(groups[i], entry);
+            mConfigMap.insert(name, entry);
         }
     }
 }
@@ -168,9 +168,9 @@ void TrashConfigModule::writeConfig()
 
     // first delete all existing groups
     const QStringList groups = config.groupList();
-    for (int i = 0; i < groups.count(); ++i) {
-        if (groups[i].startsWith(QLatin1Char('/'))) {
-            config.deleteGroup(groups[i]);
+    for (const auto &name : groups) {
+        if (name.startsWith(QLatin1Char('/'))) {
+            config.deleteGroup(name);
         }
     }
 
@@ -179,11 +179,12 @@ void TrashConfigModule::writeConfig()
         it.next();
         KConfigGroup group = config.group(it.key());
 
-        group.writeEntry("UseTimeLimit", it.value().useTimeLimit);
-        group.writeEntry("Days", it.value().days);
-        group.writeEntry("UseSizeLimit", it.value().useSizeLimit);
-        group.writeEntry("Percent", it.value().percent);
-        group.writeEntry("LimitReachedAction", it.value().actionType);
+        const ConfigEntry entry = it.value();
+        group.writeEntry("UseTimeLimit", entry.useTimeLimit);
+        group.writeEntry("Days", entry.days);
+        group.writeEntry("UseSizeLimit", entry.useSizeLimit);
+        group.writeEntry("Percent", entry.percent);
+        group.writeEntry("LimitReachedAction", entry.actionType);
     }
     config.sync();
 }

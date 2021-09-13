@@ -1101,15 +1101,13 @@ void KFilePreviewGeneratorPrivate::delayedIconUpdate()
 
     KFileItemList itemList;
 
-    QHash<QUrl, bool>::const_iterator it = m_changedItems.constBegin();
-    while (it != m_changedItems.constEnd()) {
+    for (auto it = m_changedItems.cbegin(); it != m_changedItems.cend(); ++it) {
         const bool hasChanged = it.value();
         if (hasChanged) {
             const QModelIndex index = dirModel->indexForUrl(it.key());
             const KFileItem item = dirModel->itemForIndex(index);
             itemList.append(item);
         }
-        ++it;
     }
     m_changedItems.clear();
 

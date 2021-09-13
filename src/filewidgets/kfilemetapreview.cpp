@@ -167,10 +167,8 @@ void KFileMetaPreview::addPreviewProvider(const QString &mimeType, KPreviewWidge
 
 void KFileMetaPreview::clearPreviewProviders()
 {
-    QHash<QString, KPreviewWidgetBase *>::const_iterator i = m_previewProviders.constBegin();
-    while (i != m_previewProviders.constEnd()) {
-        m_stack->removeWidget(i.value());
-        ++i;
+    for (auto it = m_previewProviders.cbegin(); it != m_previewProviders.cend(); ++it) {
+        m_stack->removeWidget(it.value());
     }
     qDeleteAll(m_previewProviders);
     m_previewProviders.clear();

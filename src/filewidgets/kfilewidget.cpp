@@ -1825,13 +1825,11 @@ QStringList KFileWidget::selectedFiles() const
     if (d->m_inAccept) {
         if (d->m_ops->mode() & KFile::Files) {
             const QList<QUrl> urls = d->m_urlList;
-            QList<QUrl>::const_iterator it = urls.begin();
-            while (it != urls.end()) {
-                QUrl url = d->mostLocalUrl(*it);
+            for (const auto &u : urls) {
+                const QUrl url = d->mostLocalUrl(u);
                 if (url.isLocalFile()) {
                     list.append(url.toLocalFile());
                 }
-                ++it;
             }
         }
 
