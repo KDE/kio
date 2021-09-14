@@ -20,7 +20,9 @@
 
 #include "kiocoredebug.h"
 
+#if HAVE_POSIX_ACL
 using namespace KIO;
+#endif
 
 class Q_DECL_HIDDEN KACL::KACLPrivate
 {
