@@ -984,20 +984,16 @@ void KNewFileMenuPrivate::slotCreateHiddenDirectory()
     slotCreateDirectory();
 }
 
-struct EntryWithName {
+struct EntryInfo {
     QString key;
+    QString url;
     KNewFileMenuSingleton::Entry entry;
 };
 
-void KNewFileMenuPrivate::slotFillTemplates()
+static QStringList getInstalledTemplates()
 {
-    KNewFileMenuSingleton *s = kNewMenuGlobals();
-    // qDebug();
-
-    const QStringList qrcTemplates = {QStringLiteral(":/kio5/newfile-templates")};
-    QStringList installedTemplates = {
-        QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("templates"), QStandardPaths::LocateDirectory)};
-// Qt does not provide an easy way to receive the xdg dir for templates so we have to find it on our own
+    QStringList list = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("templates"), QStandardPaths::LocateDirectory);
+    // TODO KF6, use QStandardPaths::TemplatesLocations
 #ifdef Q_OS_UNIX
     QString xdgUserDirs = QStandardPaths::locate(QStandardPaths::ConfigLocation, QStringLiteral("user-dirs.dirs"), QStandardPaths::LocateFile);
     QFile xdgUserDirsFile(xdgUserDirs);
@@ -1010,7 +1006,7 @@ void KNewFileMenuPrivate::slotFillTemplates()
                 xdgTemplates.replace(QStringLiteral("$HOME"), QDir::homePath());
                 QDir xdgTemplatesDir(xdgTemplates);
                 if (xdgTemplatesDir.exists()) {
-                    installedTemplates << xdgTemplates;
+                    list << xdgTemplates;
                 }
                 break;
             }
@@ -1018,12 +1014,39 @@ void KNewFileMenuPrivate::slotFillTemplates()
     }
 #endif
 
+    return list;
+}
+
+static QStringList getTemplateFilePaths(const QStringList &templates)
+{
+    QDir dir;
+    QStringList files;
+    for (const QString &path : templates) {
+        dir.setPath(path);
+        const QStringList entryList = dir.entryList(QStringList{QStringLiteral("*.desktop")}, QDir::Files);
+        files.reserve(files.size() + entryList.size());
+        for (const QString &entry : entryList) {
+            const QString file = concatPaths(dir.path(), entry);
+            files.append(file);
+        }
+    }
+
+    return files;
+}
+
+void KNewFileMenuPrivate::slotFillTemplates()
+{
+    KNewFileMenuSingleton *s = kNewMenuGlobals();
+    // qDebug();
+
+    const QStringList installedTemplates = getInstalledTemplates();
+    const QStringList qrcTemplates{QStringLiteral(":/kio5/newfile-templates")};
     const QStringList templates = qrcTemplates + installedTemplates;
 
     // Ensure any changes in the templates dir will call this
     if (!s->dirWatch) {
         s->dirWatch = new KDirWatch;
-        for (const QString &dir : std::as_const(installedTemplates)) {
+        for (const QString &dir : installedTemplates) {
             s->dirWatch->addDir(dir);
         }
         QObject::connect(s->dirWatch, &KDirWatch::dirty, q, [this]() {
@@ -1037,63 +1060,65 @@ void KNewFileMenuPrivate::slotFillTemplates()
         });
         // Ok, this doesn't cope with new dirs in XDG_DATA_DIRS, but that's another story
     }
+
+    // Look into "templates" dirs.
+
+    QStringList files = getTemplateFilePaths(templates);
+    auto removeFunc = [](const QString &s) {
+        return s.startsWith(QLatin1Char('.'));
+    };
+    files.erase(std::remove_if(files.begin(), files.end(), removeFunc), files.end());
+
+    std::vector<EntryInfo> uniqueEntries;
+
+    for (const QString &file : files) {
+        // qDebug() << file;
+        KNewFileMenuSingleton::Entry e;
+        e.filePath = file;
+        e.entryType = KNewFileMenuSingleton::Unknown; // not parsed yet
+
+        // Put Directory first in the list (a bit hacky),
+        // and TextFile before others because it's the most used one.
+        // This also sorts by user-visible name.
+        // The rest of the re-ordering is done in fillMenu.
+        const KDesktopFile config(file);
+        const QString url = config.desktopGroup().readEntry("URL");
+        QString key = config.desktopGroup().readEntry("Name");
+        if (file.endsWith(QLatin1String("Directory.desktop"))) {
+            key.prepend(QLatin1Char('0'));
+        } else if (file.startsWith(QDir::homePath())) {
+            key.prepend(QLatin1Char('1'));
+        } else if (file.endsWith(QLatin1String("TextFile.desktop"))) {
+            key.prepend(QLatin1Char('2'));
+        } else {
+            key.prepend(QLatin1Char('3'));
+        }
+
+        EntryInfo eInfo = {key, url, e};
+        auto it = std::find_if(uniqueEntries.begin(), uniqueEntries.end(), [&url](const EntryInfo &info) {
+            return url == info.url;
+        });
+
+        if (it != uniqueEntries.cend()) {
+            *it = eInfo;
+        } else {
+            uniqueEntries.push_back(eInfo);
+        }
+    }
+
+    std::sort(uniqueEntries.begin(), uniqueEntries.end(), [](const EntryInfo &a, const EntryInfo &b) {
+        return a.key < b.key;
+    });
+
     ++s->templatesVersion;
     s->filesParsed = false;
 
     s->templatesList->clear();
 
-    // Look into "templates" dirs.
-    QStringList files;
-    QDir dir;
-
-    for (const QString &path : templates) {
-        dir.setPath(path);
-        const QStringList &entryList(dir.entryList(QStringList{QStringLiteral("*.desktop")}, QDir::Files));
-        files.reserve(files.size() + entryList.size());
-        for (const QString &entry : entryList) {
-            const QString file = concatPaths(dir.path(), entry);
-            files.append(file);
-        }
-    }
-
-    QMap<QString, KNewFileMenuSingleton::Entry> slist; // used for sorting
-    QMap<QString, EntryWithName> ulist; // entries with unique URLs
-    for (const QString &file : std::as_const(files)) {
-        // qDebug() << file;
-        if (file[0] != QLatin1Char('.')) {
-            KNewFileMenuSingleton::Entry e;
-            e.filePath = file;
-            e.entryType = KNewFileMenuSingleton::Unknown; // not parsed yet
-
-            // Put Directory first in the list (a bit hacky),
-            // and TextFile before others because it's the most used one.
-            // This also sorts by user-visible name.
-            // The rest of the re-ordering is done in fillMenu.
-            const KDesktopFile config(file);
-            QString url = config.desktopGroup().readEntry("URL");
-            QString key = config.desktopGroup().readEntry("Name");
-            if (file.endsWith(QLatin1String("Directory.desktop"))) {
-                key.prepend(QLatin1Char('0'));
-            } else if (file.startsWith(QDir::homePath())) {
-                key.prepend(QLatin1Char('1'));
-            } else if (file.endsWith(QLatin1String("TextFile.desktop"))) {
-                key.prepend(QLatin1Char('2'));
-            } else {
-                key.prepend(QLatin1Char('3'));
-            }
-            EntryWithName en = {key, e};
-            if (ulist.contains(url)) {
-                ulist.remove(url);
-            }
-            ulist.insert(url, en);
-        }
-    }
-    QMap<QString, EntryWithName>::iterator it = ulist.begin();
-    for (; it != ulist.end(); ++it) {
-        EntryWithName ewn = *it;
-        slist.insert(ewn.key, ewn.entry);
-    }
-    (*s->templatesList) += slist.values();
+    s->templatesList->reserve(uniqueEntries.size());
+    for (const auto &info : uniqueEntries) {
+        s->templatesList->append(info.entry);
+    };
 }
 
 void KNewFileMenuPrivate::_k_slotOtherDesktopFile(KPropertiesDialog *sender)
