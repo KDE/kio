@@ -10,8 +10,11 @@
 #define KNEWFILEMENU_H
 
 #include "kiofilewidgets_export.h"
+
 #include <KActionMenu>
 #include <QUrl>
+
+#include <memory>
 
 class KJob;
 
@@ -192,7 +195,7 @@ protected Q_SLOTS:
 
 private:
     friend class KNewFileMenuPrivate;
-    KNewFileMenuPrivate *const d;
+    std::unique_ptr<KNewFileMenuPrivate> const d;
 };
 
 #endif

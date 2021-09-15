@@ -143,60 +143,61 @@ void KNewFileMenuSingleton::parseFiles()
 {
     // qDebug();
     filesParsed = true;
-    QMutableListIterator<KNewFileMenuSingleton::Entry> templIter(*templatesList);
+    QMutableListIterator templIter(*templatesList);
     while (templIter.hasNext()) {
         KNewFileMenuSingleton::Entry &templ = templIter.next();
-        const QString filePath = templ.filePath;
-        if (!filePath.isEmpty()) {
-            QString text;
-            QString templatePath;
-            // If a desktop file, then read the name from it.
-            // Otherwise (or if no name in it?) use file name
-            if (KDesktopFile::isDesktopFile(filePath)) {
-                KDesktopFile desktopFile(filePath);
-                if (desktopFile.noDisplay()) {
-                    templIter.remove();
-                    continue;
-                }
-                text = desktopFile.readName();
-                templ.icon = desktopFile.readIcon();
-                templ.comment = desktopFile.readComment();
-                QString type = desktopFile.readType();
-                if (type == QLatin1String("Link")) {
-                    templatePath = desktopFile.desktopGroup().readPathEntry("URL", QString());
-                    if (!templatePath.startsWith(QLatin1Char('/')) && !templatePath.startsWith(QLatin1String("__"))) {
-                        if (templatePath.startsWith(QLatin1String("file:/"))) {
-                            templatePath = QUrl(templatePath).toLocalFile();
-                        } else {
-                            // A relative path, then (that's the default in the files we ship)
-                            const QStringRef linkDir = filePath.leftRef(filePath.lastIndexOf(QLatin1Char('/')) + 1 /*keep / */);
-                            // qDebug() << "linkDir=" << linkDir;
-                            templatePath = linkDir + templatePath;
-                        }
-                    }
-                }
-                if (templatePath.isEmpty()) {
-                    // No URL key, this is an old-style template
-                    templ.entryType = KNewFileMenuSingleton::Template;
-                    templ.templatePath = templ.filePath; // we'll copy the file
-                } else {
-                    templ.entryType = KNewFileMenuSingleton::LinkToTemplate;
-                    templ.templatePath = templatePath;
-                }
-            }
-            if (text.isEmpty()) {
-                text = QUrl(filePath).fileName();
-                if (text.endsWith(QLatin1String(".desktop"))) {
-                    text.chop(8);
-                }
-            }
-            templ.text = text;
-            /*// qDebug() << "Updating entry with text=" << text
-                          << "entryType=" << templ.entryType
-                          << "templatePath=" << templ.templatePath;*/
-        } else {
+        const QString &filePath = templ.filePath;
+
+        if (filePath.isEmpty()) {
             templ.entryType = KNewFileMenuSingleton::Separator;
+            continue;
         }
+
+        QString text;
+        QString templatePath;
+        // If a desktop file, then read the name from it.
+        // Otherwise (or if no name in it?) use file name
+        if (KDesktopFile::isDesktopFile(filePath)) {
+            KDesktopFile desktopFile(filePath);
+            if (desktopFile.noDisplay()) {
+                templIter.remove();
+                continue;
+            }
+
+            text = desktopFile.readName();
+            templ.icon = desktopFile.readIcon();
+            templ.comment = desktopFile.readComment();
+            if (desktopFile.readType() == QLatin1String("Link")) {
+                templatePath = desktopFile.desktopGroup().readPathEntry("URL", QString());
+                if (templatePath.startsWith(QLatin1String("file:/"))) {
+                    templatePath = QUrl(templatePath).toLocalFile();
+                } else if (!templatePath.startsWith(QLatin1Char('/')) && !templatePath.startsWith(QLatin1String("__"))) {
+                    // A relative path, then (that's the default in the files we ship)
+                    const QStringView linkDir = QStringView(filePath).left(filePath.lastIndexOf(QLatin1Char('/')) + 1 /*keep / */);
+                    // qDebug() << "linkDir=" << linkDir;
+                    templatePath = linkDir + templatePath;
+                }
+            }
+            if (templatePath.isEmpty()) {
+                // No URL key, this is an old-style template
+                templ.entryType = KNewFileMenuSingleton::Template;
+                templ.templatePath = templ.filePath; // we'll copy the file
+            } else {
+                templ.entryType = KNewFileMenuSingleton::LinkToTemplate;
+                templ.templatePath = templatePath;
+            }
+        }
+        if (text.isEmpty()) {
+            text = QUrl(filePath).fileName();
+            const QLatin1String suffix(".desktop");
+            if (text.endsWith(suffix)) {
+                text.chop(suffix.size());
+            }
+        }
+        templ.text = text;
+        /*// qDebug() << "Updating entry with text=" << text
+                        << "entryType=" << templ.entryType
+                        << "templatePath=" << templ.templatePath;*/
     }
 }
 
@@ -501,8 +502,7 @@ void KNewFileMenuPrivate::executeOtherDesktopFile(const KNewFileMenuSingleton::E
         return;
     }
 
-    QList<QUrl>::const_iterator it = m_popupFiles.constBegin();
-    for (; it != m_popupFiles.constEnd(); ++it) {
+    for (const auto &url : std::as_const(m_popupFiles)) {
         QString text = entry.text;
         text.remove(QStringLiteral("...")); // the ... is fine for the menu item but not for the default filename
         text = text.trimmed(); // In some languages, there is a space in front of "...", see bug 268895
@@ -511,7 +511,7 @@ void KNewFileMenuPrivate::executeOtherDesktopFile(const KNewFileMenuSingleton::E
         QString name = text;
         text.append(QStringLiteral(".desktop"));
 
-        const QUrl directory = mostLocalUrl(*it);
+        const QUrl directory = mostLocalUrl(url);
         const QUrl defaultFile = QUrl::fromLocalFile(directory.toLocalFile() + QLatin1Char('/') + KIO::encodeFileName(text));
         if (defaultFile.isLocalFile() && QFile::exists(defaultFile.toLocalFile())) {
             text = KFileUtils::suggestName(directory, text);
@@ -646,11 +646,9 @@ void KNewFileMenuPrivate::executeStrategy()
         }
     }
 
-    // The template is not a desktop file [or it's a URL one]
-    // Copy it.
-    QList<QUrl>::const_iterator it = m_popupFiles.constBegin();
-    for (; it != m_popupFiles.constEnd(); ++it) {
-        QUrl dest = *it;
+    // The template is not a desktop file [or it's a URL one] >>> Copy it
+    for (const auto &u : std::as_const(m_popupFiles)) {
+        QUrl dest = u;
         dest.setPath(concatPaths(dest.path(), KIO::encodeFileName(chosenFileName)));
 
         QList<QUrl> lstSrc;
@@ -711,11 +709,9 @@ void KNewFileMenuPrivate::fillMenu()
     QAction *linkPath = nullptr;
 
     KNewFileMenuSingleton *s = kNewMenuGlobals();
-    int i = 1;
-    KNewFileMenuSingleton::EntryList::iterator templ = s->templatesList->begin();
-    const KNewFileMenuSingleton::EntryList::iterator templ_end = s->templatesList->end();
-    for (; templ != templ_end; ++templ, ++i) {
-        KNewFileMenuSingleton::Entry &entry = *templ;
+    int idx = 0;
+    for (auto &entry : *s->templatesList) {
+        ++idx;
         if (entry.entryType != KNewFileMenuSingleton::Separator) {
             // There might be a .desktop for that one already, if it's a kdelnk
             // This assumes we read .desktop files before .kdelnk files ...
@@ -786,7 +782,7 @@ void KNewFileMenuPrivate::fillMenu()
                     }
 
                     QAction *act = new QAction(q);
-                    act->setData(i);
+                    act->setData(idx);
                     act->setIcon(QIcon::fromTheme(entry.icon));
                     act->setText(i18nc("@item:inmenu Create New", "%1", entry.text));
                     act->setActionGroup(m_newMenuGroup);
@@ -1062,10 +1058,9 @@ void KNewFileMenuPrivate::slotFillTemplates()
     }
 
     // Look into "templates" dirs.
-
     QStringList files = getTemplateFilePaths(templates);
-    auto removeFunc = [](const QString &s) {
-        return s.startsWith(QLatin1Char('.'));
+    auto removeFunc = [](const QString &path) {
+        return path.startsWith(QLatin1Char('.'));
     };
     files.erase(std::remove_if(files.begin(), files.end(), removeFunc), files.end());
 
@@ -1400,7 +1395,7 @@ void KNewFileMenuPrivate::slotUrlDesktopFile()
 
 KNewFileMenu::KNewFileMenu(KActionCollection *collection, const QString &name, QObject *parent)
     : KActionMenu(QIcon::fromTheme(QStringLiteral("document-new")), i18n("Create New"), parent)
-    , d(new KNewFileMenuPrivate(collection, this))
+    , d(std::make_unique<KNewFileMenuPrivate>(collection, this))
 {
     // Don't fill the menu yet
     // We'll do that in checkUpToDate (should be connected to aboutToShow)
@@ -1418,11 +1413,7 @@ KNewFileMenu::KNewFileMenu(KActionCollection *collection, const QString &name, Q
     d->m_menuDev = new KActionMenu(QIcon::fromTheme(QStringLiteral("drive-removable-media")), i18n("Link to Device"), this);
 }
 
-KNewFileMenu::~KNewFileMenu()
-{
-    // qDebug() << this;
-    delete d;
-}
+KNewFileMenu::~KNewFileMenu() = default;
 
 void KNewFileMenu::checkUpToDate()
 {
