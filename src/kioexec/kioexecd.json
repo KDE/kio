@@ -24,6 +24,7 @@
         "Description[ko]": "캐시에 저장된 원격 파일의 변경 사항 감시",
         "Description[lt]": "Stebi nuotolinių podėliuotų failų pakeitimus",
         "Description[ml]": "മാറ്റങ്ങൾക്കായി കാഷെ ചെയ്ത വിദൂര ഫയലുകൾ നിരീക്ഷിക്കുന്നു",
+        "Description[my]": "ကတ်ချ်သွင်းထားသော အဝေးဖိုင်လ်များ ပြောင်းလဲမှုကို စောင့်ကြည့်မည်",
         "Description[nl]": "Bewaakt in de cache opgeslagen bestanden op afstand op wijzigingen",
         "Description[nn]": "Overvakar nettverksfiler for endringar",
         "Description[pl]": "Monitoruje zmiany w zdalnych plikach przechowywanych w pamięci",
