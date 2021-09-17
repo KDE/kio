@@ -87,7 +87,6 @@ public:
 
     ~KNewFileMenuSingleton()
     {
-        delete dirWatch;
         delete templatesList;
     }
 
@@ -106,7 +105,7 @@ public:
      */
     enum EntryType { Unknown, LinkToTemplate = 1, Template, Separator };
 
-    KDirWatch *dirWatch;
+    std::unique_ptr<KDirWatch> dirWatch;
 
     struct Entry {
         QString text;
@@ -998,15 +997,18 @@ static QStringList getInstalledTemplates()
     QString xdgUserDirs = QStandardPaths::locate(QStandardPaths::ConfigLocation, QStringLiteral("user-dirs.dirs"), QStandardPaths::LocateFile);
     QFile xdgUserDirsFile(xdgUserDirs);
     if (!xdgUserDirs.isEmpty() && xdgUserDirsFile.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        static const QLatin1String marker("XDG_TEMPLATES_DIR=");
+        QString line;
         QTextStream in(&xdgUserDirsFile);
         while (!in.atEnd()) {
-            QString line = in.readLine();
-            if (line.startsWith(QLatin1String("XDG_TEMPLATES_DIR="))) {
-                QString xdgTemplates = line.mid(19, line.size() - 20);
-                xdgTemplates.replace(QStringLiteral("$HOME"), QDir::homePath());
-                QDir xdgTemplatesDir(xdgTemplates);
-                if (xdgTemplatesDir.exists()) {
-                    list << xdgTemplates;
+            line.clear();
+            in.readLineInto(&line);
+            if (line.startsWith(marker)) {
+                // E.g. XDG_TEMPLATES_DIR="$HOME/templates" -> $HOME/templates
+                line.remove(0, marker.size()).remove(QLatin1Char('"'));
+                line.replace(QLatin1String("$HOME"), QDir::homePath());
+                if (QDir(line).exists()) {
+                    list << line;
                 }
                 break;
             }
@@ -1036,7 +1038,7 @@ static QStringList getTemplateFilePaths(const QStringList &templates)
 
 void KNewFileMenuPrivate::slotFillTemplates()
 {
-    KNewFileMenuSingleton *s = kNewMenuGlobals();
+    KNewFileMenuSingleton *instance = kNewMenuGlobals();
     // qDebug();
 
     const QStringList installedTemplates = getInstalledTemplates();
@@ -1044,20 +1046,18 @@ void KNewFileMenuPrivate::slotFillTemplates()
     const QStringList templates = qrcTemplates + installedTemplates;
 
     // Ensure any changes in the templates dir will call this
-    if (!s->dirWatch) {
-        s->dirWatch = new KDirWatch;
+    if (!instance->dirWatch) {
+        instance->dirWatch = std::make_unique<KDirWatch>();
         for (const QString &dir : installedTemplates) {
-            s->dirWatch->addDir(dir);
+            instance->dirWatch->addDir(dir);
         }
-        QObject::connect(s->dirWatch, &KDirWatch::dirty, q, [this]() {
+
+        auto slotFunc = [this]() {
             slotFillTemplates();
-        });
-        QObject::connect(s->dirWatch, &KDirWatch::created, q, [this]() {
-            slotFillTemplates();
-        });
-        QObject::connect(s->dirWatch, &KDirWatch::deleted, q, [this]() {
-            slotFillTemplates();
-        });
+        };
+        QObject::connect(instance->dirWatch.get(), &KDirWatch::dirty, q, slotFunc);
+        QObject::connect(instance->dirWatch.get(), &KDirWatch::created, q, slotFunc);
+        QObject::connect(instance->dirWatch.get(), &KDirWatch::deleted, q, slotFunc);
         // Ok, this doesn't cope with new dirs in XDG_DATA_DIRS, but that's another story
     }
 
@@ -1073,9 +1073,9 @@ void KNewFileMenuPrivate::slotFillTemplates()
 
     for (const QString &file : files) {
         // qDebug() << file;
-        KNewFileMenuSingleton::Entry e;
-        e.filePath = file;
-        e.entryType = KNewFileMenuSingleton::Unknown; // not parsed yet
+        KNewFileMenuSingleton::Entry entry;
+        entry.filePath = file;
+        entry.entryType = KNewFileMenuSingleton::Unknown; // not parsed yet
 
         // Put Directory first in the list (a bit hacky),
         // and TextFile before others because it's the most used one.
@@ -1094,7 +1094,7 @@ void KNewFileMenuPrivate::slotFillTemplates()
             key.prepend(QLatin1Char('3'));
         }
 
-        EntryInfo eInfo = {key, url, e};
+        EntryInfo eInfo = {key, url, entry};
         auto it = std::find_if(uniqueEntries.begin(), uniqueEntries.end(), [&url](const EntryInfo &info) {
             return url == info.url;
         });
@@ -1110,14 +1110,14 @@ void KNewFileMenuPrivate::slotFillTemplates()
         return a.key < b.key;
     });
 
-    ++s->templatesVersion;
-    s->filesParsed = false;
+    ++instance->templatesVersion;
+    instance->filesParsed = false;
 
-    s->templatesList->clear();
+    instance->templatesList->clear();
 
-    s->templatesList->reserve(uniqueEntries.size());
+    instance->templatesList->reserve(uniqueEntries.size());
     for (const auto &info : uniqueEntries) {
-        s->templatesList->append(info.entry);
+        instance->templatesList->append(info.entry);
     };
 }
 
