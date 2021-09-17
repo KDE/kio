@@ -56,18 +56,18 @@ static void appendACLAtoms(const QByteArray &path, KIO::UDSEntry &entry, mode_t 
 
     if (acl || defaultAcl) {
         // qDebug() << path.constData() << "has extended ACL entries";
-        entry.fastInsert(KIO::UDSEntry::UDS_EXTENDED_ACL, 1);
+        entry.replace(KIO::UDSEntry::UDS_EXTENDED_ACL, 1);
 
         if (acl) {
             const QString str = aclToText(acl);
-            entry.fastInsert(KIO::UDSEntry::UDS_ACL_STRING, str);
+            entry.replace(KIO::UDSEntry::UDS_ACL_STRING, str);
             // qDebug() << path.constData() << "ACL:" << str;
             acl_free(acl);
         }
 
         if (defaultAcl) {
             const QString str = aclToText(defaultAcl);
-            entry.fastInsert(KIO::UDSEntry::UDS_DEFAULT_ACL_STRING, str);
+            entry.replace(KIO::UDSEntry::UDS_DEFAULT_ACL_STRING, str);
             // qDebug() << path.constData() << "DEFAULT ACL:" << str;
             acl_free(defaultAcl);
         }
