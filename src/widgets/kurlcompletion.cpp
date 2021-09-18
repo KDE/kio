@@ -613,6 +613,10 @@ QString KUrlCompletion::makeCompletion(const QString &text)
 
     d->complete_url = url.isURL();
 
+    // If we typed an exact path to a directory, we block autosuggestion
+    // or else it would autosuggest the first child dir.
+    setShouldAutoSuggest(d->complete_url || (url.dir() != text));
+
     QString aMatch;
 
     // Environment variables
