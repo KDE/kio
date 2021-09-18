@@ -42,10 +42,39 @@ private Q_SLOTS:
         ::umask(m_umask);
 #endif
         QVERIFY(m_tmpDir.isValid());
+
+        // These have to be created here before KNewFileMenuSingleton is created,
+        // otherwise they wouldn't be picked up
+        QDir dir;
+        m_xdgConfigDir = QStandardPaths::writableLocation(QStandardPaths::GenericConfigLocation);
+        QVERIFY(dir.mkpath(m_xdgConfigDir));
+        QFile userDirs(m_xdgConfigDir + "/user-dirs.dirs");
+        QVERIFY(userDirs.open(QIODevice::WriteOnly));
+        const QString templDir = "XDG_TEMPLATES_DIR=\"" + m_xdgConfigDir + "/test-templates/\"\n";
+        userDirs.write(templDir.toLocal8Bit());
+        userDirs.close();
+
+        // Different location than what KNewFileMenuPrivate::slotFillTemplates() checks by default
+        const QString loc = m_xdgConfigDir + '/' + "test-templates/";
+        QVERIFY(dir.mkpath(loc));
+
+        QFile templ(m_xdgConfigDir + "/test-templates" + "/test-text.desktop");
+        QVERIFY(templ.open(QIODevice::WriteOnly));
+        const QByteArray contents =
+            "[Desktop Entry]\n"
+            "Name=Custom...\n"
+            "Type=Link\n"
+            "URL=TestTextFile.txt\n"
+            "Icon=text-plain\n";
+
+        templ.write(contents);
+        templ.close();
     }
 
     void cleanupTestCase()
     {
+        QFile::remove(m_xdgConfigDir + "/user-dirs.dirs");
+        QDir(m_xdgConfigDir + "/test-templates").removeRecursively();
     }
 
     // Ensure that we can use storedPut() with a qrc file as input
@@ -258,8 +287,27 @@ private Q_SLOTS:
         QCOMPARE(emittedUrl.toLocalFile(), path);
     }
 
+    void testParsingUserDirs()
+    {
+        KActionCollection coll(this, QStringLiteral("foo"));
+        KNewFileMenu menu(&coll, QStringLiteral("the_action"), this);
+        const QList<QUrl> lst{QUrl::fromLocalFile(m_tmpDir.path())};
+        menu.setPopupFiles(lst);
+        menu.checkUpToDate();
+        QAction *action = coll.action(QStringLiteral("the_action"));
+        const auto list = action->menu()->actions();
+        auto it = std::find_if(list.cbegin(), list.cend(), [](QAction *act) {
+            return act->text().contains("Custom");
+        });
+        QVERIFY(it != list.cend());
+        // There is a separator between system-wide templates and the ones
+        // from the user's home
+        QVERIFY((*--it)->isSeparator());
+    }
+
 private:
     QTemporaryDir m_tmpDir;
+    QString m_xdgConfigDir;
 #ifdef Q_OS_UNIX
     mode_t m_umask;
 #endif
