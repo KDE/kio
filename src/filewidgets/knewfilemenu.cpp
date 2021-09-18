@@ -96,20 +96,17 @@ public:
      */
     void parseFiles();
 
-    /**
-     * For entryType
-     * LINKTOTEMPLATE: a desktop file that points to a file or dir to copy
-     * TEMPLATE: a real file to copy as is (the KDE-1.x solution)
-     * SEPARATOR: to put a separator in the menu
-     * 0 means: not parsed, i.e. we don't know
-     */
-    enum EntryType { Unknown, LinkToTemplate = 1, Template, Separator };
+    enum EntryType {
+        Unknown = 0, // Not parsed, i.e. we don't know
+        LinkToTemplate, // A desktop file that points to a file or dir to copy
+        Template, // A real file to copy as is (the KDE-1.x solution)
+    };
 
     std::unique_ptr<KDirWatch> dirWatch;
 
     struct Entry {
         QString text;
-        QString filePath; // empty for Separator
+        QString filePath;
         QString templatePath; // same as filePath for Template
         QString icon;
         EntryType entryType;
@@ -147,12 +144,6 @@ void KNewFileMenuSingleton::parseFiles()
     while (templIter.hasNext()) {
         KNewFileMenuSingleton::Entry &templ = templIter.next();
         const QString &filePath = templ.filePath;
-
-        if (filePath.isEmpty()) {
-            templ.entryType = KNewFileMenuSingleton::Separator;
-            continue;
-        }
-
         QString text;
         QString templatePath;
         // If a desktop file, then read the name from it.
@@ -712,7 +703,7 @@ void KNewFileMenuPrivate::fillMenu()
     int idx = 0;
     for (auto &entry : *s->templatesList) {
         ++idx;
-        if (entry.entryType != KNewFileMenuSingleton::Separator) {
+        if (entry.entryType != KNewFileMenuSingleton::Unknown) {
             // There might be a .desktop for that one already, if it's a kdelnk
             // This assumes we read .desktop files before .kdelnk files ...
 
@@ -1011,7 +1002,6 @@ static QStringList getInstalledTemplates()
         }
     }
 #endif
-
     return list;
 }
 
