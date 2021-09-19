@@ -22,7 +22,9 @@
 #include <KIO/CommandLauncherJob>
 
 #ifdef Q_OS_WIN
-#include <windows.h>
+#include <windows.h> // Must be included before shellapi.h
+
+#include <shellapi.h>
 #endif
 
 class KEMailClientLauncherJobPrivate
