@@ -701,23 +701,19 @@ void FtpInternal::ftpAutoLoginMacro()
         return;
     }
 
-    const QStringList list = macro.split(QLatin1Char('\n'), Qt::SkipEmptyParts);
+    QStringList list = macro.split(QLatin1Char('\n'), Qt::SkipEmptyParts);
+    auto initIt = std::find_if(list.cbegin(), list.cend(), [](const QString &s) {
+        return s.startsWith(QLatin1String("init"));
+    });
 
-    for (QStringList::const_iterator it = list.begin(); it != list.end(); ++it) {
-        if ((*it).startsWith(QLatin1String("init"))) {
-            const QStringList list2 = macro.split(QLatin1Char('\\'), Qt::SkipEmptyParts);
-            it = list2.begin();
-            ++it; // ignore the macro name
-
-            for (; it != list2.end(); ++it) {
-                // TODO: Add support for arbitrary commands
-                // besides simply changing directory!!
-                if ((*it).startsWith(QLatin1String("cwd"))) {
-                    (void)ftpFolder((*it).mid(4));
-                }
+    if (initIt != list.cend()) {
+        list = macro.split(QLatin1Char('\\'), Qt::SkipEmptyParts);
+        // Ignore the macro name, so start from list.cbegin() + 1
+        for (auto it = list.cbegin() + 1; it != list.cend(); ++it) {
+            // TODO: Add support for arbitrary commands besides simply changing directory!!
+            if ((*it).startsWith(QLatin1String("cwd"))) {
+                (void)ftpFolder((*it).mid(4));
             }
-
-            break;
         }
     }
 }

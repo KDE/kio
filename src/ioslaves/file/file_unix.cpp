@@ -586,7 +586,7 @@ bool FileProtocol::copyXattrs(const int src_fd, const int dest_fd)
     // Linux and MacOS return a list of null terminated strings, each string = [data,'\0']
     // BSDs return a list of items, each item consisting of the size byte
     // prepended to the key = [size, data]
-    QByteArray::const_iterator keyPtr = keylist.cbegin();
+    auto keyPtr = keylist.cbegin();
     size_t keyLen;
     QByteArray value;
 

@@ -737,20 +737,21 @@ KFileItem KCoreDirListerCache::findByName(const KCoreDirLister *lister, const QS
 {
     Q_ASSERT(lister);
 
-    for (QList<QUrl>::const_iterator it = lister->d->lstDirs.constBegin(); it != lister->d->lstDirs.constEnd(); ++it) {
-        DirItem *dirItem = itemsInUse.value(*it);
+    auto isMatch = [&_name](const KFileItem &item) {
+        return _name == item.name();
+    };
+
+    for (const auto &dirUrl : std::as_const(lister->d->lstDirs)) {
+        DirItem *dirItem = itemsInUse.value(dirUrl);
         Q_ASSERT(dirItem);
 
-        auto lit = dirItem->lstItems.constBegin();
-        const auto litend = dirItem->lstItems.constEnd();
-        for (; lit != litend; ++lit) {
-            if ((*lit).name() == _name) {
-                return *lit;
-            }
+        auto it = std::find_if(dirItem->lstItems.cbegin(), dirItem->lstItems.cend(), isMatch);
+        if (it != dirItem->lstItems.cend()) {
+            return *it;
         }
     }
 
-    return KFileItem();
+    return {};
 }
 
 KFileItem KCoreDirListerCache::findByUrl(const KCoreDirLister *lister, const QUrl &_u) const
@@ -1175,10 +1176,8 @@ void KCoreDirListerCache::slotEntries(KIO::Job *job, const KIO::UDSEntryList &en
 
     CacheHiddenFile *cachedHidden = nullptr;
     bool dotHiddenChecked = false;
-    KIO::UDSEntryList::const_iterator it = entries.begin();
-    const KIO::UDSEntryList::const_iterator end = entries.end();
-    for (; it != end; ++it) {
-        const QString name = (*it).stringValue(KIO::UDSEntry::UDS_NAME);
+    for (const auto &entry : entries) {
+        const QString name = entry.stringValue(KIO::UDSEntry::UDS_NAME);
 
         Q_ASSERT(!name.isEmpty());
         if (name.isEmpty()) {
@@ -1196,7 +1195,7 @@ void KCoreDirListerCache::slotEntries(KIO::Job *job, const KIO::UDSEntryList &en
             // Note that it gives a funky name() to the root item, rather than "." ;)
             dir->rootItem = itemForUrl(url);
             if (dir->rootItem.isNull()) {
-                dir->rootItem = KFileItem(*it, url, delayedMimeTypes, true);
+                dir->rootItem = KFileItem(entry, url, delayedMimeTypes, true);
             }
 
             for (KCoreDirLister *kdl : listers) {
@@ -1205,7 +1204,7 @@ void KCoreDirListerCache::slotEntries(KIO::Job *job, const KIO::UDSEntryList &en
                 }
             }
         } else if (name != QLatin1String("..")) {
-            KFileItem item(*it, url, delayedMimeTypes, true);
+            KFileItem item(entry, url, delayedMimeTypes, true);
 
             // get the names of the files listed in ".hidden", if it exists and is a local file
             if (!dotHiddenChecked) {
@@ -1749,11 +1748,9 @@ void KCoreDirListerCache::slotUpdateResult(KJob *j)
     CacheHiddenFile *cachedHidden = nullptr;
     bool dotHiddenChecked = false;
     const KIO::UDSEntryList &buf = runningListJobs.value(job);
-    KIO::UDSEntryList::const_iterator it = buf.constBegin();
-    const KIO::UDSEntryList::const_iterator end = buf.constEnd();
-    for (; it != end; ++it) {
+    for (const auto &entry : buf) {
         // Form the complete url
-        KFileItem item(*it, jobUrl, delayedMimeTypes, true);
+        KFileItem item(entry, jobUrl, delayedMimeTypes, true);
 
         const QString name = item.name();
         Q_ASSERT(!name.isEmpty()); // A kioslave setting an empty UDS_NAME is utterly broken, fix the kioslave!
@@ -2039,7 +2036,7 @@ void KCoreDirListerCache::printDebug()
 
     QList<KCoreDirLister *> listersWithoutJob;
     qCDebug(KIO_CORE_DIRLISTER) << "Directory data:";
-    DirectoryDataHash::const_iterator dit = directoryData.constBegin();
+    auto dit = directoryData.constBegin();
     for (; dit != directoryData.constEnd(); ++dit) {
         QString list;
         const QList<KCoreDirLister *> listers = (*dit).listersCurrentlyListing;

@@ -438,11 +438,8 @@ void ForwardingSlaveBasePrivate::_k_slotEntries(KIO::Job * /*job*/, const KIO::U
 {
     KIO::UDSEntryList final_entries = entries;
 
-    KIO::UDSEntryList::iterator it = final_entries.begin();
-    const KIO::UDSEntryList::iterator end = final_entries.end();
-
-    for (; it != end; ++it) {
-        q->prepareUDSEntry(*it, true);
+    for (auto &entry : final_entries) {
+        q->prepareUDSEntry(entry, true);
     }
 
     q->listEntries(final_entries);

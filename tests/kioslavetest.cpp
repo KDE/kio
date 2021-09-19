@@ -344,8 +344,7 @@ void KioslaveTest::printUDSEntry(const KIO::UDSEntry &entry)
     QDateTime timestamp;
 
     const QVector<uint> keys = entry.fields();
-    QVector<uint>::const_iterator it = keys.begin();
-    for (; it != keys.end(); ++it) {
+    for (auto it = keys.cbegin(); it != keys.cend(); ++it) {
         switch (*it) {
         case KIO::UDSEntry::UDS_FILE_TYPE: {
             mode_t mode = (mode_t)entry.numberValue(*it);

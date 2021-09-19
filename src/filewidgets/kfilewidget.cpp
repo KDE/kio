@@ -1092,17 +1092,19 @@ void KFileWidget::accept()
     d->m_locationEdit->setItemText(0, QString());
 
     const QList<QUrl> list = selectedUrls();
-    QList<QUrl>::const_iterator it = list.begin();
     int atmost = d->m_locationEdit->maxItems(); // don't add more items than necessary
-    for (; it != list.end() && atmost > 0; ++it) {
-        const QUrl &url = *it;
+    for (const auto &url : list) {
+        if (atmost-- == 0) {
+            break;
+        }
+
         // we strip the last slash (-1) because KUrlComboBox does that as well
         // when operating in file-mode. If we wouldn't , dupe-finding wouldn't
         // work.
-        QString file = url.isLocalFile() ? url.toLocalFile() : url.toDisplayString();
+        const QString file = url.toDisplayString(QUrl::StripTrailingSlash | QUrl::PreferLocalFile);
 
         // remove dupes
-        for (int i = 1; i < d->m_locationEdit->count(); i++) {
+        for (int i = 1; i < d->m_locationEdit->count(); ++i) {
             if (d->m_locationEdit->itemText(i) == file) {
                 d->m_locationEdit->removeItem(i--);
                 break;
@@ -1112,7 +1114,6 @@ void KFileWidget::accept()
         // KUrlComboBox should provide a function to add an url and rotate the existing ones, keeping
         // track of maxItems, and we shouldn't be able to insert items as we please.
         d->m_locationEdit->insertItem(1, file);
-        atmost--;
     }
 
     d->writeViewConfig();

@@ -180,7 +180,7 @@ void TestTrash::initTestCase()
             }
         }
     }
-    for (QVector<int>::const_iterator it = writableTopDirs.constBegin(); it != writableTopDirs.constEnd(); ++it) {
+    for (auto it = writableTopDirs.constBegin(); it != writableTopDirs.constEnd(); ++it) {
         const QString topdir = topDirs[*it];
         const QString trashdir = trashDirs[*it];
         QVERIFY(!topdir.isEmpty());

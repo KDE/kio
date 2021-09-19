@@ -308,8 +308,8 @@ bool KCookiesManagement::cookieDetails(CookieProp *cookie)
 
     const QStringList fieldVal = reply.value();
 
-    QStringList::const_iterator c = fieldVal.begin();
-    if (c == fieldVal.end()) { // empty list, do not crash
+    auto c = fieldVal.cbegin();
+    if (c == fieldVal.cend()) { // empty list, do not crash
         return false;
     }
 

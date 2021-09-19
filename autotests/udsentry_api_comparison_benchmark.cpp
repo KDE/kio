@@ -185,8 +185,8 @@ void UdsEntryBenchmark::testHashVariantApp()
         displayName = entry.value(KIO::UDSEntry::UDS_NAME).toString();
 
         // For a field that might not be there
-        UDSEntryHV::const_iterator it = entry.constFind(KIO::UDSEntry::UDS_URL);
-        const UDSEntryHV::const_iterator end = entry.constEnd();
+        auto it = entry.constFind(KIO::UDSEntry::UDS_URL);
+        const auto end = entry.cend();
         if (it != end) {
             url = it.value().toString();
         }
@@ -260,8 +260,8 @@ void UdsEntryBenchmark::testHashStructApp()
         displayName = entry.value(KIO::UDSEntry::UDS_NAME).m_str;
 
         // For a field that might not be there
-        UDSEntryHS::const_iterator it = entry.constFind(KIO::UDSEntry::UDS_URL);
-        const UDSEntryHS::const_iterator end = entry.constEnd();
+        auto it = entry.constFind(KIO::UDSEntry::UDS_URL);
+        const auto end = entry.cend();
         if (it != end) {
             url = it.value().m_str;
         }
@@ -314,8 +314,8 @@ void UdsEntryBenchmark::testMapStructApp()
         displayName = entry.value(KIO::UDSEntry::UDS_NAME).m_str;
 
         // For a field that might not be there
-        UDSEntryMS::const_iterator it = entry.constFind(KIO::UDSEntry::UDS_URL);
-        const UDSEntryMS::const_iterator end = entry.constEnd();
+        auto it = entry.constFind(KIO::UDSEntry::UDS_URL);
+        const auto end = entry.cend();
         if (it != end) {
             url = it.value().m_str;
         }

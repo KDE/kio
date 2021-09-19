@@ -491,22 +491,21 @@ bool KACL::KACLPrivate::setAllUsersOrGroups(const QList<QPair<QString, unsigned 
     }
 
     // now add the entries from the list
-    QList<QPair<QString, unsigned short>>::const_iterator it = list.constBegin();
-    while (it != list.constEnd()) {
+    for (const auto &[name, userId] : list) {
         acl_create_entry(&newACL, &entry);
         acl_set_tag_type(entry, type);
-        int id = type == ACL_USER ? getUidForName((*it).first) : getGidForName((*it).first);
+        int id = type == ACL_USER ? getUidForName(name) : getGidForName(name);
         if (id == -1 || acl_set_qualifier(entry, &id) != 0) {
             // user or group doesn't exist => error
             acl_delete_entry(newACL, entry);
             allIsWell = false;
             break;
         } else {
-            permissionsToEntry(entry, (*it).second);
+            permissionsToEntry(entry, userId);
             atLeastOneUserOrGroup = true;
         }
-        ++it;
     }
+
     if (allIsWell && atLeastOneUserOrGroup) {
         // 23.1.1 of 1003.1e states that as soon as there is a named user or
         // named group entry, there needs to be a mask entry as well, so add

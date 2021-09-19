@@ -1712,35 +1712,29 @@ KFileItemList::KFileItemList(std::initializer_list<KFileItem> items)
 
 KFileItem KFileItemList::findByName(const QString &fileName) const
 {
-    const_iterator it = begin();
-    const const_iterator itend = end();
-    for (; it != itend; ++it) {
-        if ((*it).name() == fileName) {
-            return *it;
-        }
-    }
-    return KFileItem();
+    auto it = std::find_if(cbegin(), cend(), [&fileName](const KFileItem &item) {
+        return item.name() == fileName;
+    });
+
+    return it != cend() ? *it : KFileItem();
 }
 
 KFileItem KFileItemList::findByUrl(const QUrl &url) const
 {
-    const_iterator it = begin();
-    const const_iterator itend = end();
-    for (; it != itend; ++it) {
-        if ((*it).url() == url) {
-            return *it;
-        }
-    }
-    return KFileItem();
+    auto it = std::find_if(cbegin(), cend(), [&url](const KFileItem &item) {
+        return item.url() == url;
+    });
+
+    return it != cend() ? *it : KFileItem();
 }
 
 QList<QUrl> KFileItemList::urlList() const
 {
     QList<QUrl> lst;
-    const_iterator it = begin();
-    const const_iterator itend = end();
-    for (; it != itend; ++it) {
-        lst.append((*it).url());
+    lst.reserve(size());
+
+    for (const auto &item : *this) {
+        lst.append(item.url());
     }
     return lst;
 }
@@ -1748,10 +1742,10 @@ QList<QUrl> KFileItemList::urlList() const
 QList<QUrl> KFileItemList::targetUrlList() const
 {
     QList<QUrl> lst;
-    const_iterator it = begin();
-    const const_iterator itend = end();
-    for (; it != itend; ++it) {
-        lst.append((*it).targetUrl());
+    lst.reserve(size());
+
+    for (const auto &item : *this) {
+        lst.append(item.targetUrl());
     }
     return lst;
 }

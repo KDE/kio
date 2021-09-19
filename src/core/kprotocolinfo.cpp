@@ -11,6 +11,8 @@
 #include "kprotocolinfo_p.h"
 #include "kprotocolinfofactory_p.h"
 
+#include "kiocoredebug.h"
+
 #include <KApplicationTrader>
 #include <KConfig>
 #include <KConfigGroup>
@@ -95,9 +97,9 @@ KProtocolInfoPrivate::KProtocolInfoPrivate(const QString &path)
 
     const QStringList extraNames = config.readEntry("ExtraNames", QStringList());
     const QStringList extraTypes = config.readEntry("ExtraTypes", QStringList());
-    QStringList::const_iterator it = extraNames.begin();
-    QStringList::const_iterator typeit = extraTypes.begin();
-    for (; it != extraNames.end() && typeit != extraTypes.end(); ++it, ++typeit) {
+    auto it = extraNames.cbegin();
+    auto typeit = extraTypes.cbegin();
+    for (; it != extraNames.cend() && typeit != extraTypes.cend(); ++it, ++typeit) {
         QVariant::Type type = QVariant::nameToType((*typeit).toLatin1().constData());
         // currently QVariant::Type and ExtraField::Type use the same subset of values, so we can just cast.
         m_extraFields.append(KProtocolInfo::ExtraField(*it, static_cast<KProtocolInfo::ExtraField::Type>(type)));
@@ -199,14 +201,18 @@ KProtocolInfoPrivate::KProtocolInfoPrivate(const QString &name, const QString &e
 
     // ExtraNames is a translated value, use the KCoreAddons helper to read it
     const QStringList extraNames = KPluginMetaData::readTranslatedValue(json, QStringLiteral("ExtraNames")).toVariant().toStringList();
-
     const QStringList extraTypes = json.value(QStringLiteral("ExtraTypes")).toVariant().toStringList();
-    QStringList::const_iterator it = extraNames.begin();
-    QStringList::const_iterator typeit = extraTypes.begin();
-    for (; it != extraNames.end() && typeit != extraTypes.end(); ++it, ++typeit) {
-        QVariant::Type type = QVariant::nameToType((*typeit).toLatin1().constData());
-        // currently QVariant::Type and ExtraField::Type use the same subset of values, so we can just cast.
-        m_extraFields.append(KProtocolInfo::ExtraField(*it, static_cast<KProtocolInfo::ExtraField::Type>(type)));
+    if (extraNames.size() == extraTypes.size()) {
+        auto func = [](const QString &name, const QString &type) {
+            QVariant::Type variantType = QVariant::nameToType(type.toLatin1().constData());
+            // currently QVariant::Type and ExtraField::Type use the same subset of values, so we can just cast.
+            return KProtocolInfo::ExtraField(name, static_cast<KProtocolInfo::ExtraField::Type>(variantType));
+        };
+
+        std::transform(extraNames.cbegin(), extraNames.cend(), extraTypes.cbegin(), std::back_inserter(m_extraFields), func);
+    } else {
+        qCWarning(KIO_CORE) << "Malformed JSON protocol file for protocol:" << name
+                            << ", number of the ExtraNames fields should match the number of ExtraTypes fields";
     }
 
     // fallback based on class

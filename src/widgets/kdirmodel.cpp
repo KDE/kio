@@ -521,23 +521,21 @@ void KDirModelPrivate::_k_slotNewItems(const QUrl &directoryUrl, const KFileItem
     QList<QModelIndex> emitExpandFor;
 
     dirNode->m_childNodes.reserve(newRowCount);
-    KFileItemList::const_iterator it = items.begin();
-    KFileItemList::const_iterator end = items.end();
-    for (; it != end; ++it) {
-        const bool isDir = it->isDir();
-        KDirModelNode *node = isDir ? new KDirModelDirNode(dirNode, *it) : new KDirModelNode(dirNode, *it);
+    for (const auto &item : items) {
+        const bool isDir = item.isDir();
+        KDirModelNode *node = isDir ? new KDirModelDirNode(dirNode, item) : new KDirModelNode(dirNode, item);
 #ifndef NDEBUG
         // Test code for possible duplication of items in the childnodes list,
         // not sure if/how it ever happened.
         // if (dirNode->m_childNodes.count() &&
-        //    dirNode->m_childNodes.last()->item().name() == (*it).name()) {
-        //    qCWarning(category) << "Already having" << (*it).name() << "in" << directoryUrl
+        //    dirNode->m_childNodes.last()->item().name() == item.name()) {
+        //    qCWarning(category) << "Already having" << item.name() << "in" << directoryUrl
         //             << "url=" << dirNode->m_childNodes.last()->item().url();
         //    abort();
         //}
 #endif
         dirNode->m_childNodes.append(node);
-        const QUrl url = it->url();
+        const QUrl url = item.url();
         m_nodeHash.insert(cleanupUrl(url), node);
 
         if (!urlsBeingFetched.isEmpty()) {

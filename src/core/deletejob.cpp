@@ -325,9 +325,8 @@ void DeleteJobPrivate::finishedStatPhase()
     // To speed things up and prevent double-notification, we disable KDirWatch
     // on those dirs temporarily (using KDirWatch::self, that's the instance
     // used by e.g. kdirlister).
-    const QSet<QString>::const_iterator itEnd = m_parentDirs.constEnd();
-    for (QSet<QString>::const_iterator it = m_parentDirs.constBegin(); it != itEnd; ++it) {
-        KDirWatch::self()->stopDirScan(*it);
+    for (const QString &dir : std::as_const(m_parentDirs)) {
+        KDirWatch::self()->stopDirScan(dir);
     }
     state = DELETEJOB_STATE_DELETING_FILES;
     deleteNextFile();

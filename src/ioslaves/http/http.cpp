@@ -3523,7 +3523,7 @@ void HTTPProtocol::parseContentDisposition(const QString &disposition)
 {
     const QMap<QString, QString> parameters = contentDispositionParser(disposition);
 
-    QMap<QString, QString>::const_iterator i = parameters.constBegin();
+    auto i = parameters.constBegin();
     while (i != parameters.constEnd()) {
         setMetaData(QLatin1String("content-disposition-") + i.key(), i.value());
         qCDebug(KIO_HTTP) << "Content-Disposition:" << i.key() << "=" << i.value();

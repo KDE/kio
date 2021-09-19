@@ -142,28 +142,29 @@ void ListJobPrivate::slotListEntries(const KIO::UDSEntryList &list)
     if (m_prefix.isNull() && includeHidden) {
         Q_EMIT q->entries(q, list);
     } else {
-        // cull the unwanted hidden dirs and/or parent dir references from the listing, then emit that
-        UDSEntryList newlist;
+        UDSEntryList newlist = list;
 
-        UDSEntryList::const_iterator it = list.begin();
-        const UDSEntryList::const_iterator end = list.end();
-        for (; it != end; ++it) {
+        auto removeFunc = [this](const UDSEntry &entry) {
+            const QString filename = entry.stringValue(KIO::UDSEntry::UDS_NAME);
+            // Avoid returning entries like subdir/. and subdir/.., but include . and .. for
+            // the toplevel dir, and skip hidden files/dirs if that was requested
+            const bool shouldEmit = (m_prefix.isNull() || (filename != QLatin1String("..") && filename != QLatin1String(".")))
+                && (includeHidden || (filename[0] != QLatin1Char('.')));
+            return !shouldEmit;
+        };
+        newlist.erase(std::remove_if(newlist.begin(), newlist.end(), removeFunc), newlist.end());
+
+        for (UDSEntry &newone : newlist) {
             // Modify the name in the UDSEntry
-            UDSEntry newone = *it;
             const QString filename = newone.stringValue(KIO::UDSEntry::UDS_NAME);
             QString displayName = newone.stringValue(KIO::UDSEntry::UDS_DISPLAY_NAME);
             if (displayName.isEmpty()) {
                 displayName = filename;
             }
-            // Avoid returning entries like subdir/. and subdir/.., but include . and .. for
-            // the toplevel dir, and skip hidden files/dirs if that was requested
-            if ((m_prefix.isNull() || (filename != QLatin1String("..") && filename != QLatin1String(".")))
-                && (includeHidden || (filename[0] != QLatin1Char('.')))) {
-                // ## Didn't find a way to use the iterator instead of re-doing a key lookup
-                newone.replace(KIO::UDSEntry::UDS_NAME, m_prefix + filename);
-                newone.replace(KIO::UDSEntry::UDS_DISPLAY_NAME, m_displayPrefix + displayName);
-                newlist.append(newone);
-            }
+
+            // ## Didn't find a way to use the iterator instead of re-doing a key lookup
+            newone.replace(KIO::UDSEntry::UDS_NAME, m_prefix + filename);
+            newone.replace(KIO::UDSEntry::UDS_DISPLAY_NAME, m_displayPrefix + displayName);
         }
 
         Q_EMIT q->entries(q, newlist);

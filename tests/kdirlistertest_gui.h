@@ -60,8 +60,7 @@ public Q_SLOTS:
     void newItems(const KFileItemList &items)
     {
         cout << "*** newItems: " << endl;
-        KFileItemList::const_iterator it, itEnd = items.constEnd();
-        for (it = items.constBegin(); it != itEnd; ++it) {
+        for (auto it = items.cbegin(), itEnd = items.constEnd(); it != itEnd; ++it) {
             cout << (*it).name().toLocal8Bit().data() << endl;
         }
     }

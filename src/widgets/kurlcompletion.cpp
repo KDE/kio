@@ -322,11 +322,14 @@ void DirectoryListThread::run()
 
     QMimeDatabase mimeTypes;
 
-    const QStringList::const_iterator end = m_dirList.constEnd();
-    for (QStringList::const_iterator it = m_dirList.constBegin(); it != end && !terminationRequested(); ++it) {
-        // qDebug() << "Scanning directory" << *it;
+    for (const QString &dir : std::as_const(m_dirList)) {
+        if (terminationRequested()) {
+            break;
+        }
 
-        QDirIterator current_dir_iterator(*it, iterator_filter);
+        // qDebug() << "Scanning directory" << dir;
+
+        QDirIterator current_dir_iterator(dir, iterator_filter);
 
         while (current_dir_iterator.hasNext() && !terminationRequested()) {
             current_dir_iterator.next();

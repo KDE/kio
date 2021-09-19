@@ -707,15 +707,11 @@ void KUrlNavigatorPrivate::updateButtonVisibility()
     }
 
     // Hide buttons...
-    QList<KUrlNavigatorButton *>::const_iterator it = m_navButtons.constEnd();
-    const QList<KUrlNavigatorButton *>::const_iterator itBegin = m_navButtons.constBegin();
     bool isLastButton = true;
     bool hasHiddenButtons = false;
-
     QList<KUrlNavigatorButton *> buttonsToShow;
-    while (it != itBegin) {
-        --it;
-        KUrlNavigatorButton *button = (*it);
+    for (auto it = m_navButtons.crbegin(); it != m_navButtons.crend(); ++it) {
+        KUrlNavigatorButton *button = *it;
         availableWidth -= button->minimumWidth();
         if ((availableWidth <= 0) && !isLastButton) {
             button->hide();

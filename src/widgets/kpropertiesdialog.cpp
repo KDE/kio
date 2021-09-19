@@ -2226,16 +2226,10 @@ void KFilePermissionsPropsPlugin::slotShowAdvancedPermissions()
         }
     }
 
-    d->isIrregular = false;
     const KFileItemList items = properties->items();
-    KFileItemList::const_iterator it = items.begin();
-    const KFileItemList::const_iterator kend = items.end();
-    for (; it != kend; ++it) {
-        if (isIrregular(((*it).permissions() & andPermissions) | orPermissions, (*it).isDir(), (*it).isLink())) {
-            d->isIrregular = true;
-            break;
-        }
-    }
+    d->isIrregular = std::any_of(items.cbegin(), items.cend(), [this, andPermissions, orPermissions](const KFileItem &item) {
+        return isIrregular((item.permissions() & andPermissions) | orPermissions, item.isDir(), item.isLink());
+    });
 
     d->permissions = orPermissions;
     d->partialPermissions = andPermissions;

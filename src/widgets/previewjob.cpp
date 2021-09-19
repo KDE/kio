@@ -321,17 +321,15 @@ void PreviewJobPrivate::startPreview()
 
     // Look for images and store the items in our todo list :)
     bool bNeedCache = false;
-    KFileItemList::const_iterator kit = initialItems.constBegin();
-    const KFileItemList::const_iterator kend = initialItems.constEnd();
-    for (; kit != kend; ++kit) {
+    for (const auto &fileItem : std::as_const(initialItems)) {
         PreviewItem item;
-        item.item = *kit;
+        item.item = fileItem;
 
         const QString mimeType = item.item.mimetype();
         KService::Ptr plugin(nullptr);
 
         // look for protocol-specific thumbnail plugins first
-        QHash<QString, QHash<QString, KService::Ptr>>::const_iterator it = protocolMap.constFind(item.item.url().scheme());
+        auto it = protocolMap.constFind(item.item.url().scheme());
         if (it != protocolMap.constEnd()) {
             plugin = it.value().value(mimeType);
         }
@@ -368,13 +366,13 @@ void PreviewJobPrivate::startPreview()
             item.plugin = plugin;
             items.push_back(item);
             if (!bNeedCache && bSave && plugin->property(QStringLiteral("CacheThumbnail")).toBool()) {
-                const QUrl url = (*kit).url();
+                const QUrl url = fileItem.url();
                 if (!url.isLocalFile() || !url.adjusted(QUrl::RemoveFilename).toLocalFile().startsWith(thumbRoot)) {
                     bNeedCache = true;
                 }
             }
         } else {
-            Q_EMIT q->failed(*kit);
+            Q_EMIT q->failed(fileItem);
         }
     }
 
