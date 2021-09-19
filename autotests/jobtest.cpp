@@ -884,12 +884,12 @@ void JobTest::testCopyFilePermissionsToSamePartition()
     copyStat(S_IWUSR);
     // dest should have S_IWUSR
     QCOMPARE(dest_buff.st_mode & 0777, S_IWUSR);
-#endif
 
     // Clean up, the weird permissions used above mess with the next
     // unit tests
     QVERIFY(QFile::remove(dest));
     QVERIFY(QFile::remove(src));
+#endif
 }
 
 void JobTest::copyDirectoryToOtherPartition()
