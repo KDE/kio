@@ -423,9 +423,11 @@ void KRun::init()
         return;
     }
 
-    if (!d->m_externalBrowser.isEmpty() && d->m_strURL.scheme().startsWith(QLatin1String("http"))) {
-        if (d->runExternalBrowser(d->m_externalBrowser)) {
-            return;
+    if (d->m_strURL.scheme().startsWith(QLatin1String("http"))) {
+        if (!d->m_externalBrowser.isEmpty()) {
+            if (d->runExternalBrowser(d->m_externalBrowser)) {
+                return;
+            }
         }
     } else if (d->m_strURL.isLocalFile()
                && (d->m_strURL.host().isEmpty() || (d->m_strURL.host() == QLatin1String("localhost"))
