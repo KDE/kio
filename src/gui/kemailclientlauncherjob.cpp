@@ -21,6 +21,10 @@
 #include <KIO/ApplicationLauncherJob>
 #include <KIO/CommandLauncherJob>
 
+#ifdef Q_OS_WIN
+#include <windows.h>
+#endif
+
 class KEMailClientLauncherJobPrivate
 {
 public:
