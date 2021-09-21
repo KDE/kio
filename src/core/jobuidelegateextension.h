@@ -88,6 +88,17 @@ enum SkipDialog_Option {
      * @since 5.86
      */
     SkipDialog_Replace_Invalid_Chars = 16,
+
+    /**
+     * Set if the current operation @e cannot be retried.
+     *
+     * For example if there is an issue that involves the destination filesystem
+     * support, e.g. VFAT and ExFat don't support symlinks, then retrying doesn't
+     * make sense.
+     *
+     * @since 5.88
+     */
+    SkipDialog_Hide_Retry = 32,
 };
 /**
  * Stores a combination of #SkipDialog_Option values.

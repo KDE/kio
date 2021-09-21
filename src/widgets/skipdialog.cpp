@@ -16,7 +16,9 @@
 #include <QVBoxLayout>
 #include <QWidget>
 
+#include <KGuiItem>
 #include <KLocalizedString>
+#include <KStandardGuiItem>
 
 using namespace KIO;
 
@@ -35,22 +37,26 @@ SkipDialog::SkipDialog(QWidget *parent, KIO::SkipDialog_Options options, const Q
     QDialogButtonBox *buttonBox = new QDialogButtonBox(this);
     layout->addWidget(buttonBox);
 
+    const bool isMultiple = options & SkipDialog_MultipleItems;
+    const bool isInvalidChars = options & SkipDialog_Replace_Invalid_Chars;
+    const bool hideRetry = options & SkipDialog_Hide_Retry;
+
     // Retrying to e.g. copy a file with "*" in the name to a fat32
     // partition will always fail
-    if (options & SkipDialog_Replace_Invalid_Chars) {
+    if (isInvalidChars) {
         QPushButton *replaceCharButton = new QPushButton(i18n("Replace"));
         connect(replaceCharButton, &QAbstractButton::clicked, this, [this]() {
             done(KIO::Result_ReplaceInvalidChars);
         });
         buttonBox->addButton(replaceCharButton, QDialogButtonBox::ActionRole);
-    } else {
+    } else if (!hideRetry) {
         QPushButton *retryButton = new QPushButton(i18n("Retry"));
         connect(retryButton, &QAbstractButton::clicked, this, &SkipDialog::retryPressed);
         buttonBox->addButton(retryButton, QDialogButtonBox::ActionRole);
     }
 
-    if (options & SkipDialog_MultipleItems) {
-        if (options & SkipDialog_Replace_Invalid_Chars) {
+    if (isMultiple) {
+        if (isInvalidChars) {
             QPushButton *autoReplaceButton = new QPushButton(i18n("Replace All"));
             connect(autoReplaceButton, &QAbstractButton::clicked, this, [this]() {
                 done(KIO::Result_ReplaceAllInvalidChars);
@@ -67,7 +73,12 @@ SkipDialog::SkipDialog(QWidget *parent, KIO::SkipDialog_Options options, const Q
         buttonBox->addButton(autoSkipButton, QDialogButtonBox::ActionRole);
     }
 
-    buttonBox->addButton(QDialogButtonBox::Cancel);
+    auto *cancelBtn = buttonBox->addButton(QDialogButtonBox::Cancel);
+    // If it's one item and the Retry button is hidden, replace the Cancel
+    // button text with OK
+    if (hideRetry && !isMultiple) {
+        KGuiItem::assign(cancelBtn, KStandardGuiItem::ok());
+    }
     connect(buttonBox, &QDialogButtonBox::rejected, this, &SkipDialog::cancelPressed);
 
     resize(sizeHint());
