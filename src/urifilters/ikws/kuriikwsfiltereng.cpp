@@ -58,31 +58,8 @@ QStringList KURISearchFilterEngine::defaultSearchProviders()
 
 SearchProvider *KURISearchFilterEngine::webShortcutQuery(const QString &typedString, QString &searchTerm) const
 {
-    SearchProvider *provider = nullptr;
-
-    if (m_bWebShortcutsEnabled) {
-        QString key;
-        if (typedString.contains(QLatin1Char('!'))) {
-            const static QRegularExpression bangRegex(QStringLiteral("!([^ ]+)"));
-            const auto match = bangRegex.match(typedString);
-            if (match.hasMatch() && match.lastCapturedIndex() == 1) {
-                key = match.captured(1);
-                searchTerm = QString(typedString).remove(bangRegex);
-            }
-        }
-        if (key.isEmpty()) {
-            const int pos = typedString.indexOf(QLatin1Char(m_cKeywordDelimiter));
-            if (pos > -1) {
-                key = typedString.left(pos).toLower(); // #169801
-                searchTerm = typedString.mid(pos + 1);
-            } else if (!typedString.isEmpty() && m_cKeywordDelimiter == ' ') {
-                key = typedString;
-                searchTerm = typedString.mid(pos + 1);
-            }
-        }
-
-        qCDebug(category) << "m_cKeywordDelimiter=" << QLatin1Char(m_cKeywordDelimiter) << "key=" << key << "typedString=" << typedString;
-
+    const auto getProviderForKey = [this, &searchTerm](const QString &key) {
+        SearchProvider *provider = nullptr;
         // If the key contains a : an assertion in the isKnownProtocol method would fail. This can be
         // the case if the delimiter is switched to space, see kiowidgets_space_separator_test
         if (!key.isEmpty() && (key.contains(QLatin1Char(':')) || !KProtocolInfo::isKnownProtocol(key))) {
@@ -95,6 +72,43 @@ SearchProvider *KURISearchFilterEngine::webShortcutQuery(const QString &typedStr
                 }
             }
         }
+        return provider;
+    };
+
+    SearchProvider *provider = nullptr;
+    if (m_bWebShortcutsEnabled) {
+        QString key;
+        if (typedString.contains(QLatin1Char('!'))) {
+            const static QRegularExpression bangRegex(QStringLiteral("!([^ ]+)"));
+            const auto match = bangRegex.match(typedString);
+            if (match.hasMatch() && match.lastCapturedIndex() == 1) {
+                key = match.captured(1);
+                searchTerm = QString(typedString).remove(bangRegex);
+            }
+        }
+
+        // If we have found a bang-match it might be unintentionally triggered, because the ! character is contained
+        // in the query. To avoid not returning any results we check if we can find a provider for the key, if not
+        // we clear it and try the traditional query syntax, see https://bugs.kde.org/show_bug.cgi?id=437660
+        if (!key.isEmpty()) {
+            provider = getProviderForKey(key);
+            if (!provider) {
+                key.clear();
+            }
+        }
+        if (key.isEmpty()) {
+            const int pos = typedString.indexOf(QLatin1Char(m_cKeywordDelimiter));
+            if (pos > -1) {
+                key = typedString.left(pos).toLower(); // #169801
+                searchTerm = typedString.mid(pos + 1);
+            } else if (!typedString.isEmpty() && m_cKeywordDelimiter == ' ') {
+                key = typedString;
+                searchTerm = typedString.mid(pos + 1);
+            }
+            provider = getProviderForKey(key);
+        }
+
+        qCDebug(category) << "m_cKeywordDelimiter=" << QLatin1Char(m_cKeywordDelimiter) << "key=" << key << "typedString=" << typedString;
     }
 
     return provider;

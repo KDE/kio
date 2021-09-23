@@ -475,6 +475,11 @@ void KUriFilterTest::internetKeywords_data()
            QStringLiteral("https://bugs.kde.org/buglist.cgi?quicksearch=55798"),
            KUriFilterData::NetProtocol);
 
+    // See https://bugs.kde.org/show_bug.cgi?id=437660
+    addRow(QString::asprintf("bug%c55798!does_not_exist", s_delimiter).toUtf8(),
+           QStringLiteral("https://bugs.kde.org/buglist.cgi?quicksearch=55798%21does_not_exist"),
+           KUriFilterData::NetProtocol);
+
     addRow(QString::asprintf("gg%cC++", s_delimiter).toUtf8(), QStringLiteral("https://www.google.com/search?q=C%2B%2B&ie=UTF-8"), KUriFilterData::NetProtocol);
     addRow(QString::asprintf("gg%cC#", s_delimiter).toUtf8(), QStringLiteral("https://www.google.com/search?q=C%23&ie=UTF-8"), KUriFilterData::NetProtocol);
     addRow(QString::asprintf("ya%cfoo bar was here", s_delimiter).toUtf8(), nullptr, -1); // this triggers default search, i.e. google
