@@ -182,6 +182,11 @@ public:
     bool m_showPlacesSelector = false;
     bool m_showFullPath = false;
     int m_historyIndex = 0;
+
+    struct {
+        bool showHidden = false;
+        bool sortHiddenLast = false;
+    } m_subfolderOptions;
 };
 
 KUrlNavigatorPrivate::KUrlNavigatorPrivate(KUrlNavigator *qq, KFilePlacesModel *placesModel)
@@ -1289,6 +1294,26 @@ QStringList KUrlNavigator::customProtocols() const
 QWidget *KUrlNavigator::dropWidget() const
 {
     return d->m_dropWidget;
+}
+
+void KUrlNavigator::setShowHiddenFolders(bool showHiddenFolders)
+{
+    d->m_subfolderOptions.showHidden = showHiddenFolders;
+}
+
+bool KUrlNavigator::showHiddenFolders() const
+{
+    return d->m_subfolderOptions.showHidden;
+}
+
+void KUrlNavigator::setSortHiddenFoldersLast(bool sortHiddenFoldersLast)
+{
+    d->m_subfolderOptions.sortHiddenLast = sortHiddenFoldersLast;
+}
+
+bool KUrlNavigator::sortHiddenFoldersLast() const
+{
+    return d->m_subfolderOptions.sortHiddenLast;
 }
 
 #if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(4, 5)

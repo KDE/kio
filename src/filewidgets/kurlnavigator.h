@@ -281,6 +281,30 @@ public:
      */
     QWidget *dropWidget() const;
 
+    /** 
+     * Sets whether to show hidden folders in the subdirectories popup.
+     * @since 5.87
+     */
+    void setShowHiddenFolders(bool showHiddenFolders);
+
+    /**
+     * Returns whether to show hidden folders in the subdirectories popup.
+     * @since 5.87
+     */
+    bool showHiddenFolders() const;
+
+    /** 
+     * Sets whether to sort hidden folders in the subdirectories popup last.
+     * @since 5.87
+     */
+    void setSortHiddenFoldersLast(bool sortHiddenFoldersLast);
+
+    /**
+     * Returns whether to sort hidden folders in the subdirectories popup last.
+     * @since 5.87
+     */
+    bool sortHiddenFoldersLast() const;
+
 #if KIOFILEWIDGETS_ENABLE_DEPRECATED_SINCE(4, 5)
     /**
      * @return     The current URL of the location.

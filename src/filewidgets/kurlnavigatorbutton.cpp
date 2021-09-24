@@ -391,7 +391,9 @@ void KUrlNavigatorButton::startSubDirsJob()
     }
 
     const QUrl url = m_replaceButton ? KIO::upUrl(m_url) : m_url;
-    m_subDirsJob = KIO::listDir(url, KIO::HideProgressInfo, false /*no hidden files*/);
+    const KUrlNavigator *urlNavigator = qobject_cast<KUrlNavigator*>(parent());
+    Q_ASSERT(urlNavigator);
+    m_subDirsJob = KIO::listDir(url, KIO::HideProgressInfo, urlNavigator->showHiddenFolders());
     m_subDirs.clear(); // just to be ++safe
 
     connect(m_subDirsJob, &KIO::ListJob::entries, this, &KUrlNavigatorButton::addEntriesToSubDirs);
@@ -455,24 +457,35 @@ void KUrlNavigatorButton::statFinished(KJob *job)
 }
 
 /**
- * Helper class for openSubDirsMenu
+ * Helper struct for sorting folder names
  */
-class NaturalLessThan
+struct FolderNameNaturalLessThan
 {
-public:
-    NaturalLessThan()
+    FolderNameNaturalLessThan(bool sortHiddenLast)
+        : m_sortHiddenLast(sortHiddenLast)
     {
         m_collator.setCaseSensitivity(Qt::CaseInsensitive);
         m_collator.setNumericMode(true);
     }
 
-    bool operator()(const QPair<QString, QString> &s1, const QPair<QString, QString> &s2)
+    bool operator()(const QPair<QString, QString> &a, const QPair<QString, QString> &b)
     {
-        return m_collator.compare(s1.first, s2.first) < 0;
+        if (m_sortHiddenLast) {
+            const bool isHiddenA = a.first.startsWith(QLatin1Char('.'));
+            const bool isHiddenB = b.first.startsWith(QLatin1Char('.'));
+            if (isHiddenA && !isHiddenB) {
+                return false;
+            }
+            if (!isHiddenA && isHiddenB) {
+                return true;
+            }
+        }
+        return m_collator.compare(a.first, b.first) < 0;
     }
 
 private:
     QCollator m_collator;
+    bool m_sortHiddenLast;
 };
 
 void KUrlNavigatorButton::openSubDirsMenu(KJob *job)
@@ -485,8 +498,10 @@ void KUrlNavigatorButton::openSubDirsMenu(KJob *job)
         return;
     }
 
-    NaturalLessThan nlt;
-    std::sort(m_subDirs.begin(), m_subDirs.end(), nlt);
+    const KUrlNavigator *urlNavigator = qobject_cast<KUrlNavigator*>(parent());
+    Q_ASSERT(urlNavigator);
+    FolderNameNaturalLessThan less(urlNavigator->showHiddenFolders() && urlNavigator->sortHiddenFoldersLast());
+    std::sort(m_subDirs.begin(), m_subDirs.end(), less);
     setDisplayHintEnabled(PopupActiveHint, true);
     update(); // ensure the button is drawn highlighted
 
@@ -530,8 +545,10 @@ void KUrlNavigatorButton::replaceButton(KJob *job)
         return;
     }
 
-    NaturalLessThan nlt;
-    std::sort(m_subDirs.begin(), m_subDirs.end(), nlt);
+    const KUrlNavigator *urlNavigator = qobject_cast<KUrlNavigator*>(parent());
+    Q_ASSERT(urlNavigator);
+    FolderNameNaturalLessThan less(urlNavigator->showHiddenFolders() && urlNavigator->sortHiddenFoldersLast());
+    std::sort(m_subDirs.begin(), m_subDirs.end(), less);
 
     // Get index of the directory that is shown currently in the button
     const QString currentDir = m_url.fileName();
