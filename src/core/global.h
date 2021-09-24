@@ -293,6 +293,12 @@ enum Error {
         + 75, ///< Value used between kuiserver and views when the job owner disappears unexpectedly. It should not be emitted by slaves. @since 5.54
     ERR_PRIVILEGE_NOT_REQUIRED = KJob::UserDefinedError + 76, ///< used by file ioslave, @since 5.60
     ERR_CANNOT_TRUNCATE = KJob::UserDefinedError + 77, // used by FileJob::truncate, @since 5.66
+    /**
+     * Indicates failure to create a symlink due to the underlying filesystem (FAT/ExFAT)
+     * not supporting them. Used by e.g. CopyJob.
+     * @since 5.88
+     */
+    ERR_SYMLINKS_NOT_SUPPORTED = KJob::UserDefinedError + 78
 };
 
 /**

@@ -3,6 +3,7 @@
     SPDX-FileCopyrightText: 2000 Stephan Kulow <coolo@kde.org>
     SPDX-FileCopyrightText: 2000-2006 David Faure <faure@kde.org>
     SPDX-FileCopyrightText: 2000 Waldo Bastian <bastian@kde.org>
+    SPDX-FileCopyrightText: 2021 Ahmad Samir <a.samirh78@gmail.com>
 
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
@@ -146,9 +147,50 @@ static void cleanMsdosDestName(QString &name)
     }
 }
 
-static bool isMsdosFs(KFileSystemType::Type fsType)
+static bool isFatFs(KFileSystemType::Type fsType)
 {
-    return fsType == KFileSystemType::Fat || fsType == KFileSystemType::Ntfs || fsType == KFileSystemType::Exfat;
+    return fsType == KFileSystemType::Fat || fsType == KFileSystemType::Exfat;
+}
+
+static bool isFatOrNtfs(KFileSystemType::Type fsType)
+{
+    return fsType == KFileSystemType::Ntfs || isFatFs(fsType);
+}
+
+static QString symlinkSupportMsg(const QString &path, const QString &fsName)
+{
+    const QString msg = i18nc(
+        "The first arg is the path to the symlink that couldn't be created, the second"
+        "arg is the filesystem type (e.g. vfat, exfat)",
+        "Could not create symlink \"%1\".\n"
+        "The destination filesystem (%2) doesn't support symlinks.",
+        path,
+        fsName);
+    return msg;
+}
+
+static QString invalidCharsSupportMsg(const QString &path, const QString &fsName, bool isDir = false)
+{
+    QString msg;
+    if (isDir) {
+        msg = i18n(
+            "Could not create \"%1\".\n"
+            "The destination filesystem (%2) disallows the following characters in folder names: %3\n"
+            "Selecting Replace will replace any invalid characters (in the destination folder name) with an underscore \"_\".",
+            path,
+            fsName,
+            QLatin1String(s_msdosInvalidChars));
+    } else {
+        msg = i18n(
+            "Could not create \"%1\".\n"
+            "The destination filesystem (%2) disallows the following characters in file names: %3\n"
+            "Selecting Replace will replace any invalid characters (in the destination file name) with an underscore \"_\".",
+            path,
+            fsName,
+            QLatin1String(s_msdosInvalidChars));
+    }
+
+    return msg;
 }
 
 /** @internal */
@@ -246,6 +288,18 @@ public:
     bool m_autoSkipFilesWithInvalidChars = false;
     bool m_autoReplaceInvalidChars = false;
 
+    bool m_autoSkipFatSymlinks = false;
+
+    enum SkipType {
+        // No skip dialog is involved
+        NoSkipType = 0,
+        // SkipDialog is asking about invalid chars in destination file/dir names
+        SkipInvalidChars,
+        // SkipDialog is asking about how to handle symlinks why copying to a
+        // filesystem that doesn't support symlinks
+        SkipFatSymlinks,
+    };
+
     int m_conflictError;
 
     QTimer *m_reportTimer;
@@ -275,8 +329,11 @@ public:
 
     //     KIO::Job* linkNextFile( const QUrl& uSource, const QUrl& uDest, bool overwrite );
     KIO::Job *linkNextFile(const QUrl &uSource, const QUrl &uDest, JobFlags flags);
+    // MsDos filesystems don't allow certain characters in filenames, and VFAT and ExFAT
+    // don't support symlinks, this method detects those conditions and tries to handle it
+    bool handleMsdosFsQuirks(QList<CopyInfo>::Iterator it, KFileSystemType::Type fsType);
     void copyNextFile();
-    void processCopyNextFile(const QList<CopyInfo>::Iterator &it, int result);
+    void processCopyNextFile(const QList<CopyInfo>::Iterator &it, int result, SkipType skipType);
 
     void slotResultDeletingDirs(KJob *job);
     void deleteNextDir();
@@ -387,6 +444,7 @@ void CopyJobPrivate::slotStart()
     if (q->isSuspended()) {
         return;
     }
+
     if (m_mode == CopyJob::CopyMode::Move) {
         for (const QUrl &url : std::as_const(m_srcList)) {
             if (m_dest.scheme() == url.scheme() && m_dest.host() == url.host()) {
@@ -402,6 +460,19 @@ void CopyJobPrivate::slotStart()
             }
         }
     }
+
+    if (m_mode == CopyJob::CopyMode::Link && m_globalDest.isLocalFile()) {
+        const QString destPath = m_globalDest.toLocalFile();
+        const auto destFs = KFileSystemType::fileSystemType(destPath);
+        if (isFatFs(destFs)) {
+            q->setError(ERR_SYMLINKS_NOT_SUPPORTED);
+            const QString errText = destPath + QLatin1String(" [") + KFileSystemType::fileSystemName(destFs) + QLatin1Char(']');
+            q->setErrorText(errText);
+            q->emitResult();
+            return;
+        }
+    }
+
     /**
        We call the functions directly instead of using signals.
        Calling a function via a signal takes approx. 65 times the time
@@ -1351,7 +1422,7 @@ void CopyJobPrivate::createNextDir()
         if (it->uDest.isLocalFile()) {
             // uDest doesn't exist yet, check the filesystem of the parent dir
             const auto destFileSystem = KFileSystemType::fileSystemType(it->uDest.adjusted(QUrl::StripTrailingSlash | QUrl::RemoveFilename).toLocalFile());
-            if (isMsdosFs(destFileSystem)) {
+            if (isFatOrNtfs(destFileSystem)) {
                 const QString dirName = it->uDest.adjusted(QUrl::StripTrailingSlash).fileName();
                 if (hasInvalidChars(dirName)) {
                     // We already asked the user?
@@ -1363,13 +1434,9 @@ void CopyJobPrivate::createNextDir()
                         return;
                     }
 
-                    const QString msg = i18n(
-                        "Could not create \"%1\".\n"
-                        "The destination filesystem (%2) disallows the following characters in folder names: %3\n"
-                        "Selecting Replace will replace any invalid characters (in the destination folder name) with an underscore \"_\".",
-                        it->uDest.toDisplayString(QUrl::PreferLocalFile),
-                        KFileSystemType::fileSystemName(destFileSystem),
-                        QLatin1String(s_msdosInvalidChars));
+                    const QString msg = invalidCharsSupportMsg(it->uDest.toDisplayString(QUrl::PreferLocalFile),
+                                                               KFileSystemType::fileSystemName(destFileSystem),
+                                                               true /* isDir */);
 
                     if (auto *askUserActionInterface = KIO::delegateExtension<KIO::AskUserActionInterface *>(q)) {
                         SkipDialog_Options options = KIO::SkipDialog_Replace_Invalid_Chars;
@@ -1847,6 +1914,64 @@ KIO::Job *CopyJobPrivate::linkNextFile(const QUrl &uSource, const QUrl &uDest, J
     }
 }
 
+bool CopyJobPrivate::handleMsdosFsQuirks(QList<CopyInfo>::Iterator it, KFileSystemType::Type fsType)
+{
+    Q_Q(CopyJob);
+
+    QString msg;
+    SkipDialog_Options options;
+    SkipType skipType = NoSkipType;
+
+    if (isFatFs(fsType) && !it->linkDest.isEmpty()) { // Copying a symlink
+        skipType = SkipFatSymlinks;
+        if (m_autoSkipFatSymlinks) { // Have we already asked the user?
+            processCopyNextFile(it, KIO::Result_Skip, skipType);
+            return true;
+        }
+        options = KIO::SkipDialog_Hide_Retry;
+        msg = symlinkSupportMsg(it->uDest.toLocalFile(), KFileSystemType::fileSystemName(fsType));
+    } else if (hasInvalidChars(it->uDest.fileName())) {
+        skipType = SkipInvalidChars;
+        if (m_autoReplaceInvalidChars) { // Have we already asked the user?
+            processCopyNextFile(it, KIO::Result_ReplaceInvalidChars, skipType);
+            return true;
+        } else if (m_autoSkipFilesWithInvalidChars) { // Have we already asked the user?
+            processCopyNextFile(it, KIO::Result_Skip, skipType);
+            return true;
+        }
+
+        options = KIO::SkipDialog_Replace_Invalid_Chars;
+        msg = invalidCharsSupportMsg(it->uDest.toDisplayString(QUrl::PreferLocalFile), KFileSystemType::fileSystemName(fsType));
+    }
+
+    if (!msg.isEmpty()) {
+        if (auto *askUserActionInterface = KIO::delegateExtension<KIO::AskUserActionInterface *>(q)) {
+            if (files.size() > 1) {
+                options |= SkipDialog_MultipleItems;
+            }
+
+            auto skipSignal = &KIO::AskUserActionInterface::askUserSkipResult;
+            QObject::connect(askUserActionInterface, skipSignal, q, [=](SkipDialog_Result result, KJob *parentJob) {
+                Q_ASSERT(parentJob == q);
+                // Only receive askUserSkipResult once per skip dialog
+                QObject::disconnect(askUserActionInterface, skipSignal, q, nullptr);
+
+                processCopyNextFile(it, result, skipType);
+            });
+
+            askUserActionInterface->askUserSkip(q, options, msg);
+
+            return true;
+        } else { // No Job Ui delegate
+            qCWarning(KIO_COPYJOB_DEBUG) << msg;
+            q->emitResult();
+            return true;
+        }
+    }
+
+    return false; // Not handled, move on
+}
+
 void CopyJobPrivate::copyNextFile()
 {
     Q_Q(CopyJob);
@@ -1879,51 +2004,14 @@ void CopyJobPrivate::copyNextFile()
     if (bCopyFile) { // any file to create, finally ?
         if (isDestLocal) {
             const auto destFileSystem = KFileSystemType::fileSystemType(m_globalDest.toLocalFile());
-            if (isMsdosFs(destFileSystem) && hasInvalidChars(it->uDest.fileName())) {
-                // Have we already asked the user?
-                if (m_autoReplaceInvalidChars) {
-                    processCopyNextFile(it, KIO::Result_ReplaceInvalidChars);
-                    return;
-                } else if (m_autoSkipFilesWithInvalidChars) {
-                    processCopyNextFile(it, KIO::Result_Skip);
-                    return;
-                }
-
-                const QString msg = i18n(
-                    "Could not create \"%1\".\n"
-                    "The destination filesystem (%2) disallows the following characters in file names: %3\n"
-                    "Selecting Replace will replace any invalid characters (in the destination file name) with an underscore \"_\".",
-                    it->uDest.toDisplayString(QUrl::PreferLocalFile),
-                    KFileSystemType::fileSystemName(destFileSystem),
-                    QLatin1String(s_msdosInvalidChars));
-
-                if (auto *askUserActionInterface = KIO::delegateExtension<KIO::AskUserActionInterface *>(q)) {
-                    SkipDialog_Options options = KIO::SkipDialog_Replace_Invalid_Chars;
-                    if (files.size() > 1) {
-                        options |= SkipDialog_MultipleItems;
-                    }
-
-                    auto skipSignal = &KIO::AskUserActionInterface::askUserSkipResult;
-                    QObject::connect(askUserActionInterface, skipSignal, q, [=](SkipDialog_Result result, KJob *parentJob) {
-                        Q_ASSERT(parentJob == q);
-                        // Only receive askUserSkipResult once per skip dialog
-                        QObject::disconnect(askUserActionInterface, skipSignal, q, nullptr);
-
-                        processCopyNextFile(it, result);
-                    });
-
-                    askUserActionInterface->askUserSkip(q, options, msg);
-
-                    return;
-                } else { // No Job Ui delegate
-                    qCWarning(KIO_COPYJOB_DEBUG) << msg;
-                    q->emitResult();
+            if (isFatOrNtfs(destFileSystem)) {
+                if (handleMsdosFsQuirks(it, destFileSystem)) {
                     return;
                 }
             }
         }
 
-        processCopyNextFile(it, -1);
+        processCopyNextFile(it, -1, NoSkipType);
     } else {
         // We're done
         qCDebug(KIO_COPYJOB_DEBUG) << "copyNextFile finished";
@@ -1934,7 +2022,7 @@ void CopyJobPrivate::copyNextFile()
     }
 }
 
-void CopyJobPrivate::processCopyNextFile(const QList<CopyInfo>::Iterator &it, int result)
+void CopyJobPrivate::processCopyNextFile(const QList<CopyInfo>::Iterator &it, int result, SkipType skipType)
 {
     Q_Q(CopyJob);
 
@@ -1956,7 +2044,11 @@ void CopyJobPrivate::processCopyNextFile(const QList<CopyInfo>::Iterator &it, in
         break;
     }
     case KIO::Result_AutoSkip:
-        m_autoSkipFilesWithInvalidChars = true;
+        if (skipType == SkipInvalidChars) {
+            m_autoSkipFilesWithInvalidChars = true;
+        } else if (skipType == SkipFatSymlinks) {
+            m_autoSkipFatSymlinks = true;
+        }
         Q_FALLTHROUGH();
     case KIO::Result_Skip:
         // Move on the next file

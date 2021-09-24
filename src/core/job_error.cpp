@@ -206,6 +206,9 @@ KIOCORE_EXPORT QString KIO::buildErrorString(int errorCode, const QString &error
     case KIO::ERR_CANNOT_SYMLINK:
         result = i18n("Could not create symlink %1.\nPlease check permissions.", errorText);
         break;
+    case KIO::ERR_SYMLINKS_NOT_SUPPORTED:
+        result = i18n("Cannot create symlinks at %1.\nThe destination filesystem doesn't support symlinks.", errorText);
+        break;
     case KIO::ERR_NO_CONTENT:
         result = errorText;
         break;
