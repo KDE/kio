@@ -1316,7 +1316,7 @@ bool TrashImpl::adaptTrashSize(const QString &origPath, int trashId)
 
         if (actionType == 0) { // warn the user only
             m_lastErrorCode = KIO::ERR_SLAVE_DEFINED;
-            m_lastErrorMessage = i18n("The trash has reached its maximum size!\nCleanup the trash manually.");
+            m_lastErrorMessage = i18n("The trash is full. Empty it or remove items manually.");
             return false;
         }
 
