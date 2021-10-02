@@ -1,0 +1,116 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Serbian-Latin "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="smb" lang="&language;">
+<articleinfo>
+<title
+>Windowsova deljenja</title>
+<authorgroup>
+<author
+><personname
+><firstname
+>Majk</firstname
+> <surname
+>Mekbrajd</surname
+></personname
+> &Mike.McBride.mail;</author>
+<author
+><personname
+><firstname
+>Jost</firstname
+> <surname
+>Šenk</surname
+></personname
+> &Jost.Schenck.mail;</author>
+<othercredit role="translator"
+><firstname
+>Dragan</firstname
+><surname
+>Pantelić</surname
+><affiliation
+><address
+><email
+>falcon-10@gmx.de</email
+></address
+></affiliation
+><contrib
+>prevod</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>11. 10. 2016.</date>
+<releaseinfo
+>Radni okviri KDE‑a 5.29</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Sistemske postavke</keyword>
+<keyword
+>Windowsova deljenja</keyword>
+</keywordset>
+</articleinfo>
+<sect1 id="windows-shares">
+<title
+>Windowsova deljenja</title>
+
+<sect2 id="windows-shares-intro">
+<title
+>Uvod</title>
+
+<para
+>U mnogim malim lokalnim mrežama mrežnim servisima pristupa se kroz protokol SMB (često pod imenima „Windowsova mreža“, „Windowsova mreža za radne grupe“ ili „LanManager“). Preko SMB‑a možete pristupiti takozvanim „deljenjima“ (fasciklama koje server stavlja na raspolaganje), kao i štampačima. </para>
+
+<para
+>KDE stiže s ugrađenom podrškom za protokol SMB. S obzirom na mrežnu prozirnost KDE‑a, SMB deljenjima možete pristupati odakle god i lokalnim fajlovima, na primer u <application
+>K‑osvajaču</application
+> kao menadžeru fajlova ili u fajl dijalogu. Da biste koristili SMB mrežu, treba da snabdete KDE nekim podacima o njoj. Ali, ne brinite, ovo je obično jednostavno; na primer, svim windows klijentima u mreži trebaju i koriste iste podatke.</para>
+
+<!-- Don't know if the following info should go in the base
+documentation --> 
+
+<!-- this smb-ioslave doesn't support showing a list
+of hosts (like e.g. smb:/), for this you need the lan or rlan-ioslave,
+very cool thing (TM) btw. If you want to write some documentation for
+this one too, have a look at kdenetwork/lanbrowsing/lisa/README and
+contact me if you have questions. -->
+
+<note
+><para
+>Da bi protokol SMB radio, neophodna je ispravna instalacija Sambe.</para
+></note>
+
+<!-- TODO: link to some place which explains USING SMB, i.e. konqueror
+or file dialog manual -->
+
+</sect2>
+
+<sect2 id="windows-shares-use">
+<title
+>Upotreba</title>
+
+<para
+>Mada se u divljini mogu naći nebezbedne SMB mreže, koje svakom dozvoljavaju pristup, u načelu se morate autentifikovati da biste pristupili servisima na SMB serveru. KDE će za autentifikaciju na SMB domaćinima podrazumevano koristiti podatke iz polja <guilabel
+>Podrazumevano korisničko ime:</guilabel
+> i <guilabel
+>Podrazumevana lozinka:</guilabel
+>. Ako podrazumevano korisničko ime ostavite prazno, KDE će pokušati da pristupi SMB domaćinu bez korisničkog imena; ako i podrazumevanu lozinku ostavite praznu, pokušaće bez lozinke. Ako pristup domaćinu s ovim postavkama bude odbijen, biće vam zatraženo korisničko ime i lozinka.</para>
+
+<important
+><para
+>Dok je udobnije kada KDE skladišti vašu SMB lozinku, takođe može biti bezbednosni problem. Ako radite sa SMB‑om u okruženju gde se pazi na bezbednost, ne bi trebalo da skladištite lozinku, već da je iznova unosite pri svakom pristupu SMB domaćinu.</para
+></important>
+
+</sect2>
+
+</sect1>
+
+</article>

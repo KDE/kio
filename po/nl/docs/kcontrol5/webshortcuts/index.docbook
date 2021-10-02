@@ -1,0 +1,205 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Dutch "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="ebrowsing" lang="&language;">
+<articleinfo>
+<title
+>Websnelkoppelingen</title>
+<authorgroup>
+<author
+>&Krishna.Tateneni; &Krishna.Tateneni.mail;</author>
+<author
+>&Yves.Arrouye; &Yves.Arrouye.mail;</author>
+&Niels.Reedijk;&Sander.Koning; 
+</authorgroup>
+
+<date
+>2016-11-10</date>
+<releaseinfo
+>Frameworks 5.29</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Systeeminstellingen</keyword>
+<keyword
+>verbeterd browsen</keyword>
+<keyword
+>websnelkoppelingen</keyword>
+<keyword
+>browsen</keyword>
+</keywordset>
+
+</articleinfo>
+<sect1 id="ebrowse">
+
+<title
+>Websnelkoppelingen</title>
+
+<sect2 id="ebrowse-intro">
+
+<title
+>Inleiding</title>
+
+<para
+>&konqueror; biedt een aantal mogelijkheden om de browse ervaring te verbeteren. Eén zo'n mogelijkheid is <emphasis
+>Webkoppelingen</emphasis
+>.</para>
+
+<para
+>U heeft misschien al gemerkt dat &kde; erg internetvriendelijk is. U kunt bijvoorbeeld klikken op het menuitem <guimenuitem
+>Uitvoeren</guimenuitem
+> of de daaraan toegewezen sneltoets (<keycombo action="simul"
+>&Alt;<keycap
+>F2</keycap
+></keycombo
+> of <keycombo action="simul"
+>&Alt;&Space;</keycombo
+>, tenzij u het veranderd heeft) gebruiken en een &URI; intypen. <footnote
+><para
+>Uniform Resource Identifier. Een gestandaardiseerde methode om aan een bron te refereren zoals een bestand op uw computer, een world wide web-adres, een e-mailadres, &etc;</para
+></footnote
+></para>
+
+<para
+>Webkoppelingen aan de andere kant geven u de mogelijkheid om nieuwe pseudo &URL;-schema's of snelkoppelingen die u <emphasis
+>geparametriseerde</emphasis
+> algemeen gebruikte &URI;'s laten maken. Bijvoorbeeld als u van de Google zoekmachine houdt, dan kunt u &kde; zo instellen dat een pseudo &URL;-schema zoals <emphasis
+>gg</emphasis
+> een zoekopdracht bij Google start. Op deze manier zal het typen van <userinput
+>gg:<replaceable
+>mijn opdracht</replaceable
+></userinput
+> zoeken naar <replaceable
+>mijn opdracht</replaceable
+> op de Google website.</para>
+
+<note
+><para
+>U ziet nu waarom deze pseudo &URL;-schema's worden genoemd. Ze worden als een gewoon &URL;-schema gebruikt maar de invoer is niet volledig gecodeerd als &URL; zodat men <userinput
+>google:kde apps</userinput
+> en niet <userinput
+>google:kde+apps</userinput
+> kan typen.</para
+></note>
+
+<para
+>U kunt webkoppelingen overal intypen waar u &URI;'s gebruikt. Koppelingen voor verschillende zoekmachines zijn al op uw systeem ingesteld maar u kunt nieuwe zoektermen toevoegen en bestaande veranderen of verwijderen in deze module.</para>
+
+</sect2>
+
+<sect2 id="ebrowse-use">
+
+<title
+>Webzoektrefwoorden</title>
+
+<para
+>De beschrijvende namen van de gedefinieerde webkoppelingen worden getoond in een lijstveld. Net als bij andere lijsten in &kde; kunt u op de kolomkop klikken om deze kolom in alfabetische of tegengestelde volgorde te sorteren en kunt u grootte van de kolommen wijzigen.</para>
+
+<para
+>Onderaan de lijst moet de optie <guilabel
+>Webzoektrefwoorden inschakelen</guilabel
+> worden geactiveerd om deze functie in te schakelen. Gebruik de knoppen rechts om webkoppelingen aan te maken, te wijzigen of te verwijderen.</para>
+
+<para
+>Als <guilabel
+>Alleen trefwoorden met voorkeur gebruiken</guilabel
+> is geactiveerd, worden alleen trefwoorden gemarkeerd met voorkeur in de tweede kolom van de lijst gebruikt op plaatsen waar alleen een paar sneltoetsen voor selectie tegelijk kunnen worden getoond. </para>
+ 
+<para
+>Onder de lijst vindt u twee aanvullende opties:</para>
+<variablelist>
+<varlistentry
+><term
+><guilabel
+>Standaard webzoektrefwoord:</guilabel
+></term>
+<listitem>
+<para
+>Kies de zoekmachine die u wilt gebruiken wanneer u normale woorden en zinnen intypt in plaats van een &URL;-adres. Om deze functie uit te schakelen kiest u <guilabel
+>Geen</guilabel
+> uit de lijst. </para
+></listitem>
+</varlistentry>
+<varlistentry
+><term
+><guilabel
+>Scheidingsteken voor trefwoord:</guilabel
+></term>
+<listitem>
+<para
+>Kies het scheidingsteken dat het trefwoord scheidt van de te zoeken zin of woord.</para
+></listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>Als u op een specifiek item in de lijst van gedefinieerde zoekmachines klikt of op de knop <guibutton
+>Wijzigen...</guibutton
+>, dan worden de details voor dit item getoond in een popup-venster. Tevens kunt u naast de beschrijvende naam voor een item ook de &URI; zien, welke wordt gebruikt, alsmede de geassocieerde webkoppeling, die u overal in &kde; kunt typen waar &URI;'s worden verwacht. Een gegeven zoekmachine kan meerdere webkoppelingen hebben, gescheiden door een komma.</para>
+
+<para
+>De tekstvelden worden niet alleen gebruikt om informatie te tonen over een ingang in de lijst met snelkoppelingen maar ook voor het wijzigen of toevoegen van nieuwe ingangen.</para>
+
+<para
+>U kunt de inhoud van of de <guilabel
+>Snelkoppeling-URL</guilabel
+> of het <guilabel
+>Snelkoppeling:</guilabel
+>-tekstveld wijzigen. Klik op <guibutton
+>OK</guibutton
+> om uw wijzigingen op te slaan en op <guibutton
+>Annuleren</guibutton
+> om het dialoogvenster zonder wijzigingen te maken te verlaten.</para>
+
+<para
+>Als u de inhoud van het tekstveld <guilabel
+>Snelkoppeling-URL:</guilabel
+> bestudeerd dan zult u zien dat de meeste, zo niet alle, items een <option
+>\{@}</option
+> in zich hebben. Deze reeks van 4 lettertekens werkt als een parameter die vervangen moet worden door alles achter de dubbele punt die na een snelkoppeling komt. Om deze plaatshouder voor een zoekopdracht toe te voegen aan een snelkoppeling-&URL;, klik op de knop rechts van het tekstvak. Laten we wat voorbeelden bekijken om te zien hoe het werkt.</para>
+
+<para
+>Stel dat de &URI; <userinput
+>https://www.google.com/search?q=\{@}</userinput
+> is en <userinput
+>gg</userinput
+> een webkoppeling naar deze &URI; toe is. Als u dan <userinput
+>gg:<replaceable
+>alpha</replaceable
+></userinput
+> typt is dat hetzelfde als <userinput
+>https://www.google.com/search?q=<replaceable
+>alpha</replaceable
+></userinput
+>. U kunt van alles intypen na het <userinput
+>:</userinput
+> teken, dit alles zal de <option
+>\{@}</option
+> tekens vervangen nadat ze zijn geconverteerd naar de juiste tekenset voor de zoek provider en volgens de &URL;-standaard zijn gecodeerd. Alleen het <option
+>\{@}</option
+> gedeelte van de zoek-&URI; wordt bewerkt. De rest wordt beschouwd als al volgens de &URL;-standaard te zijn gecodeerd en wordt verder met rust gelaten.</para>
+
+<para
+>U kunt ook webkoppelingen zonder parameters maken. Stel dat de &URI; <emphasis
+>file:/home/ik/mijndocs/calligra/words</emphasis
+> is en de webkoppeling <emphasis
+>mijnwords</emphasis
+> is dan zal het typen van <userinput
+>mijnwords:</userinput
+> hetzelfde opleveren als de volledige &URI;. Merk op dat er niets achter de dubbelepunt mag komen, maar dat de dubbelepunt wel vereist is om als webkoppeling te worden herkent.</para>
+
+<para
+>Nu zult u begrijpen dat ondanks dat ze webkoppelingen heten het eigenlijk geparameteriseerde &URI;'s zijn die niet alleen naar websites zoals zoekmachines wijzen maar ook naar al het andere dat aangewezen kan worden door een &URI;. Webkoppelingen zijn een erg krachtige navigatiemogelijkheid in &kde;.</para>
+
+</sect2>
+
+</sect1>
+
+</article>

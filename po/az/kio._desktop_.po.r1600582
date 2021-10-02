@@ -1,0 +1,1866 @@
+# Xəyyam <xxmn77@gmail.com>, 2020.
+msgid ""
+msgstr ""
+"Project-Id-Version: desktop files\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2021-05-18 00:27+0000\n"
+"PO-Revision-Date: 2020-09-21 18:16+0400\n"
+"Last-Translator: Kheyyam Gojayev <xxmn77@gmail.com>\n"
+"Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
+"Language: az\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 20.08.1\n"
+
+#: src/ioslaves/file/kauth/file.actions:2
+msgctxt "Name"
+msgid "Execute action as root."
+msgstr "Root kimi icra edin"
+
+#: src/ioslaves/file/kauth/file.actions:41
+msgctxt "Description"
+msgid "Root privileges are required to complete the action."
+msgstr "Hərəkəti başa çatdırmaq üçün Root imtiyazları tələb olunur."
+
+#: src/ioslaves/http/http_cache_cleaner.desktop:3
+msgctxt "Name"
+msgid "HTTP Cache Cleaner"
+msgstr "HTTP Keş Təmizləyici"
+
+#: src/ioslaves/http/http_cache_cleaner.desktop:60
+msgctxt "Comment"
+msgid "Cleans up old entries from the HTTP cache"
+msgstr "Köhnə girişləri HTTP keşindən təmizləyin"
+
+#: src/ioslaves/protocols/data.protocol:8
+msgctxt "Description"
+msgid "A kioslave for data URIs (rfc2397)"
+msgstr "URİ -ları rfc2397  görə açılması"
+
+#: src/ioslaves/protocols/mms.protocol:10
+msgctxt "Description"
+msgid "Microsoft Media Server Protocol"
+msgstr "Microsoft Media Server Protokolu"
+
+#: src/ioslaves/remote/kdedmodule/remotedirnotify.desktop:3
+msgctxt "Name"
+msgid "Remote URL Change Notifier"
+msgstr "URL Dəyişikliklərini İzləmək"
+
+#: src/ioslaves/remote/kdedmodule/remotedirnotify.desktop:71
+msgctxt "Comment"
+msgid "Provides change notification for network folders"
+msgstr "Şəbəkə qovluqları üçün dəyişiklik bildirişi tətbiq edin"
+
+#: src/ioslaves/telnet/ktelnetservice5.desktop:10
+msgctxt "Name"
+msgid "KTelnetService"
+msgstr "KTelnetService"
+
+#: src/ioslaves/trash/kcmtrash.desktop:1
+#: src/ioslaves/trash/kcmtrash.desktop:173
+msgctxt "Name"
+msgid "Trash"
+msgstr "Səbət"
+
+#: src/ioslaves/trash/kcmtrash.desktop:83
+msgctxt "Comment"
+msgid "This service allows configuration of the trash."
+msgstr "Bu xidmətlə zibil qutusunun konfiqurasiyası mümkündür"
+
+#: src/ioslaves/trash/kcmtrash.desktop:255
+msgctxt "Comment"
+msgid "Configure trash settings"
+msgstr "Səbət ayarlarını tənzimlə"
+
+#: src/ioslaves/trash/kcmtrash.desktop:336
+msgctxt "X-KDE-Keywords"
+msgid "trash"
+msgstr "səbət"
+
+#: src/kcms/kio/cookies.desktop:14
+msgctxt "Name"
+msgid "Cookies"
+msgstr "Kukilər"
+
+#: src/kcms/kio/cookies.desktop:64
+msgctxt "Comment"
+msgid "Configure the way cookies work"
+msgstr "Kukilərin işini tənzimləyin"
+
+#: src/kcms/kio/cookies.desktop:151
+msgctxt "X-KDE-Keywords"
+msgid "Cookies,Browsing,Internet,WWW,Network,Policy,Domains"
+msgstr "Kukilər, Baxış, İnternet, WWW,Şəbəkə,Davranış, Xidmətlər"
+
+#: src/kcms/kio/netpref.desktop:14
+msgctxt "Name"
+msgid "Connection Preferences"
+msgstr "Bağlantı Parametrləri"
+
+#: src/kcms/kio/netpref.desktop:99
+msgctxt "Comment"
+msgid "Configure generic network preferences, like timeout values"
+msgstr "Şəbəkənin gözləmə vaxtının dəyərlərinə uyğun əsas parametrləri"
+
+#: src/kcms/kio/netpref.desktop:184
+msgctxt "X-KDE-Keywords"
+msgid "timeout,iopref,netpref,network preferences,ftp"
+msgstr "timeout,iopref,netpref,network preferences,ftp"
+
+#: src/kcms/kio/proxy.desktop:14
+msgctxt "Name"
+msgid "Proxy"
+msgstr "Proxy"
+
+#: src/kcms/kio/proxy.desktop:102
+msgctxt "Comment"
+msgid "Configure the proxy servers used"
+msgstr "Bağlantını proxy serverlə qurun"
+
+#: src/kcms/kio/proxy.desktop:190
+msgctxt "X-KDE-Keywords"
+msgid "Proxy,Proxy server,Firewall,Squid"
+msgstr "Proxy,Proxy server,Firewall,Squid"
+
+#: src/kcms/kio/smb.desktop:12
+msgctxt "Name"
+msgid "Windows Shares"
+msgstr "Windows Paylaşımları"
+
+#: src/kcms/kio/smb.desktop:98
+msgctxt "Comment"
+msgid "Credentials used to access SMB shares"
+msgstr "SMB (Windows) paylaşımlarını əldə etmək üçün sənədlər"
+
+#: src/kcms/kio/smb.desktop:141
+msgctxt "X-KDE-Keywords"
+msgid ""
+"SMB,SAMBA,SMB client,Windows network,LAN,Network,neighborhood,Server,"
+"Broadcast,WINS,Share,Login,Passwords"
+msgstr ""
+"SMB,SAMBA,SMB client,Windows network,LAN,Network,neighborhood,Server,"
+"Broadcast,WINS,Share,Login,Passwords SMB, SAMBA, SMB müştəri, Windows "
+"şəbəkəsi, LAN, Şəbəkə, qonşuluq, Server,Yayım, WINS, Paylaş, Giriş, Şifrələr"
+
+#: src/kcms/webshortcuts/webshortcuts.desktop:13
+msgctxt "Name"
+msgid "Web Search Keywords"
+msgstr "İnternetdə axtarış üçün açar sözlər"
+
+#: src/kcms/webshortcuts/webshortcuts.desktop:45
+msgctxt "Comment"
+msgid "Configure web search keywords"
+msgstr "İnternetdə axtarış açar sözlərini ayarlamaq"
+
+#: src/kcms/webshortcuts/webshortcuts.desktop:77
+msgctxt "X-KDE-Keywords"
+msgid ""
+"Web Search Keywords,Web Search,Search,Keyword,Web Shortcuts,Browsing,WWW,"
+"Internet,Internet Filters,Network,Search Engines,Shortcuts"
+msgstr ""
+"Web Shortcuts,Browsing,WWW,Internet,Internet Filters,Network,Search Engines,"
+"Shortcuts İnternetdə axtarış açar sözləri, Tarama, WWW, İnternet, İnternet "
+"Filtrləri, Şəbəkə, Axtarış motorları,Qısa yollar"
+
+#: src/kpac/proxyscout.notifyrc:3
+msgctxt "Comment"
+msgid "Network Proxy Configuration"
+msgstr "Şəbəkə Proxy Tənzimləmələri"
+
+#: src/kpac/proxyscout.notifyrc:57
+msgctxt "Name"
+msgid "Invalid Proxy Script"
+msgstr "Xətalı Proxy Skripti"
+
+#: src/kpac/proxyscout.notifyrc:109
+msgctxt "Comment"
+msgid "The downloaded proxy configuration script is invalid"
+msgstr "Yüklənmiş proksi konfiqurasiya skripti etibarsızdır"
+
+#: src/kpac/proxyscout.notifyrc:165
+msgctxt "Name"
+msgid "Script Download Error"
+msgstr "Skript yükləmə xətası"
+
+#: src/kpac/proxyscout.notifyrc:217
+msgctxt "Comment"
+msgid "The proxy configuration script could not be downloaded"
+msgstr "Proksi konfiqurasiya skriptini yükləmək olmur"
+
+#: src/kpac/proxyscout.notifyrc:274
+msgctxt "Name"
+msgid "Script Evaluation Error"
+msgstr "Skript Qiymətləndirmə Xətası"
+
+#: src/kpac/proxyscout.notifyrc:324
+msgctxt "Comment"
+msgid "There was an error executing the proxy configuration script"
+msgstr "Proksi konfiqurasiya skriptini yerinə yetirərkən xəta baş verdi"
+
+#: src/new_file_templates/Directory.desktop:2
+msgctxt "Name"
+msgid "Folder..."
+msgstr "Qovluq"
+
+#: src/new_file_templates/Directory.desktop:88
+msgctxt "Comment"
+msgid "Enter folder name:"
+msgstr "Qovluğu adlandır:"
+
+#: src/new_file_templates/HTMLFile.desktop:2
+msgctxt "Name"
+msgid "HTML File..."
+msgstr "HTML Fayl..."
+
+#: src/new_file_templates/HTMLFile.desktop:88
+msgctxt "Comment"
+msgid "Enter HTML filename:"
+msgstr "HTML faylını adlandır"
+
+#: src/new_file_templates/linkPath.desktop:2
+#, fuzzy
+#| msgctxt "Name"
+#| msgid "Basic Link to File or Directory..."
+msgctxt "Name"
+msgid "Link to File or Directory..."
+msgstr "Fayl və ya qovluğa əsas link ..."
+
+#: src/new_file_templates/linkPath.desktop:3
+msgctxt "Comment"
+msgid "File or directory to link to:"
+msgstr ""
+
+#: src/new_file_templates/linkProgram.desktop:2
+msgctxt "Name"
+msgid "Link to Application..."
+msgstr "Tətbiqə Keçid..."
+
+#: src/new_file_templates/linkProgram.desktop:84
+msgctxt "Comment"
+msgid "New Link to Application"
+msgstr "Tətbiqə Yeni Keçid"
+
+#: src/new_file_templates/linkURL.desktop:2
+msgctxt "Name"
+msgid "Link to Location (URL)..."
+msgstr "URL Bağlantı Məkanı..."
+
+#: src/new_file_templates/linkURL.desktop:87
+msgctxt "Comment"
+msgid "URL location to link to:"
+msgstr ""
+
+#: src/new_file_templates/TextFile.desktop:2
+msgctxt "Name"
+msgid "Text File..."
+msgstr "Mətn Faylı..."
+
+#: src/new_file_templates/TextFile.desktop:87
+msgctxt "Comment"
+msgid "Enter text filename:"
+msgstr "Mətn faylını adlandır:"
+
+#: src/urifilters/ikws/searchprovider.desktop:4
+msgctxt "Comment"
+msgid "Search Engine"
+msgstr "Axtarış Vasitəsi"
+
+#: src/urifilters/ikws/searchproviders/7digital.desktop:5
+msgctxt "Name"
+msgid "7Digital"
+msgstr "7Digital"
+
+#: src/urifilters/ikws/searchproviders/7digital.desktop:75
+msgctxt "Query"
+msgid ""
+"https://us.7digital.com/Search?search=\\\\{@}&searchtype=global&submit=Search"
+msgstr ""
+"https://us.7digital.com/Search?search=\\\\{@}&searchtype=global&submit=Search"
+
+#: src/urifilters/ikws/searchproviders/acronym.desktop:3
+msgctxt "Name"
+msgid "Acronym Database"
+msgstr "Akronimlərin Məlumat Basazı"
+
+#: src/urifilters/ikws/searchproviders/acronym.desktop:92
+msgctxt "Query"
+msgid "https://www.abbreviations.com/\\\\{@}"
+msgstr "https://www.abbreviations.com/\\\\{@}"
+
+#: src/urifilters/ikws/searchproviders/amazon.desktop:5
+msgctxt "Name"
+msgid "Amazon"
+msgstr "Amazon"
+
+#: src/urifilters/ikws/searchproviders/amazon.desktop:74
+msgctxt "Query"
+msgid ""
+"https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=aps&field-keywords="
+"\\\\{@}&x=0&y=0"
+msgstr ""
+"https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=aps&field-keywords="
+"\\\\{@}&x=0&y=0"
+
+#: src/urifilters/ikws/searchproviders/amazon_mp3.desktop:5
+msgctxt "Name"
+msgid "Amazon MP3"
+msgstr "Amazon MP3"
+
+#: src/urifilters/ikws/searchproviders/amazon_mp3.desktop:75
+msgctxt "Query"
+msgid ""
+"https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=digital-music&field-"
+"keywords=\\\\{@}&x=0&y=0"
+msgstr ""
+"https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=digital-music&field-"
+"keywords=\\\\{@}&x=0&y=0"
+
+#: src/urifilters/ikws/searchproviders/amg.desktop:4
+msgctxt "Name"
+msgid "All Music Guide"
+msgstr "Bütün Musiqi Bələdçisi"
+
+#: src/urifilters/ikws/searchproviders/amg.desktop:90
+msgctxt "Query"
+msgid "https://www.allmusic.com/search/all/\\\\{@}"
+msgstr "https://www.allmusic.com/search/all/\\\\{@}"
+
+#: src/urifilters/ikws/searchproviders/archpkg.desktop:3
+msgctxt "Name"
+msgid "Arch Linux Package Search"
+msgstr "Arch Linux Packet Axtarışı"
+
+#: src/urifilters/ikws/searchproviders/archpkg.desktop:48
+msgctxt "Query"
+msgid "https://www.archlinux.org/packages/?q=\\\\{@}"
+msgstr "https://www.archlinux.org/packages/?q=\\\\{@}"
+
+#: src/urifilters/ikws/searchproviders/archwiki.desktop:3
+msgctxt "Name"
+msgid "ArchWiki"
+msgstr "ArchWiki"
+
+#: src/urifilters/ikws/searchproviders/archwiki.desktop:37
+msgctxt "Query"
+msgid "https://wiki.archlinux.org/index.php?search=\\\\{@}"
+msgstr "https://wiki.archlinux.org/index.php?search=\\\\{@}"
+
+#: src/urifilters/ikws/searchproviders/backports.desktop:3
+msgctxt "Name"
+msgid "Debian Backports Search"
+msgstr "Debian Portlarının Axtarışı"
+
+#: src/urifilters/ikws/searchproviders/backports.desktop:88
+msgctxt "Query"
+msgid ""
+"https://packages.debian.org/search?suite=squeeze-"
+"backports&section=all&arch=any&searchon=names&keywords=\\\\{@}"
+msgstr ""
+"https://packages.debian.org/search?suite=squeeze-"
+"backports&section=all&arch=any&searchon=names&keywords=\\\\{@}"
+
+#: src/urifilters/ikws/searchproviders/baidu.desktop:3
+msgctxt "Name"
+msgid "Baidu"
+msgstr "Baidu"
+
+#: src/urifilters/ikws/searchproviders/baidu.desktop:74
+msgctxt "Query"
+msgid "https://www.baidu.com/s?wd=\\\\{@}"
+msgstr "https://www.baidu.com/s?wd=\\\\{@}"
+
+#: src/urifilters/ikws/searchproviders/beolingus.desktop:3
+msgctxt "Name"
+msgid "Beolingus Online Dictionary"
+msgstr "Beolingus Online Lüğət"
+
+#: src/urifilters/ikws/searchproviders/beolingus.desktop:73
+msgctxt "Query"
+msgid ""
+"https://dict.tu-chemnitz.de/dings.cgi?"
+"lang=de&service=deen&opterrors=0&optpro=0&query=\\\\{@}"
+"&iservice=&comment=&email"
+msgstr ""
+"https://dict.tu-chemnitz.de/dings.cgi?"
+"lang=de&service=deen&opterrors=0&optpro=0&query=\\\\{@}"
+"&iservice=&comment=&email"
+
+#: src/urifilters/ikws/searchproviders/bing.desktop:3
+msgctxt "Name"
+msgid "Bing"
+msgstr "Bing"
+
+#: src/urifilters/ikws/searchproviders/bing.desktop:74
+msgctxt "Query"
+msgid "https://www.bing.com/search?q=\\\\{@}"
+msgstr "https://www.bing.com/search?q=\\\\{@}"
+
+#: src/urifilters/ikws/searchproviders/bug.desktop:3
+msgctxt "Name"
+msgid "KDE Bugs"
+msgstr "KDE Xətaları"
+
+#: src/urifilters/ikws/searchproviders/bug.desktop:35
+msgctxt "Query"
+msgid "https://bugs.kde.org/buglist.cgi?quicksearch=\\\\{@}"
+msgstr "https://bugs.kde.org/buglist.cgi?quicksearch=\\\\{@}"
+
+#: src/urifilters/ikws/searchproviders/call.desktop:5
+msgctxt "Name"
+msgid "QRZ.com Callsign Database"
+msgstr "QRZ.com Callsign Məlumat Bazası"
+
+#: src/urifilters/ikws/searchproviders/call.desktop:90
+msgctxt "Query"
+msgid "https://www.qrz.com/db/\\\\{@}"
+msgstr "https://www.qrz.com/db/\\\\{@}"
+
+#: src/urifilters/ikws/searchproviders/cia.desktop:4
+msgctxt "Name"
+msgid "CIA World Fact Book"
+msgstr "Ümumdünya Faktlar Kitabı (FTB)"
+
+#: src/urifilters/ikws/searchproviders/cia.desktop:88
+msgctxt "Query"
+msgid ""
+"https://www.cia.gov/search?q=\\\\{@}"
+"&site=WORLD_FACTBOOK&btnG=Search&client=CIA&myAction=/"
+"search&proxystylesheet=CIA&submitMethod=get&oe=UTF-8&ie=UTF-8&ud=1"
+msgstr ""
+"https://www.cia.gov/search?q=\\\\{@}"
+"&site=WORLD_FACTBOOK&btnG=Search&client=CIA&myAction=/"
+"search&proxystylesheet=CIA&submitMethod=get&oe=UTF-8&ie=UTF-8&ud=1"
+
+#: src/urifilters/ikws/searchproviders/citeseer.desktop:5
+msgctxt "Name"
+msgid "CiteSeer: Scientific Literature Digital Library"
+msgstr "CiteSeer: Elmi Ədəbiyyat Rəqəmsal Kitabxanası"
+
+#: src/urifilters/ikws/searchproviders/citeseer.desktop:92
+msgctxt "Query"
+msgid ""
+"https://citeseer.ist.psu.edu/search?q=\\\\{@}&submit=Search&sort=rlv&t=doc"
+msgstr ""
+"https://citeseer.ist.psu.edu/search?q=\\\\{@}&submit=Search&sort=rlv&t=doc"
+
+#: src/urifilters/ikws/searchproviders/cpan.desktop:3
+msgctxt "Name"
+msgid "CPAN - Comprehensive Perl Archive Network"
+msgstr "CPAN - Perl Skriplər Arxivi"
+
+#: src/urifilters/ikws/searchproviders/cpan.desktop:92
+msgctxt "Query"
+msgid ""
+"https://search.cpan.org/search?mode=\\\\{mode,2,\"\"}&query=\\\\{query,q,1}"
+msgstr ""
+"https://search.cpan.org/search?mode=\\\\{mode,2,\"\"}&query=\\\\{query,q,1}"
+
+#: src/urifilters/ikws/searchproviders/ctan_cat.desktop:3
+msgctxt "Name"
+msgid "CTAN Catalog"
+msgstr "CTAN Kataloq"
+
+#: src/urifilters/ikws/searchproviders/ctan_cat.desktop:92
+msgctxt "Query"
+msgid ""
+"http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\\\{@}"
+"&metadataSearchSubmit=Search"
+msgstr ""
+"http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\\\{@}"
+"&metadataSearchSubmit=Search"
+
+#: src/urifilters/ikws/searchproviders/ctan.desktop:3
+msgctxt "Name"
+msgid "CTAN - Comprehensive TeX Archive Network"
+msgstr "CTAN - Hərtərəfli TeX Arxiv Şəbəkəsi"
+
+#: src/urifilters/ikws/searchproviders/ctan.desktop:92
+msgctxt "Query"
+msgid "https://ctan.org/search?phrase=\\\\{@}"
+msgstr "https://ctan.org/search?phrase=\\\\{@}"
+
+#: src/urifilters/ikws/searchproviders/dbug.desktop:3
+msgctxt "Name"
+msgid "Debian BTS Bug Search"
+msgstr "Debian BTS Xəta Axtarışı"
+
+#: src/urifilters/ikws/searchproviders/dbug.desktop:88
+msgctxt "Query"
+msgid "https://bugs.debian.org/\\\\{@}"
+msgstr "https://bugs.debian.org/\\\\{@}"
+
+#: src/urifilters/ikws/searchproviders/de2en.desktop:5
+msgctxt "Name"
+msgid "dict.cc Translation: German to English"
+msgstr "dict.cc Tərcümə: Almancadan İngiliscəyə"
+
+#: src/urifilters/ikws/searchproviders/de2en.desktop:91
+#: src/urifilters/ikws/searchproviders/en2de.desktop:91
+msgctxt "Query"
+msgid "https://www.dict.cc/?s=\\\\{@}"
+msgstr "https://www.dict.cc/?s=\\\\{@}"
+
+#: src/urifilters/ikws/searchproviders/de2fr.desktop:3
+msgctxt "Name"
+msgid "LEO - Translate Between German and French"
+msgstr "LEO - Fransız və Alman dilləri arasında tərcümə"
+
+#: src/urifilters/ikws/searchproviders/de2fr.desktop:91
+#: src/urifilters/ikws/searchproviders/fr2de.desktop:91
+msgctxt "Query"
+msgid "https://dict.leo.org/?lp=frde&search=\\\\{@}"
+msgstr "https://dict.leo.org/?lp=frde&search=\\\\{@}"
+
+#: src/urifilters/ikws/searchproviders/deb.desktop:3
+msgctxt "Name"
+msgid "Debian Package Search"
+msgstr "Debian Paket Axtarışı"
+
+#: src/urifilters/ikws/searchproviders/deb.desktop:92
+msgctxt "Query"
+msgid "https://packages.debian.org/\\\\{@}"
+msgstr "https://packages.debian.org/\\\\{@}"
+
+#: src/urifilters/ikws/searchproviders/deepl.desktop:3
+msgctxt "Name"
+msgid "DeepL"
+msgstr "DeepL"
+
+#: src/urifilters/ikws/searchproviders/deepl.desktop:34
+msgctxt "Query"
+msgid "https://www.deepl.com/translator#any/any/\\\\{@}"
+msgstr "https://www.deepl.com/translator#any/any/\\\\{@}"
+
+#: src/urifilters/ikws/searchproviders/dictfr.desktop:3
+msgctxt "Name"
+msgid "CNRTL/TILF French dictionary"
+msgstr "CNRTL/TILF Fransızca Lüğət"
+
+#: src/urifilters/ikws/searchproviders/dictfr.desktop:77
+msgctxt "Query"
+msgid "https://www.cnrtl.fr/definition/\\\\{@}"
+msgstr "https://www.cnrtl.fr/definition/\\\\{@}"
+
+#: src/urifilters/ikws/searchproviders/docbook.desktop:5
+msgctxt "Name"
+msgid "DocBook - The Definitive Guide"
+msgstr "DocBook - Tam Bələdçi"
+
+#: src/urifilters/ikws/searchproviders/docbook.desktop:94
+msgctxt "Query"
+msgid "https://www.docbook.org/tdg/en/html/\\\\{1}.html"
+msgstr "https://www.docbook.org/tdg/en/html/\\\\{1}.html"
+
+#: src/urifilters/ikws/searchproviders/doi.desktop:5
+msgctxt "Name"
+msgid "Digital Object Identifier"
+msgstr "Rəqəmsal Obyekt İdentifikatoru"
+
+#: src/urifilters/ikws/searchproviders/doi.desktop:91
+msgctxt "Query"
+msgid "https://dx.doi.org/\\\\{@}"
+msgstr "https://dx.doi.org/\\\\{@}"
+
+#: src/urifilters/ikws/searchproviders/duckduckgo.desktop:5
+msgctxt "Name"
+msgid "Duck Duck Go"
+msgstr "Duck Duck Go axtarış sistemi"
+
+#: src/urifilters/ikws/searchproviders/duckduckgo.desktop:74
+msgctxt "Query"
+msgid "https://duckduckgo.com/?q=\\\\{@}&t=kde"
+msgstr "https://duckduckgo.com/?q=\\\\{@}&t=kde"
+
+#: src/urifilters/ikws/searchproviders/duckduckgo_info.desktop:5
+msgctxt "Name"
+msgid "Duck Duck Go Info"
+msgstr "Duck Duck Go  Haqqında Məlumat"
+
+#: src/urifilters/ikws/searchproviders/duckduckgo_info.desktop:73
+msgctxt "Query"
+msgid "https://duckduckgo.com/?q=\\\\{@}&v=r&t=kde"
+msgstr "https://duckduckgo.com/?q=\\\\{@}&v=r&t=kde"
+
+#: src/urifilters/ikws/searchproviders/duckduckgo_shopping.desktop:5
+msgctxt "Name"
+msgid "Duck Duck Go Shopping"
+msgstr "Duck Duck Go : Alış"
+
+#: src/urifilters/ikws/searchproviders/duckduckgo_shopping.desktop:74
+msgctxt "Query"
+msgid "https://duckduckgo.com/?q=\\\\{@}&v=s&t=kde"
+msgstr "https://duckduckgo.com/?q=\\\\{@}&v=s&t=kde"
+
+#: src/urifilters/ikws/searchproviders/ecosia.desktop:3
+msgctxt "Name"
+msgid "Ecosia search engine"
+msgstr "Ecosia axtarış vasitəsi"
+
+#: src/urifilters/ikws/searchproviders/ecosia.desktop:75
+msgctxt "Query"
+msgid "https://ecosia.org/search.php?q=\\\\{@}&meta=normal"
+msgstr "https://ecosia.org/search.php?q=\\\\{@}&meta=normal"
+
+#: src/urifilters/ikws/searchproviders/en2de.desktop:5
+msgctxt "Name"
+msgid "dict.cc Translation: English to German"
+msgstr "dict.cc  tərcümə: İngiliscədən Almancaya"
+
+#: src/urifilters/ikws/searchproviders/en2es.desktop:5
+msgctxt "Name"
+msgid "WordReference.com Translation: English to Spanish"
+msgstr "WordReference.com Tərcümə: İngiliscədən İspancaya"
+
+#: src/urifilters/ikws/searchproviders/en2es.desktop:93
+msgctxt "Query"
+msgid "https://www.wordreference.com/es/translation.asp?tranword=\\\\{@}"
+msgstr "https://www.wordreference.com/es/translation.asp?tranword=\\\\{@}"
+
+#: src/urifilters/ikws/searchproviders/en2fr.desktop:5
+msgctxt "Name"
+msgid "WordReference.com Translation: English to French"
+msgstr "WordReference.com Tərcümə :İngiliscədən Fransızcaya"
+
+#: src/urifilters/ikws/searchproviders/en2fr.desktop:93
+msgctxt "Query"
+msgid "https://www.wordreference.com/fr/Translation.asp?enfr=\\\\{@}"
+msgstr "https://www.wordreference.com/fr/Translation.asp?enfr=\\\\{@}"
+
+#: src/urifilters/ikws/searchproviders/en2it.desktop:5
+msgctxt "Name"
+msgid "WordReference.com Translation: English to Italian"
+msgstr "WordReference.com Tərcümə: İngiliscədən İtalyancaya"
+
+#: src/urifilters/ikws/searchproviders/en2it.desktop:93
+msgctxt "Query"
+msgid "https://www.wordreference.com/it/translation.asp?enit=\\\\{@}"
+msgstr "https://www.wordreference.com/it/translation.asp?enit=\\\\{@}"
+
+#: src/urifilters/ikws/searchproviders/es2en.desktop:5
+msgctxt "Name"
+msgid "WordReference.com Translation: Spanish to English"
+msgstr "WordReference.com  Tərcümə: İspancadan İngiliscəyə"
+
+#: src/urifilters/ikws/searchproviders/es2en.desktop:93
+msgctxt "Query"
+msgid "https://www.wordreference.com/es/en/translation.asp?spen=\\\\{@}"
+msgstr "https://www.wordreference.com/es/en/translation.asp?spen=\\\\{@}"
+
+#: src/urifilters/ikws/searchproviders/facebook.desktop:5
+msgctxt "Name"
+msgid "Facebook"
+msgstr "Facebook"
+
+#: src/urifilters/ikws/searchproviders/facebook.desktop:75
+msgctxt "Query"
+msgid "https://www.facebook.com/search/?q=\\\\{@}&init=quick"
+msgstr "https://www.facebook.com/search/?q=\\\\{@}&init=quick"
+
+#: src/urifilters/ikws/searchproviders/feedster.desktop:3
+msgctxt "Name"
+msgid "Feedster"
+msgstr "Feedster"
+
+#: src/urifilters/ikws/searchproviders/feedster.desktop:95
+msgctxt "Query"
+msgid ""
+"https://www.feedster.com/index.php?page=search/web&type=Web&search=\\\\{@}"
+msgstr ""
+"https://www.feedster.com/index.php?page=search/web&type=Web&search=\\\\{@}"
+
+#: src/urifilters/ikws/searchproviders/flickrcc.desktop:5
+msgctxt "Name"
+msgid "Flickr Creative Commons"
+msgstr "Flickr Creative Commons Lisenziyası"
+
+#: src/urifilters/ikws/searchproviders/flickrcc.desktop:72
+msgctxt "Query"
+msgid "https://www.flickr.com/search/?q=\\\\{@}&l=cc&ct=0&mt=all&adv=1"
+msgstr "https://www.flickr.com/search/?q=\\\\{@}&l=cc&ct=0&mt=all&adv=1"
+
+#: src/urifilters/ikws/searchproviders/flickr.desktop:5
+msgctxt "Name"
+msgid "Flickr"
+msgstr "Flickr"
+
+#: src/urifilters/ikws/searchproviders/flickr.desktop:75
+msgctxt "Query"
+msgid "https://www.flickr.com/search/?q=\\\\{@}"
+msgstr "https://www.flickr.com/search/?q=\\\\{@}"
+
+#: src/urifilters/ikws/searchproviders/foldoc.desktop:3
+msgctxt "Name"
+msgid "Free On-Line Dictionary of Computing"
+msgstr "İnformatika üzrə pulsuz online lüğət"
+
+#: src/urifilters/ikws/searchproviders/foldoc.desktop:93
+msgctxt "Query"
+msgid "https://foldoc.org/\\\\{@}"
+msgstr "https://foldoc.org/\\\\{@}"
+
+#: src/urifilters/ikws/searchproviders/fr2de.desktop:3
+msgctxt "Name"
+msgid "LEO - Translate Between French and German"
+msgstr "LEO - Fransız və Alman arasında tərcümə"
+
+#: src/urifilters/ikws/searchproviders/fr2en.desktop:5
+msgctxt "Name"
+msgid "WordReference.com Translation: French to English"
+msgstr "WordReference.com Tərcümə: Fransızcadan İngiliscəyə"
+
+#: src/urifilters/ikws/searchproviders/fr2en.desktop:93
+msgctxt "Query"
+msgid "https://www.wordreference.com/fr/en/translation.asp?fren=\\\\{@}"
+msgstr "https://www.wordreference.com/fr/en/translation.asp?fren=\\\\{@}"
+
+#: src/urifilters/ikws/searchproviders/freecode.desktop:3
+msgctxt "Name"
+msgid "Freecode"
+msgstr "Freecode"
+
+#: src/urifilters/ikws/searchproviders/freecode.desktop:61
+msgctxt "Query"
+msgid "http://freecode.com/search?q=\\\\{@}"
+msgstr "http://freecode.com/search?q=\\\\{@}"
+
+#: src/urifilters/ikws/searchproviders/freedb.desktop:3
+msgctxt "Name"
+msgid "FreeDB"
+msgstr "FreeDB"
+
+#: src/urifilters/ikws/searchproviders/freedb.desktop:95
+msgctxt "Query"
+msgid "http://www.freedb.org/freedb_search.php?words=\\\\{@}"
+msgstr "http://www.freedb.org/freedb_search.php?words=\\\\{@}"
+
+#: src/urifilters/ikws/searchproviders/fsd.desktop:3
+msgctxt "Name"
+msgid "FSF/UNESCO Free Software Directory"
+msgstr "FSF/UNESCO üzrə Azad Proqram Təminatı"
+
+#: src/urifilters/ikws/searchproviders/fsd.desktop:91
+msgctxt "Query"
+msgid "https://directory.fsf.org/search/?query=\\\\{@}"
+msgstr "https://directory.fsf.org/search/?query=\\\\{@}"
+
+#: src/urifilters/ikws/searchproviders/github.desktop:5
+msgctxt "Name"
+msgid "GitHub"
+msgstr "GitHub"
+
+#: src/urifilters/ikws/searchproviders/github.desktop:75
+msgctxt "Query"
+msgid "https://github.com/search?q=\\\\{@}&x=0&y=0"
+msgstr "https://github.com/search?q=\\\\{@}&x=0&y=0"
+
+#: src/urifilters/ikws/searchproviders/gitlab.desktop:5
+msgctxt "Name"
+msgid "GitLab"
+msgstr "GitLab"
+
+#: src/urifilters/ikws/searchproviders/gitlab.desktop:43
+msgctxt "Query"
+msgid "https://gitlab.com/search?search=\\\\{@}"
+msgstr "https://gitlab.com/search?search=\\\\{@}"
+
+#: src/urifilters/ikws/searchproviders/google_advanced.desktop:3
+msgctxt "Name"
+msgid "Google Advanced Search"
+msgstr "Google Axtarış"
+
+#: src/urifilters/ikws/searchproviders/google_advanced.desktop:96
+msgctxt "Query"
+msgid ""
+"https://www.google.com/search?as_q=\\\\{all,@}&num=\\\\{num,\"10\"}"
+"&btnG=Google+Search&as_epq=\\\\{exact,\"\"}&as_oq=\\\\{any,\"\"}&as_eq=\\"
+"\\{without,\"\"}&lr=\\\\{lang,\"\"}&as_ft=\\\\{ft,\"i\"}&as_filetype=\\"
+"\\{filetype,\"\"}&as_qdr=\\\\{date,\"all\"}&as_occt=\\\\{occ,\"any\"}&as_dt="
+"\\\\{siteop,\"i\"}&as_sitesearch=\\\\{site}&safe=\\\\{safe,\"active\"}"
+"&ie=UTF-8&oe=UTF-8"
+msgstr ""
+"https://www.google.com/search?as_q=\\\\{all,@}&num=\\\\{num,\"10\"}"
+"&btnG=Google+Search&as_epq=\\\\{exact,\"\"}&as_oq=\\\\{any,\"\"}&as_eq=\\"
+"\\{without,\"\"}&lr=\\\\{lang,\"\"}&as_ft=\\\\{ft,\"i\"}&as_filetype=\\"
+"\\{filetype,\"\"}&as_qdr=\\\\{date,\"all\"}&as_occt=\\\\{occ,\"any\"}&as_dt="
+"\\\\{siteop,\"i\"}&as_sitesearch=\\\\{site}&safe=\\\\{safe,\"active\"}"
+"&ie=UTF-8&oe=UTF-8"
+
+#: src/urifilters/ikws/searchproviders/google_code.desktop:5
+msgctxt "Name"
+msgid "Google Code"
+msgstr "Google Code"
+
+#: src/urifilters/ikws/searchproviders/google_code.desktop:73
+msgctxt "Query"
+msgid "https://code.google.com/query/#q=\\\\{%2520}"
+msgstr "https://code.google.com/query/#q=\\\\{%2520}"
+
+#: src/urifilters/ikws/searchproviders/google.desktop:4
+msgctxt "Name"
+msgid "Google"
+msgstr "Google"
+
+#: src/urifilters/ikws/searchproviders/google.desktop:99
+msgctxt "Query"
+msgid "https://www.google.com/search?q=\\\\{@}&ie=UTF-8"
+msgstr "https://www.google.com/search?q=\\\\{@}&ie=UTF-8"
+
+#: src/urifilters/ikws/searchproviders/google_groups.desktop:3
+msgctxt "Name"
+msgid "Google Groups"
+msgstr "Google Qrupları"
+
+#: src/urifilters/ikws/searchproviders/google_groups.desktop:97
+msgctxt "Query"
+msgid "https://groups.google.com/groups?oi=djq&as_q=\\\\{@}"
+msgstr "https://groups.google.com/groups?oi=djq&as_q=\\\\{@}"
+
+#: src/urifilters/ikws/searchproviders/google_images.desktop:3
+msgctxt "Name"
+msgid "Google Image Search"
+msgstr "Google Şəkil Axtarışı"
+
+#: src/urifilters/ikws/searchproviders/google_images.desktop:97
+msgctxt "Query"
+msgid "https://www.google.com/search?site=imghp&tbm=isch&q=\\\\{@}"
+msgstr "https://www.google.com/search?site=imghp&tbm=isch&q=\\\\{@}"
+
+#: src/urifilters/ikws/searchproviders/google_lucky.desktop:3
+msgctxt "Name"
+msgid "Google (I'm Feeling Lucky)"
+msgstr "Google Mən Xöşbəxtəm"
+
+#: src/urifilters/ikws/searchproviders/google_lucky.desktop:95
+msgctxt "Query"
+msgid ""
+"https://www.google.com/search?q=\\\\{@}&btnI=I%27m+Feeling"
+"+Lucky&ie=UTF-8&oe=UTF-8"
+msgstr ""
+"https://www.google.com/search?q=\\\\{@}&btnI=I%27m+Feeling"
+"+Lucky&ie=UTF-8&oe=UTF-8"
+
+#: src/urifilters/ikws/searchproviders/google_maps.desktop:3
+msgctxt "Name"
+msgid "Google Maps"
+msgstr "Google Xəritələr"
+
+#: src/urifilters/ikws/searchproviders/google_maps.desktop:74
+msgctxt "Query"
+msgid "https://maps.google.com/maps?q=\\\\{@}&ie=UTF8&iwloc=addr"
+msgstr "https://maps.google.com/maps?q=\\\\{@}&ie=UTF8&iwloc=addr"
+
+#: src/urifilters/ikws/searchproviders/google_movie.desktop:3
+msgctxt "Name"
+msgid "Google Movies"
+msgstr "Google Filmlər"
+
+#: src/urifilters/ikws/searchproviders/google_movie.desktop:95
+msgctxt "Query"
+msgid "https://www.google.com/search?q=\\\\{@}&ie=UTF-8&oe=UTF-8"
+msgstr "https://www.google.com/search?q=\\\\{@}&ie=UTF-8&oe=UTF-8"
+
+#: src/urifilters/ikws/searchproviders/google_news.desktop:3
+msgctxt "Name"
+msgid "Google News"
+msgstr "Google Xəbərlər"
+
+#: src/urifilters/ikws/searchproviders/google_news.desktop:96
+msgctxt "Query"
+msgid "https://news.google.com/news?q=\\\\{@}&ie=UTF-8&oe=UTF-8"
+msgstr "https://news.google.com/news?q=\\\\{@}&ie=UTF-8&oe=UTF-8"
+
+#: src/urifilters/ikws/searchproviders/google_shopping.desktop:3
+msgctxt "Name"
+msgid "Google Shopping"
+msgstr "Google Alış-Veriş"
+
+#: src/urifilters/ikws/searchproviders/google_shopping.desktop:60
+msgctxt "Query"
+msgid "https://www.google.com/search?hl=en&tbm=shop&q=\\\\{@}"
+msgstr "https://www.google.com/search?hl=en&tbm=shop&q=\\\\{@}"
+
+#: src/urifilters/ikws/searchproviders/grec.desktop:5
+msgctxt "Name"
+msgid "Great Dictionary of the Catalan Language (GRan Enciclopèdia Catalana)"
+msgstr "Katalon Dilini Böyük Lüğəti (GRan Enciclopèdia Catalana)"
+
+#: src/urifilters/ikws/searchproviders/grec.desktop:49
+msgctxt "Query"
+msgid "http://ec.grec.net/cgi-bin/AppDLC3.exe?APP=CERCADLC&GECART=\\\\{@}"
+msgstr "http://ec.grec.net/cgi-bin/AppDLC3.exe?APP=CERCADLC&GECART=\\\\{@}"
+
+#: src/urifilters/ikws/searchproviders/hyperdictionary.desktop:3
+msgctxt "Name"
+msgid "HyperDictionary.com"
+msgstr "HyperDictionary.com"
+
+#: src/urifilters/ikws/searchproviders/hyperdictionary.desktop:96
+msgctxt "Query"
+msgid "http://www.hyperdictionary.com/search.aspx?define=\\\\{@}"
+msgstr "http://www.hyperdictionary.com/search.aspx?define=\\\\{@}"
+
+#: src/urifilters/ikws/searchproviders/hyperdictionary_thesaurus.desktop:3
+msgctxt "Name"
+msgid "HyperDictionary.com Thesaurus"
+msgstr "HyperDictionary.com Thesaurus"
+
+#: src/urifilters/ikws/searchproviders/hyperdictionary_thesaurus.desktop:94
+msgctxt "Query"
+msgid "http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\\\{@}"
+msgstr "http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\\\{@}"
+
+#: src/urifilters/ikws/searchproviders/identica_groups.desktop:5
+msgctxt "Name"
+msgid "Identi.ca Groups"
+msgstr "Identi.ca  Qrupları"
+
+#: src/urifilters/ikws/searchproviders/identica_groups.desktop:74
+msgctxt "Query"
+msgid "https://identi.ca/search/group?q=\\\\{@}"
+msgstr "https://identi.ca/search/group?q=\\\\{@}"
+
+#: src/urifilters/ikws/searchproviders/identica_notices.desktop:5
+msgctxt "Name"
+msgid "Identi.ca Notices"
+msgstr "Identi.ca Qeydlər"
+
+#: src/urifilters/ikws/searchproviders/identica_notices.desktop:74
+msgctxt "Query"
+msgid "https://identi.ca/search/notice?q=\\\\{@}"
+msgstr "https://identi.ca/search/notice?q=\\\\{@}"
+
+#: src/urifilters/ikws/searchproviders/identica_people.desktop:5
+msgctxt "Name"
+msgid "Identi.ca People"
+msgstr "Identi.ca İnsanlar"
+
+#: src/urifilters/ikws/searchproviders/identica_people.desktop:73
+msgctxt "Query"
+msgid "https://identi.ca/search/people?q=\\\\{@}&search=Search"
+msgstr "https://identi.ca/search/people?q=\\\\{@}&search=Search"
+
+#: src/urifilters/ikws/searchproviders/imdb.desktop:3
+msgctxt "Name"
+msgid "Internet Movie Database"
+msgstr "İnternet Film Məlumat Bazası"
+
+#: src/urifilters/ikws/searchproviders/imdb.desktop:95
+msgctxt "Query"
+msgid "https://imdb.com/find?s=all&q=\\\\{@}"
+msgstr "https://imdb.com/find?s=all&q=\\\\{@}"
+
+#: src/urifilters/ikws/searchproviders/it2en.desktop:5
+msgctxt "Name"
+msgid "WordReference.com Translation: Italian to English"
+msgstr "WordReference.com Tərcümə: İtalyancadan İngiliscəyə"
+
+#: src/urifilters/ikws/searchproviders/it2en.desktop:93
+msgctxt "Query"
+msgid "https://www.wordreference.com/it/en/translation.asp?iten=\\\\{@}"
+msgstr "https://www.wordreference.com/it/en/translation.asp?iten=\\\\{@}"
+
+#: src/urifilters/ikws/searchproviders/jamendo.desktop:5
+msgctxt "Name"
+msgid "Jamendo"
+msgstr "Jamendo"
+
+#: src/urifilters/ikws/searchproviders/jamendo.desktop:76
+msgctxt "Query"
+msgid "https://www.jamendo.com/en/search?qs=q=\\\\{@}"
+msgstr "https://www.jamendo.com/en/search?qs=q=\\\\{@}"
+
+#: src/urifilters/ikws/searchproviders/jeeves.desktop:3
+msgctxt "Name"
+msgid "Ask Jeeves"
+msgstr "Ask Jeeves"
+
+#: src/urifilters/ikws/searchproviders/jeeves.desktop:94
+msgctxt "Query"
+msgid ""
+"https://www.ask.com/main/askJeeves.asp?"
+"origin=0&qSource=4&site_name=Jeeves&metasearch=yes&ask=\\\\{@}"
+msgstr ""
+"https://www.ask.com/main/askJeeves.asp?"
+"origin=0&qSource=4&site_name=Jeeves&metasearch=yes&ask=\\\\{@}"
+
+#: src/urifilters/ikws/searchproviders/kde_apps.desktop:3
+msgctxt "Name"
+msgid "KDE App Search"
+msgstr "KDE Proqram Axtarışı"
+
+#: src/urifilters/ikws/searchproviders/kde_apps.desktop:96
+msgctxt "Query"
+msgid "https://www.kde-apps.org/content/search.php?search=Search&name=\\\\{@}"
+msgstr "https://www.kde-apps.org/content/search.php?search=Search&name=\\\\{@}"
+
+#: src/urifilters/ikws/searchproviders/kde.desktop:6
+msgctxt "Name"
+msgid "KDE API Documentation"
+msgstr "KDE API Sənədləşməsi"
+
+#: src/urifilters/ikws/searchproviders/kde.desktop:96
+msgctxt "Query"
+msgid "https://api.kde.org/classmapper.php?class=\\\\{@}"
+msgstr "https://api.kde.org/classmapper.php?class=\\\\{@}"
+
+#: src/urifilters/ikws/searchproviders/kde_forums.desktop:5
+msgctxt "Name"
+msgid "KDE Forums"
+msgstr "KDE Forumları"
+
+#: src/urifilters/ikws/searchproviders/kde_forums.desktop:75
+msgctxt "Query"
+msgid ""
+"https://forum.kde.org/search.php?keywords=\\\\{@}"
+"&terms=all&author=&tags=&sv=0&sc=1&sf=all&sr=posts&sk=t&sd=d&st=0&ch=300&countlimit=100&t=0&submit=Search"
+msgstr ""
+"https://forum.kde.org/search.php?keywords=\\\\{@}"
+"&terms=all&author=&tags=&sv=0&sc=1&sf=all&sr=posts&sk=t&sd=d&st=0&ch=300&countlimit=100&t=0&submit=Search"
+
+#: src/urifilters/ikws/searchproviders/kde_look.desktop:5
+msgctxt "Name"
+msgid "KDE Look"
+msgstr "KDE Look"
+
+#: src/urifilters/ikws/searchproviders/kde_look.desktop:74
+msgctxt "Query"
+msgid "https://www.kde-look.org/content/search.php?search=Search&name=\\\\{@}"
+msgstr "https://www.kde-look.org/content/search.php?search=Search&name=\\\\{@}"
+
+#: src/urifilters/ikws/searchproviders/kde_techbase.desktop:5
+msgctxt "Name"
+msgid "KDE TechBase"
+msgstr "KDE Texniki Basa"
+
+#: src/urifilters/ikws/searchproviders/kde_techbase.desktop:74
+msgctxt "Query"
+msgid "https://techbase.kde.org/Special:Search?search=\\\\{@}&fulltext=Search"
+msgstr "https://techbase.kde.org/Special:Search?search=\\\\{@}&fulltext=Search"
+
+#: src/urifilters/ikws/searchproviders/kde_userbase.desktop:5
+msgctxt "Name"
+msgid "KDE UserBase"
+msgstr "KDE İstifadəçi Baza"
+
+#: src/urifilters/ikws/searchproviders/kde_userbase.desktop:75
+msgctxt "Query"
+msgid "https://userbase.kde.org/Special:Search?search=\\\\{@}&fulltext=Search"
+msgstr "https://userbase.kde.org/Special:Search?search=\\\\{@}&fulltext=Search"
+
+#: src/urifilters/ikws/searchproviders/leo.desktop:3
+msgctxt "Name"
+msgid "LEO-Translate"
+msgstr "LEO-Tərcümə"
+
+#: src/urifilters/ikws/searchproviders/leo.desktop:94
+msgctxt "Query"
+msgid "https://dict.leo.org/?search=\\\\{@}"
+msgstr "https://dict.leo.org/?search=\\\\{@}"
+
+#: src/urifilters/ikws/searchproviders/magnatune.desktop:5
+msgctxt "Name"
+msgid "Magnatune"
+msgstr "Magnatune"
+
+#: src/urifilters/ikws/searchproviders/magnatune.desktop:75
+msgctxt "Query"
+msgid "https://my.magnatune.com/search?w=\\\\{@}&t=m&x=0&y=0"
+msgstr "https://my.magnatune.com/search?w=\\\\{@}&t=m&x=0&y=0"
+
+#: src/urifilters/ikws/searchproviders/metacrawler.desktop:3
+msgctxt "Name"
+msgid "MetaCrawler"
+msgstr "MetaCrawler"
+
+#: src/urifilters/ikws/searchproviders/metacrawler.desktop:96
+msgctxt "Query"
+msgid "https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\\\{@}"
+msgstr ""
+"https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\\\{@}"
+
+#: src/urifilters/ikws/searchproviders/msdn.desktop:3
+msgctxt "Name"
+msgid "Microsoft Developer Network Search"
+msgstr "Microsoft Developer Network Axtarışı"
+
+#: src/urifilters/ikws/searchproviders/msdn.desktop:94
+msgctxt "Query"
+msgid "https://social.msdn.microsoft.com/Search/en-US?query=\\\\{@}"
+msgstr "https://social.msdn.microsoft.com/Search/en-US?query=\\\\{@}"
+
+#: src/urifilters/ikws/searchproviders/multitran-deru.desktop:4
+msgctxt "Name"
+msgid "Multitran - Translate Between German and Russian"
+msgstr "Multitran - Alman və Rus dillərində tərcümə edin"
+
+#: src/urifilters/ikws/searchproviders/multitran-deru.desktop:89
+msgctxt "Query"
+msgid "https://multitran.ru/c/m.exe?l1=3&s=\\\\{@}"
+msgstr "https://multitran.ru/c/m.exe?l1=3&s=\\\\{@}"
+
+#: src/urifilters/ikws/searchproviders/multitran-enru.desktop:4
+msgctxt "Name"
+msgid "Multitran - Translate Between English and Russian"
+msgstr "Multitran - İngilis və Rus arasında tərcümə"
+
+#: src/urifilters/ikws/searchproviders/multitran-enru.desktop:89
+msgctxt "Query"
+msgid "https://multitran.ru/c/m.exe?l1=1&l2=2&s=\\\\{@}"
+msgstr "https://multitran.ru/c/m.exe?l1=1&l2=2&s=\\\\{@}"
+
+#: src/urifilters/ikws/searchproviders/multitran-esru.desktop:4
+msgctxt "Name"
+msgid "Multitran - Translate Between Spanish and Russian"
+msgstr "Multitran - İspan və Rus arasında tərcümə"
+
+#: src/urifilters/ikws/searchproviders/multitran-esru.desktop:89
+msgctxt "Query"
+msgid "https://multitran.ru/c/m.exe?l1=5&s=\\\\{@}"
+msgstr "https://multitran.ru/c/m.exe?l1=5&s=\\\\{@}"
+
+#: src/urifilters/ikws/searchproviders/multitran-frru.desktop:4
+msgctxt "Name"
+msgid "Multitran - Translate Between French and Russian"
+msgstr "Multitran - Fransız və Rus arasında tərcümə"
+
+#: src/urifilters/ikws/searchproviders/multitran-frru.desktop:89
+msgctxt "Query"
+msgid "https://multitran.ru/c/m.exe?l1=4&s=\\\\{@}"
+msgstr "https://multitran.ru/c/m.exe?l1=4&s=\\\\{@}"
+
+#: src/urifilters/ikws/searchproviders/multitran-itru.desktop:4
+msgctxt "Name"
+msgid "Multitran - Translate Between Italian and Russian"
+msgstr "Multitran - İtalyan və Rus arasında tərcümə"
+
+#: src/urifilters/ikws/searchproviders/multitran-itru.desktop:89
+msgctxt "Query"
+msgid "https://multitran.ru/c/m.exe?l1=23&s=\\\\{@}"
+msgstr "https://multitran.ru/c/m.exe?l1=23&s=\\\\{@}"
+
+#: src/urifilters/ikws/searchproviders/multitran-nlru.desktop:4
+msgctxt "Name"
+msgid "Multitran - Translate Between Dutch and Russian"
+msgstr "Multitran - Hollandca və Rusca tərcümə"
+
+#: src/urifilters/ikws/searchproviders/multitran-nlru.desktop:89
+msgctxt "Query"
+msgid "https://multitran.ru/c/m.exe?l1=24&s=\\\\{@}"
+msgstr "https://multitran.ru/c/m.exe?l1=24&s=\\\\{@}"
+
+#: src/urifilters/ikws/searchproviders/netcraft.desktop:3
+msgctxt "Name"
+msgid "Netcraft"
+msgstr "Netcraft"
+
+#: src/urifilters/ikws/searchproviders/netcraft.desktop:95
+msgctxt "Query"
+msgid "https://uptime.netcraft.com/up/graph?site=\\\\{@}"
+msgstr "https://uptime.netcraft.com/up/graph?site=\\\\{@}"
+
+#: src/urifilters/ikws/searchproviders/nl-telephone.desktop:2
+msgctxt "Name"
+msgid "Telephonebook Search Provider"
+msgstr "Telefon kitabçası axtarış təminatçısı"
+
+#: src/urifilters/ikws/searchproviders/nl-telephone.desktop:90
+msgctxt "Query"
+msgid ""
+"https://www.detelefoongids.nl/\\\\{1}/\\\\{2}/10-1/?oWhat=\\\\{1}&oWhere=\\"
+"\\{2}"
+msgstr ""
+"https://www.detelefoongids.nl/\\\\{1}/\\\\{2}/10-1/?oWhat=\\\\{1}&oWhere=\\"
+"\\{2}"
+
+#: src/urifilters/ikws/searchproviders/nl-teletekst.desktop:2
+msgctxt "Name"
+msgid "Teletekst Search Provider"
+msgstr "Teletext Axtarış Təminatçısı"
+
+#: src/urifilters/ikws/searchproviders/nl-teletekst.desktop:92
+msgctxt "Query"
+msgid "https://nos.nl/teletekst#\\\\{@}"
+msgstr "https://nos.nl/teletekst#\\\\{@}"
+
+#: src/urifilters/ikws/searchproviders/opendesktop.desktop:5
+msgctxt "Name"
+msgid "openDesktop.org"
+msgstr "openDesktop.org"
+
+#: src/urifilters/ikws/searchproviders/opendesktop.desktop:74
+msgctxt "Query"
+msgid ""
+"https://www.opendesktop.org/content/search.php?search=Search&name=\\\\{@}"
+msgstr ""
+"https://www.opendesktop.org/content/search.php?search=Search&name=\\\\{@}"
+
+#: src/urifilters/ikws/searchproviders/pgpkeys.desktop:3
+msgctxt "Name"
+msgid "OpenPGP Key Search"
+msgstr "OpenPGP Açar Axtarışı"
+
+#: src/urifilters/ikws/searchproviders/pgpkeys.desktop:91
+msgctxt "Query"
+msgid "https://pgp.mit.edu/pks/lookup?search=\\\\{@}&op=vindex"
+msgstr "https://pgp.mit.edu/pks/lookup?search=\\\\{@}&op=vindex"
+
+#: src/urifilters/ikws/searchproviders/php.desktop:3
+msgctxt "Name"
+msgid "PHP Search"
+msgstr "PHP Axtarış"
+
+#: src/urifilters/ikws/searchproviders/php.desktop:93
+msgctxt "Query"
+msgid "https://secure.php.net/manual-lookup.php?pattern=\\\\{@}"
+msgstr "https://secure.php.net/manual-lookup.php?pattern=\\\\{@}"
+
+#: src/urifilters/ikws/searchproviders/python.desktop:5
+msgctxt "Name"
+msgid "Python Reference Manual"
+msgstr "Python İstinad Təlimatı"
+
+#: src/urifilters/ikws/searchproviders/python.desktop:94
+msgctxt "Query"
+msgid ""
+"https://www.google.com/search?sourceid=python-search&q=\\\\{@}"
+"&submit=Search&q=site%3Apython.org"
+msgstr ""
+"https://www.google.com/search?sourceid=python-search&q=\\\\{@}"
+"&submit=Search&q=site%3Apython.org"
+
+#: src/urifilters/ikws/searchproviders/qt4.desktop:3
+msgctxt "Name"
+msgid "Qt4 Documentation"
+msgstr "Qt4 Sənədləşmə"
+
+#: src/urifilters/ikws/searchproviders/qt4.desktop:62
+msgctxt "Query"
+msgid "https://doc.qt.io/archives/qt-4.8/search-results.html?q=\\\\{@}"
+msgstr "https://doc.qt.io/archives/qt-4.8/search-results.html?q=\\\\{@}"
+
+#: src/urifilters/ikws/searchproviders/qt.desktop:5
+msgctxt "Name"
+msgid "Latest Qt Online Documentation"
+msgstr "Ən son Qt Online Sənədləşməsi"
+
+#: src/urifilters/ikws/searchproviders/qt.desktop:93
+msgctxt "Query"
+msgid "https://doc.qt.io/qt-5/search-results.html?q=\\\\{@}"
+msgstr "https://doc.qt.io/qt-5/search-results.html?q=\\\\{@}"
+
+#: src/urifilters/ikws/searchproviders/qwant.desktop:3
+msgctxt "Name"
+msgid "Qwant"
+msgstr "Qwant"
+
+#: src/urifilters/ikws/searchproviders/qwant.desktop:50
+msgctxt "Query"
+msgid "https://www.qwant.com/?q=\\\\{@}&client=kde&t=web"
+msgstr "https://www.qwant.com/?q=\\\\{@}&client=kde&t=web"
+
+#: src/urifilters/ikws/searchproviders/qwant_images.desktop:3
+msgctxt "Name"
+msgid "Qwant Images"
+msgstr "Qwant Şəkillər"
+
+#: src/urifilters/ikws/searchproviders/qwant_images.desktop:48
+msgctxt "Query"
+msgid "https://www.qwant.com/?q=\\\\{@}&client=kde&t=images"
+msgstr "https://www.qwant.com/?q=\\\\{@}&client=kde&t=images"
+
+#: src/urifilters/ikws/searchproviders/qwant_news.desktop:3
+msgctxt "Name"
+msgid "Qwant News"
+msgstr "Qwant Xəbərlər"
+
+#: src/urifilters/ikws/searchproviders/qwant_news.desktop:48
+msgctxt "Query"
+msgid "https://www.qwant.com/?q=\\\\{@}&client=kde&t=news"
+msgstr "https://www.qwant.com/?q=\\\\{@}&client=kde&t=news"
+
+#: src/urifilters/ikws/searchproviders/qwant_shopping.desktop:3
+msgctxt "Name"
+msgid "Qwant Shopping"
+msgstr "Qwant Alış-Veriş"
+
+#: src/urifilters/ikws/searchproviders/qwant_shopping.desktop:48
+msgctxt "Query"
+msgid "https://www.qwant.com/?q=\\\\{@}&client=kde&t=shopping"
+msgstr "https://www.qwant.com/?q=\\\\{@}&client=kde&t=shopping"
+
+#: src/urifilters/ikws/searchproviders/qwant_social.desktop:3
+msgctxt "Name"
+msgid "Qwant Social"
+msgstr "Qwant Sosial"
+
+#: src/urifilters/ikws/searchproviders/qwant_social.desktop:48
+msgctxt "Query"
+msgid "https://www.qwant.com/?q=\\\\{@}&client=kde&t=social"
+msgstr "https://www.qwant.com/?q=\\\\{@}&client=kde&t=social"
+
+#: src/urifilters/ikws/searchproviders/qwant_videos.desktop:3
+msgctxt "Name"
+msgid "Qwant Videos"
+msgstr "Qwant Videolar"
+
+#: src/urifilters/ikws/searchproviders/qwant_videos.desktop:49
+msgctxt "Query"
+msgid "https://www.qwant.com/?q=\\\\{@}&client=kde&t=videos"
+msgstr "https://www.qwant.com/?q=\\\\{@}&client=kde&t=videos"
+
+#: src/urifilters/ikws/searchproviders/rae.desktop:5
+msgctxt "Name"
+msgid "Dictionary of the Spanish Academy (RAE)"
+msgstr "İspan Akademiyasının lüğəti (RAE)"
+
+#: src/urifilters/ikws/searchproviders/rae.desktop:94
+msgctxt "Query"
+msgid "https://www.rae.es/drae/?val=\\\\{@}"
+msgstr "https://www.rae.es/drae/?val=\\\\{@}"
+
+#: src/urifilters/ikws/searchproviders/rag.desktop:5
+msgctxt "Name"
+msgid "Dictionary of the Galician Academy (RAG)"
+msgstr "Galician Akademiyasının lüğəti (RAG)"
+
+#: src/urifilters/ikws/searchproviders/rag.desktop:58
+msgctxt "Query"
+msgid "https://academia.gal/dicionario/-/termo/busca/\\\\{@}"
+msgstr "https://academia.gal/dicionario/-/termo/busca/\\\\{@}"
+
+#: src/urifilters/ikws/searchproviders/rfc.desktop:3
+msgctxt "Name"
+msgid "IETF Requests for Comments"
+msgstr "IETF üçün şərhlər"
+
+#: src/urifilters/ikws/searchproviders/rfc.desktop:88
+msgctxt "Query"
+msgid "https://tools.ietf.org/id/\\\\{@}"
+msgstr "https://tools.ietf.org/id/\\\\{@}"
+
+#: src/urifilters/ikws/searchproviders/rpmfind.desktop:3
+msgctxt "Name"
+msgid "RPM-Find"
+msgstr "RPM-Find"
+
+#: src/urifilters/ikws/searchproviders/rpmfind.desktop:96
+msgctxt "Query"
+msgid "https://www.rpmfind.net/linux/rpm2html/search.php?query=\\\\{@}"
+msgstr "https://www.rpmfind.net/linux/rpm2html/search.php?query=\\\\{@}"
+
+#: src/urifilters/ikws/searchproviders/ruby_application_archive.desktop:3
+msgctxt "Name"
+msgid "Ruby Application Archive"
+msgstr "Ruby Tətbiq Arxivi"
+
+#: src/urifilters/ikws/searchproviders/ruby_application_archive.desktop:95
+msgctxt "Query"
+msgid "https://www.ruby-lang.org/en/raa-list.rhtml?name=\\\\{@}"
+msgstr "https://www.ruby-lang.org/en/raa-list.rhtml?name=\\\\{@}"
+
+#: src/urifilters/ikws/searchproviders/soundcloud.desktop:3
+msgctxt "Name"
+msgid "Soundcloud"
+msgstr "Soundcloud"
+
+#: src/urifilters/ikws/searchproviders/soundcloud.desktop:47
+msgctxt "Query"
+msgid "https://soundcloud.com/search?q=\\\\{@}"
+msgstr "https://soundcloud.com/search?q=\\\\{@}"
+
+#: src/urifilters/ikws/searchproviders/sourceforge.desktop:3
+msgctxt "Name"
+msgid "SourceForge"
+msgstr "SourceForge"
+
+#: src/urifilters/ikws/searchproviders/sourceforge.desktop:94
+msgctxt "Query"
+msgid ""
+"https://sourceforge.net/search/?type_of_search=\\\\{type,\"soft\"}&exact=\\"
+"\\{exact,\"0\"}&words=\\\\{@}"
+msgstr ""
+"https://sourceforge.net/search/?type_of_search=\\\\{type,\"soft\"}&exact=\\"
+"\\{exact,\"0\"}&words=\\\\{@}"
+
+#: src/urifilters/ikws/searchproviders/technorati.desktop:3
+msgctxt "Name"
+msgid "Technorati"
+msgstr "Technorati"
+
+#: src/urifilters/ikws/searchproviders/technorati.desktop:94
+msgctxt "Query"
+msgid "https://technorati.com/search?return=sites&authority=high&q=\\\\{@}"
+msgstr "https://technorati.com/search?return=sites&authority=high&q=\\\\{@}"
+
+#: src/urifilters/ikws/searchproviders/technoratitags.desktop:3
+msgctxt "Name"
+msgid "Technorati Tags"
+msgstr "Technorati Yarlıqları"
+
+#: src/urifilters/ikws/searchproviders/technoratitags.desktop:90
+msgctxt "Query"
+msgid "https://technorati.com/tag/\\\\{@}?sourceid=kde-search"
+msgstr "https://technorati.com/tag/\\\\{@}?sourceid=kde-search"
+
+#: src/urifilters/ikws/searchproviders/thesaurus.desktop:3
+msgctxt "Name"
+msgid "Merriam-Webster Thesaurus"
+msgstr "Merriam-Webster Thesaurus"
+
+#: src/urifilters/ikws/searchproviders/thesaurus.desktop:94
+msgctxt "Query"
+msgid "https://www.merriam-webster.com/thesaurus/\\\\{@}"
+msgstr "https://www.merriam-webster.com/thesaurus/\\\\{@}"
+
+#: src/urifilters/ikws/searchproviders/tvtome.desktop:4
+msgctxt "Name"
+msgid "TV Tome"
+msgstr "TV Tome"
+
+#: src/urifilters/ikws/searchproviders/tvtome.desktop:94
+msgctxt "Query"
+msgid "https://www.tv.com/search.php?type=11&stype=all&qs=\\\\{@}&x=0&y=0"
+msgstr "https://www.tv.com/search.php?type=11&stype=all&qs=\\\\{@}&x=0&y=0"
+
+#: src/urifilters/ikws/searchproviders/urbandictionary.desktop:5
+msgctxt "Name"
+msgid "Urban Dictionary"
+msgstr "Urban Lüğəti"
+
+#: src/urifilters/ikws/searchproviders/urbandictionary.desktop:74
+msgctxt "Query"
+msgid "https://www.urbandictionary.com/define.php?term=\\\\{@}"
+msgstr "https://www.urbandictionary.com/define.php?term=\\\\{@}"
+
+#: src/urifilters/ikws/searchproviders/uspto.desktop:5
+msgctxt "Name"
+msgid "U.S. Patent Database"
+msgstr "U.S. Patent Məlumat Bazası"
+
+#: src/urifilters/ikws/searchproviders/uspto.desktop:93
+msgctxt "Query"
+msgid ""
+"http://patft.uspto.gov/netacgi/nph-Parser?TERM1=\\\\{@}"
+"&Sect1=PTO1&Sect2=HITOFF&d=PALL&p=1&u=/netahtml/srchnum.htm&r=0&f=S&l=50"
+msgstr ""
+"http://patft.uspto.gov/netacgi/nph-Parser?TERM1=\\\\{@}"
+"&Sect1=PTO1&Sect2=HITOFF&d=PALL&p=1&u=/netahtml/srchnum.htm&r=0&f=S&l=50"
+
+#: src/urifilters/ikws/searchproviders/vimeo.desktop:5
+msgctxt "Name"
+msgid "Vimeo"
+msgstr "Vimeo"
+
+#: src/urifilters/ikws/searchproviders/vimeo.desktop:75
+msgctxt "Query"
+msgid "https://vimeo.com/search?q=\\\\{@}"
+msgstr "https://vimeo.com/search?q=\\\\{@}"
+
+#: src/urifilters/ikws/searchproviders/voila.desktop:3
+msgctxt "Name"
+msgid "Voila"
+msgstr "Voila"
+
+#: src/urifilters/ikws/searchproviders/voila.desktop:97
+msgctxt "Query"
+msgid "https://www.voila.com/S/geek?an=1&kw=\\\\{@}&dt=*"
+msgstr "https://www.voila.com/S/geek?an=1&kw=\\\\{@}&dt=*"
+
+#: src/urifilters/ikws/searchproviders/webster.desktop:3
+msgctxt "Name"
+msgid "Merriam-Webster Dictionary"
+msgstr "Merriam-Webster Dictionary"
+
+#: src/urifilters/ikws/searchproviders/webster.desktop:95
+msgctxt "Query"
+msgid "https://www.merriam-webster.com/dictionary/\\\\{@}"
+msgstr "https://www.merriam-webster.com/dictionary/\\\\{@}"
+
+#: src/urifilters/ikws/searchproviders/wikia.desktop:5
+msgctxt "Name"
+msgid "Wikia"
+msgstr "Wikia"
+
+#: src/urifilters/ikws/searchproviders/wikia.desktop:74
+msgctxt "Query"
+msgid ""
+"https://www.wikia.com/Special:Search?search=\\\\{@}"
+"&wikia_search_submit=Search"
+msgstr ""
+"https://www.wikia.com/Special:Search?search=\\\\{@}"
+"&wikia_search_submit=Search"
+
+#: src/urifilters/ikws/searchproviders/wikipedia.desktop:4
+msgctxt "Name"
+msgid "Wikipedia - The Free Encyclopedia"
+msgstr "Vikipedia - Azad Ensklopediya"
+
+#: src/urifilters/ikws/searchproviders/wikipedia.desktop:96
+msgctxt "Query"
+msgid "https://en.wikipedia.org/wiki/Special:Search?search=\\\\{@}&go=Go"
+msgstr "https://az.wikipedia.org/wiki/Special:Search?search=\\\\{@}&go=Go"
+
+#: src/urifilters/ikws/searchproviders/wiktionary.desktop:3
+msgctxt "Name"
+msgid "Wiktionary - The Free Dictionary"
+msgstr "Wiktionary - Azad Lüğət"
+
+#: src/urifilters/ikws/searchproviders/wiktionary.desktop:93
+msgctxt "Query"
+msgid "https://en.wiktionary.org/wiki/Special:Search?search=\\\\{@}&go=Go"
+msgstr "https://en.wiktionary.org/wiki/Special:Search?search=\\\\{@}&go=Go"
+
+#: src/urifilters/ikws/searchproviders/wolfram_alpha.desktop:3
+msgctxt "Name"
+msgid "Wolfram Alpha"
+msgstr "Wolfram Alpha"
+
+#: src/urifilters/ikws/searchproviders/wolfram_alpha.desktop:76
+msgctxt "Query"
+msgid "https://www.wolframalpha.com/input/?i=\\\\{@}"
+msgstr "https://www.wolframalpha.com/input/?i=\\\\{@}"
+
+#: src/urifilters/ikws/searchproviders/wordref.desktop:5
+msgctxt "Name"
+msgid "WordReference.com English Dictionary"
+msgstr "WordReference.com İngilis dili lüğəti"
+
+#: src/urifilters/ikws/searchproviders/wordref.desktop:93
+msgctxt "Query"
+msgid "https://www.wordreference.com/english/definition.asp?en=\\\\{@}"
+msgstr "https://www.wordreference.com/english/definition.asp?en=\\\\{@}"
+
+#: src/urifilters/ikws/searchproviders/yahoo.desktop:6
+msgctxt "Name"
+msgid "Yahoo"
+msgstr "Yahoo"
+
+#: src/urifilters/ikws/searchproviders/yahoo.desktop:76
+msgctxt "Query"
+msgid ""
+"https://search.yahoo.com/search?toggle=1&cop=mss&ei=UTF-8&fr=yfp-t-701&p=\\"
+"\\{@}&x=0&y=0&=Web+Search"
+msgstr ""
+"https://search.yahoo.com/search?toggle=1&cop=mss&ei=UTF-8&fr=yfp-t-701&p=\\"
+"\\{@}&x=0&y=0&=Web+Search"
+
+#: src/urifilters/ikws/searchproviders/yahoo_image.desktop:5
+msgctxt "Name"
+msgid "Yahoo Images"
+msgstr "Yahoo Şəkillər"
+
+#: src/urifilters/ikws/searchproviders/yahoo_image.desktop:74
+msgctxt "Query"
+msgid ""
+"https://images.search.yahoo.com/search/images;_ylt=A0geuy0K6JZLsVkB4m1XNyoA?"
+"ei=UTF-8&p=\\\\{@}&y=0&fr2=tab-web&fr=yfp-t-701"
+msgstr ""
+"https://images.search.yahoo.com/search/images;_ylt=A0geuy0K6JZLsVkB4m1XNyoA?"
+"ei=UTF-8&p=\\\\{@}&y=0&fr2=tab-web&fr=yfp-t-701"
+
+#: src/urifilters/ikws/searchproviders/yahoo_local.desktop:5
+msgctxt "Name"
+msgid "Yahoo Local"
+msgstr "Yahoo Local"
+
+#: src/urifilters/ikws/searchproviders/yahoo_local.desktop:73
+msgctxt "Query"
+msgid ""
+"https://local.yahoo.com/results?stx=\\\\{@}&ei=UTF-8&fr=yfp-t-701&fr2=tab-img"
+msgstr ""
+"https://local.yahoo.com/results?stx=\\\\{@}&ei=UTF-8&fr=yfp-t-701&fr2=tab-img"
+
+#: src/urifilters/ikws/searchproviders/yahoo_shopping.desktop:5
+msgctxt "Name"
+msgid "Yahoo Shopping"
+msgstr "Yahoo Alış-Veriş"
+
+#: src/urifilters/ikws/searchproviders/yahoo_shopping.desktop:73
+msgctxt "Query"
+msgid ""
+"https://shopping.yahoo.com/search;_ylt=A0SO8ZgG65ZLyX8AsLX7w8QF;"
+"_ylu=X3oDMTBpcjIxMDllBHNlYwN0YWJzBHZ0aWQDVjEwOQ--?cop=mss&ei=UTF-8&p=\\\\{@}"
+"&fr2=tab-video&fr=yfp-t-701"
+msgstr ""
+"https://shopping.yahoo.com/search;_ylt=A0SO8ZgG65ZLyX8AsLX7w8QF;"
+"_ylu=X3oDMTBpcjIxMDllBHNlYwN0YWJzBHZ0aWQDVjEwOQ--?cop=mss&ei=UTF-8&p=\\\\{@}"
+"&fr2=tab-video&fr=yfp-t-701"
+
+#: src/urifilters/ikws/searchproviders/yahoo_video.desktop:5
+msgctxt "Name"
+msgid "Yahoo Video"
+msgstr "Yahoo Video"
+
+#: src/urifilters/ikws/searchproviders/yahoo_video.desktop:73
+msgctxt "Query"
+msgid ""
+"https://video.search.yahoo.com/search/video;_ylt=A0WTb_3a6JZLSHwAK7.JzbkF?"
+"ei=UTF-8&p=\\\\{@}&y=0&fr2=tab-img&fr=yfp-t-701"
+msgstr ""
+"https://video.search.yahoo.com/search/video;_ylt=A0WTb_3a6JZLSHwAK7.JzbkF?"
+"ei=UTF-8&p=\\\\{@}&y=0&fr2=tab-img&fr=yfp-t-701"
+
+#: src/urifilters/ikws/searchproviders/youtube.desktop:4
+msgctxt "Name"
+msgid "YouTube"
+msgstr "YouTube"
+
+#: src/urifilters/ikws/searchproviders/youtube.desktop:74
+msgctxt "Query"
+msgid "https://www.youtube.com/results?search_query=\\\\{@}&search_type=&aq=f"
+msgstr "https://www.youtube.com/results?search_query=\\\\{@}&search_type=&aq=f"
+
+#: src/widgets/kfileitemactionplugin.desktop:4
+msgctxt "Comment"
+msgid "Plugin for the KIO file item context menu"
+msgstr "KIO faylı kontekst menyusu üçün plaqin"
+
+#: src/widgets/kiodndpopupmenuplugin.desktop:4
+msgctxt "Comment"
+msgid "Plugin for the KIO Drag-and-drop Popup Menu"
+msgstr "KIO Çəkmə Açılan Menyu üçün plaqin"
+
+#: src/widgets/konqpopupmenuplugin.desktop:4
+msgctxt "Comment"
+msgid "Plugin for the Konqueror Popup Menu"
+msgstr "Konqueror Popup Menyu üçün plaqin"
+
+#: src/widgets/kpropertiesdialogplugin.desktop:4
+msgctxt "Comment"
+msgid "Plugin for the Properties Dialog"
+msgstr "Xüsusiyyətlər Dialogu üçün plaqin"
+
+#: src/widgets/kurifilterplugin.desktop:4
+msgctxt "Name"
+msgid "Enhanced Browsing Plugin"
+msgstr "İnkişaf etmiş Brauzer Plaqini"
+
+#~ msgctxt "Comment"
+#~ msgid "Enter path of file or directory:"
+#~ msgstr "Fayla və qovluğa yolu göstər:"
+
+#~ msgctxt "Comment"
+#~ msgid "Enter link to location (URL):"
+#~ msgstr "URL məkanına keçidi göstər"
+
+#~ msgctxt "Name"
+#~ msgid "Cache"
+#~ msgstr "Keş"
+
+#~ msgctxt "Comment"
+#~ msgid "Configure web cache settings"
+#~ msgstr "Veb keş ayarlarını tənzimlə"
+
+#~ msgctxt "X-KDE-Keywords"
+#~ msgid "Cache,History,Browsing History,Ports,Size"
+#~ msgstr "Keş Tarix, Baxış Tarixi, Portlar, Ölçü"
+
+#~ msgctxt "Comment"
+#~ msgid "UserAgent Strings"
+#~ msgstr "Brauzer Versiyaları"
+
+#~ msgctxt "Name"
+#~ msgid "UADescription (Android Phone 1.0)"
+#~ msgstr "UADescription (Android Phone 1.0)"
+
+#~ msgctxt "Name"
+#~ msgid "UADescription (Google Chrome 1.0 on Windows XP)"
+#~ msgstr "UADescription (Google Chrome 1.0 Windows XP -də)"
+
+#~ msgctxt "Name"
+#~ msgid "UADescription (Google Chrome 22.0)"
+#~ msgstr "UADescription (Google Chrome 22.0)"
+
+#~ msgctxt "Name"
+#~ msgid "UADescription (Google Chrome 23.0)"
+#~ msgstr "UADescription (Google Chrome 23.0)"
+
+#~ msgctxt "Name"
+#~ msgid "UADescription (Google Chrome 24.0)"
+#~ msgstr "UADescription (Google Chrome 24.0)"
+
+#~ msgctxt "Name"
+#~ msgid "UADescription (Google Chrome 5.0)"
+#~ msgstr "UADescription (Google Chrome 5.0)"
+
+#~ msgctxt "Name"
+#~ msgid "UADescription (Google Chrome 57.0)"
+#~ msgstr "UADescription (Google Chrome 57.0)"
+
+#~ msgctxt "Name"
+#~ msgid "UADescription (Firefox 15 on current)"
+#~ msgstr "UADescription (Firefox 15 hazırkı sistemdə)"
+
+#~ msgctxt "Name"
+#~ msgid "UADescription (Firefox 16 on current)"
+#~ msgstr "UADescription (Firefox 16 hazırkı sistemdə)"
+
+#~ msgctxt "Name"
+#~ msgid "UADescription (Firefox 2.0 on current)"
+#~ msgstr "UADescription (Firefox 2.0 hazırkı sistemdə)"
+
+#~ msgctxt "Name"
+#~ msgid "UADescription (Firefox 3.0 on current)"
+#~ msgstr "UADescription (Firefox 3.0 hazırkı sistemdə)"
+
+#~ msgctxt "Name"
+#~ msgid "UADescription (Firefox 3.6 on current)"
+#~ msgstr "UADescription (Firefox 3.6 hazırkı sistemdə)"
+
+#~ msgctxt "Name"
+#~ msgid "UADescription (Firefox 52.0 on current)"
+#~ msgstr "UADescription (Firefox 52.0 hazırkı sistemdə)"
+
+#~ msgctxt "Name"
+#~ msgid "UADescription (Googlebot/2.1)"
+#~ msgstr "UADescription (Googlebot/2.1)"
+
+#~ msgctxt "Name"
+#~ msgid "UADescription (IE 4.01 on Win 2000)"
+#~ msgstr "UADescription (IE 4.01 Win 2000 -də)"
+
+#~ msgctxt "Name"
+#~ msgid "UADescription (IE 5.0 on Mac PPC)"
+#~ msgstr "UADescription (IE 5.0 Mac PPC -də)"
+
+#~ msgctxt "Name"
+#~ msgid "UADescription (IE 5.5 on Win 2000)"
+#~ msgstr "UADescription (IE 5.5 Win 2000 -də)"
+
+#~ msgctxt "Name"
+#~ msgid "UADescription (IE 6.0 on current)"
+#~ msgstr "UADescription (IE 6.0 cari sistemdə)"
+
+#~ msgctxt "Name"
+#~ msgid "UADescription (IE 6.0 on Win XP)"
+#~ msgstr "UADescription (IE 6.0 Win XP -də)"
+
+#~ msgctxt "Name"
+#~ msgid "UADescription (IE 7.0 on Win XP)"
+#~ msgstr "UADescription (IE 7.0 Win XP -də)"
+
+#~ msgctxt "Name"
+#~ msgid "UADescription (IE 8.0 on Windows Vista)"
+#~ msgstr "UADescription (IE 8.0 Windows Vista -da)"
+
+#~ msgctxt "Name"
+#~ msgid "UADescription (IE 9.0 on Windows Seven)"
+#~ msgstr "UADescription (IE 9.0 Windows 7 -də)"
+
+#~ msgctxt "Name"
+#~ msgid "UADescription (Lynx 2.8.3)"
+#~ msgstr "UADescription (Lynx 2.8.3)"
+
+#~ msgctxt "Name"
+#~ msgid "UADescription (NN 3.01 on current)"
+#~ msgstr "UADescription (NN 3.01 cari sistemdə)"
+
+#~ msgctxt "Name"
+#~ msgid "UADescription (NN 4.76 on current)"
+#~ msgstr "UADescription (NN 4.76 cari sistemdə)"
+
+#~ msgctxt "Name"
+#~ msgid "UADescription (NN 4.7 on Windows 95)"
+#~ msgstr "UADescription (NN 4.7 Windows 95 -də)"
+
+#~ msgctxt "Name"
+#~ msgid "UADescription (Netscape 7.1 on current)"
+#~ msgstr "UADescription (Netscape 7.1 cari sistemdə)"
+
+#~ msgctxt "Name"
+#~ msgid "UADescription (Netscape 7.1 on XP)"
+#~ msgstr "UADescription (Netscape 7.1 XP -də)"
+
+#~ msgctxt "Name"
+#~ msgid "UADescription (Opera 11.62 on current)"
+#~ msgstr "UADescription (Opera 11.62 cari sistemdə"
+
+#~ msgctxt "Name"
+#~ msgid "UADescription (Opera 12.02 on current)"
+#~ msgstr "UADescription (Opera 12.02 cari sistemdə)"
+
+#~ msgctxt "Name"
+#~ msgid "UADescription (Opera 4.03 on NT)"
+#~ msgstr "UADescription (Opera 4.03 NT -də)"
+
+#~ msgctxt "Name"
+#~ msgid "UADescription (Opera 8.5 on current)"
+#~ msgstr "UADescription (Opera 8.5 cari sistemdə)"
+
+#~ msgctxt "Name"
+#~ msgid "UADescription (Opera 9.00 on current)"
+#~ msgstr "UADescription (Opera 9.00 cari sistemdə)"
+
+#~ msgctxt "Name"
+#~ msgid "UADescription (Opera 9.62 on current)"
+#~ msgstr "UADescription (Opera 9.62 cari sistemdə)"
+
+#~ msgctxt "Name"
+#~ msgid "UADescription (Safari 2.0 on MacOS X)"
+#~ msgstr "UADescription (Safari 2.0 MacOS X -də)"
+
+#~ msgctxt "Name"
+#~ msgid "UADescription (Safari 3.0 on iPhone)"
+#~ msgstr "UADescription (Safari 3.0 iPhone -də)"
+
+#~ msgctxt "Name"
+#~ msgid "UADescription (Safari 3.2 on MacOS X)"
+#~ msgstr "UADescription (Safari 3.2 MacOS X -da)"
+
+#~ msgctxt "Name"
+#~ msgid "UADescription (Safari 4.0 on MacOS X)"
+#~ msgstr "UADescription (Safari 4.0 MacOS X- da)"
+
+#~ msgctxt "Name"
+#~ msgid "UADescription (Safari 5.1.7 on MacOS X)"
+#~ msgstr "UADescription (Safari 5.1.7 MacOS X -da)"
+
+#~ msgctxt "Name"
+#~ msgid "UADescription (Safari 6.0 on MacOS X)"
+#~ msgstr "UADescription (Safari 6.0 MacOS X -da)"
+
+#~ msgctxt "Name"
+#~ msgid "UADescription (w3m 0.1.9)"
+#~ msgstr "UADescription (w3m 0.1.9)"
+
+#~ msgctxt "Name"
+#~ msgid "UADescription (Wget 1.11.4)"
+#~ msgstr "UADescription (Wget 1.11.4)"
+
+#~ msgctxt "Name"
+#~ msgid "Browser Identification"
+#~ msgstr "Veb Bələdçi İD-si"
+
+#~ msgctxt "Comment"
+#~ msgid "Configure the User Agent exposed by the HTTP kioslave"
+#~ msgstr "HTTP kioslave tərəfindən Brauzer versiyasının göndərilməsi"
+
+#~ msgctxt "X-KDE-Keywords"
+#~ msgid "User Agent,Browser,Internet,WWW,Network,agent,bindings,server,login"
+#~ msgstr ""
+#~ "User Agent,Browser,Internet,WWW,Network,agent,bindings,server,login "
+#~ "İstifadəçi Agent, Brauzer, İnternet, WWW, Şəbəkə, agent, bağlayıcılar, "
+#~ "server, giriş"
+
+#~ msgctxt "Name"
+#~ msgid "Web Shortcuts"
+#~ msgstr "Veb Qısayolları"
+
+#~ msgctxt "Name"
+#~ msgid "KDE Bug Database Fulltext Search"
+#~ msgstr "KDE Xətalar Bazasında Tam Mətnli Axtarış"
+
+#~ msgctxt "Name"
+#~ msgid "KDE Bug Database Bug Number Search"
+#~ msgstr "KDE Xətalar Bazasında Nömrə Üzrə Axtarış"
+
+#~ msgctxt "Query"
+#~ msgid "https://bugs.kde.org/show_bug.cgi?id=\\\\{@}"
+#~ msgstr "https://bugs.kde.org/show_bug.cgi?id=\\\\{@}"
+
+#~ msgctxt "Query"
+#~ msgid "https://www.qwant.com/single?q=\\\\{@}&client=kde&source=news"
+#~ msgstr "https://www.qwant.com/single?q=\\\\{@}&client=kde&source=news"

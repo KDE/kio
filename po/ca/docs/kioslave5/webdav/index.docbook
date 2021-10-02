@@ -1,0 +1,83 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Catalan  "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="webdav">
+<title
+>webdav / webdavs</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Hamish.Rodda; &Hamish.Rodda.mail;</author>
+&traductor.Antoni.Bella; 
+</authorgroup>
+
+<date
+>21 de gener de 2002</date>
+</articleinfo>
+<para
+><acronym
+>WebDAV</acronym
+> és un protocol distribuït de versions i autoria (<emphasis
+>D</emphasis
+>istributed <emphasis
+>A</emphasis
+>uthoring i <emphasis
+>V</emphasis
+>ersioning) per a la World Wide Web. Us permetrà la gestió senzilla de documents i scripts en un servidor <ulink url="help:/kioslave/webdav.html"
+>&HTTP;</ulink
+>, i disposa de característiques addicionals dissenyades per a simplificar la gestió de versions entre múltiples autors.</para>
+
+<para
+>L'ús d'aquest protocol és simple. Introduïu la localització que voleu veure, semblant a un &URL; &HTTP; excepte pel prefix del nom del protocol webdav://. Per exemple, <userinput
+>webdav://<replaceable
+>www.nomdelservidor.com/camí/</replaceable
+></userinput
+>. Si especifiqueu un nom de carpeta, se us mostrarà una llista de carpetes i fitxers que podreu manipular com si estiguéssiu en qualsevol altre sistema de fitxers.</para>
+
+<variablelist>
+<title
+>Característiques de WebDAV</title>
+<varlistentry>
+<term
+>Bloqueig</term>
+<listitem>
+<para
+>El bloqueig de fitxers permet als usuaris bloquejar un fitxer, informant la resta de la gent que esteu treballant en el mateix. D'aquesta manera, l'edició es pot fer sense por que els canvis puguin ser sobreescrits per una altra persona que també edita el mateix document.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+>Accés al fitxer de codi font</term>
+<listitem>
+<para
+><acronym
+>WebDAV</acronym
+> us permet l'accés a l'script que invoca per a presentar la pàgina específica, de manera que es poden fer canvis en el mateix script.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+>Suport de propietats per document</term>
+<listitem>
+<para
+>Es poden configurar propietats arbitràries per a facilitar la identificació d'un document, com per exemple l'autor.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>Per a fer ús d'aquestes capacitats addicionals, necessitareu una aplicació que les suporti. Actualment no hi ha cap aplicació que les suporti mitjançant aquest kioslave.</para>
+
+<para
+><acronym
+>WebDAVS</acronym
+> és el protocol <acronym
+>WebDAV</acronym
+> encriptat via SSL.</para>
+
+</article>
