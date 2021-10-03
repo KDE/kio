@@ -1,8 +1,7 @@
 Dependencies:
-- 'on': ['Linux', 'FreeBSD', 'Windows', 'macOS']
+- 'on': ['Linux', 'FreeBSD', 'Windows', 'macOS', 'Android']
   'require':
     'frameworks/extra-cmake-modules': '@same'
-    'frameworks/kdbusaddons' : '@same'
     'frameworks/ki18n' : '@same'
     'frameworks/kguiaddons' : '@same'
     'frameworks/kconfigwidgets' : '@same'
@@ -23,6 +22,14 @@ Dependencies:
     'frameworks/kbookmarks' : '@same'
     'frameworks/knotifications' : '@same'
     'frameworks/kconfig' : '@same'
+
+- 'on': ['Linux', 'FreeBSD', 'Windows', 'macOS']
+  'require':
+    'frameworks/kdbusaddons' : '@same'
+
+- 'on': ['Linux', 'FreeBSD']
+  'require':
+    'frameworks/kauth': '@same'
     'frameworks/kwallet' : '@same'
 
 Options:
