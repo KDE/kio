@@ -114,16 +114,17 @@ QVariant ProvidersModel::data(const QModelIndex &index, int role) const
 
 void ProvidersModel::setProviders(const QList<SearchProvider *> &providers)
 {
+    beginResetModel();
+
     m_providers = providers;
+
+    endResetModel();
 }
 
 void ProvidersModel::setFavoriteProviders(const QStringList &favoriteEngines)
 {
-    beginResetModel();
-
     m_favoriteEngines = QSet<QString>(favoriteEngines.begin(), favoriteEngines.end());
-
-    endResetModel();
+    Q_EMIT dataChanged(index(0, Preferred), index(rowCount() - 1, Preferred), {Qt::CheckStateRole});
 }
 
 int ProvidersModel::rowCount(const QModelIndex &parent) const
