@@ -24,6 +24,7 @@ void ScopedProcessRunner::slotProcessStarted()
                                     QStringLiteral("fail"), // mode defines what to do in the case of a name conflict, in this case, just do nothing
                                     {// Properties of the transient service unit
                                      {QStringLiteral("Slice"), QStringLiteral("app.slice")},
+                                     {QStringLiteral("PartOf"), QStringList{QStringLiteral("graphical-session.target")}},
                                      {QStringLiteral("Description"), m_description},
                                      {QStringLiteral("SourcePath"), m_desktopFilePath},
                                      {QStringLiteral("PIDs"), QVariant::fromValue(QList<uint>{static_cast<uint>(m_process->processId())})}},

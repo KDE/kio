@@ -106,6 +106,7 @@ void SystemdProcessRunner::startProcess()
          {QStringLiteral("Type"), QStringLiteral("exec")},
          {QStringLiteral("ExitType"), QStringLiteral("cgroup")},
          {QStringLiteral("Slice"), QStringLiteral("app.slice")},
+         {QStringLiteral("PartOf"), QStringList{QStringLiteral("graphical-session.target")}},
          {QStringLiteral("Description"), m_description},
          {QStringLiteral("SourcePath"), m_desktopFilePath},
          {QStringLiteral("AddRef"), true}, // Asks systemd to avoid garbage collecting the service if it immediately crashes,
