@@ -42,7 +42,7 @@ if (Systemd_FOUND)
         systemd/scopedprocessrunner.cpp
     )
 
-    if (Systemd_VERSION GREATER 249)
+    if (Systemd_VERSION GREATER 248)
         add_compile_definitions(SYSTEMD_HAS_EXIT_TYPE)
     else()
         message(WARNING "Systemd version ${Systemd_VERSION} <= 246, disabling running applications as .service")
