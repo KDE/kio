@@ -16,7 +16,6 @@ Dependencies:
     'frameworks/kwindowsystem' : '@same'
     'frameworks/kcrash' : '@same'
     'frameworks/kcompletion' : '@same'
-    'frameworks/kdoctools' : '@same'
     'frameworks/ktextwidgets' : '@same'
     'frameworks/kxmlgui' : '@same'
     'frameworks/kbookmarks' : '@same'
@@ -26,6 +25,7 @@ Dependencies:
 - 'on': ['Linux', 'FreeBSD', 'Windows', 'macOS']
   'require':
     'frameworks/kdbusaddons' : '@same'
+    'frameworks/kdoctools' : '@same'
 
 - 'on': ['Linux', 'FreeBSD']
   'require':
