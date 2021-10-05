@@ -2441,13 +2441,11 @@ void KFileWidgetPrivate::updateLocationEditExtension(const QString &lastExtensio
         //
 
         // catch "double extensions" like ".tar.gz"
-        if (lastExtension.length() && fileName.endsWith(lastExtension)) {
+        if (!lastExtension.isEmpty() && fileName.endsWith(lastExtension)) {
             fileName.chop(lastExtension.length());
-        } else if (m_extension.length() && fileName.endsWith(m_extension)) {
+        } else if (!m_extension.isEmpty() && fileName.endsWith(m_extension)) {
             fileName.chop(m_extension.length());
-        }
-        // can only handle "single extensions"
-        else {
+        } else { // can only handle "single extensions"
             fileName.truncate(dot);
         }
 

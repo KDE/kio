@@ -1151,17 +1151,11 @@ void KUrlCompletionPrivate::_k_slotEntries(KIO::Job *, const KIO::UDSEntryList &
 {
     QStringList matchList;
 
-    KIO::UDSEntryList::ConstIterator it = entries.constBegin();
-    const KIO::UDSEntryList::ConstIterator end = entries.constEnd();
-
-    QString filter = list_urls_filter;
-
-    int filter_len = filter.length();
+    const QString filter = list_urls_filter;
+    const int filter_len = filter.length();
 
     // Iterate over all files
-    //
-    for (; it != end; ++it) {
-        const KIO::UDSEntry &entry = *it;
+    for (const auto &entry : entries) {
         const QString url = entry.stringValue(KIO::UDSEntry::UDS_URL);
 
         QString entry_name;
@@ -1190,7 +1184,7 @@ void KUrlCompletionPrivate::_k_slotEntries(KIO::Job *, const KIO::UDSEntryList &
             continue;
         }
 
-        if (filter_len != 0 && entry_name.leftRef(filter_len) != filter) {
+        if (filter_len != 0 && QStringView(entry_name).left(filter_len) != filter) {
             continue;
         }
 

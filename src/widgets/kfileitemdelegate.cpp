@@ -362,8 +362,8 @@ QString KFileItemDelegate::Private::elidedText(QTextLayout &layout, const QStyle
 
     for (int i = 0; i < layout.lineCount(); i++) {
         QTextLine line = layout.lineAt(i);
-        int start = line.textStart();
-        int length = line.textLength();
+        const int start = line.textStart();
+        const int length = line.textLength();
 
         height += option.fontMetrics.leading();
         if (height + line.height() + option.fontMetrics.lineSpacing() > maxHeight) {

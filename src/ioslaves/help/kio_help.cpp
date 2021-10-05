@@ -58,20 +58,23 @@ QString HelpProtocol::langLookup(const QString &fname)
         }
     }
 
+    auto checkFile = [](const QString &str) {
+        QFileInfo info(str);
+        return info.exists() && info.isFile() && info.isReadable();
+    };
+
     // try to locate the file
     for (const QString &path : std::as_const(search)) {
         // qDebug() << "Looking for help in: " << path;
 
-        QFileInfo info(path);
-        if (info.exists() && info.isFile() && info.isReadable()) {
+        if (checkFile(path)) {
             return path;
         }
 
         if (path.endsWith(QLatin1String(".html"))) {
             const QString file = QStringView(path).left(path.lastIndexOf(QLatin1Char('/'))) + QLatin1String("/index.docbook");
             // qDebug() << "Looking for help in: " << file;
-            info.setFile(file);
-            if (info.exists() && info.isFile() && info.isReadable()) {
+            if (checkFile(file)) {
                 return path;
             }
         }
@@ -194,7 +197,7 @@ void HelpProtocol::get(const QUrl &url)
         } else {
             QFileInfo fi(file);
             if (fi.isDir()) {
-                file = file + QLatin1String("/index.docbook");
+                file += QLatin1String("/index.docbook");
             } else {
                 if (!file.endsWith(QLatin1String(".html")) || !compareTimeStamps(file, docbook_file)) {
                     get_file(file);
@@ -305,7 +308,7 @@ void HelpProtocol::get(const QUrl &url)
                         // qDebug() << "anchor found in " << target;
                         break;
                     }
-                    index++;
+                    ++index;
                 }
             }
             emitFile(target);

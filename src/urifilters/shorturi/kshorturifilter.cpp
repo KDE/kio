@@ -159,22 +159,22 @@ bool KShortUriFilter::filterUri(KUriFilterData &data) const
     // executable and only the argument part, if any, changed! (Dawit)
     // You mean caching the last filtering, to try and reuse it, to save stat()s? (David)
 
-    const QString starthere_proto = QStringLiteral("start-here:");
-    if (cmd.indexOf(starthere_proto) == 0) {
+    const QLatin1String starthere_proto("start-here:");
+    if (cmd.startsWith(starthere_proto)) {
         setFilteredUri(data, QUrl(QStringLiteral("system:/")));
         setUriType(data, KUriFilterData::LocalDir);
         return true;
     }
 
     // Handle MAN & INFO pages shortcuts...
-    const QString man_proto = QStringLiteral("man:");
-    const QString info_proto = QStringLiteral("info:");
-    if (cmd.startsWith(QLatin1Char('#')) || cmd.indexOf(man_proto) == 0 || cmd.indexOf(info_proto) == 0) {
-        if (cmd.leftRef(2) == QLatin1String("##")) {
-            cmd = QLatin1String("info:/") + cmd.midRef(2);
-            cmd = QLatin1String("info:/") + QStringView(cmd).mid(2);
+    const QLatin1String man_proto("man:");
+    const QLatin1String info_proto("info:");
+    if (cmd.startsWith(QLatin1Char('#')) || cmd.startsWith(man_proto) || cmd.startsWith(info_proto)) {
+        QStringView sview(cmd);
+        if (cmd.startsWith(QLatin1String("##"))) {
+            cmd = QLatin1String("info:/") + sview.mid(2);
         } else if (cmd.startsWith(QLatin1Char('#'))) {
-            cmd = QLatin1String("man:/") + QStringView(cmd).mid(1);
+            cmd = QLatin1String("man:/") + sview.mid(1);
         } else if (cmd == info_proto || cmd == man_proto) {
             cmd += QLatin1Char('/');
         }
@@ -260,9 +260,9 @@ bool KShortUriFilter::filterUri(KUriFilterData &data) const
         static const QRegularExpression envVarExp(QStringLiteral("\\$[a-zA-Z_][a-zA-Z0-9_]*"));
         const auto match = envVarExp.match(path);
         if (match.hasMatch()) {
-            const QByteArray exp = qgetenv(path.midRef(1, match.capturedLength() - 1).toLocal8Bit().data());
+            const QByteArray exp = qgetenv(QStringView(path).mid(1, match.capturedLength(0) - 1).toLocal8Bit().constData());
             if (!exp.isEmpty()) {
-                path.replace(0, match.capturedLength(), QFile::decodeName(exp));
+                path.replace(0, match.capturedLength(0), QFile::decodeName(exp));
                 expanded = true;
             }
         }
