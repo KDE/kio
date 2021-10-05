@@ -470,6 +470,7 @@ void KUriFilterTest::internetKeywords_data()
     addRow("!gg foo bar", QStringLiteral("https://www.google.com/search?q=foo%20bar&ie=UTF-8"), KUriFilterData::NetProtocol);
     addRow("foo !gg bar", QStringLiteral("https://www.google.com/search?q=foo%20bar&ie=UTF-8"), KUriFilterData::NetProtocol);
     addRow("foo bar!gg", QStringLiteral("https://www.google.com/search?q=foo%20bar&ie=UTF-8"), KUriFilterData::NetProtocol);
+    addRow("wp bar!gg", QStringLiteral("https://www.google.com/search?q=wp%20bar&ie=UTF-8"), KUriFilterData::NetProtocol);
     addRow(QString::asprintf("bug%c55798", s_delimiter).toUtf8(),
            QStringLiteral("https://bugs.kde.org/buglist.cgi?quicksearch=55798"),
            KUriFilterData::NetProtocol);
