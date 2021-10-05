@@ -50,7 +50,7 @@ static QString iconNameFromUrl(const QUrl &iconUrl)
     // splat / so it can be safely used as a file name
     result.replace(QLatin1Char('/'), QLatin1Char('_'));
 
-    const QStringRef ext = result.rightRef(4);
+    const QStringView ext = QStringView(result).right(4);
     if (ext == QLatin1String(".ico") || ext == QLatin1String(".png") || ext == QLatin1String(".xpm")) {
         result.chop(4);
     }

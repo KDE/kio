@@ -530,8 +530,9 @@ static QMap<QString, QString> contentDispositionParserInternal(const QString &di
             continue;
         }
 
-        const QStringRef charset = val.leftRef(spos);
-        const QByteArray encodedVal = val.midRef(npos + 1).toLatin1();
+        const QStringView strView(val);
+
+        const QByteArray encodedVal = strView.mid(npos + 1).toLatin1();
 
         if (!isValidPercentEncoding(encodedVal)) {
             continue;
@@ -539,6 +540,7 @@ static QMap<QString, QString> contentDispositionParserInternal(const QString &di
 
         const QByteArray rawval = QByteArray::fromPercentEncoding(encodedVal);
 
+        const QStringView charset = strView.left(spos);
         if (charset.isEmpty() || (charset == QLatin1String("us-ascii"))) {
             bool valid = true;
             for (int j = rawval.length() - 1; (j >= 0) && valid; j--) {

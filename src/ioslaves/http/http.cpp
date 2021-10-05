@@ -149,6 +149,7 @@ static bool isCrossDomainRequest(const QString &fqdn, const QString &originURL)
 static QString sanitizeCustomHTTPHeader(const QString &_header)
 {
     QString sanitizedHeaders;
+    // TODO KF6 Port to QStringTokenizer in Qt6
     const QVector<QStringRef> headers = _header.splitRef(QRegularExpression(QStringLiteral("[\r\n]")));
 
     for (const QStringRef &header : headers) {
@@ -549,10 +550,8 @@ void HTTPProtocol::setHost(const QString &host, quint16 port, const QString &use
         int pos = host.indexOf(QLatin1Char('%'));
         if (pos == -1) {
             m_request.encoded_hostname = QLatin1Char('[') + host + QLatin1Char(']');
-        } else
-        // don't send the scope-id in IPv6 addresses to the server
-        {
-            m_request.encoded_hostname = QLatin1Char('[') + host.leftRef(pos) + QLatin1Char(']');
+        } else { // don't send the scope-id in IPv6 addresses to the server
+            m_request.encoded_hostname = QLatin1Char('[') + QStringView(host).left(pos) + QLatin1Char(']');
         }
     }
     m_request.url.setPort((port > 0 && port != defaultPort()) ? port : -1);
@@ -894,7 +893,14 @@ int HTTPProtocol::codeFromResponse(const QString &response)
 {
     const int firstSpace = response.indexOf(QLatin1Char(' '));
     const int secondSpace = response.indexOf(QLatin1Char(' '), firstSpace + 1);
+
+    // QStringView::toInt() implementation in Qt5 uses toString(), which
+    // defeats the point of "not-allocating"
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    return QStringView(response).mid(firstSpace + 1, secondSpace - firstSpace - 1).toInt();
+#else
     return response.midRef(firstSpace + 1, secondSpace - firstSpace - 1).toInt();
+#endif
 }
 
 void HTTPProtocol::davParsePropstats(const QDomNodeList &propstats, UDSEntry &entry)
@@ -4839,9 +4845,9 @@ static QByteArray makeCacheCleanerCommand(const HTTPProtocol::CacheTag &cacheTag
     // append the command code
     stream << quint32(cmd);
     // append the filename
-    QString fileName = cacheTag.file->fileName();
-    int basenameStart = fileName.lastIndexOf(QLatin1Char('/')) + 1;
-    const QByteArray baseName = fileName.midRef(basenameStart, s_hashedUrlNibbles).toLatin1();
+    const QString fileName = cacheTag.file->fileName();
+    const int basenameStart = fileName.lastIndexOf(QLatin1Char('/')) + 1;
+    const QByteArray baseName = QStringView(fileName).mid(basenameStart, s_hashedUrlNibbles).toLatin1();
     stream.writeRawData(baseName.constData(), baseName.size());
 
     Q_ASSERT(ret.size() == BinaryCacheFileHeader::size + sizeof(quint32) + s_hashedUrlNibbles);

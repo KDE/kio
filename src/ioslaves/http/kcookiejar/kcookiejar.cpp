@@ -55,7 +55,7 @@ static QString removeWeekday(const QString &value)
     const int index = value.indexOf(QLatin1Char(' '));
     if (index > -1) {
         int pos = 0;
-        const QStringRef weekday = value.leftRef(index);
+        const auto weekday = QStringView(value).left(index);
         const QLocale cLocale = QLocale::c();
         for (int i = 1; i < 8; ++i) {
             // No need to check for long names since the short names are

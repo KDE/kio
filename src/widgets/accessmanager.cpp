@@ -505,8 +505,9 @@ QList<QNetworkCookie> CookieJar::cookiesForUrl(const QUrl &url) const
     const QStringList cookies = cookieStr.split(QStringLiteral("; "), Qt::SkipEmptyParts);
     for (const QString &cookie : cookies) {
         const int index = cookie.indexOf(QLatin1Char('='));
-        const QStringRef name = cookie.leftRef(index);
-        const QStringRef value = cookie.rightRef((cookie.length() - index - 1));
+        const QStringView cookieView(cookie);
+        const auto name = cookieView.left(index);
+        const auto value = cookieView.right(cookie.length() - index - 1);
         cookieList << QNetworkCookie(name.toUtf8(), value.toUtf8());
         // qDebug() << "cookie: name=" << name << ", value=" << value;
     }

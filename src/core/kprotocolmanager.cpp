@@ -463,11 +463,13 @@ QString KProtocolManagerPrivate::proxyFor(const QString &protocol)
     const int index = proxyStr.lastIndexOf(QLatin1Char(' '));
 
     if (index > -1) {
-        bool ok = false;
-        const QStringRef portStr(proxyStr.rightRef(proxyStr.length() - index - 1));
-        portStr.toInt(&ok);
-        if (ok) {
-            proxyStr = proxyStr.leftRef(index) + QLatin1Char(':') + portStr;
+        const QStringView portStr = QStringView(proxyStr).right(proxyStr.length() - index - 1);
+        const bool isDigits = std::all_of(portStr.cbegin(), portStr.cend(), [](const QChar c) {
+            return c.isDigit();
+        });
+
+        if (isDigits) {
+            proxyStr = QStringView(proxyStr).left(index) + QLatin1Char(':') + portStr;
         } else {
             proxyStr.clear();
         }
@@ -533,7 +535,7 @@ QStringList KProtocolManagerPrivate::getSystemProxyFor(const QUrl &url)
         // Make sure the scheme of SOCKS proxy is always set to "socks://".
         const int index = proxy.indexOf(QLatin1String("://"));
         const int offset = (index == -1) ? 0 : (index + 3);
-        proxy = QLatin1String("socks://") + proxy.midRef(offset);
+        proxy = QLatin1String("socks://") + QStringView(proxy).mid(offset);
         if (!proxy.isEmpty()) {
             proxies << proxy;
         }
@@ -580,7 +582,7 @@ QStringList KProtocolManager::proxiesForUrl(const QUrl &url)
                 // Make sure the scheme of SOCKS proxy is always set to "socks://".
                 const int index = proxy.indexOf(QLatin1String("://"));
                 const int offset = (index == -1) ? 0 : (index + 3);
-                proxy = QLatin1String("socks://") + proxy.midRef(offset);
+                proxy = QLatin1String("socks://") + QStringView(proxy).mid(offset);
                 proxyList << proxy;
             }
             break;

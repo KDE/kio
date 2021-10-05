@@ -528,7 +528,7 @@ bool KRunPrivate::runExternalBrowser(const QString &_exec)
     urls.append(m_strURL);
     if (_exec.startsWith(QLatin1Char('!'))) {
         // Literal command
-        const QString exec = _exec.midRef(1) + QLatin1String(" %u");
+        const QString exec = QStringView(_exec).mid(1) + QLatin1String(" %u");
         if (KRun::run(exec, urls, m_window, QString(), QString(), m_asn)) {
             m_bFinished = true;
             startTimer();

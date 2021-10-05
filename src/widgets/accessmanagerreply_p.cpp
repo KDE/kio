@@ -215,9 +215,7 @@ void AccessManagerReply::setHeaderFromMetaData(const KIO::MetaData &_metaData)
                 continue;
             }
 
-            const QStringRef headerName = httpHeader.leftRef(index);
-            QString headerValue = httpHeader.mid(index + 1);
-
+            const auto headerName = QStringView(httpHeader).left(index);
             // Ignore cookie header since it is handled by the http ioslave.
             if (headerName.startsWith(QLatin1String("set-cookie"), Qt::CaseInsensitive)) {
                 continue;
@@ -227,6 +225,7 @@ void AccessManagerReply::setHeaderFromMetaData(const KIO::MetaData &_metaData)
                 continue;
             }
 
+            QString headerValue = httpHeader.mid(index + 1);
             // Without overriding the corrected mime-type sent by kio_http, add
             // back the "charset=" portion of the content-type header if present.
             if (headerName.startsWith(QLatin1String("content-type"), Qt::CaseInsensitive)) {

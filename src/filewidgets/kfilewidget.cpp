@@ -2405,16 +2405,13 @@ void KFileWidgetPrivate::updateLocationEditExtension(const QString &lastExtensio
         return;
     }
 
-    QString urlStr = locationEditCurrentText();
+    const QString urlStr = locationEditCurrentText();
     if (urlStr.isEmpty()) {
         return;
     }
 
-    QUrl url = getCompleteUrl(urlStr);
-    //     qDebug() << "updateLocationEditExtension (" << url << ")";
-
     const int fileNameOffset = urlStr.lastIndexOf(QLatin1Char('/')) + 1;
-    QString fileName = urlStr.mid(fileNameOffset);
+    QStringView fileName = QStringView(urlStr).mid(fileNameOffset);
 
     const int dot = fileName.lastIndexOf(QLatin1Char('.'));
     const int len = fileName.length();
@@ -2422,6 +2419,8 @@ void KFileWidgetPrivate::updateLocationEditExtension(const QString &lastExtensio
                    // like ".hidden" (but we do accept ".hidden.ext")
         dot != len - 1 // and not deliberately suppressing extension
     ) {
+        const QUrl url = getCompleteUrl(urlStr);
+        //     qDebug() << "updateLocationEditExtension (" << url << ")";
         // exists?
         KIO::StatJob *statJob = KIO::stat(url, KIO::HideProgressInfo);
         KJobWidgets::setWindow(statJob, q);
@@ -2453,7 +2452,7 @@ void KFileWidgetPrivate::updateLocationEditExtension(const QString &lastExtensio
         }
 
         // add extension
-        const QString newText = urlStr.leftRef(fileNameOffset) + fileName + m_extension;
+        const QString newText = QStringView(urlStr).left(fileNameOffset) + fileName + m_extension;
         if (newText != locationEditCurrentText()) {
             m_locationEdit->setItemText(m_locationEdit->currentIndex(), newText);
             m_locationEdit->lineEdit()->setModified(true);
