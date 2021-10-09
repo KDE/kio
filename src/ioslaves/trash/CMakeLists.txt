@@ -87,6 +87,7 @@ install(TARGETS ktrash5 ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
 # currently not on win32, TODO!
 if(NOT WIN32 AND NOT KIOCORE_ONLY)
     add_library(kcm_trash MODULE)
+    kcoreaddons_desktop_to_json(kcm_trash kcmtrash.desktop)
     target_sources(kcm_trash PRIVATE
         kcmtrash.cpp
     )
