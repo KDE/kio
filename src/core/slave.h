@@ -217,7 +217,7 @@ private:
     void deref();
     void aboutToDelete();
 
-public Q_SLOTS:
+public Q_SLOTS: // TODO KF6: make all three slots private
     void accept();
     void gotInput();
     void timeout();

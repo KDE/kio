@@ -18,7 +18,6 @@
 
 #include <kprotocolinfo.h>
 #include <kprotocolmanager.h>
-//#include <KJobWidgets>
 
 #ifndef KIO_ANDROID_STUB
 #include <QDBusConnection>
@@ -48,13 +47,103 @@ static inline void startJob(SimpleJob *job, Slave *slave)
     SimpleJobPrivate::get(job)->start(slave);
 }
 
-// here be uglies
-// forward declaration to break cross-dependency of SlaveKeeper and SchedulerPrivate
-static void
-setupSlave(KIO::Slave *slave, const QUrl &url, const QString &protocol, const QStringList &proxyList, bool newSlave, const KIO::MetaData *config = nullptr);
-// same reason as above
-static Scheduler *scheduler();
-static Slave *heldSlaveForJob(SimpleJob *job);
+class KIO::SchedulerPrivate
+{
+public:
+    SchedulerPrivate()
+        : q(new Scheduler())
+    {
+    }
+
+    ~SchedulerPrivate()
+    {
+        delete q;
+        q = nullptr;
+        for (ProtoQueue *p : std::as_const(m_protocols)) {
+            const QList<KIO::Slave *> list = p->allSlaves();
+            for (Slave *slave : list) {
+                slave->kill();
+            }
+        }
+        qDeleteAll(m_protocols);
+    }
+
+    SchedulerPrivate(const SchedulerPrivate &) = delete;
+    SchedulerPrivate &operator=(const SchedulerPrivate &) = delete;
+
+    Scheduler *q;
+
+    Slave *m_slaveOnHold = nullptr;
+    QUrl m_urlOnHold;
+    bool m_checkOnHold = true;
+    bool m_ignoreConfigReparse = false; // !! Always check with KLauncher for the first request
+
+    SessionData sessionData;
+
+    void doJob(SimpleJob *job);
+#if KIOCORE_BUILD_DEPRECATED_SINCE(4, 5)
+    void scheduleJob(SimpleJob *job);
+#endif
+    void setJobPriority(SimpleJob *job, int priority);
+    void cancelJob(SimpleJob *job);
+    void jobFinished(KIO::SimpleJob *job, KIO::Slave *slave);
+    void putSlaveOnHold(KIO::SimpleJob *job, const QUrl &url);
+    void removeSlaveOnHold();
+    Slave *getConnectedSlave(const QUrl &url, const KIO::MetaData &metaData);
+    bool assignJobToSlave(KIO::Slave *slave, KIO::SimpleJob *job);
+    bool disconnectSlave(KIO::Slave *slave);
+    void checkSlaveOnHold(bool b);
+    void publishSlaveOnHold();
+    Slave *heldSlaveForJob(KIO::SimpleJob *job);
+    bool isSlaveOnHoldFor(const QUrl &url);
+    void updateInternalMetaData(SimpleJob *job);
+
+    MetaData metaDataFor(const QString &protocol, const QStringList &proxyList, const QUrl &url);
+    void
+    setupSlave(KIO::Slave *slave, const QUrl &url, const QString &protocol, const QStringList &proxyList, bool newSlave, const KIO::MetaData *config = nullptr);
+
+    void slotSlaveDied(KIO::Slave *slave);
+
+#ifndef KIO_ANDROID_STUB
+    void slotReparseSlaveConfiguration(const QString &, const QDBusMessage &);
+#endif
+    void slotSlaveOnHoldListChanged();
+
+    void slotSlaveConnected();
+    void slotSlaveError(int error, const QString &errorMsg);
+
+    ProtoQueue *protoQ(const QString &protocol, const QString &host);
+
+private:
+    QHash<QString, ProtoQueue *> m_protocols;
+};
+
+static QThreadStorage<SchedulerPrivate *> s_storage;
+static SchedulerPrivate *schedulerPrivate()
+{
+    if (!s_storage.hasLocalData()) {
+        s_storage.setLocalData(new SchedulerPrivate);
+    }
+    return s_storage.localData();
+}
+
+Scheduler *Scheduler::self()
+{
+    return schedulerPrivate()->q;
+}
+
+SchedulerPrivate *Scheduler::d_func()
+{
+    return schedulerPrivate();
+}
+
+// static
+Scheduler *scheduler()
+{
+    return schedulerPrivate()->q;
+}
+
+////////////////////////////
 
 int SerialPicker::changedPrioritySerial(int oldSerial, int newPriority) const
 {
@@ -85,7 +174,7 @@ void SlaveKeeper::returnSlave(Slave *slave)
 
 Slave *SlaveKeeper::takeSlaveForJob(SimpleJob *job)
 {
-    Slave *slave = heldSlaveForJob(job);
+    Slave *slave = schedulerPrivate()->heldSlaveForJob(job);
     if (slave) {
         return slave;
     }
@@ -535,8 +624,9 @@ Slave *ProtoQueue::createSlave(const QString &protocol, SimpleJob *job, const QU
     QString errortext;
     Slave *slave = Slave::createSlave(protocol, url, error, errortext);
     if (slave) {
-        scheduler()->connect(slave, SIGNAL(slaveDied(KIO::Slave *)), SLOT(slotSlaveDied(KIO::Slave *)));
-        scheduler()->connect(slave, SIGNAL(slaveStatus(qint64, QByteArray, QString, bool)), SLOT(slotSlaveStatus(qint64, QByteArray, QString, bool)));
+        connect(slave, &Slave::slaveDied, scheduler(), [](KIO::Slave *slave) {
+            schedulerPrivate()->slotSlaveDied(slave);
+        });
     } else {
         qCWarning(KIO_CORE) << "couldn't create slave:" << errortext;
         if (job) {
@@ -626,7 +716,7 @@ void ProtoQueue::startAJob()
 
         if (slave) {
             jobPriv->m_slave = slave;
-            setupSlave(slave, jobPriv->m_url, jobPriv->m_protocol, jobPriv->m_proxyList, isNewSlave);
+            schedulerPrivate()->setupSlave(slave, jobPriv->m_url, jobPriv->m_protocol, jobPriv->m_proxyList, isNewSlave);
             startJob(startingJob, slave);
         } else {
             // dispose of our records about the job and mark the job as unknown
@@ -647,136 +737,6 @@ void ProtoQueue::startAJob()
     if (!m_queuesBySerial.isEmpty()) {
         m_startJobTimer.start();
     }
-}
-
-class KIO::SchedulerPrivate
-{
-public:
-    SchedulerPrivate()
-        : q(new Scheduler())
-        , m_slaveOnHold(nullptr)
-        , m_checkOnHold(true)
-        , // !! Always check with KLauncher for the first request
-        m_ignoreConfigReparse(false)
-    {
-    }
-
-    ~SchedulerPrivate()
-    {
-        delete q;
-        q = nullptr;
-        for (ProtoQueue *p : std::as_const(m_protocols)) {
-            const QList<KIO::Slave *> list = p->allSlaves();
-            for (Slave *slave : list) {
-                slave->kill();
-            }
-        }
-        qDeleteAll(m_protocols);
-    }
-
-    SchedulerPrivate(const SchedulerPrivate &) = delete;
-    SchedulerPrivate &operator=(const SchedulerPrivate &) = delete;
-
-    Scheduler *q;
-
-    Slave *m_slaveOnHold;
-    QUrl m_urlOnHold;
-    bool m_checkOnHold;
-    bool m_ignoreConfigReparse;
-
-    SessionData sessionData;
-
-    void doJob(SimpleJob *job);
-#if KIOCORE_BUILD_DEPRECATED_SINCE(4, 5)
-    void scheduleJob(SimpleJob *job);
-#endif
-    void setJobPriority(SimpleJob *job, int priority);
-    void cancelJob(SimpleJob *job);
-    void jobFinished(KIO::SimpleJob *job, KIO::Slave *slave);
-    void putSlaveOnHold(KIO::SimpleJob *job, const QUrl &url);
-    void removeSlaveOnHold();
-    Slave *getConnectedSlave(const QUrl &url, const KIO::MetaData &metaData);
-    bool assignJobToSlave(KIO::Slave *slave, KIO::SimpleJob *job);
-    bool disconnectSlave(KIO::Slave *slave);
-    void checkSlaveOnHold(bool b);
-    void publishSlaveOnHold();
-    Slave *heldSlaveForJob(KIO::SimpleJob *job);
-    bool isSlaveOnHoldFor(const QUrl &url);
-    void updateInternalMetaData(SimpleJob *job);
-
-    MetaData metaDataFor(const QString &protocol, const QStringList &proxyList, const QUrl &url);
-    void
-    setupSlave(KIO::Slave *slave, const QUrl &url, const QString &protocol, const QStringList &proxyList, bool newSlave, const KIO::MetaData *config = nullptr);
-
-    void slotSlaveDied(KIO::Slave *slave);
-    void slotSlaveStatus(qint64 pid, const QByteArray &protocol, const QString &host, bool connected);
-
-#ifndef KIO_ANDROID_STUB
-    void slotReparseSlaveConfiguration(const QString &, const QDBusMessage &);
-#endif
-    void slotSlaveOnHoldListChanged();
-
-    void slotSlaveConnected();
-    void slotSlaveError(int error, const QString &errorMsg);
-
-    ProtoQueue *protoQ(const QString &protocol, const QString &host)
-    {
-        ProtoQueue *pq = m_protocols.value(protocol, nullptr);
-        if (!pq) {
-            // qDebug() << "creating ProtoQueue instance for" << protocol;
-
-            const int maxSlaves = KProtocolInfo::maxSlaves(protocol);
-            int maxSlavesPerHost = -1;
-            if (!host.isEmpty()) {
-                bool ok = false;
-                const int value = SlaveConfig::self()->configData(protocol, host, QStringLiteral("MaxConnections")).toInt(&ok);
-                if (ok) {
-                    maxSlavesPerHost = value;
-                }
-            }
-            if (maxSlavesPerHost == -1) {
-                maxSlavesPerHost = KProtocolInfo::maxSlavesPerHost(protocol);
-            }
-            // Never allow maxSlavesPerHost to exceed maxSlaves.
-            pq = new ProtoQueue(maxSlaves, qMin(maxSlaves, maxSlavesPerHost));
-            m_protocols.insert(protocol, pq);
-        }
-        return pq;
-    }
-
-private:
-    QHash<QString, ProtoQueue *> m_protocols;
-};
-
-static QThreadStorage<SchedulerPrivate *> s_storage;
-static SchedulerPrivate *schedulerPrivate()
-{
-    if (!s_storage.hasLocalData()) {
-        s_storage.setLocalData(new SchedulerPrivate);
-    }
-    return s_storage.localData();
-}
-
-Scheduler *Scheduler::self()
-{
-    return schedulerPrivate()->q;
-}
-
-SchedulerPrivate *Scheduler::d_func()
-{
-    return schedulerPrivate();
-}
-
-// static
-Scheduler *scheduler()
-{
-    return schedulerPrivate()->q;
-}
-
-// static
-Slave *heldSlaveForJob(SimpleJob *job)
-{
-    return schedulerPrivate()->heldSlaveForJob(job);
 }
 
 Scheduler::Scheduler()
@@ -1059,12 +1019,6 @@ void SchedulerPrivate::jobFinished(SimpleJob *job, Slave *slave)
     jobPriv->m_internalMetaData.clear();
 }
 
-// static
-void setupSlave(KIO::Slave *slave, const QUrl &url, const QString &protocol, const QStringList &proxyList, bool newSlave, const KIO::MetaData *config)
-{
-    schedulerPrivate()->setupSlave(slave, url, protocol, proxyList, newSlave, config);
-}
-
 MetaData SchedulerPrivate::metaDataFor(const QString &protocol, const QStringList &proxyList, const QUrl &url)
 {
     const QString host = url.host();
@@ -1125,10 +1079,6 @@ void SchedulerPrivate::setupSlave(KIO::Slave *slave,
         slave->setProtocol(url.scheme());
         slave->setHost(host, port, user, passwd);
     }
-}
-
-void SchedulerPrivate::slotSlaveStatus(qint64, const QByteArray &, const QString &, bool)
-{
 }
 
 void SchedulerPrivate::slotSlaveDied(KIO::Slave *slave)
@@ -1282,6 +1232,31 @@ void SchedulerPrivate::slotSlaveError(int errorNr, const QString &errorMsg)
         // ### KDE5: can we remove this apparently arbitrary behavior and just always emit SlaveError?
         Q_EMIT q->slaveError(slave, errorNr, errorMsg);
     }
+}
+
+ProtoQueue *SchedulerPrivate::protoQ(const QString &protocol, const QString &host)
+{
+    ProtoQueue *pq = m_protocols.value(protocol, nullptr);
+    if (!pq) {
+        // qDebug() << "creating ProtoQueue instance for" << protocol;
+
+        const int maxSlaves = KProtocolInfo::maxSlaves(protocol);
+        int maxSlavesPerHost = -1;
+        if (!host.isEmpty()) {
+            bool ok = false;
+            const int value = SlaveConfig::self()->configData(protocol, host, QStringLiteral("MaxConnections")).toInt(&ok);
+            if (ok) {
+                maxSlavesPerHost = value;
+            }
+        }
+        if (maxSlavesPerHost == -1) {
+            maxSlavesPerHost = KProtocolInfo::maxSlavesPerHost(protocol);
+        }
+        // Never allow maxSlavesPerHost to exceed maxSlaves.
+        pq = new ProtoQueue(maxSlaves, qMin(maxSlaves, maxSlavesPerHost));
+        m_protocols.insert(protocol, pq);
+    }
+    return pq;
 }
 
 bool SchedulerPrivate::assignJobToSlave(KIO::Slave *slave, SimpleJob *job)
