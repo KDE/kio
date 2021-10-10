@@ -1,4 +1,5 @@
 add_library(kcm_webshortcuts MODULE main.cpp)
+kcoreaddons_desktop_to_json(kcm_webshortcuts webshortcuts.desktop)
 
 target_link_libraries(kcm_webshortcuts
   PUBLIC

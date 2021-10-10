@@ -18,7 +18,7 @@
 #include <KPluginMetaData>
 #include <kurifilter.h>
 
-K_PLUGIN_FACTORY(KURIFilterModuleFactory, registerPlugin<KURIFilterModule>();)
+K_PLUGIN_CLASS_WITH_JSON(KURIFilterModule, "webshortcuts.json")
 
 KURIFilterModule::KURIFilterModule(QWidget *parent, const QVariantList &args)
     : KCModule(parent, args)
