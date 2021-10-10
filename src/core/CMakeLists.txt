@@ -159,7 +159,6 @@ endif()
 
 set(kiocore_dbus_SRCS)
 if (TARGET Qt5::DBus)
-    qt_add_dbus_interface(kiocore_dbus_SRCS org.kde.KSlaveLauncher.xml klauncher_interface)
     qt_add_dbus_interface(kiocore_dbus_SRCS org.kde.KIOFuse.VFS.xml kiofuse_interface)
 
     set_source_files_properties(org.kde.KPasswdServer.xml

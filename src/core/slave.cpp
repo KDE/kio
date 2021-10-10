@@ -22,11 +22,6 @@
 #include <QTimer>
 
 #include <KLocalizedString>
-#ifndef KIO_ANDROID_STUB
-#include <QDBusConnection>
-#include <KDEInitInterface>
-#include <klauncher_interface.h>
-#endif
 
 #include <KPluginLoader>
 
@@ -53,22 +48,6 @@ static constexpr int s_slaveConnectionTimeoutMin = 2;
 static constexpr int s_slaveConnectionTimeoutMax = 10;
 #else
 static constexpr int s_slaveConnectionTimeoutMax = 3600;
-#endif
-
-#ifndef KIO_ANDROID_STUB
-static QThreadStorage<org::kde::KSlaveLauncher *> s_kslaveLauncher;
-
-static org::kde::KSlaveLauncher *klauncher()
-{
-    KDEInitInterface::ensureKdeinitRunning();
-    if (!s_kslaveLauncher.hasLocalData()) {
-        org::kde::KSlaveLauncher *launcher =
-            new org::kde::KSlaveLauncher(QStringLiteral("org.kde.klauncher5"), QStringLiteral("/KLauncher"), QDBusConnection::sessionBus());
-        s_kslaveLauncher.setLocalData(launcher);
-        return launcher;
-    }
-    return s_kslaveLauncher.localData();
-}
 #endif
 
 namespace KIO
@@ -320,12 +299,6 @@ void Slave::hold(const QUrl &url)
         Q_EMIT slaveDied(this);
     }
     deref();
-    // Call KSlaveLauncher::waitForSlave(pid);
-    {
-#ifndef KIO_ANDROID_STUB
-        klauncher()->waitForSlave(d->m_pid);
-#endif
-    }
 }
 
 void Slave::suspend()
