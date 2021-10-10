@@ -767,7 +767,7 @@ QString KUrlNavigatorPrivate::firstButtonText() const
 #ifdef Q_OS_WIN
             text = currentUrl.path().length() > 1 ? currentUrl.path().left(2) : QDir::rootPath();
 #else
-            text = m_showFullPath ? QStringLiteral("/") : i18n("Custom Path");
+            text = QStringLiteral("/");
 #endif
         }
     }
