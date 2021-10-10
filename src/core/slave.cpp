@@ -285,6 +285,7 @@ bool Slave::isAlive()
     return !d->dead;
 }
 
+// TODO KF6: remove, unused
 void Slave::hold(const QUrl &url)
 {
     Q_D(Slave);

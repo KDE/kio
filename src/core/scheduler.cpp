@@ -91,7 +91,6 @@ public:
     Slave *getConnectedSlave(const QUrl &url, const KIO::MetaData &metaData);
     bool assignJobToSlave(KIO::Slave *slave, KIO::SimpleJob *job);
     bool disconnectSlave(KIO::Slave *slave);
-    void publishSlaveOnHold();
     Slave *heldSlaveForJob(KIO::SimpleJob *job);
     bool isSlaveOnHoldFor(const QUrl &url);
     void updateInternalMetaData(SimpleJob *job);
@@ -799,10 +798,11 @@ void Scheduler::removeSlaveOnHold()
     schedulerPrivate()->removeSlaveOnHold();
 }
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 88)
 void Scheduler::publishSlaveOnHold()
 {
-    schedulerPrivate()->publishSlaveOnHold();
 }
+#endif
 
 bool Scheduler::isSlaveOnHoldFor(const QUrl &url)
 {
@@ -1095,17 +1095,6 @@ void SchedulerPrivate::putSlaveOnHold(KIO::SimpleJob *job, const QUrl &url)
     m_slaveOnHold = slave;
     m_urlOnHold = url;
     m_slaveOnHold->suspend();
-}
-
-void SchedulerPrivate::publishSlaveOnHold()
-{
-    // qDebug() << m_slaveOnHold;
-    if (!m_slaveOnHold) {
-        return;
-    }
-
-    m_slaveOnHold->hold(m_urlOnHold);
-    Q_EMIT q->slaveOnHoldListChanged();
 }
 
 bool SchedulerPrivate::isSlaveOnHoldFor(const QUrl &url)

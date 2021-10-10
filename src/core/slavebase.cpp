@@ -1187,7 +1187,7 @@ void SlaveBase::dispatch(int command, const QByteArray &data)
         virtual_hook(AppConnectionMade, nullptr);
         break;
     }
-    case CMD_SLAVE_HOLD: {
+    case CMD_SLAVE_HOLD: { // TODO KF6: remove, unused
         QUrl url;
         QDataStream stream(data);
         stream >> url;

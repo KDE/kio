@@ -160,12 +160,16 @@ public:
      */
     static void removeSlaveOnHold();
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 88)
     /**
      * Send the slave that was put on hold back to KLauncher. This
      * allows another process to take over the slave and resume the job
      * that was started.
+     * @deprecated since 5.88, the feature of holding slaves between processes is gone, just remove the call
      */
+    KIOCORE_DEPRECATED_VERSION(5, 88, "Remove this call. The feature is gone")
     static void publishSlaveOnHold();
+#endif
 
     /**
      * Requests a slave for use in connection-oriented mode.
