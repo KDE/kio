@@ -22,7 +22,7 @@
 #include <QSpinBox>
 #include <QUrl>
 
-K_PLUGIN_FACTORY(KProxyDialogFactory, registerPlugin<KProxyDialog>();)
+K_PLUGIN_CLASS_WITH_JSON(KProxyDialog, "proxy.json")
 
 class InputValidator : public QValidator
 {

@@ -1,5 +1,6 @@
 add_library(kcm_proxy MODULE)
 
+kcoreaddons_desktop_to_json(kcm_proxy proxy.desktop)
 target_sources(kcm_proxy PRIVATE
     kproxydlg.cpp
     ../ksaveioconfig.cpp
