@@ -117,7 +117,6 @@ public:
         , m_packedArgs(packedArgs)
         , m_url(url)
         , m_command(command)
-        , m_checkOnHold(false)
         , m_schedSerial(0)
         , m_redirectionHandlingEnabled(true)
     {
@@ -146,7 +145,6 @@ public:
     // Slave::setProtocol().
     QString m_protocol;
     QStringList m_proxyList;
-    bool m_checkOnHold;
     int m_schedSerial;
     bool m_redirectionHandlingEnabled;
 

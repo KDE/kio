@@ -99,18 +99,26 @@ public:
      */
     static Slave *createSlave(const QString &protocol, const QUrl &url, int &error, QString &error_text);
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 88)
     /**
      * Requests a slave on hold for ths url, from klauncher, if there is such a job.
      * See hold()
+     * @deprecated since 5.88 this method was internal anyway
      */
+    KIOCORE_DEPRECATED_VERSION(5, 88, "Remove this call. The feature is gone")
     static Slave *holdSlave(const QString &protocol, const QUrl &url);
+#endif
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 88)
     /**
      * Returns true if klauncher is holding a slave for @p url.
      * Used by klauncher only.
      * @since 4.7
+     * @deprecated since 5.88 this method was internal anyway
      */
+    KIOCORE_DEPRECATED_VERSION(5, 88, "Remove this call. The feature is gone")
     static bool checkForHeldSlave(const QUrl &url);
+#endif
 
     // == communication with connected kioslave ==
     // whenever possible prefer these methods over the respective

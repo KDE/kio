@@ -227,12 +227,16 @@ public:
 
     bool connect(const QObject *sender, const char *signal, const char *member);
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 88)
     /**
      * When true, the next job will check whether KLauncher has a slave
      * on hold that is suitable for the job.
      * @param b true when KLauncher has a job on hold
+     * @deprecated since 5.88, the feature of holding slaves between processes is gone, just remove the call
      */
+    KIOCORE_DEPRECATED_VERSION(5, 88, "Remove this call. The feature is gone")
     static void checkSlaveOnHold(bool b);
+#endif
 
     static void emitReparseSlaveConfiguration();
 

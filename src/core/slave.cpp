@@ -71,48 +71,6 @@ static org::kde::KSlaveLauncher *klauncher()
 }
 #endif
 
-// In such case we start the slave via QProcess.
-// It's possible to force this by setting the env. variable
-// KDE_FORK_SLAVES, Clearcase seems to require this.
-static QBasicAtomicInt bForkSlaves =
-#if KIO_FORK_SLAVES
-    Q_BASIC_ATOMIC_INITIALIZER(1);
-#else
-    Q_BASIC_ATOMIC_INITIALIZER(-1);
-#endif
-
-static bool forkSlaves()
-{
-    // In such case we start the slave via QProcess.
-    // It's possible to force this by setting the env. variable
-    // KDE_FORK_SLAVES, Clearcase seems to require this.
-    if (bForkSlaves.loadRelaxed() == -1) {
-        bool fork = qEnvironmentVariableIsSet("KDE_FORK_SLAVES");
-
-        // no dbus? => fork slaves as we can't talk to klauncher
-#ifndef KIO_ANDROID_STUB
-        if (!fork) {
-            fork = !QDBusConnection::sessionBus().interface();
-        }
-
-#ifdef Q_OS_UNIX
-        if (!fork) {
-            // check the UID of klauncher
-            QDBusReply<uint> reply = QDBusConnection::sessionBus().interface()->serviceUid(klauncher()->service());
-            // if reply is not valid, fork, most likely klauncher can not be run or is not installed
-            // fallback: if there's an klauncher process owned by a different user: still fork
-            if (!reply.isValid() || getuid() != reply) {
-                fork = true;
-            }
-        }
-#endif
-#endif
-
-        bForkSlaves.testAndSetRelaxed(-1, fork ? 1 : 0);
-    }
-    return bForkSlaves.loadRelaxed() == 1;
-}
-
 namespace KIO
 {
 /**
@@ -463,6 +421,7 @@ void Slave::setConfig(const MetaData &config)
 
 Slave *Slave::createSlave(const QString &protocol, const QUrl &url, int &error, QString &error_text)
 {
+    Q_UNUSED(url)
     // qDebug() << "createSlave" << protocol << "for" << url;
     // Firstly take into account all special slaves
     if (protocol == QLatin1String("data")) {
@@ -477,121 +436,70 @@ Slave *Slave::createSlave(const QString &protocol, const QUrl &url, int &error, 
         return nullptr;
     }
 
-    if (forkSlaves() == 1) {
-        QString _name = KProtocolInfo::exec(protocol);
-        if (_name.isEmpty()) {
-            error_text = i18n("Unknown protocol '%1'.", protocol);
-            error = KIO::ERR_CANNOT_CREATE_SLAVE;
-            delete slave;
-            return nullptr;
-        }
-        // find the kioslave using QPluginLoader; kioslave would do this
-        // anyway, but if it doesn't exist, we want to be able to return
-        // a useful error message immediately
-        QPluginLoader loader(_name);
-        QString lib_path = loader.fileName();
-        if (lib_path.isEmpty()) {
-            error_text = i18n("Can not find io-slave for protocol '%1'.", protocol);
-            error = KIO::ERR_CANNOT_CREATE_SLAVE;
-            delete slave;
-            return nullptr;
-        }
-
-        const QStringList args = QStringList{lib_path, protocol, QString(), slaveAddress.toString()};
-        // qDebug() << "kioslave" << ", " << lib_path << ", " << protocol << ", " << QString() << ", " << slaveAddress;
-
-        // look where libexec path is (can be set in qt.conf)
-        const QString qlibexec = QLibraryInfo::location(QLibraryInfo::LibraryExecutablesPath);
-        // on !win32 we use a kf5 suffix
-        const QString qlibexecKF5 = QDir(qlibexec).filePath(QStringLiteral("kf5"));
-
-        // search paths
-        const QStringList searchPaths = QStringList() << QCoreApplication::applicationDirPath() // then look where our application binary is located
-                                                      << qlibexec << qlibexecKF5
-                                                      << QFile::decodeName(KDE_INSTALL_FULL_LIBEXECDIR_KF5); // look at our installation location
-        QString kioslaveExecutable = QStandardPaths::findExecutable(QStringLiteral("kioslave5"), searchPaths);
-        if (kioslaveExecutable.isEmpty()) {
-            // Fallback to PATH. On win32 we install to bin/ which tests outside
-            // KIO cannot not find at the time ctest is run because it
-            // isn't the same as applicationDirPath().
-            kioslaveExecutable = QStandardPaths::findExecutable(QStringLiteral("kioslave5"));
-        }
-        if (kioslaveExecutable.isEmpty()) {
-            error_text = i18n("Can not find 'kioslave5' executable at '%1'", searchPaths.join(QLatin1String(", ")));
-            error = KIO::ERR_CANNOT_CREATE_SLAVE;
-            delete slave;
-            return nullptr;
-        }
-
-        qint64 pid = 0;
-        QProcess::startDetached(kioslaveExecutable, args, QString(), &pid);
-        slave->setPID(pid);
-
-        return slave;
-    }
-
-    QString errorStr;
-#ifndef KIO_ANDROID_STUB
-    QDBusReply<int> reply = klauncher()->requestSlave(protocol, url.host(), slaveAddress.toString(), errorStr);
-    if (!reply.isValid()) {
-        error_text = i18n("Cannot talk to klauncher: %1", klauncher()->lastError().message());
+    const QString _name = KProtocolInfo::exec(protocol);
+    if (_name.isEmpty()) {
+        error_text = i18n("Unknown protocol '%1'.", protocol);
         error = KIO::ERR_CANNOT_CREATE_SLAVE;
         delete slave;
         return nullptr;
     }
-    qint64 pid = reply;
-    if (!pid) {
-        error_text = i18n("klauncher said: %1", errorStr);
+    // find the kioslave using QPluginLoader; kioslave would do this
+    // anyway, but if it doesn't exist, we want to be able to return
+    // a useful error message immediately
+    QPluginLoader loader(_name);
+    const QString lib_path = loader.fileName();
+    if (lib_path.isEmpty()) {
+        error_text = i18n("Can not find io-slave for protocol '%1'.", protocol);
         error = KIO::ERR_CANNOT_CREATE_SLAVE;
         delete slave;
         return nullptr;
     }
+
+    const QStringList args = QStringList{lib_path, protocol, QString(), slaveAddress.toString()};
+    // qDebug() << "kioslave" << ", " << lib_path << ", " << protocol << ", " << QString() << ", " << slaveAddress;
+
+    // look where libexec path is (can be set in qt.conf)
+    const QString qlibexec = QLibraryInfo::location(QLibraryInfo::LibraryExecutablesPath);
+    // on !win32 we use a kf5 suffix
+    const QString qlibexecKF5 = QDir(qlibexec).filePath(QStringLiteral("kf5"));
+
+    // search paths
+    const QStringList searchPaths = QStringList() << QCoreApplication::applicationDirPath() // then look where our application binary is located
+                                                  << qlibexec << qlibexecKF5
+                                                  << QFile::decodeName(KDE_INSTALL_FULL_LIBEXECDIR_KF5); // look at our installation location
+    QString kioslaveExecutable = QStandardPaths::findExecutable(QStringLiteral("kioslave5"), searchPaths);
+    if (kioslaveExecutable.isEmpty()) {
+        // Fallback to PATH. On win32 we install to bin/ which tests outside
+        // KIO cannot not find at the time ctest is run because it
+        // isn't the same as applicationDirPath().
+        kioslaveExecutable = QStandardPaths::findExecutable(QStringLiteral("kioslave5"));
+    }
+    if (kioslaveExecutable.isEmpty()) {
+        error_text = i18n("Can not find 'kioslave5' executable at '%1'", searchPaths.join(QLatin1String(", ")));
+        error = KIO::ERR_CANNOT_CREATE_SLAVE;
+        delete slave;
+        return nullptr;
+    }
+
+    qint64 pid = 0;
+    QProcess::startDetached(kioslaveExecutable, args, QString(), &pid);
     slave->setPID(pid);
-#endif
-    QTimer::singleShot(1000 * s_slaveConnectionTimeoutMin, slave, &Slave::timeout);
+
     return slave;
 }
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 88)
 Slave *Slave::holdSlave(const QString &protocol, const QUrl &url)
 {
-    // qDebug() << "holdSlave" << protocol << "for" << url;
-    // Firstly take into account all special slaves
-    if (protocol == QLatin1String("data")) {
-        return nullptr;
-    }
-
-    if (forkSlaves()) {
-        return nullptr;
-    }
-
-    Slave *slave = new Slave(protocol);
-    QUrl slaveAddress = slave->d_func()->slaveconnserver->address();
-#ifndef KIO_ANDROID_STUB
-    QDBusReply<int> reply = klauncher()->requestHoldSlave(url.toString(), slaveAddress.toString());
-    if (!reply.isValid()) {
-        delete slave;
-        return nullptr;
-    }
-    qint64 pid = reply;
-    if (!pid) {
-        delete slave;
-        return nullptr;
-    }
-    slave->setPID(pid);
-#endif
-    QTimer::singleShot(1000 * s_slaveConnectionTimeoutMin, slave, &Slave::timeout);
-    return slave;
+    Q_UNUSED(protocol)
+    Q_UNUSED(url)
+    return nullptr;
 }
+#endif
 
-bool Slave::checkForHeldSlave(const QUrl &url)
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 88)
+bool Slave::checkForHeldSlave(const QUrl &)
 {
-    if (forkSlaves()) {
-        return false;
-    }
-
-#ifndef KIO_ANDROID_STUB
-    return klauncher()->checkForHeldSlave(url.toString());
-#else
     return false;
-#endif
 }
+#endif

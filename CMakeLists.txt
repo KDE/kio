@@ -38,9 +38,6 @@ set(EXCLUDE_DEPRECATED_BEFORE_AND_AT 0 CACHE STRING "Control the range of deprec
 
 option(KIOCORE_ONLY "Only compile KIOCore, not KIOWidgets or anything that depends on it. This will disable support for cookies and passwordhandling (prompting and storing)." OFF)
 
-# KF6: remove option KIO_FORK_SLAVES, make it always ON and remove klauncher-related code
-option(KIO_FORK_SLAVES "When set to ON (the default since 5.85) KIO starts the slaves via QProcess. Otherwise via klauncher. It's also possible to change this by setting the environment variable KDE_FORK_SLAVES." ON)
-
 # Enable state assertion by default on Jenkins and from-git builds.
 # This option should eventually be dropped and always be enabled.
 set(ASSERT_SLAVE_STATES_DEFAULT OFF)
