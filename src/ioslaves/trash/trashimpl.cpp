@@ -1113,6 +1113,8 @@ QString TrashImpl::trashForMountPoint(const QString &topdir, bool createIfNeeded
             && ((buff.st_mode & requiredBits) == requiredBits) //
             && (::access(rootTrashDir_c.constData(), W_OK) == 0) // must be user-writable
         ) {
+            if (buff.st_dev == m_homeDevice) // bind mount, maybe
+                return QString();
 #ifndef Q_OS_OSX
             const QString trashDir = rootTrashDir + QLatin1Char('/') + QString::number(uid);
 #else
@@ -1148,6 +1150,8 @@ QString TrashImpl::trashForMountPoint(const QString &topdir, bool createIfNeeded
             && !S_ISLNK(buff.st_mode) // not a symlink
             && ((buff.st_mode & 0700) == 0700)) { // and we need write access to it
 
+            if (buff.st_dev == m_homeDevice) // bind mount, maybe
+                return QString();
             if (checkTrashSubdirs(trashDir_c)) {
                 return trashDir;
             }
