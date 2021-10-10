@@ -1,5 +1,7 @@
 add_library(kcm_cookies MODULE)
 
+kcoreaddons_desktop_to_json(kcm_cookies cookies.desktop)
+
 target_sources(kcm_cookies PRIVATE
     kcookiesmain.cpp
     kcookiespolicies.cpp

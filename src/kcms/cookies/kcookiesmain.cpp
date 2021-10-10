@@ -22,7 +22,7 @@
 #include <KMessageBox>
 #include <KPluginFactory>
 
-K_PLUGIN_FACTORY(KCookiesMainFactory, registerPlugin<KCookiesMain>();)
+K_PLUGIN_CLASS_WITH_JSON(KCookiesMain, "cookies.json")
 
 KCookiesMain::KCookiesMain(QWidget *parent, const QVariantList &args)
     : KCModule(parent, args)
