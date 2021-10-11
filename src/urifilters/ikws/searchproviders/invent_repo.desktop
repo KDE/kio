@@ -1,0 +1,5 @@
+[Desktop Entry]
+Keys=inventrepo,invrepo,repo
+Name=KDE Invent Repositories
+Query=https://invent.kde.org/explore/projects/starred?name=\\{@}
+Type=Service
