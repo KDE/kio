@@ -551,9 +551,9 @@ void KNewFileMenuPrivate::executeRealFileOrDir(const KNewFileMenuSingleton::Entr
     text.remove(QStringLiteral("...")); // the ... is fine for the menu item but not for the default filename
     text = text.trimmed(); // In some languages, there is a space in front of "...", see bug 268895
     // add the extension (from the templatePath), should work with .txt, .html and with ".tar.gz"... etc
-    const QString fileName = entry.templatePath.mid(entry.templatePath.lastIndexOf(QLatin1Char('/')));
+    const QStringView fileName = QStringView(entry.templatePath).mid(entry.templatePath.lastIndexOf(QLatin1Char('/')));
     const int dotIndex = fileName.indexOf(QLatin1Char('.'));
-    text += dotIndex > 0 ? fileName.midRef(dotIndex) : QStringRef();
+    text += dotIndex > 0 ? fileName.mid(dotIndex) : QStringView{};
 
     m_copyData.m_src = entry.templatePath;
 

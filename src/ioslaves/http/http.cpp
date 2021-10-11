@@ -149,10 +149,13 @@ static bool isCrossDomainRequest(const QString &fqdn, const QString &originURL)
 static QString sanitizeCustomHTTPHeader(const QString &_header)
 {
     QString sanitizedHeaders;
-    // TODO KF6 Port to QStringTokenizer in Qt6
-    const QVector<QStringRef> headers = _header.splitRef(QRegularExpression(QStringLiteral("[\r\n]")));
 
-    for (const QStringRef &header : headers) {
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    const QVector<QStringView> headers = QStringView(_header).split(QRegularExpression(QStringLiteral("[\r\n]")));
+#else
+    const QVector<QStringRef> headers = _header.splitRef(QRegularExpression(QStringLiteral("[\r\n]")));
+#endif
+    for (const auto &header : headers) {
         // Do not allow Request line to be specified and ignore
         // the other HTTP headers.
         if (!header.contains(QLatin1Char(':')) || header.startsWith(QLatin1String("host"), Qt::CaseInsensitive)
