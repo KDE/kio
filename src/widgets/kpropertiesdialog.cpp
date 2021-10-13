@@ -1239,7 +1239,6 @@ void KFilePropsPlugin::setFileNameReadOnly(bool readOnly)
     if (readOnly) {
         Q_ASSERT(!d->m_bFromTemplate);
 
-        d->m_ui->fileNameLineEdit->setText(QString());
         d->m_ui->fileNameLineEdit->hide();
 
         d->m_ui->fileNameLabel->show();
