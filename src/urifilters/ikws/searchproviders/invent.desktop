@@ -1,5 +1,17 @@
 [Desktop Entry]
 Keys=invent,inv
 Name=KDE Invent
+Name[ca]=KDE Invent
+Name[es]=KDE Invent
+Name[nl]=KDE-invent
+Name[sv]=KDE-Invent
+Name[uk]=KDE Invent
+Name[x-test]=xxKDE Inventxx
 Query=https://invent.kde.org/search?search=\\{@}
+Query[ca]=https://invent.kde.org/search?search=\\{@}
+Query[es]=https://invent.kde.org/search?search=\\{@}
+Query[nl]=https://invent.kde.org/search?search=\\{@}
+Query[sv]=https://invent.kde.org/search?search=\\{@}
+Query[uk]=https://invent.kde.org/search?search=\\{@}
+Query[x-test]=xxhttps://invent.kde.org/search?search=\\{@}xx
 Type=Service
