@@ -49,6 +49,7 @@ target_sources(KF5KIOCore PRIVATE
   kremoteencoding.cpp
   sessiondata.cpp
   slavebase.cpp
+  workerbase.cpp
   dataslave.cpp
   dataprotocol.cpp
   desktopexecparser.cpp
@@ -308,6 +309,7 @@ ecm_generate_headers(KIOCore_CamelCase_HEADERS
   DesktopExecParser
   FileSystemFreeSpaceJob
   BatchRenameJob
+  WorkerBase
 
   PREFIX KIO
   REQUIRED_HEADERS KIO_namespaced_HEADERS

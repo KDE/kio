@@ -1,60 +1,80 @@
 /*
-    SPDX-FileCopyrightText: 2000 David Faure <faure@kde.org>
-
     SPDX-License-Identifier: LGPL-2.0-or-later
+    SPDX-FileCopyrightText: 2000 David Faure <faure@kde.org>
+    SPDX-FileCopyrightText: 2019-2022 Harald Sitter <sitter@kde.org>
 */
 
-#ifndef SLAVEBASE_H
-#define SLAVEBASE_H
-
-#include "job_base.h" // for KIO::JobFlags
-#include <kio/authinfo.h>
-#include <kio/global.h>
-#include <kio/udsentry.h>
-
-#include <QByteArray>
-#include <QHostInfo>
+#ifndef WORKERBASE_H
+#define WORKERBASE_H
 
 #include <memory>
 
-class KConfigGroup;
-class KRemoteEncoding;
-class QUrl;
+#include "slavebase.h" // for KIO::JobFlags
 
 namespace KIO
 {
-class Connection;
-class SlaveBasePrivate;
+class WorkerBasePrivate;
+class WorkerResultPrivate;
 
 /**
- * @class KIO::SlaveBase slavebase.h <KIO/SlaveBase>
+ * @brief The result of a worker call
+ * When using the Result type always mark the function Q_REQUIRED_RESULT to enforce handling of the Result.
+ */
+class KIOCORE_EXPORT WorkerResult
+{
+public:
+    /// Use fail() or pass();
+    WorkerResult() = delete;
+    ~WorkerResult();
+    WorkerResult(const WorkerResult &);
+    WorkerResult &operator=(const WorkerResult &);
+    WorkerResult(WorkerResult &&) noexcept;
+    WorkerResult &operator=(WorkerResult &&) noexcept;
+
+    /// Whether or not the result was a success.
+    bool success() const;
+    /// The error code (or ERR_UNKNOWN) of the result.
+    int error() const;
+    /// The localized error description if applicable.
+    QString errorString() const;
+
+    /// Constructs a failure results.
+    Q_REQUIRED_RESULT static WorkerResult fail(int _error = KIO::ERR_UNKNOWN, const QString &_errorString = QString());
+    /// Constructs a success result.
+    Q_REQUIRED_RESULT static WorkerResult pass();
+
+private:
+    explicit WorkerResult(std::unique_ptr<WorkerResultPrivate> &&dptr);
+    std::unique_ptr<WorkerResultPrivate> d;
+};
+
+/**
+ * @class KIO::WorkerBase workerbase.h <KIO/WorkerBase>
  *
- * There are two classes that specifies the protocol between application (job)
- * and kioslave. SlaveInterface is the class to use on the application end,
- * SlaveBase is the one to use on the slave end.
- *
- * Slave implementations should simply inherit SlaveBase
+ * WorkerBase is the class to use to implement a worker - simply inherit WorkerBase in your worker.
  *
  * A call to foo() results in a call to slotFoo() on the other end.
  *
- * Note that a kioslave doesn't have a Qt event loop. When idle, it's waiting for a command
- * on the socket that connects it to the application. So don't expect a kioslave to react
- * to D-Bus signals for instance. KIOSlaves are short-lived anyway, so any kind of watching
+ * Note that a kioworker doesn't have a Qt event loop. When idle, it's waiting for a command
+ * on the socket that connects it to the application. So don't expect a kioworker to react
+ * to D-Bus signals for instance. KIOWorkers are short-lived anyway, so any kind of watching
  * or listening for notifications should be done elsewhere, for instance in a kded module
  * (see kio_desktop's desktopnotifier.cpp for an example).
  *
- * If a kioslave needs a Qt event loop within the implementation of one method, e.g. to
+ * If a kioworker needs a Qt event loop within the implementation of one method, e.g. to
  * wait for an asynchronous operation to finish, that is possible, using QEventLoop.
+ *
+ * @since 5.96
  */
-class KIOCORE_EXPORT SlaveBase
+class KIOCORE_EXPORT WorkerBase
 {
 public:
-    SlaveBase(const QByteArray &protocol, const QByteArray &pool_socket, const QByteArray &app_socket);
-    virtual ~SlaveBase();
+    WorkerBase(const QByteArray &protocol, const QByteArray &poolSocket, const QByteArray &appSocket);
+    virtual ~WorkerBase();
 
     /**
      * @internal
-     * Terminate the slave by calling the destructor and then ::exit()
+     * Terminate the worker by calling the destructor and then ::exit()
      */
     void exit();
 
@@ -68,12 +88,12 @@ public:
     ///////////
 
     /**
-     * Sends data in the slave to the job (i.e.\ in get).
+     * Sends data in the worker to the job (i.e.\ in get).
      *
      * To signal end of data, simply send an empty
      * QByteArray().
      *
-     * @param data the data read by the slave
+     * @param data the data read by the worker
      */
     void data(const QByteArray &data);
 
@@ -84,65 +104,17 @@ public:
     void dataReq();
 
     /**
-     * open succeeds
-     * @see open()
-     */
-    void opened();
-
-    /**
-     * Call to signal an error.
-     * This also finishes the job, so you must not call
-     * finished() after calling this.
-     *
-     * If the error code is KIO::ERR_SLAVE_DEFINED then the
-     * _text should contain the complete translated text of
-     * of the error message.
-     *
-     * For all other error codes, _text should match the corresponding
-     * error code. Usually, _text is a file or host name, or the error which
-     * was passed from the server.<br>
-     * For example, for KIO::ERR_DOES_NOT_EXIST, _text may only
-     * be the file or folder which does not exist, nothing else. Otherwise,
-     * this would break error strings generated by KIO::buildErrorString().<br>
-     * If you have to add more details than what the standard error codes
-     * provide, you'll need to use KIO::ERR_SLAVE_DEFINED.
-     * For a complete list of what _text should contain for each error code,
-     * look at the source of KIO::buildErrorString().
-     *
-     * You can add rich text markup to the message, the places where the
-     * error message will be displayed are rich text aware.
-     *
-     * @see KIO::Error
-     * @see KIO::buildErrorString
-     * @param _errid the error code from KIO::Error
-     * @param _text the rich text error message
-     */
-    void error(int _errid, const QString &_text);
-
-    /**
-     * Call in openConnection, if you reimplement it, when you're done.
-     */
-    void connected();
-
-    /**
-     * Call to signal successful completion of any command
-     * besides openConnection and closeConnection. Do not
-     * call this after calling error().
-     */
-    void finished();
-
-    /**
      * Call to signal that data from the sub-URL is needed
      */
     void needSubUrlData();
 
     /**
-     * Used to report the status of the slave.
-     * @param host the slave is currently connected to. (Should be
+     * Used to report the status of the worker.
+     * @param host the worker is currently connected to. (Should be
      *        empty if not connected)
      * @param connected Whether an actual network connection exists.
      **/
-    void slaveStatus(const QString &host, bool connected);
+    void workerStatus(const QString &host, bool connected);
 
     /**
      * Call this from stat() to express details about an object, the
@@ -194,23 +166,7 @@ public:
 
     void written(KIO::filesize_t _bytes);
 
-    /**
-     * @since 5.66
-     */
     void truncated(KIO::filesize_t _length);
-
-    /**
-     * Only use this if you can't know in advance the size of the
-     * copied data. For example, if you're doing variable bitrate
-     * compression of the source.
-     *
-     * STUB ! Currently unimplemented. Here now for binary compatibility.
-     *
-     * Call this during get and copy, once in a while,
-     * to give some info about the current state.
-     * Don't emit it in listDir, listEntries speaks for itself.
-     */
-    void processedPercent(float percent); // KF6 TODO REMOVE
 
     /**
      * Call this in get and copy, to give the current transfer
@@ -275,7 +231,7 @@ public:
     };
 
     /**
-     * Call this to show a message box from the slave
+     * Call this to show a message box from the worker
      * @param type type of message box: QuestionYesNo, WarningYesNo, WarningContinueCancel...
      * @param text Message string. May contain newlines.
      * @param caption Message box title.
@@ -294,7 +250,7 @@ public:
                    const QString &buttonNo = QString());
 
     /**
-     * Call this to show a message box from the slave
+     * Call this to show a message box from the worker
      * @param text Message string. May contain newlines.
      * @param type type of message box: QuestionYesNo, WarningYesNo, WarningContinueCancel...
      * @param caption Message box title.
@@ -322,47 +278,43 @@ public:
 
     /**
      * Queries for the existence of a certain config/meta-data entry
-     * send by the application to the slave.
+     * send by the application to the worker.
      */
     bool hasMetaData(const QString &key) const;
 
     /**
-     * Queries for config/meta-data send by the application to the slave.
+     * Queries for config/meta-data send by the application to the worker.
      */
     QString metaData(const QString &key) const;
 
     /**
      * @internal for ForwardingSlaveBase
-     * Contains all metadata (but no config) sent by the application to the slave.
+     * Contains all metadata (but no config) sent by the application to the worker.
      */
     MetaData allMetaData() const;
 
     /**
      * Returns a map to query config/meta-data information from.
      *
-     * The application provides the slave with all configuration information
+     * The application provides the worker with all configuration information
      * relevant for the current protocol and host.
      *
      * Use configValue() as shortcut.
-     * @since 5.64
      */
     QMap<QString, QVariant> mapConfig() const;
 
     /**
      * Returns a bool from the config/meta-data information.
-     * @since 5.64
      */
     bool configValue(const QString &key, bool defaultValue) const;
 
     /**
      * Returns an int from the config/meta-data information.
-     * @since 5.64
      */
     int configValue(const QString &key, int defaultValue) const;
 
     /**
      * Returns a QString from the config/meta-data information.
-     * @since 5.64
      */
     QString configValue(const QString &key, const QString &defaultValue = QString()) const;
 
@@ -370,7 +322,7 @@ public:
      * Returns a configuration object to query config/meta-data information
      * from.
      *
-     * The application provides the slave with all configuration information
+     * The application provides the worker with all configuration information
      * relevant for the current protocol and host.
      *
      * @note Since 5.64 prefer to use mapConfig() or one of the configValue(...) overloads.
@@ -386,44 +338,44 @@ public:
     KRemoteEncoding *remoteEncoding();
 
     ///////////
-    // Commands sent by the job, the slave has to
+    // Commands sent by the job, the worker has to
     // override what it wants to implement
     ///////////
 
     /**
+     * @brief Application connected to the worker.
+     *
+     * Called when an application has connected to the worker. Mostly only useful
+     * when you want to e.g. send metadata to the application once it connects.
+     */
+    virtual void appConnectionMade();
+
+    /**
      * Set the host
      *
-     * Called directly by createSlave, this is why there is no equivalent in
-     * SlaveInterface, unlike the other methods.
+     * Called directly by createWorker and not via the interface.
      *
      * This method is called whenever a change in host, port or user occurs.
      */
     virtual void setHost(const QString &host, quint16 port, const QString &user, const QString &pass);
 
     /**
-     * Prepare slave for streaming operation
-     */
-    virtual void setSubUrl(const QUrl &url); // TODO KF6 remove
-
-    /**
      * Opens the connection (forced).
-     *
-     * When this function gets called the slave is operating in
+     * When this function gets called the worker is operating in
      * connection-oriented mode.
-     * When a connection gets lost while the slave operates in
-     * connection oriented mode, the slave should report
+     * When a connection gets lost while the worker operates in
+     * connection oriented mode, the worker should report
      * ERR_CONNECTION_BROKEN instead of reconnecting. The user is
-     * expected to disconnect the slave in the error handler.
+     * expected to disconnect the worker in the error handler.
      */
-    virtual void openConnection();
+    Q_REQUIRED_RESULT virtual WorkerResult openConnection();
 
     /**
      * Closes the connection (forced).
-     *
-     * Called when the application disconnects the slave to close
+     * Called when the application disconnects the worker to close
      * any open network connections.
      *
-     * When the slave was operating in connection-oriented mode,
+     * When the worker was operating in connection-oriented mode,
      * it should reset itself to connectionless (default) mode.
      */
     virtual void closeConnection();
@@ -433,7 +385,7 @@ public:
      * @param url the full url for this request. Host, port and user of the URL
      *        can be assumed to be the same as in the last setHost() call.
      *
-     * The slave should first "emit" the MIME type by calling mimeType(),
+     * The worker should first "emit" the MIME type by calling mimeType(),
      * and then "emit" the data using the data() method.
      *
      * The reason why we need get() to emit the MIME type is:
@@ -443,11 +395,11 @@ public:
      * would have to do a second request to the same server, this is done
      * like this: get() is called, and when it emits the MIME type, the job
      * is put on hold and the right app or part is launched. When that app
-     * or part calls get(), the slave is magically reused, and the download
-     * can now happen. All with a single call to get() in the slave.
+     * or part calls get(), the worker is magically reused, and the download
+     * can now happen. All with a single call to get() in the worker.
      * This mechanism is also described in KIO::get().
      */
-    virtual void get(const QUrl &url);
+    Q_REQUIRED_RESULT virtual WorkerResult get(const QUrl &url);
 
     /**
      * open.
@@ -455,31 +407,37 @@ public:
      *        can be assumed to be the same as in the last setHost() call.
      * @param mode see \ref QIODevice::OpenMode
      */
-    virtual void open(const QUrl &url, QIODevice::OpenMode mode);
+    Q_REQUIRED_RESULT virtual WorkerResult open(const QUrl &url, QIODevice::OpenMode mode);
 
     /**
      * read.
      * @param size the requested amount of data to read
      * @see KIO::FileJob::read()
      */
-    virtual void read(KIO::filesize_t size);
+    Q_REQUIRED_RESULT virtual WorkerResult read(KIO::filesize_t size);
     /**
      * write.
      * @param data the data to write
      * @see KIO::FileJob::write()
      */
-    virtual void write(const QByteArray &data);
+    Q_REQUIRED_RESULT virtual WorkerResult write(const QByteArray &data);
     /**
      * seek.
      * @param offset the requested amount of data to read
      * @see KIO::FileJob::read()
      */
-    virtual void seek(KIO::filesize_t offset);
+    Q_REQUIRED_RESULT virtual WorkerResult seek(KIO::filesize_t offset);
+    /**
+     * truncate
+     * @param size size to truncate the file to
+     * @see KIO::FileJob::truncate()
+     */
+    Q_REQUIRED_RESULT virtual WorkerResult truncate(KIO::filesize_t size);
     /**
      * close.
      * @see KIO::FileJob::close()
      */
-    virtual void close();
+    Q_REQUIRED_RESULT virtual WorkerResult close();
 
     /**
      * put, i.e.\ write data into a file.
@@ -488,7 +446,7 @@ public:
      * @param permissions may be -1. In this case no special permission mode is set.
      * @param flags We support Overwrite here. Hopefully, we're going to
      * support Resume in the future, too.
-     * If the file indeed already exists, the slave should NOT apply the
+     * If the file indeed already exists, the worker should NOT apply the
      * permissions change to it.
      * The support for resuming using .part files is done by calling canResume().
      *
@@ -496,7 +454,7 @@ public:
      *
      * @see canResume()
      */
-    virtual void put(const QUrl &url, int permissions, JobFlags flags);
+    Q_REQUIRED_RESULT virtual WorkerResult put(const QUrl &url, int permissions, JobFlags flags);
 
     /**
      * Finds all details for one file or directory.
@@ -513,7 +471,7 @@ public:
      * details==0 is used for very simple probing: we'll only get the answer
      * "it's a file or a directory (or a symlink), or it doesn't exist".
      */
-    virtual void stat(const QUrl &url);
+    Q_REQUIRED_RESULT virtual WorkerResult stat(const QUrl &url);
 
     /**
      * Finds MIME type for one file or directory.
@@ -522,40 +480,40 @@ public:
      * should send a block of data big enough to be able
      * to determine the MIME type.
      *
-     * If the slave doesn't reimplement it, a get will
-     * be issued, i.e. the whole file will be downloaded before
+     * If the worker doesn't reimplement it, a get will
+     * be issued, i.e.\ the whole file will be downloaded before
      * determining the MIME type on it - this is obviously not a
      * good thing in most cases.
      */
-    virtual void mimetype(const QUrl &url);
+    Q_REQUIRED_RESULT virtual WorkerResult mimetype(const QUrl &url);
 
     /**
      * Lists the contents of @p url.
-     * The slave should emit ERR_CANNOT_ENTER_DIRECTORY if it doesn't exist,
+     * The worker should emit ERR_CANNOT_ENTER_DIRECTORY if it doesn't exist,
      * if we don't have enough permissions.
      * You should not list files if the path in @p url is empty, but redirect
      * to a non-empty path instead.
      */
-    virtual void listDir(const QUrl &url);
+    Q_REQUIRED_RESULT virtual WorkerResult listDir(const QUrl &url);
 
     /**
      * Create a directory
      * @param url path to the directory to create
      * @param permissions the permissions to set after creating the directory
      * (-1 if no permissions to be set)
-     * The slave emits ERR_CANNOT_MKDIR if failure.
+     * The worker emits ERR_CANNOT_MKDIR if failure.
      */
-    virtual void mkdir(const QUrl &url, int permissions);
+    Q_REQUIRED_RESULT virtual WorkerResult mkdir(const QUrl &url, int permissions);
 
     /**
      * Rename @p oldname into @p newname.
-     * If the slave returns an error ERR_UNSUPPORTED_ACTION, the job will
+     * If the worker returns an error ERR_UNSUPPORTED_ACTION, the job will
      * ask for copy + del instead.
      *
-     * Important: the slave must implement the logic "if the destination already
+     * Important: the worker must implement the logic "if the destination already
      * exists, error ERR_DIR_ALREADY_EXIST or ERR_FILE_ALREADY_EXIST".
      * For performance reasons no stat is done in the destination before hand,
-     * the slave must do it.
+     * the worker must do it.
      *
      * By default, rename() is only called when renaming (moving) from
      * yourproto://host/path to yourproto://host/otherpath.
@@ -573,7 +531,7 @@ public:
      * @param dest where to move the file to
      * @param flags We support Overwrite here
      */
-    virtual void rename(const QUrl &src, const QUrl &dest, JobFlags flags);
+    Q_REQUIRED_RESULT virtual WorkerResult rename(const QUrl &src, const QUrl &dest, JobFlags flags);
 
     /**
      * Creates a symbolic link named @p dest, pointing to @p target, which
@@ -582,31 +540,28 @@ public:
      * @param dest The symlink to create.
      * @param flags We support Overwrite here
      */
-    virtual void symlink(const QString &target, const QUrl &dest, JobFlags flags);
+    Q_REQUIRED_RESULT virtual WorkerResult symlink(const QString &target, const QUrl &dest, JobFlags flags);
 
     /**
      * Change permissions on @p url.
-     *
-     * The slave emits ERR_DOES_NOT_EXIST or ERR_CANNOT_CHMOD
+     * The worker emits ERR_DOES_NOT_EXIST or ERR_CANNOT_CHMOD
      */
-    virtual void chmod(const QUrl &url, int permissions);
+    Q_REQUIRED_RESULT virtual WorkerResult chmod(const QUrl &url, int permissions);
 
     /**
      * Change ownership of @p url.
-     *
-     * The slave emits ERR_DOES_NOT_EXIST or ERR_CANNOT_CHOWN
+     * The worker emits ERR_DOES_NOT_EXIST or ERR_CANNOT_CHOWN
      */
-    virtual void chown(const QUrl &url, const QString &owner, const QString &group);
+    Q_REQUIRED_RESULT virtual WorkerResult chown(const QUrl &url, const QString &owner, const QString &group);
 
     /**
-     * Sets the modification time for @p url.
-     *
+     * Sets the modification time for @url.
      * For instance this is what CopyJob uses to set mtime on dirs at the end of a copy.
      * It could also be used to set the mtime on any file, in theory.
      * The usual implementation on unix is to call utime(path, &myutimbuf).
-     * The slave emits ERR_DOES_NOT_EXIST or ERR_CANNOT_SETTIME
+     * The worker emits ERR_DOES_NOT_EXIST or ERR_CANNOT_SETTIME
      */
-    virtual void setModificationTime(const QUrl &url, const QDateTime &mtime);
+    Q_REQUIRED_RESULT virtual WorkerResult setModificationTime(const QUrl &url, const QDateTime &mtime);
 
     /**
      * Copy @p src into @p dest.
@@ -623,10 +578,10 @@ public:
      * moving a file from yourproto: to file:.
      * See also KProtocolManager::canCopyToFile().
      *
-     * If the slave returns an error ERR_UNSUPPORTED_ACTION, the job will
+     * If the worker returns an error ERR_UNSUPPORTED_ACTION, the job will
      * ask for get + put instead.
      *
-     * If the slave returns an error ERR_FILE_ALREADY_EXIST, the job will
+     * If the worker returns an error ERR_FILE_ALREADY_EXIST, the job will
      * ask for a different destination filename.
      *
      * @param src where to copy the file from (decoded)
@@ -637,7 +592,7 @@ public:
      *
      * Don't forget to set the modification time of @p dest to be the modification time of @p src.
      */
-    virtual void copy(const QUrl &src, const QUrl &dest, int permissions, JobFlags flags);
+    Q_REQUIRED_RESULT virtual WorkerResult copy(const QUrl &src, const QUrl &dest, int permissions, JobFlags flags);
 
     /**
      * Delete a file or directory.
@@ -646,28 +601,20 @@ public:
      *               if false, a directory should be deleted.
      *
      * By default, del() on a directory should FAIL if the directory is not empty.
-     * However, if metadata("recurse") == "true", then the slave can do a recursive deletion.
-     * This behavior is only invoked if the slave specifies deleteRecursive=true in its protocol file.
+     * However, if metadata("recurse") == "true", then the worker can do a recursive deletion.
+     * This behavior is only invoked if the worker specifies deleteRecursive=true in its protocol file.
      */
-    virtual void del(const QUrl &url, bool isfile);
+    Q_REQUIRED_RESULT virtual WorkerResult del(const QUrl &url, bool isfile);
 
     /**
-     * Change the destination of a symlink
-     * @param url the url of the symlink to modify
-     * @param target the new destination (target) of the symlink
-     */
-    virtual void setLinkDest(const QUrl &url, const QString &target);
-
-    /**
-     * Used for any command that is specific to this slave (protocol).
-     *
+     * Used for any command that is specific to this worker (protocol).
      * Examples are : HTTP POST, mount and unmount (kio_file)
      *
      * @param data packed data; the meaning is completely dependent on the
-     *        slave, but usually starts with an int for the command number.
-     * Document your slave's commands, at least in its header file.
+     *        worker, but usually starts with an int for the command number.
+     * Document your worker's commands, at least in its header file.
      */
-    virtual void special(const QByteArray &data);
+    Q_REQUIRED_RESULT virtual WorkerResult special(const QByteArray &data);
 
     /**
      * Used for multiple get. Currently only used for HTTP pipelining
@@ -676,17 +623,24 @@ public:
      * @param data packed data; Contains number of URLs to fetch, and for
      * each URL the URL itself and its associated MetaData.
      */
-    virtual void multiGet(const QByteArray &data);
+    Q_REQUIRED_RESULT virtual WorkerResult multiGet(const QByteArray &data);
 
     /**
-     * Called to get the status of the slave. Slave should respond
-     * by calling slaveStatus(...)
+     * Get a filesystem's total and available space.
+     *
+     * @param url Url to the filesystem
      */
-    virtual void slave_status();
+    Q_REQUIRED_RESULT virtual WorkerResult fileSystemFreeSpace(const QUrl &url);
 
     /**
-     * Called by the scheduler to tell the slave that the configuration
-     * changed (i.e.\ proxy settings).
+     * Called to get the status of the worker. Worker should respond
+     * by calling workerStatus(...)
+     */
+    virtual void worker_status();
+
+    /**
+     * Called by the scheduler to tell the worker that the configuration
+     * changed (i.e.\ proxy settings) .
      */
     virtual void reparseConfiguration();
 
@@ -717,7 +671,7 @@ public:
      * special(data) when the timeout occurs as if it was called by the
      * application.
      *
-     * A timeout can only occur when the slave is waiting for a command
+     * A timeout can only occur when the worker is waiting for a command
      * from the application.
      *
      * Specifying a negative timeout cancels a pending timeout.
@@ -726,20 +680,6 @@ public:
      * cancels any pending timeout.
      */
     void setTimeoutSpecialCommand(int timeout, const QByteArray &data = QByteArray());
-
-    /////////////////
-    // Dispatching (internal)
-    ////////////////
-
-    /**
-     * @internal
-     */
-    virtual void dispatch(int command, const QByteArray &data);
-
-    /**
-     * @internal
-     */
-    virtual void dispatchOpenCommand(int command, const QByteArray &data);
 
     /**
      * Read data sent by the job, after a dataReq
@@ -751,26 +691,6 @@ public:
      **/
     int readData(QByteArray &buffer);
 
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 0)
-    /**
-     * It collects entries and emits them via listEntries
-     * when enough of them are there or a certain time
-     * frame exceeded (to make sure the app gets some
-     * items in time but not too many items one by one
-     * as this will cause a drastic performance penalty).
-     * @param _entry The UDSEntry containing all of the object attributes.
-     * @param ready set to true after emitting all items. @p _entry is not
-     *        used in this case
-     * @deprecated since 5.0. the listEntry(entry, true) indicated
-     * that the entry listing was completed. However, each slave should
-     * already call finished() to also tell us that we're done listing.
-     * You should make sure that finished() is called when the entry
-     * listing is completed and simply remove the call to listEntry(entry, true).
-     */
-    KIOCORE_DEPRECATED_VERSION(5, 0, "See API docs")
-    void listEntry(const UDSEntry &_entry, bool ready);
-#endif
-
     /**
      * It collects entries and emits them via listEntries
      * when enough of them are there or a certain time
@@ -778,16 +698,15 @@ public:
      * items in time but not too many items one by one
      * as this will cause a drastic performance penalty).
      * @param entry The UDSEntry containing all of the object attributes.
-     * @since 5.0
      */
     void listEntry(const UDSEntry &entry);
 
     /**
-     * internal function to connect a slave to/ disconnect from
-     * either the slave pool or the application
+     * internal function to connect a worker to/ disconnect from
+     * either the worker pool or the application
      */
-    void connectSlave(const QString &path);
-    void disconnectSlave();
+    void connectWorker(const QString &path);
+    void disconnectWorker();
 
     /**
      * Prompt the user for Authorization info (login & password).
@@ -837,20 +756,7 @@ public:
      * @param errorMsg Error message to show
      * @return a KIO error code: NoError (0), KIO::USER_CANCELED, or other error codes.
      */
-    int openPasswordDialogV2(KIO::AuthInfo &info, const QString &errorMsg = QString());
-
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 24)
-    /**
-     * @deprecated since KF 5.24, use openPasswordDialogV2.
-     * The return value works differently:
-     *  instead of
-     *        if (!openPasswordDialog()) { error(USER_CANCELED); }
-     *  store and pass the return value to error(), when NOT zero,
-     *  as shown documentation for openPasswordDialogV2().
-     */
-    KIOCORE_DEPRECATED_VERSION(5, 24, "Use SlaveBase::openPasswordDialogV2(...)")
-    bool openPasswordDialog(KIO::AuthInfo &info, const QString &errorMsg = QString());
-#endif
+    int openPasswordDialog(KIO::AuthInfo &info, const QString &errorMsg = QString());
 
     /**
      * Checks for cached authentication based on parameters
@@ -909,54 +815,6 @@ public:
      */
     bool cacheAuthentication(const AuthInfo &info);
 
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 0)
-    /**
-     * Used by the slave to check if it can connect
-     * to a given host. This should be called where the slave is ready
-     * to do a ::connect() on a socket. For each call to
-     * requestNetwork must exist a matching call to
-     * dropNetwork, or the system will stay online until
-     * KNetMgr gets closed (or the SlaveBase gets destructed)!
-     *
-     * If KNetMgr is not running, then this is a no-op and returns true
-     *
-     * @param host tells the netmgr the host the slave wants to connect
-     *             to. As this could also be a proxy, we can't just take
-     *             the host currently connected to (but that's the default
-     *             value)
-     *
-     * @return true in theory, the host is reachable
-     *         false the system is offline and the host is in a remote network.
-     *
-     * @deprecated Since 5.0, for a very very long time, not implemented anymore
-     * Probably dates back to model dialup times.
-     */
-    KIOCORE_DEPRECATED_VERSION(5, 0, "Not implemented & used")
-    bool requestNetwork(const QString &host = QString());
-#endif
-
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 0)
-    /**
-     *
-     * Used by the slave to withdraw a connection requested by
-     * requestNetwork. This function cancels the last call to
-     * requestNetwork. If a client uses more than one internet
-     * connection, it must use dropNetwork(host) to
-     * stop each request.
-     *
-     * If KNetMgr is not running, then this is a no-op.
-     *
-     * @param host the host passed to requestNetwork
-     *
-     * A slave should call this function every time it disconnect from a host.
-     *
-     * @deprecated Since 5.0, for a very very long time, not implemented anymore
-     * Probably dates back to model dialup times.
-     */
-    KIOCORE_DEPRECATED_VERSION(5, 0, "Not implemented & used")
-    void dropNetwork(const QString &host = QString());
-#endif
-
     /**
      * Wait for an answer to our request, until we get @p expected1 or @p expected2
      * @return the result from readData, as well as the cmd in *pCmd if set, and the data in @p data
@@ -965,37 +823,32 @@ public:
 
     /**
      * Internal function to transmit meta data to the application.
-     * m_outgoingMetaData will be cleared; this means that if the slave is for
+     * m_outgoingMetaData will be cleared; this means that if the worker is for
      * example put on hold and picked up by a different KIO::Job later the new
      * job will not see the metadata sent before.
      * See kio/DESIGN.krun for an overview of the state
-     * progression of a job/slave.
+     * progression of a job/worker.
      * @warning calling this method may seriously interfere with the operation
      * of KIO which relies on the presence of some metadata at some points in time.
      * You should not use it if you are not familiar with KIO and not before
-     * the slave is connected to the last job before returning to idle state.
+     * the worker is connected to the last job before returning to idle state.
      */
     void sendMetaData();
 
     /**
      * Internal function to transmit meta data to the application.
      * Like sendMetaData() but m_outgoingMetaData will not be cleared.
-     * This method is mainly useful in code that runs before the slave is connected
+     * This method is mainly useful in code that runs before the worker is connected
      * to its final job.
      */
     void sendAndKeepMetaData();
 
-    /** If your ioslave was killed by a signal, wasKilled() returns true.
+    /** If your ioworker was killed by a signal, wasKilled() returns true.
      Check it regularly in lengthy functions (e.g. in get();) and return
      as fast as possible from this function if wasKilled() returns true.
-     This will ensure that your slave destructor will be called correctly.
+     This will ensure that your worker destructor will be called correctly.
      */
     bool wasKilled() const;
-
-    /** Internally used.
-     * @internal
-     */
-    void setKillFlag();
 
     /** Internally used
      * @internal
@@ -1011,72 +864,23 @@ public:
      * Checks with job if privilege operation is allowed.
      * @return privilege operation status.
      * @see PrivilegeOperationStatus
-     * @since 5.66
      */
     PrivilegeOperationStatus requestPrivilegeOperation(const QString &operationDetails);
 
     /**
      * Adds @p action to the list of PolicyKit actions which the
-     * slave is authorized to perform.
+     * worker is authorized to perform.
      *
      * @param action the PolicyKit action
-     * @since 5.45
      */
     void addTemporaryAuthorization(const QString &action);
 
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 66)
-    /**
-     * @deprecated since 5.66, use requestPrivilegeOperation(QString)
-     */
-    KIOCORE_DEPRECATED_VERSION(5, 66, "Pass QString action to requestPrivilegeOperation")
-    PrivilegeOperationStatus requestPrivilegeOperation();
-#endif
-
-protected:
-    /**
-     * Name of the protocol supported by this slave
-     */
-    QByteArray mProtocol;
-    // Often used by TcpSlaveBase and unlikely to change
-    MetaData mOutgoingMetaData;
-    MetaData mIncomingMetaData;
-
-    enum VirtualFunctionId {
-        AppConnectionMade = 0,
-        GetFileSystemFreeSpace = 1, // KF6 TODO: Turn into a virtual method
-        Truncate = 2, // KF6 TODO: Turn into a virtual method
-    };
-    virtual void virtual_hook(int id, void *data);
-
 private:
-    // Convenience function converting mProtocol to QString as unsupportedActionErrorString(), which
-    // is used in many places in the code, takes a QString parameter
-    inline const QString protocolName() const
-    {
-        return QString::fromLatin1(mProtocol);
-    }
-
-    void setRunInThread(bool b);
-
-    // This helps catching missing tr()/i18n() calls in error().
-    void error(int _errid, const QByteArray &_text);
-    void send(int cmd, const QByteArray &arr = QByteArray());
-
-    std::unique_ptr<SlaveBasePrivate> const d;
-    friend class SlaveBasePrivate;
-    friend class WorkerThread;
-    friend class WorkerBasePrivate;
+    std::unique_ptr<WorkerBasePrivate> d;
+    Q_DISABLE_COPY_MOVE(WorkerBase)
     friend class WorkerSlaveBaseBridge;
 };
 
-/**
- * Returns an appropriate error message if the given command @p cmd
- * is an unsupported action (ERR_UNSUPPORTED_ACTION).
- * @param protocol name of the protocol
- * @param cmd given command
- * @see enum Command
- */
-KIOCORE_EXPORT QString unsupportedActionErrorString(const QString &protocol, int cmd);
-}
+} // namespace KIO
 
 #endif

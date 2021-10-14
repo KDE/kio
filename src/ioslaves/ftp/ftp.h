@@ -1,7 +1,7 @@
 /*
     This file is part of the KDE libraries
     SPDX-FileCopyrightText: 2000 David Faure <faure@kde.org>
-    SPDX-FileCopyrightText: 2019 Harald Sitter <sitter@kde.org>
+    SPDX-FileCopyrightText: 2019-2021 Harald Sitter <sitter@kde.org>
 
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
@@ -13,7 +13,7 @@
 
 #include <QDateTime>
 
-#include <kio/slavebase.h>
+#include <workerbase.h>
 
 class QTcpServer;
 class QTcpSocket;
@@ -43,33 +43,7 @@ enum class LoginMode {
     Implicit,
 };
 
-/**
- * Result type for returning error context.
- *
- * This is meant to be returned by functions that do not have a simple
- * error conditions that could be represented by returning a bool, or
- * when the contextual error string can only be correctly constructed
- * inside the function. When using the Result type always mark the
- * function Q_REQUIRED_RESULT to enforce handling of the Result.
- *
- * The Result is forwarded all the way to the frontend API where it is
- * turned into an error() or finished() call.
- */
-struct Result {
-    bool success;
-    int error;
-    QString errorString;
-
-    inline static Result fail(int _error = KIO::ERR_UNKNOWN, const QString &_errorString = QString())
-    {
-        return Result{false, _error, _errorString};
-    }
-
-    inline static Result pass()
-    {
-        return Result{true, 0, QString()};
-    }
-};
+using Result = KIO::WorkerResult;
 
 /**
  * Special Result composite for errors during connection.
@@ -87,7 +61,7 @@ QDebug operator<<(QDebug dbg, const Result &r);
 // as a container for FtpInternal to prevent the latter from directly doing
 // state manipulation via error/finished/opened etc.
 //===============================================================================
-class Ftp : public KIO::SlaveBase
+class Ftp : public KIO::WorkerBase
 {
 public:
     Ftp(const QByteArray &pool, const QByteArray &app);
@@ -101,68 +75,30 @@ public:
      * It is set to false if the connection becomes closed.
      *
      */
-    void openConnection() override;
+    KIO::WorkerResult openConnection() override;
 
     /**
      * Closes the connection
      */
     void closeConnection() override;
 
-    void stat(const QUrl &url) override;
+    KIO::WorkerResult stat(const QUrl &url) override;
 
-    void listDir(const QUrl &url) override;
-    void mkdir(const QUrl &url, int permissions) override;
-    void rename(const QUrl &src, const QUrl &dst, KIO::JobFlags flags) override;
-    void del(const QUrl &url, bool isfile) override;
-    void chmod(const QUrl &url, int permissions) override;
+    KIO::WorkerResult listDir(const QUrl &url) override;
+    KIO::WorkerResult mkdir(const QUrl &url, int permissions) override;
+    KIO::WorkerResult rename(const QUrl &src, const QUrl &dst, KIO::JobFlags flags) override;
+    KIO::WorkerResult del(const QUrl &url, bool isfile) override;
+    KIO::WorkerResult chmod(const QUrl &url, int permissions) override;
 
-    void get(const QUrl &url) override;
-    void put(const QUrl &url, int permissions, KIO::JobFlags flags) override;
+    KIO::WorkerResult get(const QUrl &url) override;
+    KIO::WorkerResult put(const QUrl &url, int permissions, KIO::JobFlags flags) override;
 
-    void slave_status() override;
+    void worker_status() override;
 
     /**
      * Handles the case that one side of the job is a local file
      */
-    void copy(const QUrl &src, const QUrl &dest, int permissions, KIO::JobFlags flags) override;
-
-private:
-    // WARNING: All members and all logic not confined to one of the public functions
-    //   must go into FtpInternal!
-
-    /**
-     * Overridden to prevent FtpInternal from easily calling
-     * q->opened(). Use a Result return type on error conditions
-     * instead. When there was no error Result the
-     * connection is considered opened.
-     *
-     * FtpInternal must not call any state-changing signals!
-     */
-    void opened()
-    {
-        SlaveBase::opened();
-    }
-
-    /**
-     * @see opened()
-     */
-    void error(int _errid, const QString &_text)
-    {
-        SlaveBase::error(_errid, _text);
-    }
-
-    /**
-     * @see opened()
-     */
-    void finished()
-    {
-        SlaveBase::finished();
-    }
-
-    /**
-     * Calls finished() or error() as appropriate
-     */
-    void finalize(const Result &result);
+    KIO::WorkerResult copy(const QUrl &src, const QUrl &dest, int permissions, KIO::JobFlags flags) override;
 
     std::unique_ptr<FtpInternal> d;
 };
@@ -213,7 +149,7 @@ public:
     Q_REQUIRED_RESULT Result put(const QUrl &url, int permissions, KIO::JobFlags flags);
     // virtual void mimetype( const QUrl& url );
 
-    void slave_status();
+    void worker_status();
 
     /**
      * Handles the case that one side of the job is a local file
