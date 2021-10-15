@@ -194,10 +194,6 @@ KMountPoint::List KMountPoint::possibleMountPoints(DetailsNeededFlags infoNeeded
                 const char *target = mnt_fs_get_target(fs);
                 mp->d->m_mountPoint = QFile::decodeName(target);
 
-                if (QT_STATBUF buff; QT_LSTAT(target, &buff) == 0) {
-                    mp->d->m_deviceId = buff.st_dev;
-                }
-
                 // First field in /etc/fstab, e.g. /dev/sdXY, LABEL=, UUID=, /some/bind/mount/dir
                 // or some network mount
                 if (const char *source = mnt_fs_get_source(fs)) {
