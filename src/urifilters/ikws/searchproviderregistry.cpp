@@ -61,6 +61,17 @@ QList<SearchProvider *> SearchProviderRegistry::findAll()
     return m_searchProviders;
 }
 
+QList<SearchProvider *> SearchProviderRegistry::findAllActive()
+{
+    QList<SearchProvider *> activeProviders;
+    for (auto *provider : std::as_const(m_searchProviders)) {
+        if (!provider->isHidden()) {
+            activeProviders << provider;
+        }
+    }
+    return activeProviders;
+}
+
 SearchProvider *SearchProviderRegistry::findByKey(const QString &key) const
 {
     return m_searchProvidersByKey.value(key);

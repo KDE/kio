@@ -320,18 +320,12 @@ void FilterOptions::setDefaultEngine(const QString &engine)
 
 void FilterOptions::load()
 {
-    const QList<SearchProvider *> allProviders = m_registry.findAll();
-    QList<SearchProvider *> providers;
-    for (auto *provider : allProviders) {
-        if (!provider->isHidden()) {
-            providers << provider;
-        }
-    }
-    m_providersModel->setProviders(providers);
+    m_providersModel->setProviders(m_registry.findAllActive());
 
     m_settings->load();
     setDelimiter(m_settings->keywordDelimiter().at(0).toLatin1());
     setDefaultEngine(m_settings->defaultProvider());
+    // Favorite providers have to be set after default provider
     m_providersModel->setFavoriteProviders(m_settings->favoriteProviders());
     updateUnmanagedState();
 
