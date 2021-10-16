@@ -299,7 +299,6 @@ void FilterOptions::setDefaultEngine(const QString &engine)
     }
 
     m_dlg.cmbDefaultEngine->setCurrentIndex(modelIndex.row());
-    m_dlg.cmbDefaultEngine->view()->setCurrentIndex(modelIndex); // TODO: remove this when Qt bug is fixed
 }
 
 void FilterOptions::load()
