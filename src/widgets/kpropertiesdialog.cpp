@@ -3655,7 +3655,7 @@ bool KDesktopPropsPlugin::supports(const KFileItemList &_items)
     }
 
     KDesktopFile config(url.toLocalFile());
-    return config.hasApplicationType() && KAuthorized::authorize(QStringLiteral("run_desktop_files")) && KAuthorized::authorize(QStringLiteral("shell_access"));
+    return config.hasApplicationType() && KAuthorized::authorize(KAuthorized::RUN_DESKTOP_FILES) && KAuthorized::authorize(KAuthorized::SHELL_ACCESS);
 }
 
 #include "moc_kpropertiesdialog.cpp"

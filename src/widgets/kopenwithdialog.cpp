@@ -664,7 +664,7 @@ void KOpenWithDialogPrivate::setMimeType(const QString &mimeType)
 
 void KOpenWithDialogPrivate::init(const QString &_text, const QString &_value)
 {
-    bool bReadOnly = !KAuthorized::authorize(QStringLiteral("shell_access"));
+    bool bReadOnly = !KAuthorized::authorize(KAuthorized::SHELL_ACCESS);
     m_terminaldirty = false;
     view = nullptr;
     m_pService = nullptr;

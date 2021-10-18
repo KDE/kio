@@ -340,7 +340,7 @@ static bool hasExecuteBit(const QString &fileName)
 // Handle native binaries (.e.g. /usr/bin/*); and .exe files
 void KIO::OpenUrlJobPrivate::handleBinaries(const QMimeType &mimeType)
 {
-    if (!KAuthorized::authorize(QStringLiteral("shell_access"))) {
+    if (!KAuthorized::authorize(KAuthorized::SHELL_ACCESS)) {
         emitAccessDenied();
         return;
     }
@@ -555,7 +555,7 @@ void KIO::OpenUrlJobPrivate::handleDesktopFiles()
 void KIO::OpenUrlJobPrivate::handleScripts()
 {
     // Executable scripts of any type can run arbitrary shell commands
-    if (!KAuthorized::authorize(QStringLiteral("shell_access"))) {
+    if (!KAuthorized::authorize(KAuthorized::SHELL_ACCESS)) {
         emitAccessDenied();
         return;
     }
