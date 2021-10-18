@@ -3,6 +3,7 @@ Keys=inventrepo,invrepo,repo
 Name=KDE Invent Repositories
 Name[az]=KDE Invent Anbarları
 Name[ca]=Repositoris de KDE Invent
+Name[en_GB]=KDE Invent Repositories
 Name[es]=Repositorios de KDE Invent
 Name[fr]=Dépôts de KDE Invent
 Name[nl]=Opslagruimtes van KDE-invent
@@ -13,6 +14,7 @@ Name[x-test]=xxKDE Invent Repositoriesxx
 Query=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[az]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[ca]=https://invent.kde.org/explore/projects/starred?name=\\{@}
+Query[en_GB]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[es]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[fr]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[nl]=https://invent.kde.org/explore/projects/starred?name=\\{@}
