@@ -16,6 +16,7 @@
 #include <limits.h>
 #include <stdlib.h>
 
+#include <QCollator>
 #include <QDebug>
 #include <QDir>
 #include <QDirIterator>
@@ -82,6 +83,16 @@ static int initialWaitDuration()
         }
     }
     return s_waitDuration;
+}
+
+// For local paths we use our custom comparer function that ignores the trailing slash character
+static void sortLocalPaths(QStringList &list)
+{
+    QCollator c;
+    c.setCaseSensitivity(Qt::CaseSensitive);
+    std::sort(list.begin(), list.end(), [c](const QString &a, const QString &b) {
+        return c.compare(a.endsWith(QStringLiteral("/")) ? a.chopped(1) : a, b.endsWith(QStringLiteral("/")) ? b.chopped(1) : b) < 0;
+    });
 }
 
 ///////////////////////////////////////////////////////
@@ -612,6 +623,9 @@ QString KUrlCompletion::makeCompletion(const QString &text)
     }
 
     d->complete_url = url.isURL();
+
+    // We use our custom sorter function if we are completing local paths
+    setSorterFunction(!d->complete_url ? sortLocalPaths : nullptr);
 
     // If we typed an exact path to a directory, we block autosuggestion
     // or else it would autosuggest the first child dir.
