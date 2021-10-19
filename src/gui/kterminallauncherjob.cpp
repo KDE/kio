@@ -60,7 +60,15 @@ void KTerminalLauncherJob::start()
         subjob->setWorkingDirectory(d->m_workingDirectory);
         subjob->setStartupId(d->m_startupId);
         subjob->setProcessEnvironment(d->m_environment);
-        connect(subjob, &KJob::result, this, &KJob::result);
+        connect(subjob, &KJob::result, this, [this, subjob] {
+            // NB: must go through emitResult otherwise we don't get correctly finished!
+            // TODO KF6: maybe change the base to KCompositeJob so we can get rid of this nonesense
+            if (subjob->error()) {
+                setError(subjob->error());
+                setErrorText(subjob->errorText());
+            }
+            emitResult();
+        });
         subjob->start();
     }
 }
