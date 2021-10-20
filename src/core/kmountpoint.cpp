@@ -44,7 +44,7 @@ static const Qt::CaseSensitivity cs = Qt::CaseSensitive;
 #endif
 
 // Linux
-#if HAVE_LIBS_MOUNT_AND_BLKID
+#if HAVE_LIB_MOUNT
 #include <libmount/libmount.h>
 #include <blkid/blkid.h>
 #endif
@@ -176,7 +176,7 @@ KMountPoint::List KMountPoint::possibleMountPoints(DetailsNeededFlags infoNeeded
 #ifdef Q_OS_WIN
     result = KMountPoint::currentMountPoints(infoNeeded);
 
-#elif HAVE_LIBS_MOUNT_AND_BLKID
+#elif HAVE_LIB_MOUNT
     if (struct libmnt_table *table = mnt_new_table()) {
         // By default parses "/etc/fstab"
         if (mnt_table_parse_fstab(table, nullptr) == 0) {
@@ -202,23 +202,13 @@ KMountPoint::List KMountPoint::possibleMountPoints(DetailsNeededFlags infoNeeded
                 // or some network mount
                 if (const char *source = mnt_fs_get_source(fs)) {
                     mp->d->m_mountedFrom = QFile::decodeName(source);
-                    if (mp->d->m_mountedFrom.startsWith(QLatin1String("UUID")) || mp->d->m_mountedFrom.startsWith(QLatin1String("LABEL"))) {
-                        // Use blkid to resolve UUID/LABEL to the device file
-                        if (char *blkSource = blkid_evaluate_spec(source, nullptr)) {
-                            mp->d->m_mountedFrom = QFile::decodeName(blkSource);
-                            free(blkSource);
-                            if ((infoNeeded & KMountPoint::NeedRealDeviceName) //
-                                && mp->d->m_mountedFrom.startsWith(QLatin1String("/dev/"))) {
-                                mp->d->m_device = mp->d->m_mountedFrom;
-                            }
-                        }
-                    }
                 }
 
                 if (infoNeeded & NeedMountOptions) {
                     mp->d->m_mountOptions = QFile::decodeName(mnt_fs_get_options(fs)).split(QLatin1Char(','));
                 }
 
+                mp->d->finalizePossibleMountPoint(infoNeeded);
                 result.append(mp);
             }
             mnt_free_iter(itr);
@@ -351,7 +341,7 @@ KMountPoint::List KMountPoint::currentMountPoints(DetailsNeededFlags infoNeeded)
         }
     }
 
-#elif HAVE_LIBS_MOUNT_AND_BLKID
+#elif HAVE_LIB_MOUNT
     if (struct libmnt_table *table = mnt_new_table()) {
         // By default, parses "/proc/self/mountinfo"
         if (mnt_table_parse_mtab(table, nullptr) == 0) {

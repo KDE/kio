@@ -130,8 +130,7 @@ set_package_properties(ACL PROPERTIES DESCRIPTION "LibACL"
 # Used by KMountPoint
 if (CMAKE_SYSTEM_NAME MATCHES "Linux")
     find_package(LibMount REQUIRED)
-    find_package(Blkid REQUIRED)
-    set(HAVE_LIBS_MOUNT_AND_BLKID ${LibMount_FOUND} AND ${Blkid_FOUND})
+    set(HAVE_LIB_MOUNT ${LibMount_FOUND})
 endif()
 
 if (ANDROID)

@@ -236,9 +236,8 @@ if(ACL_FOUND)
   target_link_libraries(KF5KIOCore PRIVATE ${ACL_LIBS})
 endif()
 
-if(HAVE_LIBS_MOUNT_AND_BLKID)
-  # libmount links against blkid anyway
-  target_link_libraries(KF5KIOCore PRIVATE LibMount::LibMount Blkid::Blkid)
+if(HAVE_LIB_MOUNT)
+  target_link_libraries(KF5KIOCore PRIVATE LibMount::LibMount)
 endif()
 
 # this should be done by cmake, see bug 371721
