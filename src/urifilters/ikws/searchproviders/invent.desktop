@@ -10,6 +10,7 @@ Name[nl]=KDE-invent
 Name[sl]=KDE Invent
 Name[sv]=KDE-Invent
 Name[uk]=KDE Invent
+Name[vi]=Invent KDE
 Name[x-test]=xxKDE Inventxx
 Query=https://invent.kde.org/search?search=\\{@}
 Query[az]=https://invent.kde.org/search?search=\\{@}
@@ -21,5 +22,6 @@ Query[nl]=https://invent.kde.org/search?search=\\{@}
 Query[sl]=https://invent.kde.org/search?search=\\{@}
 Query[sv]=https://invent.kde.org/search?search=\\{@}
 Query[uk]=https://invent.kde.org/search?search=\\{@}
+Query[vi]=https://invent.kde.org/search?search=\\{@}
 Query[x-test]=xxhttps://invent.kde.org/search?search=\\{@}xx
 Type=Service
