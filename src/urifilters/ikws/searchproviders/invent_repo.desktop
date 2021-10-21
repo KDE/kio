@@ -12,6 +12,7 @@ Name[sv]=KDE-Invent arkiv
 Name[uk]=Сховища KDE Invent
 Name[vi]=Các kho ở Invent KDE
 Name[x-test]=xxKDE Invent Repositoriesxx
+Name[zh_CN]=KDE Invent 源代码库
 Query=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[az]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[ca]=https://invent.kde.org/explore/projects/starred?name=\\{@}
@@ -24,4 +25,5 @@ Query[sv]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[uk]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[vi]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[x-test]=xxhttps://invent.kde.org/explore/projects/starred?name=\\{@}xx
+Query[zh_CN]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Type=Service
