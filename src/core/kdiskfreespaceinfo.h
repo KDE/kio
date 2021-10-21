@@ -16,6 +16,7 @@
 
 class KDiskFreeSpaceInfoPrivate;
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 88)
 /**
  * \class KDiskFreeSpaceInfo kdiskfreespaceinfo.h KDiskFreeSpaceInfo
  *
@@ -37,6 +38,8 @@ class KDiskFreeSpaceInfoPrivate;
  * \author Sebastian Trueg <trueg@kde.org>
  *
  * \since 4.2
+ *
+ * @deprecated Since 5.88, use KIO::FileSystemFreeSpaceJob or QStorageInfo instead.
  */
 class KIOCORE_EXPORT KDiskFreeSpaceInfo
 {
@@ -97,6 +100,7 @@ public:
      */
     KIO::filesize_t used() const;
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 88)
     /**
      * Static method used to determine the free disk space.
      *
@@ -106,13 +110,18 @@ public:
      * Check isValid() to see if the process was successful. Then
      * use mountPoint(), size(), available(), and used() to access
      * the requested values.
+     *
+     * @deprecated Since 5.88, use KIO::FileSystemFreeSpaceJob or QStorageInfo instead.
      */
+    KIOCORE_DEPRECATED_VERSION(5, 88, "Use KIO::FileSystemFreeSpaceJob or QStorageInfo instead.")
     static KDiskFreeSpaceInfo freeSpaceInfo(const QString &path);
+#endif
 
 private:
     KDiskFreeSpaceInfo();
 
     QSharedDataPointer<KDiskFreeSpaceInfoPrivate> d;
 };
+#endif // Deprecation
 
 #endif

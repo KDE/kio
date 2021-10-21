@@ -23,6 +23,7 @@
 #include <sys/statvfs.h>
 #endif
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 88)
 class KDiskFreeSpaceInfoPrivate : public QSharedData
 {
 public:
@@ -110,3 +111,4 @@ KDiskFreeSpaceInfo KDiskFreeSpaceInfo::freeSpaceInfo(const QString &path)
 
     return info;
 }
+#endif // Deprecation
