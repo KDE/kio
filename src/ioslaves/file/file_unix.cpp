@@ -947,7 +947,7 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mode, JobF
 #if HAVE_POSIX_ACL
     // If no special mode is given, preserve the ACL attributes from the source file
     if (_mode == -1) {
-        act_t acl = acl_get_fd(srcFile.handle());
+        acl_t acl = acl_get_fd(srcFile.handle());
         if (acl && acl_set_file(_dest.data(), ACL_TYPE_ACCESS, acl) != 0) {
             qCWarning(KIO_FILE) << "Could not set ACL permissions for" << dest;
         }
