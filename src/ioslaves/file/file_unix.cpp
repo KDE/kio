@@ -40,20 +40,17 @@
 #include "fdreceiver.h"
 #include "statjob.h"
 
+#ifdef Q_OS_LINUX
+
+#include <linux/fs.h>
+#include <sys/ioctl.h>
+#include <unistd.h>
+
 #if HAVE_STATX
 #include <sys/stat.h>
 #include <sys/sysmacros.h> // for makedev()
 #endif
 
-#ifdef Q_OS_LINUX
-#include <linux/fs.h>
-#include <sys/ioctl.h>
-#endif
-
-// sendfile has different semantics in different platforms
-#if HAVE_SENDFILE && defined Q_OS_LINUX
-#define USE_SENDFILE 1
-#include <sys/sendfile.h>
 #endif
 
 #if HAVE_SYS_XATTR_H
@@ -217,7 +214,7 @@ inline int LSTAT(const char *path, struct statx *buff, KIO::StatDetails details)
     }
     return statx(AT_FDCWD, path, AT_SYMLINK_NOFOLLOW, mask, buff);
 }
-inline int STAT(const char *path, struct statx *buff, KIO::StatDetails details)
+inline int STAT(const char *path, struct statx *buff, const KIO::StatDetails &details)
 {
     uint32_t mask = 0;
     // KIO::StatAcl needs type
@@ -240,35 +237,35 @@ inline int STAT(const char *path, struct statx *buff, KIO::StatDetails details)
     // KIO::Inode is ignored as when STAT is called, the entry inode field has already been filled
     return statx(AT_FDCWD, path, AT_STATX_SYNC_AS_STAT, mask, buff);
 }
-inline static uint16_t stat_mode(struct statx &buf)
+inline static uint16_t stat_mode(const struct statx &buf)
 {
     return buf.stx_mode;
 }
-inline static dev_t stat_dev(struct statx &buf)
+inline static dev_t stat_dev(const struct statx &buf)
 {
     return makedev(buf.stx_dev_major, buf.stx_dev_minor);
 }
-inline static uint64_t stat_ino(struct statx &buf)
+inline static uint64_t stat_ino(const struct statx &buf)
 {
     return buf.stx_ino;
 }
-inline static uint64_t stat_size(struct statx &buf)
+inline static uint64_t stat_size(const struct statx &buf)
 {
     return buf.stx_size;
 }
-inline static uint32_t stat_uid(struct statx &buf)
+inline static uint32_t stat_uid(const struct statx &buf)
 {
     return buf.stx_uid;
 }
-inline static uint32_t stat_gid(struct statx &buf)
+inline static uint32_t stat_gid(const struct statx &buf)
 {
     return buf.stx_gid;
 }
-inline static int64_t stat_atime(struct statx &buf)
+inline static int64_t stat_atime(const struct statx &buf)
 {
     return buf.stx_atime.tv_sec;
 }
-inline static int64_t stat_mtime(struct statx &buf)
+inline static int64_t stat_mtime(const struct statx &buf)
 {
     return buf.stx_mtime.tv_sec;
 }
@@ -284,35 +281,35 @@ inline int STAT(const char *path, QT_STATBUF *buff, KIO::StatDetails details)
     Q_UNUSED(details)
     return QT_STAT(path, buff);
 }
-inline static mode_t stat_mode(QT_STATBUF &buf)
+inline static mode_t stat_mode(const QT_STATBUF &buf)
 {
     return buf.st_mode;
 }
-inline static dev_t stat_dev(QT_STATBUF &buf)
+inline static dev_t stat_dev(const QT_STATBUF &buf)
 {
     return buf.st_dev;
 }
-inline static ino_t stat_ino(QT_STATBUF &buf)
+inline static ino_t stat_ino(const QT_STATBUF &buf)
 {
     return buf.st_ino;
 }
-inline static off_t stat_size(QT_STATBUF &buf)
+inline static off_t stat_size(const QT_STATBUF &buf)
 {
     return buf.st_size;
 }
-inline static uid_t stat_uid(QT_STATBUF &buf)
+inline static uid_t stat_uid(const QT_STATBUF &buf)
 {
     return buf.st_uid;
 }
-inline static gid_t stat_gid(QT_STATBUF &buf)
+inline static gid_t stat_gid(const QT_STATBUF &buf)
 {
     return buf.st_gid;
 }
-inline static time_t stat_atime(QT_STATBUF &buf)
+inline static time_t stat_atime(const QT_STATBUF &buf)
 {
     return buf.st_atime;
 }
-inline static time_t stat_mtime(QT_STATBUF &buf)
+inline static time_t stat_mtime(const QT_STATBUF &buf)
 {
     return buf.st_mtime;
 }
@@ -675,13 +672,10 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mode, JobF
     QString dest = destUrl.toLocalFile();
     QByteArray _src(QFile::encodeName(src));
     QByteArray _dest(QFile::encodeName(dest));
-    QByteArray _dest_backup;
+    QByteArray _destBackup;
 
-    QT_STATBUF buff_src;
-#if HAVE_POSIX_ACL
-    acl_t acl;
-#endif
-    if (QT_STAT(_src.data(), &buff_src) == -1) {
+    QT_STATBUF buffSrc;
+    if (QT_STAT(_src.data(), &buffSrc) == -1) {
         if (errno == EACCES) {
             error(KIO::ERR_ACCESS_DENIED, src);
         } else {
@@ -690,24 +684,24 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mode, JobF
         return;
     }
 
-    if (S_ISDIR(buff_src.st_mode)) {
+    if (S_ISDIR(buffSrc.st_mode)) {
         error(KIO::ERR_IS_DIRECTORY, src);
         return;
     }
-    if (S_ISFIFO(buff_src.st_mode) || S_ISSOCK(buff_src.st_mode)) {
+    if (S_ISFIFO(buffSrc.st_mode) || S_ISSOCK(buffSrc.st_mode)) {
         error(KIO::ERR_CANNOT_OPEN_FOR_READING, src);
         return;
     }
 
-    QT_STATBUF buff_dest;
-    bool dest_exists = (QT_LSTAT(_dest.data(), &buff_dest) != -1);
+    QT_STATBUF buffDest;
+    bool dest_exists = (QT_LSTAT(_dest.data(), &buffDest) != -1);
     if (dest_exists) {
-        if (same_inode(buff_dest, buff_src)) {
+        if (same_inode(buffDest, buffSrc)) {
             error(KIO::ERR_IDENTICAL_FILES, dest);
             return;
         }
 
-        if (S_ISDIR(buff_dest.st_mode)) {
+        if (S_ISDIR(buffDest.st_mode)) {
             error(KIO::ERR_DIR_ALREADY_EXIST, dest);
             return;
         }
@@ -716,7 +710,7 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mode, JobF
             // If the destination is a symlink and overwrite is TRUE,
             // remove the symlink first to prevent the scenario where
             // the symlink actually points to current source!
-            if (S_ISLNK(buff_dest.st_mode)) {
+            if (S_ISLNK(buffDest.st_mode)) {
                 // qDebug() << "copy(): LINK DESTINATION";
                 if (!QFile::remove(dest)) {
                     if (auto err = execWithElevatedPrivilege(DEL, {_dest}, errno)) {
@@ -726,8 +720,8 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mode, JobF
                         return;
                     }
                 }
-            } else if (S_ISREG(buff_dest.st_mode)) {
-                _dest_backup = _dest;
+            } else if (S_ISREG(buffDest.st_mode)) {
+                _destBackup = _dest;
                 dest.append(QStringLiteral(".part"));
                 _dest = QFile::encodeName(dest);
             }
@@ -737,9 +731,9 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mode, JobF
         }
     }
 
-    QFile src_file(src);
-    if (!src_file.open(QIODevice::ReadOnly)) {
-        if (auto err = tryOpen(src_file, _src, O_RDONLY, S_IRUSR, errno)) {
+    QFile srcFile(src);
+    if (!srcFile.open(QIODevice::ReadOnly)) {
+        if (auto err = tryOpen(srcFile, _src, O_RDONLY, S_IRUSR, errno)) {
             if (!err.wasCanceled()) {
                 error(KIO::ERR_CANNOT_OPEN_FOR_READING, src);
             }
@@ -748,12 +742,12 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mode, JobF
     }
 
 #if HAVE_FADVISE
-    posix_fadvise(src_file.handle(), 0, 0, POSIX_FADV_SEQUENTIAL);
+    posix_fadvise(srcFile.handle(), 0, 0, POSIX_FADV_SEQUENTIAL);
 #endif
 
-    QFile dest_file(dest);
-    if (!dest_file.open(QIODevice::Truncate | QIODevice::WriteOnly)) {
-        if (auto err = tryOpen(dest_file, _dest, O_WRONLY | O_TRUNC | O_CREAT, S_IRUSR | S_IWUSR, errno)) {
+    QFile destFile(dest);
+    if (!destFile.open(QIODevice::Truncate | QIODevice::WriteOnly)) {
+        if (auto err = tryOpen(destFile, _dest, O_WRONLY | O_TRUNC | O_CREAT, S_IRUSR | S_IWUSR, errno)) {
             if (!err.wasCanceled()) {
                 // qDebug() << "###### COULD NOT WRITE " << dest;
                 if (err == EACCES) {
@@ -762,7 +756,6 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mode, JobF
                     error(KIO::ERR_CANNOT_OPEN_FOR_WRITING, dest);
                 }
             }
-            src_file.close();
             return;
         }
     }
@@ -784,143 +777,138 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mode, JobF
     }
 
 #if HAVE_FADVISE
-    posix_fadvise(dest_file.handle(), 0, 0, POSIX_FADV_SEQUENTIAL);
+    posix_fadvise(destFile.handle(), 0, 0, POSIX_FADV_SEQUENTIAL);
 #endif
 
-#if HAVE_POSIX_ACL
-    acl = acl_get_fd(src_file.handle());
-    if (acl && !isExtendedACL(acl)) {
-        // qDebug() << _dest.data() << " doesn't have extended ACL";
-        acl_free(acl);
-        acl = nullptr;
-    }
-#endif
-    totalSize(buff_src.st_size);
+    totalSize(buffSrc.st_size);
+
+    off_t sizeProcessed = 0;
 
 #ifdef FICLONE
     // Share data blocks ("reflink") on supporting filesystems, like brfs and XFS
-    int ret = ::ioctl(dest_file.handle(), FICLONE, src_file.handle());
+    int ret = ::ioctl(destFile.handle(), FICLONE, srcFile.handle());
     if (ret != -1) {
-        processedSize(src_file.size());
-    } else {
-        // if fs does not support reflinking, files are on different devices...
+        sizeProcessed = srcFile.size();
+        processedSize(srcFile.size());
+    }
+    // if fs does not support reflinking, files are on different devices...
 #endif
-        KIO::filesize_t processed_size = 0;
-        char buffer[s_maxIPCSize];
-        ssize_t n = 0;
-#ifdef USE_SENDFILE
-        bool use_sendfile = true;
+
+    bool existingDestDeleteAttempted = false;
+
+#ifdef Q_OS_LINUX
+    /* try copy_file_range */
+    while (!wasKilled() && sizeProcessed < srcFile.size()) {
+        if (testMode && destFile.fileName().contains(QLatin1String("slow"))) {
+            QThread::msleep(50);
+        }
+
+        processedSize(sizeProcessed);
+
+        const ssize_t copiedBytes = ::copy_file_range(srcFile.handle(), &sizeProcessed, destFile.handle(), &sizeProcessed, srcFile.size(), 0);
+
+        if (copiedBytes == -1) {
+            if (errno == EINVAL) {
+                break; // will continue with next copy mechanism
+            }
+
+            if (errno == EINTR) { // Interrupted
+                continue;
+            }
+
+            if (errno == ENOSPC) { // disk full
+                // attempt to free disk space occupied by file being overwritten
+                if (!_destBackup.isEmpty() && !existingDestDeleteAttempted) {
+                    ::unlink(_destBackup.constData());
+                    existingDestDeleteAttempted = true;
+                    continue;
+                }
+                error(KIO::ERR_DISK_FULL, dest);
+            } else {
+                error(KIO::ERR_SLAVE_DEFINED, i18n("Cannot copy file from %1 to %2. (Errno: %3)", src, dest, errno));
+            }
+
+            if (!QFile::remove(dest)) { // don't keep partly copied file
+                execWithElevatedPrivilege(DEL, {_dest}, errno);
+            }
+            return;
+        }
+
+        sizeProcessed += copiedBytes;
+    }
 #endif
-        bool existing_dest_delete_attempted = false;
-        while (!wasKilled()) {
-            if (testMode && dest_file.fileName().contains(QLatin1String("slow"))) {
+
+    /* standard read/write fallback */
+    if (sizeProcessed < srcFile.size()) {
+        std::array<char, s_maxIPCSize> buffer;
+        while (!wasKilled() && sizeProcessed < srcFile.size()) {
+            if (testMode && destFile.fileName().contains(QLatin1String("slow"))) {
                 QThread::msleep(50);
             }
 
-#ifdef USE_SENDFILE
-            if (use_sendfile) {
-                off_t sf = processed_size;
-                n = ::sendfile(dest_file.handle(), src_file.handle(), &sf, s_maxIPCSize);
-                processed_size = sf;
-                if (n == -1 && (errno == EINVAL || errno == ENOSYS)) { // not all filesystems support sendfile()
-                    // qDebug() << "sendfile() not supported, falling back ";
-                    use_sendfile = false;
-                }
-            }
-            if (!use_sendfile)
-#endif
-                n = ::read(src_file.handle(), buffer, s_maxIPCSize);
+            processedSize(sizeProcessed);
 
-            if (n == -1) {
-                if (errno == EINTR) {
+            const ssize_t readBytes = ::read(srcFile.handle(), &buffer, s_maxIPCSize);
+
+            if (readBytes == -1) {
+                if (errno == EINTR) { // Interrupted
                     continue;
-                }
-#ifdef USE_SENDFILE
-                if (use_sendfile) {
-                    // qDebug() << "sendfile() error:" << strerror(errno);
-                    if (errno == ENOSPC) { // disk full
-                        if (!_dest_backup.isEmpty() && !existing_dest_delete_attempted) {
-                            ::unlink(_dest_backup.constData());
-                            existing_dest_delete_attempted = true;
-                            continue;
-                        }
-                        error(KIO::ERR_DISK_FULL, dest);
-                    } else {
-                        error(KIO::ERR_SLAVE_DEFINED, i18n("Cannot copy file from %1 to %2. (Errno: %3)", src, dest, errno));
-                    }
-                } else
-#endif
+                } else {
+                    qCWarning(KIO_FILE) << "Couldn't read[2]. Error:" << srcFile.errorString();
                     error(KIO::ERR_CANNOT_READ, src);
-                src_file.close();
-                dest_file.close();
-#if HAVE_POSIX_ACL
-                if (acl) {
-                    acl_free(acl);
                 }
-#endif
+
                 if (!QFile::remove(dest)) { // don't keep partly copied file
                     execWithElevatedPrivilege(DEL, {_dest}, errno);
                 }
                 return;
             }
-            if (n == 0) {
-                break; // Finished
-            }
-#ifdef USE_SENDFILE
-            if (!use_sendfile) {
-#endif
-                if (dest_file.write(buffer, n) != n) {
-                    if (dest_file.error() == QFileDevice::ResourceError) { // disk full
-                        if (!_dest_backup.isEmpty() && !existing_dest_delete_attempted) {
-                            ::unlink(_dest_backup.constData());
-                            existing_dest_delete_attempted = true;
+
+            if (destFile.write(buffer.data(), readBytes) != readBytes) {
+                if (destFile.error() == QFileDevice::ResourceError) { // disk full
+                    // attempt to free disk space occupied by file being overwritten
+                    if (!_destBackup.isEmpty() && !existingDestDeleteAttempted) {
+                        ::unlink(_destBackup.constData());
+                        existingDestDeleteAttempted = true;
+                        if (destFile.write(buffer.data(), readBytes) == readBytes) { // retry
                             continue;
                         }
-                        error(KIO::ERR_DISK_FULL, dest);
-                    } else {
-                        qCWarning(KIO_FILE) << "Couldn't write[2]. Error:" << dest_file.errorString();
-                        error(KIO::ERR_CANNOT_WRITE, dest);
                     }
-#if HAVE_POSIX_ACL
-                    if (acl) {
-                        acl_free(acl);
-                    }
-#endif
-                    if (!QFile::remove(dest)) { // don't keep partly copied file
-                        execWithElevatedPrivilege(DEL, {_dest}, errno);
-                    }
-                    return;
+                    error(KIO::ERR_DISK_FULL, dest);
+                } else {
+                    qCWarning(KIO_FILE) << "Couldn't write[2]. Error:" << destFile.errorString();
+                    error(KIO::ERR_CANNOT_WRITE, dest);
                 }
-                processed_size += n;
-#ifdef USE_SENDFILE
+
+                if (!QFile::remove(dest)) { // don't keep partly copied file
+                    execWithElevatedPrivilege(DEL, {_dest}, errno);
+                }
+                return;
             }
-#endif
-            processedSize(processed_size);
+            sizeProcessed += readBytes;
         }
-#ifdef FICLONE
     }
-#endif
 
     // Copy Extended attributes
 #if HAVE_SYS_XATTR_H || HAVE_SYS_EXTATTR_H
-    if (!copyXattrs(src_file.handle(), dest_file.handle())) {
+    if (!copyXattrs(srcFile.handle(), destFile.handle())) {
         qCDebug(KIO_FILE) << "can't copy Extended attributes";
     }
 #endif
 
-    src_file.close();
+    srcFile.close();
 
-    dest_file.flush(); // so the write() happens before futimes()
+    destFile.flush(); // so the write() happens before futimes()
 
     // copy access and modification time
     if (!wasKilled()) {
 #if defined(Q_OS_LINUX) || defined(Q_OS_FREEBSD)
         // with nano secs precision
         struct timespec ut[2];
-        ut[0] = buff_src.st_atim;
-        ut[1] = buff_src.st_mtim;
+        ut[0] = buffSrc.st_atim;
+        ut[1] = buffSrc.st_mtim;
         // need to do this with the dest file still opened, or this fails
-        if (::futimens(dest_file.handle(), ut) != 0) {
+        if (::futimens(destFile.handle(), ut) != 0) {
 #else
         struct timeval ut[2];
         ut[0].tv_sec = buff_src.st_atime;
@@ -929,13 +917,13 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mode, JobF
         ut[1].tv_usec = 0;
         if (::futimes(dest_file.handle(), ut) != 0) {
 #endif
-            if (tryChangeFileAttr(UTIME, {_dest, qint64(buff_src.st_atime), qint64(buff_src.st_mtime)}, errno)) {
+            if (tryChangeFileAttr(UTIME, {_dest, qint64(buffSrc.st_atime), qint64(buffSrc.st_mtime)}, errno)) {
                 qCWarning(KIO_FILE) << "Couldn't preserve access and modification time for" << dest;
             }
         }
     }
 
-    dest_file.close();
+    destFile.close();
 
     if (wasKilled()) {
         qCDebug(KIO_FILE) << "Clean dest file after ioslave was killed:" << dest;
@@ -946,14 +934,10 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mode, JobF
         return;
     }
 
-    if (dest_file.error() != QFile::NoError) {
-        qCWarning(KIO_FILE) << "Error when closing file descriptor[2]:" << dest_file.errorString();
+    if (destFile.error() != QFile::NoError) {
+        qCWarning(KIO_FILE) << "Error when closing file descriptor[2]:" << destFile.errorString();
         error(KIO::ERR_CANNOT_WRITE, dest);
-#if HAVE_POSIX_ACL
-        if (acl) {
-            acl_free(acl);
-        }
-#endif
+
         if (!QFile::remove(dest)) { // don't keep partly copied file
             execWithElevatedPrivilege(DEL, {_dest}, errno);
         }
@@ -963,38 +947,35 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mode, JobF
 #if HAVE_POSIX_ACL
     // If no special mode is given, preserve the ACL attributes from the source file
     if (_mode == -1) {
+        act_t acl = acl_get_fd(srcFile.handle());
         if (acl && acl_set_file(_dest.data(), ACL_TYPE_ACCESS, acl) != 0) {
             qCWarning(KIO_FILE) << "Could not set ACL permissions for" << dest;
         }
     }
-
-    if (acl) {
-        acl_free(acl);
-    }
 #endif
 
     // preserve ownership
-    if (::chown(_dest.data(), -1 /*keep user*/, buff_src.st_gid) == 0) {
+    if (::chown(_dest.data(), -1 /*keep user*/, buffSrc.st_gid) == 0) {
         // as we are the owner of the new file, we can always change the group, but
         // we might not be allowed to change the owner
-        (void)::chown(_dest.data(), buff_src.st_uid, -1 /*keep group*/);
+        (void)::chown(_dest.data(), buffSrc.st_uid, -1 /*keep group*/);
     } else {
-        if (tryChangeFileAttr(CHOWN, {_dest, buff_src.st_uid, buff_src.st_gid}, errno)) {
+        if (tryChangeFileAttr(CHOWN, {_dest, buffSrc.st_uid, buffSrc.st_gid}, errno)) {
             qCWarning(KIO_FILE) << "Couldn't preserve group for" << dest;
         }
     }
 
-    if (!_dest_backup.isEmpty()) {
-        if (::unlink(_dest_backup.constData()) == -1) {
-            qCWarning(KIO_FILE) << "Couldn't remove original dest" << _dest_backup << "(" << strerror(errno) << ")";
+    if (!_destBackup.isEmpty()) { // Overwrite final dest file with new file
+        if (::unlink(_destBackup.constData()) == -1) {
+            qCWarning(KIO_FILE) << "Couldn't remove original dest" << _destBackup << "(" << strerror(errno) << ")";
         }
 
-        if (::rename(_dest.constData(), _dest_backup.constData()) == -1) {
-            qCWarning(KIO_FILE) << "Couldn't rename" << _dest << "to" << _dest_backup << "(" << strerror(errno) << ")";
+        if (::rename(_dest.constData(), _destBackup.constData()) == -1) {
+            qCWarning(KIO_FILE) << "Couldn't rename" << _dest << "to" << _destBackup << "(" << strerror(errno) << ")";
         }
     }
 
-    processedSize(buff_src.st_size);
+    processedSize(buffSrc.st_size);
     finished();
 }
 
