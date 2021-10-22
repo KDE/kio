@@ -805,7 +805,7 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mode, JobF
 
         processedSize(sizeProcessed);
 
-        const ssize_t copiedBytes = ::copy_file_range(srcFile.handle(), &sizeProcessed, destFile.handle(), &sizeProcessed, srcFile.size(), 0);
+        const ssize_t copiedBytes = ::copy_file_range(srcFile.handle(), &sizeProcessed, destFile.handle(), &sizeProcessed, s_maxIPCSize, 0);
 
         if (copiedBytes == -1) {
             if (errno == EINVAL) {
