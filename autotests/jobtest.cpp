@@ -2908,10 +2908,12 @@ void JobTest::cancelCopyAndCleanDest()
     if (!f.open()) {
         qFatal("Couldn't open %s", qPrintable(f.fileName()));
     }
-    f.seek(999999);
+
+    const int sz = 2000000; //~2MB
+    f.seek(sz - 1);
     f.write("0");
     f.close();
-    QCOMPARE(f.size(), 1000000); //~1MB
+    QCOMPARE(f.size(), sz);
 
     if (overwrite) {
         createTestFile(destFile);
