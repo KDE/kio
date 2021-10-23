@@ -100,7 +100,6 @@ public:
      */
     KIO::filesize_t used() const;
 
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 88)
     /**
      * Static method used to determine the free disk space.
      *
@@ -115,7 +114,6 @@ public:
      */
     KIOCORE_DEPRECATED_VERSION(5, 88, "Use KIO::FileSystemFreeSpaceJob or QStorageInfo instead.")
     static KDiskFreeSpaceInfo freeSpaceInfo(const QString &path);
-#endif
 
 private:
     KDiskFreeSpaceInfo();
