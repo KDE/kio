@@ -833,8 +833,6 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mode, JobF
             }
             return;
         }
-
-        sizeProcessed += copiedBytes;
     }
 #endif
 
