@@ -911,11 +911,11 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mode, JobF
         if (::futimens(destFile.handle(), ut) != 0) {
 #else
         struct timeval ut[2];
-        ut[0].tv_sec = buff_src.st_atime;
+        ut[0].tv_sec = buffSrc.st_atime;
         ut[0].tv_usec = 0;
-        ut[1].tv_sec = buff_src.st_mtime;
+        ut[1].tv_sec = buffSrc.st_mtime;
         ut[1].tv_usec = 0;
-        if (::futimes(dest_file.handle(), ut) != 0) {
+        if (::futimes(destFile.handle(), ut) != 0) {
 #endif
             if (tryChangeFileAttr(UTIME, {_dest, qint64(buffSrc.st_atime), qint64(buffSrc.st_mtime)}, errno)) {
                 qCWarning(KIO_FILE) << "Couldn't preserve access and modification time for" << dest;
