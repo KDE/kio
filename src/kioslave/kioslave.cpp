@@ -9,8 +9,10 @@
 
 #include <cerrno>
 #include <locale.h>
+#include <signal.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 #include <QFile>
 #include <QLibrary>
@@ -75,10 +77,11 @@ int main(int argc, char **argv)
         return 1;
     }
 
+    const QByteArray slaveDebugWait = qgetenv("KDE_SLAVE_DEBUG_WAIT");
+
 #ifdef Q_OS_WIN
     // enter debugger in case debugging is activated
-    QString slaveDebugWait(QString::fromLocal8Bit(qgetenv("KDE_SLAVE_DEBUG_WAIT")));
-    if (slaveDebugWait == QLatin1String("all") || slaveDebugWait == QString::fromLocal8Bit(argv[2])) {
+    if (slaveDebugWait == "all" || slaveDebugWait == argv[2]) {
 #ifdef Q_CC_MSVC
         // msvc debugger or windbg supports jit debugging, the latter requires setting up windbg jit with windbg -i
         DebugBreak();
@@ -108,6 +111,19 @@ int main(int argc, char **argv)
     }
 #endif
 #endif // Q_OS_WIN
+
+#if defined(Q_OS_UNIX)
+    // Enter debugger in case debugging is activated
+    if (slaveDebugWait == "all" || slaveDebugWait == argv[2]) {
+        const pid_t pid = getpid();
+        fprintf(stderr, "kioslave5: Suspending process to debug io slave(s): %s\n"
+                "kioslave5: 'gdb kioslave5 %d' to debug\n"
+                "kioslave5: 'kill -SIGCONT %d' to continue\n",
+                slaveDebugWait.constData(), pid, pid);
+
+        kill(pid, SIGSTOP);
+    }
+#endif
 
     int (*func)(int, char *[]) = (int (*)(int, char *[]))sym;
 
