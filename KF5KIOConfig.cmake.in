@@ -26,6 +26,10 @@ if (NOT @KIOCORE_ONLY@)
         find_dependency(KF5GuiAddons "@KF_DEP_VERSION@")
         find_dependency(KF5IconThemes "@KF_DEP_VERSION@")
         find_dependency(KF5DBusAddons "@KF_DEP_VERSION@")
+
+        if (@LibMount_FOUND@)
+            find_dependency(LibMount)
+        endif()
     endif()
 endif()
 
