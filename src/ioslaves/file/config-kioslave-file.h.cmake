@@ -21,8 +21,8 @@
 /* Defined if system has <sys/extattr.h> header file. */
 #cmakedefine01 HAVE_SYS_EXTATTR_H
 
-/* Defined if system has the sendfile function. */
-#cmakedefine01 HAVE_SENDFILE
+/* Defined if system has the copy_file_range function. */
+#cmakedefine01 HAVE_COPY_FILE_RANGE
 
 /* Defined if system has the statx function, meaning glibc >= 2.28 */
 #cmakedefine01 HAVE_STATX

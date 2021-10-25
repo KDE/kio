@@ -44,13 +44,18 @@
 
 #include <linux/fs.h>
 #include <sys/ioctl.h>
-#include <unistd.h>
+#include <unistd.h> // For copy_file_range (and other stuff)
 
 #if HAVE_STATX
 #include <sys/stat.h>
 #include <sys/sysmacros.h> // for makedev()
 #endif
 
+#endif // Q_OS_LINUX
+
+#if HAVE_COPY_FILE_RANGE
+#include <sys/types.h> // Must be before unistd.h
+#include <unistd.h>
 #endif
 
 #if HAVE_SYS_XATTR_H
@@ -798,8 +803,7 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mode, JobF
 
     processedSize(sizeProcessed);
 
-#ifdef Q_OS_LINUX
-    /* try copy_file_range */
+#if HAVE_COPY_FILE_RANGE
     while (!wasKilled() && sizeProcessed < srcFile.size()) {
         if (testMode && destFile.fileName().contains(QLatin1String("slow"))) {
             QThread::msleep(50);
