@@ -940,10 +940,10 @@ public:
      * @param host the host passed to requestNetwork
      *
      * A slave should call this function every time it disconnect from a host.
-     * *
+     *
      * @deprecated Since 5.0, for a very very long time, not implemented anymore
      * Probably dates back to model dialup times.
-     * */
+     */
     KIOCORE_DEPRECATED_VERSION(5, 0, "Not implemented & used")
     void dropNetwork(const QString &host = QString());
 #endif
