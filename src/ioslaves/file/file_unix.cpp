@@ -796,9 +796,9 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mode, JobF
 
     bool existingDestDeleteAttempted = false;
 
-#ifdef Q_OS_LINUX
     processedSize(sizeProcessed);
 
+#ifdef Q_OS_LINUX
     /* try copy_file_range */
     while (!wasKilled() && sizeProcessed < srcFile.size()) {
         if (testMode && destFile.fileName().contains(QLatin1String("slow"))) {
@@ -847,8 +847,6 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mode, JobF
                 QThread::msleep(50);
             }
 
-            processedSize(sizeProcessed);
-
             const ssize_t readBytes = ::read(srcFile.handle(), &buffer, s_maxIPCSize);
 
             if (readBytes == -1) {
@@ -887,6 +885,7 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mode, JobF
                 return;
             }
             sizeProcessed += readBytes;
+            processedSize(sizeProcessed);
         }
     }
 
