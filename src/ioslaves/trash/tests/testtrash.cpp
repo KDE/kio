@@ -761,7 +761,7 @@ void TestTrash::mostLocalUrlTest()
         url.setPath(QLatin1String("0-") + file);
         KIO::StatJob *statJob = KIO::mostLocalUrl(url, KIO::HideProgressInfo);
         QVERIFY(statJob->exec());
-        QCOMPARE(url, statJob->mostLocalUrl());
+        QCOMPARE(QUrl::fromLocalFile(m_trashDir + QStringLiteral("/files/") + file), statJob->mostLocalUrl());
     }
 }
 
