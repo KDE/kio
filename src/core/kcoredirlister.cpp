@@ -989,6 +989,10 @@ std::set<KCoreDirLister *> KCoreDirListerCache::emitRefreshItem(const KFileItem 
     }
     std::set<KCoreDirLister *> listersToRefresh;
     for (KCoreDirLister *kdl : std::as_const(listers)) {
+        // deduplicate listers
+        listersToRefresh.insert(kdl);
+    }
+    for (KCoreDirLister *kdl : std::as_const(listersToRefresh)) {
         // For a directory, look for dirlisters where it's the root item.
         QUrl directoryUrl(oldItem.url());
         if (oldItem.isDir() && kdl->d->rootFileItem == oldItem) {
@@ -999,7 +1003,6 @@ std::set<KCoreDirLister *> KCoreDirListerCache::emitRefreshItem(const KFileItem 
             directoryUrl = directoryUrl.adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash);
             kdl->d->addRefreshItem(directoryUrl, oldItem, fileitem);
         }
-        listersToRefresh.insert(kdl);
     }
     return listersToRefresh;
 }
