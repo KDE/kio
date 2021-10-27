@@ -9,6 +9,7 @@ Name[fr]=KDE Invent
 Name[ia]=KDE Invent
 Name[nl]=KDE-invent
 Name[pl]=KDE Invent
+Name[pt_BR]=KDE Invent
 Name[sl]=KDE Invent
 Name[sv]=KDE-Invent
 Name[uk]=KDE Invent
@@ -24,6 +25,7 @@ Query[fr]=https://invent.kde.org/search?search=\\{@}
 Query[ia]=https://invent.kde.org/search?search=\\{@}
 Query[nl]=https://invent.kde.org/search?search=\\{@}
 Query[pl]=https://invent.kde.org/search?search=\\{@}
+Query[pt_BR]=https://invent.kde.org/search?search=\\{@}
 Query[sl]=https://invent.kde.org/search?search=\\{@}
 Query[sv]=https://invent.kde.org/search?search=\\{@}
 Query[uk]=https://invent.kde.org/search?search=\\{@}
