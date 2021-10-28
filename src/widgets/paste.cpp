@@ -149,13 +149,14 @@ static QByteArray chooseFormatAndUrl(const QUrl &u,
         dialogText = i18n("Filename for clipboard content:");
     }
 
-    KIO::PasteDialog dlg(QString(), dialogText, suggestedFileName, formatLabels, widget, clipboard);
+    KIO::PasteDialog dlg(QString(), dialogText, suggestedFileName, formatLabels, widget);
 
     if (dlg.exec() != QDialog::Accepted) {
         return QByteArray();
     }
 
-    if (clipboard && dlg.clipboardChanged()) {
+    const QString chosenFormat = formats[dlg.comboItem()];
+    if (clipboard && !qApp->clipboard()->mimeData()->hasFormat(chosenFormat)) {
         KMessageBox::sorry(widget,
                            i18n("The clipboard has changed since you used 'paste': "
                                 "the chosen data format is no longer applicable. "
@@ -164,7 +165,6 @@ static QByteArray chooseFormatAndUrl(const QUrl &u,
     }
 
     const QString result = dlg.lineEditText();
-    const QString chosenFormat = formats[dlg.comboItem()];
 
     // qDebug() << " result=" << result << " chosenFormat=" << chosenFormat;
     *newUrl = u;

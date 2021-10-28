@@ -17,7 +17,7 @@
 #include <QLineEdit>
 #include <QVBoxLayout>
 
-KIO::PasteDialog::PasteDialog(const QString &caption, const QString &label, const QString &value, const QStringList &items, QWidget *parent, bool clipboard)
+KIO::PasteDialog::PasteDialog(const QString &caption, const QString &label, const QString &value, const QStringList &items, QWidget *parent)
     : QDialog(parent)
 {
     setWindowTitle(caption);
@@ -54,16 +54,6 @@ KIO::PasteDialog::PasteDialog(const QString &caption, const QString &label, cons
     topLayout->addWidget(buttonBox);
 
     setMinimumWidth(350);
-
-    m_clipboardChanged = false;
-    if (clipboard) {
-        connect(QApplication::clipboard(), &QClipboard::dataChanged, this, &PasteDialog::slotClipboardDataChanged);
-    }
-}
-
-void KIO::PasteDialog::slotClipboardDataChanged()
-{
-    m_clipboardChanged = true;
 }
 
 QString KIO::PasteDialog::lineEditText() const

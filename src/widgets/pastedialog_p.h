@@ -24,23 +24,15 @@ class PasteDialog : public QDialog
 {
     Q_OBJECT
 public:
-    PasteDialog(const QString &caption, const QString &label, const QString &value, const QStringList &items, QWidget *parent, bool clipboard);
+    PasteDialog(const QString &caption, const QString &label, const QString &value, const QStringList &items, QWidget *parent);
 
     QString lineEditText() const;
     int comboItem() const;
-    bool clipboardChanged() const
-    {
-        return m_clipboardChanged;
-    }
-
-private Q_SLOTS:
-    void slotClipboardDataChanged();
 
 private:
     QLabel *m_label;
     QLineEdit *m_lineEdit;
     QComboBox *m_comboBox;
-    bool m_clipboardChanged;
 };
 
 } // namespace
