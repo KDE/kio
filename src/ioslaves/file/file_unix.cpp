@@ -45,7 +45,7 @@
 
 #include <linux/fs.h>
 #include <sys/ioctl.h>
-#include <unistd.h> // For copy_file_range (and other stuff)
+#include <unistd.h>
 
 #if HAVE_STATX
 #include <sys/stat.h>
@@ -55,7 +55,9 @@
 #endif // Q_OS_LINUX
 
 #if HAVE_COPY_FILE_RANGE
-#include <sys/types.h> // Must be before unistd.h
+// sys/types.h must be included before unistd.h,
+// and it needs to be included explicitly for FreeBSD
+#include <sys/types.h>
 #include <unistd.h>
 #endif
 
