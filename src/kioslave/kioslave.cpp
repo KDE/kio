@@ -12,7 +12,6 @@
 #include <signal.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <unistd.h>
 
 #include <QFile>
 #include <QLibrary>
@@ -33,6 +32,8 @@
 #endif
 
 #ifndef Q_OS_WIN
+#include <unistd.h>
+
 /* These are to link libkio even if 'smart' linker is used */
 #include <kio/authinfo.h>
 extern "C" KIO::AuthInfo *_kioslave_init_kio()
