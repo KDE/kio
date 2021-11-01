@@ -1720,7 +1720,7 @@ KFilePermissionsPropsPlugin::KFilePermissionsPropsPlugin(KPropertiesDialog *_pro
     : KPropertiesDialogPlugin(_props)
     , d(new KFilePermissionsPropsPluginPrivate)
 {
-    bool isLocal = properties->url().isLocalFile();
+    const auto &[localUrl, isLocal] = properties->item().isMostLocalUrl();
     bool isTrash = (properties->url().scheme() == QLatin1String("trash"));
     KUser myself(KUser::UseEffectiveUID);
     const bool IamRoot = myself.isSuperUser();
