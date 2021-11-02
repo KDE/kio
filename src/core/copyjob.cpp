@@ -728,6 +728,12 @@ void CopyJobPrivate::slotReport()
     // If showProgressInfo was set, progressId() is > 0.
     switch (state) {
     case STATE_RENAMING:
+        if (m_bURLDirty) {
+            m_bURLDirty = false;
+            Q_ASSERT(m_mode == CopyJob::Move);
+            emitMoving(q, m_currentSrcURL, m_currentDestURL);
+            Q_EMIT q->moving(q, m_currentSrcURL, m_currentDestURL);
+        }
         // "N" files renamed shouldn't include skipped files
         q->setProcessedAmount(KJob::Files, m_processedFiles);
         // % value should include skipped files
