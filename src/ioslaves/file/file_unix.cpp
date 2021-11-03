@@ -31,6 +31,7 @@
 #include <kmountpoint.h>
 
 #include <cerrno>
+#include <array>
 #include <stdint.h>
 #include <utime.h>
 
