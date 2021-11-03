@@ -19,7 +19,7 @@ public:
     }
 
     explicit SearchProvider(const QString &servicePath);
-    ~SearchProvider();
+    ~SearchProvider() override;
 
     const QString &charset() const
     {

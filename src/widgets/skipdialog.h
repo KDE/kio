@@ -25,7 +25,7 @@ class KIOWIDGETS_EXPORT SkipDialog : public QDialog
     Q_OBJECT
 public:
     SkipDialog(QWidget *parent, KIO::SkipDialog_Options options, const QString &_error_text);
-    ~SkipDialog();
+    ~SkipDialog() override;
 
 private Q_SLOTS:
     void cancelPressed();

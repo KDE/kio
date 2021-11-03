@@ -32,7 +32,7 @@ class KIOCORE_EXPORT ConnectionServer : public QObject
     Q_OBJECT
 public:
     explicit ConnectionServer(QObject *parent = nullptr);
-    ~ConnectionServer();
+    ~ConnectionServer() override;
 
     /**
      * Sets this connection to listen mode. Use address() to obtain the

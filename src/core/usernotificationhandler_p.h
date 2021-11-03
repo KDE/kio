@@ -45,7 +45,7 @@ public:
     };
 
     explicit UserNotificationHandler(QObject *parent = nullptr);
-    virtual ~UserNotificationHandler();
+    ~UserNotificationHandler() override;
 
     void requestMessageBox(SlaveInterface *iface, int type, const QHash<MessageBoxDataType, QVariant> &data);
 

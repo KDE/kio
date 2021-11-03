@@ -28,7 +28,7 @@ public:
         qputenv("KURLCOMPLETION_WAIT", "1"); // 1ms, too short for a full listing of /usr/bin, but at least give a chance for a few items in the result
 #endif
     }
-    ~KUrlCompletionTest()
+    ~KUrlCompletionTest() override
     {
         teardown();
     }

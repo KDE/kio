@@ -75,7 +75,7 @@ public:
     /**
      * Destructs the combo box.
      */
-    ~KUrlComboBox();
+    ~KUrlComboBox() override;
 
     /**
      * Sets the current url. This combo handles exactly one url additionally

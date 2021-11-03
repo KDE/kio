@@ -38,7 +38,7 @@ public:
         registerMetaTypesForKSSLD();
     }
 
-    ~OrgKdeKSSLDInterface()
+    ~OrgKdeKSSLDInterface() override
     {
     }
 

@@ -81,7 +81,7 @@ public:
     /**
      * Destructs the KUrlRequester.
      */
-    ~KUrlRequester();
+    ~KUrlRequester() override;
 
     /**
      * @returns the current url in the lineedit. May be malformed, if the user

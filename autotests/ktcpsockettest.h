@@ -18,7 +18,7 @@ class KTcpSocketTest : public QObject
 public:
     Server *server;
     KTcpSocketTest();
-    ~KTcpSocketTest();
+    ~KTcpSocketTest() override;
 
 private:
     void invokeOnServer(const char *);
@@ -50,7 +50,7 @@ public:
     QTcpSocket *socket;
     quint16 port;
     explicit Server(quint16 _port);
-    ~Server();
+    ~Server() override;
 
 private:
     void cleanupSocket();

@@ -31,7 +31,7 @@ public:
 
 private:
     KBuildSycocaProgressDialog(QWidget *parent, const QString &caption, const QString &text);
-    ~KBuildSycocaProgressDialog();
+    ~KBuildSycocaProgressDialog() override;
 
 private:
     KBuildSycocaProgressDialogPrivate *const d;

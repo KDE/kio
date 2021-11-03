@@ -53,7 +53,7 @@ public:
     /**
      * Destructs the dialog.
      */
-    ~KUrlRequesterDialog();
+    ~KUrlRequesterDialog() override;
 
     /**
      * Returns the fully qualified filename.

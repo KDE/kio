@@ -26,7 +26,7 @@ public:
     Q_DECLARE_FLAGS(DisplayUrlFlags, DisplayUrlFlag)
 
     KProxyDialog(QWidget *parent, const QVariantList &args);
-    ~KProxyDialog();
+    ~KProxyDialog() override;
 
     void load() override;
     void save() override;

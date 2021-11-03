@@ -53,7 +53,7 @@ public:
     QByteArray arguments() const;
 
 public:
-    ~SpecialJob();
+    ~SpecialJob() override;
 
 private:
     Q_DECLARE_PRIVATE(SpecialJob)

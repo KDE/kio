@@ -15,7 +15,7 @@ class Receiver : public QWidget
     Q_OBJECT
 public:
     Receiver();
-    ~Receiver()
+    ~Receiver() override
     {
     }
 public Q_SLOTS:

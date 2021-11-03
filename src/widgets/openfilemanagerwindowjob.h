@@ -55,7 +55,7 @@ public:
     /**
      * Destroys the OpenFileManagerWindowJob
      */
-    virtual ~OpenFileManagerWindowJob();
+    ~OpenFileManagerWindowJob() override;
 
     /**
      * Errors the job may emit

@@ -58,7 +58,7 @@ public:
     };
 
     explicit KACLListView(QWidget *parent = nullptr);
-    ~KACLListView();
+    ~KACLListView() override;
 
     bool hasMaskEntry() const
     {
@@ -166,7 +166,7 @@ class KACLListViewItem : public QTreeWidgetItem
 {
 public:
     KACLListViewItem(QTreeWidget *parent, KACLListView::EntryType type, unsigned short value, bool defaultEntry, const QString &qualifier = QString());
-    virtual ~KACLListViewItem();
+    ~KACLListViewItem() override;
     QString key() const;
     bool operator<(const QTreeWidgetItem &other) const override;
 

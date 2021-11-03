@@ -64,7 +64,7 @@ public:
         : QObject(parent)
     {
     }
-    virtual ~KAbstractViewAdapter()
+    ~KAbstractViewAdapter() override
     {
     }
     virtual QAbstractItemModel *model() const = 0;

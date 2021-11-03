@@ -21,7 +21,7 @@ class SMBRoOptions : public KCModule
     Q_OBJECT
 public:
     SMBRoOptions(QWidget *parent, const QVariantList &args);
-    ~SMBRoOptions();
+    ~SMBRoOptions() override;
 
     void load() override;
     void save() override;

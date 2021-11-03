@@ -176,7 +176,7 @@ public:
 class KIOWIDGETS_EXPORT KIOWIDGETS_DEPRECATED_VERSION(5, 0, "Use ThumbCreator") ThumbCreatorV2 : public ThumbCreator
 {
 public:
-    virtual ~ThumbCreatorV2();
+    ~ThumbCreatorV2() override;
 };
 #endif
 

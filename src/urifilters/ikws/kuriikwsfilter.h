@@ -18,7 +18,7 @@ class KAutoWebSearch : public KUriFilterPlugin
     Q_OBJECT
 public:
     explicit KAutoWebSearch(QObject *parent = nullptr, const QVariantList &args = QVariantList());
-    ~KAutoWebSearch();
+    ~KAutoWebSearch() override;
     bool filterUri(KUriFilterData &) const override;
 
 public Q_SLOTS:

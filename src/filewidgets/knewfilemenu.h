@@ -70,7 +70,7 @@ public:
      * of it don't need to parse the installed templates multiple times. Therefore
      * you can safely create and delete KNewMenu instances without a performance issue.
      */
-    virtual ~KNewFileMenu();
+    ~KNewFileMenu() override;
 
     /**
      * Returns the modality of dialogs

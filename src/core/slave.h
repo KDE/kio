@@ -43,7 +43,7 @@ class KIO_SLAVE_EXPORT Slave : public KIO::SlaveInterface
 public:
     explicit Slave(const QString &protocol, QObject *parent = nullptr);
 
-    virtual ~Slave();
+    ~Slave() override;
 
     /**
      * Sends the given command to the kioslave.

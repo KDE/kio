@@ -23,7 +23,7 @@ class KDirOperatorDetailView : public QTreeView
 
 public:
     explicit KDirOperatorDetailView(QWidget *parent = nullptr);
-    virtual ~KDirOperatorDetailView();
+    ~KDirOperatorDetailView() override;
 
     /**
      * Displays either Detail, Tree or DetailTree modes.

@@ -40,7 +40,7 @@ public:
     /**
      * Destructor
      */
-    virtual ~KShortUriFilter()
+    ~KShortUriFilter() override
     {
     }
 

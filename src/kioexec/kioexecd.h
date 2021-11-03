@@ -23,7 +23,7 @@ class KIOExecd : public KDEDModule
 
 public:
     KIOExecd(QObject *parent, const QList<QVariant> &);
-    virtual ~KIOExecd();
+    ~KIOExecd() override;
 
 public Q_SLOTS:
     void watch(const QString &path, const QString &destUrl);

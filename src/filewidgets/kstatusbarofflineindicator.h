@@ -40,7 +40,7 @@ public:
      */
     KIOFILEWIDGETS_DEPRECATED_VERSION(5, 70, "No known users")
     explicit KStatusBarOfflineIndicator(QWidget *parent);
-    ~KStatusBarOfflineIndicator();
+    ~KStatusBarOfflineIndicator() override;
 
 private:
     KStatusBarOfflineIndicatorPrivate *const d;

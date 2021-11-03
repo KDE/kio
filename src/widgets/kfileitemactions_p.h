@@ -29,7 +29,7 @@ class KFileItemActionsPrivate : public QObject
 
 public:
     explicit KFileItemActionsPrivate(KFileItemActions *qq);
-    ~KFileItemActionsPrivate();
+    ~KFileItemActionsPrivate() override;
 
     int insertServicesSubmenus(const QMap<QString, ServiceList> &list, QMenu *menu, bool isBuiltin);
     int insertServices(const ServiceList &list, QMenu *menu, bool isBuiltin);

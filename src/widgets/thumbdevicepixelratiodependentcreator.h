@@ -35,7 +35,7 @@ class KIOWIDGETS_EXPORT ThumbDevicePixelRatioDependentCreator : public ThumbCrea
 public:
     Q_DISABLE_COPY(ThumbDevicePixelRatioDependentCreator)
     ThumbDevicePixelRatioDependentCreator();
-    virtual ~ThumbDevicePixelRatioDependentCreator();
+    ~ThumbDevicePixelRatioDependentCreator() override;
 
     /**
      * The device Pixel Ratio used for thumbnail creation

@@ -36,7 +36,7 @@ class KCookieServer : public KDEDModule, protected QDBusContext
     Q_CLASSINFO("D-Bus Interface", "org.kde.KCookieServer")
 public:
     KCookieServer(QObject *parent, const QList<QVariant> &);
-    ~KCookieServer();
+    ~KCookieServer() override;
 
 public Q_SLOTS:
     // KDE5 TODO: don't overload names here, it prevents calling e.g. findCookies from the command-line using qdbus.

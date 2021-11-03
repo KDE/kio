@@ -34,7 +34,7 @@ public:
     /**
      * Destroys this KDynamicJobTracker
      */
-    virtual ~KDynamicJobTracker();
+    ~KDynamicJobTracker() override;
 
 public Q_SLOTS:
     /**

@@ -54,7 +54,7 @@ class KIOWIDGETS_EXPORT DropJob : public Job
     Q_OBJECT
 
 public:
-    virtual ~DropJob();
+    ~DropJob() override;
 
     /**
      * Allows the application to set additional actions in the drop popup menu.

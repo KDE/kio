@@ -26,7 +26,7 @@ public:
     };
 
     explicit KSslCertificateBox(QWidget *parent = nullptr);
-    ~KSslCertificateBox();
+    ~KSslCertificateBox() override;
 
     void setCertificate(const QSslCertificate &cert, CertificateParty party);
     void clear();

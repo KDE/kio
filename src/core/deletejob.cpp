@@ -122,7 +122,7 @@ public:
     void deleteFileUsingJob(const QUrl &url, bool isLink);
     void deleteDirUsingJob(const QUrl &url);
 
-    ~DeleteJobPrivate();
+    ~DeleteJobPrivate() override;
 
     Q_DECLARE_PUBLIC(DeleteJob)
 

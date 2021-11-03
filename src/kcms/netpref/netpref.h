@@ -14,7 +14,7 @@ class KIOPreferences : public KCModule
 
 public:
     KIOPreferences(QWidget *parent, const QVariantList &args);
-    ~KIOPreferences();
+    ~KIOPreferences() override;
 
     void load() override;
     void save() override;

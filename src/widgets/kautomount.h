@@ -69,7 +69,7 @@ Q_SIGNALS:
 
 private:
     /** KAutoMount deletes itself. Don't delete it manually. */
-    ~KAutoMount();
+    ~KAutoMount() override;
     Q_PRIVATE_SLOT(d, void slotResult(KJob *))
     friend class KAutoMountPrivate;
     KAutoMountPrivate *const d;
@@ -106,7 +106,7 @@ Q_SIGNALS:
 
 private:
     /** KAutoUnmount deletes itself. Don't delete it manually. */
-    ~KAutoUnmount();
+    ~KAutoUnmount() override;
     Q_PRIVATE_SLOT(d, void slotResult(KJob *))
     friend class KAutoUnmountPrivate;
     KAutoUnmountPrivate *const d;

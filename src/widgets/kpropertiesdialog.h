@@ -146,7 +146,7 @@ public:
      * including the dialog itself. Note that when a properties dialog is
      * closed it cleans up and deletes itself.
      */
-    virtual ~KPropertiesDialog();
+    ~KPropertiesDialog() override;
 
     /**
      * Immediately displays a Properties dialog using constructor with
@@ -399,7 +399,7 @@ public:
      * KPageDialog (the properties dialog is a KPageDialog).
      */
     KPropertiesDialogPlugin(KPropertiesDialog *_props);
-    virtual ~KPropertiesDialogPlugin();
+    ~KPropertiesDialogPlugin() override;
 
     /**
      * Applies all changes to the file.

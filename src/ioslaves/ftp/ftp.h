@@ -182,7 +182,7 @@ class FtpInternal : public QObject
     Q_OBJECT
 public:
     explicit FtpInternal(Ftp *qptr);
-    ~FtpInternal();
+    ~FtpInternal() override;
 
     // ---------------------------------------- API
 

@@ -28,7 +28,7 @@ class ProxyScout : public KDEDModule
     Q_CLASSINFO("D-Bus Interface", "org.kde.KPAC.ProxyScout")
 public:
     ProxyScout(QObject *parent, const QList<QVariant> &);
-    virtual ~ProxyScout();
+    ~ProxyScout() override;
 
 public Q_SLOTS:
     Q_SCRIPTABLE QString proxyForUrl(const QString &checkUrl, const QDBusMessage &);

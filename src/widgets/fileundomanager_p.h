@@ -110,7 +110,7 @@ class FileUndoManagerPrivate : public QObject
 public:
     explicit FileUndoManagerPrivate(FileUndoManager *qq);
 
-    ~FileUndoManagerPrivate()
+    ~FileUndoManagerPrivate() override
     {
         delete m_uiInterface;
     }

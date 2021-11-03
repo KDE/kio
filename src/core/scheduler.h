@@ -269,7 +269,7 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(Scheduler)
     Scheduler();
-    ~Scheduler();
+    ~Scheduler() override;
 
     static Scheduler *self();
 

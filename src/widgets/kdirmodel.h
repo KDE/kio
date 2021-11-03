@@ -45,7 +45,7 @@ public:
      * @param parent parent qobject
      */
     explicit KDirModel(QObject *parent = nullptr);
-    ~KDirModel();
+    ~KDirModel() override;
 
     /**
      * Flags for the openUrl() method

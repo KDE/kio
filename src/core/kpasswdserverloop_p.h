@@ -20,7 +20,7 @@ class KPasswdServerLoop : public QEventLoop
 
 public:
     KPasswdServerLoop();
-    virtual ~KPasswdServerLoop();
+    ~KPasswdServerLoop() override;
     bool waitForResult(qlonglong requestId);
 
     qlonglong seqNr() const;

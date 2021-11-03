@@ -172,7 +172,7 @@ public:
     /**
      * Destroys the item delegate.
      */
-    virtual ~KFileItemDelegate();
+    ~KFileItemDelegate() override;
 
     /**
      * Returns the nominal size for the item referred to by @p index, given the

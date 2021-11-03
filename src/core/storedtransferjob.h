@@ -39,7 +39,7 @@ class KIOCORE_EXPORT StoredTransferJob : public KIO::TransferJob
     Q_OBJECT
 
 public:
-    ~StoredTransferJob();
+    ~StoredTransferJob() override;
 
     /**
      * Set data to be uploaded. This is for put jobs.

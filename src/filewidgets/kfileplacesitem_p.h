@@ -42,7 +42,7 @@ public:
     };
 
     KFilePlacesItem(KBookmarkManager *manager, const QString &address, const QString &udi, KFilePlacesModel *parent);
-    ~KFilePlacesItem();
+    ~KFilePlacesItem() override;
 
     QString id() const;
 

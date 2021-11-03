@@ -19,7 +19,7 @@ class KDirOperatorIconView : public QListView
     Q_OBJECT
 public:
     KDirOperatorIconView(QWidget *parent = nullptr, QStyleOptionViewItem::Position decorationPosition = QStyleOptionViewItem::Position::Top);
-    virtual ~KDirOperatorIconView();
+    ~KDirOperatorIconView() override;
     void setDecorationPosition(QStyleOptionViewItem::Position decorationPosition);
 
 protected:

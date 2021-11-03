@@ -40,7 +40,7 @@ class KIOCORE_EXPORT SlaveConfig : public QObject
     Q_OBJECT
 public:
     static SlaveConfig *self();
-    ~SlaveConfig();
+    ~SlaveConfig() override;
     /**
      * Configure slaves of type @p protocol by setting @p key to @p value.
      * If @p host is specified the configuration only applies when dealing

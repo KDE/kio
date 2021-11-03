@@ -89,7 +89,7 @@ public:
     /**
      * Destructor
      */
-    ~KOpenWithDialog();
+    ~KOpenWithDialog() override;
 
     /**
      * @return the text the user entered

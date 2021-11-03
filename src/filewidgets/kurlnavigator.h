@@ -82,7 +82,7 @@ public:
      * @param parent         Parent widget.
      */
     KUrlNavigator(KFilePlacesModel *placesModel, const QUrl &url, QWidget *parent);
-    virtual ~KUrlNavigator();
+    ~KUrlNavigator() override;
 
     /**
      * @return URL of the location given by the \a historyIndex. If \a historyIndex

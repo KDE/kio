@@ -82,7 +82,7 @@ public:
     /**
      * Destructor.
      */
-    ~OrgKdeKDirNotifyInterface();
+    ~OrgKdeKDirNotifyInterface() override;
 
 public Q_SLOTS: // METHODS
 Q_SIGNALS: // SIGNALS

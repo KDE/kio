@@ -52,7 +52,7 @@ Q_SIGNALS:
 
 public:
     explicit ConnectionBackend(QObject *parent = nullptr);
-    ~ConnectionBackend();
+    ~ConnectionBackend() override;
 
     void setSuspended(bool enable);
     bool connectToRemote(const QUrl &url);

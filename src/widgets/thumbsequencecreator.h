@@ -39,7 +39,7 @@ class KIOWIDGETS_EXPORT ThumbSequenceCreator : public ThumbCreator
 public:
     Q_DISABLE_COPY(ThumbSequenceCreator)
     ThumbSequenceCreator();
-    virtual ~ThumbSequenceCreator();
+    ~ThumbSequenceCreator() override;
 
     /**
      * If this thumb-creator can create a sequence of thumbnails,

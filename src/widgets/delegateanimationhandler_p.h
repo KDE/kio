@@ -124,7 +124,7 @@ class DelegateAnimationHandler : public QObject
 
 public:
     explicit DelegateAnimationHandler(QObject *parent = nullptr);
-    ~DelegateAnimationHandler();
+    ~DelegateAnimationHandler() override;
 
     AnimationState *animationState(const QStyleOption &option, const QModelIndex &index, const QAbstractItemView *view);
 

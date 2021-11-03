@@ -23,7 +23,7 @@ class SessionData : public QObject
 
 public:
     SessionData();
-    ~SessionData();
+    ~SessionData() override;
 
     void configDataFor(KIO::MetaData &configData, const QString &proto, const QString &host);
     void reset();

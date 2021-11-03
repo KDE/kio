@@ -39,7 +39,7 @@ public:
         start();
         m_ready.acquire();
     }
-    ~HttpServerThread()
+    ~HttpServerThread() override
     {
         finish();
         wait();
@@ -133,7 +133,7 @@ public:
         , sslSocket(nullptr)
     {
     }
-    ~BlockingHttpServer()
+    ~BlockingHttpServer() override
     {
     }
 

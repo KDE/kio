@@ -154,7 +154,7 @@ class KCoreDirListerCache : public QObject
     Q_OBJECT
 public:
     KCoreDirListerCache(); // only called by K_GLOBAL_STATIC
-    ~KCoreDirListerCache();
+    ~KCoreDirListerCache() override;
 
     void updateDirectory(const QUrl &dir);
 

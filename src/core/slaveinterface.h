@@ -112,7 +112,7 @@ protected:
     SlaveInterface(SlaveInterfacePrivate &dd, QObject *parent = nullptr);
 
 public:
-    virtual ~SlaveInterface();
+    ~SlaveInterface() override;
 
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 0)
     // TODO KF6: remove these methods, Connection isn't an exported class

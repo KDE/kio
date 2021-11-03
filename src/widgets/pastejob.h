@@ -35,7 +35,7 @@ class KIOWIDGETS_EXPORT PasteJob : public Job
     Q_OBJECT
 
 public:
-    virtual ~PasteJob();
+    ~PasteJob() override;
 
 Q_SIGNALS:
     /**

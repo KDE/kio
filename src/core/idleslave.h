@@ -32,7 +32,7 @@ class KIOCORE_EXPORT IdleSlave : public QObject
     Q_OBJECT
 public:
     explicit IdleSlave(QObject *parent);
-    ~IdleSlave();
+    ~IdleSlave() override;
 
     bool match(const QString &protocol, const QString &host, bool connected) const;
     void connect(const QString &app_socket);

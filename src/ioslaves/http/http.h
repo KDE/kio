@@ -38,7 +38,7 @@ class HTTPProtocol : public QObject, public KIO::TCPSlaveBase
     Q_OBJECT
 public:
     HTTPProtocol(const QByteArray &protocol, const QByteArray &pool, const QByteArray &app);
-    virtual ~HTTPProtocol();
+    ~HTTPProtocol() override;
 
     /** HTTP version **/
     enum HTTP_REV { HTTP_None, HTTP_Unknown, HTTP_10, HTTP_11, SHOUTCAST };

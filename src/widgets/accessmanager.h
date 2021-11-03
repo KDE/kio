@@ -80,7 +80,7 @@ public:
     /**
      * Destructor
      */
-    virtual ~AccessManager();
+    ~AccessManager() override;
 
     /**
      * Set @p allowed to false if you don't want any external content to be fetched.
@@ -281,7 +281,7 @@ public:
     /**
      * Destroys the KNetworkCookieJar.
      */
-    ~CookieJar();
+    ~CookieJar() override;
 
     /**
      * Returns the currently set window id. The default value is -1.

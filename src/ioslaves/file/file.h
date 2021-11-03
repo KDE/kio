@@ -37,7 +37,7 @@ class FileProtocol : public QObject, public KIO::SlaveBase
     Q_OBJECT
 public:
     FileProtocol(const QByteArray &pool, const QByteArray &app);
-    virtual ~FileProtocol();
+    ~FileProtocol() override;
 
     void get(const QUrl &url) override;
     virtual void put(const QUrl &url, int _mode, KIO::JobFlags _flags) override;

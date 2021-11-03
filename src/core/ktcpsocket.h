@@ -243,7 +243,7 @@ public:
     };
 
     KTcpSocket(QObject *parent = nullptr);
-    ~KTcpSocket();
+    ~KTcpSocket() override;
 
     // from QIODevice
     // reimplemented virtuals - the ones not reimplemented are OK for us

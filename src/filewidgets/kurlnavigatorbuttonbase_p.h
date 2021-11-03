@@ -30,7 +30,7 @@ class KUrlNavigatorButtonBase : public QPushButton
 
 public:
     explicit KUrlNavigatorButtonBase(KUrlNavigator *parent);
-    virtual ~KUrlNavigatorButtonBase();
+    ~KUrlNavigatorButtonBase() override;
 
     /**
      * When having several URL navigator instances, it is important

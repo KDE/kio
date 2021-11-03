@@ -25,7 +25,7 @@ class CookieListViewItem : public QTreeWidgetItem
 public:
     CookieListViewItem(QTreeWidget *parent, const QString &dom);
     CookieListViewItem(QTreeWidgetItem *parent, CookieProp *cookie);
-    ~CookieListViewItem();
+    ~CookieListViewItem() override;
 
     QString domain() const
     {
@@ -58,7 +58,7 @@ class KCookiesManagement : public KCModule
 
 public:
     explicit KCookiesManagement(QWidget *parent, const QVariantList &args);
-    ~KCookiesManagement();
+    ~KCookiesManagement() override;
 
     void load() override;
     void save() override;

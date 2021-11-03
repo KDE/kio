@@ -36,7 +36,7 @@ public:
      * Constructs a KShellCompletion object.
      */
     KShellCompletion();
-    ~KShellCompletion();
+    ~KShellCompletion() override;
 
     /**
      * Finds completions to the given text.

@@ -60,7 +60,7 @@ public:
     /**
      * Destroys the inter process lock object.
      */
-    ~KInterProcessLock();
+    ~KInterProcessLock() override;
 
     /**
      * Returns the identifier of the resource the lock is set on.

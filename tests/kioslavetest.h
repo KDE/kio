@@ -34,7 +34,7 @@ class KioslaveTest : public KMainWindow
 public:
     KioslaveTest(QString src, QString dest, uint op, uint pr);
 
-    ~KioslaveTest()
+    ~KioslaveTest() override
     {
         if (job) {
             job->kill(KJob::Quietly); // kill the job quietly

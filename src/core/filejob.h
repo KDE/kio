@@ -28,7 +28,7 @@ class KIOCORE_EXPORT FileJob : public SimpleJob
     Q_OBJECT
 
 public:
-    ~FileJob();
+    ~FileJob() override;
 
     /**
      * This function attempts to read up to \p size bytes from the URL passed to

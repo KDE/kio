@@ -16,7 +16,7 @@ class FdReceiver : public QObject
 
 public:
     explicit FdReceiver(const std::string &path, QObject *parent = nullptr);
-    ~FdReceiver();
+    ~FdReceiver() override;
 
     bool isListening() const;
     int fileDescriptor() const;

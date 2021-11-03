@@ -286,7 +286,7 @@ private:
     /**
      * Destructs the file dialog.
      */
-    ~KEncodingFileDialog();
+    ~KEncodingFileDialog() override;
 
     /**
      * @returns The selected encoding if the constructor with the encoding parameter was used, otherwise QString().

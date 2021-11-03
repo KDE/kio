@@ -57,7 +57,7 @@ public:
     /** @internal */
     KFilePreviewGenerator(KAbstractViewAdapter *parent, QAbstractProxyModel *model);
 
-    virtual ~KFilePreviewGenerator();
+    ~KFilePreviewGenerator() override;
 
     /**
      * If \a show is set to true, a preview is generated for each item. If \a show

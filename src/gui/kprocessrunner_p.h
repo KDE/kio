@@ -99,7 +99,7 @@ public:
      */
     virtual bool waitForStarted(int timeout = 30000) = 0;
 
-    virtual ~KProcessRunner();
+    ~KProcessRunner() override;
 
     static int instanceCount(); // for the unittest
 

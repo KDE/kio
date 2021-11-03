@@ -23,7 +23,7 @@ class HelpProtocol : public KIO::SlaveBase
 {
 public:
     HelpProtocol(bool ghelp, const QByteArray &pool, const QByteArray &app);
-    virtual ~HelpProtocol()
+    ~HelpProtocol() override
     {
     }
 

@@ -50,7 +50,7 @@ protected:
     Job(JobPrivate &dd);
 
 public:
-    virtual ~Job();
+    ~Job() override;
     void start() override
     {
     } // Since KIO autostarts its jobs

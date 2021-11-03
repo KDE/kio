@@ -40,7 +40,7 @@ public:
      * Constructor.
      */
     DndPopupMenuPlugin(QObject *parent);
-    virtual ~DndPopupMenuPlugin();
+    ~DndPopupMenuPlugin() override;
 
     /**
      * Implement the setup method in the plugin in order to create actions

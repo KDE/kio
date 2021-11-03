@@ -43,7 +43,7 @@ public:
      * @param parent The KFileDialog this preview widget is going to be used in
      */
     explicit KPreviewWidgetBase(QWidget *parent);
-    ~KPreviewWidgetBase();
+    ~KPreviewWidgetBase() override;
 
 public Q_SLOTS:
     /**

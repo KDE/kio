@@ -59,7 +59,7 @@ public:
     /**
      * Destructs the KUrlCompletion object.
      */
-    virtual ~KUrlCompletion();
+    ~KUrlCompletion() override;
 
     /**
      * Finds completions to the given text.

@@ -71,7 +71,7 @@ public:
      * Destructor. You do not need to delete the job, it will delete automatically,
      * unless you call setAutoDelete(false).
      */
-    ~FavIconRequestJob();
+    ~FavIconRequestJob() override;
 
     /**
      * @brief setIconUrl allows to set, for a specific URL, a different icon URL

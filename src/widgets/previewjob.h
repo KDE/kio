@@ -91,7 +91,7 @@ public:
      */
     PreviewJob(const KFileItemList &items, const QSize &size, const QStringList *enabledPlugins = nullptr);
 
-    virtual ~PreviewJob();
+    ~PreviewJob() override;
 
     /**
      * Sets the size of the MIME-type icon which overlays the preview. If zero

@@ -49,7 +49,7 @@ Q_SIGNALS:
 
 private:
     FavIconsCache();
-    ~FavIconsCache();
+    ~FavIconsCache() override;
     FavIconsCachePrivate *const d;
 };
 

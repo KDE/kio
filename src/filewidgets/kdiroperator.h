@@ -118,7 +118,7 @@ public:
     /**
      * Destroys the KDirOperator.
      */
-    virtual ~KDirOperator();
+    ~KDirOperator() override;
 
     /**
      * Enables/disables showing hidden files.

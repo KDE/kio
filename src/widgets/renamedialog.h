@@ -64,7 +64,7 @@ public:
                  const QDateTime &ctimeDest = QDateTime(),
                  const QDateTime &mtimeSrc = QDateTime(),
                  const QDateTime &mtimeDest = QDateTime());
-    ~RenameDialog();
+    ~RenameDialog() override;
 
     /**
      * @return the new destination

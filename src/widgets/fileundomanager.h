@@ -220,7 +220,7 @@ Q_SIGNALS:
 
 private:
     FileUndoManager();
-    virtual ~FileUndoManager();
+    ~FileUndoManager() override;
     friend class FileUndoManagerSingleton;
 
     friend class UndoJob;

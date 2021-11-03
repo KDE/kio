@@ -30,7 +30,7 @@ class KIOWIDGETS_EXPORT KOverlayIconPlugin : public QObject
     Q_OBJECT
 public:
     explicit KOverlayIconPlugin(QObject *parent = nullptr);
-    ~KOverlayIconPlugin();
+    ~KOverlayIconPlugin() override;
 
     /**
      * Returns a list of overlay icons to add to a file

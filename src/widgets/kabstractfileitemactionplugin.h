@@ -81,7 +81,7 @@ class KIOWIDGETS_EXPORT KAbstractFileItemActionPlugin : public QObject
 public:
     KAbstractFileItemActionPlugin(QObject *parent);
 
-    virtual ~KAbstractFileItemActionPlugin();
+    ~KAbstractFileItemActionPlugin() override;
 
     /**
      * Implement the actions method in the plugin in order to create actions.

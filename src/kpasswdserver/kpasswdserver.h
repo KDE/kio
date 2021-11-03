@@ -34,7 +34,7 @@ class KPasswdServer : public KDEDModule, protected QDBusContext
 
 public:
     explicit KPasswdServer(QObject *parent, const QList<QVariant> & = QList<QVariant>());
-    ~KPasswdServer();
+    ~KPasswdServer() override;
 
     // Called by the unit test
     void setWalletDisabled(bool d)

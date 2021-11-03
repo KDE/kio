@@ -37,7 +37,7 @@ public:
     /**
      * Destructor
      */
-    ~KFileCopyToMenu();
+    ~KFileCopyToMenu() override;
 
     /**
      * Sets the URLs which the actions apply to.

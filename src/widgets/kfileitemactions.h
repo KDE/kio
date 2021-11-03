@@ -59,7 +59,7 @@ public:
     /**
      * Destructor
      */
-    ~KFileItemActions();
+    ~KFileItemActions() override;
 
     /**
      * Sets all the data for the next instance of the popupmenu.

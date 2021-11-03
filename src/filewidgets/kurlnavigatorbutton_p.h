@@ -44,7 +44,7 @@ class KUrlNavigatorButton : public KUrlNavigatorButtonBase
 
 public:
     explicit KUrlNavigatorButton(const QUrl &url, KUrlNavigator *parent);
-    virtual ~KUrlNavigatorButton();
+    ~KUrlNavigatorButton() override;
 
     void setUrl(const QUrl &url);
     QUrl url() const;

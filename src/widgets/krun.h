@@ -87,7 +87,7 @@ public:
      * Destructor. Don't call it yourself, since a KRun object auto-deletes
      * itself.
      */
-    virtual ~KRun();
+    ~KRun() override;
 
     /**
      * Abort this KRun. This kills any jobs launched by it,

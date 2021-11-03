@@ -97,7 +97,7 @@ public:
     /**
      * Destroy the directory lister.
      */
-    virtual ~KCoreDirLister();
+    ~KCoreDirLister() override;
 
     /**
      * Run the directory lister on the given url.

@@ -94,7 +94,7 @@ public:
      */
     QList<KSambaShareData> getSharesByPath(const QString &path) const;
 
-    virtual ~KSambaShare();
+    ~KSambaShare() override;
 
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(4, 6)
     /**

@@ -60,7 +60,7 @@ class KCookiesPolicySelectionDlg : public QDialog
 
 public:
     explicit KCookiesPolicySelectionDlg(QWidget *parent = nullptr, Qt::WindowFlags f = Qt::WindowFlags());
-    ~KCookiesPolicySelectionDlg()
+    ~KCookiesPolicySelectionDlg() override
     {
     }
 

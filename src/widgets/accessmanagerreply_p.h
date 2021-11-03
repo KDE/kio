@@ -53,7 +53,7 @@ public:
                                 const QString &errorMessage,
                                 QObject *parent = nullptr);
 
-    virtual ~AccessManagerReply();
+    ~AccessManagerReply() override;
     qint64 bytesAvailable() const override;
     void abort() override;
 

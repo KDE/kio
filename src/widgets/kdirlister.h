@@ -37,7 +37,7 @@ public:
     /**
      * Destroy the directory lister.
      */
-    virtual ~KDirLister();
+    ~KDirLister() override;
 
     /**
      * Check whether auto error handling is enabled.

@@ -31,7 +31,7 @@ private Q_SLOTS:
 
 private:
     JobUrlCache();
-    virtual ~JobUrlCache();
+    ~JobUrlCache() override;
 
     QStringList m_destUrls;
 

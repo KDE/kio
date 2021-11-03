@@ -367,7 +367,7 @@ class DirectCopyJob : public SimpleJob
 
 public:
     DirectCopyJob(const QUrl &url, const QByteArray &packedArgs);
-    ~DirectCopyJob();
+    ~DirectCopyJob() override;
 
 public Q_SLOTS:
     void slotCanResume(KIO::filesize_t offset);

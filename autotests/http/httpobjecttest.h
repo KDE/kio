@@ -23,7 +23,7 @@ class TestHTTPProtocol : public HTTPProtocol
     Q_OBJECT
 public:
     TestHTTPProtocol(const QByteArray &protocol, const QByteArray &pool, const QByteArray &app);
-    virtual ~TestHTTPProtocol();
+    ~TestHTTPProtocol() override;
 
     void testParseContentDisposition(const QString &disposition);
 };

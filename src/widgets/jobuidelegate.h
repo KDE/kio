@@ -53,7 +53,7 @@ public:
     /**
      * Destroys the KIO Job UI delegate.
      */
-    virtual ~JobUiDelegate();
+    ~JobUiDelegate() override;
 
 public:
     /**

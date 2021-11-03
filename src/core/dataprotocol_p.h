@@ -57,7 +57,7 @@ public:
     void mimetype(const QUrl &url) override;
     void get(const QUrl &url) override;
 #endif
-    virtual ~DataProtocol();
+    ~DataProtocol() override;
 };
 
 } /*end namespace*/

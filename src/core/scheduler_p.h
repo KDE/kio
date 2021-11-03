@@ -19,7 +19,7 @@ class SlaveKeeper : public QObject
     Q_OBJECT
 public:
     SlaveKeeper();
-    ~SlaveKeeper();
+    ~SlaveKeeper() override;
     void returnSlave(KIO::Slave *slave);
     // pick suitable slave for job and return it, return null if no slave found.
     // the slave is removed from the keeper.
@@ -156,7 +156,7 @@ class ProtoQueue : public QObject
     Q_OBJECT
 public:
     ProtoQueue(int maxSlaves, int maxSlavesPerHost);
-    ~ProtoQueue();
+    ~ProtoQueue() override;
 
     void queueJob(KIO::SimpleJob *job);
     void changeJobPriority(KIO::SimpleJob *job, int newPriority);

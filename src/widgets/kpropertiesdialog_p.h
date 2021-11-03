@@ -38,7 +38,7 @@ public:
      * Constructor
      */
     explicit KFilePropsPlugin(KPropertiesDialog *_props);
-    virtual ~KFilePropsPlugin();
+    ~KFilePropsPlugin() override;
 
     /**
      * Applies all changes made.  This plugin must be always the first
@@ -113,7 +113,7 @@ public:
      * Constructor
      */
     explicit KFilePermissionsPropsPlugin(KPropertiesDialog *_props);
-    virtual ~KFilePermissionsPropsPlugin();
+    ~KFilePermissionsPropsPlugin() override;
 
     void applyChanges() override;
 
@@ -150,7 +150,7 @@ class KChecksumsPlugin : public KPropertiesDialogPlugin
     Q_OBJECT
 public:
     explicit KChecksumsPlugin(KPropertiesDialog *dialog);
-    virtual ~KChecksumsPlugin();
+    ~KChecksumsPlugin() override;
 
     static bool supports(const KFileItemList &items);
 
@@ -203,7 +203,7 @@ public:
      * Constructor
      */
     explicit KUrlPropsPlugin(KPropertiesDialog *_props);
-    virtual ~KUrlPropsPlugin();
+    ~KUrlPropsPlugin() override;
 
     void applyChanges() override;
 
@@ -232,7 +232,7 @@ public:
      * Constructor
      */
     explicit KDesktopPropsPlugin(KPropertiesDialog *_props);
-    virtual ~KDesktopPropsPlugin();
+    ~KDesktopPropsPlugin() override;
 
     void applyChanges() override;
 

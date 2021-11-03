@@ -41,7 +41,7 @@ public:
      * @see connectToRemote, listenForRemote
      */
     explicit Connection(QObject *parent = nullptr);
-    virtual ~Connection();
+    ~Connection() override;
 
     /**
      * Connects to the remote address.

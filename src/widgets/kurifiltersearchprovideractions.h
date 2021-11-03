@@ -37,7 +37,7 @@ public:
      */
 
     explicit KUriFilterSearchProviderActions(QObject *parent = nullptr);
-    ~KUriFilterSearchProviderActions();
+    ~KUriFilterSearchProviderActions() override;
 
     /**
      * @brief return the selected text

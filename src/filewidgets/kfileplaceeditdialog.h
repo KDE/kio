@@ -86,7 +86,7 @@ public:
     /**
      * Destroys the dialog.
      */
-    ~KFilePlaceEditDialog();
+    ~KFilePlaceEditDialog() override;
 
     /**
      * @returns the configured url

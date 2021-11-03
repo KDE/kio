@@ -28,7 +28,7 @@ class KIOCORE_EXPORT ChmodJob : public KIO::Job
 {
     Q_OBJECT
 public:
-    virtual ~ChmodJob();
+    ~ChmodJob() override;
 
 protected Q_SLOTS:
     void slotResult(KJob *job) override;

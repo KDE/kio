@@ -23,7 +23,7 @@ class HTTPFilterBase : public QObject
     Q_OBJECT
 public:
     HTTPFilterBase();
-    ~HTTPFilterBase();
+    ~HTTPFilterBase() override;
 
     void chain(HTTPFilterBase *previous);
 
@@ -73,7 +73,7 @@ class HTTPFilterGZip : public HTTPFilterBase
     Q_OBJECT
 public:
     explicit HTTPFilterGZip(bool deflate = false /* for subclass HTTPFilterDeflate */);
-    ~HTTPFilterGZip();
+    ~HTTPFilterGZip() override;
 
 public Q_SLOTS:
     void slotInput(const QByteArray &d) override;

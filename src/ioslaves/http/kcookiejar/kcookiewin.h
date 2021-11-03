@@ -25,7 +25,7 @@ class KCookieDetail : public QGroupBox
 
 public:
     KCookieDetail(const KHttpCookieList &cookieList, int cookieCount, QWidget *parent = nullptr);
-    ~KCookieDetail();
+    ~KCookieDetail() override;
 
 private Q_SLOTS:
     void slotNextCookie();
@@ -50,7 +50,7 @@ class KCookieWin : public QDialog
 
 public:
     KCookieWin(QWidget *parent, KHttpCookieList cookieList, int defaultButton = 0, bool showDetails = false);
-    ~KCookieWin();
+    ~KCookieWin() override;
 
     KCookieAdvice advice(KCookieJar *cookiejar, const KHttpCookie &cookie);
 

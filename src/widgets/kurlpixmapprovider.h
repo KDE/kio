@@ -45,7 +45,7 @@ public:
      * Destroys the url pixmap provider.
      */
     KIOWIDGETS_DEPRECATED_VERSION(5, 66, "Use KIO::iconNameForUrl to get the icon name and use QIcon::fromTheme")
-    ~KUrlPixmapProvider();
+    ~KUrlPixmapProvider() override;
 
     /**
      * Returns a pixmap for @p url with size @p size.

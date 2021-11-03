@@ -42,7 +42,7 @@ public:
     /**
      *  Destroy this dialog
      */
-    virtual ~KSslInfoDialog();
+    ~KSslInfoDialog() override;
 
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 64)
     /**

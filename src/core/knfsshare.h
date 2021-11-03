@@ -49,7 +49,7 @@ public:
      * Do not call!
      * The instance is destroyed automatically!
      */
-    virtual ~KNFSShare();
+    ~KNFSShare() override;
 
     /**
      * Returns the path to the used exports file,

@@ -36,7 +36,7 @@ protected:
     /**
      * Destructor
      */
-    virtual ~UntrustedProgramHandlerInterface();
+    ~UntrustedProgramHandlerInterface() override;
 
 public:
     /**

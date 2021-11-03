@@ -36,7 +36,7 @@ public:
     /**
      * Destructor.
      */
-    virtual ~KNameAndUrlInputDialog();
+    ~KNameAndUrlInputDialog() override;
 
     /**
      * Pre-fill the name lineedit.
