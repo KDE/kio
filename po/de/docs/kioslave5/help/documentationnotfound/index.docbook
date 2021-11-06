@@ -1,0 +1,94 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % German "INCLUDE">
+]>
+<article id="documentationnotfound" lang="&language;">
+<title
+>Dokumentation nicht gefunden</title>
+<articleinfo>
+<authorgroup>
+<author
+><firstname
+>Jack</firstname
+> <surname
+>Ostroff</surname
+> <affiliation
+> <address
+><email
+>ostroffjh@users.sourceforge.net</email
+></address>
+</affiliation>
+</author>
+<othercredit role="translator"
+><firstname
+>Burkhard</firstname
+><surname
+>Lück</surname
+><affiliation
+><address
+><email
+>lueck@hube-lueck.de</email
+></address
+></affiliation
+><contrib
+>Übersetzung</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>2020-09-08</date>
+<releaseinfo
+>Frameworks 5.73</releaseinfo>
+
+</articleinfo>
+
+<para
+>Die angeforderte Dokumentation wurde auf Ihrem System nicht gefunden.</para>
+
+<para
+>Möglicherweise wurde diese Dokumentation noch nicht geschrieben oder eine vorhandene Dokumentation wurde nicht zusammen mit dem Programm installiert.</para>
+
+<tip
+><para
+>Schreiben Sie bitte keine E-Mail an den Autor dieser Seite, um eine Dokumentation zu finden. Der Autor wird Sie wieder an die Anweisungen auf dieser Seite verweisen. </para
+></tip>
+
+<simplesect>
+<title
+>Schritte zur Lösung dieses Problems:</title>
+
+<para
+>Handelt es sich um ein &kde;-Programm, dann suchen Sie zuerst im &khelpcenter;. Manchmal hat die Dokumentation einen anderen Namen als die Anwendung. Wenn das nicht funktioniert, suchen Sie auf der <ulink url="https://docs.kde.org/"
+>&kde;-Dokumentationsseite</ulink
+> nach der gewünschten Dokumentation. Ist die Dokumentation dort vorhanden, hat Ihre Distribution möglicherweise ein eigenes Paket für diese Dokumentation, &eg; plasma-doc für Dokumentation zu &plasma;. Benutzen Sie bitte die Paketverwaltung Ihrer Distribution, um die fehlende Dokumentation zu finden und zu installieren.</para>
+
+<para
+>Wenn Sie eine Quelltext-basierte Distribution wie zum Beispiel Gentoo benutzen, überprüfen Sie, ob die Einstellung (USE flags in Gentoo) auch die Installation der Dokumentation mit einschließt. </para>
+
+<para
+>Wird immer noch diese Seite statt der angeforderten Dokumentation angezeigt, obwohl die fehlende Dokumentation installiert wurde, haben Sie wahrscheinlich einen Fehler im Hilfesystem gefunden. Bitte berichten Sie diesen Fehler auf der Seite  <ulink url="https://bugs.kde.org/"
+>bugs.kde.org</ulink
+> unter dem Produkt KIO. </para>
+
+<para
+>Haben Sie auf der <ulink url="https://docs.kde.org/"
+>&kde;-Dokumentationsseite</ulink
+> nichts gefunden, gibt es keine installierbare Dokumentation. Bitte berichten Sie diesen Fehler auf der Seite <ulink url="https://bugs.kde.org/"
+>bugs.kde.org</ulink
+> unter dem Produkt für die Anwendung. </para>
+
+<para
+>Gibt es die gesuchte Dokumentation nicht als Bestandteil des auf dem Rechner zu installierenden KDE-Hilfesystems, dann suchen Sie die Informationen als Online-Hilfe auf <ulink url="https://userbase.kde.org/"
+>UserBase</ulink
+> und im <ulink url="https://forum.kde.org/"
+>Forum der &kde;-Gemeinschaft</ulink
+>. </para>
+
+<para
+>Bei Programmen, die nicht von &kde; herausgegeben werden, nehmen Sie bitte Kontakt mit dem Autor auf und fragen, ob eine Dokumentation online oder zur lokalen Installation vorhanden ist.</para>
+</simplesect>
+
+</article>

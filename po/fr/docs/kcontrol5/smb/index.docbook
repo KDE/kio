@@ -1,0 +1,126 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % French "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="smb" lang="&language;">
+<articleinfo>
+<title
+>Partages Windows</title>
+<authorgroup>
+<author
+>&Mike.McBride; &Mike.McBride.mail;</author>
+<author
+>&Jost.Schenck; &Jost.Schenck.mail;</author>
+&traducteurYvesDessertine; &traducteurThibautCousin; &traducteurPierreBuard; 
+</authorgroup>
+
+<date
+>10-11-2016</date>
+<releaseinfo
+>Environnement de développement 5.29</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Configuration du système</keyword>
+<keyword
+>partages Windows</keyword>
+</keywordset>
+</articleinfo>
+<sect1 id="windows-shares">
+<title
+>Partages Windows</title>
+
+<sect2 id="windows-shares-intro">
+<title
+>Introduction</title>
+
+<para
+>Dans de nombreux petits réseaux locaux, le protocole <acronym
+>SMB</acronym
+> est utilisé pour fournir des services réseau. Des noms comme <quote
+>Réseau &Windows; </quote
+>, <quote
+>Réseau &Windows; pour Workgroups</quote
+> ou <quote
+>LanManager</quote
+> sont également employés. <acronym
+>SMB</acronym
+> permet d'accéder à des <quote
+>partages</quote
+> (&cad; des dossiers rendus accessibles par le serveur) ainsi qu'à des imprimantes. </para>
+
+<para
+>&kde; est nativement capable de gérer le protocole <acronym
+>SMB</acronym
+>. Comme &kde; gère la transparence réseau, vous pouvez accéder à des partages <acronym
+>SMB</acronym
+> depuis tout endroit vous permettant de lister vos fichiers locaux ; &pex;, depuis le gestionnaire de fichiers &konqueror; ou dans les boîtes de dialogue de sélection de fichier. Pour bénéficier de cette fonction, vous devrez fournir à &kde; certaines informations sur votre réseau <acronym
+>SMB</acronym
+>. Mais ne vous inquiétez pas, cette opération est normalement assez simple puisque toutes les machines clientes Windows du réseau utilisent et ont besoin de ces mêmes informations.</para>
+
+<!-- Don't know if the following info should go in the base
+documentation --> 
+
+<!-- this smb-ioslave doesn't support showing a list
+of hosts (like e.g. smb:/), for this you need the lan or rlan-ioslave,
+very cool thing (TM) btw. If you want to write some documentation for
+this one too, have a look at kdenetwork/lanbrowsing/lisa/README and
+contact me if you have questions. -->
+
+<note
+><para
+>Pour que le protocole <acronym
+>SMB</acronym
+> fonctionne, il est nécessaire d'avoir correctement installé <application
+>Samba</application
+>.</para
+></note>
+
+<!-- TODO: link to some place which explains USING SMB, i.e. konqueror
+or file dialog manual -->
+
+</sect2>
+
+<sect2 id="windows-shares-use">
+<title
+>Utilisation</title>
+
+<para
+>Malgré que de nombreux réseaux <acronym
+>SMB</acronym
+> non sécurisés acceptent n'importe qui, en principe, vous devrez vous authentifier pour accéder aux serveurs <acronym
+>SMB</acronym
+>. Par défaut, &kde; utilisera les données saisies dans les champs <guilabel
+>Nom d'utilisateur par défaut</guilabel
+> et <guilabel
+>Mot de passe par défaut</guilabel
+> pour s'authentifier auprès des hôtes <acronym
+>SMB</acronym
+>. En laissant le champ <guilabel
+>Nom d'utilisateur par défaut</guilabel
+> vide, &kde; essayera d'accéder à <acronym
+>SMB</acronym
+> sans nom d'utilisateur. De même, si le mot de passe par défaut vide, il essayera sans mot de passe. Si &kde; ne réussit pas à accéder à l'hôte avec ces réglages, un nom d'utilisateur et un mot de passe vous seront demandés.</para>
+
+<important
+><para
+>Bien que cela soit plus confortable, le fait que &kde; enregistre votre mot de passe <acronym
+>SMB</acronym
+> peut poser un problème de sécurité. Si vous utilisez <acronym
+>SMB</acronym
+> dans un environnement sécurisé, vous ne devriez pas stocker votre mot de passe ici mais plutôt le saisir à chaque fois que vous accéderez à un hôte <acronym
+>SMB</acronym
+>.</para
+></important>
+
+</sect2>
+
+</sect1>
+
+</article>

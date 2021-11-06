@@ -1,0 +1,84 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % French "INCLUDE">
+]>
+<article id="trash" lang="&language;">
+<title
+>Corbeille</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Burkhard.Lueck;</author>
+&traducteurLudovicGrossard; 
+</authorgroup>
+
+<date
+>31-05-2018</date>
+<releaseinfo
+>Environnements de développement 5.48</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Systemsettings</keyword>
+<keyword
+>corbeille</keyword>
+</keywordset>
+</articleinfo>
+
+<para
+>Ce module vous permet de configurer les réglages de la corbeille. </para>
+
+<variablelist>
+<varlistentry
+><term
+><guilabel
+>Nettoyage :</guilabel
+></term>
+<listitem
+><para
+>Cochez cette option pour supprimer automatiquement les fichiers qui sont plus anciens que la valeur spécifiée. Laissez désactivé pour <emphasis
+>ne pas</emphasis
+> supprimer automatiquement des éléments après une certaine durée. Réglez le nombre de jours pendant lesquels les fichiers restent dans la corbeille. Tout fichier plus ancien que ce nombre de jours sera automatiquement supprimé. </para
+></listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>Taille :</guilabel
+></term>
+<listitem
+><para
+>Cochez cette case pour limiter l'espace disque maximum alloué à la corbeille à la valeur que vous souhaitez. Sinon, sa taille sera illimitée. </para
+></listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>Limiter à</guilabel
+></term>
+<listitem
+><para
+>Il s'agit du pourcentage du disque qui peut être utilisé par la corbeille. La quantité d'espace disque réservé à la corbeille est calculé et est affiché à droite du compteur. </para
+></listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>Corbeille pleine :</guilabel
+></term>
+<listitem
+><para
+>Lorsque la taille limite est atteinte, l'action choisie sera exécutée. Soit les fichiers les plus vieux ou les plus gros seront supprimés automatiquement, soit vous serez averti(e). </para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+</article>

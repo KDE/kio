@@ -1,0 +1,112 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Swedish "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="smb" lang="&language;">
+<articleinfo>
+<title
+>Delade &Windows;-kataloger</title>
+<authorgroup>
+<author
+>&Mike.McBride; &Mike.McBride.mail;</author>
+<author
+>&Jost.Schenck; &Jost.Schenck.mail;</author>
+<othercredit role="translator"
+> <firstname
+>Stefan</firstname
+> <surname
+>Asserhäll</surname
+> <affiliation
+><address
+><email
+>stefan.asserhall@bredband.net</email
+></address
+></affiliation
+> <contrib
+>Översättare</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>2016-11-10</date>
+<releaseinfo
+>Ramverk 5.29</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Systeminställningar</keyword>
+<keyword
+>Delade Windows-kataloger</keyword>
+</keywordset>
+</articleinfo>
+<sect1 id="windows-shares">
+<title
+>Delade &Windows;-kataloger</title>
+
+<sect2 id="windows-shares-intro">
+<title
+>Inledning</title>
+
+<para
+>I många små lokala nätverk används ofta &SMB;-protokollet för att tillhandahålla nätverksservice. Namn som <quote
+>&Windows; Nätverk</quote
+> eller <quote
+>&Windows; for Workgroups Nätverk</quote
+> eller <quote
+>LanManager</quote
+> används också ofta. Genom att använda &SMB; kan du komma åt så kallade <quote
+>delade</quote
+> kataloger (dvs. kataloger som tillhandahålls av servern) samt skrivare.</para>
+
+<para
+>&kde; levereras med inbyggt stöd för &SMB;-protokollet. Eftersom &kde; är nätverkstransparent betyder det att du kan komma åt delade &SMB;-kataloger överallt där du kan komma åt lokala filer, till exempel i &konqueror; filhanteraren och i fildialogen. För att kunna använda det här måste du ge &kde; en del information om ditt &SMB;-nätverk. Men ta det lugnt, det här är normalt ganska enkelt eftersom till exempel alla Windows-klienterna i ditt nätverk behöver och har samma information.</para>
+
+<!-- Don't know if the following info should go in the base
+documentation --> 
+
+<!-- this smb-ioslave doesn't support showing a list
+of hosts (like e.g. smb:/), for this you need the lan or rlan-ioslave,
+very cool thing (TM) btw. If you want to write some documentation for
+this one too, have a look at kdenetwork/lanbrowsing/lisa/README and
+contact me if you have questions. -->
+
+<note
+><para
+>För att protokollet &SMB; ska fungera, krävs att &Samba; har installerats på ett riktigt sätt.</para
+></note>
+
+<!-- TODO: link to some place which explains USING SMB, i.e. konqueror
+or file dialog manual -->
+
+</sect2>
+
+<sect2 id="windows-shares-use">
+<title
+>Användning</title>
+
+<para
+>Även om det överallt finns många &SMB;-nätverk utan säkerhet som tillåter vem som helst att komma åt dem, måste du i princip identifiera dig för att kunna komma åt en &SMB;-server. Normalt använder &kde; data som skrivs in i <guilabel
+>Förvalt användarnamn</guilabel
+> och <guilabel
+>Förvalt lösenord</guilabel
+> för att identifiera dig på &SMB;-värddatorer. Om du lämnar fältet <guilabel
+>Förvalt användarnamn</guilabel
+> tomt, försöker &kde; komma åt &SMB;-värddatorer utan ett användarnamn. Om du lämnar det förvalda lösenordet tomt, försöker det utan ett lösenord. Om &kde; inte lyckas komma åt värddatorn med de här inställningarna, blir du tillfrågad om ett användarnamn och ett lösenord.</para>
+
+<important
+><para
+>Även om det är mycket bekvämare för dig om &kde; lagrar ditt &SMB;-lösenord, kan detta vara ett säkerhetsproblem. Om du använder &SMB; i en säkerhetsmedveten miljö bör du inte lagra ditt lösenord här utan istället skriva in det på nytt varje gång du behöver komma åt en &SMB;-värddator.</para
+></important>
+
+</sect2>
+
+</sect1>
+
+</article>

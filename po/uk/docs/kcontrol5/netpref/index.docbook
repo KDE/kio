@@ -1,0 +1,157 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Ukrainian "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="netpref" lang="&language;">
+<articleinfo>
+<title
+>Параметри з'єднання</title>
+<authorgroup>
+<author
+>&Lauri.Watts; &Lauri.Watts.mail;</author>
+
+<othercredit role="translator"
+><firstname
+>Юрій</firstname
+><surname
+>Чорноіван</surname
+><affiliation
+><address
+><email
+>yurchor@ukr.net</email
+></address
+></affiliation
+><contrib
+>Переклад українською</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>10 листопада 2016 року</date>
+<releaseinfo
+>Frameworks 5.29</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdebase</keyword>
+<keyword
+>kcontrol</keyword>
+<keyword
+>мережа</keyword>
+<keyword
+>час очікування</keyword>
+</keywordset>
+
+</articleinfo>
+
+<sect1 id="timeouts">
+
+<title
+>Параметри з'єднання</title>
+
+<para
+>Тут ви можете встановити значення часу очікування. Потреба у зміні цих параметрів може виникнути, якщо ви користуєтеся дуже повільним з’єднанням, типові ж значення мають бути прийнятними для більшості користувачів.</para>
+
+<para
+>Під <guilabel
+>Значеннями часу очікування</guilabel
+> маємо на увазі проміжок часу, протягом якого програма має очікувати на відповідь на дію, пов’язану з мережею.</para>
+
+<para
+>Ви можете змінити такі часи очікування:</para>
+
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>Зчитування сокету:</guilabel
+></term>
+<listitem>
+<para
+>Деякі програми використовують <firstterm
+>сокети</firstterm
+> для обміну інформацією. Сокет можна уявити у вигляді водопровідного крану, коли його відкрито, вода (або, у нашому випадку, дані) безперешкодно витікає. Якщо потік з якоїсь причини буде припинено, програма очікуватиме на надходження даних. Очікування може тривати досить довго, але за допомогою цього пункту ви можете налаштувати максимальний проміжок часу, протягом якого програма очікуватиме на дані.</para>
+<para
+>Цей параметр, звичайно ж, стосуватиметься лише програм &kde;.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>З’єднання з проксі:</guilabel
+></term>
+<listitem>
+<para
+>Визначає час очікування на з’єднання з проксі-сервером, якщо такий налаштовано. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>З’єднання з сервером:</guilabel
+></term>
+<listitem>
+<para
+>Встановлює час очікування на з’єднання з віддаленим сервером. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Відповідь сервера:</guilabel
+></term>
+<listitem>
+<para
+>Встановлює час очікування на відповідь від віддаленого сервера. </para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+<para
+>Тут ви можете налаштувати <guilabel
+>Параметри FTP</guilabel
+>. У поточній версії маємо два пункти:</para>
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>Увімкнути пасивний режим (PASV)</guilabel
+></term>
+<listitem
+><para
+>У пасивному режимі &FTP; часто виникає потреба, якщо ваш комп’ютер знаходиться за брандмауером. Багато програм-брандмауерів дозволяють з’єднання, які ініційовано <quote
+>зсередини</quote
+>. Пасивний &FTP; керується клієнтом, що робить його придатним до використання за посередництва брандмауерів.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Позначати частково вивантажені файли</guilabel
+></term>
+<listitem
+><para
+>Якщо позначено цей пункт, до назв частково вивантажених файлів додаватиметься суфікс <literal role="extension"
+>.part</literal
+>. Цей суфікс буде вилучено, тільки-но завершиться отримання.</para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+
+
+</sect1>
+</article>
