@@ -17,6 +17,8 @@
 #include <QNetworkCookieJar>
 #include <QNetworkRequest>
 
+#include <memory>
+
 class QWidget;
 
 namespace KIO
@@ -220,7 +222,7 @@ protected:
 
 private:
     class AccessManagerPrivate;
-    AccessManagerPrivate *const d;
+    std::unique_ptr<AccessManagerPrivate> const d;
 };
 
 namespace Integration
@@ -344,7 +346,7 @@ public:
 
 private:
     class CookieJarPrivate;
-    CookieJarPrivate *const d;
+    std::unique_ptr<CookieJarPrivate> const d;
 };
 
 }

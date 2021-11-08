@@ -64,10 +64,7 @@ KStatusBarOfflineIndicator::KStatusBarOfflineIndicator(QWidget *parent)
     QT_WARNING_POP
 }
 
-KStatusBarOfflineIndicator::~KStatusBarOfflineIndicator()
-{
-    delete d;
-}
+KStatusBarOfflineIndicator::~KStatusBarOfflineIndicator() = default;
 
 void KStatusBarOfflineIndicatorPrivate::initialize()
 {

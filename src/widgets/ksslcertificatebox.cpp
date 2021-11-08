@@ -29,10 +29,7 @@ KSslCertificateBox::KSslCertificateBox(QWidget *parent)
     }
 }
 
-KSslCertificateBox::~KSslCertificateBox()
-{
-    delete d;
-}
+KSslCertificateBox::~KSslCertificateBox() = default;
 
 void KSslCertificateBox::setCertificate(const QSslCertificate &cert, CertificateParty party)
 {

@@ -118,10 +118,7 @@ AuthInfo::AuthInfo(const AuthInfo &info)
     AuthInfo::registerMetaTypes();
 }
 
-AuthInfo::~AuthInfo()
-{
-    delete d;
-}
+AuthInfo::~AuthInfo() = default;
 
 AuthInfo &AuthInfo::operator=(const AuthInfo &info)
 {
@@ -267,7 +264,6 @@ NetRC::~NetRC()
 {
     delete instance;
     instance = nullptr;
-    delete d;
 }
 
 NetRC *NetRC::self()

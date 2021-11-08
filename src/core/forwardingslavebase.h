@@ -15,6 +15,8 @@
 #include <QEventLoop>
 #include <QObject>
 
+#include <memory>
+
 namespace KIO
 {
 class ForwardingSlaveBasePrivate;
@@ -167,7 +169,7 @@ private:
     Q_PRIVATE_SLOT(d, void _k_slotCanResume(KIO::Job *job, KIO::filesize_t offset))
 
     friend class ForwardingSlaveBasePrivate;
-    ForwardingSlaveBasePrivate *const d;
+    std::unique_ptr<ForwardingSlaveBasePrivate> const d;
 };
 
 }

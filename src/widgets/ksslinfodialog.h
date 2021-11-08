@@ -15,6 +15,8 @@
 #include "kiowidgets_export.h"
 #include "ktcpsocket.h" // TODO KF6 remove this include
 
+#include <memory>
+
 /**
  * KDE SSL Information Dialog
  *
@@ -112,7 +114,7 @@ private:
     void updateWhichPartsEncrypted();
 
     class KSslInfoDialogPrivate;
-    KSslInfoDialogPrivate *const d;
+    std::unique_ptr<KSslInfoDialogPrivate> const d;
 
 private Q_SLOTS:
     void displayFromChain(int);

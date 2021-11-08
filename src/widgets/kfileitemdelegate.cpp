@@ -828,10 +828,7 @@ KFileItemDelegate::KFileItemDelegate(QObject *parent)
     setShowInformation(NoInformation);
 }
 
-KFileItemDelegate::~KFileItemDelegate()
-{
-    delete d;
-}
+KFileItemDelegate::~KFileItemDelegate() = default;
 
 QSize KFileItemDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {

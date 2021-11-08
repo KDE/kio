@@ -57,9 +57,6 @@ KBuildSycocaProgressDialog::KBuildSycocaProgressDialog(QWidget *_parent, const Q
     setCancelButton(dialogButtonBox->button(QDialogButtonBox::Cancel));
 }
 
-KBuildSycocaProgressDialog::~KBuildSycocaProgressDialog()
-{
-    delete d;
-}
+KBuildSycocaProgressDialog::~KBuildSycocaProgressDialog() = default;
 
 #include "moc_kbuildsycocaprogressdialog.cpp"

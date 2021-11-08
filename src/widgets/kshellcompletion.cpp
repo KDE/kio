@@ -41,10 +41,7 @@ KShellCompletion::KShellCompletion()
 {
 }
 
-KShellCompletion::~KShellCompletion()
-{
-    delete d;
-}
+KShellCompletion::~KShellCompletion() = default;
 
 /*
  * makeCompletion()

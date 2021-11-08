@@ -15,6 +15,8 @@
 #include <QUrl>
 #include <QVector>
 
+#include <memory>
+
 namespace KIO
 {
 class ConnectionServer;
@@ -132,7 +134,7 @@ private:
     Q_PRIVATE_SLOT(d, void disconnected())
     friend class ConnectionPrivate;
     friend class ConnectionServer;
-    class ConnectionPrivate *const d;
+    std::unique_ptr<class ConnectionPrivate> const d;
 };
 
 // Separated from Connection only for historical reasons - they are both private now

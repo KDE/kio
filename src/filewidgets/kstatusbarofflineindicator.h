@@ -11,6 +11,8 @@
 #include "kiofilewidgets_export.h"
 #include <QWidget>
 
+#include <memory>
+
 class KStatusBarOfflineIndicatorPrivate;
 
 #if KIOFILEWIDGETS_ENABLE_DEPRECATED_SINCE(5, 70)
@@ -43,7 +45,7 @@ public:
     ~KStatusBarOfflineIndicator() override;
 
 private:
-    KStatusBarOfflineIndicatorPrivate *const d;
+    std::unique_ptr<KStatusBarOfflineIndicatorPrivate> const d;
 
     Q_PRIVATE_SLOT(d, void _k_networkStatusChanged(bool isOnline))
 };

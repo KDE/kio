@@ -198,10 +198,7 @@ KApplicationModel::KApplicationModel(QObject *parent)
     }
 }
 
-KApplicationModel::~KApplicationModel()
-{
-    delete d;
-}
+KApplicationModel::~KApplicationModel() = default;
 
 bool KApplicationModel::canFetchMore(const QModelIndex &parent) const
 {
@@ -421,10 +418,7 @@ KApplicationView::KApplicationView(QWidget *parent)
     setHeaderHidden(true);
 }
 
-KApplicationView::~KApplicationView()
-{
-    delete d;
-}
+KApplicationView::~KApplicationView() = default;
 
 void KApplicationView::setModels(KApplicationModel *model, QSortFilterProxyModel *proxyModel)
 {
@@ -811,10 +805,7 @@ void KOpenWithDialogPrivate::init(const QString &_text, const QString &_value)
 
 // ----------------------------------------------------------------------
 
-KOpenWithDialog::~KOpenWithDialog()
-{
-    delete d;
-}
+KOpenWithDialog::~KOpenWithDialog() = default;
 
 // ----------------------------------------------------------------------
 

@@ -12,6 +12,8 @@
 #include <QDialog>
 #include <QUrl>
 
+#include <memory>
+
 class KUrlRequester;
 class QFileDialog;
 class KUrlRequesterDialogPrivate;
@@ -85,7 +87,7 @@ public:
 
 private:
     friend class KUrlRequesterDialogPrivate;
-    KUrlRequesterDialogPrivate *const d;
+    std::unique_ptr<KUrlRequesterDialogPrivate> const d;
 
     Q_DISABLE_COPY(KUrlRequesterDialog)
 

@@ -539,10 +539,7 @@ RenameDialog::RenameDialog(QWidget *parent,
 #endif
 }
 
-RenameDialog::~RenameDialog()
-{
-    delete d;
-}
+RenameDialog::~RenameDialog() = default;
 
 void RenameDialog::enableRenameButton(const QString &newDest)
 {

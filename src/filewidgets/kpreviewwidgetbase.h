@@ -13,6 +13,8 @@
 
 #include "kiofilewidgets_export.h"
 
+#include <memory>
+
 class QUrl;
 
 /**
@@ -69,7 +71,7 @@ protected:
 
 private:
     class KPreviewWidgetBasePrivate;
-    KPreviewWidgetBasePrivate *const d;
+    std::unique_ptr<KPreviewWidgetBasePrivate> const d;
 
     Q_DISABLE_COPY(KPreviewWidgetBase)
 };

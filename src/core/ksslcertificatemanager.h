@@ -16,6 +16,8 @@
 #include <QString>
 #include <QStringList>
 
+#include <memory>
+
 class QDBusArgument;
 class KSslCertificateRulePrivate;
 class KSslCertificateManagerPrivate;
@@ -86,7 +88,7 @@ public:
 private:
     friend QDBusArgument &operator<<(QDBusArgument &argument, const KSslCertificateRule &rule); // TODO KF6 remove
     friend class KSSLD; // TODO KF6 remove
-    KSslCertificateRulePrivate *const d;
+    std::unique_ptr<KSslCertificateRulePrivate> const d;
 };
 
 //### document this too... :/
@@ -131,7 +133,7 @@ private:
     KSslCertificateManager();
     ~KSslCertificateManager();
 
-    KSslCertificateManagerPrivate *const d;
+    std::unique_ptr<KSslCertificateManagerPrivate> d;
 };
 
 #endif

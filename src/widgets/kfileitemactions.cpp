@@ -209,10 +209,7 @@ KFileItemActions::KFileItemActions(QObject *parent)
 {
 }
 
-KFileItemActions::~KFileItemActions()
-{
-    delete d;
-}
+KFileItemActions::~KFileItemActions() = default;
 
 void KFileItemActions::setItemListProperties(const KFileItemListProperties &itemListProperties)
 {

@@ -99,10 +99,7 @@ KUriFilterSearchProvider::KUriFilterSearchProvider(const KUriFilterSearchProvide
 {
 }
 
-KUriFilterSearchProvider::~KUriFilterSearchProvider()
-{
-    delete d;
-}
+KUriFilterSearchProvider::~KUriFilterSearchProvider() = default;
 
 QString KUriFilterSearchProvider::desktopEntryName() const
 {
@@ -263,14 +260,11 @@ KUriFilterData::KUriFilterData(const QString &url)
 }
 
 KUriFilterData::KUriFilterData(const KUriFilterData &other)
-    : d(new KUriFilterDataPrivate(other.d))
+    : d(new KUriFilterDataPrivate(*other.d))
 {
 }
 
-KUriFilterData::~KUriFilterData()
-{
-    delete d;
-}
+KUriFilterData::~KUriFilterData() = default;
 
 QUrl KUriFilterData::uri() const
 {
@@ -571,10 +565,7 @@ KUriFilter::KUriFilter()
     loadPlugins();
 }
 
-KUriFilter::~KUriFilter()
-{
-    delete d;
-}
+KUriFilter::~KUriFilter() = default;
 
 bool KUriFilter::filterUri(KUriFilterData &data, const QStringList &filters)
 {

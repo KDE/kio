@@ -65,10 +65,7 @@ ForwardingSlaveBase::ForwardingSlaveBase(const QByteArray &protocol, const QByte
 {
 }
 
-ForwardingSlaveBase::~ForwardingSlaveBase()
-{
-    delete d;
-}
+ForwardingSlaveBase::~ForwardingSlaveBase() = default;
 
 bool ForwardingSlaveBasePrivate::internalRewriteUrl(const QUrl &url, QUrl &newURL)
 {

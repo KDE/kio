@@ -411,10 +411,7 @@ KDirModel::KDirModel(QObject *parent)
     setDirLister(new KDirLister(this));
 }
 
-KDirModel::~KDirModel()
-{
-    delete d;
-}
+KDirModel::~KDirModel() = default;
 
 void KDirModel::setDirLister(KDirLister *dirLister)
 {

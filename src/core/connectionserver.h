@@ -13,6 +13,7 @@
 
 #include <QObject>
 #include <QUrl>
+#include <memory>
 
 namespace KIO
 {
@@ -57,7 +58,7 @@ Q_SIGNALS:
 
 private:
     friend class ConnectionServerPrivate;
-    ConnectionServerPrivate *const d;
+    std::unique_ptr<ConnectionServerPrivate> const d;
 };
 
 } // namespace KIO

@@ -14,6 +14,8 @@
 
 #include <KConfig>
 
+#include <memory>
+
 class KSSLSettingsPrivate;
 
 /**
@@ -145,7 +147,7 @@ public:
     void save();
 
 private:
-    KSSLSettingsPrivate *const d;
+    std::unique_ptr<KSSLSettingsPrivate> const d;
 };
 
 #endif

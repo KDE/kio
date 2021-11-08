@@ -85,10 +85,7 @@ KNameAndUrlInputDialog::KNameAndUrlInputDialog(const QString &nameLabel, const Q
     d->m_leName->setFocus();
 }
 
-KNameAndUrlInputDialog::~KNameAndUrlInputDialog()
-{
-    delete d;
-}
+KNameAndUrlInputDialog::~KNameAndUrlInputDialog() = default;
 
 QUrl KNameAndUrlInputDialog::url() const
 {

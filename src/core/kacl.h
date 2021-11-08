@@ -14,6 +14,8 @@
 #include <QList>
 #include <QPair>
 
+#include <memory>
+
 typedef QPair<QString, unsigned short> ACLUserPermissions;
 typedef QList<ACLUserPermissions> ACLUserPermissionsList;
 typedef QList<ACLUserPermissions>::iterator ACLUserPermissionsIterator;
@@ -183,7 +185,7 @@ protected:
 
 private:
     class KACLPrivate;
-    KACLPrivate *const d;
+    std::unique_ptr<KACLPrivate> const d;
     KIOCORE_EXPORT friend QDataStream &operator<<(QDataStream &s, const KACL &a);
     KIOCORE_EXPORT friend QDataStream &operator>>(QDataStream &s, KACL &a);
 };

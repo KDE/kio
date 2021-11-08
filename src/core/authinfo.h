@@ -16,6 +16,8 @@
 #include <QUrl>
 #include <QVariant> // Q_DECLARE_METATYPE
 
+#include <memory>
+
 class QDBusArgument;
 
 namespace KIO
@@ -273,7 +275,7 @@ protected:
 
 private:
     friend class ::KIO::AuthInfoPrivate;
-    AuthInfoPrivate *const d;
+    std::unique_ptr<AuthInfoPrivate> const d;
 };
 
 KIOCORE_EXPORT QDataStream &operator<<(QDataStream &s, const AuthInfo &a);
@@ -367,7 +369,7 @@ private:
     static NetRC *instance;
 
     class NetRCPrivate;
-    NetRCPrivate *const d;
+    std::unique_ptr<NetRCPrivate> const d;
 };
 
 Q_DECLARE_OPERATORS_FOR_FLAGS(NetRC::LookUpMode)

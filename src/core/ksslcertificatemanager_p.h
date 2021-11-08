@@ -63,7 +63,7 @@ public:
 
     static KSslCertificateManagerPrivate *get(KSslCertificateManager *q)
     {
-        return q->d;
+        return q->d.get();
     }
 
     void loadDefaultCaCertificates();

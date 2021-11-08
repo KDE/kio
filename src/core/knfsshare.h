@@ -12,6 +12,8 @@
 
 #include "kiocore_export.h"
 
+#include <memory>
+
 /**
  * @class KNFSShare knfsshare.h <KNFSShare>
  *
@@ -66,7 +68,7 @@ Q_SIGNALS:
 private:
     KNFSShare();
     class KNFSSharePrivate;
-    KNFSSharePrivate *const d;
+    std::unique_ptr<KNFSSharePrivate> const d;
 
     Q_PRIVATE_SLOT(d, void _k_slotFileChange(const QString &))
 

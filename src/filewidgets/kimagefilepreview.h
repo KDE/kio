@@ -14,6 +14,8 @@
 #include <QUrl>
 #include <kpreviewwidgetbase.h>
 
+#include <memory>
+
 class KFileItem;
 class KJob;
 namespace KIO
@@ -71,7 +73,7 @@ protected:
 
 private:
     class KImageFilePreviewPrivate;
-    KImageFilePreviewPrivate *const d;
+    std::unique_ptr<KImageFilePreviewPrivate> const d;
 
     Q_DISABLE_COPY(KImageFilePreview)
 

@@ -135,7 +135,7 @@ private:
     bool eventFilter(QObject *object, QEvent *event) override;
 
     friend class KOpenWithDialogPrivate;
-    KOpenWithDialogPrivate *const d;
+    std::unique_ptr<KOpenWithDialogPrivate> const d;
 
     Q_DISABLE_COPY(KOpenWithDialog)
 

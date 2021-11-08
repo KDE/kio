@@ -97,10 +97,7 @@ FavIconsCache::FavIconsCache()
 {
 }
 
-FavIconsCache::~FavIconsCache()
-{
-    delete d;
-}
+FavIconsCache::~FavIconsCache() = default;
 
 QString FavIconsCache::iconForUrl(const QUrl &url)
 {

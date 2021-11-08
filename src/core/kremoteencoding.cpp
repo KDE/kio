@@ -29,10 +29,7 @@ KRemoteEncoding::KRemoteEncoding(const char *name)
     setEncoding(name);
 }
 
-KRemoteEncoding::~KRemoteEncoding()
-{
-    delete d;
-}
+KRemoteEncoding::~KRemoteEncoding() = default;
 
 QString KRemoteEncoding::decode(const QByteArray &name) const
 {

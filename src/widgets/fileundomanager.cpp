@@ -695,10 +695,7 @@ FileUndoManager::UiInterface::UiInterface()
 {
 }
 
-FileUndoManager::UiInterface::~UiInterface()
-{
-    delete d;
-}
+FileUndoManager::UiInterface::~UiInterface() = default;
 
 void FileUndoManager::UiInterface::jobError(KIO::Job *job)
 {

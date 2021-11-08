@@ -61,10 +61,7 @@ KSslInfoDialog::KSslInfoDialog(QWidget *parent)
     layout->addWidget(buttonBox);
 }
 
-KSslInfoDialog::~KSslInfoDialog()
-{
-    delete d;
-}
+KSslInfoDialog::~KSslInfoDialog() = default;
 
 void KSslInfoDialog::setMainPartEncrypted(bool mainEncrypted)
 {

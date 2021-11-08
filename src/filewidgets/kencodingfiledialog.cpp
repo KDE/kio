@@ -106,10 +106,7 @@ KEncodingFileDialog::KEncodingFileDialog(const QUrl &startDir,
     }
 }
 
-KEncodingFileDialog::~KEncodingFileDialog()
-{
-    delete d;
-}
+KEncodingFileDialog::~KEncodingFileDialog() = default;
 
 QString KEncodingFileDialog::selectedEncoding() const
 {

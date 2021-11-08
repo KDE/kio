@@ -12,6 +12,8 @@
 #include <QProgressDialog>
 #include <QTimer>
 
+#include <memory>
+
 class KBuildSycocaProgressDialogPrivate;
 /**
  * @class KBuildSycocaProgressDialog kbuildsycocaprogressdialog.h <KBuildSycocaProgressDialog>
@@ -34,7 +36,7 @@ private:
     ~KBuildSycocaProgressDialog() override;
 
 private:
-    KBuildSycocaProgressDialogPrivate *const d;
+    std::unique_ptr<KBuildSycocaProgressDialogPrivate> const d;
 };
 
 #endif

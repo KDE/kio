@@ -18,6 +18,8 @@
 #include <QPushButton>
 #include <QUrl>
 
+#include <memory>
+
 class KComboBox;
 class KLineEdit;
 class KUrlCompletion;
@@ -364,7 +366,7 @@ protected:
 
 private:
     class KUrlRequesterPrivate;
-    KUrlRequesterPrivate *const d;
+    std::unique_ptr<KUrlRequesterPrivate> const d;
 
     Q_DISABLE_COPY(KUrlRequester)
 

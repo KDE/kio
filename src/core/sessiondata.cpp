@@ -43,10 +43,7 @@ SessionData::SessionData()
 {
 }
 
-SessionData::~SessionData()
-{
-    delete d;
-}
+SessionData::~SessionData() = default;
 
 void SessionData::configDataFor(MetaData &configData, const QString &proto, const QString &)
 {

@@ -10,6 +10,8 @@
 
 #include <QObject>
 
+#include <memory>
+
 #include <kiocore_export.h>
 
 namespace KIO
@@ -50,7 +52,7 @@ Q_SIGNALS:
 private:
     FavIconsCache();
     ~FavIconsCache() override;
-    FavIconsCachePrivate *const d;
+    std::unique_ptr<FavIconsCachePrivate> const d;
 };
 
 }

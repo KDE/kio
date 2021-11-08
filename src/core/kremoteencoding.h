@@ -11,8 +11,10 @@
 #include "kiocore_export.h"
 #include <QByteArray>
 #include <QString>
-class QUrl;
 
+#include <memory>
+
+class QUrl;
 class KRemoteEncodingPrivate;
 /**
  * @class KRemoteEncoding kremoteencoding.h <KRemoteEncoding>
@@ -103,7 +105,7 @@ protected:
     virtual void virtual_hook(int id, void *data);
 
 private:
-    KRemoteEncodingPrivate *const d;
+    std::unique_ptr<KRemoteEncodingPrivate> const d;
 
     Q_DISABLE_COPY(KRemoteEncoding)
 };

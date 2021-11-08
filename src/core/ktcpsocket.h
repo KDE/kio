@@ -17,6 +17,8 @@
 #include <QSslConfiguration>
 #include <QSslSocket>
 
+#include <memory>
+
 // All classes here are deprecated, no need for clazy to bother
 // clazy:excludeall=overloaded-signal,fully-qualified-moc-types
 
@@ -59,7 +61,7 @@ public:
     QByteArray toDer() const;
 
 private:
-    KSslKeyPrivate *const d;
+    std::unique_ptr<KSslKeyPrivate> const d;
 };
 
 class KSslCipherPrivate;
@@ -89,7 +91,7 @@ public:
     static QList<KSslCipher> supportedCiphers();
 
 private:
-    KSslCipherPrivate *const d;
+    std::unique_ptr<KSslCipherPrivate> const d;
 };
 
 class KSslErrorPrivate;
@@ -138,7 +140,7 @@ public:
     QSslError sslError() const;
 
 private:
-    KSslErrorPrivate *const d;
+    std::unique_ptr<KSslErrorPrivate> const d;
 };
 
 // consider killing more convenience functions with huge signatures
@@ -406,7 +408,7 @@ private:
     void showSslErrors();
 
     friend class KTcpSocketPrivate;
-    KTcpSocketPrivate *const d;
+    std::unique_ptr<KTcpSocketPrivate> const d;
 };
 
 #endif // deprecated since 5.65

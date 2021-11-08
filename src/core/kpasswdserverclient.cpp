@@ -36,7 +36,6 @@ KPasswdServerClient::KPasswdServerClient()
 KPasswdServerClient::~KPasswdServerClient()
 {
     delete m_interface;
-    delete d;
 }
 
 bool KPasswdServerClient::checkAuthInfo(KIO::AuthInfo *info, qlonglong windowId, qlonglong usertime)

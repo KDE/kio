@@ -10,6 +10,8 @@
 #include "kiowidgets_export.h"
 #include <QObject>
 
+#include <memory>
+
 class QMenu;
 class QAction;
 namespace KIO
@@ -60,7 +62,7 @@ private Q_SLOTS:
     void slotHandleWebShortcutAction(QAction *action);
 
 private:
-    WebShortcutsMenuManagerPrivate *const d;
+    std::unique_ptr<WebShortcutsMenuManagerPrivate> const d;
 };
 }
 

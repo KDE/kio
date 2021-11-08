@@ -60,10 +60,7 @@ KSslCertificateRule::KSslCertificateRule(const KSslCertificateRule &other)
     *d = *other.d;
 }
 
-KSslCertificateRule::~KSslCertificateRule()
-{
-    delete d;
-}
+KSslCertificateRule::~KSslCertificateRule() = default;
 
 KSslCertificateRule &KSslCertificateRule::operator=(const KSslCertificateRule &other)
 {
@@ -460,10 +457,7 @@ KSslCertificateManager::KSslCertificateManager()
 {
 }
 
-KSslCertificateManager::~KSslCertificateManager()
-{
-    delete d;
-}
+KSslCertificateManager::~KSslCertificateManager() = default;
 
 // static
 KSslCertificateManager *KSslCertificateManager::self()

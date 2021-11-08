@@ -15,6 +15,8 @@
 #include <QList>
 #include <QUrl>
 
+#include <memory>
+
 namespace KIO
 {
 class OpenFileManagerWindowJobPrivate;
@@ -95,7 +97,7 @@ private:
     friend class OpenFileManagerWindowDBusStrategy;
     friend class OpenFileManagerWindowKRunStrategy;
 
-    OpenFileManagerWindowJobPrivate *const d;
+    std::unique_ptr<OpenFileManagerWindowJobPrivate> const d;
 };
 
 /**

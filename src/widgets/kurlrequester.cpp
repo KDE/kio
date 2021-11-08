@@ -321,10 +321,7 @@ KUrlRequester::KUrlRequester(const QUrl &url, QWidget *parent)
     setUrl(url);
 }
 
-KUrlRequester::~KUrlRequester()
-{
-    delete d;
-}
+KUrlRequester::~KUrlRequester() = default;
 
 void KUrlRequester::KUrlRequesterPrivate::init()
 {

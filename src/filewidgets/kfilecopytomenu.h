@@ -12,6 +12,8 @@
 
 #include <kiofilewidgets_export.h>
 
+#include <memory>
+
 class QMenu;
 class KFileCopyToMenuPrivate;
 
@@ -72,7 +74,7 @@ Q_SIGNALS:
     void error(int errorCode, const QString &message);
 
 private:
-    KFileCopyToMenuPrivate *const d;
+    std::unique_ptr<KFileCopyToMenuPrivate> const d;
 };
 
 #endif

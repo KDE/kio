@@ -19,6 +19,8 @@
 #include <QStringList>
 #include <QUrl>
 
+#include <memory>
+
 #ifdef Q_OS_WIN
 #undef ERROR
 #endif
@@ -105,7 +107,7 @@ protected:
 private:
     friend class KUriFilterPlugin;
     class KUriFilterSearchProviderPrivate;
-    KUriFilterSearchProviderPrivate *const d;
+    std::unique_ptr<KUriFilterSearchProviderPrivate> const d;
 };
 
 /**
@@ -612,7 +614,7 @@ public:
 
 private:
     friend class KUriFilterPlugin;
-    KUriFilterDataPrivate *const d;
+    std::unique_ptr<KUriFilterDataPrivate> d;
 };
 
 /**
@@ -997,7 +999,7 @@ protected:
     void loadPlugins();
 
 private:
-    KUriFilterPrivate *const d;
+    std::unique_ptr<KUriFilterPrivate> const d;
     friend class KUriFilterSingleton;
 };
 

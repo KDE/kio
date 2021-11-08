@@ -12,6 +12,8 @@
 #include <KService>
 #include <kfileitem.h>
 
+#include <memory>
+
 class KFileItemListProperties;
 class QAction;
 class QMenu;
@@ -310,7 +312,7 @@ public Q_SLOTS:
     void runPreferredApplications(const KFileItemList &fileOpenList);
 
 private:
-    KFileItemActionsPrivate *const d;
+    std::unique_ptr<KFileItemActionsPrivate> const d;
     friend class KFileItemActionsPrivate;
 };
 Q_DECLARE_OPERATORS_FOR_FLAGS(KFileItemActions::MenuActionSources)

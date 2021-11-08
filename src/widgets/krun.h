@@ -15,6 +15,8 @@
 #include <QString>
 #include <QUrl>
 
+#include <memory>
+
 class KService;
 class KJob;
 class QTimer;
@@ -813,7 +815,7 @@ protected:
 
 private:
     friend class KRunPrivate;
-    KRunPrivate *const d;
+    std::unique_ptr<KRunPrivate> const d;
 };
 #endif
 

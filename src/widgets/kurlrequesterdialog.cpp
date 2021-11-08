@@ -51,10 +51,7 @@ KUrlRequesterDialog::KUrlRequesterDialog(const QUrl &urlName, const QString &_te
     d->initDialog(_text, urlName);
 }
 
-KUrlRequesterDialog::~KUrlRequesterDialog()
-{
-    delete d;
-}
+KUrlRequesterDialog::~KUrlRequesterDialog() = default;
 
 void KUrlRequesterDialogPrivate::initDialog(const QString &text, const QUrl &urlName)
 {

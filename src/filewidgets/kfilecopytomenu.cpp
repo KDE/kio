@@ -44,10 +44,7 @@ KFileCopyToMenu::KFileCopyToMenu(QWidget *parentWidget)
 {
 }
 
-KFileCopyToMenu::~KFileCopyToMenu()
-{
-    delete d;
-}
+KFileCopyToMenu::~KFileCopyToMenu() = default;
 
 void KFileCopyToMenu::setUrls(const QList<QUrl> &urls)
 {
@@ -66,13 +63,13 @@ void KFileCopyToMenu::setAutoErrorHandlingEnabled(bool b)
 
 void KFileCopyToMenu::addActionsTo(QMenu *menu) const
 {
-    QMenu *mainCopyMenu = new KFileCopyToMainMenu(menu, d, Copy);
+    QMenu *mainCopyMenu = new KFileCopyToMainMenu(menu, d.get(), Copy);
     mainCopyMenu->setTitle(i18nc("@title:menu", "Copy To"));
     mainCopyMenu->menuAction()->setObjectName(QStringLiteral("copyTo_submenu")); // for the unittest
     menu->addMenu(mainCopyMenu);
 
     if (!d->m_readOnly) {
-        QMenu *mainMoveMenu = new KFileCopyToMainMenu(menu, d, Move);
+        QMenu *mainMoveMenu = new KFileCopyToMainMenu(menu, d.get(), Move);
         mainMoveMenu->setTitle(i18nc("@title:menu", "Move To"));
         mainMoveMenu->menuAction()->setObjectName(QStringLiteral("moveTo_submenu")); // for the unittest
         menu->addMenu(mainMoveMenu);

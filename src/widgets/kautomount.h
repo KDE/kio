@@ -15,6 +15,8 @@
 
 #include "kiowidgets_export.h"
 
+#include <memory>
+
 #ifdef Q_OS_UNIX
 
 class KJob;
@@ -72,7 +74,7 @@ private:
     ~KAutoMount() override;
     Q_PRIVATE_SLOT(d, void slotResult(KJob *))
     friend class KAutoMountPrivate;
-    KAutoMountPrivate *const d;
+    std::unique_ptr<KAutoMountPrivate> const d;
 };
 
 class KAutoUnmountPrivate;
@@ -109,7 +111,7 @@ private:
     ~KAutoUnmount() override;
     Q_PRIVATE_SLOT(d, void slotResult(KJob *))
     friend class KAutoUnmountPrivate;
-    KAutoUnmountPrivate *const d;
+    std::unique_ptr<KAutoUnmountPrivate> const d;
 };
 #endif
 

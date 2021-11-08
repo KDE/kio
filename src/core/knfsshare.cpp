@@ -163,14 +163,7 @@ KNFSShare::KNFSShare()
     }
 }
 
-KNFSShare::~KNFSShare()
-{
-    // This is not needed, we're exiting the process anyway, and KDirWatch is already deleted.
-    // if (QFile::exists(d->exportsFile)) {
-    //  KDirWatch::self()->removeFile(d->exportsFile);
-    //}
-    delete d;
-}
+KNFSShare::~KNFSShare() = default;
 
 bool KNFSShare::isDirectoryShared(const QString &path) const
 {

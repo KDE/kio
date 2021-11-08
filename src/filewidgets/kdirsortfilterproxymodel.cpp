@@ -81,10 +81,7 @@ Qt::DropActions KDirSortFilterProxyModel::supportedDragOptions() const
     return Qt::CopyAction | Qt::MoveAction | Qt::LinkAction | Qt::IgnoreAction;
 }
 
-KDirSortFilterProxyModel::~KDirSortFilterProxyModel()
-{
-    delete d;
-}
+KDirSortFilterProxyModel::~KDirSortFilterProxyModel() = default;
 
 bool KDirSortFilterProxyModel::hasChildren(const QModelIndex &parent) const
 {

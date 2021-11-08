@@ -16,6 +16,8 @@
 
 #include <kacl.h>
 
+#include <memory>
+
 /// @internal
 class KACLEditWidget : public QWidget
 {
@@ -31,7 +33,7 @@ public:
 
 private:
     class KACLEditWidgetPrivate;
-    KACLEditWidgetPrivate *const d;
+    std::unique_ptr<KACLEditWidgetPrivate> const d;
 
     Q_DISABLE_COPY(KACLEditWidget)
 

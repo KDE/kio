@@ -215,10 +215,7 @@ KSslError::KSslError(const KSslError &other)
     *d = *other.d;
 }
 
-KSslError::~KSslError()
-{
-    delete d;
-}
+KSslError::~KSslError() = default;
 
 KSslError &KSslError::operator=(const KSslError &other)
 {
@@ -418,10 +415,7 @@ KTcpSocket::KTcpSocket(QObject *parent)
     });
 }
 
-KTcpSocket::~KTcpSocket()
-{
-    delete d;
-}
+KTcpSocket::~KTcpSocket() = default;
 
 ////////////////////////////// (mostly) virtuals from QIODevice
 
@@ -876,10 +870,7 @@ KSslKey::KSslKey(const QSslKey &qsk)
     d->der = qsk.toDer();
 }
 
-KSslKey::~KSslKey()
-{
-    delete d;
-}
+KSslKey::~KSslKey() = default;
 
 KSslKey &KSslKey::operator=(const KSslKey &other)
 {
@@ -954,10 +945,7 @@ KSslCipher::KSslCipher(const QSslCipher &qsc)
     d->usedBits = qsc.usedBits();
 }
 
-KSslCipher::~KSslCipher()
-{
-    delete d;
-}
+KSslCipher::~KSslCipher() = default;
 
 KSslCipher &KSslCipher::operator=(const KSslCipher &other)
 {

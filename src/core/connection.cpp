@@ -74,7 +74,6 @@ Connection::Connection(QObject *parent)
 Connection::~Connection()
 {
     close();
-    delete d;
 }
 
 void Connection::suspend()

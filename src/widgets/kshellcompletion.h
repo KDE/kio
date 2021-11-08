@@ -13,6 +13,8 @@
 
 #include "kurlcompletion.h"
 
+#include <memory>
+
 class KShellCompletionPrivate;
 
 /**
@@ -53,7 +55,7 @@ protected:
     void postProcessMatches(KCompletionMatches *matches) const override;
 
 private:
-    KShellCompletionPrivate *const d;
+    std::unique_ptr<KShellCompletionPrivate> const d;
 };
 
 #endif // KSHELLCOMPLETION_H

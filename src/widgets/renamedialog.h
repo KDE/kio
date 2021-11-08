@@ -18,6 +18,8 @@
 #include "kiowidgets_export.h"
 #include <kio/global.h>
 
+#include <memory>
+
 class QScrollArea;
 class QLabel;
 class QPixmap;
@@ -119,7 +121,7 @@ private Q_SLOTS:
 private:
     QScrollArea *createContainerLayout(QWidget *parent, const KFileItem &item, QLabel *preview);
     class RenameDialogPrivate;
-    RenameDialogPrivate *const d;
+    std::unique_ptr<RenameDialogPrivate> const d;
 };
 
 }

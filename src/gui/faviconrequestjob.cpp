@@ -66,10 +66,7 @@ FavIconRequestJob::FavIconRequestJob(const QUrl &hostUrl, LoadType reload, QObje
     QMetaObject::invokeMethod(this, "doStart", Qt::QueuedConnection);
 }
 
-FavIconRequestJob::~FavIconRequestJob()
-{
-    delete d;
-}
+FavIconRequestJob::~FavIconRequestJob() = default;
 
 void FavIconRequestJob::setIconUrl(const QUrl &iconUrl)
 {

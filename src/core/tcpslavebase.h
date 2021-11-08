@@ -17,6 +17,8 @@
 #include "kiocore_export.h"
 #include <kio/slavebase.h>
 
+#include <memory>
+
 class QIODevice;
 class QSslSocket;
 
@@ -216,7 +218,7 @@ private:
     SslResult verifyServerCertificate();
 
     class TcpSlaveBasePrivate;
-    TcpSlaveBasePrivate *const d;
+    std::unique_ptr<TcpSlaveBasePrivate> const d;
 };
 
 }

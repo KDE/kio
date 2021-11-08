@@ -12,6 +12,8 @@
 #include "kiogui_export.h"
 #include <kio/job_base.h> // for LoadType
 
+#include <memory>
+
 class QUrl;
 
 namespace KIO
@@ -113,7 +115,7 @@ private Q_SLOTS:
 private:
     Q_PRIVATE_SLOT(d, void slotData(KIO::Job *, const QByteArray &))
 
-    FavIconRequestJobPrivate *const d;
+    std::unique_ptr<FavIconRequestJobPrivate> const d;
 };
 
 }

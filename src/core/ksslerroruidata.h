@@ -11,6 +11,8 @@
 
 #include <kiocore_export.h>
 
+#include <memory>
+
 template<typename T>
 class QList;
 class KTcpSocket;
@@ -62,7 +64,7 @@ public:
 
 private:
     friend class Private;
-    Private *const d;
+    std::unique_ptr<Private> const d;
 };
 
 #endif // KSSLERRORUIDATA_H

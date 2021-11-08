@@ -31,10 +31,7 @@ ConnectionServer::ConnectionServer(QObject *parent)
     d->q = this;
 }
 
-ConnectionServer::~ConnectionServer()
-{
-    delete d;
-}
+ConnectionServer::~ConnectionServer() = default;
 
 void ConnectionServer::listenForRemote()
 {

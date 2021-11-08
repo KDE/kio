@@ -62,10 +62,7 @@ KFileCustomDialog::KFileCustomDialog(const QUrl &startDir, QWidget *parent)
     d->init(startDir);
 }
 
-KFileCustomDialog::~KFileCustomDialog()
-{
-    delete d;
-}
+KFileCustomDialog::~KFileCustomDialog() = default;
 
 void KFileCustomDialog::setUrl(const QUrl &url)
 {

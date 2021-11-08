@@ -34,10 +34,7 @@ KUriFilterSearchProviderActions::KUriFilterSearchProviderActions(QObject *parent
 {
 }
 
-KUriFilterSearchProviderActions::~KUriFilterSearchProviderActions()
-{
-    delete d;
-}
+KUriFilterSearchProviderActions::~KUriFilterSearchProviderActions() = default;
 
 QString KUriFilterSearchProviderActions::selectedText() const
 {

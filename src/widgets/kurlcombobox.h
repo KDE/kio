@@ -16,6 +16,9 @@
 #include <QStringList>
 
 #include <KComboBox>
+
+#include <memory>
+
 class QUrl;
 class KUrlComboBoxPrivate;
 
@@ -185,7 +188,7 @@ protected:
 
 private:
     friend class KUrlComboBoxPrivate;
-    KUrlComboBoxPrivate *const d;
+    std::unique_ptr<KUrlComboBoxPrivate> const d;
 
     Q_DISABLE_COPY(KUrlComboBox)
 

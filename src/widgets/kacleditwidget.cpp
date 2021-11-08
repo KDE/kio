@@ -84,10 +84,7 @@ KACLEditWidget::KACLEditWidget(QWidget *parent)
     d->_k_slotUpdateButtons();
 }
 
-KACLEditWidget::~KACLEditWidget()
-{
-    delete d;
-}
+KACLEditWidget::~KACLEditWidget() = default;
 
 void KACLEditWidget::KACLEditWidgetPrivate::_k_slotUpdateButtons()
 {

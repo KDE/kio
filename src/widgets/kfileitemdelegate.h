@@ -12,6 +12,8 @@
 #include <QAbstractItemDelegate>
 #include <QTextOption>
 
+#include <memory>
+
 class QAbstractItemModel;
 class QAbstractItemView;
 class QHelpEvent;
@@ -421,7 +423,7 @@ public Q_SLOTS:
 
 private:
     class Private;
-    Private *const d; /// @internal
+    std::unique_ptr<Private> const d; /// @internal
     Q_DISABLE_COPY(KFileItemDelegate)
 };
 

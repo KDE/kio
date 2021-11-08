@@ -181,10 +181,7 @@ TCPSlaveBase::TCPSlaveBase(const QByteArray &protocol, const QByteArray &poolSoc
     d->socket.setReadBufferSize(14680064);
 }
 
-TCPSlaveBase::~TCPSlaveBase()
-{
-    delete d;
-}
+TCPSlaveBase::~TCPSlaveBase() = default;
 
 ssize_t TCPSlaveBase::write(const char *data, ssize_t len)
 {

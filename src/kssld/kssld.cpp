@@ -75,10 +75,7 @@ KSSLD::KSSLD(QObject *parent, const QVariantList &)
     pruneExpiredRules();
 }
 
-KSSLD::~KSSLD()
-{
-    delete d;
-}
+KSSLD::~KSSLD() = default;
 
 void KSSLD::setRule(const KSslCertificateRule &rule)
 {

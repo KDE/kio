@@ -90,8 +90,6 @@ KImageFilePreview::~KImageFilePreview()
     if (d->m_job) {
         d->m_job->kill();
     }
-
-    delete d;
 }
 
 void KImageFilePreview::showPreview()

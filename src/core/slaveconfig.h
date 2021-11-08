@@ -13,6 +13,8 @@
 #include "metadata.h"
 #include <QObject>
 
+#include <memory>
+
 namespace KIO
 {
 class SlaveConfigPrivate;
@@ -92,7 +94,7 @@ protected:
     SlaveConfig();
 
 private:
-    SlaveConfigPrivate *const d;
+    std::unique_ptr<SlaveConfigPrivate> const d;
     friend class SlaveConfigSingleton;
 };
 }

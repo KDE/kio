@@ -68,10 +68,7 @@ OpenFileManagerWindowJob::OpenFileManagerWindowJob(QObject *parent)
 #endif
 }
 
-OpenFileManagerWindowJob::~OpenFileManagerWindowJob()
-{
-    delete d;
-}
+OpenFileManagerWindowJob::~OpenFileManagerWindowJob() = default;
 
 QList<QUrl> OpenFileManagerWindowJob::highlightUrls() const
 {

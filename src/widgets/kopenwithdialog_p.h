@@ -13,6 +13,8 @@
 #include <QSortFilterProxyModel>
 #include <QTreeView>
 
+#include <memory>
+
 class KApplicationModelPrivate;
 
 /**
@@ -43,7 +45,7 @@ public:
 
 private:
     friend class KApplicationModelPrivate;
-    KApplicationModelPrivate *const d;
+    std::unique_ptr<KApplicationModelPrivate> const d;
 
     Q_DISABLE_COPY(KApplicationModel)
 };
@@ -90,7 +92,7 @@ private Q_SLOTS:
 
 private:
     friend class KApplicationViewPrivate;
-    KApplicationViewPrivate *const d;
+    std::unique_ptr<KApplicationViewPrivate> const d;
 
     Q_DISABLE_COPY(KApplicationView)
 };

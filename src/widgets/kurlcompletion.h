@@ -17,6 +17,8 @@
 #include <QStringList>
 #include <kio/udsentry.h>
 
+#include <memory>
+
 namespace KIO
 {
 class Job;
@@ -182,7 +184,7 @@ protected:
     void customEvent(QEvent *e) override; // KF6 TODO: remove
 
 private:
-    KUrlCompletionPrivate *const d;
+    std::unique_ptr<KUrlCompletionPrivate> const d;
 
     Q_PRIVATE_SLOT(d, void _k_slotEntries(KIO::Job *, const KIO::UDSEntryList &))
     Q_PRIVATE_SLOT(d, void _k_slotIOFinished(KJob *))

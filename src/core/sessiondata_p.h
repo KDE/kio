@@ -12,6 +12,8 @@
 #include <QObject>
 #include <kio/metadata.h>
 
+#include <memory>
+
 namespace KIO
 {
 /**
@@ -31,7 +33,7 @@ public:
 private:
     // TODO: fold private class back into this one, it's internal anyway
     class SessionDataPrivate;
-    SessionDataPrivate *const d;
+    std::unique_ptr<SessionDataPrivate> const d;
 };
 
 } // namespace

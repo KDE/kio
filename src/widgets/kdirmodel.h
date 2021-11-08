@@ -12,6 +12,8 @@
 #include <QAbstractItemModel>
 #include <kfileitem.h>
 
+#include <memory>
+
 class KDirLister;
 class KDirModelPrivate;
 class JobUrlCache;
@@ -297,7 +299,7 @@ private:
 
 private:
     friend class KDirModelPrivate;
-    KDirModelPrivate *const d;
+    std::unique_ptr<KDirModelPrivate> const d;
 };
 
 Q_DECLARE_OPERATORS_FOR_FLAGS(KDirModel::DropsAllowed)

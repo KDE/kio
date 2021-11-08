@@ -15,6 +15,8 @@
 
 #include <QFileDialog>
 
+#include <memory>
+
 struct KEncodingFileDialogPrivate;
 
 /**
@@ -293,7 +295,7 @@ private:
      */
     QString selectedEncoding() const;
 
-    KEncodingFileDialogPrivate *const d;
+    std::unique_ptr<KEncodingFileDialogPrivate> const d;
 };
 
 #endif

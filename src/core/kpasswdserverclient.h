@@ -11,6 +11,8 @@
 #include <kiocore_export.h>
 #include <qglobal.h>
 
+#include <memory>
+
 class QString;
 class OrgKdeKPasswdServerInterface;
 
@@ -89,7 +91,7 @@ public:
 
 private:
     OrgKdeKPasswdServerInterface *m_interface;
-    KPasswdServerClientPrivate *d;
+    std::unique_ptr<KPasswdServerClientPrivate> d;
 };
 
 #endif

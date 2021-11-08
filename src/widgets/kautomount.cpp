@@ -59,10 +59,7 @@ KAutoMount::KAutoMount(bool _readonly,
     });
 }
 
-KAutoMount::~KAutoMount()
-{
-    delete d;
-}
+KAutoMount::~KAutoMount() = default;
 
 void KAutoMountPrivate::slotResult(KJob *job)
 {
@@ -156,10 +153,7 @@ void KAutoUnmountPrivate::slotResult(KJob *job)
     q->deleteLater();
 }
 
-KAutoUnmount::~KAutoUnmount()
-{
-    delete d;
-}
+KAutoUnmount::~KAutoUnmount() = default;
 
 #include "moc_kautomount.cpp"
 

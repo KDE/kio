@@ -19,7 +19,7 @@ class Q_DECL_HIDDEN KSslErrorUiData::Private
 public:
     static const KSslErrorUiData::Private *get(const KSslErrorUiData *uiData)
     {
-        return uiData->d;
+        return uiData->d.get();
     }
 
     QList<QSslCertificate> certificateChain;

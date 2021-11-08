@@ -19,10 +19,7 @@ KPreviewWidgetBase::KPreviewWidgetBase(QWidget *parent)
 {
 }
 
-KPreviewWidgetBase::~KPreviewWidgetBase()
-{
-    delete d;
-}
+KPreviewWidgetBase::~KPreviewWidgetBase() = default;
 
 void KPreviewWidgetBase::setSupportedMimeTypes(const QStringList &mimeTypes)
 {

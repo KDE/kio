@@ -72,10 +72,7 @@ KSslErrorUiData::KSslErrorUiData(const KSslErrorUiData &other)
 {
 }
 
-KSslErrorUiData::~KSslErrorUiData()
-{
-    delete d;
-}
+KSslErrorUiData::~KSslErrorUiData() = default;
 
 KSslErrorUiData &KSslErrorUiData::operator=(const KSslErrorUiData &other)
 {

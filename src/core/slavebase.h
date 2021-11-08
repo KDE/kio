@@ -15,6 +15,8 @@
 #include <QByteArray>
 #include <QHostInfo>
 
+#include <memory>
+
 class KConfigGroup;
 class KRemoteEncoding;
 class QUrl;
@@ -1050,7 +1052,7 @@ private:
     // This helps catching missing tr()/i18n() calls in error().
     void error(int _errid, const QByteArray &_text);
     void send(int cmd, const QByteArray &arr = QByteArray());
-    SlaveBasePrivate *const d;
+    std::unique_ptr<SlaveBasePrivate> const d;
     friend class SlaveBasePrivate;
 };
 

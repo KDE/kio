@@ -88,7 +88,6 @@ KSSLSettings::KSSLSettings(bool readConfig)
 KSSLSettings::~KSSLSettings()
 {
     delete d->m_cfg;
-    delete d;
 }
 
 QString KSSLSettings::getCipherList()

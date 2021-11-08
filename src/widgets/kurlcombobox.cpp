@@ -103,10 +103,7 @@ KUrlComboBox::KUrlComboBox(Mode mode, bool rw, QWidget *parent)
     d->init(mode);
 }
 
-KUrlComboBox::~KUrlComboBox()
-{
-    delete d;
-}
+KUrlComboBox::~KUrlComboBox() = default;
 
 void KUrlComboBoxPrivate::init(KUrlComboBox::Mode mode)
 {

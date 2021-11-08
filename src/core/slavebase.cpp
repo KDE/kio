@@ -300,7 +300,6 @@ SlaveBase::~SlaveBase()
     delete d->configGroup;
     delete d->config;
     delete d->remotefile;
-    delete d;
     s_protocol = "";
 }
 

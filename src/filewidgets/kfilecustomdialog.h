@@ -12,6 +12,9 @@
 #include "kfilewidget.h"
 #include "kiofilewidgets_export.h"
 #include <QDialog>
+
+#include <memory>
+
 class KFileWidget;
 class KFileCustomDialogPrivate;
 
@@ -84,7 +87,7 @@ public Q_SLOTS:
     void accept() override;
 
 private:
-    KFileCustomDialogPrivate *const d;
+    std::unique_ptr<KFileCustomDialogPrivate> const d;
 };
 
 #endif // KFILECUSTOMDIALOG_H

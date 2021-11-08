@@ -12,6 +12,8 @@
 
 #include <QWidget>
 
+#include <memory>
+
 class QSslCertificate;
 
 class KSslCertificateBoxPrivate;
@@ -31,7 +33,7 @@ public:
     void setCertificate(const QSslCertificate &cert, CertificateParty party);
     void clear();
 
-    KSslCertificateBoxPrivate *const d;
+    std::unique_ptr<KSslCertificateBoxPrivate> const d;
 };
 
 #endif // KSSLCERTIFICATEBOX_H

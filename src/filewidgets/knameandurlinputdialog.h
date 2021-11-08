@@ -9,6 +9,9 @@
 
 #include "kiofilewidgets_export.h"
 #include <QDialog>
+
+#include <memory>
+
 class KUrlRequester;
 class KNameAndUrlInputDialogPrivate;
 class QUrl;
@@ -66,7 +69,7 @@ private:
     Q_PRIVATE_SLOT(d, void _k_slotNameTextChanged(const QString &))
     Q_PRIVATE_SLOT(d, void _k_slotURLTextChanged(const QString &))
 
-    KNameAndUrlInputDialogPrivate *const d;
+    std::unique_ptr<KNameAndUrlInputDialogPrivate> const d;
 };
 
 #endif

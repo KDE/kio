@@ -11,6 +11,7 @@
 #include <KDEDModule>
 #include <QList>
 #include <QVariant>
+#include <memory>
 class QString;
 class QSslCertificate;
 
@@ -33,7 +34,7 @@ public:
 private:
     // AFAICS we don't need the d-pointer technique here but it makes the code look
     // more like the rest of kdelibs and it can be reused anywhere in kdelibs.
-    KSSLDPrivate *const d;
+    std::unique_ptr<KSSLDPrivate> const d;
 };
 
 #endif // KSSLD_H

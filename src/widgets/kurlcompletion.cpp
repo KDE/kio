@@ -533,7 +533,6 @@ KUrlCompletion::KUrlCompletion(Mode _mode)
 KUrlCompletion::~KUrlCompletion()
 {
     stop();
-    delete d;
 }
 
 void KUrlCompletionPrivate::init()

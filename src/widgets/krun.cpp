@@ -519,7 +519,6 @@ KRun::~KRun()
     d->m_timer->stop();
     killJob();
     // qDebug() << this << "done";
-    delete d;
 }
 
 bool KRunPrivate::runExternalBrowser(const QString &_exec)

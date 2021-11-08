@@ -96,10 +96,7 @@ AccessManager::AccessManager(QObject *parent)
     setCookieJar(new KIO::Integration::CookieJar);
 }
 
-AccessManager::~AccessManager()
-{
-    delete d;
-}
+AccessManager::~AccessManager() = default;
 
 void AccessManager::setExternalContentAllowed(bool allowed)
 {
@@ -471,10 +468,7 @@ CookieJar::CookieJar(QObject *parent)
     reparseConfiguration();
 }
 
-CookieJar::~CookieJar()
-{
-    delete d;
-}
+CookieJar::~CookieJar() = default;
 
 WId CookieJar::windowId() const
 {

@@ -158,7 +158,6 @@ SlaveConfig::SlaveConfig()
 SlaveConfig::~SlaveConfig()
 {
     qDeleteAll(d->protocol);
-    delete d;
 }
 
 void SlaveConfig::setConfigData(const QString &protocol, const QString &host, const QString &key, const QString &value)

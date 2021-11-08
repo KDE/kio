@@ -92,10 +92,7 @@ KACL::KACL(const KACL &rhs)
     setACL(rhs.asString());
 }
 
-KACL::~KACL()
-{
-    delete d;
-}
+KACL::~KACL() = default;
 
 KACL &KACL::operator=(const KACL &rhs)
 {

@@ -17,6 +17,8 @@
 
 #include "kiofilewidgets_export.h"
 
+#include <memory>
+
 /**
  * @class KDirSortFilterProxyModel kdirsortfilterproxymodel.h <KDirSortFilterProxyModel>
  *
@@ -85,7 +87,7 @@ private:
 
 private:
     class KDirSortFilterProxyModelPrivate;
-    KDirSortFilterProxyModelPrivate *const d;
+    std::unique_ptr<KDirSortFilterProxyModelPrivate> const d;
 };
 
 #endif
