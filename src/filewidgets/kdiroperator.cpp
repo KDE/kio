@@ -69,6 +69,8 @@ public:
     explicit KDirOperatorPrivate(KDirOperator *qq)
         : q(qq)
     {
+        KConfigGroup cg(KSharedConfig::openConfig(), "SmallIcons");
+        m_iconSize = cg.readEntry("Size", static_cast<int>(KIconLoader::SizeSmall));
     }
 
     ~KDirOperatorPrivate();
@@ -148,7 +150,7 @@ public:
 
     int iconSizeForViewType(QAbstractItemView *itemView) const;
     void writeIconZoomSettingsIfNeeded();
-    ZoomSettingsForView zoomSettingsForViewForView() const;
+    ZoomSettingsForView zoomSettingsForView() const;
 
     QList<QAction *> insertOpenWithActions();
 
@@ -204,7 +206,7 @@ public:
     KFileItemActions *m_itemActions = nullptr;
 
     int m_dropOptions = 0;
-    int m_iconSize = KIconLoader::SizeSmall;
+    int m_iconSize = 0;
     InlinePreviewState m_inlinePreviewState = NotForced;
     bool m_dirHighlighting = true;
     bool m_showPreviews = false;
@@ -2550,7 +2552,7 @@ void KDirOperatorPrivate::writeIconZoomSettingsIfNeeded()
 {
     // must match behavior of iconSizeForViewType
     if (m_configGroup && m_itemView) {
-        ZoomSettingsForView zoomSettings = zoomSettingsForViewForView();
+        ZoomSettingsForView zoomSettings = zoomSettingsForView();
         m_configGroup->writeEntry(zoomSettings.name, m_iconSize);
     }
 }
@@ -2934,30 +2936,34 @@ int KDirOperatorPrivate::iconSizeForViewType(QAbstractItemView *itemView) const
         return 0;
     }
 
-    ZoomSettingsForView ZoomSettingsForView = zoomSettingsForViewForView();
-    return m_configGroup->readEntry(ZoomSettingsForView.name, ZoomSettingsForView.defaultValue);
+    ZoomSettingsForView zoomSettings = zoomSettingsForView();
+    return m_configGroup->readEntry(zoomSettings.name, zoomSettings.defaultValue);
 }
 
-KDirOperatorPrivate::ZoomSettingsForView KDirOperatorPrivate::zoomSettingsForViewForView() const
+KDirOperatorPrivate::ZoomSettingsForView KDirOperatorPrivate::zoomSettingsForView() const
 {
     KFile::FileView fv = static_cast<KFile::FileView>(m_viewKind);
+
+    KSharedConfigPtr config = KSharedConfig::openConfig();
     if (KFile::isSimpleView(fv)) {
+        KConfigGroup cg(config, "DesktopIcons");
+        const int desktopIconSize = cg.readEntry("Size", static_cast<int>(KIconLoader::SizeHuge));
         if (m_decorationPosition == QStyleOptionViewItem::Top) {
             // Simple view decoration above, aka Icons View
-            // default to 43% aka 64px
-            return {QStringLiteral("iconViewIconSize"), 43};
+            return {QStringLiteral("iconViewIconSize"), desktopIconSize};
         } else {
             // Simple view decoration left, aka compact view
-            // default to 15% aka 32px
-            return {QStringLiteral("listViewIconSize"), 15};
+            return {QStringLiteral("listViewIconSize"), desktopIconSize};
         }
+    }
+
+    KConfigGroup cg(config, "SmallIcons");
+    const int smallIconSize = cg.readEntry("Size", static_cast<int>(KIconLoader::SizeSmall));
+    if (KFile::isTreeView(fv)) {
+        return {QStringLiteral("treeViewIconSize"), smallIconSize};
     } else {
-        if (KFile::isTreeView(fv)) {
-            return {QStringLiteral("treeViewIconSize"), 0};
-        } else {
-            // DetailView and DetailTreeView
-            return {QStringLiteral("detailViewIconSize"), 0};
-        }
+        // DetailView and DetailTreeView
+        return {QStringLiteral("detailViewIconSize"), smallIconSize};
     }
 }
 
