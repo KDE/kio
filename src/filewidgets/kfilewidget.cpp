@@ -85,6 +85,9 @@ public:
 
     ~KFileWidgetPrivate()
     {
+        m_iconSizeSlider->removeEventFilter(q);
+        m_locationEdit->removeEventFilter(q);
+
         delete m_bookmarkHandler; // Should be deleted before m_ops!
         // Must be deleted before m_ops, otherwise the unit test crashes due to the
         // connection to the QDockWidget::visibilityChanged signal, which may get

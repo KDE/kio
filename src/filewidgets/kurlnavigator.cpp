@@ -60,6 +60,17 @@ class KUrlNavigatorPrivate
 public:
     KUrlNavigatorPrivate(KUrlNavigator *qq, KFilePlacesModel *placesModel);
 
+    ~KUrlNavigatorPrivate()
+    {
+        m_dropDownButton->removeEventFilter(q);
+        m_pathBox->removeEventFilter(q);
+        m_toggleEditableMode->removeEventFilter(q);
+
+        for (KUrlNavigatorButton *button : std::as_const(m_navButtons)) {
+            button->removeEventFilter(q);
+        }
+    }
+
     /** Applies the edited URL in m_pathBox to the URL navigator */
     void applyUncommittedUrl();
 
