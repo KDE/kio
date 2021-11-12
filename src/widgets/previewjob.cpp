@@ -23,6 +23,7 @@
 #endif
 
 #include <limits>
+#include <set>
 
 #include <QDir>
 #include <QFile>
@@ -37,14 +38,15 @@
 
 #include <KConfigGroup>
 #include <KMountPoint>
+#include <KPluginInfo>
 #include <KService>
 #include <KServiceTypeTrader>
 #include <KSharedConfig>
 #include <QMimeDatabase>
 #include <QStandardPaths>
-#include <kprotocolinfo.h>
 #include <Solid/Device>
 #include <Solid/StorageAccess>
+#include <kprotocolinfo.h>
 
 #include <algorithm>
 #include <cmath>
@@ -63,7 +65,7 @@ using namespace KIO;
 
 struct KIO::PreviewItem {
     KFileItem item;
-    KService::Ptr plugin;
+    KPluginMetaData plugin;
 };
 
 class KIO::PreviewJobPrivate : public KIO::JobPrivate
@@ -168,6 +170,32 @@ public:
     int getDeviceId(const QString &path);
 
     Q_DECLARE_PUBLIC(PreviewJob)
+
+    static QVector<KPluginMetaData> loadAvailablePlugins()
+    {
+        static QVector<KPluginMetaData> jsonMetaDataPlugins;
+        if (!jsonMetaDataPlugins.isEmpty()) {
+            return jsonMetaDataPlugins;
+        }
+        jsonMetaDataPlugins = KPluginMetaData::findPlugins(QStringLiteral("kf5/thumbcreator"));
+        std::set<QString> pluginIds;
+        for (const KPluginMetaData &data : std::as_const(jsonMetaDataPlugins)) {
+            pluginIds.insert(data.pluginId());
+        }
+        QT_WARNING_PUSH
+        QT_WARNING_DISABLE_CLANG("-Wdeprecated-declarations")
+        QT_WARNING_DISABLE_GCC("-Wdeprecated-declarations")
+        const KService::List plugins = KServiceTypeTrader::self()->query(QStringLiteral("ThumbCreator"));
+        for (const auto &plugin : plugins) {
+            if (KPluginInfo info(plugin); info.isValid()) {
+                if (auto [it, inserted] = pluginIds.insert(info.pluginName()); inserted) {
+                    jsonMetaDataPlugins << info.toMetaData();
+                }
+            }
+        }
+        QT_WARNING_POP
+        return jsonMetaDataPlugins;
+    }
 };
 
 #if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 86)
@@ -285,36 +313,31 @@ void PreviewJobPrivate::startPreview()
 {
     Q_Q(PreviewJob);
     // Load the list of plugins to determine which MIME types are supported
-    const KService::List plugins = KServiceTypeTrader::self()->query(QStringLiteral("ThumbCreator"));
-    QMap<QString, KService::Ptr> mimeMap;
-    QHash<QString, QHash<QString, KService::Ptr>> protocolMap;
+    const QVector<KPluginMetaData> plugins = KIO::PreviewJobPrivate::loadAvailablePlugins();
+    QMap<QString, KPluginMetaData> mimeMap;
+    QHash<QString, QHash<QString, KPluginMetaData>> protocolMap;
 
-    for (KService::List::ConstIterator it = plugins.constBegin(); it != plugins.constEnd(); ++it) {
-        QStringList protocols = (*it)->property(QStringLiteral("X-KDE-Protocols")).toStringList();
-        const QString p = (*it)->property(QStringLiteral("X-KDE-Protocol")).toString();
+    for (const KPluginMetaData &plugin : plugins) {
+        QStringList protocols = plugin.value(QStringLiteral("X-KDE-Protocols"), QStringList());
+        const QString p = plugin.value(QStringLiteral("X-KDE-Protocol"));
         if (!p.isEmpty()) {
             protocols.append(p);
         }
         for (const QString &protocol : std::as_const(protocols)) {
-            // We cannot use mimeTypes() here, it doesn't support groups such as: text/*
-            const QStringList mtypes = (*it)->serviceTypes();
             // Add supported MIME type for this protocol
             QStringList &_ms = m_remoteProtocolPlugins[protocol];
-            for (const QString &_m : mtypes) {
-                if (_m != QLatin1String("ThumbCreator")) {
-                    protocolMap[protocol].insert(_m, *it);
-                    if (!_ms.contains(_m)) {
-                        _ms.append(_m);
-                    }
+            const auto mimeTypes = plugin.mimeTypes();
+            for (const QString &_m : mimeTypes) {
+                protocolMap[protocol].insert(_m, plugin);
+                if (!_ms.contains(_m)) {
+                    _ms.append(_m);
                 }
             }
         }
-        if (enabledPlugins.contains((*it)->desktopEntryName())) {
-            const QStringList mimeTypes = (*it)->serviceTypes();
-            for (QStringList::ConstIterator mt = mimeTypes.constBegin(); mt != mimeTypes.constEnd(); ++mt) {
-                if (*mt != QLatin1String("ThumbCreator")) {
-                    mimeMap.insert(*mt, *it);
-                }
+        if (enabledPlugins.contains(plugin.pluginId())) {
+            const auto mimeTypes = plugin.mimeTypes();
+            for (const QString &mimeType : mimeTypes) {
+                mimeMap.insert(mimeType, plugin);
             }
         }
     }
@@ -326,7 +349,7 @@ void PreviewJobPrivate::startPreview()
         item.item = fileItem;
 
         const QString mimeType = item.item.mimetype();
-        KService::Ptr plugin(nullptr);
+        KPluginMetaData plugin;
 
         // look for protocol-specific thumbnail plugins first
         auto it = protocolMap.constFind(item.item.url().scheme());
@@ -334,8 +357,8 @@ void PreviewJobPrivate::startPreview()
             plugin = it.value().value(mimeType);
         }
 
-        if (!plugin) {
-            QMap<QString, KService::Ptr>::ConstIterator pluginIt = mimeMap.constFind(mimeType);
+        if (!plugin.isValid()) {
+            auto pluginIt = mimeMap.constFind(mimeType);
             if (pluginIt == mimeMap.constEnd()) {
                 QString groupMimeType = mimeType;
                 groupMimeType.replace(QRegularExpression(QStringLiteral("/.*")), QStringLiteral("/*"));
@@ -362,10 +385,10 @@ void PreviewJobPrivate::startPreview()
             }
         }
 
-        if (plugin) {
+        if (plugin.isValid()) {
             item.plugin = plugin;
             items.push_back(item);
-            if (!bNeedCache && bSave && plugin->property(QStringLiteral("CacheThumbnail")).toBool()) {
+            if (!bNeedCache && bSave && plugin.value(QStringLiteral("CacheThumbnail"), true)) {
                 const QUrl url = fileItem.url();
                 if (!url.isLocalFile() || !url.adjusted(QUrl::RemoveFilename).toLocalFile().startsWith(thumbRoot)) {
                     bNeedCache = true;
@@ -540,8 +563,7 @@ void PreviewJob::slotResult(KJob *job)
         const QUrl itemUrl = d->currentItem.item.mostLocalUrl();
 
         if (itemUrl.isLocalFile() || KProtocolInfo::protocolClass(itemUrl.scheme()) == QLatin1String(":local")) {
-            skipCurrentItem =
-                !d->ignoreMaximumSize && size > d->maximumLocalSize && !d->currentItem.plugin->property(QStringLiteral("IgnoreMaximumSize")).toBool();
+            skipCurrentItem = !d->ignoreMaximumSize && size > d->maximumLocalSize && !d->currentItem.plugin.value(QStringLiteral("IgnoreMaximumSize"), false);
         } else {
             // For remote items the "IgnoreMaximumSize" plugin property is not respected
             skipCurrentItem = !d->ignoreMaximumSize && size > d->maximumRemoteSize;
@@ -560,8 +582,8 @@ void PreviewJob::slotResult(KJob *job)
             return;
         }
 
-        bool pluginHandlesSequences = d->currentItem.plugin->property(QStringLiteral("HandleSequences"), QVariant::Bool).toBool();
-        if (!d->currentItem.plugin->property(QStringLiteral("CacheThumbnail")).toBool() || (d->sequenceIndex && pluginHandlesSequences)) {
+        bool pluginHandlesSequences = d->currentItem.plugin.value(QStringLiteral("HandleSequences"), false);
+        if (!d->currentItem.plugin.value(QStringLiteral("CacheThumbnail"), true) || (d->sequenceIndex && pluginHandlesSequences)) {
             // This preview will not be cached, no need to look for a saved thumbnail
             // Just create it, and be done
             d->getOrCreateThumbnail();
@@ -654,7 +676,7 @@ bool PreviewJobPrivate::statResultThumbnail()
     // When a thumbnail is DPR-invariant, use the DPR passed in the request.
     thumb.setDevicePixelRatio(devicePixelRatio);
 
-    QString thumbnailerVersion = currentItem.plugin->property(QStringLiteral("ThumbnailerVersion"), QVariant::String).toString();
+    QString thumbnailerVersion = currentItem.plugin.value(QStringLiteral("ThumbnailerVersion"));
 
     if (!thumbnailerVersion.isEmpty() && thumb.text(QStringLiteral("Software")).startsWith(QLatin1String("KDE Thumbnail Generator"))) {
         // Check if the version matches
@@ -803,7 +825,7 @@ void PreviewJobPrivate::createThumbnail(const QString &pixPath)
     thumbURL.setScheme(QStringLiteral("thumbnail"));
     thumbURL.setPath(pixPath);
 
-    bool save = bSave && currentItem.plugin->property(QStringLiteral("CacheThumbnail")).toBool() && !sequenceIndex;
+    bool save = bSave && currentItem.plugin.value(QStringLiteral("CacheThumbnail"), true) && !sequenceIndex;
 
     bool isRemoteProtocol = currentItem.item.localPath().isEmpty();
     CachePolicy cachePolicy = isRemoteProtocol ? CachePolicy::Prevent : canBeCached(pixPath);
@@ -832,7 +854,7 @@ void PreviewJobPrivate::createThumbnail(const QString &pixPath)
     job->addMetaData(QStringLiteral("height"), QString::number(thumb_height));
     job->addMetaData(QStringLiteral("iconSize"), QString::number(thumb_iconSize));
     job->addMetaData(QStringLiteral("iconAlpha"), QString::number(iconAlpha));
-    job->addMetaData(QStringLiteral("plugin"), currentItem.plugin->library());
+    job->addMetaData(QStringLiteral("plugin"), currentItem.plugin.fileName());
     job->addMetaData(QStringLiteral("enabledPlugins"), enabledPlugins.join(QLatin1Char(',')));
     job->addMetaData(QStringLiteral("devicePixelRatio"), QString::number(devicePixelRatio));
     job->addMetaData(QStringLiteral("cache"), QString::number(cachePolicy == CachePolicy::Allow));
@@ -876,7 +898,7 @@ void PreviewJobPrivate::slotThumbData(KIO::Job *job, const QByteArray &data)
     const bool save = bSave
                       && !sequenceIndex
                       && currentDeviceCachePolicy == CachePolicy::Allow
-                      && currentItem.plugin->property(QStringLiteral("CacheThumbnail")).toBool()
+                      && currentItem.plugin.value(QStringLiteral("CacheThumbnail"), true)
                       && (!currentItem.item.url().isLocalFile()
                           || !currentItem.item.url().adjusted(QUrl::RemoveFilename).toLocalFile().startsWith(thumbRoot));
     /* clang-format on */
@@ -917,8 +939,8 @@ void PreviewJobPrivate::slotThumbData(KIO::Job *job, const QByteArray &data)
         thumb.setText(QStringLiteral("Thumb::MTime"), QString::number(tOrig.toSecsSinceEpoch()));
         thumb.setText(QStringLiteral("Thumb::Size"), number(currentItem.item.size()));
         thumb.setText(QStringLiteral("Thumb::Mimetype"), currentItem.item.mimetype());
-        QString thumbnailerVersion = currentItem.plugin->property(QStringLiteral("ThumbnailerVersion"), QVariant::String).toString();
-        QString signature = QLatin1String("KDE Thumbnail Generator ") + currentItem.plugin->name();
+        QString thumbnailerVersion = currentItem.plugin.value(QStringLiteral("ThumbnailerVersion"));
+        QString signature = QLatin1String("KDE Thumbnail Generator ") + currentItem.plugin.name();
         if (!thumbnailerVersion.isEmpty()) {
             signature.append(QLatin1String(" (v") + thumbnailerVersion + QLatin1Char(')'));
         }
@@ -950,12 +972,9 @@ void PreviewJobPrivate::emitPreview(const QImage &thumb)
 QStringList PreviewJob::availablePlugins()
 {
     QStringList result;
-    const KService::List plugins = KServiceTypeTrader::self()->query(QStringLiteral("ThumbCreator"));
-    for (const KService::Ptr &plugin : plugins) {
-        const QString desktopEntryName = plugin->desktopEntryName();
-        if (!result.contains(desktopEntryName)) {
-            result.append(desktopEntryName);
-        }
+    const auto plugins = KIO::PreviewJobPrivate::loadAvailablePlugins();
+    for (const KPluginMetaData &plugin : plugins) {
+        result << plugin.pluginId();
     }
     return result;
 }
@@ -975,9 +994,9 @@ QStringList PreviewJob::defaultPlugins()
 QStringList PreviewJob::supportedMimeTypes()
 {
     QStringList result;
-    const KService::List plugins = KServiceTypeTrader::self()->query(QStringLiteral("ThumbCreator"));
-    for (const KService::Ptr &plugin : plugins) {
-        result += plugin->mimeTypes();
+    const auto plugins = KIO::PreviewJobPrivate::loadAvailablePlugins();
+    for (const KPluginMetaData &plugin : plugins) {
+        result += plugin.mimeTypes();
     }
     return result;
 }
