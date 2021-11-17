@@ -1,6 +1,7 @@
 [Desktop Entry]
 Keys=inventrepo,invrepo,repo
 Name=KDE Invent Repositories
+Name[ar]=مستودعات KDE Invent
 Name[az]=KDE Invent Anbarları
 Name[ca]=Repositoris de KDE Invent
 Name[en_GB]=KDE Invent Repositories
@@ -19,6 +20,7 @@ Name[vi]=Các kho ở Invent KDE
 Name[x-test]=xxKDE Invent Repositoriesxx
 Name[zh_CN]=KDE Invent 源代码库
 Query=https://invent.kde.org/explore/projects/starred?name=\\{@}
+Query[ar]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[az]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[ca]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[en_GB]=https://invent.kde.org/explore/projects/starred?name=\\{@}

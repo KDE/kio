@@ -1,6 +1,7 @@
 [Desktop Entry]
 Keys=invent,inv
 Name=KDE Invent
+Name[ar]=KDE Invent
 Name[az]=KDE Invent
 Name[ca]=KDE Invent
 Name[en_GB]=KDE Invent
@@ -19,6 +20,7 @@ Name[vi]=Invent KDE
 Name[x-test]=xxKDE Inventxx
 Name[zh_CN]=KDE Invent
 Query=https://invent.kde.org/search?search=\\{@}
+Query[ar]=https://invent.kde.org/search?search=\\{@}
 Query[az]=https://invent.kde.org/search?search=\\{@}
 Query[ca]=https://invent.kde.org/search?search=\\{@}
 Query[en_GB]=https://invent.kde.org/search?search=\\{@}
