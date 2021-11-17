@@ -813,7 +813,7 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mode, JobF
         const ssize_t copiedBytes = ::copy_file_range(srcFile.handle(), nullptr, destFile.handle(), nullptr, s_maxIPCSize, 0);
 
         if (copiedBytes == -1) {
-            if (errno == EINVAL) {
+            if (errno == EINVAL || errno == EXDEV) {
                 break; // will continue with next copy mechanism
             }
 
