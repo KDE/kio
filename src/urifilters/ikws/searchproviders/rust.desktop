@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Rust STD Documentation
+Type=Service
+Keys=rust
+Query=https://doc.rust-lang.org/std/index.html?search=\\{@}
+Icon=

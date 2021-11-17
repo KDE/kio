@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=OpenSUSE Software
+Type=Service
+Keys=opensuse
+Query=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}

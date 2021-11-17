@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=GNOME Repositories
+Type=Service
+Keys=gnomerepo
+Query=https://gitlab.gnome.org/explore/projects/starred?name=\\{@}

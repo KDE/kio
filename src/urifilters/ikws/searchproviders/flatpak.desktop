@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=Flatpak Documentation
+Type=Service
+Keys=flatpak
+Query=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default

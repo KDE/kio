@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=Microsoft C++ Documentation
+Type=Service
+Keys=microsoftcpp,mscpp
+Query=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B

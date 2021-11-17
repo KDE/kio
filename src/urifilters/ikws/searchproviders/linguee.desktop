@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=Linguee
+Type=Service
+Keys=linguee
+Query=https://www.linguee.com/search?source=auto&query=\\{@}

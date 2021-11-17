@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=Ubuntu Packages
+Type=Service
+Keys=ubuntu
+Query=https://packages.ubuntu.com/\\{@}

@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Name Here
+Type=Service
+Keys=template,tplt
+Query=https://subdomain.domain.org/searchqueryis\\{@}
+Icon=

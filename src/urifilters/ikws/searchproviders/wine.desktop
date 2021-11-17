@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=WineHQ Database
+Type=Service
+Keys=winehq,wine
+Query=https://www.winehq.org/search?q=\\{@}
+Icon=wine

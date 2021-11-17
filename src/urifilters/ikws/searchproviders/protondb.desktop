@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=ProtonDB
+Type=Service
+Keys=protondb,proton
+Query=https://www.protondb.com/search?q=\\{@}
+Icon=wine
