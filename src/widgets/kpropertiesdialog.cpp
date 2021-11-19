@@ -78,6 +78,7 @@ extern "C" {
 #endif
 }
 
+#include <KApplicationTrader>
 #include <KAuthorized>
 #include <KCapacityBar>
 #include <KColorScheme>
@@ -104,6 +105,7 @@ extern "C" {
 #include <KSharedConfig>
 #include <KShell>
 #include <KSqueezedTextLabel>
+#include <KSycoca>
 #include <KWindowConfig>
 #include <kacl.h>
 #include <kbuildsycocaprogressdialog.h>
@@ -1037,17 +1039,23 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
         d->m_ui->mimeCommentLabel->setText(mimeComment);
         d->m_ui->mimeCommentLabel->setToolTip(d->mimeType);
 
-        const bool isGeneric = d->mimeType == QLatin1String("application/octet-stream");
-        d->m_ui->configureMimeBtn->setText(isGeneric ? i18n("Create New File Type") : i18n("File Type Options"));
+        const int hSpacing = properties->style()->pixelMetric(QStyle::PM_LayoutHorizontalSpacing);
+        d->m_ui->defaultHandlerLayout->setSpacing(hSpacing);
+
+        updateDefaultHandler(d->mimeType);
+        connect(KSycoca::self(), &KSycoca::databaseChanged, this, [this] {
+            updateDefaultHandler(d->mimeType);
+        });
 
         connect(d->m_ui->configureMimeBtn, &QAbstractButton::clicked, this, &KFilePropsPlugin::slotEditFileType);
-
-        if (!KAuthorized::authorizeAction(QStringLiteral("editfiletype"))) {
-            d->m_ui->configureMimeBtn->hide();
-        }
     } else {
         d->m_ui->typeLabel->hide();
         d->m_ui->mimeCommentLabel->hide();
+        d->m_ui->configureMimeBtn->hide();
+
+        d->m_ui->defaultHandlerLabel_Left->hide();
+        d->m_ui->defaultHandlerIcon->hide();
+        d->m_ui->defaultHandlerLabel->hide();
     }
 
     if (!magicMimeComment.isEmpty() && magicMimeComment != mimeComment) {
@@ -1057,7 +1065,7 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
         d->m_ui->magicMimeCommentLabel->hide();
     }
 
-    d->m_ui->configureMimeBtn->setVisible(!d->m_ui->typeLabel->isHidden() || !d->m_ui->contentLabel->isHidden());
+    d->m_ui->configureMimeBtn->setVisible(KAuthorized::authorizeAction(QStringLiteral("editfiletype")) && !d->m_ui->defaultHandlerLabel->isHidden());
 
     // Location:
     if (!directory.isEmpty()) {
@@ -1611,6 +1619,22 @@ void KFilePropsPlugin::applyIconChanges()
                 KMessageBox::sorry(nullptr, couldNotSaveMsg(path));
             }
         }
+    }
+}
+
+void KFilePropsPlugin::updateDefaultHandler(const QString &mimeType)
+{
+    const bool isGeneric = d->mimeType == QLatin1String("application/octet-stream");
+
+    const auto service = KApplicationTrader::preferredService(mimeType);
+    if (!isGeneric && service) {
+        const int iconSize = properties->style()->pixelMetric(QStyle::PM_SmallIconSize);
+        d->m_ui->defaultHandlerIcon->setPixmap(QIcon::fromTheme(service->icon()).pixmap(iconSize));
+        d->m_ui->defaultHandlerLabel->setText(service->name());
+    } else {
+        d->m_ui->defaultHandlerIcon->hide();
+        d->m_ui->defaultHandlerLabel->setText(i18n("No associated application"));
+        d->m_ui->defaultHandlerLabel->setDisabled(true);
     }
 }
 

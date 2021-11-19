@@ -81,6 +81,7 @@ private:
     bool enableIconButton() const;
     void determineRelativePath(const QString &path);
     void applyIconChanges();
+    void updateDefaultHandler(const QString &mimeType);
 
     class KFilePropsPluginPrivate;
     std::unique_ptr<KFilePropsPluginPrivate> d;
