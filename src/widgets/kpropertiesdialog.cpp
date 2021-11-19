@@ -1146,6 +1146,13 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
             d->m_ui->accessTimeLabel->hide();
             d->m_ui->accessTimeLabel_Left->hide();
         }
+    } else {
+        d->m_ui->createdTimeLabel->hide();
+        d->m_ui->createdTimeLabel_Left->hide();
+        d->m_ui->modifiedTimeLabel->hide();
+        d->m_ui->modifiedTimeLabel_Left->hide();
+        d->m_ui->accessTimeLabel->hide();
+        d->m_ui->accessTimeLabel_Left->hide();
     }
 
     // File system and mount point widgets
