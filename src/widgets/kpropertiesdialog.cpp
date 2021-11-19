@@ -1130,18 +1130,21 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
             d->m_ui->createdTimeLabel->setText(locale.toString(dt, QLocale::LongFormat));
         } else {
             d->m_ui->createdTimeLabel->hide();
+            d->m_ui->createdTimeLabel_Left->hide();
         }
 
         if (const QDateTime dt = firstItem.time(KFileItem::ModificationTime); !dt.isNull()) {
             d->m_ui->modifiedTimeLabel->setText(locale.toString(dt, QLocale::LongFormat));
         } else {
             d->m_ui->modifiedTimeLabel->hide();
+            d->m_ui->modifiedTimeLabel_Left->hide();
         }
 
         if (const QDateTime dt = firstItem.time(KFileItem::AccessTime); !dt.isNull()) {
             d->m_ui->accessTimeLabel->setText(locale.toString(dt, QLocale::LongFormat));
         } else {
             d->m_ui->accessTimeLabel->hide();
+            d->m_ui->accessTimeLabel_Left->hide();
         }
     }
 
