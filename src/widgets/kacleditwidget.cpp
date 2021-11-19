@@ -68,15 +68,15 @@ KACLEditWidget::KACLEditWidget(QWidget *parent)
     });
     QVBoxLayout *vbox = new QVBoxLayout();
     hbox->addLayout(vbox);
-    d->m_AddBtn = new QPushButton(i18n("Add Entry..."), this);
+    d->m_AddBtn = new QPushButton(QIcon::fromTheme(QStringLiteral("list-add")), i18nc("@action:button", "Add..."), this);
     vbox->addWidget(d->m_AddBtn);
     d->m_AddBtn->setObjectName(QStringLiteral("add_entry_button"));
     connect(d->m_AddBtn, &QAbstractButton::clicked, d->m_listView, &KACLListView::slotAddEntry);
-    d->m_EditBtn = new QPushButton(i18n("Edit Entry..."), this);
+    d->m_EditBtn = new QPushButton(QIcon::fromTheme(QStringLiteral("document-edit")), i18nc("@action:button", "Edit..."), this);
     vbox->addWidget(d->m_EditBtn);
     d->m_EditBtn->setObjectName(QStringLiteral("edit_entry_button"));
     connect(d->m_EditBtn, &QAbstractButton::clicked, d->m_listView, &KACLListView::slotEditEntry);
-    d->m_DelBtn = new QPushButton(i18n("Delete Entry"), this);
+    d->m_DelBtn = new QPushButton(QIcon::fromTheme(QStringLiteral("list-remove")), i18nc("@action:button", "Delete"), this);
     vbox->addWidget(d->m_DelBtn);
     d->m_DelBtn->setObjectName(QStringLiteral("delete_entry_button"));
     connect(d->m_DelBtn, &QAbstractButton::clicked, d->m_listView, &KACLListView::slotRemoveEntry);
