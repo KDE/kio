@@ -1214,7 +1214,7 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
                 squeezedLabel->setLayoutDirection(Qt::LeftToRight);
             }
 
-            d->m_ui->gridLayout->addWidget(squeezedLabel, curRow++, 2);
+            d->m_ui->gridLayout->addWidget(squeezedLabel, curRow++, 1);
             squeezedLabel->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::TextSelectableByKeyboard);
         }
     }
