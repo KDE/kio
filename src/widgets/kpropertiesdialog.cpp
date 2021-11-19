@@ -1080,7 +1080,9 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
         connect(d->m_ui->calculateSizeBtn, &QAbstractButton::clicked, this, &KFilePropsPlugin::slotSizeDetermine);
         connect(d->m_ui->stopCalculateSizeBtn, &QAbstractButton::clicked, this, &KFilePropsPlugin::slotSizeStop);
 
-        if (KService::serviceByDesktopName(QStringLiteral("org.kde.filelight"))) {
+        if (auto filelight = KService::serviceByDesktopName(QStringLiteral("org.kde.filelight"))) {
+            d->m_ui->sizeDetailsBtn->setText(i18nc("@action:button", "Explore in %1", filelight->name()));
+            d->m_ui->sizeDetailsBtn->setIcon(QIcon::fromTheme(filelight->icon()));
             connect(d->m_ui->sizeDetailsBtn, &QPushButton::clicked, this, &KFilePropsPlugin::slotSizeDetails);
         } else {
             d->m_ui->sizeDetailsBtn->hide();
