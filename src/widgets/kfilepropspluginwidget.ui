@@ -381,7 +381,7 @@
        <item>
         <widget class="QPushButton" name="sizeDetailsBtn">
          <property name="text">
-          <string>Explore in FileLight</string>
+          <string>Explore in Filelight</string>
          </property>
          <property name="icon">
           <iconset theme="filelight">
