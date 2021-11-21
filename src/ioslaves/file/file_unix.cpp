@@ -70,10 +70,6 @@
 #include <sys/extattr.h>
 #endif
 
-#if HAVE_POSIX_ACL
-#include "acl_portability.h"
-#endif
-
 using namespace KIO;
 
 /* 512 kB */

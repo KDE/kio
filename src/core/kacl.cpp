@@ -6,10 +6,12 @@
 */
 // $Id: kacl.cpp 424977 2005-06-13 15:13:22Z tilladam $
 
-#include "kacl.h"
 #include <config-kiocore.h>
+
+#include "kacl.h"
+
 #if HAVE_POSIX_ACL
-#include "acl_portability.h"
+#include "../../aclhelpers_p.h"
 #endif
 
 #include <QDataStream>
