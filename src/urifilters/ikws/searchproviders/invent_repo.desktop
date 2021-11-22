@@ -9,6 +9,7 @@ Name[es]=Repositorios de KDE Invent
 Name[fr]=Dépôts de KDE Invent
 Name[ia]=Repositorios de KDE Invent
 Name[ko]=KDE Invent 저장소
+Name[my]=ကေဒီအီး အင်ဗန့် ရီပိုစစ်တိုရီများ
 Name[nl]=Opslagruimtes van KDE-invent
 Name[pl]=Repozytoria KDE Invent
 Name[pt]=Repositórios do KDE Invent
@@ -29,6 +30,7 @@ Query[es]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[fr]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[ia]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[ko]=https://invent.kde.org/explore/projects/starred?name=\\{@}
+Query[my]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[nl]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[pl]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[pt]=https://invent.kde.org/explore/projects/starred?name=\\{@}
