@@ -191,6 +191,12 @@ public:
                 if (auto [it, inserted] = pluginIds.insert(info.pluginName()); inserted) {
                     jsonMetaDataPlugins << info.toMetaData();
                 }
+            } else {
+                // Hack for directory thumbnailer: It has a hardcoded plugin id in the kio-slave and not any C++ plugin
+                // Consequently we just use the base name as the plugin file for our KPluginMetaData object
+                const QString path = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("kservices5/") + plugin->entryPath());
+                KPluginMetaData tmpData = KPluginMetaData::fromDesktopFile(path);
+                jsonMetaDataPlugins << KPluginMetaData(tmpData.rawData(), QFileInfo(path).baseName(), path);
             }
         }
         QT_WARNING_POP
