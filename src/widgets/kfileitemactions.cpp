@@ -857,7 +857,7 @@ void KFileItemActionsPrivate::insertOpenWithActionsTo(QAction *before,
         QAction *runAct = new QAction(this);
         if (serviceIdList.count() == 1) {
             const KService::Ptr app = preferredService(m_mimeTypeList.first(), excludedDesktopEntryNames, traderConstraint);
-            runAct->setText(i18n("&Open with %1", app->name()));
+            runAct->setText(isDir ? i18n("&Open folder with %1", app->name()) : i18n("&Open with %1", app->name()));
             runAct->setIcon(QIcon::fromTheme(app->icon()));
 
             // Remove that app from the offers list (#242731)
@@ -879,7 +879,10 @@ void KFileItemActionsPrivate::insertOpenWithActionsTo(QAction *before,
     }
 
     QAction *openWithAct = new QAction(this);
-    openWithAct->setText(i18nc("@title:menu", "&Open With..."));
+    openWithAct->setText(
+        isDir ?
+            i18nc("@title:menu", "&Open Folder With...") :
+            i18nc("@title:menu", "&Open With..."));
     openWithAct->setObjectName(QStringLiteral("openwith_browse")); // For the unittest
     QObject::connect(openWithAct, &QAction::triggered, this, &KFileItemActionsPrivate::slotOpenWithDialog);
 
@@ -892,7 +895,7 @@ void KFileItemActionsPrivate::insertOpenWithActionsTo(QAction *before,
 
         // If there are still more apps, show them in a sub-menu
         if (!offers.isEmpty()) { // submenu 'open with'
-            QMenu *subMenu = new QMenu(i18nc("@title:menu", "&Open With"), topMenu);
+            QMenu *subMenu = new QMenu(isDir ? i18nc("@title:menu", "&Open Folder With") : i18nc("@title:menu", "&Open With"), topMenu);
             subMenu->setIcon(QIcon::fromTheme(QStringLiteral("system-run")));
             subMenu->menuAction()->setObjectName(QStringLiteral("openWith_submenu")); // For the unittest
             // Add other apps to the sub-menu
