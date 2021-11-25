@@ -8,6 +8,7 @@ Name[en_GB]=KDE Invent
 Name[es]=KDE Invent
 Name[fr]=KDE Invent
 Name[ia]=KDE Invent
+Name[it]=KDE Invent
 Name[ko]=KDE Invent
 Name[my]=ကေဒီအီး အင်ဗန့်
 Name[nl]=KDE-invent
@@ -29,6 +30,7 @@ Query[en_GB]=https://invent.kde.org/search?search=\\{@}
 Query[es]=https://invent.kde.org/search?search=\\{@}
 Query[fr]=https://invent.kde.org/search?search=\\{@}
 Query[ia]=https://invent.kde.org/search?search=\\{@}
+Query[it]=https://invent.kde.org/search?search=\\{@}
 Query[ko]=https://invent.kde.org/search?search=\\{@}
 Query[my]=https://invent.kde.org/search?search=\\{@}
 Query[nl]=https://invent.kde.org/search?search=\\{@}
