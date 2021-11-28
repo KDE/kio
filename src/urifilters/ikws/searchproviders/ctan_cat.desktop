@@ -37,7 +37,6 @@ Name[he]=קטלוג CTAN
 Name[hi]=CTAN कैटलॉग
 Name[hne]=सीटीएएन कैटलाग
 Name[hr]=CTAN katalog
-Name[hsb]=CTAN Catalog
 Name[hu]=CTAN Catalog
 Name[ia]=Catalogo CTAN
 Name[id]=Katalog CTAN
@@ -124,7 +123,6 @@ Query[he]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSea
 Query[hi]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search
 Query[hne]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search
 Query[hr]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search
-Query[hsb]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search
 Query[hu]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search
 Query[ia]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search
 Query[id]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search

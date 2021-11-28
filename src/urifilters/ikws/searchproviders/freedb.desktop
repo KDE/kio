@@ -38,7 +38,6 @@ Name[he]=FreeDB
 Name[hi]=फ्री-डीबी
 Name[hne]=फ्री-डीबी
 Name[hr]=FreeDB
-Name[hsb]=FreeDB
 Name[hu]=FreeDB
 Name[ia]=FreeDB
 Name[id]=FreeDB
@@ -129,7 +128,6 @@ Query[he]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[hi]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[hne]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[hr]=http://www.freedb.org/freedb_search.php?words=\\{@}
-Query[hsb]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[hu]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[ia]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[id]=http://www.freedb.org/freedb_search.php?words=\\{@}

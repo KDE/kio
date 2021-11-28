@@ -37,7 +37,6 @@ Name[he]=אגרון מילים ‏HyperDictionary.com
 Name[hi]=हायपर-डिक्शनरी.कॉम समांतर शब्दकोश
 Name[hne]=हायपर-डिक्सनरी.काम समांतर सब्दकोस
 Name[hr]=HyperDictionary.com rječnik sinonima
-Name[hsb]=HyperDictionary.com tesawrus
 Name[hu]=HyperDictionary.com szinonimaszótár
 Name[ia]=HyperDictionary.com Thesauro
 Name[id]=Tesaurus HyperDictionary.com
@@ -128,7 +127,6 @@ Query[he]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
 Query[hi]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
 Query[hne]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
 Query[hr]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
-Query[hsb]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
 Query[hu]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
 Query[ia]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
 Query[id]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
