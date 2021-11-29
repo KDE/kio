@@ -38,6 +38,7 @@ Name[he]=HyperDictionary.com
 Name[hi]=हायपर-डिक्शनरी.कॉम
 Name[hne]=हायपर-डिक्सनरी.काम
 Name[hr]=HyperDictionary.com
+Name[hsb]=HyperDictionary.com
 Name[hu]=HyperDictionary.com
 Name[ia]=HyperDictionary.com
 Name[id]=HyperDictionary.com
@@ -129,6 +130,7 @@ Query[he]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[hi]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[hne]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[hr]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
+Query[hsb]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[hu]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[ia]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[id]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
