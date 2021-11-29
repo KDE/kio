@@ -609,23 +609,6 @@ KACLListView::KACLListView(QWidget *parent)
     header()->setSectionResizeMode(QHeaderView::ResizeToContents);
     setRootIsDecorated(false);
 
-    // fill the lists of all legal users and groups
-    struct passwd *user = nullptr;
-    setpwent();
-    while ((user = getpwent()) != nullptr) {
-        m_allUsers << QString::fromLatin1(user->pw_name);
-    }
-    endpwent();
-
-    struct group *gr = nullptr;
-    setgrent();
-    while ((gr = getgrent()) != nullptr) {
-        m_allGroups << QString::fromLatin1(gr->gr_name);
-    }
-    endgrent();
-    m_allUsers.sort();
-    m_allGroups.sort();
-
     connect(this, &QTreeWidget::itemClicked, this, &KACLListView::slotItemClicked);
 
     connect(this, &KACLListView::itemDoubleClicked, this, &KACLListView::slotItemDoubleClicked);
@@ -644,6 +627,16 @@ QSize KACLListView::sizeHint() const
 
 QStringList KACLListView::allowedUsers(bool defaults, KACLListViewItem *allowedItem)
 {
+    if (m_allUsers.isEmpty()) {
+        struct passwd *user = nullptr;
+        setpwent();
+        while ((user = getpwent()) != nullptr) {
+            m_allUsers << QString::fromLatin1(user->pw_name);
+        }
+        endpwent();
+        m_allUsers.sort();
+    }
+
     QStringList allowedUsers = m_allUsers;
     QTreeWidgetItemIterator it(this);
     while (*it) {
@@ -662,6 +655,16 @@ QStringList KACLListView::allowedUsers(bool defaults, KACLListViewItem *allowedI
 
 QStringList KACLListView::allowedGroups(bool defaults, KACLListViewItem *allowedItem)
 {
+    if (m_allGroups.isEmpty()) {
+        struct group *gr = nullptr;
+        setgrent();
+        while ((gr = getgrent()) != nullptr) {
+            m_allGroups << QString::fromLatin1(gr->gr_name);
+        }
+        endgrent();
+        m_allGroups.sort();
+    }
+
     QStringList allowedGroups = m_allGroups;
     QTreeWidgetItemIterator it(this);
     while (*it) {
