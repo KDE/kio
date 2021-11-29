@@ -1923,9 +1923,7 @@ KFilePermissionsPropsPlugin::KFilePermissionsPropsPlugin(KPropertiesDialog *_pro
     }
 
     /*** Set Group ***/
-
-    KUser user(KUser::UseEffectiveUID);
-    QStringList groupList = user.groupNames();
+    QStringList groupList = myself.groupNames();
     const bool isMyGroup = groupList.contains(d->strGroup);
 
     /* add the group the file currently belongs to ..
