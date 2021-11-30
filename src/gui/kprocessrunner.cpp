@@ -32,6 +32,7 @@
 #include <QProcess>
 #include <QStandardPaths>
 #include <QString>
+#include <QTimer>
 #include <QUuid>
 
 #ifdef Q_OS_WIN
@@ -259,7 +260,6 @@ void KProcessRunner::init(const KService::Ptr &service,
     Q_UNUSED(iconName);
 #endif
 
-    bool waitingForXdgToken = false;
     if (KWindowSystem::isPlatformWayland()) {
         if (!asn.isEmpty()) {
             m_process->setEnv(QStringLiteral("XDG_ACTIVATION_TOKEN"), QString::fromUtf8(asn));
@@ -274,7 +274,7 @@ void KProcessRunner::init(const KService::Ptr &service,
                 }
                 if (window) {
                     const int launchedSerial = KWindowSystem::lastInputSerial(window);
-                    waitingForXdgToken = true;
+                    m_waitingForXdgToken = true;
                     connect(this, &KProcessRunner::xdgActivationTokenArrived, m_process.get(), [this] {
                         startProcess();
                     });
@@ -285,6 +285,7 @@ void KProcessRunner::init(const KService::Ptr &service,
                                 if (tokenSerial == launchedSerial) {
                                     m_process->setEnv(QStringLiteral("XDG_ACTIVATION_TOKEN"), token);
                                     Q_EMIT xdgActivationTokenArrived();
+                                    m_waitingForXdgToken = false;
                                 }
                             });
                     KWindowSystem::requestXdgActivationToken(window, launchedSerial, QFileInfo(m_serviceEntryPath).completeBaseName());
@@ -316,7 +317,7 @@ void KProcessRunner::init(const KService::Ptr &service,
         m_description = userVisibleName;
     }
 
-    if (!waitingForXdgToken) {
+    if (!m_waitingForXdgToken) {
         startProcess();
     }
 }
@@ -331,6 +332,12 @@ void ForkingProcessRunner::startProcess()
 
 bool ForkingProcessRunner::waitForStarted(int timeout)
 {
+    if (m_process->state() == QProcess::NotRunning && m_waitingForXdgToken) {
+        QEventLoop loop;
+        QObject::connect(m_process.get(), &QProcess::stateChanged, &loop, &QEventLoop::quit);
+        QTimer::singleShot(timeout, &loop, &QEventLoop::quit);
+        loop.exec();
+    }
     return m_process->waitForStarted(timeout);
 }
 

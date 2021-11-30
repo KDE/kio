@@ -140,6 +140,7 @@ protected:
     qint64 m_pid = 0;
     KService::Ptr m_service;
     QString m_serviceEntryPath;
+    bool m_waitingForXdgToken = false;
 
 private:
     void emitDelayedError(const QString &errorMsg);
