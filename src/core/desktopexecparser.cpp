@@ -561,10 +561,8 @@ QString KIO::DesktopExecParser::executablePath(const QString &execLine)
 {
     // Remove parameters and/or trailing spaces.
     const QStringList args = KShell::splitArgs(execLine, KShell::AbortOnMeta | KShell::TildeExpand);
-    for (const QString &arg : args) {
-        if (!arg.contains(QLatin1Char('='))) {
-            return arg;
-        }
-    }
-    return QString();
+    auto it = std::find_if(args.cbegin(), args.cend(), [](const QString &arg) {
+        return !arg.contains(QLatin1Char('='));
+    });
+    return it != args.cend() ? *it : QString{};
 }

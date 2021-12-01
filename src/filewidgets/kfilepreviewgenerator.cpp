@@ -191,7 +191,7 @@ public:
     class DataChangeObtainer
     {
     public:
-        DataChangeObtainer(KFilePreviewGeneratorPrivate *generator)
+        explicit DataChangeObtainer(KFilePreviewGeneratorPrivate *generator)
             : m_gen(generator)
         {
             ++m_gen->m_internalDataChange;
@@ -596,19 +596,15 @@ void KFilePreviewGeneratorPrivate::addToPreviewQueue(const KFileItem &item, cons
         return;
     }
 
-    // check whether the item is part of the directory lister (it is possible
-    // that a preview from an old directory lister is received)
-    bool isOldPreview = true;
-
     const QUrl itemParentDir = item.url().adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash);
 
     const QList<QUrl> dirs = dirModel->dirLister()->directories();
-    for (const QUrl &dir : dirs) {
-        if (dir == itemParentDir || dir.path().isEmpty()) {
-            isOldPreview = false;
-            break;
-        }
-    }
+
+    // check whether the item is part of the directory lister (it is possible
+    // that a preview from an old directory lister is received)
+    const bool isOldPreview = std::none_of(dirs.cbegin(), dirs.cend(), [&itemParentDir](const QUrl &dir) {
+        return dir == itemParentDir || dir.path().isEmpty();
+    });
     if (isOldPreview) {
         return;
     }

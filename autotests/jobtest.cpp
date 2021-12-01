@@ -132,7 +132,7 @@ void JobTest::cleanupTestCase()
 
 struct ScopedCleaner {
     using Func = std::function<void()>;
-    ScopedCleaner(Func f)
+    explicit ScopedCleaner(Func f)
         : m_f(std::move(f))
     {
     }

@@ -1349,8 +1349,7 @@ bool TrashImpl::adaptTrashSize(const QString &origPath, int trashId)
         for (const auto &info : infoList) {
             del(trashId, info.fileName()); // delete trashed file
 
-            TrashSizeCache trashSize(trashPath);
-            if (util.usage(trashSize.calculateSize() + additionalSize) < percent) { // check whether we have enough space now
+            if (util.usage(TrashSizeCache(trashPath).calculateSize() + additionalSize) < percent) { // check whether we have enough space now
                 return true;
             }
         }

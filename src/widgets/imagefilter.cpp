@@ -46,29 +46,23 @@ static const quint32 stack_blur8_shr[255] = {
 
 inline static void blurHorizontal(QImage &image, unsigned int *stack, int div, int radius)
 {
-    int stackindex;
-    int stackstart;
 
     quint32 *const pixels = reinterpret_cast<quint32 *>(image.bits());
-    quint32 pixel;
+    quint32 pixel = 0;
 
-    int w = image.width();
-    int h = image.height();
-    int wm = w - 1;
+    const int width = image.width();
+    const int height = image.height();
+    const int wm = width - 1;
 
-    unsigned int mul_sum = stack_blur8_mul[radius];
-    unsigned int shr_sum = stack_blur8_shr[radius];
+    const unsigned int mul_sum = stack_blur8_mul[radius];
+    const unsigned int shr_sum = stack_blur8_shr[radius];
 
-    unsigned int sum;
-    unsigned int sum_in;
-    unsigned int sum_out;
+    for (int y = 0; y < height; y++) {
+        unsigned int sum = 0;
+        unsigned int sum_in = 0;
+        unsigned int sum_out = 0;
 
-    for (int y = 0; y < h; y++) {
-        sum = 0;
-        sum_in = 0;
-        sum_out = 0;
-
-        const int yw = y * w;
+        const int yw = y * width;
         pixel = pixels[yw];
         for (int i = 0; i <= radius; i++) {
             stack[i] = qAlpha(pixel);
@@ -87,13 +81,13 @@ inline static void blurHorizontal(QImage &image, unsigned int *stack, int div, i
             sum_in += *stackpix;
         }
 
-        stackindex = radius;
-        for (int x = 0, i = yw; x < w; x++) {
+        int stackindex = radius;
+        for (int x = 0, i = yw; x < width; x++) {
             pixels[i++] = (((sum * mul_sum) >> shr_sum) << 24) & 0xff000000;
 
             sum -= sum_out;
 
-            stackstart = stackindex + div - radius;
+            int stackstart = stackindex + div - radius;
             if (stackstart >= div) {
                 stackstart -= div;
             }

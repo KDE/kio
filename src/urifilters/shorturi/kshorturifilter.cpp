@@ -423,9 +423,9 @@ bool KShortUriFilter::filterUri(KUriFilterData &data) const
             qCDebug(category) << "testing regexp for" << hint.prepend;
             if (hint.hintRe.match(cmd).capturedStart() == 0) {
                 const QString cmdStr = hint.prepend + cmd;
-                QUrl url(cmdStr);
-                qCDebug(category) << "match - prepending" << hint.prepend << "->" << cmdStr << "->" << url;
-                setFilteredUri(data, url);
+                QUrl cmdUrl(cmdStr);
+                qCDebug(category) << "match - prepending" << hint.prepend << "->" << cmdStr << "->" << cmdUrl;
+                setFilteredUri(data, cmdUrl);
                 setUriType(data, hint.type);
                 return true;
             }
@@ -448,11 +448,11 @@ bool KShortUriFilter::filterUri(KUriFilterData &data) const
             }
             urlStr += cmd;
 
-            QUrl url(urlStr);
-            if (url.isValid()) {
-                setFilteredUri(data, url);
+            QUrl fixedUrl(urlStr);
+            if (fixedUrl.isValid()) {
+                setFilteredUri(data, fixedUrl);
                 setUriType(data, KUriFilterData::NetProtocol);
-            } else if (isKnownProtocol(url.scheme())) {
+            } else if (isKnownProtocol(fixedUrl.scheme())) {
                 setFilteredUri(data, data.uri());
                 setUriType(data, KUriFilterData::Error);
             }

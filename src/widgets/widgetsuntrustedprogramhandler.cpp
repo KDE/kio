@@ -39,7 +39,7 @@ class SecureMessageDialog : public QDialog
 {
     Q_OBJECT
 public:
-    SecureMessageDialog(QWidget *parent)
+    explicit SecureMessageDialog(QWidget *parent)
         : QDialog(parent)
         , m_textEdit(nullptr)
     {

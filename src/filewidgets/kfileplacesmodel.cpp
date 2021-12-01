@@ -325,10 +325,10 @@ KFilePlacesModel::KFilePlacesModel(const QString &alternativeApplicationName, QO
         }
 
         if (!newFile && fileVersion < 3) {
-            KBookmarkGroup root = d->bookmarkManager->root();
-            KBookmark bItem = root.first();
+            KBookmarkGroup rootGroup = d->bookmarkManager->root();
+            KBookmark bItem = rootGroup.first();
             while (!bItem.isNull()) {
-                KBookmark nextbItem = root.next(bItem);
+                KBookmark nextbItem = rootGroup.next(bItem);
                 const bool isSystemItem = bItem.metaDataItem(QStringLiteral("isSystemItem")) == QLatin1String("true");
                 if (isSystemItem) {
                     const QString text = bItem.fullText();
@@ -347,11 +347,11 @@ KFilePlacesModel::KFilePlacesModel(const QString &alternativeApplicationName, QO
                     } else if (text == QLatin1String("This Month")) {
                         // Because of 7e1d2fb84546506c91684dd222c2485f0783848f we need to find the system bookmark named This Month
                         // and remove it, otherwise users are getting untranslated strings
-                        root.deleteBookmark(bItem);
+                        rootGroup.deleteBookmark(bItem);
                     } else if (text == QLatin1String("Last Month")) {
                         // Because of 7e1d2fb84546506c91684dd222c2485f0783848f we need to find the system bookmark named Last Month
                         // and remove it, otherwise users are getting untranslated strings
-                        root.deleteBookmark(bItem);
+                        rootGroup.deleteBookmark(bItem);
                     }
                 }
 

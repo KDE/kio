@@ -1169,12 +1169,12 @@ void KUrlCompletionPrivate::_k_slotEntries(KIO::Job *, const KIO::UDSEntryList &
 
     // Iterate over all files
     for (const auto &entry : entries) {
-        const QString url = entry.stringValue(KIO::UDSEntry::UDS_URL);
+        const QString udsUrl = entry.stringValue(KIO::UDSEntry::UDS_URL);
 
         QString entry_name;
-        if (!url.isEmpty()) {
+        if (!udsUrl.isEmpty()) {
             // qDebug() << "url:" << url;
-            entry_name = QUrl(url).fileName();
+            entry_name = QUrl(udsUrl).fileName();
         } else {
             entry_name = entry.stringValue(KIO::UDSEntry::UDS_NAME);
         }
@@ -1342,9 +1342,7 @@ void KUrlCompletionPrivate::slotCompletionThreadDone(QThread *thread, const QStr
         thread->wait();
         delete thread;
         userListThread = nullptr;
-    }
-
-    if (dirListThread == thread) {
+    } else if (dirListThread == thread) {
         thread->wait();
         delete thread;
         dirListThread = nullptr;

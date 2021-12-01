@@ -1313,17 +1313,17 @@ bool KCookieJar::saveCookies(const QString &_filename)
                 const QString host = hostWithPort(&cookie);
 
                 // TODO: replace with direct QTextStream output ?
-                const QString str = QString::asprintf("%-20s %-20s %-12s %10lld  %3d %-20s %-4i %s\n",
-                                                      host.toLatin1().constData(),
-                                                      domain.toLatin1().constData(),
-                                                      path.toLatin1().constData(),
-                                                      cookie.expireDate(),
-                                                      cookie.protocolVersion(),
-                                                      cookie.name().isEmpty() ? cookie.value().toLatin1().constData() : cookie.name().toLatin1().constData(),
-                                                      (cookie.isSecure() ? 1 : 0) + (cookie.isHttpOnly() ? 2 : 0) + (cookie.hasExplicitPath() ? 4 : 0)
-                                                          + (cookie.name().isEmpty() ? 8 : 0),
-                                                      cookie.value().toLatin1().constData());
-                ts << str.toLatin1();
+                const QString fullStr = QString::asprintf(
+                    "%-20s %-20s %-12s %10lld  %3d %-20s %-4i %s\n",
+                    host.toLatin1().constData(),
+                    domain.toLatin1().constData(),
+                    path.toLatin1().constData(),
+                    cookie.expireDate(),
+                    cookie.protocolVersion(),
+                    cookie.name().isEmpty() ? cookie.value().toLatin1().constData() : cookie.name().toLatin1().constData(),
+                    (cookie.isSecure() ? 1 : 0) + (cookie.isHttpOnly() ? 2 : 0) + (cookie.hasExplicitPath() ? 4 : 0) + (cookie.name().isEmpty() ? 8 : 0),
+                    cookie.value().toLatin1().constData());
+                ts << fullStr.toLatin1();
             }
         }
     }
@@ -1450,7 +1450,6 @@ bool KCookieJar::loadCookies(const QString &_filename)
             }
             int protVer = verStr.toInt();
             QString name = QLatin1String(parseField(line));
-            bool keepQuotes = false;
             bool secure = false;
             bool httpOnly = false;
             bool explicitPath = false;
@@ -1469,6 +1468,7 @@ bool KCookieJar::loadCookies(const QString &_filename)
                 line[strlen(line) - 1] = '\0'; // Strip LF.
                 value = line;
             } else {
+                bool keepQuotes = false;
                 if (protVer >= 100) {
                     protVer -= 100;
                     keepQuotes = true;

@@ -257,8 +257,8 @@ void KIO::OpenUrlJobPrivate::useSchemeHandler()
         m_mimeTypeName = KProtocolManager::defaultMimetype(m_url);
         runUrlWithMimeType();
     } else {
-        KService::Ptr service(new KService(QString(), exec, QString()));
-        startService(service);
+        KService::Ptr servicePtr(new KService(QString(), exec, QString()));
+        startService(servicePtr);
     }
 }
 

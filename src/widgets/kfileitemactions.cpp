@@ -604,11 +604,9 @@ QPair<int, QMenu *> KFileItemActionsPrivate::addServiceActionsTo(QMenu *mainMenu
 
             ServiceList &list = s.selectList(priority, submenuName);
             const ServiceList userServices = KDesktopFileActions::userDefinedServices(KService(file), isLocal, urlList);
-            for (const KServiceAction &action : userServices) {
-                if (showGroup.readEntry(action.name(), true) && !excludeList.contains(action.name())) {
-                    list += action;
-                }
-            }
+            std::copy_if(userServices.cbegin(), userServices.cend(), std::back_inserter(list), [&excludeList, &showGroup](const KServiceAction &srvAction) {
+                return showGroup.readEntry(srvAction.name(), true) && !excludeList.contains(srvAction.name());
+            });
         }
     }
 

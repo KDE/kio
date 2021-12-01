@@ -42,7 +42,7 @@ class JobSpy : public QObject
 {
     Q_OBJECT
 public:
-    JobSpy(KIO::Job *job)
+    explicit JobSpy(KIO::Job *job)
         : QObject(nullptr)
         , m_spy(job, &KJob::result)
         , m_error(0)

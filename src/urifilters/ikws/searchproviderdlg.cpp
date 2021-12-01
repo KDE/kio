@@ -94,17 +94,20 @@ void SearchProviderDialog::shortcutsChanged(const QString &newShorthands)
     const QStringList normList = normalizedShorthands.split(QLatin1Char(','));
     const QSet<QString> shorthands(normList.begin(), normList.end());
 
+    auto findProvider = [this](const QString &shorthand) {
+        return std::find_if(m_providers.cbegin(), m_providers.cend(), [this, &shorthand](const SearchProvider *provider) {
+            return provider != m_provider && provider->keys().contains(shorthand);
+        });
+    };
     // Look at each shorthand the user entered and wade through the search
     // provider list in search of a conflicting shorthand. Do not continue
     // search after finding one, because shorthands should be assigned only
     // once. Act like data inconsistencies regarding this don't exist (should
     // probably be handled on load).
     for (const QString &shorthand : shorthands) {
-        for (const SearchProvider *provider : std::as_const(m_providers)) {
-            if (provider != m_provider && provider->keys().contains(shorthand)) {
-                contenders.insert(shorthand, provider);
-                break;
-            }
+        auto it = findProvider(shorthand);
+        if (it != m_providers.cend()) {
+            contenders.insert(shorthand, *it);
         }
     }
 

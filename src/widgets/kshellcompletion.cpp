@@ -61,18 +61,9 @@ QString KShellCompletion::makeCompletion(const QString &text)
 
     // Do exe-completion if there was no unquoted space
     //
-    bool is_exe_completion = true;
+    const bool is_exe_completion = !d->m_text_start.contains(d->m_word_break_char);
 
-    for (const QChar ch : std::as_const(d->m_text_start)) {
-        if (ch != d->m_word_break_char) {
-            is_exe_completion = false;
-            break;
-        }
-    }
-
-    Mode mode = (is_exe_completion ? ExeCompletion : FileCompletion);
-
-    setMode(mode);
+    setMode(is_exe_completion ? ExeCompletion : FileCompletion);
 
     // Make completion on the last part of text
     //
@@ -153,10 +144,9 @@ void KShellCompletionPrivate::splitText(const QString &text, QString &text_start
     bool escaped = false;
     QChar p_last_quote_char;
     int last_unquoted_space = -1;
-    int end_space_len = 0;
 
     for (int pos = 0; pos < text.length(); pos++) {
-        end_space_len = 0;
+        int end_space_len = 0;
 
         if (escaped) {
             escaped = false;

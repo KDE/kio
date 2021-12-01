@@ -121,13 +121,13 @@ void FavIconTest::hostJobShouldDownloadIconThenUseCache()
     // The code from the class docu
     QString goticonFile;
     {
-        KIO::FavIconRequestJob *job = new KIO::FavIconRequestJob(url);
-        connect(job, &KIO::FavIconRequestJob::result, this, [job, &goticonFile](KJob *) {
-            if (!job->error()) {
-                goticonFile = job->iconFile();
+        KIO::FavIconRequestJob *favJob = new KIO::FavIconRequestJob(url);
+        connect(favJob, &KIO::FavIconRequestJob::result, this, [favJob, &goticonFile](KJob *) {
+            if (!favJob->error()) {
+                goticonFile = favJob->iconFile();
             }
         });
-        QVERIFY(job->exec());
+        QVERIFY(favJob->exec());
     }
     QCOMPARE(goticonFile, iconFile);
 }

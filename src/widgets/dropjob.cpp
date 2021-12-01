@@ -280,13 +280,9 @@ void DropJobPrivate::fillPopupMenu(KIO::DropMenu *popup)
     popupLinkAction->setData(QVariant::fromValue(Qt::LinkAction));
 
     if (sMoving || (sReading && sDeleting)) {
-        bool equalDestination = true;
-        for (const QUrl &src : m_urls) {
-            if (!m_destUrl.matches(src.adjusted(QUrl::RemoveFilename), QUrl::StripTrailingSlash)) {
-                equalDestination = false;
-                break;
-            }
-        }
+        const bool equalDestination = std::all_of(m_urls.cbegin(), m_urls.cend(), [this](const QUrl &src) {
+            return m_destUrl.matches(src.adjusted(QUrl::RemoveFilename), QUrl::StripTrailingSlash);
+        });
 
         if (!equalDestination) {
             popup->addAction(popupMoveAction);

@@ -46,10 +46,10 @@ qint64 DiscSpaceUtil::sizeOfPath(const QString &path)
 
         qint64 sum = 0;
         while (it.hasNext()) {
-            const QFileInfo info = it.next();
+            const QFileInfo fileInfo = it.next();
 
-            if (info.fileName() != QLatin1String(".") && info.fileName() != QLatin1String("..")) {
-                sum += sizeOfPath(info.absoluteFilePath());
+            if (fileInfo.fileName() != QLatin1String(".") && fileInfo.fileName() != QLatin1String("..")) {
+                sum += sizeOfPath(fileInfo.absoluteFilePath());
             }
         }
 

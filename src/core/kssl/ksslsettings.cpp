@@ -21,23 +21,23 @@ public:
     }
     QString name;
     int keylen;
-    inline int operator==(CipherNode &x)
+    inline int operator==(const CipherNode &x)
     {
-        return ((x.keylen == keylen) && (x.name == name));
+        return x.keylen == keylen && x.name == name;
     }
-    inline int operator<(CipherNode &x)
+    inline int operator<(const CipherNode &x)
     {
         return keylen < x.keylen;
     }
-    inline int operator<=(CipherNode &x)
+    inline int operator<=(const CipherNode &x)
     {
         return keylen <= x.keylen;
     }
-    inline int operator>(CipherNode &x)
+    inline int operator>(const CipherNode &x)
     {
         return keylen > x.keylen;
     }
-    inline int operator>=(CipherNode &x)
+    inline int operator>=(const CipherNode &x)
     {
         return keylen >= x.keylen;
     }

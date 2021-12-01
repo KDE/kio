@@ -41,13 +41,12 @@ QString HelpProtocol::langLookup(const QString &fname)
     langs.append(QStringLiteral("en"));
     langs.removeAll(QStringLiteral("C"));
 
+    auto shouldReplace = [](const QString &l) {
+        return l == QLatin1String("en_US");
+    };
     // this is kind of compat hack as we install our docs in en/ but the
     // default language is en_US
-    for (QString &lang : langs) {
-        if (lang == QLatin1String("en_US")) {
-            lang = QStringLiteral("en");
-        }
-    }
+    std::replace_if(langs.begin(), langs.end(), shouldReplace, QStringLiteral("en"));
 
     // look up the different languages
     int ldCount = localDoc.count();

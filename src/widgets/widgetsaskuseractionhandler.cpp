@@ -27,7 +27,7 @@
 class KIO::WidgetsAskUserActionHandlerPrivate
 {
 public:
-    WidgetsAskUserActionHandlerPrivate(WidgetsAskUserActionHandler *qq)
+    explicit WidgetsAskUserActionHandlerPrivate(WidgetsAskUserActionHandler *qq)
         : q(qq)
     {
     }

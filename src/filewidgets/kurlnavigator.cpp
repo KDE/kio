@@ -625,13 +625,12 @@ void KUrlNavigatorPrivate::updateButtons(int startIndex)
 
     const QString path = currentUrl.path();
 
-    bool createButton = false;
     const int oldButtonCount = m_navButtons.count();
 
     int idx = startIndex;
     bool hasNext = true;
     do {
-        createButton = (idx - startIndex >= oldButtonCount);
+        const bool createButton = (idx - startIndex) >= oldButtonCount;
         const bool isFirstButton = (idx == startIndex);
         const QString dirName = path.section(QLatin1Char('/'), idx, idx);
         hasNext = isFirstButton || !dirName.isEmpty();
@@ -718,11 +717,11 @@ void KUrlNavigatorPrivate::updateButtonVisibility()
         availableWidth -= m_protocols->width();
     }
 
+    auto MinWidth = [](const KUrlNavigatorButton *button) {
+        return button->minimumWidth();
+    };
     // Check whether buttons must be hidden at all...
-    int requiredButtonWidth = 0;
-    for (const KUrlNavigatorButton *button : std::as_const(m_navButtons)) {
-        requiredButtonWidth += button->minimumWidth();
-    }
+    const int requiredButtonWidth = std::transform_reduce(m_navButtons.cbegin(), m_navButtons.cend(), 0, std::plus<>(), MinWidth);
 
     if (requiredButtonWidth > availableWidth) {
         // At least one button must be hidden. This implies that the

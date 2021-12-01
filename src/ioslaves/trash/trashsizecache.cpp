@@ -168,9 +168,9 @@ TrashSizeCache::SizeAndModTime TrashSizeCache::calculateSizeAndLatestModDate()
         } else {
             // directories
             bool usableCache = false;
-            auto it = dirCache.constFind(QFile::encodeName(fileName));
-            if (it != dirCache.constEnd()) {
-                const SizeAndModTime &data = *it;
+            auto dirIt = dirCache.constFind(QFile::encodeName(fileName));
+            if (dirIt != dirCache.constEnd()) {
+                const SizeAndModTime &data = *dirIt;
                 const auto trashFileInfo = getTrashFileInfo(fileName);
                 if (trashFileInfo.exists() && trashFileInfo.lastModified().toMSecsSinceEpoch() == data.mtime) {
                     sum += data.size;
