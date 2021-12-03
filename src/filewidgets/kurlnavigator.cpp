@@ -101,9 +101,13 @@ public:
     void dropUrls(const QUrl &destination, QDropEvent *event, KUrlNavigatorButton *dropButton);
 
     /**
-     * Is invoked when a navigator button has been clicked. Changes the URL
-     * of the navigator if the left mouse button has been used. If the middle
-     * mouse button has been used, the signal tabRequested() will be emitted.
+     * Is invoked when a navigator button has been clicked.
+     * Different combinations of mouse clicks and keyboard modifiers have different effects on how
+     * the url is opened. The behaviours are the following:
+     * - shift+middle-click or ctrl+shift+left-click => activeTabRequested() signal is emitted
+     * - ctrl+left-click or middle-click => tabRequested() signal is emitted
+     * - shift+left-click => newWindowRequested() signal is emitted
+     * - left-click => open the new url in-place
      */
     void slotNavigatorButtonClicked(const QUrl &url, Qt::MouseButton button, Qt::KeyboardModifiers modifiers);
 
@@ -467,8 +471,12 @@ void KUrlNavigatorPrivate::dropUrls(const QUrl &destination, QDropEvent *event, 
 
 void KUrlNavigatorPrivate::slotNavigatorButtonClicked(const QUrl &url, Qt::MouseButton button, Qt::KeyboardModifiers modifiers)
 {
-    if (button & Qt::MiddleButton || (button & Qt::LeftButton && modifiers & Qt::ControlModifier)) {
+    if ((button & Qt::MiddleButton && modifiers & Qt::ShiftModifier) || (button & Qt::LeftButton && modifiers & (Qt::ControlModifier | Qt::ShiftModifier))) {
+        Q_EMIT q->activeTabRequested(url);
+    } else if (button & Qt::MiddleButton || (button & Qt::LeftButton && modifiers & Qt::ControlModifier)) {
         Q_EMIT q->tabRequested(url);
+    } else if (button & Qt::LeftButton && modifiers & Qt::ShiftModifier) {
+        Q_EMIT q->newWindowRequested(url);
     } else if (button & Qt::LeftButton) {
         q->setLocationUrl(url);
     }
