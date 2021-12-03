@@ -42,6 +42,7 @@ public:
         StoredTransferJob *job = new StoredTransferJob(*new StoredTransferJobPrivate(url, command, packedArgs, staticData));
         job->setUiDelegate(KIO::createDefaultJobUiDelegate());
         if (!(flags & HideProgressInfo)) {
+            JobPrivate::setTransient(job);
             KIO::getJobTracker()->registerJob(job);
         }
         if (!(flags & NoPrivilegeExecution)) {
@@ -56,6 +57,7 @@ public:
         StoredTransferJob *job = new StoredTransferJob(*new StoredTransferJobPrivate(url, command, packedArgs, ioDevice));
         job->setUiDelegate(KIO::createDefaultJobUiDelegate());
         if (!(flags & HideProgressInfo)) {
+            JobPrivate::setTransient(job);
             KIO::getJobTracker()->registerJob(job);
         }
         if (!(flags & NoPrivilegeExecution)) {
