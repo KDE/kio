@@ -1,0 +1,143 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % French "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="netpref" lang="&language;">
+<articleinfo>
+<title
+>Préférences de connexion</title>
+<authorgroup>
+<author
+>&Lauri.Watts; &Lauri.Watts.mail;</author>
+
+&traducteurJoelleCornavin;&traducteurGerardDelafond;&traducteurYvesDessertine; 
+</authorgroup>
+
+<date
+>10-11-2016</date>
+<releaseinfo
+>Environnement de développement 5.29</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdebase</keyword>
+<keyword
+>Kcontrol</keyword>
+<keyword
+>réseau</keyword>
+<keyword
+>temporisations</keyword>
+</keywordset>
+
+</articleinfo>
+
+<sect1 id="timeouts">
+
+<title
+>Préférences de connexion</title>
+
+<para
+>Vous pouvez régler ici des valeurs de temporisation. Vous serez peut-être amené à les modifier si votre connexion est très lente, mais les paramètres par défaut sont corrects pour la plupart des utilisateurs.</para>
+
+<para
+>Les <guilabel
+>Valeurs des délais</guilabel
+> correspondent à la durée pendant laquelle une application doit attendre une réponse provenant d'une opération réseau.</para>
+
+<para
+>Vous pouvez configurer les temporisations suivantes : </para>
+
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>Lecture d'un socket : </guilabel
+></term>
+<listitem>
+<para
+>Certaines applications utilisent des <firstterm
+>sockets</firstterm
+> pour communiquer. Un socket peut se comparer à un robinet ; lorsqu'il est ouvert, l'eau (dans notre cas, les données) coule sans aucune intervention. Si quoi que ce soit arrête ce flux de données, l'application attend qu'il en arrive d'autres. Ceci peut prendre beaucoup de temps, mais cette option permet de configurer une durée maximale d'attente pour une application.</para>
+<para
+>Ce paramètre ne concerne naturellement que les applications &kde;.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Connexion à un serveur mandataire : </guilabel
+></term>
+<listitem>
+<para
+>Fixe la durée d'attente d'une connexion à un serveur mandataire, s'il en existe un qui soit configuré. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Connexion à un serveur : </guilabel
+></term>
+<listitem>
+<para
+>Fixe la durée d'attente d'une connexion à un serveur distant. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Réponse d'un serveur : </guilabel
+></term>
+<listitem>
+<para
+>Fixe la durée d'attente d'une réponse provenant d'un serveur distant. </para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+<para
+>Vous pouvez configurer ici les <guilabel
+>Options FTP</guilabel
+>. Pour le moment, il n'y a que deux options : </para>
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>Activer le mode passif (PASV)</guilabel
+></term>
+<listitem
+><para
+>Le &FTP; passif est souvent requis lorsque vous êtes derrière un pare-feu. De nombreux pare-feu ne permettent que des connexions ayant été initiées de <quote
+>l'intérieur</quote
+>. Le &FTP; passif est géré par le client, ce qui le rend utilisable via les pare-feu.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Marquer les fichiers partiellement envoyés</guilabel
+></term>
+<listitem
+><para
+>Lorsque vous cochez cette case, les fichiers partiellement téléchargés auront une extension <literal role="extension"
+>.part</literal
+> ajoutée la fin de leur nom. cette extension sera supprimée lorsque le téléchargement est complet.</para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+
+
+</sect1>
+</article>
