@@ -766,7 +766,8 @@ PreviewJobPrivate::CachePolicy PreviewJobPrivate::canBeCached(const QString &pat
 {
     // If checked file is directory on a different filesystem than its parent, we need to check it separately
     int separatorIndex = path.lastIndexOf(QLatin1Char('/'));
-    QString parentDirPath = path.left(separatorIndex);
+    // special case for root folders
+    const QString parentDirPath = separatorIndex == 0 ? path : path.left(separatorIndex);
 
     int parentId = getDeviceId(parentDirPath);
     if (parentId == idUnknown) {
@@ -816,7 +817,7 @@ int PreviewJobPrivate::getDeviceId(const QString &path)
     }
     QUrl url = QUrl::fromLocalFile(path);
     if (!url.isValid()) {
-        qCWarning(KIO_WIDGETS) << "Invalid url" << path;
+        qCWarning(KIO_WIDGETS) << "Could not get device id for file preview, Invalid url" << path;
         return 0;
     }
     state = PreviewJobPrivate::STATE_DEVICE_INFO;
