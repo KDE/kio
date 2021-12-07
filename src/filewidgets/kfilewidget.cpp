@@ -660,6 +660,9 @@ KFileWidget::~KFileWidget()
 {
     KSharedConfig::Ptr config = KSharedConfig::openConfig();
     config->sync();
+    d->m_ops->removeEventFilter(this);
+    d->m_iconSizeSlider->removeEventFilter(this);
+    d->m_locationEdit->removeEventFilter(this);
 }
 
 void KFileWidget::setLocationLabel(const QString &text)

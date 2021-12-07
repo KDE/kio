@@ -805,7 +805,10 @@ void KOpenWithDialogPrivate::init(const QString &_text, const QString &_value)
 
 // ----------------------------------------------------------------------
 
-KOpenWithDialog::~KOpenWithDialog() = default;
+KOpenWithDialog::~KOpenWithDialog()
+{
+    d->edit->removeEventFilter(this);
+};
 
 // ----------------------------------------------------------------------
 

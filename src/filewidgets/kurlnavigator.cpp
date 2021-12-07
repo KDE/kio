@@ -910,7 +910,14 @@ KUrlNavigator::KUrlNavigator(KFilePlacesModel *placesModel, const QUrl &url, QWi
     d->updateContent();
 }
 
-KUrlNavigator::~KUrlNavigator() = default;
+KUrlNavigator::~KUrlNavigator()
+{
+    d->m_dropDownButton->removeEventFilter(this);
+    d->m_pathBox->removeEventFilter(this);
+    for (auto *button : std::as_const(d->m_navButtons)) {
+        button->removeEventFilter(this);
+    }
+}
 
 QUrl KUrlNavigator::locationUrl(int historyIndex) const
 {

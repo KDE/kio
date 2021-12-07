@@ -321,7 +321,11 @@ KUrlRequester::KUrlRequester(const QUrl &url, QWidget *parent)
     setUrl(url);
 }
 
-KUrlRequester::~KUrlRequester() = default;
+KUrlRequester::~KUrlRequester()
+{
+    QWidget *widget = d->combo ? static_cast<QWidget *>(d->combo) : static_cast<QWidget *>(d->edit);
+    widget->removeEventFilter(this);
+}
 
 void KUrlRequester::KUrlRequesterPrivate::init()
 {
