@@ -38,6 +38,7 @@
 #endif
 #include <algorithm>
 #include <kio_widgets_debug.h>
+#include <set>
 
 static bool KIOSKAuthorizedAction(const KConfigGroup &cfg)
 {
@@ -927,16 +928,23 @@ QStringList KFileItemActionsPrivate::serviceMenuFilePaths()
     QStringList filePaths;
 
     // Use old KServiceTypeTrader code path
+    std::set<QString> uniqueFileNames;
 #if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 85)
     const KService::List entries = KServiceTypeTrader::self()->query(QStringLiteral("KonqPopupMenu/Plugin"));
     for (const KServicePtr &entry : entries) {
         filePaths << QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("kservices5/") + entry->entryPath());
+        uniqueFileNames.insert(entry->entryPath().split(QLatin1Char('/')).last());
     }
 #endif
     // Load servicemenus from new install location
     const QStringList paths =
         QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("kio/servicemenus"), QStandardPaths::LocateDirectory);
-    filePaths << KFileUtils::findAllUniqueFiles(paths, QStringList(QStringLiteral("*.desktop")));
+    const QStringList fromDisk = KFileUtils::findAllUniqueFiles(paths, QStringList(QStringLiteral("*.desktop")));
+    for (const QString &fileFromDisk : fromDisk) {
+        if (auto [_, inserted] = uniqueFileNames.insert(fileFromDisk.split(QLatin1Char('/')).last()); inserted) {
+            filePaths << fileFromDisk;
+        }
+    }
     return filePaths;
 }
 
