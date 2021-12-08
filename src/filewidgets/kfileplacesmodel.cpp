@@ -163,8 +163,7 @@ public:
 
                     if (!existingBookmarks.contains(QUrl(tagsUrlBase))) {
                         KBookmark alltags = KFilePlacesItem::createSystemBookmark(bookmarkManager,
-                                                                                  "All tags",
-                                                                                  i18n("All tags").toUtf8().data(),
+                                                                                  I18NC_NOOP("KFile System Bookmarks", "All tags"),
                                                                                   QUrl(tagsUrlBase),
                                                                                   QStringLiteral("tag"));
                     }
