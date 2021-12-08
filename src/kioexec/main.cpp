@@ -37,8 +37,6 @@
 #include <QX11Info>
 #endif
 
-static const char description[] = I18N_NOOP("KIO Exec - Opens remote files, watches modifications, asks for upload");
-
 KIOExec::KIOExec(const QStringList &args, bool tempFiles, const QString &suggestedFileName)
     : mExited(false)
     , mTempFiles(tempFiles)
@@ -282,7 +280,7 @@ int main(int argc, char **argv)
     KAboutData aboutData(QStringLiteral("kioexec"),
                          i18n("KIOExec"),
                          QStringLiteral(KIO_VERSION_STRING),
-                         i18n(description),
+                         i18n("KIO Exec - Opens remote files, watches modifications, asks for upload"),
                          KAboutLicense::GPL,
                          i18n("(c) 1998-2000,2003 The KFM/Konqueror Developers"));
     aboutData.addAuthor(i18n("David Faure"), QString(), QStringLiteral("faure@kde.org"));

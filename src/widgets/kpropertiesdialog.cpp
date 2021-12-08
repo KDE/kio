@@ -92,6 +92,7 @@ extern "C" {
 #include <KIconButton>
 #include <KJobUiDelegate>
 #include <KJobWidgets>
+#include <KLazyLocalizedString>
 #include <KLineEdit>
 #include <KLocalizedString>
 #include <KMessageBox>
@@ -1708,11 +1709,11 @@ constexpr mode_t KFilePermissionsPropsPlugin::permissionsMasks[3] = {UniOwner, U
 constexpr mode_t KFilePermissionsPropsPlugin::standardPermissions[4] = {0, UniRead, UniRead | UniWrite, s_invalid_mode_t};
 
 // synced with PermissionsMode and standardPermissions
-const char *const KFilePermissionsPropsPlugin::permissionsTexts[4][4] = {
-    {I18N_NOOP("No Access"), I18N_NOOP("Can Only View"), I18N_NOOP("Can View & Modify"), nullptr},
-    {I18N_NOOP("No Access"), I18N_NOOP("Can Only View Content"), I18N_NOOP("Can View & Modify Content"), nullptr},
-    {nullptr, nullptr, nullptr, nullptr}, // no texts for links
-    {I18N_NOOP("No Access"), I18N_NOOP("Can Only View/Read Content"), I18N_NOOP("Can View/Read & Modify/Write"), nullptr}};
+static constexpr KLazyLocalizedString permissionsTexts[4][4] = {
+    {kli18n("No Access"), kli18n("Can Only View"), kli18n("Can View & Modify"), {}},
+    {kli18n("No Access"), kli18n("Can Only View Content"), kli18n("Can View & Modify Content"), {}},
+    {{}, {}, {}, {}}, // no texts for links
+    {kli18n("No Access"), kli18n("Can Only View/Read Content"), kli18n("Can View/Read & Modify/Write"), {}}};
 
 KFilePermissionsPropsPlugin::KFilePermissionsPropsPlugin(KPropertiesDialog *_props)
     : KPropertiesDialogPlugin(_props)
@@ -2312,9 +2313,9 @@ void KFilePermissionsPropsPlugin::setComboContent(QComboBox *combo, PermissionsT
     }
     Q_ASSERT(standardPermissions[textIndex] != s_invalid_mode_t); // must not happen, would be irreglar
 
-    const auto permsTexts =  permissionsTexts[static_cast<int>(d->pmode)];
-    for (int i = 0; permsTexts[i]; ++i) {
-        combo->addItem(i18n(permsTexts[i]));
+    const auto permsTexts = permissionsTexts[static_cast<int>(d->pmode)];
+    for (int i = 0; permsTexts[i].isEmpty(); ++i) {
+        combo->addItem(permsTexts[i].toString());
     }
 
     if (partial & tMask & ~UniExec) {

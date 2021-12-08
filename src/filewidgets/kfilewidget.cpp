@@ -282,12 +282,6 @@ public:
 
 Q_GLOBAL_STATIC(QUrl, lastDirectory) // to set the start path
 
-static const char autocompletionWhatsThisText[] = I18N_NOOP(
-    "<qt>While typing in the text area, you may be presented "
-    "with possible matches. "
-    "This feature can be controlled by clicking with the right mouse button "
-    "and selecting a preferred mode from the <b>Text Completion</b> menu.</qt>");
-
 // returns true if the string contains "<a>:/" sequence, where <a> is at least 2 alpha chars
 static bool containsProtocolSection(const QString &string)
 {
@@ -1356,17 +1350,23 @@ void KFileWidgetPrivate::setLocationText(const QList<QUrl> &urlList)
 
 void KFileWidgetPrivate::updateLocationWhatsThis()
 {
+    const QString autocompletionWhatsThisText = i18n(
+        "<qt>While typing in the text area, you may be presented "
+        "with possible matches. "
+        "This feature can be controlled by clicking with the right mouse button "
+        "and selecting a preferred mode from the <b>Text Completion</b> menu.</qt>");
+
     QString whatsThisText;
     if (m_operationMode == KFileWidget::Saving) {
-        whatsThisText = QLatin1String("<qt>") + i18n("This is the name to save the file as.") + i18n(autocompletionWhatsThisText);
+        whatsThisText = QLatin1String("<qt>") + i18n("This is the name to save the file as.") + autocompletionWhatsThisText;
     } else if (m_ops->mode() & KFile::Files) {
         whatsThisText = QLatin1String("<qt>")
             + i18n("This is the list of files to open. More than "
                    "one file can be specified by listing several "
                    "files, separated by spaces.")
-            + i18n(autocompletionWhatsThisText);
+            + autocompletionWhatsThisText;
     } else {
-        whatsThisText = QLatin1String("<qt>") + i18n("This is the name of the file to open.") + i18n(autocompletionWhatsThisText);
+        whatsThisText = QLatin1String("<qt>") + i18n("This is the name of the file to open.") + autocompletionWhatsThisText;
     }
 
     m_locationLabel->setWhatsThis(whatsThisText);

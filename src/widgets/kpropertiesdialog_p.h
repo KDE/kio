@@ -138,7 +138,6 @@ private:
 
     static const mode_t permissionsMasks[3];
     static const mode_t standardPermissions[4];
-    static const char *const permissionsTexts[4][4];
 
     static const mode_t fperm[3][4];
 

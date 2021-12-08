@@ -8,6 +8,7 @@
 #define KCOOKIESPOLICYSELECTIONDLG_H
 
 #include "ui_kcookiespolicyselectiondlg.h"
+#include <KLazyLocalizedString>
 #include <QDialog>
 
 class QWidget;
@@ -22,15 +23,15 @@ public:
     {
         switch (advice) {
         case KCookieAdvice::Accept:
-            return I18N_NOOP("Accept");
+            return kli18n("Accept").untranslatedText();
         case KCookieAdvice::AcceptForSession:
-            return I18N_NOOP("Accept For Session");
+            return kli18n("Accept For Session").untranslatedText();
         case KCookieAdvice::Reject:
-            return I18N_NOOP("Reject");
+            return kli18n("Reject").untranslatedText();
         case KCookieAdvice::Ask:
-            return I18N_NOOP("Ask");
+            return kli18n("Ask").untranslatedText();
         default:
-            return I18N_NOOP("Do Not Know");
+            return kli18n("Do Not Know").untranslatedText();
         }
     }
 
