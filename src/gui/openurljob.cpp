@@ -594,6 +594,17 @@ void KIO::OpenUrlJobPrivate::openInPreferredApp()
     if (service) {
         startService(service);
     } else {
+        // Avoid directly opening partial downloads and incomplete files
+        // This is done here in the off chance the user actually has a default handler for it
+        if (m_mimeTypeName == QLatin1String("application/x-partial-download")) {
+            q->setError(KJob::UserDefinedError);
+            q->setErrorText(
+                i18n("This file is incomplete and should not be opened.\n"
+                     "Check your open applications and the notification area for any pending tasks or downloads."));
+            q->emitResult();
+            return;
+        }
+
         showOpenWithDialog();
     }
 }
