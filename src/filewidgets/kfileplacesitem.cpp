@@ -383,9 +383,14 @@ KBookmark KFilePlacesItem::createDeviceBookmark(KBookmarkManager *manager, const
 
 KBookmark KFilePlacesItem::createTagBookmark(KBookmarkManager *manager, const QString &tag)
 {
-    KBookmark bookmark = createSystemBookmark(manager, tag.toUtf8().data(), tag.toUtf8(), QUrl(QLatin1String("tags:/") + tag), QLatin1String("tag"));
-    bookmark.setMetaDataItem(QStringLiteral("tag"), tag);
-    bookmark.setMetaDataItem(QStringLiteral("isSystemItem"), QStringLiteral("true"));
+    // TODO: Currently KFilePlacesItem::setBookmark() only decides by the "isSystemItem" property
+    // if the label text should be looked up for translation. So there is a small risk that
+    // labelTexts which match existing untranslated system labels accidentally get translated.
+    KBookmark bookmark = createBookmark(manager, tag, QUrl(QLatin1String("tags:/") + tag), QStringLiteral("tag"));
+    if (!bookmark.isNull()) {
+        bookmark.setMetaDataItem(QStringLiteral("tag"), tag);
+        bookmark.setMetaDataItem(QStringLiteral("isSystemItem"), QStringLiteral("true"));
+    }
 
     return bookmark;
 }
