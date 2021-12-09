@@ -211,20 +211,15 @@ QString KIO::OpenUrlJobPrivate::externalBrowser() const
         return QString();
     }
 
+    KService::Ptr externalBrowser = KApplicationTrader::preferredService(QStringLiteral("x-scheme-handler/https"));
+    if (!externalBrowser) {
+        externalBrowser = KApplicationTrader::preferredService(QStringLiteral("x-scheme-handler/http"));
+    }
+    if (externalBrowser) {
+        return externalBrowser->storageId();
+    }
     const QString browserApp = KConfigGroup(KSharedConfig::openConfig(), "General").readEntry("BrowserApplication");
-    if (!browserApp.isEmpty()) {
-        return browserApp;
-    }
-
-    // If a default browser isn't set in kdeglobals, fall back to mimeapps.list
-    KSharedConfig::Ptr profile = KSharedConfig::openConfig(QStringLiteral("mimeapps.list"), KConfig::NoGlobals, QStandardPaths::GenericConfigLocation);
-    const KConfigGroup defaultApps(profile, "Default Applications");
-
-    QString externalBrowser = defaultApps.readEntry("x-scheme-handler/https");
-    if (externalBrowser.isEmpty()) {
-        externalBrowser = defaultApps.readEntry("x-scheme-handler/http");
-    }
-    return externalBrowser;
+    return browserApp;
 }
 
 bool KIO::OpenUrlJobPrivate::runExternalBrowser(const QString &exec)
