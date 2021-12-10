@@ -278,7 +278,6 @@ void AccessManagerReply::putOnHold()
     m_kioJob.data()->disconnect(this);
     m_kioJob.data()->putOnHold();
     m_kioJob.clear();
-    KIO::Scheduler::publishSlaveOnHold();
 }
 
 bool AccessManagerReply::isLocalRequest(const QUrl &url)

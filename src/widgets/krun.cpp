@@ -804,7 +804,6 @@ void KRun::foundMimeType(const QString &type)
         }
 
         job->putOnHold();
-        KIO::Scheduler::publishSlaveOnHold();
         d->m_job = nullptr;
     }
 

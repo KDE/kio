@@ -247,7 +247,6 @@ void KIO::MimeTypeFinderJobPrivate::scanFileWithGet()
 
         if (!m_url.isLocalFile()) { // #434455
             job->putOnHold();
-            KIO::Scheduler::publishSlaveOnHold();
         }
         q->emitResult();
     });
