@@ -17,6 +17,7 @@
 #include <QElapsedTimer>
 #include <QFile>
 #include <QLibraryInfo>
+#include <QPluginLoader>
 #include <QProcess>
 #include <QStandardPaths>
 #include <QTimer>
