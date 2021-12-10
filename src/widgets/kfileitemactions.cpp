@@ -694,7 +694,6 @@ int KFileItemActionsPrivate::addPluginActionsTo(QMenu *mainMenu, QMenu *actionsM
     QT_WARNING_DISABLE_GCC("-Wdeprecated-declarations")
     const KService::List fileItemPlugins =
         KMimeTypeTrader::self()->query(commonMimeType, QStringLiteral("KFileItemAction/Plugin"), QStringLiteral("exist Library"));
-    QT_WARNING_POP
     for (const auto &service : fileItemPlugins) {
         if (!showGroup.readEntry(service->desktopEntryName(), true)) {
             // The plugin has been disabled
@@ -724,6 +723,7 @@ int KFileItemActionsPrivate::addPluginActionsTo(QMenu *mainMenu, QMenu *actionsM
             addedPlugins.append(service->desktopEntryName());
         }
     }
+    QT_WARNING_POP
 #endif
 
     return itemCount;

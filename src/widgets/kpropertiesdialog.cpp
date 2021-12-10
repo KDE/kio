@@ -674,7 +674,6 @@ void KPropertiesDialogPrivate::insertPages()
     QT_WARNING_DISABLE_CLANG("-Wdeprecated-declarations")
     QT_WARNING_DISABLE_GCC("-Wdeprecated-declarations")
     const KService::List offers = KMimeTypeTrader::self()->query(mimetype, QStringLiteral("KPropertiesDialog/Plugin"), query);
-    QT_WARNING_POP
     for (const KService::Ptr &ptr : offers) {
         if (addedPlugins.contains(ptr->desktopEntryName())) {
             continue;
@@ -689,6 +688,7 @@ void KPropertiesDialogPrivate::insertPages()
         q->insertPlugin(plugin);
         addedPlugins.append(ptr->desktopEntryName());
     }
+    QT_WARNING_POP
 #endif
 }
 
