@@ -182,6 +182,7 @@ public:
         for (const KPluginMetaData &data : std::as_const(jsonMetaDataPlugins)) {
             pluginIds.insert(data.pluginId());
         }
+#if KSERVICE_ENABLE_DEPRECATED_SINCE(5, 88)
         QT_WARNING_PUSH
         QT_WARNING_DISABLE_CLANG("-Wdeprecated-declarations")
         QT_WARNING_DISABLE_GCC("-Wdeprecated-declarations")
@@ -200,6 +201,9 @@ public:
             }
         }
         QT_WARNING_POP
+#else
+#pragma message("TODO: directory thumbnailer needs a non-desktop file solution ")
+#endif
         return jsonMetaDataPlugins;
     }
 };
