@@ -16,6 +16,7 @@
 #include <KApplicationTrader>
 #include <KConfig>
 #include <KConfigGroup>
+#include <KJsonUtils>
 #include <KPluginMetaData>
 #include <KSharedConfig>
 #include <QUrl>
@@ -200,7 +201,7 @@ KProtocolInfoPrivate::KProtocolInfoPrivate(const QString &name, const QString &e
     }
 
     // ExtraNames is a translated value, use the KCoreAddons helper to read it
-    const QStringList extraNames = KPluginMetaData::readTranslatedValue(json, QStringLiteral("ExtraNames")).toVariant().toStringList();
+    const QStringList extraNames = KJsonUtils::readTranslatedValue(json, QStringLiteral("ExtraNames")).toVariant().toStringList();
     const QStringList extraTypes = json.value(QStringLiteral("ExtraTypes")).toVariant().toStringList();
     if (extraNames.size() == extraTypes.size()) {
         auto func = [](const QString &name, const QString &type) {
