@@ -742,11 +742,23 @@ void PreviewJobPrivate::getOrCreateThumbnail()
             createThumbnail(fileUrl.toString());
             return;
         }
-
-        // No plugin support access to this remote content, don't
-        // create the thumbnail (bugs 208625, 368104)
-        cleanupTempFile();
-        determineNextFile();
+        if (item.isDir()) {
+            // Skip remote dirs (bug 208625)
+            cleanupTempFile();
+            determineNextFile();
+            return;
+        }
+        // No plugin support access to this remote content, copy the file
+        // to the local machine, then create the thumbnail
+        state = PreviewJobPrivate::STATE_GETORIG;
+        QTemporaryFile localFile;
+        localFile.setAutoRemove(false);
+        localFile.open();
+        tempName = localFile.fileName();
+        const QUrl currentURL = item.mostLocalUrl();
+        KIO::Job *job = KIO::file_copy(currentURL, QUrl::fromLocalFile(tempName), -1, KIO::Overwrite | KIO::HideProgressInfo /* No GUI */);
+        job->addMetaData(QStringLiteral("thumbnail"), QStringLiteral("1"));
+        q->addSubjob(job);
     }
 }
 
