@@ -47,12 +47,12 @@
 #include <sys/ioctl.h>
 #include <unistd.h>
 
+#endif // Q_OS_LINUX
+
 #if HAVE_STATX
 #include <sys/stat.h>
 #include <sys/sysmacros.h> // for makedev()
 #endif
-
-#endif // Q_OS_LINUX
 
 #if HAVE_COPY_FILE_RANGE
 // sys/types.h must be included before unistd.h,
