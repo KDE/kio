@@ -1043,12 +1043,15 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
         const int hSpacing = properties->style()->pixelMetric(QStyle::PM_LayoutHorizontalSpacing);
         d->m_ui->defaultHandlerLayout->setSpacing(hSpacing);
 
+#ifndef Q_OS_WIN
         updateDefaultHandler(d->mimeType);
         connect(KSycoca::self(), &KSycoca::databaseChanged, this, [this] {
             updateDefaultHandler(d->mimeType);
         });
 
         connect(d->m_ui->configureMimeBtn, &QAbstractButton::clicked, this, &KFilePropsPlugin::slotEditFileType);
+#endif
+
     } else {
         d->m_ui->typeLabel->hide();
         d->m_ui->mimeCommentLabel->hide();
@@ -1058,6 +1061,12 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
         d->m_ui->defaultHandlerIcon->hide();
         d->m_ui->defaultHandlerLabel->hide();
     }
+
+#ifdef Q_OS_WIN
+    d->m_ui->defaultHandlerLabel_Left->hide();
+    d->m_ui->defaultHandlerIcon->hide();
+    d->m_ui->defaultHandlerLabel->hide();
+#endif
 
     if (!magicMimeComment.isEmpty() && magicMimeComment != mimeComment) {
         d->m_ui->magicMimeCommentLabel->setText(magicMimeComment);
