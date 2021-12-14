@@ -468,11 +468,11 @@ bool KNewFileMenuPrivate::checkSourceExists(const QString &src)
         dialog->setModal(q->isModal());
         dialog->setAttribute(Qt::WA_DeleteOnClose);
 
-        m_buttonBox = new QDialogButtonBox(dialog);
-        m_buttonBox->setStandardButtons(QDialogButtonBox::Ok);
+        QDialogButtonBox *box = new QDialogButtonBox(dialog);
+        box->setStandardButtons(QDialogButtonBox::Ok);
 
         KMessageBox::createKMessageBox(dialog,
-                                       m_buttonBox,
+                                       box,
                                        QMessageBox::Warning,
                                        i18n("<qt>The template file <b>%1</b> does not exist.</qt>", src),
                                        QStringList(),
