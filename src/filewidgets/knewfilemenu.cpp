@@ -293,12 +293,6 @@ public:
     void slotCreateDirectory();
 
     /**
-     * Callback function that reads in directory name from dialog and processes it. This will write
-     * a hidden directory without further questions
-     */
-    void slotCreateHiddenDirectory();
-
-    /**
      * Fills the templates list.
      */
     void slotFillTemplates();
@@ -963,11 +957,6 @@ void KNewFileMenuPrivate::slotCreateDirectory()
         QObject::connect(job, &KJob::result, q, &KNewFileMenu::slotResult);
     }
     slotAbortDialog();
-}
-
-void KNewFileMenuPrivate::slotCreateHiddenDirectory()
-{
-    slotCreateDirectory();
 }
 
 struct EntryInfo {
