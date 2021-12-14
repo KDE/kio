@@ -441,6 +441,10 @@ void KNewFileMenuPrivate::initDialog()
     });
     QObject::connect(m_buttonBox, &QDialogButtonBox::rejected, m_fileDialog, &QDialog::reject);
 
+    QObject::connect(m_fileDialog, &QDialog::finished, m_fileDialog, [this] {
+        m_statRunning = false;
+    });
+
     QVBoxLayout *layout = new QVBoxLayout(m_fileDialog);
     layout->setSizeConstraint(QLayout::SetFixedSize);
 
@@ -1206,7 +1210,7 @@ void KNewFileMenuPrivate::_k_slotTextChanged(const QString &text)
             url = QUrl(m_baseUrl.toString() + QLatin1Char('/') + text);
         }
         KIO::StatJob *job = KIO::statDetails(url, KIO::StatJob::StatSide::DestinationSide, KIO::StatDetail::StatBasic, KIO::HideProgressInfo);
-        QObject::connect(job, &KJob::result, q, [this](KJob *job) {
+        QObject::connect(job, &KJob::result, m_fileDialog, [this](KJob *job) {
             _k_slotStatResult(job);
         });
         job->start();
