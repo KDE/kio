@@ -891,10 +891,10 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
             properties = menu.addAction(QIcon::fromTheme(QStringLiteral("document-properties")), i18n("Properties"));
         }
         if (!placesModel->isDevice(index)) {
-            edit = menu.addAction(QIcon::fromTheme(QStringLiteral("edit-entry")), i18n("&Edit Entry '%1'...", label));
+            edit = menu.addAction(QIcon::fromTheme(QStringLiteral("edit-entry")), i18nc("@action:inmenu", "&Edit…"));
         }
 
-        hide = menu.addAction(QIcon::fromTheme(QStringLiteral("hint")), i18n("&Hide Entry '%1'", label));
+        hide = menu.addAction(QIcon::fromTheme(QStringLiteral("hint")), i18nc("@action:inmenu", "&Hide"));
         hide->setCheckable(true);
         hide->setChecked(placesModel->isHidden(index));
         // if a parent is hidden no interaction should be possible with children, show it first to do so
@@ -917,7 +917,7 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
 
     QAction *remove = nullptr;
     if (!clickOverHeader && index.isValid() && !placesModel->isDevice(index)) {
-        remove = menu.addAction(QIcon::fromTheme(QStringLiteral("edit-delete")), i18n("&Remove Entry '%1'", label));
+        remove = menu.addAction(QIcon::fromTheme(QStringLiteral("edit-delete")), i18nc("@action:inmenu", "Remove"));
     }
 
     QMenu *iconSizeMenu = new QMenu(i18nc("@item:inmenu", "Icon Size"), &menu);
