@@ -77,10 +77,14 @@ public:
      */
     bool isModal() const;
 
+#if KIOFILEWIDGETS_ENABLE_DEPRECATED_SINCE(5, 97)
     /**
      * Returns the files that the popup is shown for
+     * @deprecated since 5.97, use KNewFileMenu::workingDirectory().
      */
+    KIOFILEWIDGETS_DEPRECATED_VERSION(5, 97, "Use KNewFileMenu::workingDirectory()")
     QList<QUrl> popupFiles() const;
+#endif
 
     /**
      * Sets the modality of dialogs created by KNewFile. Set to false if you do not want to block
@@ -94,17 +98,35 @@ public:
      */
     void setParentWidget(QWidget *parentWidget);
 
+#if KIOFILEWIDGETS_ENABLE_DEPRECATED_SINCE(5, 97)
     /**
      * Set the files the popup is shown for
      * Call this before showing up the menu
+     * @deprecated since 5.97, use KNewFileMenu::setWorkingDirectory(const QUrl &).
      */
+    KIOFILEWIDGETS_DEPRECATED_VERSION(5, 97, "Use KNewFileMenu::setWorkingDirectory(const QUrl &)")
     void setPopupFiles(const QList<QUrl> &files);
+#endif
+
+    /**
+     * Set the working directory.
+     * Files will be created relative to this directory.
+     * @since 5.97.
+     */
+    void setWorkingDirectory(const QUrl &directory);
+
+    /**
+     * Returns the working directory.
+     * Files will be created relative to this directory.
+     * @since 5.97.
+     */
+    QUrl workingDirectory() const;
 
 #if KIOFILEWIDGETS_ENABLE_DEPRECATED_SINCE(5, 0)
-    KIOFILEWIDGETS_DEPRECATED_VERSION(5, 0, "Use KNewFileMenu::setPopupFiles(const QList<QUrl> &)")
+    KIOFILEWIDGETS_DEPRECATED_VERSION(5, 0, "Use KNewFileMenu::setWorkingDirectory(const QUrl &)")
     void setPopupFiles(const QUrl &file)
     {
-        setPopupFiles(QList<QUrl>{file});
+        setWorkingDirectory(file);
     }
 #endif
 
@@ -147,7 +169,7 @@ public Q_SLOTS:
      * a popupmenu. This is useful to make sure that creating a directory with
      * a key shortcut (e.g. F10) triggers the exact same code as when using
      * the New menu.
-     * Requirements: call setPopupFiles first, and keep this KNewFileMenu instance
+     * Requirements: since 5.97 call setWorkingDirectory first (for older releases call setPopupFiles first), and keep this KNewFileMenu instance
      * alive (the mkdir is async).
      */
     void createDirectory();
@@ -157,7 +179,7 @@ public Q_SLOTS:
      * a popupmenu. This is useful to make sure that creating a directory with
      * a key shortcut (e.g. Shift-F10) triggers the exact same code as when using
      * the New menu.
-     * Requirements: call setPopupFiles first, and keep this KNewFileMenu instance
+     * Requirements: since 5.97 call setWorkingDirectory first (for older releases call setPopupFiles first), and keep this KNewFileMenu instance
      * alive (the copy is async).
      * @since 5.53
      */

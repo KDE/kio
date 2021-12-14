@@ -192,9 +192,7 @@ private Q_SLOTS:
         menu.setModal(false);
         menu.setParentWidget(&parentWidget);
         menu.setSelectDirWhenAlreadyExist(true);
-        QList<QUrl> lst;
-        lst << QUrl::fromLocalFile(m_tmpDir.path());
-        menu.setPopupFiles(lst);
+        menu.setWorkingDirectory(QUrl::fromLocalFile(m_tmpDir.path()));
         menu.checkUpToDate();
         QAction *action = coll.action(QStringLiteral("the_action"));
         QVERIFY(action);
@@ -291,8 +289,7 @@ private Q_SLOTS:
     {
         KActionCollection coll(this, QStringLiteral("foo"));
         KNewFileMenu menu(&coll, QStringLiteral("the_action"), this);
-        const QList<QUrl> lst{QUrl::fromLocalFile(m_tmpDir.path())};
-        menu.setPopupFiles(lst);
+        menu.setWorkingDirectory(QUrl::fromLocalFile(m_tmpDir.path()));
         menu.checkUpToDate();
         QAction *action = coll.action(QStringLiteral("the_action"));
         const auto list = action->menu()->actions();

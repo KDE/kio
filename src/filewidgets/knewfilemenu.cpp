@@ -378,6 +378,9 @@ public:
     /**
      * When the user pressed the right mouse button over an URL a popup menu
      * is displayed. The URL belonging to this popup menu is stored here.
+     * For all intents and purposes this is the current directory where the menu is
+     * opened.
+     * TODO KF6 make it a single QUrl.
      */
     QList<QUrl> m_popupFiles;
 
@@ -1482,16 +1485,19 @@ bool KNewFileMenu::isModal() const
     return d->m_modal;
 }
 
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 97)
 QList<QUrl> KNewFileMenu::popupFiles() const
 {
     return d->m_popupFiles;
 }
+#endif
 
 void KNewFileMenu::setModal(bool modal)
 {
     d->m_modal = modal;
 }
 
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 97)
 void KNewFileMenu::setPopupFiles(const QList<QUrl> &files)
 {
     d->m_popupFiles = files;
@@ -1509,6 +1515,7 @@ void KNewFileMenu::setPopupFiles(const QList<QUrl> &files)
         }
     }
 }
+#endif
 
 void KNewFileMenu::setParentWidget(QWidget *parentWidget)
 {
@@ -1569,6 +1576,29 @@ void KNewFileMenu::slotResult(KJob *job)
 QStringList KNewFileMenu::supportedMimeTypes() const
 {
     return d->m_supportedMimeTypes;
+}
+
+void KNewFileMenu::setWorkingDirectory(const QUrl &directory)
+{
+    d->m_popupFiles = {directory};
+
+    if (directory.isEmpty()) {
+        d->m_newMenuGroup->setEnabled(false);
+    } else {
+        if (KProtocolManager::supportsWriting(directory)) {
+            d->m_newMenuGroup->setEnabled(true);
+            if (d->m_newDirAction) {
+                d->m_newDirAction->setEnabled(KProtocolManager::supportsMakeDir(directory)); // e.g. trash:/
+            }
+        } else {
+            d->m_newMenuGroup->setEnabled(true);
+        }
+    }
+}
+
+QUrl KNewFileMenu::workingDirectory() const
+{
+    return d->m_popupFiles.isEmpty() ? QUrl() : d->m_popupFiles.first();
 }
 
 #include "moc_knewfilemenu.cpp"
