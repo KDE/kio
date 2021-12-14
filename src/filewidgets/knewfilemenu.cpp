@@ -898,40 +898,6 @@ void KNewFileMenuPrivate::slotCreateDirectory()
         if (isAbsoluteLocalPath(name)) {
             url = QUrl::fromLocalFile(name);
         } else {
-            if (name == QLatin1Char('.') || name == QLatin1String("..")) {
-                KGuiItem enterNewNameGuiItem(KStandardGuiItem::ok());
-                enterNewNameGuiItem.setText(i18nc("@action:button", "Enter a Different Name"));
-                enterNewNameGuiItem.setIcon(QIcon::fromTheme(QStringLiteral("edit-rename")));
-
-                QDialog *confirmDialog = new QDialog(m_parentWidget);
-                confirmDialog->setWindowTitle(i18n("Invalid Directory Name"));
-                confirmDialog->setModal(m_modal);
-                confirmDialog->setAttribute(Qt::WA_DeleteOnClose);
-
-                m_buttonBox = new QDialogButtonBox(confirmDialog);
-                m_buttonBox->setStandardButtons(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
-                KGuiItem::assign(m_buttonBox->button(QDialogButtonBox::Ok), enterNewNameGuiItem);
-
-                KMessageBox::createKMessageBox(
-                    confirmDialog,
-                    m_buttonBox,
-                    QMessageBox::Critical,
-                    xi18nc("@info",
-                           "Could not create a folder with the name <filename>%1</filename><nl/>because it is reserved for use by the operating system.",
-                           name),
-                    QStringList(),
-                    QString(),
-                    nullptr,
-                    KMessageBox::NoExec,
-                    QString());
-
-                m_creatingDirectory = true;
-                QObject::connect(m_buttonBox, &QDialogButtonBox::accepted, q, &KNewFileMenu::createDirectory);
-                m_fileDialog = confirmDialog;
-                confirmDialog->show();
-                slotAbortDialog();
-                return;
-            }
             url = baseUrl;
             url.setPath(concatPaths(url.path(), name));
         }
