@@ -2323,7 +2323,7 @@ void KFilePermissionsPropsPlugin::setComboContent(QComboBox *combo, PermissionsT
     Q_ASSERT(standardPermissions[textIndex] != s_invalid_mode_t); // must not happen, would be irreglar
 
     const auto permsTexts = permissionsTexts[static_cast<int>(d->pmode)];
-    for (int i = 0; permsTexts[i].isEmpty(); ++i) {
+    for (int i = 0; !permsTexts[i].isEmpty(); ++i) {
         combo->addItem(permsTexts[i].toString());
     }
 
