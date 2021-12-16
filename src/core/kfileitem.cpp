@@ -1055,27 +1055,31 @@ QString KFileItem::iconName() const
 
     const bool delaySlowOperations = d->m_delayedMimeTypes;
 
-    if (isLocalUrl && !delaySlowOperations && mime.inherits(QStringLiteral("application/x-desktop"))) {
-        d->m_iconName = iconFromDesktopFile(url.toLocalFile());
-        if (!d->m_iconName.isEmpty()) {
-            d->m_useIconNameCache = d->m_bMimeTypeKnown;
-            return d->m_iconName;
-        }
-    }
+    if (isLocalUrl && !delaySlowOperations) {
+        const QString &localFile = url.toLocalFile();
 
-    if (isLocalUrl && !delaySlowOperations && isDir()) {
-        if (isDirectoryMounted(url)) {
-            d->m_iconName = iconFromDirectoryFile(url.toLocalFile());
+        if (mime.inherits(QStringLiteral("application/x-desktop"))) {
+            d->m_iconName = iconFromDesktopFile(localFile);
             if (!d->m_iconName.isEmpty()) {
                 d->m_useIconNameCache = d->m_bMimeTypeKnown;
                 return d->m_iconName;
             }
         }
 
-        d->m_iconName = KIOPrivate::iconForStandardPath(url.toLocalFile());
-        if (!d->m_iconName.isEmpty()) {
-            d->m_useIconNameCache = d->m_bMimeTypeKnown;
-            return d->m_iconName;
+        if (isDir()) {
+            if (isDirectoryMounted(url)) {
+                d->m_iconName = iconFromDirectoryFile(localFile);
+                if (!d->m_iconName.isEmpty()) {
+                    d->m_useIconNameCache = d->m_bMimeTypeKnown;
+                    return d->m_iconName;
+                }
+            }
+
+            d->m_iconName = KIOPrivate::iconForStandardPath(localFile);
+            if (!d->m_iconName.isEmpty()) {
+                d->m_useIconNameCache = d->m_bMimeTypeKnown;
+                return d->m_iconName;
+            }
         }
     }
 
