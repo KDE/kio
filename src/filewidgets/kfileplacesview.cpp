@@ -599,6 +599,8 @@ public:
     QPersistentModelIndex m_lastClickedIndex;
     ActivationSignal m_lastActivationSignal = nullptr;
 
+    KFilePlacesView::TeardownFunction m_teardownFunction = nullptr;
+
     std::unique_ptr<KIO::WidgetsAskUserActionHandler> m_askUserHandler;
 
     QTimeLine m_adaptItemsTimeline;
@@ -737,6 +739,11 @@ void KFilePlacesView::setAutoResizeItemsEnabled(bool enabled)
 bool KFilePlacesView::isAutoResizeItemsEnabled() const
 {
     return d->m_autoResizeItems;
+}
+
+void KFilePlacesView::setTeardownFunction(TeardownFunction teardownFunc)
+{
+    d->m_teardownFunction = teardownFunc;
 }
 
 void KFilePlacesView::setUrl(const QUrl &url)
@@ -1038,7 +1045,11 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
         } else if (result == mount) {
             placesModel->requestSetup(index);
         } else if (result == teardown) {
-            placesModel->requestTeardown(index);
+            if (d->m_teardownFunction) {
+                d->m_teardownFunction(index);
+            } else {
+                placesModel->requestTeardown(index);
+            }
         } else if (result == newTab) {
             d->placeClicked(index, &KFilePlacesView::tabRequested);
         } else if (result == newWindow) {

@@ -13,6 +13,7 @@
 #include <QListView>
 #include <QUrl>
 
+#include <functional>
 #include <memory>
 
 class QResizeEvent;
@@ -31,6 +32,13 @@ class KIOFILEWIDGETS_EXPORT KFilePlacesView : public QListView
 public:
     explicit KFilePlacesView(QWidget *parent = nullptr);
     ~KFilePlacesView() override;
+
+    /**
+     * The teardown function signature. Custom teardown logic
+     * may be provided via the setTeardownFunction method.
+     * @since 5.91
+     */
+    using TeardownFunction = std::function<void(const QModelIndex &)>;
 
     /**
      * If \a enabled is true, it is allowed dropping items
@@ -52,6 +60,13 @@ public:
      */
     void setAutoResizeItemsEnabled(bool enabled);
     bool isAutoResizeItemsEnabled() const;
+
+    /**
+     * Sets a custom function that will be called when teardown of
+     * a device (e.g. unmounting a drive) is requested.
+     * @since 5.91
+     */
+    void setTeardownFunction(TeardownFunction teardownFunc);
 
 public Q_SLOTS:
     void setUrl(const QUrl &url);
