@@ -82,6 +82,53 @@ protected Q_SLOTS:
 
 Q_SIGNALS:
     /**
+     * Emitted when an item in the places view is clicked on with left mouse
+     * button with no modifier keys pressed.
+     *
+     * If a storage device needs to be mounted first, this signal is emitted once
+     * mounting has completed successfully.
+     *
+     * @param url The URL of the place
+     * @since 5.91
+     */
+    void placeActivated(const QUrl &url);
+
+    /**
+     * Emitted when the URL \a url should be opened in a new inactive tab because
+     * the user clicked on a place with the middle mouse button or
+     * left-clicked with the Ctrl modifier pressed or selected "Open in New Tab"
+     * from the context menu.
+     *
+     * If a storage device needs to be mounted first, this signal is emitted once
+     * mounting has completed successfully.
+     * @since 5.91
+     */
+    void tabRequested(const QUrl &url);
+
+    /**
+     * Emitted when the URL \a url should be opened in a new active tab because
+     * the user clicked on a place with the middle mouse button with
+     * the Shift modifier pressed or left-clicked with both the Ctrl and Shift
+     * modifiers pressed.
+
+     * If a storage device needs to be mounted first, this signal is emitted once
+     * mounting has completed successfully.
+     * @since 5.91
+     */
+    void activeTabRequested(const QUrl &url);
+
+    /**
+     * Emitted when the URL \a url should be opened in a new window because
+     * the user left-clicked on a place with Shift modifier pressed or selected
+     * "Open in New Window" from the context menu.
+     *
+     * If a storage device needs to be mounted first, this signal is emitted once
+     * mounting has completed successfully.
+     * @since 5.91
+     */
+    void newWindowRequested(const QUrl &url);
+
+    /**
      * Emitted just before the context menu opens. This can be used to add additional
      * application actions to the menu.
      * @param index The model index of the place whose menu is about to open.

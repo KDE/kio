@@ -15,6 +15,7 @@
 #include <QDir>
 #include <QKeyEvent>
 #include <QMenu>
+#include <QMetaMethod>
 #include <QPainter>
 #include <QPointer>
 #include <QScrollBar>
@@ -42,6 +43,8 @@
 #include <solid/storagedrive.h>
 #include <solid/storagevolume.h>
 #include <widgetsaskuseractionhandler.h>
+
+#include <functional>
 
 #include "kfileplaceeditdialog.h"
 #include "kfileplacesmodel.h"
@@ -544,6 +547,8 @@ public:
     {
     }
 
+    using ActivationSignal = void (KFilePlacesView::*)(const QUrl &);
+
     enum FadeType {
         FadeIn = 0,
         FadeOut,
@@ -574,7 +579,7 @@ public:
     // Adds the "Icon Size" sub-menu items
     void setupIconSizeSubMenu(QMenu *submenu);
 
-    void placeClicked(const QModelIndex &index);
+    void placeClicked(const QModelIndex &index, ActivationSignal activationSignal);
     void placeEntered(const QModelIndex &index);
     void placeLeft(const QModelIndex &index);
     void storageSetupDone(const QModelIndex &index, bool success);
@@ -592,6 +597,7 @@ public:
 
     Solid::StorageAccess *m_lastClickedStorage = nullptr;
     QPersistentModelIndex m_lastClickedIndex;
+    ActivationSignal m_lastActivationSignal = nullptr;
 
     std::unique_ptr<KIO::WidgetsAskUserActionHandler> m_askUserHandler;
 
@@ -641,12 +647,21 @@ KFilePlacesView::KFilePlacesView(QWidget *parent)
     palette.setColor(viewport()->foregroundRole(), palette.color(QPalette::WindowText));
     viewport()->setPalette(palette);
 
-    connect(this, &KFilePlacesView::clicked, this, [this](const QModelIndex &index) {
-        d->placeClicked(index);
-    });
     // Note: Don't connect to the activated() signal, as the behavior when it is
     // committed depends on the used widget style. The click behavior of
     // KFilePlacesView should be style independent.
+    connect(this, &KFilePlacesView::clicked, this, [this](const QModelIndex &index) {
+        const auto modifiers = qGuiApp->keyboardModifiers();
+        if (modifiers == (Qt::ControlModifier | Qt::ShiftModifier) && isSignalConnected(QMetaMethod::fromSignal(&KFilePlacesView::activeTabRequested))) {
+            d->placeClicked(index, &KFilePlacesView::activeTabRequested);
+        } else if (modifiers == Qt::ControlModifier && isSignalConnected(QMetaMethod::fromSignal(&KFilePlacesView::tabRequested))) {
+            d->placeClicked(index, &KFilePlacesView::tabRequested);
+        } else if (modifiers == Qt::ShiftModifier && isSignalConnected(QMetaMethod::fromSignal(&KFilePlacesView::newWindowRequested))) {
+            d->placeClicked(index, &KFilePlacesView::newWindowRequested);
+        } else {
+            d->placeClicked(index, &KFilePlacesView::placeActivated);
+        }
+    });
 
     connect(&d->m_adaptItemsTimeline, &QTimeLine::valueChanged, this, [this](qreal value) {
         d->adaptItemsUpdate(value);
@@ -675,6 +690,15 @@ KFilePlacesView::KFilePlacesView(QWidget *parent)
     });
     connect(d->m_watcher, &KFilePlacesEventWatcher::entryLeft, this, [this](const QModelIndex &index) {
         d->placeLeft(index);
+    });
+    connect(d->m_watcher, &KFilePlacesEventWatcher::entryMiddleClicked, this, [this](const QModelIndex &index) {
+        if (qGuiApp->keyboardModifiers() == Qt::ShiftModifier && isSignalConnected(QMetaMethod::fromSignal(&KFilePlacesView::activeTabRequested))) {
+            d->placeClicked(index, &KFilePlacesView::activeTabRequested);
+        } else if (isSignalConnected(QMetaMethod::fromSignal(&KFilePlacesView::tabRequested))) {
+            d->placeClicked(index, &KFilePlacesView::tabRequested);
+        } else {
+            d->placeClicked(index, &KFilePlacesView::placeActivated);
+        }
     });
 
     d->m_pollDevices.setInterval(5000);
@@ -792,7 +816,9 @@ void KFilePlacesView::keyPressEvent(QKeyEvent *event)
 {
     QListView::keyPressEvent(event);
     if ((event->key() == Qt::Key_Return) || (event->key() == Qt::Key_Enter)) {
-        d->placeClicked(currentIndex());
+        // TODO Modifier keys for requesting tabs
+        // Browsers do Ctrl+Click but *Alt*+Return for new tab
+        d->placeClicked(currentIndex(), &KFilePlacesView::placeActivated);
     }
 }
 
@@ -837,6 +863,8 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
     QAction *mount = nullptr;
     QAction *teardown = nullptr;
 
+    QAction *newTab = nullptr;
+    QAction *newWindow = nullptr;
     QAction *highPriorityActionsPlaceholder = new QAction();
     QAction *properties = nullptr;
 
@@ -880,6 +908,14 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
             if (placesModel->setupNeeded(index)) {
                 mount = new QAction(QIcon::fromTheme(QStringLiteral("media-mount")), i18nc("@action:inmenu", "Mount"), &menu);
             }
+        }
+
+        // TODO What about active tab?
+        if (isSignalConnected(QMetaMethod::fromSignal(&KFilePlacesView::tabRequested))) {
+            newTab = new QAction(QIcon::fromTheme(QStringLiteral("tab-new")), i18nc("@item:inmenu", "Open in New Tab"), &menu);
+        }
+        if (isSignalConnected(QMetaMethod::fromSignal(&KFilePlacesView::newWindowRequested))) {
+            newWindow = new QAction(QIcon::fromTheme(QStringLiteral("window-new")), i18nc("@item:inmenu", "Open in New Window"), &menu);
         }
 
         if (placeUrl.isLocalFile()) {
@@ -939,6 +975,8 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
     addActionToMenu(teardown);
     menu.addSeparator();
 
+    addActionToMenu(newTab);
+    addActionToMenu(newWindow);
     addActionToMenu(highPriorityActionsPlaceholder);
     addActionToMenu(properties);
     menu.addSeparator();
@@ -1001,6 +1039,10 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
             placesModel->requestSetup(index);
         } else if (result == teardown) {
             placesModel->requestTeardown(index);
+        } else if (result == newTab) {
+            d->placeClicked(index, &KFilePlacesView::tabRequested);
+        } else if (result == newWindow) {
+            d->placeClicked(index, &KFilePlacesView::newWindowRequested);
         } else if (result == properties) {
             KPropertiesDialog::showDialog(placeUrl, this);
         } else if (result == add) {
@@ -1561,7 +1603,7 @@ void KFilePlacesViewPrivate::triggerItemDisappearingAnimation()
     }
 }
 
-void KFilePlacesViewPrivate::placeClicked(const QModelIndex &index)
+void KFilePlacesViewPrivate::placeClicked(const QModelIndex &index, ActivationSignal activationSignal)
 {
     KFilePlacesModel *placesModel = qobject_cast<KFilePlacesModel *>(q->model());
 
@@ -1570,6 +1612,7 @@ void KFilePlacesViewPrivate::placeClicked(const QModelIndex &index)
     }
 
     m_lastClickedIndex = QPersistentModelIndex();
+    m_lastActivationSignal = nullptr;
 
     if (placesModel->setupNeeded(index)) {
         QObject::connect(placesModel, &KFilePlacesModel::setupDone, q, [this](const QModelIndex &idx, bool success) {
@@ -1577,11 +1620,16 @@ void KFilePlacesViewPrivate::placeClicked(const QModelIndex &index)
         });
 
         m_lastClickedIndex = index;
+        m_lastActivationSignal = activationSignal;
         placesModel->requestSetup(index);
         return;
     }
 
     setCurrentIndex(index);
+
+    const QUrl url = KFilePlacesModel::convertedUrl(placesModel->url(index));
+
+    /*Q_EMIT*/ std::invoke(activationSignal, q, url);
 }
 
 void KFilePlacesViewPrivate::placeEntered(const QModelIndex &index)
@@ -1620,7 +1668,12 @@ void KFilePlacesViewPrivate::storageSetupDone(const QModelIndex &index, bool suc
         q->setUrl(m_currentUrl);
     }
 
+    const QUrl url = KFilePlacesModel::convertedUrl(placesModel->url(index));
+
+    /*Q_EMIT*/ std::invoke(m_lastActivationSignal, q, url);
+
     m_lastClickedIndex = QPersistentModelIndex();
+    m_lastActivationSignal = nullptr;
 }
 
 void KFilePlacesViewPrivate::adaptItemsUpdate(qreal value)

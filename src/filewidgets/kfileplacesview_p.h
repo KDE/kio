@@ -33,6 +33,7 @@ public:
 Q_SIGNALS:
     void entryEntered(const QModelIndex &index);
     void entryLeft(const QModelIndex &index);
+    void entryMiddleClicked(const QModelIndex &index);
 
 public Q_SLOTS:
     void currentIndexChanged(const QModelIndex &index)
@@ -74,12 +75,36 @@ protected:
             }
             m_hoveredIndex = QModelIndex();
             break;
-        case QEvent::MouseButtonPress:
+        case QEvent::MouseButtonPress: {
+            QMouseEvent *mouseEvent = static_cast<QMouseEvent *>(event);
+            if (mouseEvent->button() == Qt::MiddleButton) {
+                QAbstractItemView *view = qobject_cast<QAbstractItemView *>(watched->parent());
+                const QModelIndex index = view->indexAt(mouseEvent->pos());
+                if (index.isValid()) {
+                    m_middleClickedIndex = index;
+                }
+            }
+            Q_FALLTHROUGH();
+        }
         case QEvent::MouseButtonDblClick: {
             // Prevent the selection clearing by clicking on the viewport directly
             QAbstractItemView *view = qobject_cast<QAbstractItemView *>(watched->parent());
             if (!view->indexAt(static_cast<QMouseEvent *>(event)->pos()).isValid()) {
                 return true;
+            }
+            break;
+        }
+        case QEvent::MouseButtonRelease: {
+            QMouseEvent *mouseEvent = static_cast<QMouseEvent *>(event);
+            if (mouseEvent->button() == Qt::MiddleButton) {
+                if (m_middleClickedIndex.isValid()) {
+                    QAbstractItemView *view = qobject_cast<QAbstractItemView *>(watched->parent());
+                    const QModelIndex index = view->indexAt(mouseEvent->pos());
+                    if (m_middleClickedIndex == index) {
+                        Q_EMIT entryMiddleClicked(m_middleClickedIndex);
+                    }
+                    m_middleClickedIndex = QPersistentModelIndex();
+                }
             }
             break;
         }
@@ -93,6 +118,7 @@ protected:
 private:
     QPersistentModelIndex m_hoveredIndex;
     QPersistentModelIndex m_focusedIndex;
+    QPersistentModelIndex m_middleClickedIndex;
 };
 
 #endif
