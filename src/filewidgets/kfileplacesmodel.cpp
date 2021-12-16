@@ -1367,15 +1367,14 @@ QAction *KFilePlacesModel::teardownActionForIndex(const QModelIndex &index) cons
 
         QString iconName;
         QString text;
-        QString label = data(index, Qt::DisplayRole).toString().replace(QLatin1Char('&'), QLatin1String("&&"));
 
         if (device.is<Solid::OpticalDisc>()) {
-            text = i18n("&Release '%1'", label);
+            text = i18nc("@action:inmenu", "&Release");
         } else if (removable || hotpluggable) {
-            text = i18n("&Safely Remove '%1'", label);
+            text = i18nc("@action:inmenu", "&Safely Remove");
             iconName = QStringLiteral("media-eject");
         } else {
-            text = i18n("&Unmount '%1'", label);
+            text = i18nc("@action:inmenu", "&Unmount");
             iconName = QStringLiteral("media-eject");
         }
 
@@ -1394,8 +1393,7 @@ QAction *KFilePlacesModel::ejectActionForIndex(const QModelIndex &index) const
     Solid::Device device = deviceForIndex(index);
 
     if (device.is<Solid::OpticalDisc>()) {
-        QString label = data(index, Qt::DisplayRole).toString().replace(QLatin1Char('&'), QLatin1String("&&"));
-        QString text = i18n("&Eject '%1'", label);
+        QString text = i18nc("@action:inmenu", "&Eject");
 
         return new QAction(QIcon::fromTheme(QStringLiteral("media-eject")), text, nullptr);
     }
