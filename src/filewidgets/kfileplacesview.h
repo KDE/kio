@@ -81,6 +81,15 @@ protected Q_SLOTS:
     void dataChanged(const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles) override;
 
 Q_SIGNALS:
+    /**
+     * Emitted just before the context menu opens. This can be used to add additional
+     * application actions to the menu.
+     * @param index The model index of the place whose menu is about to open.
+     * @param menu The menu that will be opened.
+     * @since 5.91
+     */
+    void contextMenuAboutToShow(const QModelIndex &index, QMenu *menu);
+
     void urlChanged(const QUrl &url);
 
     /**

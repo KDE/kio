@@ -560,6 +560,9 @@ public:
     void fadeCapacityBar(const QModelIndex &index, FadeType fadeType);
     int sectionsCount() const;
 
+    void addPlace(const QModelIndex &index);
+    void editPlace(const QModelIndex &index);
+
     void addDisappearingItem(KFilePlacesViewDelegate *delegate, const QModelIndex &index);
     void triggerItemAppearingAnimation();
     void triggerItemDisappearingAnimation();
@@ -821,47 +824,48 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
     }
 
     QModelIndex index = indexAt(event->pos());
-    const QString label = placesModel->text(index).replace(QLatin1Char('&'), QLatin1String("&&"));
+    const QString groupName = index.data(KFilePlacesModel::GroupRole).toString();
     const QUrl placeUrl = placesModel->url(index);
+    const bool clickOverHeader = d->m_delegate->pointIsHeaderArea(event->pos());
+    const bool clickOverEmptyArea = clickOverHeader || !index.isValid();
+    const KFilePlacesModel::GroupType type = placesModel->groupType(index);
 
     QMenu menu;
 
-    QAction *edit = nullptr;
-    QAction *hide = nullptr;
     QAction *emptyTrash = nullptr;
     QAction *eject = nullptr;
-    QAction *teardown = nullptr;
-    QAction *add = nullptr;
-    QAction *mainSeparator = nullptr;
-    QAction *hideSection = nullptr;
-    QAction *properties = nullptr;
     QAction *mount = nullptr;
+    QAction *teardown = nullptr;
 
-    const bool clickOverHeader = d->m_delegate->pointIsHeaderArea(event->pos());
-    if (clickOverHeader) {
-        const KFilePlacesModel::GroupType type = placesModel->groupType(index);
-        hideSection = menu.addAction(QIcon::fromTheme(QStringLiteral("hint")), i18n("Hide Section"));
-        hideSection->setCheckable(true);
-        hideSection->setChecked(placesModel->isGroupHidden(type));
-    } else if (index.isValid()) {
-        if (!placesModel->isDevice(index)) {
-            if (placeUrl.toString() == QLatin1String("trash:/")) {
-                emptyTrash = menu.addAction(QIcon::fromTheme(QStringLiteral("trash-empty")), i18nc("@action:inmenu", "Empty Trash"));
-                KConfig trashConfig(QStringLiteral("trashrc"), KConfig::SimpleConfig);
-                emptyTrash->setEnabled(!trashConfig.group("Status").readEntry("Empty", true));
-                menu.addSeparator();
-            }
-            add = menu.addAction(QIcon::fromTheme(QStringLiteral("document-new")), i18n("Add Entry..."));
-            mainSeparator = menu.addSeparator();
-        } else {
+    QAction *highPriorityActionsPlaceholder = new QAction();
+    QAction *properties = nullptr;
+
+    QAction *add = nullptr;
+    QAction *edit = nullptr;
+    QAction *remove = nullptr;
+
+    QAction *hide = nullptr;
+    QAction *hideSection = nullptr;
+    QAction *showAll = nullptr;
+    QMenu *iconSizeMenu = nullptr;
+
+    if (!clickOverEmptyArea) {
+        if (placeUrl.scheme() == QLatin1String("trash")) {
+            emptyTrash = new QAction(QIcon::fromTheme(QStringLiteral("trash-empty")), i18nc("@action:inmenu", "Empty Trash"), &menu);
+            KConfig trashConfig(QStringLiteral("trashrc"), KConfig::SimpleConfig);
+            emptyTrash->setEnabled(!trashConfig.group("Status").readEntry("Empty", true));
+        }
+
+        if (placesModel->isDevice(index)) {
             eject = placesModel->ejectActionForIndex(index);
-            if (eject != nullptr) {
+            if (eject) {
                 eject->setParent(&menu);
-                menu.addAction(eject);
             }
 
             teardown = placesModel->teardownActionForIndex(index);
-            if (teardown != nullptr) {
+            if (teardown) {
+                teardown->setParent(&menu);
+
                 // Disable teardown option for root and home partitions
                 bool teardownEnabled = placeUrl != QUrl::fromLocalFile(QDir::rootPath());
                 if (teardownEnabled) {
@@ -871,148 +875,158 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
                     }
                 }
                 teardown->setEnabled(teardownEnabled);
-
-                teardown->setParent(&menu);
-                menu.addAction(teardown);
             }
 
             if (placesModel->setupNeeded(index)) {
-                mount = menu.addAction(QIcon::fromTheme(QStringLiteral("media-mount")), i18nc("@action:inmenu", "Mount"));
+                mount = new QAction(QIcon::fromTheme(QStringLiteral("media-mount")), i18nc("@action:inmenu", "Mount"), &menu);
             }
+        }
 
-            if (teardown != nullptr || eject != nullptr || mount != nullptr) {
-                mainSeparator = menu.addSeparator();
-            }
-        }
-        if (add == nullptr) {
-            add = menu.addAction(QIcon::fromTheme(QStringLiteral("document-new")), i18n("Add Entry..."));
-        }
         if (placeUrl.isLocalFile()) {
-            properties = menu.addAction(QIcon::fromTheme(QStringLiteral("document-properties")), i18n("Properties"));
+            properties = new QAction(QIcon::fromTheme(QStringLiteral("document-properties")), i18n("Properties"), &menu);
         }
-        if (!placesModel->isDevice(index)) {
-            edit = menu.addAction(QIcon::fromTheme(QStringLiteral("edit-entry")), i18nc("@action:inmenu", "&Edit…"));
+    }
+
+    if (clickOverEmptyArea) {
+        add = new QAction(QIcon::fromTheme(QStringLiteral("document-new")), i18nc("@action:inmenu", "Add Entry…"), &menu);
+    }
+
+    if (index.isValid()) {
+        if (!clickOverHeader) {
+            if (!placesModel->isDevice(index)) {
+                edit = new QAction(QIcon::fromTheme(QStringLiteral("edit-entry")), i18nc("@action:inmenu", "&Edit…"), &menu);
+
+                KBookmark bookmark = placesModel->bookmarkForIndex(index);
+                const bool isSystemItem = bookmark.metaDataItem(QStringLiteral("isSystemItem")) == QLatin1String("true");
+                if (!isSystemItem) {
+                    remove = new QAction(QIcon::fromTheme(QStringLiteral("edit-delete")), i18nc("@action:inmenu", "Remove"), &menu);
+                }
+            }
+
+            hide = new QAction(QIcon::fromTheme(QStringLiteral("hint")), i18nc("@action:inmenu", "&Hide"), &menu);
+            hide->setCheckable(true);
+            hide->setChecked(placesModel->isHidden(index));
+            // if a parent is hidden no interaction should be possible with children, show it first to do so
+            hide->setEnabled(!placesModel->isGroupHidden(placesModel->groupType(index)));
         }
 
-        hide = menu.addAction(QIcon::fromTheme(QStringLiteral("hint")), i18nc("@action:inmenu", "&Hide"));
-        hide->setCheckable(true);
-        hide->setChecked(placesModel->isHidden(index));
-        // if a parent is hidden no interaction should be possible with children, show it first to do so
-        hide->setEnabled(!placesModel->isGroupHidden(placesModel->groupType(index)));
-
-    } else {
-        add = menu.addAction(QIcon::fromTheme(QStringLiteral("document-new")), i18n("Add Entry..."));
+        hideSection = new QAction(QIcon::fromTheme(QStringLiteral("hint")), i18nc("@item:inmenu", "Hide Section '%1'", groupName), &menu);
+        hideSection->setCheckable(true);
+        hideSection->setChecked(placesModel->isGroupHidden(type));
     }
 
-    QAction *showAll = nullptr;
-    if (placesModel->hiddenCount() > 0) {
-        showAll = new QAction(QIcon::fromTheme(QStringLiteral("visibility")), i18n("&Show All Entries"), &menu);
-        showAll->setCheckable(true);
-        showAll->setChecked(d->m_showAll);
-        if (mainSeparator == nullptr) {
-            mainSeparator = menu.addSeparator();
+    if (clickOverEmptyArea) {
+        if (placesModel->hiddenCount() > 0) {
+            showAll = new QAction(QIcon::fromTheme(QStringLiteral("visibility")), i18n("&Show All Entries"), &menu);
+            showAll->setCheckable(true);
+            showAll->setChecked(d->m_showAll);
         }
-        menu.insertAction(mainSeparator, showAll);
+
+        iconSizeMenu = new QMenu(i18nc("@item:inmenu", "Icon Size"), &menu);
+        d->setupIconSizeSubMenu(iconSizeMenu);
     }
 
-    QAction *remove = nullptr;
-    if (!clickOverHeader && index.isValid() && !placesModel->isDevice(index)) {
-        remove = menu.addAction(QIcon::fromTheme(QStringLiteral("edit-delete")), i18nc("@action:inmenu", "Remove"));
+    auto addActionToMenu = [&menu](QAction *action) {
+        if (action) { // silence warning when adding null action
+            menu.addAction(action);
+        }
+    };
+
+    addActionToMenu(emptyTrash);
+
+    addActionToMenu(eject);
+    addActionToMenu(mount);
+    addActionToMenu(teardown);
+    menu.addSeparator();
+
+    addActionToMenu(highPriorityActionsPlaceholder);
+    addActionToMenu(properties);
+    menu.addSeparator();
+
+    addActionToMenu(add);
+    addActionToMenu(edit);
+    addActionToMenu(remove);
+    addActionToMenu(hide);
+    addActionToMenu(hideSection);
+    addActionToMenu(showAll);
+    if (iconSizeMenu) {
+        menu.addMenu(iconSizeMenu);
     }
 
-    QMenu *iconSizeMenu = new QMenu(i18nc("@item:inmenu", "Icon Size"), &menu);
-    menu.insertMenu(mainSeparator, iconSizeMenu);
-    d->setupIconSizeSubMenu(iconSizeMenu);
+    menu.addSeparator();
 
-    menu.addActions(actions());
+    // Clicking a header should be treated as clicking no device, hence passing an invalid model index
+    // Emit the signal before adding any custom actions to give the user a chance to dynamically add/remove them
+    Q_EMIT contextMenuAboutToShow(clickOverHeader ? QModelIndex() : index, &menu);
 
-    if (menu.isEmpty()) {
-        return;
+    const auto additionalActions = actions();
+    for (QAction *action : additionalActions) {
+        if (action->priority() == QAction::HighPriority) {
+            menu.insertAction(highPriorityActionsPlaceholder, action);
+        } else {
+            menu.addAction(action);
+        }
     }
+    delete highPriorityActionsPlaceholder;
 
     QAction *result = menu.exec(event->globalPos());
 
-    if (emptyTrash && (result == emptyTrash)) {
-        auto *parentWindow = window();
+    if (result) {
+        if (result == emptyTrash) {
+            auto *parentWindow = window();
 
-        if (!d->m_askUserHandler) {
-            d->m_askUserHandler.reset(new KIO::WidgetsAskUserActionHandler{});
+            if (!d->m_askUserHandler) {
+                d->m_askUserHandler.reset(new KIO::WidgetsAskUserActionHandler{});
 
-            connect(d->m_askUserHandler.get(),
-                    &KIO::AskUserActionInterface::askUserDeleteResult,
-                    this,
-                    [parentWindow](bool allowDelete, const QList<QUrl> &, KIO::AskUserActionInterface::DeletionType, QWidget *parent) {
-                        if (parent != parentWindow || !allowDelete) {
-                            return;
-                        }
+                connect(d->m_askUserHandler.get(),
+                        &KIO::AskUserActionInterface::askUserDeleteResult,
+                        this,
+                        [parentWindow](bool allowDelete, const QList<QUrl> &, KIO::AskUserActionInterface::DeletionType, QWidget *parent) {
+                            if (parent != parentWindow || !allowDelete) {
+                                return;
+                            }
 
-                        KIO::Job *job = KIO::emptyTrash();
-                        job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, parentWindow));
-                    });
-        }
-
-        d->m_askUserHandler->askUserDelete(QList<QUrl>{},
-                                           KIO::AskUserActionInterface::EmptyTrash,
-                                           KIO::AskUserActionInterface::DefaultConfirmation,
-                                           parentWindow);
-
-    } else if (properties && (result == properties)) {
-        KPropertiesDialog::showDialog(placeUrl, this);
-    } else if (edit && (result == edit)) {
-        KBookmark bookmark = placesModel->bookmarkForIndex(index);
-        QUrl url = bookmark.url();
-        QString bmLabel = bookmark.text();
-        QString iconName = bookmark.icon();
-        bool appLocal = !bookmark.metaDataItem(QStringLiteral("OnlyInApp")).isEmpty();
-
-        if (KFilePlaceEditDialog::getInformation(true, url, bmLabel, iconName, false, appLocal, 64, this)) {
-            QString appName;
-            if (appLocal) {
-                appName = QCoreApplication::instance()->applicationName();
+                            KIO::Job *job = KIO::emptyTrash();
+                            job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, parentWindow));
+                        });
             }
 
-            placesModel->editPlace(index, bmLabel, url, iconName, appName);
-        }
+            d->m_askUserHandler->askUserDelete(QList<QUrl>{},
+                                               KIO::AskUserActionInterface::EmptyTrash,
+                                               KIO::AskUserActionInterface::DefaultConfirmation,
+                                               parentWindow);
+        } else if (result == eject) {
+            placesModel->requestEject(index);
+        } else if (result == mount) {
+            placesModel->requestSetup(index);
+        } else if (result == teardown) {
+            placesModel->requestTeardown(index);
+        } else if (result == properties) {
+            KPropertiesDialog::showDialog(placeUrl, this);
+        } else if (result == add) {
+            d->addPlace(index);
+        } else if (result == edit) {
+            d->editPlace(index);
+        } else if (result == remove) {
+            placesModel->removePlace(index);
+        } else if (result == hide) {
+            placesModel->setPlaceHidden(index, hide->isChecked());
+            QModelIndex current = placesModel->closestItem(d->m_currentUrl);
 
-    } else if (remove && (result == remove)) {
-        placesModel->removePlace(index);
-    } else if (hideSection && (result == hideSection)) {
-        const KFilePlacesModel::GroupType type = placesModel->groupType(index);
-        placesModel->setGroupHidden(type, hideSection->isChecked());
-
-        if (!d->m_showAll && hideSection->isChecked()) {
-            d->m_delegate->addDisappearingItemGroup(index);
-            d->triggerItemDisappearingAnimation();
-        }
-    } else if (hide && (result == hide)) {
-        placesModel->setPlaceHidden(index, hide->isChecked());
-        QModelIndex current = placesModel->closestItem(d->m_currentUrl);
-
-        if (index != current && !d->m_showAll && hide->isChecked()) {
-            d->m_delegate->addDisappearingItem(index);
-            d->triggerItemDisappearingAnimation();
-        }
-    } else if (showAll && (result == showAll)) {
-        setShowAll(showAll->isChecked());
-    } else if (teardown && (result == teardown)) {
-        placesModel->requestTeardown(index);
-    } else if (eject && (result == eject)) {
-        placesModel->requestEject(index);
-    } else if (add && (result == add)) {
-        QUrl url = d->m_currentUrl;
-        QString bmLabel;
-        QString iconName = QStringLiteral("folder");
-        bool appLocal = true;
-        if (KFilePlaceEditDialog::getInformation(true, url, bmLabel, iconName, true, appLocal, 64, this)) {
-            QString appName;
-            if (appLocal) {
-                appName = QCoreApplication::instance()->applicationName();
+            if (index != current && !d->m_showAll && hide->isChecked()) {
+                d->m_delegate->addDisappearingItem(index);
+                d->triggerItemDisappearingAnimation();
             }
+        } else if (result == hideSection) {
+            placesModel->setGroupHidden(type, hideSection->isChecked());
 
-            placesModel->addPlace(bmLabel, url, iconName, appName, index);
+            if (!d->m_showAll && hideSection->isChecked()) {
+                d->m_delegate->addDisappearingItemGroup(index);
+                d->triggerItemDisappearingAnimation();
+            }
+        } else if (result == showAll) {
+            setShowAll(showAll->isChecked());
         }
-    } else if (mount && (result == mount)) {
-        placesModel->requestSetup(index);
     }
 
     index = placesModel->closestItem(d->m_currentUrl);
@@ -1491,6 +1505,44 @@ int KFilePlacesViewPrivate::sectionsCount() const
     }
 
     return count;
+}
+
+void KFilePlacesViewPrivate::addPlace(const QModelIndex &index)
+{
+    KFilePlacesModel *placesModel = qobject_cast<KFilePlacesModel *>(q->model());
+
+    QUrl url = m_currentUrl;
+    QString label;
+    QString iconName = QStringLiteral("folder");
+    bool appLocal = true;
+    if (KFilePlaceEditDialog::getInformation(true, url, label, iconName, true, appLocal, 64, q)) {
+        QString appName;
+        if (appLocal) {
+            appName = QCoreApplication::instance()->applicationName();
+        }
+
+        placesModel->addPlace(label, url, iconName, appName, index);
+    }
+}
+
+void KFilePlacesViewPrivate::editPlace(const QModelIndex &index)
+{
+    KFilePlacesModel *placesModel = qobject_cast<KFilePlacesModel *>(q->model());
+
+    KBookmark bookmark = placesModel->bookmarkForIndex(index);
+    QUrl url = bookmark.url();
+    QString label = bookmark.text();
+    QString iconName = bookmark.icon();
+    bool appLocal = !bookmark.metaDataItem(QStringLiteral("OnlyInApp")).isEmpty();
+
+    if (KFilePlaceEditDialog::getInformation(true, url, label, iconName, false, appLocal, 64, q)) {
+        QString appName;
+        if (appLocal) {
+            appName = QCoreApplication::instance()->applicationName();
+        }
+
+        placesModel->editPlace(index, label, url, iconName, appName);
+    }
 }
 
 void KFilePlacesViewPrivate::triggerItemAppearingAnimation()
