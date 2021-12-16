@@ -615,7 +615,6 @@ public:
 
     int m_oldSize = 0;
     int m_endSize = 0;
-    int m_iconSz = 0;
     int m_pollingRequestCount = 0;
 
     bool m_autoResizeItems = true;
@@ -663,6 +662,18 @@ KFilePlacesView::KFilePlacesView(QWidget *parent)
         } else {
             d->placeClicked(index, &KFilePlacesView::placeActivated);
         }
+    });
+
+    connect(this, &QAbstractItemView::iconSizeChanged, this, [this](const QSize &newSize) {
+        d->m_autoResizeItems = (newSize.width() < 1 || newSize.height() < 1);
+
+        if (d->m_autoResizeItems) {
+            d->adaptItemSize();
+        } else {
+            const int iconSize = qMin(newSize.width(), newSize.height());
+            d->relayoutIconSize(iconSize);
+        }
+        d->writeConfig();
     });
 
     connect(&d->m_adaptItemsTimeline, &QTimeLine::valueChanged, this, [this](qreal value) {
@@ -849,7 +860,8 @@ void KFilePlacesViewPrivate::writeConfig()
     cg.writeEntry(PlacesIconsAutoresize, m_autoResizeItems);
 
     if (!m_autoResizeItems) {
-        cg.writeEntry(PlacesIconsStaticSize, m_iconSz);
+        const int iconSize = qMin(q->iconSize().width(), q->iconSize().height());
+        cg.writeEntry(PlacesIconsStaticSize, iconSize);
     }
 
     cg.sync();
@@ -1104,9 +1116,7 @@ void KFilePlacesViewPrivate::setupIconSizeSubMenu(QMenu *submenu)
     autoAct->setCheckable(true);
     autoAct->setChecked(m_autoResizeItems);
     QObject::connect(autoAct, &QAction::toggled, q, [this]() {
-        m_autoResizeItems = true;
-        adaptItemSize();
-        writeConfig();
+        q->setIconSize(QSize(-1, -1));
     });
     submenu->addAction(autoAct);
 
@@ -1137,14 +1147,7 @@ void KFilePlacesViewPrivate::setupIconSizeSubMenu(QMenu *submenu)
         }
 
         QObject::connect(act, &QAction::toggled, q, [this, iconSize]() {
-            m_autoResizeItems = false;
-            relayoutIconSize(iconSize);
-            // Store the new icon size in m_iconSz; which will be used by writeConfig(),
-            // otherwise if m_smoothItemResizing is true, the delegate icon size will be
-            // changed after the m_adaptItemsTimeline times out, by which time writeConfig
-            // has already finished, which means it won't save the new icon size
-            m_iconSz = iconSize;
-            writeConfig();
+            q->setIconSize(QSize(iconSize, iconSize));
         });
 
         if (!m_autoResizeItems) {
