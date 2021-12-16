@@ -7,6 +7,7 @@ if (NOT ANDROID)
     add_subdirectory(ioslaves)
     add_subdirectory(kiod)
     add_subdirectory(kssld)
+    add_subdirectory(geo-scheme-handler)
 endif()
 add_subdirectory(kioslave)
 

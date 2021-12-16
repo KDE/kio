@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Exec=kio-geo-uri-handler --coordinate-template "https://wheelmap.org/?lat=<LAT>&lon=<LON>" --query-template "https://wheelmap.org/search?q=<Q>" --fallback "https://wheelmap.org" %u
+Name=wheelmap.org
+Icon=map-globe
+MimeType=x-scheme-handler/geo;
+Terminal=false
+NoDisplay=true

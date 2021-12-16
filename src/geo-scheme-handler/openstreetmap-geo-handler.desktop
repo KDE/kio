@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Exec=kio-geo-uri-handler --coordinate-template "https://www.openstreetmap.org/#map=<Z>/<LAT>/<LON>" --query-template "https://www.openstreetmap.org/search?query=<Q>" --fallback "https://www.openstreetmap.org" %u
+Name=OpenStreetMap
+Icon=map-globe
+MimeType=x-scheme-handler/geo;
+Terminal=false
+NoDisplay=true

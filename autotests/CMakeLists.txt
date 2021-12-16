@@ -57,6 +57,8 @@ ecm_add_test(
     LINK_LIBRARIES KF5::KIOCore KF5::I18n Qt5::Test Qt5::Network
 )
 
+ecm_add_test(geourihandlertest.cpp LINK_LIBRARIES Qt${QT_MAJOR_VERSION}::Test)
+
 include(FindGem)
 find_gem(ftpd)
 set_package_properties(Gem_ftpd PROPERTIES
