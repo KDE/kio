@@ -41,6 +41,12 @@ public:
     using TeardownFunction = std::function<void(const QModelIndex &)>;
 
     /**
+     * Whether hidden places, if any, are currently shown.
+     * @since 5.91
+     */
+    bool allPlacesShown() const;
+
+    /**
      * If \a enabled is true, it is allowed dropping items
      * above a place for e. g. copy or move operations. The application
      * has to take care itself to perform the operation
@@ -151,6 +157,12 @@ Q_SIGNALS:
      * @since 5.91
      */
     void contextMenuAboutToShow(const QModelIndex &index, QMenu *menu);
+
+    /**
+     * Emitted when allPlacesShown changes
+     * @since 5.91
+     */
+    void allPlacesShownChanged(bool allPlacesShown);
 
     void urlChanged(const QUrl &url);
 

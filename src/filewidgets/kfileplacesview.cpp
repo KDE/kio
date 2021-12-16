@@ -785,6 +785,11 @@ void KFilePlacesView::setUrl(const QUrl &url)
     }
 }
 
+bool KFilePlacesView::allPlacesShown() const
+{
+    return d->m_showAll;
+}
+
 void KFilePlacesView::setShowAll(bool showAll)
 {
     KFilePlacesModel *placesModel = qobject_cast<KFilePlacesModel *>(model());
@@ -817,6 +822,8 @@ void KFilePlacesView::setShowAll(bool showAll)
         }
         d->triggerItemDisappearingAnimation();
     }
+
+    Q_EMIT allPlacesShownChanged(showAll);
 }
 
 void KFilePlacesView::keyPressEvent(QKeyEvent *event)
