@@ -34,6 +34,7 @@
 #include <QHBoxLayout>
 #include <QKeyEvent>
 #include <QMenu>
+#include <QMetaMethod>
 #include <QMimeData>
 #include <QMimeDatabase>
 #include <QTimer>
@@ -500,9 +501,9 @@ void KUrlNavigatorPrivate::openContextMenu(const QPoint &p)
 
     popup->addSeparator();
 
-    // We are checking for receivers because it's odd to have a tab entry even
+    // We are checking whether the signal is connected because it's odd to have a tab entry even
     // if it's not supported, like in the case of the open dialog
-    if (q->receivers(SIGNAL(tabRequested(QUrl))) > 0) {
+    if (q->isSignalConnected(QMetaMethod::fromSignal(&KUrlNavigator::tabRequested))) {
         for (auto button : std::as_const(m_navButtons)) {
             if (button->geometry().contains(p)) {
                 const auto url = button->url();
