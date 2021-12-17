@@ -343,8 +343,10 @@ KMountPoint::List KMountPoint::currentMountPoints(DetailsNeededFlags infoNeeded)
 
 #elif HAVE_LIB_MOUNT
     if (struct libmnt_table *table = mnt_new_table()) {
-        // By default, parses "/proc/self/mountinfo"
-        if (mnt_table_parse_mtab(table, nullptr) == 0) {
+        // if "/etc/mtab" is a regular file,
+        // "/etc/mtab" is used by default instead of "/proc/self/mountinfo" file.
+        // This leads to NTFS mountpoints being hidden.
+        if (mnt_table_parse_mtab(table, "/proc/self/mountinfo") == 0) {
             struct libmnt_iter *itr = mnt_new_iter(MNT_ITER_FORWARD);
             struct libmnt_fs *fs;
 
