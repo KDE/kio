@@ -79,11 +79,11 @@ void KTerminalLauncherJob::emitDelayedResult()
     QMetaObject::invokeMethod(this, &KTerminalLauncherJob::emitResult, Qt::QueuedConnection);
 }
 
-// This sets m_fullCommand, but also (when possible) m_desktopName
-void KTerminalLauncherJob::determineFullCommand()
-{
-    const QString workingDir = d->m_workingDirectory;
 #ifndef Q_OS_WIN
+// helper function to help scope service so that not the entire determineFullCommand has access to it (it is not
+// always not null!)
+static KServicePtr serviceFromConfig(bool fallbackToKonsoleService)
+{
     const KConfigGroup confGroup(KSharedConfig::openConfig(), "General");
     const QString terminalExec = confGroup.readEntry("TerminalApplication");
     const QString terminalService = confGroup.readEntry("TerminalService");
@@ -93,11 +93,21 @@ void KTerminalLauncherJob::determineFullCommand()
     } else if (!terminalExec.isEmpty()) {
         service = new KService(QStringLiteral("terminal"), terminalExec, QStringLiteral("utilities-terminal"));
     }
-    if (!service) {
+    if (!service && fallbackToKonsoleService) {
         service = KService::serviceByStorageId(QStringLiteral("org.kde.konsole"));
     }
+    return service;
+}
+#endif
+
+// This sets m_fullCommand, but also (when possible) m_desktopName
+void KTerminalLauncherJob::determineFullCommand(bool fallbackToKonsoleService /* allow synthesizing no konsole */)
+{
+    const QString workingDir = d->m_workingDirectory;
+#ifndef Q_OS_WIN
+
     QString exec;
-    if (service) {
+    if (KServicePtr service = serviceFromConfig(fallbackToKonsoleService); service) {
         d->m_desktopName = service->desktopEntryName();
         exec = service->exec();
     } else {
@@ -122,7 +132,7 @@ void KTerminalLauncherJob::determineFullCommand()
             exec += QLatin1String(" -hold");
         }
     }
-    if (service->exec() == QLatin1String("konsole") && !workingDir.isEmpty()) {
+    if (exec.startsWith(QLatin1String("konsole")) && !workingDir.isEmpty()) {
         exec += QLatin1String(" --workdir %1").arg(KShell::quoteArg(workingDir));
     }
     if (!d->m_command.isEmpty()) {

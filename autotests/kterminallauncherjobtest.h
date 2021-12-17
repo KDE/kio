@@ -22,6 +22,7 @@ private Q_SLOTS:
     void startKonsole_data();
     void startKonsole();
     void startXterm();
+    void startFallbackToPath();
 #else
     void startTerminal_data();
     void startTerminal();

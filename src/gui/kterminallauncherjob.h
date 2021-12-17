@@ -76,7 +76,7 @@ public:
 
 private:
     friend class KTerminalLauncherJobTest;
-    void determineFullCommand(); // for the unittest
+    void determineFullCommand(bool fallbackToKonsoleService = true); // for the unittest
     QString fullCommand() const; // for the unittest
 
     void emitDelayedResult();

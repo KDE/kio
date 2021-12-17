@@ -78,6 +78,30 @@ void KTerminalLauncherJobTest::startXterm()
     QCOMPARE(job->fullCommand(), QLatin1String("xterm -hold -e play golf"));
 }
 
+void KTerminalLauncherJobTest::startFallbackToPath()
+{
+    // Given
+    KConfigGroup confGroup(KSharedConfig::openConfig(), "General");
+    confGroup.writeEntry("TerminalApplication", "");
+    confGroup.writeEntry("TerminalService", "");
+
+    const QString command = "play golf";
+
+    // When
+    // Mock binaries so we know konsole is available in PATH. Otherwise the expectations may not be true.
+    const QString pathEnv = QFINDTESTDATA("kterminallauncherjobtest") + QLatin1Char(':') + qEnvironmentVariable("PATH");
+    qputenv("PATH", pathEnv.toUtf8());
+    auto *job = new KTerminalLauncherJob(command, this);
+    job->setWorkingDirectory("/tmp"); // doesn't show in the command, but actually works due to QProcess::setWorkingDirectory
+
+    // Then
+    job->determineFullCommand(false); // internal API
+    // We do not particularly care about what was produced so long as there was no crash
+    // https://bugs.kde.org/show_bug.cgi?id=446539
+    // and it's not empty.
+    QVERIFY(!job->fullCommand().isEmpty());
+}
+
 #else
 
 void KTerminalLauncherJobTest::startTerminal_data()
