@@ -154,7 +154,7 @@ void UDSEntryTest::testSaveLoad()
     {
         QDataStream stream(&data, QIODevice::WriteOnly);
         for (const QVector<UDSTestField> &testCase : testCases) {
-            stream << testCase.count();
+            stream << static_cast<quint32>(testCase.count());
 
             for (const UDSTestField &field : testCase) {
                 uint uds = field.m_uds;
