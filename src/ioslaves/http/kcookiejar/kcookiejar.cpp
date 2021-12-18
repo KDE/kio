@@ -75,11 +75,23 @@ static QString removeWeekday(const QString &value)
 static QDateTime parseDate(const QString &_value)
 {
     // Handle sites sending invalid weekday as part of the date. #298660
-    const QString value(removeWeekday(_value));
+    QString value(removeWeekday(_value));
 
     // Check if expiration date matches RFC dates as specified under
     // RFC 2616 sec 3.3.1 & RFC 6265 sec 4.1.1
     QDateTime dt = QDateTime::fromString(value, Qt::RFC2822Date);
+
+    // Q6DateTime::fromString() will return an invalid datetime if the "GMT"
+    // part is included
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    if (!dt.isValid()) {
+        const QLatin1String tail(" GMT");
+        if (value.endsWith(tail)) {
+            value.chop(tail.size());
+        }
+        dt = QDateTime::fromString(value, Qt::RFC2822Date);
+    }
+#endif
 
     if (!dt.isValid()) {
         static const char *const date_formats[] = {// Other formats documented in RFC 2616 sec 3.3.1
