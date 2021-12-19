@@ -377,14 +377,6 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
         return result;
     }
 
-    // Return true for non-KIO desktop files with explicit X-KDE-Protocols list, like vlc, for the special case below
-    auto isNonKIO = [this]() {
-        const QStringList protocols = d->service.property(QStringLiteral("X-KDE-Protocols")).toStringList();
-        return !protocols.isEmpty() && !protocols.contains(QLatin1String("KIO"));
-    };
-
-    // Check if we need kioexec, or KIOFuse
-    bool useKioexec = false;
 #ifndef Q_OS_ANDROID
     org::kde::KIOFuse::VFS kiofuse_iface(QStringLiteral("org.kde.KIOFuse"), QStringLiteral("/org/kde/KIOFuse"), QDBusConnection::sessionBus());
     struct MountRequest {
@@ -396,27 +388,19 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
     const QStringList appSupportedProtocols = supportedProtocols(d->service);
     for (int i = 0; i < d->urls.count(); ++i) {
         const QUrl url = d->urls.at(i);
-        const bool supported = mx1.hasUrls ? isProtocolInSupportedList(url, appSupportedProtocols) : url.isLocalFile();
-        if (!supported) {
-            // if FUSE fails, we'll have to fallback to kioexec
-            useKioexec = true;
-        }
 
         // supportedProtocols() only checks whether the .desktop file has MimeType=x-scheme-handler/xxx
         // We also want to check whether the app has been set as default/associated in mimeapps.list
+        bool isAppDefault = false;
         const auto handlers = KApplicationTrader::queryByMimeType(QLatin1String("x-scheme-handler/") + url.scheme());
         for (const KService::Ptr &handler : handlers) {
             if (handler->desktopEntryName() == d->service.desktopEntryName()) {
-                useKioexec = false;
+                isAppDefault = true;
+                break;
             }
         }
 
-        // NOTE: Some non-KIO apps may support the URLs (e.g. VLC supports smb://)
-        // but will not have the password if they are not in the URL itself.
-        // Hence convert URL to KIOFuse equivalent in case there is a password.
-        // @see https://pointieststick.com/2018/01/17/videos-on-samba-shares/
-        // @see https://bugs.kde.org/show_bug.cgi?id=330192
-        if (!supported || (!url.userName().isEmpty() && url.password().isEmpty() && isNonKIO())) {
+        if (!isAppDefault && !(appSupportedProtocols.contains(QLatin1String("KIO")) || url.isLocalFile())) {
             requests.push_back({kiofuse_iface.mountUrl(url.toString()), i});
         }
     }
@@ -428,7 +412,7 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
         return request.reply.isError();
     });
 
-    if (fuseError && useKioexec) {
+    if (fuseError) {
         // We need to run the app through kioexec
         result << kioexecPath();
         if (d->tempFiles) {
