@@ -31,8 +31,7 @@ static QMap<QString, QString> standardLocationsMap()
                    // ones.
                    // home > desktop > documents > *.
                    {QStandardPaths::DocumentsLocation, QStringLiteral("folder-documents")},
-                   {QStandardPaths::DesktopLocation, QStringLiteral("user-desktop")},
-                   {QStandardPaths::HomeLocation, QStringLiteral("user-home")}};
+                   {QStandardPaths::DesktopLocation, QStringLiteral("user-desktop")}};
 
     QMap<QString, QString> map;
     for (const auto &row : mapping) {
@@ -73,6 +72,13 @@ QString KIOPrivate::iconForStandardPath(const QString &localDirectory)
     QString directory = localDirectory;
     if (directory.endsWith(QLatin1Char('/'))) {
         directory.chop(1);
+    }
+
+    // $HOME may be the standard path for multiple types.
+    // Make sure we use the most appropriate icon regardless.
+    // https://bugs.kde.org/show_bug.cgi?id=447238
+    if (directory == QDir::homePath()) {
+        return QStringLiteral("user-home");
     }
 
     static auto map = standardLocationsMap();
