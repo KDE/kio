@@ -70,6 +70,11 @@ static QMap<QString, QString> standardLocationsMap()
 
 QString KIOPrivate::iconForStandardPath(const QString &localDirectory)
 {
+    QString directory = localDirectory;
+    if (directory.endsWith(QLatin1Char('/'))) {
+        directory.chop(1);
+    }
+
     static auto map = standardLocationsMap();
-    return map.value(localDirectory, QString());
+    return map.value(directory, QString());
 }
