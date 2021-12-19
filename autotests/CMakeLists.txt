@@ -150,18 +150,21 @@ ecm_add_tests(
 )
 set_target_properties(krununittest PROPERTIES COMPILE_FLAGS "-DKDE_INSTALL_FULL_LIBEXECDIR_KF=\"\\\"${KDKE_INSTALL_FULL_LIBEXECDIR_KF}\\\"\"")
 
+
+set(kurifiltertest_libs KF5::KIOCore KF5::KIOWidgets Qt${QT_MAJOR_VERSION}::Test Qt${QT_MAJOR_VERSION}::DBus)
+
 set(URIFILTER_COLON_TEST kiowidgets-kurifiltertest-colon-separator)
-add_executable(${URIFILTER_COLON_TEST} kurifiltertest.cpp)
-target_link_libraries(${URIFILTER_COLON_TEST} KF5::KIOCore KF5::KIOWidgets Qt${QT_MAJOR_VERSION}::Test Qt${QT_MAJOR_VERSION}::DBus)
-ecm_mark_as_test(${URIFILTER_COLON_TEST})
-add_test(NAME ${URIFILTER_COLON_TEST} COMMAND ${URIFILTER_COLON_TEST})
+ecm_add_test(kurifiltertest.cpp
+    LINK_LIBRARIES ${kurifiltertest_libs}
+    TEST_NAME ${URIFILTER_COLON_TEST}
+)
 target_compile_definitions(${URIFILTER_COLON_TEST} PUBLIC "-DWEBSHORTCUT_SEPARATOR=':'")
 
 set(URIFILTER_SPACE_TEST kiowidgets-kurifiltertest-space-separator)
-add_executable(${URIFILTER_SPACE_TEST} kurifiltertest.cpp)
-target_link_libraries(${URIFILTER_SPACE_TEST} KF5::KIOCore KF5::KIOWidgets Qt${QT_MAJOR_VERSION}::Test Qt${QT_MAJOR_VERSION}::DBus)
-ecm_mark_as_test(${URIFILTER_SPACE_TEST})
-add_test(NAME ${URIFILTER_SPACE_TEST} COMMAND ${URIFILTER_SPACE_TEST})
+ecm_add_test(kurifiltertest.cpp
+    LINK_LIBRARIES ${kurifiltertest_libs}
+    TEST_NAME ${URIFILTER_SPACE_TEST}
+)
 target_compile_definitions(${URIFILTER_SPACE_TEST} PUBLIC "-DWEBSHORTCUT_SEPARATOR=' '")
 
 # Same as accessmanagertest, but using QNetworkAccessManager, to make sure we
