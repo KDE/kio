@@ -55,6 +55,7 @@ inline const QDBusArgument &operator>>(const QDBusArgument &argument, ExecComman
 {
     argument.beginStructure();
     argument >> execCommand.path >> execCommand.argv >> execCommand.ignoreFailure;
+    argument.endStructure();
     return argument;
 }
 
