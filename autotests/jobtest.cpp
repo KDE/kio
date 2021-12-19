@@ -1472,8 +1472,6 @@ void JobTest::getInvalidUrl()
     QVERIFY(job != nullptr);
     job->setUiDelegate(nullptr);
 
-    KIO::Scheduler::setJobPriority(job, 1); // shouldn't crash (#135456)
-
     QVERIFY(!job->exec()); // it should fail :)
 }
 

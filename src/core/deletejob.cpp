@@ -306,7 +306,6 @@ void DeleteJobPrivate::statNextSrc()
             statNextSrc();
         } else {
             KIO::SimpleJob *job = KIO::statDetails(m_currentURL, StatJob::SourceSide, KIO::StatBasic, KIO::HideProgressInfo);
-            Scheduler::setJobPriority(job, 1);
             // qDebug() << "stat'ing" << m_currentURL;
             q->addSubjob(job);
         }
@@ -361,7 +360,6 @@ void DeleteJobPrivate::deleteFileUsingJob(const QUrl &url, bool isLink)
         job = KIO::file_delete(url, KIO::HideProgressInfo);
         job->setParentJob(q);
     }
-    Scheduler::setJobPriority(job, 1);
 
     if (isLink) {
         symlinks.removeFirst();
@@ -423,7 +421,6 @@ void DeleteJobPrivate::deleteDirUsingJob(const QUrl &url)
     SimpleJob *job = KIO::rmdir(url);
     job->setParentJob(q);
     job->addMetaData(QStringLiteral("recurse"), QStringLiteral("true"));
-    Scheduler::setJobPriority(job, 1);
     dirs.removeLast();
     q->addSubjob(job);
 }
@@ -499,7 +496,6 @@ void DeleteJobPrivate::currentSourceStated(bool isDir, bool isLink)
 #endif
             newjob->addMetaData(QStringLiteral("statDetails"), QString::number(KIO::StatBasic));
             newjob->setUnrestricted(true); // No KIOSK restrictions
-            Scheduler::setJobPriority(newjob, 1);
             QObject::connect(newjob, &KIO::ListJob::entries, q, [this](KIO::Job *job, const KIO::UDSEntryList &list) {
                 slotEntries(job, list);
             });

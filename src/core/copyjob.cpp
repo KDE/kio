@@ -1110,7 +1110,6 @@ void CopyJobPrivate::startRenameJob(const QUrl &slave_url)
     KIO_ARGS << m_currentSrcURL << dest << (qint8) false /*no overwrite*/;
     SimpleJob *newJob = SimpleJobPrivate::newJobNoUi(slave_url, CMD_RENAME, packedArgs);
     newJob->setParentJob(q);
-    Scheduler::setJobPriority(newJob, 1);
     q->addSubjob(newJob);
     if (m_currentSrcURL.adjusted(QUrl::RemoveFilename) != dest.adjusted(QUrl::RemoveFilename)) { // For the user, moving isn't renaming. Only renaming is.
         m_bOnlyRenames = false;
@@ -1275,7 +1274,6 @@ void CopyJobPrivate::slotResultCreatingDirs(KJob *job)
                         // We need to stat the existing dir, to get its last-modification time
                         QUrl existingDest((*it).uDest);
                         SimpleJob *newJob = KIO::statDetails(existingDest, StatJob::DestinationSide, KIO::StatDefaultDetails, KIO::HideProgressInfo);
-                        Scheduler::setJobPriority(newJob, 1);
                         qCDebug(KIO_COPYJOB_DEBUG) << "KIO::stat for resolving conflict on" << existingDest;
                         state = STATE_CONFLICT_CREATING_DIRS;
                         q->addSubjob(newJob);
@@ -1532,7 +1530,6 @@ void CopyJobPrivate::processCreateNextDir(const QList<CopyInfo>::Iterator &it, i
     // TODO : change permissions once all is finished; but for stuff coming from CDROM it sucks...
     KIO::SimpleJob *newjob = KIO::mkdir(it->uDest, -1);
     newjob->setParentJob(q);
-    Scheduler::setJobPriority(newjob, 1);
     if (shouldOverwriteFile(it->uDest.path())) { // if we are overwriting an existing file or symlink
         newjob->addMetaData(QStringLiteral("overwrite"), QStringLiteral("true"));
     }
@@ -1585,7 +1582,6 @@ void CopyJobPrivate::slotResultCopyingFiles(KJob *job)
                     QUrl existingFile((*it).uDest);
                     SimpleJob *newJob =
                         KIO::statDetails(existingFile, StatJob::DestinationSide, KIO::StatDetail::StatBasic | KIO::StatDetail::StatTime, KIO::HideProgressInfo);
-                    Scheduler::setJobPriority(newJob, 1);
                     qCDebug(KIO_COPYJOB_DEBUG) << "KIO::stat for resolving conflict on" << existingFile;
                     state = STATE_CONFLICT_COPYING_FILES;
                     q->addSubjob(newJob);
@@ -1855,7 +1851,6 @@ KIO::Job *CopyJobPrivate::linkNextFile(const QUrl &uSource, const QUrl &uDest, J
         // This is the case of creating a real symlink
         KIO::SimpleJob *newJob = KIO::symlink(uSource.path(), uDest, flags | HideProgressInfo /*no GUI*/);
         newJob->setParentJob(q_func());
-        Scheduler::setJobPriority(newJob, 1);
         qCDebug(KIO_COPYJOB_DEBUG) << "Linking target=" << uSource.path() << "link=" << uDest;
         // emit linking( this, uSource.path(), uDest );
         m_bCurrentOperationIsLink = true;
@@ -2108,7 +2103,6 @@ void CopyJobPrivate::processCopyNextFile(const QList<CopyInfo>::Iterator &it, in
     {
         KIO::SimpleJob *newJob = KIO::symlink((*it).linkDest, uDest, flags | HideProgressInfo /*no GUI*/);
         newJob->setParentJob(q);
-        Scheduler::setJobPriority(newJob, 1);
         newjob = newJob;
         qCDebug(KIO_COPYJOB_DEBUG) << "Linking target=" << (*it).linkDest << "link=" << uDest;
         m_currentSrcURL = QUrl::fromUserInput((*it).linkDest);
@@ -2160,7 +2154,6 @@ void CopyJobPrivate::deleteNextDir()
         QList<QUrl>::Iterator it = --dirsToRemove.end();
         SimpleJob *job = KIO::rmdir(*it);
         job->setParentJob(q);
-        Scheduler::setJobPriority(job, 1);
         dirsToRemove.erase(it);
         q->addSubjob(job);
     } else {
@@ -2184,7 +2177,6 @@ void CopyJobPrivate::setNextDirAttribute()
 
         KIO::SimpleJob *job = KIO::setModificationTime(url, dt);
         job->setParentJob(q);
-        Scheduler::setJobPriority(job, 1);
         q->addSubjob(job);
     } else {
         if (m_reportTimer) {

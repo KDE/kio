@@ -420,9 +420,7 @@ SimpleJob *KIO::http_update_cache(const QUrl &url, bool no_cache, const QDateTim
     Q_ASSERT(url.scheme() == QLatin1String("http") || url.scheme() == QLatin1String("https"));
     // Send http update_cache command (2)
     KIO_ARGS << (int)2 << url << no_cache << qlonglong(expireDate.toMSecsSinceEpoch() / 1000);
-    SimpleJob *job = SimpleJobPrivate::newJob(url, CMD_SPECIAL, packedArgs);
-    Scheduler::setJobPriority(job, 1);
-    return job;
+    return SimpleJobPrivate::newJob(url, CMD_SPECIAL, packedArgs);
 }
 
 #include "moc_simplejob.cpp"

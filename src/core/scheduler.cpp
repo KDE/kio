@@ -773,10 +773,12 @@ void Scheduler::scheduleJob(SimpleJob *job)
 }
 #endif
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 90)
 void Scheduler::setJobPriority(SimpleJob *job, int priority)
 {
     schedulerPrivate()->setJobPriority(job, priority);
 }
+#endif
 
 void Scheduler::cancelJob(SimpleJob *job)
 {

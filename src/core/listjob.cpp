@@ -122,7 +122,6 @@ void ListJobPrivate::slotListEntries(const KIO::UDSEntryList &list)
                                                               m_prefix + filename + QLatin1Char('/'),
                                                               m_displayPrefix + displayName + QLatin1Char('/'),
                                                               includeHidden);
-                    Scheduler::setJobPriority(job, 1);
                     QObject::connect(job, &ListJob::entries, q, [this](KIO::Job *job, const KIO::UDSEntryList &list) {
                         gotEntries(job, list);
                     });

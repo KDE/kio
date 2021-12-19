@@ -118,6 +118,7 @@ public:
     static void scheduleJob(SimpleJob *job);
 #endif
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 90)
     /**
      * Changes the priority of @p job; jobs of the same priority run in the order in which
      * they were created. Jobs of lower numeric priority always run before any
@@ -125,8 +126,15 @@ public:
      * the default priority of jobs is 0.
      * @param job the job to change
      * @param priority new priority of @p job, lower runs earlier
+     * @deprecated Since 5.90. Changing priorities was only used by KHTML. If you need this, please contact kde-frameworks-devel to request the feature back,
+     * but as better API like Job::setPriority.
      */
+    KIOCORE_DEPRECATED_VERSION(5,
+                               90,
+                               "Changing priorities was only used by KHTML. If you need this, please contact kde-frameworks-devel to request the feature back, "
+                               "but as better API like Job::setPriority.")
     static void setJobPriority(SimpleJob *job, int priority);
+#endif
 
     /**
      * Stop the execution of a job.
