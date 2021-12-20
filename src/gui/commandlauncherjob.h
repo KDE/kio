@@ -109,8 +109,10 @@ public:
     void setDesktopName(const QString &desktopName);
 
     /**
-     * Sets the startup notification id of the command launch.
-     * @param startupId startup notification id, if any (otherwise "").
+     * Sets the platform-specific startup id of the command launch.
+     * @param startupId startup id, if any (otherwise "").
+     * For X11, this would be the id for the Startup Notification protocol.
+     * For Wayland, this would be the token for the XDG Activation protocol.
      */
     void setStartupId(const QByteArray &startupId);
 

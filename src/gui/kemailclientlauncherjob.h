@@ -76,8 +76,10 @@ public:
     void setAttachments(const QList<QUrl> &urls);
 
     /**
-     * Sets the startup notification id of the mail client.
-     * @param startupId startup notification id, if any (otherwise "")
+     * Sets the platform-specific startup id of the mail client launch.
+     * @param startupId startup id, if any (otherwise "").
+     * For X11, this would be the id for the Startup Notification protocol.
+     * For Wayland, this would be the token for the XDG Activation protocol.
      */
     void setStartupId(const QByteArray &startupId);
 
