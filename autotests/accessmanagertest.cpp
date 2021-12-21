@@ -103,7 +103,7 @@ private:
 #ifdef USE_QNAM
             ret = new QNetworkAccessManager(this);
 #else
-            ret = new KIO::AccessManager(this);
+            ret = new KIO::Integration::AccessManager(this);
 #endif
         }
         return ret;

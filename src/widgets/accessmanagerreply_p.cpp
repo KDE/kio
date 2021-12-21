@@ -259,7 +259,7 @@ void AccessManagerReply::setHeaderFromMetaData(const KIO::MetaData &_metaData)
     }
 
     // Set the returned meta data as attribute...
-    setAttribute(static_cast<QNetworkRequest::Attribute>(KIO::AccessManager::MetaData), metaData.toVariant());
+    setAttribute(static_cast<QNetworkRequest::Attribute>(KIO::Integration::AccessManager::MetaData), metaData.toVariant());
 }
 
 void AccessManagerReply::setIgnoreContentDisposition(bool on)
@@ -416,7 +416,7 @@ void AccessManagerReply::slotResult(KJob *kJob)
 
     const QUrl redirectUrl = attribute(QNetworkRequest::RedirectionTargetAttribute).toUrl();
     if (!redirectUrl.isValid()) {
-        setAttribute(static_cast<QNetworkRequest::Attribute>(KIO::AccessManager::KioError), errcode);
+        setAttribute(static_cast<QNetworkRequest::Attribute>(KIO::Integration::AccessManager::KioError), errcode);
         if (errcode && errcode != KIO::ERR_NO_CONTENT) {
             const auto networkError = error();
             Q_EMIT errorOccurred(networkError);

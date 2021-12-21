@@ -24,7 +24,7 @@ class QUrl;
 namespace KDEPrivate
 {
 /**
- * Used for KIO::AccessManager; KDE implementation of QNetworkReply.
+ * Used for KIO::Integration::AccessManager; KDE implementation of QNetworkReply.
  *
  * @since 4.3
  * @author Urs Wolfer \<uwolfer @ kde.org\>
