@@ -780,6 +780,12 @@ void Scheduler::setJobPriority(SimpleJob *job, int priority)
 }
 #endif
 
+// static
+void Scheduler::setSimpleJobPriority(SimpleJob *job, int priority)
+{
+    schedulerPrivate()->setJobPriority(job, priority);
+}
+
 void Scheduler::cancelJob(SimpleJob *job)
 {
     schedulerPrivate()->cancelJob(job);

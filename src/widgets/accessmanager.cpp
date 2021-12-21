@@ -284,10 +284,10 @@ QNetworkReply *AccessManager::createRequest(Operation op, const QNetworkRequest 
     // Set the job priority
     switch (req.priority()) {
     case QNetworkRequest::HighPriority:
-        KIO::Scheduler::setJobPriority(kioJob, -5);
+        KIO::Scheduler::setSimpleJobPriority(kioJob, -5);
         break;
     case QNetworkRequest::LowPriority:
-        KIO::Scheduler::setJobPriority(kioJob, 5);
+        KIO::Scheduler::setSimpleJobPriority(kioJob, 5);
         break;
     default:
         break;
@@ -334,10 +334,10 @@ QNetworkReply *AccessManager::createRequest(Operation op, const QNetworkRequest 
         // Set the job priority
         switch (req.priority()) {
         case QNetworkRequest::HighPriority:
-            KIO::Scheduler::setJobPriority(kioJob, -5);
+            KIO::Scheduler::setSimpleJobPriority(kioJob, -5);
             break;
         case QNetworkRequest::LowPriority:
-            KIO::Scheduler::setJobPriority(kioJob, 5);
+            KIO::Scheduler::setSimpleJobPriority(kioJob, 5);
             break;
         default:
             break;
