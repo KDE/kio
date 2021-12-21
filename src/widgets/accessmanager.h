@@ -23,6 +23,9 @@ class QWidget;
 
 namespace KIO
 {
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 0)
+// WARNING: this class is deprecated in the KIO name space, it has been
+// copied to the KIO::Integration namespace
 /**
  * @class KIO::AccessManager accessmanager.h <KIO/AccessManager>
  *
@@ -58,7 +61,7 @@ namespace KIO
  * @author Urs Wolfer \<uwolfer @ kde.org\>
  * @author Dawit Alemayehu \<adawit @ kde.org\>
  *
- * @deprecated Use the KIO::Integration::AccessManager typedef to access this class instead.
+ * @deprecated Since 5.0, use the KIO::Integration::AccessManager typedef to access this class instead.
  * @since 4.3
  */
 class KIOWIDGETS_EXPORT AccessManager : public QNetworkAccessManager
@@ -224,11 +227,168 @@ private:
     class AccessManagerPrivate;
     std::unique_ptr<AccessManagerPrivate> const d;
 };
+#endif
+} // namespace KIO, deprecated
 
+namespace KIO
+{
 namespace Integration
 {
-// KDE5: Move AccessManager into the KIO::Integration namespace.
-typedef KIO::AccessManager AccessManager;
+/**
+ * @class KIO::AccessManager accessmanager.h <KIO/AccessManager>
+ *
+ * @short A KDE implementation of QNetworkAccessManager.
+ *
+ * Use this class instead of QNetworkAccessManager if you want to integrate
+ * with KDE's KIO and KCookieJar modules for network operations and cookie
+ * handling respectively.
+ *
+ * Here is a simple example that shows how to set the QtWebKit module to use KDE's
+ * KIO for its network operations:
+ * @code
+ *   QWebView *view = new QWebView(this);
+ *   KIO::Integration::AccessManager *manager = new KIO::Integration::AccessManager(view);
+ *   view->page()->setNetworkAccessManager(manager);
+ * @endcode
+ *
+ * To access member functions in the cookiejar class at a later point in your
+ * code simply downcast the pointer returned by QWebPage::networkAccessManager
+ * as follows:
+ * @code
+ *   KIO::Integration::AccessManager *manager = qobject_cast<KIO::Integration::AccessManager*>(view->page()->accessManager());
+ * @endcode
+ *
+ * Please note that this class is in the KIO namespace for backward compatibility.
+ * You should use KIO::Integration::AccessManager to access this class in your
+ * code.
+ *
+ * <b>IMPORTANT</b>This class is not a replacement for the standard KDE API.
+ * It should ONLY be used to provide KDE integration in applications that
+ * cannot use the standard KDE API directly.
+ *
+ * @author Urs Wolfer \<uwolfer @ kde.org\>
+ * @author Dawit Alemayehu \<adawit @ kde.org\>
+ *
+ * @since 5.0
+ */
+class KIOWIDGETS_EXPORT AccessManager : public QNetworkAccessManager
+{
+    Q_OBJECT
+public:
+    /*!
+     * Extensions to QNetworkRequest::Attribute enums.
+     */
+    enum Attribute {
+        MetaData = QNetworkRequest::User, /** < Used to send KIO MetaData back and forth. type: QVariant::Map. */
+        KioError, /**< Used to send KIO error codes that cannot be mapped into QNetworkReply::NetworkError. type: QVariant::Int */
+    };
+
+    /**
+     * Constructor
+     */
+    AccessManager(QObject *parent);
+
+    /**
+     * Destructor
+     */
+    ~AccessManager() override;
+
+    /**
+     * Set @p allowed to false if you don't want any external content to be fetched.
+     * By default external content is fetched.
+     */
+    void setExternalContentAllowed(bool allowed);
+
+    /**
+     * Returns true if external content is going to be fetched.
+     *
+     * @see setExternalContentAllowed
+     */
+    bool isExternalContentAllowed() const;
+
+    /**
+     * Sets the window associated with this network access manager.
+     *
+     * Note that @p widget will be used as a parent for dialogs in KIO as well
+     * as the cookie jar. If @p widget is not a window, this function will
+     * invoke @ref QWidget::window() to obtain the window for the given widget.
+     *
+     * @see KIO::Integration::CookieJar::setWindow.
+     * @since 4.7
+     */
+    void setWindow(QWidget *widget);
+
+    /**
+     * Returns the window associated with this network access manager.
+     *
+     * @see setWindow
+     */
+    QWidget *window() const;
+
+    /**
+     * Returns a reference to the temporary meta data container.
+     *
+     * See kdelibs/kio/DESIGN.metadata for list of supported KIO meta data.
+     *
+     * Use this function when you want to set per request KIO meta data that
+     * will be removed after it has been sent once.
+     */
+    KIO::MetaData &requestMetaData();
+
+    /**
+     * Returns a reference to the persistent meta data container.
+     *
+     * See kdelibs/kio/DESIGN.metadata for list of supported KIO meta data.
+     *
+     * Use this function when you want to set per session KIO meta data that
+     * will be sent with every request.
+     *
+     * Unlike @p requestMetaData, the meta data values set using the reference
+     * returned by this function will not be deleted and will be sent with every
+     * request.
+     */
+    KIO::MetaData &sessionMetaData();
+
+    /**
+     * Puts the ioslave associated with the given @p reply on hold.
+     *
+     * This function is intended to make possible the implementation of
+     * the special case mentioned in KIO::get's documentation within the
+     * KIO-QNAM integration.
+     *
+     * @see KIO::get.
+     */
+    static void putReplyOnHold(QNetworkReply *reply);
+
+    /**
+     * Sets the network reply object to emit readyRead when it receives meta data.
+     *
+     * Meta data is any information that is not the actual content itself, e.g.
+     * HTTP response headers of the HTTP protocol.
+     *
+     * Calling this function will force the code connecting to QNetworkReply's
+     * readyRead signal to prematurely start dealing with the content that might
+     * not yet have arrived. However, it is essential to make the put ioslave on
+     * hold functionality of KIO work in libraries like QtWebKit.
+     *
+     * @see QNetworkReply::metaDataChanged
+     * @since 4.7
+     */
+    void setEmitReadyReadOnMetaDataChange(bool);
+
+protected:
+    /**
+     * Reimplemented for internal reasons, the API is not affected.
+     *
+     * @see QNetworkAccessManager::createRequest
+     * @internal
+     */
+    QNetworkReply *createRequest(Operation op, const QNetworkRequest &req, QIODevice *outgoingData = nullptr) override;
+
+private:
+    class AccessManagerPrivate;
+    std::unique_ptr<AccessManagerPrivate> const d;
+}; // class AccessManager
 
 /**
  * Maps KIO SSL meta data into the given QSslConfiguration object.
@@ -349,8 +509,7 @@ private:
     std::unique_ptr<CookieJarPrivate> const d;
 };
 
-}
-
-}
+} // namespace Integration
+} // namespace KIO
 
 #endif // KIO_ACCESSMANAGER_H
