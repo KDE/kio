@@ -1075,7 +1075,7 @@ QString KFileItem::iconName() const
                 }
             }
 
-            d->m_iconName = KIOPrivate::iconForStandardPath(localFile);
+            d->m_iconName = KIOPrivate::KFileItemIconCache::instance()->iconForStandardPath(localFile);
             if (!d->m_iconName.isEmpty()) {
                 d->m_useIconNameCache = d->m_bMimeTypeKnown;
                 return d->m_iconName;

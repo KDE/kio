@@ -120,10 +120,6 @@ KIOCORE_EXPORT bool createSymlink(const QString &source, const QString &destinat
 /** Changes the ownership of @p file (like chown()) */
 KIOCORE_EXPORT bool changeOwnership(const QString &file, KUserId newOwner, KGroupId newGroup);
 
-/** Returns an icon name for a standard path,
- * e.g. folder-pictures for any path in QStandardPaths::PicturesLocation */
-QString iconForStandardPath(const QString &localDirectory);
-
 class KFileItemIconCache : public QObject
 {
 public:
@@ -137,6 +133,16 @@ public:
      * @see initializeMountPointsMap
      */
     QString iconForMountPoint(const QString &localDirectory);
+
+    /**
+     * Returns an icon name for a standard path, e.g. folder-pictures for any path in
+     * QStandardPaths::PicturesLocation.
+     *
+     * @param localDirectory the path of the local directory
+     * @return the icon name for the standard path
+     * @see initializeStandardLocationsMap
+     */
+    QString iconForStandardPath(const QString &localDirectory);
 
 private Q_SLOTS:
     /**
@@ -181,6 +187,14 @@ private:
     void initializeMountPointsMap();
 
     /**
+     * Retrieves standard locations of the system, and prepares for updating
+     * the standard locations map.
+     *
+     * @see iconForStandardPath
+     */
+    void initializeStandardLocationsMap();
+
+    /**
      * When a device appears in the underlying system, if the device type is
      * Solid::StorageAccess, when setting up of this device is completed,
      * or when tearing down of this device is completed, update the mount points
@@ -191,6 +205,7 @@ private:
     void refreshStorageAccess(const Solid::Device &device);
 
     QMap<QString /* mount point */, QString /* icon name */> m_mountPointToIconProxyMap;
+    QMap<QString /* standard location */, QString /* icon name */> m_standardLocationsMap;
 
     /**
      * This map serves as a proxy from a UDI to a mount point. Because removable devices can

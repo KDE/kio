@@ -221,7 +221,7 @@ QString KIO::iconNameForUrl(const QUrl &url)
     if (url.isLocalFile()) {
         // Check to see whether it's an xdg location (e.g. Pictures folder)
         if (mt.inherits(QStringLiteral("inode/directory"))) {
-            iconName = KIOPrivate::iconForStandardPath(url.toLocalFile());
+            iconName = KIOPrivate::KFileItemIconCache::instance()->iconForStandardPath(url.toLocalFile());
         }
 
         // Let KFileItem::iconName handle things for us
