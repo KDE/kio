@@ -12,6 +12,7 @@
 #include <qplatformdefs.h>
 
 #include <KUser>
+#include <Solid/SolidNamespace>
 
 #ifdef Q_OS_WIN
 // windows just sets the mode_t access rights bits to the same value for user+group+other.
@@ -88,6 +89,11 @@ KIOCORE_EXPORT int kio_windows_lstat(const char *path, QT_STATBUF *buffer);
 
 #endif // Q_OS_WIN
 
+namespace Solid
+{
+class Device;
+}
+
 namespace KIOPrivate
 {
 /** @return true if the process with given PID is currently running */
@@ -117,6 +123,82 @@ KIOCORE_EXPORT bool changeOwnership(const QString &file, KUserId newOwner, KGrou
 /** Returns an icon name for a standard path,
  * e.g. folder-pictures for any path in QStandardPaths::PicturesLocation */
 QString iconForStandardPath(const QString &localDirectory);
+
+class KFileItemIconCache : public QObject
+{
+public:
+    static KFileItemIconCache *instance();
+
+    /**
+     * Gets the corresponding icon name for a mount point.
+     *
+     * @param localDirectory the path of the local directory
+     * @return the icon name for the mount point
+     * @see initializeMountPointsMap
+     */
+    QString iconForMountPoint(const QString &localDirectory);
+
+private Q_SLOTS:
+    /**
+     * The function serves as a signal receiver of Solid::DeviceNotifier::deviceAdded.
+     *
+     * @param udi the UDI of the volume
+     * @see refreshStorageAccess
+     */
+    void slotDeviceAdded(const QString &udi);
+
+    /**
+     * The function serves as a signal receiver of Solid::DeviceNotifier::deviceRemoved.
+     *
+     * @param udi the UDI of the volume
+     * @see slotUpdateMountPointsMap
+     */
+    void slotDeviceRemoved(const QString &udi);
+
+    /**
+     * Updates a mount point and stores the corresponding icon name to the map if
+     * a mount point is mounted, or removes the stored icon name from the map if a
+     * mount point is unmounted.
+     *
+     * @param error type of error that occurred, if any
+     * @param errorData more information about the error, if any
+     * @param udi the UDI of the volume
+     */
+    void slotUpdateMountPointsMap(Solid::ErrorType error, const QVariant &errorData, const QString &udi);
+
+private:
+    KFileItemIconCache();
+    ~KFileItemIconCache() = default;
+    KFileItemIconCache(const KFileItemIconCache &instance);
+    const KFileItemIconCache &operator=(const KFileItemIconCache &instance);
+
+    /**
+     * Retrieves devices on which StorageAccess is available, and prepares for
+     * updating the mount points map.
+     *
+     * @see iconForMountPoint
+     */
+    void initializeMountPointsMap();
+
+    /**
+     * When a device appears in the underlying system, if the device type is
+     * Solid::StorageAccess, when setting up of this device is completed,
+     * or when tearing down of this device is completed, update the mount points
+     * map.
+     *
+     * @param device the device for the given UDI
+     */
+    void refreshStorageAccess(const Solid::Device &device);
+
+    QMap<QString /* mount point */, QString /* icon name */> m_mountPointToIconProxyMap;
+
+    /**
+     * This map serves as a proxy from a UDI to a mount point. Because removable devices can
+     * be forcedly disconnected from the host, the storageAccess pointer could be nullptr, so
+     * it's required to store an item with the key UDI and a value of the mount point.
+     */
+    QMap<QString /* udi */, QString /* mount point */> m_udiToMountPointProxyMap;
+};
 }
 
 #endif // KIO_KIOGLOBAL_P_H

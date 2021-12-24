@@ -10,6 +10,9 @@
 #include <QDir>
 #include <QStandardPaths>
 #include <QTextStream>
+#include <Solid/Device>
+#include <Solid/DeviceNotifier>
+#include <Solid/StorageAccess>
 
 static QMap<QString, QString> standardLocationsMap()
 {
@@ -72,4 +75,82 @@ QString KIOPrivate::iconForStandardPath(const QString &localDirectory)
 {
     static auto map = standardLocationsMap();
     return map.value(localDirectory, QString());
+}
+
+KIOPrivate::KFileItemIconCache::KFileItemIconCache()
+{
+    connect(Solid::DeviceNotifier().instance(), &Solid::DeviceNotifier::deviceAdded, this, &KIOPrivate::KFileItemIconCache::slotDeviceAdded);
+    connect(Solid::DeviceNotifier().instance(), &Solid::DeviceNotifier::deviceRemoved, this, &KIOPrivate::KFileItemIconCache::slotDeviceRemoved);
+}
+
+KIOPrivate::KFileItemIconCache *KIOPrivate::KFileItemIconCache::instance()
+{
+    static KFileItemIconCache *instance = new KFileItemIconCache();
+
+    return instance;
+}
+
+QString KIOPrivate::KFileItemIconCache::iconForMountPoint(const QString &localDirectory)
+{
+    if (m_mountPointToIconProxyMap.empty()) {
+        initializeMountPointsMap();
+    }
+
+    return m_mountPointToIconProxyMap.value(localDirectory, QString());
+}
+
+void KIOPrivate::KFileItemIconCache::refreshStorageAccess(const Solid::Device &device)
+{
+    const Solid::StorageAccess *const access = device.as<Solid::StorageAccess>();
+
+    if (!access) {
+        return;
+    }
+
+    connect(access, &Solid::StorageAccess::setupDone, this, &KIOPrivate::KFileItemIconCache::slotUpdateMountPointsMap);
+    connect(access, &Solid::StorageAccess::teardownDone, this, &KIOPrivate::KFileItemIconCache::slotUpdateMountPointsMap);
+
+    slotUpdateMountPointsMap(Solid::ErrorType::NoError, QVariant(), device.udi());
+}
+
+void KIOPrivate::KFileItemIconCache::slotDeviceAdded(const QString &udi)
+{
+    refreshStorageAccess(Solid::Device(udi));
+}
+
+void KIOPrivate::KFileItemIconCache::slotDeviceRemoved(const QString &udi)
+{
+    slotUpdateMountPointsMap(Solid::ErrorType::NoError, QVariant(), udi);
+}
+
+void KIOPrivate::KFileItemIconCache::slotUpdateMountPointsMap(Solid::ErrorType error, const QVariant &errorData, const QString &udi)
+{
+    Q_UNUSED(errorData)
+
+    if (error != Solid::ErrorType::NoError) {
+        return;
+    }
+
+    const Solid::Device device = Solid::Device(udi);
+    const Solid::StorageAccess *const access = device.as<Solid::StorageAccess>();
+
+    if (access && !access->filePath().isEmpty()) {
+        // Add the mount point to the maps
+        m_mountPointToIconProxyMap.insert(access->filePath(), device.icon());
+        m_udiToMountPointProxyMap.insert(udi, access->filePath());
+    } else if (m_udiToMountPointProxyMap.contains(udi)) {
+        // Remove the mount point from the maps
+        m_mountPointToIconProxyMap.remove(m_udiToMountPointProxyMap.take(udi));
+    }
+}
+
+void KIOPrivate::KFileItemIconCache::initializeMountPointsMap()
+{
+    const QList<Solid::Device> deviceList = Solid::Device::listFromType(Solid::DeviceInterface::StorageAccess);
+
+    for (const auto &device : deviceList) {
+        if (!m_udiToMountPointProxyMap.contains(device.udi())) {
+            refreshStorageAccess(device);
+        }
+    }
 }

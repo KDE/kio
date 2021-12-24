@@ -209,6 +209,7 @@ target_link_libraries(KF5KIOCore
 PUBLIC
  KF5::CoreAddons   # KJob
  KF5::Service # TODO KF6 move to PRIVATE
+ KF5::Solid # kioglobal_p.h
  Qt${QT_MAJOR_VERSION}::Network
 PRIVATE
  Qt${QT_MAJOR_VERSION}::Xml # davjob.cpp uses QDom
