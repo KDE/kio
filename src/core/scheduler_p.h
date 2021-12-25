@@ -128,10 +128,6 @@ class SerialPicker
 {
 public:
     // note that serial number zero is the default value from job_p.h and invalid!
-    SerialPicker()
-        : m_offset(1)
-    {
-    }
 
     int next()
     {
@@ -145,7 +141,7 @@ public:
 
 private:
     static const uint m_jobsPerPriority = 100000000;
-    uint m_offset;
+    uint m_offset = 1;
 
 public:
     static const int maxSerial = m_jobsPerPriority * 20;
