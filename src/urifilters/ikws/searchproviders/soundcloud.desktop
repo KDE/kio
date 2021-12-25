@@ -20,6 +20,7 @@ Name[gl]=Soundcloud
 Name[hu]=Soundcloud
 Name[ia]=Soundcloud
 Name[id]=Soundcloud
+Name[is]=Soundcloud
 Name[it]=Soundcloud
 Name[ko]=Soundcloud
 Name[lt]=Soundcloud
@@ -65,6 +66,7 @@ Query[gl]=https://soundcloud.com/search?q=\\{@}
 Query[hu]=https://soundcloud.com/search?q=\\{@}
 Query[ia]=https://soundcloud.com/search?q=\\{@}
 Query[id]=https://soundcloud.com/search?q=\\{@}
+Query[is]=https://soundcloud.com/search?q=\\{@}
 Query[it]=https://soundcloud.com/search?q=\\{@}
 Query[ko]=https://soundcloud.com/search?q=\\{@}
 Query[lt]=https://soundcloud.com/search?q=\\{@}

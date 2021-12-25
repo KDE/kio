@@ -110,6 +110,7 @@ Query[gl]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[hu]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[ia]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[id]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
+Query[is]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[it]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[ko]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[lt]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex

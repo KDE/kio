@@ -20,6 +20,7 @@ Name[gl]=Compras en Qwant
 Name[hu]=Qwant vásárlás
 Name[ia]=Qwant Shopping
 Name[id]=Qwant Belanja
+Name[is]=Qwant verslun
 Name[it]=Acquisti di Qwant
 Name[ko]=Qwant 쇼핑
 Name[lt]=Qwant apsipirkimas
@@ -65,6 +66,7 @@ Query[fi]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[fr]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[hu]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[ia]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
+Query[is]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[it]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[ko]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[lt]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping

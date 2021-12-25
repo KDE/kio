@@ -21,6 +21,7 @@ Name[gl]=Busca de paquetes de Arch Linux
 Name[hu]=Arch Linux csomagkereső
 Name[ia]=Cerca de Pacchetto de Arch Linux
 Name[id]=Pencarian Paket Arch Linux
+Name[is]=Arch Linux pakkaleit
 Name[it]=Ricerca di pacchetti Arch Linux
 Name[ko]=Arch Linux 패키지 검색
 Name[lt]=Arch Linux paketų paieška
@@ -67,6 +68,7 @@ Query[gl]=https://www.archlinux.org/packages/?q=\\{@}
 Query[hu]=https://www.archlinux.org/packages/?q=\\{@}
 Query[ia]=https://www.archlinux.org/packages/?q=\\{@}
 Query[id]=https://www.archlinux.org/packages/?q=\\{@}
+Query[is]=https://www.archlinux.org/packages/?q=\\{@}
 Query[it]=https://www.archlinux.org/packages/?q=\\{@}
 Query[ko]=https://www.archlinux.org/packages/?q=\\{@}
 Query[lt]=https://www.archlinux.org/packages/?q=\\{@}

@@ -20,6 +20,7 @@ Name[gl]=Qwant social
 Name[hu]=Qwant közösség
 Name[ia]=Qwant Social
 Name[id]=Qwant Sosial
+Name[is]=Qwant Social
 Name[it]=Rete sociale di Qwant
 Name[ko]=Qwant 소셜
 Name[lt]=Qwant socialinių tinklų įrašai
@@ -66,6 +67,7 @@ Query[fi]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[fr]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[hu]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[ia]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
+Query[is]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[it]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[ko]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[lt]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
