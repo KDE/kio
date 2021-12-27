@@ -17,7 +17,7 @@ static QMap<QString, QString> standardLocationsMap()
         QStandardPaths::StandardLocation location;
         QString name;
     } mapping[] = {
-#if QT_VERSION >= 0x060300
+#if QT_VERSION >= QT_VERSION_CHECK(6, 4, 0)
                    {QStandardPaths::TemplatesLocations, QStringLiteral("folder-templates")},
                    {QStandardPaths::PublicShareLocation, QStringLiteral("folder-public")},
 #endif
@@ -41,7 +41,7 @@ static QMap<QString, QString> standardLocationsMap()
             map.insert(location, row.name);
         }
         // Qt does not provide an easy way to receive the xdg dir for the templates and public directory so we have to find it on our own (QTBUG-86106 and QTBUG-78092)
-#if QT_VERSION < 0x060300
+#if QT_VERSION < QT_VERSION_CHECK(6, 4, 0)
 #ifdef Q_OS_UNIX
         const QString xdgUserDirs = QStandardPaths::locate(QStandardPaths::ConfigLocation, QStringLiteral("user-dirs.dirs"), QStandardPaths::LocateFile);
         QFile xdgUserDirsFile(xdgUserDirs);
