@@ -980,6 +980,11 @@ void PreviewJobPrivate::emitPreview(const QImage &thumb)
     Q_EMIT q->gotPreview(currentItem.item, pix);
 }
 
+QVector<KPluginMetaData> PreviewJob::availableThumbnailerPlugins()
+{
+    return PreviewJobPrivate::loadAvailablePlugins();
+}
+
 QStringList PreviewJob::availablePlugins()
 {
     QStringList result;

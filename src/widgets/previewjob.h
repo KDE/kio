@@ -16,6 +16,7 @@
 #include <kio/job.h>
 
 class QPixmap;
+class KPluginMetaData;
 
 namespace KIO
 {
@@ -219,6 +220,12 @@ public:
      * @return the list of all available plugins
      */
     static QStringList availablePlugins();
+
+    /**
+     * Returns all plugins that are considered when a preview is generated
+     * @since 5.90
+     */
+    static QVector<KPluginMetaData> availableThumbnailerPlugins();
 
     /**
      * Returns a list of plugins that should be enabled by default, which is all plugins
