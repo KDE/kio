@@ -1,5 +1,0 @@
-[Desktop Entry]
-Name=Freedesktop Gitlab
-Type=Service
-Keys=freedesktop
-Query=https://gitlab.freedesktop.org/search?search=\\{@}

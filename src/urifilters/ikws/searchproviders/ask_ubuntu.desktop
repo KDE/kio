@@ -1,5 +1,0 @@
-[Desktop Entry]
-Name=Ask Ubuntu
-Type=Service
-Keys=askubuntu
-Query=https://askubuntu.com/search?q=\\{@}

@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=Learn CPP
+Type=Service
+Keys=learncpp
+Query=https://www.learncpp.com/gsearch/?q=\\{@}

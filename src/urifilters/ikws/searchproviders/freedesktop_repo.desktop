@@ -1,5 +1,0 @@
-[Desktop Entry]
-Name=Freedesktop Repositories
-Type=Service
-Keys=freedesktoprepo
-Query=https://gitlab.freedesktop.org/explore/projects/starred?name=\\{@}

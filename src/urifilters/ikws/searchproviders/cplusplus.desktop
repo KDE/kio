@@ -1,5 +1,5 @@
 [Desktop Entry]
 Name=CPlusPlus
 Type=Service
-Keys=cplusplus,cpp
+Keys=cplusplus
 Query=http://cplusplus.com/search.do?q=\\{@}

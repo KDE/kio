@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=CPP Reference
+Type=Service
+Keys=cppreference,cppref,cpp
+Query=https://en.cppreference.com/w/?search=\\{@}

@@ -1,5 +1,0 @@
-[Desktop Entry]
-Name=GNOME Gitlab
-Type=Service
-Keys=gnome
-Query=https://gitlab.gnome.org/search?search=\\{@}
