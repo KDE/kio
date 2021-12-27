@@ -2,4 +2,4 @@
 Name=CPP Reference
 Type=Service
 Keys=cppreference,cppref,cpp
-Query=https://en.cppreference.com/w/?search=\\{@}
+Query=https://cppreference.com/w/?search=\\{@}
