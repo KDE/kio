@@ -219,7 +219,7 @@ void FileProtocol::mkdir(const QUrl &url, int permissions)
     if (QT_LSTAT(QFile::encodeName(path).constData(), &buff) == -1) {
         bool dirCreated = QDir().mkdir(path);
         if (!dirCreated) {
-            if (auto err = execWithElevatedPrivilege(MKDIR, {path}, errno)) {
+            if (auto err = execWithElevatedPrivilege(MKDIR, {path, permissions}, errno)) {
                 if (!err.wasCanceled()) {
                     // TODO: add access denied & disk full (or another reasons) handling (into Qt, possibly)
                     error(KIO::ERR_CANNOT_MKDIR, path);

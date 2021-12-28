@@ -87,3 +87,4 @@ Description[x-test]=xxRoot privileges are required to complete the action.xx
 Description[zh_CN]=完成操作需要 Root 权限。
 Description[zh_TW]=完成動作需要 root 權限。
 Policy=auth_admin
+Persistence=session

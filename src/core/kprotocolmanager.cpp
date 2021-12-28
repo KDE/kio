@@ -1107,6 +1107,16 @@ bool KProtocolManager::supportsTruncating(const QUrl &url)
     return prot->m_supportsTruncating;
 }
 
+bool KProtocolManager::supportsPrivilegeExecution(const QUrl &url)
+{
+    KProtocolInfoPrivate *prot = findProtocol(url);
+    if (!prot) {
+        return false;
+    }
+
+    return prot->m_supportsPrivilegeExecution;
+}
+
 bool KProtocolManager::canCopyFromFile(const QUrl &url)
 {
     KProtocolInfoPrivate *prot = findProtocol(url);

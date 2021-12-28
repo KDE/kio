@@ -1241,16 +1241,10 @@ bool KFileItem::isWritable() const
       // for the groups... then we need to handle the deletion properly...
       */
 
-    if (d->m_permissions != KFileItem::Unknown) {
-        // No write permission at all
-        if (!(S_IWUSR & d->m_permissions) && !(S_IWGRP & d->m_permissions) && !(S_IWOTH & d->m_permissions)) {
-            return false;
-        }
-    }
-
     // Or if we can't write it - not network transparent
     if (d->m_bIsLocalUrl) {
-        return QFileInfo(d->m_url.toLocalFile()).isWritable();
+        // file protocol has supportsPrivilegeExecution so any local file is potentially writable
+        return true;
     } else {
         return KProtocolManager::supportsWriting(d->m_url);
     }

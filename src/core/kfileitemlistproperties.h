@@ -122,6 +122,12 @@ public:
     QString mimeType() const;
 
     /**
+     * @return Whether all items are owned by the current user
+     * @since dunno
+     */
+    bool isOwner() const;
+
+    /**
      * @return the MIME type group (e.g. "text") of all items, if they all have the same, otherwise an empty string
      */
     QString mimeGroup() const;
