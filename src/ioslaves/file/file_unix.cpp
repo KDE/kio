@@ -133,6 +133,7 @@ static QString actionDetails(ActionType actionType, const QVariantList &args)
     case COPY:
         action = i18n("Copy");
         detail = i18n("From: %1, To: %1", args[0].toString(), args[1].toString());
+        break;
     default:
         action = i18n("Unknown Action");
         break;
@@ -680,20 +681,16 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mode, JobF
         return;
     }
 
-    goto notAuth;
-
-auth: {
-    auto err = execWithElevatedPrivilege(COPY, {srcUrl, destUrl}, errno);
-    if (err) {
-        if (!err.wasCanceled()) {
-            error(KIO::ERR_UNKNOWN, QString());
+    auto attemptWithAuthentication = [=]() {
+        auto err = execWithElevatedPrivilege(COPY, {srcUrl, destUrl}, errno);
+        if (err) {
+            if (!err.wasCanceled()) {
+                error(KIO::ERR_UNKNOWN, QString());
+            }
+        } else {
+            finished();
         }
-    } else {
-        finished();
-    }
-    return;
-}
-notAuth:
+    };
 
     qCDebug(KIO_FILE) << "copy()" << srcUrl << "to" << destUrl << "mode=" << _mode;
 
@@ -762,7 +759,8 @@ notAuth:
 
     QFile srcFile(src);
     if (!srcFile.open(QIODevice::ReadOnly)) {
-        goto auth;
+        attemptWithAuthentication();
+        return;
     }
 
 #if HAVE_FADVISE
@@ -771,7 +769,8 @@ notAuth:
 
     QFile destFile(dest);
     if (!destFile.open(QIODevice::Truncate | QIODevice::WriteOnly)) {
-        goto auth;
+        attemptWithAuthentication();
+        return;
     }
 
     // _mode == -1 means don't touch dest permissions, leave it with the system default ones

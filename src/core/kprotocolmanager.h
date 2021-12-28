@@ -636,7 +636,7 @@ public:
      *
      * @param url the url to check
      * @return true if protocol supports privilege execution
-     * @since 5.80
+     * @since 5.90
      */
     static bool supportsPrivilegeExecution(const QUrl &url);
 

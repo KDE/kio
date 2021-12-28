@@ -67,21 +67,21 @@ public:
     andThen(Function next)
     {
         using X = typename std::result_of_t<Function(T)>::Kind;
-        Future<X> ret;
+        Future<X> outerFuture;
 
-        then([next, ret](T wert) mutable {
-            Future<X> bret = next(wert);
-            bret.then([ret](X wert) mutable {
-                ret.succeed("andThen", wert);
+        then([next, outerFuture](T val) mutable {
+            Future<X> innerFuture = next(val);
+            innerFuture.then([outerFuture](X val) mutable {
+                outerFuture.succeed("andThen", val);
             });
         });
 
-        return ret;
+        return outerFuture;
     }
 };
 
 template<typename T>
-Future<T> f(QString desc, T job)
+Future<T> jobToFuture(QString desc, T job)
 {
     Future<T> ret;
 
@@ -98,7 +98,7 @@ Future<T> f(QString desc, T job)
 }
 
 template<typename T>
-QString ss(const T& value) {
+QString toStr(const T& value) {
     QString it;
     QDebug(&it) << value;
     return it;
@@ -110,7 +110,7 @@ auto move(const QList<QUrl>& items, const QUrl& to)
 
     Fum->recordCopyJob(job);
 
-    return f(QStringLiteral("move %1 to %2").arg(ss(items)).arg(ss(to)), job);
+    return jobToFuture(QStringLiteral("move %1 to %2").arg(toStr(items)).arg(toStr(to)), job);
 }
 
 auto copy(const QList<QUrl>& items, const QUrl& to)
@@ -119,7 +119,7 @@ auto copy(const QList<QUrl>& items, const QUrl& to)
 
     Fum->recordCopyJob(job);
 
-    return f(QStringLiteral("copy %1 to %2").arg(ss(items)).arg(ss(to)), job);
+    return jobToFuture(QStringLiteral("copy %1 to %2").arg(toStr(items)).arg(toStr(to)), job);
 }
 
 auto doRename(const QUrl& from, const QUrl& to)
@@ -128,7 +128,7 @@ auto doRename(const QUrl& from, const QUrl& to)
 
     Fum->recordJob(KIO::FileUndoManager::Rename, {from}, to, job);
 
-    return f(QStringLiteral("rename %1 to %2").arg(ss(from)).arg(ss(to)), job);
+    return jobToFuture(QStringLiteral("rename %1 to %2").arg(toStr(from)).arg(toStr(to)), job);
 }
 
 auto makeFolderExist(const QUrl& at)
@@ -137,23 +137,23 @@ auto makeFolderExist(const QUrl& at)
 
     Fum->recordJob(KIO::FileUndoManager::Mkdir, {}, at, job);
 
-    return f(QStringLiteral("make directory at %1").arg(ss(at)), job);
+    return jobToFuture(QStringLiteral("make directory at %1").arg(toStr(at)), job);
 }
 
-auto yeet(const QList<QUrl>& items)
+auto doTrash(const QList<QUrl>& items)
 {
     auto job = KIO::trash(items);
 
     Fum->recordJob(KIO::FileUndoManager::Trash, items, QUrl("trash:/"), job);
 
-    return f(QStringLiteral("trash %1").arg(ss(items)), job);
+    return jobToFuture(QStringLiteral("trash %1").arg(toStr(items)), job);
 }
 
-auto strongYeet(const QList<QUrl>& items)
+auto doDelete(const QList<QUrl>& items)
 {
     auto job = KIO::del(items);
 
-    return f(QStringLiteral("delete %1").arg(ss(items)), job);
+    return jobToFuture(QStringLiteral("delete %1").arg(toStr(items)), job);
 }
 
 auto init()
@@ -161,40 +161,41 @@ auto init()
     system(R"(
 echo "Making some directories for the test..."
 
-rm -rf ~/.cache/kio-test-barf
-mkdir -p ~/.cache/kio-test-barf
+rm -rf ~/.cache/kio-test-files
+mkdir -p ~/.cache/kio-test-files
 
-echo "mald" > ~/.cache/kio-test-barf/1
-echo "mald" > ~/.cache/kio-test-barf/2
-echo "mald" > ~/.cache/kio-test-barf/3
-echo "mald" > ~/.cache/kio-test-barf/4
-echo "mald" > ~/.cache/kio-test-barf/5
-echo "mald" > ~/.cache/kio-test-barf/6
-echo "mald" > ~/.cache/kio-test-barf/7
-echo "mald" > ~/.cache/kio-test-barf/8
-echo "mald" > ~/.cache/kio-test-barf/9
-echo "mald" > ~/.cache/kio-test-barf/10
+echo "hello world" > ~/.cache/kio-test-files/1
+echo "hello world" > ~/.cache/kio-test-files/2
+echo "hello world" > ~/.cache/kio-test-files/3
+echo "hello world" > ~/.cache/kio-test-files/4
+echo "hello world" > ~/.cache/kio-test-files/5
+echo "hello world" > ~/.cache/kio-test-files/6
+echo "hello world" > ~/.cache/kio-test-files/7
+echo "hello world" > ~/.cache/kio-test-files/8
+echo "hello world" > ~/.cache/kio-test-files/9
+echo "hello world" > ~/.cache/kio-test-files/10
 
-mkdir -p ~/.cache/kio-test-barf/more-barf
+mkdir -p ~/.cache/kio-test-files/more-files
 
-echo "mald" > ~/.cache/kio-test-barf/more-barf/1
-echo "mald" > ~/.cache/kio-test-barf/more-barf/2
-echo "mald" > ~/.cache/kio-test-barf/more-barf/3
-echo "mald" > ~/.cache/kio-test-barf/more-barf/4
-echo "mald" > ~/.cache/kio-test-barf/more-barf/5
-echo "mald" > ~/.cache/kio-test-barf/more-barf/6
-echo "mald" > ~/.cache/kio-test-barf/more-barf/7
-echo "mald" > ~/.cache/kio-test-barf/more-barf/8
-echo "mald" > ~/.cache/kio-test-barf/more-barf/9
-echo "mald" > ~/.cache/kio-test-barf/more-barf/10
+echo "hello world" > ~/.cache/kio-test-files/more-files/1
+echo "hello world" > ~/.cache/kio-test-files/more-files/2
+echo "hello world" > ~/.cache/kio-test-files/more-files/3
+echo "hello world" > ~/.cache/kio-test-files/more-files/4
+echo "hello world" > ~/.cache/kio-test-files/more-files/5
+echo "hello world" > ~/.cache/kio-test-files/more-files/6
+echo "hello world" > ~/.cache/kio-test-files/more-files/7
+echo "hello world" > ~/.cache/kio-test-files/more-files/8
+echo "hello world" > ~/.cache/kio-test-files/more-files/9
+echo "hello world" > ~/.cache/kio-test-files/more-files/10
 
-sudo rm -rf /.kio-test-barf/
-sudo mkdir -p /.kio-test-barf/
+sudo rm -rf /.kio-test-files/
+sudo mkdir -p /.kio-test-files/
 
 echo "Made them!"
     )");
 }
 
+// prefixes the given string with home path
 auto h(const QString& it)
 {
     auto home = QDir::homePath();
@@ -203,6 +204,7 @@ auto h(const QString& it)
     return QUrl::fromLocalFile(QDir::cleanPath(home + QDir::separator() + path));
 }
 
+// turns the given string into a file
 auto u(const QString& it)
 {
     return QUrl::fromLocalFile(it);
@@ -223,18 +225,18 @@ auto undo()
 
 QUrl operator "" _hc(const char* it, size_t len)
 {
-    return h(QStringLiteral("/.cache/kio-test-barf/%1").arg(QString::fromLocal8Bit(it, len)));
+    return h(QStringLiteral("/.cache/kio-test-files/%1").arg(QString::fromLocal8Bit(it, len)));
 }
 
 QUrl operator "" _rc(const char* it, size_t len)
 {
-    return u(QStringLiteral("/.kio-test-barf/%1").arg(QString::fromLocal8Bit(it, len)));
+    return u(QStringLiteral("/.kio-test-files/%1").arg(QString::fromLocal8Bit(it, len)));
 }
 
 #define doUndo [](auto) { return undo(); }
 #define do [](auto)
 
-auto doit()
+auto doTheTestOperations()
 {
 
     // Single file
@@ -306,23 +308,23 @@ auto doit()
 
     // Drag-and-drop move to /
     .andThen(do {
-        return move({"more-barf"_hc}, ""_rc);
+        return move({"more-files"_hc}, ""_rc);
     })
     // Undo Drag-and-drop move to /
     .andThen(doUndo)
     // Drag-and-drop copy to /
     .andThen(do {
-        return copy({"more-barf"_hc}, ""_rc);
+        return copy({"more-files"_hc}, ""_rc);
     })
     // Undo drag-and-drop copy to /
     .andThen(doUndo)
     // Copy again
     .andThen(do {
-        return copy({"more-barf"_hc}, ""_rc);
+        return copy({"more-files"_hc}, ""_rc);
     })
     // Rename folder full of stuff on /
     .andThen(do {
-        return doRename("more-barf"_rc, "barfier"_rc);
+        return doRename("more-files"_rc, "filesier"_rc);
     })
     // Duplicate folder full of stuff on /
 
@@ -348,7 +350,7 @@ int main(int argc, char *argv[])
     QApplication::setApplicationName("KAuth Tester");
     QApplication k(argc, argv);
 
-    doit();
+    doTheTestOperations();
 
     return k.exec();
 }

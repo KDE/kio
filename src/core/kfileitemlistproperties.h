@@ -123,7 +123,8 @@ public:
 
     /**
      * @return Whether all items are owned by the current user
-     * @since dunno
+     *
+     * @since 5.90
      */
     bool isOwner() const;
 
