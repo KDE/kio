@@ -59,13 +59,15 @@ static QLabel *createLabel(QWidget *parent, const QString &text, bool containerT
 
 static QLabel *createDateLabel(QWidget *parent, const KFileItem &item)
 {
-    const QString text = i18n("Date: %1", item.timeString(KFileItem::ModificationTime));
+    const bool hasDate = item.entry().contains(KIO::UDSEntry::UDS_MODIFICATION_TIME);
+    const QString text = hasDate ? i18n("Date: %1", item.timeString(KFileItem::ModificationTime)) : QString();
     return createLabel(parent, text);
 }
 
 static QLabel *createSizeLabel(QWidget *parent, const KFileItem &item)
 {
-    const QString text = i18n("Size: %1", KIO::convertSize(item.size()));
+    const bool hasSize = item.entry().contains(KIO::UDSEntry::UDS_SIZE);
+    const QString text = hasSize ? i18n("Size: %1", KIO::convertSize(item.size())) : QString();
     return createLabel(parent, text);
 }
 
@@ -302,9 +304,15 @@ RenameDialog::RenameDialog(QWidget *parent,
 
             srcUds.reserve(4);
             srcUds.fastInsert(UDSEntry::UDS_NAME, d->src.fileName());
-            srcUds.fastInsert(UDSEntry::UDS_MODIFICATION_TIME, mtimeSrc.toMSecsSinceEpoch() / 1000);
-            srcUds.fastInsert(UDSEntry::UDS_CREATION_TIME, ctimeSrc.toMSecsSinceEpoch() / 1000);
-            srcUds.fastInsert(UDSEntry::UDS_SIZE, sizeSrc);
+            if (mtimeSrc.isValid()) {
+                srcUds.fastInsert(UDSEntry::UDS_MODIFICATION_TIME, mtimeSrc.toMSecsSinceEpoch() / 1000);
+            }
+            if (ctimeSrc.isValid()) {
+                srcUds.fastInsert(UDSEntry::UDS_CREATION_TIME, ctimeSrc.toMSecsSinceEpoch() / 1000);
+            }
+            if (sizeSrc != KIO::filesize_t(-1)) {
+                srcUds.fastInsert(UDSEntry::UDS_SIZE, sizeSrc);
+            }
 
             d->srcItem = KFileItem(srcUds, d->src);
         }
@@ -316,9 +324,15 @@ RenameDialog::RenameDialog(QWidget *parent,
 
             destUds.reserve(4);
             destUds.fastInsert(UDSEntry::UDS_NAME, d->dest.fileName());
-            destUds.fastInsert(UDSEntry::UDS_MODIFICATION_TIME, mtimeDest.toMSecsSinceEpoch() / 1000);
-            destUds.fastInsert(UDSEntry::UDS_CREATION_TIME, ctimeDest.toMSecsSinceEpoch() / 1000);
-            destUds.fastInsert(UDSEntry::UDS_SIZE, sizeDest);
+            if (mtimeDest.isValid()) {
+                destUds.fastInsert(UDSEntry::UDS_MODIFICATION_TIME, mtimeDest.toMSecsSinceEpoch() / 1000);
+            }
+            if (ctimeDest.isValid()) {
+                destUds.fastInsert(UDSEntry::UDS_CREATION_TIME, ctimeDest.toMSecsSinceEpoch() / 1000);
+            }
+            if (sizeDest != KIO::filesize_t(-1)) {
+                destUds.fastInsert(UDSEntry::UDS_SIZE, sizeDest);
+            }
 
             d->destItem = KFileItem(destUds, d->dest);
         }
@@ -395,7 +409,8 @@ RenameDialog::RenameDialog(QWidget *parent,
         QLabel *srcSizeLabel = createSizeLabel(parent, d->srcItem);
         gridLayout->addWidget(srcSizeLabel, ++gridRow, 0);
 
-        if (d->srcItem.size() != d->destItem.size()) {
+        if (d->srcItem.entry().contains(KIO::UDSEntry::UDS_SIZE) && d->destItem.entry().contains(KIO::UDSEntry::UDS_SIZE)
+            && d->srcItem.size() != d->destItem.size()) {
             QString text;
             KIO::filesize_t diff = 0;
             if (d->srcItem.size() > d->destItem.size()) {
