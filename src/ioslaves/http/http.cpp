@@ -27,7 +27,6 @@
 #include <QIODevice>
 #include <QLibraryInfo>
 #include <QMimeDatabase>
-#include <QNetworkConfigurationManager>
 #include <QNetworkProxy>
 #include <QRegularExpression>
 #include <QStandardPaths>
@@ -35,6 +34,12 @@
 #include <QThread>
 #include <QUrl>
 #include <qdom.h>
+
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+#include <QNetworkInformation>
+#else
+#include <QNetworkConfigurationManager>
+#endif
 
 #include <KConfig>
 #include <KConfigGroup>
@@ -362,7 +367,6 @@ HTTPProtocol::HTTPProtocol(const QByteArray &protocol, const QByteArray &pool, c
     , m_proxyAuth(nullptr)
     , m_triedProxyCredentials(NoCredentials)
     , m_socketProxyAuth(nullptr)
-    , m_networkConfig(nullptr)
     , m_kioError(0)
     , m_isLoadingErrorPage(false)
     , m_remoteRespTimeout(DEFAULT_RESPONSE_TIMEOUT)
@@ -1904,6 +1908,14 @@ bool HTTPProtocol::sendErrorPageNotification()
 
 bool HTTPProtocol::isOffline()
 {
+#if QT_VERSION >= QT_VERSION_CHECK(6, 1, 0)
+    if (QNetworkInformation::load(QNetworkInformation::Feature::Reachability)) {
+        return QNetworkInformation::instance()->reachability() == QNetworkInformation::Reachability::Online;
+    } else {
+        qCWarning(KIO_HTTP) << "Couldn't find a working backend for QNetworkInformation";
+        return false;
+    }
+#else
     if (!m_networkConfig) {
         // Silence deprecation warnings as there is no Qt 5 substitute for QNetworkConfigurationManager
         QT_WARNING_PUSH
@@ -1912,8 +1924,8 @@ bool HTTPProtocol::isOffline()
         m_networkConfig = new QNetworkConfigurationManager(this);
         QT_WARNING_POP
     }
-
     return !m_networkConfig->isOnline();
+#endif
 }
 
 void HTTPProtocol::multiGet(const QByteArray &data)

@@ -24,7 +24,10 @@
 class QDomNodeList;
 class QFile;
 class QIODevice;
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 class QNetworkConfigurationManager;
+#endif
+
 namespace KIO
 {
 class AuthInfo;
@@ -575,7 +578,10 @@ protected:
     QAuthenticator *m_socketProxyAuth;
 
     // To know if we are online or not
-    QNetworkConfigurationManager *m_networkConfig;
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+    QNetworkConfigurationManager *m_networkConfig = nullptr;
+#endif
+
     // The current KIO error on this request / response pair - zero / KJob::NoError if no error
     int m_kioError;
     // Whether we are loading an error page (body of a reply with error response code)
