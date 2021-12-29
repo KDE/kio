@@ -158,7 +158,7 @@ if (WIN32)
 endif()
 
 set(kiocore_dbus_SRCS)
-if (TARGET Qt5::DBus)
+if (TARGET Qt${QT_MAJOR_VERSION}::DBus)
     qt_add_dbus_interface(kiocore_dbus_SRCS org.kde.KIOFuse.VFS.xml kiofuse_interface)
 
     set_source_files_properties(org.kde.KPasswdServer.xml
@@ -209,26 +209,26 @@ target_link_libraries(KF5KIOCore
 PUBLIC
  KF5::CoreAddons   # KJob
  KF5::Service # TODO KF6 move to PRIVATE
- Qt5::Network
+ Qt${QT_MAJOR_VERSION}::Network
 PRIVATE
- Qt5::Xml                   # davjob.cpp uses QDom
+ Qt${QT_MAJOR_VERSION}::Xml # davjob.cpp uses QDom
  KF5::ConfigCore
  KF5::I18n
  KF5::Crash
 )
-if (TARGET Qt5::DBus)
+if (TARGET Qt${QT_MAJOR_VERSION}::DBus)
     target_link_libraries(KF5KIOCore
     PUBLIC
-        Qt5::DBus
+        Qt${QT_MAJOR_VERSION}::DBus
     PRIVATE
         KF5::DBusAddons            # KDEInitInterface
     )
 endif()
 
 if(KIO_NO_PUBLIC_QTCONCURRENT)
-  target_link_libraries(KF5KIOCore PRIVATE Qt5::Concurrent) # QtConcurrentRun in hostinfo.cpp
+  target_link_libraries(KF5KIOCore PRIVATE Qt${QT_MAJOR_VERSION}::Concurrent) # QtConcurrentRun in hostinfo.cpp
 else()
-  target_link_libraries(KF5KIOCore PUBLIC Qt5::Concurrent) # TODO KF6: remove
+  target_link_libraries(KF5KIOCore PUBLIC Qt${QT_MAJOR_VERSION}::Concurrent) # TODO KF6: remove
 endif()
 
 if (TARGET KF5::AuthCore)
@@ -243,8 +243,12 @@ if(HAVE_LIB_MOUNT)
   target_link_libraries(KF5KIOCore PRIVATE LibMount::LibMount)
 endif()
 
+if (TARGET Qt6::Core5Compat)
+    target_link_libraries(KF5KIOCore PUBLIC Qt6::Core5Compat) # QTextCodec
+endif()
+
 # this should be done by cmake, see bug 371721
-if(CMAKE_CXX_COMPILER_ID STREQUAL "Clang" OR CMAKE_CXX_COMPILER_ID STREQUAL "GNU" AND Qt5Core_VERSION VERSION_GREATER 5.8.0)
+if(CMAKE_CXX_COMPILER_ID STREQUAL "Clang" OR CMAKE_CXX_COMPILER_ID STREQUAL "GNU" AND Qt${QT_MAJOR_VERSION}Core_VERSION VERSION_GREATER 5.8.0)
     add_custom_command(
         OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/moc_predefs.h
         COMMAND "${CMAKE_CXX_COMPILER}" "${CMAKE_CXX_COMPILER_ARG1}" "-dM" "-E" "-c" "${CMAKE_ROOT}/Modules/CMakeCXXCompilerABI.cpp" > ${CMAKE_CURRENT_BINARY_DIR}/moc_predefs.h
@@ -321,7 +325,7 @@ list(APPEND KIO_namespaced_HEADERS
 )
 install(FILES
   ${KIO_namespaced_HEADERS}
-  DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}/KIOCore/kio COMPONENT Devel
+  DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KIOCore/kio COMPONENT Devel
 )
 
 # Headers not prefixed with KIO/
@@ -357,13 +361,13 @@ ecm_generate_headers(KIOCore_HEADERS
   RELATIVE kssl
   REQUIRED_HEADERS KIOCore_HEADERS
 )
-install(FILES ${KIOCore_CamelCase_HEADERS} DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}/KIOCore/KIO COMPONENT Devel)
+install(FILES ${KIOCore_CamelCase_HEADERS} DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KIOCore/KIO COMPONENT Devel)
 
 install(FILES
   ksslcertificatemanager_p.h
   ${KIOCore_HEADERS}
   ${CMAKE_CURRENT_BINARY_DIR}/kiocore_export.h
-  DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}/KIOCore COMPONENT Devel)
+  DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KIOCore COMPONENT Devel)
 
 install(FILES accept-languages.codes DESTINATION ${KDE_INSTALL_CONFDIR})
 
@@ -371,5 +375,5 @@ install(FILES accept-languages.codes DESTINATION ${KDE_INSTALL_CONFDIR})
 set(KIOCore_QCH_SOURCES ${KIOCore_HEADERS} ${KIO_namespaced_HEADERS} PARENT_SCOPE)
 
 include(ECMGeneratePriFile)
-ecm_generate_pri_file(BASE_NAME KIOCore LIB_NAME KF5KIOCore DEPS "KCoreAddons KService" FILENAME_VAR PRI_FILENAME INCLUDE_INSTALL_DIR ${KDE_INSTALL_INCLUDEDIR_KF5}/KIOCore)
+ecm_generate_pri_file(BASE_NAME KIOCore LIB_NAME KF5KIOCore DEPS "KCoreAddons KService" FILENAME_VAR PRI_FILENAME INCLUDE_INSTALL_DIR ${KDE_INSTALL_INCLUDEDIR_KF}/KIOCore)
 install(FILES ${PRI_FILENAME} DESTINATION ${ECM_MKSPECS_INSTALL_DIR})

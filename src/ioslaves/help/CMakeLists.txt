@@ -27,7 +27,7 @@ configure_file(config-help.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-help.h )
 
 #macro_additional_clean_files( ${CMAKE_CURRENT_BINARY_DIR}/checkXML )
 
-find_package(Qt5Core ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE)
+find_package(Qt${QT_MAJOR_VERSION}Core ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE)
 
 ########### next target ###############
 
@@ -40,8 +40,8 @@ target_sources(kio_help PRIVATE
 )
 
 target_link_libraries(kio_help
-   Qt5::Gui # QTextDocument
-   Qt5::Network
+   Qt${QT_MAJOR_VERSION}::Gui # QTextDocument
+   Qt${QT_MAJOR_VERSION}::Network
    KF5::I18n
    KF5::Archive
    KF5::KIOCore
@@ -65,12 +65,12 @@ target_sources(kio_ghelp PRIVATE
 )
 
 target_link_libraries(kio_ghelp
-   Qt5::Gui # QTextDocument
+   Qt${QT_MAJOR_VERSION}::Gui # QTextDocument
    KF5::I18n
    KF5::Archive
    KF5::KIOCore
    KF5::DocTools
-   Qt5::Network
+   Qt${QT_MAJOR_VERSION}::Network
    ${LIBXML2_LIBRARIES}
    ${LIBXSLT_LIBRARIES}
    ${LIBXSLT_EXSLT_LIBRARIES}

@@ -11,7 +11,7 @@ ki18n_wrap_ui(kcm_proxy
 )
 
 target_link_libraries(kcm_proxy PRIVATE
-    Qt5::Widgets
+    Qt${QT_MAJOR_VERSION}::Widgets
     KF5::CoreAddons
     KF5::ConfigCore
     KF5::I18n
@@ -21,4 +21,4 @@ target_link_libraries(kcm_proxy PRIVATE
 
 install(TARGETS kcm_proxy DESTINATION ${KDE_INSTALL_PLUGINDIR})
 
-install(FILES proxy.desktop DESTINATION  ${KDE_INSTALL_KSERVICES5DIR})
+install(FILES proxy.desktop DESTINATION  ${KDE_INSTALL_KSERVICESDIR})

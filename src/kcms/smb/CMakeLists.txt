@@ -5,7 +5,7 @@ target_sources(kcm_smb PRIVATE
 )
 
 target_link_libraries(kcm_smb PRIVATE
-    Qt5::Widgets
+    Qt${QT_MAJOR_VERSION}::Widgets
     KF5::CoreAddons
     KF5::ConfigCore
     KF5::I18n
@@ -14,4 +14,4 @@ target_link_libraries(kcm_smb PRIVATE
 
 install(TARGETS kcm_smb DESTINATION ${KDE_INSTALL_PLUGINDIR})
 
-install(FILES smb.desktop DESTINATION  ${KDE_INSTALL_KSERVICES5DIR})
+install(FILES smb.desktop DESTINATION  ${KDE_INSTALL_KSERVICESDIR})

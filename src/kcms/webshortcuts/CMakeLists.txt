@@ -11,4 +11,4 @@ target_link_libraries(kcm_webshortcuts
 )
 
 install(TARGETS kcm_webshortcuts DESTINATION ${KDE_INSTALL_PLUGINDIR})
-install(FILES webshortcuts.desktop DESTINATION ${KDE_INSTALL_KSERVICES5DIR})
+install(FILES webshortcuts.desktop DESTINATION ${KDE_INSTALL_KSERVICESDIR})

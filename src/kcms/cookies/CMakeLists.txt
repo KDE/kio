@@ -17,8 +17,8 @@ ki18n_wrap_ui(kcm_cookies
 )
 
 target_link_libraries(kcm_cookies PRIVATE
-    Qt5::Widgets
-    Qt5::DBus
+    Qt${QT_MAJOR_VERSION}::Widgets
+    Qt${QT_MAJOR_VERSION}::DBus
     KF5::CoreAddons
     KF5::ConfigCore
     KF5::I18n
@@ -29,4 +29,4 @@ target_link_libraries(kcm_cookies PRIVATE
 
 install(TARGETS kcm_cookies DESTINATION ${KDE_INSTALL_PLUGINDIR})
 
-install(FILES cookies.desktop DESTINATION  ${KDE_INSTALL_KSERVICES5DIR})
+install(FILES cookies.desktop DESTINATION  ${KDE_INSTALL_KSERVICESDIR})

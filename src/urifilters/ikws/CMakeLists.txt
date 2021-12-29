@@ -28,11 +28,16 @@ ecm_qt_export_logging_category(
 )
 
 target_link_libraries(kuriikwsfilter
-   KF5::ConfigWidgets  # KCModule
-   KF5::KIOWidgets     # KUriFilter
-   KF5::I18n
-   Qt5::DBus
+    PRIVATE
+        KF5::ConfigWidgets  # KCModule
+        KF5::KIOWidgets     # KUriFilter
+        KF5::I18n
+        Qt${QT_MAJOR_VERSION}::DBus
 )
+
+if (TARGET Qt6::Core5Compat)
+    target_link_libraries(kuriikwsfilter PRIVATE Qt6::Core5Compat) # QTextCodec
+endif()
 
 #####
 
@@ -55,9 +60,9 @@ target_link_libraries(kurisearchfilter
    KF5::ConfigWidgets  # KCModule
    KF5::KIOWidgets     # KUriFilter
    KF5::I18n
-   Qt5::DBus
+   Qt${QT_MAJOR_VERSION}::DBus
 )
 
 ########### install files ###############
 
-install( FILES searchprovider.desktop  DESTINATION  ${KDE_INSTALL_KSERVICETYPES5DIR} )
+install( FILES searchprovider.desktop  DESTINATION  ${KDE_INSTALL_KSERVICETYPESDIR} )

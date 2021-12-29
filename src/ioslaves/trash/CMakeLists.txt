@@ -55,8 +55,8 @@ target_link_libraries(kio_trash
   KF5::ConfigCore
   KF5::Solid
   KF5::KIOCore
-  Qt5::DBus
-  Qt5::Network
+  Qt${QT_MAJOR_VERSION}::DBus
+  Qt${QT_MAJOR_VERSION}::Network
   KF5::I18n
   KF5::ConfigCore
 )
@@ -93,7 +93,7 @@ if(NOT WIN32 AND NOT KIOCORE_ONLY)
     )
     target_link_libraries(kcm_trash
        trash_common_unix
-       Qt5::DBus
+       Qt${QT_MAJOR_VERSION}::DBus
        KF5::I18n
        KF5::ConfigWidgets
        KF5::KIOCore
@@ -107,4 +107,4 @@ endif()
 
 ########### install files ###############
 
-install( FILES kcmtrash.desktop DESTINATION ${KDE_INSTALL_KSERVICES5DIR} )
+install( FILES kcmtrash.desktop DESTINATION ${KDE_INSTALL_KSERVICESDIR} )

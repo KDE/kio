@@ -21,7 +21,14 @@ include(ECMAddTests)
 
 ecm_add_test(${testtrash_SRCS}
     TEST_NAME testtrash
-    LINK_LIBRARIES KF5::ConfigCore KF5::I18n Qt5::DBus KF5::KIOCore KF5::Solid Qt5::Test Qt5::Network
+    LINK_LIBRARIES
+        KF5::ConfigCore
+        KF5::I18n
+        Qt${QT_MAJOR_VERSION}::DBus
+        KF5::KIOCore
+        KF5::Solid
+        Qt${QT_MAJOR_VERSION}::Test
+        Qt${QT_MAJOR_VERSION}::Network
 )
 
 if(APPLE)
@@ -36,4 +43,4 @@ set_tests_properties(testtrash PROPERTIES RUN_SERIAL TRUE)
 add_executable(lockingtest lockingtest.cpp ../kinterprocesslock.cpp)
 ecm_mark_nongui_executable(lockingtest)
 
-target_link_libraries(lockingtest Qt5::Core Qt5::DBus)
+target_link_libraries(lockingtest Qt${QT_MAJOR_VERSION}::Core Qt${QT_MAJOR_VERSION}::DBus)

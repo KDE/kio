@@ -21,7 +21,7 @@ ecm_qt_declare_logging_category(kioexecd
 
 target_link_libraries(kioexecd KF5::I18n KF5::DBusAddons KF5::WidgetsAddons KF5::KIOCore)
 
-kdbusaddons_generate_dbus_service_file(kiod5 org.kde.kioexecd ${KDE_INSTALL_FULL_LIBEXECDIR_KF5})
+kdbusaddons_generate_dbus_service_file(kiod5 org.kde.kioexecd ${KDE_INSTALL_FULL_LIBEXECDIR_KF})
 
 # next target
 
@@ -39,7 +39,7 @@ target_sources(kioexec PRIVATE
 configure_file(config-kioexec.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kioexec.h)
 
 target_link_libraries(kioexec
-    Qt5::Widgets
+    Qt${QT_MAJOR_VERSION}::Widgets
     KF5::I18n
     KF5::KIOWidgets    # KRun
     KF5::WidgetsAddons # KMessageBox
@@ -48,8 +48,12 @@ target_link_libraries(kioexec
  )
 
 if (HAVE_X11)
-    target_link_libraries(kioexec Qt5::X11Extras)
+    if (TARGET Qt5::X11Extras)
+        target_link_libraries(kioexec Qt5::X11Extras)
+    elseif (TARGET Qt6::Gui)
+        target_link_libraries(kioexec Qt${QT_MAJOR_VERSION}::GuiPrivate) # qtx11extras_p.h
+    endif()
 endif()
 
-install(TARGETS kioexec DESTINATION ${KDE_INSTALL_LIBEXECDIR_KF5} )
+install(TARGETS kioexec DESTINATION ${KDE_INSTALL_LIBEXECDIR_KF} )
 

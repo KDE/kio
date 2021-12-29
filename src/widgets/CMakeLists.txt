@@ -14,7 +14,7 @@ set_target_properties(KF5KIOWidgets PROPERTIES
 )
 
 set(kiowidgets_dbus_SRCS)
-if(TARGET Qt5::DBus)
+if(TARGET Qt${QT_MAJOR_VERSION}::DBus)
     qt_add_dbus_adaptor(kiowidgets_dbus_SRCS org.kde.kio.FileUndoManager.xml fileundomanager_p.h KIO::FileUndoManagerPrivate fileundomanager_adaptor KIOFileUndoManagerAdaptor)
     qt_add_dbus_interface(kiowidgets_dbus_SRCS org.kde.kuiserver.xml kuiserver_interface)
 endif()
@@ -127,7 +127,7 @@ ecm_generate_export_header(KF5KIOWidgets
 # TODO: add support for EXCLUDE_DEPRECATED_BEFORE_AND_AT to all KIO libs
 # needs fixing of undeprecated API being still implemented using own deprecated API
 
-target_include_directories(KF5KIOWidgets INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF5}/KIOWidgets>")
+target_include_directories(KF5KIOWidgets INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF}/KIOWidgets>")
 
 target_link_libraries(KF5KIOWidgets
   PUBLIC
@@ -136,21 +136,21 @@ target_link_libraries(KF5KIOWidgets
     KF5::JobWidgets
     KF5::Service
     KF5::Solid
-    Qt5::Network        # SSL
+    Qt${QT_MAJOR_VERSION}::Network  # SSL
     KF5::Completion    # KUrlCompletion uses KCompletion
     KF5::WidgetsAddons # keditlistwidget
   PRIVATE
-    Qt5::Concurrent
+    Qt${QT_MAJOR_VERSION}::Concurrent
     KF5::I18n
     KF5::GuiAddons # KIconUtils
     KF5::IconThemes   # KIconLoader
     KF5::WindowSystem # KStartupInfo
     KF5::ConfigWidgets # KColorScheme
 )
-if (TARGET Qt5::DBus)
+if (TARGET Qt${QT_MAJOR_VERSION}::DBus)
     target_link_libraries(KF5KIOWidgets
         PRIVATE
-            Qt5::DBus
+            Qt${QT_MAJOR_VERSION}::DBus
     )
 endif()
 
@@ -212,7 +212,7 @@ ecm_generate_headers(KIOWidgets_CamelCase_HEADERS
   PREFIX KIO
   REQUIRED_HEADERS KIO_namespaced_widgets_HEADERS
 )
-install(FILES ${KIOWidgets_CamelCase_HEADERS} DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}/KIOWidgets/KIO COMPONENT Devel)
+install(FILES ${KIOWidgets_CamelCase_HEADERS} DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KIOWidgets/KIO COMPONENT Devel)
 
 install(TARGETS KF5KIOWidgets EXPORT KF5KIOTargets ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
 
@@ -223,22 +223,22 @@ install(FILES
 
 install(FILES
   ${KIO_namespaced_widgets_HEADERS}
-  DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}/KIOWidgets/kio COMPONENT Devel)
+  DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KIOWidgets/kio COMPONENT Devel)
 
 install(FILES
   ${KIOWidgets_HEADERS}
   ${CMAKE_CURRENT_BINARY_DIR}/kiowidgets_export.h
-  DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}/KIOWidgets COMPONENT Devel)
+  DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KIOWidgets COMPONENT Devel)
 
 install(FILES
   kpropertiesdialogplugin.desktop
   kurifilterplugin.desktop
   konqpopupmenuplugin.desktop
   kiodndpopupmenuplugin.desktop
-   DESTINATION  ${KDE_INSTALL_KSERVICETYPES5DIR} )
+   DESTINATION  ${KDE_INSTALL_KSERVICETYPESDIR} )
 
 if(NOT EXCLUDE_DEPRECATED_BEFORE_AND_AT STREQUAL "CURRENT" AND EXCLUDE_DEPRECATED_BEFORE_AND_AT VERSION_LESS 5.82.0)
-  install(FILES kfileitemactionplugin.desktop DESTINATION ${KDE_INSTALL_KSERVICETYPES5DIR})
+  install(FILES kfileitemactionplugin.desktop DESTINATION ${KDE_INSTALL_KSERVICETYPESDIR})
 endif()
 
 
@@ -246,5 +246,5 @@ endif()
 set(KIOWidgets_QCH_SOURCES ${KIOWidgets_HEADERS} ${KIO_namespaced_widgets_HEADERS} PARENT_SCOPE)
 
 include(ECMGeneratePriFile)
-ecm_generate_pri_file(BASE_NAME KIOWidgets LIB_NAME KF5KIOWidgets DEPS "KIOGui KIOCore KBookmarks KXmlGui Solid" FILENAME_VAR PRI_FILENAME INCLUDE_INSTALL_DIR ${KDE_INSTALL_INCLUDEDIR_KF5}/KIOWidgets)
+ecm_generate_pri_file(BASE_NAME KIOWidgets LIB_NAME KF5KIOWidgets DEPS "KIOGui KIOCore KBookmarks KXmlGui Solid" FILENAME_VAR PRI_FILENAME INCLUDE_INSTALL_DIR ${KDE_INSTALL_INCLUDEDIR_KF}/KIOWidgets)
 install(FILES ${PRI_FILENAME} DESTINATION ${ECM_MKSPECS_INSTALL_DIR})

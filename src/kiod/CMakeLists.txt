@@ -24,9 +24,9 @@ target_link_libraries(kiod5
    KF5::KIOCore     # ksslcertificatemanager
    KF5::DBusAddons  # kdedmodule
    KF5::CoreAddons  # kpluginfactory
-   Qt5::Network
-   Qt5::DBus
-   Qt5::Widgets     # QApplication
+   Qt${QT_MAJOR_VERSION}::Network
+   Qt${QT_MAJOR_VERSION}::DBus
+   Qt${QT_MAJOR_VERSION}::Widgets     # QApplication
 )
 
 if (APPLE)
@@ -36,7 +36,7 @@ if (APPLE)
     ecm_mark_nongui_executable(kiod5)
 endif ()
 
-install(TARGETS kiod5 DESTINATION ${KDE_INSTALL_LIBEXECDIR_KF5})
+install(TARGETS kiod5 DESTINATION ${KDE_INSTALL_LIBEXECDIR_KF})
 
-kdbusaddons_generate_dbus_service_file(kiod5 org.kde.kiod5 ${KDE_INSTALL_FULL_LIBEXECDIR_KF5})
+kdbusaddons_generate_dbus_service_file(kiod5 org.kde.kiod5 ${KDE_INSTALL_FULL_LIBEXECDIR_KF})
 

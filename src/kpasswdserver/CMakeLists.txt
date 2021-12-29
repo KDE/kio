@@ -41,7 +41,7 @@ ecm_qt_export_logging_category(
 
 target_link_libraries(kiod_kpasswdserver
    KF5::DBusAddons    # KDED Module
-   Qt5::DBus
+   Qt${QT_MAJOR_VERSION}::DBus
    KF5::KIOCore
    KF5::WidgetsAddons # KPasswordDialog
    KF5::I18n
@@ -49,4 +49,4 @@ target_link_libraries(kiod_kpasswdserver
    ${WALLET_LIB}
 )
 
-kdbusaddons_generate_dbus_service_file(kiod5 org.kde.kpasswdserver ${KDE_INSTALL_FULL_LIBEXECDIR_KF5})
+kdbusaddons_generate_dbus_service_file(kiod5 org.kde.kpasswdserver ${KDE_INSTALL_FULL_LIBEXECDIR_KF})

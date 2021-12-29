@@ -13,7 +13,7 @@ macro(KIOWIDGETS_EXECUTABLE_TESTS)
        KF5::KIOGui
        KF5::KIOWidgets
        KF5::KIOFileWidgets
-       Qt5::Test
+       Qt${QT_MAJOR_VERSION}::Test
        KF5::WidgetsAddons
        KF5::IconThemes)
     ecm_mark_as_test(${_testname})

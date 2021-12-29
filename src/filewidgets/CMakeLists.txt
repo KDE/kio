@@ -90,7 +90,7 @@ ecm_generate_export_header(KF5KIOFileWidgets
 # TODO: add support for EXCLUDE_DEPRECATED_BEFORE_AND_AT to all KIO libs
 # needs fixing of undeprecated API being still implemented using own deprecated API
 
-target_include_directories(KF5KIOFileWidgets INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF5}/KIOFileWidgets>")
+target_include_directories(KF5KIOFileWidgets INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF}/KIOFileWidgets>")
 
 target_link_libraries(KF5KIOFileWidgets
   PUBLIC
@@ -135,11 +135,11 @@ install(TARGETS KF5KIOFileWidgets EXPORT KF5KIOTargets ${KF5_INSTALL_TARGETS_DEF
 install(FILES
   ${KIOFileWidgets_HEADERS}
   ${CMAKE_CURRENT_BINARY_DIR}/kiofilewidgets_export.h
-  DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}/KIOFileWidgets COMPONENT Devel)
+  DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KIOFileWidgets COMPONENT Devel)
 
 # make available to ecm_add_qch in parent folder
 set(KIOFileWidgets_QCH_SOURCES ${KIOFileWidgets_HEADERS} PARENT_SCOPE)
 
 include(ECMGeneratePriFile)
-ecm_generate_pri_file(BASE_NAME KIOFileWidgets LIB_NAME KF5KIOFileWidgets DEPS "KIOWidgets KBookmarks KXmlGui Solid" FILENAME_VAR PRI_FILENAME INCLUDE_INSTALL_DIR ${KDE_INSTALL_INCLUDEDIR_KF5}/KIOFileWidgets)
+ecm_generate_pri_file(BASE_NAME KIOFileWidgets LIB_NAME KF5KIOFileWidgets DEPS "KIOWidgets KBookmarks KXmlGui Solid" FILENAME_VAR PRI_FILENAME INCLUDE_INSTALL_DIR ${KDE_INSTALL_INCLUDEDIR_KF}/KIOFileWidgets)
 install(FILES ${PRI_FILENAME} DESTINATION ${ECM_MKSPECS_INSTALL_DIR})

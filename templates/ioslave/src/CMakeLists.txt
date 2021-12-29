@@ -23,7 +23,7 @@ target_link_libraries(%{APPNAMELC}
 )
 
 install(TARGETS %{APPNAMELC} DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf5/kio)
-install(FILES myproto.protocol  DESTINATION  ${KDE_INSTALL_KSERVICES5DIR})
+install(FILES myproto.protocol  DESTINATION  ${KDE_INSTALL_KSERVICESDIR})
 
 ecm_qt_install_logging_categories(
     EXPORT %{APPNAMEUC}

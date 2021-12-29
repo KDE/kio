@@ -9,7 +9,7 @@ target_sources(kcm_netpref PRIVATE
 
 target_link_libraries(kcm_netpref
   PUBLIC
-    Qt5::DBus
+    Qt${QT_MAJOR_VERSION}::DBus
     KF5::ConfigCore
     KF5::ConfigWidgets
     KF5::KIOCore
@@ -21,4 +21,4 @@ target_link_libraries(kcm_netpref
 
 install(TARGETS kcm_netpref  DESTINATION ${KDE_INSTALL_PLUGINDIR})
 
-install(FILES netpref.desktop  DESTINATION  ${KDE_INSTALL_KSERVICES5DIR})
+install(FILES netpref.desktop  DESTINATION  ${KDE_INSTALL_KSERVICESDIR})

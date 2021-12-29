@@ -38,12 +38,12 @@ target_sources(kio_http_cache_cleaner PRIVATE
 )
 
 target_link_libraries(kio_http_cache_cleaner
-   Qt5::DBus
-   Qt5::Network # QLocalSocket
+   Qt${QT_MAJOR_VERSION}::DBus
+   Qt${QT_MAJOR_VERSION}::Network # QLocalSocket
    KF5::KIOCore # KProtocolManager
    KF5::I18n)
 
-install(TARGETS kio_http_cache_cleaner DESTINATION ${KDE_INSTALL_LIBEXECDIR_KF5} )
+install(TARGETS kio_http_cache_cleaner DESTINATION ${KDE_INSTALL_LIBEXECDIR_KF} )
 
 ########### next target ###############
 
@@ -83,9 +83,9 @@ ecm_qt_export_logging_category(
 )
 
 target_link_libraries(kio_http
-   Qt5::DBus
-   Qt5::Network # QLocalSocket etc.
-   Qt5::Xml     # QDom
+   Qt${QT_MAJOR_VERSION}::DBus
+   Qt${QT_MAJOR_VERSION}::Network # QLocalSocket etc.
+   Qt${QT_MAJOR_VERSION}::Xml     # QDom
    KF5::ConfigCore
    KF5::KIOCore
    KF5::KIONTLM
@@ -96,11 +96,14 @@ if(GSSAPI_FOUND)
   target_link_libraries(kio_http ${GSSAPI_LIBS} )
 endif()
 
+if (TARGET Qt6::Core5Compat)
+    target_link_libraries(kio_http Qt6::Core5Compat) # QTextCodec
+endif()
 
 ########### install files ###############
 
 install( FILES
     http_cache_cleaner.desktop
-  DESTINATION  ${KDE_INSTALL_KSERVICES5DIR} )
+  DESTINATION  ${KDE_INSTALL_KSERVICESDIR} )
 
 

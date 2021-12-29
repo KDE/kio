@@ -9,4 +9,4 @@ target_link_libraries(kioslave5
    KF5::KIOCore
 )
 
-install(TARGETS kioslave5 DESTINATION ${KDE_INSTALL_LIBEXECDIR_KF5} )
+install(TARGETS kioslave5 DESTINATION ${KDE_INSTALL_LIBEXECDIR_KF} )

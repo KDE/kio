@@ -99,9 +99,15 @@ set_package_properties(KF5DocTools PROPERTIES DESCRIPTION "Provides tools to gen
                       )
 
 set(REQUIRED_QT_VERSION 5.15.2)
-find_package(Qt5 ${REQUIRED_QT_VERSION} CONFIG REQUIRED Widgets Network Concurrent Xml Test)
+find_package(Qt${QT_MAJOR_VERSION} ${REQUIRED_QT_VERSION} CONFIG REQUIRED Widgets Network Concurrent Xml Test)
 if (NOT ANDROID)
-    find_package(Qt5 ${REQUIRED_QT_VERSION} CONFIG REQUIRED DBus)
+    find_package(Qt${QT_MAJOR_VERSION} ${REQUIRED_QT_VERSION} CONFIG REQUIRED DBus)
+endif()
+
+set(_qt6_core_compat_found FALSE)
+if (QT_MAJOR_VERSION STREQUAL "6")
+    find_package(Qt6Core5Compat ${REQUIRED_QT_VERSION} REQUIRED) # QTextCodec
+    set(_qt6_core_compat_found ${Qt6Core5Compat_FOUND})
 endif()
 
 find_package(GSSAPI)
@@ -117,7 +123,11 @@ endif()
 
 set(HAVE_X11 ${X11_FOUND})
 if (HAVE_X11)
-    find_package(Qt5 ${REQUIRED_QT_VERSION} CONFIG REQUIRED X11Extras)
+    if (QT_MAJOR_VERSION STREQUAL "5")
+        find_package(Qt5 ${REQUIRED_QT_VERSION} CONFIG REQUIRED X11Extras)
+    elseif (QT_MAJOR_VERSION STREQUAL "6")
+        find_package(Qt${QT_MAJOR_VERSION} ${REQUIRED_QT_VERSION} CONFIG REQUIRED Gui) # qtx11extras_p.h
+    endif()
 endif()
 
 find_package(ACL)
@@ -205,7 +215,7 @@ install(FILES
 install(EXPORT KF5KIOTargets DESTINATION "${CMAKECONFIG_INSTALL_DIR}" FILE KF5KIOTargets.cmake NAMESPACE KF5:: )
 
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/src/kio_version.h
-        DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}/KIO COMPONENT Devel )
+        DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}/KIO COMPONENT Devel)
 
 feature_summary(WHAT ALL   FATAL_ON_MISSING_REQUIRED_PACKAGES)
 

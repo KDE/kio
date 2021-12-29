@@ -28,14 +28,18 @@ ecm_qt_export_logging_category(
     EXPORT KIO
 )
 
-target_link_libraries(kio_file KF5::KIOCore KF5::I18n KF5::ConfigCore Qt5::DBus Qt5::Network)
+target_link_libraries(kio_file KF5::KIOCore KF5::I18n KF5::ConfigCore Qt${QT_MAJOR_VERSION}::DBus Qt${QT_MAJOR_VERSION}::Network)
 
 if(UNIX)
-  target_link_libraries(kio_file Qt5::Network KF5::AuthCore)
+  target_link_libraries(kio_file Qt${QT_MAJOR_VERSION}::Network KF5::AuthCore)
 endif()
 
 if(ACL_FOUND)
    target_link_libraries(kio_file ${ACL_LIBS})
+endif()
+
+if (TARGET Qt6::Core5Compat)
+    target_link_libraries(kio_file Qt6::Core5Compat)  # QTextCodec
 endif()
 
 if (UNIX)

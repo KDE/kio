@@ -16,8 +16,8 @@ PUBLIC
 PRIVATE
    KF5::CoreAddons  # kpluginfactory
    KF5::ConfigCore
-   Qt5::Network
-   Qt5::DBus
+   Qt${QT_MAJOR_VERSION}::Network
+   Qt${QT_MAJOR_VERSION}::DBus
 )
 
-kdbusaddons_generate_dbus_service_file(kiod5 org.kde.kssld5 ${KDE_INSTALL_FULL_LIBEXECDIR_KF5})
+kdbusaddons_generate_dbus_service_file(kiod5 org.kde.kssld5 ${KDE_INSTALL_FULL_LIBEXECDIR_KF})
