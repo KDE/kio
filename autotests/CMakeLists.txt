@@ -49,6 +49,10 @@ ecm_add_tests(
 
 target_link_libraries(threadtest Qt${QT_MAJOR_VERSION}::Concurrent)
 
+if(TARGET Qt6::Core5Compat)
+    target_link_libraries(dataprotocoltest Qt6::Core5Compat)
+endif()
+
 ecm_add_test(
     http_jobtest.cpp
     httpserver_p.cpp

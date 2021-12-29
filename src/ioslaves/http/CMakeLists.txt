@@ -83,6 +83,7 @@ ecm_qt_export_logging_category(
 )
 
 target_link_libraries(kio_http
+   PRIVATE
    Qt${QT_MAJOR_VERSION}::DBus
    Qt${QT_MAJOR_VERSION}::Network # QLocalSocket etc.
    Qt${QT_MAJOR_VERSION}::Xml     # QDom
@@ -93,11 +94,11 @@ target_link_libraries(kio_http
    KF5::I18n
 )
 if(GSSAPI_FOUND)
-  target_link_libraries(kio_http ${GSSAPI_LIBS} )
+  target_link_libraries(kio_http PRIVATE ${GSSAPI_LIBS})
 endif()
 
 if (TARGET Qt6::Core5Compat)
-    target_link_libraries(kio_http Qt6::Core5Compat) # QTextCodec
+    target_link_libraries(kio_http PRIVATE Qt6::Core5Compat) # QTextCodec
 endif()
 
 ########### install files ###############

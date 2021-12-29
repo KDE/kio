@@ -33,6 +33,7 @@ ecm_add_test(httpauthenticationtest.cpp
    Qt${QT_MAJOR_VERSION}::Test
    Qt${QT_MAJOR_VERSION}::Network
    Qt${QT_MAJOR_VERSION}::Widgets
+   ${_qt5_compat_libs}
    KF5::I18n
    KF5::ConfigCore
    KF5::KIOCore
@@ -55,6 +56,7 @@ ecm_add_test(
    Qt${QT_MAJOR_VERSION}::Widgets
    Qt${QT_MAJOR_VERSION}::Network # QLocalSocket
    Qt${QT_MAJOR_VERSION}::Xml # QDomElement
+   ${_qt5_compat_libs}
    KF5::I18n
    KF5::ConfigCore
    KF5::KIOCore

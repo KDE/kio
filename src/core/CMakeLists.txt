@@ -244,7 +244,7 @@ if(HAVE_LIB_MOUNT)
 endif()
 
 if (TARGET Qt6::Core5Compat)
-    target_link_libraries(KF5KIOCore PUBLIC Qt6::Core5Compat) # QTextCodec
+    target_link_libraries(KF5KIOCore PRIVATE Qt6::Core5Compat) # QTextCodec
 endif()
 
 # this should be done by cmake, see bug 371721
