@@ -58,7 +58,7 @@ class QWidget;
  *
  * Of course, you will need to install it:
  * \code
- * install(FILES foothumbcreator.desktop DESTINATION ${KDE_INSTALL_KSERVICES5DIR})
+ * install(FILES foothumbcreator.desktop DESTINATION ${KDE_INSTALL_KSERVICESDIR})
  * \endcode
  *
  * Note that you can supply a comma-separated list of MIME types to the MimeTypes

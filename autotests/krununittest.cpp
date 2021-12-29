@@ -163,7 +163,7 @@ void KRunUnitTest::testProcessDesktopExec()
                 int pt = ex + te * 2 + su * 4;
                 QString exe;
                 if (pt == 4 || pt == 5) {
-                    exe = QFile::decodeName(KDE_INSTALL_FULL_LIBEXECDIR_KF5 "/kdesu");
+                    exe = QFile::decodeName(KDE_INSTALL_FULL_LIBEXECDIR_KF "/kdesu");
                     if (!QFile::exists(exe)) {
                         qWarning() << "kdesu not found, skipping test";
                         continue;
@@ -204,7 +204,7 @@ void KRunUnitTest::testProcessDesktopExecNoFile_data()
 
     QString kioexec = QCoreApplication::applicationDirPath() + "/kioexec";
     if (!QFileInfo::exists(kioexec)) {
-        kioexec = KDE_INSTALL_FULL_LIBEXECDIR_KF5 "/kioexec";
+        kioexec = KDE_INSTALL_FULL_LIBEXECDIR_KF "/kioexec";
     }
     QVERIFY(QFileInfo::exists(kioexec));
     QString kioexecQuoted = KShell::quoteArg(kioexec);
