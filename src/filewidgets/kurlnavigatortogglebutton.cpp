@@ -40,7 +40,11 @@ QSize KUrlNavigatorToggleButton::sizeHint() const
     return size;
 }
 
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+void KUrlNavigatorToggleButton::enterEvent(QEnterEvent *event)
+#else
 void KUrlNavigatorToggleButton::enterEvent(QEvent *event)
+#endif
 {
     KUrlNavigatorButtonBase::enterEvent(event);
     updateCursor();

@@ -72,7 +72,11 @@ void KUrlNavigatorButtonBase::focusOutEvent(QFocusEvent *event)
     QPushButton::focusOutEvent(event);
 }
 
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+void KUrlNavigatorButtonBase::enterEvent(QEnterEvent *event)
+#else
 void KUrlNavigatorButtonBase::enterEvent(QEvent *event)
+#endif
 {
     QPushButton::enterEvent(event);
     setDisplayHintEnabled(EnteredHint, true);
