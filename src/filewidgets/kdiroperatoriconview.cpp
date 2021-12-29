@@ -52,6 +52,20 @@ void KDirOperatorIconView::resizeEvent(QResizeEvent *event)
     updateLayout();
 }
 
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+void KDirOperatorIconView::initViewItemOption(QStyleOptionViewItem *option) const
+{
+    QListView::initViewItemOption(option);
+    option->showDecorationSelected = true;
+    option->textElideMode = Qt::ElideMiddle;
+    option->decorationPosition = decorationPosition;
+    if (option->decorationPosition == QStyleOptionViewItem::Left) {
+        option->displayAlignment = Qt::AlignLeft | Qt::AlignVCenter;
+    } else {
+        option->displayAlignment = Qt::AlignCenter;
+    }
+}
+#else
 QStyleOptionViewItem KDirOperatorIconView::viewOptions() const
 {
     QStyleOptionViewItem viewOptions = QListView::viewOptions();
@@ -66,6 +80,7 @@ QStyleOptionViewItem KDirOperatorIconView::viewOptions() const
 
     return viewOptions;
 }
+#endif
 
 void KDirOperatorIconView::dragEnterEvent(QDragEnterEvent *event)
 {

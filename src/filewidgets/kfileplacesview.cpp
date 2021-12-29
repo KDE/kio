@@ -1295,7 +1295,14 @@ void KFilePlacesView::paintEvent(QPaintEvent *event)
 
         if (drawInsertIndicator) {
             // draw indicator for inserting items
-            QBrush blendedBrush = viewOptions().palette.brush(QPalette::Normal, QPalette::Highlight);
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+            QStyleOptionViewItem viewOpts;
+            initViewItemOption(&viewOpts);
+#else
+            QStyleOptionViewItem viewOpts = viewOptions();
+#endif
+
+            QBrush blendedBrush = viewOpts.palette.brush(QPalette::Normal, QPalette::Highlight);
             QColor color = blendedBrush.color();
 
             const int y = (d->m_dropRect.top() + d->m_dropRect.bottom()) / 2;

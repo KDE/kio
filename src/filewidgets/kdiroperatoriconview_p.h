@@ -23,7 +23,11 @@ public:
     void setDecorationPosition(QStyleOptionViewItem::Position decorationPosition);
 
 protected:
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    void initViewItemOption(QStyleOptionViewItem *option) const override;
+#else
     QStyleOptionViewItem viewOptions() const override;
+#endif
     void dragEnterEvent(QDragEnterEvent *event) override;
     void mousePressEvent(QMouseEvent *event) override;
     void wheelEvent(QWheelEvent *event) override;
