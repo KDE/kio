@@ -14,7 +14,6 @@
 #include <QApplication>
 #include <QCheckBox>
 #include <QDate>
-#include <QDesktopWidget>
 #include <QLabel>
 #include <QLayout>
 #include <QLineEdit>
@@ -22,6 +21,7 @@
 #include <QMimeDatabase>
 #include <QPixmap>
 #include <QPushButton>
+#include <QScreen>
 #include <QScrollArea>
 #include <QScrollBar>
 #include <QToolButton>
@@ -755,8 +755,9 @@ void RenameDialog::resizePanels()
     Q_ASSERT(d->m_srcPreview != nullptr);
     Q_ASSERT(d->m_destPreview != nullptr);
 
-    // using QDesktopWidget geometry as Kephal isn't accessible here in kdelibs
-    const QSize screenSize = QApplication::desktop()->availableGeometry(this).size();
+    const QSize screenSize =
+        parentWidget() ? parentWidget()->screen()->availableGeometry().size() : QGuiApplication::primaryScreen()->availableGeometry().size();
+
     QSize halfSize = d->m_srcArea->widget()->sizeHint().expandedTo(d->m_destArea->widget()->sizeHint());
     const QSize currentSize = d->m_srcArea->size().expandedTo(d->m_destArea->size());
     const int maxHeightPossible = screenSize.height() - (size().height() - currentSize.height());

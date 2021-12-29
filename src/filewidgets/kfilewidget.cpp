@@ -48,7 +48,6 @@
 #include <QApplication>
 #include <QCheckBox>
 #include <QDebug>
-#include <QDesktopWidget>
 #include <QDockWidget>
 #include <QHelpEvent>
 #include <QIcon>
@@ -59,6 +58,7 @@
 #include <QMenu>
 #include <QMimeDatabase>
 #include <QPushButton>
+#include <QScreen>
 #include <QSplitter>
 #include <QStandardPaths>
 #include <QTimer>
@@ -94,6 +94,12 @@ public:
         // emitted after this object is destroyed
         delete m_placesDock;
         delete m_ops;
+    }
+
+    QSize screenSize() const
+    {
+        return q->parentWidget() ? q->parentWidget()->screen()->availableGeometry().size() //
+                                 : QGuiApplication::primaryScreen()->availableGeometry().size();
     }
 
     void updateLocationWhatsThis();
@@ -782,9 +788,9 @@ QSize KFileWidget::sizeHint() const
 {
     int fontSize = fontMetrics().height();
     const QSize goodSize(48 * fontSize, 30 * fontSize);
-    const QSize screenSize = QApplication::desktop()->availableGeometry(this).size();
-    const QSize minSize(screenSize / 2);
-    const QSize maxSize(screenSize * qreal(0.9));
+    const QSize scrnSize = d->screenSize();
+    const QSize minSize(scrnSize / 2);
+    const QSize maxSize(scrnSize * qreal(0.9));
     return (goodSize.expandedTo(minSize).boundedTo(maxSize));
 }
 
@@ -2939,9 +2945,9 @@ QSize KFileWidget::dialogSizeHint() const
 {
     int fontSize = fontMetrics().height();
     QSize goodSize(48 * fontSize, 30 * fontSize);
-    QSize screenSize = QApplication::desktop()->availableGeometry(this).size();
-    QSize minSize(screenSize / 2);
-    QSize maxSize(screenSize * qreal(0.9));
+    const QSize scrnSize = d->screenSize();
+    QSize minSize(scrnSize / 2);
+    QSize maxSize(scrnSize * qreal(0.9));
     return (goodSize.expandedTo(minSize).boundedTo(maxSize));
 }
 
