@@ -12,6 +12,7 @@
 #include <kiocore_export.h>
 
 #include <QObject>
+#include <QUrl>
 
 #include <memory>
 

@@ -18,6 +18,8 @@
 #include <QStringList>
 #include <QUrl>
 
+class QTextCodec;
+
 class SearchProvider;
 
 class KURISearchFilterEngine

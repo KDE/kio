@@ -80,7 +80,11 @@ void KIOThreadTest::concurrentCopying()
     tp.setMaxThreadCount(numThreads);
     QVector<QFuture<bool>> futures(numThreads);
     for (int i = 0; i < numThreads; ++i) {
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+        futures[i] = QtConcurrent::run(&tp, &KIOThreadTest::copyLocalFile, this, &data[i]);
+#else
         futures[i] = QtConcurrent::run(&tp, this, &KIOThreadTest::copyLocalFile, &data[i]);
+#endif
     }
     QVERIFY(tp.waitForDone(60000));
 

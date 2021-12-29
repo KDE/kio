@@ -295,7 +295,7 @@ public:
             return QJSValue(0);
         }
 
-        return QJSValue(host.count(QLatin1Char('.')));
+        return QJSValue(static_cast<int>(host.count(QLatin1Char('.'))));
     }
 
     // shExpMatch(str, pattern)

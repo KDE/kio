@@ -527,7 +527,7 @@ void TestTrash::trashDirectory(const QString &origPath, const QString &fileId)
     bool found = false;
     while (!dirCache.atEnd()) {
         const QByteArray line = dirCache.readLine();
-        if (line.endsWith(' ' + QFile::encodeName(fileId).toPercentEncoding() + '\n')) {
+        if (line.endsWith(QByteArray(' ' + QFile::encodeName(fileId).toPercentEncoding() + '\n'))) {
             QVERIFY(!found); // should be there only once!
             found = true;
         }

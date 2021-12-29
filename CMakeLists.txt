@@ -125,8 +125,8 @@ set(HAVE_X11 ${X11_FOUND})
 if (HAVE_X11)
     if (QT_MAJOR_VERSION STREQUAL "5")
         find_package(Qt5 ${REQUIRED_QT_VERSION} CONFIG REQUIRED X11Extras)
-    elseif (QT_MAJOR_VERSION STREQUAL "6")
-        find_package(Qt${QT_MAJOR_VERSION} ${REQUIRED_QT_VERSION} CONFIG REQUIRED Gui) # qtx11extras_p.h
+    else()
+        # qtx11extras_p.h is in Qt6Gui, which is implied by the find_package(QtWidgets) above
     endif()
 endif()
 

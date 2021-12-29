@@ -150,7 +150,8 @@ TrashSizeCache::SizeAndModTime TrashSizeCache::calculateSizeAndLatestModDate()
         checkMaxTime(trashFileInfo.lastModified().toMSecsSinceEpoch());
     };
     while (it.hasNext()) {
-        const QFileInfo fileInfo = it.next();
+        it.next();
+        const QFileInfo fileInfo = it.fileInfo();
         const QString fileName = fileInfo.fileName();
         if (fileName == QLatin1Char('.') || fileName == QLatin1String("..")) {
             continue;

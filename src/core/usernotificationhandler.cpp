@@ -23,7 +23,7 @@ QString UserNotificationHandler::Request::key() const
         key += slave->host();
         key += slave->port();
         key += QLatin1Char('-');
-        key += type;
+        key += QChar(type);
     }
     return key;
 }

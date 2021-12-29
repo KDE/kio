@@ -13,7 +13,7 @@
 #include <QList>
 #include <QtEndian>
 
-#include <KConfigCore/KConfig>
+#include <KConfig>
 
 #define ENABLE_HTTP_AUTH_NONCE_SETTER
 #include "httpauthentication.cpp"
