@@ -62,6 +62,13 @@ set_package_properties(Qt${QT_MAJOR_VERSION}Qml PROPERTIES DESCRIPTION "QtQml, o
    PURPOSE "Required to build support for auto-configuration of network proxies"
    )
 
+ecm_qt_declare_logging_category(kded_proxyscout
+    HEADER kio_kpac_debug.h
+    IDENTIFIER KIO_KPAC
+    CATEGORY_NAME kf.kio.kpac
+    DESCRIPTION "KPAC ProxyScout (KIO)"
+    EXPORT KIO
+)
 ########### next target ###############
 
 add_executable(kpac_dhcp_helper)

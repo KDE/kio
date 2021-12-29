@@ -21,13 +21,19 @@
 #include <KNotification>
 #endif
 
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 #include <QNetworkConfigurationManager>
+#endif
 
 #include <QDBusConnection>
 #include <QFileSystemWatcher>
 
 #include <cstdlib>
 #include <ctime>
+
+#include <QLoggingCategory>
+Q_DECLARE_LOGGING_CATEGORY(KIO_KPAC)
+Q_LOGGING_CATEGORY(KIO_CORE_DIRLISTER, "kf.kio.kpac", QtWarningMsg)
 
 namespace KPAC
 {
@@ -75,9 +81,16 @@ ProxyScout::ProxyScout(QObject *parent, const QList<QVariant> &)
     , m_script(nullptr)
     , m_suspendTime(0)
     , m_watcher(nullptr)
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     , m_networkConfig(new QNetworkConfigurationManager(this))
+#endif
 {
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    QNetworkInformation::load(QNetworkInformation::Feature::Reachability);
+    connect(QNetworkInformation::instance(), &QNetworkInformation::reachabilityChanged, this, &ProxyScout::disconnectNetwork);
+#else
     connect(m_networkConfig, &QNetworkConfigurationManager::configurationChanged, this, &ProxyScout::disconnectNetwork);
+#endif
 }
 QT_WARNING_POP
 
@@ -206,6 +219,27 @@ bool ProxyScout::startDownload()
     return true;
 }
 
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+void ProxyScout::disconnectNetwork(QNetworkInformation::Reachability newReachability)
+{
+    if (!QNetworkInformation::instance()->supports(QNetworkInformation::Feature::Reachability)) {
+        qCWarning(KIO_KPAC) << "Current QNetworkInformation backend doesn't support QNetworkInformation::Feature::Reachability";
+    }
+
+    // NOTE: We only care about "Local" and "Site" states because we only
+    // want to redo WPAD when a network interface is brought out of hibernation
+    // or restarted for whatever reason.
+    switch (newReachability) {
+    case QNetworkInformation::Reachability::Local:
+    case QNetworkInformation::Reachability::Site:
+        reset();
+        break;
+    default:
+        // Nothing else to do
+        break;
+    }
+}
+#else
 void ProxyScout::disconnectNetwork(const QNetworkConfiguration &config)
 {
     // NOTE: We only care of Defined state because we only want
@@ -220,6 +254,7 @@ void ProxyScout::disconnectNetwork(const QNetworkConfiguration &config)
     }
     QT_WARNING_POP
 }
+#endif
 
 void ProxyScout::downloadResult(bool success)
 {
