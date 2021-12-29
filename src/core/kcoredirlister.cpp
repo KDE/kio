@@ -2435,12 +2435,14 @@ bool KCoreDirLister::matchesMimeFilter(const KFileItem &item) const
     return matchesMimeFilter(item.mimetype());
 }
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 90)
 bool KCoreDirLister::doNameFilter(const QString &name, const QList<QRegExp> &filters) const
 {
     return std::any_of(filters.cbegin(), filters.cend(), [&name](const QRegExp &filter) {
         return filter.exactMatch(name);
     });
 }
+#endif
 
 bool KCoreDirLister::doMimeFilter(const QString &mime, const QStringList &filters) const
 {

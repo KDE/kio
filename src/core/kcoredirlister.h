@@ -726,15 +726,20 @@ protected:
      */
     virtual bool matchesMimeFilter(const KFileItem &) const;
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 90)
     /**
      * Called by the public matchesFilter() to do the
      * actual filtering. Those methods may be reimplemented to customize
      * filtering.
      * @param name the name to filter
      * @param filters a list of regular expressions for filtering
+     *
+     * @deprecated Since 5.90, removed from the public API as it has no users.
      */
     // TODO KF6 remove
+    KIOCORE_DEPRECATED_VERSION(5, 90, "Removed from the public API as it has no users.")
     virtual bool doNameFilter(const QString &name, const QList<QRegExp> &filters) const;
+#endif
 
     /**
      * Called by the public matchesMimeFilter() to do the
