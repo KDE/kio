@@ -847,7 +847,7 @@ QVariant KDirModel::data(const QModelIndex &index, int role) const
                 }
                 Q_ASSERT(!item.isNull());
                 // qDebug() << item->url() << " overlays=" << item->overlays();
-                return KIconUtils::addOverlays(item.iconName(), item.overlays());
+                return KIconUtils::addOverlays(QIcon::fromTheme(item.iconName(), QIcon::fromTheme(QStringLiteral("unknown"))), item.overlays());
             }
             break;
         case Qt::TextAlignmentRole:
