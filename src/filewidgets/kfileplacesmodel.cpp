@@ -671,6 +671,23 @@ QModelIndex KFilePlacesModel::parent(const QModelIndex &child) const
     return QModelIndex();
 }
 
+QHash<int, QByteArray> KFilePlacesModel::roleNames() const
+{
+    auto super = QAbstractItemModel::roleNames();
+
+    super[UrlRole] = "url";
+    super[HiddenRole] = "isHidden";
+    super[SetupNeededRole] = "isSetupNeeded";
+    super[FixedDeviceRole] = "isFixedDevice";
+    super[CapacityBarRecommendedRole] = "isCapacityBarRecommended";
+    super[GroupRole] = "group";
+    super[IconNameRole] = "iconName";
+    super[GroupHiddenRole] = "isGroupHidden";
+    super[TeardownAllowedRole] = "isTeardownAllowed";
+
+    return super;
+}
+
 int KFilePlacesModel::rowCount(const QModelIndex &parent) const
 {
     if (parent.isValid()) {

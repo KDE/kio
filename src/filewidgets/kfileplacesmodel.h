@@ -38,15 +38,15 @@ public:
     // Note: run   printf "0x%08X\n" $(($RANDOM*$RANDOM))
     // to define additional roles.
     enum AdditionalRoles {
-        UrlRole = 0x069CD12B, /// @see url()
-        HiddenRole = 0x0741CAAC, /// @see isHidden()
-        SetupNeededRole = 0x059A935D, /// @see setupNeeded()
-        FixedDeviceRole = 0x332896C1, /// Whether the place is a fixed device (neither hotpluggable nor removable).
-        CapacityBarRecommendedRole = 0x1548C5C4, /// Whether the place should have its free space displayed in a capacity bar.
-        GroupRole = 0x0a5b64ee, ///< The name of the group, for example "Remote" or "Devices". @since 5.40
-        IconNameRole = 0x00a45c00, ///< @since 5.41 @see icon()
-        GroupHiddenRole = 0x21a4b936, ///< @since 5.42 @see isGroupHidden()
-        TeardownAllowedRole = 0x02533364, ///< @since 5.91 @see isTeardownAllowed()
+        UrlRole = 0x069CD12B, /// @see url(). roleName is "url".
+        HiddenRole = 0x0741CAAC, /// @see isHidden(). roleName is "isHidden".
+        SetupNeededRole = 0x059A935D, /// @see setupNeeded(). roleName is "isSetupNeeded".
+        FixedDeviceRole = 0x332896C1, /// Whether the place is a fixed device (neither hotpluggable nor removable). roleName is "isFixedDevice".
+        CapacityBarRecommendedRole = 0x1548C5C4, /// Whether the place should have its free space displayed in a capacity bar. roleName is "isCapacityBarRecommended".
+        GroupRole = 0x0a5b64ee, ///< The name of the group, for example "Remote" or "Devices". @since 5.40. roleName is "group".
+        IconNameRole = 0x00a45c00, ///< @since 5.41 @see icon(). roleName is "iconName".
+        GroupHiddenRole = 0x21a4b936, ///< @since 5.42 @see isGroupHidden(). roleName is "isGroupHidden".
+        TeardownAllowedRole = 0x02533364, ///< @since 5.91 @see isTeardownAllowed(). roleName is "isTeardownAllowed".
     };
 
     /// @since 5.42
@@ -60,6 +60,7 @@ public:
         UnknownType,
         TagsType, ///< @since 5.54
     };
+    Q_ENUM(GroupType)
 
     explicit KFilePlacesModel(QObject *parent = nullptr);
     /**
@@ -270,6 +271,10 @@ public:
      */
     QModelIndex parent(const QModelIndex &child) const override;
 
+    /// Reimplemented from QAbstractItemModel.
+    /// @see AdditionalRoles
+    QHash<int, QByteArray> roleNames() const override;
+
     /**
      * @brief Get the number of rows for a model index.
      */
@@ -306,7 +311,7 @@ public:
      * @brief Reload bookmark information
      * @since 5.41
      */
-    void refresh() const;
+    Q_INVOKABLE void refresh() const;
 
     /**
      * @brief  Converts the URL, which contains "virtual" URLs for system-items like
