@@ -1393,4 +1393,15 @@ bool KDirModel::removeColumns(int, int, const QModelIndex &)
     return false;
 }
 
+QHash<int, QByteArray> KDirModel::roleNames() const
+{
+    auto super = QAbstractItemModel::roleNames();
+
+    super[AdditionalRoles::FileItemRole] = "fileItem";
+    super[AdditionalRoles::ChildCountRole] = "childCount";
+    super[AdditionalRoles::HasJobRole] = "hasJob";
+
+    return super;
+}
+
 #include "moc_kdirmodel.cpp"

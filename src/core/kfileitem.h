@@ -34,6 +34,38 @@ class KFileItemPrivate;
  */
 class KIOCORE_EXPORT KFileItem
 {
+
+    Q_GADGET
+
+    Q_PROPERTY(QUrl url READ url WRITE setUrl)
+    Q_PROPERTY(QString user READ user)
+    Q_PROPERTY(QString group READ group)
+    Q_PROPERTY(bool isLink READ isLink)
+    Q_PROPERTY(bool isDir READ isDir)
+    Q_PROPERTY(bool isFile READ isFile)
+    Q_PROPERTY(bool isReadable READ isReadable)
+    Q_PROPERTY(bool isWritable READ isWritable)
+    Q_PROPERTY(bool isHidden READ isHidden)
+    Q_PROPERTY(bool isSlow READ isSlow)
+    Q_PROPERTY(bool isDesktopFile READ isDesktopFile)
+    Q_PROPERTY(QString linkDest READ linkDest)
+    Q_PROPERTY(QUrl targetUrl READ targetUrl)
+    Q_PROPERTY(QString localPath READ localPath WRITE setLocalPath)
+    Q_PROPERTY(bool isLocalFile READ isLocalFile)
+    Q_PROPERTY(QString text READ text)
+    Q_PROPERTY(QString name READ name WRITE setName)
+    Q_PROPERTY(QString mimetype READ mimetype)
+    Q_PROPERTY(QMimeType determineMimeType READ determineMimeType)
+    Q_PROPERTY(QMimeType currentMimeType READ currentMimeType)
+    Q_PROPERTY(bool isFinalIconKnown READ isFinalIconKnown)
+    Q_PROPERTY(bool isMimeTypeKnown READ isMimeTypeKnown)
+    Q_PROPERTY(QString mimeComment READ mimeComment)
+    Q_PROPERTY(QString iconName READ iconName)
+    Q_PROPERTY(QStringList overlays READ overlays)
+    Q_PROPERTY(QString comment READ comment)
+    Q_PROPERTY(QString getStatusBarInfo READ getStatusBarInfo)
+    Q_PROPERTY(bool isRegularFile READ isRegularFile)
+
 public:
     enum { Unknown = static_cast<mode_t>(-1) };
 
@@ -50,11 +82,13 @@ public:
         CreationTime = 2,
         // ChangeTime
     };
+    Q_ENUM(FileTimes)
 
     enum MimeTypeDetermination {
         NormalMimeTypeDetermination = 0,
         SkipMimeTypeFromContent,
     };
+    Q_ENUM(MimeTypeDetermination)
 
     /**
      * Null KFileItem. Doesn't represent any file, only exists for convenience.
@@ -344,7 +378,7 @@ public:
      * @return the time asked for, QDateTime() if not available
      * @see timeString()
      */
-    QDateTime time(FileTimes which) const;
+    Q_INVOKABLE QDateTime time(FileTimes which) const;
 
     /**
      * Requests the modification, access or creation time as a string, depending
@@ -353,7 +387,7 @@ public:
      * @returns a formatted string of the requested time.
      * @see time
      */
-    QString timeString(FileTimes which = ModificationTime) const;
+    Q_INVOKABLE QString timeString(FileTimes which = ModificationTime) const;
 
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(4, 0)
     KIOCORE_DEPRECATED_VERSION(4, 0, "Use KFileItem::timeString(FileTimes)")

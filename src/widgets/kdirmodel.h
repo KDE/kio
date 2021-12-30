@@ -66,6 +66,7 @@ public:
      * Stores a combination of #OpenUrlFlag values.
      */
     Q_DECLARE_FLAGS(OpenUrlFlags, OpenUrlFlag)
+    Q_FLAG(OpenUrlFlags)
 
     /**
      * Display the contents of @p url in the model.
@@ -75,7 +76,7 @@ public:
      * @param flags see OpenUrlFlag
      * @since 5.69
      */
-    void openUrl(const QUrl &url, OpenUrlFlags flags = NoFlags);
+    Q_INVOKABLE void openUrl(const QUrl &url, OpenUrlFlags flags = NoFlags);
 
     /**
      * Set the directory lister to use by this model, instead of the default KDirLister created internally.
@@ -105,12 +106,12 @@ public:
     /**
      * Return the index for a given kfileitem. This can be slow.
      */
-    QModelIndex indexForItem(const KFileItem &) const;
+    Q_INVOKABLE QModelIndex indexForItem(const KFileItem &) const;
 
     /**
      * Return the index for a given url. This can be slow.
      */
-    QModelIndex indexForUrl(const QUrl &url) const;
+    Q_INVOKABLE QModelIndex indexForUrl(const QUrl &url) const;
 
     /**
      * @short Lists subdirectories using fetchMore() as needed until the given @p url exists in the model.
@@ -125,7 +126,7 @@ public:
      * to the treeview in order to let it open that index.
      * @param url the url of a subdirectory of the directory model (or a file in a subdirectory)
      */
-    void expandToUrl(const QUrl &url);
+    Q_INVOKABLE void expandToUrl(const QUrl &url);
 
     /**
      * Notify the model that the item at this index has changed.
@@ -133,14 +134,14 @@ public:
      * This makes the model emit its dataChanged signal at this index, so that views repaint.
      * Note that for most things (renaming, changing size etc.), KDirLister's signals tell the model already.
      */
-    void itemChanged(const QModelIndex &index);
+    Q_INVOKABLE void itemChanged(const QModelIndex &index);
 
     /**
      * Forget all previews (optimization for turning previews off).
      * The items will again have their default appearance (not controlled by the model).
      * @since 5.28
      */
-    void clearAllPreviews();
+    Q_INVOKABLE void clearAllPreviews();
 
     /**
      * Useful "default" columns. Views can use a proxy to have more control over this.
@@ -163,9 +164,9 @@ public:
     enum AdditionalRoles {
         // Note: use   printf "0x%08X\n" $(($RANDOM*$RANDOM))
         // to define additional roles.
-        FileItemRole = 0x07A263FF, ///< returns the KFileItem for a given index
-        ChildCountRole = 0x2C4D0A40, ///< returns the number of items in a directory, or ChildCountUnknown
-        HasJobRole = 0x01E555A5, ///< returns whether or not there is a job on an item (file/directory)
+        FileItemRole = 0x07A263FF, ///< returns the KFileItem for a given index. roleName is "fileItem".
+        ChildCountRole = 0x2C4D0A40, ///< returns the number of items in a directory, or ChildCountUnknown. roleName is "childCount".
+        HasJobRole = 0x01E555A5, ///< returns whether or not there is a job on an item (file/directory). roleName is "hasJob".
     };
 
     /**
@@ -181,10 +182,11 @@ public:
      * Stores a combination of #DropsAllowedFlag values.
      */
     Q_DECLARE_FLAGS(DropsAllowed, DropsAllowedFlag)
+    Q_FLAG(DropsAllowed)
 
     /// Set whether dropping onto items should be allowed, and for which kind of item
     /// Drops are disabled by default.
-    void setDropsAllowed(DropsAllowed dropsAllowed);
+    Q_INVOKABLE void setDropsAllowed(DropsAllowed dropsAllowed);
 
     /// Reimplemented from QAbstractItemModel. Returns true for empty directories.
     bool canFetchMore(const QModelIndex &parent) const override;
@@ -219,6 +221,9 @@ public:
     bool setData(const QModelIndex &index, const QVariant &value, int role = Qt::EditRole) override;
     /// Reimplemented from QAbstractItemModel. Not implemented. @see KDirSortFilterProxyModel
     void sort(int column, Qt::SortOrder order = Qt::AscendingOrder) override;
+    /// Reimplemented from QAbstractItemModel.
+    /// @see AdditionalRoles
+    QHash<int, QByteArray> roleNames() const override;
 
     /**
      * Remove urls from the list if an ancestor is present on the list. This can
