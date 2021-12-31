@@ -5,6 +5,8 @@
     SPDX-License-Identifier: LGPL-2.0-only
 */
 
+#include <mutex>
+
 #include "kioglobal_p.h"
 
 #include <QDir>
@@ -33,6 +35,8 @@ QString KIOPrivate::KFileItemIconCache::iconForMountPoint(const QString &localDi
         initializeMountPointsMap();
     }
 
+    std::shared_lock lock(m_mutexForMountPointsMap);
+
     return m_mountPointToIconProxyMap.value(localDirectory, QString());
 }
 
@@ -41,6 +45,8 @@ QString KIOPrivate::KFileItemIconCache::iconForStandardPath(const QString &local
     if (m_standardLocationsMap.empty()) {
         initializeStandardLocationsMap();
     }
+
+    std::shared_lock lock(m_mutexForStandardLocationsMap);
 
     return m_standardLocationsMap.value(localDirectory, QString());
 }
@@ -76,6 +82,8 @@ void KIOPrivate::KFileItemIconCache::slotUpdateMountPointsMap(Solid::ErrorType e
     if (error != Solid::ErrorType::NoError) {
         return;
     }
+
+    std::unique_lock lock(m_mutexForMountPointsMap);
 
     const Solid::Device device = Solid::Device(udi);
     const Solid::StorageAccess *const access = device.as<Solid::StorageAccess>();
@@ -124,6 +132,8 @@ void KIOPrivate::KFileItemIconCache::initializeStandardLocationsMap()
         {QStandardPaths::DesktopLocation, QStringLiteral("user-desktop")},
         {QStandardPaths::HomeLocation, QStringLiteral("user-home")}
     };
+
+    std::unique_lock lock(m_mutexForStandardLocationsMap);
 
     for (const auto &row : mapping) {
         const QStringList locations = QStandardPaths::standardLocations(row.location);

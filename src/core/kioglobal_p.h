@@ -8,6 +8,8 @@
 #ifndef KIO_KIOGLOBAL_P_H
 #define KIO_KIOGLOBAL_P_H
 
+#include <shared_mutex>
+
 #include "kiocore_export.h"
 #include <qplatformdefs.h>
 
@@ -213,6 +215,12 @@ private:
      * it's required to store an item with the key UDI and a value of the mount point.
      */
     QMap<QString /* udi */, QString /* mount point */> m_udiToMountPointProxyMap;
+
+    /**
+     * The two mutexes are used to block reading from the maps when the maps are being updated.
+     */
+    std::shared_mutex m_mutexForMountPointsMap;
+    std::shared_mutex m_mutexForStandardLocationsMap;
 };
 }
 
