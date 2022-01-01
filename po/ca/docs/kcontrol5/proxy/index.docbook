@@ -1,0 +1,211 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Catalan  "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="proxy" lang="&language;">
+<title
+>Servidor intermediari</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Krishna.Tateneni; &Krishna.Tateneni.mail;</author>
+&traductor.Antoni.Bella; 
+</authorgroup>
+
+<date
+>10 de novembre de 2016</date>
+<releaseinfo
+>Frameworks 5.29</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Arranjament del sistema</keyword>
+<keyword
+>intermediari</keyword>
+<keyword
+>intermediaris</keyword>
+</keywordset>
+
+</articleinfo>
+<sect1 id="proxies">
+<title
+>Intermediaris</title>
+
+<sect2 id="proxies-intro">
+
+<title
+>Introducció</title>
+
+<para
+>Els intermediaris són programes executant-se en una màquina que actua de servidor en la xarxa a la qual esteu connectat (bé per mòdem o per altres mitjans). Aquests programes reben peticions &HTTP; i &FTP;, baixant els fitxers apropiats des de la Internet i els passen a la màquina client que va fer la petició.</para>
+
+<para
+>Quan s'ha configurat un intermediari, &HTTP; i/o &HTTP; les peticions són redirigides a través de la màquina que està fent de servidor intermediari. Encara que, també podeu seleccionar màquines específiques que haurien de connectar-se directament, en comptes de fer-ho a través d'un servidor intermediari. Si per exemple esteu en una xarxa d'àrea local, l'accés a les màquines locals probablement no necessitarà produir-se a través del servidor intermediari.</para>
+
+<para
+>Tan sols hauríeu de necessitar configurar un servidor intermediari si l'administrador de la vostra xarxa us ho demana (si sou un usuari de la línia telefònica, aquest seria el vostre proveïdor de serveis d'Internet o <acronym
+>ISP</acronym
+>). D'altra manera, especialment si us trobeu confós pel que fa a aquest tema, si tot sembla funcionar correctament en la vostra connexió a la Internet, no necessitareu canviar res.</para>
+
+<para
+>Si us plau, recordeu que l'ús de servidors intermediaris és opcional, però que tindreu l'avantatge de gaudir d'un accés més ràpid a les dades a Internet.</para>
+
+<para
+>Si no esteu segur de si us cal o no un servidor intermediari per a connectar-vos a la Internet, si us plau, consulteu la guia de configuració del vostre proveïdor de serveis d'Internet o a l'administrador del vostre sistema.</para>
+
+</sect2>
+
+<sect2 id="proxies-use">
+
+<title
+>Ús</title>
+
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>Sense intermediari</guilabel
+></term>
+<listitem>
+
+<para
+>Seleccioneu aquesta opció si <emphasis
+>no</emphasis
+> voleu utilitzar un servidor intermediari i connectar a Internet directament.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>Si heu decidit utilitzar un intermediari, teniu diversos mètodes per a configurar les vostres opcions.</para>
+
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>Detecta automàticament la configuració del servidor intermediari</guilabel
+></term>
+<listitem>
+
+<para
+>Seleccioneu aquesta opció si desitgeu que el fitxer de script de procediments de configuració de l'intermediari sigui automàticament detectat i baixat.</para>
+<para
+>Aquesta opció tan sols difereix de la següent en el fet que <emphasis
+>no</emphasis
+> precisa que li subministreu la localització del fitxer script de procediments de configuració. En el seu lloc, serà baixat automàticament utilitzant el protocol <quote
+>Descobriment del protocol d'accés a la web</quote
+> (Web Access Protocol Discovery - <acronym
+>WAPD</acronym
+>).</para>
+
+<note
+><para
+>Si teniu un problema amb aquesta configuració, consulteu la secció <acronym
+>FAQ</acronym
+> en <ulink url="https://www.konqueror.org"
+>https://www.konqueror.org</ulink
+>, on obtindreu més informació.</para
+></note>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Usa l'URL de configuració automàtica de l'intermediari:</guilabel
+></term>
+<listitem>
+<para
+>Seleccioneu aquesta opció si el funcionament per a l'intermediari és proporcionat per un fitxer de script localitzat en una adreça específica. Podeu introduir-la en el quadre de text de la localització o utilitzeu la icona de <guiicon
+>carpeta</guiicon
+> per a navegar fins al mateix.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Usa la configuració d'intermediari del sistema:</guilabel
+></term>
+<listitem>
+<para
+>Alguns sistemes estan configurats amb $<envar
+>HTTP_PROXY</envar
+> per a permetre que les aplicacions gràfiques i no gràfiques comparteixin la mateixa informació de configuració de l'intermediari.</para>
+<para
+>Si sabeu que això us és aplicable, seleccioneu aquesta opció i feu clic en el botó <guibutton
+>Detecta automàticament</guibutton
+> per a proveir els noms de les variables d'entorn utilitzades per a establir l'adreça del/s servidor/s intermediari/s.</para>
+<!-- Exceptions fields are different for system proxy (envar) + manual proxy list of hosts/IPs? -->
+<para
+>En el camp <guilabel
+>Excepcions:</guilabel
+> introduïu la variable d'entorn, &pex;, $<envar
+>NO_PROXY</envar
+>, que s'ha d'utilitzar per a emmagatzemar les adreces dels llocs on el servidor intermediari no s'ha d'utilitzar.</para>
+<para
+>Utilitzeu <guilabel
+>Mostra el valor de les variables d'entorn</guilabel
+> per a mostrar el valor d'una variable d'entorn en comptes del seu nom. No obstant això, no és possible modificar els valors de les variables d'entorn en aquest mòdul.</para>
+<!--
+How to enable Auto Detect button?
+-->
+
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+><guilabel
+>Usa la configuració de l'intermediari especificada manualment:</guilabel
+></term>
+<listitem>
+
+<para
+>La informació completa de l'adreçament cap a l'intermediari inclou tant l'adreça d'Internet com un número de port. Hauríeu d'introduir aquests valors en els seus quadres de text corresponents. Marqueu <guilabel
+>Usa aquest mateix servidor intermediari per a tots els protocols</guilabel
+> per a copiar les adreces i el port del servidor intermediari &HTTP; en tots els altres camps de l'intermediari, per tal d'ajudar a estalviar una mica de mecanografia.</para>
+
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>Excepcions:</guilabel
+></term>
+<listitem>
+<para
+>Escriviu una llista separada per comes de noms de màquina o adreces IP que s'han d'excloure en utilitzar la configuració del servidor intermediari anterior. Si voleu excloure totes les màquines d'un determinat domini, llavors poseu el nom de domini precedit per un punt. Per exemple, per a excloure tots els noms per a kde.org, escriviu <userinput
+>.kde.org</userinput
+>. Els caràcters de comodí com <userinput
+>*</userinput
+> o <userinput
+>?</userinput
+> no estan permesos i no tindran cap efecte. A més, també podeu introduir adreces IP, &pex;, 127.0.0.1 i l'adreça IP amb una subxarxa, &pex;, 192.168.0.1/24.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>També podeu escollir <guilabel
+>Usa l'arranjament del servidor intermediari només per a les adreces de la llista d'excepcions</guilabel
+>.</para>
+
+<para
+>Seleccioneu aquesta casella per a revertir l'ús de la llista d'excepció, &ead;, els servidors intermediaris només s'utilitzaran quan l'&URL; requerit concordi amb una de les adreces aquí llistades.</para>
+
+<para
+>Aquesta característica és molt útil si tot el que necessiteu és un intermediari per a accedir a uns pocs llocs específics, per exemple, una intranet interna. Si requeriu requisits més complexos, potser desitjareu utilitzar un script de configuració.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+</sect2>
+
+</sect1>
+
+</article>

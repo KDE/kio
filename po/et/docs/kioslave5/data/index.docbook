@@ -1,0 +1,85 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Estonian  "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="data">
+<title
+>Andmete URL-id</title>
+
+<articleinfo>
+<authorgroup>
+<author
+><personname
+><firstname
+>Leo</firstname
+><surname
+>Savernik</surname
+></personname
+> <address
+><email
+>l.savernik@aon.at</email
+></address
+> </author>
+<othercredit role="translator"
+><firstname
+>Marek</firstname
+><surname
+>Laane</surname
+><affiliation
+><address
+><email
+>bald@online.ee</email
+></address
+></affiliation
+><contrib
+>Tõlge eesti keelde</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>2003-02-06</date>
+<!--releaseinfo
+>2.20.00</releaseinfo-->
+
+</articleinfo>
+
+<para
+>Andmete URL-id lubavad kaasata URL-i veidi dokumendiandmeid. See on kasulik väga pisikeste HTML-testide või mingite muude juhtumite korral, kus terve dokument tundub liigse luksusena.</para>
+
+<para
+><userinput
+>data:,jura</userinput
+> (pane tähele koma pärast koolonit) annab tulemuseks tekstidokumendi, kus on vaid <literal
+>jura</literal
+> </para>
+
+<para
+>Selles näites oli tulemuseks tekstidokument. HTML dokumentide korral tuleb määrata MIME tüüp <literal
+>text/html</literal
+>: <userinput
+>data:text/html,&lt;title&gt;Testike&lt;/title&gt;&lt;p&gt;See on testike&lt;/p&gt;</userinput
+>. Selle tulemus on samasugune, nagu oleks sisu laaditud omaette dokumendist. </para>
+
+<para
+>Võimalik on kasutada ka erinevaid kooditabeleid. Arvesta, et 8-bitised sümbolid tuleb alati <quote
+>päästa</quote
+> protsendimärgi ja kahenumbrilise kuueteistkümnendkoodiga: <userinput
+>data:;charset=iso-8859-1,Gr%FC%DFe aus Schl%E4gl</userinput
+> annab tulemuseks <literal
+>Gr&uuml;&szlig;e aus Schl&auml;gl</literal
+>, samas kui kooditabeli atribuudi ärajätmisel tekib midagi sellist: <literal
+>Gr??e aus Schl?gl</literal
+> </para>
+
+<para
+>Rohkem infot annab <ulink url="http://www.ietf.org/rfc/rfc2397.txt"
+>IETF RFC2397</ulink
+></para>
+
+</article>
+

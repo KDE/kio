@@ -1,0 +1,228 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Catalan  "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="cookies" lang="&language;">
+<articleinfo>
+<title
+>Galetes</title>
+<authorgroup>
+<author
+>&Krishna.Tateneni; &Krishna.Tateneni.mail;</author>
+<author
+>&Jost.Schenck; &Jost.Schenck.mail;</author>
+&traductor.Antoni.Bella; 
+</authorgroup>
+
+<date
+>10 de novembre de 2016</date>
+<releaseinfo
+>Frameworks 5.29</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Arranjament del sistema</keyword>
+<keyword
+>galeta</keyword>
+</keywordset>
+
+</articleinfo>
+
+<sect1 id="cookie">
+<title
+>Galetes</title>
+
+<para
+>Les galetes («cookies») són un mecanisme emprat pels servidors web per a emmagatzemar i extraure informació utilitzant el navegador. Per exemple, un servidor web pot permetre's personalitzar el contingut i aspecte de les pàgines que veieu, de manera que la vostra elecció sigui persistent en les diferents visites que feu a aquest lloc web.</para>
+
+<para
+>El servidor web és capaç de recordar les vostres preferències emmagatzemant una galeta al vostre ordinador. De manera que, en les pròximes visites, el lloc web rebrà la informació emmagatzemada en aquesta galeta per a donar format al contingut del lloc d'acord amb les vostres preferències establertes prèviament.</para>
+
+<para
+>Així que, les galetes resulten molt útils en la navegació web. Malauradament, els llocs web emmagatzemen i extrauen informació amb freqüència sense el vostre consentiment explícit. Part d'aquesta informació pot resultar de gran utilitat per als propietaris dels llocs web, per exemple, permetent-los recollir estadístiques del nombre de visites a diferents àrees dels seus llocs web i personalitzar-ne els anuncis.</para>
+
+<para
+>La pàgina de les galetes permet establir les polítiques d'ús per a les galetes quan navegueu per la web amb el navegador web &konqueror;.</para>
+
+<warning
+><para
+>Cal tenir present que les polítiques que establiu utilitzant aquest mòdul de control <emphasis
+>no</emphasis
+> s'aplicaran a altres navegadors web, com ara el &firefox;.</para
+></warning>
+
+<sect2 id="cookie-policy">
+
+<title
+>Política</title>
+
+<para
+>Utilitzant la pestanya <guilabel
+>Política</guilabel
+>, podreu configurar la manera en què les aplicacions &kde; utilitzaran les galetes. Podeu fer-ho especificant una política general o polítiques especials per a certs dominis o màquines.</para>
+
+<para
+>La part superior de la pestanya de política conté una casella de selecció anomenada <guilabel
+>Activa les galetes</guilabel
+>. Si no la seleccioneu, haureu desactivat totalment l'ús de galetes. Encara que, això pot resultar-vos molt incòmode, especialment amb aquells llocs web que requereixen l'ús de navegadors amb les galetes habilitades.</para>
+
+<para
+>Pel que probablement desitjareu habilitar-les i després establir polítiques específiques a sobre de com voleu que siguin tractades.</para>
+
+<para
+>El primer grup d'opcions crearà una configuració que s'aplicarà a totes les galetes.</para>
+
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>Accepta només les galetes del servidor original</guilabel
+></term>
+<listitem>
+<para
+>Algunes pàgines intenten establir galetes des d'altres servidors als quals proporcionen la pàgina &HTML; que s'està visualitzant. Per exemple, mostren anuncis publicitaris, i aquests anuncis estan en un altre ordinador, que normalment pertany a una empresa publicitària. Aquests anuncis poden intentar establir una galeta, que els permetrà conèixer -fer un seguiment- les pàgines que visiteu en múltiples llocs web.</para>
+<para
+>Si desactiveu aquesta opció, tan sols s'acceptaran explícitament les galetes que provinguin del mateix servidor web amb el qual heu connectat.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+><guilabel
+>Accepta automàticament les galetes de sessió</guilabel
+></term>
+<listitem>
+
+<para
+>Un ús molt comú de les galetes no és per a seguir els vostres moviments al llarg de diverses visites a un lloc web, sinó simplement per a seguir-vos durant una sola visita. Les galetes de sessió es desen mentre esteu mirant les pàgines d'un lloc i després seran eliminades quan l'abandoneu.</para>
+
+<para
+>Els llocs web poden utilitzar aquesta informació per a diverses coses. El més habitual és per a evitar que hàgiu d'accedir a certes pàgines repetidament. Per exemple, en un servidor de correu web, sense cap tipus d'<acronym
+>ID</acronym
+> de sessió, d'altra manera haureu d'introduir la vostra contrasenya cada vegada que desitgeu llegir un missatge de correu. Hi ha d'altres maneres d'aconseguir-ho, però les galetes són un dels mitjans més simples i habituals.</para>
+
+<para
+>Habilitar aquesta opció significa que les galetes de sessió sempre seran acceptades, fins i tot si no les accepteu d'un altre tipus i si heu decidit rebutjar les galetes des d'un lloc en particular, les galetes de sessió seran acceptades.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>La secció <guilabel
+>Política per omissió</guilabel
+> estableix algunes opcions més que són mútuament excloents i tan sols podreu escollir una d'aquestes opcions com a predeterminades, però sou lliure de configurar una opció diferent per a un servidor web específic.</para>
+<note
+><para
+>Les polítiques específiques sempre tenen prioritat sobre la política predeterminada.</para
+></note>
+
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>Accepta totes les galetes</guilabel
+></term>
+<listitem>
+<para
+>Si seleccioneu aquesta opció, s'acceptaran totes les galetes sense demanar-ne la confirmació.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+><guilabel
+>Accepta fins al final de la sessió</guilabel
+></term>
+<listitem>
+<para
+>Les galetes seran acceptades, però expiraran al final de la sessió.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+><guilabel
+>Demana confirmació</guilabel
+></term>
+<listitem>
+<para
+>Si seleccioneu aquesta opció, se us demanarà confirmació cada vegada que s'emmagatzemi o extregui una galeta. De manera que podreu acceptar o rebutjar selectivament cada galeta. El diàleg de confirmació també us permetrà establir una política segons un domini específic, si no desitgeu confirmar cada galeta per a aquest domini.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+><guilabel
+>Rebutja totes les galetes</guilabel
+></term>
+<listitem>
+<para
+>Si seleccioneu aquesta opció, totes les galetes seran rebutjades sense demanar-ne la confirmació.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>A més de la política predeterminada per a gestionar les galetes, el qual es pot establir seleccionant una de les tres opcions descrites anteriorment, també podeu establir polítiques per a dominis específics emprant els controls en el grup <guilabel
+>Política de lloc</guilabel
+>.</para>
+
+<para
+>Les polítiques Pregunta, Accepta, Accepta fins al final de la sessió o Rebutja es poden aplicar a un domini específic fent clic en el botó <guibutton
+>Nova...</guibutton
+>, el qual us mostrarà un diàleg. En aquest diàleg, podreu introduir el nom del tipus de domini (precedit per un punt) i després aplicar la política que desitgeu per a aquest domini. Cal tenir present que les entrades poden ser afegides mentre es navega, si la política general és la de demanar confirmació i escolliu una política general per a una certa màquina (per exemple, seleccionant <guilabel
+>Rebutja</guilabel
+> quan us demani de confirmar una galeta).</para>
+
+<para
+>També podeu seleccionar un domini de màquines específic des de la llista i fer clic al botó <guibutton
+>Canvia...</guibutton
+> per a escollir una política diferent per a aquest domini.</para>
+
+<para
+>Per a eliminar una política específica d'un domini, escolliu el domini de la llista i premeu el botó <guibutton
+>Suprimeix</guibutton
+> i s'aplicarà la política predeterminada a tots els dominis eliminats de la llista.</para>
+
+</sect2>
+
+<sect2 id="cookie-management">
+<title
+>Gestió</title>
+
+<para
+>A la pestanya <guilabel
+>Gestió</guilabel
+> podreu navegar i anar eliminant selectivament les galetes que varen ser establertes en el passat.</para>
+
+<para
+>A la part superior d'aquest diàleg podeu veure una llista de dominis, mostrats en forma d'arbre. Feu clic a la petita icona <guiicon
+>&gt;</guiicon
+> adjunta a un domini per a veure totes les galetes que s'han acceptat per a aquest domini de destinació en particular. Si seleccioneu una d'aquestes galetes, advertireu que els seus continguts es mostraran en el marc inferior <guilabel
+>Detalls</guilabel
+>.</para>
+
+<para
+>Fent clic en el botó <guibutton
+>Suprimeix</guibutton
+> podreu eliminar la galeta seleccionada. Feu clic a <guibutton
+>Suprimeix-ho tot</guibutton
+> per a eliminar totes les galetes emmagatzemades.</para>
+
+<para
+>Si hi ha seleccionat un domini, podeu utilitzar <guibutton
+>Configura la política...</guibutton
+> per a establir una política de lloc.</para>
+
+<para
+>En escollir <guibutton
+>Recarrega la llista</guibutton
+> es recarregarà la llista des del disc dur. Potser desitjareu fer-ho si teníeu el mòdul obert i esteu provant servidors web o heu efectuat molts canvis en el mòdul mateix.</para>
+
+</sect2>
+
+</sect1>
+
+</article>

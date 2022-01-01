@@ -1,0 +1,242 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Italian "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="cookies" lang="&language;">
+<articleinfo>
+<title
+>Cookie</title>
+<authorgroup>
+<author
+>&Krishna.Tateneni; &Krishna.Tateneni.mail;</author>
+<author
+>&Jost.Schenck; &Jost.Schenck.mail;</author>
+<othercredit role="translator"
+><firstname
+>Luciano</firstname
+><surname
+>Montanaro</surname
+><affiliation
+><address
+><email
+>mikelima@cirulla.net</email
+></address
+></affiliation
+><contrib
+>Traduzione</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>2016-11-10</date>
+<releaseinfo
+>Frameworks 5.29</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Systemsettings</keyword>
+<keyword
+>cookie</keyword>
+</keywordset>
+
+</articleinfo>
+
+<sect1 id="cookie">
+<title
+>Cookie</title>
+
+<para
+>I cookie sono un metodo usato dai siti web per conservare e recuperare informazioni usando il tuo browser. Per esempio, un sito web potrebbe permettere di personalizzare il contenuto e la presentazione delle pagine in modo che le tue scelte siano utilizzate tutte le volte che visiti tale sito.</para>
+
+<para
+>Il sito web si ricorda delle tue preferenze memorizzando un cookie sul tuo computer. In questo modo, nelle visite future, il sito recupera le informazioni immagazzinate nel cookie per presentare il contenuto del sito come hai specificato in precedenza.</para>
+
+<para
+>Quindi, i cookie giocano un ruolo molto utile nella navigazione del web. Sfortunatamente, i siti web spesso memorizzano informazioni nei cookie senza che tu lo sappia o acconsenta. Alcune di queste informazioni possono essere molto utili ai proprietari del sito, per esempio per raccogliere statistiche sommarie sul numero di visite alle diverse parti del sito, o per personalizzare i banner pubblicitari.</para>
+
+<para
+>La pagina dei cookie ti permette di scegliere le politiche di utilizzo dei cookie quando navighi in rete con il browser web &konqueror;.</para>
+
+<warning
+><para
+>Tieni presente che le politiche impostate da qui <emphasis
+>non si applicano</emphasis
+> ad altri programmi di navigazione come &firefox;.</para
+></warning>
+
+<sect2 id="cookie-policy">
+
+<title
+>Politica</title>
+
+<para
+>Usando la linguetta <guilabel
+>Politica</guilabel
+>, puoi configurare le applicazioni di &kde; che gestiranno i cookie. Puoi farlo specificando una politica generale sui cookie oltre a politiche speciali per certi domìni o host.</para>
+
+<para
+>La parte superiore della pagina delle politiche ha una casella chiamata <guilabel
+>Abilita i cookie</guilabel
+>. Se questa non è marcata, i cookie saranno del tutto disabilitati. Questo però rende la navigazione piuttosto scomoda, soprattutto perché alcuni siti web richiedono l'uso di browser con i cookie abilitati.</para>
+
+<para
+>Molti tengono i cookie abilitati, ed impostano politiche di gestione specifiche su come gestirli.</para>
+
+<para
+>Il primo gruppo di opzioni crea le impostazioni che vengono applicate a tutti i cookie.</para>
+
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>Accetta solo cookie dal server che li ha originati</guilabel
+></term>
+<listitem>
+<para
+>Alcune pagine cercano di impostare cookie da server diversi da quello da cui stai scaricando l'attuale pagina &HTML;. Ad esempio, mostrano della pubblicità, e questa viene da un computer diverso, che spesso appartiene ad un grosso gruppo pubblicitario. Queste pubblicità spesso cercano di impostare dei cookie allo scopo di seguire la traccia delle pagine che visiti su molti siti web.</para>
+<para
+>Abilitare questa opzione significa che solo i cookie che arrivano dallo stesso sito della pagina a cui ti sei esplicitamente connesso verranno accettati.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+><guilabel
+>Accetta automaticamente i cookie di sessione</guilabel
+></term>
+<listitem>
+
+<para
+>Un uso sempre più comune dei cookie non è di seguire i tuoi movimenti su più siti web, bensì di seguire le tue mosse durante una singola visita. I cookie di sessione sono conservati solo fintanto che stai visitando il sito, e vengono eliminati quando lo abbandoni.</para>
+
+<para
+>I siti web usano queste informazioni per varie cose, la più comune è per evitare che tu debba registrarti continuamente per vedere le pagine. Ad esempio, su un sito di posta elettronica su web, senza un qualche tipo di <acronym
+>ID</acronym
+> di sessione dovresti continuamente inserire la password per ogni messaggio da leggere. Ci sono altri metodi di fare questa cosa, ma i cookie sono semplici e molto comuni.</para>
+
+<para
+>Abilitando questa opzione i cookie di sessione sono accettati sempre, anche se non ne accetti di altri tipi, ed anche se scegli di rifiutare i cookie di un sito particolare, i cookie di sessione da quel sito saranno comunque accettati.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>La sezione per la <guilabel
+>Politica predefinita</guilabel
+> permette di scegliere qualche altra opzione mutuamente esclusiva &mdash; puoi scegliere una di queste opzioni come quella predefinita, ma puoi comunque cambiarla per ogni specifico server web.</para>
+<note
+><para
+>Le politiche definite per un certo sito hanno la precedenza su quelle globali.</para
+></note>
+
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>Accetta tutti i cookie</guilabel
+></term>
+<listitem>
+<para
+>Se questa opzione è selezionata, tutti i cookie saranno accettati direttamente senza richiedere conferma.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+><guilabel
+>Accetta per la sessione</guilabel
+></term>
+<listitem>
+<para
+>I cookie saranno accettati, ma scadranno alla fine della sessione.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+><guilabel
+>Chiedi conferma</guilabel
+></term>
+<listitem>
+<para
+>Se questa opzione è selezionata, ti verrà richiesta conferma ogni volta che i cookie sono recuperati o conservati. Puoi accettare selettivamente o rifiutare ogni cookie. Anche la finestra di conferma dei cookie permette di cambiare la politica di gestione per un dominio, se non vuoi confermare ogni cookie di tale dominio.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+><guilabel
+>Rifiuta tutti i cookie</guilabel
+></term>
+<listitem>
+<para
+>Se questa opzione è selezionata, tutti i cookie saranno rifiutati direttamente senza richiedere conferma.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>In aggiunta alla politica predefinita di gestione dei cookie, che si può scegliere marcando una delle tre caselle descritte sopra, si possono anche impostare le politiche di gestione per host specifici usando i controlli del gruppo <guilabel
+>Politica del sito</guilabel
+>.</para>
+
+<para
+>Le politiche Chiedi, Accetta, Accetta per la sessione o Rifiuta possono essere applicate ad un dominio specifico facendo clic sul pulsante <guibutton
+>Nuova...</guibutton
+>, che richiama una finestra di dialogo. In questa finestra puoi inserire il nome del dominio (con un punto iniziale) e poi specificare la politica che vuoi usare. Ricorda che le voci possono essere aggiunte anche mentre navighi, se la politica predefinita è di chiedere conferma (ad esempio, puoi scegliere l'opzione <guilabel
+>Rifiuta</guilabel
+> quando ti viene chiesto di confermare un cookie).</para>
+
+<para
+>Puoi anche selezionare uno specifico dominio dalla lista e premere <guibutton
+>Cambia...</guibutton
+> per scegliere una politica di gestione del dominio diversa da quella mostrata sulla lista.</para>
+
+<para
+>Per cancellare una politica specifica per un dominio, scegli il dominio dalla lista e fai clic sul pulsante <guibutton
+>Elimina</guibutton
+>. La politica preimpostata sarà applicata ai domini eliminati dalla lista.</para>
+
+</sect2>
+
+<sect2 id="cookie-management">
+<title
+>Gestione</title>
+
+<para
+>Dalla scheda <guilabel
+>Gestione</guilabel
+> puoi esaminare ed eliminare selettivamente i cookie che sono stati raccolti in passato.</para>
+
+<para
+>Nella parte alta della finestra c'è una lista di domini mostrata come un albero. Fai clic sul segno <guiicon
+>&gt;</guiicon
+> vicino al dominio per vedere tutti i cookie impostati per questo particolare dominio. Selezionando uno dei cookie il suo contenuto verrà mostrato nel sottostante riquadro <guilabel
+>Dettagli</guilabel
+>.</para>
+
+<para
+>Premendo il pulsante <guibutton
+>Elimina</guibutton
+> puoi cancellare il cookie selezionato. Premi <guibutton
+>Elimina tutte</guibutton
+> per eliminare tutti i cookie memorizzati.</para>
+
+<para
+>Se un dominio è selezionato puoi usare <guibutton
+>Configura la politica...</guibutton
+> per impostare la politica per il sito.</para>
+
+<para
+>Scegli <guibutton
+>Ricarica lista</guibutton
+> per ricaricare la lista dal disco rigido. Questo può servire se hai il modulo aperto e stai provando i tuoi siti web, oppure se hai fatto molte modifiche dal modulo stesso.</para>
+
+</sect2>
+
+</sect1>
+
+</article>

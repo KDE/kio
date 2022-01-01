@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Ukrainian "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="telnet">
+<title
+>telnet</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Ferdinand.Gassauer; &Ferdinand.Gassauer.mail;</author>
+<othercredit role="translator"
+><firstname
+>Юрій</firstname
+><surname
+>Чорноіван</surname
+><affiliation
+><address
+><email
+>yurchor@ukr.net</email
+></address
+></affiliation
+><contrib
+>Переклад українською</contrib
+></othercredit
+> 
+</authorgroup>
+</articleinfo>
+<para
+>Протокол мережевого термінала (TELNET) надає користувачеві змогу входити до будь-якого іншого комп’ютера мережі, який підтримує TELNET. </para>
+
+<para
+>Довідка з <ulink url="man:/telnet"
+>telnet</ulink
+>. </para>
+
+</article>

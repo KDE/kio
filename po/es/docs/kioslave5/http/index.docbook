@@ -1,0 +1,62 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Spanish "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="http">
+<title
+>http / https</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Lauri.Watts; &Lauri.Watts.mail;</author>
+<othercredit role="translator"
+> <firstname
+>Marcos</firstname
+> <surname
+>Fouces Lago</surname
+> <affiliation
+><address
+><email
+>mfouces@yahoo.es</email
+></address
+></affiliation
+> <contrib
+>Traductor</contrib
+> </othercredit
+> 
+</authorgroup>
+</articleinfo>
+
+<para
+>&HTTP; es el <emphasis
+>H</emphasis
+>yper<emphasis
+>T</emphasis
+>ext <emphasis
+>T</emphasis
+>ransfer <emphasis
+>P</emphasis
+>rotocol.</para>
+
+<para
+>El kioslave http se usa por todas las aplicaciones &kde; para manejar conexiones a servidores &HTTP;, es decir, a servidores web. El uso más común es visualizar páginas web en el navegador &konqueror;.</para>
+
+<para
+>Usted puede utilizar el kioslave https en &konqueror; introduciendo una &URL;. <userinput
+>https://<replaceable
+>www.kde.org</replaceable
+></userinput
+>.</para>
+
+<para
+>https es http encapsulado en un flujo SSL/TLS.</para>
+<para
+>SSL es el protocolo de capa de conexión segura, un protocolo de seguridad que proporciona privacidad en las comunicaciones en Internet. El protocolo permite aplicaciones cliente/servidor para comunicarse de tal modo que se evite la escucha, manipulación o falsificación de mensajes. </para>
+<para
+>TSL significa seguridad en la capa de transporte.</para>
+
+</article>

@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Dutch "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="file">
+<title
+>bestand</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Ferdinand.Gassauer; &Ferdinand.Gassauer.mail;</author>
+&Freek.de.Kruijf; 
+</authorgroup>
+</articleinfo>
+
+<para
+>Het <emphasis
+>file</emphasis
+>-protocol wordt gebruikt door alle &kde;-toepassingen om lokale bestanden weer te geven. </para>
+<para
+>Het invoeren van <userinput
+><command
+>file:/mapnaam</command
+></userinput
+> in &konqueror; toont de bestanden in deze map. </para>
+
+</article>

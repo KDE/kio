@@ -1,0 +1,242 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % German "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="cookies" lang="&language;">
+<articleinfo>
+<title
+>Cookies</title>
+<authorgroup>
+<author
+>&Krishna.Tateneni; &Krishna.Tateneni.mail;</author>
+<author
+>&Jost.Schenck; &Jost.Schenck.mail;</author>
+<othercredit role="translator"
+><firstname
+>Jürgen</firstname
+><surname
+>Nagel</surname
+><affiliation
+><address
+><email
+>JuergenNagel@web.de</email
+></address
+></affiliation
+><contrib
+>Übersetzer</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>2016-11-10</date>
+<releaseinfo
+>Frameworks 5.29</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Systemeinstellungen</keyword>
+<keyword
+>Cookie</keyword>
+</keywordset>
+
+</articleinfo>
+
+<sect1 id="cookie">
+<title
+>Cookies</title>
+
+<para
+>Mit Hilfe von Cookies speichern und lesen Internetseiten Informationen auf Ihrem Computer. Zum Beispiel erlaubt eine Internetseite, den Inhalt und die Darstellung anzupassen. Mit Cookies werden die Einstellungen zwischen Besuchen dieser Seite gespeichert.</para>
+
+<para
+>Die Internetseite merkt sich die Einstellungen, indem sie einen Cookie auf Ihrem Computer speichern. Bei einem zukünftigen Besuch wird diese Information wieder ausgelesen und verwendet, um die vorher festgelegten Einstellungen wieder herzustellen.</para>
+
+<para
+>Cookies spielen daher eine bedeutende Rolle beim Browsen im Internet. Leider speichern Internetseiten auch Informationen ohne Ihr explizites Wissen und Ihre Zustimmung. Einige dieser Informationen können für die Betreiber der Internetseite sehr nützlich sein. Es ist beispielsweise möglich, die Anzahl der Zugriffe auf einzelne Bereiche statistisch auszuwerten oder Werbung auf Ihr Zugriffsprofil abzustimmen.</para>
+
+<para
+>Das Seite Cookies erlaubt Regelungen für die Verwendung von Cookies beim Browsen mit dem Internetbrowser &konqueror;.</para>
+
+<warning
+><para
+>Beachten Sie, dass die hier eingestellten Regelungen <emphasis
+>keine</emphasis
+> Auswirkungen auf andere Browser wie zum Beispiel &firefox; haben.</para
+></warning>
+
+<sect2 id="cookie-policy">
+
+<title
+>Regelungen</title>
+
+<para
+>Auf der Karteikarte <guilabel
+>Regelungen</guilabel
+> können Sie einstellen, wie &kde;-Anwendungen mit Cookies umgehen. Sie können sowohl eine Standardregelung als auch spezifische Regelungen für bestimmte Domains oder Rechner festlegen.</para>
+
+<para
+>Oben auf der Karteikarte befindet sich das Ankreuzfeld <guilabel
+>Cookies zulassen</guilabel
+>. Wenn man dieses Feld nicht markiert, werden Cookies vollständig abgeschaltet. Das kann aber das Browsen im Internet sehr unkomfortabel machen, da es einige Internetseiten gibt, die die Benutzung eines Browsers mit eingeschalteten Cookies erfordern.</para>
+
+<para
+>Daher werden Sie in der Regel Cookies einschalten und dann spezifische Regelungen für den Umgang mit ihnen treffen.</para>
+
+<para
+>Die erste Gruppe von Einstellungen betrifft Optionen, die auf alle Cookies anzuwenden sind.</para>
+
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>Nur Cookies vom erstellenden Server annehmen</guilabel
+></term>
+<listitem>
+<para
+>Einige Seiten versuchen Cookies von Servern zu setzen, die nicht mit dem übereinstimmen, von dem die &HTML;-Seite kommt. Sie zeigen Ihnen zum Beispiel Werbung, und diese Werbung stammt von anderen Servern, die häufig zu einer großen Werbefirma gehören. Diese Werbung versucht möglicherweise, ein Cookie zu setzen, mit dem verfolgt werden kann, welche Seiten Sie auf verschiedenen Webseiten besucht haben.</para>
+<para
+>Wenn Sie diese Einstellung aktivieren, werden nur Cookies akzeptiert, die von dem Server stammen, mit dem Sie gerade verbunden sind.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+><guilabel
+>Sitzung-Cookies automatisch annehmen</guilabel
+></term>
+<listitem>
+
+<para
+>Immer öfter werden Cookies dazu verwendet, nicht Ihre Bewegungen über viele verschiedene Besuche auf einer Webseite zu registrieren, sondern was Sie während eines einzigen Besuchs auf dieser Seite tun. Sitzungs-Cookies werden solange gespeichert, wie Sie sich auf der Seite befinden und gelöscht, sobald Sie die Seite verlassen.</para>
+
+<para
+>Internetseiten können diese Informationen für verschiedene Dinge verwenden. Gewöhnlich dient es der Bequemlichkeit, sodass Sie sich zum Beispiel nicht immer neu anmelden müssen, wenn Sie eine andere Seite eines Webmail-Service anschauen möchten. Ohne eine solche Sitzungs-<acronym
+>ID</acronym
+> müssten Sie Ihr Passwort jedesmal neu eingeben, wenn Sie eine andere E-Mail lesen möchten. Es gibt andere Wege, dies zu erreichen, aber Cookies sind eine einfache und weit verbreitete Möglichkeit.</para>
+
+<para
+>Schalten Sie diese Option ein, dann werden Sitzungs-Cookies immer akzeptiert, selbst dann, wenn Sie keine anderen Cookies zulassen. Sogar wenn Sie Cookies von einer bestimmten Domain nicht annehmen, dann werden die Sitzungs-Cookies von dieser Seite trotzdem akzeptiert.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>Der Abschnitt <guilabel
+>Standardregelung</guilabel
+> setzt einige weitere Einstellungen, die sich gegeneinander ausschließen &mdash; Sie können nur eine dieser Einstellungen als Standard festlegen. Allerdings ist es möglich, andere Einstellungen für bestimmte Internetserver festzulegen.</para>
+<note
+><para
+>Seitenspezifische Regelungen überschreiben immer die Standardregelung.</para
+></note>
+
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>Alle Cookies annehmen</guilabel
+></term>
+<listitem>
+<para
+>Wenn diese Option ausgewählt ist, werden alle Cookies ohne Nachfrage angenommen.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+><guilabel
+>Bis zum Sitzungsende annehmen</guilabel
+></term>
+<listitem>
+<para
+>Cookies werden solange akzeptiert, bis die Sitzung beendet ist.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+><guilabel
+>Um Bestätigung bitten</guilabel
+></term>
+<listitem>
+<para
+>Wenn diese Option ausgewählt ist, wird für jeden einzelnen Cookie um Bestätigung gebeten. Sie können jeden einzelnen Cookie entweder annehmen oder ablehnen. Der Bestätigungsdialog enthält außerdem die Möglichkeit, eine Domain-spezifische Regelung zu treffen, falls Sie für eine Domain nicht jeden Cookie einzeln bestätigen wollen.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+><guilabel
+>Alle Cookies zurückweisen</guilabel
+></term>
+<listitem>
+<para
+>Wenn diese Option ausgewählt ist, werden alle Cookies ohne Nachfrage abgelehnt.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>Zusätzlich zu dieser Standardregelung kann man Domain-spezifische Regelungen im Bereich <guilabel
+>Seitenregelung</guilabel
+> festlegen. Diese Regelungen gelten für einzelne Rechner oder einzelne Domains.</para>
+
+<para
+>Sie können eine der Regelungen Nachfragen, Annehmen, Annehmen bis zum Sitzungsende oder Ablehnen auf eine bestimmte Domain anwenden, indem Sie auf den Knopf <guibutton
+>Neu ...</guibutton
+> klicken. Im angezeigten Dialogfenster tragen Sie den Namen der Domain (mit einem führenden Punkt) ein und wählen die gewünschte Regelung für diese Domain aus. Beachten Sie, dass auch während des Browsens Einträge hinzufügen werden können. Wenn die Standardregelung eine Bestätigung verlangt, kann man im Bestätigungsdialog eine generelle Regelung für einen bestimmten Rechner festlegen (zum Beispiel, indem man dort <guilabel
+>Ablehnen</guilabel
+> auswählt).</para>
+
+<para
+>Um für eine aufgelistete Domain die Regelung zu ändern, wählen Sie diese in der Liste aus und klicken auf <guibutton
+>Ändern</guibutton
+>.</para>
+
+<para
+>Um eine Domain-spezifische Regelung zu löschen, wählt man den gewünschten Listeneintrag aus und klickt auf <guibutton
+>Löschen</guibutton
+>. Für eine gelöschte Domain gilt wieder die Standardregelung.</para>
+
+</sect2>
+
+<sect2 id="cookie-management">
+<title
+>Verwaltung</title>
+
+<para
+>Auf der Karteikarte <guilabel
+>Verwaltung</guilabel
+> können Sie die Liste der gespeicherten Cookies durchsehen und einzelne Cookies löschen.</para>
+
+<para
+>Im oberen Abschnitt dieses Dialoges wird eine Liste von Domains als Baumstruktur dargestellt. Klicken Sie neben einem Domain-Namen auf <guiicon
+>&gt;</guiicon
+>, werden alle Cookies dieser Domain unter dem Domain-Namen aufgelistet. Wählen Sie eines dieser Cookies aus, wird sein Inhalt unten im Bereich <guilabel
+>Details</guilabel
+> angezeigt.</para>
+
+<para
+>Durch Klicken auf den Knopf <guibutton
+>Löschen</guibutton
+>, wird der ausgewählte Cookie gelöscht. Mit <guibutton
+>Alle löschen</guibutton
+> werden alle gespeicherten Cookies gelöscht.</para>
+
+<para
+>Wenn Domäne ausgewählt ist, können Sie mit <guibutton
+>Regelung einrichten</guibutton
+> eine spezielle Regel für diese Domäne eingeben.</para>
+
+<para
+>Klickt man auf <guibutton
+>Liste neu einlesen</guibutton
+>, wird die Liste der Cookies von der Festplatte neu eingelesen. Das ist nützlich, wenn man das Modul geöffnet hat und Internetseiten testet oder im Modul selbst viele Änderungen vorgenommen hat.</para>
+
+</sect2>
+
+</sect1>
+
+</article>
