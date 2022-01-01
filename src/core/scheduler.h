@@ -179,6 +179,7 @@ public:
     static void publishSlaveOnHold();
 #endif
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 91)
     /**
      * Requests a slave for use in connection-oriented mode.
      *
@@ -189,9 +190,13 @@ public:
      * @return A pointer to a connected slave or @c nullptr if an error occurred.
      * @see assignJobToSlave()
      * @see disconnectSlave()
+     * @deprecated since 5.91 Port away from the connected slave feature, e.g. making a library out of the slave code.
      */
+    KIOCORE_DEPRECATED_VERSION(5, 91, "Port away from the connected slave feature, e.g. making a library out of the slave code.")
     static KIO::Slave *getConnectedSlave(const QUrl &url, const KIO::MetaData &config = MetaData());
+#endif
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 91)
     /**
      * Uses @p slave to do @p job.
      * This function should be called immediately after creating a Job.
@@ -207,9 +212,13 @@ public:
      * @see disconnectSlave()
      * @see slaveConnected()
      * @see slaveError()
+     * @deprecated since 5.91 Port away from the connected slave feature, e.g. making a library out of the slave code.
      */
+    KIOCORE_DEPRECATED_VERSION(5, 91, "Port away from the connected slave feature, e.g. making a library out of the slave code.")
     static bool assignJobToSlave(KIO::Slave *slave, KIO::SimpleJob *job);
+#endif
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 91)
     /**
      * Disconnects @p slave.
      *
@@ -221,8 +230,11 @@ public:
      *
      * @see getConnectedSlave
      * @see assignJobToSlave
+     * @deprecated since 5.91 Port away from the connected slave feature, e.g. making a library out of the slave code.
      */
+    KIOCORE_DEPRECATED_VERSION(5, 91, "Port away from the connected slave feature, e.g. making a library out of the slave code.")
     static bool disconnectSlave(KIO::Slave *slave);
+#endif
 
     /**
      * Function to connect signals emitted by the scheduler.
@@ -267,12 +279,30 @@ public:
     static void updateInternalMetaData(SimpleJob *job);
 
 Q_SIGNALS:
-    void slaveConnected(KIO::Slave *slave);
-    void slaveError(KIO::Slave *slave, int error, const QString &errorMsg);
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 91)
+    /**
+     * @deprecated since 5.91 Port away from the connected slave feature, e.g. making a library out of the slave code.
+     */
+    KIOCORE_DEPRECATED_VERSION(5, 91, "Port away from the connected slave feature, e.g. making a library out of the slave code.")
+    QT_MOC_COMPAT void slaveConnected(KIO::Slave *slave);
+
+    /**
+     * @deprecated since 5.91 Port away from the connected slave feature, e.g. making a library out of the slave code.
+     */
+    KIOCORE_DEPRECATED_VERSION(5, 91, "Port away from the connected slave feature, e.g. making a library out of the slave code.")
+    QT_MOC_COMPAT void slaveError(KIO::Slave *slave, int error, const QString &errorMsg);
+#endif
 
     // DBUS
     Q_SCRIPTABLE void reparseSlaveConfiguration(const QString &);
+
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 91)
+    /**
+     * @deprecated since 5.91 Port away from the connected slave feature, e.g. making a library out of the slave code.
+     */
+    KIOCORE_DEPRECATED_VERSION(5, 91, "Removed for lack of usage, and due to feature removal.")
     Q_SCRIPTABLE void slaveOnHoldListChanged();
+#endif
 
 private:
     Q_DISABLE_COPY(Scheduler)
@@ -291,8 +321,10 @@ private:
 #endif
     Q_PRIVATE_SLOT(d_func(), void slotSlaveOnHoldListChanged())
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 91)
     Q_PRIVATE_SLOT(d_func(), void slotSlaveConnected())
     Q_PRIVATE_SLOT(d_func(), void slotSlaveError(int error, const QString &errorMsg))
+#endif
 private:
     friend class SchedulerPrivate;
     SchedulerPrivate *d_func();

@@ -106,8 +106,10 @@ public:
 #endif
     void slotSlaveOnHoldListChanged();
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 91)
     void slotSlaveConnected();
     void slotSlaveError(int error, const QString &errorMsg);
+#endif
 
     ProtoQueue *protoQ(const QString &protocol, const QString &host);
 
@@ -822,6 +824,7 @@ void Scheduler::updateInternalMetaData(SimpleJob *job)
     schedulerPrivate()->updateInternalMetaData(job);
 }
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 91)
 KIO::Slave *Scheduler::getConnectedSlave(const QUrl &url, const KIO::MetaData &config)
 {
     return schedulerPrivate()->getConnectedSlave(url, config);
@@ -836,6 +839,7 @@ bool Scheduler::disconnectSlave(KIO::Slave *slave)
 {
     return schedulerPrivate()->disconnectSlave(slave);
 }
+#endif
 
 bool Scheduler::connect(const char *signal, const QObject *receiver, const char *member)
 {
@@ -1161,6 +1165,7 @@ void SchedulerPrivate::removeSlaveOnHold()
     m_urlOnHold.clear();
 }
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 91)
 Slave *SchedulerPrivate::getConnectedSlave(const QUrl &url, const KIO::MetaData &config)
 {
     QStringList proxyList;
@@ -1200,6 +1205,7 @@ void SchedulerPrivate::slotSlaveError(int errorNr, const QString &errorMsg)
         Q_EMIT q->slaveError(slave, errorNr, errorMsg);
     }
 }
+#endif
 
 ProtoQueue *SchedulerPrivate::protoQ(const QString &protocol, const QString &host)
 {
@@ -1226,6 +1232,7 @@ ProtoQueue *SchedulerPrivate::protoQ(const QString &protocol, const QString &hos
     return pq;
 }
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 91)
 bool SchedulerPrivate::assignJobToSlave(KIO::Slave *slave, SimpleJob *job)
 {
     // qDebug() << slave << job;
@@ -1244,6 +1251,7 @@ bool SchedulerPrivate::disconnectSlave(KIO::Slave *slave)
     ProtoQueue *pq = m_protocols.value(slave->protocol());
     return (pq ? pq->m_connectedSlaveQueue.removeSlave(slave) : false);
 }
+#endif
 
 void SchedulerPrivate::updateInternalMetaData(SimpleJob *job)
 {
