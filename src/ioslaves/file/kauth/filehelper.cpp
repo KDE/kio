@@ -12,19 +12,12 @@
 #include <libgen.h>
 #include <sys/stat.h>
 #include <sys/time.h>
-#include <sys/file.h>
 #include <sys/types.h>
 #include <unistd.h>
 #include <utime.h>
 
 #include "../file_p.h"
 #include "fdsender.h"
-
-#include <QUrl>
-#include <QFileInfo>
-#include <QDebug>
-#include <QDateTime>
-#include <QDir>
 
 #ifndef O_PATH
 #define O_PATH O_RDONLY
@@ -38,18 +31,28 @@ struct Privilege {
 static ActionType intToActionType(int action)
 {
     switch (action) {
-        case 1: return CHMOD;
-        case 2: return CHOWN;
-        case 3: return DEL;
-        case 4: return MKDIR;
-        case 5: return OPEN;
-        case 6: return OPENDIR;
-        case 7: return RENAME;
-        case 8: return RMDIR;
-        case 9: return SYMLINK;
-        case 10: return UTIME;
-        case 11: return COPY;
-        default: return UNKNOWN;
+    case 1:
+        return CHMOD;
+    case 2:
+        return CHOWN;
+    case 3:
+        return DEL;
+    case 4:
+        return MKDIR;
+    case 5:
+        return OPEN;
+    case 6:
+        return OPENDIR;
+    case 7:
+        return RENAME;
+    case 8:
+        return RMDIR;
+    case 9:
+        return SYMLINK;
+    case 10:
+        return UTIME;
+    default:
+        return UNKNOWN;
     }
 }
 
@@ -225,7 +228,6 @@ ActionReply FileHelper::exec(const QVariantMap &args)
         }
 
         case UTIME: {
-            qWarning() << "utime";
             timespec times[2];
             time_t actime = arg2.toULongLong();
             time_t modtime = arg3.toULongLong();
@@ -238,59 +240,6 @@ ActionReply FileHelper::exec(const QVariantMap &args)
             }
             close(base_fd);
             break;
-        }
-
-// a lil macro to make the process of handling failure less repetitive
-#define bailOnFail(cond) if (!cond) { reply.setError(EIO); return reply; }
-        case COPY: {
-            const auto src = arg1.toUrl();
-            const auto dest = arg2.toUrl();
-
-            QFileInfo srcFI(src.toLocalFile());
-            QFileInfo destFI(dest.toLocalFile());
-
-            if (!srcFI.exists()) {
-                reply.setError(ENOENT);
-                return reply;
-            }
-
-            if (!destFI.exists()) {
-                if (dest.toLocalFile().endsWith(QStringLiteral("/"))) {
-                    reply.setError(ENOENT);
-                    return reply;
-                }
-                bailOnFail(QFile::copy(srcFI.absoluteFilePath(), dest.toLocalFile()));
-
-                QFile dst(dest.toLocalFile());
-                bailOnFail(dst.open(QFile::ReadWrite));
-                bailOnFail(dst.setFileTime(srcFI.fileTime(QFileDevice::FileAccessTime), QFileDevice::FileAccessTime));
-                bailOnFail(dst.setFileTime(srcFI.fileTime(QFileDevice::FileModificationTime), QFileDevice::FileModificationTime));
-            } else {
-                if (srcFI.isFile() && destFI.isDir()) {
-                    bailOnFail(QFile::copy(srcFI.absoluteFilePath(), destFI.absoluteFilePath()));
-                    const auto path = QDir::cleanPath(destFI.absoluteFilePath() + QStringLiteral("/") + srcFI.baseName());
-
-                    QFile dst(path);
-                    bailOnFail(dst.open(QFile::ReadWrite));
-                    bailOnFail(dst.setFileTime(srcFI.fileTime(QFileDevice::FileAccessTime), QFileDevice::FileAccessTime));
-                    bailOnFail(dst.setFileTime(srcFI.fileTime(QFileDevice::FileModificationTime), QFileDevice::FileModificationTime));
-                } else if (srcFI.isFile() && destFI.isFile()) {
-                    bailOnFail(QFile::remove(destFI.absoluteFilePath()));
-                    bailOnFail(QFile::copy(srcFI.absoluteFilePath(), destFI.absoluteFilePath()));
-
-                    QFile dst(dest.toLocalFile());
-                    bailOnFail(dst.open(QFile::ReadWrite));
-                    bailOnFail(dst.setFileTime(srcFI.fileTime(QFileDevice::FileAccessTime), QFileDevice::FileAccessTime));
-                    bailOnFail(dst.setFileTime(srcFI.fileTime(QFileDevice::FileModificationTime), QFileDevice::FileModificationTime));
-                } else if (srcFI.isDir() && destFI.isFile()) {
-                    reply.setError(EINVAL);
-                    return reply;
-                } else if (srcFI.isDir() && destFI.isDir()) {
-                    bailOnFail(QFile::copy(srcFI.absoluteFilePath(), destFI.absoluteFilePath()));
-                } else {
-                    Q_UNREACHABLE();
-                }
-            }
         }
 
         default:

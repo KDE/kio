@@ -51,12 +51,4 @@ KIOWIDGETS_EXECUTABLE_TESTS(
   kterminallauncherjobtest_gui
   ${runapplication_EXE}
 )
-add_executable(kauth_tester kauth_tester.cpp)
-target_link_libraries(kauth_tester
-   KF5::KIOCore
-   KF5::KIOGui
-   KF5::KIOWidgets
-   KF5::KIOFileWidgets
-   KF5::WidgetsAddons
-   KF5::IconThemes)
 endif()
