@@ -170,11 +170,6 @@ KioslaveTest::KioslaveTest(QString src, QString dest, uint op, uint pr)
 
     main_widget->setMinimumSize(main_widget->sizeHint());
     setCentralWidget(main_widget);
-
-    slave = nullptr;
-    //  slave = KIO::Scheduler::getConnectedSlave(QUrl("ftp://ftp.kde.org"));
-    KIO::Scheduler::connect(SIGNAL(slaveConnected(KIO::Slave *)), this, SLOT(slotSlaveConnected()));
-    KIO::Scheduler::connect(SIGNAL(slaveError(KIO::Slave *, int, QString)), this, SLOT(slotSlaveError()));
 }
 
 void KioslaveTest::slotQuit()
@@ -229,30 +224,28 @@ void KioslaveTest::startJob()
         observe = HideProgressInfo;
     }
 
-    SimpleJob *myJob = nullptr;
-
     switch (selectedOperation) {
     case List: {
         KIO::ListJob *listJob = KIO::listDir(src);
-        myJob = listJob;
+        job = listJob;
         connect(listJob, &KIO::ListJob::entries, this, &KioslaveTest::slotEntries);
         break;
     }
 
     case ListRecursive: {
         KIO::ListJob *listJob = KIO::listRecursive(src);
-        myJob = listJob;
+        job = listJob;
         connect(listJob, &KIO::ListJob::entries, this, &KioslaveTest::slotEntries);
         break;
     }
 
     case Stat:
-        myJob = KIO::statDetails(src, KIO::StatJob::SourceSide);
+        job = KIO::statDetails(src, KIO::StatJob::SourceSide);
         break;
 
     case Get: {
         KIO::TransferJob *tjob = KIO::get(src, KIO::Reload);
-        myJob = tjob;
+        job = tjob;
         connect(tjob, &KIO::TransferJob::data, this, &KioslaveTest::slotData);
         break;
     }
@@ -261,7 +254,7 @@ void KioslaveTest::startJob()
         putBuffer = 0;
         KIO::TransferJob *tjob = KIO::put(src, -1, KIO::Overwrite);
         tjob->setTotalSize(48 * 1024 * 1024);
-        myJob = tjob;
+        job = tjob;
         connect(tjob, &TransferJob::dataReq, this, &KioslaveTest::slotDataReq);
         break;
     }
@@ -279,18 +272,12 @@ void KioslaveTest::startJob()
         break;
 
     case Mkdir:
-        myJob = KIO::mkdir(src);
+        job = KIO::mkdir(src);
         break;
 
     case Mimetype:
-        myJob = KIO::mimetype(src);
+        job = KIO::mimetype(src);
         break;
-    }
-    if (myJob) {
-        if (slave) {
-            KIO::Scheduler::assignJobToSlave(slave, myJob);
-        }
-        job = myJob;
     }
 
     statusBar()->addWidget(statusTracker->widget(job), 0);
@@ -309,10 +296,10 @@ void KioslaveTest::slotResult(KJob *_job)
     if (_job->error()) {
         _job->uiDelegate()->showErrorMessage();
     } else if (selectedOperation == Stat) {
-        UDSEntry entry = ((KIO::StatJob *)_job)->statResult();
+        UDSEntry entry = static_cast<KIO::StatJob *>(_job)->statResult();
         printUDSEntry(entry);
     } else if (selectedOperation == Mimetype) {
-        qDebug() << "MIME type is " << ((KIO::MimetypeJob *)_job)->mimetype();
+        qDebug() << "MIME type is " << static_cast<KIO::MimetypeJob *>(_job)->mimetype();
     }
 
     if (job == _job) {
@@ -323,17 +310,6 @@ void KioslaveTest::slotResult(KJob *_job)
     pbStop->setEnabled(false);
 
     // statusBar()->removeWidget( statusTracker->widget(job) );
-}
-
-void KioslaveTest::slotSlaveConnected()
-{
-    qDebug() << "Slave connected.";
-}
-
-void KioslaveTest::slotSlaveError()
-{
-    qDebug() << "Error connected.";
-    slave = nullptr;
 }
 
 void KioslaveTest::printUDSEntry(const KIO::UDSEntry &entry)

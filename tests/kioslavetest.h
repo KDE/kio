@@ -39,9 +39,6 @@ public:
         if (job) {
             job->kill(KJob::Quietly); // kill the job quietly
         }
-        if (slave) {
-            KIO::Scheduler::disconnectSlave(slave);
-        }
     }
 
     enum Operations { List = 0, ListRecursive, Stat, Get, Put, Copy, Move, Delete, Mkdir, Mimetype };
@@ -97,8 +94,6 @@ protected Q_SLOTS:
     void slotDataReq(KIO::Job *, QByteArray &data);
 
     void slotQuit();
-    void slotSlaveConnected();
-    void slotSlaveError();
 
 private:
     KIO::Job *job;
@@ -109,7 +104,6 @@ private:
     int selectedOperation;
     int progressMode;
     int putBuffer;
-    KIO::Slave *slave;
 };
 
 #endif // _KIOSLAVETEST_H
