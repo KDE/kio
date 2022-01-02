@@ -104,6 +104,8 @@ enum Message {
  *
  * A call to foo() results in a call to slotFoo() on the other end.
  */
+// KF6 TODO: remove export macro, nothing uses this class outside kio anymore
+// (and rename this file to slaveinterface_p.h, and don't install it anymore)
 class KIOCORE_EXPORT SlaveInterface : public QObject
 {
     Q_OBJECT

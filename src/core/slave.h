@@ -36,7 +36,8 @@ class UserNotificationHandler;
 // Do not use this class directly, outside of KIO. Only use the Slave pointer
 // that is returned by the scheduler for passing it around.
 //
-// TODO: KDE5: Separate public API and private stuff for this better
+// KF6 TODO: remove export macro, nothing uses this class outside kio anymore
+// (and rename this file to slave_p.h, and don't install it anymore)
 class KIO_SLAVE_EXPORT Slave : public KIO::SlaveInterface
 {
     Q_OBJECT

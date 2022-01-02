@@ -53,7 +53,7 @@ class SchedulerPrivate;
  *    KIO::Scheduler::setJobPriority(job, 1);
  * \endcode
  *
- * <h3>3. Connection Oriented</h3>
+ * <h3>3. Connection Oriented (TODO KF6 remove this section)</h3>
  * For some operations it is important that multiple jobs use
  * the same connection. This can only be ensured if all these jobs
  * use the same slave.
