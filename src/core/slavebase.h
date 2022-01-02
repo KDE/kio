@@ -626,7 +626,8 @@ public:
      *
      * @param src where to copy the file from (decoded)
      * @param dest where to copy the file to (decoded)
-     * @param permissions may be -1. In this case no special permission mode is set.
+     * @param permissions may be -1. In this case no special permission mode is set,
+     *        and the owner and group permissions are not preserved.
      * @param flags We support Overwrite here
      *
      * Don't forget to set the modification time of @p dest to be the modification time of @p src.

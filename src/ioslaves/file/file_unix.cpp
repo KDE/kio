@@ -967,13 +967,15 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mode, JobF
 #endif
 
     // preserve ownership
-    if (::chown(_dest.data(), -1 /*keep user*/, buffSrc.st_gid) == 0) {
-        // as we are the owner of the new file, we can always change the group, but
-        // we might not be allowed to change the owner
-        (void)::chown(_dest.data(), buffSrc.st_uid, -1 /*keep group*/);
-    } else {
-        if (tryChangeFileAttr(CHOWN, {_dest, buffSrc.st_uid, buffSrc.st_gid}, errno)) {
-            qCWarning(KIO_FILE) << "Couldn't preserve group for" << dest;
+    if (_mode != -1) {
+        if (::chown(_dest.data(), -1 /*keep user*/, buffSrc.st_gid) == 0) {
+            // as we are the owner of the new file, we can always change the group, but
+            // we might not be allowed to change the owner
+            (void)::chown(_dest.data(), buffSrc.st_uid, -1 /*keep group*/);
+        } else {
+            if (tryChangeFileAttr(CHOWN, {_dest, buffSrc.st_uid, buffSrc.st_gid}, errno)) {
+                qCWarning(KIO_FILE) << "Couldn't preserve group for" << dest;
+            }
         }
     }
 
