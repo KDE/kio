@@ -791,7 +791,7 @@ void TestTrash::statFileInRoot()
     QVERIFY(!item.isDir());
     QVERIFY(!item.isLink());
     QVERIFY(item.isReadable());
-    QVERIFY(!item.isWritable());
+    QVERIFY(item.isWritable());
     QVERIFY(!item.isHidden());
     QCOMPARE(item.text(), QStringLiteral("fileFromHome"));
 }
@@ -806,7 +806,7 @@ void TestTrash::statDirectoryInRoot()
     QVERIFY(item.isDir());
     QVERIFY(!item.isLink());
     QVERIFY(item.isReadable());
-    QVERIFY(!item.isWritable());
+    QVERIFY(item.isWritable());
     QVERIFY(!item.isHidden());
     QCOMPARE(item.text(), QStringLiteral("trashDirFromHome"));
 }
@@ -821,7 +821,7 @@ void TestTrash::statSymlinkInRoot()
     QVERIFY(item.isLink());
     QCOMPARE(item.linkDest(), QStringLiteral("/tmp"));
     QVERIFY(item.isReadable());
-    QVERIFY(!item.isWritable());
+    QVERIFY(item.isWritable());
     QVERIFY(!item.isHidden());
     QCOMPARE(item.text(), QStringLiteral("symlinkFromHome"));
 }
@@ -836,7 +836,7 @@ void TestTrash::statFileInDirectory()
     QVERIFY(item.isFile());
     QVERIFY(!item.isLink());
     QVERIFY(item.isReadable());
-    QVERIFY(!item.isWritable());
+    QVERIFY(item.isWritable());
     QVERIFY(!item.isHidden());
     QCOMPARE(item.text(), QStringLiteral("testfile"));
 }
@@ -850,7 +850,7 @@ void TestTrash::statBrokenSymlinkInSubdir()
     KFileItem item(entry, url);
     QVERIFY(item.isLink());
     QVERIFY(item.isReadable());
-    QVERIFY(!item.isWritable());
+    QVERIFY(item.isWritable());
     QVERIFY(!item.isHidden());
     QCOMPARE(item.linkDest(), QLatin1String("/nonexistent"));
 }
@@ -1088,6 +1088,7 @@ void TestTrash::trashDirectoryOwnedByRoot()
     bool ok = job->exec();
     QVERIFY(!ok);
     const int err = job->error();
+    qWarning() << err;
     QVERIFY(err == KIO::ERR_ACCESS_DENIED || err == KIO::ERR_CANNOT_OPEN_FOR_READING);
 
     const QString infoPath(m_trashDir + QStringLiteral("/info/") + fileId + QStringLiteral(".trashinfo"));
