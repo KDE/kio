@@ -302,6 +302,7 @@ ActionReply FileHelper::exec(const QVariantMap &args)
                     Q_UNREACHABLE();
                 }
             }
+            break;
         }
 
         default:
