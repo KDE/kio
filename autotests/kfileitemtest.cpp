@@ -516,10 +516,10 @@ void KFileItemTest::testListProperties_data()
     /* clang-format off */
     QTest::newRow("one file") << "f" << true << true << true << false << true << "text/plain" << "text";
     QTest::newRow("one dir") << "d" << true << true << true << true << false << "inode/directory" << "inode";
-    QTest::newRow("root dir") << "/" << true << false << true << true << false << "inode/directory" << "inode";
+    QTest::newRow("root dir") << "/" << true << true << true << true << false << "inode/directory" << "inode";
     QTest::newRow("file+dir") << "fd" << true << true << true << false << false << "" << "";
     QTest::newRow("two dirs") << "dd" << true << true << true << true << false << "inode/directory" << "inode";
-    QTest::newRow("dir+root dir") << "d/" << true << false << true << true << false << "inode/directory" << "inode";
+    QTest::newRow("dir+root dir") << "d/" << true << true << true << true << false << "inode/directory" << "inode";
     QTest::newRow("two (text+html) files") << "ff" << true << true << true << false << true << "" << "text";
     QTest::newRow("three (text+html+empty) files") << "fff" << true << true << true << false << true << "" << "";
     QTest::newRow("http url") << "h" << true << true /*says kio_http...*/ << false << false << true << "application/octet-stream" << "application";
@@ -797,8 +797,9 @@ void KFileItemTest::testNonWritableDirectory()
     const KFileItem item(QUrl::fromLocalFile(file.fileName()));
     KFileItemListProperties props(KFileItemList{item});
 
-    // Then it should say moving is not supported
-    QVERIFY(!props.supportsMoving());
+    // We could potentially elevate to deal with these cases, so we
+    // do support moving
+    QVERIFY(props.supportsMoving());
     QVERIFY(props.supportsWriting()); // but we can write to the file itself
 }
 
