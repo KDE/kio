@@ -200,7 +200,10 @@ target_include_directories(KF5KIOCore PUBLIC
   "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/kssl>"
 )
 
-target_include_directories(KF5KIOCore INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF5}/KIOCore>")
+target_include_directories(KF5KIOCore INTERFACE
+    "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF5}/KIOCore>"
+    "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF5}/KIO>"
+)
 
 target_link_libraries(KF5KIOCore
 PUBLIC
