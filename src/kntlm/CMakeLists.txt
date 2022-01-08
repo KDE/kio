@@ -1,3 +1,5 @@
+# KF6 TODO: move all classes to kio-http, only left known user, and dissolve lib
+
 add_library(KF5KIONTLM)
 add_library(KF5::KIONTLM ALIAS KF5KIONTLM)
 
@@ -12,7 +14,15 @@ target_sources(KF5KIONTLM PRIVATE
     des.cpp
 )
 
-generate_export_header(KF5KIONTLM BASE_NAME KNTLM)
+ecm_generate_export_header(KF5KIONTLM
+    BASE_NAME KNTLM
+    GROUP_BASE_NAME KF
+    VERSION ${KF_VERSION}
+    DEPRECATED_BASE_VERSION 0
+    DEPRECATION_VERSIONS 5.91
+    # not using EXCLUDE_DEPRECATED_BEFORE_AND_AT as kio-http has a hard dependency,
+    # so always needed to be build
+)
 
 target_link_libraries(KF5KIONTLM KF5::CoreAddons)
 
