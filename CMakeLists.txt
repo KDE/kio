@@ -26,6 +26,7 @@ include(ECMAddQch)
 include(ECMMarkNonGuiExecutable)
 include(ECMQtDeclareLoggingCategory)
 include(ECMSourceVersionControl)
+include(ECMDeprecationSettings)
 
 ecm_setup_version(
   PROJECT
@@ -138,16 +139,15 @@ if (ANDROID)
     # and that would still need a decision on how to deal with that
     add_definitions(-DKIO_ANDROID_STUB)
 endif()
-add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050f02)
-add_definitions(-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x055800)
-# we use KPixmapProvider in public API
-add_definitions(-DKCOMPLETION_DISABLE_DEPRECATED_BEFORE_AND_AT=0x054100)
-# we use KMimeTypeTrader in KFileItemActions
-add_definitions(-DKSERVICE_DISABLE_DEPRECATED_BEFORE_AND_AT=0x055100)
-# KService::createInstance uses deprecated parts of KCoreAddons in the header
-add_definitions(-DKCOREADDONS_DISABLE_DEPRECATED_BEFORE_AND_AT=0x055500)
-# we use KDesktopFile::readDevice
-add_definitions(-DKCONFIGCORE_DISABLE_DEPRECATED_BEFORE_AND_AT=0x055100)
+
+ecm_set_disabled_deprecation_versions(
+    QT 5.15.2
+    KF 5.90
+    KCOMPLETION 5.65 # we use KPixmapProvider in public API
+    KSERVICE 5.81 # we use KMimeTypeTrader in KFileItemActions
+    KCOREADDONS 5.85 # KService::createInstance uses deprecated parts of KCoreAddons in the header
+    KCONFIGCORE 5.81 # we use KDesktopFile::readDevice
+)
 
 add_definitions(-DTRANSLATION_DOMAIN=\"kio5\")
 ki18n_install(po)
