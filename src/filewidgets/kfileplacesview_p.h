@@ -59,7 +59,7 @@ public:
 
     void startDrag();
 
-    int sectionHeaderHeight() const;
+    int sectionHeaderHeight(const QModelIndex &index) const;
     int actionIconSize() const;
 
     void clearFreeSpaceInfo();

@@ -45,6 +45,7 @@
 #include <solid/storagevolume.h>
 #include <widgetsaskuseractionhandler.h>
 
+#include <cmath>
 #include <functional>
 #include <memory>
 
@@ -80,10 +81,10 @@ QSize KFilePlacesViewDelegate::sizeHint(const QStyleOptionViewItem &option, cons
         iconSize = m_disappearingIconSize;
     }
 
-    int height = option.fontMetrics.height() / 2 + qMax(iconSize, option.fontMetrics.height());
+    int height = std::max(iconSize, option.fontMetrics.height()) + s_lateralMargin;
 
     if (indexIsSectionHeader(index)) {
-        height += sectionHeaderHeight();
+        height += sectionHeaderHeight(index);
     }
 
     return QSize(option.rect.width(), height);
@@ -105,7 +106,7 @@ void KFilePlacesViewDelegate::paint(QPainter *painter, const QStyleOptionViewIte
         }
 
         // Move the target rect to the actual item rect
-        const int headerHeight = sectionHeaderHeight();
+        const int headerHeight = sectionHeaderHeight(index);
         opt.rect.translate(0, headerHeight);
         opt.rect.setHeight(opt.rect.height() - headerHeight);
     }
@@ -375,7 +376,7 @@ bool KFilePlacesViewDelegate::pointIsHeaderArea(const QPoint &pos)
     if (indexIsSectionHeader(index)) {
         const QRect vRect = m_view->visualRect(index);
         const int delegateY = pos.y() - vRect.y();
-        if (delegateY <= sectionHeaderHeight()) {
+        if (delegateY <= sectionHeaderHeight(index)) {
             return true;
         }
     }
@@ -476,7 +477,7 @@ void KFilePlacesViewDelegate::drawSectionHeader(QPainter *painter, const QStyleO
     /* Take spacing into account:
        The spacing to the previous section compensates for the spacing to the first item.*/
     textRect.setY(textRect.y() /* + qMax(2, m_view->spacing()) - qMax(2, m_view->spacing())*/);
-    textRect.setHeight(sectionHeaderHeight());
+    textRect.setHeight(sectionHeaderHeight(index) - s_lateralMargin - m_view->spacing());
 
     painter->save();
 
@@ -512,10 +513,15 @@ QColor KFilePlacesViewDelegate::mixedColor(const QColor &c1, const QColor &c2, i
                   (c1.blue() * c1Percent + c2.blue() * c2Percent) / 100);
 }
 
-int KFilePlacesViewDelegate::sectionHeaderHeight() const
+int KFilePlacesViewDelegate::sectionHeaderHeight(const QModelIndex &index) const
 {
     // Account for the spacing between header and item
-    return QApplication::fontMetrics().height() + qMax(2, m_view->spacing());
+    const int spacing = (s_lateralMargin + m_view->spacing());
+    int height = m_view->fontMetrics().height() + spacing;
+    if (index.row() != 0) {
+        height += 2 * spacing;
+    }
+    return height;
 }
 
 int KFilePlacesViewDelegate::actionIconSize() const
@@ -1454,7 +1460,7 @@ void KFilePlacesViewPrivate::adaptItemSize()
     const int maxWidth = q->viewport()->width() - textWidth - 4 * margin - 1;
 
     const int totalItemsHeight = (fm.height() / 2) * rowCount;
-    const int totalSectionsHeight = m_delegate->sectionHeaderHeight() * sectionsCount();
+    const int totalSectionsHeight = m_delegate->sectionHeaderHeight(QModelIndex()) * sectionsCount();
     const int maxHeight = ((q->height() - totalSectionsHeight - totalItemsHeight) / rowCount) - 1;
 
     int size = qMin(maxHeight, maxWidth);
