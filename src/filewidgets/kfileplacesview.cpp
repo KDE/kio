@@ -21,6 +21,7 @@
 #include <QScrollBar>
 #include <QTimeLine>
 #include <QTimer>
+#include <QToolTip>
 
 #include <KCapacityBar>
 #include <KConfig>
@@ -45,6 +46,7 @@
 #include <widgetsaskuseractionhandler.h>
 
 #include <functional>
+#include <memory>
 
 #include "kfileplaceeditdialog.h"
 #include "kfileplacesmodel.h"
@@ -127,7 +129,18 @@ void KFilePlacesViewDelegate::paint(QPainter *painter, const QStyleOptionViewIte
 
     QApplication::style()->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, painter);
 
+    QIcon actionIcon;
+    if (placesModel->isTeardownAllowed(index)) {
+        actionIcon = QIcon::fromTheme(QStringLiteral("media-eject"));
+    }
+
     bool isLTR = opt.direction == Qt::LeftToRight;
+    const int iconAreaWidth = s_lateralMargin + m_iconSize;
+    const int actionAreaWidth = !actionIcon.isNull() ? s_lateralMargin + actionIconSize() : 0;
+    QRect rectText((isLTR ? iconAreaWidth : actionAreaWidth) + s_lateralMargin,
+                   opt.rect.top(),
+                   opt.rect.width() - iconAreaWidth - actionAreaWidth - 2 * s_lateralMargin,
+                   opt.rect.height());
 
     const QPalette activePalette = KIconLoader::global()->customPalette();
     const bool changePalette = activePalette != opt.palette;
@@ -135,12 +148,25 @@ void KFilePlacesViewDelegate::paint(QPainter *painter, const QStyleOptionViewIte
         KIconLoader::global()->setCustomPalette(opt.palette);
     }
 
+    QIcon::Mode mode = (opt.state & QStyle::State_Selected) && (opt.state & QStyle::State_Active) ? QIcon::Selected : QIcon::Normal;
     QIcon icon = index.model()->data(index, Qt::DecorationRole).value<QIcon>();
-    QPixmap pm =
-        icon.pixmap(m_iconSize, m_iconSize, (opt.state & QStyle::State_Selected) && (opt.state & QStyle::State_Active) ? QIcon::Selected : QIcon::Normal);
+    QPixmap pm = icon.pixmap(m_iconSize, m_iconSize, mode);
     QPoint point(isLTR ? opt.rect.left() + s_lateralMargin : opt.rect.right() - s_lateralMargin - m_iconSize,
                  opt.rect.top() + (opt.rect.height() - m_iconSize) / 2);
     painter->drawPixmap(point, pm);
+
+    if (!actionIcon.isNull()) {
+        QPoint actionPos(isLTR ? opt.rect.right() - actionAreaWidth : opt.rect.left() + s_lateralMargin,
+                         opt.rect.top() + (opt.rect.height() - actionIconSize()) / 2);
+        QIcon::Mode actionMode = QIcon::Normal;
+        if ((opt.state & QStyle::State_Selected) && (opt.state & QStyle::State_Active)) {
+            actionMode = QIcon::Selected;
+        } else if (m_hoveredAction == index) {
+            actionMode = QIcon::Active;
+        }
+        QPixmap actionPix = actionIcon.pixmap(actionIconSize(), actionIconSize(), actionMode);
+        painter->drawPixmap(actionPos, actionPix);
+    }
 
     if (changePalette) {
         if (activePalette == QPalette()) {
@@ -160,8 +186,6 @@ void KFilePlacesViewDelegate::paint(QPainter *painter, const QStyleOptionViewIte
         painter->setPen(opt.palette.color(cg, QPalette::HighlightedText));
     }
 
-    QRect rectText;
-
     bool drawCapacityBar = false;
     if (placesModel->data(index, KFilePlacesModel::CapacityBarRecommendedRole).toBool()) {
         const QUrl url = placesModel->url(index);
@@ -175,10 +199,9 @@ void KFilePlacesViewDelegate::paint(QPainter *painter, const QStyleOptionViewIte
                 painter->setOpacity(painter->opacity() * contentsOpacity(index));
 
                 int height = opt.fontMetrics.height() + s_capacitybarHeight;
-                rectText = QRect(isLTR ? m_iconSize + s_lateralMargin * 2 + opt.rect.left() : 0,
-                                 opt.rect.top() + (opt.rect.height() / 2 - height / 2),
-                                 opt.rect.width() - m_iconSize - s_lateralMargin * 2,
-                                 opt.fontMetrics.height());
+                // Shift text up slightly to accomodate the bar
+                rectText.setY(rectText.y() + opt.rect.height() / 2 - height / 2);
+                rectText.setHeight(opt.fontMetrics.height());
                 painter->drawText(rectText,
                                   Qt::AlignLeft | Qt::AlignTop,
                                   opt.fontMetrics.elidedText(index.model()->data(index).toString(), Qt::ElideRight, rectText.width()));
@@ -217,10 +240,6 @@ void KFilePlacesViewDelegate::paint(QPainter *painter, const QStyleOptionViewIte
         }
     }
 
-    rectText = QRect(isLTR ? m_iconSize + s_lateralMargin * 2 + opt.rect.left() : 0,
-                     opt.rect.top(),
-                     opt.rect.width() - m_iconSize - s_lateralMargin * 2,
-                     opt.rect.height());
     painter->drawText(rectText,
                       Qt::AlignLeft | Qt::AlignVCenter,
                       opt.fontMetrics.elidedText(index.model()->data(index).toString(), Qt::ElideRight, rectText.width()));
@@ -308,6 +327,11 @@ void KFilePlacesViewDelegate::setShowHoverIndication(bool show)
     m_showHoverIndication = show;
 }
 
+void KFilePlacesViewDelegate::setHoveredAction(const QModelIndex &index)
+{
+    m_hoveredAction = index;
+}
+
 void KFilePlacesViewDelegate::addFadeAnimation(const QModelIndex &index, QTimeLine *timeLine)
 {
     m_timeLineMap.insert(index, timeLine);
@@ -356,6 +380,35 @@ bool KFilePlacesViewDelegate::pointIsHeaderArea(const QPoint &pos)
         }
     }
     return false;
+}
+
+bool KFilePlacesViewDelegate::pointIsTeardownAction(const QPoint &pos) const
+{
+    QModelIndex index = m_view->indexAt(pos);
+    if (!index.isValid()) {
+        return false;
+    }
+
+    if (!index.data(KFilePlacesModel::TeardownAllowedRole).toBool()) {
+        return false;
+    }
+
+    const QRect vRect = m_view->visualRect(index);
+    const bool isLTR = m_view->layoutDirection() == Qt::LeftToRight;
+
+    const int delegateX = pos.x() - vRect.x();
+
+    if (isLTR) {
+        if (delegateX < (vRect.width() - 2 * s_lateralMargin - actionIconSize())) {
+            return false;
+        }
+    } else {
+        if (delegateX >= 2 * s_lateralMargin + actionIconSize()) {
+            return false;
+        }
+    }
+
+    return true;
 }
 
 void KFilePlacesViewDelegate::startDrag()
@@ -465,6 +518,11 @@ int KFilePlacesViewDelegate::sectionHeaderHeight() const
     return QApplication::fontMetrics().height() + qMax(2, m_view->spacing());
 }
 
+int KFilePlacesViewDelegate::actionIconSize() const
+{
+    return qApp->style()->pixelMetric(QStyle::PM_SmallIconSize, nullptr, m_view);
+}
+
 class KFilePlacesViewPrivate
 {
 public:
@@ -510,6 +568,9 @@ public:
     void placeClicked(const QModelIndex &index, ActivationSignal activationSignal);
     void placeEntered(const QModelIndex &index);
     void placeLeft(const QModelIndex &index);
+    void actionClicked(const QModelIndex &index);
+    void actionEntered(const QModelIndex &index);
+    void actionLeft(const QModelIndex &index);
     void storageSetupDone(const QModelIndex &index, bool success);
     void adaptItemsUpdate(qreal value);
     void itemAppearUpdate(qreal value);
@@ -535,6 +596,7 @@ public:
     QTimeLine m_itemAppearTimeline;
     QTimeLine m_itemDisappearTimeline;
 
+    QTimer m_actionToolTipTimer;
     QTimer m_pollDevices;
 
     QRect m_dropRect;
@@ -639,6 +701,40 @@ KFilePlacesView::KFilePlacesView(QWidget *parent)
             d->placeClicked(index, &KFilePlacesView::tabRequested);
         } else {
             d->placeClicked(index, &KFilePlacesView::placeActivated);
+        }
+    });
+
+    connect(d->m_watcher, &KFilePlacesEventWatcher::actionClicked, this, [this](const QModelIndex &index) {
+        d->actionClicked(index);
+    });
+    connect(d->m_watcher, &KFilePlacesEventWatcher::actionEntered, this, [this](const QModelIndex &index) {
+        d->actionEntered(index);
+    });
+    connect(d->m_watcher, &KFilePlacesEventWatcher::actionLeft, this, [this](const QModelIndex &index) {
+        d->actionLeft(index);
+    });
+
+    d->m_actionToolTipTimer.setSingleShot(true);
+    connect(&d->m_actionToolTipTimer, &QTimer::timeout, this, [this]() {
+        KFilePlacesModel *placesModel = qobject_cast<KFilePlacesModel *>(model());
+        if (!placesModel) {
+            return;
+        }
+
+        const auto actionIndex = d->m_watcher->hoveredActionIndex();
+        if (placesModel->isTeardownAllowed(actionIndex)) {
+            QString toolTipText;
+
+            if (auto eject = std::unique_ptr<QAction>{placesModel->ejectActionForIndex(actionIndex)}) {
+                toolTipText = eject->toolTip();
+            } else if (auto teardown = std::unique_ptr<QAction>{placesModel->teardownActionForIndex(actionIndex)}) {
+                toolTipText = teardown->toolTip();
+            }
+
+            if (!toolTipText.isEmpty()) {
+                // TODO widget + rect
+                QToolTip::showText(QCursor::pos(), toolTipText);
+            }
         }
     });
 
@@ -1215,6 +1311,11 @@ void KFilePlacesView::mousePressEvent(QMouseEvent *event)
         if (d->m_delegate->pointIsHeaderArea(event->pos())) {
             return;
         }
+        // teardown button is handled by KFilePlacesEventWatcher
+        // NOTE "mouseReleaseEvent" side is also in there.
+        if (d->m_delegate->pointIsTeardownAction(event->pos())) {
+            return;
+        }
     }
     QListView::mousePressEvent(event);
 }
@@ -1588,6 +1689,35 @@ void KFilePlacesViewPrivate::placeLeft(const QModelIndex &index)
     if (!m_pollingRequestCount) {
         m_pollDevices.stop();
     }
+}
+
+void KFilePlacesViewPrivate::actionClicked(const QModelIndex &index)
+{
+    KFilePlacesModel *placesModel = qobject_cast<KFilePlacesModel *>(q->model());
+    if (!placesModel) {
+        return;
+    }
+
+    Solid::Device device = placesModel->deviceForIndex(index);
+    if (device.is<Solid::OpticalDisc>()) {
+        placesModel->requestEject(index);
+    } else {
+        placesModel->requestTeardown(index);
+    }
+}
+
+void KFilePlacesViewPrivate::actionEntered(const QModelIndex &index)
+{
+    m_delegate->setHoveredAction(index);
+    m_actionToolTipTimer.start(q->style()->styleHint(QStyle::SH_ToolTip_WakeUpDelay));
+    q->update(index);
+}
+
+void KFilePlacesViewPrivate::actionLeft(const QModelIndex &index)
+{
+    m_delegate->setHoveredAction(QModelIndex());
+    m_actionToolTipTimer.stop();
+    q->update(index);
 }
 
 void KFilePlacesViewPrivate::storageSetupDone(const QModelIndex &index, bool success)

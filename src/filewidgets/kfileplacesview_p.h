@@ -45,6 +45,7 @@ public:
     void setDisappearingItemProgress(qreal value);
 
     void setShowHoverIndication(bool show);
+    void setHoveredAction(const QModelIndex &index);
 
     void addFadeAnimation(const QModelIndex &index, QTimeLine *timeLine);
     void removeFadeAnimation(const QModelIndex &index);
@@ -54,10 +55,12 @@ public:
     qreal contentsOpacity(const QModelIndex &index) const;
 
     bool pointIsHeaderArea(const QPoint &pos);
+    bool pointIsTeardownAction(const QPoint &pos) const;
 
     void startDrag();
 
     int sectionHeaderHeight() const;
+    int actionIconSize() const;
 
     void clearFreeSpaceInfo();
 
@@ -83,6 +86,7 @@ private:
     qreal m_disappearingOpacity;
 
     bool m_showHoverIndication;
+    QPersistentModelIndex m_hoveredAction;
     mutable bool m_dragStarted;
 
     QMap<QPersistentModelIndex, QTimeLine *> m_timeLineMap;
@@ -111,10 +115,19 @@ public:
         return m_focusedIndex;
     }
 
+    const QModelIndex &hoveredActionIndex() const
+    {
+        return m_hoveredActionIndex;
+    }
+
 Q_SIGNALS:
     void entryEntered(const QModelIndex &index);
     void entryLeft(const QModelIndex &index);
     void entryMiddleClicked(const QModelIndex &index);
+
+    void actionEntered(const QModelIndex &index);
+    void actionLeft(const QModelIndex &index);
+    void actionClicked(const QModelIndex &index);
 
 public Q_SLOTS:
     void currentIndexChanged(const QModelIndex &index)
@@ -138,7 +151,8 @@ protected:
         switch (event->type()) {
         case QEvent::MouseMove: {
             QAbstractItemView *view = qobject_cast<QAbstractItemView *>(watched->parent());
-            const QModelIndex index = view->indexAt(static_cast<QMouseEvent *>(event)->pos());
+            const QPoint pos = static_cast<QMouseEvent *>(event)->pos();
+            const QModelIndex index = view->indexAt(pos);
             if (index != m_hoveredIndex) {
                 if (m_hoveredIndex.isValid() && m_hoveredIndex != m_focusedIndex) {
                     Q_EMIT entryLeft(m_hoveredIndex);
@@ -148,6 +162,26 @@ protected:
                 }
                 m_hoveredIndex = index;
             }
+
+            QModelIndex actionIndex;
+            if (index.isValid()) {
+                if (auto *delegate = qobject_cast<KFilePlacesViewDelegate *>(view->itemDelegate())) {
+                    if (delegate->pointIsTeardownAction(pos)) {
+                        actionIndex = index;
+                    }
+                }
+            }
+
+            if (actionIndex != m_hoveredActionIndex) {
+                if (m_hoveredActionIndex.isValid()) {
+                    Q_EMIT actionLeft(m_hoveredActionIndex);
+                }
+                m_hoveredActionIndex = actionIndex;
+                if (actionIndex.isValid()) {
+                    Q_EMIT actionEntered(actionIndex);
+                }
+            }
+
             break;
         }
         case QEvent::Leave:
@@ -155,14 +189,28 @@ protected:
                 Q_EMIT entryLeft(m_hoveredIndex);
             }
             m_hoveredIndex = QModelIndex();
+
+            if (m_hoveredActionIndex.isValid()) {
+                Q_EMIT actionLeft(m_hoveredActionIndex);
+            }
+            m_hoveredActionIndex = QModelIndex();
+
             break;
         case QEvent::MouseButtonPress: {
             QMouseEvent *mouseEvent = static_cast<QMouseEvent *>(event);
-            if (mouseEvent->button() == Qt::MiddleButton) {
+            if (mouseEvent->button() == Qt::LeftButton || mouseEvent->button() == Qt::MiddleButton) {
                 QAbstractItemView *view = qobject_cast<QAbstractItemView *>(watched->parent());
                 const QModelIndex index = view->indexAt(mouseEvent->pos());
                 if (index.isValid()) {
-                    m_middleClickedIndex = index;
+                    if (mouseEvent->button() == Qt::LeftButton) {
+                        if (auto *delegate = qobject_cast<KFilePlacesViewDelegate *>(view->itemDelegate())) {
+                            if (delegate->pointIsTeardownAction(mouseEvent->pos())) {
+                                m_clickedActionIndex = index;
+                            }
+                        }
+                    } else if (mouseEvent->button() == Qt::MiddleButton) {
+                        m_middleClickedIndex = index;
+                    }
                 }
             }
             Q_FALLTHROUGH();
@@ -177,11 +225,25 @@ protected:
         }
         case QEvent::MouseButtonRelease: {
             QMouseEvent *mouseEvent = static_cast<QMouseEvent *>(event);
-            if (mouseEvent->button() == Qt::MiddleButton) {
-                if (m_middleClickedIndex.isValid()) {
-                    QAbstractItemView *view = qobject_cast<QAbstractItemView *>(watched->parent());
-                    const QModelIndex index = view->indexAt(mouseEvent->pos());
-                    if (m_middleClickedIndex == index) {
+            if (mouseEvent->button() == Qt::LeftButton || mouseEvent->button() == Qt::MiddleButton) {
+                QAbstractItemView *view = qobject_cast<QAbstractItemView *>(watched->parent());
+                const QModelIndex index = view->indexAt(mouseEvent->pos());
+
+                if (mouseEvent->button() == Qt::LeftButton) {
+                    if (m_clickedActionIndex.isValid()) {
+                        if (auto *delegate = qobject_cast<KFilePlacesViewDelegate *>(view->itemDelegate())) {
+                            if (delegate->pointIsTeardownAction(mouseEvent->pos())) {
+                                if (m_clickedActionIndex == index) {
+                                    Q_EMIT actionClicked(m_clickedActionIndex);
+                                    // filter out, avoid QAbstractItemView::clicked being emitted
+                                    return true;
+                                }
+                            }
+                        }
+                    }
+                    m_clickedActionIndex = index;
+                } else if (mouseEvent->button() == Qt::RightButton) {
+                    if (m_middleClickedIndex.isValid() && m_middleClickedIndex == index) {
                         Q_EMIT entryMiddleClicked(m_middleClickedIndex);
                     }
                     m_middleClickedIndex = QPersistentModelIndex();
@@ -200,6 +262,8 @@ private:
     QPersistentModelIndex m_hoveredIndex;
     QPersistentModelIndex m_focusedIndex;
     QPersistentModelIndex m_middleClickedIndex;
+    QPersistentModelIndex m_hoveredActionIndex;
+    QPersistentModelIndex m_clickedActionIndex;
 };
 
 #endif
