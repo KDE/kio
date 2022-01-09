@@ -47,6 +47,7 @@ public:
     QString id() const;
 
     bool isDevice() const;
+    bool isTeardownAllowed() const;
     KBookmark bookmark() const;
     void setBookmark(const KBookmark &bookmark);
     Solid::Device device() const;
@@ -90,6 +91,7 @@ private:
     bool m_folderIsEmpty;
     bool m_isCdrom;
     bool m_isAccessible;
+    bool m_isTeardownAllowed;
     QString m_text;
     Solid::Device m_device;
     QPointer<Solid::StorageAccess> m_access;

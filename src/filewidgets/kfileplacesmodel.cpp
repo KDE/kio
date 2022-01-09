@@ -575,6 +575,16 @@ bool KFilePlacesModel::isDevice(const QModelIndex &index) const
     return item->isDevice();
 }
 
+bool KFilePlacesModel::isTeardownAllowed(const QModelIndex &index) const
+{
+    if (!index.isValid()) {
+        return false;
+    }
+
+    KFilePlacesItem *item = static_cast<KFilePlacesItem *>(index.internalPointer());
+    return item->isTeardownAllowed();
+}
+
 Solid::Device KFilePlacesModel::deviceForIndex(const QModelIndex &index) const
 {
     if (!index.isValid()) {

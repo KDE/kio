@@ -46,6 +46,7 @@ public:
         GroupRole = 0x0a5b64ee, ///< @since 5.40 /// The name of the group, for example "Remote" or "Devices".
         IconNameRole = 0x00a45c00, ///< @since 5.41 @see icon()
         GroupHiddenRole = 0x21a4b936, ///< @since 5.42 @see isGroupHidden()
+        TeardownAllowedRole = 0x02533364, ///< @since 5.91 @see isTeardownAllowed()
     };
 
     /// @since 5.42
@@ -80,6 +81,15 @@ public:
      * @return Whether the place at index @p index needs to be mounted before it can be used.
      */
     bool setupNeeded(const QModelIndex &index) const;
+
+    /**
+     * @return Whether the place is a device that can be unmounted, e.g. it is
+     * mounted but does not point at system Root or the user's Home directory.
+     *
+     * It does not indicate whether the teardown can succeed.
+     * @since 5.91
+     */
+    bool isTeardownAllowed(const QModelIndex &index) const;
 
     /**
      * @return The icon of the place at index @p index.

@@ -8,6 +8,7 @@
 #include "kfileplacesitem_p.h"
 
 #include <QDateTime>
+#include <QDir>
 #include <QIcon>
 
 #include <KBookmarkManager>
@@ -37,6 +38,7 @@ KFilePlacesItem::KFilePlacesItem(KBookmarkManager *manager, const QString &addre
     , m_folderIsEmpty(true)
     , m_isCdrom(false)
     , m_isAccessible(false)
+    , m_isTeardownAllowed(false)
 {
     updateDeviceInfo(udi);
     setBookmark(m_manager->findByAddress(address));
@@ -114,6 +116,11 @@ bool KFilePlacesItem::hasSupportedScheme(const QStringList &schemes) const
 bool KFilePlacesItem::isDevice() const
 {
     return !bookmark().metaDataItem(QStringLiteral("UDI")).isEmpty();
+}
+
+bool KFilePlacesItem::isTeardownAllowed() const
+{
+    return m_isTeardownAllowed;
 }
 
 KBookmark KFilePlacesItem::bookmark() const
@@ -305,6 +312,13 @@ QVariant KFilePlacesItem::deviceData(int role) const
                 return QVariant();
             }
 
+        case KFilePlacesModel::TeardownAllowedRole:
+            if (m_access) {
+                return m_isTeardownAllowed;
+            } else {
+                return QVariant();
+            }
+
         case KFilePlacesModel::FixedDeviceRole: {
             if (m_drive != nullptr) {
                 return !m_drive->isHotpluggable() && !m_drive->isRemovable();
@@ -455,6 +469,18 @@ void KFilePlacesItem::onAccessibilityChanged(bool isAccessible)
     m_isCdrom =
         m_device.is<Solid::OpticalDrive>() || m_device.parent().is<Solid::OpticalDrive>() || (m_volume && m_volume->fsType() == QLatin1String("iso9660"));
     m_emblems = m_device.emblems();
+
+    m_isTeardownAllowed = isAccessible;
+    if (m_isTeardownAllowed) {
+        if (m_access->filePath() == QDir::rootPath()) {
+            m_isTeardownAllowed = false;
+        } else {
+            KMountPoint::Ptr mountPoint = KMountPoint::currentMountPoints().findByPath(QDir::homePath());
+            if (mountPoint && m_access->filePath() == mountPoint->mountPoint()) {
+                m_isTeardownAllowed = false;
+            }
+        }
+    }
 
     Q_EMIT itemChanged(id());
 }

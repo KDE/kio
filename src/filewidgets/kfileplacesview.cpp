@@ -919,16 +919,7 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
             teardown = placesModel->teardownActionForIndex(index);
             if (teardown) {
                 teardown->setParent(&menu);
-
-                // Disable teardown option for root and home partitions
-                bool teardownEnabled = placeUrl != QUrl::fromLocalFile(QDir::rootPath());
-                if (teardownEnabled) {
-                    KMountPoint::Ptr mountPoint = KMountPoint::currentMountPoints().findByPath(QDir::homePath());
-                    if (mountPoint && placeUrl == QUrl::fromLocalFile(mountPoint->mountPoint())) {
-                        teardownEnabled = false;
-                    }
-                }
-                teardown->setEnabled(teardownEnabled);
+                teardown->setEnabled(placesModel->isTeardownAllowed(index));
             }
 
             if (placesModel->setupNeeded(index)) {
