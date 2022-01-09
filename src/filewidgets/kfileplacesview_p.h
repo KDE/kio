@@ -8,7 +8,88 @@
 #ifndef KFILEPLACESVIEW_P_H
 #define KFILEPLACESVIEW_P_H
 
+#include <KIO/FileSystemFreeSpaceJob>
+#include <KIO/Global>
+
+#include <QAbstractItemDelegate>
+#include <QDateTime>
 #include <QMouseEvent>
+#include <QPointer>
+
+class KFilePlacesView;
+class QTimeLine;
+
+struct PlaceFreeSpaceInfo {
+    QDateTime lastUpdated;
+    KIO::filesize_t used = 0;
+    KIO::filesize_t size = 0;
+    QPointer<KIO::FileSystemFreeSpaceJob> job;
+};
+
+class KFilePlacesViewDelegate : public QAbstractItemDelegate
+{
+    Q_OBJECT
+public:
+    explicit KFilePlacesViewDelegate(KFilePlacesView *parent);
+    ~KFilePlacesViewDelegate() override;
+    QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const override;
+    void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
+
+    int iconSize() const;
+    void setIconSize(int newSize);
+
+    void addAppearingItem(const QModelIndex &index);
+    void setAppearingItemProgress(qreal value);
+    void addDisappearingItem(const QModelIndex &index);
+    void addDisappearingItemGroup(const QModelIndex &index);
+    void setDisappearingItemProgress(qreal value);
+
+    void setShowHoverIndication(bool show);
+
+    void addFadeAnimation(const QModelIndex &index, QTimeLine *timeLine);
+    void removeFadeAnimation(const QModelIndex &index);
+    QModelIndex indexForFadeAnimation(QTimeLine *timeLine) const;
+    QTimeLine *fadeAnimationForIndex(const QModelIndex &index) const;
+
+    qreal contentsOpacity(const QModelIndex &index) const;
+
+    bool pointIsHeaderArea(const QPoint &pos);
+
+    void startDrag();
+
+    int sectionHeaderHeight() const;
+
+    void clearFreeSpaceInfo();
+
+private:
+    QString groupNameFromIndex(const QModelIndex &index) const;
+    QModelIndex previousVisibleIndex(const QModelIndex &index) const;
+    bool indexIsSectionHeader(const QModelIndex &index) const;
+    void drawSectionHeader(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const;
+
+    QColor textColor(const QStyleOption &option) const;
+    QColor baseColor(const QStyleOption &option) const;
+    QColor mixedColor(const QColor &c1, const QColor &c2, int c1Percent) const;
+
+    KFilePlacesView *m_view;
+    int m_iconSize;
+
+    QList<QPersistentModelIndex> m_appearingItems;
+    int m_appearingIconSize;
+    qreal m_appearingOpacity;
+
+    QList<QPersistentModelIndex> m_disappearingItems;
+    int m_disappearingIconSize;
+    qreal m_disappearingOpacity;
+
+    bool m_showHoverIndication;
+    mutable bool m_dragStarted;
+
+    QMap<QPersistentModelIndex, QTimeLine *> m_timeLineMap;
+    QMap<QTimeLine *, QPersistentModelIndex> m_timeLineInverseMap;
+
+    mutable QMap<QPersistentModelIndex, PlaceFreeSpaceInfo> m_freeSpaceInfo;
+};
 
 class KFilePlacesEventWatcher : public QObject
 {
