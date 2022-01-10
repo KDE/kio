@@ -132,7 +132,7 @@ static QString actionDetails(ActionType actionType, const QVariantList &args)
         break;
     case COPY:
         action = i18n("Copy");
-        detail = i18n("From: %1, To: %1", args[0].toString(), args[1].toString());
+        detail = i18n("From: %1, To: %2", args[0].toString(), args[1].toString());
         break;
     default:
         action = i18n("Unknown Action");
