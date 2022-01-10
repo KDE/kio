@@ -45,6 +45,7 @@ public:
     void setDisappearingItemProgress(qreal value);
 
     void setShowHoverIndication(bool show);
+    void setHoveredHeaderArea(const QModelIndex &index);
     void setHoveredAction(const QModelIndex &index);
 
     void addFadeAnimation(const QModelIndex &index, QTimeLine *timeLine);
@@ -54,7 +55,7 @@ public:
 
     qreal contentsOpacity(const QModelIndex &index) const;
 
-    bool pointIsHeaderArea(const QPoint &pos);
+    bool pointIsHeaderArea(const QPoint &pos) const;
     bool pointIsTeardownAction(const QPoint &pos) const;
 
     void startDrag();
@@ -86,6 +87,7 @@ private:
     qreal m_disappearingOpacity;
 
     bool m_showHoverIndication;
+    QPersistentModelIndex m_hoveredHeaderArea;
     QPersistentModelIndex m_hoveredAction;
     mutable bool m_dragStarted;
 
@@ -110,6 +112,11 @@ public:
         return m_hoveredIndex;
     }
 
+    const QModelIndex &hoveredHeaderAreaIndex() const
+    {
+        return m_hoveredHeaderAreaIndex;
+    }
+
     const QModelIndex &focusedIndex() const
     {
         return m_focusedIndex;
@@ -124,6 +131,9 @@ Q_SIGNALS:
     void entryEntered(const QModelIndex &index);
     void entryLeft(const QModelIndex &index);
     void entryMiddleClicked(const QModelIndex &index);
+
+    void headerAreaEntered(const QModelIndex &index);
+    void headerAreaLeft(const QModelIndex &index);
 
     void actionEntered(const QModelIndex &index);
     void actionLeft(const QModelIndex &index);
@@ -163,12 +173,25 @@ protected:
                 m_hoveredIndex = index;
             }
 
+            QModelIndex headerAreaIndex;
             QModelIndex actionIndex;
             if (index.isValid()) {
                 if (auto *delegate = qobject_cast<KFilePlacesViewDelegate *>(view->itemDelegate())) {
-                    if (delegate->pointIsTeardownAction(pos)) {
+                    if (delegate->pointIsHeaderArea(pos)) {
+                        headerAreaIndex = index;
+                    } else if (delegate->pointIsTeardownAction(pos)) {
                         actionIndex = index;
                     }
+                }
+            }
+
+            if (headerAreaIndex != m_hoveredHeaderAreaIndex) {
+                if (m_hoveredHeaderAreaIndex.isValid()) {
+                    Q_EMIT headerAreaLeft(m_hoveredHeaderAreaIndex);
+                }
+                m_hoveredHeaderAreaIndex = headerAreaIndex;
+                if (headerAreaIndex.isValid()) {
+                    Q_EMIT headerAreaEntered(headerAreaIndex);
                 }
             }
 
@@ -189,6 +212,11 @@ protected:
                 Q_EMIT entryLeft(m_hoveredIndex);
             }
             m_hoveredIndex = QModelIndex();
+
+            if (m_hoveredHeaderAreaIndex.isValid()) {
+                Q_EMIT headerAreaLeft(m_hoveredHeaderAreaIndex);
+            }
+            m_hoveredHeaderAreaIndex = QModelIndex();
 
             if (m_hoveredActionIndex.isValid()) {
                 Q_EMIT actionLeft(m_hoveredActionIndex);
@@ -260,6 +288,7 @@ protected:
 
 private:
     QPersistentModelIndex m_hoveredIndex;
+    QPersistentModelIndex m_hoveredHeaderAreaIndex;
     QPersistentModelIndex m_focusedIndex;
     QPersistentModelIndex m_middleClickedIndex;
     QPersistentModelIndex m_hoveredActionIndex;

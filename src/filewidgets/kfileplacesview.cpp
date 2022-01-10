@@ -128,6 +128,12 @@ void KFilePlacesViewDelegate::paint(QPainter *painter, const QStyleOptionViewIte
         opt.state &= ~QStyle::State_MouseOver;
     }
 
+    if (opt.state & QStyle::State_MouseOver) {
+        if (index == m_hoveredHeaderArea) {
+            opt.state &= ~QStyle::State_MouseOver;
+        }
+    }
+
     QApplication::style()->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, painter);
 
     QIcon actionIcon;
@@ -328,6 +334,11 @@ void KFilePlacesViewDelegate::setShowHoverIndication(bool show)
     m_showHoverIndication = show;
 }
 
+void KFilePlacesViewDelegate::setHoveredHeaderArea(const QModelIndex &index)
+{
+    m_hoveredHeaderArea = index;
+}
+
 void KFilePlacesViewDelegate::setHoveredAction(const QModelIndex &index)
 {
     m_hoveredAction = index;
@@ -365,7 +376,7 @@ qreal KFilePlacesViewDelegate::contentsOpacity(const QModelIndex &index) const
     return 0;
 }
 
-bool KFilePlacesViewDelegate::pointIsHeaderArea(const QPoint &pos)
+bool KFilePlacesViewDelegate::pointIsHeaderArea(const QPoint &pos) const
 {
     // we only accept drag events starting from item body, ignore drag request from header
     QModelIndex index = m_view->indexAt(pos);
@@ -574,6 +585,8 @@ public:
     void placeClicked(const QModelIndex &index, ActivationSignal activationSignal);
     void placeEntered(const QModelIndex &index);
     void placeLeft(const QModelIndex &index);
+    void headerAreaEntered(const QModelIndex &index);
+    void headerAreaLeft(const QModelIndex &index);
     void actionClicked(const QModelIndex &index);
     void actionEntered(const QModelIndex &index);
     void actionLeft(const QModelIndex &index);
@@ -709,6 +722,13 @@ KFilePlacesView::KFilePlacesView(QWidget *parent)
         } else {
             d->placeClicked(index, &KFilePlacesView::placeActivated);
         }
+    });
+
+    connect(d->m_watcher, &KFilePlacesEventWatcher::headerAreaEntered, this, [this](const QModelIndex &index) {
+        d->headerAreaEntered(index);
+    });
+    connect(d->m_watcher, &KFilePlacesEventWatcher::headerAreaLeft, this, [this](const QModelIndex &index) {
+        d->headerAreaLeft(index);
     });
 
     connect(d->m_watcher, &KFilePlacesEventWatcher::actionClicked, this, [this](const QModelIndex &index) {
@@ -1689,6 +1709,18 @@ void KFilePlacesViewPrivate::placeLeft(const QModelIndex &index)
     if (!m_pollingRequestCount) {
         m_pollDevices.stop();
     }
+}
+
+void KFilePlacesViewPrivate::headerAreaEntered(const QModelIndex &index)
+{
+    m_delegate->setHoveredHeaderArea(index);
+    q->update(index);
+}
+
+void KFilePlacesViewPrivate::headerAreaLeft(const QModelIndex &index)
+{
+    m_delegate->setHoveredHeaderArea(QModelIndex());
+    q->update(index);
 }
 
 void KFilePlacesViewPrivate::actionClicked(const QModelIndex &index)
