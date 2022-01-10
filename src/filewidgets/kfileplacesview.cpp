@@ -571,6 +571,7 @@ public:
     void actionClicked(const QModelIndex &index);
     void actionEntered(const QModelIndex &index);
     void actionLeft(const QModelIndex &index);
+    void teardown(const QModelIndex &index);
     void storageSetupDone(const QModelIndex &index, bool success);
     void adaptItemsUpdate(qreal value);
     void itemAppearUpdate(qreal value);
@@ -1079,11 +1080,7 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
         } else if (result == mount) {
             placesModel->requestSetup(index);
         } else if (result == teardown) {
-            if (d->m_teardownFunction) {
-                d->m_teardownFunction(index);
-            } else {
-                placesModel->requestTeardown(index);
-            }
+            d->teardown(index);
         } else if (result == newTab) {
             d->placeClicked(index, &KFilePlacesView::tabRequested);
         } else if (result == newWindow) {
@@ -1699,7 +1696,7 @@ void KFilePlacesViewPrivate::actionClicked(const QModelIndex &index)
     if (device.is<Solid::OpticalDisc>()) {
         placesModel->requestEject(index);
     } else {
-        placesModel->requestTeardown(index);
+        teardown(index);
     }
 }
 
@@ -1715,6 +1712,15 @@ void KFilePlacesViewPrivate::actionLeft(const QModelIndex &index)
     m_delegate->setHoveredAction(QModelIndex());
     m_actionToolTipTimer.stop();
     q->update(index);
+}
+
+void KFilePlacesViewPrivate::teardown(const QModelIndex &index)
+{
+    if (m_teardownFunction) {
+        m_teardownFunction(index);
+    } else if (auto *placesModel = qobject_cast<KFilePlacesModel *>(q->model())) {
+        placesModel->requestTeardown(index);
+    }
 }
 
 void KFilePlacesViewPrivate::storageSetupDone(const QModelIndex &index, bool success)
