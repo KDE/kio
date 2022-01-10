@@ -242,7 +242,7 @@ protected:
                         }
                     }
                     m_clickedActionIndex = index;
-                } else if (mouseEvent->button() == Qt::RightButton) {
+                } else if (mouseEvent->button() == Qt::MiddleButton) {
                     if (m_middleClickedIndex.isValid() && m_middleClickedIndex == index) {
                         Q_EMIT entryMiddleClicked(m_middleClickedIndex);
                     }
