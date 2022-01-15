@@ -10,7 +10,7 @@
 
 #include <QDBusArgument>
 
-using QVariantMultiItem = struct {
+struct QVariantMultiItem {
     QString key;
     QVariant value;
 };
@@ -34,7 +34,7 @@ inline const QDBusArgument &operator>>(const QDBusArgument &argument, QVariantMu
     return argument;
 }
 
-using ExecCommand = struct {
+struct ExecCommand {
     QString path;
     QStringList argv;
     bool ignoreFailure;
@@ -59,7 +59,7 @@ inline const QDBusArgument &operator>>(const QDBusArgument &argument, ExecComman
     return argument;
 }
 
-using TransientAux = struct {
+struct TransientAux {
     QString name;
     QVariantMultiMap properties;
 };
