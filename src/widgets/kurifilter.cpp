@@ -656,7 +656,7 @@ void KUriFilter::loadPlugins()
     const QString prefKey = QStringLiteral("X-KDE-InitialPreference");
     // Sort the plugins by order of priority
     std::sort(plugins.begin(), plugins.end(), [prefKey](const KPluginMetaData &a, const KPluginMetaData &b) {
-        return a.rawData().value(prefKey).toInt() > b.rawData().value(prefKey).toInt();
+        return a.value(prefKey, 0) > b.value(prefKey, 0);
     });
 
     QStringList pluginNames;

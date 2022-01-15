@@ -96,7 +96,7 @@ int main(int argc, char *argv[])
     // so that the calling code is independent from the physical "location" of the service.
     const QVector<KPluginMetaData> plugins = KPluginMetaData::findPlugins(QStringLiteral("kf5/kiod"));
     for (const KPluginMetaData &metaData : plugins) {
-        const QString serviceName = metaData.rawData().value(QStringLiteral("X-KDE-DBus-ServiceName")).toString();
+        const QString serviceName = metaData.value(QStringLiteral("X-KDE-DBus-ServiceName"));
         if (serviceName.isEmpty()) {
             qCWarning(KIOD_CATEGORY) << "No X-KDE-DBus-ServiceName found in" << metaData.fileName();
             continue;
