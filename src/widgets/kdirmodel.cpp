@@ -847,7 +847,20 @@ QVariant KDirModel::data(const QModelIndex &index, int role) const
                 }
                 Q_ASSERT(!item.isNull());
                 // qDebug() << item->url() << " overlays=" << item->overlays();
-                return KIconUtils::addOverlays(QIcon::fromTheme(item.iconName(), QIcon::fromTheme(QStringLiteral("unknown"))), item.overlays());
+                static const QIcon fallbackIcon = QIcon::fromTheme(QStringLiteral("unknown"));
+
+                const QString iconName(item.iconName());
+                QIcon icon;
+
+                if (QDir::isAbsolutePath(iconName)) {
+                    icon = QIcon(iconName);
+                }
+                if (icon.isNull()
+                    || (!(iconName.endsWith(QLatin1String(".svg")) || iconName.endsWith(QLatin1String(".svgz"))) && icon.availableSizes().isEmpty())) {
+                    icon = QIcon::fromTheme(iconName, fallbackIcon);
+                }
+
+                return KIconUtils::addOverlays(icon, item.overlays());
             }
             break;
         case Qt::TextAlignmentRole:
