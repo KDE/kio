@@ -167,7 +167,7 @@ if (KF5DocTools_FOUND)
 endif()
 
 if (KF5DocTools_FOUND)
-     #add_subdirectory(docs)
+     add_subdirectory(docs)
 endif()
 
 include(CheckLibraryExists)
