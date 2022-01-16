@@ -167,7 +167,7 @@ if (KF5DocTools_FOUND)
 endif()
 
 if (KF5DocTools_FOUND)
-    add_subdirectory(docs)
+     #add_subdirectory(docs)
 endif()
 
 include(CheckLibraryExists)
@@ -215,7 +215,7 @@ install(FILES
 install(EXPORT KF5KIOTargets DESTINATION "${CMAKECONFIG_INSTALL_DIR}" FILE KF5KIOTargets.cmake NAMESPACE KF5:: )
 
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/src/kio_version.h
-        DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}/KIO COMPONENT Devel)
+        DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KIO COMPONENT Devel)
 
 feature_summary(WHAT ALL   FATAL_ON_MISSING_REQUIRED_PACKAGES)
 
