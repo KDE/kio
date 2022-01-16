@@ -371,7 +371,8 @@ void PreviewJobPrivate::startPreview()
             auto pluginIt = mimeMap.constFind(mimeType);
             if (pluginIt == mimeMap.constEnd()) {
                 QString groupMimeType = mimeType;
-                groupMimeType.replace(QRegularExpression(QStringLiteral("/.*")), QStringLiteral("/*"));
+                static const QRegularExpression expr(QStringLiteral("/.*"));
+                groupMimeType.replace(expr, QStringLiteral("/*"));
                 pluginIt = mimeMap.constFind(groupMimeType);
 
                 if (pluginIt == mimeMap.constEnd()) {
