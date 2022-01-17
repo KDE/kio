@@ -150,15 +150,28 @@ void KIO::OpenUrlJob::start()
         d->emitAccessDenied();
         return;
     }
-    if (d->m_externalBrowserEnabled && checkNeedPortalSupport()) {
-        // Use the function from QDesktopServices as it handles portals correctly
-        // Note that it falls back to "normal way" if the portal service isn't running.
+
+    auto qtOpenUrl = [this]() {
         if (!QDesktopServices::openUrl(d->m_url)) {
             // Is this an actual error, or USER_CANCELED?
             setError(KJob::UserDefinedError);
             setErrorText(i18n("Failed to open %1", d->m_url.toDisplayString()));
         }
         emitResult();
+    };
+
+#if defined(Q_OS_WIN) || defined(Q_OS_MACOS)
+    if (d->m_externalBrowserEnabled) {
+        // For Windows and MacOS, the mimetypes handling is different, so use QDesktopServices
+        qtOpenUrl();
+        return;
+    }
+#endif
+
+    if (d->m_externalBrowserEnabled && checkNeedPortalSupport()) {
+        // Use the function from QDesktopServices as it handles portals correctly
+        // Note that it falls back to "normal way" if the portal service isn't running.
+        qtOpenUrl();
         return;
     }
 
