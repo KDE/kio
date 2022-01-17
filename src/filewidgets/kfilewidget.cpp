@@ -592,22 +592,23 @@ void KFileWidget::slotOk()
     QList<QUrl> locationEditCurrentTextList(d->tokenize(locationEditCurrentText));
     KFile::Modes mode = d->m_ops->mode();
 
-    // if there is nothing to do, just return from here
-    if (locationEditCurrentTextList.isEmpty()) {
-        return;
-    }
-
     // Make sure that one of the modes was provided
     if (!((mode & KFile::File) || (mode & KFile::Directory) || (mode & KFile::Files))) {
         mode |= KFile::File;
         // qDebug() << "No mode() provided";
     }
 
+    const bool directoryMode = (mode & KFile::Directory);
+    const bool onlyDirectoryMode = directoryMode && !(mode & KFile::File) && !(mode & KFile::Files);
+
     // Clear the list as we are going to refill it
     d->m_urlList.clear();
 
-    const bool directoryMode = (mode & KFile::Directory);
-    const bool onlyDirectoryMode = directoryMode && !(mode & KFile::File) && !(mode & KFile::Files);
+    // In directory mode, treat an empty selection as selecting the current dir.
+    // In file mode, there's nothing to do.
+    if (locationEditCurrentTextList.isEmpty() && !onlyDirectoryMode) {
+        return;
+    }
 
     // if we are on file mode, and the list of provided files/folder is greater than one, inform
     // the user about it
