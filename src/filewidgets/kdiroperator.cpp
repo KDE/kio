@@ -1693,9 +1693,18 @@ void KDirOperator::setMode(KFile::Modes mode)
         return;
     }
 
+    const bool isDirOnlyChanged = dirOnlyMode(d->m_mode) != dirOnlyMode(mode);
+
     d->m_mode = mode;
 
     d->m_dirLister->setDirOnlyMode(dirOnlyMode());
+
+    // When KFile::Directory mode changes, we need to update the dir,
+    // otherwise initially we would be showing dirs and files even when
+    // dirOnlyMode() is true
+    if (isDirOnlyChanged) {
+        updateDir();
+    }
 
     // reset the view with the different mode
     if (d->m_itemView != nullptr) {
