@@ -1,5 +1,4 @@
 include(ECMMarkNonGuiExecutable)
-configure_file(http.json.cmake ${CMAKE_CURRENT_BINARY_DIR}/http.json )
 
 include(ConfigureChecks.cmake)
 configure_file(config-kioslave-http.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kioslave-http.h )
@@ -49,7 +48,7 @@ install(TARGETS kio_http_cache_cleaner DESTINATION ${KDE_INSTALL_LIBEXECDIR_KF} 
 ########### next target ###############
 
 # kio/httpfilter/Makefile.am: httpfilter
-
+configure_file(http.json.cmake ${CMAKE_CURRENT_BINARY_DIR}/http.json )
 kcoreaddons_add_plugin(kio_http INSTALL_NAMESPACE "kf${QT_MAJOR_VERSION}/kio")
 
 target_sources(kio_http PRIVATE

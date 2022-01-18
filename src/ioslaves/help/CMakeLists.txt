@@ -1,6 +1,3 @@
-configure_file(ghelp.json.cmake ${CMAKE_CURRENT_BINARY_DIR}/ghelp.json )
-configure_file(help.json.cmake ${CMAKE_CURRENT_BINARY_DIR}/help.json )
-
 # kio_help only buildable if doc tools around
 if (KF5DocTools_FOUND)
 
@@ -33,7 +30,7 @@ configure_file(config-help.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-help.h )
 find_package(Qt${QT_MAJOR_VERSION}Core ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE)
 
 ########### next target ###############
-
+configure_file(help.json.cmake ${CMAKE_CURRENT_BINARY_DIR}/help.json )
 kcoreaddons_add_plugin(kio_help INSTALL_NAMESPACE "kf${QT_MAJOR_VERSION}/kio")
 
 target_sources(kio_help PRIVATE
@@ -58,7 +55,7 @@ install(TARGETS kio_help  DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf${QT_MAJOR_VERS
 
 
 ########### next target ###############
-
+configure_file(ghelp.json.cmake ${CMAKE_CURRENT_BINARY_DIR}/ghelp.json )
 kcoreaddons_add_plugin(kio_ghelp INSTALL_NAMESPACE "kf${QT_MAJOR_VERSION}/kio")
 
 target_sources(kio_ghelp PRIVATE
