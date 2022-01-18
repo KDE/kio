@@ -661,7 +661,7 @@ void KPropertiesDialogPrivate::insertPages()
     // qDebug() << "trader query: " << query;
 
     QStringList addedPlugins;
-    const auto jsonPlugins = KPluginMetaData::findPlugins(QStringLiteral("kf" QT_STRINGIFY(QT_VERSION_MAJOR)) + QStringLiteral("/propertiesdialog"));
+    const auto jsonPlugins = KPluginMetaData::findPlugins(QStringLiteral("kf" QT_STRINGIFY(QT_VERSION_MAJOR) "/propertiesdialog"));
     for (const auto &jsonMetadata : jsonPlugins) {
         if (auto plugin = KPluginFactory::instantiatePlugin<KPropertiesDialogPlugin>(jsonMetadata, q).plugin) {
             q->insertPlugin(plugin);

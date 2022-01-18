@@ -653,7 +653,7 @@ int KFileItemActionsPrivate::addPluginActionsTo(QMenu *mainMenu, QMenu *actionsM
 
     const QMimeDatabase db;
     const auto jsonPlugins =
-        KPluginMetaData::findPlugins(QStringLiteral("kf" QT_STRINGIFY(QT_VERSION_MAJOR)) + QStringLiteral("/kfileitemaction"),
+        KPluginMetaData::findPlugins(QStringLiteral("kf" QT_STRINGIFY(QT_VERSION_MAJOR) "/kfileitemaction"),
                                      [&db, commonMimeType](const KPluginMetaData &metaData) {
                                          auto mimeType = db.mimeTypeForName(commonMimeType);
                                          const QStringList list = metaData.mimeTypes();

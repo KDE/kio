@@ -300,8 +300,7 @@ void DropJobPrivate::fillPopupMenu(KIO::DropMenu *popup)
 
 void DropJobPrivate::addPluginActions(KIO::DropMenu *popup, const KFileItemListProperties &itemProps)
 {
-    const QVector<KPluginMetaData> plugin_offers =
-        KPluginMetaData::findPlugins(QStringLiteral("kf" QT_STRINGIFY(QT_VERSION_MAJOR)) + QStringLiteral("/kio_dnd"));
+    const QVector<KPluginMetaData> plugin_offers = KPluginMetaData::findPlugins(QStringLiteral("kf" QT_STRINGIFY(QT_VERSION_MAJOR) "/kio_dnd"));
     for (const KPluginMetaData &data : plugin_offers) {
         if (auto plugin = KPluginFactory::instantiatePlugin<KIO::DndPopupMenuPlugin>(data).plugin) {
             const auto actions = plugin->setup(itemProps, m_destUrl);
