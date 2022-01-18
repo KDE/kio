@@ -1,5 +1,5 @@
 kcoreaddons_add_plugin(kshorturifilter
-    INSTALL_NAMESPACE "kf5/urifilters"
+    INSTALL_NAMESPACE "kf${QT_MAJOR_VERSION}/urifilters"
 )
 
 target_sources(kshorturifilter PRIVATE

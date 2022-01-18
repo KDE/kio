@@ -21,7 +21,7 @@ find_package(Qt${QT_MAJOR_VERSION}Qml ${REQUIRED_QT_VERSION})
 
 if (TARGET Qt${QT_MAJOR_VERSION}::Qml)
     kcoreaddons_add_plugin(kded_proxyscout
-        INSTALL_NAMESPACE "kf5/kded"
+        INSTALL_NAMESPACE "kf${QT_MAJOR_VERSION}/kded"
     )
     set_target_properties(kded_proxyscout PROPERTIES
         OUTPUT_NAME proxyscout

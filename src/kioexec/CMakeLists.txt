@@ -1,5 +1,5 @@
 kcoreaddons_add_plugin(kioexecd
-    INSTALL_NAMESPACE "kf5/kiod")
+    INSTALL_NAMESPACE "kf${QT_MAJOR_VERSION}/kiod")
 
 set(kioexecd_dbus_SRCS)
 qt_generate_dbus_interface(${CMAKE_CURRENT_SOURCE_DIR}/kioexecd.h org.kde.KIOExecd.xml)

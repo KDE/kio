@@ -3,7 +3,7 @@ add_subdirectory(searchproviders)
 ####
 
 kcoreaddons_add_plugin(kuriikwsfilter
-    INSTALL_NAMESPACE "kf5/urifilters"
+    INSTALL_NAMESPACE "kf${QT_MAJOR_VERSION}/urifilters"
 )
 
 target_sources(kuriikwsfilter PRIVATE
@@ -42,7 +42,7 @@ endif()
 #####
 
 kcoreaddons_add_plugin(kurisearchfilter
-    INSTALL_NAMESPACE "kf5/urifilters"
+    INSTALL_NAMESPACE "kf${QT_MAJOR_VERSION}/urifilters"
 )
 
 target_sources(kurisearchfilter PRIVATE

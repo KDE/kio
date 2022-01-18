@@ -1,14 +1,13 @@
 {
     "KDE-KIO-Protocols": {
-        "help": {
+        "ghelp": {
             "Class": ":local", 
-            "Icon": "help-browser", 
-            "X-DocPath": "kioslave5/help/index.html", 
+            "Icon": "help", 
             "defaultMimetype": "text/html", 
-            "exec": "kf5/kio/kio_help", 
+            "exec": "kf@QT_MAJOR_VERSION@/kio/kio_ghelp", 
             "input": "none", 
             "output": "filesystem", 
-            "protocol": "help", 
+            "protocol": "ghelp", 
             "reading": true
         }
     }

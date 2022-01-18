@@ -16,7 +16,7 @@ if(BUILD_TESTING)
 endif()
 
 kcoreaddons_add_plugin(kiod_kpasswdserver
-    INSTALL_NAMESPACE "kf5/kiod"
+    INSTALL_NAMESPACE "kf${QT_MAJOR_VERSION}/kiod"
 )
 set_target_properties(kiod_kpasswdserver PROPERTIES
     OUTPUT_NAME kpasswdserver

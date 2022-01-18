@@ -22,7 +22,7 @@ target_link_libraries(%{APPNAMELC}
     KF5::I18n
 )
 
-install(TARGETS %{APPNAMELC} DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf5/kio)
+install(TARGETS %{APPNAMELC} DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf${QT_MAJOR_VERSION}/kio)
 install(FILES myproto.protocol  DESTINATION  ${KDE_INSTALL_KSERVICESDIR})
 
 ecm_qt_install_logging_categories(

@@ -8,7 +8,7 @@
             "copyFromFile": true, 
             "copyToFile": true, 
             "deleting": true, 
-            "exec": "kf5/kio/kio_ftp", 
+            "exec": "kf@QT_MAJOR_VERSION@/kio/kio_ftp", 
             "input": "none", 
             "listing": [
                 "Name", 

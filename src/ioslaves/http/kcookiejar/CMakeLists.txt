@@ -24,7 +24,7 @@ install(TARGETS kcookiejar5 ${KF5_INSTALL_TARGETS_DEFAULT_ARGS} )
 ########### kded kcookiejar module ###############
 
 kcoreaddons_add_plugin(kded_kcookiejar
-    INSTALL_NAMESPACE "kf5/kded"
+    INSTALL_NAMESPACE "kf${QT_MAJOR_VERSION}/kded"
 )
 set_target_properties(kded_kcookiejar PROPERTIES
     OUTPUT_NAME kcookiejar

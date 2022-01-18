@@ -103,7 +103,7 @@
             "copyToFile": true, 
             "deleteRecursive": true, 
             "deleting": true, 
-            "exec": "kf5/kio/kio_trash", 
+            "exec": "kf@QT_MAJOR_VERSION@/kio/kio_trash", 
             "fileNameUsedForCopying": "DisplayName", 
             "input": "none", 
             "linking": false, 

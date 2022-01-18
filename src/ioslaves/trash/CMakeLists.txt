@@ -1,3 +1,5 @@
+configure_file(trash.json.cmake ${CMAKE_CURRENT_BINARY_DIR}/trash.json )
+
 # find_package(Strigi)
 # set_package_properties(Strigi PROPERTIES DESCRIPTION "Desktop indexing and search support"
 #                        URL "http://strigi.sourceforge.net"
@@ -27,7 +29,7 @@ ecm_qt_declare_logging_category(kio_trash_PART_DEBUG_SRCS
     EXPORT KIO
 )
 
-kcoreaddons_add_plugin(kio_trash INSTALL_NAMESPACE "kf5/kio")
+kcoreaddons_add_plugin(kio_trash INSTALL_NAMESPACE "kf${QT_MAJOR_VERSION}/kio")
 
 if(WIN32)
     target_sources(kio_trash PRIVATE

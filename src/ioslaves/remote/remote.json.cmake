@@ -6,7 +6,7 @@
             "Icon": "folder-remote",
             "deleteRecursive": true,
             "deleting": true,
-            "exec": "kf5/kio/kio_remote",
+            "exec": "kf@QT_MAJOR_VERSION@/kio/kio_remote",
             "input": "none",
             "linking": true,
             "listing": [

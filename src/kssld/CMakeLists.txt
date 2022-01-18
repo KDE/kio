@@ -2,7 +2,7 @@
 ########### kssld kiod module ###############
 
 kcoreaddons_add_plugin(kssld
-    INSTALL_NAMESPACE "kf5/kiod"
+    INSTALL_NAMESPACE "kf${QT_MAJOR_VERSION}/kiod"
 )
 
 target_sources(kssld PRIVATE
