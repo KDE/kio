@@ -382,9 +382,18 @@ class KPropertiesDialogPluginPrivate;
  * A plugin in itself is just a library containing code, not a dialog's page.
  * It's up to the plugin to insert pages into the parent dialog.
  *
- * To make a plugin available, define a service that implements the KPropertiesDialog/Plugin
- * servicetype, as well as the MIME types for which the plugin should be created.
- * For instance, X-KDE-ServiceTypes=KPropertiesDialog/Plugin,text/html,application/x-mymimetype.
+ * To make a plugin available, ensure it has embedded json metadata (look for
+ * K_PLUGIN_CLASS_WITH_JSON) and install the plugin into kf5/propertiesdialog. The metadata
+ * can contain the MIME types for which the plugin should be created.
+ * For instance:
+ * @verbatim
+   {
+       "KPlugin": {
+           "MimeTypes": ["text/html", "application/x-mymimetype"]
+       }
+   }
+   @endverbatim
+ * If the MIME types are empty or not specified, the plugin will be created for all MIME types.
  *
  * You can also include X-KDE-Protocol=file if you want that plugin
  * to be loaded only for local files, for instance.
