@@ -399,6 +399,14 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
             // if FUSE fails, we'll have to fallback to kioexec
             useKioexec = true;
         }
+
+        // Never use kioexec for mailto URIs, it doesn't make sense
+        // Some mail clients (e.g. Thunderbird) don't have x-scheme-handler/mailto
+        // in their .desktop file and would otherwise trigger kioexec
+        if (url.scheme() == QLatin1String("mailto")) {
+            useKioexec = false;
+        }
+
         // NOTE: Some non-KIO apps may support the URLs (e.g. VLC supports smb://)
         // but will not have the password if they are not in the URL itself.
         // Hence convert URL to KIOFuse equivalent in case there is a password.
