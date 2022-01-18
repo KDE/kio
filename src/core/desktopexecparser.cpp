@@ -399,6 +399,16 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
             // if FUSE fails, we'll have to fallback to kioexec
             useKioexec = true;
         }
+
+        // supportedProtocols() only checks whether the .desktop file has MimeType=x-scheme-handler/xxx
+        // We also want to check whether the app has been set as default/associated in mimeapps.list
+        const auto handlers = KApplicationTrader::queryByMimeType(QLatin1String("x-scheme-handler/") + url.scheme());
+        for (const KService::Ptr &handler : handlers) {
+            if (handler->desktopEntryName() == d->service.desktopEntryName()) {
+                useKioexec = false;
+            }
+        }
+
         // NOTE: Some non-KIO apps may support the URLs (e.g. VLC supports smb://)
         // but will not have the password if they are not in the URL itself.
         // Hence convert URL to KIOFuse equivalent in case there is a password.
