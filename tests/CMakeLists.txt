@@ -35,6 +35,7 @@ KIOWIDGETS_EXECUTABLE_TESTS(
   kdirmodeltest_gui
   kdirlistertest_gui
   kfilecustomdialogtest_gui
+  kfilecustomdialogtest_gui_select_dir_mode
   previewtest
   kurlrequestertest_gui
   kpropertiesdialogtest
