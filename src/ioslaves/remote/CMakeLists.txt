@@ -1,5 +1,4 @@
 add_subdirectory( kdedmodule ) 
-configure_file(remote.json.cmake ${CMAKE_CURRENT_BINARY_DIR}/remote.json )
 kcoreaddons_add_plugin(kio_remote
     INSTALL_NAMESPACE kf${QT_MAJOR_VERSION}/kio
 )

@@ -1,7 +1,5 @@
 include(ConfigureChecks.cmake)
 
-configure_file(file.json.cmake ${CMAKE_CURRENT_BINARY_DIR}/file.json )
-
 kcoreaddons_add_plugin(kio_file INSTALL_NAMESPACE "kf${QT_MAJOR_VERSION}/kio")
 
 if(WIN32)

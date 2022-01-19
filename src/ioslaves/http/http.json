@@ -7,7 +7,6 @@
             "defaultMimetype": "application/octet-stream", 
             "deleting": true, 
             "determineMimetypeFromExtension": false, 
-            "exec": "kf@QT_MAJOR_VERSION@/kio/kio_http", 
             "input": "none", 
             "maxInstances": 20, 
             "maxInstancesPerHost": 5, 
@@ -24,7 +23,6 @@
             "defaultMimetype": "application/octet-stream", 
             "deleting": true, 
             "determineMimetypeFromExtension": false, 
-            "exec": "kf@QT_MAJOR_VERSION@/kio/kio_http", 
             "input": "none", 
             "maxInstances": 20, 
             "maxInstancesPerHost": 5, 
@@ -41,7 +39,6 @@
             "deleteRecursive": true, 
             "deleting": true, 
             "determineMimetypeFromExtension": false, 
-            "exec": "kf@QT_MAJOR_VERSION@/kio/kio_http", 
             "input": "none", 
             "listing": [
                 "Name", 
@@ -69,7 +66,6 @@
             "deleteRecursive": true, 
             "deleting": true, 
             "determineMimetypeFromExtension": false, 
-            "exec": "kf@QT_MAJOR_VERSION@/kio/kio_http", 
             "input": "none", 
             "listing": [
                 "Name", 

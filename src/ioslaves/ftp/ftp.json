@@ -8,7 +8,6 @@
             "copyFromFile": true, 
             "copyToFile": true, 
             "deleting": true, 
-            "exec": "kf@QT_MAJOR_VERSION@/kio/kio_ftp", 
             "input": "none", 
             "listing": [
                 "Name", 
