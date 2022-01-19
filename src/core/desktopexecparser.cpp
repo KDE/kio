@@ -399,6 +399,13 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
             // if FUSE fails, we'll have to fallback to kioexec
             useKioexec = true;
         }
+
+        // never use kioexec for scheme-handlers
+        // Those don't make sense as local files
+        if (hasSchemeHandler(url)) {
+            useKioexec = false;
+        }
+
         // NOTE: Some non-KIO apps may support the URLs (e.g. VLC supports smb://)
         // but will not have the password if they are not in the URL itself.
         // Hence convert URL to KIOFuse equivalent in case there is a password.
