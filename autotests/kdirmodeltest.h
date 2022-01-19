@@ -33,6 +33,13 @@ private Q_SLOTS:
     void testItemForIndex();
     void testIndexForItem();
     void testData();
+
+    /**
+     * Test if the icon is valid if "Icon" is specified in the desktop file, and can fall back to "unknown"
+     * if KDirModel fails to load the icon.
+     */
+    void testIcon();
+
     void testReload();
     void testModifyFile();
     void testRenameFile();

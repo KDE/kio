@@ -5,6 +5,8 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
+#include <array>
+
 #include "kdirmodeltest.h"
 #include "jobuidelegatefactory.h"
 #include <KDirWatch>
@@ -408,6 +410,140 @@ void KDirModelTest::testData()
 
     // Subsubdir: check child count
     QCOMPARE(m_dirModel->data(m_fileInSubdirIndex.parent(), KDirModel::ChildCountRole).toInt(), 1);
+}
+
+void KDirModelTest::testIcon()
+{
+    /**
+     * Create test data only used in testIcon()
+     * PATH/subdirwithcustomicon
+     * PATH/subdirwithcustomicon/.directory
+     * PATH/subdirwithcustomicon/exampleIcon.svg
+     * PATH/subdirwithcustomicon/subdirwithinvalidicon
+     * PATH/subdirwithcustomicon/subdirwithinvalidicon/.directory
+     * PATH/subdirwithcustomicon/subdirwithinvalidsvgicon
+     * PATH/subdirwithcustomicon/subdirwithinvalidsvgicon/.directory
+     */
+    const QString path(m_tempDir->path() + '/');
+
+    const QString subdirWithCustomIconPath(path + "subdirwithcustomicon/");
+    createTestDirectory(path + "subdirwithcustomicon/", Empty);
+
+    const QString exampleIconPath = subdirWithCustomIconPath + "exampleIcon.svg";
+    const QByteArray exampleSvgIconContent(
+        "<svg version='1.1' width='100' height='100' xmlns='http://www.w3.org/2000/svg'>"
+        "<rect width='100%' height='100%' fill='red' />"
+        "</svg>");
+    const QByteArray directoryFileContent(
+        "[Desktop Entry]\n"
+        "Icon="
+        + exampleIconPath.toLatin1());
+
+    struct Entry {
+        bool isDir;
+        QString name;
+        QByteArray content;
+    };
+
+    const std::array<Entry, 4> topLevelContent{{
+        {false, exampleIconPath, exampleSvgIconContent},
+        {false, subdirWithCustomIconPath + ".directory", directoryFileContent},
+        {true, subdirWithCustomIconPath + "subdirwithinvalidicon", QByteArray()},
+        {true, subdirWithCustomIconPath + "subdirwithinvalidsvgicon", QByteArray()},
+    }};
+
+    for (const auto &entry : topLevelContent) {
+        if (entry.isDir) {
+            createTestDirectory(entry.name, Empty);
+        } else {
+            createTestFile(entry.name, false, entry.content);
+        }
+    }
+
+    // Add an extra suffix to the end of the path to make it become invalid
+    const QByteArray directoryFileWithInvalidIconContent(
+        "[Desktop Entry]\n"
+        "Icon="
+        + exampleIconPath.toLatin1() + ".png");
+    createTestFile(subdirWithCustomIconPath + "subdirwithinvalidicon/.directory", false, directoryFileWithInvalidIconContent);
+
+    // Add an extra ".svg" to the end of the path to make it become invalid
+    const QByteArray directoryFileWithInvalidSvgIconContent(
+        "[Desktop Entry]\n"
+        "Icon="
+        + exampleIconPath.toLatin1() + ".svg");
+    createTestFile(subdirWithCustomIconPath + "subdirwithinvalidsvgicon/.directory", false, directoryFileWithInvalidSvgIconContent);
+
+    // Refresh the directory after adding files
+    KDirLister *dirLister = m_dirModel->dirLister();
+    dirLister->openUrl(QUrl::fromLocalFile(path), KDirLister::Reload);
+    connect(dirLister, qOverload<>(&KCoreDirLister::completed), this, &KDirModelTest::slotListingCompleted);
+    enterLoop();
+
+    QModelIndex dirWithIconIndex; // subdirwithcustomicon
+
+    for (int row = 0; row < m_topLevelFileNames.count() + 2 /*subdir, subdirwithinvalidicon*/; ++row) {
+        const QModelIndex idx = m_dirModel->index(row, 0, QModelIndex());
+        QVERIFY(idx.isValid());
+        const KFileItem item = m_dirModel->itemForIndex(idx);
+        if (item.isDir() && item.name() == QStringLiteral("subdirwithcustomicon")) {
+            dirWithIconIndex = idx;
+            break;
+        }
+    }
+
+    QVERIFY(dirWithIconIndex.isValid());
+
+    // Now list subdirwithcustomicon/
+    QVERIFY(m_dirModel->canFetchMore(dirWithIconIndex));
+    qDebug() << "Listing subdirwithcustomicon";
+    m_dirModel->fetchMore(dirWithIconIndex);
+    enterLoop();
+
+    // Indexes of files inside a directory
+    QModelIndex dirWithInvalidIconIndex; // subdirwithcustomicon/subdirwithinvalidicon
+    QModelIndex dirWithInvalidSvgIconIndex; // subdirwithcustomicon/subdirwithinvalidsvgicon
+
+    for (int row = 0; row < static_cast<int>(topLevelContent.size()); ++row) {
+        QModelIndex idx = m_dirModel->index(row, 0, dirWithIconIndex);
+        const KFileItem item = m_dirModel->itemForIndex(idx);
+        if (item.isDir()) {
+            if (item.name() == QLatin1String("subdirwithinvalidicon")) {
+                dirWithInvalidIconIndex = idx;
+            } else if (item.name() == QLatin1String("subdirwithinvalidsvgicon")) {
+                dirWithInvalidSvgIconIndex = idx;
+            }
+        }
+    }
+
+    QVERIFY(dirWithInvalidIconIndex.isValid());
+    QVERIFY(dirWithInvalidSvgIconIndex.isValid());
+
+    // Create an expected icon image
+    const QSize comparedSize(100, 100);
+    const QImage expectedIconImage = QIcon(exampleIconPath).pixmap(comparedSize).toImage();
+
+    // Test the custom icon is correctly loaded for the directory
+    const QIcon icon = m_dirModel->data(dirWithIconIndex, Qt::DecorationRole).value<QIcon>();
+    QCOMPARE(m_dirModel->itemForIndex(dirWithIconIndex).iconName(), exampleIconPath);
+    QVERIFY(icon.pixmap(comparedSize).toImage() == expectedIconImage);
+
+    // Test "unknown" icon will be used when the icon path refers to an invalid icon
+    const QIcon icon2 = m_dirModel->data(dirWithInvalidIconIndex, Qt::DecorationRole).value<QIcon>();
+    QCOMPARE(icon2.name(), "unknown");
+
+    // Test "unknown" icon will be used when the icon path refers to an invalid svg icon
+    const QIcon icon3 = m_dirModel->data(dirWithInvalidSvgIconIndex, Qt::DecorationRole).value<QIcon>();
+    QCOMPARE(icon3.name(), "unknown");
+
+    // Delete the folder
+    QDir dir(subdirWithCustomIconPath);
+    QVERIFY(dir.removeRecursively());
+
+    // Refresh the directory again after deleting the folder
+    dirLister->openUrl(QUrl::fromLocalFile(path), KDirLister::Reload);
+    connect(dirLister, qOverload<>(&KCoreDirLister::completed), this, &KDirModelTest::slotListingCompleted);
+    enterLoop();
 }
 
 void KDirModelTest::testReload()
