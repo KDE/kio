@@ -54,7 +54,7 @@ static void setTimeStamp(const QString &path, const QDateTime &mtime)
 #endif
 }
 
-static void createTestFile(const QString &path, bool plainText = false)
+static void createTestFile(const QString &path, bool plainText = false, const QByteArray &customData = {})
 {
     QDir().mkpath(QFileInfo(path).absolutePath());
     QFile f(path);
@@ -63,7 +63,7 @@ static void createTestFile(const QString &path, bool plainText = false)
     }
     QByteArray data(plainText ? "Hello world" : "Hello\0world", 11);
     QCOMPARE(data.size(), 11);
-    f.write(data);
+    f.write(customData.isEmpty() ? data : customData);
     f.close();
     setTimeStamp(path, s_referenceTimeStamp);
 }
