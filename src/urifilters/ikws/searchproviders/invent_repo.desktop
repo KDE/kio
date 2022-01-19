@@ -19,6 +19,7 @@ Name[nl]=Opslagruimtes van KDE-invent
 Name[pl]=Repozytoria KDE Invent
 Name[pt]=Repositórios do KDE Invent
 Name[pt_BR]=Repositórios do KDE Invent
+Name[ru]=Репозитории KDE Invent
 Name[sk]=Repozitáre služby KDE Invent
 Name[sl]=Skladišča KDE Invent
 Name[sv]=KDE-Invent arkiv
@@ -45,6 +46,7 @@ Query[nl]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[pl]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[pt]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[pt_BR]=https://invent.kde.org/explore/projects/starred?name=\\{@}
+Query[ru]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[sk]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[sl]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[sv]=https://invent.kde.org/explore/projects/starred?name=\\{@}
