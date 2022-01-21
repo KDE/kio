@@ -41,6 +41,7 @@
 #include <QUrlQuery>
 
 #include <algorithm>
+#include <numeric>
 
 using namespace KDEPrivate;
 
