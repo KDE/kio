@@ -1544,6 +1544,24 @@ void KDirListerTest::testRequestMimeType()
     QCOMPARE(items[3].mimetype(), QStringLiteral("text/markdown"));
 }
 
+void KDirListerTest::testForgetDir()
+{
+    QTemporaryDir tempDir(homeTmpDir());
+    QString path = tempDir.path() + QLatin1Char('/');
+    createTestFile(path + "/file_1");
+
+    QSignalSpy spyCompleted(&m_dirLister, qOverload<>(&KCoreDirLister::completed));
+
+    m_dirLister.openUrl(QUrl::fromLocalFile(path), KDirLister::Keep);
+    QVERIFY(spyCompleted.wait());
+
+    m_dirLister.forgetDirs(QUrl::fromLocalFile(path));
+
+    QSignalSpy addedSpy(&m_dirLister, &MyDirLister::itemsAdded);
+    createTestFile(path + "/file_2");
+    QVERIFY(!addedSpy.wait(1000)); // to allow for KDirWatch's internal 500ms timer
+}
+
 void KDirListerTest::testDeleteCurrentDir()
 {
     // ensure m_dirLister holds the items.

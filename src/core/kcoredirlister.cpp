@@ -2148,6 +2148,11 @@ void KCoreDirLister::stop(const QUrl &_url)
     kDirListerCache()->stopListingUrl(this, _url);
 }
 
+void KCoreDirLister::forgetDirs(const QUrl &_url)
+{
+    kDirListerCache()->forgetDirs(this, _url, true);
+}
+
 bool KCoreDirLister::autoUpdate() const
 {
     return d->autoUpdate;

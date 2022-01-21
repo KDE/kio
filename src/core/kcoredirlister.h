@@ -146,6 +146,16 @@ public:
     virtual void stop(const QUrl &dirUrl); // TODO KF6: remove virtual
 
     /**
+     * Stop listening for further changes in the given directory.
+     * When a new directory is opened with OpenUrlFlag::Keep the caller will keep being notified of file changes for all directories that were kept open.
+     * This call selectively removes a directory from sending future notifications to this KCoreDirLister.
+     *
+     * @param dirUrl the directory URL.
+     * @since 5.91
+     */
+    void forgetDirs(const QUrl &dirUrl);
+
+    /**
      * @return @c true if the "delayed MIME types" feature was enabled
      * @see setDelayedMimeTypes
      */
