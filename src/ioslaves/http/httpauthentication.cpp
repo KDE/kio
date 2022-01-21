@@ -751,6 +751,10 @@ void KHttpNtlmAuthentication::generateResponse(const QString &_user, const QStri
         QString domain;
         if (m_username.contains(QLatin1Char('\\'))) {
             domain = m_username.section(QLatin1Char('\\'), 0, 0);
+            // KNTLM::getAuth relies on isEmpty/isNull to distinguish this case and the else path below
+            if (domain.isNull()) {
+                domain = QLatin1String("");
+            }
             user = m_username.section(QLatin1Char('\\'), 1);
         } else {
             user = m_username;
