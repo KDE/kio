@@ -79,11 +79,11 @@ private:
     int m_iconSize;
 
     QList<QPersistentModelIndex> m_appearingItems;
-    int m_appearingIconSize;
+    qreal m_appearingHeightScale;
     qreal m_appearingOpacity;
 
     QList<QPersistentModelIndex> m_disappearingItems;
-    int m_disappearingIconSize;
+    qreal m_disappearingHeightScale;
     qreal m_disappearingOpacity;
 
     bool m_showHoverIndication;

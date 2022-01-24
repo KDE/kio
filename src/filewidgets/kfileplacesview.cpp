@@ -59,9 +59,9 @@ KFilePlacesViewDelegate::KFilePlacesViewDelegate(KFilePlacesView *parent)
     : QAbstractItemDelegate(parent)
     , m_view(parent)
     , m_iconSize(48)
-    , m_appearingIconSize(0)
+    , m_appearingHeightScale(1.0)
     , m_appearingOpacity(0.0)
-    , m_disappearingIconSize(0)
+    , m_disappearingHeightScale(1.0)
     , m_disappearingOpacity(0.0)
     , m_showHoverIndication(true)
     , m_dragStarted(false)
@@ -74,14 +74,13 @@ KFilePlacesViewDelegate::~KFilePlacesViewDelegate()
 
 QSize KFilePlacesViewDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-    int iconSize = m_iconSize;
-    if (m_appearingItems.contains(index)) {
-        iconSize = m_appearingIconSize;
-    } else if (m_disappearingItems.contains(index)) {
-        iconSize = m_disappearingIconSize;
-    }
+    int height = std::max(m_iconSize, option.fontMetrics.height()) + s_lateralMargin;
 
-    int height = std::max(iconSize, option.fontMetrics.height()) + s_lateralMargin;
+    if (m_appearingItems.contains(index)) {
+        height *= m_appearingHeightScale;
+    } else if (m_disappearingItems.contains(index)) {
+        height *= m_disappearingHeightScale;
+    }
 
     if (indexIsSectionHeader(index)) {
         height += sectionHeaderHeight(index);
@@ -277,13 +276,9 @@ void KFilePlacesViewDelegate::setAppearingItemProgress(qreal value)
 {
     if (value <= 0.25) {
         m_appearingOpacity = 0.0;
-        m_appearingIconSize = iconSize() * value * 4;
-
-        if (m_appearingIconSize >= m_iconSize) {
-            m_appearingIconSize = m_iconSize;
-        }
+        m_appearingHeightScale = std::min(1.0, value * 4);
     } else {
-        m_appearingIconSize = m_iconSize;
+        m_appearingHeightScale = 1.0;
         m_appearingOpacity = (value - 0.25) * 4 / 3;
 
         if (value >= 1.0) {
@@ -314,17 +309,13 @@ void KFilePlacesViewDelegate::setDisappearingItemProgress(qreal value)
 
     if (value <= 0.25) {
         m_disappearingOpacity = 0.0;
-        m_disappearingIconSize = iconSize() * value * 4;
-
-        if (m_disappearingIconSize >= m_iconSize) {
-            m_disappearingIconSize = m_iconSize;
-        }
+        m_disappearingHeightScale = std::min(1.0, value * 4);
 
         if (value <= 0.0) {
             m_disappearingItems.clear();
         }
     } else {
-        m_disappearingIconSize = m_iconSize;
+        m_disappearingHeightScale = 1.0;
         m_disappearingOpacity = (value - 0.25) * 4 / 3;
     }
 }
