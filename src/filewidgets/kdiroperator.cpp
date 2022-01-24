@@ -1883,6 +1883,9 @@ void KDirOperator::setDirLister(KDirLister *lister)
     connect(d->m_dirLister, qOverload<>(&KCoreDirLister::canceled), this, [this]() {
         d->slotCanceled();
     });
+    connect(d->m_dirLister, &KCoreDirLister::jobError, this, [this]() {
+        d->slotIOFinished();
+    });
     connect(d->m_dirLister, qOverload<const QUrl &, const QUrl &>(&KCoreDirLister::redirection), this, [this](const QUrl &, const QUrl &newUrl) {
         d->slotRedirected(newUrl);
     });
