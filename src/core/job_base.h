@@ -269,7 +269,7 @@ enum JobFlag {
     DefaultFlags = 0,
 
     /**
-     * Hide progress information dialog, i.e. don't show a GUI.
+     * Hide progress information dialog, i.e.\ don't show a GUI.
      */
     HideProgressInfo = 1,
 

@@ -88,7 +88,7 @@ public:
     static bool isProtocolInSupportedList(const QUrl &url, const QStringList &supportedProtocols);
 
     /**
-     * Returns true if @p protocol should be opened by a "handler" application, i.e. an application
+     * Returns true if @p protocol should be opened by a "handler" application, i.e.\ an application
      * associated to _all_ URLs using this protocol (a.k.a. scheme).
      */
     static bool hasSchemeHandler(const QUrl &url); // KF6 TODO move to OpenUrlJob

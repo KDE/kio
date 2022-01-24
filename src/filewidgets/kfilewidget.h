@@ -560,7 +560,7 @@ Q_SIGNALS:
     void selectionChanged();
 
     /**
-     * Emitted when the filter changed, i.e. the user entered an own filter
+     * Emitted when the filter changed, i.e.\ the user entered an own filter
      * or chose one of the predefined set via setFilter().
      *
      * @param filter contains the new filter (only the extension part,

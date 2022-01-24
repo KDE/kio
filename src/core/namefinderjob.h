@@ -100,7 +100,7 @@ public:
     QUrl finalUrl() const;
 
     /**
-     * Call this to get the base URL (i.e. the URL of the folder where a new folder/file
+     * Call this to get the base URL (i.e.\ the URL of the folder where a new folder/file
      * is going to be created). Note that this could return a different URL from the one
      * the job was initially called on, since the StatJob (which is used internally) will
      * resolve the URL to the most local one. See KIO::StatJob::mostLocalUrl() for more details.

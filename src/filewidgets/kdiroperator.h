@@ -447,7 +447,7 @@ public:
     KConfigGroup *viewConfigGroup() const;
 
     /**
-     * Reads the default settings for a view, i.e. the default KFile::FileView.
+     * Reads the default settings for a view, i.e.\ the default KFile::FileView.
      * Also reads the sorting and whether hidden files should be shown.
      * Note: the default view will not be set - you have to call
      * \code

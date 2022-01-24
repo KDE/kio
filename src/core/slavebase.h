@@ -68,7 +68,7 @@ public:
     ///////////
 
     /**
-     * Sends data in the slave to the job (i.e. in get).
+     * Sends data in the slave to the job (i.e.\ in get).
      *
      * To signal end of data, simply send an empty
      * QByteArray().
@@ -480,7 +480,7 @@ public:
     virtual void close();
 
     /**
-     * put, i.e. write data into a file.
+     * put, i.e.\ write data into a file.
      *
      * @param url where to write the file
      * @param permissions may be -1. In this case no special permission mode is set.
@@ -680,7 +680,7 @@ public:
 
     /**
      * Called by the scheduler to tell the slave that the configuration
-     * changed (i.e. proxy settings) .
+     * changed (i.e.\ proxy settings).
      */
     virtual void reparseConfiguration();
 

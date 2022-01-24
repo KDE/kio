@@ -189,7 +189,7 @@ public:
     void setLocalPath(const QString &path);
 
     /**
-     * Sets the item's name (i.e. the filename).
+     * Sets the item's name (i.e.\ the filename).
      * This is automatically done by setUrl, to set the name from the URL's fileName().
      * This method is provided for some special cases like relative paths as names (KFindPart)
      * @param name the item's name
@@ -294,7 +294,7 @@ public:
 
     /**
      * Checks whether the file is a readable local .desktop file,
-     * i.e. a file whose path can be given to KDesktopFile
+     * i.e.\ a file whose path can be given to KDesktopFile
      * @return true if the file is a desktop file.
      * @since 4.1
      */

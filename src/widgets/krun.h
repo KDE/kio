@@ -288,7 +288,7 @@ public:
 
 #if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 71)
     /**
-     * Run an application (known from its .desktop file, i.e. as a KService)
+     * Run an application (known from its .desktop file, i.e.\ as a KService).
      *
      * If you need to wait for the application to register to D-Bus, use D-Bus activation instead.
      *
