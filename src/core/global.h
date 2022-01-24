@@ -348,7 +348,7 @@ enum StatDetail {
     /// Recursive size
     /// @since 5.70
     StatRecursiveSize = 0x40,
-    /// Mime Type
+    /// MIME type
     /// @since 5.82
     StatMimeType = 0x80,
 
