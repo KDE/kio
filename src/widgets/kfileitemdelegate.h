@@ -180,7 +180,7 @@ public:
      * Returns the nominal size for the item referred to by @p index, given the
      * provided options.
      *
-     * If the model provides a valid Qt::FontRole and/or Qt::AlignmentRole for the item,
+     * If the model provides a valid Qt::FontRole and/or Qt::TextAlignmentRole for the item,
      * those will be used instead of the ones specified in the style options.
      *
      * This function is reimplemented from @ref QAbstractItemDelegate.
@@ -200,10 +200,10 @@ public:
      * This function will use the following data values if the model provides
      * them for the item, in place of the values in @p option:
      *
-     * @li Qt::FontRole        The font that should be used for the display role.
-     * @li Qt::AlignmentRole   The alignment of the display role.
-     * @li Qt::ForegroundRole  The text color for the display role.
-     * @li Qt::BackgroundRole  The background color for the item.
+     * @li Qt::FontRole           The font that should be used for the display role.
+     * @li Qt::TextAlignmentRole  The alignment of the display role.
+     * @li Qt::ForegroundRole     The text color for the display role.
+     * @li Qt::BackgroundRole     The background color for the item.
      *
      * This function is reimplemented from @ref QAbstractItemDelegate.
      *
