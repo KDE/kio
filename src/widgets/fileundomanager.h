@@ -124,14 +124,18 @@ public:
 
     /**
      * The type of job.
-     *
-     * Put: @since 4.7, represents the creation of a file from data in memory.
-     *                Used when pasting data from clipboard or drag-n-drop.
-     * Mkpath: @since 5.4, represents a KIO::mkpath() job.
-     * BatchRename: @since 5.42, represents a KIO::batchRename() job. Used when
-     *              renaming multiple files.
      */
-    enum CommandType { Copy, Move, Rename, Link, Mkdir, Trash, Put, Mkpath, BatchRename };
+    enum CommandType {
+        Copy,
+        Move,
+        Rename,
+        Link,
+        Mkdir,
+        Trash,
+        Put, ///< Represents the creation of a file from data in memory. Used when pasting data from clipboard or drag-n-drop. @since 4.7
+        Mkpath, ///< Represents a KIO::mkpath() job. @since 5.4
+        BatchRename ///< Represents a KIO::batchRename() job. Used when renaming multiple files. @since 5.42
+    };
 
     /**
      * Record this job while it's happening and add a command for it so that the user can undo it.
