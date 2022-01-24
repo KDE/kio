@@ -112,8 +112,6 @@ void KFilePlacesViewDelegate::paint(QPainter *painter, const QStyleOptionViewIte
         opt.rect.setHeight(opt.rect.height() - headerHeight);
     }
 
-    m_dragStarted = false;
-
     // draw item
     if (m_appearingItems.contains(index)) {
         painter->setOpacity(m_appearingOpacity);
@@ -134,6 +132,16 @@ void KFilePlacesViewDelegate::paint(QPainter *painter, const QStyleOptionViewIte
             opt.state &= ~QStyle::State_MouseOver;
         }
     }
+
+    // Avoid a solid background for the drag pixmap so the drop indicator
+    // is more easily seen.
+    if (m_dragStarted) {
+        opt.state.setFlag(QStyle::State_MouseOver, true);
+        opt.state.setFlag(QStyle::State_Active, false);
+        opt.state.setFlag(QStyle::State_Selected, false);
+    }
+
+    m_dragStarted = false;
 
     QApplication::style()->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, painter);
 
