@@ -36,8 +36,8 @@ enum RenameDialog_Option {
     RenameDialog_IsDirectory KIOCORE_ENUMERATOR_DEPRECATED_VERSION_BELATED(5, 82, 5, 78, "Use RenameDialog_DestIsDirectory.") =
         128, ///< @deprecated since 5.78, use RenameDialog_DestIsDirectory instead.
 #endif
-    RenameDialog_DestIsDirectory = 128, ///< @since 5.78. The destination is a directory, the dialog updates labels and tooltips accordingly.
-    RenameDialog_SourceIsDirectory = 256, ///< @since 5.78. The source is a directory, the dialog updates labels and tooltips accordingly.
+    RenameDialog_DestIsDirectory = 128, ///< The destination is a directory, the dialog updates labels and tooltips accordingly. @since 5.78
+    RenameDialog_SourceIsDirectory = 256, ///< The source is a directory, the dialog updates labels and tooltips accordingly. @since 5.78
 };
 /**
  * Stores a combination of #RenameDialog_Option values.

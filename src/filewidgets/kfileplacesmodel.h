@@ -43,7 +43,7 @@ public:
         SetupNeededRole = 0x059A935D, /// @see setupNeeded()
         FixedDeviceRole = 0x332896C1, /// Whether the place is a fixed device (neither hotpluggable nor removable).
         CapacityBarRecommendedRole = 0x1548C5C4, /// Whether the place should have its free space displayed in a capacity bar.
-        GroupRole = 0x0a5b64ee, ///< @since 5.40 /// The name of the group, for example "Remote" or "Devices".
+        GroupRole = 0x0a5b64ee, ///< The name of the group, for example "Remote" or "Devices". @since 5.40
         IconNameRole = 0x00a45c00, ///< @since 5.41 @see icon()
         GroupHiddenRole = 0x21a4b936, ///< @since 5.42 @see isGroupHidden()
         TeardownAllowedRole = 0x02533364, ///< @since 5.91 @see isTeardownAllowed()
