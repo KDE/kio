@@ -220,7 +220,7 @@ public:
     void speed(unsigned long _bytes_per_second);
 
     /**
-     * Call this to signal a redirection
+     * Call this to signal a redirection.
      * The job will take care of going to that url.
      */
     void redirection(const QUrl &_url);
@@ -406,7 +406,8 @@ public:
     virtual void setSubUrl(const QUrl &url);
 
     /**
-     * Opens the connection (forced)
+     * Opens the connection (forced).
+     *
      * When this function gets called the slave is operating in
      * connection-oriented mode.
      * When a connection gets lost while the slave operates in
@@ -417,7 +418,8 @@ public:
     virtual void openConnection();
 
     /**
-     * Closes the connection (forced)
+     * Closes the connection (forced).
+     *
      * Called when the application disconnects the slave to close
      * any open network connections.
      *
@@ -583,19 +585,22 @@ public:
     virtual void symlink(const QString &target, const QUrl &dest, JobFlags flags);
 
     /**
-     * Change permissions on @p url
+     * Change permissions on @p url.
+     *
      * The slave emits ERR_DOES_NOT_EXIST or ERR_CANNOT_CHMOD
      */
     virtual void chmod(const QUrl &url, int permissions);
 
     /**
-     * Change ownership of @p url
+     * Change ownership of @p url.
+     *
      * The slave emits ERR_DOES_NOT_EXIST or ERR_CANNOT_CHOWN
      */
     virtual void chown(const QUrl &url, const QString &owner, const QString &group);
 
     /**
-     * Sets the modification time for @url
+     * Sets the modification time for @p url.
+     *
      * For instance this is what CopyJob uses to set mtime on dirs at the end of a copy.
      * It could also be used to set the mtime on any file, in theory.
      * The usual implementation on unix is to call utime(path, &myutimbuf).
@@ -654,7 +659,8 @@ public:
     virtual void setLinkDest(const QUrl &url, const QString &target);
 
     /**
-     * Used for any command that is specific to this slave (protocol)
+     * Used for any command that is specific to this slave (protocol).
+     *
      * Examples are : HTTP POST, mount and unmount (kio_file)
      *
      * @param data packed data; the meaning is completely dependent on the
