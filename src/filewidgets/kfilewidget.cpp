@@ -28,6 +28,7 @@
 #include <KDirLister>
 #include <KFileItem>
 #include <KLocalizedString>
+#include <KMessageWidget>
 #include <KSharedConfig>
 #include <KToolBar>
 #include <config-kiofilewidgets.h>
@@ -215,6 +216,7 @@ public:
 
     QLabel *m_filterLabel = nullptr;
     KUrlNavigator *m_urlNavigator = nullptr;
+    KMessageWidget *m_messageWidget = nullptr;
     QPushButton *m_okButton = nullptr;
     QPushButton *m_cancelButton = nullptr;
     QDockWidget *m_placesDock = nullptr;
@@ -375,6 +377,10 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
     d->m_urlNavigator->setPlacesSelectorVisible(false);
     opsWidgetLayout->addWidget(d->m_urlNavigator);
 
+    d->m_messageWidget = new KMessageWidget(this);
+    d->m_messageWidget->setMessageType(KMessageWidget::Error);
+    opsWidgetLayout->addWidget(d->m_messageWidget);
+
     d->m_ops = new KDirOperator(QUrl(), d->m_opsWidget);
     d->m_ops->installEventFilter(this);
     d->m_ops->setObjectName(QStringLiteral("KFileWidget::ops"));
@@ -396,6 +402,12 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
     });
     connect(d->m_ops, &KDirOperator::keyEnterReturnPressed, this, [this]() {
         d->slotViewKeyEnterReturnPressed();
+    });
+
+    d->m_ops->dirLister()->setAutoErrorHandlingEnabled(false);
+    connect(d->m_ops->dirLister(), &KDirLister::jobError, this, [this](KIO::Job *job) {
+        d->m_messageWidget->setText(job->errorString());
+        d->m_messageWidget->animatedShow();
     });
 
     d->m_ops->setupMenu(KDirOperator::SortActions | KDirOperator::FileActions | KDirOperator::ViewActions);
@@ -1551,6 +1563,8 @@ void KFileWidgetPrivate::urlEntered(const QUrl &url)
     if (m_placesView) {
         m_placesView->setUrl(url);
     }
+
+    m_messageWidget->hide();
 }
 
 void KFileWidgetPrivate::locationAccepted(const QString &url)
