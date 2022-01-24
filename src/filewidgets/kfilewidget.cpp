@@ -27,6 +27,7 @@
 #include <KConfigGroup>
 #include <KDirLister>
 #include <KFileItem>
+#include <KFilePlacesModel>
 #include <KLocalizedString>
 #include <KMessageWidget>
 #include <KSharedConfig>
@@ -1408,6 +1409,11 @@ void KFileWidgetPrivate::initPlacesPanel()
     m_placesView->setObjectName(QStringLiteral("url bar"));
     QObject::connect(m_placesView, &KFilePlacesView::urlChanged, q, [this](const QUrl &url) {
         enterUrl(url);
+    });
+
+    QObject::connect(qobject_cast<KFilePlacesModel *>(m_placesView->model()), &KFilePlacesModel::errorMessage, q, [this](const QString &errorMessage) {
+        m_messageWidget->setText(errorMessage);
+        m_messageWidget->animatedShow();
     });
 
     // need to set the current url of the urlbar manually (not via urlEntered()
