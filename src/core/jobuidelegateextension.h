@@ -79,7 +79,7 @@ enum SkipDialog_Option {
     /**
      * Set if the current operation involves copying files/folders with certain
      * characters in their names that are not supported by the destination
-     * filesystem (e.g. VFAT and NTFS disallow "*" in file/folder names).
+     * filesystem (e.g.\ VFAT and NTFS disallow "*" in file/folder names).
      *
      * This will make the SkipDialog show a "Replace" button that can be used
      * to instruct the underlying job to replace any problematic character with

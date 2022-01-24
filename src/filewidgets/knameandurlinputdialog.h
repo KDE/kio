@@ -19,7 +19,7 @@ class QUrl;
 /**
  * @class KNameAndUrlInputDialog knameandurlinputdialog.h <KNameAndUrlInputDialog>
  *
- * Dialog to ask for a name (e.g. filename) and a URL
+ * Dialog to ask for a name (e.g.\ filename) and a URL
  * Basically a merge of KLineEditDlg and KUrlRequesterDlg ;)
  * @since 4.5
  * @author David Faure <faure@kde.org>

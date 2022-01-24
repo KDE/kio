@@ -26,8 +26,8 @@ class AskUserActionInterfacePrivate;
  * @class KIO::AskUserActionInterface askuseractioninterface.h <KIO/AskUserActionInterface>
  *
  * @brief The AskUserActionInterface class allows a KIO::Job to prompt the user
- * for a decision when e.g. copying directories/files and there is a conflict
- * (e.g. a file with the same name already exists at the destination).
+ * for a decision when e.g.\ copying directories/files and there is a conflict
+ * (e.g.\ a file with the same name already exists at the destination).
  *
  * The methods in this interface are similar to their counterparts in
  * KIO::JobUiDelegateExtension, the main difference is that AskUserActionInterface

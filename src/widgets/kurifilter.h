@@ -64,7 +64,7 @@ public:
     QString desktopEntryName() const;
 
     /**
-     * Returns the descriptive name of the search provider, e.g. "Google News".
+     * Returns the descriptive name of the search provider, e.g.\ "Google News".
      *
      * This name comes from the "Name=" property entry in the desktop file that
      * contains the search provider's information.
@@ -342,7 +342,7 @@ public:
     QChar searchTermSeparator() const;
 
     /**
-     * Returns the name of the search service provider, e.g. Google.
+     * Returns the name of the search service provider, e.g.\ Google.
      *
      * If @ref typedString was not filtered by a search filter plugin, this
      * function returns an empty string.

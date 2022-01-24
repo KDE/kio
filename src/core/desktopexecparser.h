@@ -24,7 +24,7 @@ class DesktopExecParserPrivate;
  * @class KIO::DesktopExecParser desktopexecparser.h <KIO/DesktopExecParser>
  *
  * Parses the Exec= line from a .desktop file,
- * and process all the '\%' placeholders, e.g. handling URLs vs local files.
+ * and process all the '\%' placeholders, e.g.\ handling URLs vs local files.
  *
  * The processing actually happens when calling resultingArguments(), after
  * setting everything up.
@@ -94,7 +94,7 @@ public:
     static bool hasSchemeHandler(const QUrl &url); // KF6 TODO move to OpenUrlJob
 
     /**
-     * Given a full command line (e.g. the Exec= line from a .desktop file),
+     * Given a full command line (e.g.\ the Exec= line from a .desktop file),
      * extract the name of the executable being run (removing the path, if specified).
      * @param execLine the full command line
      * @return the name of the executable to run, example: "ls"
@@ -102,7 +102,7 @@ public:
     static QString executableName(const QString &execLine);
 
     /**
-     * Given a full command line (e.g. the Exec= line from a .desktop file),
+     * Given a full command line (e.g.\ the Exec= line from a .desktop file),
      * extract the name of the executable being run, including its full path, if specified.
      * @param execLine the full command line
      * @return the name of the executable to run, example: "/bin/ls"

@@ -320,7 +320,7 @@ public:
     virtual KFileItem findByName(const QString &name) const; // TODO KF6: remove virtual
 
     /**
-     * Set a name filter to only list items matching this name, e.g. "*.cpp".
+     * Set a name filter to only list items matching this name, e.g.\ "*.cpp".
      *
      * You can set more than one filter by separating them with whitespace, e.g
      * "*.cpp *.h".
@@ -577,7 +577,7 @@ Q_SIGNALS:
     void redirection(const QUrl &oldUrl, const QUrl &newUrl); // clazy:exclude=overloaded-signal
 
     /**
-     * Signals to the view to remove all items (when e.g. going from dirA to dirB).
+     * Signals to the view to remove all items (when e.g.\ going from dirA to dirB).
      * Make sure to connect to this signal to avoid having duplicate items in the view.
      */
     void clear(); // clazy:exclude=overloaded-signal

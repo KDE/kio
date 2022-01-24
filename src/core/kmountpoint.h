@@ -105,8 +105,8 @@ public:
     QString mountedFrom() const;
 
     /**
-     * Returns @c true if this mount point represents a network filesystem (e.g. nfs,
-     * cifs ...etc), otherwise returns @c false.
+     * Returns @c true if this mount point represents a network filesystem (e.g.\ NFS,
+     * CIFS, etc.), otherwise returns @c false.
      *
      * @since 5.86
      */
@@ -145,7 +145,7 @@ public:
     QStringList mountOptions() const;
 
     /**
-     * Returns @c true if the filesystem is "probably" slow, e.g. a network mount,
+     * Returns @c true if the filesystem is "probably" slow, e.g.\ a network mount,
      * @c false otherwise.
      */
     bool probablySlow() const;

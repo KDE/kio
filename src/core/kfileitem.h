@@ -451,7 +451,7 @@ public:
 
     /**
      * Returns the string to be displayed in the statusbar,
-     * e.g. when the mouse is over this item
+     * e.g.\ when the mouse is over this item.
      * @return the status bar information
      */
     QString getStatusBarInfo() const;

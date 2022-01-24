@@ -488,9 +488,9 @@ Q_SIGNALS:
     void newWindowRequested(const QUrl &url);
 
     /**
-     * When the URL is changed and the new URL (e.g. /home/user1/)
-     * is a parent of the previous URL (e.g. /home/user1/data/stuff),
-     * then this signal is emitted and \a url is set to the child
+     * When the URL is changed and the new URL (e.g.\ /home/user1/)
+     * is a parent of the previous URL (e.g.\ /home/user1/data/stuff),
+     * then this signal is emitted and \p url is set to the child
      * directory of the new URL which is an ancestor of the old URL
      * (in the example paths this would be /home/user1/data/).
      * This signal allows file managers to pre-select the directory

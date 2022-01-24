@@ -25,7 +25,7 @@ class KNewFileMenuPrivate;
  * @class KNewFileMenu knewfilemenu.h <KNewFileMenu>
  *
  * The 'Create New' submenu, for creating files using templates
- * (e.g. "new HTML file") and directories.
+ * (e.g.\ "new HTML file") and directories.
  *
  * The same instance can be used by both for the File menu and the RMB popup menu,
  * in a file manager. This is also used in the file dialog's RMB menu.

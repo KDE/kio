@@ -69,7 +69,7 @@ public:
 
     /**
      * Sets a custom function that will be called when teardown of
-     * a device (e.g. unmounting a drive) is requested.
+     * a device (e.g.\ unmounting a drive) is requested.
      * @since 5.91
      */
     void setTeardownFunction(TeardownFunction teardownFunc);

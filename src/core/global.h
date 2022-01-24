@@ -151,7 +151,7 @@ enum Error {
     ERR_NO_SOURCE_PROTOCOL = KJob::UserDefinedError + 7,
     ERR_UNSUPPORTED_ACTION = KJob::UserDefinedError + 8,
     ERR_IS_DIRECTORY = KJob::UserDefinedError + 9, ///< ... where a file was expected
-    ERR_IS_FILE = KJob::UserDefinedError + 10, ///< ... where a directory was expected (e.g. listing)
+    ERR_IS_FILE = KJob::UserDefinedError + 10, ///< ... where a directory was expected (e.g.\ listing)
     ERR_DOES_NOT_EXIST = KJob::UserDefinedError + 11,
     ERR_FILE_ALREADY_EXIST = KJob::UserDefinedError + 12,
     ERR_DIR_ALREADY_EXIST = KJob::UserDefinedError + 13,
