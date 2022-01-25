@@ -43,10 +43,11 @@ public:
 
     /**
      *
-     * Return a list of recent URLs. This is includes all the URLs from
+     * Return a list of recent URLs. This includes all the URLs from
      * recentDocuments() as well as URLs from other applications conforming to
      * the XDG desktop-bookmark-spec (e. g. the GTK file dialog).
      *
+     * @since 5.91
      */
     static QList<QUrl> recentUrls();
 

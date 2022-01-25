@@ -54,7 +54,7 @@ static bool addToXbel(const QUrl &url, const QString &desktopEntryName)
     QByteArray existingContent;
     {
         QFile input(xbelPath());
-        if (input.exists() && input.open(QIODevice::ReadOnly)) {
+        if (input.open(QIODevice::ReadOnly)) {
             existingContent = input.readAll();
         } else if (!input.exists()) { // That it doesn't exist is a very uncommon case
             qCDebug(KIO_CORE) << input.fileName() << "does not exist, creating new";
@@ -144,14 +144,10 @@ static bool addToXbel(const QUrl &url, const QString &desktopEntryName)
             }
 
             if (inRightApplications && tagName == applicationBookmarkTag && attributes.value(nameAttribute) == desktopEntryName) {
-                bool countOk;
-                int count = attributes.value(countAttribute).toInt(&countOk);
-                if (!countOk) {
-                    count = 0;
-                }
+                const int count = attributes.value(countAttribute).toInt();
 
                 QXmlStreamAttributes newAttributes;
-                for (const QXmlStreamAttribute &old : attributes) {
+                for (const QXmlStreamAttribute &old : qAsConst(attributes)) {
                     if (old.qualifiedName() == countAttribute) {
                         continue;
                     }
@@ -275,7 +271,7 @@ static QMap<QUrl, QDateTime> xbelRecentlyUsedList()
     }
 
     while (!xml.atEnd() && !xml.hasError()) {
-        if (xml.readNext() != QXmlStreamReader::StartElement || xml.name() != QStringLiteral("bookmark")) {
+        if (xml.readNext() != QXmlStreamReader::StartElement || xml.name() != QLatin1String("bookmark")) {
             continue;
         }
         const QString urlString = xml.attributes().value(QLatin1String("href")).toString();
@@ -317,21 +313,22 @@ QList<QUrl> KRecentDocument::recentUrls()
     // We need to do it to be compatible with older versions of ourselves, and
     // possibly others who for some reason did the same as us, but it could
     // possibly also be done as a one-time migration.
-    for (const QString &pathDesktop : recentDocuments()) {
+    const auto recentDocs = recentDocuments();
+    for (const QString &pathDesktop : recentDocs) {
         const KDesktopFile tmpDesktopFile(pathDesktop);
-        const QUrl url(tmpDesktopFile.desktopGroup().readPathEntry("URL", QString()));
+        const QUrl url(tmpDesktopFile.readUrl());
         if (url.isEmpty()) {
             continue;
         }
         const QDateTime lastModified = QFileInfo(pathDesktop).lastModified();
-        if (documents.contains(url) && documents[url] > lastModified) {
+        if (documents.contains(url) && documents.value(url) > lastModified) {
             continue;
         }
         documents[url] = lastModified;
     }
     QList<QUrl> ret = documents.keys();
     std::sort(ret.begin(), ret.end(), [&](const QUrl &doc1, const QUrl &doc2) {
-        return documents[doc1] < documents[doc2];
+        return documents.value(doc1) < documents.value(doc2);
     });
 
     return ret;
