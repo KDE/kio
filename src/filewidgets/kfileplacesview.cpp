@@ -1635,7 +1635,8 @@ void KFilePlacesViewPrivate::editPlace(const QModelIndex &index)
 
     KBookmark bookmark = placesModel->bookmarkForIndex(index);
     QUrl url = bookmark.url();
-    QString label = bookmark.text();
+    // KBookmark::text() would be untranslated for system bookmarks
+    QString label = placesModel->text(index);
     QString iconName = bookmark.icon();
     bool appLocal = !bookmark.metaDataItem(QStringLiteral("OnlyInApp")).isEmpty();
 
