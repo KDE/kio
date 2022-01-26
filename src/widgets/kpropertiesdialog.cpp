@@ -1397,7 +1397,7 @@ void KFilePropsPlugin::slotSizeStop()
 {
     if (d->dirSizeJob) {
         KIO::filesize_t totalSize = d->dirSizeJob->totalSize();
-        d->m_ui->sizeLabel->setText(i18n("At least %1", KIO::convertSize(totalSize)));
+        d->m_ui->sizeLabel->setText(i18n("At least %1\n", KIO::convertSize(totalSize)));
         d->dirSizeJob->kill();
         d->dirSizeJob = nullptr;
     }
