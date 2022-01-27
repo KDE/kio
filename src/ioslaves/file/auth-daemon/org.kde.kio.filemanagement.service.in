@@ -1,0 +1,7 @@
+# SPDX-FileCopyrightText: 2022 Carson Black <uhhadd@gmail.com>
+# SPDX-License-Identifier: LicenseRef-KDE-Accepted-GPL
+
+[D-BUS Service]
+Name=org.kde.kio.filemanagement
+Exec=@KDE_INSTALL_FULL_LIBEXECDIR_KF@/kio_root_helper
+User=root

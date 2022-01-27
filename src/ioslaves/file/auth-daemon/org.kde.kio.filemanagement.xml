@@ -1,0 +1,76 @@
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN"
+"http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+
+<!--
+  SPDX-FileCopyrightText: 2022 Carson Black <uhhadd@gmail.com>
+
+  SPDX-License-Identifier: LicenseRef-KDE-Accepted-GPL
+-->
+<node>
+	<interface name="org.kde.kio.filemanagement">
+		<method name="ChangeMode">
+			<annotation name="org.freedesktop.DBus.GLib.Async" value=""/>
+			<arg type="s" name="file" direction="in"/>
+			<arg type="i" name="mode" direction="in"/>
+			<arg type="u" name="errnum" direction="out"/>
+		</method>
+		<method name="ChangeOwner">
+			<annotation name="org.freedesktop.DBus.GLib.Async" value=""/>
+			<arg type="s" name="file" direction="in"/>
+			<arg type="u" name="user" direction="in"/>
+			<arg type="u" name="group" direction="in"/>
+			<arg type="u" name="errnum" direction="out"/>
+		</method>
+		<method name="Delete">
+			<annotation name="org.freedesktop.DBus.GLib.Async" value=""/>
+			<arg type="s" name="file" direction="in"/>
+			<arg type="u" name="errnum" direction="out"/>
+		</method>
+		<method name="MakeDirectory">
+			<annotation name="org.freedesktop.DBus.GLib.Async" value=""/>
+			<arg type="s" name="directory" direction="in"/>
+			<arg type="u" name="permissions" direction="in"/>
+			<arg type="u" name="errnum" direction="out"/>
+		</method>
+		<method name="Open">
+			<annotation name="org.freedesktop.DBus.GLib.Async" value=""/>
+			<arg type="s" name="path" direction="in"/>
+			<arg type="u" name="flags" direction="in"/>
+			<arg type="u" name="mode" direction="in"/>
+			<arg type="h" name="handle" direction="out"/>
+			<arg type="u" name="errnum" direction="out"/>
+		</method>
+		<method name="OpenDirectory">
+			<annotation name="org.freedesktop.DBus.GLib.Async" value=""/>
+			<arg type="s" name="path" direction="in"/>
+			<arg type="u" name="flags" direction="in"/>
+			<arg type="u" name="mode" direction="in"/>
+			<arg type="h" name="handle" direction="out"/>
+			<arg type="u" name="errnum" direction="out"/>
+		</method>
+		<method name="Rename">
+			<annotation name="org.freedesktop.DBus.GLib.Async" value=""/>
+			<arg type="s" name="source" direction="in"/>
+			<arg type="s" name="destination" direction="in"/>
+			<arg type="u" name="errnum" direction="out"/>
+		</method>
+		<method name="RemoveDir">
+			<annotation name="org.freedesktop.DBus.GLib.Async" value=""/>
+			<arg type="s" name="directory" direction="in"/>
+			<arg type="u" name="errnum" direction="out"/>
+		</method>
+		<method name="CreateSymlink">
+			<annotation name="org.freedesktop.DBus.GLib.Async" value=""/>
+			<arg type="s" name="destination" direction="in"/>
+			<arg type="s" name="pointingTo" direction="in"/>
+			<arg type="u" name="errnum" direction="out"/>
+		</method>
+		<method name="UpdateTime">
+			<annotation name="org.freedesktop.DBus.GLib.Async" value=""/>
+			<arg type="s" name="file" direction="in"/>
+			<arg type="u" name="accessTime" direction="in"/>
+			<arg type="u" name="modifiedTime" direction="in"/>
+			<arg type="u" name="errnum" direction="out"/>
+		</method>
+	</interface>
+</node>

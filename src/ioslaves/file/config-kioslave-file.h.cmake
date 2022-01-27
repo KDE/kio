@@ -26,3 +26,5 @@
 
 /* Defined if system has the statx function, meaning glibc >= 2.28 */
 #cmakedefine01 HAVE_STATX
+
+#cmakedefine01 HAVE_AUTH_HELPER

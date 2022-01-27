@@ -345,16 +345,7 @@ bool FileProtocol::privilegeOperationUnitTestMode()
     return false;
 }
 
-PrivilegeOperationReturnValue FileProtocol::execWithElevatedPrivilege(ActionType, const QVariantList &, int err)
-{
-    return PrivilegeOperationReturnValue::failure(err);
-}
 PrivilegeOperationReturnValue FileProtocol::tryOpen(QFile &f, const QByteArray &, int, int, int err)
-{
-    return PrivilegeOperationReturnValue::failure(err);
-}
-
-PrivilegeOperationReturnValue FileProtocol::tryChangeFileAttr(ActionType, const QVariantList &, int err)
 {
     return PrivilegeOperationReturnValue::failure(err);
 }

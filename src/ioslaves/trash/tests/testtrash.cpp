@@ -447,30 +447,6 @@ void TestTrash::trashFileIntoOtherPartition()
     QVERIFY(found);
 }
 
-void TestTrash::trashFileOwnedByRoot()
-{
-    QUrl u(QStringLiteral("file:///etc/passwd"));
-    const QString fileId = QStringLiteral("passwd");
-
-    if (geteuid() == 0 || QFileInfo(u.toLocalFile()).isWritable()) {
-        QSKIP("Test must not be run by root.");
-    }
-
-    KIO::CopyJob *job = KIO::move(u, QUrl(QStringLiteral("trash:/")), KIO::HideProgressInfo);
-    job->setUiDelegate(nullptr); // no skip dialog, thanks
-    bool ok = job->exec();
-    QVERIFY(!ok);
-
-    QCOMPARE(job->error(), KIO::ERR_ACCESS_DENIED);
-    const QString infoPath(m_trashDir + QLatin1String("/info/") + fileId + QLatin1String(".trashinfo"));
-    QVERIFY(!QFile::exists(infoPath));
-
-    QFileInfo files(m_trashDir + QLatin1String("/files/") + fileId);
-    QVERIFY(!files.exists());
-
-    QVERIFY(QFile::exists(u.path()));
-}
-
 void TestTrash::trashSymlink(const QString &origFilePath, const QString &fileId, bool broken)
 {
     // setup

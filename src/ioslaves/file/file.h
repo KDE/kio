@@ -32,6 +32,10 @@
 #include <QLoggingCategory>
 Q_DECLARE_LOGGING_CATEGORY(KIO_FILE)
 
+#ifdef HAVE_AUTH_HELPER
+class OrgKdeKioFilemanagementInterface;
+#endif
+
 class FileProtocol : public QObject, public KIO::SlaveBase
 {
     Q_OBJECT
@@ -85,13 +89,7 @@ private:
     void fileSystemFreeSpace(const QUrl &url); // KF6 TODO: Turn into virtual method in SlaveBase
 
     bool privilegeOperationUnitTestMode();
-    PrivilegeOperationReturnValue execWithElevatedPrivilege(ActionType action, const QVariantList &args, int errcode);
     PrivilegeOperationReturnValue tryOpen(QFile &f, const QByteArray &path, int flags, int mode, int errcode);
-
-    // We want to execute chmod/chown/utime with elevated privileges (in copy & put)
-    // only during the brief period privileges are elevated. If it's not the case show
-    // a warning and continue.
-    PrivilegeOperationReturnValue tryChangeFileAttr(ActionType action, const QVariantList &args, int errcode);
 
     void redirect(const QUrl &url);
 
@@ -100,6 +98,10 @@ private:
 
 private:
     QFile *mFile;
+
+    #ifdef HAVE_AUTH_HELPER
+    OrgKdeKioFilemanagementInterface* mRootIFace;
+    #endif
 
     bool testMode = false;
     KIO::StatDetails getStatDetails();

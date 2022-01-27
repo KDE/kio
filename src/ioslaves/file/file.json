@@ -28,7 +28,8 @@
             "output": "filesystem", 
             "protocol": "file", 
             "reading": true, 
-            "writing": true
+            "writing": true,
+            "privilegeExecution": true
         }
     }
 }

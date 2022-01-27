@@ -25,6 +25,7 @@ public:
         , m_supportsWriting(false)
         , m_supportsMoving(false)
         , m_isLocal(true)
+        , m_supportsPrivilegeExecution(false)
     {
     }
     void setItems(const KFileItemList &items);
@@ -41,6 +42,7 @@ public:
     bool m_supportsWriting : 1;
     bool m_supportsMoving : 1;
     bool m_isLocal : 1;
+    bool m_supportsPrivilegeExecution : 1;
 };
 
 KFileItemListProperties::KFileItemListProperties()
@@ -78,9 +80,10 @@ void KFileItemListPropertiesPrivate::setItems(const KFileItemList &items)
         bool isLocal = false;
         const QUrl url = item.mostLocalUrl(&isLocal);
         m_isLocal = m_isLocal && isLocal;
+        m_supportsPrivilegeExecution = KProtocolManager::supportsPrivilegeExecution(url);
         m_supportsReading = m_supportsReading && KProtocolManager::supportsReading(url);
         m_supportsDeleting = m_supportsDeleting && KProtocolManager::supportsDeleting(url);
-        m_supportsWriting = m_supportsWriting && KProtocolManager::supportsWriting(url) && item.isWritable();
+        m_supportsWriting = m_supportsWriting && KProtocolManager::supportsWriting(url) && (m_supportsPrivilegeExecution || item.isWritable());
         m_supportsMoving = m_supportsMoving && KProtocolManager::supportsMoving(url);
 
         // For local files we can do better: check if we have write permission in parent directory
@@ -91,7 +94,7 @@ void KFileItemListPropertiesPrivate::setItems(const KFileItemList &items)
             if (parentDirInfo.filePath() != directory) {
                 parentDirInfo.setFile(directory);
             }
-            if (!parentDirInfo.isWritable()) {
+            if (!parentDirInfo.isWritable() && !m_supportsPrivilegeExecution) {
                 m_supportsDeleting = false;
                 m_supportsMoving = false;
             }

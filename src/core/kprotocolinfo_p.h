@@ -48,6 +48,7 @@ public:
     bool m_canRenameFromFile : 1;
     bool m_canRenameToFile : 1;
     bool m_canDeleteRecursive : 1;
+    bool m_supportsPrivilegeExecution : 1;
     QString m_defaultMimetype;
     QString m_icon;
     QString m_config;

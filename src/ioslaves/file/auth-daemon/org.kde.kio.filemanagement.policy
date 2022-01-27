@@ -1,0 +1,19 @@
+<!--
+  SPDX-FileCopyrightText: 2022 Carson Black <uhhadd@gmail.com>
+
+  SPDX-License-Identifier: LicenseRef-KDE-Accepted-GPL
+-->
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE policyconfig PUBLIC
+"-//freedesktop//DTD PolicyKit Policy Configuration 1.0//EN"
+"http://www.freedesktop.org/standards/PolicyKit/1.0/policyconfig.dtd">
+<policyconfig>
+   <action id="org.kde.kio.filemanagement.exec" >
+      <description>Manage files as root.</description>
+      <message>Privileges are required to manage files as root.</message>
+      <defaults>
+         <allow_inactive>no</allow_inactive>
+         <allow_active>auth_admin_keep</allow_active>
+      </defaults>
+   </action>
+</policyconfig>

@@ -1817,7 +1817,7 @@ KFilePermissionsPropsPlugin::KFilePermissionsPropsPlugin(KPropertiesDialog *_pro
         isMyFile = true;
     }
 
-    d->canChangePermissions = (isMyFile || IamRoot) && (!isLink);
+    d->canChangePermissions = isLocal || ((isMyFile || IamRoot) && (!isLink));
 
     // create GUI
 
