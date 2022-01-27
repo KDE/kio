@@ -1808,10 +1808,7 @@ KFilePermissionsPropsPlugin::KFilePermissionsPropsPlugin(KPropertiesDialog *_pro
         isMyFile = true;
     }
 
-    // if it's local, we could potentially raise privileges with an
-    // auth dialog. but we can't possibly know if we can until we
-    // actually attempt to do an action.
-    d->canChangePermissions = isLocal || ((isMyFile || IamRoot) && (!isLink));
+    d->canChangePermissions = (isMyFile || IamRoot) && (!isLink);
 
     // create GUI
 

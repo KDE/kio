@@ -627,18 +627,6 @@ public:
      * @since 4.1
      */
     static QString protocolForArchiveMimetype(const QString &mimeType);
-    
-    /**
-     * Returns whether the protocol can modify file system with elevated privileges.
-     *
-     * This corresponds to the "privilegeExecution=" field in the protocol description
-     * file. Valid values for this field are "true" or "false" (default).
-     *
-     * @param url the url to check
-     * @return true if protocol supports privilege execution
-     * @since 5.80
-     */
-    static bool supportsPrivilegeExecution(const QUrl &url);
 
     /*=============================== OTHERS ====================================*/
 

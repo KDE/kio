@@ -504,8 +504,14 @@ static bool createUDSEntry(const QString &filename, const QByteArray &path, UDSE
     return true;
 }
 
-QIODevice::OpenMode openModeFromFlags(int flags)
+PrivilegeOperationReturnValue FileProtocol::tryOpen(QFile &f, const QByteArray &path, int flags, int mode, int errcode)
 {
+    const QString sockPath = socketPath();
+    FdReceiver fdRecv(QFile::encodeName(sockPath).toStdString());
+    if (!fdRecv.isListening()) {
+        return PrivilegeOperationReturnValue::failure(errcode);
+    }
+
     QIODevice::OpenMode openMode;
     if (flags & O_RDONLY) {
         openMode |= QIODevice::ReadOnly;
@@ -523,19 +529,6 @@ QIODevice::OpenMode openModeFromFlags(int flags)
         openMode |= QIODevice::Append;
     }
 
-    return openMode;
-}
-
-PrivilegeOperationReturnValue FileProtocol::tryOpen(QFile &f, const QByteArray &path, int flags, int mode, int errcode)
-{
-    const QString sockPath = socketPath();
-    FdReceiver fdRecv(QFile::encodeName(sockPath).toStdString());
-    if (!fdRecv.isListening()) {
-        return PrivilegeOperationReturnValue::failure(errcode);
-    }
-
-    auto openMode = openModeFromFlags(flags);
-
     if (auto err = execWithElevatedPrivilege(OPEN, {path, flags, mode, sockPath}, errcode)) {
         return err;
     } else {
@@ -551,7 +544,7 @@ PrivilegeOperationReturnValue FileProtocol::tryChangeFileAttr(ActionType action,
 {
     KAuth::Action execAction(QStringLiteral("org.kde.kio.file.exec"));
     execAction.setHelperId(QStringLiteral("org.kde.kio.file"));
-    if (execAction.status() == KAuth::Action::AuthorizedStatus || execAction.status() == KAuth::Action::AuthRequiredStatus) {
+    if (execAction.status() == KAuth::Action::AuthorizedStatus) {
         return execWithElevatedPrivilege(action, args, errcode);
     }
     return PrivilegeOperationReturnValue::failure(errcode);
@@ -681,21 +674,6 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mode, JobF
         return;
     }
 
-    goto notAuth;
-
-auth: {
-    auto err = execWithElevatedPrivilege(COPY, {srcUrl, destUrl}, errno);
-    if (err) {
-        if (!err.wasCanceled()) {
-            error(KIO::ERR_UNKNOWN, QString());
-        }
-    } else {
-        finished();
-    }
-    return;
-}
-notAuth:
-
     qCDebug(KIO_FILE) << "copy()" << srcUrl << "to" << destUrl << "mode=" << _mode;
 
     const QString src = srcUrl.toLocalFile();
@@ -763,7 +741,12 @@ notAuth:
 
     QFile srcFile(src);
     if (!srcFile.open(QIODevice::ReadOnly)) {
-        goto auth;
+        if (auto err = tryOpen(srcFile, _src, O_RDONLY, S_IRUSR, errno)) {
+            if (!err.wasCanceled()) {
+                error(KIO::ERR_CANNOT_OPEN_FOR_READING, src);
+            }
+            return;
+        }
     }
 
 #if HAVE_FADVISE
@@ -772,7 +755,17 @@ notAuth:
 
     QFile destFile(dest);
     if (!destFile.open(QIODevice::Truncate | QIODevice::WriteOnly)) {
-        goto auth;
+        if (auto err = tryOpen(destFile, _dest, O_WRONLY | O_TRUNC | O_CREAT, S_IRUSR | S_IWUSR, errno)) {
+            if (!err.wasCanceled()) {
+                // qDebug() << "###### COULD NOT WRITE " << dest;
+                if (err == EACCES) {
+                    error(KIO::ERR_WRITE_ACCESS_DENIED, dest);
+                } else {
+                    error(KIO::ERR_CANNOT_OPEN_FOR_WRITING, dest);
+                }
+            }
+            return;
+        }
     }
 
     // _mode == -1 means don't touch dest permissions, leave it with the system default ones
@@ -1465,38 +1458,15 @@ void FileProtocol::stat(const QUrl &url)
     finished();
 }
 
-static int lock()
-{
-    auto fid = open("/tmp/kio-kauth-filehelper-long-randomish-name", O_RDWR | O_CREAT, 0644);
-    if (fid < 0) {
-        return -1;
-    }
-
-    if (lockf(fid, F_LOCK, 0) == -1) {
-        close(fid);
-        return -1;
-    }
-
-    return fid;
-}
-
-static bool unlock(int fid)
-{
-    if (lockf(fid, F_ULOCK, 0) == -1) {
-        return false;
-    }
-
-    if (close(fid) < 0) {
-        return false;
-    }
-
-    return true;
-}
-
 PrivilegeOperationReturnValue FileProtocol::execWithElevatedPrivilege(ActionType action, const QVariantList &args, int errcode)
 {
     if (privilegeOperationUnitTestMode()) {
         return PrivilegeOperationReturnValue::success();
+    }
+
+    // temporarily disable privilege execution
+    if (true) {
+        return PrivilegeOperationReturnValue::failure(errcode);
     }
 
     if (!(errcode == EACCES || errcode == EPERM)) {
@@ -1504,21 +1474,23 @@ PrivilegeOperationReturnValue FileProtocol::execWithElevatedPrivilege(ActionType
     }
 
     const QString operationDetails = actionDetails(action, args);
+    KIO::PrivilegeOperationStatus opStatus = requestPrivilegeOperation(operationDetails);
+    if (opStatus != KIO::OperationAllowed) {
+        if (opStatus == KIO::OperationCanceled) {
+            error(KIO::ERR_USER_CANCELED, QString());
+            return PrivilegeOperationReturnValue::canceled();
+        }
+        return PrivilegeOperationReturnValue::failure(errcode);
+    }
 
     const QUrl targetUrl = QUrl::fromLocalFile(args.first().toString()); // target is always the first item.
     const bool useParent = action != CHOWN && action != CHMOD && action != UTIME;
     const QString targetPath = useParent ? targetUrl.adjusted(QUrl::RemoveFilename).toLocalFile() : targetUrl.toLocalFile();
-
     bool userIsOwner = QFileInfo(targetPath).ownerId() == getuid();
-
-    if (args.length() > 1) {
-        const QUrl otherURL = QUrl::fromLocalFile(args[1].toString()); // target is always the first item.
-        const bool useParent = action != CHOWN && action != CHMOD && action != UTIME;
-        const QString otherPath = useParent ? otherURL.adjusted(QUrl::RemoveFilename).toLocalFile() : otherURL.toLocalFile();
-
-        userIsOwner = userIsOwner && QFileInfo(otherPath).ownerId() == getuid();
+    if (action == RENAME) { // for rename check src and dest owner
+        QString dest = QUrl(args[1].toString()).toLocalFile();
+        userIsOwner = userIsOwner && QFileInfo(dest).ownerId() == getuid();
     }
-
     if (userIsOwner) {
         error(KIO::ERR_PRIVILEGE_NOT_REQUIRED, targetPath);
         return PrivilegeOperationReturnValue::canceled();
@@ -1539,39 +1511,12 @@ PrivilegeOperationReturnValue FileProtocol::execWithElevatedPrivilege(ActionType
     argv.insert(QStringLiteral("arguments"), helperArgs);
     execAction.setArguments(argv);
 
-    const auto actionHelper = [](ActionType action) -> QString {
-        switch (action) {
-        case ActionType::CHMOD:   return i18n("Authentication is required to change this file's permissions.");
-        case ActionType::CHOWN:   return i18n("Authentication is required to change who owns this file.");
-        case ActionType::DEL:     return i18n("Authentication is required to delete this file.");
-        case ActionType::MKDIR:   return i18n("Authentication is required to create a folder.");
-        case ActionType::OPEN:    return i18n("Authentication is required to open this file.");
-        case ActionType::OPENDIR: return i18n("Authentication is required to open this folder.");
-        case ActionType::RENAME:  return i18n("Authentication is required to rename this file.");
-        case ActionType::RMDIR:   return i18n("Authentication is required to delete this folder.");
-        case ActionType::SYMLINK: return i18n("Authentication is required to create a symlink.");
-        case ActionType::UTIME:   return i18n("Authentication is required to modify this file's last updated time.");
-        case ActionType::COPY:    return i18n("Authentication is required to copy this item.");
-        case ActionType::UNKNOWN: return i18n("Authentication is required to perform this action.");
-        }
-        Q_UNREACHABLE();
-        return QString();
-    };
-
-    KAuth::Action::DetailsMap details;
-    details.insert(KAuth::Action::AuthDetail::DetailMessage, actionHelper(action));
-    execAction.setDetailsV2(details);
-
-    auto lid = lock();
-
     auto reply = execAction.execute();
     if (reply->exec()) {
         addTemporaryAuthorization(actionId);
-        unlock(lid);
         return PrivilegeOperationReturnValue::success();
     }
 
-    unlock(lid);
     return PrivilegeOperationReturnValue::failure(KIO::ERR_ACCESS_DENIED);
 }
 
