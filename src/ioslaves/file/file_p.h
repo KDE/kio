@@ -21,6 +21,7 @@ enum ActionType {
     RMDIR,
     SYMLINK,
     UTIME,
+    COPY,
 };
 
 /**
