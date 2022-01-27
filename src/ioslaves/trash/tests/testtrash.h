@@ -39,6 +39,7 @@ private Q_SLOTS:
     void testTrashNotEmpty();
     void trashFileFromOther();
     void trashFileIntoOtherPartition();
+    void trashFileOwnedByRoot();
     void trashSymlinkFromHome();
     void trashSymlinkFromOther();
     void trashBrokenSymlinkFromHome();
