@@ -238,6 +238,7 @@ ActionReply FileHelper::exec(const QVariantMap &args)
         }
 
         case UTIME: {
+            qWarning() << "utime";
             timespec times[2];
             time_t actime = arg2.toULongLong();
             time_t modtime = arg3.toULongLong();

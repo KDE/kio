@@ -681,16 +681,20 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mode, JobF
         return;
     }
 
-    auto attemptWithAuthentication = [=]() {
-        auto err = execWithElevatedPrivilege(COPY, {srcUrl, destUrl}, errno);
-        if (err) {
-            if (!err.wasCanceled()) {
-                error(KIO::ERR_UNKNOWN, QString());
-            }
-        } else {
-            finished();
+    goto notAuth;
+
+auth: {
+    auto err = execWithElevatedPrivilege(COPY, {srcUrl, destUrl}, errno);
+    if (err) {
+        if (!err.wasCanceled()) {
+            error(KIO::ERR_UNKNOWN, QString());
         }
-    };
+    } else {
+        finished();
+    }
+    return;
+}
+notAuth:
 
     qCDebug(KIO_FILE) << "copy()" << srcUrl << "to" << destUrl << "mode=" << _mode;
 
@@ -759,8 +763,7 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mode, JobF
 
     QFile srcFile(src);
     if (!srcFile.open(QIODevice::ReadOnly)) {
-        attemptWithAuthentication();
-        return;
+        goto auth;
     }
 
 #if HAVE_FADVISE
@@ -769,8 +772,7 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mode, JobF
 
     QFile destFile(dest);
     if (!destFile.open(QIODevice::Truncate | QIODevice::WriteOnly)) {
-        attemptWithAuthentication();
-        return;
+        goto auth;
     }
 
     // _mode == -1 means don't touch dest permissions, leave it with the system default ones
