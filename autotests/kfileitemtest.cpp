@@ -728,6 +728,21 @@ void KFileItemTest::testIconNameForStandardPath()
 
 #ifndef Q_OS_WIN // user/group/other write permissions are not handled on windows
 
+void KFileItemTest::testIconForMountPoint()
+{
+#ifdef Q_OS_FREEBSD
+    QSKIP("The test is not adapted for FreeBSD yet");
+#endif
+    const QString iconName = QStringLiteral("drive-harddisk-root");
+    const QUrl url = QUrl::fromLocalFile("/");
+
+    KIO::UDSEntry entry;
+    entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
+    KFileItem fileItem(entry, url);
+
+    QCOMPARE(fileItem.iconName(), iconName);
+}
+
 void KFileItemTest::testIsReadable_data()
 {
     QTest::addColumn<int>("mode");

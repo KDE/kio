@@ -37,6 +37,10 @@ private Q_SLOTS:
     void testIconNameForStandardPath();
 
 #ifndef Q_OS_WIN
+    /**
+     * Test the icon from Solid is used for a mount point.
+     */
+    void testIconForMountPoint();
     void testIsReadable_data();
     void testIsReadable();
 #endif
