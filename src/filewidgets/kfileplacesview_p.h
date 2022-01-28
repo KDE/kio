@@ -62,6 +62,7 @@ public:
     void startDrag();
 
     int sectionHeaderHeight(const QModelIndex &index) const;
+    bool indexIsSectionHeader(const QModelIndex &index) const;
     int actionIconSize() const;
 
     void clearFreeSpaceInfo();
@@ -72,7 +73,6 @@ protected:
 private:
     QString groupNameFromIndex(const QModelIndex &index) const;
     QModelIndex previousVisibleIndex(const QModelIndex &index) const;
-    bool indexIsSectionHeader(const QModelIndex &index) const;
     void drawSectionHeader(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const;
 
     QColor textColor(const QStyleOption &option) const;

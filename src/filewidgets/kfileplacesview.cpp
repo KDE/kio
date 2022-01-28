@@ -1372,7 +1372,13 @@ void KFilePlacesView::paintEvent(QPaintEvent *event)
         QPainter painter(viewport());
 
         const QModelIndex index = indexAt(d->m_dropRect.topLeft());
-        const QRect itemRect = visualRect(index);
+        QRect itemRect = visualRect(index);
+        // Take into account section headers
+        if (d->m_delegate->indexIsSectionHeader(index)) {
+            const int headerHeight = d->m_delegate->sectionHeaderHeight(index);
+            itemRect.translate(0, headerHeight);
+            itemRect.setHeight(itemRect.height() - headerHeight);
+        }
         const bool drawInsertIndicator = !d->m_dropOnPlace || d->m_dropRect.height() <= d->insertIndicatorHeight(itemRect.height());
 
         if (drawInsertIndicator) {
@@ -1403,6 +1409,7 @@ void KFilePlacesView::paintEvent(QPaintEvent *event)
             // draw indicator for copying/moving/linking to items
             QStyleOptionViewItem opt;
             opt.initFrom(this);
+            opt.index = index;
             opt.rect = itemRect;
             opt.state = QStyle::State_Enabled | QStyle::State_MouseOver;
             style()->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, &painter, this);
