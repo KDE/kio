@@ -486,10 +486,6 @@ bool KFilePlacesViewDelegate::indexIsSectionHeader(const QModelIndex &index) con
         return false;
     }
 
-    if (index.row() == 0) {
-        return true;
-    }
-
     const auto groupName = groupNameFromIndex(index);
     const auto previousGroupName = groupNameFromIndex(previousVisibleIndex(index));
     return groupName != previousGroupName;
@@ -1008,7 +1004,9 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
             hide->setEnabled(!placesModel->isGroupHidden(placesModel->groupType(index)));
         }
 
-        hideSection = new QAction(QIcon::fromTheme(QStringLiteral("hint")), i18nc("@item:inmenu", "Hide Section '%1'", groupName), &menu);
+        hideSection = new QAction(QIcon::fromTheme(QStringLiteral("hint")),
+                                  !groupName.isEmpty() ? i18nc("@item:inmenu", "Hide Section '%1'", groupName) : i18nc("@item:inmenu", "Hide Section"),
+                                  &menu);
         hideSection->setCheckable(true);
         hideSection->setChecked(placesModel->isGroupHidden(type));
     }
