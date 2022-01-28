@@ -17,6 +17,7 @@
 #include <QKeyEvent>
 #include <QMenu>
 #include <QMetaMethod>
+#include <QMimeData>
 #include <QPainter>
 #include <QPointer>
 #include <QScrollBar>
@@ -1260,6 +1261,14 @@ void KFilePlacesView::dropEvent(QDropEvent *event)
             KFilePlacesModel *placesModel = qobject_cast<KFilePlacesModel *>(model());
             Q_ASSERT(placesModel != nullptr);
             Q_EMIT urlsDropped(placesModel->url(index), event, this);
+            // HACK Qt eventually calls into QAIM::dropMimeData when a drop event isn't
+            // accepted by the view. However, QListView::dropEvent calls ignore() on our
+            // event afterwards when
+            // "icon view didn't move the data, and moveRows not implemented, so fall back to default"
+            // overriding the acceptProposedAction() below.
+            // This special mime type tells KFilePlacesModel to ignore it.
+            auto *mime = const_cast<QMimeData *>(event->mimeData());
+            mime->setData(QStringLiteral("application/x-kfileplacesmodel-ignore"), QByteArrayLiteral("1"));
             event->acceptProposedAction();
         }
     }

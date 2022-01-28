@@ -1063,6 +1063,10 @@ bool KFilePlacesModel::dropMimeData(const QMimeData *data, Qt::DropAction action
         // let's do it in the views to get the good old drop menu
     }
 
+    if (data->hasFormat(QStringLiteral("application/x-kfileplacesmodel-ignore"))) {
+        return false;
+    }
+
     if (data->hasFormat(_k_internalMimetype(this))) {
         // The operation is an internal move
         QByteArray itemData = data->data(_k_internalMimetype(this));
