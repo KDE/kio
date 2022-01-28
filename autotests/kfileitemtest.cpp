@@ -516,10 +516,12 @@ void KFileItemTest::testListProperties_data()
     /* clang-format off */
     QTest::newRow("one file") << "f" << true << true << true << false << true << "text/plain" << "text";
     QTest::newRow("one dir") << "d" << true << true << true << true << false << "inode/directory" << "inode";
-    QTest::newRow("root dir") << "/" << true << false << true << true << false << "inode/directory" << "inode";
+    if (getuid() != 0) {
+        QTest::newRow("root dir") << "/" << true << false << true << true << false << "inode/directory" << "inode";
+        QTest::newRow("dir+root dir") << "d/" << true << false << true << true << false << "inode/directory" << "inode";
+    }
     QTest::newRow("file+dir") << "fd" << true << true << true << false << false << "" << "";
     QTest::newRow("two dirs") << "dd" << true << true << true << true << false << "inode/directory" << "inode";
-    QTest::newRow("dir+root dir") << "d/" << true << false << true << true << false << "inode/directory" << "inode";
     QTest::newRow("two (text+html) files") << "ff" << true << true << true << false << true << "" << "text";
     QTest::newRow("three (text+html+empty) files") << "fff" << true << true << true << false << true << "" << "";
     QTest::newRow("http url") << "h" << true << true /*says kio_http...*/ << false << false << true << "application/octet-stream" << "application";
@@ -739,6 +741,10 @@ void KFileItemTest::testIsReadable_data()
 
 void KFileItemTest::testIsReadable()
 {
+    if (getuid() == 0) {
+        QSKIP("Test must not be run by root, or the file will always be readable.");
+    }
+
     QFETCH(int, mode);
     QFETCH(bool, readable);
 
@@ -782,6 +788,10 @@ private:
 
 void KFileItemTest::testNonWritableDirectory()
 {
+    if (getuid() == 0) {
+        QSKIP("Test must not be run by root, or the file will always be movable.");
+    }
+
     // Given a directory with a file in it
     QTemporaryDir dir;
     QVERIFY2(dir.isValid(), qPrintable(dir.errorString()));
