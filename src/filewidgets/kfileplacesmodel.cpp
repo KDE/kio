@@ -1123,31 +1123,22 @@ bool KFilePlacesModel::dropMimeData(const QMimeData *data, Qt::DropAction action
         KBookmarkGroup group = d->bookmarkManager->root();
 
         for (const QUrl &url : urls) {
-            // TODO: use KIO::stat in order to get the UDS_DISPLAY_NAME too
-            KIO::MimetypeJob *job = KIO::mimetype(url);
+            KIO::StatJob *job = KIO::statDetails(url, KIO::StatJob::SourceSide, KIO::StatBasic);
 
-            QString mimeString;
             if (!job->exec()) {
-                mimeString = QStringLiteral("unknown");
-            } else {
-                mimeString = job->mimetype();
-            }
-
-            QMimeType mimetype = db.mimeTypeForName(mimeString);
-
-            if (!mimetype.isValid()) {
-                qWarning() << "URL not added to Places as MIME type could not be determined!";
+                Q_EMIT errorMessage(i18nc("Placeholder is error message", "Could not add to the Places panel: %1", job->errorString()));
                 continue;
             }
 
-            if (!mimetype.inherits(QStringLiteral("inode/directory"))) {
-                // Only directories are allowed
+            KFileItem item(job->statResult(), url, true /*delayed mime types*/);
+
+            if (!item.isDir()) {
+                Q_EMIT errorMessage(i18n("Only folders can be added to the Places panel."));
                 continue;
             }
 
-            KFileItem item(url, mimetype.name(), S_IFDIR);
+            KBookmark bookmark = KFilePlacesItem::createBookmark(d->bookmarkManager, item.text(), url, KIO::iconNameForUrl(url));
 
-            KBookmark bookmark = KFilePlacesItem::createBookmark(d->bookmarkManager, url.fileName(), url, item.iconName());
             group.moveBookmark(bookmark, afterBookmark);
             afterBookmark = bookmark;
         }
