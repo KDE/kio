@@ -183,14 +183,10 @@ void KFilePlacesViewDelegate::paint(QPainter *painter, const QStyleOptionViewIte
         }
     }
 
-    if (opt.state & QStyle::State_Selected) {
-        QPalette::ColorGroup cg = QPalette::Active;
-        if (!(opt.state & QStyle::State_Enabled)) {
-            cg = QPalette::Disabled;
-        } else if (!(opt.state & QStyle::State_Active)) {
-            cg = QPalette::Inactive;
-        }
-        painter->setPen(opt.palette.color(cg, QPalette::HighlightedText));
+    if (opt.state & QStyle::State_Active && opt.state & QStyle::State_Selected) {
+        painter->setPen(opt.palette.highlightedText().color());
+    } else {
+        painter->setPen(opt.palette.text().color());
     }
 
     bool drawCapacityBar = false;
