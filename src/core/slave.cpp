@@ -34,7 +34,10 @@
 #include <kprotocolinfo.h>
 
 #include "kiocoredebug.h"
+#include "slavebase.h"
 #include "slaveinterface_p.h"
+#include "workerfactory.h"
+#include "workerthread_p.h"
 
 using namespace KIO;
 
@@ -80,6 +83,7 @@ public:
         delete slaveconnserver;
     }
 
+    WorkerThread *m_workerThread = nullptr; // only set for in-process workers
     QString m_protocol;
     QString m_slaveProtocol;
     QString m_host;
@@ -87,7 +91,7 @@ public:
     QString m_passwd;
     KIO::ConnectionServer *slaveconnserver;
     KIO::SimpleJob *m_job;
-    qint64 m_pid;
+    qint64 m_pid; // only set for out-of-process workers
     quint16 m_port;
     bool contacted;
     bool dead;
@@ -243,6 +247,12 @@ void Slave::aboutToDelete()
     this->disconnect();
 }
 
+void Slave::setWorkerThread(WorkerThread *thread)
+{
+    Q_D(Slave);
+    d->m_workerThread = thread;
+}
+
 int Slave::idleTime()
 {
     Q_D(Slave);
@@ -354,11 +364,13 @@ void Slave::kill()
 {
     Q_D(Slave);
     d->dead = true; // OO can be such simple.
-    // qDebug() << "killing slave pid" << d->m_pid
-    //         << "(" << d->m_protocol + QLatin1String("://") + d->m_host << ")";
     if (d->m_pid) {
+        qCDebug(KIO_CORE) << "killing worker process pid" << d->m_pid << "(" << d->m_protocol + QLatin1String("://") + d->m_host << ")";
         KIOPrivate::sendTerminateSignal(d->m_pid);
         d->m_pid = 0;
+    } else if (d->m_workerThread) {
+        qCDebug(KIO_CORE) << "aborting worker thread for " << d->m_protocol + QLatin1String("://") + d->m_host;
+        d->m_workerThread->abort();
     }
     deref();
 }
@@ -394,6 +406,7 @@ void Slave::setConfig(const MetaData &config)
     d->connection->send(CMD_CONFIG, data);
 }
 
+// TODO KF6: return std::unique_ptr
 Slave *Slave::createSlave(const QString &protocol, const QUrl &url, int &error, QString &error_text)
 {
     Q_UNUSED(url)
@@ -402,6 +415,25 @@ Slave *Slave::createSlave(const QString &protocol, const QUrl &url, int &error, 
     if (protocol == QLatin1String("data")) {
         return new DataProtocol();
     }
+
+    const QString _name = KProtocolInfo::exec(protocol);
+    if (_name.isEmpty()) {
+        error_text = i18n("Unknown protocol '%1'.", protocol);
+        error = KIO::ERR_CANNOT_CREATE_SLAVE;
+        return nullptr;
+    }
+
+    // find the kioslave using QPluginLoader; kioslave would do this
+    // anyway, but if it doesn't exist, we want to be able to return
+    // a useful error message immediately
+    QPluginLoader loader(_name);
+    const QString lib_path = loader.fileName();
+    if (lib_path.isEmpty()) {
+        error_text = i18n("Can not find io-slave for protocol '%1'.", protocol);
+        error = KIO::ERR_CANNOT_CREATE_SLAVE;
+        return nullptr;
+    }
+
     Slave *slave = new Slave(protocol);
     QUrl slaveAddress = slave->d_func()->slaveconnserver->address();
     if (slaveAddress.isEmpty()) {
@@ -411,23 +443,19 @@ Slave *Slave::createSlave(const QString &protocol, const QUrl &url, int &error, 
         return nullptr;
     }
 
-    const QString _name = KProtocolInfo::exec(protocol);
-    if (_name.isEmpty()) {
-        error_text = i18n("Unknown protocol '%1'.", protocol);
-        error = KIO::ERR_CANNOT_CREATE_SLAVE;
-        delete slave;
-        return nullptr;
-    }
-    // find the kioslave using QPluginLoader; kioslave would do this
-    // anyway, but if it doesn't exist, we want to be able to return
-    // a useful error message immediately
-    QPluginLoader loader(_name);
-    const QString lib_path = loader.fileName();
-    if (lib_path.isEmpty()) {
-        error_text = i18n("Can not find io-slave for protocol '%1'.", protocol);
-        error = KIO::ERR_CANNOT_CREATE_SLAVE;
-        delete slave;
-        return nullptr;
+    if (protocol == QLatin1String("file")) {
+        // TODO: this is just a test for now, using a thread for kio_file
+        // See however https://phabricator.kde.org/T12214 for discussion on the pitfalls of doing that
+        // Maybe we want to only enable this on Android....
+        auto *factory = qobject_cast<WorkerFactory *>(loader.instance());
+        if (factory) {
+            auto *thread = new WorkerThread(factory, slaveAddress.toString().toLocal8Bit());
+            thread->start();
+            slave->setWorkerThread(thread);
+            return slave;
+        } else {
+            qCWarning(KIO_CORE) << lib_path << "doesn't implement WorkerFactory?";
+        }
     }
 
     const QStringList args = QStringList{lib_path, protocol, QString(), slaveAddress.toString()};

@@ -56,7 +56,7 @@ public:
      * @internal
      * Terminate the slave by calling the destructor and then ::exit()
      */
-    Q_NORETURN void exit();
+    void exit();
 
     /**
      * @internal
@@ -1056,11 +1056,15 @@ private:
         return QString::fromLatin1(mProtocol);
     }
 
+    void setRunInThread(bool b);
+
     // This helps catching missing tr()/i18n() calls in error().
     void error(int _errid, const QByteArray &_text);
     void send(int cmd, const QByteArray &arr = QByteArray());
+
     std::unique_ptr<SlaveBasePrivate> const d;
     friend class SlaveBasePrivate;
+    friend class WorkerThread;
 };
 
 /**

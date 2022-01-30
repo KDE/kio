@@ -112,9 +112,10 @@ public:
     bool resume : 1;
     bool needSendCanResume : 1;
     bool onHold : 1;
-    bool wasKilled : 1;
     bool inOpenLoop : 1;
-    bool exit_loop : 1;
+    std::atomic<bool> wasKilled;
+    std::atomic<bool> exit_loop;
+    std::atomic<bool> runInThread;
     MetaData configData;
     KConfig *config = nullptr;
     KConfigGroup *configGroup = nullptr;
@@ -287,14 +288,12 @@ SlaveBase::SlaveBase(const QByteArray &protocol, const QByteArray &pool_socket, 
     d->needSendCanResume = false;
     d->mapConfig = QMap<QString, QVariant>();
     d->onHold = false;
-    d->wasKilled = false;
     //    d->processed_size = 0;
     d->totalSize = 0;
     connectSlave(QFile::decodeName(app_socket));
 
     d->remotefile = nullptr;
     d->inOpenLoop = false;
-    d->exit_loop = false;
 }
 
 SlaveBase::~SlaveBase()
@@ -728,14 +727,18 @@ void SlaveBase::mimeType(const QString &_type)
     mOutgoingMetaData.clear();
 }
 
-void SlaveBase::exit()
+void SlaveBase::exit() // possibly called from another thread, only use atomics in here
 {
     d->exit_loop = true;
-    // Using ::exit() here is too much (crashes in qdbus's qglobalstatic object),
-    // so let's cleanly exit dispatchLoop() instead.
-    // Update: we do need to call exit(), otherwise a long download (get()) would
-    // keep going until it ends, even though the application exited.
-    ::exit(255);
+    if (d->runInThread) {
+        d->wasKilled = true;
+    } else {
+        // Using ::exit() here is too much (crashes in qdbus's qglobalstatic object),
+        // so let's cleanly exit dispatchLoop() instead.
+        // Update: we do need to call exit(), otherwise a long download (get()) would
+        // keep going until it ends, even though the application exited.
+        ::exit(255);
+    }
 }
 
 void SlaveBase::warning(const QString &_msg)
@@ -1557,6 +1560,11 @@ void SlaveBase::virtual_hook(int id, void *data)
         break;
     }
     }
+}
+
+void SlaveBase::setRunInThread(bool b)
+{
+    d->runInThread = b;
 }
 
 void SlaveBase::lookupHost(const QString &host)

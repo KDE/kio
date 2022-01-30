@@ -90,9 +90,10 @@ target_sources(KF5KIOCore PRIVATE
   kcoredirlister.cpp
   faviconscache.cpp
   untrustedprogramhandlerinterface.cpp
-
   kioglobal_p.cpp
   batchrenamejob.cpp
+  workerfactory.cpp
+  workerthread.cpp
 )
 
 if (NOT ANDROID)

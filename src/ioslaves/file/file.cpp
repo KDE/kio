@@ -50,14 +50,19 @@
 
 #include <ioslave_defaults.h>
 #include <kdirnotify.h>
+#include <workerfactory.h>
 
 Q_LOGGING_CATEGORY(KIO_FILE, "kf.kio.slaves.file")
 
-// Pseudo plugin class to embed meta data
-class KIOPluginForMetaData : public QObject
+class KIOPluginFactory : public KIO::WorkerFactory
 {
     Q_OBJECT
     Q_PLUGIN_METADATA(IID "org.kde.kio.slave.file" FILE "file.json")
+public:
+    std::unique_ptr<KIO::SlaveBase> createWorker(const QByteArray &pool, const QByteArray &app) override
+    {
+        return std::make_unique<FileProtocol>(pool, app);
+    }
 };
 
 using namespace KIO;

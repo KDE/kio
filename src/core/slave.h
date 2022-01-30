@@ -16,6 +16,8 @@
 
 namespace KIO
 {
+
+class WorkerThread;
 class SlavePrivate;
 class SlaveKeeper;
 class SimpleJob;
@@ -27,10 +29,6 @@ class ProtoQueue;
 class SimpleJobPrivate;
 class UserNotificationHandler;
 
-// Attention developers: If you change the implementation of KIO::Slave,
-// do *not* use connection() or slaveconn but the respective KIO::Slave
-// accessor methods. Otherwise classes derived from Slave might break. (LS)
-//
 // Do not use this class directly, outside of KIO. Only use the Slave pointer
 // that is returned by the scheduler for passing it around.
 //
@@ -223,6 +221,8 @@ private:
     void ref();
     void deref();
     void aboutToDelete();
+
+    void setWorkerThread(WorkerThread *thread);
 
 public Q_SLOTS: // TODO KF6: make all three slots private
     void accept();
