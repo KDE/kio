@@ -225,13 +225,11 @@ public:
 
 }
 
-static SlaveBase *globalSlave;
-
 static volatile bool slaveWriteError = false;
 
-static const char *s_protocol;
-
 #ifdef Q_OS_UNIX
+static SlaveBase *globalSlave;
+
 extern "C" {
 static void genericsig_handler(int sigNumber)
 {
@@ -259,7 +257,6 @@ SlaveBase::SlaveBase(const QByteArray &protocol, const QByteArray &pool_socket, 
 {
     Q_ASSERT(!app_socket.isEmpty());
     d->poolSocket = QFile::decodeName(pool_socket);
-    s_protocol = protocol.data();
 
     KCrash::initialize();
 
@@ -273,9 +270,9 @@ SlaveBase::SlaveBase(const QByteArray &protocol, const QByteArray &pool_socket, 
     ::signal(SIGINT, &genericsig_handler);
     ::signal(SIGQUIT, &genericsig_handler);
     ::signal(SIGTERM, &genericsig_handler);
-#endif
 
     globalSlave = this;
+#endif
 
     d->isConnectedToApp = true;
 
@@ -300,7 +297,6 @@ SlaveBase::~SlaveBase()
     delete d->configGroup;
     delete d->config;
     delete d->remotefile;
-    s_protocol = "";
 }
 
 void SlaveBase::dispatchLoop()
