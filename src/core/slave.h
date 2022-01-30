@@ -10,8 +10,6 @@
 #ifndef KIO_SLAVE_H
 #define KIO_SLAVE_H
 
-#define KIO_SLAVE_EXPORT KIOCORE_EXPORT
-
 #include "kio/slaveinterface.h"
 #include <QDateTime>
 #include <QObject>
@@ -38,7 +36,7 @@ class UserNotificationHandler;
 //
 // KF6 TODO: remove export macro, nothing uses this class outside kio anymore
 // (and rename this file to slave_p.h, and don't install it anymore)
-class KIO_SLAVE_EXPORT Slave : public KIO::SlaveInterface
+class KIOCORE_EXPORT Slave : public KIO::SlaveInterface
 {
     Q_OBJECT
 public:
@@ -239,7 +237,5 @@ private:
 };
 
 }
-
-#undef KIO_SLAVE_EXPORT
 
 #endif
