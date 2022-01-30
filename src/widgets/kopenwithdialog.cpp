@@ -391,7 +391,12 @@ bool QTreeViewProxyFilter::filterAcceptsRow(int sourceRow, const QModelIndex &pa
     }
 
     // Match the regexp only on leaf nodes
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     if (!sourceModel()->hasChildren(index) && index.data().toString().contains(filterRegularExpression())) {
+#else
+    // Do not port this to filterRegularExpression in Qt5. setFilterFixedString doesn't set filterRegularExpression() in Qt5
+    if (!sourceModel()->hasChildren(index) && index.data().toString().contains(filterRegExp())) {
+#endif
         return true;
     }
 
