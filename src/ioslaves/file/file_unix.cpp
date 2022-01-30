@@ -1070,19 +1070,7 @@ void FileProtocol::listDir(const QUrl &url)
         return;
     }
 
-    /* set the current dir to the path to speed up
-       in not having to pass an absolute path.
-       We restore the path later to get out of the
-       path - the kernel wouldn't unmount or delete
-       directories we keep as active directory. And
-       as the slave runs in the background, it's hard
-       to see for the user what the problem would be */
-    const QString pathBuffer(QDir::currentPath());
-    if (!QDir::setCurrent(path)) {
-        closedir(dp);
-        error(ERR_CANNOT_ENTER_DIRECTORY, path);
-        return;
-    }
+    const QByteArray encodedBasePath = _path + '/';
 
     const KIO::StatDetails details = getStatDetails();
     // qDebug() << "========= LIST " << url << "details=" << details << " =========";
@@ -1134,7 +1122,7 @@ void FileProtocol::listDir(const QUrl &url)
             }
             fullPath += filename;
 
-            if (createUDSEntry(filename, QByteArray(ep->d_name), entry, details, fullPath)) {
+            if (createUDSEntry(filename, encodedBasePath + QByteArray(ep->d_name), entry, details, fullPath)) {
 #if HAVE_SYS_XATTR_H
                 if (isNtfsHidden(filename)) {
                     bool ntfsHidden = true;
@@ -1159,9 +1147,6 @@ void FileProtocol::listDir(const QUrl &url)
     }
 
     closedir(dp);
-
-    // Restore the path
-    QDir::setCurrent(pathBuffer);
 
     finished();
 }
