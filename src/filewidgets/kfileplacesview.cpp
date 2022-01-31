@@ -489,7 +489,7 @@ void KFilePlacesViewDelegate::drawSectionHeader(QPainter *painter, const QStyleO
     QColor penColor = mixedColor(c1, c2, 60);
 
     painter->setPen(penColor);
-    painter->drawText(textRect, Qt::AlignLeft | Qt::AlignBottom, category);
+    painter->drawText(textRect, Qt::AlignLeft | Qt::AlignBottom, option.fontMetrics.elidedText(category, Qt::ElideRight, textRect.width()));
     painter->restore();
 }
 
