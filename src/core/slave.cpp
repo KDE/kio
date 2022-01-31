@@ -22,6 +22,7 @@
 #include <QStandardPaths>
 #include <QTimer>
 
+#include <KLibexec>
 #include <KLocalizedString>
 
 #include "commands_p.h"
@@ -431,14 +432,8 @@ Slave *Slave::createSlave(const QString &protocol, const QUrl &url, int &error, 
     const QStringList args = QStringList{lib_path, protocol, QString(), slaveAddress.toString()};
     // qDebug() << "kioslave" << ", " << lib_path << ", " << protocol << ", " << QString() << ", " << slaveAddress;
 
-    // look where libexec path is (can be set in qt.conf)
-    const QString qlibexec = QLibraryInfo::location(QLibraryInfo::LibraryExecutablesPath);
-    // on !win32 we use a kf5 suffix
-    const QString qlibexecKF5 = QDir(qlibexec).filePath(QStringLiteral("kf5"));
-
     // search paths
-    const QStringList searchPaths = QStringList() << QCoreApplication::applicationDirPath() // then look where our application binary is located
-                                                  << qlibexec << qlibexecKF5
+    const QStringList searchPaths = QStringList() << KLibexec::kdeFrameworksPaths(QStringLiteral("libexec/kf5"))
                                                   << QFile::decodeName(KDE_INSTALL_FULL_LIBEXECDIR_KF); // look at our installation location
     QString kioslaveExecutable = QStandardPaths::findExecutable(QStringLiteral("kioslave5"), searchPaths);
     if (kioslaveExecutable.isEmpty()) {
