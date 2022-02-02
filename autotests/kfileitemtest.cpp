@@ -24,6 +24,7 @@ QTEST_MAIN(KFileItemTest)
 
 void KFileItemTest::initTestCase()
 {
+    QStandardPaths::setTestModeEnabled(true);
 }
 
 void KFileItemTest::testPermissionsString()
