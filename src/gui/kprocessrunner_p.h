@@ -76,7 +76,11 @@ public:
                                        const QProcessEnvironment &environment);
 
     /**
-     * Run an executable with arguments (no shell involved)
+     * Run an executable with arguments (without invoking a shell, by starting a new process).
+     *
+     * @note: Starting from 5.92, if an actual executable named @p executable cannot be found
+     * in PATH, this will return a nullptr.
+     *
      * @param executable the name of (or full path to) the executable, mandatory
      * @param args the arguments to pass to the executable
      * @param desktopName name of the desktop file, if known.
