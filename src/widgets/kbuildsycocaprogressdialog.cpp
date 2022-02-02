@@ -28,13 +28,6 @@ void KBuildSycocaProgressDialog::rebuildKSycoca(QWidget *parent)
 {
     KBuildSycocaProgressDialog dlg(parent, i18n("Updating System Configuration"), i18n("Updating system configuration."));
 
-    // FIXME HACK: kdelibs 4 doesn't evaluate mimeapps.list at query time; refresh
-    // its cache as well.
-    QDBusInterface kbuildsycoca4(QStringLiteral("org.kde.kded"), QStringLiteral("/kbuildsycoca"), QStringLiteral("org.kde.kbuildsycoca"));
-    if (kbuildsycoca4.isValid()) {
-        kbuildsycoca4.call(QDBus::NoBlock, QStringLiteral("recreate"));
-    } else {
-        QProcess::startDetached(QStringLiteral("kbuildsycoca4"), QStringList());
     }
 
     QProcess *proc = new QProcess(&dlg);
