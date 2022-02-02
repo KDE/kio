@@ -433,8 +433,8 @@ Slave *Slave::createSlave(const QString &protocol, const QUrl &url, int &error, 
     // qDebug() << "kioslave" << ", " << lib_path << ", " << protocol << ", " << QString() << ", " << slaveAddress;
 
     // search paths
-    const QStringList searchPaths = QStringList() << KLibexec::kdeFrameworksPaths(QStringLiteral("libexec/kf5"))
-                                                  << QFile::decodeName(KDE_INSTALL_FULL_LIBEXECDIR_KF); // look at our installation location
+    QStringList searchPaths = KLibexec::kdeFrameworksPaths(QStringLiteral("libexec/kf5"));
+    searchPaths.append(QFile::decodeName(KDE_INSTALL_FULL_LIBEXECDIR_KF)); // look at our installation location
     QString kioslaveExecutable = QStandardPaths::findExecutable(QStringLiteral("kioslave5"), searchPaths);
     if (kioslaveExecutable.isEmpty()) {
         // Fallback to PATH. On win32 we install to bin/ which tests outside
