@@ -5,8 +5,11 @@
     SPDX-License-Identifier: LGPL-2.0-only
 */
 #include "kbuildsycocaprogressdialog.h"
+#include "kio_widgets_debug.h"
+
 #include <KLocalizedString>
 #include <KSycoca>
+
 #include <QDBusConnection>
 #include <QDBusInterface>
 #include <QDialogButtonBox>
@@ -28,10 +31,13 @@ void KBuildSycocaProgressDialog::rebuildKSycoca(QWidget *parent)
 {
     KBuildSycocaProgressDialog dlg(parent, i18n("Updating System Configuration"), i18n("Updating system configuration."));
 
+    const QString exec = QStandardPaths::findExecutable(QStringLiteral(KBUILDSYCOCA_EXENAME));
+    if (exec.isEmpty()) {
+        qCWarning(KIO_WIDGETS) << "Could not find kbuildsycoca executable:" << KBUILDSYCOCA_EXENAME;
+        return;
     }
-
     QProcess *proc = new QProcess(&dlg);
-    proc->start(QStringLiteral(KBUILDSYCOCA_EXENAME), QStringList());
+    proc->start(exec, QStringList());
     QObject::connect(proc, qOverload<int, QProcess::ExitStatus>(&QProcess::finished), &dlg, &QWidget::close);
 
     dlg.exec();

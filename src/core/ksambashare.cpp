@@ -107,7 +107,13 @@ int KSambaSharePrivate::runProcess(const QString &progName, const QStringList &a
     QProcess process;
 
     process.setProcessChannelMode(QProcess::SeparateChannels);
-    process.start(progName, args);
+    const QString exec = QStandardPaths::findExecutable(progName);
+    if (exec.isEmpty()) {
+        qCWarning(KIO_CORE) << "Could not find an executable named:" << progName;
+        return -1;
+    }
+
+    process.start(exec, args);
     // TODO: make it async in future
     process.waitForFinished();
 

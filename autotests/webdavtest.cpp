@@ -36,7 +36,11 @@ private:
     static void runDaemon(QProcess &proc, const QTemporaryDir &remoteDir)
     {
         QVERIFY(remoteDir.isValid());
-        proc.setProgram("wsgidav");
+        const QString exec = QStandardPaths::findExecutable("wsgidav");
+        if (exec.isEmpty()) {
+            QFAIL("Could not find 'wsgidav' executable in PATH");
+        }
+        proc.setProgram(exec);
         proc.setArguments(
             {QStringLiteral("--host=0.0.0.0"), QString("--port=%1").arg(port), QString("--root=%1").arg(remoteDir.path()), QStringLiteral("--auth=anonymous")});
         proc.setProcessChannelMode(QProcess::ForwardedErrorChannel);

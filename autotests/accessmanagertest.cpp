@@ -71,7 +71,7 @@ private Q_SLOTS:
         const QString aFile = aDir + QStringLiteral("/accessmanagertest-data2");
         const QString putDataContents = "We love free software! " + QString(24000, 'c');
         QProcess process;
-        process.start(QStringLiteral("echo"), QStringList{putDataContents});
+        process.start(QStandardPaths::findExecutable(QStringLiteral("echo")), QStringList{putDataContents});
 
         QFile::remove(aFile);
 

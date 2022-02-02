@@ -93,7 +93,12 @@ int main(int argc, char **argv)
         QStringList params;
         params << QString::fromUtf16((const unsigned short *)buf);
         params << QString::number(GetCurrentProcessId());
-        QProcess::startDetached(QStringLiteral("gdb"), params);
+        const QString gdbExec = QStandardPaths::findExecutable(QStringLiteral("gdb"));
+        if (gdbExec.isEmpty()) {
+            fprintf(stderr, "Could not find 'gdb' executable in PATH\n");
+            return 1;
+        }
+        QProcess::startDetached(gdbExec, params);
         Sleep(1000);
 #endif
     }
