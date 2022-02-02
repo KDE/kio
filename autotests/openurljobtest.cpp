@@ -31,6 +31,7 @@
 QTEST_GUILESS_MAIN(OpenUrlJobTest)
 
 extern KSERVICE_EXPORT int ksycoca_ms_between_checks;
+extern bool openurljob_force_use_browserapp_kdeglobals; // From openurljob.cpp
 
 static const char s_tempServiceName[] = "openurljobtest_service.desktop";
 
@@ -484,8 +485,10 @@ void OpenUrlJobTest::launchExternalBrowser()
 
     QUrl remoteImage("http://example.org/image.jpg");
     if (useBrowserApp) {
+        openurljob_force_use_browserapp_kdeglobals = true;
         KConfigGroup(KSharedConfig::openConfig(), "General").writeEntry("BrowserApplication", QString(QLatin1Char('!') + scriptFile));
     } else if (useSchemeHandler) {
+        openurljob_force_use_browserapp_kdeglobals = false;
         remoteImage.setScheme("scheme");
     }
 

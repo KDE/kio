@@ -32,6 +32,9 @@
 #include <QOperatingSystemVersion>
 #include <mimetypefinderjob.h>
 
+// For unit test purposes, to test both code paths in externalBrowser()
+KIOGUI_EXPORT bool openurljob_force_use_browserapp_kdeglobals = false;
+
 class KIO::OpenUrlJobPrivate
 {
 public:
@@ -224,13 +227,16 @@ QString KIO::OpenUrlJobPrivate::externalBrowser() const
         return QString();
     }
 
-    KService::Ptr externalBrowser = KApplicationTrader::preferredService(QStringLiteral("x-scheme-handler/https"));
-    if (!externalBrowser) {
-        externalBrowser = KApplicationTrader::preferredService(QStringLiteral("x-scheme-handler/http"));
+    if (!openurljob_force_use_browserapp_kdeglobals) {
+        KService::Ptr externalBrowser = KApplicationTrader::preferredService(QStringLiteral("x-scheme-handler/https"));
+        if (!externalBrowser) {
+            externalBrowser = KApplicationTrader::preferredService(QStringLiteral("x-scheme-handler/http"));
+        }
+        if (externalBrowser) {
+            return externalBrowser->storageId();
+        }
     }
-    if (externalBrowser) {
-        return externalBrowser->storageId();
-    }
+
     const QString browserApp = KConfigGroup(KSharedConfig::openConfig(), "General").readEntry("BrowserApplication");
     return browserApp;
 }
