@@ -620,6 +620,9 @@ public:
     QPersistentModelIndex m_lastClickedIndex;
     ActivationSignal m_lastActivationSignal = nullptr;
 
+    QTimer *m_dragActivationTimer = nullptr;
+    QPersistentModelIndex m_pendingDragActivation;
+
     KFilePlacesView::TeardownFunction m_teardownFunction = nullptr;
 
     std::unique_ptr<KIO::WidgetsAskUserActionHandler> m_askUserHandler;
@@ -778,6 +781,31 @@ void KFilePlacesView::setDropOnPlaceEnabled(bool enabled)
 bool KFilePlacesView::isDropOnPlaceEnabled() const
 {
     return d->m_dropOnPlace;
+}
+
+void KFilePlacesView::setDragAutoActivationDelay(int delay)
+{
+    if (delay <= 0) {
+        delete d->m_dragActivationTimer;
+        d->m_dragActivationTimer = nullptr;
+        return;
+    }
+
+    if (!d->m_dragActivationTimer) {
+        d->m_dragActivationTimer = new QTimer(this);
+        d->m_dragActivationTimer->setSingleShot(true);
+        connect(d->m_dragActivationTimer, &QTimer::timeout, this, [this] {
+            if (d->m_pendingDragActivation.isValid()) {
+                d->placeClicked(d->m_pendingDragActivation, &KFilePlacesView::placeActivated);
+            }
+        });
+    }
+    d->m_dragActivationTimer->setInterval(delay);
+}
+
+int KFilePlacesView::dragAutoActivationDelay() const
+{
+    return d->m_dragActivationTimer ? d->m_dragActivationTimer->interval() : 0;
 }
 
 void KFilePlacesView::setAutoResizeItemsEnabled(bool enabled)
@@ -1222,6 +1250,11 @@ void KFilePlacesView::dragLeaveEvent(QDragLeaveEvent *event)
 
     d->m_delegate->setShowHoverIndication(true);
 
+    if (d->m_dragActivationTimer) {
+        d->m_dragActivationTimer->stop();
+    }
+    d->m_pendingDragActivation = QPersistentModelIndex();
+
     setDirtyRegion(d->m_dropRect);
 }
 
@@ -1229,6 +1262,7 @@ void KFilePlacesView::dragMoveEvent(QDragMoveEvent *event)
 {
     QListView::dragMoveEvent(event);
 
+    bool autoActivate = false;
     // update the drop indicator
     const QPoint pos = event->pos();
     const QModelIndex index = indexAt(pos);
@@ -1245,6 +1279,21 @@ void KFilePlacesView::dragMoveEvent(QDragMoveEvent *event)
         } else {
             // indicate that the item be dropped above the current place
             d->m_dropRect = rect;
+            // only auto-activate when dropping ontop of a place, not inbetween
+            autoActivate = true;
+        }
+    }
+
+    if (d->m_dragActivationTimer) {
+        if (autoActivate && !d->m_delegate->pointIsHeaderArea(event->pos())) {
+            QPersistentModelIndex persistentIndex(index);
+            if (!d->m_pendingDragActivation.isValid() || d->m_pendingDragActivation != persistentIndex) {
+                d->m_pendingDragActivation = persistentIndex;
+                d->m_dragActivationTimer->start();
+            }
+        } else {
+            d->m_dragActivationTimer->stop();
+            d->m_pendingDragActivation = QPersistentModelIndex();
         }
     }
 
@@ -1275,6 +1324,11 @@ void KFilePlacesView::dropEvent(QDropEvent *event)
 
     QListView::dropEvent(event);
     d->m_dragging = false;
+
+    if (d->m_dragActivationTimer) {
+        d->m_dragActivationTimer->stop();
+    }
+    d->m_pendingDragActivation = QPersistentModelIndex();
 
     d->m_delegate->setShowHoverIndication(true);
 }

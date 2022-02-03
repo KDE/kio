@@ -60,6 +60,17 @@ public:
     bool isDropOnPlaceEnabled() const;
 
     /**
+     * If \a delay (in ms) is greater than zero, the place will
+     * automatically be activated if an item is dragged over
+     * and held on top of a place for at least that duraton.
+     *
+     * @param delay Delay in ms, default is zero.
+     * @since 5.92
+     */
+    void setDragAutoActivationDelay(int delay);
+    int dragAutoActivationDelay() const;
+
+    /**
      * If \a enabled is true (the default), items will automatically resize
      * themselves to fill the view.
      *
