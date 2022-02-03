@@ -2,6 +2,7 @@
     This file is part of the KDE project
     SPDX-FileCopyrightText: 2007 Kevin Ottens <ervin@kde.org>
     SPDX-FileCopyrightText: 2008 Rafael Fernández López <ereslibre@kde.org>
+    SPDX-FileCopyrightText: 2022 Kai Uwe Broulik <kde@broulik.de>
 
     SPDX-License-Identifier: LGPL-2.0-only
 */
