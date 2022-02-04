@@ -66,6 +66,9 @@ public:
 
     void clearFreeSpaceInfo();
 
+protected:
+    bool helpEvent(QHelpEvent *event, QAbstractItemView *view, const QStyleOptionViewItem &option, const QModelIndex &index) override;
+
 private:
     QString groupNameFromIndex(const QModelIndex &index) const;
     QModelIndex previousVisibleIndex(const QModelIndex &index) const;

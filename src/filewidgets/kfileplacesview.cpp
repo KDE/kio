@@ -258,6 +258,33 @@ void KFilePlacesViewDelegate::paint(QPainter *painter, const QStyleOptionViewIte
     painter->restore();
 }
 
+bool KFilePlacesViewDelegate::helpEvent(QHelpEvent *event, QAbstractItemView *view, const QStyleOptionViewItem &option, const QModelIndex &index)
+{
+    if (event->type() == QHelpEvent::ToolTip) {
+        if (pointIsTeardownAction(event->pos())) {
+            if (auto *placesModel = qobject_cast<const KFilePlacesModel *>(index.model())) {
+                Q_ASSERT(placesModel->isTeardownAllowed(index));
+
+                QString toolTipText;
+
+                if (auto eject = std::unique_ptr<QAction>{placesModel->ejectActionForIndex(index)}) {
+                    toolTipText = eject->toolTip();
+                } else if (auto teardown = std::unique_ptr<QAction>{placesModel->teardownActionForIndex(index)}) {
+                    toolTipText = teardown->toolTip();
+                }
+
+                if (!toolTipText.isEmpty()) {
+                    // TODO rect
+                    QToolTip::showText(event->globalPos(), toolTipText, m_view);
+                    event->setAccepted(true);
+                    return true;
+                }
+            }
+        }
+    }
+    return QAbstractItemDelegate::helpEvent(event, view, option, index);
+}
+
 int KFilePlacesViewDelegate::iconSize() const
 {
     return m_iconSize;
@@ -608,7 +635,6 @@ public:
     QTimeLine m_itemAppearTimeline;
     QTimeLine m_itemDisappearTimeline;
 
-    QTimer m_actionToolTipTimer;
     QTimer m_pollDevices;
 
     QRect m_dropRect;
@@ -731,30 +757,6 @@ KFilePlacesView::KFilePlacesView(QWidget *parent)
     });
     connect(d->m_watcher, &KFilePlacesEventWatcher::actionLeft, this, [this](const QModelIndex &index) {
         d->actionLeft(index);
-    });
-
-    d->m_actionToolTipTimer.setSingleShot(true);
-    connect(&d->m_actionToolTipTimer, &QTimer::timeout, this, [this]() {
-        KFilePlacesModel *placesModel = qobject_cast<KFilePlacesModel *>(model());
-        if (!placesModel) {
-            return;
-        }
-
-        const auto actionIndex = d->m_watcher->hoveredActionIndex();
-        if (placesModel->isTeardownAllowed(actionIndex)) {
-            QString toolTipText;
-
-            if (auto eject = std::unique_ptr<QAction>{placesModel->ejectActionForIndex(actionIndex)}) {
-                toolTipText = eject->toolTip();
-            } else if (auto teardown = std::unique_ptr<QAction>{placesModel->teardownActionForIndex(actionIndex)}) {
-                toolTipText = teardown->toolTip();
-            }
-
-            if (!toolTipText.isEmpty()) {
-                // TODO widget + rect
-                QToolTip::showText(QCursor::pos(), toolTipText);
-            }
-        }
     });
 
     d->m_pollDevices.setInterval(5000);
@@ -1740,14 +1742,12 @@ void KFilePlacesViewPrivate::actionClicked(const QModelIndex &index)
 void KFilePlacesViewPrivate::actionEntered(const QModelIndex &index)
 {
     m_delegate->setHoveredAction(index);
-    m_actionToolTipTimer.start(q->style()->styleHint(QStyle::SH_ToolTip_WakeUpDelay));
     q->update(index);
 }
 
 void KFilePlacesViewPrivate::actionLeft(const QModelIndex &index)
 {
     m_delegate->setHoveredAction(QModelIndex());
-    m_actionToolTipTimer.stop();
     q->update(index);
 }
 
