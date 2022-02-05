@@ -226,6 +226,9 @@ void CommandLauncherJobTest::doesNotFailOnNonExistingExecutable()
 
     // Then it doesn't actually fail. QProcess is starting /bin/sh, which works...
     QVERIFY(job->exec());
+
+    // Wait for KProcessRunner to be deleted
+    QTRY_COMPARE(KProcessRunner::instanceCount(), 0);
 }
 
 void CommandLauncherJobTest::shouldDoNothingOnEmptyCommand()
@@ -236,4 +239,7 @@ void CommandLauncherJobTest::shouldDoNothingOnEmptyCommand()
     // THEN it should do nothing
     // at least not crash (old bug 186036)
     QVERIFY(job->exec());
+
+    // Wait for KProcessRunner to be deleted
+    QTRY_COMPARE(KProcessRunner::instanceCount(), 0);
 }
