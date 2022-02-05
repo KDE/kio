@@ -227,9 +227,8 @@ void SlaveKeeper::grimReaper()
             if (slave->job()) {
                 // qDebug() << "Idle slave" << slave << "still has job" << slave->job();
             }
-            slave->kill();
             // avoid invoking slotSlaveDied() because its cleanup services are not needed
-            slave->deref();
+            slave->kill();
         } else {
             ++it;
         }
@@ -490,9 +489,8 @@ ProtoQueue::~ProtoQueue()
     // Clear the idle slaves in the keeper to avoid dangling pointers
     m_slaveKeeper.clear();
     for (Slave *slave : slaves) {
-        // kill the slave process, then remove the interface in our process
+        // kill the slave process and remove the interface in our process
         slave->kill();
-        slave->deref();
     }
 }
 
@@ -946,19 +944,23 @@ void SchedulerPrivate::setJobPriority(SimpleJob *job, int priority)
 
 void SchedulerPrivate::cancelJob(SimpleJob *job)
 {
+    KIO::SimpleJobPrivate *const jobPriv = SimpleJobPrivate::get(job);
     // this method is called all over the place in job.cpp, so just do this check here to avoid
     // much boilerplate in job code.
-    if (SimpleJobPrivate::get(job)->m_schedSerial == 0) {
+    if (jobPriv->m_schedSerial == 0) {
         // qDebug() << "Doing nothing because I don't know job" << job;
         return;
     }
     Slave *slave = jobSlave(job);
     // qDebug() << job << slave;
-    if (slave) {
-        // qDebug() << "Scheduler: killing slave " << slave->slave_pid();
-        slave->kill();
-    }
     jobFinished(job, slave);
+    if (slave) {
+        ProtoQueue *pq = m_protocols.value(jobPriv->m_protocol);
+        if (pq) {
+            pq->removeSlave(slave);
+        }
+        slave->kill(); // don't use slave after this!
+    }
 }
 
 void SchedulerPrivate::jobFinished(SimpleJob *job, Slave *slave)

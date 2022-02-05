@@ -360,6 +360,7 @@ void Slave::kill()
         KIOPrivate::sendTerminateSignal(d->m_pid);
         d->m_pid = 0;
     }
+    deref();
 }
 
 void Slave::setHost(const QString &host, quint16 port, const QString &user, const QString &passwd)
