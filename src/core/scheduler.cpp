@@ -57,6 +57,7 @@ public:
 
     ~SchedulerPrivate()
     {
+        removeSlaveOnHold();
         delete q;
         q = nullptr;
         qDeleteAll(m_protocols); // ~ProtoQueue will kill and delete all slaves
