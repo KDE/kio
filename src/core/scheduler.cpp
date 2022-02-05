@@ -59,13 +59,7 @@ public:
     {
         delete q;
         q = nullptr;
-        for (ProtoQueue *p : std::as_const(m_protocols)) {
-            const QList<KIO::Slave *> list = p->allSlaves();
-            for (Slave *slave : list) {
-                slave->kill();
-            }
-        }
-        qDeleteAll(m_protocols);
+        qDeleteAll(m_protocols); // ~ProtoQueue will kill and delete all slaves
     }
 
     SchedulerPrivate(const SchedulerPrivate &) = delete;
