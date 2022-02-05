@@ -122,6 +122,7 @@ Query[nn]=https://www.merriam-webster.com/dictionary/\\{@}
 Query[pl]=https://www.merriam-webster.com/dictionary/\\{@}
 Query[pt]=https://www.merriam-webster.com/dictionary/\\{@}
 Query[pt_BR]=https://www.merriam-webster.com/dictionary/\\{@}
+Query[ro]=https://www.merriam-webster.com/dictionary/\\{@}
 Query[ru]=https://www.merriam-webster.com/dictionary/\\{@}
 Query[sk]=https://www.merriam-webster.com/dictionary/\\{@}
 Query[sl]=https://www.merriam-webster.com/dictionary/\\{@}

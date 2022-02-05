@@ -64,7 +64,7 @@ Name[pa]=Technorati ਟੈਗ
 Name[pl]=Znaczniki Technorati
 Name[pt]=Marcas do Technorati
 Name[pt_BR]=Etiquetas do Technorati
-Name[ro]=Etichete Technorati
+Name[ro]=Marcaje Technorati
 Name[ru]=Статьи Technorati
 Name[se]=Technorati gilkorat
 Name[si]=Technorati Tags
@@ -117,6 +117,7 @@ Query[nn]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[pl]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[pt]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[pt_BR]=https://technorati.com/tag/\\{@}?sourceid=kde-search
+Query[ro]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[ru]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[sk]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[sl]=https://technorati.com/tag/\\{@}?sourceid=kde-search

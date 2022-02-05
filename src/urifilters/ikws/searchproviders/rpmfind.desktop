@@ -67,7 +67,7 @@ Name[pa]=RPM-Find
 Name[pl]=Rpmfind - wyszukiwarka pakietów RPM
 Name[pt]=RPM-Find
 Name[pt_BR]=RPM-Find
-Name[ro]=Căutare pachete RPM
+Name[ro]=RPM-Find
 Name[ru]=Поиск RPM
 Name[se]=RPM-Find
 Name[si]=RPM-සෙවුම
@@ -123,6 +123,7 @@ Query[nn]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[pl]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[pt]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[pt_BR]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
+Query[ro]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[ru]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[sk]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[sl]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}

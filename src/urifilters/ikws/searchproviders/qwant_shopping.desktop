@@ -33,6 +33,7 @@ Name[nn]=Qwant netthandel
 Name[pl]=Qwant - zakupy
 Name[pt]=Compras do Qwant
 Name[pt_BR]=Compras do Qwant
+Name[ro]=Qwant Cumpărături
 Name[ru]=Qwant: Покупки
 Name[sk]=Qwant nakupovanie
 Name[sl]=Qwant - nakupovanje
@@ -76,6 +77,7 @@ Query[nn]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[pl]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[pt]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[pt_BR]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
+Query[ro]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[ru]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[sk]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[sl]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping

@@ -33,6 +33,7 @@ Name[nn]=Qwant bilete
 Name[pl]=Qwant - obrazy
 Name[pt]=Imagens do Qwant
 Name[pt_BR]=Imagens do Qwant
+Name[ro]=Qwant Imagini
 Name[ru]=Qwant: Картинки
 Name[sk]=Qwant obrázky
 Name[sl]=Qwant - slike
@@ -76,6 +77,7 @@ Query[nn]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[pl]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[pt]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[pt_BR]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
+Query[ro]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[ru]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[sk]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[sl]=https://www.qwant.com/?q=\\{@}&client=kde&t=images

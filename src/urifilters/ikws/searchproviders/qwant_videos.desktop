@@ -34,6 +34,7 @@ Name[nn]=Qwant videoar
 Name[pl]=Qwant - wideo
 Name[pt]=Vídeos do Qwant
 Name[pt_BR]=Vídeos do Qwant
+Name[ro]=Qwant Video
 Name[ru]=Qwant: Видео
 Name[sk]=Qwant videá
 Name[sl]=Qwant - video
@@ -77,6 +78,7 @@ Query[nn]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[pl]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[pt]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[pt_BR]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
+Query[ro]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[ru]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[sk]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[sl]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos

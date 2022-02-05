@@ -121,6 +121,7 @@ Query[nn]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[pl]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[pt]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[pt_BR]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
+Query[ro]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[ru]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[sk]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[sl]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
