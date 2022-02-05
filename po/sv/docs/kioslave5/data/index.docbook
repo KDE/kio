@@ -1,0 +1,91 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Swedish "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="data">
+<title
+>Datawebbadresser</title>
+
+<articleinfo>
+<authorgroup>
+<author
+><personname
+><firstname
+>Leo</firstname
+><surname
+>Savernik</surname
+></personname
+> <address
+><email
+>l.savernik@aon.at</email
+></address
+> </author>
+<othercredit role="translator"
+><firstname
+>Stefan</firstname
+><surname
+>Asserhäll</surname
+><affiliation
+><address
+> <email
+>stefan.asserhall@bredband.net</email
+></address
+></affiliation
+><contrib
+>Översättare</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>2003-02-06</date>
+<!--releaseinfo
+>2.20.00</releaseinfo-->
+
+</articleinfo>
+
+<para
+>Datawebbadresser tillåter kort dokumentdata att infogas i själva webbadressen. Det är användbart för mycket små &HTML;-testfall eller andra tillfällen då ett eget dokument inte är befogat.</para>
+
+<para
+><userinput
+>data:,blaha</userinput
+> (observera kommatecknet efter kolonet) levererar ett textdokument som inte innehåller mer än <literal
+>blaha</literal
+>. </para>
+
+<para
+>Det sista exemplet levererade ett textdokument. För &HTML;-dokument måste man ange &MIME;-typen <literal
+>text/html</literal
+>: <quote
+><userinput
+>data:text/html,&lt;title&gt;Testfall&lt;/title&gt;&lt;p&gt;Det här är ett testfall&lt;/p&gt;</userinput
+></quote
+>. Det skapar exakt samma utmatning som om innehållet hade laddats från ett eget dokument. </para>
+
+<para
+>Det är också möjligt att ange alternativa teckenuppsättningar. Observera att ett 8-bitarstecken måste bestå av ett procenttecken och en tvåsiffrors hexadecimal kod: <quote
+><userinput
+>data:;charset=iso-8859-1,H%E4lsningar fr%E5n G%F6teborg</userinput
+></quote
+> ger resultatet <quote
+><literal
+>H&auml;lsningar fr&aring;n G&ouml;teborg</literal
+></quote
+>, medan om teckenuppsättningen utelämnas kan ge något som liknar <quote
+><literal
+>H?lsningar fr?n G?teborg</literal
+></quote
+>. </para>
+
+<para
+><ulink url="https://www.ietf.org/rfc/rfc2397.txt"
+>IETF RFC2397</ulink
+> tillhandahåller mer information.</para>
+
+</article>
+

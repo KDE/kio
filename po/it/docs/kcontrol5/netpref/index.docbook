@@ -1,0 +1,171 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Italian "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="netpref" lang="&language;">
+<articleinfo>
+<title
+>Preferenze sulle connessioni</title>
+<authorgroup>
+<author
+>&Lauri.Watts; &Lauri.Watts.mail;</author>
+
+<othercredit role="translator"
+><firstname
+>Luciano</firstname
+><surname
+>Montanaro</surname
+><affiliation
+><address
+><email
+>mikelima@cirulla.net</email
+></address
+></affiliation
+><contrib
+>Traduzione</contrib
+></othercredit
+><othercredit role="translator"
+><firstname
+>Paolo</firstname
+><surname
+>Zamponi</surname
+><affiliation
+><address
+><email
+>zapaolo@email.it</email
+></address
+></affiliation
+><contrib
+>Manutenzione del documento</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>10/11/2016</date>
+<releaseinfo
+>Frameworks 5.29</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdebase</keyword>
+<keyword
+>kcontrol</keyword>
+<keyword
+>rete</keyword>
+<keyword
+>tempo di attesa</keyword>
+</keywordset>
+
+</articleinfo>
+
+<sect1 id="timeouts">
+
+<title
+>Preferenze sulle connessioni</title>
+
+<para
+>Da qui puoi configurare i tempi di attesa massimi. Può essere utile modificarli se la connessione di rete è molto lenta, ma le impostazioni preconfigurate sono quasi sempre adeguate.</para>
+
+<para
+>Qui le <guilabel
+>Attese massime</guilabel
+> sono gli intervalli di tempo che un'applicazione deve attendere per una risposta ad un'operazione di rete.</para>
+
+<para
+>Puoi configurare le seguenti attese massime:</para>
+
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>Lettura socket:</guilabel
+></term>
+<listitem>
+<para
+>Alcune applicazioni usano i <firstterm
+>socket</firstterm
+> per comunicare. Puoi pensare ad un socket come ad un rubinetto: quando è aperto, l'acqua scorre (nel nostro caso sono i dati a farlo), senza nessuna interazione. Se qualcosa ferma lo scorrere dei dati, l'applicazione aspetterà che ne arrivi dell'altra. Questo potrebbe richiedere molto tempo, ma puoi impostare un tempo massimo di attesa per tutte le applicazioni con questa opzione.</para>
+<para
+>Questa impostazione si applica, ovviamente, alle sole applicazioni di &kde;.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Connessione proxy:</guilabel
+></term>
+<listitem>
+<para
+>Imposta quanto attendere per la connessione con un server proxy, se ne è stato configurato uno. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Connessione server:</guilabel
+></term>
+<listitem>
+<para
+>Imposta quanto tempo aspettare per la connessione con un server remoto. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Risposta server:</guilabel
+></term>
+<listitem>
+<para
+>Imposta per quanto tempo bisogna aspettare la risposta di un server remoto. </para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+<para
+>Puoi configurare le <guilabel
+>Opzioni FTP</guilabel
+> da qui. Attualmente ci sono solo due scelte:</para>
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>Abilita modalità passiva (PASV)</guilabel
+></term>
+<listitem
+><para
+>L'&FTP; passivo è richiesto spesso quando ci si trova dietro ad un firewall. Molti firewall permettono solo connessioni che sono iniziate <quote
+>dall'interno</quote
+>. L'&FTP; passivo è controllato dal client, quindi è possibile usarlo attraverso un firewall.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Segnala i file per cui l'invio non è completo</guilabel
+></term>
+<listitem
+><para
+>Se questa casella viene marcata, verrà aggiunto un suffisso <literal role="extension"
+>.part</literal
+> al nome dei file scaricati in modo parziale. L'estensione verrà rimossa una volta che il file è stato completato.</para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+
+
+</sect1>
+</article>

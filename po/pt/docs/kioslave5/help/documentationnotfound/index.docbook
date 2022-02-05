@@ -1,0 +1,89 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Portuguese "INCLUDE">
+]>
+<article id="documentationnotfound" lang="&language;">
+<title
+>Documentação Não Encontrada</title>
+<articleinfo>
+<authorgroup>
+<author
+><firstname
+>Jack</firstname
+> <surname
+>Ostroff</surname
+> <affiliation
+> <address
+><email
+>ostroffjh@users.sourceforge.net</email
+></address>
+</affiliation>
+</author>
+<othercredit role="translator"
+><firstname
+>José</firstname
+><surname
+>Pires</surname
+><affiliation
+><address
+><email
+>zepires@gmail.com</email
+></address
+></affiliation
+><contrib
+>Tradução</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>2014-04-02</date>
+<releaseinfo
+>Plataformas 5.0</releaseinfo>
+
+</articleinfo>
+
+<para
+>A documentação solicitada não foi encontrada no seu computador.</para>
+
+<para
+>A documentação poderá não existir ou não ter sido instalada com a aplicação.</para>
+
+<simplesect>
+<title
+>Como resolver este problema</title>
+
+<para
+>Se aplicação pertencer ao &kde;, comece por procurar na <ulink url="http://docs.kde.org/"
+>página de Documentação do KDE</ulink
+> pelo documento pedido. Se o encontrar nessa página, a sua distribuição provavelmente terá um pacote separado para a documentação (&eg; chamado de 'plasma-doc' para todas as aplicações do módulo &plasma;). Use por favor o gestor de pacotes da sua distribuição para procurar e instalar a documentação em falta.</para>
+
+<para
+>Se usar uma distribuição baseada em código-fonte, como o Gentoo, certifique-se que não existe qualquer opção de configuração (opções USE no Gentoo) que possam ter desactivado a instalação da documentação. </para>
+
+<para
+>Se o tiver feito, mas continua a ver esta página em vez do manual da aplicação, poderá ter descoberto um erro no sistema de ajuda. Nesse caso, comunique isto por favor no <ulink url="http://bugs.kde.org/"
+>Gestor de Erros do KDE</ulink
+>, sob o produto KIO. </para>
+
+<para
+>Se não encontrar nenhuma documentação na <ulink url="http://docs.kde.org/"
+>página de Documentação do KDE</ulink
+>, a aplicação poderá não ter uma documentação 'offline'. Comunique este facto no <ulink url="http://bugs.kde.org/"
+>Gestor de Erros do KDE</ulink
+>, sob o produto da aplicação. </para>
+
+<para
+>No caso de a aplicação não ter documentação 'offline', deverá usar os recursos 'online' na <ulink url="http://userbase.kde.org/"
+>Documentação da Base de Utilizadores</ulink
+> e nos <ulink url="http://forum.kde.org/"
+>Fóruns da Comunidade do KDE</ulink
+> para obter ajuda. </para>
+
+<para
+>Para as aplicações não-&kde;, contacte por favor o autor da aplicação para determinar se deverá ou não existir disponível alguma documentação 'offline'.</para>
+</simplesect>
+
+</article>

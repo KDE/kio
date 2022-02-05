@@ -1,0 +1,93 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Serbian-Latin "INCLUDE">
+]>
+<article id="documentationnotfound" lang="&language;">
+<title
+>Dokumentacija nije nađena</title>
+<articleinfo>
+<authorgroup>
+<author
+><firstname
+>Džek</firstname
+> <surname
+>Ostrof</surname
+> <affiliation
+> <address
+><email
+>ostroffjh@users.sourceforge.net</email
+></address>
+</affiliation>
+</author>
+<othercredit role="translator"
+><firstname
+>Dragan</firstname
+><surname
+>Pantelić</surname
+><affiliation
+><address
+><email
+>falcon-10@gmx.de</email
+></address
+></affiliation
+><contrib
+>prevod</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>2. 4. 2014.</date>
+<releaseinfo
+>Radni okviri KDE‑a 5.0</releaseinfo>
+
+</articleinfo>
+
+<para
+>Tražena dokumentacija nije nađena na ovom računaru.</para>
+
+<para
+>Dokumentacija možda ne postoji, ili možda nije instalirana zajedno sa programom.</para>
+
+<simplesect>
+<title
+>Kako rešiti ovaj problem</title>
+
+<para
+>Ako je program KDE‑ov softver, počnite pretraživanjem <ulink url="http://docs.kde.org/"
+>sajta KDE dokumentacije</ulink
+>. Ako na ovom sajtu nađete dokumentaciju, možda vaša distribucija isporučuje zaseban paket za dokumentaciju (npr. <literal
+>plasma-doc</literal
+> za dokumentaciju u vezi sa Plasmom). Upotrebite menadžer paketa svoje distribucije da nađete i instalirate nedostajuću dokumentaciju.</para>
+
+<para
+>Ako koristite neku distribuciju na osnovu izvora, poput Gentooa, proverite da postava ne sadrži neke postavke (zastavice <literal
+>USE</literal
+> u Gentoou) koje sprečavaju instaliranje dokumentacije. </para>
+
+<para
+>Ako uradili sve prethodno i još vidite ovu stranicu umesto priručnika programa, verovatno ste naišli na grešku u sistemu pomoći. U tom slučaju, molimo vas da prijavite ovo na <ulink url="http://bugs.kde.org/"
+>KDE‑ov pratilac grešaka</ulink
+>, pod proizvodom K‑U/I. </para>
+
+<para
+>Ako na <ulink url="http://docs.kde.org/"
+>sajtu KDE‑ove dokumentacije</ulink
+> ništa niste našli, program možda i nema dokumentaciju van veze. I ovo prijavite na <ulink url="http://bugs.kde.org/"
+>KDE‑ov pratilac grešaka</ulink
+>, pod proizvodom programa. </para>
+
+<para
+>Ako program nema dokumentaciju van veze, potražite pomoć na vezi na <ulink url="http://userbase.kde.org/"
+>dokumentaciji Korisničke baze</ulink
+> i <ulink url="http://forum.kde.org/"
+>forumima KDE zajednice</ulink
+>. </para>
+
+<para
+>Za ne-KDE programe, obratite se autoru programa da saznate treba li da ima dokumentacije van veze.</para>
+</simplesect>
+
+</article>
