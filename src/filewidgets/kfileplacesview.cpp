@@ -631,6 +631,10 @@ public:
     QTimer *m_dragActivationTimer = nullptr;
     QPersistentModelIndex m_pendingDragActivation;
 
+    QPersistentModelIndex m_pendingDropUrlsIndex;
+    std::unique_ptr<QDropEvent> m_dropUrlsEvent;
+    std::unique_ptr<QMimeData> m_dropUrlsMimeData;
+
     KFilePlacesView::TeardownFunction m_teardownFunction = nullptr;
 
     std::unique_ptr<KIO::WidgetsAskUserActionHandler> m_askUserHandler;
@@ -1317,7 +1321,26 @@ void KFilePlacesView::dropEvent(QDropEvent *event)
         if (!d->insertAbove(rect, pos) && !d->insertBelow(rect, pos)) {
             KFilePlacesModel *placesModel = qobject_cast<KFilePlacesModel *>(model());
             Q_ASSERT(placesModel != nullptr);
-            Q_EMIT urlsDropped(placesModel->url(index), event, this);
+            if (placesModel->setupNeeded(index)) {
+                d->m_pendingDropUrlsIndex = index;
+
+                // Make a full copy of the Mime-Data
+                d->m_dropUrlsMimeData = std::make_unique<QMimeData>();
+                const auto formats = event->mimeData()->formats();
+                for (const auto &format : formats) {
+                    d->m_dropUrlsMimeData->setData(format, event->mimeData()->data(format));
+                }
+
+                d->m_dropUrlsEvent = std::make_unique<QDropEvent>(event->posF(),
+                                                                  event->possibleActions(),
+                                                                  d->m_dropUrlsMimeData.get(),
+                                                                  event->mouseButtons(),
+                                                                  event->keyboardModifiers());
+
+                placesModel->requestSetup(index);
+            } else {
+                Q_EMIT urlsDropped(placesModel->url(index), event, this);
+            }
             // HACK Qt eventually calls into QAIM::dropMimeData when a drop event isn't
             // accepted by the view. However, QListView::dropEvent calls ignore() on our
             // event afterwards when
@@ -1426,6 +1449,10 @@ void KFilePlacesView::setModel(QAbstractItemModel *model)
         },
         Qt::QueuedConnection);
     connect(selectionModel(), &QItemSelectionModel::currentChanged, d->m_watcher, &KFilePlacesEventWatcher::currentIndexChanged);
+
+    QObject::connect(qobject_cast<KFilePlacesModel *>(model), &KFilePlacesModel::setupDone, this, [this](const QModelIndex &idx, bool success) {
+        d->storageSetupDone(idx, success);
+    });
 
     d->m_delegate->clearFreeSpaceInfo();
 }
@@ -1743,10 +1770,6 @@ void KFilePlacesViewPrivate::placeClicked(const QModelIndex &index, ActivationSi
     m_lastActivationSignal = nullptr;
 
     if (placesModel->setupNeeded(index)) {
-        QObject::connect(placesModel, &KFilePlacesModel::setupDone, q, [this](const QModelIndex &idx, bool success) {
-            storageSetupDone(idx, success);
-        });
-
         m_lastClickedIndex = index;
         m_lastActivationSignal = activationSignal;
         placesModel->requestSetup(index);
@@ -1828,28 +1851,35 @@ void KFilePlacesViewPrivate::teardown(const QModelIndex &index)
 
 void KFilePlacesViewPrivate::storageSetupDone(const QModelIndex &index, bool success)
 {
-    if (index != m_lastClickedIndex) {
-        return;
+    KFilePlacesModel *placesModel = static_cast<KFilePlacesModel *>(q->model());
+
+    if (m_lastClickedIndex.isValid()) {
+        if (m_lastClickedIndex == index) {
+            if (success) {
+                setCurrentIndex(m_lastClickedIndex);
+            } else {
+                q->setUrl(m_currentUrl);
+            }
+
+            const QUrl url = KFilePlacesModel::convertedUrl(placesModel->url(index));
+            /*Q_EMIT*/ std::invoke(m_lastActivationSignal, q, url);
+
+            m_lastClickedIndex = QPersistentModelIndex();
+            m_lastActivationSignal = nullptr;
+        }
     }
 
-    KFilePlacesModel *placesModel = qobject_cast<KFilePlacesModel *>(q->model());
+    if (m_pendingDropUrlsIndex.isValid() && m_dropUrlsEvent) {
+        if (m_pendingDropUrlsIndex == index) {
+            if (success) {
+                Q_EMIT q->urlsDropped(placesModel->url(index), m_dropUrlsEvent.get(), q);
+            }
 
-    if (placesModel) {
-        QObject::disconnect(placesModel, &KFilePlacesModel::setupDone, q, nullptr);
+            m_pendingDropUrlsIndex = QPersistentModelIndex();
+            m_dropUrlsEvent.reset();
+            m_dropUrlsMimeData.reset();
+        }
     }
-
-    if (success) {
-        setCurrentIndex(m_lastClickedIndex);
-    } else {
-        q->setUrl(m_currentUrl);
-    }
-
-    const QUrl url = KFilePlacesModel::convertedUrl(placesModel->url(index));
-
-    /*Q_EMIT*/ std::invoke(m_lastActivationSignal, q, url);
-
-    m_lastClickedIndex = QPersistentModelIndex();
-    m_lastActivationSignal = nullptr;
 }
 
 void KFilePlacesViewPrivate::adaptItemsUpdate(qreal value)
