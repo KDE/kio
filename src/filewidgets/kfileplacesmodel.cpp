@@ -702,7 +702,7 @@ QModelIndex KFilePlacesModel::closestItem(const QUrl &url) const
             continue;
         }
 
-        const QUrl itemUrl(item->data(UrlRole).toUrl());
+        const QUrl itemUrl = convertedUrl(item->data(UrlRole).toUrl());
 
         if (itemUrl.matches(url, QUrl::StripTrailingSlash) || itemUrl.isParentOf(url)) {
             const int length = itemUrl.toString().length();
