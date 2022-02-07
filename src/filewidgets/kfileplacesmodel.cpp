@@ -704,7 +704,8 @@ QModelIndex KFilePlacesModel::closestItem(const QUrl &url) const
 
         const QUrl itemUrl = convertedUrl(item->data(UrlRole).toUrl());
 
-        if (itemUrl.matches(url, QUrl::StripTrailingSlash) || itemUrl.isParentOf(url)) {
+        if (itemUrl.matches(url, QUrl::StripTrailingSlash)
+            || (itemUrl.isParentOf(url) && itemUrl.query() == url.query() && itemUrl.fragment() == url.fragment())) {
             const int length = itemUrl.toString().length();
             if (length > maxLength) {
                 foundRow = row;
