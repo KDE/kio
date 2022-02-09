@@ -99,6 +99,39 @@ void KRunUnitTest::testExecutableName()
     QCOMPARE(KIO::DesktopExecParser::executablePath(execLine), expectedPath);
 }
 
+void KRunUnitTest::testDesktopExecParserWithEnv_data()
+{
+    QTest::addColumn<QString>("execLine");
+    QTest::addColumn<QString>("expectedPath");
+    QTest::addColumn<QString>("expectedName");
+    QTest::addColumn<QStringList>("expectedEnvVars");
+
+    QTest::newRow("one_env_var") << "FOO=bar appName %u"
+                                 << "appName"
+                                 << "appName" << QStringList{"FOO=bar"};
+    QTest::newRow("two_env_vars") << "DE=WAYLAND FOO=bar /path/to/appName %u"
+                                  << "/path/to/appName"
+                                  << "appName" << QStringList{"DE=WAYLAND", "FOO=bar"};
+    QTest::newRow("with_env_command") << "env TAR=far /path/to/appName %u"
+                                      << "/path/to/appName"
+                                      << "appName" << QStringList{"TAR=far"};
+    QTest::newRow("with_sh_c") << "sh -c 'ls; TAR=far /path/to/appName %u'"
+                               << "sh"
+                               << "sh" << QStringList{"TAR=far"};
+}
+
+void KRunUnitTest::testDesktopExecParserWithEnv()
+{
+    QFETCH(QString, execLine);
+    QFETCH(QString, expectedPath);
+    QFETCH(QString, expectedName);
+    QFETCH(QStringList, expectedEnvVars);
+
+    QCOMPARE(KIO::DesktopExecParser::executablePath(execLine), expectedPath);
+    QCOMPARE(KIO::DesktopExecParser::executableName(execLine), expectedName);
+    QCOMPARE(KIO::DesktopExecParser::environmentVariables(execLine).toStringList(), expectedEnvVars);
+}
+
 // static const char *bt(bool tr) { return tr?"true":"false"; }
 static void checkDesktopExecParser(const char *exec, const char *term, const char *sus, const QList<QUrl> &urls, bool tf, const QString &b)
 {

@@ -13,6 +13,7 @@
 #include <QScopedPointer>
 #include <QStringList>
 
+class QProcessEnvironment;
 class QUrl;
 class KService;
 
@@ -95,19 +96,43 @@ public:
 
     /**
      * Given a full command line (e.g.\ the Exec= line from a .desktop file),
-     * extract the name of the executable being run (removing the path, if specified).
+     * extracts the name of the executable being run (removing the path, if specified).
      * @param execLine the full command line
      * @return the name of the executable to run, example: "ls"
      */
     static QString executableName(const QString &execLine);
 
     /**
-     * Given a full command line (e.g.\ the Exec= line from a .desktop file),
-     * extract the name of the executable being run, including its full path, if specified.
+     * Given a full command line (e.g. the Exec= line from a .desktop file, excluding
+     * the 'Exec=' part), this method extracts the name of the executable being run, including
+     * its full path, if specified.
+     *
+     * @note If @p execLine starts with "env " it will be stripped along with any environment
+     * variables (e.g. 'FOO=bar'). If you want the environment variables specified on the Exec
+     * line use environmentVariables().
      * @param execLine the full command line
      * @return the name of the executable to run, example: "/bin/ls"
      */
     static QString executablePath(const QString &execLine);
+
+    /**
+     * Given a full command line @p execline, (e.g. the Exec= line from a .desktop file, excluding
+     * the 'Exec=' part), this method will extract all environment variables, e.g. @c FOO=var and
+     * return a QProcessEnvironment object containing them.
+     *
+     * This QProcessEnvironment object can be used to set the environment for a QProcess or
+     * or KProcess; for example:
+     * @code
+     * QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
+     * env.insert(KIO::DesktopExecParser::environmentVariables(execText));
+     * QProcess proc;
+     * proc.setProcessEnvironment(env);
+     * @endcode
+     *
+     * @note If @p execLine starts with "env " it will be stripped.
+     * @since 5.92
+     */
+    static QProcessEnvironment environmentVariables(const QString &execLine);
 
 private:
     QScopedPointer<DesktopExecParserPrivate> d;

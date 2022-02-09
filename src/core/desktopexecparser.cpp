@@ -566,13 +566,48 @@ QString KIO::DesktopExecParser::executableName(const QString &execLine)
     return bin.mid(bin.lastIndexOf(QLatin1Char('/')) + 1);
 }
 
+static const QRegularExpression &envVarRegex()
+{
+    static const QRegularExpression re(QStringLiteral("(\\w+)=(\\w+)"));
+    return re;
+}
+
 // static
 QString KIO::DesktopExecParser::executablePath(const QString &execLine)
 {
+    QString line = execLine;
+
+    if (!line.startsWith(QLatin1String("sh "))) { // Don't mess with complex shell commands
+        // E.g. "Exec=env FOO=bar appName %u"
+        // - Remove "env "
+        const QLatin1String envCmd("env ");
+        if (line.startsWith(envCmd)) {
+            line.remove(0, envCmd.size());
+        }
+        // Remove any environment variables, FOO=bar
+        line.remove(envVarRegex());
+    }
+
     // Remove parameters and/or trailing spaces.
-    const QStringList args = KShell::splitArgs(execLine, KShell::AbortOnMeta | KShell::TildeExpand);
+    const QStringList args = KShell::splitArgs(line, KShell::AbortOnMeta | KShell::TildeExpand);
     auto it = std::find_if(args.cbegin(), args.cend(), [](const QString &arg) {
         return !arg.contains(QLatin1Char('='));
     });
     return it != args.cend() ? *it : QString{};
+}
+
+// static
+QProcessEnvironment KIO::DesktopExecParser::environmentVariables(const QString &execLine)
+{
+    // Extract all env vars, e.g.:
+    // - Exec=env FOO=bar DE=WAYLAND appName %f
+    // - Exec=sh -c 'FOO=bar DE=WAYLAND appName %f'
+    QRegularExpressionMatchIterator iter = envVarRegex().globalMatch(execLine);
+    QProcessEnvironment env;
+    while (iter.hasNext()) {
+        QRegularExpressionMatch match = iter.next();
+        env.insert(match.captured(1), match.captured(2));
+    }
+
+    return env;
 }
