@@ -74,7 +74,13 @@ KProcessRunner *KProcessRunner::fromApplication(const KService::Ptr &service,
 {
     KProcessRunner *instance;
     // special case for applicationlauncherjob
-    if (DBusActivationRunner::activationPossible(service, flags, suggestedFileName)) {
+    // FIXME: KProcessRunner is currently broken and fails to prepare the m_urls member
+    // DBusActivationRunner uses, which then only calls "Activate", not "Open".
+    // Possibly will need some special mode of DesktopExecParser
+    // for the D-Bus activation call scenario to handle URLs with protocols
+    // the invoked service/executable might not support.
+    const bool notYetSupportedOpenActivationNeeded = !urls.isEmpty();
+    if (!notYetSupportedOpenActivationNeeded && DBusActivationRunner::activationPossible(service, flags, suggestedFileName)) {
         const auto actions = service->actions();
         auto action = std::find_if(actions.cbegin(), actions.cend(), [service](const KServiceAction &action) {
             return action.exec() == service->exec();
