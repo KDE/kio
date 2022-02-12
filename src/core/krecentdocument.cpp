@@ -84,8 +84,12 @@ void KRecentDocument::add(const QUrl &url, const QString &desktopEntryName)
     KConfigGroup config = KSharedConfig::openConfig()->group(QByteArray("RecentDocuments"));
     bool useRecent = config.readEntry(QStringLiteral("UseRecent"), true);
     int maxEntries = config.readEntry(QStringLiteral("MaxEntries"), 10);
+    bool ignoreHidden = config.readEntry(QStringLiteral("IgnoreHidden"), true);
 
     if (!useRecent || maxEntries <= 0) {
+        return;
+    }
+    if (ignoreHidden && QRegularExpression(QStringLiteral("/\\.")).match(url.toLocalFile()).hasMatch()) {
         return;
     }
 
