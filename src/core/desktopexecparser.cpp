@@ -28,6 +28,7 @@
 #endif
 #include <QDir>
 #include <QFile>
+#include <QProcessEnvironment>
 #include <QStandardPaths>
 #include <QUrl>
 
