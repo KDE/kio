@@ -36,6 +36,11 @@ PasteJob::~PasteJob()
 void PasteJobPrivate::slotStart()
 {
     Q_Q(PasteJob);
+    if (!m_mimeData) {
+        q->setError(KIO::ERR_NO_CONTENT);
+        q->emitResult();
+        return;
+    }
     const bool move = KIO::isClipboardDataCut(m_mimeData);
     KIO::Job *job = nullptr;
     if (m_mimeData->hasUrls()) {

@@ -29,7 +29,7 @@ public:
 
     friend class KIO::DropJobPrivate;
 
-    const QMimeData *m_mimeData;
+    QPointer<const QMimeData> m_mimeData;
     QUrl m_destDir;
     JobFlags m_flags;
     bool m_clipboard;
