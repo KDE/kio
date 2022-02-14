@@ -43,6 +43,7 @@ Name[ia]=CiteSeer: Libreria Digital de litteratura Scientific
 Name[id]=CiteSeer: Pustaka Digital Literatur Ilmiah
 Name[is]=CiteSeer: Scientific Literature Digital Library
 Name[it]=CiteSeer: Biblioteca digitale di letteratura scientifica
+Name[ka]=CiteSeer: Scientific Literature Digital Library
 Name[kk]=CiteSeer: ғылыми әдебиет цифрлық кітапханасы
 Name[km]=CiteSeer ៖ បណ្ណាល័យ​ឌីជីថល​អក្សរ​សាស្ត្រ​វិទ្យាសាស្ត្រ
 Name[kn]=CiteSeer: ವೈಜ್ಞಾನಿಕ ಸಾಹಿತ್ಯ ಅಂಕೀಯ (ಡಿಜಿಟಲ್) ಭಂಡಾರ
@@ -80,6 +81,7 @@ Name[sv]=CiteSeer: Scientific Literature Digital Library
 Name[te]=CiteSeer: శాస్త్రీయ పాండిత్య డిజిటల్ గ్రంధాలయం
 Name[tg]=Китобхонаи рақамии адабиёти илмии CiteSeer
 Name[th]=CiteSeer: ห้องสมุดดิจิทัลของข้อเขียนทางวิทยาศาสตร์
+Name[tok]=ilo CiteSeer
 Name[tr]=CiteSeer: Bilimsel Literatür Kitaplığı
 Name[ug]=CiteSeer: پەن-تېخنىكا ئەسەرلىرى رەقەملىك كۇتۇپخانىسى
 Name[uk]=CiteSeer: цифрова бібліотека наукової літератури
@@ -112,6 +114,7 @@ Query[ia]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=d
 Query[id]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[is]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[it]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
+Query[ka]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[ko]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[lt]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[my]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
@@ -126,6 +129,7 @@ Query[sk]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=d
 Query[sl]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[sv]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[tg]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
+Query[tok]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[uk]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[vi]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[x-test]=xxhttps://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=docxx

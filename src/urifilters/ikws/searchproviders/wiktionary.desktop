@@ -43,6 +43,7 @@ Name[ia]=Wiktionary - Le Dictionario Libere e Gratuite
 Name[id]=Wiktionary - Kamus Gratis
 Name[is]=Wiktionary - Frjálsa orðabókin
 Name[it]=Wiktionary - Il dizionario libero
+Name[ka]=Wiktionary - უფასო ლექსიკონი
 Name[kk]=Wiktionary - ашық сөздік
 Name[km]=Wikipedia - វចនានុក្រម​ឥត​គិត​ថ្លៃ
 Name[kn]=ವಿಕ್ಷನರಿ - ಮುಕ್ತ ಶಬ್ದಕೋಶ
@@ -79,6 +80,7 @@ Name[sv]=Wiktionary - den fria ordboken
 Name[te]=విక్షనరి - స్వేఛ్ఛా పదకోశము
 Name[tg]=Wiktionary - Луғати озод
 Name[th]=วิกิชันนารี - พจนานุุกรมเสรี
+Name[tok]=lipu Wiktionary
 Name[tr]=VikiSözlük - Özgür Sözlük
 Name[ug]=Wiktionary - ھەقسىز لۇغەت
 Name[uk]=Вікісловник — вільний словник
@@ -117,6 +119,7 @@ Query[ia]=http://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[id]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[is]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[it]=http://it.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
+Query[ka]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[kk]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[ko]=https://ko.wiktionary.org/wiki/특수:검색?search=\\{@}&go=Go
 Query[lt]=https://lt.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
@@ -140,6 +143,7 @@ Query[sr@ijekavianlatin]=https://en.wiktionary.org/wiki/Special:Search?search=\\
 Query[sr@latin]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[sv]=https://sv.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[tg]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
+Query[tok]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[tr]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[ug]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[uk]=https://uk.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go

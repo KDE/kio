@@ -22,6 +22,7 @@ Name[ia]=Novas de Qwant
 Name[id]=QWant Berita
 Name[is]=Qwant Fréttir
 Name[it]=Notizie di Qwant
+Name[ka]=Qwant ახალი ამბები
 Name[ko]=Qwant 뉴스
 Name[lt]=Qwant naujienos
 Name[ml]=ക്വാണ്ട് വാർത്തകൾ
@@ -44,6 +45,7 @@ Name[sr@ijekavianlatin]=Qwant-vesti
 Name[sr@latin]=Qwant-vesti
 Name[sv]=Qwant-nyheter
 Name[tg]=Ахбори Qwant
+Name[tok]=ilo pi alasa sin Qwant
 Name[tr]=Qwant Haberleri
 Name[uk]=Новини Qwant
 Name[vi]=Qwant Tin tức
@@ -70,6 +72,7 @@ Query[hu]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[ia]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[is]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[it]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
+Query[ka]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[ko]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[lt]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[my]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
@@ -84,6 +87,7 @@ Query[sk]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[sl]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[sv]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[tg]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
+Query[tok]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[uk]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[vi]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[x-test]=xxhttps://www.qwant.com/?q=\\{@}&client=kde&t=newsxx

@@ -45,6 +45,7 @@ Name[ia]=Wikipedia - Le Encyclopedia Libere e Gratuite
 Name[id]=Wikipedia - Ensiklopedia Gratis
 Name[is]=Wikipedia - Frjálst alfræðiorðasafn
 Name[it]=Wikipedia - L'enciclopedia libera
+Name[ka]=Wikipedia - უფასო ენციკლოპედია
 Name[kk]=Wikipedia - ашық энциклопедия
 Name[km]=Wikipedia - Encyclopedia ​ឥត​គិត​ថ្លៃ
 Name[kn]=ವಿಕಿಪೀಡಿಯಾ - ಮುಕ್ತ ವಿಶ್ವಕೋಶ
@@ -82,6 +83,7 @@ Name[sv]=Wikipedia - den fria encyklopedin
 Name[te]=వికీపీడియా - స్వేఛ్ఛా విజ్ఞాన సర్వస్వము
 Name[tg]=Wikipedia - Донишномаи озод
 Name[th]=วิกิพีเดีย - สารานุกรมเสรี
+Name[tok]=lipu Wikipedia
 Name[tr]=Wikipedia - Ücretsiz Ansiklopedi
 Name[ug]=ۋىكىپېدىيە(Wikipedia) - ھەقسىز قامۇس
 Name[uk]=Вікіпедія — вільна енциклопедія
@@ -120,6 +122,7 @@ Query[ia]=http://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[id]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[is]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[it]=https://it.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
+Query[ka]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[kk]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[ko]=https://ko.wikipedia.org/wiki/특수:검색?search=\\{@}&go=Go
 Query[lt]=https://lt.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
@@ -143,6 +146,7 @@ Query[sr@ijekavianlatin]=https://en.wikipedia.org/wiki/Special:Search?search=\\{
 Query[sr@latin]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[sv]=https://sv.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[tg]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
+Query[tok]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[tr]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[ug]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[uk]=https://uk.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go

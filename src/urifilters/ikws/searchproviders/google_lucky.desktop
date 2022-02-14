@@ -42,6 +42,7 @@ Name[ia]=Google (Io sente me fortunate)
 Name[id]=Google (Saya Lagi Beruntung)
 Name[is]=Google (Ég er heppin(n) í dag)
 Name[it]=Google (mi sento fortunato)
+Name[ka]=Google (გავრისკავ)
 Name[kk]=Google (Сәтті сынап көрелік)
 Name[km]=ហ្គូហ្គល (ខ្ញុំ​មាន​អារម្មណ៍​ថា​សំណាង)
 Name[kn]=ಗೂಗಲ್ (ಅದೃಷ್ಟ ಚೆನ್ನಾಗಿದ್ದಂತಿದೆ)
@@ -80,6 +81,7 @@ Name[ta]=கூகுள் (அதிர்ஷ்டம் என் பக்�
 Name[te]=Google (నెరుగా వెబ్ లొ ప్రవేశించు)
 Name[tg]=Google (Корам барор мегирад!)
 Name[th]=กูเกิล (ดีใจจัง ค้นแล้วเจอเลย)
+Name[tok]=ilo Google (pilin musi)
 Name[tr]=Google
 Name[ug]=Google (يا بايدىن يا سايرامدىن)
 Name[uk]=Google (Я — везунчик)
@@ -119,6 +121,7 @@ Query[ia]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-
 Query[id]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
 Query[is]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
 Query[it]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
+Query[ka]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
 Query[kk]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
 Query[ko]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
 Query[lt]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
@@ -143,6 +146,7 @@ Query[sr@latin]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&i
 Query[sv]=https://www.google.se/search?q=\\{@}&btnI=Jag+har+tur&ie=UTF-8&oe=UTF-8
 Query[ta]=https://www.google.com/search?hl=ta&q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
 Query[tg]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
+Query[tok]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
 Query[tr]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
 Query[ug]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
 Query[uk]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8

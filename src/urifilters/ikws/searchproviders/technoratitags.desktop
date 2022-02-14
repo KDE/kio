@@ -42,6 +42,7 @@ Name[ia]=Technorati Etiquettas
 Name[id]=Tag Technorati
 Name[is]=Technorati tög
 Name[it]=Etichette di Technorati
+Name[ka]=Technorati ჭდეები
 Name[kk]=Technorati Tags
 Name[km]=ស្លាក Technorati
 Name[kn]=ಟೆಕ್ನೋರೆಟಿ ತಲೆಚೀಟಿಗಳು (ಟಾಗ್ಸ್)
@@ -78,6 +79,7 @@ Name[sv]=Technorati etiketter
 Name[te]=Technorati టాగ్‍స్‌
 Name[tg]=Барчаспҳои Technorati
 Name[th]=Technorati Tags
+Name[tok]=ilo alasa pi nimi lili Technorati
 Name[tr]=Technorati Etiketleri
 Name[ug]=Technorati بەلگە
 Name[uk]=Статті Technorati
@@ -109,6 +111,7 @@ Query[ia]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[id]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[is]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[it]=https://technorati.com/tag/\\{@}?sourceid=kde-search
+Query[ka]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[ko]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[lt]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[my]=https://technorati.com/tag/\\{@}?sourceid=kde-search
@@ -123,6 +126,7 @@ Query[sk]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[sl]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[sv]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[tg]=https://technorati.com/tag/\\{@}?sourceid=kde-search
+Query[tok]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[uk]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[vi]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[x-test]=xxhttps://technorati.com/tag/\\{@}?sourceid=kde-searchxx

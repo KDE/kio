@@ -33,6 +33,7 @@ Name[ia]=Bing
 Name[id]=Bing
 Name[is]=Bing
 Name[it]=Bing
+Name[ka]=Bing
 Name[kk]=Bing
 Name[km]=Bing
 Name[kn]=ಬಿಂಗ್
@@ -62,6 +63,7 @@ Name[sr@latin]=Bing
 Name[sv]=Bing
 Name[tg]=Bing
 Name[th]=Bing
+Name[tok]=ilo alasa Bing
 Name[tr]=Bing
 Name[ug]=Bing
 Name[uk]=Bing
@@ -93,6 +95,7 @@ Query[ia]=https://www.bing.com/search?q=\\{@}
 Query[id]=https://www.bing.com/search?q=\\{@}
 Query[is]=https://www.bing.com/search?q=\\{@}
 Query[it]=https://www.bing.com/search?q=\\{@}
+Query[ka]=https://www.bing.com/search?q=\\{@}
 Query[ko]=https://www.bing.com/search?q=\\{@}
 Query[lt]=https://www.bing.com/search?q=\\{@}
 Query[my]=https://www.bing.com/search?q=\\{@}
@@ -107,6 +110,7 @@ Query[sk]=https://www.bing.com/search?q=\\{@}
 Query[sl]=https://www.bing.com/search?q=\\{@}
 Query[sv]=https://www.bing.com/search?q=\\{@}
 Query[tg]=https://www.bing.com/search?q=\\{@}
+Query[tok]=https://www.bing.com/search?q=\\{@}
 Query[uk]=https://www.bing.com/search?q=\\{@}
 Query[vi]=https://www.bing.com/search?q=\\{@}
 Query[x-test]=xxhttps://www.bing.com/search?q=\\{@}xx

@@ -44,6 +44,7 @@ Name[ia]=TV Tome
 Name[id]=TV Tome
 Name[is]=TV Tome
 Name[it]=TV Tome
+Name[ka]=TV Tome
 Name[kk]=TV Tome
 Name[km]=TV Tome
 Name[kn]=ಟಿವಿ ಟೋಮ್
@@ -81,6 +82,7 @@ Name[sv]=TV Tome
 Name[te]=టివి టొమ్
 Name[tg]=Телевизиони хонагӣ
 Name[th]=TV Tome
+Name[tok]=lipu TV Tome
 Name[tr]=TV Kanalları
 Name[ug]=TV Tome
 Name[uk]=TV Tome
@@ -113,6 +115,7 @@ Query[ia]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[id]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[is]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[it]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
+Query[ka]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[ko]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[lt]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[my]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
@@ -127,6 +130,7 @@ Query[sk]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[sl]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[sv]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[tg]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
+Query[tok]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[uk]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[vi]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[x-test]=xxhttps://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0xx

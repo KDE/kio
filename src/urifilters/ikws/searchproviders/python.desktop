@@ -44,6 +44,7 @@ Name[ia]=Manual de referentia de Python
 Name[id]=Manual Referensi Python
 Name[is]=Python handbókin
 Name[it]=Manuale di riferimento di Python
+Name[ka]=Python-ის სახელმძღვანელო
 Name[kk]=Python анықтамасы
 Name[km]=សៀវភៅ​យោង​របស់ Python
 Name[kn]=ಪೈಥಾನ್ ಪರಾಮರ್ಶನ (ರೆಫರೆಂಸ್) ಕೈಪಿಡಿ
@@ -81,6 +82,7 @@ Name[sv]=Python-referensmanual
 Name[te]=Python సంప్రదింపు మాన్యువల్
 Name[tg]=Маълумотномаи Python
 Name[th]=คู่มืออ้างอิงภาษาไพธอน
+Name[tok]=ilo alasa pi sona Python
 Name[tr]=Python Başvuru El Kitabı
 Name[ug]=Python پايدىلىنىش قوللانمىسى
 Name[uk]=Довідник з Python
@@ -119,6 +121,7 @@ Query[ia]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Se
 Query[id]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
 Query[is]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
 Query[it]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
+Query[ka]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
 Query[kk]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
 Query[ko]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
 Query[lt]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
@@ -142,6 +145,7 @@ Query[sr@ijekavianlatin]=https://www.google.com/search?sourceid=python-search&q=
 Query[sr@latin]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
 Query[sv]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
 Query[tg]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
+Query[tok]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
 Query[tr]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
 Query[ug]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
 Query[uk]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org

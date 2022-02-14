@@ -42,6 +42,7 @@ Name[ia]=Cerca de Debian Backports
 Name[id]=Pencarian Debian Backports
 Name[is]=Debian Backports leit
 Name[it]=Ricerca gli aggiornamenti non supportati di Debian
+Name[ka]=Debian Backports-ში ძებნა
 Name[kk]=Debian порттарын табу
 Name[km]=ការ​ស្វែងរក Debian Backports
 Name[kn]=ಡೇಬಿಯನ್ ಬ್ಯಾಕ್ಪೋರ್ಟ್ ಶೋಧ
@@ -79,6 +80,7 @@ Name[sv]=Debian Backports Search
 Name[te]=Debian బ్యాక్‌పోర్‍ట్స్   శోధన
 Name[tg]=Ҷустуҷӯи низоми пуштибонии Debian
 Name[th]=ค้นหา Debian Backports
+Name[tok]=ilo pi alasa ilo pi ma ilo Debian Backports
 Name[tr]=Debian Backport Arama
 Name[ug]=Debian ئامبار ئىزدە
 Name[uk]=Пошук серед додаткових пакетів Debian
@@ -109,6 +111,7 @@ Query[ia]=https://packages.debian.org/search?suite=squeeze-backports&section=all
 Query[id]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
 Query[is]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
 Query[it]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
+Query[ka]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
 Query[ko]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
 Query[lt]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
 Query[ml]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
@@ -124,6 +127,7 @@ Query[sk]=https://packages.debian.org/search?suite=squeeze-backports&section=all
 Query[sl]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
 Query[sv]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
 Query[tg]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
+Query[tok]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
 Query[uk]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
 Query[vi]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
 Query[x-test]=xxhttps://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}xx

@@ -34,6 +34,7 @@ Name[ia]=Flickr Creative Commons
 Name[id]=Flickr Creative Commons
 Name[is]=Flickr Creative Commons
 Name[it]=Creative Commons su Flickr
+Name[ka]=Flickr Creative Commons
 Name[kk]=Flickr Creative Commons
 Name[km]=Flickr Creative Commons
 Name[kn]=ಫ್ಲಿಕ್ಕರ್ ಕ್ರಿಯೇಟಿವ್ ಕಾಮನ್ಸ್
@@ -63,6 +64,7 @@ Name[sr@ijekavianlatin]=Flickr (Creative Commons)
 Name[sr@latin]=Flickr (Creative Commons)
 Name[sv]=Flickr Creative Commons
 Name[tg]=Flickr: Иҷозатномаи Creative Commons
+Name[tok]=ilo sitelen Flickr (ijo pi wile mani ala taso)
 Name[tr]=Flickr Creative Commons
 Name[ug]=Flickr ئاممىۋى ئىجادىيەت
 Name[uk]=Flickr Creative Commons
@@ -98,6 +100,7 @@ Query[ia]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[id]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[is]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[it]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
+Query[ka]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[kk]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[ko]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[lt]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
@@ -121,6 +124,7 @@ Query[sr@ijekavianlatin]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all
 Query[sr@latin]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[sv]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[tg]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
+Query[tok]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[tr]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[ug]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[uk]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1

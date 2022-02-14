@@ -34,6 +34,7 @@ Name[ia]=Duck Duck Go Info
 Name[id]=Info Duck Duck Go
 Name[is]=Duck Duck Go upplýsingar
 Name[it]=Informazioni di Duck Duck Go
+Name[ka]=Duck Duck Go ინფორმაცია
 Name[kk]=Duck Duck Go Info
 Name[km]=ព័ត៌មាន​របស់ Duck Duck Go
 Name[kn]=ಡಕ್ ಡಕ್ ಗೊ ಮಾಹಿತಿ
@@ -63,6 +64,7 @@ Name[sr@latin]=Duck Duck Go (informacije)
 Name[sv]=Duck Duck Go Info
 Name[tg]=Иттилооти Duck Duck Go
 Name[th]=ข้อมูลของ Duck Duck Go
+Name[tok]=ilo pi alasa sona DuckDuckGo
 Name[tr]=Duck Duck Go Bilgileri
 Name[ug]=Duck Duck Go ئۇچۇرى
 Name[uk]=Duck Duck Go Info
@@ -97,6 +99,7 @@ Query[ia]=http://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[id]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[is]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[it]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
+Query[ka]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[kk]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[ko]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[lt]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
@@ -120,6 +123,7 @@ Query[sr@ijekavianlatin]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[sr@latin]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[sv]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[tg]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
+Query[tok]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[tr]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[ug]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[uk]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde

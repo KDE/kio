@@ -44,6 +44,7 @@ Name[ia]=Netcraft
 Name[id]=Netcraft
 Name[is]=Netcraft
 Name[it]=Netcraft
+Name[ka]=Netcraft
 Name[kk]=Netcraft
 Name[km]=Netcraft
 Name[kn]=ನೆಟ್ ಕ್ರಾಫ್ಟ್
@@ -81,6 +82,7 @@ Name[sv]=Netcraft
 Name[te]=నెట్ క్రాఫ్ట్
 Name[tg]=Netcraft
 Name[th]=บริการ Netcraft
+Name[tok]=ilo Netcraft
 Name[tr]=Netcraft
 Name[ug]=Netcraft
 Name[uk]=Netcraft
@@ -114,6 +116,7 @@ Query[ia]=https://uptime.netcraft.com/up/graph?site=\\{@}
 Query[id]=https://uptime.netcraft.com/up/graph?site=\\{@}
 Query[is]=https://uptime.netcraft.com/up/graph?site=\\{@}
 Query[it]=https://uptime.netcraft.com/up/graph?site=\\{@}
+Query[ka]=https://uptime.netcraft.com/up/graph?site=\\{@}
 Query[ko]=https://uptime.netcraft.com/up/graph?site=\\{@}
 Query[lt]=https://uptime.netcraft.com/up/graph?site=\\{@}
 Query[my]=https://uptime.netcraft.com/up/graph?site=\\{@}
@@ -128,6 +131,7 @@ Query[sk]=https://uptime.netcraft.com/up/graph?site=\\{@}
 Query[sl]=https://uptime.netcraft.com/up/graph?site=\\{@}
 Query[sv]=https://uptime.netcraft.com/up/graph?site=\\{@}
 Query[tg]=https://uptime.netcraft.com/up/graph?site=\\{@}
+Query[tok]=https://uptime.netcraft.com/up/graph?site=\\{@}
 Query[uk]=https://uptime.netcraft.com/up/graph?site=\\{@}
 Query[vi]=https://uptime.netcraft.com/up/graph?site=\\{@}
 Query[x-test]=xxhttps://uptime.netcraft.com/up/graph?site=\\{@}xx

@@ -34,6 +34,7 @@ Name[ia]=Gente de Identi.ca
 Name[id]=Identi.ca People
 Name[is]=Identi.ca fólk
 Name[it]=Persone di Identi.ca
+Name[ka]=Identi.ca ხალხი
 Name[kk]=Identi.ca халықы
 Name[km]=មនុស្ស Identi.ca
 Name[kn]=identi.ca ಜನರು
@@ -64,6 +65,7 @@ Name[sr@latin]=identi.ca‑ljudi
 Name[sv]=Identi.ca personer
 Name[tg]=Одамони Identi.ca
 Name[th]=ผู้คน Identi.ca
+Name[tok]=jan lon ilo Identi.ca
 Name[tr]=Identi.ca Kişi
 Name[ug]=Identi.ca كىشىلەر
 Name[uk]=Постаті Identi.ca
@@ -99,6 +101,7 @@ Query[ia]=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[id]=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[is]=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[it]=https://identi.ca/search/people?q=\\{@}&search=Search
+Query[ka]=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[kk]=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[ko]=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[lt]=https://identi.ca/search/people?q=\\{@}&search=Search
@@ -122,6 +125,7 @@ Query[sr@ijekavianlatin]=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[sr@latin]=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[sv]=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[tg]=https://identi.ca/search/people?q=\\{@}&search=Search
+Query[tok]=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[tr]=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[ug]=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[uk]=https://identi.ca/search/people?q=\\{@}&search=Search

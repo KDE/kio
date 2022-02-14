@@ -20,6 +20,7 @@ Name[hu]=ArchWiki
 Name[ia]=ArchWiki
 Name[is]=ArchWiki
 Name[it]=ArchWiki
+Name[ka]=ArchWiki
 Name[ko]=ArchWiki
 Name[lt]=ArchWiki
 Name[my]=ArchWiki
@@ -34,6 +35,7 @@ Name[sk]=ArchWiki
 Name[sl]=ArchWiki
 Name[sv]=ArchWiki
 Name[tg]=ArchWiki
+Name[tok]=tomo sona ArchWiki
 Name[uk]=ArchWiki
 Name[vi]=ArchWiki
 Name[x-test]=xxArchWikixx
@@ -58,6 +60,7 @@ Query[hu]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[ia]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[is]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[it]=https://wiki.archlinux.org/index.php?search=\\{@}
+Query[ka]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[ko]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[lt]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[my]=https://wiki.archlinux.org/index.php?search=\\{@}
@@ -72,6 +75,7 @@ Query[sk]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[sl]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[sv]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[tg]=https://wiki.archlinux.org/index.php?search=\\{@}
+Query[tok]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[uk]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[vi]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[x-test]=xxhttps://wiki.archlinux.org/index.php?search=\\{@}xx

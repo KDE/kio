@@ -35,6 +35,7 @@ Name[ia]=Google Movies
 Name[id]=Google Code
 Name[is]=Google kóði
 Name[it]=Codice di Google
+Name[ka]=Google Code
 Name[kk]=Google Code
 Name[km]=កូដ​​​ហ្គូហ្គល
 Name[kn]=ಗೂಗಲ್ ಕೋಡ್
@@ -64,6 +65,7 @@ Name[sr@latin]=Google‑kod
 Name[sv]=Google kod
 Name[tg]=Рамзи Google
 Name[th]=Google Code
+Name[tok]=ilo alasa pi ilo lon ilo Google
 Name[tr]=Google Code
 Name[ug]=Google Code
 Name[uk]=Google Code
@@ -99,6 +101,7 @@ Query[ia]=https://code.google.com/query/#q=\\{%2520}
 Query[id]=https://code.google.com/query/#q=\\{%2520}
 Query[is]=https://code.google.com/query/#q=\\{%2520}
 Query[it]=https://code.google.com/query/#q=\\{%2520}
+Query[ka]=https://code.google.com/query/#q=\\{%2520}
 Query[kk]=https://code.google.com/query/#q=\\{%2520}
 Query[ko]=https://code.google.com/query/#q=\\{%2520}
 Query[lt]=https://code.google.com/query/#q=\\{%2520}
@@ -122,6 +125,7 @@ Query[sr@ijekavianlatin]=https://code.google.com/query/#q=\\{%2520}
 Query[sr@latin]=https://code.google.com/query/#q=\\{%2520}
 Query[sv]=https://code.google.se/query/#q=\\{%2520}
 Query[tg]=https://code.google.com/query/#q=\\{%2520}
+Query[tok]=https://code.google.com/query/#q=\\{%2520}
 Query[tr]=https://code.google.com/query/#q=\\{%2520}
 Query[ug]=https://code.google.com/query/#q=\\{%2520}
 Query[uk]=https://code.google.com/query/#q=\\{%2520}

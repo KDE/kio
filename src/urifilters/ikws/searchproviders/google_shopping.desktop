@@ -25,6 +25,7 @@ Name[ia]=Google Shopping
 Name[id]=Google Shopping
 Name[is]=Google verslun
 Name[it]=Acquisti di Google
+Name[ka]=Google საყიდლები
 Name[kk]=Google Shopping
 Name[ko]=Google 쇼핑
 Name[lt]=Google apsipirkimas
@@ -48,6 +49,7 @@ Name[sr@ijekavianlatin]=Google Shopping
 Name[sr@latin]=Google Shopping
 Name[sv]=Google shopping
 Name[tg]=Дукони онлайни Google
+Name[tok]=ilo pi alasa esun tan ilo Google
 Name[tr]=Google Mağaza
 Name[ug]=گۇگىل دۇكىنى
 Name[uk]=Google Shopping
@@ -84,6 +86,7 @@ Query[ia]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[id]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[is]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[it]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
+Query[ka]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[kk]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[ko]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[lt]=https://www.google.com/search?hl=lt&tbm=shop&q=\\{@}
@@ -108,6 +111,7 @@ Query[sr@latin]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[sv]=https://www.google.se/search?hl=en&tbm=shop&q=\\{@}
 Query[ta]=https://www.google.com/search?hl=ta&tbm=shop&q=\\{@}
 Query[tg]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
+Query[tok]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[tr]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[ug]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[uk]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}

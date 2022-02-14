@@ -22,6 +22,7 @@ Name[ia]=Qwant Images
 Name[id]=Qwant Images
 Name[is]=Qwant myndir
 Name[it]=Immagini di Qwant
+Name[ka]=Qwant სურათი
 Name[ko]=Qwant 그림
 Name[lt]=Qwant paveikslai
 Name[mr]=क्वांट प्रतिमा
@@ -43,6 +44,7 @@ Name[sr@ijekavianlatin]=Qwant-slike
 Name[sr@latin]=Qwant-slike
 Name[sv]=Qwant-bilder
 Name[tg]=Тасвирҳои Qwant
+Name[tok]=ilo pi alasa sitelen Qwant
 Name[tr]=Qwant Resimleri
 Name[uk]=Зображення Qwant
 Name[vi]=Qwant Ảnh
@@ -69,6 +71,7 @@ Query[hu]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[ia]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[is]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[it]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
+Query[ka]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[ko]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[lt]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[my]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
@@ -83,6 +86,7 @@ Query[sk]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[sl]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[sv]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[tg]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
+Query[tok]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[uk]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[vi]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[x-test]=xxhttps://www.qwant.com/?q=\\{@}&client=kde&t=imagesxx

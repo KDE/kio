@@ -45,6 +45,7 @@ Name[ia]=WordReference.com Dictionario Anglese
 Name[id]=Kamus Bahasa Inggris WordReference.com
 Name[is]=WordReference.com ensk orðabók
 Name[it]=Dizionario inglese WordReference.com
+Name[ka]=WordReference.com ინგლისური ლექსიკონი
 Name[kk]=WordReference.com ағылшын сөздігі
 Name[km]=វចនានុក្រម​អង់គ្លេស WordReference.com
 Name[kn]=WordReference.com ಇಂಗ್ಲೀಷ್ ಶಬ್ದಕೋಶ
@@ -81,6 +82,7 @@ Name[sv]=WordReference.com engelsk ordbok
 Name[te]=WordReference.com ఇంగ్లీష్ పదకోశం
 Name[tg]=Луғати забони англисии WordReference.com
 Name[th]=พจนานุกรมอังกฤษ WordReference.com
+Name[tok]=lipu nimi pi toki inli tan lipu WordReference.com
 Name[tr]=WordReference.com İngilizce Sözlük
 Name[ug]=WordReference.com ئىنگلىزچە لۇغەت
 Name[uk]=Англійський словник WordReference.com
@@ -113,6 +115,7 @@ Query[ia]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[id]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[is]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[it]=https://www.wordreference.com/english/definition.asp?en=\\{@}
+Query[ka]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[ko]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[lt]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[my]=https://www.wordreference.com/english/definition.asp?en=\\{@}
@@ -127,6 +130,7 @@ Query[sk]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[sl]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[sv]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[tg]=https://www.wordreference.com/english/definition.asp?en=\\{@}
+Query[tok]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[uk]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[vi]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[x-test]=xxhttps://www.wordreference.com/english/definition.asp?en=\\{@}xx

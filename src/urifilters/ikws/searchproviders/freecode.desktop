@@ -26,6 +26,7 @@ Name[ia]=Freecode
 Name[id]=Freecode
 Name[is]=Freecode
 Name[it]=Freecode
+Name[ka]=Freecode
 Name[kk]=Freecode
 Name[ko]=Freecode
 Name[lt]=Freecode
@@ -49,6 +50,7 @@ Name[sr@ijekavianlatin]=Freecode
 Name[sr@latin]=Freecode
 Name[sv]=Freecode
 Name[tg]=Freecode
+Name[tok]=ilo Freecode
 Name[tr]=Freecode
 Name[ug]=Freecode
 Name[uk]=Freecode
@@ -85,6 +87,7 @@ Query[ia]=http://freecode.com/search?q=\\{@}
 Query[id]=http://freecode.com/search?q=\\{@}
 Query[is]=http://freecode.com/search?q=\\{@}
 Query[it]=http://freecode.com/search?q=\\{@}
+Query[ka]=http://freecode.com/search?q=\\{@}
 Query[kk]=http://freecode.com/search?q=\\{@}
 Query[ko]=http://freecode.com/search?q=\\{@}
 Query[lt]=http://freecode.com/search?q=\\{@}
@@ -108,6 +111,7 @@ Query[sr@ijekavianlatin]=http://freecode.com/search?q=\\{@}
 Query[sr@latin]=http://freecode.com/search?q=\\{@}
 Query[sv]=http://freecode.com/search?q=\\{@}
 Query[tg]=http://freecode.com/search?q=\\{@}
+Query[tok]=http://freecode.com/search?q=\\{@}
 Query[tr]=http://freecode.com/search?q=\\{@}
 Query[ug]=http://freecode.com/search?q=\\{@}
 Query[uk]=http://freecode.com/search?q=\\{@}

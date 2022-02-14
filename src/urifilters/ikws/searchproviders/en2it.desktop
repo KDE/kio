@@ -45,6 +45,7 @@ Name[ia]=WordReference.com Traduction: Anglese a Italiano
 Name[id]=Terjemahan WordReference.com: Bahasa Inggris ke Italia
 Name[is]=WordReference.com þýðing: Ensk/ítölsk
 Name[it]=Traduzione WordReference.com: dall'inglese all'italiano
+Name[ka]=WordReference.com თარგმანი: ინგლისურიდან იტალიურზე
 Name[kk]=WordReference.com ағылшын тілінен итальяншаға аудару
 Name[km]=ការ​បកប្រែ WordReference.com ៖ ភាសា​អង់គ្លេស​ទៅ​ជា​អ៊ីតាលី
 Name[kn]=WordReference.com ಅನುವಾದ: ಇಂಗ್ಲೀಷಿನಿಂದ ಇಟಾಲಿಯನ್ ಗೆ
@@ -81,6 +82,7 @@ Name[sv]=WordReference.com översättning: engelska till italienska
 Name[te]=WordReference.com అనువాదము: ఇంగ్లీష్ నుండి ఇటాలియన్
 Name[tg]=Тарҷумаҳои WordReference.com: Англисӣ ба итолиёӣ
 Name[th]=การแปลจาก WordReference.com: แปลภาษาอังกฤษเป็นอิตาเลี่ยน
+Name[tok]=ilo pi ante toki WordReference.com: toki Inli tawa toki Italija
 Name[tr]=WordReference.com Çevirisi: İngilizceden İtalyancaya
 Name[ug]=WordReference.com تەرجىمە: ئىنگلىزچىدىن ئىتاليانچىغا
 Name[uk]=WordReference.com — переклад з англійської італійською
@@ -113,6 +115,7 @@ Query[ia]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[id]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[is]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[it]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
+Query[ka]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[ko]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[lt]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[my]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
@@ -127,6 +130,7 @@ Query[sk]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[sl]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[sv]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[tg]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
+Query[tok]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[uk]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[vi]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[x-test]=xxhttps://www.wordreference.com/it/translation.asp?enit=\\{@}xx

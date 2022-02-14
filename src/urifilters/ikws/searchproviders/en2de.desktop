@@ -43,6 +43,7 @@ Name[ia]=dict.cc Traduction: Anglese a Germano
 Name[id]=Terjemahan dict.cc: Bahasa Inggris ke Jerman
 Name[is]=dict.cc Þýðing: Enska í þýsku
 Name[it]=Traduzione dict.cc: dall'inglese al tedesco
+Name[ka]=dict.cc თარგმანი: ინგლისურიდან გერმანულზე
 Name[kk]=dict.cc аудармашы: ағылшын тілінен немісшеге
 Name[km]=ការ​បកប្រែ dict.cc ៖ ភាសា​អង់គ្លេស​ទៅជា​​​អាល្លឺម៉ង់
 Name[kn]=dict.cc ಅನುವಾದ: ಇಂಗ್ಲೀಷಿನಿಂದ ಜರ್ಮನ್ ಗೆ
@@ -79,6 +80,7 @@ Name[sv]=dict.cc översättning: engelska till tyska
 Name[te]=dict.cc అనువాదము: ఇంగ్లీష్ నుండి జెర్మన్
 Name[tg]=Тарҷумаҳои dict.cc: Англисӣ ба немисӣ
 Name[th]=การแปล dict.cc: ภาษาอังกฤษเป็นเยอรมัน
+Name[tok]=ilo pi ante toki dict.cc: toki Inli tawa toki Tosi
 Name[tr]=dict.cc Çevirisi: İngilizceden Almancaya
 Name[ug]=dict.cc تەرجىمە: ئىنگلىزچىدىن گېرمانچىغا
 Name[uk]=dict.cc — переклад з англійської німецькою
@@ -111,6 +113,7 @@ Query[ia]=https://www.dict.cc/?s=\\{@}
 Query[id]=https://www.dict.cc/?s=\\{@}
 Query[is]=https://www.dict.cc/?s=\\{@}
 Query[it]=https://www.dict.cc/?s=\\{@}
+Query[ka]=https://www.dict.cc/?s=\\{@}
 Query[ko]=https://www.dict.cc/?s=\\{@}
 Query[lt]=https://www.dict.cc/?s=\\{@}
 Query[my]=https://www.dict.cc/?s=\\{@}
@@ -125,6 +128,7 @@ Query[sk]=https://www.dict.cc/?s=\\{@}
 Query[sl]=https://www.dict.cc/?s=\\{@}
 Query[sv]=https://www.dict.cc/?s=\\{@}
 Query[tg]=https://www.dict.cc/?s=\\{@}
+Query[tok]=https://www.dict.cc/?s=\\{@}
 Query[uk]=https://www.dict.cc/?s=\\{@}
 Query[vi]=https://www.dict.cc/?s=\\{@}
 Query[x-test]=xxhttps://www.dict.cc/?s=\\{@}xx

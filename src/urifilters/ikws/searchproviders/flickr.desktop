@@ -35,6 +35,7 @@ Name[ia]=Flickr
 Name[id]=Flickr
 Name[is]=Flickr
 Name[it]=Flickr
+Name[ka]=Flickr
 Name[kk]=Flickr
 Name[km]=Flickr
 Name[kn]=ಫ್ಲಿಕ್ಕರ್ 
@@ -65,6 +66,7 @@ Name[sr@latin]=Flickr
 Name[sv]=Flickr
 Name[tg]=Flickr
 Name[th]=Flickr
+Name[tok]=ilo sitelen Flickr
 Name[tr]=Flickr
 Name[ug]=Flickr
 Name[uk]=Flickr
@@ -95,6 +97,7 @@ Query[ia]=https://www.flickr.com/search/?q=\\{@}
 Query[id]=https://www.flickr.com/search/?q=\\{@}
 Query[is]=https://www.flickr.com/search/?q=\\{@}
 Query[it]=https://www.flickr.com/search/?q=\\{@}
+Query[ka]=https://www.flickr.com/search/?q=\\{@}
 Query[ko]=https://www.flickr.com/search/?q=\\{@}
 Query[lt]=https://www.flickr.com/search/?q=\\{@}
 Query[my]=https://www.flickr.com/search/?q=\\{@}
@@ -109,6 +112,7 @@ Query[sk]=https://www.flickr.com/search/?q=\\{@}
 Query[sl]=https://www.flickr.com/search/?q=\\{@}
 Query[sv]=https://www.flickr.com/search/?q=\\{@}
 Query[tg]=https://www.flickr.com/search/?q=\\{@}
+Query[tok]=https://www.flickr.com/search/?q=\\{@}
 Query[uk]=https://www.flickr.com/search/?q=\\{@}
 Query[vi]=https://www.flickr.com/search/?q=\\{@}
 Query[x-test]=xxhttps://www.flickr.com/search/?q=\\{@}xx

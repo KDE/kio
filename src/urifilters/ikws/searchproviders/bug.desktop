@@ -19,6 +19,7 @@ Name[hu]=KDE Bugs
 Name[ia]=KDE Bugs
 Name[is]=KDE villur
 Name[it]=Bug di KDE
+Name[ka]=KDE შეცდომები
 Name[ko]=KDE 버그
 Name[lt]=KDE klaidos
 Name[my]=ခေဒီအီးဆိုင်ရာ ဆော့ဖ်လ်ဝဲလ်ပြစ်ချက်များ
@@ -33,6 +34,7 @@ Name[sk]=KDE Chyby
 Name[sl]=KDE Bugs
 Name[sv]=KDE Bugs
 Name[tg]=Хатоҳои KDE
+Name[tok]=pakala pi ilo tan kulupu KDE
 Name[uk]=Вади KDE
 Name[vi]=Lỗi KDE
 Name[x-test]=xxKDE Bugsxx
@@ -63,6 +65,7 @@ Query[ia]=http://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[id]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[is]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[it]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
+Query[ka]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[kk]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[ko]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[lt]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
@@ -86,6 +89,7 @@ Query[sr@ijekavianlatin]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[sr@latin]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[sv]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[tg]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
+Query[tok]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[tr]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[ug]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[uk]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}

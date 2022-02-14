@@ -27,6 +27,7 @@ Name[ia]=Documentation de Qt4
 Name[id]=Dokumentasi Qt4
 Name[is]=Qt4 handbækur
 Name[it]=Documentazione di Qt4
+Name[ka]=Qt4-ის დოკუმენტაცია
 Name[kk]=Qt4 құжаттамасы
 Name[ko]=Qt4 문서
 Name[lt]=Qt4 dokumentacija
@@ -50,6 +51,7 @@ Name[sr@ijekavianlatin]=Dokumentacija Qt‑a 4
 Name[sr@latin]=Dokumentacija Qt‑a 4
 Name[sv]=Qt4-dokumentation
 Name[tg]=Ҳуҷҷатҳои Qt4
+Name[tok]=ilo alasa pi sona Qt4
 Name[tr]=Qt4 Belgelendirmesi
 Name[ug]=Qt4 قوللانمىسى
 Name[uk]=Документація з Qt4
@@ -81,6 +83,7 @@ Query[ia]=https://doc.qt.io/archives/qt-4.8/search-results.html?q=\\{@}
 Query[id]=https://doc.qt.io/archives/qt-4.8/search-results.html?q=\\{@}
 Query[is]=https://doc.qt.io/archives/qt-4.8/search-results.html?q=\\{@}
 Query[it]=https://doc.qt.io/archives/qt-4.8/search-results.html?q=\\{@}
+Query[ka]=https://doc.qt.io/archives/qt-4.8/search-results.html?q=\\{@}
 Query[ko]=https://doc.qt.io/archives/qt-4.8/search-results.html?q=\\{@}
 Query[lt]=https://doc.qt.io/archives/qt-4.8/search-results.html?q=\\{@}
 Query[my]=https://doc.qt.io/archives/qt-4.8/search-results.html?q=\\{@}
@@ -99,6 +102,7 @@ Query[sr@ijekavianlatin]=https://doc.qt.io/archives/qt-4.8/search-results.html?q
 Query[sr@latin]=https://doc.qt.io/archives/qt-4.8/search-results.html?q=\\{@}
 Query[sv]=https://doc.qt.io/archives/qt-4.8/search-results.html?q=\\{@}
 Query[tg]=https://doc.qt.io/archives/qt-4.8/search-results.html?q=\\{@}
+Query[tok]=https://doc.qt.io/archives/qt-4.8/search-results.html?q=\\{@}
 Query[uk]=https://doc.qt.io/archives/qt-4.8/search-results.html?q=\\{@}
 Query[vi]=https://doc.qt.io/archives/qt-4.8/search-results.html?q=\\{@}
 Query[x-test]=xxhttps://doc.qt.io/archives/qt-4.8/search-results.html?q=\\{@}xx

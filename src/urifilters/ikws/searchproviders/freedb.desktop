@@ -44,6 +44,7 @@ Name[ia]=FreeDB
 Name[id]=FreeDB
 Name[is]=FreeDB
 Name[it]=FreeDB
+Name[ka]=FreeDB
 Name[kk]=FreeDB
 Name[km]=FreeDB
 Name[kn]=ಫ್ರೀಡಿಬಿ
@@ -81,6 +82,7 @@ Name[sv]=FreeDB
 Name[te]=ఫ్రీడిబి
 Name[tg]=FreeDB
 Name[th]=FreeDB
+Name[tok]=ilo FreeDB
 Name[tr]=FreeDB
 Name[ug]=FreeDB
 Name[uk]=FreeDB
@@ -135,6 +137,7 @@ Query[ia]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[id]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[is]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[it]=http://www.freedb.org/freedb_search.php?words=\\{@}
+Query[ka]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[kk]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[km]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[kn]=http://www.freedb.org/freedb_search.php?words=\\{@}
@@ -172,6 +175,7 @@ Query[sv]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[te]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[tg]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[th]=http://www.freedb.org/freedb_search.php?words=\\{@}
+Query[tok]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[tr]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[ug]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[uk]=http://www.freedb.org/freedb_search.php?words=\\{@}

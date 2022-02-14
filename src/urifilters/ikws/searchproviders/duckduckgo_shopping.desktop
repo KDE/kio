@@ -34,6 +34,7 @@ Name[ia]=Duck Duck Go Shopping
 Name[id]=Belanja Duck Duck Go
 Name[is]=Duck Duck Go verslun
 Name[it]=Acquisti di Duck Duck Go
+Name[ka]=Duck Duck Go საყიდლები
 Name[kk]=Duck Duck Go Shopping
 Name[km]=ការ​ទិញ​ឥវ៉ាន់របស់ Duck Duck Go
 Name[kn]=ಡಕ್ ಡಕ್ ಗೊ ಖರೀದಿ
@@ -64,6 +65,7 @@ Name[sr@latin]=Duck Duck Go (kupovina)
 Name[sv]=Duck Duck Go Shopping
 Name[tg]=Дукони онлайни Duck Duck Go
 Name[th]=ช้อปปิ้งของ Duck Duck Go
+Name[tok]=ilo pi alasa esun DuckDuckGo
 Name[tr]=Duck Duck Go Alışveriş
 Name[ug]=Duck Duck Go ئېلىم-سېتىم
 Name[uk]=Duck Duck Go Shopping
@@ -98,6 +100,7 @@ Query[ia]=http://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[id]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[is]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[it]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
+Query[ka]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[kk]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[ko]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[lt]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
@@ -121,6 +124,7 @@ Query[sr@ijekavianlatin]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[sr@latin]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[sv]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[tg]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
+Query[tok]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[tr]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[ug]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[uk]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde

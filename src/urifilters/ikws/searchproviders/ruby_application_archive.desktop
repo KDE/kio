@@ -43,6 +43,7 @@ Name[ia]=Archivo de application de Ruby
 Name[id]=Arsip Aplikasi Ruby
 Name[is]=Ruby Application Archive
 Name[it]=Archivio di applicazioni Ruby
+Name[ka]=Ruby-ის აპლიკაციის არქივი
 Name[kk]=Ruby қолданбалар архиві
 Name[km]=ប័ណ្ណសារ​កម្មវិធី​មគ្គុទ្ទេសក៍​សូរសព្ទ
 Name[kn]=ರೂಬಿ ಅನ್ವಯ ಕಡತಾಗಾರ (ಆರ್ಕೈವ್)
@@ -80,6 +81,7 @@ Name[sv]=Ruby-programarkiv
 Name[te]=Ruby అనువర్తన ఆర్చివ్
 Name[tg]=Бойгонии барномаи Ruby
 Name[th]=คลังโปรแกรมภาษารูบี้
+Name[tok]=ilo alasa pi ilo lon toki ilo Ruby
 Name[tr]=Ruby Uygulama Arşivi
 Name[ug]=Ruby پروگرامما ئارخىپى
 Name[uk]=Архів програм мовою Ruby
@@ -114,6 +116,7 @@ Query[ia]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[id]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[is]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[it]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
+Query[ka]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[ko]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[lt]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[my]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
@@ -128,6 +131,7 @@ Query[sk]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[sl]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[sv]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[tg]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
+Query[tok]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[uk]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[vi]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[x-test]=xxhttps://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}xx

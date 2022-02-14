@@ -44,6 +44,7 @@ Name[ia]=MetaCrawler
 Name[id]=MetaCrawler
 Name[is]=MetaCrawler
 Name[it]=MetaCrawler
+Name[ka]=MetaCrawler
 Name[kk]=MetaCrawler
 Name[km]=MetaCrawler
 Name[kn]=ಮೆಟಾ ಕ್ರಾಲರ್
@@ -81,6 +82,7 @@ Name[sv]=MetaCrawler
 Name[te]=మెటా క్రాలర్
 Name[tg]=MetaCrawler
 Name[th]=บริการ MetaCrawler
+Name[tok]=ilo alasa MetaCrawler
 Name[tr]=MetaCrawler
 Name[ug]=MetaCrawler
 Name[uk]=MetaCrawler
@@ -115,6 +117,7 @@ Query[ia]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[id]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[is]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[it]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
+Query[ka]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[ko]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[lt]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[my]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
@@ -129,6 +132,7 @@ Query[sk]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[sl]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[sv]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[tg]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
+Query[tok]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[uk]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[vi]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[x-test]=xxhttps://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}xx

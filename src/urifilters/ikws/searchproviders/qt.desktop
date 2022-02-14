@@ -44,6 +44,7 @@ Name[ia]=Ultime documentation in linea de Qt
 Name[id]=Dokumentasi Daring Qt Terkini
 Name[is]=Nýjustu Qt handbækurnar
 Name[it]=Ultima documentazione in rete delle Qt
+Name[ka]=Qt5-ის ონლაინ დოკუმენტაცია
 Name[kk]=Qt-ның ең жаңа желідегі құжаттамасы
 Name[km]=ឯកសារ​ថ្មី​បំផុត​លើ​បណ្ដាញ​របស់ Qt
 Name[kn]=ಇತ್ತೀಚಿನ  ಕ್ಯೂಟಿ ಜಾಲಲಭ್ಯ ದಸ್ತಾವೇಜೀಕರಣ
@@ -81,6 +82,7 @@ Name[sv]=Senaste Qt-dokumentation på nätet
 Name[te]=సరికొత్త Qt ఆన్‌లైన్ పత్రికీకరణ
 Name[tg]=Ҳуҷҷатҳои навтарини онлайни Qt
 Name[th]=เอกสารออนไลน์ล่าสุดเกี่ยวกับ Qt
+Name[tok]=ilo alasa pi sona Qt sin
 Name[tr]=Güncel Qt Dokümantasyonu
 Name[ug]=ئەڭ يېڭى Qt3 توردىكى پۈتۈكلىرى
 Name[uk]=Найсвіжіша документація з Qt у мережі
@@ -113,6 +115,7 @@ Query[ia]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[id]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[is]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[it]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
+Query[ka]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[ko]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[lt]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[my]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
@@ -131,6 +134,7 @@ Query[sr@ijekavianlatin]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[sr@latin]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[sv]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[tg]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
+Query[tok]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[uk]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[vi]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[x-test]=xxhttps://doc.qt.io/qt-5/search-results.html?q=\\{@}xx

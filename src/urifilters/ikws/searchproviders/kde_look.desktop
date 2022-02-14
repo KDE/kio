@@ -34,6 +34,7 @@ Name[ia]=Semblante de KDE
 Name[id]=KDE Look
 Name[is]=KDE útlit
 Name[it]=Aspetto di KDE
+Name[ka]=KDE-ის გარეგნობა
 Name[kk]=KDE Look
 Name[km]=រូបរាង​របស់ KDE
 Name[kn]=ಕೆಡಿಇ ನೋಟ
@@ -64,6 +65,7 @@ Name[sr@latin]=KDE‑izgled
 Name[sv]=KDE look
 Name[tg]=Намуди зоҳирии KDE
 Name[th]=KDE Look
+Name[tok]=alasa pi nasin lukin tawa kulupu KDE
 Name[tr]=KDE Look
 Name[ug]=KDE Look
 Name[uk]=KDE Look
@@ -94,6 +96,7 @@ Query[ia]=https://www.kde-look.org/content/search.php?search=Search&name=\\{@}
 Query[id]=https://www.kde-look.org/content/search.php?search=Search&name=\\{@}
 Query[is]=https://www.kde-look.org/content/search.php?search=Search&name=\\{@}
 Query[it]=https://www.kde-look.org/content/search.php?search=Search&name=\\{@}
+Query[ka]=https://www.kde-look.org/content/search.php?search=Search&name=\\{@}
 Query[ko]=https://www.kde-look.org/content/search.php?search=Search&name=\\{@}
 Query[lt]=https://www.kde-look.org/content/search.php?search=Search&name=\\{@}
 Query[my]=https://www.kde-look.org/content/search.php?search=Search&name=\\{@}
@@ -108,6 +111,7 @@ Query[sk]=https://www.kde-look.org/content/search.php?search=Search&name=\\{@}
 Query[sl]=https://www.kde-look.org/content/search.php?search=Search&name=\\{@}
 Query[sv]=https://www.kde-look.org/content/search.php?search=Search&name=\\{@}
 Query[tg]=https://www.kde-look.org/content/search.php?search=Search&name=\\{@}
+Query[tok]=https://www.kde-look.org/content/search.php?search=Search&name=\\{@}
 Query[uk]=https://www.kde-look.org/content/search.php?search=Search&name=\\{@}
 Query[vi]=https://www.kde-look.org/content/search.php?search=Search&name=\\{@}
 Query[x-test]=xxhttps://www.kde-look.org/content/search.php?search=Search&name=\\{@}xx

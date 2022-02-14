@@ -34,6 +34,7 @@ Name[ia]=Yahoo Images
 Name[id]=Yahoo Images
 Name[is]=Yahoo myndir
 Name[it]=Immagini di Yahoo
+Name[ka]=Yahoo სურათები
 Name[kk]=Yahoo кескіндер
 Name[km]=រូបភាព​របស់​យ៉ាហ៊ូ
 Name[kn]=ಯಾಹೂ ಚಿತ್ರಗಳು
@@ -64,6 +65,7 @@ Name[sr@latin]=Yahoo-slike
 Name[sv]=Yahoo bilder
 Name[tg]=Тасвирҳои Yahoo
 Name[th]=Yahoo Images
+Name[tok]=ilo pi alasa sitelen Yahoo
 Name[tr]=Yahoo Resimleri
 Name[ug]=ياخۇ سۈرەتلىرى
 Name[uk]=Зображення Yahoo
@@ -94,6 +96,7 @@ Query[ia]=https://images.search.yahoo.com/search/images;_ylt=A0geuy0K6JZLsVkB4m1
 Query[id]=https://images.search.yahoo.com/search/images;_ylt=A0geuy0K6JZLsVkB4m1XNyoA?ei=UTF-8&p=\\{@}&y=0&fr2=tab-web&fr=yfp-t-701
 Query[is]=https://images.search.yahoo.com/search/images;_ylt=A0geuy0K6JZLsVkB4m1XNyoA?ei=UTF-8&p=\\{@}&y=0&fr2=tab-web&fr=yfp-t-701
 Query[it]=https://images.search.yahoo.com/search/images;_ylt=A0geuy0K6JZLsVkB4m1XNyoA?ei=UTF-8&p=\\{@}&y=0&fr2=tab-web&fr=yfp-t-701
+Query[ka]=https://images.search.yahoo.com/search/images;_ylt=A0geuy0K6JZLsVkB4m1XNyoA?ei=UTF-8&p=\\{@}&y=0&fr2=tab-web&fr=yfp-t-701
 Query[ko]=https://images.search.yahoo.com/search/images;_ylt=A0geuy0K6JZLsVkB4m1XNyoA?ei=UTF-8&p=\\{@}&y=0&fr2=tab-web&fr=yfp-t-701
 Query[lt]=https://images.search.yahoo.com/search/images;_ylt=A0geuy0K6JZLsVkB4m1XNyoA?ei=UTF-8&p=\\{@}&y=0&fr2=tab-web&fr=yfp-t-701
 Query[my]=https://images.search.yahoo.com/search/images;_ylt=A0geuy0K6JZLsVkB4m1XNyoA?ei=UTF-8&p=\\{@}&y=0&fr2=tab-web&fr=yfp-t-701
@@ -108,6 +111,7 @@ Query[sk]=https://images.search.yahoo.com/search/images;_ylt=A0geuy0K6JZLsVkB4m1
 Query[sl]=https://images.search.yahoo.com/search/images;_ylt=A0geuy0K6JZLsVkB4m1XNyoA?ei=UTF-8&p=\\{@}&y=0&fr2=tab-web&fr=yfp-t-701
 Query[sv]=https://images.search.yahoo.com/search/images;_ylt=A0geuy0K6JZLsVkB4m1XNyoA?ei=UTF-8&p=\\{@}&y=0&fr2=tab-web&fr=yfp-t-701
 Query[tg]=https://images.search.yahoo.com/search/images;_ylt=A0geuy0K6JZLsVkB4m1XNyoA?ei=UTF-8&p=\\{@}&y=0&fr2=tab-web&fr=yfp-t-701
+Query[tok]=https://images.search.yahoo.com/search/images;_ylt=A0geuy0K6JZLsVkB4m1XNyoA?ei=UTF-8&p=\\{@}&y=0&fr2=tab-web&fr=yfp-t-701
 Query[uk]=https://images.search.yahoo.com/search/images;_ylt=A0geuy0K6JZLsVkB4m1XNyoA?ei=UTF-8&p=\\{@}&y=0&fr2=tab-web&fr=yfp-t-701
 Query[vi]=https://images.search.yahoo.com/search/images;_ylt=A0geuy0K6JZLsVkB4m1XNyoA?ei=UTF-8&p=\\{@}&y=0&fr2=tab-web&fr=yfp-t-701
 Query[x-test]=xxhttps://images.search.yahoo.com/search/images;_ylt=A0geuy0K6JZLsVkB4m1XNyoA?ei=UTF-8&p=\\{@}&y=0&fr2=tab-web&fr=yfp-t-701xx

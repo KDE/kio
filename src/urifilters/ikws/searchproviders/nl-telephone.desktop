@@ -40,6 +40,7 @@ Name[ia]=Fornitor de cerca Telephonebook
 Name[id]=Penyedia Pencarian Buku Telepon
 Name[is]=Leitarvél fyrir símaskrár
 Name[it]=Motore di ricerca dell'elenco telefonico
+Name[ka]=Telephonebook-ით ძებნა
 Name[kk]=Телефон кітапшасын іздеу провайдері
 Name[km]=ក្រុមហ៊ុន​ផ្ដល់​​ការ​​ស្វែងរក​សៀវភៅ​លេខ​ទូរស័ព្ទ
 Name[kn]=ದೂರವಾಣಿ ಪುಸ್ತಕ ಹುಡುಕಾಟ ಪೂರೈಕೆದಾರ
@@ -76,6 +77,7 @@ Name[sv]=Telephonebook söktjänst
 Name[te]=టెలిఫోన్‌బుక్ శోధన కర్త
 Name[tg]=Таҳвилгари ҷустуҷӯ дар китоби телефонӣ
 Name[th]=ผู้ให้บริการค้นหาสมุดโทรศัพท์
+Name[tok]=ilo alasa pi nimi toki lon ma Netelan
 Name[tr]=Telefon Defteri Arama Sağlayıcı
 Name[ug]=تېلېفون دەپتىرىدىن ئىزدەشنى تەمىنلىگۈچى
 Name[uk]=Провайдер пошуку Telephonebook
@@ -110,6 +112,7 @@ Query[ia]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{
 Query[id]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
 Query[is]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
 Query[it]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
+Query[ka]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
 Query[ko]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
 Query[lt]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
 Query[ml]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
@@ -125,6 +128,7 @@ Query[sk]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{
 Query[sl]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
 Query[sv]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
 Query[tg]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
+Query[tok]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
 Query[uk]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
 Query[vi]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
 Query[x-test]=xxhttps://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}xx

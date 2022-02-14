@@ -34,6 +34,7 @@ Name[ia]=Gruppos de Identi.ca
 Name[id]=Identi.ca Groups
 Name[is]=Identi.ca hópar
 Name[it]=Gruppi di Identi.ca
+Name[ka]=Identi.ca ჯგუფები
 Name[kk]=Identi.ca тобтар
 Name[km]=ក្រុម​របស់ Identi.ca
 Name[kn]=identi.ca ಗುಂಪುಗಳು
@@ -64,6 +65,7 @@ Name[sr@latin]=identi.ca‑grupe
 Name[sv]=Identi.ca grupper
 Name[tg]=Гурӯҳи Identi.ca
 Name[th]=กลุ่มต่าง ๆ ของ Identi.ca
+Name[tok]=kulupu lon ilo Identi.ca
 Name[tr]=Identi.ca Grupları
 Name[ug]=Identi.ca گۇرۇپپىلار
 Name[uk]=Групи Identi.ca
@@ -99,6 +101,7 @@ Query[ia]=https://identi.ca/search/group?q=\\{@}
 Query[id]=https://identi.ca/search/group?q=\\{@}
 Query[is]=https://identi.ca/search/group?q=\\{@}
 Query[it]=https://identi.ca/search/group?q=\\{@}
+Query[ka]=https://identi.ca/search/group?q=\\{@}
 Query[kk]=https://identi.ca/search/group?q=\\{@}
 Query[ko]=https://identi.ca/search/group?q=\\{@}
 Query[lt]=https://identi.ca/search/group?q=\\{@}
@@ -122,6 +125,7 @@ Query[sr@ijekavianlatin]=https://identi.ca/search/group?q=\\{@}
 Query[sr@latin]=https://identi.ca/search/group?q=\\{@}
 Query[sv]=https://identi.ca/search/group?q=\\{@}
 Query[tg]=https://identi.ca/search/group?q=\\{@}
+Query[tok]=https://identi.ca/search/group?q=\\{@}
 Query[tr]=https://identi.ca/search/group?q=\\{@}
 Query[ug]=https://identi.ca/search/group?q=\\{@}
 Query[uk]=https://identi.ca/search/group?q=\\{@}

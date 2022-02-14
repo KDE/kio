@@ -13,6 +13,7 @@ Name[hu]=KDE Invent adattárak
 Name[ia]=Repositorios de KDE Invent
 Name[is]=KDE Invent hugbúnaðarsöfn
 Name[it]=Depositi su KDE Invent
+Name[ka]=KDE Invent რეპოზიტორები
 Name[ko]=KDE Invent 저장소
 Name[my]=ကေဒီအီး အင်ဗန့် ရီပိုစစ်တိုရီများ
 Name[nl]=Opslagruimtes van KDE-invent
@@ -25,6 +26,7 @@ Name[ru]=Репозитории KDE Invent
 Name[sk]=Repozitáre služby KDE Invent
 Name[sl]=Skladišča KDE Invent
 Name[sv]=KDE-Invent arkiv
+Name[tok]=tomo lon ma tomo pali KDE Invent
 Name[uk]=Сховища KDE Invent
 Name[vi]=Các kho ở Invent KDE
 Name[x-test]=xxKDE Invent Repositoriesxx
@@ -42,6 +44,7 @@ Query[hu]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[ia]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[is]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[it]=https://invent.kde.org/explore/projects/starred?name=\\{@}
+Query[ka]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[ko]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[my]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[nl]=https://invent.kde.org/explore/projects/starred?name=\\{@}
@@ -54,6 +57,7 @@ Query[ru]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[sk]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[sl]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[sv]=https://invent.kde.org/explore/projects/starred?name=\\{@}
+Query[tok]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[uk]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[vi]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[x-test]=xxhttps://invent.kde.org/explore/projects/starred?name=\\{@}xx

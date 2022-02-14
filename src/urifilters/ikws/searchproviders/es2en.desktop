@@ -45,6 +45,7 @@ Name[ia]=WordReference.com Traduction: Espaniol a Anglese
 Name[id]=Terjemahan WordReference.com: Bahasa Spanyol ke Inggris
 Name[is]=WordReference.com þýðing: Spönsk/ensk
 Name[it]=Traduzione WordReference.com: dallo spagnolo all'inglese
+Name[ka]=WordReference.com თარგმანი: ესპანურიდან ინგლისურზე
 Name[kk]=WordReference.com испан тілінен ағылшынға аудару
 Name[km]=ការ​បកប្រែ WordReference.com ៖ ភាសា​អេស្ប៉ាញ​ទៅ​ជា​អង់គ្លេស
 Name[kn]=WordReference.com ಅನುವಾದ: ಸ್ಪಾನಿಷ್ ನಿಂದ ಇಂಗ್ಲೀಷ್ ಗೆ
@@ -81,6 +82,7 @@ Name[sv]=WordReference.com översättning: spanska till engelska
 Name[te]=WordReference.com అనువాదము: స్పానిష్ నుండి ఇంగ్లీష్
 Name[tg]=Тарҷумаҳои WordReference.com: Испанӣ ба англисӣ
 Name[th]=การแปลจาก WordReference.com: แปลภาษาสเปนเป็นอังกฤษ
+Name[tok]=ilo pi ante toki WordReference.com: toki Epanja tawa toki Inli
 Name[tr]=WordReference.com Çevirisi: İspanyolcadan İngilizceye
 Name[ug]=WordReference.com تەرجىمە:  ئىسپانچىدىن ئىنگلىزچىغا
 Name[uk]=WordReference.com — переклад з іспанської англійською
@@ -113,6 +115,7 @@ Query[ia]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[id]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[is]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[it]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
+Query[ka]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[ko]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[lt]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[my]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
@@ -127,6 +130,7 @@ Query[sk]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[sl]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[sv]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[tg]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
+Query[tok]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[uk]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[vi]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[x-test]=xxhttps://www.wordreference.com/es/en/translation.asp?spen=\\{@}xx

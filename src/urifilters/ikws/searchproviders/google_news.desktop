@@ -43,6 +43,7 @@ Name[ia]=Google News - Novas de Google
 Name[id]=Google News
 Name[is]=Google fréttir
 Name[it]=Notizie di Google
+Name[ka]=Google სიახლეები
 Name[kk]=Google жаңалықтар
 Name[km]=ព័ត៌មាន​តាម​ហ្គូហ្គល
 Name[kn]=ಗೂಗಲ್ ವಾರ್ತೆಗಳು
@@ -82,6 +83,7 @@ Name[ta]=கூகுள் செய்திகள்
 Name[te]=గూగుల్ వార్తలు
 Name[tg]=Ахбори Google
 Name[th]=กลุ่มข่าวต่าง ๆ จากกูเกิล
+Name[tok]=ilo alasa pi ijo sin tan ilo Google
 Name[tr]=Google Haberleri
 Name[ug]=گۇگىل  خەۋەرلىرى
 Name[uk]=Новини Google
@@ -120,6 +122,7 @@ Query[ia]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[id]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[is]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[it]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
+Query[ka]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[kk]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[ko]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[lt]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
@@ -144,6 +147,7 @@ Query[sr@latin]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[sv]=https://news.google.se/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[ta]=https://news.google.com/news?hl=ta&q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[tg]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
+Query[tok]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[tr]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[ug]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[uk]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8

@@ -47,6 +47,7 @@ Name[ia]=Documentation de KDE API
 Name[id]=Dokumentasi API KDE
 Name[is]=KDE forritunarviðmótsleiðbeiningar
 Name[it]=Documentazione dell'API di KDE
+Name[ka]=KDE API დოკუმენტაცია
 Name[kk]=KDE API құжаттамасы
 Name[km]=ឯកសារ API របស់ KDE
 Name[kn]=ಕೆಡಿಇ ಎಪಿಐ ದಸ್ತಾವೇಜೀಕರಣ
@@ -84,6 +85,7 @@ Name[sv]=Dokumentation av KDE:s programmeringsgränssnitt
 Name[te]=KDE API పత్రికీకరణ
 Name[tg]=Санадҳои KDE API
 Name[th]=เอกสารอธิบาย API ของระบบ KDE
+Name[tok]=alasa sona pi leko ilo tan kulupu KDE
 Name[tr]=KDE API Belgeleri
 Name[ug]=KDE API پۈتۈكلىرى
 Name[uk]=Документація по API KDE
@@ -116,6 +118,7 @@ Query[ia]=https://api.kde.org/classmapper.php?class=\\{@}
 Query[id]=https://api.kde.org/classmapper.php?class=\\{@}
 Query[is]=https://api.kde.org/classmapper.php?class=\\{@}
 Query[it]=https://api.kde.org/classmapper.php?class=\\{@}
+Query[ka]=https://api.kde.org/classmapper.php?class=\\{@}
 Query[ko]=https://api.kde.org/classmapper.php?class=\\{@}
 Query[lt]=https://api.kde.org/classmapper.php?class=\\{@}
 Query[my]=https://api.kde.org/classmapper.php?class=\\{@}
@@ -130,6 +133,7 @@ Query[sk]=https://api.kde.org/classmapper.php?class=\\{@}
 Query[sl]=https://api.kde.org/classmapper.php?class=\\{@}
 Query[sv]=https://api.kde.org/classmapper.php?class=\\{@}
 Query[tg]=https://api.kde.org/classmapper.php?class=\\{@}
+Query[tok]=https://api.kde.org/classmapper.php?class=\\{@}
 Query[uk]=https://api.kde.org/classmapper.php?class=\\{@}
 Query[vi]=https://api.kde.org/classmapper.php?class=\\{@}
 Query[x-test]=xxhttps://api.kde.org/classmapper.php?class=\\{@}xx

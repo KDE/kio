@@ -43,6 +43,7 @@ Name[ia]=Catalogo CTAN
 Name[id]=Katalog CTAN
 Name[is]=CTAN Catalogue
 Name[it]=Catalogo CTAN
+Name[ka]=CTAN კატალოგი
 Name[kk]=CTAN каталогы
 Name[km]=កាតាឡុក CTAN
 Name[kn]=CTAN ಅನುಕ್ರಮಣಿಕೆ (ಕಾಟಲಾಗ್)
@@ -80,6 +81,7 @@ Name[sv]=CTAN-katalog
 Name[te]=CTAN పట్టీ
 Name[tg]=Феҳристи CTAN
 Name[th]=แคทตาล็อก CTAN
+Name[tok]=lipu sinpin CTAN
 Name[tr]=CTAN Kataloğu
 Name[ug]=CTAN كاتالوگى
 Name[uk]=Каталог CTAN
@@ -130,6 +132,7 @@ Query[ia]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSea
 Query[id]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search
 Query[is]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search
 Query[it]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search
+Query[ka]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search
 Query[kk]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search
 Query[km]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search
 Query[kn]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search
@@ -163,6 +166,7 @@ Query[sv]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSea
 Query[te]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search
 Query[tg]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search
 Query[th]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search
+Query[tok]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search
 Query[tr]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search
 Query[ug]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search
 Query[uk]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search

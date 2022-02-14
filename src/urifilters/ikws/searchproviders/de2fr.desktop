@@ -41,6 +41,7 @@ Name[ia]=LEO - Traducer inter Germano e Francese
 Name[id]=LEO - Penerjemahan Antara Bahasa Jerman dan Perancis
 Name[is]=LEO - Þýða á milli þýsku og frönsku
 Name[it]=LEO - Traduzioni dal tedesco al francese
+Name[ka]=LEO - გადათარგმნეთ გერმანულსა და ფრანგულს შორის
 Name[kk]=LEO - неміс және француз тілдер арасында аудару
 Name[km]=LEO - បកប្រែ​រវាង​ភាសា​អាល្លឺម៉ង់ និង​អង់គ្លេស
 Name[kn]=ಲಿಯೋ-ಜೆರ್ಮನ್ ಮತ್ತು ಫ್ರಿಂಚ್ ನಡುವೆ ಭಾಷಾಂತರಿಸು
@@ -77,6 +78,7 @@ Name[sv]=LEO - Översättning mellan tyska och franska
 Name[te]=LEO - జెర్మన్ మరియు ఫ్రెంచ్ మద్య అనువాదము
 Name[tg]=LEO - Тарҷумаҳои байни немисӣ ва франсузӣ
 Name[th]=LEO - แปลภาษาเยอรมัน <->ฝรั่งเศส
+Name[tok]=ilo pi ante toki LEO: toki Tosi tawa toki Kanse
 Name[tr]=LEO - Almancadan Fransızcaya Çeviri
 Name[ug]=LEO - گېرمانچە بىلەن فىرانسۇزچە ئارىسىدا تەرجىمە
 Name[uk]=LEO — з німецької французькою
@@ -110,6 +112,7 @@ Query[ia]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[id]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[is]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[it]=https://dict.leo.org/?lp=frde&search=\\{@}
+Query[ka]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[ko]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[lt]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[my]=https://dict.leo.org/?lp=frde&search=\\{@}
@@ -124,6 +127,7 @@ Query[sk]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[sl]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[sv]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[tg]=https://dict.leo.org/?lp=frde&search=\\{@}
+Query[tok]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[uk]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[vi]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[x-test]=xxhttps://dict.leo.org/?lp=frde&search=\\{@}xx

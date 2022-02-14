@@ -35,6 +35,7 @@ Name[ia]=Wikia
 Name[id]=Wikia
 Name[is]=Wikia
 Name[it]=Wikia
+Name[ka]=Wikia
 Name[kk]=Wikia
 Name[km]=Wikia
 Name[kn]=ವಿಕಿಯಾ
@@ -64,6 +65,7 @@ Name[sr@latin]=Wikia
 Name[sv]=Wikia
 Name[tg]=Wikia
 Name[th]=Wikia
+Name[tok]=lipu Wikia
 Name[tr]=Wikia
 Name[ug]=Wikia
 Name[uk]=Wikia
@@ -94,6 +96,7 @@ Query[ia]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=
 Query[id]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[is]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[it]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
+Query[ka]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[ko]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[lt]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[my]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
@@ -108,6 +111,7 @@ Query[sk]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=
 Query[sl]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[sv]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[tg]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
+Query[tok]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[uk]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[vi]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[x-test]=xxhttps://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Searchxx

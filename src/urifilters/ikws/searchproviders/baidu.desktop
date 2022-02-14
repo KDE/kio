@@ -33,6 +33,7 @@ Name[ia]=Baidu
 Name[id]=Baidu
 Name[is]=Baidu
 Name[it]=Baidu
+Name[ka]=Baidu
 Name[kk]=Baidu
 Name[km]=Baidu
 Name[kn]=ಬೈಡು
@@ -63,6 +64,7 @@ Name[sr@latin]=Baidu
 Name[sv]=Baidu
 Name[tg]=Baidu
 Name[th]=Baidu
+Name[tok]=ilo alasa Baidu
 Name[tr]=Baidu
 Name[ug]=Baidu
 Name[uk]=Baidu
@@ -94,6 +96,7 @@ Query[ia]=https://www.baidu.com/s?wd=\\{@}
 Query[id]=https://www.baidu.com/s?wd=\\{@}
 Query[is]=https://www.baidu.com/s?wd=\\{@}
 Query[it]=https://www.baidu.com/s?wd=\\{@}
+Query[ka]=https://www.baidu.com/s?wd=\\{@}
 Query[ko]=https://www.baidu.com/s?wd=\\{@}
 Query[lt]=https://www.baidu.com/s?wd=\\{@}
 Query[my]=https://www.baidu.com/s?wd=\\{@}
@@ -108,6 +111,7 @@ Query[sk]=https://www.baidu.com/s?wd=\\{@}
 Query[sl]=https://www.baidu.com/s?wd=\\{@}
 Query[sv]=https://www.baidu.com/s?wd=\\{@}
 Query[tg]=https://www.baidu.com/s?wd=\\{@}
+Query[tok]=https://www.baidu.com/s?wd=\\{@}
 Query[uk]=https://www.baidu.com/s?wd=\\{@}
 Query[vi]=https://www.baidu.com/s?wd=\\{@}
 Query[x-test]=xxhttps://www.baidu.com/s?wd=\\{@}xx

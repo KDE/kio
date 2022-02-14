@@ -13,6 +13,7 @@ Name[hu]=KDE Invent
 Name[ia]=KDE Invent
 Name[is]=KDE Invent
 Name[it]=KDE Invent
+Name[ka]=KDE Invent
 Name[ko]=KDE Invent
 Name[my]=ကေဒီအီး အင်ဗန့်
 Name[nl]=KDE-invent
@@ -25,6 +26,7 @@ Name[ru]=KDE Invent
 Name[sk]=KDE Invent
 Name[sl]=KDE Invent
 Name[sv]=KDE-Invent
+Name[tok]=tomo pali KDE Invent
 Name[uk]=KDE Invent
 Name[vi]=Invent KDE
 Name[x-test]=xxKDE Inventxx
@@ -42,6 +44,7 @@ Query[hu]=https://invent.kde.org/search?search=\\{@}
 Query[ia]=https://invent.kde.org/search?search=\\{@}
 Query[is]=https://invent.kde.org/search?search=\\{@}
 Query[it]=https://invent.kde.org/search?search=\\{@}
+Query[ka]=https://invent.kde.org/search?search=\\{@}
 Query[ko]=https://invent.kde.org/search?search=\\{@}
 Query[my]=https://invent.kde.org/search?search=\\{@}
 Query[nl]=https://invent.kde.org/search?search=\\{@}
@@ -54,6 +57,7 @@ Query[ru]=https://invent.kde.org/search?search=\\{@}
 Query[sk]=https://invent.kde.org/search?search=\\{@}
 Query[sl]=https://invent.kde.org/search?search=\\{@}
 Query[sv]=https://invent.kde.org/search?search=\\{@}
+Query[tok]=https://invent.kde.org/search?search=\\{@}
 Query[uk]=https://invent.kde.org/search?search=\\{@}
 Query[vi]=https://invent.kde.org/search?search=\\{@}
 Query[x-test]=xxhttps://invent.kde.org/search?search=\\{@}xx

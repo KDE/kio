@@ -35,6 +35,7 @@ Name[ia]=7Digital
 Name[id]=7Digital
 Name[is]=7Digital
 Name[it]=7Digital
+Name[ka]=7Digital
 Name[kk]=7Digital
 Name[km]=7Digital
 Name[kn]=೭ ಅಂಕೀಯ (ಡಿಜಿಟಲ್)
@@ -65,6 +66,7 @@ Name[sr@latin]=7Digitalo
 Name[sv]=7Digital
 Name[tg]=7Digital
 Name[th]=7Digital
+Name[tok]=ilo alasa 7Digital
 Name[tr]=7Digital
 Name[ug]=7Digital
 Name[uk]=7Digital
@@ -95,6 +97,7 @@ Query[ia]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=S
 Query[id]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[is]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[it]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
+Query[ka]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[ko]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[lt]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[my]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
@@ -109,6 +112,7 @@ Query[sk]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=S
 Query[sl]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[sv]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[tg]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
+Query[tok]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[uk]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[vi]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[x-test]=xxhttps://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Searchxx

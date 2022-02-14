@@ -23,6 +23,7 @@ Name[ia]=Qwant
 Name[id]=Qwant
 Name[is]=Qwant
 Name[it]=Qwant
+Name[ka]=Qwant
 Name[ko]=Qwant
 Name[lt]=Qwant
 Name[ml]=ക്വാണ്ട്
@@ -45,6 +46,7 @@ Name[sr@ijekavianlatin]=Qwant
 Name[sr@latin]=Qwant
 Name[sv]=Qwant
 Name[tg]=Qwant
+Name[tok]=ilo alasa Qwant
 Name[tr]=Qwant
 Name[uk]=Qwant
 Name[vi]=Qwant
@@ -71,6 +73,7 @@ Query[hu]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[ia]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[is]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[it]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
+Query[ka]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[ko]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[lt]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[my]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
@@ -85,6 +88,7 @@ Query[sk]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[sl]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[sv]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[tg]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
+Query[tok]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[uk]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[vi]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[x-test]=xxhttps://www.qwant.com/?q=\\{@}&client=kde&t=webxx

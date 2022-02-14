@@ -44,6 +44,7 @@ Name[ia]=Internet Movie Database
 Name[id]=Basis Data Film Internet
 Name[is]=IMDB internet kvikmyndagagnagrunnurinn
 Name[it]=Banca dati cinematografica in rete
+Name[ka]=ინტერნეტის ფილმების ბაზა
 Name[kk]=Internet фильмдер қоры
 Name[km]=មូលដ្ឋាន​ទិន្នន័យ​ភាពយន្ត​តាម​អ៊ីនធឺណិត
 Name[kn]=ಜಾಲ ಚಲಚ್ಚಿತ್ರ ದತ್ತಸಂಚಯ
@@ -81,6 +82,7 @@ Name[sv]=Internet filmdatabas
 Name[te]=ఇంటర్‌నెట్ చలనచిత్ర డాటాబేస్
 Name[tg]=Пойгоҳи иттилоотии интернетӣ
 Name[th]=ฐานข้อมูลภาพยนตร์ทางอินเทอร์เน็ต
+Name[tok]=ilo alasa IMDB
 Name[tr]=İnternet Film Veritabanı
 Name[ug]=ئىنتېرنېت كىنو ساندىنى
 Name[uk]=База даних кінофільмів в Інтернет
@@ -114,6 +116,7 @@ Query[ia]=https://imdb.com/find?s=all&q=\\{@}
 Query[id]=https://imdb.com/find?s=all&q=\\{@}
 Query[is]=https://imdb.com/find?s=all&q=\\{@}
 Query[it]=https://imdb.com/find?s=all&q=\\{@}
+Query[ka]=https://imdb.com/find?s=all&q=\\{@}
 Query[ko]=https://imdb.com/find?s=all&q=\\{@}
 Query[lt]=https://imdb.com/find?s=all&q=\\{@}
 Query[my]=https://imdb.com/find?s=all&q=\\{@}
@@ -128,6 +131,7 @@ Query[sk]=https://imdb.com/find?s=all&q=\\{@}
 Query[sl]=https://imdb.com/find?s=all&q=\\{@}
 Query[sv]=https://imdb.com/find?s=all&q=\\{@}
 Query[tg]=https://imdb.com/find?s=all&q=\\{@}
+Query[tok]=https://imdb.com/find?s=all&q=\\{@}
 Query[uk]=https://imdb.com/find?s=all&q=\\{@}
 Query[vi]=https://imdb.com/find?s=all&q=\\{@}
 Query[x-test]=xxhttps://imdb.com/find?s=all&q=\\{@}xx

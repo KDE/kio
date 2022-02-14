@@ -44,6 +44,7 @@ Name[ia]=RPM-Find
 Name[id]=RPM-Find
 Name[is]=RPM-leit
 Name[it]=Ricerca di RPM
+Name[ka]=RPM-Find
 Name[kk]=RPM-ды табу
 Name[km]=រក RPM
 Name[kn]=RPM-ಹುಡುಕಾಟ
@@ -81,6 +82,7 @@ Name[sv]=RPM-Find
 Name[te]=RPM-Find
 Name[tg]=Ёфтани RPM
 Name[th]=บริการค้นหา RPM
+Name[tok]=ilo alasa pi poki RPM
 Name[tr]=RPM-Find
 Name[ug]=RPM-Find
 Name[uk]=RPM-Find
@@ -115,6 +117,7 @@ Query[ia]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[id]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[is]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[it]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
+Query[ka]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[ko]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[lt]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[my]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
@@ -129,6 +132,7 @@ Query[sk]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[sl]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[sv]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[tg]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
+Query[tok]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[uk]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[vi]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[x-test]=xxhttps://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}xx

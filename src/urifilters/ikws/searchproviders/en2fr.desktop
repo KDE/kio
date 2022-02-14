@@ -45,6 +45,7 @@ Name[ia]=WordReference.com Traduction: Anglese a Francese
 Name[id]=Terjemahan WordReference.com: Bahasa Inggris ke Perancis
 Name[is]=WordReference.com þýðing: Ensk/frönsk
 Name[it]=Traduzione WordReference.com: dall'inglese al francese
+Name[ka]=WordReference.com თარგმანი: ინგლისურიდან ფრანგულზე
 Name[kk]=WordReference.com ағылшын тілінен французшаға аудару
 Name[km]=ការ​បកប្រែ WordReference.com ៖ ភាសា​អង់គ្លេស​ទៅ​ជា​​បារាំង
 Name[kn]=WordReference.com ಅನುವಾದ: ಇಂಗ್ಲೀಷಿನಿಂದ ಫ್ರೆಂಚ್ ಗೆ
@@ -81,6 +82,7 @@ Name[sv]=WordReference.com översättning: engelska till franska
 Name[te]=WordReference.com అనువాదము: ఇంగ్లీష్ నుండి ఫ్రెంచ్
 Name[tg]=Тарҷумаҳои WordReference.com: Англисӣ ба франсузӣ
 Name[th]=การแปลของ WordReference.com: ภาษาอังกฤษเป็นฝรั่งเศส
+Name[tok]=ilo pi ante toki WordReference.com: toki Inli tawa toki Kanse
 Name[tr]=WordReference.com Çevirisi: İngilizceden Fransızcaya
 Name[ug]=WordReference.com تەرجىمە: ئىنگلىزچىدىن فىرانسۇزچىغا
 Name[uk]=WordReference.com — переклад з англійської французькою
@@ -113,6 +115,7 @@ Query[ia]=https://www.wordreference.com/fr/Translation.asp?enfr=\\{@}
 Query[id]=https://www.wordreference.com/fr/Translation.asp?enfr=\\{@}
 Query[is]=https://www.wordreference.com/fr/Translation.asp?enfr=\\{@}
 Query[it]=https://www.wordreference.com/fr/Translation.asp?enfr=\\{@}
+Query[ka]=https://www.wordreference.com/fr/Translation.asp?enfr=\\{@}
 Query[ko]=https://www.wordreference.com/fr/Translation.asp?enfr=\\{@}
 Query[lt]=https://www.wordreference.com/fr/Translation.asp?enfr=\\{@}
 Query[my]=https://www.wordreference.com/fr/Translation.asp?enfr=\\{@}
@@ -127,6 +130,7 @@ Query[sk]=https://www.wordreference.com/fr/Translation.asp?enfr=\\{@}
 Query[sl]=https://www.wordreference.com/fr/Translation.asp?enfr=\\{@}
 Query[sv]=https://www.wordreference.com/fr/Translation.asp?enfr=\\{@}
 Query[tg]=https://www.wordreference.com/fr/Translation.asp?enfr=\\{@}
+Query[tok]=https://www.wordreference.com/fr/Translation.asp?enfr=\\{@}
 Query[uk]=https://www.wordreference.com/fr/Translation.asp?enfr=\\{@}
 Query[vi]=https://www.wordreference.com/fr/Translation.asp?enfr=\\{@}
 Query[x-test]=xxhttps://www.wordreference.com/fr/Translation.asp?enfr=\\{@}xx

@@ -22,6 +22,7 @@ Name[ia]=Qwant Social
 Name[id]=Qwant Sosial
 Name[is]=Qwant Social
 Name[it]=Rete sociale di Qwant
+Name[ka]=Qwant სოციალური ქსელები
 Name[ko]=Qwant 소셜
 Name[lt]=Qwant socialinių tinklų įrašai
 Name[ml]=ക്വാണ്ട് സോഷ്യൽ
@@ -44,6 +45,7 @@ Name[sr@ijekavianlatin]=Qwant-druženje
 Name[sr@latin]=Qwant-druženje
 Name[sv]=Qwant-social
 Name[tg]=Шабакаи иҷтимоии Qwant
+Name[tok]=ilo toki Qwant
 Name[tr]=Qwant Sosyal
 Name[uk]=Соціальне Qwant
 Name[vi]=Qwant Xã hội
@@ -70,6 +72,7 @@ Query[hu]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[ia]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[is]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[it]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
+Query[ka]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[ko]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[lt]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[my]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
@@ -84,6 +87,7 @@ Query[sk]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[sl]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[sv]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[tg]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
+Query[tok]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[uk]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[vi]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[x-test]=xxhttps://www.qwant.com/?q=\\{@}&client=kde&t=socialxx

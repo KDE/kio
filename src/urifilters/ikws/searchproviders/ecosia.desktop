@@ -33,6 +33,7 @@ Name[ia]=Motor de cerca Ecosia
 Name[id]=Mesin pencari Ecosia
 Name[is]=Ecosia leitarvélin
 Name[it]=Motore di ricerca Ecosia
+Name[ka]=Ecosia ძებნის ძრავი
 Name[kk]=Ecosia іздеу құралы
 Name[km]=ម៉ាស៊ីន​ស្វែងរក Ecosia
 Name[kn]=ಎಕೊಸಿಯಾ(Ecosia) ಶೋಧನಾ ಯಂತ್ರ
@@ -63,6 +64,7 @@ Name[sr@latin]=Ecosia
 Name[sv]=Ecosia-söktjänst
 Name[tg]=Низоми ҷустуҷӯии Ecosia
 Name[th]=บริการค้นหา Ecosia
+Name[tok]=ilo alasa Ecosia
 Name[tr]=Ecosia arama motoru
 Name[ug]=Ecosia ئىزدەش ماتورى
 Name[uk]=Рушій пошуку Ecosia
@@ -94,6 +96,7 @@ Query[ia]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[id]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[is]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[it]=https://ecosia.org/search.php?q=\\{@}&meta=normal
+Query[ka]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[ko]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[lt]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[my]=https://ecosia.org/search.php?q=\\{@}&meta=normal
@@ -108,6 +111,7 @@ Query[sk]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[sl]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[sv]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[tg]=https://ecosia.org/search.php?q=\\{@}&meta=normal
+Query[tok]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[uk]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[vi]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[x-test]=xxhttps://ecosia.org/search.php?q=\\{@}&meta=normalxx

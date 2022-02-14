@@ -44,6 +44,7 @@ Name[ia]=HyperDictionary.com
 Name[id]=HyperDictionary.com
 Name[is]=HyperDictionary.com
 Name[it]=HyperDictionary.com
+Name[ka]=HyperDictionary.com
 Name[kk]=HyperDictionary.com
 Name[km]=HyperDictionary.com
 Name[kn]=HyperDictionary.com
@@ -82,6 +83,7 @@ Name[sv]=HyperDictionary.com
 Name[te]=HyperDictionary.com
 Name[tg]=HyperDictionary.com
 Name[th]=HyperDictionary.com
+Name[tok]=lipu nimi HyperDictionary.com
 Name[tr]=HyperDictionary.com
 Name[ug]=HyperDictionary.com
 Name[uk]=HyperDictionary.com
@@ -136,6 +138,7 @@ Query[ia]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[id]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[is]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[it]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
+Query[ka]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[kk]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[km]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[kn]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
@@ -173,6 +176,7 @@ Query[sv]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[te]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[tg]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[th]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
+Query[tok]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[tr]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[ug]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[uk]=http://www.hyperdictionary.com/search.aspx?define=\\{@}

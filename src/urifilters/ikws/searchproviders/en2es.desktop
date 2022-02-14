@@ -45,6 +45,7 @@ Name[ia]=WordReference.com Traduction: Anglese a Espaniol
 Name[id]=Terjemahan WordReference.com: Bahasa Inggris ke Spanyol
 Name[is]=WordReference.com þýðing: Ensk/spönsk
 Name[it]=Traduzione WordReference.com: dall'inglese allo spagnolo
+Name[ka]=WordReference.com თარგმანი: ინგლისურიდან ესპანურზე
 Name[kk]=WordReference.com ағылшын тілінен испаншаға аудару
 Name[km]=ការ​បកប្រែ WordReference.com ៖ ភាសា​អង់គ្លេស​ទៅជា​​អេស្ប៉ាញ
 Name[kn]=WordReference.com ಅನುವಾದ: ಇಂಗ್ಲೀಷಿನಿಂದ ಸ್ಪಾನಿಷ್ ಗೆ
@@ -81,6 +82,7 @@ Name[sv]=WordReference.com översättning: engelska till spanska
 Name[te]=WordReference.com అనువాదము: ఇంగ్లీష్ నుండి స్పానిష్
 Name[tg]=Тарҷумаҳои WordReference.com: Англисӣ ба испанӣ
 Name[th]=การแปล WordReference.com: แปลภาษาอังกฤษเป็นสเปน
+Name[tok]=ilo pi ante toki WordReference.com: toki Inli tawa toki Epanja
 Name[tr]=WordReference.com Çevirisi: İngilizceden İspanyolcaya
 Name[ug]=WordReference.com تەرجىمە: ئىنگلىزچىدىن ئىسپانچىغا
 Name[uk]=WordReference.com — переклад з англійської іспанською
@@ -113,6 +115,7 @@ Query[ia]=https://www.wordreference.com/es/translation.asp?tranword=\\{@}
 Query[id]=https://www.wordreference.com/es/translation.asp?tranword=\\{@}
 Query[is]=https://www.wordreference.com/es/translation.asp?tranword=\\{@}
 Query[it]=https://www.wordreference.com/es/translation.asp?tranword=\\{@}
+Query[ka]=https://www.wordreference.com/es/translation.asp?tranword=\\{@}
 Query[ko]=https://www.wordreference.com/es/translation.asp?tranword=\\{@}
 Query[lt]=https://www.wordreference.com/es/translation.asp?tranword=\\{@}
 Query[my]=https://www.wordreference.com/es/translation.asp?tranword=\\{@}
@@ -127,6 +130,7 @@ Query[sk]=https://www.wordreference.com/es/translation.asp?tranword=\\{@}
 Query[sl]=https://www.wordreference.com/es/translation.asp?tranword=\\{@}
 Query[sv]=https://www.wordreference.com/es/translation.asp?tranword=\\{@}
 Query[tg]=https://www.wordreference.com/es/translation.asp?tranword=\\{@}
+Query[tok]=https://www.wordreference.com/es/translation.asp?tranword=\\{@}
 Query[uk]=https://www.wordreference.com/es/translation.asp?tranword=\\{@}
 Query[vi]=https://www.wordreference.com/es/translation.asp?tranword=\\{@}
 Query[x-test]=xxhttps://www.wordreference.com/es/translation.asp?tranword=\\{@}xx

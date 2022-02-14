@@ -43,6 +43,7 @@ Name[ia]=Google Image Search : cerca de Imagine de Google
 Name[id]=Penelusuran Citra Google
 Name[is]=Google - Myndaleit
 Name[it]=Ricerca di immagini di Google
+Name[ka]=Google სურათების ძებნა
 Name[kk]=Google кескіндерді табу
 Name[km]=ស្វែងរក​រូបភាព​តាម​រយៈ​ហ្គូហ្គល
 Name[kn]=ಗೂಗಲ್ ಚಿತ್ರ ಹುಡುಕಾಟ
@@ -82,6 +83,7 @@ Name[ta]=கூகுள் படத் தேடல்
 Name[te]=గూగుల్ బొమ్మల అన్వెషణ
 Name[tg]=Ҷустуҷӯи тасвирҳои Google
 Name[th]=ค้นหาภาพด้วยกูเกิล
+Name[tok]=ilo pi alasa sitelen Google
 Name[tr]=Google Resim Arayıcı
 Name[ug]=Google سۈرەت ئىزدە
 Name[uk]=Пошук зображень на Google
@@ -121,6 +123,7 @@ Query[ia]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[id]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[is]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[it]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
+Query[ka]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[kk]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[ko]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[lt]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
@@ -145,6 +148,7 @@ Query[sr@latin]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[sv]=https://www.google.se/search?site=imghp&tbm=isch&q=\\{@}
 Query[ta]=https://www.google.com/search?hl=ta&site=imghp&tbm=isch&q=\\{@}
 Query[tg]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
+Query[tok]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[tr]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[ug]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[uk]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}

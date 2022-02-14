@@ -23,6 +23,7 @@ Name[ia]=Cerca de Pacchetto de Arch Linux
 Name[id]=Pencarian Paket Arch Linux
 Name[is]=Arch Linux pakkaleit
 Name[it]=Ricerca di pacchetti Arch Linux
+Name[ka]=Arch Linux-ის პაკეტების ძებნა
 Name[ko]=Arch Linux 패키지 검색
 Name[lt]=Arch Linux paketų paieška
 Name[my]=Archလင်းနပ်စ်ပတ်ကေ့ရှာဖွေမှု
@@ -42,6 +43,7 @@ Name[sr@ijekavianlatin]=Paketi Arch Linuxa
 Name[sr@latin]=Paketi Arch Linuxa
 Name[sv]=Arch Linux-paketsökning
 Name[tg]=Ҷустуҷӯи бастаҳои Arch Linux
+Name[tok]=ilo pi alasa ilo pi ma ilo Arch Linux
 Name[tr]=Arch Linux Paket Araması
 Name[uk]=Пошук пакунків для Arch Linux
 Name[vi]=Tìm kiếm gói Arch Linux
@@ -70,6 +72,7 @@ Query[ia]=https://www.archlinux.org/packages/?q=\\{@}
 Query[id]=https://www.archlinux.org/packages/?q=\\{@}
 Query[is]=https://www.archlinux.org/packages/?q=\\{@}
 Query[it]=https://www.archlinux.org/packages/?q=\\{@}
+Query[ka]=https://www.archlinux.org/packages/?q=\\{@}
 Query[ko]=https://www.archlinux.org/packages/?q=\\{@}
 Query[lt]=https://www.archlinux.org/packages/?q=\\{@}
 Query[my]=https://www.archlinux.org/packages/?q=\\{@}
@@ -84,6 +87,7 @@ Query[sk]=https://www.archlinux.org/packages/?q=\\{@}
 Query[sl]=https://www.archlinux.org/packages/?q=\\{@}
 Query[sv]=https://www.archlinux.org/packages/?q=\\{@}
 Query[tg]=https://www.archlinux.org/packages/?q=\\{@}
+Query[tok]=https://www.archlinux.org/packages/?q=\\{@}
 Query[uk]=https://www.archlinux.org/packages/?q=\\{@}
 Query[vi]=https://www.archlinux.org/packages/?q=\\{@}
 Query[x-test]=xxhttps://www.archlinux.org/packages/?q=\\{@}xx

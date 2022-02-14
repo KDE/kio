@@ -45,6 +45,7 @@ Name[ia]=WordReference.com Traduction: Italiano a Anglese
 Name[id]=Terjemahan WordReference.com: Bahasa Italia ke Inggris
 Name[is]=WordReference.com þýðing: Ítölsk/ensk
 Name[it]=Traduzione WordReference.com: dall'italiano all'inglese
+Name[ka]=WordReference.com თარგმანი: იტალიურიდან ინგლისურზე
 Name[kk]=WordReference.com итальян тілінен ағылшынға аудару
 Name[km]=ការ​បកប្រែ WordReference.com ៖ ភាសា​អ៊ីតាលី​ទៅជា​​អង់គ្លេស
 Name[kn]=WordReference.com ಅನುವಾದ: ಇಟಾಲಿಯನ್ ನಿಂದ ಇಂಗ್ಲೀಷಿಗೆ
@@ -81,6 +82,7 @@ Name[sv]=WordReference.com översättning: italienska till engelska
 Name[te]=WordReference.com అనువాదము: ఇటాలియన్ నుండి ఇంగ్లీష్
 Name[tg]=Тарҷумаҳои WordReference.com: Итолиёӣ ба англисӣ
 Name[th]=บริการแปลภาษาจาก WordReference.com: แปลภาษาอิตาเลียนเป็นอังกฤษ
+Name[tok]=ilo pi ante toki WordReference.com: toki Italija tawa toki Inli
 Name[tr]=WordReference.com Çevirisi: İtalyancadan İngilizceye
 Name[ug]=WordReference.com تەرجىمە:  ئىتاليانچىدىن ئىنگلىزچىغا
 Name[uk]=WordReference.com — переклад з італійської англійською
@@ -113,6 +115,7 @@ Query[ia]=https://www.wordreference.com/it/en/translation.asp?iten=\\{@}
 Query[id]=https://www.wordreference.com/it/en/translation.asp?iten=\\{@}
 Query[is]=https://www.wordreference.com/it/en/translation.asp?iten=\\{@}
 Query[it]=https://www.wordreference.com/it/en/translation.asp?iten=\\{@}
+Query[ka]=https://www.wordreference.com/it/en/translation.asp?iten=\\{@}
 Query[ko]=https://www.wordreference.com/it/en/translation.asp?iten=\\{@}
 Query[lt]=https://www.wordreference.com/it/en/translation.asp?iten=\\{@}
 Query[my]=https://www.wordreference.com/it/en/translation.asp?iten=\\{@}
@@ -127,6 +130,7 @@ Query[sk]=https://www.wordreference.com/it/en/translation.asp?iten=\\{@}
 Query[sl]=https://www.wordreference.com/it/en/translation.asp?iten=\\{@}
 Query[sv]=https://www.wordreference.com/it/en/translation.asp?iten=\\{@}
 Query[tg]=https://www.wordreference.com/it/en/translation.asp?iten=\\{@}
+Query[tok]=https://www.wordreference.com/it/en/translation.asp?iten=\\{@}
 Query[uk]=https://www.wordreference.com/it/en/translation.asp?iten=\\{@}
 Query[vi]=https://www.wordreference.com/it/en/translation.asp?iten=\\{@}
 Query[x-test]=xxhttps://www.wordreference.com/it/en/translation.asp?iten=\\{@}xx

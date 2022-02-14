@@ -41,6 +41,7 @@ Name[ia]=Multitran - Traduce Inter Anglese e Russo
 Name[id]=Multitran - Penerjemahan Antara Bahasa Inggris dan Rusia
 Name[is]=Multitran - Þýða á milli ensku og rússnesku
 Name[it]=Multitran - Traduzioni tra inglese e russo
+Name[ka]=Multitran  თარგმანი ინგლისურიდან რუსულზე და პირიქით
 Name[kk]=LEO - ағылшын және орыс тілдер арасында аудару
 Name[km]=Multitran - បក​ប្រែ​រវាង​ភាសា​អង់គ្លេស និង​រុស្ស៊ី
 Name[kn]=ಮಲ್ಟಿಟ್ರಾನ್-ಇಂಗ್ಲೀಷ್ ಮತ್ತು ರಷ್ಯನ್ ಗಳ ನಡುವೆ ಅನುವಾದಿಸು
@@ -75,6 +76,7 @@ Name[sv]=Multitran - Översätt mellan engelska och ryska
 Name[te]=Multitran - ఇంగ్లీష్ మరియు రష్యన్ మద్య అనువదించు
 Name[tg]=Multitran - Тарҷумаҳои байни англисӣ ва русӣ
 Name[th]=บริการ Multitran - แปลความหมายระหว่างภาษาอังกฤษและภาษารัสเซีย
+Name[tok]=ilo pi ante toki Multitran: toki Inli en toki Losi
 Name[tr]=Multitran - Translate Between English and Russian
 Name[ug]=Multitran - ئىنگلىزچە بىلەن رۇسچە ئارىسىدا تەرجىمە
 Name[uk]=Multitran — переклад з англійської російською
@@ -108,6 +110,7 @@ Query[ia]=https://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
 Query[id]=https://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
 Query[is]=https://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
 Query[it]=https://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
+Query[ka]=https://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
 Query[ko]=https://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
 Query[lt]=https://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
 Query[my]=https://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
@@ -122,6 +125,7 @@ Query[sk]=https://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
 Query[sl]=https://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
 Query[sv]=https://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
 Query[tg]=https://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
+Query[tok]=https://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
 Query[uk]=https://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
 Query[vi]=https://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
 Query[x-test]=xxhttps://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}xx

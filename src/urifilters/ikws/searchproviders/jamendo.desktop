@@ -35,6 +35,7 @@ Name[ia]=Jamendo
 Name[id]=Jamendo
 Name[is]=Jamendo
 Name[it]=Jamendo
+Name[ka]=Jamendo
 Name[kk]=Jamendo
 Name[km]=Jamendo
 Name[kn]=ಜಮೆಂಡೊ(Jamendo)
@@ -66,6 +67,7 @@ Name[sr@latin]=Jamendo
 Name[sv]=Jamendo
 Name[tg]=Jamendo
 Name[th]=Jamendo
+Name[tok]=ilo pi kalama musi Jamendo
 Name[tr]=Jamendo
 Name[ug]=Jamendo
 Name[uk]=Jamendo
@@ -96,6 +98,7 @@ Query[ia]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[id]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[is]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[it]=https://www.jamendo.com/en/search?qs=q=\\{@}
+Query[ka]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[ko]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[lt]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[my]=https://www.jamendo.com/en/search?qs=q=\\{@}
@@ -110,6 +113,7 @@ Query[sk]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[sl]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[sv]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[tg]=https://www.jamendo.com/en/search?qs=q=\\{@}
+Query[tok]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[uk]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[vi]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[x-test]=xxhttps://www.jamendo.com/en/search?qs=q=\\{@}xx

@@ -42,6 +42,7 @@ Name[ia]=LEO-Traduce
 Name[id]=LEO-Translate
 Name[is]=LEO-þýðandi
 Name[it]=Traduzioni LEO
+Name[ka]=LEO-თარგმანი
 Name[kk]=LEO-аудару
 Name[km]=LEO-បកប្រែ
 Name[kn]=ಲಿಯೋ-ಅನುವಾದ
@@ -79,6 +80,7 @@ Name[sv]=LEO-översätt
 Name[te]=LEO-అనువదించు
 Name[tg]=Тарҷумаҳои LEO
 Name[th]=บริการแปลภาษาของ LEO
+Name[tok]=ilo pi ante toki LEO
 Name[tr]=LEO-Translate
 Name[ug]=LEO تەرجىمە
 Name[uk]=LEO-Translate
@@ -113,6 +115,7 @@ Query[ia]=https://dict.leo.org/?search=\\{@}
 Query[id]=https://dict.leo.org/?search=\\{@}
 Query[is]=https://dict.leo.org/?search=\\{@}
 Query[it]=https://dict.leo.org/?search=\\{@}
+Query[ka]=https://dict.leo.org/?search=\\{@}
 Query[ko]=https://dict.leo.org/?search=\\{@}
 Query[lt]=https://dict.leo.org/?search=\\{@}
 Query[my]=https://dict.leo.org/?search=\\{@}
@@ -127,6 +130,7 @@ Query[sk]=https://dict.leo.org/?search=\\{@}
 Query[sl]=https://dict.leo.org/?search=\\{@}
 Query[sv]=https://dict.leo.org/?search=\\{@}
 Query[tg]=https://dict.leo.org/?search=\\{@}
+Query[tok]=https://dict.leo.org/?search=\\{@}
 Query[uk]=https://dict.leo.org/?search=\\{@}
 Query[vi]=https://dict.leo.org/?search=\\{@}
 Query[x-test]=xxhttps://dict.leo.org/?search=\\{@}xx

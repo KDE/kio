@@ -34,6 +34,7 @@ Name[ia]=Novas de Identi.ca
 Name[id]=Identi.ca Notices
 Name[is]=Identi.ca tilkynningar
 Name[it]=Notifiche di Identi.ca
+Name[ka]=Identi.ca შენიშვნებ
 Name[kk]=Identi.ca жазбалары
 Name[km]=ចំណាំ​របស់ Identi.ca
 Name[kn]=identi.ca ಸೂಚನೆ
@@ -64,6 +65,7 @@ Name[sr@latin]=identi.ca‑obaveštenja
 Name[sv]=Identi.ca underrättelser
 Name[tg]=Эзоҳҳои Identi.ca
 Name[th]=การแจ้ง Identi.ca
+Name[tok]=ijo suli pi ilo Identi.ca
 Name[tr]=Identi.ca Bildirimleri
 Name[ug]=Identi.ca ئۇقتۇرۇشلار
 Name[uk]=Нотатки Identi.ca
@@ -99,6 +101,7 @@ Query[ia]=https://identi.ca/search/notice?q=\\{@}
 Query[id]=https://identi.ca/search/notice?q=\\{@}
 Query[is]=https://identi.ca/search/notice?q=\\{@}
 Query[it]=https://identi.ca/search/notice?q=\\{@}
+Query[ka]=https://identi.ca/search/notice?q=\\{@}
 Query[kk]=https://identi.ca/search/notice?q=\\{@}
 Query[ko]=https://identi.ca/search/notice?q=\\{@}
 Query[lt]=https://identi.ca/search/notice?q=\\{@}
@@ -122,6 +125,7 @@ Query[sr@ijekavianlatin]=https://identi.ca/search/notice?q=\\{@}
 Query[sr@latin]=https://identi.ca/search/notice?q=\\{@}
 Query[sv]=https://identi.ca/search/notice?q=\\{@}
 Query[tg]=https://identi.ca/search/notice?q=\\{@}
+Query[tok]=https://identi.ca/search/notice?q=\\{@}
 Query[tr]=https://identi.ca/search/notice?q=\\{@}
 Query[ug]=https://identi.ca/search/notice?q=\\{@}
 Query[uk]=https://identi.ca/search/notice?q=\\{@}

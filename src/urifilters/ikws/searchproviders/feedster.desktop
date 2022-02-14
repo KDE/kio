@@ -44,6 +44,7 @@ Name[ia]=Feedster
 Name[id]=Feedster
 Name[is]=Feedster
 Name[it]=Feedster
+Name[ka]=Feedster
 Name[kk]=Feedster
 Name[km]=Feedster
 Name[kn]=ಫೀಡ್ಸ್ಟರ್
@@ -81,6 +82,7 @@ Name[sv]=Feedster
 Name[te]=ఫీడ్‌స్టర్
 Name[tg]=Feedster
 Name[th]=Feedster หาบล็อก
+Name[tok]=ilo Feedster
 Name[tr]=Feedster
 Name[ug]=Feedster
 Name[uk]=Feedster
@@ -114,6 +116,7 @@ Query[ia]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{
 Query[id]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[is]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[it]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
+Query[ka]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[ko]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[lt]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[my]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
@@ -128,6 +131,7 @@ Query[sk]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{
 Query[sl]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[sv]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[tg]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
+Query[tok]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[uk]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[vi]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[x-test]=xxhttps://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}xx

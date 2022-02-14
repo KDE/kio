@@ -42,6 +42,7 @@ Name[ia]=CPAN - Comprehensive Perl Archive Network (Rete Comprehensive de Archiv
 Name[id]=CPAN - Jaringan Arsip Perl Komprehensif
 Name[is]=CPAN - Comprehensive Perl Archive Network
 Name[it]=CPAN - Rete globale degli archivi Perl
+Name[ka]=CPAN - Comprehensive Perl Archive Network
 Name[kk]=CPAN - Perl скрипттер архив желісі
 Name[km]=CPAN - Comprehensive Perl Archive Network
 Name[kn]=CPAN -ವ್ಯಾಪಕ ಪರ್ಲ್ ಕಡತಾಗಾರ (ಆರ್ಕೈವ್) ಜಾಲ
@@ -79,6 +80,7 @@ Name[sv]=CPAN - Comprehensive Perl Archive Network
 Name[te]=CPAN - విశదీకృత Perl ఆర్చివ్ నెట్వర్‍క్
 Name[tg]=CPAN - Шабакаи бойгонии ҳаматарафаи Perl
 Name[th]=CPAN - เครือข่ายเก็บบันทึกภาษา Perl แบบครอบคลุม
+Name[tok]=ilo CPAN
 Name[tr]=CPAN - Detaylı Perl Arşiv Ağı
 Name[ug]=CPAN - كەڭ دائىرىلىك Perl ئارخىپ تورى
 Name[uk]=CPAN — всеосяжна мережа архівів Perl
@@ -112,6 +114,7 @@ Query[ia]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[id]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[is]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[it]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
+Query[ka]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[ko]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[lt]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[my]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
@@ -126,6 +129,7 @@ Query[sk]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[sl]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[sv]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[tg]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
+Query[tok]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[uk]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[vi]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[x-test]=xxhttps://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}xx

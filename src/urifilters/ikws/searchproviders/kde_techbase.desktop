@@ -34,6 +34,7 @@ Name[ia]=KDE TechBase (Base Technic)
 Name[id]=KDE TechBase
 Name[is]=KDE Tæknigrunnur
 Name[it]=TechBase di KDE
+Name[ka]=KDE ტექნიკური ბაზა
 Name[kk]=KDE TechBase
 Name[km]=KDE TechBase
 Name[kn]=ಕೆಡಿಇ ಟೆಕ್ ಬೇಸ್ (TechBase)
@@ -64,6 +65,7 @@ Name[sr@latin]=Techbase KDE‑a
 Name[sv]=KDE:s teknikbas
 Name[tg]=Пойгоҳи техникии KDE
 Name[th]=KDE TechBase
+Name[tok]=alasa sona pi ilo tan kulupu KDE (TechBase)
 Name[tr]=KDE TechBase
 Name[ug]=KDE TechBase
 Name[uk]=TechBase KDE
@@ -94,6 +96,7 @@ Query[ia]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[id]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[is]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[it]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
+Query[ka]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[ko]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[lt]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[my]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
@@ -108,6 +111,7 @@ Query[sk]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[sl]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[sv]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[tg]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
+Query[tok]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[uk]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[vi]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[x-test]=xxhttps://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Searchxx

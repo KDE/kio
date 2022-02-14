@@ -41,6 +41,7 @@ Name[ia]=Multitran - Traduce inter Italiano e Russo
 Name[id]=Multitran - Penerjemahan Antara Bahasa Italia dan Rusia
 Name[is]=Multitran - Þýða á milli ítölsku og rússnesku
 Name[it]=Multitran - Traduzioni tra italiano e russo
+Name[ka]=Multitran თარგმანი იტალიურიდან რუსულზე და პირიქით
 Name[kk]=LEO - итальян және орыс тілдер арасында аудару
 Name[km]=Multitran - បកប្រែ​រវាង​ភាសា​អ៊ីតាលី និង​រុស្ស៊ី
 Name[kn]=ಮಲ್ಟಿಟ್ರಾನ್ - ಇಟಾಲಿಯನ್ ಮತ್ತು ರಷ್ಯನ್ ಗಳ ನಡುವೆ ಭಾಷಾಂತರಿಸು
@@ -75,6 +76,7 @@ Name[sv]=Multitran - Översätt mellan italienska och ryska
 Name[te]=Multitran - ఇటాలియన్ మరియు రష్యన్ మద్య అనువదించు
 Name[tg]=Multitran - Тарҷумаҳои байни итолиёӣ ва русӣ
 Name[th]=บริการ Multitran - แปลภาษาระหว่างภาษาอิตาลีและภาษารัสเซีย
+Name[tok]=ilo pi ante toki Multitran: toki Italija en toki Losi
 Name[tr]=Multitran - İtalyancadan Rusçaya Çeviri
 Name[ug]=Multitran - ئىتاليانچە بىلەن رۇسچە ئارىسىدا تەرجىمە
 Name[uk]=Multitran — переклад з італійської російською
@@ -108,6 +110,7 @@ Query[ia]=https://multitran.ru/c/m.exe?l1=23&s=\\{@}
 Query[id]=https://multitran.ru/c/m.exe?l1=23&s=\\{@}
 Query[is]=https://multitran.ru/c/m.exe?l1=23&s=\\{@}
 Query[it]=https://multitran.ru/c/m.exe?l1=23&s=\\{@}
+Query[ka]=https://multitran.ru/c/m.exe?l1=23&s=\\{@}
 Query[ko]=https://multitran.ru/c/m.exe?l1=23&s=\\{@}
 Query[lt]=https://multitran.ru/c/m.exe?l1=23&s=\\{@}
 Query[my]=https://multitran.ru/c/m.exe?l1=23&s=\\{@}
@@ -122,6 +125,7 @@ Query[sk]=https://multitran.ru/c/m.exe?l1=23&s=\\{@}
 Query[sl]=https://multitran.ru/c/m.exe?l1=23&s=\\{@}
 Query[sv]=https://multitran.ru/c/m.exe?l1=23&s=\\{@}
 Query[tg]=https://multitran.ru/c/m.exe?l1=23&s=\\{@}
+Query[tok]=https://multitran.ru/c/m.exe?l1=23&s=\\{@}
 Query[uk]=https://multitran.ru/c/m.exe?l1=23&s=\\{@}
 Query[vi]=https://multitran.ru/c/m.exe?l1=23&s=\\{@}
 Query[x-test]=xxhttps://multitran.ru/c/m.exe?l1=23&s=\\{@}xx

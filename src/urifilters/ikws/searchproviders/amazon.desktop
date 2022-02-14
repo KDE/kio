@@ -35,6 +35,7 @@ Name[ia]=Amazon
 Name[id]=Amazon
 Name[is]=Amazon
 Name[it]=Amazon
+Name[ka]=ამაზონი
 Name[kk]=Amazon
 Name[km]=Amazon
 Name[kn]=ಅಮೆಜೋನ್
@@ -64,6 +65,7 @@ Name[sr@latin]=Amazon
 Name[sv]=Amazon
 Name[tg]=Amazon
 Name[th]=อเมซอน
+Name[tok]=ilo esun Amazon
 Name[tr]=Amazon
 Name[ug]=ئامازون
 Name[uk]=Amazon
@@ -94,6 +96,7 @@ Query[ia]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=aps&field-key
 Query[id]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=aps&field-keywords=\\{@}&x=0&y=0
 Query[is]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=aps&field-keywords=\\{@}&x=0&y=0
 Query[it]=https://www.amazon.it/s/ref=nb_sb_noss?url=search-alias=aps&field-keywords=\\{@}&x=0&y=0
+Query[ka]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=aps&field-keywords=\\{@}&x=0&y=0
 Query[ko]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=aps&field-keywords=\\{@}&x=0&y=0
 Query[lt]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=aps&field-keywords=\\{@}&x=0&y=0
 Query[my]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=aps&field-keywords=\\{@}&x=0&y=0
@@ -109,6 +112,7 @@ Query[sl]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=aps&field-key
 Query[sv]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=aps&field-keywords=\\{@}&x=0&y=0
 Query[ta]=https://www.amazon.in/s/ref=nb_sb_noss?url=search-alias=aps&language=ta_IN&field-keywords=\\{@}&x=0&y=0
 Query[tg]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=aps&field-keywords=\\{@}&x=0&y=0
+Query[tok]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=aps&field-keywords=\\{@}&x=0&y=0
 Query[uk]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=aps&field-keywords=\\{@}&x=0&y=0
 Query[vi]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=aps&field-keywords=\\{@}&x=0&y=0
 Query[x-test]=xxhttps://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=aps&field-keywords=\\{@}&x=0&y=0xx

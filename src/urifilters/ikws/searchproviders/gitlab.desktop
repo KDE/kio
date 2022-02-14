@@ -24,6 +24,7 @@ Name[ia]=GitLab
 Name[id]=GitLab
 Name[is]=GitLab
 Name[it]=GitLab
+Name[ka]=GitLab
 Name[ko]=GitLab
 Name[lt]=GitLab
 Name[ml]=ഗിറ്റ്ലാബ്
@@ -39,6 +40,7 @@ Name[sk]=GitLab
 Name[sl]=GitLab
 Name[sv]=GitLab
 Name[tg]=GitLab
+Name[tok]=ilo GitLab
 Name[uk]=GitLab
 Name[vi]=GitLab
 Name[x-test]=xxGitLabxx
@@ -66,6 +68,7 @@ Query[ia]=https://gitlab.com/search?search=\\{@}
 Query[id]=https://gitlab.com/search?search=\\{@}
 Query[is]=https://gitlab.com/search?search=\\{@}
 Query[it]=https://gitlab.com/search?search=\\{@}
+Query[ka]=https://gitlab.com/search?search=\\{@}
 Query[ko]=https://gitlab.com/search?search=\\{@}
 Query[lt]=https://gitlab.com/search?search=\\{@}
 Query[my]=https://gitlab.com/search?search=\\{@}
@@ -80,6 +83,7 @@ Query[sk]=https://gitlab.com/search?search=\\{@}
 Query[sl]=https://gitlab.com/search?search=\\{@}
 Query[sv]=https://gitlab.com/search?search=\\{@}
 Query[tg]=https://gitlab.com/search?search=\\{@}
+Query[tok]=https://gitlab.com/search?search=\\{@}
 Query[uk]=https://gitlab.com/search?search=\\{@}
 Query[vi]=https://gitlab.com/search?search=\\{@}
 Query[x-test]=xxhttps://gitlab.com/search?search=\\{@}xx

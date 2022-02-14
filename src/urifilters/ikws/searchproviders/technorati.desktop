@@ -43,6 +43,7 @@ Name[ia]=Technorati
 Name[id]=Technorati
 Name[is]=Technorati
 Name[it]=Technorati
+Name[ka]=Technorati
 Name[kk]=Technorati
 Name[km]=Technorati
 Name[kn]=ಟೆಕ್ನೋರೆಟಿ
@@ -80,6 +81,7 @@ Name[sv]=Technorati
 Name[te]=Technorati
 Name[tg]=Technorati
 Name[th]=Technorati
+Name[tok]=ilo alasa Technorati
 Name[tr]=Technorati
 Name[ug]=Technorati
 Name[uk]=Technorati
@@ -113,6 +115,7 @@ Query[ia]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[id]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[is]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[it]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
+Query[ka]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[ko]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[lt]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[my]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
@@ -127,6 +130,7 @@ Query[sk]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[sl]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[sv]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[tg]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
+Query[tok]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[uk]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[vi]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[x-test]=xxhttps://technorati.com/search?return=sites&authority=high&q=\\{@}xx

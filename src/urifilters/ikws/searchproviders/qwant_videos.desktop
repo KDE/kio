@@ -23,6 +23,7 @@ Name[ia]=Qwant Videos
 Name[id]=Qwant Video
 Name[is]=Qwant myndskeið
 Name[it]=Video di Qwant
+Name[ka]=Qwant ვიდეოები
 Name[ko]=Qwant 동영상
 Name[lt]=Qwant vaizdo įrašai
 Name[mr]=क्वांट व्हिडीओ
@@ -44,6 +45,7 @@ Name[sr@ijekavianlatin]=Qwant-video
 Name[sr@latin]=Qwant-video
 Name[sv]=Qwant-videor
 Name[tg]=Видеоҳои Qwant
+Name[tok]=ilo pi sitelen tawa Qwant
 Name[tr]=Qwant Videoları
 Name[uk]=Відео Qwant
 Name[vi]=Qwant Phim
@@ -70,6 +72,7 @@ Query[hu]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[ia]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[is]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[it]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
+Query[ka]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[ko]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[lt]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[my]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
@@ -84,6 +87,7 @@ Query[sk]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[sl]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[sv]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[tg]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
+Query[tok]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[uk]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[vi]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[x-test]=xxhttps://www.qwant.com/?q=\\{@}&client=kde&t=videosxx

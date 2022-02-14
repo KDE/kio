@@ -25,6 +25,7 @@ Name[ia]=Grande Dictionario del Linguage Catalan (GRan Enciclopèdia  Catalana)
 Name[id]=Kamus Besar Bahasa Catalan (GRan Enciclopèdia Catalana)
 Name[is]=Stóra orðabók katalónska tungumálsins (GRan Enciclopèdia  Catalana)
 Name[it]=Grande dizionario della lingua catalana (GRan Enciclopèdia Catalana)
+Name[ka]=კატალანური ენის დიდი ლექსიკონი (GRan Enciclopèdia Catalana)
 Name[ko]=카탈루냐어 대사전(GRan Enciclopèdia Catalana)
 Name[lt]=Didysis katalonų kalbos žodynas (GRan Enciclopèdia Catalana)
 Name[my]=ကတ်တလန်ဘာသာစကား၏ ဒစ်ရှင်နရီကြီး (GRan Enciclopèdia Catalana)
@@ -43,6 +44,7 @@ Name[sr@ijekavianlatin]=Veliki rječnik katalonskog jezika (GRan Enciclopèdia C
 Name[sr@latin]=Veliki rečnik katalonskog jezika (GRan Enciclopèdia Catalana)
 Name[sv]=Stor ordbok över det katalanska språket (Gran Enciclopèdia Catalana)
 Name[tg]=Луғати калони забони каталонӣ (Донишномаи каталонии GRan)
+Name[tok]=lipu nimi pi toki Katalan (Gran Enciclopèdia Catalana)
 Name[tr]=Katalanca Büyük Sözlük (GRan Enciclopèdia Catalana)
 Name[uk]=Великий словник каталанської мови (GRan Enciclopèdia Catalana)
 Name[vi]=Đại từ điển tiếng Catalan (GRan Enciclopèdia Catalana)
@@ -84,6 +86,7 @@ Query[ia]=http://ec.grec.net/cgi-bin/AppDLC3.exe?APP=CERCADLC&GECART=\\{@}
 Query[id]=http://ec.grec.net/cgi-bin/AppDLC3.exe?APP=CERCADLC&GECART=\\{@}
 Query[is]=http://ec.grec.net/cgi-bin/AppDLC3.exe?APP=CERCADLC&GECART=\\{@}
 Query[it]=http://ec.grec.net/cgi-bin/AppDLC3.exe?APP=CERCADLC&GECART=\\{@}
+Query[ka]=http://ec.grec.net/cgi-bin/AppDLC3.exe?APP=CERCADLC&GECART=\\{@}
 Query[kk]=http://ec.grec.net/cgi-bin/AppDLC3.exe?APP=CERCADLC&GECART=\\{@}
 Query[km]=http://ec.grec.net/cgi-bin/AppDLC3.exe?APP=CERCADLC&GECART=\\{@}
 Query[kn]=http://ec.grec.net/cgi-bin/AppDLC3.exe?APP=CERCADLC&GECART=\\{@}
@@ -114,6 +117,7 @@ Query[sr@latin]=http://ec.grec.net/cgi-bin/AppDLC3.exe?APP=CERCADLC&GECART=\\{@}
 Query[sv]=http://ec.grec.net/cgi-bin/AppDLC3.exe?APP=CERCADLC&GECART=\\{@}
 Query[tg]=http://ec.grec.net/cgi-bin/AppDLC3.exe?APP=CERCADLC&GECART=\\{@}
 Query[th]=http://ec.grec.net/cgi-bin/AppDLC3.exe?APP=CERCADLC&GECART=\\{@}
+Query[tok]=http://ec.grec.net/cgi-bin/AppDLC3.exe?APP=CERCADLC&GECART=\\{@}
 Query[tr]=http://ec.grec.net/cgi-bin/AppDLC3.exe?APP=CERCADLC&GECART=\\{@}
 Query[ug]=http://ec.grec.net/cgi-bin/AppDLC3.exe?APP=CERCADLC&GECART=\\{@}
 Query[uk]=http://ec.grec.net/cgi-bin/AppDLC3.exe?APP=CERCADLC&GECART=\\{@}

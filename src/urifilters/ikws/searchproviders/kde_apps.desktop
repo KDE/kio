@@ -43,6 +43,7 @@ Name[ia]=Cerca de KDE App
 Name[id]=Pencarian Aplikasi KDE
 Name[is]=KDE App Search
 Name[it]=Ricerca di applicazioni per KDE
+Name[ka]=KDE App ძებნა
 Name[kk]=KDE қолданбаларын табу
 Name[km]=ការ​ស្វែងរក​កម្មវិធី​របស់ KDE
 Name[kn]=ಕೆಡಿಇ ಅನ್ವಯ (ಅಪ್ಲಿಕೇಶನ್) ಶೋಧ
@@ -81,6 +82,7 @@ Name[ta]=கே.டீ.யீ. செயலி தேடல்
 Name[te]=KDE App శోధన
 Name[tg]=Ҷустуҷӯи барномаҳои KDE
 Name[th]=ค้นหาโปรแกรม KDE
+Name[tok]=alasa pi ilo tan kulupu KDE
 Name[tr]=KDE Uygulama Arayıcı
 Name[ug]=KDE پروگرامما ئىزدە
 Name[uk]=Пошук програм KDE
@@ -115,6 +117,7 @@ Query[ia]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[id]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[is]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[it]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
+Query[ka]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[ko]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[lt]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[my]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
@@ -129,6 +132,7 @@ Query[sk]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[sl]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[sv]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[tg]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
+Query[tok]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[uk]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[vi]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[x-test]=xxhttps://www.kde-apps.org/content/search.php?search=Search&name=\\{@}xx

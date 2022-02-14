@@ -22,6 +22,7 @@ Name[ia]=Qwant Shopping
 Name[id]=Qwant Belanja
 Name[is]=Qwant verslun
 Name[it]=Acquisti di Qwant
+Name[ka]=Qwant საყიდლები
 Name[ko]=Qwant 쇼핑
 Name[lt]=Qwant apsipirkimas
 Name[mr]=क्वांटखरेदी
@@ -43,6 +44,7 @@ Name[sr@ijekavianlatin]=Qwant-šoping
 Name[sr@latin]=Qwant-šoping
 Name[sv]=Qwant-shopping
 Name[tg]=Дукони онлайни Qwant
+Name[tok]=ilo pi alasa esun Qwant
 Name[tr]=Qwant Alışveriş
 Name[uk]=Торгівля Qwant
 Name[vi]=Qwant Mua sắm
@@ -69,6 +71,7 @@ Query[hu]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[ia]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[is]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[it]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
+Query[ka]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[ko]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[lt]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[my]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
@@ -83,6 +86,7 @@ Query[sk]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[sl]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[sv]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[tg]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
+Query[tok]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[uk]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[vi]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[x-test]=xxhttps://www.qwant.com/?q=\\{@}&client=kde&t=shoppingxx

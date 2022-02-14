@@ -43,6 +43,7 @@ Name[ia]=Cerca PHP
 Name[id]=Pencarian PHP
 Name[is]=PHP leit
 Name[it]=Ricerca di PHP
+Name[ka]=PHP ძებნა
 Name[kk]=PHP іздеуі
 Name[km]=ការ​ស្វែងរក PHP
 Name[kn]=PHP ಹುಡುಕಾಟ
@@ -80,6 +81,7 @@ Name[sv]=PHP-sökning
 Name[te]=పి హెచ్ పి అన్వెషణ
 Name[tg]=Ҷустуҷӯи PHP
 Name[th]=ค้นหาเกี่ยวกับ PHP
+Name[tok]=ilo alasa PHP
 Name[tr]=PHP Arayıcı
 Name[ug]=PHP ئىزدە
 Name[uk]=Пошук PHP
@@ -113,6 +115,7 @@ Query[ia]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[id]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[is]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[it]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
+Query[ka]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[ko]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[lt]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[my]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
@@ -127,6 +130,7 @@ Query[sk]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[sl]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[sv]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[tg]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
+Query[tok]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[uk]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[vi]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[x-test]=xxhttps://secure.php.net/manual-lookup.php?pattern=\\{@}xx

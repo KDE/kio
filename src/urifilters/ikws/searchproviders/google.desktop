@@ -45,6 +45,7 @@ Name[ia]=Google
 Name[id]=Google
 Name[is]=Google
 Name[it]=Google
+Name[ka]=Google
 Name[kk]=Google
 Name[km]=ហ្គូហ្គល
 Name[kn]=ಗೂಗಲ್
@@ -84,6 +85,7 @@ Name[ta]=கூகுள்
 Name[te]=గూగుల్
 Name[tg]=Google
 Name[th]=กูเกิล
+Name[tok]=ilo alasa Google
 Name[tr]=Google
 Name[ug]=گۇگىل(Google)
 Name[uk]=Google
@@ -123,6 +125,7 @@ Query[ia]=https://www.google.com/search?q=\\{@}&ie=UTF-8
 Query[id]=https://www.google.com/search?q=\\{@}&ie=UTF-8
 Query[is]=https://www.google.com/search?q=\\{@}&ie=UTF-8
 Query[it]=https://www.google.com/search?q=\\{@}&ie=UTF-8
+Query[ka]=https://www.google.com/search?q=\\{@}&ie=UTF-8
 Query[kk]=http://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[ko]=https://www.google.com/search?q=\\{@}&ie=UTF-8
 Query[lt]=https://www.google.com/search?q=\\{@}&ie=UTF-8
@@ -147,6 +150,7 @@ Query[sr@latin]=https://www.google.com/search?q=\\{@}&ie=UTF-8
 Query[sv]=https://www.google.se/search?q=\\{@}&ie=UTF-8
 Query[ta]=https://www.google.com/search?hl=ta&q=\\{@}&ie=UTF-8
 Query[tg]=https://www.google.com/search?q=\\{@}&ie=UTF-8
+Query[tok]=https://www.google.com/search?q=\\{@}&ie=UTF-8
 Query[tr]=https://www.google.com/search?q=\\{@}&ie=UTF-8
 Query[ug]=https://www.google.com/search?q=\\{@}&ie=UTF-8
 Query[uk]=https://www.google.com/search?q=\\{@}&ie=UTF-8
