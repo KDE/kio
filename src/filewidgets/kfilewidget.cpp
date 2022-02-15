@@ -380,6 +380,7 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
 
     d->m_messageWidget = new KMessageWidget(this);
     d->m_messageWidget->setMessageType(KMessageWidget::Error);
+    d->m_messageWidget->hide();
     opsWidgetLayout->addWidget(d->m_messageWidget);
 
     d->m_ops = new KDirOperator(QUrl(), d->m_opsWidget);
