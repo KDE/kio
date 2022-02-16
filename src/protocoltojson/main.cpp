@@ -78,6 +78,7 @@ int main(int argc, char *argv[])
                                       QStringLiteral("linking"),
                                       QStringLiteral("moving"),
                                       QStringLiteral("opening"),
+                                      QStringLiteral("truncating"),
                                       QStringLiteral("copyFromFile"),
                                       QStringLiteral("copyToFile"),
                                       QStringLiteral("renameFromFile"),
