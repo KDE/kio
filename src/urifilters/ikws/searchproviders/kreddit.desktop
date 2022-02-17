@@ -1,5 +1,5 @@
 [Desktop Entry]
-Name=KReddit
+Name=KDE Reddit
 Type=Service
 Keys=kreddit
 Query=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
