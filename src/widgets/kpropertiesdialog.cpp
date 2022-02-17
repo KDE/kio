@@ -1179,6 +1179,9 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
                 d->m_ui->fsLabel->setText(mp->mountType());
                 d->m_ui->mountPointLabel->setText(mp->mountPoint());
                 d->m_ui->mountSrcLabel->setText(mp->mountedFrom());
+            } else {
+                qCWarning(KIO_WIDGETS) << "Could not find mount point for" << url;
+                d->hideMountPointLabels();
             }
         } else {
             d->hideMountPointLabels();
