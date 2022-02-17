@@ -1,5 +1,0 @@
-[Desktop Entry]
-Name=Debian Packages
-Type=Service
-Keys=debian
-Query=https://packages.debian.org/\\{@}
