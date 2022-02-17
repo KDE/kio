@@ -1,5 +1,5 @@
 [Desktop Entry]
-Name=Ubuntu Packages
+Name=Ubuntu Package Search
 Type=Service
 Keys=ubuntu
 Query=https://packages.ubuntu.com/\\{@}
