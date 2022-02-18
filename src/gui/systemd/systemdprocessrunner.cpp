@@ -120,7 +120,7 @@ void SystemdProcessRunner::startProcess()
         watcher->deleteLater();
         if (reply.isError()) {
             qCWarning(KIO_GUI) << "Failed to launch process as service:" << m_serviceName << reply.error().name() << reply.error().message();
-            return systemdError(reply.error().name());
+            return systemdError(reply.error().message());
         }
         qCDebug(KIO_GUI) << "Successfully asked systemd to launch process as service:" << m_serviceName;
         m_jobPath = reply.argumentAt<0>().path();
@@ -133,7 +133,7 @@ void SystemdProcessRunner::handleProperties(QDBusPendingCallWatcher *watcher)
     watcher->deleteLater();
     if (reply.isError()) {
         qCWarning(KIO_GUI) << "Failed to get properties for service:" << m_serviceName << reply.error().name() << reply.error().message();
-        return systemdError(reply.error().name());
+        return systemdError(reply.error().message());
     }
     qCDebug(KIO_GUI) << "Successfully retrieved properties for service:" << m_serviceName;
     if (m_exited) {
@@ -167,7 +167,7 @@ void SystemdProcessRunner::handleProperties(QDBusPendingCallWatcher *watcher)
         watcher->deleteLater();
         if (reply.isError()) {
             qCWarning(KIO_GUI) << "Failed to unref service:" << m_serviceName << reply.error().name() << reply.error().message();
-            return systemdError(reply.error().name());
+            return systemdError(reply.error().message());
         }
         qCDebug(KIO_GUI) << "Successfully unref'd service:" << m_serviceName;
     });

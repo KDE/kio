@@ -73,7 +73,7 @@ void DBusActivationRunner::startProcess()
     connect(activationWatcher, &QDBusPendingCallWatcher::finished, this, [this](QDBusPendingCallWatcher *watcher) {
         watcher->deleteLater();
         if (watcher->isError()) {
-            Q_EMIT error(watcher->error().name());
+            Q_EMIT error(watcher->error().message());
             terminateStartupNotification();
             m_finished = true;
             deleteLater();
@@ -85,7 +85,7 @@ void DBusActivationRunner::startProcess()
             m_finished = true;
             QDBusPendingReply<uint> reply = *watcher;
             if (reply.isError()) {
-                Q_EMIT error(watcher->error().name());
+                Q_EMIT error(watcher->error().message());
                 terminateStartupNotification();
             } else {
                 Q_EMIT processStarted(reply.value());
