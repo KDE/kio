@@ -35,7 +35,8 @@
 #include <stdint.h>
 #include <utime.h>
 
-#include <KAuth>
+#include <KAuth/Action>
+#include <KAuth/ExecuteJob>
 #include <KRandom>
 
 #include "fdreceiver.h"

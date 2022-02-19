@@ -19,6 +19,8 @@
 #include "../file_p.h"
 #include "fdsender.h"
 
+#include <KAuth/HelperSupport>
+
 #include <QDateTime>
 #include <QDebug>
 #include <QDir>

@@ -44,7 +44,7 @@
 #include "slaveinterface.h"
 
 #if defined(Q_OS_UNIX) && !defined(Q_OS_ANDROID)
-#include <KAuth>
+#include <KAuth/Action>
 #endif
 
 #if KIO_ASSERT_SLAVE_STATES

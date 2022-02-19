@@ -7,7 +7,7 @@
 #ifndef FILEHELPER_H
 #define FILEHELPER_H
 
-#include <KAuth>
+#include <KAuth/ActionReply>
 
 using namespace KAuth;
 
