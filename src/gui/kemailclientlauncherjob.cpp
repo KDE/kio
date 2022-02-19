@@ -92,13 +92,13 @@ void KEMailClientLauncherJob::start()
         const QString exec = KIO::DesktopExecParser::executableName(service->exec());
         auto *subjob = new KIO::CommandLauncherJob(exec, thunderbirdArguments(), this);
         subjob->setStartupId(d->m_startupId);
-        connect(subjob, &KJob::result, this, &KJob::result);
+        connect(subjob, &KJob::result, this, &KEMailClientLauncherJob::emitResult);
         subjob->start();
     } else {
         auto *subjob = new KIO::ApplicationLauncherJob(service, this);
         subjob->setUrls({mailToUrl()});
         subjob->setStartupId(d->m_startupId);
-        connect(subjob, &KJob::result, this, &KJob::result);
+        connect(subjob, &KJob::result, this, &KEMailClientLauncherJob::emitResult);
         subjob->start();
     }
 #else
