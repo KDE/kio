@@ -8,7 +8,9 @@
 #include "kfilefiltercombo.h"
 #include "kfilefiltercombo_debug.h"
 
+#include <KLazyLocalizedString>
 #include <KLocalizedString>
+
 #include <QDebug>
 #include <QEvent>
 #include <QLineEdit>
@@ -135,13 +137,27 @@ void KFileFilterCombo::setMimeFilter(const QStringList &types, const QString &de
     QString allComments;
     QString allTypes;
 
+    static QHash<QString, KLazyLocalizedString> mimeGlobs = {{QStringLiteral("text/*"), kli18n("Application Files")},
+                                                             {QStringLiteral("text/*"), kli18n("Text Files")},
+                                                             {QStringLiteral("audio/*"), kli18n("Audio Files")},
+                                                             {QStringLiteral("font/*"), kli18n("Font Files")},
+                                                             {QStringLiteral("message/*"), kli18n("Message Files")},
+                                                             {QStringLiteral("image/*"), kli18n("Image Files")},
+                                                             {QStringLiteral("audio/*"), kli18n("Audio Files")},
+                                                             {QStringLiteral("video/*"), kli18n("Video Files")},
+                                                             {QStringLiteral("multipart/*"), kli18n("Multipart Files")},
+                                                             {QStringLiteral("x-content/*"), kli18n("Content Files")}};
+
     // If there's MIME types that have the same comment, we will show the extension
     // in addition to the MIME type comment
     QHash<QString, int> allTypeComments;
     for (QStringList::ConstIterator it = types.begin(); it != types.end(); ++it) {
         const QMimeType type = db.mimeTypeForName(*it);
         if (!type.isValid()) {
-            qCWarning(KIO_KFILEWIDGETS_KFILEFILTERCOMBO) << *it << "is not a valid MIME type";
+            if (!mimeGlobs.contains(*it)) {
+                qCWarning(KIO_KFILEWIDGETS_KFILEFILTERCOMBO) << *it << "is not a valid MIME type";
+            }
+
             continue;
         }
 
@@ -150,9 +166,22 @@ void KFileFilterCombo::setMimeFilter(const QStringList &types, const QString &de
 
     for (QStringList::ConstIterator it = types.begin(); it != types.end(); ++it) {
         // qDebug() << *it;
-        const QMimeType type = db.mimeTypeForName(*it);
+        const QString mimeName = *it;
+        const QMimeType type = db.mimeTypeForName(mimeName);
         if (!type.isValid()) {
-            qCWarning(KIO_KFILEWIDGETS_KFILEFILTERCOMBO) << *it << "is not a valid MIME type";
+            if (mimeGlobs.contains(mimeName)) {
+                const QString comment = mimeGlobs[mimeName].toString();
+                addItem(comment);
+                allTypes += mimeName;
+                allComments += comment;
+                d->m_filters.append(mimeName);
+
+                if (mimeName == defaultType) {
+                    setCurrentIndex(count() - 1);
+                }
+            } else {
+                qCWarning(KIO_KFILEWIDGETS_KFILEFILTERCOMBO) << mimeName << "is not a valid MIME type";
+            }
             continue;
         }
 
