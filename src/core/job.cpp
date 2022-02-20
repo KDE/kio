@@ -154,11 +154,6 @@ void JobPrivate::emitUnmounting(KIO::Job *job, const QString &point)
     Q_EMIT job->description(job, i18nc("@title job", "Unmounting"), qMakePair(i18n("Mountpoint"), point));
 }
 
-void JobPrivate::setTransient(KIO::Job *job, bool transient)
-{
-    job->setProperty("transientProgressReporting", transient);
-}
-
 bool Job::doKill()
 {
     // kill all subjobs, without triggering their result slot

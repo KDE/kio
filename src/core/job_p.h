@@ -99,7 +99,6 @@ public:
     static void emitTransferring(KIO::Job *, const QUrl &url);
     static void emitMounting(KIO::Job *, const QString &dev, const QString &point);
     static void emitUnmounting(KIO::Job *, const QString &point);
-    static void setTransient(KIO::Job *, bool transient = true);
 
     Q_DECLARE_PUBLIC(Job)
 };
@@ -333,7 +332,7 @@ public:
         TransferJob *job = new TransferJob(*new TransferJobPrivate(url, command, packedArgs, _staticData));
         job->setUiDelegate(KIO::createDefaultJobUiDelegate());
         if (!(flags & HideProgressInfo)) {
-            JobPrivate::setTransient(job);
+            job->setFinishedNotificationHidden();
             KIO::getJobTracker()->registerJob(job);
         }
         if (!(flags & NoPrivilegeExecution)) {
@@ -348,7 +347,7 @@ public:
         TransferJob *job = new TransferJob(*new TransferJobPrivate(url, command, packedArgs, ioDevice));
         job->setUiDelegate(KIO::createDefaultJobUiDelegate());
         if (!(flags & HideProgressInfo)) {
-            JobPrivate::setTransient(job);
+            job->setFinishedNotificationHidden();
             KIO::getJobTracker()->registerJob(job);
         }
         if (!(flags & NoPrivilegeExecution)) {
