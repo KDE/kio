@@ -1555,6 +1555,8 @@ void KDirListerTest::testMimeFilter_data()
     QTest::newRow("inherited mimetype") << QStringList{"bla.txt", "main.cpp", "main.c", "image.jpeg"} << QStringList{"text/plain"}
                                         << QStringList{"bla.txt", "main.cpp", "main.c"};
     QTest::newRow("no match") << QStringList{"bla.txt", "main.cpp", "main.c", "image.jpeg"} << QStringList{"audio/flac"} << QStringList{};
+    QTest::newRow("mime glob") << QStringList{"bla.txt", "main.cpp", "main.c", "image.jpeg"} << QStringList{"text/*"}
+                               << QStringList{"bla.txt", "main.cpp", "main.c"};
 }
 
 void KDirListerTest::testMimeFilter()

@@ -352,6 +352,8 @@ public:
     /**
      * Set MIME type based filter to only list items matching the given MIME types.
      *
+     * Since version 5.92 globs are supported.
+     *
      * NOTE: setting the filter does not automatically reload directory.
      * Also calling this function will not affect any named filter already set.
      *

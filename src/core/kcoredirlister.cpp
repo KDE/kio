@@ -2463,6 +2463,14 @@ bool KCoreDirLister::doMimeFilter(const QString &mime, const QStringList &filter
 
     qCDebug(KIO_CORE_DIRLISTER) << "doMimeFilter: investigating:" << mimeptr.name();
     return std::any_of(filters.cbegin(), filters.cend(), [&mimeptr](const QString &filter) {
+        // Handle globs like audio/*
+        if (filter.endsWith(QLatin1String("/*"))) {
+            const QString base = filter.chopped(2);
+            if (mimeptr.name().startsWith(base)) {
+                return true;
+            }
+        }
+
         return mimeptr.inherits(filter);
     });
 }
