@@ -121,6 +121,8 @@ private Q_SLOTS:
     void testCopyAfterListingAndMove(); // #353195
     void testRenameDirectory(); // #401552
     void testRequestMimeType();
+    void testMimeFilter_data();
+    void testMimeFilter();
     void testDeleteCurrentDir(); // must be just before last!
     void testForgetDir(); // must be last!
 

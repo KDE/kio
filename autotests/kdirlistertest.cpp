@@ -1544,6 +1544,48 @@ void KDirListerTest::testRequestMimeType()
     QCOMPARE(items[3].mimetype(), QStringLiteral("text/markdown"));
 }
 
+void KDirListerTest::testMimeFilter_data()
+{
+    QTest::addColumn<QStringList>("files");
+    QTest::addColumn<QStringList>("mimeTypes");
+    QTest::addColumn<QStringList>("filteredFiles");
+
+    const QStringList files = {"bla.txt", "main.cpp", "main.c", "image.jpeg"};
+
+    QTest::newRow("single_file_exact_mimetype") << files << QStringList{"text/x-c++src"} << QStringList{"main.cpp"};
+    QTest::newRow("inherited_mimetype") << files << QStringList{"text/plain"} << QStringList{"bla.txt", "main.cpp", "main.c"};
+    QTest::newRow("no_match") << files << QStringList{"audio/flac"} << QStringList{};
+}
+
+void KDirListerTest::testMimeFilter()
+{
+    // Use a new tempdir and lister instance for this test, so that we don't use any cache at all.
+    QTemporaryDir tempDir(homeTmpDir());
+    QString path = tempDir.path() + '/';
+
+    QFETCH(QStringList, files);
+    QFETCH(QStringList, mimeTypes);
+    QFETCH(QStringList, filteredFiles);
+
+    for (const QString &fileName : files) {
+        createTestFile(path + fileName);
+    }
+
+    MyDirLister lister;
+    lister.setMimeFilter(mimeTypes);
+    lister.openUrl(QUrl::fromLocalFile(path), KDirLister::NoFlags);
+
+    QSignalSpy spyCompleted(&lister, qOverload<>(&KCoreDirLister::completed));
+    QVERIFY(spyCompleted.wait(1000));
+
+    QCOMPARE(lister.items().size(), filteredFiles.size());
+
+    const auto items = lister.items();
+    for (const auto &item : items) {
+        QVERIFY(filteredFiles.indexOf(item.name()) != -1);
+    }
+}
+
 void KDirListerTest::testDeleteCurrentDir()
 {
     // ensure m_dirLister holds the items.
