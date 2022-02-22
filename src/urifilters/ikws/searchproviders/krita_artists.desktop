@@ -1,5 +1,0 @@
-[Desktop Entry]
-Name=Krita Artists
-Type=Service
-Keys=kritaartists,kritaart,kritaforums,artists
-Query=https://krita-artists.org/search?&q=\\{@}
