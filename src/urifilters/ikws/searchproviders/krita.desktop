@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=Krita Manual
+Type=Service
+Keys=kritadocs,kritamanual,krita
+Query=https://docs.krita.org/en/search.html?q=\\{@}
