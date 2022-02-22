@@ -2402,16 +2402,30 @@ QStringList KCoreDirLister::mimeFilters() const
     return d->settings.mimeFilter;
 }
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 94)
 bool KCoreDirLister::matchesFilter(const QString &name) const
 {
-    return std::any_of(d->settings.lstFilters.cbegin(), d->settings.lstFilters.cend(), [&name](const QRegularExpression &filter) {
+    return d->matchesFilter(name);
+}
+#endif
+
+bool KCoreDirListerPrivate::matchesFilter(const QString &name) const
+{
+    return std::any_of(settings.lstFilters.cbegin(), settings.lstFilters.cend(), [&name](const QRegularExpression &filter) {
         return filter.match(name).hasMatch();
     });
 }
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 94)
 bool KCoreDirLister::matchesMimeFilter(const QString &mime) const
 {
-    return doMimeFilter(mime, d->settings.mimeFilter) && d->doMimeExcludeFilter(mime, d->settings.mimeExcludeFilter);
+    return d->matchesMimeFilter(mime);
+}
+#endif
+
+bool KCoreDirListerPrivate::matchesMimeFilter(const QString &mime) const
+{
+    return q->doMimeFilter(mime, settings.mimeFilter) && doMimeExcludeFilter(mime, settings.mimeExcludeFilter);
 }
 
 // ================ protected methods ================ //
@@ -2432,7 +2446,7 @@ bool KCoreDirLister::matchesFilter(const KFileItem &item) const
         return true;
     }
 
-    return matchesFilter(item.text());
+    return d->matchesFilter(item.text());
 }
 
 bool KCoreDirLister::matchesMimeFilter(const KFileItem &item) const
@@ -2442,7 +2456,7 @@ bool KCoreDirLister::matchesMimeFilter(const KFileItem &item) const
     if (d->settings.mimeFilter.isEmpty() && d->settings.mimeExcludeFilter.isEmpty()) {
         return true;
     }
-    return matchesMimeFilter(item.mimetype());
+    return d->matchesMimeFilter(item.mimetype());
 }
 
 #if KIOCORE_BUILD_DEPRECATED_SINCE(5, 90)

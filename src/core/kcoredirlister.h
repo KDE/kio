@@ -395,15 +395,21 @@ public:
      */
     QStringList mimeFilters() const;
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 94)
     /**
      * Checks whether @p name matches a filter in the list of name filters.
      *
      * @return @c true if @p name matches a filter in the list, otherwise @c false.
      *
+     * @deprecated since 5.94, no known users.
+     *
      * @see setNameFilter()
      */
+    KIOCORE_DEPRECATED_VERSION(5, 94, "No known users.")
     bool matchesFilter(const QString &name) const;
+#endif
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 94)
     /**
      * Checks whether @p mimeType matches a filter in the list of MIME types.
      *
@@ -411,9 +417,13 @@ public:
      *
      * @return @c true if @p mimeType matches a filter in the list, otherwise @c false
      *
+     * @deprecated since 5.94, no known users.
+     *
      * @see setMimeFilter.
      */
+    KIOCORE_DEPRECATED_VERSION(5, 94, "No known users.")
     bool matchesMimeFilter(const QString &mimeType) const;
+#endif
 
     /**
      * Used by items() and itemsForDir() to specify whether you want
