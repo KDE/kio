@@ -1,8 +1,8 @@
 [Desktop Entry]
 Charset=
 Hidden=false
-Keys=kdelook,klook,kdel
-Name=KDE Look
+Keys=kdestore,kdelook,klook,kdel
+Name=KDE Store
 Name[ar]=مظهر كدي
 Name[az]=KDE Look
 Name[bg]=Изгледи за KDE
@@ -74,7 +74,7 @@ Name[wa]=KDE Look (Rivnance)
 Name[x-test]=xxKDE Lookxx
 Name[zh_CN]=KDE 美化资源站
 Name[zh_TW]=KDE Look
-Query=https://www.kde-look.org/content/search.php?search=Search&name=\\{@}
+Query=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[ar]=https://www.kde-look.org/content/search.php?search=Search&name=\\{@}
 Query[ast]=https://www.kde-look.org/content/search.php?search=Search&name=\\{@}
 Query[az]=https://www.kde-look.org/content/search.php?search=Search&name=\\{@}
