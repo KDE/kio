@@ -1,7 +1,7 @@
 [Desktop Entry]
 Charset=
 Hidden=false
-Keys=kde
+Keys=kdeapi,kde,api
 Icon=kde
 Name=KDE API Documentation
 Name[af]=KDE API Dokumentasie
