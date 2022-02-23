@@ -1,5 +1,5 @@
 [Desktop Entry]
-Keys=inventmr,mr
+Keys=inventmr,invmr,mr
 Name=KDE Invent Merge Requests
 Query=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Type=Service

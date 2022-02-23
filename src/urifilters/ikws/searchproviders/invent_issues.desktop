@@ -1,5 +1,5 @@
 [Desktop Entry]
-Keys=inventissues,issues,issue
+Keys=inventissues,invissues,issues,issue
 Name=KDE Invent Issues
 Query=https://invent.kde.org/search?scope=issues&search=\\{@}
 Type=Service
