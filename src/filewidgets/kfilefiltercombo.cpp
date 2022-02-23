@@ -6,6 +6,7 @@
 */
 
 #include "kfilefiltercombo.h"
+#include "kfilefilter.h"
 #include "kfilefiltercombo_debug.h"
 
 #include <KLocalizedString>
@@ -13,7 +14,11 @@
 #include <QEvent>
 #include <QLineEdit>
 #include <QMimeDatabase>
+
 #include <config-kiofilewidgets.h>
+
+#include <algorithm>
+#include <utility>
 
 class KFileFilterComboPrivate
 {
@@ -36,7 +41,7 @@ public:
     QString m_lastFilter;
     QString m_defaultFilter = i18nc("Default mime type filter that shows all file types", "*|All Files");
 
-    QStringList m_filters;
+    QVector<KFileFilter> m_filters;
     bool m_allTypes;
 };
 
@@ -57,30 +62,22 @@ KFileFilterCombo::KFileFilterCombo(QWidget *parent)
 
 KFileFilterCombo::~KFileFilterCombo() = default;
 
-void KFileFilterCombo::setFilter(const QString &filter)
+void KFileFilterCombo::setFilter(const QString &filterString)
 {
     clear();
     d->m_filters.clear();
     d->m_hasAllSupportedFiles = false;
 
-    if (!filter.isEmpty()) {
-        QString tmp = filter;
-        int index = tmp.indexOf(QLatin1Char('\n'));
-        while (index > 0) {
-            d->m_filters.append(tmp.left(index));
-            tmp.remove(0, index + 1);
-            index = tmp.indexOf(QLatin1Char('\n'));
-        }
-        d->m_filters.append(tmp);
+    const QVector<KFileFilter> filters = KFileFilter::fromFilterString(filterString);
+
+    if (!filters.isEmpty()) {
+        d->m_filters = filters;
     } else {
-        d->m_filters.append(d->m_defaultFilter);
+        d->m_filters = KFileFilter::fromFilterString(d->m_defaultFilter);
     }
 
-    QStringList::ConstIterator it;
-    QStringList::ConstIterator end(d->m_filters.constEnd());
-    for (it = d->m_filters.constBegin(); it != end; ++it) {
-        int tab = (*it).indexOf(QLatin1Char('|'));
-        addItem((tab < 0) ? *it : (*it).mid(tab + 1));
+    for (const KFileFilter &filter : std::as_const(d->m_filters)) {
+        addItem(filter.label());
     }
 
     d->m_lastFilter = currentText();
@@ -91,7 +88,7 @@ QString KFileFilterCombo::currentFilter() const
 {
     QString f = currentText();
     if (f == itemText(currentIndex())) { // user didn't edit the text
-        f = d->m_filters.value(currentIndex());
+        f = d->m_filters.value(currentIndex()).toFilterString();
         if (d->m_isMimeFilter || (currentIndex() == 0 && d->m_hasAllSupportedFiles)) {
             return f; // we have a MIME type as filter
         }
@@ -112,12 +109,29 @@ bool KFileFilterCombo::showsAllTypes() const
 
 QStringList KFileFilterCombo::filters() const
 {
-    return d->m_filters;
+    QStringList result;
+
+    for (const KFileFilter &filter : std::as_const(d->m_filters)) {
+        result << filter.toFilterString();
+    }
+
+    return result;
 }
 
-void KFileFilterCombo::setCurrentFilter(const QString &filter)
+void KFileFilterCombo::setCurrentFilter(const QString &filterString)
 {
-    setCurrentIndex(d->m_filters.indexOf(filter));
+    auto it = std::find_if(d->m_filters.cbegin(), d->m_filters.cend(), [filterString](const KFileFilter &filter) {
+        return filterString == filter.toFilterString();
+    });
+
+    if (it == d->m_filters.cend()) {
+        qCWarning(KIO_KFILEWIDGETS_KFILEFILTERCOMBO) << "Could not find filter" << filterString;
+        setCurrentIndex(-1);
+        Q_EMIT filterChanged();
+        return;
+    }
+
+    setCurrentIndex(std::distance(d->m_filters.cbegin(), it));
     Q_EMIT filterChanged();
 }
 
@@ -131,9 +145,6 @@ void KFileFilterCombo::setMimeFilter(const QStringList &types, const QString &de
     QMimeDatabase db;
 
     d->m_allTypes = defaultType.isEmpty() && (types.count() > 1);
-
-    QString allComments;
-    QString allTypes;
 
     // If there's MIME types that have the same comment, we will show the extension
     // in addition to the MIME type comment
@@ -161,21 +172,18 @@ void KFileFilterCombo::setMimeFilter(const QStringList &types, const QString &de
             continue;
         }
 
-        if (d->m_allTypes && it != types.begin()) {
-            allComments += delim;
-            allTypes += QLatin1Char(' ');
+        KFileFilter filter;
+
+        if (allTypeComments.value(type.comment()) > 1) {
+            const QString label = i18nc("%1 is the mimetype name, %2 is the extensions", "%1 (%2)", type.comment(), type.suffixes().join(QLatin1String(", ")));
+            filter = KFileFilter(label, {}, {*it});
+        } else {
+            filter = KFileFilter::fromMimeType(*it);
         }
 
-        d->m_filters.append(type.name());
-        if (d->m_allTypes) {
-            allTypes += type.name();
-            allComments += type.comment();
-        }
-        if (allTypeComments.value(type.comment()) > 1) {
-            addItem(i18nc("%1 is the mimetype name, %2 is the extensions", "%1 (%2)", type.comment(), type.suffixes().join(QStringLiteral(", "))));
-        } else {
-            addItem(type.comment());
-        }
+        d->m_filters.append(filter);
+        addItem(filter.label());
+
         if (type.name() == defaultType) {
             setCurrentIndex(count() - 1);
         }
@@ -186,20 +194,33 @@ void KFileFilterCombo::setMimeFilter(const QStringList &types, const QString &de
     }
 
     if (d->m_allTypes) {
+        QStringList allTypes;
+        for (const KFileFilter &filter : std::as_const(d->m_filters)) {
+            allTypes << filter.mimePatterns().join(QLatin1Char(' '));
+        }
+
+        KFileFilter allSupportedFilesFilter;
+
         if (count() <= 3) { // show the MIME type comments of at max 3 types
-            insertItem(0, allComments);
+            QStringList allComments;
+            for (const KFileFilter &filter : std::as_const(d->m_filters)) {
+                allComments << filter.label();
+            }
+
+            allSupportedFilesFilter = KFileFilter(allComments.join(delim), {}, allTypes);
         } else {
-            insertItem(0, i18n("All Supported Files"));
+            allSupportedFilesFilter = KFileFilter(i18n("All Supported Files"), {}, allTypes);
             d->m_hasAllSupportedFiles = true;
         }
-        setCurrentIndex(0);
 
-        d->m_filters.prepend(allTypes);
+        insertItem(0, allSupportedFilesFilter.label());
+        d->m_filters.prepend(allSupportedFilesFilter);
+        setCurrentIndex(0);
     }
 
     if (hasAllFilesFilter) {
         addItem(i18n("All Files"));
-        d->m_filters.append(QStringLiteral("application/octet-stream"));
+        d->m_filters.append(KFileFilter(i18n("All Files"), {}, {QStringLiteral("application/octet-stream")}));
     }
 
     d->m_lastFilter = currentText();

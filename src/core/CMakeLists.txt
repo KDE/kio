@@ -95,6 +95,7 @@ target_sources(KF5KIOCore PRIVATE
   batchrenamejob.cpp
   workerfactory.cpp
   workerthread.cpp
+  kfilefilter.cpp
 )
 
 if (NOT ANDROID)
@@ -315,6 +316,7 @@ ecm_generate_headers(KIOCore_CamelCase_HEADERS
   WorkerBase
   WorkerFactory
   ForwardingWorkerBase
+  KFileFilter
 
   PREFIX KIO
   REQUIRED_HEADERS KIO_namespaced_HEADERS
