@@ -1020,15 +1020,12 @@ int FtpInternal::ftpOpenPortDataConnection()
 
 Result FtpInternal::ftpOpenCommand(const char *_command, const QString &_path, char _mode, int errorcode, KIO::fileoffset_t _offset)
 {
-    int errCode = 0;
     if (!ftpDataMode(ftpModeFromPath(_path, _mode))) {
-        errCode = ERR_CANNOT_CONNECT;
-    } else {
-        errCode = ftpOpenDataConnection();
+        return Result::fail(ERR_CANNOT_CONNECT, m_host);
     }
 
-    if (errCode != 0) {
-        return Result::fail(errCode, m_host);
+    if (int error = ftpOpenDataConnection()) {
+        return Result::fail(error, m_host);
     }
 
     if (_offset > 0) {
