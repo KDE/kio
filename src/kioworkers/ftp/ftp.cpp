@@ -1028,8 +1028,13 @@ Result FtpInternal::ftpOpenCommand(const char *_command, const QString &_path, c
         if (_offset > 0 && qstrcmp(_command, "retr") == 0 && (m_iRespType == 4)) {
             errorcode = ERR_CANNOT_RESUME;
         }
-        // The error code here depends on the command
-        errormessage = _path + i18n("\nThe server said: \"%1\"", QString::fromUtf8(ftpResponse(0)).trimmed());
+        if (qstrcmp(_command, "stor") == 0 && m_iRespCode == 550) {
+            errorcode = ERR_WRITE_ACCESS_DENIED;
+            errormessage = _path;
+        } else {
+            // The error code here depends on the command
+            errormessage = _path + i18n("\nThe server said: \"%1\"", QString::fromUtf8(ftpResponse(0)).trimmed());
+        }
     }
 
     else {
