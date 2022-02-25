@@ -18,14 +18,6 @@ class KRunUnitTest : public QObject
 private Q_SLOTS:
     void initTestCase();
     void cleanupTestCase();
-    void testExecutableName_data();
-    void testExecutableName();
-    void testDesktopExecParserWithEnv_data();
-    void testDesktopExecParserWithEnv();
-    void testProcessDesktopExec();
-    void testProcessDesktopExecNoFile_data();
-    void testProcessDesktopExecNoFile();
-    void testKtelnetservice();
 
 #if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 71)
     void testMimeTypeFile();
@@ -39,8 +31,6 @@ private Q_SLOTS:
 private:
     QString createTempService();
 
-    QString m_sh;
-    QString m_pseudoTerminalProgram;
     QStringList m_filesToRemove;
 };
 

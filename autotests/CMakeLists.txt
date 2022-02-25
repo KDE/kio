@@ -140,6 +140,7 @@ ecm_add_tests(
  dropjobtest.cpp
  kdynamicjobtrackernowidgetstest.cpp
  krununittest.cpp
+ desktopexecparsertest.cpp
  kdirlistertest.cpp
  kdirmodeltest.cpp
  kfileitemactionstest.cpp
@@ -153,6 +154,7 @@ ecm_add_tests(
  LINK_LIBRARIES KF5::KIOCore KF5::KIOWidgets Qt${QT_MAJOR_VERSION}::Test Qt${QT_MAJOR_VERSION}::DBus
 )
 set_target_properties(krununittest PROPERTIES COMPILE_FLAGS "-DKDE_INSTALL_FULL_LIBEXECDIR_KF=\"\\\"${KDKE_INSTALL_FULL_LIBEXECDIR_KF}\\\"\"")
+set_target_properties(desktopexecparsertest PROPERTIES COMPILE_FLAGS "-DKDE_INSTALL_FULL_LIBEXECDIR_KF=\"\\\"${KDKE_INSTALL_FULL_LIBEXECDIR_KF}\\\"\"")
 
 
 set(kurifiltertest_libs KF5::KIOCore KF5::KIOWidgets Qt${QT_MAJOR_VERSION}::Test Qt${QT_MAJOR_VERSION}::DBus)
