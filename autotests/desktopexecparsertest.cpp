@@ -100,12 +100,20 @@ void DesktopExecParserTest::testDesktopExecParserWithEnv_data()
     QTest::newRow("one_env_var") << "FOO=bar appName %u"
                                  << "appName"
                                  << "appName" << QStringList{"FOO=bar"};
+
     QTest::newRow("two_env_vars") << "DE=WAYLAND FOO=bar /path/to/appName %u"
                                   << "/path/to/appName"
                                   << "appName" << QStringList{"DE=WAYLAND", "FOO=bar"};
+
+    QTest::newRow("one_env_var_complex") << "MOZ_USE_WAYLAND=1 /usr/bin/flatpak run --branch=stable --arch=x86_64 --command=thunderbird"
+                                            " --file-forwarding org.mozilla.Thunderbird @@u %u @@"
+                                         << "/usr/bin/flatpak"
+                                         << "flatpak" << QStringList{"MOZ_USE_WAYLAND=1"};
+
     QTest::newRow("with_env_command") << "env TAR=far /path/to/appName %u"
                                       << "/path/to/appName"
                                       << "appName" << QStringList{"TAR=far"};
+
     QTest::newRow("with_sh_c") << "sh -c 'ls; TAR=far /path/to/appName %u'"
                                << "sh"
                                << "sh" << QStringList{"TAR=far"};

@@ -569,7 +569,9 @@ QString KIO::DesktopExecParser::executableName(const QString &execLine)
 
 static const QRegularExpression &envVarRegex()
 {
-    static const QRegularExpression re(QStringLiteral("(\\w+)=(\\w+)"));
+    // At the beginning of the line, or preceded by a space, so as to exclude
+    // "--something=other" command line options
+    static const QRegularExpression re(QStringLiteral("(?:^| )(\\w+)=(\\w+)"));
     return re;
 }
 
