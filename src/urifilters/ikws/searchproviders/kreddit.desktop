@@ -1,6 +1,18 @@
 [Desktop Entry]
 Name=KDE Reddit
+Name[ca]=KDE Reddit
+Name[es]=KDE Reddit
+Name[nl]=KDE-Reddit
+Name[sv]=KDE Reddit
+Name[uk]=KDE Reddit
+Name[x-test]=xxKDE Redditxx
 Type=Service
 Keys=kreddit
 Query=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
+Query[ca]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
+Query[es]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
+Query[nl]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
+Query[sv]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
+Query[uk]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
+Query[x-test]=xxhttps://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1xx
 Icon=kde

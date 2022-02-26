@@ -1,5 +1,17 @@
 [Desktop Entry]
 Name=Rust STD Documentation
+Name[ca]=Documentació del Rust STD
+Name[es]=Documentación de Rust STD
+Name[nl]=Rust STD-documentatie
+Name[sv]=Rust standarddokumentation
+Name[uk]=Документація із STD Rust
+Name[x-test]=xxRust STD Documentationxx
 Type=Service
 Keys=rust
 Query=https://doc.rust-lang.org/std/index.html?search=\\{@}
+Query[ca]=https://doc.rust-lang.org/std/index.html?search=\\{@}
+Query[es]=https://doc.rust-lang.org/std/index.html?search=\\{@}
+Query[nl]=https://doc.rust-lang.org/std/index.html?search=\\{@}
+Query[sv]=https://doc.rust-lang.org/std/index.html?search=\\{@}
+Query[uk]=https://doc.rust-lang.org/std/index.html?search=\\{@}
+Query[x-test]=xxhttps://doc.rust-lang.org/std/index.html?search=\\{@}xx

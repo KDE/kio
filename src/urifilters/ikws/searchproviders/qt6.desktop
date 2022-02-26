@@ -3,5 +3,17 @@ Charset=
 Hidden=false
 Keys=qt6,qt
 Name=Qt6 Online Documentation
+Name[ca]=Documentació en línia de les Qt6
+Name[es]=Documentación Qt6 en línea
+Name[nl]=Qt6 online-documentatie
+Name[sv]=Qt6-dokumentation på nätet
+Name[uk]=Документація з Qt6 у мережі
+Name[x-test]=xxQt6 Online Documentationxx
 Query=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
+Query[ca]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
+Query[es]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
+Query[nl]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
+Query[sv]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
+Query[uk]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
+Query[x-test]=xxhttps://doc.qt.io/qt-6/search-results.html?q=\\{@}xx
 Type=Service

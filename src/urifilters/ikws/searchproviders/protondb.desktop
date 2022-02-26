@@ -1,6 +1,18 @@
 [Desktop Entry]
 Name=ProtonDB
+Name[ca]=ProtonDB
+Name[es]=ProtonDB
+Name[nl]=ProtonDB
+Name[sv]=ProtonDB
+Name[uk]=ProtonDB
+Name[x-test]=xxProtonDBxx
 Type=Service
 Keys=protondb,proton
 Query=https://www.protondb.com/search?q=\\{@}
+Query[ca]=https://www.protondb.com/search?q=\\{@}
+Query[es]=https://www.protondb.com/search?q=\\{@}
+Query[nl]=https://www.protondb.com/search?q=\\{@}
+Query[sv]=https://www.protondb.com/search?q=\\{@}
+Query[uk]=https://www.protondb.com/search?q=\\{@}
+Query[x-test]=xxhttps://www.protondb.com/search?q=\\{@}xx
 Icon=wine

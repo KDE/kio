@@ -1,5 +1,17 @@
 [Desktop Entry]
 Name=OpenSUSE Software
+Name[ca]=OpenSUSE Software
+Name[es]=Software de OpenSUSE
+Name[nl]=OpenSUSE-software
+Name[sv]=OpenSUSE-programvara
+Name[uk]=Програмне забезпечення OpenSUSE
+Name[x-test]=xxOpenSUSE Softwarexx
 Type=Service
 Keys=opensuse
 Query=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
+Query[ca]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
+Query[es]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
+Query[nl]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
+Query[sv]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
+Query[uk]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
+Query[x-test]=xxhttps://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}xx

@@ -97,4 +97,10 @@ Name[x-test]=xxKDE API Documentationxx
 Name[zh_CN]=KDE API 文档
 Name[zh_TW]=KDE API 文件
 Query=https://api.kde.org/search.html?query=\\{@}
+Query[ca]=https://api.kde.org/search.html?query=\\{@}
+Query[es]=https://api.kde.org/search.html?query=\\{@}
+Query[nl]=https://api.kde.org/search.html?query=\\{@}
+Query[sv]=https://api.kde.org/search.html?query=\\{@}
+Query[uk]=https://api.kde.org/search.html?query=\\{@}
+Query[x-test]=xxhttps://api.kde.org/search.html?query=\\{@}xx
 Type=Service

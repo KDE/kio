@@ -3,5 +3,17 @@ Charset=
 Hidden=false
 Keys=kdestore,kdelook,klook,kdel
 Name=KDE Store
+Name[ca]=KDE Store
+Name[es]=KDE Store
+Name[nl]=KDE Store
+Name[sv]=KDE-butik
+Name[uk]=Крамниця KDE
+Name[x-test]=xxKDE Storexx
 Query=https://store.kde.org/content/search.php?search=Search&name=\\{@}
+Query[ca]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
+Query[es]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
+Query[nl]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
+Query[sv]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
+Query[uk]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
+Query[x-test]=xxhttps://store.kde.org/content/search.php?search=Search&name=\\{@}xx
 Type=Service

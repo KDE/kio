@@ -1,5 +1,17 @@
 [Desktop Entry]
 Name=Krita Manual
+Name[ca]=Manual del Krita
+Name[es]=Manual de Krita
+Name[nl]=Krita-handleiding
+Name[sv]=Handbok Krita
+Name[uk]=Підручник з Krita
+Name[x-test]=xxKrita Manualxx
 Type=Service
 Keys=kritadocs,kritamanual,krita
 Query=https://docs.krita.org/en/search.html?q=\\{@}
+Query[ca]=https://docs.krita.org/ca/search.html?q=\\{@}
+Query[es]=https://docs.krita.org/en/search.html?q=\\{@}
+Query[nl]=https://docs.krita.org/en/search.html?q=\\{@}
+Query[sv]=https://docs.krita.org/en/search.html?q=\\{@}
+Query[uk]=https://docs.krita.org/en/search.html?q=\\{@}
+Query[x-test]=xxhttps://docs.krita.org/en/search.html?q=\\{@}xx

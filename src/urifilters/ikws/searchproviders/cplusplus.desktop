@@ -1,5 +1,17 @@
 [Desktop Entry]
 Name=CPlusPlus
+Name[ca]=CPlusPlus
+Name[es]=CPlusPlus
+Name[nl]=CPlusPlus
+Name[sv]=C++
+Name[uk]=CPlusPlus
+Name[x-test]=xxCPlusPlusxx
 Type=Service
 Keys=cplusplus
 Query=http://cplusplus.com/search.do?q=\\{@}
+Query[ca]=http://cplusplus.com/search.do?q=\\{@}
+Query[es]=http://cplusplus.com/search.do?q=\\{@}
+Query[nl]=http://cplusplus.com/search.do?q=\\{@}
+Query[sv]=http://cplusplus.com/search.do?q=\\{@}
+Query[uk]=http://cplusplus.com/search.do?q=\\{@}
+Query[x-test]=xxhttp://cplusplus.com/search.do?q=\\{@}xx

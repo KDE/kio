@@ -1,5 +1,17 @@
 [Desktop Entry]
 Name=Learn CPP
+Name[ca]=Learn CPP
+Name[es]=Aprenda CPP
+Name[nl]=CPP leren
+Name[sv]=Lär dig C++
+Name[uk]=Learn CPP
+Name[x-test]=xxLearn CPPxx
 Type=Service
 Keys=learncpp
 Query=https://www.learncpp.com/gsearch/?q=\\{@}
+Query[ca]=https://www.learncpp.com/gsearch/?q=\\{@}
+Query[es]=https://www.learncpp.com/gsearch/?q=\\{@}
+Query[nl]=https://www.learncpp.com/gsearch/?q=\\{@}
+Query[sv]=https://www.learncpp.com/gsearch/?q=\\{@}
+Query[uk]=https://www.learncpp.com/gsearch/?q=\\{@}
+Query[x-test]=xxhttps://www.learncpp.com/gsearch/?q=\\{@}xx

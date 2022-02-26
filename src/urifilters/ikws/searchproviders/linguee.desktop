@@ -1,5 +1,17 @@
 [Desktop Entry]
 Name=Linguee
+Name[ca]=Linguee
+Name[es]=Linguee
+Name[nl]=Linguee
+Name[sv]=Linguee
+Name[uk]=Linguee
+Name[x-test]=xxLingueexx
 Type=Service
 Keys=linguee
 Query=https://www.linguee.com/search?source=auto&query=\\{@}
+Query[ca]=https://www.linguee.com/search?source=auto&query=\\{@}
+Query[es]=https://www.linguee.com/search?source=auto&query=\\{@}
+Query[nl]=https://www.linguee.com/search?source=auto&query=\\{@}
+Query[sv]=https://www.linguee.com/search?source=auto&query=\\{@}
+Query[uk]=https://www.linguee.com/search?source=auto&query=\\{@}
+Query[x-test]=xxhttps://www.linguee.com/search?source=auto&query=\\{@}xx

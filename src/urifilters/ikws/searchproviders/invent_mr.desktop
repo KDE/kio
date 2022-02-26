@@ -1,5 +1,17 @@
 [Desktop Entry]
 Keys=inventmr,invmr,mr
 Name=KDE Invent Merge Requests
+Name[ca]=Peticions de fusió de KDE Invent
+Name[es]=Solicitudes de fusiones de KDE Invent
+Name[nl]=KDE-invent samenvoegaanvragen
+Name[sv]=KDE-Invent sammanfogningsbegäran
+Name[uk]=Запити щодо об'єднання на KDE Invent
+Name[x-test]=xxKDE Invent Merge Requestsxx
 Query=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
+Query[ca]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
+Query[es]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
+Query[nl]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
+Query[sv]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
+Query[uk]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
+Query[x-test]=xxhttps://invent.kde.org/search?scope=merge_requests&search=\\{@}xx
 Type=Service

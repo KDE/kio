@@ -1,5 +1,17 @@
 [Desktop Entry]
 Name=Ubuntu Package Search
+Name[ca]=Cerca paquets d'Ubuntu
+Name[es]=Búsqueda de paquetes de Ubuntu
+Name[nl]=Ubuntu pakket zoeken
+Name[sv]=Ubuntu-paketsökning
+Name[uk]=Пошук пакунків Ubuntu
+Name[x-test]=xxUbuntu Package Searchxx
 Type=Service
 Keys=ubuntu
 Query=https://packages.ubuntu.com/\\{@}
+Query[ca]=https://packages.ubuntu.com/\\{@}
+Query[es]=https://packages.ubuntu.com/\\{@}
+Query[nl]=https://packages.ubuntu.com/\\{@}
+Query[sv]=https://packages.ubuntu.com/\\{@}
+Query[uk]=https://packages.ubuntu.com/\\{@}
+Query[x-test]=xxhttps://packages.ubuntu.com/\\{@}xx
