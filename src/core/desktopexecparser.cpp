@@ -517,7 +517,11 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
     KShell::Errors err;
     QStringList execlist = KShell::splitArgs(exec, KShell::AbortOnMeta | KShell::TildeExpand, &err);
     if (!executableFullPath.isEmpty()) {
-        execlist[0] = executableFullPath;
+        if (!execlist.isEmpty()) {
+            execlist[0] = executableFullPath;
+        } else {
+            execlist.append(executableFullPath);
+        }
     }
 
     if (d->service.substituteUid()) {
