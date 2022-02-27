@@ -3,6 +3,7 @@ Name=Learn CPP
 Name[ca]=Learn CPP
 Name[es]=Aprenda CPP
 Name[nl]=CPP leren
+Name[sl]=Naučite se CPP
 Name[sv]=Lär dig C++
 Name[uk]=Learn CPP
 Name[x-test]=xxLearn CPPxx
@@ -12,6 +13,7 @@ Query=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[ca]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[es]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[nl]=https://www.learncpp.com/gsearch/?q=\\{@}
+Query[sl]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[sv]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[uk]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[x-test]=xxhttps://www.learncpp.com/gsearch/?q=\\{@}xx

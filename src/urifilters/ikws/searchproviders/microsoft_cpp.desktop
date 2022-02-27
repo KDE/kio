@@ -3,6 +3,7 @@ Name=Microsoft C++ Documentation
 Name[ca]=Documentació de Microsoft C++
 Name[es]=Documentación de C++ de Microsoft
 Name[nl]=Microsoft C++ documentatie
+Name[sl]=Dokumentacija za Microsoft C++
 Name[sv]=Microsoft C++ dokumentation
 Name[uk]=Документація з C++ Microsoft
 Name[x-test]=xxMicrosoft C++ Documentationxx
@@ -12,6 +13,7 @@ Query=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[ca]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[es]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[nl]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
+Query[sl]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[sv]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[uk]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[x-test]=xxhttps://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2Bxx

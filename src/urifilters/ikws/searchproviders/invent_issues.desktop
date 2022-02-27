@@ -4,6 +4,7 @@ Name=KDE Invent Issues
 Name[ca]=Incidències de KDE Invent
 Name[es]=Problemas de KDE Invent
 Name[nl]=KDE-invent problemen
+Name[sl]=Težave s KDE Invent
 Name[sv]=KDE-Invent problemrapporter
 Name[uk]=Вади на KDE Invent
 Name[x-test]=xxKDE Invent Issuesxx
@@ -11,6 +12,7 @@ Query=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[ca]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[es]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[nl]=https://invent.kde.org/search?scope=issues&search=\\{@}
+Query[sl]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[sv]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[uk]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[x-test]=xxhttps://invent.kde.org/search?scope=issues&search=\\{@}xx
