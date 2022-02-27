@@ -20,8 +20,6 @@ private Q_SLOTS:
     void cleanupTestCase();
     void testExecutableName_data();
     void testExecutableName();
-    void testDesktopExecParserWithEnv_data();
-    void testDesktopExecParserWithEnv();
     void testProcessDesktopExec();
     void testProcessDesktopExecNoFile_data();
     void testProcessDesktopExecNoFile();
