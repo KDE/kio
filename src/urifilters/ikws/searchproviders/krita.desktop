@@ -2,6 +2,8 @@
 Name=Krita Manual
 Name[ca]=Manual del Krita
 Name[es]=Manual de Krita
+Name[fr]=Manuel de Krita
+Name[it]=Manuale di Krita
 Name[nl]=Krita-handleiding
 Name[sl]=Priročnik Krita
 Name[sv]=Handbok Krita
@@ -12,6 +14,8 @@ Keys=kritadocs,kritamanual,krita
 Query=https://docs.krita.org/en/search.html?q=\\{@}
 Query[ca]=https://docs.krita.org/ca/search.html?q=\\{@}
 Query[es]=https://docs.krita.org/en/search.html?q=\\{@}
+Query[fr]=https://docs.krita.org/en/search.html?q=\\{@}
+Query[it]=https://docs.krita.org/it/search.html?q=\\{@}
 Query[nl]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[sl]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[sv]=https://docs.krita.org/en/search.html?q=\\{@}

@@ -3,6 +3,8 @@ Keys=inventmr,invmr,mr
 Name=KDE Invent Merge Requests
 Name[ca]=Peticions de fusió de KDE Invent
 Name[es]=Solicitudes de fusiones de KDE Invent
+Name[fr]=Requêtes de fusion de KDE Invent
+Name[it]=Richieste di integrazione (MR) su KDE Invent
 Name[nl]=KDE-invent samenvoegaanvragen
 Name[sl]=Zahteve za spajanje KDE Invent
 Name[sv]=KDE-Invent sammanfogningsbegäran
@@ -11,6 +13,8 @@ Name[x-test]=xxKDE Invent Merge Requestsxx
 Query=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[ca]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[es]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
+Query[fr]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
+Query[it]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[nl]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[sl]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[sv]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}

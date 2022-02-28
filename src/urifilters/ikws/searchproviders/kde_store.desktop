@@ -5,6 +5,8 @@ Keys=kdestore,kdelook,klook,kdel
 Name=KDE Store
 Name[ca]=KDE Store
 Name[es]=KDE Store
+Name[fr]=Boutique de KDE
+Name[it]=KDE Store
 Name[nl]=KDE Store
 Name[sl]=Trgovina KDE
 Name[sv]=KDE-butik
@@ -13,6 +15,8 @@ Name[x-test]=xxKDE Storexx
 Query=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[ca]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[es]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
+Query[fr]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
+Query[it]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[nl]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[sl]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[sv]=https://store.kde.org/content/search.php?search=Search&name=\\{@}

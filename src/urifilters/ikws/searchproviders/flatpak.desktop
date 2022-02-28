@@ -2,6 +2,8 @@
 Name=Flatpak Documentation
 Name[ca]=Documentació del Flatpak
 Name[es]=Documentación de Flatpak
+Name[fr]=Documentation de Flatpak
+Name[it]=Documentazione Flatpak
 Name[nl]=Flatpak-documentatie
 Name[sl]=Dokumentacija za Flatpak
 Name[sv]=Flatpak-dokumentation
@@ -12,6 +14,8 @@ Keys=flatpak
 Query=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[ca]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[es]=https://docs.flatpak.org/es/latest/search.html?q=\\{@}&check_keywords=yes&area=default
+Query[fr]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
+Query[it]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[nl]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[sl]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=privzeto
 Query[sv]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default

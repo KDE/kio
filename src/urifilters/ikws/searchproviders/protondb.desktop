@@ -2,6 +2,8 @@
 Name=ProtonDB
 Name[ca]=ProtonDB
 Name[es]=ProtonDB
+Name[fr]=ProtonDB
+Name[it]=ProtonDB
 Name[nl]=ProtonDB
 Name[sl]=ProtonDB
 Name[sv]=ProtonDB
@@ -12,6 +14,8 @@ Keys=protondb,proton
 Query=https://www.protondb.com/search?q=\\{@}
 Query[ca]=https://www.protondb.com/search?q=\\{@}
 Query[es]=https://www.protondb.com/search?q=\\{@}
+Query[fr]=https://www.protondb.com/search?q=\\{@}
+Query[it]=https://www.protondb.com/search?q=\\{@}
 Query[nl]=https://www.protondb.com/search?q=\\{@}
 Query[sl]=https://www.protondb.com/search?q=\\{@}
 Query[sv]=https://www.protondb.com/search?q=\\{@}

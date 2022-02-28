@@ -2,6 +2,8 @@
 Name=Ubuntu Package Search
 Name[ca]=Cerca paquets d'Ubuntu
 Name[es]=Búsqueda de paquetes de Ubuntu
+Name[fr]=Recherche de paquets pour Ubuntu
+Name[it]=Ricerca di pacchetti Ubuntu
 Name[nl]=Ubuntu pakket zoeken
 Name[sl]=Iskanje po paketih Ubuntu
 Name[sv]=Ubuntu-paketsökning
@@ -12,6 +14,8 @@ Keys=ubuntu
 Query=https://packages.ubuntu.com/\\{@}
 Query[ca]=https://packages.ubuntu.com/\\{@}
 Query[es]=https://packages.ubuntu.com/\\{@}
+Query[fr]=https://packages.ubuntu.com/\\{@}
+Query[it]=https://packages.ubuntu.com/\\{@}
 Query[nl]=https://packages.ubuntu.com/\\{@}
 Query[sl]=https://packages.ubuntu.com/\\{@}
 Query[sv]=https://packages.ubuntu.com/\\{@}
