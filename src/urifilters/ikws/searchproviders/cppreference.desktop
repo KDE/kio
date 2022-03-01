@@ -3,6 +3,7 @@ Name=CPP Reference
 Name[ca]=Referència del CPP
 Name[es]=Referencia de CPP
 Name[fr]=Manuel de référence de « CPP »
+Name[ia]=Referentia de CPP
 Name[it]=Manuale di riferimento CPP
 Name[nl]=CPP-referentie
 Name[sl]=Referenčni priročnik za CPP
@@ -15,6 +16,7 @@ Query=https://cppreference.com/w/?search=\\{@}
 Query[ca]=https://cppreference.com/w/?search=\\{@}
 Query[es]=https://cppreference.com/w/?search=\\{@}
 Query[fr]=https://cppreference.com/w/?search=\\{@}
+Query[ia]=https://cppreference.com/w/?search=\\{@}
 Query[it]=https://cppreference.com/w/?search=\\{@}
 Query[nl]=https://cppreference.com/w/?search=\\{@}
 Query[sl]=https://cppreference.com/w/?search=\\{@}

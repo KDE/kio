@@ -3,6 +3,7 @@ Name=Linguee
 Name[ca]=Linguee
 Name[es]=Linguee
 Name[fr]=Linguee
+Name[ia]=Linguee
 Name[it]=Linguee
 Name[nl]=Linguee
 Name[sl]=Linguee
@@ -15,6 +16,7 @@ Query=https://www.linguee.com/search?source=auto&query=\\{@}
 Query[ca]=https://www.linguee.com/search?source=auto&query=\\{@}
 Query[es]=https://www.linguee.com/search?source=auto&query=\\{@}
 Query[fr]=https://www.linguee.com/search?source=auto&query=\\{@}
+Query[ia]=https://www.linguee.com/search?source=auto&query=\\{@}
 Query[it]=https://www.linguee.com/search?source=auto&query=\\{@}
 Query[nl]=https://www.linguee.com/search?source=auto&query=\\{@}
 Query[sl]=https://www.linguee.com/search?source=auto&query=\\{@}

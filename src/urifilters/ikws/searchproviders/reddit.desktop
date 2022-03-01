@@ -3,6 +3,7 @@ Name=Reddit
 Name[ca]=Reddit
 Name[es]=Reddit
 Name[fr]=Reddit
+Name[ia]=Reddit
 Name[it]=Reddit
 Name[nl]=Reddit
 Name[sl]=Reddit
@@ -15,6 +16,7 @@ Query=https://www.reddit.com/search/?q=\\{@}
 Query[ca]=https://www.reddit.com/search/?q=\\{@}
 Query[es]=https://www.reddit.com/search/?q=\\{@}
 Query[fr]=https://www.reddit.com/search/?q=\\{@}
+Query[ia]=https://www.reddit.com/search/?q=\\{@}
 Query[it]=https://www.reddit.com/search/?q=\\{@}
 Query[nl]=https://www.reddit.com/search/?q=\\{@}
 Query[sl]=https://www.reddit.com/search/?q=\\{@}
