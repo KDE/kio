@@ -646,6 +646,7 @@ public:
     QTimer m_pollDevices;
 
     QRect m_dropRect;
+    QPersistentModelIndex m_dropIndex;
 
     QUrl m_currentUrl;
 
@@ -1253,6 +1254,7 @@ void KFilePlacesView::dragEnterEvent(QDragEnterEvent *event)
     d->m_delegate->setShowHoverIndication(false);
 
     d->m_dropRect = QRect();
+    d->m_dropIndex = QPersistentModelIndex();
 }
 
 void KFilePlacesView::dragLeaveEvent(QDragLeaveEvent *event)
@@ -1280,6 +1282,7 @@ void KFilePlacesView::dragMoveEvent(QDragMoveEvent *event)
     const QModelIndex index = indexAt(pos);
     setDirtyRegion(d->m_dropRect);
     if (index.isValid()) {
+        d->m_dropIndex = index;
         const QRect rect = visualRect(index);
         const int gap = d->insertIndicatorHeight(rect.height());
         if (d->insertAbove(rect, pos)) {
@@ -1371,11 +1374,10 @@ void KFilePlacesView::paintEvent(QPaintEvent *event)
         // draw drop indicator
         QPainter painter(viewport());
 
-        const QModelIndex index = indexAt(d->m_dropRect.topLeft());
-        QRect itemRect = visualRect(index);
+        QRect itemRect = visualRect(d->m_dropIndex);
         // Take into account section headers
-        if (d->m_delegate->indexIsSectionHeader(index)) {
-            const int headerHeight = d->m_delegate->sectionHeaderHeight(index);
+        if (d->m_delegate->indexIsSectionHeader(d->m_dropIndex)) {
+            const int headerHeight = d->m_delegate->sectionHeaderHeight(d->m_dropIndex);
             itemRect.translate(0, headerHeight);
             itemRect.setHeight(itemRect.height() - headerHeight);
         }
@@ -1409,7 +1411,7 @@ void KFilePlacesView::paintEvent(QPaintEvent *event)
             // draw indicator for copying/moving/linking to items
             QStyleOptionViewItem opt;
             opt.initFrom(this);
-            opt.index = index;
+            opt.index = d->m_dropIndex;
             opt.rect = itemRect;
             opt.state = QStyle::State_Enabled | QStyle::State_MouseOver;
             style()->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, &painter, this);
