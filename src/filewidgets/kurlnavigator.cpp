@@ -396,8 +396,6 @@ void KUrlNavigatorPrivate::openPathSelectorMenu()
     q->connect(popupFilter, &KUrlNavigatorPathSelectorEventFilter::tabRequested, q, &KUrlNavigator::tabRequested);
     popup->installEventFilter(popupFilter);
 
-    popup->setLayoutDirection(Qt::LeftToRight);
-
     const QUrl placeUrl = retrievePlaceUrl();
     int idx = placeUrl.path().count(QLatin1Char('/')); // idx points to the first directory
     // after the place path
@@ -900,8 +898,6 @@ KUrlNavigator::KUrlNavigator(KFilePlacesModel *placesModel, const QUrl &url, QWi
     , d(new KUrlNavigatorPrivate(this, placesModel))
 {
     d->m_history.prepend(LocationData{url.adjusted(QUrl::NormalizePathSegments)});
-
-    setLayoutDirection(Qt::LeftToRight);
 
     const int minHeight = d->m_pathBox->sizeHint().height();
     setMinimumHeight(minHeight);
