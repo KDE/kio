@@ -468,7 +468,7 @@ QString KFilePlacesViewDelegate::groupNameFromIndex(const QModelIndex &index) co
 
 QModelIndex KFilePlacesViewDelegate::previousVisibleIndex(const QModelIndex &index) const
 {
-    if (index.row() == 0) {
+    if (!index.isValid() || index.row() == 0) {
         return QModelIndex();
     }
 
