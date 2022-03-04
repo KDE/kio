@@ -1090,7 +1090,19 @@ bool KOpenWithDialogPrivate::checkAccept()
             KDesktopFile desktopFile(newPath);
             KConfigGroup cg = desktopFile.desktopGroup();
             cg.writeEntry("Type", "Application");
-            cg.writeEntry("Name", initialServiceName);
+
+            // For the user visible name, use the executable name with any
+            // arguments appended, but with desktop-file specific expansion
+            // arguments removed. This is done to more clearly communicate the
+            // actual command used to the user and makes it easier to
+            // distinguish things like "qdbus".
+            QString name = KIO::DesktopExecParser::executableName(fullExec);
+            auto view = QStringView{fullExec}.trimmed();
+            int index = view.indexOf(QLatin1Char(' '));
+            if (index > 0) {
+                name.append(view.mid(index));
+            }
+            cg.writeEntry("Name", simplifiedExecLineFromService(name));
 
             // if we select a binary for a scheme handler, then it's safe to assume it can handle URLs
             if (qMimeType.startsWith(QLatin1String("x-scheme-handler/"))) {
