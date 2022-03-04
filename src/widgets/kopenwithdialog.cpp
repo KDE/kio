@@ -905,12 +905,12 @@ void KOpenWithDialog::setSaveNewApplications(bool b)
 static QString simplifiedExecLineFromService(const QString &fullExec)
 {
     QString exec = fullExec;
-    exec.remove(QStringLiteral("%u"), Qt::CaseInsensitive);
-    exec.remove(QStringLiteral("%f"), Qt::CaseInsensitive);
-    exec.remove(QStringLiteral("-caption %c"));
-    exec.remove(QStringLiteral("-caption \"%c\""));
-    exec.remove(QStringLiteral("%i"));
-    exec.remove(QStringLiteral("%m"));
+    exec.remove(QLatin1String("%u"), Qt::CaseInsensitive);
+    exec.remove(QLatin1String("%f"), Qt::CaseInsensitive);
+    exec.remove(QLatin1String("-caption %c"));
+    exec.remove(QLatin1String("-caption \"%c\""));
+    exec.remove(QLatin1String("%i"));
+    exec.remove(QLatin1String("%m"));
     return exec.simplified();
 }
 
