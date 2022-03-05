@@ -1,4 +1,4 @@
-/*
+﻿/*
     This file is part of the KDE project
     SPDX-FileCopyrightText: 1999-2011 David Faure <faure@kde.org>
     SPDX-FileCopyrightText: 2001 Carsten Pfeiffer <pfeiffer@kde.org>
@@ -1286,6 +1286,10 @@ bool KFileItem::isDir() const
 {
     if (!d) {
         return false;
+    }
+
+    if (d->m_bMimeTypeKnown && d->m_mimeType.isValid()) {
+        return d->m_mimeType.inherits(QStringLiteral("inode/directory"));
     }
 
     if (d->m_bSkipMimeTypeFromContent) {

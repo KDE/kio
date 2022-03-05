@@ -136,6 +136,19 @@ void KFileItemTest::testMove()
     QCOMPARE(fileItem2.name(), QStringLiteral("two"));
 }
 
+void KFileItemTest::testMimeTypeCtor()
+{
+    KFileItem fileItem;
+
+    fileItem = KFileItem(QUrl::fromLocalFile(QStringLiteral("/one")), QString("inode/directory"));
+    QVERIFY(fileItem.isDir());
+    QVERIFY(fileItem.isMimeTypeKnown());
+
+    fileItem = KFileItem(QUrl::fromLocalFile(QStringLiteral("/one")), QString("image/jpeg"));
+    QVERIFY(!fileItem.isDir());
+    QVERIFY(fileItem.isMimeTypeKnown());
+}
+
 void KFileItemTest::testBasic()
 {
     QTemporaryFile file;

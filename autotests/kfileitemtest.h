@@ -19,6 +19,7 @@ private Q_SLOTS:
     void testDoesNotExist();
     void testDetach();
     void testMove();
+    void testMimeTypeCtor();
     void testBasic();
     void testRootDirectory();
     void testHiddenFile();
