@@ -1,0 +1,217 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % German "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="ebrowsing" lang="&language;">
+<articleinfo>
+<title
+>Web-Kürzel</title>
+<authorgroup>
+<author
+>&Krishna.Tateneni; &Krishna.Tateneni.mail;</author>
+<author
+>&Yves.Arrouye; &Yves.Arrouye.mail;</author>
+<othercredit role="translator"
+><firstname
+>Stefan</firstname
+><surname
+>Winter</surname
+><affiliation
+><address
+><email
+>kickdown@online.de</email
+></address
+></affiliation
+><contrib
+>Deutsche Übersetzung</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>2016-11-10</date>
+<releaseinfo
+>Frameworks 5.29</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Systemeinstellungen</keyword>
+<keyword
+>Erweitertes Web-Browsen</keyword>
+<keyword
+>Web-Kürzel</keyword>
+<keyword
+>Browsen</keyword>
+</keywordset>
+
+</articleinfo>
+<sect1 id="ebrowse">
+
+<title
+>Web-Kürzel</title>
+
+<sect2 id="ebrowse-intro">
+
+<title
+>Einführung</title>
+
+<para
+>&konqueror; bietet Ihnen mehrere Möglichkeiten, das Browsen zu vereinfachen. Eine dieser Funktionen ist <emphasis
+>Web-Kürzel</emphasis
+>.</para>
+
+<para
+>&kde; ist sehr Internet-freundlich. Zum Beispiel kann man im Startmenü auf den Eintrag <guimenuitem
+>Ausführen</guimenuitem
+> klicken oder das Tastenkürzel für diesen Befehl ( <keycombo action="simul"
+>&Alt;<keycap
+>F2</keycap
+></keycombo
+> oder <keycombo action="simul"
+>&Alt;&Space;</keycombo
+>, sofern Sie diese Tastenkombination nicht geändert haben) betätigen und eine &URI; eingeben. <footnote
+><para
+>Uniform Resource Identifier. Eine standardisierte Möglichkeit, eine Ressource (also Datei auf Ihrem Rechner, eine WWW-Adresse, eine E-Mail-Adresse &etc;) zu benennen.</para
+></footnote
+></para>
+
+<para
+>Web-Kürzel sind benutzerdefinierte Pseudo-&URL;s, die &eg; als Abkürzung für das Abfragen bestimmter Suchmaschinen dienen können und den Umgang mit den verschiedenen Suchparametern dieser viel benutzten Suchmaschinen vereinfachen. Wenn man zum Beispiel die Google-Suchmaschine benutzen will, kann man &kde; so einrichten, dass die Eingabe einer Pseudo-&URL; wie <emphasis
+>gg</emphasis
+> eine Suche bei Google auslöst. So wird durch die Eingabe <userinput
+>gg:<replaceable
+>meine Suche</replaceable
+></userinput
+> eine Suche nach <replaceable
+>meine Suche</replaceable
+> bei Google durchgeführt.</para>
+
+<note
+><para
+>Es ist leicht ersichtlich, warum diese Eingaben Pseudo-&URL; genannt werden. Sie werden zwar wie eine &URL; benutzt, aber die Eingabe ist nicht im korrekten &URL;-Format gehalten, man gibt zum Beispiel <userinput
+>google:kde apps</userinput
+> und nicht <userinput
+>google:kde+apps</userinput
+> ein.</para
+></note>
+
+<para
+>Sie können die Web-Kürzel generell anstelle von &URI;s verwenden. Die Kurzbefehle für viele Suchmaschinen sind bereits voreingestellt, aber Sie können in diesem Modul nach Belieben neue Kurzbefehle definieren und bestehende ändern oder löschen.</para>
+
+</sect2>
+
+<sect2 id="ebrowse-use">
+
+<title
+>Web-Kürzel</title>
+
+<para
+>In einer Liste werden die Namen der definierten Suchmaschinen und ihre Abkürzungen angezeigt. Sie können die Liste auch alphabetisch sortieren, indem Sie (wie bei anderen &kde;-Listen auch) auf ihre Überschrift klicken. Dadurch werden die Einträge in der Liste in auf- bzw. absteigender Reihenfolge sortiert.</para>
+
+<para
+>Die Einstellung <guilabel
+>Web-Kürzel aktivieren</guilabel
+> muss ausgewählt werden, um diese Funktion zu benutzen. Mit den Knöpfen rechts neben der Listen können Web-Kürzel erstellt, geändert und gelöscht werden.</para>
+
+<para
+>Wenn <guilabel
+>Nur bevorzugte Web-Kürzel verwenden</guilabel
+> markiert ist, werden nur Web-Kürzel benutzt, die in der dritten Spalte der Liste als „bevorzugt“ aktiviert sind, wenn nur einige ausgewählte Web-Kürzel gleichzeitig angezeigt werden können. </para>
+ 
+<para
+>Unter der Liste werden zwei weitere Einstellungen angezeigt:</para>
+<variablelist>
+<varlistentry
+><term
+><guilabel
+>Standard-Web-Kürzel:</guilabel
+></term>
+<listitem>
+<para
+>Hier können Sie die Suchmaschine auswählen, die für Eingabefelder von Programmen mit Nachschlagefunktion verwendet werden soll, also neben der Eingabe von Adressen (&URL;s) auch die Eingabe von Suchstichwörtern erlauben, wie z B. Konqueror. Zur Deaktivierung dieser Funktion wählen Sie <guilabel
+>Keine</guilabel
+> aus der Liste. </para
+></listitem>
+</varlistentry>
+<varlistentry
+><term
+><guilabel
+>Stichwort-Trennzeichen:</guilabel
+></term>
+<listitem>
+<para
+>Wählen Sie das Zeichen, das ein Web-Kürzel von dem Stichwort oder Ausdruck trennt, nach dem gesucht werden soll.</para
+></listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>Wählt man einen Eintrag in der Liste durch Doppelklick oder durch Klicken auf den Knopf <guibutton
+>Ändern</guibutton
+> aus, werden die Details zu dieser Suchmaschine in einem Dialog angezeigt. Zusätzlich zum Namen der Suchmaschine werden auch die zum Suchen verwendete &URI;, und die der Suchmaschine zugeordneten Abkürzungen angezeigt. Diese Abkürzungen kann man überall in &kde;, eingeben, wo eine &URI; erwartet wird. Einer Suchmaschine können auch mehrere Abkürzungen zugeordnet werden. Diese sind dann durch Komma zu trennen.</para>
+
+<para
+>Die Textfelder dienen nicht nur zur Anzeige von Informationen über die Liste an Web-Kürzeln, sondern dienen auch deren Änderung und dem Hinzufügen von neuen Einträgen.</para>
+
+<para
+>Die Inhalte der Eingabefelder <guilabel
+>Adresse des Web-Kürzels</guilabel
+> und<guilabel
+>Web-Kürzel</guilabel
+> können geändert werden. Durch Klicken auf <guibutton
+>OK</guibutton
+> werden die Änderungen übernommen, durch <guibutton
+>Abbrechen</guibutton
+> wird der Dialog geschlossen und die Änderungen verworfen.</para>
+
+<para
+>Bei genauerer Betrachtung des Feldes <guilabel
+>Adresse des Web-Kürzels</guilabel
+> fällt auf, dass die meisten (wenn nicht sogar alle) Einträge den Parameter <option
+>\{@}</option
+> enthalten. Diese Folge von vier Zeichen ist ein Platzhalter, und wird durch dasjenige ersetzt, was bei einer Suchanfrage hinter dem Doppelpunkt steht. Um diesen Platzhalter in eine Web-Kürzel-Adresse einzufügen, drücken Sie den Knopf rechts neben dem Eingabefeld. Damit die Benutzung von Web-Kürzeln etwas klarer wird, sollte man sich die folgenden Beispiele ansehen.</para>
+
+<para
+>Angenommen, dass bei Such-&URI; steht: <userinput
+>https://www.google.com/search?q=\{@}</userinput
+> und dass <userinput
+>gg</userinput
+> ein Kurzbefehl für diese &URI; ist. Eine Eingabe von <userinput
+>gg:<replaceable
+>alpha</replaceable
+></userinput
+> entspricht dann <userinput
+>https://www.google.com/search?q=<replaceable
+>alpha</replaceable
+></userinput
+>. Sie können beliebige Zeichen hinter dem <userinput
+>:</userinput
+> eingeben. Was auch immer dort eingegeben wird, ersetzt die Sequenz <option
+>\{@}</option
+> (nachdem das Zeichenformat in den für den Such-Provider passenden Zeichensatz umgewandelt wurde). Nur der <option
+>\{@}</option
+>-Teil der Such-&URI; wird konvertiert. Vom Rest wird von vornherein angenommen, dass er sich bereits in einem korrekten &URL;-codierten Format befindet.</para>
+
+<para
+>Sie können auch Kurzbefehle ohne Parameter erstellen. Angenommen, die &URI; ist <emphasis
+>file:/home/ich/meinedocs/calligra/words</emphasis
+> und der dazugehörige Kurzbefehl ist <emphasis
+>meinwords</emphasis
+>. Dann führt die Eingabe von <userinput
+>meinwords:</userinput
+> zum selben Ergebnis wie die komplette &URI;. Es ist zu beachten, dass man zwar nichts hinter dem Doppelpunkt eingeben muss, dieser aber trotzdem notwendig ist, damit die Eingabe als Kurzbefehl akzeptiert wird.</para>
+
+<para
+>Spätestens jetzt sollte klar sein, dass die Kurzbefehle nicht nur für Suchmaschinen, sondern für alle Arten von parametrisierten &URI;s verwendet werden können. Diese können nicht nur auf Internetseiten sondern auf alles verweisen, worauf man mit einer &URI; verweisen kann. Das macht diese Kurzbefehle zu einem sehr nützlichen Werkzeug in &kde;.</para>
+
+</sect2>
+
+</sect1>
+
+</article>

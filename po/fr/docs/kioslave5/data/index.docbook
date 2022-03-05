@@ -1,0 +1,69 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % French "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="data">
+<title
+>URL de données</title>
+
+<articleinfo>
+<authorgroup>
+<author
+><personname
+><firstname
+>Leo</firstname
+><surname
+>Savernik</surname
+></personname
+> <address
+><email
+>l.savernik@aon.at</email
+></address
+> </author>
+&traducteurLudovicGrossard; 
+</authorgroup>
+
+<date
+>06/02/2003</date>
+<!--releaseinfo
+>2.20.00</releaseinfo-->
+
+</articleinfo>
+
+<para
+>Les URL de données permettent d'inclure de petits documents dans les URL elles-même. Ceci est utile pour de petits tests HTML ou d'autres cas où la création d'un fichier ne se justifie pas.</para>
+
+<para
+><userinput
+>data:,foobar</userinput
+> (notez la virgule après le deux-points) délivrera un document texte contenant uniquement <literal
+>foobar</literal
+> </para>
+
+<para
+>Cet exemple délivrait un document texte. Pour les documents HTML, nous devons spécifier le type MIME <literal
+>text/html</literal
+> : <userinput
+>data:text/html,&lt;title&gt;test&lt;/title&gt;&lt;p&gt;Ceci est une page de test&lt;/p&gt;</userinput
+>. Ceci produira exactement la même sortie que si le contenu avait été chargé depuis un document. </para>
+
+<para
+>Il est également possible de spécifier d'autres encodages. Notez que les caractères 8 bits doivent être échappés par un signe pourcentage et leur code hexadécimal à deux chiffres : <userinput
+>data:;charset=iso-8859-15,ce test-l%E0 n'est pas le m%EAme</userinput
+> résultant en <literal
+>ce test-là n'est pas le même</literal
+> alors qu'en omettant l'attribut d'encodage, on aurait obtenu quelque chose comme <literal
+>ce test-lÃ  n'est pas le mÃªme</literal
+> </para>
+
+<para
+><ulink url="https://www.ietf.org/rfc/rfc2397.txt"
+>IETF RFC2397</ulink
+> fournit plus d'informations.</para>
+
+</article>
+

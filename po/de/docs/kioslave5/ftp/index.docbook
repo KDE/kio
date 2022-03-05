@@ -1,0 +1,63 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % German "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="ftp">
+<title
+>&FTP;</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Lauri.Watts; &Lauri.Watts.mail;</author>
+<othercredit role="translator"
+><firstname
+>Marco</firstname
+><surname
+>Wegner</surname
+><affiliation
+><address
+><email
+>mail@marcowegner.de</email
+></address
+></affiliation
+><contrib
+>Übersetzer</contrib
+></othercredit
+> 
+</authorgroup>
+</articleinfo>
+
+<para
+>&FTP; ist der Internet-Dienst zum Übertragen von Dateien von der Festplatte eines Rechners auf die Festplatte eines anderen, unabhängig vom Betriebssystem. </para>
+
+<para
+>Ähnlich wie andere Internet-Anwendungen nutzt auch &FTP; den Client-/Server-Ansatz - ein Benutzer startet ein &FTP;-Programm auf seinem Rechner, gibt ihm den Befehl, einen Rechner im Netzwerk anzuwählen und dann die Übertragung einer oder mehrerer Dateien zu starten. Das lokale &FTP;-Programm ist dann ein so genannter Client, der <acronym
+>TCP</acronym
+> verwendet, um sich mit einem &FTP;-Server-Programm auf einem entfernten Rechner zu verbinden. Fordert der Benutzer die Übertragung einer Datei an, arbeiten der Client und der Server zusammen, um eine Kopie der Daten über das Internet zu senden.</para>
+
+<para
+>&FTP;-Server, die <quote
+>anonymes &FTP;</quote
+> erlauben, ermöglichen es jedem Benutzer - und nicht nur solchen mit einem Account auf diesem Rechner - die <quote
+>ftp</quote
+>-Archive zu durchsuchen und Dateien herunterzuladen. Einige &FTP;-Server sind so eingerichtet, dass Benutzer auch Dateien hochladen können.</para>
+
+<para
+>&FTP; wird gewöhnlich dazu benutzt, um Informationen oder Software zu erhalten, die in Dateien in &FTP;-Archiven auf der ganzen Welt gespeichert wurde. </para>
+
+
+<para
+>Quelle: <ulink url="http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/ftpdef.htm"
+> http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/ftpdef.htm</ulink
+> </para>
+
+<para
+>Schauen Sie auch in das Handbuch: <ulink url="man:/ftp"
+>ftp</ulink
+>.</para>
+
+</article>

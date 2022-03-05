@@ -1,0 +1,80 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Catalan  "INCLUDE">
+]>
+<article id="documentationnotfound" lang="&language;">
+<title
+>No s'ha trobat la documentació</title>
+<articleinfo>
+<authorgroup>
+<author
+><firstname
+>Jack</firstname
+> <surname
+>Ostroff</surname
+> <affiliation
+> <address
+><email
+>ostroffjh@users.sourceforge.net</email
+></address>
+</affiliation>
+</author>
+&traductor.Antoni.Bella; 
+</authorgroup>
+
+<date
+>8 de setembre de 2020</date>
+<releaseinfo
+>Frameworks 5.73</releaseinfo>
+
+</articleinfo>
+
+<para
+>La documentació sol·licitada no es troba al vostre equip.</para>
+
+<para
+>La documentació podria no existir, o no trobar-se instal·lada amb l'aplicació.</para>
+
+<tip
+><para
+>Si us plau, no envieu un correu electrònic a l'autor d'aquesta pàgina per a trobar el document que falta. Senzillament us dirà que seguiu les instruccions en aquesta pàgina. </para
+></tip>
+
+<simplesect>
+<title
+>Com resoldre aquesta qüestió</title>
+
+<para
+>Si l'aplicació és programari &kde;, primer empreu la funció de cerca al &khelpcenter;. En alguns casos, la documentació té un nom diferent del que estava utilitzant el programari per a intentar trobar-la. Si això no funciona, intenteu cercar-la al <ulink url="https://docs.kde.org/"
+>lloc &kde; Documentation</ulink
+>. Si la trobeu en aquest lloc, la vostra distribució la pot estar enviant en un paquet a part (&pex;, anomenat plasma-doc per a la documentació relacionada amb el &plasma;). Si us plau, utilitzeu el gestor de paquets de la vostra distribució per a trobar i instal·lar la documentació que falta.</para>
+
+<para
+>Si utilitzeu una distribució basada en codi font, com Gentoo, assegureu-vos que no hi ha cap opció de configuració (indicadors «USE» a Gentoo) que podrien haver desactivat la instal·lació de la documentació. </para>
+
+<para
+>Si ja ho heu fet, però encara obteniu aquesta pàgina en comptes del manual de l'aplicació, probablement heu trobat un error en el sistema d'ajuda. En aquest cas, si us plau, informeu-ne al <ulink url="https://bugs.kde.org/"
+>Seguidor d'errors del &kde;</ulink
+> (escriviu-hi en anglès). </para>
+
+<para
+>Si no trobeu cap documentació al <ulink url="https://docs.kde.org/"
+>lloc de la documentació del &kde;</ulink
+>, l'aplicació podria no disposar de documentació fora de línia. Si us plau, informeu-ne al <ulink url="https://bugs.kde.org/"
+>Seguidor d'errors del &kde;</ulink
+> (escriviu-hi en anglès) sota el producte per a l'aplicació. </para>
+
+<para
+>En el cas que l'aplicació no disposi de documentació fora de línia, per a obtenir ajuda haureu d'utilitzar els recursos en línia <ulink url="https://userbase.kde.org/Welcome_to_KDE_UserBase/ca"
+>Documentació a UserBase</ulink
+> i <ulink url="https://forum.kde.org/"
+>&kde; Community Forums</ulink
+>. </para>
+
+<para
+>Per a aplicacions no &kde;, si us plau, poseu-vos en contacte amb l'autor de l'aplicació per a determinar si hi ha disponible documentació fora de línia.</para>
+</simplesect>
+
+</article>

@@ -1,0 +1,183 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Spanish "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="netpref" lang="&language;">
+<articleinfo>
+<title
+>Preferencias de la conexión</title>
+<authorgroup>
+<author
+>&Lauri.Watts; &Lauri.Watts.mail;</author>
+
+<othercredit role="translator"
+> <firstname
+>Rocío</firstname
+> <surname
+>Gallego</surname
+> <affiliation
+><address
+><email
+>traducciones@rociogallego.com</email
+></address
+></affiliation
+> <contrib
+>Traducción</contrib
+> </othercredit
+><othercredit role="translator"
+> <firstname
+>Pablo</firstname
+> <surname
+>de Vicente</surname
+> <affiliation
+><address
+><email
+>pablo.devicente@gmail.com</email
+></address
+></affiliation
+> <contrib
+>Traductor</contrib
+> </othercredit
+> <othercredit role="translator"
+> <firstname
+>Marcos</firstname
+> <surname
+>Fouces Lago</surname
+> <affiliation
+><address
+><email
+>mfouces@yahoo.es</email
+></address
+></affiliation
+> <contrib
+>Traductor</contrib
+> </othercredit
+> 
+</authorgroup>
+
+<date
+>2016-11-10</date>
+<releaseinfo
+>Frameworks 5.29</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdebase</keyword>
+<keyword
+>kcontrol</keyword>
+<keyword
+>red</keyword>
+<keyword
+>Tiempos de espera</keyword>
+</keywordset>
+
+</articleinfo>
+
+<sect1 id="timeouts">
+
+<title
+>Preferencias de la conexión</title>
+
+<para
+>Aquí puede configurar los valores de los tiempos de espera. Puede que desee modificarlos si su conexión es muy lenta pero los valores predefinidos son apropiados para la mayor parte de los usuarios.</para>
+
+<para
+>Aquí <guilabel
+>Tiempos de espera</guilabel
+> son los intervalos de tiempo que una aplicación debería esperar una respuesta de una operación en la red.</para>
+
+<para
+>Puede configurar los siguientes tiempos:</para>
+
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>Lectura de socket:</guilabel
+></term>
+<listitem>
+<para
+>Algunas aplicaciones utilizan <firstterm
+>sockets</firstterm
+> para comunicarse. Puede pensar en un socket como en un grifo de agua; cuando está abierto, el agua (o en nuestro caso, los datos) sale, sin interacción. Si algo detiene este flujo de datos, la aplicación esperará a que haya más para salir. Esta demora puede corresponder a un intervalo muy largo de tiempo, pero usted puede definir un tiempo máximo de espera para una aplicación con esta opción.</para>
+<para
+>Esta opción de configuración solo es aplicable a aplicaciones &kde;.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Conexión de proxy:</guilabel
+></term>
+<listitem>
+<para
+>Establece cuanto tiempo esperar una conexión a un servidor proxy, si hay uno configurado. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Conexión al servidor:</guilabel
+></term>
+<listitem>
+<para
+>Establece cuanto tiempo esperar una conexión a un servidor remoto. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Respuesta del servidor:</guilabel
+></term>
+<listitem>
+<para
+>Establece el tiempo de espera para una respuesta del servidor remoto. </para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+<para
+>Aquí puede configurar las <guilabel
+>Opciones FTP</guilabel
+>. En este momento hay dos opciones:</para>
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>Activar modo pasivo (PASV)</guilabel
+></term>
+<listitem
+><para
+>El &FTP; pasivo se requiere frecuentemente cuando usted está tras una cortafuegos. Muchos cortafuegos solo permiten conexiones que fueron iniciados desde «dentro». El &FTP; pasivo está controlado por el cliente, lo que permite su uso tras cortafuegos.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Marcar los archivos parcialmente cargados</guilabel
+></term>
+<listitem
+><para
+>Cuando se marca esta casilla, los archivos parcialmente cargados tendrán añadida la extensión <literal role="extension"
+>.part</literal
+> al final del archivo. Esta extensión se eliminará una vez que el archivo haya finalizado de descargarse.</para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+
+
+</sect1>
+</article>
