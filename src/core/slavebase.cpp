@@ -114,9 +114,9 @@ public:
     bool needSendCanResume : 1;
     bool onHold : 1;
     bool inOpenLoop : 1;
-    std::atomic<bool> wasKilled;
-    std::atomic<bool> exit_loop;
-    std::atomic<bool> runInThread;
+    std::atomic<bool> wasKilled = false;
+    std::atomic<bool> exit_loop = false;
+    std::atomic<bool> runInThread = false;
     MetaData configData;
     KConfig *config = nullptr;
     KConfigGroup *configGroup = nullptr;
