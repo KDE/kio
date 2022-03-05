@@ -6,6 +6,7 @@ Name[fr]=CPlusPlus
 Name[ia]=CPlusPlus
 Name[it]=CPlusPlus
 Name[nl]=CPlusPlus
+Name[pt_BR]=CPlusPlus
 Name[sl]=CPlusPlus
 Name[sv]=C++
 Name[uk]=CPlusPlus
@@ -19,6 +20,7 @@ Query[fr]=http://cplusplus.com/search.do?q=\\{@}
 Query[ia]=http://cplusplus.com/search.do?q=\\{@}
 Query[it]=http://cplusplus.com/search.do?q=\\{@}
 Query[nl]=http://cplusplus.com/search.do?q=\\{@}
+Query[pt_BR]=http://cplusplus.com/search.do?q=\\{@}
 Query[sl]=http://cplusplus.com/search.do?q=\\{@}
 Query[sv]=http://cplusplus.com/search.do?q=\\{@}
 Query[uk]=http://cplusplus.com/search.do?q=\\{@}

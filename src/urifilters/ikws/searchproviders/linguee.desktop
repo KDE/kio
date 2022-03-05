@@ -6,6 +6,7 @@ Name[fr]=Linguee
 Name[ia]=Linguee
 Name[it]=Linguee
 Name[nl]=Linguee
+Name[pt_BR]=Linguee
 Name[sl]=Linguee
 Name[sv]=Linguee
 Name[uk]=Linguee
@@ -19,6 +20,7 @@ Query[fr]=https://www.linguee.com/search?source=auto&query=\\{@}
 Query[ia]=https://www.linguee.com/search?source=auto&query=\\{@}
 Query[it]=https://www.linguee.com/search?source=auto&query=\\{@}
 Query[nl]=https://www.linguee.com/search?source=auto&query=\\{@}
+Query[pt_BR]=https://www.linguee.com/search?source=auto&query=\\{@}
 Query[sl]=https://www.linguee.com/search?source=auto&query=\\{@}
 Query[sv]=https://www.linguee.com/search?source=auto&query=\\{@}
 Query[uk]=https://www.linguee.com/search?source=auto&query=\\{@}

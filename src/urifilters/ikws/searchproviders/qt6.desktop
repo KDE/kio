@@ -9,6 +9,7 @@ Name[fr]=Documentation en ligne de Qt6
 Name[ia]=Documentation in linea de Qt6
 Name[it]=Documentazione in linea di Qt6
 Name[nl]=Qt6 online-documentatie
+Name[pt_BR]=Documentação on-line do Qt6
 Name[sl]=Spletna dokumentacija za Qt6
 Name[sv]=Qt6-dokumentation på nätet
 Name[uk]=Документація з Qt6 у мережі
@@ -20,6 +21,7 @@ Query[fr]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[ia]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[it]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[nl]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
+Query[pt_BR]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[sl]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[sv]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[uk]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}

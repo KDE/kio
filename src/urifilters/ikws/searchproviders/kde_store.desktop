@@ -9,6 +9,7 @@ Name[fr]=Boutique de KDE
 Name[ia]=KDE Store (Immagazina de KDE)
 Name[it]=KDE Store
 Name[nl]=KDE Store
+Name[pt_BR]=KDE Store
 Name[sl]=Trgovina KDE
 Name[sv]=KDE-butik
 Name[uk]=Крамниця KDE
@@ -20,6 +21,7 @@ Query[fr]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[ia]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[it]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[nl]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
+Query[pt_BR]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[sl]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[sv]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[uk]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
