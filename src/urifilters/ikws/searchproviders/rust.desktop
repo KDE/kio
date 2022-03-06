@@ -11,6 +11,7 @@ Name[sl]=Dokumentacija za Rust STD
 Name[sv]=Rust standarddokumentation
 Name[uk]=Документація із STD Rust
 Name[x-test]=xxRust STD Documentationxx
+Name[zh_CN]=Rust STD 文档
 Type=Service
 Keys=rust
 Query=https://doc.rust-lang.org/std/index.html?search=\\{@}
@@ -25,3 +26,4 @@ Query[sl]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[sv]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[uk]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[x-test]=xxhttps://doc.rust-lang.org/std/index.html?search=\\{@}xx
+Query[zh_CN]=https://doc.rust-lang.org/std/index.html?search=\\{@}

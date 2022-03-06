@@ -11,6 +11,7 @@ Name[sl]=Reddit KDE
 Name[sv]=KDE Reddit
 Name[uk]=KDE Reddit
 Name[x-test]=xxKDE Redditxx
+Name[zh_CN]=KDE Reddit 版块
 Type=Service
 Keys=kreddit
 Query=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
@@ -25,4 +26,5 @@ Query[sl]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[sv]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[uk]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[x-test]=xxhttps://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1xx
+Query[zh_CN]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Icon=kde

@@ -14,6 +14,7 @@ Name[sl]=Spletna dokumentacija za Qt5
 Name[sv]=Qt5-dokumentation på nätet
 Name[uk]=Документація з Qt5 у мережі
 Name[x-test]=xxQt5 Online Documentationxx
+Name[zh_CN]=Qt5 在线文档
 Query=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[ar]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[ast]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}

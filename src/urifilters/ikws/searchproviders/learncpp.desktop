@@ -11,6 +11,7 @@ Name[sl]=Naučite se CPP
 Name[sv]=Lär dig C++
 Name[uk]=Learn CPP
 Name[x-test]=xxLearn CPPxx
+Name[zh_CN]=Learn CPP 网站
 Type=Service
 Keys=learncpp
 Query=https://www.learncpp.com/gsearch/?q=\\{@}
@@ -25,3 +26,4 @@ Query[sl]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[sv]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[uk]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[x-test]=xxhttps://www.learncpp.com/gsearch/?q=\\{@}xx
+Query[zh_CN]=https://www.learncpp.com/gsearch/?q=\\{@}

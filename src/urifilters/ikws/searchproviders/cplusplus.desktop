@@ -11,6 +11,7 @@ Name[sl]=CPlusPlus
 Name[sv]=C++
 Name[uk]=CPlusPlus
 Name[x-test]=xxCPlusPlusxx
+Name[zh_CN]=CPlusPlus 网站
 Type=Service
 Keys=cplusplus
 Query=http://cplusplus.com/search.do?q=\\{@}
@@ -25,3 +26,4 @@ Query[sl]=http://cplusplus.com/search.do?q=\\{@}
 Query[sv]=http://cplusplus.com/search.do?q=\\{@}
 Query[uk]=http://cplusplus.com/search.do?q=\\{@}
 Query[x-test]=xxhttp://cplusplus.com/search.do?q=\\{@}xx
+Query[zh_CN]=http://cplusplus.com/search.do?q=\\{@}

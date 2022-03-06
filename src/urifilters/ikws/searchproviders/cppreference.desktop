@@ -11,6 +11,7 @@ Name[sl]=Referenčni priročnik za CPP
 Name[sv]=C++ referens
 Name[uk]=Довідник з C++
 Name[x-test]=xxCPP Referencexx
+Name[zh_CN]=CPP Reference 网站
 Type=Service
 Keys=cppreference,cppref,cpp
 Query=https://cppreference.com/w/?search=\\{@}
@@ -25,3 +26,4 @@ Query[sl]=https://cppreference.com/w/?search=\\{@}
 Query[sv]=https://cppreference.com/w/?search=\\{@}
 Query[uk]=https://cppreference.com/w/?search=\\{@}
 Query[x-test]=xxhttps://cppreference.com/w/?search=\\{@}xx
+Query[zh_CN]=https://cppreference.com/w/?search=\\{@}

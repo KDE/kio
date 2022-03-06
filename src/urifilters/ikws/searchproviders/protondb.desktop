@@ -11,6 +11,7 @@ Name[sl]=ProtonDB
 Name[sv]=ProtonDB
 Name[uk]=ProtonDB
 Name[x-test]=xxProtonDBxx
+Name[zh_CN]=ProtonDB 网站
 Type=Service
 Keys=protondb,proton
 Query=https://www.protondb.com/search?q=\\{@}
@@ -25,4 +26,5 @@ Query[sl]=https://www.protondb.com/search?q=\\{@}
 Query[sv]=https://www.protondb.com/search?q=\\{@}
 Query[uk]=https://www.protondb.com/search?q=\\{@}
 Query[x-test]=xxhttps://www.protondb.com/search?q=\\{@}xx
+Query[zh_CN]=https://www.protondb.com/search?q=\\{@}
 Icon=wine
