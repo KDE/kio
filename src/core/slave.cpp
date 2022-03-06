@@ -134,7 +134,7 @@ void Slave::timeout()
     if (!d->m_host.isEmpty()) {
         arg += QLatin1String("://") + d->m_host;
     }
-    // qDebug() << "slave died pid = " << d->m_pid;
+    // qDebug() << "slave failed to connect pid =" << d->m_pid << arg;
 
     ref();
     // Tell the job about the problem.
@@ -156,7 +156,7 @@ Slave::Slave(const QString &protocol, QObject *parent)
 
 Slave::~Slave()
 {
-    // qDebug() << "destructing slave object pid = " << d->m_pid;
+    // qDebug() << "destructing slave object pid =" << d->m_pid;
     // delete d;
 }
 
@@ -340,7 +340,7 @@ void Slave::gotInput()
         if (!d->m_host.isEmpty()) {
             arg += QLatin1String("://") + d->m_host;
         }
-        // qDebug() << "slave died pid = " << d->m_pid;
+        // qDebug() << "slave died pid =" << d->m_pid << arg;
         // Tell the job about the problem.
         Q_EMIT error(ERR_SLAVE_DIED, arg);
         // Tell the scheduler about the problem.
