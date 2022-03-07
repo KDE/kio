@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=Flatpak Documentation
+Name[ar]=توثيق فلاتباك
 Name[ca]=Documentació del Flatpak
 Name[es]=Documentación de Flatpak
 Name[fr]=Documentation de Flatpak
@@ -15,6 +16,7 @@ Name[zh_CN]=Flatpak 文档
 Type=Service
 Keys=flatpak
 Query=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
+Query[ar]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[ca]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[es]=https://docs.flatpak.org/es/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[fr]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default

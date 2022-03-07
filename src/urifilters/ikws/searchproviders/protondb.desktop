@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=ProtonDB
+Name[ar]=ProtonDB
 Name[ca]=ProtonDB
 Name[es]=ProtonDB
 Name[fr]=ProtonDB
@@ -15,6 +16,7 @@ Name[zh_CN]=ProtonDB 网站
 Type=Service
 Keys=protondb,proton
 Query=https://www.protondb.com/search?q=\\{@}
+Query[ar]=https://www.protondb.com/search?q=\\{@}
 Query[ca]=https://www.protondb.com/search?q=\\{@}
 Query[es]=https://www.protondb.com/search?q=\\{@}
 Query[fr]=https://www.protondb.com/search?q=\\{@}

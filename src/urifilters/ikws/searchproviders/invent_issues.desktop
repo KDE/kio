@@ -1,6 +1,7 @@
 [Desktop Entry]
 Keys=inventissues,invissues,issues,issue
 Name=KDE Invent Issues
+Name[ar]=مشكلات KDE Invent
 Name[ca]=Incidències de KDE Invent
 Name[es]=Problemas de KDE Invent
 Name[fr]=Problèmes de KDE Invent
@@ -13,6 +14,7 @@ Name[uk]=Вади на KDE Invent
 Name[x-test]=xxKDE Invent Issuesxx
 Name[zh_CN]=KDE Invent 问题
 Query=https://invent.kde.org/search?scope=issues&search=\\{@}
+Query[ar]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[ca]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[es]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[fr]=https://invent.kde.org/search?scope=issues&search=\\{@}

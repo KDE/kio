@@ -1,6 +1,7 @@
 [Desktop Entry]
 Keys=inventmr,invmr,mr
 Name=KDE Invent Merge Requests
+Name[ar]=طلبات الدمج KDE Invent
 Name[ca]=Peticions de fusió de KDE Invent
 Name[es]=Solicitudes de fusiones de KDE Invent
 Name[fr]=Requêtes de fusion de KDE Invent
@@ -13,6 +14,7 @@ Name[uk]=Запити щодо об'єднання на KDE Invent
 Name[x-test]=xxKDE Invent Merge Requestsxx
 Name[zh_CN]=KDE Invent 合并请求
 Query=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
+Query[ar]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[ca]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[es]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[fr]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}

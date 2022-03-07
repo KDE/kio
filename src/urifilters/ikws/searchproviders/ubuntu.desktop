@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=Ubuntu Package Search
+Name[ar]=بحث حزم أوبنتو
 Name[ca]=Cerca paquets d'Ubuntu
 Name[es]=Búsqueda de paquetes de Ubuntu
 Name[fr]=Recherche de paquets pour Ubuntu
@@ -15,6 +16,7 @@ Name[zh_CN]=Ubuntu 软件包搜索
 Type=Service
 Keys=ubuntu
 Query=https://packages.ubuntu.com/\\{@}
+Query[ar]=https://packages.ubuntu.com/\\{@}
 Query[ca]=https://packages.ubuntu.com/\\{@}
 Query[es]=https://packages.ubuntu.com/\\{@}
 Query[fr]=https://packages.ubuntu.com/\\{@}

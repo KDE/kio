@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=CPlusPlus
+Name[ar]=CPlusPlus
 Name[ca]=CPlusPlus
 Name[es]=CPlusPlus
 Name[fr]=CPlusPlus
@@ -15,6 +16,7 @@ Name[zh_CN]=CPlusPlus 网站
 Type=Service
 Keys=cplusplus
 Query=http://cplusplus.com/search.do?q=\\{@}
+Query[ar]=http://cplusplus.com/search.do?q=\\{@}
 Query[ca]=http://cplusplus.com/search.do?q=\\{@}
 Query[es]=http://cplusplus.com/search.do?q=\\{@}
 Query[fr]=http://cplusplus.com/search.do?q=\\{@}

@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=Linguee
+Name[ar]=Linguee
 Name[ca]=Linguee
 Name[es]=Linguee
 Name[fr]=Linguee
@@ -15,6 +16,7 @@ Name[zh_CN]=Linguee 网站
 Type=Service
 Keys=linguee
 Query=https://www.linguee.com/search?source=auto&query=\\{@}
+Query[ar]=https://www.linguee.com/search?source=auto&query=\\{@}
 Query[ca]=https://www.linguee.com/search?source=auto&query=\\{@}
 Query[es]=https://www.linguee.com/search?source=auto&query=\\{@}
 Query[fr]=https://www.linguee.com/search?source=auto&query=\\{@}

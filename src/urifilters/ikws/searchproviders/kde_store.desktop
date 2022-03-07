@@ -3,6 +3,7 @@ Charset=
 Hidden=false
 Keys=kdestore,kdelook,klook,kdel
 Name=KDE Store
+Name[ar]=متجر كدي
 Name[ca]=KDE Store
 Name[es]=KDE Store
 Name[fr]=Boutique de KDE
@@ -16,6 +17,7 @@ Name[uk]=Крамниця KDE
 Name[x-test]=xxKDE Storexx
 Name[zh_CN]=KDE 商店
 Query=https://store.kde.org/content/search.php?search=Search&name=\\{@}
+Query[ar]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[ca]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[es]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[fr]=https://store.kde.org/content/search.php?search=Search&name=\\{@}

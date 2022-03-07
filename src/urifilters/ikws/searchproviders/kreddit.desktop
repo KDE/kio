@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=KDE Reddit
+Name[ar]=قناة كدي على ردت
 Name[ca]=KDE Reddit
 Name[es]=KDE Reddit
 Name[fr]=KDE Reddit
@@ -15,6 +16,7 @@ Name[zh_CN]=KDE Reddit 版块
 Type=Service
 Keys=kreddit
 Query=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
+Query[ar]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[ca]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[es]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[fr]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1

@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=Reddit
+Name[ar]=ردت
 Name[ca]=Reddit
 Name[es]=Reddit
 Name[fr]=Reddit
@@ -15,6 +16,7 @@ Name[zh_CN]=Reddit 网站
 Type=Service
 Keys=reddit
 Query=https://www.reddit.com/search/?q=\\{@}
+Query[ar]=https://www.reddit.com/search/?q=\\{@}
 Query[ca]=https://www.reddit.com/search/?q=\\{@}
 Query[es]=https://www.reddit.com/search/?q=\\{@}
 Query[fr]=https://www.reddit.com/search/?q=\\{@}
