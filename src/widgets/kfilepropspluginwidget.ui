@@ -74,6 +74,9 @@
        <property name="text">
         <string/>
        </property>
+       <property name="textFormat">
+        <enum>Qt::PlainText</enum>
+       </property>
        <property name="textInteractionFlags">
         <set>Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
        </property>
@@ -153,6 +156,9 @@
        <property name="text">
         <string/>
        </property>
+       <property name="textFormat">
+        <enum>Qt::PlainText</enum>
+       </property>
        <property name="textInteractionFlags">
         <set>Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
        </property>
@@ -164,6 +170,9 @@
         <widget class="QLabel" name="mimeCommentLabel">
          <property name="text">
           <string/>
+         </property>
+         <property name="textFormat">
+          <enum>Qt::PlainText</enum>
          </property>
          <property name="textInteractionFlags">
           <set>Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
@@ -245,6 +254,9 @@
        <property name="text">
         <string/>
        </property>
+       <property name="textFormat">
+        <enum>Qt::PlainText</enum>
+       </property>
        <property name="textInteractionFlags">
         <set>Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
        </property>
@@ -294,6 +306,9 @@
          <property name="text">
           <string/>
          </property>
+         <property name="textFormat">
+          <enum>Qt::PlainText</enum>
+         </property>
         </widget>
        </item>
        <item>
@@ -342,6 +357,9 @@
       <widget class="KSqueezedTextLabel" name="mountPointLabel">
        <property name="text">
         <string/>
+       </property>
+       <property name="textFormat">
+        <enum>Qt::PlainText</enum>
        </property>
        <property name="textInteractionFlags">
         <set>Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
@@ -398,6 +416,9 @@
          <property name="text">
           <string/>
          </property>
+         <property name="textFormat">
+          <enum>Qt::PlainText</enum>
+         </property>
          <property name="textInteractionFlags">
           <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
          </property>
@@ -419,6 +440,9 @@
       <widget class="QLabel" name="magicMimeCommentLabel">
        <property name="text">
         <string/>
+       </property>
+       <property name="textFormat">
+        <enum>Qt::PlainText</enum>
        </property>
       </widget>
      </item>
