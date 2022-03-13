@@ -932,8 +932,10 @@ void JobTest::copyFolderWithUnaccessibleSubfolder()
 #ifdef Q_OS_WIN
     QSKIP("Skipping unaccessible folder test on Windows, cannot remove all permissions from a folder");
 #endif
-    const QString src_dir = homeTmpDir() + "srcHome";
-    const QString dst_dir = homeTmpDir() + "dstHome";
+    QTemporaryDir dir(homeTmpDir() + "UnaccessibleSubfolderTest");
+    QVERIFY(dir.isValid());
+    const QString src_dir = dir.path() + "srcHome";
+    const QString dst_dir = dir.path() + "dstHome";
 
     QDir().remove(src_dir);
     QDir().remove(dst_dir);
