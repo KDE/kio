@@ -581,7 +581,7 @@ KFileItem::KFileItem(mode_t mode, mode_t permissions, const QUrl &url, bool dela
 KFileItem::KFileItem(const QUrl &url, const QString &mimeType, mode_t mode)
     : d(new KFileItemPrivate(KIO::UDSEntry(), mode, KFileItem::Unknown, url, false, false, KFileItem::NormalMimeTypeDetermination))
 {
-    d->m_bMimeTypeKnown = !mimeType.isEmpty();
+    d->m_bMimeTypeKnown = !mimeType.simplified().isEmpty();
     if (d->m_bMimeTypeKnown) {
         QMimeDatabase db;
         d->m_mimeType = db.mimeTypeForName(mimeType);

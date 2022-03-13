@@ -147,6 +147,13 @@ void KFileItemTest::testMimeTypeCtor()
     fileItem = KFileItem(QUrl::fromLocalFile(QStringLiteral("/one")), QString("image/jpeg"));
     QVERIFY(!fileItem.isDir());
     QVERIFY(fileItem.isMimeTypeKnown());
+
+    fileItem = KFileItem(QUrl::fromLocalFile(QStringLiteral("/one.txt")), QString("inode/directory"));
+    QVERIFY(fileItem.isDir());
+    QVERIFY(fileItem.isMimeTypeKnown());
+
+    fileItem = KFileItem(QUrl::fromLocalFile(QStringLiteral("/one.txt")), QString(" "));
+    QVERIFY(!fileItem.isMimeTypeKnown());
 }
 
 void KFileItemTest::testBasic()
