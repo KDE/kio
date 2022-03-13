@@ -4414,11 +4414,11 @@ bool HTTPProtocol::readBody(bool dataInternal /* = false */)
                 // (The length of the unzipped data)
                 m_iBytesLeft = 0;
                 break;
+            } else {
+                // Oh well... that should not happen, but let's not break everything if it does
+                qCWarning(KIO_HTTP) << "bytesReceived==-1 sz=" << (int)sz << "from host" << m_request.url.host();
+                break;
             }
-            // Oh well... log an error and bug out
-            qCDebug(KIO_HTTP) << "bytesReceived==-1 sz=" << (int)sz << " Connection broken !";
-            error(ERR_CONNECTION_BROKEN, m_request.url.host());
-            return false;
         }
 
         // I guess that nbytes == 0 isn't an error.. but we certainly
