@@ -4,9 +4,11 @@ Name[ar]=دليل كريتا
 Name[ca]=Manual del Krita
 Name[es]=Manual de Krita
 Name[fr]=Manuel de Krita
+Name[gl]=Manual de Krita
 Name[ia]=Manual de Krita
 Name[it]=Manuale di Krita
 Name[nl]=Krita-handleiding
+Name[pl]=Podręcznik Krity
 Name[pt_BR]=Manual do Krita
 Name[sl]=Priročnik Krita
 Name[sv]=Handbok Krita
@@ -20,9 +22,11 @@ Query[ar]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[ca]=https://docs.krita.org/ca/search.html?q=\\{@}
 Query[es]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[fr]=https://docs.krita.org/en/search.html?q=\\{@}
+Query[gl]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[ia]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[it]=https://docs.krita.org/it/search.html?q=\\{@}
 Query[nl]=https://docs.krita.org/en/search.html?q=\\{@}
+Query[pl]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[pt_BR]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[sl]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[sv]=https://docs.krita.org/en/search.html?q=\\{@}

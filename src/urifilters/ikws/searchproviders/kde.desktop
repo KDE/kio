@@ -101,9 +101,11 @@ Query[ar]=https://api.kde.org/search.html?query=\\{@}
 Query[ca]=https://api.kde.org/search.html?query=\\{@}
 Query[es]=https://api.kde.org/search.html?query=\\{@}
 Query[fr]=https://api.kde.org/search.html?query=\\{@}
+Query[gl]=https://api.kde.org/search.html?query=\\{@}
 Query[ia]=https://api.kde.org/search.html?query=\\{@}
 Query[it]=https://api.kde.org/search.html?query=\\{@}
 Query[nl]=https://api.kde.org/search.html?query=\\{@}
+Query[pl]=https://api.kde.org/search.html?query=\\{@}
 Query[pt_BR]=https://api.kde.org/search.html?query=\\{@}
 Query[sl]=https://api.kde.org/search.html?query=\\{@}
 Query[sv]=https://api.kde.org/search.html?query=\\{@}

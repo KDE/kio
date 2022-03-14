@@ -4,9 +4,11 @@ Name[ar]=ردت
 Name[ca]=Reddit
 Name[es]=Reddit
 Name[fr]=Reddit
+Name[gl]=Reddit
 Name[ia]=Reddit
 Name[it]=Reddit
 Name[nl]=Reddit
+Name[pl]=Reddit
 Name[pt_BR]=Reddit
 Name[sl]=Reddit
 Name[sv]=Reddit
@@ -20,9 +22,11 @@ Query[ar]=https://www.reddit.com/search/?q=\\{@}
 Query[ca]=https://www.reddit.com/search/?q=\\{@}
 Query[es]=https://www.reddit.com/search/?q=\\{@}
 Query[fr]=https://www.reddit.com/search/?q=\\{@}
+Query[gl]=https://www.reddit.com/search/?q=\\{@}
 Query[ia]=https://www.reddit.com/search/?q=\\{@}
 Query[it]=https://www.reddit.com/search/?q=\\{@}
 Query[nl]=https://www.reddit.com/search/?q=\\{@}
+Query[pl]=https://www.reddit.com/search/?q=\\{@}
 Query[pt_BR]=https://www.reddit.com/search/?q=\\{@}
 Query[sl]=https://www.reddit.com/search/?q=\\{@}
 Query[sv]=https://www.reddit.com/search/?q=\\{@}

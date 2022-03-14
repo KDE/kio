@@ -5,11 +5,13 @@ Name[ar]=KDE Invent
 Name[az]=KDE Invent
 Name[ca]=KDE Invent
 Name[ca@valencia]=KDE Invent
+Name[de]=KDE Invent
 Name[en_GB]=KDE Invent
 Name[es]=KDE Invent
 Name[eu]=KDE Invent
 Name[fi]=KDE Invent
 Name[fr]=KDE Invent
+Name[gl]=KDE Invent
 Name[hu]=KDE Invent
 Name[ia]=KDE Invent
 Name[is]=KDE Invent
@@ -37,11 +39,13 @@ Query[ar]=https://invent.kde.org/search?search=\\{@}
 Query[az]=https://invent.kde.org/search?search=\\{@}
 Query[ca]=https://invent.kde.org/search?search=\\{@}
 Query[ca@valencia]=https://invent.kde.org/search?search=\\{@}
+Query[de]=https://invent.kde.org/search?search=\\{@}
 Query[en_GB]=https://invent.kde.org/search?search=\\{@}
 Query[es]=https://invent.kde.org/search?search=\\{@}
 Query[eu]=https://invent.kde.org/search?search=\\{@}
 Query[fi]=https://invent.kde.org/search?search=\\{@}
 Query[fr]=https://invent.kde.org/search?search=\\{@}
+Query[gl]=https://invent.kde.org/search?search=\\{@}
 Query[hu]=https://invent.kde.org/search?search=\\{@}
 Query[ia]=https://invent.kde.org/search?search=\\{@}
 Query[is]=https://invent.kde.org/search?search=\\{@}

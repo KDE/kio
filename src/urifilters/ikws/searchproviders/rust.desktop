@@ -4,9 +4,11 @@ Name[ar]=توثيق رست STD
 Name[ca]=Documentació del Rust STD
 Name[es]=Documentación de Rust STD
 Name[fr]=Documentation de Rust STD
+Name[gl]=Documentación de Rust STD
 Name[ia]=Documentation STD de Rust
 Name[it]=Documentazione di STD di Rust
 Name[nl]=Rust STD-documentatie
+Name[pl]=Dokumentacja Rust STD
 Name[pt_BR]=Documentação do Rust STD
 Name[sl]=Dokumentacija za Rust STD
 Name[sv]=Rust standarddokumentation
@@ -20,9 +22,11 @@ Query[ar]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[ca]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[es]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[fr]=https://doc.rust-lang.org/std/index.html?search=\\{@}
+Query[gl]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[ia]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[it]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[nl]=https://doc.rust-lang.org/std/index.html?search=\\{@}
+Query[pl]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[pt_BR]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[sl]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[sv]=https://doc.rust-lang.org/std/index.html?search=\\{@}
