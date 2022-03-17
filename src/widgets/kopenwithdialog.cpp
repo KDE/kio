@@ -390,17 +390,9 @@ bool QTreeViewProxyFilter::filterAcceptsRow(int sourceRow, const QModelIndex &pa
         return false;
     }
 
-    // Match the regexp only on leaf nodes
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
-    if (!sourceModel()->hasChildren(index) && index.data().toString().contains(filterRegularExpression())) {
-#else
-    // Do not port this to filterRegularExpression in Qt5. setFilterFixedString doesn't set filterRegularExpression() in Qt5
-    if (!sourceModel()->hasChildren(index) && index.data().toString().contains(filterRegExp())) {
-#endif
-        return true;
-    }
-
-    return false;
+    // Match only on leaf nodes, using plain text, not regex
+    return !sourceModel()->hasChildren(index) //
+        && index.data().toString().contains(filterRegularExpression().pattern(), Qt::CaseInsensitive);
 }
 
 class KApplicationViewPrivate
@@ -730,7 +722,6 @@ void KOpenWithDialogPrivate::init(const QString &_text, const QString &_value)
     KApplicationModel *appModel = new KApplicationModel(proxyModel);
     proxyModel->setSourceModel(appModel);
     proxyModel->setFilterKeyColumn(0);
-    proxyModel->setFilterCaseSensitivity(Qt::CaseInsensitive);
     proxyModel->setRecursiveFilteringEnabled(true);
     view->setModels(appModel, proxyModel);
     topLayout->addWidget(view);
@@ -848,8 +839,9 @@ void KOpenWithDialog::slotTextChanged()
     }
     d->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(!d->edit->text().isEmpty() || d->curService);
 
-    // Update the filter regexp with the new text in the lineedit
-    d->view->proxyModel()->setFilterFixedString(d->edit->text());
+    // escape() because we want plain text matching; the matching is case-insensitive,
+    // see QTreeViewProxyFilter::filterAcceptsRow()
+    d->view->proxyModel()->setFilterRegularExpression(QRegularExpression::escape(d->edit->text()));
 
     // Expand all the nodes when the search string is 3 characters long
     // If the search string doesn't match anything there will be no nodes to expand
