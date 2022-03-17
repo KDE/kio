@@ -13,6 +13,7 @@ Name[sl]=Programska oprema OpenSUSE
 Name[sv]=openSUSE-programvara
 Name[uk]=Програмне забезпечення openSUSE
 Name[x-test]=xxopenSUSE Softwarexx
+Name[zh_CN]=openSUSE 软件
 Type=Service
 Keys=opensuse
 Query=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
