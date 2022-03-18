@@ -1527,7 +1527,6 @@ void KFilePlacesView::setModel(QAbstractItemModel *model)
             d->adaptItemSize();
         },
         Qt::QueuedConnection);
-    connect(selectionModel(), &QItemSelectionModel::currentChanged, d->m_watcher, &KFilePlacesEventWatcher::currentIndexChanged);
 
     QObject::connect(qobject_cast<KFilePlacesModel *>(model), &KFilePlacesModel::setupDone, this, [this](const QModelIndex &idx, bool success) {
         d->storageSetupDone(idx, success);

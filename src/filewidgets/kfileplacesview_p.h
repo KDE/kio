@@ -118,19 +118,9 @@ public:
     {
     }
 
-    const QModelIndex &hoveredIndex() const
-    {
-        return m_hoveredIndex;
-    }
-
     const QModelIndex &hoveredHeaderAreaIndex() const
     {
         return m_hoveredHeaderAreaIndex;
-    }
-
-    const QModelIndex &focusedIndex() const
-    {
-        return m_focusedIndex;
     }
 
     const QModelIndex &hoveredActionIndex() const
@@ -139,8 +129,6 @@ public:
     }
 
 Q_SIGNALS:
-    void entryEntered(const QModelIndex &index);
-    void entryLeft(const QModelIndex &index);
     void entryMiddleClicked(const QModelIndex &index);
 
     void headerAreaEntered(const QModelIndex &index);
@@ -155,22 +143,6 @@ Q_SIGNALS:
 
     void paletteChanged();
 
-public Q_SLOTS:
-    void currentIndexChanged(const QModelIndex &index)
-    {
-        if (m_focusedIndex.isValid() && m_focusedIndex != m_hoveredIndex) {
-            Q_EMIT entryLeft(m_focusedIndex);
-        }
-        if (index == m_hoveredIndex) {
-            m_focusedIndex = m_hoveredIndex;
-            return;
-        }
-        if (index.isValid()) {
-            Q_EMIT entryEntered(index);
-        }
-        m_focusedIndex = index;
-    }
-
 protected:
     bool eventFilter(QObject *watched, QEvent *event) override
     {
@@ -179,15 +151,6 @@ protected:
             QAbstractItemView *view = qobject_cast<QAbstractItemView *>(watched->parent());
             const QPoint pos = static_cast<QMouseEvent *>(event)->pos();
             const QModelIndex index = view->indexAt(pos);
-            if (index != m_hoveredIndex) {
-                if (m_hoveredIndex.isValid() && m_hoveredIndex != m_focusedIndex) {
-                    Q_EMIT entryLeft(m_hoveredIndex);
-                }
-                if (index.isValid() && index != m_focusedIndex) {
-                    Q_EMIT entryEntered(index);
-                }
-                m_hoveredIndex = index;
-            }
 
             QModelIndex headerAreaIndex;
             QModelIndex actionIndex;
@@ -224,11 +187,6 @@ protected:
             break;
         }
         case QEvent::Leave:
-            if (m_hoveredIndex.isValid() && m_hoveredIndex != m_focusedIndex) {
-                Q_EMIT entryLeft(m_hoveredIndex);
-            }
-            m_hoveredIndex = QModelIndex();
-
             if (m_hoveredHeaderAreaIndex.isValid()) {
                 Q_EMIT headerAreaLeft(m_hoveredHeaderAreaIndex);
             }
@@ -312,9 +270,7 @@ protected:
     }
 
 private:
-    QPersistentModelIndex m_hoveredIndex;
     QPersistentModelIndex m_hoveredHeaderAreaIndex;
-    QPersistentModelIndex m_focusedIndex;
     QPersistentModelIndex m_middleClickedIndex;
     QPersistentModelIndex m_hoveredActionIndex;
     QPersistentModelIndex m_clickedActionIndex;
