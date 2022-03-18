@@ -543,15 +543,39 @@ void KNewFileMenuPrivate::executeRealFileOrDir(const KNewFileMenuSingleton::Entr
 {
     initDialog();
 
+    const auto getSelectionLength = [](const QString &text) {
+        // Select the text without MIME-type extension
+        int selectionLength = text.length();
+
+        QMimeDatabase db;
+        const QString extension = db.suffixForFileName(text);
+        if (extension.isEmpty()) {
+            // For an unknown extension just exclude the extension after
+            // the last point. This does not work for multiple extensions like
+            // *.tar.gz but usually this is anyhow a known extension.
+            selectionLength = text.lastIndexOf(QLatin1Char('.'));
+
+            // If no point could be found, use whole text length for selection.
+            if (selectionLength < 1) {
+                selectionLength = text.length();
+            }
+
+        } else {
+            selectionLength -= extension.length() + 1;
+        }
+
+        return selectionLength;
+    };
+
     // The template is not a desktop file
     // Prompt the user to set the destination filename
     QString text = entry.text;
     text.remove(QStringLiteral("...")); // the ... is fine for the menu item but not for the default filename
     text = text.trimmed(); // In some languages, there is a space in front of "...", see bug 268895
     // add the extension (from the templatePath), should work with .txt, .html and with ".tar.gz"... etc
-    const QStringView fileName = QStringView(entry.templatePath).mid(entry.templatePath.lastIndexOf(QLatin1Char('/')));
-    const int dotIndex = fileName.indexOf(QLatin1Char('.'));
-    text += dotIndex > 0 ? fileName.mid(dotIndex) : QStringView{};
+    const QString fileName = entry.templatePath.mid(entry.templatePath.lastIndexOf(QLatin1Char('/')));
+    const int dotIndex = getSelectionLength(fileName);
+    text += dotIndex > 0 ? fileName.mid(dotIndex) : QString();
 
     m_copyData.m_src = entry.templatePath;
 
@@ -583,7 +607,10 @@ void KNewFileMenuPrivate::executeRealFileOrDir(const KNewFileMenuSingleton::Entr
     });
 
     m_fileDialog->show();
-    m_lineEdit->selectAll();
+
+    const int firstDotInBaseName = getSelectionLength(text);
+    m_lineEdit->setSelection(0, firstDotInBaseName > 0 ? firstDotInBaseName : text.size());
+
     m_lineEdit->setFocus();
 }
 
