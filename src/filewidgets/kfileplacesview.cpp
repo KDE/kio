@@ -25,7 +25,8 @@
 #include <QTimer>
 #include <QToolTip>
 
-#include <KCapacityBar>
+#include <KColorScheme>
+#include <KColorUtils>
 #include <KConfig>
 #include <KConfigGroup>
 #include <KJob>
@@ -47,6 +48,7 @@
 #include <solid/storagevolume.h>
 #include <widgetsaskuseractionhandler.h>
 
+#include <chrono>
 #include <cmath>
 #include <functional>
 #include <memory>
@@ -54,8 +56,11 @@
 #include "kfileplaceeditdialog.h"
 #include "kfileplacesmodel.h"
 
+using namespace std::chrono_literals;
+
 static constexpr int s_lateralMargin = 4;
 static constexpr int s_capacitybarHeight = 6;
+static constexpr auto s_pollFreeSpaceInterval = 1min;
 
 KFilePlacesViewDelegate::KFilePlacesViewDelegate(KFilePlacesView *parent)
     : QAbstractItemDelegate(parent)
@@ -68,6 +73,8 @@ KFilePlacesViewDelegate::KFilePlacesViewDelegate(KFilePlacesView *parent)
     , m_showHoverIndication(true)
     , m_dragStarted(false)
 {
+    m_pollFreeSpace.setInterval(s_pollFreeSpaceInterval);
+    connect(&m_pollFreeSpace, &QTimer::timeout, this, QOverload<>::of(&KFilePlacesViewDelegate::checkFreeSpace));
 }
 
 KFilePlacesViewDelegate::~KFilePlacesViewDelegate()
@@ -164,7 +171,8 @@ void KFilePlacesViewDelegate::paint(QPainter *painter, const QStyleOptionViewIte
         KIconLoader::global()->setCustomPalette(opt.palette);
     }
 
-    QIcon::Mode mode = (opt.state & QStyle::State_Selected) && (opt.state & QStyle::State_Active) ? QIcon::Selected : QIcon::Normal;
+    const bool selectedAndActive = (opt.state & QStyle::State_Selected) && (opt.state & QStyle::State_Active);
+    QIcon::Mode mode = selectedAndActive ? QIcon::Selected : QIcon::Normal;
     QIcon icon = index.model()->data(index, Qt::DecorationRole).value<QIcon>();
     QPixmap pm = icon.pixmap(m_iconSize, m_iconSize, mode);
     QPoint point(isLTR ? opt.rect.left() + s_lateralMargin : opt.rect.right() - s_lateralMargin - m_iconSize,
@@ -175,7 +183,7 @@ void KFilePlacesViewDelegate::paint(QPainter *painter, const QStyleOptionViewIte
         QPoint actionPos(isLTR ? opt.rect.right() - actionAreaWidth : opt.rect.left() + s_lateralMargin,
                          opt.rect.top() + (opt.rect.height() - actionIconSize()) / 2);
         QIcon::Mode actionMode = QIcon::Normal;
-        if ((opt.state & QStyle::State_Selected) && (opt.state & QStyle::State_Active)) {
+        if (selectedAndActive) {
             actionMode = QIcon::Selected;
         } else if (m_hoveredAction == index) {
             actionMode = QIcon::Active;
@@ -192,73 +200,69 @@ void KFilePlacesViewDelegate::paint(QPainter *painter, const QStyleOptionViewIte
         }
     }
 
-    if (opt.state & QStyle::State_Active && opt.state & QStyle::State_Selected) {
+    if (selectedAndActive) {
         painter->setPen(opt.palette.highlightedText().color());
     } else {
         painter->setPen(opt.palette.text().color());
     }
 
-    bool drawCapacityBar = false;
     if (placesModel->data(index, KFilePlacesModel::CapacityBarRecommendedRole).toBool()) {
-        const QUrl url = placesModel->url(index);
-        if (contentsOpacity(index) > 0) {
-            QPersistentModelIndex persistentIndex(index);
-            PlaceFreeSpaceInfo &info = m_freeSpaceInfo[persistentIndex];
+        QPersistentModelIndex persistentIndex(index);
+        const auto info = m_freeSpaceInfo.value(persistentIndex);
 
-            drawCapacityBar = info.size > 0;
-            if (drawCapacityBar) {
-                painter->save();
-                painter->setOpacity(painter->opacity() * contentsOpacity(index));
+        checkFreeSpace(index); // async
 
-                int height = opt.fontMetrics.height() + s_capacitybarHeight;
-                // Shift text up slightly to accomodate the bar
-                rectText.setY(rectText.y() + opt.rect.height() / 2 - height / 2);
-                rectText.setHeight(opt.fontMetrics.height());
-                painter->drawText(rectText,
-                                  Qt::AlignLeft | Qt::AlignTop,
-                                  opt.fontMetrics.elidedText(index.model()->data(index).toString(), Qt::ElideRight, rectText.width()));
-                QRect capacityRect(isLTR ? rectText.x() : s_lateralMargin, rectText.bottom() - 1, rectText.width() - s_lateralMargin, s_capacitybarHeight);
-                KCapacityBar capacityBar(KCapacityBar::DrawTextInline);
-                capacityBar.setValue((info.used * 100) / info.size);
-                capacityBar.drawCapacityBar(painter, capacityRect);
+        if (info.size > 0) {
+            const int capacityBarHeight = std::ceil(m_iconSize / 8.0);
+            const qreal usedSpace = info.used / qreal(info.size);
 
-                painter->restore();
+            // Vertically center text + capacity bar, so move text up a bit
+            rectText.setTop(opt.rect.top() + (opt.rect.height() - opt.fontMetrics.height() - capacityBarHeight) / 2);
+            rectText.setHeight(opt.fontMetrics.height());
 
-                painter->save();
-                painter->setOpacity(painter->opacity() * (1 - contentsOpacity(index)));
+            const int radius = capacityBarHeight / 2;
+            QRect capacityBgRect(rectText.x(), rectText.bottom(), rectText.width(), capacityBarHeight);
+            capacityBgRect.adjust(0.5, 0.5, -0.5, -0.5);
+            QRect capacityFillRect = capacityBgRect;
+            capacityFillRect.setWidth(capacityFillRect.width() * usedSpace);
+
+            QPalette::ColorGroup cg = QPalette::Active;
+            if (!(opt.state & QStyle::State_Enabled)) {
+                cg = QPalette::Disabled;
+            } else if (!m_view->isActiveWindow()) {
+                cg = QPalette::Inactive;
             }
 
-            if (!info.job && (!info.lastUpdated.isValid() || info.lastUpdated.secsTo(QDateTime::currentDateTimeUtc()) > 60)) {
-                info.job = KIO::fileSystemFreeSpace(url);
-                connect(info.job,
-                        &KIO::FileSystemFreeSpaceJob::result,
-                        this,
-                        [this, persistentIndex](KIO::Job *job, KIO::filesize_t size, KIO::filesize_t available) {
-                            PlaceFreeSpaceInfo &info = m_freeSpaceInfo[persistentIndex];
+            // Adapted from Breeze style's progress bar rendering
+            QColor capacityBgColor(opt.palette.color(QPalette::WindowText));
+            capacityBgColor.setAlphaF(0.2 * capacityBgColor.alphaF());
 
-                            // even if we receive an error we want to refresh lastUpdated to avoid repeatedly querying in this case
-                            info.lastUpdated = QDateTime::currentDateTimeUtc();
-
-                            if (job->error()) {
-                                return;
-                            }
-
-                            info.size = size;
-                            info.used = size - available;
-
-                            // FIXME scheduleDelayedItemsLayout but we're in the delegate here, not the view
-                        });
+            QColor capacityFgColor(selectedAndActive ? opt.palette.color(cg, QPalette::HighlightedText) : opt.palette.color(cg, QPalette::Highlight));
+            if (usedSpace > 0.95) {
+                if (!m_warningCapacityBarColor.isValid()) {
+                    m_warningCapacityBarColor = KColorScheme(cg, KColorScheme::View).foreground(KColorScheme::NegativeText).color();
+                }
+                capacityFgColor = m_warningCapacityBarColor;
             }
+
+            painter->save();
+
+            painter->setRenderHint(QPainter::Antialiasing, true);
+            painter->setPen(Qt::NoPen);
+
+            painter->setBrush(capacityBgColor);
+            painter->drawRoundedRect(capacityBgRect, radius, radius);
+
+            painter->setBrush(capacityFgColor);
+            painter->drawRoundedRect(capacityFillRect, radius, radius);
+
+            painter->restore();
         }
     }
 
     painter->drawText(rectText,
                       Qt::AlignLeft | Qt::AlignVCenter,
                       opt.fontMetrics.elidedText(index.model()->data(index).toString(), Qt::ElideRight, rectText.width()));
-
-    if (drawCapacityBar) {
-        painter->restore();
-    }
 
     painter->restore();
 }
@@ -368,38 +372,6 @@ void KFilePlacesViewDelegate::setHoveredAction(const QModelIndex &index)
     m_hoveredAction = index;
 }
 
-void KFilePlacesViewDelegate::addFadeAnimation(const QModelIndex &index, QTimeLine *timeLine)
-{
-    m_timeLineMap.insert(index, timeLine);
-    m_timeLineInverseMap.insert(timeLine, index);
-}
-
-void KFilePlacesViewDelegate::removeFadeAnimation(const QModelIndex &index)
-{
-    QTimeLine *timeLine = m_timeLineMap.value(index, nullptr);
-    m_timeLineMap.remove(index);
-    m_timeLineInverseMap.remove(timeLine);
-}
-
-QModelIndex KFilePlacesViewDelegate::indexForFadeAnimation(QTimeLine *timeLine) const
-{
-    return m_timeLineInverseMap.value(timeLine, QModelIndex());
-}
-
-QTimeLine *KFilePlacesViewDelegate::fadeAnimationForIndex(const QModelIndex &index) const
-{
-    return m_timeLineMap.value(index, nullptr);
-}
-
-qreal KFilePlacesViewDelegate::contentsOpacity(const QModelIndex &index) const
-{
-    QTimeLine *timeLine = fadeAnimationForIndex(index);
-    if (timeLine) {
-        return timeLine->currentValue();
-    }
-    return 0;
-}
-
 bool KFilePlacesViewDelegate::pointIsHeaderArea(const QPoint &pos) const
 {
     // we only accept drag events starting from item body, ignore drag request from header
@@ -450,6 +422,96 @@ bool KFilePlacesViewDelegate::pointIsTeardownAction(const QPoint &pos) const
 void KFilePlacesViewDelegate::startDrag()
 {
     m_dragStarted = true;
+}
+
+void KFilePlacesViewDelegate::checkFreeSpace()
+{
+    if (!m_view->model()) {
+        return;
+    }
+
+    bool hasChecked = false;
+
+    for (int i = 0; i < m_view->model()->rowCount(); ++i) {
+        if (m_view->isRowHidden(i)) {
+            continue;
+        }
+
+        const QModelIndex idx = m_view->model()->index(i, 0);
+        if (!idx.data(KFilePlacesModel::CapacityBarRecommendedRole).toBool()) {
+            continue;
+        }
+
+        checkFreeSpace(idx);
+        hasChecked = true;
+    }
+
+    if (!hasChecked) {
+        // Stop timer, there are no more devices
+        stopPollingFreeSpace();
+    }
+}
+
+void KFilePlacesViewDelegate::startPollingFreeSpace() const
+{
+    if (m_pollFreeSpace.isActive()) {
+        return;
+    }
+
+    if (!m_view->isActiveWindow() || !m_view->isVisible()) {
+        return;
+    }
+
+    m_pollFreeSpace.start();
+}
+
+void KFilePlacesViewDelegate::stopPollingFreeSpace() const
+{
+    m_pollFreeSpace.stop();
+}
+
+void KFilePlacesViewDelegate::checkFreeSpace(const QModelIndex &index) const
+{
+    Q_ASSERT(index.data(KFilePlacesModel::CapacityBarRecommendedRole).toBool());
+
+    const QUrl url = index.data(KFilePlacesModel::UrlRole).toUrl();
+
+    QPersistentModelIndex persistentIndex{index};
+
+    auto &info = m_freeSpaceInfo[persistentIndex];
+
+    if (info.job || !info.timeout.hasExpired()) {
+        return;
+    }
+
+    // Restarting timeout before job finishes, so that when we poll all devices
+    // and then get the result, the next poll will again update and not have
+    // a remaining time of 99% because it came in shortly afterwards.
+    // Also allow a bit of Timer slack.
+    info.timeout.setRemainingTime(s_pollFreeSpaceInterval - 100ms);
+
+    info.job = KIO::fileSystemFreeSpace(url);
+    QObject::connect(info.job,
+                     &KIO::FileSystemFreeSpaceJob::result,
+                     this,
+                     [this, persistentIndex](KIO::Job *job, KIO::filesize_t size, KIO::filesize_t available) {
+                         if (!persistentIndex.isValid()) {
+                             return;
+                         }
+
+                         if (job->error()) {
+                             return;
+                         }
+
+                         PlaceFreeSpaceInfo &info = m_freeSpaceInfo[persistentIndex];
+
+                         info.size = size;
+                         info.used = size - available;
+
+                         m_view->update(persistentIndex);
+                     });
+
+    startPollingFreeSpace();
 }
 
 void KFilePlacesViewDelegate::clearFreeSpaceInfo()
@@ -522,6 +584,12 @@ void KFilePlacesViewDelegate::drawSectionHeader(QPainter *painter, const QStyleO
     painter->restore();
 }
 
+void KFilePlacesViewDelegate::paletteChange()
+{
+    // Reset cache, will be re-created when painted
+    m_warningCapacityBarColor = QColor();
+}
+
 QColor KFilePlacesViewDelegate::textColor(const QStyleOption &option) const
 {
     const QPalette::ColorGroup group = m_view->isActiveWindow() ? QPalette::Active : QPalette::Inactive;
@@ -585,7 +653,6 @@ public:
     bool insertAbove(const QRect &itemRect, const QPoint &pos) const;
     bool insertBelow(const QRect &itemRect, const QPoint &pos) const;
     int insertIndicatorHeight(int itemHeight) const;
-    void fadeCapacityBar(const QModelIndex &index, FadeType fadeType);
     int sectionsCount() const;
 
     void addPlace(const QModelIndex &index);
@@ -603,8 +670,6 @@ public:
     void setupIconSizeSubMenu(QMenu *submenu);
 
     void placeClicked(const QModelIndex &index, ActivationSignal activationSignal);
-    void placeEntered(const QModelIndex &index);
-    void placeLeft(const QModelIndex &index);
     void headerAreaEntered(const QModelIndex &index);
     void headerAreaLeft(const QModelIndex &index);
     void actionClicked(const QModelIndex &index);
@@ -616,8 +681,6 @@ public:
     void itemAppearUpdate(qreal value);
     void itemDisappearUpdate(qreal value);
     void enableSmoothItemResizing();
-    void capacityBarFadeValueChanged(QTimeLine *sender);
-    void triggerDevicePolling();
 
     KFilePlacesView *const q;
 
@@ -643,8 +706,6 @@ public:
     QTimeLine m_itemAppearTimeline;
     QTimeLine m_itemDisappearTimeline;
 
-    QTimer m_pollDevices;
-
     QRect m_dropRect;
     QPersistentModelIndex m_dropIndex;
 
@@ -652,7 +713,6 @@ public:
 
     int m_oldSize = 0;
     int m_endSize = 0;
-    int m_pollingRequestCount = 0;
 
     bool m_autoResizeItems = true;
     bool m_smoothItemResizing = false;
@@ -735,12 +795,6 @@ KFilePlacesView::KFilePlacesView(QWidget *parent)
     d->m_itemDisappearTimeline.setEasingCurve(QEasingCurve::InOutSine);
 
     viewport()->installEventFilter(d->m_watcher);
-    connect(d->m_watcher, &KFilePlacesEventWatcher::entryEntered, this, [this](const QModelIndex &index) {
-        d->placeEntered(index);
-    });
-    connect(d->m_watcher, &KFilePlacesEventWatcher::entryLeft, this, [this](const QModelIndex &index) {
-        d->placeLeft(index);
-    });
     connect(d->m_watcher, &KFilePlacesEventWatcher::entryMiddleClicked, this, [this](const QModelIndex &index) {
         if (qGuiApp->keyboardModifiers() == Qt::ShiftModifier && isSignalConnected(QMetaMethod::fromSignal(&KFilePlacesView::activeTabRequested))) {
             d->placeClicked(index, &KFilePlacesView::activeTabRequested);
@@ -768,9 +822,18 @@ KFilePlacesView::KFilePlacesView(QWidget *parent)
         d->actionLeft(index);
     });
 
-    d->m_pollDevices.setInterval(5000);
-    connect(&d->m_pollDevices, &QTimer::timeout, this, [this]() {
-        d->triggerDevicePolling();
+    connect(d->m_watcher, &KFilePlacesEventWatcher::windowActivated, this, [this] {
+        d->m_delegate->checkFreeSpace();
+        // Start polling even if checkFreeSpace() wouldn't because we might just have checked
+        // free space before the timeout and so the poll timer would never get started again
+        d->m_delegate->startPollingFreeSpace();
+    });
+    connect(d->m_watcher, &KFilePlacesEventWatcher::windowDeactivated, this, [this] {
+        d->m_delegate->stopPollingFreeSpace();
+    });
+
+    connect(d->m_watcher, &KFilePlacesEventWatcher::paletteChanged, this, [this] {
+        d->m_delegate->paletteChange();
     });
 
     // FIXME: this is necessary to avoid flashes of black with some widget styles.
@@ -1235,6 +1298,12 @@ void KFilePlacesView::resizeEvent(QResizeEvent *event)
 void KFilePlacesView::showEvent(QShowEvent *event)
 {
     QListView::showEvent(event);
+
+    d->m_delegate->checkFreeSpace();
+    // Start polling even if checkFreeSpace() wouldn't because we might just have checked
+    // free space before the timeout and so the poll timer would never get started again
+    d->m_delegate->startPollingFreeSpace();
+
     QTimer::singleShot(100, this, [this]() {
         d->enableSmoothItemResizing();
     });
@@ -1243,6 +1312,7 @@ void KFilePlacesView::showEvent(QShowEvent *event)
 void KFilePlacesView::hideEvent(QHideEvent *event)
 {
     QListView::hideEvent(event);
+    d->m_delegate->stopPollingFreeSpace();
     d->m_smoothItemResizing = false;
 }
 
@@ -1672,26 +1742,6 @@ int KFilePlacesViewPrivate::insertIndicatorHeight(int itemHeight) const
     return height;
 }
 
-void KFilePlacesViewPrivate::fadeCapacityBar(const QModelIndex &index, FadeType fadeType)
-{
-    QTimeLine *timeLine = m_delegate->fadeAnimationForIndex(index);
-    delete timeLine;
-    m_delegate->removeFadeAnimation(index);
-    timeLine = new QTimeLine(250, q);
-    QObject::connect(timeLine, &QTimeLine::valueChanged, q, [this, timeLine]() {
-        capacityBarFadeValueChanged(timeLine);
-    });
-    if (fadeType == FadeIn) {
-        timeLine->setDirection(QTimeLine::Forward);
-        timeLine->setCurrentTime(0);
-    } else {
-        timeLine->setDirection(QTimeLine::Backward);
-        timeLine->setCurrentTime(250);
-    }
-    m_delegate->addFadeAnimation(index, timeLine);
-    timeLine->start();
-}
-
 int KFilePlacesViewPrivate::sectionsCount() const
 {
     int count = 0;
@@ -1790,24 +1840,6 @@ void KFilePlacesViewPrivate::placeClicked(const QModelIndex &index, ActivationSi
     const QUrl url = KFilePlacesModel::convertedUrl(placesModel->url(index));
 
     /*Q_EMIT*/ std::invoke(activationSignal, q, url);
-}
-
-void KFilePlacesViewPrivate::placeEntered(const QModelIndex &index)
-{
-    fadeCapacityBar(index, FadeIn);
-    ++m_pollingRequestCount;
-    if (m_pollingRequestCount == 1) {
-        m_pollDevices.start();
-    }
-}
-
-void KFilePlacesViewPrivate::placeLeft(const QModelIndex &index)
-{
-    fadeCapacityBar(index, FadeOut);
-    --m_pollingRequestCount;
-    if (!m_pollingRequestCount) {
-        m_pollDevices.stop();
-    }
 }
 
 void KFilePlacesViewPrivate::headerAreaEntered(const QModelIndex &index)
@@ -1920,33 +1952,6 @@ void KFilePlacesViewPrivate::itemDisappearUpdate(qreal value)
 void KFilePlacesViewPrivate::enableSmoothItemResizing()
 {
     m_smoothItemResizing = true;
-}
-
-void KFilePlacesViewPrivate::capacityBarFadeValueChanged(QTimeLine *sender)
-{
-    const QModelIndex index = m_delegate->indexForFadeAnimation(sender);
-    if (!index.isValid()) {
-        return;
-    }
-    q->update(index);
-}
-
-void KFilePlacesViewPrivate::triggerDevicePolling()
-{
-    const QModelIndex hoveredIndex = m_watcher->hoveredIndex();
-    if (hoveredIndex.isValid()) {
-        const KFilePlacesModel *placesModel = static_cast<const KFilePlacesModel *>(hoveredIndex.model());
-        if (placesModel->isDevice(hoveredIndex)) {
-            q->update(hoveredIndex);
-        }
-    }
-    const QModelIndex focusedIndex = m_watcher->focusedIndex();
-    if (focusedIndex.isValid() && focusedIndex != hoveredIndex) {
-        const KFilePlacesModel *placesModel = static_cast<const KFilePlacesModel *>(focusedIndex.model());
-        if (placesModel->isDevice(focusedIndex)) {
-            q->update(focusedIndex);
-        }
-    }
 }
 
 void KFilePlacesView::dataChanged(const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles)

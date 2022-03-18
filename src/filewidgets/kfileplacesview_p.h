@@ -14,14 +14,16 @@
 
 #include <QAbstractItemDelegate>
 #include <QDateTime>
+#include <QDeadlineTimer>
 #include <QMouseEvent>
 #include <QPointer>
+#include <QTimer>
 
 class KFilePlacesView;
 class QTimeLine;
 
 struct PlaceFreeSpaceInfo {
-    QDateTime lastUpdated;
+    QDeadlineTimer timeout;
     KIO::filesize_t used = 0;
     KIO::filesize_t size = 0;
     QPointer<KIO::FileSystemFreeSpaceJob> job;
@@ -39,6 +41,8 @@ public:
     int iconSize() const;
     void setIconSize(int newSize);
 
+    void paletteChange();
+
     void addAppearingItem(const QModelIndex &index);
     void setAppearingItemProgress(qreal value);
     void addDisappearingItem(const QModelIndex &index);
@@ -48,11 +52,6 @@ public:
     void setShowHoverIndication(bool show);
     void setHoveredHeaderArea(const QModelIndex &index);
     void setHoveredAction(const QModelIndex &index);
-
-    void addFadeAnimation(const QModelIndex &index, QTimeLine *timeLine);
-    void removeFadeAnimation(const QModelIndex &index);
-    QModelIndex indexForFadeAnimation(QTimeLine *timeLine) const;
-    QTimeLine *fadeAnimationForIndex(const QModelIndex &index) const;
 
     qreal contentsOpacity(const QModelIndex &index) const;
 
@@ -64,6 +63,11 @@ public:
     int sectionHeaderHeight(const QModelIndex &index) const;
     bool indexIsSectionHeader(const QModelIndex &index) const;
     int actionIconSize() const;
+
+    void checkFreeSpace();
+    void checkFreeSpace(const QModelIndex &index) const;
+    void startPollingFreeSpace() const;
+    void stopPollingFreeSpace() const;
 
     void clearFreeSpaceInfo();
 
@@ -98,7 +102,10 @@ private:
     QMap<QPersistentModelIndex, QTimeLine *> m_timeLineMap;
     QMap<QTimeLine *, QPersistentModelIndex> m_timeLineInverseMap;
 
+    mutable QTimer m_pollFreeSpace;
     mutable QMap<QPersistentModelIndex, PlaceFreeSpaceInfo> m_freeSpaceInfo;
+    // constructing KColorScheme is expensive, cache the negative color
+    mutable QColor m_warningCapacityBarColor;
 };
 
 class KFilePlacesEventWatcher : public QObject
@@ -142,6 +149,11 @@ Q_SIGNALS:
     void actionEntered(const QModelIndex &index);
     void actionLeft(const QModelIndex &index);
     void actionClicked(const QModelIndex &index);
+
+    void windowActivated();
+    void windowDeactivated();
+
+    void paletteChanged();
 
 public Q_SLOTS:
     void currentIndexChanged(const QModelIndex &index)
@@ -283,6 +295,15 @@ protected:
             }
             break;
         }
+        case QEvent::WindowActivate:
+            Q_EMIT windowActivated();
+            break;
+        case QEvent::WindowDeactivate:
+            Q_EMIT windowDeactivated();
+            break;
+        case QEvent::PaletteChange:
+            Q_EMIT paletteChanged();
+            break;
         default:
             return false;
         }
