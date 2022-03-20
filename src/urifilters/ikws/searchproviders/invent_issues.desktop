@@ -3,6 +3,7 @@ Keys=inventissues,invissues,issues,issue
 Name=KDE Invent Issues
 Name[ar]=مشكلات KDE Invent
 Name[ca]=Incidències de KDE Invent
+Name[ca@valencia]=Incidències de KDE Invent
 Name[de]=KDE Invent Issues
 Name[es]=Problemas de KDE Invent
 Name[fr]=Problèmes de KDE Invent
@@ -20,6 +21,7 @@ Name[zh_CN]=KDE Invent 问题
 Query=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[ar]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[ca]=https://invent.kde.org/search?scope=issues&search=\\{@}
+Query[ca@valencia]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[de]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[es]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[fr]=https://invent.kde.org/search?scope=issues&search=\\{@}

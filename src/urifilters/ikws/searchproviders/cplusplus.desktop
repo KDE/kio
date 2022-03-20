@@ -2,6 +2,7 @@
 Name=CPlusPlus
 Name[ar]=CPlusPlus
 Name[ca]=CPlusPlus
+Name[ca@valencia]=CPlusPlus
 Name[de]=CPlusPlus
 Name[es]=CPlusPlus
 Name[fr]=CPlusPlus
@@ -21,6 +22,7 @@ Keys=cplusplus
 Query=http://cplusplus.com/search.do?q=\\{@}
 Query[ar]=http://cplusplus.com/search.do?q=\\{@}
 Query[ca]=http://cplusplus.com/search.do?q=\\{@}
+Query[ca@valencia]=http://cplusplus.com/search.do?q=\\{@}
 Query[de]=http://cplusplus.com/search.do?q=\\{@}
 Query[es]=http://cplusplus.com/search.do?q=\\{@}
 Query[fr]=http://cplusplus.com/search.do?q=\\{@}

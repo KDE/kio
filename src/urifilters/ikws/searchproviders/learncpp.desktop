@@ -2,6 +2,7 @@
 Name=Learn CPP
 Name[ar]=Learn CPP
 Name[ca]=Learn CPP
+Name[ca@valencia]=Learn CPP
 Name[es]=Aprenda CPP
 Name[fr]=Apprenez le « CPP »
 Name[gl]=Aprender CPP
@@ -20,6 +21,7 @@ Keys=learncpp
 Query=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[ar]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[ca]=https://www.learncpp.com/gsearch/?q=\\{@}
+Query[ca@valencia]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[es]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[fr]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[gl]=https://www.learncpp.com/gsearch/?q=\\{@}

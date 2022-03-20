@@ -2,6 +2,7 @@
 Name=Rust STD Documentation
 Name[ar]=توثيق رست STD
 Name[ca]=Documentació del Rust STD
+Name[ca@valencia]=Documentació del Rust STD
 Name[es]=Documentación de Rust STD
 Name[fr]=Documentation de Rust STD
 Name[gl]=Documentación de Rust STD
@@ -20,6 +21,7 @@ Keys=rust
 Query=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[ar]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[ca]=https://doc.rust-lang.org/std/index.html?search=\\{@}
+Query[ca@valencia]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[es]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[fr]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[gl]=https://doc.rust-lang.org/std/index.html?search=\\{@}

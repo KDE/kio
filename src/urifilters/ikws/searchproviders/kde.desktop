@@ -17,7 +17,7 @@ Name[bn_IN]=KDE API সংক্রান্ত নথিপত্র
 Name[br]=Teuliadur API KDE
 Name[bs]=KDE API dokumentacija
 Name[ca]=Documentació de l'API del KDE
-Name[ca@valencia]=Documentació de l'API del KDE
+Name[ca@valencia]=Documentació de l'API de KDE
 Name[cs]=Dokumentace KDE API
 Name[csb]=Dokùmentacëjô API KDE
 Name[cy]=Dogfenniaeth API KDE
@@ -99,6 +99,7 @@ Name[zh_TW]=KDE API 文件
 Query=https://api.kde.org/search.html?query=\\{@}
 Query[ar]=https://api.kde.org/search.html?query=\\{@}
 Query[ca]=https://api.kde.org/search.html?query=\\{@}
+Query[ca@valencia]=https://api.kde.org/search.html?query=\\{@}
 Query[es]=https://api.kde.org/search.html?query=\\{@}
 Query[fr]=https://api.kde.org/search.html?query=\\{@}
 Query[gl]=https://api.kde.org/search.html?query=\\{@}
