@@ -333,6 +333,11 @@ public:
         /// @since 5.70
         UDS_RECURSIVE_SIZE = 31 | UDS_NUMBER,
 
+        /// For files/folders; some persistent identifier
+        /// that can be used to identify a file by identity,
+        /// and not by path.
+        UDS_PERSISTENT_IDENTIFIER = 32 | UDS_STRING,
+
         /// Extra data (used only if you specified Columns/ColumnsTypes)
         /// NB: you cannot repeat this entry; use UDS_EXTRA + i
         /// until UDS_EXTRA_END.

@@ -7,6 +7,14 @@ if(WIN32)
         file.cpp
         file_win.cpp
     )
+elseif(APPLE)
+    target_sources(kio_file PRIVATE
+        file.cpp
+        file_unix.cpp
+        file_bookmark_mac.mm
+        fdreceiver.cpp
+        legacycodec.cpp
+    )
 else()
     target_sources(kio_file PRIVATE
         file.cpp

@@ -90,6 +90,18 @@ static UDSEntry createUDSEntryWin(const QFileInfo &fileInfo)
     entry.insert(KIO::UDSEntry::UDS_ACCESS_TIME, fileInfo.lastRead().toSecsSinceEpoch());
     entry.insert(KIO::UDSEntry::UDS_CREATION_TIME, fileInfo.birthTime().toSecsSinceEpoch());
 
+    QFile file(fileInfo.absoluteFilePath());
+    if (!file.open(QIODevice::ReadOnly)) {
+        return entry;
+    }
+
+    HANDLE handle = _get_ofshandle(file.handle());
+    FILE_ID_INFO fileIDInfo;
+    if (!GetFileInformationByHandleEx(handle, FileIdInfo, &fileIDInfo, sizeof(fileIDInfo))) {
+        return entry;
+    }
+    entry.fastInsert(KIO::UDSEntry::UDS_PERSISTENT_IDENTIFIER, QString::number(fileIDInfo.VolumeSerialNumber) % "/" % QString::number(fileIDInfo.FileId));
+
     return entry;
 }
 

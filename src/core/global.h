@@ -351,6 +351,8 @@ enum StatDetail {
     /// MIME type
     /// @since 5.82
     StatMimeType = 0x80,
+    /// Persistent ID
+    StatPersistentID = 0b100000000,
 
     /// Default StatDetail flag when creating a @c StatJob.
     /// Equivalent to setting <tt>StatBasic | StatUser | StatTime | StatAcl | StatResolveSymlink</tt>

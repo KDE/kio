@@ -22,6 +22,7 @@
 #include <QMimeDatabase>
 #include <QStandardPaths>
 #include <QThread>
+#include <QScopeGuard>
 #include <qplatformdefs.h>
 
 #include <KConfigGroup>
@@ -69,6 +70,21 @@
 #include <sys/types.h> // For FreeBSD, this must be before sys/extattr.h
 
 #include <sys/extattr.h>
+#endif
+
+// Linux
+#if HAVE_LIB_MOUNT
+#include <libmount/libmount.h>
+#include <blkid/blkid.h>
+#include <fcntl.h>
+#endif
+
+#ifdef Q_OS_FREEBSD
+#include <sys/mount.h>
+#endif
+
+#if Q_OS_MACOS
+#include "file_bookmark_mac.h"
 #endif
 
 using namespace KIO;
@@ -352,6 +368,9 @@ static bool createUDSEntry(const QString &filename, const QByteArray &path, UDSE
         // mimetype
         entries += 1;
     }
+    if (details & KIO::StatPersistentID) {
+        entries += 1;
+    }
     entry.reserve(entries);
 
     if (details & KIO::StatBasic) {
@@ -501,6 +520,40 @@ static bool createUDSEntry(const QString &filename, const QByteArray &path, UDSE
         QMimeDatabase db;
         entry.fastInsert(KIO::UDSEntry::UDS_MIME_TYPE, db.mimeTypeForFile(fullPath).name());
     }
+
+    if (details & KIO::StatPersistentID) {
+        #if defined(Q_OS_MACOS)
+
+        insertBookmartIntoUDSEntry(filename, path, entry, details, fullPath);
+
+        #elif defined(Q_OS_BSD4)
+
+        fhandle_t file_handle;
+        lgetfh(qPrintable(path), &file_handle);
+        entry.fastInsert(KIO::UDSEntry::UDS_PERSISTENT_IDENTIFIER, QString::fromStdString(std::string(file_handle.fh_data, file_handle.fh_len)));
+
+        #elif defined(Q_OS_LINUX)
+        struct file_handle* handle = reinterpret_cast<struct file_handle*>(malloc(sizeof(struct file_handle)));
+        auto handleCleanup = qScopeGuard([handle] { free(handle); });
+        int mountID;
+        if (name_to_handle_at(AT_FDCWD, path.data(), handle, &mountID, 0) != -1 || errno != EOVERFLOW) {
+            goto trailing;
+        }
+
+        handle = reinterpret_cast<struct file_handle*>(realloc(handle, sizeof(struct file_handle) + handle->handle_bytes));
+        if (name_to_handle_at(AT_FDCWD, path.data(), handle, &mountID, 0) == -1)
+            goto trailing;
+
+        // TODO: legit can't figure out how to get from a mountID
+        // to a persistent mount UUID. linux docs say to use libblkid,
+        // but this seems incorrect? libmount seems like it contains
+        // the right thing, but i'm not sure what exactly to use in there.
+
+        entry.fastInsert(KIO::UDSEntry::UDS_PERSISTENT_IDENTIFIER, QString::fromStdString(std::string((char*)handle->f_handle, handle->handle_bytes)) + QLatin1String("::") + QString::number(handle->handle_type));
+
+        #endif
+    }
+trailing:
 
     return true;
 }
