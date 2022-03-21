@@ -10,7 +10,7 @@ Name[be@latin]=Pierakład „Multitran”: niamieckaja ➙ rasiejskaja
 Name[bg]=Multitran - превод между немски и руски
 Name[bn]=মাল্টিট্র্যান - জার্মান থেকে রুশ বা রুশ থেকে জার্মান-এ অনুবাদ করুন
 Name[bn_IN]=Multitran - জার্মান ও রাশিয়ানের মধ্যে অনুবাদ করুন
-Name[bs]=Multitran: sa nemačkog na ruski
+Name[bs]=Multitran - Prevedite između njemaćkog i ruskog
 Name[ca]=Multitran: Tradueix entre alemany i rus
 Name[ca@valencia]=Multitran: Tradueix entre alemany i rus
 Name[cs]=Multitran - překlad mezi němčinou a ruštinou
@@ -92,6 +92,7 @@ Query=https://multitran.ru/c/m.exe?l1=3&s=\\{@}
 Query[ar]=https://multitran.ru/c/m.exe?l1=3&s=\\{@}
 Query[ast]=https://multitran.ru/c/m.exe?l1=3&s=\\{@}
 Query[az]=https://multitran.ru/c/m.exe?l1=3&s=\\{@}
+Query[bs]=https://multitran.ru/c/m.exe?l1=3&s=\\{@}
 Query[ca]=https://multitran.ru/c/m.exe?l1=3&s=\\{@}
 Query[ca@valencia]=https://multitran.ru/c/m.exe?l1=3&s=\\{@}
 Query[cs]=https://multitran.ru/c/m.exe?l1=3&s=\\{@}

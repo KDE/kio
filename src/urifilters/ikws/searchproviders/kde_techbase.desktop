@@ -8,7 +8,7 @@ Name[ast]=KDE TechBase
 Name[az]=KDE Texniki Basa
 Name[bg]=Техническо ръководство за KDE
 Name[bn]=KDE টেক-বেস
-Name[bs]=Tehbaza KDE‑a
+Name[bs]=KDE Tehnološka Baza
 Name[ca]=KDE TechBase
 Name[ca@valencia]=KDE TechBase
 Name[cs]=KDE TechBase
@@ -78,6 +78,7 @@ Query=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[ar]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[ast]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[az]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
+Query[bs]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[ca]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[ca@valencia]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[cs]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search

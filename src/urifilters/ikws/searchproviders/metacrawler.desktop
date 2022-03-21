@@ -12,7 +12,7 @@ Name[bg]=MetaCrawler
 Name[bn]=মেটা-ক্রলার
 Name[bn_IN]=MetaCrawler
 Name[br]=MetaCrawler
-Name[bs]=Metakrouler
+Name[bs]=MetaKroler
 Name[ca]=MetaCrawler
 Name[ca@valencia]=MetaCrawler
 Name[cs]=MetaCrawler
@@ -99,6 +99,7 @@ Query=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[ar]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[ast]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[az]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
+Query[bs]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[ca]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[ca@valencia]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[cs]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}

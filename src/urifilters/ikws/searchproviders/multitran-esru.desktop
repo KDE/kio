@@ -10,7 +10,7 @@ Name[be@latin]=Pierakład „Multitran”: hišpanskaja ➙ rasiejskaja
 Name[bg]=Multitran - превод между испански и руски
 Name[bn]=মাল্টিট্র্যান - স্প্যানিশ থেকে রুশ বা রুশ থেকে স্প্যানিশ-এ অনুবাদ করুন
 Name[bn_IN]=Multitran - স্প্যানিশ ও রাশিয়ানের মধ্যে অনুবাদ করুন
-Name[bs]=Multitran: sa španskog na ruski
+Name[bs]=Multitran - Prevedite između španskog i ruskog
 Name[ca]=Multitran: Tradueix entre espanyol i rus
 Name[ca@valencia]=Multitran: Tradueix entre espanyol i rus
 Name[cs]=Multitran - překlad mezi španělštinou a ruštinou
@@ -92,6 +92,7 @@ Query=https://multitran.ru/c/m.exe?l1=5&s=\\{@}
 Query[ar]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}
 Query[ast]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}
 Query[az]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}
+Query[bs]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}
 Query[ca]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}
 Query[ca@valencia]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}
 Query[cs]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}

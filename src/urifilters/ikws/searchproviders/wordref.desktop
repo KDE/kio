@@ -13,7 +13,7 @@ Name[bg]=Английски речник WordReference.com
 Name[bn]=WordReference.com ইংরাজি অভিধান
 Name[bn_IN]=WordReference.com ইংরাজি অভিধান
 Name[br]=Geriaoueg saozneg WordReference.com
-Name[bs]=Vordreferens: engleski rječnik
+Name[bs]=Vordreferens: engleski rjeÄnik
 Name[ca]=Diccionari anglès de WordReference.com
 Name[ca@valencia]=Diccionari anglés de WordReference.com
 Name[cs]=Anglický slovník WordReference.com
@@ -97,6 +97,7 @@ Query=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[ar]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[ast]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[az]=https://www.wordreference.com/english/definition.asp?en=\\{@}
+Query[bs]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[ca]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[ca@valencia]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[cs]=https://www.wordreference.com/english/definition.asp?en=\\{@}

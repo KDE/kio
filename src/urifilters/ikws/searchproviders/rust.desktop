@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=Rust STD Documentation
 Name[ar]=توثيق رست STD
+Name[bs]=Rast STD Dokumentacija
 Name[ca]=Documentació del Rust STD
 Name[ca@valencia]=Documentació del Rust STD
 Name[es]=Documentación de Rust STD
@@ -20,6 +21,7 @@ Type=Service
 Keys=rust
 Query=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[ar]=https://doc.rust-lang.org/std/index.html?search=\\{@}
+Query[bs]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[ca]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[ca@valencia]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[es]=https://doc.rust-lang.org/std/index.html?search=\\{@}

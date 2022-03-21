@@ -12,7 +12,7 @@ Name[be@latin]=Pierakład „dict.cc”: niamieckaja ➙ anhielskaja
 Name[bg]=Превод с dict.cc— от немски към английски
 Name[bn]=dict.cc Translation: German to English
 Name[bn_IN]=dict.cc অনুবাদ: জার্মান থেকে ইংরাজি
-Name[bs]=German to English: dikt.cc: sa nemačkog na engleski
+Name[bs]=dict.cc Prijevod: sa njemačkog na engleski
 Name[ca]=Traducció dict.cc: Alemany - Anglès
 Name[ca@valencia]=Traducció dict.cc: Alemany - Anglés
 Name[cs]=Překlad dic.cc: z němčiny do angličtiny
@@ -95,6 +95,7 @@ Query=https://www.dict.cc/?s=\\{@}
 Query[ar]=https://www.dict.cc/?s=\\{@}
 Query[ast]=https://www.dict.cc/?s=\\{@}
 Query[az]=https://www.dict.cc/?s=\\{@}
+Query[bs]=https://www.dict.cc/?s=\\{@}
 Query[ca]=https://www.dict.cc/?s=\\{@}
 Query[ca@valencia]=https://www.dict.cc/?s=\\{@}
 Query[cs]=https://www.dict.cc/?s=\\{@}

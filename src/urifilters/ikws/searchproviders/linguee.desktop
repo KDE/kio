@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=Linguee
 Name[ar]=Linguee
+Name[bs]=Linguee
 Name[ca]=Linguee
 Name[ca@valencia]=Linguee
 Name[es]=Linguee
@@ -20,6 +21,7 @@ Type=Service
 Keys=linguee
 Query=https://www.linguee.com/search?source=auto&query=\\{@}
 Query[ar]=https://www.linguee.com/search?source=auto&query=\\{@}
+Query[bs]=https://www.linguee.com/search?source=auto&query=\\{@}
 Query[ca]=https://www.linguee.com/search?source=auto&query=\\{@}
 Query[ca@valencia]=https://www.linguee.com/search?source=auto&query=\\{@}
 Query[es]=https://www.linguee.com/search?source=auto&query=\\{@}

@@ -8,7 +8,7 @@ Name[ast]=7Digital
 Name[az]=7Digital
 Name[bg]=7Digital
 Name[bn]=7Digital
-Name[bs]=7‑didžital
+Name[bs]=7Digital
 Name[ca]=7Digital
 Name[ca@valencia]=7Digital
 Name[cs]=7Digital
@@ -79,6 +79,7 @@ Query=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Searc
 Query[ar]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[ast]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[az]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
+Query[bs]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[ca]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[ca@valencia]=https://vos.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[cs]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search

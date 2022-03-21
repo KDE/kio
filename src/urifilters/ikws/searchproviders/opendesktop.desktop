@@ -8,7 +8,7 @@ Name[ast]=openDesktop.org
 Name[az]=openDesktop.org
 Name[bg]=openDesktop.org
 Name[bn]=ওপেন-ডেস্কটপ.অর্গ
-Name[bs]=Otvorena površ
+Name[bs]=openDesktop.org
 Name[ca]=openDesktop.org
 Name[ca@valencia]=openDesktop.org
 Name[cs]=openDesktop.org
@@ -78,6 +78,7 @@ Query=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
 Query[ar]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
 Query[ast]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
 Query[az]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
+Query[bs]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
 Query[ca]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
 Query[ca@valencia]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
 Query[cs]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}

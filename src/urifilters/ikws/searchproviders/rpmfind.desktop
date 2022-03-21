@@ -12,7 +12,7 @@ Name[bg]=Търсене на пакети RPM
 Name[bn]=RPM-Find
 Name[bn_IN]=RPM-Find
 Name[br]=RPM-Find
-Name[bs]=RPM‑traženje
+Name[bs]=RPM-Pronađite
 Name[ca]=RPM-Find
 Name[ca@valencia]=RPM-Find
 Name[cs]=RPM-Find
@@ -99,6 +99,7 @@ Query=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[ar]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[ast]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[az]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
+Query[bs]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[ca]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[ca@valencia]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[cs]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}

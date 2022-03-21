@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=Ubuntu Package Search
 Name[ar]=بحث حزم أوبنتو
+Name[bs]=Ubuntu Pretraga Paketa
 Name[ca]=Cerca paquets d'Ubuntu
 Name[ca@valencia]=Cerca paquets d'Ubuntu
 Name[es]=Búsqueda de paquetes de Ubuntu
@@ -20,6 +21,7 @@ Type=Service
 Keys=ubuntu
 Query=https://packages.ubuntu.com/\\{@}
 Query[ar]=https://packages.ubuntu.com/\\{@}
+Query[bs]=https://packages.ubuntu.com/\\{@}
 Query[ca]=https://packages.ubuntu.com/\\{@}
 Query[ca@valencia]=https://packages.ubuntu.com/\\{@}
 Query[es]=https://packages.ubuntu.com/\\{@}

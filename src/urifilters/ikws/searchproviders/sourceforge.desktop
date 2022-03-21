@@ -12,7 +12,7 @@ Name[bg]=SourceForge
 Name[bn]=সোর্স-ফর্জ
 Name[bn_IN]=SourceForge
 Name[br]=SourceForge
-Name[bs]=Sorsfordž
+Name[bs]=SorsFordž
 Name[ca]=SourceForge
 Name[ca@valencia]=SourceForge
 Name[cs]=SourceForge
@@ -98,6 +98,7 @@ Query=https://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{ex
 Query[ar]=https://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}
 Query[ast]=https://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}
 Query[az]=https://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}
+Query[bs]=https://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}
 Query[ca]=https://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}
 Query[ca@valencia]=https://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}
 Query[cs]=https://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}

@@ -11,7 +11,7 @@ Name[bg]=Архив на Ruby
 Name[bn]=রুবি  অ্যাপলিকেশন আর্কাইভ
 Name[bn_IN]=Ruby অ্যাপ্লিকেশন আর্কাইভ
 Name[br]=Diell arloadoù Ruby
-Name[bs]=Arhiva rubijevskih programa
+Name[bs]=Rubi Arhiva Aplikacija
 Name[ca]=Arxiu d'aplicacions en Ruby
 Name[ca@valencia]=Arxiu d'aplicacions en Ruby
 Name[cs]=Archiv aplikací Ruby
@@ -98,6 +98,7 @@ Query=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[ar]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[ast]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[az]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
+Query[bs]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[ca]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[ca@valencia]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[cs]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}

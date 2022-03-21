@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=openSUSE Software
 Name[ar]=برامج أوبن سوزي
+Name[bs]=openSUSE Softver
 Name[ca]=openSUSE Software
 Name[ca@valencia]=openSUSE Software
 Name[es]=Software de openSUSE
@@ -20,6 +21,7 @@ Type=Service
 Keys=opensuse
 Query=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
 Query[ar]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
+Query[bs]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
 Query[ca]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
 Query[ca@valencia]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
 Query[es]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}

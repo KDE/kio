@@ -11,7 +11,7 @@ Name[bg]=Търсене в PHP
 Name[bn]=পি-এইচ-পি অনুসন্ধান
 Name[bn_IN]=PHP অনুসন্ধান
 Name[br]=Klask PHP
-Name[bs]=Priručnik za PHP
+Name[bs]=PHP Pretraga
 Name[ca]=Cerca PHP
 Name[ca@valencia]=Cerca PHP
 Name[cs]=Vyhledávání PHP
@@ -97,6 +97,7 @@ Query=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[ar]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[ast]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[az]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
+Query[bs]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[ca]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[ca@valencia]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[cs]=https://secure.php.net/manual-lookup.php?pattern=\\{@}

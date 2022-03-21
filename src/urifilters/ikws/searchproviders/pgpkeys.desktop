@@ -10,7 +10,7 @@ Name[be@latin]=Pošuk klučoŭ „OpenPGP”
 Name[bg]=Търсене на ключ в OpenPGP
 Name[bn]=ওপেন-পিজিপি কী (key) অনুসন্ধান
 Name[bn_IN]=OpenPGP-কি অনুসন্ধান
-Name[bs]=OpenPGP ključevi
+Name[bs]=OpenPGP Pretraga Ključeva
 Name[ca]=Cerca de claus OpenPGP
 Name[ca@valencia]=Cerca de claus OpenPGP
 Name[cs]=Vyhledávání OpenPGP klíčů
@@ -96,6 +96,7 @@ Query=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[ar]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[ast]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[az]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
+Query[bs]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[ca]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[ca@valencia]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[cs]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex

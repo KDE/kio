@@ -13,7 +13,7 @@ Name[be@latin]=Pierakład „WordReference.com”: anhielskaja ➙ italjanskaja
 Name[bg]=Превод с WordReference.com — от английски към италиански
 Name[bn]=WordReference.com অনুবাদ: ইংরাজি থেকে ইতালীয়
 Name[bn_IN]=WordReference.com অনুবাদ: ইংরাজি থেকে ইটালিয়ান
-Name[bs]=Vordreferens: sa engleskog na italijanski
+Name[bs]=WordReference.com Prijevod: sa engleskog na italijanski
 Name[ca]=Traducció WordReference.com: Anglès - Italià
 Name[ca@valencia]=Traducció WordReference.com: Anglés - Italià
 Name[cs]=Překlad WordReference.com: z angličtiny do italštiny
@@ -97,6 +97,7 @@ Query=https://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[ar]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[ast]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[az]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
+Query[bs]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[ca]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[ca@valencia]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[cs]=https://www.wordreference.com/it/translation.asp?enit=\\{@}

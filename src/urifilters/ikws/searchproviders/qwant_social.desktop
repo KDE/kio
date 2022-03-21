@@ -3,6 +3,7 @@ Keys=qwso
 Name=Qwant Social
 Name[ar]=مجتمع Qwant
 Name[az]=Qwant Sosial
+Name[bs]=Društveni Kvant
 Name[ca]=Tertúlia a Qwant
 Name[ca@valencia]=Tertúlia a Qwant
 Name[cs]=Qwant Social
@@ -56,6 +57,7 @@ Query=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[ar]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[ast]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[az]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
+Query[bs]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[ca]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[ca@valencia]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[cs]=https://www.qwant.com/?q=\\{@}&client=kde&t=social

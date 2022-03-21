@@ -8,7 +8,7 @@ Name[be]=Пошук тэлефонаў
 Name[be@latin]=Pošuk telefonaŭ
 Name[bg]=Търсене в телефонен указател
 Name[bn]=টেলিফোন-বুক অনুসন্ধান সরবরাহকারী
-Name[bs]=Telefonski imenik (Holandija)
+Name[bs]=Provajder Pretraživanja Telefonskog Imenika
 Name[ca]=Proveïdor de cerques a la guia de telèfons
 Name[ca@valencia]=Proveïdor de cerques a la guia de telèfons
 Name[cs]=Poskytovatel prohledávání tel. seznamu
@@ -94,6 +94,7 @@ Query=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
 Query[ar]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
 Query[ast]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
 Query[az]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
+Query[bs]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
 Query[ca]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
 Query[ca@valencia]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
 Query[cs]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}

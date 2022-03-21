@@ -12,7 +12,7 @@ Name[bg]=Internet Movie Database
 Name[bn]=ইন্টারনেট চলচ্চিত্র ডেটাবেস
 Name[bn_IN]=ইন্টারনেট ছায়াছবির ডাটাবেস
 Name[br]=Stlennvon filmoù Internet
-Name[bs]=Internet baza filmova
+Name[bs]=Baza Podataka Internet Filma
 Name[ca]=Base de dades de pel·lícules a Internet
 Name[ca@valencia]=Base de dades de pel·lícules a Internet
 Name[cs]=Internetová databáze filmů
@@ -98,6 +98,7 @@ Query=https://imdb.com/find?s=all&q=\\{@}
 Query[ar]=https://imdb.com/find?s=all&q=\\{@}
 Query[ast]=https://imdb.com/find?s=all&q=\\{@}
 Query[az]=https://imdb.com/find?s=all&q=\\{@}
+Query[bs]=https://imdb.com/find?s=all&q=\\{@}
 Query[ca]=https://imdb.com/find?s=all&q=\\{@}
 Query[ca@valencia]=https://imdb.com/find?s=all&q=\\{@}
 Query[cs]=https://imdb.com/find?s=all&q=\\{@}

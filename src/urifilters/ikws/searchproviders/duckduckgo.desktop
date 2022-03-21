@@ -8,7 +8,7 @@ Name[ast]=Duck Duck Go
 Name[az]=Duck Duck Go axtarış sistemi
 Name[bg]=Duck Duck Go
 Name[bn]=ডাক ডাক গো
-Name[bs]=Dak dak go
+Name[bs]=Duck Duck Go
 Name[ca]=Duck Duck Go
 Name[ca@valencia]=Duck Duck Go
 Name[cs]=Duck Duck Go
@@ -79,7 +79,7 @@ Query[ar]=https://duckduckgo.com/?q=\\{@}&t=kde
 Query[ast]=https://duckduckgo.com/?q=\\{@}&t=kde
 Query[az]=https://duckduckgo.com/?q=\\{@}&t=kde
 Query[bg]=https://duckduckgo.com/?q=\\{@}&t=kde
-Query[bs]=httpa://duckduckgo.com/?q=\\{@}&t=kde
+Query[bs]=https://duckduckgo.com/?q=\\{@}&t=kde
 Query[ca]=https://duckduckgo.com/?q=\\{@}&t=kde
 Query[ca@valencia]=https://duckduckgo.com/?q=\\{@}&t=kde
 Query[cs]=https://duckduckgo.com/?q=\\{@}&t=kde

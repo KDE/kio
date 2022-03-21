@@ -13,7 +13,7 @@ Name[be@latin]=Pierakład „WordReference.com”: hišpanskaja ➙ anhielskaja
 Name[bg]=Превод с WordReference.com — от испански към английски
 Name[bn]=WordReference.com অনুবাদ: স্প্যানিশ থেকে ইংরাজি 
 Name[bn_IN]=WordReference.com অনুবাদ: স্প্যানিশ থেকে ইংরাজি
-Name[bs]=Vordreferens: sa španskog na engleski
+Name[bs]=WordReference.com Prijevod: sa španskog na engleski
 Name[ca]=Traducció WordReference.com: Espanyol - Anglès
 Name[ca@valencia]=Traducció WordReference.com: Espanyol - Anglés
 Name[cs]=Překlad WordReference.com: ze španělštiny do angličtiny
@@ -97,6 +97,7 @@ Query=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[ar]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[ast]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[az]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
+Query[bs]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[ca]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[ca@valencia]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[cs]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}

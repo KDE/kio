@@ -8,7 +8,7 @@ Name[ast]=Urban Dictionary
 Name[az]=Urban Lüğəti
 Name[bg]=Urban Dictionary
 Name[bn]=Urban Dictionary
-Name[bs]=Urbani rječnik
+Name[bs]=Urbani rjeÄnik
 Name[ca]=Urban Dictionary
 Name[ca@valencia]=Urban Dictionary
 Name[cs]=Urban Dictionary
@@ -78,6 +78,7 @@ Query=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[ar]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[ast]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[az]=https://www.urbandictionary.com/define.php?term=\\{@}
+Query[bs]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[ca]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[ca@valencia]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[cs]=https://www.urbandictionary.com/define.php?term=\\{@}

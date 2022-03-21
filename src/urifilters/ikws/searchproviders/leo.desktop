@@ -10,7 +10,7 @@ Name[be@latin]=Pierakład „LEO”
 Name[bg]=LEO-превод
 Name[bn]=LEO-Translate
 Name[bn_IN]=LEO-Translate
-Name[bs]=Leo‑prevod
+Name[bs]=LEO-Prevedi
 Name[ca]=LEO-Translate
 Name[ca@valencia]=LEO-Translate
 Name[cs]=LEO-Translate
@@ -97,6 +97,7 @@ Query=https://dict.leo.org/?search=\\{@}
 Query[ar]=https://dict.leo.org/?search=\\{@}
 Query[ast]=https://dict.leo.org/?search=\\{@}
 Query[az]=https://dict.leo.org/?search=\\{@}
+Query[bs]=https://dict.leo.org/?search=\\{@}
 Query[ca]=https://dict.leo.org/?search=\\{@}
 Query[ca@valencia]=https://dict.leo.org/?search=\\{@}
 Query[cs]=https://dict.leo.org/?search=\\{@}

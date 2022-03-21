@@ -78,6 +78,7 @@ Query=https://www.baidu.com/s?wd=\\{@}
 Query[ar]=https://www.baidu.com/s?wd=\\{@}
 Query[ast]=https://www.baidu.com/s?wd=\\{@}
 Query[az]=https://www.baidu.com/s?wd=\\{@}
+Query[bs]=https://www.baidu.com/s?wd=\\{@}
 Query[ca]=https://www.baidu.com/s?wd=\\{@}
 Query[ca@valencia]=https://www.baidu.com/s?wd=\\{@}
 Query[cs]=https://www.baidu.com/s?wd=\\{@}
