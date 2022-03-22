@@ -16,6 +16,9 @@
 #include <QFile>
 #include <QLibrary>
 #include <QPluginLoader>
+#ifdef Q_OS_WIN
+#include <QStandardPaths>
+#endif
 #include <QString>
 
 #if defined(Q_OS_WIN) || defined(Q_OS_MAC)
