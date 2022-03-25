@@ -1187,7 +1187,6 @@ void KCoreDirListerCache::slotEntries(KIO::Job *job, const KIO::UDSEntryList &en
         }
 
         if (name == QLatin1Char('.')) {
-            Q_ASSERT(dir->rootItem.isNull());
             // Try to reuse an existing KFileItem (if we listed the parent dir)
             // rather than creating a new one. There are many reasons:
             // 1) renames and permission changes to the item would have to emit the signals
