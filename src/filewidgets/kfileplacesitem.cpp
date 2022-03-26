@@ -289,7 +289,10 @@ QVariant KFilePlacesItem::deviceData(int role) const
     if (d.isValid()) {
         switch (role) {
         case Qt::DisplayRole:
-            return d.displayName();
+            if (m_deviceDisplayName.isEmpty()) {
+                m_deviceDisplayName = d.displayName();
+            }
+            return m_deviceDisplayName;
         case Qt::DecorationRole:
             // qDebug() << "adding emblems" << m_emblems << "to device icon" << m_deviceIconName;
             return KIconUtils::addOverlays(m_deviceIconName, m_emblems);
