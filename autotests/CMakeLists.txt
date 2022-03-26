@@ -43,8 +43,9 @@ ecm_add_tests(
  urlutiltest.cpp
  batchrenamejobtest.cpp
  ksambasharetest.cpp
+ krecentdocumenttest.cpp
  NAME_PREFIX "kiocore-"
- LINK_LIBRARIES KF5::KIOCore KF5::I18n KF5::ConfigCore Qt${QT_MAJOR_VERSION}::Test Qt${QT_MAJOR_VERSION}::Network
+ LINK_LIBRARIES KF5::KIOCore KF5::I18n KF5::ConfigCore Qt${QT_MAJOR_VERSION}::Test Qt${QT_MAJOR_VERSION}::Network Qt${QT_MAJOR_VERSION}::Xml
 )
 
 target_link_libraries(threadtest Qt${QT_MAJOR_VERSION}::Concurrent)
