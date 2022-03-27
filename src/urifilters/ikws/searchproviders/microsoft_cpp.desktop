@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=Microsoft C++ Documentation
 Name[ar]=توثيق مايكروسوفت سي++
+Name[az]=Microsoft C++ sənədləşməsi
 Name[bs]=Majkrosoft C++ Dokumentacija
 Name[ca]=Documentació de Microsoft C++
 Name[ca@valencia]=Documentació de Microsoft C++
@@ -21,6 +22,7 @@ Type=Service
 Keys=microsoftcpp,mscpp
 Query=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[ar]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
+Query[az]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[bs]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[ca]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[ca@valencia]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B

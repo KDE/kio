@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=KDE Reddit
 Name[ar]=قناة كدي على ردت
+Name[az]=KDE Reddit
 Name[bs]=KDE Redit
 Name[ca]=KDE Reddit
 Name[ca@valencia]=KDE Reddit
@@ -21,6 +22,7 @@ Type=Service
 Keys=kreddit
 Query=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[ar]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
+Query[az]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[bs]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[ca]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[ca@valencia]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1

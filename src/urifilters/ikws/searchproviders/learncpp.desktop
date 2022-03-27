@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=Learn CPP
 Name[ar]=Learn CPP
+Name[az]=CPP öyrənin
 Name[bs]=Naučite CPP
 Name[ca]=Learn CPP
 Name[ca@valencia]=Learn CPP
@@ -21,6 +22,7 @@ Type=Service
 Keys=learncpp
 Query=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[ar]=https://www.learncpp.com/gsearch/?q=\\{@}
+Query[az]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[bs]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[ca]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[ca@valencia]=https://www.learncpp.com/gsearch/?q=\\{@}

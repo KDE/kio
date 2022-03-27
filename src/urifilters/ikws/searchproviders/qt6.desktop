@@ -4,6 +4,7 @@ Hidden=false
 Keys=qt6,qt
 Name=Qt6 Online Documentation
 Name[ar]=توثيق عبر الإنترنت كيوت٧
+Name[az]=Qt6 onlayn sənədləşməsi
 Name[bs]=Qt6 Onlajn Dokumentacija
 Name[ca]=Documentació en línia de les Qt6
 Name[ca@valencia]=Documentació en línia de les Qt6
@@ -22,6 +23,7 @@ Name[x-test]=xxQt6 Online Documentationxx
 Name[zh_CN]=Qt6 在线文档
 Query=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[ar]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
+Query[az]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[bs]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[ca]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[ca@valencia]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
