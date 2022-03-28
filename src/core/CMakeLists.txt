@@ -214,8 +214,12 @@ PRIVATE
  Qt${QT_MAJOR_VERSION}::Xml # davjob.cpp uses QDom
  KF5::ConfigCore
  KF5::I18n
- KF5::Crash
 )
+
+if (NOT ANDROID)
+    target_link_libraries(KF5KIOCore PRIVATE KF5::Crash)
+endif()
+
 if (TARGET Qt${QT_MAJOR_VERSION}::DBus)
     target_link_libraries(KF5KIOCore
     PUBLIC
