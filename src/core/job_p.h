@@ -207,20 +207,6 @@ public:
      */
     void restartAfterRedirection(QUrl *redirectionUrl);
 
-    /**
-     * Request the ui delegate to show a message box.
-     * @internal
-     */
-    int requestMessageBox(int type,
-                          const QString &text,
-                          const QString &title,
-                          const QString &buttonYes,
-                          const QString &buttonNo,
-                          const QString &iconYes = QString(),
-                          const QString &iconNo = QString(),
-                          const QString &dontAskAgainName = QString(),
-                          const KIO::MetaData &sslMetaData = KIO::MetaData());
-
     Q_DECLARE_PUBLIC(SimpleJob)
 
     static inline SimpleJobPrivate *get(KIO::SimpleJob *job)

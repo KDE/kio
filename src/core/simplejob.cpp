@@ -296,24 +296,6 @@ void SimpleJobPrivate::restartAfterRedirection(QUrl *redirectionUrl)
     }
 }
 
-int SimpleJobPrivate::requestMessageBox(int _type,
-                                        const QString &text,
-                                        const QString &title,
-                                        const QString &buttonYes,
-                                        const QString &buttonNo,
-                                        const QString &iconYes,
-                                        const QString &iconNo,
-                                        const QString &dontAskAgainName,
-                                        const KIO::MetaData &sslMetaData)
-{
-    if (m_uiDelegateExtension) {
-        const JobUiDelegateExtension::MessageBoxType type = static_cast<JobUiDelegateExtension::MessageBoxType>(_type);
-        return m_uiDelegateExtension->requestMessageBox(type, text, title, buttonYes, buttonNo, iconYes, iconNo, dontAskAgainName, sslMetaData);
-    }
-    qCWarning(KIO_CORE) << "JobUiDelegate not set! Returning -1";
-    return -1;
-}
-
 void SimpleJob::slotMetaData(const KIO::MetaData &_metaData)
 {
     Q_D(SimpleJob);
