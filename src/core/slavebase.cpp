@@ -30,8 +30,11 @@
 
 #include <KConfig>
 #include <KConfigGroup>
-#include <KCrash>
 #include <KLocalizedString>
+
+#ifndef Q_OS_ANDROID
+#include <KCrash>
+#endif
 
 #include "kremoteencoding.h"
 
@@ -258,7 +261,9 @@ SlaveBase::SlaveBase(const QByteArray &protocol, const QByteArray &pool_socket, 
     Q_ASSERT(!app_socket.isEmpty());
     d->poolSocket = QFile::decodeName(pool_socket);
 
+#ifndef Q_OS_ANDROID
     KCrash::initialize();
+#endif
 
 #ifdef Q_OS_UNIX
     struct sigaction act;

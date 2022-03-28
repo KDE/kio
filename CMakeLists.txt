@@ -61,12 +61,12 @@ add_feature_info(DESIGNERPLUGIN ${BUILD_DESIGNERPLUGIN} "Build plugin for Qt Des
 find_package(KF5Archive ${KF_DEP_VERSION} REQUIRED)
 find_package(KF5Config ${KF_DEP_VERSION} REQUIRED)
 find_package(KF5CoreAddons ${KF_DEP_VERSION} REQUIRED)
-find_package(KF5Crash ${KF_DEP_VERSION} REQUIRED)
 find_package(KF5I18n ${KF_DEP_VERSION} REQUIRED)
 find_package(KF5Service ${KF_DEP_VERSION} REQUIRED)
 find_package(KF5DocTools ${KF_DEP_VERSION})
 find_package(KF5Solid ${KF_DEP_VERSION} REQUIRED) # for kio_trash
 if (NOT ANDROID)
+    find_package(KF5Crash ${KF_DEP_VERSION} REQUIRED)
     find_package(KF5DBusAddons ${KF_DEP_VERSION} REQUIRED)
 endif()
 
