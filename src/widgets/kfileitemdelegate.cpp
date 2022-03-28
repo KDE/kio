@@ -24,10 +24,10 @@
 #include <QTextLayout>
 #include <qmath.h>
 
-#include <KColorScheme>
 #include <KIconEffect>
 #include <KIconLoader>
 #include <KLocalizedString>
+#include <KStatefulBrush>
 #include <KStringHandler>
 #include <kdirmodel.h>
 #include <kfileitem.h>
