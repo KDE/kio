@@ -51,6 +51,7 @@ public:
 
 private Q_SLOTS:
     void processRequest();
+    void slotProcessRequest(int result);
 
 private:
     QCache<QString, int> m_cachedResults;

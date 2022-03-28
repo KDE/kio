@@ -5,6 +5,7 @@
     SPDX-License-Identifier: LGPL-2.0-only
 */
 
+#include "askuseractioninterface.h"
 #include "usernotificationhandler_p.h"
 
 #include "job_p.h"
@@ -66,38 +67,45 @@ void UserNotificationHandler::processRequest()
         if (m_cachedResults.contains(key)) {
             result = *(m_cachedResults[key]);
         } else {
-            JobUiDelegateExtension *delegateExtension = nullptr;
-            if (r->slave->job()) {
-                delegateExtension = SimpleJobPrivate::get(r->slave->job())->m_uiDelegateExtension;
+            KIO::SimpleJob *job = r->slave->job();
+            AskUserActionInterface *askUserIface = job ? KIO::delegateExtension<KIO::AskUserActionInterface *>(job) : nullptr;
+
+            if (askUserIface) {
+                connect(askUserIface, &AskUserActionInterface::messageBoxResult, this, [this, key](int result) {
+                    m_cachedResults.insert(key, new int(result));
+                    slotProcessRequest(result);
+                });
+
+                const auto type = static_cast<AskUserActionInterface::MessageDialogType>(r->type);
+                askUserIface->requestUserMessageBox(type,
+                                                    r->data.value(MSG_TEXT).toString(),
+                                                    r->data.value(MSG_TITLE).toString(),
+                                                    r->data.value(MSG_YES_BUTTON_TEXT).toString(),
+                                                    r->data.value(MSG_NO_BUTTON_TEXT).toString(),
+                                                    r->data.value(MSG_YES_BUTTON_ICON).toString(),
+                                                    r->data.value(MSG_NO_BUTTON_ICON).toString(),
+                                                    r->data.value(MSG_DONT_ASK_AGAIN).toString(),
+                                                    {} /* details */,
+                                                    r->data.value(MSG_META_DATA).toMap());
+                return;
             }
-            if (!delegateExtension) {
-                delegateExtension = KIO::defaultJobUiDelegateExtension();
-            }
-            if (delegateExtension) {
-                const JobUiDelegateExtension::MessageBoxType type = static_cast<JobUiDelegateExtension::MessageBoxType>(r->type);
-                result = delegateExtension->requestMessageBox(type,
-                                                              r->data.value(MSG_TEXT).toString(),
-                                                              r->data.value(MSG_TITLE).toString(),
-                                                              r->data.value(MSG_YES_BUTTON_TEXT).toString(),
-                                                              r->data.value(MSG_NO_BUTTON_TEXT).toString(),
-                                                              r->data.value(MSG_YES_BUTTON_ICON).toString(),
-                                                              r->data.value(MSG_NO_BUTTON_ICON).toString(),
-                                                              r->data.value(MSG_DONT_ASK_AGAIN).toString(),
-                                                              r->data.value(MSG_META_DATA).toMap());
-            }
-            m_cachedResults.insert(key, new int(result));
         }
     } else {
         qCWarning(KIO_CORE) << "Cannot prompt user because the requesting ioslave died!" << r->slave;
     }
 
-    r->slave->sendMessageBoxAnswer(result);
-    m_pendingRequests.removeFirst();
-    delete r;
+    slotProcessRequest(result);
+}
+
+void UserNotificationHandler::slotProcessRequest(int result)
+{
+    Request *request = m_pendingRequests.takeFirst();
+    request->slave->sendMessageBoxAnswer(result);
+    delete request;
 
     if (m_pendingRequests.isEmpty()) {
         m_cachedResults.clear();
     } else {
-        QTimer::singleShot(0, this, &UserNotificationHandler::processRequest);
+        processRequest();
     }
 }
