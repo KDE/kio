@@ -13,6 +13,7 @@ target_sources(KF5KIOGui PRIVATE
    applicationlauncherjob.cpp
    commandlauncherjob.cpp
    faviconrequestjob.cpp
+   kcoreurlnavigator.cpp
    openurljob.cpp
    openwithhandlerinterface.cpp
    openorexecutefileinterface.cpp
@@ -79,6 +80,7 @@ ecm_generate_headers(KIOGui_CamelCase_HEADERS
   CommandLauncherJob
   FavIconRequestJob
   OpenUrlJob
+  KCoreUrlNavigator
 
   PREFIX KIO
   REQUIRED_HEADERS KIO_namespaced_gui_HEADERS

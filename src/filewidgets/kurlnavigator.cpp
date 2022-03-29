@@ -8,6 +8,7 @@
 */
 
 #include "kurlnavigator.h"
+#include "kcoreurlnavigator.h"
 
 #include "kurlnavigatorbutton_p.h"
 #include "kurlnavigatordropdownbutton_p.h"
@@ -45,22 +46,18 @@
 
 using namespace KDEPrivate;
 
-struct LocationData {
-    explicit LocationData(const QUrl &u)
-        : url(u)
-    {
-    }
-
-    QUrl url;
-    QUrl rootUrl; // KDE5: remove after the deprecated methods have been removed
-    QPoint pos; // KDE5: remove after the deprecated methods have been removed
+struct KUrlNavigatorData
+{
+    QUrl rootUrl; // KF6: remove after the deprecated methods have been removed
+    QPoint pos; // KF6: remove after the deprecated methods have been removed
     QByteArray state;
 };
+Q_DECLARE_METATYPE(KUrlNavigatorData)
 
 class KUrlNavigatorPrivate
 {
 public:
-    KUrlNavigatorPrivate(KUrlNavigator *qq, KFilePlacesModel *placesModel);
+    KUrlNavigatorPrivate(const QUrl& url, KUrlNavigator *qq, KFilePlacesModel *placesModel);
 
     ~KUrlNavigatorPrivate()
     {
@@ -163,27 +160,12 @@ public:
      */
     QUrl retrievePlaceUrl() const;
 
-    /**
-     * Returns true, if the MIME type of the path represents a
-     * compressed file like TAR or ZIP, as listed in @p archiveMimetypes
-     */
-    bool isCompressedPath(const QUrl &path, const QStringList &archiveMimetypes) const;
-
     void removeTrailingSlash(QString &url) const;
-
-    /**
-     * Returns the current history index, if \a historyIndex is
-     * smaller than 0. If \a historyIndex is greater or equal than
-     * the number of available history items, the largest possible
-     * history index is returned. For the other cases just \a historyIndex
-     * is returned.
-     */
-    int adjustedHistoryIndex(int historyIndex) const;
 
     KUrlNavigator *const q;
 
     QHBoxLayout *m_layout = new QHBoxLayout(q);
-    QList<LocationData> m_history;
+    KCoreUrlNavigator *m_coreUrlNavigator = nullptr;
     QList<KUrlNavigatorButton *> m_navButtons;
     QStringList m_customProtocols;
     QUrl m_homeUrl;
@@ -198,7 +180,6 @@ public:
     bool m_active = true;
     bool m_showPlacesSelector = false;
     bool m_showFullPath = false;
-    int m_historyIndex = 0;
 
     struct {
         bool showHidden = false;
@@ -206,12 +187,29 @@ public:
     } m_subfolderOptions;
 };
 
-KUrlNavigatorPrivate::KUrlNavigatorPrivate(KUrlNavigator *qq, KFilePlacesModel *placesModel)
+KUrlNavigatorPrivate::KUrlNavigatorPrivate(const QUrl& url, KUrlNavigator *qq, KFilePlacesModel *placesModel)
     : q(qq)
+    , m_coreUrlNavigator(new KCoreUrlNavigator(url, qq))
     , m_showPlacesSelector(placesModel != nullptr)
 {
     m_layout->setSpacing(0);
     m_layout->setContentsMargins(0, 0, 0, 0);
+
+    q->connect(m_coreUrlNavigator, &KCoreUrlNavigator::currentLocationUrlChanged, q, [this]() {
+        Q_EMIT q->urlChanged(m_coreUrlNavigator->currentLocationUrl());
+    });
+    q->connect(m_coreUrlNavigator, &KCoreUrlNavigator::currentUrlAboutToChange, q, [this](const QUrl& url) {
+        Q_EMIT q->urlAboutToBeChanged(url);
+    });
+    q->connect(m_coreUrlNavigator, &KCoreUrlNavigator::historySizeChanged, q, [this]() {
+        Q_EMIT q->historyChanged();
+    });
+    q->connect(m_coreUrlNavigator, &KCoreUrlNavigator::historyIndexChanged, q, [this]() {
+        Q_EMIT q->historyChanged();
+    });
+    q->connect(m_coreUrlNavigator, &KCoreUrlNavigator::historyChanged, q, [this]() {
+        Q_EMIT q->historyChanged();
+    });
 
     // initialize the places selector
     q->setAutoFillBackground(false);
@@ -400,7 +398,7 @@ void KUrlNavigatorPrivate::openPathSelectorMenu()
     int idx = placeUrl.path().count(QLatin1Char('/')); // idx points to the first directory
     // after the place path
 
-    const QString path = m_history.at(m_historyIndex).url.path();
+    const QString path = m_coreUrlNavigator->locationUrl(m_coreUrlNavigator->historyIndex()).path();
     QString dirName = path.section(QLatin1Char('/'), idx, idx);
     if (dirName.isEmpty()) {
         if (placeUrl.isLocalFile()) {
@@ -857,33 +855,12 @@ QUrl KUrlNavigatorPrivate::retrievePlaceUrl() const
     return currentUrl;
 }
 
-bool KUrlNavigatorPrivate::isCompressedPath(const QUrl &url, const QStringList &archiveMimetypes) const
-{
-    QMimeDatabase db;
-    const QMimeType mime = db.mimeTypeForUrl(QUrl(url.toString(QUrl::StripTrailingSlash)));
-    return std::any_of(archiveMimetypes.begin(), archiveMimetypes.end(), [mime](const QString &archiveType) {
-        return mime.inherits(archiveType);
-    });
-}
-
 void KUrlNavigatorPrivate::removeTrailingSlash(QString &url) const
 {
     const int length = url.length();
     if ((length > 0) && (url.at(length - 1) == QLatin1Char('/'))) {
         url.remove(length - 1, 1);
     }
-}
-
-int KUrlNavigatorPrivate::adjustedHistoryIndex(int historyIndex) const
-{
-    const int historySize = m_history.size();
-    if (historyIndex < 0) {
-        historyIndex = m_historyIndex;
-    } else if (historyIndex >= historySize) {
-        historyIndex = historySize - 1;
-        Q_ASSERT(historyIndex >= 0); // m_history.size() must always be > 0
-    }
-    return historyIndex;
 }
 
 // ------------------------------------------------------------------------------------------------
@@ -895,10 +872,8 @@ KUrlNavigator::KUrlNavigator(QWidget *parent)
 
 KUrlNavigator::KUrlNavigator(KFilePlacesModel *placesModel, const QUrl &url, QWidget *parent)
     : QWidget(parent)
-    , d(new KUrlNavigatorPrivate(this, placesModel))
+    , d(new KUrlNavigatorPrivate(url, this, placesModel))
 {
-    d->m_history.prepend(LocationData{url.adjusted(QUrl::NormalizePathSegments)});
-
     const int minHeight = d->m_pathBox->sizeHint().height();
     setMinimumHeight(minHeight);
 
@@ -918,66 +893,34 @@ KUrlNavigator::~KUrlNavigator()
 
 QUrl KUrlNavigator::locationUrl(int historyIndex) const
 {
-    historyIndex = d->adjustedHistoryIndex(historyIndex);
-    return d->m_history.at(historyIndex).url;
+    return d->m_coreUrlNavigator->locationUrl(historyIndex);
 }
 
 void KUrlNavigator::saveLocationState(const QByteArray &state)
 {
-    d->m_history[d->m_historyIndex].state = state;
+    auto current = d->m_coreUrlNavigator->locationState().value<KUrlNavigatorData>();
+    current.state = state;
+    d->m_coreUrlNavigator->saveLocationState(QVariant::fromValue(current));
 }
 
 QByteArray KUrlNavigator::locationState(int historyIndex) const
 {
-    historyIndex = d->adjustedHistoryIndex(historyIndex);
-    return d->m_history.at(historyIndex).state;
+    return d->m_coreUrlNavigator->locationState(historyIndex).value<KUrlNavigatorData>().state;
 }
 
 bool KUrlNavigator::goBack()
 {
-    const int count = d->m_history.size();
-    if (d->m_historyIndex < count - 1) {
-        const QUrl newUrl = locationUrl(d->m_historyIndex + 1);
-        Q_EMIT urlAboutToBeChanged(newUrl);
-
-        ++d->m_historyIndex;
-        d->updateContent();
-
-        Q_EMIT historyChanged();
-        Q_EMIT urlChanged(locationUrl());
-        return true;
-    }
-
-    return false;
+    return d->m_coreUrlNavigator->goBack();
 }
 
 bool KUrlNavigator::goForward()
 {
-    if (d->m_historyIndex > 0) {
-        const QUrl newUrl = locationUrl(d->m_historyIndex - 1);
-        Q_EMIT urlAboutToBeChanged(newUrl);
-
-        --d->m_historyIndex;
-        d->updateContent();
-
-        Q_EMIT historyChanged();
-        Q_EMIT urlChanged(locationUrl());
-        return true;
-    }
-
-    return false;
+    return d->m_coreUrlNavigator->goForward();
 }
 
 bool KUrlNavigator::goUp()
 {
-    const QUrl currentUrl = locationUrl();
-    const QUrl upUrl = KIO::upUrl(currentUrl);
-    if (upUrl != currentUrl) { // TODO use url.matches(KIO::upUrl(url), QUrl::StripTrailingSlash)
-        setLocationUrl(upUrl);
-        return true;
-    }
-
-    return false;
+    return d->m_coreUrlNavigator->goUp();
 }
 
 void KUrlNavigator::goHome()
@@ -1080,89 +1023,7 @@ QUrl KUrlNavigator::uncommittedUrl() const
 
 void KUrlNavigator::setLocationUrl(const QUrl &newUrl)
 {
-    if (newUrl == locationUrl()) {
-        return;
-    }
-
-    QUrl url = newUrl.adjusted(QUrl::NormalizePathSegments);
-
-    // This will be used below; we define it here because in the lower part of the
-    // code locationUrl() and url become the same URLs
-    QUrl firstChildUrl = KIO::UrlUtil::firstChildUrl(locationUrl(), url);
-
-    const QString scheme = url.scheme();
-    if (!scheme.isEmpty()) {
-        // Check if the URL represents a tar-, zip- or 7z-file, or an archive file supported by krarc.
-        const QStringList archiveMimetypes = KProtocolInfo::archiveMimetypes(scheme);
-
-        if (!archiveMimetypes.isEmpty()) {
-            // Check whether the URL is really part of the archive file, otherwise
-            // replace it by the local path again.
-            bool insideCompressedPath = d->isCompressedPath(url, archiveMimetypes);
-            if (!insideCompressedPath) {
-                QUrl prevUrl = url;
-                QUrl parentUrl = KIO::upUrl(url);
-                while (parentUrl != prevUrl) {
-                    if (d->isCompressedPath(parentUrl, archiveMimetypes)) {
-                        insideCompressedPath = true;
-                        break;
-                    }
-                    prevUrl = parentUrl;
-                    parentUrl = KIO::upUrl(parentUrl);
-                }
-            }
-            if (!insideCompressedPath) {
-                // drop the tar:, zip:, sevenz: or krarc: protocol since we are not
-                // inside the compressed path
-                url.setScheme(QStringLiteral("file"));
-                firstChildUrl.setScheme(QStringLiteral("file"));
-            }
-        }
-    }
-
-    // Check whether current history element has the same URL.
-    // If this is the case, just ignore setting the URL.
-    const LocationData &data = d->m_history.at(d->m_historyIndex);
-    const bool isUrlEqual = url.matches(locationUrl(), QUrl::StripTrailingSlash) || (!url.isValid() && url.matches(data.url, QUrl::StripTrailingSlash));
-    if (isUrlEqual) {
-        return;
-    }
-
-    Q_EMIT urlAboutToBeChanged(url);
-
-    if (d->m_historyIndex > 0) {
-        // If an URL is set when the history index is not at the end (= 0),
-        // then clear all previous history elements so that a new history
-        // tree is started from the current position.
-        auto begin = d->m_history.begin();
-        auto end = begin + d->m_historyIndex;
-        d->m_history.erase(begin, end);
-        d->m_historyIndex = 0;
-    }
-
-    Q_ASSERT(d->m_historyIndex == 0);
-    d->m_history.insert(0, LocationData{url});
-
-    // Prevent an endless growing of the history: remembering
-    // the last 100 Urls should be enough...
-    const int historyMax = 100;
-    if (d->m_history.size() > historyMax) {
-        auto begin = d->m_history.begin() + historyMax;
-        auto end = d->m_history.end();
-        d->m_history.erase(begin, end);
-    }
-
-    Q_EMIT historyChanged();
-    Q_EMIT urlChanged(url);
-
-    KUrlCompletion *urlCompletion = qobject_cast<KUrlCompletion *>(d->m_pathBox->completionObject());
-    if (urlCompletion) {
-        urlCompletion->setDir(url);
-    }
-
-    if (firstChildUrl.isValid()) {
-        Q_EMIT urlSelectionRequested(firstChildUrl);
-    }
+    d->m_coreUrlNavigator->setCurrentLocationUrl(newUrl);
 
     d->updateContent();
 
@@ -1194,16 +1055,18 @@ void KUrlNavigator::setUrl(const QUrl &url)
 #if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(4, 5)
 void KUrlNavigator::saveRootUrl(const QUrl &url)
 {
-    // deprecated
-    d->m_history[d->m_historyIndex].rootUrl = url;
+    auto current = d->m_coreUrlNavigator->locationState().value<KUrlNavigatorData>();
+    current.rootUrl = url;
+    d->m_coreUrlNavigator->saveLocationState(QVariant::fromValue(current));
 }
 #endif
 
 #if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(4, 5)
 void KUrlNavigator::savePosition(int x, int y)
 {
-    // deprecated
-    d->m_history[d->m_historyIndex].pos = QPoint(x, y);
+    auto current = d->m_coreUrlNavigator->locationState().value<KUrlNavigatorData>();
+    current.pos = QPoint(x, y);
+    d->m_coreUrlNavigator->saveLocationState(QVariant::fromValue(current));
 }
 #endif
 
@@ -1290,12 +1153,12 @@ bool KUrlNavigator::eventFilter(QObject *watched, QEvent *event)
 
 int KUrlNavigator::historySize() const
 {
-    return d->m_history.count();
+    return d->m_coreUrlNavigator->historySize();
 }
 
 int KUrlNavigator::historyIndex() const
 {
-    return d->m_historyIndex;
+    return d->m_coreUrlNavigator->historyIndex();
 }
 
 KUrlComboBox *KUrlNavigator::editor() const
@@ -1372,11 +1235,11 @@ QUrl KUrlNavigator::historyUrl(int historyIndex) const
 const QUrl &KUrlNavigator::savedRootUrl() const
 {
     // deprecated
-
     // Workaround required because of flawed interface ('const QUrl&' is returned
     // instead of 'QUrl'): remember the root URL to prevent a dangling pointer
     static QUrl rootUrl;
-    rootUrl = d->m_history[d->m_historyIndex].rootUrl;
+    const auto current = d->m_coreUrlNavigator->locationState().value<KUrlNavigatorData>();
+    rootUrl = current.rootUrl;
     return rootUrl;
 }
 #endif
@@ -1385,7 +1248,8 @@ const QUrl &KUrlNavigator::savedRootUrl() const
 QPoint KUrlNavigator::savedPosition() const
 {
     // deprecated
-    return d->m_history[d->m_historyIndex].pos;
+    const auto current = d->m_coreUrlNavigator->locationState().value<KUrlNavigatorData>();
+    return current.pos;
 }
 #endif
 
