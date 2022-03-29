@@ -412,7 +412,7 @@ void PreviewJobPrivate::startPreview()
 
     KConfigGroup cg(KSharedConfig::openConfig(), "PreviewSettings");
     maximumLocalSize = cg.readEntry("MaximumSize", std::numeric_limits<KIO::filesize_t>::max());
-    maximumRemoteSize = cg.readEntry("MaximumRemoteSize", 0);
+    maximumRemoteSize = cg.readEntry<KIO::filesize_t>("MaximumRemoteSize", 0);
 
     if (bNeedCache) {
 
