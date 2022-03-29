@@ -18,7 +18,7 @@ void KRecentDocumentTest::initTestCase()
     m_xbelPath = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/recently-used.xbel");
 
     // must be outside of /tmp
-    QFile tempFile(QDir::currentPath() + "/tempFile");
+    QFile tempFile(QDir::currentPath() + "/temp File");
     if (!tempFile.open(QIODevice::WriteOnly)) {
         qFatal("Can't create %s", qPrintable(tempFile.fileName()));
     }
@@ -62,7 +62,7 @@ void KRecentDocumentTest::testXbelBookmark()
     // check there is only one <bookmark> element and matches expected href
     QCOMPARE(bookmarks.length(), 1);
     QVERIFY(bookmarks.at(0).attributes().contains("href"));
-    QCOMPARE(url.toString(), bookmarks.at(0).toElement().attribute("href"));
+    QCOMPARE(url.toString(QUrl::FullyEncoded), bookmarks.at(0).toElement().attribute("href"));
 
     const auto apps = reader.elementsByTagName("bookmark:application");
     QCOMPARE(apps.length(), 2);
