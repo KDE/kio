@@ -563,7 +563,11 @@ void KFilePlacesViewDelegate::drawSectionHeader(QPainter *painter, const QStyleO
     const KFilePlacesModel *placesModel = static_cast<const KFilePlacesModel *>(index.model());
 
     const QString groupLabel = index.data(KFilePlacesModel::GroupRole).toString();
-    const QString category = placesModel->isGroupHidden(index) ? i18n("%1 (hidden)", groupLabel) : groupLabel;
+    const QString category = placesModel->isGroupHidden(index)
+            // Avoid showing "(hidden)" during disappear animation when hiding a group
+            && !m_disappearingItems.contains(index)
+        ? i18n("%1 (hidden)", groupLabel)
+        : groupLabel;
 
     QRect textRect(option.rect);
     textRect.setLeft(textRect.left() + 3);
