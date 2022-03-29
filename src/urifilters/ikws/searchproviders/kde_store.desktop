@@ -15,6 +15,7 @@ Name[ia]=KDE Store (Immagazina de KDE)
 Name[it]=KDE Store
 Name[nl]=KDE Store
 Name[pl]=Sklep KDE
+Name[pt]=Loja do KDE
 Name[pt_BR]=KDE Store
 Name[sl]=Trgovina KDE
 Name[sv]=KDE-butik
@@ -28,12 +29,14 @@ Query[bs]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[ca]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[ca@valencia]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[es]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
+Query[fi]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[fr]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[gl]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[ia]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[it]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[nl]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[pl]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
+Query[pt]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[pt_BR]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[sl]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[sv]=https://store.kde.org/content/search.php?search=Search&name=\\{@}

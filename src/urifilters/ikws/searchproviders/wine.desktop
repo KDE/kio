@@ -6,12 +6,14 @@ Name[bs]=WineHQ Baza podataka
 Name[ca]=Base de dades de WineHQ
 Name[ca@valencia]=Base de dades de WineHQ
 Name[es]=Base de datos de WineHQ
+Name[fi]=WineHQ-tietokanta
 Name[fr]=Base de données de WineHQ
 Name[gl]=Base de datos WineHQ
 Name[ia]=Base de Datos de WineHQ
 Name[it]=Banca dati di WineHQ
 Name[nl]=WineHQ-database
 Name[pl]=Baza danych WineHQ
+Name[pt]=Base de Dados do WineHQ
 Name[pt_BR]=Banco de dados do WineHQ
 Name[sl]=Podatkovna zbirka WineHQ
 Name[sv]=WineHQ-databas
@@ -27,12 +29,14 @@ Query[bs]=https://www.winehq.org/search?q=\\{@}
 Query[ca]=https://www.winehq.org/search?q=\\{@}
 Query[ca@valencia]=https://www.winehq.org/search?q=\\{@}
 Query[es]=https://www.winehq.org/search?q=\\{@}
+Query[fi]=https://www.winehq.org/search?q=\\{@}
 Query[fr]=https://www.winehq.org/search?q=\\{@}
 Query[gl]=https://www.winehq.org/search?q=\\{@}
 Query[ia]=https://www.winehq.org/search?q=\\{@}
 Query[it]=https://www.winehq.org/search?q=\\{@}
 Query[nl]=https://www.winehq.org/search?q=\\{@}
 Query[pl]=https://www.winehq.org/search?q=\\{@}
+Query[pt]=https://www.winehq.org/search?q=\\{@}
 Query[pt_BR]=https://www.winehq.org/search?q=\\{@}
 Query[sl]=https://www.winehq.org/search?q=\\{@}
 Query[sv]=https://www.winehq.org/search?q=\\{@}

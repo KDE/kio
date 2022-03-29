@@ -8,12 +8,14 @@ Name[ca]=Incidències de KDE Invent
 Name[ca@valencia]=Incidències de KDE Invent
 Name[de]=KDE Invent Issues
 Name[es]=Problemas de KDE Invent
+Name[fi]=KDE Inventin ongelmat
 Name[fr]=Problèmes de KDE Invent
 Name[gl]=Problemas de KDE Invent
 Name[ia]=Questiones de KDE Invent
 Name[it]=Issue su KDE Invent
 Name[nl]=KDE-invent problemen
 Name[pl]=Błędy KDE Invent
+Name[pt]=Erros no KDE Invent
 Name[pt_BR]=Issues do KDE Invent
 Name[sl]=Težave s KDE Invent
 Name[sv]=KDE-Invent problemrapporter
@@ -28,12 +30,14 @@ Query[ca]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[ca@valencia]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[de]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[es]=https://invent.kde.org/search?scope=issues&search=\\{@}
+Query[fi]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[fr]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[gl]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[ia]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[it]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[nl]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[pl]=https://invent.kde.org/search?scope=issues&search=\\{@}
+Query[pt]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[pt_BR]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[sl]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[sv]=https://invent.kde.org/search?scope=issues&search=\\{@}

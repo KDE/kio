@@ -6,12 +6,14 @@ Name[bs]=Naučite CPP
 Name[ca]=Learn CPP
 Name[ca@valencia]=Learn CPP
 Name[es]=Aprenda CPP
+Name[fi]=Learn CPP
 Name[fr]=Apprenez le « CPP »
 Name[gl]=Aprender CPP
 Name[ia]=Apprende CPP
 Name[it]=Impara CPP
 Name[nl]=CPP leren
 Name[pl]=Naucz się CPP
+Name[pt]=Aprender CPP
 Name[pt_BR]=Learn CPP
 Name[sl]=Naučite se CPP
 Name[sv]=Lär dig C++
@@ -27,12 +29,14 @@ Query[bs]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[ca]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[ca@valencia]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[es]=https://www.learncpp.com/gsearch/?q=\\{@}
+Query[fi]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[fr]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[gl]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[ia]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[it]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[nl]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[pl]=https://www.learncpp.com/gsearch/?q=\\{@}
+Query[pt]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[pt_BR]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[sl]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[sv]=https://www.learncpp.com/gsearch/?q=\\{@}

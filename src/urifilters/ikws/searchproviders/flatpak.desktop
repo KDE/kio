@@ -6,12 +6,14 @@ Name[bs]=Flatpak Dokumentacija
 Name[ca]=Documentació del Flatpak
 Name[ca@valencia]=Documentació del Flatpak
 Name[es]=Documentación de Flatpak
+Name[fi]=Flatpak-dokumentaatio
 Name[fr]=Documentation de Flatpak
 Name[gl]=Documentación de Flatpak
 Name[ia]=Documentation de Flatpak
 Name[it]=Documentazione Flatpak
 Name[nl]=Flatpak-documentatie
 Name[pl]=Dokumentacja Flatpaka
+Name[pt]=Documentação do Flatpak
 Name[pt_BR]=Documentação do Flatpak
 Name[sl]=Dokumentacija za Flatpak
 Name[sv]=Flatpak-dokumentation
@@ -27,12 +29,14 @@ Query[bs]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=
 Query[ca]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[ca@valencia]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[es]=https://docs.flatpak.org/es/latest/search.html?q=\\{@}&check_keywords=yes&area=default
+Query[fi]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[fr]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[gl]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[ia]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[it]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[nl]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[pl]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
+Query[pt]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[pt_BR]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[sl]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=privzeto
 Query[sv]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default

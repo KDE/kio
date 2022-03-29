@@ -6,12 +6,14 @@ Name[bs]=openSUSE Softver
 Name[ca]=openSUSE Software
 Name[ca@valencia]=openSUSE Software
 Name[es]=Software de openSUSE
+Name[fi]=openSUSE Software
 Name[fr]=Logiciels de OpenSUSE
 Name[gl]=Software openSUSE 
 Name[ia]=Software de OpenSUSE
 Name[it]=Software openSUSE
 Name[nl]=openSUSE-software
 Name[pl]=Oprogramowanie openSUSE
+Name[pt]=Software do openSUSE
 Name[pt_BR]=Software do openSUSE
 Name[sl]=Programska oprema OpenSUSE
 Name[sv]=openSUSE-programvara
@@ -27,12 +29,14 @@ Query[bs]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
 Query[ca]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
 Query[ca@valencia]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
 Query[es]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
+Query[fi]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
 Query[fr]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
 Query[gl]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
 Query[ia]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
 Query[it]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
 Query[nl]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
 Query[pl]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
+Query[pt]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
 Query[pt_BR]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
 Query[sl]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
 Query[sv]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}

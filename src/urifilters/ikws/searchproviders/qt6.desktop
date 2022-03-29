@@ -9,12 +9,14 @@ Name[bs]=Qt6 Onlajn Dokumentacija
 Name[ca]=Documentació en línia de les Qt6
 Name[ca@valencia]=Documentació en línia de les Qt6
 Name[es]=Documentación Qt6 en línea
+Name[fi]=Qt6-verkko-ohjeistus
 Name[fr]=Documentation en ligne de Qt6
 Name[gl]=Documentación de Qt6 en liña
 Name[ia]=Documentation in linea de Qt6
 Name[it]=Documentazione in linea di Qt6
 Name[nl]=Qt6 online-documentatie
 Name[pl]=Dokumentacja Qt6 w sieci
+Name[pt]=Documentação 'Online' do Qt6
 Name[pt_BR]=Documentação on-line do Qt6
 Name[sl]=Spletna dokumentacija za Qt6
 Name[sv]=Qt6-dokumentation på nätet
@@ -28,12 +30,14 @@ Query[bs]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[ca]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[ca@valencia]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[es]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
+Query[fi]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[fr]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[gl]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[ia]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[it]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[nl]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[pl]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
+Query[pt]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[pt_BR]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[sl]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[sv]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}

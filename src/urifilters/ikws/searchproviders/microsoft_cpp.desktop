@@ -6,12 +6,14 @@ Name[bs]=Majkrosoft C++ Dokumentacija
 Name[ca]=Documentació de Microsoft C++
 Name[ca@valencia]=Documentació de Microsoft C++
 Name[es]=Documentación de C++ de Microsoft
+Name[fi]=Microsoft C++ -ohjeistus
 Name[fr]=Documentation de Microsoft C++
 Name[gl]=Documentación de Microsoft C++ 
 Name[ia]=Documentation de Microsoft C++
 Name[it]=Documentazione su C++ di Microsoft
 Name[nl]=Microsoft C++ documentatie
 Name[pl]=Dokumentacja Microsoft C++
+Name[pt]=Documentação do Microsoft C++
 Name[pt_BR]=Documentação C++ da Microsoft
 Name[sl]=Dokumentacija za Microsoft C++
 Name[sv]=Microsoft C++ dokumentation
@@ -27,12 +29,14 @@ Query[bs]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[ca]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[ca@valencia]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[es]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
+Query[fi]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[fr]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[gl]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[ia]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[it]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[nl]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[pl]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
+Query[pt]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[pt_BR]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[sl]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[sv]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
