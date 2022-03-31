@@ -1,0 +1,5 @@
+[Desktop Entry]
+Keys=ya,yandex,я,яндекс
+Name=Yandex
+Query=https://yandex.ru/search/?text=\\{@}
+Type=Service
