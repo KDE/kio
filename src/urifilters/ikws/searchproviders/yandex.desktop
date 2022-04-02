@@ -1,5 +1,17 @@
 [Desktop Entry]
 Keys=ya,yandex,я,яндекс
 Name=Yandex
+Name[az]=Yandex
+Name[ca]=Yandex
+Name[it]=Yandex
+Name[nl]=Yandex
+Name[uk]=Yandex
+Name[x-test]=xxYandexxx
 Query=https://yandex.ru/search/?text=\\{@}
+Query[az]=https://yandex.ru/search/?text=\\{@}
+Query[ca]=https://yandex.ru/search/?text=\\{@}
+Query[it]=https://yandex.ru/search/?text=\\{@}
+Query[nl]=https://yandex.ru/search/?text=\\{@}
+Query[uk]=https://yandex.ru/search/?text=\\{@}
+Query[x-test]=xxhttps://yandex.ru/search/?text=\\{@}xx
 Type=Service
