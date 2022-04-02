@@ -415,7 +415,12 @@ KTcpSocket::KTcpSocket(QObject *parent)
     });
 }
 
-KTcpSocket::~KTcpSocket() = default;
+KTcpSocket::~KTcpSocket()
+{
+    // Cleanup before ~KTcpSocketPrivate does that with d being null (on libc++)
+    // (stateChanged will be emitted, and the above slots use 'd')
+    abort();
+}
 
 ////////////////////////////// (mostly) virtuals from QIODevice
 
