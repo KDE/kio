@@ -1,0 +1,257 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Serbian-Latin "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="cookies" lang="&language;">
+<articleinfo>
+<title
+>Kolačići</title>
+<authorgroup>
+<author
+><personname
+><firstname
+>Krišna</firstname
+> <surname
+>Tateneni</surname
+></personname
+> &Krishna.Tateneni.mail;</author>
+<author
+><personname
+><firstname
+>Jost</firstname
+> <surname
+>Šenk</surname
+></personname
+> &Jost.Schenck.mail;</author>
+<othercredit role="translator"
+><firstname
+>Dragan</firstname
+><surname
+>Pantelić</surname
+><affiliation
+><address
+><email
+>falcon-10@gmx.de</email
+></address
+></affiliation
+><contrib
+>prevod</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>10. 11. 2016.</date>
+<releaseinfo
+>Radni okviri KDE‑a 5.29</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Sistemske postavke</keyword>
+<keyword
+>kolačić</keyword>
+</keywordset>
+
+</articleinfo>
+
+<sect1 id="cookie">
+<title
+>Kolačići</title>
+
+<para
+>„Kolačići“ su mehanizam koji veb sajtovi koriste za čuvanje i dobavljanje podataka kroz vaš pregledač. Na primer, veb sajt vam može omogućiti da prilagodite sadržaj i raspored stranica koje gledate, tako da su vaši odabiri trajni preko svih poseta tom veb sajtu.</para>
+
+<para
+>Veb sajt može da upamti vaše postavke skladištenjem kolačića na računaru. Onda, prilikom budućih poseta, sajt dobavlja podatke uskladištene u kolačiću da bi oblikovao sadržaj prema postavkama koje ste prethodno zadali.</para>
+
+<para
+>Kolačići tako igraju korisnu ulogu u pregledanju Weba. Nažalost, veb sajtovi često skladište i dobavljaju podatke u kolačićima bez vašeg izričitog znanja i slaganja. Neki od podataka mogu biti sasvim korisni vlasnicima veb sajtova, omogućavajući im, na primer, da sakupljaju statistiku o broju poseta koje različite oblasti sajta dobiju, ili prilagođavaju reklamni materijal.</para>
+
+<para
+>Stranica kolačića dopušta vam da postavite smernice za korišćenje kolačića dok pregledate mrežu <application
+>K‑osvajačem</application
+> kao veb pregledačem. </para>
+
+<warning
+><para
+>Imajte u vidu da se smernice koje postavite ovim kontrolnim modulom <emphasis
+>neće</emphasis
+> primenjivati na druge veb pregledače, poput <application
+>Firefoxa</application
+>.</para
+></warning>
+
+<sect2 id="cookie-policy">
+
+<title
+>Smernica</title>
+
+<para
+>Pod jezičkom <guilabel
+>Smernica</guilabel
+> možete podesiti kako će KDE programi rukovati kolačićima. To činite zadavanjem opšte smernice kolačića, kao i posebnih smernica za izvesne domene ili domaćine.</para>
+
+<para
+>Pri vrhu jezička smernica stoji kućica <guilabel
+>Aktiviraj kolačiće</guilabel
+>. Ako je ostavite nepopunjenom, kolačići će biti potpuno isključeni. Međutim, ovo može učiniti pregledanje prilično neudobnim, naročito zato što neki veb sajtovi zahtevaju da su kolačići u pregledaču uključeni.</para>
+
+<para
+>Zato ćete verovatno pre želeti da uključite kolačiće, a zatim postavite određene smernice za rukovanje njima.</para>
+
+<para
+>Prva grupa opcija stvara postavke koje se primenjuju na sve kolačiće.</para>
+
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>Prihvati samo kolačiće sa izvornog servera</guilabel
+></term>
+<listitem>
+<para
+>Neke stranice pokušavaju da postave kolačiće sa servera različitog od onog na kojem je data HTML stranica. Na primer, pokazuju vam reklame sa trećeg računara, koji često pripada nekoj velikoj reklamnoj kući; te reklame mogu pokušati da postave kolačić kojim bi pratile koje stranice gledate na različitim veb sajtovima.</para>
+<para
+>Uključivanjem ove opcije biće prihvatani samo kolačići koji dolaze sa veb servera na koji ste se izričito povezali.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+><guilabel
+>Automatski prihvati kolačiće sesije</guilabel
+></term>
+<listitem>
+
+<para
+>Sve je češća upotreba kolačiće sesije, koji prate ne vaše kretanje između poseta datom veb sajtu, već šta radite tokom trenutne posete. Kolačići sesije zapisuju se za vreme dok pregledate sajt, a brišu se kad ga napustite.</para>
+
+<para
+>Veb sajtovi ove podatke mogu koristiti za razne stvari, ali uglavnom radi udobnosti, da se ne morate svaki čas prijavljivati za prikaz naredne stranice. Na primer, na sajtu veb pošte, bez nekakvog ID‑a sesija morali biste nanovo unositi lozinku za svaku poruku e‑pošte koju želite da pročitate. Postoje i drugi načini da se ovo postigne, ali su kolačići veoma jednostavni i uobičajeni.</para>
+
+<para
+>Uključivanjem ove opcije kolačići sesije uvek se prihvataju, čak i ako ne prihvatate bilo koju drugu vrstu. I kada izaberete da odbacujete kolačiće sa određenog sajta, kolačići sesije sa tog sajta biće prihvatani.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>U sekciji <guilabel
+>Podrazumevana smernica</guilabel
+> postavljaju se još neke, uzajamno isključive opcije — možete odabrati samo jednu od njih kao podrazumevanu, ali ste slobodni da postavite drugačiju za bilo koji poseban veb server.</para>
+<note
+><para
+>Smernice posebne po sajtu uvek imaju prednost nad podrazumevanom smernicom.</para
+></note>
+
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>Prihvati sve kolačiće</guilabel
+></term>
+<listitem>
+<para
+>Ako je izabrana ova opcija, svi kolačići biće prihvaćeni bez traženja potvrde.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+><guilabel
+>prihvati do kraja sesije</guilabel
+></term>
+<listitem>
+<para
+>Kolačići će biti prihvaćani, ali će isteći po okončanju sesije.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+><guilabel
+>Traži potvrdu</guilabel
+></term>
+<listitem>
+<para
+>Ako je izabrana ova opcija, bićete pitani za potvrdu svaki put kad se kolačić skladišti ili dobavlja, tako da kolačić možete prihvatiti ili odbaciti. Dijalog za potvrdu takođe će vam omogućiti da postavite smernicu posebno za domen, ako ne želite da potvrđujete svaki kolačić za taj domen.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+><guilabel
+>Odbaci sve kolačiće</guilabel
+></term>
+<listitem>
+<para
+>Ako je izabrana ova opcija, svi kolačići biće odbačeni bez traženja potvrde.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>Kao dodatak podrazumevanoj smernici za rukovanje kolačićima, koju možete postaviti odabirom jedne od tri gore opisane opcije, takođe možete postaviti smernice za određene domene domaćina, kontrolama u grupi <guilabel
+>smernica sajta</guilabel
+>.</para>
+
+<para
+>Smernice upitivanja, prihvatanja, prihvatanja do kraja sesije ili odbacivanja mogu se primeniti na određeni domen klikom na dugme <guibutton
+>Nova...</guibutton
+>. Ono poziva dijalog u kojem možete upisati ime domena (sa tačkom ispred), a potom izabrati smernicu za primenjivanje na taj domen. Zapazite da se stavke mogu dodavati i dok pregledate, kada je podrazumevana smernica traženje potvrde i pritom izaberete neku opštu smernicu za dati domaćin (na primer, izborom <guilabel
+>Odbaci</guilabel
+> kad vam se traži da potvrdite kolačić).</para>
+
+<para
+>Možete izabrati i određeni domen domaćinâ sa spiska, te kliknuti na dugme <guibutton
+>Izmeni...</guibutton
+> da za taj domen odaberete smernicu drugačiju od one trenutno na spisku.</para>
+
+<para
+>Za brisanje smernice posebne po domenu, izaberite domen sa spiska, pa kliknite na dugme <guibutton
+>Obriši</guibutton
+>. Na domene obrisane sa spiska primenjivaće se podrazumevana smernica.</para>
+
+</sect2>
+
+<sect2 id="cookie-management">
+<title
+>Upravljanje</title>
+
+<para
+>Pod jezičkom <guilabel
+>Upravljanje</guilabel
+> možete pregledati i po želji brisati ranije postavljene kolačiće.</para>
+
+<para
+>U gornjem delu ovog dijaloga dat je spisak domena u obliku stabla. Kliknite na malo <guiicon
+>
+></guiicon
+> pored domena da vidite sve postavljene kolačiće za taj ciljni domen. Ako odaberete jedan od ovih kolačića, njegov sadržaj će se pojaviti ispod u okviru <guilabel
+>Detalji</guilabel
+>.</para>
+
+<para
+>Sada klikom na dugme <guibutton
+>Obriši</guibutton
+> možete obrisati izabrani kolačić. Za brisanje svih uskladištenih kolačića, kliknite na <guibutton
+>Obriši sve</guibutton
+>.</para>
+
+<para
+>Ako je izabran neki domen, možete kliknuti na <guibutton
+>Podesi smernicu...</guibutton
+> da postavite smernicu za sajt.</para>
+
+<para
+>Da biste učitali spisak sa diska, izaberite <guibutton
+>Učitaj ponovo spisak</guibutton
+>. Ovo vam može zatrebati ako vam je modul otvoren dok isprobavate veb sajtove, ili ste načinili mnoge izmene u samom modulu.</para>
+
+</sect2>
+
+</sect1>
+
+</article>

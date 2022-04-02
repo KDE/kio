@@ -1,0 +1,83 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Serbian "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="data">
+<title
+>УРЛ‑ови података</title>
+
+<articleinfo>
+<authorgroup>
+<author
+><personname
+><firstname
+>Лео</firstname
+> <surname
+>Саверник</surname
+></personname
+> <address
+><email
+>l.savernik@aon.at</email
+></address
+> </author>
+<othercredit role="translator"
+><firstname
+>Драган</firstname
+><surname
+>Пантелић</surname
+><affiliation
+><address
+><email
+>falcon-10@gmx.de</email
+></address
+></affiliation
+><contrib
+>превод</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>6. 2. 2003.</date>
+<!--releaseinfo
+>2.20.00</releaseinfo-->
+
+</articleinfo>
+
+<para
+>УРЛ‑ови података омогућавају укључивање мањих докумената у сам УРЛ. Ово је корисно за врло мале пробне ХТМЛ случајеве, или друге прилике у којима нема смисла приправљати самостални документ.</para>
+
+<para
+><userinput
+>data:,nekidjavo</userinput
+> (обратите пажњу на запету после двотачке) испоручиће текстуални документ који садржи само <literal
+>nekidjavo</literal
+>.  </para>
+
+<para
+>Претходни пример испоручио је текстуални документ. За ХТМЛ документе треба задати МИМЕ тип <literal
+>text/html</literal
+>: <userinput
+>data:text/html,&lt;naslov&gt;proba&lt;/naslov&gt;&lt;p&gt;Ovo je probni slucaj&lt;/p&gt;</userinput
+>. Ово ће произвести тачно онакав излаз као да је садржај био учитан из самосталног документа. </para>
+
+<para
+>Такође је могуће задати алтернативна кодирања. Имајте у виду да се осмобитни знакови морају избећи знаком процента и двама цифрама хексадекадног кôда: <userinput
+>data:;charset=iso-8859-1,Gr%FC%DFe aus Schl%E4gl</userinput
+> производи <literal
+>Grüße aus Schlägl</literal
+>, док би испуштање атрибута кодирања могло довести до нечега попут <literal
+>Gr??e aus Schl?gl</literal
+>. </para>
+
+<para
+>Више информација даје <ulink url="http://www.ietf.org/rfc/rfc2397.txt"
+>ИЕТФ‑ов РФЦ 2397</ulink
+>.</para>
+
+</article>
+

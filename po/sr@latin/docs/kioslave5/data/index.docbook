@@ -1,0 +1,83 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Serbian-Latin "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="data">
+<title
+>URL‑ovi podataka</title>
+
+<articleinfo>
+<authorgroup>
+<author
+><personname
+><firstname
+>Leo</firstname
+> <surname
+>Savernik</surname
+></personname
+> <address
+><email
+>l.savernik@aon.at</email
+></address
+> </author>
+<othercredit role="translator"
+><firstname
+>Dragan</firstname
+><surname
+>Pantelić</surname
+><affiliation
+><address
+><email
+>falcon-10@gmx.de</email
+></address
+></affiliation
+><contrib
+>prevod</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>6. 2. 2003.</date>
+<!--releaseinfo
+>2.20.00</releaseinfo-->
+
+</articleinfo>
+
+<para
+>URL‑ovi podataka omogućavaju uključivanje manjih dokumenata u sam URL. Ovo je korisno za vrlo male probne HTML slučajeve, ili druge prilike u kojima nema smisla pripravljati samostalni dokument.</para>
+
+<para
+><userinput
+>data:,nekidjavo</userinput
+> (obratite pažnju na zapetu posle dvotačke) isporučiće tekstualni dokument koji sadrži samo <literal
+>nekidjavo</literal
+>.  </para>
+
+<para
+>Prethodni primer isporučio je tekstualni dokument. Za HTML dokumente treba zadati MIME tip <literal
+>text/html</literal
+>: <userinput
+>data:text/html,&lt;naslov&gt;proba&lt;/naslov&gt;&lt;p&gt;Ovo je probni slucaj&lt;/p&gt;</userinput
+>. Ovo će proizvesti tačno onakav izlaz kao da je sadržaj bio učitan iz samostalnog dokumenta. </para>
+
+<para
+>Takođe je moguće zadati alternativna kodiranja. Imajte u vidu da se osmobitni znakovi moraju izbeći znakom procenta i dvama ciframa heksadekadnog kôda: <userinput
+>data:;charset=iso-8859-1,Gr%FC%DFe aus Schl%E4gl</userinput
+> proizvodi <literal
+>Grüße aus Schlägl</literal
+>, dok bi ispuštanje atributa kodiranja moglo dovesti do nečega poput <literal
+>Gr??e aus Schl?gl</literal
+>. </para>
+
+<para
+>Više informacija daje <ulink url="http://www.ietf.org/rfc/rfc2397.txt"
+>IETF‑ov RFC 2397</ulink
+>.</para>
+
+</article>
+
