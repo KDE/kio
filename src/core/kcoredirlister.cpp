@@ -817,29 +817,35 @@ void KCoreDirListerCache::slotFilesRemoved(const QList<QUrl> &fileList)
     QList<QUrl> deletedSubdirs;
 
     for (const QUrl &url : fileList) {
-        DirItem *dirItem = dirItemForUrl(url); // is it a listed directory?
-        if (dirItem) {
-            deletedSubdirs.append(url);
-            if (!dirItem->rootItem.isNull()) {
-                removedItemsByDir[url].append(dirItem->rootItem);
+        const QList<QUrl> dirUrls = directoriesForCanonicalPath(url);
+        for (const QUrl &dir : dirUrls) {
+            DirItem *dirItem = dirItemForUrl(dir); // is it a listed directory?
+            if (dirItem) {
+                deletedSubdirs.append(dir);
+                if (!dirItem->rootItem.isNull()) {
+                    removedItemsByDir[url].append(dirItem->rootItem);
+                }
             }
         }
 
         const QUrl parentDir = url.adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash);
-        dirItem = dirItemForUrl(parentDir);
-        if (!dirItem) {
-            continue;
-        }
-        for (auto fit = dirItem->lstItems.begin(), fend = dirItem->lstItems.end(); fit != fend; ++fit) {
-            if ((*fit).url() == url) {
-                const KFileItem fileitem = *fit;
-                removedItemsByDir[parentDir].append(fileitem);
-                // If we found a fileitem, we can test if it's a dir. If not, we'll go to deleteDir just in case.
-                if (fileitem.isNull() || fileitem.isDir()) {
-                    deletedSubdirs.append(url);
+        const QList<QUrl> parentDirUrls = directoriesForCanonicalPath(parentDir);
+        for (const QUrl &dir : parentDirUrls) {
+            DirItem *dirItem = dirItemForUrl(dir);
+            if (!dirItem) {
+                continue;
+            }
+            for (auto fit = dirItem->lstItems.begin(), fend = dirItem->lstItems.end(); fit != fend; ++fit) {
+                if ((*fit).url() == url) {
+                    const KFileItem fileitem = *fit;
+                    removedItemsByDir[dir].append(fileitem);
+                    // If we found a fileitem, we can test if it's a dir. If not, we'll go to deleteDir just in case.
+                    if (fileitem.isNull() || fileitem.isDir()) {
+                        deletedSubdirs.append(url);
+                    }
+                    dirItem->lstItems.erase(fit); // remove fileitem from list
+                    break;
                 }
-                dirItem->lstItems.erase(fit); // remove fileitem from list
-                break;
             }
         }
     }
