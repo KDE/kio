@@ -141,7 +141,7 @@ static bool addToXbel(const QUrl &url, const QString &desktopEntryName, KRecentD
 
     xml.readNextStartElement();
     if (!existingContent.isEmpty()) {
-        if (xml.name().isEmpty() || xml.name() != xbelTag || xml.attributes().hasAttribute(versionAttribute)) {
+        if (xml.name().isEmpty() || xml.name() != xbelTag || !xml.attributes().hasAttribute(versionAttribute)) {
             qCDebug(KIO_CORE) << "The recently-used.xbel is not an XBEL file, overwriting.";
         } else if (xml.attributes().value(versionAttribute) != expectedVersion) {
             qCDebug(KIO_CORE) << "The recently-used.xbel is not an XBEL version 1.0 file but has version: " << xml.attributes().value(versionAttribute)
