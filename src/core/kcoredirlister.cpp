@@ -64,11 +64,6 @@ KCoreDirListerCache::KCoreDirListerCache()
     connect(kdirnotify, &org::kde::KDirNotify::FilesChanged, this, &KCoreDirListerCache::slotFilesChanged);
     connect(kdirnotify, &org::kde::KDirNotify::FilesRemoved, this, qOverload<const QStringList &>(&KCoreDirListerCache::slotFilesRemoved));
 #endif
-
-    // Probably not needed in KF5 anymore:
-    // The use of KUrl::url() in ~DirItem (sendSignal) crashes if the static for QRegExpEngine got deleted already,
-    // so we need to destroy the KCoreDirListerCache before that.
-    // qAddPostRoutine(kDirListerCache.destroy);
 }
 
 KCoreDirListerCache::~KCoreDirListerCache()
