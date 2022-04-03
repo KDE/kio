@@ -5,6 +5,7 @@ Name[az]=Linguee
 Name[bs]=Linguee
 Name[ca]=Linguee
 Name[ca@valencia]=Linguee
+Name[en_GB]=Linguee
 Name[es]=Linguee
 Name[fi]=Linguee
 Name[fr]=Linguee
@@ -28,6 +29,7 @@ Query[az]=https://www.linguee.com/search?source=auto&query=\\{@}
 Query[bs]=https://www.linguee.com/search?source=auto&query=\\{@}
 Query[ca]=https://www.linguee.com/search?source=auto&query=\\{@}
 Query[ca@valencia]=https://www.linguee.com/search?source=auto&query=\\{@}
+Query[en_GB]=https://www.linguee.com/search?source=auto&query=\\{@}
 Query[es]=https://www.linguee.com/search?source=auto&query=\\{@}
 Query[fi]=https://www.linguee.com/search?source=auto&query=\\{@}
 Query[fr]=https://www.linguee.com/search?source=auto&query=\\{@}

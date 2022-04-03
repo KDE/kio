@@ -8,6 +8,7 @@ Name[az]=KDE mağazası
 Name[bs]=KDE Prodavnica
 Name[ca]=KDE Store
 Name[ca@valencia]=KDE Store
+Name[en_GB]=KDE Store
 Name[es]=KDE Store
 Name[fr]=Boutique de KDE
 Name[gl]=Tenda KDE
@@ -28,6 +29,7 @@ Query[az]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[bs]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[ca]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[ca@valencia]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
+Query[en_GB]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[es]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[fi]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[fr]=https://store.kde.org/content/search.php?search=Search&name=\\{@}

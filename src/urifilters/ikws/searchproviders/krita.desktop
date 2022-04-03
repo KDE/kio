@@ -5,6 +5,7 @@ Name[az]=Krita təlimatı
 Name[bs]=Krita Uputstvo
 Name[ca]=Manual del Krita
 Name[ca@valencia]=Manual de Krita
+Name[en_GB]=Krita Manual
 Name[es]=Manual de Krita
 Name[fi]=Kritan käyttöopas
 Name[fr]=Manuel de Krita
@@ -28,6 +29,7 @@ Query[az]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[bs]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[ca]=https://docs.krita.org/ca/search.html?q=\\{@}
 Query[ca@valencia]=https://docs.krita.org/ca/search.html?q=\\{@}
+Query[en_GB]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[es]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[fi]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[fr]=https://docs.krita.org/en/search.html?q=\\{@}

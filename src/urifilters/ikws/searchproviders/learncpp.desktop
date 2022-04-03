@@ -5,6 +5,7 @@ Name[az]=CPP öyrənin
 Name[bs]=Naučite CPP
 Name[ca]=Learn CPP
 Name[ca@valencia]=Learn CPP
+Name[en_GB]=Learn CPP
 Name[es]=Aprenda CPP
 Name[fi]=Learn CPP
 Name[fr]=Apprenez le « CPP »
@@ -28,6 +29,7 @@ Query[az]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[bs]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[ca]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[ca@valencia]=https://www.learncpp.com/gsearch/?q=\\{@}
+Query[en_GB]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[es]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[fi]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[fr]=https://www.learncpp.com/gsearch/?q=\\{@}

@@ -6,6 +6,7 @@ Name[az]=KDE Invent birləşdirmə tələbləri
 Name[bs]=KDE Izum Zahtjevi za spajanje
 Name[ca]=Peticions de fusió de KDE Invent
 Name[ca@valencia]=Peticions de fusió de KDE Invent
+Name[en_GB]=KDE Invent Merge Requests
 Name[es]=Solicitudes de fusiones de KDE Invent
 Name[fi]=KDE Inventin yhdistämispyynnöt
 Name[fr]=Requêtes de fusion de KDE Invent
@@ -27,6 +28,7 @@ Query[az]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[bs]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[ca]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[ca@valencia]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
+Query[en_GB]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[es]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[fi]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[fr]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}

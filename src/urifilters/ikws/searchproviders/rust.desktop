@@ -4,7 +4,8 @@ Name[ar]=توثيق رست STD
 Name[az]=Rust STD sənədləşməsi
 Name[bs]=Rast STD Dokumentacija
 Name[ca]=Documentació del Rust STD
-Name[ca@valencia]=Documentació del Rust STD
+Name[ca@valencia]=Documentació de Rust STD
+Name[en_GB]=Rust STD Documentation
 Name[es]=Documentación de Rust STD
 Name[fi]=Rust STD -ohjeistus
 Name[fr]=Documentation de Rust STD
@@ -28,6 +29,7 @@ Query[az]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[bs]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[ca]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[ca@valencia]=https://doc.rust-lang.org/std/index.html?search=\\{@}
+Query[en_GB]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[es]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[fi]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[fr]=https://doc.rust-lang.org/std/index.html?search=\\{@}

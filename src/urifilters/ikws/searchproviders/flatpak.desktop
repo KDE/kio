@@ -5,6 +5,7 @@ Name[az]=Flatpak sənədləşməsi
 Name[bs]=Flatpak Dokumentacija
 Name[ca]=Documentació del Flatpak
 Name[ca@valencia]=Documentació de Flatpak
+Name[en_GB]=Flatpak Documentation
 Name[es]=Documentación de Flatpak
 Name[fi]=Flatpak-dokumentaatio
 Name[fr]=Documentation de Flatpak
@@ -28,6 +29,7 @@ Query[az]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=
 Query[bs]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[ca]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[ca@valencia]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
+Query[en_GB]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[es]=https://docs.flatpak.org/es/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[fi]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[fr]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
