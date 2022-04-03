@@ -78,6 +78,9 @@ void KRecentDocumentTest::testXbelBookmark()
     }
 
     auto urls = KRecentDocument::recentUrls();
+    if (urls.length() != 1) {
+        qWarning() << urls;
+    }
 
     QCOMPARE(urls.length(), 1);
     QCOMPARE(urls.at(0), url);
