@@ -91,6 +91,8 @@ static KRecentDocument::RecentDocumentGroups groupsForMimeType(const QString mim
 
 static bool addToXbel(const QUrl &url, const QString &desktopEntryName, KRecentDocument::RecentDocumentGroups groups)
 {
+    QDir().mkpath(QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation));
+
     // Won't help for GTK applications and whatnot, but we can be good citizens ourselves
     QLockFile lockFile(xbelPath() + QLatin1String(".lock"));
     lockFile.setStaleLockTime(0);
