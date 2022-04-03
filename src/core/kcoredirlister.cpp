@@ -1057,16 +1057,15 @@ void KCoreDirListerCache::slotFileDirty(const QString &path)
     if (isDir) {
         const QList<QUrl> urls = directoriesForCanonicalPath(url);
         for (const QUrl &dir : urls) {
-            handleFileDirty(dir); // e.g. for permission changes
             handleDirDirty(dir);
         }
-    } else {
-        const QList<QUrl> urls = directoriesForCanonicalPath(url.adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash));
-        for (const QUrl &dir : urls) {
-            QUrl aliasUrl(dir);
-            aliasUrl.setPath(concatPaths(aliasUrl.path(), url.fileName()));
-            handleFileDirty(aliasUrl);
-        }
+    }
+    // Also do this for dirs, e.g. to handle permission changes
+    const QList<QUrl> urls = directoriesForCanonicalPath(url.adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash));
+    for (const QUrl &dir : urls) {
+        QUrl aliasUrl(dir);
+        aliasUrl.setPath(concatPaths(aliasUrl.path(), url.fileName()));
+        handleFileDirty(aliasUrl);
     }
 }
 
@@ -1101,13 +1100,12 @@ void KCoreDirListerCache::handleDirDirty(const QUrl &url)
     }
 }
 
-// Called by slotFileDirty
+// Called by slotFileDirty, for every alias of <url>
 void KCoreDirListerCache::handleFileDirty(const QUrl &url)
 {
     // A file: do we know about it already?
     const KFileItem &existingItem = findByUrl(nullptr, url);
     const QUrl dir = url.adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash);
-    QString filePath = url.toLocalFile();
     if (existingItem.isNull()) {
         // No - update the parent dir then
         handleDirDirty(dir);
@@ -1115,6 +1113,7 @@ void KCoreDirListerCache::handleFileDirty(const QUrl &url)
 
     // Delay updating the file, FAM is flooding us with events
     if (checkUpdate(dir)) {
+        const QString filePath = url.toLocalFile();
         const auto [it, isInserted] = pendingUpdates.insert(filePath);
         if (isInserted && !pendingUpdateTimer.isActive()) {
             pendingUpdateTimer.start(200);
