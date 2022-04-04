@@ -446,8 +446,8 @@ void KCoreDirListerCache::setAutoUpdate(KCoreDirLister *lister, bool enable)
 {
     // IMPORTANT: this method does not check for the current autoUpdate state!
 
-    for (auto it = lister->d->lstDirs.constBegin(), cend = lister->d->lstDirs.constEnd(); it != cend; ++it) {
-        DirItem *dirItem = itemsInUse.value(*it);
+    for (const QUrl &url : std::as_const(lister->d->lstDirs)) {
+        DirItem *dirItem = itemsInUse.value(url);
         Q_ASSERT(dirItem);
         if (enable) {
             dirItem->incAutoUpdate();
@@ -1873,15 +1873,13 @@ void KCoreDirListerCache::slotUpdateResult(KJob *j)
 
 KIO::ListJob *KCoreDirListerCache::jobForUrl(const QUrl &url, KIO::ListJob *not_job)
 {
-    auto it = runningListJobs.constBegin();
-    while (it != runningListJobs.constEnd()) {
+    for (auto it = runningListJobs.cbegin(); it != runningListJobs.cend(); ++it) {
         KIO::ListJob *job = it.key();
         const QUrl jobUrl = joburl(job).adjusted(QUrl::StripTrailingSlash);
 
         if (jobUrl == url && job != not_job) {
             return job;
         }
-        ++it;
     }
     return nullptr;
 }
@@ -1908,9 +1906,9 @@ void KCoreDirListerCache::deleteUnmarkedItems(const QList<KCoreDirLister *> &lis
 {
     // Make list of deleted items (for emitting)
     KFileItemList deletedItems;
-    QHashIterator<QString, KFileItem> kit(itemsToDelete);
-    while (kit.hasNext()) {
-        const KFileItem item = kit.next().value();
+    deletedItems.reserve(itemsToDelete.size());
+    for (auto kit = itemsToDelete.cbegin(), endIt = itemsToDelete.cend(); kit != endIt; ++kit) {
+        const KFileItem item = kit.value();
         deletedItems.append(item);
         qCDebug(KIO_CORE_DIRLISTER) << "deleted:" << item.name() << item;
     }
@@ -2272,10 +2270,7 @@ void KCoreDirListerPrivate::emitChanges()
             continue;
         }
 
-        auto kit = itemList->begin();
-        const auto kend = itemList->end();
-        for (; kit != kend; ++kit) {
-            const KFileItem &item = *kit;
+        for (const auto &item : *itemList) {
             const QString text = item.text();
             if (text == QLatin1Char('.') || text == QLatin1String("..")) {
                 continue;
@@ -2285,7 +2280,7 @@ void KCoreDirListerPrivate::emitChanges()
             if (nowVisible && !wasVisible) {
                 addNewItem(dir, item); // takes care of emitting newItem or itemsFilteredByMime
             } else if (!nowVisible && wasVisible) {
-                deletedItems.append(*kit);
+                deletedItems.append(item);
             }
         }
         if (!deletedItems.isEmpty()) {
@@ -2526,10 +2521,8 @@ void KCoreDirListerPrivate::addNewItems(const QUrl &directoryUrl, const QList<KF
     // TODO: make this faster - test if we have a filter at all first
     // DF: was this profiled? The matchesFoo() functions should be fast, w/o filters...
     // Of course if there is no filter and we can do a range-insertion instead of a loop, that might be good.
-    auto kit = items.cbegin();
-    const auto kend = items.cend();
-    for (; kit != kend; ++kit) {
-        addNewItem(directoryUrl, *kit);
+    for (const auto &item : items) {
+        addNewItem(directoryUrl, item);
     }
 }
 
