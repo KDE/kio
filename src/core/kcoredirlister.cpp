@@ -830,17 +830,18 @@ void KCoreDirListerCache::slotFilesRemoved(const QList<QUrl> &fileList)
             if (!dirItem) {
                 continue;
             }
-            for (auto fit = dirItem->lstItems.begin(), fend = dirItem->lstItems.end(); fit != fend; ++fit) {
-                if ((*fit).url() == url) {
-                    const KFileItem fileitem = *fit;
-                    removedItemsByDir[dir].append(fileitem);
-                    // If we found a fileitem, we can test if it's a dir. If not, we'll go to deleteDir just in case.
-                    if (fileitem.isNull() || fileitem.isDir()) {
-                        deletedSubdirs.append(url);
-                    }
-                    dirItem->lstItems.erase(fit); // remove fileitem from list
-                    break;
+
+            auto dirItemIt = std::find_if(dirItem->lstItems.begin(), dirItem->lstItems.end(), [&url](const KFileItem &fitem) {
+                return fitem.url() == url;
+            });
+            if (dirItemIt != dirItem->lstItems.end()) {
+                const KFileItem fileitem = *dirItemIt;
+                removedItemsByDir[dir].append(fileitem);
+                // If we found a fileitem, we can test if it's a dir. If not, we'll go to deleteDir just in case.
+                if (fileitem.isNull() || fileitem.isDir()) {
+                    deletedSubdirs.append(url);
                 }
+                dirItem->lstItems.erase(dirItemIt); // remove fileitem from list
             }
         }
     }
@@ -1915,12 +1916,11 @@ void KCoreDirListerCache::deleteUnmarkedItems(const QList<KCoreDirLister *> &lis
     }
 
     // Delete all remaining items
-    QMutableListIterator<KFileItem> it(lstItems);
-    while (it.hasNext()) {
-        if (itemsToDelete.contains(it.next().name())) {
-            it.remove();
-        }
-    }
+    auto it = std::remove_if(lstItems.begin(), lstItems.end(), [&itemsToDelete](const KFileItem &item) {
+        return itemsToDelete.contains(item.name());
+    });
+    lstItems.erase(it, lstItems.end());
+
     itemsDeleted(listers, deletedItems);
 }
 
@@ -2597,14 +2597,10 @@ bool KCoreDirListerPrivate::isItemVisible(const KFileItem &item) const
 
 void KCoreDirListerPrivate::emitItemsDeleted(const KFileItemList &itemsList)
 {
-    KFileItemList items = itemsList;
-    QMutableListIterator<KFileItem> it(items);
-    while (it.hasNext()) {
-        const KFileItem &item = it.next();
-        if (!isItemVisible(item) || !q->matchesMimeFilter(item)) {
-            it.remove();
-        }
-    }
+    KFileItemList items;
+    std::copy_if(itemsList.cbegin(), itemsList.cend(), std::back_inserter(items), [this](const KFileItem &item) {
+        return isItemVisible(item) || q->matchesMimeFilter(item);
+    });
     if (!items.isEmpty()) {
         Q_EMIT q->itemsDeleted(items);
     }
@@ -2758,14 +2754,9 @@ KFileItemList KCoreDirLister::itemsForDir(const QUrl &dir, WhichItems which) con
     if (which == AllItems) {
         return KFileItemList(*allItems);
     } else { // only items passing the filters
-        auto kit = allItems->constBegin();
-        const auto kend = allItems->constEnd();
-        for (; kit != kend; ++kit) {
-            const KFileItem &item = *kit;
-            if (d->isItemVisible(item) && matchesMimeFilter(item)) {
-                result.append(item);
-            }
-        }
+        std::copy_if(allItems->cbegin(), allItems->cend(), std::back_inserter(result), [this](const KFileItem &item) {
+            return d->isItemVisible(item) && matchesMimeFilter(item);
+        });
     }
     return result;
 }
