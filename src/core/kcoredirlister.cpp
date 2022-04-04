@@ -1947,8 +1947,8 @@ void KCoreDirListerCache::deleteDir(const QUrl &_dirUrl)
     // Separate itemsInUse iteration and calls to forgetDirs (which modify itemsInUse)
     QList<QUrl> affectedItems;
 
-    auto itu = itemsInUse.begin();
-    const auto ituend = itemsInUse.end();
+    auto itu = itemsInUse.cbegin();
+    const auto ituend = itemsInUse.cend();
     for (; itu != ituend; ++itu) {
         const QUrl &deletedUrl = itu.key();
         if (dirUrl == deletedUrl || dirUrl.isParentOf(deletedUrl)) {
@@ -1958,8 +1958,8 @@ void KCoreDirListerCache::deleteDir(const QUrl &_dirUrl)
 
     for (const QUrl &deletedUrl : std::as_const(affectedItems)) {
         // stop all jobs for deletedUrlStr
-        DirectoryDataHash::iterator dit = directoryData.find(deletedUrl);
-        if (dit != directoryData.end()) {
+        auto dit = directoryData.constFind(deletedUrl);
+        if (dit != directoryData.cend()) {
             // we need a copy because stop modifies the list
             const QList<KCoreDirLister *> listers = (*dit).listersCurrentlyListing;
             for (KCoreDirLister *kdl : listers) {
@@ -2555,11 +2555,10 @@ void KCoreDirListerPrivate::addRefreshItem(const QUrl &directoryUrl, const KFile
 void KCoreDirListerPrivate::emitItems()
 {
     if (!lstNewItems.empty()) {
-        QHashIterator<QUrl, KFileItemList> it(lstNewItems);
-        while (it.hasNext()) {
-            it.next();
-            Q_EMIT q->itemsAdded(it.key(), it.value());
-            Q_EMIT q->newItems(it.value()); // compat
+        for (auto it = lstNewItems.cbegin(); it != lstNewItems.cend(); ++it) {
+            const auto &val = it.value();
+            Q_EMIT q->itemsAdded(it.key(), val);
+            Q_EMIT q->newItems(val); // compat
         }
         lstNewItems.clear();
     }
@@ -2682,9 +2681,7 @@ uint KCoreDirListerPrivate::numJobs()
 #ifdef DEBUG_CACHE
     // This code helps detecting stale entries in the jobData map.
     qCDebug(KIO_CORE_DIRLISTER) << q << "numJobs:" << jobData.count();
-    QMapIterator<KIO::ListJob *, JobData> it(jobData);
-    while (it.hasNext()) {
-        it.next();
+    for (auto it = jobData.cbegin(); it != jobData.cend(); ++it) {
         qCDebug(KIO_CORE_DIRLISTER) << (void *)it.key();
         qCDebug(KIO_CORE_DIRLISTER) << it.key();
     }
