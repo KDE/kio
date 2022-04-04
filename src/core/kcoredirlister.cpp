@@ -652,17 +652,17 @@ void KCoreDirListerCache::updateDirectory(const QUrl &_dir)
     }
     Q_ASSERT(listers.isEmpty() || killed);
 
-    bool requestMimeType = std::any_of(listers.begin(), listers.end(), [](KCoreDirLister *lister) {
-        return lister->requestMimeTypeWhileListing();
-    });
-    requestMimeType = requestMimeType || std::any_of(holders.begin(), holders.end(), [](KCoreDirLister *lister) {
-                          return lister->requestMimeTypeWhileListing();
-                      });
-
     job = KIO::listDir(dir, KIO::HideProgressInfo);
     runningListJobs.insert(job, KIO::UDSEntryList());
 
-    if (requestMimeType) {
+    const bool requestFromListers = std::any_of(listers.cbegin(), listers.cend(), [](KCoreDirLister *lister) {
+        return lister->requestMimeTypeWhileListing();
+    });
+    const bool requestFromholders = std::any_of(holders.cbegin(), holders.cend(), [](KCoreDirLister *lister) {
+        return lister->requestMimeTypeWhileListing();
+    });
+
+    if (requestFromListers || requestFromholders) {
         job->addMetaData(QStringLiteral("statDetails"), QString::number(KIO::StatDefaultDetails | KIO::StatMimeType));
     }
 
