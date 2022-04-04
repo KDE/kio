@@ -14,6 +14,7 @@ Name[sl]=Yandex
 Name[sv]=Yandex
 Name[uk]=Yandex
 Name[x-test]=xxYandexxx
+Name[zh_CN]=Yandex
 Query=https://yandex.ru/search/?text=\\{@}
 Query[az]=https://yandex.ru/search/?text=\\{@}
 Query[ca]=https://yandex.ru/search/?text=\\{@}
@@ -28,4 +29,5 @@ Query[sl]=https://yandex.ru/search/?text=\\{@}
 Query[sv]=https://yandex.ru/search/?text=\\{@}
 Query[uk]=https://yandex.ru/search/?text=\\{@}
 Query[x-test]=xxhttps://yandex.ru/search/?text=\\{@}xx
+Query[zh_CN]=https://yandex.ru/search/?text=\\{@}
 Type=Service
