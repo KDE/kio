@@ -2618,12 +2618,10 @@ void KCoreDirListerPrivate::slotPercent(KJob *job, unsigned long pcnt)
 
     KIO::filesize_t size = 0;
 
-    auto dataIt = jobData.cbegin();
-    while (dataIt != jobData.cend()) {
-        const auto data = dataIt.value();
+    for (auto dataIt = jobData.cbegin(); dataIt != jobData.cend(); ++dataIt) {
+        const JobData &data = dataIt.value();
         result += data.percent * data.totalSize;
         size += data.totalSize;
-        ++dataIt;
     }
 
     if (size != 0) {
@@ -2639,10 +2637,8 @@ void KCoreDirListerPrivate::slotTotalSize(KJob *job, qulonglong size)
     jobData[static_cast<KIO::ListJob *>(job)].totalSize = size;
 
     KIO::filesize_t result = 0;
-    auto dataIt = jobData.cbegin();
-    while (dataIt != jobData.cend()) {
+    for (auto dataIt = jobData.cbegin(); dataIt != jobData.cend(); ++dataIt) {
         result += dataIt.value().totalSize;
-        ++dataIt;
     }
 
     Q_EMIT q->totalSize(result);
@@ -2653,10 +2649,8 @@ void KCoreDirListerPrivate::slotProcessedSize(KJob *job, qulonglong size)
     jobData[static_cast<KIO::ListJob *>(job)].processedSize = size;
 
     KIO::filesize_t result = 0;
-    auto dataIt = jobData.cbegin();
-    while (dataIt != jobData.cend()) {
+    for (auto dataIt = jobData.cbegin(); dataIt != jobData.cend(); ++dataIt) {
         result += dataIt.value().processedSize;
-        ++dataIt;
     }
 
     Q_EMIT q->processedSize(result);
@@ -2667,10 +2661,8 @@ void KCoreDirListerPrivate::slotSpeed(KJob *job, unsigned long spd)
     jobData[static_cast<KIO::ListJob *>(job)].speed = spd;
 
     int result = 0;
-    auto dataIt = jobData.cbegin();
-    while (dataIt != jobData.cend()) {
+    for (auto dataIt = jobData.cbegin(); dataIt != jobData.cend(); ++dataIt) {
         result += dataIt.value().speed;
-        ++dataIt;
     }
 
     Q_EMIT q->speed(result);
