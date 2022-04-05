@@ -16,6 +16,7 @@ Name[nl]=CPP leren
 Name[pl]=Naucz się CPP
 Name[pt]=Aprender CPP
 Name[pt_BR]=Learn CPP
+Name[ro]=Learn CPP
 Name[sl]=Naučite se CPP
 Name[sv]=Lär dig C++
 Name[uk]=Learn CPP
@@ -40,6 +41,7 @@ Query[nl]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[pl]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[pt]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[pt_BR]=https://www.learncpp.com/gsearch/?q=\\{@}
+Query[ro]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[sl]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[sv]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[uk]=https://www.learncpp.com/gsearch/?q=\\{@}
