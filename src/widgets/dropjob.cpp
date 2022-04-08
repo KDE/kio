@@ -31,11 +31,13 @@
 #include <KService>
 #include <KUrlMimeData>
 
+#include <QDBusPendingCall>
 #include <QDropEvent>
 #include <QFileInfo>
 #include <QMenu>
 #include <QMimeData>
 #include <QProcess>
+#include <QSharedPointer>
 #include <QTimer>
 
 using namespace KIO;
@@ -216,9 +218,37 @@ DropJob::~DropJob()
 {
 }
 
+static const QString s_applicationSlashXDashKDEDashArkDashDnDExtractDashService = //
+    QStringLiteral("application/x-kde-ark-dndextract-service");
+static const QString s_applicationSlashXDashKDEDashArkDashDnDExtractDashPath = //
+    QStringLiteral("application/x-kde-ark-dndextract-path");
+
 void DropJobPrivate::slotStart()
 {
     Q_Q(DropJob);
+
+    if (m_mimeData->hasFormat(s_applicationSlashXDashKDEDashArkDashDnDExtractDashService)
+        && m_mimeData->hasFormat(s_applicationSlashXDashKDEDashArkDashDnDExtractDashPath)) {
+        const QString remoteDBusClient = QString::fromUtf8(m_mimeData->data(s_applicationSlashXDashKDEDashArkDashDnDExtractDashService));
+        const QString remoteDBusPath = QString::fromUtf8(m_mimeData->data(s_applicationSlashXDashKDEDashArkDashDnDExtractDashPath));
+
+        QDBusMessage message = QDBusMessage::createMethodCall(remoteDBusClient,
+                                                              remoteDBusPath,
+                                                              QStringLiteral("org.kde.ark.DndExtract"),
+                                                              QStringLiteral("extractSelectedFilesTo"));
+        message.setArguments({m_destUrl.toDisplayString(QUrl::PreferLocalFile)});
+        const auto pending = QDBusConnection::sessionBus().asyncCall(message);
+        auto watcher = QSharedPointer<QDBusPendingCallWatcher>::create(pending);
+        QObject::connect(watcher.get(), &QDBusPendingCallWatcher::finished, q, [this, watcher] {
+            Q_Q(DropJob);
+
+            if (watcher->isError()) {
+                q->setError(KIO::ERR_UNKNOWN);
+            }
+            q->emitResult();
+        });
+    }
+
     if (!m_urls.isEmpty()) {
         if (destIsDirectory()) {
             handleCopyToDirectory();
