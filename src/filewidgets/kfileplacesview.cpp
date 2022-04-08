@@ -21,6 +21,7 @@
 #include <QPainter>
 #include <QPointer>
 #include <QScrollBar>
+#include <QScroller>
 #include <QTimeLine>
 #include <QTimer>
 #include <QToolTip>
@@ -748,6 +749,19 @@ KFilePlacesView::KFilePlacesView(QWidget *parent)
     palette.setColor(viewport()->backgroundRole(), Qt::transparent);
     palette.setColor(viewport()->foregroundRole(), palette.color(QPalette::WindowText));
     viewport()->setPalette(palette);
+
+    setVerticalScrollMode(QAbstractItemView::ScrollPerPixel);
+
+    d->m_watcher->m_scroller = QScroller::scroller(viewport());
+    QScrollerProperties scrollerProp;
+    scrollerProp.setScrollMetric(QScrollerProperties::AcceleratingFlickMaximumTime, 0.2); //QTBUG-88249
+    d->m_watcher->m_scroller->setScrollerProperties(scrollerProp);
+    d->m_watcher->m_scroller->grabGesture(viewport());
+    connect(d->m_watcher->m_scroller, &QScroller::stateChanged, d->m_watcher, &KFilePlacesEventWatcher::qScrollerStateChanged);
+
+    setAttribute(Qt::WA_AcceptTouchEvents);
+    viewport()->grabGesture(Qt::TapGesture);
+    viewport()->grabGesture(Qt::TapAndHoldGesture);
 
     // Note: Don't connect to the activated() signal, as the behavior when it is
     // committed depends on the used widget style. The click behavior of

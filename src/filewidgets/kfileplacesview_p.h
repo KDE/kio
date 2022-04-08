@@ -15,9 +15,11 @@
 #include <QAbstractItemDelegate>
 #include <QDateTime>
 #include <QDeadlineTimer>
+#include <QGestureEvent>
 #include <QMouseEvent>
 #include <QPointer>
 #include <QTimer>
+#include <QScroller>
 
 class KFilePlacesView;
 class QTimeLine;
@@ -113,9 +115,17 @@ class KFilePlacesEventWatcher : public QObject
     Q_OBJECT
 
 public:
-    explicit KFilePlacesEventWatcher(QObject *parent = nullptr)
+    explicit KFilePlacesEventWatcher(KFilePlacesView *parent = nullptr)
         : QObject(parent)
+        , m_scroller(nullptr)
+        , q(parent)
+        , m_rubberBand(nullptr)
+        , m_isTouchEvent(false)
+        , m_mousePressed(false)
+        , m_tapAndHoldActive(false)
+        , m_lastMouseSource(Qt::MouseEventNotSynthesized)
     {
+        m_rubberBand = new QRubberBand(QRubberBand::Rectangle, parent);
     }
 
     const QModelIndex &hoveredHeaderAreaIndex() const
@@ -126,6 +136,16 @@ public:
     const QModelIndex &hoveredActionIndex() const
     {
         return m_hoveredActionIndex;
+    }
+
+    QScroller *m_scroller;
+
+public Q_SLOTS:
+    void qScrollerStateChanged(const QScroller::State newState)
+    {
+        if (newState == QScroller::Inactive) {
+            m_isTouchEvent = false;
+        }
     }
 
 Q_SIGNALS:
@@ -148,6 +168,15 @@ protected:
     {
         switch (event->type()) {
         case QEvent::MouseMove: {
+            if (m_isTouchEvent && !m_tapAndHoldActive) {
+                return true;
+            }
+
+            m_tapAndHoldActive = false;
+            if (m_rubberBand->isVisible()) {
+                m_rubberBand->hide();
+            }
+
             QAbstractItemView *view = qobject_cast<QAbstractItemView *>(watched->parent());
             const QPoint pos = static_cast<QMouseEvent *>(event)->pos();
             const QModelIndex index = view->indexAt(pos);
@@ -200,21 +229,13 @@ protected:
             break;
         case QEvent::MouseButtonPress: {
             QMouseEvent *mouseEvent = static_cast<QMouseEvent *>(event);
-            if (mouseEvent->button() == Qt::LeftButton || mouseEvent->button() == Qt::MiddleButton) {
-                QAbstractItemView *view = qobject_cast<QAbstractItemView *>(watched->parent());
-                const QModelIndex index = view->indexAt(mouseEvent->pos());
-                if (index.isValid()) {
-                    if (mouseEvent->button() == Qt::LeftButton) {
-                        if (auto *delegate = qobject_cast<KFilePlacesViewDelegate *>(view->itemDelegate())) {
-                            if (delegate->pointIsTeardownAction(mouseEvent->pos())) {
-                                m_clickedActionIndex = index;
-                            }
-                        }
-                    } else if (mouseEvent->button() == Qt::MiddleButton) {
-                        m_middleClickedIndex = index;
-                    }
-                }
+            m_mousePressed = true;
+            m_lastMouseSource = mouseEvent->source();
+
+            if (m_isTouchEvent) {
+                return true;
             }
+            onPressed(mouseEvent);
             Q_FALLTHROUGH();
         }
         case QEvent::MouseButtonDblClick: {
@@ -262,6 +283,16 @@ protected:
         case QEvent::PaletteChange:
             Q_EMIT paletteChanged();
             break;
+        case QEvent::TouchBegin: {
+            m_isTouchEvent = true;
+            m_mousePressed = false;
+            break;
+        }
+        case QEvent::Gesture: {
+                gestureEvent(static_cast<QGestureEvent *>(event));
+                event->accept();
+            return true;
+        }
         default:
             return false;
         }
@@ -269,11 +300,118 @@ protected:
         return false;
     }
 
+    void onPressed(QMouseEvent *mouseEvent) {
+        if (mouseEvent->button() == Qt::LeftButton || mouseEvent->button() == Qt::MiddleButton) {
+            QAbstractItemView *view = qobject_cast<QAbstractItemView *>(q);
+            const QModelIndex index = view->indexAt(mouseEvent->pos());
+            if (index.isValid()) {
+                if (mouseEvent->button() == Qt::LeftButton) {
+                    if (auto *delegate = qobject_cast<KFilePlacesViewDelegate *>(view->itemDelegate())) {
+                        if (delegate->pointIsTeardownAction(mouseEvent->pos())) {
+                            m_clickedActionIndex = index;
+                        }
+                    }
+                } else if (mouseEvent->button() == Qt::MiddleButton) {
+                    m_middleClickedIndex = index;
+                }
+            }
+        }
+    }
+
+    void gestureEvent(QGestureEvent *event) {
+        if (QGesture *gesture = event->gesture(Qt::TapGesture)) {
+            tapTriggered(static_cast<QTapGesture *>(gesture));
+        }
+        if (QGesture *gesture = event->gesture(Qt::TapAndHoldGesture)) {
+            tapAndHoldTriggered(static_cast<QTapAndHoldGesture *>(gesture));
+        }
+    }
+
+    void tapAndHoldTriggered(QTapAndHoldGesture *tap) {
+        if (tap->state() == Qt::GestureFinished) {
+            if (!m_mousePressed) {
+                return;
+            }
+
+            // the TapAndHold gesture is triggerable with the mouse and stylus, we don't want this
+            if (m_lastMouseSource == Qt::MouseEventNotSynthesized || !m_isTouchEvent) {
+                return;
+            }
+
+            m_tapAndHoldActive = true;
+            m_scroller->stop();
+
+            // simulate a mousePressEvent, to allow KFilePlacesView to select the items
+            const QPoint tapViewportPos(q->viewport()->mapFromGlobal(tap->position().toPoint()));
+            QMouseEvent fakeMousePress(QEvent::MouseButtonPress, tapViewportPos,
+                                       Qt::LeftButton, Qt::LeftButton, Qt::NoModifier);
+            onPressed(&fakeMousePress);
+            q->mousePressEvent(&fakeMousePress);
+
+            const QPoint tapIndicatorSize(80, 80);
+            const QPoint pos(q->mapFromGlobal(tap->position().toPoint()));
+            const QRect tapIndicatorRect(pos - (tapIndicatorSize / 2), pos + (tapIndicatorSize / 2));
+            m_rubberBand->setGeometry(tapIndicatorRect.normalized());
+            m_rubberBand->show();
+        }
+    }
+
+    void tapTriggered(QTapGesture *tap) {
+        static bool scrollerWasScrolling = false;
+
+        if (tap->state() == Qt::GestureStarted) {
+            m_tapAndHoldActive = false;
+            // if QScroller state is Scrolling or Dragging, the user makes the tap to stop the scrolling
+            auto const scrollerState = m_scroller->state();
+            if (scrollerState == QScroller::Scrolling || scrollerState == QScroller::Dragging) {
+                scrollerWasScrolling = true;
+            } else {
+                scrollerWasScrolling = false;
+            }
+        }
+
+        if (tap->state() == Qt::GestureFinished && !scrollerWasScrolling) {
+            m_isTouchEvent = false;
+
+            // with touch you can touch multiple widgets at the same time, but only one widget will get a mousePressEvent.
+            // we use this to select the right window
+            if (!m_mousePressed) {
+                return;
+            }
+
+            if (m_rubberBand->isVisible()) {
+                m_rubberBand->hide();
+            }
+            // simulate a mousePressEvent, to allow KFilePlacesView to select the items
+            QMouseEvent fakeMousePress(QEvent::MouseButtonPress, tap->position(),
+                                    m_tapAndHoldActive ? Qt::RightButton : Qt::LeftButton,
+                                    m_tapAndHoldActive ? Qt::RightButton : Qt::LeftButton,
+                                    Qt::NoModifier);
+            onPressed(&fakeMousePress);
+            q->mousePressEvent(&fakeMousePress);
+
+            if (m_tapAndHoldActive) {
+                // simulate a contextMenuEvent
+                QContextMenuEvent fakeContextMenu(QContextMenuEvent::Mouse, tap->position().toPoint(), q->mapToGlobal(tap->position().toPoint()));
+                q->contextMenuEvent(&fakeContextMenu);
+            }
+            m_tapAndHoldActive = false;
+        }
+    }
+
 private:
     QPersistentModelIndex m_hoveredHeaderAreaIndex;
     QPersistentModelIndex m_middleClickedIndex;
     QPersistentModelIndex m_hoveredActionIndex;
     QPersistentModelIndex m_clickedActionIndex;
+
+    KFilePlacesView *const q;
+
+    QRubberBand *m_rubberBand;
+    bool m_isTouchEvent;
+    bool m_mousePressed;
+    bool m_tapAndHoldActive;
+    Qt::MouseEventSource m_lastMouseSource;
 };
 
 #endif

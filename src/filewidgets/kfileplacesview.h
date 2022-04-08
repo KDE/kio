@@ -187,6 +187,7 @@ Q_SIGNALS:
 
 private:
     friend class KFilePlacesViewPrivate;
+    friend class KFilePlacesEventWatcher;
     std::unique_ptr<KFilePlacesViewPrivate> const d;
 };
 
