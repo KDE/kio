@@ -23,6 +23,7 @@ Name[ro]=Documentația Qt6 on-line
 Name[sl]=Spletna dokumentacija za Qt6
 Name[sv]=Qt6-dokumentation på nätet
 Name[uk]=Документація з Qt6 у мережі
+Name[vi]=Tài liệu trực tuyến Qt6
 Name[x-test]=xxQt6 Online Documentationxx
 Name[zh_CN]=Qt6 在线文档
 Query=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
@@ -46,6 +47,7 @@ Query[ro]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[sl]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[sv]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[uk]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
+Query[vi]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[x-test]=xxhttps://doc.qt.io/qt-6/search-results.html?q=\\{@}xx
 Query[zh_CN]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Type=Service

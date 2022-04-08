@@ -117,6 +117,7 @@ Query[ro]=https://api.kde.org/search.html?query=\\{@}
 Query[sl]=https://api.kde.org/search.html?query=\\{@}
 Query[sv]=https://api.kde.org/search.html?query=\\{@}
 Query[uk]=https://api.kde.org/search.html?query=\\{@}
+Query[vi]=https://api.kde.org/search.html?query=\\{@}
 Query[x-test]=xxhttps://api.kde.org/search.html?query=\\{@}xx
 Query[zh_CN]=https://api.kde.org/search.html?query=\\{@}
 Type=Service

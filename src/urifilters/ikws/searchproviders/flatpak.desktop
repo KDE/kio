@@ -20,6 +20,7 @@ Name[ro]=Documentația Flatpak
 Name[sl]=Dokumentacija za Flatpak
 Name[sv]=Flatpak-dokumentation
 Name[uk]=Документація з Flatpak
+Name[vi]=Tài liệu Flatpak
 Name[x-test]=xxFlatpak Documentationxx
 Name[zh_CN]=Flatpak 文档
 Type=Service
@@ -45,5 +46,6 @@ Query[ro]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=
 Query[sl]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=privzeto
 Query[sv]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[uk]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
+Query[vi]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[x-test]=xxhttps://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=defaultxx
 Query[zh_CN]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default

@@ -22,6 +22,7 @@ Name[ro]=Magazin KDE
 Name[sl]=Trgovina KDE
 Name[sv]=KDE-butik
 Name[uk]=Крамниця KDE
+Name[vi]=Cửa hàng KDE
 Name[x-test]=xxKDE Storexx
 Name[zh_CN]=KDE 商店
 Query=https://store.kde.org/content/search.php?search=Search&name=\\{@}
@@ -45,6 +46,7 @@ Query[ro]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[sl]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[sv]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[uk]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
+Query[vi]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[x-test]=xxhttps://store.kde.org/content/search.php?search=Search&name=\\{@}xx
 Query[zh_CN]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Type=Service
