@@ -106,6 +106,7 @@ public:
 
     void initDirOpWidgets();
     void initToolbar();
+    void initZoomWidget();
     void updateLocationWhatsThis();
     void updateAutoSelectExtension();
     void initPlacesPanel();
@@ -370,39 +371,6 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
         d->activateUrlNavigator();
     });
     goToNavigatorAction->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_L));
-
-    d->m_iconSizeSlider = new QSlider(this);
-    d->m_iconSizeSlider->setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Fixed);
-    d->m_iconSizeSlider->setMinimumWidth(40);
-    d->m_iconSizeSlider->setOrientation(Qt::Horizontal);
-    d->m_iconSizeSlider->setMinimum(KIconLoader::SizeSmall);
-    d->m_iconSizeSlider->setMaximum(KIconLoader::SizeEnormous);
-    d->m_iconSizeSlider->installEventFilter(this);
-
-    connect(d->m_iconSizeSlider, &QAbstractSlider::valueChanged, this, [this](int value) {
-        d->slotIconSizeChanged(value);
-    });
-
-    connect(d->m_iconSizeSlider, &QAbstractSlider::sliderMoved, this, [this](int value) {
-        d->slotIconSizeSliderMoved(value);
-    });
-
-    connect(d->m_ops, &KDirOperator::currentIconSizeChanged, this, [this](int value) {
-        d->m_iconSizeSlider->setValue(value);
-        d->m_zoomOutAction->setDisabled(value <= d->m_iconSizeSlider->minimum());
-        d->m_zoomInAction->setDisabled(value >= d->m_iconSizeSlider->maximum());
-    });
-
-    d->m_zoomOutAction = new QAction(QIcon::fromTheme(QStringLiteral("file-zoom-out")), i18n("Zoom out"), this);
-    connect(d->m_zoomOutAction, &QAction::triggered, this, [this]() {
-        d->zoomOutIconsSize();
-    });
-
-    d->m_zoomInAction = new QAction(QIcon::fromTheme(QStringLiteral("file-zoom-in")), i18n("Zoom in"), this);
-    connect(d->m_zoomInAction, &QAction::triggered, this, [this]() {
-        d->zoomInIconsSize();
-    });
-
 
     KUrlComboBox *pathCombo = d->m_urlNavigator->editor();
     KUrlCompletion *pathCompletionObj = new KUrlCompletion(KUrlCompletion::DirCompletion);
@@ -1260,6 +1228,41 @@ void KFileWidgetPrivate::initDirOpWidgets()
     m_opsWidgetLayout->addWidget(m_ops);
 }
 
+void KFileWidgetPrivate::initZoomWidget()
+{
+    m_iconSizeSlider = new QSlider(q);
+    m_iconSizeSlider->setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Fixed);
+    m_iconSizeSlider->setMinimumWidth(40);
+    m_iconSizeSlider->setOrientation(Qt::Horizontal);
+    m_iconSizeSlider->setMinimum(KIconLoader::SizeSmall);
+    m_iconSizeSlider->setMaximum(KIconLoader::SizeEnormous);
+    m_iconSizeSlider->installEventFilter(q);
+
+    q->connect(m_iconSizeSlider, &QAbstractSlider::valueChanged, q, [this](int value) {
+        slotIconSizeChanged(value);
+    });
+
+    q->connect(m_iconSizeSlider, &QAbstractSlider::sliderMoved, q, [this](int value) {
+        slotIconSizeSliderMoved(value);
+    });
+
+    q->connect(m_ops, &KDirOperator::currentIconSizeChanged, q, [this](int value) {
+        m_iconSizeSlider->setValue(value);
+        m_zoomOutAction->setDisabled(value <= m_iconSizeSlider->minimum());
+        m_zoomInAction->setDisabled(value >= m_iconSizeSlider->maximum());
+    });
+
+    m_zoomOutAction = new QAction(QIcon::fromTheme(QStringLiteral("file-zoom-out")), i18n("Zoom out"), q);
+    q->connect(m_zoomOutAction, &QAction::triggered, q, [this]() {
+        zoomOutIconsSize();
+    });
+
+    m_zoomInAction = new QAction(QIcon::fromTheme(QStringLiteral("file-zoom-in")), i18n("Zoom in"), q);
+    q->connect(m_zoomInAction, &QAction::triggered, q, [this]() {
+        zoomInIconsSize();
+    });
+}
+
 void KFileWidgetPrivate::initToolbar()
 {
     m_toolbar = new KToolBar(m_opsWidget, true);
@@ -1352,10 +1355,12 @@ void KFileWidgetPrivate::initToolbar()
 
     m_toolbar->addWidget(midSpacer);
 
+    initZoomWidget();
     m_toolbar->addAction(m_zoomOutAction);
     m_toolbar->addWidget(m_iconSizeSlider);
     m_toolbar->addAction(m_zoomInAction);
     m_toolbar->addSeparator();
+
     m_toolbar->addAction(coll->action(QStringLiteral("mkdir")));
     m_toolbar->addAction(menu);
 
