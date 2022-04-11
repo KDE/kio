@@ -105,6 +105,7 @@ public:
     }
 
     void initDirOpWidgets();
+    void initToolbar();
     void updateLocationWhatsThis();
     void updateAutoSelectExtension();
     void initPlacesPanel();
@@ -355,12 +356,6 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
 
     d->initDirOpWidgets();
 
-    // d->m_toolbar = new KToolBar(this, true);
-    d->m_toolbar = new KToolBar(d->m_opsWidget, true);
-    d->m_toolbar->setObjectName(QStringLiteral("KFileWidget::toolbar"));
-    d->m_toolbar->setMovable(false);
-    d->m_opsWidgetLayout->addWidget(d->m_toolbar);
-
     d->m_model = new KFilePlacesModel(this);
 
     // Resolve this now so that a 'kfiledialog:' URL, if specified,
@@ -371,66 +366,10 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
     KActionCollection *coll = d->m_ops->actionCollection();
     coll->addAssociatedWidget(this);
 
-    // add nav items to the toolbar
-    //
-    // NOTE:  The order of the button icons here differs from that
-    // found in the file manager and web browser, but has been discussed
-    // and agreed upon on the kde-core-devel mailing list:
-    //
-    // http://lists.kde.org/?l=kde-core-devel&m=116888382514090&w=2
-
-    coll->action(QStringLiteral("up"))
-        ->setWhatsThis(i18n("<qt>Click this button to enter the parent folder.<br /><br />"
-                            "For instance, if the current location is file:/home/konqi clicking this "
-                            "button will take you to file:/home.</qt>"));
-
-    coll->action(QStringLiteral("back"))->setWhatsThis(i18n("Click this button to move backwards one step in the browsing history."));
-    coll->action(QStringLiteral("forward"))->setWhatsThis(i18n("Click this button to move forward one step in the browsing history."));
-
-    coll->action(QStringLiteral("reload"))->setWhatsThis(i18n("Click this button to reload the contents of the current location."));
-    coll->action(QStringLiteral("mkdir"))->setShortcuts(KStandardShortcut::createFolder());
-    coll->action(QStringLiteral("mkdir"))->setWhatsThis(i18n("Click this button to create a new folder."));
-
     QAction *goToNavigatorAction = coll->addAction(QStringLiteral("gotonavigator"), this, [this]() {
         d->activateUrlNavigator();
     });
     goToNavigatorAction->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_L));
-
-    KToggleAction *showSidebarAction = new KToggleAction(i18n("Show Places Panel"), this);
-    coll->addAction(QStringLiteral("togglePlacesPanel"), showSidebarAction);
-    showSidebarAction->setShortcut(QKeySequence(Qt::Key_F9));
-    connect(showSidebarAction, &QAction::toggled, this, [this](bool show) {
-        d->togglePlacesPanel(show);
-    });
-
-    KToggleAction *showBookmarksAction = new KToggleAction(i18n("Show Bookmarks Button"), this);
-    coll->addAction(QStringLiteral("toggleBookmarks"), showBookmarksAction);
-    connect(showBookmarksAction, &QAction::toggled, this, [this](bool show) {
-        d->toggleBookmarks(show);
-    });
-
-    // Build the settings menu
-    KActionMenu *menu = new KActionMenu(QIcon::fromTheme(QStringLiteral("configure")), i18n("Options"), this);
-    coll->addAction(QStringLiteral("extra menu"), menu);
-    menu->setWhatsThis(
-        i18n("<qt>This is the preferences menu for the file dialog. "
-             "Various options can be accessed from this menu including: <ul>"
-             "<li>how files are sorted in the list</li>"
-             "<li>types of view, including icon and list</li>"
-             "<li>showing of hidden files</li>"
-             "<li>the Places panel</li>"
-             "<li>file previews</li>"
-             "<li>separating folders from files</li></ul></qt>"));
-
-    menu->addAction(coll->action(QStringLiteral("allow expansion")));
-    menu->addSeparator();
-    menu->addAction(coll->action(QStringLiteral("show hidden")));
-    menu->addAction(showSidebarAction);
-    menu->addAction(showBookmarksAction);
-    menu->addAction(coll->action(QStringLiteral("preview")));
-
-    menu->setPopupMode(QToolButton::InstantPopup);
-    connect(menu->menu(), &QMenu::aboutToShow, d->m_ops, &KDirOperator::updateSelectionDependentActions);
 
     d->m_iconSizeSlider = new QSlider(this);
     d->m_iconSizeSlider->setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Fixed);
@@ -464,43 +403,6 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
         d->zoomInIconsSize();
     });
 
-    d->m_bookmarkButton = new KActionMenu(QIcon::fromTheme(QStringLiteral("bookmarks")), i18n("Bookmarks"), this);
-    d->m_bookmarkButton->setPopupMode(QToolButton::InstantPopup);
-    coll->addAction(QStringLiteral("bookmark"), d->m_bookmarkButton);
-    d->m_bookmarkButton->setWhatsThis(
-        i18n("<qt>This button allows you to bookmark specific locations. "
-             "Click on this button to open the bookmark menu where you may add, "
-             "edit or select a bookmark.<br /><br />"
-             "These bookmarks are specific to the file dialog, but otherwise operate "
-             "like bookmarks elsewhere in KDE.</qt>"));
-
-    QWidget *midSpacer = new QWidget(this);
-    midSpacer->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-
-    d->m_toolbar->addAction(coll->action(QStringLiteral("back")));
-    d->m_toolbar->addAction(coll->action(QStringLiteral("forward")));
-    d->m_toolbar->addAction(coll->action(QStringLiteral("up")));
-    d->m_toolbar->addAction(coll->action(QStringLiteral("reload")));
-    d->m_toolbar->addSeparator();
-    d->m_toolbar->addAction(coll->action(QStringLiteral("icons view")));
-    d->m_toolbar->addAction(coll->action(QStringLiteral("compact view")));
-    d->m_toolbar->addAction(coll->action(QStringLiteral("details view")));
-    d->m_toolbar->addSeparator();
-    d->m_toolbar->addAction(coll->action(QStringLiteral("inline preview")));
-    d->m_toolbar->addAction(coll->action(QStringLiteral("sorting menu")));
-    d->m_toolbar->addAction(d->m_bookmarkButton);
-
-    d->m_toolbar->addWidget(midSpacer);
-
-    d->m_toolbar->addAction(d->m_zoomOutAction);
-    d->m_toolbar->addWidget(d->m_iconSizeSlider);
-    d->m_toolbar->addAction(d->m_zoomInAction);
-    d->m_toolbar->addSeparator();
-    d->m_toolbar->addAction(coll->action(QStringLiteral("mkdir")));
-    d->m_toolbar->addAction(menu);
-
-    d->m_toolbar->setToolButtonStyle(Qt::ToolButtonIconOnly);
-    d->m_toolbar->setMovable(false);
 
     KUrlComboBox *pathCombo = d->m_urlNavigator->editor();
     KUrlCompletion *pathCompletionObj = new KUrlCompletion(KUrlCompletion::DirCompletion);
@@ -1314,12 +1216,10 @@ void KFileWidgetPrivate::initDirOpWidgets()
     // The stat cannot be done before this point, bug 172678.
     m_urlNavigator = new KUrlNavigator(m_model, QUrl(), m_opsWidget); // d->m_toolbar);
     m_urlNavigator->setPlacesSelectorVisible(false);
-    m_opsWidgetLayout->addWidget(m_urlNavigator);
 
     m_messageWidget = new KMessageWidget(q);
     m_messageWidget->setMessageType(KMessageWidget::Error);
     m_messageWidget->hide();
-    m_opsWidgetLayout->addWidget(m_messageWidget);
 
     m_ops = new KDirOperator(QUrl(), m_opsWidget);
     m_ops->installEventFilter(q);
@@ -1327,7 +1227,6 @@ void KFileWidgetPrivate::initDirOpWidgets()
     m_ops->setIsSaving(m_operationMode == KFileWidget::Saving);
     m_ops->setNewFileMenuSelectDirWhenAlreadyExist(true);
     m_ops->showOpenWithActions(true);
-    m_opsWidgetLayout->addWidget(m_ops);
 
     q->connect(m_ops, &KDirOperator::urlEntered, q, [this](const QUrl &url) {
         urlEntered(url);
@@ -1352,6 +1251,116 @@ void KFileWidgetPrivate::initDirOpWidgets()
     });
 
     m_ops->setupMenu(KDirOperator::SortActions | KDirOperator::FileActions | KDirOperator::ViewActions);
+
+    initToolbar();
+
+    m_opsWidgetLayout->addWidget(m_toolbar);
+    m_opsWidgetLayout->addWidget(m_urlNavigator);
+    m_opsWidgetLayout->addWidget(m_messageWidget);
+    m_opsWidgetLayout->addWidget(m_ops);
+}
+
+void KFileWidgetPrivate::initToolbar()
+{
+    m_toolbar = new KToolBar(m_opsWidget, true);
+    m_toolbar->setObjectName(QStringLiteral("KFileWidget::toolbar"));
+    m_toolbar->setMovable(false);
+
+    // add nav items to the toolbar
+    //
+    // NOTE:  The order of the button icons here differs from that
+    // found in the file manager and web browser, but has been discussed
+    // and agreed upon on the kde-core-devel mailing list:
+    //
+    // http://lists.kde.org/?l=kde-core-devel&m=116888382514090&w=2
+
+    KActionCollection *coll = m_ops->actionCollection();
+
+    coll->action(QStringLiteral("up"))
+        ->setWhatsThis(i18n("<qt>Click this button to enter the parent folder.<br /><br />"
+                            "For instance, if the current location is file:/home/konqi clicking this "
+                            "button will take you to file:/home.</qt>"));
+
+    coll->action(QStringLiteral("back"))->setWhatsThis(i18n("Click this button to move backwards one step in the browsing history."));
+    coll->action(QStringLiteral("forward"))->setWhatsThis(i18n("Click this button to move forward one step in the browsing history."));
+
+    coll->action(QStringLiteral("reload"))->setWhatsThis(i18n("Click this button to reload the contents of the current location."));
+    coll->action(QStringLiteral("mkdir"))->setShortcuts(KStandardShortcut::createFolder());
+    coll->action(QStringLiteral("mkdir"))->setWhatsThis(i18n("Click this button to create a new folder."));
+
+    KToggleAction *showSidebarAction = new KToggleAction(i18n("Show Places Panel"), q);
+    coll->addAction(QStringLiteral("togglePlacesPanel"), showSidebarAction);
+    showSidebarAction->setShortcut(QKeySequence(Qt::Key_F9));
+    q->connect(showSidebarAction, &QAction::toggled, q, [this](bool show) {
+        togglePlacesPanel(show);
+    });
+
+    KToggleAction *showBookmarksAction = new KToggleAction(i18n("Show Bookmarks Button"), q);
+    coll->addAction(QStringLiteral("toggleBookmarks"), showBookmarksAction);
+    q->connect(showBookmarksAction, &QAction::toggled, q, [this](bool show) {
+        toggleBookmarks(show);
+    });
+
+    // Build the settings menu
+    KActionMenu *menu = new KActionMenu(QIcon::fromTheme(QStringLiteral("configure")), i18n("Options"), q);
+    coll->addAction(QStringLiteral("extra menu"), menu);
+    menu->setWhatsThis(
+        i18n("<qt>This is the preferences menu for the file dialog. "
+             "Various options can be accessed from this menu including: <ul>"
+             "<li>how files are sorted in the list</li>"
+             "<li>types of view, including icon and list</li>"
+             "<li>showing of hidden files</li>"
+             "<li>the Places panel</li>"
+             "<li>file previews</li>"
+             "<li>separating folders from files</li></ul></qt>"));
+
+    menu->addAction(coll->action(QStringLiteral("allow expansion")));
+    menu->addSeparator();
+    menu->addAction(coll->action(QStringLiteral("show hidden")));
+    menu->addAction(showSidebarAction);
+    menu->addAction(showBookmarksAction);
+    menu->addAction(coll->action(QStringLiteral("preview")));
+
+    menu->setPopupMode(QToolButton::InstantPopup);
+    q->connect(menu->menu(), &QMenu::aboutToShow, m_ops, &KDirOperator::updateSelectionDependentActions);
+
+    m_bookmarkButton = new KActionMenu(QIcon::fromTheme(QStringLiteral("bookmarks")), i18n("Bookmarks"), q);
+    m_bookmarkButton->setPopupMode(QToolButton::InstantPopup);
+    coll->addAction(QStringLiteral("bookmark"), m_bookmarkButton);
+    m_bookmarkButton->setWhatsThis(
+        i18n("<qt>This button allows you to bookmark specific locations. "
+             "Click on this button to open the bookmark menu where you may add, "
+             "edit or select a bookmark.<br /><br />"
+             "These bookmarks are specific to the file dialog, but otherwise operate "
+             "like bookmarks elsewhere in KDE.</qt>"));
+
+    QWidget *midSpacer = new QWidget(q);
+    midSpacer->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+
+    m_toolbar->addAction(coll->action(QStringLiteral("back")));
+    m_toolbar->addAction(coll->action(QStringLiteral("forward")));
+    m_toolbar->addAction(coll->action(QStringLiteral("up")));
+    m_toolbar->addAction(coll->action(QStringLiteral("reload")));
+    m_toolbar->addSeparator();
+    m_toolbar->addAction(coll->action(QStringLiteral("icons view")));
+    m_toolbar->addAction(coll->action(QStringLiteral("compact view")));
+    m_toolbar->addAction(coll->action(QStringLiteral("details view")));
+    m_toolbar->addSeparator();
+    m_toolbar->addAction(coll->action(QStringLiteral("inline preview")));
+    m_toolbar->addAction(coll->action(QStringLiteral("sorting menu")));
+    m_toolbar->addAction(m_bookmarkButton);
+
+    m_toolbar->addWidget(midSpacer);
+
+    m_toolbar->addAction(m_zoomOutAction);
+    m_toolbar->addWidget(m_iconSizeSlider);
+    m_toolbar->addAction(m_zoomInAction);
+    m_toolbar->addSeparator();
+    m_toolbar->addAction(coll->action(QStringLiteral("mkdir")));
+    m_toolbar->addAction(menu);
+
+    m_toolbar->setToolButtonStyle(Qt::ToolButtonIconOnly);
+    m_toolbar->setMovable(false);
 }
 
 void KFileWidgetPrivate::setLocationText(const QList<QUrl> &urlList)
