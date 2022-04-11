@@ -21,6 +21,7 @@ Name[pt_BR]=KDE Store
 Name[ro]=Magazin KDE
 Name[sl]=Trgovina KDE
 Name[sv]=KDE-butik
+Name[tr]=KDE Mağaza
 Name[uk]=Крамниця KDE
 Name[vi]=Cửa hàng KDE
 Name[x-test]=xxKDE Storexx
@@ -45,6 +46,7 @@ Query[pt_BR]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[ro]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[sl]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[sv]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
+Query[tr]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[uk]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[vi]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[x-test]=xxhttps://store.kde.org/content/search.php?search=Search&name=\\{@}xx

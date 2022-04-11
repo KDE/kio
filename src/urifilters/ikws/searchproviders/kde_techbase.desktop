@@ -113,6 +113,7 @@ Query[sl]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[sv]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[tg]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[tok]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
+Query[tr]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[uk]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[vi]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[x-test]=xxhttps://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Searchxx

@@ -19,6 +19,7 @@ Name[pt_BR]=Banco de dados do WineHQ
 Name[ro]=Bază de date WineHQ
 Name[sl]=Podatkovna zbirka WineHQ
 Name[sv]=WineHQ-databas
+Name[tr]=WineHQ Veritabanı
 Name[uk]=База даних WineHQ
 Name[vi]=Cơ sở dữ liệu WineHQ
 Name[x-test]=xxWineHQ Databasexx
@@ -45,6 +46,7 @@ Query[pt_BR]=https://www.winehq.org/search?q=\\{@}
 Query[ro]=https://www.winehq.org/search?q=\\{@}
 Query[sl]=https://www.winehq.org/search?q=\\{@}
 Query[sv]=https://www.winehq.org/search?q=\\{@}
+Query[tr]=https://www.winehq.org/search?q=\\{@}
 Query[uk]=https://www.winehq.org/search?q=\\{@}
 Query[vi]=https://www.winehq.org/search?q=\\{@}
 Query[x-test]=xxhttps://www.winehq.org/search?q=\\{@}xx

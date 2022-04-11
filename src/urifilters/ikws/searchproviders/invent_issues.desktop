@@ -21,6 +21,7 @@ Name[pt_BR]=Issues do KDE Invent
 Name[ro]=Defecte KDE Invent
 Name[sl]=Težave s KDE Invent
 Name[sv]=KDE-Invent problemrapporter
+Name[tr]=KDE Invent Sorunları
 Name[uk]=Вади на KDE Invent
 Name[vi]=Các vấn đề ở Invent KDE
 Name[x-test]=xxKDE Invent Issuesxx
@@ -46,6 +47,7 @@ Query[pt_BR]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[ro]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[sl]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[sv]=https://invent.kde.org/search?scope=issues&search=\\{@}
+Query[tr]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[uk]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[vi]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[x-test]=xxhttps://invent.kde.org/search?scope=issues&search=\\{@}xx

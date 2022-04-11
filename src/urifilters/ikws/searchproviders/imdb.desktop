@@ -133,6 +133,7 @@ Query[sl]=https://imdb.com/find?s=all&q=\\{@}
 Query[sv]=https://imdb.com/find?s=all&q=\\{@}
 Query[tg]=https://imdb.com/find?s=all&q=\\{@}
 Query[tok]=https://imdb.com/find?s=all&q=\\{@}
+Query[tr]=https://imdb.com/find?s=all&q=\\{@}
 Query[uk]=https://imdb.com/find?s=all&q=\\{@}
 Query[vi]=https://imdb.com/find?s=all&q=\\{@}
 Query[x-test]=xxhttps://imdb.com/find?s=all&q=\\{@}xx

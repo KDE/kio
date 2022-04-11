@@ -30,6 +30,7 @@ Name[sk]=Repozitáre služby KDE Invent
 Name[sl]=Skladišča KDE Invent
 Name[sv]=KDE-Invent arkiv
 Name[tok]=tomo lon ma tomo pali KDE Invent
+Name[tr]=KDE Invent Depoları
 Name[uk]=Сховища KDE Invent
 Name[vi]=Các kho ở Invent KDE
 Name[x-test]=xxKDE Invent Repositoriesxx
@@ -64,6 +65,7 @@ Query[sk]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[sl]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[sv]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[tok]=https://invent.kde.org/explore/projects/starred?name=\\{@}
+Query[tr]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[uk]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[vi]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[x-test]=xxhttps://invent.kde.org/explore/projects/starred?name=\\{@}xx

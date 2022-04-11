@@ -19,6 +19,7 @@ Name[pt_BR]=Reddit
 Name[ro]=Reddit
 Name[sl]=Reddit
 Name[sv]=Reddit
+Name[tr]=Reddit
 Name[uk]=Reddit
 Name[vi]=Reddit
 Name[x-test]=xxRedditxx
@@ -45,6 +46,7 @@ Query[pt_BR]=https://www.reddit.com/search/?q=\\{@}
 Query[ro]=https://www.reddit.com/search/?q=\\{@}
 Query[sl]=https://www.reddit.com/search/?q=\\{@}
 Query[sv]=https://www.reddit.com/search/?q=\\{@}
+Query[tr]=https://www.reddit.com/search/?q=\\{@}
 Query[uk]=https://www.reddit.com/search/?q=\\{@}
 Query[vi]=https://www.reddit.com/search/?q=\\{@}
 Query[x-test]=xxhttps://www.reddit.com/search/?q=\\{@}xx

@@ -19,6 +19,7 @@ Name[pt_BR]=KDE Reddit
 Name[ro]=KDE Reddit
 Name[sl]=Reddit KDE
 Name[sv]=KDE Reddit
+Name[tr]=KDE Reddit
 Name[uk]=KDE Reddit
 Name[vi]=Reddit KDE
 Name[x-test]=xxKDE Redditxx
@@ -45,6 +46,7 @@ Query[pt_BR]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[ro]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[sl]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[sv]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
+Query[tr]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[uk]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[vi]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[x-test]=xxhttps://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1xx

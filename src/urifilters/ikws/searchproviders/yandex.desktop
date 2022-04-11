@@ -16,6 +16,7 @@ Name[pt_BR]=Yandex
 Name[ro]=Yandex
 Name[sl]=Yandex
 Name[sv]=Yandex
+Name[tr]=Yandex
 Name[uk]=Yandex
 Name[vi]=Yandex
 Name[x-test]=xxYandexxx
@@ -35,6 +36,7 @@ Query[pt_BR]=https://yandex.ru/search/?text=\\{@}
 Query[ro]=https://yandex.ru/search/?text=\\{@}
 Query[sl]=https://yandex.ru/search/?text=\\{@}
 Query[sv]=https://yandex.ru/search/?text=\\{@}
+Query[tr]=https://yandex.ru/search/?text=\\{@}
 Query[uk]=https://yandex.ru/search/?text=\\{@}
 Query[vi]=https://yandex.ru/search/?text=\\{@}
 Query[x-test]=xxhttps://yandex.ru/search/?text=\\{@}xx

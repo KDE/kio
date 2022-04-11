@@ -19,6 +19,7 @@ Name[pt_BR]=Documentação C++ da Microsoft
 Name[ro]=Documentația C++ Microsoft
 Name[sl]=Dokumentacija za Microsoft C++
 Name[sv]=Microsoft C++ dokumentation
+Name[tr]=Microsoft C++ Belgelendirmesi
 Name[uk]=Документація з C++ Microsoft
 Name[vi]=Tài liệu C++ Microsoft
 Name[x-test]=xxMicrosoft C++ Documentationxx
@@ -45,6 +46,7 @@ Query[pt_BR]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[ro]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[sl]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[sv]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
+Query[tr]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[uk]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[vi]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[x-test]=xxhttps://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2Bxx
