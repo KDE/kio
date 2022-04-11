@@ -107,6 +107,7 @@ public:
     void initDirOpWidgets();
     void initToolbar();
     void initZoomWidget();
+    void initLocationWidget();
     void updateLocationWhatsThis();
     void updateAutoSelectExtension();
     void initPlacesPanel();
@@ -382,31 +383,8 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
     });
     connect(d->m_urlNavigator, &KUrlNavigator::returnPressed, d->m_ops, qOverload<>(&QWidget::setFocus));
 
-    // the Location label/edit
-    d->m_locationLabel = new QLabel(i18n("&Name:"), this);
-    d->m_locationEdit = new KUrlComboBox(KUrlComboBox::Files, true, this);
-    d->m_locationEdit->installEventFilter(this);
-    // Properly let the dialog be resized (to smaller). Otherwise we could have
-    // huge dialogs that can't be resized to smaller (it would be as big as the longest
-    // item in this combo box). (ereslibre)
-    d->m_locationEdit->setSizeAdjustPolicy(QComboBox::AdjustToContentsOnFirstShow);
-    connect(d->m_locationEdit, &KUrlComboBox::editTextChanged, this, [this](const QString &text) {
-        d->slotLocationChanged(text);
-    });
-
-    d->updateLocationWhatsThis();
-    d->m_locationLabel->setBuddy(d->m_locationEdit);
-
-    KUrlCompletion *fileCompletionObj = new KUrlCompletion(KUrlCompletion::FileCompletion);
-    d->m_locationEdit->setCompletionObject(fileCompletionObj);
-    d->m_locationEdit->setAutoDeleteCompletionObject(true);
-    connect(fileCompletionObj, &KUrlCompletion::match, this, [this](const QString &match) {
-        d->fileCompletion(match);
-    });
-
-    connect(d->m_locationEdit, qOverload<const QString &>(&KUrlComboBox::returnPressed), this, [this](const QString &text) {
-        d->locationAccepted(text);
-    });
+   // Location, "Name:", line-edit and label
+    d->initLocationWidget();
 
     // the Filter label/edit
     d->m_filterLabel = new QLabel(this);
@@ -1366,6 +1344,34 @@ void KFileWidgetPrivate::initToolbar()
 
     m_toolbar->setToolButtonStyle(Qt::ToolButtonIconOnly);
     m_toolbar->setMovable(false);
+}
+
+void KFileWidgetPrivate::initLocationWidget()
+{
+    m_locationLabel = new QLabel(i18n("&Name:"), q);
+    m_locationEdit = new KUrlComboBox(KUrlComboBox::Files, true, q);
+    m_locationEdit->installEventFilter(q);
+    // Properly let the dialog be resized (to smaller). Otherwise we could have
+    // huge dialogs that can't be resized to smaller (it would be as big as the longest
+    // item in this combo box). (ereslibre)
+    m_locationEdit->setSizeAdjustPolicy(QComboBox::AdjustToContentsOnFirstShow);
+    q->connect(m_locationEdit, &KUrlComboBox::editTextChanged, q, [this](const QString &text) {
+        slotLocationChanged(text);
+    });
+
+    updateLocationWhatsThis();
+    m_locationLabel->setBuddy(m_locationEdit);
+
+    KUrlCompletion *fileCompletionObj = new KUrlCompletion(KUrlCompletion::FileCompletion);
+    m_locationEdit->setCompletionObject(fileCompletionObj);
+    m_locationEdit->setAutoDeleteCompletionObject(true);
+    q->connect(fileCompletionObj, &KUrlCompletion::match, q, [this](const QString &match) {
+        fileCompletion(match);
+    });
+
+    q->connect(m_locationEdit, qOverload<const QString &>(&KUrlComboBox::returnPressed), q, [this](const QString &text) {
+        locationAccepted(text);
+    });
 }
 
 void KFileWidgetPrivate::setLocationText(const QList<QUrl> &urlList)
