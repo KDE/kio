@@ -2075,7 +2075,9 @@ void KDirOperator::setupActions()
     upAction->setText(i18n("Parent Folder"));
 
     QAction *backAction = d->m_actionCollection->addAction(KStandardAction::Back, QStringLiteral("back"), this, SLOT(back()));
-    backAction->setShortcut(Qt::Key_Backspace);
+    auto backShortcuts = backAction->shortcuts();
+    backShortcuts << Qt::Key_Backspace;
+    backAction->setShortcuts(backShortcuts);
     backAction->setToolTip(i18nc("@info", "Go back"));
 
     QAction *forwardAction = d->m_actionCollection->addAction(KStandardAction::Forward, QStringLiteral("forward"), this, SLOT(forward()));
