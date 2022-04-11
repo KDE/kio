@@ -104,6 +104,7 @@ public:
                                  : QGuiApplication::primaryScreen()->availableGeometry().size();
     }
 
+    void initDirOpWidgets();
     void updateLocationWhatsThis();
     void updateAutoSelectExtension();
     void initPlacesPanel();
@@ -214,6 +215,7 @@ public:
 
     QLabel *m_locationLabel = nullptr;
     QWidget *m_opsWidget = nullptr;
+    QVBoxLayout *m_opsWidgetLayout = nullptr;
 
     QLabel *m_filterLabel = nullptr;
     KUrlNavigator *m_urlNavigator = nullptr;
@@ -351,15 +353,13 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
     d->m_okButton->hide();
     d->m_cancelButton->hide();
 
-    d->m_opsWidget = new QWidget(this);
-    QVBoxLayout *opsWidgetLayout = new QVBoxLayout(d->m_opsWidget);
-    opsWidgetLayout->setContentsMargins(0, 0, 0, 0);
-    opsWidgetLayout->setSpacing(0);
+    d->initDirOpWidgets();
+
     // d->m_toolbar = new KToolBar(this, true);
     d->m_toolbar = new KToolBar(d->m_opsWidget, true);
     d->m_toolbar->setObjectName(QStringLiteral("KFileWidget::toolbar"));
     d->m_toolbar->setMovable(false);
-    opsWidgetLayout->addWidget(d->m_toolbar);
+    d->m_opsWidgetLayout->addWidget(d->m_toolbar);
 
     d->m_model = new KFilePlacesModel(this);
 
@@ -368,51 +368,6 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
     d->m_url = getStartUrl(startDir, d->m_fileClass, filename);
     startDir = d->m_url;
 
-    // Don't pass startDir to the KUrlNavigator at this stage: as well as
-    // the above, it may also contain a file name which should not get
-    // inserted in that form into the old-style navigation bar history.
-    // Wait until the KIO::stat has been done later.
-    //
-    // The stat cannot be done before this point, bug 172678.
-    d->m_urlNavigator = new KUrlNavigator(d->m_model, QUrl(), d->m_opsWidget); // d->m_toolbar);
-    d->m_urlNavigator->setPlacesSelectorVisible(false);
-    opsWidgetLayout->addWidget(d->m_urlNavigator);
-
-    d->m_messageWidget = new KMessageWidget(this);
-    d->m_messageWidget->setMessageType(KMessageWidget::Error);
-    d->m_messageWidget->hide();
-    opsWidgetLayout->addWidget(d->m_messageWidget);
-
-    d->m_ops = new KDirOperator(QUrl(), d->m_opsWidget);
-    d->m_ops->installEventFilter(this);
-    d->m_ops->setObjectName(QStringLiteral("KFileWidget::ops"));
-    d->m_ops->setIsSaving(d->m_operationMode == Saving);
-    d->m_ops->setNewFileMenuSelectDirWhenAlreadyExist(true);
-    d->m_ops->showOpenWithActions(true);
-    opsWidgetLayout->addWidget(d->m_ops);
-    connect(d->m_ops, &KDirOperator::urlEntered, this, [this](const QUrl &url) {
-        d->urlEntered(url);
-    });
-    connect(d->m_ops, &KDirOperator::fileHighlighted, this, [this](const KFileItem &item) {
-        d->fileHighlighted(item);
-    });
-    connect(d->m_ops, &KDirOperator::fileSelected, this, [this](const KFileItem &item) {
-        d->fileSelected(item);
-    });
-    connect(d->m_ops, &KDirOperator::finishedLoading, this, [this]() {
-        d->slotLoadingFinished();
-    });
-    connect(d->m_ops, &KDirOperator::keyEnterReturnPressed, this, [this]() {
-        d->slotViewKeyEnterReturnPressed();
-    });
-
-    d->m_ops->dirLister()->setAutoErrorHandlingEnabled(false);
-    connect(d->m_ops->dirLister(), &KDirLister::jobError, this, [this](KIO::Job *job) {
-        d->m_messageWidget->setText(job->errorString());
-        d->m_messageWidget->animatedShow();
-    });
-
-    d->m_ops->setupMenu(KDirOperator::SortActions | KDirOperator::FileActions | KDirOperator::ViewActions);
     KActionCollection *coll = d->m_ops->actionCollection();
     coll->addAssociatedWidget(this);
 
@@ -1342,6 +1297,61 @@ static QString escapeDoubleQuotes(QString &&path)
     // Second, escape the quotes
     path.replace(QStringLiteral("\""), QStringLiteral("\\\""));
     return path;
+}
+
+void KFileWidgetPrivate::initDirOpWidgets()
+{
+    m_opsWidget = new QWidget(q);
+    m_opsWidgetLayout = new QVBoxLayout(m_opsWidget);
+    m_opsWidgetLayout->setContentsMargins(0, 0, 0, 0);
+    m_opsWidgetLayout->setSpacing(0);
+
+    // Don't pass "startDir" (KFileWidget constructor 1st arg) to the
+    // KUrlNavigator at this stage: it may also contain a file name which
+    // should not get inserted in that form into the old-style navigation
+    // bar history. Wait until the KIO::stat has been done later.
+    //
+    // The stat cannot be done before this point, bug 172678.
+    m_urlNavigator = new KUrlNavigator(m_model, QUrl(), m_opsWidget); // d->m_toolbar);
+    m_urlNavigator->setPlacesSelectorVisible(false);
+    m_opsWidgetLayout->addWidget(m_urlNavigator);
+
+    m_messageWidget = new KMessageWidget(q);
+    m_messageWidget->setMessageType(KMessageWidget::Error);
+    m_messageWidget->hide();
+    m_opsWidgetLayout->addWidget(m_messageWidget);
+
+    m_ops = new KDirOperator(QUrl(), m_opsWidget);
+    m_ops->installEventFilter(q);
+    m_ops->setObjectName(QStringLiteral("KFileWidget::ops"));
+    m_ops->setIsSaving(m_operationMode == KFileWidget::Saving);
+    m_ops->setNewFileMenuSelectDirWhenAlreadyExist(true);
+    m_ops->showOpenWithActions(true);
+    m_opsWidgetLayout->addWidget(m_ops);
+
+    q->connect(m_ops, &KDirOperator::urlEntered, q, [this](const QUrl &url) {
+        urlEntered(url);
+    });
+    q->connect(m_ops, &KDirOperator::fileHighlighted, q, [this](const KFileItem &item) {
+        fileHighlighted(item);
+    });
+    q->connect(m_ops, &KDirOperator::fileSelected, q, [this](const KFileItem &item) {
+        fileSelected(item);
+    });
+    q->connect(m_ops, &KDirOperator::finishedLoading, q, [this]() {
+        slotLoadingFinished();
+    });
+    q->connect(m_ops, &KDirOperator::keyEnterReturnPressed, q, [this]() {
+        slotViewKeyEnterReturnPressed();
+    });
+
+    m_ops->dirLister()->setAutoErrorHandlingEnabled(false);
+    q->connect(m_ops->dirLister(), &KDirLister::jobError, q, [this](KIO::Job *job) {
+        m_messageWidget->setText(job->errorString());
+        m_messageWidget->animatedShow();
+    });
+
+    m_ops->setupMenu(KDirOperator::SortActions | KDirOperator::FileActions | KDirOperator::ViewActions);
 }
 
 void KFileWidgetPrivate::setLocationText(const QList<QUrl> &urlList)
