@@ -108,6 +108,7 @@ public:
     void initToolbar();
     void initZoomWidget();
     void initLocationWidget();
+    void initFilterWidget();
     void updateLocationWhatsThis();
     void updateAutoSelectExtension();
     void initPlacesPanel();
@@ -386,25 +387,8 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
    // Location, "Name:", line-edit and label
     d->initLocationWidget();
 
-    // the Filter label/edit
-    d->m_filterLabel = new QLabel(this);
-    d->m_filterWidget = new KFileFilterCombo(this);
-    d->updateFilterText();
-    // Properly let the dialog be resized (to smaller). Otherwise we could have
-    // huge dialogs that can't be resized to smaller (it would be as big as the longest
-    // item in this combo box). (ereslibre)
-    d->m_filterWidget->setSizeAdjustPolicy(QComboBox::AdjustToContentsOnFirstShow);
-    d->m_filterLabel->setBuddy(d->m_filterWidget);
-    connect(d->m_filterWidget, &KFileFilterCombo::filterChanged, this, [this]() {
-        d->slotFilterChanged();
-    });
-
-    d->m_filterDelayTimer.setSingleShot(true);
-    d->m_filterDelayTimer.setInterval(300);
-    connect(d->m_filterWidget, &QComboBox::editTextChanged, &d->m_filterDelayTimer, qOverload<>(&QTimer::start));
-    connect(&d->m_filterDelayTimer, &QTimer::timeout, this, [this]() {
-        d->slotFilterChanged();
-    });
+    // "Filter:" line-edit and label
+    d->initFilterWidget();
 
     // the Automatically Select Extension checkbox
     // (the text, visibility etc. is set in updateAutoSelectExtension(), which is called by readConfig())
@@ -1371,6 +1355,28 @@ void KFileWidgetPrivate::initLocationWidget()
 
     q->connect(m_locationEdit, qOverload<const QString &>(&KUrlComboBox::returnPressed), q, [this](const QString &text) {
         locationAccepted(text);
+    });
+}
+
+void KFileWidgetPrivate::initFilterWidget()
+{
+    m_filterLabel = new QLabel(q);
+    m_filterWidget = new KFileFilterCombo(q);
+    updateFilterText();
+    // Properly let the dialog be resized (to smaller). Otherwise we could have
+    // huge dialogs that can't be resized to smaller (it would be as big as the longest
+    // item in this combo box). (ereslibre)
+    m_filterWidget->setSizeAdjustPolicy(QComboBox::AdjustToContentsOnFirstShow);
+    m_filterLabel->setBuddy(m_filterWidget);
+    q->connect(m_filterWidget, &KFileFilterCombo::filterChanged, q, [this]() {
+        slotFilterChanged();
+    });
+
+    m_filterDelayTimer.setSingleShot(true);
+    m_filterDelayTimer.setInterval(300);
+    q->connect(m_filterWidget, &QComboBox::editTextChanged, &m_filterDelayTimer, qOverload<>(&QTimer::start));
+    q->connect(&m_filterDelayTimer, &QTimer::timeout, q, [this]() {
+        slotFilterChanged();
     });
 }
 
