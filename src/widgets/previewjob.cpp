@@ -421,8 +421,10 @@ void PreviewJobPrivate::startPreview()
             cacheSize = 128;
         } else if (width <= 256 && height <= 256) {
             cacheSize = 256;
-        } else {
+        } else if (width <= 512 && height <= 512) {
             cacheSize = 512;
+        } else {
+            cacheSize = 1024;
         }
 
         struct CachePool {
