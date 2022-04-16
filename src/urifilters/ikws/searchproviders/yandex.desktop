@@ -10,6 +10,7 @@ Name[en_GB]=Yandex
 Name[es]=Yandex
 Name[fr]=Yandex
 Name[it]=Yandex
+Name[ko]=Yandex
 Name[nl]=Yandex
 Name[pl]=Yandex
 Name[pt_BR]=Yandex
@@ -30,6 +31,7 @@ Query[en_GB]=https://yandex.ru/search/?text=\\{@}
 Query[es]=https://yandex.ru/search/?text=\\{@}
 Query[fr]=https://yandex.ru/search/?text=\\{@}
 Query[it]=https://yandex.ru/search/?text=\\{@}
+Query[ko]=https://yandex.ru/search/?text=\\{@}
 Query[nl]=https://yandex.ru/search/?text=\\{@}
 Query[pl]=https://yandex.ru/search/?text=\\{@}
 Query[pt_BR]=https://yandex.ru/search/?text=\\{@}

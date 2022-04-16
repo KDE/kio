@@ -12,6 +12,7 @@ Name[fr]=KDE Reddit
 Name[gl]=KDE Reddit
 Name[ia]=KDE Reddit
 Name[it]=KDE Reddit
+Name[ko]=KDE Reddit
 Name[nl]=KDE-Reddit
 Name[pl]=KDE Reddit
 Name[pt]=KDE Reddit
@@ -39,6 +40,7 @@ Query[fr]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[gl]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[ia]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[it]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
+Query[ko]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[nl]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[pl]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[pt]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1

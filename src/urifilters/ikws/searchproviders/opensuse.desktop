@@ -12,6 +12,7 @@ Name[fr]=Logiciels de OpenSUSE
 Name[gl]=Software openSUSE 
 Name[ia]=Software de OpenSUSE
 Name[it]=Software openSUSE
+Name[ko]=openSUSE 소프트웨어
 Name[nl]=openSUSE-software
 Name[pl]=Oprogramowanie openSUSE
 Name[pt]=Software do openSUSE
@@ -38,6 +39,7 @@ Query[fr]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
 Query[gl]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
 Query[ia]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
 Query[it]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
+Query[ko]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
 Query[nl]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
 Query[pl]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
 Query[pt]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}

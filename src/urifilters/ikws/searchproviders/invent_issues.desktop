@@ -14,6 +14,7 @@ Name[fr]=Problèmes de KDE Invent
 Name[gl]=Problemas de KDE Invent
 Name[ia]=Questiones de KDE Invent
 Name[it]=Issue su KDE Invent
+Name[ko]=KDE Invent 이슈
 Name[nl]=KDE-invent problemen
 Name[pl]=Błędy KDE Invent
 Name[pt]=Erros no KDE Invent
@@ -40,6 +41,7 @@ Query[fr]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[gl]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[ia]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[it]=https://invent.kde.org/search?scope=issues&search=\\{@}
+Query[ko]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[nl]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[pl]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[pt]=https://invent.kde.org/search?scope=issues&search=\\{@}
