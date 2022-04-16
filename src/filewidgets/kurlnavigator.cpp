@@ -500,17 +500,31 @@ void KUrlNavigatorPrivate::openContextMenu(const QPoint &p)
 
     // We are checking whether the signal is connected because it's odd to have a tab entry even
     // if it's not supported, like in the case of the open dialog
-    if (q->isSignalConnected(QMetaMethod::fromSignal(&KUrlNavigator::tabRequested))) {
+    const bool isTabSignal = q->isSignalConnected(QMetaMethod::fromSignal(&KUrlNavigator::tabRequested));
+    const bool isWindowSignal = q->isSignalConnected(QMetaMethod::fromSignal(&KUrlNavigator::newWindowRequested));
+    if (isTabSignal || isWindowSignal) {
         auto it = std::find_if(m_navButtons.cbegin(), m_navButtons.cend(), [&p](const KUrlNavigatorButton *button) {
             return button->geometry().contains(p);
         });
         if (it != m_navButtons.cend()) {
             const auto *button = *it;
             const QUrl url = button->url();
-            QAction *openInTab = popup->addAction(QIcon::fromTheme(QStringLiteral("tab-new")), i18n("Open \"%1\" in a tab", button->text()));
-            q->connect(openInTab, &QAction::triggered, q, [this, url]() {
-                Q_EMIT q->tabRequested(url);
-            });
+            const QString text = button->text();
+
+            if (isTabSignal) {
+                QAction *openInTab = popup->addAction(QIcon::fromTheme(QStringLiteral("tab-new")), i18nc("@item:inmenu", "Open \"%1\" in New Tab", text));
+                q->connect(openInTab, &QAction::triggered, q, [this, url]() {
+                    Q_EMIT q->tabRequested(url);
+                });
+            }
+
+            if (isWindowSignal) {
+                QAction *openInWindow =
+                    popup->addAction(QIcon::fromTheme(QStringLiteral("window-new")), i18nc("@item:inmenu", "Open \"%1\" in New Window", text));
+                q->connect(openInWindow, &QAction::triggered, q, [this, url]() {
+                    Q_EMIT q->newWindowRequested(url);
+                });
+            }
         }
     }
 
