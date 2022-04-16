@@ -416,12 +416,12 @@ void PreviewJobPrivate::startPreview()
     maximumRemoteSize = cg.readEntry<KIO::filesize_t>("MaximumRemoteSize", 0);
 
     if (bNeedCache) {
-
-        if (width <= 128 && height <= 128) {
+        const int longer = std::max(width, height);
+        if (longer <= 128) {
             cacheSize = 128;
-        } else if (width <= 256 && height <= 256) {
+        } else if (longer <= 256) {
             cacheSize = 256;
-        } else if (width <= 512 && height <= 512) {
+        } else if (longer <= 512) {
             cacheSize = 512;
         } else {
             cacheSize = 1024;
