@@ -48,6 +48,7 @@ public:
 
     bool isDevice() const;
     bool isTeardownAllowed() const;
+    bool isEjectAllowed() const;
     KBookmark bookmark() const;
     void setBookmark(const KBookmark &bookmark);
     Solid::Device device() const;

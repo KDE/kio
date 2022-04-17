@@ -585,6 +585,16 @@ bool KFilePlacesModel::isTeardownAllowed(const QModelIndex &index) const
     return item->isTeardownAllowed();
 }
 
+bool KFilePlacesModel::isEjectAllowed(const QModelIndex &index) const
+{
+    if (!index.isValid()) {
+        return false;
+    }
+
+    KFilePlacesItem *item = static_cast<KFilePlacesItem *>(index.internalPointer());
+    return item->isEjectAllowed();
+}
+
 Solid::Device KFilePlacesModel::deviceForIndex(const QModelIndex &index) const
 {
     if (!index.isValid()) {
@@ -684,6 +694,7 @@ QHash<int, QByteArray> KFilePlacesModel::roleNames() const
     super[IconNameRole] = "iconName";
     super[GroupHiddenRole] = "isGroupHidden";
     super[TeardownAllowedRole] = "isTeardownAllowed";
+    super[EjectAllowedRole] = "isEjectAllowed";
 
     return super;
 }
@@ -1285,7 +1296,7 @@ void KFilePlacesModel::setPlaceHidden(const QModelIndex &index, bool hidden)
         item->setHidden(hidden);
 
         d->reloadAndSignal();
-        Q_EMIT dataChanged(index, index, { KFilePlacesModel::HiddenRole });
+        Q_EMIT dataChanged(index, index, {KFilePlacesModel::HiddenRole});
     }
 }
 
@@ -1506,6 +1517,7 @@ void KFilePlacesModel::setSupportedSchemes(const QStringList &schemes)
 {
     d->supportedSchemes = schemes;
     d->reloadBookmarks();
+    Q_EMIT supportedSchemesChanged();
 }
 
 QStringList KFilePlacesModel::supportedSchemes() const

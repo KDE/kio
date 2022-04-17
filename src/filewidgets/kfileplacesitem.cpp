@@ -123,6 +123,11 @@ bool KFilePlacesItem::isTeardownAllowed() const
     return m_isTeardownAllowed;
 }
 
+bool KFilePlacesItem::isEjectAllowed() const
+{
+    return m_isCdrom;
+}
+
 KBookmark KFilePlacesItem::bookmark() const
 {
     return m_bookmark;
@@ -318,6 +323,9 @@ QVariant KFilePlacesItem::deviceData(int role) const
             } else {
                 return QVariant();
             }
+
+        case KFilePlacesModel::EjectAllowedRole:
+            return m_isAccessible && m_isCdrom;
 
         case KFilePlacesModel::FixedDeviceRole: {
             if (m_drive != nullptr) {
