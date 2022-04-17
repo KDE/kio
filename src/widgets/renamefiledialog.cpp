@@ -137,7 +137,7 @@ RenameFileDialog::RenameFileDialog(const KFileItemList &items, QWidget *parent)
         d->spinBox->setValue(1);
         d->spinBox->setDisplayIntegerBase(10);
 
-        QHBoxLayout *horizontalLayout = new QHBoxLayout(page);
+        QHBoxLayout *horizontalLayout = new QHBoxLayout;
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
         horizontalLayout->addWidget(infoLabel);
         horizontalLayout->addWidget(d->spinBox);
