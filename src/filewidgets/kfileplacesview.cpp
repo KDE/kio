@@ -666,6 +666,7 @@ public:
     void addDisappearingItem(KFilePlacesViewDelegate *delegate, const QModelIndex &index);
     void triggerItemAppearingAnimation();
     void triggerItemDisappearingAnimation();
+    bool shouldAnimate() const;
 
     void writeConfig();
     void readConfig();
@@ -1692,7 +1693,7 @@ void KFilePlacesViewPrivate::relayoutIconSize(const int size)
         return;
     }
 
-    if (m_smoothItemResizing) {
+    if (shouldAnimate() && m_smoothItemResizing) {
         m_oldSize = m_delegate->iconSize();
         m_endSize = size;
         if (m_adaptItemsTimeline.state() != QTimeLine::Running) {
@@ -1700,7 +1701,9 @@ void KFilePlacesViewPrivate::relayoutIconSize(const int size)
         }
     } else {
         m_delegate->setIconSize(size);
-        q->scheduleDelayedItemsLayout();
+        if (shouldAnimate()) {
+            q->scheduleDelayedItemsLayout();
+        }
     }
 }
 
@@ -1818,19 +1821,36 @@ void KFilePlacesViewPrivate::editPlace(const QModelIndex &index)
     }
 }
 
+bool KFilePlacesViewPrivate::shouldAnimate() const
+{
+    return q->style()->styleHint(QStyle::SH_Widget_Animation_Duration) > 0;
+}
+
 void KFilePlacesViewPrivate::triggerItemAppearingAnimation()
 {
-    if (m_itemAppearTimeline.state() != QTimeLine::Running) {
+    if (m_itemAppearTimeline.state() == QTimeLine::Running) {
+        return;
+    }
+
+    if (shouldAnimate()) {
         m_delegate->setAppearingItemProgress(0.0);
         m_itemAppearTimeline.start();
+    } else {
+        itemAppearUpdate(1.0);
     }
 }
 
 void KFilePlacesViewPrivate::triggerItemDisappearingAnimation()
 {
-    if (m_itemDisappearTimeline.state() != QTimeLine::Running) {
+    if (m_itemDisappearTimeline.state() == QTimeLine::Running) {
+        return;
+    }
+
+    if (shouldAnimate()) {
         m_delegate->setDisappearingItemProgress(0.0);
         m_itemDisappearTimeline.start();
+    } else {
+        itemDisappearUpdate(1.0);
     }
 }
 
