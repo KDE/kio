@@ -958,8 +958,9 @@ void KDirOperator::setIconSize(int value)
     }
 
     int size = value;
-    size = qMin(static_cast<int>(KIconLoader::SizeEnormous), size);
-    size = qMax(static_cast<int>(KIconLoader::SizeSmall), size);
+    // Keep size range in sync with KFileWidgetPrivate::m_stdIconSizes
+    size = std::min(512, size);
+    size = std::max<int>(KIconLoader::SizeSmall, size);
 
     d->m_iconSize = size;
 
