@@ -100,6 +100,7 @@ extern "C" {
 #include <KMimeTypeChooser>
 #include <KMimeTypeEditor>
 #include <KMimeTypeTrader>
+#include <KPluginFactory>
 #include <KPluginMetaData>
 #include <KSeparator>
 #include <KService>

@@ -66,6 +66,7 @@ target_include_directories(KF5KIOGui INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTAL
 target_link_libraries(KF5KIOGui
   PUBLIC
     KF5::KIOCore
+    KF5::ConfigCore
     KF5::Service
     KF5::WindowSystem
     Qt${QT_MAJOR_VERSION}::Gui

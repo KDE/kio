@@ -18,6 +18,7 @@
 #include <KIO/JobUiDelegate>
 #include <KLocalizedString>
 #include <KMimeTypeTrader>
+#include <KPluginFactory>
 #include <KPluginMetaData>
 #include <KServiceTypeTrader>
 #include <kapplicationtrader.h>

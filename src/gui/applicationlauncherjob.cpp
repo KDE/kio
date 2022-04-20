@@ -17,7 +17,9 @@
 #include <KAuthorized>
 #include <KDesktopFile>
 #include <KLocalizedString>
+
 #include <QFileInfo>
+#include <QPointer>
 
 class KIO::ApplicationLauncherJobPrivate
 {

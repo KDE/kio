@@ -14,6 +14,7 @@
 #include <KService>
 #include <kio/global.h>
 
+#include <KPluginFactory>
 #include <KPluginMetaData>
 
 #include <QHashIterator>

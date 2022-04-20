@@ -11,6 +11,8 @@
 #include <KLocalizedString>
 #include <KShell>
 
+#include <QPointer>
+
 class KIO::CommandLauncherJobPrivate
 {
 public:

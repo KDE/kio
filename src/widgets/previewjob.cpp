@@ -39,6 +39,7 @@
 #include <KConfigGroup>
 #include <KMountPoint>
 #include <KPluginInfo>
+#include <KPluginMetaData>
 #include <KService>
 #include <KServiceTypeTrader>
 #include <KSharedConfig>
