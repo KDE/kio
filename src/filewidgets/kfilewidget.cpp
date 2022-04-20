@@ -186,8 +186,12 @@ public:
     void slotAutoSelectExtClicked();
     void placesViewSplitterMoved(int, int);
     void activateUrlNavigator();
-    void zoomOutIconsSize();
-    void zoomInIconsSize();
+
+    enum ZoomState {
+        ZoomOut,
+        ZoomIn,
+    };
+    void changeIconsSize(ZoomState zoom);
     void slotDirOpIconSizeChanged(int size);
     void slotIconSizeSliderMoved(int);
     void slotIconSizeChanged(int);
@@ -1222,12 +1226,12 @@ void KFileWidgetPrivate::initZoomWidget()
 
     m_zoomOutAction = new QAction(QIcon::fromTheme(QStringLiteral("file-zoom-out")), i18n("Zoom out"), q);
     q->connect(m_zoomOutAction, &QAction::triggered, q, [this]() {
-        zoomOutIconsSize();
+        changeIconsSize(ZoomOut);
     });
 
     m_zoomInAction = new QAction(QIcon::fromTheme(QStringLiteral("file-zoom-in")), i18n("Zoom in"), q);
     q->connect(m_zoomInAction, &QAction::triggered, q, [this]() {
-        zoomInIconsSize();
+        changeIconsSize(ZoomIn);
     });
 }
 
@@ -2225,26 +2229,22 @@ void KFileWidgetPrivate::slotDirOpIconSizeChanged(int size)
     m_zoomInAction->setDisabled(it == (endIt - 1));
 }
 
-void KFileWidgetPrivate::zoomOutIconsSize()
+void KFileWidgetPrivate::changeIconsSize(ZoomState zoom)
 {
     int step = m_iconSizeSlider->value();
-    if (step == 0) {
-        return;
+
+    if (zoom == ZoomOut) {
+        if (step == 0) {
+            return;
+        }
+        --step;
+    } else { // ZoomIn
+        if (step == static_cast<int>(m_stdIconSizes.size() - 1)) {
+            return;
+        }
+        ++step;
     }
 
-    --step;
-    m_iconSizeSlider->setValue(step);
-    slotIconSizeSliderMoved(m_stdIconSizes[step]);
-}
-
-void KFileWidgetPrivate::zoomInIconsSize()
-{
-    int step = m_iconSizeSlider->value();
-    if (step == static_cast<int>(m_stdIconSizes.size() - 1)) {
-        return;
-    }
-
-    ++step;
     m_iconSizeSlider->setValue(step);
     slotIconSizeSliderMoved(m_stdIconSizes[step]);
 }
