@@ -118,7 +118,12 @@ int KDirSortFilterProxyModel::pointsForPermissions(const QFileInfo &info)
 
 void KDirSortFilterProxyModel::setSortFoldersFirst(bool foldersFirst)
 {
+    if (d->m_sortFoldersFirst == foldersFirst) {
+        return;
+    }
+
     d->m_sortFoldersFirst = foldersFirst;
+    invalidate();
 }
 
 bool KDirSortFilterProxyModel::sortFoldersFirst() const

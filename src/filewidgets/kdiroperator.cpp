@@ -1110,19 +1110,10 @@ void KDirOperatorPrivate::updateSorting(QDir::SortFlags sort)
         return;
     }
 
-    if ((m_sorting ^ sort) & QDir::DirsFirst) {
-        // The "Folders First" setting has been changed.
-        // We need to make sure that the files and folders are really re-sorted.
-        // Without the following intermediate "fake resorting",
-        // QSortFilterProxyModel::sort(int column, Qt::SortOrder order)
-        // would do nothing because neither the column nor the sort order have been changed.
-        Qt::SortOrder tmpSortOrder = (sortOrder() == Qt::AscendingOrder ? Qt::DescendingOrder : Qt::AscendingOrder);
-        m_proxyModel->sort(sortOrder(), tmpSortOrder);
-        m_proxyModel->setSortFoldersFirst(sort & QDir::DirsFirst);
-    }
-
     m_sorting = sort;
     q->updateSortActions();
+
+    m_proxyModel->setSortFoldersFirst(m_sorting & QDir::DirsFirst);
     m_proxyModel->sort(sortColumn(), sortOrder());
 
     // TODO: The headers from QTreeView don't take care about a sorting
