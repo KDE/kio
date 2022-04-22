@@ -1149,6 +1149,11 @@ void KFileItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
     QIcon::State iconState = option.state & QStyle::State_Open ? QIcon::On : QIcon::Off;
     QPixmap icon = opt.icon.pixmap(opt.decorationSize, iconMode, iconState);
 
+    const KFileItem fileItem = d->fileItem(index);
+    if (fileItem.isHidden()) {
+        KIconEffect::semiTransparent(icon);
+    }
+
     if (state && !state->hasJobAnimation()) {
         cache = state->cachedRendering();
         progress = state->hoverProgress();
