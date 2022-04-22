@@ -138,12 +138,14 @@ void KIO::WidgetsAskUserActionHandler::askUserDelete(const QList<QUrl> &urls, De
 
     const int urlCount = prettyList.count();
 
+    KMessageDialog::Type dialogType = KMessageDialog::QuestionYesNo;
     KGuiItem acceptButton;
     QString text;
     QString caption = i18n("Delete Permanently");
 
     switch (deletionType) {
     case Delete: {
+        dialogType = KMessageDialog::WarningYesNo;
         text = xi18ncp("@info",
                        "Do you really want to permanently delete this %1 item?<nl/><nl/>"
                        "<emphasis strong='true'>This action cannot be undone.</emphasis>",
@@ -154,6 +156,7 @@ void KIO::WidgetsAskUserActionHandler::askUserDelete(const QList<QUrl> &urls, De
         break;
     }
     case EmptyTrash: {
+        dialogType = KMessageDialog::WarningYesNo;
         text = xi18nc("@info",
                       "Do you want to permanently delete all items from the Trash?<nl/><nl/>"
                       "<emphasis strong='true'>This action cannot be undone.</emphasis>");
@@ -178,7 +181,7 @@ void KIO::WidgetsAskUserActionHandler::askUserDelete(const QList<QUrl> &urls, De
         break;
     }
 
-    KMessageDialog *dlg = new KMessageDialog(KMessageDialog::QuestionYesNo, text, parent);
+    KMessageDialog *dlg = new KMessageDialog(dialogType, text, parent);
 
     dlg->setAttribute(Qt::WA_DeleteOnClose);
     dlg->setCaption(caption);
