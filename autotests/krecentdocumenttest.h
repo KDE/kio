@@ -15,6 +15,7 @@ class KRecentDocumentTest : public QObject
 
 private Q_SLOTS:
     void initTestCase();
+    void cleanupTestCase();
     void cleanup();
     void testXbelBookmark();
 

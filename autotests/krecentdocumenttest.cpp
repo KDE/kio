@@ -25,6 +25,12 @@ void KRecentDocumentTest::initTestCase()
         qFatal("Can't create %s", qPrintable(tempFile.fileName()));
     }
     m_testFile = tempFile.fileName();
+    qDebug() << "test file" << m_testFile;
+}
+
+void KRecentDocumentTest::cleanupTestCase()
+{
+    QFile(m_testFile).remove();
 }
 
 void KRecentDocumentTest::cleanup()
@@ -33,8 +39,6 @@ void KRecentDocumentTest::cleanup()
 
     QString recentDocDir = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QStringLiteral("/RecentDocuments/");
     QDir(recentDocDir).removeRecursively();
-
-    QFile(m_testFile).remove();
 }
 
 void KRecentDocumentTest::testXbelBookmark()
@@ -43,6 +47,7 @@ void KRecentDocumentTest::testXbelBookmark()
     QVERIFY(tempFile.open());
 
     const auto url = QUrl::fromLocalFile(m_testFile);
+    qDebug() << "url=" << url;
     KRecentDocument::add(url, QStringLiteral("my-application"));
     KRecentDocument::add(url, QStringLiteral("my-application-2"));
     KRecentDocument::add(url, QStringLiteral("my-application"));
