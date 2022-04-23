@@ -17,6 +17,8 @@ void KRecentDocumentTest::initTestCase()
     QStandardPaths::setTestModeEnabled(true);
     m_xbelPath = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/recently-used.xbel");
 
+    cleanup();
+
     // must be outside of /tmp
     QFile tempFile(QDir::currentPath() + "/temp File");
     if (!tempFile.open(QIODevice::WriteOnly)) {
@@ -38,7 +40,7 @@ void KRecentDocumentTest::cleanup()
 void KRecentDocumentTest::testXbelBookmark()
 {
     QTemporaryFile tempFile;
-    tempFile.open();
+    QVERIFY(tempFile.open());
 
     const auto url = QUrl::fromLocalFile(m_testFile);
     KRecentDocument::add(url, QStringLiteral("my-application"));
