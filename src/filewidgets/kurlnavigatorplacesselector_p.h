@@ -40,6 +40,8 @@ public:
 
     ~KUrlNavigatorPlacesSelector() override;
 
+    using ActivationSignal = void (KUrlNavigatorPlacesSelector::*)(const QUrl &);
+
     /**
      * Updates the selection dependent from the given URL \a url. The
      * URL must not match exactly to one of the available bookmarks:
@@ -89,7 +91,7 @@ private Q_SLOTS:
      * Updates the selected index and the icon to the bookmark
      * which is indicated by the triggered action \a action.
      */
-    void activatePlace(QAction *action);
+    void activatePlace(QAction *action, ActivationSignal activationSignal);
 
     void updateMenu();
     void updateTeardownAction();
@@ -99,6 +101,7 @@ private Q_SLOTS:
 private:
     int m_selectedItem;
     QPersistentModelIndex m_lastClickedIndex;
+    ActivationSignal m_lastActivationSignal = nullptr;
     QMenu *m_placesMenu;
     KFilePlacesModel *m_placesModel;
     QUrl m_selectedUrl;

@@ -36,7 +36,9 @@ KUrlNavigatorPlacesSelector::KUrlNavigatorPlacesSelector(KUrlNavigator *parent, 
     updateMenu();
 
     connect(m_placesModel, &KFilePlacesModel::reloaded, this, &KUrlNavigatorPlacesSelector::updateMenu);
-    connect(m_placesMenu, &QMenu::triggered, this, &KUrlNavigatorPlacesSelector::activatePlace);
+    connect(m_placesMenu, &QMenu::triggered, this, [this](QAction *action) {
+        activatePlace(action, &KUrlNavigatorPlacesSelector::placeActivated);
+    });
 
     setMenu(m_placesMenu);
 
@@ -214,7 +216,7 @@ void KUrlNavigatorPlacesSelector::mouseReleaseEvent(QMouseEvent *event)
     KUrlNavigatorButtonBase::mouseReleaseEvent(event);
 }
 
-void KUrlNavigatorPlacesSelector::activatePlace(QAction *action)
+void KUrlNavigatorPlacesSelector::activatePlace(QAction *action, ActivationSignal activationSignal)
 {
     Q_ASSERT(action != nullptr);
     if (action->data().toString() == QLatin1String("teardownAction")) {
@@ -226,18 +228,24 @@ void KUrlNavigatorPlacesSelector::activatePlace(QAction *action)
     QModelIndex index = m_placesModel->index(action->data().toInt(), 0);
 
     m_lastClickedIndex = QPersistentModelIndex();
+    m_lastActivationSignal = nullptr;
 
     if (m_placesModel->setupNeeded(index)) {
         connect(m_placesModel, &KFilePlacesModel::setupDone, this, &KUrlNavigatorPlacesSelector::onStorageSetupDone);
 
         m_lastClickedIndex = index;
+        m_lastActivationSignal = activationSignal;
         m_placesModel->requestSetup(index);
         return;
     } else if (index.isValid()) {
-        m_selectedItem = index.row();
-        setIcon(m_placesModel->icon(index));
-        updateTeardownAction();
-        Q_EMIT placeActivated(KFilePlacesModel::convertedUrl(m_placesModel->url(index)));
+        if (activationSignal == &KUrlNavigatorPlacesSelector::placeActivated) {
+            m_selectedItem = index.row();
+            setIcon(m_placesModel->icon(index));
+            updateTeardownAction();
+        }
+
+        const QUrl url = KFilePlacesModel::convertedUrl(m_placesModel->url(index));
+        /*Q_EMIT*/ std::invoke(activationSignal, this, url);
     }
 }
 
@@ -245,12 +253,17 @@ void KUrlNavigatorPlacesSelector::onStorageSetupDone(const QModelIndex &index, b
 {
     if (m_lastClickedIndex == index) {
         if (success) {
-            m_selectedItem = index.row();
-            setIcon(m_placesModel->icon(index));
-            updateTeardownAction();
-            Q_EMIT placeActivated(KFilePlacesModel::convertedUrl(m_placesModel->url(index)));
+            if (m_lastActivationSignal == &KUrlNavigatorPlacesSelector::placeActivated) {
+                m_selectedItem = index.row();
+                setIcon(m_placesModel->icon(index));
+                updateTeardownAction();
+            }
+
+            const QUrl url = KFilePlacesModel::convertedUrl(m_placesModel->url(index));
+            /*Q_EMIT*/ std::invoke(m_lastActivationSignal, this, url);
         }
         m_lastClickedIndex = QPersistentModelIndex();
+        m_lastActivationSignal = nullptr;
     }
 }
 
@@ -263,8 +276,7 @@ bool KUrlNavigatorPlacesSelector::eventFilter(QObject *watched, QEvent *event)
                 if (QAction *action = menu->activeAction()) {
                     m_placesMenu->close(); // always close top menu
 
-                    QModelIndex index = m_placesModel->index(action->data().toInt(), 0);
-                    Q_EMIT tabRequested(KFilePlacesModel::convertedUrl(m_placesModel->url(index)));
+                    activatePlace(action, &KUrlNavigatorPlacesSelector::tabRequested);
                     return true;
                 }
             }
