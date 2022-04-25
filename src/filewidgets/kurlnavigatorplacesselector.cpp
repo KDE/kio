@@ -251,6 +251,8 @@ void KUrlNavigatorPlacesSelector::activatePlace(QAction *action, ActivationSigna
 
 void KUrlNavigatorPlacesSelector::onStorageSetupDone(const QModelIndex &index, bool success)
 {
+    disconnect(m_placesModel, &KFilePlacesModel::setupDone, this, &KUrlNavigatorPlacesSelector::onStorageSetupDone);
+
     if (m_lastClickedIndex == index) {
         if (success) {
             if (m_lastActivationSignal == &KUrlNavigatorPlacesSelector::placeActivated) {
