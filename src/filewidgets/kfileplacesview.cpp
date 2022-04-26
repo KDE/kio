@@ -1823,7 +1823,7 @@ void KFilePlacesViewPrivate::editPlace(const QModelIndex &index)
 
 bool KFilePlacesViewPrivate::shouldAnimate() const
 {
-    return q->style()->styleHint(QStyle::SH_Widget_Animation_Duration) > 0;
+    return q->style()->styleHint(QStyle::SH_Widget_Animation_Duration, nullptr, q) > 0;
 }
 
 void KFilePlacesViewPrivate::triggerItemAppearingAnimation()
