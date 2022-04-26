@@ -245,9 +245,6 @@ void KIO::MimeTypeFinderJobPrivate::scanFileWithGet()
             m_suggestedFileName = job->queryMetaData(QStringLiteral("content-disposition-filename"));
         }
 
-        if (!m_url.isLocalFile()) { // #434455
-            job->putOnHold();
-        }
         q->emitResult();
     });
 }
