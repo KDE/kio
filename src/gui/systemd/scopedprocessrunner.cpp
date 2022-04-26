@@ -3,6 +3,8 @@
 #include "scopedprocessrunner_p.h"
 #include "systemdprocessrunner_p.h"
 
+#include <sys/eventfd.h>
+
 using namespace org::freedesktop;
 
 ScopedProcessRunner::ScopedProcessRunner()
@@ -10,9 +12,23 @@ ScopedProcessRunner::ScopedProcessRunner()
 {
 }
 
-void ScopedProcessRunner::slotProcessStarted()
+void ScopedProcessRunner::startProcess()
 {
-    ForkingProcessRunner::slotProcessStarted();
+    std::function oldModifier = m_process->childProcessModifier();
+    int efd = eventfd(0, EFD_CLOEXEC);
+    m_process->setChildProcessModifier([efd, oldModifier]() {
+        // wait for the parent process to be done registering the transient unit
+        eventfd_read(efd, nullptr);
+        if (oldModifier)
+            oldModifier();
+    });
+
+    // actually start
+    ForkingProcessRunner::startProcess();
+    m_process->setChildProcessModifier(oldModifier);
+
+    Q_ASSERT(m_process->processId());
+
     // As specified in "XDG standardization for applications" in https://systemd.io/DESKTOP_ENVIRONMENTS/
     const QString serviceName = QStringLiteral("app-%1-%2.scope").arg(escapeUnitName(resolveServiceAlias()), QUuid::createUuid().toString(QUuid::Id128));
 
@@ -30,7 +46,7 @@ void ScopedProcessRunner::slotProcessStarted()
                                     {} // aux is currently unused and should be passed as empty array.
         );
 
-    connect(new QDBusPendingCallWatcher(startReply, this), &QDBusPendingCallWatcher::finished, [serviceName](QDBusPendingCallWatcher *watcher) {
+    connect(new QDBusPendingCallWatcher(startReply, this), &QDBusPendingCallWatcher::finished, [serviceName, efd](QDBusPendingCallWatcher *watcher) {
         QDBusPendingReply<QDBusObjectPath> reply = *watcher;
         watcher->deleteLater();
         if (reply.isError()) {
@@ -38,6 +54,10 @@ void ScopedProcessRunner::slotProcessStarted()
         } else {
             qCDebug(KIO_GUI) << "Successfully registered new cgroup:" << serviceName;
         }
+
+        // release child and close the eventfd
+        eventfd_write(efd, 1);
+        close(efd);
     });
 }
 

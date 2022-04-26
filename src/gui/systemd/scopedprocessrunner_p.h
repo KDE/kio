@@ -7,8 +7,7 @@ class ScopedProcessRunner : public ForkingProcessRunner
     Q_OBJECT
 public:
     explicit ScopedProcessRunner();
-private Q_SLOTS:
-    void slotProcessStarted() override;
+    void startProcess() override;
 };
 
 #endif // SCOPEDPROCESSRUNNER_H
