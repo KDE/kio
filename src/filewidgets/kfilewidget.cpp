@@ -1936,7 +1936,6 @@ void KFileWidget::showEvent(QShowEvent *event)
         Q_ASSERT(d);
         Q_ASSERT(d->m_ops);
         d->m_ops->setView(KFile::Default);
-        d->m_ops->view()->setSizePolicy(QSizePolicy(QSizePolicy::Maximum, QSizePolicy::Maximum));
         d->m_hasView = true;
 
         connect(d->m_ops->view(), &QAbstractItemView::doubleClicked, this, [this](const QModelIndex &index) {
