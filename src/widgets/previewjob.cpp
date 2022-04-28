@@ -190,7 +190,7 @@ public:
         const KService::List plugins = KServiceTypeTrader::self()->query(QStringLiteral("ThumbCreator"));
         for (const auto &plugin : plugins) {
             if (KPluginInfo info(plugin); info.isValid()) {
-                if (auto [it, inserted] = pluginIds.insert(info.pluginName()); inserted) {
+                if (auto [it, inserted] = pluginIds.insert(plugin->desktopEntryName()); inserted) {
                     jsonMetaDataPlugins << info.toMetaData();
                 }
             } else {
