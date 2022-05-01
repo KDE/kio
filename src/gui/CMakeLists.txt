@@ -21,6 +21,7 @@ target_sources(KF5KIOGui PRIVATE
    kterminallauncherjob.cpp
    kemailclientlauncherjob.cpp
    dbusactivationrunner.cpp
+   thumbnailcreator.cpp
 )
 
 if (CMAKE_SYSTEM_NAME STREQUAL "Linux")
@@ -83,6 +84,7 @@ ecm_generate_headers(KIOGui_CamelCase_HEADERS
   OpenUrlJob
   KCoreUrlNavigator
   OpenWithHandlerInterface
+  ThumbnailCreator
 
   PREFIX KIO
   REQUIRED_HEADERS KIO_namespaced_gui_HEADERS
