@@ -46,7 +46,6 @@ static const Qt::CaseSensitivity cs = Qt::CaseSensitive;
 // Linux
 #if HAVE_LIB_MOUNT
 #include <libmount/libmount.h>
-#include <blkid/blkid.h>
 #endif
 
 static bool isNetfs(const QString &mountType)
