@@ -171,7 +171,7 @@ void SimpleJobPrivate::start(Slave *slave)
         slave->send(CMD_META_DATA, packedArgs);
     }
 
-    if (!m_subUrl.isEmpty()) {
+    if (!m_subUrl.isEmpty()) { // TODO KF6 remove
         KIO_ARGS << m_subUrl;
         slave->send(CMD_SUBURL, packedArgs);
     }

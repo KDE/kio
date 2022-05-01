@@ -403,7 +403,7 @@ public:
     /**
      * Prepare slave for streaming operation
      */
-    virtual void setSubUrl(const QUrl &url);
+    virtual void setSubUrl(const QUrl &url); // TODO KF6 remove
 
     /**
      * Opens the connection (forced).

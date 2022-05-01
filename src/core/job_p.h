@@ -125,7 +125,7 @@ public:
     QPointer<Slave> m_slave;
     QByteArray m_packedArgs;
     QUrl m_url;
-    QUrl m_subUrl;
+    QUrl m_subUrl; // TODO KF6 remove
     int m_command;
 
     // for use in KIO::Scheduler
