@@ -443,10 +443,15 @@ Slave *Slave::createSlave(const QString &protocol, const QUrl &url, int &error, 
         return nullptr;
     }
 
-    if (protocol == QLatin1String("file")) {
-        // TODO: this is just a test for now, using a thread for kio_file
-        // See however https://phabricator.kde.org/T12214 for discussion on the pitfalls of doing that
-        // Maybe we want to only enable this on Android....
+    // Threads are enabled by default, set KIO_ENABLE_WORKER_THREADS=0 to disable them
+    const auto useThreads = []() {
+        return qgetenv("KIO_ENABLE_WORKER_THREADS") != "0";
+    };
+    static bool bUseThreads = useThreads();
+
+    // Threads have performance benefits, but degrade robustness
+    // (a worker crashing kills the app). So let's only enable the feature for kio_file, for now.
+    if (bUseThreads && protocol == QLatin1String("file")) {
         auto *factory = qobject_cast<WorkerFactory *>(loader.instance());
         if (factory) {
             auto *thread = new WorkerThread(factory, slaveAddress.toString().toLocal8Bit());
