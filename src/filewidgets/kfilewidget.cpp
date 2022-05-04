@@ -87,7 +87,6 @@ public:
 
     ~KFileWidgetPrivate()
     {
-        m_iconSizeSlider->removeEventFilter(q);
         m_locationEdit->removeEventFilter(q);
 
         delete m_bookmarkHandler; // Should be deleted before m_ops!
@@ -471,7 +470,6 @@ KFileWidget::~KFileWidget()
     KSharedConfig::Ptr config = KSharedConfig::openConfig();
     config->sync();
     d->m_ops->removeEventFilter(this);
-    d->m_iconSizeSlider->removeEventFilter(this);
     d->m_locationEdit->removeEventFilter(this);
 }
 
@@ -1210,7 +1208,6 @@ void KFileWidgetPrivate::initZoomWidget()
     m_iconSizeSlider->setSingleStep(1);
     m_iconSizeSlider->setPageStep(1);
     m_iconSizeSlider->setTickPosition(QSlider::TicksBelow);
-    m_iconSizeSlider->installEventFilter(q);
 
     q->connect(m_iconSizeSlider, &QAbstractSlider::valueChanged, q, [this](int step) {
         slotIconSizeChanged(m_stdIconSizes[step]);
@@ -1224,13 +1221,12 @@ void KFileWidgetPrivate::initZoomWidget()
         slotDirOpIconSizeChanged(iconSize);
     });
 
-    m_zoomOutAction = new QAction(QIcon::fromTheme(QStringLiteral("file-zoom-out")), i18n("Zoom out"), q);
-    q->connect(m_zoomOutAction, &QAction::triggered, q, [this]() {
+    KActionCollection *coll = m_ops->actionCollection();
+    m_zoomOutAction = coll->addAction(KStandardAction::ZoomOut, QStringLiteral("zoom_out"), q, [this]() {
         changeIconsSize(ZoomOut);
     });
 
-    m_zoomInAction = new QAction(QIcon::fromTheme(QStringLiteral("file-zoom-in")), i18n("Zoom in"), q);
-    q->connect(m_zoomInAction, &QAction::triggered, q, [this]() {
+    m_zoomInAction = coll->addAction(KStandardAction::ZoomIn, QStringLiteral("zoom_in"), q, [this]() {
         changeIconsSize(ZoomIn);
     });
 }
@@ -1963,11 +1959,7 @@ bool KFileWidget::eventFilter(QObject *watched, QEvent *event)
 
     QKeyEvent *keyEvent = dynamic_cast<QKeyEvent *>(event);
     if (keyEvent) {
-        if (watched == d->m_iconSizeSlider) {
-            if (keyEvent->key() == Qt::Key_Left || keyEvent->key() == Qt::Key_Up || keyEvent->key() == Qt::Key_Right || keyEvent->key() == Qt::Key_Down) {
-                d->slotIconSizeSliderMoved(d->m_iconSizeSlider->value());
-            }
-        } else if (watched == d->m_locationEdit && event->type() == QEvent::KeyPress) {
+        if (watched == d->m_locationEdit && event->type() == QEvent::KeyPress) {
             if (keyEvent->modifiers() & Qt::AltModifier) {
                 switch (keyEvent->key()) {
                 case Qt::Key_Up:
