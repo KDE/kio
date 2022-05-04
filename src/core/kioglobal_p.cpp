@@ -17,8 +17,9 @@ static QMap<QString, QString> standardLocationsMap()
         QStandardPaths::StandardLocation location;
         QString name;
     } mapping[] = {
+    // clang-format off
 #if QT_VERSION >= QT_VERSION_CHECK(6, 4, 0)
-                   {QStandardPaths::TemplatesLocations, QStringLiteral("folder-templates")},
+                   {QStandardPaths::TemplatesLocation, QStringLiteral("folder-templates")},
                    {QStandardPaths::PublicShareLocation, QStringLiteral("folder-public")},
 #endif
                    {QStandardPaths::MusicLocation, QStringLiteral("folder-music")},
@@ -33,6 +34,7 @@ static QMap<QString, QString> standardLocationsMap()
                    {QStandardPaths::DocumentsLocation, QStringLiteral("folder-documents")},
                    {QStandardPaths::DesktopLocation, QStringLiteral("user-desktop")},
                    {QStandardPaths::HomeLocation, QStringLiteral("user-home")}};
+    // clang-format on
 
     QMap<QString, QString> map;
     for (const auto &row : mapping) {

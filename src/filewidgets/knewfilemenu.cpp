@@ -965,7 +965,7 @@ struct EntryInfo {
 static QStringList getInstalledTemplates()
 {
     QStringList list = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("templates"), QStandardPaths::LocateDirectory);
-    // TODO KF6, use QStandardPaths::TemplatesLocations
+    // TODO KF6, use QStandardPaths::TemplatesLocation
 #ifdef Q_OS_UNIX
     QString xdgUserDirs = QStandardPaths::locate(QStandardPaths::ConfigLocation, QStringLiteral("user-dirs.dirs"), QStandardPaths::LocateFile);
     QFile xdgUserDirsFile(xdgUserDirs);
