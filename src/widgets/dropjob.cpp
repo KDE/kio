@@ -67,6 +67,11 @@ private:
     QAction *m_cancelAction;
 };
 
+static const QString s_applicationSlashXDashKDEDashArkDashDnDExtractDashService = //
+    QStringLiteral("application/x-kde-ark-dndextract-service");
+static const QString s_applicationSlashXDashKDEDashArkDashDnDExtractDashPath = //
+    QStringLiteral("application/x-kde-ark-dndextract-path");
+
 class KIO::DropJobPrivate : public KIO::JobPrivate
 {
 public:
@@ -77,6 +82,8 @@ public:
         , m_dropAction(dropEvent->dropAction())
         , m_relativePos(dropEvent->pos())
         , m_keyboardModifiers(dropEvent->keyboardModifiers())
+        , m_hasArkFormat(m_mimeData->hasFormat(s_applicationSlashXDashKDEDashArkDashDnDExtractDashService)
+                         && m_mimeData->hasFormat(s_applicationSlashXDashKDEDashArkDashDnDExtractDashPath))
         , m_destUrl(destUrl)
         , m_destItem(KCoreDirLister::cachedItemForUrl(destUrl))
         , m_flags(flags)
@@ -90,6 +97,11 @@ public:
         }
         if (m_destItem.isNull() && m_destUrl.isLocalFile()) {
             m_destItem = KFileItem(m_destUrl);
+        }
+
+        if (m_hasArkFormat) {
+            m_remoteArkDBusClient = QString::fromUtf8(m_mimeData->data(s_applicationSlashXDashKDEDashArkDashDnDExtractDashService));
+            m_remoteArkDBusPath = QString::fromUtf8(m_mimeData->data(s_applicationSlashXDashKDEDashArkDashDnDExtractDashPath));
         }
 
         if (!(m_flags & KIO::NoPrivilegeExecution)) {
@@ -134,6 +146,9 @@ public:
     Qt::DropAction m_dropAction;
     QPoint m_relativePos;
     Qt::KeyboardModifiers m_keyboardModifiers;
+    bool m_hasArkFormat;
+    QString m_remoteArkDBusClient;
+    QString m_remoteArkDBusPath;
     QUrl m_destUrl;
     KFileItem m_destItem; // null for remote URLs not found in the dirlister cache
     const JobFlags m_flags;
@@ -218,22 +233,13 @@ DropJob::~DropJob()
 {
 }
 
-static const QString s_applicationSlashXDashKDEDashArkDashDnDExtractDashService = //
-    QStringLiteral("application/x-kde-ark-dndextract-service");
-static const QString s_applicationSlashXDashKDEDashArkDashDnDExtractDashPath = //
-    QStringLiteral("application/x-kde-ark-dndextract-path");
-
 void DropJobPrivate::slotStart()
 {
     Q_Q(DropJob);
 
-    if (m_mimeData->hasFormat(s_applicationSlashXDashKDEDashArkDashDnDExtractDashService)
-        && m_mimeData->hasFormat(s_applicationSlashXDashKDEDashArkDashDnDExtractDashPath)) {
-        const QString remoteDBusClient = QString::fromUtf8(m_mimeData->data(s_applicationSlashXDashKDEDashArkDashDnDExtractDashService));
-        const QString remoteDBusPath = QString::fromUtf8(m_mimeData->data(s_applicationSlashXDashKDEDashArkDashDnDExtractDashPath));
-
-        QDBusMessage message = QDBusMessage::createMethodCall(remoteDBusClient,
-                                                              remoteDBusPath,
+    if (m_hasArkFormat) {
+        QDBusMessage message = QDBusMessage::createMethodCall(m_remoteArkDBusClient,
+                                                              m_remoteArkDBusPath,
                                                               QStringLiteral("org.kde.ark.DndExtract"),
                                                               QStringLiteral("extractSelectedFilesTo"));
         message.setArguments({m_destUrl.toDisplayString(QUrl::PreferLocalFile)});
