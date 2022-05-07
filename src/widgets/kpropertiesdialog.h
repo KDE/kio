@@ -383,8 +383,12 @@ class KPropertiesDialogPluginPrivate;
  * It's up to the plugin to insert pages into the parent dialog.
  *
  * To make a plugin available, ensure it has embedded json metadata (look for
- * K_PLUGIN_CLASS_WITH_JSON) and install the plugin into kf5/propertiesdialog. The metadata
- * can contain the MIME types for which the plugin should be created.
+ * K_PLUGIN_CLASS_WITH_JSON) and install the plugin in "\<plugins_dir>/kf5/propertiesdialog/".
+ * (By default KDE uses the same plugins dir as Qt, you can find the @c plugins_dir path on
+ * your system by running <tt>qtpaths --plugin-dir</tt> or <tt>qmake QT_INSTALL_PLUGINS</tt>
+ * in terminal).
+ *
+ * The metadata can contain the MIME types for which the plugin should be created.
  * For instance:
  * @verbatim
    {
