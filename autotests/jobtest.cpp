@@ -952,13 +952,18 @@ void JobTest::copyFolderWithUnaccessibleSubfolder()
     ScopedCleaner cleaner([&] {
         QFile(inaccessible).setPermissions(QFile::Permissions(QFile::ReadOwner | QFile::WriteOwner | QFile::ExeOwner));
 
+        qDebug() << "Cleaning up" << src_dir << "and" << dst_dir;
         KIO::DeleteJob *deljob1 = KIO::del(QUrl::fromLocalFile(src_dir), KIO::HideProgressInfo);
         deljob1->setUiDelegate(nullptr); // no skip dialog, thanks
-        QVERIFY(deljob1->exec());
+        const bool job1OK = deljob1->exec();
+        QVERIFY(job1OK);
 
         KIO::DeleteJob *deljob2 = KIO::del(QUrl::fromLocalFile(dst_dir), KIO::HideProgressInfo);
         deljob2->setUiDelegate(nullptr); // no skip dialog, thanks
-        QVERIFY(deljob2->exec());
+        const bool job2OK = deljob2->exec();
+        QVERIFY(job2OK);
+
+        qDebug() << "Result:" << job1OK << job2OK;
     });
 
     KIO::CopyJob *job = KIO::copy(QUrl::fromLocalFile(src_dir), QUrl::fromLocalFile(dst_dir), KIO::HideProgressInfo);
