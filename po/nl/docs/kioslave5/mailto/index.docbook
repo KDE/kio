@@ -1,0 +1,132 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Dutch "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="mailto">
+<title
+>mailto</title>
+<articleinfo>
+<authorgroup>
+<author
+><firstname
+>Christopher</firstname
+> <surname
+>Yeleighton</surname
+> <email
+>giecrilj@stegny.2a.pl</email
+></author>
+
+&Otto.Bruggeman;&Rinse.Devries; 
+</authorgroup>
+
+<date
+>2018-08-20</date>
+<releaseinfo
+>Frameworks 5.50</releaseinfo>
+</articleinfo>
+<para
+>De kioslave mailto is verantwoordelijk voor het starten van het programma van uw keuze voor het maken van een e-mailbericht, wanneer u een &URL; opent in het schema mailto (<ulink url="https://tools.ietf.org/html/rfc6068"
+>RFC6068</ulink
+>). </para>
+
+<variablelist>
+<varlistentry>
+<term
+>Syntaxis</term>
+<listitem
+><para
+>De syntaxis van een &URL; met mailto volgt het volgende patroon:</para>
+
+<para
+>mailto:geadresseerde?query</para>
+
+<para
+>waar geadresserde een lijst met beperkte &SMTP;-adresspecificaties is, en het gedeelte query een of meer van de volgende parameters mag bevatten:</para>
+
+<variablelist>
+<varlistentry>
+<term
+>&amp;to=geadresseerden</term>
+<listitem
+><para
+>Specificeert extra geadresseerden.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>&amp;cc=geadresseerden</term>
+<listitem
+><para
+>Specificeert extra geadresseerden van "carbon copies".</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>&amp;bcc=geadresseerden</term>
+<listitem
+><para
+>Specificeert extra geadresseerden van blinde "carbon copies". Deze geadresseerden zullen het bericht ontvangen, maar zijn niet bekend bij alle andere geadresseerden.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>&amp;body=tekst</term>
+<listitem
+><para
+>Specificeert de tekst van het bericht. Deze tekst zou niet lang moeten zijn, omdat ere harde limieten kunnen zijn over hoe lang een &URL; mag zijn.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>&amp;subject=tekst</term>
+<listitem
+><para
+>Specificeert het onderwerp van de e-mail.</para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>Voorbeeld</term>
+<listitem
+><para
+>   
+<literal
+>mailto:info@kde.org?cc=kde@kde.org&amp;subject=Hartelijk%20dank!&amp;body=KDE%20is%20geweldig!%20Hoe%20kan%20ik%20helpen%3F</literal>
+</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>Configuratie</term>
+<listitem
+><para
+>Kies de toepassing om met mailto-locaties te behandelen in module &systemsettings; <menuchoice
+><guimenu
+>Toepassingen</guimenu
+><guimenuitem
+>Standaard toepassingen</guimenuitem
+></menuchoice
+> in de categorie <guilabel
+>Personalisatie</guilabel
+>. </para
+></listitem>
+</varlistentry>
+
+</variablelist>
+  
+</article>

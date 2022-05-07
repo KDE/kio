@@ -1,0 +1,49 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Catalan  "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="ftp">
+<title
+>&FTP;</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Lauri.Watts; &Lauri.Watts.mail;</author>
+&traductor.Antoni.Bella; 
+</authorgroup>
+</articleinfo>
+
+<para
+>&FTP; és el servei d'Internet emprat per a transferir un fitxer de dades des del disc d'un ordinador al disc des d'un altre, independentment del tipus de sistema operatiu. </para>
+
+<para
+>De mode semblant a altres aplicacions d'Internet, l'&FTP; empra l'aproximació client-servidor &mdash; un usuari invoca un programa &FTP; a l'ordinador, li indica que contacti amb una màquina remota i després sol·licita la transferència d'un o més fitxers. El programa local d'&FTP; es converteix en un client que empra <acronym
+>TCP</acronym
+> per a contactar amb un programa servidor d'&FTP; en l'ordinador remot. Cada vegada que un usuari sol·licita una transferència de fitxers, els programes client i servidor cooperen per a enviar una còpia de dades a través de la Internet.</para>
+
+<para
+>Els servidors &FTP; que accepten <quote
+>&FTP; anònim</quote
+> permeten que qualsevol usuari, no només usuaris amb comptes en la màquina, naveguin pels arxius <quote
+>ftp</quote
+> i els descarreguin. Alguns servidors &FTP; també estan configurats per a permetre que els usuaris hi pugin fitxers.</para>
+
+<para
+>L'&FTP; és habitualment emprat per a recuperar informació i obtenir programari emmagatzemat en fitxers als llocs d'arxiu &FTP; al voltant de tot el món. </para>
+
+
+<para
+>Font: parafrasejada de <ulink url="http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/ftpdef.htm"
+>http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/ftpdef.htm</ulink
+> </para>
+
+<para
+>Mireu el manual: <ulink url="man:/ftp"
+>ftp</ulink
+>.</para>
+
+</article>
