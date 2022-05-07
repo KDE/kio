@@ -1,0 +1,239 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Serbian-Latin "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="ebrowsing" lang="&language;">
+<articleinfo>
+<title
+>Veb prečice</title>
+<authorgroup>
+<author
+><personname
+><firstname
+>Krišna</firstname
+> <surname
+>Tateneni</surname
+></personname
+> &Krishna.Tateneni.mail;</author>
+<author
+><personname
+><firstname
+>Iv</firstname
+> <surname
+>Aruj</surname
+></personname
+> &Yves.Arrouye.mail;</author>
+<othercredit role="translator"
+><firstname
+>Dragan</firstname
+><surname
+>Pantelić</surname
+><affiliation
+><address
+><email
+>falcon-10@gmx.de</email
+></address
+></affiliation
+><contrib
+>prevod</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>10. 11. 2016.</date>
+<releaseinfo
+>Radni okviri KDE‑a 5.29</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Sistemske postavke</keyword>
+<keyword
+>poboljšano pregledanje</keyword>
+<keyword
+>veb prečice</keyword>
+<keyword
+>pregledanje</keyword>
+</keywordset>
+
+</articleinfo>
+<sect1 id="ebrowse">
+
+<title
+>Veb prečice</title>
+
+<sect2 id="ebrowse-intro">
+
+<title
+>Uvod </title>
+
+<para
+><application
+>K‑osvajač</application
+> pruža neke mogućnosti za poboljšanje vaše efikasnosti pregledanja. Jednu takvu čine <emphasis
+>veb prečice</emphasis
+>.</para>
+
+<para
+>Možda ste već primetili da je KDE veoma naklonjen Internetu. Možete, na primer, kliknuti na stavku menija <guimenuitem
+>Izvrši naredbu...</guimenuitem
+> (ili pritisnuti prečicu sa tastature dodeljenu toj naredbi, <keycombo action="simul"
+><keycap
+>Alt</keycap
+><keycap
+>F2</keycap
+></keycombo
+> ili <keycombo action="simul"
+><keycap
+>Alt</keycap
+><keycap
+>Space</keycap
+></keycombo
+> ako je niste menjali), te ukucati URI. <footnote
+><para
+>URI je „uniformni identifikator resursa“, standardizovan način upućivanja na resurse poput fajlova na vašem računaru, adresa na Webu, adresa e‑pošte, itd.</para
+></footnote
+></para>
+
+<para
+>Veb prečice vam tada omogućavaju da smislite nove šeme pseudo-URL‑ova, odnosno prečice kojima možete <emphasis
+>parametrizovati</emphasis
+> često korišćene URI‑je. Na primer, ako volite pretraživač Google, možete podesiti KDE tako da šema pseudo-URL‑a poput <literal
+>gg</literal
+> pokreće pretragu Googleom; tada ćete unosom <userinput
+>gg:<replaceable
+>moj upit</replaceable
+></userinput
+> potražiti <replaceable
+>moj upit</replaceable
+> na Googleu.</para>
+
+<note
+><para
+>Odavde se vidi zašto ove šeme zovemo pseudo-URL‑ovima: koriste se poput URL‑ova, ali nisu kodirane kao pravilni URL‑ovi. Tako će se ukucati <userinput
+>gg:kde programi</userinput
+>, a ne <userinput
+>gg:kde+programi</userinput
+>.</para
+></note>
+
+<para
+>Veb prečice možete koristiti gde god i normalne URI‑je. Prečice za nekolicinu pretraživača trebalo bi da su već podešene na sistemu, ali možete dodati nove ključne reči, i izmeniti ili obrisati postojeće u ovom modulu. </para>
+
+</sect2>
+
+<sect2 id="ebrowse-use">
+
+<title
+>Veb prečice</title>
+
+<para
+>Opisna imena definisanih veb prečica prikazana su na spisku. Kao i sa ostalim spiskovima u KDE‑u, možete kliknuti na zaglavlje kolone da izmenite ređanje između opadajućeg i rastućeg, ili promeniti veličinu kolona.</para>
+
+<para
+>Za upošljavanje ove mogućnosti treba popuniti kućicu <guilabel
+>Veb prečice</guilabel
+> na dnu spiska. Dugmadima desno stvarate, menjate i brišete prečice.</para>
+
+<para
+>Ako je popunjeno <guilabel
+>Samo poželjne prečice</guilabel
+>, samo veb prečice označene kao poželjne u trećoj koloni spiska koriste se na mestima gde se istovremeno može prikazati samo nekoliko probranih prečica. </para>
+ 
+<para
+>Ispod spiska se nalaze još dve opcije:</para>
+<variablelist>
+<varlistentry
+><term
+><guilabel
+>Podrazumevana veb prečica:</guilabel
+></term>
+<listitem>
+<para
+>Izaberite pretraživač koji se koristi u poljima za unos koja automatski izvode pretragu kada ukucate obične reči i izraze umesto URL‑a. Ovu mogućnost možete isključiti izborom <guilabel
+>nijedna</guilabel
+> sa spiska. </para
+></listitem>
+</varlistentry>
+<varlistentry
+><term
+><guilabel
+>Razdvajač ključne reči:</guilabel
+></term>
+<listitem>
+<para
+>Izaberite razdvajač kojim se ključna reč odvaja od izraza ili reči za traženje.</para
+></listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>Ako dvokliknete na određenu stavku sa spiska definisanih dobavljača pretrage, ili kliknete na dugme <guibutton
+>Izmeni...</guibutton
+>, u iskačućem dijalogu pojaviće se njeni detalji. Uz opisno ime za stavku možete videti URI koji se koristi, kao i pridružene prečice koje možete uneti svuda po KDE programima gde se očekuju URI‑ji. Za dati dobavljač pretrage može biti više prečica, razdvojenih zapetom.</para>
+
+<para
+>Tekstualna polja ne koriste se samo za prikaz podataka o stavci na spisku veb prečica, nego i za izmenu i dodavanje novih stavki.</para>
+
+<para
+>Sadržaje polja <guilabel
+>URL prečice:</guilabel
+> i <guilabel
+>prečice</guilabel
+> možete izmeniti. Kliknite na <guibutton
+>U redu</guibutton
+> da sačuvate izmene, ili na <guibutton
+>Odustani</guibutton
+> da napustite dijalog bez izmena.</para>
+
+<para
+>Ako proučite sadržaj polja <guilabel
+>URL prečice:</guilabel
+>, videćete da većina, ako ne i sve stavke, sadrže <option
+>\{@}</option
+>. Ovaj niz od četiri znaka predstavlja mestodržač, koji biva smenjen onim što ukucate za dvotačkom posle prečice. Možete ga dodati u URL prečice tako što kliknite na dugme desno od polja za unos. Razmotrimo neke primere radi razjašnjenja upotrebe veb prečica.</para>
+
+<para
+>Pretpostavimo da je URI <userinput
+>http://www.google.com/search?q=\{@}</userinput
+>, a <userinput
+>gg</userinput
+> prečica ka njemu. Onda će unos <userinput
+>gg:<replaceable
+>alfa</replaceable
+></userinput
+> bisti istovetan unosu <userinput
+>http://www.google.com/search?q=<replaceable
+>alfa</replaceable
+></userinput
+>. Možete upisati bilo šta posle znaka <userinput
+>:</userinput
+>; što god da je to, jednostavno će smeniti znake <option
+>\{@}</option
+>, pošto se tekstualno i sintaksno odgovarajuće kodira kao URL za dati pretraživač. Ovako se obrađuje samo deo <option
+>\{@}</option
+> u URI‑ju pretrage, za ostatak se pretpostavlja da je već pravilno kodirani URL i ne dira se.</para>
+
+<para
+>Možete imati i prečice bez parametara. Pretpostavimo da je ciljni URI <literal
+>file:/home/ja/mojidoku</literal
+>, a prečica <literal
+>mojidoku</literal
+>: tada je upisivanje <userinput
+>mojidoku:</userinput
+> jednako upisivanju celog URI‑ja. Zapazite da ovde nema ničeg posle dvotačke kad upisujete prečicu, ali je dvotačka svejedno neophodna da bi prečica bila prepoznata kao takva.</para>
+
+<para
+>Do sada ste verovatno uočili da iako se ove prečice zovu veb prečicama, one su zapravo prečice ka parametrizovanim URI‑jima, da mogu ukazivati ne samo na veb sajtove pretraživača, nego i na bilo šta drugo na šta se može ukazati URI‑jem. Veb prečice su moćna mogućnost za navigaciju u KDE‑u.</para>
+
+</sect2>
+
+</sect1>
+
+</article>

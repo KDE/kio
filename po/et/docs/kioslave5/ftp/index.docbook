@@ -1,0 +1,63 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Estonian  "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="ftp">
+<title
+>&FTP;</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Lauri.Watts; &Lauri.Watts.mail;</author>
+<othercredit role="translator"
+><firstname
+>Marek</firstname
+><surname
+>Laane</surname
+><affiliation
+><address
+><email
+>bald@online.ee</email
+></address
+></affiliation
+><contrib
+>Tõlge eesti keelde</contrib
+></othercredit
+> 
+</authorgroup>
+</articleinfo>
+
+<para
+>&FTP; on internetiteenus, mida kasutatakse andmete edastamiseks ühelt arvutilt teisele sõltumata operatsioonisüsteemist. </para>
+
+<para
+>Sarnaselt muudele internetirakendustele kasutab &FTP; kliendi-serveri suhet &mdash; kasutaja käivitab &FTP; rakenduse, annab sellele korralduse võtta ühendust kaugmasinaga ning soovib seejärel ühe või ka mitme faili ülekannet. Kohalik &FTP; rakendus muutub kliendiks, mis kasutab <acronym
+>TCP</acronym
+>-d ühenduse saamiseks kaugarvuti &FTP; rakendusega. Iga kord, kui klient soovib faili ülekannet, asuvad kliendi ja serveri rakendused üheskoos liigutama andmete koopiat interneti vahendusel. </para>
+
+<para
+>&FTP; serverid, mis lubavad <quote
+>anonüümset &FTP;-d</quote
+>, võimaldavad igal kasutajal, mitte ainult serveril kontot omavail isikutel, sirvida <quote
+>ftp</quote
+>-arhiivi ja faile alla laadida. Mõned &FTP; serverid lubavad kasutajatel ka faile üles laadida. </para>
+
+<para
+>&FTP;-d kasutatakse tavaliselt suvalises maailma punktis asuval &FTP; serveril paikneva info ja tarkvara hankimiseks. </para>
+
+
+<para
+>Allikas: <ulink url="http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/ftpdef.htm"
+>http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/ftpdef.htm</ulink
+> </para>
+
+<para
+>Vaata manuaali: <ulink url="man:/ftp"
+></ulink
+>.</para>
+
+</article>

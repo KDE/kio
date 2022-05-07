@@ -1,0 +1,225 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Swedish "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="proxy" lang="&language;">
+<title
+>Proxy</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Krishna.Tateneni; &Krishna.Tateneni.mail;</author>
+<othercredit role="translator"
+> <firstname
+>Stefan</firstname
+> <surname
+>Asserhäll</surname
+> <affiliation
+><address
+><email
+>stefan.asserhall@bredband.net</email
+></address
+></affiliation
+> <contrib
+>Översättare</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>2016-11-10</date>
+<releaseinfo
+>Ramverk 5.29</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Systeminställningar</keyword>
+<keyword
+>proxy</keyword>
+<keyword
+>proxyservrar</keyword>
+</keywordset>
+
+</articleinfo>
+<sect1 id="proxies">
+<title
+>Proxyservrar</title>
+
+<sect2 id="proxies-intro">
+
+<title
+>Inledning</title>
+
+<para
+>En proxy är ett program som kör på en dator som fungerar som server i nätverket du är anslutet till (vare sig med ett modem eller på annat sätt). De här programmen tar emot &HTTP;- och &FTP;-förfrågningar, hämtar relevanta filer från Internet, och skickar dem vidare till klientdatorn som gjorde förfrågan.</para>
+
+<para
+>När du har ställt in en proxy, skickas &HTTP;- och/eller &FTP;-förfrågningar via datorn som agerar som proxyserver. Du kan dock också välja särskilda värddatorer som ska kontaktas direkt, istället för genom proxyservern. Om du till exempel är ansluten till ett lokalt nätverk, behöver förmodligen inte anslutningar till lokala värddatorer gå genom proxyservern.</para>
+
+<para
+>Du bör bara behöva ställa in en proxyserver om din nätverksadministratör kräver det (om du är en uppringd användare, är det din Internetleverantör eller <abbrev
+>ISP</abbrev
+>). Annars, särskilt om du känner dig lite förvirrad över hela historien med proxy, men allt verkar fungera bra med din Internetanslutning, behöver du inte ändra någonting.</para>
+
+<para
+>Observera att användning av en proxyserver är valfri, men har fördelen att ge dig snabbare tillgång till data på Internet.</para>
+
+<para
+>Om du är osäker på om du behöver använda en proxyserver för att ansluta till Internet, kontrollera inställningsguiden från din Internetleverantör eller fråga din systemadministratör.</para>
+
+</sect2>
+
+<sect2 id="proxies-use">
+
+<title
+>Användning</title>
+
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>Ingen proxy</guilabel
+></term>
+<listitem>
+
+<para
+>Välj det här alternativet om du <emphasis
+>inte</emphasis
+> vill använda en proxyserver och ansluter direkt till Internet.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>Om du har valt att använda en proxy, finns det flera olika sätt att ställa in den.</para>
+
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>Detektera proxyinställning automatiskt</guilabel
+></term>
+<listitem>
+
+<para
+>Välj det här alternativet om du vill att skriptfilen för proxyinställning automatiskt ska detekteras och laddas ner.</para>
+<para
+>Det här alternativet skiljer sig bara från nästa genom att det <emphasis
+>inte</emphasis
+> kräver att du anger platsen för skriptfilen med inställningar. Istället laddas den automatiskt ner med protokollet <quote
+>Web Proxy Auto-Discovery</quote
+> (<acronym
+>WAPD</acronym
+>).</para>
+
+<note
+><para
+>Om du har problem med att använda den här inställningen, läs avsnittet med vanliga frågor (<acronym
+>FAQ</acronym
+>) på <ulink url="https://www.konqueror.org"
+>https://www.konqueror.org</ulink
+> för mer information.</para
+></note>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Använd webbadress för automatisk proxyinställning:</guilabel
+></term>
+<listitem>
+<para
+>Välj det här alternativet om proxystöd tillhandahålls genom en skriptfil som finns på en bestämd adress. Därefter kan du skriva in adressen i platstextraden, eller använda <guiicon
+>katalogikonen</guiicon
+> för att bläddra till den.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Använd systemets proxyinställning:</guilabel
+></term>
+<listitem>
+<para
+>Vissa system ställs in med $<envar
+>HTTP_PROXY</envar
+>, för att tillåta både grafiska och icke-grafiska program att dela samma information om proxyinställningar.</para>
+<para
+>Om du vet att det här gäller dig, markera det här alternativet och klicka på knappen <guibutton
+>Detektera automatiskt</guibutton
+> för att ange namnen på miljövariablerna som används för att ställa in adressen till proxyservern.</para>
+<!-- Exceptions fields are different for system proxy (envar) + manual proxy list of hosts/IPs? -->
+<para
+>Ange miljövariabeln som används för att lagra adressen till platser där proxyservern inte ska användas i fältet <guilabel
+>Undantag:</guilabel
+>, t.ex. $<envar
+>NO_PROXY</envar
+>.</para>
+<para
+>Använd <guilabel
+>Visa värdena för miljövariabler</guilabel
+> för att visa värdet på en miljövariabel istället för dess namn. Det är dock inte möjligt att redigera miljövariablernas värden i den här modulen.</para>
+<!--
+How to enable Auto Detect button?
+-->
+
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+><guilabel
+>Använd manuellt angiven proxyinställning:</guilabel
+></term>
+<listitem>
+
+<para
+>Den fullständiga adressinformationen för en proxy omfattar både Internetadressen och ett portnummer. Du måste skriva in de här i motsvarande textrutor. Markera <guilabel
+>Använd den här proxyservern för alla protokoll</guilabel
+> för att kopiera adresser och port från &HTTP;-proxyservern till alla andra proxyfält, för att undgå en del skrivande.</para>
+
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>Undantag:</guilabel
+></term>
+<listitem>
+<para
+>Ange en lista med värddatornamn eller IP-adresser åtskilda med kommatecken som ska undantas från att använda proxyinställningarna ovan. Om du vill undanta alla värddatorer från en viss domän, skriv helt enkelt in värddatornamnet med en inledande punkt. För att exempelvis undanta alla värddatornamn från kde.org, ange <userinput
+>.kde.org</userinput
+>. Jokertecken som <userinput
+>*</userinput
+> eller <userinput
+>?</userinput
+> stöds inte och har ingen effekt. Dessutom kan du ange IP-adresser, t.ex. 127.0.0.1 och IP-adresser med ett delnät, t.ex. 192.168.0.1/24.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>Du kan också välja <guilabel
+>Använd enbart proxyinställningar för adresser i undantagslistan</guilabel
+>.</para>
+
+<para
+>Markera den här rutan för att vända på användningen av listan med undantag, dvs. proxyservern används bara när den begärda webbadressen matchar en av adresserna som listas här.</para>
+
+<para
+>Den här funktionen är användbar om allt du behöver är en proxy för att komma åt några få speciella platser, till exempel ett internt nätverk. Om du har komplexare krav kanske du bör använda ett inställningsskript.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+</sect2>
+
+</sect1>
+
+</article>

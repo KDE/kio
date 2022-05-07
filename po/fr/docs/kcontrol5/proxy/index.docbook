@@ -1,0 +1,213 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % French "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="proxy" lang="&language;">
+<title
+>Serveur mandataire</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Krishna.Tateneni; &Krishna.Tateneni.mail;</author>
+&traducteurYvesDessertine; &traducteurGillesCaulier; &traducteurGerardDelafond; &traducteurPierreBuard;&traducteurXavierBesnard; 
+</authorgroup>
+
+<date
+>10-11-2016</date>
+<releaseinfo
+>Environnement de développement 5.29</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Configuration du système</keyword>
+<keyword
+>serveur mandataire</keyword>
+<keyword
+>serveurs mandataires</keyword>
+</keywordset>
+
+</articleinfo>
+<sect1 id="proxies">
+<title
+>Serveurs mandataires</title>
+
+<sect2 id="proxies-intro">
+
+<title
+>Introduction</title>
+
+<para
+>Les serveurs mandataires sont des programmes fonctionnant sur un ordinateur et font office de serveur sur le réseau auquel vous êtes connecté (via un modem ou tout autre moyen de communication). Ces programmes reçoivent les requêtes &HTTP; et &FTP;, réceptionnent les fichiers demandés sur Internet et les transmettes aux ordinateurs clients à l'origine des demandes.</para>
+
+<para
+>Après avoir renseigné la configuration d'un serveur mandataire sur votre machine, les requêtes &HTTP; et / ou &FTP; sont re-routées vers l'ordinateur hébergeant le serveur mandataire. Cependant, vous pourrez sélectionner des hôtes spécifiques devant être contactés directement, sans passer par le serveur mandataire. Par exemple, pour accéder aux machines d'un réseau local, vous ne serez probablement pas obligé de passer par un serveur mandataire.</para>
+
+<para
+>Vous aurez besoin de configurer un serveur mandataire uniquement si votre administrateur réseau vous le demande (si vous utilisez un modem pour accéder à Internet, voyez avec votre fournisseur d'accès à l'Internet ou <acronym
+>FAI</acronym
+>). Dans tous les autres cas, si cette affaire de serveur mandataire vous semble confuse et que votre connexion à Internet fonctionne correctement : ne changez rien.</para>
+
+<para
+>Remarquez que l'utilisation de serveurs mandataires est optionnelle mais a l'avantage de vous donner un accès plus rapides aux données présentes sur Internet.</para>
+
+<para
+>Si vous n'êtes pas certain d'avoir besoin d'un serveur mandataire pour vous connecter à l'Internet, veuillez consulter la documentation de votre fournisseur d'accès à Internet ou votre administrateur système.</para>
+
+</sect2>
+
+<sect2 id="proxies-use">
+
+<title
+>Utilisation</title>
+
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>Pas de serveur mandataire</guilabel
+></term>
+<listitem>
+
+<para
+>Sélectionnez cette option si vous <emphasis
+>ne</emphasis
+> souhaitez <emphasis
+>pas</emphasis
+> utiliser un serveur mandataire et, donc, vous connecter directement à Internet.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>Si vous décidez d'employer un serveur mandataire, plusieurs méthodes s'offrent à vous pour configurer ses paramètres.</para>
+
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>Détecter automatiquement la configuration du serveur mandataire</guilabel
+></term>
+<listitem>
+
+<para
+>Sélectionnez cette option pour détecter et télécharger automatiquement le script de configuration du serveur mandataire.</para>
+<para
+>Cette option diffère du choix suivant par le fait qu'elle <emphasis
+>ne nécessite pas</emphasis
+> que vous fournissiez l'emplacement du fichier de script de configuration. À la place, il sera téléchargé automatiquement en utilisant le protocole de <quote
+>Découverte automatique du serveur mandataire</quote
+> (Web Proxy Auto-Discovery ou <acronym
+>WPAD</acronym
+>).</para>
+
+<note
+><para
+>En cas de problème d'utilisation de ce réglage, veuillez consulter la section <acronym
+>FAQ</acronym
+> sur <ulink url="http://www.konqueror.org"
+>http://www.konqueror.org</ulink
+> pour plus d'informations.</para
+></note>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Utiliser l'URL de configuration automatique du serveur mandataire</guilabel
+></term>
+<listitem>
+<para
+>Sélectionnez cette option si votre prise en charge du serveur mandataire est fourni par un fichier de script situé à une adresse précise. Vous pourrez saisir son adresse dans le champ texte ou utiliser l'icône <guiicon
+>dossier</guiicon
+> pour le localiser.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Utiliser la configuration du serveur mandataire du système</guilabel
+></term>
+<listitem>
+<para
+>Certains systèmes sont réglés avec $<envar
+>HTTP_PROXY</envar
+> pour permettre aussi bien aux applications graphiques que non graphiques de partager les mêmes informations de configuration du serveur mandataire.</para>
+<para
+>Si ceci s'applique à votre cas, sélectionnez cette option et cliquez sur le bouton <guibutton
+>Détection automatique</guibutton
+> pour fournir les noms de variables d'environnement utilisées pour définir l'adresse du ou des serveurs mandataires.</para>
+<!-- Exceptions fields are different for system proxy (envar) + manual proxy list of hosts/IPs? -->
+<para
+>Dans le champ <guilabel
+>Exceptions</guilabel
+>, saisissez la variable d'environnement (&pex; $<envar
+>NO_PROXY</envar
+>) stockant les adresses des sites pour lesquelles un serveur mandataire ne doit pas être utilisé.</para>
+<para
+>Utilisez <guilabel
+>Afficher la valeur des variables d'environnement</guilabel
+> pour rendre visible la valeur d'une variable d'environnement plutôt que son nom. Cependant, il n'est pas possible de modifier les valeurs d'environnement dans ce module.</para>
+<!--
+How to enable Auto Detect button?
+-->
+
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+><guilabel
+>Utiliser la configuration du serveur mandataire manuellement spécifiée</guilabel
+></term>
+<listitem>
+
+<para
+>L'adresse complète du serveur mandataire inclut son adresse Internet et un numéro de port. Vous devrez les saisir dans les champs de texte dédiés. Cochez <guilabel
+>Utiliser ce serveur mandataire pour tous les protocoles</guilabel
+> afin de copier les adresse et port du serveur mandataire HTTP dans tous les autres champs, afin d'économiser leur saisie.</para>
+
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>Exceptions</guilabel
+></term>
+<listitem>
+<para
+>Listez les noms d'hôtes ou adresses IP, séparés par des virgules, qui seront exclues des réglages définis ci-dessus. Pour exclure tous les hôtes d'un domaine, faites précéder ce nom de domaine d'un point. Par exemple, excluez tous les hôtes de kde.org en inscrivant <userinput
+>.kde.org</userinput
+>. Les caractères jokers comme <userinput
+>*</userinput
+> ou <userinput
+>?</userinput
+> ne sont pas pris en charge et n'auront aucun effet. Vous pouvez également saisir des adresses IP seules (&pex; 127.0.0.1) ou incluant leurs masques de sous-réseau (&pex; 192.168.0.1/24).</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>Vous pouvez aussi choisir d'<guilabel
+>Utiliser les paramètres du serveur mandataire uniquement pour les adresses de la liste « Exceptions »</guilabel
+>.</para>
+
+<para
+>Cochez cette case pour inverser l'utilisation de la liste des exceptions, &cad; que les serveurs mandataires ne seront utilisés que lorsque l'&URL; demandée correspondra à une des adresses listées ici.</para>
+
+<para
+>Cette fonctionnalité est utile si vous avez besoin d'un serveur mandataire pour accéder à quelques sites précis (&pex; un intranet). Pour des besoins plus complexes, vous devriez utiliser un script de configuration.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+</sect2>
+
+</sect1>
+
+</article>
