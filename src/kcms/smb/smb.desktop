@@ -5,6 +5,7 @@ X-DocPath=kcontrol5/smb/index.html
 Icon=preferences-system-network-share-windows
 
 X-KDE-Library=plasma/kcms/systemsettings_qwidgets/kcm_smb
+X-KDE-PluginInfo-Name=smb
 X-KDE-System-Settings-Parent-Category=networksettings
 X-KDE-ParentApp=kcontrol
 

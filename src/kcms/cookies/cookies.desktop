@@ -5,6 +5,7 @@ X-DocPath=kcontrol5/cookies/index.html
 Icon=preferences-web-browser-cookies
 
 X-KDE-Library=plasma/kcms/systemsettings_qwidgets/kcm_cookies
+X-KDE-PluginInfo-Name=cookies
 X-KDE-ParentApp=kcontrol
 
 X-KDE-System-Settings-Parent-Category=networksettings
