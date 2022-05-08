@@ -4,7 +4,7 @@ X-KDE-ServiceTypes=KCModule
 X-DocPath=kcontrol5/smb/index.html
 Icon=preferences-system-network-share-windows
 
-X-KDE-Library=kcm_smb
+X-KDE-Library=plasma/kcms/systemsettings_qwidgets/kcm_smb
 X-KDE-System-Settings-Parent-Category=networksettings
 X-KDE-ParentApp=kcontrol
 

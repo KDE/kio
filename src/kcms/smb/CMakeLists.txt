@@ -1,5 +1,6 @@
 add_library(kcm_smb MODULE)
 
+kcoreaddons_desktop_to_json(kcm_smb smb.desktop)
 target_sources(kcm_smb PRIVATE
     smbrodlg.cpp
 )
@@ -12,6 +13,6 @@ target_link_libraries(kcm_smb PRIVATE
     KF5::ConfigWidgets
 )
 
-install(TARGETS kcm_smb DESTINATION ${KDE_INSTALL_PLUGINDIR})
+install(TARGETS kcm_smb DESTINATION ${KDE_INSTALL_PLUGINDIR}/plasma/kcms/systemsettings)
 
 install(FILES smb.desktop DESTINATION  ${KDE_INSTALL_KSERVICESDIR})

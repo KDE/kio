@@ -4,7 +4,7 @@ X-KDE-ServiceTypes=KCModule
 X-DocPath=kcontrol5/proxy/index.html
 Icon=preferences-system-network-proxy
 
-X-KDE-Library=kcm_proxy
+X-KDE-Library=plasma/kcms/systemsettings_qwidgets/kcm_proxy
 X-KDE-ParentApp=kcontrol
 
 X-KDE-System-Settings-Parent-Category=networksettings

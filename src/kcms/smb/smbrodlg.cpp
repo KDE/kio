@@ -18,7 +18,7 @@
 #include <KLocalizedString>
 #include <KPluginFactory>
 
-K_PLUGIN_FACTORY(SMBRoOptionsFactory, registerPlugin<SMBRoOptions>();)
+K_PLUGIN_CLASS_WITH_JSON(SMBRoOptions, "smb.json")
 
 SMBRoOptions::SMBRoOptions(QWidget *parent, const QVariantList &args)
     : KCModule(parent, args)

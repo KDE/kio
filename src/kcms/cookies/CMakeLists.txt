@@ -27,6 +27,6 @@ target_link_libraries(kcm_cookies PRIVATE
     KF5::KIOCore
 )
 
-install(TARGETS kcm_cookies DESTINATION ${KDE_INSTALL_PLUGINDIR})
+install(TARGETS kcm_cookies DESTINATION ${KDE_INSTALL_PLUGINDIR}/plasma/kcms/systemsettings_qwidgets)
 
 install(FILES cookies.desktop DESTINATION  ${KDE_INSTALL_KSERVICESDIR})
