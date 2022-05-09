@@ -80,7 +80,12 @@ public:
                          QTextLayout *labelLayout,
                          QTextLayout *infoLayout,
                          QRect *textBoundingRect) const;
-    void drawTextItems(QPainter *painter, const QTextLayout &labelLayout, const QTextLayout &infoLayout, const QRect &textBoundingRect) const;
+    void drawTextItems(QPainter *painter,
+                       const QTextLayout &labelLayout,
+                       const QColor &labelColor,
+                       const QTextLayout &infoLayout,
+                       const QColor &infoColor,
+                       const QRect &textBoundingRect) const;
     KIO::AnimationState *animationState(const QStyleOptionViewItem &option, const QModelIndex &index, const QAbstractItemView *view) const;
     void restartAnimation(KIO::AnimationState *state);
     QPixmap applyHoverEffect(const QPixmap &icon) const;
@@ -665,7 +670,9 @@ void KFileItemDelegate::Private::layoutTextItems(const QStyleOptionViewItem &opt
 
 void KFileItemDelegate::Private::drawTextItems(QPainter *painter,
                                                const QTextLayout &labelLayout,
+                                               const QColor &labelColor,
                                                const QTextLayout &infoLayout,
+                                               const QColor &infoColor,
                                                const QRect &boundingRect) const
 {
     if (shadowColor.alpha() > 0) {
@@ -674,14 +681,11 @@ void KFileItemDelegate::Private::drawTextItems(QPainter *painter,
 
         QPainter p(&pixmap);
         p.translate(-boundingRect.topLeft());
-        p.setPen(painter->pen());
+        p.setPen(labelColor);
         labelLayout.draw(&p, QPoint());
 
         if (!infoLayout.text().isEmpty()) {
-            QColor color = p.pen().color();
-            color.setAlphaF(0.6);
-
-            p.setPen(color);
+            p.setPen(infoColor);
             infoLayout.draw(&p, QPoint());
         }
         p.end();
@@ -702,18 +706,19 @@ void KFileItemDelegate::Private::drawTextItems(QPainter *painter,
         return;
     }
 
-    labelLayout.draw(painter, QPoint());
+    painter->save();
+    painter->setPen(labelColor);
 
+    labelLayout.draw(painter, QPoint());
     if (!infoLayout.text().isEmpty()) {
         // TODO - for apps not doing funny things with the color palette,
         // KColorScheme::InactiveText would be a much more correct choice. We
         // should provide an API to specify what color to use for information.
-        QColor color = painter->pen().color();
-        color.setAlphaF(0.6);
-
-        painter->setPen(color);
+        painter->setPen(infoColor);
         infoLayout.draw(painter, QPoint());
     }
+
+    painter->restore();
 }
 
 void KFileItemDelegate::Private::initStyleOption(QStyleOptionViewItem *option, const QModelIndex &index) const
@@ -1202,7 +1207,21 @@ void KFileItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
 
     // Compute the metrics, and lay out the text items
     // ========================================================================
-    const QPen pen = QPen(d->foregroundBrush(opt, index), 0);
+    QColor labelColor = d->foregroundBrush(opt, index).color();
+    QColor infoColor  = labelColor;
+    if (!(option.state & QStyle::State_Selected)) {
+        // the code below is taken from Dolphin
+        const QColor c2 = option.palette.base().color();
+        const int p1 = 70;
+        const int p2 = 100 - p1;
+        infoColor = QColor((labelColor.red()   * p1 + c2.red()   * p2) / 100,
+                           (labelColor.green() * p1 + c2.green() * p2) / 100,
+                           (labelColor.blue()  * p1 + c2.blue()  * p2) / 100);
+
+        if (fileItem.isHidden()) {
+            labelColor = infoColor;
+        }
+    }
 
     //### Apply the selection effect to the icon when the item is selected and
     //     showDecorationSelected is false.
@@ -1232,10 +1251,9 @@ void KFileItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
         p.begin(&cache->regular);
         p.translate(-option.rect.topLeft());
         p.setRenderHint(QPainter::Antialiasing);
-        p.setPen(pen);
         style->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, &p, opt.widget);
         p.drawPixmap(iconPos, icon);
-        d->drawTextItems(&p, labelLayout, infoLayout, textBoundingRect);
+        d->drawTextItems(&p, labelLayout, labelColor, infoLayout, infoColor, textBoundingRect);
         d->drawFocusRect(&p, opt, focusRect);
         p.end();
 
@@ -1245,10 +1263,9 @@ void KFileItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
         p.begin(&cache->hover);
         p.translate(-option.rect.topLeft());
         p.setRenderHint(QPainter::Antialiasing);
-        p.setPen(pen);
         style->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, &p, opt.widget);
         p.drawPixmap(iconPos, icon);
-        d->drawTextItems(&p, labelLayout, infoLayout, textBoundingRect);
+        d->drawTextItems(&p, labelLayout, labelColor, infoLayout, infoColor, textBoundingRect);
         d->drawFocusRect(&p, opt, focusRect);
         p.end();
 
@@ -1280,7 +1297,6 @@ void KFileItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
     // ========================================================================
     painter->save();
     painter->setRenderHint(QPainter::Antialiasing);
-    painter->setPen(pen);
 
     if (progress > 0 && !(opt.state & QStyle::State_MouseOver)) {
         opt.state |= QStyle::State_MouseOver;
@@ -1290,7 +1306,7 @@ void KFileItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
     style->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, painter, opt.widget);
     painter->drawPixmap(iconPos, icon);
 
-    d->drawTextItems(painter, labelLayout, infoLayout, textBoundingRect);
+    d->drawTextItems(painter, labelLayout, labelColor, infoLayout, infoColor, textBoundingRect);
     d->drawFocusRect(painter, opt, focusRect);
 
     if (d->jobTransfersVisible && index.column() == 0 && state) {
