@@ -144,16 +144,16 @@ QString KSambaSharePrivate::testparmParamValue(const QString &parameterName)
     // create a parser for the error output and
     // send error message somewhere
     if (!stdErr.isEmpty()) {
-        QList<QByteArray> err;
-        err << stdErr.trimmed().split('\n');
-        // ignore first two lines
-        if (err.count() > 0 && err.at(0).startsWith("Load smb config files from")) {
-            err.removeFirst();
-        }
-        if (err.count() > 0 && err.at(0).startsWith("Loaded services file OK.")) {
-            err.removeFirst();
-        }
-        if (err.count() > 0 && err.at(0).startsWith("WARNING: The 'netbios name' is too long (max. 15 chars).")) {
+        QList<QByteArray> errArray = stdErr.trimmed().split('\n');
+        errArray.removeAll("\n");
+        errArray.erase(std::remove_if(errArray.begin(), errArray.end(), [](QByteArray &line) {
+            return line.startsWith("Load smb config files from");
+        }));
+        errArray.removeOne("Loaded services file OK.");
+        errArray.removeOne("Weak crypto is allowed");
+
+        const int netbiosNameErrorIdx = errArray.indexOf("WARNING: The 'netbios name' is too long (max. 15 chars).");
+        if (netbiosNameErrorIdx >= 0) {
             // netbios name must be of at most 15 characters long
             // means either netbios name is badly configured
             // or not set and the default value is being used, it being "$(hostname)-W"
@@ -170,10 +170,10 @@ QString KSambaSharePrivate::testparmParamValue(const QString &parameterName)
                 qCDebug(KIO_CORE) << "Your samba 'netbios name' parameter was longer than the authorized 15 characters."
                                   << "Please define a 'netbios name' parameter in /etc/samba/smb.conf at most 15 characters long";
             }
-            err.removeFirst();
+            errArray.removeAt(netbiosNameErrorIdx);
         }
-        if (err.count() > 0) {
-            qCDebug(KIO_CORE) << "We got some errors while running testparm" << err.join("\n");
+        if (errArray.size() > 0) {
+            qCDebug(KIO_CORE) << "We got some errors while running testparm" << errArray.join("\n");
         }
     }
 
