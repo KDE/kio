@@ -367,8 +367,6 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
 
     d->initDirOpWidgets();
 
-    d->m_model = new KFilePlacesModel(this);
-
     // Resolve this now so that a 'kfiledialog:' URL, if specified,
     // does not get inserted into the urlNavigator history.
     d->m_url = getStartUrl(startDir, d->m_fileClass, filename);
@@ -1144,6 +1142,8 @@ void KFileWidgetPrivate::initDirOpWidgets()
     m_opsWidgetLayout = new QVBoxLayout(m_opsWidget);
     m_opsWidgetLayout->setContentsMargins(0, 0, 0, 0);
     m_opsWidgetLayout->setSpacing(0);
+
+    m_model = new KFilePlacesModel(q);
 
     // Don't pass "startDir" (KFileWidget constructor 1st arg) to the
     // KUrlNavigator at this stage: it may also contain a file name which
