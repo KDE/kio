@@ -67,11 +67,6 @@ private:
     QAction *m_cancelAction;
 };
 
-static const QString s_applicationSlashXDashKDEDashArkDashDnDExtractDashService = //
-    QStringLiteral("application/x-kde-ark-dndextract-service");
-static const QString s_applicationSlashXDashKDEDashArkDashDnDExtractDashPath = //
-    QStringLiteral("application/x-kde-ark-dndextract-path");
-
 class KIO::DropJobPrivate : public KIO::JobPrivate
 {
 public:
@@ -82,8 +77,8 @@ public:
         , m_dropAction(dropEvent->dropAction())
         , m_relativePos(dropEvent->pos())
         , m_keyboardModifiers(dropEvent->keyboardModifiers())
-        , m_hasArkFormat(m_mimeData->hasFormat(s_applicationSlashXDashKDEDashArkDashDnDExtractDashService)
-                         && m_mimeData->hasFormat(s_applicationSlashXDashKDEDashArkDashDnDExtractDashPath))
+        , m_hasArkFormat(m_mimeData->hasFormat(QStringLiteral("application/x-kde-ark-dndextract-service"))
+                         && m_mimeData->hasFormat(QStringLiteral("application/x-kde-ark-dndextract-path")))
         , m_destUrl(destUrl)
         , m_destItem(KCoreDirLister::cachedItemForUrl(destUrl))
         , m_flags(flags)
@@ -100,8 +95,8 @@ public:
         }
 
         if (m_hasArkFormat) {
-            m_remoteArkDBusClient = QString::fromUtf8(m_mimeData->data(s_applicationSlashXDashKDEDashArkDashDnDExtractDashService));
-            m_remoteArkDBusPath = QString::fromUtf8(m_mimeData->data(s_applicationSlashXDashKDEDashArkDashDnDExtractDashPath));
+            m_remoteArkDBusClient = QString::fromUtf8(m_mimeData->data(QStringLiteral("application/x-kde-ark-dndextract-service")));
+            m_remoteArkDBusPath = QString::fromUtf8(m_mimeData->data(QStringLiteral("application/x-kde-ark-dndextract-path")));
         }
 
         if (!(m_flags & KIO::NoPrivilegeExecution)) {
