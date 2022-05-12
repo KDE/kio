@@ -253,6 +253,8 @@ void DropJobPrivate::slotStart()
             }
             q->emitResult();
         });
+
+        return;
     }
 
     if (!m_urls.isEmpty()) {
