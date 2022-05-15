@@ -60,6 +60,7 @@ public:
 StatJob::StatJob(StatJobPrivate &dd)
     : SimpleJob(dd)
 {
+    setTotalAmount(Items, 1);
 }
 
 StatJob::~StatJob()
