@@ -174,7 +174,7 @@ void KIO::WidgetsAskUserActionHandler::askUserDelete(const QList<QUrl> &urls, De
                 xi18ncp("@info", "Do you really want to move this %1 item to the Trash?", "Do you really want to move these %1 items to the Trash?", urlCount);
         }
         caption = i18n("Move to Trash");
-        acceptButton = KGuiItem(i18n("Move to Trash"), QStringLiteral("user-trash"));
+        acceptButton = KGuiItem(caption, QStringLiteral("user-trash"));
         break;
     }
     default:
