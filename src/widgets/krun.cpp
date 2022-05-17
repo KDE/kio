@@ -46,6 +46,7 @@
 
 #include <KApplicationTrader>
 #include <KJobUiDelegate>
+#include <jobuidelegatefactory.h>
 
 #include <KAuthorized>
 #include <KConfigGroup>
@@ -181,7 +182,7 @@ bool KRun::runUrl(const QUrl &u, const QString &_mimetype, QWidget *window, RunF
     KIO::OpenUrlJob *job = new KIO::OpenUrlJob(u, _mimetype);
     job->setSuggestedFileName(suggestedFileName);
     job->setStartupId(asn);
-    job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, window));
+    job->setUiDelegate(KIO::createDefaultJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, window));
     job->setDeleteTemporaryFile(tempFile);
     job->setRunExecutables(runExecutables);
     job->start();
@@ -285,7 +286,7 @@ KRun::runApplication(const KService &service, const QList<QUrl> &urls, QWidget *
     }
     job->setSuggestedFileName(suggestedFileName);
     job->setStartupId(asn);
-    job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, window));
+    job->setUiDelegate(KIO::createDefaultJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, window));
     job->start();
     job->waitForStarted();
     return job->error() ? 0 : job->pid();

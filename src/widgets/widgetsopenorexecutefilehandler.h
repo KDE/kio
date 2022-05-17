@@ -19,6 +19,7 @@ namespace KIO
 
 class WidgetsOpenOrExecuteFileHandler : public OpenOrExecuteFileInterface
 {
+    Q_OBJECT
 public:
     explicit WidgetsOpenOrExecuteFileHandler(QObject *parent = nullptr);
     ~WidgetsOpenOrExecuteFileHandler() override;

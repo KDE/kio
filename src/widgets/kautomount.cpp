@@ -10,6 +10,7 @@
 #include "kio_widgets_debug.h"
 #include <KIO/JobUiDelegate>
 #include <KIO/OpenUrlJob>
+#include <jobuidelegatefactory.h>
 #include <kdirnotify.h>
 #include <kio/simplejob.h>
 #include <kmountpoint.h>
@@ -89,7 +90,7 @@ void KAutoMountPrivate::slotResult(KJob *job)
             // qDebug() << "KAutoMount: m_strDevice=" << m_strDevice << " -> mountpoint=" << mountpoint;
             if (m_bShowFilemanagerWindow) {
                 KIO::OpenUrlJob *job = new KIO::OpenUrlJob(url, QStringLiteral("inode/directory"));
-                job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, nullptr /*TODO - window*/));
+                job->setUiDelegate(KIO::createDefaultJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, nullptr /*TODO - window*/));
                 job->setRunExecutables(true);
                 job->start();
             }

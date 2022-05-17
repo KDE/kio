@@ -34,6 +34,7 @@ class WidgetsAskUserActionHandlerPrivate;
 
 class KIOWIDGETS_EXPORT WidgetsAskUserActionHandler : public AskUserActionInterface
 {
+    Q_OBJECT
 public:
     explicit WidgetsAskUserActionHandler(QObject *parent = nullptr);
 

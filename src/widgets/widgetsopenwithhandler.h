@@ -22,6 +22,7 @@ namespace KIO
 
 class WidgetsOpenWithHandler : public OpenWithHandlerInterface
 {
+    Q_OBJECT
 public:
     explicit WidgetsOpenWithHandler(QObject *parent = nullptr);
     ~WidgetsOpenWithHandler() override;

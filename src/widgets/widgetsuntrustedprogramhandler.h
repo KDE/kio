@@ -27,6 +27,7 @@ class WidgetsUntrustedProgramHandlerPrivate;
 
 class WidgetsUntrustedProgramHandler : public UntrustedProgramHandlerInterface
 {
+    Q_OBJECT
 public:
     explicit WidgetsUntrustedProgramHandler(QObject *parent = nullptr);
     ~WidgetsUntrustedProgramHandler() override;

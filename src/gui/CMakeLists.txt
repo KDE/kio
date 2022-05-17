@@ -82,6 +82,7 @@ ecm_generate_headers(KIOGui_CamelCase_HEADERS
   FavIconRequestJob
   OpenUrlJob
   KCoreUrlNavigator
+  OpenWithHandlerInterface
 
   PREFIX KIO
   REQUIRED_HEADERS KIO_namespaced_gui_HEADERS

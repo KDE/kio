@@ -21,6 +21,7 @@
 #include <KPluginFactory>
 #include <KPluginMetaData>
 #include <KServiceTypeTrader>
+#include <jobuidelegatefactory.h>
 #include <kapplicationtrader.h>
 #include <kdesktopfileactions.h>
 #include <kdirnotify.h>
@@ -335,7 +336,7 @@ void KFileItemActionsPrivate::slotRunPreferredApplications()
         const KService::Ptr servicePtr = KService::serviceByStorageId(serviceId); // can be nullptr
         auto *job = new KIO::ApplicationLauncherJob(servicePtr);
         job->setUrls(serviceItems.urlList());
-        job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, m_parentWidget));
+        job->setUiDelegate(KIO::createDefaultJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, m_parentWidget));
         job->start();
     }
 }
@@ -369,7 +370,7 @@ void KFileItemActionsPrivate::openWithByMime(const KFileItemList &fileItems)
         // Show Open With dialog
         auto *job = new KIO::ApplicationLauncherJob();
         job->setUrls(mimeItems.urlList());
-        job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, m_parentWidget));
+        job->setUiDelegate(KIO::createDefaultJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, m_parentWidget));
         job->start();
     }
 }
@@ -381,7 +382,7 @@ void KFileItemActionsPrivate::slotRunApplication(QAction *act)
     Q_ASSERT(app);
     auto *job = new KIO::ApplicationLauncherJob(app);
     job->setUrls(m_props.urlList());
-    job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, m_parentWidget));
+    job->setUiDelegate(KIO::createDefaultJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, m_parentWidget));
     job->start();
 }
 
@@ -391,7 +392,7 @@ void KFileItemActionsPrivate::slotOpenWithDialog()
     Q_EMIT q->openWithDialogAboutToBeShown();
     auto *job = new KIO::ApplicationLauncherJob();
     job->setUrls(m_props.urlList());
-    job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, m_parentWidget));
+    job->setUiDelegate(KIO::createDefaultJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, m_parentWidget));
     job->start();
 }
 

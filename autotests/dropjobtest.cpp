@@ -86,7 +86,7 @@ private Q_SLOTS:
         // To avoid a runtime dependency on klauncher
         qputenv("KDE_FORK_SLAVES", "yes");
 
-        KIO::setDefaultJobUiDelegateFactory(nullptr);
+        KIO::setDefaultJobUiDelegateFactoryV2(nullptr);
         KIO::setDefaultJobUiDelegateExtension(nullptr);
 
         const QString trashDir = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/Trash");

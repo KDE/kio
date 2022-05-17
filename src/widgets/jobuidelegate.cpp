@@ -4,6 +4,7 @@
     SPDX-FileCopyrightText: 2000 David Faure <faure@kde.org>
     SPDX-FileCopyrightText: 2006 Kevin Ottens <ervin@kde.org>
     SPDX-FileCopyrightText: 2013 Dawit Alemayehu <adawit@kde.org>
+    SPDX-FileCopyrightText: 2022 Harald Sitter <sitter@kde.org>
 
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
@@ -41,25 +42,47 @@
 class KIO::JobUiDelegatePrivate
 {
 public:
-    JobUiDelegatePrivate(KIO::JobUiDelegate *qq)
+    JobUiDelegatePrivate(KIO::JobUiDelegate *qq, const QList<QObject *> &ifaces)
     {
-        // Create extension objects. See KIO::delegateExtension<T>().
-        m_untrustedProgramHandler = new WidgetsUntrustedProgramHandler(qq);
-        m_openWithHandler = new WidgetsOpenWithHandler(qq);
-        m_openOrExecuteFileHandler = new WidgetsOpenOrExecuteFileHandler(qq);
-        m_askUserActionHandler = new WidgetsAskUserActionHandler(qq);
+        for (auto iface : ifaces) {
+            iface->setParent(qq);
+            if (auto obj = qobject_cast<UntrustedProgramHandlerInterface *>(iface)) {
+                m_untrustedProgramHandler = obj;
+            } else if (auto obj = qobject_cast<OpenWithHandlerInterface *>(iface)) {
+                m_openWithHandler = obj;
+            } else if (auto obj = qobject_cast<OpenOrExecuteFileInterface *>(iface)) {
+                m_openOrExecuteFileHandler = obj;
+            } else if (auto obj = qobject_cast<AskUserActionInterface *>(iface)) {
+                m_askUserActionHandler = obj;
+            }
+        }
+
+        if (!m_untrustedProgramHandler) {
+            m_untrustedProgramHandler = new WidgetsUntrustedProgramHandler(qq);
+        }
+        if (!m_openWithHandler) {
+            m_openWithHandler = new WidgetsOpenWithHandler(qq);
+        }
+        if (!m_openOrExecuteFileHandler) {
+            m_openOrExecuteFileHandler = new WidgetsOpenOrExecuteFileHandler(qq);
+        }
+        if (!m_askUserActionHandler) {
+            m_askUserActionHandler = new WidgetsAskUserActionHandler(qq);
+        }
     }
 
-    WidgetsUntrustedProgramHandler *m_untrustedProgramHandler;
-    WidgetsOpenWithHandler *m_openWithHandler;
-    WidgetsOpenOrExecuteFileHandler *m_openOrExecuteFileHandler;
-    WidgetsAskUserActionHandler *m_askUserActionHandler;
+    UntrustedProgramHandlerInterface *m_untrustedProgramHandler = nullptr;
+    OpenWithHandlerInterface *m_openWithHandler = nullptr;
+    OpenOrExecuteFileInterface *m_openOrExecuteFileHandler = nullptr;
+    AskUserActionInterface *m_askUserActionHandler = nullptr;
 };
 
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 98)
 KIO::JobUiDelegate::JobUiDelegate()
-    : d(new JobUiDelegatePrivate(this))
+    : JobUiDelegate(Version::V2)
 {
 }
+#endif
 
 KIO::JobUiDelegate::~JobUiDelegate() = default;
 
@@ -136,20 +159,31 @@ private:
 
 Q_GLOBAL_STATIC(JobUiDelegateStatic, s_static)
 
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 98)
 KIO::JobUiDelegate::JobUiDelegate(KJobUiDelegate::Flags flags, QWidget *window)
-    : KDialogJobUiDelegate(flags, window)
-    , d(new JobUiDelegatePrivate(this))
+    : JobUiDelegate(Version::V2, flags, window)
 {
     setWindow(window);
 }
+#endif
 
 void KIO::JobUiDelegate::setWindow(QWidget *window)
 {
     KDialogJobUiDelegate::setWindow(window);
-    d->m_openWithHandler->setWindow(window);
-    d->m_untrustedProgramHandler->setWindow(window);
-    d->m_openOrExecuteFileHandler->setWindow(window);
-    d->m_askUserActionHandler->setWindow(window);
+
+    if (auto obj = qobject_cast<WidgetsUntrustedProgramHandler *>(d->m_openWithHandler)) {
+        obj->setWindow(window);
+    }
+    if (auto obj = qobject_cast<WidgetsOpenWithHandler *>(d->m_untrustedProgramHandler)) {
+        obj->setWindow(window);
+    }
+    if (auto obj = qobject_cast<WidgetsOpenOrExecuteFileHandler *>(d->m_openOrExecuteFileHandler)) {
+        obj->setWindow(window);
+    }
+    if (auto obj = qobject_cast<WidgetsAskUserActionHandler *>(d->m_askUserActionHandler)) {
+        obj->setWindow(window);
+    }
+
     s_static()->registerWindow(window);
 }
 
@@ -441,23 +475,48 @@ void KIO::JobUiDelegate::updateUrlInClipboard(const QUrl &src, const QUrl &dest)
     }
 }
 
-class KIOWidgetJobUiDelegateFactory : public KIO::JobUiDelegateFactory
+KIO::JobUiDelegate::JobUiDelegate(Version version, KJobUiDelegate::Flags flags, QWidget *window, const QList<QObject *> &ifaces)
+    : d(new JobUiDelegatePrivate(this, ifaces))
+{
+    // TODO KF6: drop the version argument and replace the deprecated constructor
+    // TODO KF6: change the API to accept QWindows rather than QWidgets (this also carries through to the Interfaces)
+    if (window) {
+        s_static()->registerWindow(window);
+    }
+
+    Q_UNUSED(version); // only serves to disambiguate constructors
+}
+
+class KIOWidgetJobUiDelegateFactory : public KIO::JobUiDelegateFactoryV2
 {
 public:
+    using KIO::JobUiDelegateFactoryV2::JobUiDelegateFactoryV2;
+
     KJobUiDelegate *createDelegate() const override
     {
-        return new KIO::JobUiDelegate;
+        return new KIO::JobUiDelegate(KIO::JobUiDelegate::Version::V2);
+    }
+
+    KJobUiDelegate *createDelegate(KJobUiDelegate::Flags flags, QWidget *window) const override
+    {
+        return new KIO::JobUiDelegate(KIO::JobUiDelegate::Version::V2, flags, window);
+    }
+
+    static void registerJobUiDelegate()
+    {
+        static KIOWidgetJobUiDelegateFactory factory;
+        KIO::setDefaultJobUiDelegateFactoryV2(&factory);
+
+        static KIO::JobUiDelegate delegate(KIO::JobUiDelegate::Version::V2);
+        KIO::setDefaultJobUiDelegateExtension(&delegate);
     }
 };
-
-Q_GLOBAL_STATIC(KIOWidgetJobUiDelegateFactory, globalUiDelegateFactory)
-Q_GLOBAL_STATIC(KIO::JobUiDelegate, globalUiDelegate)
 
 // Simply linking to this library, creates a GUI job delegate and delegate extension for all KIO jobs
 static void registerJobUiDelegate()
 {
-    KIO::setDefaultJobUiDelegateFactory(globalUiDelegateFactory());
-    KIO::setDefaultJobUiDelegateExtension(globalUiDelegate());
+    // Inside the factory class so it is a friend of the delegate and can construct it.
+    KIOWidgetJobUiDelegateFactory::registerJobUiDelegate();
 }
 
 Q_CONSTRUCTOR_FUNCTION(registerJobUiDelegate)

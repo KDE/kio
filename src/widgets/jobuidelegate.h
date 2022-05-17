@@ -4,6 +4,7 @@
     SPDX-FileCopyrightText: 2000 David Faure <faure@kde.org>
     SPDX-FileCopyrightText: 2006 Kevin Ottens <ervin@kde.org>
     SPDX-FileCopyrightText: 2013 Dawit Alemayehu <adawit@kde.org>
+    SPDX-FileCopyrightText: 2022 Harald Sitter <sitter@kde.org>
 
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
@@ -19,9 +20,13 @@
 #include <kio/skipdialog.h>
 
 class KJob;
+
+class KIOWidgetJobUiDelegateFactory;
 namespace KIO
 {
 class JobUiDelegatePrivate;
+
+class FileUndoManager;
 
 class Job;
 
@@ -33,23 +38,49 @@ class Job;
 class KIOWIDGETS_EXPORT JobUiDelegate : public KDialogJobUiDelegate, public JobUiDelegateExtension
 {
     Q_OBJECT
+    // Allow the factory to construct. Everyone else needs to go through the factory or derive!
+    friend class ::KIOWidgetJobUiDelegateFactory;
+    // KIO internals don't need to derive either
+    friend class KIO::FileUndoManager;
 
 public:
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 98)
     /**
      * Constructs a new KIO Job UI delegate.
+     * @deprecated Since 5.98, use KIO::createDefaultJobUiDelegate or versioned constructor instead
      */
+    KIOWIDGETS_DEPRECATED_VERSION(5, 98, "use KIO::createDefaultJobUiDelegate or versioned constructor instead")
     JobUiDelegate();
+#endif
 
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 98)
     /**
      * Constructs a new KIO Job UI Delegate.
      * @param flags allows to enable automatic error/warning handling
      * @param window the window associated with this delegate, see setWindow.
-     * @since 5.70
+     * @since 5.70,
+     * @deprecated Since 5.98, use KIO::createDefaultJobUiDelegate or versioned constructor instead
      */
-    explicit JobUiDelegate(
-        KJobUiDelegate::Flags flags,
-        QWidget *window); // KF6 TODO: merge with previous ctor using AutoHandlingDisabled and nullptr default values (same in KDialogJobUiDelegate)
+    KIOWIDGETS_DEPRECATED_VERSION(5, 98, "use KIO::createDefaultJobUiDelegate or versioned constructor instead")
+    explicit JobUiDelegate(KJobUiDelegate::Flags flags, QWidget *window);
+#endif
 
+protected:
+    enum class Version {
+        V2,
+    };
+
+    /**
+     * Constructs a new KIO Job UI delegate.
+     * @param version does nothing purely here to disambiguate this constructor from the deprecated older constructors.
+     * @param flags allows to enable automatic error/warning handling
+     * @param window the window associated with this delegate, see setWindow.
+     * @param ifaces Interface instances such as OpenWithHandlerInterface to replace the default interfaces
+     * @since 5.98
+     */
+    explicit JobUiDelegate(Version version, KJobUiDelegate::Flags flags = AutoHandlingDisabled, QWidget *window = nullptr, const QList<QObject *> &ifaces = {});
+
+public:
     /**
      * Destroys the KIO Job UI delegate.
      */
