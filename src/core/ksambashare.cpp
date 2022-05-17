@@ -146,9 +146,12 @@ QString KSambaSharePrivate::testparmParamValue(const QString &parameterName)
     if (!stdErr.isEmpty()) {
         QList<QByteArray> errArray = stdErr.trimmed().split('\n');
         errArray.removeAll("\n");
-        errArray.erase(std::remove_if(errArray.begin(), errArray.end(), [](QByteArray &line) {
-            return line.startsWith("Load smb config files from");
-        }));
+        errArray.erase(std::remove_if(errArray.begin(),
+                                      errArray.end(),
+                                      [](QByteArray &line) {
+                                          return line.startsWith("Load smb config files from");
+                                      }),
+                       errArray.end());
         errArray.removeOne("Loaded services file OK.");
         errArray.removeOne("Weak crypto is allowed");
 
