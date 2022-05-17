@@ -12,7 +12,10 @@ target_link_libraries(kcm_webshortcuts
 
 install(TARGETS kcm_webshortcuts DESTINATION ${KDE_INSTALL_PLUGINDIR})
 
-add_custom_target(kcm_webshortcuts_link ALL
-                  COMMAND ${CMAKE_COMMAND} -E create_symlink ../../../kcm_webshortcuts.so ${CMAKE_CURRENT_BINARY_DIR}/kcm_webshortcuts.so)
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/kcm_webshortcuts.so DESTINATION ${KDE_INSTALL_PLUGINDIR}/plasma/kcms/systemsettings_qwidgets)
+if (NOT WIN32)
+  add_custom_target(kcm_webshortcuts_link ALL
+                    COMMAND ${CMAKE_COMMAND} -E create_symlink ../../../kcm_webshortcuts.so ${CMAKE_CURRENT_BINARY_DIR}/kcm_webshortcuts.so)
+  install(FILES ${CMAKE_CURRENT_BINARY_DIR}/kcm_webshortcuts.so DESTINATION ${KDE_INSTALL_PLUGINDIR}/plasma/kcms/systemsettings_qwidgets)
+endif()
+
 install(FILES webshortcuts.desktop DESTINATION ${KDE_INSTALL_KSERVICESDIR})
