@@ -530,13 +530,13 @@ void KPasswdServer::processRequest()
             KWindowSystem::setMainWindow(dlg->windowHandle(), request->windowId);
 
             qCDebug(category) << "Calling open on retry dialog" << dlg;
-            m_authRetryInProgress.insert(dlg, request.get());
+            m_authRetryInProgress.insert(dlg, request.release());
             dlg->open();
             return;
         }
 
         if (request->prompt) {
-            showPasswordDialog(request.get());
+            showPasswordDialog(request.release());
             return;
         } else {
             if (!bypassCacheAndKWallet && request->prompt) {
