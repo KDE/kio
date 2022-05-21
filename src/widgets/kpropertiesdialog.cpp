@@ -1305,12 +1305,14 @@ void KFilePropsPlugin::nameFileChanged(const QString &text)
 
 static QString relativeAppsLocation(const QString &file)
 {
-    const QString canonical = QFileInfo(file).canonicalFilePath();
+    // Don't resolve symlinks, so that editing /usr/share/applications/foo.desktop that is
+    // a symlink works
+    const QString absolute = QFileInfo(file).absoluteFilePath();
     const QStringList dirs = QStandardPaths::standardLocations(QStandardPaths::ApplicationsLocation);
     for (const QString &base : dirs) {
         QDir base_dir = QDir(base);
-        if (base_dir.exists() && canonical.startsWith(base_dir.canonicalPath())) {
-            return canonical.mid(base.length() + 1);
+        if (base_dir.exists() && absolute.startsWith(base_dir.canonicalPath())) {
+            return absolute.mid(base.length() + 1);
         }
     }
     return QString(); // return empty if the file is not in apps
