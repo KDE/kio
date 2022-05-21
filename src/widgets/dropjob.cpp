@@ -37,7 +37,6 @@
 #include <QMenu>
 #include <QMimeData>
 #include <QProcess>
-#include <QSharedPointer>
 #include <QTimer>
 
 using namespace KIO;
@@ -244,7 +243,7 @@ void DropJobPrivate::slotStart()
                                                               QStringLiteral("extractSelectedFilesTo"));
         message.setArguments({m_destUrl.toDisplayString(QUrl::PreferLocalFile)});
         const auto pending = QDBusConnection::sessionBus().asyncCall(message);
-        auto watcher = QSharedPointer<QDBusPendingCallWatcher>::create(pending);
+        auto watcher = std::make_shared<QDBusPendingCallWatcher>(pending);
         QObject::connect(watcher.get(), &QDBusPendingCallWatcher::finished, q, [this, watcher] {
             Q_Q(DropJob);
 

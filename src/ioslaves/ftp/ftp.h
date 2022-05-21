@@ -164,7 +164,7 @@ private:
      */
     void finalize(const Result &result);
 
-    QScopedPointer<FtpInternal> d;
+    std::unique_ptr<FtpInternal> d;
 };
 
 /**

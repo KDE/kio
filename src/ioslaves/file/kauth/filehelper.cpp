@@ -156,8 +156,8 @@ ActionReply FileHelper::exec(const QVariantMap &args)
         close(parent_fd);
     });
 
-    QScopedPointer<Privilege> origPrivilege(new Privilege{geteuid(), getegid()});
-    QScopedPointer<Privilege> targetPrivilege;
+    Privilege origPrivilege{geteuid(), getegid()};
+    std::unique_ptr<Privilege> targetPrivilege;
 
     if (action != CHMOD && action != UTIME) {
         targetPrivilege.reset(getTargetPrivilege(parent_fd));
@@ -175,9 +175,9 @@ ActionReply FileHelper::exec(const QVariantMap &args)
         }
     });
 
-    if (dropPrivilege(targetPrivilege.data())) {
+    if (dropPrivilege(targetPrivilege.get())) {
         auto privilegeRestore = qScopeGuard([&origPrivilege]() {
-            gainPrivilege(origPrivilege.data());
+            gainPrivilege(&origPrivilege);
         });
 
         switch (action) {
@@ -218,7 +218,7 @@ ActionReply FileHelper::exec(const QVariantMap &args)
                 extraFlag |= O_DIRECTORY;
             }
             if (int fd = openat(parent_fd, baseName.data(), oflags | extraFlag, mode) != -1) {
-                gainPrivilege(origPrivilege.data());
+                gainPrivilege(&origPrivilege);
                 if (!sendFileDescriptor(fd, arg4.toByteArray().constData())) {
                     reply.setError(errno);
                 }

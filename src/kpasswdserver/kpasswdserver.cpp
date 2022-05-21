@@ -473,13 +473,13 @@ void KPasswdServer::processRequest()
         return;
     }
 
-    QScopedPointer<Request> request(m_authPending.takeFirst());
+    std::unique_ptr<Request> request(m_authPending.takeFirst());
 
     // Prevent multiple prompts originating from the same window or the same
     // key (server address).
     const QString windowIdStr = QString::number(request->windowId);
     if (m_authPrompted.contains(windowIdStr) || m_authPrompted.contains(request->key)) {
-        m_authPending.prepend(request.take()); // put it back.
+        m_authPending.prepend(request.release()); // put it back.
         return;
     }
 
@@ -530,13 +530,13 @@ void KPasswdServer::processRequest()
             KWindowSystem::setMainWindow(dlg->windowHandle(), request->windowId);
 
             qCDebug(category) << "Calling open on retry dialog" << dlg;
-            m_authRetryInProgress.insert(dlg, request.take());
+            m_authRetryInProgress.insert(dlg, request.get());
             dlg->open();
             return;
         }
 
         if (request->prompt) {
-            showPasswordDialog(request.take());
+            showPasswordDialog(request.get());
             return;
         } else {
             if (!bypassCacheAndKWallet && request->prompt) {
@@ -546,7 +546,7 @@ void KPasswdServer::processRequest()
         }
     }
 
-    sendResponse(request.data());
+    sendResponse(request.get());
 }
 
 QString KPasswdServer::createCacheKey(const KIO::AuthInfo &info)
@@ -887,7 +887,7 @@ void KPasswdServer::sendResponse(KPasswdServer::Request *request)
 
 void KPasswdServer::passwordDialogDone(int result, KPasswordDialog *sender)
 {
-    QScopedPointer<Request> request(m_authInProgress.take(sender));
+    std::unique_ptr<Request> request(m_authInProgress.take(sender));
     Q_ASSERT(request); // request should never be nullptr.
 
     if (request) {
@@ -952,18 +952,18 @@ void KPasswdServer::passwordDialogDone(int result, KPasswordDialog *sender)
             info.setModified(false);
         }
 
-        sendResponse(request.data());
+        sendResponse(request.get());
     }
 }
 
 void KPasswdServer::retryDialogDone(int result, KMessageDialog *sender)
 {
-    QScopedPointer<Request> request(m_authRetryInProgress.take(sender));
+    std::unique_ptr<Request> request(m_authRetryInProgress.take(sender));
     Q_ASSERT(request);
 
     if (request) {
         if (result == QDialogButtonBox::Yes) {
-            showPasswordDialog(request.take());
+            showPasswordDialog(request.release());
         } else {
             // NOTE: If the user simply cancels the retry dialog, we remove the
             // credential stored under this key because the original attempt to
@@ -974,7 +974,7 @@ void KPasswdServer::retryDialogDone(int result, KMessageDialog *sender)
             KIO::AuthInfo &info = request->info;
             removeAuthInfoItem(request->key, request->info);
             info.setModified(false);
-            sendResponse(request.data());
+            sendResponse(request.get());
         }
     }
 }

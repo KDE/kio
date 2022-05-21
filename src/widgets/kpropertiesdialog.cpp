@@ -3472,7 +3472,7 @@ void KDesktopPropsPlugin::applyChanges()
     checkCommandChanged();
 
     KDesktopFile origConfig(d->m_origDesktopFile);
-    QScopedPointer<KDesktopFile> _config(origConfig.copyTo(path));
+    std::unique_ptr<KDesktopFile> _config(origConfig.copyTo(path));
     KConfigGroup config = _config->desktopGroup();
     config.writeEntry("Type", QStringLiteral("Application"));
     config.writeEntry("Comment", d->w->commentEdit->text());
