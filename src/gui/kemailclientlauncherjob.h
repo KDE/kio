@@ -59,6 +59,12 @@ public:
      */
     void setCc(const QStringList &cc);
     /**
+     * Sets the email address(es) that will be used in the Bcc field for the email
+     * @param bcc recipients; each entry can use the format "someone@example.com" or "John Doe <someone@example.com>"
+     * @since 5.96
+     */
+    void setBcc(const QStringList &bcc);
+    /**
      * Sets the subject for the email
      * @param subject the email subject
      */

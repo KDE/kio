@@ -32,6 +32,7 @@ class KEMailClientLauncherJobPrivate
 public:
     QStringList m_to;
     QStringList m_cc;
+    QStringList m_bcc;
     QString m_subject;
     QString m_body;
     QList<QUrl> m_attachments;
@@ -55,6 +56,11 @@ void KEMailClientLauncherJob::setTo(const QStringList &to)
 void KEMailClientLauncherJob::setCc(const QStringList &cc)
 {
     d->m_cc = cc;
+}
+
+void KEMailClientLauncherJob::setBcc(const QStringList &bcc)
+{
+    d->m_bcc = bcc;
 }
 
 void KEMailClientLauncherJob::setSubject(const QString &subject)
@@ -129,6 +135,9 @@ QUrl KEMailClientLauncherJob::mailToUrl() const
     for (const QString &cc : std::as_const(d->m_cc)) {
         query.addQueryItem(QStringLiteral("cc"), cc);
     }
+    for (const QString &bcc : std::as_const(d->m_bcc)) {
+        query.addQueryItem(QStringLiteral("bcc"), bcc);
+    }
     for (const QUrl &url : std::as_const(d->m_attachments)) {
         query.addQueryItem(QStringLiteral("attach"), url.toString());
     }
@@ -165,6 +174,7 @@ QStringList KEMailClientLauncherJob::thunderbirdArguments() const
     };
     addList(",to=", d->m_to);
     addList(",cc=", d->m_cc);
+    addList(",bcc=", d->m_bcc);
     addList(",attachment=", QUrl::toStringList(d->m_attachments));
     addString(",subject=", d->m_subject);
     addString(",body=", d->m_body);
