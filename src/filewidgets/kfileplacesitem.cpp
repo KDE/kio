@@ -335,7 +335,7 @@ QVariant KFilePlacesItem::deviceData(int role) const
         }
 
         case KFilePlacesModel::CapacityBarRecommendedRole:
-            return m_isAccessible && !m_isCdrom;
+            return m_isAccessible && !m_isCdrom && !m_networkShare;
 
         case KFilePlacesModel::IconNameRole:
             return m_deviceIconName;
