@@ -154,7 +154,7 @@ void KFilePlacesViewDelegate::paint(QPainter *painter, const QStyleOptionViewIte
     QApplication::style()->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, painter);
 
     QIcon actionIcon;
-    if (placesModel->isTeardownAllowed(index)) {
+    if (placesModel->isTeardownOverlayRecommended(index)) {
         actionIcon = QIcon::fromTheme(QStringLiteral("media-eject"));
     }
 

@@ -595,6 +595,16 @@ bool KFilePlacesModel::isEjectAllowed(const QModelIndex &index) const
     return item->isEjectAllowed();
 }
 
+bool KFilePlacesModel::isTeardownOverlayRecommended(const QModelIndex &index) const
+{
+    if (!index.isValid()) {
+        return false;
+    }
+
+    KFilePlacesItem *item = static_cast<KFilePlacesItem *>(index.internalPointer());
+    return item->isTeardownOverlayRecommended();
+}
+
 Solid::Device KFilePlacesModel::deviceForIndex(const QModelIndex &index) const
 {
     if (!index.isValid()) {
@@ -695,6 +705,7 @@ QHash<int, QByteArray> KFilePlacesModel::roleNames() const
     super[GroupHiddenRole] = "isGroupHidden";
     super[TeardownAllowedRole] = "isTeardownAllowed";
     super[EjectAllowedRole] = "isEjectAllowed";
+    super[TeardownOverlayRecommendedRole] = "isTeardownOverlayRecommended";
 
     return super;
 }

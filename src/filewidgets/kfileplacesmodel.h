@@ -51,6 +51,7 @@ public:
         GroupHiddenRole = 0x21a4b936, ///< @since 5.42 @see isGroupHidden(). roleName is "isGroupHidden".
         TeardownAllowedRole = 0x02533364, ///< @since 5.91 @see isTeardownAllowed(). roleName is "isTeardownAllowed".
         EjectAllowedRole = 0x0A16AC5B, ///< @since 5.94. roleName is "isEjectAllowed".
+        TeardownOverlayRecommendedRole = 0x032EDCCE, ///< @since 5.95. @see isTeardownOverlayRecommended(). roleName is "isTeardownOverlayRecommended".
     };
 
     /// @since 5.42
@@ -104,6 +105,14 @@ public:
      * @since 5.94
      */
     Q_INVOKABLE bool isEjectAllowed(const QModelIndex &index) const;
+
+    /**
+     * @return Whether showing an inline teardown button is recommended,
+     * e.g. when it is a removable drive.
+     *
+     * @since 5.95
+     **/
+    Q_INVOKABLE bool isTeardownOverlayRecommended(const QModelIndex &index) const;
 
     /**
      * @return The icon of the place at index @p index.

@@ -39,6 +39,7 @@ KFilePlacesItem::KFilePlacesItem(KBookmarkManager *manager, const QString &addre
     , m_isCdrom(false)
     , m_isAccessible(false)
     , m_isTeardownAllowed(false)
+    , m_isTeardownOverlayRecommended(false)
 {
     updateDeviceInfo(udi);
     setBookmark(m_manager->findByAddress(address));
@@ -121,6 +122,11 @@ bool KFilePlacesItem::isDevice() const
 bool KFilePlacesItem::isTeardownAllowed() const
 {
     return m_isTeardownAllowed;
+}
+
+bool KFilePlacesItem::isTeardownOverlayRecommended() const
+{
+    return m_isTeardownOverlayRecommended;
 }
 
 bool KFilePlacesItem::isEjectAllowed() const
@@ -327,6 +333,9 @@ QVariant KFilePlacesItem::deviceData(int role) const
         case KFilePlacesModel::EjectAllowedRole:
             return m_isAccessible && m_isCdrom;
 
+        case KFilePlacesModel::TeardownOverlayRecommendedRole:
+            return m_isTeardownOverlayRecommended;
+
         case KFilePlacesModel::FixedDeviceRole: {
             if (m_drive != nullptr) {
                 return !m_drive->isHotpluggable() && !m_drive->isRemovable();
@@ -487,6 +496,13 @@ void KFilePlacesItem::onAccessibilityChanged(bool isAccessible)
             if (mountPoint && m_access->filePath() == mountPoint->mountPoint()) {
                 m_isTeardownAllowed = false;
             }
+        }
+    }
+
+    m_isTeardownOverlayRecommended = m_isTeardownAllowed && !m_networkShare;
+    if (m_isTeardownOverlayRecommended) {
+        if (m_drive && !m_drive->isHotpluggable() && !m_drive->isRemovable()) {
+            m_isTeardownOverlayRecommended = false;
         }
     }
 
