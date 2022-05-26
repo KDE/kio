@@ -36,6 +36,7 @@
 #endif
 #include <KFileSystemType>
 #include <KProtocolManager>
+#include <KShell>
 
 #define KFILEITEM_DEBUG 0
 
@@ -1347,18 +1348,29 @@ QString KFileItem::getStatusBarInfo() const
         return QString();
     }
 
+    auto toDisplayUrl = [this](const QUrl &url) {
+        QString dest;
+        if (url.isLocalFile()) {
+            dest = KShell::tildeCollapse(url.toLocalFile());
+        } else {
+            dest = targetUrl().toDisplayString();
+        }
+        return dest;
+    };
+
     QString text = d->m_strText;
     const QString comment = mimeComment();
 
     if (d->m_bLink) {
         text += QLatin1Char(' ');
+        QString linkText = toDisplayUrl(QUrl::fromUserInput(linkDest()));
         if (comment.isEmpty()) {
-            text += i18n("(Symbolic Link to %1)", linkDest());
+            text += i18n("(Symbolic Link to %1)", linkText);
         } else {
-            text += i18n("(%1, Link to %2)", comment, linkDest());
+            text += i18n("(%1, Link to %2)", comment, linkText);
         }
     } else if (targetUrl() != url()) {
-        text += i18n(" (Points to %1)", targetUrl().toDisplayString());
+        text += i18n(" (Points to %1)", toDisplayUrl(targetUrl()));
     } else if ((d->m_fileMode & QT_STAT_MASK) == QT_STAT_REG) {
         text += QStringLiteral(" (%1, %2)").arg(comment, KIO::convertSize(size()));
     } else {
