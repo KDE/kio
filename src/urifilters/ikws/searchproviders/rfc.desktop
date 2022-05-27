@@ -90,6 +90,7 @@ Name[x-test]=xxIETF Requests for Commentsxx
 Name[zh_CN]=IETF 评论请求
 Name[zh_TW]=IETF RFC 文件
 Query=https://datatracker.ietf.org/doc/\\{@}
+Query[az]=https://datatracker.ietf.org/doc/\\{@}
 Query[ca]=https://datatracker.ietf.org/doc/\\{@}
 Query[es]=https://datatracker.ietf.org/doc/\\{@}
 Query[fr]=https://datatracker.ietf.org/doc/\\{@}
