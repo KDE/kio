@@ -105,7 +105,7 @@ void DirectorySizeJobPrivate::processNextItem()
         if (!item.isLink()) {
             if (item.isDir()) {
                 // qDebug() << "dir -> listing";
-                startNextJob(item.url());
+                startNextJob(item.targetUrl());
                 return; // we'll come back later, when this one's finished
             } else {
                 m_totalSize += item.size();
