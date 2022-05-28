@@ -107,7 +107,12 @@ void DirectorySizeJobPrivate::processNextItem()
         if (!item.isLink()) {
             if (item.isDir()) {
                 // qDebug() << "dir -> listing";
-                startNextJob(item.targetUrl());
+                const auto localPath = item.localPath();
+                if (!localPath.isNull()) {
+                    startNextJob(QUrl::fromLocalFile(localPath));
+                } else {
+                    startNextJob(item.targetUrl());
+                }
                 return; // we'll come back later, when this one's finished
             } else {
                 m_totalSize += item.size();

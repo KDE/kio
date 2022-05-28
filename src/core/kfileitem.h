@@ -330,6 +330,9 @@ public:
     /**
      * Returns the local path if isLocalFile() == true or the KIO item has
      * a UDS_LOCAL_PATH atom.
+     *
+     * Treat it as a readonly path to open/list contents, use original url to move/delete files.
+     *
      * @return the item local path, or QString() if not known
      */
     QString localPath() const;
