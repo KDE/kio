@@ -52,8 +52,8 @@ void TrashSizeCache::add(const QString &directoryName, qint64 directorySize)
             }
         }
 
-        QDateTime mtime = getTrashFileInfo(directoryName).lastModified();
-        QByteArray newLine = QByteArray::number(directorySize) + ' ' + QByteArray::number(mtime.toMSecsSinceEpoch()) + spaceAndDirAndNewline;
+        const qint64 mtime = getTrashFileInfo(directoryName).lastModified().toMSecsSinceEpoch();
+        QByteArray newLine = QByteArray::number(directorySize) + ' ' + QByteArray::number(mtime) + spaceAndDirAndNewline;
         out.write(newLine);
         out.commit();
     }
@@ -113,12 +113,11 @@ QFileInfo TrashSizeCache::getTrashFileInfo(const QString &fileName)
     return QFileInfo(fileInfoPath);
 }
 
-TrashSizeCache::SizeAndModTime TrashSizeCache::calculateSizeAndLatestModDate()
+QHash<QByteArray, TrashSizeCache::SizeAndModTime> TrashSizeCache::readDirCache()
 {
     // First read the directorysizes cache into memory
     QFile file(mTrashSizeCachePath);
-    typedef QHash<QByteArray, SizeAndModTime> DirCacheHash;
-    DirCacheHash dirCache;
+    QHash<QByteArray, SizeAndModTime> dirCache;
     if (file.open(QIODevice::ReadOnly)) {
         while (!file.atEnd()) {
             const QByteArray line = file.readLine();
@@ -126,11 +125,19 @@ TrashSizeCache::SizeAndModTime TrashSizeCache::calculateSizeAndLatestModDate()
             const int secondSpace = line.indexOf(' ', firstSpace + 1);
             SizeAndModTime data;
             data.size = line.left(firstSpace).toLongLong();
-            // "012 4567 name" -> firstSpace=3, secondSpace=8, we want mid(4,4)
+            // "012 4567 name\n" -> firstSpace=3, secondSpace=8, we want mid(4,4)
             data.mtime = line.mid(firstSpace + 1, secondSpace - firstSpace - 1).toLongLong();
-            dirCache.insert(line.mid(secondSpace + 1), data);
+            const auto name = line.mid(secondSpace + 1, line.length() - secondSpace - 2);
+            dirCache.insert(name, data);
         }
     }
+    return dirCache;
+}
+
+TrashSizeCache::SizeAndModTime TrashSizeCache::calculateSizeAndLatestModDate()
+{
+    const QHash<QByteArray, SizeAndModTime> dirCache = readDirCache();
+
     // Iterate over the actual trashed files.
     // Orphan items (no .fileinfo) still take space.
     QDirIterator it(mTrashPath + QLatin1String("/files/"), QDirIterator::NoIteratorFlags);
@@ -151,11 +158,11 @@ TrashSizeCache::SizeAndModTime TrashSizeCache::calculateSizeAndLatestModDate()
     };
     while (it.hasNext()) {
         it.next();
-        const QFileInfo fileInfo = it.fileInfo();
-        const QString fileName = fileInfo.fileName();
+        const QString fileName = it.fileName();
         if (fileName == QLatin1Char('.') || fileName == QLatin1String("..")) {
             continue;
         }
+        const QFileInfo fileInfo = it.fileInfo();
         if (fileInfo.isSymLink()) {
             // QFileInfo::size does not return the actual size of a symlink. #253776
             QT_STATBUF buff;

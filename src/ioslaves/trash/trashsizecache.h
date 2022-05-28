@@ -70,6 +70,8 @@ public:
     SizeAndModTime calculateSizeAndLatestModDate();
 
 private:
+    QHash<QByteArray, TrashSizeCache::SizeAndModTime> readDirCache();
+
     QString mTrashSizeCachePath;
     QString mTrashPath;
     QFileInfo getTrashFileInfo(const QString &fileName);
