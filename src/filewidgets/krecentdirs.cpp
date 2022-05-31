@@ -8,6 +8,7 @@
 #include <KConfig>
 #include <KConfigGroup>
 #include <KSharedConfig>
+#include <QDebug>
 
 static constexpr int s_maxDirHistory = 3;
 
@@ -18,8 +19,12 @@ static KConfigGroup recentdirs_readList(QString &key, QStringList &result)
         key = QStringLiteral(":default");
     }
     if (key[1] == QLatin1Char(':')) {
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 95)
+        qWarning() << "Using KRecentDirs with a global config file is deprecated. Remove the second colon to use the application-local file."
+                   << "The requested key was" << key;
         key.remove(0, 2);
         cg = KConfigGroup(KSharedConfig::openConfig(QStringLiteral("krecentdirsrc")), QString());
+#endif
     } else {
         key.remove(0, 1);
     }
