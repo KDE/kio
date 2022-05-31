@@ -371,25 +371,24 @@ void PreviewJobPrivate::startPreview()
         if (!plugin.isValid()) {
             auto pluginIt = mimeMap.constFind(mimeType);
             if (pluginIt == mimeMap.constEnd()) {
+                // check MIME type inheritance, resolve aliases
+                QMimeDatabase db;
+                const QMimeType mimeInfo = db.mimeTypeForName(mimeType);
+                if (mimeInfo.isValid()) {
+                    const QStringList parentMimeTypes = mimeInfo.allAncestors();
+                    for (const QString &parentMimeType : parentMimeTypes) {
+                        pluginIt = mimeMap.constFind(parentMimeType);
+                        if (pluginIt != mimeMap.constEnd()) {
+                            break;
+                        }
+                    }
+                }
+
+                // Check the wildcards last, see BUG 453480
                 QString groupMimeType = mimeType;
                 static const QRegularExpression expr(QStringLiteral("/.*"));
                 groupMimeType.replace(expr, QStringLiteral("/*"));
                 pluginIt = mimeMap.constFind(groupMimeType);
-
-                if (pluginIt == mimeMap.constEnd()) {
-                    QMimeDatabase db;
-                    // check MIME type inheritance, resolve aliases
-                    const QMimeType mimeInfo = db.mimeTypeForName(mimeType);
-                    if (mimeInfo.isValid()) {
-                        const QStringList parentMimeTypes = mimeInfo.allAncestors();
-                        for (const QString &parentMimeType : parentMimeTypes) {
-                            pluginIt = mimeMap.constFind(parentMimeType);
-                            if (pluginIt != mimeMap.constEnd()) {
-                                break;
-                            }
-                        }
-                    }
-                }
             }
 
             if (pluginIt != mimeMap.constEnd()) {
