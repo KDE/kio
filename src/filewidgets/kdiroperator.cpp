@@ -2157,6 +2157,12 @@ void KDirOperator::setupActions()
         d->slotToggleDirsFirst();
     });
 
+    KToggleAction *hiddenFilesLastAction = new KToggleAction(i18n("Hidden Files Last"), this);
+    d->m_actionCollection->addAction(QStringLiteral("hidden files last"), hiddenFilesLastAction);
+    connect(hiddenFilesLastAction, &QAction::toggled, this, [this](bool checked) {
+        d->m_proxyModel->setSortHiddenFilesLast(checked);
+    });
+
     // View modes that match those of Dolphin
     KToggleAction *iconsViewAction = new KToggleAction(i18n("Icons View"), this);
     iconsViewAction->setIcon(QIcon::fromTheme(QStringLiteral("view-list-icons")));
@@ -2337,6 +2343,7 @@ void KDirOperator::setupMenu(int whichActions)
     sortMenu->addAction(d->m_actionCollection->action(QStringLiteral("descending")));
     sortMenu->addSeparator();
     sortMenu->addAction(d->m_actionCollection->action(QStringLiteral("dirs first")));
+    sortMenu->addAction(d->m_actionCollection->action(QStringLiteral("hidden files last")));
 
     // now plug everything into the popupmenu
     d->m_actionMenu->menu()->clear();
@@ -2462,6 +2469,9 @@ void KDirOperator::readConfig(const KConfigGroup &configGroup)
         d->m_actionCollection->action(QStringLiteral("allow expansion"))->setChecked(true);
     }
 
+    const bool hiddenFilesLast = configGroup.readEntry(QStringLiteral("Sort hidden files last"), DefaultHiddenFilesLast);
+    d->m_actionCollection->action(QStringLiteral("hidden files last"))->setChecked(hiddenFilesLast);
+
     QDir::SortFlags sorting = QDir::Name;
     if (configGroup.readEntry(QStringLiteral("Sort directories first"), DefaultDirsFirst)) {
         sorting |= QDir::DirsFirst;
@@ -2506,6 +2516,9 @@ void KDirOperator::writeConfig(KConfigGroup &configGroup)
     configGroup.writeEntry(QStringLiteral("Sort reversed"), d->m_actionCollection->action(QStringLiteral("descending"))->isChecked());
 
     configGroup.writeEntry(QStringLiteral("Sort directories first"), d->m_actionCollection->action(QStringLiteral("dirs first"))->isChecked());
+
+    const bool hiddenFilesLast = d->m_actionCollection->action(QStringLiteral("hidden files last"))->isChecked();
+    configGroup.writeEntry(QStringLiteral("Sort hidden files last"), hiddenFilesLast);
 
     // don't save the preview when an application specific preview is in use.
     bool appSpecificPreview = false;

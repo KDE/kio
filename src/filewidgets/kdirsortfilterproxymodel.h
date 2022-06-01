@@ -74,6 +74,13 @@ public:
      */
     bool sortFoldersFirst() const;
 
+    /**
+     * Sets a separate sorting with hidden files and folders last (true) or not (false).
+     * @since 5.95
+     */
+    void setSortHiddenFilesLast(bool hiddenFilesLast);
+    bool sortHiddenFilesLast() const;
+
     Qt::DropActions supportedDragOptions() const;
 
 protected:

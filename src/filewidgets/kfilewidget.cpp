@@ -459,6 +459,13 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
     }
 
     d->m_locationEdit->setFocus();
+
+    const QAction *hiddenFilesLastAction = coll->action(QStringLiteral("hidden files last"));
+    Q_ASSERT(hiddenFilesLastAction);
+    d->m_urlNavigator->setSortHiddenFoldersLast(hiddenFilesLastAction->isChecked());
+    connect(hiddenFilesLastAction, &QAction::toggled, this, [this](bool checked) {
+        d->m_urlNavigator->setSortHiddenFoldersLast(checked);
+    });
 }
 
 KFileWidget::~KFileWidget()

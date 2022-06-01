@@ -13,6 +13,7 @@ const int kfile_area = 250;
 #define DefaultMixDirsAndFiles false
 #define DefaultShowHidden false
 #define DefaultDirsFirst true
+#define DefaultHiddenFilesLast false
 #define DefaultSortReversed false
 #define DefaultRecentURLsNumber 15
 #define DefaultDirectoryFollowing true
