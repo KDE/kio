@@ -1323,22 +1323,9 @@ void JobTest::moveDirectoryToReadonlyFilesystem()
     }
 }
 
-void JobTest::listRecursive()
+static QByteArray expectedListRecursiveOutput()
 {
-    // Note: many other tests must have been run before since we rely on the files they created
-
-    const QString src = homeTmpDir();
-#ifndef Q_OS_WIN
-    // Add a symlink to a dir, to make sure we don't recurse into those
-    bool symlinkOk = symlink("dirFromHome", QFile::encodeName(src + "/dirFromHome_link").constData()) == 0;
-    QVERIFY(symlinkOk);
-#endif
-    KIO::ListJob *job = KIO::listRecursive(QUrl::fromLocalFile(src), KIO::HideProgressInfo);
-    job->setUiDelegate(nullptr);
-    connect(job, &KIO::ListJob::entries, this, &JobTest::slotEntries);
-    QVERIFY2(job->exec(), qPrintable(job->errorString()));
-    m_names.sort();
-    QByteArray ref_names = QByteArray(
+    return QByteArray(
         ".,..,"
         "dirFromHome,dirFromHome/testfile,"
         "dirFromHome/testlink," // exists on Windows too, see createTestDirectory
@@ -1351,7 +1338,54 @@ void JobTest::listRecursive()
         "dirFromHome_link,"
 #endif
         "fileFromHome");
+}
 
+void JobTest::listRecursive()
+{
+    // Note: many other tests must have been run before since we rely on the files they created
+
+    const QString src = homeTmpDir();
+#ifndef Q_OS_WIN
+    // Add a symlink to a dir, to make sure we don't recurse into those
+    bool symlinkOk = symlink("dirFromHome", QFile::encodeName(src + "/dirFromHome_link").constData()) == 0;
+    QVERIFY(symlinkOk);
+#endif
+    m_names.clear();
+    KIO::ListJob *job = KIO::listRecursive(QUrl::fromLocalFile(src), KIO::HideProgressInfo);
+    job->setUiDelegate(nullptr);
+    connect(job, &KIO::ListJob::entries, this, &JobTest::slotEntries);
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
+    m_names.sort();
+    const QByteArray ref_names = expectedListRecursiveOutput();
+    const QString joinedNames = m_names.join(QLatin1Char(','));
+    if (joinedNames.toLatin1() != ref_names) {
+        qDebug("%s", qPrintable(joinedNames));
+        qDebug("%s", ref_names.data());
+    }
+    QCOMPARE(joinedNames.toLatin1(), ref_names);
+}
+
+void JobTest::multipleListRecursive()
+{
+    // Note: listRecursive() must have been run first
+    const QString src = homeTmpDir();
+    m_names.clear();
+    QVector<KIO::ListJob *> jobs;
+    for (int i = 0; i < 100; ++i) {
+        KIO::ListJob *job = KIO::listRecursive(QUrl::fromLocalFile(src), KIO::HideProgressInfo);
+        job->setUiDelegate(nullptr);
+        if (i == 6) {
+            connect(job, &KIO::ListJob::entries, this, &JobTest::slotEntries);
+        }
+        connect(job, &KJob::result, this, [&jobs, job]() {
+            jobs.removeOne(job);
+        });
+        jobs.push_back(job);
+    }
+    QTRY_VERIFY(jobs.isEmpty());
+
+    m_names.sort();
+    const QByteArray ref_names = expectedListRecursiveOutput();
     const QString joinedNames = m_names.join(QLatin1Char(','));
     if (joinedNames.toLatin1() != ref_names) {
         qDebug("%s", qPrintable(joinedNames));

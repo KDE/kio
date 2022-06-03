@@ -50,6 +50,7 @@ private Q_SLOTS:
     void suspendFileCopy();
     void suspendCopy();
     void listRecursive();
+    void multipleListRecursive();
     void listFile();
     void killJob();
     void killJobBeforeStart();

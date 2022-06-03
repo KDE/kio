@@ -163,11 +163,9 @@ bool FileProtocol::isExtendedACL(acl_t acl)
 }
 #endif
 
-static QHash<KUserId, QString> staticUserCache;
-static QHash<KGroupId, QString> staticGroupCache;
-
 static QString getUserName(KUserId uid)
 {
+    thread_local QHash<KUserId, QString> staticUserCache;
     if (Q_UNLIKELY(!uid.isValid())) {
         return QString();
     }
@@ -185,6 +183,7 @@ static QString getUserName(KUserId uid)
 
 static QString getGroupName(KGroupId gid)
 {
+    thread_local QHash<KGroupId, QString> staticGroupCache;
     if (Q_UNLIKELY(!gid.isValid())) {
         return QString();
     }
