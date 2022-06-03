@@ -88,7 +88,7 @@ static bool same_inode(const QT_STATBUF &src, const QT_STATBUF &dest)
 static const QString socketPath()
 {
     const QString runtimeDir = QStandardPaths::writableLocation(QStandardPaths::RuntimeLocation);
-    return QStringLiteral("%1/filehelper%2%3").arg(runtimeDir, KRandom::randomString(6)).arg(getpid());
+    return QStringLiteral("%1/filehelper%2%3").arg(runtimeDir, KRandom::randomString(6)).arg(qlonglong(QThread::currentThreadId()));
 }
 
 static QString actionDetails(ActionType actionType, const QVariantList &args)
