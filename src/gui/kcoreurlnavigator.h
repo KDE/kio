@@ -66,6 +66,18 @@ public:
     Q_SIGNAL void historySizeChanged();
 
     /**
+     * When the URL is changed and the new URL (e.g.\ /home/user1/)
+     * is a parent of the previous URL (e.g.\ /home/user1/data/stuff),
+     * then this signal is emitted and \p url is set to the child
+     * directory of the new URL which is an ancestor of the old URL
+     * (in the example paths this would be /home/user1/data/).
+     * This signal allows file managers to pre-select the directory
+     * that the user is navigating up from.
+     * @since 5.95
+     */
+    Q_SIGNAL void urlSelectionRequested(const QUrl &url);
+
+    /**
      * The history index of the current location, where
      * 0 <= history index < KCoreUrlNavigator::historySize(). 0 is the most
      * recent history entry.

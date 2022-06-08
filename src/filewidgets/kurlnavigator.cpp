@@ -210,6 +210,9 @@ KUrlNavigatorPrivate::KUrlNavigatorPrivate(const QUrl& url, KUrlNavigator *qq, K
     q->connect(m_coreUrlNavigator, &KCoreUrlNavigator::historyChanged, q, [this]() {
         Q_EMIT q->historyChanged();
     });
+    q->connect(m_coreUrlNavigator, &KCoreUrlNavigator::urlSelectionRequested, q, [this](const QUrl &url) {
+        Q_EMIT q->urlSelectionRequested(url);
+    });
 
     // initialize the places selector
     q->setAutoFillBackground(false);

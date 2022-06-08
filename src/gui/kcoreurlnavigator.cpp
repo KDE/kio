@@ -242,6 +242,9 @@ void KCoreUrlNavigator::setCurrentLocationUrl(const QUrl &newUrl)
     Q_EMIT historySizeChanged();
     Q_EMIT historyChanged();
     Q_EMIT currentLocationUrlChanged();
+    if (firstChildUrl.isValid()) {
+        Q_EMIT urlSelectionRequested(firstChildUrl);
+    }
 }
 
 int KCoreUrlNavigator::historySize() const
