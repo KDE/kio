@@ -468,7 +468,7 @@ bool TrashProtocol::createUDSEntry(const QString &physicalPath,
                                    KIO::UDSEntry &entry,
                                    const TrashedFileInfo &info)
 {
-    entry.reserve(14);
+    entry.reserve(13);
     QByteArray physicalPath_c = QFile::encodeName(physicalPath);
     QT_STATBUF buff;
     if (QT_LSTAT(physicalPath_c.constData(), &buff) == -1) {
@@ -505,7 +505,6 @@ bool TrashProtocol::createUDSEntry(const QString &physicalPath,
     entry.fastInsert(KIO::UDSEntry::UDS_NAME, internalFileName); // internal filename, like "0-foo"
     entry.fastInsert(KIO::UDSEntry::UDS_DISPLAY_NAME, displayFileName); // user-visible filename, like "foo"
     entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, type);
-    entry.fastInsert(KIO::UDSEntry::UDS_LOCAL_PATH, physicalPath);
     // if ( !url.isEmpty() )
     //    entry.insert( KIO::UDSEntry::UDS_URL, url );
 
