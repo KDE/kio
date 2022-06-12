@@ -29,7 +29,6 @@
 #include <kdiroperator.h>
 #include <kfilefiltercombo.h>
 #include <kfileitemdelegate.h>
-#include <kimagefilepreview.h>
 #include <kio/job.h>
 #include <kio/jobuidelegate.h>
 #include <kio/scheduler.h>
