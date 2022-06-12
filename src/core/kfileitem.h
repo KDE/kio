@@ -40,6 +40,7 @@ class KIOCORE_EXPORT KFileItem
     Q_PROPERTY(QUrl url READ url WRITE setUrl)
     Q_PROPERTY(QString user READ user)
     Q_PROPERTY(QString group READ group)
+    Q_PROPERTY(bool isNull READ isNull)
     Q_PROPERTY(bool isLink READ isLink)
     Q_PROPERTY(bool isDir READ isDir)
     Q_PROPERTY(bool isFile READ isFile)
