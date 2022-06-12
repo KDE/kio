@@ -65,6 +65,7 @@ class KIOCORE_EXPORT KFileItem
     Q_PROPERTY(QStringList overlays READ overlays)
     Q_PROPERTY(QString comment READ comment)
     Q_PROPERTY(QString getStatusBarInfo READ getStatusBarInfo)
+    Q_PROPERTY(QString sizeString READ sizeString)
     Q_PROPERTY(bool isRegularFile READ isRegularFile)
 
 public:
@@ -361,6 +362,14 @@ public:
      * @return the file size, or 0 if not known
      */
     KIO::filesize_t size() const;
+
+    /**
+     * Returns the size of the file as a human-readable string, if known.
+     *
+     * @since 5.95
+     * @return a human-readable string for the file size, or 0 if not known
+     */
+    QString sizeString() const;
 
     /**
      * @brief For folders, its recursive size:

@@ -1459,6 +1459,11 @@ QString KFileItem::timeString(FileTimes which) const
     return QLocale::system().toString(d->time(which), QLocale::LongFormat);
 }
 
+QString KFileItem::sizeString() const
+{
+    return KIO::convertSize(size());
+}
+
 #if KIOCORE_BUILD_DEPRECATED_SINCE(4, 0)
 QString KFileItem::timeString(unsigned int which) const
 {
