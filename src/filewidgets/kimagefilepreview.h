@@ -18,6 +18,8 @@
 
 class KFileItem;
 class KJob;
+class KImageFilePreviewPrivate;
+
 namespace KIO
 {
 class PreviewJob;
@@ -72,15 +74,9 @@ protected:
     virtual KIO::PreviewJob *createJob(const QUrl &url, int width, int height);
 
 private:
-    class KImageFilePreviewPrivate;
     std::unique_ptr<KImageFilePreviewPrivate> const d;
 
     Q_DISABLE_COPY(KImageFilePreview)
-
-    Q_PRIVATE_SLOT(d, void _k_slotResult(KJob *))
-    Q_PRIVATE_SLOT(d, void _k_slotFailed(const KFileItem &))
-    Q_PRIVATE_SLOT(d, void _k_slotStepAnimation(int frame))
-    Q_PRIVATE_SLOT(d, void _k_slotFinished())
 };
 
 #endif // KIMAGEFILEPREVIEW_H

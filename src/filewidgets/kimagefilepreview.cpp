@@ -26,12 +26,11 @@
 
 /**** KImageFilePreview ****/
 
-class Q_DECL_HIDDEN KImageFilePreview::KImageFilePreviewPrivate
+class KImageFilePreviewPrivate
 {
 public:
-    KImageFilePreviewPrivate()
-        : m_job(nullptr)
-        , clear(true)
+    KImageFilePreviewPrivate(KImageFilePreview *qq)
+        : q(qq)
     {
         m_timeLine = new QTimeLine(150);
         m_timeLine->setEasingCurve(QEasingCurve::InCurve);
@@ -50,21 +49,22 @@ public:
     void _k_slotFinished();
     void _k_slotActuallyClear();
 
+    KImageFilePreview *q = nullptr;
     QUrl currentURL;
     QUrl lastShownURL;
     QLabel *imageLabel;
-    KIO::PreviewJob *m_job;
-    QTimeLine *m_timeLine;
+    KIO::PreviewJob *m_job = nullptr;
+    QTimeLine *m_timeLine = nullptr;
     QPixmap m_pmCurrent;
     QPixmap m_pmTransition;
     float m_pmCurrentOpacity;
     float m_pmTransitionOpacity;
-    bool clear;
+    bool clear = true;
 };
 
 KImageFilePreview::KImageFilePreview(QWidget *parent)
     : KPreviewWidgetBase(parent)
-    , d(new KImageFilePreviewPrivate)
+    , d(new KImageFilePreviewPrivate(this))
 {
     QVBoxLayout *vb = new QVBoxLayout(this);
     vb->setContentsMargins(0, 0, 0, 0);
@@ -190,7 +190,7 @@ void KImageFilePreview::gotPreview(const KFileItem &item, const QPixmap &pm)
     }
 }
 
-void KImageFilePreview::KImageFilePreviewPrivate::_k_slotFailed(const KFileItem &item)
+void KImageFilePreviewPrivate::_k_slotFailed(const KFileItem &item)
 {
     if (item.isDir()) {
         imageLabel->clear();
@@ -199,14 +199,14 @@ void KImageFilePreview::KImageFilePreviewPrivate::_k_slotFailed(const KFileItem 
     }
 }
 
-void KImageFilePreview::KImageFilePreviewPrivate::_k_slotResult(KJob *job)
+void KImageFilePreviewPrivate::_k_slotResult(KJob *job)
 {
     if (job == m_job) {
         m_job = nullptr;
     }
 }
 
-void KImageFilePreview::KImageFilePreviewPrivate::_k_slotStepAnimation(int frame)
+void KImageFilePreviewPrivate::_k_slotStepAnimation(int frame)
 {
     Q_UNUSED(frame)
 
@@ -235,7 +235,7 @@ void KImageFilePreview::KImageFilePreviewPrivate::_k_slotStepAnimation(int frame
     m_pmTransitionOpacity = qMin(m_pmTransitionOpacity + 0.4, 1.0); // krazy:exclude=qminmax
 }
 
-void KImageFilePreview::KImageFilePreviewPrivate::_k_slotFinished()
+void KImageFilePreviewPrivate::_k_slotFinished()
 {
     m_pmCurrent = m_pmTransition;
     m_pmTransitionOpacity = 0;
