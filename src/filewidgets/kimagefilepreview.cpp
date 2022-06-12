@@ -40,11 +40,12 @@ public:
         }
     }
 
-    void _k_slotResult(KJob *);
-    void _k_slotFailed(const KFileItem &);
-    void _k_slotStepAnimation(int frame);
-    void _k_slotFinished();
-    void _k_slotActuallyClear();
+
+    void slotResult(KJob *);
+    void slotFailed(const KFileItem &);
+    void slotStepAnimation();
+    void slotFinished();
+    void slotActuallyClear();
 
     KImageFilePreview *q = nullptr;
     QUrl currentURL;
@@ -54,8 +55,8 @@ public:
     QTimeLine *m_timeLine = nullptr;
     QPixmap m_pmCurrent;
     QPixmap m_pmTransition;
-    float m_pmCurrentOpacity;
-    float m_pmTransitionOpacity;
+    float m_pmCurrentOpacity = 1;
+    float m_pmTransitionOpacity = 0;
     bool clear = true;
 };
 
@@ -75,11 +76,11 @@ KImageFilePreview::KImageFilePreview(QWidget *parent)
     setMinimumWidth(50);
 
     if (d->m_timeLine) {
-        connect(d->m_timeLine, &QTimeLine::frameChanged, this, [this](int value) {
-            d->_k_slotStepAnimation(value);
+        connect(d->m_timeLine, &QTimeLine::frameChanged, this, [this]() {
+            d->slotStepAnimation();
         });
         connect(d->m_timeLine, &QTimeLine::finished, this, [this]() {
-            d->_k_slotFinished();
+            d->slotFinished();
         });
     }
 }
@@ -134,11 +135,11 @@ void KImageFilePreview::showPreview(const QUrl &url, bool force)
     }
 
     connect(d->m_job, &KJob::result, this, [this](KJob *job) {
-        d->_k_slotResult(job);
+        d->slotResult(job);
     });
     connect(d->m_job, &KIO::PreviewJob::gotPreview, this, &KImageFilePreview::gotPreview);
     connect(d->m_job, &KIO::PreviewJob::failed, this, [this](const KFileItem &item) {
-        d->_k_slotFailed(item);
+        d->slotFailed(item);
     });
 }
 
@@ -161,40 +162,42 @@ QSize KImageFilePreview::sizeHint() const
 
 KIO::PreviewJob *KImageFilePreview::createJob(const QUrl &url, int w, int h)
 {
-    if (url.isValid()) {
-        KFileItemList items;
-        items.append(KFileItem(url));
-        QStringList plugins = KIO::PreviewJob::availablePlugins();
-
-        KIO::PreviewJob *previewJob = KIO::filePreview(items, QSize(w, h), &plugins);
-        previewJob->setOverlayIconAlpha(0);
-        previewJob->setScaleType(KIO::PreviewJob::Scaled);
-        return previewJob;
-    } else {
+    if (!url.isValid()) {
         return nullptr;
     }
+
+    KFileItemList items;
+    items.append(KFileItem(url));
+    QStringList plugins = KIO::PreviewJob::availablePlugins();
+
+    KIO::PreviewJob *previewJob = KIO::filePreview(items, QSize(w, h), &plugins);
+    previewJob->setOverlayIconAlpha(0);
+    previewJob->setScaleType(KIO::PreviewJob::Scaled);
+    return previewJob;
 }
 
 void KImageFilePreview::gotPreview(const KFileItem &item, const QPixmap &pm)
 {
-    if (item.url() == d->currentURL) { // should always be the case
-        if (d->m_timeLine) {
-            if (d->m_timeLine->state() == QTimeLine::Running) {
-                d->m_timeLine->setCurrentTime(0);
-            }
+    if (item.url() != d->currentURL) { // Shouldn't happen
+        return;
+    }
 
-            d->m_pmTransition = pm;
-            d->m_pmTransitionOpacity = 0;
-            d->m_pmCurrentOpacity = 1;
-            d->m_timeLine->setDirection(QTimeLine::Forward);
-            d->m_timeLine->start();
-        } else {
-            d->imageLabel->setPixmap(pm);
+    if (d->m_timeLine) {
+        if (d->m_timeLine->state() == QTimeLine::Running) {
+            d->m_timeLine->setCurrentTime(0);
         }
+
+        d->m_pmTransition = pm;
+        d->m_pmTransitionOpacity = 0;
+        d->m_pmCurrentOpacity = 1;
+        d->m_timeLine->setDirection(QTimeLine::Forward);
+        d->m_timeLine->start();
+    } else {
+        d->imageLabel->setPixmap(pm);
     }
 }
 
-void KImageFilePreviewPrivate::_k_slotFailed(const KFileItem &item)
+void KImageFilePreviewPrivate::slotFailed(const KFileItem &item)
 {
     if (item.isDir()) {
         imageLabel->clear();
@@ -203,18 +206,20 @@ void KImageFilePreviewPrivate::_k_slotFailed(const KFileItem &item)
     }
 }
 
-void KImageFilePreviewPrivate::_k_slotResult(KJob *job)
+void KImageFilePreviewPrivate::slotResult(KJob *job)
 {
     if (job == m_job) {
         m_job = nullptr;
     }
 }
 
-void KImageFilePreviewPrivate::_k_slotStepAnimation(int frame)
+void KImageFilePreviewPrivate::slotStepAnimation()
 {
-    Q_UNUSED(frame)
-
-    QPixmap pm(QSize(qMax(m_pmCurrent.size().width(), m_pmTransition.size().width()), qMax(m_pmCurrent.size().height(), m_pmTransition.size().height())));
+    const QSize currSize = m_pmCurrent.size();
+    const QSize transitionSize = m_pmTransition.size();
+    const int width = std::max(currSize.width(), transitionSize.width());
+    const int height = std::max(currSize.height(), transitionSize.height());
+    QPixmap pm(QSize(width, height));
     pm.fill(Qt::transparent);
 
     QPainter p(&pm);
@@ -239,7 +244,7 @@ void KImageFilePreviewPrivate::_k_slotStepAnimation(int frame)
     m_pmTransitionOpacity = qMin(m_pmTransitionOpacity + 0.4, 1.0); // krazy:exclude=qminmax
 }
 
-void KImageFilePreviewPrivate::_k_slotFinished()
+void KImageFilePreviewPrivate::slotFinished()
 {
     m_pmCurrent = m_pmTransition;
     m_pmTransitionOpacity = 0;
@@ -270,7 +275,7 @@ void KImageFilePreview::clearPreview()
             d->m_timeLine->setDirection(QTimeLine::Backward);
             d->m_timeLine->start();
         }
-        d->currentURL = QUrl();
+        d->currentURL.clear();
         d->clear = true;
     } else {
         d->imageLabel->clear();
