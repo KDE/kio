@@ -32,15 +32,12 @@ public:
     KImageFilePreviewPrivate(KImageFilePreview *qq)
         : q(qq)
     {
-        m_timeLine = new QTimeLine(150);
-        m_timeLine->setEasingCurve(QEasingCurve::InCurve);
-        m_timeLine->setDirection(QTimeLine::Forward);
-        m_timeLine->setFrameRange(0, 100);
-    }
-
-    ~KImageFilePreviewPrivate()
-    {
-        delete m_timeLine;
+        if (q->style()->styleHint(QStyle::SH_Widget_Animate, nullptr, q)) {
+            m_timeLine = new QTimeLine(150, q);
+            m_timeLine->setEasingCurve(QEasingCurve::InCurve);
+            m_timeLine->setDirection(QTimeLine::Forward);
+            m_timeLine->setFrameRange(0, 100);
+        }
     }
 
     void _k_slotResult(KJob *);
@@ -77,12 +74,14 @@ KImageFilePreview::KImageFilePreview(QWidget *parent)
     setSupportedMimeTypes(KIO::PreviewJob::supportedMimeTypes());
     setMinimumWidth(50);
 
-    connect(d->m_timeLine, &QTimeLine::frameChanged, this, [this](int value) {
-        d->_k_slotStepAnimation(value);
-    });
-    connect(d->m_timeLine, &QTimeLine::finished, this, [this]() {
-        d->_k_slotFinished();
-    });
+    if (d->m_timeLine) {
+        connect(d->m_timeLine, &QTimeLine::frameChanged, this, [this](int value) {
+            d->_k_slotStepAnimation(value);
+        });
+        connect(d->m_timeLine, &QTimeLine::finished, this, [this]() {
+            d->_k_slotFinished();
+        });
+    }
 }
 
 KImageFilePreview::~KImageFilePreview()
@@ -174,7 +173,7 @@ KIO::PreviewJob *KImageFilePreview::createJob(const QUrl &url, int w, int h)
 void KImageFilePreview::gotPreview(const KFileItem &item, const QPixmap &pm)
 {
     if (item.url() == d->currentURL) { // should always be the case
-        if (style()->styleHint(QStyle::SH_Widget_Animate, nullptr, this)) {
+        if (d->m_timeLine) {
             if (d->m_timeLine->state() == QTimeLine::Running) {
                 d->m_timeLine->setCurrentTime(0);
             }
@@ -254,11 +253,11 @@ void KImageFilePreview::clearPreview()
         d->m_job = nullptr;
     }
 
-    if (d->clear || d->m_timeLine->state() == QTimeLine::Running) {
+    if (d->clear || (d->m_timeLine && d->m_timeLine->state() == QTimeLine::Running)) {
         return;
     }
 
-    if (style()->styleHint(QStyle::SH_Widget_Animate, nullptr, this)) {
+    if (d->m_timeLine) {
         d->m_pmTransition = QPixmap();
         // If we add a previous preview then we run the animation
         if (!d->m_pmCurrent.isNull()) {
