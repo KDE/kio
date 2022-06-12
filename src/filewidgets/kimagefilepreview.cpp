@@ -144,6 +144,11 @@ void KImageFilePreview::showPreview(const QUrl &url, bool force)
 
 void KImageFilePreview::resizeEvent(QResizeEvent *)
 {
+    // Nothing to do, if no current preview
+    if (d->imageLabel->pixmap().isNull()) {
+        return;
+    }
+
     clearPreview();
     d->currentURL = QUrl(); // force this to actually happen
     showPreview(d->lastShownURL);
