@@ -98,7 +98,7 @@ Query[ast]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[az]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[bs]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[ca]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
-Query[ca@valencia]=https://search.cpan.org/search?modo=\\{modo,2,""}&query=\\{query,q,1}
+Query[ca@valencia]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[cs]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[da]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[de]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
