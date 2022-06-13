@@ -1380,19 +1380,6 @@ bool KDirOperator::eventFilter(QObject *watched, QEvent *event)
         }
         break;
     }
-    case QEvent::Leave: {
-        if (d->m_preview && !d->m_preview->isHidden()) {
-            // when mouse leaves the view, show preview of selected file
-            const QModelIndex currentIndex = d->m_itemView->selectionModel() ? d->m_itemView->selectionModel()->currentIndex() : QModelIndex();
-            if (currentIndex.isValid()) {
-                const KFileItem item = d->m_itemView->model()->data(currentIndex, KDirModel::FileItemRole).value<KFileItem>();
-                if (!item.isNull()) {
-                    d->m_preview->showPreview(item.url());
-                }
-            }
-        }
-        break;
-    }
     case QEvent::MouseButtonRelease: {
         if (d->m_preview != nullptr && !d->m_preview->isHidden()) {
             const QModelIndex hoveredIndex = d->m_itemView->indexAt(d->m_itemView->viewport()->mapFromGlobal(QCursor::pos()));
