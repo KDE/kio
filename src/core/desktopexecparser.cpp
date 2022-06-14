@@ -218,7 +218,7 @@ bool KIO::DesktopExecParser::isProtocolInSupportedList(const QUrl &url, const QS
 {
     return url.isLocalFile() //
         || supportedProtocols.contains(QLatin1String("KIO")) //
-        || supportedProtocols.contains(url.scheme().toLower());
+        || supportedProtocols.contains(url.scheme(), Qt::CaseInsensitive);
 }
 
 // We have up to two sources of data, for protocols not handled by kioslaves (so called "helper") :
@@ -245,6 +245,8 @@ public:
         , tempFiles(false)
     {
     }
+
+    bool isUrlSupported(const QUrl &url, const QStringList &supportedProtocols);
 
     const KService &service;
     QList<QUrl> urls;
@@ -307,6 +309,24 @@ static QString findNonExecutableProgram(const QString &executable)
     }
 #endif
     return QString();
+}
+
+bool KIO::DesktopExecParserPrivate::isUrlSupported(const QUrl &url, const QStringList &protocols)
+{
+    if (KIO::DesktopExecParser::isProtocolInSupportedList(url, protocols)) {
+        return true;
+    }
+
+    // supportedProtocols() only checks whether the .desktop file has MimeType=x-scheme-handler/xxx
+    // We also want to check whether the app has been set as default/associated in mimeapps.list
+    const auto handlers = KApplicationTrader::queryByMimeType(QLatin1String("x-scheme-handler/") + url.scheme());
+    for (const KService::Ptr &handler : handlers) {
+        if (handler->desktopEntryName() == service.desktopEntryName()) {
+            return true;
+        }
+    }
+
+    return false;
 }
 
 QStringList KIO::DesktopExecParser::resultingArguments() const
@@ -392,22 +412,14 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
     };
     QVector<MountRequest> requests;
     requests.reserve(d->urls.count());
+
     const QStringList appSupportedProtocols = supportedProtocols(d->service);
     for (int i = 0; i < d->urls.count(); ++i) {
         const QUrl url = d->urls.at(i);
-        const bool supported = mx1.hasUrls ? isProtocolInSupportedList(url, appSupportedProtocols) : url.isLocalFile();
+        const bool supported = mx1.hasUrls ? d->isUrlSupported(url, appSupportedProtocols) : url.isLocalFile();
         if (!supported) {
-            // if FUSE fails, we'll have to fallback to kioexec
+            // If FUSE fails, and there is no scheme handler, we'll have to fallback to kioexec
             useKioexec = true;
-        }
-
-        // supportedProtocols() only checks whether the .desktop file has MimeType=x-scheme-handler/xxx
-        // We also want to check whether the app has been set as default/associated in mimeapps.list
-        const auto handlers = KApplicationTrader::queryByMimeType(QLatin1String("x-scheme-handler/") + url.scheme());
-        for (const KService::Ptr &handler : handlers) {
-            if (handler->desktopEntryName() == d->service.desktopEntryName()) {
-                useKioexec = false;
-            }
         }
 
         // NOTE: Some non-KIO apps may support the URLs (e.g. VLC supports smb://)
