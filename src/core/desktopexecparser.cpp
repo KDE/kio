@@ -391,14 +391,10 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
 
         // supportedProtocols() only checks whether the .desktop file has MimeType=x-scheme-handler/xxx
         // We also want to check whether the app has been set as default/associated in mimeapps.list
-        bool isAppDefault = false;
         const auto handlers = KApplicationTrader::queryByMimeType(QLatin1String("x-scheme-handler/") + url.scheme());
-        for (const KService::Ptr &handler : handlers) {
-            if (handler->desktopEntryName() == d->service.desktopEntryName()) {
-                isAppDefault = true;
-                break;
-            }
-        }
+        bool isAppDefault = std::any_of(handlers.cbegin(), handlers.cend(), [&](const KService::Ptr &handler) {
+            return handler->desktopEntryName() == d->service.desktopEntryName();
+        });
 
         if (!isAppDefault && !(appSupportedProtocols.contains(QLatin1String("KIO")) || url.isLocalFile())) {
             requests.push_back({kiofuse_iface.mountUrl(url.toString()), i});
