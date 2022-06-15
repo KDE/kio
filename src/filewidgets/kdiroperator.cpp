@@ -889,8 +889,9 @@ void KDirOperator::renameSelected()
     }
 
     KIO::RenameFileDialog *dialog = new KIO::RenameFileDialog(items, this);
-    connect(dialog, &KIO::RenameFileDialog::renamingFinished, this, [this]() {
+    connect(dialog, &KIO::RenameFileDialog::renamingFinished, this, [this](const QList<QUrl> &urls) {
         d->assureVisibleSelection();
+        Q_EMIT renamingFinished(urls);
     });
 
     dialog->open();

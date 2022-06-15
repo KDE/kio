@@ -1185,6 +1185,10 @@ void KFileWidgetPrivate::initDirOpWidgets()
     q->connect(m_ops, &KDirOperator::keyEnterReturnPressed, q, [this]() {
         slotViewKeyEnterReturnPressed();
     });
+    q->connect(m_ops, &KDirOperator::renamingFinished, q, [this](const QList<QUrl> &urls) {
+        // Update file names in location text field after renaming selected files
+        q->setSelectedUrls(urls);
+    });
 
     m_ops->dirLister()->setAutoErrorHandlingEnabled(false);
     q->connect(m_ops->dirLister(), &KDirLister::jobError, q, [this](KIO::Job *job) {

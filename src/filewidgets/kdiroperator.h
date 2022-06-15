@@ -824,6 +824,7 @@ public Q_SLOTS:
     /**
      * Initiates a rename operation on the currently selected files/directories,
      * prompting the user to choose a new name(s) for the currently selected items
+     * @see renamingFinished
      * @since 5.67
      */
     void renameSelected();
@@ -990,6 +991,14 @@ Q_SIGNALS:
      * @since 5.57
      */
     void keyEnterReturnPressed();
+
+    /**
+     * Emitted when renaming selected files has finished.
+     *
+     * @param urls URL list of the renamed files
+     * @since 5.96
+     */
+    void renamingFinished(const QList<QUrl> &urls);
 
 private:
     friend class KDirOperatorPrivate;
