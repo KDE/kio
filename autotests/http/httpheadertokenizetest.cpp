@@ -110,8 +110,8 @@ void HeaderTokenizeTest::testMessyHeader()
         nValues += values.count();
 
         QList<QByteArray> comparisonValues;
-        for (const QPair<int, int> be : tokenizer.value(key).beginEnd) {
-            comparisonValues.append(QByteArray(buffer + be.first, be.second - be.first));
+        for (const auto [startIdx, endIdx] : tokenizer.value(key).beginEnd) {
+            comparisonValues.append(QByteArray(buffer + startIdx, endIdx - startIdx));
         }
 
         QCOMPARE(comparisonValues.count(), values.count());
@@ -134,8 +134,8 @@ void HeaderTokenizeTest::testMessyHeader()
         if (!it.value().beginEnd.isEmpty()) {
             qDebug() << it.key() << ":";
         }
-        for (const QPair<int, int> be : it.value().beginEnd) {
-            qDebug() << "  " << QByteArray(buffer + be.first, be.second - be.first);
+        for (const auto [startIdx, endIdx] : it.value().beginEnd) {
+            qDebug() << "  " << QByteArray(buffer + startIdx, endIdx - startIdx);
         }
     }
 }
@@ -160,8 +160,8 @@ void HeaderTokenizeTest::testRedirectHeader()
         nValues += values.count();
 
         QList<QByteArray> comparisonValues;
-        for (const QPair<int, int> be : tokenizer.value(key).beginEnd) {
-            comparisonValues.append(QByteArray(buffer + be.first, be.second - be.first));
+        for (const auto [startIdx, endIdx] : tokenizer.value(key).beginEnd) {
+            comparisonValues.append(QByteArray(buffer + startIdx, endIdx - startIdx));
         }
 
         QCOMPARE(comparisonValues.count(), values.count());

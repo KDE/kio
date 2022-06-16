@@ -8,9 +8,8 @@
 #ifndef PARSINGHELPERS_H
 #define PARSINGHELPERS_H
 
+#include <QHash>
 #include <QList>
-#include <QMap>
-#include <QPair>
 
 struct HeaderField {
     HeaderField(bool multiValued)
@@ -24,7 +23,11 @@ struct HeaderField {
     }
 
     bool isMultiValued;
-    QList<QPair<int, int>> beginEnd;
+    struct Info {
+        int startIndex = 0;
+        int endIndex = 0;
+    };
+    QList<Info> beginEnd;
 };
 
 class HeaderTokenizer;
@@ -44,10 +47,10 @@ public:
 
 private:
     friend class HeaderTokenizer;
-    QList<QPair<int, int>> m_tokens;
+    QList<HeaderField::Info> m_tokens;
     int m_currentToken;
     const char *m_buffer;
-    TokenIterator(const QList<QPair<int, int>> &tokens, const char *buffer)
+    TokenIterator(const QList<HeaderField::Info> &tokens, const char *buffer)
         : m_tokens(tokens)
         , m_currentToken(0)
         , m_buffer(buffer)
@@ -75,7 +78,7 @@ private:
         const char *name;
         bool isMultiValued;
     };
-    QList<QPair<int, int>> m_nullTokens; // long-lived, allows us to pass out references.
+    QList<HeaderField::Info> m_nullTokens; // long-lived, allows us to pass out references.
 };
 
 #endif // PARSINGHELPERS_H

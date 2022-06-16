@@ -6,12 +6,13 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
+#include "parsinghelpers.h"
+
 #include <ctype.h>
 
+#include <QDebug>
 #include <QDir>
 #include <QTextCodec>
-
-#include <QDebug>
 
 // Advance *pos beyond spaces / tabs
 static void skipSpace(const char input[], int *pos, int end)
@@ -77,19 +78,19 @@ static bool isValidPercentEncoding(const QByteArray &data)
 
 QByteArray TokenIterator::next()
 {
-    QPair<int, int> token = m_tokens[m_currentToken++];
+    const auto [startIdx, endIdx] = m_tokens[m_currentToken++];
     // fromRawData brings some speed advantage but also the requirement to keep the text buffer
     // around. this together with implicit sharing (you don't know where copies end up)
     // is dangerous!
     // return QByteArray::fromRawData(&m_buffer[token.first], token.second - token.first);
-    return QByteArray(&m_buffer[token.first], token.second - token.first);
+    return QByteArray(&m_buffer[startIdx], endIdx - startIdx);
 }
 
 QByteArray TokenIterator::current() const
 {
-    QPair<int, int> token = m_tokens[m_currentToken - 1];
+    const auto [startIdx, endIdx] = m_tokens[m_currentToken - 1];
     // return QByteArray::fromRawData(&m_buffer[token.first], token.second - token.first);
-    return QByteArray(&m_buffer[token.first], token.second - token.first);
+    return QByteArray(&m_buffer[startIdx], endIdx - startIdx);
 }
 
 QList<QByteArray> TokenIterator::all() const
@@ -97,8 +98,8 @@ QList<QByteArray> TokenIterator::all() const
     QList<QByteArray> ret;
     ret.reserve(m_tokens.count());
     for (int i = 0; i < m_tokens.count(); i++) {
-        QPair<int, int> token = m_tokens[i];
-        ret.append(QByteArray(&m_buffer[token.first], token.second - token.first));
+        const auto [startIdx, endIdx] = m_tokens[i];
+        ret.append(QByteArray(&m_buffer[startIdx], endIdx - startIdx));
     }
     return ret;
 }
@@ -180,7 +181,7 @@ int HeaderTokenizer::tokenize(int begin, int end)
                     startIdx = idx;
                 } else {
                     // continue previous value; this is tricky. unit tests to the rescue!
-                    if (operator[](headerKey).beginEnd.last().first == startIdx) {
+                    if (operator[](headerKey).beginEnd.last().startIndex == startIdx) {
                         // remove entry, it will be re-added because already idx != startIdx
                         operator[](headerKey).beginEnd.removeLast();
                     } else {
@@ -224,12 +225,12 @@ int HeaderTokenizer::tokenize(int begin, int end)
             }
             if (!operator[](headerKey).beginEnd.isEmpty()) {
                 // there already is an entry; are we just in a line continuation?
-                if (operator[](headerKey).beginEnd.last().first == startIdx) {
+                if (operator[](headerKey).beginEnd.last().startIndex == startIdx) {
                     // line continuation: delete previous entry and later insert a new, longer one.
                     operator[](headerKey).beginEnd.removeLast();
                 }
             }
-            operator[](headerKey).beginEnd.append(QPair<int, int>(startIdx, idx));
+            operator[](headerKey).beginEnd.append({startIdx, idx});
 
         } else {
             // comma-separated list
@@ -239,7 +240,7 @@ int HeaderTokenizer::tokenize(int begin, int end)
                     idx++;
                 }
                 if (idx != startIdx) {
-                    operator[](headerKey).beginEnd.append(QPair<int, int>(startIdx, idx));
+                    operator[](headerKey).beginEnd.append({startIdx, idx});
                 }
                 multiValuedEndedWithComma = buf[idx] == ',';
                 // skip comma(s) and leading whitespace, if any respectively
