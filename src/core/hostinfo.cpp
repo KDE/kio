@@ -62,7 +62,11 @@ private:
     class Result;
 
     QHash<QString, Query *> openQueries;
-    QCache<QString, QPair<QHostInfo, QTime>> dnsCache;
+    struct HostCacheInfo {
+        QHostInfo hostInfo;
+        QTime time;
+    };
+    QCache<QString, HostCacheInfo> dnsCache;
     QDateTime resolvConfMTime;
     int ttl;
 };
@@ -329,12 +333,12 @@ void HostInfoAgentPrivate::lookupHost(const QString &hostName, QObject *receiver
     }
 #endif
 
-    if (QPair<QHostInfo, QTime> *info = dnsCache.object(hostName)) {
-        if (QTime::currentTime() <= info->second.addSecs(ttl)) {
+    if (HostCacheInfo *info = dnsCache.object(hostName)) {
+        if (QTime::currentTime() <= info->time.addSecs(ttl)) {
             Result result;
             if (receiver) {
                 QObject::connect(&result, SIGNAL(result(QHostInfo)), receiver, member);
-                Q_EMIT result.result(info->first);
+                Q_EMIT result.result(info->hostInfo);
             }
             return;
         }
@@ -361,9 +365,9 @@ void HostInfoAgentPrivate::lookupHost(const QString &hostName, QObject *receiver
 
 QHostInfo HostInfoAgentPrivate::lookupCachedHostInfoFor(const QString &hostName)
 {
-    QPair<QHostInfo, QTime> *info = dnsCache.object(hostName);
-    if (info && info->second.addSecs(ttl) >= QTime::currentTime()) {
-        return info->first;
+    HostCacheInfo *info = dnsCache.object(hostName);
+    if (info && info->time.addSecs(ttl) >= QTime::currentTime()) {
+        return info->hostInfo;
     }
 
     // not found in dnsCache
@@ -382,7 +386,7 @@ void HostInfoAgentPrivate::cacheLookup(const QHostInfo &info)
         return;
     }
 
-    dnsCache.insert(info.hostName(), new QPair<QHostInfo, QTime>(info, QTime::currentTime()));
+    dnsCache.insert(info.hostName(), new HostCacheInfo{info, QTime::currentTime()});
 }
 
 void HostInfoAgentPrivate::queryFinished(const QHostInfo &info, Query *sender)
@@ -390,7 +394,7 @@ void HostInfoAgentPrivate::queryFinished(const QHostInfo &info, Query *sender)
     const auto host = sender->hostName();
     openQueries.remove(host);
     if (info.error() == QHostInfo::NoError) {
-        dnsCache.insert(host, new QPair<QHostInfo, QTime>(info, QTime::currentTime()));
+        dnsCache.insert(host, new HostCacheInfo{info, QTime::currentTime()});
     }
     sender->deleteLater();
 }
