@@ -228,7 +228,7 @@ void KFileItemActions::setItemListProperties(const KFileItemListProperties &item
 #if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 79)
 int KFileItemActions::addServiceActionsTo(QMenu *mainMenu)
 {
-    return d->addServiceActionsTo(mainMenu, {}, {}).first;
+    return d->addServiceActionsTo(mainMenu, {}, {}).userItemCount;
 }
 #endif
 
@@ -243,7 +243,7 @@ void KFileItemActions::addActionsTo(QMenu *menu, MenuActionSources sources, cons
 {
     QMenu *actionsMenu = menu;
     if (sources & MenuActionSource::Services) {
-        actionsMenu = d->addServiceActionsTo(menu, additionalActions, excludeList).second;
+        actionsMenu = d->addServiceActionsTo(menu, additionalActions, excludeList).menu;
     } else {
         // Since we didn't call addServiceActionsTo(), we have to add additional actions manually
         for (QAction *action : additionalActions) {
@@ -538,7 +538,8 @@ bool KFileItemActionsPrivate::checkTypesMatch(const KConfigGroup &cfg) const
     });
 }
 
-QPair<int, QMenu *> KFileItemActionsPrivate::addServiceActionsTo(QMenu *mainMenu, const QList<QAction *> &additionalActions, const QStringList &excludeList)
+KFileItemActionsPrivate::ServiceActionInfo
+KFileItemActionsPrivate::addServiceActionsTo(QMenu *mainMenu, const QList<QAction *> &additionalActions, const QStringList &excludeList)
 {
     const KFileItemList items = m_props.items();
     const KFileItem &firstItem = items.first();

@@ -52,7 +52,11 @@ public:
     QStringList listMimeTypes(const KFileItemList &items);
     QStringList listPreferredServiceIds(const QStringList &mimeTypeList, const QStringList &excludedDesktopEntryNames, const QString &traderConstraint);
 
-    QPair<int, QMenu *> addServiceActionsTo(QMenu *mainMenu, const QList<QAction *> &additionalActions, const QStringList &excludeList);
+    struct ServiceActionInfo {
+        int userItemCount = 0;
+        QMenu *menu = nullptr;
+    };
+    ServiceActionInfo addServiceActionsTo(QMenu *mainMenu, const QList<QAction *> &additionalActions, const QStringList &excludeList);
     int addPluginActionsTo(QMenu *mainMenu, QMenu *actionsMenu, const QStringList &excludeList);
     void insertOpenWithActionsTo(QAction *before, QMenu *topMenu, const QStringList &excludedDesktopEntryNames, const QString &traderConstraint);
     static KService::List
