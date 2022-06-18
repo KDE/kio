@@ -271,8 +271,9 @@ void HelpProtocol::get(const QUrl &url)
 
             // if we have a query, look if it contains an anchor
             if (!query.isEmpty()) {
-                if (query.startsWith(QLatin1String("?anchor="))) {
-                    anchor = query.mid(8).toLower();
+                const QLatin1String anchorToken("?anchor=");
+                if (query.startsWith(anchorToken)) {
+                    anchor = query.mid(anchorToken.size()).toLower();
 
                     QUrl redirURL(url);
                     redirURL.setQuery(QString());

@@ -262,8 +262,9 @@ void FileProtocol::redirect(const QUrl &url)
     // DavWWWRoot "token" which in the Windows world tells win explorer to access
     // a webdav url
     // https://www.webdavsystem.com/server/access/windows
-    if ((redir.scheme() == QLatin1String("smb")) && redir.path().startsWith(QLatin1String("/DavWWWRoot/"))) {
-        redir.setPath(redir.path().mid(11)); // remove /DavWWWRoot
+    const QLatin1String davRoot("/DavWWWRoot/");
+    if ((redir.scheme() == QLatin1String("smb")) && redir.path().startsWith(davRoot)) {
+        redir.setPath(redir.path().mid(davRoot.size() - 1)); // remove /DavWWWRoot
         redir.setScheme(QStringLiteral("webdav"));
     }
 
@@ -794,16 +795,18 @@ void FileProtocol::mount(bool _ro, const char *_fstype, const QString &_dev, con
     return;
 #endif
 
+    const QLatin1String label("LABEL=");
+    const QLatin1String uuid("UUID=");
     QTemporaryFile tmpFile;
     tmpFile.setAutoRemove(false);
     tmpFile.open();
     QByteArray tmpFileName = QFile::encodeName(tmpFile.fileName());
     QByteArray dev;
-    if (_dev.startsWith(QLatin1String("LABEL="))) { // turn LABEL=foo into -L foo (#71430)
-        QString labelName = _dev.mid(6);
+    if (_dev.startsWith(label)) { // turn LABEL=foo into -L foo (#71430)
+        QString labelName = _dev.mid(label.size());
         dev = "-L " + QFile::encodeName(KShell::quoteArg(labelName)); // is it correct to assume same encoding as filesystem?
-    } else if (_dev.startsWith(QLatin1String("UUID="))) { // and UUID=bar into -U bar
-        QString uuidName = _dev.mid(5);
+    } else if (_dev.startsWith(uuid)) { // and UUID=bar into -U bar
+        QString uuidName = _dev.mid(uuid.size());
         dev = "-U " + QFile::encodeName(KShell::quoteArg(uuidName));
     } else {
         dev = QFile::encodeName(KShell::quoteArg(_dev)); // get those ready to be given to a shell

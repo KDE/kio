@@ -2689,6 +2689,8 @@ bool HTTPProtocol::parseHeaderFromCache()
         return false;
     }
 
+    const QLatin1String languageToken("content-language:");
+    const QLatin1String dispositionToken("content-disposition:");
     for (const QString &str : std::as_const(m_responseHeaders)) {
         const QString header = str.trimmed();
         if (header.startsWith(QLatin1String("content-type:"), Qt::CaseInsensitive)) {
@@ -2698,11 +2700,11 @@ bool HTTPProtocol::parseHeaderFromCache()
                 m_request.cacheTag.charset = charset;
                 setMetaData(QStringLiteral("charset"), charset);
             }
-        } else if (header.startsWith(QLatin1String("content-language:"), Qt::CaseInsensitive)) {
-            const QString language = header.mid(17).trimmed().toLower();
-            setMetaData(QStringLiteral("content-language"), language);
-        } else if (header.startsWith(QLatin1String("content-disposition:"), Qt::CaseInsensitive)) {
-            parseContentDisposition(header.mid(20).toLower());
+        } else if (header.startsWith(languageToken, Qt::CaseInsensitive)) {
+            const QString language = header.mid(languageToken.size()).trimmed().toLower();
+            setMetaData(languageToken, language);
+        } else if (header.startsWith(dispositionToken, Qt::CaseInsensitive)) {
+            parseContentDisposition(header.mid(dispositionToken.size()).toLower());
         }
     }
 
@@ -3264,8 +3266,9 @@ endParsing:
             QStringList link = toQString(tIt.next()).split(QLatin1Char(';'), Qt::SkipEmptyParts);
             if (link.count() == 2) {
                 QString rel = link[1].trimmed();
-                if (rel.startsWith(QLatin1String("rel=\""))) {
-                    rel = rel.mid(5, rel.length() - 6);
+                const QLatin1String relToken("rel=\"");
+                if (rel.startsWith(relToken)) {
+                    rel = rel.mid(relToken.size(), rel.length() - 6);
                     if (rel.toLower() == QLatin1String("pageservices")) {
                         //### the remove() part looks fishy!
                         QString url = link[0].remove(QRegularExpression(QStringLiteral("[<>]"))).trimmed();

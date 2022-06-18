@@ -331,8 +331,9 @@ KIOCORE_EXPORT QByteArray KIO::rawErrorDetail(int errorCode, const QString &erro
         host = reqUrl->host();
         protocol = reqUrl->scheme();
 
-        if (host.startsWith(QLatin1String("www."))) {
-            domain = host.mid(4);
+        const QLatin1String web("www.");
+        if (host.startsWith(web)) {
+            domain = host.mid(web.size());
         } else {
             domain = host;
         }

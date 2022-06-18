@@ -1256,14 +1256,17 @@ void SchedulerPrivate::updateInternalMetaData(SimpleJob *job)
     // Preserve all internal meta-data so they can be sent back to the
     // ioslaves as needed...
     const QUrl jobUrl = job->url();
+
+    const QLatin1String currHostToken("{internal~currenthost}");
+    const QLatin1String allHostsToken("{internal~allhosts}");
     // qDebug() << job << jobPriv->m_internalMetaData;
     QMapIterator<QString, QString> it(jobPriv->m_internalMetaData);
     while (it.hasNext()) {
         it.next();
-        if (it.key().startsWith(QLatin1String("{internal~currenthost}"), Qt::CaseInsensitive)) {
-            SlaveConfig::self()->setConfigData(jobUrl.scheme(), jobUrl.host(), it.key().mid(22), it.value());
-        } else if (it.key().startsWith(QLatin1String("{internal~allhosts}"), Qt::CaseInsensitive)) {
-            SlaveConfig::self()->setConfigData(jobUrl.scheme(), QString(), it.key().mid(19), it.value());
+        if (it.key().startsWith(currHostToken, Qt::CaseInsensitive)) {
+            SlaveConfig::self()->setConfigData(jobUrl.scheme(), jobUrl.host(), it.key().mid(currHostToken.size()), it.value());
+        } else if (it.key().startsWith(allHostsToken, Qt::CaseInsensitive)) {
+            SlaveConfig::self()->setConfigData(jobUrl.scheme(), QString(), it.key().mid(allHostsToken.size()), it.value());
         }
     }
 }
