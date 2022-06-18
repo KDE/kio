@@ -152,7 +152,7 @@ endif()
 
 ecm_set_disabled_deprecation_versions(
     QT 5.15.2
-    KF 5.90
+    KF 5.95
     KCOMPLETION 5.65 # we use KPixmapProvider in public API
     KSERVICE 5.81 # we use KMimeTypeTrader in KFileItemActions
     KCOREADDONS 5.85 # KService::createInstance uses deprecated parts of KCoreAddons in the header
