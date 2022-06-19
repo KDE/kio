@@ -422,8 +422,8 @@ void KUrlNavigatorButton::addEntriesToSubDirs(KIO::Job *job, const KIO::UDSEntry
             if (displayName.isEmpty()) {
                 displayName = name;
             }
-            if ((name != QLatin1String(".")) && (name != QLatin1String(".."))) {
-                m_subDirs.append(qMakePair(name, displayName));
+            if (name != QLatin1String(".") && name != QLatin1String("..")) {
+                m_subDirs.push_back({name, displayName});
             }
         }
     }
@@ -433,7 +433,7 @@ void KUrlNavigatorButton::slotUrlsDropped(QAction *action, QDropEvent *event)
 {
     const int result = action->data().toInt();
     QUrl url(m_url);
-    url.setPath(concatPaths(url.path(), m_subDirs.at(result).first));
+    url.setPath(concatPaths(url.path(), m_subDirs.at(result).name));
     Q_EMIT urlsDroppedOnNavButton(url, event);
 }
 
@@ -441,7 +441,7 @@ void KUrlNavigatorButton::slotMenuActionClicked(QAction *action, Qt::MouseButton
 {
     const int result = action->data().toInt();
     QUrl url(m_url);
-    url.setPath(concatPaths(url.path(), m_subDirs.at(result).first));
+    url.setPath(concatPaths(url.path(), m_subDirs.at(result).name));
     Q_EMIT navigatorButtonActivated(url, button, Qt::NoModifier);
 }
 
@@ -473,11 +473,11 @@ struct FolderNameNaturalLessThan
         m_collator.setNumericMode(true);
     }
 
-    bool operator()(const QPair<QString, QString> &a, const QPair<QString, QString> &b)
+    bool operator()(const KUrlNavigatorButton::SubDirInfo &a, const KUrlNavigatorButton::SubDirInfo &b)
     {
         if (m_sortHiddenLast) {
-            const bool isHiddenA = a.first.startsWith(QLatin1Char('.'));
-            const bool isHiddenB = b.first.startsWith(QLatin1Char('.'));
+            const bool isHiddenA = a.name.startsWith(QLatin1Char('.'));
+            const bool isHiddenB = b.name.startsWith(QLatin1Char('.'));
             if (isHiddenA && !isHiddenB) {
                 return false;
             }
@@ -485,7 +485,7 @@ struct FolderNameNaturalLessThan
                 return true;
             }
         }
-        return m_collator.compare(a.first, b.first) < 0;
+        return m_collator.compare(a.name, b.name) < 0;
     }
 
 private:
@@ -498,7 +498,7 @@ void KUrlNavigatorButton::openSubDirsMenu(KJob *job)
     Q_ASSERT(job == m_subDirsJob);
     m_subDirsJob = nullptr;
 
-    if (job->error() || m_subDirs.isEmpty()) {
+    if (job->error() || m_subDirs.empty()) {
         // clear listing
         return;
     }
@@ -546,7 +546,7 @@ void KUrlNavigatorButton::replaceButton(KJob *job)
     m_subDirsJob = nullptr;
     m_replaceButton = false;
 
-    if (job->error() || m_subDirs.isEmpty()) {
+    if (job->error() || m_subDirs.empty()) {
         return;
     }
 
@@ -558,9 +558,9 @@ void KUrlNavigatorButton::replaceButton(KJob *job)
     // Get index of the directory that is shown currently in the button
     const QString currentDir = m_url.fileName();
     int currentIndex = 0;
-    const int subDirsCount = m_subDirs.count();
+    const int subDirsCount = m_subDirs.size();
     while (currentIndex < subDirsCount) {
-        if (m_subDirs[currentIndex].first == currentDir) {
+        if (m_subDirs[currentIndex].name == currentDir) {
             break;
         }
         ++currentIndex;
@@ -576,7 +576,7 @@ void KUrlNavigatorButton::replaceButton(KJob *job)
     }
 
     QUrl url(KIO::upUrl(m_url));
-    url.setPath(concatPaths(url.path(), m_subDirs[targetIndex].first));
+    url.setPath(concatPaths(url.path(), m_subDirs[targetIndex].name));
     Q_EMIT navigatorButtonActivated(url, Qt::LeftButton, Qt::NoModifier);
 
     m_subDirs.clear();
@@ -681,10 +681,9 @@ void KUrlNavigatorButton::initMenu(KUrlNavigatorMenu *menu, int startIndex)
     menu->setLayoutDirection(Qt::LeftToRight);
 
     const int maxIndex = startIndex + 30; // Don't show more than 30 items in a menu
-    const int lastIndex = qMin(m_subDirs.count() - 1, maxIndex);
+    const int lastIndex = std::min<int>(m_subDirs.size() - 1, maxIndex);
     for (int i = startIndex; i <= lastIndex; ++i) {
-        const QString subDirName = m_subDirs[i].first;
-        const QString subDirDisplayName = m_subDirs[i].second;
+        const auto &[subDirName, subDirDisplayName] = m_subDirs[i];
         QString text = KStringHandler::csqueeze(subDirDisplayName, 60);
         text.replace(QLatin1Char('&'), QLatin1String("&&"));
         QAction *action = new QAction(text, this);
@@ -696,7 +695,7 @@ void KUrlNavigatorButton::initMenu(KUrlNavigatorMenu *menu, int startIndex)
         action->setData(i);
         menu->addAction(action);
     }
-    if (m_subDirs.count() > maxIndex) {
+    if (m_subDirs.size() > maxIndex) {
         // If too much items are shown, move them into a sub menu
         menu->addSeparator();
         KUrlNavigatorMenu *subDirsMenu = new KUrlNavigatorMenu(menu);

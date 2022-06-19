@@ -70,6 +70,11 @@ public:
     void setShowMnemonic(bool show);
     bool showMnemonic() const;
 
+    struct SubDirInfo {
+        QString name;
+        QString displayName;
+    };
+
 Q_SIGNALS:
     /**
      * Emitted when URLs are dropped on the KUrlNavigatorButton associated with
@@ -183,12 +188,9 @@ private:
 
     QString m_subDir;
     QTimer *m_openSubDirsTimer;
-    KIO::ListJob *m_subDirsJob;
-
-    /// pair of name and display name
-    QList<QPair<QString, QString>> m_subDirs;
-
     static QPointer<KUrlNavigatorMenu> m_subDirsMenu;
+    KIO::ListJob *m_subDirsJob;
+    std::vector<SubDirInfo> m_subDirs;
 };
 
 } // namespace KDEPrivate
