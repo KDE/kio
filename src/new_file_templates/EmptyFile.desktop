@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Empty File...
+Name[fr]=Fichier vide...
+Name[sr@latin]=Prazno fajl...
+Comment=Enter text filename:
+Comment[fr]=Saisir le nom du fichier:
+Comment[sr@latin]=Unesite ime prazno fajla:
+Type=Link
+URL=.source/EmptyFile
+Icon=empty

@@ -7,12 +7,14 @@
         <file>linkProgram.desktop</file>
         <file>linkURL.desktop</file>
         <file>TextFile.desktop</file>
+        <file>EmptyFile.desktop</file>
     </qresource>
     <qresource prefix="/kio5/newfile-templates/.source">
         <file>HTMLFile.html</file>
         <file>Program.desktop</file>
         <file>TextFile.txt</file>
         <file>URL.desktop</file>
+        <file>EmptyFile</file>
     </qresource>
 </RCC>
 
