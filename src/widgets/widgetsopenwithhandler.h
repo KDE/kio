@@ -28,8 +28,11 @@ public:
 
     void promptUserForApplication(KJob *job, const QList<QUrl> &urls, const QString &mimeType) override;
 
+    void setWindow(QWidget *widget);
+
 private:
     // Note: no d pointer because not exported at this point
+    QWidget *m_parentWidget = nullptr;
 };
 
 }

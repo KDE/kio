@@ -46,7 +46,19 @@ void KIO::WidgetsOpenOrExecuteFileHandler::promptUserOpenOrExecute(KJob *job, co
         return;
     }
 
-    QWidget *parentWidget = job ? KJobWidgets::window(job) : qApp->activeWindow();
+    QWidget *parentWidget = nullptr;
+
+    if (job) {
+        parentWidget = KJobWidgets::window(job);
+    }
+
+    if (!parentWidget) {
+        parentWidget = m_parentWidget;
+    }
+
+    if (!parentWidget) {
+        parentWidget = qApp->activeWindow();
+    }
 
     QMimeDatabase db;
     QMimeType mime = db.mimeTypeForName(mimetype);
@@ -71,4 +83,9 @@ void KIO::WidgetsOpenOrExecuteFileHandler::promptUserOpenOrExecute(KJob *job, co
     });
 
     dialog->show();
+}
+
+void KIO::WidgetsOpenOrExecuteFileHandler::setWindow(QWidget *window)
+{
+    m_parentWidget = window;
 }

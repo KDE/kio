@@ -27,9 +27,26 @@ KIO::WidgetsOpenWithHandler::WidgetsOpenWithHandler(QObject *parent)
 
 KIO::WidgetsOpenWithHandler::~WidgetsOpenWithHandler() = default;
 
+void KIO::WidgetsOpenWithHandler::setWindow(QWidget *widget)
+{
+    m_parentWidget = widget;
+}
+
 void KIO::WidgetsOpenWithHandler::promptUserForApplication(KJob *job, const QList<QUrl> &urls, const QString &mimeType)
 {
-    QWidget *parentWidget = job ? KJobWidgets::window(job) : qApp->activeWindow();
+    QWidget *parentWidget = nullptr;
+
+    if (job) {
+        parentWidget = KJobWidgets::window(job);
+    }
+
+    if (!parentWidget) {
+        parentWidget = m_parentWidget;
+    }
+
+    if (!parentWidget) {
+        parentWidget = qApp->activeWindow();
+    }
 
 #ifdef Q_OS_WIN
     KConfigGroup cfgGroup(KSharedConfig::openConfig(), QStringLiteral("KOpenWithDialog Settings"));

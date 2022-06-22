@@ -44,11 +44,16 @@ public:
     JobUiDelegatePrivate(KIO::JobUiDelegate *qq)
     {
         // Create extension objects. See KIO::delegateExtension<T>().
-        new WidgetsUntrustedProgramHandler(qq);
-        new WidgetsOpenWithHandler(qq);
-        new WidgetsOpenOrExecuteFileHandler(qq);
-        new WidgetsAskUserActionHandler(qq);
+        m_untrustedProgramHandler = new WidgetsUntrustedProgramHandler(qq);
+        m_openWithHandler = new WidgetsOpenWithHandler(qq);
+        m_openOrExecuteFileHandler = new WidgetsOpenOrExecuteFileHandler(qq);
+        m_askUserActionHandler = new WidgetsAskUserActionHandler(qq);
     }
+
+    WidgetsUntrustedProgramHandler *m_untrustedProgramHandler;
+    WidgetsOpenWithHandler *m_openWithHandler;
+    WidgetsOpenOrExecuteFileHandler *m_openOrExecuteFileHandler;
+    WidgetsAskUserActionHandler *m_askUserActionHandler;
 };
 
 KIO::JobUiDelegate::JobUiDelegate()
@@ -135,12 +140,16 @@ KIO::JobUiDelegate::JobUiDelegate(KJobUiDelegate::Flags flags, QWidget *window)
     : KDialogJobUiDelegate(flags, window)
     , d(new JobUiDelegatePrivate(this))
 {
-    s_static()->registerWindow(window);
+    setWindow(window);
 }
 
 void KIO::JobUiDelegate::setWindow(QWidget *window)
 {
     KDialogJobUiDelegate::setWindow(window);
+    d->m_openWithHandler->setWindow(window);
+    d->m_untrustedProgramHandler->setWindow(window);
+    d->m_openOrExecuteFileHandler->setWindow(window);
+    d->m_askUserActionHandler->setWindow(window);
     s_static()->registerWindow(window);
 }
 

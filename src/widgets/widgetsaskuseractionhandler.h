@@ -79,6 +79,8 @@ public:
                                const KIO::MetaData &metaData = {},
                                QWidget *parent = nullptr) override;
 
+    void setWindow(QWidget *window);
+
 private:
     std::unique_ptr<WidgetsAskUserActionHandlerPrivate> d;
 };

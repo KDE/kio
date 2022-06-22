@@ -10,6 +10,8 @@
 
 #include "untrustedprogramhandlerinterface.h"
 
+#include <memory>
+
 class QDialog;
 class QWidget;
 
@@ -21,6 +23,7 @@ namespace KIO
 // and the messagebox for handling untrusted programs.
 // Then port those users of ApplicationLauncherJob which were setting a KDialogJobUiDelegate
 // to set a KIO::JobUiDelegate instead.
+class WidgetsUntrustedProgramHandlerPrivate;
 
 class WidgetsUntrustedProgramHandler : public UntrustedProgramHandlerInterface
 {
@@ -33,11 +36,12 @@ public:
     // Compat code for KRun::runUrl. Will disappear before KF6
     bool execUntrustedProgramWarning(QWidget *window, const QString &programName);
 
+    void setWindow(QWidget *window);
+
 private:
     QDialog *createDialog(QWidget *parentWidget, const QString &programName);
 
-    class Private;
-    Private *const d;
+    std::unique_ptr<WidgetsUntrustedProgramHandlerPrivate> d;
 };
 
 }

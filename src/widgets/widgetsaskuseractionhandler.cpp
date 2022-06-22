@@ -20,6 +20,7 @@
 #include <KStandardGuiItem>
 #include <kio_widgets_debug.h>
 
+#include <QApplication>
 #include <QDialogButtonBox>
 #include <QRegularExpression>
 #include <QUrl>
@@ -36,6 +37,7 @@ public:
     void sslMessageBox(const QString &text, const KIO::MetaData &metaData, QWidget *parent);
 
     WidgetsAskUserActionHandler *const q;
+    QWidget *m_parentWidget = nullptr;
 };
 
 KIO::WidgetsAskUserActionHandler::WidgetsAskUserActionHandler(QObject *parent)
@@ -60,7 +62,21 @@ void KIO::WidgetsAskUserActionHandler::askUserRename(KJob *job,
                                                      const QDateTime &mtimeSrc,
                                                      const QDateTime &mtimeDest)
 {
-    auto *dlg = new KIO::RenameDialog(KJobWidgets::window(job), caption, src, dest, options, sizeSrc, sizeDest, ctimeSrc, ctimeDest, mtimeSrc, mtimeDest);
+    QWidget *parentWidget = nullptr;
+
+    if (job) {
+        parentWidget = KJobWidgets::window(job);
+    }
+
+    if (!parentWidget) {
+        parentWidget = d->m_parentWidget;
+    }
+
+    if (!parentWidget) {
+        parentWidget = qApp->activeWindow();
+    }
+
+    auto *dlg = new KIO::RenameDialog(parentWidget, caption, src, dest, options, sizeSrc, sizeDest, ctimeSrc, ctimeDest, mtimeSrc, mtimeDest);
 
     dlg->setAttribute(Qt::WA_DeleteOnClose);
     dlg->setWindowModality(Qt::WindowModal);
@@ -77,7 +93,21 @@ void KIO::WidgetsAskUserActionHandler::askUserRename(KJob *job,
 
 void KIO::WidgetsAskUserActionHandler::askUserSkip(KJob *job, KIO::SkipDialog_Options options, const QString &errorText)
 {
-    auto *dlg = new KIO::SkipDialog(KJobWidgets::window(job), options, errorText);
+    QWidget *parentWidget = nullptr;
+
+    if (job) {
+        parentWidget = KJobWidgets::window(job);
+    }
+
+    if (!parentWidget) {
+        parentWidget = d->m_parentWidget;
+    }
+
+    if (!parentWidget) {
+        parentWidget = qApp->activeWindow();
+    }
+
+    auto *dlg = new KIO::SkipDialog(parentWidget, options, errorText);
     dlg->setAttribute(Qt::WA_DeleteOnClose);
     dlg->setWindowModality(Qt::WindowModal);
 
@@ -373,4 +403,9 @@ void KIO::WidgetsAskUserActionHandlerPrivate::sslMessageBox(const QString &text,
     });
 
     dialog->show();
+}
+
+void KIO::WidgetsAskUserActionHandler::setWindow(QWidget *window)
+{
+    d->m_parentWidget = window;
 }

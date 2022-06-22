@@ -23,9 +23,15 @@
 #include <QStyle>
 #include <QVBoxLayout>
 
+class KIO::WidgetsUntrustedProgramHandlerPrivate
+{
+public:
+    QWidget *m_parentWidget = nullptr;
+};
+
 KIO::WidgetsUntrustedProgramHandler::WidgetsUntrustedProgramHandler(QObject *parent)
     : KIO::UntrustedProgramHandlerInterface(parent)
-    , d(nullptr)
+    , d(std::make_unique<WidgetsUntrustedProgramHandlerPrivate>())
 {
 }
 
@@ -153,7 +159,20 @@ QDialog *KIO::WidgetsUntrustedProgramHandler::createDialog(QWidget *parentWidget
 
 void KIO::WidgetsUntrustedProgramHandler::showUntrustedProgramWarning(KJob *job, const QString &programName)
 {
-    QWidget *parentWidget = job ? KJobWidgets::window(job) : qApp->activeWindow();
+    QWidget *parentWidget = nullptr;
+
+    if (job) {
+        parentWidget = KJobWidgets::window(job);
+    }
+
+    if (!parentWidget) {
+        parentWidget = d->m_parentWidget;
+    }
+
+    if (!parentWidget) {
+        parentWidget = qApp->activeWindow();
+    }
+
     QDialog *dialog = createDialog(parentWidget, programName);
     connect(dialog, &QDialog::accepted, this, [this]() {
         Q_EMIT result(true);
@@ -168,6 +187,11 @@ bool KIO::WidgetsUntrustedProgramHandler::execUntrustedProgramWarning(QWidget *w
 {
     QDialog *dialog = createDialog(window, programName);
     return dialog->exec() == QDialog::Accepted;
+}
+
+void KIO::WidgetsUntrustedProgramHandler::setWindow(QWidget *window)
+{
+    d->m_parentWidget = window;
 }
 
 #include "widgetsuntrustedprogramhandler.moc"
