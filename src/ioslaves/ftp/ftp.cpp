@@ -44,7 +44,7 @@
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <QDebug>
-#include <ioslave_defaults.h>
+#include <ioworker_defaults.h>
 #include <kremoteencoding.h>
 
 #include "kioglobal_p.h"

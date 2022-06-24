@@ -51,7 +51,7 @@
 #include <kprotocolinfofactory_p.h>
 
 #include "http_slave_defaults.h"
-#include "ioslave_defaults.h"
+#include "ioworker_defaults.h"
 #include "slaveconfig.h"
 
 using SubnetPair = QPair<QHostAddress, int>;

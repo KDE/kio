@@ -13,7 +13,7 @@
 #include <KLocalizedString>
 #include <KPluginFactory>
 #include <KPluralHandlingSpinBox>
-#include <ioslave_defaults.h>
+#include <ioworker_defaults.h>
 
 // Local
 #include "../ksaveioconfig.h"

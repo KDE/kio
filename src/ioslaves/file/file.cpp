@@ -48,7 +48,7 @@
 #include <QStandardPaths>
 #include <kmountpoint.h>
 
-#include <ioslave_defaults.h>
+#include <ioworker_defaults.h>
 #include <kdirnotify.h>
 #include <workerfactory.h>
 

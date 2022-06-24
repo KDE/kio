@@ -41,7 +41,7 @@
 
 #include "commands_p.h"
 #include "connection_p.h"
-#include "ioslave_defaults.h"
+#include "ioworker_defaults.h"
 #include "kiocoredebug.h"
 #include "kioglobal_p.h"
 #include "kpasswdserverclient.h"

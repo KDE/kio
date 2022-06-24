@@ -18,7 +18,7 @@
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KMessageBox>
-#include <ioslave_defaults.h>
+#include <ioworker_defaults.h>
 class KSaveIOConfigPrivate
 {
 public:

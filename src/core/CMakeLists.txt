@@ -327,6 +327,7 @@ install(TARGETS KF5KIOCore EXPORT KF5KIOTargets ${KF5_INSTALL_TARGETS_DEFAULT_AR
 list(APPEND KIO_namespaced_HEADERS
   http_slave_defaults.h
   ioslave_defaults.h
+  ioworker_defaults.h
   job_base.h
   jobclasses.h
 )
