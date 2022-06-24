@@ -239,9 +239,10 @@ enum Error {
     ERR_CANNOT_RENAME = KJob::UserDefinedError + 40,
     ERR_CANNOT_CHMOD = KJob::UserDefinedError + 41,
     ERR_CANNOT_DELETE = KJob::UserDefinedError + 42,
-    // The text argument is the protocol that the dead slave supported.
+    // The text argument is the protocol that the dead worker supported.
     // This means for example: file, ftp, http, ...
-    ERR_SLAVE_DIED = KJob::UserDefinedError + 43,
+    ERR_WORKER_DIED = KJob::UserDefinedError + 43,
+    ERR_SLAVE_DIED = ERR_WORKER_DIED, // TODO KF6 drop
     ERR_OUT_OF_MEMORY = KJob::UserDefinedError + 44,
     ERR_UNKNOWN_PROXY_HOST = KJob::UserDefinedError + 45,
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 0)
@@ -265,7 +266,9 @@ enum Error {
     ERR_NO_CONTENT = KJob::UserDefinedError + 60, ///< Action succeeded but no content will follow.
     ERR_DISK_FULL = KJob::UserDefinedError + 61,
     ERR_IDENTICAL_FILES = KJob::UserDefinedError + 62, ///< src==dest when moving/copying
-    ERR_SLAVE_DEFINED = KJob::UserDefinedError + 63, ///< for slave specified errors that can be
+    ERR_WORKER_DEFINED = KJob::UserDefinedError + 63, ///< for worker specified errors that can be
+    ERR_SLAVE_DEFINED = ERR_WORKER_DEFINED, // TODO KF6 drop
+
     ///< rich text.  Email links will be handled
     ///< by the standard email app and all hrefs
     ///< will be handled by the standard browser.
@@ -286,12 +289,15 @@ enum Error {
     ERR_POST_NO_SIZE = KJob::UserDefinedError + 69,
     ERR_DROP_ON_ITSELF = KJob::UserDefinedError + 70, ///< from KIO::DropJob, @since 5.6
     ERR_CANNOT_MOVE_INTO_ITSELF = KJob::UserDefinedError + 71, ///< emitted by KIO::move, @since 5.18
-    ERR_PASSWD_SERVER = KJob::UserDefinedError + 72, ///< returned by SlaveBase::openPasswordDialogV2, @since 5.24
-    ERR_CANNOT_CREATE_SLAVE = KJob::UserDefinedError + 73, ///< used by Slave::createSlave, @since 5.30
+    // TODO KF6 remove reference to slavebase
+    ERR_PASSWD_SERVER = KJob::UserDefinedError + 72, ///< returned by WorkerBase::openPasswordDialog and SlaveBase::openPasswordDialogV2, @since 5.24
+    ERR_CANNOT_CREATE_WORKER = KJob::UserDefinedError + 73, ///< used by Slave::createSlave, @since 5.30
+    // TODO KF6 drop
+    ERR_CANNOT_CREATE_SLAVE = ERR_CANNOT_CREATE_WORKER, ///< used by Slave::createSlave, @since 5.30
     ERR_FILE_TOO_LARGE_FOR_FAT32 = KJob::UserDefinedError + 74, ///< @since 5.54
     ERR_OWNER_DIED = KJob::UserDefinedError
-        + 75, ///< Value used between kuiserver and views when the job owner disappears unexpectedly. It should not be emitted by slaves. @since 5.54
-    ERR_PRIVILEGE_NOT_REQUIRED = KJob::UserDefinedError + 76, ///< used by file ioslave, @since 5.60
+        + 75, ///< Value used between kuiserver and views when the job owner disappears unexpectedly. It should not be emitted by workers. @since 5.54
+    ERR_PRIVILEGE_NOT_REQUIRED = KJob::UserDefinedError + 76, ///< used by file ioworker, @since 5.60
     ERR_CANNOT_TRUNCATE = KJob::UserDefinedError + 77, // used by FileJob::truncate, @since 5.66
     /**
      * Indicates failure to create a symlink due to the underlying filesystem (FAT/ExFAT)
