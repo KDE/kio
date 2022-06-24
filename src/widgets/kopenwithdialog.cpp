@@ -25,6 +25,7 @@
 #include <QStyle>
 #include <QStyleOptionButton>
 #include <QtAlgorithms>
+#include <QIcon>
 
 #include <KAuthorized>
 #include <KCollapsibleGroupBox>
@@ -39,6 +40,7 @@
 #include <KStringHandler>
 #include <QDebug>
 #include <kio/desktopexecparser.h>
+#include <KIO/CommandLauncherJob>
 #include <kurlauthorized.h>
 #include <kurlcompletion.h>
 #include <kurlrequester.h>
@@ -526,6 +528,7 @@ public:
     // slots
     void _k_slotDbClick();
     void _k_slotFileSelected();
+    void discoverButtonClicked();
 
     bool saveNewApps;
     bool m_terminaldirty;
@@ -784,6 +787,15 @@ void KOpenWithDialogPrivate::init(const QString &_text, const QString &_value)
 
     topLayout->addWidget(dialogExtension);
 
+    if (!qMimeType.isNull() && KService::serviceByDesktopName(QStringLiteral("org.kde.discover")))
+    {
+        QPushButton *discoverButton = new QPushButton(QIcon::fromTheme(QStringLiteral("plasmadiscover")), i18n("Get more Apps from Discover"));
+        QObject::connect(discoverButton, &QPushButton::clicked, q, [this]() {
+            discoverButtonClicked();
+        });
+        topLayout->addWidget(discoverButton);
+    }
+
     buttonBox = new QDialogButtonBox(q);
     buttonBox->setStandardButtons(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
     q->connect(buttonBox, &QDialogButtonBox::accepted, q, &QDialog::accept);
@@ -797,6 +809,13 @@ void KOpenWithDialogPrivate::init(const QString &_text, const QString &_value)
     q->resize(q->minimumWidth(), 0.6 * q->screen()->availableGeometry().height());
     edit->setFocus();
     q->slotTextChanged();
+}
+
+void KOpenWithDialogPrivate::discoverButtonClicked()
+{
+    KIO::CommandLauncherJob *job = new KIO::CommandLauncherJob(QStringLiteral("plasma-discover"), {QStringLiteral("--mime"), qMimeType});
+    job->setDesktopName(QStringLiteral("org.kde.discover"));
+    job->start();
 }
 
 // ----------------------------------------------------------------------

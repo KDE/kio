@@ -141,6 +141,7 @@ private:
 
     Q_PRIVATE_SLOT(d, void _k_slotDbClick())
     Q_PRIVATE_SLOT(d, void _k_slotFileSelected())
+    Q_PRIVATE_SLOT(d, void discoverButtonClicked())
 };
 
 #endif
