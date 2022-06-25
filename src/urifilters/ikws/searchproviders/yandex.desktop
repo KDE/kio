@@ -18,6 +18,7 @@ Name[pl]=Yandex
 Name[pt]=Yandex
 Name[pt_BR]=Yandex
 Name[ro]=Yandex
+Name[ru]=Яндекс
 Name[sl]=Yandex
 Name[sv]=Yandex
 Name[tr]=Yandex
@@ -42,6 +43,7 @@ Query[pl]=https://yandex.ru/search/?text=\\{@}
 Query[pt]=https://yandex.ru/search/?text=\\{@}
 Query[pt_BR]=https://yandex.ru/search/?text=\\{@}
 Query[ro]=https://yandex.ru/search/?text=\\{@}
+Query[ru]=https://yandex.ru/search/?text=\\{@}
 Query[sl]=https://yandex.ru/search/?text=\\{@}
 Query[sv]=https://yandex.ru/search/?text=\\{@}
 Query[tr]=https://yandex.ru/search/?text=\\{@}

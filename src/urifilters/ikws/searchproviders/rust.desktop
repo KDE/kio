@@ -19,6 +19,7 @@ Name[pl]=Dokumentacja Rust STD
 Name[pt]=Documentação STD do Rust
 Name[pt_BR]=Documentação do Rust STD
 Name[ro]=Documentația Rust STD
+Name[ru]=Документация по Rust STD
 Name[sl]=Dokumentacija za Rust STD
 Name[sv]=Rust standarddokumentation
 Name[tr]=Rust STD Belgelendirmesi
@@ -48,6 +49,7 @@ Query[pl]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[pt]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[pt_BR]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[ro]=https://doc.rust-lang.org/std/index.html?search=\\{@}
+Query[ru]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[sl]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[sv]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[tr]=https://doc.rust-lang.org/std/index.html?search=\\{@}

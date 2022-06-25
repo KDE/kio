@@ -18,6 +18,7 @@ Name[nl]=openSUSE-software
 Name[pl]=Oprogramowanie openSUSE
 Name[pt]=Software do openSUSE
 Name[pt_BR]=Software do openSUSE
+Name[ru]=Программы openSUSE
 Name[sl]=Programska oprema OpenSUSE
 Name[sv]=openSUSE-programvara
 Name[tr]=openSUSE Yazılım
@@ -47,6 +48,7 @@ Query[pl]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
 Query[pt]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
 Query[pt_BR]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
 Query[ro]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
+Query[ru]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
 Query[sl]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
 Query[sv]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
 Query[tr]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}

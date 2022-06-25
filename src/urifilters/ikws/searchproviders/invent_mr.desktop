@@ -19,6 +19,7 @@ Name[nl]=KDE-invent samenvoegaanvragen
 Name[pl]=Żądania Scalenia na KDE Invent
 Name[pt]=Pedidos de Junção no KDE Invent
 Name[pt_BR]=Merge Requests do KDE Invent
+Name[ru]=Запросы на слияние KDE Invent
 Name[sl]=Zahteve za spajanje KDE Invent
 Name[sv]=KDE-Invent sammanfogningsbegäran
 Name[tr]=KDE Invent Birleştirme İstekleri
@@ -46,6 +47,7 @@ Query[pl]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[pt]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[pt_BR]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[ro]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
+Query[ru]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[sl]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[sv]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[tr]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
