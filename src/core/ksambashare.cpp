@@ -31,16 +31,6 @@
 Q_DECLARE_LOGGING_CATEGORY(KIO_CORE_SAMBASHARE)
 Q_LOGGING_CATEGORY(KIO_CORE_SAMBASHARE, "kf.kio.core.sambashare", QtWarningMsg)
 
-// Default smb.conf locations
-// sorted by priority, most priority first
-static const char *const DefaultSambaConfigFilePathList[] = {"/etc/samba/smb.conf",
-                                                             "/etc/smb.conf",
-                                                             "/usr/local/etc/smb.conf",
-                                                             "/usr/local/samba/lib/smb.conf",
-                                                             "/usr/samba/lib/smb.conf",
-                                                             "/usr/lib/smb.conf",
-                                                             "/usr/local/lib/smb.conf"};
-
 KSambaSharePrivate::KSambaSharePrivate(KSambaShare *parent)
     : q_ptr(parent)
     , data()
@@ -75,6 +65,16 @@ bool KSambaSharePrivate::isSambaInstalled()
 }
 
 #if KIOCORE_BUILD_DEPRECATED_SINCE(4, 6)
+// Default smb.conf locations
+// sorted by priority, most priority first
+static const char *const DefaultSambaConfigFilePathList[] = {"/etc/samba/smb.conf",
+                                                             "/etc/smb.conf",
+                                                             "/usr/local/etc/smb.conf",
+                                                             "/usr/local/samba/lib/smb.conf",
+                                                             "/usr/samba/lib/smb.conf",
+                                                             "/usr/lib/smb.conf",
+                                                             "/usr/local/lib/smb.conf"};
+
 // Try to find the samba config file path
 // in several well-known paths
 bool KSambaSharePrivate::findSmbConf()
