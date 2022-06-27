@@ -18,7 +18,8 @@ class WorkerThread : public QThread
 {
     Q_OBJECT
 public:
-    WorkerThread(WorkerFactory *factory, const QByteArray &appSocket);
+    WorkerThread(QObject *parent, WorkerFactory *factory, const QByteArray &appSocket);
+    ~WorkerThread() override;
 
     void abort();
 

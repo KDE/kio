@@ -11,10 +11,16 @@
 namespace KIO
 {
 
-WorkerThread::WorkerThread(WorkerFactory *factory, const QByteArray &appSocket)
-    : m_factory(factory)
+WorkerThread::WorkerThread(QObject *parent, WorkerFactory *factory, const QByteArray &appSocket)
+    : QThread(parent)
+    , m_factory(factory)
     , m_appSocket(appSocket)
 {
+}
+
+WorkerThread::~WorkerThread()
+{
+    wait();
 }
 
 void WorkerThread::abort()

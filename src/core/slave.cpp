@@ -454,7 +454,7 @@ Slave *Slave::createSlave(const QString &protocol, const QUrl &url, int &error, 
     if (bUseThreads && protocol == QLatin1String("file")) {
         auto *factory = qobject_cast<WorkerFactory *>(loader.instance());
         if (factory) {
-            auto *thread = new WorkerThread(factory, slaveAddress.toString().toLocal8Bit());
+            auto *thread = new WorkerThread(slave, factory, slaveAddress.toString().toLocal8Bit());
             thread->start();
             slave->setWorkerThread(thread);
             return slave;
