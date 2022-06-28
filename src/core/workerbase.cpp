@@ -187,12 +187,13 @@ protected:
         switch (id) {
         case SlaveBase::AppConnectionMade:
             base->appConnectionMade();
+            return;
         case SlaveBase::GetFileSystemFreeSpace:
             finalize(base->fileSystemFreeSpace(*static_cast<QUrl *>(data)));
             return;
         case SlaveBase::Truncate:
             maybeError(base->truncate(*static_cast<KIO::filesize_t *>(data)));
-            break;
+            return;
         }
 
         maybeError(WorkerResult::fail(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(protocolName(), id)));
