@@ -551,19 +551,12 @@ KFileItemActionsPrivate::addServiceActionsTo(QMenu *mainMenu, const QList<QActio
     KIO::PopupServices s;
 
     // TODO KF6 remove mention of "builtin" (deprecated)
-    // 1 - Look for builtin and user-defined services
+    // 1 - Look for builtin services
     if (isSingleLocal && m_props.mimeType() == QLatin1String("application/x-desktop")) {
 #if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 82)
         // Get builtin services, like mount/unmount
         s.builtin = KDesktopFileActions::builtinServices(QUrl::fromLocalFile(firstItem.localPath()));
 #endif
-        const QString path = firstItem.localPath();
-        const KDesktopFile desktopFile(path);
-        const KConfigGroup cfg = desktopFile.desktopGroup();
-        const QString priority = cfg.readEntry("X-KDE-Priority");
-        const QString submenuName = cfg.readEntry("X-KDE-Submenu");
-        ServiceList &list = s.selectList(priority, submenuName);
-        list = KDesktopFileActions::userDefinedServices(KService(path), true /*isLocal*/);
     }
 
     // 2 - Look for "servicemenus" bindings (user-defined services)
@@ -912,7 +905,6 @@ void KFileItemActionsPrivate::insertOpenWithActionsTo(QAction *before,
             subMenu->addAction(openWithAct);
 
             topMenu->insertMenu(before, subMenu);
-            topMenu->insertSeparator(before);
         } else { // No other apps
             topMenu->insertAction(before, openWithAct);
         }
@@ -921,6 +913,32 @@ void KFileItemActionsPrivate::insertOpenWithActionsTo(QAction *before,
         openWithAct->setObjectName(QStringLiteral("openwith")); // For the unittest
         topMenu->insertAction(before, openWithAct);
     }
+
+    if (m_props.mimeType() == QLatin1String("application/x-desktop")) {
+        const QString path = firstItem.localPath();
+        const KDesktopFile desktopFile(path);
+        const KConfigGroup cfg = desktopFile.desktopGroup();
+
+        const ServiceList services = KDesktopFileActions::userDefinedServices(KService(path), true /*isLocal*/);
+
+        for (const KServiceAction &serviceAction : services) {
+            QAction *action = new QAction(this);
+            action->setText(serviceAction.text());
+            action->setIcon(QIcon::fromTheme(serviceAction.icon()));
+
+            connect(action, &QAction::triggered, this, [serviceAction] {
+                if (KAuthorized::authorizeAction(serviceAction.name())) {
+                    auto *job = new KIO::ApplicationLauncherJob(serviceAction);
+                    job->setUiDelegate(new KDialogJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, nullptr));
+                    job->start();
+                }
+            });
+
+            topMenu->addAction(action);
+        }
+    }
+
+    topMenu->insertSeparator(before);
 }
 
 QStringList KFileItemActionsPrivate::serviceMenuFilePaths()
