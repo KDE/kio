@@ -2787,11 +2787,12 @@ QUrl KFileWidget::getStartUrl(const QUrl &startDir, QString &recentDirClass, QSt
                 fileName = urlFile;
             }
 
-            if (startDir.query() == QLatin1String("global")) {
-                recentDirClass = QStringLiteral("::%1").arg(keyword);
-            } else {
-                recentDirClass = QStringLiteral(":%1").arg(keyword);
-            }
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 96)
+            const QLatin1String query(startDir.query() == QLatin1String("global") ? "::%1" : ":%1");
+#else
+            const QLatin1String query(":%1");
+#endif
+            recentDirClass = query.arg(keyword);
 
             ret = QUrl::fromLocalFile(KRecentDirs::dir(recentDirClass));
         } else { // not special "kfiledialog" URL

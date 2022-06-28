@@ -26,6 +26,8 @@
  * a single ':' the file-class is specific to the current application.
  * If the file-class starts with '::' it is global to all applications.
  *
+ * @note Since 5.96 the file-class '::' syntax is deprecated, for lack of usage.
+ *
  * @since 4.6
  */
 namespace KRecentDirs
