@@ -67,13 +67,15 @@ public:
      *             to start in the directory last used by a filedialog in the same
      *             application that specified the same keyword, and to initially
      *             select the specified filename.
-     *         @li A URL of the form @c kfiledialog:///&lt;keyword&gt;?global to start
+     *         @li Deprecated: A URL of the form @c kfiledialog:///&lt;keyword&gt;?global to start
      *             in the directory last used by a filedialog in any application that
      *             specified the same keyword.
-     *         @li A URL of the form @c kfiledialog:///&lt;keyword&gt;/&lt;filename&gt;?global
+     *         @li Deprecated: A URL of the form @c kfiledialog:///&lt;keyword&gt;/&lt;filename&gt;?global
      *             to start in the directory last used by a filedialog in any
      *             application that specified the same keyword, and to initially
      *             select the specified filename.
+     *
+     * @note Since 5.96, the "?global" syntax is deprecated, for lack of usage.
      *
      * @param parent The parent widget of this widget
      *

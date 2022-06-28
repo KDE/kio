@@ -186,8 +186,13 @@ private Q_SLOTS:
         QCOMPARE(localUrl.toLocalFile(), QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation));
         QVERIFY(outFileName.isEmpty());
 
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 96)
         localUrl = KFileWidget::getStartUrl(QUrl(QStringLiteral("kfiledialog:///attachments/foo.txt?global")), recentDirClass, outFileName);
         QCOMPARE(recentDirClass, QStringLiteral("::attachments"));
+#else
+        localUrl = KFileWidget::getStartUrl(QUrl(QStringLiteral("kfiledialog:///attachments/foo.txt")), recentDirClass, outFileName);
+        QCOMPARE(recentDirClass, QStringLiteral(":attachments"));
+#endif
         QCOMPARE(localUrl.toLocalFile(), QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation));
         QCOMPARE(outFileName, QStringLiteral("foo.txt"));
     }
