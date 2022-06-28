@@ -223,6 +223,7 @@ public:
 
     /**
      * Returns all plugins that are considered when a preview is generated
+     * The result is internally cached, meaning any further method call will not reload the plugins
      * @since 5.90
      */
     static QVector<KPluginMetaData> availableThumbnailerPlugins();
