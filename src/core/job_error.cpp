@@ -219,6 +219,8 @@ KIOCORE_EXPORT QString KIO::buildErrorString(int errorCode, const QString &error
         result = i18n("The source and destination are the same file.\n%1", errorText);
         break;
     case KIO::ERR_SLAVE_DEFINED:
+        Q_FALLTHROUGH();
+    case KJob::UserDefinedError:
         result = errorText;
         break;
     case KIO::ERR_UPGRADE_REQUIRED:
