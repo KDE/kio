@@ -1305,7 +1305,7 @@ void KNewFileMenuPrivate::slotUrlDesktopFile()
 {
     KNameAndUrlInputDialog *dlg = static_cast<KNameAndUrlInputDialog *>(m_fileDialog);
 
-    m_copyData.m_chosenFileName = dlg->name(); // no path
+    m_copyData.m_chosenFileName = dlg->name() + QLatin1String(".desktop"); // no path
     QUrl linkUrl = dlg->url();
 
     // Filter user input so that short uri entries, e.g. www.kde.org, are
