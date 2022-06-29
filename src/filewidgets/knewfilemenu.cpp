@@ -1361,6 +1361,7 @@ void KNewFileMenuPrivate::slotUrlDesktopFile()
     }
 
     group.writePathEntry("URL", linkUrl.toDisplayString());
+    group.writeEntry("Name", dlg->name()); // Used as user-visible name by kio_desktop
     df.sync();
 
     m_copyData.m_src = tempFileName;
