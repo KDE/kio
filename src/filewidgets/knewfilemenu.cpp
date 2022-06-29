@@ -645,23 +645,6 @@ void KNewFileMenuPrivate::executeStrategy()
         uSrc.setPath(item.linkDest());
     }
 
-    if (!m_copyData.m_isSymlink) {
-        // If the file is not going to be detected as a desktop file, due to a
-        // known extension (e.g. ".pl"), append ".desktop". #224142.
-        QFile srcFile(uSrc.toLocalFile());
-        if (srcFile.open(QIODevice::ReadOnly)) {
-            QMimeDatabase db;
-            QMimeType wantedMime = db.mimeTypeForUrl(uSrc);
-            QMimeType mime = db.mimeTypeForFileNameAndData(m_copyData.m_chosenFileName, srcFile.read(1024));
-            // qDebug() << "mime=" << mime->name() << "wantedMime=" << wantedMime->name();
-            if (!mime.inherits(wantedMime.name())) {
-                if (!wantedMime.preferredSuffix().isEmpty()) {
-                    chosenFileName += QLatin1Char('.') + wantedMime.preferredSuffix();
-                }
-            }
-        }
-    }
-
     // The template is not a desktop file [or it's a URL one] >>> Copy it
     for (const auto &u : std::as_const(m_popupFiles)) {
         QUrl dest = u;
