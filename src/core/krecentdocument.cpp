@@ -270,6 +270,7 @@ static bool addToXbel(const QUrl &url, const QString &desktopEntryName, KRecentD
 
     if (!foundExisting) {
         // must create new bookmark tag
+        output.writeCharacters(QStringLiteral("  "));
         output.writeStartElement(bookmarkTag);
 
         output.writeAttribute(hrefAttribute, newUrl);
