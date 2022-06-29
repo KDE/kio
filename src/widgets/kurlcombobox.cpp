@@ -21,7 +21,6 @@
 #include <kio/global.h>
 
 #include <algorithm>
-#include <memory>
 #include <vector>
 
 class KUrlComboBoxPrivate

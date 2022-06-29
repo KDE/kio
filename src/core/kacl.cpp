@@ -18,8 +18,6 @@
 #include <QHash>
 #include <QString>
 
-#include <memory>
-
 #include "kiocoredebug.h"
 
 #if HAVE_POSIX_ACL

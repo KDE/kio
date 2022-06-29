@@ -51,8 +51,6 @@
 
 #include <chrono>
 #include <cmath>
-#include <functional>
-#include <memory>
 
 #include "kfileplaceeditdialog.h"
 #include "kfileplacesmodel.h"

@@ -9,7 +9,6 @@
 #include "davjob.h"
 
 #include <QDataStream>
-#include <QDomDocument>
 
 #include "httpmethod_p.h"
 
