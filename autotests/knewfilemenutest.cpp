@@ -124,7 +124,7 @@ private Q_SLOTS:
         QTest::newRow("text file with jpeg extension") << "Text File"
                                                        << "Text File.txt"
                                                        << "foo.jpg"
-                                                       << "foo.jpg.txt";
+                                                       << "foo.jpg"; // You get what you typed
         QTest::newRow("html file") << "HTML File"
                                    << "HTML File.html"
                                    << "foo.html"
@@ -135,8 +135,8 @@ private Q_SLOTS:
                                           << "tmp_link.desktop";
         QTest::newRow("url desktop file no extension") << "Link to Location "
                                                        << ""
-                                                       << "tmp_link"
-                                                       << "tmp_link";
+                                                       << "tmp_link1"
+                                                       << "tmp_link1.desktop";
         QTest::newRow("url desktop file .pl extension") << "Link to Location "
                                                         << ""
                                                         << "tmp_link.pl"
