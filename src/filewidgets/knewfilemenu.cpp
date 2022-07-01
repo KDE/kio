@@ -366,7 +366,6 @@ public:
     // This is used to allow _k_slotTextChanged to know whether it's being used to
     // create a file or a directory without duplicating code across two functions
     bool m_creatingDirectory = false;
-    bool m_viewShowsHiddenFiles = false;
     bool m_modal = true;
 
     /**
@@ -1527,10 +1526,12 @@ void KNewFileMenu::setSupportedMimeTypes(const QStringList &mime)
     d->m_supportedMimeTypes = mime;
 }
 
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 97)
 void KNewFileMenu::setViewShowsHiddenFiles(bool b)
 {
-    d->m_viewShowsHiddenFiles = b;
+    Q_UNUSED(b)
 }
+#endif
 
 void KNewFileMenu::slotResult(KJob *job)
 {

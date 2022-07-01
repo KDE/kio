@@ -137,10 +137,14 @@ public:
      */
     void setSupportedMimeTypes(const QStringList &mime);
 
+#if KIOFILEWIDGETS_ENABLE_DEPRECATED_SINCE(5, 97)
+    KIOFILEWIDGETS_DEPRECATED_VERSION(5, 97, "Calling this has no effect")
     /**
      * Set if the directory view currently shows dot files.
+     * @deprecated since 5.97. Calling this has no effect.
      */
     void setViewShowsHiddenFiles(bool b);
+#endif
 
     /**
      * Returns the MIME types set in supportedMimeTypes()
@@ -160,7 +164,6 @@ public Q_SLOTS:
     /**
      * Checks if updating the list is necessary
      * IMPORTANT : Call this in the slot for aboutToShow.
-     * And while you're there, you probably want to call setViewShowsHiddenFiles ;)
      */
     void checkUpToDate();
 
