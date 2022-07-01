@@ -108,6 +108,14 @@ void JobPrivate::emitMoving(KIO::Job *job, const QUrl &src, const QUrl &dest)
     Q_EMIT job->description(job, s_title, qMakePair(s_source, url_description_string(src)), qMakePair(s_destination, url_description_string(dest)));
 }
 
+void JobPrivate::emitRenaming(KIO::Job *job, const QUrl &src, const QUrl &dest)
+{
+    static const QString s_title = i18nc("@title job", "Renaming");
+    static const QString s_source = i18nc("The source of a file operation", "Source");
+    static const QString s_destination = i18nc("The destination of a file operation", "Destination");
+    Q_EMIT job->description(job, s_title, {s_source, url_description_string(src)}, {s_destination, url_description_string(dest)});
+}
+
 void JobPrivate::emitCopying(KIO::Job *job, const QUrl &src, const QUrl &dest)
 {
     static const QString s_title = i18nc("@title job", "Copying");

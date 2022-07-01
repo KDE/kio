@@ -92,6 +92,7 @@ public:
     void slotSpeed(KJob *job, unsigned long speed);
 
     static void emitMoving(KIO::Job *, const QUrl &src, const QUrl &dest);
+    static void emitRenaming(KIO::Job *, const QUrl &src, const QUrl &dest);
     static void emitCopying(KIO::Job *, const QUrl &src, const QUrl &dest);
     static void emitCreatingDir(KIO::Job *, const QUrl &dir);
     static void emitDeleting(KIO::Job *, const QUrl &url);

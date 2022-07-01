@@ -13,6 +13,8 @@
 #include <QMimeDatabase>
 #include <QTimer>
 
+#include <KLocalizedString>
+
 #include <set>
 
 using namespace KIO;
@@ -81,12 +83,15 @@ public:
     bool m_allExtensionsDifferent;
     bool m_useIndex;
     bool m_appendIndex;
+    QUrl m_oldUrl;
     QUrl m_newUrl; // for fileRenamed signal
     const JobFlags m_flags;
+    QTimer m_reportTimer;
 
     Q_DECLARE_PUBLIC(BatchRenameJob)
 
     void slotStart();
+    void slotReport();
 
     QString indexedName(const QString &name, int index, QChar placeHolder) const;
 
@@ -108,7 +113,15 @@ public:
 BatchRenameJob::BatchRenameJob(BatchRenameJobPrivate &dd)
     : Job(dd)
 {
-    QTimer::singleShot(0, this, SLOT(slotStart()));
+    Q_D(BatchRenameJob);
+    connect(&d->m_reportTimer, &QTimer::timeout, this, [this]() {
+        d_func()->slotReport();
+    });
+    d->m_reportTimer.start(200);
+
+    QTimer::singleShot(0, this, [this] {
+        d_func()->slotStart();
+    });
 }
 
 BatchRenameJob::~BatchRenameJob()
@@ -157,22 +170,38 @@ void BatchRenameJobPrivate::slotStart()
             newName += QLatin1Char('.') + extension;
         }
 
+        m_oldUrl = oldUrl;
         m_newUrl = oldUrl.adjusted(QUrl::RemoveFilename);
         m_newUrl.setPath(m_newUrl.path() + KIO::encodeFileName(newName));
 
         KIO::Job *job = KIO::moveAs(oldUrl, m_newUrl, KIO::HideProgressInfo);
         job->setParentJob(q);
         q->addSubjob(job);
-        q->setProcessedAmount(KJob::Items, q->processedAmount(KJob::Items) + 1);
     } else {
+        m_reportTimer.stop();
+        slotReport();
         q->emitResult();
     }
+}
+
+void BatchRenameJobPrivate::slotReport()
+{
+    Q_Q(BatchRenameJob);
+
+    const auto processed = m_listIterator - m_srcList.constBegin();
+
+    q->setProcessedAmount(KJob::Items, processed);
+    q->emitPercent(processed, m_srcList.count());
+
+    emitRenaming(q, m_oldUrl, m_newUrl);
 }
 
 void BatchRenameJob::slotResult(KJob *job)
 {
     Q_D(BatchRenameJob);
     if (job->error()) {
+        d->m_reportTimer.stop();
+        d->slotReport();
         KIO::Job::slotResult(job);
         return;
     }
@@ -182,7 +211,6 @@ void BatchRenameJob::slotResult(KJob *job)
     Q_EMIT fileRenamed(*d->m_listIterator, d->m_newUrl);
     ++d->m_listIterator;
     ++d->m_index;
-    emitPercent(d->m_listIterator - d->m_srcList.constBegin(), d->m_srcList.count());
     d->slotStart();
 }
 
