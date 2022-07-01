@@ -92,6 +92,7 @@ Name[zh_TW]=IETF RFC 文件
 Query=https://datatracker.ietf.org/doc/\\{@}
 Query[ar]=https://datatracker.ietf.org/doc/\\{@}
 Query[az]=https://datatracker.ietf.org/doc/\\{@}
+Query[bg]=https://datatracker.ietf.org/doc/\\{@}
 Query[ca]=https://datatracker.ietf.org/doc/\\{@}
 Query[ca@valencia]=https://datatracker.ietf.org/doc/\\{@}
 Query[es]=https://datatracker.ietf.org/doc/\\{@}

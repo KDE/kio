@@ -2,6 +2,7 @@
 Name=openSUSE Software
 Name[ar]=برامج أوبن سوزي
 Name[az]=openSUSE proqram təminatı
+Name[bg]=openSUSE Software
 Name[bs]=openSUSE Softver
 Name[ca]=openSUSE Software
 Name[ca@valencia]=openSUSE Software
@@ -31,6 +32,7 @@ Keys=opensuse
 Query=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
 Query[ar]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
 Query[az]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
+Query[bg]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
 Query[bs]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
 Query[ca]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
 Query[ca@valencia]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}

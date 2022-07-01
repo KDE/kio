@@ -2,6 +2,7 @@
 Name=Linguee
 Name[ar]=Linguee
 Name[az]=Linguee
+Name[bg]=Linguee
 Name[bs]=Linguee
 Name[ca]=Linguee
 Name[ca@valencia]=Linguee
@@ -32,6 +33,7 @@ Keys=linguee
 Query=https://www.linguee.com/search?source=auto&query=\\{@}
 Query[ar]=https://www.linguee.com/search?source=auto&query=\\{@}
 Query[az]=https://www.linguee.com/search?source=auto&query=\\{@}
+Query[bg]=https://www.linguee.com/search?source=auto&query=\\{@}
 Query[bs]=https://www.linguee.com/search?source=auto&query=\\{@}
 Query[ca]=https://www.linguee.com/search?source=auto&query=\\{@}
 Query[ca@valencia]=https://www.linguee.com/search?source=auto&query=\\{@}

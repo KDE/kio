@@ -96,6 +96,7 @@ Query=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[ar]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[ast]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[az]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
+Query[bg]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[bs]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[ca]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[ca@valencia]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex

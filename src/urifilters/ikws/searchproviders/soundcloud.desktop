@@ -4,6 +4,7 @@ Name=Soundcloud
 Name[ar]=ساوند كلاود
 Name[ast]=Soundcloud
 Name[az]=Soundcloud
+Name[bg]=Soundcloud
 Name[bs]=Saundklaud
 Name[ca]=Soundcloud
 Name[ca@valencia]=Soundcloud
@@ -54,6 +55,7 @@ Query=https://soundcloud.com/search?q=\\{@}
 Query[ar]=https://soundcloud.com/search?q=\\{@}
 Query[ast]=https://soundcloud.com/search?q=\\{@}
 Query[az]=https://soundcloud.com/search?q=\\{@}
+Query[bg]=https://soundcloud.com/search?q=\\{@}
 Query[bs]=https://soundcloud.com/search?q=\\{@}
 Query[ca]=https://soundcloud.com/search?q=\\{@}
 Query[ca@valencia]=https://soundcloud.com/search?q=\\{@}

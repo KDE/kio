@@ -3,6 +3,7 @@ Keys=qwsh
 Name=Qwant Shopping
 Name[ar]=تسوّق Qwant
 Name[az]=Qwant Alış-Veriş
+Name[bg]=Пазаруване в Qwant
 Name[bs]=Kvant Šoping
 Name[ca]=Compres de Qwant
 Name[ca@valencia]=Compres de Qwant
@@ -56,6 +57,7 @@ Query=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[ar]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[ast]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[az]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
+Query[bg]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[bs]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[ca]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[ca@valencia]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping

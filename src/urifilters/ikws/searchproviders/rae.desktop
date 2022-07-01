@@ -97,6 +97,7 @@ Name[zh_TW]=西班牙金像獎字典 (RAE)
 Query=https://dle.rae.es/\\{@}
 Query[ar]=https://dle.rae.es/\\{@}
 Query[az]=https://dle.rae.es/\\{@}
+Query[bg]=https://dle.rae.es/\\{@}
 Query[bs]=https://dle.rae.es/\\{@}
 Query[ca]=https://dle.rae.es/\\{@}
 Query[ca@valencia]=https://dle.rae.es/\\{@}

@@ -80,6 +80,7 @@ Query=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[ar]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[ast]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[az]=https://www.jamendo.com/en/search?qs=q=\\{@}
+Query[bg]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[bs]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[ca]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[ca@valencia]=https://www.jamendo.com/en/search?qs=q=\\{@}

@@ -2,6 +2,7 @@
 Name=Reddit
 Name[ar]=ردت
 Name[az]=Reddit
+Name[bg]=Reddit
 Name[bs]=Redit
 Name[ca]=Reddit
 Name[ca@valencia]=Reddit
@@ -32,6 +33,7 @@ Keys=reddit
 Query=https://www.reddit.com/search/?q=\\{@}
 Query[ar]=https://www.reddit.com/search/?q=\\{@}
 Query[az]=https://www.reddit.com/search/?q=\\{@}
+Query[bg]=https://www.reddit.com/search/?q=\\{@}
 Query[bs]=https://www.reddit.com/search/?q=\\{@}
 Query[ca]=https://www.reddit.com/search/?q=\\{@}
 Query[ca@valencia]=https://www.reddit.com/search/?q=\\{@}

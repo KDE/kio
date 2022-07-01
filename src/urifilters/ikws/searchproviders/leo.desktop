@@ -97,6 +97,7 @@ Query=https://dict.leo.org/?search=\\{@}
 Query[ar]=https://dict.leo.org/?search=\\{@}
 Query[ast]=https://dict.leo.org/?search=\\{@}
 Query[az]=https://dict.leo.org/?search=\\{@}
+Query[bg]=https://dict.leo.org/?search=\\{@}
 Query[bs]=https://dict.leo.org/?search=\\{@}
 Query[ca]=https://dict.leo.org/?search=\\{@}
 Query[ca@valencia]=https://dict.leo.org/?search=\\{@}

@@ -4,6 +4,7 @@ Name=Qwant
 Name[ar]=Qwant
 Name[ast]=Qwant
 Name[az]=Qwant
+Name[bg]=Qwant
 Name[bs]=Kvant
 Name[ca]=Qwant
 Name[ca@valencia]=Qwant
@@ -58,6 +59,7 @@ Query=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[ar]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[ast]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[az]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
+Query[bg]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[bs]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[ca]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[ca@valencia]=https://www.qwant.com/?q=\\{@}&client=kde&t=web

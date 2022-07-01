@@ -94,6 +94,7 @@ Query=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[ar]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[ast]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[az]=https://dict.leo.org/?lp=frde&search=\\{@}
+Query[bg]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[bs]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[ca]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[ca@valencia]=https://dict.leo.org/?lp=frde&search=\\{@}

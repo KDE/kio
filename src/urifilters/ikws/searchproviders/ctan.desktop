@@ -96,6 +96,7 @@ Query=https://ctan.org/search?phrase=\\{@}
 Query[ar]=https://ctan.org/search?phrase=\\{@}
 Query[ast]=https://ctan.org/search?phrase=\\{@}
 Query[az]=https://ctan.org/search?phrase=\\{@}
+Query[bg]=https://ctan.org/search?phrase=\\{@}
 Query[bs]=https://ctan.org/search?phrase=\\{@}
 Query[ca]=https://ctan.org/search?phrase=\\{@}
 Query[ca@valencia]=https://ctan.org/search?phrase=\\{@}

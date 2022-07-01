@@ -78,6 +78,7 @@ Query=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[ar]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[ast]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[az]=https://ecosia.org/search.php?q=\\{@}&meta=normal
+Query[bg]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[bs]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[ca]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[ca@valencia]=https://ecosia.org/search.php?q=\\{@}&meta=normal

@@ -96,6 +96,7 @@ Query=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[ar]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[ast]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[az]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
+Query[bg]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[bs]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[ca]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[ca@valencia]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}

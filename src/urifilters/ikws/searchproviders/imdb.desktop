@@ -98,6 +98,7 @@ Query=https://imdb.com/find?s=all&q=\\{@}
 Query[ar]=https://imdb.com/find?s=all&q=\\{@}
 Query[ast]=https://imdb.com/find?s=all&q=\\{@}
 Query[az]=https://imdb.com/find?s=all&q=\\{@}
+Query[bg]=https://imdb.com/find?s=all&q=\\{@}
 Query[bs]=https://imdb.com/find?s=all&q=\\{@}
 Query[ca]=https://imdb.com/find?s=all&q=\\{@}
 Query[ca@valencia]=https://imdb.com/find?s=all&q=\\{@}

@@ -2,6 +2,7 @@
 Name=Ubuntu Package Search
 Name[ar]=بحث حزم أوبنتو
 Name[az]=Ubuntu paket axtarışı
+Name[bg]=Търсене на пакети на Ubuntu
 Name[bs]=Ubuntu Pretraga Paketa
 Name[ca]=Cerca paquets d'Ubuntu
 Name[ca@valencia]=Busca paquets d'Ubuntu
@@ -32,6 +33,7 @@ Keys=ubuntu
 Query=https://packages.ubuntu.com/\\{@}
 Query[ar]=https://packages.ubuntu.com/\\{@}
 Query[az]=https://packages.ubuntu.com/\\{@}
+Query[bg]=https://packages.ubuntu.com/\\{@}
 Query[bs]=https://packages.ubuntu.com/\\{@}
 Query[ca]=https://packages.ubuntu.com/\\{@}
 Query[ca@valencia]=https://packages.ubuntu.com/\\{@}

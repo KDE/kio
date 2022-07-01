@@ -94,6 +94,7 @@ Query=https://directory.fsf.org/search/?query=\\{@}
 Query[ar]=https://directory.fsf.org/search/?query=\\{@}
 Query[ast]=https://directory.fsf.org/search/?query=\\{@}
 Query[az]=https://directory.fsf.org/search/?query=\\{@}
+Query[bg]=https://directory.fsf.org/search/?query=\\{@}
 Query[bs]=https://directory.fsf.org/search/?query=\\{@}
 Query[ca]=https://directory.fsf.org/search/?query=\\{@}
 Query[ca@valencia]=https://directory.fsf.org/search/?query=\\{@}

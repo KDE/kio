@@ -2,6 +2,7 @@
 Name=Flatpak Documentation
 Name[ar]=توثيق فلاتباك
 Name[az]=Flatpak sənədləşməsi
+Name[bg]=Документация за Flatpak
 Name[bs]=Flatpak Dokumentacija
 Name[ca]=Documentació del Flatpak
 Name[ca@valencia]=Documentació de Flatpak
@@ -32,6 +33,7 @@ Keys=flatpak
 Query=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[ar]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[az]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
+Query[bg]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[bs]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[ca]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[ca@valencia]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default

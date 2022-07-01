@@ -96,6 +96,7 @@ Query=https://packages.debian.org/\\{@}
 Query[ar]=https://packages.debian.org/\\{@}
 Query[ast]=https://packages.debian.org/\\{@}
 Query[az]=https://packages.debian.org/\\{@}
+Query[bg]=https://packages.debian.org/\\{@}
 Query[bs]=https://packages.debian.org/\\{@}
 Query[ca]=https://packages.debian.org/\\{@}
 Query[ca@valencia]=https://packages.debian.org/\\{@}

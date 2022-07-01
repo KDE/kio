@@ -77,6 +77,7 @@ Query=https://www.bing.com/search?q=\\{@}
 Query[ar]=https://www.bing.com/search?q=\\{@}
 Query[ast]=https://www.bing.com/search?q=\\{@}
 Query[az]=https://www.bing.com/search?q=\\{@}
+Query[bg]=https://www.bing.com/search?q=\\{@}
 Query[bs]=https://www.bing.com/search?q=\\{@}
 Query[ca]=https://www.bing.com/search?q=\\{@}
 Query[ca@valencia]=https://www.bing.com/search?q=\\{@}
