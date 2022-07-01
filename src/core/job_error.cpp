@@ -156,7 +156,7 @@ KIOCORE_EXPORT QString KIO::buildErrorString(int errorCode, const QString &error
     case KIO::ERR_CANNOT_DELETE:
         result = i18n("Could not delete file %1.", errorText);
         break;
-    case KIO::ERR_SLAVE_DIED:
+    case KIO::ERR_WORKER_DIED:
         result = i18n("The process for the %1 protocol died unexpectedly.", errorText);
         break;
     case KIO::ERR_OUT_OF_MEMORY:
@@ -218,7 +218,7 @@ KIOCORE_EXPORT QString KIO::buildErrorString(int errorCode, const QString &error
     case KIO::ERR_IDENTICAL_FILES:
         result = i18n("The source and destination are the same file.\n%1", errorText);
         break;
-    case KIO::ERR_SLAVE_DEFINED:
+    case KIO::ERR_WORKER_DEFINED:
         Q_FALLTHROUGH();
     case KJob::UserDefinedError:
         result = errorText;
@@ -241,7 +241,7 @@ KIOCORE_EXPORT QString KIO::buildErrorString(int errorCode, const QString &error
     case KIO::ERR_PASSWD_SERVER:
         result = i18n("Communication with the local password server failed");
         break;
-    case KIO::ERR_CANNOT_CREATE_SLAVE:
+    case KIO::ERR_CANNOT_CREATE_WORKER:
         result = i18n("Unable to create io-slave. %1", errorText);
         break;
     case KIO::ERR_FILE_TOO_LARGE_FOR_FAT32:
@@ -1006,7 +1006,7 @@ KIOCORE_EXPORT QByteArray KIO::rawErrorDetail(int errorCode, const QString &erro
         solutions << sAccess << sExists;
         break;
 
-    case KIO::ERR_SLAVE_DIED:
+    case KIO::ERR_WORKER_DIED:
         errorName = i18n("Unexpected Program Termination");
         description = i18n(
             "The program on your computer which provides access "
@@ -1218,8 +1218,8 @@ KIOCORE_EXPORT QByteArray KIO::rawErrorDetail(int errorCode, const QString &erro
         solutions << i18n("Drop the item into a different file or folder.");
         break;
 
-    // We assume that the slave has all the details
-    case KIO::ERR_SLAVE_DEFINED:
+    // We assume that the worker has all the details
+    case KIO::ERR_WORKER_DEFINED:
         errorName.clear();
         description = errorText;
         break;
@@ -1240,7 +1240,7 @@ KIOCORE_EXPORT QByteArray KIO::rawErrorDetail(int errorCode, const QString &erro
         solutions << i18n("Try restarting your session, or look in the logs for errors from kiod.");
         break;
 
-    case KIO::ERR_CANNOT_CREATE_SLAVE:
+    case KIO::ERR_CANNOT_CREATE_WORKER:
         errorName = i18n("Cannot Initiate the %1 Protocol", protocol);
         techName = i18n("Unable to Create io-slave");
         description = i18n(

@@ -163,7 +163,7 @@ void FavIconRequestJob::slotResult(KJob *job)
             qCDebug(FAVICONS_LOG) << "QImageReader canRead returned false";
         }
     } else if (job->error() == KJob::KilledJobError) { // we killed it in slotData
-        setError(KIO::ERR_SLAVE_DEFINED);
+        setError(KIO::ERR_WORKER_DEFINED);
         setErrorText(i18n("Icon file too big, download aborted"));
     } else {
         setError(job->error());

@@ -142,7 +142,7 @@ void Slave::timeout()
 
     ref();
     // Tell the job about the problem.
-    Q_EMIT error(ERR_SLAVE_DIED, arg);
+    Q_EMIT error(ERR_WORKER_DIED, arg);
     // Tell the scheduler about the problem.
     Q_EMIT slaveDied(this);
     // After the above signal we're dead!!
@@ -352,7 +352,7 @@ void Slave::gotInput()
         }
         // qDebug() << "slave died pid =" << d->m_pid << arg;
         // Tell the job about the problem.
-        Q_EMIT error(ERR_SLAVE_DIED, arg);
+        Q_EMIT error(ERR_WORKER_DIED, arg);
         // Tell the scheduler about the problem.
         Q_EMIT slaveDied(this);
     }
@@ -419,7 +419,7 @@ Slave *Slave::createSlave(const QString &protocol, const QUrl &url, int &error, 
     const QString _name = KProtocolInfo::exec(protocol);
     if (_name.isEmpty()) {
         error_text = i18n("Unknown protocol '%1'.", protocol);
-        error = KIO::ERR_CANNOT_CREATE_SLAVE;
+        error = KIO::ERR_CANNOT_CREATE_WORKER;
         return nullptr;
     }
 
@@ -430,7 +430,7 @@ Slave *Slave::createSlave(const QString &protocol, const QUrl &url, int &error, 
     const QString lib_path = loader.fileName();
     if (lib_path.isEmpty()) {
         error_text = i18n("Can not find io-slave for protocol '%1'.", protocol);
-        error = KIO::ERR_CANNOT_CREATE_SLAVE;
+        error = KIO::ERR_CANNOT_CREATE_WORKER;
         return nullptr;
     }
 
@@ -438,7 +438,7 @@ Slave *Slave::createSlave(const QString &protocol, const QUrl &url, int &error, 
     QUrl slaveAddress = slave->d_func()->slaveconnserver->address();
     if (slaveAddress.isEmpty()) {
         error_text = i18n("Can not create socket for launching io-slave for protocol '%1'.", protocol);
-        error = KIO::ERR_CANNOT_CREATE_SLAVE;
+        error = KIO::ERR_CANNOT_CREATE_WORKER;
         delete slave;
         return nullptr;
     }
@@ -478,7 +478,7 @@ Slave *Slave::createSlave(const QString &protocol, const QUrl &url, int &error, 
     }
     if (kioslaveExecutable.isEmpty()) {
         error_text = i18n("Can not find 'kioslave5' executable at '%1'", searchPaths.join(QLatin1String(", ")));
-        error = KIO::ERR_CANNOT_CREATE_SLAVE;
+        error = KIO::ERR_CANNOT_CREATE_WORKER;
         delete slave;
         return nullptr;
     }

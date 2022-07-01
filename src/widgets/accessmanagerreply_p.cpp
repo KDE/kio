@@ -314,7 +314,7 @@ int AccessManagerReply::jobError(KJob *kJob)
     switch (errCode) {
     case 0:
         break; // No error;
-    case KIO::ERR_SLAVE_DEFINED:
+    case KIO::ERR_WORKER_DEFINED:
     case KIO::ERR_NO_CONTENT: // Sent by a 204 response is not an error condition.
         setError(QNetworkReply::NoError, kJob->errorText());
         break;

@@ -1321,13 +1321,13 @@ bool TrashImpl::adaptTrashSize(const QString &origPath, int trashId)
         const qint64 partitionSize = util.size();
 
         if (((static_cast<double>(additionalSize) / static_cast<double>(partitionSize)) * 100) >= percent) {
-            m_lastErrorCode = KIO::ERR_SLAVE_DEFINED;
+            m_lastErrorCode = KIO::ERR_WORKER_DEFINED;
             m_lastErrorMessage = i18n("The file is too large to be trashed.");
             return false;
         }
 
         if (actionType == 0) { // warn the user only
-            m_lastErrorCode = KIO::ERR_SLAVE_DEFINED;
+            m_lastErrorCode = KIO::ERR_WORKER_DEFINED;
             m_lastErrorMessage = i18n("The trash is full. Empty it or remove items manually.");
             return false;
         }

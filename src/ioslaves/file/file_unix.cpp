@@ -832,7 +832,7 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mode, JobF
                 }
                 error(KIO::ERR_DISK_FULL, dest);
             } else {
-                error(KIO::ERR_SLAVE_DEFINED, i18n("Cannot copy file from %1 to %2. (Errno: %3)", src, dest, errno));
+                error(KIO::ERR_WORKER_DEFINED, i18n("Cannot copy file from %1 to %2. (Errno: %3)", src, dest, errno));
             }
 
             if (!QFile::remove(dest)) { // don't keep partly copied file
@@ -1059,7 +1059,7 @@ void FileProtocol::listDir(const QUrl &url)
             break;
 #ifdef ENOMEDIUM
         case ENOMEDIUM:
-            error(ERR_SLAVE_DEFINED, i18n("No media in device for %1", path));
+            error(ERR_WORKER_DEFINED, i18n("No media in device for %1", path));
             break;
 #endif
         default:
@@ -1275,7 +1275,7 @@ void FileProtocol::symlink(const QString &target, const QUrl &destUrl, KIO::JobF
                 dest,
                 KFileSystemType::fileSystemName(fsType));
 
-            error(KIO::ERR_SLAVE_DEFINED, msg);
+            error(KIO::ERR_WORKER_DEFINED, msg);
             return;
         }
     }
@@ -1355,7 +1355,7 @@ void FileProtocol::chown(const QUrl &url, const QString &owner, const QString &g
         struct passwd *p = ::getpwnam(owner.toLocal8Bit().constData());
 
         if (!p) {
-            error(KIO::ERR_SLAVE_DEFINED, i18n("Could not get user id for given user name %1", owner));
+            error(KIO::ERR_WORKER_DEFINED, i18n("Could not get user id for given user name %1", owner));
             return;
         }
 
@@ -1367,7 +1367,7 @@ void FileProtocol::chown(const QUrl &url, const QString &owner, const QString &g
         struct group *p = ::getgrnam(group.toLocal8Bit().constData());
 
         if (!p) {
-            error(KIO::ERR_SLAVE_DEFINED, i18n("Could not get group id for given group name %1", group));
+            error(KIO::ERR_WORKER_DEFINED, i18n("Could not get group id for given group name %1", group));
             return;
         }
 

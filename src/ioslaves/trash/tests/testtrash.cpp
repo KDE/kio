@@ -1180,7 +1180,7 @@ void TestTrash::restoreFileFromSubDir()
     bool ok = job->exec();
     QVERIFY(!ok);
     // dest dir doesn't exist -> error message
-    QCOMPARE(job->error(), KIO::ERR_SLAVE_DEFINED);
+    QCOMPARE(job->error(), KIO::ERR_WORKER_DEFINED);
 
     // check that nothing happened
     QVERIFY(QFile::exists(infoFile));
@@ -1214,7 +1214,7 @@ void TestTrash::restoreFileToDeletedDirectory()
     bool ok = job->exec();
     QVERIFY(!ok);
     // dest dir doesn't exist -> error message
-    QCOMPARE(job->error(), KIO::ERR_SLAVE_DEFINED);
+    QCOMPARE(job->error(), KIO::ERR_WORKER_DEFINED);
 
     // check that nothing happened
     QVERIFY(QFile::exists(infoFile));

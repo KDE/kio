@@ -1556,7 +1556,7 @@ QString HTTPProtocol::davError(int code /* = -1 */, const QString &_url)
 
     QString action;
     QString errorString;
-    int errorCode = ERR_SLAVE_DEFINED;
+    int errorCode = ERR_WORKER_DEFINED;
 
     // for 412 Precondition Failed
     QString ow = i18n("Otherwise, the request would have succeeded.");
@@ -1656,7 +1656,7 @@ QString HTTPProtocol::davError(int code /* = -1 */, const QString &_url)
                 }
             }
 
-            // kError = ERR_SLAVE_DEFINED;
+            // kError = ERR_WORKER_DEFINED;
             errorString = i18nc("%1: request type, %2: url",
                                 "An error occurred while attempting to %1, %2. A "
                                 "summary of the reasons is below.",
@@ -1746,7 +1746,7 @@ QString HTTPProtocol::davError(int code /* = -1 */, const QString &_url)
         break;
     }
 
-    // if ( kError != ERR_SLAVE_DEFINED )
+    // if ( kError != ERR_WORKER_DEFINED )
     // errorString += " (" + url + ')';
 
     if (callError) {
@@ -1789,7 +1789,7 @@ static int httpDelError(const HTTPProtocol::HTTPRequest &request, QString *error
     }
 
     if (!errorCode && (responseCode < 200 || responseCode > 400) && responseCode != 404) {
-        errorCode = ERR_SLAVE_DEFINED;
+        errorCode = ERR_WORKER_DEFINED;
         *errorString = i18n("The resource cannot be deleted.");
     }
 
@@ -1813,7 +1813,7 @@ static int httpPutError(const HTTPProtocol::HTTPRequest &request, QString *error
         // 405 Method Not Allowed
         // ERR_ACCESS_DENIED
         *errorString = i18nc("%1: request type", "Access was denied while attempting to %1.", action);
-        errorCode = ERR_SLAVE_DEFINED;
+        errorCode = ERR_WORKER_DEFINED;
         break;
     case 409:
         // 409 Conflict
@@ -1822,13 +1822,13 @@ static int httpPutError(const HTTPProtocol::HTTPRequest &request, QString *error
             "A resource cannot be created at the destination "
             "until one or more intermediate collections (folders) "
             "have been created.");
-        errorCode = ERR_SLAVE_DEFINED;
+        errorCode = ERR_WORKER_DEFINED;
         break;
     case 423:
         // 423 Locked
         // ERR_ACCESS_DENIED
         *errorString = i18nc("%1: request type", "Unable to %1 because the resource is locked.", action);
-        errorCode = ERR_SLAVE_DEFINED;
+        errorCode = ERR_WORKER_DEFINED;
         break;
     case 502:
         // 502 Bad Gateway
@@ -1837,7 +1837,7 @@ static int httpPutError(const HTTPProtocol::HTTPRequest &request, QString *error
                              "Unable to %1 because the destination server refuses "
                              "to accept the file or folder.",
                              action);
-        errorCode = ERR_SLAVE_DEFINED;
+        errorCode = ERR_WORKER_DEFINED;
         break;
     case 507:
         // 507 Insufficient Storage
@@ -1846,14 +1846,14 @@ static int httpPutError(const HTTPProtocol::HTTPRequest &request, QString *error
             "The destination resource does not have sufficient space "
             "to record the state of the resource after the execution "
             "of this method.");
-        errorCode = ERR_SLAVE_DEFINED;
+        errorCode = ERR_WORKER_DEFINED;
         break;
     default:
         break;
     }
 
     if (!errorCode && (responseCode < 200 || responseCode > 400) && responseCode != 404) {
-        errorCode = ERR_SLAVE_DEFINED;
+        errorCode = ERR_WORKER_DEFINED;
         *errorString = i18nc("%1: response code, %2: request type", "An unexpected error (%1) occurred while attempting to %2.", responseCode, action);
     }
 
@@ -4486,7 +4486,7 @@ bool HTTPProtocol::readBody(bool dataInternal /* = false */)
 
 void HTTPProtocol::slotFilterError(const QString &text)
 {
-    error(KIO::ERR_SLAVE_DEFINED, text);
+    error(KIO::ERR_WORKER_DEFINED, text);
 }
 
 void HTTPProtocol::error(int _err, const QString &_text)

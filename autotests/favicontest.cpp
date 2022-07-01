@@ -221,7 +221,7 @@ void FavIconTest::tooBigFaviconShouldAbort()
     job->setIconUrl(QUrl("http://download.kde.org/Attic/4.13.2/src/kcalc-4.13.2.tar.xz"));
     QVERIFY(willDownload(job));
     QVERIFY(!job->exec());
-    QCOMPARE(job->error(), int(KIO::ERR_SLAVE_DEFINED));
+    QCOMPARE(job->error(), int(KIO::ERR_WORKER_DEFINED));
     QCOMPARE(job->errorString(), QStringLiteral("Icon file too big, download aborted"));
 }
 

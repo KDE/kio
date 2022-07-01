@@ -96,7 +96,7 @@ void TrashProtocol::restore(const QUrl &trashURL)
     QString relativePath;
     bool ok = TrashImpl::parseURL(trashURL, trashId, fileId, relativePath);
     if (!ok) {
-        error(KIO::ERR_SLAVE_DEFINED, i18n("Malformed URL %1", trashURL.toString()));
+        error(KIO::ERR_WORKER_DEFINED, i18n("Malformed URL %1", trashURL.toString()));
         return;
     }
     TrashedFileInfo info;
@@ -115,7 +115,7 @@ void TrashProtocol::restore(const QUrl &trashURL)
     QT_STATBUF buff;
 
     if (QT_LSTAT(QFile::encodeName(destDir).constData(), &buff) == -1) {
-        error(KIO::ERR_SLAVE_DEFINED,
+        error(KIO::ERR_WORKER_DEFINED,
               i18n("The directory %1 does not exist anymore, so it is not possible to restore this item to its original location. "
                    "You can either recreate that directory and use the restore operation again, or drag the item anywhere else to restore it.",
                    destDir));
@@ -143,7 +143,7 @@ void TrashProtocol::rename(const QUrl &oldURL, const QUrl &newURL, KIO::JobFlags
         QString oldRelativePath;
         bool oldOk = TrashImpl::parseURL(oldURL, oldTrashId, oldFileId, oldRelativePath);
         if (!oldOk) {
-            error(KIO::ERR_SLAVE_DEFINED, i18n("Malformed URL %1", oldURL.toString()));
+            error(KIO::ERR_WORKER_DEFINED, i18n("Malformed URL %1", oldURL.toString()));
             return;
         }
         if (!oldRelativePath.isEmpty()) {
@@ -207,7 +207,7 @@ void TrashProtocol::copyOrMoveFromTrash(const QUrl &src, const QUrl &dest, bool 
     QString relativePath;
     bool ok = TrashImpl::parseURL(src, trashId, fileId, relativePath);
     if (!ok) {
-        error(KIO::ERR_SLAVE_DEFINED, i18n("Malformed URL %1", src.toString()));
+        error(KIO::ERR_WORKER_DEFINED, i18n("Malformed URL %1", src.toString()));
         return;
     }
     const QString destPath = dest.path();
@@ -338,7 +338,7 @@ void TrashProtocol::stat(const QUrl &url)
             // A URL like trash:/file simply means that CopyJob is trying to see if
             // the destination exists already (it made up the URL by itself).
             error(KIO::ERR_DOES_NOT_EXIST, url.toString());
-            // error( KIO::ERR_SLAVE_DEFINED, i18n( "Malformed URL %1" ).arg( url.toString() ) );
+            // error( KIO::ERR_WORKER_DEFINED, i18n( "Malformed URL %1" ).arg( url.toString() ) );
             return;
         }
 
@@ -387,7 +387,7 @@ void TrashProtocol::del(const QUrl &url, bool /*isfile*/)
 
     bool ok = TrashImpl::parseURL(url, trashId, fileId, relativePath);
     if (!ok) {
-        error(KIO::ERR_SLAVE_DEFINED, i18n("Malformed URL %1", url.toString()));
+        error(KIO::ERR_WORKER_DEFINED, i18n("Malformed URL %1", url.toString()));
         return;
     }
 
@@ -422,7 +422,7 @@ void TrashProtocol::listDir(const QUrl &url)
     QString relativePath;
     bool ok = TrashImpl::parseURL(url, trashId, fileId, relativePath);
     if (!ok) {
-        error(KIO::ERR_SLAVE_DEFINED, i18n("Malformed URL %1", url.toString()));
+        error(KIO::ERR_WORKER_DEFINED, i18n("Malformed URL %1", url.toString()));
         return;
     }
     // was: const QString physicalPath = impl.physicalPath( trashId, fileId, relativePath );
@@ -600,7 +600,7 @@ void TrashProtocol::get(const QUrl &url)
     qCDebug(KIO_TRASH) << "get() : " << url;
     if (!url.isValid()) {
         // qCDebug(KIO_TRASH) << kBacktrace();
-        error(KIO::ERR_SLAVE_DEFINED, i18n("Malformed URL %1", url.url()));
+        error(KIO::ERR_WORKER_DEFINED, i18n("Malformed URL %1", url.url()));
         return;
     }
     if (url.path().length() <= 1) {
@@ -612,7 +612,7 @@ void TrashProtocol::get(const QUrl &url)
     QString relativePath;
     bool ok = TrashImpl::parseURL(url, trashId, fileId, relativePath);
     if (!ok) {
-        error(KIO::ERR_SLAVE_DEFINED, i18n("Malformed URL %1", url.toString()));
+        error(KIO::ERR_WORKER_DEFINED, i18n("Malformed URL %1", url.toString()));
         return;
     }
     const QString physicalPath = impl.physicalPath(trashId, fileId, relativePath);
