@@ -241,8 +241,10 @@ enum Error {
     ERR_CANNOT_DELETE = KJob::UserDefinedError + 42,
     // The text argument is the protocol that the dead worker supported.
     // This means for example: file, ftp, http, ...
-    ERR_WORKER_DIED = KJob::UserDefinedError + 43,
-    ERR_SLAVE_DIED = ERR_WORKER_DIED, // TODO KF6 drop
+    ERR_WORKER_DIED = KJob::UserDefinedError + 43, ///< @since 5.96
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 96)
+    ERR_SLAVE_DIED KIOCORE_ENUMERATOR_DEPRECATED_VERSION(5, 96, "Use ERR_WORKER_DIED.") = ERR_WORKER_DIED, ///< @deprecated Since 5.96, use ERR_WORKER_DIED
+#endif
     ERR_OUT_OF_MEMORY = KJob::UserDefinedError + 44,
     ERR_UNKNOWN_PROXY_HOST = KJob::UserDefinedError + 45,
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 0)
@@ -266,14 +268,28 @@ enum Error {
     ERR_NO_CONTENT = KJob::UserDefinedError + 60, ///< Action succeeded but no content will follow.
     ERR_DISK_FULL = KJob::UserDefinedError + 61,
     ERR_IDENTICAL_FILES = KJob::UserDefinedError + 62, ///< src==dest when moving/copying
-    ERR_WORKER_DEFINED = KJob::UserDefinedError + 63, ///< for worker specified errors that can be
-    ERR_SLAVE_DEFINED = ERR_WORKER_DEFINED, // TODO KF6 drop
-
-    ///< rich text.  Email links will be handled
-    ///< by the standard email app and all hrefs
-    ///< will be handled by the standard browser.
-    ///< <a href="exec:/khelpcenter ?" will be
-    ///< forked.
+    /**
+     * For worker specified errors that can be
+     * rich text.  Email links will be handled
+     * by the standard email app and all hrefs
+     * will be handled by the standard browser.
+     * <a href="exec:/khelpcenter ?" will be
+     * forked.
+     * @since 5.96
+     */
+    ERR_WORKER_DEFINED = KJob::UserDefinedError + 63,
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 96)
+    /**
+     * For slave specified errors that can be
+     * rich text.  Email links will be handled
+     * by the standard email app and all hrefs
+     * will be handled by the standard browser.
+     * <a href="exec:/khelpcenter ?" will be
+     * forked.
+     * @deprecated Since 5.96, use ERR_WORKER_DEFINED
+     */
+    ERR_SLAVE_DEFINED KIOCORE_ENUMERATOR_DEPRECATED_VERSION(5, 96, "Use ERR_WORKER_DEFINED.") = ERR_WORKER_DEFINED,
+#endif
     ERR_UPGRADE_REQUIRED = KJob::UserDefinedError + 64, ///< A transport upgrade is required to access this
     ///< object.  For instance, TLS is demanded by
     ///< the server in order to continue.
@@ -291,9 +307,11 @@ enum Error {
     ERR_CANNOT_MOVE_INTO_ITSELF = KJob::UserDefinedError + 71, ///< emitted by KIO::move, @since 5.18
     // TODO KF6 remove reference to slavebase
     ERR_PASSWD_SERVER = KJob::UserDefinedError + 72, ///< returned by WorkerBase::openPasswordDialog and SlaveBase::openPasswordDialogV2, @since 5.24
-    ERR_CANNOT_CREATE_WORKER = KJob::UserDefinedError + 73, ///< used by Slave::createSlave, @since 5.30
-    // TODO KF6 drop
-    ERR_CANNOT_CREATE_SLAVE = ERR_CANNOT_CREATE_WORKER, ///< used by Slave::createSlave, @since 5.30
+    ERR_CANNOT_CREATE_WORKER = KJob::UserDefinedError + 73, ///< used by Slave::createSlave, @since 5.96
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 96)
+    ERR_CANNOT_CREATE_SLAVE KIOCORE_ENUMERATOR_DEPRECATED_VERSION(5, 96, "Use ERR_CANNOT_CREATE_WORKER.") =
+        ERR_CANNOT_CREATE_WORKER, ///< used by Slave::createSlave, @since 5.30 @deprecated Since 5.96, use ERR_CANNOT_CREATE_WORKER
+#endif
     ERR_FILE_TOO_LARGE_FOR_FAT32 = KJob::UserDefinedError + 74, ///< @since 5.54
     ERR_OWNER_DIED = KJob::UserDefinedError
         + 75, ///< Value used between kuiserver and views when the job owner disappears unexpectedly. It should not be emitted by workers. @since 5.54
