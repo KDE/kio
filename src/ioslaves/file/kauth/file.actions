@@ -1,7 +1,7 @@
 [org.kde.kio.file.exec]
 Name=Execute action as root.
 Name[ar]=نفذ الإجراء كجذر
-Name[az]=Root kimi icra edin
+Name[az]=Root kimi icra edin.
 Name[bg]=Изпълняване като root.
 Name[bs]=Izvršite radnju kao root.
 Name[ca]=Executa l'acció com a administrador.
