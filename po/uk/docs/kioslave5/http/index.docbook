@@ -1,0 +1,64 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Ukrainian "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="http">
+<title
+>http / https</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Lauri.Watts; &Lauri.Watts.mail;</author>
+<othercredit role="translator"
+><firstname
+>Андрій</firstname
+><surname
+>Рисін</surname
+><affiliation
+><address
+><email
+>rysin@kde.org</email
+></address
+></affiliation
+><contrib
+>Переклад українською</contrib
+></othercredit
+> 
+</authorgroup>
+</articleinfo>
+
+<para
+>&HTTP; — абревіатура від <emphasis
+>H</emphasis
+>yper<emphasis
+>T</emphasis
+>ext <emphasis
+>T</emphasis
+>ransfer <emphasis
+>P</emphasis
+>rotocol (Протокол перенесення гіпертекстових документів).</para>
+
+<para
+>Підлеглий засіб введення-виведення http використовується будь-якою програмою &kde; для з'єднань з серверами http, які також відомі як сервери інтернету. Найчастіше цей підлеглий засіб введення-виведення використовується для перегляду сторінок інтернету у &konqueror;.</para>
+
+<para
+>Ви можете скористатися підлеглим засобом введення-виведення https у &konqueror; ввівши в поле <acronym
+>Адресу URL</acronym
+>. <userinput
+>https://<replaceable
+>www.kde.org</replaceable
+></userinput
+>.</para>
+
+<para
+>https — це http, переданий у потоці SSL/TLS.</para>
+<para
+>SSL — це протокол шару безпеки сокетів (Secure Sockets Layer), протокол безпеки, який забезпечує конфіденційність обміну інформацією у інтернеті. Цей протокол надає змогу клієнт-серверним програмам обмінюватися інформацією у спосіб, розроблений для запобігання перехопленням, підробкам уповноважень і підробці повідомлень. </para>
+<para
+>TLS — це скорочення Transport Layer Security (безпека шару передавання).</para>
+
+</article>

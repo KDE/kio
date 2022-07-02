@@ -1,0 +1,98 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Swedish "INCLUDE">
+]>
+<article id="trash" lang="&language;">
+<title
+>Papperskorg</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Burkhard.Lueck;</author>
+<othercredit role="translator"
+> <firstname
+>Stefan</firstname
+> <surname
+>Asserhäll</surname
+> <affiliation
+><address
+><email
+>stefan.asserhall@bredband.net</email
+></address
+></affiliation
+> <contrib
+>Översättare</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>2018-05-31</date>
+<releaseinfo
+>Ramverk 5.48</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Systeminställningar</keyword>
+<keyword
+>papperskorg</keyword>
+</keywordset>
+</articleinfo>
+
+<para
+>Den här modulen låter dig anpassa inställningarna för papperskorgen. </para>
+
+<variablelist>
+<varlistentry
+><term
+><guilabel
+>Uppstädning:</guilabel
+></term>
+<listitem
+><para
+>Markera rutan för att tillåta att filer tas bort automatiskt när de är äldre än angivet värde. Lämna den inaktiverad för att <emphasis
+>inte</emphasis
+> ta bort några objekt automatiskt efter ett visst tidsintervall. Ställ in antal dagar som filer kan bli kvar i papperskorgen. Alla filer äldre än så kommer att tas bort automatiskt. </para
+></listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>Storlek:</guilabel
+></term>
+<listitem
+><para
+>Markera rutan för att begränsa papperskorgen till det maximala diskutrymmet som anges nedan Annars är utrymmet obegränsat. </para
+></listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>Begränsa till</guilabel
+></term>
+<listitem
+><para
+>Det här är maximalt procentvärde av diskutrymmet som kommer att användas av papperskorgen. Det beräknade diskutrymmet som tillåts användas av papperskorgen visas till höger om nummerrutan. </para
+></listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>Full papperskorg:</guilabel
+></term>
+<listitem
+><para
+>När storleksgränsen nås, utförs den valda åtgärden, antingen tas de äldsta eller de största filerna bort automatiskt, eller så får du en varning. </para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+</article>

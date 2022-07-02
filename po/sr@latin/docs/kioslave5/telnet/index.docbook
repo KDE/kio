@@ -1,0 +1,47 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Serbian-Latin "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="telnet">
+<title
+>TELNET</title>
+<articleinfo>
+<authorgroup>
+<author
+><personname
+><firstname
+>Ferdinand</firstname
+> <surname
+>Gasauer</surname
+></personname
+> &Ferdinand.Gassauer.mail;</author>
+<othercredit role="translator"
+><firstname
+>Dragan</firstname
+><surname
+>Pantelić</surname
+><affiliation
+><address
+><email
+>falcon-10@gmx.de</email
+></address
+></affiliation
+><contrib
+>prevod</contrib
+></othercredit
+> 
+</authorgroup>
+</articleinfo>
+<para
+>TELNET, protokol mrežnog terminala, omogućava korisniku da se prijavi na bilo koji računar na mreži koji podržava TELNET. </para>
+
+<para
+>Pogledajte <ulink url="man:/telnet"
+>uputnu stranicu TELNET‑a</ulink
+>. </para>
+
+</article>

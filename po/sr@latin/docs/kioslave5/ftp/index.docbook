@@ -1,0 +1,63 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Serbian-Latin "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="ftp">
+<title
+>FTP</title>
+<articleinfo>
+<authorgroup>
+<author
+><personname
+><firstname
+>Lori</firstname
+> <surname
+>Vots</surname
+></personname
+> &Lauri.Watts.mail;</author>
+<othercredit role="translator"
+><firstname
+>Dragan</firstname
+><surname
+>Pantelić</surname
+><affiliation
+><address
+><email
+>falcon-10@gmx.de</email
+></address
+></affiliation
+><contrib
+>prevod</contrib
+></othercredit
+> 
+</authorgroup>
+</articleinfo>
+
+<para
+>FTP je internet servis za prenos fajlova sa diska jednog računara na disk drugog, bez obzira na operativne sisteme pod kojima su. </para>
+
+<para
+>Slično drugim internet protokolima, FTP koristi prilaz klijent-server — korisnik poziva FTP program na svom računaru, zadaje mu da kontaktira udaljeni računar, a zatim traži prenos jednog ili više fajlova. Lokalni FTP program postaje klijent koji koristi TCP za kontakt sa serverskim FTP programom na udaljenom računaru. Svaki put kad korisnik zatraži prenos fajla, programi klijenta i servera sarađuju na slanju kopije podataka preko Interneta. </para>
+
+<para
+>Neki FTP serveri dopuštaju „anonimni FTP“, kada bilo koji korisnik, a ne samo onaj s nalogom na domaćinu, može da pregleda FTP arhive i preuzima fajlove. Neki FTP serveri su podešeni da korisnici mogu i da otpremaju fajlove. </para>
+
+<para
+>FTP se obično koristi za dobavljanje podataka i softvera skladištenog po fajlovima na arhivskim FTP sajtovima širom sveta. </para>
+
+
+<para
+>Izvor: parafrazirano iz <ulink url="http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/ftpdef.htm"
+> http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/ftpdef.htm</ulink
+> </para>
+
+<para
+>Pogledajte <ulink url="man:/ftp"
+>uputnu stranicu FTP‑a</ulink
+>.</para>
+
+</article>

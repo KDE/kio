@@ -1,0 +1,98 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Italian "INCLUDE">
+]>
+<article id="trash" lang="&language;">
+<title
+>Cestino</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Burkhard.Lueck;</author>
+<othercredit role="translator"
+><firstname
+>Federico</firstname
+><surname
+>Zenith</surname
+><affiliation
+><address
+><email
+>federico.zenith@member.fsf.org</email
+></address
+></affiliation
+><contrib
+>Traduzione in italiano</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>2018-05-31</date>
+<releaseinfo
+>Frameworks 5.48</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Impostazioni di sistema</keyword>
+<keyword
+>cestino</keyword>
+</keywordset>
+</articleinfo>
+
+<para
+>Questo modulo ti permette di configurare le impostazioni del cestino. </para>
+
+<variablelist>
+<varlistentry
+><term
+><guilabel
+>Pulizia:</guilabel
+></term>
+<listitem
+><para
+>Segna questa casella per permettere l'eliminazione automatica dei file più vecchi del valore specificato. Lasciala disabilitata per <emphasis
+>non</emphasis
+> eliminare automaticamente gli elementi dopo un certo tempo. Imposta il numero di giorni per i quali i file possono rimanere nel cestino. Tutti i file più vecchi di questo valore saranno eliminati automaticamente. </para
+></listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>Dimensione:</guilabel
+></term>
+<listitem
+><para
+>Segna questa casella per limitare lo spazio utilizzato dal cestino sul disco al valore massimo specificato. Altrimenti sarà illimitato. </para
+></listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>Limita a</guilabel
+></term>
+<listitem
+><para
+>Questa è la percentuale massima di spazio su disco da usare per il cestino. La quantità di spazio calcolata concessa al cestino viene indicata a sinistra della casella numerica. </para
+></listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>Cestino pieno:</guilabel
+></term>
+<listitem
+><para
+>Quando viene raggiunto il limite delle dimensioni, verrà effettuata l'azione selezionata: i file più vecchi o più grandi saranno eliminati automaticamente, oppure ti sarà presentato un avviso. </para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+</article>

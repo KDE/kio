@@ -1,0 +1,143 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Catalan  "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="netpref" lang="&language;">
+<articleinfo>
+<title
+>Preferències de connexió</title>
+<authorgroup>
+<author
+>&Lauri.Watts; &Lauri.Watts.mail;</author>
+
+&traductor.Antoni.Bella; 
+</authorgroup>
+
+<date
+>10 de novembre de 2016</date>
+<releaseinfo
+>Frameworks 5.29</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdebase</keyword>
+<keyword
+>kcontrol</keyword>
+<keyword
+>xarxa</keyword>
+<keyword
+>temps d'espera</keyword>
+</keywordset>
+
+</articleinfo>
+
+<sect1 id="timeouts">
+
+<title
+>Preferències de connexió</title>
+
+<para
+>Aquí podreu configurar els valors dels temps d'espera. Podria ser que desitgeu modificar-los si la vostra connexió és molt lenta, però els valors predeterminats són apropiats per a la majoria d'usuaris.</para>
+
+<para
+>A on <guilabel
+>Temps d'espera</guilabel
+> representa els intervals de temps que una aplicació hauria d'esperar la resposta des d'una operació a la xarxa.</para>
+
+<para
+>Podeu configurar els següents temps d'espera:</para>
+
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>Lectura del sòcol:</guilabel
+></term>
+<listitem>
+<para
+>Algunes aplicacions utilitzen els <firstterm
+>sòcols</firstterm
+> per a comunicar-se. Podeu pensar en un sòcol com en una aixeta d'aigua; quan està oberta, l'aigua (o en el nostre cas, les dades) surt, sense interacció. Si quelcom atura aquest flux de dades, l'aplicació esperarà que n'hi hagi més per a sortir. Aquesta demora pot correspondre's a un interval molt llarg de temps, però amb aquesta opció podeu definir un temps màxim d'espera per a una aplicació.</para>
+<para
+>De moment, aquesta opció de configuració tan sols és aplicable a aplicacions &kde;.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Connexió amb l'intermediari:</guilabel
+></term>
+<listitem>
+<para
+>Estableix quant de temps s'ha d'esperar una connexió a un servidor intermediari, si n'hi ha un de configurat. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Connexió amb el servidor:</guilabel
+></term>
+<listitem>
+<para
+>Estableix quant de temps esperar una connexió a un servidor remot. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Resposta del servidor:</guilabel
+></term>
+<listitem>
+<para
+>Estableix el temps d'espera per a una resposta d'un servidor remot. </para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+<para
+>Aquí podeu configurar <guilabel
+>Opcions FTP</guilabel
+>. En aquest moment tan sols hi ha dues opcions:</para>
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>Activa el mode passiu (PASV)</guilabel
+></term>
+<listitem
+><para
+>L'&FTP; passiu sovint es requereix quan esteu al darrere d'un tallafoc. Molts tallafocs només permeten connexions que foren iniciades des de <quote
+>dins</quote
+>. L'&FTP; passiu està controlat pel client, el qual permet el seu ús al darrere d'un tallafoc.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Marca els fitxers carregats parcialment</guilabel
+></term>
+<listitem
+><para
+>Quan es marca aquesta casella, els fitxers carregats parcialment tindran afegida l'extensió <literal role="extension"
+>.part</literal
+> al final del fitxer. Aquesta extensió serà eliminada una vegada s'hagi completat la baixada del fitxer.</para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+
+
+</sect1>
+</article>

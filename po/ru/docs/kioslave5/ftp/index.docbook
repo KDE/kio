@@ -1,0 +1,59 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Russian "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="ftp">
+<title
+>&FTP;</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Lauri.Watts; &Lauri.Watts.mail;</author>
+<othercredit role="translator"
+><firstname
+>Мария</firstname
+><surname
+>Шикунова</surname
+><affiliation
+><address
+><email
+>translation-team@basealt.ru</email
+></address
+></affiliation
+><contrib
+>Перевод на русский язык</contrib
+></othercredit
+> 
+</authorgroup>
+</articleinfo>
+
+<para
+>&FTP; — это интернет-протокол для передачи файлов с жёсткого диска одного компьютера на жёсткий диск другого, независимо от типа операционной системы. </para>
+
+<para
+>Как и многие другие приложения для работы в Интернете, &FTP;-приложения делятся на клиенты и серверы: пользователь запускает &FTP;-программу на компьютере, отдаёт ей команду связаться с другим компьютером и запрашивает передачу одного или нескольких файлов. Локальная &FTP;-программа становится клиентом, использующим протокол <acronym
+>TCP</acronym
+> для соединения с &FTP;-сервером на удалённой машине. При каждом запросе на передачу файла клиент и сервер координируют свои действия для передачи файлов с помощью Интернета.</para>
+
+<para
+>&FTP;-серверы, разрешающие анонимный доступ, фактически позволяют любому пользователю, а не только тем, у кого есть учётная запись в системе, где запущен сервер, просматривать &FTP;-архивы и загружать файлы. На некоторых &FTP;-серверах, кроме того, разрешена отправка файлов на сервер.</para>
+
+<para
+>&FTP; используется для получения информации и программного обеспечения, хранящихся в файлах на серверах по всему миру. </para>
+
+
+<para
+>Источник: на основе <ulink url="http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/ftpdef.htm"
+> http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/ftpdef.htm</ulink
+> </para>
+
+<para
+>Смотрите также руководство: <ulink url="man:/ftp"
+>ftp</ulink
+>.</para>
+
+</article>
