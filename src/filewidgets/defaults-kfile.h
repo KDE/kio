@@ -8,34 +8,36 @@
 #ifndef DEFAULTS_KFILE_H
 #define DEFAULTS_KFILE_H
 
-const int kfile_area = 250;
+#include <QLatin1String>
 
-#define DefaultMixDirsAndFiles false
-#define DefaultShowHidden false
-#define DefaultDirsFirst true
-#define DefaultHiddenFilesLast false
-#define DefaultSortReversed false
-#define DefaultRecentURLsNumber 15
-#define DefaultDirectoryFollowing true
-#define DefaultAutoSelectExtChecked true
-#define ConfigGroup QStringLiteral("KFileDialog Settings")
-#define RecentURLs QStringLiteral("Recent URLs")
-#define RecentFiles QStringLiteral("Recent Files")
-#define RecentURLsNumber QStringLiteral("Maximum of recent URLs")
-#define RecentFilesNumber QStringLiteral("Maximum of recent files")
-#define DialogWidth QStringLiteral("Width (%1)")
-#define DialogHeight QStringLiteral("Height (%1)")
-#define ConfigShowStatusLine QStringLiteral("ShowStatusLine")
-#define AutoDirectoryFollowing QStringLiteral("Automatic directory following")
-#define PathComboCompletionMode QStringLiteral("PathCombo Completionmode")
-#define LocationComboCompletionMode QStringLiteral("LocationCombo Completionmode")
-#define ShowSpeedbar QStringLiteral("Show Speedbar")
-#define SpeedbarWidth QStringLiteral("Speedbar Width")
-#define ShowBookmarks QStringLiteral("Show Bookmarks")
-#define AutoSelectExtChecked QStringLiteral("Automatically select filename extension")
-#define BreadcrumbNavigation QStringLiteral("Breadcrumb Navigation")
-#define ShowFullPath QStringLiteral("Show Full Path")
-#define PlacesIconsAutoresize QStringLiteral("Places Icons Auto-resize")
-#define PlacesIconsStaticSize QStringLiteral("Places Icons Static Size")
+static constexpr int kfile_area = 250;
+
+static const bool DefaultMixDirsAndFiles = false;
+static const bool DefaultShowHidden = false;
+static const bool DefaultDirsFirst = true;
+static const bool DefaultHiddenFilesLast = false;
+static const bool DefaultSortReversed = false;
+static constexpr int DefaultRecentURLsNumber = 15;
+static const bool DefaultDirectoryFollowing = true;
+static const bool DefaultAutoSelectExtChecked = true;
+static const QLatin1String ConfigGroup("KFileDialog Settings");
+static const QLatin1String RecentURLs("Recent URLs");
+static const QLatin1String RecentFiles("Recent Files");
+static const QLatin1String RecentURLsNumber("Maximum of recent URLs");
+static const QLatin1String RecentFilesNumber("Maximum of recent files");
+static const QLatin1String DialogWidth("Width (%1)");
+static const QLatin1String DialogHeight("Height (%1)");
+static const QLatin1String ConfigShowStatusLine("ShowStatusLine");
+static const QLatin1String AutoDirectoryFollowing("Automatic directory following");
+static const QLatin1String PathComboCompletionMode("PathCombo Completionmode");
+static const QLatin1String LocationComboCompletionMode("LocationCombo Completionmode");
+static const QLatin1String ShowSpeedbar("Show Speedbar");
+static const QLatin1String SpeedbarWidth("Speedbar Width");
+static const QLatin1String ShowBookmarks("Show Bookmarks");
+static const QLatin1String AutoSelectExtChecked("Automatically select filename extension");
+static const QLatin1String BreadcrumbNavigation("Breadcrumb Navigation");
+static const QLatin1String ShowFullPath("Show Full Path");
+static const QLatin1String PlacesIconsAutoresize("Places Icons Auto-resize");
+static const QLatin1String PlacesIconsStaticSize("Places Icons Static Size");
 
 #endif
