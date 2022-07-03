@@ -127,16 +127,13 @@ void HelpProtocol::sendError(const QString &t)
              .toUtf8());
 }
 
-HelpProtocol *slave = nullptr;
-
 HelpProtocol::HelpProtocol(bool ghelp, const QByteArray &pool, const QByteArray &app)
-    : SlaveBase(ghelp ? QByteArrayLiteral("ghelp") : QByteArrayLiteral("help"), pool, app)
+    : WorkerBase(ghelp ? QByteArrayLiteral("ghelp") : QByteArrayLiteral("help"), pool, app)
     , mGhelp(ghelp)
 {
-    slave = this;
 }
 
-void HelpProtocol::get(const QUrl &url)
+KIO::WorkerResult HelpProtocol::get(const QUrl &url)
 {
     ////qDebug() << "path=" << url.path()
     //<< "query=" << url.query();
@@ -144,8 +141,7 @@ void HelpProtocol::get(const QUrl &url)
     bool redirect;
     QString doc = QDir::cleanPath(url.path());
     if (doc.contains(QLatin1String(".."))) {
-        error(KIO::ERR_DOES_NOT_EXIST, url.toString());
-        return;
+        return KIO::WorkerResult::fail(KIO::ERR_DOES_NOT_EXIST, url.toString());
     }
 
     if (!mGhelp) {
@@ -164,14 +160,12 @@ void HelpProtocol::get(const QUrl &url)
         doc = lookupFile(doc, url.query(), redirect);
 
         if (redirect) {
-            finished();
-            return;
+            return KIO::WorkerResult::pass();
         }
     }
 
     if (doc.isEmpty()) {
-        error(KIO::ERR_DOES_NOT_EXIST, url.toString());
-        return;
+        return KIO::WorkerResult::fail(KIO::ERR_DOES_NOT_EXIST, url.toString());
     }
 
     QUrl target;
@@ -186,8 +180,7 @@ void HelpProtocol::get(const QUrl &url)
 
     if (mGhelp) {
         if (!file.endsWith(QLatin1String(".xml"))) {
-            get_file(file);
-            return;
+            return get_file(file);
         }
     } else {
         const QString docbook_file = QStringView(file).left(file.lastIndexOf(QLatin1Char('/'))) + QLatin1String("/index.docbook");
@@ -199,8 +192,7 @@ void HelpProtocol::get(const QUrl &url)
                 file += QLatin1String("/index.docbook");
             } else {
                 if (!file.endsWith(QLatin1String(".html")) || !compareTimeStamps(file, docbook_file)) {
-                    get_file(file);
-                    return;
+                    return get_file(file);
                 } else {
                     file = docbook_file;
                 }
@@ -279,8 +271,7 @@ void HelpProtocol::get(const QUrl &url)
                     redirURL.setQuery(QString());
                     redirURL.setFragment(anchor);
                     redirection(redirURL);
-                    finished();
-                    return;
+                    return KIO::WorkerResult::pass();
                 }
             }
             if (anchor.isEmpty() && url.hasFragment()) {
@@ -315,7 +306,7 @@ void HelpProtocol::get(const QUrl &url)
         }
     }
 
-    finished();
+    return KIO::WorkerResult::pass();
 }
 
 void HelpProtocol::emitFile(const QUrl &url)
@@ -334,28 +325,26 @@ void HelpProtocol::emitFile(const QUrl &url)
     data(QByteArray());
 }
 
-void HelpProtocol::mimetype(const QUrl &)
+KIO::WorkerResult HelpProtocol::mimetype(const QUrl &)
 {
     mimeType(QStringLiteral("text/html"));
-    finished();
+    return KIO::WorkerResult::pass();
 }
 
 // Copied from kio_file to avoid redirects
 
 static constexpr int s_maxIPCSize = 1024 * 32;
 
-void HelpProtocol::get_file(const QString &path)
+KIO::WorkerResult HelpProtocol::get_file(const QString &path)
 {
     // qDebug() << path;
 
     QFile f(path);
     if (!f.exists()) {
-        error(KIO::ERR_DOES_NOT_EXIST, path);
-        return;
+        return KIO::WorkerResult::fail(KIO::ERR_DOES_NOT_EXIST, path);
     }
     if (!f.open(QIODevice::ReadOnly) || f.isSequential() /*socket, fifo or pipe*/) {
-        error(KIO::ERR_CANNOT_OPEN_FOR_READING, path);
-        return;
+        return KIO::WorkerResult::fail(KIO::ERR_CANNOT_OPEN_FOR_READING, path);
     }
     mimeType(QMimeDatabase().mimeTypeForFile(path).name());
     int processed_size = 0;
@@ -366,8 +355,7 @@ void HelpProtocol::get_file(const QString &path)
     Q_FOREVER {
         const qint64 n = f.read(array, sizeof(array));
         if (n == -1) {
-            error(KIO::ERR_CANNOT_READ, path);
-            return;
+            return KIO::WorkerResult::fail(KIO::ERR_CANNOT_READ, path);
         }
         if (n == 0) {
             break; // Finished
@@ -383,5 +371,5 @@ void HelpProtocol::get_file(const QString &path)
     f.close();
 
     processedSize(f.size());
-    finished();
+    return KIO::WorkerResult::pass();
 }

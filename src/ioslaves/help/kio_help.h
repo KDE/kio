@@ -10,8 +10,8 @@
 #ifndef __help_h__
 #define __help_h__
 
-#include <kio/global.h>
-#include <kio/slavebase.h>
+#include <KIO/Global>
+#include <KIO/WorkerBase>
 
 #include <QString>
 
@@ -19,7 +19,7 @@
 
 #include <stdio.h>
 
-class HelpProtocol : public KIO::SlaveBase
+class HelpProtocol : public KIO::WorkerBase
 {
 public:
     HelpProtocol(bool ghelp, const QByteArray &pool, const QByteArray &app);
@@ -27,14 +27,14 @@ public:
     {
     }
 
-    void get(const QUrl &url) override;
+    KIO::WorkerResult get(const QUrl &url) override;
 
-    void mimetype(const QUrl &url) override;
+    KIO::WorkerResult mimetype(const QUrl &url) override;
 
 private:
     QString langLookup(const QString &fname);
     void emitFile(const QUrl &url);
-    void get_file(const QString &path);
+    KIO::WorkerResult get_file(const QString &path);
     QString lookupFile(const QString &fname, const QString &query, bool &redirect);
 
     void sendError(const QString &t);

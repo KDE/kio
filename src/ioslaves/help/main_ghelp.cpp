@@ -30,7 +30,7 @@ extern "C" int xmlLoadExtDtdDefaultValue;
 class KIOPluginForMetaData : public QObject
 {
     Q_OBJECT
-    Q_PLUGIN_METADATA(IID "org.kde.kio.slave.ghelp" FILE "ghelp.json")
+    Q_PLUGIN_METADATA(IID "org.kde.kio.worker.ghelp" FILE "ghelp.json")
 };
 
 extern "C" {
@@ -50,8 +50,8 @@ Q_DECL_EXPORT int kdemain(int argc, char **argv)
     xmlLoadExtDtdDefaultValue = 1;
     exsltRegisterAll();
 
-    HelpProtocol slave(true, argv[2], argv[3]);
-    slave.dispatchLoop();
+    HelpProtocol worker(true, argv[2], argv[3]);
+    worker.dispatchLoop();
 
     // qDebug() << "Done";
     return 0;
