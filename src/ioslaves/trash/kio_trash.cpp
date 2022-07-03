@@ -10,9 +10,9 @@
 #include "kiotrashdebug.h"
 
 #include <KDirNotify>
-#include <KLocalizedString>
-#include <kio/job.h>
 #include <kio/jobuidelegateextension.h>
+
+#include <KLocalizedString>
 
 #include <QCoreApplication>
 #include <QDataStream>

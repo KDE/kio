@@ -30,15 +30,16 @@
 #include <qplatformdefs.h> // QT_LSTAT, QT_STAT, QT_STATBUF
 
 #include <KConfig>
+#include <KConfigGroup>
 #include <KSharedConfig>
 #include <KUser>
-#include <kio/job.h>
+
+#include <kio/listjob.h>
 #include <kio_widgets_debug.h>
 #include <kioglobal_p.h>
 #include <kprotocolmanager.h>
 #include <kurlauthorized.h>
 
-#include <KConfigGroup>
 #include <time.h>
 
 #ifdef Q_OS_WIN

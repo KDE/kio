@@ -18,9 +18,10 @@
 #include <KMainWindow>
 
 #include "kio/global.h"
-#include "kio/job.h"
-#include <KStatusBarJobTracker>
 #include <kio/scheduler.h>
+#include <kio/udsentry.h>
+
+#include <KStatusBarJobTracker>
 
 namespace KIO
 {

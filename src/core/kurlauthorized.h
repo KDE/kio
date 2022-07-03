@@ -10,6 +10,7 @@
 #define KURLAUTHORIZED_H
 
 #include "kiocore_export.h"
+
 #include <KAuthorized>
 
 class QUrl;

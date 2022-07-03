@@ -10,17 +10,20 @@
 #include "../pathhelpers_p.h" // concatPaths(), isAbsoluteLocalPath()
 #include "knameandurlinputdialog.h"
 
-#include <QActionGroup>
-#include <QDialog>
-#include <QDialogButtonBox>
-#include <QDir>
-#include <QLabel>
-#include <QLineEdit>
-#include <QList>
-#include <QMenu>
-#include <QPushButton>
-#include <QStandardPaths>
-#include <QVBoxLayout>
+#include <kdirnotify.h>
+#include <kio/copyjob.h>
+#include <kio/fileundomanager.h>
+#include <kio/jobuidelegate.h>
+#include <kio/mkdirjob.h>
+#include <kio/mkpathjob.h>
+#include <kio/namefinderjob.h>
+#include <kio/statjob.h>
+#include <kio/storedtransferjob.h>
+#include <kpropertiesdialog.h>
+#include <kprotocolinfo.h>
+#include <kprotocolmanager.h>
+#include <krun.h>
+#include <kurifilter.h>
 
 #include <KActionCollection>
 #include <KConfigGroup>
@@ -28,28 +31,28 @@
 #include <KDirOperator>
 #include <KDirWatch>
 #include <KFileUtils>
-#include <KIO/NameFinderJob>
 #include <KJobWidgets>
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <KMessageWidget>
 #include <KShell>
+
+#include <QActionGroup>
 #include <QDebug>
+#include <QDialog>
+#include <QDialogButtonBox>
+#include <QDir>
+#include <QLabel>
+#include <QLineEdit>
+#include <QList>
+#include <QMenu>
+#include <QMimeDatabase>
+#include <QPushButton>
+#include <QStandardPaths>
 #include <QTemporaryFile>
 #include <QTimer>
-#include <kdirnotify.h>
-#include <kio/copyjob.h>
-#include <kio/fileundomanager.h>
-#include <kio/job.h>
-#include <kio/jobuidelegate.h>
-#include <kio/mkpathjob.h>
-#include <kprotocolinfo.h>
-#include <kprotocolmanager.h>
-#include <krun.h>
-#include <kurifilter.h>
+#include <QVBoxLayout>
 
-#include <QMimeDatabase>
-#include <kpropertiesdialog.h>
 #ifdef Q_OS_WIN
 #include <sys/utime.h>
 #else

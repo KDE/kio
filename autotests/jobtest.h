@@ -8,9 +8,18 @@
 #ifndef JOBTEST_H
 #define JOBTEST_H
 
+#include <kio/udsentry.h>
+#include <kiocore_export.h>
+
 #include <QObject>
 #include <QString>
-#include <kio/job.h>
+
+namespace KIO
+{
+class Job;
+}
+
+class KJob;
 
 class JobTest : public QObject
 {

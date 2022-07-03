@@ -10,8 +10,8 @@
 #include <QThreadPool>
 #include <QtConcurrentRun>
 
+#include "kio/filecopyjob.h"
 #include "kiotesthelper.h" // homeTmpDir, createTestFile etc.
-#include <kio/job.h>
 
 class KIOThreadTest : public QObject
 {

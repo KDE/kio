@@ -6,6 +6,18 @@
 */
 
 #include "jobtest.h"
+#include "mockcoredelegateextensions.h"
+
+#include "kio/job.h"
+#include "kiotesthelper.h" // createTestFile etc.
+#include <kio/chmodjob.h>
+#include <kio/copyjob.h>
+#include <kio/deletejob.h>
+#include <kio/directorysizejob.h>
+#include <kio/scheduler.h>
+#include <kio/statjob.h>
+#include <kmountpoint.h>
+#include <kprotocolinfo.h>
 
 #include <KJobUiDelegate>
 #include <KLocalizedString>
@@ -25,19 +37,9 @@
 #include <QUrl>
 #include <QVariant>
 
-#include "kiotesthelper.h" // createTestFile etc.
-#include <kio/chmodjob.h>
-#include <kio/copyjob.h>
-#include <kio/deletejob.h>
-#include <kio/directorysizejob.h>
-#include <kio/scheduler.h>
-#include <kio/statjob.h>
-#include <kmountpoint.h>
-#include <kprotocolinfo.h>
 #ifndef Q_OS_WIN
 #include <unistd.h> // for readlink
 #endif
-#include "mockcoredelegateextensions.h"
 
 QTEST_MAIN(JobTest)
 

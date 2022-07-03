@@ -4,13 +4,14 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
-#include <kio/job.h>
+#include <kio/listjob.h>
 
 #include <iostream>
 
 #include <QCoreApplication>
 #include <QDebug>
 #include <QDir>
+#include <QUrl>
 
 int main(int argc, char **argv)
 {

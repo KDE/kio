@@ -7,15 +7,15 @@
 
 #include <array>
 
-#include "kdirmodeltest.h"
 #include "jobuidelegatefactory.h"
+#include "kdirmodeltest.h"
 #include <KDirWatch>
 #include <kdirlister.h>
 #include <kdirnotify.h>
 #include <kio/chmodjob.h>
 #include <kio/copyjob.h>
 #include <kio/deletejob.h>
-#include <kio/job.h>
+#include <kio/simplejob.h>
 #include <kprotocolinfo.h>
 
 #include <QDebug>

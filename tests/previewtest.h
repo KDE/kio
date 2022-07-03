@@ -2,11 +2,12 @@
 #define PREVIEWTEST_H
 
 #include <QWidget>
-#include <kio/job.h>
 
 class QLineEdit;
 class QLabel;
+
 class KFileItem;
+class KJob;
 
 class PreviewTest : public QWidget
 {

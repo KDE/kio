@@ -12,26 +12,26 @@
 #include "../../../pathhelpers_p.h"
 #include "kio_trash.h"
 
-#include <QDataStream>
-#include <QTemporaryFile>
 #include <kprotocolinfo.h>
 
 #include <KConfigGroup>
-#include <QDebug>
+#include <kfileitem.h>
+#include <kio/chmodjob.h>
 #include <kio/copyjob.h>
 #include <kio/deletejob.h>
-#include <kio/job.h>
+#include <kio/directorysizejob.h>
 
 #include <KJobUiDelegate>
+
+#include <QDataStream>
+#include <QDebug>
 #include <QDir>
 #include <QFileInfo>
+#include <QStandardPaths>
+#include <QTemporaryFile>
 #include <QUrl>
 #include <QVector>
 
-#include <QStandardPaths>
-#include <kfileitem.h>
-#include <kio/chmodjob.h>
-#include <kio/directorysizejob.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>

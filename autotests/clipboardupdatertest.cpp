@@ -9,14 +9,13 @@
 
 #include <QtTestWidgets>
 
-#include "clipboardupdater_p.h"
 #include "kiotesthelper.h"
-
 #include <kio/copyjob.h>
 #include <kio/deletejob.h>
-#include <kio/job.h>
+#include <kio/filecopyjob.h>
 #include <kio/paste.h>
 #include <kio/pastejob.h>
+#include <kio/simplejob.h>
 
 #include <QApplication>
 #include <QClipboard>

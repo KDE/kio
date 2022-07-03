@@ -8,21 +8,23 @@
 
 #include "jobremotetest.h"
 
-#include <QTest>
-
-#include <KLocalizedString>
 #include <QDebug>
-
 #include <QDir>
 #include <QEventLoop>
+#include <QStandardPaths>
+#include <QTest>
 #include <QUrl>
 
-#include <QStandardPaths>
+#include <KLocalizedString>
+
 #include <kio/copyjob.h>
 #include <kio/deletejob.h>
 #include <kio/directorysizejob.h>
 #include <kio/filejob.h>
+#include <kio/mkdirjob.h>
 #include <kio/scheduler.h>
+#include <kio/statjob.h>
+#include <kio/storedtransferjob.h>
 #include <kprotocolinfo.h>
 //#include "kiotesthelper.h" // createTestFile etc.
 

@@ -10,6 +10,7 @@
 #define KDIRNOTIFY_H
 
 #include "kiocore_export.h"
+
 #include <QByteArray>
 #ifdef QT_DBUS_LIB
 #include <QDBusAbstractInterface>

@@ -5,6 +5,7 @@
 */
 
 #include "listdirtest.h"
+#include <kio/listjob.h>
 
 #include <QDir>
 #include <QFile>

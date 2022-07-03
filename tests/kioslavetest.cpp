@@ -7,7 +7,24 @@
 
 #include "kioslavetest.h"
 
+#include <kio/copyjob.h>
+#include <kio/deletejob.h>
+#include <kio/listjob.h>
+#include <kio/mimetypejob.h>
+#include <kio/mkdirjob.h>
+#include <kio/simplejob.h>
+#include <kio/statjob.h>
+#include <kio/transferjob.h>
+#include <kprotocolinfo.h>
+
+// QT_STAT_LNK on Windows
+#include "kioglobal_p.h"
+
+#include <KJobUiDelegate>
+
 #include <QApplication>
+#include <QCommandLineOption>
+#include <QCommandLineParser>
 #include <QDebug>
 #include <QDir>
 #include <QGroupBox>
@@ -16,22 +33,9 @@
 #include <QMessageBox>
 #include <QStatusBar>
 #include <QThread>
-#include <QUrl>
-
-#include <qplatformdefs.h>
-
-#include <KJobUiDelegate>
-#include <kio/copyjob.h>
-#include <kio/deletejob.h>
-#include <kio/job.h>
-#include <kprotocolinfo.h>
-
-// QT_STAT_LNK on Windows
-#include "kioglobal_p.h"
-
-#include <QCommandLineOption>
-#include <QCommandLineParser>
 #include <QTimer>
+#include <QUrl>
+#include <qplatformdefs.h>
 
 using namespace KIO;
 

@@ -5,6 +5,7 @@
 */
 
 #include "downloader.h"
+#include <kio/transferjob.h>
 
 #include <cstdlib>
 #include <cstring>
@@ -12,7 +13,6 @@
 #include <QTextCodec>
 
 #include <KLocalizedString>
-#include <kio/job.h>
 
 namespace KPAC
 {

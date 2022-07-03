@@ -6,15 +6,18 @@
 */
 
 #include "kautomount.h"
-#include "kio/job.h"
+
 #include "kio_widgets_debug.h"
-#include <KDirWatch>
 #include <KIO/JobUiDelegate>
 #include <KIO/OpenUrlJob>
-#include <KJobUiDelegate>
-#include <QDebug>
 #include <kdirnotify.h>
+#include <kio/simplejob.h>
 #include <kmountpoint.h>
+
+#include <KDirWatch>
+#include <KJobUiDelegate>
+
+#include <QDebug>
 
 #if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 88)
 

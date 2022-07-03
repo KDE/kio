@@ -36,6 +36,55 @@
 
 #include <config-kiowidgets.h>
 
+#include <kacl.h>
+#include <kbuildsycocaprogressdialog.h>
+#include <kdirnotify.h>
+#include <kfileitemlistproperties.h>
+#include <kio/chmodjob.h>
+#include <kio/copyjob.h>
+#include <kio/desktopexecparser.h>
+#include <kio/directorysizejob.h>
+#include <kio/global.h>
+#include <kio/jobuidelegate.h>
+#include <kio/renamedialog.h>
+#include <kio/statjob.h>
+#include <kioglobal_p.h>
+#include <kmountpoint.h>
+#include <kprotocolinfo.h>
+#include <kurlrequester.h>
+
+#include <KApplicationTrader>
+#include <KAuthorized>
+#include <KCapacityBar>
+#include <KColorScheme>
+#include <KCompletion>
+#include <KConfigGroup>
+#include <KDesktopFile>
+#include <KDialogJobUiDelegate>
+#include <KIO/ApplicationLauncherJob>
+#include <KIO/FileSystemFreeSpaceJob>
+#include <KIO/OpenFileManagerWindowJob>
+#include <KIconButton>
+#include <KJobUiDelegate>
+#include <KJobWidgets>
+#include <KLazyLocalizedString>
+#include <KLineEdit>
+#include <KLocalizedString>
+#include <KMessageBox>
+#include <KMessageWidget>
+#include <KMimeTypeChooser>
+#include <KMimeTypeEditor>
+#include <KMimeTypeTrader>
+#include <KPluginFactory>
+#include <KPluginMetaData>
+#include <KSeparator>
+#include <KService>
+#include <KSharedConfig>
+#include <KShell>
+#include <KSqueezedTextLabel>
+#include <KSycoca>
+#include <KWindowConfig>
+
 #include <qplatformdefs.h>
 
 #include <QCheckBox>
@@ -78,54 +127,6 @@ extern "C" {
 #endif
 }
 
-#include <KApplicationTrader>
-#include <KAuthorized>
-#include <KCapacityBar>
-#include <KColorScheme>
-#include <KCompletion>
-#include <KConfigGroup>
-#include <KDesktopFile>
-#include <KDialogJobUiDelegate>
-#include <KIO/ApplicationLauncherJob>
-#include <KIO/FileSystemFreeSpaceJob>
-#include <KIO/OpenFileManagerWindowJob>
-#include <KIconButton>
-#include <KJobUiDelegate>
-#include <KJobWidgets>
-#include <KLazyLocalizedString>
-#include <KLineEdit>
-#include <KLocalizedString>
-#include <KMessageBox>
-#include <KMessageWidget>
-#include <KMimeTypeChooser>
-#include <KMimeTypeEditor>
-#include <KMimeTypeTrader>
-#include <KPluginFactory>
-#include <KPluginMetaData>
-#include <KSeparator>
-#include <KService>
-#include <KSharedConfig>
-#include <KShell>
-#include <KSqueezedTextLabel>
-#include <KSycoca>
-#include <KWindowConfig>
-#include <kacl.h>
-#include <kbuildsycocaprogressdialog.h>
-#include <kdirnotify.h>
-#include <kfileitemlistproperties.h>
-#include <kio/chmodjob.h>
-#include <kio/copyjob.h>
-#include <kio/desktopexecparser.h>
-#include <kio/directorysizejob.h>
-#include <kio/global.h>
-#include <kio/job.h>
-#include <kio/jobuidelegate.h>
-#include <kio/renamedialog.h>
-#include <kioglobal_p.h>
-#include <kmountpoint.h>
-#include <kprotocolinfo.h>
-#include <kurlrequester.h>
-
 #include "ui_checksumswidget.h"
 #include "ui_kfilepropspluginwidget.h"
 #include "ui_kpropertiesdesktopadvbase.h"
@@ -134,6 +135,7 @@ extern "C" {
 #include <algorithm>
 #include <cerrno>
 #include <functional>
+#include <vector>
 
 #if HAVE_POSIX_ACL
 #include "kacleditwidget.h"
@@ -147,8 +149,6 @@ extern "C" {
 #warning TODO: port completely to win32
 #endif
 #endif
-
-#include <vector>
 
 using namespace KDEPrivate;
 
@@ -662,8 +662,8 @@ void KPropertiesDialogPrivate::insertPages()
     // qDebug() << "trader query: " << query;
 
     QStringList addedPlugins;
-    const auto jsonPlugins = KPluginMetaData::findPlugins(QStringLiteral("kf" QT_STRINGIFY(QT_VERSION_MAJOR) "/propertiesdialog"),
-        [mimetype](const KPluginMetaData &metaData) {
+    const auto jsonPlugins =
+        KPluginMetaData::findPlugins(QStringLiteral("kf" QT_STRINGIFY(QT_VERSION_MAJOR) "/propertiesdialog"), [mimetype](const KPluginMetaData &metaData) {
             return metaData.mimeTypes().isEmpty() || metaData.supportsMimeType(mimetype);
         });
     for (const auto &jsonMetadata : jsonPlugins) {

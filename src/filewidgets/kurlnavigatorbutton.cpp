@@ -10,10 +10,11 @@
 #include "../pathhelpers_p.h"
 #include "kurlnavigator.h"
 #include "kurlnavigatormenu_p.h"
+#include <kio/listjob.h>
+#include <kio/statjob.h>
 
 #include <KLocalizedString>
 #include <KStringHandler>
-#include <kio/job.h>
 
 #include <QCollator>
 #include <QKeyEvent>

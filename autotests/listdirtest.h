@@ -8,7 +8,12 @@
 #define LISTDIRTEST_H
 
 #include <QObject>
-#include <kio/job.h>
+#include <kio/udsentry.h>
+
+namespace KIO
+{
+class Job;
+}
 
 class ListDirTest : public QObject
 {

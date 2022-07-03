@@ -8,6 +8,7 @@
 */
 
 #include "krun.h"
+#include <kio/job.h>
 
 #if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 71)
 #include "kio_widgets_debug.h"
@@ -24,45 +25,44 @@
 #include <QDesktopWidget>
 #include <QDialog>
 #include <QDialogButtonBox>
+#include <QFile>
+#include <QFileInfo>
 #include <QHostInfo>
 #include <QMimeDatabase>
+#include <QStandardPaths>
 #include <QWidget>
 
 #include "applicationlauncherjob.h"
 #include "jobuidelegate.h"
 #include "kdesktopfileactions.h"
 #include "kio/global.h"
-#include "kio/job.h"
 #include "kio/scheduler.h"
 #include "kopenwithdialog.h"
 #include "kprocessrunner_p.h" // for KIOGuiPrivate::checkStartupNotify
 #include "krecentdocument.h"
 #include "widgetsuntrustedprogramhandler.h"
-#include <KApplicationTrader>
-#include <KJobUiDelegate>
 #include <kio/desktopexecparser.h>
 
+#include <KApplicationTrader>
+#include <KJobUiDelegate>
+
 #include <KAuthorized>
+#include <KConfigGroup>
+#include <KDesktopFile>
+#include <KGuiItem>
 #include <KJobWidgets>
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <KProcess>
 #include <KSharedConfig>
-#include <commandlauncherjob.h>
-#include <kprotocolmanager.h>
-#include <kurlauthorized.h>
-
-#include <KConfigGroup>
-#include <KDesktopFile>
-#include <KGuiItem>
 #include <KShell>
 #include <KStandardGuiItem>
-#include <QFile>
-#include <QFileInfo>
 
 #include <KIO/JobUiDelegate>
 #include <KIO/OpenUrlJob>
-#include <QStandardPaths>
+#include <commandlauncherjob.h>
+#include <kprotocolmanager.h>
+#include <kurlauthorized.h>
 
 #ifdef Q_OS_WIN
 #include "widgetsopenwithhandler_win.cpp" // displayNativeOpenWithDialog

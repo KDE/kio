@@ -8,7 +8,6 @@
 #define DELETEJOBTEST_H
 
 #include <QObject>
-#include <kio/job.h>
 
 class DeleteJobTest : public QObject
 {

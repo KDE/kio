@@ -7,7 +7,7 @@
 // This test suite is based on those in ftptest.cpp and uses the same test files.
 
 #include <kio/copyjob.h>
-#include <kio/job.h>
+#include <kio/storedtransferjob.h>
 
 #include <QBuffer>
 #include <QProcess>

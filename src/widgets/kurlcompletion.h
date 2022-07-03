@@ -12,10 +12,12 @@
 #define KURLCOMPLETION_H
 
 #include "kiowidgets_export.h"
+#include <kio/udsentry.h>
+
 #include <KCompletion>
+
 #include <QString>
 #include <QStringList>
-#include <kio/udsentry.h>
 
 #include <memory>
 

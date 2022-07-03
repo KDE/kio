@@ -7,24 +7,25 @@
 */
 
 #include "fileundomanager.h"
+#include "askuseractioninterface.h"
 #include "clipboardupdater_p.h"
 #include "fileundomanager_adaptor.h"
 #include "fileundomanager_p.h"
-
-#include "askuseractioninterface.h"
 #include "kio_widgets_debug.h"
-#include <KJobTrackerInterface>
-#include <KJobWidgets>
-#include <KLocalizedString>
-#include <KMessageBox>
 #include <job_p.h>
 #include <kdirnotify.h>
 #include <kio/batchrenamejob.h>
 #include <kio/copyjob.h>
-#include <kio/job.h>
+#include <kio/filecopyjob.h>
 #include <kio/jobuidelegate.h>
 #include <kio/mkdirjob.h>
 #include <kio/mkpathjob.h>
+#include <kio/statjob.h>
+
+#include <KJobTrackerInterface>
+#include <KJobWidgets>
+#include <KLocalizedString>
+#include <KMessageBox>
 
 #include <QDBusConnection>
 #include <QDateTime>

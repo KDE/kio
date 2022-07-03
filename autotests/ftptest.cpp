@@ -5,7 +5,7 @@
 */
 
 #include <kio/copyjob.h>
-#include <kio/job.h>
+#include <kio/storedtransferjob.h>
 
 #include <QBuffer>
 #include <QProcess>

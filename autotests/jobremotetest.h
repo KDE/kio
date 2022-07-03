@@ -16,7 +16,17 @@
 
 #include <QObject>
 #include <QString>
-#include <kio/job.h>
+
+#include <kio/global.h>
+#include <kio/udsentry.h>
+
+namespace KIO
+{
+class Job;
+class FileJob;
+}
+
+class KJob;
 
 class JobRemoteTest : public QObject
 {

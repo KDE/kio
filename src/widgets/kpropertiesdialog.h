@@ -15,8 +15,9 @@
 #include <QUrl>
 
 #include "kiowidgets_export.h"
-#include <KPageDialog>
 #include <kfileitem.h>
+
+#include <KPageDialog>
 
 #include <memory>
 

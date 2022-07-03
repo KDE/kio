@@ -14,31 +14,18 @@
 #include "Windows.h"
 #endif
 
-#include <QAction>
-#include <QCoreApplication>
-#include <QDir>
-#include <QFile>
-#include <QMimeData>
-#include <QMimeDatabase>
-#include <QTimer>
-
+#include <KCoreDirLister>
 #include <KLazyLocalizedString>
 #include <KLocalizedString>
 #include <kfileitem.h>
-
-#include <KUrlMimeData>
-#include <QDebug>
-
-#include <KBookmarkManager>
-
-#include <KCoreDirLister>
-#include <kio/job.h>
+#include <kio/statjob.h>
 #include <kprotocolinfo.h>
 
+#include <KBookmarkManager>
 #include <KConfig>
 #include <KConfigGroup>
+#include <KUrlMimeData>
 
-#include <QStandardPaths>
 #include <solid/devicenotifier.h>
 #include <solid/opticaldisc.h>
 #include <solid/opticaldrive.h>
@@ -47,6 +34,16 @@
 #include <solid/storageaccess.h>
 #include <solid/storagedrive.h>
 #include <solid/storagevolume.h>
+
+#include <QAction>
+#include <QCoreApplication>
+#include <QDebug>
+#include <QDir>
+#include <QFile>
+#include <QMimeData>
+#include <QMimeDatabase>
+#include <QStandardPaths>
+#include <QTimer>
 
 namespace
 {

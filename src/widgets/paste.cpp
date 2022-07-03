@@ -7,23 +7,23 @@
 
 #include "paste.h"
 #include "kio_widgets_debug.h"
-#include "pastedialog_p.h"
 
 #include "../pathhelpers_p.h"
 #include "kio/copyjob.h"
 #include "kio/deletejob.h"
 #include "kio/global.h"
-#include "kio/job.h"
 #include "kio/renamedialog.h"
-#include "kprotocolmanager.h"
+#include "kio/statjob.h"
+#include "pastedialog_p.h"
+#include <kdirnotify.h>
+#include <kfileitem.h>
+#include <kfileitemlistproperties.h>
+#include <kio/storedtransferjob.h>
 
 #include <KJobWidgets>
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <KUrlMimeData>
-#include <kdirnotify.h>
-#include <kfileitem.h>
-#include <kfileitemlistproperties.h>
 
 #include <QApplication>
 #include <QClipboard>

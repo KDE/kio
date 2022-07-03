@@ -22,17 +22,9 @@
 #include "kfilewidgetdocktitlebar_p.h"
 #include "kurlcombobox.h"
 #include "kurlnavigator.h"
-#include <KActionCollection>
-#include <KActionMenu>
-#include <KConfigGroup>
-#include <KDirLister>
-#include <KFileItem>
-#include <KFilePlacesModel>
-#include <KLocalizedString>
-#include <KMessageWidget>
-#include <KSharedConfig>
-#include <KToolBar>
+
 #include <config-kiofilewidgets.h>
+
 #include <defaults-kfile.h>
 #include <kdiroperator.h>
 #include <kfilefiltercombo.h>
@@ -41,10 +33,27 @@
 #include <kio/job.h>
 #include <kio/jobuidelegate.h>
 #include <kio/scheduler.h>
+#include <kio/statjob.h>
 #include <kprotocolmanager.h>
 #include <krecentdirs.h>
 #include <krecentdocument.h>
+#include <kurlauthorized.h>
 #include <kurlcompletion.h>
+
+#include <KActionCollection>
+#include <KActionMenu>
+#include <KConfigGroup>
+#include <KDirLister>
+#include <KFileItem>
+#include <KFilePlacesModel>
+#include <KIconLoader>
+#include <KJobWidgets>
+#include <KLocalizedString>
+#include <KMessageBox>
+#include <KMessageWidget>
+#include <KSharedConfig>
+#include <KShell>
+#include <KToolBar>
 
 #include <QAbstractProxyModel>
 #include <QApplication>
@@ -64,12 +73,6 @@
 #include <QSplitter>
 #include <QStandardPaths>
 #include <QTimer>
-
-#include <KIconLoader>
-#include <KJobWidgets>
-#include <KMessageBox>
-#include <KShell>
-#include <kurlauthorized.h>
 
 #include <algorithm>
 #include <array>

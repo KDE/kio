@@ -9,12 +9,13 @@
 
 #include "jobuidelegatefactory.h"
 #include "kiotesthelper.h"
-#include <KDirWatch>
 #include <kio/copyjob.h>
 #include <kio/deletejob.h>
-#include <kio/job.h>
 #include <kio/jobuidelegateextension.h>
+#include <kio/simplejob.h>
 #include <kprotocolinfo.h>
+
+#include <KDirWatch>
 
 #include <QDebug>
 #include <QTemporaryFile>

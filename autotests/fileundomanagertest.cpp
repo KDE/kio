@@ -6,21 +6,13 @@
 */
 
 #include "fileundomanagertest.h"
+
 #include "mockcoredelegateextensions.h"
-
-#include <QDateTime>
-#include <QDir>
-#include <QFileInfo>
-#include <QSignalSpy>
-#include <QTest>
-#include <kio/fileundomanager.h>
-#include <qplatformdefs.h>
-
-#include <KUrlMimeData>
 #include <kio/batchrenamejob.h>
 #include <kio/copyjob.h>
 #include <kio/deletejob.h>
-#include <kio/job.h>
+#include <kio/fileundomanager.h>
+#include <kio/mkdirjob.h>
 #include <kio/mkpathjob.h>
 #include <kio/paste.h>
 #include <kio/pastejob.h>
@@ -28,9 +20,20 @@
 #include <kioglobal_p.h>
 #include <kprotocolinfo.h>
 
+#include <QApplication>
+#include <QClipboard>
+#include <QDateTime>
+#include <QDebug>
+#include <QDir>
+#include <QFileInfo>
+#include <QMimeData>
+#include <QSignalSpy>
+#include <QTest>
+#include <qplatformdefs.h>
+
 #include <KConfig>
 #include <KConfigGroup>
-#include <QDebug>
+#include <KUrlMimeData>
 
 #include <cerrno>
 #include <time.h>
@@ -40,10 +43,6 @@
 #include <sys/time.h>
 #include <utime.h>
 #endif
-
-#include <QApplication>
-#include <QClipboard>
-#include <QMimeData>
 
 QTEST_MAIN(FileUndoManagerTest)
 
