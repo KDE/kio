@@ -1,4 +1,4 @@
-KIO Slave Template
+KIO Worker Template
 ----------------------
 
 ### Build instructions
@@ -33,13 +33,13 @@ and rename the `myproto.protocol` file accordingly.
 
 The class `MyDataSystem` just serves as a starting point to see something working right
 after creating the project. Replace that class and the calls to it with code as needed to map
-the KIO system to the actual data service/system your KIO slave is wrapping.
+the KIO system to the actual data service/system your KIO worker is wrapping.
 
 
 ### Related documentation
 
-Find the documentation of `KIO::SlaveBase` for the API to implement at
-https://api.kde.org/frameworks/kio/html/classKIO_1_1SlaveBase.html
+Find the documentation of `KIO::WorkerBase` for the API to implement at
+https://api.kde.org/frameworks/kio/html/classKIO_1_1WorkerBase.html
 
-Learn about debugging your new KIO slave at
+Learn about debugging your new KIO worker at
 https://community.kde.org/Guidelines_and_HOWTOs/Debugging/Debugging_IOSlaves

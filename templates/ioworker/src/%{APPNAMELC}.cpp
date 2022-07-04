@@ -18,7 +18,7 @@
 class KIOPluginForMetaData : public QObject
 {
     Q_OBJECT
-    Q_PLUGIN_METADATA(IID "org.kde.kio.slave.myproto" FILE "myproto.json")
+    Q_PLUGIN_METADATA(IID "org.kde.kio.worker.myproto" FILE "myproto.json")
 };
 
 extern "C" {
@@ -30,8 +30,8 @@ int kdemain(int argc, char **argv)
     QCoreApplication app(argc, argv);
     app.setApplicationName(QStringLiteral("%{APPNAME}"));
 
-    %{APPNAME} slave(argv[2], argv[3]);
-    slave.dispatchLoop();
+    %{APPNAME} worker(argv[2], argv[3]);
+    worker.dispatchLoop();
 
     return 0;
 }
@@ -77,7 +77,7 @@ KIO::UDSEntry dirEntry(const QString &name)
 }
 
 %{APPNAME}::%{APPNAME}(const QByteArray &pool_socket, const QByteArray &app_socket)
-    : KIO::SlaveBase("myproto", pool_socket, app_socket)
+    : KIO::WorkerBase("myproto", pool_socket, app_socket)
     , m_dataSystem(new MyDataSystem)
 {
     qCDebug(%{APPNAMEUC}_LOG) << "%{APPNAME} starting up";
@@ -89,7 +89,7 @@ KIO::UDSEntry dirEntry(const QString &name)
 }
 
 
-void %{APPNAME}::get(const QUrl &url)
+KIO::WorkerResult %{APPNAME}::get(const QUrl &url)
 {
     qCDebug(%{APPNAMEUC}_LOG) << "%{APPNAME} starting get" << url;
 
@@ -99,24 +99,22 @@ void %{APPNAME}::get(const QUrl &url)
     if (!item.isValid()) {
         groupPath.append(itemName);
         if (m_dataSystem->hasGroup(groupPath)) {
-            error(KIO::ERR_IS_DIRECTORY, itemName);
-        } else {
+            return KIO::WorkerResult::fail(KIO::ERR_IS_DIRECTORY, itemName);
         }
-            error(KIO::ERR_DOES_NOT_EXIST, itemName);
-        return;
+        return KIO::WorkerResult::fail(KIO::ERR_DOES_NOT_EXIST, itemName);
     }
 
     // as first notify about the MIME type, so the handler can be selected
-    mimeType("text/plain");
+    mimeType(QStringLiteral("text/plain"));
 
     // now emit the data...
     data(item.data());
 
     // and we are done
-    finished();
+    return KIO::WorkerResult::pass();
 }
 
-void %{APPNAME}::stat(const QUrl &url)
+KIO::WorkerResult %{APPNAME}::stat(const QUrl &url)
 {
     qCDebug(%{APPNAMEUC}_LOG) << "%{APPNAME} starting stat" << url;
 
@@ -125,14 +123,12 @@ void %{APPNAME}::stat(const QUrl &url)
     // is root directory?
     if (groupPath.isEmpty()) {
         statEntry(dirEntry(QStringLiteral(".")));
-        finished();
-        return;
+        return KIO::WorkerResult::pass();
     }
     // test subgroup
     if (m_dataSystem->hasGroup(groupPath)) {
         statEntry(dirEntry(groupPath.last()));
-        finished();
-        return;
+        return KIO::WorkerResult::pass();
     }
 
     // test item
@@ -140,21 +136,19 @@ void %{APPNAME}::stat(const QUrl &url)
     const DataItem item = m_dataSystem->item(groupPath, itemName);
     if (item.isValid()) {
         statEntry(fileEntry(item));
-        finished();
-        return;
+        return KIO::WorkerResult::pass();
     }
 
-    error(KIO::ERR_DOES_NOT_EXIST, i18n("No such path."));
+    return KIO::WorkerResult::fail(KIO::ERR_DOES_NOT_EXIST, i18n("No such path."));
 }
 
-void %{APPNAME}::listDir(const QUrl &url)
+KIO::WorkerResult %{APPNAME}::listDir(const QUrl &url)
 {
     const QStringList groupPath = ::groupPath(url);
     qCDebug(%{APPNAMEUC}_LOG) << "%{APPNAME} starting listDir" << url << groupPath;
 
     if (!m_dataSystem->hasGroup(groupPath)) {
-        error(KIO::ERR_DOES_NOT_EXIST, i18n("No such directory."));
-        return;
+        return KIO::WorkerResult::fail(KIO::ERR_DOES_NOT_EXIST, i18n("No such directory."));
     }
 
     const QStringList subGroupNames = m_dataSystem->subGroupNames(groupPath);
@@ -172,5 +166,8 @@ void %{APPNAME}::listDir(const QUrl &url)
     for (const auto &item : items) {
         listEntry(fileEntry(item));
     }
-    finished();
+
+    return KIO::WorkerResult::pass();
 }
+
+#include "%{APPNAMELC}.moc"
