@@ -271,7 +271,7 @@ bool KFilePlacesViewDelegate::helpEvent(QHelpEvent *event, QAbstractItemView *vi
     if (event->type() == QHelpEvent::ToolTip) {
         if (pointIsTeardownAction(event->pos())) {
             if (auto *placesModel = qobject_cast<const KFilePlacesModel *>(index.model())) {
-                Q_ASSERT(placesModel->isTeardownAllowed(index));
+                Q_ASSERT(placesModel->isTeardownOverlayRecommended(index));
 
                 QString toolTipText;
 
@@ -396,7 +396,7 @@ bool KFilePlacesViewDelegate::pointIsTeardownAction(const QPoint &pos) const
         return false;
     }
 
-    if (!index.data(KFilePlacesModel::TeardownAllowedRole).toBool()) {
+    if (!index.data(KFilePlacesModel::TeardownOverlayRecommendedRole).toBool()) {
         return false;
     }
 
