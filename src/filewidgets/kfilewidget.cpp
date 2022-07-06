@@ -1036,6 +1036,11 @@ void KFileWidgetPrivate::multiSelectionChanged()
 
 void KFileWidgetPrivate::setLocationText(const QUrl &url)
 {
+    // Block m_locationEdit signals as setCurrentItem() will cause textChanged() to get
+    // emitted, so slotLocationChanged() will be called. Make sure we don't clear the
+    // KDirOperator's view-selection in there
+    const QSignalBlocker blocker(m_locationEdit);
+
     if (!url.isEmpty()) {
         if (!url.isRelative()) {
             const QUrl directory = url.adjusted(QUrl::RemoveFilename);
@@ -1342,6 +1347,11 @@ void KFileWidgetPrivate::initFilterWidget()
 
 void KFileWidgetPrivate::setLocationText(const QList<QUrl> &urlList)
 {
+    // Block m_locationEdit signals as setCurrentItem() will cause textChanged() to get
+    // emitted, so slotLocationChanged() will be called. Make sure we don't clear the
+    // KDirOperator's view-selection in there
+    const QSignalBlocker blocker(m_locationEdit);
+
     const QUrl currUrl = m_ops->url();
 
     if (urlList.count() > 1) {
