@@ -139,7 +139,7 @@ public:
     void addPluginActions(KIO::DropMenu *popup, const KFileItemListProperties &itemProps);
     void doCopyToDirectory();
 
-    const QMimeData *m_mimeData;
+    QPointer<const QMimeData> m_mimeData;
     const QList<QUrl> m_urls;
     QMap<QString, QString> m_metaData;
     Qt::DropAction m_dropAction;
@@ -271,7 +271,7 @@ void DropJobPrivate::slotStart()
                 q->emitResult();
             }
         }
-    } else {
+    } else if (m_mimeData) {
         // Dropping raw data
         KIO::PasteJob *job = KIO::PasteJobPrivate::newJob(m_mimeData, m_destUrl, KIO::HideProgressInfo, false /*not clipboard*/);
         QObject::connect(job, &KIO::PasteJob::itemCreated, q, &KIO::DropJob::itemCreated);
