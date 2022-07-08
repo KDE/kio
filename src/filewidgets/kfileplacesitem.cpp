@@ -263,6 +263,8 @@ QVariant KFilePlacesItem::bookmarkData(int role) const
         return m_text;
     case Qt::DecorationRole:
         return QIcon::fromTheme(iconNameForBookmark(b));
+    case Qt::ToolTipRole:
+        return {m_text + QLatin1String(" (") + b.url().toDisplayString(QUrl::PreferLocalFile) + QLatin1Char(')')};
     case Qt::BackgroundRole:
         if (isHidden()) {
             return QColor(Qt::lightGray);
