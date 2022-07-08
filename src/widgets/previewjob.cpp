@@ -384,11 +384,13 @@ void PreviewJobPrivate::startPreview()
                     }
                 }
 
-                // Check the wildcards last, see BUG 453480
-                QString groupMimeType = mimeType;
-                static const QRegularExpression expr(QStringLiteral("/.*"));
-                groupMimeType.replace(expr, QStringLiteral("/*"));
-                pluginIt = mimeMap.constFind(groupMimeType);
+                if (pluginIt == mimeMap.constEnd()) {
+                    // Check the wildcards last, see BUG 453480
+                    QString groupMimeType = mimeType;
+                    static const QRegularExpression expr(QStringLiteral("/.*"));
+                    groupMimeType.replace(expr, QStringLiteral("/*"));
+                    pluginIt = mimeMap.constFind(groupMimeType);
+                }
             }
 
             if (pluginIt != mimeMap.constEnd()) {
