@@ -6,6 +6,7 @@ Name[bg]=openSUSE Software
 Name[bs]=openSUSE Softver
 Name[ca]=openSUSE Software
 Name[ca@valencia]=openSUSE Software
+Name[cs]=Software openSUSE
 Name[en_GB]=openSUSE Software
 Name[es]=Software de openSUSE
 Name[fi]=openSUSE Software
@@ -36,6 +37,7 @@ Query[bg]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
 Query[bs]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
 Query[ca]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
 Query[ca@valencia]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
+Query[cs]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
 Query[en_GB]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
 Query[es]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
 Query[fi]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}

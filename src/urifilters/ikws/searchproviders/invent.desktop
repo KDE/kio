@@ -7,6 +7,7 @@ Name[bg]=Изобретения на KDE
 Name[bs]=KDE Izum
 Name[ca]=KDE Invent
 Name[ca@valencia]=KDE Invent
+Name[cs]=KDE Invent
 Name[de]=KDE Invent
 Name[en_GB]=KDE Invent
 Name[es]=KDE Invent
@@ -44,6 +45,7 @@ Query[bg]=https://invent.kde.org/search?search=\\{@}
 Query[bs]=https://invent.kde.org/search?search=\\{@}
 Query[ca]=https://invent.kde.org/search?search=\\{@}
 Query[ca@valencia]=https://invent.kde.org/search?search=\\{@}
+Query[cs]=https://invent.kde.org/search?search=\\{@}
 Query[de]=https://invent.kde.org/search?search=\\{@}
 Query[en_GB]=https://invent.kde.org/search?search=\\{@}
 Query[es]=https://invent.kde.org/search?search=\\{@}

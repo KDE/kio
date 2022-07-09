@@ -35,6 +35,7 @@ Query[bg]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[bs]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[ca]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[ca@valencia]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
+Query[cs]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[en_GB]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[es]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[fi]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}

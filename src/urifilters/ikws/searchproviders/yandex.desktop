@@ -34,6 +34,7 @@ Query[az]=https://yandex.ru/search/?text=\\{@}
 Query[bg]=https://yandex.ru/search/?text=\\{@}
 Query[ca]=https://yandex.ru/search/?text=\\{@}
 Query[ca@valencia]=https://yandex.ru/search/?text=\\{@}
+Query[cs]=https://yandex.ru/search/?text=\\{@}
 Query[en_GB]=https://yandex.ru/search/?text=\\{@}
 Query[es]=https://yandex.ru/search/?text=\\{@}
 Query[fi]=https://yandex.ru/search/?text=\\{@}

@@ -6,6 +6,7 @@ Name[bg]=CPP Reference
 Name[bs]=CPP Referenca
 Name[ca]=Referència del CPP
 Name[ca@valencia]=Referència de CPP
+Name[cs]=CPP Reference
 Name[de]=CPP-Reference
 Name[en_GB]=CPP Reference
 Name[es]=Referencia de CPP
@@ -38,6 +39,7 @@ Query[bg]=https://cppreference.com/w/?search=\\{@}
 Query[bs]=https://cppreference.com/w/?search=\\{@}
 Query[ca]=https://cppreference.com/w/?search=\\{@}
 Query[ca@valencia]=https://cppreference.com/w/?search=\\{@}
+Query[cs]=https://cppreference.com/w/?search=\\{@}
 Query[de]=https://cppreference.com/w/?search=\\{@}
 Query[en_GB]=https://cppreference.com/w/?search=\\{@}
 Query[es]=https://cppreference.com/w/?search=\\{@}

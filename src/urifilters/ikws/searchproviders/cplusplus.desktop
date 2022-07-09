@@ -6,6 +6,7 @@ Name[bg]=CPlusPlus
 Name[bs]=CPlusPlus
 Name[ca]=CPlusPlus
 Name[ca@valencia]=CPlusPlus
+Name[cs]=CPlusPlus
 Name[de]=CPlusPlus
 Name[en_GB]=CPlusPlus
 Name[es]=CPlusPlus
@@ -38,6 +39,7 @@ Query[bg]=http://cplusplus.com/search.do?q=\\{@}
 Query[bs]=http://cplusplus.com/search.do?q=\\{@}
 Query[ca]=http://cplusplus.com/search.do?q=\\{@}
 Query[ca@valencia]=http://cplusplus.com/search.do?q=\\{@}
+Query[cs]=http://cplusplus.com/search.do?q=\\{@}
 Query[de]=http://cplusplus.com/search.do?q=\\{@}
 Query[en_GB]=http://cplusplus.com/search.do?q=\\{@}
 Query[es]=http://cplusplus.com/search.do?q=\\{@}
