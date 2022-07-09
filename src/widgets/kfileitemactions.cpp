@@ -199,7 +199,7 @@ void KFileItemActionsPrivate::slotExecuteService(QAction *act)
     if (KAuthorized::authorizeAction(serviceAction.name())) {
         auto *job = new KIO::ApplicationLauncherJob(serviceAction);
         job->setUrls(m_props.urlList());
-        job->setUiDelegate(new KDialogJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, nullptr));
+        job->setUiDelegate(new KDialogJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, m_parentWidget));
         job->start();
     }
 }
