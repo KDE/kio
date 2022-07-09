@@ -2283,8 +2283,9 @@ void KDirOperator::setupActions()
     });
 
     // the view menu actions
-    KActionMenu *viewMenu = new KActionMenu(i18n("&View"), this);
+    KActionMenu *viewMenu = new KActionMenu(i18n("&View Mode"), this);
     d->m_actionCollection->addAction(QStringLiteral("view menu"), viewMenu);
+    viewMenu->setIcon(QIcon::fromTheme(QStringLiteral("view-list-tree")));
     viewMenu->addAction(shortAction);
     viewMenu->addAction(detailedAction);
     // Comment following lines to hide the extra two modes
