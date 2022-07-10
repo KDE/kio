@@ -30,6 +30,7 @@ Name[ml]=റൂട്ട് ആയി പ്രവർത്തനം നടപ�
 Name[my]=Rootအဖြစ်ဆောင်ရွက်သည်။
 Name[nl]=Actie uitvoeren als root.
 Name[nn]=Køyr handling som rotbrukar.
+Name[pa]=ਕਾਰਵਾਈ ਰੂਟ ਵਜੋਂ ਚਲਾਓ।
 Name[pl]=Wykonaj działanie jako administrator.
 Name[pt]=Executar a acção como 'root'.
 Name[pt_BR]=Executar ação como root.
@@ -79,6 +80,7 @@ Description[ml]=പ്രവർത്തനം പൂർത്തിയാക്
 Description[my]=လုပ်ဆောင်ချက်ပြီးမြောက်ရန် rootအခွင့်အာဏာလိုအပ်သည်။
 Description[nl]=Root-rechten zijn vereist om de actie te voltooien.
 Description[nn]=Treng rotløyve for å fullføra handlinga.
+Description[pa]=ਕਾਰਵਾਈ ਨੂੰ ਪੂਰਾ ਕਰਨ ਲਈ ਰੂਟ ਅਧਿਕਾਰਾਂ ਦੀ ਲੋੜ ਹੈ।
 Description[pl]=Wymagane są uprawnienia administratora do ukończenia tego działania.
 Description[pt]=São necessários privilégios do 'root' para terminar a acção.
 Description[pt_BR]=São necessários privilégios de root para completar esta ação.

@@ -105,6 +105,7 @@ Query[lt]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[my]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[nl]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[nn]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
+Query[pa]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[pl]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[pt]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[pt_BR]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search

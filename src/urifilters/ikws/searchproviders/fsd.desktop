@@ -120,6 +120,7 @@ Query[lt]=https://directory.fsf.org/search/?query=\\{@}
 Query[my]=https://directory.fsf.org/search/?query=\\{@}
 Query[nl]=https://directory.fsf.org/search/?query=\\{@}
 Query[nn]=https://directory.fsf.org/search/?query=\\{@}
+Query[pa]=https://directory.fsf.org/search/?query=\\{@}
 Query[pl]=https://directory.fsf.org/search/?query=\\{@}
 Query[pt]=https://directory.fsf.org/search/?query=\\{@}
 Query[pt_BR]=https://directory.fsf.org/search/?query=\\{@}

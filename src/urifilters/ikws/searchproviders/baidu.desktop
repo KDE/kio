@@ -48,7 +48,7 @@ Name[nb]=Baidu
 Name[nds]=Baidu
 Name[nl]=Baidu
 Name[nn]=Baidu
-Name[pa]=ਬਿਦੂ
+Name[pa]=ਬਾਇਡੂ
 Name[pl]=Baidu
 Name[pt]=Baidu
 Name[pt_BR]=Baidu
@@ -104,6 +104,7 @@ Query[lt]=https://www.baidu.com/s?wd=\\{@}
 Query[my]=https://www.baidu.com/s?wd=\\{@}
 Query[nl]=https://www.baidu.com/s?wd=\\{@}
 Query[nn]=https://www.baidu.com/s?wd=\\{@}
+Query[pa]=https://www.baidu.com/s?wd=\\{@}
 Query[pl]=https://www.baidu.com/s?wd=\\{@}
 Query[pt]=https://www.baidu.com/s?wd=\\{@}
 Query[pt_BR]=https://www.baidu.com/s?wd=\\{@}

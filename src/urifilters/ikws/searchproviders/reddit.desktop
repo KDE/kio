@@ -17,6 +17,7 @@ Name[is]=Reddit
 Name[it]=Reddit
 Name[ko]=Reddit
 Name[nl]=Reddit
+Name[pa]=ਰੇਡਿਟ
 Name[pl]=Reddit
 Name[pt]=Reddit
 Name[pt_BR]=Reddit
@@ -49,6 +50,7 @@ Query[is]=https://www.reddit.com/search/?q=\\{@}
 Query[it]=https://www.reddit.com/search/?q=\\{@}
 Query[ko]=https://www.reddit.com/search/?q=\\{@}
 Query[nl]=https://www.reddit.com/search/?q=\\{@}
+Query[pa]=https://www.reddit.com/search/?q=\\{@}
 Query[pl]=https://www.reddit.com/search/?q=\\{@}
 Query[pt]=https://www.reddit.com/search/?q=\\{@}
 Query[pt_BR]=https://www.reddit.com/search/?q=\\{@}

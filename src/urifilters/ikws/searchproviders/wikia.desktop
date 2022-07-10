@@ -49,7 +49,7 @@ Name[nb]=Wikia
 Name[nds]=Wikia
 Name[nl]=Wikia
 Name[nn]=Wikia
-Name[pa]=ਵਿਕਿਆ
+Name[pa]=ਵਿਕੀਆ
 Name[pl]=Wikia
 Name[pt]=Wikia
 Name[pt_BR]=Wikia
@@ -104,6 +104,7 @@ Query[lt]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=
 Query[my]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[nl]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[nn]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
+Query[pa]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[pl]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[pt]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[pt_BR]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search

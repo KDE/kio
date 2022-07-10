@@ -122,6 +122,7 @@ Query[lt]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[my]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[nl]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[nn]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
+Query[pa]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[pl]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[pt]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[pt_BR]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}

@@ -103,6 +103,7 @@ Query[lt]=https://www.bing.com/search?q=\\{@}
 Query[my]=https://www.bing.com/search?q=\\{@}
 Query[nl]=https://www.bing.com/search?q=\\{@}
 Query[nn]=https://www.bing.com/search?q=\\{@}
+Query[pa]=https://www.bing.com/search?q=\\{@}
 Query[pl]=https://www.bing.com/search?q=\\{@}
 Query[pt]=https://www.bing.com/search?q=\\{@}
 Query[pt_BR]=https://www.bing.com/search?q=\\{@}

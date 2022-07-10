@@ -16,6 +16,7 @@ Name[is]=Microsoft C++ handbækur
 Name[it]=Documentazione su C++ di Microsoft
 Name[ko]=Microsoft C++ 문서
 Name[nl]=Microsoft C++ documentatie
+Name[pa]=Microsoft C++ ਦਸਤਾਵੇਜ਼
 Name[pl]=Dokumentacja Microsoft C++
 Name[pt]=Documentação do Microsoft C++
 Name[pt_BR]=Documentação C++ da Microsoft
@@ -47,6 +48,7 @@ Query[is]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[it]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[ko]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[nl]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
+Query[pa]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[pl]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[pt]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[pt_BR]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B

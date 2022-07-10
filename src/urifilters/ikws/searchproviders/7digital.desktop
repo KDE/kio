@@ -50,7 +50,7 @@ Name[nb]=7Digital
 Name[nds]=7Digital
 Name[nl]=7Digital
 Name[nn]=7Digital
-Name[pa]=੭ਡਿਜ਼ਿਟਲ
+Name[pa]=7ਡਿਜ਼ਿਟਲ
 Name[pl]=7Digital
 Name[pt]=7Digital
 Name[pt_BR]=7Digital
@@ -105,6 +105,7 @@ Query[lt]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=S
 Query[my]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[nl]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[nn]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
+Query[pa]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[pl]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[pt]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[pt_BR]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search

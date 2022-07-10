@@ -104,6 +104,7 @@ Query[lt]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[my]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[nl]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[nn]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
+Query[pa]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[pl]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[pt]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[pt_BR]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search

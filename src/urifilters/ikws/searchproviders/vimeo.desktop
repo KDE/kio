@@ -105,6 +105,7 @@ Query[lt]=https://vimeo.com/search?q=\\{@}
 Query[my]=https://vimeo.com/search?q=\\{@}
 Query[nl]=https://vimeo.com/search?q=\\{@}
 Query[nn]=https://vimeo.com/search?q=\\{@}
+Query[pa]=https://vimeo.com/search?q=\\{@}
 Query[pl]=https://vimeo.com/search?q=\\{@}
 Query[pt]=https://vimeo.com/search?q=\\{@}
 Query[pt_BR]=https://vimeo.com/search?q=\\{@}

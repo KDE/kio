@@ -20,6 +20,7 @@ Name[is]=Qt5-hjálparskjöl á netinu
 Name[it]=Documentazione in linea di Qt5
 Name[ko]=Qt5 온라인 문서
 Name[nl]=Qt5 online-documentatie
+Name[pa]=Qt5 ਆਨਲਾਈਨ ਦਸਤਾਵੇਜ਼
 Name[pl]=Dokumentacja Qt5 w sieci
 Name[pt]=Documentação 'Online' do Qt5
 Name[pt_BR]=Documentação on-line do Qt5
@@ -62,6 +63,7 @@ Query[lt]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[my]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[nl]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[nn]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
+Query[pa]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[pl]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[pt]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[pt_BR]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}

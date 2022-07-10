@@ -83,6 +83,7 @@ Query[lt]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[my]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[nl]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[nn]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
+Query[pa]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[pl]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[pt]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[pt_BR]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos

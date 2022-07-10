@@ -46,6 +46,7 @@ Query[is]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[it]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[ko]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[nl]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
+Query[pa]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[pl]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[pt]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[pt_BR]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}

@@ -30,6 +30,7 @@ Name[lt]=Soundcloud
 Name[my]=ဆောင်းကလောက်
 Name[nl]=Soundcloud
 Name[nn]=SoundCloud
+Name[pa]=ਸਾਊਂਡਕਲਾਊਡ
 Name[pl]=Soundcloud
 Name[pt]=Soundcloud
 Name[pt_BR]=Soundcloud
@@ -81,6 +82,7 @@ Query[lt]=https://soundcloud.com/search?q=\\{@}
 Query[my]=https://soundcloud.com/search?q=\\{@}
 Query[nl]=https://soundcloud.com/search?q=\\{@}
 Query[nn]=https://soundcloud.com/search?q=\\{@}
+Query[pa]=https://soundcloud.com/search?q=\\{@}
 Query[pl]=https://soundcloud.com/search?q=\\{@}
 Query[pt]=https://soundcloud.com/search?q=\\{@}
 Query[pt_BR]=https://soundcloud.com/search?q=\\{@}
