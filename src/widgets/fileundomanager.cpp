@@ -170,8 +170,11 @@ CommandRecorder::CommandRecorder(FileUndoManager::CommandType op, const QList<QU
 
 void CommandRecorder::slotResult(KJob *job)
 {
-    if (job->error()) {
-        qWarning() << job->errorString();
+    const int err = job->error();
+    if (err) {
+        if (err != KIO::ERR_USER_CANCELED) {
+            qCDebug(KIO_WIDGETS) << "CommandRecorder::slotResult:" << job->errorString() << " - no undo command will be added";
+        }
         return;
     }
 
