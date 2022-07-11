@@ -132,13 +132,32 @@ public:
     {
         Q_EMIT description(this, i18n("Creating directory"), qMakePair(i18n("Directory"), dir.toDisplayString()));
     }
+
+    static QString srcMsg()
+    {
+        return i18nc("The source of a file operation", "Source");
+    }
+    static QString destMsg()
+    {
+        return i18nc("The destination of a file operation", "Destination");
+    }
+
     void emitMoving(const QUrl &src, const QUrl &dest)
     {
-        Q_EMIT description(this,
+        Q_EMIT description(this, //
                            i18n("Moving"),
-                           qMakePair(i18nc("The source of a file operation", "Source"), src.toDisplayString()),
-                           qMakePair(i18nc("The destination of a file operation", "Destination"), dest.toDisplayString()));
+                           {srcMsg(), src.toDisplayString()},
+                           {destMsg(), dest.toDisplayString()});
     }
+
+    void emitRenaming(const QUrl &src, const QUrl &dest)
+    {
+        Q_EMIT description(this, //
+                           i18n("Renaming"),
+                           {srcMsg(), src.toDisplayString()},
+                           {destMsg(), dest.toDisplayString()});
+    }
+
     void emitDeleting(const QUrl &url)
     {
         Q_EMIT description(this, i18n("Deleting"), qMakePair(i18n("File"), url.toDisplayString()));
@@ -535,11 +554,15 @@ void FileUndoManagerPrivate::stepMovingFiles()
 
     const BasicOperation op = m_currentCmd.m_opQueue.head();
     Q_ASSERT(op.m_valid);
-    if (op.m_type == BasicOperation::Directory) {
+    if (op.m_type == BasicOperation::Directory || op.m_type == BasicOperation::Item) {
         Q_ASSERT(op.m_renamed);
         // qDebug() << "rename" << op.m_dst << op.m_src;
         m_currentJob = KIO::rename(op.m_dst, op.m_src, KIO::HideProgressInfo);
-        m_undoJob->emitMoving(op.m_dst, op.m_src);
+        if (op.m_type == BasicOperation::Item) { // BatchRenameJob
+            m_undoJob->emitRenaming(op.m_dst, op.m_src);
+        } else {
+            m_undoJob->emitMoving(op.m_dst, op.m_src);
+        }
     } else if (op.m_type == BasicOperation::Link) {
         // qDebug() << "symlink" << op.m_target << op.m_src;
         m_currentJob = KIO::symlink(op.m_target, op.m_src, KIO::Overwrite | KIO::HideProgressInfo);
