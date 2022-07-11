@@ -404,7 +404,7 @@ void FileUndoManagerPrivate::startUndo()
             // If any directory has to be created/deleted, we'll start with that
             m_undoState = MAKINGDIRS;
             // Collect all the dirs that have to be created in case of a move undo.
-            if (m_currentCmd.isMoveCommand()) {
+            if (m_currentCmd.isMoveOrRename()) {
                 m_dirStack.push((*it).m_src);
             }
             // Collect all dirs that have to be deleted
@@ -416,7 +416,7 @@ void FileUndoManagerPrivate::startUndo()
     }
     auto isBasicOperation = [this](const BasicOperation &op) {
         return (op.m_type == BasicOperation::Directory && !op.m_renamed) //
-            || (op.m_type == BasicOperation::Link && !m_currentCmd.isMoveCommand());
+            || (op.m_type == BasicOperation::Link && !m_currentCmd.isMoveOrRename());
     };
     opQueue.erase(std::remove_if(opQueue.begin(), opQueue.end(), isBasicOperation), opQueue.end());
 
@@ -551,7 +551,7 @@ void FileUndoManagerPrivate::stepMovingFiles()
                 m_undoJob->emitDeleting(op.m_dst);
                 m_undoState = MOVINGFILES;
             }
-        } else if (m_currentCmd.isMoveCommand() || m_currentCmd.m_type == FileUndoManager::Trash) {
+        } else if (m_currentCmd.isMoveOrRename() || m_currentCmd.m_type == FileUndoManager::Trash) {
             m_currentJob = KIO::file_move(op.m_dst, op.m_src, -1, KIO::HideProgressInfo);
             m_currentJob->uiDelegateExtension()->createClipboardUpdater(m_currentJob, JobUiDelegateExtension::UpdateContent);
             m_undoJob->emitMoving(op.m_dst, op.m_src);

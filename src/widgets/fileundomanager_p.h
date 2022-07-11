@@ -76,7 +76,7 @@ public:
     }
 
     // TODO: is ::TRASH missing?
-    bool isMoveCommand() const
+    bool isMoveOrRename() const
     {
         return m_type == FileUndoManager::Move || m_type == FileUndoManager::Rename;
     }
