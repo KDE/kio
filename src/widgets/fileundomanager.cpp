@@ -528,50 +528,51 @@ void FileUndoManagerPrivate::stepMakingDirectories()
 // deletes copied files, and restores trashed files.
 void FileUndoManagerPrivate::stepMovingFiles()
 {
-    if (!m_currentCmd.m_opQueue.isEmpty()) {
-        const BasicOperation op = m_currentCmd.m_opQueue.head();
-        Q_ASSERT(op.m_valid);
-        if (op.m_type == BasicOperation::Directory) {
-            Q_ASSERT(op.m_renamed);
-            // qDebug() << "rename" << op.m_dst << op.m_src;
-            m_currentJob = KIO::rename(op.m_dst, op.m_src, KIO::HideProgressInfo);
-            m_undoJob->emitMoving(op.m_dst, op.m_src);
-        } else if (op.m_type == BasicOperation::Link) {
-            // qDebug() << "symlink" << op.m_target << op.m_src;
-            m_currentJob = KIO::symlink(op.m_target, op.m_src, KIO::Overwrite | KIO::HideProgressInfo);
-        } else if (m_currentCmd.m_type == FileUndoManager::Copy) {
-            if (m_undoState == MOVINGFILES) { // dest not stat'ed yet
-                // Before we delete op.m_dst, let's check if it was modified (#20532)
-                // qDebug() << "stat" << op.m_dst;
-                m_currentJob = KIO::stat(op.m_dst, KIO::HideProgressInfo);
-                m_undoState = STATINGFILE; // temporarily
-                return; // no pop() yet, we'll finish the work in slotResult
-            } else { // dest was stat'ed, and the deletion was approved in slotResult
-                m_currentJob = KIO::file_delete(op.m_dst, KIO::HideProgressInfo);
-                m_undoJob->emitDeleting(op.m_dst);
-                m_undoState = MOVINGFILES;
-            }
-        } else if (m_currentCmd.isMoveOrRename() || m_currentCmd.m_type == FileUndoManager::Trash) {
-            m_currentJob = KIO::file_move(op.m_dst, op.m_src, -1, KIO::HideProgressInfo);
-            m_currentJob->uiDelegateExtension()->createClipboardUpdater(m_currentJob, JobUiDelegateExtension::UpdateContent);
-            m_undoJob->emitMoving(op.m_dst, op.m_src);
-        }
-
-        if (m_currentJob) {
-            m_currentJob->setParentJob(m_undoJob);
-        }
-
-        m_currentCmd.m_opQueue.dequeue();
-        // The above KIO jobs are lowlevel, they don't trigger KDirNotify notification
-        // So we need to do it ourselves (but schedule it to the end of the undo, to compress them)
-        QUrl url = op.m_dst.adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash);
-        addDirToUpdate(url);
-
-        url = op.m_src.adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash);
-        addDirToUpdate(url);
-    } else {
+    if (m_currentCmd.m_opQueue.isEmpty()) {
         m_undoState = REMOVINGLINKS;
+        return;
     }
+
+    const BasicOperation op = m_currentCmd.m_opQueue.head();
+    Q_ASSERT(op.m_valid);
+    if (op.m_type == BasicOperation::Directory) {
+        Q_ASSERT(op.m_renamed);
+        // qDebug() << "rename" << op.m_dst << op.m_src;
+        m_currentJob = KIO::rename(op.m_dst, op.m_src, KIO::HideProgressInfo);
+        m_undoJob->emitMoving(op.m_dst, op.m_src);
+    } else if (op.m_type == BasicOperation::Link) {
+        // qDebug() << "symlink" << op.m_target << op.m_src;
+        m_currentJob = KIO::symlink(op.m_target, op.m_src, KIO::Overwrite | KIO::HideProgressInfo);
+    } else if (m_currentCmd.m_type == FileUndoManager::Copy) {
+        if (m_undoState == MOVINGFILES) { // dest not stat'ed yet
+            // Before we delete op.m_dst, let's check if it was modified (#20532)
+            // qDebug() << "stat" << op.m_dst;
+            m_currentJob = KIO::stat(op.m_dst, KIO::HideProgressInfo);
+            m_undoState = STATINGFILE; // temporarily
+            return; // no pop() yet, we'll finish the work in slotResult
+        } else { // dest was stat'ed, and the deletion was approved in slotResult
+            m_currentJob = KIO::file_delete(op.m_dst, KIO::HideProgressInfo);
+            m_undoJob->emitDeleting(op.m_dst);
+            m_undoState = MOVINGFILES;
+        }
+    } else if (m_currentCmd.isMoveOrRename() || m_currentCmd.m_type == FileUndoManager::Trash) {
+        m_currentJob = KIO::file_move(op.m_dst, op.m_src, -1, KIO::HideProgressInfo);
+        m_currentJob->uiDelegateExtension()->createClipboardUpdater(m_currentJob, JobUiDelegateExtension::UpdateContent);
+        m_undoJob->emitMoving(op.m_dst, op.m_src);
+    }
+
+    if (m_currentJob) {
+        m_currentJob->setParentJob(m_undoJob);
+    }
+
+    m_currentCmd.m_opQueue.dequeue();
+    // The above KIO jobs are lowlevel, they don't trigger KDirNotify notification
+    // So we need to do it ourselves (but schedule it to the end of the undo, to compress them)
+    QUrl url = op.m_dst.adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash);
+    addDirToUpdate(url);
+
+    url = op.m_src.adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash);
+    addDirToUpdate(url);
 }
 
 void FileUndoManagerPrivate::stepRemovingLinks()
