@@ -178,6 +178,17 @@ void CommandRecorder::slotResult(KJob *job)
         return;
     }
 
+    // For CopyJob, don't add an undo command unless the job actually did something,
+    // e.g. if user selected to skip all, there is nothing to undo.
+    // Note: this doesn't apply to other job types, e.g. for Mkdir m_opQueue is
+    // expected to be empty
+    if (qobject_cast<KIO::CopyJob *>(job)) {
+        if (!m_cmd.m_opQueue.isEmpty()) {
+            FileUndoManager::self()->d->addCommand(m_cmd);
+        }
+        return;
+    }
+
     FileUndoManager::self()->d->addCommand(m_cmd);
 }
 

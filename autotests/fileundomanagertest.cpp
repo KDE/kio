@@ -769,5 +769,62 @@ void FileUndoManagerTest::testErrorDuringMoveUndo()
     QVERIFY(QFile::exists(destFile())); // still there
 }
 
+void FileUndoManagerTest::testNoUndoForSkipAll()
+{
+    auto *undoManager = FileUndoManager::self();
+
+    QTemporaryDir tempDir;
+    const QString tempPath = tempDir.path();
+
+    const QString destPath = tempPath + "/dest_dir";
+    QVERIFY(QDir(tempPath).mkdir("dest_dir"));
+    const QUrl destUrl = QUrl::fromLocalFile(destPath);
+
+    const QList<QUrl> lst{QUrl::fromLocalFile(tempPath + "/file_a"), QUrl::fromLocalFile(tempPath + "/file_b")};
+    for (const auto &url : lst) {
+        createTestFile(url.toLocalFile(), "foo");
+    }
+
+    auto createJob = [&]() {
+        return KIO::copy(lst, destUrl, KIO::HideProgressInfo);
+    };
+
+    KIO::CopyJob *job = createJob();
+    job->setUiDelegate(nullptr);
+    undoManager->recordCopyJob(job);
+
+    QSignalSpy spyUndoAvailable(undoManager, qOverload<bool>(&FileUndoManager::undoAvailable));
+    QVERIFY(spyUndoAvailable.isValid());
+    QSignalSpy spyTextChanged(undoManager, &FileUndoManager::undoTextChanged);
+    QVERIFY(spyTextChanged.isValid());
+
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
+
+    // Src files still exist
+    for (const auto &url : lst) {
+        QVERIFY(QFile::exists(url.toLocalFile()));
+    }
+
+    // Files copied to dest
+    for (const auto &url : lst) {
+        QVERIFY(QFile::exists(destPath + '/' + url.fileName()));
+    }
+
+    // An undo command was recorded
+    QCOMPARE(spyUndoAvailable.count(), 1);
+    QCOMPARE(spyTextChanged.count(), 1);
+
+    KIO::CopyJob *repeatCopy = createJob();
+    // Copying the same files again to the same dest, and setting skip all
+    repeatCopy->setAutoSkip(true);
+    undoManager->recordCopyJob(repeatCopy);
+
+    QVERIFY2(repeatCopy->exec(), qPrintable(repeatCopy->errorString()));
+
+    // No new undo command was added since the job didn't actually copy anything
+    QCOMPARE(spyUndoAvailable.count(), 1);
+    QCOMPARE(spyTextChanged.count(), 1);
+}
+
 // TODO: add test (and fix bug) for  DND of remote urls / "Link here" (creates .desktop files) // Undo (doesn't do anything)
 // TODO: add test for interrupting a moving operation and then using Undo - bug:91579

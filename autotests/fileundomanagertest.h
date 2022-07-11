@@ -33,8 +33,8 @@ private Q_SLOTS:
     void testPasteClipboardUndo(); // #318757
     void testBatchRename();
     void testUndoCopyOfDeletedFile();
-
     void testErrorDuringMoveUndo();
+    void testNoUndoForSkipAll();
 
     // TODO test renaming during a CopyJob.
     // Doesn't seem possible though, requires user interaction...
