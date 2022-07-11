@@ -1,6 +1,7 @@
 /*
     This file is part of the KDE libraries
     SPDX-FileCopyrightText: 2020 David Faure <faure@kde.org>
+    SPDX-FileCopyrightText: 2022 Harald Sitter <sitter@kde.org>
 
     SPDX-License-Identifier: LGPL-2.0-only OR LGPL-3.0-only OR LicenseRef-KDE-Accepted-LGPL
 */
@@ -22,6 +23,7 @@
 #include <KDesktopFile>
 #include <KLocalizedString>
 #include <KUrlAuthorized>
+#include <KSandbox>
 #include <QFileInfo>
 
 #include <KProtocolManager>
@@ -135,11 +137,6 @@ void KIO::OpenUrlJob::setFollowRedirections(bool b)
     d->m_followRedirections = b;
 }
 
-static bool checkNeedPortalSupport()
-{
-    return !(QStandardPaths::locate(QStandardPaths::RuntimeLocation, QLatin1String("flatpak-info")).isEmpty() || qEnvironmentVariableIsSet("SNAP"));
-}
-
 void KIO::OpenUrlJob::start()
 {
     if (!d->m_url.isValid() || d->m_url.scheme().isEmpty()) {
@@ -171,7 +168,7 @@ void KIO::OpenUrlJob::start()
     }
 #endif
 
-    if (d->m_externalBrowserEnabled && checkNeedPortalSupport()) {
+    if (d->m_externalBrowserEnabled && KSandbox::isInside()) {
         // Use the function from QDesktopServices as it handles portals correctly
         // Note that it falls back to "normal way" if the portal service isn't running.
         qtOpenUrl();

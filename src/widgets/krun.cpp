@@ -3,6 +3,7 @@
     SPDX-FileCopyrightText: 2000 Torben Weis <weis@kde.org>
     SPDX-FileCopyrightText: 2006 David Faure <faure@kde.org>
     SPDX-FileCopyrightText: 2009 Michael Pyne <michael.pyne@kdemail.net>
+    SPDX-FileCopyrightText: 2022 Harald Sitter <sitter@kde.org>
 
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
@@ -56,6 +57,7 @@
 #include <KProcess>
 #include <KSharedConfig>
 #include <KShell>
+#include <KSandbox>
 #include <KStandardGuiItem>
 
 #include <KIO/JobUiDelegate>
@@ -84,11 +86,6 @@ void KRunPrivate::startTimer()
 static KService::Ptr schemeService(const QString &protocol)
 {
     return KApplicationTrader::preferredService(QLatin1String("x-scheme-handler/") + protocol);
-}
-
-static bool checkNeedPortalSupport()
-{
-    return !QStandardPaths::locate(QStandardPaths::RuntimeLocation, QLatin1String("flatpak-info")).isEmpty() || qEnvironmentVariableIsSet("SNAP");
 }
 
 qint64 KRunPrivate::runCommandLauncherJob(KIO::CommandLauncherJob *job, QWidget *widget)
@@ -415,7 +412,7 @@ void KRun::init()
         return;
     }
 
-    if (d->m_externalBrowserEnabled && checkNeedPortalSupport()) {
+    if (d->m_externalBrowserEnabled && KSandbox::isInside()) {
         // use the function from QDesktopServices as it handles portals correctly
         d->m_bFault = !QDesktopServices::openUrl(d->m_strURL);
         d->m_bFinished = true;
