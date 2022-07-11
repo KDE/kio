@@ -87,9 +87,6 @@ KIOCORE_EXPORT QString KIO::buildErrorString(int errorCode, const QString &error
     case KIO::ERR_CYCLIC_LINK:
         result = i18n("Found a cyclic link in %1.", errorText);
         break;
-    case KIO::ERR_USER_CANCELED:
-        // Do nothing in this case. The user doesn't need to be told what he just did.
-        break;
     case KIO::ERR_CYCLIC_COPY:
         result = i18n("Found a cyclic link while copying %1.", errorText);
         break;
@@ -168,6 +165,9 @@ KIOCORE_EXPORT QString KIO::buildErrorString(int errorCode, const QString &error
     case KIO::ERR_CANNOT_AUTHENTICATE:
         result = i18n("Authorization failed, %1 authentication not supported", errorText);
         break;
+    case KIO::ERR_USER_CANCELED:
+        // Typically no message should be shown to the user in this case;
+        // however the text is set here only for debugging purposes.
     case KIO::ERR_ABORTED:
         result = i18n("User canceled action\n%1", errorText);
         break;
