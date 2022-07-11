@@ -8,7 +8,10 @@
 #ifndef PASTEJOB_P_H
 #define PASTEJOB_P_H
 
+#include "pastejob.h"
 #include <job_p.h>
+
+#include <QMimeData>
 
 namespace KIO
 {
