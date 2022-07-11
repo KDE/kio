@@ -150,7 +150,7 @@ public:
 
     FileUndoManager *const q;
 
-    UndoCommand m_current;
+    UndoCommand m_currentCmd;
     UndoState m_undoState;
     bool m_lock = false;
     bool m_connectedToAskUserInterface = false;
