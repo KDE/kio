@@ -2190,6 +2190,14 @@ void JobTest::copyFileDestAlreadyExists_data()
     QTest::newRow("manualSkip") << false;
 }
 
+static void simulatePressingSkip(KJob *job)
+{
+    // Simulate the user pressing "Skip" in the dialog.
+    job->setUiDelegate(new KJobUiDelegate);
+    auto *askUserHandler = new MockAskUserInterface(job->uiDelegate());
+    askUserHandler->m_skipResult = KIO::Result_Skip;
+}
+
 void JobTest::copyFileDestAlreadyExists() // to test skipping when copying
 {
     QFETCH(bool, autoSkip);
@@ -2210,10 +2218,7 @@ void JobTest::copyFileDestAlreadyExists() // to test skipping when copying
         job->setUiDelegate(nullptr);
         job->setAutoSkip(true);
     } else {
-        // Simulate the user pressing "Skip" in the dialog.
-        job->setUiDelegate(new KJobUiDelegate);
-        auto *askUserHandler = new MockAskUserInterface(job->uiDelegate());
-        askUserHandler->m_skipResult = KIO::Result_Skip;
+        simulatePressingSkip(job);
     }
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
     QVERIFY(QFile::exists(otherTmpDir() + "anotherFile"));
@@ -2393,10 +2398,7 @@ void JobTest::copyDirectoryAlreadyExistsSkip()
 
     job = KIO::copy(u, d, KIO::HideProgressInfo);
 
-    // Simulate the user pressing "Skip" in the dialog.
-    job->setUiDelegate(new KJobUiDelegate);
-    auto *askUserHandler = new MockAskUserInterface(job->uiDelegate());
-    askUserHandler->m_skipResult = KIO::Result_Skip;
+    simulatePressingSkip(job);
 
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
     QVERIFY(QFile::exists(dest + QStringLiteral("/a/testfile")));
