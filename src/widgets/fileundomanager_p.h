@@ -21,7 +21,16 @@ namespace KIO
 class FileUndoManagerAdaptor;
 
 struct BasicOperation {
-    enum Type { File, Link, Directory };
+    enum Type {
+        File,
+        Link,
+        Directory,
+        /**
+         * Used with BatchRenameJob, it doesn't stat the files/dirs it's renaming,
+         * so the file/dir distinction isn't available
+         */
+        Item,
+    };
 
     // for QDataStream deserialization
     BasicOperation()

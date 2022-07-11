@@ -192,7 +192,7 @@ void CommandRecorder::slotDirectoryCreated(const QUrl &dir)
 
 void CommandRecorder::slotBatchRenamingDone(const QUrl &from, const QUrl &to)
 {
-    m_cmd.m_opQueue.enqueue(BasicOperation(BasicOperation::Directory, true, from, to, {}));
+    m_cmd.m_opQueue.enqueue(BasicOperation(BasicOperation::Item, true, from, to, {}));
 }
 
 ////
