@@ -1646,8 +1646,20 @@ void KFilePropsPlugin::updateDefaultHandler(const QString &mimeType)
         d->m_ui->defaultHandlerLabel->setDisabled(false);
     } else {
         d->m_ui->defaultHandlerIcon->hide();
-        d->m_ui->defaultHandlerLabel->setText(i18n("No associated application"));
+        if (isGeneric) {
+            d->m_ui->defaultHandlerLabel->setText(i18n("No registered file type"));
+        } else {
+            d->m_ui->defaultHandlerLabel->setText(i18n("No associated application"));
+        }
         d->m_ui->defaultHandlerLabel->setDisabled(true);
+    }
+
+    if (isGeneric) {
+        d->m_ui->configureMimeBtn->setText(i18nc("@action:button Create new file type", "Create…"));
+        d->m_ui->configureMimeBtn->setIcon(QIcon::fromTheme(QStringLiteral("document-new")));
+    } else {
+        d->m_ui->configureMimeBtn->setText(i18nc("@action:button", "Change…"));
+        d->m_ui->configureMimeBtn->setIcon(QIcon::fromTheme(QStringLiteral("configure")));
     }
 }
 
