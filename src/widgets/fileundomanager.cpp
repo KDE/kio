@@ -581,7 +581,11 @@ void FileUndoManagerPrivate::stepMovingFiles()
     } else if (m_currentCmd.isMoveOrRename() || m_currentCmd.m_type == FileUndoManager::Trash) {
         m_currentJob = KIO::file_move(op.m_dst, op.m_src, -1, KIO::HideProgressInfo);
         m_currentJob->uiDelegateExtension()->createClipboardUpdater(m_currentJob, JobUiDelegateExtension::UpdateContent);
-        m_undoJob->emitMoving(op.m_dst, op.m_src);
+        if (m_currentCmd.m_type == FileUndoManager::Move) {
+            m_undoJob->emitMoving(op.m_dst, op.m_src);
+        } else if (m_currentCmd.m_type == FileUndoManager::Rename) {
+            m_undoJob->emitRenaming(op.m_dst, op.m_src);
+        }
     }
 
     if (m_currentJob) {
