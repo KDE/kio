@@ -1641,7 +1641,9 @@ void KFilePropsPlugin::updateDefaultHandler(const QString &mimeType)
     if (!isGeneric && service) {
         const int iconSize = properties->style()->pixelMetric(QStyle::PM_SmallIconSize);
         d->m_ui->defaultHandlerIcon->setPixmap(QIcon::fromTheme(service->icon()).pixmap(iconSize));
+        d->m_ui->defaultHandlerIcon->show();
         d->m_ui->defaultHandlerLabel->setText(service->name());
+        d->m_ui->defaultHandlerLabel->setDisabled(false);
     } else {
         d->m_ui->defaultHandlerIcon->hide();
         d->m_ui->defaultHandlerLabel->setText(i18n("No associated application"));
