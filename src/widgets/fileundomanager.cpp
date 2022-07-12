@@ -133,29 +133,15 @@ public:
         Q_EMIT description(this, i18n("Creating directory"), qMakePair(i18n("Directory"), dir.toDisplayString()));
     }
 
-    static QString srcMsg()
+    void emitMovingOrRenaming(const QUrl &src, const QUrl &dest, FileUndoManager::CommandType cmdType)
     {
-        return i18nc("The source of a file operation", "Source");
-    }
-    static QString destMsg()
-    {
-        return i18nc("The destination of a file operation", "Destination");
-    }
+        static const QString srcMsg(i18nc("The source of a file operation", "Source"));
+        static const QString destMsg(i18nc("The destination of a file operation", "Destination"));
 
-    void emitMoving(const QUrl &src, const QUrl &dest)
-    {
         Q_EMIT description(this, //
-                           i18n("Moving"),
-                           {srcMsg(), src.toDisplayString()},
-                           {destMsg(), dest.toDisplayString()});
-    }
-
-    void emitRenaming(const QUrl &src, const QUrl &dest)
-    {
-        Q_EMIT description(this, //
-                           i18n("Renaming"),
-                           {srcMsg(), src.toDisplayString()},
-                           {destMsg(), dest.toDisplayString()});
+                           cmdType == FileUndoManager::Move ? i18n("Moving") : i18n("Renaming"),
+                           {srcMsg, src.toDisplayString()},
+                           {destMsg, dest.toDisplayString()});
     }
 
     void emitDeleting(const QUrl &url)
@@ -558,11 +544,7 @@ void FileUndoManagerPrivate::stepMovingFiles()
         Q_ASSERT(op.m_renamed);
         // qDebug() << "rename" << op.m_dst << op.m_src;
         m_currentJob = KIO::rename(op.m_dst, op.m_src, KIO::HideProgressInfo);
-        if (op.m_type == BasicOperation::Item) { // BatchRenameJob
-            m_undoJob->emitRenaming(op.m_dst, op.m_src);
-        } else {
-            m_undoJob->emitMoving(op.m_dst, op.m_src);
-        }
+        m_undoJob->emitMovingOrRenaming(op.m_dst, op.m_src, m_currentCmd.m_type);
     } else if (op.m_type == BasicOperation::Link) {
         // qDebug() << "symlink" << op.m_target << op.m_src;
         m_currentJob = KIO::symlink(op.m_target, op.m_src, KIO::Overwrite | KIO::HideProgressInfo);
@@ -581,11 +563,7 @@ void FileUndoManagerPrivate::stepMovingFiles()
     } else if (m_currentCmd.isMoveOrRename() || m_currentCmd.m_type == FileUndoManager::Trash) {
         m_currentJob = KIO::file_move(op.m_dst, op.m_src, -1, KIO::HideProgressInfo);
         m_currentJob->uiDelegateExtension()->createClipboardUpdater(m_currentJob, JobUiDelegateExtension::UpdateContent);
-        if (m_currentCmd.m_type == FileUndoManager::Move) {
-            m_undoJob->emitMoving(op.m_dst, op.m_src);
-        } else if (m_currentCmd.m_type == FileUndoManager::Rename) {
-            m_undoJob->emitRenaming(op.m_dst, op.m_src);
-        }
+        m_undoJob->emitMovingOrRenaming(op.m_dst, op.m_src, m_currentCmd.m_type);
     }
 
     if (m_currentJob) {
