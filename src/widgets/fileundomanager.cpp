@@ -118,9 +118,8 @@ public:
         d_ptr->m_title = i18n("Undo Changes");
         d_ptr->m_message = i18n("Undoing this operation requires root privileges. Do you want to continue?");
     }
-    ~UndoJob() override
-    {
-    }
+
+    ~UndoJob() override = default;
 
     virtual void kill(bool) // TODO should be doKill
     {
@@ -240,9 +239,7 @@ FileUndoManager::FileUndoManager()
 {
 }
 
-FileUndoManager::~FileUndoManager()
-{
-}
+FileUndoManager::~FileUndoManager() = default;
 
 void FileUndoManager::recordJob(CommandType op, const QList<QUrl> &src, const QUrl &dst, KIO::Job *job)
 {
@@ -330,9 +327,9 @@ quint64 FileUndoManager::currentCommandSerialNumber() const
         const UndoCommand &cmd = d->m_commands.top();
         Q_ASSERT(cmd.m_valid);
         return cmd.m_serialNumber;
-    } else {
-        return 0;
     }
+
+    return 0;
 }
 
 void FileUndoManager::undo()
@@ -674,13 +671,12 @@ QByteArray FileUndoManagerPrivate::get() const
 
 void FileUndoManager::setUiInterface(UiInterface *ui)
 {
-    delete d->m_uiInterface;
-    d->m_uiInterface = ui;
+    d->m_uiInterface.reset(ui);
 }
 
 FileUndoManager::UiInterface *FileUndoManager::uiInterface() const
 {
-    return d->m_uiInterface;
+    return d->m_uiInterface.get();
 }
 
 ////
@@ -688,13 +684,8 @@ FileUndoManager::UiInterface *FileUndoManager::uiInterface() const
 class Q_DECL_HIDDEN FileUndoManager::UiInterface::UiInterfacePrivate
 {
 public:
-    UiInterfacePrivate()
-        : m_parentWidget(nullptr)
-        , m_showProgressInfo(true)
-    {
-    }
-    QWidget *m_parentWidget;
-    bool m_showProgressInfo;
+    QWidget *m_parentWidget = nullptr;
+    bool m_showProgressInfo = true;
 };
 
 FileUndoManager::UiInterface::UiInterface()
@@ -714,20 +705,23 @@ bool FileUndoManager::UiInterface::copiedFileWasModified(const QUrl &src, const 
     Q_UNUSED(srcTime); // not sure it should appear in the msgbox
     // Possible improvement: only show the time if date is today
     const QString timeStr = QLocale().toString(destTime, QLocale::ShortFormat);
-    return KMessageBox::warningContinueCancel(d->m_parentWidget,
-                                              i18n("The file %1 was copied from %2, but since then it has apparently been modified at %3.\n"
-                                                   "Undoing the copy will delete the file, and all modifications will be lost.\n"
-                                                   "Are you sure you want to delete %4?",
-                                                   dest.toDisplayString(QUrl::PreferLocalFile),
-                                                   src.toDisplayString(QUrl::PreferLocalFile),
-                                                   timeStr,
-                                                   dest.toDisplayString(QUrl::PreferLocalFile)),
-                                              i18n("Undo File Copy Confirmation"),
-                                              KStandardGuiItem::cont(),
-                                              KStandardGuiItem::cancel(),
-                                              QString(),
-                                              KMessageBox::Options(KMessageBox::Notify) | KMessageBox::Dangerous)
-        == KMessageBox::Continue;
+    const QString msg = i18n(
+        "The file %1 was copied from %2, but since then it has apparently been modified at %3.\n"
+        "Undoing the copy will delete the file, and all modifications will be lost.\n"
+        "Are you sure you want to delete %4?",
+        dest.toDisplayString(QUrl::PreferLocalFile),
+        src.toDisplayString(QUrl::PreferLocalFile),
+        timeStr,
+        dest.toDisplayString(QUrl::PreferLocalFile));
+
+    const auto result = KMessageBox::warningContinueCancel(d->m_parentWidget,
+                                                           msg,
+                                                           i18n("Undo File Copy Confirmation"),
+                                                           KStandardGuiItem::cont(),
+                                                           KStandardGuiItem::cancel(),
+                                                           QString(),
+                                                           KMessageBox::Options(KMessageBox::Notify) | KMessageBox::Dangerous);
+    return result == KMessageBox::Continue;
 }
 
 bool FileUndoManager::UiInterface::confirmDeletion(const QList<QUrl> &files)

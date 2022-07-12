@@ -61,10 +61,7 @@ struct BasicOperation {
 class UndoCommand
 {
 public:
-    UndoCommand()
-        : m_valid(false)
-    {
-    }
+    UndoCommand() = default;
 
     UndoCommand(FileUndoManager::CommandType type, const QList<QUrl> &src, const QUrl &dst, qint64 serialNumber)
         : m_valid(true)
@@ -86,7 +83,7 @@ public:
     QQueue<BasicOperation> m_opQueue;
     QList<QUrl> m_src;
     QUrl m_dst;
-    quint64 m_serialNumber;
+    quint64 m_serialNumber = 0;
 };
 
 // This class listens to a job, collects info while it's running (for copyjobs)
@@ -109,7 +106,13 @@ private:
     UndoCommand m_cmd;
 };
 
-enum UndoState { MAKINGDIRS = 0, MOVINGFILES, STATINGFILE, REMOVINGDIRS, REMOVINGLINKS };
+enum UndoState {
+    MAKINGDIRS = 0,
+    MOVINGFILES,
+    STATINGFILE,
+    REMOVINGDIRS,
+    REMOVINGLINKS,
+};
 
 // The private class is, exceptionally, a real QObject
 // so that it can be the class with the DBUS adaptor forwarding its signals.
@@ -119,10 +122,7 @@ class FileUndoManagerPrivate : public QObject
 public:
     explicit FileUndoManagerPrivate(FileUndoManager *qq);
 
-    ~FileUndoManagerPrivate() override
-    {
-        delete m_uiInterface;
-    }
+    ~FileUndoManagerPrivate() override = default;
 
     void pushCommand(const UndoCommand &cmd);
 
@@ -152,10 +152,10 @@ public:
     QStack<QUrl> m_dirCleanupStack;
     QStack<QUrl> m_fileCleanupStack; // files and links
     QList<QUrl> m_dirsToUpdate;
-    FileUndoManager::UiInterface *m_uiInterface;
+    std::unique_ptr<FileUndoManager::UiInterface> m_uiInterface;
 
     UndoJob *m_undoJob = nullptr;
-    quint64 m_nextCommandIndex;
+    quint64 m_nextCommandIndex = 0;
 
     FileUndoManager *const q;
 
