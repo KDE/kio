@@ -886,6 +886,7 @@ void KFileItemActionsPrivate::insertOpenWithActionsTo(QAction *before,
         isDir ?
             i18nc("@title:menu", "&Open Folder With...") :
             i18nc("@title:menu", "&Open With..."));
+    openWithAct->setIcon(QIcon::fromTheme(QStringLiteral("system-run")));
     openWithAct->setObjectName(QStringLiteral("openwith_browse")); // For the unittest
     QObject::connect(openWithAct, &QAction::triggered, this, &KFileItemActionsPrivate::slotOpenWithDialog);
 
