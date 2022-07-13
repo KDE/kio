@@ -160,9 +160,8 @@ static unsigned short entryToPermissions(acl_entry_t entry)
     if (acl_get_permset(entry, &permset) != 0) {
         return 0;
     }
-    return (ACLPortability::acl_get_perm(permset, ACL_READ) << 2
-          | ACLPortability::acl_get_perm(permset, ACL_WRITE) << 1
-          | ACLPortability::acl_get_perm(permset, ACL_EXECUTE));
+    return (ACLPortability::acl_get_perm(permset, ACL_READ) << 2 | ACLPortability::acl_get_perm(permset, ACL_WRITE) << 1
+            | ACLPortability::acl_get_perm(permset, ACL_EXECUTE));
 }
 
 static void permissionsToEntry(acl_entry_t entry, unsigned short v)

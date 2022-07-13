@@ -33,7 +33,8 @@ public:
     KCoreUrlNavigatorPrivate(KCoreUrlNavigator *qq);
 
     ~KCoreUrlNavigatorPrivate()
-    { }
+    {
+    }
 
     /**
      * Returns true, if the MIME type of the path represents a
@@ -84,7 +85,7 @@ int KCoreUrlNavigatorPrivate::adjustedHistoryIndex(int historyIndex) const
 
 // ------------------------------------------------------------------------------------------------
 
-KCoreUrlNavigator::KCoreUrlNavigator(const QUrl& url, QObject *parent)
+KCoreUrlNavigator::KCoreUrlNavigator(const QUrl &url, QObject *parent)
     : QObject(parent)
     , d(new KCoreUrlNavigatorPrivate(this))
 {

@@ -22,7 +22,6 @@
 #include <KLocalizedString>
 #include <kio/hostinfo.h>
 
-
 namespace
 {
 static int findString(const QString &s, const char *const *values)

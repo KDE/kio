@@ -42,7 +42,8 @@ static QMap<QString, QString> standardLocationsMap()
         for (const QString &location : locations) {
             map.insert(location, row.name);
         }
-        // Qt does not provide an easy way to receive the xdg dir for the templates and public directory so we have to find it on our own (QTBUG-86106 and QTBUG-78092)
+        // Qt does not provide an easy way to receive the xdg dir for the templates and public directory so we have to find it on our own (QTBUG-86106 and
+        // QTBUG-78092)
 #if QT_VERSION < QT_VERSION_CHECK(6, 4, 0)
 #ifdef Q_OS_UNIX
         const QString xdgUserDirs = QStandardPaths::locate(QStandardPaths::ConfigLocation, QStringLiteral("user-dirs.dirs"), QStandardPaths::LocateFile);

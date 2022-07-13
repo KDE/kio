@@ -125,10 +125,13 @@ int main(int argc, char **argv)
     // Enter debugger in case debugging is activated
     if (slaveDebugWait == "all" || slaveDebugWait == argv[2]) {
         const pid_t pid = getpid();
-        fprintf(stderr, "kioslave5: Suspending process to debug io slave(s): %s\n"
+        fprintf(stderr,
+                "kioslave5: Suspending process to debug io slave(s): %s\n"
                 "kioslave5: 'gdb kioslave5 %d' to debug\n"
                 "kioslave5: 'kill -SIGCONT %d' to continue\n",
-                slaveDebugWait.constData(), pid, pid);
+                slaveDebugWait.constData(),
+                pid,
+                pid);
 
         kill(pid, SIGSTOP);
     }

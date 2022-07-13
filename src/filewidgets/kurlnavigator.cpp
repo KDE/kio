@@ -46,8 +46,7 @@
 
 using namespace KDEPrivate;
 
-struct KUrlNavigatorData
-{
+struct KUrlNavigatorData {
     QUrl rootUrl; // KF6: remove after the deprecated methods have been removed
     QPoint pos; // KF6: remove after the deprecated methods have been removed
     QByteArray state;
@@ -57,7 +56,7 @@ Q_DECLARE_METATYPE(KUrlNavigatorData)
 class KUrlNavigatorPrivate
 {
 public:
-    KUrlNavigatorPrivate(const QUrl& url, KUrlNavigator *qq, KFilePlacesModel *placesModel);
+    KUrlNavigatorPrivate(const QUrl &url, KUrlNavigator *qq, KFilePlacesModel *placesModel);
 
     ~KUrlNavigatorPrivate()
     {
@@ -187,7 +186,7 @@ public:
     } m_subfolderOptions;
 };
 
-KUrlNavigatorPrivate::KUrlNavigatorPrivate(const QUrl& url, KUrlNavigator *qq, KFilePlacesModel *placesModel)
+KUrlNavigatorPrivate::KUrlNavigatorPrivate(const QUrl &url, KUrlNavigator *qq, KFilePlacesModel *placesModel)
     : q(qq)
     , m_coreUrlNavigator(new KCoreUrlNavigator(url, qq))
     , m_showPlacesSelector(placesModel != nullptr)
@@ -198,7 +197,7 @@ KUrlNavigatorPrivate::KUrlNavigatorPrivate(const QUrl& url, KUrlNavigator *qq, K
     q->connect(m_coreUrlNavigator, &KCoreUrlNavigator::currentLocationUrlChanged, q, [this]() {
         Q_EMIT q->urlChanged(m_coreUrlNavigator->currentLocationUrl());
     });
-    q->connect(m_coreUrlNavigator, &KCoreUrlNavigator::currentUrlAboutToChange, q, [this](const QUrl& url) {
+    q->connect(m_coreUrlNavigator, &KCoreUrlNavigator::currentUrlAboutToChange, q, [this](const QUrl &url) {
         Q_EMIT q->urlAboutToBeChanged(url);
     });
     q->connect(m_coreUrlNavigator, &KCoreUrlNavigator::historySizeChanged, q, [this]() {
@@ -659,9 +658,12 @@ void KUrlNavigatorPrivate::updateButtons(int startIndex)
                     dropUrls(destination, event, button);
                 });
 
-                q->connect(button, &KUrlNavigatorButton::navigatorButtonActivated, q, [this](const QUrl &url, Qt::MouseButton btn, Qt::KeyboardModifiers modifiers) {
-                    slotNavigatorButtonClicked(url, btn, modifiers);
-                });
+                q->connect(button,
+                           &KUrlNavigatorButton::navigatorButtonActivated,
+                           q,
+                           [this](const QUrl &url, Qt::MouseButton btn, Qt::KeyboardModifiers modifiers) {
+                               slotNavigatorButtonClicked(url, btn, modifiers);
+                           });
 
                 q->connect(button, &KUrlNavigatorButton::finishedTextResolving, q, [this]() {
                     updateButtonVisibility();
@@ -777,9 +779,8 @@ void KUrlNavigatorPrivate::updateButtonVisibility()
     } else {
         // Check whether going upwards is possible. If this is the case, show the drop-down button.
         QUrl url(m_navButtons.front()->url());
-        const bool visible = !url.matches(KIO::upUrl(url), QUrl::StripTrailingSlash)
-                && url.scheme() != QLatin1String("baloosearch")
-                && url.scheme() != QLatin1String("filenamesearch");
+        const bool visible = !url.matches(KIO::upUrl(url), QUrl::StripTrailingSlash) && url.scheme() != QLatin1String("baloosearch")
+            && url.scheme() != QLatin1String("filenamesearch");
         m_dropDownButton->setVisible(visible);
     }
 }

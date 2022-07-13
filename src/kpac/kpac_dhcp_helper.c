@@ -10,17 +10,17 @@
 #define _DEFAULT_SOURCE /* stop glibc whining about the previous line */
 
 #include <arpa/inet.h>
-#include <netinet/in.h>
-#include <sys/types.h>
-#include <sys/time.h>
-#include <sys/socket.h>
 #include <net/if.h>
+#include <netinet/in.h>
+#include <sys/socket.h>
+#include <sys/time.h>
+#include <sys/types.h>
 
 #include <grp.h>
-#include <netdb.h>
 #include <ifaddrs.h>
-#include <stdlib.h>
+#include <netdb.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <time.h>
 #include <unistd.h>
@@ -77,19 +77,17 @@ static int init_socket()
     addr.sin_addr.s_addr = INADDR_ANY;
     addr.sin_port = get_port("bootpc");
 
-    if ((proto = getprotobyname("udp")) == NULL ||
-            (sock = socket(AF_INET, SOCK_DGRAM, proto->p_proto)) == -1) {
+    if ((proto = getprotobyname("udp")) == NULL || (sock = socket(AF_INET, SOCK_DGRAM, proto->p_proto)) == -1) {
         exit(1);
     }
 
-    if (setsockopt(sock, SOL_SOCKET, SO_BROADCAST, &bcast, sizeof(bcast)) == -1 ||
-            setsockopt(sock, SOL_SOCKET, SO_REUSEADDR, &bcast, sizeof(bcast)) == -1 ||
-            bind(sock, (struct sockaddr *)&addr, sizeof(addr)) == -1) {
+    if (setsockopt(sock, SOL_SOCKET, SO_BROADCAST, &bcast, sizeof(bcast)) == -1 || setsockopt(sock, SOL_SOCKET, SO_REUSEADDR, &bcast, sizeof(bcast)) == -1
+        || bind(sock, (struct sockaddr *)&addr, sizeof(addr)) == -1) {
         exit(1);
     }
 
     if (set_gid(getgid()) != 0 || /* we don't need it anymore */
-            set_uid(getuid()) != 0) {
+        set_uid(getuid()) != 0) {
         exit(1);
     }
     return sock;
@@ -139,8 +137,7 @@ static struct response send_request_for(int sock, const char *hostname)
 
     *offs++ = DHCP_OPT_END;
 
-    if (sendto(sock, &request, sizeof(request), 0,
-               (struct sockaddr *)&addr, sizeof(addr)) != sizeof(request)) {
+    if (sendto(sock, &request, sizeof(request), 0, (struct sockaddr *)&addr, sizeof(addr)) != sizeof(request)) {
         r.err = -1;
         r.result = 0;
     }
@@ -175,8 +172,7 @@ static uint32_t send_request(int sock)
             continue;
         }
 
-        status = getnameinfo(ifa->ifa_addr, sizeof(struct sockaddr_in),
-                             hostname, NI_MAXHOST, NULL, 0, NI_NUMERICHOST);
+        status = getnameinfo(ifa->ifa_addr, sizeof(struct sockaddr_in), hostname, NI_MAXHOST, NULL, 0, NI_NUMERICHOST);
 
         if (status != 0) {
             continue;
@@ -215,14 +211,8 @@ static void get_reply(int sock, uint32_t xid)
     }
 
     end = (uint8_t *)&reply + len;
-    if (end < offs + 4 ||
-            end > &reply.options[DHCP_OPT_LEN] ||
-            reply.op != DHCP_BOOTREPLY ||
-            reply.xid != xid ||
-            *offs++ != DHCP_MAGIC1 ||
-            *offs++ != DHCP_MAGIC2 ||
-            *offs++ != DHCP_MAGIC3 ||
-            *offs++ != DHCP_MAGIC4) {
+    if (end < offs + 4 || end > &reply.options[DHCP_OPT_LEN] || reply.op != DHCP_BOOTREPLY || reply.xid != xid || *offs++ != DHCP_MAGIC1
+        || *offs++ != DHCP_MAGIC2 || *offs++ != DHCP_MAGIC3 || *offs++ != DHCP_MAGIC4) {
         exit(1);
     }
 
@@ -275,4 +265,3 @@ int main()
     close(sock);
     exit(1);
 }
-

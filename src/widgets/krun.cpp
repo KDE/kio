@@ -55,9 +55,9 @@
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <KProcess>
+#include <KSandbox>
 #include <KSharedConfig>
 #include <KShell>
-#include <KSandbox>
 #include <KStandardGuiItem>
 
 #include <KIO/JobUiDelegate>

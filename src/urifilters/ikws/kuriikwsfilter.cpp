@@ -18,7 +18,6 @@
 #include <QDBusConnection>
 #include <QLoggingCategory>
 
-
 namespace
 {
 Q_LOGGING_CATEGORY(category, "kf.kio.urifilters.ikws", QtWarningMsg)

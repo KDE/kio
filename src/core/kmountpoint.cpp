@@ -32,7 +32,7 @@ static const Qt::CaseSensitivity cs = Qt::CaseSensitive;
 #if HAVE_SYS_PARAM_H
 #include <sys/param.h>
 #endif
-// FreeBSD has a table of names of mount-options in mount.h, which is only 
+// FreeBSD has a table of names of mount-options in mount.h, which is only
 // defined (as MNTOPT_NAMES) if _WANT_MNTOPTNAMES is defined.
 #define _WANT_MNTOPTNAMES
 #include <sys/mount.h>
@@ -96,23 +96,21 @@ KMountPoint::~KMountPoint() = default;
 #if HAVE_GETMNTINFO
 
 #ifdef MNTOPT_NAMES
-static struct mntoptnames bsdOptionNames[] = {
-    MNTOPT_NAMES
-};
+static struct mntoptnames bsdOptionNames[] = {MNTOPT_NAMES};
 
 /** @brief Get mount options from @p flags and puts human-readable version in @p list
- * 
+ *
  * Appends all positive options found in @p flags to the @p list
  * This is roughly paraphrased from FreeBSD's mount.c, prmount().
  */
 static void translateMountOptions(QStringList &list, uint64_t flags)
 {
-    const struct mntoptnames* optionInfo = bsdOptionNames;
+    const struct mntoptnames *optionInfo = bsdOptionNames;
 
     // Not all 64 bits are useful option names
     flags = flags & MNT_VISFLAGMASK;
     // Chew up options as long as we're in the table and there
-    // are any flags left. 
+    // are any flags left.
     for (; flags != 0 && optionInfo->o_opt != 0; ++optionInfo) {
         if (flags & optionInfo->o_opt) {
             list.append(QString::fromLatin1(optionInfo->o_name));
@@ -122,7 +120,7 @@ static void translateMountOptions(QStringList &list, uint64_t flags)
 }
 #else
 /** @brief Get mount options from @p flags and puts human-readable version in @p list
- * 
+ *
  * This default version just puts the hex representation of @p flags
  * in the list, because there is no human-readable version.
  */

@@ -714,8 +714,8 @@ int KFileItemActionsPrivate::addPluginActionsTo(QMenu *mainMenu, QMenu *actionsM
                 connect(abstractPlugin, &KAbstractFileItemActionPlugin::error, q, &KFileItemActions::error);
                 m_loadedPlugins.insert(service->desktopEntryName(), abstractPlugin);
                 qCWarning(KIO_WIDGETS) << "The" << service->name()
-                                    << "plugin still installs the desktop file for plugin loading. Please use JSON metadata instead, see "
-                                    << "KAbstractFileItemActionPlugin class docs for instructions.";
+                                       << "plugin still installs the desktop file for plugin loading. Please use JSON metadata instead, see "
+                                       << "KAbstractFileItemActionPlugin class docs for instructions.";
             }
         }
         if (abstractPlugin) {
@@ -883,10 +883,7 @@ void KFileItemActionsPrivate::insertOpenWithActionsTo(QAction *before,
     }
 
     QAction *openWithAct = new QAction(this);
-    openWithAct->setText(
-        isDir ?
-            i18nc("@title:menu", "&Open Folder With...") :
-            i18nc("@title:menu", "&Open With..."));
+    openWithAct->setText(isDir ? i18nc("@title:menu", "&Open Folder With...") : i18nc("@title:menu", "&Open With..."));
     openWithAct->setIcon(QIcon::fromTheme(QStringLiteral("system-run")));
     openWithAct->setObjectName(QStringLiteral("openwith_browse")); // For the unittest
     QObject::connect(openWithAct, &QAction::triggered, this, &KFileItemActionsPrivate::slotOpenWithDialog);

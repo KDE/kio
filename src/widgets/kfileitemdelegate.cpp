@@ -1208,15 +1208,15 @@ void KFileItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
     // Compute the metrics, and lay out the text items
     // ========================================================================
     QColor labelColor = d->foregroundBrush(opt, index).color();
-    QColor infoColor  = labelColor;
+    QColor infoColor = labelColor;
     if (!(option.state & QStyle::State_Selected)) {
         // the code below is taken from Dolphin
         const QColor c2 = option.palette.base().color();
         const int p1 = 70;
         const int p2 = 100 - p1;
-        infoColor = QColor((labelColor.red()   * p1 + c2.red()   * p2) / 100,
+        infoColor = QColor((labelColor.red() * p1 + c2.red() * p2) / 100,
                            (labelColor.green() * p1 + c2.green() * p2) / 100,
-                           (labelColor.blue()  * p1 + c2.blue()  * p2) / 100);
+                           (labelColor.blue() * p1 + c2.blue() * p2) / 100);
 
         if (fileItem.isHidden()) {
             labelColor = infoColor;

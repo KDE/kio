@@ -187,7 +187,7 @@ static bool addToXbel(const QUrl &url, const QString &desktopEntryName, KRecentD
         if (xml.readNext() == QXmlStreamReader::EndElement && xml.name() == xbelTag) {
             break;
         }
-        switch(xml.tokenType()) {
+        switch (xml.tokenType()) {
         case QXmlStreamReader::StartElement: {
             QString tagName = xml.qualifiedName().toString();
             QXmlStreamAttributes attributes = xml.attributes();
@@ -339,8 +339,7 @@ static QMap<QUrl, QDateTime> xbelRecentlyUsedList()
 
     QXmlStreamReader xml(&input);
     xml.readNextStartElement();
-    if (xml.name() != QLatin1String("xbel")
-            || xml.attributes().value(QLatin1String("version")) != QLatin1String("1.0")) {
+    if (xml.name() != QLatin1String("xbel") || xml.attributes().value(QLatin1String("version")) != QLatin1String("1.0")) {
         qCWarning(KIO_CORE) << "The file is not an XBEL version 1.0 file.";
         return ret;
     }
@@ -418,8 +417,7 @@ QList<QUrl> KRecentDocument::recentUrls()
 QStringList KRecentDocument::recentDocuments()
 {
     // TODO KF6: Consider deprecating this, also see the comment above in recentUrls()
-    QDir d(recentDocumentDirectory(), QStringLiteral("*.desktop"), QDir::Time,
-           QDir::Files | QDir::Readable | QDir::Hidden);
+    QDir d(recentDocumentDirectory(), QStringLiteral("*.desktop"), QDir::Time, QDir::Files | QDir::Readable | QDir::Hidden);
 
     if (!d.exists()) {
         d.mkdir(recentDocumentDirectory());

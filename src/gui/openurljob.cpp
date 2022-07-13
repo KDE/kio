@@ -22,8 +22,8 @@
 #include <KConfigGroup>
 #include <KDesktopFile>
 #include <KLocalizedString>
-#include <KUrlAuthorized>
 #include <KSandbox>
+#include <KUrlAuthorized>
 #include <QFileInfo>
 
 #include <KProtocolManager>

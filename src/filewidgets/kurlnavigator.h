@@ -281,7 +281,7 @@ public:
      */
     QWidget *dropWidget() const;
 
-    /** 
+    /**
      * Sets whether to show hidden folders in the subdirectories popup.
      * @since 5.87
      */
@@ -293,7 +293,7 @@ public:
      */
     bool showHiddenFolders() const;
 
-    /** 
+    /**
      * Sets whether to sort hidden folders in the subdirectories popup last.
      * @since 5.87
      */

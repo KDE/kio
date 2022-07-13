@@ -34,7 +34,6 @@ class KFileItemPrivate;
  */
 class KIOCORE_EXPORT KFileItem
 {
-
     Q_GADGET
 
     Q_PROPERTY(QUrl url READ url WRITE setUrl)

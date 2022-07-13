@@ -106,7 +106,7 @@ OpenFileManagerWindowJob *highlightInFileManager(const QList<QUrl> &urls, const 
     auto *job = new OpenFileManagerWindowJob();
     job->setHighlightUrls(urls);
 
-    if (asn.isNull()){
+    if (asn.isNull()) {
         auto window = qGuiApp->focusWindow();
         if (!window && !qGuiApp->allWindows().isEmpty()) {
             window = qGuiApp->allWindows().constFirst();

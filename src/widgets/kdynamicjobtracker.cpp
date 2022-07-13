@@ -49,9 +49,7 @@ public:
         while (!xml.atEnd() && !xml.hasError()) {
             xml.readNext();
 
-            if (xml.tokenType() == QXmlStreamReader::StartElement
-                    && xml.name() == QLatin1String("interface")) {
-
+            if (xml.tokenType() == QXmlStreamReader::StartElement && xml.name() == QLatin1String("interface")) {
                 if (xml.attributes().value(QLatin1String("name")) == interface) {
                     return true;
                 }
@@ -65,12 +63,7 @@ public:
     KWidgetJobTracker *widgetTracker = nullptr;
     QMap<KJob *, AllTrackers> trackers;
 
-    enum JobViewServerSupport {
-        NeedsChecking,
-        Error,
-        V2Supported,
-        V2NotSupported
-    };
+    enum JobViewServerSupport { NeedsChecking, Error, V2Supported, V2NotSupported };
     JobViewServerSupport jobViewServerSupport = NeedsChecking;
     QDBusServiceWatcher *jobViewServerWatcher = nullptr;
 };
@@ -135,7 +128,7 @@ void KDynamicJobTracker::registerJob(KJob *job)
                                                           QStringLiteral("org.freedesktop.DBus.Introspectable"),
                                                           QStringLiteral("Introspect"));
         auto reply = QDBusConnection::sessionBus().call(msg);
-        if (reply.type() == QDBusMessage::ErrorMessage || reply.arguments().count() != 1)  {
+        if (reply.type() == QDBusMessage::ErrorMessage || reply.arguments().count() != 1) {
             qCWarning(KIO_WIDGETS) << "Failed to check which JobView API is supported" << reply.errorMessage();
             d->jobViewServerSupport = KDynamicJobTrackerPrivate::Error;
         } else {
@@ -173,10 +166,7 @@ void KDynamicJobTracker::registerJob(KJob *job)
         bool needsWidgetTracker = d->jobViewServerSupport == KDynamicJobTrackerPrivate::Error;
 
         if (!needsWidgetTracker) {
-            org::kde::kuiserver interface(kuiserverService,
-                                          QStringLiteral("/JobViewServer"),
-                                          QDBusConnection::sessionBus(),
-                                          this);
+            org::kde::kuiserver interface(kuiserverService, QStringLiteral("/JobViewServer"), QDBusConnection::sessionBus(), this);
             QDBusReply<bool> reply = interface.requiresJobTracker();
             needsWidgetTracker = !reply.isValid() || reply.value();
         }

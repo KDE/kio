@@ -396,7 +396,7 @@ void KUrlNavigatorButton::startSubDirsJob()
     }
 
     const QUrl url = m_replaceButton ? KIO::upUrl(m_url) : m_url;
-    const KUrlNavigator *urlNavigator = qobject_cast<KUrlNavigator*>(parent());
+    const KUrlNavigator *urlNavigator = qobject_cast<KUrlNavigator *>(parent());
     Q_ASSERT(urlNavigator);
     m_subDirsJob = KIO::listDir(url, KIO::HideProgressInfo, urlNavigator->showHiddenFolders());
     m_subDirs.clear(); // just to be ++safe
@@ -464,8 +464,7 @@ void KUrlNavigatorButton::statFinished(KJob *job)
 /**
  * Helper struct for sorting folder names
  */
-struct FolderNameNaturalLessThan
-{
+struct FolderNameNaturalLessThan {
     FolderNameNaturalLessThan(bool sortHiddenLast)
         : m_sortHiddenLast(sortHiddenLast)
     {
@@ -503,7 +502,7 @@ void KUrlNavigatorButton::openSubDirsMenu(KJob *job)
         return;
     }
 
-    const KUrlNavigator *urlNavigator = qobject_cast<KUrlNavigator*>(parent());
+    const KUrlNavigator *urlNavigator = qobject_cast<KUrlNavigator *>(parent());
     Q_ASSERT(urlNavigator);
     FolderNameNaturalLessThan less(urlNavigator->showHiddenFolders() && urlNavigator->sortHiddenFoldersLast());
     std::sort(m_subDirs.begin(), m_subDirs.end(), less);
@@ -550,7 +549,7 @@ void KUrlNavigatorButton::replaceButton(KJob *job)
         return;
     }
 
-    const KUrlNavigator *urlNavigator = qobject_cast<KUrlNavigator*>(parent());
+    const KUrlNavigator *urlNavigator = qobject_cast<KUrlNavigator *>(parent());
     Q_ASSERT(urlNavigator);
     FolderNameNaturalLessThan less(urlNavigator->showHiddenFolders() && urlNavigator->sortHiddenFoldersLast());
     std::sort(m_subDirs.begin(), m_subDirs.end(), less);

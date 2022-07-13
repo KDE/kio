@@ -15,6 +15,7 @@
 #include <QApplication>
 #include <QCheckBox>
 #include <QDialogButtonBox>
+#include <QIcon>
 #include <QKeyEvent>
 #include <QLabel>
 #include <QLayout>
@@ -25,12 +26,12 @@
 #include <QStyle>
 #include <QStyleOptionButton>
 #include <QtAlgorithms>
-#include <QIcon>
 
 #include <KAuthorized>
 #include <KCollapsibleGroupBox>
 #include <KDesktopFile>
 #include <KHistoryComboBox>
+#include <KIO/CommandLauncherJob>
 #include <KLineEdit>
 #include <KLocalizedString>
 #include <KMessageBox>
@@ -40,7 +41,6 @@
 #include <KStringHandler>
 #include <QDebug>
 #include <kio/desktopexecparser.h>
-#include <KIO/CommandLauncherJob>
 #include <kurlauthorized.h>
 #include <kurlcompletion.h>
 #include <kurlrequester.h>
@@ -787,8 +787,7 @@ void KOpenWithDialogPrivate::init(const QString &_text, const QString &_value)
 
     topLayout->addWidget(dialogExtension);
 
-    if (!qMimeType.isNull() && KService::serviceByDesktopName(QStringLiteral("org.kde.discover")))
-    {
+    if (!qMimeType.isNull() && KService::serviceByDesktopName(QStringLiteral("org.kde.discover"))) {
         QPushButton *discoverButton = new QPushButton(QIcon::fromTheme(QStringLiteral("plasmadiscover")), i18n("Get more Apps from Discover"));
         QObject::connect(discoverButton, &QPushButton::clicked, q, [this]() {
             discoverButtonClicked();
@@ -1030,7 +1029,8 @@ bool KOpenWithDialogPrivate::checkAccept()
             if (QFileInfo::exists(binaryName)) {
                 KMessageBox::error(q, xi18nc("@info", "<filename>%1</filename> does not appear to be an executable program.", binaryName));
             } else {
-                KMessageBox::error(q, xi18nc("@info", "<filename>%1</filename> was not found; please enter a valid path to an executable program.", binaryName));
+                KMessageBox::error(q,
+                                   xi18nc("@info", "<filename>%1</filename> was not found; please enter a valid path to an executable program.", binaryName));
             }
 
             return false;

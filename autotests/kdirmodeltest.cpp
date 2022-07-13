@@ -1676,7 +1676,7 @@ void KDirModelTest::testDeleteDirectory()
 
     // Not emitted because DeleteJobPrivate::currentSourceStated calls stopDirScan
     // We don't need it anyway, we have the DBus signal
-    //QCOMPARE(spyDirWatchDeleted.count(), 1);
+    // QCOMPARE(spyDirWatchDeleted.count(), 1);
 }
 
 void KDirModelTest::testDeleteCurrentDirectory()

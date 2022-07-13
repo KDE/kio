@@ -390,7 +390,7 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
     });
     connect(d->m_urlNavigator, &KUrlNavigator::returnPressed, d->m_ops, qOverload<>(&QWidget::setFocus));
 
-   // Location, "Name:", line-edit and label
+    // Location, "Name:", line-edit and label
     d->initLocationWidget();
 
     // "Filter:" line-edit and label

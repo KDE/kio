@@ -753,7 +753,7 @@ KFilePlacesView::KFilePlacesView(QWidget *parent)
 
     d->m_watcher->m_scroller = QScroller::scroller(viewport());
     QScrollerProperties scrollerProp;
-    scrollerProp.setScrollMetric(QScrollerProperties::AcceleratingFlickMaximumTime, 0.2); //QTBUG-88249
+    scrollerProp.setScrollMetric(QScrollerProperties::AcceleratingFlickMaximumTime, 0.2); // QTBUG-88249
     d->m_watcher->m_scroller->setScrollerProperties(scrollerProp);
     d->m_watcher->m_scroller->grabGesture(viewport());
     connect(d->m_watcher->m_scroller, &QScroller::stateChanged, d->m_watcher, &KFilePlacesEventWatcher::qScrollerStateChanged);

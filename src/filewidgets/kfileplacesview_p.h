@@ -18,8 +18,8 @@
 #include <QGestureEvent>
 #include <QMouseEvent>
 #include <QPointer>
-#include <QTimer>
 #include <QScroller>
+#include <QTimer>
 
 class KFilePlacesView;
 class QTimeLine;
@@ -289,8 +289,8 @@ protected:
             break;
         }
         case QEvent::Gesture: {
-                gestureEvent(static_cast<QGestureEvent *>(event));
-                event->accept();
+            gestureEvent(static_cast<QGestureEvent *>(event));
+            event->accept();
             return true;
         }
         default:
@@ -300,7 +300,8 @@ protected:
         return false;
     }
 
-    void onPressed(QMouseEvent *mouseEvent) {
+    void onPressed(QMouseEvent *mouseEvent)
+    {
         if (mouseEvent->button() == Qt::LeftButton || mouseEvent->button() == Qt::MiddleButton) {
             QAbstractItemView *view = qobject_cast<QAbstractItemView *>(q);
             const QModelIndex index = view->indexAt(mouseEvent->pos());
@@ -318,7 +319,8 @@ protected:
         }
     }
 
-    void gestureEvent(QGestureEvent *event) {
+    void gestureEvent(QGestureEvent *event)
+    {
         if (QGesture *gesture = event->gesture(Qt::TapGesture)) {
             tapTriggered(static_cast<QTapGesture *>(gesture));
         }
@@ -327,7 +329,8 @@ protected:
         }
     }
 
-    void tapAndHoldTriggered(QTapAndHoldGesture *tap) {
+    void tapAndHoldTriggered(QTapAndHoldGesture *tap)
+    {
         if (tap->state() == Qt::GestureFinished) {
             if (!m_mousePressed) {
                 return;
@@ -343,8 +346,7 @@ protected:
 
             // simulate a mousePressEvent, to allow KFilePlacesView to select the items
             const QPoint tapViewportPos(q->viewport()->mapFromGlobal(tap->position().toPoint()));
-            QMouseEvent fakeMousePress(QEvent::MouseButtonPress, tapViewportPos,
-                                       Qt::LeftButton, Qt::LeftButton, Qt::NoModifier);
+            QMouseEvent fakeMousePress(QEvent::MouseButtonPress, tapViewportPos, Qt::LeftButton, Qt::LeftButton, Qt::NoModifier);
             onPressed(&fakeMousePress);
             q->mousePressEvent(&fakeMousePress);
 
@@ -356,7 +358,8 @@ protected:
         }
     }
 
-    void tapTriggered(QTapGesture *tap) {
+    void tapTriggered(QTapGesture *tap)
+    {
         static bool scrollerWasScrolling = false;
 
         if (tap->state() == Qt::GestureStarted) {
@@ -383,10 +386,11 @@ protected:
                 m_rubberBand->hide();
             }
             // simulate a mousePressEvent, to allow KFilePlacesView to select the items
-            QMouseEvent fakeMousePress(QEvent::MouseButtonPress, tap->position(),
-                                    m_tapAndHoldActive ? Qt::RightButton : Qt::LeftButton,
-                                    m_tapAndHoldActive ? Qt::RightButton : Qt::LeftButton,
-                                    Qt::NoModifier);
+            QMouseEvent fakeMousePress(QEvent::MouseButtonPress,
+                                       tap->position(),
+                                       m_tapAndHoldActive ? Qt::RightButton : Qt::LeftButton,
+                                       m_tapAndHoldActive ? Qt::RightButton : Qt::LeftButton,
+                                       Qt::NoModifier);
             onPressed(&fakeMousePress);
             q->mousePressEvent(&fakeMousePress);
 

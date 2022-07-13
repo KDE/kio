@@ -14,8 +14,8 @@
 #include "kiogui_export.h"
 
 #include <QByteArray>
-#include <QUrl>
 #include <QObject>
+#include <QUrl>
 
 #include <memory>
 
@@ -30,7 +30,7 @@ class KCoreUrlNavigatorPrivate;
  * @class KCoreUrlNavigator kcoreurlnavigator.h <KCoreUrlNavigator>
  *
  * @brief Object that helps with keeping track of URLs in file-manager like interfaces.
- * 
+ *
  * @since 5.93
  */
 class KIOGUI_EXPORT KCoreUrlNavigator : public QObject
@@ -41,11 +41,10 @@ public:
     KCoreUrlNavigator(const QUrl &url = QUrl(), QObject *parent = nullptr);
     ~KCoreUrlNavigator() override;
 
-
     Q_PROPERTY(QUrl currentLocationUrl READ currentLocationUrl WRITE setCurrentLocationUrl NOTIFY currentLocationUrlChanged)
 
     QUrl currentLocationUrl() const;
-    void setCurrentLocationUrl(const QUrl& url);
+    void setCurrentLocationUrl(const QUrl &url);
     Q_SIGNAL void currentLocationUrlChanged();
 
     /**

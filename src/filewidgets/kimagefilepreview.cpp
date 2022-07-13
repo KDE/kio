@@ -40,7 +40,6 @@ public:
         }
     }
 
-
     void slotResult(KJob *);
     void slotFailed(const KFileItem &);
     void slotStepAnimation();

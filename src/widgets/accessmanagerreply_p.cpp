@@ -20,7 +20,6 @@
 #include <QSslConfiguration>
 #include <QtMath>
 
-
 namespace KDEPrivate
 {
 AccessManagerReply::AccessManagerReply(const QNetworkAccessManager::Operation op,

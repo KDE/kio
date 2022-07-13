@@ -54,8 +54,9 @@
 
 #include "job_p.h"
 
-namespace  {
-    static int s_defaultDevicePixelRatio = 1;
+namespace
+{
+static int s_defaultDevicePixelRatio = 1;
 }
 
 namespace KIO
@@ -977,7 +978,8 @@ void PreviewJobPrivate::emitPreview(const QImage &thumb)
     Q_Q(PreviewJob);
     QPixmap pix;
     if (thumb.width() > width * thumb.devicePixelRatio() || thumb.height() > height * thumb.devicePixelRatio()) {
-        pix = QPixmap::fromImage(thumb.scaled(QSize(width * thumb.devicePixelRatio(), height * thumb.devicePixelRatio()), Qt::KeepAspectRatio, Qt::SmoothTransformation));
+        pix = QPixmap::fromImage(
+            thumb.scaled(QSize(width * thumb.devicePixelRatio(), height * thumb.devicePixelRatio()), Qt::KeepAspectRatio, Qt::SmoothTransformation));
     } else {
         pix = QPixmap::fromImage(thumb);
     }

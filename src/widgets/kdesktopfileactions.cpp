@@ -321,7 +321,7 @@ void KDesktopFileActions::executeService(const QList<QUrl> &urls, const KService
         KIO::ApplicationLauncherJob *job = new KIO::ApplicationLauncherJob(action);
         job->setUrls(urls);
         QObject::connect(job, &KJob::result, qApp, [urls]() {
-            // The action may update the desktop file. Example: eject unmounts (#5129).
+        // The action may update the desktop file. Example: eject unmounts (#5129).
 #ifndef KIO_ANDROID_STUB
             org::kde::KDirNotify::emitFilesChanged(urls);
 #endif

@@ -16,7 +16,6 @@
 #include <QHostInfo>
 #include <QLoggingCategory>
 
-
 namespace
 {
 Q_LOGGING_CATEGORY(category, "kf.kio.urifilters.localdomain", QtWarningMsg)

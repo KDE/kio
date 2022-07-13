@@ -30,8 +30,8 @@
 #include <QDebug>
 #include <kmountpoint.h>
 
-#include <cerrno>
 #include <array>
+#include <cerrno>
 #include <stdint.h>
 #include <utime.h>
 
@@ -600,11 +600,15 @@ bool FileProtocol::copyXattrs(const int src_fd, const int dest_fd)
         // Get size of the key
 #if HAVE_SYS_XATTR_H
         keyLen = strlen(keyPtr);
-        auto next_key = [&]() { keyPtr += keyLen + 1; };
+        auto next_key = [&]() {
+            keyPtr += keyLen + 1;
+        };
 #elif HAVE_SYS_EXTATTR_H
         keyLen = static_cast<unsigned char>(*keyPtr);
         keyPtr++;
-        auto next_key = [&]() { keyPtr += keyLen; };
+        auto next_key = [&]() {
+            keyPtr += keyLen;
+        };
 #endif
         QByteArray key(keyPtr, keyLen);
 

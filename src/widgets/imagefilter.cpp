@@ -46,7 +46,6 @@ static const quint32 stack_blur8_shr[255] = {
 
 inline static void blurHorizontal(QImage &image, unsigned int *stack, int div, int radius)
 {
-
     quint32 *const pixels = reinterpret_cast<quint32 *>(image.bits());
     quint32 pixel = 0;
 
