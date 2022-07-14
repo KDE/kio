@@ -63,7 +63,12 @@ public:
     KWidgetJobTracker *widgetTracker = nullptr;
     QMap<KJob *, AllTrackers> trackers;
 
-    enum JobViewServerSupport { NeedsChecking, Error, V2Supported, V2NotSupported };
+    enum JobViewServerSupport {
+        NeedsChecking,
+        Error,
+        V2Supported,
+        V2NotSupported,
+    };
     JobViewServerSupport jobViewServerSupport = NeedsChecking;
     QDBusServiceWatcher *jobViewServerWatcher = nullptr;
 };

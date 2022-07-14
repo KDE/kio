@@ -41,30 +41,78 @@ public:
     // Note: run   printf "0x%08X\n" $(($RANDOM*$RANDOM))
     // to define additional roles.
     enum AdditionalRoles {
-        UrlRole = 0x069CD12B, /// @see url(). roleName is "url".
-        HiddenRole = 0x0741CAAC, /// @see isHidden(). roleName is "isHidden".
-        SetupNeededRole = 0x059A935D, /// @see setupNeeded(). roleName is "isSetupNeeded".
-        FixedDeviceRole = 0x332896C1, /// Whether the place is a fixed device (neither hotpluggable nor removable). roleName is "isFixedDevice".
-        CapacityBarRecommendedRole =
-            0x1548C5C4, /// Whether the place should have its free space displayed in a capacity bar. roleName is "isCapacityBarRecommended".
-        GroupRole = 0x0a5b64ee, ///< The name of the group, for example "Remote" or "Devices". @since 5.40. roleName is "group".
-        IconNameRole = 0x00a45c00, ///< @since 5.41 @see icon(). roleName is "iconName".
-        GroupHiddenRole = 0x21a4b936, ///< @since 5.42 @see isGroupHidden(). roleName is "isGroupHidden".
-        TeardownAllowedRole = 0x02533364, ///< @since 5.91 @see isTeardownAllowed(). roleName is "isTeardownAllowed".
-        EjectAllowedRole = 0x0A16AC5B, ///< @since 5.94. roleName is "isEjectAllowed".
-        TeardownOverlayRecommendedRole = 0x032EDCCE, ///< @since 5.95. @see isTeardownOverlayRecommended(). roleName is "isTeardownOverlayRecommended".
+        /** roleName is "url". @see url() */
+        UrlRole = 0x069CD12B,
+
+        /** roleName is "isHidden". @see isHidden() */
+        HiddenRole = 0x0741CAAC,
+
+        /** roleName is "isSetupNeeded". @see setupNeeded() */
+        SetupNeededRole = 0x059A935D,
+
+        /**
+         * Whether the place is a fixed device (neither hotpluggable nor removable).
+         * roleName is "isFixedDevice".
+         */
+        FixedDeviceRole = 0x332896C1,
+
+        /**
+         * Whether the place should have its free space displayed in a capacity bar.
+         * roleName is "isCapacityBarRecommended".
+         */
+        CapacityBarRecommendedRole = 0x1548C5C4,
+
+        /**
+         * The name of the group, for example "Remote" or "Devices". roleName is "group".
+         * @since 5.40
+         */
+        GroupRole = 0x0a5b64ee,
+
+        /**
+         * roleName is "iconName".
+         * @see icon()
+         * @since 5.41
+         */
+        IconNameRole = 0x00a45c00,
+
+        /** roleName is "isGroupHidden".
+         * @see isGroupHidden()
+         * @since 5.42
+         */
+        GroupHiddenRole = 0x21a4b936,
+
+        /** roleName is "isTeardownAllowed".
+         * @see isTeardownAllowed().
+         * @since 5.91
+         */
+        TeardownAllowedRole = 0x02533364,
+
+        /** roleName is "isEjectAllowed".
+         * @since 5.94.
+         */
+        EjectAllowedRole = 0x0A16AC5B,
+
+        /**
+         * roleName is "isTeardownOverlayRecommended".
+         * @see isTeardownOverlayRecommended()
+         * @since 5.95
+         */
+        TeardownOverlayRecommendedRole = 0x032EDCCE,
     };
 
-    /// @since 5.42
+    /**
+     * Describes the available group types used in this model.
+     * @since 5.42
+     */
     enum GroupType {
-        PlacesType,
-        RemoteType,
-        RecentlySavedType,
-        SearchForType,
-        DevicesType,
-        RemovableDevicesType,
-        UnknownType,
-        TagsType, ///< @since 5.54
+        PlacesType, ///< "Places" section
+        RemoteType, ///< "Remote" section
+        RecentlySavedType, ///< "Recent" section
+        SearchForType, ///< "Search for" section
+        DevicesType, ///< "Devices" section
+        RemovableDevicesType, ///< "Removable Devices" section
+        UnknownType, ///< Unknown GroupType
+        TagsType, ///< "Tags" section. @since 5.54
     };
     Q_ENUM(GroupType)
 
@@ -74,8 +122,8 @@ public:
      * @param alternativeApplicationName This value will be used to filter bookmarks in addition to the actual application name
      * @param parent Parent object
      * @since 5.43
-     * @todo kf6: merge constructors
      */
+    // TODO KF6: merge constructors
     KFilePlacesModel(const QString &alternativeApplicationName, QObject *parent = nullptr);
     ~KFilePlacesModel() override;
 

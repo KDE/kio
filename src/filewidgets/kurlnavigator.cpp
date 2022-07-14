@@ -658,12 +658,10 @@ void KUrlNavigatorPrivate::updateButtons(int startIndex)
                     dropUrls(destination, event, button);
                 });
 
-                q->connect(button,
-                           &KUrlNavigatorButton::navigatorButtonActivated,
-                           q,
-                           [this](const QUrl &url, Qt::MouseButton btn, Qt::KeyboardModifiers modifiers) {
-                               slotNavigatorButtonClicked(url, btn, modifiers);
-                           });
+                auto activatedFunc = [this](const QUrl &url, Qt::MouseButton btn, Qt::KeyboardModifiers modifiers) {
+                    slotNavigatorButtonClicked(url, btn, modifiers);
+                };
+                q->connect(button, &KUrlNavigatorButton::navigatorButtonActivated, q, activatedFunc);
 
                 q->connect(button, &KUrlNavigatorButton::finishedTextResolving, q, [this]() {
                     updateButtonVisibility();
@@ -779,7 +777,8 @@ void KUrlNavigatorPrivate::updateButtonVisibility()
     } else {
         // Check whether going upwards is possible. If this is the case, show the drop-down button.
         QUrl url(m_navButtons.front()->url());
-        const bool visible = !url.matches(KIO::upUrl(url), QUrl::StripTrailingSlash) && url.scheme() != QLatin1String("baloosearch")
+        const bool visible = !url.matches(KIO::upUrl(url), QUrl::StripTrailingSlash) //
+            && url.scheme() != QLatin1String("baloosearch") //
             && url.scheme() != QLatin1String("filenamesearch");
         m_dropDownButton->setVisible(visible);
     }

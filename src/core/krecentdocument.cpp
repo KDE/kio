@@ -417,7 +417,8 @@ QList<QUrl> KRecentDocument::recentUrls()
 QStringList KRecentDocument::recentDocuments()
 {
     // TODO KF6: Consider deprecating this, also see the comment above in recentUrls()
-    QDir d(recentDocumentDirectory(), QStringLiteral("*.desktop"), QDir::Time, QDir::Files | QDir::Readable | QDir::Hidden);
+    static const auto flags = QDir::Files | QDir::Readable | QDir::Hidden;
+    QDir d(recentDocumentDirectory(), QStringLiteral("*.desktop"), QDir::Time, flags);
 
     if (!d.exists()) {
         d.mkdir(recentDocumentDirectory());

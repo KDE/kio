@@ -977,13 +977,13 @@ void PreviewJobPrivate::emitPreview(const QImage &thumb)
 {
     Q_Q(PreviewJob);
     QPixmap pix;
-    if (thumb.width() > width * thumb.devicePixelRatio() || thumb.height() > height * thumb.devicePixelRatio()) {
-        pix = QPixmap::fromImage(
-            thumb.scaled(QSize(width * thumb.devicePixelRatio(), height * thumb.devicePixelRatio()), Qt::KeepAspectRatio, Qt::SmoothTransformation));
+    const qreal ratio = thumb.devicePixelRatio();
+    if (thumb.width() > width * ratio || thumb.height() > height * ratio) {
+        pix = QPixmap::fromImage(thumb.scaled(QSize(width * ratio, height * ratio), Qt::KeepAspectRatio, Qt::SmoothTransformation));
     } else {
         pix = QPixmap::fromImage(thumb);
     }
-    pix.setDevicePixelRatio(thumb.devicePixelRatio());
+    pix.setDevicePixelRatio(ratio);
     Q_EMIT q->gotPreview(currentItem.item, pix);
 }
 

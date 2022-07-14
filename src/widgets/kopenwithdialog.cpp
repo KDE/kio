@@ -1026,13 +1026,11 @@ bool KOpenWithDialogPrivate::checkAccept()
             // QStandardPaths::findExecutable does not find non-executable files.
             // Give a better error message for the case of a existing but non-executable file.
             // https://bugs.kde.org/show_bug.cgi?id=437880
-            if (QFileInfo::exists(binaryName)) {
-                KMessageBox::error(q, xi18nc("@info", "<filename>%1</filename> does not appear to be an executable program.", binaryName));
-            } else {
-                KMessageBox::error(q,
-                                   xi18nc("@info", "<filename>%1</filename> was not found; please enter a valid path to an executable program.", binaryName));
-            }
+            const QString msg = QFileInfo::exists(binaryName)
+                ? xi18nc("@info", "<filename>%1</filename> does not appear to be an executable program.", binaryName)
+                : xi18nc("@info", "<filename>%1</filename> was not found; please enter a valid path to an executable program.", binaryName);
 
+            KMessageBox::error(q, msg);
             return false;
         }
     }
