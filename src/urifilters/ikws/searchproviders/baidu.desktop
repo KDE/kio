@@ -10,6 +10,7 @@ Name[bs]=Bajdu
 Name[ca]=Baidu
 Name[ca@valencia]=Baidu
 Name[cs]=Baidu
+Name[cy]=Baidu
 Name[da]=Baidu
 Name[de]=Baidu
 Name[el]=Baidu
@@ -83,6 +84,7 @@ Query[bs]=https://www.baidu.com/s?wd=\\{@}
 Query[ca]=https://www.baidu.com/s?wd=\\{@}
 Query[ca@valencia]=https://www.baidu.com/s?wd=\\{@}
 Query[cs]=https://www.baidu.com/s?wd=\\{@}
+Query[cy]=https://www.baidu.com/s?wd=\\{@}
 Query[da]=https://www.baidu.com/s?wd=\\{@}
 Query[de]=https://www.baidu.com/s?wd=\\{@}
 Query[el]=https://www.baidu.com/s?wd=\\{@}

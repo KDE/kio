@@ -12,6 +12,7 @@ Name[bs]=Urbani rjeÄnik
 Name[ca]=Urban Dictionary
 Name[ca@valencia]=Urban Dictionary
 Name[cs]=Urban Dictionary
+Name[cy]=Geiriadur Dinesig
 Name[da]=Urban Dictionary
 Name[de]=Urban Dictionary
 Name[el]=Urban Dictionary(Λεξικό)
@@ -83,6 +84,7 @@ Query[bs]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[ca]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[ca@valencia]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[cs]=https://www.urbandictionary.com/define.php?term=\\{@}
+Query[cy]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[da]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[de]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[el]=https://www.urbandictionary.com/define.php?term=\\{@}

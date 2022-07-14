@@ -12,6 +12,7 @@ Name[bs]=Flickr
 Name[ca]=Flickr
 Name[ca@valencia]=Flickr
 Name[cs]=Flickr
+Name[cy]=Flickr
 Name[da]=Flickr
 Name[de]=Flickr
 Name[el]=Flickr
@@ -84,6 +85,7 @@ Query[bs]=https://www.flickr.com/search/?q=\\{@}
 Query[ca]=https://www.flickr.com/search/?q=\\{@}
 Query[ca@valencia]=https://www.flickr.com/search/?q=\\{@}
 Query[cs]=https://www.flickr.com/search/?q=\\{@}
+Query[cy]=https://www.flickr.com/search/?q=\\{@}
 Query[da]=https://www.flickr.com/search/?q=\\{@}
 Query[de]=https://www.flickr.com/search/?q=\\{@}
 Query[el]=https://www.flickr.com/search/?q=\\{@}

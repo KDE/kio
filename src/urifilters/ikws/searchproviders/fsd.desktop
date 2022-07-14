@@ -16,6 +16,7 @@ Name[ca]=Directori de programari lliure FSF/UNESCO
 Name[ca@valencia]=Directori de programari lliure FSF/UNESCO
 Name[cs]=Adresář svobodného softwaru FSF/UNESCO
 Name[csb]=Wòlnoprzëstãpny katalog programów FSF/UNESCO
+Name[cy]=Cyfeiriadur Meddalwedd Rhydd FSF/UNESCO
 Name[da]=FSF/UNESCO Free Software katalog
 Name[de]=FSF/UNESCO Free Software Directory
 Name[el]=FSF/UNESCO Free Software Directory
@@ -99,6 +100,7 @@ Query[bs]=https://directory.fsf.org/search/?query=\\{@}
 Query[ca]=https://directory.fsf.org/search/?query=\\{@}
 Query[ca@valencia]=https://directory.fsf.org/search/?query=\\{@}
 Query[cs]=https://directory.fsf.org/search/?query=\\{@}
+Query[cy]=https://directory.fsf.org/search/?query=\\{@}
 Query[da]=https://directory.fsf.org/search/?query=\\{@}
 Query[de]=https://directory.fsf.org/search/?query=\\{@}
 Query[el]=https://directory.fsf.org/search/?query=\\{@}

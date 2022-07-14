@@ -12,6 +12,7 @@ Name[bs]=Magnatjun
 Name[ca]=Magnatune
 Name[ca@valencia]=Magnatune
 Name[cs]=Magnatune
+Name[cy]=Magnatune
 Name[da]=Magnatune
 Name[de]=Magnatune
 Name[el]=Magnatune
@@ -84,6 +85,7 @@ Query[bs]=https://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
 Query[ca]=https://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
 Query[ca@valencia]=https://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
 Query[cs]=https://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
+Query[cy]=https://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
 Query[da]=https://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
 Query[de]=https://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
 Query[el]=https://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0

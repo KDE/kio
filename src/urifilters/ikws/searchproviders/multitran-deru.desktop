@@ -15,6 +15,7 @@ Name[ca]=Multitran: Tradueix entre alemany i rus
 Name[ca@valencia]=Multitran: Traduïx entre alemany i rus
 Name[cs]=Multitran - překlad mezi němčinou a ruštinou
 Name[csb]=Multitran - dolmaczenié: miemiecczi ë rusczi
+Name[cy]=Multitran - Cyfieithu Rhwng Almaeneg a Rwseg
 Name[da]=Multitran - oversæt mellem tysk og russisk
 Name[de]=Multitran – Übersetzung: Deutsch/Russisch
 Name[el]=Multitran - Μετάφραση μεταξύ Γερμανικών και Ρωσικών
@@ -97,6 +98,7 @@ Query[bs]=https://multitran.ru/c/m.exe?l1=3&s=\\{@}
 Query[ca]=https://multitran.ru/c/m.exe?l1=3&s=\\{@}
 Query[ca@valencia]=https://multitran.ru/c/m.exe?l1=3&s=\\{@}
 Query[cs]=https://multitran.ru/c/m.exe?l1=3&s=\\{@}
+Query[cy]=https://multitran.ru/c/m.exe?l1=3&s=\\{@}
 Query[da]=https://multitran.ru/c/m.exe?l1=3&s=\\{@}
 Query[de]=https://multitran.ru/c/m.exe?l1=3&s=\\{@}
 Query[el]=https://multitran.ru/c/m.exe?l1=3&s=\\{@}

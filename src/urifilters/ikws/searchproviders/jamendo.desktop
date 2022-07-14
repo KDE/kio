@@ -12,6 +12,7 @@ Name[bs]=Džamendo
 Name[ca]=Jamendo
 Name[ca@valencia]=Jamendo
 Name[cs]=Jamendo
+Name[cy]=Jamendo
 Name[da]=Jamendo
 Name[de]=Jamendo
 Name[el]=Jamendo
@@ -85,6 +86,7 @@ Query[bs]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[ca]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[ca@valencia]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[cs]=https://www.jamendo.com/en/search?qs=q=\\{@}
+Query[cy]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[da]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[de]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[el]=https://www.jamendo.com/en/search?qs=q=\\{@}

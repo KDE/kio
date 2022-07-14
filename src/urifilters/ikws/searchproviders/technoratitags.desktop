@@ -16,6 +16,7 @@ Name[ca]=Etiquetes de Technorati
 Name[ca@valencia]=Etiquetes de Technorati
 Name[cs]=Technorati značky
 Name[csb]=Merczi Technorati
+Name[cy]=Tagiau Technorati
 Name[da]=Technorati mærker
 Name[de]=Technorati-Themen
 Name[el]=Ετικέτες Technorati
@@ -98,6 +99,7 @@ Query[bs]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[ca]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[ca@valencia]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[cs]=https://technorati.com/tag/\\{@}?sourceid=kde-search
+Query[cy]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[da]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[de]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[el]=https://technorati.com/tag/\\{@}?sourceid=kde-search

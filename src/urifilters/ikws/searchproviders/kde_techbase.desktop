@@ -12,6 +12,7 @@ Name[bs]=KDE Tehnološka Baza
 Name[ca]=KDE TechBase
 Name[ca@valencia]=KDE TechBase
 Name[cs]=KDE TechBase
+Name[cy]=KDE TechBase
 Name[da]=KDE TechBase
 Name[de]=KDE TechBase
 Name[el]=Τεχνική βάση KDE
@@ -83,6 +84,7 @@ Query[bs]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[ca]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[ca@valencia]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[cs]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
+Query[cy]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[da]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[de]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[el]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search

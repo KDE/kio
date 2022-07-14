@@ -9,6 +9,7 @@ Name[bs]=Frikod
 Name[ca]=Freecode
 Name[ca@valencia]=Freecode
 Name[cs]=Freecode
+Name[cy]=Freecode
 Name[da]=Freecode
 Name[de]=Freecode
 Name[el]=Freecode
@@ -69,6 +70,7 @@ Query[bs]=http://freecode.com/search?q=\\{@}
 Query[ca]=http://freecode.com/search?q=\\{@}
 Query[ca@valencia]=http://freecode.com/search?q=\\{@}
 Query[cs]=http://freecode.com/search?q=\\{@}
+Query[cy]=http://freecode.com/search?q=\\{@}
 Query[da]=http://freecode.com/search?q=\\{@}
 Query[de]=http://freecode.com/search?q=\\{@}
 Query[el]=http://freecode.com/search?q=\\{@}

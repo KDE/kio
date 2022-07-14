@@ -15,6 +15,7 @@ Name[ca]=LEO: Tradueix entre francès i alemany
 Name[ca@valencia]=LEO: Traduïx entre francés i alemany
 Name[cs]=LEO - překlad mezi francouzštinou a němčinou
 Name[csb]=LEO - dolmaczenié: francësczi ->miemiecczi
+Name[cy]=LEO - Cyfieithu Rhwng Ffrangeg ac Almaeneg
 Name[da]=LEO - Oversæt mellem fransk og tysk
 Name[de]=LEO – Übersetzung: Französisch/Deutsch
 Name[el]=LEO - Μετάφραση μεταξύ Γαλλικών και Γερμανικών
@@ -99,6 +100,7 @@ Query[bs]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[ca]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[ca@valencia]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[cs]=https://dict.leo.org/?lp=frde&search=\\{@}
+Query[cy]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[da]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[de]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[el]=https://dict.leo.org/?lp=frde&search=\\{@}

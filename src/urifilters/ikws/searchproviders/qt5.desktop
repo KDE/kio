@@ -10,6 +10,7 @@ Name[bs]=Qt5 Onlajn Dokumentacija
 Name[ca]=Documentació en línia de les Qt5
 Name[ca@valencia]=Documentació en línia de les Qt5
 Name[cs]=Online dokumentace Qt5
+Name[cy]=Dogfennaeth Arlein Qt6
 Name[en_GB]=Qt5 Online Documentation
 Name[es]=Documentación Qt5 en línea
 Name[fi]=Qt5-verkko-ohjeistus
@@ -42,6 +43,7 @@ Query[bs]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[ca]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[ca@valencia]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[cs]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
+Query[cy]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[da]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[de]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[el]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}

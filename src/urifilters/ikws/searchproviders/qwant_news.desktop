@@ -8,6 +8,7 @@ Name[bs]=Kvant Vijesti
 Name[ca]=Notícies a Qwant
 Name[ca@valencia]=Notícies a Qwant
 Name[cs]=Novinky Qwant
+Name[cy]=Newyddion Qwant
 Name[da]=Qwant News
 Name[de]=Qwant-Neuigkeiten
 Name[el]=Qwant Ειδήσεις
@@ -63,6 +64,7 @@ Query[bs]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[ca]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[ca@valencia]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[cs]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
+Query[cy]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[da]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[de]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[el]=https://www.qwant.com/?q=\\{@}&client=kde&t=news

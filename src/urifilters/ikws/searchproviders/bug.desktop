@@ -8,6 +8,7 @@ Name[bs]=KDE Bagovi
 Name[ca]=KDE Bugs
 Name[ca@valencia]=KDE Bugs
 Name[cs]=Chyby KDE
+Name[cy]=Gwallau KDE
 Name[da]=KDE Bugs
 Name[de]=KDE-Fehler
 Name[el]=KDE Bugs
@@ -53,6 +54,7 @@ Query[bs]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[ca]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[ca@valencia]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[cs]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
+Query[cy]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[da]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[de]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[el]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}

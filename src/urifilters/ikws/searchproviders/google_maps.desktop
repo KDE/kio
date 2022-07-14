@@ -9,6 +9,7 @@ Name[bs]=Gugl Mape
 Name[ca]=Google Maps
 Name[ca@valencia]=Google Maps
 Name[cs]=Mapy Google
+Name[cy]=Mapiau Google
 Name[da]=Google Maps
 Name[de]=Google Maps
 Name[el]=Google Maps
@@ -82,6 +83,7 @@ Query[bs]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[ca]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[ca@valencia]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[cs]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
+Query[cy]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[da]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[de]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[el]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr

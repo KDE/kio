@@ -8,6 +8,7 @@ Name[bs]=Kvant Video zapisi
 Name[ca]=Vídeo de Qwant
 Name[ca@valencia]=Vídeo de Qwant
 Name[cs]=Videa Qwan
+Name[cy]=Fideoedd Qwant
 Name[da]=Qwant Videos
 Name[de]=Qwant-Videos
 Name[el]=Qwant Βίντεο
@@ -63,6 +64,7 @@ Query[bs]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[ca]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[ca@valencia]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[cs]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
+Query[cy]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[da]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[de]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[el]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos

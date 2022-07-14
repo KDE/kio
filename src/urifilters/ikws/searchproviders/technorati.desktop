@@ -17,6 +17,7 @@ Name[ca]=Technorati
 Name[ca@valencia]=Technorati
 Name[cs]=Technorati
 Name[csb]=Technorati - blodżi
+Name[cy]=Technorati
 Name[da]=Technorati
 Name[de]=Technorati
 Name[el]=Technorati
@@ -102,6 +103,7 @@ Query[bs]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[ca]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[ca@valencia]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[cs]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
+Query[cy]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[da]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[de]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[el]=https://technorati.com/search?return=sites&authority=high&q=\\{@}

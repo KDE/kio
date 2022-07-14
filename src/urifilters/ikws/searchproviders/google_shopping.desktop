@@ -8,6 +8,7 @@ Name[bs]=Gugl Šoping
 Name[ca]=Compres de Google
 Name[ca@valencia]=Compres de Google
 Name[cs]=Google Shopping
+Name[cy]=Siopa Google
 Name[da]=Google Shopping
 Name[de]=Google-Shopping
 Name[el]=Google Αγορές
@@ -68,6 +69,7 @@ Query[bs]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[ca]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[ca@valencia]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[cs]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
+Query[cy]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[da]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[de]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[el]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}

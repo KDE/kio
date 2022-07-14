@@ -16,7 +16,7 @@ Name[ca]=Cerca d'imatges a Google
 Name[ca@valencia]=Busca d'imatges a Google
 Name[cs]=Hledání obrázků (Google)
 Name[csb]=Google - szëkba òbrôzków
-Name[cy]=Chwilio Delweddau Google 
+Name[cy]=Chwilio Delweddau Google
 Name[da]=Google billedsøgning
 Name[de]=Google-Bildersuche
 Name[el]=Αναζήτηση εικόνων του Google
@@ -105,6 +105,7 @@ Query[bs]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[ca]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[ca@valencia]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[cs]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
+Query[cy]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[da]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[de]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[el]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}

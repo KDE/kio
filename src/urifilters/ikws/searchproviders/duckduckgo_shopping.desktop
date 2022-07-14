@@ -11,6 +11,7 @@ Name[bs]=Duck Duck Go Kupovina
 Name[ca]=Duck Duck Go compres
 Name[ca@valencia]=Duck Duck Go compres
 Name[cs]=Duck Duck Go Shopping
+Name[cy]=Siopa Duck Duck Go
 Name[da]=Duck Duck Go shopping
 Name[de]=Duck Duck Go Shopping
 Name[el]=Duck Duck Go Shopping
@@ -83,6 +84,7 @@ Query[bs]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[ca]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[ca@valencia]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[cs]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
+Query[cy]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[da]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[de]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[el]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde

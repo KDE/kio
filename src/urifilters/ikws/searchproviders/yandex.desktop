@@ -7,6 +7,7 @@ Name[bg]=Yandex
 Name[ca]=Yandex
 Name[ca@valencia]=Yandex
 Name[cs]=Yandex
+Name[cy]=Yandex
 Name[en_GB]=Yandex
 Name[es]=Yandex
 Name[fi]=Yandex
@@ -36,6 +37,7 @@ Query[bg]=https://yandex.ru/search/?text=\\{@}
 Query[ca]=https://yandex.ru/search/?text=\\{@}
 Query[ca@valencia]=https://yandex.ru/search/?text=\\{@}
 Query[cs]=https://yandex.ru/search/?text=\\{@}
+Query[cy]=https://yandex.ru/search/?text=\\{@}
 Query[en_GB]=https://yandex.ru/search/?text=\\{@}
 Query[es]=https://yandex.ru/search/?text=\\{@}
 Query[fi]=https://yandex.ru/search/?text=\\{@}

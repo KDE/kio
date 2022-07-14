@@ -7,6 +7,7 @@ Name[bs]=WineHQ Baza podataka
 Name[ca]=Base de dades de WineHQ
 Name[ca@valencia]=Base de dades de WineHQ
 Name[cs]=Databáze WineHQ
+Name[cy]=Datagronfa WineHQ
 Name[en_GB]=WineHQ Database
 Name[es]=Base de datos de WineHQ
 Name[fi]=WineHQ-tietokanta
@@ -39,6 +40,7 @@ Query[bs]=https://www.winehq.org/search?q=\\{@}
 Query[ca]=https://www.winehq.org/search?q=\\{@}
 Query[ca@valencia]=https://www.winehq.org/search?q=\\{@}
 Query[cs]=https://www.winehq.org/search?q=\\{@}
+Query[cy]=https://www.winehq.org/search?q=\\{@}
 Query[en_GB]=https://www.winehq.org/search?q=\\{@}
 Query[es]=https://www.winehq.org/search?q=\\{@}
 Query[fi]=https://www.winehq.org/search?q=\\{@}

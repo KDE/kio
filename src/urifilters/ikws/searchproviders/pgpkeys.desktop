@@ -15,7 +15,7 @@ Name[ca]=Cerca de claus OpenPGP
 Name[ca@valencia]=Busca de claus OpenPGP
 Name[cs]=Vyhledávání OpenPGP klíčů
 Name[csb]=Szëkôrz kluczów OpenPGP
-Name[cy]=Chwilio Allwedd PGPAgored
+Name[cy]=Chwilio Allwedd OpenPGP
 Name[da]=OpenPGP-nøglesøgning
 Name[de]=Suche nach OpenPGP-Schlüssel
 Name[el]=Αναζήτηση κλειδιού OpenPGP
@@ -101,6 +101,7 @@ Query[bs]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[ca]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[ca@valencia]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[cs]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
+Query[cy]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[da]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[de]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[el]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex

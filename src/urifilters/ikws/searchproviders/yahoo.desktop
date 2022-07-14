@@ -13,6 +13,7 @@ Name[bs]=Jahu
 Name[ca]=Yahoo
 Name[ca@valencia]=Yahoo
 Name[cs]=Yahoo
+Name[cy]=Yahoo
 Name[da]=Yahoo
 Name[de]=Yahoo
 Name[el]=Yahoo
@@ -86,6 +87,7 @@ Query[bs]=https://search.yahoo.com/search?toggle=1&cop=mss&ei=UTF-8&fr=yfp-t-701
 Query[ca]=https://search.yahoo.com/search?toggle=1&cop=mss&ei=UTF-8&fr=yfp-t-701&p=\\{@}&x=0&y=0&=Web+Search
 Query[ca@valencia]=https://search.yahoo.com/search?toggle=1&cop=mss&ei=UTF-8&fr=yfp-t-701&p=\\{@}&x=0&y=0&=Web+Search
 Query[cs]=https://search.yahoo.com/search?toggle=1&cop=mss&ei=UTF-8&fr=yfp-t-701&p=\\{@}&x=0&y=0&=Web+Search
+Query[cy]=https://search.yahoo.com/search?toggle=1&cop=mss&ei=UTF-8&fr=yfp-t-701&p=\\{@}&x=0&y=0&=Web+Search
 Query[da]=https://search.yahoo.com/search?toggle=1&cop=mss&ei=UTF-8&fr=yfp-t-701&p=\\{@}&x=0&y=0&=Web+Search
 Query[de]=https://search.yahoo.com/search?toggle=1&cop=mss&ei=UTF-8&fr=yfp-t-701&p=\\{@}&x=0&y=0&=Web+Search
 Query[el]=https://search.yahoo.com/search?toggle=1&cop=mss&ei=UTF-8&fr=yfp-t-701&p=\\{@}&x=0&y=0&=Web+Search

@@ -9,6 +9,7 @@ Name[bs]=Kvant
 Name[ca]=Qwant
 Name[ca@valencia]=Qwant
 Name[cs]=Qwant
+Name[cy]=Qwant
 Name[da]=Qwant
 Name[de]=Qwant
 Name[el]=Qwant
@@ -64,6 +65,7 @@ Query[bs]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[ca]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[ca@valencia]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[cs]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
+Query[cy]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[da]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[de]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[el]=https://www.qwant.com/?q=\\{@}&client=kde&t=web

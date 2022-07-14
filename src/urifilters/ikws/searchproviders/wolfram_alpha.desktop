@@ -11,6 +11,7 @@ Name[ca]=Wolfram Alpha
 Name[ca@valencia]=Wolfram Alpha
 Name[cs]=Wolfram Alpha
 Name[csb]=Wolfram Alpha
+Name[cy]=Alffa Wolfram
 Name[da]=Wolfram Alpha
 Name[de]=Wolfram Alpha
 Name[el]=Wolfram Άλφα
@@ -85,6 +86,7 @@ Query[bs]=https://www.wolframalpha.com/input/?i=\\{@}
 Query[ca]=https://www.wolframalpha.com/input/?i=\\{@}
 Query[ca@valencia]=https://www.wolframalpha.com/input/?i=\\{@}
 Query[cs]=https://www.wolframalpha.com/input/?i=\\{@}
+Query[cy]=https://www.wolframalpha.com/input/?i=\\{@}
 Query[da]=https://www.wolframalpha.com/input/?i=\\{@}
 Query[de]=https://www.wolframalpha.com/input/?i=\\{@}
 Query[el]=https://www.wolframalpha.com/input/?i=\\{@}

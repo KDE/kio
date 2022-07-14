@@ -12,6 +12,7 @@ Name[bs]=Duck Duck Go
 Name[ca]=Duck Duck Go
 Name[ca@valencia]=Duck Duck Go
 Name[cs]=Duck Duck Go
+Name[cy]=Duck Duck Go
 Name[da]=Duck Duck Go
 Name[de]=Duck Duck Go
 Name[el]=Duck Duck Go
@@ -83,6 +84,7 @@ Query[bs]=https://duckduckgo.com/?q=\\{@}&t=kde
 Query[ca]=https://duckduckgo.com/?q=\\{@}&t=kde
 Query[ca@valencia]=https://duckduckgo.com/?q=\\{@}&t=kde
 Query[cs]=https://duckduckgo.com/?q=\\{@}&t=kde
+Query[cy]=https://duckduckgo.com/?q=\\{@}&t=kde
 Query[da]=https://duckduckgo.com/?q=\\{@}&t=kde
 Query[de]=https://duckduckgo.com/?q=\\{@}&t=kde
 Query[el]=https://duckduckgo.com/?q=\\{@}&t=kde

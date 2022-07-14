@@ -104,6 +104,7 @@ Query[bs]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[ca]=https://ca.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[ca@valencia]=https://ca.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[cs]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
+Query[cy]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[da]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[de]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[el]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go

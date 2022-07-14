@@ -12,6 +12,7 @@ Name[bs]=Vikija
 Name[ca]=Wikia
 Name[ca@valencia]=Wikia
 Name[cs]=Wikia
+Name[cy]=Wikia
 Name[da]=Wikia
 Name[de]=Wikia
 Name[el]=Wikia
@@ -83,6 +84,7 @@ Query[bs]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=
 Query[ca]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[ca@valencia]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[cs]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
+Query[cy]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[da]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[de]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[el]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search

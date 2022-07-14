@@ -16,6 +16,7 @@ Name[ca]=Cerca de «backports» de Debian
 Name[ca@valencia]=Busca de «backports» de Debian
 Name[cs]=Vyhledávání v Debian Backports
 Name[csb]=Szëkba starszëch paczétów Debiana
+Name[cy]=Chwiliad Cefnborthladdoedd Debian
 Name[da]=Debian Backports søgning
 Name[de]=Suche für Debian-Backports
 Name[el]=Αναζήτηση νέων Πακέτων Debian για σταθερή έκδοση
@@ -98,6 +99,7 @@ Query[bs]=https://packages.debian.org/search?suite=squeeze-backports&section=all
 Query[ca]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
 Query[ca@valencia]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
 Query[cs]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
+Query[cy]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
 Query[da]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
 Query[de]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
 Query[el]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}

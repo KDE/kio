@@ -9,6 +9,7 @@ Name[bs]=ArčViki
 Name[ca]=ArchWiki
 Name[ca@valencia]=ArchWiki
 Name[cs]=ArchWiki
+Name[cy]=ArchWiki
 Name[da]=ArchWiki
 Name[de]=ArchWiki
 Name[el]=ArchWiki
@@ -54,6 +55,7 @@ Query[bs]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[ca]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[ca@valencia]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[cs]=https://wiki.archlinux.org/index.php?search=\\{@}
+Query[cy]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[da]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[de]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[el]=https://wiki.archlinux.org/index.php?search=\\{@}

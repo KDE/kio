@@ -12,6 +12,7 @@ Name[bs]=7Digital
 Name[ca]=7Digital
 Name[ca@valencia]=7Digital
 Name[cs]=7Digital
+Name[cy]=7Digital
 Name[da]=7Digital
 Name[de]=7Digital
 Name[el]=7Digital
@@ -84,6 +85,7 @@ Query[bs]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=S
 Query[ca]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[ca@valencia]=https://vos.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[cs]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
+Query[cy]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[da]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[de]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[el]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search

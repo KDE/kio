@@ -15,7 +15,7 @@ Name[ca]=Google (Avui tinc sort!)
 Name[ca@valencia]=Google (Hui tinc sort!)
 Name[cs]=Google (Zkusím štěstí)
 Name[csb]=Google - "Szczestlëwé trafienié"
-Name[cy]=Google(Dwi'n Teimlo'n Lwcus)
+Name[cy]=Google (Dwi'n Teimlo'n Lwcus)
 Name[da]=Google (Jeg føler mig heldig)
 Name[de]=Google („Auf gut Glück!“)
 Name[el]=Google (Αισθάνομαι τυχερός)
@@ -103,6 +103,7 @@ Query[bs]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-
 Query[ca]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
 Query[ca@valencia]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
 Query[cs]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
+Query[cy]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
 Query[da]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
 Query[de]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
 Query[el]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8

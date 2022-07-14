@@ -12,6 +12,7 @@ Name[bs]=Vimeo
 Name[ca]=Vimeo
 Name[ca@valencia]=Vimeo
 Name[cs]=Vimeo
+Name[cy]=Vimeo
 Name[da]=Vimeo
 Name[de]=Vimeo
 Name[el]=Vimeo
@@ -84,6 +85,7 @@ Query[bs]=https://vimeo.com/search?q=\\{@}
 Query[ca]=https://vimeo.com/search?q=\\{@}
 Query[ca@valencia]=https://vimeo.com/search?q=\\{@}
 Query[cs]=https://vimeo.com/search?q=\\{@}
+Query[cy]=https://vimeo.com/search?q=\\{@}
 Query[da]=https://vimeo.com/search?q=\\{@}
 Query[de]=https://vimeo.com/search?q=\\{@}
 Query[el]=https://vimeo.com/search?q=\\{@}

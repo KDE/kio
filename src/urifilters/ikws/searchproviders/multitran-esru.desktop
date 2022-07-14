@@ -15,6 +15,7 @@ Name[ca]=Multitran: Tradueix entre espanyol i rus
 Name[ca@valencia]=Multitran: Traduïx entre espanyol i rus
 Name[cs]=Multitran - překlad mezi španělštinou a ruštinou
 Name[csb]=Multitran - dolmaczenié: szpańsczi ë rusczi
+Name[cy]=Multitran - Cyfieithu Rhwng Sbaeneg a Rwseg
 Name[da]=Multitran - oversæt mellem spansk og russisk
 Name[de]=Multitran – Übersetzung: Spanisch/Russisch
 Name[el]=Multitran - Μετάφραση μεταξύ Ρωσικών και Γαλλικών
@@ -97,6 +98,7 @@ Query[bs]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}
 Query[ca]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}
 Query[ca@valencia]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}
 Query[cs]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}
+Query[cy]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}
 Query[da]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}
 Query[de]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}
 Query[el]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}

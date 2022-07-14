@@ -15,6 +15,7 @@ Name[ca]=Multitran: Tradueix entre italià i rus
 Name[ca@valencia]=Multitran: Traduïx entre italià i rus
 Name[cs]=Multitran - překlad mezi italštinou a ruštinou
 Name[csb]=Multitran - dolmaczenié: italsczi ë rusczi
+Name[cy]=Multitran - Cyfieithu Rhwng Eidaleg a Rwseg
 Name[da]=Multitran - oversæt mellem italiensk og russisk
 Name[de]=Multitran – Übersetzung: Italienisch/Russisch
 Name[el]=Multitran - Μετάφραση μεταξύ Ιταλικών και Ρωσικών
@@ -97,6 +98,7 @@ Query[bs]=https://multitran.ru/c/m.exe?l1=23&s=\\{@}
 Query[ca]=https://multitran.ru/c/m.exe?l1=23&s=\\{@}
 Query[ca@valencia]=https://multitran.ru/c/m.exe?l1=23&s=\\{@}
 Query[cs]=https://multitran.ru/c/m.exe?l1=23&s=\\{@}
+Query[cy]=https://multitran.ru/c/m.exe?l1=23&s=\\{@}
 Query[da]=https://multitran.ru/c/m.exe?l1=23&s=\\{@}
 Query[de]=https://multitran.ru/c/m.exe?l1=23&s=\\{@}
 Query[el]=https://multitran.ru/c/m.exe?l1=23&s=\\{@}

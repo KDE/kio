@@ -11,6 +11,7 @@ Name[bs]=Jahuâ€‘lokal
 Name[ca]=Yahoo Local
 Name[ca@valencia]=Yahoo Local
 Name[cs]=Yahoo Local
+Name[cy]=Lleoliaeth Yahoo
 Name[da]=Yahoo Local
 Name[de]=Yahoo Local
 Name[el]=Yahoo Τοπικό
@@ -82,6 +83,7 @@ Query[bs]=https://local.yahoo.com/results?stx=\\{@}&ei=UTF-8&fr=yfp-t-701&fr2=ta
 Query[ca]=https://local.yahoo.com/results?stx=\\{@}&ei=UTF-8&fr=yfp-t-701&fr2=tab-img
 Query[ca@valencia]=https://local.yahoo.com/results?stx=\\{@}&ei=UTF-8&fr=yfp-t-701&fr2=tab-img
 Query[cs]=https://local.yahoo.com/results?stx=\\{@}&ei=UTF-8&fr=yfp-t-701&fr2=tab-img
+Query[cy]=https://local.yahoo.com/results?stx=\\{@}&ei=UTF-8&fr=yfp-t-701&fr2=tab-img
 Query[da]=https://local.yahoo.com/results?stx=\\{@}&ei=UTF-8&fr=yfp-t-701&fr2=tab-img
 Query[de]=https://local.yahoo.com/results?stx=\\{@}&ei=UTF-8&fr=yfp-t-701&fr2=tab-img
 Query[el]=https://local.yahoo.com/results?stx=\\{@}&ei=UTF-8&fr=yfp-t-701&fr2=tab-img

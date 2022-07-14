@@ -12,6 +12,7 @@ Name[bs]=KDE Korisnička Baza
 Name[ca]=KDE UserBase
 Name[ca@valencia]=KDE UserBase
 Name[cs]=KDE UserBase
+Name[cy]=KDE UserBase
 Name[da]=KDE UserBase
 Name[de]=KDE UserBase
 Name[el]=Βάση χρηστών KDE
@@ -84,6 +85,7 @@ Query[bs]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[ca]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[ca@valencia]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[cs]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
+Query[cy]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[da]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[de]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[el]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search

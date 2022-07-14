@@ -11,6 +11,7 @@ Name[bs]=Duck Duck Go Informacije
 Name[ca]=Duck Duck Go informació
 Name[ca@valencia]=Duck Duck Go informació
 Name[cs]=Duck Duck Go Info
+Name[cy]=Gwybodaeth Duck Duck Go
 Name[da]=Duck Duck Go info
 Name[de]=Duck Duck Go Info
 Name[el]=Duck Duck Go Info
@@ -82,6 +83,7 @@ Query[bs]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[ca]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[ca@valencia]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[cs]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
+Query[cy]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[da]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[de]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[el]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde

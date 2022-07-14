@@ -10,6 +10,7 @@ Name[bs]=Ekozija pretraživač
 Name[ca]=Motor de cerca Ecosia
 Name[ca@valencia]=Motor de busca Ecosia
 Name[cs]=Vyhledávací stroj Ecosia
+Name[cy]=Agerbeiriant Chwilio Ecosia
 Name[da]=Ecosia søgemaskine
 Name[de]=Ecosia-Suchmaschine
 Name[el]=Ecosia Μηχανή αναζήτησης
@@ -83,6 +84,7 @@ Query[bs]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[ca]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[ca@valencia]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[cs]=https://ecosia.org/search.php?q=\\{@}&meta=normal
+Query[cy]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[da]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[de]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[el]=https://ecosia.org/search.php?q=\\{@}&meta=normal

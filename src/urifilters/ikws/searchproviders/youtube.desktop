@@ -11,6 +11,7 @@ Name[bs]=Jutjub
 Name[ca]=YouTube
 Name[ca@valencia]=YouTube
 Name[cs]=YouTube
+Name[cy]=YouTube
 Name[da]=YouTube
 Name[de]=YouTube
 Name[el]=YouTube
@@ -83,6 +84,7 @@ Query[bs]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
 Query[ca]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
 Query[ca@valencia]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
 Query[cs]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
+Query[cy]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
 Query[da]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
 Query[de]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
 Query[el]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f

@@ -15,6 +15,7 @@ Name[ca]=Multitran: Tradueix entre francès i rus
 Name[ca@valencia]=Multitran: Traduïx entre francés i rus
 Name[cs]=Multitran - překlad mezi francouzštinou a ruštinou
 Name[csb]=Multitran - dolmaczenié: francësczi ë rusczi
+Name[cy]=Multitran - Cyfieithu Rhwng Ffrangeg a Rwseg
 Name[da]=Multitran - oversæt mellem fransk og russisk
 Name[de]=Multitran – Übersetzung: Französisch/Russisch
 Name[el]=Multitran - Μετάφραση μεταξύ Γαλλικών και Ρωσικών
@@ -97,6 +98,7 @@ Query[bs]=https://multitran.ru/c/m.exe?l1=4&s=\\{@}
 Query[ca]=https://multitran.ru/c/m.exe?l1=4&s=\\{@}
 Query[ca@valencia]=https://multitran.ru/c/m.exe?l1=4&s=\\{@}
 Query[cs]=https://multitran.ru/c/m.exe?l1=4&s=\\{@}
+Query[cy]=https://multitran.ru/c/m.exe?l1=4&s=\\{@}
 Query[da]=https://multitran.ru/c/m.exe?l1=4&s=\\{@}
 Query[de]=https://multitran.ru/c/m.exe?l1=4&s=\\{@}
 Query[el]=https://multitran.ru/c/m.exe?l1=4&s=\\{@}

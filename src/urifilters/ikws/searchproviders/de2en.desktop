@@ -17,6 +17,7 @@ Name[ca]=Traducció dict.cc: Alemany - Anglès
 Name[ca@valencia]=Traducció dict.cc: Alemany - Anglés
 Name[cs]=Překlad dic.cc: z němčiny do angličtiny
 Name[csb]=dict.cc: miemiecczi -> anielsczi
+Name[cy]=cyfieithiad dict.cc: Almaeneg i Saesneg
 Name[da]=dict.cc oversættelse: Tysk til engelsk
 Name[de]=dict.cc – Übersetzung: Deutsch/Englisch
 Name[el]=Μετάφραση dict.cc: Γερμανικά σε Αγγλικά
@@ -100,6 +101,7 @@ Query[bs]=https://www.dict.cc/?s=\\{@}
 Query[ca]=https://www.dict.cc/?s=\\{@}
 Query[ca@valencia]=https://www.dict.cc/?s=\\{@}
 Query[cs]=https://www.dict.cc/?s=\\{@}
+Query[cy]=https://www.dict.cc/?s=\\{@}
 Query[da]=https://www.dict.cc/?s=\\{@}
 Query[de]=https://www.dict.cc/?s=\\{@}
 Query[el]=https://www.dict.cc/?s=\\{@}

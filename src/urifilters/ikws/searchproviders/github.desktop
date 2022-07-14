@@ -12,6 +12,7 @@ Name[bs]=GitHab
 Name[ca]=GitHub
 Name[ca@valencia]=GitHub
 Name[cs]=GitHub
+Name[cy]=GitHub
 Name[da]=GitHub
 Name[de]=GitHub
 Name[el]=GitHub
@@ -84,6 +85,7 @@ Query[bs]=https://github.com/search?q=\\{@}&x=0&y=0
 Query[ca]=https://github.com/search?q=\\{@}&x=0&y=0
 Query[ca@valencia]=https://github.com/search?q=\\{@}&x=0&y=0
 Query[cs]=https://github.com/search?q=\\{@}&x=0&y=0
+Query[cy]=https://github.com/search?q=\\{@}&x=0&y=0
 Query[da]=https://github.com/search?q=\\{@}&x=0&y=0
 Query[de]=https://github.com/search?q=\\{@}&x=0&y=0
 Query[el]=https://github.com/search?q=\\{@}&x=0&y=0

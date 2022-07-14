@@ -11,6 +11,7 @@ Name[bs]=Identi.ca Ljudi
 Name[ca]=Gent a Identi.ca
 Name[ca@valencia]=Gent a Identi.ca
 Name[cs]=Lidé Identi.ca
+Name[cy]=Pobl Identi.ca
 Name[da]=Identi.ca-folk
 Name[de]=Identi.ca People
 Name[el]=Identi.ca People
@@ -83,6 +84,7 @@ Query[bs]=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[ca]=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[ca@valencia]=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[cs]=https://identi.ca/search/people?q=\\{@}&search=Search
+Query[cy]=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[da]=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[de]=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[el]=https://identi.ca/search/people?q=\\{@}&search=Search

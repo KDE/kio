@@ -6,6 +6,7 @@ Name[bg]=Документация за Microsoft C++
 Name[bs]=Majkrosoft C++ Dokumentacija
 Name[ca]=Documentació de Microsoft C++
 Name[ca@valencia]=Documentació de Microsoft C++
+Name[cy]=Dogfennaeth C++ Microsoft
 Name[en_GB]=Microsoft C++ Documentation
 Name[es]=Documentación de C++ de Microsoft
 Name[fi]=Microsoft C++ -ohjeistus
@@ -38,6 +39,7 @@ Query[bg]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[bs]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[ca]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[ca@valencia]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
+Query[cy]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[en_GB]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[es]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[fi]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B

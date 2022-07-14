@@ -11,6 +11,7 @@ Name[bs]=Identi.ca Obavještenja
 Name[ca]=Avisos a Identi.ca
 Name[ca@valencia]=Avisos a Identi.ca
 Name[cs]=Poznámky Identi.ca
+Name[cy]=Hysbysebion Identi.ca
 Name[da]=Identi.ca-notitser
 Name[de]=Identi.ca Notices
 Name[el]=Identi.ca Notices
@@ -83,6 +84,7 @@ Query[bs]=https://identi.ca/search/notice?q=\\{@}
 Query[ca]=https://identi.ca/search/notice?q=\\{@}
 Query[ca@valencia]=https://identi.ca/search/notice?q=\\{@}
 Query[cs]=https://identi.ca/search/notice?q=\\{@}
+Query[cy]=https://identi.ca/search/notice?q=\\{@}
 Query[da]=https://identi.ca/search/notice?q=\\{@}
 Query[de]=https://identi.ca/search/notice?q=\\{@}
 Query[el]=https://identi.ca/search/notice?q=\\{@}

@@ -11,6 +11,7 @@ Name[bs]=Identi.ca Grupe
 Name[ca]=Grups a Identi.ca
 Name[ca@valencia]=Grups a Identi.ca
 Name[cs]=Skupiny Identi.ca
+Name[cy]=Sypiau Identi.ca
 Name[da]=Identi.ca-grupper
 Name[de]=Identi.ca Groups
 Name[el]=Identi.ca Groups
@@ -83,6 +84,7 @@ Query[bs]=https://identi.ca/search/group?q=\\{@}
 Query[ca]=https://identi.ca/search/group?q=\\{@}
 Query[ca@valencia]=https://identi.ca/search/group?q=\\{@}
 Query[cs]=https://identi.ca/search/group?q=\\{@}
+Query[cy]=https://identi.ca/search/group?q=\\{@}
 Query[da]=https://identi.ca/search/group?q=\\{@}
 Query[de]=https://identi.ca/search/group?q=\\{@}
 Query[el]=https://identi.ca/search/group?q=\\{@}

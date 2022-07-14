@@ -13,7 +13,7 @@ Name[ca]=Proveïdor de cerques a la guia de telèfons
 Name[ca@valencia]=Proveïdor de busques a la guia de telèfons
 Name[cs]=Poskytovatel prohledávání tel. seznamu
 Name[csb]=Szëkôrz Telephonebook
-Name[cy]= Darparydd Chwiliadau Llyfr Ffôn
+Name[cy]=Darparydd Chwiliadau Llyfr Ffôn
 Name[da]=Telefonbog-søgeudbyder
 Name[de]=Telefonbuchsuche
 Name[el]=Πάροχος αναζήτησης Telephonebook
@@ -99,6 +99,7 @@ Query[bs]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{
 Query[ca]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
 Query[ca@valencia]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
 Query[cs]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
+Query[cy]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
 Query[da]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
 Query[de]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
 Query[el]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}

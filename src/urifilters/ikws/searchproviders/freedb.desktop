@@ -111,6 +111,7 @@ Query[ca]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[ca@valencia]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[cs]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[csb]=http://www.freedb.org/freedb_search.php?words=\\{@}
+Query[cy]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[da]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[de]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[el]=http://www.freedb.org/freedb_search.php?words=\\{@}

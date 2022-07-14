@@ -11,6 +11,7 @@ Name[bs]=Jahuâ€‘video
 Name[ca]=Vídeo de Yahoo
 Name[ca@valencia]=Vídeo de Yahoo
 Name[cs]=Video Yahoo
+Name[cy]=Yahoo Video
 Name[da]=Yahoo Video
 Name[de]=Yahoo Video
 Name[el]=Yahoo Βίντεο
@@ -82,6 +83,7 @@ Query[bs]=https://video.search.yahoo.com/search/video;_ylt=A0WTb_3a6JZLSHwAK7.Jz
 Query[ca]=https://video.search.yahoo.com/search/video;_ylt=A0WTb_3a6JZLSHwAK7.JzbkF?ei=UTF-8&p=\\{@}&y=0&fr2=tab-img&fr=yfp-t-701
 Query[ca@valencia]=https://video.search.yahoo.com/search/video;_ylt=A0WTb_3a6JZLSHwAK7.JzbkF?ei=UTF-8&p=\\{@}&y=0&fr2=tab-img&fr=yfp-t-701
 Query[cs]=https://video.search.yahoo.com/search/video;_ylt=A0WTb_3a6JZLSHwAK7.JzbkF?ei=UTF-8&p=\\{@}&y=0&fr2=tab-img&fr=yfp-t-701
+Query[cy]=https://video.search.yahoo.com/search/video;_ylt=A0WTb_3a6JZLSHwAK7.JzbkF?ei=UTF-8&p=\\{@}&y=0&fr2=tab-img&fr=yfp-t-701
 Query[da]=https://video.search.yahoo.com/search/video;_ylt=A0WTb_3a6JZLSHwAK7.JzbkF?ei=UTF-8&p=\\{@}&y=0&fr2=tab-img&fr=yfp-t-701
 Query[de]=https://video.search.yahoo.com/search/video;_ylt=A0WTb_3a6JZLSHwAK7.JzbkF?ei=UTF-8&p=\\{@}&y=0&fr2=tab-img&fr=yfp-t-701
 Query[el]=https://video.search.yahoo.com/search/video;_ylt=A0WTb_3a6JZLSHwAK7.JzbkF?ei=UTF-8&p=\\{@}&y=0&fr2=tab-img&fr=yfp-t-701

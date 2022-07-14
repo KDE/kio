@@ -8,6 +8,7 @@ Name[bs]=Društveni Kvant
 Name[ca]=Tertúlia a Qwant
 Name[ca@valencia]=Tertúlia a Qwant
 Name[cs]=Qwant Social
+Name[cy]=Cymdeithasol Qwant
 Name[da]=Qwant Social
 Name[de]=Qwant-Sozial
 Name[el]=Qwant Κοινωνική δικτύωση
@@ -63,6 +64,7 @@ Query[bs]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[ca]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[ca@valencia]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[cs]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
+Query[cy]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[da]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[de]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[el]=https://www.qwant.com/?q=\\{@}&client=kde&t=social

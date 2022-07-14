@@ -11,6 +11,7 @@ Name[bs]=Flickr Creative Commons
 Name[ca]=Flickr Creative Commons
 Name[ca@valencia]=Flickr Creative Commons
 Name[cs]=Flickr Creative Commons
+Name[cy]=Gwerithawd Creadigol Flickr
 Name[da]=Flickr Creative Commons
 Name[de]=Flickr Creative Commons
 Name[el]=Flickr Creative Commons
@@ -82,6 +83,7 @@ Query[bs]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[ca]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[ca@valencia]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[cs]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
+Query[cy]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[da]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[de]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[el]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1

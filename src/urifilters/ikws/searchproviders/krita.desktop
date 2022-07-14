@@ -6,6 +6,7 @@ Name[bg]=Ръководство за Krita
 Name[bs]=Krita Uputstvo
 Name[ca]=Manual del Krita
 Name[ca@valencia]=Manual de Krita
+Name[cy]=Canllaw Krita
 Name[en_GB]=Krita Manual
 Name[es]=Manual de Krita
 Name[fi]=Kritan käyttöopas
@@ -38,6 +39,7 @@ Query[bs]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[ca]=https://docs.krita.org/ca/search.html?q=\\{@}
 Query[ca@valencia]=https://docs.krita.org/ca/search.html?q=\\{@}
 Query[cs]=https://docs.krita.org/en/search.html?q=\\{@}
+Query[cy]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[en_GB]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[es]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[fi]=https://docs.krita.org/en/search.html?q=\\{@}

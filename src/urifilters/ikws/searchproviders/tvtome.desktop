@@ -18,6 +18,7 @@ Name[ca]=TV Tome
 Name[ca@valencia]=TV Tome
 Name[cs]=TV Tome
 Name[csb]=TV Tome
+Name[cy]=Cyflyfr Teledu
 Name[da]=TV-Tome
 Name[de]=TV Tome
 Name[el]=TV Tome
@@ -102,6 +103,7 @@ Query[bs]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[ca]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[ca@valencia]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[cs]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
+Query[cy]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[da]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[de]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[el]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
