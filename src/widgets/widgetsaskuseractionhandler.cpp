@@ -36,9 +36,75 @@ public:
     // Creates a KSslInfoDialog or falls back to a generic Information dialog
     void sslMessageBox(const QString &text, const KIO::MetaData &metaData, QWidget *parent);
 
+    bool gotPersistentUserReply(KIO::AskUserActionInterface::MessageDialogType type, const KConfigGroup &cg, const QString &dontAskAgainName);
+    void savePersistentUserReply(KIO::AskUserActionInterface::MessageDialogType type, KConfigGroup &cg, const QString &dontAskAgainName, int result);
+
     WidgetsAskUserActionHandler *const q;
     QWidget *m_parentWidget = nullptr;
 };
+
+bool KIO::WidgetsAskUserActionHandlerPrivate::gotPersistentUserReply(KIO::AskUserActionInterface::MessageDialogType type,
+                                                                     const KConfigGroup &cg,
+                                                                     const QString &dontAskAgainName)
+{
+    // storage values matching the logic of FrameworkIntegration's KMessageBoxDontAskAgainConfigStorage
+    switch (type) {
+    case KIO::AskUserActionInterface::QuestionYesNo:
+    case KIO::AskUserActionInterface::QuestionYesNoCancel:
+    case KIO::AskUserActionInterface::WarningYesNo:
+    case KIO::AskUserActionInterface::WarningYesNoCancel: {
+        // storage holds "true" if persistent reply is "Yes", "false" for persistent "No",
+        // otherwise no persistent reply is present
+        const QString value = cg.readEntry(dontAskAgainName, QString());
+        if ((value.compare(QLatin1String("yes"), Qt::CaseInsensitive) == 0) || (value.compare(QLatin1String("true"), Qt::CaseInsensitive) == 0)) {
+            Q_EMIT q->messageBoxResult(KIO::SlaveBase::Yes);
+            return true;
+        }
+        if ((value.compare(QLatin1String("no"), Qt::CaseInsensitive) == 0) || (value.compare(QLatin1String("false"), Qt::CaseInsensitive) == 0)) {
+            Q_EMIT q->messageBoxResult(KIO::SlaveBase::No);
+            return true;
+        }
+        break;
+    }
+    case KIO::AskUserActionInterface::WarningContinueCancel: {
+        // storage holds "false" if persistent reply is "Continue"
+        // otherwise no persistent reply is present
+        const bool value = cg.readEntry(dontAskAgainName, true);
+        if (value == false) {
+            Q_EMIT q->messageBoxResult(KIO::SlaveBase::Continue);
+            return true;
+        }
+        break;
+    }
+    default:
+        break;
+    }
+
+    return false;
+}
+
+void KIO::WidgetsAskUserActionHandlerPrivate::savePersistentUserReply(KIO::AskUserActionInterface::MessageDialogType type,
+                                                                      KConfigGroup &cg,
+                                                                      const QString &dontAskAgainName,
+                                                                      int result)
+{
+    // see gotPersistentUserReply for values stored and why
+    switch (type) {
+    case KIO::AskUserActionInterface::QuestionYesNo:
+    case KIO::AskUserActionInterface::QuestionYesNoCancel:
+    case KIO::AskUserActionInterface::WarningYesNo:
+    case KIO::AskUserActionInterface::WarningYesNoCancel:
+        cg.writeEntry(dontAskAgainName, result == KIO::SlaveBase::Yes);
+        cg.sync();
+        break;
+    case KIO::AskUserActionInterface::WarningContinueCancel:
+        cg.writeEntry(dontAskAgainName, false);
+        cg.sync();
+        break;
+    default:
+        break;
+    }
+}
 
 KIO::WidgetsAskUserActionHandler::WidgetsAskUserActionHandler(QObject *parent)
     : KIO::AskUserActionInterface(parent)
@@ -253,10 +319,8 @@ void KIO::WidgetsAskUserActionHandler::requestUserMessageBox(MessageDialogType t
                                                              QWidget *parent)
 {
     KSharedConfigPtr reqMsgConfig = KSharedConfig::openConfig(QStringLiteral("kioslaverc"));
-    const bool ask = reqMsgConfig->group("Notification Messages").readEntry(dontAskAgainName, true);
 
-    if (!ask) {
-        Q_EMIT messageBoxResult(type == WarningContinueCancel ? KIO::SlaveBase::Continue : KIO::SlaveBase::Yes);
+    if (d->gotPersistentUserReply(type, reqMsgConfig->group("Notification Messages"), dontAskAgainName)) {
         return;
     }
 
@@ -314,7 +378,7 @@ void KIO::WidgetsAskUserActionHandler::requestUserMessageBox(MessageDialogType t
     dialog->setButtons(acceptButton, rejectButton);
     dialog->setDetails(details);
     dialog->setDontAskAgainText(dontAskAgainText);
-    dialog->setDontAskAgainChecked(!ask);
+    dialog->setDontAskAgainChecked(false);
     dialog->setOpenExternalLinks(true); // Allow opening external links in the text labels
 
     connect(dialog, &QDialog::finished, this, [=](const int result) {
@@ -343,10 +407,9 @@ void KIO::WidgetsAskUserActionHandler::requestUserMessageBox(MessageDialogType t
 
         Q_EMIT messageBoxResult(btnCode);
 
-        if (result != QDialogButtonBox::Cancel) {
+        if ((result != QDialogButtonBox::Cancel) && dialog->isDontAskAgainChecked()) {
             KConfigGroup cg = reqMsgConfig->group("Notification Messages");
-            cg.writeEntry(dontAskAgainName, !dialog->isDontAskAgainChecked());
-            cg.sync();
+            d->savePersistentUserReply(type, cg, dontAskAgainName, result);
         }
     });
 
