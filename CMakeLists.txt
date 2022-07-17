@@ -157,6 +157,7 @@ ecm_set_disabled_deprecation_versions(
     KSERVICE 5.81 # we use KMimeTypeTrader in KFileItemActions
     KCOREADDONS 5.85 # KService::createInstance uses deprecated parts of KCoreAddons in the header
     KCONFIGCORE 5.81 # we use KDesktopFile::readDevice
+    KWIDGETSADDONS 5.96 # we use KMessageDialog::Sorry
 )
 
 add_definitions(-DTRANSLATION_DOMAIN=\"kio5\")
