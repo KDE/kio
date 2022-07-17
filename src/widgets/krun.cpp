@@ -94,7 +94,7 @@ qint64 KRunPrivate::runCommandLauncherJob(KIO::CommandLauncherJob *job, QWidget 
     QObject::connect(job, &KJob::result, receiver, [widget](KJob *job) {
         if (job->error()) {
             QEventLoopLocker locker;
-            KMessageBox::sorry(widget, job->errorString());
+            KMessageBox::error(widget, job->errorString());
         }
     });
     job->start();
@@ -193,7 +193,7 @@ bool KRun::runUrl(const QUrl &u, const QString &_mimetype, QWidget *window, RunF
 bool KRun::displayOpenWithDialog(const QList<QUrl> &lst, QWidget *window, bool tempFiles, const QString &suggestedFileName, const QByteArray &asn)
 {
     if (!KAuthorized::authorizeAction(QStringLiteral("openwith"))) {
-        KMessageBox::sorry(window, i18n("You are not authorized to select an application to open this file."));
+        KMessageBox::information(window, i18n("You are not authorized to select an application to open this file."));
         return false;
     }
 

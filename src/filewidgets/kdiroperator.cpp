@@ -738,9 +738,9 @@ bool KDirOperator::mkdir(const QString &directory, bool enterDirectory)
     }
 
     if (exists) { // url was already existent
-        KMessageBox::sorry(d->m_itemView, i18n("A file or folder named %1 already exists.", folderurl.toDisplayString(QUrl::PreferLocalFile)));
+        KMessageBox::error(d->m_itemView, i18n("A file or folder named %1 already exists.", folderurl.toDisplayString(QUrl::PreferLocalFile)));
     } else if (!writeOk) {
-        KMessageBox::sorry(d->m_itemView,
+        KMessageBox::error(d->m_itemView,
                            i18n("You do not have permission to "
                                 "create that folder."));
     } else if (enterDirectory) {

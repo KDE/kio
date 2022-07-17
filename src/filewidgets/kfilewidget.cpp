@@ -649,7 +649,7 @@ void KFileWidget::slotOk()
     // the user about it
     if (locationEditCurrentTextList.count() > 1) {
         if (mode & KFile::File) {
-            KMessageBox::sorry(this, i18n("You can only select one file"), i18n("More than one file provided"));
+            KMessageBox::error(this, i18n("You can only select one file"), i18n("More than one file provided"));
             return;
         }
 
@@ -822,13 +822,13 @@ void KFileWidget::slotOk()
 
         // if we are on local mode, make sure we haven't got a remote base url
         if ((mode & KFile::LocalOnly) && !d->mostLocalUrl(d->m_url).isLocalFile()) {
-            KMessageBox::sorry(this, i18n("You can only select local files"), i18n("Remote files not accepted"));
+            KMessageBox::error(this, i18n("You can only select local files"), i18n("Remote files not accepted"));
             return;
         }
 
         const auto &supportedSchemes = d->m_model->supportedSchemes();
         if (!supportedSchemes.isEmpty() && !supportedSchemes.contains(d->m_url.scheme())) {
-            KMessageBox::sorry(this,
+            KMessageBox::error(this,
                                i18np("The selected URL uses an unsupported scheme. "
                                      "Please use the following scheme: %2",
                                      "The selected URL uses an unsupported scheme. "
@@ -850,7 +850,7 @@ void KFileWidget::slotOk()
                 KJobWidgets::setWindow(checkStatJob, this);
                 bool res = checkStatJob->exec();
                 if (res && checkStatJob->statResult().isDir()) {
-                    KMessageBox::sorry(this,
+                    KMessageBox::error(this,
                                        i18n("More than one folder has been selected and this dialog does not accept folders, so it is not possible to decide "
                                             "which one to enter. Please select only one folder to list it."),
                                        i18n("More than one folder provided"));
@@ -882,7 +882,7 @@ void KFileWidget::slotOk()
             }
             filesInList = true;
         } else {
-            KMessageBox::sorry(this, i18n("The file \"%1\" could not be found", url.toDisplayString(QUrl::PreferLocalFile)), i18n("Cannot open file"));
+            KMessageBox::error(this, i18n("The file \"%1\" could not be found", url.toDisplayString(QUrl::PreferLocalFile)), i18n("Cannot open file"));
             return; // do not emit accepted() if we had ExistingOnly flag and stat failed
         }
 
@@ -1898,7 +1898,7 @@ QString KFileWidget::selectedFile() const
         if (url.isLocalFile()) {
             return url.toLocalFile();
         } else {
-            KMessageBox::sorry(const_cast<KFileWidget *>(this), i18n("You can only select local files."), i18n("Remote Files Not Accepted"));
+            KMessageBox::error(const_cast<KFileWidget *>(this), i18n("You can only select local files."), i18n("Remote Files Not Accepted"));
         }
     }
     return QString();

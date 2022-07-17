@@ -1449,7 +1449,7 @@ void KFilePropsPlugin::applyChanges()
             n.chop(1);
         }
         if (n.isEmpty()) {
-            KMessageBox::sorry(properties, i18n("The new file name is empty."));
+            KMessageBox::error(properties, i18n("The new file name is empty."));
             properties->abortApplying();
             return;
         }
@@ -1627,7 +1627,7 @@ void KFilePropsPlugin::applyIconChanges()
             if (cfg.desktopGroup().readEntry("Icon") != sIcon) {
                 properties->abortApplying();
 
-                KMessageBox::sorry(nullptr, couldNotSaveMsg(path));
+                KMessageBox::error(nullptr, couldNotSaveMsg(path));
             }
         }
     }
@@ -3198,7 +3198,7 @@ void KUrlPropsPlugin::applyChanges()
     const QUrl url = job->mostLocalUrl();
 
     if (!url.isLocalFile()) {
-        KMessageBox::sorry(nullptr, i18n("Could not save properties. Only entries on local file systems are supported."));
+        KMessageBox::error(nullptr, i18n("Could not save properties. Only entries on local file systems are supported."));
         properties->abortApplying();
         return;
     }
@@ -3206,7 +3206,7 @@ void KUrlPropsPlugin::applyChanges()
     QString path = url.toLocalFile();
     QFile f(path);
     if (!f.open(QIODevice::ReadWrite)) {
-        KMessageBox::sorry(nullptr, couldNotSaveMsg(path));
+        KMessageBox::error(nullptr, couldNotSaveMsg(path));
         properties->abortApplying();
         return;
     }
@@ -3467,7 +3467,7 @@ void KDesktopPropsPlugin::applyChanges()
     const QUrl url = job->mostLocalUrl();
 
     if (!url.isLocalFile()) {
-        KMessageBox::sorry(nullptr, i18n("Could not save properties. Only entries on local file systems are supported."));
+        KMessageBox::error(nullptr, i18n("Could not save properties. Only entries on local file systems are supported."));
         properties->abortApplying();
         return;
     }
@@ -3478,7 +3478,7 @@ void KDesktopPropsPlugin::applyChanges()
     QDir().mkpath(QFileInfo(path).absolutePath());
     QFile f(path);
     if (!f.open(QIODevice::ReadWrite)) {
-        KMessageBox::sorry(nullptr, couldNotSaveMsg(path));
+        KMessageBox::error(nullptr, couldNotSaveMsg(path));
         properties->abortApplying();
         return;
     }
@@ -3552,7 +3552,7 @@ void KDesktopPropsPlugin::slotBrowseExec()
     }
 
     if (!f.isLocalFile()) {
-        KMessageBox::sorry(d->m_frame, i18n("Only executables on local file systems are supported."));
+        KMessageBox::information(d->m_frame, i18n("Only executables on local file systems are supported."));
         return;
     }
 

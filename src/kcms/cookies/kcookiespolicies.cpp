@@ -383,7 +383,7 @@ void KCookiesPolicies::save()
                             QDBusConnection::sessionBus());
         QDBusReply<void> reply = kded.call(QStringLiteral("reloadPolicy"));
         if (!reply.isValid()) {
-            KMessageBox::sorry(nullptr,
+            KMessageBox::error(nullptr,
                                i18n("Unable to communicate with the cookie handler service.\n"
                                     "Any changes you made will not take effect until the service "
                                     "is restarted."));

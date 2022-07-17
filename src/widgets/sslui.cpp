@@ -35,7 +35,7 @@ bool KIO::SslUi::askIgnoreSslErrors(const KSslErrorUiData &uiData, RulesStorage 
     }
     if (ud->certificateChain.isEmpty()) {
         // SSL without certificates is quite useless and should never happen
-        KMessageBox::sorry(nullptr,
+        KMessageBox::error(nullptr,
                            i18n("The remote host did not send any SSL certificates.\n"
                                 "Aborting because the identity of the host cannot be established."));
         return false;

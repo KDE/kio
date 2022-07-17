@@ -125,7 +125,7 @@ void KCookiesManagement::save()
         if (!reply.isValid()) {
             const QString caption = i18n("D-Bus Communication Error");
             const QString message = i18n("Unable to delete all the cookies as requested.");
-            KMessageBox::sorry(this, message, caption);
+            KMessageBox::error(this, message, caption);
             return;
         }
         mDeleteAllFlag = false; // deleted[Cookies|Domains] have been cleared yet
@@ -142,7 +142,7 @@ void KCookiesManagement::save()
         if (!reply.isValid()) {
             const QString caption = i18n("D-Bus Communication Error");
             const QString message = i18n("Unable to delete cookies as requested.");
-            KMessageBox::sorry(this, message, caption);
+            KMessageBox::error(this, message, caption);
             return;
         }
         it.remove();
@@ -229,7 +229,7 @@ void KCookiesManagement::reload()
         const QString message = i18n(
             "Unable to retrieve information about the "
             "cookies stored on your computer.");
-        KMessageBox::sorry(this, message, caption);
+        KMessageBox::error(this, message, caption);
         return;
     }
 

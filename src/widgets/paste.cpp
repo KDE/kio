@@ -157,10 +157,10 @@ static QByteArray chooseFormatAndUrl(const QUrl &u,
 
     const QString chosenFormat = formats[dlg.comboItem()];
     if (clipboard && !qApp->clipboard()->mimeData()->hasFormat(chosenFormat)) {
-        KMessageBox::sorry(widget,
-                           i18n("The clipboard has changed since you used 'paste': "
-                                "the chosen data format is no longer applicable. "
-                                "Please copy again what you wanted to paste."));
+        KMessageBox::information(widget,
+                                 i18n("The clipboard has changed since you used 'paste': "
+                                      "the chosen data format is no longer applicable. "
+                                      "Please copy again what you wanted to paste."));
         return QByteArray();
     }
 
