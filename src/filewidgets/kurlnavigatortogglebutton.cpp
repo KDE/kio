@@ -6,6 +6,7 @@
 
 #include "kurlnavigatortogglebutton_p.h"
 
+#include <KIconLoader>
 #include <KLocalizedString>
 
 #include <QPaintEvent>
@@ -14,13 +15,14 @@
 
 namespace KDEPrivate
 {
+static constexpr int s_iconSize = KIconLoader::SizeSmallMedium;
+
 KUrlNavigatorToggleButton::KUrlNavigatorToggleButton(KUrlNavigator *parent)
     : KUrlNavigatorButtonBase(parent)
 {
     setCheckable(true);
     connect(this, &QAbstractButton::toggled, this, &KUrlNavigatorToggleButton::updateToolTip);
     connect(this, &QAbstractButton::clicked, this, &KUrlNavigatorToggleButton::updateCursor);
-    m_pixmap = QIcon::fromTheme(QStringLiteral("dialog-ok")).pixmap(QSize(22, 22).expandedTo(iconSize()));
 
 #ifndef QT_NO_ACCESSIBILITY
     setAccessibleName(i18n("Edit mode"));
@@ -36,7 +38,7 @@ KUrlNavigatorToggleButton::~KUrlNavigatorToggleButton()
 QSize KUrlNavigatorToggleButton::sizeHint() const
 {
     QSize size = KUrlNavigatorButtonBase::sizeHint();
-    size.setWidth(m_pixmap.width() + 4);
+    size.setWidth(qMax(s_iconSize, iconSize().width()) + 4);
     return size;
 }
 
@@ -65,6 +67,10 @@ void KUrlNavigatorToggleButton::paintEvent(QPaintEvent *event)
     const int buttonHeight = height();
     if (isChecked()) {
         drawHoverBackground(&painter);
+
+        if (m_pixmap.isNull()) {
+            m_pixmap = QIcon::fromTheme(QStringLiteral("dialog-ok")).pixmap(QSize(s_iconSize, s_iconSize).expandedTo(iconSize()));
+        }
         style()->drawItemPixmap(&painter, rect(), Qt::AlignCenter, m_pixmap);
     } else if (isDisplayHintEnabled(EnteredHint)) {
         painter.setPen(Qt::NoPen);
