@@ -85,7 +85,7 @@ public:
      * Note that this method doesn't cause already generated previews
      * to be regenerated.
      *
-     * For a list of available plugins, call KServiceTypeTrader::self()->query("ThumbCreator").
+     * For a list of available plugins, call KIO::PreviewJob::availableThumbnailerPlugins().
      *
      * @see enabledPlugins
      */
