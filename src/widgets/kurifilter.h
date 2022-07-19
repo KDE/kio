@@ -170,7 +170,17 @@ public:
      * @li Unknown      - A URI that is not identified. Default value when
      *                    a KUriFilterData is first created.
      */
-    enum UriTypes { NetProtocol = 0, LocalFile, LocalDir, Executable, Help, Shell, Blocked, Error, Unknown };
+    enum UriTypes {
+        NetProtocol = 0,
+        LocalFile,
+        LocalDir,
+        Executable,
+        Help,
+        Shell,
+        Blocked,
+        Error,
+        Unknown,
+    };
 
     /**
      * This enum describes the search filtering options to be used.
