@@ -7,7 +7,7 @@
 
 #include "remoteimpl.h"
 
-#include "../pathhelpers_p.h"
+#include "../utils_p.h"
 
 #include "debug.h"
 #include <KConfigGroup>

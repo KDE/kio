@@ -14,7 +14,7 @@
 #include <QMimeDatabase>
 #include <QMimeType>
 
-#include "../pathhelpers_p.h"
+#include "../utils_p.h"
 
 #include <KIO/CopyJob>
 #include <KIO/FileUndoManager>

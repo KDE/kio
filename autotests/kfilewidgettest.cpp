@@ -15,7 +15,7 @@
 #include <QTest>
 #include <QUrl>
 
-#include "../pathhelpers_p.h"
+#include "../utils_p.h"
 #include "kiotesthelper.h" // createTestFile
 #include <KDirLister>
 #include <KFileFilterCombo>

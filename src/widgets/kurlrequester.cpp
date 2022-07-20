@@ -7,7 +7,7 @@
 */
 
 #include "kurlrequester.h"
-#include "../pathhelpers_p.h" // concatPaths(), isAbsoluteLocalPath()
+#include "../utils_p.h"
 #include "kio_widgets_debug.h"
 
 #include <KComboBox>
@@ -183,14 +183,14 @@ public:
             enteredPath = txt;
         }
 
-        if (isAbsoluteLocalPath(enteredPath)) {
+        if (Utils::isAbsoluteLocalPath(enteredPath)) {
             return QUrl::fromLocalFile(enteredPath);
         }
 
         const QUrl enteredUrl = QUrl(enteredPath); // absolute or relative
         if (enteredUrl.isRelative() && !txt.isEmpty()) {
             QUrl finalUrl(m_startDir);
-            finalUrl.setPath(concatPaths(finalUrl.path(), enteredPath));
+            finalUrl.setPath(Utils::concatPaths(finalUrl.path(), enteredPath));
             return finalUrl;
         } else {
             return enteredUrl;

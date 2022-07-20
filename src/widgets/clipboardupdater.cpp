@@ -5,7 +5,7 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "../pathhelpers_p.h"
+#include "../utils_p.h"
 #include "clipboardupdater_p.h"
 #include "copyjob.h"
 #include "deletejob.h"
@@ -34,7 +34,7 @@ static void overwriteUrlsInClipboard(KJob *job)
         newUrls.reserve(srcUrls.size());
         for (const QUrl &url : srcUrls) {
             QUrl dUrl = copyJob->destUrl().adjusted(QUrl::StripTrailingSlash);
-            dUrl.setPath(concatPaths(dUrl.path(), url.fileName()));
+            dUrl.setPath(Utils::concatPaths(dUrl.path(), url.fileName()));
             newUrls.append(dUrl);
         }
     } else if (fileCopyJob) {
@@ -70,7 +70,7 @@ static void updateUrlsInClipboard(KJob *job)
             const int index = clipboardUrls.indexOf(url);
             if (index > -1) {
                 QUrl dUrl = copyJob->destUrl().adjusted(QUrl::StripTrailingSlash);
-                dUrl.setPath(concatPaths(dUrl.path(), url.fileName()));
+                dUrl.setPath(Utils::concatPaths(dUrl.path(), url.fileName()));
                 clipboardUrls.replace(index, dUrl);
                 update = true;
             }

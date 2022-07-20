@@ -8,7 +8,7 @@
 #include "paste.h"
 #include "kio_widgets_debug.h"
 
-#include "../pathhelpers_p.h"
+#include "../utils_p.h"
 #include "kio/copyjob.h"
 #include "kio/deletejob.h"
 #include "kio/global.h"
@@ -105,7 +105,7 @@ static QUrl getNewFileName(const QUrl &u, const QString &text, const QString &su
     }
 
     QUrl myurl(u);
-    myurl.setPath(concatPaths(myurl.path(), file));
+    myurl.setPath(Utils::concatPaths(myurl.path(), file));
 
     return getDestinationUrl(u, myurl, widget);
 }
@@ -168,7 +168,7 @@ static QByteArray chooseFormatAndUrl(const QUrl &u,
 
     // qDebug() << " result=" << result << " chosenFormat=" << chosenFormat;
     *newUrl = u;
-    newUrl->setPath(concatPaths(newUrl->path(), result));
+    newUrl->setPath(Utils::concatPaths(newUrl->path(), result));
 
     const QUrl destUrl = getDestinationUrl(u, *newUrl, widget);
     *newUrl = destUrl;

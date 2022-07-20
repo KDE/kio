@@ -7,7 +7,7 @@
 */
 
 #include "knewfilemenu.h"
-#include "../pathhelpers_p.h" // concatPaths(), isAbsoluteLocalPath()
+#include "../utils_p.h"
 #include "knameandurlinputdialog.h"
 
 #include <kdirnotify.h>
@@ -653,7 +653,7 @@ void KNewFileMenuPrivate::executeStrategy()
     // The template is not a desktop file [or it's a URL one] >>> Copy it
     for (const auto &u : std::as_const(m_popupFiles)) {
         QUrl dest = u;
-        dest.setPath(concatPaths(dest.path(), KIO::encodeFileName(chosenFileName)));
+        dest.setPath(Utils::concatPaths(dest.path(), KIO::encodeFileName(chosenFileName)));
 
         QList<QUrl> lstSrc;
         lstSrc.append(uSrc);
@@ -914,11 +914,11 @@ void KNewFileMenuPrivate::slotCreateDirectory()
     QString name = expandTilde(m_text);
 
     if (!name.isEmpty()) {
-        if (isAbsoluteLocalPath(name)) {
+        if (Utils::isAbsoluteLocalPath(name)) {
             url = QUrl::fromLocalFile(name);
         } else {
             url = baseUrl;
-            url.setPath(concatPaths(url.path(), name));
+            url.setPath(Utils::concatPaths(url.path(), name));
         }
     }
 
@@ -988,7 +988,7 @@ static QStringList getTemplateFilePaths(const QStringList &templates)
         const QStringList entryList = dir.entryList(QStringList{QStringLiteral("*.desktop")}, QDir::Files);
         files.reserve(files.size() + entryList.size());
         for (const QString &entry : entryList) {
-            const QString file = concatPaths(dir.path(), entry);
+            const QString file = Utils::concatPaths(dir.path(), entry);
             files.append(file);
         }
     }

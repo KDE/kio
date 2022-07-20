@@ -11,7 +11,7 @@
 #include "kcoredirlister.h"
 #include "kcoredirlister_p.h"
 
-#include "../pathhelpers_p.h"
+#include "../utils_p.h"
 #include "kiocoredebug.h"
 #include "kmountpoint.h"
 #include "kprotocolmanager.h"
@@ -1060,7 +1060,7 @@ void KCoreDirListerCache::slotFileDirty(const QString &path)
     const QList<QUrl> urls = directoriesForCanonicalPath(url.adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash));
     for (const QUrl &dir : urls) {
         QUrl aliasUrl(dir);
-        aliasUrl.setPath(concatPaths(aliasUrl.path(), url.fileName()));
+        aliasUrl.setPath(Utils::concatPaths(aliasUrl.path(), url.fileName()));
         handleFileDirty(aliasUrl);
     }
 }
@@ -1132,7 +1132,7 @@ void KCoreDirListerCache::slotFileDeleted(const QString &path) // from KDirWatch
     const QList<QUrl> urls = directoriesForCanonicalPath(dirUrl.adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash));
     for (const QUrl &url : urls) {
         QUrl urlInfo(url);
-        urlInfo.setPath(concatPaths(urlInfo.path(), fileName));
+        urlInfo.setPath(Utils::concatPaths(urlInfo.path(), fileName));
         fileUrls << urlInfo.toString();
     }
     slotFilesRemoved(fileUrls);
@@ -1557,7 +1557,7 @@ void KCoreDirListerCache::renameDir(const QUrl &oldUrl, const QUrl &newUrl)
 
             QUrl newDirUrl(newUrl); // take new base
             if (!relPath.isEmpty()) {
-                newDirUrl.setPath(concatPaths(newDirUrl.path(), relPath)); // add unchanged relative path
+                newDirUrl.setPath(Utils::concatPaths(newDirUrl.path(), relPath)); // add unchanged relative path
             }
             qCDebug(KIO_CORE_DIRLISTER) << "new url=" << newDirUrl;
 
@@ -1573,7 +1573,7 @@ void KCoreDirListerCache::renameDir(const QUrl &oldUrl, const QUrl &newUrl)
                 KFileItem newItem = oldItem;
                 const QUrl &oldItemUrl = oldItem.url();
                 QUrl newItemUrl(oldItemUrl);
-                newItemUrl.setPath(concatPaths(newDirUrl.path(), oldItemUrl.fileName()));
+                newItemUrl.setPath(Utils::concatPaths(newDirUrl.path(), oldItemUrl.fileName()));
                 qCDebug(KIO_CORE_DIRLISTER) << "renaming" << oldItemUrl << "to" << newItemUrl;
                 newItem.setUrl(newItemUrl);
 

@@ -6,14 +6,16 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#ifndef KIO_PATHHELPERS_P_H
-#define KIO_PATHHELPERS_P_H
+#ifndef KIO_UTILS_P_H
+#define KIO_UTILS_P_H
 
 #include <QDir>
 #include <QString>
 #include <QUrl>
 #include <QtGlobal>
 
+namespace Utils
+{
 inline QString concatPaths(const QString &path1, const QString &path2)
 {
     Q_ASSERT(!path2.startsWith(QLatin1Char('/')));
@@ -35,8 +37,6 @@ inline bool isAbsoluteLocalPath(const QString &path)
     return !path.startsWith(QLatin1Char(':')) && QDir::isAbsolutePath(path);
 }
 
-namespace Utils
-{
 /**
  * Appends a slash to @p path if it's not empty, and doesn't already end with a '/'.
  * This method modifies its arg directly:
@@ -111,4 +111,4 @@ inline void appendSlashToPath(QUrl &url)
 
 } // namespace
 
-#endif // KIO_PATHHELPERS_P_H
+#endif // KIO_UTILS_P_H

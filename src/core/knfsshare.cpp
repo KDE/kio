@@ -7,7 +7,7 @@
 
 #include "knfsshare.h"
 
-#include "../pathhelpers_p.h"
+#include "../utils_p.h"
 
 #include <QDebug>
 #include <QFile>

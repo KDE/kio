@@ -6,7 +6,7 @@
 */
 
 #include "kio_trash.h"
-#include "../../pathhelpers_p.h"
+#include "../../utils_p.h"
 #include "kiotrashdebug.h"
 
 #include <KDirNotify>
@@ -107,7 +107,7 @@ void TrashProtocol::restore(const QUrl &trashURL)
     }
     QUrl dest = QUrl::fromLocalFile(info.origPath);
     if (!relativePath.isEmpty()) {
-        dest.setPath(concatPaths(dest.path(), relativePath));
+        dest.setPath(Utils::concatPaths(dest.path(), relativePath));
     }
 
     // Check that the destination directory exists, to improve the error code in case it doesn't.

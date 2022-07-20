@@ -7,7 +7,7 @@
 
 #include "kurlnavigatorbutton_p.h"
 
-#include "../pathhelpers_p.h"
+#include "../utils_p.h"
 #include "kurlnavigator.h"
 #include "kurlnavigatormenu_p.h"
 #include <kio/listjob.h>
@@ -433,7 +433,7 @@ void KUrlNavigatorButton::slotUrlsDropped(QAction *action, QDropEvent *event)
 {
     const int result = action->data().toInt();
     QUrl url(m_url);
-    url.setPath(concatPaths(url.path(), m_subDirs.at(result).name));
+    url.setPath(Utils::concatPaths(url.path(), m_subDirs.at(result).name));
     Q_EMIT urlsDroppedOnNavButton(url, event);
 }
 
@@ -441,7 +441,7 @@ void KUrlNavigatorButton::slotMenuActionClicked(QAction *action, Qt::MouseButton
 {
     const int result = action->data().toInt();
     QUrl url(m_url);
-    url.setPath(concatPaths(url.path(), m_subDirs.at(result).name));
+    url.setPath(Utils::concatPaths(url.path(), m_subDirs.at(result).name));
     Q_EMIT navigatorButtonActivated(url, button, Qt::NoModifier);
 }
 
@@ -575,7 +575,7 @@ void KUrlNavigatorButton::replaceButton(KJob *job)
     }
 
     QUrl url(KIO::upUrl(m_url));
-    url.setPath(concatPaths(url.path(), m_subDirs[targetIndex].name));
+    url.setPath(Utils::concatPaths(url.path(), m_subDirs[targetIndex].name));
     Q_EMIT navigatorButtonActivated(url, Qt::LeftButton, Qt::NoModifier);
 
     m_subDirs.clear();

@@ -9,7 +9,7 @@
 #include <config-kiofilewidgets.h>
 #include <defaults-kfile.h> // ConfigGroup, DefaultShowHidden, DefaultDirsFirst, DefaultSortReversed
 
-#include "../pathhelpers_p.h"
+#include "../utils_p.h"
 
 #include "kdirmodel.h"
 #include "kdiroperator.h"
@@ -715,7 +715,7 @@ bool KDirOperator::mkdir(const QString &directory, bool enterDirectory)
     QStringList::ConstIterator it = dirs.begin();
 
     for (; it != dirs.end(); ++it) {
-        folderurl.setPath(concatPaths(folderurl.path(), *it));
+        folderurl.setPath(Utils::concatPaths(folderurl.path(), *it));
         if (folderurl.isLocalFile()) {
             exists = QFile::exists(folderurl.toLocalFile());
         } else {

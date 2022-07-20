@@ -7,7 +7,7 @@
 */
 
 #include "mkpathjob.h"
-#include "../pathhelpers_p.h"
+#include "../utils_p.h"
 #include "job_p.h"
 #include "mkdirjob.h"
 
@@ -38,7 +38,7 @@ public:
         for (; i < basePathComponents.count() && i < m_pathComponents.count(); ++i) {
             const QString pathComponent = m_pathComponents.at(i);
             if (pathComponent == basePathComponents.at(i)) {
-                m_url.setPath(concatPaths(m_url.path(), pathComponent));
+                m_url.setPath(Utils::concatPaths(m_url.path(), pathComponent));
             } else {
                 break;
             }
@@ -118,7 +118,7 @@ void MkpathJobPrivate::slotStart()
     }
 
     if (m_pathIterator != m_pathComponents.constEnd()) {
-        m_url.setPath(concatPaths(m_url.path(), *m_pathIterator));
+        m_url.setPath(Utils::concatPaths(m_url.path(), *m_pathIterator));
         KIO::Job *job = KIO::mkdir(m_url);
         job->setParentJob(q);
         q->addSubjob(job);

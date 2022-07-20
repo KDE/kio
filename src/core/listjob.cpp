@@ -7,7 +7,7 @@
 */
 
 #include "listjob.h"
-#include "../pathhelpers_p.h"
+#include "../utils_p.h"
 #include "job_p.h"
 #include "scheduler.h"
 #include "slave.h"
@@ -106,7 +106,7 @@ void ListJobPrivate::slotListEntries(const KIO::UDSEntryList &list)
                 itemURL = q->url();
                 filename = entry.stringValue(KIO::UDSEntry::UDS_NAME);
                 Q_ASSERT(!filename.isEmpty()); // we'll recurse forever otherwise :)
-                itemURL.setPath(concatPaths(itemURL.path(), filename));
+                itemURL.setPath(Utils::concatPaths(itemURL.path(), filename));
             }
 
             if (entry.isDir() && !entry.isLink()) {

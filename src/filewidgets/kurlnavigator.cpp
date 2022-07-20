@@ -10,7 +10,7 @@
 #include "kurlnavigator.h"
 #include "kcoreurlnavigator.h"
 
-#include "../pathhelpers_p.h"
+#include "../utils_p.h"
 #include "kurlnavigatorbutton_p.h"
 #include "kurlnavigatordropdownbutton_p.h"
 #include "kurlnavigatorpathselectoreventfilter_p.h"

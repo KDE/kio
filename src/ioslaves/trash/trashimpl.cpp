@@ -10,7 +10,7 @@
 #include "kiotrashdebug.h"
 #include "trashsizecache.h"
 
-#include "../pathhelpers_p.h"
+#include "../utils_p.h"
 #include <kdirnotify.h>
 #include <kfileitem.h>
 #include <kio/chmodjob.h>

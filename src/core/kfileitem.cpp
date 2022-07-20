@@ -14,7 +14,7 @@
 #include "../aclhelpers_p.h"
 #endif
 
-#include "../pathhelpers_p.h"
+#include "../utils_p.h"
 #include "kiocoredebug.h"
 #include "kioglobal_p.h"
 
@@ -307,7 +307,7 @@ void KFileItemPrivate::readUDSEntry(bool _urlIsDirectory)
     m_hidden = hiddenVal == 1 ? Hidden : (hiddenVal == 0 ? Shown : Auto);
 
     if (_urlIsDirectory && !UDS_URL_seen && !m_strName.isEmpty() && m_strName != QLatin1String(".")) {
-        m_url.setPath(concatPaths(m_url.path(), m_strName));
+        m_url.setPath(Utils::concatPaths(m_url.path(), m_strName));
     }
 
     m_iconName.clear();
@@ -950,7 +950,7 @@ QString KFileItem::mimeComment() const
     // Support for .directory file in directories
     if (isLocalUrl && isDir() && !d->isSlow() && isDirectoryMounted(url)) {
         QUrl u(url);
-        u.setPath(concatPaths(u.path(), QStringLiteral(".directory")));
+        u.setPath(Utils::concatPaths(u.path(), QStringLiteral(".directory")));
         const KDesktopFile cfg(u.toLocalFile());
         const QString comment = cfg.readComment();
         if (!comment.isEmpty()) {

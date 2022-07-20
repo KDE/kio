@@ -31,7 +31,7 @@
 #include <QStandardPaths>
 #include <qplatformdefs.h>
 
-#include "../pathhelpers_p.h"
+#include "../utils_p.h"
 
 QDateTime g_currentDate;
 int g_maxCacheAge;

@@ -8,7 +8,7 @@
 */
 
 #include "kio/renamedialog.h"
-#include "../pathhelpers_p.h"
+#include "../utils_p.h"
 #include "kio_widgets_debug.h"
 
 #include <QApplication>
@@ -586,7 +586,7 @@ QUrl RenameDialog::autoDestUrl() const
     const QUrl destDirectory = d->dest.adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash);
     const QString newName = KFileUtils::suggestName(destDirectory, d->dest.fileName());
     QUrl newDest(destDirectory);
-    newDest.setPath(concatPaths(newDest.path(), newName));
+    newDest.setPath(Utils::concatPaths(newDest.path(), newName));
     return newDest;
 }
 

@@ -10,7 +10,7 @@
 
 #include <stdlib.h>
 
-#include "../pathhelpers_p.h"
+#include "../utils_p.h"
 #include <config-kmountpoint.h>
 #include <kioglobal_p.h> // Defines QT_LSTAT on windows to kio_windows_lstat
 

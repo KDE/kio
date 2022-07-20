@@ -7,7 +7,7 @@
 
 #include "namefinderjob.h"
 
-#include "../pathhelpers_p.h"
+#include "../utils_p.h"
 #include "kiocoredebug.h"
 #include <KFileUtils>
 #include <KIO/StatJob>
@@ -62,7 +62,7 @@ void KIO::NameFinderJob::start()
 void KIO::NameFinderJobPrivate::statUrl()
 {
     m_finalUrl = m_baseUrl;
-    m_finalUrl.setPath(concatPaths(m_baseUrl.path(), m_name));
+    m_finalUrl.setPath(Utils::concatPaths(m_baseUrl.path(), m_name));
 
     m_statJob = KIO::statDetails(m_finalUrl,
                                  KIO::StatJob::DestinationSide,

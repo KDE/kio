@@ -9,7 +9,7 @@
 
 #include "deletejob.h"
 
-#include "../pathhelpers_p.h"
+#include "../utils_p.h"
 #include "job.h" // buildErrorString
 #include "kcoredirlister.h"
 #include "kprotocolmanager.h"
@@ -247,7 +247,7 @@ void DeleteJobPrivate::slotEntries(KIO::Job *job, const UDSEntryList &list)
                 url = QUrl(urlStr);
             } else {
                 url = static_cast<SimpleJob *>(job)->url(); // assumed to be a dir
-                url.setPath(concatPaths(url.path(), displayName));
+                url.setPath(Utils::concatPaths(url.path(), displayName));
             }
 
             // qDebug() << displayName << "(" << url << ")";

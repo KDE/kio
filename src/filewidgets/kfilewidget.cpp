@@ -14,7 +14,7 @@
 
 #include "kfilewidget.h"
 
-#include "../pathhelpers_p.h" // concatPaths() and isAbsoluteLocalPath()
+#include "../utils_p.h"
 #include "kfilebookmarkhandler_p.h"
 #include "kfileplacesmodel.h"
 #include "kfileplacesview.h"
@@ -337,7 +337,7 @@ static bool containsProtocolSection(const QString &string)
 // without the http-prepending that QUrl::fromUserInput does.
 static QUrl urlFromString(const QString &str)
 {
-    if (isAbsoluteLocalPath(str)) {
+    if (Utils::isAbsoluteLocalPath(str)) {
         return QUrl::fromLocalFile(str);
     }
     QUrl url(str);
@@ -576,11 +576,11 @@ QUrl KFileWidgetPrivate::getCompleteUrl(const QString &_url) const
     const QString url = KShell::tildeExpand(_url);
     QUrl u;
 
-    if (isAbsoluteLocalPath(url)) {
+    if (Utils::isAbsoluteLocalPath(url)) {
         u = QUrl::fromLocalFile(url);
     } else {
         QUrl relativeUrlTest(m_ops->url());
-        relativeUrlTest.setPath(concatPaths(relativeUrlTest.path(), url));
+        relativeUrlTest.setPath(Utils::concatPaths(relativeUrlTest.path(), url));
         if (!m_ops->dirLister()->findByUrl(relativeUrlTest).isNull() || !KProtocolInfo::isKnownProtocol(relativeUrlTest)) {
             u = relativeUrlTest;
         } else {
@@ -750,7 +750,7 @@ void KFileWidget::slotOk()
         // If the protocol doesn't support listing (i.e. http:// ) the user would end up with the dialog
         // showing an "empty directory" which is bad usability wise.
         if (!locationEditCurrentText.isEmpty() && !onlyDirectoryMode
-            && (isAbsoluteLocalPath(locationEditCurrentText) || containsProtocolSection(locationEditCurrentText))) {
+            && (Utils::isAbsoluteLocalPath(locationEditCurrentText) || containsProtocolSection(locationEditCurrentText))) {
             QUrl url = urlFromString(locationEditCurrentText);
             if (KProtocolManager::supportsListing(url)) {
                 QString fileName;
@@ -1738,7 +1738,7 @@ void KFileWidgetPrivate::slotLoadingFinished()
     if (currentText.startsWith(QLatin1Char('/'))) {
         u.setPath(currentText);
     } else {
-        u.setPath(concatPaths(m_ops->url().path(), currentText));
+        u.setPath(Utils::concatPaths(m_ops->url().path(), currentText));
     }
     m_ops->setCurrentItem(u);
     m_ops->blockSignals(false);

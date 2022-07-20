@@ -9,7 +9,7 @@
 
 #include <QTest>
 
-#include "../../../pathhelpers_p.h"
+#include "../../../utils_p.h"
 #include "kio_trash.h"
 
 #include <kprotocolinfo.h>
@@ -855,7 +855,7 @@ void TestTrash::copyFromTrash(const QString &fileId, const QString &destPath, co
 {
     QUrl src(QLatin1String("trash:/0-") + fileId);
     if (!relativePath.isEmpty()) {
-        src.setPath(concatPaths(src.path(), relativePath));
+        src.setPath(Utils::concatPaths(src.path(), relativePath));
     }
     QUrl dest = QUrl::fromLocalFile(destPath);
 
@@ -965,7 +965,7 @@ void TestTrash::moveFromTrash(const QString &fileId, const QString &destPath, co
 {
     QUrl src(QLatin1String("trash:/0-") + fileId);
     if (!relativePath.isEmpty()) {
-        src.setPath(concatPaths(src.path(), relativePath));
+        src.setPath(Utils::concatPaths(src.path(), relativePath));
     }
     QUrl dest = QUrl::fromLocalFile(destPath);
 

@@ -13,7 +13,7 @@
 
 #include "config-kioslave-file.h"
 
-#include "../pathhelpers_p.h"
+#include "../utils_p.h"
 
 #if HAVE_POSIX_ACL
 #include <../../aclhelpers_p.h>

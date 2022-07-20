@@ -14,7 +14,7 @@
 
 #include "http.h"
 
-#include "../pathhelpers_p.h"
+#include "../utils_p.h"
 #include <config-kioslave-http.h>
 
 #include <limits>

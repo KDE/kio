@@ -9,7 +9,7 @@
 */
 
 #include "kshorturifilter.h"
-#include "../pathhelpers_p.h" // concatPaths(), isAbsoluteLocalPath()
+#include "../utils_p.h"
 
 #include <QDBusConnection>
 #include <QDir>
@@ -124,7 +124,7 @@ bool KShortUriFilter::filterUri(KUriFilterData &data) const
 
     // Replicate what KUrl(cmd) did in KDE4. This could later be folded into the checks further down...
     QUrl url;
-    if (isAbsoluteLocalPath(cmd)) {
+    if (Utils::isAbsoluteLocalPath(cmd)) {
         url = QUrl::fromLocalFile(cmd);
     } else {
         url.setUrl(cmd);
@@ -202,7 +202,7 @@ bool KShortUriFilter::filterUri(KUriFilterData &data) const
     QString query;
     QString nameFilter;
 
-    if (!isAbsoluteLocalPath(cmd) && QUrl(cmd).isRelative()) {
+    if (!Utils::isAbsoluteLocalPath(cmd) && QUrl(cmd).isRelative()) {
         path = cmd;
         qCDebug(category) << "path=cmd=" << path;
     } else {
@@ -282,7 +282,7 @@ bool KShortUriFilter::filterUri(KUriFilterData &data) const
         }
     }
 
-    bool isLocalFullPath = isAbsoluteLocalPath(path);
+    bool isLocalFullPath = Utils::isAbsoluteLocalPath(path);
 
     // Checking for local resource match...
     // Determine if "uri" is an absolute path to a local resource  OR
@@ -368,7 +368,7 @@ bool KShortUriFilter::filterUri(KUriFilterData &data) const
         if (isDir || ((buff.st_mode & QT_STAT_MASK) == QT_STAT_REG)) {
             qCDebug(category) << "Abs path as local file or directory";
             if (!nameFilter.isEmpty()) {
-                u.setPath(concatPaths(u.path(), nameFilter));
+                u.setPath(Utils::concatPaths(u.path(), nameFilter));
             }
             setFilteredUri(data, u);
             setUriType(data, (isDir) ? KUriFilterData::LocalDir : KUriFilterData::LocalFile);
