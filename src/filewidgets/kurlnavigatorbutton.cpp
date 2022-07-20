@@ -680,7 +680,8 @@ void KUrlNavigatorButton::initMenu(KUrlNavigatorMenu *menu, int startIndex)
     menu->setLayoutDirection(Qt::LeftToRight);
 
     const int maxIndex = startIndex + 30; // Don't show more than 30 items in a menu
-    const int lastIndex = std::min<int>(m_subDirs.size() - 1, maxIndex);
+    const int subDirsSize = m_subDirs.size();
+    const int lastIndex = std::min(subDirsSize - 1, maxIndex);
     for (int i = startIndex; i <= lastIndex; ++i) {
         const auto &[subDirName, subDirDisplayName] = m_subDirs[i];
         QString text = KStringHandler::csqueeze(subDirDisplayName, 60);
@@ -694,7 +695,7 @@ void KUrlNavigatorButton::initMenu(KUrlNavigatorMenu *menu, int startIndex)
         action->setData(i);
         menu->addAction(action);
     }
-    if (m_subDirs.size() > maxIndex) {
+    if (subDirsSize > maxIndex) {
         // If too much items are shown, move them into a sub menu
         menu->addSeparator();
         KUrlNavigatorMenu *subDirsMenu = new KUrlNavigatorMenu(menu);
