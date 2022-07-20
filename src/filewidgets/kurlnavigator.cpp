@@ -334,12 +334,18 @@ bool KUrlNavigatorPrivate::slotCheckFilters(const QString &text)
 void KUrlNavigatorPrivate::applyUncommittedUrl()
 {
     const QString text = m_pathBox->currentText().trimmed();
+    QUrl url = q->locationUrl();
 
-    if (slotCheckFilters(text)) {
-        return;
+    // Using the stat job below, check if the url and text match a local dir; but first
+    // handle a special case where "url" is empty in the unittests which use
+    // KUrlNavigator::setLocationUrl(QUrl()); in practice (e.g. in Dolphin, or KFileWidget),
+    // locationUrl() is never empty
+    if (url.isEmpty() && !text.isEmpty()) {
+        if (slotCheckFilters(text)) {
+            return;
+        }
     }
 
-    QUrl url = q->locationUrl();
     QString path = url.path();
     if (!path.endsWith(QLatin1Char('/'))) {
         path += QLatin1Char('/');
@@ -350,10 +356,16 @@ void KUrlNavigatorPrivate::applyUncommittedUrl()
     constexpr auto details = KIO::StatBasic | KIO::StatResolveSymlink;
     auto *job = KIO::statDetails(url, KIO::StatJob::DestinationSide, details, KIO::HideProgressInfo);
     q->connect(job, &KJob::result, q, [this, job, text]() {
-        // If there is a dir matching "text" relative to the current url, use that, e.g.
-        // typing "bar" while at "/path/to/foo", the url becomes "/path/to/foo/bar/"
+        // If there is a dir matching "text" relative to the current url, use that, e.g.:
+        // - typing "bar" while at "/path/to/foo" ---> "/path/to/foo/bar/"
+        // - typing ".config" while at "/home/foo" ---> "/home/foo/.config"
         if (!job->error() && job->statResult().isDir()) {
             slotApplyUrl(job->url());
+            return;
+        }
+
+        // Check if text matches a URI filter
+        if (slotCheckFilters(text)) {
             return;
         }
 
