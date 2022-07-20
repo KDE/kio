@@ -71,6 +71,10 @@ public:
 
     /** Applies the edited URL in m_pathBox to the URL navigator */
     void applyUncommittedUrl();
+    void slotApplyUrl(QUrl url);
+    // Returns true if "text" matched a URI filter (i.e. was fitlered),
+    // otherwise returns false
+    bool slotCheckFilters(const QString &text);
 
     void slotReturnPressed();
     void slotProtocolChanged(const QString &);
@@ -289,40 +293,49 @@ void KUrlNavigatorPrivate::appendWidget(QWidget *widget, int stretch)
     m_layout->insertWidget(m_layout->count() - 1, widget, stretch);
 }
 
-void KUrlNavigatorPrivate::applyUncommittedUrl()
+void KUrlNavigatorPrivate::slotApplyUrl(QUrl url)
 {
-    auto applyUrl = [this](QUrl url) {
-        // Parts of the following code have been taken from the class KateFileSelector
-        // located in kate/app/katefileselector.hpp of Kate.
-        // SPDX-FileCopyrightText: 2001 Christoph Cullmann <cullmann@kde.org>
-        // SPDX-FileCopyrightText: 2001 Joseph Wenninger <jowenn@kde.org>
-        // SPDX-FileCopyrightText: 2001 Anders Lund <anders.lund@lund.tdcadsl.dk>
+    // Parts of the following code have been taken from the class KateFileSelector
+    // located in kate/app/katefileselector.hpp of Kate.
+    // SPDX-FileCopyrightText: 2001 Christoph Cullmann <cullmann@kde.org>
+    // SPDX-FileCopyrightText: 2001 Joseph Wenninger <jowenn@kde.org>
+    // SPDX-FileCopyrightText: 2001 Anders Lund <anders.lund@lund.tdcadsl.dk>
 
-        // For example "desktop:/" _not_ "desktop:", see the comment in slotProtocolChanged()
-        if (!url.isEmpty() && url.path().isEmpty() && KProtocolInfo::protocolClass(url.scheme()) == QLatin1String(":local")) {
-            url.setPath(QStringLiteral("/"));
-        }
+    // For example "desktop:/" _not_ "desktop:", see the comment in slotProtocolChanged()
+    if (!url.isEmpty() && url.path().isEmpty() && KProtocolInfo::protocolClass(url.scheme()) == QLatin1String(":local")) {
+        url.setPath(QStringLiteral("/"));
+    }
 
-        const auto urlStr = url.toString();
-        QStringList urls = m_pathBox->urls();
-        urls.removeAll(urlStr);
-        urls.prepend(urlStr);
-        m_pathBox->setUrls(urls, KUrlComboBox::RemoveBottom);
+    const auto urlStr = url.toString();
+    QStringList urls = m_pathBox->urls();
+    urls.removeAll(urlStr);
+    urls.prepend(urlStr);
+    m_pathBox->setUrls(urls, KUrlComboBox::RemoveBottom);
 
-        q->setLocationUrl(url);
-        // The URL might have been adjusted by KUrlNavigator::setUrl(), hence
-        // synchronize the result in the path box.
-        m_pathBox->setUrl(q->locationUrl());
-    };
+    q->setLocationUrl(url);
+    // The URL might have been adjusted by KUrlNavigator::setUrl(), hence
+    // synchronize the result in the path box.
+    m_pathBox->setUrl(q->locationUrl());
+}
 
-    const QString text = m_pathBox->currentText().trimmed();
-
+bool KUrlNavigatorPrivate::slotCheckFilters(const QString &text)
+{
     KUriFilterData filteredData(text);
     filteredData.setCheckForExecutables(false);
     // Using kshorturifilter to fix up e.g. "ftp.kde.org" ---> "ftp://ftp.kde.org"
     const auto filtersList = QStringList{QStringLiteral("kshorturifilter")};
-    if (KUriFilter::self()->filterUri(filteredData, filtersList)) {
-        applyUrl(filteredData.uri()); // The text was filtered
+    const bool wasFiltered = KUriFilter::self()->filterUri(filteredData, filtersList);
+    if (wasFiltered) {
+        slotApplyUrl(filteredData.uri()); // The text was filtered
+    }
+    return wasFiltered;
+}
+
+void KUrlNavigatorPrivate::applyUncommittedUrl()
+{
+    const QString text = m_pathBox->currentText().trimmed();
+
+    if (slotCheckFilters(text)) {
         return;
     }
 
@@ -336,14 +349,16 @@ void KUrlNavigatorPrivate::applyUncommittedUrl()
     // Dirs and symlinks to dirs
     constexpr auto details = KIO::StatBasic | KIO::StatResolveSymlink;
     auto *job = KIO::statDetails(url, KIO::StatJob::DestinationSide, details, KIO::HideProgressInfo);
-    q->connect(job, &KJob::result, q, [job, text, applyUrl]() {
+    q->connect(job, &KJob::result, q, [this, job, text]() {
         // If there is a dir matching "text" relative to the current url, use that, e.g.
         // typing "bar" while at "/path/to/foo", the url becomes "/path/to/foo/bar/"
         if (!job->error() && job->statResult().isDir()) {
-            applyUrl(job->url());
-        } else { // ... otherwise fallback to whatever QUrl::fromUserInput() returns
-            applyUrl(QUrl::fromUserInput(text));
+            slotApplyUrl(job->url());
+            return;
         }
+
+        // ... otherwise fallback to whatever QUrl::fromUserInput() returns
+        slotApplyUrl(QUrl::fromUserInput(text));
     });
 }
 
