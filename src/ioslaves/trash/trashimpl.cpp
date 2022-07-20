@@ -10,6 +10,7 @@
 #include "kiotrashdebug.h"
 #include "trashsizecache.h"
 
+#include "../pathhelpers_p.h"
 #include <kdirnotify.h>
 #include <kfileitem.h>
 #include <kio/chmodjob.h>
@@ -74,10 +75,7 @@ int TrashImpl::testDir(const QString &_name) const
 {
     DIR *dp = ::opendir(QFile::encodeName(_name).constData());
     if (!dp) {
-        QString name = _name;
-        if (name.endsWith(QLatin1Char('/'))) {
-            name.chop(1);
-        }
+        QString name = Utils::trailingSlashRemoved(_name);
 
         bool ok = QDir().mkdir(name);
         if (!ok && QFile::exists(name)) {
@@ -960,7 +958,7 @@ void TrashImpl::insertTrashDir(int id, const QString &trashDir, const QString &t
 {
     m_trashDirectories.insert(id, trashDir);
     qCDebug(KIO_TRASH) << "found" << trashDir << "gave it id" << id;
-    m_topDirectories.insert(id, !topdir.endsWith(QLatin1Char('/')) ? topdir + QLatin1Char('/') : topdir);
+    m_topDirectories.insert(id, Utils::slashAppended(topdir));
 }
 
 int TrashImpl::findTrashDirectory(const QString &origPath)

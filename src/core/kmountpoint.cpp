@@ -10,6 +10,7 @@
 
 #include <stdlib.h>
 
+#include "../pathhelpers_p.h"
 #include <config-kmountpoint.h>
 #include <kioglobal_p.h> // Defines QT_LSTAT on windows to kio_windows_lstat
 
@@ -152,9 +153,7 @@ void KMountPointPrivate::finalizePossibleMountPoint(KMountPoint::DetailsNeededFl
     }
 
     // Chop trailing slash
-    if (m_mountedFrom.endsWith(QLatin1Char('/'))) {
-        m_mountedFrom.chop(1);
-    }
+    Utils::removeTrailingSlash(m_mountedFrom);
 }
 
 void KMountPointPrivate::finalizeCurrentMountPoint(KMountPoint::DetailsNeededFlags infoNeeded)

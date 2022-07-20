@@ -15,13 +15,15 @@
 #include <QTest>
 #include <QUrl>
 
+#include "../pathhelpers_p.h"
 #include "kiotesthelper.h" // createTestFile
 #include <KDirLister>
 #include <KFileFilterCombo>
-#include <KLocalizedString>
 #include <KUrlComboBox>
 #include <kdiroperator.h>
 #include <kurlnavigator.h>
+
+#include <KLocalizedString>
 
 #include <QAbstractItemView>
 #include <QDialog>
@@ -367,9 +369,7 @@ void KFileWidgetTest::testEnterUrl()
     // These lines are copied from src/filewidgets/kfilewidget.cpp
     // void KFileWidgetPrivate::_k_enterUrl(const QUrl &url)
     QUrl u(expectedUrl);
-    if (!u.path().isEmpty() && !u.path().endsWith(QLatin1Char('/'))) {
-        u.setPath(u.path() + QLatin1Char('/'));
-    }
+    Utils::appendSlashToPath(u);
     // THEN
     QVERIFY(u.isValid());
     QCOMPARE(u, expectedUrl);

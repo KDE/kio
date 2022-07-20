@@ -75,9 +75,7 @@ QString KUrlComboBoxPrivate::textForItem(const KUrlComboItem *item) const
     QUrl url = item->url;
 
     if (myMode == KUrlComboBox::Directories) {
-        if (!url.path().isEmpty() && !url.path().endsWith(QLatin1Char('/'))) {
-            url.setPath(url.path() + QLatin1Char('/'));
-        }
+        Utils::appendSlashToPath(url);
     } else {
         url = url.adjusted(QUrl::StripTrailingSlash);
     }

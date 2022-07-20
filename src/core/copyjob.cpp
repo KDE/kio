@@ -449,10 +449,7 @@ void CopyJobPrivate::slotStart()
     if (m_mode == CopyJob::CopyMode::Move) {
         for (const QUrl &url : std::as_const(m_srcList)) {
             if (m_dest.scheme() == url.scheme() && m_dest.host() == url.host()) {
-                QString srcPath = url.path();
-                if (!srcPath.endsWith(QLatin1Char('/'))) {
-                    srcPath += QLatin1Char('/');
-                }
+                const QString srcPath = Utils::slashAppended(url.path());
                 if (m_dest.path().startsWith(srcPath)) {
                     q->setError(KIO::ERR_CANNOT_MOVE_INTO_ITSELF);
                     q->emitResult();
@@ -1185,18 +1182,13 @@ void CopyJobPrivate::renameDirectory(const QList<CopyInfo>::iterator &it, const 
     Q_Q(CopyJob);
     Q_EMIT q->renamed(q, (*it).uDest, newUrl); // for e.g. KPropertiesDialog
 
-    QString oldPath = (*it).uDest.path();
-    if (!oldPath.endsWith(QLatin1Char('/'))) {
-        oldPath += QLatin1Char('/');
-    }
+    const QString oldPath = Utils::slashAppended((*it).uDest.path());
 
     // Change the current one and strip the trailing '/'
     (*it).uDest = newUrl.adjusted(QUrl::StripTrailingSlash);
 
-    QString newPath = newUrl.path(); // With trailing slash
-    if (!newPath.endsWith(QLatin1Char('/'))) {
-        newPath += QLatin1Char('/');
-    }
+    const QString newPath = Utils::slashAppended(newUrl.path()); // With trailing slash
+
     QList<CopyInfo>::Iterator renamedirit = it;
     ++renamedirit;
     // Change the name of subdirectories inside the directory
@@ -1248,10 +1240,7 @@ void CopyJobPrivate::slotResultCreatingDirs(KJob *job)
             // Should we skip automatically ?
             if (m_bAutoSkipDirs) {
                 // We don't want to copy files in this directory, so we put it on the skip list
-                QString path = oldURL.path();
-                if (!path.endsWith(QLatin1Char('/'))) {
-                    path += QLatin1Char('/');
-                }
+                const QString path = Utils::slashAppended(oldURL.path());
                 m_skipList.append(path);
                 skip(oldURL, true);
                 dirs.erase(it); // Move on to next dir

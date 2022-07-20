@@ -13,6 +13,8 @@
 #include "ksambasharedata.h"
 #include "ksambasharedata_p.h"
 
+#include "../pathhelpers_p.h"
+
 #include <QDebug>
 #include <QFile>
 #include <QFileInfo>
@@ -451,7 +453,7 @@ QMap<QString, KSambaShareData> KSambaSharePrivate::parse(const QByteArray &users
             if (key == QLatin1String("path")) {
                 // Samba accepts paths with and w/o trailing slash, we
                 // use and expect path without slash
-                shareData.dd->path = value.endsWith(QLatin1Char('/')) ? value.chopped(1) : value;
+                shareData.dd->path = Utils::trailingSlashRemoved(value);
             } else if (key == QLatin1String("comment")) {
                 shareData.dd->comment = value;
             } else if (key == QLatin1String("usershare_acl")) {

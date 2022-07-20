@@ -31,6 +31,8 @@
 #include <QStandardPaths>
 #include <qplatformdefs.h>
 
+#include "../pathhelpers_p.h"
+
 QDateTime g_currentDate;
 int g_maxCacheAge;
 qint64 g_maxCacheSize;
@@ -182,11 +184,9 @@ static QString cacheDir()
 
 static QString filePath(const QString &baseName)
 {
-    QString cacheDirName = cacheDir();
-    if (!cacheDirName.endsWith(QLatin1Char('/'))) {
-        cacheDirName.append(QLatin1Char('/'));
-    }
-    return cacheDirName + baseName;
+    QString path = Utils::slashAppended(cacheDir());
+    path += baseName;
+    return path;
 }
 
 static bool readLineChecked(QIODevice *dev, QByteArray *line)

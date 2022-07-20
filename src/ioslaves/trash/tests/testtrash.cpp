@@ -74,11 +74,7 @@ QString TestTrash::readOnlyDirPath() const
 QString TestTrash::otherTmpDir() const
 {
     // This one needs to be on another partition for the test to be meaningful
-    QString tempDir = m_tempDir.path();
-    if (!tempDir.endsWith(QLatin1Char('/'))) {
-        tempDir.append(QLatin1Char('/'));
-    }
-    return tempDir;
+    return Utils::slashAppended(m_tempDir.path());
 }
 
 QString TestTrash::utf8FileName() const

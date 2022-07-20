@@ -7,6 +7,8 @@
 
 #include "knfsshare.h"
 
+#include "../pathhelpers_p.h"
+
 #include <QDebug>
 #include <QFile>
 #include <QFileInfo>
@@ -140,11 +142,8 @@ bool KNFSShare::KNFSSharePrivate::readExportsFile()
         // qDebug() << "KNFSShare: Found path: " << path;
 
         if (!path.isEmpty()) {
-            // normalize path
-            if (!path.endsWith(QLatin1Char('/'))) {
-                path += QLatin1Char('/');
-            }
-
+            // Append a '/' to normalize path
+            Utils::appendSlash(path);
             sharedPaths.insert(path);
         }
     }
@@ -170,12 +169,8 @@ bool KNFSShare::isDirectoryShared(const QString &path) const
     if (path.isEmpty()) {
         return false;
     }
-    QString fixedPath = path;
-    if (!fixedPath.endsWith(QLatin1Char('/'))) {
-        fixedPath += QLatin1Char('/');
-    }
 
-    return d->sharedPaths.contains(fixedPath);
+    return d->sharedPaths.contains(Utils::slashAppended(path));
 }
 
 QStringList KNFSShare::sharedDirectories() const

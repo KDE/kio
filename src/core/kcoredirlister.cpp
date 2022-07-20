@@ -15,9 +15,9 @@
 #include "kiocoredebug.h"
 #include "kmountpoint.h"
 #include "kprotocolmanager.h"
-#include <KJobUiDelegate>
 #include <kio/listjob.h>
 
+#include <KJobUiDelegate>
 #include <KLocalizedString>
 
 #include <QDir>
@@ -1072,10 +1072,7 @@ void KCoreDirListerCache::handleDirDirty(const QUrl &url)
 
     // This also means we can forget about pending updates to individual files in that dir
     const QString dir = url.toLocalFile();
-    QString dirPath = dir;
-    if (!dirPath.endsWith(QLatin1Char('/'))) {
-        dirPath += QLatin1Char('/');
-    }
+    const QString dirPath = Utils::slashAppended(dir);
 
     for (auto pendingIt = pendingUpdates.cbegin(); pendingIt != pendingUpdates.cend(); /* */) {
         const QString updPath = *pendingIt;

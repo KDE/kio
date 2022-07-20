@@ -10,6 +10,7 @@
 #include "kurlnavigator.h"
 #include "kcoreurlnavigator.h"
 
+#include "../pathhelpers_p.h"
 #include "kurlnavigatorbutton_p.h"
 #include "kurlnavigatordropdownbutton_p.h"
 #include "kurlnavigatorpathselectoreventfilter_p.h"
@@ -162,8 +163,6 @@ public:
      * "settings:///System/" the path "settings://" will be returned.
      */
     QUrl retrievePlaceUrl() const;
-
-    void removeTrailingSlash(QString &url) const;
 
     KUrlNavigator *const q;
 
@@ -346,10 +345,7 @@ void KUrlNavigatorPrivate::applyUncommittedUrl()
         }
     }
 
-    QString path = url.path();
-    if (!path.endsWith(QLatin1Char('/'))) {
-        path += QLatin1Char('/');
-    }
+    const QString path = Utils::slashAppended(url.path());
     url.setPath(path + text);
 
     // Dirs and symlinks to dirs
@@ -652,8 +648,7 @@ void KUrlNavigatorPrivate::updateContent()
         if (!placeUrl.isValid()) {
             placeUrl = retrievePlaceUrl();
         }
-        QString placePath = placeUrl.path();
-        removeTrailingSlash(placePath);
+        QString placePath = Utils::trailingSlashRemoved(placeUrl.path());
 
         const int startIndex = placePath.count(QLatin1Char('/'));
         updateButtons(startIndex);
@@ -901,14 +896,6 @@ QUrl KUrlNavigatorPrivate::retrievePlaceUrl() const
     QUrl currentUrl = q->locationUrl();
     currentUrl.setPath(QString());
     return currentUrl;
-}
-
-void KUrlNavigatorPrivate::removeTrailingSlash(QString &url) const
-{
-    const int length = url.length();
-    if ((length > 0) && (url.at(length - 1) == QLatin1Char('/'))) {
-        url.remove(length - 1, 1);
-    }
 }
 
 // ------------------------------------------------------------------------------------------------

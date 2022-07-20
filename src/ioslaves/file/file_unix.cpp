@@ -13,6 +13,8 @@
 
 #include "config-kioslave-file.h"
 
+#include "../pathhelpers_p.h"
+
 #if HAVE_POSIX_ACL
 #include <../../aclhelpers_p.h>
 #endif
@@ -1119,10 +1121,7 @@ void FileProtocol::listDir(const QUrl &url)
             listEntry(entry);
 
         } else {
-            QString fullPath(path);
-            if (!fullPath.endsWith(QLatin1Char('/'))) {
-                fullPath += QLatin1Char('/');
-            }
+            QString fullPath = Utils::slashAppended(path);
             fullPath += filename;
 
             if (createUDSEntry(filename, encodedBasePath + QByteArray(ep->d_name), entry, details, fullPath)) {

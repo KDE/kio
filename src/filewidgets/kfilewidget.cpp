@@ -763,9 +763,7 @@ void KFileWidget::slotOk()
                             fileName = url.fileName();
                             url = url.adjusted(QUrl::RemoveFilename); // keeps trailing slash
                         } else {
-                            if (!url.path().endsWith(QLatin1Char('/'))) {
-                                url.setPath(url.path() + QLatin1Char('/'));
-                            }
+                            Utils::appendSlashToPath(url);
                         }
                     }
                 } else {
@@ -1641,9 +1639,7 @@ void KFileWidgetPrivate::enterUrl(const QUrl &url)
     // append '/' if needed: url combo does not add it
     // tokenize() expects it because it uses QUrl::adjusted(QUrl::RemoveFilename)
     QUrl u(url);
-    if (!u.path().isEmpty() && !u.path().endsWith(QLatin1Char('/'))) {
-        u.setPath(u.path() + QLatin1Char('/'));
-    }
+    Utils::appendSlashToPath(u);
     q->setUrl(u);
 
     // We need to check window()->focusWidget() instead of m_locationEdit->hasFocus
@@ -1817,9 +1813,7 @@ QList<QUrl> KFileWidgetPrivate::tokenize(const QString &line) const
 
     QList<QUrl> urls;
     QUrl u(m_ops->url().adjusted(QUrl::RemoveFilename));
-    if (!u.path().endsWith(QLatin1Char('/'))) {
-        u.setPath(u.path() + QLatin1Char('/'));
-    }
+    Utils::appendSlashToPath(u);
 
     // A helper that creates, validates and appends a new url based
     // on the given filename.

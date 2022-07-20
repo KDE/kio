@@ -7,6 +7,8 @@
 
 #include "remoteimpl.h"
 
+#include "../pathhelpers_p.h"
+
 #include "debug.h"
 #include <KConfigGroup>
 #include <KDesktopFile>
@@ -106,10 +108,7 @@ bool RemoteImpl::createEntry(KIO::UDSEntry &entry, const QString &directory, con
 {
     qCDebug(KIOREMOTE_LOG) << "RemoteImpl::createEntry";
 
-    QString dir = directory;
-    if (!dir.endsWith(QLatin1Char('/'))) {
-        dir += QLatin1Char('/');
-    }
+    const QString dir = Utils::slashAppended(directory);
 
     KDesktopFile desktop(dir + file);
 

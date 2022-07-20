@@ -914,10 +914,8 @@ bool KUrlCompletionPrivate::fileCompletion(const KUrlCompletionPrivate::MyURL &u
         // current directory
         QString dirToAdd = cwd.toLocalFile();
         if (!directory.isEmpty()) {
-            if (!dirToAdd.endsWith(QLatin1Char('/'))) {
-                dirToAdd.append(QLatin1Char('/'));
-            }
-            dirToAdd.append(directory);
+            Utils::appendSlash(dirToAdd);
+            dirToAdd += directory;
         }
         dirList.append(dirToAdd);
     }

@@ -10,6 +10,7 @@
 #include <defaults-kfile.h> // ConfigGroup, DefaultShowHidden, DefaultDirsFirst, DefaultSortReversed
 
 #include "../pathhelpers_p.h"
+
 #include "kdirmodel.h"
 #include "kdiroperator.h"
 #include "kdiroperatordetailview_p.h"
@@ -283,11 +284,8 @@ KDirOperator::KDirOperator(const QUrl &_url, QWidget *parent)
             d->m_currUrl.setScheme(QStringLiteral("file"));
         }
 
-        QString path = d->m_currUrl.path();
-        if (!path.endsWith(QLatin1Char('/'))) {
-            path.append(QLatin1Char('/')); // make sure we have a trailing slash!
-        }
-        d->m_currUrl.setPath(path);
+        // make sure we have a trailing slash!
+        Utils::appendSlashToPath(d->m_currUrl);
     }
 
     // We set the direction of this widget to LTR, since even on RTL desktops
@@ -984,17 +982,8 @@ void KDirOperator::close()
 
 void KDirOperator::setUrl(const QUrl &_newurl, bool clearforward)
 {
-    QUrl newurl;
-
-    if (!_newurl.isValid()) {
-        newurl = QUrl::fromLocalFile(QDir::homePath());
-    } else {
-        newurl = _newurl.adjusted(QUrl::NormalizePathSegments);
-    }
-
-    if (!newurl.path().isEmpty() && !newurl.path().endsWith(QLatin1Char('/'))) {
-        newurl.setPath(newurl.path() + QLatin1Char('/'));
-    }
+    QUrl newurl = _newurl.isValid() ? _newurl.adjusted(QUrl::NormalizePathSegments) : QUrl::fromLocalFile(QDir::homePath());
+    Utils::appendSlashToPath(newurl);
 
     // already set
     if (newurl.matches(d->m_currUrl, QUrl::StripTrailingSlash)) {

@@ -6,6 +6,7 @@
 
 #include "kfilecopytomenu.h"
 #include "kfilecopytomenu_p.h"
+
 #include <QAction>
 #include <QDir>
 #include <QFileDialog>
@@ -13,9 +14,12 @@
 #include <QMimeDatabase>
 #include <QMimeType>
 
+#include "../pathhelpers_p.h"
+
 #include <KIO/CopyJob>
 #include <KIO/FileUndoManager>
 #include <KIO/JobUiDelegate>
+
 #include <KJobWidgets>
 #include <KLocalizedString>
 #include <KSharedConfig>
@@ -191,9 +195,7 @@ void KFileCopyToMainMenu::copyOrMoveTo(const QUrl &dest)
     // dest doesn't exist anymore: it was creating a file with the name of
     // the now non-existing dest.
     QUrl dirDest = dest;
-    if (!dirDest.path().endsWith(QLatin1Char('/'))) {
-        dirDest.setPath(dirDest.path() + QLatin1Char('/'));
-    }
+    Utils::appendSlashToPath(dirDest);
 
     // And now let's do the copy or move -- with undo/redo support.
     KIO::CopyJob *job = m_menuType == Copy ? KIO::copy(d->m_urls, dirDest) : KIO::move(d->m_urls, dirDest);
@@ -212,11 +214,8 @@ void KFileCopyToMainMenu::copyOrMoveTo(const QUrl &dest)
 KFileCopyToDirectoryMenu::KFileCopyToDirectoryMenu(QMenu *parent, KFileCopyToMainMenu *mainMenu, const QString &path)
     : QMenu(parent)
     , m_mainMenu(mainMenu)
-    , m_path(path)
+    , m_path(Utils::slashAppended(path))
 {
-    if (!m_path.endsWith(QLatin1Char('/'))) {
-        m_path.append(QLatin1Char('/'));
-    }
     connect(this, &KFileCopyToDirectoryMenu::aboutToShow, this, &KFileCopyToDirectoryMenu::slotAboutToShow);
 }
 

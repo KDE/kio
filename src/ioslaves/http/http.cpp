@@ -14,6 +14,7 @@
 
 #include "http.h"
 
+#include "../pathhelpers_p.h"
 #include <config-kioslave-http.h>
 
 #include <limits>
@@ -786,9 +787,7 @@ void HTTPProtocol::davStatList(const QUrl &url, bool stat)
     m_request.cacheTag.policy = CC_Reload;
     m_request.davData.depth = stat ? 0 : 1;
     if (!stat) {
-        if (!m_request.url.path().endsWith(QLatin1Char('/'))) {
-            m_request.url.setPath(m_request.url.path() + QLatin1Char('/'));
-        }
+        Utils::appendSlashToPath(m_request.url);
     }
 
     proceedUntilResponseContent(true);
@@ -4777,11 +4776,8 @@ static QString filenameFromUrl(const QUrl &url)
 
 QString HTTPProtocol::cacheFilePathFromUrl(const QUrl &url) const
 {
-    QString filePath = m_strCacheDir;
-    if (!filePath.endsWith(QLatin1Char('/'))) {
-        filePath.append(QLatin1Char('/'));
-    }
-    filePath.append(filenameFromUrl(url));
+    QString filePath = Utils::slashAppended(m_strCacheDir);
+    filePath += filenameFromUrl(url);
     return filePath;
 }
 
