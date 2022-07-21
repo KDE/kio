@@ -186,9 +186,9 @@ protected:
     virtual bool dispatch();
     virtual bool dispatch(int _cmd, const QByteArray &data);
 
-    void messageBox(int type, const QString &text, const QString &caption, const QString &buttonYes, const QString &buttonNo);
+    void messageBox(int type, const QString &text, const QString &title, const QString &buttonYes, const QString &buttonNo);
 
-    void messageBox(int type, const QString &text, const QString &caption, const QString &buttonYes, const QString &buttonNo, const QString &dontAskAgainName);
+    void messageBox(int type, const QString &text, const QString &title, const QString &buttonYes, const QString &buttonNo, const QString &dontAskAgainName);
 
     // I need to identify the slaves
     void requestNetwork(const QString &, const QString &);

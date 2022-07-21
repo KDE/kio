@@ -159,7 +159,7 @@ void KIO::JobUiDelegate::unregisterWindow(QWidget *window)
 }
 
 KIO::RenameDialog_Result KIO::JobUiDelegate::askFileRename(KJob *job,
-                                                           const QString &caption,
+                                                           const QString &title,
                                                            const QUrl &src,
                                                            const QUrl &dest,
                                                            KIO::RenameDialog_Options options,
@@ -174,7 +174,7 @@ KIO::RenameDialog_Result KIO::JobUiDelegate::askFileRename(KJob *job,
     // qDebug() << "job=" << job;
     // We now do it in process, so that opening the rename dialog
     // doesn't start uiserver for nothing if progressId=0 (e.g. F2 in konq)
-    KIO::RenameDialog dlg(KJobWidgets::window(job), caption, src, dest, options, sizeSrc, sizeDest, ctimeSrc, ctimeDest, mtimeSrc, mtimeDest);
+    KIO::RenameDialog dlg(KJobWidgets::window(job), title, src, dest, options, sizeSrc, sizeDest, ctimeSrc, ctimeDest, mtimeSrc, mtimeDest);
     dlg.setWindowModality(Qt::WindowModal);
     connect(job, &KJob::finished, &dlg, &QDialog::reject); // #192976
     KIO::RenameDialog_Result res = static_cast<RenameDialog_Result>(dlg.exec());
@@ -322,7 +322,7 @@ bool KIO::JobUiDelegate::askDeleteConfirmation(const QList<QUrl> &urls, Deletion
 
 int KIO::JobUiDelegate::requestMessageBox(KIO::JobUiDelegate::MessageBoxType type,
                                           const QString &text,
-                                          const QString &caption,
+                                          const QString &title,
                                           const QString &buttonYes,
                                           const QString &buttonNo,
                                           const QString &iconYes,
@@ -332,7 +332,7 @@ int KIO::JobUiDelegate::requestMessageBox(KIO::JobUiDelegate::MessageBoxType typ
 {
     int result = -1;
 
-    // qDebug() << type << text << "caption=" << caption;
+    // qDebug() << type << text << "title=" << title;
 
     KConfig config(QStringLiteral("kioslaverc"));
     KMessageBox::setDontShowAgainConfig(&config);
@@ -357,19 +357,19 @@ int KIO::JobUiDelegate::requestMessageBox(KIO::JobUiDelegate::MessageBoxType typ
 
     switch (type) {
     case QuestionYesNo:
-        result = KMessageBox::questionYesNo(window(), text, caption, buttonYesGui, buttonNoGui, dontAskAgainName, options);
+        result = KMessageBox::questionYesNo(window(), text, title, buttonYesGui, buttonNoGui, dontAskAgainName, options);
         break;
     case WarningYesNo:
-        result = KMessageBox::warningYesNo(window(), text, caption, buttonYesGui, buttonNoGui, dontAskAgainName, options | KMessageBox::Dangerous);
+        result = KMessageBox::warningYesNo(window(), text, title, buttonYesGui, buttonNoGui, dontAskAgainName, options | KMessageBox::Dangerous);
         break;
     case WarningYesNoCancel:
-        result = KMessageBox::warningYesNoCancel(window(), text, caption, buttonYesGui, buttonNoGui, KStandardGuiItem::cancel(), dontAskAgainName, options);
+        result = KMessageBox::warningYesNoCancel(window(), text, title, buttonYesGui, buttonNoGui, KStandardGuiItem::cancel(), dontAskAgainName, options);
         break;
     case WarningContinueCancel:
-        result = KMessageBox::warningContinueCancel(window(), text, caption, buttonYesGui, KStandardGuiItem::cancel(), dontAskAgainName, options);
+        result = KMessageBox::warningContinueCancel(window(), text, title, buttonYesGui, KStandardGuiItem::cancel(), dontAskAgainName, options);
         break;
     case Information:
-        KMessageBox::information(window(), text, caption, dontAskAgainName, options);
+        KMessageBox::information(window(), text, title, dontAskAgainName, options);
         result = 1; // whatever
         break;
     case SSLMessageBox: {
@@ -409,7 +409,7 @@ int KIO::JobUiDelegate::requestMessageBox(KIO::JobUiDelegate::MessageBoxType typ
         const QString details = metaData.value(QStringLiteral("privilege_conf_details"));
         result = KMessageBox::warningContinueCancelDetailed(window(),
                                                             text,
-                                                            caption,
+                                                            title,
                                                             KStandardGuiItem::cont(),
                                                             KStandardGuiItem::cancel(),
                                                             dontAskAgainName,

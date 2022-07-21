@@ -71,7 +71,7 @@ public:
         Rename,
         Symlink,
         Transfer, // put() and get()
-        Other, // if other file operation set message, caption inside the job.
+        Other, // if other file operation set message, title inside the job.
     };
 
     // Maybe we could use the QObject parent/child mechanism instead
@@ -85,7 +85,7 @@ public:
     Job *q_ptr;
     // For privilege operation
     bool m_privilegeExecutionEnabled;
-    QString m_caption, m_message;
+    QString m_title, m_message;
     FileOperationType m_operationType;
 
     QByteArray privilegeOperationData();
@@ -213,7 +213,7 @@ public:
      */
     int requestMessageBox(int type,
                           const QString &text,
-                          const QString &caption,
+                          const QString &title,
                           const QString &buttonYes,
                           const QString &buttonNo,
                           const QString &iconYes = QString(),

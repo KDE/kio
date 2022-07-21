@@ -117,7 +117,7 @@ KIO::WidgetsAskUserActionHandler::~WidgetsAskUserActionHandler()
 }
 
 void KIO::WidgetsAskUserActionHandler::askUserRename(KJob *job,
-                                                     const QString &caption,
+                                                     const QString &title,
                                                      const QUrl &src,
                                                      const QUrl &dest,
                                                      KIO::RenameDialog_Options options,
@@ -142,7 +142,7 @@ void KIO::WidgetsAskUserActionHandler::askUserRename(KJob *job,
         parentWidget = qApp->activeWindow();
     }
 
-    auto *dlg = new KIO::RenameDialog(parentWidget, caption, src, dest, options, sizeSrc, sizeDest, ctimeSrc, ctimeDest, mtimeSrc, mtimeDest);
+    auto *dlg = new KIO::RenameDialog(parentWidget, title, src, dest, options, sizeSrc, sizeDest, ctimeSrc, ctimeDest, mtimeSrc, mtimeDest);
 
     dlg->setAttribute(Qt::WA_DeleteOnClose);
     dlg->setWindowModality(Qt::WindowModal);
@@ -237,7 +237,7 @@ void KIO::WidgetsAskUserActionHandler::askUserDelete(const QList<QUrl> &urls, De
     KMessageDialog::Type dialogType = KMessageDialog::QuestionYesNo;
     KGuiItem acceptButton;
     QString text;
-    QString caption = i18n("Delete Permanently");
+    QString title = i18n("Delete Permanently");
 
     switch (deletionType) {
     case Delete: {
@@ -269,8 +269,8 @@ void KIO::WidgetsAskUserActionHandler::askUserDelete(const QList<QUrl> &urls, De
             text =
                 xi18ncp("@info", "Do you really want to move this %1 item to the Trash?", "Do you really want to move these %1 items to the Trash?", urlCount);
         }
-        caption = i18n("Move to Trash");
-        acceptButton = KGuiItem(caption, QStringLiteral("user-trash"));
+        title = i18n("Move to Trash");
+        acceptButton = KGuiItem(title, QStringLiteral("user-trash"));
         break;
     }
     default:
@@ -280,7 +280,7 @@ void KIO::WidgetsAskUserActionHandler::askUserDelete(const QList<QUrl> &urls, De
     KMessageDialog *dlg = new KMessageDialog(dialogType, text, parent);
 
     dlg->setAttribute(Qt::WA_DeleteOnClose);
-    dlg->setCaption(caption);
+    dlg->setCaption(title);
     dlg->setIcon(QIcon{});
     dlg->setButtons(acceptButton, KStandardGuiItem::cancel());
     if (urlCount > 1) {
@@ -308,7 +308,7 @@ void KIO::WidgetsAskUserActionHandler::askUserDelete(const QList<QUrl> &urls, De
 
 void KIO::WidgetsAskUserActionHandler::requestUserMessageBox(MessageDialogType type,
                                                              const QString &text,
-                                                             const QString &caption,
+                                                             const QString &title,
                                                              const QString &buttonYes,
                                                              const QString &buttonNo,
                                                              const QString &iconYes,
@@ -371,7 +371,7 @@ void KIO::WidgetsAskUserActionHandler::requestUserMessageBox(MessageDialogType t
     auto *dialog = new KMessageDialog(dlgType, text, parent);
 
     dialog->setAttribute(Qt::WA_DeleteOnClose);
-    dialog->setCaption(caption);
+    dialog->setCaption(title);
     dialog->setIcon(QIcon{});
     // If a button has empty text, KMessageDialog will replace that button
     // with a suitable KStandardGuiItem

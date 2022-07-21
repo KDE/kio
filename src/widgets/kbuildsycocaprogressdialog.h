@@ -32,7 +32,7 @@ public:
     static void rebuildKSycoca(QWidget *parent);
 
 private:
-    KBuildSycocaProgressDialog(QWidget *parent, const QString &caption, const QString &text);
+    KBuildSycocaProgressDialog(QWidget *parent, const QString &title, const QString &text);
     ~KBuildSycocaProgressDialog() override;
 
 private:

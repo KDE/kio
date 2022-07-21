@@ -25,7 +25,7 @@ class UserNotificationHandler : public QObject
 public:
     enum MessageBoxDataType {
         MSG_TEXT,
-        MSG_CAPTION,
+        MSG_TITLE,
         MSG_YES_BUTTON_TEXT,
         MSG_NO_BUTTON_TEXT,
         MSG_YES_BUTTON_ICON,

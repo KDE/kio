@@ -269,49 +269,49 @@ QByteArray JobPrivate::privilegeOperationData()
             status = OperationAllowed;
             switch (m_operationType) {
             case ChangeAttr:
-                m_caption = i18n("Change Attribute");
+                m_title = i18n("Change Attribute");
                 m_message = i18n(
                     "Root privileges are required to change file attributes. "
                     "Do you want to continue?");
                 break;
             case Copy:
-                m_caption = i18n("Copy Files");
+                m_title = i18n("Copy Files");
                 m_message = i18n(
                     "Root privileges are required to complete the copy operation. "
                     "Do you want to continue?");
                 break;
             case Delete:
-                m_caption = i18n("Delete Files");
+                m_title = i18n("Delete Files");
                 m_message = i18n(
                     "Root privileges are required to complete the delete operation. "
                     "However, doing so may damage your system. Do you want to continue?");
                 break;
             case MkDir:
-                m_caption = i18n("Create Folder");
+                m_title = i18n("Create Folder");
                 m_message = i18n(
                     "Root privileges are required to create this folder. "
                     "Do you want to continue?");
                 break;
             case Move:
-                m_caption = i18n("Move Items");
+                m_title = i18n("Move Items");
                 m_message = i18n(
                     "Root privileges are required to complete the move operation. "
                     "Do you want to continue?");
                 break;
             case Rename:
-                m_caption = i18n("Rename");
+                m_title = i18n("Rename");
                 m_message = i18n(
                     "Root privileges are required to complete renaming. "
                     "Do you want to continue?");
                 break;
             case Symlink:
-                m_caption = i18n("Create Symlink");
+                m_title = i18n("Create Symlink");
                 m_message = i18n(
                     "Root privileges are required to create a symlink. "
                     "Do you want to continue?");
                 break;
             case Transfer:
-                m_caption = i18n("Transfer data");
+                m_title = i18n("Transfer data");
                 m_message = i18n(
                     "Root privileges are required to complete transferring data. "
                     "Do you want to continue?");
@@ -329,7 +329,7 @@ QByteArray JobPrivate::privilegeOperationData()
 
     QByteArray parentJobData;
     QDataStream ds(&parentJobData, QIODevice::WriteOnly);
-    ds << status << m_caption << m_message;
+    ds << status << m_title << m_message;
     return parentJobData;
 }
 

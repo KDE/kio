@@ -44,7 +44,7 @@ public:
      * Construct a "rename" dialog to let the user know that @p src is about to overwrite @p dest.
      *
      * @param parent parent widget (often 0)
-     * @param caption the caption for the dialog box
+     * @param title the title for the dialog box
      * @param src the url to the file/dir we're trying to copy, as it's part of the text message
      * @param dest the path to destination file/dir, i.e. the one that already exists
      * @param options parameters for the dialog (which buttons to show...),
@@ -56,7 +56,7 @@ public:
      * @param mtimeDest modification time of destination file
      */
     RenameDialog(QWidget *parent,
-                 const QString &caption,
+                 const QString &title,
                  const QUrl &src,
                  const QUrl &dest,
                  RenameDialog_Options options,

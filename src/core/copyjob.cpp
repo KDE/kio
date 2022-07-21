@@ -1727,7 +1727,7 @@ void CopyJobPrivate::slotResultErrorCopyingFiles(KJob *job)
                 options = RenameDialog_Options(options | RenameDialog_MultipleItems | RenameDialog_Skip);
             }
 
-            const QString caption = !isDir ? i18n("File Already Exists") : i18n("Already Exists as Folder");
+            const QString title = !isDir ? i18n("File Already Exists") : i18n("Already Exists as Folder");
 
             auto renameSignal = &KIO::AskUserActionInterface::askUserRenameResult;
             QObject::connect(askUserActionInterface, renameSignal, q, [=](RenameDialog_Result result, const QUrl &newUrl, KJob *parentJob) {
@@ -1738,7 +1738,7 @@ void CopyJobPrivate::slotResultErrorCopyingFiles(KJob *job)
             });
 
             /* clang-format off */
-            askUserActionInterface->askUserRename(q, caption,
+            askUserActionInterface->askUserRename(q, title,
                                                   (*it).uSource, (*it).uDest,
                                                   options,
                                                   (*it).size, destsize,
@@ -2418,10 +2418,10 @@ void CopyJobPrivate::slotResultRenaming(KJob *job)
                         processDirectRenamingConflictResult(result, isDir, destIsDir, mtimeSrc, mtimeDest, dest, newUrl);
                     });
 
-                    const QString caption = err != ERR_DIR_ALREADY_EXIST ? i18n("File Already Exists") : i18n("Already Exists as Folder");
+                    const QString title = err != ERR_DIR_ALREADY_EXIST ? i18n("File Already Exists") : i18n("Already Exists as Folder");
 
                     /* clang-format off */
-                    askUserActionInterface->askUserRename(q, caption,
+                    askUserActionInterface->askUserRename(q, title,
                                                           m_currentSrcURL, dest,
                                                           options,
                                                           sizeSrc, sizeDest,

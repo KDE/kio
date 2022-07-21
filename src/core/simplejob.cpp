@@ -298,7 +298,7 @@ void SimpleJobPrivate::restartAfterRedirection(QUrl *redirectionUrl)
 
 int SimpleJobPrivate::requestMessageBox(int _type,
                                         const QString &text,
-                                        const QString &caption,
+                                        const QString &title,
                                         const QString &buttonYes,
                                         const QString &buttonNo,
                                         const QString &iconYes,
@@ -308,7 +308,7 @@ int SimpleJobPrivate::requestMessageBox(int _type,
 {
     if (m_uiDelegateExtension) {
         const JobUiDelegateExtension::MessageBoxType type = static_cast<JobUiDelegateExtension::MessageBoxType>(_type);
-        return m_uiDelegateExtension->requestMessageBox(type, text, caption, buttonYes, buttonNo, iconYes, iconNo, dontAskAgainName, sslMetaData);
+        return m_uiDelegateExtension->requestMessageBox(type, text, title, buttonYes, buttonNo, iconYes, iconNo, dontAskAgainName, sslMetaData);
     }
     qCWarning(KIO_CORE) << "JobUiDelegate not set! Returning -1";
     return -1;

@@ -98,11 +98,11 @@ QUrl KUrlRequesterDialog::selectedUrl() const
     }
 }
 
-QUrl KUrlRequesterDialog::getUrl(const QUrl &dir, QWidget *parent, const QString &caption)
+QUrl KUrlRequesterDialog::getUrl(const QUrl &dir, QWidget *parent, const QString &title)
 {
     KUrlRequesterDialog dlg(dir, parent);
 
-    dlg.setWindowTitle(caption.isEmpty() ? i18n("Open") : caption);
+    dlg.setWindowTitle(title.isEmpty() ? i18n("Open") : title);
 
     dlg.exec();
 

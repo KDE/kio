@@ -79,7 +79,7 @@ public:
      * a result code, as well as the new dest. Much easier to use than the
      * class RenameDialog directly.
      *
-     * @param caption the caption for the dialog box
+     * @param title the title for the dialog box
      * @param src the URL of the file/dir we're trying to copy, as it's part of the text message
      * @param dest the URL of the destination file/dir, i.e. the one that already exists
      * @param options parameters for the dialog (which buttons to show...)
@@ -93,7 +93,7 @@ public:
      * @return the result
      */
     RenameDialog_Result askFileRename(KJob *job,
-                                      const QString &caption,
+                                      const QString &title,
                                       const QUrl &src,
                                       const QUrl &dest,
                                       KIO::RenameDialog_Options options,
@@ -130,7 +130,7 @@ public:
      *
      * @param type the desired type of message box.
      * @param text the message shown to the user.
-     * @param caption the caption of the message dialog box.
+     * @param title the title of the message dialog box.
      * @param buttonYes the text for the YES button.
      * @param buttonNo the text for the NO button.
      * @param iconYes the icon shown on the YES button.
@@ -145,7 +145,7 @@ public:
     // KF6 TODO Add a QString parameter for "details" and keep in sync with API in SlaveBase, SlaveInterface, and JobUiDelegateExtension.
     int requestMessageBox(MessageBoxType type,
                           const QString &text,
-                          const QString &caption,
+                          const QString &title,
                           const QString &buttonYes,
                           const QString &buttonNo,
                           const QString &iconYes = QString(),

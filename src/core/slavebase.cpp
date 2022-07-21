@@ -139,7 +139,7 @@ public:
 
     bool m_confirmationAsked;
     QSet<QString> m_tempAuths;
-    QString m_warningCaption;
+    QString m_warningTitle;
     QString m_warningMessage;
     int m_privilegeOperationStatus;
 
@@ -1047,22 +1047,22 @@ int SlaveBase::openPasswordDialogV2(AuthInfo &info, const QString &errorMsg)
 #endif
 }
 
-int SlaveBase::messageBox(MessageBoxType type, const QString &text, const QString &caption, const QString &buttonYes, const QString &buttonNo)
+int SlaveBase::messageBox(MessageBoxType type, const QString &text, const QString &title, const QString &buttonYes, const QString &buttonNo)
 {
-    return messageBox(text, type, caption, buttonYes, buttonNo, QString());
+    return messageBox(text, type, title, buttonYes, buttonNo, QString());
 }
 
 int SlaveBase::messageBox(const QString &text,
                           MessageBoxType type,
-                          const QString &caption,
+                          const QString &title,
                           const QString &_buttonYes,
                           const QString &_buttonNo,
                           const QString &dontAskAgainName)
 {
     QString buttonYes = _buttonYes.isNull() ? i18n("&Yes") : _buttonYes;
     QString buttonNo = _buttonNo.isNull() ? i18n("&No") : _buttonNo;
-    // qDebug() << "messageBox " << type << " " << text << " - " << caption << buttonYes << buttonNo;
-    KIO_DATA << static_cast<qint32>(type) << text << caption << buttonYes << buttonNo << dontAskAgainName;
+    // qDebug() << "messageBox " << type << " " << text << " - " << title << buttonYes << buttonNo;
+    KIO_DATA << static_cast<qint32>(type) << text << title << buttonYes << buttonNo << dontAskAgainName;
     send(INF_MESSAGEBOX, data);
     if (waitForAnswer(CMD_MESSAGEBOXANSWER, 0, data) != -1) {
         QDataStream stream(data);
@@ -1616,7 +1616,7 @@ PrivilegeOperationStatus SlaveBase::requestPrivilegeOperation(const QString &ope
         send(MSG_PRIVILEGE_EXEC);
         waitForAnswer(MSG_PRIVILEGE_EXEC, 0, buffer);
         QDataStream ds(buffer);
-        ds >> d->m_privilegeOperationStatus >> d->m_warningCaption >> d->m_warningMessage;
+        ds >> d->m_privilegeOperationStatus >> d->m_warningTitle >> d->m_warningMessage;
     }
 
     if (metaData(QStringLiteral("UnitTesting")) != QLatin1String("true") && d->m_privilegeOperationStatus == OperationAllowed && !d->m_confirmationAsked) {
@@ -1624,7 +1624,7 @@ PrivilegeOperationStatus SlaveBase::requestPrivilegeOperation(const QString &ope
         setMetaData(QStringLiteral("privilege_conf_details"), operationDetails);
         sendMetaData();
 
-        int result = messageBox(d->m_warningMessage, WarningContinueCancelDetailed, d->m_warningCaption, QString(), QString(), QString());
+        int result = messageBox(d->m_warningMessage, WarningContinueCancelDetailed, d->m_warningTitle, QString(), QString(), QString());
         d->m_privilegeOperationStatus = result == Continue ? OperationAllowed : OperationCanceled;
         d->m_confirmationAsked = true;
     }

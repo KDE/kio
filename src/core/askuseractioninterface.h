@@ -66,7 +66,7 @@ public:
      * @see KIO::RenameDialog_Result enum.
      *
      * @param job the job that called this method
-     * @param caption the title for the dialog box
+     * @param title the title for the dialog box
      * @param src the URL of the file/dir being copied/moved
      * @param dest the URL of the destination file/dir, i.e. the one that already exists
      * @param options parameters for the dialog (which buttons to show... etc), OR'ed values
@@ -79,7 +79,7 @@ public:
      * @param mtimeDest modification time of the destination file
      */
     virtual void askUserRename(KJob *job,
-                               const QString &caption,
+                               const QString &title,
                                const QUrl &src,
                                const QUrl &dest,
                                KIO::RenameDialog_Options options,
@@ -166,7 +166,7 @@ public:
      *
      * @param type the desired type of message box, see the MessageDialogType enum
      * @param text the message to show to the user
-     * @param caption the title of the message dialog box
+     * @param title the title of the message dialog box
      * @param buttonYes the text for the YES button
      * @param buttonNo the text for the NO button
      * @param iconYes the icon to show on the YES button
@@ -179,7 +179,7 @@ public:
      */
     virtual void requestUserMessageBox(MessageDialogType type,
                                        const QString &text,
-                                       const QString &caption,
+                                       const QString &title,
                                        const QString &buttonYes,
                                        const QString &buttonNo,
                                        const QString &iconYes = {},

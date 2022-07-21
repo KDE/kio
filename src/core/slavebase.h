@@ -278,7 +278,7 @@ public:
      * Call this to show a message box from the slave
      * @param type type of message box: QuestionYesNo, WarningYesNo, WarningContinueCancel...
      * @param text Message string. May contain newlines.
-     * @param caption Message box title.
+     * @param title Message box title.
      * @param buttonYes The text for the first button.
      *                  The default is i18n("&Yes").
      * @param buttonNo  The text for the second button.
@@ -289,7 +289,7 @@ public:
      */
     int messageBox(MessageBoxType type,
                    const QString &text,
-                   const QString &caption = QString(),
+                   const QString &title = QString(),
                    const QString &buttonYes = QString(),
                    const QString &buttonNo = QString());
 
@@ -297,7 +297,7 @@ public:
      * Call this to show a message box from the slave
      * @param text Message string. May contain newlines.
      * @param type type of message box: QuestionYesNo, WarningYesNo, WarningContinueCancel...
-     * @param caption Message box title.
+     * @param title Message box title.
      * @param buttonYes The text for the first button.
      *                  The default is i18n("&Yes").
      * @param buttonNo  The text for the second button.
@@ -309,7 +309,7 @@ public:
      */
     int messageBox(const QString &text,
                    MessageBoxType type,
-                   const QString &caption = QString(),
+                   const QString &title = QString(),
                    const QString &buttonYes = QString(),
                    const QString &buttonNo = QString(),
                    const QString &dontAskAgainName = QString());

@@ -260,17 +260,17 @@ bool SlaveInterface::dispatch(int _cmd, const QByteArray &rawdata)
     case INF_MESSAGEBOX: {
         // qDebug() << "needs a msg box";
         QString text;
-        QString caption;
+        QString title;
         QString buttonYes;
         QString buttonNo;
         QString dontAskAgainName;
         int type;
-        stream >> type >> text >> caption >> buttonYes >> buttonNo;
+        stream >> type >> text >> title >> buttonYes >> buttonNo;
         if (stream.atEnd()) {
-            messageBox(type, text, caption, buttonYes, buttonNo);
+            messageBox(type, text, title, buttonYes, buttonNo);
         } else {
             stream >> dontAskAgainName;
-            messageBox(type, text, caption, buttonYes, buttonNo, dontAskAgainName);
+            messageBox(type, text, title, buttonYes, buttonNo, dontAskAgainName);
         }
         break;
     }
@@ -392,14 +392,14 @@ void SlaveInterface::sendMessageBoxAnswer(int result)
     // qDebug() << "message box answer" << result;
 }
 
-void SlaveInterface::messageBox(int type, const QString &text, const QString &_caption, const QString &buttonYes, const QString &buttonNo)
+void SlaveInterface::messageBox(int type, const QString &text, const QString &title, const QString &buttonYes, const QString &buttonNo)
 {
-    messageBox(type, text, _caption, buttonYes, buttonNo, QString());
+    messageBox(type, text, title, buttonYes, buttonNo, QString());
 }
 
 void SlaveInterface::messageBox(int type,
                                 const QString &text,
-                                const QString &caption,
+                                const QString &title,
                                 const QString &buttonYes,
                                 const QString &buttonNo,
                                 const QString &dontAskAgainName)
@@ -411,7 +411,7 @@ void SlaveInterface::messageBox(int type,
 
     QHash<UserNotificationHandler::MessageBoxDataType, QVariant> data;
     data.insert(UserNotificationHandler::MSG_TEXT, text);
-    data.insert(UserNotificationHandler::MSG_CAPTION, caption);
+    data.insert(UserNotificationHandler::MSG_TITLE, title);
     data.insert(UserNotificationHandler::MSG_YES_BUTTON_TEXT, buttonYes);
     data.insert(UserNotificationHandler::MSG_NO_BUTTON_TEXT, buttonNo);
     data.insert(UserNotificationHandler::MSG_DONT_ASK_AGAIN, dontAskAgainName);

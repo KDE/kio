@@ -47,7 +47,7 @@ public:
     }
 
     void askUserRename(KJob *job,
-                       const QString &caption,
+                       const QString &title,
                        const QUrl &src,
                        const QUrl &dest,
                        KIO::RenameDialog_Options options,
@@ -58,7 +58,7 @@ public:
                        const QDateTime &mtimeSrc = QDateTime(),
                        const QDateTime &mtimeDest = QDateTime()) override
     {
-        Q_UNUSED(caption)
+        Q_UNUSED(title)
         Q_UNUSED(src)
         Q_UNUSED(dest)
         Q_UNUSED(options)
@@ -92,7 +92,7 @@ public:
 
     void requestUserMessageBox(MessageDialogType type,
                                const QString &text,
-                               const QString &caption,
+                               const QString &title,
                                const QString &buttonYes,
                                const QString &buttonNo,
                                const QString &iconYes = QString(),
@@ -104,7 +104,7 @@ public:
     {
         Q_UNUSED(type)
         Q_UNUSED(text)
-        Q_UNUSED(caption)
+        Q_UNUSED(title)
         Q_UNUSED(buttonYes)
         Q_UNUSED(buttonNo)
         Q_UNUSED(iconYes)

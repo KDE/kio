@@ -17,10 +17,10 @@
 #include <QLineEdit>
 #include <QVBoxLayout>
 
-KIO::PasteDialog::PasteDialog(const QString &caption, const QString &label, const QString &value, const QStringList &items, QWidget *parent)
+KIO::PasteDialog::PasteDialog(const QString &title, const QString &label, const QString &value, const QStringList &items, QWidget *parent)
     : QDialog(parent)
 {
-    setWindowTitle(caption);
+    setWindowTitle(title);
     setModal(true);
 
     QVBoxLayout *topLayout = new QVBoxLayout(this);

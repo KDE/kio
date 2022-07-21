@@ -52,7 +52,7 @@ public:
      * Set a custom widget that should be added to the file dialog.
      * @param widget A widget, or a widget of widgets, for displaying custom
      *               data in the file widget. This can be used, for example, to
-     *               display a check box with the caption "Open as read-only".
+     *               display a check box with the title "Open as read-only".
      *               When creating this widget, you don't need to specify a parent,
      *               since the widget's parent will be set automatically by KFileWidget.
      */

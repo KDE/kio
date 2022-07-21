@@ -137,7 +137,7 @@ public:
      * Creates an empty properties dialog (for applications that want use
      * a standard dialog, but for things not doable via the plugin-mechanism).
      *
-     * @param title is the string display as the "filename" in the caption of the dialog.
+     * @param title is the string display as the "filename" in the title of the dialog.
      * @param parent is the parent of the dialog widget.
      */
     explicit KPropertiesDialog(const QString &title, QWidget *parent = nullptr);

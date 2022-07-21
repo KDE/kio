@@ -43,7 +43,7 @@ public:
      * @copydoc KIO::AskUserActionInterface::askUserRename()
      */
     void askUserRename(KJob *job,
-                       const QString &caption,
+                       const QString &title,
                        const QUrl &src,
                        const QUrl &dest,
                        KIO::RenameDialog_Options options,
@@ -69,7 +69,7 @@ public:
      */
     void requestUserMessageBox(MessageDialogType type,
                                const QString &text,
-                               const QString &caption,
+                               const QString &title,
                                const QString &buttonYes,
                                const QString &buttonNo,
                                const QString &iconYes = {},

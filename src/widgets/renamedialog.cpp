@@ -198,7 +198,7 @@ public:
 };
 
 RenameDialog::RenameDialog(QWidget *parent,
-                           const QString &_caption,
+                           const QString &title,
                            const QUrl &_src,
                            const QUrl &_dest,
                            RenameDialog_Options _options,
@@ -216,7 +216,7 @@ RenameDialog::RenameDialog(QWidget *parent,
     d->src = _src;
     d->dest = _dest;
 
-    setWindowTitle(_caption);
+    setWindowTitle(title);
 
     d->bCancel = new QPushButton(this);
     KGuiItem::assign(d->bCancel, KStandardGuiItem::cancel());

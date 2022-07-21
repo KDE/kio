@@ -77,7 +77,7 @@ void UserNotificationHandler::processRequest()
                 const JobUiDelegateExtension::MessageBoxType type = static_cast<JobUiDelegateExtension::MessageBoxType>(r->type);
                 result = delegateExtension->requestMessageBox(type,
                                                               r->data.value(MSG_TEXT).toString(),
-                                                              r->data.value(MSG_CAPTION).toString(),
+                                                              r->data.value(MSG_TITLE).toString(),
                                                               r->data.value(MSG_YES_BUTTON_TEXT).toString(),
                                                               r->data.value(MSG_NO_BUTTON_TEXT).toString(),
                                                               r->data.value(MSG_YES_BUTTON_ICON).toString(),

@@ -24,7 +24,7 @@ class PasteDialog : public QDialog
 {
     Q_OBJECT
 public:
-    PasteDialog(const QString &caption, const QString &label, const QString &value, const QStringList &items, QWidget *parent);
+    PasteDialog(const QString &title, const QString &label, const QString &value, const QStringList &items, QWidget *parent);
 
     QString lineEditText() const;
     int comboItem() const;

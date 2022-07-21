@@ -126,7 +126,7 @@ public:
      * @param reqUrl the request URL that generated this error message
      * @param method the method that generated this error message
      * (unimplemented)
-     * @return the following strings: caption, error + description,
+     * @return the following strings: title, error + description,
      *         causes+solutions
      */
     QStringList detailedErrorStrings(const QUrl *reqUrl = nullptr, int method = -1) const;

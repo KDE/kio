@@ -65,13 +65,13 @@ public:
      *    Otherwise you can set the text to be displayed for the each glob, and
      *    provide multiple globs, see setFilter() for details.
      * @param parent The widget the dialog will be centered on initially.
-     * @param caption The name of the dialog widget.
+     * @param title The name of the dialog widget.
      */
     static KIOFILEWIDGETS_EXPORT Result getOpenFileNameAndEncoding(const QString &encoding = QString(),
                                                                    const QUrl &startDir = QUrl(),
                                                                    const QString &filter = QString(),
                                                                    QWidget *parent = nullptr,
-                                                                   const QString &caption = QString());
+                                                                   const QString &title = QString());
 
     /**
      * Creates a modal file dialog and returns the selected encoding and the selected
@@ -97,13 +97,13 @@ public:
      *    Otherwise you can set the text to be displayed for the each glob, and
      *    provide multiple globs, see setFilter() for details.
      * @param parent The widget the dialog will be centered on initially.
-     * @param caption The name of the dialog widget.
+     * @param title The name of the dialog widget.
      */
     static KIOFILEWIDGETS_EXPORT Result getOpenFileNamesAndEncoding(const QString &encoding = QString(),
                                                                     const QUrl &startDir = QUrl(),
                                                                     const QString &filter = QString(),
                                                                     QWidget *parent = nullptr,
-                                                                    const QString &caption = QString());
+                                                                    const QString &title = QString());
 
     /**
      * Creates a modal file dialog and returns the selected encoding and
@@ -129,13 +129,13 @@ public:
      *    Otherwise you can set the text to be displayed for the each glob, and
      *    provide multiple globs, see setFilter() for details.
      * @param parent The widget the dialog will be centered on initially.
-     * @param caption The name of the dialog widget.
+     * @param title The name of the dialog widget.
      */
     static KIOFILEWIDGETS_EXPORT Result getOpenUrlAndEncoding(const QString &encoding = QString(),
                                                               const QUrl &startDir = QUrl(),
                                                               const QString &filter = QString(),
                                                               QWidget *parent = nullptr,
-                                                              const QString &caption = QString());
+                                                              const QString &title = QString());
 
     /**
      * Creates a modal file dialog and returns the selected encoding
@@ -161,13 +161,13 @@ public:
      *    Otherwise you can set the text to be displayed for the each glob, and
      *    provide multiple globs, see setFilter() for details.
      * @param parent The widget the dialog will be centered on initially.
-     * @param caption The name of the dialog widget.
+     * @param title The name of the dialog widget.
      */
     static KIOFILEWIDGETS_EXPORT Result getOpenUrlsAndEncoding(const QString &encoding = QString(),
                                                                const QUrl &startDir = QUrl(),
                                                                const QString &filter = QString(),
                                                                QWidget *parent = nullptr,
-                                                               const QString &caption = QString());
+                                                               const QString &title = QString());
 
     /**
      * Creates a modal file dialog and returns the selected encoding and
@@ -195,13 +195,13 @@ public:
      *    Otherwise you can set the text to be displayed for the each glob, and
      *    provide multiple globs, see setFilter() for details.
      * @param parent The widget the dialog will be centered on initially.
-     * @param caption The name of the dialog widget.
+     * @param title The name of the dialog widget.
      */
     static KIOFILEWIDGETS_EXPORT Result getSaveFileNameAndEncoding(const QString &encoding = QString(),
                                                                    const QUrl &startDir = QUrl(),
                                                                    const QString &filter = QString(),
                                                                    QWidget *parent = nullptr,
-                                                                   const QString &caption = QString());
+                                                                   const QString &title = QString());
 
     /**
      * Creates a modal file dialog and returns the selected encoding and
@@ -229,13 +229,13 @@ public:
      *    Otherwise you can set the text to be displayed for the each glob, and
      *    provide multiple globs, see setFilter() for details.
      * @param parent The widget the dialog will be centered on initially.
-     * @param caption The name of the dialog widget.
+     * @param title The name of the dialog widget.
      */
     static KIOFILEWIDGETS_EXPORT Result getSaveUrlAndEncoding(const QString &encoding = QString(),
                                                               const QUrl &startDir = QUrl(),
                                                               const QString &filter = QString(),
                                                               QWidget *parent = nullptr,
-                                                              const QString &caption = QString());
+                                                              const QString &title = QString());
 
     QSize sizeHint() const override;
 
@@ -272,7 +272,7 @@ private:
      *    Otherwise you can set the text to be displayed for the each glob, and
      *    provide multiple globs, see setFilter() for details.
      *
-     * @param caption The caption of the dialog
+     * @param title The title of the dialog
      *
      * @param type This can either be
      *      @li QFileDialog::AcceptOpen (open dialog, the default setting)
@@ -282,7 +282,7 @@ private:
     KEncodingFileDialog(const QUrl &startDir = QUrl(),
                         const QString &encoding = QString(),
                         const QString &filter = QString(),
-                        const QString &caption = QString(),
+                        const QString &title = QString(),
                         QFileDialog::AcceptMode type = QFileDialog::AcceptOpen,
                         QWidget *parent = nullptr);
     /**

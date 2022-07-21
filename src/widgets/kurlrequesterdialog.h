@@ -67,9 +67,9 @@ public:
      *
      * @param url This specifies the initial path of the input line.
      * @param parent The widget the dialog will be centered on initially.
-     * @param caption The caption to use for the dialog.
+     * @param title The title to use for the dialog.
      */
-    static QUrl getUrl(const QUrl &url = QUrl(), QWidget *parent = nullptr, const QString &caption = QString());
+    static QUrl getUrl(const QUrl &url = QUrl(), QWidget *parent = nullptr, const QString &title = QString());
 
 #if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 0)
     /**

@@ -43,11 +43,11 @@ void KBuildSycocaProgressDialog::rebuildKSycoca(QWidget *parent)
     dlg.exec();
 }
 
-KBuildSycocaProgressDialog::KBuildSycocaProgressDialog(QWidget *_parent, const QString &_caption, const QString &text)
+KBuildSycocaProgressDialog::KBuildSycocaProgressDialog(QWidget *_parent, const QString &title, const QString &text)
     : QProgressDialog(_parent)
     , d(new KBuildSycocaProgressDialogPrivate(this))
 {
-    setWindowTitle(_caption);
+    setWindowTitle(title);
     setModal(true);
     setLabelText(text);
     setRange(0, 0);

@@ -115,7 +115,7 @@ public:
 
         d_ptr->m_privilegeExecutionEnabled = true;
         d_ptr->m_operationType = d_ptr->Other;
-        d_ptr->m_caption = i18n("Undo Changes");
+        d_ptr->m_title = i18n("Undo Changes");
         d_ptr->m_message = i18n("Undoing this operation requires root privileges. Do you want to continue?");
     }
     ~UndoJob() override

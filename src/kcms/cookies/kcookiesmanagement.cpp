@@ -123,9 +123,9 @@ void KCookiesManagement::save()
                             QDBusConnection::sessionBus());
         QDBusReply<void> reply = kded.call(QStringLiteral("deleteAllCookies"));
         if (!reply.isValid()) {
-            const QString caption = i18n("D-Bus Communication Error");
+            const QString title = i18n("D-Bus Communication Error");
             const QString message = i18n("Unable to delete all the cookies as requested.");
-            KMessageBox::error(this, message, caption);
+            KMessageBox::error(this, message, title);
             return;
         }
         mDeleteAllFlag = false; // deleted[Cookies|Domains] have been cleared yet
@@ -140,9 +140,9 @@ void KCookiesManagement::save()
                             QDBusConnection::sessionBus());
         QDBusReply<void> reply = kded.call(QStringLiteral("deleteCookiesFromDomain"), (it.next()));
         if (!reply.isValid()) {
-            const QString caption = i18n("D-Bus Communication Error");
+            const QString title = i18n("D-Bus Communication Error");
             const QString message = i18n("Unable to delete cookies as requested.");
-            KMessageBox::error(this, message, caption);
+            KMessageBox::error(this, message, title);
             return;
         }
         it.remove();
@@ -225,11 +225,11 @@ void KCookiesManagement::reload()
     QDBusReply<QStringList> reply = kded.call(QStringLiteral("findDomains"));
 
     if (!reply.isValid()) {
-        const QString caption = i18n("Information Lookup Failure");
+        const QString title = i18n("Information Lookup Failure");
         const QString message = i18n(
             "Unable to retrieve information about the "
             "cookies stored on your computer.");
-        KMessageBox::error(this, message, caption);
+        KMessageBox::error(this, message, title);
         return;
     }
 
