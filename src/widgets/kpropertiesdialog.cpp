@@ -6,6 +6,7 @@
     SPDX-FileCopyrightText: 2000 David Faure <faure@kde.org>
     SPDX-FileCopyrightText: 2003 Waldo Bastian <bastian@kde.org>
     SPDX-FileCopyrightText: 2021 Ahmad Samir <a.samirh78@gmail.com>
+    SPDX-FileCopyrightText: 2022 Harald Sitter <sitter@kde.org>
 
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
@@ -655,17 +656,33 @@ void KPropertiesDialogPrivate::insertPages()
         return;
     }
 
+    const auto scheme = item.url().scheme();
     QString query =
         QStringLiteral("(((not exist [X-KDE-Protocol]) and (not exist [X-KDE-Protocols])) or ([X-KDE-Protocol] == '%1') or ('%1' in [X-KDE-Protocols]))")
-            .arg(item.url().scheme());
+            .arg(scheme);
 
     // qDebug() << "trader query: " << query;
 
     QStringList addedPlugins;
-    const auto jsonPlugins =
-        KPluginMetaData::findPlugins(QStringLiteral("kf" QT_STRINGIFY(QT_VERSION_MAJOR) "/propertiesdialog"), [mimetype](const KPluginMetaData &metaData) {
-            return metaData.mimeTypes().isEmpty() || metaData.supportsMimeType(mimetype);
-        });
+    const auto filter = [mimetype, scheme](const KPluginMetaData &metaData) {
+        const auto supportedProtocol = metaData.value(QStringLiteral("X-KDE-Protocol"), QString());
+        if (!supportedProtocol.isEmpty() && supportedProtocol != scheme) {
+            return false;
+        }
+
+        const auto supportedProtocols = metaData.value(QStringLiteral("X-KDE-Protocols"), QStringList());
+        if (!supportedProtocols.isEmpty()) {
+            const auto none = std::none_of(supportedProtocols.cbegin(), supportedProtocols.cend(), [scheme](const auto &protocol) {
+                return !protocol.isEmpty() && protocol == scheme;
+            });
+            if (none) {
+                return false;
+            }
+        }
+
+        return metaData.mimeTypes().isEmpty() || metaData.supportsMimeType(mimetype);
+    };
+    const auto jsonPlugins = KPluginMetaData::findPlugins(QStringLiteral("kf" QT_STRINGIFY(QT_VERSION_MAJOR) "/propertiesdialog"), filter);
     for (const auto &jsonMetadata : jsonPlugins) {
         if (auto plugin = KPluginFactory::instantiatePlugin<KPropertiesDialogPlugin>(jsonMetadata, q).plugin) {
             q->insertPlugin(plugin);
