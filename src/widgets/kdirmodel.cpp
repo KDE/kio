@@ -61,37 +61,41 @@ public:
     KDirModelNode(KDirModelDirNode *parent, const KFileItem &item)
         : m_item(item)
         , m_parent(parent)
-        , m_preview()
     {
     }
-    virtual ~KDirModelNode()
-    {
-        // Required, code will delete ptrs to this or a subclass.
-    }
+
+    virtual ~KDirModelNode() = default; // Required, code will delete ptrs to this or a subclass.
+
     // m_item is KFileItem() for the root item
     const KFileItem &item() const
     {
         return m_item;
     }
+
     void setItem(const KFileItem &item)
     {
         m_item = item;
     }
+
     KDirModelDirNode *parent() const
     {
         return m_parent;
     }
+
     // linear search
     int rowNumber() const; // O(n)
+
     QIcon preview() const
     {
         return m_preview;
     }
+
     void setPreview(const QPixmap &pix)
     {
         m_preview = QIcon();
         m_preview.addPixmap(pix);
     }
+
     void setPreview(const QIcon &icn)
     {
         m_preview = icn;
@@ -109,7 +113,6 @@ class KDirModelDirNode : public KDirModelNode
 public:
     KDirModelDirNode(KDirModelDirNode *parent, const KFileItem &item)
         : KDirModelNode(parent, item)
-        , m_childNodes()
         , m_childCount(KDirModel::ChildCountUnknown)
         , m_populated(false)
     {
@@ -125,18 +128,22 @@ public:
     {
         return m_childNodes.isEmpty() ? m_childCount : m_childNodes.count();
     }
+
     void setChildCount(int count)
     {
         m_childCount = count;
     }
+
     bool isPopulated() const
     {
         return m_populated;
     }
+
     void setPopulated(bool populated)
     {
         m_populated = populated;
     }
+
     bool isSlow() const
     {
         return item().isSlow();
@@ -173,12 +180,9 @@ int KDirModelNode::rowNumber() const
 class KDirModelPrivate
 {
 public:
-    explicit KDirModelPrivate(KDirModel *model)
-        : q(model)
-        , m_dirLister(nullptr)
+    explicit KDirModelPrivate(KDirModel *qq)
+        : q(qq)
         , m_rootNode(new KDirModelDirNode(nullptr, KFileItem()))
-        , m_dropsAllowed(KDirModel::NoDrops)
-        , m_jobTransfersVisible(false)
     {
     }
     ~KDirModelPrivate()
@@ -200,6 +204,7 @@ public:
         m_rootNode = new KDirModelDirNode(nullptr, KFileItem());
         m_showNodeForListedUrl = false;
     }
+
     // Emit expand for each parent and then return the
     // last known parent if there is no node for this url
     KDirModelNode *expandAllParentsUntil(const QUrl &url) const;
@@ -219,10 +224,12 @@ public:
         }
         return parent;
     }
+
     bool isDir(KDirModelNode *node) const
     {
         return (node == m_rootNode) || node->item().isDir();
     }
+
     QUrl urlForNode(KDirModelNode *node) const
     {
         /**
@@ -246,6 +253,7 @@ public:
         }
         return url;
     }
+
     void removeFromNodeHash(KDirModelNode *node, const QUrl &url);
     void clearAllPreviews(KDirModelDirNode *node);
 #ifndef NDEBUG
@@ -254,10 +262,10 @@ public:
     Q_DISABLE_COPY(KDirModelPrivate)
 
     KDirModel *const q;
-    KDirLister *m_dirLister;
-    KDirModelDirNode *m_rootNode;
-    KDirModel::DropsAllowed m_dropsAllowed;
-    bool m_jobTransfersVisible;
+    KDirLister *m_dirLister = nullptr;
+    KDirModelDirNode *m_rootNode = nullptr;
+    KDirModel::DropsAllowed m_dropsAllowed = KDirModel::NoDrops;
+    bool m_jobTransfersVisible = false;
     bool m_showNodeForListedUrl = false;
     // key = current known parent node (always a KDirModelDirNode but KDirModelNode is more convenient),
     // value = final url[s] being fetched
