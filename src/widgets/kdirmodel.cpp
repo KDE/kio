@@ -1092,17 +1092,22 @@ QList<QUrl> KDirModel::simplifiedUrlList(const QList<QUrl> &urls)
     QList<QUrl> ret(urls);
     std::sort(ret.begin(), ret.end());
 
-    QList<QUrl>::iterator it = ret.begin();
-    QUrl url = *it;
-    ++it;
-    while (it != ret.end()) {
-        if (url.isParentOf(*it) || url == *it) {
-            it = ret.erase(it);
+    QUrl url;
+
+    auto filterFunc = [&url](const QUrl &u) {
+        if (url == u || url.isParentOf(u)) {
+            return true;
         } else {
-            url = *it;
-            ++it;
+            url = u;
+            return false;
         }
-    }
+    };
+
+    auto beginIt = ret.begin();
+    url = *beginIt;
+    ++beginIt;
+    auto it = std::remove_if(beginIt, ret.end(), filterFunc);
+    ret.erase(it, ret.end());
 
     return ret;
 }
