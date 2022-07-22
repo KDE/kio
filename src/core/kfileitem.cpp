@@ -864,8 +864,7 @@ QMimeType KFileItem::determineMimeType() const
         if (isDir()) {
             d->m_mimeType = db.mimeTypeForName(QStringLiteral("inode/directory"));
         } else {
-            bool isLocalUrl;
-            const QUrl url = mostLocalUrl(&isLocalUrl);
+            const auto [url, isLocalUrl] = isMostLocalUrl();
             d->determineMimeTypeHelper(url);
 
             // was:  d->m_mimeType = KMimeType::findByUrl( url, d->m_fileMode, isLocalUrl );
@@ -935,8 +934,7 @@ QString KFileItem::mimeComment() const
         return displayType;
     }
 
-    bool isLocalUrl;
-    QUrl url = mostLocalUrl(&isLocalUrl);
+    const auto [url, isLocalUrl] = isMostLocalUrl();
 
     QMimeType mime = currentMimeType();
     // This cannot move to kio_file (with UDS_DISPLAY_TYPE) because it needs
@@ -1042,8 +1040,7 @@ QString KFileItem::iconName() const
         return d->m_iconName;
     }
 
-    bool isLocalUrl;
-    QUrl url = mostLocalUrl(&isLocalUrl);
+    const auto [url, isLocalUrl] = isMostLocalUrl();
 
     QMimeDatabase db;
     QMimeType mime;
@@ -1095,10 +1092,8 @@ QString KFileItem::iconName() const
  */
 static bool checkDesktopFile(const KFileItem &item, bool _determineMimeType)
 {
-    // only local files
-    bool isLocalUrl;
-    item.mostLocalUrl(&isLocalUrl);
-    if (!isLocalUrl) {
+    // Only local files
+    if (!item.isMostLocalUrl().local) {
         return false;
     }
 
@@ -1166,8 +1161,7 @@ QStringList KFileItem::overlays() const
     }
 #ifndef Q_OS_WIN
     if (isDir()) {
-        bool isLocalUrl;
-        const QUrl url = mostLocalUrl(&isLocalUrl);
+        const auto [url, isLocalUrl] = isMostLocalUrl();
         if (isLocalUrl) {
             const QString path = url.toLocalFile();
             if (KSambaShare::instance()->isDirectoryShared(path) || KNFSShare::instance()->isDirectoryShared(path)) {
@@ -1488,21 +1482,14 @@ void KFileItem::assign(const KFileItem &item)
 QUrl KFileItem::mostLocalUrl(bool *local) const
 {
     if (!d) {
-        return QUrl();
+        return {};
     }
 
-    const QString local_path = localPath();
-    if (!local_path.isEmpty()) {
-        if (local) {
-            *local = true;
-        }
-        return QUrl::fromLocalFile(local_path);
-    } else {
-        if (local) {
-            *local = d->m_bIsLocalUrl;
-        }
-        return d->m_url;
+    const auto [url, isLocal] = isMostLocalUrl();
+    if (local) {
+        *local = isLocal;
     }
+    return url;
 }
 
 KFileItem::MostLocalUrlResult KFileItem::isMostLocalUrl() const

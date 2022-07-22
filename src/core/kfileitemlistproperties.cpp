@@ -75,8 +75,7 @@ void KFileItemListPropertiesPrivate::setItems(const KFileItemList &items)
 
     QFileInfo parentDirInfo;
     for (const KFileItem &item : items) {
-        bool isLocal = false;
-        const QUrl url = item.mostLocalUrl(&isLocal);
+        const auto [url, isLocal] = item.isMostLocalUrl();
         m_isLocal = m_isLocal && isLocal;
         m_supportsReading = m_supportsReading && KProtocolManager::supportsReading(url);
         m_supportsDeleting = m_supportsDeleting && KProtocolManager::supportsDeleting(url);

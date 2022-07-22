@@ -565,9 +565,21 @@ public:
 #endif
 
     /**
-     * Tries to give a local URL for this file item if possible.
-     * The given boolean indicates if the returned url is local or not.
-     * \since 4.6
+     * Tries to return a local URL for this file item if possible.
+     * If @p local is not null, it will be set to @c true if the returned url is local,
+     * @c false otherwise.
+     *
+     * Example:
+     * @code
+     * bool isLocal = false;
+     * KFileItem item;
+     * const QUrl url = item.mostLocalUrl(&isLocal);
+     * if (isLocal) {
+     *    // Use url
+     * }
+     * @endcode
+     *
+     * @since 4.6
      */
     QUrl mostLocalUrl(bool *local = nullptr) const;
 
@@ -581,6 +593,17 @@ public:
      * (otherwise an empty Url), and a bool that is set to @c true if this Url
      * does represent a local file otherwise @c false.
      *
+     * Basically this is an alternative to mostLocalUrl(bool*), that does not use an
+     * output parameter.
+     *
+     * Example:
+     * @code
+     * KFileItem item;
+     * const MostLocalUrlResult result = item.isMostLocalUrl();
+     * if (result.local) { // A local file
+     *    // Use result.url
+     * }
+     * @endcode
      * @since 5.84
      */
     MostLocalUrlResult isMostLocalUrl() const;
