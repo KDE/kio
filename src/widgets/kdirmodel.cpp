@@ -150,16 +150,18 @@ public:
     }
 
     // For removing all child urls from the global hash.
-    void collectAllChildUrls(QList<QUrl> &urls) const
+    QList<QUrl> collectAllChildUrls() const
     {
+        QList<QUrl> urls;
         urls.reserve(urls.size() + m_childNodes.size());
         for (KDirModelNode *node : m_childNodes) {
             const KFileItem &item = node->item();
             urls.append(cleanupUrl(item.url()));
             if (item.isDir()) {
-                static_cast<KDirModelDirNode *>(node)->collectAllChildUrls(urls);
+                urls += static_cast<KDirModelDirNode *>(node)->collectAllChildUrls();
             }
         }
+        return urls;
     }
 
 private:
@@ -286,9 +288,8 @@ KDirModelNode *KDirModelPrivate::nodeForUrl(const QUrl &_url) const // O(1), wel
 void KDirModelPrivate::removeFromNodeHash(KDirModelNode *node, const QUrl &url)
 {
     if (node->item().isDir()) {
-        QList<QUrl> urls;
-        static_cast<KDirModelDirNode *>(node)->collectAllChildUrls(urls);
-        for (const QUrl &u : std::as_const(urls)) {
+        const QList<QUrl> urls = static_cast<KDirModelDirNode *>(node)->collectAllChildUrls();
+        for (const QUrl &u : urls) {
             m_nodeHash.remove(u);
         }
     }
