@@ -9,22 +9,23 @@
 #define KIO_REMOTE_H
 
 #include "remoteimpl.h"
-#include <KIO/SlaveBase>
+#include <KIO/WorkerBase>
 
-class RemoteProtocol : public KIO::SlaveBase
+class RemoteProtocol : public KIO::WorkerBase
 {
 public:
     RemoteProtocol(const QByteArray &protocol, const QByteArray &pool, const QByteArray &app);
     ~RemoteProtocol() override;
-    void listDir(const QUrl &url) override;
-    void stat(const QUrl &url) override;
-    void del(const QUrl &url, bool isFile) override;
-    void get(const QUrl &url) override;
-    void rename(const QUrl &src, const QUrl &dest, KIO::JobFlags flags) override;
-    void symlink(const QString &target, const QUrl &dest, KIO::JobFlags flags) override;
+
+    KIO::WorkerResult listDir(const QUrl &url) override;
+    KIO::WorkerResult stat(const QUrl &url) override;
+    KIO::WorkerResult del(const QUrl &url, bool isFile) override;
+    KIO::WorkerResult get(const QUrl &url) override;
+    KIO::WorkerResult rename(const QUrl &src, const QUrl &dest, KIO::JobFlags flags) override;
+    KIO::WorkerResult symlink(const QString &target, const QUrl &dest, KIO::JobFlags flags) override;
 
 private:
-    void listRoot();
+    KIO::WorkerResult listRoot();
 
     RemoteImpl m_impl;
 };

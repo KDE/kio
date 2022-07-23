@@ -15,25 +15,25 @@
 class KIOPluginForMetaData : public QObject
 {
     Q_OBJECT
-    Q_PLUGIN_METADATA(IID "org.kde.kio.slave.remote" FILE "remote.json")
+    Q_PLUGIN_METADATA(IID "org.kde.kio.worker.remote" FILE "remote.json")
 };
 
 extern "C" {
 int Q_DECL_EXPORT kdemain(int argc, char **argv)
 {
-    // necessary to use other kio slaves
+    // necessary to use other kio workers
     QCoreApplication app(argc, argv);
     app.setApplicationName(QStringLiteral("kio_remote"));
 
-    // start the slave
-    RemoteProtocol slave(argv[1], argv[2], argv[3]);
-    slave.dispatchLoop();
+    // start the worker
+    RemoteProtocol worker(argv[1], argv[2], argv[3]);
+    worker.dispatchLoop();
     return 0;
 }
 }
 
 RemoteProtocol::RemoteProtocol(const QByteArray &protocol, const QByteArray &pool, const QByteArray &app)
-    : SlaveBase(protocol, pool, app)
+    : WorkerBase(protocol, pool, app)
 {
 }
 
@@ -41,13 +41,12 @@ RemoteProtocol::~RemoteProtocol()
 {
 }
 
-void RemoteProtocol::listDir(const QUrl &url)
+KIO::WorkerResult RemoteProtocol::listDir(const QUrl &url)
 {
     qCDebug(KIOREMOTE_LOG) << "RemoteProtocol::listDir: " << url;
 
     if (url.path().length() <= 1) {
-        listRoot();
-        return;
+        return listRoot();
     }
 
     int second_slash_idx = url.path().indexOf(QLatin1Char('/'), 1);
@@ -65,14 +64,13 @@ void RemoteProtocol::listDir(const QUrl &url)
         }
         qCDebug(KIOREMOTE_LOG) << "complete redirection target : " << target;
         redirection(target);
-        finished();
-        return;
+        return KIO::WorkerResult::pass();
     }
 
-    error(KIO::ERR_MALFORMED_URL, url.toDisplayString());
+    return KIO::WorkerResult::fail(KIO::ERR_MALFORMED_URL, url.toDisplayString());
 }
 
-void RemoteProtocol::listRoot()
+KIO::WorkerResult RemoteProtocol::listRoot()
 {
     KIO::UDSEntry entry;
 
@@ -91,10 +89,10 @@ void RemoteProtocol::listRoot()
     }
 
     entry.clear();
-    finished();
+    return KIO::WorkerResult::pass();
 }
 
-void RemoteProtocol::stat(const QUrl &url)
+KIO::WorkerResult RemoteProtocol::stat(const QUrl &url)
 {
     qCDebug(KIOREMOTE_LOG) << "RemoteProtocol::stat: " << url;
 
@@ -104,8 +102,7 @@ void RemoteProtocol::stat(const QUrl &url)
         KIO::UDSEntry entry;
         m_impl.createTopLevelEntry(entry);
         statEntry(entry);
-        finished();
-        return;
+        return KIO::WorkerResult::pass();
     }
 
     int second_slash_idx = url.path().indexOf(QLatin1Char('/'), 1);
@@ -115,8 +112,7 @@ void RemoteProtocol::stat(const QUrl &url)
         KIO::UDSEntry entry;
         if (m_impl.statNetworkFolder(entry, root_dirname)) {
             statEntry(entry);
-            finished();
-            return;
+            return KIO::WorkerResult::pass();
         }
     } else {
         QUrl target = m_impl.findBaseURL(root_dirname);
@@ -131,27 +127,25 @@ void RemoteProtocol::stat(const QUrl &url)
             }
             qCDebug(KIOREMOTE_LOG) << "complete redirection target : " << target;
             redirection(target);
-            finished();
-            return;
+            return KIO::WorkerResult::pass();
         }
     }
 
-    error(KIO::ERR_MALFORMED_URL, url.toDisplayString());
+    return KIO::WorkerResult::fail(KIO::ERR_MALFORMED_URL, url.toDisplayString());
 }
 
-void RemoteProtocol::del(const QUrl &url, bool /*isFile*/)
+KIO::WorkerResult RemoteProtocol::del(const QUrl &url, bool /*isFile*/)
 {
     qCDebug(KIOREMOTE_LOG) << "RemoteProtocol::del: " << url;
 
     if (m_impl.deleteNetworkFolder(url.fileName())) {
-        finished();
-        return;
+        return KIO::WorkerResult::pass();
     }
 
-    error(KIO::ERR_CANNOT_DELETE, url.toDisplayString());
+    return KIO::WorkerResult::fail(KIO::ERR_CANNOT_DELETE, url.toDisplayString());
 }
 
-void RemoteProtocol::get(const QUrl &url)
+KIO::WorkerResult RemoteProtocol::get(const QUrl &url)
 {
     qCDebug(KIOREMOTE_LOG) << "RemoteProtocol::get: " << url;
 
@@ -160,36 +154,32 @@ void RemoteProtocol::get(const QUrl &url)
 
     if (!file.isEmpty()) {
         redirection(QUrl::fromLocalFile(file));
-        finished();
-        return;
+        return KIO::WorkerResult::pass();
     }
 
-    error(KIO::ERR_MALFORMED_URL, url.toDisplayString());
+    return KIO::WorkerResult::fail(KIO::ERR_MALFORMED_URL, url.toDisplayString());
 }
 
-void RemoteProtocol::rename(const QUrl &src, const QUrl &dest, KIO::JobFlags flags)
+KIO::WorkerResult RemoteProtocol::rename(const QUrl &src, const QUrl &dest, KIO::JobFlags flags)
 {
     if (src.scheme() != QLatin1String("remote") || dest.scheme() != QLatin1String("remote")) {
-        error(KIO::ERR_UNSUPPORTED_ACTION, src.toDisplayString());
-        return;
+        return KIO::WorkerResult::fail(KIO::ERR_UNSUPPORTED_ACTION, src.toDisplayString());
     }
 
     if (m_impl.renameFolders(src.fileName(), dest.fileName(), flags & KIO::Overwrite)) {
-        finished();
-        return;
+        return KIO::WorkerResult::pass();
     }
 
-    error(KIO::ERR_CANNOT_RENAME, src.toDisplayString());
+    return KIO::WorkerResult::fail(KIO::ERR_CANNOT_RENAME, src.toDisplayString());
 }
 
-void RemoteProtocol::symlink(const QString &target, const QUrl &dest, KIO::JobFlags flags)
+KIO::WorkerResult RemoteProtocol::symlink(const QString &target, const QUrl &dest, KIO::JobFlags flags)
 {
     if (m_impl.changeFolderTarget(dest.fileName(), target, flags & KIO::Overwrite)) {
-        finished();
-        return;
+        return KIO::WorkerResult::pass();
     }
 
-    error(KIO::ERR_CANNOT_SYMLINK, dest.toDisplayString());
+    return KIO::WorkerResult::fail(KIO::ERR_CANNOT_SYMLINK, dest.toDisplayString());
 }
 
 #include "kio_remote.moc"
