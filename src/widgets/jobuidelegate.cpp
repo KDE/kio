@@ -391,13 +391,13 @@ int KIO::JobUiDelegate::requestMessageBox(KIO::JobUiDelegate::MessageBoxType typ
 
     switch (type) {
     case QuestionYesNo:
-        result = KMessageBox::questionYesNo(window(), text, title, buttonYesGui, buttonNoGui, dontAskAgainName, options);
+        result = KMessageBox::questionTwoActions(window(), text, title, buttonYesGui, buttonNoGui, dontAskAgainName, options);
         break;
     case WarningYesNo:
-        result = KMessageBox::warningYesNo(window(), text, title, buttonYesGui, buttonNoGui, dontAskAgainName, options | KMessageBox::Dangerous);
+        result = KMessageBox::warningTwoActions(window(), text, title, buttonYesGui, buttonNoGui, dontAskAgainName, options | KMessageBox::Dangerous);
         break;
     case WarningYesNoCancel:
-        result = KMessageBox::warningYesNoCancel(window(), text, title, buttonYesGui, buttonNoGui, KStandardGuiItem::cancel(), dontAskAgainName, options);
+        result = KMessageBox::warningTwoActionsCancel(window(), text, title, buttonYesGui, buttonNoGui, KStandardGuiItem::cancel(), dontAskAgainName, options);
         break;
     case WarningContinueCancel:
         result = KMessageBox::warningContinueCancel(window(), text, title, buttonYesGui, KStandardGuiItem::cancel(), dontAskAgainName, options);

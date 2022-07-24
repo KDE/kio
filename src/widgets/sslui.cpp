@@ -63,12 +63,12 @@ bool KIO::SslUi::askIgnoreSslErrors(const KSslErrorUiData &uiData, RulesStorage 
 
     int msgResult;
     do {
-        msgResult = KMessageBox::warningYesNoCancel(nullptr,
-                                                    message,
-                                                    i18n("Server Authentication"),
-                                                    KGuiItem(i18n("&Details"), QStringLiteral("help-about")),
-                                                    KGuiItem(i18n("Co&ntinue"), QStringLiteral("arrow-right")));
-        if (msgResult == KMessageBox::Yes) {
+        msgResult = KMessageBox::warningTwoActionsCancel(nullptr,
+                                                         message,
+                                                         i18n("Server Authentication"),
+                                                         KGuiItem(i18n("&Details"), QStringLiteral("help-about")),
+                                                         KGuiItem(i18n("Co&ntinue"), QStringLiteral("arrow-right")));
+        if (msgResult == KMessageBox::PrimaryAction) {
             // Details was chosen - show the certificate and error details
 
             QList<QList<QSslError::SslError>> meh; // parallel list to cert list :/
@@ -91,21 +91,21 @@ bool KIO::SslUi::askIgnoreSslErrors(const KSslErrorUiData &uiData, RulesStorage 
         } else if (msgResult == KMessageBox::Cancel) {
             return false;
         }
-        // fall through on KMessageBox::No
-    } while (msgResult == KMessageBox::Yes);
+        // fall through on KMessageBox::SecondaryAction
+    } while (msgResult == KMessageBox::PrimaryAction);
 
     if (storedRules & StoreRules) {
         // Save the user's choice to ignore the SSL errors.
 
-        msgResult = KMessageBox::warningYesNo(nullptr,
-                                              i18n("Would you like to accept this "
-                                                   "certificate forever without "
-                                                   "being prompted?"),
-                                              i18n("Server Authentication"),
-                                              KGuiItem(i18n("&Forever"), QStringLiteral("flag-green")),
-                                              KGuiItem(i18n("&Current Session only"), QStringLiteral("chronometer")));
+        msgResult = KMessageBox::warningTwoActions(nullptr,
+                                                   i18n("Would you like to accept this "
+                                                        "certificate forever without "
+                                                        "being prompted?"),
+                                                   i18n("Server Authentication"),
+                                                   KGuiItem(i18n("&Forever"), QStringLiteral("flag-green")),
+                                                   KGuiItem(i18n("&Current Session only"), QStringLiteral("chronometer")));
         QDateTime ruleExpiry = QDateTime::currentDateTime();
-        if (msgResult == KMessageBox::Yes) {
+        if (msgResult == KMessageBox::PrimaryAction) {
             // accept forever ("for a very long time")
             ruleExpiry = ruleExpiry.addYears(1000);
         } else {
