@@ -11,6 +11,7 @@ Name[ca]=Documentació en línia de les Qt6
 Name[ca@valencia]=Documentació en línia de les Qt6
 Name[cs]=Online dokumentace Qt6
 Name[cy]=Dogfennaeth Arlein Qt6
+Name[de]=Qt6-Online-Dokumentation
 Name[en_GB]=Qt6 Online Documentation
 Name[es]=Documentación Qt6 en línea
 Name[fi]=Qt6-verkko-ohjeistus
@@ -43,6 +44,7 @@ Query[ca]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[ca@valencia]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[cs]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[cy]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
+Query[de]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[en_GB]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[es]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[fi]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}

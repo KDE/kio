@@ -7,6 +7,7 @@ Name[bs]=Rast STD Dokumentacija
 Name[ca]=Documentació del Rust STD
 Name[ca@valencia]=Documentació de Rust STD
 Name[cy]=Dogfennaeth STD Rust
+Name[de]=Rust-STD-Dokumentation
 Name[en_GB]=Rust STD Documentation
 Name[es]=Documentación de Rust STD
 Name[fi]=Rust STD -ohjeistus
@@ -40,6 +41,7 @@ Query[ca]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[ca@valencia]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[cs]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[cy]=https://doc.rust-lang.org/std/index.html?search=\\{@}
+Query[de]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[en_GB]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[es]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[fi]=https://doc.rust-lang.org/std/index.html?search=\\{@}
