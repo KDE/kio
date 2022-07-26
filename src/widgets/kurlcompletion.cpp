@@ -1275,7 +1275,7 @@ void KUrlCompletion::postProcessMatch(QString *pMatch) const
 
             QT_STATBUF sbuff;
             if (QT_STAT(file.constData(), &sbuff) == 0) {
-                if ((sbuff.st_mode & QT_STAT_MASK) == QT_STAT_DIR) {
+                if (Utils::isDirMask(sbuff.st_mode)) {
                     pMatch->append(QLatin1Char('/'));
                 }
             } else {

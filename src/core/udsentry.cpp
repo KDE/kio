@@ -10,6 +10,8 @@
 
 #include "udsentry.h"
 
+#include "../utils_p.h"
+
 #include <QDataStream>
 #include <QDebug>
 #include <QString>
@@ -383,7 +385,7 @@ long long UDSEntry::numberValue(uint field, long long defaultValue) const
 
 bool UDSEntry::isDir() const
 {
-    return (numberValue(UDS_FILE_TYPE) & QT_STAT_MASK) == QT_STAT_DIR;
+    return Utils::isDirMask(numberValue(UDS_FILE_TYPE));
 }
 
 bool UDSEntry::isLink() const

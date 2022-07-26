@@ -7,6 +7,8 @@
 
 #include "fileundomanagertest.h"
 
+#include "../src/utils_p.h"
+
 #include "mockcoredelegateextensions.h"
 #include <kio/batchrenamejob.h>
 #include <kio/copyjob.h>
@@ -116,9 +118,9 @@ static void createTestSymlink(const QString &path)
             qFatal("couldn't create symlink: %s", strerror(errno));
         }
         QVERIFY(QT_LSTAT(QFile::encodeName(path).constData(), &buf) == 0);
-        QVERIFY((buf.st_mode & QT_STAT_MASK) == QT_STAT_LNK);
+        QVERIFY(Utils::isLinkMask(buf.st_mode));
     } else {
-        QVERIFY((buf.st_mode & QT_STAT_MASK) == QT_STAT_LNK);
+        QVERIFY(Utils::isLinkMask(buf.st_mode));
     }
     qDebug("symlink %s created", qPrintable(path));
     QVERIFY(QFileInfo(path).isSymLink());

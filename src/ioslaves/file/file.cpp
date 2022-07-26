@@ -14,6 +14,7 @@
 
 #include <QStorageInfo>
 
+#include "../../utils_p.h"
 #include "kioglobal_p.h"
 
 #ifdef Q_OS_UNIX
@@ -244,7 +245,7 @@ void FileProtocol::mkdir(const QUrl &url, int permissions)
         }
     }
 
-    if ((buff.st_mode & QT_STAT_MASK) == QT_STAT_DIR) {
+    if (Utils::isDirMask(buff.st_mode)) {
         // qDebug() << "ERR_DIR_ALREADY_EXIST";
         error(KIO::ERR_DIR_ALREADY_EXIST, path);
         return;
@@ -290,11 +291,11 @@ void FileProtocol::get(const QUrl &url)
         return;
     }
 
-    if ((buff.st_mode & QT_STAT_MASK) == QT_STAT_DIR) {
+    if (Utils::isDirMask(buff.st_mode)) {
         error(KIO::ERR_IS_DIRECTORY, path);
         return;
     }
-    if ((buff.st_mode & QT_STAT_MASK) != QT_STAT_REG) {
+    if (!Utils::isRegFileMask(buff.st_mode)) {
         error(KIO::ERR_CANNOT_OPEN_FOR_READING, path);
         return;
     }
@@ -393,11 +394,11 @@ void FileProtocol::open(const QUrl &url, QIODevice::OpenMode mode)
         return;
     }
 
-    if ((buff.st_mode & QT_STAT_MASK) == QT_STAT_DIR) {
+    if (Utils::isDirMask(buff.st_mode)) {
         error(KIO::ERR_IS_DIRECTORY, openPath);
         return;
     }
-    if ((buff.st_mode & QT_STAT_MASK) != QT_STAT_REG) {
+    if (!Utils::isRegFileMask(buff.st_mode)) {
         error(KIO::ERR_CANNOT_OPEN_FOR_READING, openPath);
         return;
     }
@@ -531,8 +532,12 @@ void FileProtocol::put(const QUrl &url, int _mode, KIO::JobFlags _flags)
         QT_STATBUF buff_part;
         bPartExists = (QT_LSTAT(QFile::encodeName(dest_part).constData(), &buff_part) != -1);
 
-        if (bPartExists && !(_flags & KIO::Resume) && !(_flags & KIO::Overwrite) && buff_part.st_size > 0
-            && ((buff_part.st_mode & QT_STAT_MASK) == QT_STAT_REG)) {
+        if (bPartExists //
+            && !(_flags & KIO::Resume) //
+            && !(_flags & KIO::Overwrite) //
+            && buff_part.st_size > 0 //
+            && Utils::isRegFileMask(buff_part.st_mode) //
+        ) {
             // qDebug() << "calling canResume with" << KIO::number(buff_part.st_size);
 
             // Maybe we can use this partial file for resuming
@@ -545,7 +550,7 @@ void FileProtocol::put(const QUrl &url, int _mode, KIO::JobFlags _flags)
     }
 
     if (bOrigExists && !(_flags & KIO::Overwrite) && !(_flags & KIO::Resume)) {
-        if ((buff_orig.st_mode & QT_STAT_MASK) == QT_STAT_DIR) {
+        if (Utils::isDirMask(buff_orig.st_mode)) {
             error(KIO::ERR_DIR_ALREADY_EXIST, dest_orig);
         } else {
             error(KIO::ERR_FILE_ALREADY_EXIST, dest_orig);

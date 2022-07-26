@@ -372,7 +372,7 @@ static bool createUDSEntry(const QString &filename, const QByteArray &path, UDSE
 #endif
 
     if (LSTAT(path.data(), &buff, details) == 0) {
-        if ((stat_mode(buff) & QT_STAT_MASK) == QT_STAT_LNK) {
+        if (Utils::isLinkMask(stat_mode(buff))) {
             QByteArray linkTargetBuffer;
             if (details & (KIO::StatBasic | KIO::StatResolveSymlink)) {
 // Use readlink on Unix because symLinkTarget turns relative targets into absolute (#352927)

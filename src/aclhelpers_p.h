@@ -15,6 +15,7 @@
 
 #include <config-kiocore.h>
 
+#include "utils_p.h"
 #include <KIO/UDSEntry>
 
 #include <sys/types.h>
@@ -108,12 +109,11 @@ __attribute__((unused)) static void appendACLAtoms(const QByteArray &path, KIO::
 
     acl_t acl = nullptr;
     acl_t defaultAcl = nullptr;
-    bool isDir = (type & QT_STAT_MASK) == QT_STAT_DIR;
     // do we have an acl for the file, and/or a default acl for the dir, if it is one?
     acl = acl_get_file(path.data(), ACL_TYPE_ACCESS);
     /* Sadly libacl does not provided a means of checking for extended ACL and default
      * ACL separately. Since a directory can have both, we need to check again. */
-    if (isDir) {
+    if (Utils::isDirMask(type)) {
         if (acl) {
             if (KIO::ACLPortability::acl_equiv_mode(acl, nullptr) == 0) {
                 acl_free(acl);

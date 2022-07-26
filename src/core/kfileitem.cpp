@@ -230,7 +230,7 @@ void KFileItemPrivate::init() const
             m_entry.replace(KIO::UDSEntry::UDS_INODE, buf.st_ino);
 
             mode_t mode = buf.st_mode;
-            if ((buf.st_mode & QT_STAT_MASK) == QT_STAT_LNK) {
+            if (Utils::isLinkMask(buf.st_mode)) {
                 m_bLink = true;
                 if (QT_STAT(pathBA.constData(), &buf) == 0) {
                     mode = buf.st_mode;
@@ -498,7 +498,7 @@ inline QString KFileItemPrivate::parsePermissions(mode_t perm) const
     if (m_bLink) {
         buffer[0] = 'l';
     } else if (m_fileMode != KFileItem::Unknown) {
-        if ((m_fileMode & QT_STAT_MASK) == QT_STAT_DIR) {
+        if (Utils::isDirMask(m_fileMode)) {
             buffer[0] = 'd';
         }
 #ifdef Q_OS_UNIX
@@ -1298,7 +1298,7 @@ bool KFileItem::isDir() const
         // qDebug() << d << url() << "can't say -> false";
         return false; // can't say for sure, so no
     }
-    return (d->m_fileMode & QT_STAT_MASK) == QT_STAT_DIR;
+    return Utils::isDirMask(d->m_fileMode);
 }
 
 bool KFileItem::isFile() const
@@ -1365,7 +1365,7 @@ QString KFileItem::getStatusBarInfo() const
         }
     } else if (targetUrl() != url()) {
         text += i18n(" (Points to %1)", toDisplayUrl(targetUrl()));
-    } else if ((d->m_fileMode & QT_STAT_MASK) == QT_STAT_REG) {
+    } else if (Utils::isRegFileMask(d->m_fileMode)) {
         text += QStringLiteral(" (%1, %2)").arg(comment, KIO::convertSize(size()));
     } else {
         text += QStringLiteral(" (%1)").arg(comment);
@@ -1769,7 +1769,7 @@ bool KFileItem::isRegularFile() const
 
     d->ensureInitialized();
 
-    return (d->m_fileMode & QT_STAT_MASK) == QT_STAT_REG;
+    return Utils::isRegFileMask(d->m_fileMode);
 }
 
 QDebug operator<<(QDebug stream, const KFileItem &item)

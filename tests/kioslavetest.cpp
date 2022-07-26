@@ -7,6 +7,8 @@
 
 #include "kioslavetest.h"
 
+#include "../src/utils_p.h"
+
 #include <kio/copyjob.h>
 #include <kio/deletejob.h>
 #include <kio/listjob.h>
@@ -329,10 +331,10 @@ void KioslaveTest::printUDSEntry(const KIO::UDSEntry &entry)
         case KIO::UDSEntry::UDS_FILE_TYPE: {
             mode_t mode = (mode_t)entry.numberValue(*it);
             qDebug() << "File Type : " << mode;
-            if ((mode & QT_STAT_MASK) == QT_STAT_DIR) {
+            if (Utils::isDirMask(mode)) {
                 qDebug() << "is a dir";
             }
-            if ((mode & QT_STAT_MASK) == QT_STAT_LNK) {
+            if (Utils::isLinkMask(mode)) {
                 qDebug() << "is a link";
             }
             break;

@@ -13,6 +13,7 @@
 #include <QString>
 #include <QUrl>
 #include <QtGlobal>
+#include <qplatformdefs.h>
 
 namespace Utils
 {
@@ -107,6 +108,21 @@ inline void appendSlashToPath(QUrl &url)
         appendSlash(path);
         url.setPath(path);
     }
+}
+
+inline bool isRegFileMask(mode_t mode)
+{
+    return (mode & QT_STAT_MASK) == QT_STAT_REG;
+}
+
+inline bool isDirMask(mode_t mode)
+{
+    return (mode & QT_STAT_MASK) == QT_STAT_DIR;
+}
+
+inline bool isLinkMask(mode_t mode)
+{
+    return (mode & QT_STAT_MASK) == QT_STAT_LNK;
 }
 
 } // namespace
