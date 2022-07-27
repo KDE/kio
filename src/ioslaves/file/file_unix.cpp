@@ -19,6 +19,7 @@
 #include <../../aclhelpers_p.h>
 #endif
 
+#include <QDataStream>
 #include <QDir>
 #include <QFile>
 #include <QMimeDatabase>
@@ -34,6 +35,7 @@
 
 #include <array>
 #include <cerrno>
+#include <set>
 #include <stdint.h>
 #include <utime.h>
 
@@ -1076,6 +1078,10 @@ void FileProtocol::listDir(const QUrl &url)
         return;
     }
 
+    const bool readAdditionalHiddenAttributes = (metaData(QStringLiteral("readAdditionalHiddenAttributes")) == QLatin1String("true"));
+    std::set<QString> filesToHide;
+    bool dotHiddenChecked = false;
+
     const QByteArray encodedBasePath = _path + '/';
 
     const KIO::StatDetails details = getStatDetails();
@@ -1126,24 +1132,49 @@ void FileProtocol::listDir(const QUrl &url)
             fullPath += filename;
 
             if (createUDSEntry(filename, encodedBasePath + QByteArray(ep->d_name), entry, details, fullPath)) {
-#if HAVE_SYS_XATTR_H
-                if (isNtfsHidden(filename)) {
-                    bool ntfsHidden = true;
+                bool hidden = false;
 
-                    // Bug 392913: NTFS root volume is always "hidden", ignore this
-                    if (ep->d_type == DT_DIR || ep->d_type == DT_UNKNOWN || ep->d_type == DT_LNK) {
-                        const QString fullFilePath = QDir(filename).canonicalPath();
-                        auto mountPoint = KMountPoint::currentMountPoints().findByPath(fullFilePath);
-                        if (mountPoint && mountPoint->mountPoint() == fullFilePath) {
-                            ntfsHidden = false;
+                if (readAdditionalHiddenAttributes) {
+                    if (!dotHiddenChecked) {
+                        QFile dotHiddenFile(path + QLatin1String("/.hidden"));
+                        if (dotHiddenFile.open(QIODevice::ReadOnly | QIODevice::Text)) {
+                            QTextStream stream(&dotHiddenFile);
+                            while (!stream.atEnd()) {
+                                const QString name = stream.readLine();
+                                if (!name.isEmpty()) {
+                                    filesToHide.insert(name);
+                                }
+                            }
+                        }
+                        dotHiddenChecked = true;
+                    }
+
+                    if (filesToHide.find(filename) != filesToHide.cend()) {
+                        hidden = true;
+                    }
+
+#if HAVE_SYS_XATTR_H
+                    if (!hidden && isNtfsHidden(filename)) {
+                        bool ntfsHidden = true;
+                        // Bug 392913: NTFS root volume is always "hidden", ignore this
+                        if (ep->d_type == DT_DIR || ep->d_type == DT_UNKNOWN || ep->d_type == DT_LNK) {
+                            const QString fullFilePath = QDir(filename).canonicalPath();
+                            auto mountPoint = KMountPoint::currentMountPoints().findByPath(fullFilePath);
+                            if (mountPoint && mountPoint->mountPoint() == fullFilePath) {
+                                ntfsHidden = false;
+                            }
+                        }
+
+                        if (ntfsHidden) {
+                            hidden = true;
                         }
                     }
-
-                    if (ntfsHidden) {
-                        entry.fastInsert(KIO::UDSEntry::UDS_HIDDEN, 1);
-                    }
-                }
 #endif
+                }
+
+                if (hidden) {
+                    entry.fastInsert(KIO::UDSEntry::UDS_HIDDEN, 1);
+                }
                 listEntry(entry);
             }
         }

@@ -44,9 +44,7 @@ Q_LOGGING_CATEGORY(KIO_CORE_DIRLISTER, "kf.kio.core.dirlister", QtWarningMsg)
 Q_GLOBAL_STATIC(KCoreDirListerCache, kDirListerCache)
 
 KCoreDirListerCache::KCoreDirListerCache()
-    : itemsCached(10)
-    , // keep the last 10 directories around
-    m_cacheHiddenFiles(10) // keep the last 10 ".hidden" files around
+    : itemsCached(10) // keep the last 10 directories around
 {
     qCDebug(KIO_CORE_DIRLISTER);
 
@@ -75,7 +73,6 @@ KCoreDirListerCache::~KCoreDirListerCache()
 
     itemsCached.clear();
     directoryData.clear();
-    m_cacheHiddenFiles.clear();
 
     if (KDirWatch::exists()) {
         KDirWatch::self()->disconnect(this);
@@ -194,7 +191,8 @@ bool KCoreDirListerCache::listDir(KCoreDirLister *lister, const QUrl &dirUrl, bo
                 itemU->incAutoUpdate();
             }
 
-            KIO::ListJob *job = KIO::listDir(_url, KIO::HideProgressInfo);
+            KIO::ListJob *job =
+                KIO::listDir(_url, KIO::HideProgressInfo, KIO::ListJob::ListFlag::DefaultFlags | KIO::ListJob::ListFlag::AdditionalHiddenAttributes);
             if (lister->requestMimeTypeWhileListing()) {
                 job->addMetaData(QStringLiteral("statDetails"), QString::number(KIO::StatDefaultDetails | KIO::StatMimeType));
             }
@@ -652,7 +650,7 @@ void KCoreDirListerCache::updateDirectory(const QUrl &_dir)
     }
     Q_ASSERT(listers.isEmpty() || killed);
 
-    job = KIO::listDir(dir, KIO::HideProgressInfo);
+    job = KIO::listDir(dir, KIO::HideProgressInfo, KIO::ListJob::ListFlag::DefaultFlags | KIO::ListJob::ListFlag::AdditionalHiddenAttributes);
     runningListJobs.insert(job, KIO::UDSEntryList());
 
     const bool requestFromListers = std::any_of(listers.cbegin(), listers.cend(), [](KCoreDirLister *lister) {
@@ -1175,8 +1173,6 @@ void KCoreDirListerCache::slotEntries(KIO::Job *job, const KIO::UDSEntryList &en
         delayedMimeTypes &= kdl->d->delayedMimeTypes;
     }
 
-    CacheHiddenFile *cachedHidden = nullptr;
-    bool dotHiddenChecked = false;
     KFileItemList newItems;
     for (const auto &entry : entries) {
         const QString name = entry.stringValue(KIO::UDSEntry::UDS_NAME);
@@ -1207,22 +1203,6 @@ void KCoreDirListerCache::slotEntries(KIO::Job *job, const KIO::UDSEntryList &en
             }
         } else if (name != QLatin1String("..")) {
             KFileItem item(entry, url, delayedMimeTypes, true);
-
-            // get the names of the files listed in ".hidden", if it exists and is a local file
-            if (!dotHiddenChecked) {
-                const QString localPath = item.localPath();
-                if (!localPath.isEmpty()) {
-                    const QString rootItemPath = QFileInfo(localPath).absolutePath();
-                    cachedHidden = cachedDotHiddenForDir(rootItemPath);
-                }
-                dotHiddenChecked = true;
-            }
-
-            // hide file if listed in ".hidden"
-            if (cachedHidden && cachedHidden->listedFiles.find(name) != cachedHidden->listedFiles.cend()) {
-                item.setHidden();
-            }
-
             qCDebug(KIO_CORE_DIRLISTER) << "Adding item: " << item.url();
             newItems.append(item);
         }
@@ -1752,8 +1732,6 @@ void KCoreDirListerCache::slotUpdateResult(KJob *j)
         fileItems.insert(item.name(), item);
     }
 
-    CacheHiddenFile *cachedHidden = nullptr;
-    bool dotHiddenChecked = false;
     const KIO::UDSEntryList &buf = runningListJobs.value(job);
     KFileItemList newItems;
     for (const auto &entry : buf) {
@@ -1782,21 +1760,6 @@ void KCoreDirListerCache::slotUpdateResult(KJob *j)
                 }
             }
             continue;
-        } else {
-            // get the names of the files listed in ".hidden", if it exists and is a local file
-            if (!dotHiddenChecked) {
-                const QString localPath = item.localPath();
-                if (!localPath.isEmpty()) {
-                    const QString rootItemPath = QFileInfo(localPath).absolutePath();
-                    cachedHidden = cachedDotHiddenForDir(rootItemPath);
-                }
-                dotHiddenChecked = true;
-            }
-        }
-
-        // hide file if listed in ".hidden"
-        if (cachedHidden && cachedHidden->listedFiles.find(name) != cachedHidden->listedFiles.cend()) {
-            item.setHidden();
         }
 
         // Find this item
@@ -2831,41 +2794,6 @@ bool KCoreDirLister::autoErrorHandlingEnabled() const
 void KCoreDirLister::setAutoErrorHandlingEnabled(bool enable)
 {
     d->m_autoErrorHandling = enable;
-}
-
-KCoreDirListerCache::CacheHiddenFile *KCoreDirListerCache::cachedDotHiddenForDir(const QString &dir)
-{
-    const QString path = dir + QLatin1String("/.hidden");
-    QFile dotHiddenFile(path);
-
-    if (dotHiddenFile.exists()) {
-        const QDateTime mtime = QFileInfo(dotHiddenFile).lastModified();
-        CacheHiddenFile *cachedDotHiddenFile = m_cacheHiddenFiles.object(path);
-
-        if (cachedDotHiddenFile && mtime <= cachedDotHiddenFile->mtime) {
-            // ".hidden" is in cache and still valid (the file was not modified since then),
-            // so return it
-            return cachedDotHiddenFile;
-        } else {
-            // read the ".hidden" file, then cache it and return it
-            if (dotHiddenFile.open(QIODevice::ReadOnly | QIODevice::Text)) {
-                std::set<QString> filesToHide;
-                QTextStream stream(&dotHiddenFile);
-                while (!stream.atEnd()) {
-                    QString name = stream.readLine();
-                    if (!name.isEmpty()) {
-                        filesToHide.insert(name);
-                    }
-                }
-
-                m_cacheHiddenFiles.insert(path, new CacheHiddenFile(mtime, std::move(filesToHide)));
-
-                return m_cacheHiddenFiles.object(path);
-            }
-        }
-    }
-
-    return {};
 }
 
 #include "moc_kcoredirlister.cpp"

@@ -31,6 +31,14 @@ class KIOCORE_EXPORT ListJob : public SimpleJob
 public:
     ~ListJob() override;
 
+    enum class ListFlag {
+        DefaultFlags = 1 << 1, ///< Default list flags, enables IncludeHidden.
+        IncludeHidden = 1 << 2, ///< Include hidden files in the listing.
+        AdditionalHiddenAttributes = 1 << 3, ///< Read additional attributes that can hide items, such as the ".hidden" file and NTFS "Hidden" attribute.
+                                             ///< This can entail a performance penalty.
+    };
+    Q_DECLARE_FLAGS(ListFlags, ListFlag)
+
     /**
      * Returns the ListJob's redirection URL. This will be invalid if there
      * was no redirection.
@@ -106,7 +114,10 @@ protected:
  *                      files/dirs (whose names start with dot)
  * @return the job handling the operation.
  */
+// TODO deprecate macro situation
 KIOCORE_EXPORT ListJob *listDir(const QUrl &url, JobFlags flags = DefaultFlags, bool includeHidden = true);
+
+KIOCORE_EXPORT ListJob *listDir(const QUrl &url, JobFlags jobFlags, ListJob::ListFlags listFlags);
 
 /**
  * The same as the previous method, but recurses subdirectories.
@@ -123,6 +134,7 @@ KIOCORE_EXPORT ListJob *listDir(const QUrl &url, JobFlags flags = DefaultFlags, 
  */
 KIOCORE_EXPORT ListJob *listRecursive(const QUrl &url, JobFlags flags = DefaultFlags, bool includeHidden = true);
 
+Q_DECLARE_OPERATORS_FOR_FLAGS(KIO::ListJob::ListFlags)
 }
 
 #endif
