@@ -81,7 +81,7 @@ public:
 
     /**
      * Create a UDSEntry by QT_STATBUF
-     * @param buff QT_STATBUFF object
+     * @param buff QT_STATBUF object
      * @param name filename
      * @since 5.0
      */
