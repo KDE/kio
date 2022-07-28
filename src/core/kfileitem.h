@@ -313,6 +313,29 @@ public:
     bool isWritable() const;
 
     /**
+     * Returns whether this item is executable or not.
+     *
+     * This method is mostly useful on Unix, for other platforms it uses
+     * QFileInfo::isExecutable().
+     *
+     * On Unix, this method will return @c true:
+     * - if the calling process UID is the same as this item's UID and the executable
+     *   bit is set for the owner (e.g. permissions are <tt>-r-x------</tt>)
+     * - OR if the executable bit is set for the group (e.g. permissions are <tt>-r--r-x---</tt>)
+     *   and this item's GID matches the calling process' GID or one of the owner's
+     *   supplementary groups (e.g. user <tt>foo</tt> is a member of groups <tt>foo,group1,group2</tt>
+     *   and the item's GID is one of those groups)
+     * - OR if neither of the above conditions are true and the executable bit is set for
+     *   others (e.g. permissions are <tt>-r--r--r-x</tt>)
+     * - otherwise this method will return @c false
+     *
+     * @note For shell scripts, the file also needs to be readable.
+     *
+     * @since 5.98
+     */
+    bool isExecutable() const;
+
+    /**
      * Checks whether the file is hidden.
      * @return true if the file is hidden.
      */

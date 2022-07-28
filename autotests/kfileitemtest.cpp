@@ -772,6 +772,38 @@ void KFileItemTest::testIsReadable()
     QCOMPARE(fileItem.isReadable(), readable);
 }
 
+void KFileItemTest::testIsExecutable_data()
+{
+    QTest::addColumn<int>("mode");
+    QTest::addColumn<bool>("executable");
+
+    QTest::newRow("all-read-execute") << 0555 << true; // -r-xr-xr-x
+    QTest::newRow("user-read-execute") << 0500 << true; // -r-x------
+
+    // This would work for executables/binaries but not for shell scripts,
+    // the latter would also require being readable
+    QTest::newRow("user-execute") << 0100 << true; // ---x------
+
+    // ----r-x---, false because calling process uid == file uid
+    QTest::newRow("no-user-bits-group-read-execute") << 0050 << false;
+
+    QTest::newRow("nothing-at-all") << 0000 << false;
+}
+
+void KFileItemTest::testIsExecutable()
+{
+    QFETCH(int, mode);
+    QFETCH(bool, executable);
+
+    QTemporaryFile file;
+    QVERIFY(file.open());
+    const int res = fchmod(file.handle(), (mode_t)mode);
+    QCOMPARE(res, 0);
+
+    KFileItem fileItem(QUrl::fromLocalFile(file.fileName()));
+    QCOMPARE(fileItem.isExecutable(), executable);
+}
+
 // Restore permissions so that the QTemporaryDir cleanup can happen (taken from tst_qsavefile.cpp)
 class PermissionRestorer
 {

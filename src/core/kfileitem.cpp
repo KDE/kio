@@ -18,6 +18,10 @@
 #include "kiocoredebug.h"
 #include "kioglobal_p.h"
 
+#ifdef Q_OS_UNIX
+#include <unistd.h>
+#endif
+
 #include <QDataStream>
 #include <QDate>
 #include <QDebug>
@@ -110,6 +114,16 @@ public:
      */
     QString parsePermissions(mode_t perm) const;
 
+    enum Permission {
+        Read,
+        Write,
+        Execute,
+    };
+
+#ifdef Q_OS_UNIX
+    bool checkEffectiveUidGid(Permission type) const;
+#endif
+
     /**
      * Mime type helper
      */
@@ -158,6 +172,11 @@ public:
      * The permissions
      */
     mutable mode_t m_permissions;
+
+#ifdef Q_OS_UNIX
+    mutable uid_t m_userId = -1;
+    mutable gid_t m_groupId = -1;
+#endif
 
     /**
      * Whether the UDSEntry ACL fields should be added to m_entry.
@@ -248,7 +267,9 @@ void KFileItemPrivate::init() const
             m_entry.replace(KIO::UDSEntry::UDS_ACCESS_TIME, buf.st_atime);
 #ifndef Q_OS_WIN
             m_entry.replace(KIO::UDSEntry::UDS_USER, KUser(buf.st_uid).loginName());
+            m_userId = buf.st_uid;
             m_entry.replace(KIO::UDSEntry::UDS_GROUP, KUserGroup(buf.st_gid).name());
+            m_groupId = buf.st_gid;
 #endif
 
             // TODO: these can be removed, we can use UDS_FILE_TYPE and UDS_ACCESS everywhere
@@ -1189,6 +1210,32 @@ QString KFileItem::comment() const
     return d->m_entry.stringValue(KIO::UDSEntry::UDS_COMMENT);
 }
 
+#ifdef Q_OS_UNIX
+/**
+ * Returns true if "gid" is one of the supplementary groups of the calling process
+ *
+ * - user 'a' is in groups 'a' and 'b'
+ * - an executable 'exec':
+ * $ ls -l exec
+ * ------x--- 1 root b 138096 Jul 26 15:32 exec
+ * - user 'a' can execute that binary because 'a' is a member of group 'b'
+ */
+static bool isGidInSupplementary(gid_t gid)
+{
+    QVarLengthArray<gid_t, 100> gid_buffer;
+    uint numGroups = 100;
+    int result = getgroups(numGroups, gid_buffer.data());
+    if (result < 0) {
+        gid_buffer.resize(numGroups);
+        numGroups = gid_buffer.size();
+        result = getgroups(numGroups, gid_buffer.data());
+    }
+
+    auto it = std::find(gid_buffer.cbegin(), gid_buffer.cend(), gid);
+    return it != gid_buffer.cend();
+}
+#endif
+
 bool KFileItem::isReadable() const
 {
     if (!d) {
@@ -1255,6 +1302,75 @@ bool KFileItem::isWritable() const
     } else {
         return KProtocolManager::supportsWriting(d->m_url);
     }
+}
+
+#ifdef Q_OS_UNIX
+bool KFileItemPrivate::checkEffectiveUidGid(Permission type) const
+{
+    int user = -1;
+    int group = -1;
+    int other = -1;
+
+    switch (type) {
+    case Read:
+        user = S_IRUSR;
+        group = S_IRGRP;
+        other = S_IROTH;
+        break;
+    case Write:
+        user = S_IWUSR;
+        group = S_IWGRP;
+        other = S_IWOTH;
+        break;
+    case Execute:
+        user = S_IXUSR;
+        group = S_IXGRP;
+        other = S_IXOTH;
+        break;
+    }
+
+    const uid_t effectiveUid = geteuid();
+    // File uid is the same as the calling process uid
+    if (effectiveUid == m_userId) {
+        return m_permissions & user;
+    }
+
+    const gid_t effectiveGid = getegid();
+    if (effectiveGid == m_groupId || isGidInSupplementary(effectiveGid)) {
+        return m_permissions & group;
+    }
+
+    // The calling process uid is in the 'other' group
+    return m_permissions & other;
+}
+#endif // Q_OS_UNIX
+
+bool KFileItem::isExecutable() const
+{
+    if (!d) {
+        return false;
+    }
+
+    d->ensureInitialized();
+
+    if (d->m_permissions != KFileItem::Unknown) {
+        const mode_t execMasks = S_IXUSR | S_IXGRP | S_IXOTH;
+        // Executable bit not set at all
+        if (!(d->m_permissions & execMasks)) {
+            return false;
+        }
+
+        // Executable for all
+        if ((d->m_permissions & execMasks) == execMasks) {
+            return true;
+        }
+
+#ifdef Q_OS_UNIX
+        return d->checkEffectiveUidGid(KFileItemPrivate::Execute);
+#endif // Q_OS_UNIX
+    }
+
+    return d->m_bIsLocalUrl ? QFileInfo(d->m_url.toLocalFile()).isExecutable() : false;
 }
 
 bool KFileItem::isHidden() const
