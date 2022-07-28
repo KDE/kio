@@ -1263,6 +1263,10 @@ bool KFileItem::isReadable() const
         if ((d->m_permissions & readMask) == readMask) {
             return true;
         }
+
+#ifdef Q_OS_UNIX
+        d->checkEffectiveUidGid(KFileItemPrivate::Read);
+#endif // Q_OS_UNIX
     }
 
     // Or if we can't read it - not network transparent
@@ -1290,10 +1294,20 @@ bool KFileItem::isWritable() const
       */
 
     if (d->m_permissions != KFileItem::Unknown) {
+        const mode_t writeMasks = S_IWUSR | S_IWGRP | S_IWOTH;
         // No write permission at all
-        if (!(S_IWUSR & d->m_permissions) && !(S_IWGRP & d->m_permissions) && !(S_IWOTH & d->m_permissions)) {
+        if (!(d->m_permissions & writeMasks)) {
             return false;
         }
+
+        // Write permission for all
+        if ((d->m_permissions & writeMasks) == writeMasks) {
+            return true;
+        }
+
+#ifdef Q_OS_UNIX
+        d->checkEffectiveUidGid(KFileItemPrivate::Write);
+#endif // Q_OS_UNIX
     }
 
     // Or if we can't write it - not network transparent
