@@ -181,8 +181,9 @@ static bool addToXbel(const QUrl &url, const QString &desktopEntryName, KRecentD
         output.writeAttribute(countAttribute, QStringLiteral("1"));
     };
 
-    bool foundExisting = false;
+    bool foundExistingApp = false;
     bool inRightBookmark = false;
+    bool foundMatchingBookmark = false;
     bool firstBookmark = true;
     while (!xml.atEnd() && !xml.hasError()) {
         if (xml.readNext() == QXmlStreamReader::EndElement && xml.name() == xbelTag) {
@@ -194,11 +195,14 @@ static bool addToXbel(const QUrl &url, const QString &desktopEntryName, KRecentD
             QXmlStreamAttributes attributes = xml.attributes();
 
             if (xml.name() == bookmarkTag) {
-                foundExisting = false;
+                foundExistingApp = false;
                 firstBookmark = false;
+
                 inRightBookmark = attributes.value(hrefAttribute) == newUrl;
 
                 if (inRightBookmark) {
+                    foundMatchingBookmark = true;
+
                     QXmlStreamAttributes newAttributes;
                     for (const QXmlStreamAttribute &old : attributes) {
                         if (old.qualifiedName() == modifiedAttribute) {
@@ -233,7 +237,7 @@ static bool addToXbel(const QUrl &url, const QString &desktopEntryName, KRecentD
                 newAttributes.append(countAttribute, QString::number(count + 1));
                 attributes = newAttributes;
 
-                foundExisting = true;
+                foundExistingApp = true;
             }
 
             output.writeStartElement(tagName);
@@ -242,11 +246,9 @@ static bool addToXbel(const QUrl &url, const QString &desktopEntryName, KRecentD
         }
         case QXmlStreamReader::EndElement: {
             QString tagName = xml.qualifiedName().toString();
-            if (tagName == applicationsBookmarkTag && inRightBookmark && !foundExisting) {
+            if (tagName == applicationsBookmarkTag && inRightBookmark && !foundExistingApp) {
                 // add an application to the applications already known for the bookmark
                 addApplicationTag();
-
-                foundExisting = true;
             }
             output.writeEndElement();
             break;
@@ -270,7 +272,7 @@ static bool addToXbel(const QUrl &url, const QString &desktopEntryName, KRecentD
         }
     }
 
-    if (!foundExisting) {
+    if (!foundMatchingBookmark) {
         // must create new bookmark tag
         if (firstBookmark) {
             output.writeCharacters(QStringLiteral("\n"));
