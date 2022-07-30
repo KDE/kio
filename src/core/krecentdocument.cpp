@@ -183,6 +183,7 @@ static bool addToXbel(const QUrl &url, const QString &desktopEntryName, KRecentD
 
     bool foundExisting = false;
     bool inRightBookmark = false;
+    bool firstBookmark = true;
     while (!xml.atEnd() && !xml.hasError()) {
         if (xml.readNext() == QXmlStreamReader::EndElement && xml.name() == xbelTag) {
             break;
@@ -194,6 +195,7 @@ static bool addToXbel(const QUrl &url, const QString &desktopEntryName, KRecentD
 
             if (xml.name() == bookmarkTag) {
                 foundExisting = false;
+                firstBookmark = false;
                 inRightBookmark = attributes.value(hrefAttribute) == newUrl;
 
                 if (inRightBookmark) {
@@ -270,6 +272,9 @@ static bool addToXbel(const QUrl &url, const QString &desktopEntryName, KRecentD
 
     if (!foundExisting) {
         // must create new bookmark tag
+        if (firstBookmark) {
+            output.writeCharacters(QStringLiteral("\n"));
+        }
         output.writeCharacters(QStringLiteral("  "));
         output.writeStartElement(bookmarkTag);
 
