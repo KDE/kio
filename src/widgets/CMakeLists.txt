@@ -234,7 +234,6 @@ install(FILES
   kpropertiesdialogplugin.desktop
   kurifilterplugin.desktop
   konqpopupmenuplugin.desktop
-  kiodndpopupmenuplugin.desktop
    DESTINATION  ${KDE_INSTALL_KSERVICETYPESDIR} )
 
 if(NOT EXCLUDE_DEPRECATED_BEFORE_AND_AT STREQUAL "CURRENT" AND EXCLUDE_DEPRECATED_BEFORE_AND_AT VERSION_LESS 5.82.0)
