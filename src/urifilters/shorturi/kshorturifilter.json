@@ -1,6 +1,3 @@
 {
-    "KPlugin": {
-        "ServiceTypes": [ "KUriFilter/Plugin" ]
-    },
     "X-KDE-InitialPreference": 5
 }

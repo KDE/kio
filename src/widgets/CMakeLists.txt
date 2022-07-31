@@ -234,7 +234,6 @@ install(FILES
   DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KIOWidgets COMPONENT Devel)
 
 install(FILES
-  kurifilterplugin.desktop
   konqpopupmenuplugin.desktop
    DESTINATION  ${KDE_INSTALL_KSERVICETYPESDIR} )
 
