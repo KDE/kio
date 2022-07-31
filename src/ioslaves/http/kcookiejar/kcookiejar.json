@@ -109,10 +109,7 @@
         "Name[vi]": "Hũ bánh quy",
         "Name[x-test]": "xxCookie Jarxx",
         "Name[zh_CN]": "Cookie Jar",
-        "Name[zh_TW]": "Cookie Jar",
-        "ServiceTypes": [
-            "KDEDModule"
-        ]
+        "Name[zh_TW]": "Cookie Jar"
     },
     "X-KDE-DBus-ServiceName": "org.kde.kcookiejar5",
     "X-KDE-Kded-autoload": false,

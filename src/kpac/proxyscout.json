@@ -109,10 +109,7 @@
         "Name[vi]": "Cấu hình uỷ nhiệm mạng",
         "Name[x-test]": "xxNetwork Proxy Configurationxx",
         "Name[zh_CN]": "网络代理配置",
-        "Name[zh_TW]": "網路代理組態",
-        "ServiceTypes": [
-            "KDEDModule"
-        ]
+        "Name[zh_TW]": "網路代理組態"
     },
     "X-KDE-Kded-autoload": true,
     "X-KDE-Kded-load-on-demand": false
