@@ -160,16 +160,27 @@ public:
     QMap<QString, int> deviceIdMap;
     enum CachePolicy { Prevent, Allow, Unknown } currentDeviceCachePolicy = Unknown;
 
+    bool bNeedCache = false;
+    bool cacheDirsCreated = false;
+
+    QVector<KPluginMetaData> plugins;
+    QMap<QString, KPluginMetaData> mimeMap;
+    QHash<QString, QHash<QString, KPluginMetaData>> protocolMap;
+
+    KPluginMetaData getPluginForMimeType(const QString &, const QString &);
+    void ensureCacheDirs();
     void getOrCreateThumbnail();
     bool statResultThumbnail();
     void createThumbnail(const QString &);
     void cleanupTempFile();
     void determineNextFile();
     void emitPreview(const QImage &thumb);
+    bool itemNeedsCache(const PreviewItem &);
 
     void startPreview();
     void slotThumbData(KIO::Job *, const QByteArray &);
     void slotStandardThumbData(KIO::Job *, const QImage &);
+    
     // Checks if thumbnail is on encrypted partition different than thumbRoot
     CachePolicy canBeCached(const QString &path);
     int getDeviceId(const QString &path);
@@ -320,13 +331,25 @@ PreviewJob::ScaleType PreviewJob::scaleType() const
     return Unscaled;
 }
 
+bool PreviewJobPrivate::itemNeedsCache(const PreviewItem &item)
+{
+    if (bSave && item.plugin.value(QStringLiteral("CacheThumbnail"), true)) {
+        const QUrl url = item.item.targetUrl();
+        if (!url.isLocalFile() || !url.adjusted(QUrl::RemoveFilename).toLocalFile().startsWith(thumbRoot)) {
+            return true;
+        }
+    }
+    return false;
+}
+
 void PreviewJobPrivate::startPreview()
 {
     Q_Q(PreviewJob);
-    // Load the list of plugins to determine which MIME types are supported
-    const QList<KPluginMetaData> plugins = KIO::PreviewJobPrivate::loadAvailablePlugins();
-    QMap<QString, KPluginMetaData> mimeMap;
-    QHash<QString, QHash<QString, KPluginMetaData>> protocolMap;
+
+    plugins = KIO::PreviewJobPrivate::loadAvailablePlugins();
+
+    protocolMap.clear();
+    mimeMap.clear();
 
     // Using thumbnailer plugin
     for (const KPluginMetaData &plugin : plugins) {
@@ -356,65 +379,19 @@ void PreviewJobPrivate::startPreview()
     }
 
     // Look for images and store the items in our todo list :)
-    bool bNeedCache = false;
+    bNeedCache = false;
     for (const auto &fileItem : std::as_const(initialItems)) {
         PreviewItem item;
         item.item = fileItem;
-        item.standardThumbnailer = false;
-
-        const QString mimeType = item.item.mimetype();
-        KPluginMetaData plugin;
-
-        // look for protocol-specific thumbnail plugins first
-        auto it = protocolMap.constFind(item.item.url().scheme());
-        if (it != protocolMap.constEnd()) {
-            plugin = it.value().value(mimeType);
-        }
-
-        if (!plugin.isValid()) {
-            auto pluginIt = mimeMap.constFind(mimeType);
-            if (pluginIt == mimeMap.constEnd()) {
-                // check MIME type inheritance, resolve aliases
-                QMimeDatabase db;
-                const QMimeType mimeInfo = db.mimeTypeForName(mimeType);
-                if (mimeInfo.isValid()) {
-                    const QStringList parentMimeTypes = mimeInfo.allAncestors();
-                    for (const QString &parentMimeType : parentMimeTypes) {
-                        pluginIt = mimeMap.constFind(parentMimeType);
-                        if (pluginIt != mimeMap.constEnd()) {
-                            break;
-                        }
-                    }
-                }
-
-                if (pluginIt == mimeMap.constEnd()) {
-                    // Check the wildcards last, see BUG 453480
-                    QString groupMimeType = mimeType;
-                    const int slashIdx = groupMimeType.indexOf(QLatin1Char('/'));
-                    if (slashIdx != -1) {
-                        // Replace everything after '/' with '*'
-                        groupMimeType.truncate(slashIdx + 1);
-                        groupMimeType += QLatin1Char('*');
-                    }
-                    pluginIt = mimeMap.constFind(groupMimeType);
-                }
-            }
-
-            if (pluginIt != mimeMap.constEnd()) {
-                plugin = *pluginIt;
-            }
-        }
+        KPluginMetaData plugin = getPluginForMimeType(item.item.url().scheme(), item.item.mimetype());
 
         if (plugin.isValid()) {
             item.standardThumbnailer = plugin.description() == QStringLiteral("standardthumbnailer");
             item.plugin = plugin;
             items.push_back(item);
-
-            if (!bNeedCache && bSave && plugin.value(QStringLiteral("CacheThumbnail"), true)) {
-                const QUrl url = fileItem.targetUrl();
-                if (!url.isLocalFile() || !url.adjusted(QUrl::RemoveFilename).toLocalFile().startsWith(thumbRoot)) {
-                    bNeedCache = true;
-                }
+            
+            if (!bNeedCache && itemNeedsCache(item)) {
+                bNeedCache = true;
             }
         } else {
             Q_EMIT q->failed(fileItem);
@@ -426,51 +403,57 @@ void PreviewJobPrivate::startPreview()
     maximumRemoteSize = cg.readEntry<KIO::filesize_t>("MaximumRemoteSize", 0);
     enableRemoteFolderThumbnail = cg.readEntry("EnableRemoteFolderThumbnail", false);
 
-    if (bNeedCache) {
-        const int longer = std::max(width, height);
-        if (longer <= 128) {
-            cacheSize = 128;
-        } else if (longer <= 256) {
-            cacheSize = 256;
-        } else if (longer <= 512) {
-            cacheSize = 512;
-        } else {
-            cacheSize = 1024;
-        }
-
-        struct CachePool {
-            QString path;
-            int minSize;
-        };
-
-        const static auto pools = {
-            CachePool{QStringLiteral("/normal/"), 128},
-            CachePool{QStringLiteral("/large/"), 256},
-            CachePool{QStringLiteral("/x-large/"), 512},
-            CachePool{QStringLiteral("/xx-large/"), 1024},
-        };
-
-        QString thumbDir;
-        int wants = devicePixelRatio * cacheSize;
-        for (const auto &p : pools) {
-            if (p.minSize < wants) {
-                continue;
-            } else {
-                thumbDir = p.path;
-                break;
-            }
-        }
-        thumbPath = thumbRoot + thumbDir;
-
-        if (!QDir(thumbPath).exists() && !QDir(thumbRoot).mkdir(thumbDir, QFile::ReadUser | QFile::WriteUser | QFile::ExeUser)) { // 0700
-            qCWarning(KIO_GUI) << "couldn't create thumbnail dir " << thumbPath;
-        }
-    } else {
-        bSave = false;
-    }
-
     initialItems.clear();
     determineNextFile();
+}
+
+void PreviewJobPrivate::ensureCacheDirs()
+{
+    if (cacheDirsCreated) {
+        return;
+    }
+    const int longer = std::max(width, height);
+    if (longer <= 128) {
+        cacheSize = 128;
+    } else if (longer <= 256) {
+        cacheSize = 256;
+    } else if (longer <= 512) {
+        cacheSize = 512;
+    } else {
+        cacheSize = 1024;
+    }
+
+    struct CachePool {
+        QString path;
+        int minSize;
+    };
+
+    const static auto pools = {
+        CachePool{QStringLiteral("/normal/"), 128},
+        CachePool{QStringLiteral("/large/"), 256},
+        CachePool{QStringLiteral("/x-large/"), 512},
+        CachePool{QStringLiteral("/xx-large/"), 1024},
+    };
+
+    QString thumbDir;
+    int wants = devicePixelRatio * cacheSize;
+    for (const auto &p : pools) {
+        if (p.minSize < wants) {
+            continue;
+        } else {
+            thumbDir = p.path;
+            break;
+        }
+    }
+    thumbPath = thumbRoot + thumbDir;
+
+    if (!QDir(thumbPath).exists()) {
+        if (QDir().mkpath(thumbPath)) { // Qt5 TODO: mkpath(dirPath, permissions)
+            QFile f(thumbPath);
+            f.setPermissions(QFile::ReadUser | QFile::WriteUser | QFile::ExeUser); // 0700
+        }
+    }
+    cacheDirsCreated = true;
 }
 
 void PreviewJob::removeItem(const QUrl &url)
@@ -534,6 +517,7 @@ void PreviewJobPrivate::cleanupTempFile()
 void PreviewJobPrivate::determineNextFile()
 {
     Q_Q(PreviewJob);
+
     if (!currentItem.item.isNull()) {
         if (!succeeded) {
             Q_EMIT q->failed(currentItem.item);
@@ -556,6 +540,49 @@ void PreviewJobPrivate::determineNextFile()
     }
 }
 
+KPluginMetaData PreviewJobPrivate::getPluginForMimeType(const QString &scheme, const QString &mimeType)
+{
+    KPluginMetaData plugin;
+
+    // look for protocol-specific thumbnail plugins first
+    auto it = protocolMap.constFind(scheme);
+    if (it != protocolMap.constEnd()) {
+        plugin = it.value().value(mimeType);
+    }
+
+    if (!plugin.isValid()) {
+        auto pluginIt = mimeMap.constFind(mimeType);
+        if (pluginIt == mimeMap.constEnd()) {
+            // check MIME type inheritance, resolve aliases
+            QMimeDatabase db;
+            const QMimeType mimeInfo = db.mimeTypeForName(mimeType);
+            if (mimeInfo.isValid()) {
+                const QStringList parentMimeTypes = mimeInfo.allAncestors();
+                for (const QString &parentMimeType : parentMimeTypes) {
+                    pluginIt = mimeMap.constFind(parentMimeType);
+                    if (pluginIt != mimeMap.constEnd()) {
+                        break;
+                    }
+                }
+            }
+
+            if (pluginIt == mimeMap.constEnd()) {
+                // Check the wildcards last, see BUG 453480
+                QString groupMimeType = mimeType;
+                static const QRegularExpression expr(QStringLiteral("/.*"));
+                groupMimeType.replace(expr, QStringLiteral("/*"));
+                pluginIt = mimeMap.constFind(groupMimeType);
+            }
+        }
+
+        if (pluginIt != mimeMap.constEnd()) {
+            plugin = *pluginIt;
+        }
+    }
+
+    return plugin;
+}
+
 void PreviewJob::slotResult(KJob *job)
 {
     Q_D(PreviewJob);
@@ -572,6 +599,34 @@ void PreviewJob::slotResult(KJob *job)
         const KIO::UDSEntry statResult = static_cast<KIO::StatJob *>(job)->statResult();
         d->currentDeviceId = statResult.numberValue(KIO::UDSEntry::UDS_DEVICE_ID, 0);
         d->tOrig = QDateTime::fromSecsSinceEpoch(statResult.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME, 0));
+        QString mimeType = statResult.stringValue(KIO::UDSEntry::UDS_MIME_TYPE);
+        if (mimeType.isEmpty()) {
+            QMimeDatabase db;
+            QMimeType mime = db.mimeTypeForFile(d->currentItem.item.url().fileName(), QMimeDatabase::MatchExtension);
+            if (mime.isDefault() && d->currentItem.item.url().isLocalFile()) {
+                mime = db.mimeTypeForFile(d->currentItem.item.url().toLocalFile(), QMimeDatabase::MatchContent);
+            }
+            mimeType = mime.name();
+        }
+
+        KPluginMetaData plugin = d->getPluginForMimeType(d->currentItem.item.url().scheme(), mimeType);
+
+        if (plugin.isValid()) {
+            d->currentItem.plugin = plugin;
+            if (!d->bNeedCache && d->itemNeedsCache(d->currentItem)) {
+                d->bNeedCache = true;
+            }
+        } else {
+            Q_EMIT failed(d->currentItem.item);
+            d->determineNextFile();
+            return;
+        }
+
+        if (d->bNeedCache) {
+            d->ensureCacheDirs();
+        } else {
+            d->bSave = false;
+        }
 
         bool skipCurrentItem = false;
         const KIO::filesize_t size = (KIO::filesize_t)statResult.numberValue(KIO::UDSEntry::UDS_SIZE, 0);
