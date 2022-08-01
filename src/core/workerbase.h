@@ -879,6 +879,7 @@ private:
     std::unique_ptr<WorkerBasePrivate> d;
     Q_DISABLE_COPY_MOVE(WorkerBase)
     friend class WorkerSlaveBaseBridge;
+    friend class WorkerThread;
 };
 
 } // namespace KIO
