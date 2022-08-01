@@ -4649,15 +4649,15 @@ bool HTTPProtocol::CacheTag::deserialize(const QByteArray &d)
 
     qint64 servedDateMs;
     stream >> servedDateMs;
-    servedDate = QDateTime::fromMSecsSinceEpoch(servedDateMs * 1000);
+    servedDate = QDateTime::fromSecsSinceEpoch(servedDateMs);
 
     qint64 lastModifiedDateMs;
     stream >> lastModifiedDateMs;
-    lastModifiedDate = QDateTime::fromMSecsSinceEpoch(lastModifiedDateMs * 1000);
+    lastModifiedDate = QDateTime::fromSecsSinceEpoch(lastModifiedDateMs);
 
     qint64 expireDateMs;
     stream >> expireDateMs;
-    expireDate = QDateTime::fromMSecsSinceEpoch(expireDateMs * 1000);
+    expireDate = QDateTime::fromSecsSinceEpoch(expireDateMs);
 
     stream >> bytesCached;
 

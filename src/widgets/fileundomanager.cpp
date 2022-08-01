@@ -51,7 +51,7 @@ static QDataStream &operator>>(QDataStream &stream, BasicOperation &op)
     qint64 mtime;
     stream >> op.m_valid >> type >> op.m_renamed >> op.m_src >> op.m_dst >> op.m_target >> mtime;
     op.m_type = static_cast<BasicOperation::Type>(type);
-    op.m_mtime = QDateTime::fromMSecsSinceEpoch(1000 * mtime, Qt::UTC);
+    op.m_mtime = QDateTime::fromSecsSinceEpoch(mtime, Qt::UTC);
     return stream;
 }
 
@@ -463,7 +463,7 @@ void FileUndoManagerPrivate::slotResult(KJob *job)
         const BasicOperation op = m_currentCmd.m_opQueue.head();
         // qDebug() << "stat result for " << op.m_dst;
         KIO::StatJob *statJob = static_cast<KIO::StatJob *>(job);
-        const QDateTime mtime = QDateTime::fromMSecsSinceEpoch(1000 * statJob->statResult().numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME, -1), Qt::UTC);
+        const QDateTime mtime = QDateTime::fromSecsSinceEpoch(statJob->statResult().numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME, -1), Qt::UTC);
         if (mtime != op.m_mtime) {
             qCDebug(KIO_WIDGETS) << op.m_dst << "was modified after being copied. Initial timestamp" << mtime << "now" << op.m_mtime;
             QDateTime srcTime = op.m_mtime.toLocalTime();
