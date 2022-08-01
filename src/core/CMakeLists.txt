@@ -310,6 +310,7 @@ ecm_generate_headers(KIOCore_CamelCase_HEADERS
   FileSystemFreeSpaceJob
   BatchRenameJob
   WorkerBase
+  WorkerFactory
 
   PREFIX KIO
   REQUIRED_HEADERS KIO_namespaced_HEADERS
