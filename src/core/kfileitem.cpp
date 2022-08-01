@@ -375,7 +375,7 @@ QDateTime KFileItemPrivate::time(KFileItem::FileTimes mappedWhich) const
     if (uds > 0) {
         const long long fieldVal = m_entry.numberValue(uds, -1);
         if (fieldVal != -1) {
-            return QDateTime::fromMSecsSinceEpoch(1000 * fieldVal);
+            return QDateTime::fromSecsSinceEpoch(fieldVal);
         }
     }
 
