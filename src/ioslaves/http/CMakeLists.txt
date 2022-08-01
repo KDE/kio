@@ -3,9 +3,6 @@ include(ECMMarkNonGuiExecutable)
 include(ConfigureChecks.cmake)
 configure_file(config-kioslave-http.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kioslave-http.h )
 
-find_package(X11)
-set(HAVE_X11 ${X11_FOUND})
-
 if(GSSAPI_FOUND)
     set(HAVE_LIBGSSAPI 1)
     if(GSSAPI_FLAVOR STREQUAL "MIT")

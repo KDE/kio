@@ -117,17 +117,16 @@ set_package_properties(GSSAPI PROPERTIES DESCRIPTION "Allows KIO to make use of 
                        PURPOSE "A MIT or HEIMDAL flavor of GSSAPI can be used"
                       )
 
-if (NOT APPLE AND NOT WIN32)
-    find_package(X11)
-endif()
-
-set(HAVE_X11 ${X11_FOUND})
-if (HAVE_X11)
-    if (QT_MAJOR_VERSION STREQUAL "5")
-        find_package(Qt5 ${REQUIRED_QT_VERSION} CONFIG REQUIRED X11Extras)
-    else()
-        # qtx11extras_p.h is in Qt6Gui, which is implied by the find_package(QtWidgets) above
+if (NOT APPLE AND NOT WIN32 AND NOT ANDROID)
+    option(WITH_X11 "Build with X11 integration" ON)
+    if(WITH_X11)
+        if (QT_MAJOR_VERSION STREQUAL "5")
+            find_package(Qt5 ${REQUIRED_QT_VERSION} CONFIG REQUIRED X11Extras)
+        else()
+            # qtx11extras_p.h is in Qt6Gui, which is implied by the find_package(QtWidgets) above
+        endif()
     endif()
+    set(HAVE_X11 ${WITH_X11})
 endif()
 
 find_package(ACL)
