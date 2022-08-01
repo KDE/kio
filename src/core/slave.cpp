@@ -451,7 +451,7 @@ Slave *Slave::createSlave(const QString &protocol, const QUrl &url, int &error, 
 
     // Threads have performance benefits, but degrade robustness
     // (a worker crashing kills the app). So let's only enable the feature for kio_file, for now.
-    if (bUseThreads && protocol == QLatin1String("file")) {
+    if (protocol == QLatin1String("admin") || (bUseThreads && protocol == QLatin1String("file"))) {
         auto *factory = qobject_cast<WorkerFactory *>(loader.instance());
         if (factory) {
             auto *thread = new WorkerThread(slave, factory, slaveAddress.toString().toLocal8Bit());
