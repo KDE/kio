@@ -217,7 +217,7 @@ void UDSEntryPrivate::load(QDataStream &s)
     // We cache the loaded strings. Some of them, like, e.g., the user,
     // will often be the same for many entries in a row. Caching them
     // permits to use implicit sharing to save memory.
-    static QVector<QString> cachedStrings;
+    thread_local QVector<QString> cachedStrings;
     if (quint32(cachedStrings.size()) < size) {
         cachedStrings.resize(size);
     }
