@@ -135,6 +135,8 @@ protected:
     void setPid(qint64 pid);
     void terminateStartupNotification();
     QString name() const;
+    QString maybeAliasedName(const QString &pattern) const;
+    static QString escapeUnitName(const QString &input);
 
     std::unique_ptr<KProcess> m_process;
     QString m_executable; // can be a full path

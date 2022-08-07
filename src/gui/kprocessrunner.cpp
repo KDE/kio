@@ -422,6 +422,33 @@ QString KProcessRunner::name() const
     return !m_desktopName.isEmpty() ? m_desktopName : m_executable;
 }
 
+// Only alphanum, ':' and '_' allowed in systemd unit names
+QString KProcessRunner::escapeUnitName(const QString &input)
+{
+    QString res;
+    const QByteArray bytes = input.toUtf8();
+    for (const auto &c : bytes) {
+        if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || (c >= '0' && c <= '9') || c == ':' || c == '_' || c == '.') {
+            res += QLatin1Char(c);
+        } else {
+            res += QStringLiteral("\\x%1").arg(c, 2, 16, QLatin1Char('0'));
+        }
+    }
+    return res;
+}
+
+QString KProcessRunner::maybeAliasedName(const QString &pattern) const
+{
+    // Don't actually load aliased desktop file to avoid having to deal with recursion
+    QString servName = m_service ? m_service->aliasFor() : QString{};
+    if (servName.isEmpty()) {
+        servName = name();
+    }
+
+    // As specified in "XDG standardization for applications" in https://systemd.io/DESKTOP_ENVIRONMENTS/
+    return pattern.arg(escapeUnitName(servName), QUuid::createUuid().toString(QUuid::Id128));
+}
+
 void KProcessRunner::emitDelayedError(const QString &errorMsg)
 {
     qCWarning(KIO_GUI) << errorMsg;
