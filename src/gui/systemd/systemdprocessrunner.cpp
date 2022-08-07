@@ -42,29 +42,6 @@ SystemdProcessRunner::SystemdProcessRunner()
 {
 }
 
-// Only alphanum, ':' and '_' allowed in systemd unit names
-QString SystemdProcessRunner::escapeUnitName(const QString &input)
-{
-    QString res;
-    const auto bytes = input.toUtf8();
-    for (const auto &c : bytes) {
-        if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || (c >= '0' && c <= '9') || c == ':' || c == '_' || c == '.') {
-            res += QLatin1Char(c);
-        } else {
-            res += QStringLiteral("\\x%1").arg(c, 2, 16, QLatin1Char('0'));
-        }
-    }
-    return res;
-}
-
-QString SystemdProcessRunner::maybeAliasedName(const QString &pattern, const QString &name, const QString &alias)
-{
-    // Don't actually load aliased desktop file to avoid having to deal with recursion
-    const QString &resolvedName = alias.isEmpty() ? name : alias;
-    // As specified in "XDG standardization for applications" in https://systemd.io/DESKTOP_ENVIRONMENTS/
-    return pattern.arg(SystemdProcessRunner::escapeUnitName(resolvedName), QUuid::createUuid().toString(QUuid::Id128));
-}
-
 bool SystemdProcessRunner::waitForStarted(int timeout)
 {
     if (m_pid || m_exited) {
@@ -84,7 +61,7 @@ bool SystemdProcessRunner::waitForStarted(int timeout)
 
 void SystemdProcessRunner::startProcess()
 {
-    m_serviceName = SystemdProcessRunner::maybeAliasedName(QStringLiteral("app-%1@%2.service"), name(), m_service->aliasFor());
+    m_serviceName = SystemdProcessRunner::maybeAliasedName(QStringLiteral("app-%1@%2.service"));
 
     // Watch for new services
     m_manager = new systemd1::Manager(systemdService, systemdPath, QDBusConnection::sessionBus(), this);
