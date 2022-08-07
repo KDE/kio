@@ -3,6 +3,7 @@
     SPDX-FileCopyrightText: 1999 Torben Weis <weis@kde.org>
     SPDX-FileCopyrightText: 2003 Waldo Bastian <bastian@kde.org>
     SPDX-FileCopyrightText: 2012 David Faure <faure@kde.org>
+    SPDX-FileCopyrightText: 2022 Harald Sitter <sitter@kde.org>
 
     SPDX-License-Identifier: LGPL-2.0-only
 */
@@ -33,6 +34,7 @@ KProtocolInfoPrivate::KProtocolInfoPrivate(const QString &path)
     m_name = config.readEntry("protocol");
     m_exec = config.readPathEntry("exec", QString());
     m_isSourceProtocol = config.readEntry("source", true);
+    m_supportsPermissions = config.readEntry("permissions", true);
     m_isHelperProtocol = config.readEntry("helper", false);
     m_supportsReading = config.readEntry("reading", false);
     m_supportsWriting = config.readEntry("writing", false);
@@ -122,6 +124,8 @@ KProtocolInfoPrivate::KProtocolInfoPrivate(const QString &name, const QString &e
 {
     // source has fallback true if not set
     m_isSourceProtocol = json.value(QStringLiteral("source")).toBool(true);
+    // true if not set for backwards compatibility
+    m_supportsPermissions = json.value(QStringLiteral("permissions")).toBool(true);
 
     // other bools are fine with default false by toBool
     m_isHelperProtocol = json.value(QStringLiteral("helper")).toBool();

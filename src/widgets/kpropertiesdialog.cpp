@@ -52,6 +52,7 @@
 #include <kioglobal_p.h>
 #include <kmountpoint.h>
 #include <kprotocolinfo.h>
+#include <kprotocolmanager.h>
 #include <kurlrequester.h>
 
 #include <KApplicationTrader>
@@ -2325,9 +2326,11 @@ void KFilePermissionsPropsPlugin::slotShowAdvancedPermissions()
 
 KFilePermissionsPropsPlugin::~KFilePermissionsPropsPlugin() = default;
 
-bool KFilePermissionsPropsPlugin::supports(const KFileItemList & /*_items*/)
+bool KFilePermissionsPropsPlugin::supports(const KFileItemList &items)
 {
-    return true;
+    return std::any_of(items.cbegin(), items.cend(), [](const KFileItem &item) {
+        return KProtocolManager::supportsPermissions(item.url());
+    });
 }
 
 // sets a combo box in the Access Control frame

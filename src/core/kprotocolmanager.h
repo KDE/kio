@@ -4,6 +4,7 @@
     SPDX-FileCopyrightText: 2000 Waldo Bastain <bastain@kde.org>
     SPDX-FileCopyrightText: 2000 Dawit Alemayehu <adawit@kde.org>
     SPDX-FileCopyrightText: 2008 Jarosław Staniek <staniek@kde.org>
+    SPDX-FileCopyrightText: 2022 Harald Sitter <sitter@kde.org>
 
     SPDX-License-Identifier: LGPL-2.0-only
 */
@@ -668,6 +669,18 @@ public:
      * @since 4.10
      */
     static QString charsetFor(const QUrl &url);
+
+    /**
+     * @brief Returns whether the protocol suppports KIO/POSIX permissions handling.
+     *
+     * When this is false the Permissions properties tab may be hidden, for example. The protocol may still support
+     * permission control through other means, specific to the individual KIO worker.
+     *
+     * @param url the url to check
+     * @return whether the protocol supports permissions
+     * @since 5.98
+     */
+    static bool supportsPermissions(const QUrl &url);
 
 private:
     friend class KIO::SlaveConfigPrivate;

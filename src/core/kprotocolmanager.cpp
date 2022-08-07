@@ -4,6 +4,7 @@
     SPDX-FileCopyrightText: 2000 Waldo Bastain <bastain@kde.org>
     SPDX-FileCopyrightText: 2000 Dawit Alemayehu <adawit@kde.org>
     SPDX-FileCopyrightText: 2008 Jarosław Staniek <staniek@kde.org>
+    SPDX-FileCopyrightText: 2022 Harald Sitter <sitter@kde.org>
 
     SPDX-License-Identifier: LGPL-2.0-only
 */
@@ -1192,6 +1193,16 @@ QString KProtocolManager::protocolForArchiveMimetype(const QString &mimeType)
 QString KProtocolManager::charsetFor(const QUrl &url)
 {
     return KIO::SlaveConfig::self()->configData(url.scheme(), url.host(), QStringLiteral("Charset"));
+}
+
+bool KProtocolManager::supportsPermissions(const QUrl &url)
+{
+    KProtocolInfoPrivate *prot = findProtocol(url);
+    if (!prot) {
+        return true;
+    }
+
+    return prot->m_supportsPermissions;
 }
 
 #undef PRIVATE_DATA

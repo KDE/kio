@@ -3,6 +3,7 @@
     SPDX-FileCopyrightText: 1999 Torben Weis <weis@kde.org>
     SPDX-FileCopyrightText: 2000-2001 Waldo Bastian <bastian@kde.org>
     SPDX-FileCopyrightText: 2012 David Faure <faure@kde.org>
+    SPDX-FileCopyrightText: 2022 Harald Sitter <sitter@kde.org>
 
     SPDX-License-Identifier: LGPL-2.0-only
 */
@@ -48,6 +49,7 @@ public:
     bool m_canRenameFromFile : 1;
     bool m_canRenameToFile : 1;
     bool m_canDeleteRecursive : 1;
+    bool m_supportsPermissions : 1;
     QString m_defaultMimetype;
     QString m_icon;
     QString m_config;
