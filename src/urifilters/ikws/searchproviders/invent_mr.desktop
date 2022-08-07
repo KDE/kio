@@ -11,6 +11,7 @@ Name[cy]=Erfyniadau Cydlifo KDE Llifento
 Name[de]=Merge-Requests auf KDE Invent
 Name[en_GB]=KDE Invent Merge Requests
 Name[es]=Solicitudes de fusiones de KDE Invent
+Name[eu]=KDE Invent bateratzeko eskaera
 Name[fi]=KDE Inventin yhdistämispyynnöt
 Name[fr]=Requêtes de fusion de KDE Invent
 Name[gl]=Solicitudes de fusións de KDE Invent
@@ -42,6 +43,7 @@ Query[cy]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[de]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[en_GB]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[es]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
+Query[eu]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[fi]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[fr]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[gl]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}

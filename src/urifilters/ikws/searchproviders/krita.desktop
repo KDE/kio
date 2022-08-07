@@ -10,6 +10,7 @@ Name[cy]=Canllaw Krita
 Name[de]=Krita-Handbuch
 Name[en_GB]=Krita Manual
 Name[es]=Manual de Krita
+Name[eu]=Krita-ren eskuliburua
 Name[fi]=Kritan käyttöopas
 Name[fr]=Manuel de Krita
 Name[gl]=Manual de Krita
@@ -44,6 +45,7 @@ Query[cy]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[de]=https://docs.krita.org/de/search.html?q=\\{@}
 Query[en_GB]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[es]=https://docs.krita.org/en/search.html?q=\\{@}
+Query[eu]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[fi]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[fr]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[gl]=https://docs.krita.org/en/search.html?q=\\{@}

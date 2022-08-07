@@ -11,6 +11,7 @@ Name[cy]=Yandex
 Name[de]=Yandex
 Name[en_GB]=Yandex
 Name[es]=Yandex
+Name[eu]=Yandex
 Name[fi]=Yandex
 Name[fr]=Yandex
 Name[ia]=Yandex
@@ -42,6 +43,7 @@ Query[cy]=https://yandex.ru/search/?text=\\{@}
 Query[de]=https://yandex.ru/search/?text=\\{@}
 Query[en_GB]=https://yandex.ru/search/?text=\\{@}
 Query[es]=https://yandex.ru/search/?text=\\{@}
+Query[eu]=https://yandex.ru/search/?text=\\{@}
 Query[fi]=https://yandex.ru/search/?text=\\{@}
 Query[fr]=https://yandex.ru/search/?text=\\{@}
 Query[ia]=https://yandex.ru/search/?text=\\{@}

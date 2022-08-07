@@ -11,6 +11,7 @@ Name[cy]=Datagronfa WineHQ
 Name[de]=WineHQ-Datenbank
 Name[en_GB]=WineHQ Database
 Name[es]=Base de datos de WineHQ
+Name[eu]=WineHQ datu-basea
 Name[fi]=WineHQ-tietokanta
 Name[fr]=Base de données de WineHQ
 Name[gl]=Base de datos WineHQ
@@ -45,6 +46,7 @@ Query[cy]=https://www.winehq.org/search?q=\\{@}
 Query[de]=https://www.winehq.org/search?q=\\{@}
 Query[en_GB]=https://www.winehq.org/search?q=\\{@}
 Query[es]=https://www.winehq.org/search?q=\\{@}
+Query[eu]=https://www.winehq.org/search?q=\\{@}
 Query[fi]=https://www.winehq.org/search?q=\\{@}
 Query[fr]=https://www.winehq.org/search?q=\\{@}
 Query[gl]=https://www.winehq.org/search?q=\\{@}

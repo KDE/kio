@@ -13,6 +13,7 @@ Name[cy]=Ystorfa KDE
 Name[de]=KDE Store
 Name[en_GB]=KDE Store
 Name[es]=KDE Store
+Name[eu]=KDE biltegia
 Name[fi]=KDE Store
 Name[fr]=Boutique de KDE
 Name[gl]=Tenda KDE
@@ -46,6 +47,7 @@ Query[cy]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[de]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[en_GB]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[es]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
+Query[eu]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[fi]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[fr]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[gl]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
