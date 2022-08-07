@@ -1,0 +1,81 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % French "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="webdav">
+<title
+>webdav / webdavs</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Hamish.Rodda; &Hamish.Rodda.mail;</author>
+&traducteurEquipeKDE; 
+</authorgroup>
+
+<date
+>21/01/2002</date>
+</articleinfo>
+<para
+><acronym
+>WebDAV</acronym
+> est un protocole <emphasis
+>distribué</emphasis
+> de <emphasis
+>création et de gestion de version</emphasis
+> pour l'Internet. Il permet une gestion aisée des documents et des scripts sur un serveur <ulink url="help:/kioslave/webdav.html"
+>&HTTP;</ulink
+>. Il possède des fonctionnalités additionnelles conçues pour simplifier la gestion des versions entre des auteurs multiples.</para>
+
+<para
+>L'utilisation de ce protocole est simple. Saisissez l'emplacement que vous désirez afficher, de la même manière qu'une &URL; &HTTP; sauf en ce qui concerne le nom du protocole « webdav:// », placé au début. Un exemple est <userinput
+>webdav://<replaceable
+>www.nomhote.com/emplacement/</replaceable
+></userinput
+>.  Si vous spécifiez un nom de dossier, une liste des fichiers et des dossiers s'affichera et vous pourrez manipuler ces dossiers et ces fichiers tout comme vous le feriez avec n'importe quel autre système de fichiers.</para>
+
+<variablelist>
+<title
+>Fonctionnalités de WebDAV</title>
+<varlistentry>
+<term
+>Verrouillage</term>
+<listitem>
+<para
+>Le verrouillage des fichiers autorise les utilisateurs à verrouiller un fichier, informant ainsi d'autres utilisateurs qu'ils travaillent actuellement sur celui-ci. De cette manière, la modification peut s'effectuer sans craindre que les changements puissent être écrasés par une autre personne modifiant également le même document.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+>Accès au fichier source</term>
+<listitem>
+<para
+><acronym
+>WebDAV</acronym
+> autorisant l'accès au script appelé pour produire une page donnée, des changements peuvent être apportées au script lui-même.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+>Gestion des propriétés de chaque document</term>
+<listitem>
+<para
+>Des propriétés arbitraires peuvent être définies pour faciliter l'identification d'un document, tel que l'auteur de celui-ci.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>Pour tirer profit de ces fonctions additionnelles, il vous faut une application capable de les gérer. Actuellement, aucune application ne les gère au moyen de ce module d'entrée / sortie.</para>
+
+<para
+><acronym
+>WebDAVS</acronym
+> est le protocole <acronym
+>WebDAV</acronym
+> chiffré via SSL.</para>
+
+</article>
