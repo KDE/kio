@@ -64,11 +64,9 @@ enum ComplType { CTNone = 0, CTEnv, CTUser, CTMan, CTExe, CTFile, CTUrl, CTInfo 
 class CompletionThread;
 
 // Ensure that we don't end up with "//".
-static QUrl addPathToUrl(const QUrl &url, const QString &relPath)
+static void addPathToUrl(QUrl &url, const QString &relPath)
 {
-    QUrl u(url);
-    u.setPath(concatPaths(url.path(), relPath));
-    return u;
+    url.setPath(concatPaths(url.path(), relPath));
 }
 
 static QBasicAtomicInt s_waitDuration = Q_BASIC_ATOMIC_INITIALIZER(-1);
@@ -352,34 +350,34 @@ void DirectoryListThread::run()
         while (current_dir_iterator.hasNext() && !terminationRequested()) {
             current_dir_iterator.next();
 
-            QFileInfo file_info = current_dir_iterator.fileInfo();
-            const QString file_name = file_info.fileName();
+            QFileInfo item_info = current_dir_iterator.fileInfo();
+            QString item_name = item_info.fileName();
 
             // qDebug() << "Found" << file_name;
 
-            if (!m_filter.isEmpty() && !file_name.startsWith(m_filter)) {
+            if (!m_filter.isEmpty() && !item_name.startsWith(m_filter)) {
                 continue;
             }
 
-            if (!m_mimeTypeFilters.isEmpty() && !file_info.isDir()) {
-                auto mimeType = mimeTypes.mimeTypeForFile(file_info);
+            if (!m_mimeTypeFilters.isEmpty() && !item_info.isDir()) {
+                auto mimeType = mimeTypes.mimeTypeForFile(item_info);
                 if (!m_mimeTypeFilters.contains(mimeType.name())) {
                     continue;
                 }
             }
 
-            QString toAppend = file_name;
             // Add '/' to directories
-            if (m_appendSlashToDir && file_info.isDir()) {
-                toAppend.append(QLatin1Char('/'));
+            if (m_appendSlashToDir && item_info.isDir()) {
+                Utils::appendSlash(item_name);
             }
 
             if (m_complete_url) {
-                QUrl info(m_prepend);
-                info = addPathToUrl(info, toAppend);
-                addMatch(info.toDisplayString());
+                QUrl url(m_prepend);
+                addPathToUrl(url, item_name);
+                addMatch(url.toDisplayString());
             } else {
-                addMatch(m_prepend + toAppend);
+                item_name.prepend(m_prepend);
+                addMatch(item_name);
             }
         }
     }
@@ -1195,7 +1193,7 @@ void KUrlCompletionPrivate::slotEntries(KIO::Job *, const KIO::UDSEntryList &ent
         ) {
             if (complete_url) {
                 QUrl url(prepend);
-                url = addPathToUrl(url, toAppend);
+                addPathToUrl(url, toAppend);
                 matchList.append(url.toDisplayString());
             } else {
                 matchList.append(prepend + toAppend);
