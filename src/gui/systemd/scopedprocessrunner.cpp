@@ -13,7 +13,8 @@ ScopedProcessRunner::ScopedProcessRunner()
 void ScopedProcessRunner::slotProcessStarted()
 {
     ForkingProcessRunner::slotProcessStarted();
-    const QString serviceName = SystemdProcessRunner::maybeAliasedName(QStringLiteral("app-%1-%2.scope"), name(), m_service->aliasFor());
+    const QString serviceName =
+        SystemdProcessRunner::maybeAliasedName(QStringLiteral("app-%1-%2.scope"), name(), m_service ? m_service->aliasFor() : QString());
 
     const auto manager = new systemd1::Manager(systemdService, systemdPath, QDBusConnection::sessionBus(), this);
 
