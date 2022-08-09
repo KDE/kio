@@ -103,12 +103,18 @@ static void sortLocalPaths(QStringList &list)
 class KUrlCompletionPrivate
 {
 public:
-    explicit KUrlCompletionPrivate(KUrlCompletion *parent)
-        : q(parent)
-        , url_auto_completion(true)
-        , userListThread(nullptr)
-        , dirListThread(nullptr)
+    explicit KUrlCompletionPrivate(KUrlCompletion *qq, KUrlCompletion::Mode m)
+        : q(qq)
+        , cwd(QUrl::fromLocalFile(QDir::homePath()))
+        , mode(m)
     {
+        // Read settings
+        KConfigGroup cg(KSharedConfig::openConfig(), "URLCompletion");
+        url_auto_completion = cg.readEntry("alwaysAutoComplete", true);
+        popup_append_slash = cg.readEntry("popupAppendSlash", true);
+        onlyLocalProto = cg.readEntry("LocalProtocolsOnly", false);
+
+        q->setIgnoreCase(true);
     }
 
     ~KUrlCompletionPrivate();
@@ -143,30 +149,30 @@ public:
     KUrlCompletion *const q;
     QList<QUrl> list_urls;
 
-    bool onlyLocalProto;
+    bool onlyLocalProto = false;
 
     // urlCompletion() in Auto/Popup mode?
-    bool url_auto_completion;
+    bool url_auto_completion = true;
 
     // Append '/' to directories in Popup mode?
     // Doing that stat's all files and is slower
-    bool popup_append_slash;
+    bool popup_append_slash = true;
 
     // Keep track of currently listed files to avoid reading them again
-    bool last_no_hidden;
+    bool last_no_hidden = false;
     QString last_path_listed;
     QString last_file_listed;
     QString last_prepend;
-    ComplType last_compl_type;
+    ComplType last_compl_type = CTNone;
 
     QUrl cwd; // "current directory" = base dir for completion
 
-    KUrlCompletion::Mode mode; // ExeCompletion, FileCompletion, DirCompletion
-    bool replace_env;
-    bool replace_home;
+    KUrlCompletion::Mode mode = KUrlCompletion::FileCompletion;
+    bool replace_env = true;
+    bool replace_home = true;
     bool complete_url; // if true completing a URL (i.e. 'prepend' is a URL), otherwise a path
 
-    KIO::ListJob *list_job; // kio job to list directories
+    KIO::ListJob *list_job = nullptr; // kio job to list directories
 
     QString prepend; // text to prepend to listed items
     QString compl_text; // text to pass on to KCompletion
@@ -176,8 +182,8 @@ public:
     bool list_urls_no_hidden;
     QString list_urls_filter; // filter for listed files
 
-    CompletionThread *userListThread;
-    CompletionThread *dirListThread;
+    CompletionThread *userListThread = nullptr;
+    CompletionThread *dirListThread = nullptr;
 
     QStringList mimeTypeFilters;
 };
@@ -517,44 +523,19 @@ void KUrlCompletionPrivate::MyURL::filter(bool replace_user_dir, bool replace_en
 //
 
 KUrlCompletion::KUrlCompletion()
-    : KCompletion()
-    , d(new KUrlCompletionPrivate(this))
+    : KUrlCompletion(FileCompletion)
 {
-    d->init();
 }
 
 KUrlCompletion::KUrlCompletion(Mode _mode)
     : KCompletion()
-    , d(new KUrlCompletionPrivate(this))
+    , d(new KUrlCompletionPrivate(this, _mode))
 {
-    d->init();
-    setMode(_mode);
 }
 
 KUrlCompletion::~KUrlCompletion()
 {
     stop();
-}
-
-void KUrlCompletionPrivate::init()
-{
-    cwd = QUrl::fromLocalFile(QDir::homePath());
-
-    replace_home = true;
-    replace_env = true;
-    last_no_hidden = false;
-    last_compl_type = CTNone;
-    list_job = nullptr;
-    mode = KUrlCompletion::FileCompletion;
-
-    // Read settings
-    KConfigGroup cg(KSharedConfig::openConfig(), "URLCompletion");
-
-    url_auto_completion = cg.readEntry("alwaysAutoComplete", true);
-    popup_append_slash = cg.readEntry("popupAppendSlash", true);
-    onlyLocalProto = cg.readEntry("LocalProtocolsOnly", false);
-
-    q->setIgnoreCase(true);
 }
 
 void KUrlCompletion::setDir(const QUrl &dir)
