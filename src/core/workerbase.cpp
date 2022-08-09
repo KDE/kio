@@ -160,7 +160,7 @@ public:
 
     void special(const QByteArray &data) final
     {
-        finalize(base->special(data));
+        maybeError(base->special(data));
     }
 
     void multiGet(const QByteArray &data) final
