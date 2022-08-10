@@ -309,6 +309,11 @@ bool KFilePlacesViewDelegate::helpEvent(QHelpEvent *event, QAbstractItemView *vi
                     return true;
                 }
             }
+        } else if (pointIsHeaderArea(event->pos())) {
+            // Make sure the tooltip doesn't linger when moving the mouse to the header area
+            QToolTip::hideText();
+            event->setAccepted(true);
+            return true;
         }
     }
     return QAbstractItemDelegate::helpEvent(event, view, option, index);

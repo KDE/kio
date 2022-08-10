@@ -287,6 +287,14 @@ QVariant KFilePlacesItem::bookmarkData(int role) const
         return m_text;
     case Qt::DecorationRole:
         return QIcon::fromTheme(iconNameForBookmark(b));
+    case Qt::ToolTipRole: {
+        const KFilePlacesModel::GroupType type = groupType();
+        // Don't display technical gibberish in the URL, particularly search.
+        if (type != KFilePlacesModel::RecentlySavedType && type != KFilePlacesModel::SearchForType && type != KFilePlacesModel::TagsType) {
+            return b.url().toDisplayString(QUrl::PreferLocalFile);
+        }
+        return QString();
+    }
     case Qt::BackgroundRole:
         if (isHidden()) {
             return QColor(Qt::lightGray);
@@ -320,6 +328,24 @@ QVariant KFilePlacesItem::deviceData(int role) const
         case Qt::DecorationRole:
             // qDebug() << "adding emblems" << m_emblems << "to device icon" << m_deviceIconName;
             return KIconUtils::addOverlays(m_deviceIconName, m_emblems);
+        case Qt::ToolTipRole: {
+            if (m_access && m_isAccessible) {
+                // For loop devices, show backing file path rather than /dev/loop123.
+                QString mountedFrom = m_backingFile;
+                if (mountedFrom.isEmpty() && m_block) {
+                    mountedFrom = m_block->device();
+                }
+
+                if (!mountedFrom.isEmpty()) {
+                    return i18nc("@info:tooltip path (mounted from)", "%1 (from %2)", m_access->filePath(), mountedFrom);
+                }
+            } else if (!m_backingFile.isEmpty()) {
+                return m_backingFile;
+            } else if (m_block) {
+                return m_block->device();
+            }
+            return QString();
+        }
         case KFilePlacesModel::UrlRole:
             if (m_access) {
                 const QString path = m_access->filePath();
@@ -497,11 +523,16 @@ bool KFilePlacesItem::updateDeviceInfo(const QString &udi)
     if (m_device.isValid()) {
         m_access = m_device.as<Solid::StorageAccess>();
         m_volume = m_device.as<Solid::StorageVolume>();
+        m_block = m_device.as<Solid::Block>();
         m_disc = m_device.as<Solid::OpticalDisc>();
         m_player = m_device.as<Solid::PortableMediaPlayer>();
         m_networkShare = m_device.as<Solid::NetworkShare>();
         m_deviceIconName = m_device.icon();
         m_emblems = m_device.emblems();
+
+        if (auto *genericIface = m_device.as<Solid::GenericInterface>()) {
+            m_backingFile = genericIface->property(QStringLiteral("BackingFile")).toString();
+        }
 
         m_drive = nullptr;
         m_opticalDrive = nullptr;
