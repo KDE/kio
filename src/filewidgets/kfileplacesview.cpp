@@ -17,6 +17,7 @@
 #include <QApplication>
 #include <QDir>
 #include <QKeyEvent>
+#include <QLibraryInfo>
 #include <QMenu>
 #include <QMetaMethod>
 #include <QMimeData>
@@ -102,6 +103,7 @@ void KFilePlacesViewDelegate::paint(QPainter *painter, const QStyleOptionViewIte
     painter->save();
 
     QStyleOptionViewItem opt = option;
+    const QPersistentModelIndex persistentIndex(index);
 
     const KFilePlacesModel *placesModel = static_cast<const KFilePlacesModel *>(index.model());
 
@@ -227,7 +229,6 @@ void KFilePlacesViewDelegate::paint(QPainter *painter, const QStyleOptionViewIte
     }
 
     if (placesModel->data(index, KFilePlacesModel::CapacityBarRecommendedRole).toBool()) {
-        QPersistentModelIndex persistentIndex(index);
         const auto info = m_freeSpaceInfo.value(persistentIndex);
 
         checkFreeSpace(index); // async
@@ -280,9 +281,18 @@ void KFilePlacesViewDelegate::paint(QPainter *painter, const QStyleOptionViewIte
         }
     }
 
-    painter->drawText(rectText,
-                      Qt::AlignLeft | Qt::AlignVCenter,
-                      opt.fontMetrics.elidedText(index.model()->data(index).toString(), Qt::ElideRight, rectText.width()));
+    const QString text = index.model()->data(index).toString();
+    const QString elidedText = opt.fontMetrics.elidedText(text, Qt::ElideRight, rectText.width());
+
+    const bool isElided = (text != elidedText);
+
+    if (isElided) {
+        m_elidedTexts.insert(persistentIndex);
+    } else if (auto it = m_elidedTexts.find(persistentIndex); it != m_elidedTexts.end()) {
+        m_elidedTexts.erase(it);
+    }
+
+    painter->drawText(rectText, Qt::AlignLeft | Qt::AlignVCenter, elidedText);
 
     painter->restore();
 }
@@ -311,9 +321,37 @@ bool KFilePlacesViewDelegate::helpEvent(QHelpEvent *event, QAbstractItemView *vi
             }
         } else if (pointIsHeaderArea(event->pos())) {
             // Make sure the tooltip doesn't linger when moving the mouse to the header area
+            // TODO show section name in a tooltip, too, if it is elided.
             QToolTip::hideText();
             event->setAccepted(true);
             return true;
+        } else {
+            const bool isElided = m_elidedTexts.find(QPersistentModelIndex(index)) != m_elidedTexts.end();
+
+            const QString displayText = index.data(Qt::DisplayRole).toString();
+            QString toolTipText = index.data(Qt::ToolTipRole).toString();
+
+            if (isElided) {
+                if (!toolTipText.isEmpty()) {
+                    toolTipText = i18nc("@info:tooltip full display text since it is elided: original tooltip", "%1: %2", displayText, toolTipText);
+                } else {
+                    toolTipText = displayText;
+                }
+            }
+
+            if (!toolTipText.isEmpty()) {
+                // FIXME remove once we depend on Qt 6.8
+                // Qt Wayland before 6.8 doesn't support popup repositioning, causing the tooltips
+                // remain stuck in place which is distracting.
+                static bool canRepositionPopups =
+                    !qApp->platformName().startsWith(QLatin1String("wayland")) || QLibraryInfo::version() >= QVersionNumber(6, 8, 0);
+                if (canRepositionPopups) {
+                    QToolTip::showText(event->globalPos(), toolTipText, m_view, m_view->visualRect(index));
+                }
+                // Always accepting the event to make sure QAbstractItemDelegate doesn't show it for us.
+                event->setAccepted(true);
+                return true;
+            }
         }
     }
     return QAbstractItemDelegate::helpEvent(event, view, option, index);

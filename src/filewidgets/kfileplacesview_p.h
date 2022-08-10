@@ -21,6 +21,8 @@
 #include <QScroller>
 #include <QTimer>
 
+#include <set>
+
 class KFilePlacesView;
 class QTimeLine;
 
@@ -109,6 +111,9 @@ private:
 
     mutable QTimer m_pollFreeSpace;
     mutable QMap<QPersistentModelIndex, PlaceFreeSpaceInfo> m_freeSpaceInfo;
+
+    mutable std::set<QPersistentModelIndex> m_elidedTexts;
+
     // constructing KColorScheme is expensive, cache the negative color
     mutable QColor m_warningCapacityBarColor;
 };
