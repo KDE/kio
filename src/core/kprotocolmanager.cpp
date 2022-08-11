@@ -624,18 +624,15 @@ QString KProtocolManager::slaveProtocol(const QUrl &url, QString &proxy)
 }
 
 // Generates proxy cache key from request given url.
-static void extractProxyCacheKeyFromUrl(const QUrl &u, QString *key)
+static QString extractProxyCacheKeyFromUrl(const QUrl &u)
 {
-    if (!key) {
-        return;
-    }
-
-    *key = u.scheme();
-    *key += u.host();
+    QString key = u.scheme();
+    key += u.host();
 
     if (u.port() > 0) {
-        *key += QString::number(u.port());
+        key += QString::number(u.port());
     }
+    return key;
 }
 
 QString KProtocolManager::slaveProtocol(const QUrl &url, QStringList &proxyList)
@@ -650,8 +647,7 @@ QString KProtocolManager::slaveProtocol(const QUrl &url, QStringList &proxyList)
         return protocol;
     }
 
-    QString proxyCacheKey;
-    extractProxyCacheKeyFromUrl(url, &proxyCacheKey);
+    const QString proxyCacheKey = extractProxyCacheKeyFromUrl(url);
 
     KProtocolManagerPrivate *d = kProtocolManagerPrivate();
     QMutexLocker lock(&d->mutex);
