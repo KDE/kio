@@ -17,18 +17,8 @@
 
 namespace Utils
 {
-inline QString concatPaths(const QString &path1, const QString &path2)
-{
-    Q_ASSERT(!path2.startsWith(QLatin1Char('/')));
 
-    if (path1.isEmpty()) {
-        return path2;
-    } else if (!path1.endsWith(QLatin1Char('/'))) {
-        return path1 + QLatin1Char('/') + path2;
-    } else {
-        return path1 + path2;
-    }
-}
+static const QLatin1Char s_slash('/');
 
 inline bool isAbsoluteLocalPath(const QString &path)
 {
@@ -110,6 +100,60 @@ inline void appendSlashToPath(QUrl &url)
     }
 }
 
+// concatPaths()
+inline QString concatPaths(const QString &path1, const QString &path2)
+{
+    Q_ASSERT(!path2.startsWith(QLatin1Char('/')));
+
+    if (path1.isEmpty()) {
+        return path2;
+    }
+
+    QString ret = slashAppended(path1);
+    ret += path2;
+    return ret;
+}
+
+inline QString concatPaths(QString &&path1, const QString &path2)
+{
+    Q_ASSERT(!path2.startsWith(s_slash));
+
+    if (path1.isEmpty()) {
+        return path2;
+    }
+
+    appendSlash(path1);
+    path1 += path2;
+    return path1;
+}
+
+inline QString concatPaths(const QString &path1, QString &&path2)
+{
+    Q_ASSERT(!path2.startsWith(s_slash));
+
+    if (path1.isEmpty()) {
+        return path2;
+    }
+
+    path2.prepend(s_slash);
+    path2.prepend(path1);
+    return path2;
+}
+
+inline QString concatPaths(QString &&path1, QString &&path2)
+{
+    Q_ASSERT(!path2.startsWith(s_slash));
+
+    if (path1.isEmpty()) {
+        return path2;
+    }
+
+    appendSlash(path1);
+    path1 += path2;
+    return path1;
+}
+
+// mode_t
 inline bool isRegFileMask(mode_t mode)
 {
     return (mode & QT_STAT_MASK) == QT_STAT_REG;
