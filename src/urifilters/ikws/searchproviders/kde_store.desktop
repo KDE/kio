@@ -22,6 +22,7 @@ Name[is]=KDE-verslunin
 Name[it]=KDE Store
 Name[ko]=KDE 스토어
 Name[nl]=KDE Store
+Name[nn]=KDE-nettbutikken
 Name[pa]=KDE ਸਟੋਰ
 Name[pl]=Sklep KDE
 Name[pt]=Loja do KDE
@@ -56,6 +57,7 @@ Query[is]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[it]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[ko]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[nl]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
+Query[nn]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[pa]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[pl]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[pt]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
