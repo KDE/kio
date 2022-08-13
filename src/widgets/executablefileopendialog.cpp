@@ -24,42 +24,33 @@ ExecutableFileOpenDialog::ExecutableFileOpenDialog(ExecutableFileOpenDialog::Mod
     m_dontAskAgain->setText(i18n("Do not ask again"));
 
     QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Cancel, this);
-
-    QPushButton *openButton;
-    if (mode == OpenOrExecute) {
-        openButton = new QPushButton(i18n("&Open"), this);
-        openButton->setIcon(QIcon::fromTheme(QStringLiteral("document-preview")));
-        buttonBox->addButton(openButton, QDialogButtonBox::AcceptRole);
-    }
-
-    QPushButton *executeButton = new QPushButton(i18n("&Execute"), this);
-    executeButton->setIcon(QIcon::fromTheme(QStringLiteral("system-run")));
-    buttonBox->addButton(executeButton, QDialogButtonBox::AcceptRole);
-
-    buttonBox->button(QDialogButtonBox::Cancel)->setFocus();
+    connect(buttonBox, &QDialogButtonBox::rejected, this, &ExecutableFileOpenDialog::reject);
 
     QVBoxLayout *layout = new QVBoxLayout(this);
     layout->addWidget(label);
     layout->addWidget(m_dontAskAgain);
     layout->addWidget(buttonBox);
 
+    QPushButton *executeButton = new QPushButton(i18n("&Execute"), this);
+    executeButton->setIcon(QIcon::fromTheme(QStringLiteral("system-run")));
+
     if (mode == OnlyExecute) {
-        connect(executeButton, &QPushButton::clicked, this, [=] {
-            done(ExecuteFile);
-        });
+        connect(executeButton, &QPushButton::clicked, this, &ExecutableFileOpenDialog::executeFile);
     } else if (mode == OpenAsExecute) {
-        connect(executeButton, &QPushButton::clicked, this, [=] {
-            done(OpenFile);
-        });
-    } else {
-        connect(openButton, &QPushButton::clicked, this, [=] {
-            done(OpenFile);
-        });
-        connect(executeButton, &QPushButton::clicked, this, [=] {
-            done(ExecuteFile);
-        });
+        connect(executeButton, &QPushButton::clicked, this, &ExecutableFileOpenDialog::openFile);
+    } else { // mode == OpenOrExecute
+        connect(executeButton, &QPushButton::clicked, this, &ExecutableFileOpenDialog::executeFile);
+
+        QPushButton *openButton = new QPushButton(i18n("&Open"), this);
+        openButton->setIcon(QIcon::fromTheme(QStringLiteral("document-preview")));
+        buttonBox->addButton(openButton, QDialogButtonBox::AcceptRole);
+
+        connect(openButton, &QPushButton::clicked, this, &ExecutableFileOpenDialog::openFile);
     }
-    connect(buttonBox, &QDialogButtonBox::rejected, this, &ExecutableFileOpenDialog::reject);
+
+    // Add Execute button last so that Open is first in the button box
+    buttonBox->addButton(executeButton, QDialogButtonBox::AcceptRole);
+    buttonBox->button(QDialogButtonBox::Cancel)->setFocus();
 }
 
 ExecutableFileOpenDialog::ExecutableFileOpenDialog(QWidget *parent)
@@ -70,4 +61,14 @@ ExecutableFileOpenDialog::ExecutableFileOpenDialog(QWidget *parent)
 bool ExecutableFileOpenDialog::isDontAskAgainChecked() const
 {
     return m_dontAskAgain->isChecked();
+}
+
+void ExecutableFileOpenDialog::executeFile()
+{
+    done(ExecuteFile);
+}
+
+void ExecutableFileOpenDialog::openFile()
+{
+    done(OpenFile);
 }

@@ -42,6 +42,9 @@ public:
     bool isDontAskAgainChecked() const;
 
 private:
+    void executeFile();
+    void openFile();
+
     QCheckBox *m_dontAskAgain;
 };
 
