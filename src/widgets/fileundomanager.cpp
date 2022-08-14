@@ -429,7 +429,10 @@ void FileUndoManagerPrivate::startUndo()
 
     qCDebug(KIO_WIDGETS) << "starting with" << undoStateToString(m_undoState);
     m_undoJob = new UndoJob(m_uiInterface->showProgressInfo());
-    QMetaObject::invokeMethod(this, [this]() { undoStep(); }, Qt::QueuedConnection);
+    auto undoFunc = [this]() {
+        undoStep();
+    };
+    QMetaObject::invokeMethod(this, undoFunc, Qt::QueuedConnection);
 }
 
 void FileUndoManagerPrivate::stopUndo(bool step)

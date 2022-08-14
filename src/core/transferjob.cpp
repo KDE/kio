@@ -25,8 +25,8 @@ TransferJob::TransferJob(TransferJobPrivate &dd)
     }
 
     if (d->m_outgoingDataSource) {
-        d->m_readChannelFinishedConnection = connect(d->m_outgoingDataSource, &QIODevice::readChannelFinished, this, [this]() {
-            d_func()->slotIODeviceClosedBeforeStart();
+        d->m_readChannelFinishedConnection = connect(d->m_outgoingDataSource, &QIODevice::readChannelFinished, this, [d]() {
+            d->slotIODeviceClosedBeforeStart();
         });
     }
 }
@@ -305,19 +305,21 @@ void TransferJobPrivate::start(Slave *slave)
 
     if (m_outgoingDataSource) {
         if (m_extraFlags & JobPrivate::EF_TransferJobAsync) {
-            q->connect(m_outgoingDataSource, &QIODevice::readyRead, q, [this]() {
+            auto dataReqFunc = [this]() {
                 slotDataReqFromDevice();
-            });
-            q->connect(m_outgoingDataSource, &QIODevice::readChannelFinished, q, [this]() {
+            };
+            q->connect(m_outgoingDataSource, &QIODevice::readyRead, q, dataReqFunc);
+            auto ioClosedFunc = [this]() {
                 slotIODeviceClosed();
-            });
+            };
+            q->connect(m_outgoingDataSource, &QIODevice::readChannelFinished, q, ioClosedFunc);
             // We don't really need to disconnect since we're never checking
             // m_closedBeforeStart again but it's the proper thing to do logically
             QObject::disconnect(m_readChannelFinishedConnection);
             if (m_closedBeforeStart) {
-                QMetaObject::invokeMethod(q, "slotIODeviceClosed", Qt::QueuedConnection);
+                QMetaObject::invokeMethod(q, ioClosedFunc, Qt::QueuedConnection);
             } else if (m_outgoingDataSource->bytesAvailable() > 0) {
-                QMetaObject::invokeMethod(q, "slotDataReqFromDevice", Qt::QueuedConnection);
+                QMetaObject::invokeMethod(q, dataReqFunc, Qt::QueuedConnection);
             }
         } else {
             q->connect(slave, &SlaveInterface::dataReq, q, [this]() {

@@ -59,9 +59,9 @@ public:
     KFileItemList m_lstItems;
     std::stack<ChmodInfo> m_infos;
 
-    void _k_chmodNextFile();
-    void _k_slotEntries(KIO::Job *, const KIO::UDSEntryList &);
-    void _k_processList();
+    void chmodNextFile();
+    void slotEntries(KIO::Job *, const KIO::UDSEntryList &);
+    void processList();
 
     Q_DECLARE_PUBLIC(ChmodJob)
 
@@ -88,14 +88,18 @@ using namespace KIO;
 ChmodJob::ChmodJob(ChmodJobPrivate &dd)
     : KIO::Job(dd)
 {
-    QMetaObject::invokeMethod(this, "_k_processList", Qt::QueuedConnection);
+    Q_D(ChmodJob);
+    auto processFunc = [d]() {
+        d->processList();
+    };
+    QMetaObject::invokeMethod(this, processFunc, Qt::QueuedConnection);
 }
 
 ChmodJob::~ChmodJob()
 {
 }
 
-void ChmodJobPrivate::_k_processList()
+void ChmodJobPrivate::processList()
 {
     Q_Q(ChmodJob);
     while (!m_lstItems.isEmpty()) {
@@ -120,7 +124,7 @@ void ChmodJobPrivate::_k_processList()
                 // qDebug() << "ChmodJob::processList dir -> listing";
                 KIO::ListJob *listJob = KIO::listRecursive(item.url(), KIO::HideProgressInfo);
                 q->connect(listJob, &KIO::ListJob::entries, q, [this](KIO::Job *job, const KIO::UDSEntryList &entries) {
-                    _k_slotEntries(job, entries);
+                    slotEntries(job, entries);
                 });
                 q->addSubjob(listJob);
                 return; // we'll come back later, when this one's finished
@@ -131,10 +135,10 @@ void ChmodJobPrivate::_k_processList()
     // qDebug() << "ChmodJob::processList -> going to STATE_CHMODING";
     // We have finished, move on
     state = CHMODJOB_STATE_CHMODING;
-    _k_chmodNextFile();
+    chmodNextFile();
 }
 
-void ChmodJobPrivate::_k_slotEntries(KIO::Job *, const KIO::UDSEntryList &list)
+void ChmodJobPrivate::slotEntries(KIO::Job *, const KIO::UDSEntryList &list)
 {
     KIO::UDSEntryList::ConstIterator it = list.begin();
     KIO::UDSEntryList::ConstIterator end = list.end();
@@ -177,8 +181,12 @@ void ChmodJobPrivate::_k_slotEntries(KIO::Job *, const KIO::UDSEntryList &list)
     }
 }
 
-void ChmodJobPrivate::_k_chmodNextFile()
+void ChmodJobPrivate::chmodNextFile()
 {
+    auto processNextFunc = [this]() {
+        chmodNextFile();
+    };
+
     Q_Q(ChmodJob);
     if (!m_infos.empty()) {
         ChmodInfo info = m_infos.top();
@@ -208,11 +216,11 @@ void ChmodJobPrivate::_k_chmodNextFile()
                             // fall through
                             Q_FALLTHROUGH();
                         case Result_Skip:
-                            QMetaObject::invokeMethod(q, "_k_chmodNextFile", Qt::QueuedConnection);
+                            QMetaObject::invokeMethod(q, processNextFunc, Qt::QueuedConnection);
                             return;
                         case Result_Retry:
                             m_infos.push(std::move(info));
-                            QMetaObject::invokeMethod(q, "_k_chmodNextFile", Qt::QueuedConnection);
+                            QMetaObject::invokeMethod(q, processNextFunc, Qt::QueuedConnection);
                             return;
                         case Result_Cancel:
                         default:
@@ -265,11 +273,11 @@ void ChmodJob::slotResult(KJob *job)
     case CHMODJOB_STATE_LISTING:
         d->m_lstItems.removeFirst();
         // qDebug() << "-> processList";
-        d->_k_processList();
+        d->processList();
         return;
     case CHMODJOB_STATE_CHMODING:
         // qDebug() << "-> chmodNextFile";
-        d->_k_chmodNextFile();
+        d->chmodNextFile();
         return;
     default:
         Q_ASSERT(false);

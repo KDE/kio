@@ -101,7 +101,10 @@ AccessManagerReply::AccessManagerReply(const QNetworkAccessManager::Operation op
     setError(static_cast<QNetworkReply::NetworkError>(errorCode), errorMessage);
     const auto networkError = error();
     if (networkError != QNetworkReply::NoError) {
-        QMetaObject::invokeMethod(this, "error", Qt::QueuedConnection, Q_ARG(QNetworkReply::NetworkError, networkError));
+        auto occurrFunc = [this, networkError]() {
+            Q_EMIT errorOccurred(networkError);
+        };
+        QMetaObject::invokeMethod(this, occurrFunc, Qt::QueuedConnection);
     }
 
     emitFinished(true, Qt::QueuedConnection);
@@ -484,7 +487,7 @@ void AccessManagerReply::slotPercent(KJob *job, unsigned long percent)
 void AccessManagerReply::emitFinished(bool state, Qt::ConnectionType type)
 {
     setFinished(state);
-    Q_EMIT QMetaObject::invokeMethod(this, "finished", type);
+    Q_EMIT QMetaObject::invokeMethod(this, &AccessManagerReply::finished, type);
 }
 
 }

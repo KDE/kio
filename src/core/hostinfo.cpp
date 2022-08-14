@@ -270,17 +270,21 @@ QHostInfo HostInfo::lookupHost(const QString &hostName, unsigned long timeout)
     std::shared_ptr<NameLookupThreadRequest> request = std::make_shared<NameLookupThreadRequest>(hostName);
     nameLookUpThread()->semaphore()->acquire();
     nameLookUpThread()->semaphore()->release();
-    QMetaObject::invokeMethod(nameLookUpThread()->worker(), "lookupHost", Qt::QueuedConnection, Q_ARG(std::shared_ptr<KIO::NameLookupThreadRequest>, request));
+    NameLookUpThreadWorker *worker = nameLookUpThread()->worker();
+    auto lookupFunc = [worker, request]() {
+        worker->lookupHost(request);
+    };
+    QMetaObject::invokeMethod(worker, lookupFunc, Qt::QueuedConnection);
     if (request->semaphore()->tryAcquire(1, timeout)) {
         hostInfo = request->result();
         if (!hostInfo.hostName().isEmpty() && hostInfo.error() == QHostInfo::NoError) {
             HostInfo::cacheLookup(hostInfo); // cache the look up...
         }
     } else {
-        QMetaObject::invokeMethod(nameLookUpThread()->worker(),
-                                  "abortLookup",
-                                  Qt::QueuedConnection,
-                                  Q_ARG(std::shared_ptr<KIO::NameLookupThreadRequest>, request));
+        auto abortFunc = [worker, request]() {
+            worker->abortLookup(request);
+        };
+        QMetaObject::invokeMethod(worker, abortFunc, Qt::QueuedConnection);
     }
 
     // qDebug() << "Name look up succeeded for" << hostName;

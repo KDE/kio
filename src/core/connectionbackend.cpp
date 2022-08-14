@@ -55,7 +55,7 @@ void ConnectionBackend::setSuspended(bool enable)
         socket->setReadBufferSize(StandardBufferSize);
         if (socket->bytesAvailable() >= HeaderSize) {
             // there are bytes available
-            QMetaObject::invokeMethod(this, "socketReadyRead", Qt::QueuedConnection);
+            QMetaObject::invokeMethod(this, &ConnectionBackend::socketReadyRead, Qt::QueuedConnection);
         }
 
         // We read all bytes here, but we don't use readAll() because we need
@@ -66,7 +66,7 @@ void ConnectionBackend::setSuspended(bool enable)
             socket->ungetChar(data[i]);
         }
         // Workaround Qt5 bug, readyRead isn't always emitted here...
-        QMetaObject::invokeMethod(this, "socketReadyRead", Qt::QueuedConnection);
+        QMetaObject::invokeMethod(this, &ConnectionBackend::socketReadyRead, Qt::QueuedConnection);
     }
 }
 

@@ -520,7 +520,7 @@ public:
 
     /*reimp*/ void start() override
     {
-        QMetaObject::invokeMethod(this, "done", Qt::QueuedConnection);
+        QMetaObject::invokeMethod(this, &KCoreDirListerPrivate::CachedItemsJob::done, Qt::QueuedConnection);
     }
 
     // For updateDirectory() to cancel m_emitCompleted;

@@ -129,9 +129,6 @@ Q_SIGNALS:
     void readyRead();
 
 private:
-    Q_PRIVATE_SLOT(d, void dequeue())
-    Q_PRIVATE_SLOT(d, void commandReceived(Task))
-    Q_PRIVATE_SLOT(d, void disconnected())
     friend class ConnectionPrivate;
     friend class ConnectionServer;
     std::unique_ptr<class ConnectionPrivate> const d;

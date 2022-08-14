@@ -37,9 +37,6 @@ protected:
     ChmodJob(ChmodJobPrivate &dd);
 
 private:
-    Q_PRIVATE_SLOT(d_func(), void _k_slotEntries(KIO::Job *, const KIO::UDSEntryList &))
-    Q_PRIVATE_SLOT(d_func(), void _k_processList())
-    Q_PRIVATE_SLOT(d_func(), void _k_chmodNextFile())
     Q_DECLARE_PRIVATE(ChmodJob)
 };
 

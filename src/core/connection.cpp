@@ -36,7 +36,10 @@ void ConnectionPrivate::commandReceived(const Task &task)
 {
     // qDebug() << this << "Command" << task.cmd << "added to the queue";
     if (!suspended && incomingTasks.isEmpty() && readMode == Connection::ReadMode::EventDriven) {
-        QMetaObject::invokeMethod(q, "dequeue", Qt::QueuedConnection);
+        auto dequeueFunc = [this]() {
+            dequeue();
+        };
+        QMetaObject::invokeMethod(q, dequeueFunc, Qt::QueuedConnection);
     }
     incomingTasks.append(task);
 }
@@ -45,7 +48,7 @@ void ConnectionPrivate::disconnected()
 {
     q->close();
     if (readMode == Connection::ReadMode::EventDriven) {
-        QMetaObject::invokeMethod(q, "readyRead", Qt::QueuedConnection);
+        QMetaObject::invokeMethod(q, &Connection::readyRead, Qt::QueuedConnection);
     }
 }
 
@@ -89,7 +92,10 @@ void Connection::resume()
 {
     // send any outgoing or incoming commands that may be in queue
     if (d->readMode == Connection::ReadMode::EventDriven) {
-        QMetaObject::invokeMethod(this, "dequeue", Qt::QueuedConnection);
+        auto dequeueFunc = [this]() {
+            d->dequeue();
+        };
+        QMetaObject::invokeMethod(this, dequeueFunc, Qt::QueuedConnection);
     }
 
     // qDebug() << this << "Resumed";
@@ -213,7 +219,10 @@ int Connection::read(int *_cmd, QByteArray &data)
 
     // if we didn't empty our reading queue, emit again
     if (!d->suspended && !d->incomingTasks.isEmpty() && d->readMode == Connection::ReadMode::EventDriven) {
-        QMetaObject::invokeMethod(this, "dequeue", Qt::QueuedConnection);
+        auto dequeueFunc = [this]() {
+            d->dequeue();
+        };
+        QMetaObject::invokeMethod(this, dequeueFunc, Qt::QueuedConnection);
     }
 
     return data.size();

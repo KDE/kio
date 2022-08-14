@@ -395,17 +395,18 @@ private:
         const bool isCancelRetryDialogTest = (hasErrorMessage && retryButton == s_buttonCancel);
 
         if (hasErrorMessage) {
+            auto checkRetryFunc = [this, retryButton]() {
+                checkRetryDialog(retryButton);
+            };
             // Retry dialog only knows Yes/No
-            QMetaObject::invokeMethod(this, "checkRetryDialog", Qt::QueuedConnection, Q_ARG(QDialogButtonBox::StandardButton, retryButton));
+            QMetaObject::invokeMethod(this, checkRetryFunc, Qt::QueuedConnection);
         }
 
         if (!isCancelRetryDialogTest) {
-            QMetaObject::invokeMethod(this,
-                                      "checkAndFillDialog",
-                                      Qt::QueuedConnection,
-                                      Q_ARG(KIO::AuthInfo, info),
-                                      Q_ARG(KIO::AuthInfo, filledInfo),
-                                      Q_ARG(QDialog::DialogCode, code));
+            auto checkFillFunc = [this, info, filledInfo, code]() {
+                checkAndFillDialog(info, filledInfo, code);
+            };
+            QMetaObject::invokeMethod(this, checkFillFunc, Qt::QueuedConnection);
         }
         // Force KPasswdServer to process the request now, otherwise the checkAndFillDialog needs a timer too...
         server.processRequest();
@@ -441,12 +442,10 @@ private:
         }
 
         QVERIFY(spy.isEmpty());
-        QMetaObject::invokeMethod(this,
-                                  "checkAndFillDialog",
-                                  Qt::QueuedConnection,
-                                  Q_ARG(KIO::AuthInfo, infos.first()),
-                                  Q_ARG(KIO::AuthInfo, filledInfo),
-                                  Q_ARG(QDialog::DialogCode, code));
+        auto checkFillFunc = [this, first = infos.first(), filledInfo, code]() {
+            checkAndFillDialog(first, filledInfo, code);
+        };
+        QMetaObject::invokeMethod(this, checkFillFunc, Qt::QueuedConnection);
 
         // Force KPasswdServer to process the request now, otherwise the checkAndFillDialog needs a timer too...
         server.processRequest();
@@ -492,12 +491,10 @@ private:
         }
 
         QVERIFY(spy.isEmpty());
-        QMetaObject::invokeMethod(this,
-                                  "checkAndFillDialog",
-                                  Qt::QueuedConnection,
-                                  Q_ARG(KIO::AuthInfo, infos.first()),
-                                  Q_ARG(KIO::AuthInfo, filledInfo),
-                                  Q_ARG(QDialog::DialogCode, code));
+        auto checkAndFillFunc = [this, first = infos.first(), filledInfo, code]() {
+            checkAndFillDialog(first, filledInfo, code);
+        };
+        QMetaObject::invokeMethod(this, checkAndFillFunc, Qt::QueuedConnection);
 
         // Force KPasswdServer to process the request now, otherwise the checkAndFillDialog needs a timer too...
         server.processRequest();

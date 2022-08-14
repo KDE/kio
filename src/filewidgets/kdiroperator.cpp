@@ -562,12 +562,10 @@ void KDirOperatorPrivate::togglePreview(bool on)
 
         m_preview->show();
 
-        QMetaObject::invokeMethod(
-            q,
-            [this]() {
-                assureVisibleSelection();
-            },
-            Qt::QueuedConnection);
+        auto assureVisFunc = [this]() {
+            assureVisibleSelection();
+        };
+        QMetaObject::invokeMethod(q, assureVisFunc, Qt::QueuedConnection);
         if (m_itemView != nullptr) {
             const QModelIndex index = m_itemView->selectionModel()->currentIndex();
             if (index.isValid()) {
@@ -1765,12 +1763,10 @@ void KDirOperator::setView(QAbstractItemView *view)
 
     if (selectionModel != nullptr) {
         d->m_itemView->setSelectionModel(selectionModel);
-        QMetaObject::invokeMethod(
-            this,
-            [this]() {
-                d->assureVisibleSelection();
-            },
-            Qt::QueuedConnection);
+        auto assureVisFunc = [this]() {
+            d->assureVisibleSelection();
+        };
+        QMetaObject::invokeMethod(this, assureVisFunc, Qt::QueuedConnection);
     }
 
     connect(d->m_itemView->selectionModel(), &QItemSelectionModel::currentChanged, this, [this](QModelIndex index) {

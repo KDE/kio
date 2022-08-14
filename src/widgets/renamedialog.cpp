@@ -548,7 +548,7 @@ RenameDialog::RenameDialog(QWidget *parent,
 #if 1 // without kfilemetadata
     // don't wait for kfilemetadata, but wait until the layouting is done
     if (_options & RenameDialog_Overwrite) {
-        QMetaObject::invokeMethod(this, "resizePanels", Qt::QueuedConnection);
+        QMetaObject::invokeMethod(this, &KIO::RenameDialog::resizePanels, Qt::QueuedConnection);
     }
 #endif
 }

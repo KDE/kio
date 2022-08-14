@@ -273,8 +273,6 @@ protected:
     void emitResult();
 
 private:
-    Q_PRIVATE_SLOT(d_func(), void sourceStated(const KIO::UDSEntry &entry, const QUrl &sourceUrl))
-
     Q_DECLARE_PRIVATE(CopyJob)
 };
 

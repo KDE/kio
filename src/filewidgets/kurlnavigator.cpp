@@ -357,7 +357,10 @@ void KUrlNavigatorPrivate::slotReturnPressed()
         // Pressing Ctrl+Return automatically switches back to the breadcrumb mode.
         // The switch must be done asynchronously, as we are in the context of the
         // editor.
-        QMetaObject::invokeMethod(q, "switchToBreadcrumbMode", Qt::QueuedConnection);
+        auto switchModeFunc = [this]() {
+            switchToBreadcrumbMode();
+        };
+        QMetaObject::invokeMethod(q, switchModeFunc, Qt::QueuedConnection);
     }
 }
 

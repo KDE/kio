@@ -63,7 +63,7 @@ FavIconRequestJob::FavIconRequestJob(const QUrl &hostUrl, LoadType reload, QObje
     : KCompositeJob(parent)
     , d(new FavIconRequestJobPrivate(hostUrl, reload))
 {
-    QMetaObject::invokeMethod(this, "doStart", Qt::QueuedConnection);
+    QMetaObject::invokeMethod(this, &FavIconRequestJob::doStart, Qt::QueuedConnection);
 }
 
 FavIconRequestJob::~FavIconRequestJob() = default;

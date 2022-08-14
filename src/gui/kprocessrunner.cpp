@@ -454,13 +454,11 @@ void KProcessRunner::emitDelayedError(const QString &errorMsg)
     qCWarning(KIO_GUI) << errorMsg;
     terminateStartupNotification();
     // Use delayed invocation so the caller has time to connect to the signal
-    QMetaObject::invokeMethod(
-        this,
-        [this, errorMsg]() {
-            Q_EMIT error(errorMsg);
-            deleteLater();
-        },
-        Qt::QueuedConnection);
+    auto func = [this, errorMsg]() {
+        Q_EMIT error(errorMsg);
+        deleteLater();
+    };
+    QMetaObject::invokeMethod(this, func, Qt::QueuedConnection);
 }
 
 void ForkingProcessRunner::slotProcessExited(int exitCode, QProcess::ExitStatus exitStatus)
