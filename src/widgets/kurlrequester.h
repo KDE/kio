@@ -378,10 +378,6 @@ private:
     std::unique_ptr<KUrlRequesterPrivate> const d;
 
     Q_DISABLE_COPY(KUrlRequester)
-
-    Q_PRIVATE_SLOT(d, void _k_slotUpdateUrl())
-    Q_PRIVATE_SLOT(d, void _k_slotOpenDialog())
-    Q_PRIVATE_SLOT(d, void _k_slotFileDialogAccepted())
 };
 
 class KIOWIDGETS_EXPORT KUrlComboRequester : public KUrlRequester // krazy:exclude=dpointer (For use in Qt Designer)

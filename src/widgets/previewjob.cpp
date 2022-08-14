@@ -234,7 +234,9 @@ PreviewJob::PreviewJob(const KFileItemList &items, int width, int height, int ic
     d->bSave = save && scale;
 
     // Return to event loop first, determineNextFile() might delete this;
-    QTimer::singleShot(0, this, SLOT(startPreview()));
+    QTimer::singleShot(0, this, [d]() {
+        d->startPreview();
+    });
 }
 #endif
 
@@ -253,7 +255,9 @@ PreviewJob::PreviewJob(const KFileItemList &items, const QSize &size, const QStr
     }
 
     // Return to event loop first, determineNextFile() might delete this;
-    QTimer::singleShot(0, this, SLOT(startPreview()));
+    QTimer::singleShot(0, this, [d]() {
+        d->startPreview();
+    });
 }
 
 PreviewJob::~PreviewJob()

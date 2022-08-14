@@ -138,10 +138,6 @@ private:
     std::unique_ptr<KOpenWithDialogPrivate> const d;
 
     Q_DISABLE_COPY(KOpenWithDialog)
-
-    Q_PRIVATE_SLOT(d, void _k_slotDbClick())
-    Q_PRIVATE_SLOT(d, void _k_slotFileSelected())
-    Q_PRIVATE_SLOT(d, void discoverButtonClicked())
 };
 
 #endif

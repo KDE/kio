@@ -198,16 +198,6 @@ protected:
     FileJob(FileJobPrivate &dd);
 
 private:
-    Q_PRIVATE_SLOT(d_func(), void slotRedirection(const QUrl &))
-    Q_PRIVATE_SLOT(d_func(), void slotData(const QByteArray &data))
-    Q_PRIVATE_SLOT(d_func(), void slotMimetype(const QString &mimetype))
-    Q_PRIVATE_SLOT(d_func(), void slotOpen())
-    Q_PRIVATE_SLOT(d_func(), void slotWritten(KIO::filesize_t))
-    Q_PRIVATE_SLOT(d_func(), void slotFinished())
-    Q_PRIVATE_SLOT(d_func(), void slotPosition(KIO::filesize_t))
-    Q_PRIVATE_SLOT(d_func(), void slotTruncated(KIO::filesize_t))
-    Q_PRIVATE_SLOT(d_func(), void slotTotalSize(KIO::filesize_t))
-
     Q_DECLARE_PRIVATE(FileJob)
 };
 

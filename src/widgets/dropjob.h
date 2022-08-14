@@ -106,7 +106,6 @@ protected:
 
 private:
     Q_DECLARE_PRIVATE(DropJob)
-    Q_PRIVATE_SLOT(d_func(), void slotStart())
 };
 
 /**

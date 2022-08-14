@@ -90,9 +90,6 @@ protected:
     virtual bool subSortLessThan(const QModelIndex &left, const QModelIndex &right) const override;
 
 private:
-    Q_PRIVATE_SLOT(d, void slotNaturalSortingChanged())
-
-private:
     class KDirSortFilterProxyModelPrivate;
     std::unique_ptr<KDirSortFilterProxyModelPrivate> const d;
 };

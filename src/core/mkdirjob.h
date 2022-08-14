@@ -54,7 +54,6 @@ public:
     MkdirJob(MkdirJobPrivate &dd);
 
 private:
-    Q_PRIVATE_SLOT(d_func(), void slotRedirection(const QUrl &url))
     Q_DECLARE_PRIVATE(MkdirJob)
 };
 

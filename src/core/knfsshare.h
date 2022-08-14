@@ -70,8 +70,6 @@ private:
     class KNFSSharePrivate;
     std::unique_ptr<KNFSSharePrivate> const d;
 
-    Q_PRIVATE_SLOT(d, void _k_slotFileChange(const QString &))
-
     friend class KNFSShareSingleton;
 };
 

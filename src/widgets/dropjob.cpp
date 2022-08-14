@@ -225,7 +225,11 @@ void DropMenu::addExtraActions(const QList<QAction *> &appActions, const QList<Q
 DropJob::DropJob(DropJobPrivate &dd)
     : Job(dd)
 {
-    QTimer::singleShot(0, this, SLOT(slotStart()));
+    Q_D(DropJob);
+
+    QTimer::singleShot(0, this, [d]() {
+        d->slotStart();
+    });
 }
 
 DropJob::~DropJob()

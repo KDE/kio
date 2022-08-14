@@ -36,8 +36,6 @@ private:
     std::unique_ptr<KACLEditWidgetPrivate> const d;
 
     Q_DISABLE_COPY(KACLEditWidget)
-
-    Q_PRIVATE_SLOT(d, void _k_slotUpdateButtons())
 };
 
 #endif

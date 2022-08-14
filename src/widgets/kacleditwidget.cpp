@@ -47,7 +47,7 @@ public:
     }
 
     // slots
-    void _k_slotUpdateButtons();
+    void slotUpdateButtons();
 
     KACLListView *m_listView;
     QPushButton *m_AddBtn;
@@ -64,7 +64,7 @@ KACLEditWidget::KACLEditWidget(QWidget *parent)
     d->m_listView = new KACLListView(this);
     hbox->addWidget(d->m_listView);
     connect(d->m_listView->selectionModel(), &QItemSelectionModel::selectionChanged, this, [this]() {
-        d->_k_slotUpdateButtons();
+        d->slotUpdateButtons();
     });
     QVBoxLayout *vbox = new QVBoxLayout();
     hbox->addLayout(vbox);
@@ -81,12 +81,12 @@ KACLEditWidget::KACLEditWidget(QWidget *parent)
     d->m_DelBtn->setObjectName(QStringLiteral("delete_entry_button"));
     connect(d->m_DelBtn, &QAbstractButton::clicked, d->m_listView, &KACLListView::slotRemoveEntry);
     vbox->addItem(new QSpacerItem(10, 10, QSizePolicy::Fixed, QSizePolicy::Expanding));
-    d->_k_slotUpdateButtons();
+    d->slotUpdateButtons();
 }
 
 KACLEditWidget::~KACLEditWidget() = default;
 
-void KACLEditWidget::KACLEditWidgetPrivate::_k_slotUpdateButtons()
+void KACLEditWidget::KACLEditWidgetPrivate::slotUpdateButtons()
 {
     bool atLeastOneIsNotDeletable = false;
     bool atLeastOneIsNotAllowedToChangeType = false;

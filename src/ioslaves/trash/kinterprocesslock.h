@@ -97,8 +97,6 @@ Q_SIGNALS:
 
 private:
     KInterProcessLockPrivate *const d_ptr;
-
-    Q_PRIVATE_SLOT(d_func(), void _k_serviceRegistered(const QString &))
 };
 
 #endif

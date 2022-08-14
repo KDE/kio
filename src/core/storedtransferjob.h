@@ -58,9 +58,6 @@ protected:
     StoredTransferJob(StoredTransferJobPrivate &dd);
 
 private:
-    Q_PRIVATE_SLOT(d_func(), void slotStoredData(KIO::Job *job, const QByteArray &data))
-    Q_PRIVATE_SLOT(d_func(), void slotStoredDataReq(KIO::Job *job, QByteArray &data))
-
     Q_DECLARE_PRIVATE(StoredTransferJob)
 };
 

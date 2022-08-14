@@ -342,7 +342,9 @@ TransferJob *KIO::http_post(const QUrl &url, const QByteArray &postData, JobFlag
     job = TransferJobPrivate::newJob(_url, CMD_SPECIAL, packedArgs, postData, flags);
 
     if (redirection) {
-        QTimer::singleShot(0, job, SLOT(slotPostRedirection()));
+        QTimer::singleShot(0, job, [job]() {
+            Q_EMIT job->redirection(job, job->url());
+        });
     }
 
     return job;
@@ -374,7 +376,9 @@ TransferJob *KIO::http_post(const QUrl &url, QIODevice *ioDevice, qint64 size, J
     job = TransferJobPrivate::newJob(_url, CMD_SPECIAL, packedArgs, ioDevice, flags);
 
     if (redirection) {
-        QTimer::singleShot(0, job, SLOT(slotPostRedirection()));
+        QTimer::singleShot(0, job, [job]() {
+            Q_EMIT job->redirection(job, job->url());
+        });
     }
 
     return job;

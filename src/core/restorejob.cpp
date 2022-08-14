@@ -48,7 +48,10 @@ public:
 RestoreJob::RestoreJob(RestoreJobPrivate &dd)
     : Job(dd)
 {
-    QTimer::singleShot(0, this, SLOT(slotStart()));
+    Q_D(RestoreJob);
+    QTimer::singleShot(0, this, [d]() {
+        d->slotStart();
+    });
 }
 
 RestoreJob::~RestoreJob()

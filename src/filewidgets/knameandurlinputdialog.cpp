@@ -22,8 +22,8 @@ public:
     {
     }
 
-    void _k_slotNameTextChanged(const QString &);
-    void _k_slotURLTextChanged(const QString &);
+    void slotNameTextChanged(const QString &);
+    void slotURLTextChanged(const QString &);
 
     /**
      * The line edit widget for the fileName
@@ -57,7 +57,7 @@ KNameAndUrlInputDialog::KNameAndUrlInputDialog(const QString &nameLabel, const Q
     d->m_leName->setMinimumWidth(d->m_leName->sizeHint().width() * 3);
     d->m_leName->setSelection(0, d->m_leName->text().length()); // autoselect
     connect(d->m_leName, &QLineEdit::textChanged, this, [this](const QString &text) {
-        d->_k_slotNameTextChanged(text);
+        d->slotNameTextChanged(text);
     });
     formLayout->addRow(nameLabel, d->m_leName);
 
@@ -68,7 +68,7 @@ KNameAndUrlInputDialog::KNameAndUrlInputDialog(const QString &nameLabel, const Q
 
     d->m_urlRequester->setMinimumWidth(d->m_urlRequester->sizeHint().width() * 3);
     connect(d->m_urlRequester->lineEdit(), &QLineEdit::textChanged, this, [this](const QString &text) {
-        d->_k_slotURLTextChanged(text);
+        d->slotURLTextChanged(text);
     });
     formLayout->addRow(urlLabel, d->m_urlRequester);
 
@@ -102,13 +102,13 @@ QString KNameAndUrlInputDialog::name() const
     return d->m_leName->text();
 }
 
-void KNameAndUrlInputDialogPrivate::_k_slotNameTextChanged(const QString &)
+void KNameAndUrlInputDialogPrivate::slotNameTextChanged(const QString &)
 {
     m_fileNameEdited = true;
     m_buttonBox->button(QDialogButtonBox::Ok)->setEnabled(!m_leName->text().isEmpty() && !m_urlRequester->url().isEmpty());
 }
 
-void KNameAndUrlInputDialogPrivate::_k_slotURLTextChanged(const QString &)
+void KNameAndUrlInputDialogPrivate::slotURLTextChanged(const QString &)
 {
     if (!m_fileNameEdited) {
         // use URL as default value for the filename

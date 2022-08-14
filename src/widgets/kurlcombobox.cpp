@@ -50,7 +50,7 @@ public:
     QIcon getIcon(const QUrl &url) const;
     void updateItem(const KUrlComboItem *item, int index, const QIcon &icon);
 
-    void _k_slotActivated(int);
+    void slotActivated(int);
 
     KUrlComboBox *const m_parent;
     QIcon dirIcon;
@@ -120,7 +120,7 @@ void KUrlComboBoxPrivate::init(KUrlComboBox::Mode mode)
     opendirIcon = QIcon::fromTheme(QStringLiteral("folder-open"));
 
     m_parent->connect(m_parent, qOverload<int>(&KUrlComboBox::activated), m_parent, [this](int index) {
-        _k_slotActivated(index);
+        slotActivated(index);
     });
 }
 
@@ -295,7 +295,7 @@ void KUrlComboBox::setUrl(const QUrl &url)
     blockSignals(blocked);
 }
 
-void KUrlComboBoxPrivate::_k_slotActivated(int index)
+void KUrlComboBoxPrivate::slotActivated(int index)
 {
     auto item = itemMapper.value(index);
 

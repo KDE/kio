@@ -23,7 +23,7 @@ class Q_DECL_HIDDEN KNFSShare::KNFSSharePrivate
 public:
     explicit KNFSSharePrivate(KNFSShare *parent);
 
-    void _k_slotFileChange(const QString &);
+    void slotFileChange(const QString &);
 
     bool readExportsFile();
     bool findExportsFile();
@@ -158,7 +158,7 @@ KNFSShare::KNFSShare()
     if (!d->exportsFile.isEmpty() && QFileInfo::exists(d->exportsFile)) {
         KDirWatch::self()->addFile(d->exportsFile);
         connect(KDirWatch::self(), &KDirWatch::dirty, this, [this](const QString &path) {
-            d->_k_slotFileChange(path);
+            d->slotFileChange(path);
         });
     }
 }
@@ -188,7 +188,7 @@ QString KNFSShare::exportsPath() const
     return d->exportsFile;
 }
 
-void KNFSShare::KNFSSharePrivate::_k_slotFileChange(const QString &path)
+void KNFSShare::KNFSSharePrivate::slotFileChange(const QString &path)
 {
     if (path == exportsFile) {
         readExportsFile();

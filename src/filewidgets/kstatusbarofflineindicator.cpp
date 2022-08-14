@@ -32,7 +32,7 @@ public:
     QT_WARNING_POP
 
     void initialize();
-    void _k_networkStatusChanged(bool isOnline);
+    void networkStatusChanged(bool isOnline);
 
     KStatusBarOfflineIndicator *const q;
     // Silence deprecation warnings as there is no Qt 5 substitute for QNetworkConfigurationManager
@@ -59,7 +59,7 @@ KStatusBarOfflineIndicator::KStatusBarOfflineIndicator(QWidget *parent)
     QT_WARNING_DISABLE_CLANG("-Wdeprecated-declarations")
     QT_WARNING_DISABLE_GCC("-Wdeprecated-declarations")
     connect(d->networkConfiguration, &QNetworkConfigurationManager::onlineStateChanged, this, [this](bool isOnline) {
-        d->_k_networkStatusChanged(isOnline);
+        d->networkStatusChanged(isOnline);
     });
     QT_WARNING_POP
 }
@@ -68,10 +68,10 @@ KStatusBarOfflineIndicator::~KStatusBarOfflineIndicator() = default;
 
 void KStatusBarOfflineIndicatorPrivate::initialize()
 {
-    _k_networkStatusChanged(networkConfiguration->isOnline());
+    networkStatusChanged(networkConfiguration->isOnline());
 }
 
-void KStatusBarOfflineIndicatorPrivate::_k_networkStatusChanged(bool isOnline)
+void KStatusBarOfflineIndicatorPrivate::networkStatusChanged(bool isOnline)
 {
     if (isOnline) {
         q->hide();

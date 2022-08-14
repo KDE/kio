@@ -43,7 +43,6 @@ protected:
     BatchRenameJob(BatchRenameJobPrivate &dd);
 
 private:
-    Q_PRIVATE_SLOT(d_func(), void slotStart())
     Q_DECLARE_PRIVATE(BatchRenameJob)
 };
 

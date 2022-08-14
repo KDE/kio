@@ -191,8 +191,6 @@ private:
     std::unique_ptr<KUrlComboBoxPrivate> const d;
 
     Q_DISABLE_COPY(KUrlComboBox)
-
-    Q_PRIVATE_SLOT(d, void _k_slotActivated(int))
 };
 
 #endif // KURLCOMBOBOX_H

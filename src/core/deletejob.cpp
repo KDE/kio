@@ -148,14 +148,18 @@ using namespace KIO;
 DeleteJob::DeleteJob(DeleteJobPrivate &dd)
     : Job(dd)
 {
-    d_func()->m_reportTimer = new QTimer(this);
-    connect(d_func()->m_reportTimer, &QTimer::timeout, this, [this]() {
-        d_func()->slotReport();
+    Q_D(DeleteJob);
+
+    d->m_reportTimer = new QTimer(this);
+    connect(d->m_reportTimer, &QTimer::timeout, this, [d]() {
+        d->slotReport();
     });
     // this will update the report dialog with 5 Hz, I think this is fast enough, aleXXX
-    d_func()->m_reportTimer->start(200);
+    d->m_reportTimer->start(200);
 
-    QTimer::singleShot(0, this, SLOT(slotStart()));
+    QTimer::singleShot(0, this, [d]() {
+        d->slotStart();
+    });
 }
 
 DeleteJob::~DeleteJob()

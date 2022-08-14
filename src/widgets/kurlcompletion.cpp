@@ -119,8 +119,8 @@ public:
 
     ~KUrlCompletionPrivate();
 
-    void _k_slotEntries(KIO::Job *, const KIO::UDSEntryList &);
-    void _k_slotIOFinished(KJob *);
+    void slotEntries(KIO::Job *, const KIO::UDSEntryList &);
+    void slotIOFinished(KJob *);
     void slotCompletionThreadDone(QThread *thread, const QStringList &matches);
 
     class MyURL;
@@ -1129,20 +1129,20 @@ void KUrlCompletionPrivate::listUrls(const QList<QUrl> &urls, const QString &fil
 
     // qDebug() << "Listing URLs:" << *urls[0] << ",...";
 
-    // Start it off by calling _k_slotIOFinished
+    // Start it off by calling slotIOFinished
     //
     // This will start a new list job as long as there
     // are urls in d->list_urls
     //
-    _k_slotIOFinished(nullptr);
+    slotIOFinished(nullptr);
 }
 
 /*
- * _k_slotEntries
+ * slotEntries
  *
  * Receive files listed by KIO and call addMatches()
  */
-void KUrlCompletionPrivate::_k_slotEntries(KIO::Job *, const KIO::UDSEntryList &entries)
+void KUrlCompletionPrivate::slotEntries(KIO::Job *, const KIO::UDSEntryList &entries)
 {
     QStringList matchList;
 
@@ -1209,14 +1209,14 @@ void KUrlCompletionPrivate::_k_slotEntries(KIO::Job *, const KIO::UDSEntryList &
 }
 
 /*
- * _k_slotIOFinished
+ * slotIOFinished
  *
  * Called when a KIO job is finished.
  *
  * Start a new list job if there are still urls in
  * list_urls, otherwise call finished()
  */
-void KUrlCompletionPrivate::_k_slotIOFinished(KJob *job)
+void KUrlCompletionPrivate::slotIOFinished(KJob *job)
 {
     assert(job == list_job);
     Q_UNUSED(job)
@@ -1239,11 +1239,11 @@ void KUrlCompletionPrivate::_k_slotIOFinished(KJob *job)
         assert(list_job);
 
         q->connect(list_job, &KJob::result, q, [this](KJob *job) {
-            _k_slotIOFinished(job);
+            slotIOFinished(job);
         });
 
         q->connect(list_job, &KIO::ListJob::entries, q, [this](KIO::Job *job, const KIO::UDSEntryList &list) {
-            _k_slotEntries(job, list);
+            slotEntries(job, list);
         });
     }
 }

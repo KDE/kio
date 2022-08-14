@@ -472,7 +472,7 @@ QMap<QString, KSambaShareData> KSambaSharePrivate::parse(const QByteArray &users
     return shares;
 }
 
-void KSambaSharePrivate::_k_slotFileChange(const QString &path)
+void KSambaSharePrivate::slotFileChange(const QString &path)
 {
     if (path != userSharePath) {
         return;
@@ -487,12 +487,11 @@ KSambaShare::KSambaShare()
     : QObject(nullptr)
     , d_ptr(new KSambaSharePrivate(this))
 {
-    Q_D(const KSambaShare);
+    Q_D(KSambaShare);
     if (!d->userSharePath.isEmpty() && QFileInfo::exists(d->userSharePath)) {
         KDirWatch::self()->addDir(d->userSharePath, KDirWatch::WatchFiles);
-        connect(KDirWatch::self(), &KDirWatch::dirty, this, [this](const QString &path) {
-            Q_D(KSambaShare);
-            d->_k_slotFileChange(path);
+        connect(KDirWatch::self(), &KDirWatch::dirty, this, [d](const QString &path) {
+            d->slotFileChange(path);
         });
     }
 }

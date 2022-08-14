@@ -46,7 +46,6 @@ protected:
     MkpathJob(MkpathJobPrivate &dd);
 
 private:
-    Q_PRIVATE_SLOT(d_func(), void slotStart())
     Q_DECLARE_PRIVATE(MkpathJob)
 };
 

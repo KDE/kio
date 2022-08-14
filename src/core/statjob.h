@@ -153,8 +153,6 @@ protected:
     StatJob(StatJobPrivate &dd);
 
 private:
-    Q_PRIVATE_SLOT(d_func(), void slotStatEntry(const KIO::UDSEntry &entry))
-    Q_PRIVATE_SLOT(d_func(), void slotRedirection(const QUrl &url))
     Q_DECLARE_PRIVATE(StatJob)
     friend KIOCORE_EXPORT StatJob *mostLocalUrl(const QUrl &url, JobFlags flags);
 };

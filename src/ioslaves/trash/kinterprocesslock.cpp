@@ -24,7 +24,7 @@ public:
         m_serviceName = QStringLiteral("org.kde.private.lock-%1").arg(m_resource);
 
         q_ptr->connect(QDBusConnection::sessionBus().interface(), &QDBusConnectionInterface::serviceRegistered, q_ptr, [this](const QString &service) {
-            _k_serviceRegistered(service);
+            serviceRegistered(service);
         });
     }
 
@@ -32,7 +32,7 @@ public:
     {
     }
 
-    void _k_serviceRegistered(const QString &service)
+    void serviceRegistered(const QString &service)
     {
         if (service == m_serviceName) {
             Q_EMIT q_ptr->lockGranted(q_ptr);

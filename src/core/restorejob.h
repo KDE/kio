@@ -48,8 +48,6 @@ protected:
     RestoreJob(RestoreJobPrivate &dd);
 
 private:
-    Q_PRIVATE_SLOT(d_func(), void slotStart())
-
     Q_DECLARE_PRIVATE(RestoreJob)
 };
 

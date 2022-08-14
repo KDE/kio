@@ -26,7 +26,11 @@ extern KIO::Job *pasteMimeDataImpl(const QMimeData *mimeData, const QUrl &destUr
 PasteJob::PasteJob(PasteJobPrivate &dd)
     : Job(dd)
 {
-    QTimer::singleShot(0, this, SLOT(slotStart()));
+    Q_D(PasteJob);
+
+    QTimer::singleShot(0, this, [d]() {
+        d->slotStart();
+    });
 }
 
 PasteJob::~PasteJob()

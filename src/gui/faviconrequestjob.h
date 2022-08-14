@@ -113,8 +113,6 @@ private Q_SLOTS:
     void slotResult(KJob *job) override;
 
 private:
-    Q_PRIVATE_SLOT(d, void slotData(KIO::Job *, const QByteArray &))
-
     std::unique_ptr<FavIconRequestJobPrivate> const d;
 };
 

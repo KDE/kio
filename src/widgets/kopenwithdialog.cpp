@@ -526,8 +526,8 @@ public:
     bool checkAccept();
 
     // slots
-    void _k_slotDbClick();
-    void _k_slotFileSelected();
+    void slotDbClick();
+    void slotFileSelected();
     void discoverButtonClicked();
 
     bool saveNewApps;
@@ -717,7 +717,7 @@ void KOpenWithDialogPrivate::init(const QString &_text, const QString &_value)
 
     QObject::connect(edit, &KUrlRequester::textChanged, q, &KOpenWithDialog::slotTextChanged);
     QObject::connect(edit, &KUrlRequester::urlSelected, q, [this]() {
-        _k_slotFileSelected();
+        slotFileSelected();
     });
 
     view = new KApplicationView(q);
@@ -733,7 +733,7 @@ void KOpenWithDialogPrivate::init(const QString &_text, const QString &_value)
     QObject::connect(view, &KApplicationView::selected, q, &KOpenWithDialog::slotSelected);
     QObject::connect(view, &KApplicationView::highlighted, q, &KOpenWithDialog::slotHighlighted);
     QObject::connect(view, &KApplicationView::doubleClicked, q, [this]() {
-        _k_slotDbClick();
+        slotDbClick();
     });
 
     if (!qMimeType.isNull()) {
@@ -892,7 +892,7 @@ void KOpenWithDialog::slotTerminalToggled(bool)
 
 // ----------------------------------------------------------------------
 
-void KOpenWithDialogPrivate::_k_slotDbClick()
+void KOpenWithDialogPrivate::slotDbClick()
 {
     // check if a directory is selected
     if (view->isDirSel()) {
@@ -901,7 +901,7 @@ void KOpenWithDialogPrivate::_k_slotDbClick()
     q->accept();
 }
 
-void KOpenWithDialogPrivate::_k_slotFileSelected()
+void KOpenWithDialogPrivate::slotFileSelected()
 {
     // quote the path to avoid unescaped whitespace, backslashes, etc.
     edit->setText(KShell::quoteArg(edit->text()));

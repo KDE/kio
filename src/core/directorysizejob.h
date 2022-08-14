@@ -56,8 +56,6 @@ protected:
     DirectorySizeJob(DirectorySizeJobPrivate &dd);
 
 private:
-    Q_PRIVATE_SLOT(d_func(), void slotEntries(KIO::Job *, const KIO::UDSEntryList &))
-    Q_PRIVATE_SLOT(d_func(), void processNextItem())
     Q_DECLARE_PRIVATE(DirectorySizeJob)
 };
 

@@ -90,8 +90,6 @@ private:
     std::unique_ptr<KUrlRequesterDialogPrivate> const d;
 
     Q_DISABLE_COPY(KUrlRequesterDialog)
-
-    Q_PRIVATE_SLOT(d, void _k_slotTextChanged(const QString &))
 };
 
 #endif // KURLREQUESTERDIALOG_H

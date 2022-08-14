@@ -63,7 +63,9 @@ public:
         DirectorySizeJobPrivate *d = new DirectorySizeJobPrivate(lstItems);
         DirectorySizeJob *job = new DirectorySizeJob(*d);
         job->setUiDelegate(KIO::createDefaultJobUiDelegate());
-        QTimer::singleShot(0, job, SLOT(processNextItem()));
+        QTimer::singleShot(0, job, [d]() {
+            d->processNextItem();
+        });
         return job;
     }
 };

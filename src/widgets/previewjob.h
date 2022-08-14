@@ -275,8 +275,6 @@ protected Q_SLOTS:
     void slotResult(KJob *job) override;
 
 private:
-    Q_PRIVATE_SLOT(d_func(), void startPreview())
-    Q_PRIVATE_SLOT(d_func(), void slotThumbData(KIO::Job *, const QByteArray &))
     Q_DECLARE_PRIVATE(PreviewJob)
 
 public:

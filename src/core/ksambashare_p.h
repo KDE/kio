@@ -48,7 +48,7 @@ public:
     KSambaShareData::UserShareError remove(const KSambaShareData &shareName);
     static QMap<QString, KSambaShareData> parse(const QByteArray &usershareData);
 
-    void _k_slotFileChange(const QString &path);
+    void slotFileChange(const QString &path);
 
 private:
     KSambaShare *const q_ptr;

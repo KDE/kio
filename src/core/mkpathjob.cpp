@@ -99,7 +99,10 @@ public:
 MkpathJob::MkpathJob(MkpathJobPrivate &dd)
     : Job(dd)
 {
-    QTimer::singleShot(0, this, SLOT(slotStart()));
+    Q_D(MkpathJob);
+    QTimer::singleShot(0, this, [d]() {
+        d->slotStart();
+    });
 }
 
 MkpathJob::~MkpathJob()
