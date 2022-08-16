@@ -13,28 +13,28 @@
 
 static QMap<QString, QString> standardLocationsMap()
 {
-    static const struct {
+    struct LocationInfo {
         QStandardPaths::StandardLocation location;
         QString name;
-    } mapping[] = {
-    // clang-format off
+    };
+    static const LocationInfo mapping[] = {
 #if QT_VERSION >= QT_VERSION_CHECK(6, 4, 0)
-                   {QStandardPaths::TemplatesLocation, QStringLiteral("folder-templates")},
-                   {QStandardPaths::PublicShareLocation, QStringLiteral("folder-public")},
+        {QStandardPaths::TemplatesLocation, QStringLiteral("folder-templates")},
+        {QStandardPaths::PublicShareLocation, QStringLiteral("folder-public")},
 #endif
-                   {QStandardPaths::MusicLocation, QStringLiteral("folder-music")},
-                   {QStandardPaths::MoviesLocation, QStringLiteral("folder-videos")},
-                   {QStandardPaths::PicturesLocation, QStringLiteral("folder-pictures")},
-                   {QStandardPaths::TempLocation, QStringLiteral("folder-temp")},
-                   {QStandardPaths::DownloadLocation, QStringLiteral("folder-download")},
-                   // Order matters here as paths can be reused for multiple purposes
-                   // We essentially want more generic choices to trump more specific
-                   // ones.
-                   // home > desktop > documents > *.
-                   {QStandardPaths::DocumentsLocation, QStringLiteral("folder-documents")},
-                   {QStandardPaths::DesktopLocation, QStringLiteral("user-desktop")},
-                   {QStandardPaths::HomeLocation, QStringLiteral("user-home")}};
-    // clang-format on
+        {QStandardPaths::MusicLocation, QStringLiteral("folder-music")},
+        {QStandardPaths::MoviesLocation, QStringLiteral("folder-videos")},
+        {QStandardPaths::PicturesLocation, QStringLiteral("folder-pictures")},
+        {QStandardPaths::TempLocation, QStringLiteral("folder-temp")},
+        {QStandardPaths::DownloadLocation, QStringLiteral("folder-download")},
+        // Order matters here as paths can be reused for multiple purposes
+        // We essentially want more generic choices to trump more specific
+        // ones.
+        // home > desktop > documents > *.
+        {QStandardPaths::DocumentsLocation, QStringLiteral("folder-documents")},
+        {QStandardPaths::DesktopLocation, QStringLiteral("user-desktop")},
+        {QStandardPaths::HomeLocation, QStringLiteral("user-home")},
+    };
 
     QMap<QString, QString> map;
     for (const auto &row : mapping) {
@@ -44,8 +44,7 @@ static QMap<QString, QString> standardLocationsMap()
         }
         // Qt does not provide an easy way to receive the xdg dir for the templates and public
         // directory so we have to find it on our own (QTBUG-86106 and QTBUG-78092)
-#if QT_VERSION < QT_VERSION_CHECK(6, 4, 0)
-#ifdef Q_OS_UNIX
+#if QT_VERSION < QT_VERSION_CHECK(6, 4, 0) && defined(Q_OS_UNIX)
         const QString xdgUserDirs = QStandardPaths::locate(QStandardPaths::ConfigLocation, QStringLiteral("user-dirs.dirs"), QStandardPaths::LocateFile);
         QFile xdgUserDirsFile(xdgUserDirs);
         if (!xdgUserDirs.isEmpty() && xdgUserDirsFile.open(QIODevice::ReadOnly | QIODevice::Text)) {
@@ -65,7 +64,6 @@ static QMap<QString, QString> standardLocationsMap()
                 }
             }
         }
-#endif
 #endif
     }
     return map;
