@@ -51,25 +51,25 @@ static QMap<QString, QString> standardLocationsMap()
 {
     struct LocationInfo {
         QStandardPaths::StandardLocation location;
-        QString name;
+        const char *iconName;
     };
     static const LocationInfo mapping[] = {
 #if QT_VERSION >= QT_VERSION_CHECK(6, 4, 0)
-        {QStandardPaths::TemplatesLocation, QStringLiteral("folder-templates")},
-        {QStandardPaths::PublicShareLocation, QStringLiteral("folder-public")},
+        {QStandardPaths::TemplatesLocation, "folder-templates")},
+        {QStandardPaths::PublicShareLocation, "folder-public"},
 #endif
-        {QStandardPaths::MusicLocation, QStringLiteral("folder-music")},
-        {QStandardPaths::MoviesLocation, QStringLiteral("folder-videos")},
-        {QStandardPaths::PicturesLocation, QStringLiteral("folder-pictures")},
-        {QStandardPaths::TempLocation, QStringLiteral("folder-temp")},
-        {QStandardPaths::DownloadLocation, QStringLiteral("folder-download")},
+        {QStandardPaths::MusicLocation, "folder-music"},
+        {QStandardPaths::MoviesLocation, "folder-videos"},
+        {QStandardPaths::PicturesLocation, "folder-pictures"},
+        {QStandardPaths::TempLocation, "folder-temp"},
+        {QStandardPaths::DownloadLocation, "folder-download"},
         // Order matters here as paths can be reused for multiple purposes
         // We essentially want more generic choices to trump more specific
         // ones.
         // home > desktop > documents > *.
-        {QStandardPaths::DocumentsLocation, QStringLiteral("folder-documents")},
-        {QStandardPaths::DesktopLocation, QStringLiteral("user-desktop")},
-        {QStandardPaths::HomeLocation, QStringLiteral("user-home")},
+        {QStandardPaths::DocumentsLocation, "folder-documents"},
+        {QStandardPaths::DesktopLocation, "user-desktop"},
+        {QStandardPaths::HomeLocation, "user-home"},
     };
 
     LocationMap map;
@@ -80,7 +80,7 @@ static QMap<QString, QString> standardLocationsMap()
     for (const auto &row : mapping) {
         const QStringList locations = QStandardPaths::standardLocations(row.location);
         for (const QString &location : locations) {
-            map.insert(location, row.name);
+            map.insert(location, QLatin1String(row.iconName));
         }
     }
     return map;
