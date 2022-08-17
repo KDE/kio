@@ -30,10 +30,16 @@
 #include <KColorUtils>
 #include <KConfig>
 #include <KConfigGroup>
+#include <KDesktopFile>
+#include <KDesktopFileActions>
+#include <KDirWatch>
+#include <KIO/CommandLauncherJob>
 #include <KJob>
 #include <KJobWidgets>
 #include <KLocalizedString>
+#include <KMacroExpander>
 #include <KMessageBox>
+#include <KService>
 #include <KSharedConfig>
 #include <defaults-kfile.h> // ConfigGroup, PlacesIconsAutoresize, PlacesIconsStaticSize
 #include <kdirnotify.h>
@@ -42,8 +48,10 @@
 #include <kio/jobuidelegate.h>
 #include <kmountpoint.h>
 #include <kpropertiesdialog.h>
+#include <solid/block.h>
 #include <solid/opticaldisc.h>
 #include <solid/opticaldrive.h>
+#include <solid/predicate.h>
 #include <solid/storageaccess.h>
 #include <solid/storagedrive.h>
 #include <solid/storagevolume.h>
@@ -51,7 +59,9 @@
 
 #include <chrono>
 #include <cmath>
+#include <optional>
 
+#include "desktopexecparser.h"
 #include "kfileplaceeditdialog.h"
 #include "kfileplacesmodel.h"
 
@@ -60,6 +70,62 @@ using namespace std::chrono_literals;
 static constexpr int s_lateralMargin = 4;
 static constexpr int s_capacitybarHeight = 6;
 static constexpr auto s_pollFreeSpaceInterval = 1min;
+
+namespace
+{
+static QString solidActionsPath()
+{
+    return QStringLiteral("solid/actions");
+}
+
+}
+
+// NOTE keep in sync with plasma-workspace/dataengines/hotplug/deviceserviceaction.cpp!
+class SolidActionsMacroExpander : public KMacroExpanderBase
+{
+public:
+    SolidActionsMacroExpander(const Solid::Device &device)
+        : KMacroExpanderBase()
+        , m_device(device)
+    {
+    }
+
+protected:
+    int expandEscapedMacro(const QString &str, int pos, QStringList &ret) override
+    {
+        ushort option = str[pos + 1].unicode();
+
+        switch (option) {
+        case 'f': // file path (mount point)
+        case 'F':
+            if (m_device.is<Solid::StorageAccess>()) {
+                ret << m_device.as<Solid::StorageAccess>()->filePath();
+            }
+            break;
+        case 'd': // device node
+        case 'D':
+            if (m_device.is<Solid::Block>()) {
+                ret << m_device.as<Solid::Block>()->device();
+            }
+            break;
+        case 'i': // udi
+        case 'I':
+            ret << m_device.udi();
+            break;
+        case '%':
+            ret = QStringList{QLatin1String("%")};
+            break;
+        default:
+            // substitute with the same and skip it.
+            return -2;
+        }
+
+        return 2;
+    }
+
+private:
+    Solid::Device m_device;
+};
 
 KFilePlacesViewDelegate::KFilePlacesViewDelegate(KFilePlacesView *parent)
     : QAbstractItemDelegate(parent)
@@ -673,7 +739,13 @@ public:
     // Adds the "Icon Size" sub-menu items
     void setupIconSizeSubMenu(QMenu *submenu);
 
+    void initSolidActionsWatcher();
+    void loadSolidActions();
+    QVector<QAction *> solidActions(const Solid::Device &device, QWidget *parent);
+    void invokeSolidAction(const SolidAction &action);
+
     void placeClicked(const QModelIndex &index, ActivationSignal activationSignal);
+    void solidActionClicked(const QModelIndex &index, QAction *action);
     void headerAreaEntered(const QModelIndex &index);
     void headerAreaLeft(const QModelIndex &index);
     void actionClicked(const QModelIndex &index);
@@ -694,6 +766,7 @@ public:
     Solid::StorageAccess *m_lastClickedStorage = nullptr;
     QPersistentModelIndex m_lastClickedIndex;
     ActivationSignal m_lastActivationSignal = nullptr;
+    std::optional<SolidAction> m_lastSolidAction;
 
     QTimer *m_dragActivationTimer = nullptr;
     QPersistentModelIndex m_pendingDragActivation;
@@ -705,6 +778,10 @@ public:
     KFilePlacesView::TeardownFunction m_teardownFunction = nullptr;
 
     std::unique_ptr<KIO::WidgetsAskUserActionHandler> m_askUserHandler;
+
+    using PredicatesHash = QHash<QString, Solid::Predicate>;
+    std::optional<PredicatesHash> m_devicePredicates;
+    KDirWatch *m_solidDirWatch = nullptr;
 
     QTimeLine m_adaptItemsTimeline;
     QTimeLine m_itemAppearTimeline;
@@ -1053,6 +1130,8 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
     QAction *highPriorityActionsPlaceholder = new QAction();
     QAction *properties = nullptr;
 
+    QVector<QAction *> deviceActions;
+
     QAction *add = nullptr;
     QAction *edit = nullptr;
     QAction *remove = nullptr;
@@ -1069,7 +1148,8 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
             emptyTrash->setEnabled(!trashConfig.group("Status").readEntry("Empty", true));
         }
 
-        if (placesModel->isDevice(index)) {
+        const bool isDevice = placesModel->isDevice(index);
+        if (isDevice) {
             eject = placesModel->ejectActionForIndex(index);
             if (eject) {
                 eject->setParent(&menu);
@@ -1096,6 +1176,11 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
 
         if (placeUrl.isLocalFile()) {
             properties = new QAction(QIcon::fromTheme(QStringLiteral("document-properties")), i18n("Properties"), &menu);
+        }
+
+        if (isDevice) {
+            Solid::Device device = placesModel->deviceForIndex(index);
+            deviceActions = d->solidActions(device, &menu);
         }
     }
 
@@ -1158,6 +1243,13 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
     addActionToMenu(highPriorityActionsPlaceholder);
     addActionToMenu(properties);
     menu.addSeparator();
+
+    if (!deviceActions.isEmpty()) {
+        for (QAction *action : deviceActions) {
+            menu.addAction(action);
+        }
+        menu.addSeparator();
+    }
 
     addActionToMenu(add);
     addActionToMenu(edit);
@@ -1223,6 +1315,8 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
             d->placeClicked(index, &KFilePlacesView::newWindowRequested);
         } else if (result == properties) {
             KPropertiesDialog::showDialog(placeUrl, this);
+        } else if (deviceActions.contains(result)) {
+            d->solidActionClicked(index, result);
         } else if (result == add) {
             d->addPlace(index);
         } else if (result == edit) {
@@ -1304,6 +1398,124 @@ void KFilePlacesViewPrivate::setupIconSizeSubMenu(QMenu *submenu)
 
         submenu->addAction(act);
     }
+}
+
+void KFilePlacesViewPrivate::initSolidActionsWatcher()
+{
+    if (m_solidDirWatch) { // already initialized
+        return;
+    }
+
+    m_solidDirWatch = new KDirWatch(q);
+
+    auto clearPredicates = [this] {
+        m_devicePredicates.reset();
+    };
+
+    QObject::connect(m_solidDirWatch, &KDirWatch::created, q, clearPredicates);
+    QObject::connect(m_solidDirWatch, &KDirWatch::deleted, q, clearPredicates);
+    QObject::connect(m_solidDirWatch, &KDirWatch::dirty, q, clearPredicates);
+
+    const QStringList folders = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, solidActionsPath(), QStandardPaths::LocateDirectory);
+
+    for (const QString &folder : folders) {
+        m_solidDirWatch->addDir(folder, KDirWatch::WatchFiles);
+    }
+}
+
+void KFilePlacesViewPrivate::loadSolidActions()
+{
+    if (m_devicePredicates.has_value()) {
+        // already loaded, dirwatch will reset it, if something has changed.
+        return;
+    }
+
+    PredicatesHash predicates;
+
+    const QStringList solidDirs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, solidActionsPath(), QStandardPaths::LocateDirectory);
+    for (const QString &solidDir : solidDirs) {
+        QDir dir(solidDir);
+
+        const auto desktopFiles = dir.entryInfoList(QStringList{QStringLiteral("*.desktop")});
+        for (const QFileInfo &fi : desktopFiles) {
+            KDesktopFile df(fi.absoluteFilePath());
+
+            const QString predicateString = df.desktopGroup().readEntry("X-KDE-Solid-Predicate");
+            if (predicateString.isEmpty()) {
+                continue;
+            }
+
+            // TODO hotplugengine collects a list of files in reverse order of QStandardPaths finding them.
+            // is this so that "system-wide" stuff overrides "user-local" stuff? or just UB?
+            // This code here is a lot simpler than the one in hotplugengine as a result of not having two lists...
+            predicates.insert(fi.fileName(), Solid::Predicate::fromString(predicateString));
+        }
+    }
+
+    m_devicePredicates = predicates;
+}
+
+QVector<QAction *> KFilePlacesViewPrivate::solidActions(const Solid::Device &device, QWidget *parent)
+{
+    QVector<QAction *> actions;
+
+    initSolidActionsWatcher();
+    loadSolidActions();
+
+    const auto predicates = m_devicePredicates.value();
+    // TODO can I not use "for (const auto &[key, value] : predicates)" here? :(
+    for (auto it = predicates.begin(), end = predicates.end(); it != end; ++it) {
+        const QString fileName = it.key();
+        const Solid::Predicate predicate = it.value();
+
+        if (!predicate.matches(device)) {
+            continue;
+        }
+
+        const QString desktopFilePath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("solid/actions/") + fileName);
+        // TODO is this check needed? We shouldn't really get here?
+        if (desktopFilePath.isEmpty()) {
+            continue;
+        }
+
+        const auto services = KDesktopFileActions::userDefinedServices(KService(desktopFilePath), true /*local files*/);
+        if (services.isEmpty()) {
+            continue;
+        }
+
+        const auto service = services.first();
+
+        // This tries to filter out actions that just open the device, such as "Open in file manager".
+        const QString executable = KIO::DesktopExecParser::executableName(service.exec());
+        if (executable.startsWith(QLatin1String("kde-open")) || executable.startsWith(QLatin1String("kioclient"))) {
+            continue;
+        }
+
+        auto *action = new QAction(QIcon::fromTheme(service.icon()), service.text(), parent);
+        action->setData(QVariant::fromValue(SolidAction{service.exec(), service.icon(), device}));
+        actions.append(action);
+    }
+
+    return actions;
+}
+
+void KFilePlacesViewPrivate::invokeSolidAction(const SolidAction &action)
+{
+    QString expandedExec = action.exec;
+
+    SolidActionsMacroExpander macroExpander(action.device);
+    macroExpander.expandMacrosShellQuote(expandedExec);
+
+    KIO::CommandLauncherJob *job = new KIO::CommandLauncherJob(expandedExec);
+    job->setIcon(action.iconName);
+    QObject::connect(job, &KIO::CommandLauncherJob::result, q, [this, job] {
+        if (job->error()) {
+            if (auto *placesModel = qobject_cast<KFilePlacesModel *>(q->model())) {
+                Q_EMIT placesModel->errorMessage(job->errorString());
+            }
+        }
+    });
+    job->start();
 }
 
 void KFilePlacesView::resizeEvent(QResizeEvent *event)
@@ -1862,6 +2074,7 @@ void KFilePlacesViewPrivate::placeClicked(const QModelIndex &index, ActivationSi
 
     m_lastClickedIndex = QPersistentModelIndex();
     m_lastActivationSignal = nullptr;
+    m_lastSolidAction.reset();
 
     if (placesModel->setupNeeded(index)) {
         m_lastClickedIndex = index;
@@ -1875,6 +2088,29 @@ void KFilePlacesViewPrivate::placeClicked(const QModelIndex &index, ActivationSi
     const QUrl url = KFilePlacesModel::convertedUrl(placesModel->url(index));
 
     /*Q_EMIT*/ std::invoke(activationSignal, q, url);
+}
+
+void KFilePlacesViewPrivate::solidActionClicked(const QModelIndex &index, QAction *action)
+{
+    KFilePlacesModel *placesModel = qobject_cast<KFilePlacesModel *>(q->model());
+    if (!placesModel) {
+        return;
+    }
+
+    m_lastClickedIndex = QPersistentModelIndex();
+    m_lastActivationSignal = nullptr;
+    m_lastSolidAction.reset();
+
+    const auto solidAction = action->data().value<SolidAction>();
+
+    if (placesModel->setupNeeded(index)) {
+        m_lastClickedIndex = index;
+        m_lastSolidAction = solidAction;
+        placesModel->requestSetup(index);
+        return;
+    }
+
+    invokeSolidAction(solidAction);
 }
 
 void KFilePlacesViewPrivate::headerAreaEntered(const QModelIndex &index)
@@ -1931,17 +2167,24 @@ void KFilePlacesViewPrivate::storageSetupDone(const QModelIndex &index, bool suc
 
     if (m_lastClickedIndex.isValid()) {
         if (m_lastClickedIndex == index) {
-            if (success) {
-                setCurrentIndex(m_lastClickedIndex);
+            if (m_lastSolidAction.has_value()) {
+                if (success) {
+                    invokeSolidAction(m_lastSolidAction.value());
+                }
             } else {
-                q->setUrl(m_currentUrl);
-            }
+                if (success) {
+                    setCurrentIndex(m_lastClickedIndex);
+                } else {
+                    q->setUrl(m_currentUrl);
+                }
 
-            const QUrl url = KFilePlacesModel::convertedUrl(placesModel->url(index));
-            /*Q_EMIT*/ std::invoke(m_lastActivationSignal, q, url);
+                const QUrl url = KFilePlacesModel::convertedUrl(placesModel->url(index));
+                /*Q_EMIT*/ std::invoke(m_lastActivationSignal, q, url);
+            }
 
             m_lastClickedIndex = QPersistentModelIndex();
             m_lastActivationSignal = nullptr;
+            m_lastSolidAction.reset();
         }
     }
 

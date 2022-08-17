@@ -21,6 +21,8 @@
 #include <QScroller>
 #include <QTimer>
 
+#include <solid/device.h>
+
 class KFilePlacesView;
 class QTimeLine;
 
@@ -30,6 +32,13 @@ struct PlaceFreeSpaceInfo {
     KIO::filesize_t size = 0;
     QPointer<KIO::FileSystemFreeSpaceJob> job;
 };
+
+struct SolidAction {
+    QString exec;
+    QString iconName;
+    Solid::Device device;
+};
+Q_DECLARE_METATYPE(SolidAction)
 
 class KFilePlacesViewDelegate : public QAbstractItemDelegate
 {
