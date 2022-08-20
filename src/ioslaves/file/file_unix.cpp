@@ -794,7 +794,8 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mode, JobF
     posix_fadvise(destFile.handle(), 0, 0, POSIX_FADV_SEQUENTIAL);
 #endif
 
-    totalSize(buffSrc.st_size);
+    const auto srcSize = buffSrc.st_size;
+    totalSize(srcSize);
 
     off_t sizeProcessed = 0;
 
@@ -802,8 +803,8 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mode, JobF
     // Share data blocks ("reflink") on supporting filesystems, like brfs and XFS
     int ret = ::ioctl(destFile.handle(), FICLONE, srcFile.handle());
     if (ret != -1) {
-        sizeProcessed = srcFile.size();
-        processedSize(srcFile.size());
+        sizeProcessed = srcSize;
+        processedSize(srcSize);
     }
     // if fs does not support reflinking, files are on different devices...
 #endif
@@ -813,7 +814,7 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mode, JobF
     processedSize(sizeProcessed);
 
 #if HAVE_COPY_FILE_RANGE
-    while (!wasKilled() && sizeProcessed < srcFile.size()) {
+    while (!wasKilled() && sizeProcessed < srcSize) {
         if (testMode && destFile.fileName().contains(QLatin1String("slow"))) {
             QThread::msleep(50);
         }
@@ -853,9 +854,9 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mode, JobF
 #endif
 
     /* standard read/write fallback */
-    if (sizeProcessed < srcFile.size()) {
+    if (sizeProcessed < srcSize) {
         std::array<char, s_maxIPCSize> buffer;
-        while (!wasKilled() && sizeProcessed < srcFile.size()) {
+        while (!wasKilled() && sizeProcessed < srcSize) {
             if (testMode && destFile.fileName().contains(QLatin1String("slow"))) {
                 QThread::msleep(50);
             }
@@ -990,7 +991,7 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mode, JobF
         }
     }
 
-    processedSize(buffSrc.st_size);
+    processedSize(srcSize);
     finished();
 }
 
