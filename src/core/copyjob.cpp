@@ -310,6 +310,7 @@ public:
     QUrl m_currentDestURL;
 
     std::set<QString> m_parentDirs;
+    bool m_ignoreSourcePermissions = false;
 
     void statCurrentSrc();
     void statNextSrc();
@@ -533,7 +534,8 @@ void CopyJobPrivate::slotResultStating(KJob *job)
     }
 
     // Keep copy of the stat result
-    const UDSEntry entry = static_cast<StatJob *>(job)->statResult();
+    auto statJob = static_cast<StatJob *>(job);
+    const UDSEntry entry = statJob->statResult();
 
     if (destinationState == DEST_NOT_STATED) {
         const bool isGlobalDest = m_dest == m_globalDest;
@@ -566,7 +568,7 @@ void CopyJobPrivate::slotResultStating(KJob *job)
             }
 
             const QString sLocalPath = entry.stringValue(KIO::UDSEntry::UDS_LOCAL_PATH);
-            if (!sLocalPath.isEmpty() && kio_resolve_local_urls) {
+            if (!sLocalPath.isEmpty() && kio_resolve_local_urls && statJob->url().scheme() != QStringLiteral("trash")) {
                 const QString fileName = m_dest.fileName();
                 m_dest = QUrl::fromLocalFile(sLocalPath);
                 if (m_asMethod) {
@@ -608,7 +610,7 @@ void CopyJobPrivate::slotResultStating(KJob *job)
 
 void CopyJobPrivate::sourceStated(const UDSEntry &entry, const QUrl &sourceUrl)
 {
-    const QString sLocalPath = entry.stringValue(KIO::UDSEntry::UDS_LOCAL_PATH);
+    const QString sLocalPath = sourceUrl.scheme() != QStringLiteral("trash") ? entry.stringValue(KIO::UDSEntry::UDS_LOCAL_PATH) : QString();
     const bool isDir = entry.isDir();
 
     // We were stating the current source URL
@@ -834,7 +836,7 @@ void CopyJobPrivate::addCopyInfoFromUDSEntry(const UDSEntry &entry, const QUrl &
     if (!urlStr.isEmpty()) {
         url = QUrl(urlStr);
     }
-    QString localPath = entry.stringValue(KIO::UDSEntry::UDS_LOCAL_PATH);
+    QString localPath = srcUrl.scheme() != QStringLiteral("trash") ? entry.stringValue(KIO::UDSEntry::UDS_LOCAL_PATH) : QString();
     info.linkDest = entry.stringValue(KIO::UDSEntry::UDS_LINK_DEST);
 
     if (fileName != QLatin1String("..") && fileName != QLatin1String(".")) {
@@ -952,6 +954,8 @@ void CopyJobPrivate::statCurrentSrc()
     if (m_currentStatSrc != m_srcList.constEnd()) {
         m_currentSrcURL = (*m_currentStatSrc);
         m_bURLDirty = true;
+        m_ignoreSourcePermissions = !KProtocolManager::supportsListing(m_currentSrcURL) || m_currentSrcURL.scheme() == QLatin1String("trash");
+
         if (m_mode == CopyJob::Link) {
             // Skip the "stating the source" stage, we don't need it for linking
             m_currentDest = m_dest;
@@ -988,7 +992,9 @@ void CopyJobPrivate::statCurrentSrc()
         const KFileItem cachedItem = KCoreDirLister::cachedItemForUrl(m_currentSrcURL);
         if (!cachedItem.isNull()) {
             entry = cachedItem.entry();
-            if (destinationState != DEST_DOESNT_EXIST) { // only resolve src if we could resolve dest (#218719)
+            if (destinationState != DEST_DOESNT_EXIST
+                && m_currentSrcURL.scheme() != QStringLiteral("trash")) { // only resolve src if we could resolve dest (#218719)
+
                 m_currentSrcURL = cachedItem.mostLocalUrl(); // #183585
             }
         }
@@ -2085,9 +2091,8 @@ void CopyJobPrivate::processCopyNextFile(const QList<CopyInfo>::Iterator &it, in
 
     // If source isn't local and target is local, we ignore the original permissions
     // Otherwise, files downloaded from HTTP end up with -r--r--r--
-    const bool remoteSource = !KProtocolManager::supportsListing(uSource) || uSource.scheme() == QLatin1String("trash");
     int permissions = (*it).permissions;
-    if (m_defaultPermissions || (remoteSource && uDest.isLocalFile())) {
+    if (m_defaultPermissions || (m_ignoreSourcePermissions && uDest.isLocalFile())) {
         permissions = -1;
     }
     const JobFlags flags = bOverwrite ? Overwrite : DefaultFlags;

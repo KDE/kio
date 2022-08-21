@@ -325,9 +325,9 @@ void TestTrash::trashFile(const QString &origFilePath, const QString &fileId)
     } else {
         checkInfoFile(m_trashDir + QLatin1String("/info/") + fileId + QLatin1String(".trashinfo"), origFilePath);
 
-        QFileInfo files(m_trashDir + QLatin1String("/files/") + fileId);
-        QVERIFY(files.isFile());
-        QCOMPARE(files.size(), 12);
+        QFileInfo fileInTrash(m_trashDir + QLatin1String("/files/") + fileId);
+        QVERIFY(fileInTrash.isFile());
+        QCOMPARE(fileInTrash.size(), 12);
     }
 
     // coolo suggests testing that the original file is actually gone, too :)
@@ -761,7 +761,7 @@ void TestTrash::mostLocalUrlTest()
         url.setPath(QLatin1String("0-") + file);
         KIO::StatJob *statJob = KIO::mostLocalUrl(url, KIO::HideProgressInfo);
         QVERIFY(statJob->exec());
-        QCOMPARE(url, statJob->mostLocalUrl());
+        QCOMPARE(QUrl::fromLocalFile(m_trashDir + QStringLiteral("/files/") + file), statJob->mostLocalUrl());
     }
 }
 
@@ -1028,7 +1028,9 @@ void TestTrash::moveFileFromTrashToDir()
 
     // When moving it out to a dir
     QFETCH(QString, destDir);
-    const QString destPath = destDir + QStringLiteral("moveFileFromTrashToDir");
+    const auto fileId = QStringLiteral("moveFileFromTrashToDir");
+    const QString destPath = destDir + fileId;
+
     const QUrl src(QLatin1String("trash:/0-") + fileName);
     const QUrl dest(QUrl::fromLocalFile(destDir));
     KIO::Job *job = KIO::move(src, dest, KIO::HideProgressInfo);
@@ -1041,6 +1043,10 @@ void TestTrash::moveFileFromTrashToDir()
     QCOMPARE(destInfo.size(), 12);
     QVERIFY(destInfo.isWritable());
     QCOMPARE(int(destInfo.permissions()), int(origPerms));
+
+    // trashinfo should be removed
+    const QString trashInfoPath(m_trashDir + QStringLiteral("/info/") + fileId + QStringLiteral(".trashinfo"));
+    QVERIFY(!QFile::exists(trashInfoPath));
 
     QVERIFY(QFile::remove(destPath));
 }

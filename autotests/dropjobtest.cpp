@@ -89,8 +89,8 @@ private Q_SLOTS:
         KIO::setDefaultJobUiDelegateFactoryV2(nullptr);
         KIO::setDefaultJobUiDelegateExtension(nullptr);
 
-        const QString trashDir = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/Trash");
-        QDir(trashDir).removeRecursively();
+        m_trashDir = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/Trash");
+        QDir(m_trashDir).removeRecursively();
 
         QVERIFY(m_tempDir.isValid());
         QVERIFY(m_nonWritableTempDir.isValid());
@@ -283,14 +283,20 @@ private Q_SLOTS:
     void shouldDropFromTrash()
     {
         // Given a file in the trash
-        const QFile::Permissions origPerms = QFileInfo(m_srcFile).permissions();
+        const QFileInfo srcInfo(m_srcFile);
+        const QFile::Permissions origPerms = srcInfo.permissions();
         QVERIFY(QFileInfo(m_srcFile).isWritable());
         KIO::CopyJob *copyJob = KIO::move(QUrl::fromLocalFile(m_srcFile), QUrl(QStringLiteral("trash:/")));
+
         QSignalSpy copyingDoneSpy(copyJob, &KIO::CopyJob::copyingDone);
         QVERIFY(copyJob->exec());
         const QUrl trashUrl = copyingDoneSpy.at(0).at(2).value<QUrl>();
         QVERIFY(trashUrl.isValid());
         QVERIFY(!QFile::exists(m_srcFile));
+
+        // trashinfo file was created
+        const QString infoFile(m_trashDir + QStringLiteral("/info/") + srcInfo.fileName() + QStringLiteral(".trashinfo"));
+        QVERIFY(QFileInfo::exists(infoFile));
 
         // When dropping the trashed file into a local dir, without modifiers
         m_mimeData.setUrls(QList<QUrl>{trashUrl});
@@ -309,6 +315,11 @@ private Q_SLOTS:
         QVERIFY(QFileInfo(m_srcFile).isWritable());
         KIO::StatJob *statJob = KIO::stat(trashUrl, KIO::HideProgressInfo);
         QVERIFY(!statJob->exec());
+        QVERIFY(QFileInfo(m_srcFile).isWritable());
+
+        // trashinfo file was removed
+        QVERIFY(!QFileInfo::exists(infoFile));
+
         QVERIFY(QFileInfo(m_srcFile).isWritable());
     }
 
@@ -499,6 +510,7 @@ private:
     QString m_srcFile;
     QString m_srcLink;
     QTemporaryDir m_nonWritableTempDir;
+    QString m_trashDir;
 };
 
 QTEST_MAIN(DropJobTest)
