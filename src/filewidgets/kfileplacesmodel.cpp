@@ -1516,7 +1516,7 @@ void KFilePlacesModelPrivate::storageSetupDone(Solid::ErrorType error, const QVa
 
 void KFilePlacesModelPrivate::storageTeardownDone(Solid::ErrorType error, const QVariant &errorData)
 {
-    if (error && errorData.isValid()) {
+    if (error && error != Solid::ErrorType::UserCanceled && errorData.isValid()) {
         Q_EMIT q->errorMessage(errorData.toString());
     }
 }
