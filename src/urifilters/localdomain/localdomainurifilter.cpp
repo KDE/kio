@@ -28,8 +28,8 @@ Q_LOGGING_CATEGORY(category, "kf.kio.urifilters.localdomain", QtWarningMsg)
 LocalDomainUriFilter::LocalDomainUriFilter(QObject *parent, const QVariantList & /*args*/)
     : KUriFilterPlugin(QStringLiteral("localdomainurifilter"), parent)
 {
-    m_hostPortPattern =
-        QRegularExpression(QRegularExpression::anchoredPattern(QStringLiteral("[a-zA-Z0-9][a-zA-Z0-9+-]*(?:\\:[0-9]{1,5})?(?:/[\\w:@&=+$,-.!~*'()]*)*")));
+    static const char16_t pattern[] = uR"--([a-zA-Z0-9][a-zA-Z0-9+-]*(?:\:[0-9]{1,5})?(?:/[\w:@&=+$,-.!~*'()]*)*)--";
+    m_hostPortPattern = QRegularExpression(QRegularExpression::anchoredPattern(pattern));
 }
 
 bool LocalDomainUriFilter::filterUri(KUriFilterData &data) const

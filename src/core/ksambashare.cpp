@@ -317,7 +317,8 @@ KSambaShareData::UserShareError KSambaSharePrivate::isAclValid(const QString &ac
 {
     // NOTE: capital D is not missing from the regex net usershare will in fact refuse to consider it valid
     //   - verified 2020-08-20
-    const QRegularExpression aclRx(QRegularExpression::anchoredPattern(QStringLiteral("(?:(?:(\\w(\\w|\\s)*)\\\\|)(\\w+\\s*):([fFrRd]{1})(?:,|))*")));
+    static const auto pattern = uR"--((?:(?:(\w(\w|\s)*)\\|)(\w+\s*):([fFrRd]{1})(?:,|))*)--";
+    static const QRegularExpression aclRx(QRegularExpression::anchoredPattern(pattern));
     // TODO: check if user is a valid smb user
     return aclRx.match(acl).hasMatch() ? KSambaShareData::UserShareAclOk : KSambaShareData::UserShareAclInvalid;
 }
@@ -419,15 +420,11 @@ KSambaShareData::UserShareError KSambaSharePrivate::remove(const KSambaShareData
 
 QMap<QString, KSambaShareData> KSambaSharePrivate::parse(const QByteArray &usershareData)
 {
-    const QRegularExpression headerRx(
-        QRegularExpression::anchoredPattern(QStringLiteral("^\\s*\\["
-                                                           "([^%<>*\?|/+=;:\",]+)"
-                                                           "\\]")));
+    static const char16_t headerPattern[] = uR"--(^\s*\[([^%<>*?|/+=;:",]+)\])--";
+    static const QRegularExpression headerRx(QRegularExpression::anchoredPattern(headerPattern));
 
-    const QRegularExpression OptValRx(
-        QRegularExpression::anchoredPattern(QStringLiteral("^\\s*([\\w\\d\\s]+)"
-                                                           "="
-                                                           "(.*)$")));
+    static const char16_t valPattern[] = uR"--(^\s*([\w\d\s]+)=(.*)$)--";
+    static const QRegularExpression OptValRx(QRegularExpression::anchoredPattern(valPattern));
 
     QTextStream stream(usershareData);
     QString currentShare;
