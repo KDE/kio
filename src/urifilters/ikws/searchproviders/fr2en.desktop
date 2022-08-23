@@ -8,8 +8,8 @@ Name[ar]=ترجمة WordReference.com: من الفرنسية إلى الانجل
 Name[as]=WordReference.com Translation: French to English
 Name[ast]=Traducción de WordReference.com: Francés a inglés
 Name[az]=WordReference.com Tərcümə: Fransızcadan İngiliscəyə
-Name[be]=Пераклад WordReference.com: з французскай на англійскую
-Name[be@latin]=Pierakład „WordReference.com”: francuskaja ➙ anhielskaja
+Name[be]=WordReference.com - пераклад з французскай на англійскую
+Name[be@latin]=WordReference.com - pieraklad z francuzskaj na anhlijskuju
 Name[bg]=Превод с WordReference.com — от френски към английски
 Name[bn]=WordReference.com অনুবাদ: ফরাসী থেকে ইংরাজি 
 Name[bn_IN]=WordReference.com অনুবাদ: ফ্রেঞ্চ থেকে ইংরাজি
@@ -97,6 +97,8 @@ Query=https://www.wordreference.com/fr/en/translation.asp?fren=\\{@}
 Query[ar]=https://www.wordreference.com/fr/en/translation.asp?fren=\\{@}
 Query[ast]=https://www.wordreference.com/fr/en/translation.asp?fren=\\{@}
 Query[az]=https://www.wordreference.com/fr/en/translation.asp?fren=\\{@}
+Query[be]=https://www.wordreference.com/fr/en/translation.asp?fren=\\{@}
+Query[be@latin]=https://www.wordreference.com/fr/en/translation.asp?fren=\\{@}
 Query[bg]=https://www.wordreference.com/fr/en/translation.asp?fren=\\{@}
 Query[bs]=https://www.wordreference.com/fr/en/translation.asp?fren=\\{@}
 Query[ca]=https://www.wordreference.com/fr/en/translation.asp?fren=\\{@}

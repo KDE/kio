@@ -6,7 +6,8 @@ Name[af]=Multitran - Vertaal tussen Italiaans en Russies
 Name[ar]=Multitran - ترجمة بين الإيطالية والروسية
 Name[as]=Multitran - ইটালীয় আৰু ৰুচীয় ভাষাৰ মাজত অনুবাদ
 Name[az]=Multitran - İtalyan və Rus arasında tərcümə
-Name[be@latin]=Pierakład „Multitran”: italjanskaja ➙ rasiejskaja
+Name[be]=Multitran - пераклад з італьянскай на расійскую і наадварот
+Name[be@latin]=Multitran - pieraklad z itaĺjanskaj na rasijskuju i naadvarot
 Name[bg]=Multitran - превод между италиански и руски
 Name[bn]=মাল্টিট্র্যান - ইতালিয়ান থেকে রুশ বা রুশ থেকে ইতালিয়ান-এ অনুবাদ করুন
 Name[bn_IN]=Multitran - ইটালিয়ান ও রাশিয়ানের মধ্যে অনুবাদ করুন
@@ -93,6 +94,8 @@ Query=https://multitran.ru/c/m.exe?l1=23&s=\\{@}
 Query[ar]=https://multitran.ru/c/m.exe?l1=23&s=\\{@}
 Query[ast]=https://multitran.ru/c/m.exe?l1=23&s=\\{@}
 Query[az]=https://multitran.ru/c/m.exe?l1=23&s=\\{@}
+Query[be]=https://multitran.ru/c/m.exe?l1=23&s=\\{@}
+Query[be@latin]=https://multitran.ru/c/m.exe?l1=23&s=\\{@}
 Query[bg]=https://multitran.ru/c/m.exe?l1=23&s=\\{@}
 Query[bs]=https://multitran.ru/c/m.exe?l1=23&s=\\{@}
 Query[ca]=https://multitran.ru/c/m.exe?l1=23&s=\\{@}

@@ -5,8 +5,8 @@ Name[af]=Ruby Toepassing Argief
 Name[ar]=أرشيف تطبيقات روبي
 Name[as]=Ruby Application Archive
 Name[az]=Ruby Tətbiq Arxivi
-Name[be]=Архіў праграмаў Ruby
-Name[be@latin]=Aplikacyi „Ruby”
+Name[be]=Архіў праграм Ruby
+Name[be@latin]=Archiŭ prahram Ruby
 Name[bg]=Архив на Ruby
 Name[bn]=রুবি  অ্যাপলিকেশন আর্কাইভ
 Name[bn_IN]=Ruby অ্যাপ্লিকেশন আর্কাইভ
@@ -98,6 +98,8 @@ Query=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[ar]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[ast]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[az]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
+Query[be]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
+Query[be@latin]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[bg]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[bs]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[ca]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}

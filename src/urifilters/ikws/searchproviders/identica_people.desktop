@@ -5,6 +5,8 @@ Keys=identicapeople,identip,idp
 Name=Identi.ca People
 Name[ar]=ناس آيدنتكا
 Name[az]=Identi.ca İnsanlar
+Name[be]=Людзі Identi.ca
+Name[be@latin]=Liudzi Identi.ca
 Name[bg]=Хора в Identi.ca
 Name[bn]=Identi.ca ব্যক্তিসমূহ
 Name[bs]=Identi.ca Ljudi
@@ -79,6 +81,8 @@ Query=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[ar]=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[ast]=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[az]=https://identi.ca/search/people?q=\\{@}&search=Search
+Query[be]=https://identi.ca/search/people?q=\\{@}&search=Search
+Query[be@latin]=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[bg]=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[bs]=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[ca]=https://identi.ca/search/people?q=\\{@}&search=Search

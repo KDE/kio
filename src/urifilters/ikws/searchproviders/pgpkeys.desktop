@@ -5,8 +5,8 @@ Name[af]=OpenPGP Sleutel Soektog
 Name[ar]=بحث عن مفتاح OpenPGP
 Name[as]=OpenPGP চাবিৰ অনুসন্ধান
 Name[az]=OpenPGP Açar Axtarışı
-Name[be]=Пошук ключа OpenPGP
-Name[be@latin]=Pošuk klučoŭ „OpenPGP”
+Name[be]=Пошук ключоў OpenPGP
+Name[be@latin]=Pošuk kliučoŭ OpenPGP
 Name[bg]=Търсене на ключ в OpenPGP
 Name[bn]=ওপেন-পিজিপি কী (key) অনুসন্ধান
 Name[bn_IN]=OpenPGP-কি অনুসন্ধান
@@ -96,6 +96,8 @@ Query=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[ar]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[ast]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[az]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
+Query[be]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
+Query[be@latin]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[bg]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[bs]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[ca]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex

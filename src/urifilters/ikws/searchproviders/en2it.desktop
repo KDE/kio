@@ -8,8 +8,8 @@ Name[ar]=ترجمة WordReference.com: من الانجليزية إلى الإي
 Name[as]=WordReference.com Translation: English to Italian
 Name[ast]=Traducción de WordReference.com: Inglés a italianu
 Name[az]=WordReference.com Tərcümə: İngiliscədən İtalyancaya
-Name[be]=WordReference.com Пераклад: з англійскай на італьянскую
-Name[be@latin]=Pierakład „WordReference.com”: anhielskaja ➙ italjanskaja
+Name[be]=WordReference.com - пераклад: з англійскай на італьянскую
+Name[be@latin]=WordReference.com - pieraklad: z anhlijskaj na itaĺjanskuju
 Name[bg]=Превод с WordReference.com — от английски към италиански
 Name[bn]=WordReference.com অনুবাদ: ইংরাজি থেকে ইতালীয়
 Name[bn_IN]=WordReference.com অনুবাদ: ইংরাজি থেকে ইটালিয়ান
@@ -97,6 +97,8 @@ Query=https://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[ar]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[ast]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[az]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
+Query[be]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
+Query[be@latin]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[bg]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[bs]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[ca]=https://www.wordreference.com/it/translation.asp?enit=\\{@}

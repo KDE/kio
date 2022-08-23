@@ -3,6 +3,8 @@ Keys=qwi
 Name=Qwant Images
 Name[ar]=صور Qwant
 Name[az]=Qwant Şəkillər
+Name[be]=Выявы Qwant
+Name[be@latin]=Vyjavy Qwant
 Name[bg]=Qwant Images
 Name[bs]=Kvant Slike
 Name[ca]=Imatges a Qwant
@@ -59,6 +61,8 @@ Query=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[ar]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[ast]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[az]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
+Query[be]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
+Query[be@latin]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[bg]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[bs]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[ca]=https://www.qwant.com/?q=\\{@}&client=kde&t=images

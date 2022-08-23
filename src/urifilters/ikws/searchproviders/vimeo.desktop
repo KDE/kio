@@ -6,6 +6,8 @@ Name=Vimeo
 Name[ar]=ڤيميو
 Name[ast]=Vimeo
 Name[az]=Vimeo
+Name[be]=Vimeo
+Name[be@latin]=Vimeo
 Name[bg]=Vimeo
 Name[bn]=ভিমিও
 Name[bs]=Vimeo
@@ -80,6 +82,8 @@ Query=https://vimeo.com/search?q=\\{@}
 Query[ar]=https://vimeo.com/search?q=\\{@}
 Query[ast]=https://vimeo.com/search?q=\\{@}
 Query[az]=https://vimeo.com/search?q=\\{@}
+Query[be]=https://vimeo.com/search?q=\\{@}
+Query[be@latin]=https://vimeo.com/search?q=\\{@}
 Query[bg]=https://vimeo.com/search?q=\\{@}
 Query[bs]=https://vimeo.com/search?q=\\{@}
 Query[ca]=https://vimeo.com/search?q=\\{@}

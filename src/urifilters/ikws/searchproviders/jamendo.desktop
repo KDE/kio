@@ -6,6 +6,8 @@ Name=Jamendo
 Name[ar]=Jamendo
 Name[ast]=Jamendo
 Name[az]=Jamendo
+Name[be]=Jamendo
+Name[be@latin]=Jamendo
 Name[bg]=Jamendo
 Name[bn]=জামেন্ডো
 Name[bs]=Džamendo
@@ -81,6 +83,8 @@ Query=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[ar]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[ast]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[az]=https://www.jamendo.com/en/search?qs=q=\\{@}
+Query[be]=https://www.jamendo.com/en/search?qs=q=\\{@}
+Query[be@latin]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[bg]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[bs]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[ca]=https://www.jamendo.com/en/search?qs=q=\\{@}

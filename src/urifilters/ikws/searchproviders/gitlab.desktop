@@ -6,6 +6,8 @@ Name=GitLab
 Name[ar]=جت هب
 Name[ast]=GitLab
 Name[az]=GitLab
+Name[be]=GitLab
+Name[be@latin]=GitLab
 Name[bg]=GitLab
 Name[bs]=GitLab
 Name[ca]=GitLab
@@ -55,6 +57,8 @@ Query=https://gitlab.com/search?search=\\{@}
 Query[ar]=https://gitlab.com/search?search=\\{@}
 Query[ast]=https://gitlab.com/search?search=\\{@}
 Query[az]=https://gitlab.com/search?search=\\{@}
+Query[be]=https://gitlab.com/search?search=\\{@}
+Query[be@latin]=https://gitlab.com/search?search=\\{@}
 Query[bg]=https://gitlab.com/search?search=\\{@}
 Query[bs]=https://gitlab.com/search?search=\\{@}
 Query[ca]=https://gitlab.com/search?search=\\{@}

@@ -2,6 +2,8 @@
 Name=Rust STD Documentation
 Name[ar]=توثيق رست STD
 Name[az]=Rust STD sənədləşməsi
+Name[be]=Дакументацыя Rust STD
+Name[be@latin]=Dakumientacyja Rust STD
 Name[bg]=Документация STD за Rust
 Name[bs]=Rast STD Dokumentacija
 Name[ca]=Documentació del Rust STD
@@ -38,6 +40,8 @@ Keys=rust
 Query=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[ar]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[az]=https://doc.rust-lang.org/std/index.html?search=\\{@}
+Query[be]=https://doc.rust-lang.org/std/index.html?search=\\{@}
+Query[be@latin]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[bg]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[bs]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[ca]=https://doc.rust-lang.org/std/index.html?search=\\{@}

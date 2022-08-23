@@ -2,6 +2,8 @@
 Name=CPlusPlus
 Name[ar]=CPlusPlus
 Name[az]=CPlusPlus
+Name[be]=CPlusPlus
+Name[be@latin]=CPlusPlus
 Name[bg]=CPlusPlus
 Name[bs]=CPlusPlus
 Name[ca]=CPlusPlus
@@ -40,6 +42,8 @@ Keys=cplusplus
 Query=http://cplusplus.com/search.do?q=\\{@}
 Query[ar]=http://cplusplus.com/search.do?q=\\{@}
 Query[az]=http://cplusplus.com/search.do?q=\\{@}
+Query[be]=http://cplusplus.com/search.do?q=\\{@}
+Query[be@latin]=http://cplusplus.com/search.do?q=\\{@}
 Query[bg]=http://cplusplus.com/search.do?q=\\{@}
 Query[bs]=http://cplusplus.com/search.do?q=\\{@}
 Query[ca]=http://cplusplus.com/search.do?q=\\{@}

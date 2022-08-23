@@ -6,7 +6,7 @@ Name[ar]=فيديوهات جوجل
 Name[as]=Google Movies
 Name[az]=Google Filmlər
 Name[be]=Фільмы Google
-Name[be@latin]=Filmy „Google”
+Name[be@latin]=Fiĺmy Google
 Name[bg]=Филми в Google
 Name[bn]=গুগল্ মুভিস্
 Name[bn_IN]=Google মুভিস
@@ -99,6 +99,8 @@ Query=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[ar]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[ast]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[az]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
+Query[be]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
+Query[be@latin]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[bg]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[bs]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[ca]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8

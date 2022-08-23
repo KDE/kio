@@ -4,6 +4,8 @@ Name=Freecode
 Name[ar]=فريكود
 Name[ast]=Freecode
 Name[az]=Freecode
+Name[be]=Freecode
+Name[be@latin]=Freecode
 Name[bg]=Freecode
 Name[bs]=Frikod
 Name[ca]=Freecode
@@ -65,6 +67,8 @@ Query=http://freecode.com/search?q=\\{@}
 Query[ar]=http://freecode.com/search?q=\\{@}
 Query[ast]=http://freecode.com/search?q=\\{@}
 Query[az]=http://freecode.com/search?q=\\{@}
+Query[be]=http://freecode.com/search?q=\\{@}
+Query[be@latin]=http://freecode.com/search?q=\\{@}
 Query[bg]=http://freecode.com/search?q=\\{@}
 Query[bs]=http://freecode.com/search?q=\\{@}
 Query[ca]=http://freecode.com/search?q=\\{@}

@@ -7,7 +7,7 @@ Name[ar]=TV Tome
 Name[as]=TV Tome
 Name[ast]=TV Tome
 Name[az]=TV Tome
-Name[be]=Хатняе ТБ
+Name[be]=TV Tome
 Name[be@latin]=TV Tome
 Name[bg]=TV Tome
 Name[bn]=টিভি টোম
@@ -98,6 +98,8 @@ Query=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[ar]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[ast]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[az]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
+Query[be]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
+Query[be@latin]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[bg]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[bs]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[ca]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0

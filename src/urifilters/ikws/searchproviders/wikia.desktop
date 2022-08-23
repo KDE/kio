@@ -6,6 +6,8 @@ Name=Wikia
 Name[ar]=ويكيا
 Name[ast]=Wikia
 Name[az]=Wikia
+Name[be]=Wikia
+Name[be@latin]=Wikia
 Name[bg]=Wikia
 Name[bn]=উইকিয়া
 Name[bs]=Vikija
@@ -79,6 +81,8 @@ Query=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Sear
 Query[ar]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[ast]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[az]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
+Query[be]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
+Query[be@latin]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[bg]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[bs]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[ca]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search

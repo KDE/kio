@@ -6,7 +6,7 @@ Name[ar]=دليل FSF/UNESCO للبرمجيات الحرّة
 Name[as]=FSF/UNESCO Free Software Directory
 Name[az]=FSF/UNESCO üzrə Azad Proqram Təminatı
 Name[be]=Каталог свабоднага праграмнага забеспячэння FSF/UNESCO
-Name[be@latin]=Kataloh svabodnych prahramaŭ „FSF/UNESCO”
+Name[be@latin]=Kataloh svabodnaha prahramnaha zabiespiačennia FSF/UNESCO
 Name[bg]=Директория със свободен софтуер на FSF/UNESCO
 Name[bn]=FSF/UNESCO ফ্রী সফ্‌টওয়্যার ডিরেক্টরি
 Name[bn_IN]=FSF/UNESCO মুক্ত সফ্টওয়্যার অভিধান
@@ -95,6 +95,8 @@ Query=https://directory.fsf.org/search/?query=\\{@}
 Query[ar]=https://directory.fsf.org/search/?query=\\{@}
 Query[ast]=https://directory.fsf.org/search/?query=\\{@}
 Query[az]=https://directory.fsf.org/search/?query=\\{@}
+Query[be]=https://directory.fsf.org/search/?query=\\{@}
+Query[be@latin]=https://directory.fsf.org/search/?query=\\{@}
 Query[bg]=https://directory.fsf.org/search/?query=\\{@}
 Query[bs]=https://directory.fsf.org/search/?query=\\{@}
 Query[ca]=https://directory.fsf.org/search/?query=\\{@}

@@ -6,8 +6,8 @@ Name[ar]=قاعدة بيانات الإنترنت للأفلام
 Name[as]=ইন্টাৰ্নে'ট বোলছবিৰ তথ্যভঁৰাল
 Name[ast]=Internet Movie Database
 Name[az]=İnternet Film Məlumat Bazası
-Name[be]=База звестак пра фільмы
-Name[be@latin]=Sieciŭnaja baza filmaŭ
+Name[be]=Сеціўная база даных фільмаў
+Name[be@latin]=Sieciŭnaja baza danych fiĺmaŭ
 Name[bg]=Internet Movie Database
 Name[bn]=ইন্টারনেট চলচ্চিত্র ডেটাবেস
 Name[bn_IN]=ইন্টারনেট ছায়াছবির ডাটাবেস
@@ -98,6 +98,8 @@ Query=https://imdb.com/find?s=all&q=\\{@}
 Query[ar]=https://imdb.com/find?s=all&q=\\{@}
 Query[ast]=https://imdb.com/find?s=all&q=\\{@}
 Query[az]=https://imdb.com/find?s=all&q=\\{@}
+Query[be]=https://imdb.com/find?s=all&q=\\{@}
+Query[be@latin]=https://imdb.com/find?s=all&q=\\{@}
 Query[bg]=https://imdb.com/find?s=all&q=\\{@}
 Query[bs]=https://imdb.com/find?s=all&q=\\{@}
 Query[ca]=https://imdb.com/find?s=all&q=\\{@}

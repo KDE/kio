@@ -6,6 +6,8 @@ Name=KDE TechBase
 Name[ar]=قاعدة التعلم لكدي
 Name[ast]=KDE TechBase
 Name[az]=KDE Texniki Basa
+Name[be]=Тэхнічная база KDE
+Name[be@latin]=Techničnaja baza KDE
 Name[bg]=Техническо ръководство за KDE
 Name[bn]=KDE টেক-বেস
 Name[bs]=KDE Tehnološka Baza
@@ -79,6 +81,8 @@ Query=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[ar]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[ast]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[az]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
+Query[be]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
+Query[be@latin]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[bg]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[bs]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[ca]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search

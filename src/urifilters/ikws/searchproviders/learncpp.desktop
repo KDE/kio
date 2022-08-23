@@ -2,6 +2,8 @@
 Name=Learn CPP
 Name[ar]=Learn CPP
 Name[az]=CPP öyrənin
+Name[be]=Вывучэнне CPP
+Name[be@latin]=Vyvučennie CPP
 Name[bg]=Learn CPP
 Name[bs]=Naučite CPP
 Name[ca]=Learn CPP
@@ -38,6 +40,8 @@ Keys=learncpp
 Query=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[ar]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[az]=https://www.learncpp.com/gsearch/?q=\\{@}
+Query[be]=https://www.learncpp.com/gsearch/?q=\\{@}
+Query[be@latin]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[bg]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[bs]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[ca]=https://www.learncpp.com/gsearch/?q=\\{@}

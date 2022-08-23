@@ -6,7 +6,7 @@ Name[ar]=أخبار جوجل
 Name[as]=Google News
 Name[az]=Google Xəbərlər
 Name[be]=Навіны Google
-Name[be@latin]=Naviny „Google”
+Name[be@latin]=Naviny Google
 Name[bg]=Новини в Google
 Name[bn]=গুগল্ সংবাদ
 Name[bn_IN]=Google খবরাখবর
@@ -99,6 +99,8 @@ Query=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[ar]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[ast]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[az]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
+Query[be]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
+Query[be@latin]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[bg]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[bs]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[ca]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8

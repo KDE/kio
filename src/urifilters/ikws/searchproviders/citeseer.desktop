@@ -6,8 +6,8 @@ Name=CiteSeer: Scientific Literature Digital Library
 Name[af]=CiteSeer: Wetenskaplike Digitale Literatuur Biblioteek
 Name[ar]=CiteSeer: مكتبة وسائط الأدب العلمي
 Name[az]=CiteSeer: Elmi Ədəbiyyat Rəqəmsal Kitabxanası
-Name[be]=CiteSeer: Лічбавая бібліятэка навуковай літаратуры
-Name[be@latin]=„CiteSeer”: navukovaja elektronnaja biblijateka
+Name[be]=CiteSeer: лічбавая бібліятэка навуковай літаратуры
+Name[be@latin]=CiteSeer: ličbavaja biblijateka navukovaj litaratury
 Name[bg]=Цифрова библиотека с научна литература CiteSeer
 Name[bn]=CiteSeer: বিজ্ঞানসাহিত্যের ডিজিটাল লাইব্রেরী
 Name[bn_IN]=CiteSeer: বিজ্ঞানবিষয়ক নথিপত্রের ডিজিট্যাল লাইব্রেরি
@@ -96,6 +96,8 @@ Query=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[ar]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[ast]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[az]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
+Query[be]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
+Query[be@latin]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[bg]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[bs]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[ca]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc

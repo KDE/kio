@@ -3,6 +3,8 @@ Keys=ya,yandex,я,яндекс
 Name=Yandex
 Name[ar]=ياندكس
 Name[az]=Yandex
+Name[be]=Yandex
+Name[be@latin]=Yandex
 Name[bg]=Yandex
 Name[ca]=Yandex
 Name[ca@valencia]=Yandex
@@ -37,6 +39,8 @@ Name[zh_CN]=Yandex
 Query=https://yandex.ru/search/?text=\\{@}
 Query[ar]=https://yandex.ru/search/?text=\\{@}
 Query[az]=https://yandex.ru/search/?text=\\{@}
+Query[be]=https://yandex.ru/search/?text=\\{@}
+Query[be@latin]=https://yandex.ru/search/?text=\\{@}
 Query[bg]=https://yandex.ru/search/?text=\\{@}
 Query[ca]=https://yandex.ru/search/?text=\\{@}
 Query[ca@valencia]=https://yandex.ru/search/?text=\\{@}

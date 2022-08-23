@@ -6,7 +6,7 @@ Name[ar]=CPAN - شبكة أرشيف بيرل الشاملة
 Name[as]=CPAN - Comprehensive Perl Archive Network
 Name[az]=CPAN - Perl Skriplər Arxivi
 Name[be]=CPAN - Comprehensive Perl Archive Network
-Name[be@latin]=CPAN: zbor prahramaŭ u movie „Perl”
+Name[be@latin]=CPAN - Comprehensive Perl Archive Network
 Name[bg]=CPAN - Comprehensive Perl Archive Network
 Name[bn]=CPAN - কমপ্রিহেনসিভ পার্ল আর্কাইভ নেটওয়ার্ক
 Name[bn_IN]=CPAN - কম্প্রিহেনসিভ Perl আর্কাইভ নেটওয়ার্ক
@@ -96,6 +96,8 @@ Query=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[ar]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[ast]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[az]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
+Query[be]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
+Query[be@latin]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[bg]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[bs]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[ca]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}

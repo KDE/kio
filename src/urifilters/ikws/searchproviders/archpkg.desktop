@@ -4,6 +4,8 @@ Name=Arch Linux Package Search
 Name[ar]=بحث حزم أرك لينكس
 Name[ast]=Busca de paquetes d'Arch Linux
 Name[az]=Arch Linux Packet Axtarışı
+Name[be]=Пакункі Arch Linux
+Name[be@latin]=Pakunki Arch Linux
 Name[bg]=Търсене на пакети на Arch Linux
 Name[bs]=Pretraga Arč Linuks Paketa
 Name[ca]=Cerca paquets a Arch Linux
@@ -58,6 +60,8 @@ Query=https://www.archlinux.org/packages/?q=\\{@}
 Query[ar]=https://www.archlinux.org/packages/?q=\\{@}
 Query[ast]=https://www.archlinux.org/packages/?q=\\{@}
 Query[az]=https://www.archlinux.org/packages/?q=\\{@}
+Query[be]=https://www.archlinux.org/packages/?q=\\{@}
+Query[be@latin]=https://www.archlinux.org/packages/?q=\\{@}
 Query[bg]=https://www.archlinux.org/packages/?q=\\{@}
 Query[bs]=https://www.archlinux.org/packages/?q=\\{@}
 Query[ca]=https://www.archlinux.org/packages/?q=\\{@}

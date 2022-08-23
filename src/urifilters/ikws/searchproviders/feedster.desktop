@@ -98,6 +98,8 @@ Query=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[ar]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[ast]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[az]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
+Query[be]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
+Query[be@latin]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[bg]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[bs]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[ca]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}

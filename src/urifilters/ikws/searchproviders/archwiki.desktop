@@ -4,6 +4,8 @@ Name=ArchWiki
 Name[ar]=أرك ويكي
 Name[ast]=ArchWiki
 Name[az]=ArchWiki
+Name[be]=ArchWiki
+Name[be@latin]=ArchWiki
 Name[bg]=ArchWiki
 Name[bs]=ArčViki
 Name[ca]=ArchWiki
@@ -50,6 +52,8 @@ Query=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[ar]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[ast]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[az]=https://wiki.archlinux.org/index.php?search=\\{@}
+Query[be]=https://wiki.archlinux.org/index.php?search=\\{@}
+Query[be@latin]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[bg]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[bs]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[ca]=https://wiki.archlinux.org/index.php?search=\\{@}

@@ -98,6 +98,8 @@ Query=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[ar]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[ast]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[az]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
+Query[be]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
+Query[be@latin]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[bg]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[bs]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[ca]=https://technorati.com/search?return=sites&authority=high&q=\\{@}

@@ -4,6 +4,8 @@ Name=Bing
 Name[ar]=بنج
 Name[ast]=Bing
 Name[az]=Bing
+Name[be]=Bing
+Name[be@latin]=Bing
 Name[bg]=Bing
 Name[bn]=বিং
 Name[bs]=Bing
@@ -78,6 +80,8 @@ Query=https://www.bing.com/search?q=\\{@}
 Query[ar]=https://www.bing.com/search?q=\\{@}
 Query[ast]=https://www.bing.com/search?q=\\{@}
 Query[az]=https://www.bing.com/search?q=\\{@}
+Query[be]=https://www.bing.com/search?q=\\{@}
+Query[be@latin]=https://www.bing.com/search?q=\\{@}
 Query[bg]=https://www.bing.com/search?q=\\{@}
 Query[bs]=https://www.bing.com/search?q=\\{@}
 Query[ca]=https://www.bing.com/search?q=\\{@}

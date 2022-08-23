@@ -102,6 +102,8 @@ Query=https://www.google.com/search?q=\\{@}&ie=UTF-8
 Query[ar]=https://www.google.com/search?q=\\{@}&ie=UTF-8
 Query[ast]=https://www.google.com/search?q=\\{@}&ie=UTF-8
 Query[az]=https://www.google.com/search?q=\\{@}&ie=UTF-8
+Query[be]=https://www.google.com/search?q=\\{@}&ie=UTF-8
+Query[be@latin]=https://www.google.com/search?q=\\{@}&ie=UTF-8
 Query[bg]=https://www.google.com/search?q=\\{@}&ie=UTF-8
 Query[bs]=https://www.google.com/search?q=\\{@}&ie=UTF-8
 Query[ca]=https://www.google.cat/search?q=\\{@}&ie=UTF-8

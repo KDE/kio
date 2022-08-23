@@ -6,6 +6,8 @@ Name=Google Code
 Name[ar]=جوجل كود
 Name[ast]=Google Code
 Name[az]=Google Code
+Name[be]=Google Code
+Name[be@latin]=Google Code
 Name[bg]=Код в Google
 Name[bn]=গুগল কোড
 Name[bs]=Gugl Kod
@@ -79,6 +81,8 @@ Query=https://code.google.com/query/#q=\\{%2520}
 Query[ar]=https://code.google.com/query/#q=\\{%2520}
 Query[ast]=https://code.google.com/query/#q=\\{%2520}
 Query[az]=https://code.google.com/query/#q=\\{%2520}
+Query[be]=https://code.google.com/query/#q=\\{%2520}
+Query[be@latin]=https://code.google.com/query/#q=\\{%2520}
 Query[bg]=https://code.google.com/query/#q=\\{%2520}
 Query[bs]=https://code.google.com/query/#q=\\{%2520}
 Query[ca]=https://code.google.com/query/#q=\\{%2520}

@@ -4,6 +4,8 @@ Name=Wolfram Alpha
 Name[ar]=Wolfram Alpha
 Name[ast]=Wolfram Alpha
 Name[az]=Wolfram Alpha
+Name[be]=Wolfram Alpha
+Name[be@latin]=Wolfram Alpha
 Name[bg]=Wolfram Alpha
 Name[bn]=উলফ্র্যাম আলফা
 Name[bs]=Volframova alfa
@@ -81,6 +83,8 @@ Query=https://www.wolframalpha.com/input/?i=\\{@}
 Query[ar]=https://www.wolframalpha.com/input/?i=\\{@}
 Query[ast]=https://www.wolframalpha.com/input/?i=\\{@}
 Query[az]=https://www.wolframalpha.com/input/?i=\\{@}
+Query[be]=https://www.wolframalpha.com/input/?i=\\{@}
+Query[be@latin]=https://www.wolframalpha.com/input/?i=\\{@}
 Query[bg]=https://www.wolframalpha.com/input/?i=\\{@}
 Query[bs]=https://www.wolframalpha.com/input/?i=\\{@}
 Query[ca]=https://www.wolframalpha.com/input/?i=\\{@}

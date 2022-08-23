@@ -100,6 +100,8 @@ Query=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
 Query[ar]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
 Query[ast]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
 Query[az]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
+Query[be]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
+Query[be@latin]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
 Query[bg]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
 Query[bs]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
 Query[ca]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*

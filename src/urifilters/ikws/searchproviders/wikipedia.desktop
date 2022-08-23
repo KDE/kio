@@ -7,8 +7,8 @@ Name[ar]=ويكيبيديا - الموسوعة الحرّة
 Name[as]=Wikipedia - The Free Encyclopedia
 Name[ast]=Wikipedia - La enciclopedia llibre
 Name[az]=Vikipedia - Azad Ensklopediya
-Name[be]=Wikipedia - Свабодная Энцыклапедыя
-Name[be@latin]=Wikipedia: svabodnaja encyklapedyja
+Name[be]=Wikipedia - свабодная энцыклапедыя
+Name[be@latin]=Wikipedia - svabodnaja encyklapiedyja
 Name[bg]=Уикипедия - свободната енциклопедия
 Name[bn]=উইকিপেডিয়া - মুক্ত বিশ্বকোষ
 Name[bn_IN]=Wikipedia (উইকিপিডিয়া) - মুক্ত বিশ্বকোষ
@@ -99,6 +99,8 @@ Query=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[ar]=https://ar.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[ast]=https://ast.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[az]=https://az.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
+Query[be]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
+Query[be@latin]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[bg]=https://bg.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[bs]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[ca]=https://ca.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go

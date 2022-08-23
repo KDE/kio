@@ -6,8 +6,8 @@ Name[ar]=بحث مستودعات الحزم الحديثة لديبيان
 Name[as]=Debian Backports Search
 Name[ast]=Busca de backports de Debian
 Name[az]=Debian Portlarının Axtarışı
-Name[be]=Пошук Debian Backports
-Name[be@latin]=Pošuk „Backports” dla systemy „Debian”
+Name[be]=Debian Backports
+Name[be@latin]=Debian Backports
 Name[bg]=Търсене в Debian Backports
 Name[bn]=ডেবিয়ান ব্যাকপোর্ট অনুসন্ধান
 Name[bn_IN]=Debian ব্যাক-পোর্ট অনুসন্ধান
@@ -94,6 +94,8 @@ Query=https://packages.debian.org/search?suite=squeeze-backports&section=all&arc
 Query[ar]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
 Query[ast]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
 Query[az]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
+Query[be]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
+Query[be@latin]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
 Query[bg]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
 Query[bs]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
 Query[ca]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}

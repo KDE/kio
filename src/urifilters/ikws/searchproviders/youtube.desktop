@@ -5,6 +5,8 @@ Name=YouTube
 Name[ar]=يوتيوب
 Name[ast]=YouTube
 Name[az]=YouTube
+Name[be]=YouTube
+Name[be@latin]=YouTube
 Name[bg]=YouTube
 Name[bn]=ইউ-টিউভ
 Name[bs]=Jutjub
@@ -79,6 +81,8 @@ Query=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
 Query[ar]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
 Query[ast]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
 Query[az]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
+Query[be]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
+Query[be@latin]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
 Query[bg]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
 Query[bs]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
 Query[ca]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f

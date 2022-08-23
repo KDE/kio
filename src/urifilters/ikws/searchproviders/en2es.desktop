@@ -8,8 +8,8 @@ Name[ar]=ترجمة WordReference.com: من الانجليزية إلى الإس
 Name[as]=WordReference.com Translation: English to Spanish
 Name[ast]=Traducción de WordReference.com: Inglés a castellán
 Name[az]=WordReference.com Tərcümə: İngiliscədən İspancaya
-Name[be]=WordReference.com Пераклад: з англійскай на іcпанскую
-Name[be@latin]=Pierakład „WordReference.com”: anhielskaja ➙ hišpanskaja
+Name[be]=WordReference.com - пераклад з англійскай на іcпанскую
+Name[be@latin]=WordReference.com - pieraklad z anhlijskaj na icpanskuju
 Name[bg]=Превод с WordReference.com — от английски към испански
 Name[bn]=WordReference.com অনুবাদ: ইংরাজি থেকে স্প্যানিশ
 Name[bn_IN]=WordReference.com অনুবাদ: ইংরাজি থেকে স্প্যানিশ
@@ -97,6 +97,8 @@ Query=https://www.wordreference.com/es/translation.asp?tranword=\\{@}
 Query[ar]=https://www.wordreference.com/es/translation.asp?tranword=\\{@}
 Query[ast]=https://www.wordreference.com/es/translation.asp?tranword=\\{@}
 Query[az]=https://www.wordreference.com/es/translation.asp?tranword=\\{@}
+Query[be]=https://www.wordreference.com/es/translation.asp?tranword=\\{@}
+Query[be@latin]=https://www.wordreference.com/es/translation.asp?tranword=\\{@}
 Query[bg]=https://www.wordreference.com/es/translation.asp?tranword=\\{@}
 Query[bs]=https://www.wordreference.com/es/translation.asp?tranword=\\{@}
 Query[ca]=https://www.wordreference.com/es/translation.asp?tranword=\\{@}

@@ -3,6 +3,8 @@ Keys=invent,inv
 Name=KDE Invent
 Name[ar]=KDE Invent
 Name[az]=KDE Invent
+Name[be]=KDE Invent
+Name[be@latin]=KDE Invent
 Name[bg]=Изобретения на KDE
 Name[bs]=KDE Izum
 Name[ca]=KDE Invent
@@ -43,6 +45,8 @@ Name[zh_CN]=KDE Invent
 Query=https://invent.kde.org/search?search=\\{@}
 Query[ar]=https://invent.kde.org/search?search=\\{@}
 Query[az]=https://invent.kde.org/search?search=\\{@}
+Query[be]=https://invent.kde.org/search?search=\\{@}
+Query[be@latin]=https://invent.kde.org/search?search=\\{@}
 Query[bg]=https://invent.kde.org/search?search=\\{@}
 Query[bs]=https://invent.kde.org/search?search=\\{@}
 Query[ca]=https://invent.kde.org/search?search=\\{@}

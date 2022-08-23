@@ -10,7 +10,7 @@ Name[as]=KDE API Documentation
 Name[ast]=Documentación de l'API de KDE
 Name[az]=KDE API Sənədləşməsi
 Name[be]=Дакументацыя па KDE API
-Name[be@latin]=Dakumenty pra API KDE
+Name[be@latin]=Dakumientacyja pa KDE API
 Name[bg]=Документация на KDE API
 Name[bn]=কে.ডি.ই. এ-পি-আই নির্দেশিকা
 Name[bn_IN]=KDE API সংক্রান্ত নথিপত্র
@@ -99,6 +99,8 @@ Name[zh_TW]=KDE API 文件
 Query=https://api.kde.org/search.html?query=\\{@}
 Query[ar]=https://api.kde.org/search.html?query=\\{@}
 Query[az]=https://api.kde.org/search.html?query=\\{@}
+Query[be]=https://api.kde.org/search.html?query=\\{@}
+Query[be@latin]=https://api.kde.org/search.html?query=\\{@}
 Query[bg]=https://api.kde.org/search.html?query=\\{@}
 Query[bs]=https://api.kde.org/search.html?query=\\{@}
 Query[ca]=https://api.kde.org/search.html?query=\\{@}

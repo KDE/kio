@@ -5,8 +5,8 @@ Name[af]=LEO - Vertaal tussn Duits en Frans
 Name[ar]=LEO - ترجمة بين الألمانية والفرنسية
 Name[as]=LEO - Translate Between German and French
 Name[az]=LEO - Fransız və Alman dilləri arasında tərcümə
-Name[be]=LEO - Пераклад з нямецкай на французскую і наадварот
-Name[be@latin]=Pierakład „LEO”: niamieckaja ➙ francuskaja
+Name[be]=LEO - пераклад з нямецкай на французскую і наадварот
+Name[be@latin]=LEO - pieraklad z niamieckaj na francuzskuju i naadvarot
 Name[bg]=LEO - превод между немски и френски
 Name[bn]=লিও - জার্মান থেকে ফরাসী বা ফরাসী থেকে জার্মান-এ অনুবাদ করুন
 Name[bn_IN]=LEO - জার্মান ও ফ্রেঞ্চের মধ্যে অনুবাদ করুন
@@ -95,6 +95,8 @@ Query=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[ar]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[ast]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[az]=https://dict.leo.org/?lp=frde&search=\\{@}
+Query[be]=https://dict.leo.org/?lp=frde&search=\\{@}
+Query[be@latin]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[bg]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[bs]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[ca]=https://dict.leo.org/?lp=frde&search=\\{@}

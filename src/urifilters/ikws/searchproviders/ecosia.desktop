@@ -4,6 +4,8 @@ Name=Ecosia search engine
 Name[ar]=محرّك بحث Ecosia
 Name[ast]=Motor de busca Ecosia
 Name[az]=Ecosia axtarış vasitəsi
+Name[be]=Ecosia
+Name[be@latin]=Ecosia
 Name[bg]=Търсачка Ecosia
 Name[bn]=ইকোসিয়া সার্চ ইঞ্জিন
 Name[bs]=Ekozija pretraživač
@@ -79,6 +81,8 @@ Query=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[ar]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[ast]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[az]=https://ecosia.org/search.php?q=\\{@}&meta=normal
+Query[be]=https://ecosia.org/search.php?q=\\{@}&meta=normal
+Query[be@latin]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[bg]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[bs]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[ca]=https://ecosia.org/search.php?q=\\{@}&meta=normal

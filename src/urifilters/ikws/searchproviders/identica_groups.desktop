@@ -5,6 +5,8 @@ Keys=identicagroups,identig,identicag,idg
 Name=Identi.ca Groups
 Name[ar]=مجموعات آيدنتكا
 Name[az]=Identi.ca  Qrupları
+Name[be]=Групы Identi.ca
+Name[be@latin]=Hrupy Identi.ca
 Name[bg]=Групи в Identi.ca
 Name[bn]=Identi.ca গোষ্ঠীসমূহ
 Name[bs]=Identi.ca Grupe
@@ -79,6 +81,8 @@ Query=https://identi.ca/search/group?q=\\{@}
 Query[ar]=https://identi.ca/search/group?q=\\{@}
 Query[ast]=https://identi.ca/search/group?q=\\{@}
 Query[az]=https://identi.ca/search/group?q=\\{@}
+Query[be]=https://identi.ca/search/group?q=\\{@}
+Query[be@latin]=https://identi.ca/search/group?q=\\{@}
 Query[bg]=https://identi.ca/search/group?q=\\{@}
 Query[bs]=https://identi.ca/search/group?q=\\{@}
 Query[ca]=https://identi.ca/search/group?q=\\{@}

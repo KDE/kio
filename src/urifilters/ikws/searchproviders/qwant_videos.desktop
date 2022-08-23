@@ -3,6 +3,8 @@ Keys=qwv
 Name=Qwant Videos
 Name[ar]=فيديوهات Qwant
 Name[az]=Qwant Videolar
+Name[be]=Відэа Qwant
+Name[be@latin]=Videa Qwant
 Name[bg]=Видео в Qwant
 Name[bs]=Kvant Video zapisi
 Name[ca]=Vídeo de Qwant
@@ -60,6 +62,8 @@ Query=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[ar]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[ast]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[az]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
+Query[be]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
+Query[be@latin]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[bg]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[bs]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[ca]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos

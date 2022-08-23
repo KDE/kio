@@ -3,6 +3,8 @@ Keys=inventrepo,invrepo,repo
 Name=KDE Invent Repositories
 Name[ar]=مستودعات KDE Invent
 Name[az]=KDE Invent Anbarları
+Name[be]=Рэпазіторыі KDE Invent
+Name[be@latin]=Repazitoryi KDE Invent
 Name[bg]=KDE Invent Repositories
 Name[bs]=KDE Izum Spremišta
 Name[ca]=Repositoris de KDE Invent
@@ -42,6 +44,8 @@ Name[zh_CN]=KDE Invent 源代码库
 Query=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[ar]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[az]=https://invent.kde.org/explore/projects/starred?name=\\{@}
+Query[be]=https://invent.kde.org/explore/projects/starred?name=\\{@}
+Query[be@latin]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[bg]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[bs]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[ca]=https://invent.kde.org/explore/projects/starred?name=\\{@}

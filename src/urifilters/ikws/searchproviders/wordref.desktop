@@ -7,8 +7,8 @@ Name[af]=WordReference.com Engelse Woordeboek
 Name[ar]=قاموس WordReference.com الانجليزي
 Name[as]=WordReference.com English Dictionary
 Name[az]=WordReference.com İngilis dili lüğəti
-Name[be]=WordReference.com Англійскі слоўнік
-Name[be@latin]=Anhielski słoŭnik „WordReference.com”
+Name[be]=WordReference.com - англійскі слоўнік
+Name[be@latin]=WordReference.com - anhlijski sloŭnik
 Name[bg]=Английски речник WordReference.com
 Name[bn]=WordReference.com ইংরাজি অভিধান
 Name[bn_IN]=WordReference.com ইংরাজি অভিধান
@@ -97,6 +97,8 @@ Query=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[ar]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[ast]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[az]=https://www.wordreference.com/english/definition.asp?en=\\{@}
+Query[be]=https://www.wordreference.com/english/definition.asp?en=\\{@}
+Query[be@latin]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[bg]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[bs]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[ca]=https://www.wordreference.com/english/definition.asp?en=\\{@}

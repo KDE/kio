@@ -7,8 +7,8 @@ Name[af]=dict.cc Vertaling: Engels na Duits
 Name[ar]=ترجمة dict.cc: من الانجليزية إلى الألمانية
 Name[as]=dict.cc Translation: English to German
 Name[az]=dict.cc  tərcümə: İngiliscədən Almancaya
-Name[be]=dict.cc Пераклад: з англійскай на нямецкую
-Name[be@latin]=Pierakład „dict.cc”: anhielskaja ➙ niamieckaja
+Name[be]=dict.cc - пераклад з англійскай на нямецкую
+Name[be@latin]=dict.cc - pieraklad z anhlijskaj na niamieckuju
 Name[bg]=Превод с dict.cc — от английски към немски
 Name[bn]=dict.cc অনুবাদ: ইংরাজি থেকে জার্মান
 Name[bn_IN]=dict.cc অনুবাদ: ইংরাজি থেকে জার্মান
@@ -96,6 +96,8 @@ Query=https://www.dict.cc/?s=\\{@}
 Query[ar]=https://www.dict.cc/?s=\\{@}
 Query[ast]=https://www.dict.cc/?s=\\{@}
 Query[az]=https://www.dict.cc/?s=\\{@}
+Query[be]=https://www.dict.cc/?s=\\{@}
+Query[be@latin]=https://www.dict.cc/?s=\\{@}
 Query[bg]=https://www.dict.cc/?s=\\{@}
 Query[bs]=https://www.dict.cc/?s=\\{@}
 Query[ca]=https://www.dict.cc/?s=\\{@}

@@ -2,6 +2,8 @@
 Name=Reddit
 Name[ar]=ردت
 Name[az]=Reddit
+Name[be]=Reddit
+Name[be@latin]=Reddit
 Name[bg]=Reddit
 Name[bs]=Redit
 Name[ca]=Reddit
@@ -39,6 +41,8 @@ Keys=reddit
 Query=https://www.reddit.com/search/?q=\\{@}
 Query[ar]=https://www.reddit.com/search/?q=\\{@}
 Query[az]=https://www.reddit.com/search/?q=\\{@}
+Query[be]=https://www.reddit.com/search/?q=\\{@}
+Query[be@latin]=https://www.reddit.com/search/?q=\\{@}
 Query[bg]=https://www.reddit.com/search/?q=\\{@}
 Query[bs]=https://www.reddit.com/search/?q=\\{@}
 Query[ca]=https://www.reddit.com/search/?q=\\{@}

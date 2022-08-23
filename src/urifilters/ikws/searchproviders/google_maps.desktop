@@ -3,6 +3,8 @@ Type=Service
 Name=Google Maps
 Name[ar]=خرائط جوجل
 Name[az]=Google Xəritələr
+Name[be]=Мапы Google
+Name[be@latin]=Mapy Google
 Name[bg]=Карти в Google
 Name[bn]=গুগল ম্যাপ
 Name[bs]=Gugl Mape
@@ -78,6 +80,8 @@ Query=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[ar]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[ast]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[az]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
+Query[be]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
+Query[be@latin]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[bg]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[bs]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[ca]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr

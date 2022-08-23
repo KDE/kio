@@ -6,6 +6,8 @@ Name=KDE UserBase
 Name[ar]=قاعدة مستخدمي KDE
 Name[ast]=KDE UserBase
 Name[az]=KDE İstifadəçi Baza
+Name[be]=База карыстальніка KDE
+Name[be@latin]=Baza karystaĺnika KDE
 Name[bg]=Потребителско ръководство за KDE
 Name[bn]=কে.ডি.ই. ইউসার-বেস
 Name[bs]=KDE Korisnička Baza
@@ -80,6 +82,8 @@ Query=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[ar]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[ast]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[az]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
+Query[be]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
+Query[be@latin]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[bg]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[bs]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[ca]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search

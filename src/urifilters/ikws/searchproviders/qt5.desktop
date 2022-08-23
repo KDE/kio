@@ -5,6 +5,8 @@ Keys=qt5
 Name=Qt5 Online Documentation
 Name[ar]=توثيق عبر الإنترنت كيوت٥
 Name[az]=Qt5 onlayn sənədləşməsi
+Name[be]=Сеціўная дакументацыя Qt5
+Name[be@latin]=Sieciŭnaja dakumientacyja Qt5
 Name[bg]=Онлайн документация на Qt5
 Name[bs]=Qt5 Onlajn Dokumentacija
 Name[ca]=Documentació en línia de les Qt5
@@ -41,6 +43,8 @@ Query=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[ar]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[ast]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[az]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
+Query[be]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
+Query[be@latin]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[bg]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[bs]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[ca]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}

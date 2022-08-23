@@ -2,6 +2,8 @@
 Name=WineHQ Database
 Name[ar]=قاعدة بيانات WineHQ
 Name[az]=WineHQ verilənlər bazası
+Name[be]=База даных WineHQ
+Name[be@latin]=Baza danych WineHQ
 Name[bg]=База данни на WineHQ
 Name[bs]=WineHQ Baza podataka
 Name[ca]=Base de dades de WineHQ
@@ -39,6 +41,8 @@ Keys=winehq,wine
 Query=https://www.winehq.org/search?q=\\{@}
 Query[ar]=https://www.winehq.org/search?q=\\{@}
 Query[az]=https://www.winehq.org/search?q=\\{@}
+Query[be]=https://www.winehq.org/search?q=\\{@}
+Query[be@latin]=https://www.winehq.org/search?q=\\{@}
 Query[bg]=https://www.winehq.org/search?q=\\{@}
 Query[bs]=https://www.winehq.org/search?q=\\{@}
 Query[ca]=https://www.winehq.org/search?q=\\{@}

@@ -6,8 +6,8 @@ Name[ar]=ويكاموس - القاموس الحرّ
 Name[as]=Wiktionary - The Free Dictionary
 Name[ast]=Wiktionary - El diccionariu llibre
 Name[az]=Wiktionary - Azad Lüğət
-Name[be]=Wiktionary - Свабодны Слоўнік
-Name[be@latin]=Wikisłoŭnik: svabodny słoŭnik
+Name[be]=Wiktionary - свабодны слоўнік
+Name[be@latin]=Wiktionary - svabodny sloŭnik
 Name[bg]=Уикиречник - свободният речник
 Name[bn]=ইউক্‌শনারি - মুক্ত অভিধান
 Name[bn_IN]=Wiktionary - মুক্ত অভিধান
@@ -97,6 +97,8 @@ Query=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[ar]=https://ar.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[ast]=https://ast.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[az]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
+Query[be]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
+Query[be@latin]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[bg]=https://bg.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[bs]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[ca]=https://ca.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go

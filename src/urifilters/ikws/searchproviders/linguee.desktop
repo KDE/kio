@@ -2,6 +2,8 @@
 Name=Linguee
 Name[ar]=Linguee
 Name[az]=Linguee
+Name[be]=Linguee
+Name[be@latin]=Linguee
 Name[bg]=Linguee
 Name[bs]=Linguee
 Name[ca]=Linguee
@@ -38,6 +40,8 @@ Keys=linguee
 Query=https://www.linguee.com/search?source=auto&query=\\{@}
 Query[ar]=https://www.linguee.com/search?source=auto&query=\\{@}
 Query[az]=https://www.linguee.com/search?source=auto&query=\\{@}
+Query[be]=https://www.linguee.com/search?source=auto&query=\\{@}
+Query[be@latin]=https://www.linguee.com/search?source=auto&query=\\{@}
 Query[bg]=https://www.linguee.com/search?source=auto&query=\\{@}
 Query[bs]=https://www.linguee.com/search?source=auto&query=\\{@}
 Query[ca]=https://www.linguee.com/search?source=auto&query=\\{@}

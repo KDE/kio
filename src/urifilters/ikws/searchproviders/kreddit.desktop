@@ -2,6 +2,8 @@
 Name=KDE Reddit
 Name[ar]=قناة كدي على ردت
 Name[az]=KDE Reddit
+Name[be]=KDE Reddit
+Name[be@latin]=KDE Reddit
 Name[bg]=KDE Reddit
 Name[bs]=KDE Redit
 Name[ca]=KDE Reddit
@@ -38,6 +40,8 @@ Keys=kreddit
 Query=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[ar]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[az]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
+Query[be]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
+Query[be@latin]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[bg]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[bs]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[ca]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1

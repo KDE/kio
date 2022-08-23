@@ -6,8 +6,8 @@ Name[ar]=بحث تطبيقات كدي
 Name[as]=KDE App Search
 Name[ast]=Busca d'aplicaciones de KDE
 Name[az]=KDE Proqram Axtarışı
-Name[be]=Пошук праграмаў KDE
-Name[be@latin]=Pošuk aplikacyjaŭ KDE
+Name[be]=Пошук праграм KDE
+Name[be@latin]=Pošuk prahram KDE
 Name[bg]=KDE App Search
 Name[bn]=কে.ডি.ই. অ্যাপলিকেশন অনুসন্ধান
 Name[bn_IN]=KDE অ্যাপ্লিকেশন অনুসন্ধান
@@ -99,6 +99,8 @@ Query=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[ar]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[ast]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[az]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
+Query[be]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
+Query[be@latin]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[bg]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[bs]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[ca]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}

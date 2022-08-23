@@ -4,6 +4,8 @@ Name=Baidu
 Name[ar]=بايدو
 Name[ast]=Baidu
 Name[az]=Baidu
+Name[be]=Baidu
+Name[be@latin]=Baidu
 Name[bg]=Търсене в Baidu
 Name[bn]=বাইডু
 Name[bs]=Bajdu
@@ -79,6 +81,8 @@ Query=https://www.baidu.com/s?wd=\\{@}
 Query[ar]=https://www.baidu.com/s?wd=\\{@}
 Query[ast]=https://www.baidu.com/s?wd=\\{@}
 Query[az]=https://www.baidu.com/s?wd=\\{@}
+Query[be]=https://www.baidu.com/s?wd=\\{@}
+Query[be@latin]=https://www.baidu.com/s?wd=\\{@}
 Query[bg]=https://www.baidu.com/s?wd=\\{@}
 Query[bs]=https://www.baidu.com/s?wd=\\{@}
 Query[ca]=https://www.baidu.com/s?wd=\\{@}

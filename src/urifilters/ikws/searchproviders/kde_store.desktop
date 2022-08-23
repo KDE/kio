@@ -5,6 +5,8 @@ Keys=kdestore,kdelook,klook,kdel
 Name=KDE Store
 Name[ar]=متجر كدي
 Name[az]=KDE mağazası
+Name[be]=Крама KDE
+Name[be@latin]=Krama KDE
 Name[bg]=Магазин на KDE
 Name[bs]=KDE Prodavnica
 Name[ca]=KDE Store
@@ -39,6 +41,8 @@ Name[zh_CN]=KDE 商店
 Query=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[ar]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[az]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
+Query[be]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
+Query[be@latin]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[bg]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[bs]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[ca]=https://store.kde.org/content/search.php?search=Search&name=\\{@}

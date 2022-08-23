@@ -2,6 +2,8 @@
 Name=Krita Manual
 Name[ar]=دليل كريتا
 Name[az]=Krita təlimatı
+Name[be]=Дапаможнік Krita
+Name[be@latin]=Dapamožnik Krita
 Name[bg]=Ръководство за Krita
 Name[bs]=Krita Uputstvo
 Name[ca]=Manual del Krita
@@ -38,6 +40,8 @@ Keys=kritadocs,kritamanual,krita
 Query=https://docs.krita.org/en/search.html?q=\\{@}
 Query[ar]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[az]=https://docs.krita.org/en/search.html?q=\\{@}
+Query[be]=https://docs.krita.org/en/search.html?q=\\{@}
+Query[be@latin]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[bg]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[bs]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[ca]=https://docs.krita.org/ca/search.html?q=\\{@}

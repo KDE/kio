@@ -3,6 +3,8 @@ Type=Service
 Name=Google Shopping
 Name[ar]=تسوّق جوجل
 Name[az]=Google Alış-Veriş
+Name[be]=Куплі Google
+Name[be@latin]=Kupli Google
 Name[bg]=Пазаруване в Google
 Name[bs]=Gugl Šoping
 Name[ca]=Compres de Google
@@ -64,6 +66,8 @@ Query=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[ar]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[ast]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[az]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
+Query[be]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
+Query[be@latin]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[bg]=https://www.google.com/search?hl=bg&tbm=shop&q=\\{@}
 Query[bs]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[ca]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
