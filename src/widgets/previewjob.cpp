@@ -392,8 +392,12 @@ void PreviewJobPrivate::startPreview()
                 if (pluginIt == mimeMap.constEnd()) {
                     // Check the wildcards last, see BUG 453480
                     QString groupMimeType = mimeType;
-                    static const QRegularExpression expr(QStringLiteral("/.*"));
-                    groupMimeType.replace(expr, QStringLiteral("/*"));
+                    const int slashIdx = groupMimeType.indexOf(QLatin1Char('/'));
+                    if (slashIdx != -1) {
+                        // Replace everything after '/' with '*'
+                        groupMimeType.truncate(slashIdx + 1);
+                        groupMimeType += QLatin1Char('*');
+                    }
                     pluginIt = mimeMap.constFind(groupMimeType);
                 }
             }
