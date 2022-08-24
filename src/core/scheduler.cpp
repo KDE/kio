@@ -650,6 +650,7 @@ QList<Slave *> ProtoQueue::allSlaves() const
 // private slot
 void ProtoQueue::startAJob()
 {
+    qDebug() << Q_FUNC_INFO;
     ensureNoDuplicates(&m_queuesBySerial);
     verifyRunningJobsCount(&m_queuesByHostname, m_runningJobsCount);
 
@@ -702,8 +703,12 @@ void ProtoQueue::startAJob()
         Slave *slave = m_slaveKeeper.takeSlaveForJob(startingJob);
         SimpleJobPrivate *jobPriv = SimpleJobPrivate::get(startingJob);
         if (!slave) {
+
+            qDebug() << "!slave";
             isNewSlave = true;
             slave = createSlave(jobPriv->m_protocol, startingJob, jobPriv->m_url);
+        } else {
+            qDebug() << "slave";
         }
 
         if (slave) {

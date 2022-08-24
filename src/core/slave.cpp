@@ -409,6 +409,7 @@ void Slave::setConfig(const MetaData &config)
 // TODO KF6: return std::unique_ptr
 Slave *Slave::createSlave(const QString &protocol, const QUrl &url, int &error, QString &error_text)
 {
+    qDebug() << protocol << url << error << error_text;
     Q_UNUSED(url)
     // qDebug() << "createSlave" << protocol << "for" << url;
     // Firstly take into account all special slaves
@@ -484,6 +485,7 @@ Slave *Slave::createSlave(const QString &protocol, const QUrl &url, int &error, 
     }
 
     qint64 pid = 0;
+    qDebug() << kioslaveExecutable << args;
     QProcess::startDetached(kioslaveExecutable, args, QString(), &pid);
     slave->setPID(pid);
 
