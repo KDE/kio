@@ -1102,7 +1102,9 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
             teardown = placesModel->teardownActionForIndex(index);
             if (teardown) {
                 teardown->setParent(&menu);
-                teardown->setEnabled(placesModel->isTeardownAllowed(index));
+                if (!placesModel->isTeardownAllowed(index)) {
+                    teardown->setEnabled(false);
+                }
             }
 
             if (placesModel->setupNeeded(index)) {

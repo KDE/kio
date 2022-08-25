@@ -1403,12 +1403,16 @@ QAction *KFilePlacesModel::teardownActionForIndex(const QModelIndex &index) cons
 {
     Solid::Device device = deviceForIndex(index);
 
+    QAction *action = nullptr;
+
     if (device.is<Solid::StorageAccess>() && device.as<Solid::StorageAccess>()->isAccessible()) {
         Solid::StorageDrive *drive = device.as<Solid::StorageDrive>();
 
         if (drive == nullptr) {
             drive = device.parent().as<Solid::StorageDrive>();
         }
+
+        const bool teardownInProgress = deviceAccessibility(index) == KFilePlacesModel::TeardownInProgress;
 
         bool hotpluggable = false;
         bool removable = false;
@@ -1422,23 +1426,39 @@ QAction *KFilePlacesModel::teardownActionForIndex(const QModelIndex &index) cons
         QString text;
 
         if (device.is<Solid::OpticalDisc>()) {
-            text = i18nc("@action:inmenu", "&Release");
+            if (teardownInProgress) {
+                text = i18nc("@action:inmenu", "Releasing…");
+            } else {
+                text = i18nc("@action:inmenu", "&Release");
+            }
         } else if (removable || hotpluggable) {
-            text = i18nc("@action:inmenu", "&Safely Remove");
+            if (teardownInProgress) {
+                text = i18nc("@action:inmenu", "Safely Removing…");
+            } else {
+                text = i18nc("@action:inmenu", "&Safely Remove");
+            }
             iconName = QStringLiteral("media-eject");
         } else {
-            text = i18nc("@action:inmenu", "&Unmount");
+            if (teardownInProgress) {
+                text = i18nc("@action:inmenu", "Unmounting…");
+            } else {
+                text = i18nc("@action:inmenu", "&Unmount");
+            }
             iconName = QStringLiteral("media-eject");
         }
 
         if (!iconName.isEmpty()) {
-            return new QAction(QIcon::fromTheme(iconName), text, nullptr);
+            action = new QAction(QIcon::fromTheme(iconName), text, nullptr);
         } else {
-            return new QAction(text, nullptr);
+            action = new QAction(text, nullptr);
+        }
+
+        if (teardownInProgress) {
+            action->setEnabled(false);
         }
     }
 
-    return nullptr;
+    return action;
 }
 
 QAction *KFilePlacesModel::ejectActionForIndex(const QModelIndex &index) const
