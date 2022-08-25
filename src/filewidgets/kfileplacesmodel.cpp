@@ -213,7 +213,7 @@ public:
     void initDeviceList();
     void deviceAdded(const QString &udi);
     void deviceRemoved(const QString &udi);
-    void itemChanged(const QString &udi);
+    void itemChanged(const QString &udi, const QVector<int> &roles);
     void reloadBookmarks();
     void storageSetupDone(Solid::ErrorType error, const QVariant &errorData, Solid::StorageAccess *sender);
     void storageTeardownDone(Solid::ErrorType error, const QVariant &errorData);
@@ -797,12 +797,12 @@ void KFilePlacesModelPrivate::deviceRemoved(const QString &udi)
     }
 }
 
-void KFilePlacesModelPrivate::itemChanged(const QString &id)
+void KFilePlacesModelPrivate::itemChanged(const QString &id, const QVector<int> &roles)
 {
     for (int row = 0; row < items.size(); ++row) {
         if (items.at(row)->id() == id) {
             QModelIndex index = q->index(row, 0);
-            Q_EMIT q->dataChanged(index, index);
+            Q_EMIT q->dataChanged(index, index, roles);
         }
     }
 }
@@ -929,8 +929,8 @@ QList<KFilePlacesItem *> KFilePlacesModelPrivate::loadBookmarkList()
                 }
 
                 if (item) {
-                    QObject::connect(item, &KFilePlacesItem::itemChanged, q, [this](const QString &id) {
-                        itemChanged(id);
+                    QObject::connect(item, &KFilePlacesItem::itemChanged, q, [this](const QString &id, const QVector<int> &roles) {
+                        itemChanged(id, roles);
                     });
 
                     items << item;
@@ -941,8 +941,8 @@ QList<KFilePlacesItem *> KFilePlacesModelPrivate::loadBookmarkList()
                     tagsList.removeAll(tag);
                     KFilePlacesItem *item = new KFilePlacesItem(bookmarkManager, bookmark.address(), QString(), q);
                     items << item;
-                    QObject::connect(item, &KFilePlacesItem::itemChanged, q, [this](const QString &id) {
-                        itemChanged(id);
+                    QObject::connect(item, &KFilePlacesItem::itemChanged, q, [this](const QString &id, const QVector<int> &roles) {
+                        itemChanged(id, roles);
                     });
                 }
             }
@@ -956,8 +956,8 @@ QList<KFilePlacesItem *> KFilePlacesModelPrivate::loadBookmarkList()
         bookmark = KFilePlacesItem::createDeviceBookmark(bookmarkManager, udi);
         if (!bookmark.isNull()) {
             KFilePlacesItem *item = new KFilePlacesItem(bookmarkManager, bookmark.address(), udi, q);
-            QObject::connect(item, &KFilePlacesItem::itemChanged, q, [this](const QString &id) {
-                itemChanged(id);
+            QObject::connect(item, &KFilePlacesItem::itemChanged, q, [this](const QString &id, const QVector<int> &roles) {
+                itemChanged(id, roles);
             });
             // TODO: Update bookmark internal element
             items << item;
@@ -968,8 +968,8 @@ QList<KFilePlacesItem *> KFilePlacesModelPrivate::loadBookmarkList()
         bookmark = KFilePlacesItem::createTagBookmark(bookmarkManager, tag);
         if (!bookmark.isNull()) {
             KFilePlacesItem *item = new KFilePlacesItem(bookmarkManager, bookmark.address(), tag, q);
-            QObject::connect(item, &KFilePlacesItem::itemChanged, q, [this](const QString &id) {
-                itemChanged(id);
+            QObject::connect(item, &KFilePlacesItem::itemChanged, q, [this](const QString &id, const QVector<int> &roles) {
+                itemChanged(id, roles);
             });
             items << item;
         }
