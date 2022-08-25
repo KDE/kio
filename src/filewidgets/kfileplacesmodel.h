@@ -98,6 +98,13 @@ public:
          * @since 5.95
          */
         TeardownOverlayRecommendedRole = 0x032EDCCE,
+
+        /**
+         * roleName is "deviceAccessibility".
+         * @see deviceAccessibility()
+         * @since 5.99
+         */
+        DeviceAccessibilityRole = 0x023FFD93,
     };
 
     /**
@@ -115,6 +122,9 @@ public:
         TagsType, ///< "Tags" section. @since 5.54
     };
     Q_ENUM(GroupType)
+
+    enum DeviceAccessibility { SetupNeeded, SetupInProgress, Accessible, TeardownInProgress };
+    Q_ENUM(DeviceAccessibility)
 
     explicit KFilePlacesModel(QObject *parent = nullptr);
     /**
@@ -162,6 +172,13 @@ public:
      * @since 5.95
      **/
     Q_INVOKABLE bool isTeardownOverlayRecommended(const QModelIndex &index) const;
+
+    /**
+     * @return Whether this device is currently accessible or being (un)mounted.
+     *
+     * @since 5.99
+     */
+    Q_INVOKABLE KFilePlacesModel::DeviceAccessibility deviceAccessibility(const QModelIndex &index) const;
 
     /**
      * @return The icon of the place at index @p index.

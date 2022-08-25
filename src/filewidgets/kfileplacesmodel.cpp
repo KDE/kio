@@ -602,6 +602,16 @@ bool KFilePlacesModel::isTeardownOverlayRecommended(const QModelIndex &index) co
     return item->isTeardownOverlayRecommended();
 }
 
+KFilePlacesModel::DeviceAccessibility KFilePlacesModel::deviceAccessibility(const QModelIndex &index) const
+{
+    if (!index.isValid()) {
+        return KFilePlacesModel::Accessible;
+    }
+
+    KFilePlacesItem *item = static_cast<KFilePlacesItem *>(index.internalPointer());
+    return item->deviceAccessibility();
+}
+
 Solid::Device KFilePlacesModel::deviceForIndex(const QModelIndex &index) const
 {
     if (!index.isValid()) {
@@ -703,6 +713,7 @@ QHash<int, QByteArray> KFilePlacesModel::roleNames() const
     super[TeardownAllowedRole] = "isTeardownAllowed";
     super[EjectAllowedRole] = "isEjectAllowed";
     super[TeardownOverlayRecommendedRole] = "isTeardownOverlayRecommended";
+    super[DeviceAccessibilityRole] = "deviceAccessibility";
 
     return super;
 }

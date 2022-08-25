@@ -37,6 +37,7 @@ public:
     QString id() const;
 
     bool isDevice() const;
+    KFilePlacesModel::DeviceAccessibility deviceAccessibility() const;
     bool isTeardownAllowed() const;
     bool isTeardownOverlayRecommended() const;
     bool isEjectAllowed() const;
@@ -85,6 +86,8 @@ private:
     bool m_isAccessible;
     bool m_isTeardownAllowed;
     bool m_isTeardownOverlayRecommended;
+    bool m_isTeardownInProgress;
+    bool m_isSetupInProgress;
     QString m_text;
     Solid::Device m_device;
     QPointer<Solid::StorageAccess> m_access;

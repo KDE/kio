@@ -40,6 +40,8 @@ KFilePlacesItem::KFilePlacesItem(KBookmarkManager *manager, const QString &addre
     , m_isAccessible(false)
     , m_isTeardownAllowed(false)
     , m_isTeardownOverlayRecommended(false)
+    , m_isTeardownInProgress(false)
+    , m_isSetupInProgress(false)
 {
     updateDeviceInfo(udi);
     setBookmark(m_manager->findByAddress(address));
@@ -117,6 +119,19 @@ bool KFilePlacesItem::hasSupportedScheme(const QStringList &schemes) const
 bool KFilePlacesItem::isDevice() const
 {
     return !bookmark().metaDataItem(QStringLiteral("UDI")).isEmpty();
+}
+
+KFilePlacesModel::DeviceAccessibility KFilePlacesItem::deviceAccessibility() const
+{
+    if (m_isTeardownInProgress) {
+        return KFilePlacesModel::TeardownInProgress;
+    } else if (m_isSetupInProgress) {
+        return KFilePlacesModel::SetupInProgress;
+    } else if (m_isAccessible) {
+        return KFilePlacesModel::Accessible;
+    } else {
+        return KFilePlacesModel::SetupNeeded;
+    }
 }
 
 bool KFilePlacesItem::isTeardownAllowed() const
@@ -339,6 +354,9 @@ QVariant KFilePlacesItem::deviceData(int role) const
         case KFilePlacesModel::TeardownOverlayRecommendedRole:
             return m_isTeardownOverlayRecommended;
 
+        case KFilePlacesModel::DeviceAccessibilityRole:
+            return deviceAccessibility();
+
         case KFilePlacesModel::FixedDeviceRole: {
             if (m_drive != nullptr) {
                 return !m_drive->isHotpluggable() && !m_drive->isRemovable();
@@ -466,6 +484,24 @@ bool KFilePlacesItem::updateDeviceInfo(const QString &udi)
         }
 
         if (m_access) {
+            connect(m_access.data(), &Solid::StorageAccess::setupRequested, this, [this] {
+                m_isSetupInProgress = true;
+                Q_EMIT itemChanged(id(), {KFilePlacesModel::DeviceAccessibilityRole});
+            });
+            connect(m_access.data(), &Solid::StorageAccess::setupDone, this, [this] {
+                m_isSetupInProgress = false;
+                Q_EMIT itemChanged(id(), {KFilePlacesModel::DeviceAccessibilityRole});
+            });
+
+            connect(m_access.data(), &Solid::StorageAccess::teardownRequested, this, [this] {
+                m_isTeardownInProgress = true;
+                Q_EMIT itemChanged(id(), {KFilePlacesModel::DeviceAccessibilityRole});
+            });
+            connect(m_access.data(), &Solid::StorageAccess::teardownDone, this, [this] {
+                m_isTeardownInProgress = false;
+                Q_EMIT itemChanged(id(), {KFilePlacesModel::DeviceAccessibilityRole});
+            });
+
             connect(m_access.data(), &Solid::StorageAccess::accessibilityChanged, this, &KFilePlacesItem::onAccessibilityChanged);
             onAccessibilityChanged(m_access->isAccessible());
         }
