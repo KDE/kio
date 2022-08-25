@@ -31,16 +31,6 @@ class KFilePlacesItem : public QObject
 {
     Q_OBJECT
 public:
-    enum GroupType {
-        PlacesType,
-        RemoteType,
-        RecentlySavedType,
-        SearchForType,
-        DevicesType,
-        RemovableDevicesType,
-        TagsType,
-    };
-
     KFilePlacesItem(KBookmarkManager *manager, const QString &address, const QString &udi, KFilePlacesModel *parent);
     ~KFilePlacesItem() override;
 
