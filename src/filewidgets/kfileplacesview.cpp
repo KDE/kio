@@ -25,6 +25,7 @@
 #include <QTimeLine>
 #include <QTimer>
 #include <QToolTip>
+#include <QVariantAnimation>
 
 #include <KColorScheme>
 #include <KColorUtils>
@@ -151,8 +152,13 @@ void KFilePlacesViewDelegate::paint(QPainter *painter, const QStyleOptionViewIte
 
     QApplication::style()->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, painter);
 
+    const auto accessibility = placesModel->deviceAccessibility(index);
+    const bool isBusy = (accessibility == KFilePlacesModel::SetupInProgress || accessibility == KFilePlacesModel::TeardownInProgress);
+
     QIcon actionIcon;
-    if (placesModel->isTeardownOverlayRecommended(index)) {
+    if (isBusy) {
+        actionIcon = QIcon::fromTheme(QStringLiteral("view-refresh"));
+    } else if (placesModel->isTeardownOverlayRecommended(index)) {
         actionIcon = QIcon::fromTheme(QStringLiteral("media-eject"));
     }
 
@@ -179,16 +185,32 @@ void KFilePlacesViewDelegate::paint(QPainter *painter, const QStyleOptionViewIte
     painter->drawPixmap(point, pm);
 
     if (!actionIcon.isNull()) {
-        QPoint actionPos(isLTR ? opt.rect.right() - actionAreaWidth : opt.rect.left() + s_lateralMargin,
-                         opt.rect.top() + (opt.rect.height() - actionIconSize()) / 2);
-        QIcon::Mode actionMode = QIcon::Normal;
+        const int iconSize = actionIconSize();
+        QIcon::Mode mode = QIcon::Normal;
         if (selectedAndActive) {
-            actionMode = QIcon::Selected;
+            mode = QIcon::Selected;
         } else if (m_hoveredAction == index) {
-            actionMode = QIcon::Active;
+            mode = QIcon::Active;
         }
-        QPixmap actionPix = actionIcon.pixmap(actionIconSize(), actionIconSize(), actionMode);
-        painter->drawPixmap(actionPos, actionPix);
+
+        const QPixmap pixmap = actionIcon.pixmap(iconSize, iconSize, mode);
+
+        const QRectF rect(isLTR ? opt.rect.right() - actionAreaWidth : opt.rect.left() + s_lateralMargin,
+                          opt.rect.top() + (opt.rect.height() - iconSize) / 2,
+                          iconSize,
+                          iconSize);
+
+        if (isBusy) {
+            painter->save();
+            painter->setRenderHint(QPainter::SmoothPixmapTransform);
+            painter->translate(rect.center());
+            painter->rotate(m_busyAnimationRotation);
+            painter->translate(QPointF(-rect.width() / 2.0, -rect.height() / 2.0));
+            painter->drawPixmap(0, 0, pixmap);
+            painter->restore();
+        } else {
+            painter->drawPixmap(rect.topLeft(), pixmap);
+        }
     }
 
     if (changePalette) {
@@ -321,6 +343,11 @@ void KFilePlacesViewDelegate::setAppearingItemProgress(qreal value)
             m_appearingItems.clear();
         }
     }
+}
+
+void KFilePlacesViewDelegate::setDeviceBusyAnimationRotation(qreal angle)
+{
+    m_busyAnimationRotation = angle;
 }
 
 void KFilePlacesViewDelegate::addDisappearingItem(const QModelIndex &index)
@@ -687,6 +714,8 @@ public:
     void enableSmoothItemResizing();
     void slotEmptyTrash();
 
+    void deviceBusyAnimationValueChanged(const QVariant &value);
+
     KFilePlacesView *const q;
 
     KFilePlacesEventWatcher *const m_watcher;
@@ -710,6 +739,9 @@ public:
     QTimeLine m_adaptItemsTimeline;
     QTimeLine m_itemAppearTimeline;
     QTimeLine m_itemDisappearTimeline;
+
+    QVariantAnimation m_deviceBusyAnimation;
+    QVector<QPersistentModelIndex> m_busyDevices;
 
     QRect m_dropRect;
     QPersistentModelIndex m_dropIndex;
@@ -811,6 +843,15 @@ KFilePlacesView::KFilePlacesView(QWidget *parent)
     d->m_itemDisappearTimeline.setDuration(500);
     d->m_itemDisappearTimeline.setUpdateInterval(5);
     d->m_itemDisappearTimeline.setEasingCurve(QEasingCurve::InOutSine);
+
+    // Adapted from KBusyIndicatorWidget
+    d->m_deviceBusyAnimation.setLoopCount(-1);
+    d->m_deviceBusyAnimation.setDuration(2000);
+    d->m_deviceBusyAnimation.setStartValue(0);
+    d->m_deviceBusyAnimation.setEndValue(360);
+    connect(&d->m_deviceBusyAnimation, &QVariantAnimation::valueChanged, this, [this](const QVariant &value) {
+        d->deviceBusyAnimationValueChanged(value);
+    });
 
     viewport()->installEventFilter(d->m_watcher);
     connect(d->m_watcher, &KFilePlacesEventWatcher::entryMiddleClicked, this, [this](const QModelIndex &index) {
@@ -1995,10 +2036,39 @@ void KFilePlacesViewPrivate::enableSmoothItemResizing()
     m_smoothItemResizing = true;
 }
 
+void KFilePlacesViewPrivate::deviceBusyAnimationValueChanged(const QVariant &value)
+{
+    m_delegate->setDeviceBusyAnimationRotation(value.toReal());
+    for (const auto &idx : std::as_const(m_busyDevices)) {
+        q->update(idx);
+    }
+}
+
 void KFilePlacesView::dataChanged(const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles)
 {
     QListView::dataChanged(topLeft, bottomRight, roles);
     d->adaptItemSize();
+
+    if ((roles.isEmpty() || roles.contains(KFilePlacesModel::DeviceAccessibilityRole)) && d->shouldAnimate()) {
+        QVector<QPersistentModelIndex> busyDevices;
+
+        auto *placesModel = qobject_cast<KFilePlacesModel *>(model());
+        for (int i = 0; i < placesModel->rowCount(); ++i) {
+            const QModelIndex idx = placesModel->index(i, 0);
+            const auto accessibility = placesModel->deviceAccessibility(idx);
+            if (accessibility == KFilePlacesModel::SetupInProgress || accessibility == KFilePlacesModel::TeardownInProgress) {
+                busyDevices.append(QPersistentModelIndex(idx));
+            }
+        }
+
+        d->m_busyDevices = busyDevices;
+
+        if (busyDevices.isEmpty()) {
+            d->m_deviceBusyAnimation.stop();
+        } else {
+            d->m_deviceBusyAnimation.start();
+        }
+    }
 }
 
 #include "moc_kfileplacesview_p.cpp"

@@ -50,6 +50,7 @@ public:
     void addDisappearingItem(const QModelIndex &index);
     void addDisappearingItemGroup(const QModelIndex &index);
     void setDisappearingItemProgress(qreal value);
+    void setDeviceBusyAnimationRotation(qreal angle);
 
     void setShowHoverIndication(bool show);
     void setHoveredHeaderArea(const QModelIndex &index);
@@ -95,6 +96,8 @@ private:
     QList<QPersistentModelIndex> m_disappearingItems;
     qreal m_disappearingHeightScale;
     qreal m_disappearingOpacity;
+
+    qreal m_busyAnimationRotation = 0.0;
 
     bool m_showHoverIndication;
     QPersistentModelIndex m_hoveredHeaderArea;
