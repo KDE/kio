@@ -246,7 +246,7 @@ void FileCopyJobPrivate::connectSubjob(SimpleJob *job)
         }
     });
 
-    q->connect(job, &KJob::processedSize, q, [q, this](KJob *job, qulonglong processedSize) {
+    q->connect(job, &KJob::processedSize, q, [q, this](const KJob *job, qulonglong processedSize) {
         if (job == m_copyJob) {
             m_bFileCopyInProgress = processedSize > 0;
         }
@@ -359,7 +359,7 @@ void FileCopyJobPrivate::slotCanResume(KIO::Job *job, KIO::filesize_t offset)
             if (!KProtocolManager::autoResume() && !(m_flags & Overwrite) && askUserActionInterface) {
                 auto renameSignal = &AskUserActionInterface::askUserRenameResult;
 
-                q->connect(askUserActionInterface, renameSignal, q, [=](KIO::RenameDialog_Result result, const QUrl &, KJob *askJob) {
+                q->connect(askUserActionInterface, renameSignal, q, [=](KIO::RenameDialog_Result result, const QUrl &, const KJob *askJob) {
                     Q_ASSERT(kioJob == askJob);
 
                     // Only receive askUserRenameResult once per rename dialog
