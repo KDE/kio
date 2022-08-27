@@ -686,6 +686,7 @@ public:
     void itemAppearUpdate(qreal value);
     void itemDisappearUpdate(qreal value);
     void enableSmoothItemResizing();
+    void slotEmptyTrash();
 
     KFilePlacesView *const q;
 
@@ -1027,6 +1028,29 @@ void KFilePlacesViewPrivate::writeConfig()
     cg.sync();
 }
 
+void KFilePlacesViewPrivate::slotEmptyTrash()
+{
+    auto *parentWindow = q->window();
+    using AskIface = KIO::AskUserActionInterface;
+
+    if (!m_askUserHandler) {
+        m_askUserHandler.reset(new KIO::WidgetsAskUserActionHandler{});
+
+        auto slotAskResult = [parentWindow](bool allowDelete, const QList<QUrl> &, AskIface::DeletionType, QWidget *parent) {
+            if (parent != parentWindow || !allowDelete) {
+                return;
+            }
+
+            KIO::Job *job = KIO::emptyTrash();
+            job->setUiDelegate(KIO::createDefaultJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, parentWindow));
+        };
+
+        q->connect(m_askUserHandler.get(), &AskIface::askUserDeleteResult, q, slotAskResult);
+    }
+
+    m_askUserHandler->askUserDelete(QList<QUrl>{}, AskIface::EmptyTrash, AskIface::DefaultConfirmation, parentWindow);
+}
+
 void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
 {
     KFilePlacesModel *placesModel = qobject_cast<KFilePlacesModel *>(model());
@@ -1190,28 +1214,8 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
 
     if (result) {
         if (result == emptyTrash) {
-            auto *parentWindow = window();
+            d->slotEmptyTrash();
 
-            if (!d->m_askUserHandler) {
-                d->m_askUserHandler.reset(new KIO::WidgetsAskUserActionHandler{});
-
-                connect(d->m_askUserHandler.get(),
-                        &KIO::AskUserActionInterface::askUserDeleteResult,
-                        this,
-                        [parentWindow](bool allowDelete, const QList<QUrl> &, KIO::AskUserActionInterface::DeletionType, QWidget *parent) {
-                            if (parent != parentWindow || !allowDelete) {
-                                return;
-                            }
-
-                            KIO::Job *job = KIO::emptyTrash();
-                            job->setUiDelegate(KIO::createDefaultJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, parentWindow));
-                        });
-            }
-
-            d->m_askUserHandler->askUserDelete(QList<QUrl>{},
-                                               KIO::AskUserActionInterface::EmptyTrash,
-                                               KIO::AskUserActionInterface::DefaultConfirmation,
-                                               parentWindow);
         } else if (result == eject) {
             placesModel->requestEject(index);
         } else if (result == mount) {
