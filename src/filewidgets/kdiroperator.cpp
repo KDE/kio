@@ -762,7 +762,7 @@ KIO::DeleteJob *KDirOperator::del(const KFileItemList &items, QWidget *parent, b
 
     bool doIt = !ask;
     if (ask) {
-        KIO::JobUiDelegate uiDelegate;
+        KIO::JobUiDelegate uiDelegate(KIO::JobUiDelegate::Version::V2);
         uiDelegate.setWindow(parent);
         doIt = uiDelegate.askDeleteConfirmation(urls, KIO::JobUiDelegate::Delete, KIO::JobUiDelegate::DefaultConfirmation);
     }
@@ -817,7 +817,7 @@ KIO::CopyJob *KDirOperator::trash(const KFileItemList &items, QWidget *parent, b
 
     bool doIt = !ask;
     if (ask) {
-        KIO::JobUiDelegate uiDelegate;
+        KIO::JobUiDelegate uiDelegate(KIO::JobUiDelegate::Version::V2);
         uiDelegate.setWindow(parent);
         doIt = uiDelegate.askDeleteConfirmation(urls, KIO::JobUiDelegate::Trash, KIO::JobUiDelegate::DefaultConfirmation);
     }

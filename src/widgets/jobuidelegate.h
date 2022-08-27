@@ -20,8 +20,9 @@
 #include <kio/skipdialog.h>
 
 class KJob;
-
+class KDirOperator;
 class KIOWidgetJobUiDelegateFactory;
+
 namespace KIO
 {
 class JobUiDelegatePrivate;
@@ -66,6 +67,8 @@ public:
 #endif
 
 protected:
+    friend class ::KDirOperator;
+
     enum class Version {
         V2,
     };
