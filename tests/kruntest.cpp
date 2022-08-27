@@ -9,9 +9,11 @@
 
 #include <KIO/ApplicationLauncherJob>
 #include <KIO/JobUiDelegate>
+#include <KIO/JobUiDelegateFactory>
 #include <KIO/OpenUrlJob>
 
 #include <KService>
+
 #include <QApplication>
 #include <QDebug>
 #include <QLabel>
@@ -122,7 +124,7 @@ void Receiver::slotLaunchTest(QPushButton *sender)
     }
     auto *job = new KIO::ApplicationLauncherJob(service, this);
     job->setUrls(urls);
-    job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, this));
+    job->setUiDelegate(KIO::createDefaultJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, this));
     job->start();
 }
 
@@ -151,7 +153,7 @@ void Receiver::slotStart()
 void Receiver::slotLaunchOne()
 {
     auto *job = new KIO::OpenUrlJob(QUrl(QStringLiteral("http://www.kde.org")));
-    job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, this));
+    job->setUiDelegate(KIO::createDefaultJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, this));
     job->start();
 }
 

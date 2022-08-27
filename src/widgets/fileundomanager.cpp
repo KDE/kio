@@ -743,7 +743,7 @@ bool FileUndoManager::UiInterface::copiedFileWasModified(const QUrl &src, const 
 
 bool FileUndoManager::UiInterface::confirmDeletion(const QList<QUrl> &files)
 {
-    KIO::JobUiDelegate uiDelegate;
+    KIO::JobUiDelegate uiDelegate(JobUiDelegate::Version::V2);
     uiDelegate.setWindow(d->m_parentWidget);
     // Because undo can happen with an accidental Ctrl-Z, we want to always confirm.
     return uiDelegate.askDeleteConfirmation(files, KIO::JobUiDelegate::Delete, KIO::JobUiDelegate::ForceConfirmation);

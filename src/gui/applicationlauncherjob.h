@@ -37,6 +37,9 @@ class ApplicationLauncherJobPrivate;
  * For error handling, either connect to the result() signal, or for a simple messagebox on error,
  * you can use:
  * @code
+ *    // Since 5.98 use:
+ *    job->setUiDelegate(KIO::createDefaultJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, this));
+ *    // For older releases use:
  *    job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, this));
  * @endcode
  * Using JobUiDelegate (which is widgets based) also enables the feature of asking the user

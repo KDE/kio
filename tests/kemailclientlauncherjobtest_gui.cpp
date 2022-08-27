@@ -7,6 +7,7 @@
 
 #include <KEMailClientLauncherJob>
 #include <KIO/JobUiDelegate>
+#include <KIO/JobUiDelegateFactory>
 #include <QApplication>
 #include <QDebug>
 #include <QDir>
@@ -27,7 +28,7 @@ int main(int argc, char *argv[])
         return QUrl::fromUserInput(arg, QDir::currentPath());
     });
     job->setAttachments(attachments);
-    job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, nullptr));
+    job->setUiDelegate(KIO::createDefaultJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, nullptr));
     job->start();
 
     QObject::connect(job, &KJob::result, &app, [&]() {

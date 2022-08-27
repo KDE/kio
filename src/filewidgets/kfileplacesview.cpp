@@ -30,6 +30,7 @@
 #include <KColorUtils>
 #include <KConfig>
 #include <KConfigGroup>
+#include <KIO/JobUiDelegateFactory>
 #include <KJob>
 #include <KJobWidgets>
 #include <KLocalizedString>
@@ -1203,7 +1204,7 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
                             }
 
                             KIO::Job *job = KIO::emptyTrash();
-                            job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, parentWindow));
+                            job->setUiDelegate(KIO::createDefaultJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, parentWindow));
                         });
             }
 

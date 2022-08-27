@@ -5,9 +5,11 @@
     SPDX-License-Identifier: LGPL-2.0-only
 */
 
-#include <KIO/JobUiDelegate>
-#include <KService>
+#include <KIO/JobUiDelegateFactory>
 #include <KTerminalLauncherJob>
+
+#include <KService>
+
 #include <QApplication>
 #include <QDebug>
 #include <QProcessEnvironment>
@@ -27,7 +29,7 @@ int main(int argc, char *argv[])
     env.insert("MYVAR", "myvalue"); // for interactive testing that it was set
     job->setProcessEnvironment(env);
     job->setWorkingDirectory(QStandardPaths::writableLocation(QStandardPaths::DownloadLocation)); // for testing
-    job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, nullptr));
+    job->setUiDelegate(KIO::createDefaultJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, nullptr));
     job->start();
 
     QObject::connect(job, &KJob::result, &app, [&]() {

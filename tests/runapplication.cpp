@@ -7,8 +7,10 @@
 */
 
 #include <KIO/ApplicationLauncherJob>
-#include <KIO/JobUiDelegate>
+#include <KIO/JobUiDelegateFactory>
+
 #include <KService>
+
 #include <QApplication>
 #include <QDebug>
 
@@ -36,7 +38,7 @@ int main(int argc, char *argv[])
 
     KIO::ApplicationLauncherJob *job = new KIO::ApplicationLauncherJob(service);
     job->setUrls(urls);
-    job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, nullptr));
+    job->setUiDelegate(KIO::createDefaultJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, nullptr));
     job->start();
 
     QObject::connect(job, &KJob::result, &app, [&]() {

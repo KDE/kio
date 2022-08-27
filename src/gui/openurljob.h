@@ -30,6 +30,9 @@ class OpenUrlJobPrivate;
  * For the "Open With" dialog functionality to work, make sure to set
  * KIO::JobUiDelegate as the delegate for this job (in widgets applications).
  * @code
+ *    // Since 5.98 use:
+ *    job->setUiDelegate(KIO::createDefaultJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, window));
+ *    // For older releases use:
  *    job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, window));
  * @endcode
  *
