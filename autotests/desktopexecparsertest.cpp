@@ -164,6 +164,7 @@ void DesktopExecParserTest::testProcessDesktopExec()
 
 void DesktopExecParserTest::testProcessDesktopExecNoFile_data()
 {
+    /* clang-format off */
     QTest::addColumn<QString>("execLine");
     QTest::addColumn<QList<QUrl>>("urls");
     QTest::addColumn<bool>("tempfiles");
@@ -210,11 +211,17 @@ void DesktopExecParserTest::testProcessDesktopExecNoFile_data()
     QTest::newRow("%F l1 tempfile") << "ktrash5 %F" << l1 << true << kioexecQuoted + " --tempfiles 'ktrash5 %F' file:///tmp";
     QTest::newRow("%f l1 tempfile") << "ktrash5 %f" << l1 << true << kioexecQuoted + " --tempfiles 'ktrash5 %f' file:///tmp";
 
-    QTest::newRow("sh -c ktrash5 %F") << "sh -c \"ktrash5 \"'\\\"'\"%F\"'\\\"'" << l1 << false << m_sh + " -c 'ktrash5 \\\"/tmp\\\"'";
+    QTest::newRow("sh -c ktrash5 %F")
+        << R"(sh -c "ktrash5 "'\"'"%F"'\"')"
+        << l1
+        << false
+        << m_sh + R"( -c 'ktrash5 \"/tmp\"')";
 
     // This was originally with kmailservice5, but that relies on it being installed
     QTest::newRow("ktrash5 %u l1") << "ktrash5 %u" << l1 << false << ktrashQuoted + " /tmp";
     QTest::newRow("ktrash5 %u l4") << "ktrash5 %u" << l4 << false << ktrashQuoted + " http://login:password@www.kde.org";
+
+    /* clang-format on */
 }
 
 void DesktopExecParserTest::testProcessDesktopExecNoFile()
@@ -257,10 +264,11 @@ void DesktopExecParserTest::testKtelnetservice()
     }
     QVERIFY(!ktelnetExec.isEmpty());
 
+    const QString expected = KShell::quoteArg(ktelnetExec) + QLatin1String(" %1://root@10.1.1.1");
     const QStringList protocols({QStringLiteral("ssh"), QStringLiteral("telnet"), QStringLiteral("rlogin")});
     for (const QString &protocol : protocols) {
         const QList<QUrl> urls({QUrl(QStringLiteral("%1://root@10.1.1.1").arg(protocol))});
         KIO::DesktopExecParser parser(*service, urls);
-        QCOMPARE(KShell::joinArgs(parser.resultingArguments()), QStringLiteral("%1 %2://root@10.1.1.1").arg(KShell::quoteArg(ktelnetExec), protocol));
+        QCOMPARE(KShell::joinArgs(parser.resultingArguments()), expected.arg(protocol));
     }
 }
