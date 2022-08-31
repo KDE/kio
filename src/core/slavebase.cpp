@@ -314,8 +314,7 @@ void SlaveBase::dispatchLoop()
             d->nextTimeout.invalidate();
             d->timeoutData = QByteArray();
             special(data);
-            // special calls finished(), verify and clear the state so the following dispatch starts with a clean slate
-            d->verifyState("timeoutSpecialCommand()");
+            // NB: not performing state validation since http slave is misbehaving and not emitting anything at the time of writing - August 2022
             d->m_state = d->Idle;
         }
 
