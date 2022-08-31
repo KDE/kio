@@ -28,6 +28,7 @@ namespace KIO
  * @sa KIO::JobUiDelegateExtension()
  *
  * @since 5.78
+ * @note This header wasn't installed until 5.98
  */
 
 class WidgetsAskUserActionHandlerPrivate;
