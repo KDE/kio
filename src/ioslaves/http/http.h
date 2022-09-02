@@ -5,6 +5,7 @@
     SPDX-FileCopyrightText: 2001, 2002 Hamish Rodda <rodda@kde.org>
     SPDX-FileCopyrightText: 2007 Daniel Nicoletti <mirttex@users.sourceforge.net>
     SPDX-FileCopyrightText: 2008, 2009 Andreas Hartmetz <ahartmetz@gmail.com>
+    SPDX-FileCopyrightText: 2022 Harald Sitter <sitter@kde.org>
 
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
@@ -19,7 +20,7 @@
 #include <QUrl>
 
 #include "httpmethod_p.h"
-#include "kio/tcpslavebase.h"
+#include "kio/tcpworkerbase.h"
 
 class QDomNodeList;
 class QFile;
@@ -36,7 +37,7 @@ class AuthInfo;
 class HeaderTokenizer;
 class KAbstractHttpAuthentication;
 
-class HTTPProtocol : public QObject, public KIO::TCPSlaveBase
+class HTTPProtocol : public QObject, public KIO::TCPWorkerBase
 {
     Q_OBJECT
 public:
@@ -209,38 +210,39 @@ public:
     //---------------------- Re-implemented methods ----------------
     virtual void setHost(const QString &host, quint16 port, const QString &user, const QString &pass) override;
 
-    void slave_status() override;
+    void worker_status() override;
 
-    void get(const QUrl &url) override;
-    void put(const QUrl &url, int _mode, KIO::JobFlags flags) override;
+    KIO::WorkerResult get(const QUrl &url) override;
+    KIO::WorkerResult put(const QUrl &url, int _mode, KIO::JobFlags flags) override;
 
     //----------------- Re-implemented methods for WebDAV -----------
-    void listDir(const QUrl &url) override;
-    void mkdir(const QUrl &url, int _permissions) override;
+    KIO::WorkerResult listDir(const QUrl &url) override;
+    KIO::WorkerResult mkdir(const QUrl &url, int _permissions) override;
 
-    void rename(const QUrl &src, const QUrl &dest, KIO::JobFlags flags) override;
-    void copy(const QUrl &src, const QUrl &dest, int _permissions, KIO::JobFlags flags) override;
-    void del(const QUrl &url, bool _isfile) override;
+    KIO::WorkerResult rename(const QUrl &src, const QUrl &dest, KIO::JobFlags flags) override;
+    KIO::WorkerResult copy(const QUrl &src, const QUrl &dest, int _permissions, KIO::JobFlags flags) override;
+    KIO::WorkerResult del(const QUrl &url, bool _isfile) override;
 
     // ask the host whether it supports WebDAV & cache this info
-    bool davHostOk();
+    Q_REQUIRED_RESULT KIO::WorkerResult davHostOk();
 
     // send generic DAV request
-    void davGeneric(const QUrl &url, KIO::HTTP_METHOD method, qint64 size = -1);
+    Q_REQUIRED_RESULT KIO::WorkerResult davGeneric(const QUrl &url, KIO::HTTP_METHOD method, qint64 size = -1);
 
     // Send requests to lock and unlock resources
-    void davLock(const QUrl &url, const QString &scope, const QString &type, const QString &owner);
-    void davUnlock(const QUrl &url);
+    Q_REQUIRED_RESULT KIO::WorkerResult davLock(const QUrl &url, const QString &scope, const QString &type, const QString &owner);
+    Q_REQUIRED_RESULT KIO::WorkerResult davUnlock(const QUrl &url);
 
     // Calls httpClose() and finished()
-    void davFinished();
+    Q_REQUIRED_RESULT KIO::WorkerResult davFinished();
 
     // Handle error conditions
-    QString davError(int code = -1, const QString &url = QString());
+    Q_REQUIRED_RESULT KIO::WorkerResult davError(int code = -1, const QString &url = QString());
+    Q_REQUIRED_RESULT KIO::WorkerResult davError(QString &errorMsg, int code = -1, const QString &url = QString());
     //---------------------------- End WebDAV -----------------------
 
     /**
-     * Special commands supported by this slave :
+     * Special commands supported by this worker :
      * 1 - HTTP POST
      * 2 - Cache has been updated
      * 3 - SSL Certificate Cache has been updated
@@ -248,11 +250,11 @@ public:
      * 5 - DAV LOCK     (see
      * 6 - DAV UNLOCK     README.webdav)
      */
-    void special(const QByteArray &data) override;
+    KIO::WorkerResult special(const QByteArray &data) override;
 
-    void mimetype(const QUrl &url) override;
+    KIO::WorkerResult mimetype(const QUrl &url) override;
 
-    void stat(const QUrl &url) override;
+    KIO::WorkerResult stat(const QUrl &url) override;
 
     void reparseConfiguration() override;
 
@@ -261,17 +263,17 @@ public:
      */
     void closeConnection() override;
 
-    void post(const QUrl &url, qint64 size = -1);
-    void multiGet(const QByteArray &data) override;
-    bool maybeSetRequestUrl(const QUrl &);
+    Q_REQUIRED_RESULT KIO::WorkerResult post(const QUrl &url, qint64 size = -1);
+    KIO::WorkerResult multiGet(const QByteArray &data) override;
+    Q_REQUIRED_RESULT KIO::WorkerResult maybeSetRequestUrl(const QUrl &);
 
     /**
      * Generate and send error message based on response code.
      */
-    bool sendHttpError();
+    Q_REQUIRED_RESULT KIO::WorkerResult sendHttpError();
 
     /**
-     * Call SlaveBase::errorPage() and remember that we've called it
+     * Call WorkerBase::errorPage() and remember that we've called it
      */
     bool sendErrorPageNotification();
 
@@ -282,9 +284,9 @@ public:
 
 protected Q_SLOTS:
     void slotData(const QByteArray &);
-    void slotFilterError(const QString &text);
-    void error(int errid, const QString &text);
-    void proxyAuthenticationForSocket(const QNetworkProxy &, QAuthenticator *);
+    Q_REQUIRED_RESULT KIO::WorkerResult slotFilterError(const QString &text);
+    Q_REQUIRED_RESULT KIO::WorkerResult error(int errid, const QString &text);
+    Q_REQUIRED_RESULT KIO::WorkerResult proxyAuthenticationForSocket(const QNetworkProxy &, QAuthenticator *);
     void saveProxyAuthenticationForSocket();
 
 protected:
@@ -293,11 +295,11 @@ protected:
     int readUnlimited(); ///< Read as much as possible.
 
     /**
-     * A thin wrapper around TCPSlaveBase::write() that will retry writing as
+     * A thin wrapper around TCPWorkerBase::write() that will retry writing as
      * long as no error occurs.
      */
     ssize_t write(const void *buf, size_t nbytes);
-    using SlaveBase::write;
+    using WorkerBase::write;
 
     /**
      * Add an encoding on to the appropriate stack this
@@ -315,13 +317,13 @@ protected:
      *
      * @p cacheHasPage will be set to true if the page was found, false otherwise.
      */
-    bool satisfyRequestFromCache(bool *cacheHasPage);
+    Q_REQUIRED_RESULT bool satisfyRequestFromCache(bool *cacheHasPage, KIO::WorkerResult &result);
     QString formatRequestUri() const;
     /**
      * create HTTP authentications response(s), if any
      */
     QString authenticationHeader();
-    bool sendQuery();
+    Q_REQUIRED_RESULT KIO::WorkerResult sendQuery();
 
     /**
      * Close transfer
@@ -330,7 +332,7 @@ protected:
     /**
      * Open connection
      */
-    bool httpOpenConnection();
+    Q_REQUIRED_RESULT KIO::WorkerResult httpOpenConnection();
     /**
      * Close connection
      */
@@ -355,22 +357,22 @@ protected:
      */
     void fixupResponseContentEncoding();
 
-    bool readResponseHeader();
+    Q_REQUIRED_RESULT KIO::WorkerResult readResponseHeader();
     bool parseHeaderFromCache();
     void parseContentDisposition(const QString &disposition);
 
-    bool sendBody();
-    bool sendCachedBody();
+    Q_REQUIRED_RESULT KIO::WorkerResult sendBody();
+    Q_REQUIRED_RESULT KIO::WorkerResult sendCachedBody();
 
     // where dataInternal == true, the content is to be made available
     // to an internal function.
-    bool readBody(bool dataInternal = false);
+    Q_REQUIRED_RESULT KIO::WorkerResult readBody(bool dataInternal = false);
 
     /**
      * Performs a WebDAV stat or list
      */
     void davSetRequest(const QByteArray &requestXML);
-    void davStatList(const QUrl &url, bool stat = true);
+    Q_REQUIRED_RESULT KIO::WorkerResult davStatList(const QUrl &url, bool stat = true);
     void davParsePropstats(const QDomNodeList &propstats, KIO::UDSEntry &entry);
     void davParseActiveLocks(const QDomNodeList &activeLocks, uint &lockCount);
 
@@ -429,12 +431,12 @@ protected:
      * where dataInternal == true, the content is to be made available
      * to an internal function.
      */
-    void proceedUntilResponseContent(bool dataInternal = false);
+    Q_REQUIRED_RESULT KIO::WorkerResult proceedUntilResponseContent(bool dataInternal = false);
 
     /**
      * Ensure we are connected, send our query, and get the response header.
      */
-    bool proceedUntilResponseHeader();
+    Q_REQUIRED_RESULT KIO::WorkerResult proceedUntilResponseHeader();
 
     /**
      * Resets any per session settings.
@@ -473,7 +475,7 @@ protected:
     /**
      * Returns true on successful retrieval of all content data.
      */
-    bool retrieveAllData();
+    Q_REQUIRED_RESULT KIO::WorkerResult retrieveAllData();
 
     /**
      * Saves HTTP authentication data.
@@ -488,17 +490,14 @@ protected:
     /**
      * Handles file -> webdav put requests.
      */
-    void copyPut(const QUrl &src, const QUrl &dest, KIO::JobFlags flags);
+    Q_REQUIRED_RESULT KIO::WorkerResult copyPut(const QUrl &src, const QUrl &dest, KIO::JobFlags flags);
 
     /**
      * Stats a remote DAV file and returns true if it already exists.
      */
     bool davDestinationExists();
 
-    void virtual_hook(int id, void *data) override;
-
-private:
-    void fileSystemFreeSpace(const QUrl &url); // KF6 TODO: Once a virtual fileSystemFreeSpace method in SlaveBase exists, override it
+    KIO::WorkerResult fileSystemFreeSpace(const QUrl &url) override;
 
 protected:
     /* This stores information about the credentials already tried

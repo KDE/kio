@@ -486,4 +486,8 @@ WorkerResult::WorkerResult(std::unique_ptr<WorkerResultPrivate> &&dptr)
 {
 }
 
+void WorkerBase::setIncomingMetaData(const KIO::MetaData &metaData)
+{
+    d->bridge.setIncomingMetaData(metaData);
+}
 } // namespace KIO

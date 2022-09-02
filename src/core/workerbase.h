@@ -875,6 +875,17 @@ public:
      */
     void addTemporaryAuthorization(const QString &action);
 
+    /**
+     * @brief Set the Incoming Meta Data
+     * This is only really useful if your worker wants to overwrite the
+     * metadata for consumption in other worker functions; this overwrites
+     * existing metadata set by the client!
+     *
+     * @param metaData metadata to set
+     * @since 5.99
+     */
+    void setIncomingMetaData(const KIO::MetaData &metaData);
+
 private:
     std::unique_ptr<WorkerBasePrivate> d;
     Q_DISABLE_COPY_MOVE(WorkerBase)

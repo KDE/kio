@@ -182,6 +182,11 @@ public:
         SlaveBase::reparseConfiguration();
     }
 
+    void setIncomingMetaData(const KIO::MetaData &metaData)
+    {
+        mIncomingMetaData = metaData;
+    }
+
     WorkerBase *base = nullptr;
 
 protected:

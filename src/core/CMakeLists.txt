@@ -100,6 +100,7 @@ target_sources(KF5KIOCore PRIVATE
 if (NOT ANDROID)
 target_sources(KF5KIOCore PRIVATE
   tcpslavebase.cpp
+  tcpworkerbase.cpp
   forwardingslavebase.cpp
   kpasswdserverloop.cpp
   kpasswdserverclient.cpp
@@ -269,6 +270,7 @@ ecm_generate_headers(KIOCore_CamelCase_HEADERS
   IdleSlave
   ConnectionServer
   TCPSlaveBase
+  TCPWorkerBase
   DirectorySizeJob
   ForwardingSlaveBase
   Job #     ### should forward to job_base.h, not job.h...

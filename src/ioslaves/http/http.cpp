@@ -6,6 +6,7 @@
     SPDX-FileCopyrightText: 2007 Nick Shaforostoff <shafff@ukr.net>
     SPDX-FileCopyrightText: 2007-2018 Daniel Nicoletti <dantti12@gmail.com>
     SPDX-FileCopyrightText: 2008, 2009 Andreas Hartmetz <ahartmetz@gmail.com>
+    SPDX-FileCopyrightText: 2022 Harald Sitter <sitter@kde.org>
 
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
@@ -62,10 +63,11 @@
 
 #include "httpauthentication.h"
 #include "kioglobal_p.h"
+#include "workerbase_p.h"
 
 #include <QLoggingCategory>
 Q_DECLARE_LOGGING_CATEGORY(KIO_HTTP)
-Q_LOGGING_CATEGORY(KIO_HTTP, "kf.kio.slaves.http", QtWarningMsg) // disable debug by default
+Q_LOGGING_CATEGORY(KIO_HTTP, "kf.kio.workers.http", QtWarningMsg) // disable debug by default
 
 // HeaderTokenizer declarations
 #include "parsinghelpers.h"
@@ -76,7 +78,7 @@ Q_LOGGING_CATEGORY(KIO_HTTP, "kf.kio.slaves.http", QtWarningMsg) // disable debu
 class KIOPluginForMetaData : public QObject
 {
     Q_OBJECT
-    Q_PLUGIN_METADATA(IID "org.kde.kio.slave.http" FILE "http.json")
+    Q_PLUGIN_METADATA(IID "org.kde.kio.worker.http" FILE "http.json")
 };
 
 static bool supportedProxyScheme(const QString &scheme)
@@ -102,8 +104,8 @@ extern "C" Q_DECL_EXPORT int kdemain(int argc, char **argv)
         exit(-1);
     }
 
-    HTTPProtocol slave(argv[1], argv[2], argv[3]);
-    slave.dispatchLoop();
+    HTTPProtocol worker(argv[1], argv[2], argv[3]);
+    worker.dispatchLoop();
     return 0;
 }
 
@@ -355,7 +357,7 @@ static void changeProtocolToHttp(QUrl *url)
 /************************************** HTTPProtocol **********************************************/
 
 HTTPProtocol::HTTPProtocol(const QByteArray &protocol, const QByteArray &pool, const QByteArray &app)
-    : TCPSlaveBase(protocol, pool, app, isEncryptedHttpVariety(protocol))
+    : TCPWorkerBase(protocol, pool, app, isEncryptedHttpVariety(protocol))
     , m_iSize(NO_SIZE)
     , m_iPostDataSize(NO_SIZE)
     , m_isBusy(false)
@@ -394,7 +396,7 @@ void HTTPProtocol::reparseConfiguration()
     m_request.proxyUrl.clear(); // TODO revisit
     m_request.proxyUrls.clear();
 
-    TCPSlaveBase::reparseConfiguration();
+    TCPWorkerBase::reparseConfiguration();
 }
 
 void HTTPProtocol::resetConnectionSettings()
@@ -573,7 +575,7 @@ void HTTPProtocol::setHost(const QString &host, quint16 port, const QString &use
     qCDebug(KIO_HTTP) << "Hostname is now:" << m_request.url.host() << "(" << m_request.encoded_hostname << ")";
 }
 
-bool HTTPProtocol::maybeSetRequestUrl(const QUrl &u)
+KIO::WorkerResult HTTPProtocol::maybeSetRequestUrl(const QUrl &u)
 {
     qCDebug(KIO_HTTP) << u;
 
@@ -581,45 +583,44 @@ bool HTTPProtocol::maybeSetRequestUrl(const QUrl &u)
     m_request.url.setPort(u.port(defaultPort()) != defaultPort() ? u.port() : -1);
 
     if (u.host().isEmpty()) {
-        error(KIO::ERR_UNKNOWN_HOST, i18n("No host specified."));
-        return false;
+        return error(KIO::ERR_UNKNOWN_HOST, i18n("No host specified."));
     }
 
     if (u.path().isEmpty()) {
         QUrl newUrl(u);
         newUrl.setPath(QStringLiteral("/"));
         redirection(newUrl);
-        finished();
-        return false;
+        return WorkerResult::pass();
     }
 
-    return true;
+    return WorkerResult::pass();
 }
 
-void HTTPProtocol::proceedUntilResponseContent(bool dataInternal /* = false */)
+KIO::WorkerResult HTTPProtocol::proceedUntilResponseContent(bool dataInternal /* = false */)
 {
     qCDebug(KIO_HTTP);
 
-    const bool status = proceedUntilResponseHeader() && readBody(dataInternal || m_kioError);
+    WorkerResult result = WorkerResult::fail();
+    if (result = proceedUntilResponseHeader(); result.success()) {
+        result = readBody(dataInternal || m_kioError);
+    }
 
     // If not an error condition or internal request, close
     // the connection based on the keep alive settings...
-    if (!m_kioError && !dataInternal) {
+    if (result.success() && !dataInternal) {
         httpClose(m_request.isKeepAlive);
     }
 
     // if data is required internally or we got error, don't finish,
     // it is processed before we finish()
-    if (dataInternal || !status) {
-        return;
+    if (!result.success() || dataInternal) {
+        return result;
     }
 
-    if (!sendHttpError()) {
-        finished();
-    }
+    return sendHttpError();
 }
 
-bool HTTPProtocol::proceedUntilResponseHeader()
+KIO::WorkerResult HTTPProtocol::proceedUntilResponseHeader()
 {
     qCDebug(KIO_HTTP);
 
@@ -630,10 +631,10 @@ bool HTTPProtocol::proceedUntilResponseHeader()
     // - Server-initiated timeout on keep-alive connection: Reconnect and try again
 
     while (true) {
-        if (!sendQuery()) {
-            return false;
+        if (const auto result = sendQuery(); !result.success()) {
+            return result;
         }
-        if (readResponseHeader()) {
+        if (const auto result = readResponseHeader(); result.success()) {
             // Success, finish the request.
             break;
         }
@@ -642,7 +643,7 @@ bool HTTPProtocol::proceedUntilResponseHeader()
         // then throw away any error message that might have been sent by the server.
         if (!m_isLoadingErrorPage && isAuthenticationRequired(m_request.responseCode)) {
             // This gets rid of any error page sent with 401 or 407 authentication required response...
-            readBody(true);
+            (void)readBody(true);
         }
 
         // no success, close the cache file so the cache state is reset - that way most other code
@@ -654,7 +655,7 @@ bool HTTPProtocol::proceedUntilResponseHeader()
             // In that case we abort to avoid loops; some webservers manage to send 401 and
             // no authentication request. Or an auth request we don't understand.
             setMetaData(QStringLiteral("responsecode"), QString::number(m_request.responseCode));
-            return false;
+            return WorkerResult::fail(m_kioError);
         }
 
         if (!m_request.isKeepAlive) {
@@ -675,15 +676,15 @@ bool HTTPProtocol::proceedUntilResponseHeader()
     // At this point sendBody() should have delivered any POST data.
     clearPostDataBuffer();
 
-    return true;
+    return WorkerResult::pass();
 }
 
-void HTTPProtocol::stat(const QUrl &url)
+KIO::WorkerResult HTTPProtocol::stat(const QUrl &url)
 {
     qCDebug(KIO_HTTP) << url;
 
-    if (!maybeSetRequestUrl(url)) {
-        return;
+    if (const auto result = maybeSetRequestUrl(url); !result.success()) {
+        return result;
     }
     resetSessionSettings();
 
@@ -691,8 +692,7 @@ void HTTPProtocol::stat(const QUrl &url)
         QString statSide = metaData(QStringLiteral("statSide"));
         if (statSide != QLatin1String("source")) {
             // When uploading we assume the file does not exist.
-            error(ERR_DOES_NOT_EXIST, url.toDisplayString());
-            return;
+            return error(ERR_DOES_NOT_EXIST, url.toDisplayString());
         }
 
         // When downloading we assume it exists
@@ -703,23 +703,22 @@ void HTTPProtocol::stat(const QUrl &url)
         entry.fastInsert(KIO::UDSEntry::UDS_ACCESS, S_IRUSR | S_IRGRP | S_IROTH); // readable by everybody
 
         statEntry(entry);
-        finished();
-        return;
+        return KIO::WorkerResult::pass();
     }
 
-    davStatList(url);
+    return davStatList(url);
 }
 
-void HTTPProtocol::listDir(const QUrl &url)
+KIO::WorkerResult HTTPProtocol::listDir(const QUrl &url)
 {
     qCDebug(KIO_HTTP) << url;
 
-    if (!maybeSetRequestUrl(url)) {
-        return;
+    if (const auto result = maybeSetRequestUrl(url); !result.success()) {
+        return result;
     }
     resetSessionSettings();
 
-    davStatList(url, false);
+    return davStatList(url, false);
 }
 
 void HTTPProtocol::davSetRequest(const QByteArray &requestXML)
@@ -728,13 +727,13 @@ void HTTPProtocol::davSetRequest(const QByteArray &requestXML)
     cachePostData(requestXML);
 }
 
-void HTTPProtocol::davStatList(const QUrl &url, bool stat)
+KIO::WorkerResult HTTPProtocol::davStatList(const QUrl &url, bool stat)
 {
     UDSEntry entry;
 
     // check to make sure this host supports WebDAV
-    if (!davHostOk()) {
-        return;
+    if (const auto result = davHostOk(); !result.success()) {
+        return result;
     }
 
     QMimeDatabase db;
@@ -790,15 +789,15 @@ void HTTPProtocol::davStatList(const QUrl &url, bool stat)
         Utils::appendSlashToPath(m_request.url);
     }
 
-    proceedUntilResponseContent(true);
+    (void)/* handling result via result codes */ proceedUntilResponseContent(true);
     infoMessage(QLatin1String(""));
 
     // Has a redirection already been called? If so, we're done.
     if (m_isRedirection || m_kioError) {
         if (m_isRedirection) {
-            davFinished();
+            return davFinished();
         }
-        return;
+        return WorkerResult::pass();
     }
 
     QDomDocument multiResponse;
@@ -854,8 +853,7 @@ void HTTPProtocol::davStatList(const QUrl &url, bool stat)
             if (stat) {
                 // return an item
                 statEntry(entry);
-                davFinished();
-                return;
+                return davFinished();
             }
 
             listEntry(entry);
@@ -865,25 +863,24 @@ void HTTPProtocol::davStatList(const QUrl &url, bool stat)
     }
 
     if (stat || !hasResponse) {
-        error(ERR_DOES_NOT_EXIST, url.toDisplayString());
-        return;
+        return error(ERR_DOES_NOT_EXIST, url.toDisplayString());
     }
 
-    davFinished();
+    return davFinished();
 }
 
-void HTTPProtocol::davGeneric(const QUrl &url, KIO::HTTP_METHOD method, qint64 size)
+KIO::WorkerResult HTTPProtocol::davGeneric(const QUrl &url, KIO::HTTP_METHOD method, qint64 size)
 {
     qCDebug(KIO_HTTP) << url;
 
-    if (!maybeSetRequestUrl(url)) {
-        return;
+    if (const auto result = maybeSetRequestUrl(url); !result.success()) {
+        return result;
     }
     resetSessionSettings();
 
     // check to make sure this host supports WebDAV
-    if (!davHostOk()) {
-        return;
+    if (const auto result = davHostOk(); !result.success()) {
+        return result;
     }
 
     // WebDAV method
@@ -892,7 +889,7 @@ void HTTPProtocol::davGeneric(const QUrl &url, KIO::HTTP_METHOD method, qint64 s
     m_request.cacheTag.policy = CC_Reload;
 
     m_iPostDataSize = (size > -1 ? static_cast<KIO::filesize_t>(size) : NO_SIZE);
-    proceedUntilResponseContent();
+    return proceedUntilResponseContent();
 }
 
 int HTTPProtocol::codeFromResponse(const QString &response)
@@ -1169,19 +1166,19 @@ QString HTTPProtocol::davProcessLocks()
     return QString();
 }
 
-bool HTTPProtocol::davHostOk()
+KIO::WorkerResult HTTPProtocol::davHostOk()
 {
     // FIXME needs to be reworked. Switched off for now.
-    return true;
+    return WorkerResult::pass();
 
     // cached?
     if (m_davHostOk) {
         qCDebug(KIO_HTTP) << "true";
-        return true;
-    } else if (m_davHostUnsupported) {
+        return WorkerResult::pass();
+    }
+    if (m_davHostUnsupported) {
         qCDebug(KIO_HTTP) << " false";
-        davError(-2);
-        return false;
+        return davError(-2);
     }
 
     m_request.method = HTTP_OPTIONS;
@@ -1194,7 +1191,7 @@ bool HTTPProtocol::davHostOk()
     // clear davVersions variable, which holds the response to the DAV: header
     m_davCapabilities.clear();
 
-    proceedUntilResponseHeader();
+    (void)/* handling result via dav codes */ proceedUntilResponseHeader();
 
     if (!m_davCapabilities.isEmpty()) {
         for (int i = 0; i < m_davCapabilities.count(); i++) {
@@ -1207,30 +1204,29 @@ bool HTTPProtocol::davHostOk()
         }
 
         if (m_davHostOk) {
-            return true;
+            return WorkerResult::pass();
         }
     }
 
     m_davHostUnsupported = true;
-    davError(-2);
-    return false;
+    return davError(-2);
 }
 
 // This function is for closing proceedUntilResponseHeader(); requests
 // Required because there may or may not be further info expected
-void HTTPProtocol::davFinished()
+KIO::WorkerResult HTTPProtocol::davFinished()
 {
     // TODO: Check with the DAV extension developers
     httpClose(m_request.isKeepAlive);
-    finished();
+    return WorkerResult::pass();
 }
 
-void HTTPProtocol::mkdir(const QUrl &url, int)
+KIO::WorkerResult HTTPProtocol::mkdir(const QUrl &url, int)
 {
     qCDebug(KIO_HTTP) << url;
 
-    if (!maybeSetRequestUrl(url)) {
-        return;
+    if (const auto result = maybeSetRequestUrl(url); !result.success()) {
+        return result;
     }
     resetSessionSettings();
 
@@ -1238,21 +1234,20 @@ void HTTPProtocol::mkdir(const QUrl &url, int)
     m_request.url.setQuery(QString());
     m_request.cacheTag.policy = CC_Reload;
 
-    proceedUntilResponseContent(true);
+    (void)/* handling result via dav codes */ proceedUntilResponseContent(true);
 
     if (m_request.responseCode == 201) {
-        davFinished();
-    } else {
-        davError();
+        return davFinished();
     }
+    return davError();
 }
 
-void HTTPProtocol::get(const QUrl &url)
+KIO::WorkerResult HTTPProtocol::get(const QUrl &url)
 {
     qCDebug(KIO_HTTP) << url;
 
-    if (!maybeSetRequestUrl(url)) {
-        return;
+    if (const auto result = maybeSetRequestUrl(url); !result.success()) {
+        return result;
     }
     resetSessionSettings();
 
@@ -1265,15 +1260,15 @@ void HTTPProtocol::get(const QUrl &url)
         m_request.cacheTag.policy = DEFAULT_CACHE_CONTROL;
     }
 
-    proceedUntilResponseContent();
+    return proceedUntilResponseContent();
 }
 
-void HTTPProtocol::put(const QUrl &url, int, KIO::JobFlags flags)
+KIO::WorkerResult HTTPProtocol::put(const QUrl &url, int, KIO::JobFlags flags)
 {
     qCDebug(KIO_HTTP) << url;
 
-    if (!maybeSetRequestUrl(url)) {
-        return;
+    if (const auto result = maybeSetRequestUrl(url); !result.success()) {
+        return result;
     }
 
     resetSessionSettings();
@@ -1282,14 +1277,13 @@ void HTTPProtocol::put(const QUrl &url, int, KIO::JobFlags flags)
     if (m_protocol.startsWith("webdav")) { // krazy:exclude=strings
         if (!(flags & KIO::Overwrite)) {
             // check to make sure this host supports WebDAV
-            if (!davHostOk()) {
-                return;
+            if (const auto result = davHostOk(); !result.success()) {
+                return result;
             }
 
             // Checks if the destination exists and return an error if it does.
             if (davDestinationExists()) {
-                error(ERR_FILE_ALREADY_EXIST, url.fileName());
-                return;
+                return error(ERR_FILE_ALREADY_EXIST, url.fileName());
             }
         }
     }
@@ -1297,68 +1291,69 @@ void HTTPProtocol::put(const QUrl &url, int, KIO::JobFlags flags)
     m_request.method = HTTP_PUT;
     m_request.cacheTag.policy = CC_Reload;
 
-    proceedUntilResponseContent();
+    return proceedUntilResponseContent();
 }
 
-void HTTPProtocol::copy(const QUrl &src, const QUrl &dest, int, KIO::JobFlags flags)
+KIO::WorkerResult HTTPProtocol::copy(const QUrl &src, const QUrl &dest, int, KIO::JobFlags flags)
 {
     qCDebug(KIO_HTTP) << src << "->" << dest;
     const bool isSourceLocal = src.isLocalFile();
     const bool isDestinationLocal = dest.isLocalFile();
 
     if (isSourceLocal && !isDestinationLocal) {
-        copyPut(src, dest, flags);
-    } else {
-        if (!maybeSetRequestUrl(dest)) {
-            return;
+        return copyPut(src, dest, flags);
+    }
+
+    if (const auto result = maybeSetRequestUrl(dest); !result.success()) {
+        return result;
+    }
+
+    resetSessionSettings();
+
+    if (!(flags & KIO::Overwrite)) {
+        // check to make sure this host supports WebDAV
+        if (const auto result = davHostOk(); !result.success()) {
+            return result;
         }
 
-        resetSessionSettings();
-
-        if (!(flags & KIO::Overwrite)) {
-            // check to make sure this host supports WebDAV
-            if (!davHostOk()) {
-                return;
-            }
-
-            // Checks if the destination exists and return an error if it does.
-            if (davDestinationExists()) {
-                error(ERR_FILE_ALREADY_EXIST, dest.fileName());
-                return;
-            }
-        }
-
-        if (!maybeSetRequestUrl(src)) {
-            return;
-        }
-
-        // destination has to be "http(s)://..."
-        QUrl newDest(dest);
-        changeProtocolToHttp(&newDest);
-
-        m_request.method = DAV_COPY;
-        m_request.davData.desturl = newDest.toString(QUrl::FullyEncoded);
-        m_request.davData.overwrite = (flags & KIO::Overwrite);
-        m_request.url.setQuery(QString());
-        m_request.cacheTag.policy = CC_Reload;
-
-        proceedUntilResponseContent();
-
-        // The server returns a HTTP/1.1 201 Created or 204 No Content on successful completion
-        if (m_request.responseCode == 201 || m_request.responseCode == 204) {
-            davFinished();
-        } else {
-            davError();
+        // Checks if the destination exists and return an error if it does.
+        if (davDestinationExists()) {
+            return error(ERR_FILE_ALREADY_EXIST, dest.fileName());
         }
     }
+
+    if (const auto result = maybeSetRequestUrl(src); !result.success()) {
+        return result;
+    }
+
+    // destination has to be "http(s)://..."
+    QUrl newDest(dest);
+    changeProtocolToHttp(&newDest);
+
+    m_request.method = DAV_COPY;
+    m_request.davData.desturl = newDest.toString(QUrl::FullyEncoded);
+    m_request.davData.overwrite = (flags & KIO::Overwrite);
+    m_request.url.setQuery(QString());
+    m_request.cacheTag.policy = CC_Reload;
+
+    (void)/* handling result via dav codes */ proceedUntilResponseContent();
+
+    // The server returns a HTTP/1.1 201 Created or 204 No Content on successful completion
+    if (m_request.responseCode == 201 || m_request.responseCode == 204) {
+        return davFinished();
+    }
+    return davError();
 }
 
-void HTTPProtocol::rename(const QUrl &src, const QUrl &dest, KIO::JobFlags flags)
+KIO::WorkerResult HTTPProtocol::rename(const QUrl &src, const QUrl &dest, KIO::JobFlags flags)
 {
     qCDebug(KIO_HTTP) << src << "->" << dest;
 
-    if (!maybeSetRequestUrl(dest) || !maybeSetRequestUrl(src)) {
-        return;
+    if (const auto result = maybeSetRequestUrl(dest); !result.success()) {
+        return result;
+    }
+    if (const auto result = maybeSetRequestUrl(src); !result.success()) {
+        return result;
     }
     resetSessionSettings();
 
@@ -1372,7 +1367,7 @@ void HTTPProtocol::rename(const QUrl &src, const QUrl &dest, KIO::JobFlags flags
     m_request.url.setQuery(QString());
     m_request.cacheTag.policy = CC_Reload;
 
-    proceedUntilResponseHeader();
+    (void)/* handling result via dav codes */ proceedUntilResponseHeader();
 
     // Work around strict Apache-2 WebDAV implementation which refuses to cooperate
     // with webdav://host/directory, instead requiring webdav://host/directory/
@@ -1390,23 +1385,22 @@ void HTTPProtocol::rename(const QUrl &src, const QUrl &dest, KIO::JobFlags flags
         m_request.url.setQuery(QString());
         m_request.cacheTag.policy = CC_Reload;
 
-        proceedUntilResponseHeader();
+        (void)/* handling result via dav codes */ proceedUntilResponseHeader();
     }
 
     // The server returns a HTTP/1.1 201 Created or 204 No Content on successful completion
     if (m_request.responseCode == 201 || m_request.responseCode == 204) {
-        davFinished();
-    } else {
-        davError();
+        return davFinished();
     }
+    return davError();
 }
 
-void HTTPProtocol::del(const QUrl &url, bool)
+KIO::WorkerResult HTTPProtocol::del(const QUrl &url, bool)
 {
     qCDebug(KIO_HTTP) << url;
 
-    if (!maybeSetRequestUrl(url)) {
-        return;
+    if (const auto result = maybeSetRequestUrl(url); !result.success()) {
+        return result;
     }
 
     resetSessionSettings();
@@ -1416,30 +1410,27 @@ void HTTPProtocol::del(const QUrl &url, bool)
 
     if (m_protocol.startsWith("webdav")) { // krazy:exclude=strings due to QByteArray
         m_request.url.setQuery(QString());
-        if (!proceedUntilResponseHeader()) {
-            return;
+        if (const auto result = proceedUntilResponseHeader(); !result.success()) {
+            return result;
         }
 
         // The server returns a HTTP/1.1 200 Ok or HTTP/1.1 204 No Content
         // on successful completion.
         if (m_request.responseCode == 200 || m_request.responseCode == 204 || m_isRedirection) {
-            davFinished();
-        } else {
-            davError();
+            return davFinished();
         }
-
-        return;
+        return davError();
     }
 
-    proceedUntilResponseContent();
+    return proceedUntilResponseContent();
 }
 
-void HTTPProtocol::post(const QUrl &url, qint64 size)
+KIO::WorkerResult HTTPProtocol::post(const QUrl &url, qint64 size)
 {
     qCDebug(KIO_HTTP) << url;
 
-    if (!maybeSetRequestUrl(url)) {
-        return;
+    if (const auto result = maybeSetRequestUrl(url); !result.success()) {
+        return result;
     }
     resetSessionSettings();
 
@@ -1447,15 +1438,15 @@ void HTTPProtocol::post(const QUrl &url, qint64 size)
     m_request.cacheTag.policy = CC_Reload;
 
     m_iPostDataSize = (size > -1 ? static_cast<KIO::filesize_t>(size) : NO_SIZE);
-    proceedUntilResponseContent();
+    return proceedUntilResponseContent();
 }
 
-void HTTPProtocol::davLock(const QUrl &url, const QString &scope, const QString &type, const QString &owner)
+KIO::WorkerResult HTTPProtocol::davLock(const QUrl &url, const QString &scope, const QString &type, const QString &owner)
 {
     qCDebug(KIO_HTTP) << url;
 
-    if (!maybeSetRequestUrl(url)) {
-        return;
+    if (const auto result = maybeSetRequestUrl(url); !result.success()) {
+        return result;
     }
     resetSessionSettings();
 
@@ -1492,7 +1483,7 @@ void HTTPProtocol::davLock(const QUrl &url, const QString &scope, const QString 
     // insert the document into the POST buffer
     cachePostData(lockReq.toByteArray());
 
-    proceedUntilResponseContent(true);
+    (void)/* handling result via dav codes */ proceedUntilResponseContent(true);
 
     if (m_request.responseCode == 200) {
         // success
@@ -1508,19 +1499,17 @@ void HTTPProtocol::davLock(const QUrl &url, const QString &scope, const QString 
 
         setMetaData(QStringLiteral("davLockCount"), QString::number(lockCount));
 
-        finished();
-
-    } else {
-        davError();
+        return WorkerResult::pass();
     }
+    return davError();
 }
 
-void HTTPProtocol::davUnlock(const QUrl &url)
+KIO::WorkerResult HTTPProtocol::davUnlock(const QUrl &url)
 {
     qCDebug(KIO_HTTP) << url;
 
-    if (!maybeSetRequestUrl(url)) {
-        return;
+    if (const auto result = maybeSetRequestUrl(url); !result.success()) {
+        return result;
     }
     resetSessionSettings();
 
@@ -1528,16 +1517,21 @@ void HTTPProtocol::davUnlock(const QUrl &url)
     m_request.url.setQuery(QString());
     m_request.cacheTag.policy = CC_Reload;
 
-    proceedUntilResponseContent(true);
+    (void)/* handling result via dav codes */ proceedUntilResponseContent(true);
 
     if (m_request.responseCode == 200) {
-        finished();
-    } else {
-        davError();
+        return WorkerResult::pass();
     }
+    return davError();
 }
 
-QString HTTPProtocol::davError(int code /* = -1 */, const QString &_url)
+KIO::WorkerResult HTTPProtocol::davError(int code /* = -1 */, const QString &_url)
+{
+    QString discard;
+    return davError(discard, code, _url);
+}
+
+KIO::WorkerResult HTTPProtocol::davError(QString &errorMsg, int code /* = -1 */, const QString &_url)
 {
     bool callError = false;
     if (code == -1) {
@@ -1625,8 +1619,9 @@ QString HTTPProtocol::davError(int code /* = -1 */, const QString &_url)
             // retrieve the XML document
 
             // there was an error retrieving the XML document.
-            if (!readBody(true) && m_kioError) {
-                return QString();
+            if (const auto result = readBody(true); !result.success() && m_kioError) {
+                errorMsg.clear();
+                return WorkerResult::fail();
             }
 
             QStringList errors;
@@ -1651,7 +1646,9 @@ QString HTTPProtocol::davError(int code /* = -1 */, const QString &_url)
                     if (!href.isNull()) {
                         errUrl = href.text();
                     }
-                    errors << davError(errCode, errUrl);
+                    QString error;
+                    (void)davError(error, errCode, errUrl);
+                    errors << error;
                 }
             }
 
@@ -1748,11 +1745,11 @@ QString HTTPProtocol::davError(int code /* = -1 */, const QString &_url)
     // if ( kError != ERR_WORKER_DEFINED )
     // errorString += " (" + url + ')';
 
+    errorMsg = errorString;
     if (callError) {
-        error(errorCode, errorString);
+        return error(errorCode, errorString);
     }
-
-    return errorString;
+    return WorkerResult::pass();
 }
 
 // HTTP generic error
@@ -1859,7 +1856,7 @@ static int httpPutError(const HTTPProtocol::HTTPRequest &request, QString *error
     return errorCode;
 }
 
-bool HTTPProtocol::sendHttpError()
+KIO::WorkerResult HTTPProtocol::sendHttpError()
 {
     QString errorString;
     int errorCode = 0;
@@ -1883,11 +1880,10 @@ bool HTTPProtocol::sendHttpError()
     infoMessage(QLatin1String(""));
 
     if (errorCode) {
-        error(errorCode, errorString);
-        return true;
+        return error(errorCode, errorString);
     }
 
-    return false;
+    return KIO::WorkerResult::pass();
 }
 
 bool HTTPProtocol::sendErrorPageNotification()
@@ -1901,7 +1897,7 @@ bool HTTPProtocol::sendErrorPageNotification()
     }
 
     m_isLoadingErrorPage = true;
-    SlaveBase::errorPage();
+    WorkerBase::errorPage();
     return true;
 }
 
@@ -1927,7 +1923,7 @@ bool HTTPProtocol::isOffline()
 #endif
 }
 
-void HTTPProtocol::multiGet(const QByteArray &data)
+KIO::WorkerResult HTTPProtocol::multiGet(const QByteArray &data)
 {
     QDataStream stream(data);
     quint32 n;
@@ -1944,10 +1940,12 @@ void HTTPProtocol::multiGet(const QByteArray &data)
 
     for (unsigned i = 0; i < n; ++i) {
         QUrl url;
-        stream >> url >> mIncomingMetaData;
+        MetaData incomingMetadata;
+        stream >> url >> incomingMetadata;
+        setIncomingMetaData(incomingMetadata);
 
-        if (!maybeSetRequestUrl(url)) {
-            continue;
+        if (const auto result = maybeSetRequestUrl(url); !result.success()) {
+            return result;
         }
 
         //### should maybe call resetSessionSettings() if the server/domain is
@@ -1977,7 +1975,7 @@ void HTTPProtocol::multiGet(const QByteArray &data)
         // send the requests
         while (it.hasNext()) {
             m_request = it.next();
-            sendQuery();
+            (void)/* handling result via result codes */ sendQuery();
             // save the request state so we can pick it up again in the collection phase
             it.setValue(m_request);
             qCDebug(KIO_HTTP) << "check one: isKeepAlive =" << m_request.isKeepAlive;
@@ -1994,8 +1992,11 @@ void HTTPProtocol::multiGet(const QByteArray &data)
             qCDebug(KIO_HTTP) << "check two: isKeepAlive =" << m_request.isKeepAlive;
             setMetaData(QStringLiteral("request-id"), QString::number(requestId++));
             sendAndKeepMetaData();
-            if (!(readResponseHeader() && readBody())) {
-                return;
+            if (const auto result = readResponseHeader(); !result.success()) {
+                return result;
+            }
+            if (const auto result = readBody(); !result.success()) {
+                return result;
             }
             // the "next job" signal for ParallelGetJob is data of size zero which
             // readBody() sends without our intervention.
@@ -2003,10 +2004,10 @@ void HTTPProtocol::multiGet(const QByteArray &data)
             httpClose(m_request.isKeepAlive); // actually keep-alive is mandatory for pipelining
         }
 
-        finished();
         m_requestQueue.clear();
         m_isBusy = false;
     }
+    return WorkerResult::pass();
 }
 
 ssize_t HTTPProtocol::write(const void *_buf, size_t nbytes)
@@ -2014,7 +2015,7 @@ ssize_t HTTPProtocol::write(const void *_buf, size_t nbytes)
     size_t sent = 0;
     const char *buf = static_cast<const char *>(_buf);
     while (sent < nbytes) {
-        int n = TCPSlaveBase::write(buf + sent, nbytes - sent);
+        int n = TCPWorkerBase::write(buf + sent, nbytes - sent);
 
         if (n < 0) {
             // some error occurred
@@ -2069,7 +2070,7 @@ size_t HTTPProtocol::readBuffered(char *buf, size_t size, bool unlimited)
         }
     }
     if (bytesRead < size) {
-        int rawRead = TCPSlaveBase::read(buf + bytesRead, size - bytesRead);
+        int rawRead = TCPWorkerBase::read(buf + bytesRead, size - bytesRead);
         if (rawRead < 1) {
             m_isEOF = true;
             return bytesRead;
@@ -2158,7 +2159,7 @@ bool HTTPProtocol::httpShouldCloseConnection()
     return !isCompatibleNextUrl(m_server.url, m_request.url);
 }
 
-bool HTTPProtocol::httpOpenConnection()
+KIO::WorkerResult HTTPProtocol::httpOpenConnection()
 {
     qCDebug(KIO_HTTP);
     m_server.clear();
@@ -2252,8 +2253,7 @@ bool HTTPProtocol::httpOpenConnection()
     }
 
     if (connectError != 0) {
-        error(connectError, errorString);
-        return false;
+        return error(connectError, errorString);
     }
 
     // Disable Nagle's algorithm, i.e turn on TCP_NODELAY.
@@ -2261,14 +2261,14 @@ bool HTTPProtocol::httpOpenConnection()
     tcpSocket()->setSocketOption(QAbstractSocket::LowDelayOption, 1);
 
     m_server.initFrom(m_request);
-    connected();
-    return true;
+    return WorkerResult::pass();
 }
 
-bool HTTPProtocol::satisfyRequestFromCache(bool *cacheHasPage)
+bool HTTPProtocol::satisfyRequestFromCache(bool *cacheHasPage, WorkerResult &result)
 {
     qCDebug(KIO_HTTP);
 
+    result = WorkerResult::pass();
     if (m_request.cacheTag.useCache) {
         const bool offline = isOffline();
 
@@ -2287,9 +2287,9 @@ bool HTTPProtocol::satisfyRequestFromCache(bool *cacheHasPage)
                 // cache-only or offline -> we give a definite answer and it is "no"
                 *cacheHasPage = false;
                 if (isCacheOnly) {
-                    error(ERR_DOES_NOT_EXIST, m_request.url.toDisplayString());
+                    result = WorkerResult::fail(ERR_DOES_NOT_EXIST, m_request.url.toDisplayString());
                 } else if (offline) {
-                    error(ERR_CANNOT_CONNECT, m_request.url.toDisplayString());
+                    result = WorkerResult::fail(ERR_CANNOT_CONNECT, m_request.url.toDisplayString());
                 }
                 return true;
             }
@@ -2351,15 +2351,14 @@ QString HTTPProtocol::formatRequestUri() const
  * 3) Send the header to the remote server
  * 4) Call sendBody() if the HTTP method requires sending body data
  */
-bool HTTPProtocol::sendQuery()
+KIO::WorkerResult HTTPProtocol::sendQuery()
 {
     qCDebug(KIO_HTTP);
 
     // Cannot have an https request without autoSsl!  This can
     // only happen if  the current installation does not support SSL...
     if (isEncryptedHttpVariety(m_protocol) && !isAutoSsl()) {
-        error(ERR_UNSUPPORTED_PROTOCOL, toQString(m_protocol));
-        return false;
+        return error(ERR_UNSUPPORTED_PROTOCOL, toQString(m_protocol));
     }
 
     // Check the reusability of the current connection.
@@ -2374,9 +2373,9 @@ bool HTTPProtocol::sendQuery()
     // I guess the Qt socket fails to hide the effect of  proxy-connection: close after receiving
     // the 407 header.
     if ((!isConnected() && !m_socketProxyAuth)) {
-        if (!httpOpenConnection()) {
+        if (const auto result = httpOpenConnection(); !result.success()) {
             qCDebug(KIO_HTTP) << "Couldn't connect, oopsie!";
-            return false;
+            return result;
         }
     }
 
@@ -2398,9 +2397,10 @@ bool HTTPProtocol::sendQuery()
         switch (m_request.method) {
         case HTTP_GET: {
             bool cacheHasPage = false;
-            if (satisfyRequestFromCache(&cacheHasPage)) {
+            WorkerResult result = WorkerResult::pass();
+            if (satisfyRequestFromCache(&cacheHasPage, result)) {
                 qCDebug(KIO_HTTP) << "cacheHasPage =" << cacheHasPage;
-                return cacheHasPage;
+                return result;
             }
             if (!cacheHasPage) {
                 // start a new cache file later if appropriate
@@ -2472,8 +2472,7 @@ bool HTTPProtocol::sendQuery()
         case DAV_POLL:
             break;
         default:
-            error(ERR_UNSUPPORTED_ACTION, QString());
-            return false;
+            return error(ERR_UNSUPPORTED_ACTION, QString());
         }
         // DAV_POLL; DAV_NOTIFY
 
@@ -2646,25 +2645,18 @@ bool HTTPProtocol::sendQuery()
         // some transport problem arose while the connection was idle.
         if (m_request.isKeepAlive) {
             httpCloseConnection();
-            return true; // Try again
+            return WorkerResult::pass(); // Try again
         }
 
         qCDebug(KIO_HTTP) << "sendOk == false. Connection broken !"
                           << "  -- intended to write" << headerBytes.length() << "bytes but wrote" << (int)written << ".";
-        error(ERR_CONNECTION_BROKEN, m_request.url.host());
-        return false;
-    } else {
-        qCDebug(KIO_HTTP) << "sent it!";
+        return error(ERR_CONNECTION_BROKEN, m_request.url.host());
     }
+    qCDebug(KIO_HTTP) << "sent it!";
 
-    bool res = true;
-    if (hasBodyData || hasDavData) {
-        res = sendBody();
-    }
-
+    const auto result = (hasBodyData || hasDavData) ? sendBody() : WorkerResult::pass();
     infoMessage(i18n("%1 contacted. Waiting for reply...", m_request.url.host()));
-
-    return res;
+    return result;
 }
 
 void HTTPProtocol::forwardHttpResponseHeader(bool forwardImmediately)
@@ -2717,7 +2709,7 @@ bool HTTPProtocol::parseHeaderFromCache()
     forwardHttpResponseHeader(false);
     mimeType(m_mimeType);
     // IMPORTANT: Do not remove the call below or the http response headers will
-    // not be available to the application if this slave is put on hold.
+    // not be available to the application if this worker is put on hold.
     forwardHttpResponseHeader();
     return true;
 }
@@ -2859,12 +2851,12 @@ static bool consume(const char input[], int *pos, int end, const char *term)
  * the header to our client as the client doesn't need to know the gory
  * details of HTTP headers.
  */
-bool HTTPProtocol::readResponseHeader()
+KIO::WorkerResult HTTPProtocol::readResponseHeader()
 {
     resetResponseParsing();
     if (m_request.cacheTag.ioMode == ReadFromCache && m_request.cacheTag.plan(m_maxCacheAge) == CacheTag::UseCached) {
         // parseHeaderFromCache replaces this method in case of cached content
-        return parseHeaderFromCache();
+        return parseHeaderFromCache() ? WorkerResult::pass() : WorkerResult::fail();
     }
 
 try_again:
@@ -2887,7 +2879,7 @@ try_again:
 
     if (!isConnected()) {
         qCDebug(KIO_HTTP) << "No connection.";
-        return false; // Reestablish connection and try again
+        return WorkerResult::fail(ERR_CONNECTION_BROKEN); // Reestablish connection and try again
     }
 
     int bufPos = 0;
@@ -2897,7 +2889,7 @@ try_again:
         if (m_request.isKeepAlive && m_iEOFRetryCount < 2) {
             m_iEOFRetryCount++;
             httpCloseConnection(); // Try to reestablish connection.
-            return false; // Reestablish connection and try again.
+            return WorkerResult::fail(); // Reestablish connection and try again.
         }
 
         if (m_request.method == HTTP_HEAD) {
@@ -2907,12 +2899,11 @@ try_again:
             // by assuming that they will be sending html.
             qCDebug(KIO_HTTP) << "HEAD -> returned MIME type:" << DEFAULT_MIME_TYPE;
             mimeType(QString::fromLatin1(DEFAULT_MIME_TYPE));
-            return true;
+            return WorkerResult::pass();
         }
 
         qCDebug(KIO_HTTP) << "Connection broken !";
-        error(ERR_CONNECTION_BROKEN, m_request.url.host());
-        return false;
+        return error(ERR_CONNECTION_BROKEN, m_request.url.host());
     }
     if (!foundDelimiter) {
         //### buffer too small for first line of header(!)
@@ -2998,9 +2989,8 @@ try_again:
                                             m_request.url.host(),
                                             m_request.url.userName()),
                                       i18nc("@title:window", "Confirm Website Access"));
-        if (result == SlaveBase::No) {
-            error(ERR_USER_CANCELED, m_request.url.toDisplayString());
-            return false;
+        if (result == WorkerBase::No) {
+            return error(ERR_USER_CANCELED, m_request.url.toDisplayString());
         }
         setMetaData(QStringLiteral("{internal~currenthost}LastSpoofedUserName"), m_request.url.userName());
     }
@@ -3014,14 +3004,13 @@ try_again:
                 ; // Ignore error
             } else {
                 if (!sendErrorPageNotification()) {
-                    error(ERR_INTERNAL_SERVER, m_request.url.toDisplayString());
-                    return false;
+                    return WorkerResult::fail(ERR_INTERNAL_SERVER, m_request.url.toDisplayString());
                 }
             }
         } else if (m_request.responseCode == 416) {
             // Range not supported
             m_request.offset = 0;
-            return false; // Try again.
+            return WorkerResult::fail(); // Try again.
         } else if (m_request.responseCode == 426) {
             // Upgrade Required
             upgradeRequired = true;
@@ -3029,10 +3018,14 @@ try_again:
             // Any other client errors
             // Tell that we will only get an error page here.
             if (!sendErrorPageNotification()) {
+                // Error handling is a tad awkward here. We still need to continue parsing after errors here, so
+                // we cannot return, but also the control flow is mighty complicated. Instead we implicitly rely on
+                // error() setting m_kioError and our caller excavating that value. It's all a bit unfortunate but
+                // thankfully backed by a test so we'll know if this should ever break.
                 if (m_request.responseCode == 403) {
-                    error(ERR_ACCESS_DENIED, m_request.url.toDisplayString());
+                    (void)error(ERR_ACCESS_DENIED, m_request.url.toDisplayString());
                 } else {
-                    error(ERR_DOES_NOT_EXIST, m_request.url.toDisplayString());
+                    (void)error(ERR_DOES_NOT_EXIST, m_request.url.toDisplayString());
                 }
             }
         } else if (m_request.responseCode >= 301 && m_request.responseCode <= 308) {
@@ -3362,15 +3355,13 @@ endParsing:
         for (const QString &opt : std::as_const(upgradeOffers)) {
             if (opt == QLatin1String("TLS/1.0")) {
                 if (!startSsl() && upgradeRequired) {
-                    error(ERR_UPGRADE_REQUIRED, opt);
-                    return false;
+                    return WorkerResult::fail(ERR_UPGRADE_REQUIRED, opt);
                 }
             } else if (opt == QLatin1String("HTTP/1.1")) {
                 httpRev = HTTP_11;
             } else if (upgradeRequired) {
                 // we are told to do an upgrade we don't understand
-                error(ERR_UPGRADE_REQUIRED, opt);
-                return false;
+                return WorkerResult::fail(ERR_UPGRADE_REQUIRED, opt);
             }
         }
 
@@ -3413,7 +3404,7 @@ endParsing:
             authRequiresAnotherRoundtrip = handleAuthenticationHeader(&tokenizer);
             if (m_kioError) {
                 // If error is set, then handleAuthenticationHeader failed.
-                return false;
+                return WorkerResult::fail();
             }
         } else {
             authRequiresAnotherRoundtrip = false;
@@ -3429,8 +3420,7 @@ endParsing:
         if (!locationStr.isEmpty()) {
             QUrl u = m_request.url.resolved(QUrl(locationStr));
             if (!u.isValid()) {
-                error(ERR_MALFORMED_URL, u.toDisplayString());
-                return false;
+                return error(ERR_MALFORMED_URL, u.toDisplayString());
             }
 
             // preserve #ref: (bug 124654)
@@ -3495,7 +3485,7 @@ endParsing:
                                  "UseCached; the server is probably sending wrong expiry information.";
         }
         // parseHeaderFromCache replaces this method in case of cached content
-        return parseHeaderFromCache();
+        return parseHeaderFromCache() ? WorkerResult::pass() : WorkerResult::fail();
     }
 
     if (configValue(QStringLiteral("PropagateHttpHeader"), false) || m_request.cacheTag.ioMode == WriteToCache) {
@@ -3518,7 +3508,7 @@ endParsing:
         // IMPORTANT: Do not remove this line because forwardHttpResponseHeader
         // is called below. This line is here to ensure the response headers are
         // available to the client before it receives MIME type information.
-        // The support for putting ioslaves on hold in the KIO-QNAM integration
+        // The support for putting KIO workers on hold in the KIO-QNAM integration
         // will break if this line is removed.
         setMetaData(QStringLiteral("HTTP-Headers"), m_responseHeaders.join(QLatin1Char('\n')));
     }
@@ -3536,10 +3526,10 @@ endParsing:
     forwardHttpResponseHeader();
 
     if (m_request.method == HTTP_HEAD) {
-        return true;
+        return WorkerResult::pass();
     }
 
-    return !authRequiresAnotherRoundtrip; // return true if no more credentials need to be sent
+    return !authRequiresAnotherRoundtrip ? WorkerResult::pass() : WorkerResult::fail(); // return true if no more credentials need to be sent
 }
 
 void HTTPProtocol::parseContentDisposition(const QString &disposition)
@@ -3782,7 +3772,7 @@ void HTTPProtocol::setCacheabilityMetadata(bool cachingAllowed)
     }
 }
 
-bool HTTPProtocol::sendCachedBody()
+KIO::WorkerResult HTTPProtocol::sendCachedBody()
 {
     infoMessage(i18n("Sending data to %1", m_request.url.host()));
 
@@ -3796,8 +3786,7 @@ bool HTTPProtocol::sendCachedBody()
     if (!sendOk) {
         qCDebug(KIO_HTTP) << "Connection broken when sending "
                           << "content length: (" << m_request.url.host() << ")";
-        error(ERR_CONNECTION_BROKEN, m_request.url.host());
-        return false;
+        return error(ERR_CONNECTION_BROKEN, m_request.url.host());
     }
 
     totalSize(size);
@@ -3811,18 +3800,17 @@ bool HTTPProtocol::sendCachedBody()
         const ssize_t bytesSent = write(buffer.data(), buffer.size());
         if (bytesSent != static_cast<ssize_t>(buffer.size())) {
             qCDebug(KIO_HTTP) << "Connection broken when sending message body: (" << m_request.url.host() << ")";
-            error(ERR_CONNECTION_BROKEN, m_request.url.host());
-            return false;
+            return error(ERR_CONNECTION_BROKEN, m_request.url.host());
         }
 
         totalBytesSent += bytesSent;
         processedSize(totalBytesSent);
     }
 
-    return true;
+    return KIO::WorkerResult::pass();
 }
 
-bool HTTPProtocol::sendBody()
+KIO::WorkerResult HTTPProtocol::sendBody()
 {
     // If we have cached data, the it is either a repost or a DAV request so send
     // the cached data...
@@ -3833,12 +3821,10 @@ bool HTTPProtocol::sendBody()
     if (m_iPostDataSize == NO_SIZE) {
         // Try the old approach of retrieving content data from the job
         // before giving up.
-        if (retrieveAllData()) {
-            return sendCachedBody();
+        if (const auto result = retrieveAllData(); !result.success()) {
+            return result;
         }
-
-        error(ERR_POST_NO_SIZE, m_request.url.host());
-        return false;
+        return sendCachedBody();
     }
 
     qCDebug(KIO_HTTP) << "sending data (size=" << m_iPostDataSize << ")";
@@ -3856,12 +3842,11 @@ bool HTTPProtocol::sendBody()
         // some transport problem arose while the connection was idle.
         if (m_request.isKeepAlive) {
             httpCloseConnection();
-            return true; // Try again
+            return WorkerResult::pass(); // Try again
         }
 
         qCDebug(KIO_HTTP) << "Connection broken while sending POST content size to" << m_request.url.host();
-        error(ERR_CONNECTION_BROKEN, m_request.url.host());
-        return false;
+        return WorkerResult::fail(ERR_CONNECTION_BROKEN, m_request.url.host());
     }
 
     // Send the amount
@@ -3869,7 +3854,7 @@ bool HTTPProtocol::sendBody()
 
     // If content-length is 0, then do nothing but simply return true.
     if (m_iPostDataSize == 0) {
-        return true;
+        return WorkerResult::pass();
     }
 
     sendOk = true;
@@ -3889,9 +3874,7 @@ bool HTTPProtocol::sendBody()
 
         // On error return false...
         if (bytesRead < 0) {
-            error(ERR_ABORTED, m_request.url.host());
-            sendOk = false;
-            break;
+            return error(ERR_ABORTED, m_request.url.host());
         }
 
         // Cache the POST data in case of a repost request.
@@ -3910,11 +3893,10 @@ bool HTTPProtocol::sendBody()
         }
 
         qCDebug(KIO_HTTP) << "Connection broken while sending POST content to" << m_request.url.host();
-        error(ERR_CONNECTION_BROKEN, m_request.url.host());
-        sendOk = false;
+        return error(ERR_CONNECTION_BROKEN, m_request.url.host());
     }
 
-    return sendOk;
+    return sendOk ? WorkerResult::pass() : WorkerResult::fail();
 }
 
 void HTTPProtocol::httpClose(bool keepAlive)
@@ -3961,7 +3943,7 @@ void HTTPProtocol::httpCloseConnection()
     setTimeoutSpecialCommand(-1); // Cancel any connection timeout
 }
 
-void HTTPProtocol::slave_status()
+void HTTPProtocol::worker_status()
 {
     qCDebug(KIO_HTTP);
 
@@ -3969,30 +3951,30 @@ void HTTPProtocol::slave_status()
         httpCloseConnection();
     }
 
-    slaveStatus(m_server.url.host(), isConnected());
+    workerStatus(m_server.url.host(), isConnected());
 }
 
-void HTTPProtocol::mimetype(const QUrl &url)
+KIO::WorkerResult HTTPProtocol::mimetype(const QUrl &url)
 {
     qCDebug(KIO_HTTP) << url;
 
-    if (!maybeSetRequestUrl(url)) {
-        return;
+    if (const auto result = maybeSetRequestUrl(url); !result.success()) {
+        return result;
     }
     resetSessionSettings();
 
     m_request.method = HTTP_HEAD;
     m_request.cacheTag.policy = CC_Cache;
 
-    if (proceedUntilResponseHeader()) {
+    const auto result = proceedUntilResponseHeader();
+    if (result.success()) {
         httpClose(m_request.isKeepAlive);
-        finished();
     }
-
     qCDebug(KIO_HTTP) << m_mimeType;
+    return result;
 }
 
-void HTTPProtocol::special(const QByteArray &data)
+KIO::WorkerResult HTTPProtocol::special(const QByteArray &data)
 {
     qCDebug(KIO_HTTP);
 
@@ -4005,8 +3987,7 @@ void HTTPProtocol::special(const QByteArray &data)
         QUrl url;
         qint64 size;
         stream >> url >> size;
-        post(url, size);
-        break;
+        return post(url, size);
     }
     case 2: { // cache_update
         QUrl url;
@@ -4019,8 +4000,7 @@ void HTTPProtocol::special(const QByteArray &data)
             // this is an unimportant performance issue.
             // FIXME on Windows we may be unable to delete the file if open
             QFile::remove(filename);
-            finished();
-            break;
+            return WorkerResult::pass();
         }
         // let's be paranoid and inefficient here...
         HTTPRequest savedRequest = m_request;
@@ -4032,8 +4012,7 @@ void HTTPProtocol::special(const QByteArray &data)
         }
 
         m_request = savedRequest;
-        finished();
-        break;
+        return WorkerResult::pass();
     }
     case 5: { // WebDAV lock
         QUrl url;
@@ -4041,32 +4020,30 @@ void HTTPProtocol::special(const QByteArray &data)
         QString type;
         QString owner;
         stream >> url >> scope >> type >> owner;
-        davLock(url, scope, type, owner);
-        break;
+        return davLock(url, scope, type, owner);
     }
     case 6: { // WebDAV unlock
         QUrl url;
         stream >> url;
-        davUnlock(url);
-        break;
+        return davUnlock(url);
     }
     case 7: { // Generic WebDAV
         QUrl url;
         int method;
         qint64 size;
         stream >> url >> method >> size;
-        davGeneric(url, (KIO::HTTP_METHOD)method, size);
-        break;
+        return davGeneric(url, (KIO::HTTP_METHOD)method, size);
     }
     case 99: { // Close Connection
         httpCloseConnection();
-        break;
+        return WorkerResult::pass();
     }
     default:
         // Some command we don't understand.
-        // Just ignore it, it may come from some future version of KDE.
+        // Just ignore it, it may come from some future version.
         break;
     }
+    return WorkerResult::pass();
 }
 
 /**
@@ -4260,12 +4237,12 @@ void HTTPProtocol::slotData(const QByteArray &_d)
  * called by a webDAV function, to receive stat/list/property/etc.
  * data; in this case the data is stored in m_webDavDataBuf.
  */
-bool HTTPProtocol::readBody(bool dataInternal /* = false */)
+KIO::WorkerResult HTTPProtocol::readBody(bool dataInternal /* = false */)
 {
     // special case for reading cached body since we also do it in this function. oh well.
     if (!canHaveResponseBody(m_request.responseCode, m_request.method)
         && !(m_request.cacheTag.ioMode == ReadFromCache && m_request.responseCode == 304 && m_request.method != HTTP_HEAD)) {
-        return true;
+        return WorkerResult::pass();
     }
 
     m_isEOD = false;
@@ -4327,7 +4304,7 @@ bool HTTPProtocol::readBody(bool dataInternal /* = false */)
                 data(QByteArray());
             }
 
-            return true;
+            return WorkerResult::pass();
         }
     }
 
@@ -4419,8 +4396,7 @@ bool HTTPProtocol::readBody(bool dataInternal /* = false */)
             }
             // Oh well... log an error and bug out
             qCDebug(KIO_HTTP) << "bytesReceived==-1 sz=" << (int)sz << " Connection broken !";
-            error(ERR_CONNECTION_BROKEN, m_request.url.host());
-            return false;
+            return error(ERR_CONNECTION_BROKEN, m_request.url.host());
         }
 
         // I guess that nbytes == 0 isn't an error.. but we certainly
@@ -4433,7 +4409,7 @@ bool HTTPProtocol::readBody(bool dataInternal /* = false */)
             chain.slotInput(m_receiveBuf);
 
             if (m_kioError) {
-                return false;
+                return WorkerResult::fail(m_kioError);
             }
 
             sz += bytesReceived;
@@ -4471,11 +4447,10 @@ bool HTTPProtocol::readBody(bool dataInternal /* = false */)
 
     if (!dataInternal && sz <= 1) {
         if (m_request.responseCode >= 500 && m_request.responseCode <= 599) {
-            error(ERR_INTERNAL_SERVER, m_request.url.host());
-            return false;
-        } else if (m_request.responseCode >= 400 && m_request.responseCode <= 499 && !isAuthenticationRequired(m_request.responseCode)) {
-            error(ERR_DOES_NOT_EXIST, m_request.url.host());
-            return false;
+            return error(ERR_INTERNAL_SERVER, m_request.url.host());
+        }
+        if (m_request.responseCode >= 400 && m_request.responseCode <= 499 && !isAuthenticationRequired(m_request.responseCode)) {
+            return error(ERR_DOES_NOT_EXIST, m_request.url.host());
         }
     }
 
@@ -4483,15 +4458,15 @@ bool HTTPProtocol::readBody(bool dataInternal /* = false */)
         data(QByteArray());
     }
 
-    return true;
+    return WorkerResult::pass();
 }
 
-void HTTPProtocol::slotFilterError(const QString &text)
+KIO::WorkerResult HTTPProtocol::slotFilterError(const QString &text)
 {
-    error(KIO::ERR_WORKER_DEFINED, text);
+    return error(KIO::ERR_WORKER_DEFINED, text);
 }
 
-void HTTPProtocol::error(int _err, const QString &_text)
+KIO::WorkerResult HTTPProtocol::error(int _err, const QString &_text)
 {
     // Close the connection only on connection errors. Otherwise, honor the
     // keep alive flag.
@@ -4509,8 +4484,8 @@ void HTTPProtocol::error(int _err, const QString &_text)
     // It's over, we don't need it anymore
     clearPostDataBuffer();
 
-    SlaveBase::error(_err, _text);
     m_kioError = _err;
+    return WorkerResult::fail(_err, _text);
 }
 
 void HTTPProtocol::addCookies(const QString &url, const QByteArray &cookieHeader)
@@ -5045,15 +5020,14 @@ void HTTPProtocol::clearPostDataBuffer()
     m_POSTbuf = nullptr;
 }
 
-bool HTTPProtocol::retrieveAllData()
+KIO::WorkerResult HTTPProtocol::retrieveAllData()
 {
     if (!m_POSTbuf) {
         m_POSTbuf = createPostBufferDeviceFor(s_MaxInMemPostBufSize + 1);
     }
 
     if (!m_POSTbuf) {
-        error(ERR_OUT_OF_MEMORY, m_request.url.host());
-        return false;
+        return error(ERR_OUT_OF_MEMORY, m_request.url.host());
     }
 
     while (true) {
@@ -5062,8 +5036,7 @@ bool HTTPProtocol::retrieveAllData()
         const int bytesRead = readData(buffer);
 
         if (bytesRead < 0) {
-            error(ERR_ABORTED, m_request.url.host());
-            return false;
+            return error(ERR_ABORTED, m_request.url.host());
         }
 
         if (bytesRead == 0) {
@@ -5073,7 +5046,7 @@ bool HTTPProtocol::retrieveAllData()
         m_POSTbuf->write(buffer.constData(), buffer.size());
     }
 
-    return true;
+    return WorkerResult::pass();
 }
 
 // The above code should be kept in sync
@@ -5164,7 +5137,7 @@ static QString protocolForProxyType(QNetworkProxy::ProxyType type)
     return QStringLiteral("http");
 }
 
-void HTTPProtocol::proxyAuthenticationForSocket(const QNetworkProxy &proxy, QAuthenticator *authenticator)
+KIO::WorkerResult HTTPProtocol::proxyAuthenticationForSocket(const QNetworkProxy &proxy, QAuthenticator *authenticator)
 {
     qCDebug(KIO_HTTP) << "realm:" << authenticator->realm() << "user:" << authenticator->user();
 
@@ -5200,13 +5173,13 @@ void HTTPProtocol::proxyAuthenticationForSocket(const QNetworkProxy &proxy, QAut
 
         const QString errMsg((retryAuth ? i18n("Proxy Authentication Failed.") : QString()));
 
-        const int errorCode = openPasswordDialogV2(info, errMsg);
+        const int errorCode = openPasswordDialog(info, errMsg);
         if (errorCode) {
             qCDebug(KIO_HTTP) << "proxy auth cancelled by user, or communication error";
-            error(errorCode, QString());
+            const auto result = error(errorCode, QString());
             delete m_proxyAuth;
             m_proxyAuth = nullptr;
-            return;
+            return result;
         }
     }
     authenticator->setUser(info.username);
@@ -5222,6 +5195,7 @@ void HTTPProtocol::proxyAuthenticationForSocket(const QNetworkProxy &proxy, QAut
     if (!m_request.proxyUrl.userName().isEmpty()) {
         m_request.proxyUrl.setUserName(info.username);
     }
+    return WorkerResult::fail();
 }
 
 void HTTPProtocol::saveProxyAuthenticationForSocket()
@@ -5434,12 +5408,12 @@ bool HTTPProtocol::handleAuthenticationHeader(const HeaderTokenizer *tokenizer)
                         authinfo.keepPassword = true;
                         authinfo.comment = i18n("<b>%1</b> at <b>%2</b>", authinfo.realmValue.toHtmlEscaped(), authinfo.url.host());
 
-                        const int errorCode = openPasswordDialogV2(authinfo, errorMsg);
+                        const int errorCode = openPasswordDialog(authinfo, errorMsg);
                         if (errorCode) {
                             generateAuthHeader = false;
                             authRequiresAnotherRoundtrip = false;
                             if (!sendErrorPageNotification()) {
-                                error(ERR_ACCESS_DENIED, reqUrl.host());
+                                (void)/* continue processing the header*/ error(ERR_ACCESS_DENIED, reqUrl.host());
                             }
                             qCDebug(KIO_HTTP) << "looks like the user canceled the authentication dialog";
                             delete *auth;
@@ -5470,7 +5444,7 @@ bool HTTPProtocol::handleAuthenticationHeader(const HeaderTokenizer *tokenizer)
                         goto try_next_auth_scheme;
                     } else {
                         if (!sendErrorPageNotification()) {
-                            error(ERR_UNSUPPORTED_ACTION, i18n("Authorization failed."));
+                            (void)/* continue processing the header*/ error(ERR_UNSUPPORTED_ACTION, i18n("Authorization failed."));
                         }
                         authRequiresAnotherRoundtrip = false;
                     }
@@ -5487,7 +5461,7 @@ bool HTTPProtocol::handleAuthenticationHeader(const HeaderTokenizer *tokenizer)
         } else {
             authRequiresAnotherRoundtrip = false;
             if (!sendErrorPageNotification()) {
-                error(ERR_UNSUPPORTED_ACTION, i18n("Unknown Authorization method."));
+                (void)/* continue processing the header*/ error(ERR_UNSUPPORTED_ACTION, i18n("Unknown Authorization method."));
             }
         }
     }
@@ -5495,39 +5469,37 @@ bool HTTPProtocol::handleAuthenticationHeader(const HeaderTokenizer *tokenizer)
     return authRequiresAnotherRoundtrip;
 }
 
-void HTTPProtocol::copyPut(const QUrl &src, const QUrl &dest, JobFlags flags)
+KIO::WorkerResult HTTPProtocol::copyPut(const QUrl &src, const QUrl &dest, JobFlags flags)
 {
     qCDebug(KIO_HTTP) << src << "->" << dest;
 
-    if (!maybeSetRequestUrl(dest)) {
-        return;
+    if (const auto result = maybeSetRequestUrl(dest); !result.success()) {
+        return result;
     }
 
     resetSessionSettings();
 
     if (!(flags & KIO::Overwrite)) {
         // check to make sure this host supports WebDAV
-        if (!davHostOk()) {
-            return;
+        if (const auto result = davHostOk(); !result.success()) {
+            return result;
         }
 
         // Checks if the destination exists and return an error if it does.
         if (davDestinationExists()) {
-            error(ERR_FILE_ALREADY_EXIST, dest.fileName());
-            return;
+            return WorkerResult::fail(ERR_FILE_ALREADY_EXIST, dest.fileName());
         }
     }
 
     m_POSTbuf = new QFile(src.toLocalFile());
     if (!m_POSTbuf->open(QFile::ReadOnly)) {
-        error(KIO::ERR_CANNOT_OPEN_FOR_READING, src.fileName());
-        return;
+        return error(KIO::ERR_CANNOT_OPEN_FOR_READING, src.fileName());
     }
 
     m_request.method = HTTP_PUT;
     m_request.cacheTag.policy = CC_Reload;
 
-    proceedUntilResponseContent();
+    return proceedUntilResponseContent();
 }
 
 bool HTTPProtocol::davDestinationExists()
@@ -5548,7 +5520,7 @@ bool HTTPProtocol::davDestinationExists()
     m_request.cacheTag.policy = CC_Reload;
     m_request.davData.depth = 0;
 
-    proceedUntilResponseContent(true);
+    (void)/* handling result via response codes */ (true);
 
     if (!m_request.isKeepAlive) {
         httpCloseConnection(); // close connection if server requested it.
@@ -5570,29 +5542,16 @@ bool HTTPProtocol::davDestinationExists()
     return false;
 }
 
-void HTTPProtocol::fileSystemFreeSpace(const QUrl &url)
+KIO::WorkerResult HTTPProtocol::fileSystemFreeSpace(const QUrl &url)
 {
     qCDebug(KIO_HTTP) << url;
 
-    if (!maybeSetRequestUrl(url)) {
-        return;
+    if (const auto result = maybeSetRequestUrl(url); !result.success()) {
+        return result;
     }
     resetSessionSettings();
 
-    davStatList(url);
-}
-
-void HTTPProtocol::virtual_hook(int id, void *data)
-{
-    switch (id) {
-    case SlaveBase::GetFileSystemFreeSpace: {
-        QUrl *url = static_cast<QUrl *>(data);
-        fileSystemFreeSpace(*url);
-        break;
-    }
-    default:
-        TCPSlaveBase::virtual_hook(id, data);
-    }
+    return davStatList(url);
 }
 
 // needed for JSON file embedding
