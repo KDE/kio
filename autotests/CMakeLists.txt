@@ -40,6 +40,7 @@ ecm_add_tests(
  threadtest.cpp
  udsentrytest.cpp
  deletejobtest.cpp
+ deleteortrashjobtest.cpp
  urlutiltest.cpp
  batchrenamejobtest.cpp
  ksambasharetest.cpp
@@ -49,6 +50,8 @@ ecm_add_tests(
 )
 
 target_link_libraries(threadtest Qt${QT_MAJOR_VERSION}::Concurrent)
+
+target_link_libraries(deleteortrashjobtest KF5::KIOWidgets)
 
 if(TARGET Qt6::Core5Compat)
     target_link_libraries(dataprotocoltest Qt6::Core5Compat)

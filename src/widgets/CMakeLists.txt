@@ -64,6 +64,7 @@ target_sources(KF5KIOWidgets PRIVATE
   ${kiowidgets_dbus_SRCS}
   accessmanager.cpp
   accessmanagerreply_p.cpp
+  deleteortrashjob.cpp
   fileundomanager.cpp
   kpropertiesdialog.cpp
   delegateanimationhandler.cpp
@@ -191,6 +192,7 @@ ecm_generate_headers(KIOWidgets_HEADERS
 ecm_generate_headers(KIOWidgets_CamelCase_HEADERS
   HEADER_NAMES
   AccessManager
+  DeleteOrTrashJob
   SslUi
   ThumbSequenceCreator
   ThumbDevicePixelRatioDependentCreator
