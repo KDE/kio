@@ -1,0 +1,49 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Serbian "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="help">
+<title
+>Помоћ</title>
+<articleinfo>
+<authorgroup>
+<author
+><personname
+><firstname
+>Фердинанд</firstname
+> <surname
+>Гасауер</surname
+></personname
+> &Ferdinand.Gassauer.mail;</author>
+<othercredit role="translator"
+><firstname
+>Драган</firstname
+><surname
+>Пантелић</surname
+><affiliation
+><address
+><email
+>falcon-10@gmx.de</email
+></address
+></affiliation
+><contrib
+>превод</contrib
+></othercredit
+> 
+</authorgroup>
+</articleinfo>
+
+<para
+>КДЕ‑ов систем помоћи </para>
+<para
+>Погледајте <ulink url="help:/khelpcenter/index.html"
+>приручник за <application
+>К‑центар-помоћи</application
+></ulink
+> </para>
+
+</article>

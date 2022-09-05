@@ -1,0 +1,27 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % French "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="telnet">
+<title
+>telnet</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Ferdinand.Gassauer; &Ferdinand.Gassauer.mail;</author>
+&traducteurEquipeKDE; 
+</authorgroup>
+</articleinfo>
+<para
+>Le protocole de terminal en réseau (TELNET) permet à un utilisateur de se connecter sur n'importe quel ordinateur du réseau gérant TELNET. </para>
+
+<para
+>Consultez le manuel : <ulink url="man:/telnet"
+>telnet</ulink
+>. </para>
+
+</article>
