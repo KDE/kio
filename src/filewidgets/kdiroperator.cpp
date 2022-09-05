@@ -37,10 +37,10 @@
 #include <kfilepreviewgenerator.h>
 #include <kio/copyjob.h>
 #include <kio/deletejob.h>
+#include <kio/deleteortrashjob.h>
 #include <kio/jobuidelegate.h>
 #include <kio/previewjob.h>
 #include <kpropertiesdialog.h>
-#include <widgetsaskuseractionhandler.h>
 
 #include <QActionGroup>
 #include <QApplication>
@@ -88,7 +88,6 @@ public:
     int sortColumn() const;
     Qt::SortOrder sortOrder() const;
     void updateSorting(QDir::SortFlags sort);
-    KIO::WidgetsAskUserActionHandler *askUserHandler();
 
     bool isReadable(const QUrl &url);
     bool isSchemeSupported(const QString &scheme) const;
@@ -217,8 +216,6 @@ public:
 
     QList<QUrl> m_itemsToBeSetAsCurrent;
     QStringList m_supportedSchemes;
-
-    std::unique_ptr<KIO::WidgetsAskUserActionHandler> m_askUserHandler;
 };
 
 KDirOperatorPrivate::~KDirOperatorPrivate()
@@ -778,23 +775,6 @@ KIO::DeleteJob *KDirOperator::del(const KFileItemList &items, QWidget *parent, b
     return nullptr;
 }
 
-KIO::WidgetsAskUserActionHandler *KDirOperatorPrivate::askUserHandler()
-{
-    if (m_askUserHandler) {
-        return m_askUserHandler.get();
-    }
-
-    m_askUserHandler.reset(new KIO::WidgetsAskUserActionHandler{});
-    QObject::connect(m_askUserHandler.get(),
-                     &KIO::WidgetsAskUserActionHandler::askUserDeleteResult,
-                     q,
-                     [this](bool allowDelete, const QList<QUrl> &urls, KIO::AskUserActionInterface::DeletionType deletionType, QWidget *parentWidget) {
-                         slotAskUserDeleteResult(allowDelete, urls, deletionType, parentWidget);
-                     });
-
-    return m_askUserHandler.get();
-}
-
 void KDirOperator::deleteSelected()
 {
     const QList<QUrl> urls = selectedItems().urlList();
@@ -803,7 +783,9 @@ void KDirOperator::deleteSelected()
         return;
     }
 
-    d->askUserHandler()->askUserDelete(urls, KIO::AskUserActionInterface::Delete, KIO::AskUserActionInterface::DefaultConfirmation, this);
+    using Iface = KIO::AskUserActionInterface;
+    auto *deleteJob = new KIO::DeleteOrTrashJob(urls, Iface::Delete, Iface::DefaultConfirmation, this);
+    deleteJob->start();
 }
 
 KIO::CopyJob *KDirOperator::trash(const KFileItemList &items, QWidget *parent, bool ask, bool showProgress)
@@ -909,30 +891,9 @@ void KDirOperator::trashSelected()
         return;
     }
 
-    d->askUserHandler()->askUserDelete(urls, KIO::AskUserActionInterface::Trash, KIO::AskUserActionInterface::DefaultConfirmation, this);
-}
-
-void KDirOperatorPrivate::slotAskUserDeleteResult(bool allowDelete,
-                                                  const QList<QUrl> &urls,
-                                                  KIO::AskUserActionInterface::DeletionType deletionType,
-                                                  QWidget *parentWidget)
-{
-    if (parentWidget != q || !allowDelete) {
-        return;
-    }
-
-    KIO::Job *job = nullptr;
-    if (deletionType == KIO::AskUserActionInterface::Trash) {
-        job = KIO::trash(urls);
-    } else if (deletionType == KIO::AskUserActionInterface::Delete) {
-        job = KIO::del(urls, KIO::DefaultFlags);
-    }
-
-    if (!job) {
-        return;
-    }
-    KJobWidgets::setWindow(job, q);
-    job->uiDelegate()->setAutoErrorHandlingEnabled(true);
+    using Iface = KIO::AskUserActionInterface;
+    auto *trashJob = new KIO::DeleteOrTrashJob(urls, Iface::Trash, Iface::DefaultConfirmation, this);
+    trashJob->start();
 }
 
 #if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 76)
