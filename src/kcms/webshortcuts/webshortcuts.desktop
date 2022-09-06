@@ -8,9 +8,6 @@ X-KDE-Library=kcm_webshortcuts
 X-KDE-PluginInfo-Name=webshortcuts
 X-KDE-ParentApp=kcontrol
 
-X-KDE-System-Settings-Parent-Category=search
-X-KDE-Weight=70
-
 Name=Web Search Keywords
 Name[ar]=كلمات بحث الويب
 Name[az]=İnternetdə axtarış üçün açar sözlər
