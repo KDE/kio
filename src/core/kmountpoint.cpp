@@ -14,6 +14,7 @@
 #include <config-kmountpoint.h>
 #include <kioglobal_p.h> // Defines QT_LSTAT on windows to kio_windows_lstat
 
+#include <QDebug>
 #include <QDir>
 #include <QFile>
 #include <QFileInfo>
@@ -504,4 +505,24 @@ bool KMountPoint::testFileSystemFlag(FileSystemFlag flag) const
         return isMsDos;
     }
     return false;
+}
+
+KIOCORE_EXPORT QDebug operator<<(QDebug debug, const KMountPoint::Ptr &mp)
+{
+    QDebugStateSaver saver(debug);
+    if (!mp) {
+        debug << "QDebug operator<< called on a null KMountPoint::Ptr";
+        return debug;
+    }
+
+    // clang-format off
+    debug.nospace() << "KMountPoint ["
+                    << "Mounted from: "  << mp->d->m_mountedFrom
+                    << ", device name: " << mp->d->m_device
+                    << ", mount point: " << mp->d->m_mountPoint
+                    << ", mount type: "  << mp->d->m_mountType
+                    <<']';
+
+    // clang-format on
+    return debug;
 }

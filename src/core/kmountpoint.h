@@ -189,9 +189,13 @@ private:
      */
     KMountPoint();
 
+    friend KIOCORE_EXPORT QDebug operator<<(QDebug debug, const Ptr &mp);
+
     friend KMountPointPrivate;
     std::unique_ptr<KMountPointPrivate> d;
 };
+
+KIOCORE_EXPORT QDebug operator<<(QDebug debug, const KMountPoint::Ptr &mp);
 
 Q_DECLARE_OPERATORS_FOR_FLAGS(KMountPoint::DetailsNeededFlags)
 
