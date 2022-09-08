@@ -825,8 +825,10 @@ bool KFileItemPrivate::isSlow() const
     if (m_slow == SlowUnknown) {
         const QString path = localPath();
         if (!path.isEmpty()) {
-            const KFileSystemType::Type fsType = KFileSystemType::fileSystemType(path);
-            m_slow = (fsType == KFileSystemType::Nfs || fsType == KFileSystemType::Smb) ? Slow : Fast;
+            namespace KFS = KFileSystemType;
+            const auto fsType = KFS::fileSystemType(path);
+            const bool fsSlow = fsType == KFS::Nfs || fsType == KFS::Smb || fsType == KFS::FuseBlk;
+            m_slow = fsSlow ? Slow : Fast;
         } else {
             m_slow = Slow;
         }
