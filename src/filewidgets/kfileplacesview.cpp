@@ -10,6 +10,7 @@
 #include "kfileplacesview.h"
 #include "kfileplacesview_p.h"
 
+#include <kio/deleteortrashjob.h>
 #include <QAbstractItemDelegate>
 #include <QActionGroup>
 #include <QApplication>
@@ -31,16 +32,12 @@
 #include <KColorUtils>
 #include <KConfig>
 #include <KConfigGroup>
-#include <KIO/JobUiDelegateFactory>
 #include <KJob>
-#include <KJobWidgets>
 #include <KLocalizedString>
 #include <KSharedConfig>
 #include <defaults-kfile.h> // ConfigGroup, PlacesIconsAutoresize, PlacesIconsStaticSize
 #include <kdirnotify.h>
-#include <kio/emptytrashjob.h>
 #include <kio/filesystemfreespacejob.h>
-#include <kio/jobuidelegate.h>
 #include <kmountpoint.h>
 #include <kpropertiesdialog.h>
 #include <solid/opticaldisc.h>
@@ -48,7 +45,6 @@
 #include <solid/storageaccess.h>
 #include <solid/storagedrive.h>
 #include <solid/storagevolume.h>
-#include <widgetsaskuseractionhandler.h>
 
 #include <chrono>
 #include <cmath>
@@ -734,8 +730,6 @@ public:
 
     KFilePlacesView::TeardownFunction m_teardownFunction = nullptr;
 
-    std::unique_ptr<KIO::WidgetsAskUserActionHandler> m_askUserHandler;
-
     QTimeLine m_adaptItemsTimeline;
     QTimeLine m_itemAppearTimeline;
     QTimeLine m_itemDisappearTimeline;
@@ -1071,24 +1065,13 @@ void KFilePlacesViewPrivate::writeConfig()
 void KFilePlacesViewPrivate::slotEmptyTrash()
 {
     auto *parentWindow = q->window();
+
     using AskIface = KIO::AskUserActionInterface;
-
-    if (!m_askUserHandler) {
-        m_askUserHandler.reset(new KIO::WidgetsAskUserActionHandler{});
-
-        auto slotAskResult = [parentWindow](bool allowDelete, const QList<QUrl> &, AskIface::DeletionType, QWidget *parent) {
-            if (parent != parentWindow || !allowDelete) {
-                return;
-            }
-
-            KIO::Job *job = KIO::emptyTrash();
-            job->setUiDelegate(KIO::createDefaultJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, parentWindow));
-        };
-
-        q->connect(m_askUserHandler.get(), &AskIface::askUserDeleteResult, q, slotAskResult);
-    }
-
-    m_askUserHandler->askUserDelete(QList<QUrl>{}, AskIface::EmptyTrash, AskIface::DefaultConfirmation, parentWindow);
+    auto *emptyTrashJob = new KIO::DeleteOrTrashJob(QList<QUrl>{}, //
+                                                    AskIface::EmptyTrash,
+                                                    AskIface::DefaultConfirmation,
+                                                    parentWindow);
+    emptyTrashJob->start();
 }
 
 void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
