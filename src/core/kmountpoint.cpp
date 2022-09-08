@@ -49,6 +49,10 @@ static const Qt::CaseSensitivity cs = Qt::CaseSensitive;
 #include <libmount/libmount.h>
 #endif
 
+#ifdef Q_OS_UNIX
+#include <sys/sysmacros.h> // major(dev_t)
+#endif
+
 static bool isNetfs(const QString &mountType)
 {
     // List copied from util-linux/libmount/src/utils.c
@@ -77,6 +81,8 @@ public:
     void resolveGvfsMountPoints(KMountPoint::List &result);
     void finalizePossibleMountPoint(KMountPoint::DetailsNeededFlags infoNeeded);
     void finalizeCurrentMountPoint(KMountPoint::DetailsNeededFlags infoNeeded);
+
+    bool isFuseBlkSlow() const;
 
     QString m_mountedFrom;
     QString m_device; // Only available when the NeedRealDeviceName flag was set.
@@ -463,8 +469,31 @@ KMountPoint::Ptr KMountPoint::List::findByDevice(const QString &device) const
     return Ptr();
 }
 
+bool KMountPointPrivate::isFuseBlkSlow() const
+{
+    // fuseblk on a filesystem on a local disk managed by the sd driver
+    // See: https://man7.org/linux/man-pages/man4/sd.4.html.
+    // See probablySlow() API docs for more details
+#ifdef Q_OS_UNIX
+    if (!m_device.isEmpty()) {
+        return !m_device.startsWith(QLatin1String("/dev/sd"));
+    }
+
+    // Typically d->m_device is empty unless the NeedRealDeviceName flag was used;
+    // fallback to checking the device major(); for "sd" it's 8
+    constexpr int sd_device_major = 8;
+    return major(m_deviceId) != sd_device_major;
+#endif
+
+    return true;
+}
+
 bool KMountPoint::probablySlow() const
 {
+    if (d->m_mountType == QLatin1String("fuseblk")) {
+        return d->isFuseBlkSlow();
+    }
+
     /* clang-format off */
     return isOnNetwork()
         || d->m_mountType == QLatin1String("autofs")

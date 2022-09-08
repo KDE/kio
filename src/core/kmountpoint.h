@@ -145,8 +145,14 @@ public:
     QStringList mountOptions() const;
 
     /**
-     * Returns @c true if the filesystem is "probably" slow, e.g.\ a network mount,
+     * Returns @c true if the filesystem is "probably" slow, e.g. a network mount,
      * @c false otherwise.
+     *
+     * Starting from 5.99 on Unix, for the "fuseblk" mount type, this method will
+     * return @c true, unless the underlying device is on a local disk managed by
+     * the sd driver (see: https://man7.org/linux/man-pages/man4/sd.4.html) in which
+     * case it will return @c false (e.g. an NTFS partition mounted by UDisks2, is
+     * typically mounted as "fuseblk" but it's not a potentially slow filesystem).
      */
     bool probablySlow() const;
 
