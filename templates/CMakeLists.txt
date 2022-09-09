@@ -1,5 +1,5 @@
 kde_package_app_templates(
     TEMPLATES
         kioworker
-    INSTALL_DIR ${KDE_INSTALL_KFILETEMPLATESDIR}
+    INSTALL_DIR ${KDE_INSTALL_KAPPTEMPLATESDIR}
 )
