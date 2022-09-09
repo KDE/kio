@@ -21,6 +21,28 @@
 #include <KIO/ApplicationLauncherJob>
 #include <KIO/CommandLauncherJob>
 
+#if defined(Q_OS_UNIX) && defined(QT_DBUS_LIB)
+#define USE_PORTAL
+#endif
+
+// for XDG Portal support
+#ifdef USE_PORTAL
+#include <QDBusConnectionInterface>
+#include <QDBusInterface>
+#include <QDBusPendingCallWatcher>
+#include <QDBusPendingReply>
+#include <QDBusUnixFileDescriptor>
+#include <QFile>
+#include <QGuiApplication>
+#include <QWindow>
+
+#include <KWaylandExtras>
+#include <KWindowSystem>
+
+#include <fcntl.h>
+#include <unistd.h>
+#endif // USE_PORTAL
+
 #ifdef Q_OS_WIN
 #include <windows.h> // Must be included before shellapi.h
 
@@ -83,14 +105,133 @@ void KEMailClientLauncherJob::setStartupId(const QByteArray &startupId)
     d->m_startupId = startupId;
 }
 
+#ifdef USE_PORTAL
+void KEMailClientLauncherJob::useXdgPortal()
+{
+    auto window = qGuiApp->focusWindow();
+    if (!window && !qGuiApp->allWindows().isEmpty()) {
+        window = qGuiApp->allWindows().constFirst();
+    }
+
+    if (!window) {
+        callXdgPortal(QString());
+        return;
+    }
+
+    switch (KWindowSystem::platform()) {
+    case KWindowSystem::Platform::X11:
+        callXdgPortal(QStringLiteral("x11:%1").arg(window->winId(), 0, 16));
+        return;
+    case KWindowSystem::Platform::Wayland: {
+        connect(
+            KWaylandExtras::self(),
+            &KWaylandExtras::windowExported,
+            this,
+            [this](QWindow * /*window*/, const QString &handle) {
+                callXdgPortal(handle);
+            },
+            Qt::SingleShotConnection);
+
+        KWaylandExtras::exportWindow(window);
+    }
+    case KWindowSystem::Platform::Unknown:
+        break;
+    }
+
+    callXdgPortal(QString());
+}
+
+void KEMailClientLauncherJob::callXdgPortal(const QString &parentWindow)
+{
+    QVector<QDBusUnixFileDescriptor> attachment_fds;
+    attachment_fds.reserve(d->m_attachments.size());
+
+    QStringList failed_attachments;
+
+    for (const auto &attachment : std::as_const(d->m_attachments)) {
+        auto fd = ::open(QFile::encodeName(attachment.toLocalFile()).constData(), O_PATH);
+        if (fd < 0) {
+            failed_attachments << attachment.toString();
+            continue;
+        }
+        attachment_fds << QDBusUnixFileDescriptor{fd};
+        ::close(fd);
+    }
+
+    auto composeEmail = QDBusMessage::createMethodCall(QStringLiteral("org.freedesktop.portal.Desktop"),
+                                                       QStringLiteral("/org/freedesktop/portal/desktop"),
+                                                       QStringLiteral("org.freedesktop.portal.Email"),
+                                                       QStringLiteral("ComposeEmail"));
+
+    const QVariantMap options = {
+        {QStringLiteral("addresses"), d->m_to},
+        {QStringLiteral("cc"), d->m_cc},
+        {QStringLiteral("bcc"), d->m_bcc},
+        {QStringLiteral("subject"), d->m_subject},
+        {QStringLiteral("body"), d->m_body},
+        {QStringLiteral("attachment_fds"), QVariant::fromValue(attachment_fds)},
+    };
+
+    composeEmail.setArguments({parentWindow, options});
+
+    const auto call = QDBusConnection::sessionBus().asyncCall(composeEmail);
+    const auto *const watcher = new QDBusPendingCallWatcher{call, this};
+
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [this, failed_attachments = std::move(failed_attachments)](auto *watcher) {
+        const QDBusPendingReply<QDBusObjectPath> reply = *watcher;
+        if (reply.isError()) {
+            setError(KJob::UserDefinedError);
+            setErrorText(i18n("Launching email client failed with: “%1”.", reply.error().message()));
+        } else if (!failed_attachments.empty()) {
+            Q_EMIT warning(this,
+                           i18np("The file <b>%2</b> could not be attached to your email.",
+                                 "The following %1 files could not be attached to your email:<ul><li>%2</li></ul>",
+                                 failed_attachments.size(),
+                                 failed_attachments.join(QLatin1String{"</li><li>"})));
+        }
+        emitResult();
+    });
+}
+#endif // USE_PORTAL
+
 void KEMailClientLauncherJob::start()
+{
+#ifdef USE_PORTAL
+    if (QCoreApplication::applicationName() == QStringLiteral("xdg-desktop-portal-kde")) {
+        QMetaObject::invokeMethod(this, &KEMailClientLauncherJob::launchEMailClient, Qt::QueuedConnection);
+        return;
+    }
+
+    const auto listActivatableNames = QDBusMessage::createMethodCall(QStringLiteral("org.freedesktop.DBus"),
+                                                                     QStringLiteral("/"),
+                                                                     QStringLiteral("org.freedesktop.DBus"),
+                                                                     QStringLiteral("ListActivatableNames"));
+
+    const auto activatableNamesPending = QDBusConnection::sessionBus().asyncCall(listActivatableNames);
+    const auto *const activatableNamesWatcher = new QDBusPendingCallWatcher{activatableNamesPending, this};
+
+    connect(activatableNamesWatcher, &QDBusPendingCallWatcher::finished, this, [this](auto *activatableNamesWatcher) {
+        const QDBusPendingReply<QStringList> activatableNames = *activatableNamesWatcher;
+
+        if (activatableNames.value().contains(QStringLiteral("org.freedesktop.portal.Desktop"))) {
+            useXdgPortal();
+        } else {
+            launchEMailClient();
+        }
+    });
+#else
+    QMetaObject::invokeMethod(this, &KEMailClientLauncherJob::launchEMailClient, Qt::QueuedConnection);
+#endif // USE_PORTAL
+}
+
+void KEMailClientLauncherJob::launchEMailClient()
 {
 #ifndef Q_OS_WIN
     KService::Ptr service = KApplicationTrader::preferredService(QStringLiteral("x-scheme-handler/mailto"));
     if (!service) {
         setError(KJob::UserDefinedError);
         setErrorText(i18n("No mail client found"));
-        emitDelayedResult();
+        emitResult();
         return;
     }
     const QString entryPath = service->entryPath().toLower();
@@ -111,14 +252,8 @@ void KEMailClientLauncherJob::start()
     const QString url = mailToUrl().toString();
     const QString sOpen = QStringLiteral("open");
     ShellExecuteW(0, (LPCWSTR)sOpen.utf16(), (LPCWSTR)url.utf16(), 0, 0, SW_NORMAL);
-    emitDelayedResult();
+    emitResult();
 #endif
-}
-
-void KEMailClientLauncherJob::emitDelayedResult()
-{
-    // Use delayed invocation so the caller has time to connect to the signal
-    QMetaObject::invokeMethod(this, &KEMailClientLauncherJob::emitResult, Qt::QueuedConnection);
 }
 
 QUrl KEMailClientLauncherJob::mailToUrl() const
