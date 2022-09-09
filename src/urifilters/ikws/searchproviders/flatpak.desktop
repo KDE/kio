@@ -47,6 +47,7 @@ Query[bg]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=
 Query[bs]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[ca]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[ca@valencia]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
+Query[cs]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[cy]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[de]=https://docs.flatpak.org/de/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[en_GB]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
