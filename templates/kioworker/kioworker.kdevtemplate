@@ -1,4 +1,22 @@
 [General]
 Name=C++
+Name[ar]=سي++
+Name[ca]=C++
+Name[ca@valencia]=C++
+Name[en_GB]=C++
+Name[eu]=C++
+Name[nl]=C++
+Name[tr]=C++
+Name[uk]=C++
+Name[x-test]=xxC++xx
 Comment=KIO Worker Template
+Comment[ar]=قالب عامل الدخل والخرج
+Comment[ca]=Plantilla de procés de treball KIO
+Comment[ca@valencia]=Plantilla de procés de treball KIO
+Comment[en_GB]=KIO Worker Template
+Comment[eu]=KIO behargin txantiloia
+Comment[nl]=Sjabloon van KIO-worker
+Comment[tr]=KIO Çalışanı Şablonu
+Comment[uk]=Шаблон обробника KIO
+Comment[x-test]=xxKIO Worker Templatexx
 Category=KIO/Worker
