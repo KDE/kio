@@ -337,9 +337,9 @@ RenameDialog::RenameDialog(QWidget *parent,
             d->destItem = KFileItem(destUds, d->dest);
         }
 
-        d->m_srcPreview = createLabel(parent, QString());
-        d->m_destPreview = createLabel(parent, QString());
-        QLabel *srcToDestArrow = createLabel(parent, QString());
+        d->m_srcPreview = createLabel(this, QString());
+        d->m_destPreview = createLabel(this, QString());
+        QLabel *srcToDestArrow = createLabel(this, QString());
 
         d->m_srcPreview->setMinimumHeight(KIconLoader::SizeEnormous);
         d->m_destPreview->setMinimumHeight(KIconLoader::SizeEnormous);
@@ -353,8 +353,8 @@ RenameDialog::RenameDialog(QWidget *parent,
         d->m_destPendingPreview = true;
 
         // widget
-        d->m_srcArea = createContainerLayout(parent, d->srcItem, d->m_srcPreview);
-        d->m_destArea = createContainerLayout(parent, d->destItem, d->m_destPreview);
+        d->m_srcArea = createContainerLayout(this, d->srcItem, d->m_srcPreview);
+        d->m_destArea = createContainerLayout(this, d->destItem, d->m_destPreview);
 
         connect(d->m_srcArea->verticalScrollBar(), &QAbstractSlider::valueChanged, d->m_destArea->verticalScrollBar(), &QAbstractSlider::setValue);
         connect(d->m_destArea->verticalScrollBar(), &QAbstractSlider::valueChanged, d->m_srcArea->verticalScrollBar(), &QAbstractSlider::setValue);
@@ -371,15 +371,15 @@ RenameDialog::RenameDialog(QWidget *parent,
 
         gridLayout->setRowMinimumHeight(++gridRow, 15); // spacer
 
-        QLabel *srcTitle = createLabel(parent, i18n("Source"), true);
+        QLabel *srcTitle = createLabel(this, i18n("Source"), true);
         gridLayout->addWidget(srcTitle, ++gridRow, 0);
-        QLabel *destTitle = createLabel(parent, i18n("Destination"), true);
+        QLabel *destTitle = createLabel(this, i18n("Destination"), true);
         gridLayout->addWidget(destTitle, gridRow, 2);
 
-        QLabel *srcUrlLabel = createSqueezedLabel(parent, d->src.toDisplayString(QUrl::PreferLocalFile));
+        QLabel *srcUrlLabel = createSqueezedLabel(this, d->src.toDisplayString(QUrl::PreferLocalFile));
         srcUrlLabel->setTextFormat(Qt::PlainText);
         gridLayout->addWidget(srcUrlLabel, ++gridRow, 0);
-        QLabel *destUrlLabel = createSqueezedLabel(parent, d->dest.toDisplayString(QUrl::PreferLocalFile));
+        QLabel *destUrlLabel = createSqueezedLabel(this, d->dest.toDisplayString(QUrl::PreferLocalFile));
         destUrlLabel->setTextFormat(Qt::PlainText);
         gridLayout->addWidget(destUrlLabel, gridRow, 2);
 
@@ -394,19 +394,19 @@ RenameDialog::RenameDialog(QWidget *parent,
 
         gridLayout->addWidget(d->m_destArea, gridRow, 2);
 
-        QLabel *diffTitle = createLabel(parent, i18n("Differences"), true);
+        QLabel *diffTitle = createLabel(this, i18n("Differences"), true);
         gridLayout->addWidget(diffTitle, ++gridRow, 1);
 
-        QLabel *srcDateLabel = createDateLabel(parent, d->srcItem);
+        QLabel *srcDateLabel = createDateLabel(this, d->srcItem);
         gridLayout->addWidget(srcDateLabel, ++gridRow, 0);
 
         if (mtimeDest > mtimeSrc) {
-            gridLayout->addWidget(createLabel(parent, QStringLiteral("The destination is <b>more recent</b>")), gridRow, 1);
+            gridLayout->addWidget(createLabel(this, QStringLiteral("The destination is <b>more recent</b>")), gridRow, 1);
         }
-        QLabel *destDateLabel = createLabel(parent, i18n("Date: %1", d->destItem.timeString(KFileItem::ModificationTime)));
+        QLabel *destDateLabel = createLabel(this, i18n("Date: %1", d->destItem.timeString(KFileItem::ModificationTime)));
         gridLayout->addWidget(destDateLabel, gridRow, 2);
 
-        QLabel *srcSizeLabel = createSizeLabel(parent, d->srcItem);
+        QLabel *srcSizeLabel = createSizeLabel(this, d->srcItem);
         gridLayout->addWidget(srcSizeLabel, ++gridRow, 0);
 
         if (d->srcItem.entry().contains(KIO::UDSEntry::UDS_SIZE) && d->destItem.entry().contains(KIO::UDSEntry::UDS_SIZE)
@@ -420,9 +420,9 @@ RenameDialog::RenameDialog(QWidget *parent,
                 diff = d->destItem.size() - d->srcItem.size();
                 text = i18n("The destination is <b>bigger by %1</b>", KIO::convertSize(diff));
             }
-            gridLayout->addWidget(createLabel(parent, text), gridRow, 1);
+            gridLayout->addWidget(createLabel(this, text), gridRow, 1);
         }
-        QLabel *destSizeLabel = createLabel(parent, i18n("Size: %1", KIO::convertSize(d->destItem.size())));
+        QLabel *destSizeLabel = createLabel(this, i18n("Size: %1", KIO::convertSize(d->destItem.size())));
         gridLayout->addWidget(destSizeLabel, gridRow, 2);
 
         // check files contents for local files
