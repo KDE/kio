@@ -3263,6 +3263,7 @@ public:
     {
         delete w;
     }
+    QString command() const;
     Ui_KPropertiesDesktopBase *w;
     QWidget *m_frame = nullptr;
     std::unique_ptr<Ui_KPropertiesDesktopAdvBase> m_uiAdvanced;
@@ -3300,7 +3301,8 @@ KDesktopPropsPlugin::KDesktopPropsPlugin(KPropertiesDialog *_props)
     connect(d->w->nameEdit, &QLineEdit::textChanged, this, &KPropertiesDialogPlugin::changed);
     connect(d->w->genNameEdit, &QLineEdit::textChanged, this, &KPropertiesDialogPlugin::changed);
     connect(d->w->commentEdit, &QLineEdit::textChanged, this, &KPropertiesDialogPlugin::changed);
-    connect(d->w->commandEdit, &QLineEdit::textChanged, this, &KPropertiesDialogPlugin::changed);
+    connect(d->w->programEdit, &QLineEdit::textChanged, this, &KPropertiesDialogPlugin::changed);
+    connect(d->w->argumentsEdit, &QLineEdit::textChanged, this, &KPropertiesDialogPlugin::changed);
     connect(d->w->pathEdit, &KUrlRequester::textChanged, this, &KPropertiesDialogPlugin::changed);
 
     connect(d->w->browseButton, &QAbstractButton::clicked, this, &KDesktopPropsPlugin::slotBrowseExec);
@@ -3389,7 +3391,16 @@ KDesktopPropsPlugin::KDesktopPropsPlugin(KPropertiesDialog *_props)
     d->w->nameEdit->setText(nameStr);
     d->w->genNameEdit->setText(genNameStr);
     d->w->commentEdit->setText(commentStr);
-    d->w->commandEdit->setText(commandStr);
+
+    QStringList execLine = KShell::splitArgs(commandStr);
+
+    if (!execLine.isEmpty()) {
+        d->w->programEdit->setText(execLine.takeFirst());
+    } else {
+        d->w->programEdit->clear();
+    }
+    d->w->argumentsEdit->setText(KShell::joinArgs(execLine));
+
     d->w->pathEdit->lineEdit()->setText(pathStr);
 
     // was: d->w->filetypeList->setFullWidth(true);
@@ -3469,8 +3480,8 @@ void KDesktopPropsPlugin::slotDelFiletype()
 
 void KDesktopPropsPlugin::checkCommandChanged()
 {
-    if (KIO::DesktopExecParser::executableName(d->w->commandEdit->text()) != KIO::DesktopExecParser::executableName(d->m_origCommandStr)) {
-        d->m_origCommandStr = d->w->commandEdit->text();
+    if (KIO::DesktopExecParser::executableName(d->command()) != KIO::DesktopExecParser::executableName(d->m_origCommandStr)) {
+        d->m_origCommandStr = d->command();
         d->m_dbusStartupType.clear(); // Reset
         d->m_dbusServiceName.clear();
     }
@@ -3513,7 +3524,7 @@ void KDesktopPropsPlugin::applyChanges()
     config.writeEntry("Comment", d->w->commentEdit->text(), KConfigGroup::Persistent | KConfigGroup::Localized); // for compat
     config.writeEntry("GenericName", d->w->genNameEdit->text());
     config.writeEntry("GenericName", d->w->genNameEdit->text(), KConfigGroup::Persistent | KConfigGroup::Localized); // for compat
-    config.writeEntry("Exec", d->w->commandEdit->text());
+    config.writeEntry("Exec", d->command());
     config.writeEntry("Path", d->w->pathEdit->lineEdit()->text()); // not writePathEntry, see kservice.cpp
 
     // Write mimeTypes
@@ -3576,7 +3587,7 @@ void KDesktopPropsPlugin::slotBrowseExec()
 
     QString path = f.toLocalFile();
     path = KShell::quoteArg(path);
-    d->w->commandEdit->setText(path);
+    d->w->programEdit->setText(path);
 }
 
 void KDesktopPropsPlugin::slotAdvanced()
@@ -3723,6 +3734,12 @@ bool KDesktopPropsPlugin::supports(const KFileItemList &_items)
 
     KDesktopFile config(url.toLocalFile());
     return config.hasApplicationType() && KAuthorized::authorize(KAuthorized::RUN_DESKTOP_FILES) && KAuthorized::authorize(KAuthorized::SHELL_ACCESS);
+}
+
+QString KDesktopPropsPlugin::KDesktopPropsPluginPrivate::command() const
+{
+    QStringList execSplit = QStringList(w->programEdit->text()) + KShell::splitArgs(w->argumentsEdit->text());
+    return KShell::joinArgs(execSplit);
 }
 
 #include "moc_kpropertiesdialog.cpp"
