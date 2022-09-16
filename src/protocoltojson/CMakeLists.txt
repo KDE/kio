@@ -8,4 +8,4 @@ ecm_mark_nongui_executable(protocoltojson)
 
 target_link_libraries(protocoltojson KF5::ConfigCore Qt${QT_MAJOR_VERSION}::Core)
 
-install(TARGETS protocoltojson ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS protocoltojson ${KF_INSTALL_TARGETS_DEFAULT_ARGS})

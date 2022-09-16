@@ -79,7 +79,7 @@ target_link_libraries(ktrash5
   KF5::ConfigCore
 )
 
-install(TARGETS ktrash5 ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS ktrash5 ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
 
 ########### next target ###############
 
