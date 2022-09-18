@@ -89,7 +89,7 @@ KCoreUrlNavigator::KCoreUrlNavigator(const QUrl &url, QObject *parent)
     : QObject(parent)
     , d(new KCoreUrlNavigatorPrivate(this))
 {
-    d->m_history.prepend(LocationData{url.adjusted(QUrl::NormalizePathSegments)});
+    d->m_history.prepend(LocationData{url.adjusted(QUrl::NormalizePathSegments), {}});
 }
 
 KCoreUrlNavigator::~KCoreUrlNavigator()
@@ -228,7 +228,7 @@ void KCoreUrlNavigator::setCurrentLocationUrl(const QUrl &newUrl)
     }
 
     Q_ASSERT(d->m_historyIndex == 0);
-    d->m_history.insert(0, LocationData{url});
+    d->m_history.insert(0, LocationData{url, {}});
 
     // Prevent an endless growing of the history: remembering
     // the last 100 Urls should be enough...
