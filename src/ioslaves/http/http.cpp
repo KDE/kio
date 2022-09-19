@@ -442,7 +442,7 @@ void HTTPProtocol::resetSessionSettings()
     const bool noAuth = configValue(QStringLiteral("no-auth"), false);
     m_request.doNotWWWAuthenticate = configValue(QStringLiteral("no-www-auth"), noAuth);
     m_request.doNotProxyAuthenticate = configValue(QStringLiteral("no-proxy-auth"), noAuth);
-    m_strCacheDir = config()->readPathEntry(QStringLiteral("CacheDir"), QString());
+    m_strCacheDir = configValue(QStringLiteral("CacheDir"), QString());
     m_maxCacheAge = configValue(QStringLiteral("MaxCacheAge"), DEFAULT_MAX_CACHE_AGE);
     m_request.windowId = configValue(QStringLiteral("window-id"));
 
