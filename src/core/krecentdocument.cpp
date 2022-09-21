@@ -224,7 +224,7 @@ static bool addToXbel(const QUrl &url, const QString &desktopEntryName, KRecentD
                 const int count = attributes.value(countAttribute).toInt();
 
                 QXmlStreamAttributes newAttributes;
-                for (const QXmlStreamAttribute &old : qAsConst(attributes)) {
+                for (const QXmlStreamAttribute &old : std::as_const(attributes)) {
                     if (old.qualifiedName() == countAttribute) {
                         continue;
                     }
@@ -302,7 +302,7 @@ static bool addToXbel(const QUrl &url, const QString &desktopEntryName, KRecentD
             }
             if (!groups.isEmpty()) {
                 output.writeStartElement(bookmarkGroups);
-                for (const auto &group : qAsConst(groups)) {
+                for (const auto &group : std::as_const(groups)) {
                     output.writeTextElement(bookmarkGroup, stringForRecentDocumentGroup(group));
                 }
                 // bookmarkGroups
