@@ -329,6 +329,92 @@ bool KIO::DesktopExecParserPrivate::isUrlSupported(const QUrl &url, const QStrin
     return false;
 }
 
+#ifndef Q_OS_WIN
+// helper function to help scope service so that not the entire determineFullCommand has access to it (it is not
+// always not null!)
+static KServicePtr serviceFromConfig(bool fallbackToKonsoleService)
+{
+    const KConfigGroup confGroup(KSharedConfig::openConfig(), "General");
+    const QString terminalExec = confGroup.readEntry("TerminalApplication");
+    const QString terminalService = confGroup.readEntry("TerminalService");
+    KServicePtr service;
+    if (!terminalService.isEmpty()) {
+        service = KService::serviceByStorageId(terminalService);
+    } else if (!terminalExec.isEmpty()) {
+        service = new KService(QStringLiteral("terminal"), terminalExec, QStringLiteral("utilities-terminal"));
+    }
+    if (!service && fallbackToKonsoleService) {
+        service = KService::serviceByStorageId(QStringLiteral("org.kde.konsole"));
+    }
+    return service;
+}
+#endif
+
+std::optional<KIO::DesktopExecParser::CommandResult>
+KIO::DesktopExecParser::determineFullCommand(const QString workingDir,
+                                             const QString &command,
+                                             bool fallbackToKonsoleService /* allow synthesizing no konsole */)
+{
+#ifndef Q_OS_WIN
+
+    QString exec;
+    QString desktopName;
+    if (KServicePtr service = serviceFromConfig(fallbackToKonsoleService); service) {
+        desktopName = service->desktopEntryName();
+        exec = service->exec();
+    } else {
+        // konsole not found by desktop file, let's see what PATH has for us
+        auto useIfAvailable = [&exec](const QString &terminalApp) {
+            const bool found = !QStandardPaths::findExecutable(terminalApp).isEmpty();
+            if (found) {
+                exec = terminalApp;
+            }
+            return found;
+        };
+        if (!useIfAvailable(QStringLiteral("konsole")) && !useIfAvailable(QStringLiteral("xterm"))) {
+            return std::nullopt;
+        }
+    }
+    if (!command.isEmpty()) {
+        if (exec == QLatin1String("konsole")) {
+            exec += QLatin1String(" --noclose");
+        } else if (exec == QLatin1String("xterm")) {
+            exec += QLatin1String(" -hold");
+        }
+    }
+    if (exec.startsWith(QLatin1String("konsole")) && !workingDir.isEmpty()) {
+        exec += QLatin1String(" --workdir %1").arg(KShell::quoteArg(workingDir));
+    }
+    if (!command.isEmpty()) {
+        exec += QLatin1String(" -e ") + command;
+    }
+#else
+    const QString windowsTerminal = QStringLiteral("wt.exe");
+    const QString pwsh = QStringLiteral("pwsh.exe");
+    const QString powershell = QStringLiteral("powershell.exe"); // Powershell is used as fallback
+    const bool hasWindowsTerminal = !QStandardPaths::findExecutable(windowsTerminal).isEmpty();
+    const bool hasPwsh = !QStandardPaths::findExecutable(pwsh).isEmpty();
+
+    QString exec;
+    if (hasWindowsTerminal) {
+        exec = windowsTerminal;
+        if (!workingDir.isEmpty()) {
+            exec += QLatin1String(" --startingDirectory %1").arg(KShell::quoteArg(workingDir));
+        }
+        if (!d->m_command.isEmpty()) {
+            // Command and NoExit flag will be added later
+            exec += QLatin1Char(' ') + (hasPwsh ? pwsh : powershell);
+        }
+    } else {
+        exec = hasPwsh ? pwsh : powershell;
+    }
+    if (!d->m_command.isEmpty()) {
+        exec += QLatin1String(" -NoExit -Command ") + d->m_command;
+    }
+#endif
+    return CommandResult{exec, desktopName};
+}
+
 QStringList KIO::DesktopExecParser::resultingArguments() const
 {
     QString exec = d->service.exec();

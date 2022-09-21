@@ -110,6 +110,12 @@ public:
     static QString executablePath(const QString &execLine);
 
 private:
+    friend class KTerminalLauncherJob;
+    struct CommandResult {
+        QString exec;
+        QString desktopName;
+    };
+    static std::optional<CommandResult> determineFullCommand(const QString workingDir, const QString &command, bool fallbackToKonsoleService);
     QScopedPointer<DesktopExecParserPrivate> d;
 };
 

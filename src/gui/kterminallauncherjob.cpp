@@ -7,6 +7,8 @@
 
 #include "kterminallauncherjob.h"
 
+#include "desktopexecparser.h"
+
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KService>
@@ -79,90 +81,18 @@ void KTerminalLauncherJob::emitDelayedResult()
     QMetaObject::invokeMethod(this, &KTerminalLauncherJob::emitResult, Qt::QueuedConnection);
 }
 
-#ifndef Q_OS_WIN
-// helper function to help scope service so that not the entire determineFullCommand has access to it (it is not
-// always not null!)
-static KServicePtr serviceFromConfig(bool fallbackToKonsoleService)
-{
-    const KConfigGroup confGroup(KSharedConfig::openConfig(), "General");
-    const QString terminalExec = confGroup.readEntry("TerminalApplication");
-    const QString terminalService = confGroup.readEntry("TerminalService");
-    KServicePtr service;
-    if (!terminalService.isEmpty()) {
-        service = KService::serviceByStorageId(terminalService);
-    } else if (!terminalExec.isEmpty()) {
-        service = new KService(QStringLiteral("terminal"), terminalExec, QStringLiteral("utilities-terminal"));
-    }
-    if (!service && fallbackToKonsoleService) {
-        service = KService::serviceByStorageId(QStringLiteral("org.kde.konsole"));
-    }
-    return service;
-}
-#endif
-
 // This sets m_fullCommand, but also (when possible) m_desktopName
 void KTerminalLauncherJob::determineFullCommand(bool fallbackToKonsoleService /* allow synthesizing no konsole */)
 {
-    const QString workingDir = d->m_workingDirectory;
-#ifndef Q_OS_WIN
-
-    QString exec;
-    if (KServicePtr service = serviceFromConfig(fallbackToKonsoleService); service) {
-        d->m_desktopName = service->desktopEntryName();
-        exec = service->exec();
+    const std::optional<KIO::DesktopExecParser::CommandResult> result =
+        KIO::DesktopExecParser::determineFullCommand(d->m_workingDirectory, d->m_command, fallbackToKonsoleService);
+    if (result) {
+        d->m_fullCommand = result->exec;
+        d->m_desktopName = result->desktopName;
     } else {
-        // konsole not found by desktop file, let's see what PATH has for us
-        auto useIfAvailable = [&exec](const QString &terminalApp) {
-            const bool found = !QStandardPaths::findExecutable(terminalApp).isEmpty();
-            if (found) {
-                exec = terminalApp;
-            }
-            return found;
-        };
-        if (!useIfAvailable(QStringLiteral("konsole")) && !useIfAvailable(QStringLiteral("xterm"))) {
-            setError(KJob::UserDefinedError);
-            setErrorText(i18n("No terminal emulator found"));
-            return;
-        }
+        setError(KJob::UserDefinedError);
+        setErrorText(i18n("No terminal emulator found"));
     }
-    if (!d->m_command.isEmpty()) {
-        if (exec == QLatin1String("konsole")) {
-            exec += QLatin1String(" --noclose");
-        } else if (exec == QLatin1String("xterm")) {
-            exec += QLatin1String(" -hold");
-        }
-    }
-    if (exec.startsWith(QLatin1String("konsole")) && !workingDir.isEmpty()) {
-        exec += QLatin1String(" --workdir %1").arg(KShell::quoteArg(workingDir));
-    }
-    if (!d->m_command.isEmpty()) {
-        exec += QLatin1String(" -e ") + d->m_command;
-    }
-#else
-    const QString windowsTerminal = QStringLiteral("wt.exe");
-    const QString pwsh = QStringLiteral("pwsh.exe");
-    const QString powershell = QStringLiteral("powershell.exe"); // Powershell is used as fallback
-    const bool hasWindowsTerminal = !QStandardPaths::findExecutable(windowsTerminal).isEmpty();
-    const bool hasPwsh = !QStandardPaths::findExecutable(pwsh).isEmpty();
-
-    QString exec;
-    if (hasWindowsTerminal) {
-        exec = windowsTerminal;
-        if (!workingDir.isEmpty()) {
-            exec += QLatin1String(" --startingDirectory %1").arg(KShell::quoteArg(workingDir));
-        }
-        if (!d->m_command.isEmpty()) {
-            // Command and NoExit flag will be added later
-            exec += QLatin1Char(' ') + (hasPwsh ? pwsh : powershell);
-        }
-    } else {
-        exec = hasPwsh ? pwsh : powershell;
-    }
-    if (!d->m_command.isEmpty()) {
-        exec += QLatin1String(" -NoExit -Command ") + d->m_command;
-    }
-#endif
-    d->m_fullCommand = exec;
 }
 
 QString KTerminalLauncherJob::fullCommand() const
