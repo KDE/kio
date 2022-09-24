@@ -30,7 +30,7 @@ void DesktopExecParserTest::initTestCase()
 
     // testProcessDesktopExec works only if your terminal application is set to "xterm"
     KConfigGroup cg(KSharedConfig::openConfig(), "General");
-    cg.writeEntry("TerminalApplication", "true");
+    cg.writeEntry("TerminalApplication", "true --test");
 
     // We just want to test if the command is properly constructed
     m_pseudoTerminalProgram = QStandardPaths::findExecutable(QStringLiteral("true"));
@@ -124,12 +124,12 @@ void DesktopExecParserTest::testProcessDesktopExec()
     static const char *const results[] = {
         "/bin/date -u", // 0
         "/bin/sh -c 'echo $PWD '", // 1
-        "/bin/true -T ' - just_a_test' -e /bin/date -u", // 2
-        "/bin/true -T ' - just_a_test' -e /bin/sh -c 'echo $PWD '", // 3
+        "/bin/true --test -T ' - just_a_test' -e /bin/date -u", // 2
+        "/bin/true --test -T ' - just_a_test' -e /bin/sh -c 'echo $PWD '", // 3
         /* kdesu */ " -u sprallo -c '/bin/date -u'", // 4
         /* kdesu */ " -u sprallo -c '/bin/sh -c '\\''echo $PWD '\\'''", // 5
-        "/bin/true -T ' - just_a_test' -e su sprallo -c '/bin/date -u'", // 6
-        "/bin/true -T ' - just_a_test' -e su sprallo -c '/bin/sh -c '\\''echo $PWD '\\'''", // 7
+        "/bin/true --test -T ' - just_a_test' -e su sprallo -c '/bin/date -u'", // 6
+        "/bin/true --test -T ' - just_a_test' -e su sprallo -c '/bin/sh -c '\\''echo $PWD '\\'''", // 7
     };
 
     // Find out the full path of the shell which will be used to execute shell commands

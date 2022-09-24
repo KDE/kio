@@ -497,15 +497,21 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
     if (d->service.terminal()) {
         KConfigGroup cg(KSharedConfig::openConfig(), "General");
         QString terminal = cg.readPathEntry("TerminalApplication", QStringLiteral("konsole"));
-        const bool isKonsole = (terminal == QLatin1String("konsole"));
 
-        QString terminalPath = QStandardPaths::findExecutable(terminal);
+        const bool isKonsole = (terminal == QLatin1String("konsole"));
+        QStringList terminalParts = KShell::splitArgs(terminal);
+        QString terminalPath;
+        if (!terminalParts.isEmpty()) {
+            terminalPath = QStandardPaths::findExecutable(terminalParts.at(0));
+        }
+
         if (terminalPath.isEmpty()) {
             d->m_errorString = i18n("Terminal %1 not found while trying to run %2", terminal, d->service.entryPath());
             qCWarning(KIO_CORE) << "Terminal" << terminal << "not found, service" << d->service.name();
             return QStringList();
         }
-        terminal = terminalPath;
+        terminalParts[0] = terminalPath;
+        terminal = KShell::joinArgs(terminalParts);
         if (isKonsole) {
             if (!d->service.workingDirectory().isEmpty()) {
                 terminal += QLatin1String(" --workdir ") + KShell::quoteArg(d->service.workingDirectory());
