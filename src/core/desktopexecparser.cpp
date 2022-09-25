@@ -247,6 +247,7 @@ public:
     }
 
     bool isUrlSupported(const QUrl &url, const QStringList &supportedProtocols);
+    bool execExists(const QString &binary, QString &executableFullPath);
 
     const KService &service;
     QList<QUrl> urls;
@@ -329,6 +330,38 @@ bool KIO::DesktopExecParserPrivate::isUrlSupported(const QUrl &url, const QStrin
     return false;
 }
 
+bool KIO::DesktopExecParserPrivate::execExists(const QString &binary, QString &executableFullPath)
+{
+    if (QDir::isRelativePath(binary)) {
+        // Resolve the executable to ensure that helpers in libexec are found.
+        // Too bad for commands that need a shell - they must reside in $PATH.
+        executableFullPath = QStandardPaths::findExecutable(binary);
+        if (executableFullPath.isEmpty()) {
+            executableFullPath = QFile::decodeName(KDE_INSTALL_FULL_LIBEXECDIR_KF "/") + binary;
+        }
+    } else {
+        executableFullPath = binary;
+    }
+
+    // Now check that the binary exists and has the executable flag
+    if (!QFileInfo(executableFullPath).isExecutable()) {
+        // Does it really not exist, or is it non-executable (on Unix)? (bug #415567)
+        const QString nonExecutable = findNonExecutableProgram(binary);
+        if (nonExecutable.isEmpty()) {
+            m_errorString = i18n("Could not find the program '%1'", binary);
+        } else {
+            if (QDir::isRelativePath(binary)) {
+                m_errorString = i18n("The program '%1' was found at '%2' but it is missing executable permissions.", binary, nonExecutable);
+            } else {
+                m_errorString = i18n("The program '%1' is missing executable permissions.", nonExecutable);
+            }
+        }
+        return false;
+    }
+
+    return true;
+}
+
 QStringList KIO::DesktopExecParser::resultingArguments() const
 {
     QString exec = d->service.exec();
@@ -342,31 +375,8 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
     const QString binary = executablePath(exec);
     QString executableFullPath;
     if (!binary.isEmpty()) { // skip all this if the Exec line is a complex shell command
-        if (QDir::isRelativePath(binary)) {
-            // Resolve the executable to ensure that helpers in libexec are found.
-            // Too bad for commands that need a shell - they must reside in $PATH.
-            executableFullPath = QStandardPaths::findExecutable(binary);
-            if (executableFullPath.isEmpty()) {
-                executableFullPath = QFile::decodeName(KDE_INSTALL_FULL_LIBEXECDIR_KF "/") + binary;
-            }
-        } else {
-            executableFullPath = binary;
-        }
-
-        // Now check that the binary exists and has the executable flag
-        if (!QFileInfo(executableFullPath).isExecutable()) {
-            // Does it really not exist, or is it non-executable (on Unix)? (bug #415567)
-            const QString nonExecutable = findNonExecutableProgram(binary);
-            if (nonExecutable.isEmpty()) {
-                d->m_errorString = i18n("Could not find the program '%1'", binary);
-            } else {
-                if (QDir::isRelativePath(binary)) {
-                    d->m_errorString = i18n("The program '%1' was found at '%2' but it is missing executable permissions.", binary, nonExecutable);
-                } else {
-                    d->m_errorString = i18n("The program '%1' is missing executable permissions.", nonExecutable);
-                }
-            }
-            return QStringList();
+        if (!d->execExists(binary, executableFullPath)) { // Binary doesn't exist, or isn't executable
+            return QStringList{};
         }
     }
 
