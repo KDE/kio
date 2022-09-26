@@ -248,6 +248,7 @@ public:
 
     bool isUrlSupported(const QUrl &url, const QStringList &supportedProtocols);
     bool execExists(const QString &binary, QString &executableFullPath);
+    QStringList substituteUid(QStringList &result, QString &exec, const QStringList &execlist, KShell::Errors err);
 
     const KService &service;
     QList<QUrl> urls;
@@ -360,6 +361,35 @@ bool KIO::DesktopExecParserPrivate::execExists(const QString &binary, QString &e
     }
 
     return true;
+}
+
+QStringList KIO::DesktopExecParserPrivate::substituteUid(QStringList &result, QString &exec, const QStringList &execlist, KShell::Errors err)
+{
+    if (service.terminal()) {
+        result << QStringLiteral("su");
+    } else {
+        QString kdesu = QFile::decodeName(KDE_INSTALL_FULL_LIBEXECDIR_KF "/kdesu");
+        if (!QFile::exists(kdesu)) {
+            kdesu = QStandardPaths::findExecutable(QStringLiteral("kdesu"));
+        }
+        if (!QFile::exists(kdesu)) {
+            // Insert kdesu as string so we show a nice warning: 'Could not launch kdesu'
+            result << QStringLiteral("kdesu");
+            return result;
+        } else {
+            result << kdesu << QStringLiteral("-u");
+        }
+    }
+
+    result << service.username() << QStringLiteral("-c");
+    if (err == KShell::FoundMeta) {
+        exec = QLatin1String("/bin/sh -c ") + KShell::quoteArg(exec);
+    } else {
+        exec = KShell::joinArgs(execlist);
+    }
+    result << exec;
+
+    return result;
 }
 
 QStringList KIO::DesktopExecParser::resultingArguments() const
@@ -549,35 +579,13 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
     }
 
     if (d->service.substituteUid()) {
-        if (d->service.terminal()) {
-            result << QStringLiteral("su");
-        } else {
-            QString kdesu = QFile::decodeName(KDE_INSTALL_FULL_LIBEXECDIR_KF "/kdesu");
-            if (!QFile::exists(kdesu)) {
-                kdesu = QStandardPaths::findExecutable(QStringLiteral("kdesu"));
-            }
-            if (!QFile::exists(kdesu)) {
-                // Insert kdesu as string so we show a nice warning: 'Could not launch kdesu'
-                result << QStringLiteral("kdesu");
-                return result;
-            } else {
-                result << kdesu << QStringLiteral("-u");
-            }
-        }
+        return d->substituteUid(result, exec, execlist, err);
+    }
 
-        result << d->service.username() << QStringLiteral("-c");
-        if (err == KShell::FoundMeta) {
-            exec = QLatin1String("/bin/sh -c ") + KShell::quoteArg(exec);
-        } else {
-            exec = KShell::joinArgs(execlist);
-        }
-        result << exec;
+    if (err == KShell::FoundMeta) {
+        result << QStringLiteral("/bin/sh") << QStringLiteral("-c") << exec;
     } else {
-        if (err == KShell::FoundMeta) {
-            result << QStringLiteral("/bin/sh") << QStringLiteral("-c") << exec;
-        } else {
-            result += execlist;
-        }
+        result += execlist;
     }
 
     return result;
