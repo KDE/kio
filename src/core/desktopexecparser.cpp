@@ -606,8 +606,12 @@ QString KIO::DesktopExecParser::errorMessage() const
 // static
 QString KIO::DesktopExecParser::executableName(const QString &execLine)
 {
-    const QString bin = executablePath(execLine);
-    return bin.mid(bin.lastIndexOf(QLatin1Char('/')) + 1);
+    QString bin = executablePath(execLine);
+    const int idx = bin.lastIndexOf(QLatin1Char('/'));
+    if (idx != -1) {
+        bin.remove(0, idx + 1);
+    }
+    return bin;
 }
 
 // static
