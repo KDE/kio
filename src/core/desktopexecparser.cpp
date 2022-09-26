@@ -248,6 +248,8 @@ public:
 
     bool isUrlSupported(const QUrl &url, const QStringList &supportedProtocols);
     bool execExists(const QString &binary, QString &executableFullPath);
+    // Returns true == keep going or false == failed, bail out
+    bool parseTerminalEntry(QStringList &result, KRunMX1 &mx1, KRunMX2 &mx2);
     QStringList substituteUid(QStringList &result, QString &exec, const QStringList &execlist, KShell::Errors err);
 
     const KService &service;
@@ -360,6 +362,46 @@ bool KIO::DesktopExecParserPrivate::execExists(const QString &binary, QString &e
         return false;
     }
 
+    return true;
+}
+
+bool KIO::DesktopExecParserPrivate::parseTerminalEntry(QStringList &result, KRunMX1 &mx1, KRunMX2 &mx2)
+{
+    KConfigGroup cg(KSharedConfig::openConfig(), "General");
+    QString terminal = cg.readPathEntry("TerminalApplication", QStringLiteral("konsole"));
+
+    const bool isKonsole = (terminal == QLatin1String("konsole"));
+    QStringList terminalParts = KShell::splitArgs(terminal);
+    QString terminalPath;
+    if (!terminalParts.isEmpty()) {
+        terminalPath = QStandardPaths::findExecutable(terminalParts.at(0));
+    }
+
+    if (terminalPath.isEmpty()) {
+        m_errorString = i18n("Terminal %1 not found while trying to run %2", terminal, service.entryPath());
+        qCWarning(KIO_CORE) << "Terminal" << terminal << "not found, service" << service.name();
+        return false;
+    }
+    terminalParts[0] = terminalPath;
+    terminal = KShell::joinArgs(terminalParts);
+    if (isKonsole) {
+        if (!service.workingDirectory().isEmpty()) {
+            terminal += QLatin1String(" --workdir ") + KShell::quoteArg(service.workingDirectory());
+        }
+        terminal += QLatin1String(" -qwindowtitle '%c'");
+        if (!service.icon().isEmpty()) {
+            terminal += QLatin1String(" -qwindowicon ") + KShell::quoteArg(service.icon().replace(QLatin1Char('%'), QLatin1String("%%")));
+        }
+    }
+    terminal += QLatin1Char(' ') + service.terminalOptions();
+    if (!mx1.expandMacrosShellQuote(terminal)) {
+        m_errorString = i18n("Syntax error in command %1 while trying to run %2", terminal, service.entryPath());
+        qCWarning(KIO_CORE) << "Syntax error in command" << terminal << ", service" << service.name();
+        return false;
+    }
+    mx2.expandMacrosShellQuote(terminal);
+    result = KShell::splitArgs(terminal); // assuming that the term spec never needs a shell!
+    result << QStringLiteral("-e");
     return true;
 }
 
@@ -535,41 +577,9 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
     */
 
     if (d->service.terminal()) {
-        KConfigGroup cg(KSharedConfig::openConfig(), "General");
-        QString terminal = cg.readPathEntry("TerminalApplication", QStringLiteral("konsole"));
-
-        const bool isKonsole = (terminal == QLatin1String("konsole"));
-        QStringList terminalParts = KShell::splitArgs(terminal);
-        QString terminalPath;
-        if (!terminalParts.isEmpty()) {
-            terminalPath = QStandardPaths::findExecutable(terminalParts.at(0));
+        if (!d->parseTerminalEntry(result, mx1, mx2)) { // Failed, bail out
+            return QStringList{};
         }
-
-        if (terminalPath.isEmpty()) {
-            d->m_errorString = i18n("Terminal %1 not found while trying to run %2", terminal, d->service.entryPath());
-            qCWarning(KIO_CORE) << "Terminal" << terminal << "not found, service" << d->service.name();
-            return QStringList();
-        }
-        terminalParts[0] = terminalPath;
-        terminal = KShell::joinArgs(terminalParts);
-        if (isKonsole) {
-            if (!d->service.workingDirectory().isEmpty()) {
-                terminal += QLatin1String(" --workdir ") + KShell::quoteArg(d->service.workingDirectory());
-            }
-            terminal += QLatin1String(" -qwindowtitle '%c'");
-            if (!d->service.icon().isEmpty()) {
-                terminal += QLatin1String(" -qwindowicon ") + KShell::quoteArg(d->service.icon().replace(QLatin1Char('%'), QLatin1String("%%")));
-            }
-        }
-        terminal += QLatin1Char(' ') + d->service.terminalOptions();
-        if (!mx1.expandMacrosShellQuote(terminal)) {
-            d->m_errorString = i18n("Syntax error in command %1 while trying to run %2", terminal, d->service.entryPath());
-            qCWarning(KIO_CORE) << "Syntax error in command" << terminal << ", service" << d->service.name();
-            return QStringList();
-        }
-        mx2.expandMacrosShellQuote(terminal);
-        result = KShell::splitArgs(terminal); // assuming that the term spec never needs a shell!
-        result << QStringLiteral("-e");
     }
 
     KShell::Errors err;
