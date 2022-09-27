@@ -803,6 +803,7 @@ void KFilePlacesModelPrivate::itemChanged(const QString &id)
         if (items.at(row)->id() == id) {
             QModelIndex index = q->index(row, 0);
             Q_EMIT q->dataChanged(index, index);
+            break;
         }
     }
 }
