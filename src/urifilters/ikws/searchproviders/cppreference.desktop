@@ -18,6 +18,7 @@ Name[fi]=CPP Reference
 Name[fr]=Manuel de référence de « CPP »
 Name[gl]=Referencia de CPP
 Name[ia]=Referentia de CPP
+Name[id]=CPP Reference
 Name[is]=CPP handbókin
 Name[it]=Manuale di riferimento CPP
 Name[ko]=CPP Reference
@@ -57,6 +58,7 @@ Query[fi]=https://cppreference.com/w/?search=\\{@}
 Query[fr]=https://cppreference.com/w/?search=\\{@}
 Query[gl]=https://cppreference.com/w/?search=\\{@}
 Query[ia]=https://cppreference.com/w/?search=\\{@}
+Query[id]=https://cppreference.com/w/?search=\\{@}
 Query[is]=https://cppreference.com/w/?search=\\{@}
 Query[it]=https://cppreference.com/w/?search=\\{@}
 Query[ka]=https://cppreference.com/w/?search=\\{@}

@@ -20,6 +20,7 @@ Name[fr]=Dépôts de KDE Invent
 Name[gl]=Repositorios de KDE Invent
 Name[hu]=KDE Invent adattárak
 Name[ia]=Repositorios de KDE Invent
+Name[id]=Repositori KDE Invent
 Name[is]=KDE Invent hugbúnaðarsöfn
 Name[it]=Depositi su KDE Invent
 Name[ka]=KDE Invent რეპოზიტორები
@@ -62,6 +63,7 @@ Query[fr]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[gl]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[hu]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[ia]=https://invent.kde.org/explore/projects/starred?name=\\{@}
+Query[id]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[is]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[it]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[ka]=https://invent.kde.org/explore/projects/starred?name=\\{@}

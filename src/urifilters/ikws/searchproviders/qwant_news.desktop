@@ -24,7 +24,7 @@ Name[gd]=Qwant News
 Name[gl]=Noticias en Qwant
 Name[hu]=Qwant hírek
 Name[ia]=Novas de Qwant
-Name[id]=QWant Berita
+Name[id]=Qwant News
 Name[is]=Qwant Fréttir
 Name[it]=Notizie di Qwant
 Name[ka]=Qwant ახალი ამბები
@@ -82,6 +82,7 @@ Query[fr]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[gl]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[hu]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[ia]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
+Query[id]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[is]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[it]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[ka]=https://www.qwant.com/?q=\\{@}&client=kde&t=news

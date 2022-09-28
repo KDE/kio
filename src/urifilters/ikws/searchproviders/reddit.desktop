@@ -18,6 +18,7 @@ Name[fi]=Reddit
 Name[fr]=Reddit
 Name[gl]=Reddit
 Name[ia]=Reddit
+Name[id]=Reddit
 Name[is]=Reddit
 Name[it]=Reddit
 Name[ka]=Reddit
@@ -58,6 +59,7 @@ Query[fi]=https://www.reddit.com/search/?q=\\{@}
 Query[fr]=https://www.reddit.com/search/?q=\\{@}
 Query[gl]=https://www.reddit.com/search/?q=\\{@}
 Query[ia]=https://www.reddit.com/search/?q=\\{@}
+Query[id]=https://www.reddit.com/search/?q=\\{@}
 Query[is]=https://www.reddit.com/search/?q=\\{@}
 Query[it]=https://www.reddit.com/search/?q=\\{@}
 Query[ka]=https://www.reddit.com/search/?q=\\{@}

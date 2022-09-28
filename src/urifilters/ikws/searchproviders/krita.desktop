@@ -18,6 +18,7 @@ Name[fi]=Kritan käyttöopas
 Name[fr]=Manuel de Krita
 Name[gl]=Manual de Krita
 Name[ia]=Manual de Krita
+Name[id]=Manual Krita
 Name[is]=Krita handbók
 Name[it]=Manuale di Krita
 Name[ko]=Krita 설명서
@@ -57,6 +58,7 @@ Query[fi]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[fr]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[gl]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[ia]=https://docs.krita.org/en/search.html?q=\\{@}
+Query[id]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[is]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[it]=https://docs.krita.org/it/search.html?q=\\{@}
 Query[ka]=https://docs.krita.org/en/search.html?q=\\{@}
