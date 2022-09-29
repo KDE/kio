@@ -269,7 +269,7 @@ int TCPWorkerBase::connectToHost(const QString &host, quint16 port, QString *err
     d->socket.setPeerVerifyName(host); // Used for ssl certificate verification (SNI)
 
     //  - leaving SSL - warn before we even connect
-    //### see if it makes sense to move this into the HTTP ioslave which is the only
+    //### see if it makes sense to move this into the HTTP KIO worker which is the only
     //    user.
     if (metaData(QStringLiteral("main_frame_request")) == QLatin1String("TRUE") //### this looks *really* unreliable
         && metaData(QStringLiteral("ssl_activate_warnings")) == QLatin1String("TRUE") && metaData(QStringLiteral("ssl_was_in_use")) == QLatin1String("TRUE")
@@ -446,12 +446,12 @@ TCPWorkerBase::SslResult TCPWorkerBase::TCPWorkerBasePrivate::startTLSInternal(Q
 
     // TODO: review / rewrite / remove the comment
     // The app side needs the metadata now for the SSL error dialog (if any) but
-    // the same metadata will be needed later, too. When "later" arrives the slave
+    // the same metadata will be needed later, too. When "later" arrives the worker
     // may actually be connected to a different application that doesn't know
-    // the metadata the slave sent to the previous application.
+    // the metadata the worker sent to the previous application.
     // The quite important SSL indicator icon in Konqi's URL bar relies on metadata
     // from here, for example. And Konqi will be the second application to connect
-    // to the slave.
+    // to the worker.
     // Therefore we choose to have our metadata and send it, too :)
     setSslMetaData();
     q->sendAndKeepMetaData();
