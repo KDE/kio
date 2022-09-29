@@ -961,7 +961,7 @@ void KPasswdServer::retryDialogDone(int result, KMessageDialog *sender)
     Q_ASSERT(request);
 
     if (request) {
-        if (result == QDialogButtonBox::Yes) {
+        if (result == KMessageDialog::PrimaryAction) {
             showPasswordDialog(request.release());
         } else {
             // NOTE: If the user simply cancels the retry dialog, we remove the

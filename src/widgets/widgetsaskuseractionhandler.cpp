@@ -234,14 +234,14 @@ void KIO::WidgetsAskUserActionHandler::askUserDelete(const QList<QUrl> &urls, De
 
     const int urlCount = prettyList.count();
 
-    KMessageDialog::Type dialogType = KMessageDialog::QuestionYesNo;
+    KMessageDialog::Type dialogType = KMessageDialog::QuestionTwoActions;
     KGuiItem acceptButton;
     QString text;
     QString title = i18n("Delete Permanently");
 
     switch (deletionType) {
     case Delete: {
-        dialogType = KMessageDialog::WarningYesNo;
+        dialogType = KMessageDialog::WarningTwoActions;
         text = xi18ncp("@info",
                        "Do you really want to permanently delete this %1 item?<nl/><nl/>"
                        "<emphasis strong='true'>This action cannot be undone.</emphasis>",
@@ -252,7 +252,7 @@ void KIO::WidgetsAskUserActionHandler::askUserDelete(const QList<QUrl> &urls, De
         break;
     }
     case EmptyTrash: {
-        dialogType = KMessageDialog::WarningYesNo;
+        dialogType = KMessageDialog::WarningTwoActions;
         text = xi18nc("@info",
                       "Do you want to permanently delete all items from the Trash?<nl/><nl/>"
                       "<emphasis strong='true'>This action cannot be undone.</emphasis>");
@@ -291,7 +291,7 @@ void KIO::WidgetsAskUserActionHandler::askUserDelete(const QList<QUrl> &urls, De
     dlg->setDontAskAgainChecked(!ask);
 
     connect(dlg, &QDialog::finished, this, [=](const int buttonCode) {
-        const bool isDelete = buttonCode == QDialogButtonBox::Yes;
+        const bool isDelete = (buttonCode == KMessageDialog::PrimaryAction);
 
         Q_EMIT askUserDeleteResult(isDelete, urls, deletionType, parent);
 
@@ -324,29 +324,33 @@ void KIO::WidgetsAskUserActionHandler::requestUserMessageBox(MessageDialogType t
         return;
     }
 
-    auto acceptButton = KGuiItem(buttonYes, iconYes);
-    auto rejectButton = KGuiItem(buttonNo, iconNo);
+    const KGuiItem primaryActionButton(buttonYes, iconYes);
+    const KGuiItem secondaryActionButton(buttonNo, iconNo);
 
     // It's "Do not ask again" every where except with Information
     QString dontAskAgainText = i18nc("@option:check", "Do not ask again");
 
     KMessageDialog::Type dlgType;
+    bool hasCancelButton = false;
 
     switch (type) {
     case QuestionYesNo:
-        dlgType = KMessageDialog::QuestionYesNo;
+        dlgType = KMessageDialog::QuestionTwoActions;
         break;
     case QuestionYesNoCancel:
-        dlgType = KMessageDialog::QuestionYesNoCancel;
+        dlgType = KMessageDialog::QuestionTwoActionsCancel;
+        hasCancelButton = true;
         break;
     case WarningYesNo:
-        dlgType = KMessageDialog::WarningYesNo;
+        dlgType = KMessageDialog::WarningTwoActions;
         break;
     case WarningYesNoCancel:
-        dlgType = KMessageDialog::WarningYesNoCancel;
+        dlgType = KMessageDialog::WarningTwoActionsCancel;
+        hasCancelButton = true;
         break;
     case WarningContinueCancel:
         dlgType = KMessageDialog::WarningContinueCancel;
+        hasCancelButton = true;
         break;
     case SSLMessageBox:
         d->sslMessageBox(text, metaData, parent);
@@ -376,15 +380,14 @@ void KIO::WidgetsAskUserActionHandler::requestUserMessageBox(MessageDialogType t
         qCWarning(KIO_WIDGETS) << "Unknown message dialog type" << type;
         return;
     }
+    auto cancelButton = hasCancelButton ? KStandardGuiItem::cancel() : KGuiItem();
 
     auto *dialog = new KMessageDialog(dlgType, text, parent);
 
     dialog->setAttribute(Qt::WA_DeleteOnClose);
     dialog->setCaption(title);
     dialog->setIcon(QIcon{});
-    // If a button has empty text, KMessageDialog will replace that button
-    // with a suitable KStandardGuiItem
-    dialog->setButtons(acceptButton, rejectButton);
+    dialog->setButtons(primaryActionButton, secondaryActionButton, cancelButton);
     dialog->setDetails(details);
     dialog->setDontAskAgainText(dontAskAgainText);
     dialog->setDontAskAgainChecked(false);
@@ -393,20 +396,20 @@ void KIO::WidgetsAskUserActionHandler::requestUserMessageBox(MessageDialogType t
     connect(dialog, &QDialog::finished, this, [=](const int result) {
         KIO::SlaveBase::ButtonCode btnCode;
         switch (result) {
-        case QDialogButtonBox::Yes:
+        case KMessageDialog::PrimaryAction:
             if (dlgType == KMessageDialog::WarningContinueCancel) {
                 btnCode = KIO::SlaveBase::Continue;
             } else {
                 btnCode = KIO::SlaveBase::Yes;
             }
             break;
-        case QDialogButtonBox::No:
+        case KMessageDialog::SecondaryAction:
             btnCode = KIO::SlaveBase::No;
             break;
-        case QDialogButtonBox::Cancel:
+        case KMessageDialog::Cancel:
             btnCode = KIO::SlaveBase::Cancel;
             break;
-        case QDialogButtonBox::Ok:
+        case KMessageDialog::Ok:
             btnCode = KIO::SlaveBase::Ok;
             break;
         default:
@@ -416,7 +419,7 @@ void KIO::WidgetsAskUserActionHandler::requestUserMessageBox(MessageDialogType t
 
         Q_EMIT messageBoxResult(btnCode);
 
-        if ((result != QDialogButtonBox::Cancel) && dialog->isDontAskAgainChecked()) {
+        if ((result != KMessageDialog::Cancel) && dialog->isDontAskAgainChecked()) {
             KConfigGroup cg = reqMsgConfig->group("Notification Messages");
             d->savePersistentUserReply(type, cg, dontAskAgainName, result);
         }
@@ -471,7 +474,7 @@ void KIO::WidgetsAskUserActionHandlerPrivate::sslMessageBox(const QString &text,
     dialog->setButtons(KStandardGuiItem::ok());
 
     QObject::connect(dialog, &QDialog::finished, q, [this](const int result) {
-        Q_EMIT q->messageBoxResult(result == QDialogButtonBox::Ok ? KIO::SlaveBase::Ok : KIO::SlaveBase::Cancel);
+        Q_EMIT q->messageBoxResult(result == KMessageDialog::Ok ? KIO::SlaveBase::Ok : KIO::SlaveBase::Cancel);
     });
 
     dialog->show();
