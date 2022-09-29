@@ -286,7 +286,7 @@ int TCPWorkerBase::connectToHost(const QString &host, quint16 port, QString *err
                                     QString(),
                                     QStringLiteral("WarnOnLeaveSSLMode"));
 
-            if (result == SlaveBase::Cancel) {
+            if (result == WorkerBase::Cancel) {
                 if (errorString) {
                     *errorString = host;
                 }
@@ -481,7 +481,7 @@ TCPWorkerBase::SslResult TCPWorkerBase::TCPWorkerBasePrivate::startTLSInternal(Q
                                       i18n("Display SSL &Information"),
                                       i18n("C&onnect"),
                                       QStringLiteral("WarnOnEnterSSLMode"));
-        if (msgResult == SlaveBase::Yes) {
+        if (msgResult == WorkerBase::Yes) {
             q->messageBox(SSLMessageBox /*==the SSL info dialog*/, host);
         }
     }
@@ -529,12 +529,12 @@ TCPWorkerBase::SslResult TCPWorkerBase::verifyServerCertificate()
     do {
         msgResult = messageBox(WarningYesNoCancel, message, i18n("Server Authentication"), i18n("&Details"), i18n("Co&ntinue"));
         switch (msgResult) {
-        case SlaveBase::Yes:
+        case WorkerBase::Yes:
             // Details was chosen- show the certificate and error details
             messageBox(SSLMessageBox /*the SSL info dialog*/, d->host);
             break;
-        case SlaveBase::No: {
-            // fall through on SlaveBase::No
+        case WorkerBase::No: {
+            // fall through on WorkerBase::No
             const int result = messageBox(WarningYesNoCancel,
                                           i18n("Would you like to accept this "
                                                "certificate forever without "
@@ -542,24 +542,24 @@ TCPWorkerBase::SslResult TCPWorkerBase::verifyServerCertificate()
                                           i18n("Server Authentication"),
                                           i18n("&Forever"),
                                           i18n("&Current Session only"));
-            if (result == SlaveBase::Yes) {
+            if (result == WorkerBase::Yes) {
                 // accept forever ("for a very long time")
                 ruleExpiry = ruleExpiry.addYears(1000);
-            } else if (result == SlaveBase::No) {
+            } else if (result == WorkerBase::No) {
                 // accept "for a short time", half an hour.
                 ruleExpiry = ruleExpiry.addSecs(30 * 60);
             } else {
-                msgResult = SlaveBase::Yes;
+                msgResult = WorkerBase::Yes;
             }
             break;
         }
-        case SlaveBase::Cancel:
+        case WorkerBase::Cancel:
             return ResultFailed;
         default:
             qCWarning(KIO_CORE) << "Unexpected MessageBox response received:" << msgResult;
             return ResultFailed;
         }
-    } while (msgResult == SlaveBase::Yes);
+    } while (msgResult == WorkerBase::Yes);
 
     // TODO special cases for wildcard domain name in the certificate!
     // rule = KSslCertificateRule(d->socket.peerCertificateChain().first(), whatever);
