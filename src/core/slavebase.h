@@ -280,9 +280,9 @@ public:
      * @param text Message string. May contain newlines.
      * @param title Message box title.
      * @param buttonYes The text for the first button.
-     *                  The default is i18n("&Yes").
+     *                  The (deprecated since 5.100) default is i18n("&Yes").
      * @param buttonNo  The text for the second button.
-     *                  The default is i18n("&No").
+     *                  The (deprecated since 5.100) default is i18n("&No").
      * Note: for ContinueCancel, buttonYes is the continue button and buttonNo is unused.
      *       and for Information, none is used.
      * @return a button code, as defined in ButtonCode, or 0 on communication error.
@@ -299,9 +299,9 @@ public:
      * @param type type of message box: QuestionYesNo, WarningYesNo, WarningContinueCancel...
      * @param title Message box title.
      * @param buttonYes The text for the first button.
-     *                  The default is i18n("&Yes").
+     *                  The ((deprecated since 5.100) default is i18n("&Yes").
      * @param buttonNo  The text for the second button.
-     *                  The default is i18n("&No").
+     *                  The (deprecated since 5.100) default is i18n("&No").
      * Note: for ContinueCancel, buttonYes is the continue button and buttonNo is unused.
      *       and for Information, none is used.
      * @param dontAskAgainName the name used to store result from 'Do not ask again' checkbox.

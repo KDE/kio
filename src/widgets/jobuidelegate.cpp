@@ -371,7 +371,13 @@ int KIO::JobUiDelegate::requestMessageBox(KIO::JobUiDelegate::MessageBoxType typ
     KConfig config(QStringLiteral("kioslaverc"));
     KMessageBox::setDontShowAgainConfig(&config);
 
+#if KWIDGETSADDONS_BUILD_DEPRECATED_SINCE(5, 100)
+    QT_WARNING_PUSH
+    QT_WARNING_DISABLE_DEPRECATED
     KGuiItem buttonYesGui = KStandardGuiItem::yes();
+    KGuiItem buttonNoGui = KStandardGuiItem::no();
+    QT_WARNING_POP
+
     if (!buttonYes.isEmpty()) {
         buttonYesGui.setText(buttonYes);
     }
@@ -379,13 +385,16 @@ int KIO::JobUiDelegate::requestMessageBox(KIO::JobUiDelegate::MessageBoxType typ
         buttonYesGui.setIconName(iconYes);
     }
 
-    KGuiItem buttonNoGui = KStandardGuiItem::no();
     if (!buttonNo.isEmpty()) {
         buttonNoGui.setText(buttonNo);
     }
     if (!iconNo.isNull()) {
         buttonNoGui.setIconName(iconNo);
     }
+#else
+    KGuiItem buttonYesGui(buttonYes, iconYes);
+    KGuiItem buttonNoGui(buttonNo, iconNo);
+#endif
 
     KMessageBox::Options options(KMessageBox::Notify | KMessageBox::WindowModal);
 

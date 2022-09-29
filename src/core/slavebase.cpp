@@ -1057,14 +1057,30 @@ int SlaveBase::messageBox(MessageBoxType type, const QString &text, const QStrin
 int SlaveBase::messageBox(const QString &text,
                           MessageBoxType type,
                           const QString &title,
-                          const QString &_buttonYes,
-                          const QString &_buttonNo,
+                          const QString &buttonYes,
+                          const QString &buttonNo,
                           const QString &dontAskAgainName)
 {
-    QString buttonYes = _buttonYes.isNull() ? i18n("&Yes") : _buttonYes;
-    QString buttonNo = _buttonNo.isNull() ? i18n("&No") : _buttonNo;
-    // qDebug() << "messageBox " << type << " " << text << " - " << title << buttonYes << buttonNo;
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 100)
+    if ((type != Information) || (type != SSLMessageBox)) {
+        if (buttonYes.isNull()) {
+            qCWarning(KIO_CORE) << "Deprecated: messageBox() called with null buttonYes arg."
+                                << "type:" << type << "text:" << text;
+        }
+        if ((type != WarningContinueCancel) || (type != WarningContinueCancelDetailed)) {
+            if (buttonNo.isNull()) {
+                qCWarning(KIO_CORE) << "Deprecated: messageBox() called with null buttonNo arg."
+                                    << "type:" << type << "text:" << text;
+            }
+        }
+    }
+    QString _buttonYes = buttonYes.isNull() ? i18n("&Yes") : buttonYes;
+    QString _buttonNo = buttonNo.isNull() ? i18n("&No") : buttonNo;
+    // qDebug() << "messageBox " << type << " " << text << " - " << title << _buttonYes << buttonNo;
+    KIO_DATA << static_cast<qint32>(type) << text << title << _buttonYes << _buttonNo << dontAskAgainName;
+#else
     KIO_DATA << static_cast<qint32>(type) << text << title << buttonYes << buttonNo << dontAskAgainName;
+#endif
     send(INF_MESSAGEBOX, data);
     if (waitForAnswer(CMD_MESSAGEBOXANSWER, 0, data) != -1) {
         QDataStream stream(data);
