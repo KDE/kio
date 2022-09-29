@@ -28,13 +28,8 @@ namespace KIO
 /**
  * @class KIO::TCPWorkerBase tcpworkerbase.h <KIO/TCPWorkerBase>
  *
- * There are two classes that specifies the protocol between application (job)
- * and KIO worker. SlaveInterface is the class to use on the application end,
- * WorkerBase is the one to use on the worker end.
+ * A WorkerBase with convenience methods for TCP-connected storages.
  *
- * Slave implementations should simply inherit SlaveBase
- *
- * A call to foo() results in a call to slotFoo() on the other end.
  * @since 5.99
  */
 class KIOCORE_EXPORT TCPWorkerBase : public WorkerBase
