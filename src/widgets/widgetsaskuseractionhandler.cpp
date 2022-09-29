@@ -309,10 +309,10 @@ void KIO::WidgetsAskUserActionHandler::askUserDelete(const QList<QUrl> &urls, De
 void KIO::WidgetsAskUserActionHandler::requestUserMessageBox(MessageDialogType type,
                                                              const QString &text,
                                                              const QString &title,
-                                                             const QString &buttonYes,
-                                                             const QString &buttonNo,
-                                                             const QString &iconYes,
-                                                             const QString &iconNo,
+                                                             const QString &primaryActionText,
+                                                             const QString &secondatyActionText,
+                                                             const QString &primaryActionIconName,
+                                                             const QString &secondatyActionIconName,
                                                              const QString &dontAskAgainName,
                                                              const QString &details,
                                                              const KIO::MetaData &metaData,
@@ -324,8 +324,8 @@ void KIO::WidgetsAskUserActionHandler::requestUserMessageBox(MessageDialogType t
         return;
     }
 
-    const KGuiItem primaryActionButton(buttonYes, iconYes);
-    const KGuiItem secondaryActionButton(buttonNo, iconNo);
+    const KGuiItem primaryActionButton(primaryActionText, primaryActionIconName);
+    const KGuiItem secondaryActionButton(secondatyActionText, secondatyActionIconName);
 
     // It's "Do not ask again" every where except with Information
     QString dontAskAgainText = i18nc("@option:check", "Do not ask again");

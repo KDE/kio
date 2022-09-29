@@ -93,10 +93,10 @@ public:
     void requestUserMessageBox(MessageDialogType type,
                                const QString &text,
                                const QString &title,
-                               const QString &buttonYes,
-                               const QString &buttonNo,
-                               const QString &iconYes = QString(),
-                               const QString &iconNo = QString(),
+                               const QString &primaryActionText,
+                               const QString &secondaryActionText,
+                               const QString &primaryActionIconName = QString(),
+                               const QString &secondaryActionIconName = QString(),
                                const QString &dontAskAgainName = QString(),
                                const QString &details = QString(),
                                const KIO::MetaData &metaData = KIO::MetaData(),
@@ -105,10 +105,10 @@ public:
         Q_UNUSED(type)
         Q_UNUSED(text)
         Q_UNUSED(title)
-        Q_UNUSED(buttonYes)
-        Q_UNUSED(buttonNo)
-        Q_UNUSED(iconYes)
-        Q_UNUSED(iconNo)
+        Q_UNUSED(primaryActionText)
+        Q_UNUSED(secondaryActionText)
+        Q_UNUSED(primaryActionIconName)
+        Q_UNUSED(secondaryActionIconName)
         Q_UNUSED(dontAskAgainName)
         Q_UNUSED(details)
         Q_UNUSED(metaData)

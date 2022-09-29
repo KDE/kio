@@ -170,10 +170,10 @@ public:
      * @param type the desired type of message box, see the MessageDialogType enum
      * @param text the message to show to the user
      * @param title the title of the message dialog box
-     * @param buttonYes the text for the YES button
-     * @param buttonNo the text for the NO button
-     * @param iconYes the icon to show on the YES button
-     * @param iconNo the icon to show on the NO button
+     * @param primaryActionText the text for the primary action
+     * @param secondatyActionText the text for the secondary action
+     * @param primaryActionIconName the icon to show on the primary action
+     * @param secondatyActionIconName the icon to show on the secondary action
      * @param dontAskAgainName the config key name used to store the result from
      *                     'Do not ask again' checkbox
      * @param details more details about the message shown to the user
@@ -183,10 +183,10 @@ public:
     virtual void requestUserMessageBox(MessageDialogType type,
                                        const QString &text,
                                        const QString &title,
-                                       const QString &buttonYes,
-                                       const QString &buttonNo,
-                                       const QString &iconYes = {},
-                                       const QString &iconNo = {},
+                                       const QString &primaryActionText,
+                                       const QString &secondatyActionText,
+                                       const QString &primaryActionIconName = {},
+                                       const QString &secondatyActionIconName = {},
                                        const QString &dontAskAgainName = {},
                                        const QString &details = {},
                                        const KIO::MetaData &sslMetaData = {},

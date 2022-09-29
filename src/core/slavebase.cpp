@@ -1049,37 +1049,37 @@ int SlaveBase::openPasswordDialogV2(AuthInfo &info, const QString &errorMsg)
 #endif
 }
 
-int SlaveBase::messageBox(MessageBoxType type, const QString &text, const QString &title, const QString &buttonYes, const QString &buttonNo)
+int SlaveBase::messageBox(MessageBoxType type, const QString &text, const QString &title, const QString &primaryActionText, const QString &secondaryActionText)
 {
-    return messageBox(text, type, title, buttonYes, buttonNo, QString());
+    return messageBox(text, type, title, primaryActionText, secondaryActionText, QString());
 }
 
 int SlaveBase::messageBox(const QString &text,
                           MessageBoxType type,
                           const QString &title,
-                          const QString &buttonYes,
-                          const QString &buttonNo,
+                          const QString &primaryActionText,
+                          const QString &secondaryActionText,
                           const QString &dontAskAgainName)
 {
 #if KIOCORE_BUILD_DEPRECATED_SINCE(5, 100)
     if ((type != Information) || (type != SSLMessageBox)) {
-        if (buttonYes.isNull()) {
-            qCWarning(KIO_CORE) << "Deprecated: messageBox() called with null buttonYes arg."
+        if (primaryActionText.isNull()) {
+            qCWarning(KIO_CORE) << "Deprecated: messageBox() called with null primaryActionText arg."
                                 << "type:" << type << "text:" << text;
         }
         if ((type != WarningContinueCancel) || (type != WarningContinueCancelDetailed)) {
-            if (buttonNo.isNull()) {
-                qCWarning(KIO_CORE) << "Deprecated: messageBox() called with null buttonNo arg."
+            if (secondaryActionText.isNull()) {
+                qCWarning(KIO_CORE) << "Deprecated: messageBox() called with null secondaryActionText arg."
                                     << "type:" << type << "text:" << text;
             }
         }
     }
-    QString _buttonYes = buttonYes.isNull() ? i18n("&Yes") : buttonYes;
-    QString _buttonNo = buttonNo.isNull() ? i18n("&No") : buttonNo;
-    // qDebug() << "messageBox " << type << " " << text << " - " << title << _buttonYes << buttonNo;
-    KIO_DATA << static_cast<qint32>(type) << text << title << _buttonYes << _buttonNo << dontAskAgainName;
+    const QString _primaryActionText = primaryActionText.isNull() ? i18n("&Yes") : primaryActionText;
+    const QString _secondaryActionText = secondaryActionText.isNull() ? i18n("&No") : secondaryActionText;
+    // qDebug() << "messageBox " << type << " " << text << " - " << title << _primaryActionText << _secondaryActionText;
+    KIO_DATA << static_cast<qint32>(type) << text << title << _primaryActionText << _secondaryActionText << dontAskAgainName;
 #else
-    KIO_DATA << static_cast<qint32>(type) << text << title << buttonYes << buttonNo << dontAskAgainName;
+    KIO_DATA << static_cast<qint32>(type) << text << title << primaryActionText << secondaryActionText << dontAskAgainName;
 #endif
     send(INF_MESSAGEBOX, data);
     if (waitForAnswer(CMD_MESSAGEBOXANSWER, 0, data) != -1) {

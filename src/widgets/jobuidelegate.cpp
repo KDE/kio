@@ -357,10 +357,10 @@ bool KIO::JobUiDelegate::askDeleteConfirmation(const QList<QUrl> &urls, Deletion
 int KIO::JobUiDelegate::requestMessageBox(KIO::JobUiDelegate::MessageBoxType type,
                                           const QString &text,
                                           const QString &title,
-                                          const QString &buttonYes,
-                                          const QString &buttonNo,
-                                          const QString &iconYes,
-                                          const QString &iconNo,
+                                          const QString &primaryActionText,
+                                          const QString &secondaryActionText,
+                                          const QString &primaryActionIconName,
+                                          const QString &secondaryActionIconName,
                                           const QString &dontAskAgainName,
                                           const KIO::MetaData &metaData)
 {
@@ -374,42 +374,55 @@ int KIO::JobUiDelegate::requestMessageBox(KIO::JobUiDelegate::MessageBoxType typ
 #if KWIDGETSADDONS_BUILD_DEPRECATED_SINCE(5, 100)
     QT_WARNING_PUSH
     QT_WARNING_DISABLE_DEPRECATED
-    KGuiItem buttonYesGui = KStandardGuiItem::yes();
-    KGuiItem buttonNoGui = KStandardGuiItem::no();
+    KGuiItem primaryActionTextGui = KStandardGuiItem::yes();
+    KGuiItem secondaryActionTextGui = KStandardGuiItem::no();
     QT_WARNING_POP
 
-    if (!buttonYes.isEmpty()) {
-        buttonYesGui.setText(buttonYes);
+    if (!primaryActionText.isEmpty()) {
+        primaryActionTextGui.setText(primaryActionText);
     }
-    if (!iconYes.isNull()) {
-        buttonYesGui.setIconName(iconYes);
+    if (!primaryActionIconName.isNull()) {
+        primaryActionTextGui.setIconName(primaryActionIconName);
     }
 
-    if (!buttonNo.isEmpty()) {
-        buttonNoGui.setText(buttonNo);
+    if (!secondaryActionText.isEmpty()) {
+        secondaryActionTextGui.setText(secondaryActionText);
     }
-    if (!iconNo.isNull()) {
-        buttonNoGui.setIconName(iconNo);
+    if (!secondaryActionIconName.isNull()) {
+        secondaryActionTextGui.setIconName(secondaryActionIconName);
     }
 #else
-    KGuiItem buttonYesGui(buttonYes, iconYes);
-    KGuiItem buttonNoGui(buttonNo, iconNo);
+    KGuiItem primaryActionTextGui(primaryActionText, primaryActionIconName);
+    KGuiItem secondaryActionTextGui(secondaryActionText, secondaryActionIconName);
 #endif
 
     KMessageBox::Options options(KMessageBox::Notify | KMessageBox::WindowModal);
 
     switch (type) {
     case QuestionYesNo:
-        result = KMessageBox::questionTwoActions(window(), text, title, buttonYesGui, buttonNoGui, dontAskAgainName, options);
+        result = KMessageBox::questionTwoActions(window(), text, title, primaryActionTextGui, secondaryActionTextGui, dontAskAgainName, options);
         break;
     case WarningYesNo:
-        result = KMessageBox::warningTwoActions(window(), text, title, buttonYesGui, buttonNoGui, dontAskAgainName, options | KMessageBox::Dangerous);
+        result = KMessageBox::warningTwoActions(window(),
+                                                text,
+                                                title,
+                                                primaryActionTextGui,
+                                                secondaryActionTextGui,
+                                                dontAskAgainName,
+                                                options | KMessageBox::Dangerous);
         break;
     case WarningYesNoCancel:
-        result = KMessageBox::warningTwoActionsCancel(window(), text, title, buttonYesGui, buttonNoGui, KStandardGuiItem::cancel(), dontAskAgainName, options);
+        result = KMessageBox::warningTwoActionsCancel(window(),
+                                                      text,
+                                                      title,
+                                                      primaryActionTextGui,
+                                                      secondaryActionTextGui,
+                                                      KStandardGuiItem::cancel(),
+                                                      dontAskAgainName,
+                                                      options);
         break;
     case WarningContinueCancel:
-        result = KMessageBox::warningContinueCancel(window(), text, title, buttonYesGui, KStandardGuiItem::cancel(), dontAskAgainName, options);
+        result = KMessageBox::warningContinueCancel(window(), text, title, primaryActionTextGui, KStandardGuiItem::cancel(), dontAskAgainName, options);
         break;
     case Information:
         KMessageBox::information(window(), text, title, dontAskAgainName, options);

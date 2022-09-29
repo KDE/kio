@@ -165,10 +165,10 @@ public:
      * @param type the desired type of message box.
      * @param text the message shown to the user.
      * @param title the title of the message dialog box.
-     * @param buttonYes the text for the YES button.
-     * @param buttonNo the text for the NO button.
-     * @param iconYes the icon shown on the YES button.
-     * @param iconNo the icon shown on the NO button.
+     * @param primaryActionText the text for the primary action button.
+     * @param secondaryActionText the text for the secondary action button.
+     * @param primaryActionIconName the icon shown on the primary action button.
+     * @param secondaryActionIconName the icon shown on the secondary action button.
      * @param dontAskAgainName the name used to store result from 'Do not ask again' checkbox.
      * @param metaData SSL information used by the SSLMessageBox. Since 5.66 this is also used for privilege operation details.
      *
@@ -180,10 +180,10 @@ public:
     int requestMessageBox(MessageBoxType type,
                           const QString &text,
                           const QString &title,
-                          const QString &buttonYes,
-                          const QString &buttonNo,
-                          const QString &iconYes = QString(),
-                          const QString &iconNo = QString(),
+                          const QString &primaryActionText,
+                          const QString &secondaryActionText,
+                          const QString &primaryActionIconName = QString(),
+                          const QString &secondaryActionIconName = QString(),
                           const QString &dontAskAgainName = QString(),
                           const KIO::MetaData &metaData = KIO::MetaData()) override;
 

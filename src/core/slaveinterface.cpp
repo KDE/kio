@@ -261,16 +261,16 @@ bool SlaveInterface::dispatch(int _cmd, const QByteArray &rawdata)
         // qDebug() << "needs a msg box";
         QString text;
         QString title;
-        QString buttonYes;
-        QString buttonNo;
+        QString primaryActionText;
+        QString secondaryActionText;
         QString dontAskAgainName;
         int type;
-        stream >> type >> text >> title >> buttonYes >> buttonNo;
+        stream >> type >> text >> title >> primaryActionText >> secondaryActionText;
         if (stream.atEnd()) {
-            messageBox(type, text, title, buttonYes, buttonNo);
+            messageBox(type, text, title, primaryActionText, secondaryActionText);
         } else {
             stream >> dontAskAgainName;
-            messageBox(type, text, title, buttonYes, buttonNo, dontAskAgainName);
+            messageBox(type, text, title, primaryActionText, secondaryActionText, dontAskAgainName);
         }
         break;
     }
@@ -393,16 +393,16 @@ void SlaveInterface::sendMessageBoxAnswer(int result)
     // qDebug() << "message box answer" << result;
 }
 
-void SlaveInterface::messageBox(int type, const QString &text, const QString &title, const QString &buttonYes, const QString &buttonNo)
+void SlaveInterface::messageBox(int type, const QString &text, const QString &title, const QString &primaryActionText, const QString &secondaryActionText)
 {
-    messageBox(type, text, title, buttonYes, buttonNo, QString());
+    messageBox(type, text, title, primaryActionText, secondaryActionText, QString());
 }
 
 void SlaveInterface::messageBox(int type,
                                 const QString &text,
                                 const QString &title,
-                                const QString &buttonYes,
-                                const QString &buttonNo,
+                                const QString &primaryActionText,
+                                const QString &secondaryActionText,
                                 const QString &dontAskAgainName)
 {
     Q_D(SlaveInterface);
@@ -413,22 +413,22 @@ void SlaveInterface::messageBox(int type,
     QHash<UserNotificationHandler::MessageBoxDataType, QVariant> data;
     data.insert(UserNotificationHandler::MSG_TEXT, text);
     data.insert(UserNotificationHandler::MSG_TITLE, title);
-    data.insert(UserNotificationHandler::MSG_YES_BUTTON_TEXT, buttonYes);
-    data.insert(UserNotificationHandler::MSG_NO_BUTTON_TEXT, buttonNo);
+    data.insert(UserNotificationHandler::MSG_PRIMARYACTION_TEXT, primaryActionText);
+    data.insert(UserNotificationHandler::MSG_SECONDARYACTION_TEXT, secondaryActionText);
     data.insert(UserNotificationHandler::MSG_DONT_ASK_AGAIN, dontAskAgainName);
 
     // SMELL: the braindead way to support button icons
     // TODO: Fix this in KIO::SlaveBase.
-    if (buttonYes == i18n("&Details")) {
-        data.insert(UserNotificationHandler::MSG_YES_BUTTON_ICON, QLatin1String("help-about"));
-    } else if (buttonYes == i18n("&Forever")) {
-        data.insert(UserNotificationHandler::MSG_YES_BUTTON_ICON, QLatin1String("flag-green"));
+    if (primaryActionText == i18n("&Details")) {
+        data.insert(UserNotificationHandler::MSG_PRIMARYACTION_ICON, QLatin1String("help-about"));
+    } else if (primaryActionText == i18n("&Forever")) {
+        data.insert(UserNotificationHandler::MSG_PRIMARYACTION_ICON, QLatin1String("flag-green"));
     }
 
-    if (buttonNo == i18n("Co&ntinue")) {
-        data.insert(UserNotificationHandler::MSG_NO_BUTTON_ICON, QLatin1String("arrow-right"));
-    } else if (buttonNo == i18n("&Current Session only")) {
-        data.insert(UserNotificationHandler::MSG_NO_BUTTON_ICON, QLatin1String("chronometer"));
+    if (secondaryActionText == i18n("Co&ntinue")) {
+        data.insert(UserNotificationHandler::MSG_SECONDARYACTION_ICON, QLatin1String("arrow-right"));
+    } else if (secondaryActionText == i18n("&Current Session only")) {
+        data.insert(UserNotificationHandler::MSG_SECONDARYACTION_ICON, QLatin1String("chronometer"));
     }
 
     if (type == KIO::SlaveBase::SSLMessageBox) {

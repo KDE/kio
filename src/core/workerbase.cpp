@@ -339,19 +339,19 @@ int WorkerBase::openPasswordDialog(AuthInfo &info, const QString &errorMsg)
     return d->bridge.openPasswordDialogV2(info, errorMsg);
 }
 
-int WorkerBase::messageBox(MessageBoxType type, const QString &text, const QString &title, const QString &buttonYes, const QString &buttonNo)
+int WorkerBase::messageBox(MessageBoxType type, const QString &text, const QString &title, const QString &primaryActionText, const QString &secondaryActionText)
 {
-    return messageBox(text, type, title, buttonYes, buttonNo, QString());
+    return messageBox(text, type, title, primaryActionText, secondaryActionText, QString());
 }
 
 int WorkerBase::messageBox(const QString &text,
                            MessageBoxType type,
                            const QString &title,
-                           const QString &_buttonYes,
-                           const QString &_buttonNo,
+                           const QString &primaryActionText,
+                           const QString &secondaryActionText,
                            const QString &dontAskAgainName)
 {
-    return d->bridge.messageBox(text, static_cast<SlaveBase::MessageBoxType>(type), title, _buttonYes, _buttonNo, dontAskAgainName);
+    return d->bridge.messageBox(text, static_cast<SlaveBase::MessageBoxType>(type), title, primaryActionText, secondaryActionText, dontAskAgainName);
 }
 
 bool WorkerBase::canResume(KIO::filesize_t offset)
