@@ -399,10 +399,10 @@ int KIO::JobUiDelegate::requestMessageBox(KIO::JobUiDelegate::MessageBoxType typ
     KMessageBox::Options options(KMessageBox::Notify | KMessageBox::WindowModal);
 
     switch (type) {
-    case QuestionYesNo:
+    case QuestionTwoActions:
         result = KMessageBox::questionTwoActions(window(), text, title, primaryActionTextGui, secondaryActionTextGui, dontAskAgainName, options);
         break;
-    case WarningYesNo:
+    case WarningTwoActions:
         result = KMessageBox::warningTwoActions(window(),
                                                 text,
                                                 title,
@@ -411,7 +411,7 @@ int KIO::JobUiDelegate::requestMessageBox(KIO::JobUiDelegate::MessageBoxType typ
                                                 dontAskAgainName,
                                                 options | KMessageBox::Dangerous);
         break;
-    case WarningYesNoCancel:
+    case WarningTwoActionsCancel:
         result = KMessageBox::warningTwoActionsCancel(window(),
                                                       text,
                                                       title,

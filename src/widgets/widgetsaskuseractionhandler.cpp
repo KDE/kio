@@ -49,19 +49,19 @@ bool KIO::WidgetsAskUserActionHandlerPrivate::gotPersistentUserReply(KIO::AskUse
 {
     // storage values matching the logic of FrameworkIntegration's KMessageBoxDontAskAgainConfigStorage
     switch (type) {
-    case KIO::AskUserActionInterface::QuestionYesNo:
-    case KIO::AskUserActionInterface::QuestionYesNoCancel:
-    case KIO::AskUserActionInterface::WarningYesNo:
-    case KIO::AskUserActionInterface::WarningYesNoCancel: {
+    case KIO::AskUserActionInterface::QuestionTwoActions:
+    case KIO::AskUserActionInterface::QuestionTwoActionsCancel:
+    case KIO::AskUserActionInterface::WarningTwoActions:
+    case KIO::AskUserActionInterface::WarningTwoActionsCancel: {
         // storage holds "true" if persistent reply is "Yes", "false" for persistent "No",
         // otherwise no persistent reply is present
         const QString value = cg.readEntry(dontAskAgainName, QString());
         if ((value.compare(QLatin1String("yes"), Qt::CaseInsensitive) == 0) || (value.compare(QLatin1String("true"), Qt::CaseInsensitive) == 0)) {
-            Q_EMIT q->messageBoxResult(KIO::SlaveBase::Yes);
+            Q_EMIT q->messageBoxResult(KIO::SlaveBase::PrimaryAction);
             return true;
         }
         if ((value.compare(QLatin1String("no"), Qt::CaseInsensitive) == 0) || (value.compare(QLatin1String("false"), Qt::CaseInsensitive) == 0)) {
-            Q_EMIT q->messageBoxResult(KIO::SlaveBase::No);
+            Q_EMIT q->messageBoxResult(KIO::SlaveBase::SecondaryAction);
             return true;
         }
         break;
@@ -90,11 +90,11 @@ void KIO::WidgetsAskUserActionHandlerPrivate::savePersistentUserReply(KIO::AskUs
 {
     // see gotPersistentUserReply for values stored and why
     switch (type) {
-    case KIO::AskUserActionInterface::QuestionYesNo:
-    case KIO::AskUserActionInterface::QuestionYesNoCancel:
-    case KIO::AskUserActionInterface::WarningYesNo:
-    case KIO::AskUserActionInterface::WarningYesNoCancel:
-        cg.writeEntry(dontAskAgainName, result == KIO::SlaveBase::Yes);
+    case KIO::AskUserActionInterface::QuestionTwoActions:
+    case KIO::AskUserActionInterface::QuestionTwoActionsCancel:
+    case KIO::AskUserActionInterface::WarningTwoActions:
+    case KIO::AskUserActionInterface::WarningTwoActionsCancel:
+        cg.writeEntry(dontAskAgainName, result == KIO::SlaveBase::PrimaryAction);
         cg.sync();
         break;
     case KIO::AskUserActionInterface::WarningContinueCancel:
@@ -334,17 +334,17 @@ void KIO::WidgetsAskUserActionHandler::requestUserMessageBox(MessageDialogType t
     bool hasCancelButton = false;
 
     switch (type) {
-    case QuestionYesNo:
+    case QuestionTwoActions:
         dlgType = KMessageDialog::QuestionTwoActions;
         break;
-    case QuestionYesNoCancel:
+    case QuestionTwoActionsCancel:
         dlgType = KMessageDialog::QuestionTwoActionsCancel;
         hasCancelButton = true;
         break;
-    case WarningYesNo:
+    case WarningTwoActions:
         dlgType = KMessageDialog::WarningTwoActions;
         break;
-    case WarningYesNoCancel:
+    case WarningTwoActionsCancel:
         dlgType = KMessageDialog::WarningTwoActionsCancel;
         hasCancelButton = true;
         break;
@@ -400,11 +400,11 @@ void KIO::WidgetsAskUserActionHandler::requestUserMessageBox(MessageDialogType t
             if (dlgType == KMessageDialog::WarningContinueCancel) {
                 btnCode = KIO::SlaveBase::Continue;
             } else {
-                btnCode = KIO::SlaveBase::Yes;
+                btnCode = KIO::SlaveBase::PrimaryAction;
             }
             break;
         case KMessageDialog::SecondaryAction:
-            btnCode = KIO::SlaveBase::No;
+            btnCode = KIO::SlaveBase::SecondaryAction;
             break;
         case KMessageDialog::Cancel:
             btnCode = KIO::SlaveBase::Cancel;

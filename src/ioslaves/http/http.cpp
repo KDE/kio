@@ -2980,7 +2980,7 @@ try_again:
     // sites they had no intention of visiting.
     if (isPotentialSpoofingAttack(m_request, config())) {
         qCDebug(KIO_HTTP) << "**** POTENTIAL ADDRESS SPOOFING:" << m_request.url;
-        const int result = messageBox(WarningYesNo,
+        const int result = messageBox(WarningTwoActions,
                                       i18nc("@info Security check on url being accessed",
                                             "<p>You are about to log in to the site \"%1\" "
                                             "with the username \"%2\", but the website "
@@ -2990,7 +2990,7 @@ try_again:
                                             m_request.url.host(),
                                             m_request.url.userName()),
                                       i18nc("@title:window", "Confirm Website Access"));
-        if (result == WorkerBase::No) {
+        if (result == WorkerBase::SecondaryAction) {
             return error(ERR_USER_CANCELED, m_request.url.toDisplayString());
         }
         setMetaData(QStringLiteral("{internal~currenthost}LastSpoofedUserName"), m_request.url.userName());

@@ -476,12 +476,12 @@ TCPWorkerBase::SslResult TCPWorkerBase::TCPWorkerBasePrivate::startTLSInternal(Q
                                            "unless otherwise noted.\nThis means "
                                            "that no third party will be able to "
                                            "easily observe your data in transit."),
-                                      WarningYesNo,
+                                      WarningTwoActions,
                                       i18n("Security Information"),
                                       i18n("Display SSL &Information"),
                                       i18n("C&onnect"),
                                       QStringLiteral("WarnOnEnterSSLMode"));
-        if (msgResult == WorkerBase::Yes) {
+        if (msgResult == WorkerBase::PrimaryAction) {
             q->messageBox(SSLMessageBox /*==the SSL info dialog*/, host);
         }
     }
@@ -527,29 +527,29 @@ TCPWorkerBase::SslResult TCPWorkerBase::verifyServerCertificate()
     int msgResult = -1;
     QDateTime ruleExpiry = QDateTime::currentDateTime();
     do {
-        msgResult = messageBox(WarningYesNoCancel, message, i18n("Server Authentication"), i18n("&Details"), i18n("Co&ntinue"));
+        msgResult = messageBox(WarningTwoActionsCancel, message, i18n("Server Authentication"), i18n("&Details"), i18n("Co&ntinue"));
         switch (msgResult) {
-        case WorkerBase::Yes:
+        case WorkerBase::PrimaryAction:
             // Details was chosen- show the certificate and error details
             messageBox(SSLMessageBox /*the SSL info dialog*/, d->host);
             break;
-        case WorkerBase::No: {
-            // fall through on WorkerBase::No
-            const int result = messageBox(WarningYesNoCancel,
+        case WorkerBase::SecondaryAction: {
+            // fall through on WorkerBase::SecondaryAction
+            const int result = messageBox(WarningTwoActionsCancel,
                                           i18n("Would you like to accept this "
                                                "certificate forever without "
                                                "being prompted?"),
                                           i18n("Server Authentication"),
                                           i18n("&Forever"),
                                           i18n("&Current Session only"));
-            if (result == WorkerBase::Yes) {
+            if (result == WorkerBase::PrimaryAction) {
                 // accept forever ("for a very long time")
                 ruleExpiry = ruleExpiry.addYears(1000);
-            } else if (result == WorkerBase::No) {
+            } else if (result == WorkerBase::SecondaryAction) {
                 // accept "for a short time", half an hour.
                 ruleExpiry = ruleExpiry.addSecs(30 * 60);
             } else {
-                msgResult = WorkerBase::Yes;
+                msgResult = WorkerBase::PrimaryAction;
             }
             break;
         }
@@ -559,7 +559,7 @@ TCPWorkerBase::SslResult TCPWorkerBase::verifyServerCertificate()
             qCWarning(KIO_CORE) << "Unexpected MessageBox response received:" << msgResult;
             return ResultFailed;
         }
-    } while (msgResult == WorkerBase::Yes);
+    } while (msgResult == WorkerBase::PrimaryAction);
 
     // TODO special cases for wildcard domain name in the certificate!
     // rule = KSslCertificateRule(d->socket.peerCertificateChain().first(), whatever);

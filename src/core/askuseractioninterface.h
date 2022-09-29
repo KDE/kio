@@ -150,10 +150,10 @@ public:
                                QWidget *parent = nullptr) = 0; // TODO KF6: replace QWidget* with QObject*
 
     enum MessageDialogType {
-        QuestionYesNo = 1,
-        QuestionYesNoCancel = 2,
-        WarningYesNo = 3,
-        WarningYesNoCancel = 4,
+        QuestionTwoActions = 1, ///< @since 5.100
+        QuestionTwoActionsCancel = 2, ///< @since 5.100
+        WarningTwoActions = 3, ///< @since 5.100
+        WarningTwoActionsCancel = 4, ///< @since 5.100
         WarningContinueCancel = 5,
         SSLMessageBox = 6,
         Information = 7,
@@ -162,6 +162,16 @@ public:
             KIOCORE_ENUMERATOR_DEPRECATED_VERSION(5, 97, "Use Error.") = 8,
 #endif
         Error = 9,
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 100)
+        QuestionYesNo ///< @deprecated Since 5.100, use QuestionTwoActions.
+            KIOCORE_ENUMERATOR_DEPRECATED_VERSION(5, 100, "Use QuestionTwoActions.") = QuestionTwoActions,
+        QuestionYesNoCancel ///< @deprecated Since 5.100, use QuestionTwoActionsCancel.
+            KIOCORE_ENUMERATOR_DEPRECATED_VERSION(5, 100, "Use QuestionTwoActionsCancel.") = QuestionTwoActionsCancel,
+        WarningYesNo ///< @deprecated Since 5.100, use WarningTwoActions.
+            KIOCORE_ENUMERATOR_DEPRECATED_VERSION(5, 100, "Use WarningTwoActions.") = WarningTwoActions,
+        WarningYesNoCancel ///< @deprecated Since 5.100, use WarningTwoActionsCancel.
+            KIOCORE_ENUMERATOR_DEPRECATED_VERSION(5, 100, "Use WarningTwoActionsCancel.") = WarningTwoActionsCancel,
+#endif
     };
 
     /**

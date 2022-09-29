@@ -153,10 +153,10 @@ const QString kdeOrgCertChain = QStringLiteral(
     "-----END CERTIFICATE-----\n");
 
 static const QMap<int, QString> typeNames = {
-    {KIO::WorkerBase::QuestionYesNo, QStringLiteral("QuestionYesNo")},
-    {KIO::WorkerBase::WarningYesNo, QStringLiteral("WarningYesNo")},
+    {KIO::WorkerBase::QuestionTwoActions, QStringLiteral("QuestionTwoActions")},
+    {KIO::WorkerBase::WarningTwoActions, QStringLiteral("WarningTwoActions")},
     {KIO::WorkerBase::WarningContinueCancel, QStringLiteral("WarningContinueCancel")},
-    {KIO::WorkerBase::WarningYesNoCancel, QStringLiteral("WarningYesNoCancel")},
+    {KIO::WorkerBase::WarningTwoActionsCancel, QStringLiteral("WarningTwoActionsCancel")},
     {KIO::WorkerBase::Information, QStringLiteral("Information")},
     {KIO::WorkerBase::SSLMessageBox, QStringLiteral("SSLMessageBox")},
     {KIO::WorkerBase::WarningContinueCancelDetailed, QStringLiteral("WarningContinueCancelDetailed")},
@@ -172,10 +172,10 @@ static QString buttonCodeToDisplayString(int buttonCode)
         return QStringLiteral("Ok");
     case KIO::WorkerBase::Cancel:
         return QStringLiteral("Cancel");
-    case KIO::WorkerBase::Yes:
-        return QStringLiteral("Yes");
-    case KIO::WorkerBase::No:
-        return QStringLiteral("No");
+    case KIO::WorkerBase::PrimaryAction:
+        return QStringLiteral("PrimaryAction");
+    case KIO::WorkerBase::SecondaryAction:
+        return QStringLiteral("SecondaryAction");
     case KIO::WorkerBase::Continue:
         return QStringLiteral("Continue");
     default:

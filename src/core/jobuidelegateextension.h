@@ -262,14 +262,22 @@ public:
      * @since 4.11
      */
     enum MessageBoxType {
-        QuestionYesNo = 1,
-        WarningYesNo = 2,
+        QuestionTwoActions = 1, ///< @since 5.100
+        WarningTwoActions = 2, ///< @since 5.100
         WarningContinueCancel = 3,
-        WarningYesNoCancel = 4,
+        WarningTwoActionsCancel = 4, ///< @since 5.100
         Information = 5,
         SSLMessageBox = 6,
         // In KMessageBox::DialogType; Sorry = 7, Error = 8, QuestionTwoActionsCancel = 9
         WarningContinueCancelDetailed = 10,
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 100)
+        QuestionYesNo ///< @deprecated Since 5.100, use QuestionTwoActions.
+            KIOCORE_ENUMERATOR_DEPRECATED_VERSION(5, 100, "Use QuestionTwoActions.") = QuestionTwoActions,
+        WarningYesNo ///< @deprecated Since 5.100, use WarningTwoActions.
+            KIOCORE_ENUMERATOR_DEPRECATED_VERSION(5, 100, "Use WarningTwoActions.") = WarningTwoActions,
+        WarningYesNoCancel ///< @deprecated Since 5.100, use WarningTwoActionsCancel.
+            KIOCORE_ENUMERATOR_DEPRECATED_VERSION(5, 100, "Use WarningTwoActionsCancel.") = WarningTwoActionsCancel,
+#endif
     };
 
     /**

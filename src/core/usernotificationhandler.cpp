@@ -79,15 +79,15 @@ void UserNotificationHandler::processRequest()
 
                 const auto type = [r]() -> AskUserActionInterface::MessageDialogType {
                     switch (r->type) {
-                    case WorkerBase::QuestionYesNo:
-                        return AskUserActionInterface::QuestionYesNo;
-                    case WorkerBase::WarningYesNo:
-                        return AskUserActionInterface::WarningYesNo;
+                    case WorkerBase::QuestionTwoActions:
+                        return AskUserActionInterface::QuestionTwoActions;
+                    case WorkerBase::WarningTwoActions:
+                        return AskUserActionInterface::WarningTwoActions;
                     case WorkerBase::WarningContinueCancel:
                     case WorkerBase::WarningContinueCancelDetailed:
                         return AskUserActionInterface::WarningContinueCancel;
-                    case WorkerBase::WarningYesNoCancel:
-                        return AskUserActionInterface::WarningYesNoCancel;
+                    case WorkerBase::WarningTwoActionsCancel:
+                        return AskUserActionInterface::WarningTwoActionsCancel;
                     case WorkerBase::Information:
                         return AskUserActionInterface::Information;
                     case WorkerBase::SSLMessageBox:
