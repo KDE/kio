@@ -19,7 +19,6 @@
 
 // KDE
 #include <KLocalizedString>
-#include <KMessageBox>
 #include <KPluginFactory>
 
 K_PLUGIN_CLASS_WITH_JSON(KCookiesMain, "cookies.json")

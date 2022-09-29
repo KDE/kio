@@ -34,7 +34,6 @@
 #include <KJob>
 #include <KJobWidgets>
 #include <KLocalizedString>
-#include <KMessageBox>
 #include <KSharedConfig>
 #include <defaults-kfile.h> // ConfigGroup, PlacesIconsAutoresize, PlacesIconsStaticSize
 #include <kdirnotify.h>

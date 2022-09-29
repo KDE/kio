@@ -14,7 +14,6 @@
 // KDE
 #include <KLineEdit> // Needed for KUrlRequester::lineEdit()
 #include <KLocalizedString>
-#include <KMessageBox>
 #include <KPluginFactory>
 #include <kurifilter.h>
 

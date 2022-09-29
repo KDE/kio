@@ -13,7 +13,6 @@
 #include <KJobWidgets>
 #include <kio/listjob.h>
 
-#include <KMessageBox>
 #include <QWidget>
 
 class KDirListerPrivate

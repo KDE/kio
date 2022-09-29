@@ -15,7 +15,6 @@
 #include "kpasswdserveradaptor.h"
 
 #include <KLocalizedString>
-#include <KMessageBox>
 #include <KMessageDialog>
 #include <KPasswordDialog>
 #include <KUserTimestamp>
