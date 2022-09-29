@@ -11,6 +11,7 @@
 #include "job_p.h"
 #include "kiocoredebug.h"
 #include "slave.h"
+#include "workerbase.h"
 
 #include <QTimer>
 
@@ -76,7 +77,27 @@ void UserNotificationHandler::processRequest()
                     slotProcessRequest(result);
                 });
 
-                const auto type = static_cast<AskUserActionInterface::MessageDialogType>(r->type);
+                const auto type = [r]() -> AskUserActionInterface::MessageDialogType {
+                    switch (r->type) {
+                    case WorkerBase::QuestionYesNo:
+                        return AskUserActionInterface::QuestionYesNo;
+                    case WorkerBase::WarningYesNo:
+                        return AskUserActionInterface::WarningYesNo;
+                    case WorkerBase::WarningContinueCancel:
+                    case WorkerBase::WarningContinueCancelDetailed:
+                        return AskUserActionInterface::WarningContinueCancel;
+                    case WorkerBase::WarningYesNoCancel:
+                        return AskUserActionInterface::WarningYesNoCancel;
+                    case WorkerBase::Information:
+                        return AskUserActionInterface::Information;
+                    case WorkerBase::SSLMessageBox:
+                        return AskUserActionInterface::SSLMessageBox;
+                    default:
+                        Q_UNREACHABLE();
+                        return AskUserActionInterface::MessageDialogType{};
+                    }
+                }();
+
                 askUserIface->requestUserMessageBox(type,
                                                     r->data.value(MSG_TEXT).toString(),
                                                     r->data.value(MSG_TITLE).toString(),
