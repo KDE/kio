@@ -15,6 +15,9 @@
 #include <QtGlobal>
 #include <qplatformdefs.h>
 
+// QT_STAT_LNK on Windows MinGW
+#include "kioglobal_p.h"
+
 namespace Utils
 {
 
