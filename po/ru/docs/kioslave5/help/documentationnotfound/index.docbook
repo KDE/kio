@@ -1,0 +1,118 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Russian "INCLUDE">
+]>
+<article id="documentationnotfound" lang="&language;">
+<title
+>Документация не найдена</title>
+<articleinfo>
+<authorgroup>
+<author
+><firstname
+>Jack</firstname
+> <surname
+>Ostroff</surname
+> <affiliation
+> <address
+><email
+>ostroffjh@users.sourceforge.net</email
+></address>
+</affiliation>
+</author>
+<othercredit role="translator"
+><firstname
+>Александр</firstname
+><surname
+>Поташев</surname
+><affiliation
+><address
+><email
+>aspotashev@gmail.com</email
+></address
+></affiliation
+><contrib
+>Перевод на русский язык</contrib
+></othercredit
+><othercredit role="translator"
+><firstname
+>Ольга</firstname
+><surname
+>Миронова</surname
+><affiliation
+><address
+><email
+>omiro@basealt.ru</email
+></address
+></affiliation
+><contrib
+>Перевод на русский язык</contrib
+></othercredit
+><othercredit role="reviewer"
+><firstname
+>Александр</firstname
+><surname
+>Яворский</surname
+><contrib
+>Рецензирование</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>8 сентября 2020 г.</date>
+<releaseinfo
+>Frameworks 5.73</releaseinfo>
+
+</articleinfo>
+
+<para
+>Запрашиваемая документация не найдена.</para>
+
+<para
+>Возможно, документация не существует или не была установлена вместе с приложением.</para>
+
+<tip
+><para
+>Пожалуйста, не отправляйте автору этой страницы сообщений с просьбой найти отсутствующий документ. Просто выполните приведённые на ней инструкции. </para
+></tip>
+
+<simplesect>
+<title
+>Решение проблемы</title>
+
+<para
+>Чтобы найти документацию к приложениям &kde;, сначала воспользуйтесь функцией в «Центре справки». В некоторых случаях название документации отличается от названия, используемого программой поиска. Если документацию не удастся найти, попробуйте выполнить её поиск на сайте <ulink url="https://docs.kde.org/"
+>документации &kde;</ulink
+>. Если нужная документация там есть, то, возможно, для вашего дистрибутива документация поставляется в отдельном пакете (например, пакет «plasma-doc» для документации к &plasma;). Для поиска и установки отсутствующей документации следует воспользоваться диспетчером пакетов соответствующего дистрибутива.</para>
+
+<para
+>Для дистрибутивов, собранных из исходного кода, таких как Gentoo, важно убедиться, что параметры конфигурации (например, USE-флаги в Gentoo) не запрещают установку документации. </para>
+
+<para
+>Если после выполнения всех перечисленных действий вместо руководства пользователя приложения открывается данная страница, то, вероятно, вы нашли ошибку в системе справки. В этом случае необходимо сообщить о ней через <ulink url="https://bugs.kde.org/"
+>систему отслеживания ошибок &kde;</ulink
+>, выбрав соответствующий продукт KIO. </para>
+
+<para
+>Если окажется, что на <ulink url="https://docs.kde.org/"
+>сайте документации &kde;</ulink
+> отсутствует какая-то документация, то это скорее всего означает, что к приложению не было написано документации, устанавливаемой вместе с приложением. Пожалуйста, сообщайте об этом разработчикам через <ulink url="https://bugs.kde.org/"
+>систему отслеживания ошибок &kde;</ulink
+>, выбрав в качестве продукта соответствующее приложение. </para>
+
+<para
+>Если у приложения нет официальной документации, устанавливаемой вместе с ним, возможно воспользоваться документацией из <ulink url="https://userbase.kde.org/"
+>пользовательской базы знаний KDE</ulink
+>, социальными сетями русскоязычного сообщества (указаны на <ulink url="https://kde.ru/"
+>kde.ru</ulink
+>) или <ulink url="https://forum.kde.org/"
+>международным форумом &kde;</ulink
+>, если у вас возникнут какие-либо вопросы. </para>
+
+<para
+>Для получения сведений о сторонних приложениях следует обращаться к их авторам.</para>
+</simplesect>
+
+</article>

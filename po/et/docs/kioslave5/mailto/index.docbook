@@ -1,0 +1,144 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Estonian  "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="mailto">
+<title
+>mailto</title>
+<articleinfo>
+<authorgroup>
+<author
+><firstname
+>Christopher</firstname
+> <surname
+>Yeleighton</surname
+> <email
+>giecrilj@stegny.2a.pl</email
+></author>
+
+<othercredit role="translator"
+><firstname
+>Marek</firstname
+><surname
+>Laane</surname
+><affiliation
+><address
+><email
+>bald@online.ee</email
+></address
+></affiliation
+><contrib
+>Tõlge eesti keelde</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>2012-01-28</date>
+<releaseinfo
+>&kde; 4.8</releaseinfo>
+</articleinfo>
+<para
+>KIO moodul mailto vastutab sinu valitud kirjakoostaja käivitamise eest, kui avad mailto-skeemiga (<ulink url="http://tools.ietf.org/html/rfc6068"
+>RFC6068</ulink
+>) &URL;-i. </para>
+
+<variablelist>
+<varlistentry>
+<term
+>Süntaks</term>
+<listitem
+><para
+>Mailto &URL;-i süntaks järgib järgmist mustrit:</para>
+
+<para
+>mailto:saajad?päring</para>
+
+<para
+>milles saajad kujutab endast piiratud &SMTP; aadressispetsifikatsioonide nimekirja ning päring võib sisaldada üht või enamat järgmistest parameetritest:</para>
+
+<variablelist>
+<varlistentry>
+<term
+>&amp;to=saajad</term>
+<listitem
+><para
+>Määrab täiendavad saajad.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>&amp;cc=saajad</term>
+<listitem
+><para
+>Määrab täiendavad koopia saajad.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>&amp;bcc=saajad</term>
+<listitem
+><para
+>Määrab täiendavad pimekoopia saajad. Need aadressid saavad kirja, aga teised saajad ei saa sellest teada.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>&amp;body=tekst</term>
+<listitem
+><para
+>Määrab kirja teksti. See ei tohiks olla pikk, sest &URL;-i pikkusele võivad kehtida ranged piirangud.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>&amp;subject=tekst</term>
+<listitem
+><para
+>Määrab kirja teema.</para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>Näide</term>
+<listitem
+><para
+>   
+<literal
+>mailto:info@kde.org?cc=kde@kde.org&amp;subject=Tänan%20teid!&amp;body=KDE%20rokib!%20Kuidas%20saan%20mina%20aidata%3F</literal>
+</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>Seadistamine</term>
+<listitem
+><para
+>Rakenduse, mis tegeleb mailto'ga, saab valida Süsteemi seadistustes: <menuchoice
+><guimenu
+>Töötsooni välimus ja käitumine</guimenu
+><guimenuitem
+>Vaikimisi rakendused</guimenuitem
+></menuchoice
+>. </para
+></listitem>
+</varlistentry>
+
+</variablelist>
+  
+</article>

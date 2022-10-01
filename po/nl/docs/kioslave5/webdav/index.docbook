@@ -1,0 +1,83 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Dutch "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="webdav">
+<title
+>webdav / webdavs</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Hamish.Rodda; &Hamish.Rodda.mail;</author>
+&Otto.Bruggeman;&Rinse.Devries; 
+</authorgroup>
+
+<date
+>2002-01-21</date>
+</articleinfo>
+<para
+><acronym
+>WebDAV</acronym
+> is een <emphasis
+>D</emphasis
+>istributed <emphasis
+>A</emphasis
+>uthoring and <emphasis
+>V</emphasis
+>ersioning-protocol voor het Wereld-Wijde-Web. Het geeft de mogelijkheid om op eenvoudige wijze documenten en scripts op een <ulink url="help:/kioslave/webdav.html"
+>&HTTP;</ulink
+>-server te beheren en heeft enkele mogelijkheden die ontwikkeld zijn om versiebeheer bij meerdere auteurs van hetzelfde document te vereenvoudigen.</para>
+
+<para
+>Het gebruik van dit protocol is erg gemakkelijk. Typ de locatie in die u wilt bekijken. Dit doet u op dezelfde manier als bij &HTTP;, alleen begint de &URL; nu met het protocol webdav://. Een voorbeeld hiervan is <userinput
+>webdav://<replaceable
+>www.hostname.com/pad/</replaceable
+></userinput
+>. Als u een mapnaam opgeeft zal er een lijst van mappen en bestanden worden getoond en kunt u deze mappen en bestanden bewerken zoals u het op ieder ander bestandssysteem zou kunnen doen.</para>
+
+<variablelist>
+<title
+>WebDAV-mogelijkheden</title>
+<varlistentry>
+<term
+>Vergrendelen</term>
+<listitem>
+<para
+>Bestandsvergrendeling geeft gebruikers de mogelijkheid om bestanden te vergrendelen om zo aan te geven aan andere gebruikers dat dit bestand wordt bewerkt. Op deze manier kan een bestand worden gewijzigd zonder dat u bang hoeft te zijn dat de veranderingen door een andere gebruiker worden overschreven die hetzelfde bestand ook aan het bewerken is.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+>Bronbestand-toegang</term>
+<listitem>
+<para
+><acronym
+>WebDAV</acronym
+> geeft de mogelijkheid om toegang tot scripts te krijgen die een specifieke pagina produceren zodat veranderingen direct aan het script worden gemaakt en niet aan de uitvoer die het scriptbestand genereert.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+>Eigenschappenondersteuning per document</term>
+<listitem>
+<para
+>Willekeurige eigenschappen kunnen worden ingesteld om de identificatie van het document te vergemakkelijken, zoals de naam van de auteur.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>Voor deze extra mogelijkheden dient u gebruik te maken van een toepassing die deze mogelijkheden ondersteunt. Er is op dit moment geen toepassing bekend die van de extra mogelijkheden van deze io-slave gebruik maakt.</para>
+
+<para
+><acronym
+>WebDAVS</acronym
+> is het<acronym
+>WebDAV</acronym
+>-protocol versleuteld via SSL.</para>
+
+</article>

@@ -1,0 +1,99 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Russian "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="webdav">
+<title
+>webdav / webdavs</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Hamish.Rodda; &Hamish.Rodda.mail;</author>
+<othercredit role="translator"
+><firstname
+>Мария</firstname
+><surname
+>Шикунова</surname
+><affiliation
+><address
+><email
+>translation-team@basealt.ru</email
+></address
+></affiliation
+><contrib
+>Перевод на русский язык</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>21 января 2002 г.</date>
+</articleinfo>
+<para
+><acronym
+>WebDAV</acronym
+> — это протокол распределённого редактирования в Интернете (<emphasis
+>D</emphasis
+>istributed <emphasis
+>A</emphasis
+>uthoring and <emphasis
+>V</emphasis
+>ersioning protocol for the World Wide Web). Он позволяет легко управлять документами и сценариями на <ulink url="help:/kioslave/webdav.html"
+>&HTTP;</ulink
+>-сервере, кроме того, в него добавлена функциональность, упрощающая работу нескольких авторов над одним документом.</para>
+
+<para
+>Протокол очень прост в использовании. Введите нужный адрес документа, только вместо &HTTP; используйте webdav://. Пример: <userinput
+>webdav://<replaceable
+>www.hostname.com/path/</replaceable
+></userinput
+>. Если указать имя каталога, будет показан список файлов и вложенных каталогов: с ними возможно работать как с обычными файлами и каталогами.</para>
+
+<variablelist>
+<title
+>Функции WebDAV</title>
+<varlistentry>
+<term
+>Блокирование</term>
+<listitem>
+<para
+>Блокирование файлов предоставляет пользователю исключительный доступ к файлу, при этом все остальные пользователи получают извещение о том, что файл редактируется. Это позволяет не бояться, что изменения будут затёрты каким-либо другим пользователем, который редактирует этот же документ.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+>Доступ к исходным файлам</term>
+<listitem>
+<para
+><acronym
+>WebDAV</acronym
+> предоставляет доступ к файлу сценария, который вызывается для создания какой-либо страницы, так что изменения возможно вносить в сам сценарий.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+>Отдельные свойства для каждого документа</term>
+<listitem>
+<para
+>Для упрощения работы каждому документу возможно назначить собственные свойства, например, чтобы указать, кто был его автором.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>Для использования всех этих возможностей требуется приложение, которое бы их поддерживало. К сожалению, приложений, поддерживающих &kde;-протокол <acronym
+>WebDAV</acronym
+>, ещё нет.</para>
+
+<para
+><acronym
+>WebDAVS</acronym
+> — это протокол <acronym
+>WebDAV</acronym
+>, зашифрованный с помощью SSL.</para>
+
+</article>

@@ -1,0 +1,27 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % French "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="help">
+<title
+>help</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Ferdinand.Gassauer;&Ferdinand.Gassauer.mail;</author>
+&traducteurEquipeKDE; 
+</authorgroup>
+</articleinfo>
+
+<para
+>Le système d'aide de &kde; </para>
+<para
+>Voir <ulink url="help:/khelpcenter/index.html"
+>le &centreAide;</ulink
+>. </para>
+
+</article>

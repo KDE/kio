@@ -1,0 +1,159 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Serbian "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="netpref" lang="&language;">
+<articleinfo>
+<title
+>Поставке повезивања</title>
+<authorgroup>
+<author
+><personname
+><firstname
+>Лори</firstname
+> <surname
+>Вотс</surname
+></personname
+> &Lauri.Watts.mail;</author>
+
+<othercredit role="translator"
+><firstname
+>Драган</firstname
+><surname
+>Пантелић</surname
+><affiliation
+><address
+><email
+>falcon-10@gmx.de</email
+></address
+></affiliation
+><contrib
+>превод</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>10. 11. 2016.</date>
+<releaseinfo
+>Радни оквири КДЕ‑а 5.29</releaseinfo>
+
+<keywordset>
+<keyword
+>КДЕ</keyword>
+<keyword
+>kdebase</keyword>
+<keyword
+>К‑контрола</keyword>
+<keyword
+>мрежа</keyword>
+<keyword
+>прековреме</keyword>
+</keywordset>
+
+</articleinfo>
+
+<sect1 id="timeouts">
+
+<title
+>Поставке повезивања</title>
+
+<para
+>Овде можете подесити вредности прековременâ. Да их наштелујете можете пожелети ако вам је веза врло спора, мада подразумеване поставке одговарају већини корисника.</para>
+
+<para
+><guilabel
+>Вредности прековремена</guilabel
+> одређују најдуже време које програми треба да чекају на одговор од мрежног поступка.</para>
+
+<para
+>Можете подесити следећа прековремена:</para>
+
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>Читање сокета:</guilabel
+></term>
+<listitem>
+<para
+>Неки програми комуницирају преко <firstterm
+>сокетâ</firstterm
+>. Сокет можете замислити као славину за воду: док је одврнута, вода (у нашем случају подаци) тече, без икаквог уплитања споља. Ако нешто заустави проток, програм ће чекати да стигне још података. То може бити веома дуго време, али овом опцијом можете подесити најдуже колико програм заиста треба да чека.</para>
+<para
+>Наравно, ова поставка ће имати дејства само на КДЕ програме.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Повезивање проксија:</guilabel
+></term>
+<listitem>
+<para
+>Задаје колико се чека на везу ка прокси серверу, ако је неки подешен. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Повезивање сервера:</guilabel
+></term>
+<listitem>
+<para
+>Задаје дужину чекања на везу ка удаљеном серверу. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Одговор сервера:</guilabel
+></term>
+<listitem>
+<para
+>Задаје дужину чекања на одговор од удаљеног сервера. </para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+<para
+>Овде можете подесити и опције ФТП‑а. Тренутно постоје само две:</para>
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>Укључи пасивни режим</guilabel
+></term>
+<listitem
+><para
+>Пасивни ФТП често је неопходан кад сте иза мрежног заштитног зида. Многи заштитни зидови допуштају само повезивања потекла „изнутра“. Пасивним ФТП‑ом управља клијент, што га чини употребљивим кроз заштитне зидове.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Означи делимично отпремљене фајлове</guilabel
+></term>
+<listitem
+><para
+>Ако је ова кућица попуњена, делимично отпремљени фајлови добиће наставак <literal role="extension"
+>.part</literal
+> на крају имена. Наставак се уклања кад се заврши преузимање фајла. </para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+
+
+</sect1>
+</article>

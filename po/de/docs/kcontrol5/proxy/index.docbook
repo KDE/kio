@@ -1,0 +1,225 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % German "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="proxy" lang="&language;">
+<title
+>Proxy</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Krishna.Tateneni; &Krishna.Tateneni.mail;</author>
+<othercredit role="translator"
+><firstname
+>Stefan</firstname
+><surname
+>Winter</surname
+><affiliation
+><address
+><email
+>kickdown@online.de</email
+></address
+></affiliation
+><contrib
+>Übersetzer</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>2016-11-10</date>
+<releaseinfo
+>Frameworks 5.29</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Systemeinstellungen</keyword>
+<keyword
+>proxy</keyword>
+<keyword
+>proxies</keyword>
+</keywordset>
+
+</articleinfo>
+<sect1 id="proxies">
+<title
+>Proxy-Server</title>
+
+<sect2 id="proxies-intro">
+
+<title
+>Einführung</title>
+
+<para
+>Proxies sind Programme, die auf einem Rechner laufen, der in Ihrem Netz als Internetserver fungiert. Diese Programme empfangen die &HTTP;- und &FTP;-Anfragen aus dem eigenen Netz, holen die angeforderten Seiten aus dem Internet und geben sie an den Rechner weiter, von dem die Anfrage kam.</para>
+
+<para
+>Wenn Sie einen Proxy eingerichtet haben, werden &HTTP;- und/oder &FTP;-Anfragen durch den Rechner weitergeleitet, der als Proxy-Server fungiert. Allerdings ist es meist zweckmäßig, bestimmte Rechner anzugeben, mit denen eine direkte Verbindung (also ohne Proxy-Server) hergestellt werden soll. Wenn Sie sich zum Beispiel innerhalb eines lokalen Netzes befinden, brauchen Anfragen an lokale Rechner normalerweise nicht über einen Proxy-Server zu laufen.</para>
+
+<para
+>Sie müssen nur dann einen Proxy-Server einzurichten, wenn Ihr Netzwerkadministrator es verlangt (wenn Sie sich über Modem einwählen, wäre das zum Beispiel Ihr Internet Service Provider [<acronym
+>ISP</acronym
+>]). Wenn Sie nicht wissen, worum es bei Proxy-Konfiguration geht und wenn Ihre Internet-Verbindung in Ordnung ist, dann brauchen Sie nichts an der Konfiguration ändern.</para>
+
+<para
+>Die Verwendung von Proxy-Servern ist optional, hat aber den Vorteil, dass der Zugriff auf Daten aus dem Internet beschleunigt wird.</para>
+
+<para
+>Falls man sich nicht sicher ist, ob man einen Proxy-Server verwenden muss, sollte man die vom Internet-Provider bereitgestellten Informationen durchsehen oder den Systemverwalter fragen.</para>
+
+</sect2>
+
+<sect2 id="proxies-use">
+
+<title
+>Benutzung</title>
+
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>Kein Proxy</guilabel
+></term>
+<listitem>
+
+<para
+>Wählen Sie diese Einstellung aus, wenn Sie den Proxy-Server <emphasis
+>nicht</emphasis
+> verwenden möchten und direkt mit dem Internet verbunden sind.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>Falls Sie einen Proxy-Server verwenden möchten, können Sie die Einstellungen hierfür auf mehrere Arten ändern.</para>
+
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>Proxy-Einrichtung automatisch erkennen</guilabel
+></term>
+<listitem>
+
+<para
+>Dieses Optionsfeld sollte man auswählen, wenn eine Proxy-Konfigurationsdatei automatisch gesucht und heruntergeladen werden soll.</para>
+<para
+>Der Unterschied zur nächsten Auswahlmöglichkeit besteht nur darin, dass diese Auswahl <emphasis
+>keine</emphasis
+> Angabe eines Konfigurationsskriptes erfordert. Stattdessen wird es automatisch unter Verwendung des <quote
+>Web Proxy Auto-Discovery</quote
+> (<acronym
+>WAPD</acronym
+>) heruntergeladen.</para>
+
+<note
+><para
+>Falls es mit dieser Einstellung Probleme gibt, kann man unter <acronym
+>FAQ</acronym
+> auf <ulink url="https://www.konqueror.org"
+>https://www.konqueror.org</ulink
+> weitere Informationen finden.</para
+></note>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Adresse zur automatischen Proxy-Einrichtung verwenden:</guilabel
+></term>
+<listitem>
+<para
+>Dieses Optionsfeld sollte man zur Einrichtung des Proxy-Servers wählen, wenn man eine Skriptdatei von einer bestimmten Adresse verwenden möchte. Man kann die Adresse in das Eingabefeld Pfad eingeben oder über das Symbol <guiicon
+>Ordner</guiicon
+> aus dem Dateisystem auswählen.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Proxy-Einrichtung des Systems verwenden:</guilabel
+></term>
+<listitem>
+<para
+>Einige Systeme werden mit Hilfe von $<envar
+>HTTP_PROXY</envar
+> eingerichtet, damit grafische und nichtgrafische Anwendungen dieselbe Proxy-Konfiguration verwenden. </para>
+<para
+>Falls das auf das eigene System zutrifft, sollte man diese Auswahlmöglichkeit wählen und den Knopf <guibutton
+>Automatisch erkennen</guibutton
+> verwenden, um die Umgebungsvariablen anzugeben, die zur Einrichtung des Proxy-Servers verwendet werden.</para>
+<!-- Exceptions fields are different for system proxy (envar) + manual proxy list of hosts/IPs? -->
+<para
+>Tragen Sie im Feld <guilabel
+>Ausnahmen</guilabel
+> den Namen der Umgebungsvariablen ein, &eg; $<envar
+>NO_PROXY</envar
+> für Adressen, für die kein Proxy-Server verwendet werden soll.</para>
+<para
+>Verwenden Sie <guilabel
+>Werte der voreingestellten Umgebungsvariablen anzeigen</guilabel
+>, um statt der Namen der Umgebungsvariablen deren Werte anzuzeigen. Es ist jedoch nicht mögliche, diese Werte hier zu ändern.</para>
+<!--
+How to enable Auto Detect button?
+-->
+
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+><guilabel
+>Manuelle Proxy-Einrichtung verwenden:</guilabel
+></term>
+<listitem>
+
+<para
+>Die bei der Proxy-Konfiguration benötigten Informationen sind die Internetadresse und die Port-Nummer. Sie sollten beide in die entsprechenden Textfelder eingeben. Kreuzen Sie <guilabel
+>Diesen Proxy-Server für alle Protokolle verwenden</guilabel
+> an, um die Adresse und den Port des &HTTP;-Proxy-Servers in die Felder für alle anderen Proxy-Server zu kopieren und damit einige Tipparbeit einzusparen.</para>
+
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>Ausnahmen:</guilabel
+></term>
+<listitem>
+<para
+>Geben Sie eine durch Komma getrennte Liste von Rechnernamen und IP-Adressen ein, die die oben genannten Proxy-Einstellungen nicht verwenden sollen. Möchten Sie alle Rechner einer bestimmten Domäne ausschließen, geben Sie den Namen der Domäne mir vorangestelltem Punkt ein. Um zum Beispiel alle Rechnernamen von kde.org auszuschließen, tragen Sie <userinput
+>.kde.org</userinput
+> ein. Platzhalterzeichen wie <userinput
+>*</userinput
+> oder <userinput
+>?</userinput
+> werden nicht unterstützt und bleiben unwirksam. Zusätzlich können auch IP-Adressen wie &eg; 127.0.0.1 und IP-Adressen mit einer Subnetzmaske wie 192.168.0.1/24 benutzt werden.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>Außerdem kann man <guilabel
+>Proxy-Einstellungen nur für Adressen in der Ausnahmen-Liste verwenden</guilabel
+> auswählen.</para>
+
+<para
+>Markiert man dieses Ankreuzfeld, so wird die Verwendung der Ausnahmeliste umgekehrt, d.h. der Proxy-Server wird nur verwendet, wenn die angeforderte &URL; in der Adressliste aufgeführt ist.</para>
+
+<para
+>Diese Option ist sehr nützlich, falls man den Proxy nur für den Zugriff auf wenige Seiten, &eg; für ein internes Intranet, benötigt. Benötigen Sie eine noch komplexere Konfiguration, sollte Sie ein Konfigurationsskript verwenden.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+</sect2>
+
+</sect1>
+
+</article>
