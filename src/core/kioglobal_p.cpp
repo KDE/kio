@@ -55,7 +55,7 @@ static QMap<QString, QString> standardLocationsMap()
     };
     static const LocationInfo mapping[] = {
 #if QT_VERSION >= QT_VERSION_CHECK(6, 4, 0)
-        {QStandardPaths::TemplatesLocation, "folder-templates")},
+        {QStandardPaths::TemplatesLocation, "folder-templates"},
         {QStandardPaths::PublicShareLocation, "folder-public"},
 #endif
         {QStandardPaths::MusicLocation, "folder-music"},
