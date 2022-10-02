@@ -16,6 +16,7 @@
 #include <QUrl>
 
 #include <solid/device.h>
+#include <solid/solidnamespace.h>
 
 #include <memory>
 
@@ -447,6 +448,18 @@ Q_SIGNALS:
      * @see requestSetup()
      */
     void setupDone(const QModelIndex &index, bool success);
+
+    /**
+     * Emitted after the teardown of a device ends.
+     *
+     * @note In case of an error, the @p errorMessage signal
+     * will also be emitted with a message describing the error.
+     *
+     * @param error Type of error that occurred, if any.
+     * @param errorData More information about the error, if any.
+     * @since 5.100
+     */
+    void teardownDone(const QModelIndex &index, Solid::ErrorType error, const QVariant &errorData);
 
     /**
      * Emitted whenever the visibility of the group @p group changes.

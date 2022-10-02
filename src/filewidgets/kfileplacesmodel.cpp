@@ -16,6 +16,7 @@
 
 #include <KCoreDirLister>
 #include <KLazyLocalizedString>
+#include <KListOpenFilesJob>
 #include <KLocalizedString>
 #include <kfileitem.h>
 #include <kio/statjob.h>
@@ -193,6 +194,7 @@ public:
     QList<KFilePlacesItem *> items;
     QVector<QString> availableDevices;
     QMap<QObject *, QPersistentModelIndex> setupInProgress;
+    QMap<QObject *, QPersistentModelIndex> teardownInProgress;
     QStringList supportedSchemes;
 
     Solid::Predicate predicate;
@@ -216,7 +218,7 @@ public:
     void itemChanged(const QString &udi, const QVector<int> &roles);
     void reloadBookmarks();
     void storageSetupDone(Solid::ErrorType error, const QVariant &errorData, Solid::StorageAccess *sender);
-    void storageTeardownDone(Solid::ErrorType error, const QVariant &errorData);
+    void storageTeardownDone(const QString &filePath, Solid::ErrorType error, const QVariant &errorData, QObject *sender);
 
 private:
     bool isBalooUrl(const QUrl &url) const;
@@ -1480,8 +1482,11 @@ void KFilePlacesModel::requestTeardown(const QModelIndex &index)
     Solid::StorageAccess *access = device.as<Solid::StorageAccess>();
 
     if (access != nullptr) {
-        connect(access, &Solid::StorageAccess::teardownDone, this, [this](Solid::ErrorType error, QVariant errorData) {
-            d->storageTeardownDone(error, errorData);
+        d->teardownInProgress[access] = index;
+
+        const QString filePath = access->filePath();
+        connect(access, &Solid::StorageAccess::teardownDone, this, [this, access, filePath](Solid::ErrorType error, QVariant errorData) {
+            d->storageTeardownDone(filePath, error, errorData, access);
         });
 
         access->teardown();
@@ -1495,8 +1500,16 @@ void KFilePlacesModel::requestEject(const QModelIndex &index)
     Solid::OpticalDrive *drive = device.parent().as<Solid::OpticalDrive>();
 
     if (drive != nullptr) {
-        connect(drive, &Solid::OpticalDrive::ejectDone, this, [this](Solid::ErrorType error, QVariant errorData) {
-            d->storageTeardownDone(error, errorData);
+        d->teardownInProgress[drive] = index;
+
+        QString filePath;
+        Solid::StorageAccess *access = device.as<Solid::StorageAccess>();
+        if (access) {
+            filePath = access->filePath();
+        }
+
+        connect(drive, &Solid::OpticalDrive::ejectDone, this, [this, filePath, drive](Solid::ErrorType error, QVariant errorData) {
+            d->storageTeardownDone(filePath, error, errorData, drive);
         });
 
         drive->eject();
@@ -1545,9 +1558,41 @@ void KFilePlacesModelPrivate::storageSetupDone(Solid::ErrorType error, const QVa
     }
 }
 
-void KFilePlacesModelPrivate::storageTeardownDone(Solid::ErrorType error, const QVariant &errorData)
+void KFilePlacesModelPrivate::storageTeardownDone(const QString &filePath, Solid::ErrorType error, const QVariant &errorData, QObject *sender)
 {
-    if (error && error != Solid::ErrorType::UserCanceled && errorData.isValid()) {
+    QPersistentModelIndex index = teardownInProgress.take(sender);
+    if (!index.isValid()) {
+        return;
+    }
+
+    if (error == Solid::ErrorType::DeviceBusy && !filePath.isEmpty()) {
+        auto *listOpenFilesJob = new KListOpenFilesJob(filePath);
+        QObject::connect(listOpenFilesJob, &KIO::Job::result, q, [this, index, error, errorData, listOpenFilesJob]() {
+            const auto blockingProcesses = listOpenFilesJob->processInfoList();
+
+            QStringList blockingApps;
+            blockingApps.reserve(blockingProcesses.count());
+            for (const auto &process : blockingProcesses) {
+                blockingApps << process.name();
+            }
+
+            Q_EMIT q->teardownDone(index, error, errorData);
+            if (blockingProcesses.isEmpty()) {
+                Q_EMIT q->errorMessage(i18n("One or more files on this device are open within an application."));
+            } else {
+                blockingApps.removeDuplicates();
+                Q_EMIT q->errorMessage(xi18np("One or more files on this device are opened in application <application>\"%2\"</application>.",
+                                              "One or more files on this device are opened in following applications: <application>%2</application>.",
+                                              blockingApps.count(),
+                                              blockingApps.join(i18nc("separator in list of apps blocking device unmount", ", "))));
+            }
+        });
+        listOpenFilesJob->start();
+        return;
+    }
+
+    Q_EMIT q->teardownDone(index, error, errorData);
+    if (error != Solid::ErrorType::NoError && error != Solid::ErrorType::UserCanceled) {
         Q_EMIT q->errorMessage(errorData.toString());
     }
 }
