@@ -1,0 +1,157 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Portuguese "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="netpref" lang="&language;">
+<articleinfo>
+<title
+>Preferências da Ligação</title>
+<authorgroup>
+<author
+>&Lauri.Watts; &Lauri.Watts.mail;</author>
+
+<othercredit role="translator"
+><firstname
+>José</firstname
+><surname
+>Pires</surname
+><affiliation
+><address
+><email
+>zepires@gmail.com</email
+></address
+></affiliation
+><contrib
+>Tradução</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>2016-10-16</date>
+<releaseinfo
+>Plataformas 5.29</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdebase</keyword>
+<keyword
+>kcontrol</keyword>
+<keyword
+>rede</keyword>
+<keyword
+>tempos-limite</keyword>
+</keywordset>
+
+</articleinfo>
+
+<sect1 id="timeouts">
+
+<title
+>Preferências da Ligação</title>
+
+<para
+>Aqui, o utilizador poderá configurar os tempos-limite. Pode querer ajustá-los se a sua ligação for muito lenta, porém os valores por omissão são apropriados para a maioria dos utilizadores.</para>
+
+<para
+>Aqui, os <guilabel
+>Valores de Tempos-Limite</guilabel
+> são o intervalo de tempo que uma aplicação deve esperar para obter uma resposta de uma operação de rede.</para>
+
+<para
+>Poderá configurar os seguintes tempos-limite:</para>
+
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>Leitura do 'socket':</guilabel
+></term>
+<listitem>
+<para
+>Algumas das aplicações usam <firstterm
+>sockets</firstterm
+> para comunicar. Pode pensar num 'socket' como uma torneira de água. Enquanto estiver aberta, a água (ou no nosso caso, os dados) vai sendo recebida, sem qualquer interacção. Se algo impedir este fluxo de dados, a aplicação irá esperar por mais. Isto poderá corresponder a um grande período de tempo, mas poderá configurar um tempo-limite pelo qual uma aplicação poderá esperar com esta opção.</para>
+<para
+>Esta aplicação só se irá aplicar às aplicações do &kde;, como é óbvio.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Ligação ao 'proxy':</guilabel
+></term>
+<listitem>
+<para
+>Define o tempo que se deve esperar pela ligação a um servidor 'proxy', se estiver algum configurado. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Ligação ao servidor:</guilabel
+></term>
+<listitem>
+<para
+>Define quanto tempo se deve esperar pela ligação a um servidor remoto. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Resposta do servidor:</guilabel
+></term>
+<listitem>
+<para
+>Define quanto tempo se deve esperar por uma resposta de um servidor remoto. </para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+<para
+>Poderá configurar aqui as <guilabel
+>Opções de FTP</guilabel
+>. No momento presente, existem apenas duas opções:</para>
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>Activar o modo passivo (PASV)</guilabel
+></term>
+<listitem
+><para
+>O &FTP; passivo é normalmente necessário se você estiver por detrás de uma 'firewall'. Muitas das 'firewalls' só permitem ligações que sejam iniciadas a partir <quote
+>de dentro</quote
+>. O &FTP; passivo é controlado pelo cliente, o que possibilita o seu uso através de 'firewalls'.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Marcar os ficheiros enviados parcialmente</guilabel
+></term>
+<listitem
+><para
+>Quando esta opção estiver assinalada, os ficheiros enviados parcialmente irão ter uma extensão <literal role="extension"
+>.part</literal
+> adicional no fim do ficheiro. Esta extensão será removida quando o envio do ficheiro terminar. </para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+
+
+</sect1>
+</article>

@@ -1,0 +1,223 @@
+<?xml version="1.0" ?>
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % Catalan  "INCLUDE"
+><!-- change language only here -->
+]>
+
+<refentry lang="&language;">
+
+<refentryinfo>
+<title
+>Manual d'usuari del kcookiejar5</title>
+<author
+><firstname
+>Waldo</firstname
+> <surname
+> Bastian</surname
+> <affiliation
+> <address
+><email
+>bastian@kde.org</email
+></address>
+</affiliation>
+</author>
+
+<author
+><firstname
+>Dawit</firstname
+> <surname
+>Alemayehu</surname
+> <affiliation
+> <address
+><email
+>adawit@kde.org</email
+></address>
+</affiliation>
+</author>
+
+<date
+>31 de juliol de 2015</date>
+<releaseinfo
+>Frameworks 5.13</releaseinfo>
+
+</refentryinfo>
+
+<refmeta>
+<refentrytitle
+><command
+>kcookiejar5</command
+></refentrytitle>
+<manvolnum
+>8</manvolnum>
+</refmeta>
+
+<refnamediv>
+<refname
+><command
+>kcookiejar5</command
+></refname>
+<refpurpose
+>Interfície de línia d'ordres per al dimoni de galetes &HTTP; del &kde;</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv>
+<title
+>Sinopsi</title>
+
+<cmdsynopsis
+><command
+>kcookiejar5</command
+> <arg choice="opt"
+>-h, --help</arg
+> <arg choice="opt"
+>-v, --version</arg
+> <arg choice="opt"
+>--shutdown</arg
+> <arg choice="opt"
+>--remove<replaceable
+> domini</replaceable
+></arg
+> <arg choice="opt"
+>--remove-all</arg
+> <arg choice="opt"
+>--reload-config</arg
+> </cmdsynopsis>
+</refsynopsisdiv>
+
+<refsect1>
+<title
+>Descripció</title>
+
+<para
+>El <command
+>kcookiejar5</command
+> és una interfície de línia d'ordres per a emmagatzemar les galetes &HTTP; utilitzades pel &kde;, un servei de &DBus; per a emmagatzemar/recuperar/netejar les galetes. </para>
+</refsect1>
+
+<refsect1>
+<title
+>Opcions</title>
+
+<variablelist>
+
+<varlistentry>
+<term
+><option
+>-h</option
+><option
+>--help</option
+></term>
+<listitem>
+<para
+>Mostra ajuda quant a les opcions.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><option
+>-v</option
+><option
+>--version</option
+></term>
+<listitem>
+<para
+>Mostra la informació sobre la versió.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><option
+>--shutdown</option
+></term>
+<listitem>
+<para
+>Surt del pot de galetes i del servei de &DBus;. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><option
+>--remove</option
+> <parameter
+>domini</parameter
+></term>
+<listitem>
+<para
+>Elimina les galetes per al <parameter
+>domini</parameter
+> del pot de galetes. </para>
+</listitem>
+</varlistentry>
+
+
+<varlistentry>
+<term
+><option
+>--remove-all</option
+></term>
+<listitem>
+<para
+>Elimina totes les galetes del pot de galetes.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><option
+>--reaload-config</option
+></term>
+<listitem>
+<para
+>Torna a carregar el fitxer de configuració. </para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+</refsect1>
+
+<refsect1>
+<title
+>Ús</title>
+<para
+>El <command
+>kcookiejar5</command
+> és una eina de línia d'ordres per a accedir al mòdul del KDED, el qual gestiona les galetes al &konqueror; i a altres aplicacions del &kde;.</para>
+<para
+>Quan s'inicia sense paràmetres es carrega el mòdul del KDED per a proporcionar la interfície de &DBus; per a emmagatzemar les galetes. </para>
+<para
+>Quan s'inicia <command
+>kcookiejar5</command
+> amb paràmetres, realitza tasques addicionals proporcionades pel pot de galetes, com eliminar les galetes d'un <parameter
+>domini</parameter
+>. </para>
+
+</refsect1>
+
+<refsect1>
+<title
+>Vegeu també</title>
+<para
+><replaceable
+>kf5options</replaceable
+>(7), <replaceable
+>qt5options</replaceable
+>(7) </para>
+</refsect1>
+
+<refsect1>
+<title
+>Errors</title>
+<para
+>Si us plau, empreu el <ulink url="https://bugs.kde.org"
+>Seguidor d'errors del &kde;</ulink
+> (escriviu-hi en anglès) per a informar dels errors.</para>
+</refsect1>
+
+</refentry>
+
+
+

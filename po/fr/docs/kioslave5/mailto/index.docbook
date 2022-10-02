@@ -1,0 +1,132 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % French "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="mailto">
+<title
+>mailto</title>
+<articleinfo>
+<authorgroup>
+<author
+><firstname
+>Christopher</firstname
+> <surname
+>Yeleighton</surname
+> <email
+>giecrilj@stegny.2a.pl</email
+></author>
+
+&traducteurLudovicGrossard; 
+</authorgroup>
+
+<date
+>20-08-2018</date>
+<releaseinfo
+>Environnements de développement 5.50</releaseinfo>
+</articleinfo>
+<para
+>Le module « kioslave » d'entrée / sortie « mailto » est chargé de démarrer l'éditeur de messagerie de votre choix lorsque vous ouvrez une &URL; de type « mailto » (<ulink url="https://tools.ietf.org/html/rfc6068"
+>RFC6068</ulink
+>). </para>
+
+<variablelist>
+<varlistentry>
+<term
+>Syntaxe</term>
+<listitem
+><para
+>La syntaxe d'une &URL; mailto suit le motif suivant : </para>
+
+<para
+>mailto:destinataires?requête</para>
+
+<para
+>où « destinataires » est une liste de spécifications d'adresses &SMTP; restreintes, et la partie « requête » peut contenir un ou plusieurs des paramètres suivants : </para>
+
+<variablelist>
+<varlistentry>
+<term
+>&amp;to=destinataires</term>
+<listitem
+><para
+>spécifie des destinataires supplémentaires.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>&amp;cc=destinataires</term>
+<listitem
+><para
+>spécifie des destinataires supplémentaires en copie carbone.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>&amp;bcc=destinataires</term>
+<listitem
+><para
+>Spécifie des destinataires supplémentaires en copie carbone cachée. Ces destinataires recevront le message, mais les autres destinataires ne le sauront pas.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>&amp;body=texte</term>
+<listitem
+><para
+>spécifie le texte du message. Ce texte ne doit pas être long car il peut y avoir une limite physique sur la longueur des &URL;.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>&amp;subject=texte</term>
+<listitem
+><para
+>spécifie le sujet du message.</para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>Exemple</term>
+<listitem
+><para
+>   
+<literal
+>mailto:info@kde.org?cc=kde@kde.org&amp;subject=Merci%20!&amp;body= KDE%20c'est%20d'enfer%20!%20Comment%20puis-je%20aider%20%3F</literal>
+</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>Configuration</term>
+<listitem
+><para
+>Sélectionnez l'application pour prendre en charge les liens « mailto » dans le module de &configurationDuSysteme; <menuchoice
+><guimenu
+>Applications</guimenu
+> <guimenuitem
+>Applications par défaut</guimenuitem
+></menuchoice
+> dans la catégorie <guilabel
+>Personnalisation</guilabel
+>. </para
+></listitem>
+</varlistentry>
+
+</variablelist>
+  
+</article>

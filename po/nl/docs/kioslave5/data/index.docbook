@@ -1,0 +1,77 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Dutch "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="data">
+<title
+>Data &URL;'s</title>
+
+<articleinfo>
+<authorgroup>
+<author
+><personname
+><firstname
+>Leo</firstname
+><surname
+>Savernik</surname
+></personname
+> <address
+><email
+>l.savernik@aon.at</email
+></address
+> </author>
+&Freek.de.Kruijf; 
+</authorgroup>
+
+<date
+>2003-02-06</date>
+<!--releaseinfo
+>2.20.00</releaseinfo-->
+
+</articleinfo>
+
+<para
+>Met Data URL's kunt u kleine hoeveelheden data in de &URL; zelf stoppen. Dit is handig voor kleine &HTML;-testen of andere gelegenheden die niet een eigen bestand nodig hebben.</para>
+
+<para
+><userinput
+>data:,proefje</userinput
+> (let op de komma na de dubbele punt) levert een tekstdocument op met daarin alleen de tekst <literal
+>proefje</literal
+>. </para>
+
+<para
+>Het laatste voorbeeld leverde een tekstdocument op. Voor &HTML;-documenten dient u het &MIME;-bestandstype <literal
+>text/html</literal
+> op te geven: <quote
+><userinput
+>data:text/html,&lt;titel&gt;Test&lt;/title&gt;&lt;p&gt;Dit is een test&lt;/p&gt;</userinput
+></quote
+>. Dit levert exact dezelfde uitvoer op als wanneer een bestand met deze inhoud was geladen. </para>
+
+<para
+>Alternatieve tekensets kunnen ook worden weergegeven. Let er op dat u 8-bit tekens dient te markeren met het procentteken en de uit 2 tekens bestaande hexadecimale codes: <quote
+><userinput
+>cata:;charset=iso-8859-1,Gr%FC%DFe aus Schl%E4gl</userinput
+></quote
+> geeft <quote
+><literal
+>Gr&uuml;&szlig;e aus Schl&auml;gl</literal
+></quote
+> als resultaat, terwijl als u de tekenset zou weglaten u zoiets als <quote
+><literal
+>Gr??e aus Schl?gl</literal
+></quote
+> zou zien. </para>
+
+<para
+><ulink url="https://www.ietf.org/rfc/rfc2397.txt"
+>IETF RFC2397</ulink
+> geeft meer informatie.</para>
+
+</article>
+

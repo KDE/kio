@@ -1,0 +1,77 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % French "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="data">
+<title
+>URL de données</title>
+
+<articleinfo>
+<authorgroup>
+<author
+><personname
+><firstname
+>Leo</firstname
+><surname
+>Savernik</surname
+></personname
+> <address
+><email
+>l.savernik@aon.at</email
+></address
+> </author>
+&traducteurLudovicGrossard; 
+</authorgroup>
+
+<date
+>06/02/2003</date>
+<!--releaseinfo
+>2.20.00</releaseinfo-->
+
+</articleinfo>
+
+<para
+>Les URL de données permettent d'inclure de petits documents dans les URL elles-même. Ceci est utile pour de petits tests « HTML » ou d'autres cas où la création d'un fichier ne se justifie pas.</para>
+
+<para
+><userinput
+>data:,foobar</userinput
+> (notez la virgule après le deux-points) fournira un document de texte contenant uniquement <literal
+>foobar</literal
+>. </para>
+
+<para
+>Ce dernier exemple a fourni un document de texte. Pour les documents &HTML;, le type « &MIME; » doit être spécifié par <literal
+>text/html</literal
+> : <quote
+><userinput
+>data:text/html,&lt;titre&gt;Jeu-de-tests&lt;/titre&gt;&lt;p&gt;Ceci est un jeu de tests&lt;/p&gt;</userinput
+></quote
+>. Ceci produira exactement la même sortie que si le contenu avait été chargé depuis un document. </para>
+
+<para
+>Il est également possible de spécifier d'autres encodages de caractères. Veuillez noter que les caractères sur 8 bits doivent être précédé d'un caractère d'échappement (caractère de pourcentage) suivi de leur code hexadécimal à deux chiffres : <quote
+><userinput
+>data:;charset=iso-8859-1,Gr%FC%DFe aus Schl%E4gl</userinput
+></quote
+> produit la chaîne <quote
+><literal
+>Gr&uuml;&szlig;e aus Schl&auml;gl</literal
+></quote
+> alors qu'en omettant l'attribut d'encodage, on aurait obtenu quelque chose comme <quote
+><literal
+>Gr??e aus Schl?gl</literal
+></quote
+>. </para>
+
+<para
+><ulink url="https://www.ietf.org/rfc/rfc2397.txt"
+>IETF RFC2397</ulink
+> fournit plus d'informations.</para>
+
+</article>
+

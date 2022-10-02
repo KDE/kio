@@ -1,0 +1,80 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % French "INCLUDE">
+]>
+<article id="documentationnotfound" lang="&language;">
+<title
+>Documentation introuvable</title>
+<articleinfo>
+<authorgroup>
+<author
+><firstname
+>Jack</firstname
+> <surname
+>Ostroff</surname
+> <affiliation
+> <address
+><email
+>ostroffjh@users.sourceforge.net</email
+></address>
+</affiliation>
+</author>
+&traducteurEquipeKDE; 
+</authorgroup>
+
+<date
+>08-09-2020</date>
+<releaseinfo
+>Environnements de développement 5.73</releaseinfo>
+
+</articleinfo>
+
+<para
+>La documentation demandée n'est pas disponible sur votre ordinateur.</para>
+
+<para
+>La documentation n'existe peut-être pas, ou elle n'a pas été installée avec l'application.</para>
+
+<tip
+><para
+>Veuillez ne pas envoyer de courriel à l'auteur de cette page pour trouver le document manquant. Il ne vous dira que de suivre les instructions de cette page. </para
+></tip>
+
+<simplesect>
+<title
+>Comment résoudre ce problème </title>
+
+<para
+>Si l'application est un logiciel de &kde;, commencez d'abord par utiliser la fonction de recherche dans &khelpcenter;. Dans certains cas, la documentation possède un nom différent que celui du logiciel recherché. Si cela ne fonctionne pas, veuillez essayer de chercher votre documentation dans le <ulink url="https://docs.kde.org/"
+>site de documentation de &kde;</ulink
+>. Si vous la trouvez sur ce site, votre distribution pourrait livrer un paquet séparé pour la documentation (&pex;, un paquet nommé « plasma-doc » pour la documentation concernant &plasma;). Veuillez utiliser le gestionnaire de paquets de votre distribution pour trouver et installer la documentation manquante.</para>
+
+<para
+>Si vous utilisez une distribution reposant sur des sources, telle que Gentoo, veillez à ce qu'elle ne comporte pas de paramètres de configuration (UTILISEZ des drapeaux dans Gentoo) qui risquent de désactiver l'installation de la documentation. </para>
+
+<para
+>Si vous avez procédé ainsi, mais obtenez encore cette page affichée au lieu du manuel de l'application, vous avez probablement trouvé un bogue dans le système d'aide. Dans ce cas, veuillez le signaler sur le système de <ulink url="https://bugs.kde.org/"
+>suivi de bogues de &kde;</ulink
+> en choisissant le produit « kio ». </para>
+
+<para
+>Si vous ne trouvez aucune documentation sur le <ulink url="https://docs.kde.org/fr"
+>site de documentation de &kde;</ulink
+>, il est possible que l'application n'offre aucune documentation hors ligne. Veuillez signaler ce problème sur le système de <ulink url="https://bugs.kde.org/"
+>suivi de bogues de &kde;</ulink
+> en choisissant le produit pour l'application. </para>
+
+<para
+>Dans le cas où l'application ne possède aucune documentation hors ligne, vous devrez utiliser les ressources en ligne <ulink url="https://userbase.kde.org/"
+>Documentation UserBase</ulink
+> et les <ulink url="https://forum.kde.org/"
+>forums de la communauté de &kde;</ulink
+> pour obtenir de l'aide. </para>
+
+<para
+>Pour les applications non-&kde;, veuillez contacter l'auteur de l'application pour savoir si la documentation hors ligne est disponible.</para>
+</simplesect>
+
+</article>

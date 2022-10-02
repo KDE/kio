@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % German "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="file">
+<title
+>file</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Ferdinand.Gassauer; &Ferdinand.Gassauer.mail;</author>
+<othercredit role="translator"
+><firstname
+>Marco</firstname
+><surname
+>Wegner</surname
+><affiliation
+><address
+><email
+>mail@marcowegner.de</email
+></address
+></affiliation
+><contrib
+>Übersetzer</contrib
+></othercredit
+> 
+</authorgroup>
+</articleinfo>
+
+<para
+>Das <emphasis
+>file</emphasis
+>-Protokoll wird von allen &kde;-Anwendungen verwendet, um lokale Dateien anzuzeigen. </para>
+<para
+>Die Eingabe von <userinput
+><command
+>file:/Ordner</command
+></userinput
+> im &konqueror; bewirkt, dass alle Dateien dieses Ordners aufgelistet werden. </para>
+
+</article>

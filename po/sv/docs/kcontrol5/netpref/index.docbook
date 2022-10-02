@@ -1,0 +1,157 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Swedish "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="netpref" lang="&language;">
+<articleinfo>
+<title
+>Anslutningsinställningar</title>
+<authorgroup>
+<author
+>&Lauri.Watts; &Lauri.Watts.mail;</author>
+
+<othercredit role="translator"
+> <firstname
+>Stefan</firstname
+> <surname
+>Asserhäll</surname
+> <affiliation
+><address
+><email
+>stefan.asserhall@bredband.net</email
+></address
+></affiliation
+> <contrib
+>Översättare</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>2016-11-10</date>
+<releaseinfo
+>Ramverk 5.29</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdebase</keyword>
+<keyword
+>kcontrol</keyword>
+<keyword
+>nätverk</keyword>
+<keyword
+>tidsgränser</keyword>
+</keywordset>
+
+</articleinfo>
+
+<sect1 id="timeouts">
+
+<title
+>Anslutningsinställningar</title>
+
+<para
+>Här kan du ställa in tidsgränser. Du kanske vill justera dem om din anslutning är mycket långsam, men de förvalda inställningarna är lämpliga för de flesta användare.</para>
+
+<para
+>Här är <guilabel
+>Timeout-värden</guilabel
+> tidsgränsen som ett program ska vänta på svar för nätverksåtgärder.</para>
+
+<para
+>Du kan ställa in följande tidsgränser:</para>
+
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>Läsning från uttag (socket):</guilabel
+></term>
+<listitem>
+<para
+>Vissa program använder <firstterm
+>uttag</firstterm
+> (socket) för att kommunicera. Du kan föreställa dig ett uttag som en vattenkran. När den är öppen, så strömmar vatten (eller i vårt fall, data) ut, utan någon inblandning. Om något stoppar dataflödet, kommer programmet att vänta på att mer ska anlända. Detta kan ta mycket lång tid, men du kan ställa in en maximal tid som ett program ska vänta med det här alternativet.</para>
+<para
+>Den här inställningen gäller förstås bara &kde;-program.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Proxy-anslutning:</guilabel
+></term>
+<listitem>
+<para
+>Ställer in hur länge man ska vänta på en anslutning till en proxyserver, om någon är inställd. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Serveranslutning:</guilabel
+></term>
+<listitem>
+<para
+>Ställer in hur länge man ska vänta på en anslutning till en fjärrserver. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Serverrespons:</guilabel
+></term>
+<listitem>
+<para
+>Ställer in hur länge man ska vänta på ett svar från en fjärrserver. </para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+<para
+>Du kan anpassa <guilabel
+>FTP-alternativ</guilabel
+> här. För närvarande finns bara två alternativ:</para>
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>Aktivera passivt läge (PASV)</guilabel
+></term>
+<listitem
+><para
+>Passiv &FTP; krävs ofta om du är bakom en brandvägg. Många brandväggar tillåter bara anslutningar som startas från <quote
+>insidan</quote
+>. Passiv &FTP; styrs av klienten, vilket gör det användbart genom brandväggar.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Markera delvis uppladdade filer</guilabel
+></term>
+<listitem
+><para
+>Om kryssrutan markeras, läggs filändelsen <literal role="extension"
+>.part</literal
+> till för delvis uppladdade filer. Filändelsen tas bort så fort nerladdningen av filen är klar.</para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+
+
+</sect1>
+</article>

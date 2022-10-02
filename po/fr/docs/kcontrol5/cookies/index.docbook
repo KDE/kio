@@ -1,0 +1,230 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % French "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="cookies" lang="&language;">
+<articleinfo>
+<title
+>Cookies</title>
+<authorgroup>
+<author
+>&Krishna.Tateneni; &Krishna.Tateneni.mail;</author>
+<author
+>&Jost.Schenck; &Jost.Schenck.mail;</author>
+&traducteurYvesDessertine; &traducteurEquipeKDE; &traducteurXavierBesnard; 
+</authorgroup>
+
+<date
+>10-11-2016</date>
+<releaseinfo
+>Environnement de développement 5.29</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Configuration du système</keyword>
+<keyword
+>cookie</keyword>
+</keywordset>
+
+</articleinfo>
+
+<sect1 id="cookie">
+<title
+>Cookies</title>
+
+<para
+>Les cookies (officiellement appelés « mouchards ») sont un mécanisme utilisé par les sites web pour enregistrer et retrouver des informations en utilisant votre navigateur web. Par exemple, un site web peut vous autoriser à personnaliser le contenu et la mise en page des pages que vous regardez de telle manière que vous retrouviez vos réglages lors de visites ultérieures.</para>
+
+<para
+>Le site web est capable de se rappeler vos préférences en enregistrant un cookie sur votre ordinateur. Lors de la visite suivante, le site web relit les informations stockées dans le cookie pour formater le site en fonction de vos préférences spécifiées précédemment.</para>
+
+<para
+>Ainsi, les cookies jouent un rôle très utile dans la navigation web. Malheureusement, les sites web enregistrent et relisent souvent des informations sans vous en informer ni vous demander votre consentement. Certaines de ces informations peuvent être très utiles aux propriétaires de sites web, par exemple en leur permettant de collecter des statistiques sur le nombre de visites des différentes zones du site web ou pour personnaliser les bannières publicitaires.</para>
+
+<para
+>La page des cookies vous permet de configurer les règles pour l'utilisation des cookies quand vous naviguez avec &konqueror;.</para>
+
+<warning
+><para
+>Veuillez noter que les règles que vous définissez en utilisant ce module de configuration <emphasis
+>ne</emphasis
+> s'appliquent <emphasis
+>pas</emphasis
+> aux autres navigateurs tels que &firefox;.</para
+></warning>
+
+<sect2 id="cookie-policy">
+
+<title
+>Règle</title>
+
+<para
+>Vous pouvez configurer la façon dont les applications &kde; gèrent les cookies avec l'onglet <guilabel
+>Règles</guilabel
+>. Vous pouvez faire ceci en spécifiant une règle générale pour les cookies et des règles spécifiques pour certains domaines ou hôtes</para>
+
+<para
+>En haut de la fenêtre, il y a une case à cocher étiquetée <guilabel
+>Activer les cookies</guilabel
+>. Si vous ne cochez pas cette case, les cookies seront complètement désactivés. Cependant, ceci peut rendre la navigation difficile, surtout du fait que certains sites web ont besoin d'une activation des cookies.</para>
+
+<para
+>Pour cette raison, vous voudrez probablement autoriser les cookies puis établir des règles d'acceptation spécifiques.</para>
+
+<para
+>Le premier groupe d'options crée des configurations qui s'appliquent à tous les cookies.</para>
+
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>N'accepter les cookies que du serveur original</guilabel
+></term>
+<listitem>
+<para
+>Certaines pages tentent de placer des cookies provenant de serveurs autres que celui depuis lequel vous consultez la page &HTML;. Par exemple, ils vous montrent de la publicité qui provient d'un autre ordinateur, appartenant souvent à un grand groupe de publicitaires. Ces publicités peuvent essayer de placer un cookie leur permettant de suivre les pages que vous visitez sur différents sites web.</para>
+<para
+>En activant cette option, seuls les cookies provenant du serveur web auquel vous êtes explicitement connecté seront acceptés.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+><guilabel
+>Accepter automatiquement les cookies de session</guilabel
+></term>
+<listitem>
+
+<para
+>L'utilisation de plus en plus courante des cookies n'est pas le suivi de vos mouvements lors de vos différentes visites sur les sites web, mais juste de suivre ce que vous faites lors d'une simple visite. Les cookies de session sont enregistrés tant que vous consultez le site, puis sont supprimés lorsque vous quittez.</para>
+
+<para
+>Les sites web utilisent ces informations dans divers buts, le plus souvent ceci vous permet de rester connecté pour consulter les pages. Par exemple, sur un site de webmail, sans ces sortes d'identificateurs de session (<acronym
+>ID</acronym
+>), vous devriez donner votre mot de passe à chaque fois que vous lisez un courrier électronique. Il y a d'autres façons de faire ceci, mais les cookies sont d'une utilisation simple et largement répandue.</para>
+
+<para
+>En activant cette option, les cookies de session seront toujours acceptés, même si vous refusez d'autres types de cookies, et même si vous avez choisi de rejeter les cookies d'un site particulier, les cookies de session de ce site seront acceptés.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>La section <guilabel
+>Règle par défaut</guilabel
+> configure quelques options supplémentaires qui sont mutuellement exclusives &mdash; vous pouvez choisir uniquement une de ces options par défaut, mais vous êtes libre de choisir une option différente pour chaque site web.</para>
+<note
+><para
+>Les règles pour les sites spécifiques sont toujours prioritaires sur les règles par défaut.</para
+></note>
+
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>Accepter tous les cookies</guilabel
+></term>
+<listitem>
+<para
+>Si cette option est sélectionnée, tous les cookies seront acceptés sans demande de confirmation.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+><guilabel
+>Accepter jusqu'à la fin de la session</guilabel
+></term>
+<listitem>
+<para
+>Les cookies seront acceptés, mais ils expireront à la fin de la session.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+><guilabel
+>Demander confirmation</guilabel
+></term>
+<listitem>
+<para
+>Si cette option est sélectionnée, on vous demandera confirmation à chaque fois qu'un cookie est enregistré ou retrouvé. La boîte de dialogue de confirmation vous permettra aussi de décider d'une règle spécifique à ce domaine si vous ne voulez pas avoir à confirmer à chaque fois pour ce domaine.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+><guilabel
+>Refuser tous les cookies</guilabel
+></term>
+<listitem>
+<para
+>Si cette option est sélectionnée, tous les cookies seront rejetés sans demande de confirmation.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>En plus de la règle d'acceptation des cookies, que vous pouvez régler en sélectionnant une des trois options décrites ci-dessus, vous pouvez sélectionner une règle pour certains domaines en utilisant les réglages dans la zone <guilabel
+>Règles par site</guilabel
+>.</para>
+
+<para
+>La règle demander, accepter, accepter jusqu'à la fin de la session ou refuser peut être appliquée à un domaine spécifique en cliquant sur le bouton <guibutton
+>Nouveau...</guibutton
+>, qui ouvre une boîte de dialogue. Dans cette boîte, vous pouvez écrire un nom de domaine (commençant par un point), puis sélectionner la règle que vous voulez appliquer à ce domaine. Remarquez que les domaines peuvent être ajoutés pendant que vous naviguez si la règle par défaut est de demander une confirmation et que vous demandez à ce moment là une règle générale pour cet hôte spécifiquement (par exemple en choisissant <guilabel
+>Rejeter</guilabel
+> quand il vous est demandé si vous acceptez un cookie).</para>
+
+<para
+>Vous pouvez aussi sélectionner un domaine d'hôte spécifique dans la liste et cliquer sur le bouton <guibutton
+>Modifier...</guibutton
+> pour choisir une règle différente pour ce domaine de celle affichée dans la liste.</para>
+
+<para
+>Pour supprimer une règle spécifique à un domaine, choisissez un domaine dans la liste et cliquez sur le bouton <guibutton
+>Supprimer</guibutton
+>. La règle par défaut s'appliquera aux domaines qui ont été supprimés de la liste.</para>
+
+</sect2>
+
+<sect2 id="cookie-management">
+<title
+>Gestion</title>
+
+<para
+>Dans l'onglet <guilabel
+>Gestion</guilabel
+>, vous pouvez naviguer et supprimer individuellement des cookies qui ont été enregistrés précédemment.</para>
+
+<para
+>Une liste de domaines se trouve dans la partie supérieure de la fenêtre, sous forme d'une arborescence. Cliquez sur le petit <guiicon
+>&gt;</guiicon
+> à côté d'un domaine pour voir tous les cookies qui ont été enregistrés pour ce domaine particulier. Si vous sélectionnez un de ces cookies, vous vous apercevrez que son contenu apparaît dans la zone nommée <guilabel
+>Détails</guilabel
+> située en dessous.</para>
+
+<para
+>En cliquant sur le bouton <guibutton
+>Supprimer</guibutton
+>, vous pouvez supprimer le cookie sélectionné. Cliquez sur <guibutton
+>Supprimer tout</guibutton
+> pour supprimer tous les cookies enregistrés.</para>
+
+<para
+>Si un domaine est sélectionné, vous pouvez utiliser le bouton <guibutton
+>Configurer la règle…</guibutton
+> pour configurer une règle pour le site.</para>
+
+<para
+>Choisissez <guibutton
+>Recharger la liste</guibutton
+> pour recharger la liste depuis votre disque dur. Vous pouvez avoir à faire cela si le module est chargé et que vous testez des sites web, ou si vous avez fait beaucoup de modifications dans le module lui-même.</para>
+
+</sect2>
+
+</sect1>
+
+</article>
