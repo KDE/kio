@@ -62,17 +62,8 @@ static AskUserActionInterface::MessageDialogType toAskUserDlgType(int type)
     }
 }
 
-void UserNotificationHandler::requestMessageBox(SlaveInterface *iface, int type, const QHash<MessageBoxDataType, QVariant> &data)
+void UserNotificationHandler::requestMessageBox(SlaveInterface *iface, int type, const QHash<MessageBoxDataType, QVariant> &data, const QString &details)
 {
-    QString details;
-    if (static_cast<SlaveBase::MessageBoxType>(type) == SlaveBase::WarningContinueCancelDetailed) {
-        const QMap map = data.value(MSG_META_DATA).toMap();
-        auto it = map.constFind(QStringLiteral("privilege_conf_details"));
-        if (it != map.cend()) {
-            details = it.value().toString();
-        }
-    }
-
     Request *r = new Request{toAskUserDlgType(type), qobject_cast<KIO::Slave *>(iface), data, details};
 
     m_pendingRequests.append(r);

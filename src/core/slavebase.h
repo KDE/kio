@@ -307,6 +307,7 @@ public:
      * @param dontAskAgainName the name used to store result from 'Do not ask again' checkbox.
      * @return a button code, as defined in ButtonCode, or 0 on communication error.
      */
+    // TODO KF6: merge the two overloads; add a QString details arg
     int messageBox(const QString &text,
                    MessageBoxType type,
                    const QString &title = QString(),

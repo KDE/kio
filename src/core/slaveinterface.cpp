@@ -12,8 +12,11 @@
 #include "commands_p.h"
 #include "connection_p.h"
 #include "hostinfo.h"
+#include "kiocoredebug.h"
 #include "slavebase.h"
+
 #include <KLocalizedString>
+
 #include <signal.h>
 #include <time.h>
 
@@ -283,6 +286,7 @@ bool SlaveInterface::dispatch(int _cmd, const QByteArray &rawdata)
     case INF_META_DATA: {
         MetaData m;
         stream >> m;
+        d->m_msgBoxDetails = m.value(QStringLiteral("privilege_conf_details"));
         if (m.contains(QLatin1String("ssl_in_use"))) {
             const QLatin1String ssl_("ssl_");
             const MetaData &constM = m;
@@ -294,8 +298,6 @@ bool SlaveInterface::dispatch(int _cmd, const QByteArray &rawdata)
                     break;
                 }
             }
-        } else if (m.contains(QStringLiteral("privilege_conf_details"))) { // KF6 TODO Remove this conditional.
-            d->privilegeConfMetaData = m;
         }
         Q_EMIT metaData(m);
         break;
@@ -432,11 +434,9 @@ void SlaveInterface::messageBox(int type,
 
     if (type == KIO::SlaveBase::SSLMessageBox) {
         data.insert(UserNotificationHandler::MSG_META_DATA, d->sslMetaData.toVariant());
-    } else if (type == KIO::SlaveBase::WarningContinueCancelDetailed) { // KF6 TODO Remove
-        data.insert(UserNotificationHandler::MSG_META_DATA, d->privilegeConfMetaData.toVariant());
     }
 
-    globalUserNotificationHandler()->requestMessageBox(this, type, data);
+    globalUserNotificationHandler()->requestMessageBox(this, type, data, d->m_msgBoxDetails);
 }
 
 void SlaveInterfacePrivate::slotHostInfo(const QHostInfo &info)

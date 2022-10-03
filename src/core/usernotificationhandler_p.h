@@ -50,7 +50,7 @@ public:
     explicit UserNotificationHandler(QObject *parent = nullptr);
     ~UserNotificationHandler() override;
 
-    void requestMessageBox(SlaveInterface *iface, int type, const QHash<MessageBoxDataType, QVariant> &data);
+    void requestMessageBox(SlaveInterface *iface, int type, const QHash<MessageBoxDataType, QVariant> &data, const QString &details = {});
 
 private Q_SLOTS:
     void processRequest();

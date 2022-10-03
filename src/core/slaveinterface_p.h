@@ -18,11 +18,10 @@
 #include <QHostInfo>
 #include <QTimer>
 
-#include "kiocoredebug.h"
-
 static const unsigned int max_nums = 8;
-
-class KIO::SlaveInterfacePrivate
+namespace KIO
+{
+class SlaveInterfacePrivate
 {
 public:
     SlaveInterfacePrivate()
@@ -46,9 +45,9 @@ public:
     // We need some metadata here for our SSL code in messageBox() and for sslMetaData().
     MetaData sslMetaData;
 
-    // Since 5.66 this is used for sending privilege operation details.
-    // KF6 TODO remove this hack.
-    MetaData privilegeConfMetaData;
+    // Text to be shown in the details section of a message box
+    // Since 5.66 this is used for sending privilege operation details text
+    QString m_msgBoxDetails;
 
     KIO::filesize_t sizes[max_nums];
     qint64 times[max_nums];
@@ -61,5 +60,6 @@ public:
 
     void slotHostInfo(const QHostInfo &info);
 };
+} // namespace KIO
 
 #endif
