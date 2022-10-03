@@ -583,6 +583,7 @@ protected:
 
     // The current KIO error on this request / response pair - zero / KJob::NoError if no error
     int m_kioError;
+    QString m_kioErrorString;
     // Whether we are loading an error page (body of a reply with error response code)
     bool m_isLoadingErrorPage;
 

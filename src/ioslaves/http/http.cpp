@@ -403,6 +403,7 @@ void HTTPProtocol::resetConnectionSettings()
 {
     m_isEOF = false;
     m_kioError = 0;
+    m_kioErrorString.clear();
     m_isLoadingErrorPage = false;
 }
 
@@ -655,7 +656,7 @@ KIO::WorkerResult HTTPProtocol::proceedUntilResponseHeader()
             // In that case we abort to avoid loops; some webservers manage to send 401 and
             // no authentication request. Or an auth request we don't understand.
             setMetaData(QStringLiteral("responsecode"), QString::number(m_request.responseCode));
-            return WorkerResult::fail(m_kioError);
+            return WorkerResult::fail(m_kioError, m_kioErrorString);
         }
 
         if (!m_request.isKeepAlive) {
@@ -4409,7 +4410,7 @@ KIO::WorkerResult HTTPProtocol::readBody(bool dataInternal /* = false */)
             chain.slotInput(m_receiveBuf);
 
             if (m_kioError) {
-                return WorkerResult::fail(m_kioError);
+                return WorkerResult::fail(m_kioError, m_kioErrorString);
             }
 
             sz += bytesReceived;
@@ -4485,6 +4486,7 @@ KIO::WorkerResult HTTPProtocol::error(int _err, const QString &_text)
     clearPostDataBuffer();
 
     m_kioError = _err;
+    m_kioErrorString = _text;
     return WorkerResult::fail(_err, _text);
 }
 
