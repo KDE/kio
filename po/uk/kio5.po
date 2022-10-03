@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-02 00:43+0000\n"
-"PO-Revision-Date: 2022-09-16 08:43+0300\n"
+"PO-Revision-Date: 2022-10-02 09:25+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -3198,12 +3198,10 @@ msgid "Only folders can be added to the Places panel."
 msgstr "На панель «Місця» можна додавати лише теки."
 
 #: filewidgets/kfileplacesmodel.cpp:1430
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "&Release"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Releasing…"
-msgstr "&Роз'єднати"
+msgstr "Роз'єднання…"
 
 #: filewidgets/kfileplacesmodel.cpp:1432
 #, kde-format
@@ -3212,12 +3210,10 @@ msgid "&Release"
 msgstr "&Роз'єднати"
 
 #: filewidgets/kfileplacesmodel.cpp:1436
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "&Safely Remove"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Safely Removing…"
-msgstr "&Безпечно вилучити"
+msgstr "Безпечно вилучити…"
 
 #: filewidgets/kfileplacesmodel.cpp:1438
 #, kde-format
@@ -3226,12 +3222,10 @@ msgid "&Safely Remove"
 msgstr "&Безпечно вилучити"
 
 #: filewidgets/kfileplacesmodel.cpp:1443
-#, fuzzy, kde-format
-#| msgctxt "@title job"
-#| msgid "Unmounting"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Unmounting…"
-msgstr "Демонтування"
+msgstr "Демонтування…"
 
 #: filewidgets/kfileplacesmodel.cpp:1445
 #, kde-format

@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-02 00:43+0000\n"
-"PO-Revision-Date: 2022-09-16 10:00+0200\n"
+"PO-Revision-Date: 2022-10-02 10:38+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -1357,7 +1357,7 @@ msgid ""
 "<strong>%1</strong>, could not be located on the Internet."
 msgstr ""
 "Un error d'ordinador desconegut indica que el servidor amb el nom demanat, "
-"<strong>%1</strong>, no s'ha pogut trobar a la Internet."
+"<strong>%1</strong>, no s'ha pogut trobar a Internet."
 
 #: core/job_error.cpp:597
 #, kde-format
@@ -1556,8 +1556,8 @@ msgid ""
 "The server, while currently connected to the Internet, may not be configured "
 "to allow requests."
 msgstr ""
-"El servidor, encara que estiga connectat a la Internet, pot no estar "
-"configurat per a admetre peticions."
+"El servidor, encara que estiga connectat a Internet, pot no estar configurat "
+"per a admetre peticions."
 
 #: core/job_error.cpp:717
 #, kde-format
@@ -1565,8 +1565,8 @@ msgid ""
 "The server, while currently connected to the Internet, may not be running "
 "the requested service (%1)."
 msgstr ""
-"El servidor, encara que estiga connectat a la Internet, pot no estar "
-"executant el servei sol·licitat (%1)."
+"El servidor, encara que estiga connectat a Internet, pot no estar executant "
+"el servei sol·licitat (%1)."
 
 #: core/job_error.cpp:721
 #, kde-format
@@ -1663,7 +1663,7 @@ msgid ""
 "peripheral/portable device, the device may not be correctly connected."
 msgstr ""
 "El dispositiu pot no estar preparat, per exemple, pot no haver-hi res al "
-"dispositiu de suports extraïbles (p. ex. no hi ha cap CD-ROM a la unitat de "
+"dispositiu de suports extraïbles (p. ex. no hi ha cap CD-ROM en la unitat de "
 "CD), o, en el cas d'un dispositiu perifèric o portàtil, potser el dispositiu "
 "no està correctament connectat."
 
@@ -2030,7 +2030,7 @@ msgid ""
 msgstr ""
 "S'ha trobat un error d'ordinador desconegut en recuperar la informació quant "
 "al servidor intermediari especificat <strong>%1</strong>. Un error d'este "
-"tipus indica que el nom sol·licitat no s'ha pogut localitzar a la Internet."
+"tipus indica que el nom sol·licitat no s'ha pogut localitzar a Internet."
 
 #: core/job_error.cpp:1040
 #, kde-format
@@ -2041,7 +2041,7 @@ msgid ""
 msgstr ""
 "Hi pot haver un problema amb la configuració de la vostra xarxa, "
 "específicament el nom del servidor intermediari. Si heu estat accedint "
-"recentment a la Internet sense problemes, açò és poc probable."
+"recentment a Internet sense problemes, açò és poc probable."
 
 #: core/job_error.cpp:1044
 #, kde-format
@@ -3222,12 +3222,10 @@ msgid "Only folders can be added to the Places panel."
 msgstr "Només es poden afegir carpetes al quadro Llocs."
 
 #: filewidgets/kfileplacesmodel.cpp:1430
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "&Release"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Releasing…"
-msgstr "Allibe&ra"
+msgstr "Allibera…"
 
 #: filewidgets/kfileplacesmodel.cpp:1432
 #, kde-format
@@ -3236,12 +3234,10 @@ msgid "&Release"
 msgstr "Allibe&ra"
 
 #: filewidgets/kfileplacesmodel.cpp:1436
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "&Safely Remove"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Safely Removing…"
-msgstr "Extrau amb &seguretat"
+msgstr "Extrau amb seguretat…"
 
 #: filewidgets/kfileplacesmodel.cpp:1438
 #, kde-format
@@ -3250,12 +3246,10 @@ msgid "&Safely Remove"
 msgstr "Extrau amb &seguretat"
 
 #: filewidgets/kfileplacesmodel.cpp:1443
-#, fuzzy, kde-format
-#| msgctxt "@title job"
-#| msgid "Unmounting"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Unmounting…"
-msgstr "S'està desmuntant"
+msgstr "Desmunta…"
 
 #: filewidgets/kfileplacesmodel.cpp:1445
 #, kde-format
@@ -3532,7 +3526,7 @@ msgid ""
 msgstr ""
 "<qt>Este és el menú de configuració per al diàleg de fitxer. Des d'este menú "
 "es pot accedir a diverses opcions, incloent-hi:<ul><li>com s'ordenen els "
-"fitxers a la llista</li><li>tipus de vista, incloent-hi icona i llista</"
+"fitxers en la llista</li><li>tipus de vista, incloent-hi icona i llista</"
 "li><li>mostrar els fitxers ocults</li><li>el quadro de llocs</li><li>vistes "
 "prèvies dels fitxers </li><li>separació de les carpetes dels fitxers</li></"
 "ul></qt>"
@@ -4345,7 +4339,7 @@ msgid ""
 "A resource cannot be created at the destination until one or more "
 "intermediate collections (folders) have been created."
 msgstr ""
-"No es pot crear un recurs en la destinació fins que s'hagen creat una o més "
+"No es pot crear un recurs a la destinació fins que s'hagen creat una o més "
 "col·leccions intermèdies (carpetes)."
 
 #: ioslaves/http/http.cpp:1698
@@ -4941,7 +4935,7 @@ msgstr "Combinació no vàlida de protocols."
 #: ioslaves/trash/kio_trash.cpp:189 ioslaves/trash/kio_trash_win.cpp:235
 #, kde-format
 msgid "This file is already in the trash bin."
-msgstr "Este fitxer ja és a la paperera."
+msgstr "Este fitxer ja es troba en la paperera."
 
 #: ioslaves/trash/kio_trash_win.cpp:248
 #, kde-format
@@ -5213,7 +5207,7 @@ msgstr ""
 "tot el que cal fer és anar al lloc en concret i, quan se vos presenta el "
 "quadro del diàleg de galetes, cliqueu a <i>Este domini</i> davall la "
 "pestanya «aplica a» i trieu acceptar o senzillament especificar el nom del "
-"lloc a la pestanya <i>Política específica de domini</i> i establir-la a "
+"lloc en la pestanya <i>Política específica de domini</i> i establir-la a "
 "acceptar. Açò us permet rebre galetes de llocs web de confiança sense rebre "
 "preguntes cada vegada que KDE reba una galeta.</p>"
 
@@ -6742,7 +6736,7 @@ msgstr ""
 "Seleccioneu el motor de busca a utilitzar en els quadros d'entrada que "
 "proporcionen el servei de busca automàtica quan teclegeu paraules normals o "
 "frases en lloc d'un URL. Per a desactivar esta funcionalitat seleccioneu "
-"<b>Cap</b> a la llista.\n"
+"<b>Cap</b> en la llista.\n"
 "</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, lbDefaultEngine)
@@ -6766,7 +6760,7 @@ msgstr ""
 "automàticament la paraula o frase teclejada a les consultes de les paraules "
 "clau de busca en la web quan no es poden filtrar en un URL apropiat.</"
 "p><p>Per a desactivar esta funcionalitat seleccioneu <span style=\" font-"
-"weight:600;\">Cap</span> a la llista.</p></body></html>"
+"weight:600;\">Cap</span> en la llista.</p></body></html>"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, lbDelimiter)
 #: urifilters/ikws/ikwsopts_ui.ui:182
@@ -6914,7 +6908,7 @@ msgstr ""
 "(nom=valor) de la cadena resultant, mentre que \\{0} se substituirà amb la "
 "cadena de consulta sense modificar.<br/>Podeu utilitzar \\{1}... \\{n} per a "
 "indicar certes paraules de la consulta i \\{nom} per a indicar un valor "
-"donat per «nom=valor» a la consulta de l'usuari.<br/>De manera addicional, "
+"donat per «nom=valor» en la consulta de l'usuari.<br/>De manera addicional, "
 "és possible indicar referències múltiples (noms, nombres i cadenes) a la "
 "vegada (\\{nom1,nom2,...,«cadena»}).<br/>El primer valor que aparelli (des "
 "de l'esquerra) s'utilitzarà com a valor de substitució en l'URI resultant."
@@ -9041,20 +9035,20 @@ msgstr ""
 #, kde-format
 msgid "&Paste File"
 msgid_plural "&Paste %1 Files"
-msgstr[0] "&Apega el fitxer"
-msgstr[1] "&Apega %1 fitxers"
+msgstr[0] "A&pega el fitxer"
+msgstr[1] "A&pega %1 fitxers"
 
 #: widgets/paste.cpp:293
 #, kde-format
 msgid "&Paste URL"
 msgid_plural "&Paste %1 URLs"
-msgstr[0] "&Apega l'URL"
-msgstr[1] "&Apega els %1 URL"
+msgstr[0] "A&pega l'URL"
+msgstr[1] "A&pega els %1 URL"
 
 #: widgets/paste.cpp:296
 #, kde-format
 msgid "&Paste Clipboard Contents"
-msgstr "&Apega el contingut del porta-retalls"
+msgstr "A&pega el contingut del porta-retalls"
 
 #: widgets/paste.cpp:331
 #, kde-format
