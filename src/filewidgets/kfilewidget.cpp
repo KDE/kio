@@ -1071,6 +1071,7 @@ void KFileWidgetPrivate::initDirOpWidgets()
 
     m_messageWidget = new KMessageWidget(q);
     m_messageWidget->setMessageType(KMessageWidget::Error);
+    m_messageWidget->setWordWrap(true);
     m_messageWidget->hide();
 
     auto topSeparator = new QFrame(q);
