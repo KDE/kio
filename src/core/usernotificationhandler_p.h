@@ -8,6 +8,8 @@
 #ifndef USERNOTIFICATIONHANDLER_P_H
 #define USERNOTIFICATIONHANDLER_P_H
 
+#include "askuseractioninterface.h"
+
 #include <QCache>
 #include <QHash>
 #include <QObject>
@@ -39,9 +41,10 @@ public:
     public:
         QString key() const;
 
-        int type;
+        AskUserActionInterface::MessageDialogType askUserDlgType;
         QPointer<Slave> slave;
         QHash<MessageBoxDataType, QVariant> data;
+        QString details;
     };
 
     explicit UserNotificationHandler(QObject *parent = nullptr);

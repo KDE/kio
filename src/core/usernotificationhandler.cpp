@@ -11,6 +11,7 @@
 #include "job_p.h"
 #include "kiocoredebug.h"
 #include "slave.h"
+#include "slavebase.h"
 
 #include <QTimer>
 
@@ -24,7 +25,7 @@ QString UserNotificationHandler::Request::key() const
         key += slave->host();
         key += slave->port();
         key += QLatin1Char('-');
-        key += QChar(type);
+        key += QChar(askUserDlgType);
     }
     return key;
 }
@@ -39,12 +40,40 @@ UserNotificationHandler::~UserNotificationHandler()
     qDeleteAll(m_pendingRequests);
 }
 
+static AskUserActionInterface::MessageDialogType toAskUserDlgType(int type)
+{
+    switch (static_cast<KIO::SlaveBase::MessageBoxType>(type)) {
+    case SlaveBase::QuestionYesNo:
+        return AskUserActionInterface::QuestionYesNo;
+    case SlaveBase::WarningYesNo:
+        return AskUserActionInterface::WarningYesNo;
+    case SlaveBase::WarningContinueCancelDetailed:
+    case SlaveBase::WarningContinueCancel:
+        return AskUserActionInterface::WarningContinueCancel;
+    case SlaveBase::WarningYesNoCancel:
+        return AskUserActionInterface::WarningYesNoCancel;
+    case SlaveBase::Information:
+        return AskUserActionInterface::Information;
+    case SlaveBase::SSLMessageBox:
+        return AskUserActionInterface::SSLMessageBox;
+    default:
+        Q_UNREACHABLE();
+        return AskUserActionInterface::MessageDialogType{};
+    }
+}
+
 void UserNotificationHandler::requestMessageBox(SlaveInterface *iface, int type, const QHash<MessageBoxDataType, QVariant> &data)
 {
-    Request *r = new Request;
-    r->type = type;
-    r->slave = qobject_cast<KIO::Slave *>(iface);
-    r->data = data;
+    QString details;
+    if (static_cast<SlaveBase::MessageBoxType>(type) == SlaveBase::WarningContinueCancelDetailed) {
+        const QMap map = data.value(MSG_META_DATA).toMap();
+        auto it = map.constFind(QStringLiteral("privilege_conf_details"));
+        if (it != map.cend()) {
+            details = it.value().toString();
+        }
+    }
+
+    Request *r = new Request{toAskUserDlgType(type), qobject_cast<KIO::Slave *>(iface), data, details};
 
     m_pendingRequests.append(r);
     if (m_pendingRequests.count() == 1) {
@@ -76,17 +105,17 @@ void UserNotificationHandler::processRequest()
                     slotProcessRequest(result);
                 });
 
-                const auto type = static_cast<AskUserActionInterface::MessageDialogType>(r->type);
-                askUserIface->requestUserMessageBox(type,
-                                                    r->data.value(MSG_TEXT).toString(),
-                                                    r->data.value(MSG_TITLE).toString(),
-                                                    r->data.value(MSG_YES_BUTTON_TEXT).toString(),
-                                                    r->data.value(MSG_NO_BUTTON_TEXT).toString(),
-                                                    r->data.value(MSG_YES_BUTTON_ICON).toString(),
-                                                    r->data.value(MSG_NO_BUTTON_ICON).toString(),
-                                                    r->data.value(MSG_DONT_ASK_AGAIN).toString(),
-                                                    {} /* details */,
-                                                    r->data.value(MSG_META_DATA).toMap());
+                askUserIface->requestUserMessageBox( //
+                    r->askUserDlgType,
+                    r->data.value(MSG_TEXT).toString(),
+                    r->data.value(MSG_TITLE).toString(),
+                    r->data.value(MSG_YES_BUTTON_TEXT).toString(),
+                    r->data.value(MSG_NO_BUTTON_TEXT).toString(),
+                    r->data.value(MSG_YES_BUTTON_ICON).toString(),
+                    r->data.value(MSG_NO_BUTTON_ICON).toString(),
+                    r->data.value(MSG_DONT_ASK_AGAIN).toString(),
+                    r->details,
+                    r->data.value(MSG_META_DATA).toMap());
                 return;
             }
         }
