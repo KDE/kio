@@ -9,10 +9,10 @@
 
 #include <QClipboard>
 
-#include <KCharsets>
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <QApplication>
+#include <QTextCodec>
 #include <QVBoxLayout>
 
 SearchProviderDialog::SearchProviderDialog(SearchProvider *provider, QList<SearchProvider *> &providers, QWidget *parent)
@@ -42,7 +42,10 @@ SearchProviderDialog::SearchProviderDialog(SearchProvider *provider, QList<Searc
 
     // Data init
     m_providers = providers;
-    QStringList charsets = KCharsets::charsets()->availableEncodingNames();
+    QStringList charsets;
+    for (const auto &codec : QTextCodec::availableCodecs()) {
+        charsets << QString::fromUtf8(codec);
+    }
     charsets.prepend(i18nc("@item:inlistbox The default character set", "Default"));
     m_dlg.cbCharset->addItems(charsets);
     if (m_provider) {

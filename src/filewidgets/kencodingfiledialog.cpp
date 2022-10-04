@@ -14,7 +14,6 @@
 
 #include <defaults-kfile.h>
 
-#include <KCharsets>
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KSharedConfig>
@@ -72,23 +71,22 @@ KEncodingFileDialog::KEncodingFileDialog(const QUrl &startDir,
     d->w->setCustomWidget(i18n("Encoding:"), d->encoding);
 
     d->encoding->clear();
-    QString sEncoding = encoding;
-    QString systemEncoding = QLatin1String(QTextCodec::codecForLocale()->name());
-    if (sEncoding.isEmpty() || sEncoding == QLatin1String("System")) {
+    QByteArray sEncoding = encoding.toUtf8();
+    auto systemEncoding = QTextCodec::codecForLocale()->name();
+    if (sEncoding.isEmpty() || sEncoding == "System") {
         sEncoding = systemEncoding;
     }
 
-    const QStringList encodings(KCharsets::charsets()->availableEncodingNames());
+    const auto encodings = QTextCodec::availableCodecs();
     int insert = 0;
     int system = 0;
     bool foundRequested = false;
-    for (const QString &encoding : encodings) {
-        bool found = false;
-        QTextCodec *codecForEnc = KCharsets::charsets()->codecForName(encoding, found);
+    for (const auto &encoding : encodings) {
+        QTextCodec *codecForEnc = QTextCodec::codecForName(encoding);
 
-        if (found) {
-            d->encoding->addItem(encoding);
-            const QString codecName = QLatin1String(codecForEnc->name());
+        if (codecForEnc) {
+            d->encoding->addItem(QString::fromUtf8(encoding));
+            auto codecName = codecForEnc->name();
             if ((codecName == sEncoding) || (encoding == sEncoding)) {
                 d->encoding->setCurrentIndex(insert);
                 foundRequested = true;
