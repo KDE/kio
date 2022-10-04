@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio stable\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-02 00:43+0000\n"
+"POT-Creation-Date: 2022-10-04 00:41+0000\n"
 "PO-Revision-Date: 2005-11-26 17:02+0200\n"
 "Last-Translator: Kobus <kabousv@therugby.co.za>\n"
 "Language-Team: AFRIKAANS <translate-discuss-af@lists.sourceforge.net>\n"
@@ -4420,113 +4420,113 @@ msgstr "Kon nie toegang tot gids %1 verkry nie"
 msgid "Could not get group id for given group name %1"
 msgstr ""
 
-#: ioslaves/http/http.cpp:586
+#: ioslaves/http/http.cpp:587
 #, kde-format
 msgid "No host specified."
 msgstr "Geen bediener gespesifiseer."
 
-#: ioslaves/http/http.cpp:1555
+#: ioslaves/http/http.cpp:1556
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "Andersins, die versoek sal het geslaag."
 
-#: ioslaves/http/http.cpp:1559
+#: ioslaves/http/http.cpp:1560
 #, fuzzy, kde-format
 #| msgid "retrieve property values"
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "onttrek eienskap waardes"
 
-#: ioslaves/http/http.cpp:1562
+#: ioslaves/http/http.cpp:1563
 #, fuzzy, kde-format
 #| msgid "set property values"
 msgctxt "request type"
 msgid "set property values"
 msgstr "stel eienskap waardes"
 
-#: ioslaves/http/http.cpp:1565
+#: ioslaves/http/http.cpp:1566
 #, fuzzy, kde-format
 #| msgid "create the requested folder"
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "skep die aangevraagde gids"
 
-#: ioslaves/http/http.cpp:1568
+#: ioslaves/http/http.cpp:1569
 #, fuzzy, kde-format
 #| msgid "copy the specified file or folder"
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "kopiëer die gespesifiseerde lêer of gids"
 
-#: ioslaves/http/http.cpp:1571
+#: ioslaves/http/http.cpp:1572
 #, fuzzy, kde-format
 #| msgid "move the specified file or folder"
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "skuif die gespesifiseerde lêer of gids"
 
-#: ioslaves/http/http.cpp:1574
+#: ioslaves/http/http.cpp:1575
 #, fuzzy, kde-format
 #| msgid "search in the specified folder"
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "soek in die gespesifiseerde gids"
 
-#: ioslaves/http/http.cpp:1577
+#: ioslaves/http/http.cpp:1578
 #, fuzzy, kde-format
 #| msgid "lock the specified file or folder"
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "sluit die gespesifiseerde lêer of gids"
 
-#: ioslaves/http/http.cpp:1580
+#: ioslaves/http/http.cpp:1581
 #, fuzzy, kde-format
 #| msgid "unlock the specified file or folder"
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "sluit die gespesifiseerde lêer of gids oop"
 
-#: ioslaves/http/http.cpp:1583
+#: ioslaves/http/http.cpp:1584
 #, fuzzy, kde-format
 #| msgid "delete the specified file or folder"
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "vee die gespesifiseerde lêer of gids uit"
 
-#: ioslaves/http/http.cpp:1586
+#: ioslaves/http/http.cpp:1587
 #, fuzzy, kde-format
 #| msgid "query the server's capabilities"
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "navraag vir die bediener se vermoë"
 
-#: ioslaves/http/http.cpp:1589
+#: ioslaves/http/http.cpp:1590
 #, fuzzy, kde-format
 #| msgid "retrieve the contents of the specified file or folder"
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "onttrek die inhoud van die gespesifiseerde lêer of gids"
 
-#: ioslaves/http/http.cpp:1592
+#: ioslaves/http/http.cpp:1593
 #, fuzzy, kde-format
 #| msgid "search in the specified folder"
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "soek in die gespesifiseerde gids"
 
-#: ioslaves/http/http.cpp:1604
+#: ioslaves/http/http.cpp:1605
 #, fuzzy, kde-format
 #| msgid "An unexpected error (%1) occurred while attempting to %2."
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "'n onverwagte fout (%1) voorgekom terwyl probeer na %2."
 
-#: ioslaves/http/http.cpp:1613
+#: ioslaves/http/http.cpp:1614
 #, kde-format
 msgid "The server does not support the WebDAV protocol."
 msgstr "Die bediener doen nie ondersteun Die Webdav protokol."
 
-#: ioslaves/http/http.cpp:1657
+#: ioslaves/http/http.cpp:1658
 #, fuzzy, kde-format
 #| msgid ""
 #| "An error occurred while attempting to %1, %2. A summary of the reasons is "
@@ -4539,14 +4539,14 @@ msgstr ""
 "'n fout voorgekom terwyl probeer na %1, %2. 'n opsomming van die redes is "
 "onder.<ul>"
 
-#: ioslaves/http/http.cpp:1675 ioslaves/http/http.cpp:1811
+#: ioslaves/http/http.cpp:1676 ioslaves/http/http.cpp:1812
 #, fuzzy, kde-format
 #| msgid "Access was denied while attempting to %1."
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "Toegang verkry was verbied terwyl probeer na %1."
 
-#: ioslaves/http/http.cpp:1689 ioslaves/http/http.cpp:1818
+#: ioslaves/http/http.cpp:1690 ioslaves/http/http.cpp:1819
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4555,7 +4555,7 @@ msgstr ""
 "'n Hulpbron kan nie geskep word by die bestemming voordat een of meer "
 "tussengangers (gidse) geskep is nie."
 
-#: ioslaves/http/http.cpp:1698
+#: ioslaves/http/http.cpp:1699
 #, fuzzy, kde-format
 #| msgid ""
 #| "The server was unable to maintain the liveness of the properties listed "
@@ -4572,29 +4572,29 @@ msgstr ""
 "gelys in Die eienskappe-gedrag Xml element of jy het probeer om na oorskryf "
 "'n lêer terwyl versoek wat lêers word nie oorskryf word. %1"
 
-#: ioslaves/http/http.cpp:1706
+#: ioslaves/http/http.cpp:1707
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "Die versoekte sluit kon nie wees toegestaan. %1"
 
-#: ioslaves/http/http.cpp:1712
+#: ioslaves/http/http.cpp:1713
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "Die bediener doen nie ondersteun Die versoek tipe van Die liggaam."
 
-#: ioslaves/http/http.cpp:1717 ioslaves/http/http.cpp:1826
+#: ioslaves/http/http.cpp:1718 ioslaves/http/http.cpp:1827
 #, fuzzy, kde-format
 #| msgid "Unable to %1 because the resource is locked."
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "Nie moontlik na %1 omdat die hulpbron is geslote."
 
-#: ioslaves/http/http.cpp:1721
+#: ioslaves/http/http.cpp:1722
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "Hierdie aksie was verhoed deur nog 'n fout."
 
-#: ioslaves/http/http.cpp:1728 ioslaves/http/http.cpp:1833
+#: ioslaves/http/http.cpp:1729 ioslaves/http/http.cpp:1834
 #, fuzzy, kde-format
 #| msgid ""
 #| "Unable to %1 because the destination server refuses to accept the file or "
@@ -4607,7 +4607,7 @@ msgstr ""
 "Kon nie %1 nie, want die bestemming bediener weier om die lêer of gids te "
 "aanvaar."
 
-#: ioslaves/http/http.cpp:1737 ioslaves/http/http.cpp:1842
+#: ioslaves/http/http.cpp:1738 ioslaves/http/http.cpp:1843
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -4616,32 +4616,32 @@ msgstr ""
 "Die bestemming hulpbron doen nie het voldoende spasie na opneem Die staat "
 "van Die hulpbron na Die uitvoering van hierdie metode."
 
-#: ioslaves/http/http.cpp:1789
+#: ioslaves/http/http.cpp:1790
 #, fuzzy, kde-format
 #| msgid "The specified resource may not exist."
 msgid "The resource cannot be deleted."
 msgstr "Die gespesifiseer hulpbron dalk mag nie bestaan."
 
-#: ioslaves/http/http.cpp:1802
+#: ioslaves/http/http.cpp:1803
 #, fuzzy, kde-format
 #| msgid "upload %1"
 msgctxt "request type"
 msgid "upload %1"
 msgstr "Laai %1 op"
 
-#: ioslaves/http/http.cpp:1853
+#: ioslaves/http/http.cpp:1854
 #, fuzzy, kde-format
 #| msgid "An unexpected error (%1) occurred while attempting to %2."
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "'n onverwagte fout (%1) voorgekom terwyl probeer na %2."
 
-#: ioslaves/http/http.cpp:2658
+#: ioslaves/http/http.cpp:2659
 #, kde-format
 msgid "%1 contacted. Waiting for reply..."
 msgstr "%1 gekontak. Wag vir antwoord..."
 
-#: ioslaves/http/http.cpp:2984
+#: ioslaves/http/http.cpp:2985
 #, kde-format
 msgctxt "@info Security check on url being accessed"
 msgid ""
@@ -4650,28 +4650,28 @@ msgid ""
 "you.</p><p>Is \"%1\" the site you want to visit?</p>"
 msgstr ""
 
-#: ioslaves/http/http.cpp:2991
+#: ioslaves/http/http.cpp:2992
 #, kde-format
 msgctxt "@title:window"
 msgid "Confirm Website Access"
 msgstr ""
 
-#: ioslaves/http/http.cpp:3082
+#: ioslaves/http/http.cpp:3083
 #, kde-format
 msgid "Server processing request, please wait..."
 msgstr "Bediener verwerk versoek, wag asseblief..."
 
-#: ioslaves/http/http.cpp:3777 ioslaves/http/http.cpp:3832
+#: ioslaves/http/http.cpp:3778 ioslaves/http/http.cpp:3833
 #, kde-format
 msgid "Sending data to %1"
 msgstr "Stuur data na %1"
 
-#: ioslaves/http/http.cpp:4277
+#: ioslaves/http/http.cpp:4278
 #, kde-format
 msgid "Retrieving %1 from %2..."
 msgstr "Onttrek %1 van %2..."
 
-#: ioslaves/http/http.cpp:5167 ioslaves/http/http.cpp:5302
+#: ioslaves/http/http.cpp:5169 ioslaves/http/http.cpp:5304
 #: kioworkers/ftp/ftp.cpp:2509
 #, kde-format
 msgid ""
@@ -4681,47 +4681,47 @@ msgstr ""
 "Jy moet 'n gebruikernaam en wagwoord vir die volmag bediener wat hier onder "
 "vertoon word verskaf voordat toegang na die tuistes verleen sal word."
 
-#: ioslaves/http/http.cpp:5171 ioslaves/http/http.cpp:5305
+#: ioslaves/http/http.cpp:5173 ioslaves/http/http.cpp:5307
 #: kioworkers/ftp/ftp.cpp:2513
 #, kde-format
 msgid "Proxy:"
 msgstr "Volmag:"
 
-#: ioslaves/http/http.cpp:5172 ioslaves/http/http.cpp:5409
+#: ioslaves/http/http.cpp:5174 ioslaves/http/http.cpp:5411
 #, kde-format
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%1</b> na <b>%2</b>"
 
-#: ioslaves/http/http.cpp:5174 ioslaves/http/http.cpp:5320
+#: ioslaves/http/http.cpp:5176 ioslaves/http/http.cpp:5322
 #: kioworkers/ftp/ftp.cpp:2516
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "Volmag Geldigheidsverklaring Gevaal."
 
-#: ioslaves/http/http.cpp:5287 kioworkers/ftp/ftp.cpp:561
+#: ioslaves/http/http.cpp:5289 kioworkers/ftp/ftp.cpp:561
 #, kde-format
 msgid "You need to supply a username and a password to access this site."
 msgstr ""
 "Jy mout 'n gebruikernaam en wagwoord verskaf om toegang te verkry tot "
 "hierdie tuiste."
 
-#: ioslaves/http/http.cpp:5289 kioworkers/ftp/ftp.cpp:563
+#: ioslaves/http/http.cpp:5291 kioworkers/ftp/ftp.cpp:563
 #, kde-format
 msgid "Site:"
 msgstr "Tuiste:"
 
-#: ioslaves/http/http.cpp:5320
+#: ioslaves/http/http.cpp:5322
 #, kde-format
 msgid "Authentication Failed."
 msgstr "Geldigheidsverklaring Gevaal."
 
-#: ioslaves/http/http.cpp:5447
+#: ioslaves/http/http.cpp:5449
 #, fuzzy, kde-format
 #| msgid "Authorization Dialog"
 msgid "Authorization failed."
 msgstr "Geldigheidstoets Dialoog"
 
-#: ioslaves/http/http.cpp:5464
+#: ioslaves/http/http.cpp:5466
 #, fuzzy, kde-format
 #| msgid "Authorization Dialog"
 msgid "Unknown Authorization method."

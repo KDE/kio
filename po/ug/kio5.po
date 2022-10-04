@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-02 00:43+0000\n"
+"POT-Creation-Date: 2022-10-04 00:41+0000\n"
 "PO-Revision-Date: 2013-09-08 07:04+0900\n"
 "Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
@@ -4273,100 +4273,100 @@ msgstr "بېرىلگەن ئىشلەتكۈچى ئاتى %1 نىڭ ئىشلەتك�
 msgid "Could not get group id for given group name %1"
 msgstr "بېرىلگەن گۇرۇپپا ئاتى %1 نىڭ گۇرۇپپا كىملىكىگە ئېرىشەلمىدى"
 
-#: ioslaves/http/http.cpp:586
+#: ioslaves/http/http.cpp:587
 #, kde-format
 msgid "No host specified."
 msgstr "ماشىنا بەلگىلەنمىگەن."
 
-#: ioslaves/http/http.cpp:1555
+#: ioslaves/http/http.cpp:1556
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "بولمىسا، بۇ تەلەپ مۇۋەپپەقىيەتلىك ئورۇنلانغان."
 
-#: ioslaves/http/http.cpp:1559
+#: ioslaves/http/http.cpp:1560
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "خاسلىق قىممىتىگە ئېرىش"
 
-#: ioslaves/http/http.cpp:1562
+#: ioslaves/http/http.cpp:1563
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "خاسلىق قىممەت تەڭشىكى"
 
-#: ioslaves/http/http.cpp:1565
+#: ioslaves/http/http.cpp:1566
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "تەلەپ قىلغان قىسقۇچنى قۇر"
 
-#: ioslaves/http/http.cpp:1568
+#: ioslaves/http/http.cpp:1569
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "بەلگىلەنگەن ھۆججەت ياكى قىسقۇچنى كۆچۈر"
 
-#: ioslaves/http/http.cpp:1571
+#: ioslaves/http/http.cpp:1572
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "بەلگىلەنگەن ھۆججەت ياكى قىسقۇچنى يۈتكە"
 
-#: ioslaves/http/http.cpp:1574
+#: ioslaves/http/http.cpp:1575
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "بەلگىلەنگەن قىسقۇچتىن ئىزدە"
 
-#: ioslaves/http/http.cpp:1577
+#: ioslaves/http/http.cpp:1578
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "بەلگىلەنگەن ھۆججەت ياكى قىسقۇچنى قۇلۇپلا"
 
-#: ioslaves/http/http.cpp:1580
+#: ioslaves/http/http.cpp:1581
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "بەلگىلەنگەن ھۆججەت ياكى قىسقۇچنى قۇلۇپسىزلا"
 
-#: ioslaves/http/http.cpp:1583
+#: ioslaves/http/http.cpp:1584
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "بەلگىلەنگەن ھۆججەت ياكى قىسقۇچنى ئۆچۈر"
 
-#: ioslaves/http/http.cpp:1586
+#: ioslaves/http/http.cpp:1587
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "مۇلازىمېتىر ئىقتىدارىنى سۈرۈشتۈر"
 
-#: ioslaves/http/http.cpp:1589
+#: ioslaves/http/http.cpp:1590
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "بەلگىلەنگەن ھۆججەت ياكى قىسقۇچ مەزمۇنىغا ئېرىشىدۇ"
 
-#: ioslaves/http/http.cpp:1592
+#: ioslaves/http/http.cpp:1593
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "بەلگىلەنگەن قىسقۇچتا دوكلات ئىجرا قىلىدۇ"
 
-#: ioslaves/http/http.cpp:1604
+#: ioslaves/http/http.cpp:1605
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "%2 نى قىلىۋاتقاندا كۈتۈلمىگەن (%1) خاتالىق يۈز بەردى."
 
-#: ioslaves/http/http.cpp:1613
+#: ioslaves/http/http.cpp:1614
 #, kde-format
 msgid "The server does not support the WebDAV protocol."
 msgstr "مۇلازىمېتىر WebDAV كېلىشىمىنى قوللىمايدۇ."
 
-#: ioslaves/http/http.cpp:1657
+#: ioslaves/http/http.cpp:1658
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4376,13 +4376,13 @@ msgstr ""
 "%1, %2 نى ئېلىپ بېرىۋاتقاندا خاتالىق كۆرۈلدى. سەۋەبىنىڭ ئۈزۈمدىسى "
 "تۆۋەندىكىدەك."
 
-#: ioslaves/http/http.cpp:1675 ioslaves/http/http.cpp:1811
+#: ioslaves/http/http.cpp:1676 ioslaves/http/http.cpp:1812
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "%1 نى ئېلىپ بېرىۋاتقاندا زىيارەت رەت قىلىندى."
 
-#: ioslaves/http/http.cpp:1689 ioslaves/http/http.cpp:1818
+#: ioslaves/http/http.cpp:1690 ioslaves/http/http.cpp:1819
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4391,7 +4391,7 @@ msgstr ""
 "بىر ياكى بىر قانچە ۋاسىتىچى توپلام (قىسقۇچ) قۇرۇلغاندىن كېيىن ئاندىن نىشان "
 "ئورۇندا مەنبەنى قۇرالايدۇ."
 
-#: ioslaves/http/http.cpp:1698
+#: ioslaves/http/http.cpp:1699
 #, fuzzy, kde-format
 #| msgid ""
 #| "The server was unable to maintain the liveness of the properties listed "
@@ -4408,28 +4408,28 @@ msgstr ""
 "ئاكتىپچانلىقى ياكى مەلۇم بىر ھۆججەتنى قاپلاشنى سىناشنى ساقلاپ قالالمىدى، "
 "شۇنىڭ بىلەن بىرگە ئۇ ھۆججەتلەرنى قاپلىماسلىقنى تەلەپ قىلدى.  %1"
 
-#: ioslaves/http/http.cpp:1706
+#: ioslaves/http/http.cpp:1707
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "تەلەپ قىلغان قۇلۇپلاشنى تاماملىيالمىدى. %1"
 
-#: ioslaves/http/http.cpp:1712
+#: ioslaves/http/http.cpp:1713
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "مۇلازىمېتىر مەزمۇندىكى تەلەپ تىپىنى قوللىمايدۇ."
 
-#: ioslaves/http/http.cpp:1717 ioslaves/http/http.cpp:1826
+#: ioslaves/http/http.cpp:1718 ioslaves/http/http.cpp:1827
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "%1 قىلغىلى بولمايدۇ چۈنكى مەنبە قۇلۇپلانغان."
 
-#: ioslaves/http/http.cpp:1721
+#: ioslaves/http/http.cpp:1722
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "بۇ ھەرىكەت باشقا بىر خاتالىق تەرىپىدىن توسۇلدى."
 
-#: ioslaves/http/http.cpp:1728 ioslaves/http/http.cpp:1833
+#: ioslaves/http/http.cpp:1729 ioslaves/http/http.cpp:1834
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4439,7 +4439,7 @@ msgstr ""
 "%1 قىلغىلى بولمايدۇ چۈنكى نىشان مۇلازىمېتىر بۇ ھۆججەت ياكى قىسقۇچنى "
 "قوبۇللاشنى رەت قىلدى."
 
-#: ioslaves/http/http.cpp:1737 ioslaves/http/http.cpp:1842
+#: ioslaves/http/http.cpp:1738 ioslaves/http/http.cpp:1843
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -4448,29 +4448,29 @@ msgstr ""
 "نىشان مەنبەسى بۇ ئۇسۇل ئىجرا قىلىنغاندىن كېيىن مەنبەنىڭ ھالىتىنى خاتىرىلەشكە "
 "يېتەرلىك بوشلۇق يوق."
 
-#: ioslaves/http/http.cpp:1789
+#: ioslaves/http/http.cpp:1790
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "مەنبەنى ئۆچۈرگىلى بولمايدۇ."
 
-#: ioslaves/http/http.cpp:1802
+#: ioslaves/http/http.cpp:1803
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "%1 نى يۈكلە"
 
-#: ioslaves/http/http.cpp:1853
+#: ioslaves/http/http.cpp:1854
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "%2 نى قىلىۋاتقاندا كۈتۈلمىگەن (%1) خاتالىق يۈز بەردى."
 
-#: ioslaves/http/http.cpp:2658
+#: ioslaves/http/http.cpp:2659
 #, kde-format
 msgid "%1 contacted. Waiting for reply..."
 msgstr "%1 غا باغلاندى. ئىنكاسنى كۈتۈۋاتىدۇ…"
 
-#: ioslaves/http/http.cpp:2984
+#: ioslaves/http/http.cpp:2985
 #, kde-format
 msgctxt "@info Security check on url being accessed"
 msgid ""
@@ -4482,28 +4482,28 @@ msgstr ""
 "ئىلتىماسنى دەلىللىمەيدىكەن. بەلكىم ئۇچۇرلىرىڭىز ئوغرىلىنىشى مۇمكىن.</p><p>"
 "\"%1\" سىز زىيارەت قىلماقچى بولغان بېكەتمۇ؟</p>"
 
-#: ioslaves/http/http.cpp:2991
+#: ioslaves/http/http.cpp:2992
 #, kde-format
 msgctxt "@title:window"
 msgid "Confirm Website Access"
 msgstr "تور بېكەت زىيارىتىنى جەزملە"
 
-#: ioslaves/http/http.cpp:3082
+#: ioslaves/http/http.cpp:3083
 #, kde-format
 msgid "Server processing request, please wait..."
 msgstr "مۇلازىمېتىر ئىلتىماسنى بىر تەرەپ قىلىۋاتىدۇ، سەل كۈتۈڭ…"
 
-#: ioslaves/http/http.cpp:3777 ioslaves/http/http.cpp:3832
+#: ioslaves/http/http.cpp:3778 ioslaves/http/http.cpp:3833
 #, kde-format
 msgid "Sending data to %1"
 msgstr "سانلىق-مەلۇماتنى %1 غا يوللاۋاتىدۇ"
 
-#: ioslaves/http/http.cpp:4277
+#: ioslaves/http/http.cpp:4278
 #, kde-format
 msgid "Retrieving %1 from %2..."
 msgstr "%2 دىن %1 غا ئېرىشىۋاتىدۇ…"
 
-#: ioslaves/http/http.cpp:5167 ioslaves/http/http.cpp:5302
+#: ioslaves/http/http.cpp:5169 ioslaves/http/http.cpp:5304
 #: kioworkers/ftp/ftp.cpp:2509
 #, kde-format
 msgid ""
@@ -4513,45 +4513,45 @@ msgstr ""
 "سىز تۆۋەندە كۆرسىتىلگەن ۋاكالىتەن مۇلازىمېتىرنى ئىشلەتكۈچى ئاتى ۋە ئىم بىلەن "
 "تەمىنلىسىڭىز ئاندىن تور بېكەتنى زىيارەت قىلالايسىز."
 
-#: ioslaves/http/http.cpp:5171 ioslaves/http/http.cpp:5305
+#: ioslaves/http/http.cpp:5173 ioslaves/http/http.cpp:5307
 #: kioworkers/ftp/ftp.cpp:2513
 #, kde-format
 msgid "Proxy:"
 msgstr "ۋاكالەتچى:"
 
-#: ioslaves/http/http.cpp:5172 ioslaves/http/http.cpp:5409
+#: ioslaves/http/http.cpp:5174 ioslaves/http/http.cpp:5411
 #, kde-format
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%2</b> دىكى <b>%1</b>"
 
-#: ioslaves/http/http.cpp:5174 ioslaves/http/http.cpp:5320
+#: ioslaves/http/http.cpp:5176 ioslaves/http/http.cpp:5322
 #: kioworkers/ftp/ftp.cpp:2516
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "ۋاكالەتچىنى دەلىللىيەلمىدى."
 
-#: ioslaves/http/http.cpp:5287 kioworkers/ftp/ftp.cpp:561
+#: ioslaves/http/http.cpp:5289 kioworkers/ftp/ftp.cpp:561
 #, kde-format
 msgid "You need to supply a username and a password to access this site."
 msgstr ""
 "سىز ئىشلەتكۈچى ئاتى ۋە ئىم تەمىنلەپ ئاندىن بۇ بېكەتنى زىيارەت قىلالايسىز."
 
-#: ioslaves/http/http.cpp:5289 kioworkers/ftp/ftp.cpp:563
+#: ioslaves/http/http.cpp:5291 kioworkers/ftp/ftp.cpp:563
 #, kde-format
 msgid "Site:"
 msgstr "تور بېكەت:"
 
-#: ioslaves/http/http.cpp:5320
+#: ioslaves/http/http.cpp:5322
 #, kde-format
 msgid "Authentication Failed."
 msgstr "دەلىللىيەلمىدى."
 
-#: ioslaves/http/http.cpp:5447
+#: ioslaves/http/http.cpp:5449
 #, kde-format
 msgid "Authorization failed."
 msgstr "دەلىللىيەلمىدى."
 
-#: ioslaves/http/http.cpp:5464
+#: ioslaves/http/http.cpp:5466
 #, kde-format
 msgid "Unknown Authorization method."
 msgstr "يوچۇن دەلىللەش ئۇسۇلى."

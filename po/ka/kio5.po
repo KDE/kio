@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-02 00:43+0000\n"
-"PO-Revision-Date: 2022-09-17 05:38+0200\n"
+"POT-Creation-Date: 2022-10-04 00:41+0000\n"
+"PO-Revision-Date: 2022-10-03 05:51+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -1695,7 +1695,7 @@ msgstr ""
 #: core/job_error.cpp:924
 #, kde-format
 msgid "Could Not Create Folder"
-msgstr ""
+msgstr "საქაღალდის შექმნის შეცდომა"
 
 #: core/job_error.cpp:925
 #, kde-format
@@ -2248,7 +2248,7 @@ msgstr ""
 #: core/slavebase.cpp:872
 #, kde-format
 msgid "Writing to %1 is not supported."
-msgstr ""
+msgstr "%1-ში ჩაწერა მხარდაუჭერელია."
 
 #: core/slavebase.cpp:874
 #, kde-format
@@ -2396,7 +2396,7 @@ msgstr ""
 #: core/tcpslavebase.cpp:487 core/tcpworkerbase.cpp:481
 #, kde-format
 msgid "Display SSL &Information"
-msgstr ""
+msgstr "SSL-ის &ინფორმაციის გამოტანა"
 
 #: core/tcpslavebase.cpp:488 core/tcpworkerbase.cpp:482
 #, kde-format
@@ -2962,12 +2962,10 @@ msgid "Only folders can be added to the Places panel."
 msgstr ""
 
 #: filewidgets/kfileplacesmodel.cpp:1430
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "&Release"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Releasing…"
-msgstr "&გათავისუფლება"
+msgstr "გათავისუფლება…"
 
 #: filewidgets/kfileplacesmodel.cpp:1432
 #, kde-format
@@ -2976,12 +2974,10 @@ msgid "&Release"
 msgstr "&გათავისუფლება"
 
 #: filewidgets/kfileplacesmodel.cpp:1436
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "&Safely Remove"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Safely Removing…"
-msgstr "&უსაფრთხოდ მოცილება"
+msgstr "უსაფრთხოდ მოცილება…"
 
 #: filewidgets/kfileplacesmodel.cpp:1438
 #, kde-format
@@ -2990,12 +2986,10 @@ msgid "&Safely Remove"
 msgstr "&უსაფრთხოდ მოცილება"
 
 #: filewidgets/kfileplacesmodel.cpp:1443
-#, fuzzy, kde-format
-#| msgctxt "@title job"
-#| msgid "Unmounting"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Unmounting…"
-msgstr "მიმაგრების მოხსნა"
+msgstr "მოხსნა…"
 
 #: filewidgets/kfileplacesmodel.cpp:1445
 #, kde-format
@@ -3894,100 +3888,100 @@ msgstr "მომხმარებლის, %1, uid-ის მოძებნ�
 msgid "Could not get group id for given group name %1"
 msgstr "ჯგუფის, %1, gid-ის მოძებნის შეცდომა"
 
-#: ioslaves/http/http.cpp:586
+#: ioslaves/http/http.cpp:587
 #, kde-format
 msgid "No host specified."
 msgstr "ჰოსტი მითითებული არაა."
 
-#: ioslaves/http/http.cpp:1555
+#: ioslaves/http/http.cpp:1556
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "არადა მოთხოვნა წარმატებული იქნებოდა."
 
-#: ioslaves/http/http.cpp:1559
+#: ioslaves/http/http.cpp:1560
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "თვისების მნიშვნელობების მიღება"
 
-#: ioslaves/http/http.cpp:1562
+#: ioslaves/http/http.cpp:1563
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "თვისების მნიშვნელობების დაყენება"
 
-#: ioslaves/http/http.cpp:1565
+#: ioslaves/http/http.cpp:1566
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "მოთხოვილი საქაღალდის შექმნა"
 
-#: ioslaves/http/http.cpp:1568
+#: ioslaves/http/http.cpp:1569
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "მოთხოვილი საქაღალდის ან ფაილის კოპირება"
 
-#: ioslaves/http/http.cpp:1571
+#: ioslaves/http/http.cpp:1572
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "მოთხოვილი საქაღალდის ან ფაილის გადატანა"
 
-#: ioslaves/http/http.cpp:1574
+#: ioslaves/http/http.cpp:1575
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "მოთხოვილი საქაღალდის ან ფაილის მოძებნა"
 
-#: ioslaves/http/http.cpp:1577
+#: ioslaves/http/http.cpp:1578
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "მოთხოვილი საქაღალდის ან ფაილის ჩაკეტვა"
 
-#: ioslaves/http/http.cpp:1580
+#: ioslaves/http/http.cpp:1581
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "მოთხოვილი საქაღალდის ან ფაილის განბლოკვა"
 
-#: ioslaves/http/http.cpp:1583
+#: ioslaves/http/http.cpp:1584
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "მოთხოვილი საქაღალდის ან ფაილის წაშლა"
 
-#: ioslaves/http/http.cpp:1586
+#: ioslaves/http/http.cpp:1587
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "სერვერის შესაძლებლობების გადამოწმება"
 
-#: ioslaves/http/http.cpp:1589
+#: ioslaves/http/http.cpp:1590
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "მოთხოვილი საქაღალდის ან ფაილის შიგთავსის მიღება"
 
-#: ioslaves/http/http.cpp:1592
+#: ioslaves/http/http.cpp:1593
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "მოთხოვილი საქაღალდის ან ფაილის ანგარიშის შექმნა"
 
-#: ioslaves/http/http.cpp:1604
+#: ioslaves/http/http.cpp:1605
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "უცნობი შეცდომა(%1) %2-ის მცდელობის დროს."
 
-#: ioslaves/http/http.cpp:1613
+#: ioslaves/http/http.cpp:1614
 #, kde-format
 msgid "The server does not support the WebDAV protocol."
 msgstr "სერვერს არ აქვს WebDAV პროტოკოლის მხარდაჭერა."
 
-#: ioslaves/http/http.cpp:1657
+#: ioslaves/http/http.cpp:1658
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -3995,20 +3989,20 @@ msgid ""
 "below."
 msgstr ""
 
-#: ioslaves/http/http.cpp:1675 ioslaves/http/http.cpp:1811
+#: ioslaves/http/http.cpp:1676 ioslaves/http/http.cpp:1812
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr ""
 
-#: ioslaves/http/http.cpp:1689 ioslaves/http/http.cpp:1818
+#: ioslaves/http/http.cpp:1690 ioslaves/http/http.cpp:1819
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
 "intermediate collections (folders) have been created."
 msgstr ""
 
-#: ioslaves/http/http.cpp:1698
+#: ioslaves/http/http.cpp:1699
 #, kde-format
 msgid ""
 "The server was unable to maintain the liveness of the\n"
@@ -4018,28 +4012,28 @@ msgid ""
 " %1"
 msgstr ""
 
-#: ioslaves/http/http.cpp:1706
+#: ioslaves/http/http.cpp:1707
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr ""
 
-#: ioslaves/http/http.cpp:1712
+#: ioslaves/http/http.cpp:1713
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr ""
 
-#: ioslaves/http/http.cpp:1717 ioslaves/http/http.cpp:1826
+#: ioslaves/http/http.cpp:1718 ioslaves/http/http.cpp:1827
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "%1-ის შეცდომა. რესურსი დაბლოკილია."
 
-#: ioslaves/http/http.cpp:1721
+#: ioslaves/http/http.cpp:1722
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr ""
 
-#: ioslaves/http/http.cpp:1728 ioslaves/http/http.cpp:1833
+#: ioslaves/http/http.cpp:1729 ioslaves/http/http.cpp:1834
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4047,36 +4041,36 @@ msgid ""
 "folder."
 msgstr ""
 
-#: ioslaves/http/http.cpp:1737 ioslaves/http/http.cpp:1842
+#: ioslaves/http/http.cpp:1738 ioslaves/http/http.cpp:1843
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
 "of the resource after the execution of this method."
 msgstr ""
 
-#: ioslaves/http/http.cpp:1789
+#: ioslaves/http/http.cpp:1790
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "რესურსის წაშლა შეუძლებელია."
 
-#: ioslaves/http/http.cpp:1802
+#: ioslaves/http/http.cpp:1803
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "%1-ის ატვირთვა"
 
-#: ioslaves/http/http.cpp:1853
+#: ioslaves/http/http.cpp:1854
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "უცნობი შეცდომა(%1) %2-ის მცდელობის დროს."
 
-#: ioslaves/http/http.cpp:2658
+#: ioslaves/http/http.cpp:2659
 #, kde-format
 msgid "%1 contacted. Waiting for reply..."
 msgstr "დავუკავშირდით %1-ს. ველოდები პასუხს..."
 
-#: ioslaves/http/http.cpp:2984
+#: ioslaves/http/http.cpp:2985
 #, kde-format
 msgctxt "@info Security check on url being accessed"
 msgid ""
@@ -4085,28 +4079,28 @@ msgid ""
 "you.</p><p>Is \"%1\" the site you want to visit?</p>"
 msgstr ""
 
-#: ioslaves/http/http.cpp:2991
+#: ioslaves/http/http.cpp:2992
 #, kde-format
 msgctxt "@title:window"
 msgid "Confirm Website Access"
 msgstr "დაადასტურეთ ვებგვერდთან წვდომა"
 
-#: ioslaves/http/http.cpp:3082
+#: ioslaves/http/http.cpp:3083
 #, kde-format
 msgid "Server processing request, please wait..."
 msgstr "სერვერი ამუშავებს მოთხოვნას. გთხოვთ მოითმიმოთ..."
 
-#: ioslaves/http/http.cpp:3777 ioslaves/http/http.cpp:3832
+#: ioslaves/http/http.cpp:3778 ioslaves/http/http.cpp:3833
 #, kde-format
 msgid "Sending data to %1"
 msgstr "%1-თვის მონაცემებს გაგზავნა"
 
-#: ioslaves/http/http.cpp:4277
+#: ioslaves/http/http.cpp:4278
 #, kde-format
 msgid "Retrieving %1 from %2..."
 msgstr "%2-დან %1-ის მიღება..."
 
-#: ioslaves/http/http.cpp:5167 ioslaves/http/http.cpp:5302
+#: ioslaves/http/http.cpp:5169 ioslaves/http/http.cpp:5304
 #: kioworkers/ftp/ftp.cpp:2509
 #, kde-format
 msgid ""
@@ -4114,44 +4108,44 @@ msgid ""
 "below before you are allowed to access any sites."
 msgstr ""
 
-#: ioslaves/http/http.cpp:5171 ioslaves/http/http.cpp:5305
+#: ioslaves/http/http.cpp:5173 ioslaves/http/http.cpp:5307
 #: kioworkers/ftp/ftp.cpp:2513
 #, kde-format
 msgid "Proxy:"
 msgstr "პროქსი:"
 
-#: ioslaves/http/http.cpp:5172 ioslaves/http/http.cpp:5409
+#: ioslaves/http/http.cpp:5174 ioslaves/http/http.cpp:5411
 #, kde-format
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%1</b> <b>%2</b>"
 
-#: ioslaves/http/http.cpp:5174 ioslaves/http/http.cpp:5320
+#: ioslaves/http/http.cpp:5176 ioslaves/http/http.cpp:5322
 #: kioworkers/ftp/ftp.cpp:2516
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "პროქსის ავთენტიკაციის შეცდომა."
 
-#: ioslaves/http/http.cpp:5287 kioworkers/ftp/ftp.cpp:561
+#: ioslaves/http/http.cpp:5289 kioworkers/ftp/ftp.cpp:561
 #, kde-format
 msgid "You need to supply a username and a password to access this site."
 msgstr "ამ ადგილის სანახავად საჭიროა მომხმარებლისა და პაროლის მითითება."
 
-#: ioslaves/http/http.cpp:5289 kioworkers/ftp/ftp.cpp:563
+#: ioslaves/http/http.cpp:5291 kioworkers/ftp/ftp.cpp:563
 #, kde-format
 msgid "Site:"
 msgstr "საიტი:"
 
-#: ioslaves/http/http.cpp:5320
+#: ioslaves/http/http.cpp:5322
 #, kde-format
 msgid "Authentication Failed."
 msgstr "ავთენტიკაციის შეცდომა."
 
-#: ioslaves/http/http.cpp:5447
+#: ioslaves/http/http.cpp:5449
 #, kde-format
 msgid "Authorization failed."
 msgstr "ავტორიზაციის შეცდომა."
 
-#: ioslaves/http/http.cpp:5464
+#: ioslaves/http/http.cpp:5466
 #, kde-format
 msgid "Unknown Authorization method."
 msgstr "ავტორიზაციის უცნობი მეთოდი."
@@ -5887,12 +5881,12 @@ msgstr ""
 #: kpasswdserver/kpasswdserver.cpp:513
 #, kde-format
 msgid "Do you want to retry?"
-msgstr ""
+msgstr "გნებავთ, თავიდან სცადოთ?"
 
 #: kpasswdserver/kpasswdserver.cpp:517
 #, kde-format
 msgid "Retry Authentication"
-msgstr ""
+msgstr "ავთენტიკაციის თავიდან ცდა"
 
 #: kpasswdserver/kpasswdserver.cpp:520
 #, kde-format

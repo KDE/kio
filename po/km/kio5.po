@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-02 00:43+0000\n"
+"POT-Creation-Date: 2022-10-04 00:41+0000\n"
 "PO-Revision-Date: 2012-07-09 10:34+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -4205,100 +4205,100 @@ msgstr "មិន​អាច​ទទួល​លេខសម្គាល់​
 msgid "Could not get group id for given group name %1"
 msgstr "មិនអាច​យក​លេខសម្គាល់​ក្រុម​សម្រាប់​ឈ្មោះក្រុម %1 ដែលបាន​ផ្ដល់​ឲ្យទេ"
 
-#: ioslaves/http/http.cpp:586
+#: ioslaves/http/http.cpp:587
 #, kde-format
 msgid "No host specified."
 msgstr "គ្មាន​ម៉ាស៊ីន​ដែលបាន​បញ្ជាក់​ឡើយ ។"
 
-#: ioslaves/http/http.cpp:1555
+#: ioslaves/http/http.cpp:1556
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "ផ្សេង​ពី​នេះ ការ​ស្នើ​សុំ​នឹង​បាន​ជោគជ័យ ។"
 
-#: ioslaves/http/http.cpp:1559
+#: ioslaves/http/http.cpp:1560
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "ទៅ​យក​តម្លៃ​ដែល​សមរម្យ"
 
-#: ioslaves/http/http.cpp:1562
+#: ioslaves/http/http.cpp:1563
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "កំណត់​តម្លៃ​លក្ខណៈ​សម្បត្តិ"
 
-#: ioslaves/http/http.cpp:1565
+#: ioslaves/http/http.cpp:1566
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "បង្កើត​ថត​ដែល​បាន​ស្នើ"
 
-#: ioslaves/http/http.cpp:1568
+#: ioslaves/http/http.cpp:1569
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "ចម្លង​ឯកសារ ឬ​ថត​ដែល​បាន​បញ្ជាក់"
 
-#: ioslaves/http/http.cpp:1571
+#: ioslaves/http/http.cpp:1572
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "ផ្លាស់ទី​ឯកសារ ឬ​ថត​ដែល​បានបញ្ជាក់"
 
-#: ioslaves/http/http.cpp:1574
+#: ioslaves/http/http.cpp:1575
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "ស្វែងរក​ក្នុង​ថត​ដែល​បាន​បញ្ជាក់"
 
-#: ioslaves/http/http.cpp:1577
+#: ioslaves/http/http.cpp:1578
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "ចាក់​សោ​ឯកសារ ឬ​ថត​ដែលបាន​បញ្ជាក់"
 
-#: ioslaves/http/http.cpp:1580
+#: ioslaves/http/http.cpp:1581
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "ដោះសោ​ឯកសារ ឬ​ថត​ដែល​បាន​បញ្ជាក់"
 
-#: ioslaves/http/http.cpp:1583
+#: ioslaves/http/http.cpp:1584
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "លុប​ឯកសារ ឬ​ថត​ដែល​បាន​បញ្ជាក់"
 
-#: ioslaves/http/http.cpp:1586
+#: ioslaves/http/http.cpp:1587
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "សួរ​សមត្ថភាព​របស់​ម៉ាស៊ីន​បម្រើ"
 
-#: ioslaves/http/http.cpp:1589
+#: ioslaves/http/http.cpp:1590
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "ទាញយក​មាតិកា​របស់​ឯកសារ ឬ​ថត​ដែល​បាន​បញ្ជាក់"
 
-#: ioslaves/http/http.cpp:1592
+#: ioslaves/http/http.cpp:1593
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "រត់​​របាយការណ៍​នៅ​ក្នុង​ថត​ដែល​បាន​បញ្ជាក់"
 
-#: ioslaves/http/http.cpp:1604
+#: ioslaves/http/http.cpp:1605
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "កំហុស​ដែល​មិន​រំពឹង​ទុក​ (%1) បាន​កើតឡើង​ខណៈពេល​ប៉ុនប៉ង​ទៅ​កាន់ %2 ។"
 
-#: ioslaves/http/http.cpp:1613
+#: ioslaves/http/http.cpp:1614
 #, kde-format
 msgid "The server does not support the WebDAV protocol."
 msgstr "ម៉ាស៊ីន​បម្រើ​មិន​គាំទ្រ​ពិធីការ WebDAV ទេ ។"
 
-#: ioslaves/http/http.cpp:1657
+#: ioslaves/http/http.cpp:1658
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4306,13 +4306,13 @@ msgid ""
 "below."
 msgstr "កំហុស​មួយ​បានកើតឡើង ខណៈ​ប៉ុនប៉ង %1 %2 ។ សេចក្ដី​សង្ខេប​នៃ​មូលហេតុ​គឺ​នៅ​ខាងក្រោម ។"
 
-#: ioslaves/http/http.cpp:1675 ioslaves/http/http.cpp:1811
+#: ioslaves/http/http.cpp:1676 ioslaves/http/http.cpp:1812
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "ការចូលដំណើរការ​ត្រូវ​បាន​បដិសេធ ខណៈពេល​កំពុង​ប៉ុន​ប៉ង %1 ។"
 
-#: ioslaves/http/http.cpp:1689 ioslaves/http/http.cpp:1818
+#: ioslaves/http/http.cpp:1690 ioslaves/http/http.cpp:1819
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4320,7 +4320,7 @@ msgid ""
 msgstr ""
 "មិនអាច​បង្កើត​​ធនធាន​នៅ​ទិសដៅ​បានឡើយ គឺ​រហូតដល់​ការប្រមូលផ្តុំ (ថត) មធ្យម​មួយ ឬ​ច្រើន​ត្រូវ​បាន​បង្កើត ។"
 
-#: ioslaves/http/http.cpp:1698
+#: ioslaves/http/http.cpp:1699
 #, fuzzy, kde-format
 #| msgid ""
 #| "The server was unable to maintain the liveness of the properties listed "
@@ -4337,28 +4337,28 @@ msgstr ""
 "បានទេ ឬ​អ្នក​បាន​ប៉ុនប៉ង​សរសេរ​ជាន់​លើ​ឯកសារ​មួយ ខណៈពេល​កំពុង​ស្នើ​ថា ឯកសារ​មិន​ត្រូវ​បាន​សរសេរ​ជាន់​សលើ ។ "
 "%1​"
 
-#: ioslaves/http/http.cpp:1706
+#: ioslaves/http/http.cpp:1707
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "មិនអាច​បង្កើត​ការ​ចាក់សោ​ដែលបាន​ស្នើ​បាន​ឡើយ ។ %1"
 
-#: ioslaves/http/http.cpp:1712
+#: ioslaves/http/http.cpp:1713
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "ម៉ាស៊ីន​បម្រើ​មិន​គាំទ្រ​សំណើ​ប្រភេទ​តួ​បានទេ ។"
 
-#: ioslaves/http/http.cpp:1717 ioslaves/http/http.cpp:1826
+#: ioslaves/http/http.cpp:1718 ioslaves/http/http.cpp:1827
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "មិ​នអាច​តភ្ជាប់​ទៅ %1 បានទេ ពីព្រោះ​ធនធាន​ជាប់​សោ ។"
 
-#: ioslaves/http/http.cpp:1721
+#: ioslaves/http/http.cpp:1722
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "អំពើ​នេះ​ត្រូវ​បាន​រារាំង​ដោយ​កំហុស​មួយ​ផ្សេង​ទៀត ។"
 
-#: ioslaves/http/http.cpp:1728 ioslaves/http/http.cpp:1833
+#: ioslaves/http/http.cpp:1729 ioslaves/http/http.cpp:1834
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4366,7 +4366,7 @@ msgid ""
 "folder."
 msgstr "មិន​អាច​​បានទេ %1 ពីព្រោះ​ម៉ាស៊ីន​បម្រើ​ទិសដៅ​បដិសេធ​ការ​ទទួល​យក​ឯកសារ ឬ​ថត ។"
 
-#: ioslaves/http/http.cpp:1737 ioslaves/http/http.cpp:1842
+#: ioslaves/http/http.cpp:1738 ioslaves/http/http.cpp:1843
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -4374,29 +4374,29 @@ msgid ""
 msgstr ""
 "ធនធាន​ទិសដៅ​មិន​មាន​ទំហំ​គ្រប់គ្រាន់ ដើម្បី​កត់​ត្រា​សភាព​របស់​ធនធាន បន្ទាប់ពី​ការ​ប្រតិបត្តិ​វិធីសាស្ត្រ​នេះ​ទេ ។"
 
-#: ioslaves/http/http.cpp:1789
+#: ioslaves/http/http.cpp:1790
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "ធនធាន​មិន​អាច​ត្រូ​វបានលុប​ទេ ។"
 
-#: ioslaves/http/http.cpp:1802
+#: ioslaves/http/http.cpp:1803
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "ផ្ទុក %1 ឡើង"
 
-#: ioslaves/http/http.cpp:1853
+#: ioslaves/http/http.cpp:1854
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "កំហុស​ដែល​មិន​រំពឹង (%1) បាន​កើត​ឡើង ខណៈពេល​ប៉ុនប៉ង %2 ។"
 
-#: ioslaves/http/http.cpp:2658
+#: ioslaves/http/http.cpp:2659
 #, kde-format
 msgid "%1 contacted. Waiting for reply..."
 msgstr "%1 ត្រូវ​បាន​ទាក់ទង ។ កំពុង​រង់ចាំ​ការ​ឆ្លើយ​តប..."
 
-#: ioslaves/http/http.cpp:2984
+#: ioslaves/http/http.cpp:2985
 #, kde-format
 msgctxt "@info Security check on url being accessed"
 msgid ""
@@ -4408,28 +4408,28 @@ msgstr ""
 "ការ​ផ្ទៀងផ្ទាត់​ឡើយ ។ វា​អាច​ជា​ការ​ការ​ប៉ុនប៉ង​បញ្ឆោត​អ្នក ។</p><p> \"%1\" ជា​តំបន់​បណ្ដាញ​ដែល​អ្នក​ចង់​"
 "មើល​ឬ ?</p>"
 
-#: ioslaves/http/http.cpp:2991
+#: ioslaves/http/http.cpp:2992
 #, kde-format
 msgctxt "@title:window"
 msgid "Confirm Website Access"
 msgstr "បញ្ជាក់​ការ​ចូល​ដំណើរការ​តំបន់​បណ្ដាញ"
 
-#: ioslaves/http/http.cpp:3082
+#: ioslaves/http/http.cpp:3083
 #, kde-format
 msgid "Server processing request, please wait..."
 msgstr "ម៉ាស៊ីន​បម្រើ​កំពុង​ដំណើរការ​សំណើ សូម​រង់ចាំ..."
 
-#: ioslaves/http/http.cpp:3777 ioslaves/http/http.cpp:3832
+#: ioslaves/http/http.cpp:3778 ioslaves/http/http.cpp:3833
 #, kde-format
 msgid "Sending data to %1"
 msgstr "ផ្ញើ​ទិន្នន័យ​ទៅ %1"
 
-#: ioslaves/http/http.cpp:4277
+#: ioslaves/http/http.cpp:4278
 #, kde-format
 msgid "Retrieving %1 from %2..."
 msgstr "កំពុង​ទាញយក %1 ពី %2..."
 
-#: ioslaves/http/http.cpp:5167 ioslaves/http/http.cpp:5302
+#: ioslaves/http/http.cpp:5169 ioslaves/http/http.cpp:5304
 #: kioworkers/ftp/ftp.cpp:2509
 #, kde-format
 msgid ""
@@ -4439,44 +4439,44 @@ msgstr ""
 "អ្នក​ត្រូវ​ផ្តល់​ឈ្មោះ​អ្នកប្រើ និង​ពាក្យ​សម្ងាត់ ឲ្យ​ម៉ាស៊ីន​បម្រើ​ប្រូកស៊ី​ដែល​បាន​រាយ​ខាងក្រោម មុន​ពេល​អ្នក​អាច​ចូល​"
 "ដំណើរការ​តំបន់បណ្ដាញ​ណាមួយ ។"
 
-#: ioslaves/http/http.cpp:5171 ioslaves/http/http.cpp:5305
+#: ioslaves/http/http.cpp:5173 ioslaves/http/http.cpp:5307
 #: kioworkers/ftp/ftp.cpp:2513
 #, kde-format
 msgid "Proxy:"
 msgstr "ប្រូកស៊ី ៖"
 
-#: ioslaves/http/http.cpp:5172 ioslaves/http/http.cpp:5409
+#: ioslaves/http/http.cpp:5174 ioslaves/http/http.cpp:5411
 #, kde-format
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%1</b> នៅ <b>%2</b>"
 
-#: ioslaves/http/http.cpp:5174 ioslaves/http/http.cpp:5320
+#: ioslaves/http/http.cpp:5176 ioslaves/http/http.cpp:5322
 #: kioworkers/ftp/ftp.cpp:2516
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "ការផ្ទៀងផ្ទាត់ភាព​ត្រឹមត្រូវ​ប្រូកស៊ី​បាន​បរាជ័យ ។"
 
-#: ioslaves/http/http.cpp:5287 kioworkers/ftp/ftp.cpp:561
+#: ioslaves/http/http.cpp:5289 kioworkers/ftp/ftp.cpp:561
 #, kde-format
 msgid "You need to supply a username and a password to access this site."
 msgstr "អ្នក​ត្រូវ​ផ្តល់​ឈ្មោះ​អ្នកប្រើ និង​ពាក្យ​សម្ងាត់​មួយ ដើម្បី​ចូល​ដំណើរការ​តំបន់​បណ្ដាញ​នេះ ។"
 
-#: ioslaves/http/http.cpp:5289 kioworkers/ftp/ftp.cpp:563
+#: ioslaves/http/http.cpp:5291 kioworkers/ftp/ftp.cpp:563
 #, kde-format
 msgid "Site:"
 msgstr "តំបន់បណ្ដាញ ៖"
 
-#: ioslaves/http/http.cpp:5320
+#: ioslaves/http/http.cpp:5322
 #, kde-format
 msgid "Authentication Failed."
 msgstr "ការ​ផ្ទៀង​ផ្ទាត់​ភាព​ត្រឹមត្រូវ​បាន​បរាជ័យ ។"
 
-#: ioslaves/http/http.cpp:5447
+#: ioslaves/http/http.cpp:5449
 #, kde-format
 msgid "Authorization failed."
 msgstr "ការ​ផ្ទៀងផ្ទាត់​ភាព​ត្រឹមត្រូវ​បានបរាជ័យ ។​"
 
-#: ioslaves/http/http.cpp:5464
+#: ioslaves/http/http.cpp:5466
 #, kde-format
 msgid "Unknown Authorization method."
 msgstr "មិន​ស្គាល់​វិធីសាស្ត្រ​ផ្ទៀងផ្ទាត់​ភាព​ត្រឹមត្រូវ ។​"

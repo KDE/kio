@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ante-toki-pi-ilo-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-02 00:43+0000\n"
+"POT-Creation-Date: 2022-10-04 00:41+0000\n"
 "PO-Revision-Date: 2022-06-20 03:30+0000\n"
 "Last-Translator: Weblate Admin <admin@example.com>\n"
 "Language-Team: Toki Pona <http://weblate.blackquill.cc/projects/ante-toki-pi-"
@@ -3951,100 +3951,100 @@ msgstr "mi ken ala kama jo e nanpa jan tan nimi jan %1"
 msgid "Could not get group id for given group name %1"
 msgstr "mi ken ala kama jo e nanpa kulupu tan nimi kulupu %1"
 
-#: ioslaves/http/http.cpp:586
+#: ioslaves/http/http.cpp:587
 #, kde-format
 msgid "No host specified."
 msgstr "tenpo pini la, sina pana ala e ilo pana."
 
-#: ioslaves/http/http.cpp:1555
+#: ioslaves/http/http.cpp:1556
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "ante la, toki sina li pona."
 
-#: ioslaves/http/http.cpp:1559
+#: ioslaves/http/http.cpp:1560
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "kama jo e ijo"
 
-#: ioslaves/http/http.cpp:1562
+#: ioslaves/http/http.cpp:1563
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "o ante e ijo"
 
-#: ioslaves/http/http.cpp:1565
+#: ioslaves/http/http.cpp:1566
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "o lon e poki wile"
 
-#: ioslaves/http/http.cpp:1568
+#: ioslaves/http/http.cpp:1569
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "o lon e ijo sama poki wile anu lipu wile"
 
-#: ioslaves/http/http.cpp:1571
+#: ioslaves/http/http.cpp:1572
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "o tawa e lipu wile anu poki wile"
 
-#: ioslaves/http/http.cpp:1574
+#: ioslaves/http/http.cpp:1575
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "o alasa lon poki wile"
 
-#: ioslaves/http/http.cpp:1577
+#: ioslaves/http/http.cpp:1578
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "o kiwen e poki wile anu lipu wile"
 
-#: ioslaves/http/http.cpp:1580
+#: ioslaves/http/http.cpp:1581
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "o weka e kiwen lon poki wile anu lipu wile"
 
-#: ioslaves/http/http.cpp:1583
+#: ioslaves/http/http.cpp:1584
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "weka e lipu anu poki wile"
 
-#: ioslaves/http/http.cpp:1586
+#: ioslaves/http/http.cpp:1587
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "kama sona e ken pi ilo ante"
 
-#: ioslaves/http/http.cpp:1589
+#: ioslaves/http/http.cpp:1590
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "kama jo e insa poki anu insa lipu"
 
-#: ioslaves/http/http.cpp:1592
+#: ioslaves/http/http.cpp:1593
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "pali e lipu sona lon poki wile"
 
-#: ioslaves/http/http.cpp:1604
+#: ioslaves/http/http.cpp:1605
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "mi %2 la pakala (%1) li kama lon."
 
-#: ioslaves/http/http.cpp:1613
+#: ioslaves/http/http.cpp:1614
 #, kde-format
 msgid "The server does not support the WebDAV protocol."
 msgstr "ilo ante li sona ala e ilo WebDAV."
 
-#: ioslaves/http/http.cpp:1657
+#: ioslaves/http/http.cpp:1658
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4052,20 +4052,20 @@ msgid ""
 "below."
 msgstr "mi ken ala %1, %2. tan li lon anpa ni."
 
-#: ioslaves/http/http.cpp:1675 ioslaves/http/http.cpp:1811
+#: ioslaves/http/http.cpp:1676 ioslaves/http/http.cpp:1812
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "ken ala li lon tawa %1."
 
-#: ioslaves/http/http.cpp:1689 ioslaves/http/http.cpp:1818
+#: ioslaves/http/http.cpp:1690 ioslaves/http/http.cpp:1819
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
 "intermediate collections (folders) have been created."
 msgstr ""
 
-#: ioslaves/http/http.cpp:1698
+#: ioslaves/http/http.cpp:1699
 #, kde-format
 msgid ""
 "The server was unable to maintain the liveness of the\n"
@@ -4075,28 +4075,28 @@ msgid ""
 " %1"
 msgstr ""
 
-#: ioslaves/http/http.cpp:1706
+#: ioslaves/http/http.cpp:1707
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "wile kiwen li ken ala kama jo. %1"
 
-#: ioslaves/http/http.cpp:1712
+#: ioslaves/http/http.cpp:1713
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "ilo linluwi ante li sona ala e kule pi lipu pana."
 
-#: ioslaves/http/http.cpp:1717 ioslaves/http/http.cpp:1826
+#: ioslaves/http/http.cpp:1718 ioslaves/http/http.cpp:1827
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "mi ken ala %1 tan ni: ijo li kiwen."
 
-#: ioslaves/http/http.cpp:1721
+#: ioslaves/http/http.cpp:1722
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "pali ni li pini tan pakala ante."
 
-#: ioslaves/http/http.cpp:1728 ioslaves/http/http.cpp:1833
+#: ioslaves/http/http.cpp:1729 ioslaves/http/http.cpp:1834
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4104,36 +4104,36 @@ msgid ""
 "folder."
 msgstr ""
 
-#: ioslaves/http/http.cpp:1737 ioslaves/http/http.cpp:1842
+#: ioslaves/http/http.cpp:1738 ioslaves/http/http.cpp:1843
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
 "of the resource after the execution of this method."
 msgstr ""
 
-#: ioslaves/http/http.cpp:1789
+#: ioslaves/http/http.cpp:1790
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "ijo li ken ala weka"
 
-#: ioslaves/http/http.cpp:1802
+#: ioslaves/http/http.cpp:1803
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "o pana e %1 tawa linluwi"
 
-#: ioslaves/http/http.cpp:1853
+#: ioslaves/http/http.cpp:1854
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "mi %2 la pakala (%1) li kama lon."
 
-#: ioslaves/http/http.cpp:2658
+#: ioslaves/http/http.cpp:2659
 #, kde-format
 msgid "%1 contacted. Waiting for reply..."
 msgstr "mi toki tawa %1. mi awen toki tan ona..."
 
-#: ioslaves/http/http.cpp:2984
+#: ioslaves/http/http.cpp:2985
 #, kde-format
 msgctxt "@info Security check on url being accessed"
 msgid ""
@@ -4142,28 +4142,28 @@ msgid ""
 "you.</p><p>Is \"%1\" the site you want to visit?</p>"
 msgstr ""
 
-#: ioslaves/http/http.cpp:2991
+#: ioslaves/http/http.cpp:2992
 #, kde-format
 msgctxt "@title:window"
 msgid "Confirm Website Access"
 msgstr "o pana e ken tawa wile lipu"
 
-#: ioslaves/http/http.cpp:3082
+#: ioslaves/http/http.cpp:3083
 #, kde-format
 msgid "Server processing request, please wait..."
 msgstr "ilo ante li pali, o awen..."
 
-#: ioslaves/http/http.cpp:3777 ioslaves/http/http.cpp:3832
+#: ioslaves/http/http.cpp:3778 ioslaves/http/http.cpp:3833
 #, kde-format
 msgid "Sending data to %1"
 msgstr "mi pana e sona tawa %1"
 
-#: ioslaves/http/http.cpp:4277
+#: ioslaves/http/http.cpp:4278
 #, kde-format
 msgid "Retrieving %1 from %2..."
 msgstr "mi kama jo e %1 tan %2..."
 
-#: ioslaves/http/http.cpp:5167 ioslaves/http/http.cpp:5302
+#: ioslaves/http/http.cpp:5169 ioslaves/http/http.cpp:5304
 #: kioworkers/ftp/ftp.cpp:2509
 #, kde-format
 msgid ""
@@ -4171,44 +4171,44 @@ msgid ""
 "below before you are allowed to access any sites."
 msgstr ""
 
-#: ioslaves/http/http.cpp:5171 ioslaves/http/http.cpp:5305
+#: ioslaves/http/http.cpp:5173 ioslaves/http/http.cpp:5307
 #: kioworkers/ftp/ftp.cpp:2513
 #, kde-format
 msgid "Proxy:"
 msgstr "nasin linluwi:"
 
-#: ioslaves/http/http.cpp:5172 ioslaves/http/http.cpp:5409
+#: ioslaves/http/http.cpp:5174 ioslaves/http/http.cpp:5411
 #, kde-format
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%1</b> lon <b>%2</b>"
 
-#: ioslaves/http/http.cpp:5174 ioslaves/http/http.cpp:5320
+#: ioslaves/http/http.cpp:5176 ioslaves/http/http.cpp:5322
 #: kioworkers/ftp/ftp.cpp:2516
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "toki sina tawa nasin linluwi li ike."
 
-#: ioslaves/http/http.cpp:5287 kioworkers/ftp/ftp.cpp:561
+#: ioslaves/http/http.cpp:5289 kioworkers/ftp/ftp.cpp:561
 #, kde-format
 msgid "You need to supply a username and a password to access this site."
 msgstr "lipu ni li wile e nimi e nimi len."
 
-#: ioslaves/http/http.cpp:5289 kioworkers/ftp/ftp.cpp:563
+#: ioslaves/http/http.cpp:5291 kioworkers/ftp/ftp.cpp:563
 #, kde-format
 msgid "Site:"
 msgstr "lipu:"
 
-#: ioslaves/http/http.cpp:5320
+#: ioslaves/http/http.cpp:5322
 #, kde-format
 msgid "Authentication Failed."
 msgstr "mi ken ala pana e sona pi lon mi."
 
-#: ioslaves/http/http.cpp:5447
+#: ioslaves/http/http.cpp:5449
 #, kde-format
 msgid "Authorization failed."
 msgstr "mi ken ala pana e sona pi lon mi."
 
-#: ioslaves/http/http.cpp:5464
+#: ioslaves/http/http.cpp:5466
 #, kde-format
 msgid "Unknown Authorization method."
 msgstr "mi sona ala e nasin pana lawa ni."
