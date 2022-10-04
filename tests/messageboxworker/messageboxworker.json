@@ -1,0 +1,16 @@
+{
+    "KDE-KIO-Protocols": {
+        "messagebox": {
+            "ExtraNames": [
+            ],
+            "input": "none",
+            "listing": [
+                "Name",
+                "Type"
+            ],
+            "output": "filesystem",
+            "protocol": "messagebox",
+            "reading": true
+        }
+    }
+}

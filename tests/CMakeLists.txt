@@ -52,4 +52,6 @@ KIOWIDGETS_EXECUTABLE_TESTS(
     previewtest
     ${runapplication_EXE}
 )
+
+add_subdirectory(messageboxworker)
 endif()
