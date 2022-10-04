@@ -737,8 +737,12 @@ void KOpenWithDialogPrivate::init(const QString &_text, const QString &_value)
     });
 
     if (!qMimeType.isNull()) {
-        remember = new QCheckBox(i18n("&Remember application association for all files of type\n\"%1\" (%2)", qMimeTypeComment, qMimeType));
-        //    remember->setChecked(true);
+        if (!qMimeTypeComment.isEmpty()) {
+            remember = new QCheckBox(i18n("&Remember application association for all files of type\n\"%1\" (%2)", qMimeTypeComment, qMimeType));
+        } else {
+            remember = new QCheckBox(i18n("&Remember application association for all files of type\n\"%1\"", qMimeType));
+        }
+
         topLayout->addWidget(remember);
     } else {
         remember = nullptr;
