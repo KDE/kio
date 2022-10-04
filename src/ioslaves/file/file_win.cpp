@@ -43,9 +43,9 @@ static UDSEntry createUDSEntryWin(const QFileInfo &fileInfo)
 {
     UDSEntry entry;
 
-    entry.insert(KIO::UDSEntry::UDS_NAME, fileInfo.fileName());
+    entry.fastInsert(KIO::UDSEntry::UDS_NAME, fileInfo.fileName());
     if (fileInfo.isSymLink()) {
-        entry.insert(KIO::UDSEntry::UDS_TARGET_URL, fileInfo.symLinkTarget());
+        entry.fastInsert(KIO::UDSEntry::UDS_TARGET_URL, fileInfo.symLinkTarget());
         /* TODO - or not useful on windows?
                 if ( details > 1 ) {
                     // It is a link pointing to nowhere
@@ -77,18 +77,18 @@ static UDSEntry createUDSEntryWin(const QFileInfo &fileInfo)
         access |= S_IXUSR;
     }
 
-    entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, type);
-    entry.insert(KIO::UDSEntry::UDS_ACCESS, access);
-    entry.insert(KIO::UDSEntry::UDS_SIZE, fileInfo.size());
+    entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, type);
+    entry.fastInsert(KIO::UDSEntry::UDS_ACCESS, access);
+    entry.fastInsert(KIO::UDSEntry::UDS_SIZE, fileInfo.size());
     if (fileInfo.isHidden()) {
-        entry.insert(KIO::UDSEntry::UDS_HIDDEN, true);
+        entry.fastInsert(KIO::UDSEntry::UDS_HIDDEN, true);
     }
 
-    entry.insert(KIO::UDSEntry::UDS_MODIFICATION_TIME, fileInfo.lastModified().toSecsSinceEpoch());
-    entry.insert(KIO::UDSEntry::UDS_USER, fileInfo.owner());
-    entry.insert(KIO::UDSEntry::UDS_GROUP, fileInfo.group());
-    entry.insert(KIO::UDSEntry::UDS_ACCESS_TIME, fileInfo.lastRead().toSecsSinceEpoch());
-    entry.insert(KIO::UDSEntry::UDS_CREATION_TIME, fileInfo.birthTime().toSecsSinceEpoch());
+    entry.fastInsert(KIO::UDSEntry::UDS_MODIFICATION_TIME, fileInfo.lastModified().toSecsSinceEpoch());
+    entry.fastInsert(KIO::UDSEntry::UDS_USER, fileInfo.owner());
+    entry.fastInsert(KIO::UDSEntry::UDS_GROUP, fileInfo.group());
+    entry.fastInsert(KIO::UDSEntry::UDS_ACCESS_TIME, fileInfo.lastRead().toSecsSinceEpoch());
+    entry.fastInsert(KIO::UDSEntry::UDS_CREATION_TIME, fileInfo.birthTime().toSecsSinceEpoch());
 
     return entry;
 }

@@ -276,10 +276,10 @@ void TrashProtocol::stat(const QUrl &url)
         isfDesktop->Release();
         ILFree(iilTrash);
 
-        entry.insert(KIO::UDSEntry::UDS_NAME, QString::fromUtf16((const unsigned short *)strret.pOleStr));
-        entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
-        entry.insert(KIO::UDSEntry::UDS_ACCESS, 0700);
-        entry.insert(KIO::UDSEntry::UDS_MIME_TYPE, QString::fromLatin1("inode/directory"));
+        entry.fastInsert(KIO::UDSEntry::UDS_NAME, QString::fromUtf16((const unsigned short *)strret.pOleStr));
+        entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
+        entry.fastInsert(KIO::UDSEntry::UDS_ACCESS, 0700);
+        entry.fastInsert(KIO::UDSEntry::UDS_MIME_TYPE, QString::fromLatin1("inode/directory"));
         m_pMalloc->Free(strret.pOleStr);
     } else {
         // TODO: when does this happen?
@@ -318,19 +318,19 @@ void TrashProtocol::listRoot()
     WIN32_FIND_DATAW findData;
     while (l->Next(1, &i, NULL) == S_OK) {
         m_isfTrashFolder->GetDisplayNameOf(i, SHGDN_NORMAL, &strret);
-        entry.insert(KIO::UDSEntry::UDS_DISPLAY_NAME, QString::fromUtf16((const unsigned short *)strret.pOleStr));
+        entry.fastInsert(KIO::UDSEntry::UDS_DISPLAY_NAME, QString::fromUtf16((const unsigned short *)strret.pOleStr));
         m_pMalloc->Free(strret.pOleStr);
         m_isfTrashFolder->GetDisplayNameOf(i, SHGDN_FORPARSING | SHGDN_INFOLDER, &strret);
-        entry.insert(KIO::UDSEntry::UDS_NAME, QString::fromUtf16((const unsigned short *)strret.pOleStr));
+        entry.fastInsert(KIO::UDSEntry::UDS_NAME, QString::fromUtf16((const unsigned short *)strret.pOleStr));
         m_pMalloc->Free(strret.pOleStr);
         m_isfTrashFolder->GetAttributesOf(1, (LPCITEMIDLIST *)&i, &attribs);
         SHGetDataFromIDList(m_isfTrashFolder, i, SHGDFIL_FINDDATA, &findData, sizeof(findData));
-        entry.insert(KIO::UDSEntry::UDS_SIZE, ((quint64)findData.nFileSizeLow) + (((quint64)findData.nFileSizeHigh) << 32));
-        entry.insert(KIO::UDSEntry::UDS_MODIFICATION_TIME, filetimeToTime_t(&findData.ftLastWriteTime));
-        entry.insert(KIO::UDSEntry::UDS_ACCESS_TIME, filetimeToTime_t(&findData.ftLastAccessTime));
-        entry.insert(KIO::UDSEntry::UDS_CREATION_TIME, filetimeToTime_t(&findData.ftCreationTime));
-        entry.insert(KIO::UDSEntry::UDS_EXTRA, QString::fromUtf16((const unsigned short *)strret.pOleStr));
-        entry.insert(KIO::UDSEntry::UDS_EXTRA + 1, QDateTime().toString(Qt::ISODate));
+        entry.fastInsert(KIO::UDSEntry::UDS_SIZE, ((quint64)findData.nFileSizeLow) + (((quint64)findData.nFileSizeHigh) << 32));
+        entry.fastInsert(KIO::UDSEntry::UDS_MODIFICATION_TIME, filetimeToTime_t(&findData.ftLastWriteTime));
+        entry.fastInsert(KIO::UDSEntry::UDS_ACCESS_TIME, filetimeToTime_t(&findData.ftLastAccessTime));
+        entry.fastInsert(KIO::UDSEntry::UDS_CREATION_TIME, filetimeToTime_t(&findData.ftCreationTime));
+        entry.fastInsert(KIO::UDSEntry::UDS_EXTRA, QString::fromUtf16((const unsigned short *)strret.pOleStr));
+        entry.fastInsert(KIO::UDSEntry::UDS_EXTRA + 1, QDateTime().toString(Qt::ISODate));
         mode_t type = QT_STAT_REG;
         if ((attribs & SFGAO_FOLDER) == SFGAO_FOLDER) {
             type = QT_STAT_DIR;
@@ -338,18 +338,16 @@ void TrashProtocol::listRoot()
         if ((attribs & SFGAO_LINK) == SFGAO_LINK) {
             type = QT_STAT_LNK;
         }
-        entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, type);
+        entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, type);
         mode_t access = 0700;
         if ((findData.dwFileAttributes & FILE_ATTRIBUTE_READONLY) == FILE_ATTRIBUTE_READONLY) {
             type = 0300;
         }
-        listEntry(entry, false);
+        listEntry(entry);
 
         ILFree(i);
     }
     l->Release();
-    entry.clear();
-    listEntry(entry, true);
     finished();
 }
 
