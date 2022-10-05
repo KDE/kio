@@ -1622,7 +1622,12 @@ PrivilegeOperationStatus SlaveBase::requestPrivilegeOperation(const QString &ope
     }
 
     if (metaData(QStringLiteral("UnitTesting")) != QLatin1String("true") && d->m_privilegeOperationStatus == OperationAllowed && !d->m_confirmationAsked) {
-        // KF6 TODO Remove. We don't want to pass details as meta-data. Pass it as a parameter in messageBox().
+        // WORKER_MESSAGEBOX_DETAILS_HACK
+        // SlaveBase::messageBox() overloads miss a parameter to pass an details argument.
+        // As workaround details are passed instead via metadata before and then cached by the SlaveInterface,
+        // to be used in the upcoming messageBox call (needs WarningContinueCancelDetailed type)
+        // TODO: add a messageBox() overload taking details and use here,
+        // then remove or adapt all code marked with WORKER_MESSAGEBOX_DETAILS
         setMetaData(QStringLiteral("privilege_conf_details"), operationDetails);
         sendMetaData();
 
