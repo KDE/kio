@@ -736,11 +736,11 @@ protected:
      * Called for every new item before emitting newItems().
      * You may reimplement this method in a subclass to implement your own
      * filtering.
-     * The default implementation filters out ".." and everything not matching
-     * the name filter(s)
+     * The default implementation filters out everything not matching
+     * the mime filter(s)
      * @return @c true if the item is "ok".
      *         @c false if the item shall not be shown in a view, e.g.
-     * files not matching a pattern *.cpp ( KFileItem::isHidden())
+     * files not matching the mime filter
      * @see matchesMimeFilter
      * @see setMimeFilter
      */
