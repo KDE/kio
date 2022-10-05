@@ -1830,9 +1830,6 @@ void KDirOperator::setDirLister(KDirLister *lister)
     connect(d->m_dirLister, &KCoreDirLister::itemsDeleted, this, [this]() {
         d->slotItemsChanged();
     });
-    connect(d->m_dirLister, &KCoreDirLister::itemsFilteredByMime, this, [this]() {
-        d->slotItemsChanged();
-    });
     connect(d->m_dirLister, qOverload<>(&KCoreDirLister::clear), this, [this]() {
         d->slotItemsChanged();
     });
