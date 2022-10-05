@@ -411,12 +411,12 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
     KConfigGroup group(config, ConfigGroup);
     readConfig(group);
 
-    coll->action(QStringLiteral("inline preview"))->setChecked(d->m_ops->isInlinePreviewShown());
+    d->m_ops->action(KDirOperator::ShowPreview)->setChecked(d->m_ops->isInlinePreviewShown());
     d->slotDirOpIconSizeChanged(d->m_ops->iconSize());
 
     KFilePreviewGenerator *pg = d->m_ops->previewGenerator();
     if (pg) {
-        coll->action(QStringLiteral("inline preview"))->setChecked(pg->isPreviewShown());
+        d->m_ops->action(KDirOperator::ShowPreview)->setChecked(pg->isPreviewShown());
     }
 
     // getStartUrl() above will have resolved the startDir parameter into
@@ -462,7 +462,7 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
 
     d->m_locationEdit->setFocus();
 
-    const QAction *hiddenFilesLastAction = coll->action(QStringLiteral("hidden files last"));
+    const QAction *hiddenFilesLastAction = d->m_ops->action(KDirOperator::SortHiddenFilesLast);
     Q_ASSERT(hiddenFilesLastAction);
     d->m_urlNavigator->setSortHiddenFoldersLast(hiddenFilesLastAction->isChecked());
     connect(hiddenFilesLastAction, &QAction::toggled, this, [this](bool checked) {
@@ -1256,17 +1256,17 @@ void KFileWidgetPrivate::initToolbar()
 
     KActionCollection *coll = m_ops->actionCollection();
 
-    coll->action(QStringLiteral("up"))
+    m_ops->action(KDirOperator::Up)
         ->setWhatsThis(i18n("<qt>Click this button to enter the parent folder.<br /><br />"
                             "For instance, if the current location is file:/home/konqi clicking this "
                             "button will take you to file:/home.</qt>"));
 
-    coll->action(QStringLiteral("back"))->setWhatsThis(i18n("Click this button to move backwards one step in the browsing history."));
-    coll->action(QStringLiteral("forward"))->setWhatsThis(i18n("Click this button to move forward one step in the browsing history."));
+    m_ops->action(KDirOperator::Back)->setWhatsThis(i18n("Click this button to move backwards one step in the browsing history."));
+    m_ops->action(KDirOperator::Forward)->setWhatsThis(i18n("Click this button to move forward one step in the browsing history."));
 
-    coll->action(QStringLiteral("reload"))->setWhatsThis(i18n("Click this button to reload the contents of the current location."));
-    coll->action(QStringLiteral("mkdir"))->setShortcuts(KStandardShortcut::createFolder());
-    coll->action(QStringLiteral("mkdir"))->setWhatsThis(i18n("Click this button to create a new folder."));
+    m_ops->action(KDirOperator::Reload)->setWhatsThis(i18n("Click this button to reload the contents of the current location."));
+    m_ops->action(KDirOperator::NewFolder)->setShortcuts(KStandardShortcut::createFolder());
+    m_ops->action(KDirOperator::NewFolder)->setWhatsThis(i18n("Click this button to create a new folder."));
 
     KToggleAction *showSidebarAction = new KToggleAction(i18n("Show Places Panel"), q);
     coll->addAction(QStringLiteral("togglePlacesPanel"), showSidebarAction);
@@ -1294,12 +1294,12 @@ void KFileWidgetPrivate::initToolbar()
              "<li>file previews</li>"
              "<li>separating folders from files</li></ul></qt>"));
 
-    menu->addAction(coll->action(QStringLiteral("allow expansion")));
+    menu->addAction(m_ops->action(KDirOperator::AllowExpansionInDetailsView));
     menu->addSeparator();
-    menu->addAction(coll->action(QStringLiteral("show hidden")));
+    menu->addAction(m_ops->action(KDirOperator::ShowHiddenFiles));
     menu->addAction(showSidebarAction);
     menu->addAction(showBookmarksAction);
-    menu->addAction(coll->action(QStringLiteral("preview")));
+    menu->addAction(m_ops->action(KDirOperator::ShowPreviewPanel));
 
     menu->setPopupMode(QToolButton::InstantPopup);
     q->connect(menu->menu(), &QMenu::aboutToShow, m_ops, &KDirOperator::updateSelectionDependentActions);
@@ -1317,17 +1317,17 @@ void KFileWidgetPrivate::initToolbar()
     QWidget *midSpacer = new QWidget(q);
     midSpacer->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
-    m_toolbar->addAction(coll->action(QStringLiteral("back")));
-    m_toolbar->addAction(coll->action(QStringLiteral("forward")));
-    m_toolbar->addAction(coll->action(QStringLiteral("up")));
-    m_toolbar->addAction(coll->action(QStringLiteral("reload")));
+    m_toolbar->addAction(m_ops->action(KDirOperator::Back));
+    m_toolbar->addAction(m_ops->action(KDirOperator::Forward));
+    m_toolbar->addAction(m_ops->action(KDirOperator::Up));
+    m_toolbar->addAction(m_ops->action(KDirOperator::Reload));
     m_toolbar->addSeparator();
-    m_toolbar->addAction(coll->action(QStringLiteral("icons view")));
-    m_toolbar->addAction(coll->action(QStringLiteral("compact view")));
-    m_toolbar->addAction(coll->action(QStringLiteral("details view")));
+    m_toolbar->addAction(m_ops->action(KDirOperator::ViewIconsView));
+    m_toolbar->addAction(m_ops->action(KDirOperator::ViewCompactView));
+    m_toolbar->addAction(m_ops->action(KDirOperator::ViewDetailsView));
     m_toolbar->addSeparator();
-    m_toolbar->addAction(coll->action(QStringLiteral("inline preview")));
-    m_toolbar->addAction(coll->action(QStringLiteral("sorting menu")));
+    m_toolbar->addAction(m_ops->action(KDirOperator::ShowPreview));
+    m_toolbar->addAction(m_ops->action(KDirOperator::SortMenu));
     m_toolbar->addAction(m_bookmarkButton);
 
     m_toolbar->addWidget(midSpacer);
@@ -1338,7 +1338,7 @@ void KFileWidgetPrivate::initToolbar()
     m_toolbar->addAction(m_zoomInAction);
     m_toolbar->addSeparator();
 
-    m_toolbar->addAction(coll->action(QStringLiteral("mkdir")));
+    m_toolbar->addAction(m_ops->action(KDirOperator::NewFolder));
     m_toolbar->addAction(menu);
 
     m_toolbar->setToolButtonStyle(Qt::ToolButtonIconOnly);
@@ -2680,7 +2680,7 @@ void KFileWidgetPrivate::togglePlacesPanel(bool show, QObject *sender)
             QUrl url = model->url(index);
 
             if (homeURL.matches(url, QUrl::StripTrailingSlash)) {
-                m_toolbar->removeAction(m_ops->actionCollection()->action(QStringLiteral("home")));
+                m_toolbar->removeAction(m_ops->action(KDirOperator::Home));
                 break;
             }
         }
@@ -2695,8 +2695,8 @@ void KFileWidgetPrivate::togglePlacesPanel(bool show, QObject *sender)
             m_placesDock->hide();
         }
 
-        QAction *homeAction = m_ops->actionCollection()->action(QStringLiteral("home"));
-        QAction *reloadAction = m_ops->actionCollection()->action(QStringLiteral("reload"));
+        QAction *homeAction = m_ops->action(KDirOperator::Home);
+        QAction *reloadAction = m_ops->action(KDirOperator::Reload);
         if (!m_toolbar->actions().contains(homeAction)) {
             m_toolbar->insertAction(reloadAction, homeAction);
         }

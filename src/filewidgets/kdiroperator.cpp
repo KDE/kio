@@ -216,6 +216,8 @@ public:
 
     QList<QUrl> m_itemsToBeSetAsCurrent;
     QStringList m_supportedSchemes;
+
+    QHash<KDirOperator::Action, QAction *> m_actions;
 };
 
 KDirOperatorPrivate::~KDirOperatorPrivate()
@@ -404,10 +406,10 @@ void KDirOperator::toggleIgnoreCase()
 void KDirOperator::updateSelectionDependentActions()
 {
     const bool hasSelection = (d->m_itemView != nullptr) && d->m_itemView->selectionModel()->hasSelection();
-    d->m_actionCollection->action(QStringLiteral("rename"))->setEnabled(hasSelection);
-    d->m_actionCollection->action(QStringLiteral("trash"))->setEnabled(hasSelection);
-    d->m_actionCollection->action(QStringLiteral("delete"))->setEnabled(hasSelection);
-    d->m_actionCollection->action(QStringLiteral("properties"))->setEnabled(hasSelection);
+    action(KDirOperator::Rename)->setEnabled(hasSelection);
+    action(KDirOperator::Trash)->setEnabled(hasSelection);
+    action(KDirOperator::Delete)->setEnabled(hasSelection);
+    action(KDirOperator::Properties)->setEnabled(hasSelection);
 }
 
 void KDirOperator::setPreviewWidget(KPreviewWidgetBase *w)
@@ -426,7 +428,7 @@ void KDirOperator::setPreviewWidget(KPreviewWidgetBase *w)
         d->m_splitter->addWidget(w);
     }
 
-    KToggleAction *previewAction = static_cast<KToggleAction *>(d->m_actionCollection->action(QStringLiteral("preview")));
+    KToggleAction *previewAction = static_cast<KToggleAction *>(action(ShowPreviewPanel));
     previewAction->setEnabled(showPreview);
     previewAction->setChecked(showPreview);
     setView(static_cast<KFile::FileView>(d->m_viewKind));
@@ -486,6 +488,16 @@ KCompletion *KDirOperator::dirCompletionObject() const
 KActionCollection *KDirOperator::actionCollection() const
 {
     return d->m_actionCollection;
+}
+
+QAction *KDirOperator::action(KDirOperator::Action action) const
+{
+    return d->m_actions[action];
+}
+
+QList<QAction *> KDirOperator::allActions() const
+{
+    return d->m_actions.values();
 }
 
 KFile::FileView KDirOperatorPrivate::allViews()
@@ -551,7 +563,7 @@ void KDirOperatorPrivate::togglePreview(bool on)
         m_viewKind |= KFile::PreviewContents;
         if (m_preview == nullptr) {
             m_preview = new KFileMetaPreview(q);
-            m_actionCollection->action(QStringLiteral("preview"))->setChecked(true);
+            q->action(KDirOperator::ShowPreviewPanel)->setChecked(true);
             m_splitter->addWidget(m_preview);
         }
 
@@ -639,7 +651,7 @@ void KDirOperatorPrivate::slotIconsView()
     writeIconZoomSettingsIfNeeded();
 
     // Put the icons on top
-    m_actionCollection->action(QStringLiteral("decorationAtTop"))->setChecked(true);
+    q->action(KDirOperator::DecorationAtTop)->setChecked(true);
     m_decorationPosition = QStyleOptionViewItem::Top;
 
     // Switch to simple view
@@ -653,7 +665,7 @@ void KDirOperatorPrivate::slotCompactView()
     writeIconZoomSettingsIfNeeded();
 
     // Put the icons on the side
-    m_actionCollection->action(QStringLiteral("decorationAtLeft"))->setChecked(true);
+    q->action(KDirOperator::DecorationAtTop)->setChecked(true);
     m_decorationPosition = QStyleOptionViewItem::Left;
 
     // Switch to simple view
@@ -667,7 +679,7 @@ void KDirOperatorPrivate::slotDetailsView()
     writeIconZoomSettingsIfNeeded();
 
     KFile::FileView view;
-    if (m_actionCollection->action(QStringLiteral("allow expansion"))->isChecked()) {
+    if (q->action(KDirOperator::AllowExpansionInDetailsView)->isChecked()) {
         view = static_cast<KFile::FileView>((m_viewKind & ~allViews()) | KFile::DetailTree);
     } else {
         view = static_cast<KFile::FileView>((m_viewKind & ~allViews()) | KFile::Detail);
@@ -991,13 +1003,13 @@ void KDirOperator::setUrl(const QUrl &_newurl, bool clearforward)
     Q_EMIT urlEntered(newurl);
 
     // enable/disable actions
-    QAction *forwardAction = d->m_actionCollection->action(QStringLiteral("forward"));
+    QAction *forwardAction = action(KDirOperator::Forward);
     forwardAction->setEnabled(!d->m_forwardStack.isEmpty());
 
-    QAction *backAction = d->m_actionCollection->action(QStringLiteral("back"));
+    QAction *backAction = action(KDirOperator::Back);
     backAction->setEnabled(!d->m_backStack.isEmpty());
 
-    QAction *upAction = d->m_actionCollection->action(QStringLiteral("up"));
+    QAction *upAction = action(KDirOperator::Up);
     upAction->setEnabled(!isRoot());
 
     d->openUrl(newurl);
@@ -1231,7 +1243,7 @@ void KDirOperator::setNewFileMenuSelectDirWhenAlreadyExist(bool selectOnDirExist
 
 bool KDirOperator::checkPreviewSupport()
 {
-    KToggleAction *previewAction = static_cast<KToggleAction *>(d->m_actionCollection->action(QStringLiteral("preview")));
+    KToggleAction *previewAction = static_cast<KToggleAction *>(action(KDirOperator::ShowPreviewPanel));
 
     bool hasPreviewSupport = false;
     KConfigGroup cg(KSharedConfig::openConfig(), ConfigGroup);
@@ -1250,7 +1262,7 @@ void KDirOperator::activatedMenu(const KFileItem &item, const QPoint &pos)
     d->m_newFileMenu->setWorkingDirectory(item.url());
     d->m_newFileMenu->checkUpToDate();
 
-    d->m_actionCollection->action(QStringLiteral("new"))->setEnabled(item.isDir());
+    action(KDirOperator::New)->setEnabled(item.isDir());
 
     Q_EMIT contextMenuAboutToShow(item, d->m_actionMenu->menu());
 
@@ -1580,8 +1592,7 @@ void KDirOperator::setView(KFile::FileView viewKind)
         }
 
         const KFile::FileView defaultViewKind = static_cast<KFile::FileView>(d->m_defaultView);
-        preview = (KFile::isPreviewInfo(defaultViewKind) || KFile::isPreviewContents(defaultViewKind))
-            && d->m_actionCollection->action(QStringLiteral("preview"))->isEnabled();
+        preview = (KFile::isPreviewInfo(defaultViewKind) || KFile::isPreviewContents(defaultViewKind)) && action(KDirOperator::ShowPreviewPanel)->isEnabled();
     }
 
     d->m_viewKind = static_cast<int>(viewKind);
@@ -1744,7 +1755,7 @@ void KDirOperator::setView(QAbstractItemView *view)
     d->m_previewGenerator = new KFilePreviewGenerator(d->m_itemView);
     d->m_itemView->setIconSize(previewForcedToTrue ? QSize(KIconLoader::SizeHuge, KIconLoader::SizeHuge) : QSize(d->m_iconSize, d->m_iconSize));
     d->m_previewGenerator->setPreviewShown(previewShown);
-    d->m_actionCollection->action(QStringLiteral("inline preview"))->setChecked(previewShown);
+    action(KDirOperator::ShowPreview)->setChecked(previewShown);
 
     // ensure we change everything needed
     d->slotChangeDecorationPosition();
@@ -1994,43 +2005,53 @@ void KDirOperator::setupActions()
 
     d->m_actionMenu = new KActionMenu(i18n("Menu"), this);
     d->m_actionCollection->addAction(QStringLiteral("popupMenu"), d->m_actionMenu);
+    d->m_actions[PopupMenu] = d->m_actionMenu;
 
     QAction *upAction = d->m_actionCollection->addAction(KStandardAction::Up, QStringLiteral("up"), this, SLOT(cdUp()));
+    d->m_actions[Up] = upAction;
     upAction->setText(i18n("Parent Folder"));
 
     QAction *backAction = d->m_actionCollection->addAction(KStandardAction::Back, QStringLiteral("back"), this, SLOT(back()));
+    d->m_actions[Back] = backAction;
     auto backShortcuts = backAction->shortcuts();
     backShortcuts << Qt::Key_Backspace;
     backAction->setShortcuts(backShortcuts);
     backAction->setToolTip(i18nc("@info", "Go back"));
 
     QAction *forwardAction = d->m_actionCollection->addAction(KStandardAction::Forward, QStringLiteral("forward"), this, SLOT(forward()));
+    d->m_actions[Forward] = forwardAction;
     forwardAction->setToolTip(i18nc("@info", "Go forward"));
 
     QAction *homeAction = d->m_actionCollection->addAction(KStandardAction::Home, QStringLiteral("home"), this, SLOT(home()));
+    d->m_actions[Home] = homeAction;
     homeAction->setText(i18n("Home Folder"));
 
     QAction *reloadAction = d->m_actionCollection->addAction(KStandardAction::Redisplay, QStringLiteral("reload"), this, SLOT(rereadDir()));
+    d->m_actions[Reload] = reloadAction;
     reloadAction->setText(i18n("Reload"));
     reloadAction->setShortcuts(KStandardShortcut::shortcut(KStandardShortcut::Reload));
 
     QAction *mkdirAction = new QAction(i18n("New Folder..."), this);
     d->m_actionCollection->addAction(QStringLiteral("mkdir"), mkdirAction);
+    d->m_actions[NewFolder] = mkdirAction;
     mkdirAction->setIcon(QIcon::fromTheme(QStringLiteral("folder-new")));
     connect(mkdirAction, &QAction::triggered, this, [this]() {
         mkdir();
     });
 
     QAction *rename = KStandardAction::renameFile(this, &KDirOperator::renameSelected, this);
+    d->m_actions[Rename] = rename;
     d->m_actionCollection->addAction(QStringLiteral("rename"), rename);
 
     QAction *trash = new QAction(i18n("Move to Trash"), this);
+    d->m_actions[Trash] = trash;
     d->m_actionCollection->addAction(QStringLiteral("trash"), trash);
     trash->setIcon(QIcon::fromTheme(QStringLiteral("user-trash")));
     trash->setShortcut(Qt::Key_Delete);
     connect(trash, &QAction::triggered, this, &KDirOperator::trashSelected);
 
     QAction *action = new QAction(i18n("Delete"), this);
+    d->m_actions[Delete] = action;
     d->m_actionCollection->addAction(QStringLiteral("delete"), action);
     action->setIcon(QIcon::fromTheme(QStringLiteral("edit-delete")));
     action->setShortcut(Qt::SHIFT | Qt::Key_Delete);
@@ -2038,29 +2059,34 @@ void KDirOperator::setupActions()
 
     // the sort menu actions
     KActionMenu *sortMenu = new KActionMenu(i18n("Sorting"), this);
+    d->m_actions[SortMenu] = sortMenu;
     sortMenu->setIcon(QIcon::fromTheme(QStringLiteral("view-sort")));
     sortMenu->setPopupMode(QToolButton::InstantPopup);
     d->m_actionCollection->addAction(QStringLiteral("sorting menu"), sortMenu);
 
     KToggleAction *byNameAction = new KToggleAction(i18n("Sort by Name"), this);
+    d->m_actions[SortByName] = byNameAction;
     d->m_actionCollection->addAction(QStringLiteral("by name"), byNameAction);
     connect(byNameAction, &QAction::triggered, this, [this]() {
         d->slotSortByName();
     });
 
     KToggleAction *bySizeAction = new KToggleAction(i18n("Sort by Size"), this);
+    d->m_actions[SortBySize] = bySizeAction;
     d->m_actionCollection->addAction(QStringLiteral("by size"), bySizeAction);
     connect(bySizeAction, &QAction::triggered, this, [this]() {
         d->slotSortBySize();
     });
 
     KToggleAction *byDateAction = new KToggleAction(i18n("Sort by Date"), this);
+    d->m_actions[SortByDate] = byDateAction;
     d->m_actionCollection->addAction(QStringLiteral("by date"), byDateAction);
     connect(byDateAction, &QAction::triggered, this, [this]() {
         d->slotSortByDate();
     });
 
     KToggleAction *byTypeAction = new KToggleAction(i18n("Sort by Type"), this);
+    d->m_actions[SortByType] = byTypeAction;
     d->m_actionCollection->addAction(QStringLiteral("by type"), byTypeAction);
     connect(byTypeAction, &QAction::triggered, this, [this]() {
         d->slotSortByType();
@@ -2070,6 +2096,7 @@ void KDirOperator::setupActions()
     sortOrderGroup->setExclusive(true);
 
     KToggleAction *ascendingAction = new KToggleAction(i18n("Ascending"), this);
+    d->m_actions[SortAscending] = ascendingAction;
     d->m_actionCollection->addAction(QStringLiteral("ascending"), ascendingAction);
     ascendingAction->setActionGroup(sortOrderGroup);
     connect(ascendingAction, &QAction::triggered, this, [this]() {
@@ -2077,6 +2104,7 @@ void KDirOperator::setupActions()
     });
 
     KToggleAction *descendingAction = new KToggleAction(i18n("Descending"), this);
+    d->m_actions[SortDescending] = descendingAction;
     d->m_actionCollection->addAction(QStringLiteral("descending"), descendingAction);
     descendingAction->setActionGroup(sortOrderGroup);
     connect(descendingAction, &QAction::triggered, this, [this]() {
@@ -2084,12 +2112,14 @@ void KDirOperator::setupActions()
     });
 
     KToggleAction *dirsFirstAction = new KToggleAction(i18n("Folders First"), this);
+    d->m_actions[SortFoldersFirst] = dirsFirstAction;
     d->m_actionCollection->addAction(QStringLiteral("dirs first"), dirsFirstAction);
     connect(dirsFirstAction, &QAction::triggered, this, [this]() {
         d->slotToggleDirsFirst();
     });
 
     KToggleAction *hiddenFilesLastAction = new KToggleAction(i18n("Hidden Files Last"), this);
+    d->m_actions[SortHiddenFilesLast] = hiddenFilesLastAction;
     d->m_actionCollection->addAction(QStringLiteral("hidden files last"), hiddenFilesLastAction);
     connect(hiddenFilesLastAction, &QAction::toggled, this, [this](bool checked) {
         d->m_proxyModel->setSortHiddenFilesLast(checked);
@@ -2097,6 +2127,7 @@ void KDirOperator::setupActions()
 
     // View modes that match those of Dolphin
     KToggleAction *iconsViewAction = new KToggleAction(i18n("Icons View"), this);
+    d->m_actions[ViewIconsView] = iconsViewAction;
     iconsViewAction->setIcon(QIcon::fromTheme(QStringLiteral("view-list-icons")));
     d->m_actionCollection->addAction(QStringLiteral("icons view"), iconsViewAction);
     connect(iconsViewAction, &QAction::triggered, this, [this]() {
@@ -2104,6 +2135,7 @@ void KDirOperator::setupActions()
     });
 
     KToggleAction *compactViewAction = new KToggleAction(i18n("Compact View"), this);
+    d->m_actions[ViewCompactView] = compactViewAction;
     compactViewAction->setIcon(QIcon::fromTheme(QStringLiteral("view-list-details")));
     d->m_actionCollection->addAction(QStringLiteral("compact view"), compactViewAction);
     connect(compactViewAction, &QAction::triggered, this, [this]() {
@@ -2111,6 +2143,7 @@ void KDirOperator::setupActions()
     });
 
     KToggleAction *detailsViewAction = new KToggleAction(i18n("Details View"), this);
+    d->m_actions[ViewDetailsView] = detailsViewAction;
     detailsViewAction->setIcon(QIcon::fromTheme(QStringLiteral("view-list-tree")));
     d->m_actionCollection->addAction(QStringLiteral("details view"), detailsViewAction);
     connect(detailsViewAction, &QAction::triggered, this, [this]() {
@@ -2131,15 +2164,18 @@ void KDirOperator::setupActions()
 
     d->m_decorationMenu = new KActionMenu(i18n("Icon Position"), this);
     d->m_actionCollection->addAction(QStringLiteral("decoration menu"), d->m_decorationMenu);
+    d->m_actions[DecorationMenu] = d->m_decorationMenu;
 
     d->m_leftAction = new KToggleAction(i18n("Next to File Name"), this);
     d->m_actionCollection->addAction(QStringLiteral("decorationAtLeft"), d->m_leftAction);
+    d->m_actions[DecorationAtLeft] = d->m_leftAction;
     connect(d->m_leftAction, &QAction::triggered, this, [this]() {
         d->slotChangeDecorationPosition();
     });
 
     KToggleAction *topAction = new KToggleAction(i18n("Above File Name"), this);
     d->m_actionCollection->addAction(QStringLiteral("decorationAtTop"), topAction);
+    d->m_actions[DecorationAtTop] = topAction;
     connect(topAction, &QAction::triggered, this, [this]() {
         d->slotChangeDecorationPosition();
     });
@@ -2154,6 +2190,7 @@ void KDirOperator::setupActions()
 
     KToggleAction *shortAction = new KToggleAction(i18n("Short View"), this);
     d->m_actionCollection->addAction(QStringLiteral("short view"), shortAction);
+    d->m_actions[ShortView] = shortAction;
     shortAction->setIcon(QIcon::fromTheme(QStringLiteral("view-list-icons")));
     connect(shortAction, &QAction::triggered, this, [this]() {
         d->slotSimpleView();
@@ -2161,6 +2198,7 @@ void KDirOperator::setupActions()
 
     KToggleAction *detailedAction = new KToggleAction(i18n("Detailed View"), this);
     d->m_actionCollection->addAction(QStringLiteral("detailed view"), detailedAction);
+    d->m_actions[DetailedView] = detailedAction;
     detailedAction->setIcon(QIcon::fromTheme(QStringLiteral("view-list-details")));
     connect(detailedAction, &QAction::triggered, this, [this]() {
         d->slotDetailedView();
@@ -2168,6 +2206,7 @@ void KDirOperator::setupActions()
 
     KToggleAction *treeAction = new KToggleAction(i18n("Tree View"), this);
     d->m_actionCollection->addAction(QStringLiteral("tree view"), treeAction);
+    d->m_actions[TreeView] = treeAction;
     treeAction->setIcon(QIcon::fromTheme(QStringLiteral("view-list-tree")));
     connect(treeAction, &QAction::triggered, this, [this]() {
         d->slotTreeView();
@@ -2175,6 +2214,7 @@ void KDirOperator::setupActions()
 
     KToggleAction *detailedTreeAction = new KToggleAction(i18n("Detailed Tree View"), this);
     d->m_actionCollection->addAction(QStringLiteral("detailed tree view"), detailedTreeAction);
+    d->m_actions[DetailedTreeView] = detailedTreeAction;
     detailedTreeAction->setIcon(QIcon::fromTheme(QStringLiteral("view-list-tree")));
     connect(detailedTreeAction, &QAction::triggered, this, [this]() {
         d->slotDetailedTreeView();
@@ -2188,12 +2228,14 @@ void KDirOperator::setupActions()
 
     KToggleAction *allowExpansionAction = new KToggleAction(i18n("Allow Expansion in Details View"), this);
     d->m_actionCollection->addAction(QStringLiteral("allow expansion"), allowExpansionAction);
+    d->m_actions[AllowExpansionInDetailsView] = allowExpansionAction;
     connect(allowExpansionAction, &QAction::toggled, this, [this](bool allow) {
         d->slotToggleAllowExpansion(allow);
     });
 
     KToggleAction *showHiddenAction = new KToggleAction(i18n("Show Hidden Files"), this);
     d->m_actionCollection->addAction(QStringLiteral("show hidden"), showHiddenAction);
+    d->m_actions[ShowHiddenFiles] = showHiddenAction;
     showHiddenAction->setShortcuts(KStandardShortcut::showHideHiddenFiles());
     connect(showHiddenAction, &QAction::toggled, this, [this](bool show) {
         d->slotToggleHidden(show);
@@ -2201,6 +2243,7 @@ void KDirOperator::setupActions()
 
     KToggleAction *previewAction = new KToggleAction(i18n("Show Preview Panel"), this);
     d->m_actionCollection->addAction(QStringLiteral("preview"), previewAction);
+    d->m_actions[ShowPreviewPanel] = previewAction;
     previewAction->setShortcut(Qt::Key_F11);
     connect(previewAction, &QAction::toggled, this, [this](bool enable) {
         d->togglePreview(enable);
@@ -2208,6 +2251,7 @@ void KDirOperator::setupActions()
 
     KToggleAction *inlinePreview = new KToggleAction(QIcon::fromTheme(QStringLiteral("view-preview")), i18n("Show Preview"), this);
     d->m_actionCollection->addAction(QStringLiteral("inline preview"), inlinePreview);
+    d->m_actions[ShowPreview] = inlinePreview;
     inlinePreview->setShortcut(Qt::Key_F12);
     connect(inlinePreview, &QAction::toggled, this, [this](bool enable) {
         d->toggleInlinePreviews(enable);
@@ -2215,6 +2259,7 @@ void KDirOperator::setupActions()
 
     QAction *fileManager = new QAction(i18n("Open Containing Folder"), this);
     d->m_actionCollection->addAction(QStringLiteral("file manager"), fileManager);
+    d->m_actions[OpenContainingFolder] = fileManager;
     fileManager->setIcon(QIcon::fromTheme(QStringLiteral("system-file-manager")));
     connect(fileManager, &QAction::triggered, this, [this]() {
         d->slotOpenFileManager();
@@ -2222,6 +2267,7 @@ void KDirOperator::setupActions()
 
     action = new QAction(i18n("Properties"), this);
     d->m_actionCollection->addAction(QStringLiteral("properties"), action);
+    d->m_actions[Properties] = action;
     action->setIcon(QIcon::fromTheme(QStringLiteral("document-properties")));
     action->setShortcut(Qt::ALT | Qt::Key_Return);
     connect(action, &QAction::triggered, this, [this]() {
@@ -2231,6 +2277,7 @@ void KDirOperator::setupActions()
     // the view menu actions
     KActionMenu *viewMenu = new KActionMenu(i18n("&View Mode"), this);
     d->m_actionCollection->addAction(QStringLiteral("view menu"), viewMenu);
+    d->m_actions[ViewModeMenu] = viewMenu;
     viewMenu->setIcon(QIcon::fromTheme(QStringLiteral("view-list-tree")));
     viewMenu->addAction(shortAction);
     viewMenu->addAction(detailedAction);
@@ -2243,6 +2290,7 @@ void KDirOperator::setupActions()
     d->m_itemActions = new KFileItemActions(this);
 
     d->m_newFileMenu = new KNewFileMenu(d->m_actionCollection, QStringLiteral("new"), this);
+    d->m_actions[KDirOperator::New] = d->m_newFileMenu;
     connect(d->m_newFileMenu, &KNewFileMenu::directoryCreated, this, [this](const QUrl &url) {
         d->slotDirectoryCreated(url);
     });
@@ -2265,42 +2313,42 @@ void KDirOperator::setupMenu()
 void KDirOperator::setupMenu(int whichActions)
 {
     // first fill the submenus (sort and view)
-    KActionMenu *sortMenu = static_cast<KActionMenu *>(d->m_actionCollection->action(QStringLiteral("sorting menu")));
+    KActionMenu *sortMenu = static_cast<KActionMenu *>(action(KDirOperator::SortMenu));
     sortMenu->menu()->clear();
-    sortMenu->addAction(d->m_actionCollection->action(QStringLiteral("by name")));
-    sortMenu->addAction(d->m_actionCollection->action(QStringLiteral("by size")));
-    sortMenu->addAction(d->m_actionCollection->action(QStringLiteral("by date")));
-    sortMenu->addAction(d->m_actionCollection->action(QStringLiteral("by type")));
+    sortMenu->addAction(action(KDirOperator::SortByName));
+    sortMenu->addAction(action(KDirOperator::SortBySize));
+    sortMenu->addAction(action(KDirOperator::SortByDate));
+    sortMenu->addAction(action(KDirOperator::SortByType));
     sortMenu->addSeparator();
-    sortMenu->addAction(d->m_actionCollection->action(QStringLiteral("ascending")));
-    sortMenu->addAction(d->m_actionCollection->action(QStringLiteral("descending")));
+    sortMenu->addAction(action(KDirOperator::SortAscending));
+    sortMenu->addAction(action(KDirOperator::SortDescending));
     sortMenu->addSeparator();
-    sortMenu->addAction(d->m_actionCollection->action(QStringLiteral("dirs first")));
-    sortMenu->addAction(d->m_actionCollection->action(QStringLiteral("hidden files last")));
+    sortMenu->addAction(action(KDirOperator::SortFoldersFirst));
+    sortMenu->addAction(action(KDirOperator::SortHiddenFilesLast));
 
     // now plug everything into the popupmenu
     d->m_actionMenu->menu()->clear();
     if (whichActions & NavActions) {
-        d->m_actionMenu->addAction(d->m_actionCollection->action(QStringLiteral("up")));
-        d->m_actionMenu->addAction(d->m_actionCollection->action(QStringLiteral("back")));
-        d->m_actionMenu->addAction(d->m_actionCollection->action(QStringLiteral("forward")));
-        d->m_actionMenu->addAction(d->m_actionCollection->action(QStringLiteral("home")));
+        d->m_actionMenu->addAction(action(KDirOperator::Up));
+        d->m_actionMenu->addAction(action(KDirOperator::Back));
+        d->m_actionMenu->addAction(action(KDirOperator::Forward));
+        d->m_actionMenu->addAction(action(KDirOperator::Home));
         d->m_actionMenu->addSeparator();
     }
 
     if (whichActions & FileActions) {
-        d->m_actionMenu->addAction(d->m_actionCollection->action(QStringLiteral("new")));
+        d->m_actionMenu->addAction(action(KDirOperator::New));
 
-        d->m_actionMenu->addAction(d->m_actionCollection->action(QStringLiteral("rename")));
-        d->m_actionCollection->action(QStringLiteral("rename"))->setEnabled(KProtocolManager::supportsMoving(d->m_currUrl));
+        d->m_actionMenu->addAction(action(KDirOperator::Rename));
+        action(KDirOperator::Rename)->setEnabled(KProtocolManager::supportsMoving(d->m_currUrl));
 
         if (d->m_currUrl.isLocalFile() && !(QApplication::keyboardModifiers() & Qt::ShiftModifier)) {
-            d->m_actionMenu->addAction(d->m_actionCollection->action(QStringLiteral("trash")));
+            d->m_actionMenu->addAction(action(KDirOperator::Trash));
         }
         KConfigGroup cg(KSharedConfig::openConfig(), QStringLiteral("KDE"));
         const bool del = !d->m_currUrl.isLocalFile() || (QApplication::keyboardModifiers() & Qt::ShiftModifier) || cg.readEntry("ShowDeleteCommand", false);
         if (del) {
-            d->m_actionMenu->addAction(d->m_actionCollection->action(QStringLiteral("delete")));
+            d->m_actionMenu->addAction(action(KDirOperator::Delete));
         }
         d->m_actionMenu->addSeparator();
     }
@@ -2313,42 +2361,42 @@ void KDirOperator::setupMenu(int whichActions)
     }
 
     if (whichActions & ViewActions) {
-        d->m_actionMenu->addAction(d->m_actionCollection->action(QStringLiteral("view menu")));
-        d->m_actionMenu->addAction(d->m_actionCollection->action(QStringLiteral("reload")));
+        d->m_actionMenu->addAction(action(KDirOperator::ViewModeMenu));
+        d->m_actionMenu->addAction(action(KDirOperator::Reload));
         d->m_actionMenu->addSeparator();
     }
 
     if (whichActions & FileActions) {
-        d->m_actionMenu->addAction(d->m_actionCollection->action(QStringLiteral("file manager")));
-        d->m_actionMenu->addAction(d->m_actionCollection->action(QStringLiteral("properties")));
+        d->m_actionMenu->addAction(action(KDirOperator::OpenContainingFolder));
+        d->m_actionMenu->addAction(action(KDirOperator::Properties));
     }
 }
 
 void KDirOperator::updateSortActions()
 {
-    QAction *ascending = d->m_actionCollection->action(QStringLiteral("ascending"));
-    QAction *descending = d->m_actionCollection->action(QStringLiteral("descending"));
+    QAction *ascending = action(KDirOperator::SortAscending);
+    QAction *descending = action(KDirOperator::SortDescending);
 
     if (KFile::isSortByName(d->m_sorting)) {
-        d->m_actionCollection->action(QStringLiteral("by name"))->setChecked(true);
+        action(KDirOperator::SortByName)->setChecked(true);
         descending->setText(i18nc("Sort descending", "Z-A"));
         ascending->setText(i18nc("Sort ascending", "A-Z"));
     } else if (KFile::isSortByDate(d->m_sorting)) {
-        d->m_actionCollection->action(QStringLiteral("by date"))->setChecked(true);
+        action(KDirOperator::SortByDate)->setChecked(true);
         descending->setText(i18nc("Sort descending", "Newest First"));
         ascending->setText(i18nc("Sort ascending", "Oldest First"));
     } else if (KFile::isSortBySize(d->m_sorting)) {
-        d->m_actionCollection->action(QStringLiteral("by size"))->setChecked(true);
+        action(KDirOperator::SortBySize)->setChecked(true);
         descending->setText(i18nc("Sort descending", "Largest First"));
         ascending->setText(i18nc("Sort ascending", "Smallest First"));
     } else if (KFile::isSortByType(d->m_sorting)) {
-        d->m_actionCollection->action(QStringLiteral("by type"))->setChecked(true);
+        action(KDirOperator::SortByType)->setChecked(true);
         descending->setText(i18nc("Sort descending", "Z-A"));
         ascending->setText(i18nc("Sort ascending", "A-Z"));
     }
     ascending->setChecked(!(d->m_sorting & QDir::Reversed));
     descending->setChecked(d->m_sorting & QDir::Reversed);
-    d->m_actionCollection->action(QStringLiteral("dirs first"))->setChecked(d->m_sorting & QDir::DirsFirst);
+    action(KDirOperator::SortFoldersFirst)->setChecked(d->m_sorting & QDir::DirsFirst);
 }
 
 void KDirOperator::updateViewActions()
@@ -2359,15 +2407,15 @@ void KDirOperator::updateViewActions()
     // separateDirs->setChecked(KFile::isSeparateDirs(fv) &&
     //                         separateDirs->isEnabled());
 
-    d->m_actionCollection->action(QStringLiteral("short view"))->setChecked(KFile::isSimpleView(fv));
-    d->m_actionCollection->action(QStringLiteral("detailed view"))->setChecked(KFile::isDetailView(fv));
-    d->m_actionCollection->action(QStringLiteral("tree view"))->setChecked(KFile::isTreeView(fv));
-    d->m_actionCollection->action(QStringLiteral("detailed tree view"))->setChecked(KFile::isDetailTreeView(fv));
+    action(KDirOperator::ShortView)->setChecked(KFile::isSimpleView(fv));
+    action(KDirOperator::DetailedView)->setChecked(KFile::isDetailView(fv));
+    action(KDirOperator::TreeView)->setChecked(KFile::isTreeView(fv));
+    action(KDirOperator::DetailedTreeView)->setChecked(KFile::isDetailTreeView(fv));
 
     // dolphin style views
-    d->m_actionCollection->action(QStringLiteral("icons view"))->setChecked(KFile::isSimpleView(fv) && d->m_decorationPosition == QStyleOptionViewItem::Top);
-    d->m_actionCollection->action(QStringLiteral("compact view"))->setChecked(KFile::isSimpleView(fv) && d->m_decorationPosition == QStyleOptionViewItem::Left);
-    d->m_actionCollection->action(QStringLiteral("details view"))->setChecked(KFile::isDetailTreeView(fv) || KFile::isDetailView(fv));
+    action(KDirOperator::ViewIconsView)->setChecked(KFile::isSimpleView(fv) && d->m_decorationPosition == QStyleOptionViewItem::Top);
+    action(KDirOperator::ViewCompactView)->setChecked(KFile::isSimpleView(fv) && d->m_decorationPosition == QStyleOptionViewItem::Left);
+    action(KDirOperator::ViewDetailsView)->setChecked(KFile::isDetailTreeView(fv) || KFile::isDetailView(fv));
 }
 
 void KDirOperator::readConfig(const KConfigGroup &configGroup)
@@ -2394,16 +2442,16 @@ void KDirOperator::readConfig(const KConfigGroup &configGroup)
     d->m_previewWidth = configGroup.readEntry(QStringLiteral("Preview Width"), 100);
 
     if (configGroup.readEntry(QStringLiteral("Show hidden files"), DefaultShowHidden)) {
-        d->m_actionCollection->action(QStringLiteral("show hidden"))->setChecked(true);
+        action(KDirOperator::ShowHiddenFiles)->setChecked(true);
         d->m_dirLister->setShowingDotFiles(true);
     }
 
     if (configGroup.readEntry(QStringLiteral("Allow Expansion"), DefaultShowHidden)) {
-        d->m_actionCollection->action(QStringLiteral("allow expansion"))->setChecked(true);
+        action(KDirOperator::AllowExpansionInDetailsView)->setChecked(true);
     }
 
     const bool hiddenFilesLast = configGroup.readEntry(QStringLiteral("Sort hidden files last"), DefaultHiddenFilesLast);
-    d->m_actionCollection->action(QStringLiteral("hidden files last"))->setChecked(hiddenFilesLast);
+    action(KDirOperator::SortHiddenFilesLast)->setChecked(hiddenFilesLast);
 
     QDir::SortFlags sorting = QDir::Name;
     if (configGroup.readEntry(QStringLiteral("Sort directories first"), DefaultDirsFirst)) {
@@ -2446,11 +2494,11 @@ void KDirOperator::writeConfig(KConfigGroup &configGroup)
 
     configGroup.writeEntry(QStringLiteral("Sort by"), sortBy);
 
-    configGroup.writeEntry(QStringLiteral("Sort reversed"), d->m_actionCollection->action(QStringLiteral("descending"))->isChecked());
+    configGroup.writeEntry(QStringLiteral("Sort reversed"), action(KDirOperator::SortDescending)->isChecked());
 
-    configGroup.writeEntry(QStringLiteral("Sort directories first"), d->m_actionCollection->action(QStringLiteral("dirs first"))->isChecked());
+    configGroup.writeEntry(QStringLiteral("Sort directories first"), action(KDirOperator::SortFoldersFirst)->isChecked());
 
-    const bool hiddenFilesLast = d->m_actionCollection->action(QStringLiteral("hidden files last"))->isChecked();
+    const bool hiddenFilesLast = action(KDirOperator::SortHiddenFilesLast)->isChecked();
     configGroup.writeEntry(QStringLiteral("Sort hidden files last"), hiddenFilesLast);
 
     // don't save the preview when an application specific preview is in use.
@@ -2461,7 +2509,7 @@ void KDirOperator::writeConfig(KConfigGroup &configGroup)
     }
 
     if (!appSpecificPreview) {
-        KToggleAction *previewAction = static_cast<KToggleAction *>(d->m_actionCollection->action(QStringLiteral("preview")));
+        KToggleAction *previewAction = static_cast<KToggleAction *>(action(KDirOperator::ShowPreviewPanel));
         if (previewAction->isEnabled()) {
             bool hasPreview = previewAction->isChecked();
             configGroup.writeEntry(QStringLiteral("Show Preview"), hasPreview);
@@ -2475,9 +2523,9 @@ void KDirOperator::writeConfig(KConfigGroup &configGroup)
         }
     }
 
-    configGroup.writeEntry(QStringLiteral("Show hidden files"), d->m_actionCollection->action(QStringLiteral("show hidden"))->isChecked());
+    configGroup.writeEntry(QStringLiteral("Show hidden files"), action(KDirOperator::ShowHiddenFiles)->isChecked());
 
-    configGroup.writeEntry(QStringLiteral("Allow Expansion"), d->m_actionCollection->action(QStringLiteral("allow expansion"))->isChecked());
+    configGroup.writeEntry(QStringLiteral("Allow Expansion"), action(KDirOperator::AllowExpansionInDetailsView)->isChecked());
 
     KFile::FileView fv = static_cast<KFile::FileView>(d->m_viewKind);
     QString style;
@@ -2628,11 +2676,11 @@ void KDirOperator::clearHistory()
 {
     qDeleteAll(d->m_backStack);
     d->m_backStack.clear();
-    d->m_actionCollection->action(QStringLiteral("back"))->setEnabled(false);
+    action(KDirOperator::Back)->setEnabled(false);
 
     qDeleteAll(d->m_forwardStack);
     d->m_forwardStack.clear();
-    d->m_actionCollection->action(QStringLiteral("forward"))->setEnabled(false);
+    action(KDirOperator::Forward)->setEnabled(false);
 }
 
 void KDirOperator::setEnableDirHighlighting(bool enable)
@@ -2823,7 +2871,7 @@ void KDirOperatorPrivate::slotChangeDecorationPosition()
         return;
     }
 
-    const bool leftChecked = m_actionCollection->action(QStringLiteral("decorationAtLeft"))->isChecked();
+    const bool leftChecked = q->action(KDirOperator::DecorationAtLeft)->isChecked();
 
     if (leftChecked) {
         view->setDecorationPosition(QStyleOptionViewItem::Left);
@@ -2932,12 +2980,12 @@ KConfigGroup *KDirOperator::viewConfigGroup() const
 
 void KDirOperator::setShowHiddenFiles(bool s)
 {
-    d->m_actionCollection->action(QStringLiteral("show hidden"))->setChecked(s);
+    action(KDirOperator::ShowHiddenFiles)->setChecked(s);
 }
 
 bool KDirOperator::showHiddenFiles() const
 {
-    return d->m_actionCollection->action(QStringLiteral("show hidden"))->isChecked();
+    return action(KDirOperator::ShowHiddenFiles)->isChecked();
 }
 
 QStyleOptionViewItem::Position KDirOperator::decorationPosition() const
@@ -2949,8 +2997,8 @@ void KDirOperator::setDecorationPosition(QStyleOptionViewItem::Position position
 {
     d->m_decorationPosition = position;
     const bool decorationAtLeft = d->m_decorationPosition == QStyleOptionViewItem::Left;
-    d->m_actionCollection->action(QStringLiteral("decorationAtLeft"))->setChecked(decorationAtLeft);
-    d->m_actionCollection->action(QStringLiteral("decorationAtTop"))->setChecked(!decorationAtLeft);
+    action(KDirOperator::DecorationAtLeft)->setChecked(decorationAtLeft);
+    action(KDirOperator::DecorationAtTop)->setChecked(!decorationAtLeft);
 }
 
 bool KDirOperatorPrivate::isReadable(const QUrl &url)
