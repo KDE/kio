@@ -48,7 +48,9 @@ KDirListerTest::KDirListerTest(QWidget *parent, const QUrl &initialUrl)
     connect(lister, qOverload<const QUrl &, const QUrl &>(&KDirLister::redirection), debug, &PrintSignals::redirection);
     connect(lister, qOverload<>(&KDirLister::clear), debug, &PrintSignals::clear);
     connect(lister, &KCoreDirLister::newItems, debug, &PrintSignals::newItems);
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 100)
     connect(lister, &KCoreDirLister::itemsFilteredByMime, debug, &PrintSignals::itemsFilteredByMime);
+#endif
     connect(lister, &KCoreDirLister::itemsDeleted, debug, &PrintSignals::itemsDeleted);
     connect(lister, &KCoreDirLister::refreshItems, debug, &PrintSignals::refreshItems);
     connect(lister, &KCoreDirLister::infoMessage, debug, &PrintSignals::infoMessage);

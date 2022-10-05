@@ -644,11 +644,16 @@ Q_SIGNALS:
      */
     void itemsAdded(const QUrl &directoryUrl, const KFileItemList &items);
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 100)
     /**
      * Send a list of items filtered-out by MIME type.
      * @param items the list of filtered items
+     *
+     * @deprecated since 5.100, no known users.
      */
+    KIOCORE_DEPRECATED_VERSION(5, 100, "No known users.")
     void itemsFilteredByMime(const KFileItemList &items);
+#endif
 
     /**
      * Signal that items have been deleted

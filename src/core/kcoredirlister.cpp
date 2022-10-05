@@ -2561,7 +2561,9 @@ void KCoreDirListerPrivate::emitItems()
     }
 
     if (!lstMimeFilteredItems.empty()) {
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 100)
         Q_EMIT q->itemsFilteredByMime(lstMimeFilteredItems);
+#endif
         lstMimeFilteredItems.clear();
     }
 

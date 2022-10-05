@@ -69,11 +69,13 @@ public Q_SLOTS:
         cout << "*** itemsDeleted: " << endl;
         // TODO
     }
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 100)
     void itemsFilteredByMime(const KFileItemList &)
     {
         cout << "*** itemsFilteredByMime: " << endl;
         // TODO
     }
+#endif
     void refreshItems(const QList<QPair<KFileItem, KFileItem>> &)
     {
         cout << "*** refreshItems: " << endl;

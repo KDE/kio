@@ -1068,7 +1068,9 @@ void KDirModelTest::testMimeFilter()
     QVERIFY(m_dirIndex.isValid());
     const int oldTopLevelRowCount = m_dirModel->rowCount();
     const int oldSubdirRowCount = m_dirModel->rowCount(m_dirIndex);
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 100)
     QSignalSpy spyItemsFilteredByMime(m_dirModel->dirLister(), &KCoreDirLister::itemsFilteredByMime);
+#endif
     QSignalSpy spyItemsDeleted(m_dirModel->dirLister(), &KCoreDirLister::itemsDeleted);
     QSignalSpy spyRowsRemoved(m_dirModel, &QAbstractItemModel::rowsRemoved);
     m_dirModel->dirLister()->setMimeFilter(QStringList{QStringLiteral("application/pdf")});
@@ -1080,14 +1082,16 @@ void KDirModelTest::testMimeFilter()
 
     QVERIFY(spyRowsRemoved.count() >= 1); // depends on contiguity...
     QVERIFY(spyItemsDeleted.count() >= 1); // once for every dir
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 100)
     // Maybe it would make sense to have those items in itemsFilteredByMime,
     // but well, for the only existing use of that signal (MIME type filter plugin),
     // it's not really necessary, the plugin has seen those files before anyway.
     // The signal is mostly useful for the case of listing a dir with a MIME type filter set.
     // QCOMPARE(spyItemsFilteredByMime.count(), 1);
     // QCOMPARE(spyItemsFilteredByMime[0][0].value<KFileItemList>().count(), 4);
-    spyItemsDeleted.clear();
     spyItemsFilteredByMime.clear();
+#endif
+    spyItemsDeleted.clear();
 
     // Reset the filter
     qDebug() << "reset to no filter";
