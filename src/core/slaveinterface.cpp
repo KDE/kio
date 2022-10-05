@@ -294,8 +294,9 @@ bool SlaveInterface::dispatch(int _cmd, const QByteArray &rawdata)
                     break;
                 }
             }
-        } else if (m.contains(QStringLiteral("privilege_conf_details"))) { // KF6 TODO Remove this conditional.
-            d->privilegeConfMetaData = m;
+        } else if (auto it = m.constFind(QStringLiteral("privilege_conf_details")); it != m.cend()) {
+            // see WORKER_MESSAGEBOX_DETAILS_HACK
+            d->messageBoxDetails = it.value();
         }
         Q_EMIT metaData(m);
         break;
@@ -432,8 +433,8 @@ void SlaveInterface::messageBox(int type,
 
     if (type == KIO::SlaveBase::SSLMessageBox) {
         data.insert(UserNotificationHandler::MSG_META_DATA, d->sslMetaData.toVariant());
-    } else if (type == KIO::SlaveBase::WarningContinueCancelDetailed) { // KF6 TODO Remove
-        data.insert(UserNotificationHandler::MSG_META_DATA, d->privilegeConfMetaData.toVariant());
+    } else if (type == KIO::SlaveBase::WarningContinueCancelDetailed) { // see WORKER_MESSAGEBOX_DETAILS_HACK
+        data.insert(UserNotificationHandler::MSG_DETAILS, d->messageBoxDetails);
     }
 
     globalUserNotificationHandler()->requestMessageBox(this, type, data);
