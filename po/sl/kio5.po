@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-04 00:41+0000\n"
+"POT-Creation-Date: 2022-10-05 00:43+0000\n"
 "PO-Revision-Date: 2022-10-03 07:41+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -23,8 +23,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
-"%100<=4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
+"%100==4 ? 3 : 0);\n"
 "Translator: Andrej Mernik <andrejm@ubuntu.si>\n"
 "X-Generator: Poedit 3.1.1\n"
 
@@ -7803,7 +7803,7 @@ msgstr ""
 "%m - majhna-ikona\n"
 "%c - opomba"
 
-#: widgets/kopenwithdialog.cpp:740
+#: widgets/kopenwithdialog.cpp:741
 #, kde-format
 msgid ""
 "&Remember application association for all files of type\n"
@@ -7812,27 +7812,39 @@ msgstr ""
 "&Zapomni si povezavo s programom za vse datoteke naslednje vrste\n"
 "\"%1\" (%2)"
 
-#: widgets/kopenwithdialog.cpp:749
+#: widgets/kopenwithdialog.cpp:743
+#, fuzzy, kde-format
+#| msgid ""
+#| "&Remember application association for all files of type\n"
+#| "\"%1\" (%2)"
+msgid ""
+"&Remember application association for all files of type\n"
+"\"%1\""
+msgstr ""
+"&Zapomni si povezavo s programom za vse datoteke naslednje vrste\n"
+"\"%1\" (%2)"
+
+#: widgets/kopenwithdialog.cpp:753
 #, kde-format
 msgid "Terminal options"
 msgstr "Možnosti terminala"
 
-#: widgets/kopenwithdialog.cpp:754
+#: widgets/kopenwithdialog.cpp:758
 #, kde-format
 msgid "Run in &terminal"
 msgstr "Zaženi v &terminalu"
 
-#: widgets/kopenwithdialog.cpp:772
+#: widgets/kopenwithdialog.cpp:776
 #, kde-format
 msgid "&Do not close when command exits"
 msgstr "&Ne zapri, ko se ukaz konča"
 
-#: widgets/kopenwithdialog.cpp:791
+#: widgets/kopenwithdialog.cpp:795
 #, kde-format
 msgid "Get more Apps from Discover"
 msgstr "Pridobi več aplikacij iz Discovererja"
 
-#: widgets/kopenwithdialog.cpp:976
+#: widgets/kopenwithdialog.cpp:980
 #, kde-format
 msgid ""
 "Could not extract executable name from '%1', please type a valid program "
@@ -7841,13 +7853,13 @@ msgstr ""
 "Iz '%1' ni bilo mogoče razširiti imena programa. Vnesite veljavno ime "
 "programa."
 
-#: widgets/kopenwithdialog.cpp:1030
+#: widgets/kopenwithdialog.cpp:1034
 #, kde-kuit-format
 msgctxt "@info"
 msgid "<filename>%1</filename> does not appear to be an executable program."
 msgstr "<filename>%1</filename> se na kaže kot izvedljiv program."
 
-#: widgets/kopenwithdialog.cpp:1031
+#: widgets/kopenwithdialog.cpp:1035
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""

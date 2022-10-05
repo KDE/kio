@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ante-toki-pi-ilo-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-04 00:41+0000\n"
+"POT-Creation-Date: 2022-10-05 00:43+0000\n"
 "PO-Revision-Date: 2022-06-20 03:30+0000\n"
 "Last-Translator: Weblate Admin <admin@example.com>\n"
 "Language-Team: Toki Pona <http://weblate.blackquill.cc/projects/ante-toki-pi-"
@@ -7301,7 +7301,7 @@ msgid ""
 "%c - the comment"
 msgstr ""
 
-#: widgets/kopenwithdialog.cpp:740
+#: widgets/kopenwithdialog.cpp:741
 #, kde-format
 msgid ""
 "&Remember application association for all files of type\n"
@@ -7310,40 +7310,52 @@ msgstr ""
 "o &kepeken e ilo ni tawa lipu ale pi kule\n"
 "\"%1\" (%2)"
 
-#: widgets/kopenwithdialog.cpp:749
+#: widgets/kopenwithdialog.cpp:743
+#, fuzzy, kde-format
+#| msgid ""
+#| "&Remember application association for all files of type\n"
+#| "\"%1\" (%2)"
+msgid ""
+"&Remember application association for all files of type\n"
+"\"%1\""
+msgstr ""
+"o &kepeken e ilo ni tawa lipu ale pi kule\n"
+"\"%1\" (%2)"
+
+#: widgets/kopenwithdialog.cpp:753
 #, kde-format
 msgid "Terminal options"
 msgstr "lawa pi ilo pi toki taso"
 
-#: widgets/kopenwithdialog.cpp:754
+#: widgets/kopenwithdialog.cpp:758
 #, kde-format
 msgid "Run in &terminal"
 msgstr "o kepeken lon ilo pi &toki taso"
 
-#: widgets/kopenwithdialog.cpp:772
+#: widgets/kopenwithdialog.cpp:776
 #, kde-format
 msgid "&Do not close when command exits"
 msgstr "&ilo li pini la o weka ala"
 
-#: widgets/kopenwithdialog.cpp:791
+#: widgets/kopenwithdialog.cpp:795
 #, kde-format
 msgid "Get more Apps from Discover"
 msgstr ""
 
-#: widgets/kopenwithdialog.cpp:976
+#: widgets/kopenwithdialog.cpp:980
 #, kde-format
 msgid ""
 "Could not extract executable name from '%1', please type a valid program "
 "name."
 msgstr ""
 
-#: widgets/kopenwithdialog.cpp:1030
+#: widgets/kopenwithdialog.cpp:1034
 #, kde-kuit-format
 msgctxt "@info"
 msgid "<filename>%1</filename> does not appear to be an executable program."
 msgstr "lipu <filename>%1</filename> li ilo ala."
 
-#: widgets/kopenwithdialog.cpp:1031
+#: widgets/kopenwithdialog.cpp:1035
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""

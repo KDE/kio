@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-04 00:41+0000\n"
+"POT-Creation-Date: 2022-10-05 00:43+0000\n"
 "PO-Revision-Date: 2020-05-14 23:21+0800\n"
 "Last-Translator: Yi-Jyun Pan <pan93412@gmail.com>\n"
 "Language-Team: Chinese <zh-l10n@lists.linux.org.tw>\n"
@@ -7572,7 +7572,7 @@ msgstr ""
 "%m - 小型圖示\n"
 "%c - 註解"
 
-#: widgets/kopenwithdialog.cpp:740
+#: widgets/kopenwithdialog.cpp:741
 #, kde-format
 msgid ""
 "&Remember application association for all files of type\n"
@@ -7581,40 +7581,52 @@ msgstr ""
 "記住所有檔案類型為「%1」 (%2)應用程式\n"
 "關聯(&R)"
 
-#: widgets/kopenwithdialog.cpp:749
+#: widgets/kopenwithdialog.cpp:743
+#, fuzzy, kde-format
+#| msgid ""
+#| "&Remember application association for all files of type\n"
+#| "\"%1\" (%2)"
+msgid ""
+"&Remember application association for all files of type\n"
+"\"%1\""
+msgstr ""
+"記住所有檔案類型為「%1」 (%2)應用程式\n"
+"關聯(&R)"
+
+#: widgets/kopenwithdialog.cpp:753
 #, kde-format
 msgid "Terminal options"
 msgstr "終端機選項"
 
-#: widgets/kopenwithdialog.cpp:754
+#: widgets/kopenwithdialog.cpp:758
 #, kde-format
 msgid "Run in &terminal"
 msgstr "於終端機執行(&T)"
 
-#: widgets/kopenwithdialog.cpp:772
+#: widgets/kopenwithdialog.cpp:776
 #, kde-format
 msgid "&Do not close when command exits"
 msgstr "當指令存在時不要關閉(&D)"
 
-#: widgets/kopenwithdialog.cpp:791
+#: widgets/kopenwithdialog.cpp:795
 #, kde-format
 msgid "Get more Apps from Discover"
 msgstr ""
 
-#: widgets/kopenwithdialog.cpp:976
+#: widgets/kopenwithdialog.cpp:980
 #, kde-format
 msgid ""
 "Could not extract executable name from '%1', please type a valid program "
 "name."
 msgstr "無法從 %1 解開執行檔名撐，請輸入合法的程式名稱"
 
-#: widgets/kopenwithdialog.cpp:1030
+#: widgets/kopenwithdialog.cpp:1034
 #, kde-kuit-format
 msgctxt "@info"
 msgid "<filename>%1</filename> does not appear to be an executable program."
 msgstr ""
 
-#: widgets/kopenwithdialog.cpp:1031
+#: widgets/kopenwithdialog.cpp:1035
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""

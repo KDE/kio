@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-04 00:41+0000\n"
+"POT-Creation-Date: 2022-10-05 00:43+0000\n"
 "PO-Revision-Date: 2022-05-05 10:31+0100\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -7833,7 +7833,7 @@ msgstr ""
 "%m - mini-pictograma\n"
 "%c - comentariul"
 
-#: widgets/kopenwithdialog.cpp:740
+#: widgets/kopenwithdialog.cpp:741
 #, kde-format
 msgid ""
 "&Remember application association for all files of type\n"
@@ -7842,27 +7842,39 @@ msgstr ""
 "Ține minte asocie&rea de aplicații pentru toate fișierele de tip\n"
 "„%1” (%2)"
 
-#: widgets/kopenwithdialog.cpp:749
+#: widgets/kopenwithdialog.cpp:743
+#, fuzzy, kde-format
+#| msgid ""
+#| "&Remember application association for all files of type\n"
+#| "\"%1\" (%2)"
+msgid ""
+"&Remember application association for all files of type\n"
+"\"%1\""
+msgstr ""
+"Ține minte asocie&rea de aplicații pentru toate fișierele de tip\n"
+"„%1” (%2)"
+
+#: widgets/kopenwithdialog.cpp:753
 #, kde-format
 msgid "Terminal options"
 msgstr "Opțiuni terminal"
 
-#: widgets/kopenwithdialog.cpp:754
+#: widgets/kopenwithdialog.cpp:758
 #, kde-format
 msgid "Run in &terminal"
 msgstr "Execută în &terminal"
 
-#: widgets/kopenwithdialog.cpp:772
+#: widgets/kopenwithdialog.cpp:776
 #, kde-format
 msgid "&Do not close when command exits"
 msgstr "&Nu închide când comanda se termină"
 
-#: widgets/kopenwithdialog.cpp:791
+#: widgets/kopenwithdialog.cpp:795
 #, kde-format
 msgid "Get more Apps from Discover"
 msgstr ""
 
-#: widgets/kopenwithdialog.cpp:976
+#: widgets/kopenwithdialog.cpp:980
 #, kde-format
 msgid ""
 "Could not extract executable name from '%1', please type a valid program "
@@ -7871,13 +7883,13 @@ msgstr ""
 "Nu s-a putut extrage un nume executabil din '%1', vă rugăm introduceți o "
 "denumire de program validă."
 
-#: widgets/kopenwithdialog.cpp:1030
+#: widgets/kopenwithdialog.cpp:1034
 #, kde-kuit-format
 msgctxt "@info"
 msgid "<filename>%1</filename> does not appear to be an executable program."
 msgstr "<filename>%1</filename> nu pare a fi un program executabil."
 
-#: widgets/kopenwithdialog.cpp:1031
+#: widgets/kopenwithdialog.cpp:1035
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""

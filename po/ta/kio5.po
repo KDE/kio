@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-04 00:41+0000\n"
-"PO-Revision-Date: 2022-09-20 19:55+0530\n"
+"POT-Creation-Date: 2022-10-05 00:43+0000\n"
+"PO-Revision-Date: 2022-10-04 21:44+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -3127,12 +3127,10 @@ msgid "Only folders can be added to the Places panel."
 msgstr "இடங்கள் பலகையில் அடைவுகளை மட்டும்தான் சேர்க்க முடியும்."
 
 #: filewidgets/kfileplacesmodel.cpp:1430
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "&Release"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Releasing…"
-msgstr "&விடுவி"
+msgstr "விடுவிக்கிறது…"
 
 #: filewidgets/kfileplacesmodel.cpp:1432
 #, kde-format
@@ -3141,12 +3139,10 @@ msgid "&Release"
 msgstr "&விடுவி"
 
 #: filewidgets/kfileplacesmodel.cpp:1436
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "&Safely Remove"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Safely Removing…"
-msgstr "&பத்திரமாக கழற்று"
+msgstr "பத்திரமாக கழற்றுகிறது…"
 
 #: filewidgets/kfileplacesmodel.cpp:1438
 #, kde-format
@@ -3155,12 +3151,10 @@ msgid "&Safely Remove"
 msgstr "&பத்திரமாக கழற்று"
 
 #: filewidgets/kfileplacesmodel.cpp:1443
-#, fuzzy, kde-format
-#| msgctxt "@title job"
-#| msgid "Unmounting"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Unmounting…"
-msgstr "இறக்குதல்"
+msgstr "இறக்குகிறது…"
 
 #: filewidgets/kfileplacesmodel.cpp:1445
 #, kde-format
@@ -7675,34 +7669,44 @@ msgstr ""
 "%m - சிறிய சின்னம்\n"
 "%c - குறிப்பு"
 
-#: widgets/kopenwithdialog.cpp:740
+#: widgets/kopenwithdialog.cpp:741
 #, kde-format
 msgid ""
 "&Remember application association for all files of type\n"
 "\"%1\" (%2)"
 msgstr "\"%1\" (%2) வகையான அனைத்து கோப்புகளுக்கும் இந்த தொடர்பை &நினைவில் கொள்."
 
-#: widgets/kopenwithdialog.cpp:749
+#: widgets/kopenwithdialog.cpp:743
+#, fuzzy, kde-format
+#| msgid ""
+#| "&Remember application association for all files of type\n"
+#| "\"%1\" (%2)"
+msgid ""
+"&Remember application association for all files of type\n"
+"\"%1\""
+msgstr "\"%1\" (%2) வகையான அனைத்து கோப்புகளுக்கும் இந்த தொடர்பை &நினைவில் கொள்."
+
+#: widgets/kopenwithdialog.cpp:753
 #, kde-format
 msgid "Terminal options"
 msgstr "முனைய விருப்பங்கள்"
 
-#: widgets/kopenwithdialog.cpp:754
+#: widgets/kopenwithdialog.cpp:758
 #, kde-format
 msgid "Run in &terminal"
 msgstr "&முனையத்தில் இயக்கு"
 
-#: widgets/kopenwithdialog.cpp:772
+#: widgets/kopenwithdialog.cpp:776
 #, kde-format
 msgid "&Do not close when command exits"
 msgstr "&கட்டளை முடியும் போது மூட வேண்டாம்"
 
-#: widgets/kopenwithdialog.cpp:791
+#: widgets/kopenwithdialog.cpp:795
 #, kde-format
 msgid "Get more Apps from Discover"
 msgstr "டிஸ்கவரிலிருந்து கூடுதல் செயலிகளை நிறுவு"
 
-#: widgets/kopenwithdialog.cpp:976
+#: widgets/kopenwithdialog.cpp:980
 #, kde-format
 msgid ""
 "Could not extract executable name from '%1', please type a valid program "
@@ -7711,13 +7715,13 @@ msgstr ""
 "'%1' -இலிருந்து ஒரு இயக்கவல்ல நிரலின் பெயரை கண்டுபிடிக்க முடியவில்லை, தயவுசெய்து ஒரு "
 "சரியான நிரலின் பெயரை உள்ளிடவும்."
 
-#: widgets/kopenwithdialog.cpp:1030
+#: widgets/kopenwithdialog.cpp:1034
 #, kde-kuit-format
 msgctxt "@info"
 msgid "<filename>%1</filename> does not appear to be an executable program."
 msgstr "<filename>%1</filename> ஒரு இயக்கவல்ல நிரல் போல தெரியவில்லை."
 
-#: widgets/kopenwithdialog.cpp:1031
+#: widgets/kopenwithdialog.cpp:1035
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""

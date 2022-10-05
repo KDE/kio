@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-04 00:41+0000\n"
+"POT-Creation-Date: 2022-10-05 00:43+0000\n"
 "PO-Revision-Date: 2021-12-07 13:26+0630\n"
 "Last-Translator: ဇေယျာလွင် <lw1nzayar@yandex.com>\n"
 "Language-Team: Burmese <kde-i18n-doc@kde.org>\n"
@@ -7549,7 +7549,7 @@ msgstr ""
 "%m - အိုင်ကွန်အငယ်\n"
 "%c - မှတ်ချက်"
 
-#: widgets/kopenwithdialog.cpp:740
+#: widgets/kopenwithdialog.cpp:741
 #, kde-format
 msgid ""
 "&Remember application association for all files of type\n"
@@ -7558,40 +7558,52 @@ msgstr ""
 "ဖိုင်လ်အမျိုးအစားအားလုံးနှင့် ပတ်သက်သော အပ္ပလီကေးရှင်း မှတ်ထားမည်\n"
 "\"%1\" (%2)"
 
-#: widgets/kopenwithdialog.cpp:749
+#: widgets/kopenwithdialog.cpp:743
+#, fuzzy, kde-format
+#| msgid ""
+#| "&Remember application association for all files of type\n"
+#| "\"%1\" (%2)"
+msgid ""
+"&Remember application association for all files of type\n"
+"\"%1\""
+msgstr ""
+"ဖိုင်လ်အမျိုးအစားအားလုံးနှင့် ပတ်သက်သော အပ္ပလီကေးရှင်း မှတ်ထားမည်\n"
+"\"%1\" (%2)"
+
+#: widgets/kopenwithdialog.cpp:753
 #, kde-format
 msgid "Terminal options"
 msgstr "တာမီနယ်ရွေးချယ်စရာများ"
 
-#: widgets/kopenwithdialog.cpp:754
+#: widgets/kopenwithdialog.cpp:758
 #, kde-format
 msgid "Run in &terminal"
 msgstr "&tတာမီနယ်တွင် လုပ်ဆောင်မည်"
 
-#: widgets/kopenwithdialog.cpp:772
+#: widgets/kopenwithdialog.cpp:776
 #, kde-format
 msgid "&Do not close when command exits"
 msgstr "&Dအမိန့်ပြီးသွားသည့်အခါ မပိတ်ပါနှင့်"
 
-#: widgets/kopenwithdialog.cpp:791
+#: widgets/kopenwithdialog.cpp:795
 #, kde-format
 msgid "Get more Apps from Discover"
 msgstr ""
 
-#: widgets/kopenwithdialog.cpp:976
+#: widgets/kopenwithdialog.cpp:980
 #, kde-format
 msgid ""
 "Could not extract executable name from '%1', please type a valid program "
 "name."
 msgstr "'%1' မှ လုပ်ဆောင်-ဖိုင်လ်အမည် မရခဲ့ပါ။ ကျေးဇူးပြု၍ မှန်ကန်သော ပရိုဂရမ်အမည် ရိုက်သွင်းပါ။"
 
-#: widgets/kopenwithdialog.cpp:1030
+#: widgets/kopenwithdialog.cpp:1034
 #, kde-kuit-format
 msgctxt "@info"
 msgid "<filename>%1</filename> does not appear to be an executable program."
 msgstr "<filename>%1</filename> သည် ဆောင်ရွက်၍ရသော ပရိုဂရမ်မဟုတ်ပါ။"
 
-#: widgets/kopenwithdialog.cpp:1031
+#: widgets/kopenwithdialog.cpp:1035
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
