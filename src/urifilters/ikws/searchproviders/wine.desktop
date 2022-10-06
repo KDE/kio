@@ -22,6 +22,7 @@ Name[id]=Database WineHQ
 Name[is]=WineHQ-gagnagrunnur
 Name[it]=Banca dati di WineHQ
 Name[ko]=WineHQ 데이터베이스
+Name[my]=WineHQ ဒေတာဘေ့စ်
 Name[nl]=WineHQ-database
 Name[nn]=WineHQ-database
 Name[pa]=WineHQ ਡਾਟਾਬੇਸ
@@ -63,6 +64,7 @@ Query[is]=https://www.winehq.org/search?q=\\{@}
 Query[it]=https://www.winehq.org/search?q=\\{@}
 Query[ka]=https://www.winehq.org/search?q=\\{@}
 Query[ko]=https://www.winehq.org/search?q=\\{@}
+Query[my]=https://www.winehq.org/search?q=\\{@}
 Query[nl]=https://www.winehq.org/search?q=\\{@}
 Query[nn]=https://www.winehq.org/search?q=\\{@}
 Query[pa]=https://www.winehq.org/search?q=\\{@}

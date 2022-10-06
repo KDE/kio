@@ -22,6 +22,7 @@ Name[id]=Dokumentasi Flatpak
 Name[is]=Flatpak hjálparskjöl
 Name[it]=Documentazione Flatpak
 Name[ko]=Flatpak 문서
+Name[my]=ဖလက်ပတ်ခ် ဒိုကူမန်တေးရှင်း
 Name[nl]=Flatpak-documentatie
 Name[nn]=Flatpak-dokumentasjon
 Name[pa]=ਫਲੈਟਪੈਕ ਡੌਕੂਮੈਂਟੇਸ਼ਨ
@@ -63,6 +64,7 @@ Query[is]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=
 Query[it]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[ka]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[ko]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
+Query[my]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[nl]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[nn]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[pa]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default

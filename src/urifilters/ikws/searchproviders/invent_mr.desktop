@@ -22,6 +22,7 @@ Name[id]=Permintaan Penggabungan KDE Invent
 Name[is]=Samþættingarbeiðnir á KDE Invent
 Name[it]=Richieste di integrazione (MR) su KDE Invent
 Name[ko]=KDE Invent 병합 요청
+Name[my]=ကေဒီအီး အင်ဗန့် ပေါင်းစပ်ရန်တောင်းဆိုချက်များ
 Name[nl]=KDE-invent samenvoegaanvragen
 Name[nn]=KDE Invent-fletteførespurnadar
 Name[pa]=KDE ਇਨਵੈਂਟ ਮਿਲਾਨ ਬੇਨਤੀਆਂ
@@ -60,6 +61,7 @@ Query[is]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[it]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[ka]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[ko]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
+Query[my]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[nl]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[nn]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[pa]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}

@@ -22,6 +22,7 @@ Name[id]=Manual Krita
 Name[is]=Krita handbók
 Name[it]=Manuale di Krita
 Name[ko]=Krita 설명서
+Name[my]=Krita လက်စွဲစာအုပ်
 Name[nl]=Krita-handleiding
 Name[nn]=Krita-manualen
 Name[pa]=ਕਰੀਟਾ ਮੇਨੂਅਲ
@@ -63,6 +64,7 @@ Query[is]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[it]=https://docs.krita.org/it/search.html?q=\\{@}
 Query[ka]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[ko]=https://docs.krita.org/en/search.html?q=\\{@}
+Query[my]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[nl]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[nn]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[pa]=https://docs.krita.org/en/search.html?q=\\{@}
