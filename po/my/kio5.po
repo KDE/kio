@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-05 00:43+0000\n"
-"PO-Revision-Date: 2021-12-07 13:26+0630\n"
+"PO-Revision-Date: 2022-10-05 21:57+0630\n"
 "Last-Translator: ဇေယျာလွင် <lw1nzayar@yandex.com>\n"
 "Language-Team: Burmese <kde-i18n-doc@kde.org>\n"
 "Language: my\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.0\n"
+"X-Generator: Poedit 3.1.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -213,11 +213,10 @@ msgid "Destination"
 msgstr "ဦိးတည်ဖိုင်လ်"
 
 #: core/job.cpp:113
-#, fuzzy, kde-format
-#| msgid "Rename"
+#, kde-format
 msgctxt "@title job"
 msgid "Renaming"
-msgstr "အမည်ပြောင်းရန်"
+msgstr "အမည်ပြောင်းနေသည်"
 
 #: core/job.cpp:121
 #, kde-format
@@ -2598,7 +2597,7 @@ msgstr "ပြန်တွန်းတင်"
 #: filewidgets/kdiroperator.cpp:2056
 #, kde-format
 msgid "New Folder..."
-msgstr "ဖိုလ်ဒါအသစ်..."
+msgstr "ဖိုလ်ဒါအသစ်…"
 
 #: filewidgets/kdiroperator.cpp:2066 widgets/jobuidelegate.cpp:323
 #: widgets/jobuidelegate.cpp:324 widgets/jobuidelegate.cpp:333
@@ -2653,10 +2652,9 @@ msgid "Folders First"
 msgstr "ဖိုလ်ဒါများ အရင်"
 
 #: filewidgets/kdiroperator.cpp:2131
-#, fuzzy, kde-format
-#| msgid "Show Hidden Files"
+#, kde-format
 msgid "Hidden Files Last"
-msgstr "ဖွက်ထားသောဖိုင်လ်များပြမည်"
+msgstr "ဖွက်ထားသောဖိုင်လ်များနောက်ဆုံး"
 
 #: filewidgets/kdiroperator.cpp:2138
 #, kde-format
@@ -2739,10 +2737,9 @@ msgid "Properties"
 msgstr "ကိုယ်ပိုင်လက္ခဏာများ"
 
 #: filewidgets/kdiroperator.cpp:2271
-#, fuzzy, kde-format
-#| msgid "&View"
+#, kde-format
 msgid "&View Mode"
-msgstr "&Vကြည့်"
+msgstr "&Vမြင်ကွင်းစနစ်"
 
 #: filewidgets/kdiroperator.cpp:2373 filewidgets/kdiroperator.cpp:2385
 #, kde-format
@@ -2827,7 +2824,7 @@ msgstr "Root ဖိုလ်ဒါ"
 #, kde-format
 msgctxt "@title:menu in Copy To or Move To submenu"
 msgid "Browse..."
-msgstr "ရှောက်ကြည့်..."
+msgstr "ရှောက်ကြည့်…"
 
 #: filewidgets/kfilecopytomenu.cpp:225
 #, kde-format
@@ -2984,8 +2981,6 @@ msgid "Tags"
 msgstr "တပ်ဂ်များ"
 
 #: filewidgets/kfileplacesmodel.cpp:164
-#, fuzzy
-#| msgid "All tags"
 msgctxt "KFile System Bookmarks"
 msgid "All tags"
 msgstr "တပ်ဂ်အားလုံး"
@@ -3005,12 +3000,12 @@ msgstr "ဒက်စ်တော့ပ်"
 #: filewidgets/kfileplacesmodel.cpp:301 filewidgets/kfileplacesmodel.cpp:460
 msgctxt "KFile System Bookmarks"
 msgid "Documents"
-msgstr "မှတ်တမ်းစာအုပ်များ"
+msgstr "မှတ်တမ်းစာအုပ်"
 
 #: filewidgets/kfileplacesmodel.cpp:308
 msgctxt "KFile System Bookmarks"
 msgid "Downloads"
-msgstr "ဒေါင်းလုတ်များ"
+msgstr "ဒေါင်းလုတ်"
 
 #: filewidgets/kfileplacesmodel.cpp:313
 msgctxt "KFile System Bookmarks"
@@ -3068,67 +3063,57 @@ msgid "Audio"
 msgstr "အော်ဒီယို"
 
 #: filewidgets/kfileplacesmodel.cpp:1159
-#, fuzzy, kde-format
-#| msgid "Could not find the program '%1'"
+#, kde-format
 msgctxt "Placeholder is error message"
 msgid "Could not add to the Places panel: %1"
-msgstr "'%1'ပရိုဂရမ်ကို ရှာမတွေ့ပါ"
+msgstr "နေရာများပန်နယ်သို့ မထည့်သွင်းနိုင်ခဲ့ပါ- %1"
 
 #: filewidgets/kfileplacesmodel.cpp:1166
-#, fuzzy, kde-format
-#| msgid "A folder cannot be moved into itself"
+#, kde-format
 msgid "Only folders can be added to the Places panel."
-msgstr "ဖိုလ်ဒါအနေဖြင့် ၎င်း၏အတွင်းသို့ ၎င်းကို ရွေ့မရပါ"
+msgstr "နေရာများပန်နယ်သို့ ဖိုလ်ဒါများသာထည့်သွင်းနိုင်သည်။"
 
 #: filewidgets/kfileplacesmodel.cpp:1430
-#, fuzzy, kde-format
-#| msgid "&Release '%1'"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Releasing…"
-msgstr "&R '%1' လွှတ်သည်"
+msgstr "လွှတ်နေသည်…"
 
 #: filewidgets/kfileplacesmodel.cpp:1432
-#, fuzzy, kde-format
-#| msgid "&Release '%1'"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Release"
-msgstr "&R '%1' လွှတ်သည်"
+msgstr "&Rလွှတ်"
 
 #: filewidgets/kfileplacesmodel.cpp:1436
-#, fuzzy, kde-format
-#| msgid "&Safely Remove '%1'"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Safely Removing…"
-msgstr "&S '%1'ကို အထိအခိုက်မရှိစွာ ဖယ်ရှားရန်"
+msgstr "အထိအခိုက်မရှိစွာ ဖယ်ရှားနေသည်…"
 
 #: filewidgets/kfileplacesmodel.cpp:1438
-#, fuzzy, kde-format
-#| msgid "&Safely Remove '%1'"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Safely Remove"
-msgstr "&S '%1'ကို အထိအခိုက်မရှိစွာ ဖယ်ရှားရန်"
+msgstr "&Sအထိအခိုက်မရှိစွာဖယ်ရှားမည်"
 
 #: filewidgets/kfileplacesmodel.cpp:1443
-#, fuzzy, kde-format
-#| msgctxt "@title job"
-#| msgid "Unmounting"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Unmounting…"
 msgstr "ဖြုတ်နေသည်"
 
 #: filewidgets/kfileplacesmodel.cpp:1445
-#, fuzzy, kde-format
-#| msgid "Unmount"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Unmount"
-msgstr "ဖြုတ်ရန်"
+msgstr "&Uဖြုတ်ရန်"
 
 #: filewidgets/kfileplacesmodel.cpp:1469
-#, fuzzy, kde-format
-#| msgid "&Reject"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Eject"
-msgstr "&Rငြင်းပယ်မည်"
+msgstr "&Eထုတ်မည်"
 
 #: filewidgets/kfileplacesmodel.cpp:1505
 #, kde-format
@@ -3163,35 +3148,31 @@ msgid "Mount"
 msgstr "တပ်ဆင်"
 
 #: filewidgets/kfileplacesview.cpp:1158
-#, fuzzy, kde-format
-#| msgid "Open %1 in tab"
+#, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Tab"
-msgstr "%1ကို တပ်ဗ်တွင်ဖွင့်"
+msgstr "တပ်ဘ်အသစ်တွင် ဖွင့်မည်"
 
 #: filewidgets/kfileplacesview.cpp:1161
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Window"
-msgstr ""
+msgstr "ဝင်းဒိုးအသစ်တွင် ဖွင့်မည်"
 
 #: filewidgets/kfileplacesview.cpp:1170
-#, fuzzy, kde-format
-#| msgid "Add Entry..."
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
-msgstr "စာရင်းမှတ်ချက်ထည့်မည်..."
+msgstr "စာရင်းမှတ်ချက်ထည့်မည်…"
 
 #: filewidgets/kfileplacesview.cpp:1176
-#, fuzzy, kde-format
-#| msgid "Edit"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Edit…"
-msgstr "တည်းဖြတ်"
+msgstr "&Eတည်းဖြတ်…"
 
 #: filewidgets/kfileplacesview.cpp:1181
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove"
 msgstr "ဖယ်ရှား"
@@ -3200,18 +3181,16 @@ msgstr "ဖယ်ရှား"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Hide"
-msgstr ""
+msgstr "&Hဖွက်မည်"
 
 #: filewidgets/kfileplacesview.cpp:1193
-#, fuzzy, kde-format
-#| msgid "Hide Section"
+#, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section '%1'"
-msgstr "အပိုင်းဖွက်ရန်"
+msgstr "'%1'အပိုင်းဖွက်ရန်"
 
 #: filewidgets/kfileplacesview.cpp:1193
-#, fuzzy, kde-format
-#| msgid "Hide Section"
+#, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section"
 msgstr "အပိုင်းဖွက်ရန်"
@@ -3716,18 +3695,16 @@ msgid "Paste"
 msgstr "ပွား"
 
 #: filewidgets/kurlnavigator.cpp:543
-#, fuzzy, kde-format
-#| msgid "Open %1 in tab"
+#, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Tab"
-msgstr "%1ကို တပ်ဗ်တွင်ဖွင့်"
+msgstr "\"%1\"ကို တပ်ဘ်အသစ်တွင်ဖွင့်"
 
 #: filewidgets/kurlnavigator.cpp:551
-#, fuzzy, kde-format
-#| msgid "Open %1 in tab"
+#, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Window"
-msgstr "%1ကို တပ်ဗ်တွင်ဖွင့်"
+msgstr "\"%1\"ကိုဝင်းဒိုးအသစ်တွင်ဖွင့်မည်"
 
 #: filewidgets/kurlnavigator.cpp:560
 #, kde-format
@@ -3870,7 +3847,7 @@ msgid ""
 msgstr ""
 "ဒက်စတော့ပ်စာရင်းမှတ်ချက်ဖိုင်လ်\n"
 "%1\n"
-"သည် လင့်ခ် အမျိုးအစားဖြစ်သော်လည်း 'URL=...' မပါဝင်ပါ။"
+"သည် လင့်ခ် အမျိုးအစားဖြစ်သော်လည်း 'URL=…' မပါဝင်ပါ။"
 
 #: gui/openurljob.cpp:364
 #, kde-format
@@ -3904,7 +3881,7 @@ msgstr ""
 #: gui/openurljob.cpp:527 widgets/kdesktopfileactions.cpp:61
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
-msgstr "ဒက်စတော့ပ်စာရင်းမှတ်ချက်ဖိုင်လ် %1 တွင် 'Type=...' မပါဝင်ပါ။"
+msgstr "ဒက်စတော့ပ်စာရင်းမှတ်ချက်ဖိုင်လ် %1 တွင် 'Type=…' မပါဝင်ပါ။"
 
 #: gui/openurljob.cpp:613
 #, kde-format
@@ -3913,6 +3890,9 @@ msgid ""
 "Check your open applications and the notification area for any pending tasks "
 "or downloads."
 msgstr ""
+"ဤဖိုင်လ်သည် မပြည့်စုံသေးသောကြောင့် မဖွင့်သင့်ပါ။\n"
+"သင်ဖွင့်ထားသောအပ္ပလီကေးရှင်းများနှင့် အသိပေးချက်ဧရိယာတွင် လုပ်ဆဲဖြစ်နေသော အလုပ်သို့မဟုတ်ဒေါင်းလုတ်များကို "
+"စစ်ကြည့်ပါ။"
 
 #: gui/openurljob.cpp:639
 #, kde-format
@@ -4024,7 +4004,7 @@ msgstr "အချိန်မှတ်သားချက်ပြောင်း
 #: ioslaves/file/file_unix.cpp:138
 #, kde-format
 msgid "From: %1, To: %2"
-msgstr ""
+msgstr "မှ- %1၊ သို့- %2"
 
 #: ioslaves/file/file_unix.cpp:141
 #, kde-format
@@ -4248,7 +4228,7 @@ msgstr "%2 လုပ်ဆောင်ရန်ကြိုးစားနေစ
 #: ioslaves/http/http.cpp:2659
 #, kde-format
 msgid "%1 contacted. Waiting for reply..."
-msgstr "%1အားဆက်သွယ်ခဲ့သည်။ အကြောင်းပြန်ခြင်းကိုစောင့်ဆိုင်းနေသည်..."
+msgstr "%1အားဆက်သွယ်ခဲ့သည်။ အကြောင်းပြန်ခြင်းကိုစောင့်ဆိုင်းနေသည်…"
 
 #: ioslaves/http/http.cpp:2985
 #, kde-format
@@ -4281,7 +4261,7 @@ msgstr "%1သို့ ဒေတာပို့နေသည်"
 #: ioslaves/http/http.cpp:4278
 #, kde-format
 msgid "Retrieving %1 from %2..."
-msgstr "%2 မှ %1 ရယူနေသည်..."
+msgstr "%2 မှ %1 ရယူနေသည်…"
 
 #: ioslaves/http/http.cpp:5169 ioslaves/http/http.cpp:5304
 #: kioworkers/ftp/ftp.cpp:2509
@@ -4907,7 +4887,7 @@ msgstr "&lအားလုံးဖျက်မည်"
 #: kcms/cookies/kcookiesmanagement.ui:70
 #, kde-format
 msgid "Configure &Policy..."
-msgstr "&Pပေါ်လစီ ပြင်ဆင်မည်..."
+msgstr "&Pပေါ်လစီ ပြင်ဆင်မည်…"
 
 #. i18n: ectx: property (text), widget (QPushButton, reloadButton)
 #: kcms/cookies/kcookiesmanagement.ui:77
@@ -5154,10 +5134,10 @@ msgid ""
 "</qt>"
 msgstr ""
 "<qt>\n"
-"ပေါ်လစီအသစ်ထည့်ရန်၊ <b>ထည့်မည်...</b>ခလုတ်ကို နှိပ်၍ လိုအပ်သော အချက်အလက်များ ထည့်ရုံနှင့် ရသည်။ ရှိနှင့်ပြီးသား "
-"ပေါ်လစီကို ပြောင်းရန် <b>ပြောင်းမည်...</b>ခလုတ်ကိုနှိပ်၍ ပေါ်လစီ ဒိုင်ယာလော့အတုံးမှ ပေါ်လစီအသစ် "
-"ရွေးချယ်ပါ။ <b>ဖျက်မည်</b> ကိုနှိပ်လျှင် လက်ရှိရွေးချယ်ထားသော ပေါ်လစီကို ဖယ်ရှားပစ်မည်။ ယင်းပေါ်လစီကို "
-"သုံးသော ဒိုမိန်းများတွင် မူလသတ်မှတ်ထားသော ပေါ်လစီကို သုံးသွားမည်။ <b>အားလုံးဖျက်မည်</b>ကို နှိပ်လျှင် "
+"ပေါ်လစီအသစ်ထည့်ရန်၊ <b>ထည့်မည်…</b>ခလုတ်ကို နှိပ်၍ လိုအပ်သော အချက်အလက်များ ထည့်ရုံနှင့် ရသည်။ ရှိနှင့်ပြီးသား "
+"ပေါ်လစီကို ပြောင်းရန် <b>ပြောင်းမည်…</b>ခလုတ်ကိုနှိပ်၍ ပေါ်လစီ ဒိုင်ယာလော့အတုံးမှ ပေါ်လစီအသစ် ရွေးချယ်ပါ။ "
+"<b>ဖျက်မည်</b> ကိုနှိပ်လျှင် လက်ရှိရွေးချယ်ထားသော ပေါ်လစီကို ဖယ်ရှားပစ်မည်။ ယင်းပေါ်လစီကို သုံးသော "
+"ဒိုမိန်းများတွင် မူလသတ်မှတ်ထားသော ပေါ်လစီကို သုံးသွားမည်။ <b>အားလုံးဖျက်မည်</b>ကို နှိပ်လျှင် "
 "ဆိုက်တစ်ခုချင်းဆိုင်ရာပေါ်လစီ အားလုံးဖျက်ပစ်မည်။\n"
 "</qt>"
 
@@ -5177,7 +5157,7 @@ msgstr "ဒိုမန်းများကို တစ်ဆင့်ချ�
 #: kcms/cookies/kcookiespolicies.ui:138
 #, kde-format
 msgid "Search..."
-msgstr "ရှာရန်..."
+msgstr "ရှာရန်…"
 
 #. i18n: ectx: property (whatsThis), widget (QTreeWidget, policyTreeWidget)
 #: kcms/cookies/kcookiespolicies.ui:147
@@ -5209,13 +5189,13 @@ msgstr "ပေါ်လစီ"
 #: kcms/cookies/kcookiespolicies.ui:176 urifilters/ikws/ikwsopts_ui.ui:74
 #, kde-format
 msgid "&New..."
-msgstr "&Nအသစ်..."
+msgstr "&Nအသစ်…"
 
 #. i18n: ectx: property (text), widget (QPushButton, pbChange)
 #: kcms/cookies/kcookiespolicies.ui:183 urifilters/ikws/ikwsopts_ui.ui:87
 #, kde-format
 msgid "Chan&ge..."
-msgstr "&gပြောင်းမည်..."
+msgstr "&gပြောင်းမည်…"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
 #: kcms/cookies/kcookiespolicyselectiondlg.h:26
@@ -6564,7 +6544,7 @@ msgid ""
 "This means that the same page is always going to be visited, regardless of "
 "the text typed in with the shortcut."
 msgstr ""
-"ဖြတ်လမ်း ယူအာအယ်သည် အသုံးပြုသူစုံစမ်းချက်အတွက် နေရာဦးထားမှု \\{...} မပါဝင်ပါ။\n"
+"ဖြတ်လမ်း ယူအာအယ်သည် အသုံးပြုသူစုံစမ်းချက်အတွက် နေရာဦးထားမှု \\{…} မပါဝင်ပါ။\n"
 "ဆိုလိုသည်မှာ ဖြတ်လမ်းတွင် မည်သည်စာရေးသွင်း၍ဖြစ်စေ တူညီသော စာမျက်နှာကိုသာ သွားရောက်မည်ဖြစ်သည်။"
 
 #: urifilters/ikws/searchproviderdlg.cpp:144
@@ -6613,7 +6593,7 @@ msgstr ""
 "သုံးရန် အကြံပြုသည်။ \\{0}ကိုတော့ မမွမ်းမံထားသော မေးမြန်း-အက္ခရာတန်းဖြင့်အစားထိုးသည်။<br/>\\{1} "
 "ကနေ \\{n}ထိကို မေးမြန်းချက်မှ အချို့စာလုံးများအား ညွှန်ပြသတ်မှတ်နိုင်သည်။ အသုံးပြုသူမေးမြန်းချက်တွင် "
 "'အမည်=တန်ဖိုး'ဖြင့်ပေးထားသော တန်းဖိုးကို သတ်မှတ်ရန် \\{name}ကို သုံးသည်။<br/>ထို့အပြင် "
-"ညွှန်ပြချက်အများအပြားကို တစ်ပြိုင်တည်းသတ်မှတ်နိုင်သည်။(\\{အမည်၁,အမည်၂,...,\"အက္ခရာတန်း\"})<br/> "
+"ညွှန်ပြချက်အများအပြားကို တစ်ပြိုင်တည်းသတ်မှတ်နိုင်သည်။(\\{အမည်၁,အမည်၂,…,\"အက္ခရာတန်း\"})<br/> "
 "ဘယ်ဘက်မှ ပထမဆုံးကိုက်ညီသော တန်ဖိုးကို အစားထိုးတန်ဖိုးအဖြစ် အသုံးပြုမည်။<br/>အကယ်၍ ညွှန်ပြချက်စာရင်း၏ဘက်ဘက်မှ "
 "မည်သည်အရာနှင့်မျှ မကိုက်ညီသောအခါ ကိုးကားအက္ခရာတန်းကို မူလတန်ဖိုးအဖြစ်သုံးနိုင်သည်။\n"
 "</qt>"
@@ -6791,7 +6771,7 @@ msgstr ""
 #: widgets/checksumswidget.ui:29
 #, kde-format
 msgid "Expected checksum (MD5, SHA1, SHA256 or SHA512)..."
-msgstr "မျှော်လင့်ထားသော ပေါင်းလဒ်စစ်တမ်း(အမ်ဒီ၅၊ အက်စ်အိပ်ချ်အေ၁ သို့ အက်စ်အိပ်ချ်အေ၂၅၆)..."
+msgstr "မျှော်လင့်ထားသော ပေါင်းလဒ်စစ်တမ်း(အမ်ဒီ၅၊ အက်စ်အိပ်ချ်အေ၁ သို့ အက်စ်အိပ်ချ်အေ၂၅၆)…"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, pasteButton)
 #: widgets/checksumswidget.ui:36
@@ -6906,10 +6886,9 @@ msgid "Moving"
 msgstr "ရွေ့နေသည်"
 
 #: widgets/fileundomanager.cpp:141
-#, fuzzy, kde-format
-#| msgid "Rename"
+#, kde-format
 msgid "Renaming"
-msgstr "အမည်ပြောင်းရန်"
+msgstr "အမည်ပြောင်းနေသည်"
 
 #: widgets/fileundomanager.cpp:148
 #, kde-format
@@ -7057,7 +7036,7 @@ msgstr "အက်စ်အက်စ်အယ်လ်"
 #, kde-format
 msgctxt "@action:button"
 msgid "Add..."
-msgstr "ထည့်..."
+msgstr "ထည့်…"
 
 #: widgets/kacleditwidget.cpp:75
 #, kde-format
@@ -7225,7 +7204,7 @@ msgid ""
 msgstr ""
 "ဒက်စတော့ပ်စာရင်းမှတ်ချက်ဖိုင်လ်\n"
 "%1\n"
-"သည် အက်ဖ်အက်စ်စက် အမျိုးအစားဖြစ်သော်လည်း 'Dev=...' မပါဝင်ပါ။"
+"သည် အက်ဖ်အက်စ်စက် အမျိုးအစားဖြစ်သော်လည်း 'Dev=…' မပါဝင်ပါ။"
 
 #: widgets/kdesktopfileactions.cpp:184
 #, kde-format
@@ -7297,10 +7276,9 @@ msgid "&Actions"
 msgstr "&Aလုပ်ဆောင်ချက်များ"
 
 #: widgets/kfileitemactions.cpp:858
-#, fuzzy, kde-format
-#| msgid "&Open with %1"
+#, kde-format
 msgid "&Open folder with %1"
-msgstr "&O %1 ဖြင့်ဖွင့်ရန်"
+msgstr "%1ဖြင့် ဖိုလ်ဒါ &Oဖွင့်ရန်"
 
 #: widgets/kfileitemactions.cpp:858
 #, kde-format
@@ -7308,26 +7286,22 @@ msgid "&Open with %1"
 msgstr "&O %1 ဖြင့်ဖွင့်ရန်"
 
 #: widgets/kfileitemactions.cpp:880
-#, fuzzy, kde-format
-#| msgctxt "@title:menu"
-#| msgid "&Open With..."
+#, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With..."
-msgstr "&Oဖြင့်ဖွင့်ရန်..."
+msgstr "ဖြင့် ဖိုလ်ဒါ &Oဖွင့်ရန်…"
 
 #: widgets/kfileitemactions.cpp:880
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With..."
-msgstr "&Oဖြင့်ဖွင့်ရန်..."
+msgstr "&Oဖြင့်ဖွင့်ရန်…"
 
 #: widgets/kfileitemactions.cpp:894
-#, fuzzy, kde-format
-#| msgctxt "@title:menu"
-#| msgid "&Open With"
+#, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
-msgstr "&Oဖြင့်ဖွင့်ရန်"
+msgstr "ဖြင့် ဖိုလ်ဒါ &Oဖွင့်ရန်"
 
 #: widgets/kfileitemactions.cpp:894
 #, kde-format
@@ -7339,7 +7313,7 @@ msgstr "&Oဖြင့်ဖွင့်ရန်"
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application..."
-msgstr "&Oအခြားအပ္ပလီကေးရှင်း..."
+msgstr "&Oအခြားအပ္ပလီကေးရှင်း…"
 
 #: widgets/kfileitemdelegate.cpp:209
 #, kde-format
@@ -7394,7 +7368,7 @@ msgstr "တည်နေရာ -"
 #: widgets/kfilepropspluginwidget.ui:336
 #, kde-format
 msgid "Change..."
-msgstr "ပြောင်းမည်..."
+msgstr "ပြောင်းမည်…"
 
 #. i18n: ectx: property (text), widget (QLabel, contentLabel)
 #: widgets/kfilepropspluginwidget.ui:349
@@ -7559,16 +7533,13 @@ msgstr ""
 "\"%1\" (%2)"
 
 #: widgets/kopenwithdialog.cpp:743
-#, fuzzy, kde-format
-#| msgid ""
-#| "&Remember application association for all files of type\n"
-#| "\"%1\" (%2)"
+#, kde-format
 msgid ""
 "&Remember application association for all files of type\n"
 "\"%1\""
 msgstr ""
-"ဖိုင်လ်အမျိုးအစားအားလုံးနှင့် ပတ်သက်သော အပ္ပလီကေးရှင်း မှတ်ထားမည်\n"
-"\"%1\" (%2)"
+"အောက်ပါဖိုင်လ်အမျိုးအစားနှင့် ပတ်သက်သော အပ္ပလီကေးရှင်း &Rမှတ်ထားမည်\n"
+"\"%1\""
 
 #: widgets/kopenwithdialog.cpp:753
 #, kde-format
@@ -7588,7 +7559,7 @@ msgstr "&Dအမိန့်ပြီးသွားသည့်အခါ မပ
 #: widgets/kopenwithdialog.cpp:795
 #, kde-format
 msgid "Get more Apps from Discover"
-msgstr ""
+msgstr "ဒစ်စ်ကာဗာမှ အပ်စ်များ ထပ်ရယူလိုက်ပါ"
 
 #: widgets/kopenwithdialog.cpp:980
 #, kde-format
@@ -7851,7 +7822,7 @@ msgstr ""
 #: widgets/kpropertiesdesktopbase.ui:95
 #, kde-format
 msgid "Program:"
-msgstr ""
+msgstr "ပရိုဂရမ်-"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, browseButton)
 #: widgets/kpropertiesdesktopbase.ui:124
@@ -7865,7 +7836,7 @@ msgstr "လိုချင်သော လုပ်ဆောင်-ဖိုင�
 #: widgets/kpropertiesdesktopbase.ui:127
 #, kde-format
 msgid "&Browse..."
-msgstr "&Bရှောက်ကြည့်..."
+msgstr "&Bရှောက်ကြည့်…"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel5)
 #. i18n: ectx: property (whatsThis), widget (KUrlRequester, pathEdit)
@@ -7882,11 +7853,9 @@ msgstr "&Wအလုပ်လမ်းကြောင်း -"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/kpropertiesdesktopbase.ui:156
-#, fuzzy, kde-format
-#| msgctxt "KFile System Bookmarks"
-#| msgid "Documents"
+#, kde-format
 msgid "Arguments:"
-msgstr "မှတ်တမ်းစာအုပ်များ"
+msgstr "ပေးချက်များ-"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel7)
 #. i18n: ectx: property (whatsThis), widget (QTreeWidget, filetypeList)
@@ -7950,7 +7919,7 @@ msgstr "သင်၏အပ္ပလီကေးရှင်းကိုင်တ
 #: widgets/kpropertiesdesktopbase.ui:225
 #, kde-format
 msgid "Add..."
-msgstr "ထည့်..."
+msgstr "ထည့်…"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, delFiletypeButton)
 #: widgets/kpropertiesdesktopbase.ui:232
@@ -8053,7 +8022,7 @@ msgid ""
 "Calculating... %1 (%2)\n"
 "%3, %4"
 msgstr ""
-"တွက်နေသည်...%1 (%2)\n"
+"တွက်နေသည်…%1 (%2)\n"
 "%3၊ %4"
 
 #: widgets/kpropertiesdialog.cpp:1371 widgets/kpropertiesdialog.cpp:1386
@@ -8071,13 +8040,12 @@ msgstr[0] "လက်အောက်ခံ-ဖိုလ်ဒါ %1ခု"
 #: widgets/kpropertiesdialog.cpp:1400
 #, kde-format
 msgid "Calculating...\n"
-msgstr "တွက်နေသည်...\n"
+msgstr "တွက်နေသည်…\n"
 
 #: widgets/kpropertiesdialog.cpp:1423
-#, fuzzy, kde-format
-#| msgid "At least %1"
+#, kde-format
 msgid "At least %1\n"
-msgstr "အနည်းဆုံး %1"
+msgstr "အနည်းဆုံး %1\n"
 
 #: widgets/kpropertiesdialog.cpp:1469
 #, kde-format
@@ -8085,10 +8053,9 @@ msgid "The new file name is empty."
 msgstr "ဖိုင်လ်အသစ်၏အမည်သည် ဗလာဖြစ်နေသည်။"
 
 #: widgets/kpropertiesdialog.cpp:1667
-#, fuzzy, kde-format
-#| msgid "&Supported file types:"
+#, kde-format
 msgid "No registered file type"
-msgstr "&Sထောက်ပံ့ထားသော ဖိုင်အမျိုးအစားများ -"
+msgstr "မှတ်တမ်းမတင်ထားသောဖိုင်လ်အမျိုးအစား"
 
 #: widgets/kpropertiesdialog.cpp:1669
 #, kde-format
@@ -8096,18 +8063,16 @@ msgid "No associated application"
 msgstr "သက်ဆိုင်သောအပ္ပလီကေးရှင်းမရှိ"
 
 #: widgets/kpropertiesdialog.cpp:1675
-#, fuzzy, kde-format
-#| msgid "Created:"
+#, kde-format
 msgctxt "@action:button Create new file type"
 msgid "Create…"
-msgstr "ဖန်တီးခဲ့သည် -"
+msgstr "ဖန်တီးမည်…"
 
 #: widgets/kpropertiesdialog.cpp:1678
-#, fuzzy, kde-format
-#| msgid "Change..."
+#, kde-format
 msgctxt "@action:button"
 msgid "Change…"
-msgstr "ပြောင်းမည်..."
+msgstr "ပြောင်းမည်…"
 
 #: widgets/kpropertiesdialog.cpp:1754 widgets/kpropertiesdialog.cpp:1755
 #: widgets/kpropertiesdialog.cpp:1757
@@ -8456,7 +8421,7 @@ msgstr "&hပေါင်းလဒ်စစ်တမ်းများ"
 #, kde-format
 msgctxt "@action:button"
 msgid "Calculating..."
-msgstr "တွက်နေသည်..."
+msgstr "တွက်နေသည်…"
 
 #: widgets/kpropertiesdialog.cpp:3012
 #, kde-format
@@ -8500,7 +8465,7 @@ msgstr "တွက်ချက်ထားသည့် ပေါင်းလဒ�
 #, kde-format
 msgctxt "notify the user about a computation in the background"
 msgid "Verifying checksum..."
-msgstr "ပေါင်းလဒ်စစ်တမ်းများ စစ်ဆေးနေသည်..."
+msgstr "ပေါင်းလဒ်စစ်တမ်းများ စစ်ဆေးနေသည်…"
 
 #: widgets/kpropertiesdialog.cpp:3143
 #, kde-format
@@ -8648,7 +8613,7 @@ msgstr "%1"
 #: widgets/kurifiltersearchprovideractions.cpp:94
 #, kde-format
 msgid "Configure Web Shortcuts..."
-msgstr "ဝက်ဘ်ဆိုင်ရာဖြတ်လမ်းများ ပြင်ဆင်မည်..."
+msgstr "ဝက်ဘ်ဆိုင်ရာဖြတ်လမ်းများ ပြင်ဆင်မည်…"
 
 #: widgets/kurlrequester.cpp:351
 #, kde-format
@@ -8714,7 +8679,7 @@ msgstr[0] "အိုင်တမ် %1ခုပွား"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents..."
-msgstr "ကလစ်ဘုတ်ကအရာများ ပွားမည်..."
+msgstr "ကလစ်ဘုတ်ကအရာများ ပွားမည်…"
 
 #: widgets/paste.cpp:339
 #, kde-format

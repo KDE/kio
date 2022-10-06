@@ -3628,7 +3628,7 @@ msgstr "*|Tots els fitxers"
 #: widgets/kfileitemactions.cpp:869
 #, kde-format
 msgid "&Open"
-msgstr "&Obri"
+msgstr "O&bri"
 
 #: filewidgets/kfilewidget.cpp:2241
 #, kde-format
@@ -3685,7 +3685,7 @@ msgstr ""
 #: filewidgets/kfilewidget.cpp:2861
 #, kde-format
 msgid "&File type:"
-msgstr "Tipus de &fitxer:"
+msgstr "Tipus de fi&txer:"
 
 #: filewidgets/kfilewidget.cpp:2862
 #, kde-format
@@ -6690,7 +6690,7 @@ msgstr "&Activa les paraules clau de busca en la web"
 #: urifilters/ikws/ikwsopts_ui.ui:30
 #, kde-format
 msgid "&Use preferred keywords only"
-msgstr "&Utilitza només les paraules clau preferides"
+msgstr "Utilit&za només les paraules clau preferides"
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, searchLineEdit)
 #: urifilters/ikws/ikwsopts_ui.ui:37
@@ -7615,12 +7615,12 @@ msgstr "&Accions"
 #: widgets/kfileitemactions.cpp:858
 #, kde-format
 msgid "&Open folder with %1"
-msgstr "&Obri la carpeta amb %1"
+msgstr "O&bri la carpeta amb %1"
 
 #: widgets/kfileitemactions.cpp:858
 #, kde-format
 msgid "&Open with %1"
-msgstr "&Obri amb %1"
+msgstr "O&bri amb %1"
 
 #: widgets/kfileitemactions.cpp:880
 #, kde-format
@@ -7632,7 +7632,7 @@ msgstr "Obri la carpeta amb..."
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With..."
-msgstr "&Obri amb..."
+msgstr "O&bri amb..."
 
 #: widgets/kfileitemactions.cpp:894
 #, kde-format
@@ -7644,13 +7644,13 @@ msgstr "Obri la carpeta amb"
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
-msgstr "&Obri amb"
+msgstr "O&bri amb"
 
 #: widgets/kfileitemactions.cpp:905
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application..."
-msgstr "&Altres aplicacions..."
+msgstr "Al&tres aplicacions..."
 
 #: widgets/kfileitemdelegate.cpp:209
 #, kde-format
@@ -9144,7 +9144,7 @@ msgstr ""
 #: widgets/renamedialog.cpp:237
 #, kde-format
 msgid "&Rename"
-msgstr "&Canvia el nom"
+msgstr "Ca&nvia el nom"
 
 #: widgets/renamedialog.cpp:239
 #, kde-format
@@ -9311,7 +9311,7 @@ msgstr "Canviar de nom els elements"
 #, kde-format
 msgctxt "@action:button"
 msgid "&Rename"
-msgstr "&Canvia el nom"
+msgstr "Ca&nvia el nom"
 
 #: widgets/renamefiledialog.cpp:84
 #, kde-kuit-format

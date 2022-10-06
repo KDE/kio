@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-05 00:43+0000\n"
-"PO-Revision-Date: 2022-10-02 11:55+0200\n"
+"PO-Revision-Date: 2022-10-05 05:07+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -7883,16 +7883,13 @@ msgstr ""
 "«%1» (%2)"
 
 #: widgets/kopenwithdialog.cpp:743
-#, fuzzy, kde-format
-#| msgid ""
-#| "&Remember application association for all files of type\n"
-#| "\"%1\" (%2)"
+#, kde-format
 msgid ""
 "&Remember application association for all files of type\n"
 "\"%1\""
 msgstr ""
 "&Recordar la asociación de programa para todos los archivo del tipo\n"
-"«%1» (%2)"
+"«%1»"
 
 #: widgets/kopenwithdialog.cpp:753
 #, kde-format

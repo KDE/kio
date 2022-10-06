@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-05 00:43+0000\n"
-"PO-Revision-Date: 2022-10-02 07:41+0200\n"
+"PO-Revision-Date: 2022-10-05 05:54+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -7807,20 +7807,17 @@ msgid ""
 "&Remember application association for all files of type\n"
 "\"%1\" (%2)"
 msgstr ""
-"&Gogoratu aplikazio elkarketa mota honetako fitxategi guztientzat\n"
+"&Gogoratu aplikazio elkarketa, mota honetako fitxategi guztientzat\n"
 "\"%1\" (%2)"
 
 #: widgets/kopenwithdialog.cpp:743
-#, fuzzy, kde-format
-#| msgid ""
-#| "&Remember application association for all files of type\n"
-#| "\"%1\" (%2)"
+#, kde-format
 msgid ""
 "&Remember application association for all files of type\n"
 "\"%1\""
 msgstr ""
-"&Gogoratu aplikazio elkarketa mota honetako fitxategi guztientzat\n"
-"\"%1\" (%2)"
+"&Gogoratu aplikazio elkarketa, mota honetako fitxategi guztientzat\n"
+"\"%1\""
 
 #: widgets/kopenwithdialog.cpp:753
 #, kde-format

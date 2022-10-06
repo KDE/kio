@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-05 00:43+0000\n"
-"PO-Revision-Date: 2022-10-04 10:55+0100\n"
+"PO-Revision-Date: 2022-10-05 11:25+0100\n"
 "Last-Translator: José Nuno Pires <zepires@gmail.com>\n"
 "Language-Team: pt <kde-i18n-pt@kde.org>\n"
 "Language: pt\n"
@@ -7897,20 +7897,17 @@ msgid ""
 "&Remember application association for all files of type\n"
 "\"%1\" (%2)"
 msgstr ""
-"&Recordar a associação para todos os ficheiros do tipo\n"
+"&Recordar a associação da aplicação para todos os ficheiros do tipo\n"
 "\"%1\" (%2)"
 
 #: widgets/kopenwithdialog.cpp:743
-#, fuzzy, kde-format
-#| msgid ""
-#| "&Remember application association for all files of type\n"
-#| "\"%1\" (%2)"
+#, kde-format
 msgid ""
 "&Remember application association for all files of type\n"
 "\"%1\""
 msgstr ""
-"&Recordar a associação para todos os ficheiros do tipo\n"
-"\"%1\" (%2)"
+"&Recordar a associação da aplicação para todos os ficheiros do tipo\n"
+"\"%1\""
 
 #: widgets/kopenwithdialog.cpp:753
 #, kde-format

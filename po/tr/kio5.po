@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-05 00:43+0000\n"
-"PO-Revision-Date: 2022-10-02 12:59+0300\n"
+"PO-Revision-Date: 2022-10-05 10:17+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -106,18 +106,18 @@ msgstr ""
 #: core/copyjob.cpp:1397 core/job_error.cpp:579
 #, kde-format
 msgid "Folder Already Exists"
-msgstr "Klasör Zaten Var"
+msgstr "Klasör Halihazırda Var"
 
 #: core/copyjob.cpp:1727 core/copyjob.cpp:2417 core/filecopyjob.cpp:373
 #: core/job_error.cpp:568 widgets/paste.cpp:80
 #, kde-format
 msgid "File Already Exists"
-msgstr "Dosya Zaten Var"
+msgstr "Dosya Halihazırda Var"
 
 #: core/copyjob.cpp:1727 core/copyjob.cpp:2417
 #, kde-format
 msgid "Already Exists as Folder"
-msgstr "Bir Klasör Olarak Zaten Var"
+msgstr "Bir Klasör Olarak Halihazırda Var"
 
 #: core/copyjob.cpp:1887 ioslaves/trash/kio_trash.cpp:288
 #, kde-format
@@ -237,7 +237,7 @@ msgstr "Hedef"
 #, kde-format
 msgctxt "@title job"
 msgid "Renaming"
-msgstr "Yeniden Adlandırma"
+msgstr "Yeniden Adlandırılıyor"
 
 #: core/job.cpp:121
 #, kde-format
@@ -249,7 +249,7 @@ msgstr "Kopyalanıyor"
 #, kde-format
 msgctxt "@title job"
 msgid "Creating directory"
-msgstr "Dizin oluşturuluyor"
+msgstr "Dizin Oluşturuluyor"
 
 #: core/job.cpp:130 widgets/fileundomanager.cpp:132
 #: widgets/kurlrequester.cpp:467
@@ -295,7 +295,7 @@ msgstr "Aygıt"
 #: core/job.cpp:157 core/job.cpp:162
 #, kde-format
 msgid "Mountpoint"
-msgstr "Bağlama noktası"
+msgstr "Bağlama Noktası"
 
 #: core/job.cpp:162
 #, kde-format
@@ -7727,16 +7727,13 @@ msgstr ""
 "\"%1\" (%2)"
 
 #: widgets/kopenwithdialog.cpp:743
-#, fuzzy, kde-format
-#| msgid ""
-#| "&Remember application association for all files of type\n"
-#| "\"%1\" (%2)"
+#, kde-format
 msgid ""
 "&Remember application association for all files of type\n"
 "\"%1\""
 msgstr ""
 "&Bu tür ile ilişkilendirilmiş uygulamayı hatırla\n"
-"\"%1\" (%2)"
+"\"%1\""
 
 #: widgets/kopenwithdialog.cpp:753
 #, kde-format
@@ -8653,7 +8650,7 @@ msgstr "Bu dosyalar gelişmiş izinleri kullanır."
 #, kde-format
 msgctxt "@title:tab"
 msgid "C&hecksums"
-msgstr "&Sağlama toplamları"
+msgstr "&Sağlama Toplamları"
 
 #: widgets/kpropertiesdialog.cpp:2823 widgets/kpropertiesdialog.cpp:2834
 #: widgets/kpropertiesdialog.cpp:2845 widgets/kpropertiesdialog.cpp:2856
@@ -9319,13 +9316,13 @@ msgstr[1] "Bu %1 ögeyi gerçekten Çöp Kutusuna taşımak istiyor musunuz?"
 #, kde-format
 msgctxt "@option:checkbox"
 msgid "Do not ask again"
-msgstr "Yeniden sorma"
+msgstr "Bir daha sorma"
 
 #: widgets/widgetsaskuseractionhandler.cpp:331
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not ask again"
-msgstr "Yeniden sorma"
+msgstr "Bir daha sorma"
 
 #: widgets/widgetsaskuseractionhandler.cpp:356
 #, kde-format
