@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ante-toki-pi-ilo-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-05 00:43+0000\n"
+"POT-Creation-Date: 2022-10-07 00:41+0000\n"
 "PO-Revision-Date: 2022-06-20 03:30+0000\n"
 "Last-Translator: Weblate Admin <admin@example.com>\n"
 "Language-Team: Toki Pona <http://weblate.blackquill.cc/projects/ante-toki-pi-"
@@ -2442,253 +2442,253 @@ msgid ""
 "Would you like to accept this certificate forever without being prompted?"
 msgstr "lipu ni li pona ala pon tawa sina lon tenpo ale?"
 
-#: filewidgets/kdiroperator.cpp:737
+#: filewidgets/kdiroperator.cpp:734
 #, kde-format
 msgid "A file or folder named %1 already exists."
 msgstr "lipu pi nimi %1 anu poki pi nimi %1 li lon kin."
 
-#: filewidgets/kdiroperator.cpp:740
+#: filewidgets/kdiroperator.cpp:737
 #, kde-format
 msgid "You do not have permission to create that folder."
 msgstr "sina jo ala e wawa tawa lon pi poki wile."
 
-#: filewidgets/kdiroperator.cpp:753 filewidgets/kdiroperator.cpp:802
+#: filewidgets/kdiroperator.cpp:750 filewidgets/kdiroperator.cpp:782
 #, kde-format
 msgid "You did not select a file to delete."
 msgstr "sina toki ala e lipu tawa weka."
 
-#: filewidgets/kdiroperator.cpp:753 filewidgets/kdiroperator.cpp:802
+#: filewidgets/kdiroperator.cpp:750 filewidgets/kdiroperator.cpp:782
 #, kde-format
 msgid "Nothing to Delete"
 msgstr "ijo ala li ken kama weka"
 
-#: filewidgets/kdiroperator.cpp:812 filewidgets/kdiroperator.cpp:908
+#: filewidgets/kdiroperator.cpp:794 filewidgets/kdiroperator.cpp:890
 #, kde-format
 msgid "You did not select a file to trash."
 msgstr "sina toki ala e lipu pi wile sina tawa poki jaki."
 
-#: filewidgets/kdiroperator.cpp:812 filewidgets/kdiroperator.cpp:908
+#: filewidgets/kdiroperator.cpp:794 filewidgets/kdiroperator.cpp:890
 #, kde-format
 msgid "Nothing to Trash"
 msgstr "ijo ala li ken tawa poki jaki"
 
-#: filewidgets/kdiroperator.cpp:1012 filewidgets/kdiroperator.cpp:1144
+#: filewidgets/kdiroperator.cpp:973 filewidgets/kdiroperator.cpp:1105
 #, kde-format
 msgid "The specified folder does not exist or was not readable."
 msgstr "poki wile li lon ala anu ken lukin ala."
 
-#: filewidgets/kdiroperator.cpp:2034
+#: filewidgets/kdiroperator.cpp:1995
 #, kde-format
 msgid "Menu"
 msgstr "ilo mute"
 
-#: filewidgets/kdiroperator.cpp:2038
+#: filewidgets/kdiroperator.cpp:1999
 #, kde-format
 msgid "Parent Folder"
 msgstr "poki mama"
 
-#: filewidgets/kdiroperator.cpp:2044
+#: filewidgets/kdiroperator.cpp:2005
 #, kde-format
 msgctxt "@info"
 msgid "Go back"
 msgstr "o tawa tenpo pini"
 
-#: filewidgets/kdiroperator.cpp:2047
+#: filewidgets/kdiroperator.cpp:2008
 #, kde-format
 msgctxt "@info"
 msgid "Go forward"
 msgstr "o tawa tenpo kama"
 
-#: filewidgets/kdiroperator.cpp:2050
+#: filewidgets/kdiroperator.cpp:2011
 #, kde-format
 msgid "Home Folder"
 msgstr "poki pi tomo sina"
 
-#: filewidgets/kdiroperator.cpp:2053
+#: filewidgets/kdiroperator.cpp:2014
 #, kde-format
 msgid "Reload"
 msgstr "o sin e ni"
 
-#: filewidgets/kdiroperator.cpp:2056
+#: filewidgets/kdiroperator.cpp:2017
 #, kde-format
 msgid "New Folder..."
 msgstr "poki lipu sin..."
 
-#: filewidgets/kdiroperator.cpp:2066 widgets/jobuidelegate.cpp:323
+#: filewidgets/kdiroperator.cpp:2027 widgets/jobuidelegate.cpp:323
 #: widgets/jobuidelegate.cpp:324 widgets/jobuidelegate.cpp:333
 #: widgets/jobuidelegate.cpp:334 widgets/widgetsaskuseractionhandler.cpp:272
 #, kde-format
 msgid "Move to Trash"
 msgstr "o weka e ni tawa poki jaki"
 
-#: filewidgets/kdiroperator.cpp:2072
+#: filewidgets/kdiroperator.cpp:2033
 #, kde-format
 msgid "Delete"
 msgstr "o weka"
 
-#: filewidgets/kdiroperator.cpp:2079
+#: filewidgets/kdiroperator.cpp:2040
 #, kde-format
 msgid "Sorting"
 msgstr "nasin pana"
 
-#: filewidgets/kdiroperator.cpp:2084
+#: filewidgets/kdiroperator.cpp:2045
 #, kde-format
 msgid "Sort by Name"
 msgstr "o nasin tan nimi"
 
-#: filewidgets/kdiroperator.cpp:2090
+#: filewidgets/kdiroperator.cpp:2051
 #, kde-format
 msgid "Sort by Size"
 msgstr "o nasin tan suli"
 
-#: filewidgets/kdiroperator.cpp:2096
+#: filewidgets/kdiroperator.cpp:2057
 #, kde-format
 msgid "Sort by Date"
 msgstr "o nasin tan tenpo"
 
-#: filewidgets/kdiroperator.cpp:2102
+#: filewidgets/kdiroperator.cpp:2063
 #, kde-format
 msgid "Sort by Type"
 msgstr "o nasin tan kule"
 
-#: filewidgets/kdiroperator.cpp:2111
+#: filewidgets/kdiroperator.cpp:2072
 #, kde-format
 msgid "Ascending"
 msgstr "tan lili tawa suli"
 
-#: filewidgets/kdiroperator.cpp:2118
+#: filewidgets/kdiroperator.cpp:2079
 #, kde-format
 msgid "Descending"
 msgstr "tan suli tawa lili"
 
-#: filewidgets/kdiroperator.cpp:2125
+#: filewidgets/kdiroperator.cpp:2086
 #, kde-format
 msgid "Folders First"
 msgstr "poki o lon open"
 
-#: filewidgets/kdiroperator.cpp:2131
+#: filewidgets/kdiroperator.cpp:2092
 #, fuzzy, kde-format
 #| msgid "Show Hidden Files"
 msgid "Hidden Files Last"
 msgstr "o ken e lipu len tawa lukin"
 
-#: filewidgets/kdiroperator.cpp:2138
+#: filewidgets/kdiroperator.cpp:2099
 #, kde-format
 msgid "Icons View"
 msgstr "lukin pi sitelen lili"
 
-#: filewidgets/kdiroperator.cpp:2145
+#: filewidgets/kdiroperator.cpp:2106
 #, kde-format
 msgid "Compact View"
 msgstr "lukin pi lipu lili"
 
-#: filewidgets/kdiroperator.cpp:2152
+#: filewidgets/kdiroperator.cpp:2113
 #, kde-format
 msgid "Details View"
 msgstr "lukin pi lipu suli"
 
-#: filewidgets/kdiroperator.cpp:2171
+#: filewidgets/kdiroperator.cpp:2132
 #, kde-format
 msgid "Icon Position"
 msgstr "poka pi sitelen lili"
 
-#: filewidgets/kdiroperator.cpp:2174
+#: filewidgets/kdiroperator.cpp:2135
 #, kde-format
 msgid "Next to File Name"
 msgstr "lon poka pi nimi lipu"
 
-#: filewidgets/kdiroperator.cpp:2180
+#: filewidgets/kdiroperator.cpp:2141
 #, kde-format
 msgid "Above File Name"
 msgstr "lon sewi pi nimi lipu"
 
-#: filewidgets/kdiroperator.cpp:2194
+#: filewidgets/kdiroperator.cpp:2155
 #, kde-format
 msgid "Short View"
 msgstr "lukin lili"
 
-#: filewidgets/kdiroperator.cpp:2201
+#: filewidgets/kdiroperator.cpp:2162
 #, kde-format
 msgid "Detailed View"
 msgstr "lukin pi toki mute"
 
-#: filewidgets/kdiroperator.cpp:2208
+#: filewidgets/kdiroperator.cpp:2169
 #, kde-format
 msgid "Tree View"
 msgstr "lukin pi kasi lukin"
 
-#: filewidgets/kdiroperator.cpp:2215
+#: filewidgets/kdiroperator.cpp:2176
 #, kde-format
 msgid "Detailed Tree View"
 msgstr "lukin pi kasin lukin suli"
 
-#: filewidgets/kdiroperator.cpp:2228
+#: filewidgets/kdiroperator.cpp:2189
 #, kde-format
 msgid "Allow Expansion in Details View"
 msgstr "o ken e open poki lon lipu wan lon lukin pi sona mute"
 
-#: filewidgets/kdiroperator.cpp:2234
+#: filewidgets/kdiroperator.cpp:2195
 #, kde-format
 msgid "Show Hidden Files"
 msgstr "o ken e lipu len tawa lukin"
 
-#: filewidgets/kdiroperator.cpp:2241
+#: filewidgets/kdiroperator.cpp:2202
 #, kde-format
 msgid "Show Preview Panel"
 msgstr "o sitelen e ilo lukin lili"
 
-#: filewidgets/kdiroperator.cpp:2248
+#: filewidgets/kdiroperator.cpp:2209
 #, kde-format
 msgid "Show Preview"
 msgstr "o sitelen e lukin lipu"
 
-#: filewidgets/kdiroperator.cpp:2255
+#: filewidgets/kdiroperator.cpp:2216
 #, kde-format
 msgid "Open Containing Folder"
 msgstr "o open e poki pi jo lipu ni"
 
-#: filewidgets/kdiroperator.cpp:2262 filewidgets/kfileplacesview.cpp:1165
+#: filewidgets/kdiroperator.cpp:2223 filewidgets/kfileplacesview.cpp:1148
 #, kde-format
 msgid "Properties"
 msgstr "ijo lipu"
 
-#: filewidgets/kdiroperator.cpp:2271
+#: filewidgets/kdiroperator.cpp:2232
 #, fuzzy, kde-format
 #| msgid "&View"
 msgid "&View Mode"
 msgstr "&lukin"
 
-#: filewidgets/kdiroperator.cpp:2373 filewidgets/kdiroperator.cpp:2385
+#: filewidgets/kdiroperator.cpp:2334 filewidgets/kdiroperator.cpp:2346
 #, kde-format
 msgctxt "Sort descending"
 msgid "Z-A"
 msgstr "W-A"
 
-#: filewidgets/kdiroperator.cpp:2374 filewidgets/kdiroperator.cpp:2386
+#: filewidgets/kdiroperator.cpp:2335 filewidgets/kdiroperator.cpp:2347
 #, kde-format
 msgctxt "Sort ascending"
 msgid "A-Z"
 msgstr "A-W"
 
-#: filewidgets/kdiroperator.cpp:2377
+#: filewidgets/kdiroperator.cpp:2338
 #, kde-format
 msgctxt "Sort descending"
 msgid "Newest First"
 msgstr "sin li nanpa wan"
 
-#: filewidgets/kdiroperator.cpp:2378
+#: filewidgets/kdiroperator.cpp:2339
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Oldest First"
 msgstr "sin li lon pini"
 
-#: filewidgets/kdiroperator.cpp:2381
+#: filewidgets/kdiroperator.cpp:2342
 #, kde-format
 msgctxt "Sort descending"
 msgid "Largest First"
 msgstr "suli li nanpa wa"
 
-#: filewidgets/kdiroperator.cpp:2382
+#: filewidgets/kdiroperator.cpp:2343
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Smallest First"
@@ -3047,66 +3047,66 @@ msgstr "kepeken '%1' la ilo li pakala. ona li toki e ni: %2"
 msgid "An error occurred while accessing '%1'"
 msgstr "kepeken '%1' la ilo li pakala"
 
-#: filewidgets/kfileplacesview.cpp:595
+#: filewidgets/kfileplacesview.cpp:591
 #, kde-format
 msgid "%1 (hidden)"
 msgstr "%1 (len tawa oko)"
 
-#: filewidgets/kfileplacesview.cpp:1132
+#: filewidgets/kfileplacesview.cpp:1115
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Empty Trash"
 msgstr "poki jaki o jo e ala"
 
-#: filewidgets/kfileplacesview.cpp:1152
+#: filewidgets/kfileplacesview.cpp:1135
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Mount"
 msgstr "o kama insa e ilo"
 
-#: filewidgets/kfileplacesview.cpp:1158
+#: filewidgets/kfileplacesview.cpp:1141
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Tab"
 msgstr "o open lon nena sin"
 
-#: filewidgets/kfileplacesview.cpp:1161
+#: filewidgets/kfileplacesview.cpp:1144
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Window"
 msgstr "o open lon lupa sin"
 
-#: filewidgets/kfileplacesview.cpp:1170
+#: filewidgets/kfileplacesview.cpp:1153
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
 msgstr "o namako e ijo…"
 
-#: filewidgets/kfileplacesview.cpp:1176
+#: filewidgets/kfileplacesview.cpp:1159
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Edit…"
 msgstr "&o ante…"
 
-#: filewidgets/kfileplacesview.cpp:1181
+#: filewidgets/kfileplacesview.cpp:1164
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove"
 msgstr "o weka e ni"
 
-#: filewidgets/kfileplacesview.cpp:1185
+#: filewidgets/kfileplacesview.cpp:1168
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Hide"
 msgstr "o &len e ni"
 
-#: filewidgets/kfileplacesview.cpp:1193
+#: filewidgets/kfileplacesview.cpp:1176
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section '%1'"
 msgstr "o len e ijo '%1'"
 
-#: filewidgets/kfileplacesview.cpp:1193
+#: filewidgets/kfileplacesview.cpp:1176
 #, fuzzy, kde-format
 #| msgctxt "@item:inmenu"
 #| msgid "Hide Section '%1'"
@@ -3114,18 +3114,18 @@ msgctxt "@item:inmenu"
 msgid "Hide Section"
 msgstr "o len e ijo '%1'"
 
-#: filewidgets/kfileplacesview.cpp:1201
+#: filewidgets/kfileplacesview.cpp:1184
 #, kde-format
 msgid "&Show All Entries"
 msgstr "o &ken e lukin tawa ijo ale"
 
-#: filewidgets/kfileplacesview.cpp:1206
+#: filewidgets/kfileplacesview.cpp:1189
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Icon Size"
 msgstr "suli pi sitelen lili"
 
-#: filewidgets/kfileplacesview.cpp:1309
+#: filewidgets/kfileplacesview.cpp:1292
 #, kde-format
 msgctxt ""
 "@item:inmenu Auto set icon size based on available space inthe Places side-"
@@ -3133,25 +3133,25 @@ msgctxt ""
 msgid "Auto Resize"
 msgstr "ilo o pona e suli"
 
-#: filewidgets/kfileplacesview.cpp:1329
+#: filewidgets/kfileplacesview.cpp:1312
 #, kde-format
 msgctxt "Small icon size"
 msgid "Small (%1x%1)"
 msgstr "lili (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1332
+#: filewidgets/kfileplacesview.cpp:1315
 #, kde-format
 msgctxt "Medium icon size"
 msgid "Medium (%1x%1)"
 msgstr "lili ala (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1335
+#: filewidgets/kfileplacesview.cpp:1318
 #, kde-format
 msgctxt "Large icon size"
 msgid "Large (%1x%1)"
 msgstr "suli (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1338
+#: filewidgets/kfileplacesview.cpp:1321
 #, kde-format
 msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"

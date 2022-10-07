@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-05 00:43+0000\n"
+"POT-Creation-Date: 2022-10-07 00:41+0000\n"
 "PO-Revision-Date: 2022-10-05 05:54+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -2640,251 +2640,251 @@ msgid ""
 "Would you like to accept this certificate forever without being prompted?"
 msgstr "Ziurtagiria betirako onartu nahi duzu berriz galdetua izan gabe?"
 
-#: filewidgets/kdiroperator.cpp:737
+#: filewidgets/kdiroperator.cpp:734
 #, kde-format
 msgid "A file or folder named %1 already exists."
 msgstr "%1 izeneko fitxategia edo karpeta lehendik ere badago."
 
-#: filewidgets/kdiroperator.cpp:740
+#: filewidgets/kdiroperator.cpp:737
 #, kde-format
 msgid "You do not have permission to create that folder."
 msgstr "Ez duzu karpeta hori sortzeko baimena."
 
-#: filewidgets/kdiroperator.cpp:753 filewidgets/kdiroperator.cpp:802
+#: filewidgets/kdiroperator.cpp:750 filewidgets/kdiroperator.cpp:782
 #, kde-format
 msgid "You did not select a file to delete."
 msgstr "Ez duzu ezabatzeko fitxategi bat hautatu."
 
-#: filewidgets/kdiroperator.cpp:753 filewidgets/kdiroperator.cpp:802
+#: filewidgets/kdiroperator.cpp:750 filewidgets/kdiroperator.cpp:782
 #, kde-format
 msgid "Nothing to Delete"
 msgstr "Ezabatzeko ezer ez"
 
-#: filewidgets/kdiroperator.cpp:812 filewidgets/kdiroperator.cpp:908
+#: filewidgets/kdiroperator.cpp:794 filewidgets/kdiroperator.cpp:890
 #, kde-format
 msgid "You did not select a file to trash."
 msgstr "Ez duzu zakarrontziratzeko fitxategi bat hautatu."
 
-#: filewidgets/kdiroperator.cpp:812 filewidgets/kdiroperator.cpp:908
+#: filewidgets/kdiroperator.cpp:794 filewidgets/kdiroperator.cpp:890
 #, kde-format
 msgid "Nothing to Trash"
 msgstr "Zakarrontziratzeko ezer ez"
 
-#: filewidgets/kdiroperator.cpp:1012 filewidgets/kdiroperator.cpp:1144
+#: filewidgets/kdiroperator.cpp:973 filewidgets/kdiroperator.cpp:1105
 #, kde-format
 msgid "The specified folder does not exist or was not readable."
 msgstr "Emandako karpeta ez dago edo ez da irakurgarria."
 
-#: filewidgets/kdiroperator.cpp:2034
+#: filewidgets/kdiroperator.cpp:1995
 #, kde-format
 msgid "Menu"
 msgstr "Menua"
 
-#: filewidgets/kdiroperator.cpp:2038
+#: filewidgets/kdiroperator.cpp:1999
 #, kde-format
 msgid "Parent Folder"
 msgstr "Guraso karpeta"
 
-#: filewidgets/kdiroperator.cpp:2044
+#: filewidgets/kdiroperator.cpp:2005
 #, kde-format
 msgctxt "@info"
 msgid "Go back"
 msgstr "Joan atzera"
 
-#: filewidgets/kdiroperator.cpp:2047
+#: filewidgets/kdiroperator.cpp:2008
 #, kde-format
 msgctxt "@info"
 msgid "Go forward"
 msgstr "Joan aurrera"
 
-#: filewidgets/kdiroperator.cpp:2050
+#: filewidgets/kdiroperator.cpp:2011
 #, kde-format
 msgid "Home Folder"
 msgstr "Etxeko karpeta"
 
-#: filewidgets/kdiroperator.cpp:2053
+#: filewidgets/kdiroperator.cpp:2014
 #, kde-format
 msgid "Reload"
 msgstr "Birzamatu"
 
-#: filewidgets/kdiroperator.cpp:2056
+#: filewidgets/kdiroperator.cpp:2017
 #, kde-format
 msgid "New Folder..."
 msgstr "Karpeta berria..."
 
-#: filewidgets/kdiroperator.cpp:2066 widgets/jobuidelegate.cpp:323
+#: filewidgets/kdiroperator.cpp:2027 widgets/jobuidelegate.cpp:323
 #: widgets/jobuidelegate.cpp:324 widgets/jobuidelegate.cpp:333
 #: widgets/jobuidelegate.cpp:334 widgets/widgetsaskuseractionhandler.cpp:272
 #, kde-format
 msgid "Move to Trash"
 msgstr "Eraman zakarrontzira"
 
-#: filewidgets/kdiroperator.cpp:2072
+#: filewidgets/kdiroperator.cpp:2033
 #, kde-format
 msgid "Delete"
 msgstr "Ezabatu"
 
-#: filewidgets/kdiroperator.cpp:2079
+#: filewidgets/kdiroperator.cpp:2040
 #, kde-format
 msgid "Sorting"
 msgstr "Sailkatzea"
 
-#: filewidgets/kdiroperator.cpp:2084
+#: filewidgets/kdiroperator.cpp:2045
 #, kde-format
 msgid "Sort by Name"
 msgstr "Sailkatu izenaren arabera"
 
-#: filewidgets/kdiroperator.cpp:2090
+#: filewidgets/kdiroperator.cpp:2051
 #, kde-format
 msgid "Sort by Size"
 msgstr "Sailkatu neurriaren arabera"
 
-#: filewidgets/kdiroperator.cpp:2096
+#: filewidgets/kdiroperator.cpp:2057
 #, kde-format
 msgid "Sort by Date"
 msgstr "Sailkatu dataren arabera"
 
-#: filewidgets/kdiroperator.cpp:2102
+#: filewidgets/kdiroperator.cpp:2063
 #, kde-format
 msgid "Sort by Type"
 msgstr "Sailkatu motaren arabera"
 
-#: filewidgets/kdiroperator.cpp:2111
+#: filewidgets/kdiroperator.cpp:2072
 #, kde-format
 msgid "Ascending"
 msgstr "Gorakorra"
 
-#: filewidgets/kdiroperator.cpp:2118
+#: filewidgets/kdiroperator.cpp:2079
 #, kde-format
 msgid "Descending"
 msgstr "Beherakorra"
 
-#: filewidgets/kdiroperator.cpp:2125
+#: filewidgets/kdiroperator.cpp:2086
 #, kde-format
 msgid "Folders First"
 msgstr "Karpetak lehenengo"
 
-#: filewidgets/kdiroperator.cpp:2131
+#: filewidgets/kdiroperator.cpp:2092
 #, kde-format
 msgid "Hidden Files Last"
 msgstr "Ezkutuko fitxategiak amaieran"
 
-#: filewidgets/kdiroperator.cpp:2138
+#: filewidgets/kdiroperator.cpp:2099
 #, kde-format
 msgid "Icons View"
 msgstr "Ikonoen ikuspegia"
 
-#: filewidgets/kdiroperator.cpp:2145
+#: filewidgets/kdiroperator.cpp:2106
 #, kde-format
 msgid "Compact View"
 msgstr "Ikuspegi trinkoa"
 
-#: filewidgets/kdiroperator.cpp:2152
+#: filewidgets/kdiroperator.cpp:2113
 #, kde-format
 msgid "Details View"
 msgstr "Ikuspegi xehetua"
 
-#: filewidgets/kdiroperator.cpp:2171
+#: filewidgets/kdiroperator.cpp:2132
 #, kde-format
 msgid "Icon Position"
 msgstr "Ikonoaren kokapena"
 
-#: filewidgets/kdiroperator.cpp:2174
+#: filewidgets/kdiroperator.cpp:2135
 #, kde-format
 msgid "Next to File Name"
 msgstr "FItxategi-izenaren ondoan"
 
-#: filewidgets/kdiroperator.cpp:2180
+#: filewidgets/kdiroperator.cpp:2141
 #, kde-format
 msgid "Above File Name"
 msgstr "FItxategi-izenaren gainean"
 
-#: filewidgets/kdiroperator.cpp:2194
+#: filewidgets/kdiroperator.cpp:2155
 #, kde-format
 msgid "Short View"
 msgstr "Ikuspegi laburtua"
 
-#: filewidgets/kdiroperator.cpp:2201
+#: filewidgets/kdiroperator.cpp:2162
 #, kde-format
 msgid "Detailed View"
 msgstr "Ikuspegi xehetua"
 
-#: filewidgets/kdiroperator.cpp:2208
+#: filewidgets/kdiroperator.cpp:2169
 #, kde-format
 msgid "Tree View"
 msgstr "Zuhaitz-ikuspegia"
 
-#: filewidgets/kdiroperator.cpp:2215
+#: filewidgets/kdiroperator.cpp:2176
 #, kde-format
 msgid "Detailed Tree View"
 msgstr "Zuhaitz-ikuspegi xehetua"
 
-#: filewidgets/kdiroperator.cpp:2228
+#: filewidgets/kdiroperator.cpp:2189
 #, kde-format
 msgid "Allow Expansion in Details View"
 msgstr "Baimendu zabaltzea xehetasun ikuspegian"
 
-#: filewidgets/kdiroperator.cpp:2234
+#: filewidgets/kdiroperator.cpp:2195
 #, kde-format
 msgid "Show Hidden Files"
 msgstr "Erakutsi ezkutuko fitxategiak"
 
-#: filewidgets/kdiroperator.cpp:2241
+#: filewidgets/kdiroperator.cpp:2202
 #, kde-format
 msgid "Show Preview Panel"
 msgstr "Erakutsi aurreikuspegia panela"
 
-#: filewidgets/kdiroperator.cpp:2248
+#: filewidgets/kdiroperator.cpp:2209
 #, kde-format
 msgid "Show Preview"
 msgstr "Erakutsi aurrebista"
 
-#: filewidgets/kdiroperator.cpp:2255
+#: filewidgets/kdiroperator.cpp:2216
 #, kde-format
 msgid "Open Containing Folder"
 msgstr "Ireki hau barnean duen karpeta"
 
-#: filewidgets/kdiroperator.cpp:2262 filewidgets/kfileplacesview.cpp:1165
+#: filewidgets/kdiroperator.cpp:2223 filewidgets/kfileplacesview.cpp:1148
 #, kde-format
 msgid "Properties"
 msgstr "Propietateak"
 
-#: filewidgets/kdiroperator.cpp:2271
+#: filewidgets/kdiroperator.cpp:2232
 #, kde-format
 msgid "&View Mode"
 msgstr "&Ikuspegi modua"
 
-#: filewidgets/kdiroperator.cpp:2373 filewidgets/kdiroperator.cpp:2385
+#: filewidgets/kdiroperator.cpp:2334 filewidgets/kdiroperator.cpp:2346
 #, kde-format
 msgctxt "Sort descending"
 msgid "Z-A"
 msgstr "Z-A"
 
-#: filewidgets/kdiroperator.cpp:2374 filewidgets/kdiroperator.cpp:2386
+#: filewidgets/kdiroperator.cpp:2335 filewidgets/kdiroperator.cpp:2347
 #, kde-format
 msgctxt "Sort ascending"
 msgid "A-Z"
 msgstr "A-Z"
 
-#: filewidgets/kdiroperator.cpp:2377
+#: filewidgets/kdiroperator.cpp:2338
 #, kde-format
 msgctxt "Sort descending"
 msgid "Newest First"
 msgstr "Berriena aurrena"
 
-#: filewidgets/kdiroperator.cpp:2378
+#: filewidgets/kdiroperator.cpp:2339
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Oldest First"
 msgstr "Zaharrena aurrena"
 
-#: filewidgets/kdiroperator.cpp:2381
+#: filewidgets/kdiroperator.cpp:2342
 #, kde-format
 msgctxt "Sort descending"
 msgid "Largest First"
 msgstr "Handiena aurrena"
 
-#: filewidgets/kdiroperator.cpp:2382
+#: filewidgets/kdiroperator.cpp:2343
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Smallest First"
@@ -3246,83 +3246,83 @@ msgstr "Errore bat gertatu da '%1' atzitzean, sistemak erantzun du: %2"
 msgid "An error occurred while accessing '%1'"
 msgstr "Errore bat gertatu da '%1' atzitzean"
 
-#: filewidgets/kfileplacesview.cpp:595
+#: filewidgets/kfileplacesview.cpp:591
 #, kde-format
 msgid "%1 (hidden)"
 msgstr "%1 (ezkutuan)"
 
-#: filewidgets/kfileplacesview.cpp:1132
+#: filewidgets/kfileplacesview.cpp:1115
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Empty Trash"
 msgstr "Hustu zakarrontzia"
 
-#: filewidgets/kfileplacesview.cpp:1152
+#: filewidgets/kfileplacesview.cpp:1135
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Mount"
 msgstr "Muntatu"
 
-#: filewidgets/kfileplacesview.cpp:1158
+#: filewidgets/kfileplacesview.cpp:1141
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Tab"
 msgstr "Ireki Fitxa Berrian"
 
-#: filewidgets/kfileplacesview.cpp:1161
+#: filewidgets/kfileplacesview.cpp:1144
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Window"
 msgstr "Ireki Leiho Berrian"
 
-#: filewidgets/kfileplacesview.cpp:1170
+#: filewidgets/kfileplacesview.cpp:1153
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
 msgstr "Gehitu Sarrera..."
 
-#: filewidgets/kfileplacesview.cpp:1176
+#: filewidgets/kfileplacesview.cpp:1159
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Edit…"
 msgstr "&Editatu..."
 
-#: filewidgets/kfileplacesview.cpp:1181
+#: filewidgets/kfileplacesview.cpp:1164
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove"
 msgstr "Kendu"
 
-#: filewidgets/kfileplacesview.cpp:1185
+#: filewidgets/kfileplacesview.cpp:1168
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Hide"
 msgstr "&Ezkutatu"
 
-#: filewidgets/kfileplacesview.cpp:1193
+#: filewidgets/kfileplacesview.cpp:1176
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section '%1'"
 msgstr "Ezkutatu '%1' atala"
 
-#: filewidgets/kfileplacesview.cpp:1193
+#: filewidgets/kfileplacesview.cpp:1176
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section"
 msgstr "Ezkutatu Atala"
 
-#: filewidgets/kfileplacesview.cpp:1201
+#: filewidgets/kfileplacesview.cpp:1184
 #, kde-format
 msgid "&Show All Entries"
 msgstr "Erakut&si sarrera guztiak"
 
-#: filewidgets/kfileplacesview.cpp:1206
+#: filewidgets/kfileplacesview.cpp:1189
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Icon Size"
 msgstr "Ikono-tamaina"
 
-#: filewidgets/kfileplacesview.cpp:1309
+#: filewidgets/kfileplacesview.cpp:1292
 #, kde-format
 msgctxt ""
 "@item:inmenu Auto set icon size based on available space inthe Places side-"
@@ -3330,25 +3330,25 @@ msgctxt ""
 msgid "Auto Resize"
 msgstr "Handiera automatikoki aldatzea"
 
-#: filewidgets/kfileplacesview.cpp:1329
+#: filewidgets/kfileplacesview.cpp:1312
 #, kde-format
 msgctxt "Small icon size"
 msgid "Small (%1x%1)"
 msgstr "Txikia (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1332
+#: filewidgets/kfileplacesview.cpp:1315
 #, kde-format
 msgctxt "Medium icon size"
 msgid "Medium (%1x%1)"
 msgstr "Ertaina (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1335
+#: filewidgets/kfileplacesview.cpp:1318
 #, kde-format
 msgctxt "Large icon size"
 msgid "Large (%1x%1)"
 msgstr "Handia (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1338
+#: filewidgets/kfileplacesview.cpp:1321
 #, kde-format
 msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"

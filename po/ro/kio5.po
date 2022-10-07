@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-05 00:43+0000\n"
+"POT-Creation-Date: 2022-10-07 00:41+0000\n"
 "PO-Revision-Date: 2022-05-05 10:31+0100\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -2664,253 +2664,253 @@ msgid ""
 msgstr ""
 "Doriți să acceptați permanent acest certificat fără să mai fiți întrebat?"
 
-#: filewidgets/kdiroperator.cpp:737
+#: filewidgets/kdiroperator.cpp:734
 #, kde-format
 msgid "A file or folder named %1 already exists."
 msgstr "Există deja un fișier sau un dosar cu denumirea %1."
 
-#: filewidgets/kdiroperator.cpp:740
+#: filewidgets/kdiroperator.cpp:737
 #, kde-format
 msgid "You do not have permission to create that folder."
 msgstr "Nu aveți permisiuni pentru a crea acel dosar."
 
-#: filewidgets/kdiroperator.cpp:753 filewidgets/kdiroperator.cpp:802
+#: filewidgets/kdiroperator.cpp:750 filewidgets/kdiroperator.cpp:782
 #, kde-format
 msgid "You did not select a file to delete."
 msgstr "Nu ați selectat un fișier de șters."
 
-#: filewidgets/kdiroperator.cpp:753 filewidgets/kdiroperator.cpp:802
+#: filewidgets/kdiroperator.cpp:750 filewidgets/kdiroperator.cpp:782
 #, kde-format
 msgid "Nothing to Delete"
 msgstr "Nimic de șters"
 
-#: filewidgets/kdiroperator.cpp:812 filewidgets/kdiroperator.cpp:908
+#: filewidgets/kdiroperator.cpp:794 filewidgets/kdiroperator.cpp:890
 #, kde-format
 msgid "You did not select a file to trash."
 msgstr "Nu ați selectat un fișier de aruncat la coșul de gunoi."
 
-#: filewidgets/kdiroperator.cpp:812 filewidgets/kdiroperator.cpp:908
+#: filewidgets/kdiroperator.cpp:794 filewidgets/kdiroperator.cpp:890
 #, kde-format
 msgid "Nothing to Trash"
 msgstr "Nimic de aruncat la gunoi"
 
-#: filewidgets/kdiroperator.cpp:1012 filewidgets/kdiroperator.cpp:1144
+#: filewidgets/kdiroperator.cpp:973 filewidgets/kdiroperator.cpp:1105
 #, kde-format
 msgid "The specified folder does not exist or was not readable."
 msgstr "Dosarul specificat nu există sau nu este accesibil."
 
-#: filewidgets/kdiroperator.cpp:2034
+#: filewidgets/kdiroperator.cpp:1995
 #, kde-format
 msgid "Menu"
 msgstr "Meniu"
 
-#: filewidgets/kdiroperator.cpp:2038
+#: filewidgets/kdiroperator.cpp:1999
 #, kde-format
 msgid "Parent Folder"
 msgstr "Dosar părinte"
 
-#: filewidgets/kdiroperator.cpp:2044
+#: filewidgets/kdiroperator.cpp:2005
 #, kde-format
 msgctxt "@info"
 msgid "Go back"
 msgstr "Mergi înapoi"
 
-#: filewidgets/kdiroperator.cpp:2047
+#: filewidgets/kdiroperator.cpp:2008
 #, kde-format
 msgctxt "@info"
 msgid "Go forward"
 msgstr "Mergi înainte"
 
-#: filewidgets/kdiroperator.cpp:2050
+#: filewidgets/kdiroperator.cpp:2011
 #, kde-format
 msgid "Home Folder"
 msgstr "Dosar Acasă"
 
-#: filewidgets/kdiroperator.cpp:2053
+#: filewidgets/kdiroperator.cpp:2014
 #, kde-format
 msgid "Reload"
 msgstr "Reîncarcă"
 
-#: filewidgets/kdiroperator.cpp:2056
+#: filewidgets/kdiroperator.cpp:2017
 #, kde-format
 msgid "New Folder..."
 msgstr "Dosar nou..."
 
-#: filewidgets/kdiroperator.cpp:2066 widgets/jobuidelegate.cpp:323
+#: filewidgets/kdiroperator.cpp:2027 widgets/jobuidelegate.cpp:323
 #: widgets/jobuidelegate.cpp:324 widgets/jobuidelegate.cpp:333
 #: widgets/jobuidelegate.cpp:334 widgets/widgetsaskuseractionhandler.cpp:272
 #, kde-format
 msgid "Move to Trash"
 msgstr "Mută în coșul de gunoi"
 
-#: filewidgets/kdiroperator.cpp:2072
+#: filewidgets/kdiroperator.cpp:2033
 #, kde-format
 msgid "Delete"
 msgstr "Șterge"
 
-#: filewidgets/kdiroperator.cpp:2079
+#: filewidgets/kdiroperator.cpp:2040
 #, kde-format
 msgid "Sorting"
 msgstr "Sortare"
 
-#: filewidgets/kdiroperator.cpp:2084
+#: filewidgets/kdiroperator.cpp:2045
 #, kde-format
 msgid "Sort by Name"
 msgstr "Sortează după denumire"
 
-#: filewidgets/kdiroperator.cpp:2090
+#: filewidgets/kdiroperator.cpp:2051
 #, kde-format
 msgid "Sort by Size"
 msgstr "Sortează după dimensiune"
 
-#: filewidgets/kdiroperator.cpp:2096
+#: filewidgets/kdiroperator.cpp:2057
 #, kde-format
 msgid "Sort by Date"
 msgstr "Sortează după dată"
 
-#: filewidgets/kdiroperator.cpp:2102
+#: filewidgets/kdiroperator.cpp:2063
 #, kde-format
 msgid "Sort by Type"
 msgstr "Sortează după tip"
 
-#: filewidgets/kdiroperator.cpp:2111
+#: filewidgets/kdiroperator.cpp:2072
 #, kde-format
 msgid "Ascending"
 msgstr "Crescător"
 
-#: filewidgets/kdiroperator.cpp:2118
+#: filewidgets/kdiroperator.cpp:2079
 #, kde-format
 msgid "Descending"
 msgstr "Descrescător"
 
-#: filewidgets/kdiroperator.cpp:2125
+#: filewidgets/kdiroperator.cpp:2086
 #, kde-format
 msgid "Folders First"
 msgstr "Întâi dosarele"
 
-#: filewidgets/kdiroperator.cpp:2131
+#: filewidgets/kdiroperator.cpp:2092
 #, fuzzy, kde-format
 #| msgid "Show Hidden Files"
 msgid "Hidden Files Last"
 msgstr "Afișează fișiere ascunse"
 
-#: filewidgets/kdiroperator.cpp:2138
+#: filewidgets/kdiroperator.cpp:2099
 #, kde-format
 msgid "Icons View"
 msgstr "Vizualizare pictograme"
 
-#: filewidgets/kdiroperator.cpp:2145
+#: filewidgets/kdiroperator.cpp:2106
 #, kde-format
 msgid "Compact View"
 msgstr "Vizualizare compactă"
 
-#: filewidgets/kdiroperator.cpp:2152
+#: filewidgets/kdiroperator.cpp:2113
 #, kde-format
 msgid "Details View"
 msgstr "Vizualizare detaliată"
 
-#: filewidgets/kdiroperator.cpp:2171
+#: filewidgets/kdiroperator.cpp:2132
 #, kde-format
 msgid "Icon Position"
 msgstr "Poziția pictogramei"
 
-#: filewidgets/kdiroperator.cpp:2174
+#: filewidgets/kdiroperator.cpp:2135
 #, kde-format
 msgid "Next to File Name"
 msgstr "Alături de denumirea fișierului"
 
-#: filewidgets/kdiroperator.cpp:2180
+#: filewidgets/kdiroperator.cpp:2141
 #, kde-format
 msgid "Above File Name"
 msgstr "Deasupra denumirii fișierului"
 
-#: filewidgets/kdiroperator.cpp:2194
+#: filewidgets/kdiroperator.cpp:2155
 #, kde-format
 msgid "Short View"
 msgstr "Afișează pe scurt"
 
-#: filewidgets/kdiroperator.cpp:2201
+#: filewidgets/kdiroperator.cpp:2162
 #, kde-format
 msgid "Detailed View"
 msgstr "Vizualizare detaliată"
 
-#: filewidgets/kdiroperator.cpp:2208
+#: filewidgets/kdiroperator.cpp:2169
 #, kde-format
 msgid "Tree View"
 msgstr "Vizualizare arborescentă"
 
-#: filewidgets/kdiroperator.cpp:2215
+#: filewidgets/kdiroperator.cpp:2176
 #, kde-format
 msgid "Detailed Tree View"
 msgstr "Vizualizare arborescentă detaliată"
 
-#: filewidgets/kdiroperator.cpp:2228
+#: filewidgets/kdiroperator.cpp:2189
 #, kde-format
 msgid "Allow Expansion in Details View"
 msgstr "Permite desfășurarea în vizualizarea detaliată"
 
-#: filewidgets/kdiroperator.cpp:2234
+#: filewidgets/kdiroperator.cpp:2195
 #, kde-format
 msgid "Show Hidden Files"
 msgstr "Afișează fișiere ascunse"
 
-#: filewidgets/kdiroperator.cpp:2241
+#: filewidgets/kdiroperator.cpp:2202
 #, kde-format
 msgid "Show Preview Panel"
 msgstr "Arată panoul de previzualizare"
 
-#: filewidgets/kdiroperator.cpp:2248
+#: filewidgets/kdiroperator.cpp:2209
 #, kde-format
 msgid "Show Preview"
 msgstr "Arată previzualizare"
 
-#: filewidgets/kdiroperator.cpp:2255
+#: filewidgets/kdiroperator.cpp:2216
 #, kde-format
 msgid "Open Containing Folder"
 msgstr "Deschide dosarul conținător"
 
-#: filewidgets/kdiroperator.cpp:2262 filewidgets/kfileplacesview.cpp:1165
+#: filewidgets/kdiroperator.cpp:2223 filewidgets/kfileplacesview.cpp:1148
 #, kde-format
 msgid "Properties"
 msgstr "Proprietăți"
 
-#: filewidgets/kdiroperator.cpp:2271
+#: filewidgets/kdiroperator.cpp:2232
 #, fuzzy, kde-format
 #| msgid "&View"
 msgid "&View Mode"
 msgstr "&Vizualizare"
 
-#: filewidgets/kdiroperator.cpp:2373 filewidgets/kdiroperator.cpp:2385
+#: filewidgets/kdiroperator.cpp:2334 filewidgets/kdiroperator.cpp:2346
 #, kde-format
 msgctxt "Sort descending"
 msgid "Z-A"
 msgstr "Z-A"
 
-#: filewidgets/kdiroperator.cpp:2374 filewidgets/kdiroperator.cpp:2386
+#: filewidgets/kdiroperator.cpp:2335 filewidgets/kdiroperator.cpp:2347
 #, kde-format
 msgctxt "Sort ascending"
 msgid "A-Z"
 msgstr "A-Z"
 
-#: filewidgets/kdiroperator.cpp:2377
+#: filewidgets/kdiroperator.cpp:2338
 #, kde-format
 msgctxt "Sort descending"
 msgid "Newest First"
 msgstr "Întâi cele mai noi"
 
-#: filewidgets/kdiroperator.cpp:2378
+#: filewidgets/kdiroperator.cpp:2339
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Oldest First"
 msgstr "Întâi cele mai vechi"
 
-#: filewidgets/kdiroperator.cpp:2381
+#: filewidgets/kdiroperator.cpp:2342
 #, kde-format
 msgctxt "Sort descending"
 msgid "Largest First"
 msgstr "Întâi cele mai mari"
 
-#: filewidgets/kdiroperator.cpp:2382
+#: filewidgets/kdiroperator.cpp:2343
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Smallest First"
@@ -3278,83 +3278,83 @@ msgstr "A apărut o eroare la accesarea „%1”, sistemul a răspuns: %2"
 msgid "An error occurred while accessing '%1'"
 msgstr "A apărut o eroare la accesarea „%1”"
 
-#: filewidgets/kfileplacesview.cpp:595
+#: filewidgets/kfileplacesview.cpp:591
 #, kde-format
 msgid "%1 (hidden)"
 msgstr "%1 (ascuns)"
 
-#: filewidgets/kfileplacesview.cpp:1132
+#: filewidgets/kfileplacesview.cpp:1115
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Empty Trash"
 msgstr "Golește gunoiul"
 
-#: filewidgets/kfileplacesview.cpp:1152
+#: filewidgets/kfileplacesview.cpp:1135
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Mount"
 msgstr "Montează"
 
-#: filewidgets/kfileplacesview.cpp:1158
+#: filewidgets/kfileplacesview.cpp:1141
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Tab"
 msgstr "Deschide în filă nouă"
 
-#: filewidgets/kfileplacesview.cpp:1161
+#: filewidgets/kfileplacesview.cpp:1144
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Window"
 msgstr "Deschide în fereastră nouă"
 
-#: filewidgets/kfileplacesview.cpp:1170
+#: filewidgets/kfileplacesview.cpp:1153
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
 msgstr "Adaugă înregistrare…"
 
-#: filewidgets/kfileplacesview.cpp:1176
+#: filewidgets/kfileplacesview.cpp:1159
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Edit…"
 msgstr "&Modifică…"
 
-#: filewidgets/kfileplacesview.cpp:1181
+#: filewidgets/kfileplacesview.cpp:1164
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove"
 msgstr "Elimină"
 
-#: filewidgets/kfileplacesview.cpp:1185
+#: filewidgets/kfileplacesview.cpp:1168
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Hide"
 msgstr "&Ascunde"
 
-#: filewidgets/kfileplacesview.cpp:1193
+#: filewidgets/kfileplacesview.cpp:1176
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section '%1'"
 msgstr "Ascunde secțiunea „%1”"
 
-#: filewidgets/kfileplacesview.cpp:1193
+#: filewidgets/kfileplacesview.cpp:1176
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section"
 msgstr "Ascunde secțiunea"
 
-#: filewidgets/kfileplacesview.cpp:1201
+#: filewidgets/kfileplacesview.cpp:1184
 #, kde-format
 msgid "&Show All Entries"
 msgstr "Arată toate înregi&strările"
 
-#: filewidgets/kfileplacesview.cpp:1206
+#: filewidgets/kfileplacesview.cpp:1189
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Icon Size"
 msgstr "Dimensiune pictograme"
 
-#: filewidgets/kfileplacesview.cpp:1309
+#: filewidgets/kfileplacesview.cpp:1292
 #, kde-format
 msgctxt ""
 "@item:inmenu Auto set icon size based on available space inthe Places side-"
@@ -3362,25 +3362,25 @@ msgctxt ""
 msgid "Auto Resize"
 msgstr "Redimensionare automată"
 
-#: filewidgets/kfileplacesview.cpp:1329
+#: filewidgets/kfileplacesview.cpp:1312
 #, kde-format
 msgctxt "Small icon size"
 msgid "Small (%1x%1)"
 msgstr "Mică (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1332
+#: filewidgets/kfileplacesview.cpp:1315
 #, kde-format
 msgctxt "Medium icon size"
 msgid "Medium (%1x%1)"
 msgstr "Medie (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1335
+#: filewidgets/kfileplacesview.cpp:1318
 #, kde-format
 msgctxt "Large icon size"
 msgid "Large (%1x%1)"
 msgstr "Mare (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1338
+#: filewidgets/kfileplacesview.cpp:1321
 #, kde-format
 msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
