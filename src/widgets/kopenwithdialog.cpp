@@ -1203,6 +1203,13 @@ void KOpenWithDialog::hideRunInTerminal()
     hideNoCloseOnExit();
 }
 
+void KOpenWithDialog::hideApplicationsTreeView()
+{
+    d->view->hide();
+    setMinimumSize(minimumSizeHint());
+    resize(minimumSize());
+}
+
 KService::Ptr KOpenWithDialog::service() const
 {
     return d->m_pService;
