@@ -2148,7 +2148,8 @@ void KFileWidget::setOperationMode(OperationMode mode)
         d->m_okButton->setText(i18n("&Open"));
         d->m_okButton->setIcon(QIcon::fromTheme(QStringLiteral("document-open")));
         // hide the new folder actions...usability team says they shouldn't be in open file dialog
-        actionCollection()->removeAction(actionCollection()->action(QStringLiteral("mkdir")));
+        d->m_ops->action(KDirOperator::NewFolder)->setEnabled(false);
+        d->m_toolbar->removeAction(d->m_ops->action(KDirOperator::NewFolder));
     } else if (mode == Saving) {
         KGuiItem::assign(d->m_okButton, KStandardGuiItem::save());
         d->setNonExtSelection();
