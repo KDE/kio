@@ -511,6 +511,7 @@ public:
      */
     KCompletion *dirCompletionObject() const;
 
+#if KIOFILEWIDGETS_ENABLE_DEPRECATED_SINCE(5, 100)
     /**
      * an accessor to a collection of all available Actions. The actions
      * are static, they will be there all the time (no need to connect to
@@ -551,8 +552,12 @@ public:
      * its parent directory.
      *
      * @returns all available Actions
+     *
+     * @deprecated since 5.100, use action() or allActions() instead.
      */
+    KIOFILEWIDGETS_DEPRECATED_VERSION(5, 100, "Use action() or allActions() instead")
     KActionCollection *actionCollection() const;
+#endif
 
     /**
      * Obtain a given action from the KDirOperator's set of actions.

@@ -485,10 +485,12 @@ KCompletion *KDirOperator::dirCompletionObject() const
     return const_cast<KCompletion *>(&d->m_dirCompletion);
 }
 
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 100)
 KActionCollection *KDirOperator::actionCollection() const
 {
     return d->m_actionCollection;
 }
+#endif
 
 QAction *KDirOperator::action(KDirOperator::Action action) const
 {
