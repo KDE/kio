@@ -3150,12 +3150,10 @@ msgid "Only folders can be added to the Places panel."
 msgstr ""
 
 #: filewidgets/kfileplacesmodel.cpp:1430
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "&Release"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Releasing…"
-msgstr "Vy&dání"
+msgstr ""
 
 #: filewidgets/kfileplacesmodel.cpp:1432
 #, kde-format
@@ -3164,12 +3162,10 @@ msgid "&Release"
 msgstr "Vy&dání"
 
 #: filewidgets/kfileplacesmodel.cpp:1436
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "&Safely Remove"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Safely Removing…"
-msgstr "Bezpečně od&stranit"
+msgstr ""
 
 #: filewidgets/kfileplacesmodel.cpp:1438
 #, kde-format
@@ -3178,12 +3174,10 @@ msgid "&Safely Remove"
 msgstr "Bezpečně od&stranit"
 
 #: filewidgets/kfileplacesmodel.cpp:1443
-#, fuzzy, kde-format
-#| msgctxt "@title job"
-#| msgid "Unmounting"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Unmounting…"
-msgstr "Odpojování"
+msgstr ""
 
 #: filewidgets/kfileplacesmodel.cpp:1445
 #, kde-format
@@ -7647,16 +7641,11 @@ msgstr ""
 "\"%1\" (%2)"
 
 #: widgets/kopenwithdialog.cpp:743
-#, fuzzy, kde-format
-#| msgid ""
-#| "&Remember application association for all files of type\n"
-#| "\"%1\" (%2)"
+#, kde-format
 msgid ""
 "&Remember application association for all files of type\n"
 "\"%1\""
 msgstr ""
-"Zapamatovat si asociaci s aplikací pro všechny soubory typu\n"
-"\"%1\" (%2)"
 
 #: widgets/kopenwithdialog.cpp:753
 #, kde-format

@@ -29,7 +29,7 @@
 >rotocol.</para>
 
 <para
->El kioslave http és utilitzat per totes les aplicacions &kde; per a gestionar les connexions a servidors &HTTP;, és a dir, a servidors web. L'ús més comú és visualitzar pàgines web en el navegador web &konqueror;.</para>
+>El kioslave http és utilitzat per totes les aplicacions &kde; per a gestionar les connexions amb servidors &HTTP;, és a dir, amb servidors web. L'ús més comú és visualitzar pàgines web en el navegador web &konqueror;.</para>
 
 <para
 >Podeu utilitzar el kioslave https en &konqueror; introduint un &URL;. <userinput

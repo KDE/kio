@@ -52,7 +52,7 @@
 >. Si la trobeu en este lloc, la vostra distribució la pot estar enviant en un paquet a part (&pex;, anomenat plasma-doc per a la documentació relacionada amb &plasma;). Per favor, utilitzeu el gestor de paquets de la vostra distribució per a trobar i instal·lar la documentació que falta.</para>
 
 <para
->Si utilitzeu una distribució basada en codi font, com Gentoo, assegureu-vos que no hi ha cap opció de configuració (indicadors «USE» a Gentoo) que podrien haver desactivat la instal·lació de la documentació. </para>
+>Si utilitzeu una distribució basada en codi font, com la Gentoo, assegureu-vos que no hi ha cap opció de configuració (indicadors «USE» en la Gentoo) que podrien haver desactivat la instal·lació de la documentació. </para>
 
 <para
 >Si ja ho heu fet, però encara obteniu esta pàgina en comptes del manual de l'aplicació, probablement heu trobat un error en el sistema d'ajuda. En este cas, informeu-ne en el <ulink url="https://bugs.kde.org/"

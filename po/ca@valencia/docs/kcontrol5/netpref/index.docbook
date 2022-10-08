@@ -65,7 +65,7 @@
 >sòcols</firstterm
 > per a comunicar-se. Podeu pensar en un sòcol com en una aixeta d'aigua; quan està oberta, l'aigua (o en el nostre cas, les dades) ix, sense interacció. Si alguna cosa para este flux de dades, l'aplicació esperarà que n'hi haja més per a eixir. Esta demora pot correspondre's a un interval molt llarg de temps, però amb esta opció podeu definir un temps màxim d'espera per a una aplicació.</para>
 <para
->De moment, esta opció de configuració tan sols és aplicable a aplicacions &kde;.</para>
+>De moment, esta opció de configuració tan sols és aplicable a les aplicacions &kde;.</para>
 </listitem>
 </varlistentry>
 
@@ -76,7 +76,7 @@
 ></term>
 <listitem>
 <para
->Establix quant de temps s'ha d'esperar una connexió a un servidor intermediari, si n'hi ha un de configurat. </para>
+>Establix quant de temps s'ha d'esperar una connexió amb un servidor intermediari, si n'hi ha un de configurat. </para>
 </listitem>
 </varlistentry>
 
@@ -87,7 +87,7 @@
 ></term>
 <listitem>
 <para
->Establix quant de temps esperar una connexió a un servidor remot. </para>
+>Establix quant de temps esperar una connexió amb un servidor remot. </para>
 </listitem>
 </varlistentry>
 
@@ -116,9 +116,9 @@
 ></term>
 <listitem
 ><para
->FTP; passiu sovint es requerix quan esteu al darrere d'un tallafoc. Molts tallafocs només permeten connexions que foren iniciades des de <quote
+>&FTP; passiu sovint es requerix quan esteu al darrere d'un tallafoc. Molts tallafocs només permeten connexions que foren iniciades des de <quote
 >dins</quote
->. FTP; passiu està controlat pel client, el qual permet el seu ús al darrere d'un tallafoc.</para
+>. &FTP; passiu està controlat pel client, el qual permet el seu ús al darrere d'un tallafoc.</para
 ></listitem>
 </varlistentry>
 

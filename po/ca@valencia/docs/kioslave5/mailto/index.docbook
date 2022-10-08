@@ -115,13 +115,13 @@
 >Configuració</term>
 <listitem
 ><para
->Escolliu l'aplicació per a gestionar els localitzadors de mailto al mòdul d'&systemsettings; <menuchoice
+>Escolliu l'aplicació per a gestionar els localitzadors de mailto en el mòdul d'&systemsettings; <menuchoice
 ><guimenu
 >Aplicacions</guimenu
 ><guimenuitem
 >Aplicacions predeterminades</guimenuitem
 ></menuchoice
-> a la categoria <guilabel
+> en la categoria <guilabel
 >Personalització</guilabel
 >. </para
 ></listitem>

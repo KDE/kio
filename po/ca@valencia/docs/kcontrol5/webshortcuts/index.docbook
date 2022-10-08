@@ -63,14 +63,14 @@
 >&Alt;&Space;</keycombo
 >, a menys que l'hàgeu canviat) i introduir un &URI;. <footnote
 ><para
->Identificador uniforme de recursos (URI -Uniform Resource Identifier-). Un mode estàndard de referir-se a un recurs tal com un fitxer al vostre ordinador, una adreça a la web mundial, una adreça de correu, &etc;</para
+>Identificador uniforme de recursos (URI -Uniform Resource Identifier-). Un mode estàndard de referir-se a un recurs tal com un fitxer en el vostre ordinador, una adreça en la web mundial, una adreça de correu, &etc;</para
 ></footnote
 ></para>
 
 <para
 >D'altra banda, les dreceres web vos permeten utilitzar nous esquemes de pseudo &URL; o dreceres, que bàsicament permeten indicar <emphasis
 >paràmetres</emphasis
-> als &URI; d'ús freqüent. Per exemple, si vos agrada el motor de busca de Google, podeu configurar &kde; de manera que un pseudo &URL; com <emphasis
+> en els &URI; d'ús freqüent. Per exemple, si vos agrada el motor de busca de Google, podeu configurar &kde; de manera que un pseudo &URL; com <emphasis
 >gg:</emphasis
 > active una busca a Google. D'esta manera, introduint <userinput
 >gg:<replaceable
@@ -90,27 +90,27 @@
 ></note>
 
 <para
->Podeu emprar dreceres web a on normalment utilitzaríeu els &URI;. Les dreceres per a diversos motors de busca haurien d'estar ja configurades al vostre sistema, però en este mòdul podeu afegir noves paraules clau i canviar o suprimir algunes d'existents.</para>
+>Podeu emprar dreceres web a on normalment utilitzaríeu els &URI;. Les dreceres per a diversos motors de busca haurien d'estar ja configurades en el vostre sistema, però en este mòdul podeu afegir noves paraules clau i canviar o suprimir algunes d'existents.</para>
 
 </sect2>
 
 <sect2 id="ebrowse-use">
 
 <title
->Paraules clau de busca a la web</title>
+>Paraules clau de busca en la web</title>
 
 <para
 >Els noms descriptius de les dreceres web es mostren en un quadro de llista. Com en altres llistes de &kde;, podeu fer clic damunt de la capçalera en una columna per a canviar l'ordre entre ascendent i descendent, com també podeu redimensionar les columnes.</para>
 
 <para
->A la part inferior de la llista, l'opció <guilabel
->Activa les paraules clau de busca a la web</guilabel
+>En la part inferior de la llista, l'opció <guilabel
+>Activa les paraules clau de busca en la web</guilabel
 > ha d'estar marcada per a activar esta característica. Utilitzeu els botons de la dreta per a crear, modificar o suprimir les dreceres.</para>
 
 <para
 >Si <guilabel
 >Utilitza només les paraules clau preferides</guilabel
-> està marcada, sols les paraules clau marcades com a preferides a la segona columna de la llista s'utilitzaran en llocs on sols unes poques i selectes dreceres es puguen mostrar a la vegada. </para>
+> està marcada, sols les paraules clau marcades com a preferides en la segona columna de la llista s'utilitzaran en llocs on sols unes poques i selectes dreceres es puguen mostrar a la vegada. </para>
  
 <para
 >Davall la llista es troben dues opcions addicionals:</para>
@@ -118,7 +118,7 @@
 <varlistentry
 ><term
 ><guilabel
->Paraula clau de busca a la web predeterminada:</guilabel
+>Paraula clau de busca en la web predeterminada:</guilabel
 ></term>
 <listitem>
 <para
@@ -134,7 +134,7 @@
 ></term>
 <listitem>
 <para
->Seleccioneu el delimitador que separa la paraula clau de la frase o paraula a buscar.</para
+>Seleccioneu el delimitador que separa la paraula clau de la frase o paraula que es buscarà.</para
 ></listitem>
 </varlistentry>
 </variablelist>
@@ -170,7 +170,7 @@
 >https://www.google.com/search?q=\{@}</userinput
 > i que <userinput
 >gg</userinput
-> és la drecera a este &URI;. Llavors, escriure <userinput
+> és la drecera cap a este &URI;. Llavors, escriure <userinput
 >gg:<replaceable
 >alpha</replaceable
 ></userinput
@@ -196,7 +196,7 @@
 > és el mateix que introduir l'&URI; complet. Cal tindre present que no hi ha res després dels dos punts en escriure la drecera, però els dos punts són necessaris perquè la drecera siga reconeguda com a tal.</para>
 
 <para
->Ara ja haureu comprés que encara que estes dreceres s'anomenen dreceres web, en realitat són dreceres a &URI; amb paràmetres, que poden apuntar no tan sols a llocs web sinó a qualsevol adreça a la qual es puga apuntar amb un &URI;. Les dreceres web són una característica molt potent de la navegació en &kde;.</para>
+>Ara ja haureu comprés que encara que estes dreceres s'anomenen dreceres web, en realitat són dreceres a &URI; amb paràmetres, els quals poden apuntar no tan sols a llocs web sinó a qualsevol adreça a la qual es puga apuntar amb un &URI;. Les dreceres web són una característica molt potent de la navegació en &kde;.</para>
 
 </sect2>
 

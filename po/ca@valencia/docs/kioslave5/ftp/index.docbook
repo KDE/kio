@@ -18,22 +18,22 @@
 </articleinfo>
 
 <para
->&FTP; és el servei d'Internet emprat per a transferir un fitxer de dades des del disc d'un ordinador al disc des d'un altre, independentment del tipus de sistema operatiu. </para>
+>&FTP; és el servei d'Internet emprat per a transferir un fitxer de dades des del disc d'un ordinador cap al disc d'un altre, independentment del tipus de sistema operatiu. </para>
 
 <para
->De mode pareixent a altres aplicacions d'Internet, FTP; utilitza l'aproximació client-servidor &mdash; un usuari invoca un programa &FTP; a l'ordinador, li indica que contacte amb una màquina remota i després sol·licita la transferència d'un o més fitxers. El programa local d'&FTP; es convertix en un client que utilitza <acronym
+>De mode pareixent a altres aplicacions d'Internet, &FTP; utilitza l'aproximació client-servidor &mdash; un usuari invoca un programa &FTP; en l'ordinador, li indica que contacte amb una màquina remota i després sol·licita la transferència d'un o més fitxers. El programa local d'&FTP; es convertix en un client que utilitza <acronym
 >TCP</acronym
 > per a contactar amb un programa servidor d'&FTP; en l'ordinador remot. Cada vegada que un usuari sol·licita una transferència de fitxers, els programes client i servidor cooperen per a enviar una còpia de dades a través de la Internet.</para>
 
 <para
 >Els servidors &FTP; que accepten <quote
 >&FTP; anònim</quote
-> permeten que qualsevol usuari, no només usuaris amb comptes en la màquina, naveguen pels arxius <quote
+> permeten que qualsevol usuari, no només usuaris amb comptes en l'amfitrió, naveguen pels arxius <quote
 >ftp</quote
 > i els descarreguen. Alguns servidors &FTP; també estan configurats per a permetre que els usuaris hi pugen fitxers.</para>
 
 <para
->FTP; és habitualment emprat per a recuperar informació i obtindre programari emmagatzemat en fitxers als llocs d'arxiu &FTP; al voltant de tot el món. </para>
+>&FTP; és habitualment emprat per a recuperar informació i obtindre programari emmagatzemat en fitxers als llocs d'arxiu &FTP; al voltant de tot el món. </para>
 
 
 <para
