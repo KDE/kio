@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-07 00:41+0000\n"
+"POT-Creation-Date: 2022-10-09 00:42+0000\n"
 "PO-Revision-Date: 2022-03-20 11:23+0100\n"
 "Last-Translator: irfan <irfankurtagic@outlook.com>\n"
 "Language-Team: English <kde-i18n-doc@kde.org>\n"
@@ -2548,25 +2548,25 @@ msgstr "&Da"
 msgid "&No"
 msgstr "&Ne"
 
-#: core/slaveinterface.cpp:421 core/tcpslavebase.cpp:535
+#: core/slaveinterface.cpp:422 core/tcpslavebase.cpp:535
 #: core/tcpworkerbase.cpp:530 widgets/sslui.cpp:69
 #, kde-format
 msgid "&Details"
 msgstr "&Detalji"
 
-#: core/slaveinterface.cpp:423 core/tcpslavebase.cpp:548
+#: core/slaveinterface.cpp:424 core/tcpslavebase.cpp:548
 #: core/tcpworkerbase.cpp:543 widgets/sslui.cpp:105
 #, kde-format
 msgid "&Forever"
 msgstr "&Zauvijek"
 
-#: core/slaveinterface.cpp:427 core/tcpslavebase.cpp:535
+#: core/slaveinterface.cpp:428 core/tcpslavebase.cpp:535
 #: core/tcpworkerbase.cpp:530 widgets/sslui.cpp:70
 #, kde-format
 msgid "Co&ntinue"
 msgstr "Nas&tavi"
 
-#: core/slaveinterface.cpp:429 core/tcpslavebase.cpp:549
+#: core/slaveinterface.cpp:430 core/tcpslavebase.cpp:549
 #: core/tcpworkerbase.cpp:544 widgets/sslui.cpp:106
 #, kde-format
 msgid "&Current Session only"
@@ -2646,255 +2646,255 @@ msgid ""
 msgstr ""
 "Å½elite li da prihvatite ovaj sertifikat zauvijek, bez pitanja ubuduÄ‡e?"
 
-#: filewidgets/kdiroperator.cpp:734
+#: filewidgets/kdiroperator.cpp:746
 #, kde-format
 msgid "A file or folder named %1 already exists."
 msgstr "Datoteka ili direktorij po imenu <filename>%1</filename> veÄ‡ postoji."
 
-#: filewidgets/kdiroperator.cpp:737
+#: filewidgets/kdiroperator.cpp:749
 #, kde-format
 msgid "You do not have permission to create that folder."
 msgstr "Nemate dozvolu da napravite taj direktorij."
 
-#: filewidgets/kdiroperator.cpp:750 filewidgets/kdiroperator.cpp:782
+#: filewidgets/kdiroperator.cpp:762 filewidgets/kdiroperator.cpp:794
 #, kde-format
 msgid "You did not select a file to delete."
 msgstr "Niste izabrali datoteku za brisanje."
 
-#: filewidgets/kdiroperator.cpp:750 filewidgets/kdiroperator.cpp:782
+#: filewidgets/kdiroperator.cpp:762 filewidgets/kdiroperator.cpp:794
 #, kde-format
 msgid "Nothing to Delete"
 msgstr "NiÄijeg za brisanje"
 
-#: filewidgets/kdiroperator.cpp:794 filewidgets/kdiroperator.cpp:890
+#: filewidgets/kdiroperator.cpp:806 filewidgets/kdiroperator.cpp:902
 #, kde-format
 msgid "You did not select a file to trash."
 msgstr "Niste izabrali datoteku za bacanje u smeÄ‡e."
 
-#: filewidgets/kdiroperator.cpp:794 filewidgets/kdiroperator.cpp:890
+#: filewidgets/kdiroperator.cpp:806 filewidgets/kdiroperator.cpp:902
 #, kde-format
 msgid "Nothing to Trash"
 msgstr "NiÄijeg za smeÄ‡e"
 
-#: filewidgets/kdiroperator.cpp:973 filewidgets/kdiroperator.cpp:1105
+#: filewidgets/kdiroperator.cpp:985 filewidgets/kdiroperator.cpp:1117
 #, kde-format
 msgid "The specified folder does not exist or was not readable."
 msgstr "Navedeni direktorij ne postoji ili se ne moÅ¾e Äitati."
 
-#: filewidgets/kdiroperator.cpp:1995
+#: filewidgets/kdiroperator.cpp:2006
 #, kde-format
 msgid "Menu"
 msgstr "Meni"
 
-#: filewidgets/kdiroperator.cpp:1999
+#: filewidgets/kdiroperator.cpp:2012
 #, kde-format
 msgid "Parent Folder"
 msgstr "Roditeljski direktorij"
 
-#: filewidgets/kdiroperator.cpp:2005
+#: filewidgets/kdiroperator.cpp:2019
 #, kde-format
 msgctxt "@info"
 msgid "Go back"
 msgstr "Vrati se"
 
-#: filewidgets/kdiroperator.cpp:2008
+#: filewidgets/kdiroperator.cpp:2023
 #, kde-format
 msgctxt "@info"
 msgid "Go forward"
 msgstr "Idi naprijed"
 
-#: filewidgets/kdiroperator.cpp:2011
+#: filewidgets/kdiroperator.cpp:2027
 #, kde-format
 msgid "Home Folder"
 msgstr "LiÄni direktorij"
 
-#: filewidgets/kdiroperator.cpp:2014
+#: filewidgets/kdiroperator.cpp:2031
 #, kde-format
 msgid "Reload"
 msgstr "UÄitaj ponovo"
 
-#: filewidgets/kdiroperator.cpp:2017
+#: filewidgets/kdiroperator.cpp:2034
 #, kde-format
 msgid "New Folder..."
 msgstr "Novi direktorij..."
 
-#: filewidgets/kdiroperator.cpp:2027 widgets/jobuidelegate.cpp:323
+#: filewidgets/kdiroperator.cpp:2046 widgets/jobuidelegate.cpp:323
 #: widgets/jobuidelegate.cpp:324 widgets/jobuidelegate.cpp:333
 #: widgets/jobuidelegate.cpp:334 widgets/widgetsaskuseractionhandler.cpp:272
 #, kde-format
 msgid "Move to Trash"
 msgstr "Premjesti u smeÄ‡e"
 
-#: filewidgets/kdiroperator.cpp:2033
+#: filewidgets/kdiroperator.cpp:2053
 #, kde-format
 msgid "Delete"
 msgstr "ObriÅ¡i"
 
-#: filewidgets/kdiroperator.cpp:2040
+#: filewidgets/kdiroperator.cpp:2061
 #, kde-format
 msgid "Sorting"
 msgstr "ReÄ‘anje"
 
-#: filewidgets/kdiroperator.cpp:2045
+#: filewidgets/kdiroperator.cpp:2067
 #, kde-format
 msgid "Sort by Name"
 msgstr "Sortiraj po imenu"
 
-#: filewidgets/kdiroperator.cpp:2051
+#: filewidgets/kdiroperator.cpp:2074
 #, kde-format
 msgid "Sort by Size"
 msgstr "Sortiraj po veličini"
 
-#: filewidgets/kdiroperator.cpp:2057
+#: filewidgets/kdiroperator.cpp:2081
 #, kde-format
 msgid "Sort by Date"
 msgstr "Sortiraj po datumu"
 
-#: filewidgets/kdiroperator.cpp:2063
+#: filewidgets/kdiroperator.cpp:2088
 #, kde-format
 msgid "Sort by Type"
 msgstr "Sortiraj po tipu"
 
-#: filewidgets/kdiroperator.cpp:2072
+#: filewidgets/kdiroperator.cpp:2098
 #, kde-format
 msgid "Ascending"
 msgstr "Uzlazni"
 
-#: filewidgets/kdiroperator.cpp:2079
+#: filewidgets/kdiroperator.cpp:2106
 #, kde-format
 msgid "Descending"
 msgstr "Silazni"
 
-#: filewidgets/kdiroperator.cpp:2086
+#: filewidgets/kdiroperator.cpp:2114
 #, kde-format
 msgid "Folders First"
 msgstr "prvo direktoriji"
 
-#: filewidgets/kdiroperator.cpp:2092
+#: filewidgets/kdiroperator.cpp:2121
 #, fuzzy, kde-format
 #| msgid "Show Hidden Files"
 msgid "Hidden Files Last"
 msgstr "Skrivene datoteke"
 
-#: filewidgets/kdiroperator.cpp:2099
+#: filewidgets/kdiroperator.cpp:2129
 #, kde-format
 msgid "Icons View"
 msgstr "Prikaz ikona"
 
-#: filewidgets/kdiroperator.cpp:2106
+#: filewidgets/kdiroperator.cpp:2137
 #, kde-format
 msgid "Compact View"
 msgstr "Kompaktni prikaz"
 
-#: filewidgets/kdiroperator.cpp:2113
+#: filewidgets/kdiroperator.cpp:2145
 #, kde-format
 msgid "Details View"
 msgstr "Detaljan prikaz"
 
-#: filewidgets/kdiroperator.cpp:2132
+#: filewidgets/kdiroperator.cpp:2165
 #, kde-format
 msgid "Icon Position"
 msgstr "PoloÅ¾aj ikona"
 
 # @item:inmenu Icon Position
-#: filewidgets/kdiroperator.cpp:2135
+#: filewidgets/kdiroperator.cpp:2169
 #, kde-format
 msgid "Next to File Name"
 msgstr "pored imena datoteke"
 
 # @item:inmenu Icon Position
-#: filewidgets/kdiroperator.cpp:2141
+#: filewidgets/kdiroperator.cpp:2176
 #, kde-format
 msgid "Above File Name"
 msgstr "iznad imena datoteke"
 
-#: filewidgets/kdiroperator.cpp:2155
+#: filewidgets/kdiroperator.cpp:2191
 #, kde-format
 msgid "Short View"
 msgstr "SaÅ¾eti prikaz"
 
-#: filewidgets/kdiroperator.cpp:2162
+#: filewidgets/kdiroperator.cpp:2199
 #, kde-format
 msgid "Detailed View"
 msgstr "Detaljan prikaz"
 
-#: filewidgets/kdiroperator.cpp:2169
+#: filewidgets/kdiroperator.cpp:2207
 #, kde-format
 msgid "Tree View"
 msgstr "Prikaz stabla"
 
-#: filewidgets/kdiroperator.cpp:2176
+#: filewidgets/kdiroperator.cpp:2215
 #, kde-format
 msgid "Detailed Tree View"
 msgstr "Detaljni prikaz stabla"
 
-#: filewidgets/kdiroperator.cpp:2189
+#: filewidgets/kdiroperator.cpp:2229
 #, kde-format
 msgid "Allow Expansion in Details View"
 msgstr "Dozvoli proširenje u prikazu detalja"
 
-#: filewidgets/kdiroperator.cpp:2195
+#: filewidgets/kdiroperator.cpp:2236
 #, kde-format
 msgid "Show Hidden Files"
 msgstr "Skrivene datoteke"
 
-#: filewidgets/kdiroperator.cpp:2202
+#: filewidgets/kdiroperator.cpp:2244
 #, kde-format
 msgid "Show Preview Panel"
 msgstr "Prikaži tablu za pregled"
 
-#: filewidgets/kdiroperator.cpp:2209
+#: filewidgets/kdiroperator.cpp:2252
 #, kde-format
 msgid "Show Preview"
 msgstr "Pregled"
 
-#: filewidgets/kdiroperator.cpp:2216
+#: filewidgets/kdiroperator.cpp:2260
 #, kde-format
 msgid "Open Containing Folder"
 msgstr "Otvorite fasciklu koja sadrži"
 
-#: filewidgets/kdiroperator.cpp:2223 filewidgets/kfileplacesview.cpp:1148
+#: filewidgets/kdiroperator.cpp:2268 filewidgets/kfileplacesview.cpp:1148
 #, kde-format
 msgid "Properties"
 msgstr "Svojstva"
 
-#: filewidgets/kdiroperator.cpp:2232
+#: filewidgets/kdiroperator.cpp:2278
 #, fuzzy, kde-format
 #| msgid "&View"
 msgid "&View Mode"
 msgstr "&Prikaz"
 
-#: filewidgets/kdiroperator.cpp:2334 filewidgets/kdiroperator.cpp:2346
+#: filewidgets/kdiroperator.cpp:2382 filewidgets/kdiroperator.cpp:2394
 #, kde-format
 msgctxt "Sort descending"
 msgid "Z-A"
 msgstr "Z-A"
 
-#: filewidgets/kdiroperator.cpp:2335 filewidgets/kdiroperator.cpp:2347
+#: filewidgets/kdiroperator.cpp:2383 filewidgets/kdiroperator.cpp:2395
 #, kde-format
 msgctxt "Sort ascending"
 msgid "A-Z"
 msgstr "A-Z"
 
-#: filewidgets/kdiroperator.cpp:2338
+#: filewidgets/kdiroperator.cpp:2386
 #, kde-format
 msgctxt "Sort descending"
 msgid "Newest First"
 msgstr "Prvo Najnovije"
 
-#: filewidgets/kdiroperator.cpp:2339
+#: filewidgets/kdiroperator.cpp:2387
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Oldest First"
 msgstr "Prvo Najstarije"
 
-#: filewidgets/kdiroperator.cpp:2342
+#: filewidgets/kdiroperator.cpp:2390
 #, kde-format
 msgctxt "Sort descending"
 msgid "Largest First"
 msgstr "Prvo Najveće"
 
-#: filewidgets/kdiroperator.cpp:2343
+#: filewidgets/kdiroperator.cpp:2391
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Smallest First"

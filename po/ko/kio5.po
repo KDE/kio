@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-07 00:41+0000\n"
+"POT-Creation-Date: 2022-10-09 00:42+0000\n"
 "PO-Revision-Date: 2022-10-03 15:50+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-i18n-doc@kde.org>\n"
@@ -2459,25 +2459,25 @@ msgstr "예(&Y)"
 msgid "&No"
 msgstr "아니요(&N)"
 
-#: core/slaveinterface.cpp:421 core/tcpslavebase.cpp:535
+#: core/slaveinterface.cpp:422 core/tcpslavebase.cpp:535
 #: core/tcpworkerbase.cpp:530 widgets/sslui.cpp:69
 #, kde-format
 msgid "&Details"
 msgstr "자세히(&D)"
 
-#: core/slaveinterface.cpp:423 core/tcpslavebase.cpp:548
+#: core/slaveinterface.cpp:424 core/tcpslavebase.cpp:548
 #: core/tcpworkerbase.cpp:543 widgets/sslui.cpp:105
 #, kde-format
 msgid "&Forever"
 msgstr "영원히(&F)"
 
-#: core/slaveinterface.cpp:427 core/tcpslavebase.cpp:535
+#: core/slaveinterface.cpp:428 core/tcpslavebase.cpp:535
 #: core/tcpworkerbase.cpp:530 widgets/sslui.cpp:70
 #, kde-format
 msgid "Co&ntinue"
 msgstr "계속(&N)"
 
-#: core/slaveinterface.cpp:429 core/tcpslavebase.cpp:549
+#: core/slaveinterface.cpp:430 core/tcpslavebase.cpp:549
 #: core/tcpworkerbase.cpp:544 widgets/sslui.cpp:106
 #, kde-format
 msgid "&Current Session only"
@@ -2554,251 +2554,251 @@ msgid ""
 "Would you like to accept this certificate forever without being prompted?"
 msgstr "이 인증서를 확인하지 않고 계속 받아들이시겠습니까?"
 
-#: filewidgets/kdiroperator.cpp:734
+#: filewidgets/kdiroperator.cpp:746
 #, kde-format
 msgid "A file or folder named %1 already exists."
 msgstr "이름이 %1인 파일이나 폴더가 이미 존재합니다."
 
-#: filewidgets/kdiroperator.cpp:737
+#: filewidgets/kdiroperator.cpp:749
 #, kde-format
 msgid "You do not have permission to create that folder."
 msgstr "그 폴더를 만들 수 있는 권한이 없습니다."
 
-#: filewidgets/kdiroperator.cpp:750 filewidgets/kdiroperator.cpp:782
+#: filewidgets/kdiroperator.cpp:762 filewidgets/kdiroperator.cpp:794
 #, kde-format
 msgid "You did not select a file to delete."
 msgstr "지울 파일을 선택하지 않았습니다."
 
-#: filewidgets/kdiroperator.cpp:750 filewidgets/kdiroperator.cpp:782
+#: filewidgets/kdiroperator.cpp:762 filewidgets/kdiroperator.cpp:794
 #, kde-format
 msgid "Nothing to Delete"
 msgstr "지울 것 없음"
 
-#: filewidgets/kdiroperator.cpp:794 filewidgets/kdiroperator.cpp:890
+#: filewidgets/kdiroperator.cpp:806 filewidgets/kdiroperator.cpp:902
 #, kde-format
 msgid "You did not select a file to trash."
 msgstr "휴지통에 버릴 파일을 선택하지 않았습니다."
 
-#: filewidgets/kdiroperator.cpp:794 filewidgets/kdiroperator.cpp:890
+#: filewidgets/kdiroperator.cpp:806 filewidgets/kdiroperator.cpp:902
 #, kde-format
 msgid "Nothing to Trash"
 msgstr "버릴 것 없음"
 
-#: filewidgets/kdiroperator.cpp:973 filewidgets/kdiroperator.cpp:1105
+#: filewidgets/kdiroperator.cpp:985 filewidgets/kdiroperator.cpp:1117
 #, kde-format
 msgid "The specified folder does not exist or was not readable."
 msgstr "지정한 폴더가 없거나 읽을 수 없습니다."
 
-#: filewidgets/kdiroperator.cpp:1995
+#: filewidgets/kdiroperator.cpp:2006
 #, kde-format
 msgid "Menu"
 msgstr "메뉴"
 
-#: filewidgets/kdiroperator.cpp:1999
+#: filewidgets/kdiroperator.cpp:2012
 #, kde-format
 msgid "Parent Folder"
 msgstr "부모 폴더"
 
-#: filewidgets/kdiroperator.cpp:2005
+#: filewidgets/kdiroperator.cpp:2019
 #, kde-format
 msgctxt "@info"
 msgid "Go back"
 msgstr "뒤로 이동"
 
-#: filewidgets/kdiroperator.cpp:2008
+#: filewidgets/kdiroperator.cpp:2023
 #, kde-format
 msgctxt "@info"
 msgid "Go forward"
 msgstr "앞으로 이동"
 
-#: filewidgets/kdiroperator.cpp:2011
+#: filewidgets/kdiroperator.cpp:2027
 #, kde-format
 msgid "Home Folder"
 msgstr "홈 폴더"
 
-#: filewidgets/kdiroperator.cpp:2014
+#: filewidgets/kdiroperator.cpp:2031
 #, kde-format
 msgid "Reload"
 msgstr "새로 고침"
 
-#: filewidgets/kdiroperator.cpp:2017
+#: filewidgets/kdiroperator.cpp:2034
 #, kde-format
 msgid "New Folder..."
 msgstr "새 폴더..."
 
-#: filewidgets/kdiroperator.cpp:2027 widgets/jobuidelegate.cpp:323
+#: filewidgets/kdiroperator.cpp:2046 widgets/jobuidelegate.cpp:323
 #: widgets/jobuidelegate.cpp:324 widgets/jobuidelegate.cpp:333
 #: widgets/jobuidelegate.cpp:334 widgets/widgetsaskuseractionhandler.cpp:272
 #, kde-format
 msgid "Move to Trash"
 msgstr "휴지통으로 이동"
 
-#: filewidgets/kdiroperator.cpp:2033
+#: filewidgets/kdiroperator.cpp:2053
 #, kde-format
 msgid "Delete"
 msgstr "삭제"
 
-#: filewidgets/kdiroperator.cpp:2040
+#: filewidgets/kdiroperator.cpp:2061
 #, kde-format
 msgid "Sorting"
 msgstr "정렬"
 
-#: filewidgets/kdiroperator.cpp:2045
+#: filewidgets/kdiroperator.cpp:2067
 #, kde-format
 msgid "Sort by Name"
 msgstr "이름순으로 정렬"
 
-#: filewidgets/kdiroperator.cpp:2051
+#: filewidgets/kdiroperator.cpp:2074
 #, kde-format
 msgid "Sort by Size"
 msgstr "크기순으로 정렬"
 
-#: filewidgets/kdiroperator.cpp:2057
+#: filewidgets/kdiroperator.cpp:2081
 #, kde-format
 msgid "Sort by Date"
 msgstr "날짜순으로 정렬"
 
-#: filewidgets/kdiroperator.cpp:2063
+#: filewidgets/kdiroperator.cpp:2088
 #, kde-format
 msgid "Sort by Type"
 msgstr "형식순으로 정렬"
 
-#: filewidgets/kdiroperator.cpp:2072
+#: filewidgets/kdiroperator.cpp:2098
 #, kde-format
 msgid "Ascending"
 msgstr "오름차순"
 
-#: filewidgets/kdiroperator.cpp:2079
+#: filewidgets/kdiroperator.cpp:2106
 #, kde-format
 msgid "Descending"
 msgstr "내림차순"
 
-#: filewidgets/kdiroperator.cpp:2086
+#: filewidgets/kdiroperator.cpp:2114
 #, kde-format
 msgid "Folders First"
 msgstr "폴더 우선"
 
-#: filewidgets/kdiroperator.cpp:2092
+#: filewidgets/kdiroperator.cpp:2121
 #, kde-format
 msgid "Hidden Files Last"
 msgstr "숨김 파일 마지막에"
 
-#: filewidgets/kdiroperator.cpp:2099
+#: filewidgets/kdiroperator.cpp:2129
 #, kde-format
 msgid "Icons View"
 msgstr "아이콘 보기"
 
-#: filewidgets/kdiroperator.cpp:2106
+#: filewidgets/kdiroperator.cpp:2137
 #, kde-format
 msgid "Compact View"
 msgstr "축소된 보기"
 
-#: filewidgets/kdiroperator.cpp:2113
+#: filewidgets/kdiroperator.cpp:2145
 #, kde-format
 msgid "Details View"
 msgstr "자세히 보기"
 
-#: filewidgets/kdiroperator.cpp:2132
+#: filewidgets/kdiroperator.cpp:2165
 #, kde-format
 msgid "Icon Position"
 msgstr "아이콘 위치"
 
-#: filewidgets/kdiroperator.cpp:2135
+#: filewidgets/kdiroperator.cpp:2169
 #, kde-format
 msgid "Next to File Name"
 msgstr "파일 이름 옆"
 
-#: filewidgets/kdiroperator.cpp:2141
+#: filewidgets/kdiroperator.cpp:2176
 #, kde-format
 msgid "Above File Name"
 msgstr "파일 이름 위"
 
-#: filewidgets/kdiroperator.cpp:2155
+#: filewidgets/kdiroperator.cpp:2191
 #, kde-format
 msgid "Short View"
 msgstr "간단히 보기"
 
-#: filewidgets/kdiroperator.cpp:2162
+#: filewidgets/kdiroperator.cpp:2199
 #, kde-format
 msgid "Detailed View"
 msgstr "자세히 보기"
 
-#: filewidgets/kdiroperator.cpp:2169
+#: filewidgets/kdiroperator.cpp:2207
 #, kde-format
 msgid "Tree View"
 msgstr "트리 보기"
 
-#: filewidgets/kdiroperator.cpp:2176
+#: filewidgets/kdiroperator.cpp:2215
 #, kde-format
 msgid "Detailed Tree View"
 msgstr "자세한 트리 보기"
 
-#: filewidgets/kdiroperator.cpp:2189
+#: filewidgets/kdiroperator.cpp:2229
 #, kde-format
 msgid "Allow Expansion in Details View"
 msgstr "자세히 보기 확장 허용"
 
-#: filewidgets/kdiroperator.cpp:2195
+#: filewidgets/kdiroperator.cpp:2236
 #, kde-format
 msgid "Show Hidden Files"
 msgstr "숨겨진 파일 표시"
 
-#: filewidgets/kdiroperator.cpp:2202
+#: filewidgets/kdiroperator.cpp:2244
 #, kde-format
 msgid "Show Preview Panel"
 msgstr "미리 보기 패널 표시"
 
-#: filewidgets/kdiroperator.cpp:2209
+#: filewidgets/kdiroperator.cpp:2252
 #, kde-format
 msgid "Show Preview"
 msgstr "미리 보기 표시"
 
-#: filewidgets/kdiroperator.cpp:2216
+#: filewidgets/kdiroperator.cpp:2260
 #, kde-format
 msgid "Open Containing Folder"
 msgstr "포함하는 폴더 열기"
 
-#: filewidgets/kdiroperator.cpp:2223 filewidgets/kfileplacesview.cpp:1148
+#: filewidgets/kdiroperator.cpp:2268 filewidgets/kfileplacesview.cpp:1148
 #, kde-format
 msgid "Properties"
 msgstr "속성"
 
-#: filewidgets/kdiroperator.cpp:2232
+#: filewidgets/kdiroperator.cpp:2278
 #, kde-format
 msgid "&View Mode"
 msgstr "보기 모드(&V)"
 
-#: filewidgets/kdiroperator.cpp:2334 filewidgets/kdiroperator.cpp:2346
+#: filewidgets/kdiroperator.cpp:2382 filewidgets/kdiroperator.cpp:2394
 #, kde-format
 msgctxt "Sort descending"
 msgid "Z-A"
 msgstr "힣-가"
 
-#: filewidgets/kdiroperator.cpp:2335 filewidgets/kdiroperator.cpp:2347
+#: filewidgets/kdiroperator.cpp:2383 filewidgets/kdiroperator.cpp:2395
 #, kde-format
 msgctxt "Sort ascending"
 msgid "A-Z"
 msgstr "가-힣"
 
-#: filewidgets/kdiroperator.cpp:2338
+#: filewidgets/kdiroperator.cpp:2386
 #, kde-format
 msgctxt "Sort descending"
 msgid "Newest First"
 msgstr "새 항목 먼저"
 
-#: filewidgets/kdiroperator.cpp:2339
+#: filewidgets/kdiroperator.cpp:2387
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Oldest First"
 msgstr "오래된 항목 먼저"
 
-#: filewidgets/kdiroperator.cpp:2342
+#: filewidgets/kdiroperator.cpp:2390
 #, kde-format
 msgctxt "Sort descending"
 msgid "Largest First"
 msgstr "큰 항목 먼저"
 
-#: filewidgets/kdiroperator.cpp:2343
+#: filewidgets/kdiroperator.cpp:2391
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Smallest First"

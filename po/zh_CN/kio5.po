@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-07 00:41+0000\n"
+"POT-Creation-Date: 2022-10-09 00:42+0000\n"
 "PO-Revision-Date: 2022-10-02 15:49\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -2378,25 +2378,25 @@ msgstr "是(&Y)"
 msgid "&No"
 msgstr "否(&N)"
 
-#: core/slaveinterface.cpp:421 core/tcpslavebase.cpp:535
+#: core/slaveinterface.cpp:422 core/tcpslavebase.cpp:535
 #: core/tcpworkerbase.cpp:530 widgets/sslui.cpp:69
 #, kde-format
 msgid "&Details"
 msgstr "细节(&D)"
 
-#: core/slaveinterface.cpp:423 core/tcpslavebase.cpp:548
+#: core/slaveinterface.cpp:424 core/tcpslavebase.cpp:548
 #: core/tcpworkerbase.cpp:543 widgets/sslui.cpp:105
 #, kde-format
 msgid "&Forever"
 msgstr "永远(&F)"
 
-#: core/slaveinterface.cpp:427 core/tcpslavebase.cpp:535
+#: core/slaveinterface.cpp:428 core/tcpslavebase.cpp:535
 #: core/tcpworkerbase.cpp:530 widgets/sslui.cpp:70
 #, kde-format
 msgid "Co&ntinue"
 msgstr "继续(&N)"
 
-#: core/slaveinterface.cpp:429 core/tcpslavebase.cpp:549
+#: core/slaveinterface.cpp:430 core/tcpslavebase.cpp:549
 #: core/tcpworkerbase.cpp:544 widgets/sslui.cpp:106
 #, kde-format
 msgid "&Current Session only"
@@ -2472,251 +2472,251 @@ msgid ""
 "Would you like to accept this certificate forever without being prompted?"
 msgstr "您希望以后不提示就接受该证书吗？"
 
-#: filewidgets/kdiroperator.cpp:734
+#: filewidgets/kdiroperator.cpp:746
 #, kde-format
 msgid "A file or folder named %1 already exists."
 msgstr "名称为 %1 的文件或文件夹已存在。"
 
-#: filewidgets/kdiroperator.cpp:737
+#: filewidgets/kdiroperator.cpp:749
 #, kde-format
 msgid "You do not have permission to create that folder."
 msgstr "您没有创建该文件夹的权限。"
 
-#: filewidgets/kdiroperator.cpp:750 filewidgets/kdiroperator.cpp:782
+#: filewidgets/kdiroperator.cpp:762 filewidgets/kdiroperator.cpp:794
 #, kde-format
 msgid "You did not select a file to delete."
 msgstr "您没有选择要删除的文件。"
 
-#: filewidgets/kdiroperator.cpp:750 filewidgets/kdiroperator.cpp:782
+#: filewidgets/kdiroperator.cpp:762 filewidgets/kdiroperator.cpp:794
 #, kde-format
 msgid "Nothing to Delete"
 msgstr "没有要删除的文件"
 
-#: filewidgets/kdiroperator.cpp:794 filewidgets/kdiroperator.cpp:890
+#: filewidgets/kdiroperator.cpp:806 filewidgets/kdiroperator.cpp:902
 #, kde-format
 msgid "You did not select a file to trash."
 msgstr "您没有选择要移动到回收站的文件。"
 
-#: filewidgets/kdiroperator.cpp:794 filewidgets/kdiroperator.cpp:890
+#: filewidgets/kdiroperator.cpp:806 filewidgets/kdiroperator.cpp:902
 #, kde-format
 msgid "Nothing to Trash"
 msgstr "没有要移动到回收站的文件"
 
-#: filewidgets/kdiroperator.cpp:973 filewidgets/kdiroperator.cpp:1105
+#: filewidgets/kdiroperator.cpp:985 filewidgets/kdiroperator.cpp:1117
 #, kde-format
 msgid "The specified folder does not exist or was not readable."
 msgstr "指定的文件夹不存在或者无法读取。"
 
-#: filewidgets/kdiroperator.cpp:1995
+#: filewidgets/kdiroperator.cpp:2006
 #, kde-format
 msgid "Menu"
 msgstr "菜单"
 
-#: filewidgets/kdiroperator.cpp:1999
+#: filewidgets/kdiroperator.cpp:2012
 #, kde-format
 msgid "Parent Folder"
 msgstr "上级文件夹"
 
-#: filewidgets/kdiroperator.cpp:2005
+#: filewidgets/kdiroperator.cpp:2019
 #, kde-format
 msgctxt "@info"
 msgid "Go back"
 msgstr "后退"
 
-#: filewidgets/kdiroperator.cpp:2008
+#: filewidgets/kdiroperator.cpp:2023
 #, kde-format
 msgctxt "@info"
 msgid "Go forward"
 msgstr "前进"
 
-#: filewidgets/kdiroperator.cpp:2011
+#: filewidgets/kdiroperator.cpp:2027
 #, kde-format
 msgid "Home Folder"
 msgstr "主文件夹"
 
-#: filewidgets/kdiroperator.cpp:2014
+#: filewidgets/kdiroperator.cpp:2031
 #, kde-format
 msgid "Reload"
 msgstr "重新加载"
 
-#: filewidgets/kdiroperator.cpp:2017
+#: filewidgets/kdiroperator.cpp:2034
 #, kde-format
 msgid "New Folder..."
 msgstr "新建文件夹..."
 
-#: filewidgets/kdiroperator.cpp:2027 widgets/jobuidelegate.cpp:323
+#: filewidgets/kdiroperator.cpp:2046 widgets/jobuidelegate.cpp:323
 #: widgets/jobuidelegate.cpp:324 widgets/jobuidelegate.cpp:333
 #: widgets/jobuidelegate.cpp:334 widgets/widgetsaskuseractionhandler.cpp:272
 #, kde-format
 msgid "Move to Trash"
 msgstr "移动到回收站"
 
-#: filewidgets/kdiroperator.cpp:2033
+#: filewidgets/kdiroperator.cpp:2053
 #, kde-format
 msgid "Delete"
 msgstr "删除"
 
-#: filewidgets/kdiroperator.cpp:2040
+#: filewidgets/kdiroperator.cpp:2061
 #, kde-format
 msgid "Sorting"
 msgstr "排序"
 
-#: filewidgets/kdiroperator.cpp:2045
+#: filewidgets/kdiroperator.cpp:2067
 #, kde-format
 msgid "Sort by Name"
 msgstr "按名称排序"
 
-#: filewidgets/kdiroperator.cpp:2051
+#: filewidgets/kdiroperator.cpp:2074
 #, kde-format
 msgid "Sort by Size"
 msgstr "按大小排序"
 
-#: filewidgets/kdiroperator.cpp:2057
+#: filewidgets/kdiroperator.cpp:2081
 #, kde-format
 msgid "Sort by Date"
 msgstr "按时间排序"
 
-#: filewidgets/kdiroperator.cpp:2063
+#: filewidgets/kdiroperator.cpp:2088
 #, kde-format
 msgid "Sort by Type"
 msgstr "按类型排序"
 
-#: filewidgets/kdiroperator.cpp:2072
+#: filewidgets/kdiroperator.cpp:2098
 #, kde-format
 msgid "Ascending"
 msgstr "升序"
 
-#: filewidgets/kdiroperator.cpp:2079
+#: filewidgets/kdiroperator.cpp:2106
 #, kde-format
 msgid "Descending"
 msgstr "降序"
 
-#: filewidgets/kdiroperator.cpp:2086
+#: filewidgets/kdiroperator.cpp:2114
 #, kde-format
 msgid "Folders First"
 msgstr "文件夹靠前"
 
-#: filewidgets/kdiroperator.cpp:2092
+#: filewidgets/kdiroperator.cpp:2121
 #, kde-format
 msgid "Hidden Files Last"
 msgstr "隐藏文件靠后"
 
-#: filewidgets/kdiroperator.cpp:2099
+#: filewidgets/kdiroperator.cpp:2129
 #, kde-format
 msgid "Icons View"
 msgstr "图标视图"
 
-#: filewidgets/kdiroperator.cpp:2106
+#: filewidgets/kdiroperator.cpp:2137
 #, kde-format
 msgid "Compact View"
 msgstr "紧凑视图"
 
-#: filewidgets/kdiroperator.cpp:2113
+#: filewidgets/kdiroperator.cpp:2145
 #, kde-format
 msgid "Details View"
 msgstr "详情视图"
 
-#: filewidgets/kdiroperator.cpp:2132
+#: filewidgets/kdiroperator.cpp:2165
 #, kde-format
 msgid "Icon Position"
 msgstr "图标位置"
 
-#: filewidgets/kdiroperator.cpp:2135
+#: filewidgets/kdiroperator.cpp:2169
 #, kde-format
 msgid "Next to File Name"
 msgstr "在文件名一侧"
 
-#: filewidgets/kdiroperator.cpp:2141
+#: filewidgets/kdiroperator.cpp:2176
 #, kde-format
 msgid "Above File Name"
 msgstr "在文件名上方"
 
-#: filewidgets/kdiroperator.cpp:2155
+#: filewidgets/kdiroperator.cpp:2191
 #, kde-format
 msgid "Short View"
 msgstr "图标视图"
 
-#: filewidgets/kdiroperator.cpp:2162
+#: filewidgets/kdiroperator.cpp:2199
 #, kde-format
 msgid "Detailed View"
 msgstr "详情视图"
 
-#: filewidgets/kdiroperator.cpp:2169
+#: filewidgets/kdiroperator.cpp:2207
 #, kde-format
 msgid "Tree View"
 msgstr "树状视图"
 
-#: filewidgets/kdiroperator.cpp:2176
+#: filewidgets/kdiroperator.cpp:2215
 #, kde-format
 msgid "Detailed Tree View"
 msgstr "树状详情视图"
 
-#: filewidgets/kdiroperator.cpp:2189
+#: filewidgets/kdiroperator.cpp:2229
 #, kde-format
 msgid "Allow Expansion in Details View"
 msgstr "允许在详情视图中展开"
 
-#: filewidgets/kdiroperator.cpp:2195
+#: filewidgets/kdiroperator.cpp:2236
 #, kde-format
 msgid "Show Hidden Files"
 msgstr "显示隐藏文件"
 
-#: filewidgets/kdiroperator.cpp:2202
+#: filewidgets/kdiroperator.cpp:2244
 #, kde-format
 msgid "Show Preview Panel"
 msgstr "显示预览面板"
 
-#: filewidgets/kdiroperator.cpp:2209
+#: filewidgets/kdiroperator.cpp:2252
 #, kde-format
 msgid "Show Preview"
 msgstr "显示预览"
 
-#: filewidgets/kdiroperator.cpp:2216
+#: filewidgets/kdiroperator.cpp:2260
 #, kde-format
 msgid "Open Containing Folder"
 msgstr "打开所在文件夹"
 
-#: filewidgets/kdiroperator.cpp:2223 filewidgets/kfileplacesview.cpp:1148
+#: filewidgets/kdiroperator.cpp:2268 filewidgets/kfileplacesview.cpp:1148
 #, kde-format
 msgid "Properties"
 msgstr "属性"
 
-#: filewidgets/kdiroperator.cpp:2232
+#: filewidgets/kdiroperator.cpp:2278
 #, kde-format
 msgid "&View Mode"
 msgstr "视图模式(&V)"
 
-#: filewidgets/kdiroperator.cpp:2334 filewidgets/kdiroperator.cpp:2346
+#: filewidgets/kdiroperator.cpp:2382 filewidgets/kdiroperator.cpp:2394
 #, kde-format
 msgctxt "Sort descending"
 msgid "Z-A"
 msgstr "降序排列"
 
-#: filewidgets/kdiroperator.cpp:2335 filewidgets/kdiroperator.cpp:2347
+#: filewidgets/kdiroperator.cpp:2383 filewidgets/kdiroperator.cpp:2395
 #, kde-format
 msgctxt "Sort ascending"
 msgid "A-Z"
 msgstr "升序排列"
 
-#: filewidgets/kdiroperator.cpp:2338
+#: filewidgets/kdiroperator.cpp:2386
 #, kde-format
 msgctxt "Sort descending"
 msgid "Newest First"
 msgstr "最新在前"
 
-#: filewidgets/kdiroperator.cpp:2339
+#: filewidgets/kdiroperator.cpp:2387
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Oldest First"
 msgstr "最旧在前"
 
-#: filewidgets/kdiroperator.cpp:2342
+#: filewidgets/kdiroperator.cpp:2390
 #, kde-format
 msgctxt "Sort descending"
 msgid "Largest First"
 msgstr "最大在前"
 
-#: filewidgets/kdiroperator.cpp:2343
+#: filewidgets/kdiroperator.cpp:2391
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Smallest First"
