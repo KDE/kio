@@ -113,6 +113,13 @@ public:
         Delete, /// Delete the files/directories directly, i.e. without moving them to Trash
         Trash, /// Move the files/directories to Trash
         EmptyTrash, /// Empty the Trash
+        /**
+         * This is the same as Delete, but more text is added to the message to inform
+         * the user that moving to Trash was tried but failed due to size constraints.
+         * Typical use case is re-asking the user about deleting instead of Trashing.
+         * @since 5.100
+         */
+        DeleteInsteadOfTrash,
     };
 
     /**

@@ -323,7 +323,14 @@ enum Error {
      * not supporting them. Used by e.g. CopyJob.
      * @since 5.88
      */
-    ERR_SYMLINKS_NOT_SUPPORTED = KJob::UserDefinedError + 78
+    ERR_SYMLINKS_NOT_SUPPORTED = KJob::UserDefinedError + 78,
+
+    /**
+     * Moving files/dirs to the Trash failed due to size constraints.
+     *
+     * @since 5.100
+     */
+    ERR_TRASH_FILE_TOO_LARGE = KJob::UserDefinedError + 79,
 };
 
 /**

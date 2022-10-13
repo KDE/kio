@@ -46,6 +46,7 @@ public:
     AskIface::DeletionType m_delType;
     AskIface::ConfirmationType m_confirm;
     QWidget *m_parentWindow = nullptr;
+    QMetaObject::Connection m_handlerConnection;
 };
 
 void DeleteOrTrashJobPrivate::slotAskUser(bool allowDelete, const QList<QUrl> &urls, AskIface::DeletionType delType, QWidget *parentWindow)
@@ -62,6 +63,7 @@ void DeleteOrTrashJobPrivate::slotAskUser(bool allowDelete, const QList<QUrl> &u
         using UndoMananger = KIO::FileUndoManager;
         UndoMananger::self()->recordJob(UndoMananger::Trash, urls, QUrl(QStringLiteral("trash:/")), job);
         break;
+    case AskIface::DeleteInsteadOfTrash:
     case AskIface::Delete:
         Q_ASSERT(!urls.isEmpty());
         job = KIO::del(urls);
@@ -73,7 +75,11 @@ void DeleteOrTrashJobPrivate::slotAskUser(bool allowDelete, const QList<QUrl> &u
 
     if (job) {
         KJobWidgets::setWindow(job, parentWindow);
-        job->uiDelegate()->setAutoErrorHandlingEnabled(true);
+        // showErrorMessage() is used in slotResult() instead of AutoErrorHandling,
+        // because if Trashing fails (e.g. due to size constraints), we'll re-ask the
+        // user about deleting instead of Trashing, in which case we don't want to
+        // show the "File is too large to Trash" error message
+        job->uiDelegate()->setAutoErrorHandlingEnabled(false);
         q->addSubjob(job);
     }
 }
@@ -108,17 +114,31 @@ void DeleteOrTrashJob::start()
                           QWidget *window) {
         d->slotAskUser(allowDelete, urls, deletionType, window);
     };
-    connect(askHandler, &AskIface::askUserDeleteResult, this, askFunc);
+
+    // Make it a unique connection, as the same UI delegate could get re-used
+    // if e.g. Trashing failed and we're re-asking the user about deleting instead
+    // of Trashing
+    disconnect(d->m_handlerConnection);
+    d->m_handlerConnection = connect(askHandler, &AskIface::askUserDeleteResult, this, askFunc);
     askHandler->askUserDelete(d->m_urls, d->m_delType, d->m_confirm, d->m_parentWindow);
 }
 
 void DeleteOrTrashJob::slotResult(KJob *job)
 {
     const int errCode = job->error();
+
+    if (errCode == KIO::ERR_TRASH_FILE_TOO_LARGE) {
+        removeSubjob(job);
+        d->m_delType = AskIface::DeleteInsteadOfTrash;
+        start();
+        return;
+    }
+
     if (errCode) {
         setError(errCode);
         // We're a KJob, not a KIO::Job, so build the error string here
         setErrorText(KIO::buildErrorString(errCode, job->errorText()));
+        job->uiDelegate()->showErrorMessage();
     }
     emitResult();
 }

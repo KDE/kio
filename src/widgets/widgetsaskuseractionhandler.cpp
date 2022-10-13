@@ -235,6 +235,28 @@ static ProcessAskDeleteResult processAskDelete(const QList<QUrl> &urls, AskIface
         res.acceptButton = KStandardGuiItem::del();
         break;
     }
+    case AskIface::DeleteInsteadOfTrash: {
+        res.dialogType = KMessageDialog::WarningTwoActions;
+        if (res.isSingleUrl) {
+            res.text = xi18nc("@info",
+                              "Moving this item to Trash failed as it is too large."
+                              " Permanently delete it instead?<nl/><nl/>"
+                              "<filename>%1</filename><nl/><nl/>"
+                              "<emphasis strong='true'>This action cannot be undone.</emphasis>",
+                              res.prettyList.at(0));
+        } else {
+            res.text = xi18ncp("@info",
+                               "Moving this %1 item to Trash failed as it is too large."
+                               " Permanently delete it instead?<nl/>"
+                               "<emphasis strong='true'>This action cannot be undone.</emphasis>",
+                               "Moving these %1 items to Trash failed as they are too large."
+                               " Permanently delete them instead?<nl/><nl/>"
+                               "<emphasis strong='true'>This action cannot be undone.</emphasis>",
+                               urlCount);
+        }
+        res.acceptButton = KStandardGuiItem::del();
+        break;
+    }
     case AskIface::EmptyTrash: {
         res.dialogType = KMessageDialog::WarningTwoActions;
         res.text = xi18nc("@info",
@@ -276,6 +298,7 @@ void KIO::WidgetsAskUserActionHandler::askUserDelete(const QList<QUrl> &urls, De
         bool defaultValue = true;
 
         switch (deletionType) {
+        case DeleteInsteadOfTrash:
         case Delete:
             keyName = QStringLiteral("ConfirmDelete");
             break;
@@ -299,7 +322,6 @@ void KIO::WidgetsAskUserActionHandler::askUserDelete(const QList<QUrl> &urls, De
     const auto &[prettyList, dialogType, acceptButton, text, title, singleUrl] = processAskDelete(urls, deletionType);
 
     KMessageDialog *dlg = new KMessageDialog(dialogType, text, parent);
-
     dlg->setAttribute(Qt::WA_DeleteOnClose);
     dlg->setCaption(title);
     dlg->setIcon(QIcon{});

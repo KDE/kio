@@ -1319,8 +1319,8 @@ bool TrashImpl::adaptTrashSize(const QString &origPath, int trashId)
         const qint64 partitionSize = util.size();
 
         if (((static_cast<double>(additionalSize) / static_cast<double>(partitionSize)) * 100) >= percent) {
-            m_lastErrorCode = KIO::ERR_WORKER_DEFINED;
-            m_lastErrorMessage = i18n("The file is too large to be trashed.");
+            m_lastErrorCode = KIO::ERR_TRASH_FILE_TOO_LARGE;
+            m_lastErrorMessage = KIO::buildErrorString(m_lastErrorCode, {});
             return false;
         }
 
