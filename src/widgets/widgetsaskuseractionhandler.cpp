@@ -232,7 +232,8 @@ void KIO::WidgetsAskUserActionHandler::askUserDelete(const QList<QUrl> &urls, De
         }
     }
 
-    const int urlCount = prettyList.count();
+    const int urlCount = prettyList.size();
+    const bool singleUrl = urlCount == 1;
 
     KMessageDialog::Type dialogType = KMessageDialog::QuestionTwoActions;
     KGuiItem acceptButton;
@@ -242,12 +243,20 @@ void KIO::WidgetsAskUserActionHandler::askUserDelete(const QList<QUrl> &urls, De
     switch (deletionType) {
     case Delete: {
         dialogType = KMessageDialog::WarningTwoActions;
-        text = xi18ncp("@info",
-                       "Do you really want to permanently delete this %1 item?<nl/><nl/>"
-                       "<emphasis strong='true'>This action cannot be undone.</emphasis>",
-                       "Do you really want to permanently delete these %1 items?<nl/><nl/>"
-                       "<emphasis strong='true'>This action cannot be undone.</emphasis>",
-                       urlCount);
+        if (singleUrl) {
+            text = xi18nc("@info",
+                          "Do you really want to permanently delete this item?<nl/>"
+                          "<filename>%1</filename>"
+                          "<emphasis strong='true'>This action cannot be undone.</emphasis>",
+                          prettyList.at(0));
+        } else {
+            text = xi18ncp("@info",
+                           "Do you really want to permanently delete this %1 item?<nl/><nl/>"
+                           "<emphasis strong='true'>This action cannot be undone.</emphasis>",
+                           "Do you really want to permanently delete these %1 items?<nl/><nl/>"
+                           "<emphasis strong='true'>This action cannot be undone.</emphasis>",
+                           urlCount);
+        }
         acceptButton = KStandardGuiItem::del();
         break;
     }
@@ -260,7 +269,7 @@ void KIO::WidgetsAskUserActionHandler::askUserDelete(const QList<QUrl> &urls, De
         break;
     }
     case Trash: {
-        if (urlCount == 1) {
+        if (singleUrl) {
             text = xi18nc("@info",
                           "Do you really want to move this item to the Trash?<nl/>"
                           "<filename>%1</filename>",
@@ -283,7 +292,7 @@ void KIO::WidgetsAskUserActionHandler::askUserDelete(const QList<QUrl> &urls, De
     dlg->setCaption(title);
     dlg->setIcon(QIcon{});
     dlg->setButtons(acceptButton, KStandardGuiItem::cancel());
-    if (urlCount > 1) {
+    if (!singleUrl) {
         dlg->setListWidgetItems(prettyList);
     }
     dlg->setDontAskAgainText(i18nc("@option:checkbox", "Do not ask again"));
