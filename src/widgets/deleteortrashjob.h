@@ -36,7 +36,7 @@ class DeleteOrTrashJobPrivate;
  *
  * To start the job after constructing it, you must call start().
  *
- * @since 5.99
+ * @since 5.100
  */
 class KIOWIDGETS_EXPORT DeleteOrTrashJob : public KCompositeJob
 {
