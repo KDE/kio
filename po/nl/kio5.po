@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-09 00:42+0000\n"
-"PO-Revision-Date: 2022-10-05 15:26+0200\n"
+"PO-Revision-Date: 2022-10-12 10:19+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -4031,7 +4031,7 @@ msgstr "%1 wordt gestart"
 #: gui/kterminallauncherjob.cpp:124
 #, kde-format
 msgid "No terminal emulator found"
-msgstr "Geen terminalemulator gevonden"
+msgstr "Geen terminalprogramma gevonden"
 
 #: gui/openurljob.cpp:158
 #, kde-format

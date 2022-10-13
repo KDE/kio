@@ -7,12 +7,13 @@
 # Giovanni Venturi <jumpyj@tiscali.it>, 2006.
 # Nicola Ruggero <nicola@nxnt.org>, 2006, 2007.
 # Luigi Toscano <luigi.toscano@tiscali.it>, 2008, 2009, 2010, 2011, 2012, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022.
+# Vincenzo Reale <smart2128vr@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-09 00:42+0000\n"
-"PO-Revision-Date: 2022-09-20 00:22+0200\n"
+"PO-Revision-Date: 2022-10-12 09:45+0200\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -2142,7 +2143,7 @@ msgstr ""
 "entro il tempo massimo deciso:<ul><li>Tempo massimo per stabilire la "
 "connessione: %1 secondi</li><li>Tempo massimo per ricevere una risposta: %2 "
 "secondi</li><li>Tempo massimo per accedere ai server proxy: %3 secondi</li></"
-"ul>Nota che è possibile cambiare questi valori nelle Impostazioni di Sistema "
+"ul>Nota che è possibile cambiare questi valori nelle Impostazioni di sistema "
 "di KDE selezionando Impostazioni di rete -> Preferenze sulle connessioni."
 
 #: core/job_error.cpp:1106
@@ -3231,12 +3232,10 @@ msgid "Only folders can be added to the Places panel."
 msgstr "È possibile aggiungere solo cartelle al pannello delle risorse."
 
 #: filewidgets/kfileplacesmodel.cpp:1430
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "&Release"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Releasing…"
-msgstr "&Rilascia"
+msgstr "Rilascio in corso…"
 
 #: filewidgets/kfileplacesmodel.cpp:1432
 #, kde-format
@@ -3245,12 +3244,10 @@ msgid "&Release"
 msgstr "&Rilascia"
 
 #: filewidgets/kfileplacesmodel.cpp:1436
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "&Safely Remove"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Safely Removing…"
-msgstr "Rimuovi in &sicurezza"
+msgstr "Rimozione in sicurezza in corso…"
 
 #: filewidgets/kfileplacesmodel.cpp:1438
 #, kde-format
@@ -3259,12 +3256,10 @@ msgid "&Safely Remove"
 msgstr "Rimuovi in &sicurezza"
 
 #: filewidgets/kfileplacesmodel.cpp:1443
-#, fuzzy, kde-format
-#| msgctxt "@title job"
-#| msgid "Unmounting"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Unmounting…"
-msgstr "Smontaggio in corso"
+msgstr "Smontaggio in corso…"
 
 #: filewidgets/kfileplacesmodel.cpp:1445
 #, kde-format
@@ -5902,7 +5897,7 @@ msgstr ""
 #: kcms/proxy/kproxydlg.ui:120
 #, kde-format
 msgid "Use system proxy configuration:"
-msgstr "Usa configurazione dei proxy di sistema:"
+msgstr "Usa la configurazione dei proxy di sistema:"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, autoDetectButton)
 #: kcms/proxy/kproxydlg.ui:127
@@ -7871,16 +7866,13 @@ msgstr ""
 "«%1» (%2)"
 
 #: widgets/kopenwithdialog.cpp:743
-#, fuzzy, kde-format
-#| msgid ""
-#| "&Remember application association for all files of type\n"
-#| "\"%1\" (%2)"
+#, kde-format
 msgid ""
 "&Remember application association for all files of type\n"
 "\"%1\""
 msgstr ""
 "&Ricorda l'associazione dell'applicazione per tutti i file di tipo\n"
-"«%1» (%2)"
+"«%1»"
 
 #: widgets/kopenwithdialog.cpp:753
 #, kde-format
