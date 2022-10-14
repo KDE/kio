@@ -117,7 +117,7 @@ msgstr "Dosya Halihazırda Var"
 #: core/copyjob.cpp:1727 core/copyjob.cpp:2417
 #, kde-format
 msgid "Already Exists as Folder"
-msgstr "Bir Klasör Olarak Halihazırda Var"
+msgstr "Klasör Olarak Halihazırda Var"
 
 #: core/copyjob.cpp:1887 ioslaves/trash/kio_trash.cpp:288
 #, kde-format
@@ -511,7 +511,7 @@ msgstr "%1 klasörüne girilemedi."
 #: core/job_error.cpp:85
 #, kde-format
 msgid "The protocol %1 does not implement a folder service."
-msgstr "%1 protokolü bir klasör servisi tanımlamıyor."
+msgstr "%1 protokolü bir klasör hizmeti tanımlamıyor."
 
 #: core/job_error.cpp:88
 #, kde-format
@@ -1523,7 +1523,7 @@ msgid ""
 "The server, while currently connected to the Internet, may not be running "
 "the requested service (%1)."
 msgstr ""
-"İnternet'e bağlı olan bu sunucu istenen servisi (%1) çalıştırmayabilir."
+"İnternet'e bağlı olan bu sunucu istenen hizmeti (%1) çalıştırmayabilir."
 
 #: core/job_error.cpp:721
 #, kde-format
@@ -2274,7 +2274,7 @@ msgid ""
 "The operation could not be completed because the service for requesting "
 "passwords (kpasswdserver) couldn't be contacted"
 msgstr ""
-"Parola talep servisi (kpasswdserver) ile bağlantı kuramadığı için işlem "
+"Parola talep hizmeti (kpasswdserver) ile bağlantı kuramadığı için işlem "
 "tamamlanamadı"
 
 #: core/job_error.cpp:1241
@@ -3061,7 +3061,7 @@ msgstr "Tüm etiketler"
 #: filewidgets/kfileplacesmodel.cpp:285
 msgctxt "KFile System Bookmarks"
 msgid "Home"
-msgstr "Ev Dizini"
+msgstr "Ev"
 
 #: filewidgets/kfileplacesmodel.cpp:294
 msgctxt "KFile System Bookmarks"
@@ -3126,7 +3126,7 @@ msgstr "Dün Değiştirilmiş"
 #: filewidgets/kfileplacesmodel.cpp:464
 msgctxt "KFile System Bookmarks"
 msgid "Images"
-msgstr "Görüntüler"
+msgstr "Görseller"
 
 #: filewidgets/kfileplacesmodel.cpp:468
 msgctxt "KFile System Bookmarks"
@@ -3852,7 +3852,7 @@ msgstr "Konumu Düzenlemek için Tıkla"
 #: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:237
 #, kde-format
 msgid "You are not authorized to execute this file."
-msgstr "Bu dosyayı çalıştırmak için gerekli yetkilere sahip değilsiniz."
+msgstr "Bu dosyayı yürütmek için gerekli yetkilere sahip değilsiniz."
 
 #: gui/applicationlauncherjob.cpp:119 gui/commandlauncherjob.cpp:115
 #, kde-format
@@ -4321,7 +4321,7 @@ msgstr "Kaynak silinemedi."
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
-msgstr "%1 gönder"
+msgstr "%1 karşıya yükle"
 
 #: ioslaves/http/http.cpp:1854
 #, kde-format
@@ -5069,8 +5069,8 @@ msgid ""
 "Unable to communicate with the cookie handler service.\n"
 "Any changes you made will not take effect until the service is restarted."
 msgstr ""
-"Çerez yönetici servisine ulaşılamıyor.\n"
-"Yaptığınız değişiklikler bu servis yeniden başlatılana kadar uygulanmayacak."
+"Çerez yönetici hizmetine ulaşılamıyor.\n"
+"Yaptığınız değişiklikler bu hizmet yeniden başlatılana kadar uygulanmayacak."
 
 #: kcms/cookies/kcookiespolicies.cpp:430
 #, kde-format
@@ -5470,7 +5470,7 @@ msgstr ""
 #: kcms/netpref/kio_ftprc.kcfg:16 kcms/netpref/kioslave.kcfg:34
 #, kde-format
 msgid "Mark partially uploaded files"
-msgstr "Bir kısmı gönderilmiş dosyaları işaretle"
+msgstr "Bir kısmı karşıya yüklenmiş dosyaları imle"
 
 #. i18n: ectx: whatsthis, entry (MarkPartial), group (DesktopIcons)
 #. i18n: ectx: whatsthis, entry (MarkPartial), group (Global Options)
@@ -5480,7 +5480,7 @@ msgid ""
 "While a file is being uploaded its extension is \".part\". When fully "
 "uploaded it is renamed to its real name."
 msgstr ""
-"Bir dosya gönderilirken uzantısı \".part\" olur. Dosya tamamen "
+"Bir dosya karşıya yüklenirken uzantısı \".part\" olur. Dosya tamamen "
 "gönderildikten sonra gerçek adını alır."
 
 #: kcms/netpref/netpref.cpp:30
@@ -5541,7 +5541,7 @@ msgstr "Genel Seçenekler"
 #: kcms/netpref/netpref.cpp:71 kcms/netpref/netpref.cpp:106
 #, kde-format
 msgid "Mark &partially uploaded files"
-msgstr "Bir kısmı &gönderilmiş dosyaları işaretle"
+msgstr "Bir kısmı &karşıya yüklenmiş dosyaları imle"
 
 #: kcms/netpref/netpref.cpp:73
 #, kde-format
@@ -5551,16 +5551,17 @@ msgid ""
 "part\" extension. This extension will be removed once the transfer is "
 "complete.</p>"
 msgstr ""
-"<p>Kısmen gönderilen dosyaları SMB, SFTP ve diğer protokollerle işaretler.</"
-"p><p>Bu seçenek etkinleştirildiğinde, kısmen gönderilen dosyaların \"part\" "
-"uzantısı olur. Bu uzantı, aktarım tamamlandıktan sonra kaldırılacak.</p>"
+"<p>Kısmen karşıya yüklenen dosyaları SMB, SFTP ve diğer protokollerle imler."
+"</p><p>Bu seçenek etkinleştirildiğinde, kısmen karşıya yüklenen dosyaların "
+"\"part\" uzantısı olur. Bu uzantı, aktarım tamamlandıktan sonra kaldırılır.</"
+"p>"
 
 #: kcms/netpref/netpref.cpp:90
 #, kde-format
 msgid " byte"
 msgid_plural " bytes"
-msgstr[0] "bayt"
-msgstr[1] "bayt"
+msgstr[0] " bayt"
+msgstr[1] " bayt"
 
 #: kcms/netpref/netpref.cpp:92
 #, kde-format
@@ -5568,7 +5569,7 @@ msgctxt "@label:spinbox"
 msgid ""
 "If cancelled, automatically delete partially uploaded files smaller than:"
 msgstr ""
-"İptal edilirse aşağıdakilerden daha küçük kısmen gönderilen dosyaları "
+"İptal edilirse aşağıdakilerden daha küçük kısmen karşıya yüklenen dosyaları "
 "otomatik olarak sil:"
 
 #: kcms/netpref/netpref.cpp:94
@@ -5597,9 +5598,10 @@ msgid ""
 "partially uploaded files will have a \".part\" extension. This extension "
 "will be removed once the transfer is complete.</p>"
 msgstr ""
-"<p>Bir kısmı gönderilen dosyaları işaretler.</p> <p>Bu seçenek "
-"etkinleştirildiğinde, kısmen gönderilmiş dosyalar bir \".part\" uzantısına "
-"sahip olurlar. Aktarma tamamlandığında bu uzantılar yok edilecektir.</p>"
+"<p>Bir kısmı karşıya yüklenen dosyaları imler.</p> <p>Bu seçenek "
+"etkinleştirildiğinde, kısmen karşıya yüklenmiş dosyalar bir \".part\" "
+"uzantısına sahip olurlar. Aktarma tamamlandığında bu uzantılar kaldırılır.</"
+"p>"
 
 #: kcms/netpref/netpref.cpp:186
 #, kde-format
@@ -5683,7 +5685,7 @@ msgstr ""
 "postaları ve engellemek istediğiniz her şeyi engellemenizi sağlar.\n"
 "<p>\n"
 "İnternete bağlanmak için bir vekil sunucuya ihtiyacınızın olup olmadığı "
-"hakkında kararsız iseniz lütfen internet servis sağlayıcınızın kurulum "
+"hakkında kararsız iseniz lütfen internet hizmet sağlayıcınızın kurulum "
 "kılavuzuna veya sistem yöneticinize danışın.\n"
 "</qt>"
 
@@ -5697,7 +5699,7 @@ msgstr "İnternete doğrudan bağlan."
 #: kcms/proxy/kproxydlg.ui:29
 #, kde-format
 msgid "No Proxy"
-msgstr "Vekil sunucu yok"
+msgstr "Vekil Yok"
 
 #. i18n: ectx: property (whatsThis), widget (QRadioButton, autoDiscoverProxyRadioButton)
 #: kcms/proxy/kproxydlg.ui:46
@@ -6155,7 +6157,7 @@ msgid ""
 "has been modified. Do you want to upload the changes?"
 msgstr ""
 "%1 dosyası değiştirildi.\n"
-"Değişiklikleri göndermek istiyor musunuz?"
+"Değişiklikleri karşıya yüklemek istiyor musunuz?"
 
 #: kioexec/kioexecd.cpp:86 kioexec/main.cpp:237 kioexec/main.cpp:247
 #, kde-format
@@ -6228,7 +6230,7 @@ msgid ""
 msgstr ""
 "%1\n"
 "dosyası değiştirildi.\n"
-"Değişiklikleri göndermek istiyor musunuz?"
+"Değişiklikleri karşıya yüklemek istiyor musunuz?"
 
 #: kioexec/main.cpp:286
 #, kde-format
@@ -6239,7 +6241,8 @@ msgstr "KIOExec"
 #, kde-format
 msgid "KIO Exec - Opens remote files, watches modifications, asks for upload"
 msgstr ""
-"KIO Exec - Uzaktaki dosyaları açar, değişiklikleri izler, göndermeyi sorar"
+"KIO Exec - Uzaktaki dosyaları açar, değişiklikleri izler, karşıya yüklemeyi "
+"sorar"
 
 #: kioexec/main.cpp:290
 #, kde-format
@@ -6284,7 +6287,7 @@ msgstr "İndirilecek dosya için önerilen ad"
 #: kioexec/main.cpp:303
 #, kde-format
 msgid "Command to execute"
-msgstr "Çalıştırılacak komut"
+msgstr "Yürütülecek komut"
 
 #: kioexec/main.cpp:304
 #, kde-format
@@ -6647,7 +6650,7 @@ msgstr "&Anahtar sözcük sınırlandırıcı:"
 #: urifilters/ikws/ikwsopts_ui.ui:204
 #, kde-format
 msgid "Choose a delimiter to mark the Web search keyword."
-msgstr "Web arama sözcüğünü işaretlemek için bir sınırlandırıcı seçin."
+msgstr "Web arama sözcüğünü imlemek için bir sınırlandırıcı seçin."
 
 #. i18n: ectx: property (text), item, widget (QComboBox, cmbDelimiter)
 #: urifilters/ikws/ikwsopts_ui.ui:208
@@ -7027,7 +7030,7 @@ msgstr "Buraya &Kopyala"
 #: widgets/dropjob.cpp:319
 #, kde-format
 msgid "&Link Here"
-msgstr "Bu&raya Bağ Koy"
+msgstr "Bu&raya Bağlantıla"
 
 #: widgets/executablefileopendialog.cpp:21
 #, kde-format
@@ -7037,12 +7040,12 @@ msgstr "Bu dosya ile ne yapmak istiyorsunuz?"
 #: widgets/executablefileopendialog.cpp:24
 #, kde-format
 msgid "Do not ask again"
-msgstr "Yeniden sorma"
+msgstr "Bir daha sorma"
 
 #: widgets/executablefileopendialog.cpp:34
 #, kde-format
 msgid "&Execute"
-msgstr "&Çalıştır"
+msgstr "&Yürüt"
 
 #: widgets/fileundomanager.cpp:118
 #, kde-format
@@ -7392,7 +7395,7 @@ msgid ""
 msgstr ""
 "%1\n"
 "masaüstü giriş dosyası\n"
-"FSDevice türünde ama Dev=... girişi yok."
+"FSDevice türünde; ancak Dev=... girişi yok."
 
 #: widgets/kdesktopfileactions.cpp:184
 #, kde-format
@@ -8400,9 +8403,9 @@ msgid ""
 "Enable this option to mark the file as executable. This only makes sense for "
 "programs and scripts. It is required when you want to execute them."
 msgstr ""
-"Dosyaları çalıştırılabilir olarak işaretleyebilmek için bu seçeneği "
-"etkinleştirir. Bu yalnızca program ve betikleri ilgilendirir. Onları "
-"çalıştırmak istediğinizde gerekecektir."
+"Dosyaları çalıştırılabilir olarak imlemek için bu seçeneği etkinleştirin. Bu "
+"yalnızca program ve betikleri ilgilendirir. Onları yürütmek istediğinizde "
+"gerekecektir."
 
 #: widgets/kpropertiesdialog.cpp:1924
 #, kde-format
@@ -8562,8 +8565,8 @@ msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
 "the permissions of the owner."
 msgstr ""
-"Eğer bu bir çalıştırılabilir dosya ise ve bayrak ayarlı ise , bu program "
-"sahibinin haklarıyla çalıştırılır."
+"Eğer bu bir yürütülebilir dosya ise ve bayrak ayarlıysa bu program sahibinin "
+"haklarıyla yürütülür."
 
 #: widgets/kpropertiesdialog.cpp:2153
 #, kde-format
@@ -8579,8 +8582,8 @@ msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
 "the permissions of the group."
 msgstr ""
-"Eğer bu dosya çalıştırılabilir bir dosya ise ve bayrak öyle ayarlanmışsa "
-"grubunun izinleri ile çalıştırılabilecektir."
+"Eğer bu dosya yürütülebilir bir dosyaysa ve bayrak öyle ayarlanmışsa "
+"grubunun izinleri ile yürütülür."
 
 #: widgets/kpropertiesdialog.cpp:2164
 #, kde-format
@@ -9340,7 +9343,7 @@ msgstr "Uyarı"
 #, kde-format
 msgctxt "program name follows in a line edit below"
 msgid "This will start the program:"
-msgstr "Bu uygulamayı başlatır:"
+msgstr "Bu, uygulamayı başlatır:"
 
 #: widgets/widgetsuntrustedprogramhandler.cpp:131
 #, kde-format
