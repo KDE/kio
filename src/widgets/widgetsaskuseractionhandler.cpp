@@ -199,6 +199,18 @@ static ProcessAskDeleteResult processAskDelete(const QList<QUrl> &urls, AskIface
 {
     ProcessAskDeleteResult res;
     res.prettyList.reserve(urls.size());
+    std::transform(urls.cbegin(), urls.cend(), std::back_inserter(res.prettyList), [](const auto &url) {
+        if (url.scheme() == QLatin1String("trash")) {
+            QString path = url.path();
+            // HACK (#98983): remove "0-foo". Note that it works better than
+            // displaying KFileItem::name(), for files under a subdir.
+            static const QRegularExpression re(QStringLiteral("^/[0-9]+-"));
+            path.remove(re);
+            return path;
+        } else {
+            return url.toDisplayString(QUrl::PreferLocalFile);
+        }
+    });
 
     const int urlCount = res.prettyList.size();
     res.isSingleUrl = urlCount == 1;
