@@ -1,7 +1,25 @@
 {
     "KPlugin": {
         "Description": "Provides change notification for network folders",
-        "Name": "Remote URL Change Notifier"
+        "Description[ca]": "Proporciona notificacions de canvis en carpetes de xarxa",
+        "Description[es]": "Proporciona notificación de cambios en carpetas de red",
+        "Description[eu]": "Sareko karpetetako aldaketen jakinarazpenak ematen ditu",
+        "Description[nl]": "Levert notificatie voor wijzigingen in netwerkmappen",
+        "Description[pt]": "Oferece uma notificação de mudanças em pastas na rede",
+        "Description[ta]": "பிணைய அடைவுகள் மாறினால் அறிவிக்கும்",
+        "Description[tr]": "Ağ klasörleri için değişiklik bildirimleri sağlar",
+        "Description[uk]": "Сповіщення про зміну стану мережевих тек",
+        "Description[x-test]": "xxProvides change notification for network foldersxx",
+        "Name": "Remote URL Change Notifier",
+        "Name[ca]": "Notificador de canvi d'URL remot",
+        "Name[es]": "Notificador de cambio de URL remota",
+        "Name[eu]": "Urruneko URL aldaketa jakinarazlea",
+        "Name[nl]": "Notificatie van wijziging in URL-adres op afstand",
+        "Name[pt]": "Notificação de Mudança do URL Remoto",
+        "Name[ta]": "தொலை முகவரி மாற்ற அறிவிப்பி",
+        "Name[tr]": "Uzak URL Değişim Bildiricisi",
+        "Name[uk]": "Сповіщення про зміну віддаленої адреси (URL)",
+        "Name[x-test]": "xxRemote URL Change Notifierxx"
     },
     "X-KDE-Kded-autoload": true,
     "X-KDE-Kded-load-on-demand": true
