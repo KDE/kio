@@ -185,6 +185,72 @@ void KIO::WidgetsAskUserActionHandler::askUserSkip(KJob *job, KIO::SkipDialog_Op
     dlg->show();
 }
 
+struct ProcessAskDeleteResult {
+    QStringList prettyList;
+    KMessageDialog::Type dialogType = KMessageDialog::QuestionTwoActions;
+    KGuiItem acceptButton;
+    QString text;
+    QString title = i18n("Delete Permanently");
+    bool isSingleUrl = false;
+};
+
+using AskIface = KIO::AskUserActionInterface;
+static ProcessAskDeleteResult processAskDelete(const QList<QUrl> &urls, AskIface::DeletionType deletionType)
+{
+    ProcessAskDeleteResult res;
+    res.prettyList.reserve(urls.size());
+
+    const int urlCount = res.prettyList.size();
+    res.isSingleUrl = urlCount == 1;
+
+    switch (deletionType) {
+    case AskIface::Delete: {
+        res.dialogType = KMessageDialog::WarningTwoActions;
+        if (res.isSingleUrl) {
+            res.text = xi18nc("@info",
+                              "Do you really want to permanently delete this item?<nl/>"
+                              "<filename>%1</filename>"
+                              "<emphasis strong='true'>This action cannot be undone.</emphasis>",
+                              res.prettyList.at(0));
+        } else {
+            res.text = xi18ncp("@info",
+                               "Do you really want to permanently delete this %1 item?<nl/><nl/>"
+                               "<emphasis strong='true'>This action cannot be undone.</emphasis>",
+                               "Do you really want to permanently delete these %1 items?<nl/><nl/>"
+                               "<emphasis strong='true'>This action cannot be undone.</emphasis>",
+                               urlCount);
+        }
+        res.acceptButton = KStandardGuiItem::del();
+        break;
+    }
+    case AskIface::EmptyTrash: {
+        res.dialogType = KMessageDialog::WarningTwoActions;
+        res.text = xi18nc("@info",
+                          "Do you want to permanently delete all items from the Trash?<nl/><nl/>"
+                          "<emphasis strong='true'>This action cannot be undone.</emphasis>");
+        res.acceptButton = KGuiItem(i18nc("@action:button", "Empty Trash"), QStringLiteral("user-trash"));
+        break;
+    }
+    case AskIface::Trash: {
+        if (res.isSingleUrl) {
+            res.text = xi18nc("@info",
+                              "Do you really want to move this item to the Trash?<nl/>"
+                              "<filename>%1</filename>",
+                              res.prettyList.at(0));
+        } else {
+            res.text =
+                xi18ncp("@info", "Do you really want to move this %1 item to the Trash?", "Do you really want to move these %1 items to the Trash?", urlCount);
+        }
+        res.title = i18n("Move to Trash");
+        res.acceptButton = KGuiItem(res.title, QStringLiteral("user-trash"));
+        break;
+    }
+    default:
+        break;
+    }
+    return res;
+}
+
 void KIO::WidgetsAskUserActionHandler::askUserDelete(const QList<QUrl> &urls, DeletionType deletionType, ConfirmationType confirmationType, QWidget *parent)
 {
     KSharedConfigPtr kioConfig = KSharedConfig::openConfig(QStringLiteral("kiorc"), KConfig::NoGlobals);
@@ -218,73 +284,7 @@ void KIO::WidgetsAskUserActionHandler::askUserDelete(const QList<QUrl> &urls, De
         return;
     }
 
-    QStringList prettyList;
-    prettyList.reserve(urls.size());
-    for (const QUrl &url : urls) {
-        if (url.scheme() == QLatin1String("trash")) {
-            QString path = url.path();
-            // HACK (#98983): remove "0-foo". Note that it works better than
-            // displaying KFileItem::name(), for files under a subdir.
-            path.remove(QRegularExpression(QStringLiteral("^/[0-9]+-")));
-            prettyList.append(path);
-        } else {
-            prettyList.append(url.toDisplayString(QUrl::PreferLocalFile));
-        }
-    }
-
-    const int urlCount = prettyList.size();
-    const bool singleUrl = urlCount == 1;
-
-    KMessageDialog::Type dialogType = KMessageDialog::QuestionTwoActions;
-    KGuiItem acceptButton;
-    QString text;
-    QString title = i18n("Delete Permanently");
-
-    switch (deletionType) {
-    case Delete: {
-        dialogType = KMessageDialog::WarningTwoActions;
-        if (singleUrl) {
-            text = xi18nc("@info",
-                          "Do you really want to permanently delete this item?<nl/>"
-                          "<filename>%1</filename>"
-                          "<emphasis strong='true'>This action cannot be undone.</emphasis>",
-                          prettyList.at(0));
-        } else {
-            text = xi18ncp("@info",
-                           "Do you really want to permanently delete this %1 item?<nl/><nl/>"
-                           "<emphasis strong='true'>This action cannot be undone.</emphasis>",
-                           "Do you really want to permanently delete these %1 items?<nl/><nl/>"
-                           "<emphasis strong='true'>This action cannot be undone.</emphasis>",
-                           urlCount);
-        }
-        acceptButton = KStandardGuiItem::del();
-        break;
-    }
-    case EmptyTrash: {
-        dialogType = KMessageDialog::WarningTwoActions;
-        text = xi18nc("@info",
-                      "Do you want to permanently delete all items from the Trash?<nl/><nl/>"
-                      "<emphasis strong='true'>This action cannot be undone.</emphasis>");
-        acceptButton = KGuiItem(i18nc("@action:button", "Empty Trash"), QStringLiteral("user-trash"));
-        break;
-    }
-    case Trash: {
-        if (singleUrl) {
-            text = xi18nc("@info",
-                          "Do you really want to move this item to the Trash?<nl/>"
-                          "<filename>%1</filename>",
-                          prettyList.at(0));
-        } else {
-            text =
-                xi18ncp("@info", "Do you really want to move this %1 item to the Trash?", "Do you really want to move these %1 items to the Trash?", urlCount);
-        }
-        title = i18n("Move to Trash");
-        acceptButton = KGuiItem(title, QStringLiteral("user-trash"));
-        break;
-    }
-    default:
-        break;
-    }
+    const auto &[prettyList, dialogType, acceptButton, text, title, singleUrl] = processAskDelete(urls, deletionType);
 
     KMessageDialog *dlg = new KMessageDialog(dialogType, text, parent);
 
