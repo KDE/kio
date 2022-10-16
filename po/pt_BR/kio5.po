@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-09 00:42+0000\n"
+"POT-Creation-Date: 2022-10-16 00:42+0000\n"
 "PO-Revision-Date: 2022-08-19 15:14-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -2139,7 +2139,7 @@ msgstr ""
 "O servidor estava muito ocupado, respondendo a outras requisições de "
 "resposta."
 
-#: core/job_error.cpp:1112 core/slavebase.cpp:1594
+#: core/job_error.cpp:1112 core/slavebase.cpp:1610
 #, kde-format
 msgid "Unknown Error"
 msgstr "Erro desconhecido"
@@ -2553,12 +2553,12 @@ msgstr "O protocolo %1 não suporta a abertura de arquivos."
 msgid "Protocol %1 does not support action %2."
 msgstr "O protocolo %1 não suporta a ação %2."
 
-#: core/slavebase.cpp:1064
+#: core/slavebase.cpp:1077
 #, kde-format
 msgid "&Yes"
 msgstr "&Sim"
 
-#: core/slavebase.cpp:1065
+#: core/slavebase.cpp:1078
 #, kde-format
 msgid "&No"
 msgstr "&Não"
@@ -7340,12 +7340,12 @@ msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] "Deseja mover este item para a Lixeira?"
 msgstr[1] "Deseja mover estes %1 itens para a Lixeira?"
 
-#: widgets/jobuidelegate.cpp:436 widgets/widgetsaskuseractionhandler.cpp:465
+#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:468
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "O par da cadeia de certificados SSL parece estar corrompido."
 
-#: widgets/jobuidelegate.cpp:436 widgets/widgetsaskuseractionhandler.cpp:468
+#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:471
 #, kde-format
 msgid "SSL"
 msgstr "SSL"
@@ -9472,7 +9472,7 @@ msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr "Não perguntar novamente"
 
-#: widgets/widgetsaskuseractionhandler.cpp:356
+#: widgets/widgetsaskuseractionhandler.cpp:360
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not show this message again"

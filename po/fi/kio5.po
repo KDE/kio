@@ -18,8 +18,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-09 00:42+0000\n"
-"PO-Revision-Date: 2022-07-18 22:33+0300\n"
+"POT-Creation-Date: 2022-10-16 00:42+0000\n"
+"PO-Revision-Date: 2022-08-22 21:57+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -2101,7 +2101,7 @@ msgstr ""
 msgid "The server was too busy responding to other requests to respond."
 msgstr "Palvelin oli liian varattu vastatakseen pyyntöön."
 
-#: core/job_error.cpp:1112 core/slavebase.cpp:1594
+#: core/job_error.cpp:1112 core/slavebase.cpp:1610
 #, kde-format
 msgid "Unknown Error"
 msgstr "Tuntematon virhe"
@@ -2517,12 +2517,12 @@ msgstr "Yhteyskäytäntö %1 ei tue tiedostojen avaamista."
 msgid "Protocol %1 does not support action %2."
 msgstr "Yhteyskäytäntö %1 ei tue toimintoa %2."
 
-#: core/slavebase.cpp:1064
+#: core/slavebase.cpp:1077
 #, kde-format
 msgid "&Yes"
 msgstr "&Kyllä"
 
-#: core/slavebase.cpp:1065
+#: core/slavebase.cpp:1078
 #, kde-format
 msgid "&No"
 msgstr "&Ei"
@@ -7104,9 +7104,7 @@ msgid "Moving"
 msgstr "Siirretään"
 
 #: widgets/fileundomanager.cpp:141
-#, fuzzy, kde-format
-#| msgctxt "@title job"
-#| msgid "Renaming"
+#, kde-format
 msgid "Renaming"
 msgstr "Muutetaan nimiä"
 
@@ -7250,12 +7248,12 @@ msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] "Haluatko varmasti siirtää tämän kohteen roskakoriin?"
 msgstr[1] "Haluatko varmasti siirtää nämä %1 kohdetta roskakoriin?"
 
-#: widgets/jobuidelegate.cpp:436 widgets/widgetsaskuseractionhandler.cpp:465
+#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:468
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "Vastapään SSL-varmenneketju näyttää olevan vioittunut."
 
-#: widgets/jobuidelegate.cpp:436 widgets/widgetsaskuseractionhandler.cpp:468
+#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:471
 #, kde-format
 msgid "SSL"
 msgstr "SSL"
@@ -8303,27 +8301,23 @@ msgid "The new file name is empty."
 msgstr "Uusi tiedostonimi on tyhjä."
 
 #: widgets/kpropertiesdialog.cpp:1667
-#, fuzzy, kde-format
-#| msgid "&Supported file types:"
+#, kde-format
 msgid "No registered file type"
-msgstr "&Tuetut tiedostotyypit:"
+msgstr "Ei rekisteröityä tiedostotyyppiä"
 
 #: widgets/kpropertiesdialog.cpp:1669
 #, kde-format
 msgid "No associated application"
 msgstr "Ei kytkettyä sovellusta"
 
-# Luontiaika, eikä se, joka on luonut.
 #: widgets/kpropertiesdialog.cpp:1675
-#, fuzzy, kde-format
-#| msgid "Created:"
+#, kde-format
 msgctxt "@action:button Create new file type"
 msgid "Create…"
-msgstr "Luotu:"
+msgstr "Luo…"
 
 #: widgets/kpropertiesdialog.cpp:1678
-#, fuzzy, kde-format
-#| msgid "Change..."
+#, kde-format
 msgctxt "@action:button"
 msgid "Change…"
 msgstr "Muuta…"
@@ -9354,7 +9348,7 @@ msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr "Älä kysy uudelleen"
 
-#: widgets/widgetsaskuseractionhandler.cpp:356
+#: widgets/widgetsaskuseractionhandler.cpp:360
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not show this message again"

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-09 00:42+0000\n"
+"POT-Creation-Date: 2022-10-16 00:42+0000\n"
 "PO-Revision-Date: 2004-09-19 18:24+0200\n"
 "Last-Translator: Thierry Vignaud <tvignaud.com>\n"
 "Language-Team: Brezhoneg <Suav.Icb.fr>\n"
@@ -1916,7 +1916,7 @@ msgstr ""
 msgid "The server was too busy responding to other requests to respond."
 msgstr ""
 
-#: core/job_error.cpp:1112 core/slavebase.cpp:1594
+#: core/job_error.cpp:1112 core/slavebase.cpp:1610
 #, kde-format
 msgid "Unknown Error"
 msgstr "Fazi dianav"
@@ -2298,13 +2298,13 @@ msgstr "Dibaboù"
 msgid "Protocol %1 does not support action %2."
 msgstr ""
 
-#: core/slavebase.cpp:1064
+#: core/slavebase.cpp:1077
 #, fuzzy, kde-format
 #| msgid "&Reset"
 msgid "&Yes"
 msgstr "&Adkorañ"
 
-#: core/slavebase.cpp:1065
+#: core/slavebase.cpp:1078
 #, fuzzy, kde-format
 msgid "&No"
 msgstr "Ebet"
@@ -6772,12 +6772,12 @@ msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] "Ha fellout a ra deoc'h da vat lemel an %1 dra dibabet ?"
 msgstr[1] ""
 
-#: widgets/jobuidelegate.cpp:436 widgets/widgetsaskuseractionhandler.cpp:465
+#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:468
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr ""
 
-#: widgets/jobuidelegate.cpp:436 widgets/widgetsaskuseractionhandler.cpp:468
+#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:471
 #, kde-format
 msgid "SSL"
 msgstr "SSL"
@@ -8828,7 +8828,7 @@ msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr ""
 
-#: widgets/widgetsaskuseractionhandler.cpp:356
+#: widgets/widgetsaskuseractionhandler.cpp:360
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not show this message again"

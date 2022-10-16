@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio trunk\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-09 00:42+0000\n"
+"POT-Creation-Date: 2022-10-16 00:42+0000\n"
 "PO-Revision-Date: 2021-08-26 06:59+0000\n"
 "Last-Translator: Vivek K J <vivekkj2004@gmail.com>\n"
 "Language-Team: Malayalam <https://kde.smc.org.in/projects/kde/kiokio5/ml/>\n"
@@ -2056,7 +2056,7 @@ msgstr ""
 msgid "The server was too busy responding to other requests to respond."
 msgstr ""
 
-#: core/job_error.cpp:1112 core/slavebase.cpp:1594
+#: core/job_error.cpp:1112 core/slavebase.cpp:1610
 #, kde-format
 msgid "Unknown Error"
 msgstr "അജ്ഞാത പിശക്"
@@ -2439,12 +2439,12 @@ msgstr "ഫയലുകള്‍ തുറക്കുന്നതിനുള�
 msgid "Protocol %1 does not support action %2."
 msgstr "%2 നടപടി %1 സമ്പ്രദായം പിന്തുണക്കുന്നില്ല."
 
-#: core/slavebase.cpp:1064
+#: core/slavebase.cpp:1077
 #, kde-format
 msgid "&Yes"
 msgstr "&ഉവ്വു്"
 
-#: core/slavebase.cpp:1065
+#: core/slavebase.cpp:1078
 #, kde-format
 msgid "&No"
 msgstr "&ഇല്ല"
@@ -6726,12 +6726,12 @@ msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] "നിങ്ങള്‍ക്കു് ഈ വസ്തു ചവറ്റുകുട്ടയിലേക്കു് നീക്കണമോ?"
 msgstr[1] "നിങ്ങള്‍ക്കു് ഈ വസ്തു ചവറ്റുകുട്ടയിലേക്കു് നീക്കണമോ?"
 
-#: widgets/jobuidelegate.cpp:436 widgets/widgetsaskuseractionhandler.cpp:465
+#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:468
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr ""
 
-#: widgets/jobuidelegate.cpp:436 widgets/widgetsaskuseractionhandler.cpp:468
+#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:471
 #, kde-format
 msgid "SSL"
 msgstr "എസ്എസ്എല്‍"
@@ -8694,7 +8694,7 @@ msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr ""
 
-#: widgets/widgetsaskuseractionhandler.cpp:356
+#: widgets/widgetsaskuseractionhandler.cpp:360
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not show this message again"

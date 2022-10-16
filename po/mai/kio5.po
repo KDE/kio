@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-09 00:42+0000\n"
+"POT-Creation-Date: 2022-10-16 00:42+0000\n"
 "PO-Revision-Date: 2010-01-29 13:15+0530\n"
 "Last-Translator: Rajesh Ranjan <rajesh672@gmail.com>\n"
 "Language-Team: Maithili <maithili.sf.net>\n"
@@ -2011,7 +2011,7 @@ msgstr ""
 msgid "The server was too busy responding to other requests to respond."
 msgstr "आन निवेदनकेँ उत्तर देबामे सर्वर बेसी व्यस्त अछि."
 
-#: core/job_error.cpp:1112 core/slavebase.cpp:1594
+#: core/job_error.cpp:1112 core/slavebase.cpp:1610
 #, kde-format
 msgid "Unknown Error"
 msgstr "अनजान त्रुटि"
@@ -2422,12 +2422,12 @@ msgstr "प्रोटोकाल %1 केर सँग फाइलसभ �
 msgid "Protocol %1 does not support action %2."
 msgstr "प्रोटोकाल %1 क्रिया %2 केँ समर्थित नहि करत."
 
-#: core/slavebase.cpp:1064
+#: core/slavebase.cpp:1077
 #, kde-format
 msgid "&Yes"
 msgstr "हँ (&Y)"
 
-#: core/slavebase.cpp:1065
+#: core/slavebase.cpp:1078
 #, kde-format
 msgid "&No"
 msgstr "नहि (&N)"
@@ -6971,12 +6971,12 @@ msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] "की अहाँ सचमुच एहि वस्तु केँ मेटाएब चाहैत छी?"
 msgstr[1] "की अहाँ सचमुच एहि वस्तु केँ मेटाएब चाहैत छी?"
 
-#: widgets/jobuidelegate.cpp:436 widgets/widgetsaskuseractionhandler.cpp:465
+#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:468
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "पीअर एसएसएल प्रमाणपत्र चैन खराब प्रतीत हाएत अछि."
 
-#: widgets/jobuidelegate.cpp:436 widgets/widgetsaskuseractionhandler.cpp:468
+#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:471
 #, kde-format
 msgid "SSL"
 msgstr "SSL"
@@ -9076,7 +9076,7 @@ msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr ""
 
-#: widgets/widgetsaskuseractionhandler.cpp:356
+#: widgets/widgetsaskuseractionhandler.cpp:360
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not show this message again"

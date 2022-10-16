@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-09 00:42+0000\n"
+"POT-Creation-Date: 2022-10-16 00:42+0000\n"
 "PO-Revision-Date: 2021-09-05 20:45+0200\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -2114,7 +2114,7 @@ msgid "The server was too busy responding to other requests to respond."
 msgstr ""
 "Serveren havde for travlt med at svare på andre forespørgsler til at svare."
 
-#: core/job_error.cpp:1112 core/slavebase.cpp:1594
+#: core/job_error.cpp:1112 core/slavebase.cpp:1610
 #, kde-format
 msgid "Unknown Error"
 msgstr "Ukendt fejl"
@@ -2527,12 +2527,12 @@ msgstr "Åbning af filer er ikke understøttet med protokollen %1."
 msgid "Protocol %1 does not support action %2."
 msgstr "Protokollen %1 understøtter ikke handlingen %2."
 
-#: core/slavebase.cpp:1064
+#: core/slavebase.cpp:1077
 #, kde-format
 msgid "&Yes"
 msgstr "&Ja"
 
-#: core/slavebase.cpp:1065
+#: core/slavebase.cpp:1078
 #, kde-format
 msgid "&No"
 msgstr "&Nej"
@@ -7277,12 +7277,12 @@ msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] "Vil du flytte dette element til papirkurven?"
 msgstr[1] "Vil du flytte disse %1 elementer til papirkurven?"
 
-#: widgets/jobuidelegate.cpp:436 widgets/widgetsaskuseractionhandler.cpp:465
+#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:468
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "Modpartens SSL-certifikatkæde lader til at være ødelagt."
 
-#: widgets/jobuidelegate.cpp:436 widgets/widgetsaskuseractionhandler.cpp:468
+#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:471
 #, kde-format
 msgid "SSL"
 msgstr "SSL"
@@ -9407,7 +9407,7 @@ msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr "Spørg ikke igen"
 
-#: widgets/widgetsaskuseractionhandler.cpp:356
+#: widgets/widgetsaskuseractionhandler.cpp:360
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not show this message again"

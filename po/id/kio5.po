@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio_trash\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-09 00:42+0000\n"
+"POT-Creation-Date: 2022-10-16 00:42+0000\n"
 "PO-Revision-Date: 2022-09-29 10:56+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -2126,7 +2126,7 @@ msgstr ""
 msgid "The server was too busy responding to other requests to respond."
 msgstr "Server terlalu sibuk menanggapi ke permintaan lain untuk menanggapi."
 
-#: core/job_error.cpp:1112 core/slavebase.cpp:1594
+#: core/job_error.cpp:1112 core/slavebase.cpp:1610
 #, kde-format
 msgid "Unknown Error"
 msgstr "Error Tak Diketahui"
@@ -2542,12 +2542,12 @@ msgstr "Pembukaan file-file tidak didukung dengan protokol %1."
 msgid "Protocol %1 does not support action %2."
 msgstr "Protokol %1 tidaklah mendukung tindakan %2."
 
-#: core/slavebase.cpp:1064
+#: core/slavebase.cpp:1077
 #, kde-format
 msgid "&Yes"
 msgstr "&Ya"
 
-#: core/slavebase.cpp:1065
+#: core/slavebase.cpp:1078
 #, kde-format
 msgid "&No"
 msgstr "&Tidak"
@@ -7298,12 +7298,12 @@ msgstr[0] "Apakah kamu sungguh ingin memindah butir ini ke Tong Sampah?"
 msgstr[1] ""
 "Apakah kamu sungguh ingin memindah %1 butir tersebut ke Tong Sampah?"
 
-#: widgets/jobuidelegate.cpp:436 widgets/widgetsaskuseractionhandler.cpp:465
+#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:468
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "Rantai sertifikat peer SSL tampaknya korup."
 
-#: widgets/jobuidelegate.cpp:436 widgets/widgetsaskuseractionhandler.cpp:468
+#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:471
 #, kde-format
 msgid "SSL"
 msgstr "SSL"
@@ -9438,7 +9438,7 @@ msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr "Jangan tanya lagi"
 
-#: widgets/widgetsaskuseractionhandler.cpp:356
+#: widgets/widgetsaskuseractionhandler.cpp:360
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not show this message again"

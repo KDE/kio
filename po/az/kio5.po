@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-09 00:42+0000\n"
+"POT-Creation-Date: 2022-10-16 00:42+0000\n"
 "PO-Revision-Date: 2022-07-31 23:06+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -2105,7 +2105,7 @@ msgstr ""
 msgid "The server was too busy responding to other requests to respond."
 msgstr "Server digər sorğulara cavab vermək üçün çox məşğul idi."
 
-#: core/job_error.cpp:1112 core/slavebase.cpp:1594
+#: core/job_error.cpp:1112 core/slavebase.cpp:1610
 #, kde-format
 msgid "Unknown Error"
 msgstr "Naməlum Xəta"
@@ -2516,12 +2516,12 @@ msgstr "Açılan fayllar protokol %1 ilə dəstəklənmir."
 msgid "Protocol %1 does not support action %2."
 msgstr "Protokol %1, %2 əməlini dəstəkləmir."
 
-#: core/slavebase.cpp:1064
+#: core/slavebase.cpp:1077
 #, kde-format
 msgid "&Yes"
 msgstr "&Bəli"
 
-#: core/slavebase.cpp:1065
+#: core/slavebase.cpp:1078
 #, kde-format
 msgid "&No"
 msgstr "&Xeyr"
@@ -7251,12 +7251,12 @@ msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] "Bu elementi Səbətə atmaq istəyirsiniz?"
 msgstr[1] "Bu %1 elementi Səbətə atmaq istəyirsiniz?"
 
-#: widgets/jobuidelegate.cpp:436 widgets/widgetsaskuseractionhandler.cpp:465
+#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:468
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "Deyəsən serverin SSL sertifikatı korlanıb."
 
-#: widgets/jobuidelegate.cpp:436 widgets/widgetsaskuseractionhandler.cpp:468
+#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:471
 #, kde-format
 msgid "SSL"
 msgstr "SSL"
@@ -9354,7 +9354,7 @@ msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr "Bir daha soruşmamaq"
 
-#: widgets/widgetsaskuseractionhandler.cpp:356
+#: widgets/widgetsaskuseractionhandler.cpp:360
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not show this message again"

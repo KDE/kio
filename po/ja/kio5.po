@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-09 00:42+0000\n"
+"POT-Creation-Date: 2022-10-16 00:42+0000\n"
 "PO-Revision-Date: 2022-08-28 20:43-0700\n"
 "Last-Translator: Fumiaki Okushi <fumiaki.okushi@gmail.com>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -2072,7 +2072,7 @@ msgstr ""
 msgid "The server was too busy responding to other requests to respond."
 msgstr "サーバは他の要求に答えるのに忙しくて、応答できませんでした。"
 
-#: core/job_error.cpp:1112 core/slavebase.cpp:1594
+#: core/job_error.cpp:1112 core/slavebase.cpp:1610
 #, kde-format
 msgid "Unknown Error"
 msgstr "未知のエラー"
@@ -2487,12 +2487,12 @@ msgstr "ファイルを開くことは %1 プロトコルでサポートされ�
 msgid "Protocol %1 does not support action %2."
 msgstr "%1 プロトコルは %2 の動作をサポートしていません。"
 
-#: core/slavebase.cpp:1064
+#: core/slavebase.cpp:1077
 #, kde-format
 msgid "&Yes"
 msgstr "はい(&Y)"
 
-#: core/slavebase.cpp:1065
+#: core/slavebase.cpp:1078
 #, kde-format
 msgid "&No"
 msgstr "いいえ(&N)"
@@ -7277,12 +7277,12 @@ msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] "本当にこのアイテムをごみ箱に移動しますか？"
 msgstr[1] "本当にこれら %1 個のアイテムをごみ箱に移動しますか？"
 
-#: widgets/jobuidelegate.cpp:436 widgets/widgetsaskuseractionhandler.cpp:465
+#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:468
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "ピアの SSL 証明書チェーンが壊れているようです。"
 
-#: widgets/jobuidelegate.cpp:436 widgets/widgetsaskuseractionhandler.cpp:468
+#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:471
 #, kde-format
 msgid "SSL"
 msgstr "SSL"
@@ -9395,7 +9395,7 @@ msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr "次回から確認しない"
 
-#: widgets/widgetsaskuseractionhandler.cpp:356
+#: widgets/widgetsaskuseractionhandler.cpp:360
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not show this message again"

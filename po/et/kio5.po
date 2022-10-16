@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-09 00:42+0000\n"
+"POT-Creation-Date: 2022-10-16 00:42+0000\n"
 "PO-Revision-Date: 2021-10-13 01:45+0200\n"
 "Last-Translator: Mihkel Tõnnov <mihhkel@gmail.com>\n"
 "Language-Team: Estonian <>\n"
@@ -2101,7 +2101,7 @@ msgstr ""
 msgid "The server was too busy responding to other requests to respond."
 msgstr "Server oli liiga hõivatud, et vastata teistele päringutele."
 
-#: core/job_error.cpp:1112 core/slavebase.cpp:1594
+#: core/job_error.cpp:1112 core/slavebase.cpp:1610
 #, kde-format
 msgid "Unknown Error"
 msgstr "Tundmatu viga"
@@ -2512,12 +2512,12 @@ msgstr "Failide avamine pole %1 protokollis toetatud."
 msgid "Protocol %1 does not support action %2."
 msgstr "Protokoll %1 ei toeta tegevust %2."
 
-#: core/slavebase.cpp:1064
+#: core/slavebase.cpp:1077
 #, kde-format
 msgid "&Yes"
 msgstr "&Jah"
 
-#: core/slavebase.cpp:1065
+#: core/slavebase.cpp:1078
 #, kde-format
 msgid "&No"
 msgstr "&Ei"
@@ -7246,12 +7246,12 @@ msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] "Kas tõesti visata see element prügikasti?"
 msgstr[1] "Kas tõesti visata need %1 elementi prügikasti?"
 
-#: widgets/jobuidelegate.cpp:436 widgets/widgetsaskuseractionhandler.cpp:465
+#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:468
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "Partneri SSL-sertifikaadi ahel paistab olevat vigane."
 
-#: widgets/jobuidelegate.cpp:436 widgets/widgetsaskuseractionhandler.cpp:468
+#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:471
 #, kde-format
 msgid "SSL"
 msgstr "SSL"
@@ -9359,7 +9359,7 @@ msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr "Rohkem ei küsita"
 
-#: widgets/widgetsaskuseractionhandler.cpp:356
+#: widgets/widgetsaskuseractionhandler.cpp:360
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not show this message again"

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-09 00:42+0000\n"
+"POT-Creation-Date: 2022-10-16 00:42+0000\n"
 "PO-Revision-Date: 2021-09-05 11:39-0700\n"
 "Last-Translator: Victor Ibragimov <victor.ibragimov@gmail.com>\n"
 "Language-Team: Tajik Language Support\n"
@@ -2095,7 +2095,7 @@ msgstr ""
 msgid "The server was too busy responding to other requests to respond."
 msgstr "Сервер ба улти посух додан ба дархостҳои дигар машғул мебошад."
 
-#: core/job_error.cpp:1112 core/slavebase.cpp:1594
+#: core/job_error.cpp:1112 core/slavebase.cpp:1610
 #, kde-format
 msgid "Unknown Error"
 msgstr "Хатои ношинос"
@@ -2492,12 +2492,12 @@ msgstr ""
 msgid "Protocol %1 does not support action %2."
 msgstr "Протоколи %1 амали %2-ро дастгирӣ намекунад."
 
-#: core/slavebase.cpp:1064
+#: core/slavebase.cpp:1077
 #, kde-format
 msgid "&Yes"
 msgstr "&Ҳа"
 
-#: core/slavebase.cpp:1065
+#: core/slavebase.cpp:1078
 #, kde-format
 msgid "&No"
 msgstr "&Не"
@@ -6958,12 +6958,12 @@ msgstr[0] "Шумо дар ҳақиқат мехоҳед, ки ҷузъи зер
 msgstr[1] ""
 "Шумо дар ҳақиқат мехоҳед, ки %1 ҷузъи зеринро ба сабад интиқол намоед?"
 
-#: widgets/jobuidelegate.cpp:436 widgets/widgetsaskuseractionhandler.cpp:465
+#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:468
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "Чунин менамояд, ки занҷири гувоҳиномаи SSL вайрон аст."
 
-#: widgets/jobuidelegate.cpp:436 widgets/widgetsaskuseractionhandler.cpp:468
+#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:471
 #, kde-format
 msgid "SSL"
 msgstr "SSL"
@@ -9103,7 +9103,7 @@ msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr "Дигар пурсида нашавад"
 
-#: widgets/widgetsaskuseractionhandler.cpp:356
+#: widgets/widgetsaskuseractionhandler.cpp:360
 #, fuzzy, kde-format
 #| msgid "Do not ask again"
 msgctxt "@option:check"

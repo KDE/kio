@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-09 00:42+0000\n"
+"POT-Creation-Date: 2022-10-16 00:42+0000\n"
 "PO-Revision-Date: 2004-12-14 15:11-0600\n"
 "Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
 "Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
@@ -2046,7 +2046,7 @@ msgstr ""
 "Bhí an freastalaí gafa le hiarratais eile agus ní raibh sé in ann freagra a "
 "thabhairt."
 
-#: core/job_error.cpp:1112 core/slavebase.cpp:1594
+#: core/job_error.cpp:1112 core/slavebase.cpp:1610
 #, kde-format
 msgid "Unknown Error"
 msgstr "Earráid Anaithnid"
@@ -2451,13 +2451,13 @@ msgid "Protocol %1 does not support action %2."
 msgstr "Ní thacaíonn prótacal %1 le gníomh %2."
 
 # default button in generic message box; hopefully no one uses this default
-#: core/slavebase.cpp:1064
+#: core/slavebase.cpp:1077
 #, kde-format
 msgid "&Yes"
 msgstr "&Tá"
 
 # default button in generic message box; hopefully no one uses this default
-#: core/slavebase.cpp:1065
+#: core/slavebase.cpp:1078
 #, kde-format
 msgid "&No"
 msgstr "&Níl"
@@ -7318,12 +7318,12 @@ msgstr[2] "An bhfuil tú cinnte gur mian leat an mhír seo a chur sa bhruscar?"
 msgstr[3] "An bhfuil tú cinnte gur mian leat an mhír seo a chur sa bhruscar?"
 msgstr[4] "An bhfuil tú cinnte gur mian leat an mhír seo a chur sa bhruscar?"
 
-#: widgets/jobuidelegate.cpp:436 widgets/widgetsaskuseractionhandler.cpp:465
+#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:468
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "Tá teastas SSL an chomhghleacaí truaillithe."
 
-#: widgets/jobuidelegate.cpp:436 widgets/widgetsaskuseractionhandler.cpp:468
+#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:471
 #, kde-format
 msgid "SSL"
 msgstr "SSL"
@@ -9512,7 +9512,7 @@ msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr "Ná fiafraigh díom arís"
 
-#: widgets/widgetsaskuseractionhandler.cpp:356
+#: widgets/widgetsaskuseractionhandler.cpp:360
 #, fuzzy, kde-format
 #| msgid "Do not ask again"
 msgctxt "@option:check"
