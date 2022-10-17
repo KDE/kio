@@ -2690,7 +2690,7 @@ msgstr "No heu seleccionat cap fitxer per a suprimir."
 #: filewidgets/kdiroperator.cpp:762 filewidgets/kdiroperator.cpp:794
 #, kde-format
 msgid "Nothing to Delete"
-msgstr "No hi ha res per a suprimir"
+msgstr "No hi ha res que s'haja de suprimir"
 
 #: filewidgets/kdiroperator.cpp:806 filewidgets/kdiroperator.cpp:902
 #, kde-format
@@ -3580,13 +3580,13 @@ msgid ""
 "This is the list of files to open. More than one file can be specified by "
 "listing several files, separated by spaces."
 msgstr ""
-"Esta és la llista dels fitxers a obrir. Es pot especificar més d'un fitxer "
-"llistant diversos fitxers, separats per espais."
+"Esta és la llista dels fitxers que s'obriran. Es pot especificar més d'un "
+"fitxer llistant diversos fitxers, separats per espais."
 
 #: filewidgets/kfilewidget.cpp:1440
 #, kde-format
 msgid "This is the name of the file to open."
-msgstr "Este és el nom del fitxer que cal obrir."
+msgstr "Este és el nom del fitxer que s'obrirà."
 
 #: filewidgets/kfilewidget.cpp:1453
 #, kde-format
@@ -6677,7 +6677,7 @@ msgstr ""
 "incorpora moltes paraules clau de busca en la web predefinides. Una d'estes "
 "paraules clau és la drecera de busca de Google (TM). Per a utilitzar-la, "
 "teclegeu només la paraula clau «gg» seguida pel delimitador de la paraula "
-"clau i el terme que cal buscar, p. ex. <span style=\" font-weight:600;\">gg:"
+"clau i el terme que es buscarà, p. ex. <span style=\" font-weight:600;\">gg:"
 "KDE</span>.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, cbEnableShortcuts)
@@ -6770,7 +6770,7 @@ msgid ""
 "be searched."
 msgstr ""
 "Seleccioneu el delimitador que separa la paraula clau de la frase o paraula "
-"a buscar."
+"que es buscarà."
 
 #. i18n: ectx: property (text), widget (QLabel, lbDelimiter)
 #: urifilters/ikws/ikwsopts_ui.ui:185
@@ -6903,14 +6903,15 @@ msgid ""
 msgstr ""
 "<qt>\n"
 "Introduïu ací l'URI que s'utilitzarà per a fer la busca en el motor de busca."
-"<br/>El text sencer a buscar es pot indicar com \\{@} o \\{0}.<br/>\n"
+"<br/>El text sencer que s'ha de buscar es pot indicar com \\{@} o \\{0}.<br/"
+">\n"
 "Es recomana \\{@}, ja que elimina totes les variables de consulta "
 "(nom=valor) de la cadena resultant, mentre que \\{0} se substituirà amb la "
 "cadena de consulta sense modificar.<br/>Podeu utilitzar \\{1}... \\{n} per a "
 "indicar certes paraules de la consulta i \\{nom} per a indicar un valor "
 "donat per «nom=valor» en la consulta de l'usuari.<br/>De manera addicional, "
 "és possible indicar referències múltiples (noms, nombres i cadenes) a la "
-"vegada (\\{nom1,nom2,...,«cadena»}).<br/>El primer valor que aparelli (des "
+"vegada (\\{nom1,nom2,...,«cadena»}).<br/>El primer valor que aparelle (des "
 "de l'esquerra) s'utilitzarà com a valor de substitució en l'URI resultant."
 "<br/>Es pot utilitzar una cadena entre cometes com a valor predeterminat si "
 "no hi ha cap aparellament des de l'esquerra de la llista de referències.\n"
@@ -7867,7 +7868,7 @@ msgstr ""
 "obrir diversos fitxers locals a la vegada\n"
 "%u - un sol URL\n"
 "%U - una llista d'URL\n"
-"%d - el directori del fitxer que cal obrir\n"
+"%d - el directori del fitxer que s'obrirà\n"
 "%D - una llista de directoris\n"
 "%i - la icona\n"
 "%m - la mini icona\n"
@@ -8892,7 +8893,7 @@ msgstr "Afig un tipus de fitxer per a %1"
 #: widgets/kpropertiesdialog.cpp:3438
 #, kde-format
 msgid "Select one or more file types to add:"
-msgstr "Seleccioneu un o més tipus de fitxer a afegir:"
+msgstr "Seleccioneu un o més tipus de fitxer que s'hagen d'afegir:"
 
 #: widgets/kpropertiesdialog.cpp:3584
 #, kde-format
