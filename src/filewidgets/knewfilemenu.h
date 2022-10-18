@@ -48,6 +48,7 @@ class KIOFILEWIDGETS_EXPORT KNewFileMenu : public KActionMenu
 {
     Q_OBJECT
 public:
+#if KIOFILEWIDGETS_ENABLE_DEPRECATED_SINCE(5, 100)
     /**
      * Constructor.
      * @param collection the KActionCollection the QAction with name @p name should be added to.
@@ -61,8 +62,23 @@ public:
      *       From KIO >= 5.53, an action named "create_file" (and shortcut set) in @p collection
      *       will be linked to the creation of the first file template (either from XDG_TEMPLATES_DIR
      *       or from :/kio5/newfile-templates)
+     * @deprecated since 5.100, use KNewFileMenu(QObject *) instead. To associate the action shortcuts use
+     * setNewFileShortcutAction() and setNewFileShortcutAction()
      */
+    KIOFILEWIDGETS_DEPRECATED_VERSION(5, 100, "Use KNewFileMenu(QObject *)")
     KNewFileMenu(KActionCollection *collection, const QString &name, QObject *parent);
+#endif
+
+    /**
+     * Constructor.
+     *
+     * @param parent the parent object, for ownership.
+     * If the parent object is a widget, it will also be used as the parent widget
+     * for any dialogs that this class might show. Otherwise, call setParentWidget.
+     *
+     * @since 5.100
+     */
+    KNewFileMenu(QObject *parent);
 
     /**
      * Destructor.
@@ -159,6 +175,24 @@ public:
      * @since 5.76
      */
     void setSelectDirWhenAlreadyExist(bool b);
+
+    /**
+     * Use this to set a shortcut for the "New Folder" action.
+     *
+     * The shortcut is copied from @param action.
+     *
+     * @since 5.100
+     */
+    void setNewFolderShortcutAction(QAction *action);
+
+    /**
+     * Use this to set a shortcut for the new file action.
+     *
+     * The shortcut is copied from @param action.
+     *
+     * @since 5.100
+     */
+    void setNewFileShortcutAction(QAction *action);
 
 public Q_SLOTS:
     /**

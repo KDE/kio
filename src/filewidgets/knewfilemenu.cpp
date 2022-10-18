@@ -25,7 +25,9 @@
 #include <krun.h>
 #include <kurifilter.h>
 
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 100)
 #include <KActionCollection>
+#endif
 #include <KConfigGroup>
 #include <KDesktopFile>
 #include <KDirOperator>
@@ -229,9 +231,8 @@ public:
 class KNewFileMenuPrivate
 {
 public:
-    explicit KNewFileMenuPrivate(KActionCollection *collection, KNewFileMenu *qq)
-        : m_actionCollection(collection)
-        , q(qq)
+    explicit KNewFileMenuPrivate(KNewFileMenu *qq)
+        : q(qq)
         , m_delayedSlotTextChangedTimer(new QTimer(q))
     {
         m_delayedSlotTextChangedTimer->setInterval(50);
@@ -352,7 +353,11 @@ public:
      */
     void initDialog();
 
-    KActionCollection *m_actionCollection;
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 100)
+    KActionCollection *m_actionCollection = nullptr;
+#endif
+    QAction *m_newFolderShortcutAction = nullptr;
+    QAction *m_newFileShortcutAction = nullptr;
 
     KActionMenu *m_menuDev = nullptr;
     int m_menuItemsVersion = 0;
@@ -735,15 +740,20 @@ void KNewFileMenuPrivate::fillMenu()
                     act->setText(i18nc("@item:inmenu Create New", "%1", entry.text));
                     act->setActionGroup(m_newMenuGroup);
 
-                    // If there is a shortcut available in the action collection, use it.
-                    QAction *act2 = m_actionCollection->action(QStringLiteral("create_dir"));
-                    if (act2) {
-                        act->setShortcuts(act2->shortcuts());
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 100)
+                    if (m_actionCollection) {
+                        m_newFolderShortcutAction = m_actionCollection->action(QStringLiteral("create_dir"));
+                    }
+#endif
+
+                    // If there is a shortcut action copy its shortcut
+                    if (m_newFolderShortcutAction) {
+                        act->setShortcuts(m_newFolderShortcutAction->shortcuts());
                         // Both actions have now the same shortcut, so this will prevent the "Ambiguous shortcut detected" dialog.
                         act->setShortcutContext(Qt::WidgetShortcut);
                         // We also need to react to shortcut changes.
-                        QObject::connect(act2, &QAction::changed, act, [=]() {
-                            act->setShortcuts(act2->shortcuts());
+                        QObject::connect(m_newFolderShortcutAction, &QAction::changed, act, [=]() {
+                            act->setShortcuts(m_newFolderShortcutAction->shortcuts());
                         });
                     }
 
@@ -809,15 +819,21 @@ void KNewFileMenuPrivate::fillMenu()
                     } else {
                         if (!m_firstFileEntry) {
                             m_firstFileEntry = &entry;
-                            // If there is a shortcut available in the action collection, use it.
-                            QAction *act2 = m_actionCollection->action(QStringLiteral("create_file"));
-                            if (act2) {
-                                act->setShortcuts(act2->shortcuts());
+
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 100)
+                            if (m_actionCollection) {
+                                m_newFileShortcutAction = m_actionCollection->action(QStringLiteral("create_file"));
+                            }
+#endif
+
+                            // If there is a shortcut action copy its shortcut
+                            if (m_newFileShortcutAction) {
+                                act->setShortcuts(m_newFileShortcutAction->shortcuts());
                                 // Both actions have now the same shortcut, so this will prevent the "Ambiguous shortcut detected" dialog.
                                 act->setShortcutContext(Qt::WidgetShortcut);
                                 // We also need to react to shortcut changes.
-                                QObject::connect(act2, &QAction::changed, act, [=]() {
-                                    act->setShortcuts(act2->shortcuts());
+                                QObject::connect(m_newFileShortcutAction, &QAction::changed, act, [=]() {
+                                    act->setShortcuts(m_newFileShortcutAction->shortcuts());
                                 });
                             }
                         }
@@ -1362,9 +1378,10 @@ void KNewFileMenuPrivate::slotUrlDesktopFile()
     executeStrategy();
 }
 
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 100)
 KNewFileMenu::KNewFileMenu(KActionCollection *collection, const QString &name, QObject *parent)
     : KActionMenu(QIcon::fromTheme(QStringLiteral("document-new")), i18n("Create New"), parent)
-    , d(std::make_unique<KNewFileMenuPrivate>(collection, this))
+    , d(std::make_unique<KNewFileMenuPrivate>(this))
 {
     // Don't fill the menu yet
     // We'll do that in checkUpToDate (should be connected to aboutToShow)
@@ -1375,9 +1392,27 @@ KNewFileMenu::KNewFileMenu(KActionCollection *collection, const QString &name, Q
     d->m_parentWidget = qobject_cast<QWidget *>(parent);
     d->m_newDirAction = nullptr;
 
-    if (d->m_actionCollection) {
-        d->m_actionCollection->addAction(name, this);
+    if (collection) {
+        collection->addAction(name, this);
+        d->m_actionCollection = collection;
     }
+
+    d->m_menuDev = new KActionMenu(QIcon::fromTheme(QStringLiteral("drive-removable-media")), i18n("Link to Device"), this);
+}
+#endif
+
+KNewFileMenu::KNewFileMenu(QObject *parent)
+    : KActionMenu(QIcon::fromTheme(QStringLiteral("document-new")), i18n("Create New"), parent)
+    , d(std::make_unique<KNewFileMenuPrivate>(this))
+{
+    // Don't fill the menu yet
+    // We'll do that in checkUpToDate (should be connected to aboutToShow)
+    d->m_newMenuGroup = new QActionGroup(this);
+    connect(d->m_newMenuGroup, &QActionGroup::triggered, this, [this](QAction *action) {
+        d->slotActionTriggered(action);
+    });
+    d->m_parentWidget = qobject_cast<QWidget *>(parent);
+    d->m_newDirAction = nullptr;
 
     d->m_menuDev = new KActionMenu(QIcon::fromTheme(QStringLiteral("drive-removable-media")), i18n("Link to Device"), this);
 }
@@ -1600,6 +1635,16 @@ void KNewFileMenu::setWorkingDirectory(const QUrl &directory)
 QUrl KNewFileMenu::workingDirectory() const
 {
     return d->m_popupFiles.isEmpty() ? QUrl() : d->m_popupFiles.first();
+}
+
+void KNewFileMenu::setNewFolderShortcutAction(QAction *action)
+{
+    d->m_newFolderShortcutAction = action;
+}
+
+void KNewFileMenu::setNewFileShortcutAction(QAction *action)
+{
+    d->m_newFileShortcutAction = action;
 }
 
 #include "moc_knewfilemenu.cpp"
