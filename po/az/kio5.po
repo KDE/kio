@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-16 00:42+0000\n"
-"PO-Revision-Date: 2022-07-31 23:06+0400\n"
+"PO-Revision-Date: 2022-10-17 23:43+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
 "Language: az\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.04.3\n"
+"X-Generator: Lokalize 22.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -3172,12 +3172,10 @@ msgid "Only folders can be added to the Places panel."
 msgstr "Yerlər panelinə yalnız qovluqlar əlavə edilə bilər."
 
 #: filewidgets/kfileplacesmodel.cpp:1430
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "&Release"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Releasing…"
-msgstr "&Buraxılış"
+msgstr "Buraxılış..."
 
 #: filewidgets/kfileplacesmodel.cpp:1432
 #, kde-format
@@ -3186,12 +3184,10 @@ msgid "&Release"
 msgstr "&Buraxılış"
 
 #: filewidgets/kfileplacesmodel.cpp:1436
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "&Safely Remove"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Safely Removing…"
-msgstr "&Təhlükəsiz çıxartmaq"
+msgstr "Təhlükəsiz çıxartmaq..."
 
 #: filewidgets/kfileplacesmodel.cpp:1438
 #, kde-format
@@ -3200,12 +3196,10 @@ msgid "&Safely Remove"
 msgstr "&Təhlükəsiz çıxartmaq"
 
 #: filewidgets/kfileplacesmodel.cpp:1443
-#, fuzzy, kde-format
-#| msgctxt "@title job"
-#| msgid "Unmounting"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Unmounting…"
-msgstr "Ayrılır"
+msgstr "Ayrılır..."
 
 #: filewidgets/kfileplacesmodel.cpp:1445
 #, kde-format
@@ -7767,16 +7761,13 @@ msgstr ""
 "\"%1\" (%2)"
 
 #: widgets/kopenwithdialog.cpp:743
-#, fuzzy, kde-format
-#| msgid ""
-#| "&Remember application association for all files of type\n"
-#| "\"%1\" (%2)"
+#, kde-format
 msgid ""
 "&Remember application association for all files of type\n"
 "\"%1\""
 msgstr ""
 "&Bütün fayl növləri üçün tətbiqlərlə əlaqələri yadda saxlamaq\n"
-"\"%1\" (%2)"
+"\"%1\""
 
 #: widgets/kopenwithdialog.cpp:753
 #, kde-format
@@ -8063,7 +8054,7 @@ msgstr ""
 #: widgets/kpropertiesdesktopbase.ui:95
 #, kde-format
 msgid "Program:"
-msgstr ""
+msgstr "Proqram:"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, browseButton)
 #: widgets/kpropertiesdesktopbase.ui:124
@@ -8095,11 +8086,9 @@ msgstr "&İş qovluğu:"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/kpropertiesdesktopbase.ui:156
-#, fuzzy, kde-format
-#| msgctxt "KFile System Bookmarks"
-#| msgid "Documents"
+#, kde-format
 msgid "Arguments:"
-msgstr "Sənədlər"
+msgstr "Arqumentlər:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel7)
 #. i18n: ectx: property (whatsThis), widget (QTreeWidget, filetypeList)
