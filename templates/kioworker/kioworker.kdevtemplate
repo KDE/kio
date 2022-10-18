@@ -1,6 +1,7 @@
 [General]
 Name=C++
 Name[ar]=سي++
+Name[az]=C++
 Name[bg]=C++
 Name[ca]=C++
 Name[ca@valencia]=C++
@@ -27,6 +28,7 @@ Name[vi]=C++
 Name[x-test]=xxC++xx
 Comment=KIO Worker Template
 Comment[ar]=قالب عامل الدخل والخرج
+Comment[az]=KİO modulu nümunəsi
 Comment[bg]=Шаблон на KIO Worker
 Comment[ca]=Plantilla de procés de treball KIO
 Comment[ca@valencia]=Plantilla de procés de treball KIO

@@ -1,6 +1,7 @@
 {
     "KPlugin": {
         "Description": "Provides change notification for network folders",
+        "Description[az]": "Şəbəkə qovluqlarındakı dəyişiklik bildirişini göstərir",
         "Description[bg]": "Уведомления за промени в мрежови папки",
         "Description[ca@valencia]": "Proporciona notificacions de canvis en carpetes de xarxa",
         "Description[ca]": "Proporciona notificacions de canvis en carpetes de xarxa",
@@ -16,6 +17,7 @@
         "Description[vi]": "Cung cấp thông báo thay đổi cho các thư mục mạng",
         "Description[x-test]": "xxProvides change notification for network foldersxx",
         "Name": "Remote URL Change Notifier",
+        "Name[az]": "Serverdə ünvan (URL) dəyişikliyi bildirişi",
         "Name[bg]": "Уведомител за промени в отдалечени URL-адреси",
         "Name[ca@valencia]": "Notificador de canvi d'URL remot",
         "Name[ca]": "Notificador de canvi d'URL remot",
