@@ -65,24 +65,25 @@ ecm_add_test(
     LINK_LIBRARIES KF5::KIOCore KF5::I18n Qt${QT_MAJOR_VERSION}::Test Qt${QT_MAJOR_VERSION}::Network
 )
 
-include(FindGem)
-find_gem(ftpd)
-set_package_properties(Gem_ftpd PROPERTIES
-    DESCRIPTION "Ruby gem 'ftpd' required for testing the ftp slave.")
-
-if(Gem_ftpd_FOUND)
+if(CMAKE_SYSTEM_NAME STREQUAL "Linux") # as per sysadmin request these are limited to linux only! https://invent.kde.org/frameworks/kio/-/merge_requests/1008
+    include(FindGem)
+    find_gem(ftpd)
+    set_package_properties(Gem_ftpd PROPERTIES TYPE REQUIRED
+        DESCRIPTION "Ruby ftpd gem. Either install it from your distribution's repos or by running `gem install --user-install ftpd`, which will install it under your user's home dir."
+        PURPOSE "Ruby gem 'ftpd' required for testing the ftp worker."
+        URL "https://rubygems.org/gems/ftpd")
     add_definitions(-DRubyExe_EXECUTABLE="${RubyExe_EXECUTABLE}")
     ecm_add_tests(
         ftptest.cpp
         NAME_PREFIX "kiocore-"
         LINK_LIBRARIES KF5::KIOCore KF5::I18n Qt${QT_MAJOR_VERSION}::Test Qt${QT_MAJOR_VERSION}::Network
     )
-endif()
 
-find_package(WsgidavExe)
-set_package_properties(WsgidavExe PROPERTIES
-    DESCRIPTION "wsgidav required for running the webdavtest.")
-if(WsgidavExe_FOUND)
+    find_package(WsgidavExe)
+    set_package_properties(WsgidavExe PROPERTIES TYPE REQUIRED
+        DESCRIPTION "Python webdav server. Can be easily installed by running `pip3 install wsgidav`, which will install it under your user's home dir."
+        PURPOSE "wsgidav required for running the webdavtest."
+        URL "https://pypi.org/project/WsgiDAV/")
     ecm_add_tests(
         webdavtest.cpp
         NAME_PREFIX "kiocore-"
@@ -218,7 +219,7 @@ ecm_add_tests(
  LINK_LIBRARIES KF5::KIOFileWidgets KF5::KIOWidgets KF5::XmlGui KF5::Bookmarks Qt${QT_MAJOR_VERSION}::Test KF5::I18n
 )
 
-# TODO: fix symbol exports for windows -> 'KSambaShare::KSambaShare': inconsistent dll linkage 
+# TODO: fix symbol exports for windows -> 'KSambaShare::KSambaShare': inconsistent dll linkage
 if (NOT WIN32)
 ecm_add_test(
     ksambashareprivatetest.cpp
