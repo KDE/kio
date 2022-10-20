@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-16 00:42+0000\n"
+"POT-Creation-Date: 2022-10-20 00:43+0000\n"
 "PO-Revision-Date: 2009-08-03 17:47+0200\n"
 "Last-Translator: Michôł Òstrowsczi <michol@linuxcsb.org>\n"
 "Language-Team: Kashubian <i18n-csb@linuxcsb.org>\n"
@@ -89,13 +89,13 @@ msgid ""
 "file name) with an underscore \"_\"."
 msgstr ""
 
-#: core/copyjob.cpp:1397 core/job_error.cpp:579
+#: core/copyjob.cpp:1397 core/job_error.cpp:582
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Katalog ju je"
 
 #: core/copyjob.cpp:1727 core/copyjob.cpp:2417 core/filecopyjob.cpp:373
-#: core/job_error.cpp:568 widgets/paste.cpp:80
+#: core/job_error.cpp:571 widgets/paste.cpp:80
 #, kde-format
 msgid "File Already Exists"
 msgstr "Lopk ju je"
@@ -828,6 +828,11 @@ msgid ""
 msgstr ""
 
 #: core/job_error.cpp:257
+#, kde-format
+msgid "File is too large to be trashed."
+msgstr ""
+
+#: core/job_error.cpp:260
 #, fuzzy, kde-format
 #| msgid ""
 #| "Unknown error code %1\n"
@@ -842,65 +847,65 @@ msgstr ""
 "%2\n"
 "Proszã zgłoszëc felã na starnie http://bugs.kde.org."
 
-#: core/job_error.cpp:288
+#: core/job_error.cpp:291
 #, kde-format
 msgctxt "@info url"
 msgid "(unknown)"
 msgstr "(nieznóny)"
 
-#: core/job_error.cpp:294
+#: core/job_error.cpp:297
 #, kde-format
 msgctxt "@info %1 error name, %2 description"
 msgid "<qt><p><b>%1</b></p><p>%2</p></qt>"
 msgstr "<qt><p><b>%1</b></p><p>%2</p></qt>"
 
-#: core/job_error.cpp:298
+#: core/job_error.cpp:301
 #, kde-format
 msgid "<b>Technical reason</b>: "
 msgstr "<b>Techniczné przëczënë</b>: "
 
-#: core/job_error.cpp:300
+#: core/job_error.cpp:303
 #, kde-format
 msgid "<b>Details of the request</b>:"
 msgstr "<b>Detale żądaniô</b>:"
 
-#: core/job_error.cpp:300
+#: core/job_error.cpp:303
 #, kde-format
 msgid "<li>URL: %1</li>"
 msgstr "<li>URL: %1</li>"
 
-#: core/job_error.cpp:302
+#: core/job_error.cpp:305
 #, kde-format
 msgid "<li>Protocol: %1</li>"
 msgstr "<li>Protokół: %1</li>"
 
-#: core/job_error.cpp:304
+#: core/job_error.cpp:307
 #, kde-format
 msgid "<li>Date and time: %1</li>"
 msgstr "<li>Datum ë czas: %1</li>"
 
-#: core/job_error.cpp:304
+#: core/job_error.cpp:307
 #, kde-format
 msgid "<li>Additional information: %1</li>"
 msgstr "<li>Dodôwnô wëdowiédzô: %1</li>"
 
-#: core/job_error.cpp:306
+#: core/job_error.cpp:309
 #, kde-format
 msgid "<b>Possible causes</b>:"
 msgstr "<b>Mòżlëwé przëczënë</b>:"
 
-#: core/job_error.cpp:310
+#: core/job_error.cpp:313
 #, kde-format
 msgid "<b>Possible solutions</b>:"
 msgstr "<b>Mòżlëwé rozwiązania</b>:"
 
-#: core/job_error.cpp:354
+#: core/job_error.cpp:357
 #, kde-format
 msgctxt "@info protocol"
 msgid "(unknown)"
 msgstr "(nieznóny)"
 
-#: core/job_error.cpp:367
+#: core/job_error.cpp:370
 #, kde-format
 msgid ""
 "Contact your appropriate computer support system, whether the system "
@@ -908,17 +913,17 @@ msgid ""
 msgstr ""
 "Sparłãczë sã z òbsłëgą kòmpùtra, sprôwnikã systemë abò techniczną pòmòcą."
 
-#: core/job_error.cpp:371
+#: core/job_error.cpp:374
 #, kde-format
 msgid "Contact the administrator of the server for further assistance."
 msgstr "Sparłãczë sã ze sprôwnikã serwera."
 
-#: core/job_error.cpp:374
+#: core/job_error.cpp:377
 #, kde-format
 msgid "Check your access permissions on this resource."
 msgstr "Sprôwdzë prawa przistspù do dostónkù."
 
-#: core/job_error.cpp:376
+#: core/job_error.cpp:379
 #, kde-format
 msgid ""
 "Your access permissions may be inadequate to perform the requested operation "
@@ -927,7 +932,7 @@ msgstr ""
 "Twòje prawa przistãpù mògą nie sygac do wëkònaniô żądóny òperacëji na tim "
 "dostónkù."
 
-#: core/job_error.cpp:379
+#: core/job_error.cpp:382
 #, kde-format
 msgid ""
 "The file may be in use (and thus locked) by another user or application."
@@ -935,7 +940,7 @@ msgstr ""
 "Lopk mòże bëc brëkòwóny (ë zablokòwóny do ùżëtkù) przez jinszegò brëkòwnika "
 "abò programã."
 
-#: core/job_error.cpp:382
+#: core/job_error.cpp:385
 #, kde-format
 msgid ""
 "Check to make sure that no other application or user is using the file or "
@@ -943,17 +948,17 @@ msgid ""
 msgstr ""
 "Sprôwdzë, czë niżódnô programa ë brëkòwnik nie ùżëwô abò nie blokùje lopka."
 
-#: core/job_error.cpp:385
+#: core/job_error.cpp:388
 #, kde-format
 msgid "Although unlikely, a hardware error may have occurred."
 msgstr "Mòżlëwé, chòc mało prawdopòdóbné, że pòkôza sã hardwôrowô fela."
 
-#: core/job_error.cpp:387
+#: core/job_error.cpp:390
 #, kde-format
 msgid "You may have encountered a bug in the program."
 msgstr "Mòże të natrôfił na felã programë."
 
-#: core/job_error.cpp:389
+#: core/job_error.cpp:392
 #, kde-format
 msgid ""
 "This is most likely to be caused by a bug in the program. Please consider "
@@ -962,7 +967,7 @@ msgstr ""
 "Baro prawdopòdóbne je to, że të natrôfił na felã programë. Jeżlë mòżesz, to "
 "wësli rapòrt ò felë zgòdno z uniższą instrukcëją."
 
-#: core/job_error.cpp:392
+#: core/job_error.cpp:395
 #, kde-format
 msgid ""
 "Update your software to the latest version. Your distribution should provide "
@@ -971,7 +976,7 @@ msgstr ""
 "Zaktualni programã do nônowszi wersrji. Twòjô distribùcëjô mùszi zamëkac w "
 "se nôrzãdze do zaktualnianiô programów."
 
-#: core/job_error.cpp:395
+#: core/job_error.cpp:398
 #, fuzzy, kde-format
 #| msgid ""
 #| "When all else fails, please consider helping the KDE team or the third "
@@ -999,12 +1004,12 @@ msgstr ""
 "wszëtczé detale pòdóné niżi, razã z jinszą wëdowiédzą, jaką trzëmôsz za "
 "brëkòwną."
 
-#: core/job_error.cpp:404
+#: core/job_error.cpp:407
 #, kde-format
 msgid "There may have been a problem with your network connection."
 msgstr "To mògło dac problemë z sécowim sparłãczeniém."
 
-#: core/job_error.cpp:408
+#: core/job_error.cpp:411
 #, kde-format
 msgid ""
 "There may have been a problem with your network configuration. If you have "
@@ -1013,7 +1018,7 @@ msgstr ""
 "To mògło dac problemë z kònfigùracëją sécë. Je to równak mało prawdopòdobné, "
 "jeżlë slédno të bez problemów ùżëwôł Internetu."
 
-#: core/job_error.cpp:412
+#: core/job_error.cpp:415
 #, kde-format
 msgid ""
 "There may have been a problem at some point along the network path between "
@@ -1021,43 +1026,43 @@ msgid ""
 msgstr ""
 "Mòżlëwé, że problemë pòkzałë sã dzes w sécë, midzë serwerã a twòjim kòmpùtrã."
 
-#: core/job_error.cpp:414
+#: core/job_error.cpp:417
 #, kde-format
 msgid "Try again, either now or at a later time."
 msgstr "Spróbùjë jesz rôz, terô abò pòzdze."
 
-#: core/job_error.cpp:415
+#: core/job_error.cpp:418
 #, kde-format
 msgid "A protocol error or incompatibility may have occurred."
 msgstr "Prawdopòdobno pòkôza sã fela w protokòle abò niekòmpatibilnosc."
 
-#: core/job_error.cpp:416
+#: core/job_error.cpp:419
 #, kde-format
 msgid "Ensure that the resource exists, and try again."
 msgstr "Sprôwdzë, czë dostónk jesz je ë spróbùjë znowa."
 
-#: core/job_error.cpp:417
+#: core/job_error.cpp:420
 #, kde-format
 msgid "The specified resource may not exist."
 msgstr "Mòżlëwé, że to nie dô pòdónegò dostónka."
 
-#: core/job_error.cpp:419
+#: core/job_error.cpp:422
 #, kde-format
 msgid "Double-check that you have entered the correct location and try again."
 msgstr ""
 "Sprôwdzë jesz rôz, czë môsz pòdóną dobrą lokalizacëjã ë spróbùjë znowa."
 
-#: core/job_error.cpp:421
+#: core/job_error.cpp:424
 #, kde-format
 msgid "Check your network connection status."
 msgstr "Sprôwdzë swòje sécowé sparłãczenié."
 
-#: core/job_error.cpp:425
+#: core/job_error.cpp:428
 #, kde-format
 msgid "Cannot Open Resource For Reading"
 msgstr "Ni mòże òtemknąc dostónkù do czëtaniô."
 
-#: core/job_error.cpp:427
+#: core/job_error.cpp:430
 #, kde-format
 msgid ""
 "This means that the contents of the requested file or folder <strong>%1</"
@@ -1066,17 +1071,17 @@ msgstr ""
 "Òznôczô to, że zamkłosc żądónegò lopka abò kataloga <strong>%1</strong> ni "
 "mòże òstac zladowónô z przëczënë felënkù praw do czëtaniô."
 
-#: core/job_error.cpp:432
+#: core/job_error.cpp:435
 #, kde-format
 msgid "You may not have permissions to read the file or open the folder."
 msgstr "Mòżesz ni miec dosc praw do czrtaniô lopka abò kataloga."
 
-#: core/job_error.cpp:439
+#: core/job_error.cpp:442
 #, kde-format
 msgid "Cannot Open Resource For Writing"
 msgstr "Ni mòże òtemknąc dostónkù do pisaniô."
 
-#: core/job_error.cpp:441
+#: core/job_error.cpp:444
 #, kde-format
 msgid ""
 "This means that the file, <strong>%1</strong>, could not be written to as "
@@ -1085,18 +1090,18 @@ msgstr ""
 "Òznôczô to, że lopk <strong>%1</strong> ni mòże òstac zapisóny z przëczënë "
 "felënkù praw do pisaniô."
 
-#: core/job_error.cpp:450
+#: core/job_error.cpp:453
 #, fuzzy, kde-format
 #| msgid "Cannot Initiate the %1 Protocol"
 msgid "Cannot Launch Process required by the %1 Protocol"
 msgstr "Ni mòże zainicjowac protokòłu %1"
 
-#: core/job_error.cpp:451
+#: core/job_error.cpp:454
 #, kde-format
 msgid "Unable to Launch Process"
 msgstr "Ni mòże zrëszëc procesu"
 
-#: core/job_error.cpp:453
+#: core/job_error.cpp:456
 #, fuzzy, kde-format
 #| msgid ""
 #| "The program on your computer which provides access to the <strong>%1</"
@@ -1110,7 +1115,7 @@ msgstr ""
 "Programa na twòjim kòmpùterze, obsłëgùjącô protokół <strong>%1</strong> nie "
 "zrëszëła sã. Tak je zwëczajno z technicznëch przëczënów."
 
-#: core/job_error.cpp:458
+#: core/job_error.cpp:461
 #, kde-format
 msgid ""
 "The program which provides compatibility with this protocol may not have "
@@ -1121,12 +1126,12 @@ msgstr ""
 "przë slédny aktualizacëji KDE. W nen czas stôrô wersëjô programë nie "
 "wespółrobi z nowim protokòłã ë ni zrëszô sã."
 
-#: core/job_error.cpp:467
+#: core/job_error.cpp:470
 #, kde-format
 msgid "Internal Error"
 msgstr "Bënowô fela"
 
-#: core/job_error.cpp:469
+#: core/job_error.cpp:472
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -1135,12 +1140,12 @@ msgstr ""
 "Programa zazychrowëjącô przistãp do protokòłu<strong>%1</strong> zgłoszëła "
 "bënową felã."
 
-#: core/job_error.cpp:477
+#: core/job_error.cpp:480
 #, kde-format
 msgid "Improperly Formatted URL"
 msgstr "Lëchò sfòrmatowónô adresa URL"
 
-#: core/job_error.cpp:479
+#: core/job_error.cpp:482
 #, kde-format
 msgid ""
 "The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
@@ -1154,12 +1159,12 @@ msgstr ""
 "<blockquote><strong>protokół://brëkòwnik@parola:www.przëmiôr.org:port/"
 "katalog/lopk.rozszerzenié?pëtanié=wôrtnota</strong></blockquote>"
 
-#: core/job_error.cpp:488
+#: core/job_error.cpp:491
 #, kde-format
 msgid "Unsupported Protocol %1"
 msgstr "Nieòbsłëgiwóny protokół %1"
 
-#: core/job_error.cpp:490
+#: core/job_error.cpp:493
 #, kde-format
 msgid ""
 "The protocol <strong>%1</strong> is not supported by the KDE programs "
@@ -1168,12 +1173,12 @@ msgstr ""
 "Protokół <strong>%1</strong> nie je òbsłëgiwóny przez programë KDE "
 "zainstalowóné na tim kòmpùtrze."
 
-#: core/job_error.cpp:493
+#: core/job_error.cpp:496
 #, kde-format
 msgid "The requested protocol may not be supported."
 msgstr "Żądóny protokół mòże nie bëc òbsłëgiwóny."
 
-#: core/job_error.cpp:495
+#: core/job_error.cpp:498
 #, kde-format
 msgid ""
 "The versions of the %1 protocol supported by this computer and the server "
@@ -1181,7 +1186,7 @@ msgid ""
 msgstr ""
 "Wersëje protokòłu %1 na tim kòmpùtrze ë na serwerze mògą nie bëc równé."
 
-#: core/job_error.cpp:499
+#: core/job_error.cpp:502
 #, fuzzy, kde-format
 #| msgid ""
 #| "You may perform a search on the Internet for a KDE program (called a "
@@ -1199,17 +1204,17 @@ msgstr ""
 "apps.org/\">http://kde-apps.org/</a> ë <a href=\"http://freshmeat.net/"
 "\">http://freshmeat.net/</a>."
 
-#: core/job_error.cpp:508
+#: core/job_error.cpp:511
 #, kde-format
 msgid "URL Does Not Refer to a Resource."
 msgstr "URL nie òdsëłô do dostónkù."
 
-#: core/job_error.cpp:509
+#: core/job_error.cpp:512
 #, kde-format
 msgid "Protocol is a Filter Protocol"
 msgstr "Protokół je filtrëjący"
 
-#: core/job_error.cpp:511
+#: core/job_error.cpp:514
 #, kde-format
 msgid ""
 "The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
@@ -1218,7 +1223,7 @@ msgstr ""
 "Wprowôdzony <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
 "strong>ocation (URL) nie òdsëłô do niżódnegò dostónkù."
 
-#: core/job_error.cpp:515
+#: core/job_error.cpp:518
 #, kde-format
 msgid ""
 "KDE is able to communicate through a protocol within a protocol; the "
@@ -1230,12 +1235,12 @@ msgstr ""
 "je przeznaczony blós do przëtrôfków jinszich jakno aktualny. Nôbarzi "
 "prawdopòdóbno òznôczô to felã w programie."
 
-#: core/job_error.cpp:523
+#: core/job_error.cpp:526
 #, kde-format
 msgid "Unsupported Action: %1"
 msgstr "Nieòbsłëgiwóné dzejanié: %1"
 
-#: core/job_error.cpp:525
+#: core/job_error.cpp:528
 #, kde-format
 msgid ""
 "The requested action is not supported by the KDE program which is "
@@ -1244,7 +1249,7 @@ msgstr ""
 "Pòdóné dzejanié nie je òbsłëgiwóné przez programã KDE implementującą "
 "protokół <strong>%1</strong>."
 
-#: core/job_error.cpp:529
+#: core/job_error.cpp:532
 #, kde-format
 msgid ""
 "This error is very much dependent on the KDE program. The additional "
@@ -1254,101 +1259,101 @@ msgstr ""
 "Fela zanôleżi òd programë KDE. Dodôwné detale dadzą ce wicy wëdowiédzë, jak "
 "je to przistãpné dlô architekturë wéńdzenié/wińdzenié KDE."
 
-#: core/job_error.cpp:533
+#: core/job_error.cpp:536
 #, kde-format
 msgid "Attempt to find another way to accomplish the same outcome."
 msgstr "Spróbùjë nalezc jinszą metodã zwëskaniô tegò sómegò skùtkù."
 
-#: core/job_error.cpp:538
+#: core/job_error.cpp:541
 #, kde-format
 msgid "File Expected"
 msgstr "Żdóny lopk"
 
-#: core/job_error.cpp:540
+#: core/job_error.cpp:543
 #, kde-format
 msgid ""
 "The request expected a file, however the folder <strong>%1</strong> was "
 "found instead."
 msgstr "Żądano lopka, a przëszed nazôd katalog <strong>%1</strong>."
 
-#: core/job_error.cpp:543
+#: core/job_error.cpp:546
 #, kde-format
 msgid "This may be an error on the server side."
 msgstr "To mòże bëc fela serwera."
 
-#: core/job_error.cpp:548
+#: core/job_error.cpp:551
 #, kde-format
 msgid "Folder Expected"
 msgstr "Żdóny katalog"
 
-#: core/job_error.cpp:550
+#: core/job_error.cpp:553
 #, kde-format
 msgid ""
 "The request expected a folder, however the file <strong>%1</strong> was "
 "found instead."
 msgstr "Żądano kataloga, a przëszed nazôd lopk <strong>%1</strong>."
 
-#: core/job_error.cpp:558
+#: core/job_error.cpp:561
 #, kde-format
 msgid "File or Folder Does Not Exist"
 msgstr "Lopk abò katalog ju je"
 
-#: core/job_error.cpp:560
+#: core/job_error.cpp:563
 #, kde-format
 msgid "The specified file or folder <strong>%1</strong> does not exist."
 msgstr "Felëje pòdóny lopk abò katalog <strong>%1</strong>."
 
-#: core/job_error.cpp:570
+#: core/job_error.cpp:573
 #, kde-format
 msgid ""
 "The requested file could not be created because a file with the same name "
 "already exists."
 msgstr "Żądóny lopk nie òstôł ùsôdzony, bò lopk ò tim mionie ju je."
 
-#: core/job_error.cpp:573
+#: core/job_error.cpp:576
 #, kde-format
 msgid "Try moving the current file out of the way first, and then try again."
 msgstr "Spróbùjë przesënąc pòprzédny lopk w jinszi plac ë spróbùjë jesz rôz."
 
-#: core/job_error.cpp:575
+#: core/job_error.cpp:578
 #, kde-format
 msgid "Delete the current file and try again."
 msgstr "Rëmôj pòprzedny lopk ë spróbùjë jesz rôz."
 
-#: core/job_error.cpp:575
+#: core/job_error.cpp:578
 #, kde-format
 msgid "Choose an alternate filename for the new file."
 msgstr "Wëbierzë jinszé miono dlô nowégò lopka."
 
-#: core/job_error.cpp:581
+#: core/job_error.cpp:584
 #, kde-format
 msgid ""
 "The requested folder could not be created because a folder with the same "
 "name already exists."
 msgstr "Żądóny katalog nie òstôł ùsôdzony,bò katalog ò tim mionie ju je."
 
-#: core/job_error.cpp:584
+#: core/job_error.cpp:587
 #, kde-format
 msgid "Try moving the current folder out of the way first, and then try again."
 msgstr ""
 "Spróbùjë przesënąc pòprzédny katalog w jinszi plac ë spróbùjë jesz rôz."
 
-#: core/job_error.cpp:586
+#: core/job_error.cpp:589
 #, kde-format
 msgid "Delete the current folder and try again."
 msgstr "Rëmôj pòprzedny katalog ë spróbùjë jesz rôz."
 
-#: core/job_error.cpp:586
+#: core/job_error.cpp:589
 #, kde-format
 msgid "Choose an alternate name for the new folder."
 msgstr "Wëbierzë jinszé miono dlô nowégò kataloga."
 
-#: core/job_error.cpp:590
+#: core/job_error.cpp:593
 #, kde-format
 msgid "Unknown Host"
 msgstr "Nieznóny serwer"
 
-#: core/job_error.cpp:592
+#: core/job_error.cpp:595
 #, kde-format
 msgid ""
 "An unknown host error indicates that the server with the requested name, "
@@ -1357,34 +1362,34 @@ msgstr ""
 "Fela \"Nieznónô serwera\" òznôczô, że serwera o pòdónym mionie <strong>%1</"
 "strong> nie òsta nalazłô w Internece."
 
-#: core/job_error.cpp:597
+#: core/job_error.cpp:600
 #, kde-format
 msgid ""
 "The name that you typed, %1, may not exist: it may be incorrectly typed."
 msgstr ""
 "Miono %1, jaczé të wpisôł, mòże bëc wpisóné z felą, abò nie dô taczégò."
 
-#: core/job_error.cpp:605
+#: core/job_error.cpp:608
 #, kde-format
 msgid "Access Denied"
 msgstr "Felënk przistãpù"
 
-#: core/job_error.cpp:607
+#: core/job_error.cpp:610
 #, kde-format
 msgid "Access was denied to the specified resource, <strong>%1</strong>."
 msgstr "Felënk przistãpù do dostónka <strong>%1</strong>."
 
-#: core/job_error.cpp:611 core/job_error.cpp:887
+#: core/job_error.cpp:614 core/job_error.cpp:890
 #, kde-format
 msgid "You may have supplied incorrect authentication details or none at all."
 msgstr "Mòże bëc, że pòdóné są lëché detale ùdowierzeniô."
 
-#: core/job_error.cpp:614 core/job_error.cpp:890
+#: core/job_error.cpp:617 core/job_error.cpp:893
 #, kde-format
 msgid "Your account may not have permission to access the specified resource."
 msgstr "Mòżesz nie miec prawa do przistãpù do tegò dostónka."
 
-#: core/job_error.cpp:617 core/job_error.cpp:894 core/job_error.cpp:912
+#: core/job_error.cpp:620 core/job_error.cpp:897 core/job_error.cpp:915
 #, kde-format
 msgid ""
 "Retry the request and ensure your authentication details are entered "
@@ -1392,24 +1397,24 @@ msgid ""
 msgstr ""
 "Znowi żądanié ë sprôwdzë, czë pòdôwczi ùdowierzeniô są wpisóné bezzmiłkòwò."
 
-#: core/job_error.cpp:626
+#: core/job_error.cpp:629
 #, kde-format
 msgid "Write Access Denied"
 msgstr "Felënk prawa do pisaniô"
 
-#: core/job_error.cpp:628
+#: core/job_error.cpp:631
 #, kde-format
 msgid ""
 "This means that an attempt to write to the file <strong>%1</strong> was "
 "rejected."
 msgstr "Próba pisaniô do lopka <strong>%1</strong> òsta òdrzuconô."
 
-#: core/job_error.cpp:636
+#: core/job_error.cpp:639
 #, kde-format
 msgid "Unable to Enter Folder"
 msgstr "Ni mòże wéńc do kataloga"
 
-#: core/job_error.cpp:638
+#: core/job_error.cpp:641
 #, kde-format
 msgid ""
 "This means that an attempt to enter (in other words, to open) the requested "
@@ -1418,17 +1423,17 @@ msgstr ""
 "Òznôczô to, że próba òtemkniscô (wéńdzeniô do) żądónegò kataloga <strong>%1</"
 "strong> òsta òdrzuconô."
 
-#: core/job_error.cpp:646
+#: core/job_error.cpp:649
 #, kde-format
 msgid "Folder Listing Unavailable"
 msgstr "Wëskrzënianié zamkłoscë kataloga nie je przistãpné"
 
-#: core/job_error.cpp:647
+#: core/job_error.cpp:650
 #, kde-format
 msgid "Protocol %1 is not a Filesystem"
 msgstr "Protokół %1 nie je systemą lopków"
 
-#: core/job_error.cpp:649
+#: core/job_error.cpp:652
 #, kde-format
 msgid ""
 "This means that a request was made which requires determining the contents "
@@ -1438,12 +1443,12 @@ msgstr ""
 "Òznôczô to, że żądanié wëmôgało ùstaleniô zamkłoscë kataloga, równak "
 "programa KDE, òbsłëgùjącô nen protokół, ni mòze tegò zrobic."
 
-#: core/job_error.cpp:657
+#: core/job_error.cpp:660
 #, kde-format
 msgid "Cyclic Link Detected"
 msgstr "Wëkrëto zakrãconé zlënkòwanié"
 
-#: core/job_error.cpp:659
+#: core/job_error.cpp:662
 #, kde-format
 msgid ""
 "UNIX environments are commonly able to link a file or folder to a separate "
@@ -1456,7 +1461,7 @@ msgstr ""
 "zlënkòwanié abò cąg zlënkòwaniów, prowôdzącé do niekùńczącegò sã zakrãcenia "
 "- t.j. lopk bëł zlënkòwaniém do samegò se."
 
-#: core/job_error.cpp:664 core/job_error.cpp:690
+#: core/job_error.cpp:667 core/job_error.cpp:693
 #, kde-format
 msgid ""
 "Delete one part of the loop in order that it does not cause an infinite "
@@ -1465,27 +1470,27 @@ msgstr ""
 "Rëmôj dzél zakrãcenia, bë przerwac no nieskùńczoné dzejanié, a pòzdze znowi "
 "próbã."
 
-#: core/job_error.cpp:674
+#: core/job_error.cpp:677
 #, kde-format
 msgid "Request Aborted By User"
 msgstr "Żądanié przerwóné przez brëkòwnika"
 
-#: core/job_error.cpp:676 core/job_error.cpp:1065
+#: core/job_error.cpp:679 core/job_error.cpp:1068
 #, kde-format
 msgid "The request was not completed because it was aborted."
 msgstr "Żądanié nie òstało zrealizowóné, bò òstało przerwóné."
 
-#: core/job_error.cpp:678 core/job_error.cpp:933 core/job_error.cpp:1067
+#: core/job_error.cpp:681 core/job_error.cpp:936 core/job_error.cpp:1070
 #, kde-format
 msgid "Retry the request."
 msgstr "Znowi żądanié."
 
-#: core/job_error.cpp:682
+#: core/job_error.cpp:685
 #, kde-format
 msgid "Cyclic Link Detected During Copy"
 msgstr "Przë kòpérowaniu wëkrëto zakrãconé zlënkòwanié"
 
-#: core/job_error.cpp:684
+#: core/job_error.cpp:687
 #, kde-format
 msgid ""
 "UNIX environments are commonly able to link a file or folder to a separate "
@@ -1498,37 +1503,37 @@ msgstr ""
 "zlënkòwanié abò cąg zlënkòwaniów, prowôdzącé do niekùńczącegò sã zakrãcenia "
 "- t.j. lopk bëł zlënkòwaniém do samegò se."
 
-#: core/job_error.cpp:696
+#: core/job_error.cpp:699
 #, kde-format
 msgid "Could Not Create Network Connection"
 msgstr "Ni mòże ùsôdzëc sécowégò sparłãczenia"
 
-#: core/job_error.cpp:697
+#: core/job_error.cpp:700
 #, kde-format
 msgid "Could Not Create Socket"
 msgstr "Ni mòże ùsôdzéc gniôzdka"
 
-#: core/job_error.cpp:699
+#: core/job_error.cpp:702
 #, kde-format
 msgid ""
 "This is a fairly technical error in which a required device for network "
 "communications (a socket) could not be created."
 msgstr "Nie szło òtemknąc ùrzãdzenia do sécowégò sparłãczenia (gniôzdka)."
 
-#: core/job_error.cpp:702 core/job_error.cpp:851 core/job_error.cpp:864
-#: core/job_error.cpp:875
+#: core/job_error.cpp:705 core/job_error.cpp:854 core/job_error.cpp:867
+#: core/job_error.cpp:878
 #, kde-format
 msgid ""
 "The network connection may be incorrectly configured, or the network "
 "interface may not be enabled."
 msgstr "Séc mòże bëc lëchò skònfigùrowónô abò wëłączonô."
 
-#: core/job_error.cpp:708
+#: core/job_error.cpp:711
 #, kde-format
 msgid "Connection to Server Refused"
 msgstr "Pòcësniãté sparłãczenié z serwerã"
 
-#: core/job_error.cpp:710
+#: core/job_error.cpp:713
 #, kde-format
 msgid ""
 "The server <strong>%1</strong> refused to allow this computer to make a "
@@ -1536,7 +1541,7 @@ msgid ""
 msgstr ""
 "Serwer <strong>%1</strong> pòcësnął próbã sparłãczenia z negò kòmpùtra."
 
-#: core/job_error.cpp:714
+#: core/job_error.cpp:717
 #, kde-format
 msgid ""
 "The server, while currently connected to the Internet, may not be configured "
@@ -1545,7 +1550,7 @@ msgstr ""
 "Serwer, nimò tegò, że je sparłãczony z internetã, mòże nie bëc "
 "skònfigùrowóny na przëjimanié żądaniów."
 
-#: core/job_error.cpp:717
+#: core/job_error.cpp:720
 #, kde-format
 msgid ""
 "The server, while currently connected to the Internet, may not be running "
@@ -1554,7 +1559,7 @@ msgstr ""
 "Serwer, nimò tegò, że je sparłãczony z internetã, mòże nie ùprzistãpniac "
 "żądóny ùsłëżnotë (%1)."
 
-#: core/job_error.cpp:721
+#: core/job_error.cpp:724
 #, kde-format
 msgid ""
 "A network firewall (a device which restricts Internet requests), either "
@@ -1565,12 +1570,12 @@ msgstr ""
 "zazychrowùjącô twòją séc, czë téż séc serwera, mògła zablokòwac twòje "
 "żądanié."
 
-#: core/job_error.cpp:728
+#: core/job_error.cpp:731
 #, kde-format
 msgid "Connection to Server Closed Unexpectedly"
 msgstr "Sparłãczenié z serwerã òstało niespòdzajno zakùńczone"
 
-#: core/job_error.cpp:730
+#: core/job_error.cpp:733
 #, kde-format
 msgid ""
 "Although a connection was established to <strong>%1</strong>, the connection "
@@ -1579,7 +1584,7 @@ msgstr ""
 "Chòc sparłãczenié z <strong>%1</strong> òstało nawiązóné, pòcësniãto je "
 "pòzdze w niespòdzajnym pùnkce."
 
-#: core/job_error.cpp:736
+#: core/job_error.cpp:739
 #, kde-format
 msgid ""
 "A protocol error may have occurred, causing the server to close the "
@@ -1588,17 +1593,17 @@ msgstr ""
 "Mòże pòkôza sã fela w protokòle, a serwer przerwôł sparłãczenié w reakcëji "
 "na nã felã."
 
-#: core/job_error.cpp:742
+#: core/job_error.cpp:745
 #, kde-format
 msgid "URL Resource Invalid"
 msgstr "Lëchi URL"
 
-#: core/job_error.cpp:743
+#: core/job_error.cpp:746
 #, kde-format
 msgid "Protocol %1 is not a Filter Protocol"
 msgstr "Protokół %1 nie je filtrëjący"
 
-#: core/job_error.cpp:745
+#: core/job_error.cpp:748
 #, kde-format
 msgid ""
 "The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
@@ -1609,7 +1614,7 @@ msgstr ""
 "(URL, Zrównanô Adresa Dostónkù), wpisóny przez ce, zamëkô w se nieznóną "
 "metodã przistãpù do pòdónegò dostónkù, <strong>%1%2</strong>."
 
-#: core/job_error.cpp:752
+#: core/job_error.cpp:755
 #, kde-format
 msgid ""
 "KDE is able to communicate through a protocol within a protocol. This "
@@ -1621,17 +1626,17 @@ msgstr ""
 "protokół nie je przeznaczony blós do taczich przëtrôfków.Nôbarzi "
 "prawdopòdóbno òznôczô to felã w programie."
 
-#: core/job_error.cpp:760
+#: core/job_error.cpp:763
 #, kde-format
 msgid "Unable to Initialize Input/Output Device"
 msgstr "NI mòże zainicjowac ùrządzenia wéńdzenia/wińdzenia"
 
-#: core/job_error.cpp:761
+#: core/job_error.cpp:764
 #, kde-format
 msgid "Could Not Mount Device"
 msgstr "Ni mòże zamòntowac ùrządzenia"
 
-#: core/job_error.cpp:763
+#: core/job_error.cpp:766
 #, kde-format
 msgid ""
 "The requested device could not be initialized (\"mounted\"). The reported "
@@ -1640,7 +1645,7 @@ msgstr ""
 "Pòdóné ùrządzenié ni mògło òstac pòdłączoné (\"zamòntowóné\"). Fela: <strong>"
 "%1</strong>"
 
-#: core/job_error.cpp:767
+#: core/job_error.cpp:770
 #, kde-format
 msgid ""
 "The device may not be ready, for example there may be no media in a "
@@ -1651,7 +1656,7 @@ msgstr ""
 "Mòże bëc téż tak, że ùrzadzenié nie je zwëczajno bezzmiłkòwò (mechaniczno) "
 "pòdłączoné."
 
-#: core/job_error.cpp:772
+#: core/job_error.cpp:775
 #, kde-format
 msgid ""
 "You may not have permissions to initialize (\"mount\") the device. On UNIX "
@@ -1662,7 +1667,7 @@ msgstr ""
 "uniksowëch systemach do pòdłączeniô ùrządzeniów wëmôgô sã czãsto praw "
 "sprôwnika."
 
-#: core/job_error.cpp:777
+#: core/job_error.cpp:780
 #, kde-format
 msgid ""
 "Check that the device is ready; removable drives must contain media, and "
@@ -1671,17 +1676,17 @@ msgstr ""
 "Sprôwdzë, czë ùrządzenié je parôt do brëkùnkù; CD je bënë nëkù, zôpisowné "
 "media są pòdłączoné ë włączoné ë spróbùjë jesz rôz."
 
-#: core/job_error.cpp:784
+#: core/job_error.cpp:787
 #, kde-format
 msgid "Unable to Uninitialize Input/Output Device"
 msgstr "Ni mòże zainicjowac ùrządzenia wéńdzeniô/wińdzeniô"
 
-#: core/job_error.cpp:785
+#: core/job_error.cpp:788
 #, kde-format
 msgid "Could Not Unmount Device"
 msgstr "Ni mòże òdmòntowac ùrządzenia"
 
-#: core/job_error.cpp:787
+#: core/job_error.cpp:790
 #, kde-format
 msgid ""
 "The requested device could not be uninitialized (\"unmounted\"). The "
@@ -1690,7 +1695,7 @@ msgstr ""
 "Pòdóné ùrządzenié ni mògło òstac òdłączoné (\"òdmòntowóné\"). Fela: <strong>"
 "%1</strong>"
 
-#: core/job_error.cpp:791
+#: core/job_error.cpp:794
 #, kde-format
 msgid ""
 "The device may be busy, that is, still in use by another application or "
@@ -1701,7 +1706,7 @@ msgstr ""
 "brëkòwnika. Nawetka òkno przezérnika, òtemkłé w katalogù na tim ùrządzeniô, "
 "mòże doprowadzëc do tegò, że ùrządzenié je zajãté."
 
-#: core/job_error.cpp:796
+#: core/job_error.cpp:799
 #, kde-format
 msgid ""
 "You may not have permissions to uninitialize (\"unmount\") the device. On "
@@ -1712,19 +1717,19 @@ msgstr ""
 "W uniksowëch systemach do òdłãczaniô ùrządzeniów nót je czãsto prawa "
 "sprôwnika."
 
-#: core/job_error.cpp:801
+#: core/job_error.cpp:804
 #, kde-format
 msgid "Check that no applications are accessing the device, and try again."
 msgstr ""
 "Sprôwdzë, czë jinszé programë nie ùżëwają tegò ùrządzenia ë spróbùjë jesz "
 "rôz."
 
-#: core/job_error.cpp:807
+#: core/job_error.cpp:810
 #, kde-format
 msgid "Cannot Read From Resource"
 msgstr "Ni mòże czëtac z dostónka"
 
-#: core/job_error.cpp:809
+#: core/job_error.cpp:812
 #, kde-format
 msgid ""
 "This means that although the resource, <strong>%1</strong>, was able to be "
@@ -1733,17 +1738,17 @@ msgstr ""
 "Òznôczô to, że nimò tegò, że dostónk <strong>%1</strong> òstôł òtemkłi, przë "
 "próbie czëtaniô z niegò pòkôza sã fela."
 
-#: core/job_error.cpp:813
+#: core/job_error.cpp:816
 #, kde-format
 msgid "You may not have permissions to read from the resource."
 msgstr "Felënk prawa do czëtaniô z negò dostónka"
 
-#: core/job_error.cpp:826
+#: core/job_error.cpp:829
 #, kde-format
 msgid "Cannot Write to Resource"
 msgstr "Ni mòże pisac do dostónka"
 
-#: core/job_error.cpp:828
+#: core/job_error.cpp:831
 #, kde-format
 msgid ""
 "This means that although the resource, <strong>%1</strong>, was able to be "
@@ -1752,22 +1757,22 @@ msgstr ""
 "Òznôczô to, że nimò tegò, że dostónk <strong>%1</strong> òstôł òtemkłi, przë "
 "próbie pisaniô do niegò pòkôza sã fela."
 
-#: core/job_error.cpp:831
+#: core/job_error.cpp:834
 #, kde-format
 msgid "You may not have permissions to write to the resource."
 msgstr "Mòże ni môsz prawa do pisaniô do negò dostónka."
 
-#: core/job_error.cpp:844 core/job_error.cpp:857
+#: core/job_error.cpp:847 core/job_error.cpp:860
 #, kde-format
 msgid "Could Not Listen for Network Connections"
 msgstr "Ni mòże nasłëchiwac"
 
-#: core/job_error.cpp:845
+#: core/job_error.cpp:848
 #, kde-format
 msgid "Could Not Bind"
 msgstr "Ni mòże przëłączëc"
 
-#: core/job_error.cpp:847 core/job_error.cpp:860
+#: core/job_error.cpp:850 core/job_error.cpp:863
 #, kde-format
 msgid ""
 "This is a fairly technical error in which a required device for network "
@@ -1777,17 +1782,17 @@ msgstr ""
 "Technicznô fela òznôczô, że ùrzadzenié nóterné do sécowëch sparłãczeniów nie "
 "mògło nasłëchiwac, żdając na przëchôdôjącé sécowé sparłãczenia."
 
-#: core/job_error.cpp:858
+#: core/job_error.cpp:861
 #, kde-format
 msgid "Could Not Listen"
 msgstr "Ni mòże nasłëchiwac"
 
-#: core/job_error.cpp:870
+#: core/job_error.cpp:873
 #, kde-format
 msgid "Could Not Accept Network Connection"
 msgstr "Ni mòże przëjąc sécowégò sparłãczeniô"
 
-#: core/job_error.cpp:872
+#: core/job_error.cpp:875
 #, kde-format
 msgid ""
 "This is a fairly technical error in which an error occurred while attempting "
@@ -1796,33 +1801,33 @@ msgstr ""
 "Technicznô fela òznôczô. że przëjãcé bùtnowégò sparłãczenia z sécą nie "
 "darzëło sã."
 
-#: core/job_error.cpp:877
+#: core/job_error.cpp:880
 #, kde-format
 msgid "You may not have permissions to accept the connection."
 msgstr "Mòżesz nie miec dosc prawa do przëjãcô negò sparłãczeniô."
 
-#: core/job_error.cpp:882
+#: core/job_error.cpp:885
 #, kde-format
 msgid "Could Not Login: %1"
 msgstr "Ni mòże sã wlogòwac: %1"
 
-#: core/job_error.cpp:884
+#: core/job_error.cpp:887
 #, kde-format
 msgid ""
 "An attempt to login to perform the requested operation was unsuccessful."
 msgstr "Próba wlogòwaniô, bë wëkònac żądaną òperacëjã, nie darzëła sã."
 
-#: core/job_error.cpp:900
+#: core/job_error.cpp:903
 #, kde-format
 msgid "Could Not Determine Resource Status"
 msgstr "Ni mòże ùstalëc stónu dostónka"
 
-#: core/job_error.cpp:901
+#: core/job_error.cpp:904
 #, kde-format
 msgid "Could Not Stat Resource"
 msgstr "Ni mòże wczëtac sztatusu dostónka"
 
-#: core/job_error.cpp:903
+#: core/job_error.cpp:906
 #, kde-format
 msgid ""
 "An attempt to determine information about the status of the resource <strong>"
@@ -1831,69 +1836,69 @@ msgstr ""
 "Próba ùzwëskaniô wëdowiédzë ò stónie dostónka <strong>%1</strong> (n.p. ò "
 "jegò mionie, ôrce, miarze) nie darzëła sã."
 
-#: core/job_error.cpp:908
+#: core/job_error.cpp:911
 #, kde-format
 msgid "The specified resource may not have existed or may not be accessible."
 msgstr "Wëbróny dostónk felëje, abò nie je przistãpny."
 
 #. i18n( "Could not terminate listing %1" ).arg( errorText );
-#: core/job_error.cpp:919
+#: core/job_error.cpp:922
 #, kde-format
 msgid "Could Not Cancel Listing"
 msgstr "Ni mòże anulowac lëstë"
 
-#: core/job_error.cpp:920
+#: core/job_error.cpp:923
 #, kde-format
 msgid "FIXME: Document this"
 msgstr "BÔCZËNK; Felënk dokùmentacëji"
 
-#: core/job_error.cpp:924
+#: core/job_error.cpp:927
 #, kde-format
 msgid "Could Not Create Folder"
 msgstr "Ni mòże ùsôdzëc kataloga"
 
-#: core/job_error.cpp:925
+#: core/job_error.cpp:928
 #, kde-format
 msgid "An attempt to create the requested folder failed."
 msgstr "Próba ùsôdzeniô żądónegò kataloga nie darzëła sã."
 
-#: core/job_error.cpp:928
+#: core/job_error.cpp:931
 #, kde-format
 msgid "The location where the folder was to be created may not exist."
 msgstr "Mòże to nie dô placu, w jaczim mô bëc ùsôdzony katalog."
 
-#: core/job_error.cpp:937
+#: core/job_error.cpp:940
 #, kde-format
 msgid "Could Not Remove Folder"
 msgstr "Ni mòże rëmnąc kataloga"
 
-#: core/job_error.cpp:939
+#: core/job_error.cpp:942
 #, kde-format
 msgid "An attempt to remove the specified folder, <strong>%1</strong>, failed."
 msgstr "Próba rëmniãcô żądónegò kataloga, <strong>%1</strong>, nie darzëła sã."
 
-#: core/job_error.cpp:942
+#: core/job_error.cpp:945
 #, kde-format
 msgid "The specified folder may not exist."
 msgstr "To mòże nie dac pòdónegò kataloga."
 
-#: core/job_error.cpp:942
+#: core/job_error.cpp:945
 #, kde-format
 msgid "The specified folder may not be empty."
 msgstr "Pòdóny katalog mòże nie bëc pùsti."
 
-#: core/job_error.cpp:947
+#: core/job_error.cpp:950
 #, kde-format
 msgid "Ensure that the folder exists and is empty, and try again."
 msgstr ""
 "Ùgwësni sã, że to dô nen katalog ë téż, że je òn pùsti, ë spróbùjë jesz rôz."
 
-#: core/job_error.cpp:953
+#: core/job_error.cpp:956
 #, kde-format
 msgid "Could Not Resume File Transfer"
 msgstr "Ni mòże znowic transferu"
 
-#: core/job_error.cpp:955
+#: core/job_error.cpp:958
 #, kde-format
 msgid ""
 "The specified request asked that the transfer of file <strong>%1</strong> be "
@@ -1902,66 +1907,66 @@ msgstr ""
 "Żądanié znowienia transferu lopka <strong>%1</strong> ni mògło bëc "
 "zrealizowóné."
 
-#: core/job_error.cpp:960
+#: core/job_error.cpp:963
 #, kde-format
 msgid "The protocol, or the server, may not support file resuming."
 msgstr "Protokół abò serwer nie zezwôlô na znowienié transferu."
 
-#: core/job_error.cpp:963
+#: core/job_error.cpp:966
 #, kde-format
 msgid "Retry the request without attempting to resume transfer."
 msgstr "Znowi żądanié bez próbë znowienia transferu."
 
-#: core/job_error.cpp:968
+#: core/job_error.cpp:971
 #, kde-format
 msgid "Could Not Rename Resource"
 msgstr "Ni mòże zmienic miona dostónka"
 
-#: core/job_error.cpp:970
+#: core/job_error.cpp:973
 #, kde-format
 msgid "An attempt to rename the specified resource <strong>%1</strong> failed."
 msgstr "Próba zmianë miona dostónka <strong>%1</strong> nie darzëła sã."
 
-#: core/job_error.cpp:981
+#: core/job_error.cpp:984
 #, kde-format
 msgid "Could Not Alter Permissions of Resource"
 msgstr "Ni mòże zmienic prawa do dostónka"
 
-#: core/job_error.cpp:983
+#: core/job_error.cpp:986
 #, kde-format
 msgid ""
 "An attempt to alter the permissions on the specified resource <strong>%1</"
 "strong> failed."
 msgstr "Próba zmianë prawa dostónka <strong>%1</strong> nie dzarzëła sã."
 
-#: core/job_error.cpp:991
+#: core/job_error.cpp:994
 #, kde-format
 msgid "Could Not Change Ownership of Resource"
 msgstr "Ni mòże zmienic miéwcë dostónka"
 
-#: core/job_error.cpp:993
+#: core/job_error.cpp:996
 #, kde-format
 msgid ""
 "An attempt to change the ownership of the specified resource <strong>%1</"
 "strong> failed."
 msgstr "Próba zmianë miéwcë dostónka <strong>%1</strong> nie darzëła sã."
 
-#: core/job_error.cpp:1001
+#: core/job_error.cpp:1004
 #, kde-format
 msgid "Could Not Delete Resource"
 msgstr "Ni mòże rëmnąc dostónka"
 
-#: core/job_error.cpp:1003
+#: core/job_error.cpp:1006
 #, kde-format
 msgid "An attempt to delete the specified resource <strong>%1</strong> failed."
 msgstr "Próba rëmniãcô dostónka <strong>%1</strong> nie darzëła sã."
 
-#: core/job_error.cpp:1011
+#: core/job_error.cpp:1014
 #, kde-format
 msgid "Unexpected Program Termination"
 msgstr "Niespòdzajné zakùńczenié programë"
 
-#: core/job_error.cpp:1013
+#: core/job_error.cpp:1016
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -1970,12 +1975,12 @@ msgstr ""
 "Programa na twòjim kòmpùtrze, òdpòwiadającô za przistãp do protokòłu <strong>"
 "%1</strong> niespòdzajno zakùńczëła dzejanié."
 
-#: core/job_error.cpp:1021
+#: core/job_error.cpp:1024
 #, kde-format
 msgid "Out of Memory"
 msgstr "Felënk pamiãcë"
 
-#: core/job_error.cpp:1023
+#: core/job_error.cpp:1026
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -1984,12 +1989,12 @@ msgstr ""
 "Programie na twòjim kòmpùtrze, stojący za przistãpã do protokółu <strong>%1</"
 "strong>, felëje dosc pòdrãczny pamiãcë bë jisc z robòtą dali."
 
-#: core/job_error.cpp:1032
+#: core/job_error.cpp:1035
 #, kde-format
 msgid "Unknown Proxy Host"
 msgstr "Nieznóny pòstrzédniczący serwer (proxy)"
 
-#: core/job_error.cpp:1034
+#: core/job_error.cpp:1037
 #, kde-format
 msgid ""
 "While retrieving information about the specified proxy host, <strong>%1</"
@@ -2000,7 +2005,7 @@ msgstr ""
 "pòkôza sã fela \"Nieznónô adresa\". Fela na òznôczô, że w internece nie "
 "òstôł nalazłi kòmpùtr ò pódónym mionie."
 
-#: core/job_error.cpp:1040
+#: core/job_error.cpp:1043
 #, kde-format
 msgid ""
 "There may have been a problem with your network configuration, specifically "
@@ -2011,17 +2016,17 @@ msgstr ""
 "pòstrzédniczącegò serwera. Jezlë równak slédno brëkùnk internetu nie bëł "
 "problematiczny, je to mało prawdopòdobné."
 
-#: core/job_error.cpp:1044
+#: core/job_error.cpp:1047
 #, kde-format
 msgid "Double-check your proxy settings and try again."
 msgstr "Sprôwdzë nastôw pòstrzeniczącegò serwera ë znowi próbã."
 
-#: core/job_error.cpp:1048
+#: core/job_error.cpp:1051
 #, kde-format
 msgid "Authentication Failed: Method %1 Not Supported"
 msgstr "Fela ùdowierzeniô: metoda %1 nie je òbsłëgiwónô"
 
-#: core/job_error.cpp:1050
+#: core/job_error.cpp:1053
 #, kde-format
 msgid ""
 "Although you may have supplied the correct authentication details, the "
@@ -2029,7 +2034,7 @@ msgid ""
 "supported by the KDE program implementing the protocol %1."
 msgstr ""
 
-#: core/job_error.cpp:1056
+#: core/job_error.cpp:1059
 #, fuzzy, kde-format
 #| msgid ""
 #| "Please file a bug at <a href=\"http://bugs.kde.org/\">http://bugs.kde.org/"
@@ -2042,17 +2047,17 @@ msgstr ""
 "\">http://bugs.kde.org/</a>, dôwając karnie KDE wiadło ò nieòbsłëgiwóny "
 "metodze ùdowierzaniô."
 
-#: core/job_error.cpp:1063
+#: core/job_error.cpp:1066
 #, kde-format
 msgid "Request Aborted"
 msgstr "Przerwóné żądanié"
 
-#: core/job_error.cpp:1071
+#: core/job_error.cpp:1074
 #, kde-format
 msgid "Internal Error in Server"
 msgstr "Bënowô fela serwera"
 
-#: core/job_error.cpp:1073
+#: core/job_error.cpp:1076
 #, kde-format
 msgid ""
 "The program on the server which provides access to the <strong>%1</strong> "
@@ -2061,7 +2066,7 @@ msgstr ""
 "Programa na serwerze dôwającô przistãp do protokòłu <strong>%1</strong> "
 "przekôza nazôd bënową felã: %2"
 
-#: core/job_error.cpp:1079
+#: core/job_error.cpp:1082
 #, kde-format
 msgid ""
 "This is most likely to be caused by a bug in the server program. Please "
@@ -2070,12 +2075,12 @@ msgstr ""
 "Prawdopòdobno je tegò przëczëna w felë programë na serwerze. Proszã rozważëc "
 "wësłanié fùl wëdowiédzë ò felë wedle niższi instrukcëji."
 
-#: core/job_error.cpp:1083
+#: core/job_error.cpp:1086
 #, kde-format
 msgid "Contact the administrator of the server to advise them of the problem."
 msgstr "Sparłãczë sã ze sprôwnikã serwera, bë dac mù wiadło ò problemie."
 
-#: core/job_error.cpp:1086
+#: core/job_error.cpp:1089
 #, kde-format
 msgid ""
 "If you know who the authors of the server software are, submit the bug "
@@ -2084,12 +2089,12 @@ msgstr ""
 "Jeżlë znajesz ùsôdzców softwôrë dlô tegò serwera, to wësli rapòrt ò felë "
 "prosto do nich."
 
-#: core/job_error.cpp:1091
+#: core/job_error.cpp:1094
 #, kde-format
 msgid "Timeout Error"
 msgstr "Czas minął"
 
-#: core/job_error.cpp:1093
+#: core/job_error.cpp:1096
 #, kde-format
 msgid ""
 "Although contact was made with the server, a response was not received "
@@ -2101,17 +2106,17 @@ msgid ""
 "Connection Preferences."
 msgstr ""
 
-#: core/job_error.cpp:1106
+#: core/job_error.cpp:1109
 #, kde-format
 msgid "The server was too busy responding to other requests to respond."
 msgstr "Serwer bëł za baro zajãti, realizëjąc jinszé żądania."
 
-#: core/job_error.cpp:1112 core/slavebase.cpp:1610
+#: core/job_error.cpp:1115 core/slavebase.cpp:1610
 #, kde-format
 msgid "Unknown Error"
 msgstr "Nieznónô fela"
 
-#: core/job_error.cpp:1114
+#: core/job_error.cpp:1117
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -2120,12 +2125,12 @@ msgstr ""
 "Programa na twòjim kòmpùtrze dôwającô przistãp do protokòłu <strong>%1</"
 "strong> przekôza nazôd nieznóną felã: %2."
 
-#: core/job_error.cpp:1124
+#: core/job_error.cpp:1127
 #, kde-format
 msgid "Unknown Interruption"
 msgstr "Nieznóné przerwanié"
 
-#: core/job_error.cpp:1126
+#: core/job_error.cpp:1129
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -2134,12 +2139,12 @@ msgstr ""
 "Programa na twòjim kòmpùtrze dôwającô przistãp do protokòłu <strong>%1</"
 "strong> przekôza nazôd przerwanié nieznónegò ôrtu: %2"
 
-#: core/job_error.cpp:1136
+#: core/job_error.cpp:1139
 #, kde-format
 msgid "Could Not Delete Original File"
 msgstr "Ni mòże rëmnąc òriginalnegò lopka"
 
-#: core/job_error.cpp:1138
+#: core/job_error.cpp:1141
 #, kde-format
 msgid ""
 "The requested operation required the deleting of the original file, most "
@@ -2147,12 +2152,12 @@ msgid ""
 "strong> could not be deleted."
 msgstr ""
 
-#: core/job_error.cpp:1147
+#: core/job_error.cpp:1150
 #, kde-format
 msgid "Could Not Delete Temporary File"
 msgstr "Ni mòże rëmnąc terôczasnegò lopka"
 
-#: core/job_error.cpp:1149
+#: core/job_error.cpp:1152
 #, kde-format
 msgid ""
 "The requested operation required the creation of a temporary file in which "
@@ -2160,56 +2165,56 @@ msgid ""
 "strong> could not be deleted."
 msgstr ""
 
-#: core/job_error.cpp:1159
+#: core/job_error.cpp:1162
 #, kde-format
 msgid "Could Not Rename Original File"
 msgstr "Ni mòże zmienic miona lopka"
 
-#: core/job_error.cpp:1161
+#: core/job_error.cpp:1164
 #, kde-format
 msgid ""
 "The requested operation required the renaming of the original file <strong>"
 "%1</strong>, however it could not be renamed."
 msgstr ""
 
-#: core/job_error.cpp:1170
+#: core/job_error.cpp:1173
 #, kde-format
 msgid "Could Not Rename Temporary File"
 msgstr "Ni mòże zmienic miona terôczasnegò lopka"
 
-#: core/job_error.cpp:1172
+#: core/job_error.cpp:1175
 #, kde-format
 msgid ""
 "The requested operation required the creation of a temporary file <strong>"
 "%1</strong>, however it could not be created."
 msgstr ""
 
-#: core/job_error.cpp:1181
+#: core/job_error.cpp:1184
 #, kde-format
 msgid "Could Not Create Link"
 msgstr "Ni mòże ùsôdzëc lënka"
 
-#: core/job_error.cpp:1182
+#: core/job_error.cpp:1185
 #, kde-format
 msgid "Could Not Create Symbolic Link"
 msgstr "Ni mòże ùsôdzëc symbòlicznegò lënka"
 
-#: core/job_error.cpp:1183
+#: core/job_error.cpp:1186
 #, kde-format
 msgid "The requested symbolic link %1 could not be created."
 msgstr "Ni mòże ùsôdzëc żądónegò symbòlicznegò lënka %1."
 
-#: core/job_error.cpp:1189
+#: core/job_error.cpp:1192
 #, kde-format
 msgid "No Content"
 msgstr "Felënk zamkłoscë"
 
-#: core/job_error.cpp:1194
+#: core/job_error.cpp:1197
 #, kde-format
 msgid "Disk Full"
 msgstr "Fùl disk"
 
-#: core/job_error.cpp:1196
+#: core/job_error.cpp:1199
 #, kde-format
 msgid ""
 "The requested file <strong>%1</strong> could not be written to as there is "
@@ -2218,7 +2223,7 @@ msgstr ""
 "Ni mòże zapisac żądónegò lopka <strong>%1</strong> z przëczënë felënkù placu "
 "na disku."
 
-#: core/job_error.cpp:1200
+#: core/job_error.cpp:1203
 #, kde-format
 msgid ""
 "Free up enough disk space by 1) deleting unwanted and temporary files; 2) "
@@ -2226,88 +2231,88 @@ msgid ""
 "3) obtain more storage capacity."
 msgstr ""
 
-#: core/job_error.cpp:1207
+#: core/job_error.cpp:1210
 #, kde-format
 msgid "Source and Destination Files Identical"
 msgstr ""
 
-#: core/job_error.cpp:1209
+#: core/job_error.cpp:1212
 #, kde-format
 msgid ""
 "The operation could not be completed because the source and destination "
 "files are the same file."
 msgstr ""
 
-#: core/job_error.cpp:1211
+#: core/job_error.cpp:1214
 #, kde-format
 msgid "Choose a different filename for the destination file."
 msgstr ""
 
-#: core/job_error.cpp:1215
+#: core/job_error.cpp:1218
 #, fuzzy, kde-format
 #| msgid "File or Folder Does Not Exist"
 msgid "File or Folder dropped onto itself"
 msgstr "Lopk abò katalog ju je"
 
-#: core/job_error.cpp:1217
+#: core/job_error.cpp:1220
 #, kde-format
 msgid ""
 "The operation could not be completed because the source and destination file "
 "or folder are the same."
 msgstr ""
 
-#: core/job_error.cpp:1219
+#: core/job_error.cpp:1222
 #, kde-format
 msgid "Drop the item into a different file or folder."
 msgstr ""
 
-#: core/job_error.cpp:1229
+#: core/job_error.cpp:1232
 #, fuzzy, kde-format
 #| msgid "File or Folder Does Not Exist"
 msgid "Folder moved into itself"
 msgstr "Lopk abò katalog ju je"
 
-#: core/job_error.cpp:1231
+#: core/job_error.cpp:1234
 #, kde-format
 msgid ""
 "The operation could not be completed because the source can not be moved "
 "into itself."
 msgstr ""
 
-#: core/job_error.cpp:1233
+#: core/job_error.cpp:1236
 #, kde-format
 msgid "Move the item into a different folder."
 msgstr ""
 
-#: core/job_error.cpp:1237
+#: core/job_error.cpp:1240
 #, kde-format
 msgid "Could not communicate with password server"
 msgstr ""
 
-#: core/job_error.cpp:1239
+#: core/job_error.cpp:1242
 #, kde-format
 msgid ""
 "The operation could not be completed because the service for requesting "
 "passwords (kpasswdserver) couldn't be contacted"
 msgstr ""
 
-#: core/job_error.cpp:1241
+#: core/job_error.cpp:1244
 #, kde-format
 msgid "Try restarting your session, or look in the logs for errors from kiod."
 msgstr ""
 
-#: core/job_error.cpp:1245
+#: core/job_error.cpp:1248
 #, kde-format
 msgid "Cannot Initiate the %1 Protocol"
 msgstr "Ni mòże zainicjowac protokòłu %1"
 
-#: core/job_error.cpp:1246
+#: core/job_error.cpp:1249
 #, fuzzy, kde-format
 #| msgid "Unable to Enter Folder"
 msgid "Unable to Create io-slave"
 msgstr "Ni mòże wéńc do kataloga"
 
-#: core/job_error.cpp:1248
+#: core/job_error.cpp:1251
 #, fuzzy, kde-format
 #| msgid ""
 #| "The program on your computer which provides access to the <strong>%1</"
@@ -2320,20 +2325,20 @@ msgstr ""
 "Programa na twòjim kòmpùterze, obsłëgùjącô protokół <strong>%1</strong> nie "
 "zrëszëła sã. Tak je zwëczajno z technicznëch przëczënów."
 
-#: core/job_error.cpp:1253
+#: core/job_error.cpp:1256
 #, kde-format
 msgid ""
 "klauncher could not find or start the plugin which provides the protocol."
 "This means you may have an outdated version of the plugin."
 msgstr ""
 
-#: core/job_error.cpp:1259
+#: core/job_error.cpp:1262
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Cannot transfer <filename>%1</filename>"
 msgstr ""
 
-#: core/job_error.cpp:1261
+#: core/job_error.cpp:1264
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -2341,14 +2346,14 @@ msgid ""
 "destination filesystem does not support files that large"
 msgstr ""
 
-#: core/job_error.cpp:1264
+#: core/job_error.cpp:1267
 #, kde-format
 msgid ""
 "Reformat the destination drive to use a filesystem that supports files that "
 "large."
 msgstr ""
 
-#: core/job_error.cpp:1269
+#: core/job_error.cpp:1272
 #, kde-format
 msgid "Undocumented Error"
 msgstr ""
@@ -2682,7 +2687,7 @@ msgstr "Nowi katalog..."
 
 #: filewidgets/kdiroperator.cpp:2046 widgets/jobuidelegate.cpp:323
 #: widgets/jobuidelegate.cpp:324 widgets/jobuidelegate.cpp:333
-#: widgets/jobuidelegate.cpp:334 widgets/widgetsaskuseractionhandler.cpp:272
+#: widgets/jobuidelegate.cpp:334 widgets/widgetsaskuseractionhandler.cpp:278
 #, kde-format
 msgid "Move to Trash"
 msgstr "Przesënié do kòsza"
@@ -4929,11 +4934,6 @@ msgstr ""
 #: ioslaves/trash/ktrash.cpp:33
 #, kde-format
 msgid "Restore a trashed file to its original location"
-msgstr ""
-
-#: ioslaves/trash/trashimpl.cpp:1323
-#, kde-format
-msgid "The file is too large to be trashed."
 msgstr ""
 
 #: ioslaves/trash/trashimpl.cpp:1329
@@ -7258,7 +7258,7 @@ msgid ""
 msgstr ""
 
 #: widgets/jobuidelegate.cpp:285 widgets/jobuidelegate.cpp:299
-#: widgets/jobuidelegate.cpp:311 widgets/widgetsaskuseractionhandler.cpp:240
+#: widgets/jobuidelegate.cpp:311 widgets/widgetsaskuseractionhandler.cpp:193
 #, kde-format
 msgid "Delete Permanently"
 msgstr ""
@@ -7276,7 +7276,7 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: widgets/jobuidelegate.cpp:310 widgets/widgetsaskuseractionhandler.cpp:257
+#: widgets/jobuidelegate.cpp:310 widgets/widgetsaskuseractionhandler.cpp:263
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7284,14 +7284,14 @@ msgid ""
 "><emphasis strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
 
-#: widgets/jobuidelegate.cpp:312 widgets/widgetsaskuseractionhandler.cpp:259
+#: widgets/jobuidelegate.cpp:312 widgets/widgetsaskuseractionhandler.cpp:265
 #, fuzzy, kde-format
 #| msgid "Trash"
 msgctxt "@action:button"
 msgid "Empty Trash"
 msgstr "Kòsz"
 
-#: widgets/jobuidelegate.cpp:322 widgets/widgetsaskuseractionhandler.cpp:265
+#: widgets/jobuidelegate.cpp:322 widgets/widgetsaskuseractionhandler.cpp:271
 #, fuzzy, kde-kuit-format
 #| msgid "Do you really want to move this item to the trash?"
 #| msgid_plural "Do you really want to move these %1 items to the trash?"
@@ -7311,12 +7311,12 @@ msgstr[0] "Na gwës rëmnąc nen element do kòsza?"
 msgstr[1] "Na gwës rëmnąc nen element do kòsza?"
 msgstr[2] "Na gwës rëmnąc nen element do kòsza?"
 
-#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:468
+#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:511
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "Certifikat SSL wëzdrzi na zepsëti."
 
-#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:471
+#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:514
 #, kde-format
 msgid "SSL"
 msgstr "SSL"
@@ -9326,7 +9326,15 @@ msgid ""
 "Aborting because the identity of the host cannot be established."
 msgstr ""
 
-#: widgets/widgetsaskuseractionhandler.cpp:246
+#: widgets/widgetsaskuseractionhandler.cpp:223
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"Do you really want to permanently delete this item?<nl/><filename>%1</"
+"filename><emphasis strong='true'>This action cannot be undone.</emphasis>"
+msgstr ""
+
+#: widgets/widgetsaskuseractionhandler.cpp:229
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -9339,7 +9347,31 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: widgets/widgetsaskuseractionhandler.cpp:270
+#: widgets/widgetsaskuseractionhandler.cpp:242
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"Moving this item to Trash failed as it is too large. Permanently delete it "
+"instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
+"strong='true'>This action cannot be undone.</emphasis>"
+msgstr ""
+
+#: widgets/widgetsaskuseractionhandler.cpp:249
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"Moving this %1 item to Trash failed as it is too large. Permanently delete "
+"it instead?<nl/><emphasis strong='true'>This action cannot be undone.</"
+"emphasis>"
+msgid_plural ""
+"Moving these %1 items to Trash failed as they are too large. Permanently "
+"delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot be "
+"undone.</emphasis>"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: widgets/widgetsaskuseractionhandler.cpp:276
 #, fuzzy, kde-kuit-format
 #| msgid "Do you really want to move this item to the trash?"
 #| msgid_plural "Do you really want to move these %1 items to the trash?"
@@ -9350,19 +9382,19 @@ msgstr[0] "Na gwës rëmnąc nen element do kòsza?"
 msgstr[1] "Na gwës rëmnąc nen element do kòsza?"
 msgstr[2] "Na gwës rëmnąc nen element do kòsza?"
 
-#: widgets/widgetsaskuseractionhandler.cpp:289
+#: widgets/widgetsaskuseractionhandler.cpp:332
 #, kde-format
 msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr ""
 
-#: widgets/widgetsaskuseractionhandler.cpp:331
+#: widgets/widgetsaskuseractionhandler.cpp:374
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr ""
 
-#: widgets/widgetsaskuseractionhandler.cpp:360
+#: widgets/widgetsaskuseractionhandler.cpp:403
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not show this message again"

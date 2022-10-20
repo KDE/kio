@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-16 00:42+0000\n"
+"POT-Creation-Date: 2022-10-20 00:43+0000\n"
 "PO-Revision-Date: 2009-06-22 11:48+0200\n"
 "Last-Translator: Bozidar Proevski <bobibobi@freemail.com.mk>\n"
 "Language-Team: Macedonian <mkde-l10n@lists.sourceforge.net>\n"
@@ -88,13 +88,13 @@ msgid ""
 "file name) with an underscore \"_\"."
 msgstr ""
 
-#: core/copyjob.cpp:1397 core/job_error.cpp:579
+#: core/copyjob.cpp:1397 core/job_error.cpp:582
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Папката веќе постои"
 
 #: core/copyjob.cpp:1727 core/copyjob.cpp:2417 core/filecopyjob.cpp:373
-#: core/job_error.cpp:568 widgets/paste.cpp:80
+#: core/job_error.cpp:571 widgets/paste.cpp:80
 #, kde-format
 msgid "File Already Exists"
 msgstr "Датотеката веќе постои"
@@ -823,6 +823,11 @@ msgid ""
 msgstr ""
 
 #: core/job_error.cpp:257
+#, kde-format
+msgid "File is too large to be trashed."
+msgstr ""
+
+#: core/job_error.cpp:260
 #, fuzzy, kde-format
 #| msgid ""
 #| "Unknown error code %1\n"
@@ -837,65 +842,65 @@ msgstr ""
 "%2\n"
 "Ве молиме да пратите известување за бубачка на http://bugs.kde.org"
 
-#: core/job_error.cpp:288
+#: core/job_error.cpp:291
 #, kde-format
 msgctxt "@info url"
 msgid "(unknown)"
 msgstr "(непознато)"
 
-#: core/job_error.cpp:294
+#: core/job_error.cpp:297
 #, kde-format
 msgctxt "@info %1 error name, %2 description"
 msgid "<qt><p><b>%1</b></p><p>%2</p></qt>"
 msgstr "<qt><p><b>%1</b></p><p>%2</p></qt>"
 
-#: core/job_error.cpp:298
+#: core/job_error.cpp:301
 #, kde-format
 msgid "<b>Technical reason</b>: "
 msgstr "<b>Техничка причина</b>: "
 
-#: core/job_error.cpp:300
+#: core/job_error.cpp:303
 #, kde-format
 msgid "<b>Details of the request</b>:"
 msgstr "<b>Детали за барањето</b>:"
 
-#: core/job_error.cpp:300
+#: core/job_error.cpp:303
 #, kde-format
 msgid "<li>URL: %1</li>"
 msgstr "<li>URL: %1</li>"
 
-#: core/job_error.cpp:302
+#: core/job_error.cpp:305
 #, kde-format
 msgid "<li>Protocol: %1</li>"
 msgstr "<li>Протокол: %1</li>"
 
-#: core/job_error.cpp:304
+#: core/job_error.cpp:307
 #, kde-format
 msgid "<li>Date and time: %1</li>"
 msgstr "<li>Датум и време: %1</li>"
 
-#: core/job_error.cpp:304
+#: core/job_error.cpp:307
 #, kde-format
 msgid "<li>Additional information: %1</li>"
 msgstr "<li>Дополнителни информации: %1</li>"
 
-#: core/job_error.cpp:306
+#: core/job_error.cpp:309
 #, kde-format
 msgid "<b>Possible causes</b>:"
 msgstr "<b>Можни причини</b>:"
 
-#: core/job_error.cpp:310
+#: core/job_error.cpp:313
 #, kde-format
 msgid "<b>Possible solutions</b>:"
 msgstr "<b>Можни решенија</b>:"
 
-#: core/job_error.cpp:354
+#: core/job_error.cpp:357
 #, kde-format
 msgctxt "@info protocol"
 msgid "(unknown)"
 msgstr "(непознато)"
 
-#: core/job_error.cpp:367
+#: core/job_error.cpp:370
 #, kde-format
 msgid ""
 "Contact your appropriate computer support system, whether the system "
@@ -905,17 +910,17 @@ msgstr ""
 "систем-администраторот или со групата за техничка поддршка, за понатамошна "
 "помош."
 
-#: core/job_error.cpp:371
+#: core/job_error.cpp:374
 #, kde-format
 msgid "Contact the administrator of the server for further assistance."
 msgstr "Контактирајте со администраторот на серверот за понатамошна помош."
 
-#: core/job_error.cpp:374
+#: core/job_error.cpp:377
 #, kde-format
 msgid "Check your access permissions on this resource."
 msgstr "Проверете ги вашите дозволи за пристап на овој ресурс."
 
-#: core/job_error.cpp:376
+#: core/job_error.cpp:379
 #, kde-format
 msgid ""
 "Your access permissions may be inadequate to perform the requested operation "
@@ -924,7 +929,7 @@ msgstr ""
 "Вашите дозволи за пристап се можеби несоодветни за да се изврши бараната "
 "операција на овој ресурс."
 
-#: core/job_error.cpp:379
+#: core/job_error.cpp:382
 #, kde-format
 msgid ""
 "The file may be in use (and thus locked) by another user or application."
@@ -932,7 +937,7 @@ msgstr ""
 "Датотеката може да е во употреба (и поради тоа заклучена) од некој друг "
 "корисник или апликација."
 
-#: core/job_error.cpp:382
+#: core/job_error.cpp:385
 #, kde-format
 msgid ""
 "Check to make sure that no other application or user is using the file or "
@@ -941,17 +946,17 @@ msgstr ""
 "Проверете за да се осигурате дека друга апликација или друг корисник не ја "
 "користат или не ја заклучиле датотеката."
 
-#: core/job_error.cpp:385
+#: core/job_error.cpp:388
 #, kde-format
 msgid "Although unlikely, a hardware error may have occurred."
 msgstr "Иако е малку веројатно, можно е да се случила хардверска грешка."
 
-#: core/job_error.cpp:387
+#: core/job_error.cpp:390
 #, kde-format
 msgid "You may have encountered a bug in the program."
 msgstr "Можеби сте наишле на бубачка во програмата."
 
-#: core/job_error.cpp:389
+#: core/job_error.cpp:392
 #, kde-format
 msgid ""
 "This is most likely to be caused by a bug in the program. Please consider "
@@ -960,7 +965,7 @@ msgstr ""
 "Ова е најверојатно предизвикано од бубачка во програмата. Размислете околу "
 "испраќање на целосен извештај за бубачка како што е дадено подолу."
 
-#: core/job_error.cpp:392
+#: core/job_error.cpp:395
 #, kde-format
 msgid ""
 "Update your software to the latest version. Your distribution should provide "
@@ -969,7 +974,7 @@ msgstr ""
 "Ажурирајте го вашиот софтвер до последната верзија. Вашата дистрибуција би "
 "требало да обезбеди алатки за ажурирање на вашиот софтвер."
 
-#: core/job_error.cpp:395
+#: core/job_error.cpp:398
 #, fuzzy, kde-format
 #| msgid ""
 #| "When all else fails, please consider helping the KDE team or the third "
@@ -998,12 +1003,12 @@ msgstr ""
 "Ако не е, забележете ги деталите дадени погоре и внесете ги во вашиот "
 "извештај за бубачки, заедно со сите детали за кои мислите дека ќе помогнат."
 
-#: core/job_error.cpp:404
+#: core/job_error.cpp:407
 #, kde-format
 msgid "There may have been a problem with your network connection."
 msgstr "Можно е да има проблем со вашата мрежна врска."
 
-#: core/job_error.cpp:408
+#: core/job_error.cpp:411
 #, kde-format
 msgid ""
 "There may have been a problem with your network configuration. If you have "
@@ -1012,7 +1017,7 @@ msgstr ""
 "Можно е да има проблем со вашата мрежна конфигурација. Ако сте пристапувале "
 "скоро на Интернет без проблеми, ова е малку веројатно."
 
-#: core/job_error.cpp:412
+#: core/job_error.cpp:415
 #, kde-format
 msgid ""
 "There may have been a problem at some point along the network path between "
@@ -1021,44 +1026,44 @@ msgstr ""
 "Можно е да имало проблем на некоја точка по мрежната патека меѓу серверот и "
 "овој компјутер."
 
-#: core/job_error.cpp:414
+#: core/job_error.cpp:417
 #, kde-format
 msgid "Try again, either now or at a later time."
 msgstr "Обидете се повторно, сега или малку подоцна."
 
-#: core/job_error.cpp:415
+#: core/job_error.cpp:418
 #, kde-format
 msgid "A protocol error or incompatibility may have occurred."
 msgstr "Можно е да се случила грешка во протоколот или несоодветност."
 
-#: core/job_error.cpp:416
+#: core/job_error.cpp:419
 #, kde-format
 msgid "Ensure that the resource exists, and try again."
 msgstr "Осигурете се дека постои ресурсот и обидете се повторно."
 
-#: core/job_error.cpp:417
+#: core/job_error.cpp:420
 #, kde-format
 msgid "The specified resource may not exist."
 msgstr "Можно е да не постои зададениот ресурс."
 
-#: core/job_error.cpp:419
+#: core/job_error.cpp:422
 #, kde-format
 msgid "Double-check that you have entered the correct location and try again."
 msgstr ""
 "Проверете двапати дека сте ја внеле правилната локација и обидете се "
 "повторно."
 
-#: core/job_error.cpp:421
+#: core/job_error.cpp:424
 #, kde-format
 msgid "Check your network connection status."
 msgstr "Проверете го статусот на вашата мрежна врска."
 
-#: core/job_error.cpp:425
+#: core/job_error.cpp:428
 #, kde-format
 msgid "Cannot Open Resource For Reading"
 msgstr "Не можам да го отворам ресурсот за читање"
 
-#: core/job_error.cpp:427
+#: core/job_error.cpp:430
 #, kde-format
 msgid ""
 "This means that the contents of the requested file or folder <strong>%1</"
@@ -1067,19 +1072,19 @@ msgstr ""
 "Ова значи дека содржината на бараната датотека или папка <strong>%1</strong> "
 "не можеше да се преземе, бидејќи не можеше да се добие пристап за читање."
 
-#: core/job_error.cpp:432
+#: core/job_error.cpp:435
 #, kde-format
 msgid "You may not have permissions to read the file or open the folder."
 msgstr ""
 "Можно е да немате дозволи да ја прочитате датотеката или да ја отворите "
 "папката."
 
-#: core/job_error.cpp:439
+#: core/job_error.cpp:442
 #, kde-format
 msgid "Cannot Open Resource For Writing"
 msgstr "Не можам да го отворам ресурсот за запишување"
 
-#: core/job_error.cpp:441
+#: core/job_error.cpp:444
 #, kde-format
 msgid ""
 "This means that the file, <strong>%1</strong>, could not be written to as "
@@ -1089,18 +1094,18 @@ msgstr ""
 "според барањето, бидејќи не можеше да се добие пристап со дозвола за "
 "запишување."
 
-#: core/job_error.cpp:450
+#: core/job_error.cpp:453
 #, fuzzy, kde-format
 #| msgid "Cannot Initiate the %1 Protocol"
 msgid "Cannot Launch Process required by the %1 Protocol"
 msgstr "Не можам да го иницирам протоколот %1"
 
-#: core/job_error.cpp:451
+#: core/job_error.cpp:454
 #, kde-format
 msgid "Unable to Launch Process"
 msgstr "Не можам да пуштам процес"
 
-#: core/job_error.cpp:453
+#: core/job_error.cpp:456
 #, fuzzy, kde-format
 #| msgid ""
 #| "The program on your computer which provides access to the <strong>%1</"
@@ -1114,7 +1119,7 @@ msgstr ""
 "Програмата на вашиот компјутер која обезбедува пристап до протоколот <strong>"
 "%1</strong> не можеше да се изврши. Ова е обично поради технички причини."
 
-#: core/job_error.cpp:458
+#: core/job_error.cpp:461
 #, kde-format
 msgid ""
 "The program which provides compatibility with this protocol may not have "
@@ -1126,12 +1131,12 @@ msgstr ""
 "програмата да биде несоодветна со тековната верзија и поради тоа да не може "
 "да се стартува."
 
-#: core/job_error.cpp:467
+#: core/job_error.cpp:470
 #, kde-format
 msgid "Internal Error"
 msgstr "Внатрешна грешка"
 
-#: core/job_error.cpp:469
+#: core/job_error.cpp:472
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -1140,12 +1145,12 @@ msgstr ""
 "Програмата на вашиот компјутер, која обезбедува пристап до протоколот "
 "<strong>%1</strong>, јави внатрешна грешка."
 
-#: core/job_error.cpp:477
+#: core/job_error.cpp:480
 #, kde-format
 msgid "Improperly Formatted URL"
 msgstr "Неправилно форматиран URL"
 
-#: core/job_error.cpp:479
+#: core/job_error.cpp:482
 #, kde-format
 msgid ""
 "The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
@@ -1159,12 +1164,12 @@ msgstr ""
 "форматот на URL е следниот:<blockquote><strong>protocol://user:password@www."
 "example.org:port/folder/filename.extension?query=value</strong></blockquote>"
 
-#: core/job_error.cpp:488
+#: core/job_error.cpp:491
 #, kde-format
 msgid "Unsupported Protocol %1"
 msgstr "Неподдржан протокол %1"
 
-#: core/job_error.cpp:490
+#: core/job_error.cpp:493
 #, kde-format
 msgid ""
 "The protocol <strong>%1</strong> is not supported by the KDE programs "
@@ -1173,12 +1178,12 @@ msgstr ""
 "Протоколот <strong>%1</strong> не е поддржан од програмите на KDE моментално "
 "инсталирани на овој компјутер."
 
-#: core/job_error.cpp:493
+#: core/job_error.cpp:496
 #, kde-format
 msgid "The requested protocol may not be supported."
 msgstr "Бараниот протокол може да не е поддржан."
 
-#: core/job_error.cpp:495
+#: core/job_error.cpp:498
 #, kde-format
 msgid ""
 "The versions of the %1 protocol supported by this computer and the server "
@@ -1187,7 +1192,7 @@ msgstr ""
 "Можно е да се несоодветни верзиите на протоколот %1 поддржани од овој "
 "компјутер и од серверот."
 
-#: core/job_error.cpp:499
+#: core/job_error.cpp:502
 #, fuzzy, kde-format
 #| msgid ""
 #| "You may perform a search on the Internet for a KDE program (called a "
@@ -1205,17 +1210,17 @@ msgstr ""
 "да пребарувате ги вклучуваат и <a href=\"http://kde-apps.org/\">http://kde-"
 "apps.org/</a> и <a href=\"http://freshmeat.net/\">http://freshmeat.net/</a>."
 
-#: core/job_error.cpp:508
+#: core/job_error.cpp:511
 #, kde-format
 msgid "URL Does Not Refer to a Resource."
 msgstr "URL не се однесува на ресурс."
 
-#: core/job_error.cpp:509
+#: core/job_error.cpp:512
 #, kde-format
 msgid "Protocol is a Filter Protocol"
 msgstr "Протоколот е филтер-протокол"
 
-#: core/job_error.cpp:511
+#: core/job_error.cpp:514
 #, kde-format
 msgid ""
 "The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
@@ -1224,7 +1229,7 @@ msgstr ""
 "<strong>У</strong>ниформниот <strong>Р</strong>есурсен <strong>Л</"
 "strong>окатор (URL), којшто го внесовте, не се однесуваше на одреден ресурс."
 
-#: core/job_error.cpp:515
+#: core/job_error.cpp:518
 #, kde-format
 msgid ""
 "KDE is able to communicate through a protocol within a protocol; the "
@@ -1237,12 +1242,12 @@ msgstr ""
 "ситуација не е таква. Ова е редок случај, и веројатно значи дека има "
 "програмска грешка."
 
-#: core/job_error.cpp:523
+#: core/job_error.cpp:526
 #, kde-format
 msgid "Unsupported Action: %1"
 msgstr "Неподдржано дејство: %1"
 
-#: core/job_error.cpp:525
+#: core/job_error.cpp:528
 #, kde-format
 msgid ""
 "The requested action is not supported by the KDE program which is "
@@ -1251,7 +1256,7 @@ msgstr ""
 "Бараното дејство не е поддржано од програмата од KDE, која го имплементира "
 "протоколот <strong>%1</strong>."
 
-#: core/job_error.cpp:529
+#: core/job_error.cpp:532
 #, kde-format
 msgid ""
 "This error is very much dependent on the KDE program. The additional "
@@ -1262,17 +1267,17 @@ msgstr ""
 "би требало да ве информира повеќе отколку што е достапно во влезно/излезната "
 "архитектура на KDE."
 
-#: core/job_error.cpp:533
+#: core/job_error.cpp:536
 #, kde-format
 msgid "Attempt to find another way to accomplish the same outcome."
 msgstr "Обид да се пронајде друг начин да се постигне истата цел."
 
-#: core/job_error.cpp:538
+#: core/job_error.cpp:541
 #, kde-format
 msgid "File Expected"
 msgstr "Се очекуваше датотека."
 
-#: core/job_error.cpp:540
+#: core/job_error.cpp:543
 #, kde-format
 msgid ""
 "The request expected a file, however the folder <strong>%1</strong> was "
@@ -1281,17 +1286,17 @@ msgstr ""
 "Барањето очекуваше датотека, но наместо тоа беше пронајдена папката <strong>"
 "%1</strong>."
 
-#: core/job_error.cpp:543
+#: core/job_error.cpp:546
 #, kde-format
 msgid "This may be an error on the server side."
 msgstr "Ова може да е грешка на страната на серверот."
 
-#: core/job_error.cpp:548
+#: core/job_error.cpp:551
 #, kde-format
 msgid "Folder Expected"
 msgstr "Се очекуваше папка."
 
-#: core/job_error.cpp:550
+#: core/job_error.cpp:553
 #, kde-format
 msgid ""
 "The request expected a folder, however the file <strong>%1</strong> was "
@@ -1300,17 +1305,17 @@ msgstr ""
 "Барањето очекуваше папка, но наместо тоа беше пронајдена датотеката <strong>"
 "%1</strong>."
 
-#: core/job_error.cpp:558
+#: core/job_error.cpp:561
 #, kde-format
 msgid "File or Folder Does Not Exist"
 msgstr "Датотеката или папката не постои"
 
-#: core/job_error.cpp:560
+#: core/job_error.cpp:563
 #, kde-format
 msgid "The specified file or folder <strong>%1</strong> does not exist."
 msgstr "Зададената датотека или папка <strong>%1</strong> не постои."
 
-#: core/job_error.cpp:570
+#: core/job_error.cpp:573
 #, kde-format
 msgid ""
 "The requested file could not be created because a file with the same name "
@@ -1319,24 +1324,24 @@ msgstr ""
 "Бараната датотека не можеше да се создаде бидејќи веќе постои датотека со "
 "исто име."
 
-#: core/job_error.cpp:573
+#: core/job_error.cpp:576
 #, kde-format
 msgid "Try moving the current file out of the way first, and then try again."
 msgstr ""
 "Обидете се да ја тргнете настрана тековната датотека и потоа обидете се "
 "повторно."
 
-#: core/job_error.cpp:575
+#: core/job_error.cpp:578
 #, kde-format
 msgid "Delete the current file and try again."
 msgstr "Избришете ја тековната датотека и обидете се повторно."
 
-#: core/job_error.cpp:575
+#: core/job_error.cpp:578
 #, kde-format
 msgid "Choose an alternate filename for the new file."
 msgstr "Изберете алтернативно име за новата датотека."
 
-#: core/job_error.cpp:581
+#: core/job_error.cpp:584
 #, kde-format
 msgid ""
 "The requested folder could not be created because a folder with the same "
@@ -1344,29 +1349,29 @@ msgid ""
 msgstr ""
 "Бараната папка не можеше да се создаде бидејќи веќе постои папка со исто име."
 
-#: core/job_error.cpp:584
+#: core/job_error.cpp:587
 #, kde-format
 msgid "Try moving the current folder out of the way first, and then try again."
 msgstr ""
 "Обидете се да ја тргнете настрана тековната папка и потоа обидете се "
 "повторно."
 
-#: core/job_error.cpp:586
+#: core/job_error.cpp:589
 #, kde-format
 msgid "Delete the current folder and try again."
 msgstr "Избришете ја тековната папка и обидете се повторно."
 
-#: core/job_error.cpp:586
+#: core/job_error.cpp:589
 #, kde-format
 msgid "Choose an alternate name for the new folder."
 msgstr "Изберете алтернативно име за новата папка."
 
-#: core/job_error.cpp:590
+#: core/job_error.cpp:593
 #, kde-format
 msgid "Unknown Host"
 msgstr "Непознат компјутер"
 
-#: core/job_error.cpp:592
+#: core/job_error.cpp:595
 #, kde-format
 msgid ""
 "An unknown host error indicates that the server with the requested name, "
@@ -1375,36 +1380,36 @@ msgstr ""
 "Грешката „непознат компјутер“ покажува дека серверот со бараното име <strong>"
 "%1</strong> не можеше да биде пронајден на Интернет."
 
-#: core/job_error.cpp:597
+#: core/job_error.cpp:600
 #, kde-format
 msgid ""
 "The name that you typed, %1, may not exist: it may be incorrectly typed."
 msgstr ""
 "Името кое го искуцавте, %1, може да не постои: може да е неправилно искуцано."
 
-#: core/job_error.cpp:605
+#: core/job_error.cpp:608
 #, kde-format
 msgid "Access Denied"
 msgstr "Пристапот е одбиен"
 
-#: core/job_error.cpp:607
+#: core/job_error.cpp:610
 #, kde-format
 msgid "Access was denied to the specified resource, <strong>%1</strong>."
 msgstr "Пристапот до зададениот ресурс <strong>%1</strong> е одбиен."
 
-#: core/job_error.cpp:611 core/job_error.cpp:887
+#: core/job_error.cpp:614 core/job_error.cpp:890
 #, kde-format
 msgid "You may have supplied incorrect authentication details or none at all."
 msgstr ""
 "Можеби дадовте погрешни детали за проверката за автентичност или пак никакви."
 
-#: core/job_error.cpp:614 core/job_error.cpp:890
+#: core/job_error.cpp:617 core/job_error.cpp:893
 #, kde-format
 msgid "Your account may not have permission to access the specified resource."
 msgstr ""
 "Можеби со Вашата сметка немате дозволи за пристап до зададениот ресурс."
 
-#: core/job_error.cpp:617 core/job_error.cpp:894 core/job_error.cpp:912
+#: core/job_error.cpp:620 core/job_error.cpp:897 core/job_error.cpp:915
 #, kde-format
 msgid ""
 "Retry the request and ensure your authentication details are entered "
@@ -1413,12 +1418,12 @@ msgstr ""
 "Повторете го барањето и осигурете се дека вашите детали за проверка за "
 "автентичност се правилно внесени."
 
-#: core/job_error.cpp:626
+#: core/job_error.cpp:629
 #, kde-format
 msgid "Write Access Denied"
 msgstr "Пристапот за запис е одбиен"
 
-#: core/job_error.cpp:628
+#: core/job_error.cpp:631
 #, kde-format
 msgid ""
 "This means that an attempt to write to the file <strong>%1</strong> was "
@@ -1427,12 +1432,12 @@ msgstr ""
 "Ова значи дека беше одбиен обидот да се запише во датотеката <strong>%1</"
 "strong>."
 
-#: core/job_error.cpp:636
+#: core/job_error.cpp:639
 #, kde-format
 msgid "Unable to Enter Folder"
 msgstr "Не можам да влезам во папката"
 
-#: core/job_error.cpp:638
+#: core/job_error.cpp:641
 #, kde-format
 msgid ""
 "This means that an attempt to enter (in other words, to open) the requested "
@@ -1441,17 +1446,17 @@ msgstr ""
 "Ова значи дека обидот да се влезе во (т.е. да се отвори) папката <strong>%1</"
 "strong> беше одбиен."
 
-#: core/job_error.cpp:646
+#: core/job_error.cpp:649
 #, kde-format
 msgid "Folder Listing Unavailable"
 msgstr "Не е достапна листа на папката"
 
-#: core/job_error.cpp:647
+#: core/job_error.cpp:650
 #, kde-format
 msgid "Protocol %1 is not a Filesystem"
 msgstr "Протоколот %1 не е датотечен систем"
 
-#: core/job_error.cpp:649
+#: core/job_error.cpp:652
 #, kde-format
 msgid ""
 "This means that a request was made which requires determining the contents "
@@ -1462,12 +1467,12 @@ msgstr ""
 "папката, а програмата од KDE, која го поддржува овој протокол, не може да го "
 "направи тоа."
 
-#: core/job_error.cpp:657
+#: core/job_error.cpp:660
 #, kde-format
 msgid "Cyclic Link Detected"
 msgstr "Откриена е циклична врска"
 
-#: core/job_error.cpp:659
+#: core/job_error.cpp:662
 #, kde-format
 msgid ""
 "UNIX environments are commonly able to link a file or folder to a separate "
@@ -1480,7 +1485,7 @@ msgstr ""
 "бесконечна јамка - т.е. датотеката била (можеби по некој кружен пат) "
 "поврзана самата со себеси."
 
-#: core/job_error.cpp:664 core/job_error.cpp:690
+#: core/job_error.cpp:667 core/job_error.cpp:693
 #, kde-format
 msgid ""
 "Delete one part of the loop in order that it does not cause an infinite "
@@ -1489,27 +1494,27 @@ msgstr ""
 "Избришете еден дел од јамката за да не се создава бесконечна јамка и обидете "
 "се повторно."
 
-#: core/job_error.cpp:674
+#: core/job_error.cpp:677
 #, kde-format
 msgid "Request Aborted By User"
 msgstr "Барањето е прекинато од корисникот"
 
-#: core/job_error.cpp:676 core/job_error.cpp:1065
+#: core/job_error.cpp:679 core/job_error.cpp:1068
 #, kde-format
 msgid "The request was not completed because it was aborted."
 msgstr "Барањето не беше довршено бидејќи беше прекинато."
 
-#: core/job_error.cpp:678 core/job_error.cpp:933 core/job_error.cpp:1067
+#: core/job_error.cpp:681 core/job_error.cpp:936 core/job_error.cpp:1070
 #, kde-format
 msgid "Retry the request."
 msgstr "Повторете го барањето."
 
-#: core/job_error.cpp:682
+#: core/job_error.cpp:685
 #, kde-format
 msgid "Cyclic Link Detected During Copy"
 msgstr "Откриена е циклична врска при копирањето"
 
-#: core/job_error.cpp:684
+#: core/job_error.cpp:687
 #, kde-format
 msgid ""
 "UNIX environments are commonly able to link a file or folder to a separate "
@@ -1522,17 +1527,17 @@ msgstr ""
 "серија од врски што резултираат во бесконечна јамка - т.е. датотеката била "
 "(можеби по некој кружен пат) поврзана самата со себеси."
 
-#: core/job_error.cpp:696
+#: core/job_error.cpp:699
 #, kde-format
 msgid "Could Not Create Network Connection"
 msgstr "Не можев да создадам мрежна врска"
 
-#: core/job_error.cpp:697
+#: core/job_error.cpp:700
 #, kde-format
 msgid "Could Not Create Socket"
 msgstr "Не можев да создадам Socket"
 
-#: core/job_error.cpp:699
+#: core/job_error.cpp:702
 #, kde-format
 msgid ""
 "This is a fairly technical error in which a required device for network "
@@ -1541,8 +1546,8 @@ msgstr ""
 "Ова е техничка грешка во која не можеше да се создаде потребниот уред за "
 "мрежна комуникација (socket)."
 
-#: core/job_error.cpp:702 core/job_error.cpp:851 core/job_error.cpp:864
-#: core/job_error.cpp:875
+#: core/job_error.cpp:705 core/job_error.cpp:854 core/job_error.cpp:867
+#: core/job_error.cpp:878
 #, kde-format
 msgid ""
 "The network connection may be incorrectly configured, or the network "
@@ -1551,12 +1556,12 @@ msgstr ""
 "Можно е мрежната врска да не е правилно конфигурирана или да не е овозможен "
 "мрежниот интерфејс."
 
-#: core/job_error.cpp:708
+#: core/job_error.cpp:711
 #, kde-format
 msgid "Connection to Server Refused"
 msgstr "Одбиено е поврзувањето со серверот"
 
-#: core/job_error.cpp:710
+#: core/job_error.cpp:713
 #, kde-format
 msgid ""
 "The server <strong>%1</strong> refused to allow this computer to make a "
@@ -1565,7 +1570,7 @@ msgstr ""
 "Серверот <strong>%1</strong> одби да му дозволи на овој компјутер да се "
 "поврзе."
 
-#: core/job_error.cpp:714
+#: core/job_error.cpp:717
 #, kde-format
 msgid ""
 "The server, while currently connected to the Internet, may not be configured "
@@ -1574,7 +1579,7 @@ msgstr ""
 "Серверот, иако е моментално поврзан на Интернет, може да не е конфигуриран "
 "да дозволува барања."
 
-#: core/job_error.cpp:717
+#: core/job_error.cpp:720
 #, kde-format
 msgid ""
 "The server, while currently connected to the Internet, may not be running "
@@ -1583,7 +1588,7 @@ msgstr ""
 "Серверот, иако е моментално поврзан на Интернет, може да го нема активирано "
 "бараниот сервис (%1)."
 
-#: core/job_error.cpp:721
+#: core/job_error.cpp:724
 #, kde-format
 msgid ""
 "A network firewall (a device which restricts Internet requests), either "
@@ -1594,12 +1599,12 @@ msgstr ""
 "на Интернет), кој ја заштитува вашата мрежа или мрежата на серверот, притоа "
 "спречувајќи го ова барање."
 
-#: core/job_error.cpp:728
+#: core/job_error.cpp:731
 #, kde-format
 msgid "Connection to Server Closed Unexpectedly"
 msgstr "Врската со серверот неочекувано беше затворена"
 
-#: core/job_error.cpp:730
+#: core/job_error.cpp:733
 #, kde-format
 msgid ""
 "Although a connection was established to <strong>%1</strong>, the connection "
@@ -1608,7 +1613,7 @@ msgstr ""
 "Иако беше воспоставена врска до <strong>%1</strong>, врската беше затворена "
 "во неочекуван момент од комуникацијата."
 
-#: core/job_error.cpp:736
+#: core/job_error.cpp:739
 #, kde-format
 msgid ""
 "A protocol error may have occurred, causing the server to close the "
@@ -1617,17 +1622,17 @@ msgstr ""
 "Можно е да се случила грешка во протоколот, поради што серверот ја затворил "
 "врската како одговор на грешката."
 
-#: core/job_error.cpp:742
+#: core/job_error.cpp:745
 #, kde-format
 msgid "URL Resource Invalid"
 msgstr "Невалиден URL-ресурс"
 
-#: core/job_error.cpp:743
+#: core/job_error.cpp:746
 #, kde-format
 msgid "Protocol %1 is not a Filter Protocol"
 msgstr "Протоколот %1 не е филтер-протокол"
 
-#: core/job_error.cpp:745
+#: core/job_error.cpp:748
 #, kde-format
 msgid ""
 "The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
@@ -1638,7 +1643,7 @@ msgstr ""
 "strong>окатор (URL) што го внесовте не укажува на валиден механизам за "
 "пристапување на дадениот ресурс <strong>%1%2</strong>."
 
-#: core/job_error.cpp:752
+#: core/job_error.cpp:755
 #, kde-format
 msgid ""
 "KDE is able to communicate through a protocol within a protocol. This "
@@ -1651,17 +1656,17 @@ msgstr ""
 "е способен за такво дејство. Ова е редок случај, и веројатно значи дека има "
 "програмска грешка."
 
-#: core/job_error.cpp:760
+#: core/job_error.cpp:763
 #, kde-format
 msgid "Unable to Initialize Input/Output Device"
 msgstr "Не можам да го иницијализирам влезно/излезниот уред"
 
-#: core/job_error.cpp:761
+#: core/job_error.cpp:764
 #, kde-format
 msgid "Could Not Mount Device"
 msgstr "Не можам да го монтирам уредот"
 
-#: core/job_error.cpp:763
+#: core/job_error.cpp:766
 #, kde-format
 msgid ""
 "The requested device could not be initialized (\"mounted\"). The reported "
@@ -1670,7 +1675,7 @@ msgstr ""
 "Бараниот уред не можеше да биде иницијализиран („монтиран“). Пријавената "
 "грешка беше:  <strong>%1</strong>"
 
-#: core/job_error.cpp:767
+#: core/job_error.cpp:770
 #, kde-format
 msgid ""
 "The device may not be ready, for example there may be no media in a "
@@ -1681,7 +1686,7 @@ msgstr ""
 "подвижни носачи (пр. нема CD-ROM во CD-уредот), или во случајот на периферен/"
 "преносен уред, уредот може да не е правилно поврзан."
 
-#: core/job_error.cpp:772
+#: core/job_error.cpp:775
 #, kde-format
 msgid ""
 "You may not have permissions to initialize (\"mount\") the device. On UNIX "
@@ -1692,7 +1697,7 @@ msgstr ""
 "системите UNIX, често се потребни администраторски дозволи за да се "
 "иницијализира уред."
 
-#: core/job_error.cpp:777
+#: core/job_error.cpp:780
 #, kde-format
 msgid ""
 "Check that the device is ready; removable drives must contain media, and "
@@ -1702,17 +1707,17 @@ msgstr ""
 "содржат носач, а преносните уреди мора да бидат поврзани и вклучени. Потоа "
 "обидете се повторно."
 
-#: core/job_error.cpp:784
+#: core/job_error.cpp:787
 #, kde-format
 msgid "Unable to Uninitialize Input/Output Device"
 msgstr "Не можам да го деиницијализирам влезно/излезниот уред"
 
-#: core/job_error.cpp:785
+#: core/job_error.cpp:788
 #, kde-format
 msgid "Could Not Unmount Device"
 msgstr "Не можам да го одмонтирам уредот"
 
-#: core/job_error.cpp:787
+#: core/job_error.cpp:790
 #, kde-format
 msgid ""
 "The requested device could not be uninitialized (\"unmounted\"). The "
@@ -1721,7 +1726,7 @@ msgstr ""
 "Бараниот уред не може да се деиницијализира („одмонтира“). Пријавената "
 "грешка беше : <strong>%1</strong>"
 
-#: core/job_error.cpp:791
+#: core/job_error.cpp:794
 #, kde-format
 msgid ""
 "The device may be busy, that is, still in use by another application or "
@@ -1732,7 +1737,7 @@ msgstr ""
 "апликација или корисник. Дури и отворен прозорец на прелистувач, кој се "
 "наоѓа на локација на уредот, може да го зафати уредот."
 
-#: core/job_error.cpp:796
+#: core/job_error.cpp:799
 #, kde-format
 msgid ""
 "You may not have permissions to uninitialize (\"unmount\") the device. On "
@@ -1743,19 +1748,19 @@ msgstr ""
 "На системите UNIX, често се потребни администраторски дозволи за да се "
 "деиницијализира уред."
 
-#: core/job_error.cpp:801
+#: core/job_error.cpp:804
 #, kde-format
 msgid "Check that no applications are accessing the device, and try again."
 msgstr ""
 "Проверете дека ниту една апликација не пристапува на уредот и обидете се "
 "повторно."
 
-#: core/job_error.cpp:807
+#: core/job_error.cpp:810
 #, kde-format
 msgid "Cannot Read From Resource"
 msgstr "Не можам да прочитам од ресурсот"
 
-#: core/job_error.cpp:809
+#: core/job_error.cpp:812
 #, kde-format
 msgid ""
 "This means that although the resource, <strong>%1</strong>, was able to be "
@@ -1764,17 +1769,17 @@ msgstr ""
 "Ова значи дека иако ресурсот <strong>%1</strong> можеше да се отвори, се "
 "случи грешка за време на читањето на содржината на ресурсот."
 
-#: core/job_error.cpp:813
+#: core/job_error.cpp:816
 #, kde-format
 msgid "You may not have permissions to read from the resource."
 msgstr "Можеби немате дозволи за читање од ресурсот."
 
-#: core/job_error.cpp:826
+#: core/job_error.cpp:829
 #, kde-format
 msgid "Cannot Write to Resource"
 msgstr "Не можам да запишам во ресурсот"
 
-#: core/job_error.cpp:828
+#: core/job_error.cpp:831
 #, kde-format
 msgid ""
 "This means that although the resource, <strong>%1</strong>, was able to be "
@@ -1783,22 +1788,22 @@ msgstr ""
 "Ова значи дека иако можеше да се отвори ресурсот <strong>%1</strong>, се "
 "случи грешка за време на запишувањето на содржината во ресурсот."
 
-#: core/job_error.cpp:831
+#: core/job_error.cpp:834
 #, kde-format
 msgid "You may not have permissions to write to the resource."
 msgstr "Можеби немате дозволи за запишување во ресурсот."
 
-#: core/job_error.cpp:844 core/job_error.cpp:857
+#: core/job_error.cpp:847 core/job_error.cpp:860
 #, kde-format
 msgid "Could Not Listen for Network Connections"
 msgstr "Не можам да слушам за мрежни поврзувања"
 
-#: core/job_error.cpp:845
+#: core/job_error.cpp:848
 #, kde-format
 msgid "Could Not Bind"
 msgstr "Не можам да се врзам"
 
-#: core/job_error.cpp:847 core/job_error.cpp:860
+#: core/job_error.cpp:850 core/job_error.cpp:863
 #, kde-format
 msgid ""
 "This is a fairly technical error in which a required device for network "
@@ -1809,17 +1814,17 @@ msgstr ""
 "мрежна комуникација (socket) за да може тој да слуша за доаѓачки мрежни "
 "поврзувања."
 
-#: core/job_error.cpp:858
+#: core/job_error.cpp:861
 #, kde-format
 msgid "Could Not Listen"
 msgstr "Не можам да слушам"
 
-#: core/job_error.cpp:870
+#: core/job_error.cpp:873
 #, kde-format
 msgid "Could Not Accept Network Connection"
 msgstr "Не можам да прифаќам мрежни поврзувања"
 
-#: core/job_error.cpp:872
+#: core/job_error.cpp:875
 #, kde-format
 msgid ""
 "This is a fairly technical error in which an error occurred while attempting "
@@ -1828,33 +1833,33 @@ msgstr ""
 "Ова е техничка грешка која се случи при обидот да се прифати доаѓачко мрежно "
 "поврзување."
 
-#: core/job_error.cpp:877
+#: core/job_error.cpp:880
 #, kde-format
 msgid "You may not have permissions to accept the connection."
 msgstr "Можно е да немате дозволи за прифаќање на поврзувањето."
 
-#: core/job_error.cpp:882
+#: core/job_error.cpp:885
 #, kde-format
 msgid "Could Not Login: %1"
 msgstr "Не можам да се пријавам: %1"
 
-#: core/job_error.cpp:884
+#: core/job_error.cpp:887
 #, kde-format
 msgid ""
 "An attempt to login to perform the requested operation was unsuccessful."
 msgstr "Обидот за најава за да се изврши бараната операција не беше успешен."
 
-#: core/job_error.cpp:900
+#: core/job_error.cpp:903
 #, kde-format
 msgid "Could Not Determine Resource Status"
 msgstr "Не може да се определи статусот на ресурсот"
 
-#: core/job_error.cpp:901
+#: core/job_error.cpp:904
 #, kde-format
 msgid "Could Not Stat Resource"
 msgstr "Не може да се земе статус за ресурсот"
 
-#: core/job_error.cpp:903
+#: core/job_error.cpp:906
 #, kde-format
 msgid ""
 "An attempt to determine information about the status of the resource <strong>"
@@ -1863,69 +1868,69 @@ msgstr ""
 "Обидот да се добијат информации за статусот на ресурсот <strong>%1</strong>, "
 "како што е името на ресурсот, типот, големината, итн., беше неуспешен."
 
-#: core/job_error.cpp:908
+#: core/job_error.cpp:911
 #, kde-format
 msgid "The specified resource may not have existed or may not be accessible."
 msgstr "Можно е зададениот ресурс да не постоел или да не е достапен."
 
 #. i18n( "Could not terminate listing %1" ).arg( errorText );
-#: core/job_error.cpp:919
+#: core/job_error.cpp:922
 #, kde-format
 msgid "Could Not Cancel Listing"
 msgstr "Не може да се откаже листањето"
 
-#: core/job_error.cpp:920
+#: core/job_error.cpp:923
 #, kde-format
 msgid "FIXME: Document this"
 msgstr "ПОПРАВИМЕ: Документација за ова"
 
-#: core/job_error.cpp:924
+#: core/job_error.cpp:927
 #, kde-format
 msgid "Could Not Create Folder"
 msgstr "Не можам да создадам папка"
 
-#: core/job_error.cpp:925
+#: core/job_error.cpp:928
 #, kde-format
 msgid "An attempt to create the requested folder failed."
 msgstr "Обидот за создавање на бараната папка не успеа."
 
-#: core/job_error.cpp:928
+#: core/job_error.cpp:931
 #, kde-format
 msgid "The location where the folder was to be created may not exist."
 msgstr ""
 "Можно е да не постои локацијата каде што требало да се создаде папката."
 
-#: core/job_error.cpp:937
+#: core/job_error.cpp:940
 #, kde-format
 msgid "Could Not Remove Folder"
 msgstr "Не можам да отстранам папка"
 
-#: core/job_error.cpp:939
+#: core/job_error.cpp:942
 #, kde-format
 msgid "An attempt to remove the specified folder, <strong>%1</strong>, failed."
 msgstr "Обидот да се отстрани зададената папка <strong>%1</strong> не успеа."
 
-#: core/job_error.cpp:942
+#: core/job_error.cpp:945
 #, kde-format
 msgid "The specified folder may not exist."
 msgstr "Можно е да не постои зададената папка."
 
-#: core/job_error.cpp:942
+#: core/job_error.cpp:945
 #, kde-format
 msgid "The specified folder may not be empty."
 msgstr "Можно е да не е празна зададената папка."
 
-#: core/job_error.cpp:947
+#: core/job_error.cpp:950
 #, kde-format
 msgid "Ensure that the folder exists and is empty, and try again."
 msgstr "Осигурете се дека постои папката, празна e и обидете се повторно."
 
-#: core/job_error.cpp:953
+#: core/job_error.cpp:956
 #, kde-format
 msgid "Could Not Resume File Transfer"
 msgstr "Не можам да продолжам со преносот на датотека"
 
-#: core/job_error.cpp:955
+#: core/job_error.cpp:958
 #, kde-format
 msgid ""
 "The specified request asked that the transfer of file <strong>%1</strong> be "
@@ -1934,33 +1939,33 @@ msgstr ""
 "Беше побарано преносот на датотеката <strong>%1</strong> да биде продолжен "
 "од некоја точка на преносот. Ова не беше можно."
 
-#: core/job_error.cpp:960
+#: core/job_error.cpp:963
 #, kde-format
 msgid "The protocol, or the server, may not support file resuming."
 msgstr "Можно е протоколот или серверот да не поддржува продолжување."
 
-#: core/job_error.cpp:963
+#: core/job_error.cpp:966
 #, kde-format
 msgid "Retry the request without attempting to resume transfer."
 msgstr "Повторете го барањето без да се обидувате да го продолжите преносот."
 
-#: core/job_error.cpp:968
+#: core/job_error.cpp:971
 #, kde-format
 msgid "Could Not Rename Resource"
 msgstr "Не може да се преименува ресурсот"
 
-#: core/job_error.cpp:970
+#: core/job_error.cpp:973
 #, kde-format
 msgid "An attempt to rename the specified resource <strong>%1</strong> failed."
 msgstr ""
 "Обидот да се преименува зададениот ресурс <strong>%1</strong> беше неуспешен."
 
-#: core/job_error.cpp:981
+#: core/job_error.cpp:984
 #, kde-format
 msgid "Could Not Alter Permissions of Resource"
 msgstr "Не можам да ги изменам дозволите на ресурсот"
 
-#: core/job_error.cpp:983
+#: core/job_error.cpp:986
 #, kde-format
 msgid ""
 "An attempt to alter the permissions on the specified resource <strong>%1</"
@@ -1969,12 +1974,12 @@ msgstr ""
 "Обидот да се изменат дозволите на ресурсот <strong>%1</strong> беше "
 "неуспешен."
 
-#: core/job_error.cpp:991
+#: core/job_error.cpp:994
 #, kde-format
 msgid "Could Not Change Ownership of Resource"
 msgstr "Не може да биде изменет сопственикот на ресурсот"
 
-#: core/job_error.cpp:993
+#: core/job_error.cpp:996
 #, kde-format
 msgid ""
 "An attempt to change the ownership of the specified resource <strong>%1</"
@@ -1983,23 +1988,23 @@ msgstr ""
 "Обидот да се измени сопстеникот на ресурсот <strong>%1</strong> беше "
 "неуспешен."
 
-#: core/job_error.cpp:1001
+#: core/job_error.cpp:1004
 #, kde-format
 msgid "Could Not Delete Resource"
 msgstr "Не можам да го избришам ресурсот"
 
-#: core/job_error.cpp:1003
+#: core/job_error.cpp:1006
 #, kde-format
 msgid "An attempt to delete the specified resource <strong>%1</strong> failed."
 msgstr ""
 "Обидот да се избрише зададениот ресурс <strong>%1</strong> беше неуспешен."
 
-#: core/job_error.cpp:1011
+#: core/job_error.cpp:1014
 #, kde-format
 msgid "Unexpected Program Termination"
 msgstr "Неочекувано прекинување на програмата"
 
-#: core/job_error.cpp:1013
+#: core/job_error.cpp:1016
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -2008,12 +2013,12 @@ msgstr ""
 "Програмата на вашиот компјутер која обезбедува пристап до протоколот <strong>"
 "%1</strong> неочекувано се прекина."
 
-#: core/job_error.cpp:1021
+#: core/job_error.cpp:1024
 #, kde-format
 msgid "Out of Memory"
 msgstr "Нема меморија"
 
-#: core/job_error.cpp:1023
+#: core/job_error.cpp:1026
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -2022,12 +2027,12 @@ msgstr ""
 "Програмата на вашиот компјутер која обезбедува пристап до протоколот <strong>"
 "%1</strong> не можеше да ја добие потребната меморија за да продолжи."
 
-#: core/job_error.cpp:1032
+#: core/job_error.cpp:1035
 #, kde-format
 msgid "Unknown Proxy Host"
 msgstr "Непознат прокси-компјутер"
 
-#: core/job_error.cpp:1034
+#: core/job_error.cpp:1037
 #, kde-format
 msgid ""
 "While retrieving information about the specified proxy host, <strong>%1</"
@@ -2038,7 +2043,7 @@ msgstr ""
 "strong>, се појави грешка „Непознат сервер“. Оваа грешка укажува на тоа дека "
 "бараното име не можеше да биде пронајдено на Интернет."
 
-#: core/job_error.cpp:1040
+#: core/job_error.cpp:1043
 #, kde-format
 msgid ""
 "There may have been a problem with your network configuration, specifically "
@@ -2049,18 +2054,18 @@ msgstr ""
 "на вашиот прокси-сервер. Ако сте пристапувале скоро на Интернет без "
 "проблеми, ова е малку веројатно."
 
-#: core/job_error.cpp:1044
+#: core/job_error.cpp:1047
 #, kde-format
 msgid "Double-check your proxy settings and try again."
 msgstr ""
 "Проверете ги двапати вашите поставувања за прокси и обидете се повторно."
 
-#: core/job_error.cpp:1048
+#: core/job_error.cpp:1051
 #, kde-format
 msgid "Authentication Failed: Method %1 Not Supported"
 msgstr "Проверката за автентичност не успеа: методот %1 не е поддржан"
 
-#: core/job_error.cpp:1050
+#: core/job_error.cpp:1053
 #, kde-format
 msgid ""
 "Although you may have supplied the correct authentication details, the "
@@ -2071,7 +2076,7 @@ msgstr ""
 "истата не успеа бидејќи методот што го користи серверот не е поддржан од "
 "програмата од KDE, која го имплементира протоколот %1."
 
-#: core/job_error.cpp:1056
+#: core/job_error.cpp:1059
 #, fuzzy, kde-format
 #| msgid ""
 #| "Please file a bug at <a href=\"http://bugs.kde.org/\">http://bugs.kde.org/"
@@ -2084,17 +2089,17 @@ msgstr ""
 "\">http://bugs.kde.org/</a> за да го информирате тимот на KDE за "
 "неподдржаниот метод за проверка за автентичност."
 
-#: core/job_error.cpp:1063
+#: core/job_error.cpp:1066
 #, kde-format
 msgid "Request Aborted"
 msgstr "Барањето е прекинато"
 
-#: core/job_error.cpp:1071
+#: core/job_error.cpp:1074
 #, kde-format
 msgid "Internal Error in Server"
 msgstr "Внатрешна грешка на серверот"
 
-#: core/job_error.cpp:1073
+#: core/job_error.cpp:1076
 #, kde-format
 msgid ""
 "The program on the server which provides access to the <strong>%1</strong> "
@@ -2103,7 +2108,7 @@ msgstr ""
 "Програмата на серверот која обезбедува пристап до протоколот <strong>%1</"
 "strong> пријави внатрешна грешка: %2."
 
-#: core/job_error.cpp:1079
+#: core/job_error.cpp:1082
 #, kde-format
 msgid ""
 "This is most likely to be caused by a bug in the server program. Please "
@@ -2112,13 +2117,13 @@ msgstr ""
 "Ова најверојатно е предизвикано од бубачка во серверската програма. Ве "
 "молиме да поднесете целосен извештај за бубачки како што е кажано подолу."
 
-#: core/job_error.cpp:1083
+#: core/job_error.cpp:1086
 #, kde-format
 msgid "Contact the administrator of the server to advise them of the problem."
 msgstr ""
 "Контактирајте со администраторот на серверот за да укажете на проблемот."
 
-#: core/job_error.cpp:1086
+#: core/job_error.cpp:1089
 #, kde-format
 msgid ""
 "If you know who the authors of the server software are, submit the bug "
@@ -2127,12 +2132,12 @@ msgstr ""
 "Ако знаете кои се авторите на серверската програма, поднесете им го "
 "извештајот за бубачки директно на нив."
 
-#: core/job_error.cpp:1091
+#: core/job_error.cpp:1094
 #, kde-format
 msgid "Timeout Error"
 msgstr "Грешка истек на време"
 
-#: core/job_error.cpp:1093
+#: core/job_error.cpp:1096
 #, kde-format
 msgid ""
 "Although contact was made with the server, a response was not received "
@@ -2151,18 +2156,18 @@ msgstr ""
 "вредности за истек на време во Контролниот центар на KDE, со избирање на "
 "Мрежа -> Параметри."
 
-#: core/job_error.cpp:1106
+#: core/job_error.cpp:1109
 #, kde-format
 msgid "The server was too busy responding to other requests to respond."
 msgstr ""
 "Серверот беше премногу зафатен со одговарање на други барања за да одговори."
 
-#: core/job_error.cpp:1112 core/slavebase.cpp:1610
+#: core/job_error.cpp:1115 core/slavebase.cpp:1610
 #, kde-format
 msgid "Unknown Error"
 msgstr "Непозната грешка"
 
-#: core/job_error.cpp:1114
+#: core/job_error.cpp:1117
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -2171,12 +2176,12 @@ msgstr ""
 "Програмата на вашиот компјутер која обезбедува пристап до протоколот <strong>"
 "%1</strong> пријави непозната грешка: %2."
 
-#: core/job_error.cpp:1124
+#: core/job_error.cpp:1127
 #, kde-format
 msgid "Unknown Interruption"
 msgstr "Непознато прекинување"
 
-#: core/job_error.cpp:1126
+#: core/job_error.cpp:1129
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -2185,12 +2190,12 @@ msgstr ""
 "Програмата на вашиот компјутер која обезбедува пристап до протоколот  "
 "<strong>%1</strong> пријави прекинување од непознат тип: %2."
 
-#: core/job_error.cpp:1136
+#: core/job_error.cpp:1139
 #, kde-format
 msgid "Could Not Delete Original File"
 msgstr "Не можам да ја избришам оригиналната датотека"
 
-#: core/job_error.cpp:1138
+#: core/job_error.cpp:1141
 #, kde-format
 msgid ""
 "The requested operation required the deleting of the original file, most "
@@ -2201,12 +2206,12 @@ msgstr ""
 "на крајот на операцијата преместување. Оригиналната датотека <strong>%1</"
 "strong> не можеше да биде избришана."
 
-#: core/job_error.cpp:1147
+#: core/job_error.cpp:1150
 #, kde-format
 msgid "Could Not Delete Temporary File"
 msgstr "Не можам да ја избришам привремената датотека"
 
-#: core/job_error.cpp:1149
+#: core/job_error.cpp:1152
 #, kde-format
 msgid ""
 "The requested operation required the creation of a temporary file in which "
@@ -2217,12 +2222,12 @@ msgstr ""
 "снимала новата датотека додека таа се симнува. Оваа привремена датотека "
 "<strong>%1</strong> не можеше да биде избришана."
 
-#: core/job_error.cpp:1159
+#: core/job_error.cpp:1162
 #, kde-format
 msgid "Could Not Rename Original File"
 msgstr "Не можам да ја преименувам оригиналната датотека"
 
-#: core/job_error.cpp:1161
+#: core/job_error.cpp:1164
 #, kde-format
 msgid ""
 "The requested operation required the renaming of the original file <strong>"
@@ -2231,12 +2236,12 @@ msgstr ""
 "Бараната операција наложуваше преименување на оригиналната датотека  <strong>"
 "%1</strong>, но таа не можеше да биде преименувана."
 
-#: core/job_error.cpp:1170
+#: core/job_error.cpp:1173
 #, kde-format
 msgid "Could Not Rename Temporary File"
 msgstr "Не можам да ја преименувам привремената датотека"
 
-#: core/job_error.cpp:1172
+#: core/job_error.cpp:1175
 #, kde-format
 msgid ""
 "The requested operation required the creation of a temporary file <strong>"
@@ -2245,32 +2250,32 @@ msgstr ""
 "Бараната операција наложуваше создавање на привремената датотека <strong>%1</"
 "strong>, но таа не можеше да биде создадена."
 
-#: core/job_error.cpp:1181
+#: core/job_error.cpp:1184
 #, kde-format
 msgid "Could Not Create Link"
 msgstr "Не можам да создадам врска"
 
-#: core/job_error.cpp:1182
+#: core/job_error.cpp:1185
 #, kde-format
 msgid "Could Not Create Symbolic Link"
 msgstr "Не можам да создадам симболичка врска"
 
-#: core/job_error.cpp:1183
+#: core/job_error.cpp:1186
 #, kde-format
 msgid "The requested symbolic link %1 could not be created."
 msgstr "Бараната симболичка врска %1 не можеше да биде создадена."
 
-#: core/job_error.cpp:1189
+#: core/job_error.cpp:1192
 #, kde-format
 msgid "No Content"
 msgstr "Нема содржина"
 
-#: core/job_error.cpp:1194
+#: core/job_error.cpp:1197
 #, kde-format
 msgid "Disk Full"
 msgstr "Дискот е полн"
 
-#: core/job_error.cpp:1196
+#: core/job_error.cpp:1199
 #, kde-format
 msgid ""
 "The requested file <strong>%1</strong> could not be written to as there is "
@@ -2279,7 +2284,7 @@ msgstr ""
 "Бараната датотека <strong>%1</strong> не можеше да биде запишана затоа што "
 "нема доволно место на дискот."
 
-#: core/job_error.cpp:1200
+#: core/job_error.cpp:1203
 #, kde-format
 msgid ""
 "Free up enough disk space by 1) deleting unwanted and temporary files; 2) "
@@ -2291,12 +2296,12 @@ msgstr ""
 "подвижни носачи како што се дискови CD-Recordable; или 3) ќе набавите повеќе "
 "капацитет."
 
-#: core/job_error.cpp:1207
+#: core/job_error.cpp:1210
 #, kde-format
 msgid "Source and Destination Files Identical"
 msgstr "Изворните и одредишните датотеки се идентични"
 
-#: core/job_error.cpp:1209
+#: core/job_error.cpp:1212
 #, kde-format
 msgid ""
 "The operation could not be completed because the source and destination "
@@ -2305,18 +2310,18 @@ msgstr ""
 "Операцијата не можеше да се доврши бидејќи изворните и одредишните датотеки "
 "се една иста датотека."
 
-#: core/job_error.cpp:1211
+#: core/job_error.cpp:1214
 #, kde-format
 msgid "Choose a different filename for the destination file."
 msgstr "Изберете друго име за одредишната датотека."
 
-#: core/job_error.cpp:1215
+#: core/job_error.cpp:1218
 #, fuzzy, kde-format
 #| msgid "File or Folder Does Not Exist"
 msgid "File or Folder dropped onto itself"
 msgstr "Датотеката или папката не постои"
 
-#: core/job_error.cpp:1217
+#: core/job_error.cpp:1220
 #, fuzzy, kde-format
 #| msgid ""
 #| "The operation could not be completed because the source and destination "
@@ -2328,20 +2333,20 @@ msgstr ""
 "Операцијата не можеше да се доврши бидејќи изворните и одредишните датотеки "
 "се една иста датотека."
 
-#: core/job_error.cpp:1219
+#: core/job_error.cpp:1222
 #, fuzzy, kde-format
 #| msgctxt "request type"
 #| msgid "copy the specified file or folder"
 msgid "Drop the item into a different file or folder."
 msgstr "копирај ја зададената датотека или папка"
 
-#: core/job_error.cpp:1229
+#: core/job_error.cpp:1232
 #, fuzzy, kde-format
 #| msgid "File or Folder Does Not Exist"
 msgid "Folder moved into itself"
 msgstr "Датотеката или папката не постои"
 
-#: core/job_error.cpp:1231
+#: core/job_error.cpp:1234
 #, fuzzy, kde-format
 #| msgid ""
 #| "The operation could not be completed because the source and destination "
@@ -2353,19 +2358,19 @@ msgstr ""
 "Операцијата не можеше да се доврши бидејќи изворните и одредишните датотеки "
 "се една иста датотека."
 
-#: core/job_error.cpp:1233
+#: core/job_error.cpp:1236
 #, fuzzy, kde-format
 #| msgctxt "request type"
 #| msgid "copy the specified file or folder"
 msgid "Move the item into a different folder."
 msgstr "копирај ја зададената датотека или папка"
 
-#: core/job_error.cpp:1237
+#: core/job_error.cpp:1240
 #, kde-format
 msgid "Could not communicate with password server"
 msgstr ""
 
-#: core/job_error.cpp:1239
+#: core/job_error.cpp:1242
 #, fuzzy, kde-format
 #| msgid ""
 #| "The operation could not be completed because the source and destination "
@@ -2377,23 +2382,23 @@ msgstr ""
 "Операцијата не можеше да се доврши бидејќи изворните и одредишните датотеки "
 "се една иста датотека."
 
-#: core/job_error.cpp:1241
+#: core/job_error.cpp:1244
 #, kde-format
 msgid "Try restarting your session, or look in the logs for errors from kiod."
 msgstr ""
 
-#: core/job_error.cpp:1245
+#: core/job_error.cpp:1248
 #, kde-format
 msgid "Cannot Initiate the %1 Protocol"
 msgstr "Не можам да го иницирам протоколот %1"
 
-#: core/job_error.cpp:1246
+#: core/job_error.cpp:1249
 #, fuzzy, kde-format
 #| msgid "Unable to create io-slave: %1"
 msgid "Unable to Create io-slave"
 msgstr "Не можe да се создаде io-slave: %1"
 
-#: core/job_error.cpp:1248
+#: core/job_error.cpp:1251
 #, fuzzy, kde-format
 #| msgid ""
 #| "The program on your computer which provides access to the <strong>%1</"
@@ -2406,20 +2411,20 @@ msgstr ""
 "Програмата на вашиот компјутер која обезбедува пристап до протоколот <strong>"
 "%1</strong> не можеше да се изврши. Ова е обично поради технички причини."
 
-#: core/job_error.cpp:1253
+#: core/job_error.cpp:1256
 #, kde-format
 msgid ""
 "klauncher could not find or start the plugin which provides the protocol."
 "This means you may have an outdated version of the plugin."
 msgstr ""
 
-#: core/job_error.cpp:1259
+#: core/job_error.cpp:1262
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Cannot transfer <filename>%1</filename>"
 msgstr ""
 
-#: core/job_error.cpp:1261
+#: core/job_error.cpp:1264
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -2427,14 +2432,14 @@ msgid ""
 "destination filesystem does not support files that large"
 msgstr ""
 
-#: core/job_error.cpp:1264
+#: core/job_error.cpp:1267
 #, kde-format
 msgid ""
 "Reformat the destination drive to use a filesystem that supports files that "
 "large."
 msgstr ""
 
-#: core/job_error.cpp:1269
+#: core/job_error.cpp:1272
 #, kde-format
 msgid "Undocumented Error"
 msgstr "Недокументирана грешка"
@@ -2773,7 +2778,7 @@ msgstr "Нова папка..."
 
 #: filewidgets/kdiroperator.cpp:2046 widgets/jobuidelegate.cpp:323
 #: widgets/jobuidelegate.cpp:324 widgets/jobuidelegate.cpp:333
-#: widgets/jobuidelegate.cpp:334 widgets/widgetsaskuseractionhandler.cpp:272
+#: widgets/jobuidelegate.cpp:334 widgets/widgetsaskuseractionhandler.cpp:278
 #, kde-format
 msgid "Move to Trash"
 msgstr "Преместување во корпа"
@@ -5114,11 +5119,6 @@ msgstr ""
 #: ioslaves/trash/ktrash.cpp:33
 #, kde-format
 msgid "Restore a trashed file to its original location"
-msgstr ""
-
-#: ioslaves/trash/trashimpl.cpp:1323
-#, kde-format
-msgid "The file is too large to be trashed."
 msgstr ""
 
 #: ioslaves/trash/trashimpl.cpp:1329
@@ -7499,7 +7499,7 @@ msgid ""
 msgstr ""
 
 #: widgets/jobuidelegate.cpp:285 widgets/jobuidelegate.cpp:299
-#: widgets/jobuidelegate.cpp:311 widgets/widgetsaskuseractionhandler.cpp:240
+#: widgets/jobuidelegate.cpp:311 widgets/widgetsaskuseractionhandler.cpp:193
 #, fuzzy, kde-format
 #| msgid "Delete Entry"
 msgid "Delete Permanently"
@@ -7518,7 +7518,7 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: widgets/jobuidelegate.cpp:310 widgets/widgetsaskuseractionhandler.cpp:257
+#: widgets/jobuidelegate.cpp:310 widgets/widgetsaskuseractionhandler.cpp:263
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7526,13 +7526,13 @@ msgid ""
 "><emphasis strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
 
-#: widgets/jobuidelegate.cpp:312 widgets/widgetsaskuseractionhandler.cpp:259
+#: widgets/jobuidelegate.cpp:312 widgets/widgetsaskuseractionhandler.cpp:265
 #, kde-format
 msgctxt "@action:button"
 msgid "Empty Trash"
 msgstr "Испразни корпа"
 
-#: widgets/jobuidelegate.cpp:322 widgets/widgetsaskuseractionhandler.cpp:265
+#: widgets/jobuidelegate.cpp:322 widgets/widgetsaskuseractionhandler.cpp:271
 #, fuzzy, kde-kuit-format
 #| msgid "Do you really want to move this item to the trash?"
 #| msgid_plural "Do you really want to move these %1 items to the trash?"
@@ -7552,12 +7552,12 @@ msgstr[0] "Дали навистина сакате да го преместит
 msgstr[1] "Дали навистина сакате да го преместите овој %1 елемент во корпата?"
 msgstr[2] "Дали навистина сакате да го преместите овој %1 елемент во корпата?"
 
-#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:468
+#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:511
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "Изгледа дека е расипан SSL-сертификатот отспротива."
 
-#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:471
+#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:514
 #, kde-format
 msgid "SSL"
 msgstr "SSL"
@@ -9747,7 +9747,15 @@ msgstr ""
 "Оддалечениот сервер не испрати никакви SSL-сертификати.\n"
 "Прекинувам бидејќи не може да биде установен идентитетот на серверот."
 
-#: widgets/widgetsaskuseractionhandler.cpp:246
+#: widgets/widgetsaskuseractionhandler.cpp:223
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"Do you really want to permanently delete this item?<nl/><filename>%1</"
+"filename><emphasis strong='true'>This action cannot be undone.</emphasis>"
+msgstr ""
+
+#: widgets/widgetsaskuseractionhandler.cpp:229
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -9760,7 +9768,31 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: widgets/widgetsaskuseractionhandler.cpp:270
+#: widgets/widgetsaskuseractionhandler.cpp:242
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"Moving this item to Trash failed as it is too large. Permanently delete it "
+"instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
+"strong='true'>This action cannot be undone.</emphasis>"
+msgstr ""
+
+#: widgets/widgetsaskuseractionhandler.cpp:249
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"Moving this %1 item to Trash failed as it is too large. Permanently delete "
+"it instead?<nl/><emphasis strong='true'>This action cannot be undone.</"
+"emphasis>"
+msgid_plural ""
+"Moving these %1 items to Trash failed as they are too large. Permanently "
+"delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot be "
+"undone.</emphasis>"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: widgets/widgetsaskuseractionhandler.cpp:276
 #, fuzzy, kde-kuit-format
 #| msgid "Do you really want to move this item to the trash?"
 #| msgid_plural "Do you really want to move these %1 items to the trash?"
@@ -9771,19 +9803,19 @@ msgstr[0] "Дали навистина сакате да го преместит
 msgstr[1] "Дали навистина сакате да го преместите овој %1 елемент во корпата?"
 msgstr[2] "Дали навистина сакате да го преместите овој %1 елемент во корпата?"
 
-#: widgets/widgetsaskuseractionhandler.cpp:289
+#: widgets/widgetsaskuseractionhandler.cpp:332
 #, kde-format
 msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr ""
 
-#: widgets/widgetsaskuseractionhandler.cpp:331
+#: widgets/widgetsaskuseractionhandler.cpp:374
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr ""
 
-#: widgets/widgetsaskuseractionhandler.cpp:360
+#: widgets/widgetsaskuseractionhandler.cpp:403
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not show this message again"
