@@ -5522,7 +5522,7 @@ bool HTTPProtocol::davDestinationExists()
     m_request.cacheTag.policy = CC_Reload;
     m_request.davData.depth = 0;
 
-    (void)/* handling result via response codes */ (true);
+    (void)/* handling result via response codes */proceedUntilResponseContent(true);
 
     if (!m_request.isKeepAlive) {
         httpCloseConnection(); // close connection if server requested it.
